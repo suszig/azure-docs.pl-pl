@@ -1,0 +1,5 @@
+温度と湿度の指数や風速森林火災の記録と組み合わせて北東地域を対象のポルトガルなどの気象データが含まれています。<p></p><b>使用法:</b> これは、困難な回帰を実行することを目的が森林火災の被害地域を予測します。<p> </p><b>関連の研究:</b> Cortez, p.、morais, a.(2008 年)。UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>します。カリフォルニア州アーバイン: カリフォルニア大学、情報の・ コンピューター サイエンス <p> </p>[Cortez and Morais、2007 年] P. Cortez、A. Morais。「A Data Mining Approach to Predict Forest Fires using Meteorological Data」J. Neves、M. F.Santos、J. Machado Eds。「New Trends in Artificial Intelligence」、Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence、December、Guimarães、Portugal、pp. 512-523, 2007。APPIA、ISBN-13 978-989-95618-0-9。使用可能な: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>します。
+
+
+
+

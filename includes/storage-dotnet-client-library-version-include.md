@@ -1,0 +1,5 @@
+>[AZURE.NOTE] このチュートリアルを完了するには、.NET 用の Azure ストレージ クライアント ライブラリの最新バージョンを使用することをお勧めします。 ライブラリの最新バージョンは 6.x からダウンロードする [Nuget](https://www.nuget.org/packages/WindowsAzure.Storage/)します。 クライアント ライブラリのソースが [利用可能な [GitHub](https://github.com/Azure/azure-storage-net)します。 
+
+
+
+

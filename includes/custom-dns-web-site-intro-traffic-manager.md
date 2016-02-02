@@ -1,0 +1,5 @@
+トラフィックを負荷分散、Azure の web サイトに Microsoft Azure Traffic Manager を使用するときにその web サイトにアクセスできますを使用して、 **\*.trafficmanager.net** Azure によって割り当てられたドメイン名です。 また、ユーザーにわかりやすいドメイン名を付けるために、www.contoso.com のようなカスタム ドメイン名を Web サイトに関連付けることもできます。
+
+
+
+
