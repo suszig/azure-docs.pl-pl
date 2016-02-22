@@ -42,10 +42,10 @@ A1. Azure Backup では、次の一覧のオペレーティング システム�
 | Windows Server 2008 R2 SP1| 64 ビット| Standard、Enterprise、Datacenter、Foundation|
 | Windows Server 2008 SP2| 64 ビット| Standard、Enterprise、Datacenter、Foundation|
 
-* * 第 2 四半期です。 最新の Azure Backup エージェントはどこでダウンロードできますか * *。 <br/>
+**第 2 四半期です。 最新の Azure Backup エージェントはどこでダウンロードできますか**。 <br/>
 A2. 最新のエージェントをダウンロードする [ここ](http://aka.ms/azurebackup_agent)します。 Windows Server、SCDPM サーバー、Windows クライアントにインストールできます。
 
-* * 第 3 四半期です。 どのバージョンの SCDPM サーバーがサポートされているか * *。 <br/>
+**第 3 四半期です。 どのバージョンの SCDPM サーバーがサポートされているか **。 <br/>
 A3 です。 インストールすることをお勧めします [最新](http://aka.ms/azurebackup_agent) Azure Backup エージェントを SCDPM の最新の更新プログラムのロールアップ (2015 年 7 月時点で UR6)
 
 * * 第 4 四半期です。 Azure Backup エージェントを構成するときに、"資格情報コンテナーの資格情報" の入力が求められます。 ある任意の有効期限の日付に接続されているコンテナーの資格情報ですか? * * <br/>
