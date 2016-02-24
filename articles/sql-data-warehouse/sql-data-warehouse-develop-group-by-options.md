@@ -16,7 +16,6 @@
    ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
-
 # SQL Data Warehouse の Group By オプション
 
 [グループ化] 句は、データ行のサマリー セットを集計する使用されます。 また、機能を拡張するオプションもありますが、Azure SQL Data Warehouse で直接サポートされていないので、対処する必要があります。
@@ -27,10 +26,9 @@
 - キューブには、[グループ化
 
 ## Rollup および Grouping Sets オプション
+ここで最も簡単なオプションは、`UNION ALL` を使用して、明示的な構文に頼る代わりに、ロールアップを実行します。 結果はまったく同じです。
 
-ここで最も簡単なオプションは、使用する `UNION ALL` 代わりに、プログラムのロールアップを実行する明示的な構文に頼るします。 結果はまったく同じです。
-
-ステートメントを使用してグループの例を次に示します、 `ロールアップ` オプション。
+`ROLLUP` オプションを使用した Group By ステートメントの例は、以下のとおりです。
 
 ```
 SELECT [SalesTerritoryCountry]
@@ -50,7 +48,7 @@ GROUP BY ROLLUP (
 - Country (国)
 - 総計
 
-置き換えるにを使用する必要があります `UNION ALL`は同じ結果を返すために明示的に必要な集計を指定します。
+これを置き換えるには、`UNION ALL` を使用して、同じ結果を返すために明示的に必要な集計を指定します。
 
 ```
 SELECT [SalesTerritoryCountry]
@@ -80,7 +78,6 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 GROUPING SETS の場合、同一のプリンシパルを採用し、見たい集計レベルの UNION ALL セクションのみ作成する必要があります。
 
 ## Cube オプション
-
 UNION ALL アプローチを使用して、GROUP BY WITH CUBE を作成することができます。 問題は、コードがすぐに複雑で扱いにくくなることです。 これを防ぐために、次のより高度なアプローチを使用することができます。
 
 上記の例を使用してみましょう。
@@ -176,23 +173,22 @@ ORDER BY 1,2,3
 ;
 ```
 
-コードをセクションに分割し、ループ構造を生成することによって、コードの管理と保守が容易になります。
+コードをセクションに分割し、ループ構造を生成することによって、コードの管理と保守が容易になります。 
 
 
 ## 次のステップ
+他の開発のヒントについては、[開発の概要に関するページを参照してください。
 
-他の開発のヒントを参照してください。 [開発の概要 []][]します。
+<!--Image references-->
+[1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
+
+<!--Article references-->
+[development overview]: sql-data-warehouse-overview-develop.md
+
+<!--MSDN references-->
+[GROUP BY]: https://msdn.microsoft.com/library/ms177673.aspx
 
 
+<!--Other Web references-->
 
-
-
-
-
-
-
-
-[1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png 
-[development overview]: sql-data-warehouse-overview-develop.md 
-[group by]: https://msdn.microsoft.com/library/ms177673.aspx 
 

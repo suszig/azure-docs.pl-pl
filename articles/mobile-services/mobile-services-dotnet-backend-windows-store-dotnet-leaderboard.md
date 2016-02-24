@@ -16,7 +16,6 @@
     ms.date="11/19/2015"
     ms.author="glenga"/>
 
-
 # Azure Mobile Services の .NET バックエンドによるランキング アプリケーションの作成
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
@@ -48,7 +47,7 @@ Web API は、オープン ソースのフレームワークであり、REST API
 
 ## サンプル アプリケーションについて
 
-*ランキング*は、ゲームのプレーヤーの一覧に、各プレーヤーのスコアと順位を示したものです。 ランキングは大きなゲームの一部である場合も、個別のアプリケーションの場合もあります。 ランキングは実際に使用されているアプリケーションですが、構造が単純なのでチュートリアルに適しています。 アプリケーションのスクリーン ショットを次に示します。
+A *ランキング* スコアと各プレーヤーの順位付け、ゲームのプレーヤーの一覧が表示されます。 ランキングは大きなゲームの一部である場合も、個別のアプリケーションの場合もあります。 ランキングは実際に使用されているアプリケーションですが、構造が単純なのでチュートリアルに適しています。 アプリケーションのスクリーン ショットを次に示します。
 
 ![][1]
 
@@ -74,7 +73,7 @@ Visual Studio を起動し、新しい ASP.NET Web アプリケーション プ�
 
 ![][3]
 
-Visual Studio 2013 では、ASP.NET Web アプリケーション プロジェクトに Azure Mobile Services 用のテンプレートが含まれています。 このテンプレートを選択し、**[OK]** をクリックします。
+Visual Studio 2013 では、ASP.NET Web アプリケーション プロジェクトに Azure Mobile Services 用のテンプレートが含まれています。 このテンプレートを選択し、クリックして **OK**します。
 
 ![][4]
 
@@ -86,10 +85,10 @@ Visual Studio 2013 では、ASP.NET Web アプリケーション プロジェク
 
 ## データ モデルを追加する
 
-使用する [EF Code First](http://msdn.microsoft.com/data/ee712907#codefirst) データベース テーブルを定義します。 DataObjects フォルダーの下には、という名前のクラスを追加 `Player`します。
+使用する [EF Code First](http://msdn.microsoft.com/data/ee712907#codefirst) データベース テーブルを定義します。 DataObjects フォルダーに、`Player` という名前のクラスを追加します。
 
     using Microsoft.WindowsAzure.Mobile.Service;
-    
+
     namespace Leaderboard.DataObjects
     {
         public class Player : EntityData
@@ -98,72 +97,72 @@ Visual Studio 2013 では、ASP.NET Web アプリケーション プロジェク
         }
     }
 
-という名前の別のクラスを追加 `PlayerRank`します。
+`PlayerRank` という名前の別のクラスを追加します。
 
     using Microsoft.WindowsAzure.Mobile.Service;
     using System.ComponentModel.DataAnnotations.Schema;
-    
+
     namespace Leaderboard.DataObjects
     {
         public class PlayerRank : EntityData
         {
             public int Score { get; set; }
             public int Rank { get; set; }
-    
+
             [ForeignKey("Id")]
             public virtual Player Player { get; set; }
         }
     }
 
-これらのクラスはいずれも **EntityData** クラスから継承しています。 **EntityData** から派生することで、アプリケーションは Azure Mobile Services 用のクロスプラットフォーム クライアント ライブラリを使用して、データを簡単に使用できるようになります。 **EntityData** も簡単にアプリから [データベース書き込み競合を処理](mobile-services-windows-store-dotnet-handle-database-conflicts.md)します。
+両方のクラスから継承された、 **EntityData** クラスです。 派生する **EntityData** 簡単になりますが、アプリが Azure Mobile Services 用のクロスプラット フォーム クライアント ライブラリを使用して、データを使用します。 **EntityData** も簡単にアプリから [データベース書き込み競合を処理](mobile-services-windows-store-dotnet-handle-database-conflicts.md)します。
 
-`PlayerRank` クラスには、 [ナビゲーション プロパティ](http://msdn.microsoft.com/data/jj713564.aspx) を指す、関連する `Player` エンティティです。  **[ForeignKey]** 属性は EF に示しますが、 `Player` プロパティが外部キーを表します。
+ `PlayerRank` クラスには、 [ナビゲーション プロパティ](http://msdn.microsoft.com/data/jj713564.aspx) を指す、関連する `Player` エンティティです。  **[ForeignKey]** 属性は EF に示しますが、 `Player` プロパティが外部キーを表します。
 
 ## Web API コントローラーを追加する
 
-次に、に対する Web API コント ローラーを追加、 `Player` と `PlayerRank`します。 通常の Web API コントローラーの代わりに、特に Azure Mobile Services 用に設計された "*table controller*" という名前の特殊なコントローラーを追加します。
+次に、`Player` と `PlayerRank` に対する Web API コントローラーを追加します。 コント ローラーと呼ばれる特殊なを追加する通常の Web API コント ローラーではなく、 *テーブル コント ローラー*, 特に Azure Mobile Services 用に設計された。
 
 コント ローラーのフォルダーを右クリックして >  **追加** > **新しいスキャフォールディング項目**します。
 
 ![][6]
 
-**[スキャフォールディングの追加]** ダイアログ ボックスで、左側の **[共通]** を展開し、**[Azure Mobile Services]** を選択します。 次に、**[Azure Mobile Services テーブル コントローラー]** を選択します。 **[追加]** をクリックします。
+ **スキャフォールディングの追加** ダイアログ ボックスで、展開 **共通** 左側に **Azure Mobile Services**します。 選択し、 **Azure Mobile Services テーブル コント ローラー**します。 クリックして **追加**します。
 
 ![][7]
 
-**[コントローラーの追加]** ダイアログ ボックスで、次の手順を実行します。
+ **コント ローラーの追加** ダイアログ。
 
-1.  **[モデル クラス]** で、Player を選択します。
-2.  **[データ コンテキスト クラス]** で MobileServiceContext を選択します。
+1.   **モデル クラス**, 、Player を選択します。
+2.   **データ コンテキスト クラス**, 、MobileServiceContext を選択します。
 3.  コントローラーに "PlayerController" という名前を付けます。
-4.  **[追加]** をクリックします。
+4.  クリックして **追加**します。
 
 
 これにより、PlayerController.cs という名前のファイルがプロジェクトに追加されます。
 
 ![][8]
 
-派生したコント ローラー * * TableController<T>**.このクラスは継承 * * ApiController**, は、Azure Mobile Services 用に特化されています。
+派生したコント ローラー **TableController<T>**します。 このクラスは継承 **ApiController**, は、Azure Mobile Services 用に特化されています。
 
-- ルーティング: の既定のルート、 **TableController** は `/tables/{id}`, ここで、 *table_name* エンティティ名に一致します。 したがって、Player コントローラーのルートは */tables/player/{id}* となります。 このルーティング規則により **TableController** モバイル サービスの一貫した [REST API](http://msdn.microsoft.com/library/azure/jj710104.aspx)します。
-- データ アクセス: **TableController** クラスは、データベース操作に対して、データ アクセスの抽象化を定義する **IDomainManager** インターフェイスを使用します。 スキャフォールディングでは **EntityDomainManager** を使用します。これは、EF コンテキストをラップする **IDomainManager** の具象的な実装です。
+- ルーティング: の既定のルート、 **TableController** は `/tables/{table_name}/{id}`, ここで、 *table_name* エンティティ名に一致します。 したがって、Player コント ローラーのルートは */tables/player/{id}/*します。 このルーティング規則により **TableController** モバイル サービスの一貫した [REST API](http://msdn.microsoft.com/library/azure/jj710104.aspx)します。
+- データ アクセス: データベース操作に対して、 **TableController** クラスは、 **IDomainManager** をデータ アクセスの抽象化を定義するインターフェイスです。  スキャフォールディングは **EntityDomainManager**, の具象実装である **IDomainManager** 、EF コンテキストをラップします。
 
 次に、PlayerRank エンティティ用の第 2 のコントローラーを追加します。 同じ手順を実行しますが、モデル クラスに PlayerRank を選択します。 同じデータ コンテキスト クラスを使用し、新しいクラスは作成しません。 コントローラーに "PlayerRankController" という名前を付けます。
 
 ## DTO を使用して関連エンティティを返す
 
-先ほど説明したとおり `PlayerRank` 、関連付けられている `Player` エンティティ。
+`PlayerRank` には `Player` エンティティが関連付けられていることを思い出してください。
 
     public class PlayerRank : EntityData
     {
         public int Score { get; set; }
         public int Rank { get; set; }
-    
+
         [ForeignKey("Id")]
         public virtual Player Player { get; set; }
     }
 
-Mobile Services のクライアント ライブラリではナビゲーション プロパティがサポートされず、ナビゲーション プロパティはシリアル化されません。 たとえば、GET に対する未加工の HTTP 応答をここでは `/tables/playerrank`:
+Mobile Services のクライアント ライブラリではナビゲーション プロパティがサポートされず、ナビゲーション プロパティはシリアル化されません。 たとえば、GET `/tables/PlayerRank` に対する未加工の HTTP 応答は次のようになります。
 
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -173,12 +172,12 @@ Mobile Services のクライアント ライブラリではナビゲーション
     Expires: 0
     Server: Microsoft-IIS/8.0
     Date: Mon, 21 Apr 2014 17:58:43 GMT
-    
+
     [{"id":"1","rank":1,"score":150},{"id":"2","rank":3,"score":100},{"id":"3","rank":1,"score":150}]
 
-注意して `Player` オブジェクト グラフには含まれません。 Player を含めるには、*データ転送オブジェクト* (DTO) を定義して、オブジェクト グラフを平坦化します。
+オブジェクト グラフに `Player` が含まれていないことに注意してください。 Player を含めるを平坦化、オブジェクト グラフを定義して、 *データ転送オブジェクト* (DTO) です。
 
-DTO は、データがネットワークでどのように送信されるかを定義するオブジェクトです。 DTO は、ワイヤ形式をデータベース モデルとは異なる外観にする場合に便利です。 に対する DTO を作成する `PlayerRank`, 、という名前の新しいクラスを追加 `PlayerRankDto` 、DataObjects フォルダーにします。
+DTO は、データがネットワークでどのように送信されるかを定義するオブジェクトです。 DTO は、ワイヤ形式をデータベース モデルとは異なる外観にする場合に便利です。 `PlayerRank` に対する DTO を作成するには、DataObjects フォルダーに `PlayerRankDto` という名前の新しいクラスを追加します。
 
     namespace Leaderboard.DataObjects
     {
@@ -191,7 +190,7 @@ DTO は、データがネットワークでどのように送信されるかを�
         }
     }
 
-`PlayerRankController` クラス、LINQ を使用して **選択** に変換する方法 `PlayerRank` インスタンスを `PlayerRankDto` インスタンス。 更新プログラム、 `GetAllPlayerRank` と `GetPlayerRank` コント ローラー メソッドを次のようにします。
+ `PlayerRankController` クラス、LINQ を使用して **選択** に変換する方法 `PlayerRank` インスタンスを `PlayerRankDto` インスタンス。 `GetAllPlayerRank` および `GetPlayerRank` の各コントローラー メソッドを次のように更新します。
 
     // GET tables/PlayerRank
     public IQueryable<PlayerRankDto> GetAllPlayerRank()
@@ -204,7 +203,7 @@ DTO は、データがネットワークでどのように送信されるかを�
             Rank = x.Rank
         });
     }
-    
+
     // GET tables/PlayerRank/48D68C86-6EA6-4C25-AA33-223FC9A27959
     public SingleResult<PlayerRankDto> GetPlayerRank(string id)
     {
@@ -215,11 +214,11 @@ DTO は、データがネットワークでどのように送信されるかを�
             Score = x.Score,
             Rank = x.Rank
         });
-    
+
         return SingleResult<PlayerRankDto>.Create(result);
     }
 
-これらの変更により、2 つの GET メソッドが返す `PlayerRankDto` クライアント オブジェクトです。  `PlayerRankDto.PlayerName` プロパティはプレーヤー名に設定します。 この変更を加えた後の応答例を次に示します。
+これらの変更により、2 つの GET メソッドはクライアントに `PlayerRankDto` オブジェクトを返します。 `PlayerRankDto.PlayerName` プロパティはプレーヤー名に設定されます。 この変更を加えた後の応答例を次に示します。
 
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -229,7 +228,7 @@ DTO は、データがネットワークでどのように送信されるかを�
     Expires: 0
     Server: Microsoft-IIS/8.0
     Date: Mon, 21 Apr 2014 19:57:08 GMT
-    
+
     [{"id":"1","playerName":"Alice","score":150,"rank":1},{"id":"2","playerName":"Bob","score":100,"rank":3},{"id":"3","playerName":"Charles","score":150,"rank":1}]
 
 JSON ペイロードにプレーヤー名が含まれています。
@@ -238,9 +237,9 @@ LINQ の Select ステートメントを使用する代わりに、AutoMapper �
 
 ## カスタム API を定義してスコアを送信する
 
-`PlayerRank` エンティティには、 `ランク` プロパティです。 この値はサーバーによって計算され、クライアントがそれを設定する必要はありません。 クライアントはその代わりにカスタム API を使用して、プレーヤーのスコアを送信します。 サーバーは新しいスコアを取得すると、プレーヤーの順位をすべて更新します。
+`PlayerRank` エンティティには、`Rank` プロパティがあります。 この値はサーバーによって計算され、クライアントがそれを設定する必要はありません。 クライアントはその代わりにカスタム API を使用して、プレーヤーのスコアを送信します。  サーバーは新しいスコアを取得すると、プレーヤーの順位をすべて更新します。
 
-という名前のクラスを最初に、追加 `PlayerScore` DataObjects フォルダーにします。
+最初に、DataObjects フォルダーに、`PlayerScore` という名前のクラスを追加します。
 
     namespace Leaderboard.DataObjects
     {
@@ -251,29 +250,30 @@ LINQ の Select ステートメントを使用する代わりに、AutoMapper �
         }
     }
 
-`PlayerRankController` クラス、移動、 `MobileServiceContext` 変数コンス トラクターからクラス変数に。
+`PlayerRankController` クラスで、変数 `MobileServiceContext` をコンストラクターからクラス変数に移動します。
 
     public class PlayerRankController : TableController<PlayerRank>
     {
         // Add this:
         MobileServiceContext context = new MobileServiceContext();
-    
+
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);
-    
+
             // Delete this:
             // MobileServiceContext context = new MobileServiceContext();
             DomainManager = new EntityDomainManager<PlayerRank>(context, Request, Services);
         }
 
-次のメソッドを削除 `PlayerRankController`:
+
+`PlayerRankController` から次のメソッドを削除します。
 
 - `PatchPlayerRank`
 - `PostPlayerRank`
 - `DeletePlayerRank`
 
-次のコードを追加 `PlayerRankController`:
+`PlayerRankController` に次のコードを追加します。
 
     [Route("api/score")]
     public async Task<IHttpActionResult> PostPlayerScore(PlayerScore score)
@@ -284,7 +284,7 @@ LINQ の Select ステートメントを使用する代わりに、AutoMapper �
         {
             return BadRequest();
         }
-    
+
         // Try to find the PlayerRank entity for this player. If not found, create a new one.
         PlayerRank rank = await context.PlayerRanks.FindAsync(score.PlayerId);
         if (rank == null)
@@ -297,29 +297,29 @@ LINQ の Select ステートメントを使用する代わりに、AutoMapper �
         {
             rank.Score = score.Score;
         }
-    
+
         await context.SaveChangesAsync();
-    
+
         // Update rankings
         // See http://stackoverflow.com/a/575799
         const string updateCommand =
             "UPDATE r SET Rank = ((SELECT COUNT(*)+1 from {0}.PlayerRanks " +
             "where Score > (select score from {0}.PlayerRanks where Id = r.Id)))" +
             "FROM {0}.PlayerRanks as r";
-    
+
         string command = String.Format(updateCommand, ServiceSettingsDictionary.GetSchemaName());
         await context.Database.ExecuteSqlCommandAsync(command);
-    
+
         return Ok();
     }
 
-`PostPlayerScore` メソッドには、 `PlayerScore` インスタンスが入力されます。 (クライアントは送信、 `PlayerScore` を HTTP POST 要求でします)。 このメソッドは、次の処理を実行します。
+`PostPlayerScore` メソッドには、`PlayerScore` のインスタンスが入力されます (クライアントは `PlayerScore` を HTTP POST 要求で送信します)。このメソッドは、次の処理を実行します。
 
 1.  新しい `PlayerRank` 選手にまだ含まれていないデータベースの場合。
 2.  プレーヤーのスコアを更新する。
 3.  すべてのプレーヤーの順位をバッチ更新する SQL クエリを実行する。
 
-このメソッドのカスタム ルートは **[Route]** 属性で定義されます。
+ **[Route]** 属性は、このメソッドのカスタム ルートを定義します。
 
     [Route("api/score")]
 
@@ -334,7 +334,7 @@ LINQ の Select ステートメントを使用する代わりに、AutoMapper �
 
 ![][10]
 
-NuGet Package Manager を使用して、Mobile Services クライアント ライブラリを追加します。 Visual Studio で、**[ツール]** メニューの **NuGet パッケージ マネージャー]** をクリックします。 次に、**[パッケージ マネージャー コンソール]** を選択します。 [パッケージ マネージャー コンソール] ウィンドウで、次のコマンドを入力します。
+NuGet Package Manager を使用して、Mobile Services クライアント ライブラリを追加します。 Visual Studio から、 **ツール** メニューの [ **NuGet パッケージ マネージャー**します。 選択し、 **パッケージ マネージャー コンソール**します。 [パッケージ マネージャー コンソール] ウィンドウで、次のコマンドを入力します。
 
     Install-Package WindowsAzure.MobileServices -Project LeaderboardApp
 
@@ -351,7 +351,7 @@ Models という名前のフォルダーを作成し、次のクラスを追加�
             public string Id { get; set; }
             public string Name { get; set; }
         }
-    
+
         public class PlayerRank
         {
             public string Id { get; set; }
@@ -359,7 +359,7 @@ Models という名前のフォルダーを作成し、次のクラスを追加�
             public int Score { get; set; }
             public int Rank { get; set; }
         }
-    
+
         public class PlayerScore
         {
             public string PlayerId { get; set; }
@@ -379,20 +379,20 @@ Model-View-View Model (MVVM) は、Model-View-Controller (MVC) の一種です�
 
 ![][11]
 
-という名前のクラスを追加 `LeaderboardViewModel`します。
+`LeaderboardViewModel` という名前のクラスを追加します。
 
     using LeaderboardApp.Models;
     using Microsoft.WindowsAzure.MobileServices;
     using System.ComponentModel;
     using System.Net.Http;
     using System.Threading.Tasks;
-    
+
     namespace LeaderboardApp.ViewModel
     {
         class LeaderboardViewModel : INotifyPropertyChanged
         {
             MobileServiceClient _client;
-    
+
             public LeaderboardViewModel(MobileServiceClient client)
             {
                 _client = client;
@@ -400,21 +400,21 @@ Model-View-View Model (MVVM) は、Model-View-Controller (MVC) の一種です�
         }
     }
 
-ビュー モデルがデータ バインドに参加できるように、ビュー モデルに **INotifyPropertyChanged** を実装します。
+実装 **INotifyPropertyChanged** ビュー モデル、ビュー モデル参加できるようにデータ バインドにします。
 
     class LeaderboardViewModel : INotifyPropertyChanged
     {
         MobileServiceClient _client;
-    
+
         public LeaderboardViewModel(MobileServiceClient client)
         {
             _client = client;
         }
-    
+
         // New code:
         // INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
-    
+
         public void NotifyPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
@@ -430,7 +430,7 @@ Model-View-View Model (MVVM) は、Model-View-Controller (MVC) の一種です�
     class LeaderboardViewModel : INotifyPropertyChanged
     {
         // ...
-    
+
         // New code:
         // View model properties
         private MobileServiceCollection<Player, Player> _Players;
@@ -443,7 +443,7 @@ Model-View-View Model (MVVM) は、Model-View-Controller (MVC) の一種です�
                 NotifyPropertyChanged("Players");
             }
         }
-    
+
         private MobileServiceCollection<PlayerRank, PlayerRank> _Ranks;
         public MobileServiceCollection<PlayerRank, PlayerRank> Ranks
         {
@@ -454,7 +454,7 @@ Model-View-View Model (MVVM) は、Model-View-Controller (MVC) の一種です�
                 NotifyPropertyChanged("Ranks");
             }
         }
-    
+
         private bool _IsPending;
         public bool IsPending
         {
@@ -465,7 +465,7 @@ Model-View-View Model (MVVM) は、Model-View-Controller (MVC) の一種です�
                 NotifyPropertyChanged("IsPending");
             }
         }
-    
+
         private string _ErrorMessage = null;
         public string ErrorMessage
         {
@@ -478,21 +478,21 @@ Model-View-View Model (MVVM) は、Model-View-Controller (MVC) の一種です�
         }
     }
 
-`IsPending` 非同期操作が保留中の間は、プロパティが true で、サービスです。  `ErrorMessage` プロパティは、サービスからのエラー メッセージを保持します。
+サービスで非同期操作が保留中の間は、`IsPending` プロパティが true となります。 `ErrorMessage` プロパティは、サービスからのエラー メッセージを保持します。
 
 最後に、サービス レイヤーへの呼び出しを行うメソッドを追加します。
 
     class LeaderboardViewModel : INotifyPropertyChanged
     {
         // ...
-    
+
         // New code:
         // Service operations
         public async Task GetAllPlayersAsync()
         {
             IsPending = true;
             ErrorMessage = null;
-    
+
             try
             {
                 IMobileServiceTable<Player> table = _client.GetTable<Player>();
@@ -511,12 +511,12 @@ Model-View-View Model (MVVM) は、Model-View-Controller (MVC) の一種です�
                 IsPending = false;
             }
         }
-    
+
         public async Task AddPlayerAsync(Player player)
         {
             IsPending = true;
             ErrorMessage = null;
-    
+
             try
             {
                 IMobileServiceTable<Player> table = _client.GetTable<Player>();
@@ -536,18 +536,18 @@ Model-View-View Model (MVVM) は、Model-View-Controller (MVC) の一種です�
                 IsPending = false;
             }
         }
-    
+
         public async Task SubmitScoreAsync(Player player, int score)
         {
             IsPending = true;
             ErrorMessage = null;
-    
+
             var playerScore = new PlayerScore()
             {
                 PlayerId = player.Id,
                 Score = score
             };
-    
+
             try
             {
                 await _client.InvokeApiAsync<PlayerScore, object>("score", playerScore);
@@ -566,12 +566,12 @@ Model-View-View Model (MVVM) は、Model-View-Controller (MVC) の一種です�
                 IsPending = false;
             }
         }
-    
+
         public async Task GetAllRanksAsync()
         {
             IsPending = true;
             ErrorMessage = null;
-    
+
             try
             {
                 IMobileServiceTable<PlayerRank> table = _client.GetTable<PlayerRank>();
@@ -594,11 +594,11 @@ Model-View-View Model (MVVM) は、Model-View-Controller (MVC) の一種です�
 
 ## MobileServiceClient インスタンスを追加する
 
-開いている、 *App.xaml.cs*ファイルを追加、 **MobileServiceClient** インスタンスを `アプリ` クラスです。
+開いている、 *App.xaml.cs*ファイルを追加、 **MobileServiceClient** インスタンスを `App` クラスです。
 
     // New code:
     using Microsoft.WindowsAzure.MobileServices;
-    
+
     namespace LeaderboardApp
     {
         sealed partial class App : Application
@@ -607,43 +607,44 @@ Model-View-View Model (MVVM) は、Model-View-Controller (MVC) の一種です�
             // TODO: Replace 'port' with the actual port number.
             const string serviceUrl = "http://localhost:port/";
             public static MobileServiceClient MobileService = new MobileServiceClient(serviceUrl);
-    
-    
+
+
             // ...
         }
     }
 
-ローカルでデバッグを行うときには、モバイル サービスが IIS Express で実行されます。 Visual Studio では、ローカル URL が http://localhost であるため、ランダムなポート番号が割り当てられます。*ポート*, ここで、 *ポート* のポート番号です。 ポート番号を確認するには、F5 キーを押して、Visual Studio でサービスをデバッグ用に開始します。 Visual Studio でブラウザーが起動し、サービス URL に移動します。 ローカル URL は、プロジェクト プロパティの **[Web]** でも確認できます。
+ローカルでデバッグを行うときには、モバイル サービスが IIS Express で実行されます。 Visual Studio では、ローカル URL が http://localhost であるため、ランダムなポート番号が割り当てられます。*ポート*, ここで、 *ポート* のポート番号です。 ポート番号を確認するには、F5 キーを押して、Visual Studio でサービスをデバッグ用に開始します。 Visual Studio でブラウザーが起動し、サービス URL に移動します。  見つかりますローカル URL プロジェクトのプロパティで [ **Web**します。
 
 ## メイン ページを作成する
 
-メイン ページで、ビュー モデルのインスタンスを追加します。 次に、ビュー モデルをページの **DataContext** として設定します。
+メイン ページで、ビュー モデルのインスタンスを追加します。 ビュー モデルを設定、 **DataContext** ページのです。
 
     public sealed partial class MainPage : Page
     {
         // New code:
         LeaderboardViewModel viewModel = new LeaderboardViewModel(App.MobileService);
-    
+
         public MainPage()
         {
             this.InitializeComponent();
             // New code:
             this.DataContext = viewModel;
         }
-    
+
        // ...
+
 
 前に述べたとおり、ここではアプリケーションの XAML のすべては示していません。 MVVM パターンの利点の 1 つは、プレゼンテーションをアプリケーション ロジックから分離することであるため、サンプル アプリケーションが気に入らない場合でも、UI を簡単に変更できます。
 
-プレーヤーの一覧は、**ListBox** に表示されます。
+プレーヤーの一覧に表示されます、 **ListBox**:
 
     <ListBox Width="200" Height="400" x:Name="PlayerListBox"
         ItemsSource="{Binding Players}" DisplayMemberPath="Name"/>
 
-ランキングは **ListView** に表示されます。
+ランク付けに表示される、 **ListView**:
 
     <ListView x:Name="RankingsListView" ItemsSource="{Binding Ranks}" SelectionMode="None">
-        
+        <!-- Header and styles not shown -->
         <ListView.ItemTemplate>
             <DataTemplate>
                 <Grid>
@@ -666,20 +667,20 @@ Model-View-View Model (MVVM) は、Model-View-Controller (MVC) の一種です�
 
 この手順では、モバイル サービスを Microsoft Azure に発行し、ライブ サービスを使用するようにアプリケーションを変更します。
 
-ソリューション エクスプローラーで Leaderboard プロジェクトを右クリックし、**[発行]** をクリックします。
+ソリューション エクスプ ローラーで Leaderboard プロジェクトを右クリックし、 **発行**します。
 
 ![][12]
 
-**[発行]** ダイアログ ボックスで、**[Azure Mobile Services]** をクリックします。
+ **発行** ダイアログ ボックスで、をクリックして **Azure Mobile Services**します。
 
 ![][13]
 
-まだ Azure アカウントにサインインしていない場合は、**[サインイン]** をクリックします。
+場合は、まだサインインしていない Azure アカウントに、クリックして **サイン イン**します。
 
 ![][14]
 
 
-既存のモバイル サービスを選択するか、または **[新規]** をクリックして新しく作成します。 次に、**[OK]** をクリックして発行します。
+既存のモバイル サービスを選択するか [ **新規** 新規に作成します。 クリックし、 **OK** を発行します。
 
 ![][15]
 
@@ -690,77 +691,79 @@ Model-View-View Model (MVVM) は、Model-View-Controller (MVC) の一種です�
 - サービスの URL
 - アプリケーション キー
 
-これらはいずれも Azure クラシック ポータルから取得できます。 ポータルで **[Mobile Services]** をクリックし、モバイル サービスをクリックします。 サービス URL はダッシュボード タブに表示されています。 アプリケーション キーを取得するには、**[キーの管理]** をクリックします。
+これらはいずれも Azure クラシック ポータルから取得できます。 ポータルで、次のようにクリックします。 **Mobile Services**, 、をモバイル サービスをクリックします。 サービス URL はダッシュボード タブに表示されています。 アプリケーション キーを取得するにはクリックして **キーの管理**します。
 
 ![][16]
 
-**[アクセス キーの管理]** ダイアログ ボックスで、アプリケーション キーの値をコピーします。
+ **アクセス キーの管理** ] ダイアログ ボックスで、アプリケーション キーの値をコピーします。
 
 ![][17]
 
 
-サービス URL とアプリケーション キーを **MobileServiceClient** コンストラクターに渡します。
+サービスの URL とアプリケーション キーを渡す、 **MobileServiceClient** コンス トラクターです。
 
     sealed partial class App : Application
     {
         // TODO: Replace these strings with the real URL and key.
         const string serviceUrl = "https://yourapp.azure-mobile.net/";
         const string appKey = "YOUR ACCESSS KEY";
-    
+
         public static MobileServiceClient MobileService = new MobileServiceClient(serviceUrl, appKey);
-    
+
        // ...
 
 アプリケーションを実行すると、実際のサービスとの通信が開始されます。
 
 ## 次のステップ
 
-* [説明の詳細については、Azure Mobile Services]
-* [Web API の詳細について learn]
-* [データベース書き込み競合の処理]
-* [プッシュ通知の追加]。たとえば、ときにだれかが新しいプレーヤーを追加またはスコアを更新します。
-* [認証の使用の開始を取得]
+* [Azure Mobile Services の詳細]
+* [Web API の詳細]
+* [データベースの書き込み競合の処理]
+* [Add push notifications];たとえば、ときにだれかが新しいプレーヤーを追加またはスコアを更新します。
+* [認証の使用]
 
+<!-- Anchors. -->
+[Overview]: #overview
+[About the sample app]: #about-the-sample-app
+[Create the project]: #create-the-project
+[Add data models]: #add-data-models
+[Add Web API controllers]: #add-web-api-controllers
+[Use a DTO to return related entities]: #use-a-dto-to-return-related-entities
+[Define a custom API to submit scores]: #define-a-custom-api-to-submit-scores
+[Create the Windows Store app]: #create-the-windows-store-app
+[Add model classes]: #add-model-classes
+[Create a view model]: #create-a-view-model
+[Add a MobileServiceClient instance]: #add-a-mobileserviceclient-instance
+[Create the main page]: #create-the-main-page
+[Publish your mobile service]: #publish-your-mobile-service
+[Next Steps]: #next-steps
 
+<!-- Images. -->
 
+[1]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/01leaderboard.png
+[2]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/02leaderboard.png
+[3]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/03leaderboard.png
+[4]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/04leaderboard.png
+[5]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/05leaderboard.png
+[6]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/06leaderboard.png
+[7]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/07leaderboard.png
+[8]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/08leaderboard.png
+[9]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/09leaderboard.png
+[10]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/10leaderboard.png
+[11]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/11leaderboard.png
+[12]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/12leaderboard.png
+[13]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/13leaderboard.png
+[14]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/14leaderboard.png
+[15]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/15leaderboard.png
+[16]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/16leaderboard.png
+[17]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/17leaderboard.png
 
+<!-- URLs. -->
 
+[Learn more about Azure Mobile Services]: /develop/mobile/resources/
+[Learn more about Web API]: http://asp.net/web-api
+[Handle database write conflicts]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
+[Add push notifications]: ../notification-hubs-windows-store-dotnet-get-started.md
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
-
-[overview]: #overview 
-[about the sample app]: #about-the-sample-app 
-[create the project]: #create-the-project 
-[add data models]: #add-data-models 
-[add web api controllers]: #add-web-api-controllers 
-[use a dto to return related entities]: #use-a-dto-to-return-related-entities 
-[define a custom api to submit scores]: #define-a-custom-api-to-submit-scores 
-[create the windows store app]: #create-the-windows-store-app 
-[add model classes]: #add-model-classes 
-[create a view model]: #create-a-view-model 
-[add a mobileserviceclient instance]: #add-a-mobileserviceclient-instance 
-[create the main page]: #create-the-main-page 
-[publish your mobile service]: #publish-your-mobile-service 
-[next steps]: #next-steps 
-[1]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/01leaderboard.png 
-[2]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/02leaderboard.png 
-[3]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/03leaderboard.png 
-[4]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/04leaderboard.png 
-[5]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/05leaderboard.png 
-[6]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/06leaderboard.png 
-[7]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/07leaderboard.png 
-[8]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/08leaderboard.png 
-[9]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/09leaderboard.png 
-[10]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/10leaderboard.png 
-[11]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/11leaderboard.png 
-[12]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/12leaderboard.png 
-[13]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/13leaderboard.png 
-[14]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/14leaderboard.png 
-[15]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/15leaderboard.png 
-[16]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/16leaderboard.png 
-[17]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/17leaderboard.png 
-[learn more about azure mobile services]: /develop/mobile/resources/ 
-[learn more about web api]: http://asp.net/web-api 
-[handle database write conflicts]: mobile-services-windows-store-dotnet-handle-database-conflicts.md 
-[add push notifications]: ../notification-hubs-windows-store-dotnet-get-started.md 
-[get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet 
 

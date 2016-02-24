@@ -17,15 +17,15 @@
    ms.date="12/04/2015"
    ms.author="larryfr"/>
 
-
-# HDInsight での Apache Storm を使用した Twitter のトレンディング トピックの確認
+#HDInsight での Apache Storm を使用した Twitter のトレンディング トピックの確認
 
 Trident を使用して、Twitter のトレンディング トピック (ハッシュタグ) を見つける Storm トポロジを作成する方法について説明します。
 
 Trident は、結合、集計、グループ化、関数、フィルタリングなどのツールを提供する大枠の抽象概念です。 さらに、Trident はステートフルな増分処理を行うためのプリミティブを追加します。 この例では、カスタムのスパウト、関数、Trident で提供される複数のビルトイン関数を用いてトポロジを構築する方法を示しています。
+
 > [AZURE.NOTE] この例は頻度の高いに基づいて、 [Trident Storm](https://github.com/jalonsoramos/trident-storm) Juan Alonso での使用例です。
 
-## 必要条件
+##必要条件
 
 * <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java と JDK 1.7</a>
 
@@ -35,17 +35,18 @@ Trident は、結合、集計、グループ化、関数、フィルタリング
 
 * Twitter の開発者アカウント
 
-## プロジェクトのダウンロード
+##プロジェクトのダウンロード
 
 次のコードを使用してプロジェクトの複製をローカルに作成します。
 
     git clone https://github.com/Blackmist/TwitterTrending
 
-## トポロジ
+##トポロジ
 
 この例のトポロジは次のとおりです。
 
 ![トポロジ](./media/hdinsight-storm-twitter-trending/trident.png)
+
 > [AZURE.NOTE] これは、トポロジの簡略化されたビューです。 コンポーネントの複数のインスタンスが、クラスター内のノード全体に配布されます。
 
 トポロジを実装する Trident コードは次のとおりです。
@@ -66,11 +67,11 @@ Trident は、結合、集計、グループ化、関数、フィルタリング
 
 3. ストリームはハッシュタグごとにグループ化され、アグリゲーターに渡されます。 このアグリゲーターがハッシュタグが発生した回数のカウントを作成します。 このデータは、メモリに保存されます。 最後に、ハッシュタグとカウントを含む新しいストリームが出力されます。
 
-4. 必要なのは、特定のツイート群の最も人気のあるハッシュタグのみであるため、カウント フィールドに基づいて上位 10 個の値のみを返す **FirstN** アセンブリが適用されます。
+4. のみ、ツイートの所定のバッチの最も人気のあるハッシュタグに関心があるため、 **FirstN** 値のみを返す、上位 10 個、カウント フィールドに基づいてアセンブリを適用します。
 
-> [AZURE.NOTE] スパウトと HashtagExtractor 以外については、ビルトインの Trident 関数を使用します。
+> [AZURE.NOTE] スパウトと HashtagExtractor 以外は、ビルトインの Trident 機能を使用します。
 >
-> ビルトイン操作については、次を参照してください。 <a href="https://storm.apache.org/apidocs/storm/trident/operation/builtin/package-summary.html" target="_blank">Package storm.trident.operation.builtin</a>します。
+> ビルトイン操作については、次を参照してください。 <a href="https://storm.apache.org/apidocs/storm/trident/operation/builtin/package-summary.html" target="_blank">Package storm.trident.operation.builtin</a>.
 >
 > MemoryMapState 以外の Trident ステートの実装については、以下をご覧ください。
 >
@@ -78,36 +79,36 @@ Trident は、結合、集計、グループ化、関数、フィルタリング
 >
 > * <a href="https://github.com/kstyrc/trident-redis" target="_blank">trident redis</a>
 
-### スパウト
+###スパウト
 
-スパウトで **TwitterSpout**, を使用して <a href="http://twitter4j.org/en/" target="_blank">Twitter4j</a> Twitter からツイートを取得します。 フィルター (love、music、coffee) が作成され、フィルターに一致する受信ツイート (ステータス) がリンクされたブロック キューに格納されます  (詳細については、次を参照してください <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedBlockingQueue.html" target="_blank">Class LinkedBlockingQueue</a>。)。 最後に、アイテムがキューから取り出されてトポロジに出力されます。
+スパウトで **TwitterSpout**, を使用して <a href="http://twitter4j.org/en/" target="_blank">Twitter4j</a> Twitter からツイートを取得します。 フィルター (love、music、coffee) が作成され、フィルターに一致する受信ツイート (ステータス) がリンクされたブロック キューに格納されます  (詳細については、「<a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedBlockingQueue.html" target="_blank">Class LinkedBlockingQueue</a>」をご覧ください)。最後に、アイテムがキューから取り出されてトポロジに出力されます。
 
-### HashtagExtractor
+###HashtagExtractor
 
-、ハッシュタグを抽出する <a href="http://twitter4j.org/javadoc/twitter4j/EntitySupport.html#getHashtagEntities--" target="_blank">getHashtagEntities</a> を使用してツイートに含まれているすべてのハッシュタグを取得します。 その後、これらはストリームに出力されます。
+、ハッシュタグを抽出するには <a href="http://twitter4j.org/javadoc/twitter4j/EntitySupport.html#getHashtagEntities--" target="_blank">getHashtagEntities</a> 使用してツイートに含まれているすべてのハッシュタグを取得します。 その後、これらはストリームに出力されます。
 
-## Twitter を有効にする
+##Twitter を有効にする
 
 次の手順を使用して、新しい Twitter アプリケーションを登録し、Twitter からの読み取りに必要なコンシューマーとアクセス トークンを取得します。
 
-1. 移動して <a href="https://apps.twitter.com" target="_blank">Twitter アプリ</a> ] をクリックし、 **新しいアプリの作成** ] ボタンをクリックします。 フォームの入力時、**[Callback URL]** フィールドは空白のままにします。
+1. 移動して <a href="https://apps.twitter.com" target="_blank">Twitter アプリ</a> ] をクリックし、 **新しいアプリの作成** ] ボタンをクリックします。 フォームの入力、時のままにして、 **コールバック URL** フィールドは空白です。
 
-2. アプリが作成されたら、**[Keys and Access Tokens]** タブをクリックします。
+2. アプリを作成すると、クリックして、 **Keys and Access Tokens** ] タブをクリックします。
 
-3. **[Consumer Key]** と **[Consumer Secret ]** の情報をコピーします。
+3. コピー、 **コンシューマー キー** と **コンシューマー シークレット** 情報。
 
-4. トークンがない場合、ページ下部で **[Create my access token]** を選択します。 トークンを作成したら、**[Access Token]** と **[Access Token Secret]** の情報をコピーします。
+4. ページの下部には、次のように選択します。 **、アクセス トークンを作成する** トークンがない場合。 トークンが作成されると、コピー、 **アクセス トークン** と **アクセス トークン シークレット** 情報。
 
-5. 前に複製した **TwitterSpoutTopology** プロジェクトで、**resources/twitter4j.properties** ファイルを開いて、前の手順で収集した情報を追加し、ファイルを保存します。
+5.  **TwitterSpoutTopology** プロジェクトを開いて、 **resources/twitter4j.properties** ファイル、前の手順で収集した情報を追加し、ファイルを保存します。
 
-## トポロジの作成
+##トポロジの作成
 
 次のコードを使用してプロジェクトを構築します。
 
         cd [directoryname]
         mvn compile
 
-## トポロジのテスト
+##トポロジのテスト
 
 次のコマンドを使用して、ローカルでトポロジをテストします。
 
@@ -125,21 +126,17 @@ Trident は、結合、集計、グループ化、関数、フィルタリング
     DEBUG: [punk, 1]
     DEBUG: [indonesiapunkrock, 1]
 
-## 次のステップ
+##次のステップ
 
 これでトポロジをローカルでテストした、検出、トポロジを展開する方法: [展開し、HDInsight で Apache Storm トポロジを管理](hdinsight-storm-deploy-monitor-topology.md)します。
 
 必要に応じて次の Storm 関連のトピックもご覧ください。
 
-* [Maven を使用して HDInsight で Storm の Java トポロジを開発します。](hdinsight-storm-develop-java-topology.md)
+* [Develop Java topologies for Storm on HDInsight using Maven (Maven を使用して HDInsight で Storm の Java トポロジを開発する)](hdinsight-storm-develop-java-topology.md)
 
-* [Visual Studio を使用した HDInsight で Storm の c# トポロジを開発します。](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [Visual Studio を使用して HDInsight で Storm の C# トポロジを開発する](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 HDInsight での Storm のその他の例:
 
-* [HDInsight での Storm に関するトポロジ例](hdinsight-storm-example-topology.md)
-
-
-
-
+* [HDInsight 上の Storm に関するトポロジ例](hdinsight-storm-example-topology.md)
 

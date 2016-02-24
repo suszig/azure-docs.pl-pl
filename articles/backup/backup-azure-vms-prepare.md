@@ -16,10 +16,8 @@
     ms.date="11/17/2015"
     ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
-
 # Azure 仮想マシンをバックアップする環境の準備
-
-Azure 仮想マシン (VM) をバックアップする環境を準備するには、次の前提条件を満たす必要があります。 開始する場合は、 [の Vm をバックアップする](backup-azure-vms.md)します。 満たしていない場合は、次の手順で環境を準備してください。
+Azure 仮想マシン (VM) をバックアップする環境を準備するには、次の前提条件を満たす必要があります。 開始する場合は、 [の Vm をバックアップする](backup-azure-vms.md)です。 満たしていない場合は、次の手順で環境を準備してください。
 
 
 ## 1.バックアップ資格情報コンテナー
@@ -33,25 +31,25 @@ Azure 仮想マシンのバックアップを開始するには、まずバッ�
 
 バックアップ資格情報コンテナーを作成するには:
 
-1. サインイン、 [Azure ポータル](http://manage.windowsazure.com/)します。
+1. [Azure ポータル](http://manage.windowsazure.com/)にサインインします。
 
-2. **[新規]** > **[Data Services]** > **[Recovery Services]** > **[バックアップ資格情報コンテナー]** > **[簡易作成]** の順にクリックします。 組織のアカウントに関連付けられたサブスクリプションが複数ある場合は、正しいアカウントを選択してバックアップ資格情報コンテナーに関連付けてください。 各 Azure サブスクリプションに複数のバックアップ資格情報コンテナーを保有し、保護する仮想マシンを編成できます。
+2. クリックして **新しい** > **Data Services** > **復旧サービス** > **バックアップ コンテナー** > **簡易作成**します。 組織のアカウントに関連付けられたサブスクリプションが複数ある場合は、正しいアカウントを選択してバックアップ資格情報コンテナーに関連付けてください。 各 Azure サブスクリプションに複数のバックアップ資格情報コンテナーを保有し、保護する仮想マシンを編成できます。
 
-3. **[名前]** ボックスに、コンテナーを識別する表示名を入力します。 これは、サブスクリプションごとに一意である必要があります。
+3.  **名**, 、コンテナーを識別するフレンドリ名を入力します。 これは、サブスクリプションごとに一意である必要があります。
 
-4. **[リージョン]** ボックスで、コンテナーのリージョンを選択します。 資格情報コンテナーは、保護する仮想マシンと同じリージョンにある必要があります。 仮想マシンが別のリージョンにある場合は、資格情報コンテナーをそれぞれ作成します。 バックアップ データを格納するストレージ アカウントを指定する必要はありません。バックアップ資格情報コンテナーと Azure Backup サービスはこれを自動的に処理します。
+4.  **地域**, 、資格情報コンテナーのリージョンを選択します。 資格情報コンテナーは、保護する仮想マシンと同じリージョンにある必要があります。 仮想マシンが別のリージョンにある場合は、資格情報コンテナーをそれぞれ作成します。 バックアップ データを格納するストレージ アカウントを指定する必要はありません。バックアップ資格情報コンテナーと Azure Backup サービスはこれを自動的に処理します。
 
     ![バックアップ資格情報コンテナーの作成](./media/backup-azure-vms-prepare/backup_vaultcreate.png)
 
-5. **[資格情報コンテナーの作成]** をクリックします。 バックアップ資格情報コンテナーが作成されるまで時間がかかることがあります。 ポータルの下部にある状態通知を監視します。
+5. クリックして **コンテナーを作成して**します。 バックアップ資格情報コンテナーが作成されるまで時間がかかることがあります。 ポータルの下部にある状態通知を監視します。
 
     ![資格情報コンテナーのトースト通知の作成](./media/backup-azure-vms-prepare/creating-vault.png)
 
-6. コンテナーが正常に作成されたことを確認するメッセージが表示されます。 **[復旧サービス]** ページに、コンテナーが **[アクティブ]** と表示されます。 コンテナーを作成したら、必ず適切なストレージの冗長オプションを選択してください。 詳細について [、バックアップ コンテナーにストレージの冗長オプションを設定する](backup-configure-vault.md#azure-backup---storage-redundancy-options)します。
+6. コンテナーが正常に作成されたことを確認するメッセージが表示されます。 表示されます、 **Recovery Services** としてページ **Active**します。 コンテナーを作成したら、必ず適切なストレージの冗長オプションを選択してください。 詳細について [、バックアップ コンテナーにストレージの冗長オプションを設定する](backup-configure-vault.md#azure-backup---storage-redundancy-options)です。
 
     ![バックアップ資格情報コンテナーの一覧](./media/backup-azure-vms-prepare/backup_vaultslist.png)
 
-7. バックアップ資格情報コンテナーをクリックして **[クイック スタート]** ページに進むと、Azure 仮想マシンのバックアップ手順が表示されます。
+7. [バックアップ コンテナーに移動する] をクリックして、 **クイック スタート** ] ページで、Azure の仮想マシンをバックアップするための指示が表示されます。
 
     ![ダッシュボード ページの仮想マシンのバックアップ手順](./media/backup-azure-vms-prepare/vmbackup-instructions.png)
 
@@ -74,17 +72,17 @@ Azure 仮想マシンのバックアップを開始するには、まずバッ�
 
 管理の容易さ、細かな制御、およびコストの間のトレードオフは次のとおりです。
 
-| オプション| 長所| 短所|
+|オプション|長所|短所|
 |------|----------|-------------|
-| オプション 1: IP 範囲のホワイトリストへの登録| 追加のコストはありません。<br><br>NSG のアクセスを開くを使用して、 <i>セット AzureNetworkSecurityRule</i> コマンドレットです。| 時間の経過と共に変更 IP の範囲を複雑で、影響を受けるとして管理します。<br>ストレージだけでなく、Azure 全体へのアクセスを提供します。|
-| オプション 2: HTTP プロキシ| ストレージをプロキシの詳細に制御 Url を許可します。<br>1 つの Vm へのポイントのインターネット アクセス<br>Azure の IP の対象とならない変更に対応します。| プロキシ ソフトウェアで VM を実行するための追加のコストが発生する。|
+|オプション 1: IP 範囲のホワイトリストへの登録| 追加のコストはありません。<br><br>NSG のアクセスを開くを使用して、 <i>セット AzureNetworkSecurityRule</i> コマンドレットを実行します。 | 時間の経過と共に変更 IP の範囲を複雑で、影響を受けるとして管理します。<br>記憶域だけでなく、Azure 全体へのアクセスを提供します。|
+|オプション 2: HTTP プロキシ| ストレージをプロキシの詳細に制御 Url を許可します。<br>Vm への単一のポイントのインターネット アクセス。<br>Azure の IP アドレスを変更影響を受けないします。| プロキシ ソフトウェアで VM を実行するための追加のコストが発生する。|
 
 ### VM のバックアップに HTTP プロキシを使用する
-
 VM をバックアップする際、HTTPS API を使用してスナップショット管理コマンドがバックアップ拡張機能から Azure Storage に送信されます。 パブリック インターネットにアクセスできるように構成されるのはプロキシのみのため、このトラフィックは、拡張機能からプロキシを介してルーティングされる必要があります。
->[AZURE.NOTE] 使用するプロキシ ソフトウェアについて推奨事項はありません。 以降の構成手順と互換性があるプロキシを選択してください。
 
-次の例では、パブリック インターネットに送信されるすべての HTTP トラフィックにプロキシ VM を使用するようにアプリ VM を構成する必要があります。 プロキシ VM は、仮想ネットワーク内の VM からの着信トラフィックを許可するように構成する必要があります。 最後に、NSG (*NSG-lockdown*) には、プロキシ VM からの発信インターネット トラフィックを許可する新しいセキュリティ規則が必要です。
+>[AZURE.NOTE] 使用するプロキシのソフトウェアの推奨事項はありません。 以降の構成手順と互換性があるプロキシを選択してください。
+
+次の例では、パブリック インターネットに送信されるすべての HTTP トラフィックにプロキシ VM を使用するようにアプリ VM を構成する必要があります。 プロキシ VM は、仮想ネットワーク内の VM からの着信トラフィックを許可するように構成する必要があります。 Nsg 最後に、(という名前 *NSG ロックダウン*)、新しいセキュリティ ルール プロキシ VM からの発信インターネット トラフィックを許可する必要があります。
 
 ![HTTP プロキシ デプロイメントを使用した NSG の図](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
 
@@ -98,13 +96,13 @@ VM をバックアップする際、HTTPS API を使用してスナップショ�
 
     これにより、コンピューター全体のプロキシ構成が設定され、すべての発信 HTTP/ HTTPS トラフィックに使用されます。
 
-2. Linux マシン用に次の行を追加、 `/etc/環境` ファイル。
+2. Linux コンピューターの場合、次の行を ```/etc/environment``` ファイルに追加します。
 
     ```
     http_proxy=http://<proxy IP>:<proxy port>
     ```
 
-    次の行を追加、 `/etc/waagent.conf` ファイル。
+    次の行を ```/etc/waagent.conf``` ファイルに追加します。
 
     ```
 HttpProxy.Host=<proxy IP>
@@ -135,70 +133,66 @@ For the rest of the wizard, click all the way to the end and give this rule a na
 **C) Add an exception rule to the NSG:**
 
 In an Azure PowerShell command prompt, type out the following command:
+
 ```
 Get AzureNetworkSecurityGroup の名前を「ロックダウン NSG」|
 セット AzureNetworkSecurityRule-「できるようにプロキシ」という名前のアクションが許可する - TCP プロトコル-送信を入力-優先順位 200 SourceAddressPrefix「10.0.0.5/32」- SourcePortRange"*"DestinationAddressPrefix インターネット - DestinationPortRange"80-443"
 ```
 
-このコマンドでは、NSG に例外を追加します。これにより、10.0.0.5 の任意のポートから、ポート 80 (HTTP) または 443 (HTTPS) 上の任意のインターネット アドレスに TCP トラフィックを送信できます。 パブリック インターネット上で特定のポートをヒットする必要がある場合に追加するように、 `- DestinationPortRange` もします。
+This command adds an exception to the NSG, which allows TCP traffic from any port on 10.0.0.5 to any Internet address on port 80 (HTTP) or 443 (HTTPS). If you need to hit a specific port in the public Internet, make sure that you add that to the ```-DestinationPortRange``` as well.
 
-*例で使用されている名前は、デプロイメントに適した詳細情報に置き換えてください。*
+*Ensure that you replace the names in the example with the details appropriate to your deployment.*
 
-## 3.VM エージェント
+## 3. VM agent
 
-![VM エージェント](./media/backup-azure-vms-prepare/step3.png)
+![VM agent](./media/backup-azure-vms-prepare/step3.png)
 
-Azure 仮想マシンのバックアップを開始する前に、Azure VM エージェントが仮想マシンに正しくインストールされていることを確認してください。 VM エージェントは仮想マシンを作成する際のオプション コンポーネントであるため、仮想マシンをプロビジョニングする前に、VM エージェントのチェック ボックスがオンになっていることを確認します。
+Before you can back up the Azure virtual machine, you should ensure that the Azure VM agent is correctly installed on the virtual machine. Since the VM agent is an optional component at the time that the virtual machine is created, ensure that the check box for the VM agent is selected before the virtual machine is provisioned.
 
-### 手動によるインストールと更新
+### Manual installation and update
 
-VM エージェントは、Azure ギャラリーから作成された仮想マシン内に既に存在しています。 しかし、オンプレミスのデータセンターから移行された仮想マシンには VM エージェントがインストールされていません。 このような仮想マシンについては、VM エージェントを明示的にインストールする必要があります。 詳細について [既存の仮想マシンに VM エージェントをインストールする](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)します。
+The VM agent is already present in VMs that are created from the Azure gallery. However, virtual machines that are migrated from on-premises datacenters would not have the VM agent installed. For such VMs, the VM agent needs to be installed explicitly. Read more about [installing the VM agent on an existing VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
 
-| **操作**| **Windows**| **Linux**|
+| **Operation** | **Windows** | **Linux** |
 | --- | --- | --- |
-| VM エージェントのインストール| <li>ダウンロードし、インストール、 [エージェント MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)します。インストールを実行するには、管理者特権が必要です。<li>[VM プロパティを更新](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) をエージェントがインストールされていることを示します。| <li> 最新のインストール [Linux エージェント](https://github.com/Azure/WALinuxAgent) GitHub からです。インストールを実行するには、管理者特権が必要です。<li> [VM プロパティを更新](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) をエージェントがインストールされていることを示します。|
-| VM エージェントの更新| 再インストールするだけでは、VM エージェントを更新、 [VM エージェント バイナリ](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)します。<br><br>バックアップ操作が実行されていないこと、VM エージェントの更新を確認します。| 上の指示に従って [Linux VM エージェントを更新 ](../virtual-machines-linux-update-agent.md)します。<br><br>バックアップ操作が実行されていないこと、VM エージェントの更新を確認します。|
-| VM エージェントのインストールを検証します。| <li>移動し、 *C:\WindowsAzure\Packages* Azure VM 内のフォルダーです。<li>WaAppAgent.exe ファイルを検索する必要があります。<li>このファイルを右クリックして、**[プロパティ]** をクリックした後、**[詳細]** タブを選択します。製品バージョン] が 2.6.1198.718 をする必要がありますまたはそれ以降。| -|
+| Installing the VM agent | <li>Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You will need Administrator privileges to complete the installation. <li>[Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. | <li> Install the latest [Linux agent](https://github.com/Azure/WALinuxAgent) from GitHub. You will need Administrator privileges to complete the installation. <li> [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. |
+| Updating the VM agent | Updating the VM agent is as simple as reinstalling the [VM agent binaries](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br><br>Ensure that no backup operation is running while the VM agent is being updated. | Follow the instructions on [updating the Linux VM agent ](../virtual-machines-linux-update-agent.md). <br><br>Ensure that no backup operation is running while the VM agent is being updated. |
+| Validating the VM agent installation | <li>Navigate to the *C:\WindowsAzure\Packages* folder in the Azure VM. <li>You should find the WaAppAgent.exe file present.<li> Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher. | - |
 
 
-詳細について、 [VM エージェント](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) と [をインストールする方法](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/)します。
+Learn about the [VM agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) and [how to install it](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
-### バックアップ拡張機能
+### Backup extension
 
-仮想マシンをバックアップするために、Azure Backup サービスは VM エージェントの拡張機能をインストールします。 Azure Backup サービスは、バックアップ拡張機能のアップグレードと修正プログラムの適用をシームレスに自動実行します。
+To back up the virtual machine, the Azure Backup service installs an extension to the VM agent. The Azure Backup service seamlessly upgrades and patches the backup extension without additional user intervention.
 
-VM が実行されている場合、バックアップ拡張機能がインストールされます。 また、VM が実行されている場合は、アプリケーション整合性復旧ポイントを取得できる可能性が最も高くなります。 Azure Backup サービスは、VM がオフであり、拡張機能をインストールできない場合 (オフライン VM の場合) でも、VM のバックアップを続行します。 この場合、復旧ポイントは、前述した*クラッシュ整合性*復旧ポイントになります。
-
-
-## 制限事項
-
-- Azure リソース マネージャーに基づく (別名 IaaS V2) 仮想マシンのバックアップはサポートされません。
-- 16 台以上のデータ ディスクを搭載した仮想マシンのバックアップはサポートされません。
-- Premium Storage を使用した仮想マシンのバックアップはサポートされません。
-- 予約済み IP アドレスはあるがエンドポイントが定義されていない仮想マシンのバックアップはサポートされません。
-- 復元中に既存の仮想マシンを置き換えることはサポートされません。 まず既存の仮想マシンに関連付けられているディスクを削除し、次にバックアップからデータを復元します。
-- リージョン間のバックアップと復元はサポートされません。
-- Azure のすべてのパブリック領域に Azure Backup サービスを使用して仮想マシンのバックアップがサポートされている (を参照してください、 [チェックリスト](http://azure.microsoft.com/regions/#services) のサポートされているリージョン)。 目的のリージョンが現在サポートされていない場合は、資格情報コンテナーの作成時にドロップダウン リストに表示されません。
-- オペレーティング システムのバージョンの選択でサポートされるのは、Azure Backup サービスを使用した仮想マシンのバックアップのみです。
-  - **Linux**: を参照してください [Azure の動作保証済みディストリビューションの一覧](../virtual-machines-linux-endorsed-distributions.md)します。 他の個人所有の Linux ディストリビューションも、仮想マシン上で VM エージェントが動作する限り使用できます。
-  - **Windows Server**: Windows Server 2008 R2 より前のバージョンがサポートされていません。
-- マルチ DC 構成の一部であるドメイン コントローラー (DC) VM の復元は、PowerShell を通じてのみサポートされます。 詳細について [マルチ DC のドメイン コント ローラーを復元する](backup-azure-restore-vms.md#restoring-domain-controller-vms)します。
-- 次のような特殊なネットワーク構成を持つ仮想マシンの復元は、PowerShell でのみサポートされています。 UI の復元ワークフローを使用して作成する VM には、復元操作の完了後、これらのネットワーク構成は含まれません。 詳細については、次を参照してください。 [Vm 特別なネットワーク構成を復元する](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations)します。
-    - ロード バランサー構成 (内部および外部の) での仮想マシン
-    - 複数の予約済み IP アドレスを持つ仮想マシン
-    - 複数のネットワーク アダプターを持つ仮想マシン
-
-## 疑問がある場合
-
-質問がある場合、または「希望する機能が [フィードバックの送信](http://aka.ms/azurebackup_feedback)します。
-
-## 次のステップ
-
-- [VM バックアップ インフラストラクチャを計画します。](backup-azure-vms-introduction.md)
-- [仮想マシンをバックアップします。](backup-azure-vms.md)
-- [仮想マシンのバックアップを管理します。](backup-azure-manage-vms.md)
+The backup extension is installed if the VM is running. A running VM also provides the greatest chance of getting an application-consistent recovery point. However, the Azure Backup service will continue to back up the VM--even if it is turned off, and the extension could not be installed (aka Offline VM). In this case, the recovery point will be *crash consistent* as discussed above.
 
 
+## Limitations
 
+- Backing up Azure Resource Manager-based (aka IaaS V2) virtual machines is not supported.
+- Backing up virtual machines with more than 16 data disks is not supported.
+- Backing up virtual machines using Premium storage is not supported.
+- Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
+- Replacing an existing virtual machine during restore is not supported. First delete the existing virtual machine and any associated disks, and then restore the data from backup.
+- Cross-region backup and restore is not supported.
+- Backing up virtual machines by using the Azure Backup service is supported in all public regions of Azure (see the [checklist](http://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
+- Backing up virtual machines by using the Azure Backup service is supported only for select operating system versions:
+  - **Linux**: See [the list of distributions that are endorsed by Azure](../virtual-machines-linux-endorsed-distributions.md). Other Bring-Your-Own-Linux distributions also should work as long as the VM agent is available on the virtual machine.
+  - **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
+- Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-restore-vms.md#restoring-domain-controller-vms).
+- Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs that you create by using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
+    - Virtual machines under load balancer configuration (internal and external)
+    - Virtual machines with multiple reserved IP addresses
+    - Virtual machines with multiple network adapters
 
+## Questions?
+If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
+
+## Next steps
+
+- [Plan your VM backup infrastructure](backup-azure-vms-introduction.md)
+- [Back up virtual machines](backup-azure-vms.md)
+- [Manage virtual machine backups](backup-azure-manage-vms.md)
 

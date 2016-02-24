@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Azure Event Hubs は何ですか |。Microsoft Azure"
+    pageTitle="Azure Event Hubs とは | Microsoft Azure"
     description="Azure Event Hubs の概要"
     services="event-hubs"
     documentationCenter=".net"
@@ -15,7 +15,6 @@
     ms.topic="article"
     ms.date="11/05/2015"
     ms.author="sethm"/>
-
 
 # Azure Event Hubs とは
 
@@ -38,12 +37,10 @@ Event Hubs の他の重要な機能としては、モバイル アプリでの�
 Event Hubs の詳細については、次のトピックを参照してください。
 
 - [Event Hubs の概要](event-hubs-overview.md)
-- [Event Hub プログラミング ガイド](event-hubs-programming-guide.md)
-- [イベント ハブの可用性とサポートに関する FAQ](event-hubs-availability-and-support-faq.md)
-- を使ってみる [Event Hubs のチュートリアル][]
-- 完全な [Event Hubs を使用するサンプル アプリケーション][]
+- [Event Hubs のプログラミング ガイド](event-hubs-programming-guide.md)
+- [Event Hubs の可用性とサポートに関する FAQ](event-hubs-availability-and-support-faq.md)
+- 使ってみる、 [Event Hubs のチュートリアル][]
+- 完全な [Event Hub を使用するサンプル アプリケーション][]
 
-
-[event hubs tutorial]: event-hubs-csharp-ephcs-getstarted.md 
-[sample application that uses event hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097 
-
+[Event Hubs tutorial]: event-hubs-csharp-ephcs-getstarted.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097

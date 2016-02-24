@@ -15,12 +15,11 @@
     ms.date="10/21/2015" 
     ms.author="awills"/>
 
-
 # Application Insights を使用した Java トレース ログの探索
 
 トレース用に Logback または Log4J (v1.2 または v2.0) を使用している場合は、トレース ログを自動的に Application Insights に送信して、Application Insights でトレース ログを探索および検索できます。
 
-インストール [Application Insights SDK for Java ][java], をまだ完了していない場合は、です。
+インストール [Application Insights SDK for Java][java], をまだ完了していない場合は、です。
 
 
 ## プロジェクトへのログ ライブラリの追加
@@ -65,7 +64,7 @@
 
 #### Gradle を使用している場合:
 
-プロジェクトはビルドの Gradle を使用して既に設定されて場合に、次の行のいずれかを追加、 `の依存関係` build.gradle ファイルにグループ化します。
+プロジェクトが既に Gradle を使用してビルドする設定になっている場合は、次のいずれかの行を build.gradle ファイルの `dependencies` グループに追加します。
 
 次に、バイナリがダウンロードされるように、プロジェクトの依存関係を更新します。
 
@@ -86,17 +85,17 @@
 適切なアペンダーをダウンロードして展開し、適切なライブラリをプロジェクトに追加します。
 
 
- ロガー| ダウンロード| ライブラリ
+ロガー | ダウンロード | ライブラリ
 ----|----|----
- Logback| [Logback アペンダーを含む SDK](http://dl.windowsazure.com/applicationinsights/javabin/logbackAppender.zip)| applicationinsights-logging-logback
- Log4J v2.0| [Log4J v2 アペンダーを含む SDK](http://dl.windowsazure.com/applicationinsights/javabin/log4j2Appender.zip)| applicationinsights-logging-log4j2
- Log4j v1.2| [Log4J v1.2 アペンダーを含む SDK](http://dl.windowsazure.com/applicationinsights/javabin/log4j1_2Appender.zip)| applicationinsights-logging-log4j1_2
+Logback|[Logback アペンダーを含む SDK](http://dl.windowsazure.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
+Log4J v2.0|[Log4J v2 アペンダーを含む SDK](http://dl.windowsazure.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
+Log4j v1.2|[Log4J v1.2 アペンダーを含む SDK](http://dl.windowsazure.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1_2 
 
 
 
 ## ログ フレームワークへのアペンダーの追加
 
-トレースの取得を開始するには、適切なコード スニペットを Log4J または Logback の構成ファイルに追加します。
+トレースの取得を開始するには、適切なコード スニペットを Log4J または Logback の構成ファイルに追加します。 
 
 *Logback*
 
@@ -107,9 +106,10 @@
       <appender-ref ref="aiAppender" />
     </root>
 
+
 *Log4J v2.0*
 
-
+    
     <Appenders>
       <ApplicationInsightsAppender name="aiAppender" />
     </Appenders>
@@ -118,6 +118,7 @@
         <AppenderRef ref="aiAppender"/>
       </Root>
     </Loggers>
+
 
 *Log4J v1.2*
 
@@ -133,17 +134,17 @@ Application Insights のアペンダーは、上記のコード サンプルに�
 
 ## Application Insights ポータルでのトレースの探索
 
-これで、Application Insights にトレースを送信するプロジェクトを構成して、表示および Application Insights ポータルでこれらのトレースを検索、 [診断検索の ][diagnostic] ブレードです。
+これで、Application Insights にトレースを送信するプロジェクトを構成して、表示および Application Insights ポータルでこれらのトレースを検索、 [診断検索][diagnostic] ブレードです。
 
 ![Application Insights ポータルで診断検索を開きます](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
 ## 次のステップ
 
-[診断検索の ][diagnostic]
+[診断検索][diagnostic]
 
+<!--Link references-->
 
+[diagnostic]: app-insights-diagnostic-search.md
+[java]: app-insights-java-get-started.md
 
-
-[diagnostic]: app-insights-diagnostic-search.md 
-[java]: app-insights-java-get-started.md 
-
+ 

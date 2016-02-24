@@ -1,17 +1,12 @@
-1. Android Studio のツールバーのアイコンをクリックするか、またはメニューから **[Tools]**、**[Android]** -> **[SDK Manager]** を順にクリックすることによって、Android SDK Manager を開きます。 まだインストールしていない場合は、プロジェクトで使用する目的のバージョンの Android SDK を探して開き、**[Google APIs]** をオンにします。
+1. Android Studio のツールバーにあるアイコンをクリックするかをクリックして、Android SDK Manager を開く **ツール** ]-> [ **Android** ]-> [ **SDK Manager** メニュー。 プロジェクトで使用される Android SDK の目的のバージョンを探してを開き **Google APIs**, がインストールされていない場合。
 
-2. **[ファイル]** 、**[プロジェクト構造]** に移動します。 **[通知]** の下の [プッシュ通知] を有効にします。
+2. 移動して **ファイル**, 、**プロジェクト構造**します。 [プッシュ通知を有効にし、 **通知**します。
 
-3. **AndroidManifest.xml** を開き、このタグを *application* タグに追加します。
+3. 開いている **AndroidManifest.xml** このタグを追加し、 *アプリケーション* タグ。
 
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
-
-
-
-
-
+ 
 
 
 

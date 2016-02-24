@@ -17,19 +17,19 @@
    ms.date="11/26/2015"
    ms.author="hermannd"/>
 
-
 # Microsoft Azure SUSE Linux VM での SAP NetWeaver のテスト
+
 
 Microsoft Azure SUSE Linux VM で SAP NetWeaver をテストする際に考慮すべき項目の一覧を次に示します。
 現時点では、SAP-Linux-Azure に対する正式な SAP サポートの発表はありません。 
 それでもユーザーが実行いくつかのテスト、デモまたはプロトタイピング依存していない限り、
-公式の SAP サポートします。
+公式の SAP サポートします。 
 
 次の一覧は、いくつかの潜在的な落とし穴を回避し、作業をやりやすくすることに役立ちます。
 
 
 
-## Microsoft Azure で SAP をテストするための SUSE イメージ
+## Microsoft Azure で SAP をテストするための SUSE イメージ 
 
 Azure での SAP のテストには、SLES 11SP4 と SLES 12 のみを使用します。 特殊な SUSE イメージのことができます。
 Azure イメージ ギャラリーにあります: SLES 11 SP3 の SAP CAL」
@@ -49,28 +49,28 @@ Azure Powershell または CLI を使用して、バージョンは、次のコ�
    ```
 
 * SUSE からの既存の提供を検索:
-
+      
    ```
    PS  : Get-AzureVMImageOffer -Location "West Europe" -Publisher "SUSE"
    CLI : azure vm image list-offers westeurope SUSE
    ```
-
+      
 * SUSE SLES の提供を検索:
-
+      
    ```
    PS  : Get-AzureVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES"
    CLI : azure vm image list-skus westeurope SUSE SLES
    ```
-
+      
 * SLES sku の特定のバージョンを検索:
-
+      
    ```
    PS  : Get-AzureVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12"
    CLI : azure vm image list westeurope SUSE SLES 12
    ```
-
-## SUSE VM への WALinuxAgent のインストール
-
+     
+## SUSE VM への WALinuxAgent のインストール 
+ 
 このエージェントは、Azure ギャラリー内の SLES イメージの一部です。 ここでは場所のいずれかがどこで入手できます。
 手動でインストールすることに関する情報 (例: ときから SLES OS vhd をアップロードする内部設置型)。
 
@@ -102,7 +102,7 @@ nofail アプリケーションとマウント ポイントを使用する前回
 Eth0 などに変更する必要があります後で Azure で起動するときに、問題を回避するには、次のように説明します。
 ここでは: <https://dartron.wordpress.com/2013/09/27/fixing-eth1-in-cloned-sles-11-vmware/>
 
-この記事に記載されていることに加え、以下も削除することをお勧めします。
+この記事に記載されていることに加え、以下も削除することをお勧めします。 
 
    /lib/udev/rules.d/75-persistent-net-generator.rules
 
@@ -156,24 +156,20 @@ mdadm を使用して Azure で Linux RAID を設定する方法について説�
    ```
    zypper in -t pattern gnome
    ```
-
+      
    SLES 12
-
+   
    ```
    zypper in -t pattern gnome-basic
    ```
 
 ## クラウド内の Linux での SAP Oracle のサポート
-
+ 
 これは実際には Azure 固有のトピックではなく、全般的なものですが、 それでもことが重要です。
 理解します。 仮想化環境では、Linux 上の Oracle にはサポートの制約があります。
 最後につまり SUSE またはもパブリック クラウドで RedHat で SAP が Oracle をサポートしないこと
 Azure など。 
 このトピックについては、お客様が直接 Oracle に問い合わせる必要があります。
-
-
-
-
 
 
 

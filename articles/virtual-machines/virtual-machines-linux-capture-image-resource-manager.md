@@ -18,7 +18,6 @@
     ms.author="danlep"/>
 
 
-
 # リソース マネージャーのテンプレートとして使用する Linux 仮想マシンをキャプチャする方法
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [従来のデプロイ モデル](virtual-machines-linux-capture-image.md)します。
@@ -30,38 +29,40 @@
 
 これらの手順では、既に Azure リソース マネージャー デプロイ モデルによって Azure 仮想マシンが作成され、データ ディスクの接続やその他のカスタマイズ (たとえば、アプリケーションのインストールなど) を含むオペレーティング システムの構成が完了していると仮定します。 この作業をまだ完了していない場合は、Azure CLI を Azure リソース マネージャー モードで使用するための次の手順を参照してください。
 
-- [展開し、Azure リソース マネージャー テンプレートと Azure CLI を使用して仮想マシンの管理](virtual-machines-deploy-rmtemplates-azure-cli.md)
+- [Azure リソース マネージャー テンプレートと Azure CLI を使用した仮想マシンのデプロイと管理](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
-たとえば、*MyResourceGroup* という名前のリソース グループを米国中部リージョンで作成するとします。 次のような **azure vm quick-create** コマンドを使用して、Ubuntu 14.04 LTS VM をリソース グループにデプロイします。
+たとえば、という名前のリソース グループを作成する場合があります *MyResourceGroup* Central US リージョンにします。 使用して、 **azure vm の簡易作成** 、リソース グループ内の Ubuntu 14.04 LTS VM を展開するには、次のようなコマンドです。
 
     azure vm quick-create -g MyResourceGroup -n <your-virtual-machine-name> "centralus" -y Linux -Q canonical:ubuntuserver:14.04.2-LTS:14.04.201507060 -u <your-user-name> -p <your-password>
 
 VM をプロビジョニングし実行したら、データ ディスクを接続しマウントすることができます。 手順を参照して [ここ](virtual-machines-linux-tutorial.md#attach-and-mount-a-disk)します。
 
-その他のカスタマイズを実行するには、任意の SSH クライアントを使用して VM に接続する必要があります。 詳細については、「 [Azure Linux VM を使用して、ssh の接続](virtual-machines-linux-tutorial-portal-rm.md#connect-to-your-azure-linux-vm-using-strongsshstrong)します。
+その他のカスタマイズを実行するには、任意の SSH クライアントを使用して VM に接続する必要があります。 詳細については、「 [Azure Linux VM を使用して、ssh への接続](virtual-machines-linux-tutorial-portal-rm.md#connect-to-your-azure-linux-vm-using-strongsshstrong)します。
 
 
 ## VM をキャプチャする
 
 1. VM をキャプチャする準備ができたら、SSH クライアントを使用して VM に接続します。
 
-2. SSH のウィンドウで、次のコマンドを入力します。 **waagent** からの出力はこのユーティリティのバージョンによって多少異なる場合があることに注意してください。
+2. SSH のウィンドウで、次のコマンドを入力します。 なおからの出力 **waagent** このユーティリティのバージョンによって多少異なる場合があります。
 
-    `sudo waagent-プロビジョニング解除 + ユーザー`
+    `sudo waagent -deprovision+user`
 
     このコマンドは、システムをクリーンアップし、再プロビジョニングに適した状態にします。 この操作では次のタスクが実行されます。
 
     - すべての SSH ホスト キーの削除 (構成ファイルで Provisioning.RegenerateSshHostKeyPair が 'y' の場合)
     - /etc/resolv.conf 内のネームサーバー構成の消去
-    - 削除、 `ルート` /etc/シャドウ (Provisioning.DeleteRootPassword が 'y'、構成ファイル内の場合) からユーザーのパスワード
+    - /etc/shadow の `root` ユーザーのパスワードの削除 (構成ファイルで Provisioning.DeleteRootPassword が 'y' の場合)
     - キャッシュされた DHCP クライアントのリースの削除
     - ホスト名を localhost.localdomain にリセット
     - (/var/lib/waagent から取得した) 前回プロビジョニングされたユーザー アカウントおよび関連データの削除
-    >[AZURE.NOTE] プロビジョニング解除では、イメージを "一般化" する目的でファイルとデータが削除されます。 このコマンドはイメージとしてキャプチャする VM に対して実行するだけとします。 プロビジョニング解除により、イメージからすべての機密情報が削除されることや、イメージが第三者への再配布に適した状態になることが保証されるわけではありません。
 
-3. 「**y**」と入力して続行します。 **-force** パラメーターを追加すると、この確認手順を省略できます。
+    >[AZURE.NOTE] イメージを「一般化」する目的でファイルを削除してデータをプロビジョニング解除されます。 このコマンドはイメージとしてキャプチャする VM に対して実行するだけとします。 プロビジョニング解除により、イメージからすべての機密情報が削除されることや、イメージが第三者への再配布に適した状態になることが保証されるわけではありません。
 
-4. 「**exit**」と入力して、SSH クライアントを閉じます。
+3. 型 **y** を続行します。 追加することができます、 **-強制的に** パラメーターがこの確認手順を省略します。
+
+4. 型 **終了** SSH クライアントを閉じます。
+
     >[AZURE.NOTE] 次のステップでは、既にあると仮定 [Azure CLI をインストールして](../xplat-cli-install.md) 、クライアント コンピューターにします。
 
 5. クライアント コンピューターから Azure CLI を開き、Azure サブスクリプションにログインします。 詳細については、読み取り [Azure CLI から Azure サブスクリプションへの接続](../xplat-cli-connect.md)します。
@@ -72,48 +73,48 @@ VM をプロビジョニングし実行したら、データ ディスクを接�
 
 7. 次のコマンドを使用して、既にプロビジョニング解除されている VM を停止します。
 
-    `azure vm を停止 n – g < your リソースのグループ名 > < your、仮想のマシンの名前 >`
+    `azure vm stop –g <your-resource-group-name> -n <your-virtual-machine-name>`
 
 8. 次のコマンドを使用して VM を汎用化します。
 
-    `n – g < your リソースのグループ名 > < your、仮想のマシンの名前 > azure vm を汎用化します。`
+    `azure vm generalize –g <your-resource-group-name> -n <your-virtual-machine-name>`
 
 9. ここで、次のコマンドを使用してイメージとローカル ファイル テンプレートをキャプチャします。
 
-    `azure vm のキャプチャ – g < your リソースのグループ名 > n < your、仮想のマシンの名前 >-p < your vhd の名前のプレフィックス >-t < your-テンプレートのファイル-name.json >`
+    `azure vm capture –g <your-resource-group-name> -n <your-virtual-machine-name> -p <your-vhd-name-prefix> -t <your-template-file-name.json>`
 
-    このコマンドは、VM ディスクに対して指定された VHD 名のプレフィックスを使用して、汎用化された OS イメージを作成します。 イメージ VHD ファイルは、既定では、元の VM が使用していたのと同じストレージ アカウントに作成されます。 **-t** オプションを指定すると、イメージから新しい VM を作成する際に使用できるローカル JSON ファイル テンプレートが作成されます。
+    このコマンドは、VM ディスクに対して指定された VHD 名のプレフィックスを使用して、汎用化された OS イメージを作成します。 イメージ VHD ファイルは、既定では、元の VM が使用していたのと同じストレージ アカウントに作成されます。  **-T** オプションは、イメージから新しい VM を作成に使用できるローカルの JSON ファイルのテンプレートを作成します。
 
->[AZURE.TIP] イメージの場所を見つけるには、JSON ファイル テンプレートを開きます。 **storageProfile** で、**システム** コンテナー内に位置する**イメージ**の **uri** を見つけます。 たとえば、OS ディスク イメージの uri はのような `https://clixxxxxxxxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/your-prefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`します。
+>[AZURE.TIP] イメージの場所を見つけるには、JSON ファイルのテンプレートを開きます。  **StorageProfile**, 、検索、 **uri** の **イメージ** にある、 **システム** コンテナーです。 たとえば、OS ディスク イメージの uri は `https://clixxxxxxxxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/your-prefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd` のようになります。
 
 ## キャプチャしたイメージから新しい VM をデプロイする
-
-ここで、イメージとテンプレートを使用して、新しい Linux VM を作成します。 以下の手順は、Azure CLI とで作成した JSON ファイルのテンプレートを使用する方法を示して、 `azure vm のキャプチャ` 新しい仮想ネットワークに VM を作成するコマンドです。
+ここで、イメージとテンプレートを使用して、新しい Linux VM を作成します。 次の手順では、Azure CLI と、`azure vm capture` コマンドで作成した JSON ファイル テンプレートを使用して、新しい仮想ネットワークに VM を作成する方法を説明します。
 
 ### ネットワーク リソースを作成する
 
 テンプレートを使用するには、まず、新しい VM に対して仮想ネットワークと NIC をセットアップする必要があります。 これらのリソース用に新しいリソース グループを作成することをお勧めします。 次に示すようなコマンドに、リソースの名前と適切な Azure の場所 (次のコマンドでは "centralus") を指定して実行します。
 
     azure group create <your-new-resource-group-name> -l "centralus"
-    
+
     azure network vnet create <your-new-resource-group-name> <your-vnet-name> -l "centralus"
-    
+
     azure network vnet subnet create <your-new-resource-group-name> <your-vnet-name> <your-subnet-name>
-    
+
     azure network public-ip create <your-new-resource-group-name> <your-ip-name> -l "centralus"
-    
+
     azure network nic create <your-new-resource-group-name> <your-nic-name> -k <your-subnetname> -m <your-vnet-name> -p <your-ip-name> -l "centralus"
 
 キャプチャ中に保存した JSON を使用して、イメージから仮想マシンをデプロイするには、NIC の ID が必要です。 これを取得するには、次のコマンドを実行します。
 
     azure network nic show <your-new-resource-group-name> <your-nic-name>
 
-出力内の **ID** は、次のような文字列となります。
+ **Id** 出力は次のような文字列。
 
     /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/<your-new-resource-group-name>/providers/Microsoft.Network/networkInterfaces/<your-nic-name>
 
-### 新しいデプロイを作成する
 
+
+### 新しいデプロイを作成する
 ここで、次のコマンドを実行して、キャプチャした VM イメージと保存したテンプレート JSON ファイルとから VM を作成します。
 
     azure group deployment create –g <your-new-resource-group-name> -n <your-new-deployment-name> -f <your-template-file-name.json>
@@ -139,22 +140,22 @@ VM をプロビジョニングし実行したら、データ ディスクを接�
     data:    Timestamp          : 2015-10-29T16:35:47.3419991Z
     data:    Mode               : Incremental
     data:    Name                Type          Value
-    
-    
+
+
     data:    ------------------  ------------  -------------------------------------
-    
+
     data:    vmName              String        mynewvm
-    
-    
+
+
     data:    vmSize              String        Standard_D1
-    
-    
+
+
     data:    adminUserName       String        myadminuser
-    
-    
+
+
     data:    adminPassword       SecureString  undefined
-    
-    
+
+
     data:    networkInterfaceId  String        /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/mynewrg/providers/Microsoft.Network/networkInterfaces/mynewnic
     info:    group deployment create command OK
 
@@ -171,7 +172,7 @@ VM をプロビジョニングし実行したら、データ ディスクを接�
 前のセクションで概説した手順を使用して追加の VM をデプロイするには、キャプチャしたイメージとテンプレートを使用します。
 
 * VM イメージが、VM の VHD をホストするのと同じストレージ アカウントにあることを確認します。
-* テンプレート JSON ファイルをコピーし、各 VM の VHD の **uri** として一意の値を入力します。
+* テンプレートの JSON ファイルをコピーし、一意の値を入力、 **uri** 各 VM の VHD の
 * 同じ仮想ネットワークまたは別の仮想ネットワークに新しい NIC を作成します。
 * 変更したテンプレート JSON ファイルを使用して、仮想ネットワークをセットアップするリソース グループ内にデプロイメントを作成します。
 
@@ -179,26 +180,22 @@ VM をプロビジョニングし実行したら、データ ディスクを接�
 
 ## azure vm create コマンドを使用する
 
-一般には、リソース マネージャー テンプレートを使用して、イメージから VM を作成します。 ただし、**azure vm create** コマンドと **--os-disk-vhd** (**-d**) パラメーターを組み合わせて使用して VM を_強制的に_作成することができます。
+一般には、リソース マネージャー テンプレートを使用して、イメージから VM を作成します。 ただし、VM を作成することができます _強制的_ を使用して、 **azure 仮想マシンの作成** コマンドと組み合わせて、 **--os ディスク vhd** (**-d**) パラメーター。  
 
-イメージで **azure vm create** を実行する前に次の操作を行います。
+実行する前に次の操作を **azure 仮想マシンの作成** 、イメージを使用します。
 
 1.  新しいリソース グループを作成するか、デプロイ用に既存のリソース グループを特定します。
 
 2.  新しい VM 用のパブリック IP アドレス リソースと NIC リソースを作成します。 CLI を使用して仮想ネットワーク、パブリック IP アドレス、および NIC を作成する手順については、この記事の前の手順で参照してください。 (**azure 仮想マシンの作成** 新しい NIC を作成することも、仮想ネットワークとサブネットの追加のパラメーターを渡す必要があります)。
 
-3.  フォルダー (仮想ディレクトリ) が存在しない BLOB コンテナーの場所にイメージ VHD を必ずコピーします。 Blob ストレージ コンテナーの入れ子になったフォルダーに既定では、キャプチャしたイメージが格納されている (ような URI `https://clixxxxxxxxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/your-prefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`します。 **azure vm create** コマンドは、現時点では、BLOB コンテナーの最上位に格納された OS ディスク VHD からのみ VM を作成できます。 たとえば、イメージ VHD をコピーする場合がありますに `https://yourstorage.blob.core.windows.net/vhds/your-prefix-OsDisk.vhd`します。
+3.  フォルダー (仮想ディレクトリ) が存在しない BLOB コンテナーの場所にイメージ VHD を必ずコピーします。 既定では、キャプチャしたイメージは、ストレージ BLOB コンテナー内の入れ子のフォルダーに格納されます (URI は`https://clixxxxxxxxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/your-prefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd` のようになります)。  **Azure 仮想マシンの作成** コマンド現在 VM を作成できます上部にある VHD が格納されている OS ディスクからのみ、blob コンテナーのレベルです。 たとえば、イメージ VHD を `https://yourstorage.blob.core.windows.net/vhds/your-prefix-OsDisk.vhd` にコピーします。  
 
 次のようなコマンドを実行します。
 
     azure vm create -g <your-resource-group-name> -n <your-new-vm-name> -l eastus -y Linux -o <your-storage-account-name> -d "https://yourstorage.blob.core.windows.net/vhds/your-prefix-OsDisk.vhd" -z Standard_A1 -u <your-admin-name> -p <your-admin-password> -f <your-nic-name>
-
-その他のコマンド オプション、実行 `azure vm の作成を支援`します。
+    
+追加のコマンド オプションについては、`azure help vm create` を実行してください。
 
 ## 次のステップ
 
-CLI を使用して仮想マシンの管理、内のタスクを参照してください。 [展開 Azure リソース マネージャー テンプレートと Azure CLI を使用して仮想マシンの管理と](virtual-machines-deploy-rmtemplates-azure-cli.md)します。
-
-
-
-
+CLI を使用して仮想マシンの管理、内のタスクを参照してください。 [展開 Azure リソース マネージャー テンプレートと Azure CLI を使用して仮想マシンの管理と](virtual-machines-deploy-rmtemplates-azure-cli.md)です。

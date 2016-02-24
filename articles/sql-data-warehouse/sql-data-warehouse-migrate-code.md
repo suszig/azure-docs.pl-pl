@@ -16,7 +16,6 @@
    ms.date="12/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
-
 # SQL Data Warehouse への SQL コードの移行
 
 コードが SQL Data Warehouse と必ず準拠するようにするには、多くの場合、コード ベースに変更を加える必要があります。 一部の SQL Data Warehouse 機能は分散環境で直接機能するように設計されているため、大幅にパフォーマンスを向上できます。 ただし、パフォーマンスと拡張性を維持するには、一部の機能が使用できなくなる場合もあります。
@@ -25,13 +24,13 @@
 
 Azure SQL Data Warehouse でサポートされていない主な機能を次の表に示します。 リンクをクリックすると、サポートされていない機能に対する解決策が表示されます。
 
-- [更新プログラムのでの ANSI の join][]
-- [削除での ANSI の join][]
-- [merge ステートメントの][]
+- [更新プログラムでの ANSI の join][]
+- [削除時に ANSI 結合][]
+- [merge ステートメント][]
 - 複数データベースの JOIN
 - [カーソル][]
-- [選択します。に][]
-- [INSERT.EXEC][]
+- [SELECT..INTO][]
+- [挿入]EXEC]
 - OUTPUT 句
 - インライン ユーザー定義関数
 - 複数ステートメント関数
@@ -45,16 +44,15 @@ Azure SQL Data Warehouse でサポートされていない主な機能を次の�
 - コミット/ロールバック処理
 - トランザクションの保存
 - 実行コンテキスト (EXECUTE AS)
-- [による句をグループ化/キューブ/セット オプションのをグループ化][]
+- [rollup / cube / grouping セット オプションによる句ごとのグループ化][]
 - [8 を超えるの入れ子のレベル][]
-- [ビューのを使用した更新][]
-- [変数の割り当ての選択の使用][]
-- [動的 SQL の最大のデータ型には、を文字列なし][]
+- [ビューを使用した更新][]
+- [変数代入のための SELECT の使用][]
+- [動的 SQL 文字列の MAX 以外のデータ型][]
 
 幸運なことに、これらの制限の大部分は回避できます。 上記の関連する開発記事に説明が記載されています。
 
 ### 共通テーブル式
-
 SQL Data Warehouse 内の共通テーブル式 (CTE) の現在の実装には、次の機能と制限事項があります。
 
 **CTE の機能**
@@ -77,7 +75,7 @@ SQL Data Warehouse 内の共通テーブル式 (CTE) の現在の実装には、
 
 ### 再帰共通テーブル式 (CTE)
 
-これは複雑な移行シナリオで、CTE を分解したり、順番に処理したりする場合に最適です。 通常、再帰的な中間クエリの反復処理時に、ループを使用したり、一時テーブルに値を取り込んだりできます。 一時テーブルに値が取り込まれたら、単一の結果セットとしてデータを戻すことができます。 解決するために、同様のアプローチが使用されて `GROUP BY WITH CUBE` で、 [による句をグループ化/キューブ/セット オプションのをグループ化][] 記事です。
+これは複雑な移行シナリオで、CTE を分解したり、順番に処理したりする場合に最適です。 通常、再帰的な中間クエリの反復処理時に、ループを使用したり、一時テーブルに値を取り込んだりできます。 一時テーブルに値が取り込まれたら、単一の結果セットとしてデータを戻すことができます。 解決するために、同様のアプローチが使用された `GROUP BY WITH CUBE` で、 [による句をグループ化/キューブ/オプションを設定をグループ化][] 記事です。
 
 ### システム関数
 
@@ -91,7 +89,7 @@ SQL Data Warehouse 内の共通テーブル式 (CTE) の現在の実装には、
 - ROWCOUNT_BIG
 - ERROR_LINE()
 
-これらの問題の大部分も回避できます。
+これらの問題の大部分も回避できます。 
 
 たとえば、次のコードは、@@ROWCOUNT 情報を取得するための代替ソリューションです。
 
@@ -106,32 +104,29 @@ AND     request_id IN
                         ORDER BY end_time DESC
                     )
 ;
-```
+``` 
 
 ## 次のステップ
-
 コード開発についてを参照してください、 [開発の概要][]します。
 
+<!--Image references-->
 
+<!--Article references-->
+[ANSI joins on updates]: sql-data-warehouse-develop-ctas.md
+[ANSI joins on deletes]: sql-data-warehouse-develop-ctas.md
+[merge statement]: sql-data-warehouse-develop-ctas.md
+[INSERT..EXEC]: sql-data-warehouse-develop-temporary-tables.md
 
+[cursors]: sql-data-warehouse-develop-loops.md
+[SELECT..INTO]: sql-data-warehouse-develop-ctas.md
+[group by clause with rollup / cube / grouping sets options]: sql-data-warehouse-develop-group-by-options.md
+[nesting levels beyond 8]: sql-data-warehouse-develop-transactions.md
+[updating through views]: sql-data-warehouse-develop-views.md
+[use of select for variable assignment]: sql-data-warehouse-develop-variable-assignment.md
+[no MAX data type for dynamic SQL strings]: sql-data-warehouse-develop-dynamic-sql.md
+[development overview]: sql-data-warehouse-overview-develop.md
 
+<!--MSDN references-->
 
-
-
-
-
-
-
-[ansi joins on updates]: sql-data-warehouse-develop-ctas.md 
-[ansi joins on deletes]: sql-data-warehouse-develop-ctas.md 
-[merge statement]: sql-data-warehouse-develop-ctas.md 
-[insert..exec]: sql-data-warehouse-develop-temporary-tables.md 
-[cursors]: sql-data-warehouse-develop-loops.md 
-[select..into]: sql-data-warehouse-develop-ctas.md 
-[group by clause with rollup / cube / grouping sets options]: sql-data-warehouse-develop-group-by-options.md 
-[nesting levels beyond 8]: sql-data-warehouse-develop-transactions.md 
-[updating through views]: sql-data-warehouse-develop-views.md 
-[use of select for variable assignment]: sql-data-warehouse-develop-variable-assignment.md 
-[no max data type for dynamic sql strings]: sql-data-warehouse-develop-dynamic-sql.md 
-[development overview]: sql-data-warehouse-overview-develop.md 
+<!--Other Web references-->
 

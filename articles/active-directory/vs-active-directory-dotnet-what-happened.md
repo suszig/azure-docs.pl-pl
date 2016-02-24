@@ -16,11 +16,10 @@
     ms.date="09/03/2015"
     ms.author="tarcher"/>
 
-
 # MVC プロジェクト (Visual Studio Azure Active Directory 接続済みサービス) の変更点
 
 > [AZURE.SELECTOR]
-> - [作業の開始](vs-active-directory-dotnet-getting-started.md)
+> - [Getting Started (概要)](vs-active-directory-dotnet-getting-started.md)
 > - [変更内容](vs-active-directory-dotnet-what-happened.md)
 
 
@@ -55,11 +54,11 @@
 
 ### コード ファイルがプロジェクトに追加された
 
-認証スタートアップ クラス **App_Start/Startup.Auth.cs** が Azure AD 認証のスタートアップ ロジックを含むプロジェクトに追加されました。 さらに、**SignIn(**) メソッドと **SignOut()** メソッドを含むコントローラー クラス Controllers/AccountController.cs が追加されました。 最後に、SignIn/SignOut のアクション リンクを含む部分ビュー **Views/Shared/_LoginPartial.cshtml** が追加されました。
+認証スタートアップ クラス、 **App_Start/Startup.Auth.cs** Azure AD 認証のスタートアップ ロジックを含むプロジェクトに追加されました。 また、コント ローラー クラス Controllers/AccountController.cs が含むを追加するされました **SignIn()** と **SignOut()** メソッドです。 最後に、部分ビュー **Views/Shared/_LoginPartial.cshtml** Signin/signout のアクション リンクを含むようになりました。
 
 ### スタートアップ コードがプロジェクトに追加された
 
-既にプロジェクトに Startup クラスがある場合、**Configuration** メソッドが **ConfigureAuth(app)** 呼び出しを含むように更新されました。 それ以外の場合は、Startup クラスがプロジェクトに追加されました。
+プロジェクトに Startup クラスが既に、 **構成** メソッドの呼び出しを含めるが更新されて **ConfigureAuth(app)**します。 それ以外の場合は、Startup クラスがプロジェクトに追加されました。
 
 ### app.config または web.config に新しい構成値が含まれる
 
@@ -75,11 +74,9 @@
     </appSettings>
 
 ### Azure Active Directory (AD) アプリが作成された
-
 ウィザードで選択したディレクトリに Azure AD アプリケーションが作成されました。
 
-## *[個々のユーザー アカウントの認証を無効にする]* がオンになっている場合にプロジェクトに対して行われた追加の変更
-
+##オンになっている場合 *個々 のユーザー アカウント認証を無効にする*, 、自分のプロジェクトにどのような変更が加えられたか。
 NuGet パッケージのリファレンスが削除されるほか、ファイルが削除およびバックアップされます。 プロジェクトの状態によっては、追加のリファレンスやファイルを手動で削除したり、必要に応じてコードを変更しなければならない場合があります。
 
 ### 削除される NuGet パッケージのリファレンス (存在する場合)
@@ -106,11 +103,11 @@ NuGet パッケージのリファレンスが削除されるほか、ファイ�
 - **Controllers\AccountController.cs**
 - **Views\Shared\_LoginPartial.cshtml**
 
-## *[ディレクトリ データの読み取り]* がオンになっている場合、プロジェクトにはどのような変更が加えられますか。
+## オンになっている場合 *ディレクトリ データを読み取る*, 、自分のプロジェクトにどのような変更が加えられたか。
 
 リファレンスがさらに追加されました。
 
-### NuGet パッケージの追加リファレンス
+###NuGet パッケージの追加リファレンス
 
 - **EntityFramework**
 - **Microsoft.Azure.ActiveDirectory.GraphClient**
@@ -120,7 +117,7 @@ NuGet パッケージのリファレンスが削除されるほか、ファイ�
 - **Microsoft.IdentityModel.Clients.ActiveDirectory**
 - **System.Spatial**
 
-### 追加の .NET リファレンス
+###追加の .NET リファレンス
 
 - **EntityFramework**
 - **EntityFramework.SqlServer**
@@ -132,15 +129,15 @@ NuGet パッケージのリファレンスが削除されるほか、ファイ�
 - **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms**
 - **System.Spatial**
 
-### コード ファイルがプロジェクトにさらに追加された
+###コード ファイルがプロジェクトにさらに追加された
 
-トークンのキャッシュをサポートするために次の 2 つのファイルが追加されました。**Models\ADALTokenCache.cs** と **Models\ApplicationDbContext.cs**。 Azure Graph API を使用するユーザー プロファイル情報へのアクセスについて説明するために、コント ローラーとビューがさらに追加されました。 これらのファイルは **Controllers\UserProfileController.cs** と **Views\UserProfile\Index.cshtml** です。
+トークン キャッシュをサポートする 2 つのファイルが追加されました: **Models\ADALTokenCache.cs** と **Models\ApplicationDbContext.cs**します。  Azure Graph API を使用するユーザー プロファイル情報へのアクセスについて説明するために、コント ローラーとビューがさらに追加されました。  これらのファイルは **Controllers\UserProfileController.cs** と **Views\UserProfile\Index.cshtml**します。
 
-### スタートアップ コードがプロジェクトにさらに追加された
+###スタートアップ コードがプロジェクトにさらに追加された
 
-**startup.auth.cs** で、新しい **OpenIdConnectAuthenticationNotifications** オブジェクトが **OpenIdConnectAuthenticationOptions** の **Notifications** メンバーに追加されました。 これは、OAuth コードを受信できるようにして、アクセス トークンと交換するためのものです。
+ **Startup.auth.cs** ファイルでは、新しい **OpenIdConnectAuthenticationNotifications** に追加されたオブジェクト、 **通知** のメンバー、 **OpenIdConnectAuthenticationOptions**します。  これは、OAuth コードを受信できるようにして、アクセス トークンと交換するためのものです。
 
-### app.config または web.config にさらに変更が加えられた
+###app.config または web.config にさらに変更が加えられた
 
 次の構成エントリがさらに追加されました。
 
@@ -151,7 +148,7 @@ NuGet パッケージのリファレンスが削除されるほか、ファイ�
 次の構成セクションと接続文字列が追加されました。
 
     <configSections>
-        
+        <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
         <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
     </configSections>
     <connectionStrings>
@@ -168,13 +165,9 @@ NuGet パッケージのリファレンスが削除されるほか、ファイ�
         </providers>
     </entityFramework>
 
-### Azure Active Directory アプリが更新された
 
-Azure Active Directory アプリが更新され、*ディレクトリ データの読み取り*アクセス許可が含まれるようになりました。また、**web.config** ファイルで *ida:ClientSecret* として使用される追加のキーが作成されました。
+###Azure Active Directory アプリが更新された
+Azure Active Directory アプリが追加されましたが、 *ディレクトリ データを読み取る* アクセス許可と追加のキーとして使用されたを作成した、 *ida: ClientSecret* で、 **web.config** ファイルです。
 
-[Azure Active Directory の詳細についてください。](http://azure.microsoft.com/services/active-directory/)
-
-
-
-
+[Azure Active Directory の詳細を確認する](http://azure.microsoft.com/services/active-directory/)
 

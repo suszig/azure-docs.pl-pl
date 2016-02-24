@@ -1,6 +1,6 @@
 <properties
    pageTitle="スマート キャッシュ設計パターン | Microsoft Azure"
-   description="Service Fabric の高信頼アクター プログラミング モデルを利用し、Web ベース アプリケーションのキャッシュ インフラストラクチャを構築する方法の設計パターン。"
+   description="Service Fabric の Reliable Actors  ログラミング モデルを利用し、Web ベース アプリケーションのキャッシュ インフラストラクチャを構築する方法の設計パターン。"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -16,7 +16,6 @@
    ms.date="11/13/2015"
    ms.author="vturecek"/>
 
-
 # 高信頼アクターの設計パターン: スマート キャッシュ
 
 Web 層、キャッシュ層、ストレージ層、および場合によっては worker 層の組み合わせは、現在のアプリケーションの標準的な部分とよく一致します。 通常、キャッシュ層はパフォーマンスにとって非常に重要であり、実際には、それ自体が複数の階層で構成される場合があります。
@@ -27,7 +26,7 @@ Web 層、キャッシュ層、ストレージ層、および場合によって�
 
 ## スコアボードのサンプル
 
-例としてスコアボードを考えます。Leaderboard オブジェクトは、クエリできるようにプレーヤーとスコアのソートされたリストを維持する必要があります。たとえば、"上位 100 プレーヤー" や、上下 N プレーヤーを基準にしたスコアボード内でのプレーヤーの位置を検索する場合などです。従来のツールによる標準的なソリューションで、' GET'ing Leaderboard オブジェクト (新しいタプルが、挿入をサポートするコレクション<Player, Points> Score という名前)、それをソートし、最後に ' PUT'ing キャッシュへのバックアップを作成します。おそらく、整合性のために Leaderboard オブジェクトをロック (GETLOCK、PUTLOCK) します。
+例としてスコアボードを考えます。Leaderboard オブジェクトは、クエリできるようにプレーヤーとスコアのソートされたリストを維持する必要があります。 たとえば、"上位 100 プレーヤー" や、上下 N プレーヤーを基準にしたスコアボード内でのプレーヤーの位置を検索する場合などです。 従来のツールによる標準的なソリューションで、' GET'ing Leaderboard オブジェクト (新しいタプルが、< プレイヤー、ポイント > Score という名前の挿入をサポートするコレクション)、それをソートし、最後に ' PUT'ing キャッシュへのバックアップを作成します。 おそらく、整合性のために Leaderboard オブジェクトをロック (GETLOCK、PUTLOCK) します。
 状態と動作が一緒になったアクター ベースのソリューションを考えます。 2 つのオプションがあります。
 
 * アクターの一部として Leaderboard コレクションを実装します。
@@ -48,6 +47,7 @@ public interface ILeaderboard : IActor
     // Returns the specific position of the player relative to other players
     Task<List<Score>> GetPosition(long player, int range);
 }
+
 ```
 
 次に、このインターフェイスを実装し、後者のオプションを使用して、このコレクションの動作をアクターにカプセル化します。
@@ -76,6 +76,7 @@ public class Leaderboard : StatefulActor<LeaderboardCollection>, ILeaderboard
         return Task.FromResult(State.FindPosition(player, range));
     }
 }
+
 ```
 
 クラスの state メンバーは、アクターの状態を提供します。上のサンプル コードでは、データの読み取り/書き込みのメソッドも提供します。
@@ -105,6 +106,7 @@ public class LeaderboardCollection
         …
     }
 }
+
 ```
 
 データ シッピングはなく、ロックはなく、分散ランタイム内のリモート オブジェクトを操作するだけであり、ただ 1 つのクライアントにサービスを提供する単一のアプリケーションの 1 つのオブジェクトであるかのように複数のクライアントにサービスを提供します。  
@@ -135,7 +137,6 @@ Player = 2 Points = 100
 ```
 
 ## アーキテクチャの拡張
-
 上の例では Leaderboard インスタンスにボトルネックが作成されると思うかもしれません。 たとえば、何百、何千ものプレーヤーのサポートを計画していたとするとどうでしょう。 1 つの方法は、バッファーのように機能するステートレスなアグリゲーターを導入することです。部分的なスコアを保持し (たとえば小計)、定期的にそれを Leaderboard アクターに送信します。アクターは、最終的な Leaderboard を維持できます。 この「集計」手法の詳細については、後で説明します。
 また、正しく動作する同時実行プログラムによって従来必要であったミューテックス、セマフォ、またはその他の同時実行構造を考慮する必要はありません。
 次に示すのは、アクターで実装可能なリッチなセマンティクスを示すもう 1 つのキャッシュの例です。 今度は、アクターの実装の一部として、優先順位キューのロジックを実装しています (値が小さいほど、優先順位が高い)。
@@ -222,6 +223,7 @@ public class JobQueue : StatefulActor<List<Jobs>>, IJobQueue
         return Task.FromResult(data.Count);
     }
 }
+
 ```
 
 出力は次のようになります。
@@ -240,7 +242,6 @@ Job = 1 Priority = 0.97444181375878
 ```
 
 ## アクターの柔軟性
-
 Leaderboard と JobQueue のサンプルでは、2 つの方法を使用しました。
 
 * Leaderboard サンプルでは、Leaderboard オブジェクトをアクターのプライベート メンバー変数としてカプセル化し、このオブジェクトに対する状態と機能の両方のインターフェイスだけを提供しました。
@@ -278,6 +279,7 @@ public Task RefreshRates()
 {
     // this is where we will make an external call and populate rates
 }
+
 ```
 
 基本的にスマート キャッシュは以下のことを提供します。
@@ -298,16 +300,15 @@ public Task RefreshRates()
 
 [パターン: ステートフル サービスの構成](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
 
-[モ ノのインターネットのパターン:](service-fabric-reliable-actors-pattern-internet-of-things.md)
+[パターン: モノのインターネット](service-fabric-reliable-actors-pattern-internet-of-things.md)
 
 [パターン: 分散計算](service-fabric-reliable-actors-pattern-distributed-computation.md)
 
-[いくつかアンチ パターン](service-fabric-reliable-actors-anti-patterns.md)
+[いくつかのアンチ パターン](service-fabric-reliable-actors-anti-patterns.md)
 
 [Service Fabric アクターの概要](service-fabric-reliable-actors-introduction.md)
 
 
-
-
-[1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png 
+<!--Image references-->
+[1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 

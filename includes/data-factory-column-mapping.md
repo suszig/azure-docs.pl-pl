@@ -1,6 +1,5 @@
 ## 翻訳規則による列マッピング
-
-列マッピングは、ソース テーブル マップの “structure” 列を、シンク テーブルの “structure” 列に対し指定するために使用できます。 **ColumnMapping** プロパティは、コピー アクティビティの**typeProperties** セクションにあります。
+列マッピングは、ソース テーブル マップの “structure” 列を、シンク テーブルの “structure” 列に対し指定するために使用できます。  **ColumnMapping** プロパティは、 **typeProperties** コピー アクティビティのセクションです。
 
 列マッピングは、次のシナリオをサポートしています。
 
@@ -14,11 +13,9 @@
 3.  SQL クエリの結果に、マッピングで指定されている列名がない。
 
 ## 列マッピングの例
-
-> [AZURE.NOTE] 以下の例は Azure SQL と Azure BLOB 向けですが、四角形のテーブルをサポートする任意のデータ ストアにおいても同様に適用できます。 以下の例では、適切なデータ ソース内のデータを示すため、データセットとリンクされているサービスの定義を調整する必要があります。
+> [AZURE.NOTE] 次のサンプルは Azure SQL と Azure Blob 向けですが、四角形のテーブルをサポートする任意のデータ ストアに対して同じ方法では使用します。 以下の例では、適切なデータ ソース内のデータを示すため、データセットとリンクされているサービスの定義を調整する必要があります。
 
 ### 例 1 – Azure SQL から Azure BLOB への列マッピング
-
 この例の入力テーブルには構造体が 1 つあり、Azure SQL データベース内の SQL テーブルをポイントしています。
 
     {
@@ -81,7 +78,7 @@
         }
     }
 
-アクティビティの JSON は以下の通りです。 ソースの列は、**Translator** プロパティを使用して、シンク (**columnMappings**) の列にマップされます。
+アクティビティの JSON は以下の通りです。 シンク内の列にマップされているソースからの列 (**columnMappings**) を使用して **トランスレーター** プロパティです。
 
     {
         "name": "CopyActivity",
@@ -115,8 +112,7 @@
 ![列マッピングのフロー](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
 
 ### 例 2 – SQL クエリを使用した Azure SQL から Azure BLOB への列マッピング
-
-この例では、“structure” セクションでテーブル名と列名を単純に指定する代わりに、SQL クエリを Azure SQL からデータを抽出するために使用します。
+この例では、“structure” セクションでテーブル名と列名を単純に指定する代わりに、SQL クエリを Azure SQL からデータを抽出するために使用します。 
 
     {
         "name": "CopyActivity",
@@ -147,15 +143,11 @@
             }
     }
 
-この場合、クエリの結果は、ソースの “structure” で指定された列に最初にマップされます。 次に、“structure” ソースからの列が、columnMappings で指定した規則によって、シンク"structure"内の列にマップされます。 クエリが 5 つの列を返した場合、さらに 2 つの列と、ソースの “structure” で指定される列が返されます。
+この場合、クエリの結果は、ソースの “structure” で指定された列に最初にマップされます。 次に、“structure” ソースからの列が、columnMappings で指定した規則によって、シンク"structure"内の列にマップされます。  クエリが 5 つの列を返した場合、さらに 2 つの列と、ソースの “structure” で指定される列が返されます。
 
 **列マッピングのフロー**
 
 ![列マッピングのフロー - 2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
-
-
-
-
 
 
 

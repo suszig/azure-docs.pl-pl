@@ -17,34 +17,30 @@
    ms.author="sameerch"/>
 
 
-
-# ロジック アプリで Yammer コネクタを使用する
-
+# ロジック アプリで Yammer コネクタを使用する #
 Yammer、メッセージの投稿アクション、新しいメッセージを取得するトリガーに接続します。
 
 ロジック アプリはさまざまなデータ ソースを基にトリガーでき、フローの一環としてデータの取得と処理のためのコネクタを提供します。
 
-## Logic App 用の Yammer コネクタを作成する
-
+## Logic App 用の Yammer コネクタを作成する ##
 Yammer コネクタを使用するには、まず Yammer コネクタ API アプリのインスタンスを作成する必要があります。 そのためには、次の手順に従います。
 
-1. Azure のスタート画面で、**[Marketplace]** を選択します。
-2. "Yammer コネクタ" を検索して選択し、**[作成]** を選択します。
+1. Azure のスタート画面では、次のように選択します。 **Marketplace**します。
+2. 「Yammer コネクタ」を検索して選択し、選択 **作成**します。
 3. 次のように、Yammer コネクタを構成します。  
 ![][1]
 
-    - **[場所]** - コネクタをデプロイする地域を選択します。
-    - **[サブスクリプション]** - コネクタを作成するサブスクリプションを選択します。
-    - **[リソース グループ]** - コネクタを格納するリソース グループを選択するか、作成します。
-    - **[App Service プラン]** - Web ホスティング プランを選択または作成します。
-    - **[価格レベル]** - コネクタの価格レベルを選択します。
-    - **[名前]** - Yammer コネクタの名前を指定します。
+    - **場所** -コネクタをデプロイするように、地理的な場所を選択します
+    - **サブスクリプション** -を作成するには、このコネクタを使用したサブスクリプションを選択します。
+    - **リソース グループ** - 選択するか、コネクタが属するリソース グループの作成
+    - **App Service プラン** - 選択するか、web ホスティング プランの作成
+    - **価格レベル** -コネクタの価格レベルを選択します
+    - **名前** -Yammer コネクタの名前を付けます
 
 4. [作成] をクリックします。 新しい Yammer コネクタが作成されます。
 5. API アプリのインスタンスを作成したら、Yammer コネクタを使用するロジック アプリを作成できます。
 
-## Logic App で Yammer コネクタを使用する
-
+## Logic App で Yammer コネクタを使用する ##
 API アプリを作成すると、Logic App のトリガーやアクションとして Yammer コネクタを使用できます。 そのためには、次の手順を実行する必要があります。
 
 1.  新しいロジック アプリを作成します。  
@@ -67,8 +63,8 @@ API アプリを作成すると、Logic App のトリガーやアクションと
 
 今後は、Yammer トリガー ([新しいメッセージ]) を使って取得した新しいメッセージを、フローの他のアクションで使用できます。 Yammer トリガーの入力プロパティを次のように構成します。
 
-- **グループ ID** - 新しいメッセージを取得する必要があるグループの ID。 グループ ID を指定しない場合は、メッセージが次のフィードから取得されます。 グループ ID は、Yammer のグループ URL から取得できます。
-
+- **グループ ID** -新しいメッセージの取得元となるグループの ID。 グループ ID を指定しない場合は、メッセージが次のフィードから取得されます。 グループ ID は、Yammer のグループ URL から取得できます。
+        
     例: 次の URL のグループ ID は"5453203 です"。  
 https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203  
 ![][8]  
@@ -78,8 +74,8 @@ https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453
 
 Yammer コネクタは、ロジック アプリ内でアクションとして使用することもできます。 最初に、ロジック アプリのトリガーを指定するか、[このロジックを手動で実行］ をオンにします (下記参照)。 Yammer コネクタを追加し、必要に応じて承認し、[メッセージの投稿] アクションを選択します。 メッセージの投稿] アクションの入力プロパティをように構成します。
 
-- **[メッセージ テキスト]** - 投稿するメッセージのテキスト コンテンツ。
-- **グループ ID** - 新しいメッセージを投稿する必要があるグループの ID を指定します。 グループ ID を指定しない場合は、メッセージがすべての会社フィードに投稿されます。 グループ ID は、Yammer のグループ URL から取得できます。
+- **メッセージ テキスト** -投稿するメッセージのテキストの内容
+- **グループ ID** -新しいメッセージを投稿する必要があるグループの ID を指定します。 グループ ID を指定しない場合は、メッセージがすべての会社フィードに投稿されます。 グループ ID は、Yammer のグループ URL から取得できます。  
 
     例: 次の URL のグループ ID は"5453203 です"。  
 https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
@@ -88,25 +84,24 @@ https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453
 ![][11]
 
 ## コネクタでできること
+コネクタが作成されたため、ロジック アプリを使用してコネクタをビジネス ワークフローに追加できます。 参照してください [Logic Apps とは?](app-service-logic-what-are-logic-apps.md)します。
 
-コネクタが作成されたため、ロジック アプリを使用してコネクタをビジネス ワークフローに追加できます。 を参照してください [Logic Apps とは?](app-service-logic-what-are-logic-apps.md).
 >[AZURE.NOTE] Azure Logic Apps と Azure アカウントにサインアップする前に開始する場合に、 [ロジック アプリを実行してください](https://tryappservice.azure.com/?appservice=logic), 、App Service で有効期間の短いスターター ロジック アプリをすぐに作成する場所です。 このサービスの利用にあたり、クレジット カードは必要ありません。契約も必要ありません。
 
 表示、Swagger の REST API リファレンス [コネクタと API Apps のリファレンス](http://go.microsoft.com/fwlink/p/?LinkId=529766)します。
 
 パフォーマンス統計をレビューし、コネクタに対するセキュリティを制御することもできます。 参照してください [の管理し、監視、組み込みの API Apps とコネクタ](app-service-logic-monitor-your-connectors.md)します。
 
-
-
-[1]: ./media/app-service-logic-connector-yammer/img1.PNG 
-[2]: ./media/app-service-logic-connector-yammer/img2.PNG 
-[3]: ./media/app-service-logic-connector-yammer/img3.png 
-[4]: ./media/app-service-logic-connector-yammer/img4.png 
-[5]: ./media/app-service-logic-connector-yammer/img5.PNG 
-[6]: ./media/app-service-logic-connector-yammer/img6.PNG 
-[7]: ./media/app-service-logic-connector-yammer/img7.png 
-[8]: ./media/app-service-logic-connector-yammer/img8.PNG 
-[9]: ./media/app-service-logic-connector-yammer/img9.PNG 
-[10]: ./media/app-service-logic-connector-yammer/img10.PNG 
-[11]: ./media/app-service-logic-connector-yammer/img11.PNG 
+<!--Image references-->
+[1]: ./media/app-service-logic-connector-yammer/img1.PNG
+[2]: ./media/app-service-logic-connector-yammer/img2.PNG
+[3]: ./media/app-service-logic-connector-yammer/img3.png
+[4]: ./media/app-service-logic-connector-yammer/img4.png
+[5]: ./media/app-service-logic-connector-yammer/img5.PNG
+[6]: ./media/app-service-logic-connector-yammer/img6.PNG
+[7]: ./media/app-service-logic-connector-yammer/img7.png
+[8]: ./media/app-service-logic-connector-yammer/img8.PNG
+[9]: ./media/app-service-logic-connector-yammer/img9.PNG
+[10]: ./media/app-service-logic-connector-yammer/img10.PNG
+[11]: ./media/app-service-logic-connector-yammer/img11.PNG
 

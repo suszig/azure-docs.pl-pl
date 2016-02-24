@@ -15,7 +15,6 @@
    ms.date="12/15/2015"
    ms.author="alkohli" />
 
-
 # StorSimple システムの制限
 
 ## 概要
@@ -26,8 +25,4 @@ StorSimple は、データセンターのスケーラブルかつフレキシブ
 
 ## 次のステップ
 
-レビュー、 [StorSimple のシステム要件](storsimple-system-requirements.md)します。
-
-
-
-
+レビュー、 [StorSimple のシステム要件](storsimple-system-requirements.md)します。 

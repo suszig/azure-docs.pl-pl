@@ -15,10 +15,9 @@
    ms.date="08/26/2015"
    ms.author="alkohli" />
 
-
 # StorSimple デバイスを安全にインストールして操作する
 
-![警告のアイコン](./media/storsimple-safety/IC740879.png)
+![[警告] アイコン](./media/storsimple-safety/IC740879.png)
 ![開封済みの安全性に注意してください](./media/storsimple-safety/IC740885.png) **安全衛生に関する情報**
 
 Microsoft Azure StorSimple デバイスに適用されるこの記事に記載されたすべての安全衛生に関する情報を確認してください。 後で参照できるように、StorSimple デバイスに同梱されているすべての印刷されたガイドを保管してください。 これらの指示に従わず、本製品の設定、使用、管理を適切に行わなければ、重大な傷害または死亡事故や、デバイスが破損するリスクが高まる恐れがあります。 A [このガイドのダウンロード版](http://www.microsoft.com/download/details.aspx?id=44233) も利用できます。
@@ -27,22 +26,22 @@ Microsoft Azure StorSimple デバイスに適用されるこの記事に記載�
 
 Microsoft Azure StorSimple デバイスを設定および実行しているときに従うべき安全に関する注意事項に使用されるアイコンを説明します。
 
-| アイコン| 説明|
-|:------|:-------------|
-| ![危険のアイコン](./media/storsimple-safety/IC740879.png) **危険!**| 回避しなければ、死亡事故または重大な負傷を招く危険な状況を示します。この記号の文字は、最も重大な状況の場合にのみ使用されます。|
-| ![警告アイコン](./media/storsimple-safety/IC740879.png) **警告!**| 回避しなければ、死亡事故または重大な負傷を招く可能性のある危険な状況を示します。|
-| ![警告アイコン](./media/storsimple-safety/IC740879.png) **注意が必要です**。| 回避しなければ、軽度または中程度の負傷を招く可能性のある危険な状況を示します。|
-| ![アイコンが表示](./media/storsimple-safety/IC740881.png) **に注意してください:**| 重要だが、危険に関連するものではない情報を示します。|
-| ![感電アイコン](./media/storsimple-safety/IC740882.png) **感電の危険**| 高電圧|
-| ![ヘビー ウェイト アイコン](./media/storsimple-safety/IC740883.png) **ヘビー ウェイト**| |
-| ![ユーザーによる保守部品アイコンがない](./media/storsimple-safety/IC740879.png) **ユーザーによる保守不可能な部品**| 適切な訓練を受けている場合を除き、触らないでください。|
-| ![開封済みの安全性に注意してください](./media/storsimple-safety/IC740885.png)**最初にすべての手順をお読み**| |
-| ![危険情報のアイコン](./media/storsimple-safety/IC740886.png) **危険**| |
+| アイコン  | 説明  |
+|:------|:-------------| 
+|![危険のアイコン](./media/storsimple-safety/IC740879.png) **危険です。**|回避しなければ、死亡事故または重大な負傷を招く危険な状況を示します。 この記号の文字は、最も重大な状況の場合にのみ使用されます。| 
+|![警告アイコン](./media/storsimple-safety/IC740879.png) **警告!**|回避しなければ、死亡事故または重大な負傷を招く可能性のある危険な状況を示します。|
+|![警告アイコン](./media/storsimple-safety/IC740879.png) **注意が必要です。**|回避しなければ、軽度または中程度の負傷を招く可能性のある危険な状況を示します。|
+|![アイコンが表示](./media/storsimple-safety/IC740881.png) **に注意してください。**|重要だが、危険に関連するものではない情報を示します。|
+|![感電アイコン](./media/storsimple-safety/IC740882.png) **感電の危険** |高電圧|
+|![ヘビー ウェイト アイコン](./media/storsimple-safety/IC740883.png) **ヘビー ウェイト**| |
+|![ユーザーによる保守部品アイコンがない](./media/storsimple-safety/IC740879.png) **ユーザーによる保守不可能な部品**|適切な訓練を受けている場合を除き、触らないでください。|
+|![開封済みの安全性に注意してください](./media/storsimple-safety/IC740885.png)**最初に確認しているすべての手順**| |
+|![危険情報のアイコン](./media/storsimple-safety/IC740886.png) **危険情報**| |
 
 
 ## 使用上の注意事項
 
-![警告アイコン](./media/storsimple-safety/IC740879.png) ![ヘビー ウェイト アイコン](./media/storsimple-safety/IC740883.png) **警告!**
+![警告アイコン](./media/storsimple-safety/IC740879.png) ![ヘビー ウェイト アイコン](./media/storsimple-safety/IC740883.png) **警告!** 
 
 
 けがの危険性を低減する方法
@@ -79,7 +78,7 @@ Microsoft Azure StorSimple デバイスを設定および実行していると�
 
 - 製造元によって指定された方法で機器を使用してください。 製造元によって指定されていない方法でこの機器を使用すると、機器によって提供される保護が損なわれる可能性があります。
 
-![アイコンが表示](./media/storsimple-safety/IC740881.png) **に注意してください:**
+![アイコンが表示](./media/storsimple-safety/IC740881.png) **に注意してください。**
 
 機器を適切に操作し、製品の破損を回避する方法
 
@@ -94,7 +93,7 @@ Microsoft Azure StorSimple デバイスを設定および実行していると�
 ラック キャビネットに装置を組み込むときは、次の安全上の要件を考慮する必要があります。
 
 ![警告アイコン](./media/storsimple-safety/IC740879.png) ![危険情報のアイコン](./media/storsimple-safety/IC740886.png) **警告!**
-
+ 
 転倒によるけがの可能性を低減する方法
 
 - ラックは、取り付けられたエンクロージャの総重量を支えられるように設計されている必要があり、取り付け中や通常の使用中にラックが転倒したり、押し倒されたりしないようにするための、適切な安定化機能が装備されている必要があります。
@@ -115,7 +114,7 @@ Microsoft Azure StorSimple デバイスを設定および実行していると�
 
 - エンクロージャで構成する場合、ラックは UL 60950-1 および IEC 60950-1/EN 60950-1 の安全要件を満たす必要があります。
 
-![アイコンが表示](./media/storsimple-safety/IC740881.png) **に注意してください:**
+![アイコンが表示](./media/storsimple-safety/IC740881.png) **に注意してください。**
 
 ラック システムを適切に冷却する方法
 
@@ -133,7 +132,7 @@ Microsoft Azure StorSimple デバイスを設定および実行していると�
 
 - PCM からカバーを取り外さないでください。 内部で感電する危険性があります。 代わりを PCM を返却 [Microsoft サポートにお問い合わせ](https://msdn.microsoft.com/library/azure/dn757750.aspx)します。
 
-![アイコンが表示](./media/storsimple-safety/IC740881.png) **に注意してください:**
+![アイコンが表示](./media/storsimple-safety/IC740881.png) **に注意してください。**
 
 機器を適切に操作し、製品の破損を回避する方法
 
@@ -143,7 +142,7 @@ Microsoft Azure StorSimple デバイスを設定および実行していると�
 
 ## 静電気 (ESD) に関する注意事項
 
-![アイコンが表示](./media/storsimple-safety/IC740881.png) **に注意してください:**
+![アイコンが表示](./media/storsimple-safety/IC740881.png) **に注意してください。**
 
 次の ESD に関する注意事項を守ってください。
 
@@ -169,7 +168,7 @@ Microsoft Azure StorSimple デバイスを設定および実行していると�
 
 - 電源からバッテリを取り外す場合は、バッテリの保護エンド キャップを使用してください。
 
-![アイコンが表示](./media/storsimple-safety/IC740881.png) **に注意してください:**
+![アイコンが表示](./media/storsimple-safety/IC740881.png) **に注意してください。**
 
 ときに、飛行機で輸送する場合は、バッテリを船舶またはの IATA リチウム バッテリ ガイダンス資料に従って [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
@@ -180,9 +179,5 @@ Microsoft Azure StorSimple デバイスを設定および実行していると�
 - 8100 デバイスを参照してください [StorSimple 8100 デバイスの取り付け](storsimple-8100-hardware-installation.md)します。
 
 - 8600 デバイスの場合を参照してください [StorSimple 8600 デバイスの取り付け](storsimple-8600-hardware-installation.md)します。
-
-
-
-
 
 

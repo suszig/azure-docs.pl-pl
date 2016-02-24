@@ -16,22 +16,22 @@
     ms.date="12/03/2015" 
     ms.author="sdanie"/>
 
-
 # Azure API Management でページの内容を編集する方法
 
 開発者ポータルは、自動的に生成されるページ ([API]、[成果物]、[アプリケーション]、[問題] など) と手動で作成するコンテンツとで構成されます。 コンテンツ管理システムがベースとなっているため、そのようなコンテンツを必要に応じて作成することができます。
 
-既存のコンテンツ ページをすべて一覧表示するには、パブリッシャー ポータルの **[開発者ポータル]** メニューにある **[コンテンツ]** をクリックします。
+すべての既存のコンテンツの一覧を表示するページをクリックして **コンテンツ** から、 **デベロッパー ポータル** パブリッシャー ポータルでのメニュー。
 
 ![Manage content][api-management-howto-edit-contents-of-page-manage-content]
 
-開発者ポータルのホーム ページに表示される内容を編集するには、ウェルカム ページをクリックします。 目的の変更を行い、必要に応じてプレビューしてから **[今すぐ発行]** をクリックすると、すべての人がその内容を閲覧できるようになります。
+開発者ポータルのホーム ページに表示される内容を編集するには、ウェルカム ページをクリックします。 必要に応じてプレビューして] をクリックし、変更を加える **[今すぐ発行** すべてのユーザーに表示されるようにします。
 
-> ホーム ページには、最上部にバナーを表示できる特殊なレイアウトが使用されています。 このバナーをコンテンツ セクションから編集することはできません。 このバナーを編集するには、**[開発者ポータル]** メニューの **[ウィジェット]** をクリックし、**[現在のレイヤー]** ボックスの一覧の **[ホーム ページ]** を選択して、[おすすめ] セクションにある **[バナー]** 項目を開きます。 このウィジェットの内容は、他のページとまったく同じように編集できます。
+> ホーム ページには、最上部にバナーを表示できる特殊なレイアウトが使用されています。 このバナーをコンテンツ セクションから編集することはできません。 このバナー クリックを編集する **ウィジェット** から、 **開発者ポータル** ] メニューの [を選択し、 **ホーム ページ** から、 **現在のレイヤー** ドロップダウンをクリックし、開く、 **バナー** すすめ] セクションの下にある項目。 このウィジェットの内容は、他のページとまったく同じように編集できます。
 
 
+[Next steps]: #next-steps
 
-[next steps]: #next-steps 
-[azure classic portal]: https://manage.windowsazure.com/ 
-[api-management-howto-edit-contents-of-page-manage-content]: ./media/api-management-howto-edit-contents-of-page/api-management-customization-manage-content.png 
+[Azure Classic Portal]: https://manage.windowsazure.com/
+
+[api-management-howto-edit-contents-of-page-manage-content]: ./media/api-management-howto-edit-contents-of-page/api-management-customization-manage-content.png
 

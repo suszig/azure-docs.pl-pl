@@ -1,6 +1,6 @@
 <properties
     pageTitle="Ubuntu 上で pymssql を含む Python を使用して SQL Database に接続する"
-    description="Azure SQL Database への接続に使用できる Python コード サンプルについて説明します。このサンプルは、Ubuntu Linux クライアント コンピューター上で実行されます。"
+    description="Azure SQL Database への接続に使用できる Python コード サンプルについて説明します。 このサンプルは、Ubuntu Linux クライアント コンピューター上で実行されます。"
     services="sql-database"
     documentationCenter=""
     authors="meet-bhagdev"
@@ -18,8 +18,8 @@
     ms.author="meetb"/>
 
 
-
 # Ubuntu Linux 上で Python を使用して SQL Database に接続する
+
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
@@ -29,10 +29,12 @@
 
 ## 前提条件
 
-- [Python 2.7.6](https://www.python.org/download/releases/2.7.6/).
+
+- [Python 2.7.6](https://www.python.org/download/releases/2.7.6/)します。
 
 
 ### 必要なモジュールのインストール
+
 
 ターミナルを開き、python スクリプトの作成先となるディレクトリに移動します。 インストールするには、次のコマンドを入力して **FreeTDS** と **pymssql**します。 pymssql は FreeTDS を使用して、SQL データベースに接続します。
 
@@ -41,9 +43,10 @@
     sudo apt-get --assume-yes install python-dev python-pip
     sudo pip install pymssql
 
+
 ### SQL Database
 
-参照してください、 [開始ページ](sql-database-get-started.md) にサンプル データベースを作成する方法について説明します。 ガイドに従って、**AdventureWorks データベースのテンプレート**を作成することが重要です。 以下に示す例は、**AdventureWorks スキーマ** とのみ動作します。
+参照してください、 [開始ページ](sql-database-get-started.md) にサンプル データベースを作成する方法について説明します。  作成するガイドを実行する重要である、 **AdventureWorks データベースのテンプレート**します。 のみ以下に示す例を使用、 **AdventureWorks スキーマ**します。
 
 ## 手順 1. 接続の詳細を取得する
 
@@ -54,14 +57,15 @@
 
 !!!!!sql-database-include-connection-string-details-20-portalshots.md
 
-[Pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) 関数を使用して、SQL データベースに接続します。
+ [Pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) 関数を使用して、SQL データベースに接続します。
 
     import pymssql
     conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
 
+
 ## 手順 3. クエリを実行する
 
-[Cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) 関数を使用して、結果 SQL Database に対するクエリのセットを取得します。 この関数は基本的に任意のクエリを受け取りしの使用を反復処理できる結果セットを返す [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone)します。
+ [Cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) 関数を使用して、結果 SQL Database に対するクエリのセットを取得します。 この関数は基本的に任意のクエリを受け取りしの使用を反復処理できる結果セットを返す [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone)します。
 
 
     import pymssql
@@ -73,9 +77,10 @@
         print str(row[0]) + " " + str(row[1]) + " " + str(row[2])   
         row = cursor.fetchone()
 
+
 ## 手順 4: 行を挿入します。
 
-実行する方法を参照してください、この例では、 [挿入](https://msdn.microsoft.com/library/ms174335.aspx) ステートメントからアプリケーションを保護するためのパラメーターを渡すを安全に [SQL インジェクション](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) 脆弱性、および自動生成された取得 [主キー](https://msdn.microsoft.com/library/ms179610.aspx) 値。
+実行する方法を参照してください、この例では、 [挿入](https://msdn.microsoft.com/library/ms174335.aspx) ステートメントからアプリケーションを保護するためのパラメーターを渡すを安全に [SQL インジェクション](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) 脆弱性、および自動生成された取得 [主キー](https://msdn.microsoft.com/library/ms179610.aspx) 値。  
 
 
     import pymssql
@@ -87,7 +92,9 @@
         print "Inserted Product ID : " +str(row[0])
         row = cursor.fetchone()
 
+
 ## 手順 5: トランザクションをロールバックします。
+
 
 このコード例は、以下のトランザクションの使用について示します。
 
@@ -109,8 +116,4 @@
 ## 次のステップ
 
 詳細については、次を参照してください。、 [Python デベロッパー センター](/develop/python/)します。
-
-
-
-
 

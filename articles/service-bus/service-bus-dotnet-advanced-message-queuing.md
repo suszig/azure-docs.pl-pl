@@ -16,7 +16,6 @@
     ms.date="10/08/2015" 
     ms.author="sethm"/>
 
-
 # .NET サービス バス API で AMQP 1.0 を使用する方法
 
 Advanced Message Queuing Protocol (AMQP) 1.0 は、堅牢なクロスプラットフォーム メッセージング アプリケーションを作成するために使用できる、効率的で信頼性の高い回線レベルのメッセージング プロトコルです。
@@ -41,7 +40,7 @@ AMQP 1.0 のサポートは、Service Bus SDK バージョン 2.1 以降で使�
 
 ### App.config による構成
 
-アプリケーションの設定は、App.config 構成ファイルを使って保存することをお勧めします。 Service Bus アプリケーションでは、App.config を使って Service Bus の **ConnectionString** を保存できます。 このサンプル アプリケーションでは、App.config を使って、使用する Service Bus メッセージング エンティティの名前も保存します。
+アプリケーションの設定は、App.config 構成ファイルを使って保存することをお勧めします。 Service Bus アプリケーションの App.config を使ってサービス バスを格納する **ConnectionString**します。 このサンプル アプリケーションでは、App.config を使って、使用する Service Bus メッセージング エンティティの名前も保存します。
 
 App.config ファイルの例を以下に示します。
 
@@ -58,15 +57,15 @@ App.config ファイルの例を以下に示します。
 
 ### Service Bus 接続文字列の構成
 
-**Microsoft.ServiceBus.ConnectionString** 設定の値は、Service Bus への接続を構成するために使用される Service Bus 接続文字列です。 その形式は次のとおりです。
+値、 **Microsoft.ServiceBus.ConnectionString** 設定は、Service Bus 接続文字列をサービス バスへの接続を構成するために使用します。 その形式は次のとおりです。
 
 ```
 Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 ```
 
-ここで `[namespace]` と `[SAS key]` から取得した、 [Azure クラシック ポータルの [][]します。 詳細については、次を参照してください。 [Service Bus を使用する方法 [] キューに入れ][]します。
+ここで `[namespace]` と `[SAS key]` から取得した、 [Azure クラシック ポータル][]します。 詳細については、「Service Bus キューの使用方法」を参照してください。
 
-AMQP を使用すると、と接続文字列が追加されます。 `です。TransportType = Amqp`, 、Service Bus に接続するようにクライアント ライブラリを通知すると、AMQP 1.0 を使用します。
+AMQP を使用するときには、接続文字列の末尾に `;TransportType=Amqp` を追加します。これで、AMQP 1.0 を使って Service Bus に接続するようにクライアント ライブラリに通知されます。
 
 ### エンティティ名の構成
 
@@ -78,12 +77,12 @@ AMQP を使用すると、と接続文字列が追加されます。 `です。T
 
 ```
 // SimpleSenderReceiver.cs
-
+    
 using System;
 using System.Configuration;
 using System.Threading;
 using Microsoft.ServiceBus.Messaging;
-
+    
 namespace SimpleSenderReceiver
 {
     class SimpleSenderReceiver
@@ -96,23 +95,23 @@ namespace SimpleSenderReceiver
         private MessageReceiver receiver;
         private MessageListener messageListener;
         private Thread listenerThread;
-
+    
         static void Main(string[] args)
         {
             try
             {
                 if ((args.Length > 0) && args[0].ToLower().Equals("sendonly"))
                     runReceiver = false;
-
+                    
                 string ConnectionStringKey = "Microsoft.ServiceBus.ConnectionString";
                 string entityNameKey = "EntityName";
                 entityName = ConfigurationManager.AppSettings[entityNameKey];
                 connectionString = ConfigurationManager.AppSettings[ConnectionStringKey];
                 SimpleSenderReceiver simpleSenderReceiver = new SimpleSenderReceiver();
-
+    
                 Console.WriteLine("Press [enter] to send a message. " +
                     "Type 'exit' + [enter] to quit.");
-
+    
                 while (true)
                 {
                     string s = Console.ReadLine();
@@ -130,12 +129,12 @@ namespace SimpleSenderReceiver
                 Console.WriteLine("Caught exception: " + e.Message);
             }
         }
-
+    
         public SimpleSenderReceiver()
         {
             factory = MessagingFactory.CreateFromConnectionString(connectionString);
             sender = factory.CreateMessageSender(entityName);
-
+    
             if (runReceiver)
             {
                 receiver = factory.CreateMessageReceiver(entityName);
@@ -144,14 +143,14 @@ namespace SimpleSenderReceiver
                 listenerThread.Start();
             }
         }
-
+    
         public void Close()
         {
             messageListener.RequestStop();
             listenerThread.Join();
             factory.Close();
         }
-
+    
         private void SendMessage()
         {
             BrokeredMessage message = new BrokeredMessage("Test AMQP message from .NET");
@@ -161,7 +160,7 @@ namespace SimpleSenderReceiver
         }
 
     }
-
+    
     public class MessageListener
     {
         private MessageReceiver messageReceiver;
@@ -169,7 +168,7 @@ namespace SimpleSenderReceiver
         {
             messageReceiver = receiver;
         }
-
+    
         public void Listen()
         {
             while (!_shouldStop)
@@ -192,12 +191,12 @@ namespace SimpleSenderReceiver
                 }
             }
         }
-
+    
         public void RequestStop()
         {
             _shouldStop = true;
         }
-
+    
         private volatile bool _shouldStop;
     }
 }
@@ -210,13 +209,13 @@ namespace SimpleSenderReceiver
 ```
 > SimpleSenderReceiver.exe
 Press [enter] to send a message. Type 'exit' + [enter] to quit.
-
+    
 Sent message with MessageID = fb7f5d3733704e4ba4bd55f759d9d7cf
 Received message with MessageID = fb7f5d3733704e4ba4bd55f759d9d7cf
-
+    
 Sent message with MessageID = d00e2e088f06416da7956b58310f7a06
 Received message with MessageID = d00e2e088f06416da7956b58310f7a06
-
+    
 Received message with MessageID = f27f79ec124548c196fd0db8544bca49
 Sent message with MessageID = f27f79ec124548c196fd0db8544bca49
 exit
@@ -226,7 +225,7 @@ exit
 
 これまでに、.NET を使って Service Bus にメッセージを送信する方法と、.NET を使ってそれらのメッセージを受信する方法を紹介しました。 しかし、AMQP 1.0 の主な利点の 1 つは、さまざまな言語で書かれたコンポーネントからアプリケーションを作成して、高い信頼性と完全な忠実度でメッセージ交換を行えることにあります。
 
-上記で説明したサンプル .NET アプリケーションと必携ガイドから取得した同様の Java アプリケーションを使用して [サービス バスと AMQP 1.0 で Java Message Service (JMS) API を使用する方法](service-bus-java-how-to-use-jms-api-amqp.md), 、.NET と Java の間でメッセージ交換を行うことができます。
+上記で説明したサンプル .NET アプリケーションと必携ガイドから取得した同様の Java アプリケーションを使用して [サービス バスと AMQP 1.0 で Java Message Service (JMS) API を使用する方法](service-bus-java-how-to-use-jms-api-amqp.md), 、.NET と Java の間でメッセージ交換を行うことができます。 
 
 クロスプラット フォーム メッセージングの詳細についてはサービス バスと AMQP 1.0 を使用して参照してください、 [Service Bus AMQP 1.0 の概要](service-bus-amqp-overview.md)します。
 
@@ -236,7 +235,7 @@ JMS から .NET のメッセージングを試してみるには、次の手順�
 
 * .NET サンプル アプリケーションを、コマンド ライン引数を使わずに起動します。
 * Java サンプル アプリケーションを、"sendonly" コマンド ライン引数を使って起動します。 このモードでは、アプリケーションはキューからメッセージを受信せずに送信のみを行います。
-* Java アプリケーションのコンソールで **Enter** キーを何度か押します。メッセージが送信されます。
+* キーを押して **Enter** 何度か Java アプリケーションのコンソールはメッセージが送信されます。
 * それらのメッセージが .NET アプリケーションによって受信されます。
 
 ### JMS アプリケーションの出力
@@ -267,7 +266,7 @@ exit
 
 * .NET サンプル アプリケーションを、"sendonly" コマンド ライン引数を使って起動します。 このモードでは、アプリケーションはキューからメッセージを受信せずに送信のみを行います。
 * Java サンプル アプリケーションを、コマンド ライン引数を使わずに起動します。
-* .NET アプリケーションのコンソールで **Enter** キーを何度か押します。メッセージが送信されます。
+* キーを押して **Enter** 何度か .NET アプリケーションのコンソールはメッセージが送信されます。
 * それらのメッセージが Java アプリケーションによって受信されます。
 
 #### .NET アプリケーションの出力
@@ -319,10 +318,9 @@ Service Bus AMQP 1.0 は、Java、C、Python、PHP など、その他の言語�
 
 .NET による Service Bus と AMQP の概要を確認しました。詳細については、次のリンクを使用してしてください。
 
-* [Azure Service Bus で AMQP 1.0 サポート](service-bus-amqp-overview.md)
-* [サービス バスと AMQP 1.0 で Java Message Service (JMS) API を使用する方法](service-bus-java-how-to-use-jms-api-amqp.md)
-* [Service Bus キューを使用する方法](service-bus-dotnet-how-to-use-queues.md)
-
-
-[azure classic portal]: http://manage.windowsazure.com 
+* [Azure のサービス バスの AMQP 1.0 のサポートに関するページ](service-bus-amqp-overview.md)
+* [サービス バスと AMQP 1.0 で Java Message Service (JMS) API を使用する方法に関するページ](service-bus-java-how-to-use-jms-api-amqp.md)
+* [Service Bus キューの使用方法](service-bus-dotnet-how-to-use-queues.md)
+ 
+[Azure classic portal]: http://manage.windowsazure.com
 

@@ -18,7 +18,6 @@
 
 
 
-
 # Azure Automation を使用した Azure Service Bus の管理
 
 このガイドでは、Azure Automation サービスと、このサービスを使用して Azure Service Bus の管理を簡略化する方法について紹介します。
@@ -40,9 +39,5 @@ Azure Automation と Service Bus を管理するにを使用して、 [Service B
 ここまで、Azure Automation の基本と Azure Automation を使用して Azure Service Bus を管理する方法について説明しました。Azure Automation の詳細については、以下のリンクを参照してください。
 
 * Azure automation の [チュートリアル入門](../automation-create-runbook-from-samples.md)
-* に関する記事を参照してください [PowerShell で Service Bus の管理](service-bus-powershell-how-to-provision.md)
-
-
-
-
-
+* 記事を参照してください [PowerShell で Service Bus の管理](service-bus-powershell-how-to-provision.md)
+ 

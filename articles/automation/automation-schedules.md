@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Automation のスケジュール | Microsoft Azure"
-   description="Automation のスケジュールは、Azure Automation の Runbook を自動的に開始するためのスケジュール設定に使用します。この記事では、スケジュールの作成方法について説明します。"
+   description="Automation のスケジュールは、Azure Automation の Runbook を自動的に開始するためのスケジュール設定に使用します。  この記事では、スケジュールの作成方法について説明します。"
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -15,45 +15,46 @@
    ms.date="10/26/2015"
    ms.author="bwren" />
 
-
 # Azure Automation のスケジュール
 
-Automation のスケジュールは、Runbook を自動的に実行するためのスケジュール設定に使用します。 1 つの日付と時間を 1 回実行する runbook が考えられます。 または、runbook を複数回起動する定期的なスケジュールも設定できます。 スケジュールは、Runbook からは通常はアクセスできません。
->[AZURE.NOTE]  スケジュールは、現時点では Azure Automation DSC 構成をサポートしていません。
+Automation のスケジュールは、Runbook を自動的に実行するためのスケジュール設定に使用します。  Runbook を 1 回実行する単一の日付時刻が可能です。  または、Runbook を複数回実行する反復スケジュールが可能です。  スケジュールは、Runbook からは通常はアクセスできません。
+
+>[AZURE.NOTE]  現在、スケジュールでは、Azure Automation DSC 構成をサポートしていません。
 
 ## Windows PowerShell コマンドレット
 
 以下の表にあるコマンドレットを使用すると、Windows PowerShell で使用される変数を Azure Automation で作成して管理できます。 一部として出荷される、 [Azure PowerShell モジュール](../powershell-install-configure.md)します。
 
-| コマンドレット| 説明|
+|コマンドレット|説明|
 |:---|:---|
-| [Get AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690274.aspx)| スケジュールを取得します。|
-| [新しい AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690271.aspx)| 新しいスケジュールを作成します。|
-| [削除 AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690279.aspx)| スケジュールを削除します。|
-| [Set-azureautomationschedule](http://msdn.microsoft.com/library/dn690270.aspx)| 既存のスケジュールのプロパティを設定します。|
-| [Get AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/dn913778.aspx)| スケジュール済みの Runbook を取得します。|
-| [Register-azureautomationscheduledrunbook](http://msdn.microsoft.com/library/dn690265.aspx)| Runbook をスケジュールに関連付けます。|
-| [登録を解除 AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/dn690273.aspx)| Runbook とスケジュールの関連付けを解除します。|
+|[Get-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690274.aspx)|スケジュールを取得します。|
+|[New-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690271.aspx)|新しいスケジュールを作成します。|
+|[Remove-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690279.aspx)|スケジュールを削除します。|
+|[Set-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690270.aspx)|既存のスケジュールのプロパティを設定します。|
+|[Get-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/dn913778.aspx)|スケジュール済みの Runbook を取得します。|
+|[Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/dn690265.aspx)|Runbook をスケジュールに関連付けます。|
+|[Unregister-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/dn690273.aspx)|Runbook とスケジュールの関連付けを解除します。|
 
 ## 新しいスケジュールを作成する
 
 ### Azure ポータルで新しいスケジュールを作成するには
 
-1. Automation アカウントから、ウィンドウ上部にある **[資産]** をクリックします。
-1. ウィンドウの下部にある **[設定の追加]** をクリックします。
-1. **[スケジュールの追加]** をクリックします。
+
+1. オートメーション アカウントからクリックして **資産** ウィンドウの上部にあります。
+1. At the bottom of the window, click **Add Setting**.
+1. Click **Add Schedule**.
 1. ウィザードを完了し、チェック ボックスをクリックして新しい変数を保存します。
 
 ### Azure プレビュー ポータルで新しいスケジュールを作成するには
 
-1. Automation アカウントから、**[資産]** 部分をクリックして **[資産]** ブレードを開きます。
-1. **[スケジュール]** 部分をクリックして、**[スケジュール]** ブレードを開きます。
-1. ブレード上部の **[スケジュールの追加]** をクリックします。
-1. フォームを完成させ、**[作成]** をクリックして新しいスケジュールを保存します。
+1. クリックして、オートメーション アカウントから、 **資産** を開くには一部、 **資産** ブレードです。
+1. クリックして、 **スケジュール** を開くには一部、 **スケジュール** ブレードです。
+1. クリックして **スケジュールを追加** ブレードの上部にあります。
+1. Complete the form and click **Create** to save the new schedule.
 
 ### Windows PowerShell で新しいスケジュールを作成するには
 
-[New-azureautomationschedule](http://msdn.microsoft.com/library/dn690271.aspx) コマンドレットは、新しいスケジュールを作成し、既存のスケジュールの値を設定します。 次の Windows PowerShell サンプル コマンドは My Daily Schedule という名前の新しいスケジュールを作成します。このスケジュールは、明日の正午に開始して、1 年間毎日実行されます。
+ [New-azureautomationschedule](http://msdn.microsoft.com/library/dn690271.aspx) コマンドレットは、新しいスケジュールを作成し、既存のスケジュールの値を設定します。  次の Windows PowerShell サンプル コマンドは My Daily Schedule という名前の新しいスケジュールを作成します。このスケジュールは、明日の正午に開始して、1 年間毎日実行されます。
 
     $automationAccountName = "MyAutomationAccount"
     $scheduleName = "My Daily Schedule"
@@ -62,12 +63,8 @@ Automation のスケジュールは、Runbook を自動的に実行するため�
     
     New-AzureAutomationSchedule –AutomationAccountName $automationAccountName –Name $scheduleName –StartTime $startTime –ExpiryTime $expiryTime –DayInterval 1
 
+
 ## 関連項目
-
-- [Azure Automation で runbook をスケジュール設定](automation-scheduling-a-runbook.md)
-
-
-
-
-
+- [Azure Automation の Runbook をスケジュール設定する](automation-scheduling-a-runbook.md)
+ 
 

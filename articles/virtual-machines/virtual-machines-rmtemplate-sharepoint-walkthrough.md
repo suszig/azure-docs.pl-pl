@@ -16,10 +16,9 @@
     ms.date="07/28/2015"
     ms.author="josephd"/>
 
-
 # 3 台のサーバーから成る SharePoint ファーム リソース マネージャーのテンプレート
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 従来のデプロイ モデルです。 このリソースは、クラシック デプロイ モデルを使用して作成することはできません。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 従来のデプロイ モデルです。 このリソースは、クラシック デプロイメント モデルを使用して作成することはできません。
 
 このトピックでは、3 台のサーバーから成る SharePoint ファームの azuredeploy.json テンプレート ファイルの構造について段階的に説明します。 ブラウザーでこのテンプレートの内容を見ることができます [ここ](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json)します。
 
@@ -35,7 +34,7 @@
 
 ## "parameters" セクション
 
-**"parameters"** セクションには、テンプレートにデータを入力するために使用するパラメーターを指定します。 テンプレートが実行されたときに、データを提供する必要があります。 最大 50 個のパラメーターを定義することができます。 Azure の場所を表すパラメーターの例を次に示します。
+ **"Parameters"** セクションでは、データ テンプレートを入力するために使用されるパラメーターを指定します。 テンプレートが実行されたときに、データを提供する必要があります。 最大 50 個のパラメーターを定義することができます。 Azure の場所を表すパラメーターの例を次に示します。
 
     "deploymentLocation": {
         "type": "string",
@@ -54,7 +53,7 @@
 
 ## "variables" セクション
 
-**"variables"** セクションでは、テンプレートが使用する変数とその値を指定します。 変数の値は明示的に設定するか、パラメーターの値から派生させることができます。 パラメーターとは異なり、テンプレートの実行時には指定しません。 最大 100 個の変数を定義することができます。 次に例をいくつか示します。
+ **"Variables"** セクションでは、変数と、テンプレートを使用してその値を指定します。 変数の値は明示的に設定するか、パラメーターの値から派生させることができます。 パラメーターとは異なり、テンプレートの実行時には指定しません。 最大 100 個の変数を定義することができます。 次に例をいくつか示します。
 
     "LBFE": "LBFE",
     "LBBE": "LBBE",
@@ -69,11 +68,11 @@
 
 ## "resources" セクション
 
-**"resources"** セクションには、SharePoint ファームのリソースをリソース グループにデプロイするために必要な情報を指定します。 最大 250 個のリソースを定義することができますが、リソースの依存関係の深さは 5 レベルまでしか定義できません。
+ **"Resources"** セクションでは、SharePoint ファーム リソース グループ内のリソースをデプロイするために必要な情報を指定します。 最大 250 個のリソースを定義することができますが、リソースの依存関係の深さは 5 レベルまでしか定義できません。
 
 このセクションには、次のようにいくつかのサブセクションがあります。
 
-### Microsoft.Storage/storageAccounts
+### Microsoft.Storage/storageAccounts  
 
 このセクションは、ファームのすべての VHD リソースおよびディスク リソース用に新しいストレージ アカウントを作成します。 ストレージ アカウントの JSON コードを次に示します。
 
@@ -139,6 +138,7 @@
             "subnets": "[variables('subnets')]"
         }
     },
+
 
 ### Microsoft.Network/loadBalancers
 
@@ -236,6 +236,7 @@
             ]
         }
     },
+
 
 ### Microsoft.Compute/virtualMachines
 
@@ -342,18 +343,18 @@ JSON コードを次に示します。
             ]
         },
 
-ドメイン コントローラーの **"name":"UpdateVNetDNS"** で始まる追加のセクションでは、仮想ネットワークの DNS サーバーでドメイン コントローラーの静的 IP アドレスを使用するように構成します。
+以降でドメイン コント ローラーの追加のセクションで **"name":"UpdateVNetDNS"** ドメイン コント ローラーの静的 IP アドレスを使用する仮想ネットワークの DNS サーバーを構成します。
 
-その後の **"type":"Microsoft.Compute/virtualMachines"** セクションでは、デプロイ内に SQL Server の仮想マシンを作成し、次の手順に従います。
+次 **"type":"Microsoft.Compute/virtualMachines"** セクション展開内の SQL Server 仮想マシンの作成とします。
 
 - ストレージ アカウント、可用性セット、ロード バランサー、仮想ネットワーク、ネットワーク インターフェイスを指定する。
 - ディスクを追加する。
 
-追加の **"Microsoft.Compute/virtualMachines/extensions"** セクションでは、SQL Server を構成する PowerShell スクリプトを呼び出します。
+追加 **"Microsoft.Compute/virtualMachines/extensions"** セクションでは、SQL Server を構成する PowerShell スクリプトを呼び出します。
 
-その後の **"type": "Microsoft.Compute/virtualMachines"** セクションでは、デプロイ内に SharePoint の仮想マシンを作成し、ストレージ アカウント、可用性セット、ロード バランサー、仮想ネットワーク、およびネットワーク インターフェイスを指定します。 追加の **"Microsoft.Compute/virtualMachines/extensions"** セクションでは、SharePoint ファームを構成する PowerShell スクリプトを呼び出します。
+次の **"type":"Microsoft.Compute/virtualMachines"** セクションでは、展開、ストレージ アカウント、可用性セット、ロード バランサー、仮想ネットワーク、およびネットワーク インターフェイスを指定の SharePoint 仮想マシンを作成します。 追加 **"Microsoft.Compute/virtualMachines/extensions"** セクションでは、SharePoint ファームを構成する PowerShell スクリプトを呼び出します。
 
-JSON ファイルの **"resources"** セクションのサブセクションの構成は次のとおりです。
+サブセクションの全体的な組織に注意してください、 **"resources"** JSON ファイルのセクション。
 
 1.  複数の仮想マシンをサポートするのに必要な Azure インフラストラクチャの要素 (ストレージ アカウント、パブリック IP アドレス、可用性セット、仮想ネットワーク、ネットワーク インターフェイス、ロード バランサーのインスタンス) を作成します。
 2.  ドメイン コントローラーの仮想マシンを作成し (以前作成された、Azure インフラストラクチャの共通および特定の要素を使用)、データ ディスクを追加して、PowerShell スクリプトを実行します。 さらに、ドメイン コントローラーの静的 IP アドレスを使用するように仮想ネットワークを更新します。
@@ -365,7 +366,7 @@ JSON ファイルの **"resources"** セクションのサブセクションの�
 1.  デプロイに必要な Azure インフラストラクチャの各種要素を作成します。これには、共通の要素 (ストレージ アカウント、仮想ネットワーク)、階層に固有の要素 (可用性セット)、仮想マシン固有の要素 (パブリック IP アドレス、可用性セット、ネットワーク インターフェイス、ロード バランサー インスタンス) があります。
 2.  アプリケーションの階層 (認証、データベース、Web など) ごとにサーバーを作成および構成します。このとき、共通の要素 (ストレージ アカウント、仮想ネットワーク)、階層に固有の要素 (可用性セット)、仮想マシン固有の要素 (パブリック IP アドレス、ネットワーク インターフェイス、ロード バランサー インスタンス) を使用します。
 
-詳細については、次を参照してください。 [Azure リソース マネージャー テンプレートの言語](../resource-group-authoring-templates.md)します。
+詳細については、次を参照してください。 [Azure リソース マネージャー テンプレートの言語](../resource-group-authoring-templates.md)です。
 
 ## その他のリソース
 
@@ -374,9 +375,5 @@ JSON ファイルの **"resources"** セクションのサブセクションの�
 
 [Azure リソース マネージャーのテンプレートの作成](../resource-group-authoring-templates.md)
 
-[Virtual machines のドキュメント](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-
-
-
+[仮想マシンに関するドキュメント](http://azure.microsoft.com/documentation/services/virtual-machines/)
 

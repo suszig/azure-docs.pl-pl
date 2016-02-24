@@ -15,7 +15,6 @@
    ms.date="11/19/2015"
    ms.author="joaoma" />
 
-
 # ロード バランサーの TCP アイドル タイムアウト設定を変更する方法
 
 既定の構成では、Azure ロード バランサーはアイドル タイムアウトが 4 分に設定されています。
@@ -24,7 +23,7 @@
 
 接続が解除されると、「基になる接続が閉じられました: 維持される必要があった接続が、サーバーによって切断されました」というエラー メッセージがクライアント アプリケーションに表示されます。
 
-長い期間のアクティブな接続を維持する一般的な方法は、TCP keep-alive を使用する (.NET の例を検索する [ここ](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx))します。
+長い期間のアクティブな接続を維持する一般的な方法は、TCP keep-alive を使用する (.NET の例を検索する [ここ](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx))。
 
 接続のアクティビティがなくなったことを検知すると、パケットが送信されます。 継続的なネットワーク アクティビティを維持することで、アイドル タイムアウトを回避して、接続を長時間維持します。
 
@@ -43,24 +42,25 @@ TCP Keep-alive は、バッテリーの制約がないシナリオでは有効�
 - PowerShell またはサービス管理 API を使用して、負荷分散されたエンドポイント セットに TCP タイムアウトを構成します。
 - インスタンス レベル パブリック IP の TCP タイムアウトを構成します。
 - サービス モデルを使用して Web ロール / worker ロールの TCP タイムアウトを構成します。
+ 
 
+>[AZURE.NOTE] いくつかのコマンドは、最新の Azure PowerShell パッケージにのみ存在するために留意してください。 Powershell コマンドが存在しない場合は、最新の PowerShell パッケージをダウンロードしてください。
 
->[AZURE.NOTE] 一部のコマンドは、最新の Azure PowerShell パッケージにのみ含まれています。 Powershell コマンドが存在しない場合は、最新の PowerShell パッケージをダウンロードしてください。
-
-
+ 
 ### インスタンス レベル パブリック IP の TCP タイムアウトを 15 分で構成します。
 
     Set-AzurePublicIP –PublicIPName webip –VM MyVM -IdleTimeoutInMinutes 15
 
-IdleTimeoutInMinutes の設定は任意です。 設定しない場合、既定のタイムアウト時間は 4 分です。
->[AZURE.NOTE] 設定できるタイムアウトの範囲は 4 ～ 30 分です。
+IdleTimeoutInMinutes の設定は任意です。 設定しない場合、既定のタイムアウト時間は 4 分です。 
 
+>[AZURE.NOTE] タイムアウトの許容範囲は、4 ~ 30 分間です。
+ 
 ### 仮想マシンでの Azure エンドポイントの作成時にアイドル タイムアウトを設定します。
 
 エンドポイントのタイムアウト設定を変更するには
 
     Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -IdleTimeoutInMinutes 15| Update-AzureVM
-
+ 
 アイドル タイムアウトの構成を取得します。
 
     PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
@@ -80,13 +80,13 @@ IdleTimeoutInMinutes の設定は任意です。 設定しない場合、既定�
     Acl : {}
     InternalLoadBalancerName :
     IdleTimeoutInMinutes : 15
-
+ 
 ### 負荷分散エンドポイント セットでの TCP タイムアウトを設定します。
 
 エンドポイントが負荷分散エンドポイント セットの一部である場合、TCP タイムアウトは負荷分散エンドポイント セットで設定される必要があります。
 
     Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
-
+ 
 ### クラウド サービスのタイムアウト設定を変更する
 
 Azure SDK for .NET 2.4 を使用してクラウド サービスを更新できます。
@@ -118,17 +118,16 @@ Azure SDK for .NET 2.4 を使用してクラウド サービスを更新でき�
 
 TCP アイドルのタイムアウトは、サービス管理 API を使って構成できます。
 X ms バージョン ヘッダーはバージョン 2014年-06-01 に設定を追加することを確認またはそれ以上を確認します。
-
+ 
 デプロイされているすべての仮想マシンで、指定した負荷分散入力エンドポイントの構成をアップデートします。
-
-    Request
     
-    POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>
+    Request
 
+    POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>
 <BR>
 
     Response
-    
+
     <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
     <InputEndpoint>
     <LoadBalancedEndpointSetName>endpoint-set-name</LoadBalancedEndpointSetName>
@@ -162,12 +161,8 @@ X ms バージョン ヘッダーはバージョン 2014年-06-01 に設定を�
 
 [内部ロード バランサーの概要](load-balancer-internal-overview.md)
 
-[インターネットへのロード バランサーの構成の開始します。](load-balancer-internet-getstarted.md)
+[インターネットに接続するロード バランサーの構成の開始](load-balancer-internet-getstarted.md)
 
-[ロード バランサー分散モードを構成します。](load-balancer-distribution-mode.md)
+[ロード バランサー分散モードの構成](load-balancer-distribution-mode.md)
 
-
-
-
-
-
+ 

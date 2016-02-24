@@ -16,7 +16,6 @@
     ms.date="11/03/2015" 
     ms.author="tomfitz"/>
 
-
 # 既存のゲートウェイを使用する API アプリのプロビジョニング
 
 このトピックでは、Azure API アプリと既存のゲートウェイをデプロイする Azure リソース マネージャーのテンプレートを作成する方法について説明します。 デプロイ対象のリソースを定義する方法を学習し、 
@@ -32,9 +31,9 @@
 
 このテンプレートでは、既存の App Service ホスティング プランと既存のゲートウェイに関連付けられている API アプリをデプロイします。
 
-デプロイを自動的に実行するには、次のボタンをクリックします。
+デプロイメントを自動的に実行するには、次のボタンをクリックします。
 
-[![を Azure にデプロイ](http://azuredeploy.net/deploybutton.png)] (https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-app-gateway-existing%2Fazuredeploy.json)
+[![DAzure に eploy](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-app-gateway-existing%2Fazuredeploy.json)
 
 ## パラメーター
 
@@ -66,17 +65,17 @@
     "variables": {
       "packageId": "Microsoft.ApiApp"
     }
-
-以降では、値は **variables('packageId')** として使用されています。 API Apps の NuGet パッケージ ID が含まれます。
+    
+以下として値が使用される **variables('packageId')**します。 API Apps の NuGet パッケージ ID が含まれます。
 
 ## デプロイするリソース
 
 ### API アプリをホストする Web アプリ
 
-API アプリをホストする Web アプリを作成します。
+API アプリをホストする Web アプリを作成します。 
 
-**kind** が **apiApp** に設定されています。これにより、この Web アプリが API アプリをホストしていることが Azure ポータルに通知されます。 Web アプリは、ポータルの Web アプリの参照ブレードに表示されなくなります。 アプリケーションには、拡張機能が含まれています。 
-既定値に空の [API アプリ パッケージをインストールします。 API アプリとホスティング Web アプリの間にリンクが定義されています。 アプリ設定セクションには、API アプリをホストするために必要な値が含まれています。 **serverFarmId** プロパティには、**hostingPlanId** パラメーターで指定した値が設定されます。
+注意して **種類** に設定されている **apiApp** Azure ポータルに通知するこの web アプリの API アプリがホストされています。 Web アプリは、ポータルの Web アプリの参照ブレードに表示されなくなります。 アプリケーションには、拡張機能が含まれています。 
+既定値に空の [API アプリ パッケージをインストールします。 API アプリとホスティング Web アプリの間にリンクが定義されています。 アプリ設定セクションには、API アプリをホストするために必要な値が含まれています。  **ServerFarmId** で指定した値にプロパティが設定されている、 **hostingPlanId** パラメーター。
 
     {
       "type": "Microsoft.Web/sites",
@@ -142,7 +141,7 @@ API アプリをホストする Web アプリを作成します。
 
 API アプリを作成します。
 
-ホスティング Web アプリとゲートウェイの名前が API アプリのプロパティとして定義されていることに注意してください。
+ホスティング Web アプリとゲートウェイの名前が API アプリのプロパティとして定義されていることに注意してください。 
 
     {
       "type": "Microsoft.AppService/apiapps",
@@ -178,6 +177,7 @@ API アプリを作成します。
       }
     }
 
+
 ## デプロイを実行するコマンド
 
 [AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
@@ -191,4 +191,5 @@ API アプリを作成します。
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-existing/azuredeploy.json
 
 
+ 
 

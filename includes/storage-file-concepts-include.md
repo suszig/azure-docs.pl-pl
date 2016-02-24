@@ -10,7 +10,7 @@ File ストレージの一般的な用途には、次のようなものがあり
 
 - ファイル共有を利用しているオンプレミスのアプリケーションを、コストの高い書き換えを行わずに、Azure Virtual Machines または Cloud Services 上で実行できるように移行する
 - 共有のアプリケーション設定を構成ファイルなどに格納する
-- ログ、メトリック、クラッシュ ダンプなどの診断データを共有の場所に格納する
+- ログ、メトリック、クラッシュ ダンプなどの診断データを共有の場所に格納する 
 - Azure Virtual Machines または Cloud Services の開発や管理に必要なツールおよびユーティリティを格納する
 
 ## File ストレージの概念
@@ -22,26 +22,24 @@ File ストレージには次の構成要素があります。
 -   **ストレージ アカウント:** Azure Storage にアクセスするには
     ストレージ アカウントを使用します。 参照してください [Azure ストレージのスケーラビリティおよびパフォーマンスのターゲット](http://msdn.microsoft.com/library/azure/dn249410.aspx) 詳細を参照してください。
 
--   **共有**: File ストレージ共有は、Azure 内の SMB ファイル共有です。 
+-   **共有:** File ストレージ共有は、Azure 内の SMB ファイル共有です。 
     ディレクトリとファイルはすべて親の共有に作成する必要があります。 1 つのアカウントには、
     に含まれる共有の数と、共有に格納できるファイル数には制限がなく、
     ファイル共有の合計容量と 5 TB までのファイルの数。
 
--   **ディレクトリ**: ディレクトリの階層 (オプション)。
+-   **ディレクトリ:** ディレクトリの階層 (オプション)。 
 
--   **ファイル:** 共有内のファイル。 ファイルのサイズの上限は 1 TB です。
+-   **ファイル:** 共有内のファイルです。 ファイルのサイズの上限は 1 TB です。
 
 -   **URL 形式:** ファイルは次の URL を使用してアドレス指定できます
     アドレス指定されます。   
-    https://'<storage
-    account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`
-
+    https://`<storage
+    account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`  
+    
     次の例の URL を使用すると、上の図のいずれかのファイルを
     アドレス指定できます。  
     `http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
 
 詳細については、共有、ディレクトリ、およびファイルの名前を付ける方法は、次を参照してください。 [名前付けおよび参照する共有、ディレクトリ、ファイル、およびメタデータ](http://msdn.microsoft.com/library/azure/dn167011.aspx)します。
 
-
-[files-concepts]: ./media/storage-file-concepts-include/files-concepts.png 
-
+[files-concepts]: ./media/storage-file-concepts-include/files-concepts.png

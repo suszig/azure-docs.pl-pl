@@ -17,18 +17,17 @@
    ms.date="10/27/2015"
    ms.author="neerajkh"/>
 
-
 # Web サービスのスケーリング
 
 ## 同時実行を増やす
 
 既定では、発行される Web サービスはそれぞれ、20 件の同時実行要求をサポートするように構成されます。 この同時実行モードから 200 の同時要求を増やすことができます [Azure Classic Portal](https://manage.windowsazure.com/) 次の図に示すようにします。
 
-移動して [Azure Classic Portal](https://manage.windowsazure.com/), 、左側の Machine Learning のアイコンをクリックして、web サービスを公開するために使用される作業領域を選択して、目的の web サービス] をクリックして、同時実行性の向上が必要なエンドポイントを選択および順にクリックして **構成**します。 スライダーを使用して同時実行を増やし、下部パネルにある **[保存]** をクリックします。
+移動して [Azure Classic Portal](https://manage.windowsazure.com/), 、左側の Machine Learning のアイコンをクリックして、web サービスを公開するために使用される作業領域を選択して、目的の web サービス] をクリックして、同時実行性の向上が必要なエンドポイントを選択および順にクリックして **構成**します。 スライダーを使用して、同時実行制御を向上し、クリックして **保存** 下側のパネルにします。
 
 同時実行性を向上させるのを参照してください。 [API エンドポイントのスケーリング](machine-learning-scaling-endpoints.md)します。
 
-   ![Machine Learning、エンドポイントの拡大。][1]
+   ![機械学習、エンドポイントのスケーリングします。][1]
 
 ## 同じ Web サービスの新しいエンドポイントを追加する
 
@@ -38,10 +37,8 @@
 
 新しいエンドポイントを追加するを参照してください。 [のエンドポイントの作成](machine-learning-create-endpoint.md)します。
 
-   ![Machine Learning、新しいエンドポイントの追加。][2]
+   ![機械学習、新しいエンドポイントを追加します。][2]
 
-
-
-[1]: ./media/machine-learning-scaling-webservice/machlearn-1.png 
-[2]: ./media/machine-learning-scaling-webservice/machlearn-2.png 
-
+<!--Image references-->
+[1]: ./media/machine-learning-scaling-webservice/machlearn-1.png
+[2]: ./media/machine-learning-scaling-webservice/machlearn-2.png

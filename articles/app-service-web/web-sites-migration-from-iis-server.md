@@ -17,29 +17,28 @@
     ms.date="12/10/2015" 
     ms.author="cephalin"/>
 
-
 # エンタープライズ Web アプリの Azure App Service への移行
 
-[インターネット インフォメーション サービス (IIS) 6 以降を実行している既存の web サイトを簡単に移行することができます [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)します。
->[AZURE.IMPORTANT] Windows Server 2003 は、2015 年 7 月 14 日でサポートが終了します。 現在 Windows Server 2003 の IIS サーバーに Web サイトが置かれている場合、Web Apps により、低リスク、低コスト、および低干渉で Web サイトがオンラインの状態に保たれます。また、Web Apps Migration Assistant により移行プロセスが自動化されます。 
+[インターネット インフォメーション サービス (IIS) 6 以降を実行している既存の web サイトを簡単に移行することができます [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)します。 
+
+>[AZURE.IMPORTANT] Windows Server 2003 には、14 の 2015 年 7 月のサポートの終了に到達します。 現在 Windows Server 2003 の IIS サーバーに Web サイトが置かれている場合、Web Apps により、低リスク、低コスト、および低干渉で Web サイトがオンラインの状態に保たれます。また、Web Apps Migration Assistant により移行プロセスが自動化されます。 
 
 [Web Apps Migration Assistant](https://www.movemetothecloud.net/) IIS サーバーのインストールを分析、App Service へ移行することができます、移行できないか、プラットフォームでサポートされていない要素を強調表示、およびを Azure に web サイトと関連付けられたデータベースを移行するサイトを識別できます。
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## 互換性の分析中に検証される要素
-
+## 互換性の分析中に検証される要素 ##
 Migration Assistant により対応状況レポートが作成されます。このレポートを使用して、考えられる問題点を識別し、オンプレミスの IIS から Azure App Service Web Apps への移行を妨げる可能性のある問題点をブロックします。 注意すべき主な項目のいくつかを次に示します。
 
--   ポートのバインド – Web Apps でサポートされるポートは、HTTP トラフィック用のポート 80、および HTTPS トラフィック用のポート 443 のみです。 それ以外のポート構成は無視され、トラフィックは 80 または 443 にルーティングされます。
--   認証 - Web Apps では、匿名認証が既定でサポートされていますが、アプリケーションによってフォーム認証が指定される場合もあります。 Azure Active Directory および ADFS と統合する場合に限り、Windows 認証を使用できます。 基本認証など、その他すべての認証形式は現在サポートされていません。
--   グローバル アセンブリ キャッシュ (GAC) – GAC は Web Apps でサポートされていません。 アプリケーションで、通常 GAC にデプロイするアセンブリを参照する場合は、Web Apps でアプリケーションの bin フォルダーにデプロイする必要があります。
--   IIS5 互換性モード – Web Apps でサポートされていません。
+-   ポートのバインド – Web Apps でサポートされるポートは、HTTP トラフィック用のポート 80、および HTTPS トラフィック用のポート 443 のみです。 それ以外のポート構成は無視され、トラフィックは 80 または 443 にルーティングされます。 
+-   認証 - Web Apps では、匿名認証が既定でサポートされていますが、アプリケーションによってフォーム認証が指定される場合もあります。 Azure Active Directory および ADFS と統合する場合に限り、Windows 認証を使用できます。 基本認証など、その他すべての認証形式は現在サポートされていません。 
+-   グローバル アセンブリ キャッシュ (GAC) – GAC は Web Apps でサポートされていません。 アプリケーションで、通常 GAC にデプロイするアセンブリを参照する場合は、Web Apps でアプリケーションの bin フォルダーにデプロイする必要があります。 
+-   IIS5 互換性モード – Web Apps でサポートされていません。 
 -   アプリケーション プール – Web Apps では、各サイトとその子アプリケーションが同じアプリケーション プールで実行されます。 サイトに複数のアプリケーション プールを利用する子アプリケーションが複数ある場合は、共通の設定で 1 つのアプリケーション プールに統合するか、または各アプリケーションを個別の Web アプリに移行します。
 -   COM コンポーネント – Web Apps では、プラットフォームで COM コンポーネントを登録できません。 Web サイトまたはアプリケーションで COM コンポーネントを使用する場合、その COM コンポーネントをマネージ コードで書き換えて、Web サイトまたはアプリケーションにデプロイする必要があります。
 -   ISAPI フィルター – Web Apps では、ISAPI フィルターの使用をサポートできます。 次の手順を実行する必要があります。
-    -   Web アプリで DLL をデプロイします。
-    -   を使用して Dll を登録 [Web.config](http://www.iis.net/configreference/system.webserver/isapifilters)
+    -   Web アプリで DLL をデプロイします。 
+    -   使用して Dll を登録 [Web.config](http://www.iis.net/configreference/system.webserver/isapifilters)
     -   次の内容を含むサイト ルートに、applicationHost.xdt ファイルを配置します。
 
             <?xml version="1.0"?>
@@ -55,49 +54,49 @@ Migration Assistant により対応状況レポートが作成されます。こ
 
 -   SharePoint、Front Page Server Extensions (FPSE)、FTP、SSL 証明書など、その他のコンポーネントは移行されません。
 
-## Azure Apps Migration Assistant の使用方法
-
+## Azure Apps Migration Assistant の使用方法 ##
 このセクションでは、SQL Server データベースを使用して、オンプレミスの Windows Server 2003 R2 (IIS 6.0) マシンで実行されている、いくつかの Web サイトを移行する場合の例を紹介します。
 
-1.  IIS サーバーまたはクライアント コンピューターに移動 [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/)
+1.  IIS サーバーまたはクライアント コンピューターに移動 [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/) 
 
     ![](./media/web-sites-migration-from-iis-server/migration-tool-homepage.png)
 
-2.  [**専用 IIS サーバー**] ボタンをクリックして、Web Apps Migration Assistant をインストールします。 近日中にオプションが追加される予定です。
-4.  コンピューターに Web Apps Migration Assistant をインストールするには、[**ツールのインストール**] をクリックします。
+2.  Web Apps Migration Assistant をインストール] をクリックして、 **専用 IIS サーバー** ] ボタンをクリックします。 近日中にオプションが追加される予定です。 
+4.  クリックして、 **ツールのインストール** コンピューターに Web Apps Migration Assistant をインストールする] ボタンをクリックします。
 
     ![](./media/web-sites-migration-from-iis-server/install-page.png)
-    >[AZURE.NOTE] また、[**オフライン インストール用のダウンロード**] をクリックして ZIP ファイルをダウンロードし、インターネットに接続していないサーバーにインストールすることもできます。 または、[**既存の移行準備レポートのアップロード**] をクリックすることもできます。これは、以前に生成した既存の移行準備レポート (後述) を使用する場合の高度なオプションです。
 
-5.  [**アプリケーションのインストール**] 画面で [**インストール**] をクリックして、アプリケーションをコンピューターにインストールします。 必要に応じて、Web Deploy、DacFX、IIS などの対応する依存関係もインストールされます。
+    >[AZURE.NOTE] クリックすることも **オフライン インストール用のダウンロード** し、インターネットに接続していないサーバーにインストールするための ZIP ファイルをダウンロードします。 クリックすることができます **既存の移行準備レポートのアップロード**, 、これは、既存の移行準備レポート以前に生成した (後述) を使用する、高度なオプションです。
+
+5.   **アプリケーションがインストール** 画面で、[ **インストール** をコンピューターにインストールします。 必要に応じて、Web Deploy、DacFX、IIS などの対応する依存関係もインストールされます。 
 
     ![](./media/web-sites-migration-from-iis-server/install-progress.png)
 
     インストールが完了すると、Web Apps Migration Assistant が自動的に開始されます。
-
-6.  [**リモート サーバーから Azure にサイトおよびデータベースを移行する**] を選択します。 リモート サーバーの管理者の資格情報を入力し、[**続行**] をクリックします。
+  
+6.  選択 **サイトおよびデータベースをリモート サーバーから Azure に移行**します。 リモート サーバーの管理者の資格情報を入力し、クリックして **続行**します。 
 
     ![](./media/web-sites-migration-from-iis-server/migrate-from-remote.png)
 
     もちろんローカル サーバーから移行することもできます。 実稼働環境の IIS サーバーから Web サイトを移行する場合は、リモート オプションが役立ちます。
+ 
+    この時点で移行ツールにより、サイト、アプリケーション、アプリケーション プール、依存関係など、IIS サーバーの構成を確認し、移行対象となる Web サイトを識別します。 
 
-    この時点で移行ツールにより、サイト、アプリケーション、アプリケーション プール、依存関係など、IIS サーバーの構成を確認し、移行対象となる Web サイトを識別します。
-
-8.  次のスクリーンショットは、**既定の Web サイト**、**TimeTracker**、および **CommerceNet4** の 3 つの Web サイトを示しています。 これらすべてのサイトに、移行するデータベースが関連付けられています。 評価するサイトをすべて選択し、[**次へ**] をクリックします。
+8.  次のスクリーン ショットは、次の 3 つの web サイトを示しています。 **既定の Web サイト**, 、**TimeTracker**, 、および **CommerceNet4**します。 これらすべてのサイトに、移行するデータベースが関連付けられています。 すべてのサイトを評価し、をクリックするかを選択して **次**します。
 
     ![](./media/web-sites-migration-from-iis-server/select-migration-candidates.png)
-
-9.  [**アップロード**] をクリックし、対応状況レポートをアップロードします。 [**ファイルをローカルに保存**] をクリックすると、前述したように、移行ツールを後でもう一度実行し、保存されている対応状況レポートをアップロードできます。
+ 
+9.  をクリックして **アップロード** を対応状況レポートをアップロードします。 クリックすると **ファイルをローカルに保存**, 、移行ツールを後でもう一度実行し、前に述べたように、保存されている対応状況レポートをアップロードすることができます。
 
     ![](./media/web-sites-migration-from-iis-server/upload-readiness-report.png)
-
-    対応状況レポートをアップロードした後、Azure で対応状況の分析が実行され、結果が表示されます。 各 Web サイトの評価の詳細を確認し、すべての問題について理解しているか、または処理する前にすべての問題点が解決していることを確認します。
-
+ 
+    対応状況レポートをアップロードした後、Azure で対応状況の分析が実行され、結果が表示されます。 各 Web サイトの評価の詳細を確認し、すべての問題について理解しているか、または処理する前にすべての問題点が解決していることを確認します。 
+ 
     ![](./media/web-sites-migration-from-iis-server/readiness-assessment.png)
 
-12. [**移行の開始**] をクリックして移行を開始します。これで Azure にリダイレクトされ、自分のアカウントにログインできるようになります。 アクティブな Azure サブスクリプションを持つアカウントでログインすることが重要です。 Azure アカウントがない場合は、無料試用版でサインアップできます。
+12. クリックして **移行の開始** の移行を開始します。Azure アカウントにログインするにはリダイレクトようになりました。 アクティブな Azure サブスクリプションを持つアカウントでログインすることが重要です。 Azure アカウントがない場合は、無料試用版でサインアップできます。 
 
-13. 移行後の Azure Web アプリとデータベースに対して使用するテナント アカウント、Azure サブスクリプション、およびリージョンを選択し、[**移行を開始する**] をクリックします。 移行する Web サイトは後で選択することもできます。
+13. テナント アカウント、Azure サブスクリプションとクリックして、移行後の Azure web アプリとデータベースを使用するリージョンを選択して **移行を開始**します。 移行する Web サイトは後で選択することもできます。
 
     ![](./media/web-sites-migration-from-iis-server/choose-tenant-account.png)
 
@@ -111,16 +110,17 @@ Migration Assistant により対応状況レポートが作成されます。こ
     次のスクリーンショットは、既定の設定による移行対象として選択されたすべての Web サイトを示しています。
 
     ![](./media/web-sites-migration-from-iis-server/migration-settings.png)
-    >[AZURE.NOTE] **Azure の Active Directory を有効にする** カスタム設定のチェック ボックスを使用して Azure の web アプリケーションの統合 [Azure Active Directory](active-directory-whatis.md) (、 **既定のディレクトリ**)。 内部設置型 Active Directory と Azure Active Directory の同期の詳細については、次を参照してください。 [ディレクトリ統合](http://msdn.microsoft.com/library/jj573653)します。
 
-16.  必要な変更をすべて行ったら、[**作成**] をクリックして移行プロセスを開始します。 移行ツールにより、Azure SQL Database と Azure Web アプリが作成され、Web サイトのコンテンツとデータベースが発行されます。 移行の進行状況が移行ツールで明確に表示され、最後に概要のページが表示されます。このページには、移行されたサイトの詳細情報、移行が正しく行われたかどうか、新しく作成された Azure Web アプリへのリンクなどが表示されます。
+    >[AZURE.NOTE]  **Azure の Active Directory を有効にする** カスタム設定のチェック ボックスを使用して Azure の web アプリケーションの統合 [Azure Active Directory](active-directory-whatis.md) (、 **既定のディレクトリ**)。 内部設置型 Active Directory と Azure Active Directory の同期の詳細については、次を参照してください。 [ディレクトリ統合](http://msdn.microsoft.com/library/jj573653)します。
+
+16.  必要なすべての変更を加えた後にをクリックして **作成** 移行プロセスを開始します。 移行ツールにより、Azure SQL Database と Azure Web アプリが作成され、Web サイトのコンテンツとデータベースが発行されます。 移行の進行状況が移行ツールで明確に表示され、最後に概要のページが表示されます。このページには、移行されたサイトの詳細情報、移行が正しく行われたかどうか、新しく作成された Azure Web アプリへのリンクなどが表示されます。 
 
     If any error occurs during migration, the migration tool will clearly indicate the failure and rollback the changes. You will also be able to send the error report directly to the engineering team by clicking the **Send Error Report** button, with the captured failure call stack and build message body. 
-    
-    ![](./media/web-sites-migration-from-iis-server/migration-error-report.png)
-    
-    If migrate succeeds without errors, you can also click the **Give Feedback** button to provide any feedback directly. 
 
+    ![](./media/web-sites-migration-from-iis-server/migration-error-report.png)
+
+    If migrate succeeds without errors, you can also click the **Give Feedback** button to provide any feedback directly. 
+ 
 20. Azure Web アプリへのリンクをクリックし、移行が完了したことを確認します。
 
 21. これで、移行した Web アプリを Azure App Service で管理できるようになりました。 これを行うには、ログイン、 [Azure ポータル](https://portal.azure.com)します。
@@ -132,10 +132,5 @@ Migration Assistant により対応状況レポートが作成されます。こ
 >[AZURE.NOTE] 場合は、Azure アカウントがサインアップする前に Azure App Service の使用を開始するには、 [App Service の試用](http://go.microsoft.com/fwlink/?LinkId=523751), 、App Service で有効期間の短いスターター web アプリをすぐに作成する場所です。 このサービスの利用にあたり、クレジット カードは必要ありません。契約も必要ありません。
 
 ## 変更内容
-
 * Web サイトから App Service への変更のガイドを参照してください: [Azure App Service と既存の Azure サービスへの影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-
-
-
-
-
+ 

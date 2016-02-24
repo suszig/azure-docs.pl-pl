@@ -16,12 +16,7 @@
     ms.date="09/15/2015"
     ms.author="donnam"/>
 
-
 # Azure App Service でモバイルおよび Web クライアントを使用してアプリを作成する
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-web-and-mobile](../../includes/app-service-mobile-dotnet-backend-web-and-mobile.md)]
-
-
-
-
 

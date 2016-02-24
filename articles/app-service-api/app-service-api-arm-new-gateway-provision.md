@@ -16,7 +16,6 @@
     ms.date="11/03/2015" 
     ms.author="tomfitz"/>
 
-
 # 新しいゲートウェイを使用する API アプリのプロビジョニング
 
 このトピックでは、Azure API アプリとゲートウェイをデプロイする Azure リソース マネージャーのテンプレートを作成する方法について説明します。 デプロイ対象のリソースを定義する方法を学習し、 
@@ -36,9 +35,9 @@
 - 新しいゲートウェイ
 - 新しい App Service ホスティング プラン
 
-デプロイを自動的に実行するには、次のボタンをクリックします。
+デプロイメントを自動的に実行するには、次のボタンをクリックします。
 
-[![を Azure にデプロイ](http://azuredeploy.net/deploybutton.png)] (https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-app-gateway-new%2Fazuredeploy.json)
+[![DAzure に eploy](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-app-gateway-new%2Fazuredeploy.json)
 
 ## パラメーター
 
@@ -46,7 +45,7 @@
 
 ### hostingPlanName
 
-App Service プランの名前。
+App Service プランの名前。 
 
     "hostingPlanName": {
       "type": "string"
@@ -66,7 +65,7 @@ App Service プランの名前。
         "hostingEnvironment": ""
       }
     }
-
+    
 ## 変数
 
 このテンプレートは、リソースをデプロイするときに使用される変数を定義します。
@@ -74,8 +73,8 @@ App Service プランの名前。
     "variables": {
       "packageId": "Microsoft.ApiApp"
     }
-
-以降では、値は **variables('packageId')** として使用されています。 API Apps の NuGet パッケージ ID が含まれます。
+    
+以下として値が使用される **variables('packageId')**します。 API Apps の NuGet パッケージ ID が含まれます。
 
 ## デプロイするリソース
 
@@ -99,10 +98,10 @@ API アプリのサービス ホスティング プランを作成します。
 
 ### ゲートウェイをホストする Web アプリ
 
-ゲートウェイをホストする Web アプリを作成します。
+ゲートウェイをホストする Web アプリを作成します。 
 
-**kind** が **gateway** に設定されています。これにより、この Web アプリがゲートウェイをホストしていることが Azure ポータルに通知されます。 Web アプリは、ポータルの Web アプリの参照ブレードに表示されなくなります。 
-ホスティング Web アプリとゲートウェイの間にリンクが定義されています。 アプリ設定セクションには、API アプリをホストするために必要な値が含まれています。 **serverFarmId** には、**hostingPlanName** パラメーターで指定した App Service プランの名前が含まれます。
+注意して **種類** に設定されている **ゲートウェイ** Azure ポータルに通知するこの web アプリがゲートウェイをホストします。 Web アプリは、ポータルの Web アプリの参照ブレードに表示されなくなります。 
+ホスティング Web アプリとゲートウェイの間にリンクが定義されています。 アプリ設定セクションには、API アプリをホストするために必要な値が含まれています。  **ServerFarmId** で指定した App Service プラン名を含む、 **hostingPlanName** パラメーター。
 
 
     {
@@ -187,10 +186,10 @@ API アプリのサービス ホスティング プランを作成します。
 
 ### API アプリをホストする Web アプリ
 
-API アプリをホストする Web アプリを作成します。
+API アプリをホストする Web アプリを作成します。 
 
-**kind** が **apiApp** に設定されています。これにより、この Web アプリが API アプリをホストしていることが Azure ポータルに通知されます。 Web アプリは、ポータルの Web アプリの参照ブレードに表示されなくなります。 アプリケーションには、拡張機能が含まれています。 
-既定値に空の [API アプリ パッケージをインストールします。 API アプリとホスティング Web アプリの間にリンクが定義されています。 アプリ設定セクションには、API アプリをホストするために必要な値が含まれています。 **serverFarmId** には、**hostingPlanName** パラメーターで指定した App Service プランの名前が含まれます。
+注意して **種類** に設定されている **apiApp** Azure ポータルに通知するこの web アプリの API アプリがホストされています。 Web アプリは、ポータルの Web アプリの参照ブレードに表示されなくなります。 アプリケーションには、拡張機能が含まれています。 
+既定値に空の [API アプリ パッケージをインストールします。 API アプリとホスティング Web アプリの間にリンクが定義されています。 アプリ設定セクションには、API アプリをホストするために必要な値が含まれています。  **ServerFarmId** で指定した App Service プラン名を含む、 **hostingPlanName** パラメーター。
 
     {
       "type": "Microsoft.Web/sites",
@@ -260,7 +259,7 @@ API アプリをホストする Web アプリを作成します。
 
 API アプリを作成します。
 
-ホスティング Web アプリとゲートウェイの名前が API アプリのプロパティとして定義されていることに注意してください。
+ホスティング Web アプリとゲートウェイの名前が API アプリのプロパティとして定義されていることに注意してください。 
 
     {
       "type": "Microsoft.AppService/apiapps",
@@ -310,4 +309,5 @@ API アプリを作成します。
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-new/azuredeploy.json
 
 
+ 
 

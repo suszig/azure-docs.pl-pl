@@ -1,10 +1,11 @@
+
 <properties
-    pageTitle ="Azure RemoteApp で使用する Azure VNET の検証 |Microsoft Azure]
-    description =「Azure VNET が Azure RemoteApp で使用する準備ができていることを確認する方法について説明します」
-    サービス =「remoteapp」
+    pageTitle="Azure RemoteApp で使用する Azure VNET の検証 | Microsoft Azure"
+    description="Azure VNET を Azure RemoteApp で使用する準備が整っていることを確認する方法を説明します。"
+    services="remoteapp"
     documentationCenter=""
-    authors ="lizap"
-    manager ="mbaldwin"/>
+    authors="lizap"
+    manager="mbaldwin" />
 
 <tags
     ms.service="remoteapp"
@@ -13,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="12/05/2015"
-    ms.author="elizapo"/>
+    ms.author="elizapo" />
 
 
 
@@ -25,7 +26,7 @@ Azure VNET を検証するには、次の手順を行います。
 
 1. Azure RemoteApp で使用する Azure VNET のサブネット内に Azure 仮想マシンを作成します。
 
-2. 管理ポータルで **[接続]** オプションを使用して、作成した VM に接続します。
+2. 使用してその VM への接続、 **接続** 管理ポータルでオプションです。
 3. 仮想マシンを Azure RemoteApp を使用するのと同じドメインに参加させます。 オンプレミスのネットワークに接続するハイブリッド コレクションを作成する場合は、仮想マシンをローカル ドメインに参加させます。
 
 これに成功した場合は、Azure VNET は RemoteApp で使用する準備が整っています。
@@ -33,10 +34,6 @@ Azure VNET を検証するには、次の手順を行います。
 エンド ツー エンドのハイブリッド コレクションのワークフローの詳細については、次の記事を参照してください。
 
 - [Azure RemoteApp の仮想ネットワークを計画する方法](remoteapp-planvpn.md)
-- [ハイブリッド コレクションを作成します。](remoteapp-create-hybrid-deployment.md)
-- [Azure RemoteApp コレクションを (ExpressRoute のサポート) で、Azure の仮想ネットワークに配置します。](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
-
-
-
-
+- [Create a hybrid collection (ハイブリッド接続を作成する)](remoteapp-create-hybrid-deployment.md)
+- [Azure RemoteApp コレクションの Azure Virtual Network へのデプロイ方法 (ExpressRoute のサポートを利用)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
 

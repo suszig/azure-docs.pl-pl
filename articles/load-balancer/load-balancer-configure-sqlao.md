@@ -15,15 +15,14 @@
    ms.date="11/19/2015"
    ms.author="joaoma" />
 
-
 # SQL AlwaysOn のロード バランサーの構成
 
 SQL Server AlwaysOn 可用性グループは、ILB と共に実行できるようになりました。 可用性グループは、高可用性と障害復旧を目的とした SQL Server の主要なソリューションです。 可用性グループ リスナーによって、クライアント アプリケーションは、構成されているレプリカの数に関係なく、プライマリ レプリカにシームレスに接続できます。
 
-リスナー (DNS) 名は負荷分散された IP アドレスにマップされ、Azure の Load Balancer によって、着信トラフィックがレプリカ セットのプライマリ サーバーのみに送られます。
+リスナー (DNS) 名は負荷分散された IP アドレスにマップされ、Azure の Load Balancer によって、着信トラフィックがレプリカ セットのプライマリ サーバーのみに送られます。 
 
 
-SQL Server AlwaysOn (リスナー) エンドポイントでは、ILB のサポートを使用できます。 リスナーのアクセスを制御できるため、Virtual Network (VNet) の特定のサブネットから負荷分散された IP アドレスを選択できるようになりました。
+SQL Server AlwaysOn (リスナー) エンドポイントでは、ILB のサポートを使用できます。 リスナーのアクセスを制御できるため、Virtual Network (VNet) の特定のサブネットから負荷分散された IP アドレスを選択できるようになりました。 
 
 リスナーで ILB を使用することで、SQL サーバー エンドポイント (例: Server=tcp:ListenerName,1433;Database=DatabaseName) には次の場所からのみアクセスできます。
 
@@ -31,13 +30,13 @@ SQL Server AlwaysOn (リスナー) エンドポイントでは、ILB のサポ�
 サービスと接続されているオンプレミス ネットワークから仮想マシン
 サービスと Vm、相互接続された Vnet
 
-![ILB_SQLAO_NewPic](./media/load-balancer-configure-sqlao/sqlao1.jpg)
+![ILB_SQLAO_NewPic](./media/load-balancer-configure-sqlao/sqlao1.jpg) 
 
 
 内部ロード バランサーの構成には、PowerShell のみを使用できます。
 
 
-## サービスに内部ロード バランサーを追加する
+## サービスに内部ロード バランサーを追加する 
 
 ### 手順 1.
 
@@ -51,7 +50,7 @@ SQL Server AlwaysOn (リスナー) エンドポイントでは、ILB のサポ�
 
     Get-AzureVM -ServiceName SqlSvc -Name sqlsvc1 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –
     DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
-    
+
     Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
 
 上の例では、sqlsvc1 および sqlsvc2 という 2 つの VM がクラウド サービス "Sqlsvc" で実行されます。 DirectServerReturn スイッチで ILB を作成したら、負荷分散されたエンドポイントを ILB に追加して、SQL が可用性グループのリスナーを構成できるようにします。
@@ -61,15 +60,11 @@ SQL AlwaysOn の作成の詳細を検索する [チュートリアル: Azure Alw
 
 ## 関連項目
 
-[インターネットへのロード バランサーの構成の開始します。](load-balancer-internet-getstarted.md)
+[インターネットに接続するロード バランサーの構成の開始](load-balancer-internet-getstarted.md)
 
-[内部ロード バランサーの構成の開始します。](load-balancer-internal-getstarted.md)
+[内部ロード バランサーの構成の開始](load-balancer-internal-getstarted.md)
 
-[ロード バランサー分散モードを構成します。](load-balancer-distribution-mode.md)
+[ロード バランサー分散モードの構成](load-balancer-distribution-mode.md)
 
-[ロード バランサーのアイドル TCP タイムアウト設定を構成します。](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-
+[ロード バランサーのアイドル TCP タイムアウト設定の構成](load-balancer-tcp-idle-timeout.md)
+ 

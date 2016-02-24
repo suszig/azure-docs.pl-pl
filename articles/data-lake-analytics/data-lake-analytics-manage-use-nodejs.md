@@ -6,7 +6,7 @@
    authors="mumian" 
    manager="paulettm" 
    editor="cgronlun"/>
-
+ 
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
@@ -16,8 +16,8 @@
    ms.date="12/11/2015"
    ms.author="jgao"/>
 
-
 # Azure SDK for Node.js を使用して Azure Data Lake Analytics を管理する
+
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
@@ -27,23 +27,22 @@ Azure ADK for Node.js を使用して、Azure Data Lake Analytics アカウン�
 
 このチュートリアルを読み始める前に、次の項目を用意する必要があります。
 
-- **Azure サブスクリプション**。 参照してください [取得 Azure 無料試用版](https://azure.microsoft.com/pricing/free-trial/)します。
-- **Azure Data Lake Analytics アカウント**。 参照してください [Azure ポータルを使用して Azure Data Lake 分析を使ってみる](data-lake-analytics-get-started-portal.md) アカウントを作成します。
-- **Data Lake Analytics アカウントへのアクセス許可を持つサービス プリンシパル**。 参照してください [Azure リソース マネージャーでサービス プリンシパルの認証](resource-group-authenticate-service-principal.md)します。
+- **Azure サブスクリプション**します。 参照してください [取得 Azure 無料試用版](https://azure.microsoft.com/pricing/free-trial/)します。
+- **Azure Data Lake 分析アカウント**します。 参照してください [Azure ポータルを使用して Azure Data Lake 分析を使ってみる](data-lake-analytics-get-started-portal.md) アカウントを作成します。
+- **Data Lake 分析アカウントにアクセスするアクセス許可を持つサービス プリンシパル**します。 参照してください [Azure リソース マネージャーでサービス プリンシパルの認証](resource-group-authenticate-service-principal.md)します。
 
 ## SDK のインストール
 
 次のコマンドを使用して SDK をインストールします。
 
-1. Install [Node.js](https://nodejs.org/).
+1. インストール [Node.js](https://nodejs.org/)します。
 2. コマンド プロンプト、terminal または bash ウィンドウで次のコマンドを実行します。
 
         npm install async
         npm install adal-node
         npm install azure-common
         npm install azure-arm-datalake-analytics
-
-
+    
 ## Node.js のサンプル
 
 次の例では、指定した Azure Data Lake Analytics アカウントのジョブの一覧を取得します。
@@ -84,7 +83,7 @@ Azure ADK for Node.js を使用して、Azure Data Lake Analytics アカウン�
                 authorizationScheme : response.tokenType,
                 token : response.accessToken
             });
-    
+        
             client = azureDataLakeAnalytics.createDataLakeAnalyticsJobManagementClient(credentials, 'azuredatalakeanalytics.net');
     
             next();
@@ -97,16 +96,13 @@ Azure ADK for Node.js を使用して、Azure Data Lake Analytics アカウン�
         }
     ]);
 
-## 関連項目
+
+##関連項目 
 
 - [Azure SDK for Node.js](http://azure.github.io/azure-sdk-for-node/)
-- [Microsoft Azure Data Lake 分析の概要](data-lake-analytics-overview.md)
-- [Azure ポータルを使用して Data Lake 分析を使ってみる](data-lake-analytics-get-started-portal.md)
-- [Azure ポータルを使用して Azure Data Lake 分析を管理します。](data-lake-analytics-use-portal.md)
-- [監視し、Azure ポータルを使用して Azure Data Lake 分析ジョブのトラブルシューティング](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-
-
-
-
+- [Microsoft Azure Data Lake Analytics の概要](data-lake-analytics-overview.md)
+- [Azure ポータルで Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-portal.md)
+- [Azure ポータルを使用する Azure Data Lake Analytics の管理](data-lake-analytics-use-portal.md)
+- [Azure ポータルを使用する Azure Data Lake Analytics ジョブの監視とトラブルシューティング](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 

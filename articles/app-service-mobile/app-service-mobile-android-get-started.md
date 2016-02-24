@@ -16,8 +16,7 @@
     ms.date="11/20/2015"
     ms.author="yuaxu"/>
 
-
-# Android アプリの作成
+#Android アプリの作成
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 &nbsp;  
@@ -25,7 +24,7 @@
 
 ## 概要
 
-このチュートリアルでは、Azure モバイル アプリ バックエンドを使用してクラウド ベースのバックエンド サービスを Android モバイル アプリに追加する方法を説明します。 新しいモバイル アプリ バックエンドと Azure でアプリケーション データを保存する単純な _Todo list _ Android アプリの両方を作成します。
+このチュートリアルでは、Azure モバイル アプリ バックエンドを使用してクラウド ベースのバックエンド サービスを Android モバイル アプリに追加する方法を説明します。  新しいモバイル アプリ バックエンドと簡単なの両方を作成する _Todo リスト_ Android アプリを Azure にアプリケーション データを保存します。
 
 このチュートリアルは、Azure App Service での Mobile Apps 機能の使用に関する他のすべての Android チュートリアルを実行する前に完了しておく必要があります。
 
@@ -36,7 +35,7 @@
 * [Android Developer Tools](https://developer.android.com/sdk/index.html), を含む、Android Studio 統合開発環境、および最新の Android プラットフォームです。
 * Azure Mobile Android SDK。ダウンロードしたクイックスタート プロジェクトの一部として自動的に参照されます。
 * [Visual Studio Community 2013] で PC 以降 & mdash; Node.js バックエンドの場合は不要です。
-* [アクティブな Azure アカウント](http://azure.microsoft.com/pricing/free-trial/)します。
+*  [アクティブな Azure アカウント](http://azure.microsoft.com/pricing/free-trial/)します。
 
 ## 新しい Azure モバイル アプリ バックエンドを作成する
 
@@ -51,10 +50,9 @@
 [AZURE.INCLUDE [app-service-mobile-android-run-app](../../includes/app-service-mobile-android-run-app.md)]
 
 
+<!-- Images. -->
 
-
-
-
-[azure portal]: https://portal.azure.com/ 
-[visual studio community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203 
+<!-- URLs -->
+[Azure portal]: https://portal.azure.com/
+[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 

@@ -15,7 +15,6 @@
    ms.date="09/18/2015"
    ms.author="sethm" />
 
-
 # Service Bus の仲介型メッセージングを使用したパフォーマンス向上のためのベスト プラクティス
 
 このトピックでは、仲介型メッセージを交換する際のパフォーマンスを Azure Service Bus を使用して最適化する方法について説明しています。 このトピックの前半では、パフォーマンスの向上に役立つさまざまなメカニズムについて説明します。 後半では、特定のシナリオでパフォーマンスを最大限に高めるための Service Bus の使用方法に関するガイダンスを示します。
@@ -36,14 +35,14 @@ Service Bus を利用することで、クライアントは 2 つのプロト�
 
 ## 同時実行の操作
 
-操作を実行する (送信、受信、削除などです)。 いくつかの時間がかかります。 この時間には、要求と応答の待機時間だけでなく、Service Bus サービスによる操作の処理時間も含まれます。 時間あたりの操作数を増やすには、操作を同時に実行する必要があります。 これはさまざまな方法で実行できます。
+操作 (送信、受信、削除など) には時間がかかります。 この時間には、要求と応答の待機時間だけでなく、Service Bus サービスによる操作の処理時間も含まれます。 時間あたりの操作数を増やすには、操作を同時に実行する必要があります。 これはさまざまな方法で実行できます。
 
--   **非同期操作**: クライアントは非同期操作を実行することによって操作をスケジュールします。 前の要求が完了する前に次の要求が開始されます。 次は非同期送信操作の例です。
+-   **非同期操作**: クライアントは、非同期操作を実行することによって操作をスケジュールします。 前の要求が完了する前に次の要求が開始されます。 次は非同期送信操作の例です。
 
     ```
     BrokeredMessage m1 = new BrokeredMessage(body);
     BrokeredMessage m2 = new BrokeredMessage(body);
-
+    
     Task send1 = queueClient.SendAsync(m1).ContinueWith((t) => 
       {
         Console.WriteLine("Sent message #1");
@@ -57,14 +56,14 @@ Service Bus を利用することで、クライアントは 2 つのプロト�
     ```
 
     次は非同期受信操作の例です。
-
+    
     ```
     Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
     Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-
+    
     Task.WaitAll(receive1, receive2);
     Console.WriteLine("All messages received");
-
+    
     async void ProcessReceivedMessage(Task<BrokeredMessage> t)
     {
       BrokeredMessage m = t.Result;
@@ -74,11 +73,11 @@ Service Bus を利用することで、クライアントは 2 つのプロト�
     }
     ```
 
--   **マルチ ファクトリ**: 同じファクトリによって作成されるすべてのクライアント (送信側と受信側) が 1 つの TCP 接続を共有します。 最大メッセージ スループットはこの TCP 接続を通過できる操作の数によって制限されます。 1 つのファクトリで取得できるスループットは、TCP ラウンドトリップ時間とメッセージ サイズによって大幅に変わります。 より高いスループット レートを得るには、複数のメッセージ ファクトリを使用する必要があります。
+-   **複数のファクトリ**: 同じファクトリによって作成されたすべてのクライアント (送信者と受信者) は、1 つの TCP 接続を共有します。 最大メッセージ スループットはこの TCP 接続を通過できる操作の数によって制限されます。 1 つのファクトリで取得できるスループットは、TCP ラウンドトリップ時間とメッセージ サイズによって大幅に変わります。 より高いスループット レートを得るには、複数のメッセージ ファクトリを使用する必要があります。
 
 ## 受信モード
 
-キューまたはサブスクリプションのクライアントを作成するときに、受信モードに、"*ピーク/ロック*" または "*受信して削除*" を指定できます。 既定の受信モードは [PeekLock:operator[]][]します。 このモードで操作するとき、クライアントは Service Bus からメッセージを受信する要求を送信します。 クライアントはメッセージを受信した後で、メッセージを完了する要求を送信します。
+キューまたはサブスクリプション クライアントを作成する場合は、受信モードを指定することができます: *ピーク/ロック* または *受信して削除*します。 既定の受信モードは [PeekLock][]します。 このモードで操作するとき、クライアントは Service Bus からメッセージを受信する要求を送信します。 クライアントはメッセージを受信した後で、メッセージを完了する要求を送信します。
 
 受信モードに設定すると [ReceiveAndDelete][], 、1 つの要求に両方の手順が連結されます。 これによって、操作全体の数が削減され、全体的なメッセージ スループットを改善できます。 この方法でパフォーマンスを改善すると、メッセージを失うリスクが生じます。
 
@@ -86,11 +85,11 @@ Service Bus は "受信して削除" 操作のトランザクションをサポ�
 
 ## クライアント側のバッチ処理
 
-クライアント側のバッチ処理により、キューまたはトピックのクライアントはメッセージの送信を一定期間遅らせることができます。 クライアントがこの期間内に追加のメッセージを送信すると、1 つのバッチで複数のメッセージが送信されます。 クライアント側のバッチ処理ではまた、キューまたはサブスクリプションのクライアントが、複数の**完了**要求を 1 つの要求でバッチ処理します。 バッチ処理を使用できるのは、非同期の**送信**操作と**完了**操作のみです。 同期操作はすぐに Service Bus サービスに送信されます。 バッチ処理はピーク操作や受信操作では行われません。また、クライアント間でも行われません。
+クライアント側のバッチ処理により、キューまたはトピックのクライアントはメッセージの送信を一定期間遅らせることができます。 クライアントがこの期間内に追加のメッセージを送信すると、1 つのバッチで複数のメッセージが送信されます。 クライアント側のバッチ処理により、キュー/サブスクリプション クライアントは複数のバッチをも **完了** 1 つの要求に要求します。 バッチ処理はのみの使用可能な非同期 **送信** と **完了** 操作します。 同期操作はすぐに Service Bus サービスに送信されます。 バッチ処理はピーク操作や受信操作では行われません。また、クライアント間でも行われません。
 
-バッチがメッセージの最大サイズを超えた場合、最後のメッセージがバッチから削除され、クライアントは直ちにバッチを送信します。 最後のメッセージは、次のバッチの最初のメッセージになります。 既定では、クライアントは 20 ミリ秒のバッチ間隔を使用します。 バッチ間隔を変更するには、設定して、 [BatchFlushInterval:operator[]][] メッセージング ファクトリを作成する前にプロパティです。 この設定は、このファクトリによって作成されるすべてのクライアントに影響します。
+バッチがメッセージの最大サイズを超えた場合、最後のメッセージがバッチから削除され、クライアントは直ちにバッチを送信します。 最後のメッセージは、次のバッチの最初のメッセージになります。 既定では、クライアントは 20 ミリ秒のバッチ間隔を使用します。 バッチ間隔を変更するには、設定して、 [BatchFlushInterval][] メッセージング ファクトリを作成する前にプロパティです。 この設定は、このファクトリによって作成されるすべてのクライアントに影響します。
 
-バッチ処理を無効にする設定、 [BatchFlushInterval:operator[]][] プロパティを **TimeSpan.Zero**します。 次に例を示します。
+バッチ処理を無効にする設定、 [BatchFlushInterval][] プロパティを **TimeSpan.Zero**します。 次に例を示します。
 
 ```
 MessagingFactorySettings mfs = new MessagingFactorySettings();
@@ -103,7 +102,7 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 
 ## ストア アクセスのバッチ処理
 
-キュー、トピック、サブスクリプションのスループットを増やすために、Service Bus サービスはその内部ストアに書き込む際に複数のメッセージをバッチ処理します。 キューまたはトピックで有効になっている場合、ストアへのメッセージ書き込みがバッチ処理されます。 キューまたはサブスクリプションで有効になっている場合、ストアからのメッセージ削除がバッチ処理されます。 エンティティのバッチ処理ストア アクセスが有効になっている場合、Service Bus はそのエンティティに関するストア書き込み操作を最大 20 ミリ秒遅らせます。 この間隔中に発生した追加のストアの操作はバッチに追加されます。 バッチ処理ストア アクセスは**送信**操作と**完了**操作にのみ影響を与えます。受信操作には影響を与えません。 バッチ処理ストア アクセスはエンティティのプロパティです。 バッチ処理は、バッチ処理ストア アクセスが有効になっているすべてのエンティティで発生します。
+キュー、トピック、サブスクリプションのスループットを増やすために、Service Bus サービスはその内部ストアに書き込む際に複数のメッセージをバッチ処理します。 キューまたはトピックで有効になっている場合、ストアへのメッセージ書き込みがバッチ処理されます。 キューまたはサブスクリプションで有効になっている場合、ストアからのメッセージ削除がバッチ処理されます。 エンティティのバッチ処理ストア アクセスが有効になっている場合、Service Bus はそのエンティティに関するストア書き込み操作を最大 20 ミリ秒遅らせます。 この間隔中に発生した追加のストアの操作はバッチに追加されます。 ストア アクセスのみに影響をバッチ処理 **送信** と **完了** 操作が表示される操作は影響しません。 バッチ処理ストア アクセスはエンティティのプロパティです。 バッチ処理は、バッチ処理ストア アクセスが有効になっているすべてのエンティティで発生します。
 
 新しいキュー、トピック、サブスクリプションを作成すると、バッチ処理ストア アクセスは既定で有効になります。 バッチ処理ストア アクセスを無効にする設定、 [EnableBatchedOperations][] プロパティを **false** エンティティを作成する前にします。 次に例を示します。
 
@@ -117,11 +116,11 @@ Queue q = namespaceManager.CreateQueue(qd);
 
 ## プリフェッチ
 
-プリフェッチにより、キューまたはサブスクリプションのクライアントは受信操作の実行時にサービスから追加のメッセージを読み込むことができます。 クライアントはこれらのメッセージをローカル キャッシュに格納します。 によってキャッシュのサイズを決定、 [QueueClient.PrefetchCount:operator[]][] と [SubscriptionClient.PrefetchCount][] プロパティです。 プリフェッチが有効になっているクライアントはそれぞれ独自のキャッシュを保持します。 キャッシュはクライアント間で共有されません。 クライアントが受信操作を開始するときに、そのクライアントのキャッシュが空の場合、サービスはメッセージのバッチを送信します。 バッチのサイズは、キャッシュのサイズと 256 KB のうちの少ない方と等しくなります。 クライアントが受信操作を開始するときに、そのクライアントのキャッシュにメッセージが含まれている場合、キャッシュからメッセージが取得されます。
+プリフェッチにより、キューまたはサブスクリプションのクライアントは受信操作の実行時にサービスから追加のメッセージを読み込むことができます。 クライアントはこれらのメッセージをローカル キャッシュに格納します。 によってキャッシュのサイズが決まりますが、 [QueueClient.PrefetchCount][] と [SubscriptionClient.PrefetchCount][] プロパティです。 プリフェッチが有効になっているクライアントはそれぞれ独自のキャッシュを保持します。 キャッシュはクライアント間で共有されません。 クライアントが受信操作を開始するときに、そのクライアントのキャッシュが空の場合、サービスはメッセージのバッチを送信します。 バッチのサイズは、キャッシュのサイズと 256 KB のうちの少ない方と等しくなります。 クライアントが受信操作を開始するときに、そのクライアントのキャッシュにメッセージが含まれている場合、キャッシュからメッセージが取得されます。
 
 メッセージがプリフェッチされると、サービスはプリフェッチされたメッセージをロックします。 このロックにより、別の受信側はプリフェッチされたメッセージを受信できなくなります。 受信側がメッセージを完了できない状態でロックの有効期限が切れた場合、他の受信側がメッセージを受信できるようになります。 プリフェッチされたメッセージのコピーはキャッシュに残ります。 受信側が有効期限の切れたキャッシュのコピーを使用している場合、そのメッセージを完了しようとしたときに例外を受け取ります。 既定では、メッセージのロックは 60 秒後に期限切れになります。 この値は 5 分まで拡張できます。 期限切れのメッセージの使用を防ぐには、キャッシュ サイズを常に、ロックのタイムアウト間隔内にクライアントが使用できるメッセージの数より小さくする必要があります。
 
-適切な値を 60 秒間の既定のロック有効期限を使用して、 [SubscriptionClient.PrefetchCount][] は最大 20 倍の処理率、ファクトリの全受信者です。 たとえば、ファクトリが 3 つの受信側を作成すると、各受信側は 1 秒あたり最大 10 個のメッセージを処理できます。 プリフェッチ数は 20 を超えることはできません*3*10 = 600。 既定では、 [QueueClient.PrefetchCount:operator[]][] は、サービスから関連するメッセージがフェッチされないことを意味する 0 に設定します。
+適切な値を 60 秒間の既定のロック有効期限を使用して、 [SubscriptionClient.PrefetchCount][] は最大 20 倍の処理率、ファクトリの全受信者です。 たとえば、ファクトリが 3 つの受信側を作成すると、各受信側は 1 秒あたり最大 10 個のメッセージを処理できます。 プリフェッチ数は 20 を超えることはできません*3*10 = 600。 既定では、 [QueueClient.PrefetchCount][] は、サービスから関連するメッセージがフェッチされないことを意味する 0 に設定します。
 
 メッセージをプリフェッチすると、メッセージ操作全体の数、つまりラウンド トリップが減るため、キューまたはサブスクリプションの全体でのスループットが増えます。 ただし、最初のメッセージのフェッチには (メッセージ サイズの増加に起因して) 時間がかかります。 プリフェッチ済みのメッセージは、クライアントが既にダウンロードしているため、速く受信できます。
 
@@ -139,11 +138,11 @@ td.EnableExpress = true;
 namespaceManager.CreateTopic(td);
 ```
 
-エクスプレス エンティティに失われてはならない重要な情報を含むメッセージを送信すると場合、送信側がすぐに、メッセージを保存するには安定ストレージに Service Bus を強制できます、 [ForcePersistence:operator[]][] プロパティを **true**します。
+エクスプレス エンティティに失われてはならない重要な情報を含むメッセージを送信すると場合、送信側がすぐに、メッセージを保存するには安定ストレージに Service Bus を強制できます、 [ForcePersistence][] プロパティを **true**します。
 
 ## パーティション分割されたキューまたはトピックの使用
 
-内部的には、Service Bus は同じノードとメッセージング ストアを使用して、メッセージング エンティティ (キューまたはトピック) のすべてのメッセージを処理し、格納します。 一方、パーティション分割されたキューまたはトピックは複数のノードとメッセージング ストアの間で分散されます。 パーティション分割されたキューとトピックは通常のキューとトピックより高いスループットを生むだけでなく、可用性にも優れています。 パーティション分割されたエンティティを作成する設定、 [EnablePartitioning][] プロパティを **true**, 、次の例のように、します。 パーティション分割されたエンティティの詳細については、次を参照してください。 [パーティション分割のメッセージング エンティティ []][]します。
+内部的には、Service Bus は同じノードとメッセージング ストアを使用して、メッセージング エンティティ (キューまたはトピック) のすべてのメッセージを処理し、格納します。 一方、パーティション分割されたキューまたはトピックは複数のノードとメッセージング ストアの間で分散されます。 パーティション分割されたキューとトピックは通常のキューとトピックより高いスループットを生むだけでなく、可用性にも優れています。 パーティション分割されたエンティティを作成する設定、 [EnablePartitioning][] プロパティを **true**, 、次の例のように、します。 パーティション分割されたエンティティの詳細については、次を参照してください。 [メッセージング エンティティのパーティション分割][]します。
 
 ```
 // Create partitioned queue.
@@ -276,19 +275,18 @@ Service Bus によって、エンティティに最大 1000 件同時接続で�
 
 ## 次のステップ
 
-サービス バスのパフォーマンスの最適化の詳細については、次を参照してください。 [パーティション分割のメッセージング エンティティ []][]します。
+サービス バスのパフォーマンスの最適化の詳細については、次を参照してください。 [メッセージング エンティティのパーティション分割][]します。
 
-
-[queueclient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx 
-[messagesender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx 
-[messagingfactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx 
-[peeklock]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx 
-[receiveanddelete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx 
-[batchflushinterval]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.netmessagingtransportsettings.batchflushinterval.aspx 
-[enablebatchedoperations]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations.aspx 
-[queueclient.prefetchcount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.prefetchcount.aspx 
-[subscriptionclient.prefetchcount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.prefetchcount.aspx 
-[forcepersistence]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.forcepersistence.aspx 
-[enablepartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx 
-[partitioning messaging entities]: service-bus-partitioning.md 
-
+  [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
+  [MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
+  [MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
+  [PeekLock]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx
+  [ReceiveAndDelete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx
+  [BatchFlushInterval]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.netmessagingtransportsettings.batchflushinterval.aspx
+  [EnableBatchedOperations]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations.aspx
+  [QueueClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.prefetchcount.aspx
+  [SubscriptionClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.prefetchcount.aspx
+  [ForcePersistence]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.forcepersistence.aspx
+  [EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
+  [Partitioning Messaging Entities]: service-bus-partitioning.md
+  

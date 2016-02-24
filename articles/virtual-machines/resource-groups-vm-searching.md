@@ -18,7 +18,6 @@
    ms.date="12/08/2015"
    ms.author="rasquill"/>
 
-
 # Windows PowerShell と Azure CLI による Azure 仮想マシン イメージのナビゲーションと選択
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 従来のデプロイ モデルです。
@@ -28,33 +27,34 @@
 
 ## よく使用されるイメージの表
 
-| 発行元| プラン| SKU|
+
+|PublisherName |Offer                                 |Sku                         |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic| CentOS| 7|
-| OpenLogic| CentOS| 7.1|
-| CoreOS| CoreOS| ベータ版|
-| CoreOS| CoreOS| 安定版|
-| MicrosoftDynamicsNAV| DynamicsNAV| 2015|
-| MicrosoftSharePoint| MicrosoftSharePointServer| 2013|
-| Microsoft| Oracle-Database-12c-Weblogic-Server-12c| Standard|
-| Microsoft| Oracle-Database-12c-Weblogic-Server-12c| Enterprise|
-| MicrosoftSQLServer| SQL2014-WS2012R2| Enterprise-Optimized-for-DW|
-| MicrosoftSQLServer| SQL2014-WS2012R2| Enterprise-Optimized-for-OLTP|
-| Canonical| UbuntuServer| 12.04.5-LTS|
-| Canonical| UbuntuServer| 14.04.2-LTS|
-| MicrosoftWindowsServer| WindowsServer| 2012-Datacenter|
-| MicrosoftWindowsServer| WindowsServer| 2012-R2-Datacenter|
-| MicrosoftWindowsServer| WindowsServer| 2008-R2-SP1|
-| MicrosoftWindowsServer| WindowsServer| Windows-Server-Technical-Preview|
-| MicrosoftWindowsServerEssentials| WindowsServerEssentials| WindowsServerEssentials|
-| MicrosoftWindowsServerHPCPack| WindowsServerHPCPack| 2012R2|
+|OpenLogic |CentOS                                     |7                                |
+|OpenLogic |CentOS                                     |7.1                              |
+|CoreOS                           |CoreOS                                     |Beta                             |
+|CoreOS                           |CoreOS                                     |Stable                           |
+|MicrosoftDynamicsNAV |DynamicsNAV |2015                             |
+|MicrosoftSharePoint |MicrosoftSharePointServer |2013                             |
+|Microsoft |Oracle-Database-12c-Weblogic-Server-12c |標準的な |
+|Microsoft |Oracle-Database-12c-Weblogic-Server-12c |エンタープライズ |
+|[Microsoft sql Server |SQL2014 WS2012R2 |エンタープライズの最適化-の-DW |
+|[Microsoft sql Server |SQL2014 WS2012R2 |エンタープライズの最適化-の-OLTP |
+|標準的な |UbuntuServer |12.04.5-LTS |
+|標準的な |UbuntuServer |14.04.2-LTS |
+|MicrosoftWindowsServer |Windows Server |2012 Datacenter |
+|MicrosoftWindowsServer |Windows Server |2012 R2 Datacenter |
+|MicrosoftWindowsServer |Windows Server |2008 R2 SP1 |
+|MicrosoftWindowsServer |Windows Server |Windows Server テクニカル プレビュー |
+|MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |
+|MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2                           |
 
 
 ## Azure CLI
 
-> [AZURE.NOTE] この記事では、最新バージョンの Azure CLI または Azure PowerShell を使用して、仮想マシン イメージをナビゲートして選択する方法について説明します。 前提条件として、リソース マネージャー モードに変更しておく必要があります。 Azure CLI を使用した」と入力してそのモードを入力してください。 `azure config モード arm`します。 
+> [AZURE.NOTE] この記事では、移動し、Azure CLI または Azure PowerShell の最新のインストールを使用して仮想マシン イメージを選択する方法について説明します。 前提条件として、リソース マネージャー モードに変更しておく必要があります。 Azure CLI を使用している場合、次のように入力してこのモードに入ります`azure config mode arm`。 
 
-と共に使用するイメージを検索する最も簡単で素早い方法 `azure vm の簡易作成` かリソース グループ テンプレートを作成するファイルを呼び出して、 `azure vm イメージ リスト` コマンドを使用し、場所、(その小文字は区別されません) 発行者名、およびプランを渡す--プランを知っている場合。 たとえば、次のリストは、"Canonical" が "UbuntuServer" プランの発行元であることを知っている場合の短い例にすぎません。多数のリストは非常に長くなります。
+`azure vm quick-create` と共に使用するため、またはリソース グループのテンプレート ファイルを作成するための、イメージを検索する簡単で素早い方法は、`azure vm image list` コマンドを呼び出して、場所、発行元名 (大文字と小文字は区別されません)、およびプラン (プランを知っている場合) を渡すことです。 たとえば、次のリストは、"Canonical" が "UbuntuServer" プランの発行元であることを知っている場合の短い例にすぎません。多数のリストは非常に長くなります。
 
     azure vm image list westus canonical ubuntuserver
     info:    Executing command vm image list
@@ -71,9 +71,9 @@
     data:    canonical  ubuntuserver  12.04.2-LTS  12.04.201306030  westus    canonical:ubuntuserver:12.04.2-LTS:12.04.201306030
     data:    canonical  ubuntuserver  12.04.2-LTS  12.04.201306240  westus    canonical:ubuntuserver:12.04.2-LTS:12.04.201306240
 
-**Urn** に渡すフォームの列である `azure vm の簡易作成`します。
+ **Urn** に渡すフォームの列である `azure vm quick-create`です。
 
-ただし、多くの場合、何が使用可能かをまだ知りません。 使用して最初にパブリッシャーを検出することによって、イメージをナビゲートするこの例では、 `azure vm イメージのリストの発行元` とデータ センターの場所に、リソース グループを使用する場所のプロンプトに応答します。 たとえば、以下は米国西部の場所にあるすべてのイメージ発行元をリストしたものです (場所の引数は、標準の場所名を小文字化し、スペースを削除して渡します)
+ただし、多くの場合、何が使用可能かをまだ知りません。 この場合は、まず `azure vm image list-publishers` を使用して発行元を検出し、場所のプロンプトにはリソース グループに使用するデータ センターの場所を指定して応答することにより、イメージをナビゲートできます。 たとえば、以下は米国西部の場所にあるすべてのイメージ発行元をリストしたものです (場所の引数は、標準の場所名を小文字化し、スペースを削除して渡します) 
 
     azure vm image list-publishers
     info:    Executing command vm image list-publishers
@@ -86,7 +86,8 @@
     data:    alertlogic                                      westus  
     data:    AlertLogic.Extension                            westus  
 
-これらのリストは非常に長くなることがあるため、上記のリスト例は抜粋にすぎません。 たとえば、「Canonical 」が、実際に米国西部の場所にあるイメージ発行元であることに気付いたとします。 呼び出すことによって、プランを検索できるようになりました `azure vm イメージの一覧は` 、プロンプトの次の例のような場所およびパブリッシャーを渡します。
+
+これらのリストは非常に長くなることがあるため、上記のリスト例は抜粋にすぎません。 たとえば、「Canonical 」が、実際に米国西部の場所にあるイメージ発行元であることに気付いたとします。 これで、次の例のように、`azure vm image list-offers` を呼び出して、プロンプトが出されたときに場所と発行元を渡すことで、プランを検索できます。
 
     azure vm image list-offers
     info:    Executing command vm image list-offers
@@ -98,7 +99,7 @@
     data:    canonical  UbuntuServer  westus  
     info:    vm image list-offers command OK
 
-これで、米国西部のリージョンで、Canonical が Azure で **UbuntuServer** プランを発行していることが分かりました。 どんな SKU でしょうか。 それらを取得するを呼び出す `azure vm イメージ リスト sku` し、プロンプトで、場所、発行元、および検出したプランに対応します。
+米国西部リージョンに Canonical が発行発行するか知って、 **UbuntuServer** Azure で提供します。 どんな SKU でしょうか。 それらを取得するには、`azure vm image list-skus` を呼び出して、プロンプトが出されたときに場所、発行元、検出したプランを指定して応答します。
 
     azure vm image list-skus
     info:    Executing command vm image list-skus
@@ -150,8 +151,9 @@
 
 ## PowerShell
 
-PowerShell を使用して入力 `Switch-azuremode AzureResourceManager`します。 参照してください [を使用して Azure CLI リソース マネージャーで](xplat-cli-azure-resource-manager.md) と [Azure リソース マネージャーで Azure PowerShell を使用して](../powershell-azure-resource-manager.md) 更新および構成の詳細についてです。
-> [AZURE.NOTE] 1.0 では、上の Azure PowerShell モジュール、 `Switch-azuremode` コマンドレットが削除されました。 そのバージョンと、最新では、次のコマンドを交換してください、 `Azure` 部分が置き換え `AzureRm`します。 使用する 1.0 の下の Azure PowerShell モジュールを使用している場合、次のコマンドですが、最初にする必要があります `Switch-azuremode AzureResourceManager`します。 
+PowerShell を使用している場合、次のように入力します`Switch-AzureMode AzureResourceManager`。 参照してください [を使用して Azure CLI リソース マネージャーで](xplat-cli-azure-resource-manager.md) と [Azure リソース マネージャーで Azure PowerShell を使用して](../powershell-azure-resource-manager.md) 更新および構成の詳細についてです。
+
+> [AZURE.NOTE] 1.0 では、上の Azure PowerShell モジュール、 `Switch-AzureMode` コマンドレットが削除されました。 このバージョン以降では、以下のコマンドの `Azure` の部分を `AzureRm` に置き換えてください。 バージョン 1.0 より前の Azure PowerShell を使用する場合は以下のコマンドを使用できますが、初めに `Switch-AzureMode AzureResourceManager` を実行する必要があります。 
 
 
 Azure リソース マネージャーを使用して新しい仮想マシンを作成するとき、場合によっては、以下のイメージ プロパティの組み合わせによりイメージを指定する必要があります。
@@ -160,7 +162,7 @@ Azure リソース マネージャーを使用して新しい仮想マシンを�
 - プラン
 - SKU
 
-たとえば、これらの値は、**Set-AzureVMSourceImage** PowerShell コマンドレットや、作成する仮想マシンの種類を指定する必要のあるリソース グループ テンプレート ファイルで必要となります。
+これらの値が必要など、 **Set-azurevmsourceimage** PowerShell コマンドレットや、リソース グループ テンプレート ファイルが作成されるバーチャル マシンの種類を指定する必要があります。
 
 これらの値を判別する必要がある場合は、以下の方法で、イメージをナビゲートしてそれらの値を判別できます。
 
@@ -187,13 +189,13 @@ Azure リソース マネージャーを使用して新しい仮想マシンを�
     $offerName="<offer>"
     Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 
-**Get AzureVMImageSku** コマンドの表示から、新しいバーチャル マシンのイメージを指定するために必要なすべての情報が得られます。
+表示から、 **Get AzureVMImageSku** コマンドを新しいバーチャル マシンのイメージを指定する必要があるすべての情報があります。
 
 たとえば次のようになります。
 
     PS C:\> $locName="West US"
     PS C:\> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
-    
+
     PublisherName
     -------------
     a10networks
@@ -212,7 +214,7 @@ Azure リソース マネージャーを使用して新しい仮想マシンを�
 
     PS C:\> $pubName="MicrosoftWindowsServer"
     PS C:\> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
-    
+
     Offer
     -----
     WindowsServer
@@ -221,7 +223,7 @@ Azure リソース マネージャーを使用して新しい仮想マシンを�
 
     PS C:\> $offerName="WindowsServer"
     PS C:\> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
-    
+
     Skus
     ----
     2008-R2-SP1
@@ -229,7 +231,7 @@ Azure リソース マネージャーを使用して新しい仮想マシンを�
     2012-R2-Datacenter
     Windows-Server-Technical-Preview
 
-この一覧から選択した SKU の名前をコピーすれば、**Set-AzureVMSourceImage** PowerShell コマンドレットに必要なすべての情報や、イメージの発行元、プラン、SKU を指定する必要のあるリソース グループ テンプレート ファイルに必要なすべての情報が得られます。
+すべての情報を使用して、この一覧から選択した SKU の名前をコピー、 **Set-azurevmsourceimage** PowerShell コマンドレットまたはイメージの発行元、プラン、および SKU を指定する必要があるリソース グループ テンプレート ファイル。
 
 ### ビデオ チュートリアル
 
@@ -238,14 +240,14 @@ Azure リソース マネージャーを使用して新しい仮想マシンを�
 [AZURE.VIDEO resource-groups-vm-searching-posh]
 
 
+<!--Image references-->
+[5]: ./media/markdown-template-for-new-articles/octocats.png
+[6]: ./media/markdown-template-for-new-articles/pretty49.png
+[7]: ./media/markdown-template-for-new-articles/channel-9.png
+[8]: ./media/markdown-template-for-new-articles/copytemplate.png
 
-
-
-[5]: ./media/markdown-template-for-new-articles/octocats.png 
-[6]: ./media/markdown-template-for-new-articles/pretty49.png 
-[7]: ./media/markdown-template-for-new-articles/channel-9.png 
-[8]: ./media/markdown-template-for-new-articles/copytemplate.png 
-[gog]: http://google.com/ 
-[yah]: http://search.yahoo.com/ 
-[msn]: http://search.msn.com/ 
+<!--Reference style links - using these makes the source content way more readable than using inline links-->
+[gog]: http://google.com/
+[yah]: http://search.yahoo.com/  
+[msn]: http://search.msn.com/
 

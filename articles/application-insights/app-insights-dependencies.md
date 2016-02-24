@@ -14,18 +14,18 @@
     ms.topic="article" 
     ms.date="09/17/2015" 
     ms.author="awills"/>
-
-
+ 
 # Application Insights での依存関係に関する問題の診断
 
-*依存関係*は、アプリによって呼び出される外部コンポーネントです。 一般的には、HTTP を使用して呼び出されるサービス、またはデータベース、あるいはファイル システムです。 Visual Studio Application Insights では、アプリケーションが依存関係を待機する期間や、依存関係の呼び出しが失敗する頻度を簡単に確認できます。
+
+A *依存関係* アプリによって呼び出される外部コンポーネントです。 一般的には、HTTP を使用して呼び出されるサービス、またはデータベース、あるいはファイル システムです。 Visual Studio Application Insights では、アプリケーションが依存関係を待機する期間や、依存関係の呼び出しが失敗する頻度を簡単に確認できます。
 
 ## 使用できる場所
 
 すぐに使用できる依存関係の監視は現在、次のものに対して使用できます。
 
 * IIS サーバーまたは Azure で実行されている ASP.NET Web アプリおよびサービス
-* [Java web アプリ](app-insights-java-agent.md)
+* [Java Web アプリ](app-insights-java-agent.md)
 
 デバイス アプリなどの他の種類を使用して独自のモニターを記述することができます、 [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency)します。
 
@@ -35,7 +35,7 @@
  * SQL データベース
  * HTTP ベースのバインドを使用する ASP.NET Web および WCF サービス
  * ローカルまたはリモートの HTTP 呼び出し
- * Azure DocumentDb、テーブル、BLOB ストレージ、およびキュー
+ * Azure DocumentDb、テーブル、Blob Storage、およびキュー
 * Java
  * 使用してデータベースへの呼び出し、 [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) MySQL、SQL Server、PostgreSQL、SQLite などのドライバーです。
 
@@ -45,19 +45,19 @@
 
 ホスト サーバー用に適切なエージェントをインストールします。
 
- プラットフォーム| インストール
+プラットフォーム | インストール
 ---|---
- IIS サーバー| [状態の監視](app-insights-monitor-performance-live-website-now.md)
- Azure Web アプリ| [Application Insights Extension](../azure-portal/insights-perf-analytics.md)
- Java Web サーバー| [Java web アプリ](app-insights-java-agent.md)
+IIS サーバー | [Status Monitor](app-insights-monitor-performance-live-website-now.md)
+Azure Web アプリ | [Application Insights Extension](../azure-portal/insights-perf-analytics.md)
+Java Web サーバー | [Java Web アプリ](app-insights-java-agent.md)
 
-IIS サーバー用の Status Monitor では、Application Insights SDK を使用してソース プロジェクトをリビルドする必要はありません。
+IIS サーバー用の Status Monitor では、Application Insights SDK を使用してソース プロジェクトをリビルドする必要はありません。 
 
-## <a name="diagnosis"></a> 依存関係のパフォーマンスの問題を診断します。
+## <a name="diagnosis"></a> 依存関係のパフォーマンスの問題の診断
 
 サーバーでの要求のパフォーマンスを評価するには、次のようにします。
 
-![Application Insights 内のアプリケーションの ](./media/app-insights-dependencies/01-performance.png)
+![Application Insights 内のアプリケーションの [概要] ページで、[パフォーマンス] タイルをクリックします](./media/app-insights-dependencies/01-performance.png)
 
 下方向へスクロールして、要求のグリッドを確認します。
 
@@ -71,13 +71,14 @@ IIS サーバー用の Status Monitor では、Application Insights SDK を使�
 ![要求回数の一覧](./media/app-insights-dependencies/03-instances.png)
 
 実行時間の長いインスタンスがあればそれをクリックし、さらに検査します。
-> [AZURE.NOTE] 少し下にスクロールして、インスタンスを選択します。 パイプラインでの待機時間は、上部のインスタンスのデータが不完全であることを示す場合があります。
+
+> [AZURE.NOTE] 1 ビット、インスタンスの選択が下にスクロールします。 パイプラインでの待機時間は、上部のインスタンスのデータが不完全であることを示す場合があります。
 
 この要求に関連したリモート依存関係呼び出しまで下にスクロールします。
 
 ![リモートの依存関係への呼び出しを見つけ、異常な期間を特定します](./media/app-insights-dependencies/04-dependencies.png)
 
-この要求に使われた時間のほとんどが、ローカル サービスへの呼び出しに費やされたように見えます。
+この要求に使われた時間のほとんどが、ローカル サービスへの呼び出しに費やされたように見えます。 
 
 さらに情報を得るには、その行をクリックします。
 
@@ -102,11 +103,11 @@ IIS サーバー用の Status Monitor では、Application Insights SDK を使�
 
 ## カスタム依存関係の追跡
 
-標準の依存関係追跡モジュールは、外部の依存関係 (データベース、REST API など) を自動的に検出しますが、 同じように扱える追加のコンポーネントが必要になる可能性もあります。
+標準の依存関係追跡モジュールは、外部の依存関係 (データベース、REST API など) を自動的に検出しますが、 同じように扱える追加のコンポーネントが必要になる可能性もあります。 
 
 同じを使用して、依存関係情報を送信するコードを記述できます [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency) 標準のモジュールで使用されています。
 
-たとえば、自分で記述していないアセンブリを使ってコードを作成する場合、それに対するすべての呼び出しを測定し、何が応答時間に貢献するかを知ることができます。 Application Insights での依存関係グラフに表示されるこのデータを表示するには、送信を使用してその `TrackDependency`します。
+たとえば、自分で記述していないアセンブリを使ってコードを作成する場合、それに対するすべての呼び出しを測定し、何が応答時間に貢献するかを知ることができます。 このデータを Application Insights 内の依存関係グラフに表示するには、データを `TrackDependency` を使用して送信します。
 
 ```C#
 
@@ -126,11 +127,7 @@ IIS サーバー用の Status Monitor では、Application Insights SDK を使�
 
 標準の依存関係追跡モジュールをオフにする場合は、DependencyTrackingTelemetryModule への参照を削除する [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)します。
 
+<!--Link references-->
 
 
-
-
-
-
-
-
+ 

@@ -16,12 +16,7 @@
     ms.date="10/12/2015"
     ms.author="maheshu"/>
 
-
 # Azure AD ドメイン サービス *(プレビュー)*
 
 Azure のサービスが利用については、次を参照してください [地域によってサービス](https://azure.microsoft.com/regions/#services)します。
-
-
-
-
 

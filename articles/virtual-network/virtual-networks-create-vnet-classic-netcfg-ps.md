@@ -17,7 +17,6 @@
    ms.date="12/07/2015"
    ms.author="telmos"/>
 
-
 # PowerShell を使用した仮想ネットワーク (従来型) の作成
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
@@ -29,10 +28,6 @@
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-classic-netcfg-ps-include](../../includes/virtual-networks-create-vnet-classic-netcfg-ps-include.md)]
-
-
-
-
 
 
 

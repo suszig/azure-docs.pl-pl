@@ -17,10 +17,9 @@
     ms.author="stevenpo"/>
 
 
-
 # Azure のセルフサービス サインアップについて
 
-このトピックでは、セルフサービス サインアップ プロセス (場合によってはバイラル サインアップと呼ばれる) および DNS ドメイン名を引き継ぐ方法について説明します。
+このトピックでは、セルフサービス サインアップ プロセス (場合によってはバイラル サインアップと呼ばれる) および DNS ドメイン名を引き継ぐ方法について説明します。  
 
 ## セルフサービス サインアップを使用する理由
 
@@ -31,9 +30,9 @@
 
 ## 用語と定義
 
-+ **セルフサービス サインアップ**: ユーザーがクラウド サービスを使用するためにこの方法でサインアップすると、電子メール ドメインに基づいた ID が Azure Active Directory  (AD) で自動作成されます。
-+ **管理されていない Azure テナント**: これは、前述の ID が作成されるディレクトリです。 管理されていないテナントは、グローバル管理者がいないディレクトリです。
-+ **電子メール検証済みユーザー**: これは Azure AD のユーザー アカウントの 1 種です。 セルフサービス プランへのサインアップ後に自動作成された ID を持つユーザーは、電子メール検証済みユーザーです。 電子メール検証済みユーザーは、creationmethod=EmailVerified でタグ付けされたディレクトリの通常メンバーです。
++ **セルフ サービス サインアップ**: これは、ユーザーがクラウド サービスにサインアップし、電子メール ドメインに基づいたが自動的に作成して Azure Active Directory (AD) の id がする方法です。
++ **管理されていない Azure テナント**: これは、その id が作成されるディレクトリです。 管理されていないテナントは、グローバル管理者がいないディレクトリです。 
++ **電子メール検証済みユーザー**: これは、Azure AD でのユーザー アカウントの種類。 セルフサービス プランへのサインアップ後に自動作成された ID を持つユーザーは、電子メール検証済みユーザーです。 電子メール検証済みユーザーは、creationmethod=EmailVerified でタグ付けされたディレクトリの通常メンバーです。
 
 ## ユーザー エクスペリエンス
 
@@ -72,13 +71,13 @@ Azure AD テナントの DNS 引き継ぎを行うには 2 つの方法があり
 
 ユーザーがセルフサービス サインアップした後に、管理されていないテナントを引き継ぐか、あるいは新しいドメインを既存の管理対象テナントに追加するには、ドメインを所有していることを検証する必要があります。 たとえば、contoso.com という名前のドメインがあり、contoso.co.uk または contoso.uk という新しいドメインを追加する場合などにこれを実行します。
 
-## ドメインの引き継ぎについて
+## ドメインの引き継ぎについて  
 
 このセクションでは、ドメインを所有していることを検証する方法を説明します。
 
 ### ドメインの検証とその使用目的について
 
-Azure AD のテナントで作業するには、DNS ドメインの所有権を検証する必要があります。 ドメインを検証するとテナントを要求でき、セルフサービスのテナントを管理対象テナントに昇格するか、既存の管理対象テナントにマージできます。
+Azure AD のテナントで作業するには、DNS ドメインの所有権を検証する必要があります。  ドメインを検証するとテナントを要求でき、セルフサービスのテナントを管理対象テナントに昇格するか、既存の管理対象テナントにマージできます。
 
 ## ドメイン検証の例
 
@@ -107,7 +106,7 @@ Azure AD のテナントで作業するには、DNS ドメインの所有権を�
 
 2 つのテナントの管理は避けたいため、 IT 管理者は contoso.co.uk の管理されていないテナントを、contoso.com の既存の IT 管理対象テナントにマージします。
 
-外部の引き継ぎでも、内部の引き継ぎと同じ DNS 検証プロセスに従います。 異なる点は、ユーザーおよびサービスが、IT 管理対象テナントに再マッピングされることです。
+外部の引き継ぎでも、内部の引き継ぎと同じ DNS 検証プロセスに従います。  異なる点は、ユーザーおよびサービスが、IT 管理対象テナントに再マッピングされることです。
 
 #### 外部の引き継ぎの実行から受ける影響について
 
@@ -131,13 +130,13 @@ Azure AD のテナントで作業するには、DNS ドメインの所有権を�
 
 ## DNS ドメイン名の引き継ぎの実行方法
 
-ドメイン検証 (および必要に応じて引き継ぎ) の実行方法はいくつかあります。
+ドメイン検証 (および必要に応じて引き継ぎ) の実行方法はいくつかあります。 
 
 1.  Microsoft Azure 管理ポータル
 
-    引き継ぎは、ドメインの追加によってトリガーされます。 ドメインのテナントが既に存在する場合は、オプションで外部の引き継ぎを実行できます。
+    引き継ぎは、ドメインの追加によってトリガーされます。  ドメインのテナントが既に存在する場合は、オプションで外部の引き継ぎを実行できます。
 
-    資格情報を使用して、Azure ポータルにサインインします。 既存のテナントに移動し、 [**ドメインの追加**] を選択します。
+    資格情報を使用して、Azure ポータルにサインインします。  既存のテナントに移動し、続いて **ドメインの追加**します。
 
 2.  Office 365
 
@@ -147,15 +146,14 @@ Azure AD のテナントで作業するには、DNS ドメインの所有権を�
 
     Windows PowerShell を使用して検証を実行するには、次の手順に従ってください。
 
-     手順| 使用するコマンドレット
+    手順    |   使用するコマンドレット
     ------- | -------------
-     資格情報オブジェクトの作成| Get-Credential
-     Azure への接続| Connect-MsolService
-     ドメイン一覧の取得| Get-MsolDomain
-     チャレンジの作成| Get-MsolDomainVerificationDns
-     DNS レコードの作成| DNS サーバー上でこれを実行
-     チャレンジの確認| Confirm-MsolEmailVerifiedDomain
-
+    資格情報オブジェクトの作成 | Get-Credential
+    Azure への接続 | Connect-MsolService
+    ドメイン一覧の取得   | Get-MsolDomain
+    チャレンジの作成  | Get-MsolDomainVerificationDns
+    DNS レコードの作成   | DNS サーバー上でこれを実行
+    チャレンジの確認    | Confirm-MsolEmailVerifiedDomain
 
 次に例を示します。
 
@@ -170,15 +168,15 @@ Azure AD のテナントで作業するには、DNS ドメインの所有権を�
 
 3. そして、次のように Get-MsolDomainVerificationDns コマンドレットを実行してチャレンジを作成します。
 
-    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
+    Get-msoldomainverificationdns-DomainName *your_domain_name* – モード dnstxtrecord です
 
-    例:
+    次に例を示します。
 
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
 
 4. このコマンドから返される値 (チャレンジ) をコピーします。
 
-    例:
+    例: 
 
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
 
@@ -188,7 +186,7 @@ Azure AD のテナントで作業するには、DNS ドメインの所有権を�
 
 6. 次のように Confirm-MsolDomain コマンドレットを実行してチャレンジを確認します。
 
-    Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
+    Confirm-msolemailverifieddomain DomainName *your_domain_name*
 
     例:
 
@@ -208,8 +206,8 @@ Azure AD のテナントで作業するには、DNS ドメインの所有権を�
 
 管理者は、Azure AD コマンドレット Set-MsolCompanySettings パラメータを使用してこれらの機能を構成できます。
 
-+ **AllowEmailVerifiedUsers** によって、ユーザーが管理されていないテナントを作成または参加できるかを管理できます。 このパラメータを $false に設定すると、電子メール検証済みのユーザーはテナントに参加できません。
-+ **AllowAdHocSubscriptions** によって、ユーザーがセルフサービス サインアップを実行できるかどうかを管理できます。 このパラメータを $false に設定すると、ユーザーはセルフサービス サインアップを実行できません。
++ **AllowEmailVerifiedUsers** ユーザーが作成または管理されていないテナントに参加するかどうかを制御します。 このパラメータを $false に設定すると、電子メール検証済みのユーザーはテナントに参加できません。
++ **AllowAdHocSubscriptions** ユーザーのセルフ サービス サインアップを実行するための機能を制御します。 このパラメータを $false に設定すると、ユーザーはセルフサービス サインアップを実行できません。
 
 
 ### これらの管理機能の連携について
@@ -226,15 +224,14 @@ Azure AD のテナントで作業するには、DNS ドメインの所有権を�
 
 ## 関連項目
 
--  [インストールして、Azure PowerShell を構成する方法](../powershell-install-configure/)
+-  [Azure PowerShell のインストールおよび構成方法](../powershell-install-configure/)
 
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 
 -  [Azure コマンドレット リファレンス](https://msdn.microsoft.com/library/azure/jj554330.aspx)
 
--  [Set-msolcompanysettings](https://msdn.microsoft.com/library/azure/dn194127.aspx)
+-  [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx)
 
-
-
-[1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png 
+<!--Image references-->
+[1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 

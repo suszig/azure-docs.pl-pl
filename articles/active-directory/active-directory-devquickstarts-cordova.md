@@ -16,7 +16,6 @@
     ms.date="10/13/2015"
     ms.author="vittorib"/>
 
-
 # Azure AD と Apache Cordova アプリとの統合
 
 [AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
@@ -29,7 +28,7 @@ Azure AD を使用すると、Cordova アプリケーションにエンタープ
 このチュートリアルでは、Active Directory 認証ライブラリ (ADAL) の Apache Cordova プラグインを使用して、簡単なアプリケーションに次の機能を付加して能力を向上させます。
 
 -   少数行のコードで、AD ユーザーを認証し、Azure AD Graph API を呼び出すためのトークンを取得する。
--   そのトークンを使用して Graph API を呼び出し、そのディレクトリのクエリを実行して結果を表示する。
+-   そのトークンを使用して Graph API を呼び出し、そのディレクトリのクエリを実行して結果を表示する。  
 -   ユーザーに対する認証プロンプトを最小限に抑えるために、ADAL トークン キャッシュを利用する。
 
 これを行うには、次の手順を実行する必要があります。
@@ -44,7 +43,7 @@ Azure AD を使用すると、Cordova アプリケーションにエンタープ
 このチュートリアルを実行するには、以下が必要です。
 
 - アプリケーション開発権限があるアカウントが登録されている Azure AD テナント
-- Apache Cordova を使用するように構成された開発環境
+- Apache Cordova を使用するように構成された開発環境  
 
 両方とも設定済みの場合は、手順 1. に直接進んでください。
 
@@ -55,25 +54,25 @@ Apache Cordova がコンピューターにセットアップされていない�
 - [Git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [NodeJS](https://nodejs.org/download/)
 - [Cordova CLI](https://cordova.apache.org/)
-  (NPM パッケージ マネージャーを使用して簡単にインストールされていることができます: `npm インストール-g cordova`)
+  (NPM パッケージ マネージャーを使用して簡単にインストールされていることができます: `npm install -g cordova`)
 
 これらは PC と Mac のどちらでも動作することに注意してください。
 
 各ターゲット プラットフォームには、それぞれ異なる前提条件があります。
 
 - Windows タブレット/PC またはスマートフォンのアプリケーション バージョンを構築して実行する場合
-    - [For Windows Update 2 以降の visual Studio 2013](http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-windows-8) (Express または別のバージョン)。
+    - [Windows Update 2 以降の visual Studio 2013](http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-windows-8) (Express または別のバージョン)。
 - iOS 向けに構築して実行する場合
-    -   Xcode 5.x 以上。 Http://developer.apple.com/downloads または、ダウンロード [Mac App Store](http://itunes.apple.com/us/app/xcode/id497799835?mt=12)
-    -   [ios sim](https://www.npmjs.org/package/ios-sim) – コマンドラインから iOS シミュレーターで iOS アプリケーションを起動することができます (、端末経由で簡単にインストールされていることができます: `npm インストール-g ios sim`)
+    -   Xcode 5.x 以上。 Http://developer.apple.com/downloads にダウンロードまたは [Mac App Store](http://itunes.apple.com/us/app/xcode/id497799835?mt=12)
+    -   [ios sim](https://www.npmjs.org/package/ios-sim) – コマンドラインから iOS シミュレーターで iOS アプリケーションを起動することができます (、端末経由で簡単にインストールされていることができます: `npm install -g ios-sim`)
 
 - Android 向けにアプリケーションを構築して実行する場合
-    - インストール [Java Development Kit (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) またはそれ以降。 確認 `JAVA_HOME` (環境変数) が正しく設定に従って JDK インストール パス (たとえば C:\Program Files\Java\jdk1.7.0_75)。
-    - インストール [Android SDK](http://developer.android.com/sdk/installing/index.html?pkg=tools) 追加 `< android sdk 場所 > \tools` 場所 (たとえば、C:\tools\Android\android-sdk\tools) を `パス` 環境変数です。
-    - Android SDK Manager を開き (たとえば、端末経由で: `android`) とインストール
+    - インストール [Java Development Kit (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) またはそれ以降。 `JAVA_HOME` (環境変数) が JDK インストール パス (たとえば、C:\Program Files\Java\jdk1.7.0_75) に従って正しく設定されていることを確認します。
+    - インストール [Android SDK](http://developer.android.com/sdk/installing/index.html?pkg=tools) 追加 `<android-sdk-location>\tools` 場所 (たとえば、C:\tools\Android\android-sdk\tools) を `PATH` 環境変数です。
+    - Android SDK Manager を開き (たとえば、端末 `android` 経由で)、以下をインストールします。
     - *Android 5.0.1 (API 21)* プラットフォーム SDK
     - *Android SDK ビルド ツール* バージョン 19.1.0 以上
-    - *Android Support Repository* (追加)
+    - *Android Support Repository* (Extras)
 
   Android SDK は、既定のエミュレーター インスタンスを提供しません。 実行して、新しいものを作成 `android avd` を選択し、ターミナルから *作成...]* エミュレーターで Android アプリを実行する場合。 推奨 *Api レベル* は Android エミュレーターおよび作成のオプションの詳細については 19 以上を参照 [AVD Manager] (http://developer.android.com/tools/help/avd-manager.html)。
 
@@ -82,7 +81,7 @@ Apache Cordova がコンピューターにセットアップされていない�
 
 注: この手順は省略可能です。 このチュートリアルでは、事前に準備された値を用意しています。これにより独自のテナントで何もプロビジョニングしなくても、実行するサンプルを参照できます。 ただし、この手順を必ず実行し、プロセスをよく理解することをお勧めします。このプロセスは、独自のアプリケーションを作成する際に必要になります。
 
-Azure AD は、認識しているアプリケーションに対してのみトークンを発行します。 アプリケーションから Azure AD を使用するには、アプリケーション用のエントリをテナントで事前に作成しておく必要があります。 新しいアプリケーションをテナントに登録するには、次の手順を実行します。
+Azure AD は、認識しているアプリケーションに対してのみトークンを発行します。 アプリケーションから Azure AD を使用するには、アプリケーション用のエントリをテナントで事前に作成しておく必要があります。  新しいアプリケーションをテナントに登録するには、次の手順を実行します。
 
 - Microsoft Azure の管理ポータルにサインインします。
 - 左側のナビゲーションで [Active Directory] をクリックします。
@@ -90,9 +89,9 @@ Azure AD は、認識しているアプリケーションに対してのみト�
 - [アプリケーション] タブをクリックし、下部のドロアーで [追加] をクリックします。
 - 画面の指示に従い、新しい "ネイティブ クライアント アプリケーション" を作成します。
     - アプリケーションの [名前] には、エンドユーザーがアプリケーションの機能を把握できるような名前を設定します。
-    -   "リダイレクト URI" は、トークンをアプリに返すために使用される URI です。 入力 `http://MyDirectorySearcherApp`します。
+    -   "リダイレクト URI" は、トークンをアプリに返すために使用される URI です。 「`http://MyDirectorySearcherApp`」を入力します。
 
-登録が完了すると、AAD により、アプリに一意のクライアント ID が割り当てられます。 この値は、以降のセクションで必要になります。この値は、新しく作成されたアプリの [構成] タブに表示されます。
+登録が完了すると、AAD により、アプリに一意のクライアント ID が割り当てられます。  この値は、以降のセクションで必要になります。この値は、新しく作成されたアプリの [構成] タブに表示されます。
 
 ## *2.このチュートリアルに必要なリポジトリを複製します。*
 
@@ -130,7 +129,7 @@ Graph API を呼び出すために必要な、ホワイトリスト プラグイ
 
 ## *3.ユーザーを認証し、AAD からトークンを取得するコードを追加します。*
 
-このチュートリアルで開発するアプリケーションは、ベアボーン ディレクトリ検索機能を提供します。この機能を使用すると、エンド ユーザーは、ディレクトリ内の任意のユーザーのエイリアスを入力し、いくつかの基本的な属性を表示できます。 スタート プロジェクトには、アプリケーションの基本的なユーザー インターフェイスの定義が (www/index.html に) 含まれています。さらに基本的なアプリケーションのイベント サイクル、ユーザー インターフェイスのバインド、結果表示ロジックを関連付けるスキャフォールディングが (www/js/index.js に) 含まれています。 残されている作業は、ID タスクを実装するロジックを追加することだけです。
+このチュートリアルで開発するアプリケーションは、ベアボーン ディレクトリ検索機能を提供します。この機能を使用すると、エンド ユーザーは、ディレクトリ内の任意のユーザーのエイリアスを入力し、いくつかの基本的な属性を表示できます。  スタート プロジェクトには、アプリケーションの基本的なユーザー インターフェイスの定義が (www/index.html に) 含まれています。さらに基本的なアプリケーションのイベント サイクル、ユーザー インターフェイスのバインド、結果表示ロジックを関連付けるスキャフォールディングが (www/js/index.js に) 含まれています。 残されている作業は、ID タスクを実装するロジックを追加することだけです。
 
 最初に、アプリと対象のリソースとを識別するために AAD が使用するプロトコル値を、コードに設定する必要があります。 これらの値は、後でトークン要求を作成するために使用されます。 index.js ファイルの最上部に、以下のスニペットを挿入します。
 
@@ -142,10 +141,10 @@ Graph API を呼び出すために必要な、ホワイトリスト プラグイ
     graphApiVersion = "2013-11-08";
 ```
 
-`RedirectUri` と `clientId` 値 AAD でアプリを記述する値と一致する必要があります。 これらの値は、このチュートリアルの手順 1 で説明しているように、Azure ポータルの [構成] タブに表示されます。
+`redirectUri` と `clientId` の値は、AAD でアプリを記述する値と一致している必要があります。 これらの値は、このチュートリアルの手順 1 で説明しているように、Azure ポータルの [構成] タブに表示されます。
 注: 独自のテナントに新しいアプリを登録しないことを選択した場合は、上記の事前構成値を単に貼り付けるだけで、サンプルを実行することができます。ただし、運用環境向けのアプリには、必ず独自の項目を作成する必要があります。
 
-次に、実際のトークン要求コードを追加する必要があります。 間の次のスニペットを挿入、 `検索 `と `renderdata `定義します。
+次に、実際のトークン要求コードを追加する必要があります。 `search ` と `renderdata ` の定義の間に以下のスニペットを挿入します。
 
 ```javascript
     // Shows user authentication dialog if required.
@@ -182,8 +181,8 @@ Graph API を呼び出すために必要な、ホワイトリスト プラグイ
             }
 ```
 メソッドの 2 番目の部分では、適切な tokewn 要求を実行します。
-`AcquireTokenSilentAsync` メソッドが ADAL を任意のエクスペリエンスを表示することがなく、指定されたリソースのトークンを返すように要求 これが起きる可能性があるのは、キャッシュに既に適切なアクセス トークンが保管されているか、またはプロンプトを表示させずに新しいアクセス トークンを取得するために使用できる更新トークンがある場合です。
-戻ります試行に失敗する `acquireTokenAsync` -これは視覚的に入力をユーザーの認証にします。
+`acquireTokenSilentAsync` メソッドは、ADAL に、UX を表示せずに指定されたリソースのトークンを返すように要求します。 これが起きる可能性があるのは、キャッシュに既に適切なアクセス トークンが保管されているか、またはプロンプトを表示させずに新しいアクセス トークンを取得するために使用できる更新トークンがある場合です。
+試行に失敗する場合は、`acquireTokenAsync` に戻ります。これはユーザーにはっきりと認証を求めるプロンプトを表示します。
 ```javascript
             // Attempt to authorize user silently
             app.context.acquireTokenSilentAsync(resourceUri, clientId)
@@ -195,7 +194,7 @@ Graph API を呼び出すために必要な、ホワイトリスト プラグイ
                 });
             });
 ```
-あるので、トークン、お最後に、Graph API を呼び出しし、必要な検索クエリを実行することができます。 次のスニペットを挿入のすぐ下、 `認証` 定義します。
+あるので、トークン、お最後に、Graph API を呼び出しし、必要な検索クエリを実行することができます。 次のスニペットを、`authenticate` 定義のすぐ下に挿入します。
 
 ```javascript
 // Makes Api call to receive user list.
@@ -220,58 +219,54 @@ Graph API を呼び出すために必要な、ホワイトリスト プラグイ
 
         req.send();
     },
+
 ```
 開始ポイント ファイルにより、テキスト ボックスにユーザーのエイリアスを入力するためのベアボーン UX が提供されています。 このメソッドではその値を使用して、クエリを作成し、アクセス トークンと組み合わせ、Graph に送信し、結果を解析します。 開始ポイント ファイル内に事前に存在している renderData メソッドによって、結果が処理されて表示されます。
 
 ## *4.実行*
-
 これでアプリは実行準備完了です。 操作は非常に簡単です。アプリが起動したら、表示したいユーザーのエイリアスをテキスト ボックスに入力して、ボタンをクリックするだけです。 認証情報が求められます。 認証と検索に成功すると、検索対象のユーザーの属性が表示されます。 その後の実行では、前に取得したトークンがキャッシュ内に存在しているので、プロンプトが表示されずに検索が行われます。
 アプリを実行するための具体的な手順は、プラットフォームごとに異なります。
 
 
 ##### Windows タブレット/PC アプリケーション バージョンを構築して実行する場合
 
-   `cordova は windows を実行`
+   `cordova run windows`
 
-   __注__: 最初の実行時に、開発者ライセンスのサインインが求められることがあります。 参照してください [開発者用ライセンス](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx) 詳細です。
+   __注__: 最初の実行が、開発者ライセンスのサインインを求められる場合があります。 参照してください [開発者用ライセンス](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx) 詳細です。
 
 
 ##### Windows Phone 8.1 でアプリケーションを構築して実行する場合
 
-   接続されたデバイスで実行する: `実行 cordova windows - デバイス ---電話`
+   コネクテッド デバイスで実行するには、`cordova run windows --device -- --phone` を実行します。
 
-   既定のエミュレーターで実行する: `cordova windows をエミュレート----電話`
+   既定のエミュレーターで実行するには、`cordova emulate windows -- --phone` を実行します。
 
-   使用 `実行 cordova windows--リスト----電話` 利用可能なすべてのターゲットを表示して `実行 cordova windows - ターゲット = < target_name >----電話` 特定のデバイスまたはエミュレーターでアプリケーションを実行する (など  `実行 cordova windows - ターゲット =「Emulator 8.1 720p 4.7 インチ」----電話`)。
+   使用 `cordova run windows --list -- --phone` 利用可能なすべてのターゲットを表示して `cordova run windows --target=<target_name> -- --phone` 特定のデバイスまたはエミュレーターでアプリケーションを実行する (たとえば、  `cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone`)。
 ##### Android デバイスで構築して実行する場合
 
-   接続されたデバイスで実行する: `android--実行 cordova デバイス`
+   コネクテッド デバイスで実行するには、`cordova run android --device` を実行します。
 
-   既定のエミュレーターで実行する: `cordova エミュレート android`
+   既定のエミュレーターで実行するには、`cordova emulate android` を実行します。
 
-   __注__: 「*前提条件*」セクションでの説明に従って、*AVD Manager* を使用してエミュレーター インスタンスを作成したことを確認します。
+   __注__: 確認エミュレーター インスタンスを使用して作成した *AVD Manager* での説明に従って *の前提条件* セクションです。
 
-   使用 `cordova - android を実行] ボックスの一覧` 利用可能なすべてのターゲットを表示して `cordova android--実行ターゲット = < target_name >` 特定のデバイスまたはエミュレーターでアプリケーションを実行する (など  `cordova - android を実行ターゲット ="Nexus4_emulator"`)。
+   使用 `cordova run android --list` 利用可能なすべてのターゲットを表示して `cordova run android --target=<target_name>` 特定のデバイスまたはエミュレーターでアプリケーションを実行する (たとえば、  `cordova run android --target="Nexus4_emulator"`)。
 
 ##### iOS デバイスで構築して実行する場合
 
-   接続されたデバイスで実行する: `cordova 実行 - ios デバイス`
+   コネクテッド デバイスで実行するには、`cordova run ios --device` を実行します。
 
-   既定のエミュレーターで実行する: `cordova エミュレート ios`
+   既定のエミュレーターで実行するには、`cordova emulate ios` を実行します。
 
-   __注__: した確認 `ios sim` エミュレーターで実行するインストール パッケージです。 詳細については、「*前提条件*」セクションを参照してください。
+   __注__: した確認 `ios-sim` エミュレーターで実行するインストール パッケージです。 参照してください *の前提条件* 詳細についてです。
 
     Use `cordova run ios --list` to see all available targets and `cordova run ios --target=<target_name>` to run application on specific device or emulator (for example,  `cordova run android --target="iPhone-6"`).
 
-使用 `cordova 実行 - ヘルプ` 追加のビルドを表示してオプションを実行します。
+`cordova run --help` を使用すると、追加の構築オプションと実行オプションを参照できます。
 
-参照用の完全なサンプル (構成値を除く) が、ここで提供されています。 ここからは上級のさらに興味深いシナリオに移動することができます。 次のチュートリアルを試してみてください。
+参照用の完全なサンプル (構成値を除く) が、ここで提供されています。  ここからは上級のさらに興味深いシナリオに移動することができます。  次のチュートリアルを試してみてください。
 
-[Node.js Web API のセキュリティ保護 >>](active-directory-devquickstarts-webapi-nodejs.md)
+[Azure AD による Node.JS Web API のセキュリティ保護 >>](active-directory-devquickstarts-webapi-nodejs.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-
 

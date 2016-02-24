@@ -16,16 +16,13 @@
     ms.date="12/15/2015"
     ms.author="spelluru"/>
 
-
 # Azure PowerShell を使用した初めての Azure Data Factory パイプラインの作成
-
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
-- [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
-
+- [チュートリアルの概要](data-factory-build-your-first-pipeline.md)
+- [Data Factory エディターを使用します。](data-factory-build-your-first-pipeline-using-editor.md)
+- [PowerShell の使用](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Visual Studio を使用](data-factory-build-your-first-pipeline-using-vs.md)
+- [リソース マネージャー テンプレートを使用します。](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 この記事では、Azure リソース マネージャー テンプレートを使用して最初のパイプラインを作成する方法を学習します。 このチュートリアルの手順は次のとおりです。
@@ -34,21 +31,21 @@
 2.  リンクされたサービス (データ ストア、計算) とデータセットを作成する。
 3.  パイプラインを作成する。
 
-
+ 
 
 ## 前提条件
-
 チュートリアルの「概要」トピックに記載されている前提条件とは別に、次をインストールする必要があります。
 
-- **Azure PowerShell をインストールします**。 指示に従って [をインストールして、Azure PowerShell を構成する方法](../powershell-install-configure.md) 記事をお使いのコンピューターに Azure PowerShell の最新バージョンをインストールします。
-- この記事では、Azure Data Factory サービスの概念については説明しません。 サービスの詳細については、目を通して [Azure Data Factory の概要](data-factory-introduction.md)します。
-- 参照してください [Azure リソース マネージャー テンプレートの作成](../resource-group-authoring-templates.md) Azure リソース マネージャー (ARM) テンプレートについて学習します。
-
+- **Azure PowerShell をインストール**します。 指示に従って [をインストールして、Azure PowerShell を構成する方法](../powershell-install-configure.md) 記事をお使いのコンピューターに Azure PowerShell の最新バージョンをインストールします。
+- この記事では、Azure Data Factory サービスの概念については説明しません。 サービスの詳細については、目を通して [Azure Data Factory の概要](data-factory-introduction.md)します。 
+- 参照してください [Azure リソース マネージャー テンプレートの作成](../resource-group-authoring-templates.md) Azure リソース マネージャー (ARM) テンプレートについて学習します。 
+ 
 
 ## 手順 1: ARM テンプレートを作成する
 
-以下の内容を含む **ADFTutorialARM.json** という名前の JSON ファイルを **C:\ADFGetStarted** フォルダーに作成します。
-> [AZURE.IMPORTANT] **storageAccountName** 変数と **storageAccountKey** 変数は、実際の値に変更してください。 また、**dataFactoryName** も変更してください。この名前は一意であることが必要です。 
+という名前の JSON ファイルを作成する **ADFTutorialARM.json** で **C:\ADFGetStarted** フォルダー以下の内容。 
+
+> [AZURE.IMPORTANT] 値を変更 **storageAccountName** と **storageAccountKey** 変数です。 変更、 **dataFactoryName** すぎる名前は一意である必要があるためです。 
 
     {
         "contentVersion": "1.0.0.0",
@@ -173,36 +170,32 @@
         ]
     }
 
+
 ## 手順 2: ARM テンプレートを使用して Data Factory エンティティをデプロイする
 
 1. Azure PowerShell を起動し、次のコマンドを実行します。 Azure PowerShell は、このチュートリアルが終わるまで開いたままにしておいてください。 Azure PowerShell を閉じて再度開いた場合は、これらのコマンドをもう一度実行する必要があります。
-    - 実行 **ログイン AzureRmAccount** ユーザー名と、Azure ポータルにサインインするために使用するパスワードを入力します。
-    - **Get-AzureSubscription** を実行して、このアカウントのサブスクリプションをすべて表示します。
-    - **Select-AzureSubscription SubscriptionName** を実行して、使用するサブスクリプションを選択します。 このサブスクリプションは、Azure ポータルで使用したものと同じである必要があります。
-1. 次のコマンドを実行し、手順 1. で作成した ARM テンプレートを使用して Data Factory エンティティをデプロイします。
+    - 実行 **ログイン AzureRmAccount** ユーザー名と、Azure ポータルにサインインするために使用するパスワードを入力します。  
+    - 実行 **Get-azuresubscription** このアカウントのすべてのサブスクリプションを表示します。
+    - 実行 **Select-azuresubscription SubscriptionName** を使用するサブスクリプションを選択します。 このサブスクリプションは、Azure ポータルで使用したものと同じである必要があります。
+1. 次のコマンドを実行し、手順 1. で作成した ARM テンプレートを使用して Data Factory エンティティをデプロイします。 
 
         New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
 
-
 ## パイプラインの監視
-
+ 
 1.  ログインした後、 [Azure ポータル](http://portal.azure.com/), 、] をクリックして **参照** 選択 **データ ファクトリ**します。
-        ![Browse->Data factories](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
-2.  **[データ ファクトリ]** ブレードで、作成したデータ ファクトリ (**TutorialFactoryARM**) をクリックします。
-2.  **Data Factory** 、データ ファクトリ] ブレードをクリックして **ダイアグラム**します。
-        ![Diagram Tile](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
-4.  **ダイアグラム ビュー**に、パイプラインの概要と、このチュートリアルで使用するデータセットが表示されます。
-
-    ![Diagram View](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png)
-8. ダイアグラム ビューで、**AzureBlobOutput** データセットをダブルクリックします。 現在処理中のスライスが表示されます。
+        ![[参照] の [データ ファクトリ](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+2.   **データ ファクトリ** ブレードで、[データ ファクトリ] をクリックして (**TutorialFactoryARM**) を作成します。   
+2.   **Data Factory** 、データ ファクトリ] ブレードをクリックして **ダイアグラム**します。
+        ![ダイアグラム] タイル](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
+4.   **ダイアグラム ビュー**, 、パイプラインの概要が表示されます、およびデータセットでは使用このチュートリアルです。
+    
+    ![Diagram View](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
+8. ダイアグラム ビューで、データセットをダブルクリック **AzureBlobOutput**します。 現在処理中のスライスが表示されます。
 
     ![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. 処理が完了すると、スライスの状態に **[準備完了]** が表示されます オンデマンド HDInsight クラスターの作成には通常しばらく時間がかかることに注意してください。
+9. 処理を完了すると、スライスが表示されます **準備** 状態です。 オンデマンド HDInsight クラスターの作成には通常しばらく時間がかかることに注意してください。 
 
-    ![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)
-10. スライスが**準備完了**状態になったら、Blob Storage の **data** コンテナーの **partitioneddata** フォルダーで出力データを調べます。
-
-
-
-
-
+    ![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png) 
+10. スライスが **準備** チェックの状態、 **partitioneddata** 内のフォルダー、 **データ** 出力データの blob ストレージ内のコンテナーです。  
+ 

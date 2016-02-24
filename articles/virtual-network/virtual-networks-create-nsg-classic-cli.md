@@ -17,7 +17,6 @@
    ms.date="12/11/2015"
    ms.author="telmos" />
 
-
 # Azure CLI で NSG (クラシック) を作成する方法
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
@@ -28,15 +27,14 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-以下の Azure CLI のサンプル コマンドでは、上記シナリオに基づいて単純な環境が既に作成されていると想定します。 このドキュメントに表示されているように、コマンドを実行する場合は、最初、テスト環境にビルド [VNet を作成する](virtual-networks-create-vnet-classic-cli)します。
+以下の Azure CLI のサンプル コマンドでは、上記シナリオに基づいて単純な環境が既に作成されていると想定します。 このドキュメントに表示されているように、コマンドを実行する場合は、最初、テスト環境にビルド [VNet を作成する](virtual-networks-create-vnet-classic-cli)です。
 
 ## フロントエンドのサブネットの NSG を作成する方法
-
-上記のシナリオに基づいて *NSG-FrontEnd* という名前の NSG を作成するには、次の手順に従います。
+名前を名前付き NSG を作成する *NSG フロント エンド* 上記のシナリオに基づいて、以下の手順です。
 
 1. Azure CLI を初めて使用する場合は、次を参照してください。 [のインストールと Azure CLI の構成](xplat-cli-install.md) Azure アカウントとサブスクリプションを選択する時点までの指示に従います。
 
-2. 次に示すように、**azure config mode** コマンドを実行して、以下に示すようにクラシック モードに切り替えます。
+2. 実行、 **azure config モード** コマンドを次に示すように、クラシック モードに切り替えます。
 
         azure config mode asm
 
@@ -44,7 +42,7 @@
 
         info:    New mode is asm
 
-3. **azure network nsg create** コマンドを実行して NSG を作成します。
+3. 実行、 **azure ネットワーク nsg を作成** NSG を作成するコマンドです。
 
         azure network nsg create -l uswest -n NSG-FrontEnd
 
@@ -76,10 +74,10 @@
 
     パラメーター:
 
-    - **-l (または --location)**。 NSG が作成される Azure リージョンです。 ここでは、*westus* です。
-    - **-n (または --name)**。 新しい NSG の名前です。 ここでは、*NSG-FrontEnd* です。
+    - **-l (または --location)**します。 NSG が作成される Azure リージョンです。 このシナリオの *westus*します。
+    - **n (または - 名前)**します。 新しい NSG の名前です。 このシナリオの *NSG フロント エンド*します。
 
-4. **azure network nsg rule create** コマンドを実行して、インターネットからポート 3389 (RDP) へのアクセスを許可する規則を作成します。
+4. 実行、 **azure ネットワークの nsg ルールを作成** 、インターネットからポート 3389 (RDP) へのアクセスを許可するルールを作成するコマンドです。
 
         azure network nsg rule create -a NSG-FrontEnd -n rdp-rule -c Allow -p Tcp -r Inbound -y 100 -f Internet -o * -e * -u 3389
 
@@ -102,18 +100,18 @@
 
     パラメーター:
 
-    - **-a (または --nsg-name)**。 規則が作成される NSG の名前です。 ここでは、*NSG-FrontEnd* です。
-    - **-n (または --name)**。 新しい規則の名前です。 ここでは、*rdp-rule* です。
-    - **-c (または --action)**。 規則のアクセス レベルです (拒否または許可)。
-    - **-p (または --protocol)**。 規則のプロトコル (TCP、UDP、または *) です。
-    - **-r (または --type)**。 接続の方向です (受信または送信)。
-    - **-y (または --priority)**。 規則の優先度です。
-    - **-f (または --source-address-prefix)**。 CIDR または既定のタグを使用する発信元アドレスのプレフィックス。
-    - **-o (または --source-port-range)**。 発信元ポート、またはポート範囲です。
-    - **-e (または --destination-address-prefix)**。 CIDR または既定のタグを使用する接続先アドレスのプレフィックス。
-    - **-u (または --destination-port-range)**。 接続先ポート、またはポート範囲です。
+    - **は、(または - nsg 名)**します。 規則が作成される NSG の名前です。 このシナリオの *NSG フロント エンド*します。
+    - **n (または - 名前)**します。 新しい規則の名前です。 このシナリオの *rdp ルール*します。
+    - **c キーを押します (または - アクション)**します。 規則のアクセス レベルです (拒否または許可)。
+    - **-p または - プロトコル**します。 規則のプロトコル (TCP、UDP、または *) です。 
+    - **-r (または --type)**します。 接続の方向です (受信または送信)。
+    - **-y (または - 優先度)**します。 規則の優先度です。
+    - **-f (または - ソース アドレス プレフィックス)**します。 CIDR または既定のタグを使用する発信元アドレスのプレフィックス。
+    - **-o (または - ソース ポート範囲)**します。 発信元ポート、またはポート範囲です。
+    - **-e (または - 宛先アドレス プレフィックス)**します。 CIDR または既定のタグを使用する接続先アドレスのプレフィックス。
+    - **-u (または - 送信先ポート範囲)**します。 接続先ポート、またはポート範囲です。    
 
-5. **azure network nsg rule create** コマンドを実行して、インターネットからポート 80 (HTTP) へのアクセスを許可する規則を作成します。
+5. 実行、 **azure ネットワークの nsg ルールを作成** 、インターネットからポート 80 (HTTP) へのアクセスを許可するルールを作成するコマンドです。
 
         azure network nsg rule create -a NSG-FrontEnd -n web-rule -c Allow -p Tcp -r Inbound -y 200 -f Internet -o * -e * -u 80
 
@@ -134,7 +132,7 @@
         data:    Priority                        : 200
         info:    network nsg rule create command OK
 
-6. **azure network nsg subnet add** コマンドを実行して、NSG をフロントエンドのサブネットにリンクさせます。
+6. 実行、 **azure ネットワーク nsg のサブネットの追加** フロント エンド サブネットに NSG をリンクするコマンドです。
 
         azure network nsg subnet add -a NSG-FrontEnd --vnet-name TestVNet --subnet-name FrontEnd 
 
@@ -147,12 +145,10 @@
         info:    Creating a network security group "NSG-FrontEnd"
         info:    network nsg subnet add command OK
 
-
 ## バックエンドのサブネットの NSG を作成する方法
+名前を名前付き NSG を作成する *NSG バックエンド* 上記のシナリオに基づいて、以下の手順です。
 
-上記のシナリオに基づいて *NSG-BackEnd* という名前の NSG を作成するには、次の手順に従います。
-
-3. **azure network nsg create** コマンドを実行して NSG を作成します。
+3. 実行、 **azure ネットワーク nsg を作成** NSG を作成するコマンドです。
 
         azure network nsg create -l uswest -n NSG-BackEnd
 
@@ -184,10 +180,10 @@
 
     パラメーター:
 
-    - **-l (または --location)**。 NSG が作成される Azure リージョンです。 ここでは、*westus* です。
-    - **-n (または --name)**。 新しい NSG の名前です。 ここでは、*NSG-FrontEnd* です。
+    - **-l (または --location)**します。 NSG が作成される Azure リージョンです。 このシナリオの *westus*します。
+    - **n (または - 名前)**します。 新しい NSG の名前です。 このシナリオの *NSG フロント エンド*します。
 
-4. **azure network nsg rule create** コマンドを実行して、フロントエンドのサブネットからポート 1433 (SQL) へのアクセスを許可する規則を作成します。
+4. 実行、 **azure ネットワークの nsg ルールを作成** フロント エンド サブネットからポート 1433 (SQL) へのアクセスを許可するルールを作成するコマンドです。
 
         azure network nsg rule create -a NSG-BackEnd -n sql-rule -c Allow -p Tcp -r Inbound -y 100 -f 192.168.1.0/24 -o * -e * -u 1433
 
@@ -208,7 +204,8 @@
         data:    Priority                        : 100
         info:    network nsg rule create command OK
 
-5. **azure network nsg rule create** コマンドを実行して、インターネットへのアクセスを拒否する規則を作成します。
+
+5. 実行、 **azure ネットワークの nsg ルールを作成** インターネットへのアクセスを拒否するルールを作成するコマンドです。
 
         azure network nsg rule create -a NSG-BackEnd -n web-rule -c Deny -p Tcp -r Outbound -y 200 -f * -o * -e Internet -u 80
 
@@ -229,7 +226,7 @@
         data:    Priority                        : 200
         info:    network nsg rule create command OK
 
-6. **azure network nsg subnet add** コマンドを実行して、NSG をバックエンドのサブネットにリンクさせます。
+6. 実行、 **azure ネットワーク nsg のサブネットの追加** バックエンド サブネットに NSG をリンクするコマンドです。
 
         azure network nsg subnet add -a NSG-BackEnd --vnet-name TestVNet --subnet-name BackEnd 
 
@@ -241,9 +238,4 @@
         info:    Looking up network configuration
         info:    Creating a network security group "NSG-BackEndX"
         info:    network nsg subnet add command OK
-
-
-
-
-
 

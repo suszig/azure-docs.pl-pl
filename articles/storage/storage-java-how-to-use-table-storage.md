@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Java からテーブル ストレージを使用する方法 | Microsoft Azure" 
-    description="Azure でテーブル ストレージ サービスを使用する方法について説明します。コード サンプルは Java で記述されています。" 
+    description="Azure でテーブル ストレージ サービスを使用する方法について説明します。 コード サンプルは Java で記述されています。" 
     services="storage" 
     documentationCenter="java" 
     authors="rmcmurray" 
@@ -17,16 +17,15 @@
     ms.author="robmcm"/>
 
 
-
 # Java からテーブル ストレージを使用する方法
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
 ## 概要
 
-このガイドでは、Azure Table ストレージ サービスを使用して一般的なシナリオを実行する方法について説明します。 サンプルが使用して Java で記述され、 [Azure Storage SDK for Java の][]します。 テーブルの**作成**、**一覧表示**、および**削除**と、テーブル内のエンティティの**挿入**、**照会**、**変更**、および**削除**の各シナリオについて説明します。 テーブルの詳細については、次を参照してください。、 [次のステップ](#NextSteps) セクションです。
+このガイドでは、Azure Table ストレージ サービスを使用して一般的なシナリオを実行する方法について説明します。 サンプルが使用して Java で記述され、 [Azure Storage SDK for Java][]します。 紹介するシナリオ **を作成する**, 、**を一覧表示する**, と **を削除する** テーブルだけでなく **を挿入する**, 、**クエリを実行する**, 、**を変更する**, と **を削除する** テーブル内のエンティティです。 テーブルの詳細については、次を参照してください。、 [次のステップ](#NextSteps) セクションです。
 
-注: SDK は、Android デバイスで Azure Storage を使用する開発者向けに用意されています。 詳細については、次を参照してください。、 [Azure Storage SDK for Android []][]します。
+注: SDK は、Android デバイスで Azure Storage を使用する開発者向けに用意されています。 詳細については、次を参照してください。、 [Azure Storage SDK for Android][]します。 
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -36,7 +35,7 @@
 
 このガイドで使用するストレージ機能は、Java アプリケーション内でローカルで実行することも、Azure の Web ロールまたは worker ロールで動作するコード内で実行することもできます。
 
-そのためには、Java Development Kit (JDK) をインストールし、Azure サブスクリプションに Azure ストレージ アカウントを作成する必要があります。 これを実行して後、は、開発システムが最小要件およびに示されている依存関係を満たしていることを確認する必要があります。、 [Azure Storage SDK for Java の []][] GitHub のリポジトリです。 システムがそれらの要件を満たしている場合は、指示に従って、そのリポジトリからシステムに Azure Storage Libraries for Java をダウンロードしてインストールできます。 それらのタスクが完了したら、この記事の例を使用した Java アプリケーションを作成できます。
+そのためには、Java Development Kit (JDK) をインストールし、Azure サブスクリプションに Azure ストレージ アカウントを作成する必要があります。 これを実行して後、は、開発システムが最小要件およびに示されている依存関係を満たしていることを確認する必要があります。、 [Azure Storage SDK for Java][] GitHub のリポジトリです。 システムがそれらの要件を満たしている場合は、指示に従って、そのリポジトリからシステムに Azure Storage Libraries for Java をダウンロードしてインストールできます。 それらのタスクが完了したら、この記事の例を使用した Java アプリケーションを作成できます。
 
 ## テーブル ストレージにアクセスするようにアプリケーションを構成する
 
@@ -57,7 +56,7 @@ Azure ストレージ クライアントでは、ストレージ接続文字列�
         "AccountName=your_storage_account;" + 
         "AccountKey=your_storage_account_key";
 
-Microsoft Azure 上のロール内で実行されるアプリケーションでは、この文字列はサービス構成ファイルである *ServiceConfiguration.cscfg* に格納でき、**RoleEnvironment.getConfigurationSettings** メソッドの呼び出しを使用してアクセスできます。 次の例では、サービス構成ファイル内の **StorageConnectionString** という名前の *Setting* 要素から接続文字列を取得しています。
+Microsoft Azure ロール内で実行されるアプリケーション、この文字列で、サービスの構成ファイルに保存することができます *ServiceConfiguration.cscfg*, への呼び出しでアクセスできると、 **RoleEnvironment.getConfigurationSettings** メソッドです。 接続文字列を取得する例をここでは、 **設定** という名前の要素 *StorageConnectionString* サービス構成ファイルで。
 
     // Retrieve storage account from connection-string.
     String storageConnectionString = 
@@ -69,17 +68,17 @@ Microsoft Azure 上のロール内で実行されるアプリケーションで�
 
 A **CloudTableClient** オブジェクトでは、テーブルの参照オブジェクトを取得できます。
 参照オブジェクトを取得できます。 次のコード作成、 **CloudTableClient** オブジェクト
-新規作成に使用して **CloudTable** "people"という名前のテーブルを表すオブジェクト。 (注: を作成するその他の方法がある **CloudStorageAccount** のオブジェクト詳細については、次を参照してください。 **CloudStorageAccount** [Azure ストレージ クライアント SDK リファレンス] です。)。
+新規作成に使用して **CloudTable** "people"という名前のテーブルを表すオブジェクト。 (注: 作成する方法もありますがある **CloudStorageAccount** のオブジェクト詳細については、次を参照してください。 **CloudStorageAccount** で、 [Azure Storage Client SDK Reference]。)。
 
     try
     {
         // Retrieve storage account from connection-string.
         CloudStorageAccount storageAccount =
            CloudStorageAccount.parse(storageConnectionString);
-    
+
        // Create the table client.
        CloudTableClient tableClient = storageAccount.createCloudTableClient();
-    
+
        // Create the table if it doesn't exist.
        String tableName = "people";
        CloudTable cloudTable = new CloudTable(tableName,tableClient);
@@ -93,17 +92,17 @@ A **CloudTableClient** オブジェクトでは、テーブルの参照オブジ
 
 ## 方法: テーブルを一覧表示する
 
-テーブルの一覧を取得するには、**CloudTableClient.listTables()** メソッドを呼び出して、テーブル名の反復可能な一覧を取得します。
+テーブルの一覧を取得する、 **CloudTableClient.listTables()** 、反復可能なテーブル名のリストを取得します。
 
     try
     {
         // Retrieve storage account from connection-string.
         CloudStorageAccount storageAccount =
            CloudStorageAccount.parse(storageConnectionString);
-    
+
         // Create the table client.
         CloudTableClient tableClient = storageAccount.createCloudTableClient();
-    
+
         // Loop through the collection of table names.
         for (String table : tableClient.listTables())
         {
@@ -119,58 +118,58 @@ A **CloudTableClient** オブジェクトでは、テーブルの参照オブジ
 
 ## 方法: エンティティをテーブルに追加する
 
-エンティティは、**TableEntity** を実装するカスタム クラスを使用して Java オブジェクトにマップされます。 コードがシンプルになるように、**TableServiceEntity** クラスでは **TableEntity** を実装し、リフレクションを使用することで、プロパティを、それらのプロパティの名前が付いた getter および setter メソッドにマップしています。 エンティティをテーブルに追加するには、最初に、エンティティのプロパティを定義するクラスを作成します。 次のコードは、ユーザーの名を行キーとして、姓をパーティション キーとしてそれぞれ使用するエンティティ クラスを定義します。 エンティティのパーティション キーと行キーの組み合わせで、テーブル内のエンティティを一意に識別します。 同じパーティション キーを持つエンティティは、異なるパーティション キーを持つエンティティよりも迅速に照会できます。
+エンティティが実装するカスタム クラスを使用して Java オブジェクトにマップ **TableEntity**します。 便宜上、 **TableServiceEntity** クラスが実装する **TableEntity** し、リフレクションを使用してプロパティをプロパティの名前が付いた getter および setter メソッドにマップします。 エンティティをテーブルに追加するには、最初に、エンティティのプロパティを定義するクラスを作成します。 次のコードは、ユーザーの名を行キーとして、姓をパーティション キーとしてそれぞれ使用するエンティティ クラスを定義します。 エンティティのパーティション キーと行キーの組み合わせで、テーブル内のエンティティを一意に識別します。 同じパーティション キーを持つエンティティは、異なるパーティション キーを持つエンティティよりも迅速に照会できます。
 
     public class CustomerEntity extends TableServiceEntity {
         public CustomerEntity(String lastName, String firstName) {
             this.partitionKey = lastName;
             this.rowKey = firstName;
         }
-    
+
         public CustomerEntity() { }
-    
+
         String email;
         String phoneNumber;
-    
+        
         public String getEmail() {
             return this.email;
         }
-    
+        
         public void setEmail(String email) {
             this.email = email;
         }
-    
+        
         public String getPhoneNumber() {
             return this.phoneNumber;
         }
-    
+        
         public void setPhoneNumber(String phoneNumber) {
             this.phoneNumber = phoneNumber;
         }
     }
 
-エンティティに関連するテーブル操作には **TableOperation** オブジェクトが必要です。 このオブジェクトを使用して、エンティティに対して実行する操作を定義します。定義した操作は、**CloudTable** オブジェクトを使用して実行できます。 次のコードでは、顧客データの格納用に **CustomerEntity** クラスの新しいインスタンスを作成しています。 次に、このコードでは **TableOperation.insertOrReplace** を呼び出し、テーブルへのエンティティの挿入用に **TableOperation** オブジェクトを作成して、そのオブジェクトを新しい **CustomerEntity** に関連付けています。 最後に、このコードでは **CloudTable** オブジェクトの **execute** メソッドを呼び出し、"people" テーブルと新しい **TableOperation** を指定しています。それにより、新しいユーザー エンティティを "people" テーブルに挿入する (そのエンティティが既に存在する場合は置き換える) 要求がストレージ サービスに送信されるようになっています。
+エンティティに関連するテーブル操作が必要な **TableOperation** オブジェクトです。 このオブジェクトで実行でき、エンティティに対して実行する操作を定義する、 **CloudTable** オブジェクトです。 次のコードの新しいインスタンスを作成する、 **CustomerEntity** 顧客データを格納するクラス。 次のコード呼び出し **TableOperation.insertOrReplace** を作成する、 **TableOperation** オブジェクトをテーブルにエンティティを挿入し、新しい **CustomerEntity** 関連付けします。 最後に、コードが呼び出され、 **実行** メソッドを **CloudTable** "people"テーブルと新しいを指定するオブジェクト **TableOperation**, 、その後は、新しいユーザー エンティティを"people"テーブルに挿入するかが既に存在する場合にエンティティを置換するには、ストレージ サービスに要求を送信します。
 
     try
     {
         // Retrieve storage account from connection-string.
         CloudStorageAccount storageAccount =
            CloudStorageAccount.parse(storageConnectionString);
-    
+
         // Create the table client.
         CloudTableClient tableClient = storageAccount.createCloudTableClient();
-    
+            
         // Create a cloud table object for the table.
         CloudTable cloudTable = tableClient.getTableReference("people");
-    
+            
         // Create a new customer entity.
         CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
         customer1.setEmail("Walter@contoso.com");
         customer1.setPhoneNumber("425-555-0101");
-    
+            
         // Create an operation to add the new customer to the people table.
         TableOperation insertCustomer1 = TableOperation.insertOrReplace(customer1);
-    
+
         // Submit the operation to the table service.
         cloudTable.execute(insertCustomer1);
     }
@@ -182,41 +181,41 @@ A **CloudTableClient** オブジェクトでは、テーブルの参照オブジ
 
 ## 方法: エンティティのバッチを挿入する
 
-1 回の書き込み操作でエンティティのバッチをテーブル サービスに挿入できます。 次のコードでは、**TableBatchOperation** オブジェクトを作成し、3 つの挿入操作を追加しています。 追加する各挿入操作では、新しいエンティティ オブジェクトを作成してその値を設定してから、**TableBatchOperation** オブジェクトの **insert** メソッドを呼び出して、エンティティを新しい挿入操作に関連付けています。 次に、このコードでは **CloudTable** オブジェクトの **execute** を呼び出して、"people" テーブルと **TableBatchOperation** オブジェクトを指定しています。それにより、テーブル操作のバッチがストレージ サービスに 1 つの要求で送信されるようになっています。
+1 回の書き込み操作でエンティティのバッチをテーブル サービスに挿入できます。 次のコード作成、 **TableBatchOperation** オブジェクト、3 つの挿入操作を追加します。 新しいエンティティ オブジェクトを作成し、その値を設定しを呼び出すことによって各挿入操作を追加、 **挿入** メソッドを **TableBatchOperation** にエンティティを新しい挿入操作に関連付けるオブジェクト。 コードの呼び出し **実行** 上、 **CloudTable** "people"テーブルを指定するオブジェクトと **TableBatchOperation** オブジェクトで、テーブル操作のバッチを単一の要求でストレージ サービスに送信します。
 
     try
     {
         // Retrieve storage account from connection-string.
         CloudStorageAccount storageAccount =
            CloudStorageAccount.parse(storageConnectionString);
-    
+
         // Create the table client.
         CloudTableClient tableClient = storageAccount.createCloudTableClient();
-    
+
         // Define a batch operation.
         TableBatchOperation batchOperation = new TableBatchOperation();
-    
+
         // Create a cloud table object for the table.
         CloudTable cloudTable = tableClient.getTableReference("people");
-    
+
         // Create a customer entity to add to the table.
         CustomerEntity customer = new CustomerEntity("Smith", "Jeff");
         customer.setEmail("Jeff@contoso.com");
         customer.setPhoneNumber("425-555-0104");
         batchOperation.insertOrReplace(customer);
-    
+
        // Create another customer entity to add to the table.
        CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
        customer2.setEmail("Ben@contoso.com");
        customer2.setPhoneNumber("425-555-0102");
        batchOperation.insertOrReplace(customer2);
-    
+
        // Create a third customer entity to add to the table.
        CustomerEntity customer3 = new CustomerEntity("Smith", "Denise");
        customer3.setEmail("Denise@contoso.com");
        customer3.setPhoneNumber("425-555-0103");
        batchOperation.insertOrReplace(customer3);
-    
+
        // Execute the batch of operations on the "people" table.
        cloudTable.execute(batchOperation);
     }
@@ -235,7 +234,7 @@ A **CloudTableClient** オブジェクトでは、テーブルの参照オブジ
 
 ## 方法: パーティション内のすべてのエンティティを取得する
 
-テーブルに対してパーティション内のエンティティを照会する場合は、**TableQuery** を使用できます。 **TableQuery.from** を呼び出して、特定のテーブルに対するクエリを作成し、指定した型の結果が返るようにします。 次のコードは、'Smith' がパーティション キーであるエンティティに対してフィルターを指定します。 **TableQuery.generateFilterCondition** はクエリのフィルターを作成するためのヘルパー メソッドです。 **TableQuery.from** メソッドによって返された参照の **where** を呼び出して、フィルターをクエリに適用します。 クエリが **CloudTable** オブジェクトの **execute** の呼び出しを使用して実行されると、指定した **CustomerEntity** 型の結果が **Iterator** に格納されて返されます。 その後、返された **Iterator** を for each ループ内で使用して、結果を処理できます。 このコードは、クエリ結果の各エントリのフィールドをコンソールに出力します。
+テーブルに対してパーティション内のエンティティを照会するには、使用することができます、 **TableQuery**します。 呼び出す **TableQuery.from** を指定した結果の型を返す特定のテーブルに対するクエリを作成します。 次のコードは、'Smith' がパーティション キーであるエンティティに対してフィルターを指定します。 **TableQuery.generateFilterCondition** クエリのフィルターを作成するヘルパー メソッドです。 呼び出す **、** によって返される参照で、 **TableQuery.from** クエリにフィルターを適用するメソッドです。 呼び出して、クエリの実行時に **実行** 上、 **CloudTable** オブジェクトを返します、 **反復子** で、 **CustomerEntity** 指定された型の結果します。 使用して、 **反復子** で返されるの結果を処理する for each ループです。 このコードは、クエリ結果の各エントリのフィールドをコンソールに出力します。
 
     try
     {
@@ -243,28 +242,28 @@ A **CloudTableClient** オブジェクトでは、テーブルの参照オブジ
         final String PARTITION_KEY = "PartitionKey";
         final String ROW_KEY = "RowKey";
         final String TIMESTAMP = "Timestamp";
-    
+
         // Retrieve storage account from connection-string.
         CloudStorageAccount storageAccount =
            CloudStorageAccount.parse(storageConnectionString);
-    
+
         // Create the table client.
         CloudTableClient tableClient = storageAccount.createCloudTableClient();
-    
+            
        // Create a cloud table object for the table.
        CloudTable cloudTable = tableClient.getTableReference("people");
-    
+
         // Create a filter condition where the partition key is "Smith".
         String partitionFilter = TableQuery.generateFilterCondition(
            PARTITION_KEY, 
            QueryComparisons.EQUAL,
            "Smith");
-    
+
        // Specify a partition query, using "Smith" as the partition key filter.
        TableQuery<CustomerEntity> partitionQuery =
            TableQuery.from(CustomerEntity.class)
            .where(partitionFilter);
-    
+
         // Loop through the results, displaying information about the entity.
         for (CustomerEntity entity : cloudTable.execute(partitionQuery)) {
             System.out.println(entity.getPartitionKey() +
@@ -289,39 +288,39 @@ A **CloudTableClient** オブジェクトでは、テーブルの参照オブジ
         final String PARTITION_KEY = "PartitionKey";
         final String ROW_KEY = "RowKey";
         final String TIMESTAMP = "Timestamp";
-    
+            
         // Retrieve storage account from connection-string.
         CloudStorageAccount storageAccount =
            CloudStorageAccount.parse(storageConnectionString);
-    
+
        // Create the table client.
        CloudTableClient tableClient = storageAccount.createCloudTableClient();
-    
+
        // Create a cloud table object for the table.
        CloudTable cloudTable = tableClient.getTableReference("people");
-    
+
         // Create a filter condition where the partition key is "Smith".
         String partitionFilter = TableQuery.generateFilterCondition(
            PARTITION_KEY, 
            QueryComparisons.EQUAL,
            "Smith");
-    
+
         // Create a filter condition where the row key is less than the letter "E".
         String rowFilter = TableQuery.generateFilterCondition(
            ROW_KEY, 
            QueryComparisons.LESS_THAN,
            "E");
-    
+
         // Combine the two conditions into a filter expression.
         String combinedFilter = TableQuery.combineFilters(partitionFilter, 
             Operators.AND, rowFilter);
-    
+
         // Specify a range query, using "Smith" as the partition key,
         // with the row key being up to the letter "E".
         TableQuery<CustomerEntity> rangeQuery =
            TableQuery.from(CustomerEntity.class)
            .where(combinedFilter);
-    
+
         // Loop through the results, displaying information about the entity
         for (CustomerEntity entity : cloudTable.execute(rangeQuery)) {
             System.out.println(entity.getPartitionKey() +
@@ -338,28 +337,28 @@ A **CloudTableClient** オブジェクトでは、テーブルの参照オブジ
 
 ## 方法: 単一のエンティティを取得する
 
-単一の特定のエンティティを取得するクエリを記述することができます。 次のコードでは、**TableOperation.retrieve** を呼び出し、パーティション キーと行キーのパラメーターを使用して、顧客 "Jeff Smith" を指定しています。同じ操作は **TableQuery** を作成してフィルターを使用することでも可能です。 この取得操作が実行されると、1 つのコレクションではなく、1 つのエンティティのみ返されます。 **getResultAsType** メソッドは、結果を設定先の型である **CustomerEntity** オブジェクト型にキャストします。 この型がクエリに指定した型と互換性がない場合は、例外がスローされます。 パーティション キーおよび行キーが正確に一致するエンティティがない場合は、null 値が返されます。 クエリでパーティション キーと行キーの両方を指定することが、Table サービスから単一のエンティティを取得するための最速の方法です。
+単一の特定のエンティティを取得するクエリを記述することができます。 次のコード呼び出し **TableOperation.retrieve** パーティション キーと行キー、顧客を指定するパラメーター"Jeff Smith"を作成する代わりに、 **TableQuery** と同じようにフィルターを使用します。 この取得操作が実行されると、1 つのコレクションではなく、1 つのエンティティのみ返されます。  **GetResultAsType** メソッドは、結果の割り当てのターゲット型にキャスト、 **CustomerEntity** オブジェクトです。 この型がクエリに指定した型と互換性がない場合は、例外がスローされます。 パーティション キーおよび行キーが正確に一致するエンティティがない場合は、null 値が返されます。 クエリでパーティション キーと行キーの両方を指定することが、Table サービスから単一のエンティティを取得するための最速の方法です。
 
     try
     {
         // Retrieve storage account from connection-string.
         CloudStorageAccount storageAccount =
            CloudStorageAccount.parse(storageConnectionString);
-    
+
         // Create the table client.
         CloudTableClient tableClient = storageAccount.createCloudTableClient();
-    
+
         // Create a cloud table object for the table.
         CloudTable cloudTable = tableClient.getTableReference("people");
-    
+
         // Retrieve the entity with partition key of "Smith" and row key of "Jeff"
         TableOperation retrieveSmithJeff = 
            TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
-    
+
        // Submit the operation to the table service and get the specific entity.
        CustomerEntity specificEntity =
             cloudTable.execute(retrieveSmithJeff).getResultAsType();
-    
+            
         // Output the entity.
         if (specificEntity != null)
         {
@@ -377,34 +376,34 @@ A **CloudTableClient** オブジェクトでは、テーブルの参照オブジ
 
 ## 方法: エンティティを変更する
 
-エンティティを変更するには、そのエンティティをテーブル サービスから取得し、エンティティ オブジェクトに変更を加えて、その変更を置換またはマージ操作でテーブル サービスに戻して保存します。 次のコードは、既存のユーザーの電話番号を変更します。 挿入の場合のように **TableOperation.insert** を呼び出すのではなく、このコードは **TableOperation.replace** を呼び出します。 このアプリケーションがエンティティを取得した後で別のアプリケーションが変更を加えていない限り、**CloudTable.execute** メソッドはテーブル サービスを呼び出し、このエンティティは置き換えられます。 別のアプリケーションが変更を加えた場合は、例外がスローされるので、このエンティティを取得して変更し、もう一度保存する必要があります。 このオプティミスティック同時実行制御の再試行パターンは、分散したストレージ システムでは一般的です。
+エンティティを変更するには、そのエンティティをテーブル サービスから取得し、エンティティ オブジェクトに変更を加えて、その変更を置換またはマージ操作でテーブル サービスに戻して保存します。 次のコードは、既存のユーザーの電話番号を変更します。 呼び出す代わりに **TableOperation.insert** を挿入するように、このコードを呼び出す **TableOperation.replace**します。  **CloudTable.execute** メソッドはテーブル サービス呼び出しし、変更しない限り、別のアプリケーションに、時間でこのアプリケーションで取得した後、このエンティティが置き換えられます。 別のアプリケーションが変更を加えた場合は、例外がスローされるので、このエンティティを取得して変更し、もう一度保存する必要があります。 このオプティミスティック同時実行制御の再試行パターンは、分散したストレージ システムでは一般的です。
 
     try
     {
         // Retrieve storage account from connection-string.
         CloudStorageAccount storageAccount =
            CloudStorageAccount.parse(storageConnectionString);
-    
+
         // Create the table client.
         CloudTableClient tableClient = storageAccount.createCloudTableClient();
-    
+
         // Create a cloud table object for the table.
         CloudTable cloudTable = tableClient.getTableReference("people");
-    
+
         // Retrieve the entity with partition key of "Smith" and row key of "Jeff".
         TableOperation retrieveSmithJeff = 
            TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
-    
+
         // Submit the operation to the table service and get the specific entity.
         CustomerEntity specificEntity =
           cloudTable.execute(retrieveSmithJeff).getResultAsType();
-    
+
         // Specify a new phone number.
         specificEntity.setPhoneNumber("425-555-0105");
-    
+
         // Create an operation to replace the entity.
         TableOperation replaceEntity = TableOperation.replace(specificEntity);
-    
+
         // Submit the operation to the table service.
         cloudTable.execute(replaceEntity);
     }
@@ -416,25 +415,25 @@ A **CloudTableClient** オブジェクトでは、テーブルの参照オブジ
 
 ## 方法: エンティティ プロパティのサブセットを照会する
 
-テーブルに対するクエリでは、ごくわずかのプロパティだけをエンティティから取得できます。 プロジェクションと呼ばれるこの方法では、帯域幅の使用が削減され、クエリのパフォーマンスが向上します。特に、大量のエンティティがある場合に役立ちます。 次のコードのクエリは、**select** メソッドを使用して、テーブル内のエンティティの電子メール アドレスだけを返します。 結果は **EntityResolver** によって **String** コレクションへのプロジェクション (サーバーから返されるエンティティの型変換) が行われます。 このプロジェクションの詳細については、 [ブログの投稿][]します。 プロジェクションはローカル ストレージ エミュレーターではサポートされていません。したがって、このコードはテーブル サービスのアカウントを使用している場合にのみ機能します。
+テーブルに対するクエリでは、ごくわずかのプロパティだけをエンティティから取得できます。 プロジェクションと呼ばれるこの方法では、帯域幅の使用が削減され、クエリのパフォーマンスが向上します。特に、大量のエンティティがある場合に役立ちます。 次のコードでクエリを使用して、 **選択** をテーブルにエンティティの電子メール アドレスだけを返すメソッド。 結果はコレクションへの射影 **文字列** を利用して、 **EntityResolver**, 、サーバーから返されるエンティティの型変換が行われます。 このプロジェクションの詳細については、 [ブログの投稿][]します。 プロジェクションはローカル ストレージ エミュレーターではサポートされていません。したがって、このコードはテーブル サービスのアカウントを使用している場合にのみ機能します。
 
     try
     {
         // Retrieve storage account from connection-string.
         CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
-    
+
         // Create the table client.
         CloudTableClient tableClient = storageAccount.createCloudTableClient();
-    
+
         // Create a cloud table object for the table.
         CloudTable cloudTable = tableClient.getTableReference("people");
-    
+
         // Define a projection query that retrieves only the Email property
         TableQuery<CustomerEntity> projectionQuery = 
            TableQuery.from(CustomerEntity.class)
            .select(new String[] {"Email"});
-    
+
         // Define a Entity resolver to project the entity to the Email value.
         EntityResolver<String> emailResolver = new EntityResolver<String>() {
             @Override
@@ -442,7 +441,7 @@ A **CloudTableClient** オブジェクトでは、テーブルの参照オブジ
                 return properties.get("Email").getValueAsString();
             }
         };
-    
+
         // Loop through the results, displaying the Email values.
         for (String projectedString : 
             cloudTable.execute(projectionQuery, emailResolver)) {
@@ -457,28 +456,28 @@ A **CloudTableClient** オブジェクトでは、テーブルの参照オブジ
 
 ## 方法: エンティティを挿入または置換する
 
-エントリをテーブルに追加するときは、多くの場合、そのエントリがテーブル内に既に存在しているかどうかを把握していません。 エンティティの挿入または置換操作では、エンティティが存在しない場合にそのエンティティを挿入し、エンティティが存在する場合はその既存のエンティティを置き換えるという操作を 1 つの要求で処理することができます。 これまでの例に対して、次のコードは "Walter Harp" のエンティティを挿入または置換します。 新しいエンティティを作成すると、このコードは **TableOperation.insertOrReplace** メソッドを呼び出します。 その後、**CloudTable** オブジェクトの **execute** を呼び出し、テーブルとそのテーブルの挿入および置換操作をパラメーターとして渡します。 エンティティの一部のみ更新するには、**TableOperation.insertOrMerge** メソッドを代わりに使用できます。 挿入または置換はローカル ストレージ エミュレーターではサポートされていません。したがって、このコードはテーブル サービスのアカウントを使用している場合にのみ機能します。 挿入または置換、挿入またはマージこの詳細を確認できます [ブログの投稿][]します。
+エントリをテーブルに追加するときは、多くの場合、そのエントリがテーブル内に既に存在しているかどうかを把握していません。 エンティティの挿入または置換操作では、エンティティが存在しない場合にそのエンティティを挿入し、エンティティが存在する場合はその既存のエンティティを置き換えるという操作を 1 つの要求で処理することができます。 これまでの例に対して、次のコードは "Walter Harp" のエンティティを挿入または置換します。 このコードを呼び出す新しいエンティティを作成した後、 **TableOperation.insertOrReplace** メソッドです。 このコードを呼び出して **実行** 上、 **CloudTable** オブジェクト、テーブルと、挿入または置換テーブル操作をパラメーターとして。 エンティティの一部のみ更新する、 **TableOperation.insertOrMerge** メソッドを代わりに使用できます。 挿入または置換はローカル ストレージ エミュレーターではサポートされていません。したがって、このコードはテーブル サービスのアカウントを使用している場合にのみ機能します。 挿入または置換、挿入またはマージこの詳細を確認できます [ブログの投稿][]します。
 
     try
     {
         // Retrieve storage account from connection-string.
         CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
-    
+
         // Create the table client.
         CloudTableClient tableClient = storageAccount.createCloudTableClient();
-    
+
         // Create a cloud table object for the table.
         CloudTable cloudTable = tableClient.getTableReference("people");
-    
+
         // Create a new customer entity.
         CustomerEntity customer5 = new CustomerEntity("Harp", "Walter");
         customer5.setEmail("Walter@contoso.com");
         customer5.setPhoneNumber("425-555-0106");
-    
+
         // Create an operation to add the new customer to the people table.
         TableOperation insertCustomer5 = TableOperation.insertOrReplace(customer5);
-    
+
         // Submit the operation to the table service.
         cloudTable.execute(insertCustomer5);
     }
@@ -490,30 +489,30 @@ A **CloudTableClient** オブジェクトでは、テーブルの参照オブジ
 
 ## 方法: エンティティを削除する
 
-エンティティは、取得後に簡単に削除できます。 エンティティを取得したら、削除するエンティティを指定して **TableOperation.delete** を呼び出します。 その後、**CloudTable** オブジェクトの **execute** を呼び出します。 次のコードは、ユーザー エンティティを取得して削除します。
+エンティティは、取得後に簡単に削除できます。 エンティティを取得した後で呼び出す **TableOperation.delete** 、エンティティを削除するとします。 まず **実行** 上、 **CloudTable** オブジェクトです。 次のコードは、ユーザー エンティティを取得して削除します。
 
     try
     {
         // Retrieve storage account from connection-string.
         CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
-    
+
         // Create the table client.
         CloudTableClient tableClient = storageAccount.createCloudTableClient();
-    
+
         // Create a cloud table object for the table.
         CloudTable cloudTable = tableClient.getTableReference("people");
-    
+
         // Create an operation to retrieve the entity with partition key of "Smith" and row key of "Jeff".
         TableOperation retrieveSmithJeff = TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
-    
+
         // Retrieve the entity with partition key of "Smith" and row key of "Jeff".
         CustomerEntity entitySmithJeff =
             cloudTable.execute(retrieveSmithJeff).getResultAsType();
-    
+
         // Create an operation to delete the entity.
         TableOperation deleteSmithJeff = TableOperation.delete(entitySmithJeff);
-    
+
         // Submit the delete operation to the table service.
         cloudTable.execute(deleteSmithJeff);
     }
@@ -532,10 +531,10 @@ A **CloudTableClient** オブジェクトでは、テーブルの参照オブジ
         // Retrieve storage account from connection-string.
         CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
-    
+
         // Create the table client.
         CloudTableClient tableClient = storageAccount.createCloudTableClient();
-    
+
         // Delete the table and all its data if it exists.
         CloudTable cloudTable = new CloudTable("people",tableClient);
         cloudTable.deleteIfExists();
@@ -550,20 +549,19 @@ A **CloudTableClient** オブジェクトでは、テーブルの参照オブジ
 
 これで、テーブル ストレージの基本を学習できました。さらに複雑なストレージ タスクを実行する方法については、次のリンク先を参照してください。
 
-- [Azure Storage SDK for Java の][]
-- [Azure Storage クライアント SDK を参照][]
-- [Azure Storage REST API の][]
-- [Azure ストレージ チーム ブログ][]
+- [Azure Storage SDK for Java][]
+- [Azure ストレージ クライアント SDK リファレンス][]
+- [Azure Storage REST API][]
+- [Azure のストレージ チーム ブログ][]
 
 詳細については、「関連項目、 [Java デベロッパー センター](/develop/java/)します。
 
 
-
-[azure sdk for java]: http://go.microsoft.com/fwlink/?LinkID=525671 
-[azure storage sdk for java]: https://github.com/azure/azure-storage-java 
-[azure storage sdk for android]: https://github.com/azure/azure-storage-android 
-[azure storage client sdk reference]: http://dl.windowsazure.com/storage/javadoc/ 
-[azure storage rest api]: https://msdn.microsoft.com/library/azure/dd179355.aspx 
-[azure storage team blog]: http://blogs.msdn.com/b/windowsazurestorage/ 
-[blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx 
-
+[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
+[Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
+[Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
+[Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/
+[Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+ 

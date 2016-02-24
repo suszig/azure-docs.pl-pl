@@ -17,15 +17,13 @@
     ms.date="08/11/2015"
     ms.author="cynthn"/>
 
-
 # Windows を実行する仮想マシンを Azure クラシック ポータルで作成する
 
 > [AZURE.SELECTOR]
-- [Azure portal](virtual-machines-windows-tutorial.md)
-- [Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md)
-- [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
-- [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
-
+- [Azure ポータル](virtual-machines-windows-tutorial.md)
+- [Azure クラシック ポータル](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell: リソース マネージャーの展開](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell: クラシック展開](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [リソース マネージャーのデプロイ モデル](virtual-machines-windows-tutorial.md)します。
 
@@ -41,10 +39,11 @@
 
 [AZURE.VIDEO creating-a-windows-vm-on-microsoft-azure-classic-portal]
 
-## <a id="createvirtualmachine"> </a>仮想マシンを作成する方法
+## <a id="createvirtualmachine"> </a>仮想マシンの作成方法
 
-このセクションでは、Azure 旧ポータルの **[ギャラリーから]** オプションを使用して仮想マシンを作成する方法について説明します。 このオプションは、**[簡易作成]** オプションよりも多数の構成の選択肢があります。 たとえば、仮想マシンを仮想ネットワークに参加させる場合、**[ギャラリーから]** オプションを使用する必要があります。
-> [AZURE.NOTE] さらに、より機能が豊富でカスタマイズも可能な Azure ポータルを使用すれば、仮想マシンの作成、強化された監視機能や診断機能の使用、Premium Storage の使用など、さまざまな操作を試すことができます。 この 2 つのポータルにある利用可能な仮想マシン構成オプションには、性質上、重複するものもありますが、まったく同じではありません。 たとえば、Azure ポータルを利用して、Premium Storage を使用する仮想マシンを構成します。
+このセクションでは、使用する方法を示します、 **ギャラリーから** Azure クラシック ポータルで仮想マシンを作成するオプションです。 このオプションよりも多くの構成の選択、 **簡易作成** オプション。 たとえば、仮想マシンを仮想ネットワークに参加させる場合は、必要を使用する、 **ギャラリーから** オプション。
+
+> [AZURE.NOTE] 仮想マシンを作成し、強化された監視や診断を使用して、Premium storage の使用などに、豊富なカスタマイズ可能な Azure ポータルを試すこともできます。 この 2 つのポータルにある利用可能な仮想マシン構成オプションには、性質上、重複するものもありますが、まったく同じではありません。 たとえば、Azure ポータルを利用して、Premium Storage を使用する仮想マシンを構成します。
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
@@ -53,8 +52,4 @@
 - 仮想マシンにログオンします。 手順については、次を参照してください。 [Windows Server を実行する仮想マシンにログオンする方法](virtual-machines-log-on-windows-server.md)します。
 
 - データを格納するディスクを接続します。 空のディスクと、データが含まれているディスクのどちらも接続できます。 手順については、次を参照してください。、 [データ ディスクのチュートリアルをアタッチ](storage-windows-attach-disk.md)します。
-
-
-
-
 

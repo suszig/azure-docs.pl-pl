@@ -14,9 +14,8 @@
  ms.topic="article" 
  ms.date="12/04/2015" 
  ms.author="krisragh"/>
-
-
-
+ 
+ 
 # Scheduler の高可用性と信頼性
 
 ## Azure Scheduler の高可用性
@@ -31,7 +30,7 @@ Azure Scheduler は、現在 Azure が対応しているほとんどすべての
 
 Azure Scheduler のフロント エンドを管理要求のために利用できるほか、ジョブが geo レプリケートされます。 1 つのリージョンに障害が発生すると、Azure Scheduler によってフェールオーバーが行われ、ペアの地理的リージョン内の別のデータ センターでジョブが確実に実行されます。
 
-たとえば、米国中南部でジョブを作成した場合は、Azure Scheduler は、このジョブを自動的に米国中北部にレプリケートします。 Azure Scheduler では、米国中南部で障害が発生した場合、米国中北部でジョブが確実に実行されます。 [Azure リージョンのペアの一覧はここで使用可能な](https://msdn.microsoft.com/library/azure/dn758204.aspx)します。
+たとえば、米国中南部でジョブを作成した場合は、Azure Scheduler は、このジョブを自動的に米国中北部にレプリケートします。 Azure Scheduler では、米国中南部で障害が発生した場合、米国中北部でジョブが確実に実行されます。 [Azure リージョンのペアの一覧はここで使用可能な](https://msdn.microsoft.com/library/azure/dn758204.aspx)です。
 
 ![][1]
 
@@ -63,27 +62,29 @@ Azure Scheduler ジョブの対象のエンドポイントにアクセスでき�
 
 ## 関連項目
 
- [Scheduler とは何ですか。](scheduler-intro.md)
+ [Scheduler とは](scheduler-intro.md)
+ 
+ [Azure Scheduler の概念、用語集、エンティティ階層構造](scheduler-concepts-terms.md)
 
- [Azure Scheduler の概念、用語、およびエンティティ階層](scheduler-concepts-terms.md)
-
- [Azure ポータルでのスケジューラの使用の概要します。](scheduler-get-started-portal.md)
+ [Azure ポータル内で Scheduler を使用した作業開始](scheduler-get-started-portal.md)
 
  [Azure Scheduler のプランと課金](scheduler-plans-billing.md)
 
- [複雑なスケジュールと Azure Scheduler で高度な繰り返しを構築する方法](scheduler-advanced-complexity.md)
+ [Azure Scheduler で複雑なスケジュールと高度な定期実行を構築する方法](scheduler-advanced-complexity.md)
 
  [Azure Scheduler REST API リファレンス](https://msdn.microsoft.com/library/dn528946)
 
- [Azure のスケジューラの PowerShell コマンドレット リファレンス](scheduler-powershell-reference.md)
+ [Azure Scheduler PowerShell コマンドレット リファレンス](scheduler-powershell-reference.md)
 
 
- [Azure Scheduler の制限、規定値、およびエラー コード](scheduler-limits-defaults-errors.md)
+ [Azure Scheduler の制限、既定値、エラー コード](scheduler-limits-defaults-errors.md)
 
- [Azure のスケジューラ送信認証](scheduler-outbound-authentication.md)
+ [Azure Scheduler 送信認証](scheduler-outbound-authentication.md)
+ 
+ 
+[1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
 
+[2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
-
-[1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png 
-[2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png 
+ 
 

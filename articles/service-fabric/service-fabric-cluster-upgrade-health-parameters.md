@@ -16,20 +16,19 @@
    ms.date="10/29/2015"
    ms.author="chackdan"/>
 
-
-# Service Fabric クラスターの正常性パラメーター
+# Service Fabric クラスターの正常性パラメーター 
 
 プレースホルダー テキスト - このドキュメントは作成中です
 
 ## 次のステップ
-
-[service fabric クラスター アップグレード](service-fabric-cluster-upgrade.md)
+[service-fabric-cluster-upgrade](service-fabric-cluster-upgrade.md)
 
 [service-fabric-cluster-scale-up-down](service-fabric-cluster-scale-up-down.md)
 
 [アプリケーションのアップグレード](service-fabric-application-upgrade.md)
 
+<!--Image references-->
+[BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
 
 
-[browseservicefabricclusterresource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png 
 

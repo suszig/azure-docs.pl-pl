@@ -17,21 +17,20 @@
     ms.date="05/04/2015"
     ms.author="twieman"/>
 
-
 # リソース マネージャー テンプレートを使用した Redis クラスター
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 従来のデプロイ モデルです。
 
 
-Redis は、オープンソースのキー/値キャッシュおよびストアです。キー/値ストアのキーには、文字列、ハッシュ、リスト、セット、ソート済みセットなどのデータ構造を格納できます。 Redis は、このようなデータ型に対する一連のアトミック操作をサポートしています。 Redis バージョン 3.0 のリリースでは、最新の安定バージョンの Redis で Redis クラスターを使用できるようになりました。 Redis クラスターは Redis の分散実装であり、データは複数の Redis ノード間で自動的に共有されて、ノードのサブセットにエラーが発生しても動作を続けることができます。
+Redis は、オープンソースのキー/値キャッシュおよびストアです。キー/値ストアのキーには、文字列、ハッシュ、リスト、セット、ソート済みセットなどのデータ構造を格納できます。 Redis は、このようなデータ型に対する一連のアトミック操作をサポートしています。  Redis バージョン 3.0 のリリースでは、最新の安定バージョンの Redis で Redis クラスターを使用できるようになりました。  Redis クラスターは Redis の分散実装であり、データは複数の Redis ノード間で自動的に共有されて、ノードのサブセットにエラーが発生しても動作を続けることができます。
 
-Microsoft Azure Redis Cache は専用の Redis Cache Service で、マイクロソフトによって管理されますが、すべての Microsoft Azure ユーザーが Azure Redis Cache を使用する必要があるわけではありません。 ユーザーの好みにより、Redis Cache を独自の Azure デプロイ内のサブネットの背後に置くことも、すべての Redis 機能を完全に利用できるように Linux 仮想マシンで独自の Redis サーバーをホストすることもできます。
+Microsoft Azure Redis Cache は専用の Redis Cache Service で、マイクロソフトによって管理されますが、すべての Microsoft Azure ユーザーが Azure Redis Cache を使用する必要があるわけではありません。  ユーザーの好みにより、Redis Cache を独自の Azure デプロイ内のサブネットの背後に置くことも、すべての Redis 機能を完全に利用できるように Linux 仮想マシンで独自の Redis サーバーをホストすることもできます。
 
-このチュートリアルでは Microsoft Azure でのリソース グループ内のサブネット内にある Ubuntu Vm 上で Redis クラスターをデプロイする Azure リソース マネージャー テンプレートのサンプルを使用して説明します。 このテンプレートは、Redis 3.0 クラスターに加えて、Redis Sentinel での Redis 2.8 のデプロイもサポートします。 このチュートリアルは Redis 3.0 クラスターの実装を対象にしていることに注意してください。
+このチュートリアルでは Microsoft Azure でのリソース グループ内のサブネット内にある Ubuntu Vm 上で Redis クラスターをデプロイする Azure リソース マネージャー テンプレートのサンプルを使用して説明します。  このテンプレートは、Redis 3.0 クラスターに加えて、Redis Sentinel での Redis 2.8 のデプロイもサポートします。  このチュートリアルは Redis 3.0 クラスターの実装を対象にしていることに注意してください。
 
-Redis クラスターはサブネットの背後に作成されるので、パブリック IP で Redis クラスターにアクセスすることはできません。 デプロイの一部として、オプションの “jump box” をデプロイできます。 この “jump box” はサブネットにもデプロイされる Ubuntu VM ですが、SSH を使用して接続できる開かれた SSH ポートでパブリック IP アドレスを公開*します*。 “jump box” からは、サブネット内にあるすべての Redis VM に SSH で接続できます。
+Redis クラスターはサブネットの背後に作成されるので、パブリック IP で Redis クラスターにアクセスすることはできません。  デプロイの一部として、オプションの “jump box” をデプロイできます。  この"jump box"は、デプロイされる Ubuntu VM サブネットにもその *は* に ssh 接続できる開かれた SSH ポートでパブリック IP アドレスを公開します。  “jump box” からは、サブネット内にあるすべての Redis VM に SSH で接続できます。
 
-このテンプレートでは、「小」、「中」、「大」の Redis クラスター セットアップを指定するために、「T シャツのサイズ」の概念を使用します。 Azure リソース マネージャー テンプレートの言語がさらに動的なテンプレートのサイズ指定をサポートするようになったら、この概念は Redis クラスターのマスター ノード数、スレーブ ノード数、VM サイズなどの指定に変更される可能性があります。ここでは、VM のサイズおよびマスターとスレーブの変数、azuredeploy.json で定義されている数を表示できる `tshirtSizeSmall`, 、`tshirtSizeMedium`, 、および `tshirtSizeLarge`します。
+このテンプレートでは、「小」、「中」、「大」の Redis クラスター セットアップを指定するために、「T シャツのサイズ」の概念を使用します。  Azure リソース マネージャー テンプレートの言語がさらに動的なテンプレートのサイズ指定をサポートするようになったら、この概念は Redis クラスターのマスター ノード数、スレーブ ノード数、VM サイズなどの指定に変更される可能性があります。今のところは、azuredeploy.json で定義されている VM のサイズおよびマスターとスレーブの数は、変数 `tshirtSizeSmall`、`tshirtSizeMedium`、および `tshirtSizeLarge` で見ることができます。
 
 T シャツ サイズ「中」の Redis クラスター テンプレートは、次のような構成を作成します。
 
@@ -101,7 +100,7 @@ $webclient.DownloadFile($url,$filePath)
 git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 ```
 
-複製の完了後に、C:\Azure\Templates ディレクトリで **redis-high-availability** フォルダーを探します。
+複製を完了すると、検索、 **redis 高可用性** C:\Azure\Templates ディレクトリ内のフォルダーです。
 
 ### 手順 2. (省略可能) テンプレート パラメーターを理解する
 
@@ -217,7 +216,7 @@ git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
 すべてのパラメーターの実行時の値を含む JSON ファイルを作成することによって、デプロイ用の parameters ファイルを準備します。 このファイルは、単一のエンティティとしてデプロイ コマンドに渡されます。 parameters ファイルが指定されていない場合、Azure PowerShell はテンプレートで指定されているすべての既定値を使用し、残りの値を入力するように要求します。
 
-azuredeploy-parameters.json ファイル内に見られる例を次に示します。 パラメーター `storageAccountName`、`adminUsername`、`adminPassword`、およびその他のパラメーターの任意のカスタマイズに有効な値を指定する必要があります。
+azuredeploy-parameters.json ファイル内に見られる例を次に示します。  パラメーター `storageAccountName`、`adminUsername`、`adminPassword` および他のパラメーターのすべてのカスタマイズに対して、有効な値を指定する必要があります。
 
 ```json
 {
@@ -263,7 +262,7 @@ azuredeploy-parameters.json ファイル内に見られる例を次に示しま�
 }
 ```
 
->[AZURE.NOTE] パラメーター `storageAccountName` 、存在しない一意のストレージ アカウント名 (小文字と数字のみ) は、Microsoft Azure ストレージ アカウントの名前付け要件を満たす必要があります。 このストレージ アカウントは、デプロイ プロセスの一部として作成されます。
+>[AZURE.NOTE] パラメーター `storageAccountName` 、存在しない一意のストレージ アカウント名 (小文字と数字のみ) は、Microsoft Azure ストレージ アカウントの名前付け要件を満たす必要があります。  このストレージ アカウントは、デプロイ プロセスの一部として作成されます。
 
 Azure のデプロイ名、リソース グループ名、Azure の場所、JSON ファイルの保存先フォルダーを指定します。 次のコマンドを実行します。
 
@@ -280,16 +279,16 @@ New-AzureResourceGroup –Name $RGName –Location $locName
 New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
 ```
 
->[AZURE.NOTE] `$RGName` は、サブスクリプション内で一意である必要があります。
+>[AZURE.NOTE] `$RGName` 、サブスクリプション内で一意である必要があります。
 
-**New-AzureResourceGroupDeployment** コマンドを実行すると、parameters JSON ファイル (azuredeploy-parameters.json) からパラメーター値が抽出され、それに基づきテンプレートが実行されます。 定義して、さまざまな環境 (テスト、運用環境など) で複数のパラメーター ファイルの使用 テンプレートの再利用を推進し、複雑な多環境ソリューションを容易にします。
+実行すると、 **New-azureresourcegroupdeployment** コマンドを parameters JSON ファイル (azuredeploy-parameters.json) からパラメーター値が抽出され、テンプレートを適宜実行が開始されます。 さまざまな環境 (テスト環境、運用環境など) によって複数のパラメーター ファイルを定義し、使用することは、テンプレートの再利用を推進し、複雑な多環境ソリューションを単純化します。
 
 デプロイ時には新しい Azure ストレージ アカウントを作成する必要があるため、ストレージ アカウント パラメーターとして指定する名前は一意であり、かつ Azure ストレージ アカウントのすべての要件 (小文字と数字のみ) を満たしている必要がある点に留意してください。
 
 デプロイの間に、次のような情報が表示されます。
 
     PS C:\> New-AzureResourceGroup –Name $RGName –Location $locName
-    
+
     ResourceGroupName : TestRG
     Location          : westus
     ProvisioningState : Succeeded
@@ -298,9 +297,9 @@ New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -T
                     Actions  NotActions
                     =======  ==========
                     *
-    
+
     ResourceId        : /subscriptions/1234abc1-abc1-1234-12a1-ab1ab12345ab/resourceGroups/TestRG
-    
+
     PS C:\> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
     VERBOSE: 2:39:10 PM - Template is valid.
     VERBOSE: 2:39:14 PM - Create template deployment 'TestDeployment'.
@@ -314,7 +313,7 @@ New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -T
     VERBOSE: 2:47:57 PM - Resource Microsoft.Resources/deployments 'node-resources0' provisioning status is succeeded
     VERBOSE: 2:48:01 PM - Resource Microsoft.Resources/deployments 'lastnode-resources' provisioning status is running
     VERBOSE: 2:58:24 PM - Resource Microsoft.Resources/deployments 'lastnode-resources' provisioning status is succeeded
-    
+
     DeploymentName    : TestDeployment
     ResourceGroupName : TestRG
     ProvisioningState : Succeeded
@@ -337,7 +336,7 @@ New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -T
                     tshirtSize       String                     Small
                     redisVersion     String                     3.0.0
                     redisClusterName  String                     redis-arm-cluster
-    
+
     Outputs           :
                     Name             Type                       Value
                     ===============  =========================  ==========
@@ -351,9 +350,9 @@ New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -T
 
 これを実行するには、 [Azure ポータル](https://portal.azure.com), 、次の操作。
 
-- 左側のナビゲーション バーで **[参照]** をクリックし、下へスクロールして **[リソース グループ]** をクリックします。
+- 左側のナビゲーション バーで、クリックして **参照**, 、下へスクロールし、をクリックして **リソース グループ**します。
 - 作成したリソース グループを選択して、[リソース グループ] ブレードを表示します。
-- **[監視]** セクションで、[イベント] 棒グラフを選択します。 デプロイのイベントが表示されます。
+-  **監視** セクションで、棒グラフ、「イベント」を選択します。 デプロイのイベントが表示されます。
 - 個々のイベントをクリックすることで、テンプレートのために実行された各操作の詳細にドリル ダウンできます。
 
 テスト後に、このリソース グループとそのすべてのリソース (ストレージ アカウント、仮想マシン、仮想ネットワーク) を削除する必要がある場合は、次のコマンドを使用します。
@@ -425,11 +424,11 @@ $webclient.DownloadFile($url,$filePath)
 },
 ```
 
->[AZURE.NOTE] `allowedValues` だけでなく、`defaultValue` も指定できます。
+>[AZURE.NOTE] 注意して `defaultValue` 指定するだけでなく `allowedValues`です。
 
 ### "variables" セクション
 
-"variables" セクションには、このテンプレート全体で使用できる変数を指定します。 基本的に、このセクションには、実行時に定数または計算済みの値に設定される、いくつかのフィールド (JSON データ型またはフラグメント) が格納されます。 単純なものから複雑なものまで、いくつかの例を次に示します。
+"variables" セクションには、このテンプレート全体で使用できる変数を指定します。 基本的に、このセクションには、実行時に定数または計算済みの値に設定される、いくつかのフィールド (JSON データ型またはフラグメント) が格納されます。  単純なものから複雑なものまで、いくつかの例を次に示します。
 
 ```json
 "vmStorageAccountContainerName": "vhd-redis",
@@ -458,9 +457,9 @@ $webclient.DownloadFile($url,$filePath)
 }
 ```
 
-`VmStorageAccountContainerName` と `vmStorageAccountDomain` 変数は、単純な名前/値変数の例です。 `vnetID` 関数を使用して実行時に計算される変数の例は、 `resourceId` と `パラメーター`します。 `machineSettings` JSON オブジェクトを入れ子にしてもこれらの概念に基づいて構築されをさらに `osImageReference` で、 `machineSettings` 変数です。 `vmScripts` 、JSON 配列を含む `scriptsToDownload`, 、使用して実行時に計算しています、 `concat` と `変数` 関数です。
+ `vmStorageAccountContainerName` と `vmStorageAccountDomain` 変数は、単純な名前/値変数の例です。 `vnetID` 関数を使用して実行時に計算される変数の例は、 `resourceId` と `parameters`です。 `machineSettings` JSON オブジェクトを入れ子にしてもこれらの概念に基づいて構築されをさらに `osImageReference` で、 `machineSettings` 変数です。 `vmScripts` JSON 配列を含む `scriptsToDownload`, 、使用して実行時に計算しています、 `concat` と `variables` 関数です。  
 
-Redis クラスターのデプロイメントのサイズをカスタマイズするかどうかは、変数のプロパティを変更する `tshirtSizeSmall`, 、`tshirtSizeMedium`, 、および `tshirtSizeLarge` azuredeploy.json テンプレート内です。
+Redis クラスターのデプロイのサイズをカスタマイズする場合は、azuredeploy.json テンプレート内の変数 `tshirtSizeSmall`、`tshirtSizeMedium`、`tshirtSizeLarge` のプロパティを変更できます。  
 
 ```json
 "tshirtSizeSmall": {
@@ -492,11 +491,11 @@ Redis クラスターのデプロイメントのサイズをカスタマイズ�
 
 注: `totalMemberCountExcludingLast` と `totalMemberCount` プロパティが必要なは、テンプレートの言語が現在「算術」演算ではないためです。
 
-MSDN の「テンプレートの言語に関する詳細情報が見つかりません [Azure リソース マネージャー テンプレートの言語](../resource-group-authoring-templates.md)します。
+MSDN の「テンプレートの言語に関する詳細情報が見つかりません [Azure リソース マネージャー テンプレートの言語](../resource-group-authoring-templates.md)です。
 
 ### "resources" セクション
 
-"resources" セクションではアクションの大部分が発生します。 このセクションを注意深く調べると、2 つの異なるケースがあることがすぐにわかります。 1 つの種類で定義された要素は、 `Microsoft.Resources/deployments` メイン内で入れ子になったデプロイを本質的に起動します。 2 番目は、 `templateLink` プロパティ (および関連する `contentVersion` プロパティ) できるようにする呼び出される、一連のパラメーターを入力として渡し、リンクされたテンプレート ファイルを指定します。 次のテンプレート フラグメントはこれらを示したものです。
+"resources" セクションではアクションの大部分が発生します。 このセクションを注意深く調べると、2 つの異なるケースがあることがすぐにわかります。 1 つ目は、基本的にはメインのデプロイに入れ子になったデプロイを呼び出す `Microsoft.Resources/deployments` 型で定義された要素です。 2 つ目は、一連のパラメーターを入力として呼び出されるリンクされたテンプレート ファイルを指定できるようにする `templateLink` プロパティ (および関連する `contentVersion` プロパティ) です。 次のテンプレート フラグメントはこれらを示したものです。
 
 ```json
 {
@@ -528,13 +527,13 @@ MSDN の「テンプレートの言語に関する詳細情報が見つかりま
 
 特に、このデプロイには次のリンク済みテンプレートが使用されます。
 
-- **shared-resource.json**: デプロイ全体で共有されるすべてのリソースの定義を格納します。 たとえば、VM の OS ディスクまたは仮想ネットワークの格納に使用されるストレージ アカウントや、可用性セットです。
-- **jumpbox-resources.json**: “jump box” の VM、および環境への SSH に使用されるネットワーク インターフェイス、パブリック IP アドレス、入力エンドポイントなどのすべての関連リソースです。
-- **node-resources.json**: すべての Redis クラスター ノードの VM と、接続されているリソース (ネットワーク アダプター、プライベート IP など) をデプロイします。 このテンプレートは、VM 拡張機能 (Linux 用のカスタム スクリプト) もデプロイし、bash スクリプトを呼び出して、各ノードに Redis を物理的にインストールしてセットアップします。 呼び出すスクリプトでこのテンプレートは、 `machineSettings` のパラメーター、 `commandToExecute` プロパティです。 1 つを除くすべての Redis クラスター ノードを、並列にデプロイしてスクリプト化できます。 Redis クラスターのセットアップは 1 つのノードでのみ実行できるので、1 つのノードは最後まで残しておき、他のすべてのノードが Redis サーバーを実行するようになった後でデプロイする必要があります。 実行するスクリプトをこのテンプレートに渡すのはこのためです。最後のノードでは、Redis サーバーのインストールだけではなく、Redis クラスターのセットアップも行うため、少し異なるスクリプトを実行する必要があります。
+- **shared-resource.json**: デプロイメント全体で共有されるすべてのリソースの定義が含まれています。 たとえば、VM の OS ディスクまたは仮想ネットワークの格納に使用されるストレージ アカウントや、可用性セットです。
+- **jumpbox-resources.json**:"jump box"VM およびネットワーク インターフェイス、パブリック IP アドレス、入力エンドポイントなどのすべての関連リソースを環境に SSH を使用します。
+- **node-resources.json**: すべての Redis クラスター ノードの Vm と接続されているリソースをデプロイ (ネットワーク アダプター、プライベート Ip などです。)。 このテンプレートは、VM 拡張機能 (Linux 用のカスタム スクリプト) もデプロイし、bash スクリプトを呼び出して、各ノードに Redis を物理的にインストールしてセットアップします。  呼び出すスクリプトは、`commandToExecute` プロパティの `machineSettings` パラメーターでこのテンプレートに渡されます。  1 つを除くすべての Redis クラスター ノードを、並列にデプロイしてスクリプト化できます。  Redis クラスターのセットアップは 1 つのノードでのみ実行できるので、1 つのノードは最後まで残しておき、他のすべてのノードが Redis サーバーを実行するようになった後でデプロイする必要があります。  実行するスクリプトをこのテンプレートに渡すのはこのためです。最後のノードでは、Redis サーバーのインストールだけではなく、Redis クラスターのセットアップも行うため、少し異なるスクリプトを実行する必要があります。
 
-この最後のテンプレート node-resources.json は、テンプレート開発の観点から見て最も興味深いテンプレートの 1 つです。このテンプレートの*使用方法*について、詳しく見てみましょう。 注意が必要な重要な概念は、どのようにすれば 1 つのテンプレート ファイルによって単一の種類のリソースの複数のコピーをデプロイできるか、また、各インスタンスが必要な設定に対して一意の値を設定できるかということです。 この概念は、**リソース ループ**と呼ばれています。
+詳しく見てみましょう *方法* この最後のテンプレートは、node-resources.json は、使用、テンプレート開発の観点から最も興味深いの 1 つです。 注意が必要な重要な概念は、どのようにすれば 1 つのテンプレート ファイルによって単一の種類のリソースの複数のコピーをデプロイできるか、また、各インスタンスが必要な設定に対して一意の値を設定できるかということです。 この概念と呼ばれる **リソース ループ**します。
 
-使用するリソースの内部から呼び出されます node-resources.json がメインの azuredeploy.json ファイル内から呼び出されると、 `コピー` ソートのループを作成する要素。 使用するリソース、 `コピー` 要素を「コピー」自体で指定された回数、 `カウント` のパラメーター、 `コピー` 要素。 デプロイ済みのリソースの異なるインスタンス間で一意の値を指定する必要があるすべての設定に対して、特定のリソース ループ作成における現在のインデックスを示す数値の取得に **copyindex()** 関数を使用できます。 次に示す azuredeploy.json のフラグメントでは、Redis クラスター ノードに対して作成される複数 VM に、この概念が適用されていることがわかります。
+node-resources.json は、メインの azuredeploy.json ファイルから呼び出されるとき、`copy` 要素を使用してソートのループを作成するリソースの内部から呼び出されます。 `copy` 要素を使用するリソースは、`copy` 要素の `count` パラメーターで指定されている回数だけ自分自身を「コピー」します。 デプロイ済みリソースの異なるインスタンス間で一意の値を指定する必要があるすべての設定に対して、 **copyindex()** 関数を使用して、特定のリソース ループ作成という点では、現在のインデックスを示す数値を取得します。 次に示す azuredeploy.json のフラグメントでは、Redis クラスター ノードに対して作成される複数 VM に、この概念が適用されていることがわかります。
 
 ```json
 {
@@ -585,7 +584,7 @@ MSDN の「テンプレートの言語に関する詳細情報が見つかりま
 
 リソース作成におけるもう 1 つの重要な概念は、`dependsOn` JSON 配列からわかるように、リソース間の依存関係と優先順位を指定できる点です。 この特定のテンプレートでは、Redis クラスターのノードが最初に作成される共有リソースに依存していることがわかります。
 
-前に説明したように、最後のノードは、Redis クラスター内の他のすべてのノードが Redis サーバーを実行するようにプロビジョニングされるまで待ってから、プロビジョニングする必要があります。 という名前のリソースを持つことで、azuredeploy.json で実現されてこの `lastnode リソース` に依存する、 `コピー` ループ `memberNodesLoop` 示したテンプレート スニペットからです。 プロビジョニングされた後に `memberNodesLoop` が完了したら、 `lastnode リソース` プロビジョニングすることができます。
+前に説明したように、最後のノードは、Redis クラスター内の他のすべてのノードが Redis サーバーを実行するようにプロビジョニングされるまで待ってから、プロビジョニングする必要があります。 この処理は、上で示したテンプレート スニペットの `memberNodesLoop` という名前の `copy` ループに依存する `lastnode-resources` という名前のリソースを用意することによって、azuredeploy.json で実現されています。 `memberNodesLoop` が完了した後、`lastnode-resources` をプロビジョニングできます。
 
 ```json
 {
@@ -630,9 +629,9 @@ MSDN の「テンプレートの言語に関する詳細情報が見つかりま
 }
 ```
 
-注意してください方法 `lastnode リソース` リソースがわずかに異なる渡します `machineSettings.commandToExecute` 、リンクされたテンプレートにします。 これは、最後のノードの場合、Redis サーバーをインストールするだけでなく、Redis クラスターをセットアップするスクリプトを呼び出す必要があるためです (クラスターのセットアップは、すべての Redis サーバーが稼働した後で 1 回だけ実行する必要があります)。
+`lastnode-resources` リソースがわずかに異なる `machineSettings.commandToExecute` をリンクされたテンプレートに渡している方法に注意してください。 これは、最後のノードの場合、Redis サーバーをインストールするだけでなく、Redis クラスターをセットアップするスクリプトを呼び出す必要があるためです (クラスターのセットアップは、すべての Redis サーバーが稼働した後で 1 回だけ実行する必要があります)。
 
-もう 1 つの興味深いフラグメントに関連するもの、 `CustomScriptForLinux` VM 拡張機能です。 これらは、各クラスター ノードに依存関係を持つ別の種類のリソースとしてインストールされます。 この場合、これは各 VM ノードに Redis をインストールしてセットアップするために使われます。 これらを使用する node-resources.json テンプレートのスニペットを見てみましょう。
+注意が必要なもう 1 つの興味深いフラグメントは、`CustomScriptForLinux` VM 拡張機能に関連するものです。 これらは、各クラスター ノードに依存関係を持つ別の種類のリソースとしてインストールされます。 この場合、これは各 VM ノードに Redis をインストールしてセットアップするために使われます。 これらを使用する node-resources.json テンプレートのスニペットを見てみましょう。
 
 ```json
 {
@@ -655,7 +654,7 @@ MSDN の「テンプレートの言語に関する詳細情報が見つかりま
 }
 ```
 
-このリソースが既にデプロイされている VM のリソースに依存していることを確認できます (`Microsoft.Compute/virtualMachines/vmMember < X >`, ここで、 `< X >` パラメーター `machineSettings.machineIndex`, を使用してこのスクリプトに渡された VM のインデックスは、 **copyindex()** 関数)。
+このリソースが既にデプロイされている VM のリソースに依存していることを確認できます (`Microsoft.Compute/virtualMachines/vmMember<X>`, ここで、 `<X>` パラメーター `machineSettings.machineIndex`, を使用してこのスクリプトに渡された VM のインデックスは、 **copyindex()** 関数)。
 
 このデプロイに含まれる他のファイルを熟知することで、Azure リソース マネージャー テンプレートを活用しながら、任意のテクノロジに基づく複数ノード ソリューションの複雑なデプロイ戦略を編成および調整するために必要な、すべての詳細とベスト プラクティスを理解することができます。 必須ではありませんが、次の図で表されているようにテンプレート ファイルを構築する手法をお勧めします。
 
@@ -669,9 +668,5 @@ MSDN の「テンプレートの言語に関する詳細情報が見つかりま
 - リソース グループの同一メンバー (クラスター内のノードなど) に対して、一意のプロパティを持つ複数のインスタンスをデプロイするため、リソース ループを活用する特定のテンプレートを作成します。
 - すべてのデプロイ後のタスク (製品のインストールや構成など) について、スクリプト デプロイの拡張機能を活用し、各テクノロジに固有のスクリプトを作成します。
 
-詳細については、次を参照してください。 [Azure リソース マネージャー テンプレートの言語](../resource-group-authoring-templates.md)します。
-
-
-
-
+詳細については、次を参照してください。 [Azure リソース マネージャー テンプレートの言語](../resource-group-authoring-templates.md)です。
 

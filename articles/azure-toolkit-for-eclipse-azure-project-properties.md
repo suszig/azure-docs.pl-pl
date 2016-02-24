@@ -16,49 +16,48 @@
     ms.date="11/19/2015" 
     ms.author="robmcm"/>
 
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/jj835232.aspx -->
 
-
-
-# Azure プロジェクトのプロパティ
+# Azure プロジェクトのプロパティ #
 
 Azure Toolkit for Eclipse では、Azure プロジェクトのさまざまな設定を指定できます。
 
-## Azure プロジェクトのプロパティを構成する
+## Azure プロジェクトのプロパティを構成する ##
 
-Azure プロジェクトのプロパティは、Azure プロジェクトのプロパティ ダイアログ ボックスで構成します。 Eclipse のプロジェクト エクスプローラー ウィンドウでプロジェクトを右クリックし、**[プロパティ]** をクリックし、**[Azure]** サブメニューを選択します。
+Azure プロジェクトのプロパティは、Azure プロジェクトのプロパティ ダイアログ ボックスで構成します。 Eclipse の Project Explorer ウィンドウでプロジェクトを右クリックし、クリックして **プロパティ**, 、クリックして、 **Azure** サブメニューを選択します。
 
 ![][ic719480]
 
-このプロパティ ページでは、次の項目を変更できます。
+このプロパティ ページでは、次の項目を変更できます。 
 
 * **サービス名:** Azure プロジェクトの名前。
-* **ビルド:** プロジェクトがコンピューティング エミュレーターに対するビルド向けか、Azure へのデプロイメント向けかを指定します。
-* **ターゲット OS:** プロジェクトを Azure にデプロイするときに使用するオペレーティング システム。
+* **ビルド:** 建物をコンピューティング エミュレーターまたは Azure へのデプロイのプロジェクトを設定するかどうか。
+* **ターゲット OS:** プロジェクトが Azure に配置されるときに使用するオペレーティング システムです。
 
-## 関連項目
+## 関連項目 ##
 
-[Azure Toolkit for Eclipse の][]
+[Azure Toolkit for Eclipse][]
 
-[Azure Toolkit for Eclipse のをインストールします。][]
+[Azure Toolkit for Eclipse のインストール][] 
 
-[Eclipse ので、Azure の Hello World アプリケーションを作成します。][]
+[Azure 向け Hello World アプリケーションを Eclipse で作成する][]
 
-[Azure ロールのプロパティの][]
+[Azure ロールのプロパティ][]
 
-[Azure ストレージ アカウントにはが一覧表示][]
+[Azure ストレージ アカウントの一覧][]
 
-Java で Azure を使用する方法の詳細については、次を参照してください。、 [Azure Java デベロッパー センターの []][]します。
+Java で Azure を使用する方法の詳細については、次を参照してください。、 [Azure Java デベロッパー センター][]します。
 
+<!-- URL List -->
 
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Azure Role Properties]: http://go.microsoft.com/fwlink/?LinkID=699525
+[Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
+<!-- IMG List -->
 
-
-
-[azure java developer center]: http://go.microsoft.com/fwlink/?LinkID=699547 
-[azure toolkit for eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529 
-[azure role properties]: http://go.microsoft.com/fwlink/?LinkID=699525 
-[azure storage account list]: http://go.microsoft.com/fwlink/?LinkID=699528 
-[creating a hello world application for azure in eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533 
-[installing the azure toolkit for eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546 
-[ic719480]: ./media/azure-toolkit-for-eclipse-azure-project-properties/ic719480.png 
+[ic719480]: ./media/azure-toolkit-for-eclipse-azure-project-properties/ic719480.png
 

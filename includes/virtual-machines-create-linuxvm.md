@@ -8,9 +8,9 @@
 
         azure vm image list | grep "Linux"
 
-   Windows コマンド プロンプト ウィンドウでは、grep ではなく find を使用します。
+   Windows コマンド プロンプト ウィンドウでは、grep ではなく find を使用します。 
 
-4. 使用 `azure 仮想マシンの作成` を上記のリストから Linux イメージに新しいバーチャル マシンを作成します。 この手順では、新しいクラウド サービスだけでなく新しいストレージ アカウントも作成されます。 既存のクラウド サービスにこのバーチャル マシンを接続することもでした、 `-c` オプション。 Linux 仮想マシンにログインするための SSH エンドポイントも作成、 `-e` オプション。
+4. `azure vm create` を使用して、上記のリストの Linux イメージで新しい仮想マシンを作成します。 この手順では、新しいクラウド サービスだけでなく新しいストレージ アカウントも作成されます。 `-c` オプションを使用して、この仮想マシンを既存のクラウド サービスに接続することもできます。 `-e` オプションを使用すると、Linux 仮想マシンにログインするための SSH エンドポイントも作成されます。
 
         ~$ azure vm create "MyTestVM" b4590d9e3ed742e4a1d46e5424aa335e__suse-opensuse-13.1-20141216-x86-64 "adminUser" -z "Small" -e -l "West US"
         info:    Executing command vm create
@@ -25,9 +25,9 @@
         + Creating VM
         info:    vm create command OK
 
-    >[AZURE.NOTE] Linux 仮想マシンを指定する必要があります、 `-e` オプション `仮想マシンの作成`; バーチャル マシンを作成した後は、SSH を有効にすることはできません。 SSH の詳細については、読み取り [ssh Azure 上の Linux の使用方法](../articles/virtual-machines/virtual-machines-linux-use-ssh-key.md)します。
+    >[AZURE.NOTE] Linux 仮想マシンを指定する必要があります、 `-e` オプション `vm create`; バーチャル マシンを作成した後は、SSH を有効にすることはできません。 SSH の詳細については、読み取り [ssh Azure 上の Linux の使用方法](../articles/virtual-machines/virtual-machines-linux-use-ssh-key.md)します。
 
-    上の手順ではイメージ リストからイメージ *b4590d9e3ed742e4a1d46e5424aa335e__suse-opensuse-13.1-20141216-x86-64* を選択することに注意してください。 *MyTestVM* は新しい仮想マシンの名前であり、*adminUser* は仮想マシンに SSH するために使用するユーザー名です。 これらの変数は、必要に応じて置き換えることができます。 このコマンドの詳細については、次を参照してください。、 [Azure サービス管理で Azure CLI の使用](../articles/virtual-machines/virtual-machines-command-line-tools.md)します。
+    注意イメージ *b4590d9e3ed742e4a1d46e5424aa335e__suse-opensuse-13.1-20141216-x86-64* は、前の手順ではイメージ リストから選択します。 *MyTestVM* 、新しいバーチャル マシンの名前を指定し、 *adminUser* 仮想マシンに SSH を使用するユーザー名を指定します。 これらの変数は、必要に応じて置き換えることができます。 このコマンドの詳細については、次を参照してください。、 [Azure サービス管理で Azure CLI の使用](../articles/virtual-machines/virtual-machines-command-line-tools.md)します。
 
 5. 新しく作成された Linux 仮想マシンが、次のものによって指定される一覧に表示されます。
 
@@ -37,11 +37,7 @@
 
         azure vm show MyTestVM
 
-7. 新しく作成された仮想マシンが最初に準備が、 `azure vm start` コマンドです。
+7. 新しく作成された仮想マシンは、`azure vm start` コマンドで開始できます。
 
 これらすべての Azure CLI 仮想マシン コマンドの詳細については、参照、 [サービス管理 API で Azure CLI の使用](../articles/virtual-machines/virtual-machines-command-line-tools.md)します。
-
-
-
-
 

@@ -17,7 +17,6 @@
    ms.author="lodipalm"/>
 
 
-
 # SQL Data Warehouse の脅威の検出の概要
 
 ## 概要
@@ -34,19 +33,19 @@
 
 1. Azure ポータルを起動 [https://portal.azure.com](https://portal.azure.com)します。
 
-2. 監視する SQL Data Warehouse の構成ブレードに移動します。[設定] ブレードで、**[監査と脅威の検出]** を選択します。
+2. 監視する SQL Data Warehouse の構成ブレードに移動します。 [設定] ブレードで、選択 **監査と脅威の検出**します。
 
     ![ナビゲーション ウィンドウ][1]
 
-3. **[監査と脅威の検出]** 構成ブレードで、監査を **[ON]** にすると、脅威の検出の設定が表示されます。
+3.  **監査と脅威の検出** 構成ブレードに **ON** 監査、脅威の検出の設定が表示されるされます。
 
     ![ナビゲーション ウィンドウ][2]
 
-4. 脅威の検出を **[ON]** にします。
+4. 有効にする **ON** 脅威の検出。
 
 5. 異常なデータ ウェアハウス アクティビティが検出されたときにセキュリティ アラートを受け取る電子メールのリストを構成します。
 
-6. **[監査と脅威の検出]** 構成ブレードの **[保存]** をクリックして、新規または更新済みの監査と脅威の検出のポリシーを保存します。
+6. クリックして **保存** で、 **監査と脅威の検出** を追加または更新の監査を保存し、脅威の検出ポリシーの構成ブレードです。
 
     ![ナビゲーション ウィンドウ][3]
 
@@ -58,7 +57,7 @@
 
     ![ナビゲーション ウィンドウ][4]
 
-2. 電子メールの **[Azure SQL 監査ログ]** リンクをクリックすると、Azure クラシック ポータルが起動し、疑わしいイベントの時刻前後の関連する監査レコードが表示されます。
+2. 電子メールで] をクリックして、 **Azure SQL の監査ログ** リンクは、Azure Classic Portal を起動し、疑わしいイベントの時刻に関連する監査レコードを表示します。
 
     ![ナビゲーション ウィンドウ][5]
 
@@ -67,11 +66,11 @@
     ![ナビゲーション ウィンドウ][6]
 
 4. レコードの監査] ブレードで [  **を Excel で開く** を開くには、事前に構成された excel テンプレートをインポートし、疑わしいイベントの前後に監査ログのより深い分析を実行します。<br/>
-**注:** Excel 2010 以降では、Power Query と**高速結合**の設定が必要です
+**注:** Excel 2010 またはそれ以降、電源のクエリと **高速結合** 設定が必要
 
     ![ナビゲーション ウィンドウ][7]
 
-5. **[高速結合]** の設定を構成するには、**[POWER QUERY]** リボン タブの **[オプション]** を選択して [オプション] ダイアログ ボックスを表示します。 [プライバシー] セクションを選択し、2 番目のオプション [プライバシー レベルを無視し、可能であればパフォーマンスを向上させる] をオンにします。
+5. 構成する、 **高速結合** 設定 - で、 **POWER QUERY** リボン タブで、 **オプション** オプション] ダイアログを表示します。 [プライバシー] セクションを選択し、2 番目のオプション [プライバシー レベルを無視し、可能であればパフォーマンスを向上させる] をオンにします。
 
     ![ナビゲーション ウィンドウ][8]
 
@@ -79,18 +78,17 @@
 
     ![ナビゲーション ウィンドウ][9]
 
-7. **[SQL 監査ログ]** シートに結果が表示されます。このシートでは、検出された異常なアクティビティを詳細に分析し、アプリケーションでのセキュリティ イベントの影響を軽減できます。
+7. 結果が表示されます、 **SQL 監査ログ** シートを検出された異常なアクティビティのより深い分析を実行し、アプリケーションのセキュリティ イベントの影響を軽減することができます。
 
 
-
-
-[1]: ./media/sql-data-warehouse-security-threat-detection/1_td_click_on_settings.png 
-[2]: ./media/sql-data-warehouse-security-threat-detection/2_td_turn_on_auditing.png 
-[3]: ./media/sql-data-warehouse-security-threat-detection/3_td_turn_on_threat_detection.png 
-[4]: ./media/sql-data-warehouse-security-threat-detection/4_td_email.png 
-[5]: ./media/sql-data-warehouse-security-threat-detection/5_td_audit_records.png 
-[6]: ./media/sql-data-warehouse-security-threat-detection/6_td_audit_record_details.png 
-[7]: ./media/sql-data-warehouse-security-threat-detection/7_td_audit_records_open_excel.png 
-[8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png 
-[9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png 
+<!--Image references-->
+[1]: ./media/sql-data-warehouse-security-threat-detection/1_td_click_on_settings.png
+[2]: ./media/sql-data-warehouse-security-threat-detection/2_td_turn_on_auditing.png
+[3]: ./media/sql-data-warehouse-security-threat-detection/3_td_turn_on_threat_detection.png
+[4]: ./media/sql-data-warehouse-security-threat-detection/4_td_email.png
+[5]: ./media/sql-data-warehouse-security-threat-detection/5_td_audit_records.png
+[6]: ./media/sql-data-warehouse-security-threat-detection/6_td_audit_record_details.png
+[7]: ./media/sql-data-warehouse-security-threat-detection/7_td_audit_records_open_excel.png
+[8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png
+[9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png
 

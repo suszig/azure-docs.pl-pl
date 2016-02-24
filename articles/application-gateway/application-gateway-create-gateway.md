@@ -15,23 +15,22 @@
    ms.date="11/10/2015"
    ms.author="joaoma"/>
 
-
 # Application Gateway の作成、起動、または削除
 
-Application Gateway はロード バランサーの第 7 層です。 クラウドでもオンプレミスでも、異なるサーバー間のフェールオーバーと HTTP 要求のパフォーマンス ルーティングを提供します。 Application Gateway は、HTTP 負荷分散、クッキー ベースのセッション アフィニティ、SSL オフロードなどのアプリケーション配信機能を備えています。
+Application Gateway はロード バランサーの第 7 層です。 クラウドでもオンプレミスでも、異なるサーバー間のフェールオーバーと HTTP 要求のパフォーマンス ルーティングを提供します。 Application Gateway は、HTTP 負荷分散、クッキー ベースのセッション アフィニティ、SSL オフロードなどのアプリケーション配信機能を備えています。 
 
 > [AZURE.SELECTOR]
-- [Azure Classic PowerShell](application-gateway-create-gateway.md)
-- [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
-
+- [従来の azure PowerShell](application-gateway-create-gateway.md)
+- [Azure リソース マネージャーの PowerShell](application-gateway-create-gateway-arm.md)
+- [Azure リソース マネージャーのテンプレート](application-gateway-create-gateway-arm-template.md)
 
 
 <BR>
 
 この記事では、Application Gateway を作成、構成、起動、および削除する手順について説明します。
 
->[AZURE.IMPORTANT] Azure リソースを使用する前に、Azure は現在、リソース マネージャーのデプロイ モデルと従来のデプロイ モデルの 2 種類を備えていることを理解しておくことが重要です。 理解しておいてください [とツールの配置モデル](azure-classic-rm.md) あらゆる Azure リソースを使用する前にします。 この記事の上部にあるタブをクリックすると、さまざまなツールについてのドキュメントを参照できます。このドキュメントでは、Azure クラシックのデプロイメントを使用した Application Gateway の作成について説明します。 リソース マネージャーのバージョンを使用するには [リソース マネージャーを使用してアプリケーション ゲートウェイの展開作成](application-gateway-create-gateway-arm.md)します。
+
+>[AZURE.IMPORTANT] Azure リソースを使用する前に、Azure が現在 2 つの配置モデルを持つことを理解しておく: リソース マネージャーとクラシックします。 理解しておいてください [とツールの配置モデル](azure-classic-rm.md) あらゆる Azure リソースを使用する前にします。 この記事の上部にあるタブをクリックすると、さまざまなツールについてのドキュメントを参照できます。このドキュメントでは、Azure クラシックのデプロイメントを使用した Application Gateway の作成について説明します。 リソース マネージャーのバージョンを使用するには [リソース マネージャーを使用してアプリケーション ゲートウェイの展開作成](application-gateway-create-gateway-arm.md)します。
 
 
 
@@ -45,16 +44,17 @@ Application Gateway はロード バランサーの第 7 層です。 クラウ�
 
 ## Application Gateway の作成に必要な構成
 
-**New-AzureApplicationGateway** コマンドを使用して Application Gateway を作成した時点では、構成は設定されていません。新しく作成したリソースは、XML または構成オブジェクトを使用して構成する必要があります。
+
+このを使用すると **New-azureapplicationgateway** アプリケーション ゲートウェイを作成するコマンドを構成が設定されていないこの時点で、新しく作成したリソースを構成する必要は XML または構成オブジェクトを使用しています。
 
 
 値は次のとおりです。
 
-- **バックエンド サーバー プール:** バックエンド サーバーの IP アドレスの一覧。 一覧の IP アドレスは、仮想ネットワークのサブネットに属しているか、パブリック IP/VIP である必要があります。
-- **バックエンド サーバー プールの設定:** すべてのプールには、ポート、プロトコル、cookie ベースのアフィニティなどの設定があります。 これらの設定はプールに関連付けられ、プール内のすべてのサーバーに適用されます。
-- **フロントエンド ポート:** このポートは、Application Gateway で開かれたパブリック ポートです。 このポートにトラフィックがヒットすると、バックエンド サーバーのいずれかにリダイレクトされます。
-- **リスナー:** リスナーには、フロントエンド ポート、プロトコル (Http または Https、大文字小文字の区別あり)、および SSL 証明書名 (オフロードの SSL を構成する場合) があります。
-- **ルール:** ルールはリスナーとバックエンド サーバー プールを結び付け、トラフィックが特定のリスナーにヒットした際に送られるバックエンド サーバー プールを定義します。 現在、*basic* ルールのみサポートされます。 *basic* ルールは、ラウンド ロビンの負荷分散です。
+- **バックエンド サーバー プール:** バック エンド サーバーの IP アドレスの一覧です。 一覧の IP アドレスは、仮想ネットワークのサブネットに属しているか、パブリック IP/VIP である必要があります。
+- **バック エンド サーバー プールの設定:** すべてのプールがポート、プロトコル、および cookie ベースのアフィニティのように設定します。 これらの設定はプールに関連付けられ、プール内のすべてのサーバーに適用されます。
+- **フロント エンド ポート:** このポートは、アプリケーション ゲートウェイに開かれたパブリック ポートです。 このポートにトラフィックがヒットすると、バックエンド サーバーのいずれかにリダイレクトされます。
+- **リスナー:** リスナーには、フロント エンド ポート、プロトコル (Http または Https では、これらは大文字小文字を区別)、および SSL 証明書名 (オフロードの SSL を構成する) 場合。
+- **ルール:** ルールはリスナーとバックエンド サーバー プールを結び付けを定義するバックエンド サーバー プールが、トラフィックは特定のリスナーにヒットした際に送られる必要があります。 現在のところ、のみ、 *基本的な* ルールをサポートします。  *基本的な* ルールは、ラウンド ロビンの負荷分散します。
 
 
 
@@ -68,23 +68,24 @@ Application Gateway を作成するには、次の手順を順番に実行する
 
 ### Application Gateway のリソースの作成
 
-ゲートウェイを作成するには、`New-AzureApplicationGateway` コマンドレットを独自の値に置き換えて使用します。 この時点ではゲートウェイの課金は開始されません。 課金は後の手順でゲートウェイが正しく起動されたときに開始します。
+ゲートウェイを作成するには、`New-AzureApplicationGateway` コマンドレットを使用して、値を独自の値に置き換えて使用します。 この時点ではゲートウェイの課金は開始されません。 課金は後の手順でゲートウェイが正しく起動されたときに開始します。
 
 次の例では、"testvnet1" という仮想ネットワークと "subnet-1” というサブネットを使用して新しい Application Gateway を作成します。
 
 
     PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
-    
+
     VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
     VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
     Name       HTTP Status Code     Operation ID                             Error
     ----       ----------------     ------------                             ----
     Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
- *Description*、*InstanceCount*、および *GatewaySize* は省略可能なパラメーターです。
+
+ *説明*, 、*InstanceCount*, 、および *GatewaySize* は省略可能なパラメーターです。
 
 
-**を検証する** 、ゲートウェイが作成された、使用すること、 `Get AzureApplicationGateway` コマンドレットです。
+**検証する** 、ゲートウェイが作成された、使用すること、 `Get-AzureApplicationGateway` コマンドレットです。
 
 
 
@@ -100,10 +101,10 @@ Application Gateway を作成するには、次の手順を順番に実行する
     VirtualIPs    : {}
     DnsName       :
 
->[AZURE.NOTE]  *InstanceCount* の既定値は 2、最大値は 10 です。 *GatewaySize* の既定値は Medium です。 Small、Medium、Large から選択します。
+>[AZURE.NOTE]  既定値 *InstanceCount* 2、最大値は 10 です。 既定値 *GatewaySize* 中サイズです。 Small、Medium、Large から選択します。
 
 
- ゲートウェイがまだ起動していないため、*Vip* と *DnsName* は空白のまま表示されます。 これらの値は、ゲートウェイが実行中の状態になったときに作成されます。
+ *Vip* と *DnsName* ゲートウェイがまだ開始されていない空白のまま表示されます。 これらの値は、ゲートウェイが実行中の状態になったときに作成されます。
 
 ## Application Gateway の構成
 
@@ -111,9 +112,9 @@ Application Gateway は、XML または構成オブジェクトを使用して�
 
 ## XML を使用して Application Gateway を構成する
 
-次の例では、XML ファイルを使用して、すべての Application Gateway 設定を構成し、Application Gateway のリソースにコミットします。
+次の例では、XML ファイルを使用して、すべての Application Gateway 設定を構成し、Application Gateway のリソースにコミットします。  
 
-### 手順 1.
+### 手順 1.  
 
 次のテキストをメモ帳にコピーします。
 
@@ -161,7 +162,8 @@ Application Gateway は、XML または構成オブジェクトを使用して�
     </ApplicationGatewayConfiguration>
 
 構成項目のかっこに囲まれた値を編集します。 拡張子 .xml のファイルに保存します。
->[AZURE.IMPORTANT] プロトコル項目 Http または Https は、大文字小文字を区別します。
+
+>[AZURE.IMPORTANT] プロトコル項目 Http または Https、大文字小文字を区別します。
 
 次の例では、パブリック ポート 80 で Http トラフィックを負荷分散する Application Gateway を設定し、2 つの IP アドレスのバックエンド ポート 80 にネットワーク トラフィックを送信する構成ファイルを使用する方法を示します。
 
@@ -208,13 +210,17 @@ Application Gateway は、XML または構成オブジェクトを使用して�
         </HttpLoadBalancingRules>
     </ApplicationGatewayConfiguration>
 
+
+
+
+
 ### 手順 2.
 
-次に、Application Gateway を設定します。 使用する、 `セット AzureApplicationGatewayConfig` コマンドレット構成 XML ファイルを使用します。
+次に、Application Gateway を設定します。 `Set-AzureApplicationGatewayConfig` コマンドレットと構成 XML ファイルを使用します。
 
 
     PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
-    
+
     VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig
     VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
     Name       HTTP Status Code     Operation ID                             Error
@@ -223,8 +229,9 @@ Application Gateway は、XML または構成オブジェクトを使用して�
 
 ## 構成オブジェクトを使用して Application Gateway を構成する
 
-次の例では、構成オブジェクトを使用して Application Gateway を構成する方法を示します。 すべての構成項目は個別に構成した後に、Application Gateway の構成オブジェクトに追加する必要があります。 構成オブジェクトを作成するには後、を使用して、 `セット AzureApplicationGateway` コマンドを構成、以前に作成したアプリケーション ゲートウェイのリソースをコミットします。
->[AZURE.NOTE] 各構成オブジェクトに値を割り当てる前に、PowerShell でストレージとして使用するオブジェクトの種類を宣言する必要があります。 個別の項目を作成する最初の行では、Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model (オブジェクト名) を使用する項目を定義します。
+次の例では、構成オブジェクトを使用して Application Gateway を構成する方法を示します。 すべての構成項目は個別に構成した後に、Application Gateway の構成オブジェクトに追加する必要があります。 構成オブジェクトを作成したら、`Set-AzureApplicationGateway` コマンドを使用して、前の手順で作成した Application Gateway のリソースに構成をコミットします。
+
+>[AZURE.NOTE] 各構成オブジェクトに値を代入する前に、PowerShell を使用してストレージ オブジェクトの種類を宣言する必要があります。 個別の項目を作成する最初の行では、Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model (オブジェクト名) を使用する項目を定義します。
 
 ### 手順 1.
 
@@ -321,7 +328,7 @@ Application Gateway の構成オブジェクト ($appgwconfig) にすべての�
 
 ### 手順 3.
 
-アプリケーション ゲートウェイのリソースを使用する構成をコミット `セット AzureApplicationGatewayConfig`します。
+`Set-AzureApplicationGatewayConfig` を使用して、Application Gateway のリソースに構成をコミットします。
 
     Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
 
@@ -329,12 +336,13 @@ Application Gateway の構成オブジェクト ($appgwconfig) にすべての�
 
 ゲートウェイを構成したら、`Start-AzureApplicationGateway` コマンドレットを使用してゲートウェイを起動します。 Application Gateway の課金は、ゲートウェイが正常に起動された後に開始します。
 
-> [AZURE.NOTE] `Start-azureapplicationgateway` コマンドレットは最大 15 ~ 20 分かかる場合があります。
+
+> [AZURE.NOTE]  `Start-AzureApplicationGateway` コマンドレットは最大 15 ~ 20 分かかる場合があります。
 
 
 
     PS C:\> Start-AzureApplicationGateway AppGwTest
-    
+
     VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway
     VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
     Name       HTTP Status Code     Operation ID                             Error
@@ -343,12 +351,12 @@ Application Gateway の構成オブジェクト ($appgwconfig) にすべての�
 
 ## ゲートウェイの状態の確認
 
-`Get-AzureApplicationGateway` コマンドレットを使用して、ゲートウェイの状態を確認します。 前の手順で *Start-AzureApplicationGateway* が成功した場合、State は *Running* になり、Vip と DnsName に有効な値が入力されます。
+`Get-AzureApplicationGateway` コマンドレットを使用してゲートウェイの状態を確認します。 場合 *Start-azureapplicationgateway* 前の手順で成功した状態であるか *を実行している*, 、Vip と DnsName に有効なとします。
 
-次の例では、アプリケーション ゲートウェイを稼動し、実行し、に宛のトラフィックを受け入れる準備 `http://<generated-dns-name>.cloudapp.net`します。
+次のサンプルは、起動に成功し、実行中で、`http://<generated-dns-name>.cloudapp.net` 方向のトラフィックを受け入れる準備が完了している Application Gateway を示します。
 
     PS C:\> Get-AzureApplicationGateway AppGwTest
-    
+
     VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway
     VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
     Name          : AppGwTest
@@ -361,57 +369,54 @@ Application Gateway の構成オブジェクト ($appgwconfig) にすべての�
     Vip           : 138.91.170.26
     DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 
+
 ## Application Gateway の削除
 
 Application Gateway を削除するには、次の手順を実行します。
 
-1. ゲートウェイを停止するには、`Stop-AzureApplicationGateway` コマンドレットを使用します。
-2. ゲートウェイを削除するには、`Remove-AzureApplicationGateway` コマンドレットを使用します。
-3. 使用して、ゲートウェイが削除されたことを確認、 `Get AzureApplicationGateway` コマンドレットです。
+1. `Stop-AzureApplicationGateway` コマンドレットを使用してゲートウェイを停止します。
+2. `Remove-AzureApplicationGateway` コマンドレットを使用してゲートウェイを削除します。
+3. `Get-AzureApplicationGateway` コマンドレットを使用して削除されたゲートウェイを確認します。
 
-次の例では、最初の行で `Stop-AzureApplicationGateway` コマンドレットを示し、続いてその出力を示します。
+このサンプルの最初の行は `Stop-AzureApplicationGateway` コマンドレットを示し、その後に出力が続きます。
 
     PS C:\> Stop-AzureApplicationGateway AppGwTest
-    
+
     VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway
     VERBOSE: 10:10:06 PM - Completed Operation: Stop-AzureApplicationGateway
     Name       HTTP Status Code     Operation ID                             Error
     ----       ----------------     ------------                             ----
     Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 
-アプリケーション ゲートウェイが Stopped 状態に入るを使用して、 `削除 AzureApplicationGateway` コマンドレットをサービスを削除します。
+アプリケーション ゲートウェイが Stopped 状態になったら、`Remove-AzureApplicationGateway` コマンドレットを使用してサービスを削除します。
 
 
     PS C:\> Remove-AzureApplicationGateway AppGwTest
-    
+
     VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway
     VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
     Name       HTTP Status Code     Operation ID                             Error
     ----       ----------------     ------------                             ----
     Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 
-サービスが削除されたことを確認するには、`Get-AzureApplicationGateway` コマンドレットを使用します。 この手順は必須ではありません。
+サービスが削除されていることを確認するには、`Get-AzureApplicationGateway` コマンドレットを使用します。 この手順は必須ではありません。
 
 
     PS C:\> Get-AzureApplicationGateway AppGwTest
-    
+
     VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway
-    
+
     Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
     .....
 
 ## 次のステップ
 
-SSL オフロードを構成する場合は、「 [SSL 用のアプリケーション ゲートウェイの構成の負荷を軽減](application-gateway-ssl.md)します。
+SSL オフロードを構成する場合は、「 [SSL 用のアプリケーション ゲートウェイ構成負荷を軽減](application-gateway-ssl.md)します。
 
 ILB とともに使用して、参照してくださいアプリケーション ゲートウェイを構成する場合は、 [内部ロード バランサー (ILB) アプリケーション ゲートウェイの作成](application-gateway-ilb.md)します。
 
 負荷分散のオプション全般の詳細については、次を参照してください。
 
-- [Azure ロード バランサー](https://azure.microsoft.com/documentation/services/load-balancer/)
-- [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
-
-
-
+- [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
+- [Azure の Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 

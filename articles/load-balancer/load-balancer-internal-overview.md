@@ -1,25 +1,26 @@
+
 <properties 
-   pageTitle ="内部ロード バランサーの概要 |Microsoft Azure]
-   description ="内部ロード バランサーとその機能の概要です。どのようにロード バランサーは、Azure と考えられるシナリオ内部エンドポイントを構成する機能"
-   サービス =「ロード バランサー」
-   documentationCenter ="na"
-   authors ="joaoma"
+   pageTitle="内部ロード バランサーの概要 | Microsoft Azure"
+   description="内部ロード バランサーとその機能の概要。Azure でのロード バランサーの機能と内部エンドポイントを構成するための考えられるシナリオ"
+   services="load-balancer"
+   documentationCenter="na"
+   authors="joaoma"
    manager="adinah"
-   エディター"tysonn"=/>
+   editor="tysonn" />
 <tags 
-   ms.service=「ロード バランサー」
+   ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload=「インフラストラクチャ サービス」
+   ms.workload="infrastructure-services"
    ms.date="12/09/2015"
-   ms.author="joaoma"/>
+   ms.author="joaoma" />
 
 
 # 内部ロード バランサーの概要
 
 内部ロード バランサー (ILB) は、Azure で提供されている現在のインターネットに接続するロード バランサー全体のセキュリティ拡張機能です。 ILB へのアクセスは、クラウド サービスの内部リソースによって行われるか、VPN を使用して Azure インフラストラクチャにアクセスして ILB に到達します。
-
+            
 インフラストラクチャは、アクセシビリティを制限、クラウド サービスまたは仮想ネットワークに負荷分散された仮想 IP アドレスの間の信頼境界を作成し、直接インターネット エンドポイントに公開されることはありません。 これにより、内部の基幹業務アプリケーションを Azure で実行し、クラウド内やオンプレミスからアクセスできるようになります。
 
 ## 内部ロード バランサーのシナリオ
@@ -40,16 +41,17 @@ ILB は、次の新しい種類の負荷分散を使用できます。
 
 - インターネットに接続された多層アプリケーションでは、バックエンド層はインターネットに接続されていませんが、インターネットに接続された層からのトラフィックを負荷分散する必要があります。
 - 負荷分散用のハードウェアやソフトウェアの追加を必要とせずに、Azure でホストされている基幹業務 (LOB) アプリケーションの負荷を分散する。
-オンプレミスのサーバーを含む一連のコンピューターの負荷を分散する。
+オンプレミスのサーバーを含む一連のコンピューターの負荷を分散する。 
 - 次のセクションでは、これらの構成について詳細に説明します。
 
 ## インターネットに接続する多層アプリケーション
+
 
 Web 層はインターネット クライアント用のインターネットに接続するエンドポイントを持ち、負荷分散セットの一部です。 ロード バランサーは、web クライアントからの TCP ポート 443 (HTTPS) web サーバーへの着信トラフィックを振り分けます。
 
 データベース サーバーは、Web サーバーがストレージに使用する ILB エンドポイントの背後にあります。 このデータベース サービスの負荷分散エンドポイントでは、トラフィックが ILB セット内のデータベース サーバー全体に負荷分散されます。
 
-次の図は、インターネットに接続する同じクラウド サービス内の多階層アプリケーションを示しています。
+次の図は、インターネットに接続する同じクラウド サービス内の多階層アプリケーションを示しています。 
 
 図 1
 
@@ -81,16 +83,12 @@ LOB のもう 1 つのシナリオは、ILB エンドポイントが構成され
 
 ## 次のステップ
 
-[インターネットへのロード バランサーの構成の開始します。](load-balancer-internet-getstarted.md)
+[インターネットに接続するロード バランサーの構成の開始](load-balancer-internet-getstarted.md)
 
-[内部ロード バランサーの構成の開始します。](load-balancer-internal-getstarted.md)
+[内部ロード バランサーの構成の開始](load-balancer-internal-getstarted.md)
 
-[ロード バランサー分散モードを構成します。](load-balancer-distribution-mode.md)
+[ロード バランサー分散モードの構成](load-balancer-distribution-mode.md)
 
-[ロード バランサーのアイドル TCP タイムアウト設定を構成します。](load-balancer-tcp-idle-timeout.md)
+[ロード バランサーのアイドル TCP タイムアウト設定の構成](load-balancer-tcp-idle-timeout.md)
 
-
-
-
-
-
+ 

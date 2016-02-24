@@ -16,32 +16,29 @@
     ms.date="11/10/2015"
     ms.author="heidist"/>
 
-
 # Fiddler を使用して Azure Search REST API を評価およびテストする
-
 > [AZURE.SELECTOR]
-- [Overview](search-query-overview.md)
+- [概要](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
 - [Postman](search-chrome-postman.md)
 - [.NET](search-query-dotnet.md)
-- [REST](search-query-rest-api.md)
-
+- [REST ()](search-query-rest-api.md)
 
 Fiddler を利用する方法を説明、 [Telerik から無料でダウンロード](http://www.telerik.com/fiddler), を HTTP 要求を発行し、コードを記述しなくても、Azure Search REST API を使用して応答を確認します。 Azure Search は、Microsoft Azure の完全に管理されたホステッド クラウド検索サービスで、.NET API および REST API を使用して簡単にプログラミングできます。 REST Api については、Azure Search サービス [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)します。
 
 以下の手順では、インデックスを作成し、ドキュメントをアップロードし、インデックスのクエリを実行してから、システムでサービス情報のクエリを実行します。
 
-次の手順を完了する必要があります、Azure Search サービスおよび `api キー`します。 参照してください [ポータルで Azure Search サービスの作成](search-create-service-portal.md) 開始する方法についてです。
+これらの手順を完了するには、Azure Search サービスおよび `api-key` が必要です。 参照してください [ポータルで Azure Search サービスの作成](search-create-service-portal.md) 開始する方法についてです。
 
 ## インデックスを作成する
 
-1. Fiddler を起動します。 **[ファイル]** メニューの **[トラフィックのキャプチャ]** をオフにして、現在のタスクには関係ない外部の HTTP アクティビティを非表示にします。
+1. Fiddler を起動します。  **ファイル** ] メニューをオフにする **トラフィックのキャプチャ** を現在のタスクには関係ない外部の HTTP アクティビティを非表示にします。
 
-3. **[Composer]** タブで、次のスクリーン ショットのような要求を生成します。
+3.  **Composer** ] タブで、次のスクリーン ショットのようになりますが、要求を生成します。
 
     ![][1]
 
-2. **[PUT]** を選択します。
+2. 選択 **配置**します。
 
 3. サービス URL、要求属性、および API バージョンを指定する URL を入力します。 次の点に留意してください。
    + HTTPS をプレフィックスとして使用します。
@@ -51,7 +48,6 @@ Fiddler を利用する方法を説明、 [Telerik から無料でダウンロ�
     URL 全体は、次の例のようになります。
 
          https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
-
 
 4.  ホストと API キーをサービスに有効な値で置き換え、要求ヘッダーを指定します。
 
@@ -79,7 +75,7 @@ Fiddler を利用する方法を説明、 [Telerik から無料でダウンロ�
          ]
         }
 
-6.  **[実行]** をクリックします。
+6.  クリックして **実行**します。
 
 数秒で、インデックスが正常に作成されたことを示す HTTP 201 応答がセッション一覧に表示されます。
 
@@ -87,13 +83,13 @@ HTTP 504 が表示された場合は、URL で HTTPS の指定を確認してく
 
 ## ドキュメントを読み込む
 
-**[Composer]** タブでは、ドキュメントを送信する要求を次のように記述します。 要求の本文には、4 つの hotel の検索データが含まれています。
+ **Composer** ドキュメントを送信する要求をタブで、次のように記述します。 要求の本文には、4 つの hotel の検索データが含まれています。
 
    ![][2]
 
-1. **[POST]** を選択します。
+1. 選択 **POST**します。
 
-2.  それに続くの後に、サービス URL、HTTPS で始まる URL を入力"/indexes/<'indexname'>//docs/index? api バージョン 2015年-02-28 ="です。URL 全体は、次の例のようになります。
+2.  HTTPS で始まる URL の後に自分のサービス URL、次に「/indexes/<'indexname'>/docs/index?api-version=2015-02-28」と入力します。 URL 全体は、次の例のようになります。
 
         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
 
@@ -167,19 +163,19 @@ HTTP 504 が表示された場合は、URL で HTTPS の指定を確認してく
          ]
         }
 
-8.  **[実行]** をクリックします。
+8.  クリックして **実行**します。
 
 数秒で、セッション一覧に HTTP 200 応答が表示されます。 この応答は、ドキュメントが正常に作成されたことを示します。 207 が表示された場合は、少なくとも 1 つのドキュメントのアップロードが失敗しています。 404 が表示された場合は、要求のヘッダーまたは本文に構文エラーがあります。
 
 ## インデックスのクエリを実行する
 
-インデックスとドキュメントが読み込まれたら、クエリを発行することができます。 **[Composer]** タブで、サービスのクエリを実行する **GET** コマンドは次のスクリーン ショットようになります。
+インデックスとドキュメントが読み込まれたら、クエリを発行することができます。   **作成ツール** ] タブで、 **取得** 、サービスのクエリ コマンドは次のスクリーン ショットのようになります。
 
    ![][3]
 
-1.  **[GET]** を選択します。
+1.  選択 **取得**します。
 
-2.  それに続くの後に、サービス URL、HTTPS で始まる URL を入力"/indexes/<'indexname'>/docs?"クエリ パラメーターと、その後です。例として、サンプル ホスト名をサービスで有効な値に置き換えた、次の URL を使用します。
+2.  HTTPS で始まる URL の後に自分のサービス URL、次に「/indexes/<'indexname'>/docs?」、クエリ パラメーターの順に入力します。 例として、サンプル ホスト名をサービスで有効な値に置き換えた、次の URL を使用します。
 
         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
 
@@ -191,7 +187,6 @@ HTTP 504 が表示された場合は、URL で HTTPS の指定を確認してく
         host: my-app.search.windows.net
         content-type: application/json
         api-key: 1111222233334444
-
 
 応答コードは 200 で、応答出力は次のスクリーン ショットのようになります。
 
@@ -209,11 +204,11 @@ HTTP 504 が表示された場合は、URL で HTTPS の指定を確認してく
 
 ## システムのクエリを実行する
 
-システムのクエリを実行して、ドキュメント数とストレージ消費を取得することもできます。 **[Composer]** タブでは、要求は次のように表示され、応答ではドキュメント数と使用されているストレージ領域が返されます。
+システムのクエリを実行して、ドキュメント数とストレージ消費を取得することもできます。  **Composer** ] タブで、要求は、次のようになり、応答は、ドキュメント数と使用されている領域の数を返します。
 
  ![][5]
 
-1.  **[GET]** を選択します。
+1.  選択 **取得**します。
 
 2.  次のように、サービスの URL の後に「/indexes/hotels/stats?api-version=2015-02-28」を続けて URL を入力します。
 
@@ -228,22 +223,21 @@ HTTP 504 が表示された場合は、URL で HTTPS の指定を確認してく
 
 4.  要求の本文は空のままにします。
 
-5.  **[実行]** をクリックします。 セッション一覧に、状態コード HTTP 200 が表示されます。 コマンドに対して送信されたエントリを選択します。
+5.  クリックして **実行**します。 セッション一覧に、状態コード HTTP 200 が表示されます。 コマンドに対して送信されたエントリを選択します。
 
-6.  **[インスペクター]** タブをクリックし、**[ヘッダー]** タブをクリックし、JSON 形式を選択します。 ドキュメント数とストレージ サイズ (KB) が表示されます。
+6.  クリックして、 **インスペクター** ] タブをクリックして、 **ヘッダー** タブをクリックし、JSON 形式を選択します。 ドキュメント数とストレージ サイズ (KB) が表示されます。
 
 ## 次のステップ
 
 コードを作成しないで Azure Search を管理および使用する方法の詳細については、次のリンクを参照してください。
 
--  [Azure で検索サービスを管理します。](search-manage.md)
+-  [Microsoft Azure で Search サービスを管理する](search-manage.md)
 -  [Azure Search で Chrome Postman を使用する方法](search-chrome-postman.md)
 
-
-
-[1]: ./media/search-fiddler/AzureSearch_Fiddler1_PutIndex.png 
-[2]: ./media/search-fiddler/AzureSearch_Fiddler2_PostDocs.png 
-[3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png 
-[4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png 
-[5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png 
+<!--Image References-->
+[1]: ./media/search-fiddler/AzureSearch_Fiddler1_PutIndex.png
+[2]: ./media/search-fiddler/AzureSearch_Fiddler2_PostDocs.png
+[3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
+[4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
+[5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 

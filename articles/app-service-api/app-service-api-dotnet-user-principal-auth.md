@@ -16,7 +16,6 @@
     ms.date="11/30/2015"
     ms.author="tdykstra"/>
 
-
 # Azure App Service の API Apps でのユーザー認証
 
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
@@ -26,7 +25,7 @@
 このチュートリアルでは、Azure App Service の認証および承認機能を使用して API アプリを保護する方法と、エンド ユーザーの代わりに API アプリを使用する方法について説明します。 このチュートリアルで取り上げている認証プロバイダーは Azure Active Directory、API は ASP.NET Web API、クライアントはブラウザーで実行される AngularJS シングル ページ アプリケーションです。
 
 ![](./media/app-service-api-dotnet-user-principal-auth/contactspageazure.png)
-
+ 
 ## App Service での認証と承認
 
 このチュートリアルで使用する認証機能の概要については、このシリーズの前のチュートリアルを参照してください。 [Azure App Service で API Apps の認証と承認](app-service-api-authentication.md)します。
@@ -37,18 +36,18 @@
 
 ## ContactsList.Angular.AAD サンプル プロジェクト
 
-[ContactsList サンプル アプリケーション](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list), 、ContactsList.Angular.AAD プロジェクトは、AngularJS クライアントと Azure Active Directory を操作するためのコードが含まれます。 コードが参照して、AAD サンプルに基づいて、 [Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi) リポジトリです。
+ [ContactsList サンプル アプリケーション](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list), 、ContactsList.Angular.AAD プロジェクトは、AngularJS クライアントと Azure Active Directory を操作するためのコードが含まれます。 コードが参照して、AAD サンプルに基づいて、 [Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi) リポジトリです。
 
-ContactsList.Angular.AAD プロジェクト内のコードは、単純な ContactsLists.Angular プロジェクトとは構成が異なります。 API を呼び出すコードは、ContactsList.Angular.AAD プロジェクト内の *app/scripts/contactsSvc.js* ファイルにあります。
+ContactsList.Angular.AAD プロジェクト内のコードは、単純な ContactsLists.Angular プロジェクトとは構成が異なります。 API を呼び出すコードは、 *app/scripts/contactsSvc.js* ContactsList.Angular.AAD プロジェクト内のファイルです。 
 
         angular.module('contactsListApp')
         .factory('contactsSvc', ['$http', function ($http) {
             //var apiEndpoint = "https://{your api app name}.azurewebsites.net";
             var apiEndpoint = "https://localhost:44300";
-    
+        
             $http.defaults.useXDomain = true;
             delete $http.defaults.headers.common['X-Requested-With']; 
-    
+        
             return {
                 getItems: function () {
                     return $http.get(apiEndpoint + '/api/contacts');
@@ -71,7 +70,7 @@ ContactsList.Angular.AAD プロジェクト内のコードは、単純な Contac
             };
         }]);
 
-ここでは、 `取得` メソッドというラベルの付いた `getItems`します。 コント ローラー (*app/scripts/contactsCtrl.js*)、 `getItems` がワイヤード (有線) 最大 `$scope.populate`します。
+ここで、`Get` メソッドは `getItems` とラベル付けされています。  コント ローラー (*app/scripts/contactsCtrl.js*)、 `getItems` がワイヤード (有線) 最大 `$scope.populate`します。
 
         $scope.populate = function () {
             contactsSvc.getItems().then(function (results) {
@@ -83,19 +82,19 @@ ContactsList.Angular.AAD プロジェクト内のコードは、単純な Contac
             });
         };
 
-ビュー (*app/views/Contacts.html*) で、$scope.populate は初期化時に呼び出されます。
+ビューで (*app/views/Contacts.html*)、$scope.populate が初期化時に呼び出されます。
 
         <div ng-init="populate()">
 
-コードを追加すると、自動的と承認トークンの API 要求をログに記録される、 [Azure Active Directory の認証ライブラリの JavaScript](https://github.com/AzureAD/azure-activedirectory-library-for-js), で、 *adal.js* と *adal-angular.js* ファイルです。
+コードを追加すると、自動的と承認トークンの API 要求をログに記録される、 [Azure Active Directory の認証ライブラリの JavaScript](https://github.com/AzureAD/azure-activedirectory-library-for-js), で、 *adal.js* と *adal-angular.js* ファイルです。 
 
-*App.js* ファイルでは、このコードでは構成情報と `$http` プロバイダーに、 `adalProvider.init` 関数です。 構成情報には、各 API エンドポイントに関連する AAD アプリケーション クライアント ID と、この AngularJS アプリに関連するクライアント ID が含まれています。  `Init` 関数にインターセプターを追加する、 `$http` プロバイダー、認証トークンを要求に追加これらことです。
+ *App.js* ファイルでは、このコードでは構成情報と `$http` プロバイダーに、 `adalProvider.init` 関数です。 構成情報には、各 API エンドポイントに関連する AAD アプリケーション クライアント ID と、この AngularJS アプリに関連するクライアント ID が含まれています。 `init` 関数はインターセプターを `$http` プロバイダーに追加します。これらのインターセプターにより、承認トークンが要求に追加されます。
 
         var endpoints = { 
             //"https://{your api app name}.azurewebsites.net/": "{your client id}"
             "https://localhost:44300/": "{your client id}"
         };
-    
+
         adalProvider.init(
             {
                 instance: 'https://login.microsoftonline.com/', 
@@ -110,47 +109,47 @@ ContactsList.Angular.AAD プロジェクト内のコードは、単純な Contac
 
 ## Azure での認証および承認の設定
 
-1. [Azure ポータル](https://portal.azure.com/), に移動し、 **API アプリ** できるように、認証されたユーザーのみを保護する API アプリのブレードで呼び出すことができます。 (このチュートリアルでは、ContactsList.API プロジェクトをデプロイした API アプリを選択します)。
+1.  [Azure ポータル](https://portal.azure.com/), に移動し、 **API アプリ** できるように、認証されたユーザーのみを保護する API アプリのブレードで呼び出すことができます。 (このチュートリアルでは、ContactsList.API プロジェクトをデプロイした API アプリを選択します)。
 
-2. **[設定]** をクリックします
+2. クリックして **設定**
 
-2. **[機能]** セクションを探し、**[認証/承認]** をクリックします。
+2. 検索、 **機能** セクションは、クリックして **認証/承認**します。
 
     ![](./media/app-service-api-dotnet-user-principal-auth/features.png)
 
-3. **[認証/承認]** ブレードで、**[オン]** をクリックします。
+3.  **認証/承認** ブレードで、をクリックして **に**します。
 
-4. **[要求が認証されていない場合のアクション]** ドロップダウン リストで、**[Azure Active Directory でログイン]** を選択します。
+4.  **要求が認証されていない場合に実行するアクション** ドロップダウン リストで、 **Azure Active Directory を使用してログイン**します。
 
-5. **[認証プロバイダー]** の下の **[Azure Active Directory]** をクリックします。
+5.  **認証プロバイダー**, 、クリックして **Azure Active Directory**します。
 
     ![](./media/app-service-api-dotnet-user-principal-auth/authblade.png)
 
-6. **[Azure Active Directory 設定]** ブレードで **[Express]** をクリックします。
+6.  **Azure Active Directory 設定** ブレードで、をクリックして **Express**
 
     ![](./media/app-service-api-dotnet-user-principal-auth/aadsettings.png)
 
     ここで、"Express" は、Azure が AAD テナントに AAD アプリケーションを自動的に作成することを意味します。 新しい AAD アプリケーションのクライアント ID を取得するために Azure クラシック ポータルに後で移動して選択するために、新しい AAD アプリケーションの名前をメモします。
 
-7. **[OK]** をクリックします。
+7. Click **OK**.
 
-10. **認証/承認**ブレードで、**[保存]** をクリックします。
+10.  **認証/承認** ブレードで、をクリックして **保存**します。
 
-8. API アプリが現在保護されていることを確認するには、API アプリの URL に移動 + `/swagger` Swagger UI を使用する最初のチュートリアルで実行したようです。
+8. API アプリが保護されたことを確認するには、Swagger UI を使用する最初のチュートリアルで実行したように、API アプリの URL + `/swagger` に移動します。 
 
     今度はログオン ページにリダイレクトされます。
 
     ![](./media/app-service-api-dotnet-user-principal-auth/loginpage.png)
 
-11. [Azure クラシック ポータル](https://manage.windowsazure.com/), に進み、 **Azure Active Directory**します。
+11.  [Azure クラシック ポータル](https://manage.windowsazure.com/), に進み、 **Azure Active Directory**します。
 
     アクセスする必要のある特定の Azure Active Directory 設定が現在の Azure ポータルでまだ利用できないため、クラシック ポータルに移動する必要があります。
 
-12. **[ディレクトリ]** タブで AAD テナントをクリックします。
+12.  **ディレクトリ** ] タブで、AAD テナントをクリックします。
 
     ![](./media/app-service-api-dotnet-user-principal-auth/selecttenant.png)
 
-14. **[アプリケーション]、[自分の会社が所有するアプリケーション]** の順にクリックし、チェック マークをクリックします。
+14. クリックして **アプリケーション > 自分の会社が所有するアプリケーション**, 、チェック マークをクリックします。
 
     新しいアプリケーションを確認するには、ページを更新する必要がある場合があります。
 
@@ -158,17 +157,17 @@ ContactsList.Angular.AAD プロジェクト内のコードは、単純な Contac
 
     ![](./media/app-service-api-dotnet-user-principal-auth/appstab.png)
 
-16. **[構成]** をクリックします。
+16. クリックして **構成**します。
 
     ![](./media/app-service-api-dotnet-user-principal-auth/configure.png)
 
-15. ページ下部で **[マニフェストの管理]、[マニフェストのダウンロード]** をクリックし、編集できる場所にファイルを保存します。
+15. ページの下部にあるをクリックして **管理マニフェスト > ダウンロード マニフェスト**, 、編集できる場所にファイルを保存しています。
 
-16. ダウンロードしたマニフェスト ファイル内で検索、  `oauth2AllowImplicitFlow` プロパティです。 このプロパティの値を変更 `false` に `true`, 、ファイルを保存します。
+16. ダウンロードしたマニフェスト ファイル内で検索、  `oauth2AllowImplicitFlow` プロパティです。 このプロパティの値を `false` から `true` に変更し、ファイルを保存します。
 
     この設定は、JavaScript のシングル ページ アプリケーションからのアクセスに必要です。 これにより、Oauth 2.0 ベアラー トークンが URL フラグメントで返されるようになります。
 
-16. **[マニフェストの管理]、[マニフェストのアップロード]** の順にクリックし、前の手順で更新したファイルをアップロードします。
+16. クリックして **管理マニフェスト > アップロード マニフェスト**, 、し、前の手順で更新したファイルをアップロードします。
 
 17. チュートリアルの後の手順で、値をコピーして貼り付けることができるよう、このページは開いたままにします。
 
@@ -176,11 +175,11 @@ ContactsList.Angular.AAD プロジェクト内のコードは、単純な Contac
 
 次の手順では、アプリケーションを Azure にデプロイし、そこで実行する方法について説明します。ただし、少し変更を加えることで、ローカルで実行できる場合があります。 サンプル コードには、localhost URL エンドポイントが含まれています。 ローカルで実行するには、SSL 用にプロジェクトを設定し、プロジェクト コードで localhost の SSL URL を使用して、AAD アプリケーションの構成で localhost の SSL URL を使用します。 ローカルで実行している場合、AngularJS コードにより、ログオンしているユーザーのみに API の呼び出しが許可されますが、他のクライアントから認証されていない呼び出し側によって API が呼び出される場合があります。
 
-1. ContactsList.Angular.AAD プロジェクトで、*app/scripts/app.js* ファイルを開きます。
+1. ContactsList.Angular.AAD プロジェクトで開き、 *app/scripts/app.js* ファイルです。
 
-8. 設定するコードで、 `エンドポイント` 変数、コメント アウト localhost エンドポイントと Azure のエンドポイントをコメント解除します。
+8. `endpoints` 変数を設定するコードで、localhost エンドポイントをコメント アウトし、Azure エンドポイントをコメント解除します。
 
-10. "yourclientid" を、AAD アプリケーションのクライアント ID の実際の値に置き換えます。この値は、クラシック ポータルの AAD アプリケーションの **[構成]** タブで見つかります。
+10. 従来のポータルからのクライアント ID を AAD アプリケーションの実際の値を持つ"yourclientid"を置換 **構成** AAD アプリケーションのタブをクリックします。
 
 2. "{your api app name}" を、ContactsList.API プロジェクトをデプロイした API アプリの名前に置き換えます。
 
@@ -206,61 +205,60 @@ ContactsList.Angular.AAD プロジェクト内のコードは、単純な Contac
             $httpProvider
             );
 
-1. *app/scripts/contactsSvc.js* ファイルで、*app.js* に対して行ったように、エンドポイント URL を localhost から API アプリ URL に変更します。
+1.  *App/scripts/contactsSvc.js* ファイル、URL を変更する前に実行した API アプリの URL を localhost から同じエンドポイント *app.js*します。
 
     コードは、現在次の例のようです。
 
         var apiEndpoint = "https://contactslistapi.azurewebsites.net";
         //var apiEndpoint = "https://localhost:44300";
 
-
 ## Azure Web アプリの AAD アプリケーションの構成
 
-1. クラシック ポータルの AAD アプリケーションの **[構成]** タブにある **[サインオン URL]** フィールドで、既に設定されている URL を削除し、Web アプリのベース URL (末尾のスラッシュを含む) に置き換えます (これは、API アプリの URL ではなく、AngularJS コードを実行する Web アプリの URL であることに注意してください)。
+1.  **構成** クラシック ポータルで AAD アプリケーション] タブで、 **サインオン URL** フィールドを既に存在する URL を削除し、末尾のスラッシュを含め、web アプリのベース URL に置き換えます。 (これは、API アプリの URL ではなく、AngularJS コードを実行する Web アプリの URL であることに注意してください)。
 
     ![](./media/app-service-api-dotnet-user-principal-auth/signonurlazure.png)
 
-3. **[応答 URL]** フィールドで、既に設定されている URL を Web アプリのベース URL に置き換えます。
+3.  **応答 URL** フィールドに既に存在する web アプリのベース URL を使用して URL に置き換えます。
 
     ![](./media/app-service-api-dotnet-user-principal-auth/replyurlazure.png)
 
-4. **[保存]** をクリックします。
+4. クリックして **保存**します。
 
 ## Azure への ContactsList.Angular.AAD プロジェクトのデプロイ
 
-8. **ソリューション エクスプローラー**で ContactsList.Angular.AAD プロジェクトを右クリックし、**[発行]** をクリックします。
+8.  **ソリューション エクスプ ローラー**, を ContactsList.Angular.AAD プロジェクトを右クリックして、クリックして **発行**します。
 
-9. **[Microsoft Azure App Service]** をクリックします。
+9. クリックして **Microsoft Azure App Service**します。
 
-10. **[App Service]** ダイアログ ボックスの **[サブスクリプション]** ボックスの一覧でサブスクリプションを選択します。
+10.  **App Service** ダイアログ ボックスで、 **サブスクリプション** ドロップ ダウン ボックスの一覧でサブスクリプションを選択します。
 
 11. このチュートリアルで作成したリソース グループを展開し、2 回目のチュートリアルで作成した Web アプリを選択します。
 
     ![](./media/app-service-api-dotnet-user-principal-auth/deploytowebapp.png)
 
-12. **[OK]** をクリックします。
+12. Click **OK**.
 
-12. **Web の発行** ウィザード] をクリックして、 **接続** ] タブで、し、[、 **送信先 URL** 変更ボックス `http://` に `https://`
+12.  **Web の発行** ウィザード] をクリックして、 **接続** ] タブで、し、[、 **送信先 URL** 変更ボックス `http://` に `https://`
 
     ![](./media/app-service-api-dotnet-user-principal-auth/httpsinconntab.png)
 
     この設定により、デプロイが成功した後に既定のブラウザーで開かれる URL が決まります。
 
-12. **Web の発行**ウィザードで **[設定]** タブをクリックします。**[ファイル発行オプション]** を展開し、**[発行先の追加ファイルを削除する]** チェック ボックスをオンにします。
+12.  **Web の発行** ウィザード] をクリックして、 **設定** ] タブで、展開 **ファイル発行オプション**, を選択し、 **先で追加ファイルを削除** チェック ボックスをオンします。
 
-7. **[発行]** をクリックします。
+7. クリックして **発行**します。
 
     Visual Studio によってプロジェクトがデプロイされ、アプリのホーム ページがブラウザーで開きます。
 
 ## Azure での AngularJS Web アプリのテスト
 
-8. **[Contacts]** タブをクリックします。
+8. クリックして、 **連絡先** ] タブをクリックします。
 
     ログインを求められます。
 
 9. AAD テナントのユーザー資格情報でログインします。
 
-10. **[連絡先]** ページが表示されます。
+10.  **連絡先** ページが表示されます。
 
     ![](./media/app-service-api-dotnet-user-principal-auth/contactspageazure.png)
 
@@ -269,8 +267,4 @@ ContactsList.Angular.AAD プロジェクト内のコードは、単純な Contac
 ## 次のステップ
 
 このチュートリアルでは、App Service の認証および承認を使用して、認証されたユーザーのみが呼び出すことができるよう、API アプリへのアクセスを制限しました。 シリーズの次のチュートリアルで学習する方法 [サービス間のシナリオ、API アプリへのアクセス制限](app-service-api-dotnet-service-principal-auth.md)します。
-
-
-
-
 

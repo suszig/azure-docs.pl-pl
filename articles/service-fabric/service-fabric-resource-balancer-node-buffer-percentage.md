@@ -16,7 +16,6 @@
    ms.date="09/03/2015"
    ms.author="masnider"/>
 
-
 # ノード バッファー使用率の概要
 
 現在のところ、制約の優先度に基づいてリソース バランサーで順守される制約として、ノード容量上限を指定できます。 容量の制約の優先度が高く (ノード容量違反が認められない)、クラスター ノードの使用率が高い場合は、フェールオーバーが即時実行されない可能性や、ノード容量違反が発生する可能性があります。
@@ -35,19 +34,16 @@
     <Parameter Name="MetricName" Value="0.1"/>
   </Section>
 </FabricSettings>
+
 ```
 
 "MetricName" という名前のメトリックの値が 0.1 である場合、メトリック "MetricName" のすべてのノード容量に対して 10% の空き容量を維持することを意味します。
 
 このセクションに値が指定されていない場合は、既定値として 0 が使用されます。
 
-
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 次のステップ
 
 詳細については: [リソース バランサーのアーキテクチャ](service-fabric-resource-balancer-architecture.md)
-
-
-
-
-
+ 
 

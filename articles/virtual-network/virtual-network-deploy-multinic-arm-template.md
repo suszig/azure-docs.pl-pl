@@ -17,7 +17,6 @@
    ms.date="11/20/2015"
    ms.author="telmos" />
 
-
 # テンプレートを使用した複数の NIC VM のデプロイ
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-arm-selectors-include.md](../../includes/virtual-network-deploy-multinic-arm-selectors-include.md)]
@@ -28,25 +27,25 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-この時点では、単一の NIC を含む VM と複数の NIC を含む VM を同じリソース グループ内で保持できないため、バック エンド サーバーをリソース グループに実装し、他のすべてのコンポーネントを別のセキュリティ グループに実装します。 以下の手順では、メイン リソース グループとして *IaaSStory* という名前のリソース グループを使用し、バックエンド サーバーとして *IaaSStory-BackEnd* を使用します。
+この時点では、単一の NIC を含む VM と複数の NIC を含む VM を同じリソース グループ内で保持できないため、バック エンド サーバーをリソース グループに実装し、他のすべてのコンポーネントを別のセキュリティ グループに実装します。 次の手順がという名前のリソース グループを使用して *IaaSStory* メイン リソース グループのおよび *IaaSStory バックエンド* バック エンド サーバーのです。
 
 ## 前提条件
 
 バックエンド サーバーをデプロイするには、このシナリオで必要なすべてのリソースを含むメイン リソース グループをデプロイする必要があります。 これらのリソースをデプロイするには、以下の手順に従います。
 
 1. 移動 [テンプレート ページ](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC)します。
-2. テンプレート ページの **[親リソース グループ]** の右側にある **[Azure へのデプロイ]** をクリックします。
+2. テンプレート] ページで、以下の桁数に **親のリソース グループ**, をクリックして **Deploy to Azure**します。
 3. 必要に応じて、パラメーター値を変更し、Azure プレビュー ポータル内の手順に従ってリソース グループをデプロイします。
 
-> [AZURE.IMPORTANT] ストレージ アカウント名が一意であることを確認してください。 Azure では重複するストレージ アカウント名を使用できません。 
+> [AZURE.IMPORTANT] ストレージのアカウント名が一意であることを確認してください。 Azure では重複するストレージ アカウント名を使用できません。 
 
 ## デプロイ テンプレートについて
 
 このドキュメントに付属するテンプレートをデプロイする前に、テンプレートを理解する必要があります。 次の手順では、対象のテンプレートの概要について説明しています。
 
 1. 移動 [テンプレート ページ](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC)します。
-2. **azuredeploy.json** をクリックしてテンプレート ファイルを開きます。
-3. 次に示す *osType* パラメーターに注目してください。 このパラメーターは、複数のオペレーティング システム関連の設定と共に、データベース サーバー用の VM イメージを選択するために使用します。
+2. クリックして **azuredeploy.json** テンプレート ファイルを開きます。
+3. 通知、 *osType* 以下に示すパラメーターです。 このパラメーターは、複数のオペレーティング システム関連の設定と共に、データベース サーバー用の VM イメージを選択するために使用します。
 
         "osType": {
           "type": "string",
@@ -60,11 +59,11 @@
           }
         },
 
-4. 下にスクロールして変数の一覧を表示し、次に示す *dbVMSetting* 変数の定義を確認します。 これは、*dbVMSettings* 変数に格納されている配列要素の 1 つを受け取ります。 ソフトウェア開発用語に詳しい場合は、*dbVMSettings* 変数をハッシュテーブルまたはディクショナリと考えることができます。
+4. 変数の一覧まで下へスクロールしの定義を確認、 *dbVMSetting* 以下に示す変数。 含まれる配列要素のいずれかの受信、 *dbVMSettings* 変数です。 ソフトウェア開発の用語に置き換える場合は、表示、 *dbVMSettings* ハッシュ テーブル、または、dictionay として変数です。
 
         "dbVMSetting": "[variables('dbVMSettings')[parameters('osType')]]"
 
-5. バック エンドで SQL が動作している Windows VM をデプロイするとします。 *osType* の値は *Windows* となり、*dbVMSetting* 変数には次に示す要素 (*dbVMSettings* 変数の最初の値を表す) が格納されます。
+5. バック エンドで SQL が動作している Windows VM をデプロイするとします。 値、 *osType* は *Windows*, 、および *dbVMSetting* 変数には、次に示す最初の値を表す要素が含まれます、 *dbVMSettings* 変数です。
 
           "Windows": {
             "vmSize": "Standard_DS3",
@@ -83,8 +82,8 @@
             "dbPort": 1433
           },
 
-6. *vmSize* に値 *Standard_DS3* が格納されることに注意してください。 特定の VM のサイズに対してのみ、複数の NIC の使用が許可されます。 どの VM サイズは、複数 NIC にアクセスして有効になっていることを確認できる、 [複数 NIC の概要](virtual-networks-multiple-nics.md)します。
-7. 下にスクロールして **resources** を表示し、最初の要素に注目してください。 ここでは、ストレージ アカウントについて記述しています。 このストレージ アカウントは、各データベース VM で使用されるデータ ディスクの管理に使用されます。 このシナリオでは、各データベース VM で、OS ディスクが標準ストレージに格納され、2 つのデータ ディスクが SSD (Premium) ストレージに格納されます。
+6. 通知、 *vmSize* 値を含む *Standard_DS3*します。 特定の VM のサイズに対してのみ、複数の NIC の使用が許可されます。 どの VM サイズは、複数 NIC にアクセスして有効になっていることを確認できる、 [複数 NIC の概要](virtual-networks-multiple-nics.md)します。
+7. 下へスクロールして **リソース** に最初の要素に注目してください。 ここでは、ストレージ アカウントについて記述しています。 このストレージ アカウントは、各データベース VM で使用されるデータ ディスクの管理に使用されます。 このシナリオでは、各データベース VM で、OS ディスクが標準ストレージに格納され、2 つのデータ ディスクが SSD (Premium) ストレージに格納されます。
 
         {
           "apiVersion": "2015-05-01-preview",
@@ -99,7 +98,7 @@
           }
         },
 
-8. 下にスクロールして、次に示す次のリソースを表示します。 このリソースは、各データベース VM でデータベース アクセスに使用される NIC を表しています。 このリソースで **copy** 関数を使用していることに注目してください。 このテンプレートを使用すると、*dbCount* パラメーターに基づいて、必要な数の VM をデプロイできます。 したがって、データベース アクセス用に同じ数 (VM ごとに 1 つ) の NIC を作成する必要があります。
+8. 下にスクロールして、次に示す次のリソースを表示します。 このリソースは、各データベース VM でデータベース アクセスに使用される NIC を表しています。 使用して、 **コピー** このリソース内の関数です。 テンプレートでは、多数の Vm、必要なに基づいてとして展開することができます、 *dbCount* パラメーター。 したがって、データベース アクセス用に同じ数 (VM ごとに 1 つ) の NIC を作成する必要があります。
 
         {
           "apiVersion": "2015-06-15",
@@ -129,7 +128,7 @@
           }
         },
 
-9. 下にスクロールして、次に示す次のリソースを表示します。 このリソースは、各データベース VM で管理に使用される NIC を表しています。 ここでも、データベース VM ごとにこれらの NIC が 1 つ必要です。 RDP/SSH へのアクセスを許可する NSG をこの NIC のみにリンクする、*networkSecurityGroup* 要素に注目してください。
+9. 下にスクロールして、次に示す次のリソースを表示します。 このリソースは、各データベース VM で管理に使用される NIC を表しています。 ここでも、データベース VM ごとにこれらの NIC が 1 つ必要です。 通知、 *networkSecurityGroup* 要素、RDP、SSH のみこの NIC にへのアクセスを許可する NSG をリンクします。
 
         {
           "apiVersion": "2015-06-15",
@@ -174,7 +173,7 @@
           }
         },
 
-11. 下にスクロールして、次のリソースを表示します。 次の最初の数行が示すように、このリソースはデータベース VM を表しています。 ここでも、**copy** 関数を使用していることに注目し、複数の VM が *dbCount* パラメーターに基づいて作成されることを確認してください。 また、*dependsOn* コレクションにも注目してください。 可用性セット、ストレージ アカウントと共に、VM をデプロイするときに、事前に作成する必要のある 2 つの NIC が示されます。
+11. 下にスクロールして、次のリソースを表示します。 次の最初の数行が示すように、このリソースはデータベース VM を表しています。 使用して、 **コピー** ように複数の Vm は基に作成されますをもう一度、関数、 *dbCount* パラメーター。 また、 *dependsOn* コレクションです。 可用性セット、ストレージ アカウントと共に、VM をデプロイするときに、事前に作成する必要のある 2 つの NIC が示されます。
 
           "apiVersion": "2015-06-15",
           "type": "Microsoft.Compute/virtualMachines",
@@ -194,7 +193,7 @@
             "count": "[parameters('dbCount')]"
           },
 
-12. VM リソース内を下にスクロールして、次に示す **networkProfile** 要素を表示します。 各 VM で参照される 2 つの NIC があることに注目してください。 VM に対して複数の NIC を作成する場合は、1 つの NIC の *primary* プロパティを *true* に設定し、残りを *false* に設定する必要があります。
+12. VM のリソースでスクロール ダウンして、 **networkProfile** 要素を次に示すようです。 各 VM で参照される 2 つの NIC があることに注目してください。 設定する必要があります VM 用複数 Nic を作成するときに、 *プライマリ* に Nic のいずれかのプロパティ *true*, 、残りを *false*します。
 
         "networkProfile": {
           "networkInterfaces": [
@@ -208,8 +207,7 @@
             }
           ]
         }
-
-      {
+      }
 
 ## [デプロイ] をクリックして ARM テンプレートをデプロイする
 
@@ -227,44 +225,43 @@ PowerShell を使用してダウンロードしたテンプレートをデプロ
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-3. テンプレートを使用してリソース グループを作成するには、**New-AzureRmResourceGroup** コマンドレットを実行します。
+3. 実行、 **新規 AzureRmResourceGroup** コマンドレットをテンプレートを使用してリソース グループを作成します。
 
-     New-AzureRmResourceGroup -Name IaaSStory-Backend -Location uswest `
-         -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json' `
-         -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json'   
+        New-AzureRmResourceGroup -Name IaaSStory-Backend -Location uswest `
+            -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json' `
+            -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json'   
 
- 予想される出力:
+    予想される出力:
 
-     ResourceGroupName : IaaSStory-Backend
-     Location          : westus
-     ProvisioningState : Succeeded
-     Tags              : 
-     Permissions       : 
-                         Actions  NotActions
-                         =======  ==========
-                         *                  
-    
-     Resources         : 
-                         Name                 Type                                 Location
-                         ===================  ===================================  ========
-                         ASDB                 Microsoft.Compute/availabilitySets   westus  
-                         DB1                  Microsoft.Compute/virtualMachines    westus  
-                         DB2                  Microsoft.Compute/virtualMachines    westus  
-                         NICDB-DA-1           Microsoft.Network/networkInterfaces  westus  
-                         NICDB-DA-2           Microsoft.Network/networkInterfaces  westus  
-                         NICDB-RA-1           Microsoft.Network/networkInterfaces  westus  
-                         NICDB-RA-2           Microsoft.Network/networkInterfaces  westus  
-                         wtestvnetstorageprm  Microsoft.Storage/storageAccounts    westus  
-    
-     ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend
-
+        ResourceGroupName : IaaSStory-Backend
+        Location          : westus
+        ProvisioningState : Succeeded
+        Tags              : 
+        Permissions       : 
+                            Actions  NotActions
+                            =======  ==========
+                            *                  
+                            
+        Resources         : 
+                            Name                 Type                                 Location
+                            ===================  ===================================  ========
+                            ASDB                 Microsoft.Compute/availabilitySets   westus  
+                            DB1                  Microsoft.Compute/virtualMachines    westus  
+                            DB2                  Microsoft.Compute/virtualMachines    westus  
+                            NICDB-DA-1           Microsoft.Network/networkInterfaces  westus  
+                            NICDB-DA-2           Microsoft.Network/networkInterfaces  westus  
+                            NICDB-RA-1           Microsoft.Network/networkInterfaces  westus  
+                            NICDB-RA-2           Microsoft.Network/networkInterfaces  westus  
+                            wtestvnetstorageprm  Microsoft.Storage/storageAccounts    westus  
+                            
+        ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend
 
 ## Azure CLI を使用してテンプレートをデプロイする
 
 Azure CLI を使用してテンプレートをデプロイするには、次の手順に従います。
 
 1. Azure CLI を初めて使用する場合は、次を参照してください。 [のインストールと Azure CLI の構成](xplat-cli.md) Azure アカウントとサブスクリプションを選択する時点までの指示に従います。
-2. 次に示すように、**azure config mode** コマンドを実行してリソース マネージャー モードに切り替えます。
+2. 実行、 **azure config モード** コマンドを次に示すように、リソース マネージャー モードに切り替えます。
 
         azure config mode arm
 
@@ -272,9 +269,9 @@ Azure CLI を使用してテンプレートをデプロイするには、次の�
 
         info:    New mode is arm
 
-3. 開いている、 [パラメーター ファイル](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json), 、その内容を選択して、コンピューターのファイルに保存します。 この例では、パラメーター ファイルを *parameters.json* に保存しました。
+3. 開いている、 [パラメーター ファイル](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json), 、その内容を選択して、コンピューターのファイルに保存します。 この例では、パラメーター ファイルを保存しました *parameters.json*します。
 
-4. 上記でダウンロードして変更したテンプレート ファイルとパラメーター ファイルを使用して、**azure group deployment create** コマンドレットを実行して新しい VNet をデプロイします。 出力の後に表示される一覧では、使用されたパラメーターについて説明されています。
+4. 実行、 **azure グループの展開を作成** テンプレートとパラメーターを使用して、新しい VNet を展開するコマンドレットではファイルをダウンロードし、上の変更します。 出力の後に表示されるリストは、使用されたパラメーターについての説明です。
 
         azure group create -n IaaSStory-Backend -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json -e parameters.json
 
@@ -294,8 +291,3 @@ Azure CLI を使用してテンプレートをデプロイするには、次の�
         data:    Tags: null
         data:
         info:    group create command OK
-
-
-
-
-

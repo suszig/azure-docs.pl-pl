@@ -2,14 +2,14 @@
 
     Account name: devstoreaccount1
     Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
-
-> [AZURE.NOTE] ストレージ エミュレーターでサポートされている認証キーは、クライアント認証コードの機能をテストすることだけを目的としています。 セキュリティ機能は果たしません。 ストレージ エミュレーターで運用環境のストレージ アカウントとキーを使用することはできません。 開発アカウントは運用データで使用できないことにもご注意ください。
+    
+> [AZURE.NOTE] ストレージ エミュレーターでサポートされている認証キーは、クライアント認証コードの機能をテスト目的でのみを目的としています。 セキュリティ機能は果たしません。 ストレージ エミュレーターで運用環境のストレージ アカウントとキーを使用することはできません。 開発アカウントは運用データで使用できないことにもご注意ください。
 >
 > ストレージ エミュレーターでは HTTP 経由の接続のみがサポートされることに注意してください。 ただし、Azure 運用環境のストレージ アカウント内のリソースにアクセスする際は、HTTPS が推奨されるプロトコルです。
-
+ 
 #### ショートカットを使用してエミュレーター アカウントに接続する
 
-アプリケーションからストレージ エミュレーターに接続する最も簡単な方法は、ショートカットを参照するアプリケーションの構成ファイル内から接続文字列を構成する、 `UseDevelopmentStorage = true`します。 たとえば、app.config ファイル内でのストレージ エミュレーターへの接続文字列は次のようになります。
+アプリケーションからストレージ エミュレーターに接続する最も簡単な方法は、ショートカット `UseDevelopmentStorage=true` を参照するアプリケーションの構成ファイル内から接続文字列を構成することです。 たとえば、app.config ファイル内でのストレージ エミュレーターへの接続文字列は次のようになります。 
 
     <appSettings>
       <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
@@ -25,13 +25,11 @@
     TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;
     QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1; 
 
-この値は、前述のショートカットと同じ `UseDevelopmentStorage = true`します。
+この値は、前述のショートカット `UseDevelopmentStorage=true` と同じです。
 
 #### HTTP プロキシを指定する
 
-また、サービスをストレージ エミュレーターでテストする際に使用する HTTP プロキシを指定することもできます。 これは、ストレージ サービスに対する操作をデバッグするとき、HTTP の要求と応答を調べる場合に便利です。 プロキシを指定するには、追加、 `DevelopmentStorageProxyUri` 、接続文字列オプションを選択し、その値としてプロキシ URI を設定します。 たとえば、次に示す接続文字列は、ストレージ エミュレーターを指しており、HTTP プロキシを構成しています。
+また、サービスをストレージ エミュレーターでテストする際に使用する HTTP プロキシを指定することもできます。 これは、ストレージ サービスに対する操作をデバッグするとき、HTTP の要求と応答を調べる場合に便利です。 プロキシを指定するには、`DevelopmentStorageProxyUri` オプションを接続文字列に追加し、値としてプロキシ URI を設定します。 たとえば、次に示す接続文字列は、ストレージ エミュレーターを指しており、HTTP プロキシを構成しています。
 
     UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
-
-
 

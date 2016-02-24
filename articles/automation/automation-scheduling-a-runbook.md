@@ -15,10 +15,9 @@
    ms.date="10/01/2015"
    ms.author="bwren" />
 
-
 # Azure Automation の Runbook をスケジュール設定する
 
-指定の時刻に開始するように Azure Automation の Runbook をスケジュール設定するには、Runbook を 1 つ以上のスケジュールにリンクします。 1 回実行または指定の日数または時間間隔の定期的なスケジュールを構成することができます。 1 つの Runbook を複数のスケジュールにリンクし、1 つのスケジュールを複数の Runbook にリンクすることができます。
+指定の時刻に開始するように Azure Automation の Runbook をスケジュール設定するには、Runbook を 1 つ以上のスケジュールにリンクします。 スケジュールは 1 回だけ実行するように構成できるほか、指定された間隔 (時間数または日数) で定期的に実行するように構成することもできます。 1 つの Runbook を複数のスケジュールにリンクし、1 つのスケジュールを複数の Runbook にリンクすることができます。
 
 ## スケジュールを作成する
 
@@ -27,12 +26,12 @@ Azure 管理ポータルまたは Windows PowerShell で新しいスケジュー
 ### Azure 管理ポータルで新しいスケジュールを作成するには
 
 1. Azure 管理ポータルで、[Automation] を選択し、次に Automation アカウントの名前をクリックします。
-1. **[資産]** タブを選択します。
-1. ウィンドウの下部にある **[設定の追加]** をクリックします。
-1. **[スケジュールの追加]** をクリックします。
-1. 新しいスケジュールの **[名前]** と、**[説明]** (省略可能) を入力します。
-1. スケジュールの実行頻度を **[1 回限り]**、**[1 時間ごと]**、**[毎日]** の中から選択します。
-1. **[開始時刻]** やその他のオプションを、選択したスケジュールの種類に応じて指定します。
+1. 選択、 **資産** ] タブをクリックします。
+1. At the bottom of the window, click **Add Setting**.
+1. Click **Add Schedule**.
+1. Type a **Name** and optionally a **Description** for the new schedule.
+1. Select whether the schedule will run **One Time**, **Hourly**, or **Daily**.
+1. 指定する **開始時刻** や他のオプションを選択したスケジュールの種類に応じて。
 
 ### Windows PowerShell で新しいスケジュールを作成するには
 
@@ -46,16 +45,16 @@ Azure 管理ポータルまたは Windows PowerShell で新しいスケジュー
 
 ## スケジュールを Runbook にリンクする
 
-1 つの Runbook を複数のスケジュールにリンクし、1 つのスケジュールを複数の Runbook にリンクすることができます。 Runbook にパラメーターがある場合は、それらの値を指定できます。 You must provide values for any mandatory parameters and may provide values for any optional parameters. これらの値は、スケジュールによって runbook が開始されるたびに使用されます。 同じ Runbook を別のスケジュールに関連付けて、異なるパラメーター値を指定することができます。
+1 つの Runbook を複数のスケジュールにリンクし、1 つのスケジュールを複数の Runbook にリンクすることができます。 Runbook にパラメーターがある場合は、その値を指定できます。 必須のパラメーターについては必ず値を指定してください。オプションのパラメーターについては値の指定は任意です。  このスケジュールで Runbook が開始されるたびに、これらの値が使用されます。  同じ Runbook を別のスケジュールに関連付けて、異なるパラメーター値を指定することができます。
 
 ### Azure 管理ポータルで Runbook にスケジュールをリンクするには
 
-1. Azure 管理ポータルで、**[Automation]** を選択し、次に Automation アカウントの名前をクリックします。
-1. **[Runbook]** タブを選択します。
+1. Azure の管理ポータルで [ **オートメーション** に automation アカウントの名前をクリックします。
+1. 選択、 **Runbook** ] タブをクリックします。
 1. Runbook の名前をクリックして、スケジュールを設定します。
-1. **[スケジュール]** タブをクリックします。
-2. 現在、Runbook がスケジュールにリンクされていない場合、**[新しいスケジュールへのリンク]** または **[既存のスケジュールへのリンク]** というオプションが表示されます。 現在、Runbook がスケジュールにリンクされている場合、ウィンドウの下部にある **[リンク]** をクリックし、これらのオプションにアクセスします。
-1. Runbook がパラメーターを持っている場合は、その値を入力するように求められます。
+1. クリックして、 **スケジュール** ] タブをクリックします。
+2. Runbook が現在スケジュールにリンクされていないかどうかは、するためのオプションを指定する **新しいスケジュールへのリンク** または **既存のスケジュールへのリンク**します。  If the runbook is currently linked to a schedule, click **Link** at the bottom of the window to access these options.
+1. Runbook がパラメーターを持っている場合は、その値を入力するように求められます。  
 
 ### Windows PowerShell で Runbook にスケジュールをリンクするには
 
@@ -71,7 +70,7 @@ Azure 管理ポータルまたは Windows PowerShell で新しいスケジュー
 
 ## スケジュールを無効にする
 
-スケジュールを無効にすると、そのスケジュールにリンクされた Runbook はいずれもそのスケジュールに基づいて実行できなくなります。 手動でスケジュールを無効にするか、それらを作成するときに毎時間や毎日のスケジュールの有効期限を設定します。 有効期限の時刻に達すると、スケジュールが無効になります。
+スケジュールを無効にすると、そのスケジュールにリンクされた Runbook はいずれもそのスケジュールに基づいて実行できなくなります。 スケジュールは手動で無効にできるほか、時間単位のスケジュールと日単位のスケジュールについては、その作成時に有効期限を設定することができます。 有効期限の時刻に達すると、スケジュールが無効になります。
 
 ### Azure 管理ポータルでスケジュールを無効にするには
 
@@ -79,12 +78,12 @@ Azure 管理ポータルで、スケジュール用の [スケジュールの詳
 
 1. Azure 管理ポータルで、[Automation] を選択し、次に Automation アカウントの名前をクリックします。
 1. Select the Assets tab.
-1. スケジュールの名前をクリックして、その詳細ページを開きます。
-2. **[有効]** を **[いいえ]** に変更します。
+1. Click the name of a schedule to open its detail page.
+2. Change **Enabled** to **No**.
 
 ### Windows PowerShell でスケジュールを無効にするには
 
-使用することができます、 [Set-azureautomationschedule](http://msdn.microsoft.com/library/azure/dn690270.aspx) コマンドレットを既存のスケジュールのプロパティを変更します。 スケジュールを無効にするには、**IsEnabled** パラメーターに **false** を指定します。
+使用することができます、 [Set-azureautomationschedule](http://msdn.microsoft.com/library/azure/dn690270.aspx) コマンドレットを既存のスケジュールのプロパティを変更します。 To disable the schedule, specify **false** for the **IsEnabled** parameter.
 
 次のサンプル コマンドは、スケジュールを無効にする方法を示しています。
 
@@ -95,8 +94,4 @@ Azure 管理ポータルで、スケジュール用の [スケジュールの詳
 ## 関連記事:
 
 - [Azure Automation のスケジュール資産](http://msdn.microsoft.com/library/azure/dn940016.aspx)
-- [Azure Automation で Runbook を開始](automation-starting-a-runbook.md)
-
-
-
-
+- [Azure Automation での Runbook を開始する](automation-starting-a-runbook.md) 

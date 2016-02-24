@@ -16,7 +16,6 @@ ms.service="virtual-machines"
  ms.date="10/08/2015"
  ms.author="danlep"/>
 
-
 # Microsoft HPC Pack を使用して Azure でハイパフォーマンス コンピューティング (HPC) クラスターを作成および管理するためのオプション
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
@@ -27,76 +26,76 @@ Microsoft HPC Pack と、Azure のコンピューティングおよびインフ�
 
 ## Azure VM での HPC Pack クラスターの実行
 
+
 ### Azure VM イメージ
 
 * [Windows Server 2012 R2 上の HPC Pack](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)
 
 * [Windows Server 2012 R2 上の HPC Pack コンピューティング ノード](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodeonwindowsserver2012r2/)
 
-* [HPC Pack コンピューティング ノードと Windows Server 2012 R2 上の Excel](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
+* [Windows Server 2012 R2 上の HPC Pack コンピューティング ノードと Excel](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
 
 ### Azure クイック スタート テンプレート
 
-* [HPC クラスターを作成します。](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
+* [HPC クラスターを作成する](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
 
-* [Linux 計算ノードと共に HPC クラスターを作成します。](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
+* [Linux コンピューティング ノードがある HPC クラスターを作成する](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
 
-* [カスタムの計算ノード イメージ、HPC クラスターを作成します。](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
+* [Create an HPC cluster with custom compute node image (カスタム コンピューティング ノード イメージを使用した HPC クラスターの作成)](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
 
 ### PowerShell デプロイメント スクリプト
 
-* [HPC Pack IaaS デプロイメント スクリプトで HPC クラスターを作成します。](virtual-machines-hpcpack-cluster-powershell-script.md)
+* [Create an HPC cluster with the HPC Pack IaaS deployment script (HPC Pack IaaS デプロイメント スクリプトを使用した HPC クラスターの作成)](virtual-machines-hpcpack-cluster-powershell-script.md)
 
 ### Tutorials (チュートリアル)
 
-* [チュートリアル: Azure で HPC Pack クラスターで Linux 計算ノードの使用開始します。](virtual-machines-linux-cluster-hpcpack.md)
+* [チュートリアル: Azure の HPC Pack クラスターで Linux コンピューティング ノードの使用を開始する](virtual-machines-linux-cluster-hpcpack.md)
 
-* [チュートリアル: Linux で実行 NAMD with Microsoft HPC Pack コンピューティング Azure 内のノード](virtual-machines-linux-cluster-hpcpack-namd.md)
+* [チュートリアル: Azure の Linux コンピューティング ノード上で Microsoft HPC Pack を使用して NAMD を実行する](virtual-machines-linux-cluster-hpcpack-namd.md)
 
-* [チュートリアル: 実行 OpenFOAM Microsoft HPC Pack で、Azure Linux RDMA クラスターを使用](virtual-machines-linux-cluster-hpcpack-openfoam.md)
+* [チュートリアル: Azure の Linux RDMA クラスター上で Microsoft HPC Pack を使用して OpenFOAM を実行する](virtual-machines-linux-cluster-hpcpack-openfoam.md)
 
-* [チュートリアル: Excel と SOA ワークロードを実行する Azure の HPC Pack クラスターと開始します。](virtual-machines-excel-cluster-hpcpack.md)
+* [チュートリアル: Azure で HPC Pack クラスターを開始して Excel と SOA ワークロードを実行する](virtual-machines-excel-cluster-hpcpack.md)
 
 
 
 ### Azure クラシック ポータルを使用した手動デプロイメント
 
-* [Azure VM での HPC Pack クラスターのヘッド ノードの設定します。](virtual-machines-hpcpack-cluster-headnode.md)
+
+
+* [Set up the head node of an HPC Pack cluster in an Azure VM (Azure VM での HPC Pack クラスターのヘッド ノードのセットアップ)](virtual-machines-hpcpack-cluster-headnode.md)
 
 ### クラスターの管理
 
-* [Azure で HPC Pack クラスターでコンピューティング ノードを管理します。](virtual-machines-hpcpack-cluster-node-manage.md)
+* [Manage compute nodes in an HPC Pack cluster in Azure (Azure の HPC Pack クラスターでコンピューティング ノードを管理する)](virtual-machines-hpcpack-cluster-node-manage.md)
 
-* [Azure での HPC Pack ヘッド ノードに Azure「バースト」ノードを追加します。](virtual-machines-hpcpack-cluster-node-burst.md)
+* [Add Azure "burst" nodes to an HPC Pack head node in Azure (Azure の HPC Pack ヘッド ノードに Azure "バースト" ノードを追加する)](virtual-machines-hpcpack-cluster-node-burst.md)
 
-* [HPC Pack クラスターでの Azure コンピューティング リソースの増減](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
+* [Grow and shrink Azure compute resources in an HPC Pack cluster (HPC Pack クラスターでの Azure コンピューティング リソースの増減)](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
 
-* [Azure で HPC Pack クラスターにジョブを送信します。](virtual-machines-hpcpack-cluster-submit-jobs.md)
+* [Submit jobs to an HPC Pack cluster in Azure (Azure の HPC Pack クラスターにジョブを送信する)](virtual-machines-hpcpack-cluster-submit-jobs.md)
 
 
 ## HPC Pack クラスターへの worker ロールの追加
 
-* [HPC Pack での Azure worker インスタンスへのバーストします。](https://technet.microsoft.com/library/gg481749.aspx)
 
-* [チュートリアル: Azure で HPC Pack でハイブリッド クラスターのセットアップします。](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
+* [HPC Pack を使用した Azure ワーカー インスタンスへのバースト](https://technet.microsoft.com/library/gg481749.aspx)
 
-* [Azure での HPC Pack ヘッド ノードに Azure「バースト」ノードを追加します。](virtual-machines-hpcpack-cluster-node-burst.md)
+* [Azure で HPC Pack を使用してハイブリッド クラスターをセットアップする](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
 
-* [HPC Pack クラスターでの Azure コンピューティング リソースの増減](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
+* [Add Azure "burst" nodes to an HPC Pack head node in Azure (Azure の HPC Pack ヘッド ノードに Azure "バースト" ノードを追加する)](virtual-machines-hpcpack-cluster-node-burst.md)
 
-## Azure Batch との統合
+* [Grow and shrink Azure compute resources in an HPC Pack cluster (HPC Pack クラスターでの Azure コンピューティング リソースの増減)](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
 
-* [Azure Batch と HPC Pack へのバーストします。](https://technet.microsoft.com/library/mt612877.aspx)
+## Azure Batch との統合 
+
+* [HPC Pack を使用した Azure Batch へのバースト](https://technet.microsoft.com/library/mt612877.aspx)
 
 ## MPI ワークロードのための RDMA のクラスターの作成
 
-* [MPI アプリケーションを実行する HPC Pack で Windows RDMA クラスターを設定します。](virtual-machines-windows-hpcpack-cluster-rdma.md)
+* [Set up a Windows RDMA cluster with HPC Pack to run MPI applications (HPC Pack を使用して Windows RDMA クラスターをセットアップして MPI アプリケーションを実行する)](virtual-machines-windows-hpcpack-cluster-rdma.md)
 
-* [チュートリアル: 実行 OpenFOAM Microsoft HPC Pack で、Azure Linux RDMA クラスターを使用](virtual-machines-linux-cluster-hpcpack-openfoam.md)
+* [チュートリアル: Azure の Linux RDMA クラスター上で Microsoft HPC Pack を使用して OpenFOAM を実行する](virtual-machines-linux-cluster-hpcpack-openfoam.md)
 
-
-
-
-
-
+<!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 

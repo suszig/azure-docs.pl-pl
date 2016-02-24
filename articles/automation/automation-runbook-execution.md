@@ -15,10 +15,10 @@
    ms.date="11/10/2015"
    ms.author="bwren" />
 
-
 # Azure Automation での Runbook の実行
 
-Azure Automation で runbook を開始するときに、ジョブが作成されます。 ジョブは、Runbook の単一の実行インスタンスです。 各ジョブを実行する Azure Automation ワーカーが割り当てられます。 ワーカーは複数の Azure アカウントで共有されるが、さまざまな Automation アカウントからのジョブは互いに分離されます。 ジョブに対する要求をどのワーカーで処理するかを制御することはできません。 1 つの Runbook で、複数のジョブを同時に実行することができます。 Azure ポータルで Runbook の一覧を表示すると、各 Runbook に対して最後に起動されたジョブの状態が一覧表示されます。 それぞれの状態を追跡するために、Runbook ごとにジョブの一覧を表示できます。 別のジョブの状態については、次を参照してください。 [ジョブの状態](#job-statuses)します。
+
+Azure Automation で runbook を開始するときに、ジョブが作成されます。 ジョブは、Runbook の単一の実行インスタンスです。 各ジョブを実行する Azure Automation ワーカーが割り当てられます。 ワーカーは複数の Azure アカウントで共有されるが、さまざまな Automation アカウントからのジョブは互いに分離されます。 ジョブに対する要求をどのワーカーで処理するかを制御することはできません。  1 つの Runbook で、複数のジョブを同時に実行することができます。 Azure ポータルで Runbook の一覧を表示すると、各 Runbook に対して最後に起動されたジョブの状態が一覧表示されます。 それぞれの状態を追跡するために、Runbook ごとにジョブの一覧を表示できます。 別のジョブの状態については、次を参照してください。 [ジョブの状態](#job-statuses)します。
 
 次の図は、ライフ サイクルの runbook ジョブの [グラフィカル runbook](automation-runbook-types.md#graphical-runbooks) と [PowerShell ワークフロー runbook](automation-runbook-types.md#powershell-workflow-runbooks)します。
 
@@ -37,18 +37,18 @@ Azure Automation で runbook を開始するときに、ジョブが作成され
 
 | 状態| 説明|
 |:---|:---|
-| 完了| ジョブは正常に完了しました。|
-| Failed|  [PowerShell ワークフローとグラフィカル runbook](automation-runbook-types.md), 、runbook がコンパイルに失敗しました。 [PowerShell スクリプト runbook](automation-runbook-types.md), 、runbook を開始できませんでした、または、ジョブには、例外が発生しました。|
-| 失敗、リソースを待機中| 達したため、ジョブが失敗した、 [フェア シェア](#fairshare) 限界に 3 回、毎回同じチェックポイントから、または runbook の先頭から起動します。|
-| キューに登録済み| ジョブは Automation ワーカー上のリソースが使用できるようになるのを待機しています。そうなれば、ジョブを起動できます。|
-| Starting| ジョブがワーカーに割り当てられており、システムがジョブを起動しているところです。|
-| 再開中| システムは、ジョブが停止された後、そのジョブを再開しているところです。|
-| 実行中| ジョブは実行中です。|
-| 実行中、リソースを待機中| ジョブはアンロードされましたに達したため、 [フェア シェア](#fairshare) 制限します。ジョブは最後のチェックポイントからすぐに再開します。|
-| 停止済み| ジョブは完了した後、ユーザーによって停止されました。|
-| 停止中| システムがジョブを停止させているところです。|
-| Suspended| ユーザーか、システムか、または Runbook 内のコマンドによってジョブは中断されました。中断されているジョブは、再度起動することができ、最後のチェックポイントから、チェックポイントがない場合は Runbook の先頭から再開することになります。Runbook は、例外が発生した場合にシステムによってのみ中断されます。既定では、ErrorActionPreference は **Continue** に設定されます。これはエラー発生時にもジョブが実行を維持することを意味します。このユーザー設定変数を **Stop** に設定すると、エラー発生時にジョブは中断します。適用対象 [PowerShell ワークフローとグラフィカル runbook](automation-runbook-types.md) のみです。|
-| 中断中| ユーザーの要求を受けてシステムはジョブを中断しようとしています。Runbook は、次のチェックポイントに到達してからでないと、中断できません。Runbook は、次のチェックポイントに到達してからでないと、中断できません。適用対象 [PowerShell ワークフローとグラフィカル runbook](automation-runbook-types.md) のみです。|
+|完了|ジョブは正常に完了しました。|
+|Failed|  [PowerShell ワークフローとグラフィカル runbook](automation-runbook-types.md), 、runbook がコンパイルに失敗しました。   [PowerShell スクリプト runbook](automation-runbook-types.md), 、runbook を開始できませんでした、または、ジョブには、例外が発生しました。 |
+|失敗、リソースを待機中|達したため、ジョブが失敗した、 [フェア シェア](#fairshare) 限界に 3 回、毎回同じチェックポイントから、または runbook の先頭から起動します。|
+|キューに登録済み|ジョブは Automation ワーカー上のリソースが使用できるようになるのを待機しています。そうなれば、ジョブを起動できます。|
+|Starting|ジョブがワーカーに割り当てられており、システムがジョブを起動しているところです。|
+|再開中|システムは、ジョブが停止された後、そのジョブを再開しているところです。|
+|実行中|ジョブは実行中です。|
+|実行中、リソースを待機中|ジョブはアンロードされましたに達したため、 [フェア シェア](#fairshare) 制限します。 ジョブは最後のチェックポイントからすぐに再開します。|
+|停止済み|ジョブは完了した後、ユーザーによって停止されました。|
+|停止中|システムがジョブを停止させているところです。|
+|Suspended|ユーザーか、システムか、または Runbook 内のコマンドによってジョブは中断されました。 中断されているジョブは、再度起動することができ、最後のチェックポイントから、チェックポイントがない場合は Runbook の先頭から再開することになります。 Runbook は、例外が発生した場合にシステムによってのみ中断されます。 By default, ErrorActionPreference is set to **Continue** meaning that the job will keep running on an error. このユーザー設定変数に設定されている場合 **停止** エラーが発生した時にジョブが中断されます。  適用対象 [PowerShell ワークフローとグラフィカル runbook](automation-runbook-types.md) のみです。|
+|中断中|ユーザーの要求を受けてシステムはジョブを中断しようとしています。 Runbook は、次のチェックポイントに到達してからでないと、中断できません。 Runbook は、次のチェックポイントに到達してからでないと、中断できません。  適用対象 [PowerShell ワークフローとグラフィカル runbook](automation-runbook-types.md) のみです。|
 
 ## Microsoft Azure 管理ポータルを使用したジョブの状態の表示
 
@@ -58,8 +58,8 @@ Automation Dashboard は、特定の Automation アカウントについてす�
 
 Automation Dashboard を表示するには、次の手順を使用します。
 
-1. Microsoft Azure 管理ポータルで、**[Automation]** を選択し、次に Automation アカウントの名前をクリックします。
-1. **[ダッシュボード]** タブを選択します。
+1. Azure の管理ポータルで [ **オートメーション** に automation アカウントの名前をクリックします。
+1. 選択、 **ダッシュ ボード** ] タブをクリックします。
 
 ### Runbook Dashboard
 
@@ -67,9 +67,9 @@ Runbook Dashboard には、単一の Runbook の概要が表示されます。 �
 
 Runbook Dashboard を表示するには、次の手順を使用します。
 
-1. Microsoft Azure 管理ポータルで、**[Automation]** を選択し、次に Automation アカウントの名前をクリックします。
-1. Runbook の名前をクリックします。
-1. **[ダッシュボード]** タブを選択します。
+1. Azure の管理ポータルで [ **オートメーション** に automation アカウントの名前をクリックします。
+1. Click the name of a runbook.
+1. 選択、 **ダッシュ ボード** ] タブをクリックします。
 
 ### ジョブの概要
 
@@ -77,10 +77,10 @@ Runbook Dashboard を表示するには、次の手順を使用します。
 
 次の手順を使用して Runbook のジョブを表示します。
 
-1. Microsoft Azure 管理ポータルで、**[Automation]** を選択し、次に Automation アカウントの名前をクリックします。
-1. Runbook の名前をクリックします。
-1. **[ジョブ]** タブを選択します。
-1. ジョブの **[作成されたジョブ]** 列をクリックして、その詳細と出力を表示します。
+1. Azure の管理ポータルで [ **オートメーション** に automation アカウントの名前をクリックします。
+1. Click the name of a runbook.
+1. 選択、 **ジョブ** ] タブをクリックします。
+1. Click on the **Job Created** column for a job to view its detail and output.
 
 ## Windows PowerShell を使用したジョブの状態の取得
 
@@ -95,21 +95,17 @@ Runbook Dashboard を表示するには、次の手順を使用します。
 
 ## フェア シェア
 
-クラウド内のすべての runbook 間でリソースを共有するために Azure Automation は一時的にアンロード ジョブはすべて 3 時間実行された後です。 [グラフィカル](automation-runbook-types.md#graphical-runbooks) と [PowerShell ワークフロー](automation-runbook-types.md#powershell-workflow-runbooks) 、直近の runbook が再開される [チェックポイント](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints)します。 この間、ジョブの状態は [実行中、リソースを待機中] となります。 Runbook がチェックポイントを持っていないか、またはアンロードされる前にジョブがまだ最初のチェックポイントに達していない場合、ジョブは最初から再開されます。 [PowerShell](automation-runbook-types.md#powershell-runbooks) チェックポイントをサポートしていないために、runbook は、最初から再開常にします。
+クラウド内のすべての Runbook 間でリソースを共有するために、Azure Automation は任意のジョブが 3 時間実行された後で一時的にそのジョブをアンロードします。  [グラフィカルな](automation-runbook-types.md#graphical-runbooks) と [PowerShell ワークフロー](automation-runbook-types.md#powershell-workflow-runbooks) 、直近の runbook が再開される [チェックポイント](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints)します。 この間、ジョブの状態は [実行中、リソースを待機中] となります。 Runbook がチェックポイントを持っていないか、またはアンロードされる前にジョブがまだ最初のチェックポイントに達していない場合、ジョブは最初から再開されます。  [PowerShell](automation-runbook-types.md#powershell-runbooks) チェックポイントをサポートしていないために、runbook は、最初から再開常にします。
 
 Runbook が同じチェックポイントから、または Runbook の先頭から 3 回連続して再起動した場合、Runbook は終了し、[失敗、リソースを待機中] という状態になります。 これは、Runbook が次のチェックポイントに進むことができず再度アンロードされない場合に、Runbook が完了せずに無期限に実行されるのを防ぐためのものです。 この場合は、エラー発生時に次の例外を受信します。
 
-* ジョブは、同じチェックポイントから繰り返し削除されましたので実行を続行できません。 Runbook がその state.* を永続化せず時間のかかる操作を実行していないかどうかを確認してください。
+*ジョブは同じチェックポイントから繰り返し削除されましたので実行を継続できません。 Runbook が、その状態を維持しないで時間のかかる操作を実行するということになっていないことを確認してください。*
 
-Runbook を作成する際には、2 つのチェックポイント間で任意のアクティビティを実行するのにかかる時間が 3 時間を超えないことを確認してください。 この 3 時間制限に達したしたりしない時間の長いを分割することを確認するよう runbook にチェックポイントを追加する必要があります操作を実行します。 たとえば、Runbook が大規模な SQL データベースで再インデックス化を実行する可能性があります。 この単一処理がフェア シェア制限内で完了しない場合、ジョブはアンロードされ、先頭から再開されます。 この場合は再インデックス化処理を複数のステップに分割します。たとえば、一度に 1 つのテーブルを再インデックス化し、各処理の後にチェックポイントを挿入します。こうすれば、最後の処理が完了した後、ジョブは再開することが可能です。
+Runbook を作成する際には、2 つのチェックポイント間で任意のアクティビティを実行するのにかかる時間が 3 時間を超えないことを確認してください。 この 3 時間の制限に達したり、実行に時間のかかる操作を分割したりしないように、Runbook にチェックポイントを追加することが必要な場合があります。 たとえば、Runbook が大規模な SQL データベースで再インデックス化を実行する可能性があります。 この単一処理がフェア シェア制限内で完了しない場合、ジョブはアンロードされ、先頭から再開されます。 この場合は再インデックス化処理を複数のステップに分割します。たとえば、一度に 1 つのテーブルを再インデックス化し、各処理の後にチェックポイントを挿入します。こうすれば、最後の処理が完了した後、ジョブは再開することが可能です。
 
 
 
 ## 関連記事:
 
-- [Azure Automation で runbook の開始](automation-starting-a-runbook.md)
-
-
-
-
+- [Azure Automation での Runbook の開始](automation-starting-a-runbook.md)
 

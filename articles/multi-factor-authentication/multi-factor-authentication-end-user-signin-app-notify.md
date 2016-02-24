@@ -1,14 +1,15 @@
+
 <properties 
-    pageTitle =「通知 Azure 多要素認証を使用したモバイル アプリに署名で」 
-    description ="このページでは説明、ユーザーが Azure MFA でモバイル アプリの通知を使用してサインインことができます"。 
-    サービス =「factor マルチ-認証」 
+    pageTitle="Azure Multi-Factor Authentication で通知を使用したモバイル アプリへのサインイン" 
+    description="このページでは、Azure MFA でモバイル アプリの通知を使用してサインインする方法を説明します。" 
+    services="multi-factor-authentication" 
     documentationCenter="" 
-    authors ="billmath" 
-    manager ="stevenpo" 
-    エディター ="curtland"/>
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtland"/>
 
 <tags 
-    ms.service=「factor マルチ-認証」 
+    ms.service="multi-factor-authentication" 
     ms.workload="identity" 
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
@@ -24,22 +25,18 @@
 
 <ol>
 
-<li>アプリケーションまたはユーザー名とパスワードを使用して Office 365 などのサービスにサインインします。</li>
-<li>Microsoft では、通知を送信します。</li>
+<li>Office 365 などのアプリケーションまたはサービスにユーザー名とパスワードを使用してサインインします。</li>
+<li>Microsoft から通知が送信されます</li>
 
 
 <center>![セットアップ](./media/multi-factor-authentication-end-user-signin-app-notify/notify.png)</center>
 
-<li>電話に出て、キーを押しますを確認してください。</li>
+<li>電話に出て、確認キーを押します。</li>
 
 <center>![セットアップ](./media/multi-factor-authentication-end-user-signin-app-notify/phone.png)</center>
 
 
-<li>これ署名された必要があります。</li>
+<li>これでサインインできます。</li>
 
 
-
-
-
-
-
+ 

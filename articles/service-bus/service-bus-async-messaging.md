@@ -15,7 +15,6 @@
    ms.date="09/18/2015"
    ms.author="sethm" />
 
-
 # 非同期メッセージング パターンと高可用性
 
 非同期メッセージングはさまざまな方法で実装できます。 総称してメッセージング エンティティと呼ばれるキュー、トピック、サブスクリプションにより、Azure Service Bus は格納と転送のメカニズムを通じて非同期性をサポートします。 通常の (同期) 操作では、キューとトピックにメッセージを送信し、キューとサブスクリプションからメッセージを受信します。 作成するアプリケーションは、これらのエンティティが常に使用できることに依存します。 さまざまな状況によってエンティティの状態が変化した場合、ほとんどのニーズを満たすことができる、機能を低減したエンティティを提供する方法が必要になります。
@@ -46,7 +45,7 @@
 
 -   Azure データセンター内での Service Bus の障害。 これは、数分または数時間にわたってシステムにアクセスできなくなる、以前からある "致命的な障害" です。
 
-> [AZURE.NOTE] **ストレージ**という用語は、Azure Storage と SQL Azure の両方を意味する場合があります。
+> [AZURE.NOTE] 用語 **ストレージ** Azure Storage および SQL Azure の両方が当てはまります。
 
 Service Bus には、これらの問題に対する数多くの緩和策が用意されています。 以降のセクションでは、個々の問題とそれぞれの緩和策について説明します。
 
@@ -73,7 +72,7 @@ Azure データセンターでの障害の理由として最も可能性が高�
 -   停電 (電源供給と発電源が失われた)。
 -   接続 (クライアントと Azure の間のインターネットの切断)。
 
-いずれの場合も、自然災害または人的災害によって問題が発生します。 この問題に対処し、継続して確実にメッセージを送信できるようにするために、ペアの名前空間を使用して、プライマリの場所を再び正常にしている間は、メッセージを 2 番目の場所に送信するようにできます。 詳細については、次を参照してください。 [Insulating Service Bus アプリケーションに対する Service Bus の障害および災害 [] に関するヒント集][]します。
+いずれの場合も、自然災害または人的災害によって問題が発生します。 この問題に対処し、継続して確実にメッセージを送信できるようにするために、ペアの名前空間を使用して、プライマリの場所を再び正常にしている間は、メッセージを 2 番目の場所に送信するようにできます。 詳細については、次を参照してください。 [Insulating Service Bus アプリケーションに対する Service Bus の障害や障害のためのベスト プラクティス][]します。
 
 ## ペアの名前空間
 
@@ -103,13 +102,13 @@ Azure データセンターでの障害の理由として最も可能性が高�
 
 ### MessagingFactory.PairNamespaceAsync API
 
-ペアの名前空間機能では、次の新しい方法が導入されています、 [Microsoft.ServiceBus.Messaging.MessagingFactory:operator[]][] クラス。
+ペアの名前空間機能では、次の新しい方法が導入されています、 [Microsoft.ServiceBus.Messaging.MessagingFactory][] クラス。
 
 ```
 public Task PairNamespaceAsync(PairedNamespaceOptions options);
 ```
 
-タスクが完了すると、名前空間のペアリングも完了し、いずれかに対して動作できるよう [MessageReceiver][], 、[QueueClient][], 、または [TopicClient:operator[]][] で作成された、 [MessagingFactory][]します。 [Microsoft.ServiceBus.Messaging.PairedNamespaceOptions:operator[]][] で利用できるペアリングのさまざまな種類の基本クラスは、 [MessagingFactory:operator[]][]します。 現在、唯一の派生クラスでという名前 [SendAvailabilityPairedNamespaceOptions:operator[]][], 、送信の可用性要件を実装します。 [SendAvailabilityPairedNamespaceOptions:operator[]][] 相互に構築するコンス トラクターのセットがあります。 ほとんどのパラメーターを持つコンストラクターを見ると、他のコンストラクターの動作を理解できます。
+タスクが完了すると、名前空間のペアリングも完了し、いずれかに対して動作できるよう [MessageReceiver][], 、[QueueClient][], 、または [TopicClient][] で作成された、 [MessagingFactory][]します。 [Microsoft.ServiceBus.Messaging.PairedNamespaceOptions][] できるペアリングのさまざまな種類が含まれる基本クラスは、 [MessagingFactory][]します。 現在、唯一の派生クラスでという名前 [SendAvailabilityPairedNamespaceOptions][], 、送信の可用性要件を実装します。 [SendAvailabilityPairedNamespaceOptions][] 相互に構築するコンス トラクターのセットがあります。 ほとんどのパラメーターを持つコンストラクターを見ると、他のコンストラクターの動作を理解できます。
 
 ```
 public SendAvailabilityPairedNamespaceOptions(
@@ -122,15 +121,15 @@ public SendAvailabilityPairedNamespaceOptions(
 
 これらのパラメーターの意味は次のとおりです。
 
--   *secondaryNamespaceManager*: 初期化された [NamespaceManager:operator[]][] セカンダリ名前空間のインスタンスを [PairNamespaceAsync][] セカンダリ名前空間を設定する方法を使用することができます。 名前空間のキューの一覧を取得し、必要なバックログ キューが存在することを確認するために、マネージャーが使用されます。 これらのキューが存在しない場合は作成されます。 [NamespaceManager][] でトークンを作成できる必要があります、 **管理** を要求します。
+-   *secondaryNamespaceManager*: 初期化された [NamespaceManager][] セカンダリ名前空間のインスタンスを [PairNamespaceAsync][] セカンダリ名前空間を設定する方法を使用することができます。 名前空間のキューの一覧を取得し、必要なバックログ キューが存在することを確認するために、マネージャーが使用されます。 これらのキューが存在しない場合は作成されます。 [NamespaceManager][] でトークンを作成できる必要があります、 **管理** を要求します。
 
--   *messagingFactory*: [MessagingFactory:operator[]][] セカンダリ名前空間のインスタンス。  [MessagingFactory][] を送信するために使用し、 [EnableSyphon][] にプロパティが設定されている **true**, 、バックログ キューからメッセージを受信します。
+-   *messagingFactory*: [MessagingFactory][] セカンダリ名前空間のインスタンス。  [MessagingFactory][] を送信するために使用し、 [EnableSyphon][] にプロパティが設定されている **true**, 、バックログ キューからメッセージを受信します。
 
 -   *backlogQueueCount*: 作成するバックログ キューの数。 この値は 1 以上にする必要があります。 バックログにメッセージを送信する場合、これらのキューの 1 つがランダムに選択されます。 値を 1 に設定した場合、1 つのキューのみを使用できます。 これが発生し、1 つのバックログ キューがエラーを生成した場合、クライアントは別のバックログ キューを試すことができず、メッセージの送信に失敗する可能性があります。 この値を大きな値に設定し、既定値は 10 に設定することをお勧めします。 1 日にアプリケーションが送信するデータの量に応じて、この値をより高い値または低い値に変更できます。 各バックログ キューは最大 5 GB のメッセージを保持できます。
 
--   *failoverInterval*: 1 つのエンティティをセカンダリ名前空間に切り替える前に、プライマリ名前空間で障害を許容する時間。 フェールオーバーはエンティティを基準にして発生します。 1 つの名前空間のエンティティは、Service Bus の異なるノードに存在することが一般的です。 1 つのエンティティの障害は、別のエンティティの障害を意味しません。 この値を設定する [System.TimeSpan.Zero][] 、最初で一時的でない障害の直後に、セカンダリにフェールオーバーします。 フェールオーバー タイマーをトリガーする障害は [MessagingException][] を [IsTransient][] プロパティが false の場合、または [System.TimeoutException][]します。 その他の例外など [UnauthorizedAccessException:operator[]][] 、フェイル オーバーをさせない場合、クライアントの構成が正しくないことを示すためです。 A [ServerBusyException:operator[]][] は原因フェールオーバーが発生しない適切なパターンは、10 秒待機するため、メッセージを再送信します。
+-   *failoverInterval*: セカンダリ名前空間を 1 つのエンティティを切り替える前にプライマリ名前空間で障害を許容する時間。 フェールオーバーはエンティティを基準にして発生します。 1 つの名前空間のエンティティは、Service Bus の異なるノードに存在することが一般的です。 1 つのエンティティの障害は、別のエンティティの障害を意味しません。 この値に設定することができます [System.TimeSpan.Zero][] 、最初で一時的でない障害の直後に、セカンダリにフェールオーバーします。 フェールオーバー タイマーをトリガーする障害は [MessagingException][] を [IsTransient][] プロパティが false の場合、または [System.TimeoutException][]します。 その他の例外など [UnauthorizedAccessException][] 、フェイル オーバーをさせない場合、クライアントの構成が正しくないことを示すためです。 A [ServerBusyException][] は原因フェールオーバーが発生しない適切なパターンは、10 秒待機するため、メッセージを再送信します。
 
--   *enableSyphon*: この特定のペアは、セカンダリ名前空間のメッセージをプライマリ名前空間にサイホンすることを示します。 通常、メッセージを送信するアプリケーションでは、この値を **false** に設定します。メッセージを受信するアプリケーションでは、この値を **true** に設定します。 この理由は頻度であり、メッセージ受信者はメッセージ送信者よりも少ないためです。 受信者の数に応じて、1 つのアプリケーション インスタンスがサイホンの処理を行うようにする選択ができます。 多くの受信者を使用すると、各バックログ キューで課金への影響があります。
+-   *enableSyphon*: この特定のペア サイホンすること、セカンダリ名前空間からのメッセージに、プライマリ名前空間を示します。 一般に、メッセージを送信するアプリケーションはこの値に設定する必要があります **false**; メッセージを受信するアプリケーションがこの値に設定する必要があります **true**します。 この理由は頻度であり、メッセージ受信者はメッセージ送信者よりも少ないためです。 受信者の数に応じて、1 つのアプリケーション インスタンスがサイホンの処理を行うようにする選択ができます。 多くの受信者を使用すると、各バックログ キューで課金への影響があります。
 
 コードを使用するには、作成、プライマリ [MessagingFactory][] インスタンス、セカンダリ [MessagingFactory][] インスタンス、セカンダリ [NamespaceManager][] インスタンス、および [SendAvailabilityPairedNamespaceOptions][] インスタンス。 呼び出しは、次のように単純にすることもできます。
 
@@ -140,7 +139,7 @@ SendAvailabilityPairedNamespaceOptions sendAvailabilityOptions =
 primary.PairNamespaceAsync(sendAvailabilityOptions).Wait();
 ```
 
-によって返されるタスクの場合、 [PairNamespaceAsync][] メソッドが完了すると、すべて設定はされ、使用できるようにします。 タスクが返る前に、ペアリングが正しく動作するために必要なすべてのバックグラウンド作業を完了していない可能性があります。 その結果、タスクが返るまではメッセージの送信を開始できません。 正しくない資格情報などの障害が発生した場合や、バックグラウンド キューの作成に失敗した場合、タスクが完了するとそれらの例外がスローされます。 タスクが返されるは、キューが発見またはを調べることによって作成されたことを確認、 [BacklogQueueCount:operator[]][] プロパティを [SendAvailabilityPairedNamespaceOptions][] インスタンス。 前のコードでは、その操作は次のようになります。
+によって返されるタスクの場合、 [PairNamespaceAsync][] メソッドが完了すると、すべて設定はされ、使用できるようにします。 タスクが返る前に、ペアリングが正しく動作するために必要なすべてのバックグラウンド作業を完了していない可能性があります。 その結果、タスクが返るまではメッセージの送信を開始できません。 正しくない資格情報などの障害が発生した場合や、バックグラウンド キューの作成に失敗した場合、タスクが完了するとそれらの例外がスローされます。 タスクが返されるは、キューが発見またはを調べることによって作成されたことを確認、 [BacklogQueueCount][] プロパティを [SendAvailabilityPairedNamespaceOptions][] インスタンス。 前のコードでは、その操作は次のようになります。
 
 ```
 if (sendAvailabilityOptions.BacklogQueueCount < 1)
@@ -151,26 +150,24 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 
 ## 次のステップ
 
-Service Bus での非同期メッセージングの基本を学習できました、これで、[ペアの名前空間とコストの影響] の詳細についてを読み取る。
+Service Bus での非同期メッセージングの基本を学習できました、これでは、に関する詳細を確認 [paired namespaces and cost implications]します。
 
-
-[serverbusyexception]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx 
-[system.timeoutexception]: https://msdn.microsoft.com/library/system.timeoutexception.aspx 
-[messagingexception]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx 
-[best practices for insulating service bus applications against service bus outages and disasters]: service-bus-outages-disasters.md 
-[microsoft.servicebus.messaging.messagingfactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx 
-[messagereceiver]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx 
-[queueclient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx 
-[topicclient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx 
-[microsoft.servicebus.messaging.pairednamespaceoptions]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.pairednamespaceoptions.aspx 
-[messagingfactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx 
-[sendavailabilitypairednamespaceoptions]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.aspx 
-[namespacemanager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx 
-[pairnamespaceasync]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.pairnamespaceasync.aspx 
-[enablesyphon]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.enablesyphon.aspx 
-[system.timespan.zero]: https://msdn.microsoft.com/library/azure/system.timespan.zero.aspx 
-[istransient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.istransient.aspx 
-[unauthorizedaccessexception]: https://msdn.microsoft.com/library/azure/system.unauthorizedaccessexception.aspx 
-[backlogqueuecount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.backlogqueuecount.aspx 
-[paired namespaces and cost implications]: service-bus-paired-namespaces.md 
-
+  [ServerBusyException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx
+  [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
+  [MessagingException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
+  [Best Practices for Insulating Service Bus Applications Against Service Bus Outages and Disasters]: service-bus-outages-disasters.md
+  [Microsoft.ServiceBus.Messaging.MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
+  [MessageReceiver]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx
+  [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
+  [TopicClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx
+  [Microsoft.ServiceBus.Messaging.PairedNamespaceOptions]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.pairednamespaceoptions.aspx
+  [MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
+  [SendAvailabilityPairedNamespaceOptions]:https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.aspx
+  [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
+  [PairNamespaceAsync]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.pairnamespaceasync.aspx
+  [EnableSyphon]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.enablesyphon.aspx
+  [System.TimeSpan.Zero]: https://msdn.microsoft.com/library/azure/system.timespan.zero.aspx
+  [IsTransient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.istransient.aspx
+  [UnauthorizedAccessException]: https://msdn.microsoft.com/library/azure/system.unauthorizedaccessexception.aspx
+  [BacklogQueueCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.backlogqueuecount.aspx
+  [paired namespaces and cost implications]: service-bus-paired-namespaces.md

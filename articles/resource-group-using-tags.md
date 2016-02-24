@@ -17,21 +17,21 @@
     ms.author="tomfitz"/>
 
 
-
 # タグを使用した Azure リソースの整理
 
 リソース マネージャーを使用すると、タグを適用してリソースを理論的に整理できます。 タグは、定義したプロパティによりリソースを識別するキーと値のペアで構成されます。 同じカテゴリに属すリソースとしてマークするには、これらのリソースに同じタグを適用します。
 
-特定のタグを持つリソースを表示した場合、すべてのリソース グループからリソースが表示されます。 同じリソース グループ内のリソースに限定されないため、デプロイメント関係にとらわれずにリソースを整理できます。 タグは、課金または管理の目的でリソースを整理する必要がある場合に特に役立ちます。
+特定のタグを持つリソースを表示した場合、すべてのリソース グループからリソースが表示されます。 同じリソース グループ内のリソースに限定されないため、デプロイ関係にとらわれずにリソースを整理できます。 タグは、課金または管理の目的でリソースを整理する必要がある場合に特に役立ちます。
 
 リソースまたはリソース グループに追加する各タグは、サブスクリプション全体の分類に自動的に追加されます。 タグの名前でサブスクリプションの分類を事前設定し、リソースとして使用する値を後でタグ付けすることもできます。
 
 各リソースまたはリソース グループには、最大で 15 個のタグを含めることができます。 タグ名は 512 文字まで、タグ値は 256 文字までに制限されます。
-> [AZURE.NOTE] タグを適用できるのは、リソース マネージャーの操作をサポートするリソースのみです。 バーチャル マシン、仮想ネットワークまたは記憶域を従来のデプロイ モデルを作成した場合 (など、Azure ポータルで、または [サービス管理 API](../services/api-management/)), 、そのリソースにタグを適用することはできません。 タグ付けが必要な場合は、リソース マネージャーを介してこれらのリソースを再デプロイする必要があります。 その他のすべてのリソースでは、タグ付けがサポートされています。
+
+> [AZURE.NOTE] タグは、リソース マネージャーの操作をサポートするリソースにのみ適用できます。 バーチャル マシン、仮想ネットワークまたは記憶域を従来のデプロイ モデルを作成した場合 (など、Azure ポータルで、または [サービス管理 API](../services/api-management/))、そのリソースにタグを適用することはできません。 タグ付けが必要な場合は、リソース マネージャーを介してこれらのリソースを再デプロイする必要があります。 その他のすべてのリソースでは、タグ付けがサポートされています。
 
 ## テンプレート内のタグ
 
-デプロイ時にタグをリソースに追加するのは非常に簡単です。 デプロイしているリソースに**タグ**要素を追加し、タグの名前と値を指定するだけです。 タグの名前と値は、サブスクリプションに事前に存在する必要はありません。 各リソースに対して、最大で 15 個のタグを指定できます。
+デプロイ時にタグをリソースに追加するのは非常に簡単です。 単に追加、 **タグ** リソースへの要素を展開しているしてタグの名前と値を指定します。 タグの名前と値は、サブスクリプションに事前に存在する必要はありません。 各リソースに対して、最大で 15 個のタグを指定できます。
 
 次の例では、タグを使用したストレージ アカウントを示します。
 
@@ -55,7 +55,7 @@
 
 ポータルでリソースやリソース グループをタグ付けするのは簡単です。 [参照] ハブを使用してタグを付けるリソースまたはリソース グループに移動し、ブレードの上部にある [概要] セクションの [タグ] 部分をクリックします。
 
-![リソース ブレードとリソース グループのブレードの ](./media/resource-group-using-tags/tag-icon.png)
+![リソース ブレードとリソース グループのブレードの [タグ] 部分](./media/resource-group-using-tags/tag-icon.png)
 
 既に適用されているタグの一覧のブレードが開きます。 これが最初のタグの場合、一覧は空になっています。 タグを追加するには、名前と値を指定し、Enter キーを押すだけです。 いくつかのタグを追加すると、既存のタグの名前と値に基づくオートコンプリート オプションが機能します。これにより、リソース間で一貫性のある分類を適用でき、スペル ミスのような一般的なミスを回避することができます。
 
@@ -73,10 +73,10 @@
 
 [AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-タグはリソースおよびリソース グループに直接適用されます。そのため、既に適用されているタグを調べるには、**Get-AzureRmResource** または **Get-AzureRmResourceGroup**.を使用してリソースまたはリソース グループを取得します。 それでは、リソース グループから始めましょう。
+タグはリソースとどのようなタグが既に適用されているために、リソース グループに直接、リソースまたはリソース グループに単に取得できます **Get AzureRmResource** または **Get AzureRmResourceGroup**します。 それでは、リソース グループから始めましょう。
 
     PS C:\> Get-AzureRmResourceGroup tag-demo
-    
+
     ResourceGroupName : tag-demo
     Location          : southcentralus
     ProvisioningState : Succeeded
@@ -85,7 +85,7 @@
                     Actions  NotActions
                     =======  ==========
                     *
-    
+
     Resources         :
                     Name                             Type                                  Location
                     ===============================  ====================================  ==============
@@ -98,10 +98,11 @@
                     ExamplePlan                      Microsoft.Web/serverFarms             southcentralus
                     tag-demo-site                    Microsoft.Web/sites                   southcentralus
 
-このコマンドレットは、リソース グループに関して、適用されているタグを含むいくつかのメタデータを返します。 リソース グループにタグを付けるには、**Set-AzureRmResourceGroup** コマンドを使用して、タグ名と値を指定するだけです。
+
+このコマンドレットは、リソース グループに関して、適用されているタグを含むいくつかのメタデータを返します。 リソース グループをタグ付けするだけで使用して、 **セット AzureRmResourceGroup** コマンドを使用し、タグ名と値を指定します。
 
     PS C:\> Set-AzureRmResourceGroup tag-demo -Tag @( @{ Name="project"; Value="tags" }, @{ Name="env"; Value="demo"} )
-    
+
     ResourceGroupName : tag-demo
     Location          : southcentralus
     ProvisioningState : Succeeded
@@ -116,7 +117,7 @@
     PS C:\> $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
     PS C:\> $tags += @{Name="status";Value="approved"}
     PS C:\> Set-AzureRmResourceGroup tag-demo -Tag $tags
-    
+
     ResourceGroupName : tag-demo
     Location          : southcentralus
     ProvisioningState : Succeeded
@@ -127,11 +128,12 @@
                     env      demo
                     status   approved
 
+
 特定のタグを 1 つ以上削除するには、削除するタグが含まれない配列を保存します。
 
-プロセスはリソースの場合も同じですが、**Get-AzureRmResource** および **Set-AzureRmResource** コマンドレットを使用する点のみ異なります。
+プロセスは、同じリソースについてを使用して点を除いて、 **Get AzureRmResource** と **セット AzureRmResource** コマンドレットです。 
 
-特定のタグが付けられたリソース グループを取得するには、**Find-AzureRmResourceGroup** コマンドレットに **-Tag** パラメーターを指定して使用します。
+特定のタグを持つリソース グループを取得する **検索 AzureRmResourceGroup** コマンドレットと、 **-タグ** パラメーター。
 
     PS C:\> Find-AzureRmResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
     rbacdemo-group
@@ -147,7 +149,7 @@ Azure PowerShell 1.0 よりも前のバージョンで特定のタグが付け�
     rbacdemo-docdb
     ...    
 
-PowerShell を使用してサブスクリプション内のすべてのタグの一覧を取得するには、**Get-AzureRmTag** コマンドレットを使用します。
+PowerShell を使用してサブスクリプション内のすべてのタグの一覧を取得するには、使用、 **Get AzureRmTag** コマンドレットです。
 
     PS C:/> Get-AzureRmTag
     Name                      Count
@@ -157,7 +159,7 @@ PowerShell を使用してサブスクリプション内のすべてのタグの
 
 "hidden-" や "link:" で始まるタグが表示される場合があります。 これらは内部タグです。これらのタグは単に無視して、変更しないでください。
 
-分類に新しいタグを追加するには、**New-AzureRmTag** コマンドレットを使用します。 これらのタグは、リソースまたはリソース グループにまだ適用されていない場合でもオートコンプリートに含められます。 タグ名/値を削除するには、タグが使用されている任意のリソースからタグを削除した後、**Remove-AzureRmTag** コマンドレットを使用して分類から削除します。
+使用して、 **新規 AzureRmTag** コマンドレットは、分類に新しいタグを追加します。 これらのタグは、リソースまたはリソース グループにまだ適用されていない場合でもオートコンプリートに含められます。 タグの名前と値を削除するタグを削除も一緒に使用する、リソースを使用してから、 **削除 AzureRmTag** コマンドレットを分類から削除します。
 
 ## REST API を使用したタグ付け
 
@@ -171,20 +173,16 @@ PowerShell を使用してサブスクリプション内のすべてのタグの
 また、タグを使用すると、運用環境で実行されている VM の課金データなどの、ランタイム環境ごとにコストを分類することもできます。
 
 使ってタグに関する情報を取得できます、 [Azure Resource Usage api と RateCard Api](billing-usage-rate-card-overview.md) またはからダウンロードできる使用状況のコンマ区切り値 (CSV) ファイル
-the [Azure accounts portal](https://account.windowsazure.com/) or [EA portal](https://ea.azure.com). 課金情報へのプログラムによるアクセスの詳細については、次を参照してください。 [Microsoft Azure のリソース消費を把握](billing-usage-rate-card-overview.md)します。 REST API 操作は、次を参照してください。 [Azure Billing REST API リファレンス](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)します。
+ [Azure へようこそ](https://account.windowsazure.com/) または [EA ポータル](https://ea.azure.com)します。 課金情報へのプログラムによるアクセスの詳細については、次を参照してください。 [Microsoft Azure のリソース消費を把握](billing-usage-rate-card-overview.md)します。 REST API 操作は、次を参照してください。 [Azure Billing REST API リファレンス](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)します。
 
-課金のタグがサポートされているサービスの使用状況 CSV ファイルをダウンロードした場合、タグは「**Tags**」列に表示されます。 詳細については、次を参照してください。 [Microsoft Azure の課金内容](billing-understand-your-bill.md)します。
+タグが表示課金のタグをサポートするサービスの使用状況 CSV をダウンロードすると、 **タグ** 列です。 詳細については、次を参照してください。 [Microsoft Azure の課金内容](billing-understand-your-bill.md)します。
 
 ![課金タグを参照してください](./media/resource-group-using-tags/billing_csv.png)
 
 ## 次のステップ
 
-- カスタマイズしたポリシーを使用して、サブスクリプションの制約と規則を適用できます。 定義するポリシーには、場合によっては、すべてのリソースに特定のタグを設定することが必要になります。 詳細については、次を参照してください。 [ポリシーを使ってリソースを管理し、アクセスを制御する](resource-manager-policy.md)します。
+- カスタマイズしたポリシーを使用して、サブスクリプションの制約と規則を適用できます。 定義するポリシーには、場合によっては、すべてのリソースに特定のタグを設定することが必要になります。 詳細については、次を参照してください。 [ポリシーを使ってリソースを管理し、アクセスを制御する](resource-manager-policy.md)です。
 - Azure PowerShell を使用してリソースをデプロイするときの概要については、次を参照してください。 [Azure リソース マネージャーで Azure PowerShell を使用して](./powershell-azure-resource-manager.md)します。
 - リソースをデプロイするときに Azure CLI の使用の概要については、次を参照してください。 [Mac、Linux、および Azure リソース管理で Windows 用 Azure CLI の使用](./xplat-cli-azure-resource-manager.md)します。
-- ポータルの使用の概要については、を参照してください [Azure ポータルを使用して、Azure リソースを管理する](./resource-group-portal.md)。
-
-
-
-
+- ポータルの使用の概要については、次を参照してください [Azure ポータルを使用して、Azure リソースを管理するには。](./resource-group-portal.md)  
 

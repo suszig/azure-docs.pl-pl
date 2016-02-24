@@ -18,8 +18,7 @@
     ms.author="rasquill"/>
 
 
-
-# Linux を実行する仮想マシンにログオンする方法
+#Linux を実行する仮想マシンにログオンする方法 #
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [リソース マネージャーのデプロイ モデル](virtual-machines-linux-tutorial-portal-rm.md)します。
 
@@ -29,29 +28,28 @@
 - Linux オペレーティング システムを実行する仮想マシンでは、Secure Shell (SSH) クライアントを使用してログオンします。このクライアントは、ほぼすべてのディストリビューションに既定でインストールされています。 参照してください [SSH を使用する方法](virtual-machines-linux-use-ssh-key.md) Linux についてのもう少しです。
 
 
->[AZURE.NOTE] 詳細な要件とトラブルシューティングのヒントについては、次を参照してください。 [RDP または SSH で Azure 仮想マシンに接続する](http://go.microsoft.com/fwlink/p/?LinkId=398294)します。
+>[AZURE.NOTE] 詳細な要件とトラブルシューティングのヒントについては、次を参照してください。 [RDP または SSH で Azure 仮想マシンに接続する](http://go.microsoft.com/fwlink/p/?LinkId=398294)です。
 
 ここでは、PuTTY プログラムを使用して仮想マシンにアクセスする手順を示します。
 
-1. 検索、 **ホスト名** と **ポート情報** から、 [管理ポータル](http://manage.windowsazure.com)します。 仮想マシンのダッシュボードから必要な情報を見つけることができます。 仮想マシン名をクリックし、ダッシュボードの **[概要]** セクションで **[SSH の詳細]** を探します。
+1. 検索、 **ホスト名** と **ポート情報** から、 [管理ポータル](http://manage.windowsazure.com)します。 仮想マシンのダッシュボードから必要な情報を見つけることができます。 仮想マシンの名前をクリックし、検索、 **SSH の詳細** で、 **概要** ダッシュ ボードのセクションです。
 
     ![SSH の詳細の取得](./media/virtual-machines-linux-how-to-log-on/sshdetails.png)
 
 2. PuTTY プログラムを開きます。
 
-3. ダッシュボードから収集したホスト名とポート情報を入力し、**[開く]** をクリックします。
+3. ホスト名と、ダッシュ ボードから収集したポート情報を入力し、クリックして **開く**します。
 
     ![PuTTY を開く](./media/virtual-machines-linux-how-to-log-on/putty.png)
 
-4. マシンの作成時に指定したアカウントを使用して仮想マシンにログオンします。 ユーザー名とパスワードを持つ仮想マシンを作成する方法の詳細については、次を参照してください。 [を実行している Linux の仮想マシンを作成する](virtual-machines-linux-tutorial.md)します。
+4. マシンの作成時に指定したアカウントを使用して仮想マシンにログオンします。 ユーザー名とパスワードを持つ仮想マシンを作成する方法の詳細については、次を参照してください。 [を実行している Linux の仮想マシンを作成する](virtual-machines-linux-tutorial.md)です。
 
     ![仮想マシンへのログオン](./media/virtual-machines-linux-how-to-log-on/sshlogin.png)
 
->[AZURE.NOTE] VMAccess 拡張機能では、SSH キーやパスワードを忘れた場合にリセットできます。 ユーザー名を忘れた場合は、拡張機能を使用して sudo 権限で新しいユーザー名を作成できます。 手順については、次を参照してください。、Linux 仮想マシンのパスワードまたは SSH をリセットする方法]。
+>[AZURE.NOTE] VMAccess 拡張機能では、これを忘れてしまった場合は、SSH キーやパスワードをリセットできます。 ユーザー名を忘れた場合は、拡張機能を使用して sudo 権限で新しいユーザー名を作成できます。 手順については、次を参照してください。、Linux 仮想マシンのパスワードまたは SSH をリセットする方法]。
 
 これで、仮想マシンを他のサーバーとまったく同様に扱うことができます。
 
-
-
-[how to reset a password or ssh for linux virtual machines]: http://go.microsoft.com/fwlink/p/?LinkId=512138 
+<!-- LINKS -->
+[How to Reset a Password or SSH for Linux Virtual Machines]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 

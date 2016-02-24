@@ -15,10 +15,9 @@
    ms.date="12/11/2015"
    ms.author="telmos" />
 
-
 # PowerShell を使用してアクセス制御リスト (ACL) のエンドポイントを管理する方法
 
-Azure PowerShell を使用して、または管理ポータルで、エンドポイントのネットワーク アクセス制御リスト (ACL) を作成し、管理できます。 このトピックでは PowerShell を使用して完了できる ACL の一般的なタスクの手順を説明します。 一連の Azure PowerShell コマンドレットを参照してください [Azure の管理コマンドレット](http://go.microsoft.com/fwlink/?LinkId=317721)します。 Acl の詳細については、を参照してください [ネットワーク アクセス制御リスト (ACL) は何ですか?](../virtual-networks-acl)。. 管理ポータルを使用して Acl を管理、表示する場合 [仮想マシンに対してエンドポイントを設定する方法](../virtual-machines-set-up-endpoints/)します。
+Azure PowerShell を使用して、または管理ポータルで、エンドポイントのネットワーク アクセス制御リスト (ACL) を作成し、管理できます。 このトピックでは PowerShell を使用して完了できる ACL の一般的なタスクの手順を説明します。 一連の Azure PowerShell コマンドレットを参照してください [Azure の管理コマンドレット](http://go.microsoft.com/fwlink/?LinkId=317721)します。 Acl の詳細については、次を参照してください。 [ネットワーク アクセス制御リスト (ACL) は何ですか?](../virtual-networks-acl)します。 管理ポータルを使用して Acl を管理、表示する場合 [仮想マシンに対してエンドポイントを設定する方法](../virtual-machines-set-up-endpoints/)します。
 
 ## Azure PowerShell を使用してネットワーク ACL を管理する
 
@@ -37,7 +36,7 @@ ACL PowerShell コマンドレットの完全な一覧を取得するには、�
 
         $acl1 = New-AzureAclConfig
 
-1. リモート サブネットからのアクセスを許可するルールを設定します。 次の例では、ルール *100* (これはルール 200 以降よりも優先されます) を設定し、リモート サブネット *10.0.0.0/8* から仮想マシンのエンドポイントへのアクセスを許可します。 値を独自の構成要件に置き換えます。 このルールの名前を表示名にして、"SharePoint ACL config" という名前を置き換える必要があります。
+1. リモート サブネットからのアクセスを許可するルールを設定します。 次の例では、ルールを設定 *100* (これは優先順位ルールはルール 200 以降)、リモート サブネットを許可するように *10.0.0.0/8* 仮想マシンのエンドポイントにアクセスします。 値を独自の構成要件に置き換えます。 このルールの名前を表示名にして、"SharePoint ACL config" という名前を置き換える必要があります。
 
         Set-AzureAclConfig –AddRule –ACL $acl1 –Order 100 `
             –Action permit –RemoteSubnet "10.0.0.0/8" `
@@ -68,23 +67,21 @@ ACL PowerShell コマンドレットの完全な一覧を取得するには、�
         |Add-AzureEndpoint –Name "web" –Protocol tcp –Localport 80 - PublicPort 80 –ACL $acl1 `
         |Update-AzureVM
 
-
 ### リモート サブネットからのアクセスを許可するネットワーク ACL ルールを削除します。
 
-次の例では、ネットワーク ACL ルールを削除する方法を示しています。 リモート サブネットの許可ルールを含んだネットワーク ACL ルールを削除するには、Azure PowerShell ISE を開きます。 以下のスクリプトをコピーし、貼り付けて、独自の値でスクリプトを構成してから、スクリプトを実行します。
+次の例では、ネットワーク ACL ルールを削除する方法を示しています。  リモート サブネットの許可ルールを含んだネットワーク ACL ルールを削除するには、Azure PowerShell ISE を開きます。 以下のスクリプトをコピーし、貼り付けて、独自の値でスクリプトを構成してから、スクリプトを実行します。
 
-1. 最初の手順では、仮想マシンのエンドポイントのネットワーク ACL オブジェクトを取得します。 次に、ACL ルールを削除します。 この場合は、ルール ID を指定して削除します。 ここでは、ACL からルール ID 0 のみ削除されます。 仮想マシンのエンドポイントから ACL オブジェクトは削除されません。
+1. 最初の手順では、仮想マシンのエンドポイントのネットワーク ACL オブジェクトを取得します。 次に、ACL ルールを削除します。 この場合は、ルール ID を指定して削除します。 ここでは、ACL からルール ID 0 のみ削除されます。 仮想マシンのエンドポイントから ACL オブジェクトは削除されません。 
 
         Get-AzureVM –ServiceName $serviceName –Name $vmName `
         | Get-AzureAclConfig –EndpointName "web" `
         | Set-AzureAclConfig –RemoveRule –ID 0 –ACL $acl1
 
-1. 次に、仮想マシンのエンドポイントにネットワーク ACL オブジェクトを適用し、仮想マシンを更新する必要があります。
+1. 次に、仮想マシンのエンドポイントにネットワーク ACL オブジェクトを適用し、仮想マシンを更新する必要があります。 
 
         Get-AzureVM –ServiceName $serviceName –Name $vmName `
         | Set-AzureEndpoint –ACL $acl1 –Name "web" `
         | Update-AzureVM
-
 
 ### 仮想マシンのエンドポイントからネットワーク ACL を削除します。
 
@@ -98,8 +95,4 @@ ACL PowerShell コマンドレットの完全な一覧を取得するには、�
 
 [ネットワーク アクセス制御リスト (ACL) とは](../virtual-networks-acl)
 
-[仮想マシンと通信を設定する方法](http://go.microsoft.com/fwlink/?LinkId=303938)
-
-
-
-
+[仮想マシン間の通信をセットアップする方法](http://go.microsoft.com/fwlink/?LinkId=303938) 

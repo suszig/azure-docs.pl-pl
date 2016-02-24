@@ -16,7 +16,6 @@
     ms.date="12/16/2015" 
     ms.author="tomfitz"/>
 
-
 # テンプレートを使用し、Web アプリと Redis Cache を作成する
 
 このトピックでは、Azure Web アプリと Redis Cache をデプロイする Azure リソース マネージャーのテンプレートを作成する方法について説明します。 デプロイ対象のリソースを定義する方法を学習し、 
@@ -33,9 +32,9 @@
 - Azure Web アプリ
 - Azure Redis Cache。
 
-デプロイを自動的に実行するには、次のボタンをクリックします。
+デプロイメントを自動的に実行するには、次のボタンをクリックします。
 
-[![を Azure にデプロイ](./media/cache-web-app-arm-with-redis-cache-provision/deploybutton.png)] (https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-with-redis-cache%2Fazuredeploy.json)
+[![DAzure に eploy](./media/cache-web-app-arm-with-redis-cache-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-with-redis-cache%2Fazuredeploy.json)
 
 ## 指定するパラメーター
 
@@ -45,15 +44,15 @@
 
 
 
-## デプロイするリソース
+## デプロイ対象のリソース
 
 [AZURE.INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 ### Redis Cache
 
-Web アプリで使用される Azure Redis Cache を作成します。 キャッシュの名前は **redisCacheName** パラメーターで指定されます。
+Web アプリで使用される Azure Redis Cache を作成します。 キャッシュの名前が指定された、 **redisCacheName** パラメーター。
 
-テンプレートは Web アプリと同じ場所にキャッシュを作成します。これは最良のパフォーマンスのために推奨されます。
+テンプレートは Web アプリと同じ場所にキャッシュを作成します。これは最良のパフォーマンスのために推奨されます。 
 
     {
       "apiVersion": "2014-04-01-preview",
@@ -71,12 +70,12 @@ Web アプリで使用される Azure Redis Cache を作成します。 キャ�
       }
     }
 
-### Web アプリ
+### Web Apps
 
-**siteName** パラメーターで指定された名前で Web アプリを作成します。
+指定された名前で web アプリを作成、 **siteName** パラメーター。
 
 Redis Cache との連動を可能にするアプリ設定プロパティで Web アプリが構成されることに注意してください。 このアプリ設定は展開時に指定された値に基づいて動的に作成されます。
-
+        
     {
       "apiVersion": "2015-04-01",
       "name": "[parameters('siteName')]",
@@ -112,6 +111,8 @@ Redis Cache との連動を可能にするアプリ設定プロパティで Web 
           }
       ]
     }
+
+
 
 ## デプロイを実行するコマンド
 

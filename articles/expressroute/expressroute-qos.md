@@ -15,43 +15,38 @@
    ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
-
 # ExpressRoute QoS の要件
 
 Skype for Business には、特化した QoS 処理を必要とするさまざまなワークロードがあります。 ExpressRoute で音声サービスを使用する場合、以下の要件に従う必要があります。
 
 ![](./media/expressroute-qos/expressroute-qos.png)
 
-**注記:** QoS 要件は Microsoft ピアリングにのみ適用されます。
+**注:** QoS 要件は、Microsoft ピアリングのみに適用します。
 
 次の表は、Skype for Business で使用される DSCP マーキングを一覧にしたものです。 参照してください [Skype for Business に対する QoS を管理する](https://technet.microsoft.com/library/gg405409.aspx) の詳細。
 
-| **トラフィック クラス**| **処理 (DSCP マーキング)**| **Skype for Business ワークロード**|
+| **トラフィック クラス** | **処理 (DSCP マーキング)** | **Skype for Business ワークロード** |
 |---|---|---|
-| **音声**| EF (46)| Skype / Lync 音声|
-| **対話**| AF41 (34)| ビデオ|
-| | AF21 (18)| アプリ共有|
-| | CS3 (24)| SIP 信号|
-| **既定値**| AF11 (10)| ファイル転送|
-| | CS0 (0)| その他|
+| **音声** | EF (46) | Skype / Lync 音声 |
+| **対話** | AF41 (34) | ビデオ |
+|   | AF21 (18) | アプリ共有 | 
+|   | CS3 (24) | SIP 信号 |
+| **既定値** | AF11 (10) | ファイル転送|
+|   | CS0 (0) | その他| 
 
 
 - ワークロードを分類し、適切な DSCP 値をマークする必要があります。 説明に従って [ここ](https://technet.microsoft.com/library/gg405409.aspx) 、ネットワークで DSCP マーキングを設定する方法にします。
 
-- ネットワーク内で複数の QoS キューを構成し、サポートする必要があります。 音声はスタンドアロン クラスにし、RFC 3246 で指定されている EF 処理を受信する必要があります。
+- ネットワーク内で複数の QoS キューを構成し、サポートする必要があります。 音声はスタンドアロン クラスにし、RFC 3246 で指定されている EF 処理を受信する必要があります。 
 
-- キュー メカニズム、輻輳検出ポリシー、トラフィック クラス別の帯域幅割り当てを決定できます。 ただし、Skype for Business ワークロードの DSCP マーキングを予約する必要があります。 AF31 (26) など、上の一覧にない DSCP マーキングを使用している場合、パケットを Microsoft に送信する前にこの DSCP 値を 0 に書き換える必要があります。 Microsoft は上の表にあるように DSCP 値がマークされているパケットのみを送信します。
+- キュー メカニズム、輻輳検出ポリシー、トラフィック クラス別の帯域幅割り当てを決定できます。 ただし、Skype for Business ワークロードの DSCP マーキングを予約する必要があります。 AF31 (26) など、上の一覧にない DSCP マーキングを使用している場合、パケットを Microsoft に送信する前にこの DSCP 値を 0 に書き換える必要があります。 Microsoft は上の表にあるように DSCP 値がマークされているパケットのみを送信します。 
 
 ## 次のステップ
 
 - 要件を参照して [ルーティング](expressroute-routing.md) と [NAT](expressroute-nat.md)します。
 - ExpressRoute 接続を構成するには、次のリンクを参照してください。
 
-    - [ExpressRoute 回線を作成します。](expressroute-howto-circuit-classic.md)
-    - [ルーティングを構成します。](expressroute-howto-routing-classic.md)
-    - [VNet を ExpressRoute 回線にリンクします。](expressroute-howto-linkvnet-classic.md)
-
-
-
-
+    - [ExpressRoute 回線の作成](expressroute-howto-circuit-classic.md)
+    - [ルーティングの構成](expressroute-howto-routing-classic.md)
+    - [ExpressRoute 回線への VNet のリンク](expressroute-howto-linkvnet-classic.md)
 

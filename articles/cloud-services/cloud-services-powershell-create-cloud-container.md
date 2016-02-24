@@ -16,16 +16,14 @@
    ms.date="10/14/2015"
    ms.author="cawa"/>
 
-
 # Azure PowerShell コマンドを使用して空のクラウド サービス コンテナーを作成する方法
+1. Microsoft Azure PowerShell コマンドレットをインストール [Azure PowerShell のダウンロード](http://go.microsoft.com/?linkid=9811175&clcid=0x409)します。 手順の詳細について Azure PowerShell コマンドレットをインストールしてして、Azure サブスクリプションへの接続を参照してください [をインストールして、Azure PowerShell を構成する方法](../powershell-install-configure.md)します。
 
-1. Microsoft Azure PowerShell コマンドレットをインストール [Azure PowerShell のダウンロード](http://go.microsoft.com/?linkid=9811175&clcid=0x409)します。手順の詳細について Azure PowerShell コマンドレットをインストールしてして、Azure サブスクリプションへの接続を参照してください [をインストールして、Azure PowerShell を構成する方法](../powershell-install-configure.md)します。
-
-2. **New-AzureService** は、空のクラウド サービス コンテナーを作成するためのコマンドレットです。
+2. **New-azureservice** は空のクラウド サービス コンテナーを作成するコマンドレットです。
 
     ```
-    New-azureservice [-ServiceName] <String> [-アフィニティ グループ] <String> [-ラベル] <String>] [の説明] <String>] [-ReverseDnsFqdn] <String>] [<CommonParameters>]
-    New-azureservice [-ServiceName] <String> [-場所] <String> [-ラベル] <String>] [の説明] <String>] [-ReverseDnsFqdn] <String>] [<CommonParameters>]
+    New-AzureService [-ServiceName] <String> [-AffinityGroup] <String> [[-Label] <String>] [[-Description] <String>] [[-ReverseDnsFqdn] <String>] [<CommonParameters>]
+    New-AzureService [-ServiceName] <String> [-Location] <String> [[-Label] <String>] [[-Description] <String>] [[-ReverseDnsFqdn] <String>] [<CommonParameters>]
 ```
 
    An example invoking the cmdlet is:
@@ -38,14 +36,10 @@ New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" 
 Get-help New-AzureService
 ```
 
-4. 次のステップ:
+4. Next steps:
 
-   - クラウド サービスの展開を管理するを参照してください [Get-azureservice](https://msdn.microsoft.com/library/azure/dn495131.aspx), 、[Remove-azureservice](https://msdn.microsoft.com/library/azure/dn495120.aspx), 、および [Set-azureservice](https://msdn.microsoft.com/library/azure/dn495242.aspx) コマンドです。 また、を参照してください [クラウド サービスの構成方法](cloud-services-how-to-configure.md)
+   - To manage the Cloud Service deployment, please refer to [Get-AzureService](https://msdn.microsoft.com/library/azure/dn495131.aspx), [Remove-AzureService](https://msdn.microsoft.com/library/azure/dn495120.aspx), and [Set-AzureService](https://msdn.microsoft.com/library/azure/dn495242.aspx) commands. Also please refer to [How to Configure Cloud Services](cloud-services-how-to-configure.md)
 
-    - Azure にクラウド サービス プロジェクトを発行するを参照してください **PublishCloudService.ps1** コード サンプルを [Azure のクラウド サービスの継続的な配信](cloud-services-dotnet-continuous-delivery.md)
-
-
-
-
-
+    - To publish your Cloud Service project to Azure, please refer to **PublishCloudService.ps1** code sample from [Continuous Delivery for Cloud Service in Azure](cloud-services-dotnet-continuous-delivery.md)
+ 
 

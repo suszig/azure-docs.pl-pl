@@ -17,12 +17,11 @@
     ms.author="curtand"/>
 
 
-
 # Azure ID 管理の基礎
 
+
+
+
+
 [AZURE.INCLUDE [identity](../../includes/identity.md)]
-
-
-
-
 

@@ -16,223 +16,187 @@
     ms.date="12/02/2015" 
     ms.author="deonhe"/>
 
-
 # Azure BizTalk Services のリリース ノート
 
 Microsoft Azure BizTalk Services リリース ノートでは、このリリースの既知の問題について説明します。
 
 ## BizTalk Services の 11 月の更新における新機能
-
-* BizTalk Services ポータルで保存時の暗号化を有効にすることができます。 参照してください [BizTalk Services ポータルでの保存時の暗号化を有効にする](https://msdn.microsoft.com/library/azure/dn874052.aspx)します。
+* BizTalk Services ポータルで保存時の暗号化を有効にすることができます。 参照してください [BizTalk Services ポータルでの保存時の暗号化を有効にする](https://msdn.microsoft.com/library/azure/dn874052.aspx)です。
 
 ## 更新履歴
 
 ### 10 月の更新
 
-* 組織アカウントが次のようにサポートされます。
- * **シナリオ**: (user@live.com) のような Microsoft アカウントを使用して BizTalk サービスのデプロイメントを登録します。 このシナリオでは、Microsoft アカウント ユーザーのみが、BizTalk Services ポータルを使用してその BizTalk サービスを管理できます。 組織アカウントは使用できません。
- * **シナリオ**: (user@fabrikam.com、user@contoso.com など) に、Azure Active Directory で組織のアカウントを使用して BizTalk サービスのデプロイメントを登録します。 このシナリオでは、同じ組織内の Azure Active Directory ユーザーのみが BizTalk Services ポータルを使用してその BizTalk サービスを管理できます。 Microsoft アカウントは使用できません。
+* 組織アカウントが次のようにサポートされます。  
+ * **シナリオ**: (user@live.com) のような Microsoft アカウントを使用して BizTalk サービスのデプロイメントを登録します。 このシナリオでは、Microsoft アカウント ユーザーのみが、BizTalk Services ポータルを使用してその BizTalk サービスを管理できます。 組織アカウントは使用できません。  
+ * **シナリオ**: (user@fabrikam.com、user@contoso.com など) に、Azure Active Directory で組織のアカウントを使用して BizTalk サービスのデプロイメントを登録します。 このシナリオでは、同じ組織内の Azure Active Directory ユーザーのみが BizTalk Services ポータルを使用してその BizTalk サービスを管理できます。 Microsoft アカウントは使用できません。  
 * Azure クラシック ポータルで BizTalk サービスを作成すると、ユーザーは BizTalk Services ポータルに自動的に登録されます。
- * **シナリオ**: Azure クラシック ポータルにサインインして、BizTalk サービスを作成した後、初めて **[管理]** を選択した。 BizTalk Services ポータルが開くと、BizTalk サービスが自動的に登録され、デプロイできる状態になります。  
- 参照してください [を登録して、BizTalk で BizTalk サービス デプロイの更新サービスのポータル](https://msdn.microsoft.com/library/azure/hh689837.aspx)します。
+ * **シナリオ**: BizTalk サービスを作成し、[Azure 旧ポータルにサインインする **管理** 非常に最初にします。 BizTalk Services ポータルが開くと、BizTalk サービスが自動的に登録され、デプロイできる状態になります。  
+ 参照してください [を登録して、BizTalk で BizTalk サービス デプロイの更新サービスのポータル](https://msdn.microsoft.com/library/azure/hh689837.aspx)します。  
 
 ### 8 月 14 日の更新
-
-* 契約とブリッジの分離 - BizTalk Services ポータルで取引先契約とブリッジが分離されました。 契約とブリッジを個別に作成するようになりました。実行時には EDI メッセージの値に基づいてブリッジが契約に解決されます。 参照してください [Azure BizTalk サービスで契約を作成する](https://msdn.microsoft.com/library/azure/hh689908.aspx), 、[BizTalk サービス ポータルを使用して EDI ブリッジの作成](https://msdn.microsoft.com/library/azure/dn793986.aspx), 、[BizTalk サービス ポータルを使用して AS2 ブリッジの作成](https://msdn.microsoft.com/library/azure/dn793993.aspx), 、および [どのブリッジ実行時にアグリーメントを解決?](https://msdn.microsoft.com/library/azure/dn794001.aspx)
-* 契約のテンプレートを作成するためのオプションが廃止されました。
-* 送信側契約は、スキーマごとに異なる区切り記号セットを指定できるようになりました。 この構成は、送信側契約のプロトコル設定で指定します。 詳細については、次を参照してください。 [x12 作成 Azure BizTalk サービスで契約](https://msdn.microsoft.com/library/azure/hh689847.aspx) と [Azure BizTalk サービスで EDIFACT アグリーメントを作成](https://msdn.microsoft.com/library/azure/dn606267.aspx)します。 同じ目的のために、TPM OM API にも 2 つの新しいエンティティが追加されました。 参照してください [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) と [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx)します。
-* 派生型を含む標準 XSD コンストラクトがサポートされるようになりました。 参照してください [をマップでの使用の標準 XSD コンストラクト](https://msdn.microsoft.com/library/azure/dn793987.aspx) と [マッピングのシナリオと例で使用する派生型](https://msdn.microsoft.com/library/azure/dn793997.aspx)します。
-* AS2 でメッセージ署名のための新しい MIC アルゴリズムと新しい暗号化アルゴリズムがサポートされるようになりました。 [を参照してください Azure BizTalk サービスで AS2 アグリーメントを作成](https://msdn.microsoft.com/library/azure/hh689890.aspx)します。
+* 契約とブリッジの分離 - BizTalk Services ポータルで取引先契約とブリッジが分離されました。 契約とブリッジを個別に作成するようになりました。実行時には EDI メッセージの値に基づいてブリッジが契約に解決されます。 参照してください [Azure BizTalk サービスで契約を作成する](https://msdn.microsoft.com/library/azure/hh689908.aspx), 、[BizTalk サービス ポータルを使用して EDI ブリッジの作成](https://msdn.microsoft.com/library/azure/dn793986.aspx), 、[BizTalk サービス ポータルを使用して AS2 ブリッジの作成](https://msdn.microsoft.com/library/azure/dn793993.aspx), 、および [どのブリッジ実行時にアグリーメントを解決でしょうか。](https://msdn.microsoft.com/library/azure/dn794001.aspx)  
+* 契約のテンプレートを作成するためのオプションが廃止されました。  
+* 送信側契約は、スキーマごとに異なる区切り記号セットを指定できるようになりました。 この構成は、送信側契約のプロトコル設定で指定します。 詳細については、次を参照してください。 [x12 作成 Azure BizTalk サービスで契約](https://msdn.microsoft.com/library/azure/hh689847.aspx) と [Azure BizTalk サービスで EDIFACT アグリーメントを作成](https://msdn.microsoft.com/library/azure/dn606267.aspx)します。 同じ目的のために、TPM OM API にも 2 つの新しいエンティティが追加されました。 参照してください [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) と [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx)します。  
+* 派生型を含む標準 XSD コンストラクトがサポートされるようになりました。 参照してください [をマップでの使用の標準 XSD コンストラクト](https://msdn.microsoft.com/library/azure/dn793987.aspx) と [マッピングのシナリオと例で使用する派生型](https://msdn.microsoft.com/library/azure/dn793997.aspx)します。  
+* AS2 でメッセージ署名のための新しい MIC アルゴリズムと新しい暗号化アルゴリズムがサポートされるようになりました。 [参照してください Azure BizTalk サービスで AS2 アグリーメントを作成](https://msdn.microsoft.com/library/azure/hh689890.aspx)します。  
 ## 既知の問題
 
 ### BizTalk Services ポータル更新後の接続に関する問題
 
   BizTalk Services ポータルが開いているときに BizTalk Services をアップグレードし、サービスへの変更を取り込むと、BizTalk Services ポータルの接続に問題が発生することがあります。  
-  対処法としては、ブラウザーを再起動するか、ブラウザーのキャッシュを削除するか、プライベート モードでポータルを起動します。
+  対処法としては、ブラウザーを再起動するか、ブラウザーのキャッシュを削除するか、プライベート モードでポータルを起動します。  
 
 ### BizTalk Services プロジェクトのエラーまたは警告をクリックしたとき、Visual Studio IDE がアーティファクトを特定できない
-
-この問題を解決するには、Visual Studio 2012 Update 3 RC 1 をインストールします。
+この問題を解決するには、Visual Studio 2012 Update 3 RC 1 をインストールします。  
 
 ### カスタム バインド プロジェクトの参照
-
-BizTalk サービス プロジェクトを Visual Studio ソリューションでは、次の状況を考慮してください。
-* Visual Studio ソリューションでは、BizTalk サービス プロジェクトおよびカスタム バインド プロジェクトです。 BizTalk サービス プロジェクトには、このカスタム バインド プロジェクト ファイルへの参照があります。
+BizTalk サービス プロジェクトを Visual Studio ソリューションでは、次の状況を考慮してください。  
+* Visual Studio ソリューションでは、BizTalk サービス プロジェクトおよびカスタム バインド プロジェクトです。 BizTalk サービス プロジェクトには、このカスタム バインド プロジェクト ファイルへの参照があります。 
 * BizTalk サービス プロジェクトには、カスタム バインド/動作 DLL への参照があります。
 
 Visual Studio では、ソリューションが正常に "ビルド" されます。 その後、ソリューションを "リビルド" または "クリーン" した その後、リビルドまたはクリーンを再度する場合は、次のエラーが発生します。  
-  ファイルをコピーできません <Path to DLL> "bin\Debug\FileName.dll"にします。ファイル ‘bin\Debug\FileName.dll’ は、別のプロセスで使用されているため、アクセスできません。
+  ファイルをコピーできません。 <Path to DLL> "bin\Debug\FileName.dll"です。 ファイル ‘bin\Debug\FileName.dll’ は、別のプロセスで使用されているため、アクセスできません。  
 
 #### 対処法
-
 * 場合 [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) がインストールされている、次の 2 つのオプションがあります。
 
   * Visual Studio を再起動します。
 
-  * ソリューションを再起動します。 起動後、ソリューションのビルドのみを実行します。
+  * ソリューションを再起動します。 起動後、ソリューションのビルドのみを実行します。  
 
-* 場合 [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) がインストールされている、開かれているタスク マネージャー、タブをクリックして、プロセス、MSBuild.exe プロセス] をクリックし、[プロセスの終了] をクリックします。
+* 場合 [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) がインストールされている、開かれているタスク マネージャー、タブをクリックして、プロセス、MSBuild.exe プロセス] をクリックし、[プロセスの終了] をクリックします。  
 
 ### 印刷不可能な文字が HTTP ヘッダーとして昇格されている場合、ブリッジと BizTalk Services ポータルから BasicHttpRelay エンドポイントにルーティングできない
 
-メッセージの昇格されたプロパティの一部として印刷不可能な文字を使用している場合は、BasicHttpRelay バインドを使用しているリレー先にそのメッセージをルーティングすることはできません。 また、追跡の一部として使用できる昇格されたプロパティは、BLOB 用には URL にエンコードされますが、送信先用にはエンコードされません。
+メッセージの昇格されたプロパティの一部として印刷不可能な文字を使用している場合は、BasicHttpRelay バインドを使用しているリレー先にそのメッセージをルーティングすることはできません。 また、追跡の一部として使用できる昇格されたプロパティは、BLOB 用には URL にエンコードされますが、送信先用にはエンコードされません。  
 
-### [非同期 MDN の送信] オプションが選択されていない場合でも、MDN が非同期で送信される
+### [非同期 MDN の送信] オプションが選択されていない場合でも、MDN が非同期で送信される  
+選択する場合は、このシナリオを検討してください、 **非同期 MDN の送信** チェック ボックスをオンし、[非同期 MDN を送信するための URL を指定に、ボックスをオフにし、 **非同期 MDN の送信** チェック ボックスをもう一度、MDN が引き続き送信指定された URL へ非同期 Mdn を送信するオプションが選択されていない場合でもです。  
+この問題を回避するには、オフにする前に指定 URL を消去する必要があります、 **非同期 MDN の送信** チェック ボックスをオンし、AS2 アグリーメントを展開します。  
 
-次のシナリオが該当します: **[非同期 MDN の送信]** チェック ボックスをオンにし、非同期 MDN の送信先の URL を指定した後で、**[非同期 MDN の送信]** チェック ボックスをオフにすると、非同期 MDN を送信するオプションが選択されていなくても MDN が引き続き指定した URL に送信される。  
-対処法としては、**[非同期 MDN の送信]** チェック ボックスをオフにする前に指定済みの URL を消去してから、AS2 契約をデプロイします。
+### 有効なインターチェンジの後に空白文字があると、保留エンドポイントに空のメッセージが送信される  
+IEA セグメントの後に空白文字があると、逆アセンブラーはそこを現在のインターチェンジの終端として処理し、その後の一連の空白文字を次のメッセージと見なします。 後のメッセージは有効なインターチェンジではないため、1 件の成功メッセージがルーティング先に送信され、1 件の空のメッセージが保留エンドポイントに送信される場合があります。  
+### BizTalk Services ポータルにおける追跡  
+追跡イベントは EDI メッセージ処理と相関関係までキャプチャされます。 プロトコル ステージとは別の要素でメッセージにエラーが発生した場合、追跡は正常と表示されます。 このような状況では、下のセクションでログを参照してください、 **詳細** 内の列 **追跡** エラーの詳細。
+X12 受信および送信の設定 ([x12 作成 Azure BizTalk サービスで契約](https://msdn.microsoft.com/library/azure/hh689847.aspx)) プロトコル段階の情報を提供します。  
 
-### 有効なインターチェンジの後に空白文字があると、保留エンドポイントに空のメッセージが送信される
-
-IEA セグメントの後に空白文字があると、逆アセンブラーはそこを現在のインターチェンジの終端として処理し、その後の一連の空白文字を次のメッセージと見なします。 後のメッセージは有効なインターチェンジではないため、1 件の成功メッセージがルーティング先に送信され、1 件の空のメッセージが保留エンドポイントに送信される場合があります。
-### BizTalk Services ポータルにおける追跡
-
-追跡イベントは EDI メッセージ処理と相関関係までキャプチャされます。 プロトコル ステージとは別の要素でメッセージにエラーが発生した場合、追跡は正常と表示されます。 この状況では、エラーの詳細は **[追跡]** の **[詳細]** 列の [LOG] セクションで確認できます。
-X12 受信および送信の設定 ([x12 作成 Azure BizTalk サービスで契約](https://msdn.microsoft.com/library/azure/hh689847.aspx)) プロトコル段階の情報を提供します。
-
-### 契約の更新
-
+### 契約の更新  
 BizTalk Services ポータルでは、契約の構成時に ID の修飾子を変更できます。 結果として、プロパティに一貫性がなくなる可能性があります。 たとえば、修飾子として ZZ:1234567 および ZZ:7654321 を使用する契約があるとします。 BizTalk Services ポータルのプロファイル設定で、ZZ:1234567 を 01:ChangedValue に変更し、 契約を開くと、ZZ:1234567 ではなく 01:ChangedValue が表示されます。
-ID の修飾子を変更する場合は、契約を削除し、パートナー プロファイルで **ID** を更新した後で、契約を再度作成してください。
-> AZURE.WARNING この動作は X12 と AS2 に影響を与えます。
+Id の修飾子の変更、契約の削除、更新 **アイデンティティ** パートナー プロファイルおよびアグリーメントを再作成します。  
+> AZURE.WARNING この動作は X12 と AS2 に影響を与えます。  
 
-### AS2 添付ファイル
-
-AS2 メッセージの添付ファイルは送信と受信のどちらでもサポートされていません。 具体的には、添付ファイルは確認なしで無視され、メッセージ本文は通常の AS2 メッセージとして処理されます。
-### リソース: パスの記憶
-
-**リソース**を追加する際、リソースを追加するために前に使用したパスがダイアログ ウィンドウに記憶されていない場合があります。 前に使用したパスを記憶するには、Internet Explorer の **[信頼済みサイト]** に BizTalk Services ポータル Web サイトを追加してみてください。
+### AS2 添付ファイル  
+AS2 メッセージの添付ファイルは送信と受信のどちらでもサポートされていません。 具体的には、添付ファイルは確認なしで無視され、メッセージ本文は通常の AS2 メッセージとして処理されます。  
+### リソース: パスの記憶  
+追加するときに **リソース**, 、リソースを追加する前に使用されるパスがダイアログ ウィンドウに保持されていない可能性があります。 以前使用したパスを注意してくださいには、BizTalk サービス ポータル web サイトを追加してみて **信頼済みサイト** Internet Explorer でします。  
 ### ブリッジのエンティティ名を変更し、変更を保存しないでプロジェクトを閉じると、再度エンティティを開いたときにエラーが発生する
+次の順序でシナリオを考慮してください。  
+* ブリッジ (XML の一方向ブリッジなど) を BizTalk サービス プロジェクトに追加します。  
 
-次の順序でシナリオを考慮してください。
-* ブリッジ (XML の一方向ブリッジなど) を BizTalk サービス プロジェクトに追加します。
+* ブリッジの名前を変更するために [エンティティ名] プロパティの値を指定する。 これによって、関連する .bridgeconfig ファイルの名前が指定した名前に変更される。  
 
-* ブリッジの名前を変更するために [エンティティ名] プロパティの値を指定する。 これによって、関連する .bridgeconfig ファイルの名前が指定した名前に変更される。
-
-* 変更を保存しないで .bcs ファイルを閉じる (Visual Studio のタブを閉じる)。
+* 変更を保存しないで .bcs ファイルを閉じる (Visual Studio のタブを閉じる)。  
 
 * ソリューション エクスプローラーから再度 .bcs ファイルを開く。  
 関連する .bridgeconfig ファイルは指定した新しい名前に変更されているのに対して、デザイン画面のエンティティ名は以前の名前のままです。 ブリッジ コンポーネントをダブルクリックし、ブリッジの構成を開こうとすると、次のエラーが発生します。  
-  '<old name>'エンティティに関連付けられたファイル'<old name>.bridgeconfig' が存在しません。  
-このシナリオを避けるために、変更を保存すると、BizTalk サービス プロジェクト内のエンティティの名前を変更した後になっていることを確認します。
+  ‘<old name>' エンティティに関連付けられたファイル '<old name>.bridgeconfig' が存在しません。  
+このシナリオを避けるために、変更を保存すると、BizTalk サービス プロジェクト内のエンティティの名前を変更した後になっていることを確認します。  
 ### アーティファクトが Visual Studio プロジェクトから除外されているのに、BizTalk サービス プロジェクトのビルドが成功する
-
 アーティファクト (XSD ファイルなど) を BizTalk サービス プロジェクトに追加し、そのアーティファクトをブリッジ構成に含めた (たとえば、要求メッセージの種類としてそれを指定した) 後で、Visual Studio プロジェクトから除外したシナリオが該当します。 このような場合、除外したアーティファクトがディスク上の、Visual Studio プロジェクトに含めたときと同じ場所にある限り、プロジェクトをビルドしてもエラーは発生しません。
 ### BizTalk サービス プロジェクトで、ブリッジの構成時にスキーマの可用性がチェックされない
-
 BizTalk サービス プロジェクトでは、プロジェクトに追加されたスキーマが別のスキーマをインポートした場合、インポートされたスキーマがプロジェクトに追加されたかどうかをチェックしません。 そのようなプロジェクトをビルドしても、ビルド エラーは発生しません。
 ### XML 要求-応答ブリッジの応答メッセージの文字セットが常に UTF-8 になる
-
 このリリースでは、XML 要求-応答ブリッジの応答メッセージの文字セットは常に UTF-8 に設定されます。
 ### ユーザー定義のデータ型
-
 BizTalk アダプター サービス機能に含まれている BizTalk Adapter Pack アダプターでは、アダプター操作でユーザー定義のデータ型を使用できます。
 ユーザー定義のデータ型を使用する際は、ファイル (.dll) をドライブ \Program Files\Microsoft BizTalk Adapter Service\BAServiceRuntime\bin\ か BizTalk アダプター サービスをホストしているサーバーのグローバル アセンブリ キャッシュ (GAC) にコピーします。 それ以外の場合、次のエラーは、クライアントで発生する可能性があります。  
 ```<s:Fault xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
   <faultcode>s:Client</faultcode>
-  <faultstring xml:lang="en-US">FullName を持つ UDT"ファイル、FileUDT、バージョン = 値のカルチャ値、PublicKeyToken = = 値"ロードできませんでした。グローバル アセンブリ キャッシュに UDT の定義を含むアセンブリを配置し直してください。</faultstring>
+  <faultstring xml:lang="en-US">The UDT with FullName "File, FileUDT, Version=Value, Culture=Value, PublicKeyToken=Value" could not be loaded. Try placing the assembly containing the UDT definition in the Global Assembly Cache.</faultstring>
   <detail>
     <AFConnectRuntimeFault xmlns="http://Microsoft.ApplicationServer.Integration.AFConnect/2011" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
       <ExceptionCode>ERROR_IN_SENDING_MESSAGE</ExceptionCode>
     </AFConnectRuntimeFault>
   </detail>
 </s:Fault> ```  
-> [AZURE.IMPORTANT] GACUtil.exe を使用して、ファイルをグローバル アセンブリ キャッシュにインストールすることをお勧めします。 GACUtil.exe には、このツールと Visual Studio コマンド ライン オプションの使用方法に関する説明があります。  
+> [AZURE.IMPORTANT] It is recommended to use GACUtil.exe to install a file into the Global Assembly Cache. GACUtil.exe documents how to use this tool and the Visual Studio command line options.  
 
-### BizTalk アダプター サービス Web サイトの再起動
+### Restarting the BizTalk Adapter Service Web Site
+Installing the **BizTalk Adapter Service Runtime*** creates the **BizTalk Adapter Service** web site in IIS that contains the **BAService** application. **BAService** application internally uses relay binding to extend the reach of on-premise service endpoint to the cloud. For a service hosted on-premises, the corresponding relay endpoint will be registered on the Service Bus only when the on-premises service starts.  
 
-インストールする、 **BizTalk アダプター サービスのランタイム *** を作成、 **BizTalk アダプター サービス** を含む IIS の web サイト、 **BAService** アプリケーションです。 **BAService** アプリケーションでは、オンプレミスのサービス エンドポイントの範囲をクラウドまで拡大するために、リレー バインドを内部で使用しています。 サービスがオンプレミスでホストされている場合、オンプレミス サービスが開始されて初めて、対応するリレー エンドポイントが Service Bus に登録されます。
+If you stop and start an application, the configuration for auto-starting an application is not honored. So when **BAService** is stopped, you must always restart the **BizTalk Adapter Service** web site instead. Do not start or stop the **BAService** application.
+### Special characters should not be used for address and entity names of LOB components
+You should not use special characters for address and entity names of LOB components. If you do so, you will get an error while deploying the BizTalk Service project. For certain characters like ‘%’, the BizTalk Adapter Service website might go into a stopped state and you will have to manually start it.
+### Test Map with Get Context Property
+If a Transform contains a **Get Context Property** Map Operation, **Test Map** will fail. As a temporary workaround, replace the **Get Context Property** Map Operation with a String Concatenate Map Operation containing dummy data. This will populate the target schema and allow you test other Transform functionality.
+### Test Map Property does not display
+The **Test Map** properties do not display in Visual Studio. This can occur if the **Properties** window and the **Solution Explorer** window are not simultaneously docked. To resolve this, dock the **Properties** and the **Solution Explorer** windows.  
+### DateTime Reformat drop-down is grayed out
+When a DateTime Reformat Map Operation is added to the design surface and configured, the Format drop-down list may be grayed out. This can happen if the computer Display is set **Medium – 125%** or **Larger – 150%**. To resolve, set the display to **Smaller – 100% (default)** using the steps below:  
+1. Open the **Control Panel** and click **Appearance and Personalization**.
+2. Click **Display**.
+3. Click **Smaller – 100% (default)** and click **Apply**.
 
-アプリケーションを停止して開始すると、アプリケーションを自動開始する構成は有効になりません。 そのため、**BAService** が停止した場合は、常に **BizTalk アダプター サービス** Web サイトを再起動する必要があります。 **BAService** アプリケーションは、開始も停止もしないでください。
-### LOB コンポーネントのアドレスとエンティティ名に特殊文字を使用できない
+The **Format** drop-down list should now work as expected.
+### Duplicate agreements in the BizTalk Services Portal
+Consider the following scenario:
+1. Create an agreement using the Trading Partner Management OM API.
+2. Open the agreement in the BizTalk Services Portal in two different tabs.
+3. Deploy the agreement from both the tabs.
+4. As a result, both the agreements get deployed resulting in duplicate entries in the BizTalk Services Portal
 
-LOB コンポーネントのアドレスとエンティティ名には特殊文字を使用しないでください。 使用すると、BizTalk サービス プロジェクトのデプロイ時にエラーが発生します。 "%" など特定の文字を使用すると、BizTalk アダプター サービス Web サイトが停止状態になることがあります。その場合は、手動で開始する必要があります。
-### コンテキスト プロパティの取得によるマップのテスト
+**Workaround**. Open any one of the duplicate agreements in the BizTalk Services Portal, and undeploy.  
 
-変換に "**コンテキスト プロパティの取得**" マップ操作が含まれていると、**マップのテスト**が失敗します。 一時的な対処法としては、"**コンテキスト プロパティの取得**" マップ操作を、ダミー データが含まれた "文字列連結" マップ操作に置き換えます。 これにより、ターゲット スキーマにデータが入力され、他の変換機能をテストできます。
-### "マップのテスト" プロパティが表示されない
+### Bridges do not use updated certificate even after a certificate has been updated in the artifact store
+Consider the following scenarios:  
 
-"**マップのテスト**" プロパティが Visual Studio に表示されない現象は、 **[プロパティ]** ウィンドウと **[ソリューション エクスプローラー]** ウィンドウが同時にドックされていない場合に発生します。 これを解決するには、**[プロパティ]** ウィンドウと **[ソリューション エクスプローラー]** ウィンドウをドックします。
-### [DateTime 再フォーマット] ボックスの一覧がグレー表示される
+**Scenario 1: Using thumbprint-based certificates for securing message transfer from a bridge to a service endpoint**  
+Consider a scenario where you use thumbprint-based certificates in your BizTalk Service project. You update the certificate in the BizTalk Services Portal with the same name but a different thumbprint, but do not update the BizTalk Service project accordingly. In such a scenario, the bridge might continue to process the messages because the older certificate data might still be in the channel cache. After that, message processing fails.  
 
-"DateTime 再フォーマット" マップ操作がデザイン画面に追加されて構成されると、[フォーマット] ボックスの一覧がグレー表示される場合があります。 これは、コンピューターのディスプレイが **[中 – 125%]** または **[大 – 150%]** に設定されている場合に発生することがあります。 解決するに表示を設定します。 **小-100% (既定値)** 次の手順を使用します。
-1. **[コントロール パネル]** を開き、**[デスクトップのカスタマイズ]** をクリックします。
-2. **[ディスプレイ]** をクリックします。
-3. **[小 - 100% (既定)]** をクリックし、**[適用]** をクリックします。
+**Workaround**: Update the certificate in the BizTalk Service project and redeploy the project.  
 
-これで、**[フォーマット]** ボックスの一覧は正常に動作するようになります。
-### BizTalk Services ポータルの契約が重複している
+**Scenario 2: Using name-based behaviors to identify certificates for securing message transfer from a bridge to a service endpoint** 
 
-次のシナリオで考えてみましょう。
-1. 取引先管理 OM API を使用して契約を作成する。
-2. BizTalk Services ポータルで、契約を 2 つの異なるタブで開く。
-3. 両方のタブで契約をデプロイする。
-4. 結果として、両方の契約がデプロイされ、BizTalk Services ポータルのエントリが重複する。
+Consider a scenario where you use name-based behaviors to identify certificates in your BizTalk Service project. You update the certificate in the BizTalk Services Portal but do not update the BizTalk Service project accordingly. In such a scenario, the bridge might continue to process the messages because the older certificate data might still be in the channel cache. After that, message processing fails.  
 
-**対処法**: BizTalk Services ポータルで重複する契約の 1 つを開き、デプロイを解除します。
+**Workaround**: Update the certificate in the BizTalk Service project and redeploy the project.  
 
-### アーティファクト ストアで証明書を更新した後も、更新された証明書がブリッジで使用されない
+### Bridges continue to process messages even when the SQL database is offline
+The BizTalk Services bridges continue to process messages for a while, even if the Microsoft Azure SQL Database (which stores the running information like deployed artifacts and pipelines), is offline. This is because BizTalk Services uses the cached artifacts and bridge configuration.
+If you do not want the bridges to process any messages when the SQL Database is offline, you can use the BizTalk Services PowerShell cmdlets to stop or suspend the BizTalk Service. See [Azure BizTalk Service Management Sample](http://go.microsoft.com/fwlink/p/?LinkID=329019) for the Windows PowerShell cmdlets to manage operations.  
+### Reading the XML message within a bridge’s custom code component includes an extra BOM character
+Consider a scenario where you want to read an XML message within a bridge’s custom code. If you use the .NET API System.Text.Encoding.UTF8.GetString(bytes) an extra BOM character is included in the output at the beginning of the message. So, if you do not want the output to include the extra BOM character, you must use ```System.IO.StreamReader().ReadToEnd()```.
+### Sending messages to a bridge using WCF does not scale
+Messages sent to a bridge using WCF does not scale. You should instead use HttpWebRequest if you want a scalable client.
+### UPGRADE: Token Provider error after upgrading from BizTalk Services Preview to General Availability (GA)
+There is an EDI or AS2 Agreement with active batches. When the BizTalk Service is upgraded from Preview to GA, the following may occur:
+* Error: The token provider was unable to provide a security token. Token provider returned message: The remote name could not be resolved.
 
-次のシナリオで考えてみましょう。
+* Batch tasks are canceled.
 
-**シナリオ 1: ブリッジからサービス エンドポイントへのメッセージ転送を保護するための証明書のサムプリントに基づくの使用**  
-BizTalk サービス プロジェクトでサムプリントに基づく証明書を使用するシナリオを検討してください。 BizTalk Services ポータルの証明書を名前は変えずに異なるサムプリントを使用して更新したのに、BizTalk サービス プロジェクトはそれに応じた更新をしていない場合が該当します。 このようなシナリオでは、以前の証明書データがチャネル キャッシュ内にまだ存在しているために、ブリッジがメッセージの処理を続行することがあります。 その場合、メッセージの処理が失敗します。
+**Workaround**: After the BizTalk Service is updated to General Availability (GA), redeploy the agreement.  
 
-**対処法**: BizTalk サービス プロジェクトで証明書を更新し、プロジェクトを再デプロイします。
+### UPGRADE: Toolbox shows the old bridge icons after upgrading the BizTalk Services SDK
+After you upgrade an earlier version of the BizTalk Services SDK, which had old icons representing the bridges, the toolbox continues to show the old icons for the bridges. However, if you add a bridge to BizTalk Service project designer surface, the surface shows the new icon.  
 
-**シナリオ 2: ブリッジからサービス エンドポイントへのメッセージ転送を保護するために、名前ベースの動作を使用して証明書を識別している**
+**Workaround**. You can work around this issue by deleting the .tbd files under <system drive>:\Users\<user>\AppData\Local\Microsoft\VisualStudio\11.0.  
 
-BizTalk サービス プロジェクトで名前ベースの動作を使用して証明書を確認しているシナリオで、 BizTalk Services ポータルの証明書を更新したのに、BizTalk サービス プロジェクトはそれに応じた更新をしていない場合が該当します。 このようなシナリオでは、以前の証明書データがチャネル キャッシュ内にまだ存在しているために、ブリッジがメッセージの処理を続行することがあります。 その場合、メッセージの処理が失敗します。
+### UPGRADE: BizTalk Portal update from Preview to GA might show an error indicating that the EDI capability is not available
+If you are logged into the BizTalk Services Portal while the BizTalk Services is upgraded from Preview to GA, you might get the following error on the portal:  
 
-**対処法**: BizTalk サービス プロジェクトで証明書を更新し、プロジェクトを再デプロイします。
+This capability is not available as part of this edition of Microsoft Azure BizTalk Services. To use these capabilities switch to an appropriate edition.  
 
-### SQL Database がオフラインの場合でも、ブリッジがメッセージの処理を続行する
+**Resolution**: Log out from the portal, close and open the browser, and then log into the portal.  
+### UPGRADE: New tracking data does not show up after BizTalk Services is upgraded to GA
+Assume a scenario where you have an XML bridge deployed on BizTalk Services Preview subscription. You send messages to the bridge and the corresponding tracking data is available on the BizTalk Services Portal. Now, if the BizTalk Services Portal and BizTalk Services runtime bits are upgraded to GA, and you send a message to the same bridge endpoint deployed earlier, the tracking data does not show up for messages sent after upgrade.  
 
-(デプロイされたアーティファクトやパイプラインなどの実行中の情報が格納されている) Microsoft Azure SQL Database がオフラインになっても、BizTalk Services ブリッジはしばらくの間メッセージの処理を続行します。 これは、BizTalk Services がキャッシュされたアーティファクトとブリッジ構成を使用しているためです。
-SQL Database がオフラインのときにブリッジがメッセージを処理しないようにするには、BizTalk Services PowerShell コマンドレットを使用して、BizTalk サービスを停止または一時停止します。 参照してください [Azure BizTalk サービス管理サンプル](http://go.microsoft.com/fwlink/p/?LinkID=329019) 操作を管理する Windows PowerShell コマンドレット。
-### ブリッジのカスタム コード コンポーネント内の XML メッセージを読み込むと、余分な BOM 文字が追加される
+### Pipelines v/s Bridges
+Throughout this document, the term ‘pipelines’ and ‘bridges’ are used interchangeably. Both essentially mean the same thing, which is, a message processing unit deployed on BizTalk Services.  
 
-ブリッジのカスタム コード内の XML メッセージを読み込むシナリオが該当します。 .NET API System.Text.Encoding.UTF8.GetString(bytes) を使用すると、余分な BOM 文字が出力メッセージの先頭に追加されます。 そのため、追加 BOM 文字を含める出力したくない場合は、を使用する必要があります `System.IO.StreamReader() します。ReadToEnd()`します。
-### WCF を使用したブリッジへのメッセージ送信が拡張しない
+### Concepts  
 
-WCF を使用してブリッジに送信されたメッセージが拡張しない場合、 スケーラブルなクライアントが必要であれば、代わりに HttpWebRequest を使用してください。
-### アップグレード: BizTalk Services プレビューから一般公開 (GA) にアップグレードした後にトークン プロバイダーのエラーが発生する
-
-アクティブなバッチが含まれた EDI 契約または AS2 契約がある場合、 BizTalk サービスをプレビューから GA にアップグレードする際、次があります。
-* エラー: トークン プロバイダーは、セキュリティ トークンを提供できませんでした。 トークン プロバイダーから返されるメッセージ: リモート名を解決できませんでした。
-
-* バッチ タスクがキャンセルされます。
-
-**対処法**: BizTalk Services を GA にアップグレードした後に、契約を再度デプロイします。
-
-### アップグレード: BizTalk Services SDK をアップグレードした後に、ツールボックスに古いブリッジ アイコンが表示される
-
-ブリッジを表す古いアイコンがある旧バージョンの BizTalk Services SDK をアップグレードした後も、ツールボックスには引き続きブリッジの古いアイコンが表示されます。 ただし、ブリッジを BizTalk サービス プロジェクトのデザイン画面に追加すると、画面に新しいアイコンが表示されます。
-
-**対処法**:この問題を回避するには、下の .tbd ファイルを削除することによって <system drive>: \Users\<user>\AppData\Local\Microsoft\VisualStudio\11.0 します。
-
-### アップグレード: BizTalk ポータルをプレビューから GA に更新すると、EDI 機能を使用できないというエラーが表示されることがある
-
-BizTalk Services ポータルにログインしているときに BizTalk Services をプレビューから GA にアップグレードすると、ポータルに次のエラーが発生することがあります。
-
-この機能は、このエディションの Microsoft Azure BizTalk Services には含まれていません。 この機能を使用するには、対応するエディションに切り替えてください。
-
-**解決策**: ポータルからログアウトし、ブラウザーを閉じて再び開き、再度ポータルにログインします。
-### アップグレード: BizTalk Services を GA にアップグレードした後に新しい追跡データが表示されない
-
-BizTalk Services プレビュー サブスクリプションに XML ブリッジがデプロイされているシナリオを想定します。 ブリッジにメッセージを送信すると、対応する追跡データが BizTalk Services ポータルに表示されます。 現時点では、BizTalk Services ポータルと BizTalk Services ランタイム ビットを GA にアップグレードし、以前にデプロイしたのと同じブリッジ エンドポイントにメッセージを送信すると、アップグレード後に送信したメッセージの追跡データは表示されません。
-
-### パイプラインとブリッジ
-
-このドキュメントでは、"パイプライン" という用語と "ブリッジ" という用語が同じ意味で使われています。 どちらも本質的には同じ意味で、BizTalk Services にデプロイされたメッセージ処理単位を指します。
-
-### 概念
-
-[BizTalk サービス](https://msdn.microsoft.com/library/azure/hh689864.aspx)
-
-
-
-
+[BizTalk Services](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
 
 
 

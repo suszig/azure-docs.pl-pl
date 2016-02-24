@@ -19,12 +19,11 @@
 
 
 
-
-# Azure Linux エージェント ユーザー ガイド
+#Azure Linux エージェント ユーザー ガイド
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-## はじめに
+##はじめに
 
 Azure Linux エージェント (usr/sbin/waagent) は仮想マシンと Azure ファブリック コントローラーとの相互動作を管理します。 その内容は次のとおりです。
 
@@ -47,14 +46,14 @@ Azure Linux エージェント (usr/sbin/waagent) は仮想マシンと Azure �
   - root デバイス (リモート デバイス) の SCSI タイムアウトの構成
 * **診断**
   - シリアル ポートへのコンソールのリダイレクト
-* **SCVMM のデプロイ**
+* **SCVMM の展開**
     - System Center Virtual Machine Manager 2012 R2 環境で実行されているときに Linux 用の VMM エージェントを検出およびブートストラップ
 * **VM 拡張機能**
     - Microsoft やパートナーによって作成されたコンポーネントを Linux VM (IaaS) に挿入し、ソフトウェアおよび構成を自動化
-    - に VM 拡張機能の参照実装 [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+    - 上の VM 拡張機能の参照実装 [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 
-## 通信
+##通信
 
 プラットフォームからエージェントへの情報の流れは 2 つのチャンネルを経由します。
 
@@ -62,20 +61,18 @@ Azure Linux エージェント (usr/sbin/waagent) は仮想マシンと Azure �
 
 * デプロイとトポロジの構成を取得するために使用する REST API を公開する TCP エンドポイント。
 
-### Linux エージェントの入手
-
+###Linux エージェントの入手
 最新の Linux エージェントは次のいずれかから直接入手できます。
 
-- [Azure 上の Linux の動作保証済みディストリビューションのさまざまなプロバイダー](http://support.microsoft.com/kb/2805216)
-- または、から [Azure Linux エージェント用の GitHub のオープン ソース リポジトリ](https://github.com/Azure/WALinuxAgent)
+- [Azure 上での動作保証済みのさまざまな Linux ディストリビューションのプロバイダー](http://support.microsoft.com/kb/2805216)
+- または、 [Azure Linux エージェント用の GitHub のオープン ソース リポジトリ](https://github.com/Azure/WALinuxAgent)
 
 
 ## 必要条件
-
-次のシステムがテスト済みで、Azure Linux エージェントで機能することがわかっています。 **Microsoft Azure Platform でサポートされているシステムの一覧から、この一覧が変わる可能性がある注意**, 」の説明に従って。
+次のシステムがテスト済みで、Azure Linux エージェントで機能することがわかっています。 **この一覧が Microsoft Azure Platform でサポートされるシステムの一覧によって異なることに注意してください**, 」の説明に従って。
 [http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)
 
-### サポートされている Linux ディストリビューション
+###サポートされている Linux ディストリビューション
 
 * CoreOS
 * CentOS 6.2+
@@ -101,11 +98,11 @@ Linux エージェントが正しく機能するには、次の該当するシ�
 * ネットワーク ツール: ip-route
 
 
-## インストール
+##インストール
 
 お使いのディストリビューションのパッケージのリポジトリから RPM または DEB パッケージを使用してインストールする方法は、Azure Linux エージェントのインストールおよびアップグレードとしてお勧めする方法です。
 
-手動のインストールでは、次のコマンドを実行して、"waagent" スクリプトを /usr/sbin/waagent にコピーおよびインストールする必要があります。
+手動のインストールでは、次のコマンドを実行して、"waagent" スクリプトを /usr/sbin/waagent にコピーおよびインストールする必要があります。 
 
     # sudo chmod 755 /usr/sbin/waagent
     # sudo /usr/sbin/waagent -install -verbose
@@ -113,14 +110,14 @@ Linux エージェントが正しく機能するには、次の該当するシ�
 エージェントのログ ファイルは /var/log/waagent.log に記録されます。
 
 
-## コマンド ライン オプション
+##コマンド ライン オプション
 
-### フラグ
+###フラグ
 
 - verbose: 指定したコマンドのメッセージの詳細度を上げます。
 - force: 一部のコマンドの対話形式の確認をスキップします。
 
-### コマンド
+###コマンド
 
 - help: サポートされているコマンドとフラグを一覧表示します。
 
@@ -135,7 +132,7 @@ Linux エージェントが正しく機能するには、次の該当するシ�
 
  * カーネルのバージョンを検出し、必要に応じて VNUMA 回避策を適用します。
 
- * ネットワークを妨げる可能性のある udev ルール (/lib/udev/rules.d/75-persistent-net-generator.rules、/etc/udev/rules.d/70-persistent-net.rules) を /var/lib/waagent/ に移動します。
+ * ネットワークを妨げる可能性のある udev ルール (/lib/udev/rules.d/75-persistent-net-generator.rules、/etc/udev/rules.d/70-persistent-net.rules) を /var/lib/waagent/ に移動します。  
 
 - uninstall: waagent と関連するファイルを削除します。
  * システムから init スクリプトを登録解除して削除します。
@@ -170,11 +167,11 @@ Linux エージェントが正しく機能するには、次の該当するシ�
 - daemon: プラットフォームとの相互動作を管理するデーモンとして waagent を実行します。
    この引数には waagent init スクリプト内で waagent が指定されます。
 
-## 構成
+##構成
 
 構成ファイル (/etc/waagent.conf) を使用して waagent の動作を制御します。 
 サンプル構成ファイルを次に示します。
-
+    
     #
     # Azure Linux Agent Configuration   
     #
@@ -226,7 +223,7 @@ Linux エージェントが正しく機能するには、次の該当するシ�
 
 エージェントのプロビジョニング機能を有効または無効にすることができます。 有効な値は "y" または "n" です。 プロビジョニングを無効にした場合、イメージ上の SSH ホストとユーザー キーが保持され、Azure プロビジョニング API で指定した構成はすべて無視されます。
 
-**注意:** cloud-init を使用してプロビジョニング タスクを実行する Ubuntu Cloud Image では、このパラメーターが既定で "n" に設定されています。
+**注:** プロビジョニング クラウド初期化に使用する Ubuntu Cloud Image では、"n"このパラメータの既定値です。
 
 **Provisioning.DeleteRootPassword:**
 
@@ -249,7 +246,7 @@ Linux エージェントが正しく機能するには、次の該当するシ�
 型: 文字列  
 既定: rsa
 
-仮想マシンの SSH デーモンによってサポートされている暗号化アルゴリズムの種類を設定できます。 一般的にサポートされている値は "rsa"、"dsa"、"ecdsa" です。 Windows の "putty.exe" は "ecdsa" をサポートしていないことに注意してください。 そのため、Windows の putty.exe を使用して Linux のデプロイに接続する場合は、"rsa" または "dsa" を使用してください。
+仮想マシンの SSH デーモンによってサポートされている暗号化アルゴリズムの種類を設定できます。 一般的にサポートされている値は "rsa"、"dsa"、"ecdsa" です。 Windows の "putty.exe" は "ecdsa" をサポートしていないことに注意してください。 そのため、Windows の putty.exe を使用して Linux の展開に接続する場合は、"rsa" または "dsa" を使用してください。
 
 **Provisioning.MonitorHostName:**
 
@@ -275,14 +272,14 @@ Linux エージェントが正しく機能するには、次の該当するシ�
 **ResourceDisk.MountPoint:**
 
 型: 文字列  
-既定: /mnt/resource
+既定: /mnt/resource 
 
-リソース ディスクがマウントされるパスを指定します。 リソース ディスクは*一時*ディスクであるため、VM のプロビジョニングが解除されると空になることに注意してください。
+リソース ディスクがマウントされるパスを指定します。 リソース ディスクは、 *一時* ディスクで空になる VM のプロビジョニングが解除されるとします。
 
 **ResourceDisk.EnableSwap:**
 
 型: ブール  
-既定: n
+既定: n 
 
 設定した場合、スワップ ファイル (/swapfile) がリソース ディスク上に作成され、システムのスワップ領域に追加されます。
 
@@ -323,12 +320,12 @@ OS ディスクおよびデータ ドライブの SCSI タイムアウトを秒�
 
 
 
-## Ubuntu Cloud Image
+##Ubuntu Cloud Image
 
-Ubuntu Cloud Image を利用する注 [クラウド init](https://launchpad.net/ubuntu/+source/cloud-init) Azure Linux エージェントによって管理される多くの構成タスクを実行します。 以下の相違点に注意してください。
+Ubuntu Cloud Image を利用する注 [クラウド init](https://launchpad.net/ubuntu/+source/cloud-init) Azure Linux エージェントによって管理される多くの構成タスクを実行します。  以下の相違点に注意してください。
 
 
-- cloud-init を使用してプロビジョニング タスクを実行する Ubuntu Cloud Image では、**Provisioning.Enabled** が既定で "n" に設定されています。
+- **Provisioning.Enabled** クラウド init を使用してプロビジョニング タスクを実行する Ubuntu Cloud Image では、"n"の既定値です。
 
 - 次の構成パラメーターは、cloud-init を使用してリソース ディスクとスワップ領域を管理する Ubuntu Cloud Image に影響を与えません。
 
@@ -340,11 +337,7 @@ Ubuntu Cloud Image を利用する注 [クラウド init](https://launchpad.net/
 
 - プロビジョニング中に Ubuntu Cloud Image にリソース ディスク マウント ポイントとスワップ領域を構成する際は、次のリソースを参照してください。
 
- - [Ubuntu Wiki: スワップ パーティションを構成します。](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
- - [Azure の仮想マシンにカスタム データを挿入します。](virtual-machines-how-to-inject-custom-data.md)
+ - [Ubuntu Wiki: スワップ パーティションの構成に関するページ](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+ - [Azure の仮想マシンにカスタム データを挿入する](virtual-machines-how-to-inject-custom-data.md)
 
-
-
-
-
-
+ 

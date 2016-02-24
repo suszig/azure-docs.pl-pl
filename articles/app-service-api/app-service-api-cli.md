@@ -16,31 +16,31 @@
     ms.date="10/13/2015"
     ms.author="tdykstra"/>
 
-
 # Azure コマンド ライン インターフェイス (CLI) と API アプリ
 
-この記事では、Mac、Linux、Windows 用 Azure コマンドライン インターフェイス (CLI) を使用して、Azure App Service で API アプリを作成、管理、削除する方法を説明します。
+この記事では、Mac、Linux、Windows 用 Azure コマンドライン インターフェイス (CLI) を使用して、Azure App Service で API アプリを作成、管理、削除する方法を説明します。 
 
 ## 前提条件
 
-この記事では、Azure CLI がインストールされていることと、基本的なタスクの実行方法を理解していることを前提としています。 CLI の概要については、次を参照してください。 [のインストールと Azure CLI の構成](../xplat-cli-install.md)します。
-> [AZURE.NOTE] 手順について [Azure サブスクリプションに接続する ](../xplat-cli-connect.md) 2 つの手段を提供します。 職場または学校のアカウントを使用してログインし、ダウンロード、 *.publishsettings* ファイルです。 API アプリでは、*.publishsettings* ファイルの認証方法は機能しません。 これは、API アプリを操作するにはリソースの管理モード (次のセクションで説明します) を使用する必要があり、*.publishsettings* ファイルの認証方法はリソース マネージャーでは機能しないからです。 
+この記事では、Azure CLI がインストールされていることと、基本的なタスクの実行方法を理解していることを前提としています。 CLI の概要については、次を参照してください。 [のインストールと Azure CLI の構成](../xplat-cli-install.md)します。 
+
+> [AZURE.NOTE] 手順について [Azure サブスクリプションに接続する ](../xplat-cli-connect.md) 2 つの手段を提供します。 職場または学校のアカウントを使用してログインし、ダウンロード、 *.publishsettings* ファイルです。 API アプリの場合、 *.publishsettings* ファイルの認証方法は機能しません。 これは、リソース管理モード (次のセクションで説明) を使用して、API アプリを操作する必要があるため、 *.publishsettings* ファイルの認証方法はリソース マネージャーで機能しません。 
 
 ## リソース管理モードを有効にする
 
-CLI を使用できる [サービス管理 (asm)](../virtual-machines/virtual-machines-command-line-tools.md) モードまたは [リソース管理 (arm)](../xplat-cli-azure-resource-manager.md) モードです。 API アプリでは、リソース管理モードを使用する必要があります。  `Arm` モードが既定で無効になってを使用して、 `構成モードの arm` コマンドを有効にします。
+CLI を使用できる [サービス管理 (asm)](../virtual-machines/virtual-machines-command-line-tools.md) モードまたは [リソース管理 (arm)](../xplat-cli-azure-resource-manager.md) モードです。 API アプリでは、リソース管理モードを使用する必要があります。  `arm` モードは既定で有効になっていないため、`config mode arm` コマンドを使用して有効にする必要があります。
 
     azure config mode arm
 
 ## API アプリの操作に使用できるコマンドを一覧表示する
 
-API アプリを操作するため、現在利用可能なすべてのコマンドを表示するには、実行、 `apiapp` コマンドです。
+API アプリの操作に現在利用可能なすべてのコマンドを表示するには、`apiapp` コマンドを実行します。
 
     azure apiapp
 
 ## サブスクリプションやリソース グループ内のすべての API アプリを一覧表示する
 
-サブスクリプションにあるすべての API アプリを一覧表示、実行、 `apiapp リスト` コマンドをパラメーターなし。
+サブスクリプション内にあるすべての API アプリを一覧表示するには、`apiapp list` コマンドをパラメーターなしで実行します。
 
     azure apiapp list
 
@@ -53,7 +53,7 @@ API アプリを操作するため、現在利用可能なすべてのコマン�
     data:    mygroup         SimpleDropbox  Microsoft.ApiApp  https://microsoft-apiappf1bbba377c6d4aa1f03146cadd6.azurewebsites.net
     info:    apiapp list command OK
 
-指定されたリソース グループの一覧を制限するグループを追加 (`-g`) パラメーター。
+指定したリソース グループに一覧を制限するには、グループ (`-g`) パラメーターを追加します。
 
     azure apiapp list -g <resource group name>
 
@@ -61,11 +61,11 @@ API アプリを操作するため、現在利用可能なすべてのコマン�
 
     azure apiapp list -g mygroup
 
-一覧に API アプリのバージョンとアクセス レベルの情報を追加するには、詳細を追加 (`-d`) パラメーター。
+一覧に API アプリのバージョンとアクセス レベル情報を追加するには、詳細 (`-d`) パラメーターを追加します。
 
     azure apiapp list -d
 
-`リスト` フィールドが追加された出力が次の例のようになります。
+フィールドが追加された `list` 出力は次の例のようになります。
 
     info:    Executing command apiapp list
     info:    Listing ApiApps
@@ -76,7 +76,7 @@ API アプリを操作するため、現在利用可能なすべてのコマン�
 
 ### API アプリの詳細の一覧表示
 
-API アプリを使用する 1 つの詳細を一覧表示、 `apiapp ショー` コマンドは、グループと組み合わせて (`-g`) と API アプリの名前 (`-n`) パラメーター。
+1 つの API アプリの詳細を一覧表示するには、`apiapp show` コマンドをグループ (`-g`) パラメーターと API アプリ名 (`-n`) パラメーターと組み合わせて使用します。
 
     azure apiapp show -g <resource group name> -n <API app name>
 
@@ -128,11 +128,11 @@ API アプリを作成する方法は、2 つあります。 CLI の命令型コ
 * ブラジル南部
 * 米国東部 2
 
-場所の完全かつ最新の一覧を取得する、 `の場所のリスト` コマンドを使用して、 `Microsoft.AppService/apiapps` リソース プロバイダーの行。
+`location list` コマンドを使用して最新の詳しい一覧を取得し、`Microsoft.AppService/apiapps` リソース プロバイダーの行をご覧ください。
 
     azure location list
 
-出力例をここでは、 `の場所のリスト` コマンドです。
+`location list` コマンドによる出力例は次のとおりです。
 
     info:    Executing command location list
     info:    Getting Resource Providers
@@ -145,7 +145,7 @@ API アプリを作成する方法は、2 つあります。 CLI の命令型コ
 
 ### 使用するリソース グループの作成または検索
 
-リソース グループの作成、 `グループを作成` 名前のコマンド (`n`) と場所 (`l`) パラメーター。
+リソース グループを作成するには、名前 (`n`) と場所 (`l`) パラメーターを指定して `group create` コマンドを使用します。
 
     azure group create -n <name> -l <location>
 
@@ -153,27 +153,27 @@ API アプリを作成する方法は、2 つあります。 CLI の命令型コ
 
     azure group create -n "mygroup" -l "West US"
 
-既存のリソース グループを検索するには、使用、 `グループの一覧` コマンド、および API アプリの有効な場所でリソース グループを選択します。
+既存のリソース グループを検索するには、`group list` コマンドを使用して、API アプリの有効な場所でリソース グループを選択します。
 
     azure group list
 
 ### 使用する App Service プランの作成または検索
 
-App Service プランを作成するには、使用、 `リソースの作成` コマンドを使用し、リソースの型パラメーターを使用して (`-r`) を作成するリソースの種類が App Service プランであることを指定します。
+App Service プランを作成するには、`resource create` コマンドとリソースの種類パラメーター (`-r`) を使用して、作成するリソースの種類に App Service プランを指定します。
 
     azure resource create -g <resource group> -n <app service plan name> -r "Microsoft.Web/serverfarms" -l <location> -o <api version> -p "{\"sku\": {\"tier\": \"<pricing tier>\"}, \"numberOfWorkers\" : <number of workers>, \"workerSize\": \"<worker size>\"}"
-
+    
 次に例を示します。
 
     azure resource create -g mygroup -n myplan -r "Microsoft.Web/serverfarms" -l "West US" -o "2015-06-01" -p "{\"sku\": {\"tier\": \"Standard\"}, \"numberOfWorkers\" : 1, \"workerSize\": \"Small\"}"
 
-JSON 文字列を `プロパティ` (`-p`) パラメーターは、REST API では、将来の最近の変更により必要、 `-p` パラメーターは省略できます。
+REST API での最近の変更により、`properties` (`-p`) パラメーター用に JSON 文字列が必要です。今後、`-p` パラメーターは省略可能になります。
 
-サンプル コマンドは、この記事の執筆時点での最新 API バージョンを指定します。 以降のバージョンがあるかを確認するには、使用、 `プロバイダー ショー` コマンドを参照してください、 `apiVersions` の配列、 `サイト` 内のオブジェクト、 `のリソースの種類` 配列。
+サンプル コマンドは、この記事の執筆時点での最新 API バージョンを指定します。 これ以降のバージョンがあるかどうかを確認するには、`provider show` コマンドを使用して、`resourceTypes` 配列で `sites` オブジェクトに対する `apiVersions` 配列を確認します。
 
     azure provider show -n Microsoft.Web --json
-
-次の例に示します、 `サイト` コマンドの出力内のオブジェクト。
+   
+次に示すのは、コマンド出力の `sites` オブジェクトの例です。
 
     {
       "resourceTypes": [
@@ -200,7 +200,7 @@ JSON 文字列を `プロパティ` (`-p`) パラメーターは、REST API で�
           "name": "sites"
         }
 
-既存の App Service プランの一覧を表示する、 `リソース リスト` コマンドを使用して、リソースの種類として App Service プランを指定、 `-r` パラメーター。
+既存の App Service プランを一覧表示するには、`resource list` コマンドを使用し、`-r` パラメーターのリソースの種類として App Service プランを指定します。
 
     azure resource list -r Microsoft.Web/serverfarms
 
@@ -215,7 +215,7 @@ JSON 文字列を `プロパティ` (`-p`) パラメーターは、REST API で�
 
 ### 空の (カスタム) API アプリを作成する
 
-(1 つ自分でコードを記述すること) 空の API アプリを作成するには使用、 `apiapp 作成` コマンドを使用を指定し、 `Microsoft.ApiApp` Nuget パッケージ (`-u` パラメーター)。
+空の (カスタム) API アプリを作成するには (自分でコードを記述する場合)、`apiapp create` コマンドを使用して、`Microsoft.ApiApp` Nuget パッケージ (`-u` パラメーター) を指定します。
 
     azure apiapp create -g <resource group name> -n <API app name> -p <app service plan name> -u Microsoft.ApiApp
 
@@ -250,7 +250,7 @@ API アプリが作成されると、出力に進捗状況がレポートされ�
 
 #### Marketplace から API アプリを作成する
 
-Marketplace で利用可能な API アプリ パッケージの一覧を取得する、 `グループ テンプレート リスト` コマンドを使用し、カテゴリを使用して API アプリを指定 (`-c`) パラメーター。
+Marketplace で使用可能な API アプリ パッケージの一覧を取得するには、`group template list` コマンドを使用し、カテゴリ (`-c`) パラメーターに API アプリを指定します。
 
     azure group template list -c apiapps
 
@@ -265,30 +265,26 @@ Marketplace で利用可能な API アプリ パッケージの一覧を取得�
     data:    microsoft_com  microsoft_com.FTPConnector.0.2.2                      
     info:    group template list command OK
 
-Marketplace から API アプリを作成する、 `apiapap 作成` コマンドを使用し、NuGet パッケージを使用して作成する必要のある API アプリの名前を指定 (`-u`) パラメーター。
+Marketplace から API アプリを作成するには、`apiapap create` コマンドを使用し、作成する必要のある API アプリの名前を NuGet パッケージ (`-u`) パラメーターに指定します。 
 
     azure apiapp create -g <resource group name> -n <API app name> -p <app service plan name> -u <marketplace name>
 
-使用する値、 `-u` パラメーターは marketplace 名の中央のセクションです。 たとえば、microsoft_com.MicrosoftSqlConnector.0.2.2 では、コマンドは次のようになります。
+`-u` パラメーターに使用する値は marketplace 名の中央のセクションです。 たとえば、microsoft_com.MicrosoftSqlConnector.0.2.2 では、コマンドは次のようになります。
 
     azure apiapp create -g mygroup -n mysqlconnector -p myplan -u MicrosoftSqlConnector
-
-サーバー名や SQL コネクタ用接続文字列などの API アプリのテンプレート パラメーターが必要な場合、必要なデータを指定するよう求められます。 使用するオプションがある、 `--パラメーター` または `--パラメーター ファイル` 、パラメーターの値を渡す。 パラメーター ファイルの詳細については、次を参照してください。 [新しいゲートウェイを使用する API アプリをプロビジョニング](app-service-api-arm-new-gateway-provision.md)します。
+    
+サーバー名や SQL コネクタ用接続文字列などの API アプリのテンプレート パラメーターが必要な場合、必要なデータを指定するよう求められます。 パラメーター値を渡す際に、`--parameters` か `--parameters-file` を使用するオプションがあります。 パラメーター ファイルの詳細については、次を参照してください。 [新しいゲートウェイを使用する API アプリをプロビジョニング](app-service-api-arm-new-gateway-provision.md)します。
 
 ## 次のステップ
 
 この記事では、個々の Azure CLI コマンドを使用してカスタムの API アプリや Marketplace テンプレートから作成する API アプリを操作する方法について説明しました。 カスタム テンプレートを使用して、API アプリの作成を自動化する方法については、次のリソースをご覧ください。
 
-* [既存のゲートウェイを使用する API アプリをプロビジョニングします。](app-service-api-arm-existing-gateway-provision.md)
-* [新しいゲートウェイを使用する API アプリをプロビジョニングします。](app-service-api-arm-new-gateway-provision.md)
+* [既存のゲートウェイを使用する API アプリのプロビジョニング](app-service-api-arm-existing-gateway-provision.md)
+* [新しいゲートウェイを使用する API アプリのプロビジョニング](app-service-api-arm-new-gateway-provision.md)
 
 Azure リソース マネージャーで Azure コマンド ライン ユーティリティを使用する方法の詳細については、次のリソースをご覧ください。
-
+ 
 * [Mac、Linux、および Azure リソース管理で Windows 用 Azure CLI の使用](../xplat-cli-azure-resource-manager.md)します。
-* [Azure リソース マネージャーで Azure PowerShell の使用](../powershell-azure-resource-manager.md)
-
-
-
-
-
+* [Azure リソース マネージャーでの Azure PowerShell の使用](../powershell-azure-resource-manager.md)
+ 
 

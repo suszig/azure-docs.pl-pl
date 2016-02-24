@@ -16,7 +16,6 @@
    ms.date="09/03/2015"
    ms.author="alanwar"/>
 
-
 # ステートフルとステートレスの Reliable Service のアーキテクチャ
 
 ステートフルまたはステートレスな Service Fabric の信頼性の高いサービスがあります。 いずれの種類であっても、サービスはこの記事で説明されている特定のアーキテクチャで実行されます。
@@ -25,7 +24,6 @@
 ## ステートフル Reliable Service
 
 ### ステートフル サービスのアーキテクチャ
-
 ![アーキテクチャの図](./media/service-fabric-reliable-services-platform-architecture/reliable-stateful-service-architecture.png)
 
 ### ステートフル Reliable Service
@@ -43,7 +41,7 @@ StatefulService と StatefulServiceBase クラスを使用してサービスを�
 
 ステートフル Reliable Serviceでは、Reliable State Manager を使用して Reliable Collection が利用されます。 Reliable collection は、サービスに高可用性はローカル データ構造体です。
 つまり、常にサービスのフェールオーバーに関係なく使用できます。 Reliable Collection は、Reliable State Provider によって実装されます。
-Reliable collection の詳細については、を参照してください [Reliable Collection の概要](service-fabric-reliable-services-reliable-collections.md)
+Reliable collection の詳細については、次を参照してください [Reliable Collection の概要。](service-fabric-reliable-services-reliable-collections.md)
 
 ### Reliable State Manager および State Provider
 
@@ -81,7 +79,7 @@ Reliable State Manager はプラグイン アーキテクチャを使用し、�
 ただし OptimizeForLocalSSD 設定を使用してソリッド ステート ディスクを最適化するため、ログ コンポーネントを構成すると、状態情報を書き込む専用に直接
 ログ ファイル、共有ログ ファイルが無効にします。 ソリッド ステート ディスクではヘッドの移動の競合による遅延は発生しないため、専用ログ ファイルに直接書き込むことでペナルティは発生しません。
 
-ログ コンポーネントが、OptimizeLogForLowerDiskUsage を使用してディスクの使用領域を最小限に抑えるように最適化されている場合、専用ログ ファイルが NTFS スパース ファイルとして作成されます。 ログ ファイルは通常ため
+ログ コンポーネントが、OptimizeLogForLowerDiskUsage を使用してディスクの使用領域を最小限に抑えるように最適化されている場合、専用ログ ファイルが NTFS スパース ファイルとして作成されます。  ログ ファイルは通常ため
 常に完全にいっぱいでない状態の情報のスパース ファイルの使用によりより多くのレプリカに使用可能なディスク領域の過度なプロビジョニングします。 ログ ファイルの領域をこの方法で構成されていない場合
 事前に割り当てられ、ログ コンポーネントは、最高のパフォーマンスでファイルを直接書き込むことができます。
 
@@ -93,7 +91,6 @@ Reliable State Manager はプラグイン アーキテクチャを使用し、�
 ## ステートレス Reliable Service
 
 ### ステートレス サービスのアーキテクチャ
-
 ![アーキテクチャの図](./media/service-fabric-reliable-services-platform-architecture/reliable-stateless-service-architecture.png)
 
 ### ステートレス Reliable Service
@@ -107,7 +104,7 @@ Reliable State Manager はプラグイン アーキテクチャを使用し、�
 参照してください、 [reliable service の概要](service-fabric-reliable-services-introduction.md) と [使用率が高度な信頼性の高いサービス](service-fabric-reliable-services-advanced-usage.md) 仕様の詳細については
 StatelessService クラスおよび StatelessServiceBase クラスを使用してサービスを作成します。
 
-
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 次のステップ
 
 Service Fabric の詳細については、次の項目を参照してください。
@@ -118,12 +115,8 @@ Service Fabric の詳細については、次の項目を参照してくださ�
 
 [Reliable Collection の概要](service-fabric-reliable-services-reliable-collections.md)
 
-[信頼性の高いサービスには、使用率が高度な](service-fabric-reliable-services-advanced-usage.md)
+[Reliable Service の詳細な使用方法](service-fabric-reliable-services-advanced-usage.md)
 
-[Reliable Service の構成](service-fabric-reliable-services-configuration.md)
-
-
-
-
-
+[Reliable Service の構成](service-fabric-reliable-services-configuration.md)  
+ 
 

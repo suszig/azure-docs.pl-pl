@@ -1,6 +1,6 @@
 <properties
    pageTitle="Windows Server または Windows クライアントのファイルとフォルダーを Azure にバックアップ | Microsoft Azure"
-   description="この簡単な手順で Windows Server または Windows クライアントを Azure にバックアップします。数回の簡単なステップで Windows のファイルとフォルダーをクラウドにバックアップできます。"
+   description="この簡単な手順で Windows Server または Windows クライアントを Azure にバックアップします。 数回の簡単なステップで Windows のファイルとフォルダーをクラウドにバックアップできます。"
    services="backup"
    documentationCenter=""
    authors="aashishr"
@@ -10,29 +10,26 @@
 
 <tags
    ms.service="backup"
-   ms.workload="storage-backup-recovery"
+   ms.workload=「記憶域のバックアップ回復」
      ms.tgt_pltfrm="na"
      ms.devlang="na"
      ms.topic="article"
      ms.date="11/17/2015"
-     ms.author="jimpark"; "aashishr"/>
+     ms.author="jimpark"です。"aashishr"/>
 
-
-# Windows Server または Windows クライアントのファイルとフォルダーを Azure にバックアップする
-
+# Windows Server または Windows クライアントのファイルとフォルダーを Azure にバックアップする 
 この簡単な手順で Windows のファイルとフォルダーを Azure にバックアップできます。 まだ行っていない場合、は、完了、 [の前提条件](backup-configure-vault.md#before-you-start) 続行する前に、Windows マシンをバックアップする環境を準備します。
 
 ## ファイルのバックアップ
-
 1. コンピューターが登録されたら、Microsoft Azure Backup mmc スナップインを開きます。
 
     ![Search result](./media/backup-azure-backup-windows-server/result.png)
 
-2. [**バックアップのスケジュール**] をクリックします。
+2. クリックして **のバックアップをスケジュール**
 
     ![Windows Server のバックアップ スケジュールを設定します](./media/backup-azure-backup-windows-server/schedulebackup.png)
 
-3. バックアップする項目を選択します。 Windows サーバーまたは Windows クライアントで Azure Backup を使用して (つまり System Center Data Protection Manager を使用しない)、ファイルとフォルダーを保護することができます。
+3. バックアップする項目を選択します。 Windows サーバーまたは Windows クライアント (つまりで azure のバックアップ せず System Center Data Protection Manager) では、ファイルとフォルダーを保護することができます。
 
     ![Windows Server のバックアップ項目](./media/backup-azure-backup-windows-server/items.png)
 
@@ -42,21 +39,16 @@
 
     ![Windows Server の初回バックアップ](./media/backup-azure-backup-windows-server/initialbackup.png)
 
-6. スケジュール バックアップ プロセスが完了したら、mmc スナップインに戻り、[**今すぐバックアップ**] をクリックして、ネットワーク経由での最初のシード処理を完了します。
+6. スケジュール バックアップ プロセスが完了すると、移動戻り、mmc スナップインにし、クリックして **を今すぐバックアップ** をネットワーク経由で最初のシード処理を完了します。
 
     ![Windows Server を今すぐバックアップする](./media/backup-azure-backup-windows-server/backupnow.png)
 
-7. 最初のシード処理が完了すると、Azure Backup コンソールの [**ジョブ**] ビューに状態が表示されます。
+7. 最初のシード処理が完了した後、 **ジョブ** Azure Backup コンソールのビューでは、状態を示します。
 
     ![IR complete](./media/backup-azure-backup-windows-server/ircomplete.png)
 
 ## 次のステップ
-
-- [Windows Server または Windows クライアントを管理します。](backup-azure-manage-windows-server.md)
-- [Azure からの Windows Server または Windows クライアントを復元します。](backup-azure-restore-windows-server.md)
-- [Azure Backup の FAQ](backup-azure-backup-faq.md)
-
-
-
-
+- [Windows Server または Windows クライアントの管理](backup-azure-manage-windows-server.md)
+- [Azure からの Windows Server または Windows クライアントの復元](backup-azure-restore-windows-server.md)
+- [Azure Backup FAQ](backup-azure-backup-faq.md)
 

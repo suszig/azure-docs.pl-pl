@@ -16,27 +16,26 @@
     ms.date="08/10/2015" 
     ms.author="piyushjo" />
 
+#Engagement Reach を Android に統合する方法
 
-# Engagement Reach を Android に統合する方法
+> [AZURE.IMPORTANT] このガイドの手順の前に、Android ドキュメントのエンゲージメントを統合する方法で説明する統合手順を従う必要があります。
 
-> [AZURE.IMPORTANT] このガイドの手順を実行する前に、「Engagement を Android に統合する方法」のドキュメントの統合手順を実行する必要があります。
+##標準統合
 
-## 標準統合
+Reach SDK では、 **Android サポート ライブラリ (v4)**します。
 
-Reach SDK には **Android サポート ライブラリ (v4)** が必要です。
+プロジェクトにライブラリを追加する最も簡単な方法 **Eclipse** は `Right click on your project -> Android Tools -> Add Support Library...`です。
 
-プロジェクトにライブラリを追加する最も簡単な方法 **Eclipse** は `右側をクリックしてプロジェクトを Android ツール]-> [サポート ライブラリの追加...] の [`します。
-
-Eclipse を使用しない場合は、こちらの手順を読み取ることができます。
+Eclipse を使用しない場合は、手順を参照して [here]します。
 
 プロジェクトの SDK から Reach リソースのファイルをコピーします。
 
--   ファイルをコピー、 `res/レイアウト` に SDK とともに配布されたフォルダー、 `res/レイアウト` 、アプリケーションのフォルダーです。
--   ファイルをコピー、 `res/描画可能な` に SDK とともに配布されたフォルダー、 `res/描画可能な` 、アプリケーションのフォルダーです。
+-   SDK とともに配布されたファイルを、`res/layout` フォルダーからアプリケーションの `res/layout` フォルダーにコピーします。
+-   SDK とともに配布されたファイルを、`res/drawable` フォルダーからアプリケーションの `res/drawable` フォルダーにコピーします。
 
-編集、 `AndroidManifest.xml` ファイル。
+`AndroidManifest.xml` ファイルを編集します。
 
--   次のセクションを追加 (間、 `< アプリケーション >` と `</アプリケーション >` タグ)。
+-   次のセクションを (`<application>` タグと `</application>` タグの間に) 追加します。
 
             <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light">
               <intent-filter>
@@ -84,21 +83,20 @@ Eclipse を使用しない場合は、こちらの手順を読み取ることが
 
             <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
--   通知 (アプリとシステムの両方) をコピーして、次のセクションを編集に使用されるアイコンを指定 (間、 `< アプリケーション >` と `</アプリケーション >` タグ)。
+-   次のセクション (`<application>` タグと `</application>` タグの間) をコピーして編集することで、通知 (アプリとシステムの両方) に使用するアイコンを指定します。
 
             <meta-data android:name="engagement:reach:notification:icon" android:value="<name_of_icon_WITHOUT_file_extension_and_WITHOUT_'@drawable/'>" />
 
+> [AZURE.IMPORTANT] このセクションでは **必須** リーチ キャンペーンを作成するときに、システム通知を使用する場合。 Android では、アイコンのないシステム通知は表示されません。 そのため、このセクションを省略すると、エンド ユーザーは通知を受け取ることができません。
 
-> [AZURE.IMPORTANT] このセクションは、Reach キャンペーンの作成時にシステム通知を使用する場合に**必須**です。 Android では、アイコンのないシステム通知は表示されません。 そのため、このセクションを省略すると、エンド ユーザーは通知を受け取ることができません。
-
--   全体像を使用するシステム通知でキャンペーンを作成する場合は、次のアクセス許可を追加する必要があります。 (後、 `</アプリケーション >` タグ) を失っている場合。
+-   大きな画像を使用するシステム通知のキャンペーンを作成する場合、次のアクセス許可 (`</application>` タグの後) を追加する必要があります。
 
             <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
             <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 
-  -   Android M とアプリケーションが Android API レベル 23 以上を対象に `WRITE_EXTERNAL_STORAGE` アクセス許可がユーザーの承認が必要です。 お読みください [ここ](mobile-engagement-android-integrate-engagement.md#android-m-permissions)します。
+  -   Android M で、アプリケーションの対象が Android API レベル 23 以上になる場合、``WRITE_EXTERNAL_STORAGE`` アクセス許可はユーザー承認を必要とします。 お読みください [ここ](mobile-engagement-android-integrate-engagement.md#android-m-permissions)します。
 
--   また、システム通知では、Reach キャンペーンでデバイスの音を鳴らしたりバイブレーションが動作したりするように指定できます。次のアクセス許可が宣言されているかどうかを確認する必要が動作するため、(後、 `</アプリケーション >` タグ)。
+-   また、システム通知では、Reach キャンペーンでデバイスの音を鳴らしたりバイブレーションが動作したりするように指定できます。 キャンペーンが機能するには、次のアクセス許可 (`</application>` タグの後) を宣言する必要があります。
 
             <uses-permission android:name="android.permission.VIBRATE" />
 
@@ -109,15 +107,14 @@ Eclipse を使用しない場合は、こちらの手順を読み取ることが
             -dontwarn android.**
             -keep class android.support.v4.** { *; }
 
-
 ## Native Push (ネイティブのプッシュ)
 
 Reach モジュールを構成したので、デバイスのキャンペーンを受信できるようにネイティブ プッシュ通知を設定する必要があります。
 
 Android では次の 2 つのサービスをサポートしています。
 
-  - Google Play デバイス: の後で [Google Cloud Messaging] 使用する、 [エンゲージメント ガイドに GCM を統合する方法](mobile-engagement-android-gcm-integrate.md) ガイドです。
-  - Amazon デバイス: の後で [Amazon Device Messaging] 使用する、 [ADM を Engagement ガイドを統合する方法](mobile-engagement-android-adm-integrate.md) ガイドです。
+  - Google Play デバイス: 使用 [Google Cloud Messaging] に従って、 [エンゲージメント ガイドに GCM を統合する方法](mobile-engagement-android-gcm-integrate.md) ガイドです。
+  - Amazon デバイス: 使用 [Amazon Device Messaging] に従って、 [ADM を Engagement ガイドを統合する方法](mobile-engagement-android-adm-integrate.md) ガイドです。
 
 Amazon と Google Play の両方のデバイスを対象とするコードは、1 つの AndroidManifest.xml/APK 内で開発することもできます。 ただし、アプリケーションに GCM のコードが見つかると、Amazon に送信する際に却下されることがあります。
 
@@ -125,11 +122,11 @@ Amazon と Google Play の両方のデバイスを対象とするコードは、
 
 **お使いのアプリケーションで Reach キャンペーンを受信して表示する準備が整いました。**
 
-## データプッシュを管理する方法
+##データプッシュを管理する方法
 
 ### 統合
 
-サブクラスを作成する必要がある、アプリケーションは、Reach データ プッシュを受信できるようにする場合は、 `com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver` でそれを参照し、 `AndroidManifest.xml` ファイル (間、 `< アプリケーション >` や `</アプリケーション >` タグ)。
+アプリケーションで Reach データプッシュを受信するには、`com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver` のサブクラスを作成し、それを `AndroidManifest.xml` ファイル (`<application>` タグと `</application>` タグの間) で参照する必要があります。
 
             <receiver android:name="<your_sub_class_of_com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver>"
               android:exported="false">
@@ -138,7 +135,7 @@ Amazon と Google Play の両方のデバイスを対象とするコードは、
               </intent-filter>
             </receiver>
 
-オーバーライドすることができ、 `onDataPushStringReceived` と `onDataPushBase64Received` コールバックします。 たとえば次のようになります。
+これにより、`onDataPushStringReceived` コールバックと `onDataPushBase64Received` コールバックをオーバーライドできます。 たとえば次のようになります。
 
             public class MyDataPushReceiver extends EngagementReachDataPushReceiver
             {
@@ -148,7 +145,7 @@ Amazon と Google Play の両方のデバイスを対象とするコードは、
                 Log.d("tmp", "String data push message received: " + body);
                 return true;
               }
-    
+            
               @Override
               protected Boolean onDataPushBase64Received(Context context, String category, byte[] decodedBody, String encodedBody)
               {
@@ -160,23 +157,23 @@ Amazon と Google Play の両方のデバイスを対象とするコードは、
 
 ### カテゴリ
 
-カテゴリ パラメーターは、データ プッシュ キャンペーンを作成するときに指定でき、データ プッシュをフィルター処理するために使用できます。 これはさまざまな種類のデータ プッシュを処理する複数のブロードキャスト レシーバーがある場合に役立ちます。 さまざまな種類をプッシュする場合、またはの `Base64` データやを解析前にそれらの種類を識別します。
+カテゴリ パラメーターは、データ プッシュ キャンペーンを作成するときに指定でき、データ プッシュをフィルター処理するために使用できます。 これは、複数のブロードキャスト レシーバーが異なるタイプのデータプッシュを管理する場合や、異なる種類の「`Base64`」データをプッシュしてそれらを解析する前にタイプを特定する場合に便利です。
 
 ### コールバックのリターン パラメーター
 
-戻り値パラメーターを適切に処理するいくつかのガイドラインを `onDataPushStringReceived` と `onDataPushBase64Received`:
+`onDataPushStringReceived` や `onDataPushBase64Received` のリターン パラメーターを正しく管理するためのガイドラインを紹介します。
 
--   ブロードキャスト レシーバーが返す必要があります `null` データ プッシュを管理する方法がわからない場合は、コールバックにします。 ブロードキャスト レシーバーがデータ プッシュを管理するかどうかを指定するには、カテゴリを使用します。
--   ブロードキャスト レシーバーの 1 つを返す必要があります `true` データ プッシュを受け取る場合、コールバックでします。
--   ブロードキャスト レシーバーの 1 つを返す必要があります `false` 、コールバックする場合、データ プッシュを認識は何らかの理由で破棄します。 たとえば、返す `false` 受信データが有効な場合です。
--   あるブロードキャスト レシーバー場合 `true` 、もう 1 つを返します `false` 、同じデータ プッシュ、動作は定義、ことを決してしないでください。
+-   データプッシュの管理方法を把握していないブロードキャスト レシーバーは、コールバックで `null` を返します。 ブロードキャスト レシーバーがデータ プッシュを管理するかどうかを指定するには、カテゴリを使用します。
+-   ブロードキャスト レシーバーのうち、データ プッシュを受け取る場合は、コールバックで `true` を返します。
+-   ブロードキャスト レシーバーのうち、データ プッシュを認識するもののなんらかの理由で破棄する場合は、コールバックで `false` を返します。 たとえば、受信したデータが無効である場合は `false` を返します。
+-   同じデータ プッシュに対して、あるブロードキャスト レシーバーが `true` を、もう一方が `false` を返す場合は、動作が定義されていません。このようなことがないようにしてください。
 
 リターン タイプは Reach の統計情報でのみ使用されます。
 
--   `返信` は、ブロードキャスト レシーバーのいずれかのいずれかを返す場合はインクリメント `true` または `false`します。
--   `Actioned (アクション)` は、ブロードキャスト レシーバーの 1 つ返す場合にのみインクリメントされます `true`します。
+-   `Replied` は、ブロードキャスト レシーバーの 1 つが `true` または `false` のいずれかを返すとインクリメントされます。
+-   `Actioned` は、ブロードキャスト レシーバーが `true` を返す場合にのみインクリメントされます。
 
-## キャンペーンをカスタマイズする方法
+##キャンペーンをカスタマイズする方法
 
 キャンペーンをカスタマイズするには、Reach SDK に用意されたレイアウトを修正します。
 
@@ -188,20 +185,21 @@ Amazon と Google Play の両方のデバイスを対象とするコードは、
 
 #### システム通知
 
-システム通知をカスタマイズするには、**カテゴリ**を使用する必要があります。 移動する [カテゴリ](#categories)します。
+使用する必要があります。 システム通知をカスタマイズする、 **カテゴリ**します。 移動する [カテゴリ](#categories)します。
 
 #### アプリ内通知
 
-既定では、アプリ内通知は Android メソッドに協力してくれた、現在のアクティビティ ユーザー インターフェイスに動的に追加されているビューを `addContentView()`します。 これは、通知オーバーレイと呼ばれます。 通知オーバーレイを使用すると、アプリケーションのレイアウトを変更する必要がないため、統合が簡単です。
+既定では、アプリ内通知とは Android メソッド `addContentView()` によって現在のアクティビティ ユーザー インターフェイスに動的に追加されるビューを指します。 これは、通知オーバーレイと呼ばれます。 通知オーバーレイを使用すると、アプリケーションのレイアウトを変更する必要がないため、統合が簡単です。
 
-通知オーバーレイの見た目を変更するには、ファイルだけで変更できます `engagement_notification_area.xml` 、ニーズにします。
+通知オーバーレイの見た目を修正するには、`engagement_notification_area.xml` ファイルをニーズに合わせて修正します。
+
 > [AZURE.NOTE] ファイル `engagement_notification_overlay.xml` 通知オーバーレイの作成に使用される 1 つは、ファイルが含まれています `engagement_notification_area.xml`します。 また、ニーズに合わせて変更できます (オーバーレイ内部の通知領域の配置など)。
 
 ##### 通知レイアウトをアクティビティ レイアウトの一部に含める
 
 オーバーレイを使用すると統合が簡単になりますが、場合によって不便であり、特定の条件では副作用が発生することもあります。 オーバーレイ システムはアクティビティ レベルでカスタマイズ可能であり、特定のアクティビティにおいて副作用を簡単に防ぐことができます。
 
-Android の **include** ステートメントにより、既存のレイアウトに通知レイアウトを含めることができます。 修正後の例を次に示します `ListActivity` レイアウトがだけを含む、 `ListView`します。
+Android により、既存のレイアウトに通知レイアウトを含めることができます **含める** ステートメントです。 次の例は、`ListView` のみが含まれる修正後の `ListActivity` レイアウトを示します。
 
 **Engagement 統合前:**
 
@@ -220,25 +218,26 @@ Android の **include** ステートメントにより、既存のレイアウ�
               android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent">
-    
+            
               <ListView
                 android:id="@android:id/list"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_weight="1" />
-    
+            
               <include layout="@layout/engagement_notification_area" />
-    
+            
             </LinearLayout>
 
-この例では、元のレイアウトのトップ レベル要素としてリスト ビューが使用されていたため、親コンテナーを追加しました。 追加しました `android: layout_weight =「1」` で構成されたリスト ビューの下にビューを追加できる `android: layout_height ="fill_parent"`します。
+この例では、元のレイアウトのトップ レベル要素としてリスト ビューが使用されていたため、親コンテナーを追加しました。 また、`android:layout_height="fill_parent"` で構成されたリスト ビューの下にビューを追加できるように、`android:layout_weight="1"` も追加しました。
 
 Engagement Reach SDK では、このアクティビティに通知レイアウトが含まれていることが自動的に検知されるため、このアクティビティに対してオーバーレイを追加しません。
-> [AZURE.TIP] アプリケーションで ListActivity を使用すると、表示される Reach オーバーレイによってリスト ビュー内のクリックされたアイテムに応答できなくなります。 これは既知の問題です。 この問題を解決するには、前述のサンプルのように独自のリスト アクティビティ レイアウトに通知レイアウトを組み込むことをお勧めします。
+
+> [AZURE.TIP] アプリケーションで ListActivity を使用する場合、表示される Reach オーバーレイによってリスト ビュー内の項目をクリックすると、もはやへの応答できなくなります。 これは既知の問題です。 この問題を解決するには、前述のサンプルのように独自のリスト アクティビティ レイアウトに通知レイアウトを組み込むことをお勧めします。
 
 ##### アクティビティごとにアプリケーション通知を無効にする
 
-アクティビティに追加されるオーバーレイしたくないかどうかは、独自のレイアウトに通知レイアウトが含めない場合に、このアクティビティのオーバーレイを無効にすることができます、 `AndroidManifest.xml` 追加することで、 `メタ データ` セクションは次の例のようにします。
+特定のアクティビティにオーバーレイが追加されないように独自のレイアウトに通知レイアウトを追加しない場合は、`AndroidManifest.xml` で次のように `meta-data` セクションを追加することで、そのアクティビティのオーバーレイを無効にできます。
 
             <activity android:name="SplashScreenActivity">
               <meta-data android:name="engagement:notification:overlay" android:value="false"/>
@@ -249,9 +248,10 @@ Engagement Reach SDK では、このアクティビティに通知レイアウ�
 指定のレイアウトを修正すると、通知すべての見た目が修正されます。 カテゴリを使用して、通知対象のさまざまな外観 (場合によっては動作) を定義できます。 リーチ キャンペーンを作成する場合にカテゴリを指定できます。 また、カテゴリを使用してお知らせとポーリングもカスタマイズできます。これについては、このドキュメントの後半で説明します。
 
 通知のカテゴリ ハンドラーを登録するには、アプリケーションが初期化される際に呼び出しを追加する必要があります。
-> [AZURE.IMPORTANT] Android:process 属性に関する警告を参照してください \<android-sdk-engagement-process\> 続行する前に Android のトピックでエンゲージメントを統合する方法」にします。
 
-次の例は、前述の警告を確認してのサブクラスを使用する `EngagementApplication`:
+> [AZURE.IMPORTANT] Android:process 属性に関する警告を参照してください \ < android-sdk-engagement-\ > エンゲージメントを統合する方法で続行する前に Android トピックにします。
+
+次の例では、前述の警告について把握しており、`EngagementApplication` のサブクラスを使用していることを前提としています。
 
             public class MyApplication extends EngagementApplication
             {
@@ -264,7 +264,7 @@ Engagement Reach SDK では、このアクティビティに通知レイアウ�
               }
             }
 
-`MyNotifier` オブジェクトは、通知カテゴリ ハンドラーの実装です。 これはどちらの実装、 `EngagementNotifier` インターフェイスまたは既定の実装のサブクラス。 `EngagementDefaultNotifier`します。
+`MyNotifier` オブジェクトは、通知カテゴリ ハンドラーの実装です。 これは、`EngagementNotifier` インターフェイスの実装または既定の実装 `EngagementDefaultNotifier` のサブクラスのいずれかです。
 
 同じ通知で複数のカテゴリを管理できます。次のように登録します。
 
@@ -283,36 +283,36 @@ Engagement Reach SDK では、このアクティビティに通知レイアウ�
               }
             }
 
-ハンドラーで使用される現在のカテゴリを上書きするほとんどのメソッドにパラメーターとして渡されます `EngagementDefaultNotifier`します。
+ハンドラーに使用される現在のカテゴリは、ほとんどのメソッドにパラメーターとして渡されます。これは `EngagementDefaultNotifier` でオーバーライドできます。
 
-いずれかとして渡される、 `文字列` パラメーターに間接的に、 `EngagementReachContent` を持つオブジェクト、 `getCategory()` メソッドです。
+これは `String` パラメーターとして渡されるか、`getCategory()` メソッドを持つ `EngagementReachContent` オブジェクトに間接的に渡されます。
 
-通知作成プロセスのほとんどを変更するにはメソッドを再定義 `EngagementDefaultNotifier`, 、高度なカスタマイズ気軽に技術ドキュメントやソース コードを実行します。
+通知作成プロセスのほとんどは、`EngagementDefaultNotifier` のメソッドを再定義することで変更できます。高度なカスタマイズについては、技術ドキュメントやソース コードをご覧ください。
 
 ##### アプリ内通知
 
 特定のカテゴリに対して代替のレイアウトを使用するには、次の例のようにこれを実装します。
-
+            
             public class MyNotifier extends EngagementDefaultNotifier
             {
               public MyNotifier(Context context)
               {
                 super(context);
               }
-    
+            
               @Override
               protected int getOverlayLayoutId(String category)
               {
                 return R.layout.my_notification_overlay;
               }
-    
-    
+            
+            
               @Override
               public Integer getOverlayViewId(String category)
               {
                 return R.id.my_notification_overlay;
               }
-    
+            
               @Override
               public Integer getInAppAreaId(String category)
               {
@@ -320,7 +320,7 @@ Engagement Reach SDK では、このアクティビティに通知レイアウ�
               }
             }
 
-* * の使用例の `my_notification_overlay.xml` : * *
+**例の `my_notification_overlay.xml` :**
 
             <?xml version="1.0" encoding="utf-8"?>
             <RelativeLayout
@@ -328,39 +328,39 @@ Engagement Reach SDK では、このアクティビティに通知レイアウ�
               android:id="@+id/my_notification_overlay"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent">
-    
+            
               <include layout="@layout/my_notification_area" />
-    
+            
             </RelativeLayout>
 
 オーバーレイのビュー識別子が標準のものとは異なることがわかります。 オーバーレイでは、各レイアウトで固有の識別子を使用することが重要です。
 
-* * の使用例の `my_notification_area.xml` : * *
+**例の `my_notification_area.xml` :**
 
             <?xml version="1.0" encoding="utf-8"?>
             <merge
               xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent">
-    
+            
               <RelativeLayout
                 android:id="@+id/my_notification_area"
                 android:layout_width="fill_parent"
                 android:layout_height="64dp"
                 android:layout_alignParentTop="true"
                 android:background="#B000">
-    
+            
                 <LinearLayout
                   android:orientation="horizontal"
                   android:layout_width="fill_parent"
                   android:layout_height="fill_parent"
                   android:gravity="center_vertical">
-    
+            
                   <ImageView
                     android:id="@+id/engagement_notification_icon"
                     android:layout_width="48dp"
                     android:layout_height="48dp" />
-    
+            
                   <LinearLayout
                     android:id="@+id/engagement_notification_text"
                     android:orientation="vertical"
@@ -368,7 +368,7 @@ Engagement Reach SDK では、このアクティビティに通知レイアウ�
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical">
-    
+            
                     <TextView
                       android:id="@+id/engagement_notification_title"
                       android:layout_width="fill_parent"
@@ -376,7 +376,7 @@ Engagement Reach SDK では、このアクティビティに通知レイアウ�
                       android:singleLine="true"
                       android:ellipsize="end"
                       android:textAppearance="@android:style/TextAppearance.Medium" />
-    
+            
                     <TextView
                       android:id="@+id/engagement_notification_message"
                       android:layout_width="fill_parent"
@@ -384,15 +384,15 @@ Engagement Reach SDK では、このアクティビティに通知レイアウ�
                       android:maxLines="2"
                       android:ellipsize="end"
                       android:textAppearance="@android:style/TextAppearance.Small" />
-    
+            
                   </LinearLayout>
-    
+            
                   <ImageView
                     android:id="@+id/engagement_notification_image"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:adjustViewBounds="true" />
-    
+            
                   <ImageButton
                     android:id="@+id/engagement_notification_close_area"
                     android:visibility="invisible"
@@ -400,9 +400,9 @@ Engagement Reach SDK では、このアクティビティに通知レイアウ�
                     android:layout_height="fill_parent"
                     android:src="@android:drawable/btn_dialog"
                     android:background="#0F00" />
-    
+            
                 </LinearLayout>
-    
+            
                 <ImageButton
                   android:id="@+id/engagement_notification_close"
                   android:layout_width="wrap_content"
@@ -410,20 +410,20 @@ Engagement Reach SDK では、このアクティビティに通知レイアウ�
                   android:layout_alignParentRight="true"
                   android:src="@android:drawable/btn_dialog"
                   android:background="#0F00" />
-    
+            
               </RelativeLayout>
-    
+            
             </merge>
 
 通知領域のビュー識別子が標準のものとは異なることがわかります。 通知領域では、各レイアウトで固有の識別子を使用することが重要です。
 
 このカテゴリの簡単な例により、アプリケーション通知 (アプリ内通知) が画面の上部に表示されます。 通知領域で使用される標準の識別子自体は変更していません。
 
-再定義する必要を変更する場合、 `EngagementDefaultNotifier.prepareInAppArea` メソッドです。 技術ドキュメントとのソース コードを検索することをお勧め `EngagementNotifier` と `EngagementDefaultNotifier` する場合はこのレベルの高度なカスタマイズします。
+これを変更するには、`EngagementDefaultNotifier.prepareInAppArea` メソッドを再定義する必要があります。 このレベルの高度なカスタマイズを実行するには、`EngagementNotifier` および `EngagementDefaultNotifier` の技術ドキュメントとソース コードをご覧になることをお勧めします。
 
 ##### システム通知
 
-拡張することによって `EngagementDefaultNotifier`, をオーバーライドできます `onNotificationPrepared` を既定の実装によって用意された通知を変更します。
+`EngagementDefaultNotifier` を拡張することで、`onNotificationPrepared` をオーバーライドして既定の実装によって用意された通知を置き換えることができます。
 
 次に例を示します。
 
@@ -438,7 +438,7 @@ Engagement Reach SDK では、このアクティビティに通知レイアウ�
 
 この例では、"ongoing" カテゴリの使用によりコンテンツのシステム通知が進行中のイベントとして表示されます。
 
-ビルドする場合、 `通知` オブジェクトを一から、返すことができます `false` メソッドの呼び出しに `通知` で自身、 `NotificationManager`します。 保持する重要な場合は、 `contentIntent`, 、 `deleteIntent` とで使用される通知識別子 `EngagementReachReceiver`します。
+`Notification` オブジェクトを一から構築するには、メソッドに `false` を返し、`NotificationManager` で自身に `notify` を呼び出します。 この場合、`contentIntent`、`deleteIntent`、および `EngagementReachReceiver` で使用される通知識別子を維持することが重要です。
 
 このような実装の正しい例は次のとおりです。
 
@@ -450,29 +450,29 @@ Engagement Reach SDK では、このアクティビティに通知レイアウ�
                 .setSmallIcon(notification.icon)              // icon is mandatory
                 .setContentIntent(notification.contentIntent) // keep content intent
                 .setDeleteIntent(notification.deleteIntent);  // keep delete intent
-    
+            
               /* Your customization */
               // builder.set...
-    
+            
               /* Dismiss option can be managed only after build */
               Notification myNotification = builder.build();
               if (!content.isNotificationCloseable())
                 myNotification.flags |= Notification.FLAG_NO_CLEAR;
-    
+            
               /* Notify here instead of super class */
               NotificationManager manager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
               manager.notify(getNotificationId(content), myNotification); // notice the call to get the right identifier
-    
+            
               /* Return false, we notify ourselves */
               return false;
             }
 
 ##### 通知のみのアナウンス
 
-のみのアナウンスをオーバーライドすることでカスタマイズできる通知でのクリックの管理 `EngagementDefaultNotifier.onNotifAnnouncementIntentPrepared` 用意されたを変更する `インテント`します。 このメソッドを使用すると、フラグを簡単にチューニングできます。
+通知のみのアナウンスに対するクリックは、`EngagementDefaultNotifier.onNotifAnnouncementIntentPrepared` をオーバーライドして用意された `Intent` を修正することで管理方法をカスタマイズできます。 このメソッドを使用すると、フラグを簡単にチューニングできます。
 
-追加する例については、 `SINGLE_TOP` フラグ。
-
+`SINGLE_TOP` フラグを追加する例は次のとおりです。
+            
             @Override
             protected Intent onNotifAnnouncementIntentPrepared(EngagementNotifAnnouncement notifAnnouncement,
               Intent intent)
@@ -483,21 +483,21 @@ Engagement Reach SDK では、このアクティビティに通知レイアウ�
 
 従来の Engagement とは異なり、アクション URL を使用しないシステム通知でバックグラウンドのアプリケーションが起動されるようになりました。このため、このメソッドはアクション URL を使用しないアナウンスで呼び出すことができます。 インテントをカスタマイズする際にはそれを考慮してください。
 
-実装することも `EngagementNotifier.executeNotifAnnouncementAction` を最初からです。
+また、`EngagementNotifier.executeNotifAnnouncementAction` を一から実装することもできます。
 
 ##### 通知のライフ サイクル
 
-いくつかのライフ サイクル メソッドを呼び出す既定のカテゴリを使用する場合、 `EngagementReachInteractiveContent` オブジェクトの統計情報を報告し、キャンペーンの状態を更新します。
+既定のカテゴリを使用する場合、いくつかのライフ サイクル メソッドは、`EngagementReachInteractiveContent` オブジェクトを呼び出して統計情報を報告し、キャンペーンの状態を更新します。
 
--   通知がアプリケーションに表示されるまたはステータス バーに、 `displayNotification` メソッドが呼び出されます (統計情報を報告) によって `EngagementReachAgent` 場合 `handleNotification` を返します `true`します。
--   通知を閉じる場合、 `exitNotification` メソッドが呼び出されて統計情報が報告され、次のキャンペーンが処理できるようことができます。
--   通知をクリックすると、 `actionNotification` が呼び出されると、統計情報を報告し、関連するインテントが起動されます。
+-   通知がアプリケーションまたはステータス バーに表示されると、`handleNotification` で `true` が返された場合、`EngagementReachAgent` によって `displayNotification` メソッドが呼び出されます (統計情報のレポートが作成されます)。
+-   通知を閉じると、`exitNotification` メソッドが呼び出されて統計情報が報告され、次のキャンペーンを処理できるようになります。
+-   通知がクリックされると、`actionNotification` が呼び出され、統計情報のレポートが作成されて関連するインテントが起動されます。
 
-場合は、実装の `EngagementNotifier` 既定の動作をバイパスを自分でこれらのライフ サイクル メソッドを呼び出す必要があります。 次の例では、既定の動作がバイパスされるいくつかのケースを示しています。
+`EngagementNotifier` の実装が既定の動作をバイパスする場合は、これらのライフ サイクル メソッドを自分で呼び出す必要があります。 次の例では、既定の動作がバイパスされるいくつかのケースを示しています。
 
--   拡張しない `EngagementDefaultNotifier`, 、最初からカテゴリの処理を実装した場合などです。
--   オーバーライドした場合、システム通知に、 `onNotificationPrepared` であり、変更する `contentIntent` または `deleteIntent` で、 `通知` オブジェクトです。
--   オーバーライドした場合、アプリ内通知に `prepareInAppArea`, 、ともがマッピングを必ず `actionNotification` がいずれかの U.I コントロールです。
+-   `EngagementDefaultNotifier` を拡張しない場合 (最初からカテゴリの処理を実装した場合など)。
+-   システム通知で、`onNotificationPrepared` をオーバーライドして `Notification` オブジェクトで `contentIntent` または `deleteIntent` を修正した。
+-   アプリ内通知で、`prepareInAppArea` をオーバーライドしてユーザー インターフェイス コントロールの 1 つに少なくとも `actionNotification` がマッピングされるようにした。
 
 > [AZURE.NOTE] 場合 `handleNotification` をスローし、例外は、コンテンツを削除し、 `dropContent` が呼び出されます。 これは作成される統計情報のレポートに掲載され、次のキャンペーンが処理できるようになります。
 
@@ -505,11 +505,11 @@ Engagement Reach SDK では、このアクティビティに通知レイアウ�
 
 #### レイアウト
 
-変更することができます、 `engagement_text_announcement.xml`, 、`engagement_web_announcement.xml` と `engagement_poll.xml` テキスト アナウンス、web アナウンスと投票をカスタマイズするファイルです。
+`engagement_text_announcement.xml`、`engagement_web_announcement.xml`、および `engagement_poll.xml` ファイルを修正して、テキスト アナウンス、Web アナウンス、および投票をカスタマイズできます。
 
-これらのファイルは、タイトル領域とボタン領域で 2 つのレイアウトを共有します。 タイトルのレイアウトは `engagement_content_title.xml` と、バック グラウンドにそれにちなんだ描画可能なファイルを使用します。 アクションと終了ボタンのレイアウトは `engagement_button_bar.xml` と、バック グラウンドにそれにちなんだ描画可能なファイルを使用します。
+これらのファイルは、タイトル領域とボタン領域で 2 つのレイアウトを共有します。 タイトルのレイアウトは `engagement_content_title.xml` で、バックグラウンドにそれにちなんだ描画可能なファイルが使用されます。 アクション ボタンや終了ボタンのレイアウトは `engagement_button_bar.xml` で、バックグラウンドにそれにちなんだ描画可能なファイルが使用されます。
 
-投票で質問のレイアウトとその選択肢が動的に値が大きく複数回使用する、 `engagement_question.xml` レイアウト ファイルに関する質問については、および `engagement_choice.xml` 、選択肢です。
+投票では、質問に `engagement_question.xml` レイアウト ファイル、選択肢に `engagement_choice.xml` ファイルを複数回使用することで、質問のレイアウトとその選択肢が動的に拡張されます。
 
 #### カテゴリ
 
@@ -517,7 +517,7 @@ Engagement Reach SDK では、このアクティビティに通知レイアウ�
 
 通知と同様に、キャンペーンのカテゴリを使用して、お知らせとポーリングの代替レイアウトを設定できます。
 
-たとえば、テキスト アナウンスのカテゴリを作成することができますを拡張する `EngagementTextAnnouncementActivity` し、参照、 `AndroidManifest.xml` ファイル。
+たとえば、テキスト アナウンスのカテゴリを作成するには、`AndroidManifest.xml` ファイルで `EngagementTextAnnouncementActivity` を拡張してそれを参照します。
 
             <activity android:name="com.your_company.MyCustomTextAnnouncementActivity">
               <intent-filter>
@@ -531,7 +531,7 @@ Engagement Reach SDK では、このアクティビティに通知レイアウ�
 
 Reach SDK はインテント システムを使用して特定のカテゴリに対する正しいアクティビティを解決し、解決されない場合は既定のカテゴリにフォールバックします。
 
-実装する必要が `MyCustomTextAnnouncementActivity`, 、だけでは、次の例のようにクラスを定義する必要があるレイアウトを変更する (ただし、同じビュー識別子を保持) するだけの場合。
+その後、`MyCustomTextAnnouncementActivity` を実装する必要があります。レイアウトのみを変更する (同じビュー識別子は維持する) 場合、次の例のようにクラスを定義します。
 
             public class MyCustomTextAnnouncementActivity extends EngagementTextAnnouncementActivity
             {
@@ -542,21 +542,21 @@ Reach SDK はインテント システムを使用して特定のカテゴリに
               }
             }
 
-テキスト アナウンスの既定のカテゴリを置き換えるには、単純に置き換える `android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity"` を独自の実装です。
+テキスト アナウンスの既定のカテゴリを置き換えるには、`android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity"` を独自の実装に置き換えます。
 
 Web アナウンスと投票についても同様にカスタマイズできます。
 
-Web アナウンスを拡張できます `EngagementWebAnnouncementActivity` 、アクティビティを宣言、 `AndroidManifest.xml` 次の例のようにします。
+Web アナウンスの場合、`AndroidManifest.xml` で次の例のように `EngagementWebAnnouncementActivity` を拡張してアクティビティを宣言します。
 
             <activity android:name="com.your_company.MyCustomWebAnnouncementActivity">
               <intent-filter>
                 <action android:name="com.microsoft.azure.engagement.intent.action.ANNOUNCEMENT"/>
                 <category android:name="my_category" />
-                <data android:mimeType="text/html" />    
+                <data android:mimeType="text/html" />    <!-- only difference with text announcements in the intent is the data mime type -->
               </intent-filter>
             </activity>
 
-投票を拡張できます `EngagementPollActivity` を宣言しで、 `AndroidManifest.xml` 次の例のようにします。
+投票の場合、`AndroidManifest.xml` で次の例のように `EngagementPollActivity` を拡張してアクティビティを宣言します。
 
             <activity android:name="com.your_company.MyCustomPollActivity">
               <intent-filter>
@@ -564,10 +564,10 @@ Web アナウンスを拡張できます `EngagementWebAnnouncementActivity` 、
                 <category android:name="my_category" />
               </intent-filter>
             </activity>
-
+            
 ##### 一から実装する
 
-カテゴリは、のいずれかを拡張することがなく、アナウンス (および投票) アクティビティを実装できます、 `エンゲージメント * アクティビティ` Reach SDK が提供するクラス。 これは、標準のレイアウトと異なるビューを使用するレイアウトを定義する場合などに便利です。
+Reach SDK に用意された `Engagement*Activity` を拡張することなく、アナウンス (および投票) のアクティビティにカテゴリを実装できます。 これは、標準のレイアウトと異なるビューを使用するレイアウトを定義する場合などに便利です。
 
 高度な通知カスタマイズと同様に、標準実装のソース コードをご確認ください。
 
@@ -578,12 +578,12 @@ Web サイトのキャンペーンを作成する際に指定したフィール�
             public class MyCustomTextAnnouncement extends EngagementActivity
             {
               private EngagementAnnouncement mContent;
-    
+            
               @Override
               protected void onCreate(Bundle savedInstanceState)
               {
                 super.onCreate(savedInstanceState);
-    
+            
                 /* Get content */
                 mContent = EngagementReachAgent.getInstance(this).getContent(getIntent());
                 if (mContent == null)
@@ -592,16 +592,16 @@ Web サイトのキャンペーンを作成する際に指定したフィール�
                   finish();
                   return;
                 }
-    
+            
                 setContentView(R.layout.my_text_announcement);
-    
+            
                 /* Configure views by querying fields on mContent */
                 // ...
               }
             }
 
-統計情報についてコンテンツを表示するを報告する、 `onResume` イベント。
-
+統計情報については、`onResume` イベントに表示されるコンテンツのレポートを作成してください。
+            
             @Override
             protected void onResume()
             {
@@ -610,11 +610,11 @@ Web サイトのキャンペーンを作成する際に指定したフィール�
              super.onResume();
             }
 
-次に、忘れずにいずれかを呼び出す `actionContent(this)` または `exitContent(this)` 、アクティビティがバック グラウンドに移行する前に、コンテンツ オブジェクトにします。
+その後、アクティビティがバックグラウンドに移行する前に、コンテンツ オブジェクトで `actionContent(this)` または `exitContent(this)` を呼び出すことを忘れないようにします。
 
-いずれかが呼び出されない場合 `actionContent` または `exitContent`, 、統計情報は送信されず (は分析されませんキャンペーン)、さらに、次のキャンペーンが通知されないアプリケーション プロセスが再起動されるまでです。
+`actionContent` も `exitContent` も呼び出さないと、統計情報は送信されず (キャンペーンの解析が実行されず)、さらにアプリケーション プロセスを再開するまで次のキャンペーンが通知されません。
 
-印刷の向きやその他の構成の変更により、コードかどうか、アクティビティに移行するバック グラウンドか、標準実装場合は、ユーザーがアクティビティを終了して、コンテンツが報告されることを確認して特定する (を押す `ホーム` または `戻る`) が、印刷の向きを変更できません。
+方向などの構成の変更はコードを複雑にし、アクティビティがバックグラウンドに移行するかどうかを判断するのが難しくなる場合があります。標準実装ではユーザーがアクティビティを終了する (`HOME` または `BACK` を押す) とコンテンツが終了したと見なされますが、方向が変わっている場合はこの限りではありません。
 
 実装について注目する部分は次のとおりです。
 
@@ -623,7 +623,7 @@ Web サイトのキャンペーンを作成する際に指定したフィール�
             {
               finish();
             }
-    
+            
             @Override
             protected void onPause()
             {
@@ -638,14 +638,13 @@ Web サイトのキャンペーンを作成する際に指定したフィール�
               super.onPause();
             }
 
-呼び出した場合、参照できるよう `actionContent(this)` 、アクティビティを完了 `exitContent(this)` せず、影響を及ぼさずに安全に呼び出すことができます。
+`actionContent(this)` を呼び出してアクティビティを完了すると、`exitContent(this)` が安全に呼び出されることがわかります。
 
-## テスト
+##テスト
 
 「Android での Engagement の統合をテストする方法」を読んで、統合を検証してください。
 
-
-[here]: http://developer.android.com/tools/extras/support-library.html#Downloading 
-[google cloud messaging]: http://developer.android.com/guide/google/gcm/index.html 
-[amazon device messaging]: https://developer.amazon.com/sdk/adm.html 
-
+[here]:http://developer.android.com/tools/extras/support-library.html#Downloading
+[Google Cloud Messaging]:http://developer.android.com/guide/google/gcm/index.html
+[Amazon Device Messaging]:https://developer.amazon.com/sdk/adm.html
+ 

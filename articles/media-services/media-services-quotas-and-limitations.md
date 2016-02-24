@@ -17,25 +17,20 @@
     ms.author="juliako"/>
 
 
-
-# クォータと制限
+#クォータと制限
 
 このトピックでは、Microsoft Azure Media Services に関連付けられているクォータと制限について説明します。
 
 [AZURE.INCLUDE [azure-mediaservices-limits](../../includes/azure-mediaservices-limits.md)]
 
 
-## Media Services のラーニング パス
+##Media Services のラーニング パス
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## フィードバックの提供
+##フィードバックの提供
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
 
 
 

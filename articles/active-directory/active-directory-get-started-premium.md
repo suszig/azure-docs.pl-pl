@@ -16,14 +16,14 @@
     ms.date="10/30/2015"
     ms.author="markvi"/>
 
-
 # Azure Active Directory Premium の概要
 
 Azure Active Directory には、Free、Basic、Premium という 3 つのエディションがあります。 Free エディションは、Azure または Office 365 のサブスクリプションに含まれます。 Basic および Premium エディションから入手、 [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) または [オープン ボリューム ライセンス](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) プログラムです。 Azure および Office 365 のサブスクリプション会員も、Active Directory Premium をオンラインで購入できます。 [こちらでサインイン](https://portal.office.com/Commerce/Catalog.aspx) 購入します。
-> [AZURE.NOTE]
-中国のお客様は、Azure Active Directory の世界中のインスタンスを使用して、Azure Active Directory Premium および Basic エディションを利用できます。 中国の 21Vianet が運営する Microsoft Azure サービスでは、Azure Active Directory Premium および Basic エディションは現在サポートされていません。 詳細については、下記までお問い合わせください、 [Azure Active Directory フォーラム](http://feedback.azure.com/forums/169401-azure-active-directory)します。
 
-Azure Active Directory Premium は、**Enterprise Mobility Suite** にも含まれます。 Enterprise Mobility Suite は、Microsoft Intune、Azure Rights Management、および Active Directory Premium のサービスを 1 つのライセンス プランでまとめて使用できるコスト効果の高い方法です。 詳細については、次を参照してください。、 [Enterprise Mobility Suite](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx) web サイトです。
+> [AZURE.NOTE]
+Azure Active Directory のワールドワイド インスタンスを使用している中国のお客様は、Azure Active Directory Premium および Basic エディションを使用できます。 中国の 21Vianet が運営する Microsoft Azure サービスでは、Azure Active Directory Premium および Basic エディションは現在サポートされていません。 詳細については、下記までお問い合わせください、 [Azure Active Directory フォーラム](http://feedback.azure.com/forums/169401-azure-active-directory)します。
+
+Azure Active Directory Premium に記載されても、 **Enterprise Mobility Suite**します。 Enterprise Mobility Suite は、Microsoft Intune、Azure Rights Management、および Active Directory Premium のサービスを 1 つのライセンス プランでまとめて使用できるコスト効果の高い方法です。 詳細については、次を参照してください。、 [Enterprise Mobility Suite](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx) web サイトです。
 
 Azure Active Directory Premium の機能は、次の手順に従ってすぐに使い始めることができます。 同じ手順が、Azure Active Directory Basic エディションにも適用されます。
 
@@ -37,9 +37,9 @@ Microsoft のエンタープライズ ボリューム ライセンス プログ�
 
 ![][1]
 
-既存のテナントがある場合は、**[サインイン]** リンクをクリックして既存の管理者アカウントでサインインします。 ライセンスをアクティブ化する必要があるディレクトリからグローバル管理者の資格情報でサインインすることが重要です。
+既存のテナントの場合は選択し、 **サイン イン** リンクをクリックして既存の管理者アカウントでサインインします。 ライセンスをアクティブ化する必要があるディレクトリからグローバル管理者の資格情報でサインインすることが重要です。
 
-ライセンス プランで使用する Azure Active Directory テナントを新しく作成する場合は、**[サインアップ]** リンクを選択する必要があります。次の画面に移動します。
+ライセンス プランで使用する新しい Azure Active Directory テナントを作成するかどうかは、選択する際、 **サインアップ** リンクをクリックすると、次の画面をします。
 
 ![][2]
 
@@ -53,7 +53,7 @@ Microsoft のエンタープライズ ボリューム ライセンス プログ�
 
 ![][4]
 
-サインインが正常に済んだ後は、携帯電話の番号を入力して検証を受け、第 2 要素の認証画面 (下図) を完了する必要があります。 その後は、**[サインアップ]** を選択して Azure Active Directory へのアクセスをアクティブ化できます。
+サインインが正常に済んだ後は、携帯電話の番号を入力して検証を受け、第 2 要素の認証画面 (下図) を完了する必要があります。 その後ことができますを選択して Azure Active Directory へのアクセスをアクティブ化する **サインアップ**します。
 
 ![][5]
 
@@ -82,8 +82,8 @@ Microsoft のエンタープライズ ボリューム ライセンス プログ�
 ライセンスをユーザーに割り当てるには:
 
 1. カスタマイズするディレクトリのグローバル管理者として、管理ポータルにサインインします。
-2. **[Active Directory]** をクリックし、ライセンスを割り当てるディレクトリを選択します。
-3. **[ライセンス]** タブを選択し、**[Active Directory Premium]** または **[Enterprise Mobility Suite]** を選択して、**[割り当て]** をクリックします。
+2. クリックして **Active Directory**, 、ライセンスを割り当てるディレクトリを選択します。
+3. 選択、 **ライセンス** ] タブで [ **Active Directory Premium** または **Enterprise Mobility Suite**, 、] をクリックし、 **割り当てる**します。
 
     ![][10]
 
@@ -105,21 +105,20 @@ Microsoft クラウド サービスで利用できるサービスと機能は、
 
 ## 参照トピック
 
-- [会社のブランド設定サインイン ページとアクセス パネル ページの追加します。](active-directory-add-company-branding.md)
+- [サインイン ページとアクセス パネル ページに対する会社のブランドの追加](active-directory-add-company-branding.md)
 - [アクセスおよび使用状況レポートを表示します。](active-directory-view-access-usage-reports.md)
 
-
-
-[1]: ./media/active-directory-get-started-premium/MOLSEmail.png 
-[2]: ./media/active-directory-get-started-premium/MOLSAccountProfile.png 
-[3]: ./media/active-directory-get-started-premium/MOLSThankYou.png 
-[4]: ./media/active-directory-get-started-premium/AADEmail.png 
-[5]: ./media/active-directory-get-started-premium/SignUppage.png 
-[6]: ./media/active-directory-get-started-premium/Subscriptionspage.png 
-[7]: ./media/active-directory-get-started-premium/Premiuminportal.png 
-[8]: ./media/active-directory-get-started-premium/Premiuminportal_large.png 
-[9]: ./media/active-directory-get-started-premium/Signuppage_oops.png 
-[10]: ./media/active-directory-get-started-premium/contosolicenseplan.png 
-[11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png 
-[12]: ./media/active-directory-get-started-premium/Usagelocation.png 
+<!--Image references-->
+[1]: ./media/active-directory-get-started-premium/MOLSEmail.png
+[2]: ./media/active-directory-get-started-premium/MOLSAccountProfile.png
+[3]: ./media/active-directory-get-started-premium/MOLSThankYou.png
+[4]: ./media/active-directory-get-started-premium/AADEmail.png
+[5]: ./media/active-directory-get-started-premium/SignUppage.png
+[6]: ./media/active-directory-get-started-premium/Subscriptionspage.png
+[7]: ./media/active-directory-get-started-premium/Premiuminportal.png
+[8]: ./media/active-directory-get-started-premium/Premiuminportal_large.png
+[9]: ./media/active-directory-get-started-premium/Signuppage_oops.png
+[10]: ./media/active-directory-get-started-premium/contosolicenseplan.png
+[11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
+[12]: ./media/active-directory-get-started-premium/Usagelocation.png
 

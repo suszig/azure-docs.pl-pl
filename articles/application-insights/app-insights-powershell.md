@@ -14,8 +14,7 @@
     ms.topic="article" 
     ms.date="11/23/2015" 
     ms.author="awills"/>
-
-
+ 
 # PowerShell を使用した Application Insights リソースの作成
 
 この記事は、作成する方法を示します、 [Application Insights](app-insights-overview.md) Azure のリソースに自動的にします。 たとえば、ビルド プロセスの一部として実行します。 Application Insights の基本的なリソースと共に作成することができます [可用性 web テスト](app-insights-monitor-web-app-availability.md), 、[アラートを設定する](app-insights-alerts.md), 、し、他の Azure リソースを作成します。
@@ -34,9 +33,11 @@
 ## 既存のリソース向けの JSON のコピー
 
 1. セットアップ [Application Insights](app-insights-overview.md) プロジェクトを自動的に生成するものに似ています。 必要に応じて、Web テストとアラートを追加します。
-2. 新しい .json ファイルを作成する-名付けます `template1.json` この例では。 ファイルに、次のコンテンツをコピーします。
+2. 新しい .json ファイルを作成します (この例では、`template1.json` と呼びます)。 ファイルに、次のコンテンツをコピーします。
+
 
     ```JSON
+
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
@@ -63,21 +64,23 @@
             {
               //alert rule JSON file contents
             }
-
+ 
             // Any other resources go here
           ]
         }
+    
     ```
 
-    このテンプレートは、メインのリソースに加えて、可用性テストを 1 つ設定します。
+    This template will set up one availability test in addition to the main resource.
 
-2. 開いている [Azure リソース マネージャー](https://resources.azure.com/)します。 サブスクリプション、resourceGroups、コンポーネントを通り抜けて、アプリ リソースまで下方向に移動します。
+
+2. 開いている [Azure リソース マネージャー](https://resources.azure.com/)します。 サブスクリプション、resourceGroups、コンポーネントを通り抜けて、アプリ リソースまで下方向に移動します。 
 
     ![](./media/app-insights-powershell/01.png)
 
-    *コンポーネント* はアプリケーションを表示するための基本的な Application Insights リソースです。 関連するアラート ルールおよび可用性 Web テストに対して別々 のリソースがあります。
+    *コンポーネント* アプリケーションを表示するための基本的な Application Insights リソースです。 関連するアラート ルールおよび可用性 Web テストに対して別々 のリソースがあります。
 
-3. コンポーネントの JSON を適切な場所にコピー `template1.json`します。
+3. コンポーネントの JSON を `template1.json` の適切な場所にコピーします。
 6. 次のプロパティを削除します。
   * `id`
   * `InstrumentationKey`
@@ -90,29 +93,29 @@
 
 5. スキーマを満たすためには、各リソースに次の行を挿入します。
 
-    `"apiVersion":「2014年-04-01」、`
+    `"apiVersion": "2014-04-01",`
 
     (スキーマは、リソースの型名の大文字と小文字も文句を言う `Microsoft.Insights/*` --が *しない* 、これらを変更します)。
 
 
 ## テンプレートのパラメーター化
 
-ここでは、特定の名前をパラメーターで置き換える必要があります。  [テンプレートをパラメーター化](resource-group-authoring-templates.md), を使用して式を記述する、 [のヘルパー関数](resource-group-template-functions.md)します。
+ここでは、特定の名前をパラメーターで置き換える必要があります。  [テンプレートをパラメーター化](resource-group-authoring-templates.md), を使用して式を記述する、 [のヘルパー関数](resource-group-template-functions.md)します。 
 
-文字列の一部のみをパラメーター化、ので使用できません `concat()` 文字列を構築します。
+文字列の一部のみをパラメーター化することはできません。そのため、`concat()` を使用して、文字列を構築します。
 
 次に、作成する代替文字列の例を示します。 それぞれの代替文字列は、複数回現れます。 作成するテンプレートには、その他のものが必要になる場合があります。 これらの例では、テンプレートの上部で定義したパラメーターと変数を使用しています。
 
- find| 置き換え
+find | 置き換え
 ---|---
- `"hidden-link:/subscriptions/.../components/MyAppName"`| `"[concat (' 非表示リンク:'、`<br/>` resourceId (' microsoft.insights/コンポーネントの` <br/> ` parameters('appName')))]"`
- `"/subscriptions/.../alertrules/myAlertName-myAppName-subsId"、`| `"[resourceId (' Microsoft.Insights/alertrules の variables('alertRuleName'))]"、`
- `"/subscriptions/.../webtests/myTestName-myAppName"、`| `"[resourceId (' Microsoft.Insights/webtests の parameters('webTestName'))]"、`
- `"myWebTest myAppName"`| `'[variables(testName)]"'`
- `"myTestName myAppName subsId"`| `"[variables('alertRuleName')]"`
- `"myAppName"`| `"[parameters('appName')]"`
- `"myappname"` (小文字)| `"[toLower(parameters('appName'))]"`
- `"< WebTest 名 = \"myWebTest\".`<br/>`Url = \"http://fabrikam.com/home \"… >"`| `[concat ('< WebTest 名 = \"'、` <br/> `parameters('webTestName')、` <br/> `' \\".Url=\"', parameters('Url'),` <br/> `'\"...>')]" `
+`"hidden-link:/subscriptions/.../components/MyAppName"`| `"[concat('hidden-link:',`<br/>` resourceId('microsoft.insights/components',` <br/> ` parameters('appName')))]"`
+`"/subscriptions/.../alertrules/myAlertName-myAppName-subsId",` | `"[resourceId('Microsoft.Insights/alertrules', variables('alertRuleName'))]",`
+`"/subscriptions/.../webtests/myTestName-myAppName",` | `"[resourceId('Microsoft.Insights/webtests', parameters('webTestName'))]",`
+`"myWebTest-myAppName"` | `"[variables(testName)]"'`
+`"myTestName-myAppName-subsId"` | `"[variables('alertRuleName')]"`
+`"myAppName"` | `"[parameters('appName')]"`
+`"myappname"` (小文字) | `"[toLower(parameters('appName'))]"`
+`"<WebTest Name=\"myWebTest\" ...`<br/>` Url=\"http://fabrikam.com/home\" ...>"`|`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]" `
 
 ## リソース間の依存関係の設定
 
@@ -120,28 +123,30 @@ Azure では、厳密な順序でリソースを設定する必要がありま�
 
 * Web テスト リソース
 
-    `"dependsOn": ["[resourceId (' Microsoft.Insights/コンポーネントの parameters('appName'))]"]、`
+    `"dependsOn": ["[resourceId('Microsoft.Insights/components', parameters('appName'))]"],`
 
 * アラート リソース
 
-    `"dependsOn": ["[resourceId (' Microsoft.Insights/webtests の variables('testName'))]"]、`
+    `"dependsOn": ["[resourceId('Microsoft.Insights/webtests', variables('testName'))]"],`
 
 ## Application Insights リソースの作成
 
 1. PowerShell で Azure にサインインします。
 
-    `ログイン AzureRmAccount`
+    `Login-AzureRmAccount`
 
 2. 次のようにコマンドを実行します。
 
     ```PS
+
         New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
                -templateFile .\template1.json `
                -appName myNewApp `
                -webTestName aWebTest `
                -Url http://myapp.com `
                -text "Welcome!"
-    ```
+
+    ``` 
 
     * -ResourceGroupName は、新しいリソースを作成するグループです。
     * -templateFile は、カスタム パラメーターの前に置く必要があります。
@@ -153,7 +158,7 @@ Azure では、厳密な順序でリソースを設定する必要がありま�
 
 ## メトリック アラートの定義
 
-[警告の設定の PowerShell メソッド](app-insights-alerts.md/#set-alerts-by-using-powershell)します。
+ [警告の設定の PowerShell メソッド](app-insights-alerts.md/#set-alerts-by-using-powershell)します。
 
 
 ## 例
@@ -280,8 +285,5 @@ Azure では、厳密な順序でリソースを設定する必要がありま�
     }
   ]
 }
+
 ```
-
-
-
-

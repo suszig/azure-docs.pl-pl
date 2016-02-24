@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure クラシック ポータルの HDInsight に関する記事の索引 | Microsoft Azure"
-   description="Azure クラシック ポータルの HDInsight に関する記事のリンクがある索引ページ。HDInsight の新しい Hadoop クラスターには Azure ポータルをお勧めします。"
+   description="Azure クラシック ポータルの HDInsight に関する記事のリンクがある索引ページ。 HDInsight の新しい Hadoop クラスターには Azure ポータルをお勧めします。"
    services="hdinsight"
    documentationCenter="na"
    authors="cjgronlund"
@@ -16,17 +16,17 @@
    ms.date="08/17/2015"
    ms.author="cjgronlund"/>
 
-
 # Azure クラシック ポータルの HDInsight に関する記事の索引
 
 このインデックス ページ上の HDInsight をカバーする記事を検索を使用して、 [Azure Classic Portal](https://manage.windowsazure.com/)します。 Azure HDInsight は、 オープン ソースである Hadoop と Hortonworks Data Platform のクラウド ディストリビューションです。
 
-> [AZURE.IMPORTANT]  このドキュメントのインデックス ページは、現在の Azure クラシック ポータルにソリューションをデプロイしているユーザーを対象としています。
+
+> [AZURE.IMPORTANT]  このドキュメントのインデックス ページは、現在 Azure 旧ポータルに配置されるソリューションを既に持っているユーザー向けです。
 >
-> 新しい HDInsight クラスターでは、**Azure ポータル**を使用することをお勧めします。
+> 使用をお勧めします **Azure ポータル** 新しい HDInsight クラスターの場合。
 >
-> * [HDInsight ポータルのドキュメントに移動する](/documentation/services/hdinsight/)
-> * [Azure ポータルに移動して](https://portal.azure.com/)
+> * [HDInsight ポータルのドキュメントにアクセス](/documentation/services/hdinsight/)
+> * [Azure ポータルにアクセスします。](https://portal.azure.com/)
 >
 > ポータルの利点の詳細については、次を参照してください。 [DevOps がずっとより awesome](/overview/preview-portal/)します。
 >
@@ -42,98 +42,94 @@ Linux と Linux を使用してに関する記事の完全なセットに移動�
 
 ## Hadoop: Batch クエリ
 
-* [次の 4 つの簡単なサンプルを実行します。](hdinsight-run-samples.md)
-* [Apache log4j サンプル ファイルを分析するのに、Hadoop で Hive と HiveQL を使用します。](hdinsight-use-hive.md)
-* [Pig と Hadoop を使用します。](hdinsight-use-pig.md)
-* [Hadoop MapReduce の使用](hdinsight-use-mapreduce.md)
+* [4 つの簡単なサンプルを実行する](hdinsight-run-samples.md)
+* [HDInsight で Hadoop と共に Hive と HiveQL を使用して Apache log4j サンプル ファイルを分析する](hdinsight-use-hive.md)
+* [Hadoop での Pig の使用](hdinsight-use-pig.md)
+* [Hadoop での MapReduce の使用](hdinsight-use-mapreduce.md)
 
 ## Hadoop & Excel
 
-* [Power Query を使用した Hadoop に Excel を接続します。](hdinsight-connect-excel-power-query.md)
-* [Hive ODBC ドライバーと Excel を Hadoop に接続します。](hdinsight-connect-excel-hive-odbc-driver.md)
+* [Power Query を使用した Excel から Hadoop への接続](hdinsight-connect-excel-power-query.md)
+* [Hive ODBC ドライバーを使用した Excel から Hadoop への接続](hdinsight-connect-excel-hive-odbc-driver.md)
 
 
 ## Hadoop: 高度なテクニック
 
-* [Microsoft Avro ライブラリと共に使用して hadoop のデータをシリアル化します。](hdinsight-dotnet-avro-serialization.md)
-* [処理し、Hive を使用して JSON ドキュメントの分析](hdinsight-using-json-in-hive.md)
-* [Python と Hive および Pig を使用します。](hdinsight-python.md)
-* [Hadoop の Hive クエリを最適化します。](hdinsight-hadoop-optimize-hive-query–v1.md)
-* [Hadoop .NET SDK を使用した Pig ジョブを実行します。](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md)
-* [Hive と Pig のストリーミングで c# ユーザー定義関数を使用します。](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
-* [C# Hadoop ストリーミング プログラムを開発します。](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
+* [Microsoft Avro ライブラリを使用した Hadoop のデータのシリアル化](hdinsight-dotnet-avro-serialization.md)
+* [Hive を使用した JSON ドキュメントの処理と分析](hdinsight-using-json-in-hive.md)
+* [Hive および Pig での Python の使用](hdinsight-python.md)
+* [Hadoop に対する Hive クエリの最適化](hdinsight-hadoop-optimize-hive-query–v1.md)
+* [.NET SDK for Hadoop を使用した Pig ジョブの実行](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md )
+* [Hive と Pig ストリーミングでの C# ユーザー定義関数の使用](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [C# Hadoop ストリーミング プログラムの開発](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
 ## HBase: NoSQL データベース
 
-* [HBase geo レプリケーションを構成します。](hdinsight-hbase-geo-replication.md)
-* [Maven を使って HBase を使用する Java アプリケーションをビルドするには](hdinsight-hbase-build-java-maven.md)
-* [HBase で Twitter センチメントのリアルタイム分析します。](hdinsight-hbase-analyze-twitter-sentiment.md)
+* [HBase geo レプリケーションの構成](hdinsight-hbase-geo-replication.md)
+* [HBase を使用する Java アプリケーションを Maven で構築する](hdinsight-hbase-build-java-maven.md)
+* [HBase で Twitter のセンチメントをリアルタイム分析する](hdinsight-hbase-analyze-twitter-sentiment.md)
 
 ## Apache Storm: ストリーム クエリ
 
-* [Storm Starter サンプルを使ってみる](hdinsight-apache-storm-tutorial-get-started-v1.md)
-* [展開および Apache Storm トポロジの管理](hdinsight-storm-deploy-monitor-topology.md)
-* [Hadoop tools for Visual Studio を使用する Apache Storm の c# トポロジを開発します。](hdinsight-storm-develop-csharp-visual-studio-topology.md)
-* [Apache Storm と Maven の基本的なワード カウント アプリケーションの Java ベース トポロジを開発します。](hdinsight-storm-develop-java-topology.md)
-* [Storm の使用の Azure Event Hubs からのイベントの処理](hdinsight-storm-develop-csharp-event-hub-topology.md)
-* [Power BI を使用して Apache Storm トポロジからデータを視覚化するには](hdinsight-storm-power-bi-topology.md)
-* [Apache Storm を使用して Azure Event Hubs からの車両センサー データを処理します。](hdinsight-storm-iot-eventhub-documentdb.md)
+* [Get started with the Storm Starter samples (Storm Starter のサンプルを使用する)](hdinsight-apache-storm-tutorial-get-started-v1.md)
+* [Apache Storm トポロジのデプロイと管理](hdinsight-storm-deploy-monitor-topology.md)
+* [Hadoop Tools for Visual Studio を使用した Apache Storm の C# トポロジの開発](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [Apache Storm と Maven を使用する基本的なワード カウント アプリケーションの Java ベースのトポロジの開発](hdinsight-storm-develop-java-topology.md)
+* [Storm を使用して Azure Event Hubs のイベントを処理する](hdinsight-storm-develop-csharp-event-hub-topology.md)
+* [Power BI を使用した Apache Storm トポロジのデータの視覚化](hdinsight-storm-power-bi-topology.md)
+* [Apache Storm を使用した Azure Event Hubs からの車両センサー データの処理](hdinsight-storm-iot-eventhub-documentdb.md)
 
 ## Apache Spark
 
 Azure ポータルでネイティブの Apache Spark クラスターの使用についての記事を参照してください、 [HDInsight のドキュメント ページ](/documentation/services/hdinsight/)します。
 
-* [Azure HDInsight での Apache Spark の概要:](hdinsight-apache-spark-overview.md)
-* [インストールし、Hadoop クラスターでの Spark の使用](hdinsight-hadoop-spark-install.md)
-* [HDInsight クラスターで Spark ジョブ サーバー](hdinsight-apache-spark-job-server.md)
-* [Apache Spark のプロビジョニングと Spark SQL を使用して対話型クエリの実行](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1.md)
+* [概要: Azure HDInsight での Apache Spark](hdinsight-apache-spark-overview.md)
+* [Hadoop クラスターで Spark をインストールして使用する](hdinsight-hadoop-spark-install.md)
+* [Azure HDInsight クラスター上の Spark ジョブ サーバー](hdinsight-apache-spark-job-server.md)
+* [Provision Apache Spark and run interactive queries using Spark SQL (Apache Spark のプロビジョニングと Spark SQL を使用した対話型クエリの実行)](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1.md)
 
 
 ## ビッグ データ ソリューション
 
-* [Hive クエリ コンソールを使用したセンサー データを分析します。](hdinsight-hive-analyze-sensor-data.md)
-* [Hive を使用してフライト遅延データを分析します。](hdinsight-analyze-flight-delay-data.md)
-* [Hive を使用してストアドの Twitter データを分析します。](hdinsight-analyze-twitter-data.md)
-* [Apache Storm の使用の Twitter のトレンディング トピックします。](hdinsight-storm-twitter-trending.md)
-* [Apache Storm、Event Hub と HBase を使用したセンサー データを分析します。](hdinsight-storm-sensor-data-analysis.md)
+* [Hive クエリ コンソールを使用したセンサー データの分析](hdinsight-hive-analyze-sensor-data.md)
+* [Hive を使用したフライト遅延データの分析](hdinsight-analyze-flight-delay-data.md)
+* [Hive を使用した Twitter データの分析](hdinsight-analyze-twitter-data.md)
+* [Apache Storm を使用した Twitter のトレンディング トピックの確認](hdinsight-storm-twitter-trending.md)
+* [Apache Storm、Event Hub、HBase を使用してセンサー データを分析する](hdinsight-storm-sensor-data-analysis.md)
 
 ## HDInsight の Machine Learning
 
-* [Apache Mahout と Hadoop を使用して映画のリコメンデーションを生成します。](hdinsight-mahout.md)
-* [ラーニング パス: 分析ソリューションを高度な構築](machine-learning-data-science-how-to-create-machine-learning-service.md)
-* [ラーニング パス: データの処理の詳細](machine-learning-data-science-advanced-data-processing.md)
-* [HDInsight や Machine Learning でのタクシーのヒントを予測します。](machine-learning-data-science-process-hive-walkthrough.md)
+* [Apache Mahout と Hadoop を使用して映画のリコメンデーションを生成する](hdinsight-mahout.md)
+* [Learning path: Build advanced analytics solutions (ラーニング パス: 高度な分析ソリューションを構築する)](machine-learning-data-science-how-to-create-machine-learning-service.md)
+* [Learning path: Advanced data processing (ラーニング パス: 高度なデータ処理)](machine-learning-data-science-advanced-data-processing.md)
+* [HDInsight と Machine Learning を使用したタクシー データの予測に関するヒント](machine-learning-data-science-process-hive-walkthrough.md)
 
 ## 機能拡張
 
-* [Azure Virtual Network で HDInsight 機能を拡張します。](hdinsight-extend-hadoop-virtual-network.md)
-* [インストールし、Hadoop クラスターでの Spark の使用](hdinsight-hadoop-spark-install.md)
-* [HDInsight クラスターに Giraph を使用して、大規模なグラフを処理](hdinsight-hadoop-giraph-install-v1.md)
-* [インストールして Hadoop クラスターに Solr を使用します。](hdinsight-hadoop-solr-install-v1.md)
+* [Azure Virtual Network を使用した HDInsight 機能の拡張](hdinsight-extend-hadoop-virtual-network.md)
+* [Hadoop クラスターで Spark をインストールして使用する](hdinsight-hadoop-spark-install.md)
+* [Use Giraph on HDInsight clusters to process large-scale graphs (HDInsight で Giraph を使用して大規模なグラフを処理する)](hdinsight-hadoop-giraph-install-v1.md)
+* [Install and use Solr on Hadoop clusters (Hadoop クラスターで Solr をインストールして使用する)](hdinsight-hadoop-solr-install-v1.md)
 
 ## 操作
 
-* [Windows 上のクラスターのプロビジョニング](hdinsight-provision-clusters-v1.md)
-* [Azure Virtual Network での HBase クラスターをプロビジョニングします。](hdinsight-hbase-provision-vnet.md)
-* [Script Action を使って HDInsight クラスターをカスタマイズします。](hdinsight-hadoop-customize-cluster-v1.md)
-* [HDInsight での Hadoop クラスターの可用性と信頼性](hdinsight-high-availability.md)
+* [Provision clusters on Windows (Windows でのクラスターのプロビジョニング)](hdinsight-provision-clusters-v1.md)
+* [Azure Virtual Network での HBase クラスターのプロビジョニング](hdinsight-hbase-provision-vnet.md)
+* [Script Action を使って HDInsight クラスターをカスタマイズする](hdinsight-hadoop-customize-cluster-v1.md)
+* [HDInsight における Hadoop クラスターの可用性と信頼性](hdinsight-high-availability.md)
 
 ## リファレンス
 
-* [PowerShell コマンドレット](https://msdn.microsoft.com/library/azure/dn858087.aspx)
-* [.NET SDK for Hadoop](http://msdn.microsoft.com/library/azure/dn469975.aspx)
-* [.NET library for Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
-* [Hbase .NET SDK](https://www.nuget.org/packages/Microsoft.HBase.Client/)
+* [PowerShell コマンドレット](https://msdn.microsoft.com/library/azure/dn858087.aspx)  
+* [.NET SDK for Hadoop](http://msdn.microsoft.com/library/azure/dn469975.aspx)  
+* [.NET library for Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)  
+* [.NET SDK for HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/)  
 
 ## トラブルシューティング
 
 * [リリース ノート](hdinsight-release-notes.md)
-* [ヒープ ダンプを収集](hdinsight-hadoop-collect-debug-heap-dumps.md)
-* [アプリケーション ログのアクセス](hdinsight-hadoop-access-yarn-app-logs.md)
-* [エラー メッセージを解釈します。](hdinsight-debug-jobs.md)
-* [フォーラムに関するヘルプを表示します。](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
-
-
-
-
+* [ヒープ ダンプを収集する](hdinsight-hadoop-collect-debug-heap-dumps.md)
+* [アプリケーション ログにアクセスする](hdinsight-hadoop-access-yarn-app-logs.md)
+* [エラー メッセージを解釈する](hdinsight-debug-jobs.md)
+* [フォーラムで質問する](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 

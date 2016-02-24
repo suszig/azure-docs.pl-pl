@@ -15,7 +15,6 @@
    ms.date="12/02/2015"
    ms.author="alkohli" />
 
-
 # StorSimple デバイスの DATA 0 ネットワーク インターフェイスの設定の変更
 
 ## 概要
@@ -25,57 +24,52 @@ Microsoft Azure StorSimple デバイスには、DATA 0 ～ DATA 5 の 6 つの�
 このチュートリアルを読むと、次のことができるようになります。
 
 - セットアップ ウィザードを使用して DATA 0 ネットワーク設定を変更する
-- 使用して DATA 0 ネットワーク設定を変更 `Set-hcsnetinterface` コマンドレット
+- `Set-HcsNetInterface` コマンドレットを使用して DATA 0 ネットワーク設定を変更する
 
 
 ## セットアップ ウィザードを使用して DATA 0 ネットワーク設定を変更する
-
 DATA 0 ネットワーク設定を再構成するには、StorSimple デバイスの Windows PowerShell インターフェイスに接続し、セットアップ ウィザードのセッションを起動します。 DATA 0 の設定を変更するには、次の手順を実行します。
 
 #### セットアップ ウィザードを使用して DATA 0 ネットワーク設定を変更するには
 
-1. シリアル コンソール メニューで、オプション 1 を選択し、**フル アクセスでログイン**します。 画面の指示に従って、**デバイス管理者のパスワード**を入力します。 既定のパスワードは `Password1` です。
+1. シリアル コンソール メニューでは、オプション 1 を選択して **フル アクセスでログイン**します。 入力を求められたら提供、 **デバイス管理者のパスワード**します。 既定のパスワードは `Password1` です。
 
 2. コマンド プロンプトに、次のコマンドを入力します。
 
-    `Invoke-hcssetupwizard`
+
+    `Invoke-HcsSetupWizard`
 
 3. デバイスの DATA 0 インターフェイスの構成に役立つセットアップ ウィザードが表示されます。 IP アドレス、ゲートウェイ、およびネットマスクの新しい値を指定します。
 
-> [AZURE.NOTE] 固定コントローラーの IP は、Azure クラシック ポータルの StorSimple デバイスの **[構成]** ページで再構成する必要があります。 詳細についてを参照してください [ネットワーク インターフェイスの変更](storsimple-modify-device-config.md#modify-network-interfaces)します。
+> [AZURE.NOTE] 固定のコント ローラーの ip アドレスはで再構成する必要があります、 **構成** Azure クラシック ポータルで StorSimple デバイスのページです。 詳細についてを参照してください [ネットワーク インターフェイスの変更](storsimple-modify-device-config.md#modify-network-interfaces)します。
 
 
 ## Set-HcsNetInterface コマンドレットを使用して DATA 0 ネットワーク設定を変更する
-
-別の DATA 0 ネットワーク インターフェイスを使用するを再構成する方法、 `Set-hcsnetinterface` コマンドレットです。 このコマンドレットは、StorSimple デバイスの Windows PowerShell インターフェイスから実行します。 DATA 0 の設定を変更するには、次の手順を実行します。
+別の DATA 0 ネットワーク インターフェイスを使用するを再構成する方法、 `Set-HcsNetInterface` コマンドレットです。 このコマンドレットは、StorSimple デバイスの Windows PowerShell インターフェイスから実行します。 DATA 0 の設定を変更するには、次の手順を実行します。 
 
 #### Set-HcsNetInterface コマンドレットを使用して DATA 0 ネットワーク設定を変更するには
 
-1. シリアル コンソール メニューで、オプション 1 を選択し、**フル アクセスでログイン**します。 画面の指示に従って、デバイス管理者のパスワードを入力します。 既定のパスワードは `Password1` です。
+1. シリアル コンソール メニューでは、オプション 1 を選択して **フル アクセスでログイン**します。 画面の指示に従って、デバイス管理者のパスワードを入力します。 既定のパスワードは `Password1` です。
 
 2. コマンド プロンプトに、次のコマンドを入力します。
 
-    `Set-hcsnetinterface-InterfaceAlias Data0-IPv4Address <>-IPv4Netmask <>-IPv4Gateway <>-Controller0IPv4Address <>-Controller1IPv4Address <> IsiScsiEnabled 1 - IsCloudEnabled 1`
-
+    `Set-HCSNetInterface -InterfaceAlias Data0 -IPv4Address <> -IPv4Netmask <> -IPv4Gateway <> -Controller0IPv4Address <> -Controller1IPv4Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`
+    
     次の項目について、DATA 0 の値を山かっこ (< >) で囲んで入力します。
-
+                                            
     - IPv4 アドレス
-
+    
     - IPv4 ゲートウェイ
-
+    
     - IPv4 サブネット マスク
-
+    
     - コント ローラー 0 の固定 IPv4 アドレス
 
     - コント ローラー 1 の固定 IPv4 アドレス
 
 ## 次のステップ
 
-- DATA 0 以外のネットワーク インターフェイスを構成するには、使用することができます、 [Azure クラシック ポータルで ](storsimple-modify-device-config.md)します。
+- DATA 0 以外のネットワーク インターフェイスを構成するには、使用することができます、 [Azure クラシック ポータルで [構成] ページ](storsimple-modify-device-config.md)します。 
 - ネットワーク インターフェイスを構成するときに問題が発生した場合を参照してください [の展開に関する問題のトラブルシューティングを行う](storsimple-troubleshoot-deployment.md)します。
-
-
-
-
 
 

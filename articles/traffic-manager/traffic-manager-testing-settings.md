@@ -15,22 +15,21 @@
    ms.date="12/02/2015"
    ms.author="joaoma" />
 
-
 # Traffic Manager の設定のテスト
 
 Traffic Manager の設定をテストするには、複数のクライアントを設定してから、プロファイル内の、クラウド サービスと Web サイトで構成されるエンドポイントを一度に 1 つずつ停止するのが最善の方法です。 以下の各ヒントでは、Traffic Manager プロファイルをテストする方法について説明しています。
 
 ## 基本的なテスト手順
 
-- **DNS TTL を非常に短い時間に設定**して、変更がすぐに反映されるようにします。たとえば 30 秒に設定します。
-- テストするプロファイル内の **Azure Cloud Services や Azure Websites の IP アドレスを確認します**。
-- **DNS 名を IP アドレスに解決**してそのアドレスを表示できるツールを使用します。 会社のドメイン名がプロファイル内のエンドポイントの IP アドレスに解決されることを確認します。 その名前解決は Traffic Manager プロファイルと同じトラフィック ルーティング方法で行われる必要があります。 Windows を実行しているコンピューターでは、コマンド プロンプトまたは Windows PowerShell プロンプトから Nslookup.exe ツールを使用できます。 他にも、インターネット上には IP アドレスを調べることができるツールがあり、すぐに使用できる状態で公開されています。
+- **DNS TTL を非常に小さく設定** 変更がすぐに反映できるように 30 秒などです。
+- **Azure クラウド サービスおよび web サイトの IP アドレスを確認** でテストするプロファイル。
+- **IP アドレスに DNS 名を解決するのに便利なツールを使用して** そのアドレスを表示します。 会社のドメイン名がプロファイル内のエンドポイントの IP アドレスに解決されることを確認します。 その名前解決は Traffic Manager プロファイルと同じトラフィック ルーティング方法で行われる必要があります。 Windows を実行しているコンピューターでは、コマンド プロンプトまたは Windows PowerShell プロンプトから Nslookup.exe ツールを使用できます。 他にも、インターネット上には IP アドレスを調べることができるツールがあり、すぐに使用できる状態で公開されています。
 
 ### nslookup を使用して Traffic Manager プロファイルを確認するには
 
 1. 管理者として、コマンド プロンプトまたは Windows PowerShell プロンプトを開きます。
-2. 型 `ipconfig/flushdns` DNS リゾルバー キャッシュをフラッシュします。
-3. 型 `nslookup < Traffic Manager ドメイン名 >`します。たとえば、次のコマンドは、プレフィックスを持つドメイン名を確認します *myapp.contoso*:。
+2. 「`ipconfig /flushdns`」と入力して、DNS リゾルバー キャッシュをフラッシュします。
+3. 「`nslookup <your Traffic Manager domain name>`」と入力します。 たとえば、次のコマンドは、プレフィックスを持つドメイン名を確認します *myapp.contoso*:。
     nslookup myapp.contoso.trafficmanager.net
    通常、結果として次の情報が表示されます。
    - この Traffic Manager ドメイン名を解決するためにアクセスされる DNS サーバーの DNS 名と IP アドレス。
@@ -68,13 +67,9 @@ Traffic Manager の設定をテストするには、複数のクライアント�
 
 [Traffic Manager のパフォーマンスに関する考慮事項](traffic-manager-performance-considerations.md)
 
-[Traffic Manager のトラブルシューティングに状態が低下しています](traffic-manager-troubleshooting-degraded.md)
+[Traffic Manager の機能低下状態のトラブルシューティング](traffic-manager-troubleshooting-degraded.md)
 
 
 
 
-
-
-
-
-
+ 

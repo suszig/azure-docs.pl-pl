@@ -18,8 +18,7 @@
 
 
 
-
-# Azure Automation を使用した Azure API Management の管理
+#Azure Automation を使用した Azure API Management の管理
 
 このガイドでは、Azure Automation サービスと、このサービスを使用して Azure API Management の管理を簡略化する方法について紹介します。
 
@@ -43,8 +42,4 @@ Azure Automation によってクラウド管理タスクを自動的に実行す
 
 * Azure automation の [チュートリアル入門](../automation-create-runbook-from-samples.md)します。
 * 読み取り、 [#Azure API Management REST Api 用の PowerShell モジュール](https://alexandrebrisebois.wordpress.com/2014/08/17/powershell-module-for-the-azure-api-management-rest-apis/) コミュニティ ブログの投稿です。
-
-
-
-
-
+ 

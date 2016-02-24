@@ -16,21 +16,20 @@
     ms.date="10/16/2015" 
     ms.author="ryancraw"/>
 
+# DocumentDB のデータへのアクセスのセキュリティ保護 #
 
-# DocumentDB のデータへのアクセスのセキュリティ保護
+この記事に格納されたデータへのアクセスをセキュリティ保護の概要を説明する [Microsoft Azure DocumentDB](../../services/documentdb/)します。 
 
-この記事に格納されたデータへのアクセスをセキュリティ保護の概要を説明する [Microsoft Azure DocumentDB](../../services/documentdb/)します。
-
-この概要を読み終えると、次の質問に答えられるようになります。
+この概要を読み終えると、次の質問に答えられるようになります。  
 
 -   DocumentDB マスター キーとは何か。
 -   DocumentDB 読み取り専用キーとは何か。
 -   DocumentDB リソース トークンとは何か。
 -   DocumentDB ユーザーとアクセス許可を使用して DocumentDB データへのアクセスをセキュリティ保護するにはどうすればよいか。
 
-## <a id="Sub1"></a>DocumentDB アクセス制御の概念
+##<a id="Sub1"></a>DocumentDB のアクセス制御の概念##
 
-DocumentDB には、DocumentDB のリソースへのアクセスを制御するための優れた概念が用意されています。 このトピックでは、DocumentDB のリソースを次の 2 つのカテゴリに分類しています。
+DocumentDB には、DocumentDB のリソースへのアクセスを制御するための優れた概念が用意されています。  このトピックでは、DocumentDB のリソースを次の 2 つのカテゴリに分類しています。
 
 - 管理リソース
     - アカウント
@@ -45,19 +44,19 @@ DocumentDB には、DocumentDB のリソースへのアクセスを制御する�
     - トリガー
     - ユーザー定義関数
 
-DocumentDB では、この 2 つのカテゴリにおいて、アカウント管理者、読み取り専用の管理者、データベース ユーザーの 3 種類のアクセス制御のペルソナをサポートしています。 各アクセス制御のペルソナの権限は次のとおりです。
-
+DocumentDB では、この 2 つのカテゴリにおいて、アカウント管理者、読み取り専用の管理者、データベース ユーザーの 3 種類のアクセス制御のペルソナをサポートしています。  各アクセス制御のペルソナの権限は次のとおりです。
+ 
 - アカウント管理者: 指定した DocumentDB アカウント内のすべてのリソース (管理リソースおよびアプリケーション リソース) にフル アクセスします。
-- 読み取り専用の管理者: 指定した DocumentDB アカウント内のすべてのリソース (管理リソースおよびアプリケーション リソース) に読み取り専用アクセスします。
-- データベース ユーザー: DocumentDB データベースの一連のリソース (コレクション、ドキュメント、スクリプトなど) に関連付けられた DocumentDB ユーザー リソースです。 特定のデータベースに関連付けられたユーザー リソースが 1 つ以上ある場合があり、各ユーザー リソースはそのデータベースに関連付けられたアクセス許可を 1 つ以上持つことができます。
+- 読み取り専用の管理者: 指定した DocumentDB アカウント内のすべてのリソース (管理リソースおよびアプリケーション リソース) に読み取り専用アクセスします。 
+- データベース ユーザー: DocumentDB データベースの一連のリソース (コレクション、ドキュメント、スクリプトなど) に関連付けられた DocumentDB ユーザー リソースです。  特定のデータベースに関連付けられたユーザー リソースが 1 つ以上ある場合があり、各ユーザー リソースはそのデータベースに関連付けられたアクセス許可を 1 つ以上持つことができます。
 
 前のカテゴリとリソースを念頭において、DocumentDB アクセス制御モデルではアクセス許可の構成要素を 3 種類定義します。
 
-- マスター キー: DocumentDB アカウントの作成時に、2 つのマスター キー (プライマリおよびセカンダリ) が作成されます。 これらのキーにより、DocumentDB アカウント内のすべてのリソースへの完全な管理アクセスが可能になります。
+- マスター キー: DocumentDB アカウントの作成時に、2 つのマスター キー (プライマリおよびセカンダリ) が作成されます。  これらのキーにより、DocumentDB アカウント内のすべてのリソースへの完全な管理アクセスが可能になります。
 
 ![図: DocumentDB マスター キー](./media/documentdb-secure-access-to-data/masterkeys.png)
 
-- 読み取り専用キー: DocumentDB アカウントの作成時に、2 つの読み取り専用キー (プライマリおよびセカンダリ) が作成されます。 これらのキーにより、DocumentDB アカウント内のすべてのリソースへの読み取り専用アクセスが可能になります。
+- 読み取り専用キー: DocumentDB アカウントの作成時に、2 つの読み取り専用キー (プライマリおよびセカンダリ) が作成されます。  これらのキーにより、DocumentDB アカウント内のすべてのリソースへの読み取り専用アクセスが可能になります。
 
 ![図: DocumentDB 読み取り専用キー](./media/documentdb-secure-access-to-data/readonlykeys.png)
 
@@ -65,9 +64,8 @@ DocumentDB では、この 2 つのカテゴリにおいて、アカウント管
 
 ![図: DocumentDB リソース トークン](./media/documentdb-secure-access-to-data/resourcekeys.png)
 
-## <a id="Sub2"></a>DocumentDB のマスター_キーおよび読み取り専用キーの使用
-
-前に説明したように、DocumentDB マスター キーは、DocumentDB アカウント内のすべてのリソースへの完全な管理アクセス権を提供し、読み取り専用キーは、アカウント内のすべてのリソースへの読み取りアクセスを可能にします。 次のコード スニペットは、DocumentDB アカウントのエンドポイントとマスター キーを使用して、DocumentClient をインスタンス化し、新しいデータベースを作成する方法を示します。
+##<a id="Sub2"></a>DocumentDB のマスター キーおよび読み取り専用キーの使用 ##
+前に説明したように、DocumentDB マスター キーは、DocumentDB アカウント内のすべてのリソースへの完全な管理アクセス権を提供し、読み取り専用キーは、アカウント内のすべてのリソースへの読み取りアクセスを可能にします。  次のコード スニペットは、DocumentDB アカウントのエンドポイントとマスター キーを使用して、DocumentClient をインスタンス化し、新しいデータベースを作成する方法を示します。 
 
     //Read the DocumentDB endpointUrl and authorization keys from config.
     //These values are available from the Azure Classic Portal on the DocumentDB Account Blade under "Keys".
@@ -75,7 +73,7 @@ DocumentDB では、この 2 つのカテゴリにおいて、アカウント管
     
     private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
     private static readonly SecureString authorizationKey = ToSecureString(ConfigurationManager.AppSettings["AuthorizationKey"]);
-    
+        
     client = new DocumentClient(new Uri(endpointUrl), authorizationKey);
     
     //Create Database
@@ -85,9 +83,9 @@ DocumentDB では、この 2 つのカテゴリにおいて、アカウント管
             Id = databaseName
         });
 
-## <a id="Sub3"></a>DocumentDB リソース トークンの概要
 
-リソース トークンは、自分のマスター キーを知らせたくないクライアントに、自分の DocumentDB アカウント内のリソースへのアクセスを許可する場合に (DocumentDB ユーザーとアクセス許可を作成することによって) 使用できます。 DocumentDB マスター キーには、プライマリ キーとセカンダリ キーの両方が含まれており、これらによって、アカウントとそのすべてのリソースへの管理アクセスが許可されます。 これらのマスター キーのいずれかを知らせると、悪意で、または誤ってアカウントが使用される可能性が生じます。
+##<a id="Sub3"></a>DocumentDB リソース トークンの概要 ##
+リソース トークンは、自分のマスター キーを知らせたくないクライアントに、自分の DocumentDB アカウント内のリソースへのアクセスを許可する場合に (DocumentDB ユーザーとアクセス許可を作成することによって) 使用できます。 DocumentDB マスター キーには、プライマリ キーとセカンダリ キーの両方が含まれており、これらによって、アカウントとそのすべてのリソースへの管理アクセスが許可されます。 これらのマスター キーのいずれかを知らせると、悪意で、または誤ってアカウントが使用される可能性が生じます。 
 
 同様に、DocumentDB 読み取り専用キーは、アクセス許可のリソースを除く、DocumentDB アカウント内のすべてのリソースへの読み取りアクセス権を提供しますが、特定の DocumentDB のリソースへのより細やかなアクセス権を提供する目的で使用することはできません。
 
@@ -97,54 +95,53 @@ DocumentDB リソース トークンにより、付与されたアクセス許�
 
 1. 中間層サービスは、ユーザーの写真を共有するモバイル アプリケーションを提供するために設定します。
 2. 中間層サービスは、DocumentDB アカウントのマスター キーを持ちます。
-3. 写真アプリは、エンド ユーザーのモバイル デバイスにインストールされます。
+3. 写真アプリは、エンド ユーザーのモバイル デバイスにインストールされます。 
 4. ログイン時に、写真アプリは、中間層サービスを使用してユーザー ID を確立します。 この ID 確立のしくみは完全にアプリケーションに依存します。
 5. いったん ID が確立されると、中間層サービスはその ID に基づいてアクセス許可を要求します。
 6. 中間層サービスから、リソース トークンが電話アプリに返されます。
-7. 電話アプリはリソース トークンを引き続き使用し、リソース トークンによって定義されたアクセス許可を使用して、リソース トークンによって許可された間隔で DocumentDB リソースに直接アクセスすることができます。
-8. リソース トークンの期限が切れると、それ以降の要求で、401 の承認されていない例外が表示されます。 この時点で、電話アプリは ID を再度確立し、新しいリソース トークンを要求します。
+7. 電話アプリはリソース トークンを引き続き使用し、リソース トークンによって定義されたアクセス許可を使用して、リソース トークンによって許可された間隔で DocumentDB リソースに直接アクセスすることができます。 
+8. リソース トークンの期限が切れると、それ以降の要求で、401 の承認されていない例外が表示されます。  この時点で、電話アプリは ID を再度確立し、新しいリソース トークンを要求します。
 
 ![DocumentDB リソース トークンのワークフロー](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
 
-## <a id="Sub4"></a>DocumentDB ユーザーとアクセス許可を使用します。
-
-DocumentDB ユーザー リソースは DocumentDB データベースに関連付けられます。 各データベースには、0 人以上の DocumentDB ユーザーを含めることができます。 次のコード スニペットは、DocumentDB ユーザー リソースを作成する方法を示します。
+##<a id="Sub4"></a>DocumentDB ユーザーおよびアクセス許可の操作 ##
+DocumentDB ユーザー リソースは DocumentDB データベースに関連付けられます。  各データベースには、0 人以上の DocumentDB ユーザーを含めることができます。  次のコード スニペットは、DocumentDB ユーザー リソースを作成する方法を示します。
 
     //Create a user.
     User docUser = new User
     {
         Id = "mobileuser"
     };
-    
+
     docUser = await client.CreateUserAsync(database.SelfLink, docUser);
 
-> [AZURE.NOTE] DocumentDB の各ユーザーは PermissionsLink プロパティを持ち、このプロパティを使用して、そのユーザーに関連付けられた権限の一覧を取得することができます。
+> [AZURE.NOTE] DocumentDB の各ユーザーには、ユーザーに関連付けられているアクセス許可の一覧を取得するために使用できる PermissionsLink プロパティがあります。
 
-DocumentDB アクセス許可リソースは DocumentDB ユーザーに関連付けられています。 各ユーザーは、0 個以上の DocumentDB アクセス許可を持つ可能性があります。 アクセス許可リソースは、特定のアプリケーション リソースにアクセスするときに必要なセキュリティ トークンへのアクセスを提供します。
+DocumentDB アクセス許可リソースは DocumentDB ユーザーに関連付けられています。  各ユーザーは、0 個以上の DocumentDB アクセス許可を持つ可能性があります。  アクセス許可リソースは、特定のアプリケーション リソースにアクセスするときに必要なセキュリティ トークンへのアクセスを提供します。
 アクセス許可リソースによって提供されることがある次の 2 つのアクセス レベルが使用できます。
 
 - All: ユーザーはそのリソースに完全なアクセス許可を持つ
 - Read: ユーザーは、リソースの内容を読み取りのみができますが、リソースへの書き込み、更新、または削除の操作を実行することはできません。
 
 
-> [AZURE.NOTE] DocumentDB ストアド プロシージャを実行するには、ストアド プロシージャを実行するコレクションの All 権限を持つ必要があります。
+> [AZURE.NOTE] DocumentDB を実行するためにユーザーは、ストアド プロシージャが実行するコレクションのすべての権限を持っている必要がありますプロシージャに格納されます。
 
 
 次のコード スニペットは、アクセス許可リソースを作成し、アクセス許可リソースのリソース トークン (トークン) を読み取って、先ほど作成したユーザーにアクセス許可を関連付ける方法を示します。
 
     //Create a permission.
-    
+
     Permission docPermission = new Permission
     {
         PermissionMode = PermissionMode.Read,
         ResourceLink = documentCollection.SelfLink,
         Id = "readperm"
     };
-    
+            
     docPermission = await client.CreatePermissionAsync(docUser.SelfLink, docPermission);
     Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
 
-すべてのアクセス許可リソースを特定のユーザーに簡単に関連付けるために、DocumentDB により、各ユーザー オブジェクトのアクセス許可フィードが利用できるようになります。 次のコード スニペットは、上記で作成したユーザーに関連付けられている権限を取得し、権限の一覧を作成して、ユーザーの代わりに新しい DocumentClient をインスタンス化する方法を示します。
+すべてのアクセス許可リソースを特定のユーザーに簡単に関連付けるために、DocumentDB により、各ユーザー オブジェクトのアクセス許可フィードが利用できるようになります。  次のコード スニペットは、上記で作成したユーザーに関連付けられている権限を取得し、権限の一覧を作成して、ユーザーの代わりに新しい DocumentClient をインスタンス化する方法を示します。
 
     //Read a permission feed.
     FeedResponse<Permission> permFeed = await client.ReadPermissionFeedAsync(docUser.SelfLink);
@@ -155,19 +152,15 @@ DocumentDB アクセス許可リソースは DocumentDB ユーザーに関連付
     {
         permList.Add(perm);
     }
-    
+            
     DocumentClient userClient = new DocumentClient(new Uri(endpointUrl),permList);
 
-> [AZURE.TIP] リソース トークンの既定の有効期間は 1 時間です。 ただし、トークンの有効期間が明示的に指定される可能性があります (最大 5 時間)。
+> [AZURE.TIP] リソース トークンには、1 時間の既定の有効期間があります。  ただし、トークンの有効期間が明示的に指定される可能性があります (最大 5 時間)。
 
-## <a name="NextSteps"></a>次のステップ
+##<a name="NextSteps"></a>次のステップ
 
 - DocumentDB の詳細については、次のようにクリックします。 [ここ](http://azure.com/docdb)します。
 - マスター_キーおよび読み取り専用キーの管理についてをクリックして [ここ](documentdb-manage-account.md)します。
-- DocumentDB 認証トークンを作成する方法については、クリックして [ここ](https://msdn.microsoft.com/library/azure/dn783368.aspx)
-
-
-
-
-
+- DocumentDB 認証トークンを作成する方法については、次のようにクリックします [ここで。](https://msdn.microsoft.com/library/azure/dn783368.aspx)
+ 
 

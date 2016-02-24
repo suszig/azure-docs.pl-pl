@@ -16,7 +16,6 @@
    ms.date="09/23/2015"
    ms.author="sahajs"/>
 
-
 # SQL Data Warehouse でのデータベースのユーザー エラーからの復旧
 
 SQL Data Warehouse には、意図しないデータの破損または削除の原因となるユーザー エラーから復旧するための主な機能が 2 つあります。
@@ -27,14 +26,13 @@ SQL Data Warehouse には、意図しないデータの破損または削除の�
 これらの機能はいずれも、同じサーバー上の新しいデータベースに復元を実行します。
 
 ## ライブ データベースの復元
-
-ユーザー エラーが意図しないデータ変更の原因になっている場合は、保有期間内の復元ポイントのいずれかにデータベースを復元できます。 ライブ データベースのデータベース スナップショットは 8 時間ごとに作成され、7 日間保持されます。
+ユーザー エラーが意図しないデータ変更の原因になっている場合は、保有期間内の復元ポイントのいずれかにデータベースを復元できます。 ライブ データベースのデータベース スナップショットは 8 時間ごとに作成され、7 日間保持されます。 
 
 ### PowerShell
 
-Azure PowerShell を使用して、プログラムでデータベースの復元を実行します。Azure PowerShell モジュールをダウンロードするには、実行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)します。
+Azure PowerShell を使用して、プログラムでデータベースの復元を実行します。 Azure PowerShell モジュールをダウンロードするには、実行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)します。 
 
-データベースを復元するには、 [Start-azuresqldatabaserestore:operator[]][] コマンドレットです。
+データベースを復元するには、[Start-azuresqldatabaserestore] コマンドレットを使用します。 
 
 1. Microsoft Azure PowerShell を開きます。
 2. Azure アカウントに接続して、アカウントに関連付けられているすべてのサブスクリプションを一覧表示します。
@@ -71,24 +69,21 @@ Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $R
 サーバーが foo.database.windows.net の場合は、上の PowerShell コマンドレットで -ServerName として "foo" を使用してください。
 
 ### REST API
-
 プログラムでデータベースの復元を実行するには、REST を使用します。
 
 1. 「データベース復元ポイントの取得」操作を使用して、データベースの復元ポイントの一覧を取得します。
-2. 使用して、復元を開始、 [を作成するデータベースの復元要求][] 操作します。
-3. 使用して、復元の状態を追跡、 [データベースの操作状態][] 操作します。
+2. [データベースの復元要求の作成] 操作を使用して、復元を開始します。
+3. [データベースの操作の状態] 操作を使用して、復元の状態を追跡します。
 
-に従って、復旧されたデータベースを構成することができます、復元が完了した後、 [復旧されたデータベースの最終処理][] ガイドです。
+復元が終了した後は、[Finalize、復元されたデータ] ガイドに従って、復旧されたデータベースを構成できます。
 
 ## 削除されたデータベースの復旧
-
 データベースが削除された場合、削除されたデータベースを削除時の状態に復元することができます。 Azure SQL Data Warehouse では、データベースが削除され 7 日間保持される前に、データベースのスナップショットが作成されます。
 
 ### PowerShell
+Azure PowerShell を使用して、削除済みデータベースの復元をプログラムで実行します。 Azure PowerShell モジュールをダウンロードするには、実行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)します。 
 
-Azure PowerShell を使用して、削除済みデータベースの復元をプログラムで実行します。Azure PowerShell モジュールをダウンロードするには、実行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)します。
-
-削除済みデータベースを復元するには、 [Start-azuresqldatabaserestore:operator[]][] コマンドレットです。
+削除済みデータベースを復元するには、[Start-azuresqldatabaserestore] コマンドレットを使用します。
 
 1. Microsoft Azure PowerShell を開きます。
 2. Azure アカウントに接続して、アカウントに関連付けられているすべてのサブスクリプションを一覧表示します。
@@ -112,36 +107,32 @@ Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid 
 サーバーが foo.database.windows.net の場合は、上の PowerShell コマンドレットで -ServerName として "foo" を使用してください。
 
 ### REST API
-
 プログラムでデータベースの復元を実行するには、REST を使用します。
 
-1.  使用して、復元可能な削除済みデータベースのすべてを一覧表示、 [復元可能なリストにはデータベースのが削除される][] 操作します。
-2.  使用して復元する削除済みデータベースの詳細を取得、 [Get 復元可能なデータベースのを削除する][] 操作します。
-3.  使用して、復元を開始、 [を作成するデータベースの復元要求][] 操作します。
-4.  使用して、復元の状態を追跡、 [データベースの操作状態][] 操作します。
+1.  [復元可能な削除されたデータベースの一覧表示] 操作を使用して、復元可能な削除済みデータベースのすべてを一覧表示します。
+2.  [Get 復元可能な削除済みデータベース] 操作を使用して復元する削除済みデータベースの詳細を取得します。
+3.  [データベースの復元要求の作成] 操作を使用して、復元を開始します。
+4.  [データベースの操作の状態] 操作を使用して、復元の状態を追跡します。
 
-に従って、復旧されたデータベースを構成することができます、復元が完了した後、 [復旧されたデータベースの最終処理][] ガイドです。
+復元が終了した後は、[Finalize、復元されたデータ] ガイドに従って、復旧されたデータベースを構成できます。
 
 
 ## 次のステップ
-
-他の Azure SQL Database エディションのビジネス継続性機能については、読み取り、 [Azure SQL Database のビジネス継続性の概要][]します。
-
+他の Azure SQL Database エディションのビジネス継続性機能については、[Azure SQL Database のビジネス継続性の概要] を参照してください。
 
 
+<!--Image references-->
 
+<!--Article references-->
+[Azure SQL Database business continuity overview]: sql-database/sql-database-business-continuity.md
+[Finalize a recovered database]: sql-database/sql-database-recovered-finalize.md
 
+<!--MSDN references-->
+[Create database restore request]: http://msdn.microsoft.com/library/azure/dn509571.aspx
+[Database operation status]: http://msdn.microsoft.com/library/azure/dn720371.aspx
+[Get restorable dropped database]: http://msdn.microsoft.com/library/azure/dn509574.aspx
+[List restorable dropped databases]: http://msdn.microsoft.com/library/azure/dn509562.aspx
+[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/library/dn720218.aspx
 
-
-
-
-
-
-[azure sql database business continuity overview]: sql-database/sql-database-business-continuity.md 
-[finalize a recovered database]: sql-database/sql-database-recovered-finalize.md 
-[create database restore request]: http://msdn.microsoft.com/library/azure/dn509571.aspx 
-[database operation status]: http://msdn.microsoft.com/library/azure/dn720371.aspx 
-[get restorable dropped database]: http://msdn.microsoft.com/library/azure/dn509574.aspx 
-[list restorable dropped databases]: http://msdn.microsoft.com/library/azure/dn509562.aspx 
-[start-azuresqldatabaserestore]: https://msdn.microsoft.com/library/dn720218.aspx 
+<!--Other Web references-->
 

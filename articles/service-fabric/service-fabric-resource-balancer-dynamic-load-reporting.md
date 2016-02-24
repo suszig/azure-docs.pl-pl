@@ -16,7 +16,6 @@
    ms.date="09/03/2015"
    ms.author="masnider"/>
 
-
 # 動的な負荷レポートの概要
 
 実行時に、ステートフルおよびステートレスなサービス オブジェクトは、ReportLoad メソッド (IStatefulServicePartition および IStatelessServicePartition インターフェイスのメンバー) を使用して負荷をレポートできます。 ノードに対するサービスの正確なパッキングが可能になり、ノード上でサービスに負荷が生じているときに、一元的な Service Fabric リソース バランサーによるリソース利用の正確な追跡が支援されるため、実行時の負荷値をレポートすることは重要です。
@@ -31,13 +30,9 @@ Service Fabric リソース バランサーの実行時に、これは、すべ�
 
 
 
-
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 次のステップ
 
 詳細については: [リソース バランサーのアーキテクチャ](service-fabric-resource-balancer-architecture.md)
-
-
-
-
-
+ 
 

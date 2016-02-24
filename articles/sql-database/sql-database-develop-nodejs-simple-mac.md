@@ -1,6 +1,6 @@
 <properties
     pageTitle="Mac OS X 上で Tedious を含む Node.js を使用して SQL Database に接続する"
-    description="Azure SQL Database への接続に使用できる Node.js コード サンプルについて説明します。サンプルは、Tedious ドライバーを使用して接続します。"
+    description="Azure SQL Database への接続に使用できる Node.js コード サンプルについて説明します。 サンプルは、Tedious ドライバーを使用して接続します。"
     services="sql-database"
     documentationCenter=""
     authors="meet-bhagdev"
@@ -18,8 +18,8 @@
     ms.author="meetb"/>
 
 
-
 # Mac OS X 上で Tedious を含む Node.js を使用して SQL Database に接続する
+
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
@@ -29,25 +29,27 @@
 
 ## 前提条件
 
-既にコンピューターにインストールされている場合を除いて、**node** をインストールします。
+
+インストール **ノード**, コンピューターに既にインストールされている場合を除き、します。
 
 
-OSX 10.10 Yosemite に node.js をインストールするには、によって、ならば便利で簡単にインストールを事前にコンパイルされたバイナリ パッケージをダウンロードすることができます。 [Nodejs.org に進んで](http://nodejs.org/) を最新のパッケージをダウンロード、インストール ボタンをクリックします。
+OSX 10.10 Yosemite に node.js をインストールするには、によって、ならば便利で簡単にインストールを事前にコンパイルされたバイナリ パッケージをダウンロードすることができます。 [Nodejs.org に進み](http://nodejs.org/) を最新のパッケージをダウンロード、インストール ボタンをクリックします。
 
-**node** と **npm** の両方のインストールを行うインストール ウィザードに従い、.dmg からパッケージをインストールします (npm は、node.js 用にその他のパッケージのインストールを容易にするノード パッケージ マネージャーです)。
+両方をインストールを行うインストール ウィザードに従い、.dmg からパッケージをインストール **ノード** と **npm**, 、npm は node.js 用の他のパッケージのインストールを容易にするノード パッケージ マネージャー。
 
 
-**ノード** と **npm** でコンピューターを構成したら、Node.js プロジェクトの作成を予定しているディレクトリに移動して、次のコマンドを入力します。
+コンピューターを構成した後 **ノード** と **npm**, 、Node.js プロジェクトの作成を予定しているディレクトリに移動、および次のコマンドを入力します。
 
 
     npm init
     npm install tedious
 
-**npm init** はノード プロジェクトを作成します。 プロジェクトの作成中に既定値を保持するには、プロジェクトが作成されるまで Enter キーを押します。 プロジェクト ディレクトリに **package.json** が表示されます。
+
+**npm init** ノード プロジェクトを作成します。 プロジェクトの作成中に既定値を保持するには、プロジェクトが作成されるまで Enter キーを押します。 確認したら、 **package.json** プロジェクト ディレクトリ内のファイルです。
 
 ### SQL Database
 
-参照してください、 [開始ページ](sql-database-get-started.md) にサンプル データベースを作成する方法について説明します。 ガイドに従って、**AdventureWorks データベースのテンプレート**を作成することが重要です。 以下に示す例は、**AdventureWorks スキーマ** とのみ動作します。
+参照してください、 [開始ページ](sql-database-get-started.md) にサンプル データベースを作成する方法について説明します。  作成するガイドを実行する重要である、 **AdventureWorks データベースのテンプレート**します。 のみ以下に示す例を使用、 **AdventureWorks スキーマ**します。
 
 ## 手順 1. 接続の詳細を取得する
 
@@ -55,7 +57,7 @@ OSX 10.10 Yosemite に node.js をインストールするには、によって�
 
 ## 手順 2: 接続
 
-[新しい接続](http://pekim.github.io/tedious/api-connection.html) 関数を使用して、SQL データベースに接続します。
+ [新しい接続](http://pekim.github.io/tedious/api-connection.html) 関数を使用して、SQL データベースに接続します。
 
     var Connection = require('tedious').Connection;
     var config = {
@@ -71,7 +73,9 @@ OSX 10.10 Yosemite に node.js をインストールするには、によって�
         console.log("Connected");
     });
 
+
 ## 手順 3: クエリを実行します。
+
 
 使用してすべての SQL ステートメントが実行される、 [新しい Request()](http://pekim.github.io/tedious/api-request.html) 関数です。 受け取ることができます、ステートメントが select ステートメントなどの行を返す場合は、それらを使用して、 [request.on()](http://pekim.github.io/tedious/api-request.html) 関数です。 行がない場合 [request.on()](http://pekim.github.io/tedious/api-request.html) 関数は、空のリストを返します。
 
@@ -92,8 +96,8 @@ OSX 10.10 Yosemite に node.js をインストールするには、によって�
         console.log("Connected");
         executeStatement();
     });
-    
-    
+
+
     function executeStatement() {
         request = new Request("SELECT c.CustomerID, c.CompanyName,COUNT(soh.SalesOrderID) AS OrderCount FROM SalesLT.Customer AS c LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID GROUP BY c.CustomerID, c.CompanyName ORDER BY OrderCount DESC;", function(err) {
         if (err) {
@@ -111,16 +115,17 @@ OSX 10.10 Yosemite に node.js をインストールするには、によって�
             console.log(result);
             result ="";
         });
-    
+
         request.on('done', function(rowCount, more) {
         console.log(rowCount + ' rows returned');
         });
         connection.execSql(request);
     }
 
+
 ## 手順 4: 行を挿入します。
 
-実行する方法を参照してください、この例では、 [挿入](https://msdn.microsoft.com/library/ms174335.aspx) ステートメントからアプリケーションを保護するためのパラメーターを渡すを安全に [SQL インジェクション](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) 脆弱性、および自動生成された取得 [主キー](https://msdn.microsoft.com/library/ms179610.aspx) 値。
+実行する方法を参照してください、この例では、 [挿入](https://msdn.microsoft.com/library/ms174335.aspx) ステートメントからアプリケーションを保護するためのパラメーターを渡すを安全に [SQL インジェクション](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) 脆弱性、および自動生成された取得 [主キー](https://msdn.microsoft.com/library/ms179610.aspx) 値。  
 
 
     var Connection = require('tedious').Connection;
@@ -139,8 +144,8 @@ OSX 10.10 Yosemite に node.js をインストールするには、によって�
         console.log("Connected");
         executeStatement1();
     });
-    
-    
+
+
     function executeStatement1() {
         request = new Request("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES (@Name, @Number, @Cost, @Price, CURRENT_TIMESTAMP);", function(err) {
          if (err) {
@@ -162,11 +167,8 @@ OSX 10.10 Yosemite に node.js をインストールするには、によって�
         connection.execSql(request);
     }
 
+
 ## 次のステップ
 
 詳細については、次を参照してください。、 [Node.js デベロッパー センター](/develop/nodejs/)します。
-
-
-
-
 

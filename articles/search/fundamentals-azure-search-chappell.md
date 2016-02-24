@@ -16,8 +16,7 @@
     ms.date="11/04/2015" 
     ms.author="heidist"/>
 
-
-# Azure Search の概要
+# Azure Search の概要 #
 
 **概要:** Azure Search、Azure では、完全に管理されホストされたクラウド サービスを使用して、web アプリケーションやモバイル アプリケーションでのリッチな検索エクスペリエンスを有効にする方法について説明します。 Search は、Web でのデータとの既定の対話スタイルです。 アプリケーションのすべての状況でますます期待されるようになっています。
 
@@ -32,18 +31,14 @@
 
 この資料は、テクノロジの概要と、テクノロジがサポートしている機能とシナリオについて説明しています。 技術的な詳細は含まれていません。
 
-**作成者:** David Chappell (Chappell & Associates 社長)
+**執筆者:** David Chappell (Chappell & Associates の社長)
 
-**更新:** 2015 年 3 月
+**更新日:** 2015 年 3 月
 
 **リビジョン:** 1.1
 
-**ダウンロード:**
+**ダウンロード:** 
 
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">「Introducing 概要 Azure Search"(PDF)</a>
-* <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">「Introducing 概要 Azure Search"(Microsoft Word)</a>
-
-
-
-
+* <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">「Introducing 概要 Azure Search"(Microsoft Word)</a> 
 

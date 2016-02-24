@@ -16,19 +16,18 @@
    ms.date="12/07/2015"
    ms.author="ryanwi"/>
 
-
 # REST ベース アプリケーション ライフサイクルのサンプル
 
 このサンプルでは、REST API 呼び出しを通して Service Fabric アプリケーションのライフサイクルを示します。 Service Fabric アプリケーションのライフ サイクルの詳細については、次を参照してください。 [Service Fabric アプリケーションのライフ サイクル](service-fabric-application-lifecycle.md)します。
 
 このサンプルでは次のことを実行しています。
 
-* イメージ ストアの WordCount アプリケーション パッケージから **WordCount 1.0.0** サンプルをプロビジョニングします。
+* プロビジョニング、 **WordCount 1.0.0** サンプル イメージ ストアの WordCount アプリケーション パッケージをします。
 * アプリケーションの種類の一覧を表示します。一覧には WordCount 1.0.0 が含まれています。
-* WordCount アプリケーションを **fabric:/WordCount** として作成します。
+* ワード カウント アプリケーションを作成 **ファブリック:/WordCount**します。
 * アプリケーションの一覧を表示します。一覧には fabric:/WordCount バージョン 1.0.0 が含まれています。
-* イメージ ストアの **WordCountUpgrade** アプリケーション パッケージから WordCount サンプルの 1.1.0 バージョンをプロビジョニングします。
-* アプリケーションの種類の一覧を表示します。一覧には WordCount 1.0.0 と **WordCount 1.1.0** の両方が含まれています。
+* ワード カウント サンプルからのプロビジョニング、1.1.0 バージョン、 **WordCountUpgrade** イメージ ストアでアプリケーション パッケージ。
+* 両方 WordCount 1.0.0 を含むアプリケーションの種類の一覧を表示し、 **WordCount 1.1.0**します。
 * WordCount アプリケーションをバージョン 1.1.0 にアップグレードします。
 * アプリケーションの一覧を表示します。一覧には WordCount バージョン 1.1.0 が含まれていますが、WordCount バージョン 1.0.0 は含まれていません。
 * WordCount アプリケーションを削除します。
@@ -43,17 +42,17 @@
 
 このサンプルを使用して、 [ワード カウント サンプル](http://aka.ms/servicefabricsamples) (で見つかった、 **作業の開始** サンプル)。 最初に WordCount サンプルをビルドした後、2 つのアプリケーション パッケージをイメージ ストアにコピーする必要があります。
 
-| フォルダー| 説明|
+|フォルダー|説明|
 |------|-----------|
-| WordCount| WordCount サンプル アプリケーション。**ApplicationManifest.xml** には **ApplicationTypeVersion="1.0.0"** が含まれています。|
-| WordCountUpgrade| WordCount サンプル アプリケーション。ApplicationManifest.xml ファイルを **ApplicationTypeVersion="1.1.0"** に変更し、アプリケーションのアップグレードを実行できるようにします。|
+|WordCount|WordCount サンプル アプリケーション。  **ApplicationManifest.xml** ファイルを含む **ApplicationTypeVersion =「1.0.0」**します。|
+|WordCountUpgrade|WordCount サンプル アプリケーション。 ApplicationManifest.xml ファイルを変更しなければならない **ApplicationTypeVersion =「1.1.0」** が発生するアプリケーションのアップグレードを許可するようにします。|
 
 アプリケーション パッケージを作成し、作成したパッケージをイメージ ストアにコピーする方法は、次のとおりです。
 
-1. **C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug** を **C:\Temp\WordCount** にコピーします。 これにより、WordCount アプリケーション パッケージが作成されます。
-2. C:\Temp\WordCount を **C:\Temp\WordCountUpgrade** にコピーします。 これにより、**WordCountUpgrade アプリケーション** パッケージが作成されます。
-3. **C:\Temp\WordCountUpgrade\ApplicationManifest.xml** をテキスト エディターで開きます。
-4. **ApplicationManifest** 要素で、**ApplicationTypeVersion** 属性を **"1.1.0"** に変更します。 これにより、アプリケーションのバージョン番号が更新されます。
+1. コピー **C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug** に **C:\Temp\WordCount**します。 これにより、WordCount アプリケーション パッケージが作成されます。
+2. コピーする C:\Temp\WordCount **C:\Temp\WordCountUpgrade**します。 こうと、 **WordCountUpgrade アプリケーション** パッケージです。
+3. 開いている **C:\Temp\WordCountUpgrade\ApplicationManifest.xml** テキスト エディターでします。
+4.  **ApplicationManifest** 要素、変更、 **ApplicationTypeVersion** 属性を **「1.1.0」**します。  これにより、アプリケーションのバージョン番号が更新されます。
 5. 変更された ApplicationManifest.xml ファイルを保存します。
 6. 以下の PowerShell スクリプトを管理者として実行し、アプリケーションをイメージ ストアにコピーします。
 
@@ -705,12 +704,8 @@ namespace ServiceFabricRestCaller
 ```
 
 
-
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 次のステップ
 
-[Service Fabric アプリケーションのライフ サイクル](service-fabric-application-lifecycle.md)
-
-
-
-
+[Service Fabric アプリケーションのライフサイクル](service-fabric-application-lifecycle.md)
 

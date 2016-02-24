@@ -14,8 +14,7 @@
     ms.topic="article" 
     ms.date="12/01/2015" 
     ms.author="awills"/>
-
-
+ 
 # Application Insights で Docker アプリケーションを監視する
 
 ライフ サイクル イベントとパフォーマンス カウンターから [Docker](https://www.docker.com/) コンテナーは、Application Insights をグラフ化できます。 インストール、 [Application Insights](app-insights-overview.md) 、ホストとそのコンテナー内にイメージは、その他のイメージだけでなく、ホストのパフォーマンス カウンターに表示されます。
@@ -33,33 +32,36 @@ Docker で、すべての依存関係を備えた軽量コンテナーにアプ�
 
 ## Application Insights リソースを設定する
 
-1. サインイン [Microsoft Azure ポータル](https://azure.com) ; アプリの Application Insights リソースを開くとまたは [、新しく作成](app-insights-create-new-resource.md)します。
+1. サインイン [Microsoft Azure ポータル](https://azure.com) ; アプリの Application Insights リソースを開くとまたは [、新しく作成](app-insights-create-new-resource.md)します。 
 
-    *どのリソースを使用する必要があるか。*ホスト上で実行されているアプリは、だれかによって開発されたかどうかは、する必要があります [Application Insights リソースを新規作成する](app-insights-create-new-resource.md)します。 テレメトリの表示と分析はこの場所で行います  (アプリの種類には [その他] を選択します)。
+    *どのリソースを使用する必要がありますか。*ホスト上で実行されているアプリは、だれかによって開発されたかどうかは、する必要があります [Application Insights リソースを新規作成](app-insights-create-new-resource.md)します。 テレメトリの表示と分析はこの場所で行います  (アプリの種類には [その他] を選択します)。
 
-    お役にする場合、アプリの開発者が、 [Application Insights SDK を追加](app-insights-java-live.md) それぞれにします。 すべてのアプリが 1 つのビジネス アプリケーションのコンポーネントである場合は、テレメトリを 1 つのリソースに送信するように構成することで、同じリソースを使用して Docker のライフサイクルとパフォーマンスのデータを表示できます。
+    お役にする場合、アプリの開発者が、 [Application Insights SDK を追加](app-insights-java-live.md) それぞれにします。 すべてのアプリが 1 つのビジネス アプリケーションのコンポーネントである場合は、テレメトリを 1 つのリソースに送信するように構成することで、同じリソースを使用して Docker のライフサイクルとパフォーマンスのデータを表示できます。 
 
-    3 番目のシナリオは、アプリの大半は自分で開発しているが、それらのテレメトリの表示には別のリソースを使用している場合です。 その場合は、Docker データ用の別個のリソースを作成できます。
+    3 番目のシナリオは、アプリの大半は自分で開発しているが、それらのテレメトリの表示には別のリソースを使用している場合です。 その場合は、Docker データ用の別個のリソースを作成できます。 
 
-2.  Docker タイルを追加します。**[タイルの追加]** を選択し、ギャラリーから Docker タイルをドラッグした後、**[完了]** をクリックします。
+2.  Docker タイルの追加: 選択 **タイルを追加**, ギャラリーから、[Docker タイルをドラッグし、[クリックして **実行**します。 
 
     ![例](./media/app-insights-docker/03.png)
 
-3. **[要点]** ドロップダウンをクリックし、インストルメンテーション キーをコピーします。 これを使用して SDK にテレメトリの送信先を指示します。
 
-    ![例](./media/app-insights-docker/02-props.png)
+3. クリックして、 **Essentials** ドロップダウンをクリックし、インストルメンテーション キーをコピーします。 これを使用して SDK にテレメトリの送信先を指示します。
+
+
+    ![example](./media/app-insights-docker/02-props.png)
 
 すぐにまた戻ってテレメトリを見るので、ブラウザー ウィンドウはそのままにします。
 
 
 ## ホスト上で Application Insights モニターを実行する
-
+ 
 テレメトリを表示する場所ができたので、テレメトリを収集して送信するコンテナー化されたアプリを設定できます。
 
-1.  Docker ホストに接続します。
+1.  Docker ホストに接続します。 
 2.  インストルメンテーション キーを次のコマンドで編集して実行します。
-
+ 
     ```
+
     docker run -v /var/run/docker.sock:/docker.sock -d microsoft/applicationinsights ikey=000000-1111-2222-3333-444444444
     ```
 
@@ -67,7 +69,7 @@ Docker ホストごとに 1 つの Application Insights イメージが必要で
 
 ## アプリケーションを更新する
 
-アプリケーションがインストルメント化された場合、 [Application Insights SDK for Java](app-insights-java-get-started.md), 、下にあるプロジェクトで ApplicationInsights.xml ファイルに次の行を追加、 `< TelemetryInitializers >` 要素。
+アプリケーションがインストルメント化された場合、 [Application Insights SDK for Java](app-insights-java-get-started.md), 、下にあるプロジェクトで ApplicationInsights.xml ファイルに次の行を追加、 `<TelemetryInitializers>` 要素。
 
 ```xml
 
@@ -89,6 +91,7 @@ Docker タイルをクリックします。
 
 ### ホスト、アクティビティ、イメージ別のパフォーマンス カウンター
 
+
 ![例](./media/app-insights-docker/10.png)
 
 
@@ -100,18 +103,20 @@ Docker タイルをクリックします。
 
 
 
-ビューをカスタマイズするには、グラフまたはグリッド見出しをクリックするか、[グラフの追加] を使用します。
+ビューをカスタマイズするには、グラフまたはグリッド見出しをクリックするか、[グラフの追加] を使用します。 
 
 [メトリックス エクスプ ローラーの詳細について](app-insights-metrics-explorer.md)します。
 
 ### Docker コンテナーのイベント
 
+
 ![例](./media/app-insights-docker/13.png)
 
 個々 のイベントを調べるには、クリックして [検索](app-insights-diagnostic-search.md)します。 検索とフィルター 
 必要なイベントを検索します。 イベントをクリックすると詳細情報が表示されます。
-
+ 
 ### コンテナー名別の例外
+ 
 
 ![例](./media/app-insights-docker/14.png)
 
@@ -142,8 +147,4 @@ AI SDK でインストルメント化されたアプリケーションから送�
 
 * Application Insights SDK をアプリにインストールします。 
 学習の方法: [Java web アプリ](app-insights-java-get-started.md), 、[web アプリの Windows](app-insights-asp-net.md)します。
-
-
-
-
 

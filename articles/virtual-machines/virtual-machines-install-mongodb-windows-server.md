@@ -17,13 +17,12 @@
     ms.date="10/14/2015"
     ms.author="dkshir"/>
 
-
-# Windows VM への MongoDB のインストール
+#Windows VM への MongoDB のインストール
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーのモデルです。
 
 
-[MongoDB ][mongodb] は一般的なオープン ソースの高パフォーマンスの NoSQL データベースです。 使用して、 [Azure クラシック ポータル ][azureportal], 、従来のデプロイ モデルを使用して、イメージ ギャラリーから Windows Server を実行する仮想マシンを作成できます。 この仮想マシンには、MongoDB データベースをインストールして構成することができます。
+[MongoDB][MongoDB] は一般的なオープン ソースの高パフォーマンスの NoSQL データベースです。  使用して、 [Azure クラシック ポータル][AzurePortal], 、従来のデプロイ モデルを使用して、イメージ ギャラリーから Windows Server を実行する仮想マシンを作成できます。 この仮想マシンには、MongoDB データベースをインストールして構成することができます。
 
 
 ## Windows Server を実行する仮想マシンの作成
@@ -31,10 +30,10 @@
 仮想マシンを作成するには、以下の手順を実行します。
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
-> [AZURE.NOTE] 仮想マシンの作成中に MongoDB のエンドポイントを追加して、**Mongo** という名前を付けることができます。また、プロトコルとして **TCP** を指定し、パブリック ポートとプライベート ポートの両方を **27017** に設定します。
+
+> [AZURE.NOTE] バーチャル マシンの作成中に MongoDB のエンドポイントを追加し、次のように、構成したことができます: としてという名前を付けます **Mongo**, を使用して **TCP** 、プロトコルとしてパブリックとプライベートの両方のポートを設定および **27017**します。
 
 ## データ ディスクの接続
-
 仮想マシン用のストレージを用意するため、データ ディスクを接続し、Windows で使用できるように初期化します。 使用するデータがある場合は既存のディスクを接続するか、空のディスクを接続できます。
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
@@ -45,12 +44,10 @@
 
 [AZURE.INCLUDE [install-and-run-mongo-on-win2k8-vm](../../includes/install-and-run-mongo-on-win2k8-vm.md)]
 
-## 概要
+##概要
+このチュートリアルでは、Windows Server を実行する仮想マシンを作成する方法、リモートから仮想マシンに接続する方法、データ ディスクを接続する方法について学習しました。  Windows ベースの仮想マシンに MongoDB をインストールして構成する方法も学習しました。 高度なトピックに従って MongoDB を Windows ベースの仮想マシンに今すぐアクセスすることができます、 [MongoDB のドキュメント][MongoDocs]します。
 
-このチュートリアルでは、Windows Server を実行する仮想マシンを作成する方法、リモートから仮想マシンに接続する方法、データ ディスクを接続する方法について学習しました。 Windows ベースの仮想マシンに MongoDB をインストールして構成する方法も学習しました。 高度なトピックに従って MongoDB を Windows ベースの仮想マシンに今すぐアクセスすることができます、 [MongoDB のドキュメント ][mongodocs]します。
-
-
-[mongodocs]: http://docs.mongodb.org/manual/ 
-[mongodb]: http://www.mongodb.org/ 
-[azureportal]: http://manage.windowsazure.com 
+[MongoDocs]: http://docs.mongodb.org/manual/
+[MongoDB]: http://www.mongodb.org/
+[AzurePortal]: http://manage.windowsazure.com
 

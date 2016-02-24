@@ -17,11 +17,9 @@
    ms.date="12/07/2015"
    ms.author="telmos"
    />
-
-
+   
 # 仮想ネットワークの管理: ロード バランサー分散モード (ソース IP アフィニティ)
-
-**ソース IP アフィニティ** (**セッション アフィニティ**や**クライアント IP アフィニティ**とも呼ばれます) は、Azure のロード バランサー分散モードであり、各クライアントの接続を異なる Azure ホスト サーバーに動的に分散するのではなく (既定のロード バランサーの動作)、クライアント 1 つと Azure にホストされたサーバー 1 つを結び付けます。
+**ソース IP アフィニティ** (とも呼ばれる **セッション アフィニティ** または **クライアント IP アフィニティ**)、Azure ロード バランサー分散モードでは、1 つのクライアントから動的に異なる Azure ホスト サーバー (既定のロード バランサー動作) には、各クライアント接続を配布するのではなく、1 つの Azure ホスト サーバーへの接続を結びつけます。
 
 ソース IP アフィニティを使うと、Azure のロード バランサーを、2 組の組み合わせ (ソース IP と接続先の IP) か、3 組の組み合わせ (ソース IP、接続先の IP、プロトコル) で構成し、利用可能な Azure ホスト サーバーのプールにトラフィックをマッピングできます。 ソース IP アフィニティを使うときは、同じクライアント コンピューターで初期化された接続は 1 つの DIP エンドポイント (1 つの Azure ホスト サーバー) で処理されます。
 
@@ -31,15 +29,14 @@
 
 ## 実装
 
-ソース IP アフィニティは、次のように構成できます。
+ソース IP アフィニティは、次のように構成できます。 
 
 * [仮想マシン エンドポイント](../virtual-machines/virtual-machines-set-up-endpoints.md)
 * [負荷分散エンドポイント セット](../load-balancer/load-balancer-overview.md)
-* [Web ロール](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
-* [ワーカー ロール](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
+* [Web ロールの比較](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
+* [Worker ロール](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 
 ## シナリオ
-
 1. 1 つのクラウド サービスを使ったリモート デスクトップ ゲートウェイ クラスター
 2. メディアのアップロード (つまりデータ用 UDP と 制御用 TCP)
   * クライアントで TCP セッションが Azure でホストされた負荷分散パブリック IP アドレスに対して初期化されます。
@@ -47,27 +44,24 @@
   * クライアントは同じ Azure でホストされた負荷分散パブリック IP アドレスに対して UDP セッションを初期化します。
   * Azure ロード バランサーは、TCP 接続として同じ DIP エンドポイントに要求を転送します。
   * クライアントは TCP を通じて制御チャンネルを維持して信頼性を確保しながら、より高い UDP のスループットでメディアをアップロードします。
-
+  
 ## 注意事項
-
 * 負荷分散セットが変更された場合 (仮想マシンを追加や削除した場合)、クライアント チャネルの分散は再計算されます。既存のクライアントからの新しい接続は、もともと使用されていたものとは異なるサーバーで処理される可能性があります。
 * ソース IP アフィニティを使用すると、複数の Azure ホスト サーバーにトラフィックが均等に分散されない可能性があります。
 * プロキシ経由でトラフィックをルーティングするクライアントは、Azure ロード バランサーからは 1 つのクライアントとして認識される可能性があります。
 
 ## PowerShell の例
-
 ダウンロードしてください [最新の Azure PowerShell リリース](https://github.com/Azure/azure-sdk-tools/releases) をお勧めします。
 
 ### Azure エンドポイントを仮想マシンに追加してロード バランサー分散モードを設定する
 
     Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution “sourceIP”| Update-AzureVM  
-    
+
     Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 â€“LoadBalancerDistribution â€œsourceIPâ€�| Update-AzureVM  
 
-LoadBalancerDistribution は、2 組 (ソース IP と接続先 IP) の負荷分散の場合は sourceIP、3 組 (ソース IP、接続先 IP、プロトコル) の負荷分散の場合は sourceIPProtocol に設定できます。設定しない場合は、既定の動作 (5 組の負荷分散) を使用します。
+LoadBalancerDistribution は、2 組 (ソース IP と接続先 IP) の負荷分散の場合は sourceIP、3 組 (ソース IP、接続先 IP、プロトコル) の負荷分散の場合は sourceIPProtocol に設定できます。設定しない場合は、既定の動作 (5 組の負荷分散) を使用します。  
 
 ### エンドポイント ロード バランサー分散モード構成を取得する
-
     PS C:\> Get-AzureVM –ServiceName "mySvc" -Name "MyVM1" | Get-AzureEndpoint
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
@@ -93,9 +87,9 @@ LoadBalancerDistribution 要素が存在しない場合、Azure ロード バラ
 ### 負荷分散エンドポイント セットで分散モードを設定する
 
     Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution "sourceIP"
-    
-    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 â€“LoadBalancerDistribution "sourceIP"
 
+    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 â€“LoadBalancerDistribution "sourceIP"
+    
 エンドポイントが負荷分散エンドポイント セットの一部である場合、分散モードは負荷分散エンドポイント セットで設定される必要があります。
 
 ## クラウド サービスの例
@@ -121,10 +115,10 @@ Azure SDK for .NET を使用してクラウド サービスをアップデート
         </InstanceAddress>
       </AddressAssignments>
     </NetworkConfiguration>
-
+    
 ## API の例
 
-ロード バランサーの分散は、サービス管理 API を使って構成できます。 x-ms-version ヘッダーが 2014-09-01 以降のバージョンで設定されていることをご確認ください。
+ロード バランサーの分散は、サービス管理 API を使って構成できます。  x-ms-version ヘッダーが 2014-09-01 以降のバージョンで設定されていることをご確認ください。
 
 ### デプロイで指定した負荷分散セットの構成をアップデートします。
 
@@ -165,6 +159,5 @@ LoadBalancerDistribution の値のできます 2 組のアフィニティ、3 �
     x-ms-servedbyregion: ussouth2 
     x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af 
     Date: Thu, 16 Oct 2014 22:49:21 GMT
-
-
+ 
 

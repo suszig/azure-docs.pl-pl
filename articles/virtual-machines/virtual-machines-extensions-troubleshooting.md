@@ -17,7 +17,6 @@
    ms.date="09/01/2015"
    ms.author="kundanap"/>
 
-
 # Azure VM 拡張機能のエラーのトラブルシューティング
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 従来のデプロイ モデルです。
@@ -33,7 +32,6 @@ Azure リソース マネージャー テンプレートでは、リソース間
 この記事では、VM 拡張機能で発生するいくつかの一般的なエラーのトラブルシューティングについて説明します。
 
 ## 拡張機能の状態表示:
-
 Azure リソース マネージャー テンプレートは、Azure Powershell または Azure CLI から実行できます。 このテンプレートを実行すると、Azure Resource Explorer またはコマンド ライン ツールから拡張機能の状態を表示できます。
 次に例をいくつか示します。
 
@@ -68,7 +66,6 @@ Azure Powershell:
           "Time": null
         }
     }
-
   ]
 
 ## 拡張機能のエラーのトラブルシューティング:
@@ -90,8 +87,4 @@ VM でカスタム スクリプト拡張機能を使用してスクリプトを�
     Remove-AzureVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
 拡張機能を削除した後、テンプレートを再実行して、VM 上でスクリプトを実行できます。
-
-
-
-
 

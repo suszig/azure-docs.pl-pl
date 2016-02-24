@@ -17,7 +17,6 @@
    ms.date="11/16/2015"
    ms.author="joaoma" />
 
-
 # Azure CLI を使用したインターネットに接続するロード バランサーの作成の開始
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
@@ -36,9 +35,9 @@
 
 ロード バランサーをデプロイするには、次のオブジェクトを作成して構成する必要があります。
 
-- フロント エンド IP 構成 - 受信ネットワーク トラフィックのパブリック IP アドレスが含まれます。
+- フロント エンド IP 構成 - 受信ネットワーク トラフィックのパブリック IP アドレスが含まれます。 
 
-- バック エンド アドレス プール - ロード バランサーからネットワーク トラフィックを受信する、仮想マシンのネットワーク インターフェイス (NIC) が含まれます。
+- バック エンド アドレス プール - ロード バランサーからネットワーク トラフィックを受信する、仮想マシンのネットワーク インターフェイス (NIC) が含まれます。 
 
 - 負荷分散規則 - ロード バランサーのパブリック ポートをバック エンド アドレス プール内のポートにマッピングする規則が含まれます。
 
@@ -52,7 +51,7 @@ Azure リソース マネージャーであるの詳細については、ロー�
 
 1. Azure CLI を初めて使用する場合は、次を参照してください。 [のインストールと Azure CLI の構成](xplat-cli.md) Azure アカウントとサブスクリプションを選択する時点までの指示に従います。
 
-2. 次に示すように、**azure config mode** コマンドを実行してリソース マネージャー モードに切り替えます。
+2. 実行、 **azure config モード** コマンドを次に示すように、リソース マネージャー モードに切り替えます。
 
         azure config mode arm
 
@@ -60,31 +59,31 @@ Azure リソース マネージャーであるの詳細については、ロー�
 
         info:    New mode is arm
 
-
 ## 仮想ネットワークと、フロント エンド IP プールのパブリック IP アドレスの作成
 
-### 手順 1
+### 手順 1.
 
-*NRPRG* という名前のリソース グループを使用して、米国東部の場所に *NRPVnet* という名前の仮想ネットワーク (VNet) を作成します。
+仮想ネットワーク (VNet) の名前付きの作成 *nrpvnet に追加して* という名前のリソース グループを使用して米国東部の場所に *NRPRG*します。
 
     azure network vnet create NRPRG NRPVnet eastUS -a 10.0.0.0/16
 
-*NRPVnetSubnet* という名前のサブネットを作成し、*NRPVnet* に 10.0.0.0/24 の CIDR ブロックを設定します。
+という名前のサブネットを作成 *NRPVnetSubnet* 10.0.0.0/24」の CIDR ブロックと *nrpvnet に追加して*します。 
 
     azure network vnet subnet create NRPRG NRPVnet NRPVnetSubnet -a 10.0.0.0/24
 
-### 手順 2
+### 手順 2.
 
-フロント エンド IP プールで使用される *NRPPublicIP* という名前のパブリック IP アドレスを作成します。DNS 名は *loadbalancernrp.eastus.cloudapp.azure.com* です。 次のコマンドでは、静的な割り当てタイプと 4 分のアイドル タイムアウトを使用しています。
+という名前のパブリック IP アドレスを作成する *NRPPublicIP* DNS 名を持つフロント エンド IP プールによって使用される *loadbalancernrp.eastus.cloudapp.azure.com*します。 次のコマンドでは、静的な割り当てタイプと 4 分のアイドル タイムアウトを使用しています。
 
     azure network public-ip create -g NRPRG -n NRPPublicIP -l eastus -d loadbalancernrp -a static -i 4
 
->[AZURE.IMPORTANT] ロード バランサーはその FQDN としてパブリック IP のドメイン ラベルを使用します。 これはロード バランサー FQDN としてクラウド サービスを使用する従来のデプロイメントからの変更点です。 
->この例では、FQDN は *loadbalancernrp.eastus.cloudapp.azure.com* になります。
+
+>[AZURE.IMPORTANT] ロード バランサーは、FQDN として、パブリック IP のドメインのラベルを使用します。 これはロード バランサー FQDN としてクラウド サービスを使用する従来のデプロイメントからの変更点です。 
+>この例では、FQDN がなります *loadbalancernrp.eastus.cloudapp.azure.com*します。
 
 ## ロード バランサーの作成
 
-次の例のコマンドは、*米国東部*の Azure の場所の *NRPRG* リソース グループに *NRPlb* という名前のロード バランサーを作成します。
+次の例では、次のコマンドはという名前のロード バランサーを作成 *NRPlb* で、 *NRPRG* 内のリソース グループ、 *米国東部* Azure の場所。  
 
     azure network lb create NRPRG NRPlb eastus
 
@@ -92,15 +91,15 @@ Azure リソース マネージャーであるの詳細については、ロー�
 
 次の例では、ロード バランサーへの受信ネットワーク トラフィックを受信するフロント エンド IP プールと、負荷分散されたネットワーク トラフィックをフロント エンド プールが送信するバックエンド IP プールを作成します。
 
-### 手順 1
+### 手順 1 
 
-前の手順で作成したパブリック IP とロード バランサーを関連付けてフロント エンド IP プールを作成します。
+前の手順で作成したパブリック IP とロード バランサーを関連付けてフロント エンド IP プールを作成します。 
 
     azure network lb frontend-ip create nrpRG NRPlb NRPfrontendpool -i nrppublicip
 
-### 手順 2
+### 手順 2 
 
-フロント エンド IP プールから受信トラフィックを受け取るために使用するバック エンド アドレス プールをセットアップします。
+フロント エンド IP プールから受信トラフィックを受け取るために使用するバック エンド アドレス プールをセットアップします。 
 
     azure network lb address-pool create NRPRG NRPlb NRPbackendpool
 
@@ -108,12 +107,12 @@ Azure リソース マネージャーであるの詳細については、ロー�
 
 次の例では、以下の項目が作成されます。
 
-- ポート 3441 ポート 3389 へのすべての着信トラフィックを変換する NAT 規則<sup>1</sup>
+- ポート 3441 のすべての受信トラフィックをポート 3389 に転送する NAT 規則。<sup>1</sup>
 - ポート 3442 ～ 3389 のすべての受信トラフィックを変換する NAT 規則。
 - バックエンド プールのアドレスでポート 80 ～ 80 に入ってくるすべてのトラフィックを分散するロード バランサー規則。
-- *HealthProbe.aspx* という名前のページで正常性状態を確認するプローブ規則。
+- という名前のページ上のヘルス状態を確認するプローブ ルール *HealthProbe.aspx*します。
 
-<sup>1</sup> NAT 規則はロード バランサーの背後にある特定の仮想マシン インスタンスに関連付けられます。 ポート 3341 への着信ネットワーク トラフィックは、以下の例の NAT 規則に関連付けられている特定の仮想マシンのポート 3389 に送信されます。 NAT 規則、UDP または TCP のプロトコルを選択する必要があります。 両方のプロトコルを、同じポートに割り当てることはできません。
+<sup>1</sup> NAT 規則は、ロード バランサーの背後にある特定の仮想マシン インスタンスに関連付けられます。 ポート 3341 への着信ネットワーク トラフィックは、以下の例の NAT 規則に関連付けられている特定の仮想マシンのポート 3389 に送信されます。 NAT 規則、UDP または TCP のプロトコルを選択する必要があります。 両方のプロトコルを、同じポートに割り当てることはできません。
 
 ### 手順 1
 
@@ -124,31 +123,33 @@ NAT 規則を作成します。
 
 パラメーター:
 
-- **-g** - リソース グループ名
-- **-l** - ロード バランサー名
-- **-n** - NAT 規則、プローブ規則、またはロード バランサー規則を表すリソースの名前
-- **-p** - プロトコル (TCP または UDP)
-- **-f** - 使用するフロント エンド ポート (probe コマンドでは、-f を使用してプローブ パスを定義します)
-- **-b** - 使用するバック エンド ポート
+- **-g** -リソース グループ名
+- **-l** -ロード バランサーの名前 
+- **-n** - リソースの名前かどうかは、nat ルール、プローブまたは lb ルール。
+- **-p** -プロトコル (できる TCP または UDP)  
+- **-f** - 前のバックエンドを使用するポート (プローブ コマンドは、プローブ パスを定義する-f を使用)
+- **-b** 戻る - 使用されるポート
 
-### 手順 2
+### 手順 2.
 
 ロード バランサー規則を作成します。
 
     azure network lb rule create nrprg nrplb lbrule -p tcp -f 80 -b 80 -t NRPfrontendpool -o NRPbackendpool
-
 ### 手順 3.
 
 正常性プローブを作成します。
 
     azure network lb probe create -g nrprg -l nrplb -n healthprobe -p "http" -o 80 -f healthprobe.aspx -i 15 -c 4
 
+    
+    
+
 **-g** -リソース グループ 
 **-l** - ロード バランサー セットの名前
 **-n** - 正常性プローブの名前
 **-p** -正常性プローブによって使用されるプロトコル
 **-i** -プローブ間隔 (秒)
-**-c** チェックの数。
+**-c** チェックの数。 
 
 ### 手順 4.
 
@@ -221,20 +222,20 @@ NAT 規則を作成します。
 
 NIC を作成し (あるいは、既存の NIC を変更し)、それを NAT 規則、ロード バランサー規則、プローブに関連付ける必要があります。
 
-### 手順 1
+### 手順 1. 
 
-*lb-nic1-be* という名前の NIC を作成し、それを *rdp1* NAT 規則と *NRPbackendpool* バック エンド アドレス プールに関連付けます。
-
+という名前の NIC を作成する *lb nic1 する*, 、関連付けます、 *rdp1* NAT 規則、および *NRPbackendpool* バック エンド アドレス プール。
+    
     azure network nic create -g nrprg -n lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" eastus
 
 パラメーター:
 
-- **-g** - リソース グループ名
-- **-n** - NIC リソースの名前
-- **--subnet-name** - サブネットの名前
-- **--subnet-vnet-name** - 仮想ネットワークの名前
-- **-d** /subscription/始まり - バック エンド プールのリソースの ID - {subscriptionID/resourcegroups/<resourcegroup-name>/providers/Microsoft.Network/loadbalancers/<load-balancer-name>/backendaddresspools/<name-of-the-backend-pool>
-- **-e** /subscriptions/###/resourcegroups/始まり - NIC のリソースに関連付けられる、NAT ルールの ID -<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>
+- **-g** -リソース グループ名
+- **-n** - NIC のリソースの名前
+- **-サブネット名** - サブネットの名前 
+- **-サブネット vnet 名** - 仮想ネットワークの名前
+- **-d** /subscription/{subscriptionID/resourcegroups/< リソース グループ名 >/providers/Microsoft.Network/loadbalancers/< ロード バランサー名 >/backendaddresspools/< 名前の-、-バックエンド-プール > 始まり - バック エンド プールのリソースの ID - 
+- **-e** - NIC のリソースに関連付けられる、NAT ルールの ID - から始まります/subscriptions/###/resourcegroups/< リソース グループ名 >/providers/Microsoft.Network/loadBalancers/< ロード バランサー名 >/inboundNatRules/< nat 規則名 >
 
 
 予想される出力:
@@ -263,19 +264,19 @@ NIC を作成し (あるいは、既存の NIC を変更し)、それを NAT 規
     data:
     info:    network nic create command OK
 
-### 手順 2
+### 手順 2.
 
-*lb-nic2-be* という名前の NIC を作成し、それを *rdp2* NAT 規則と *NRPbackendpool* バック エンド アドレス プールに関連付けます。
+という名前の NIC を作成する *lb nic2 する*, 、関連付けます、 *rdp2* NAT 規則、および *NRPbackendpool* バック エンド アドレス プール。
 
     azure network nic create -g nrprg -n lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" eastus
 
-### 手順 3.
+### 手順 3. 
 
-*web1* という名前の仮想マシン (VM) を作成し、それを *lb-nic1-be* という名前の NIC に関連付けます。 次のコマンドを実行する前に、*web1nrp* というストレージ アカウントが作成されました。
+仮想マシン (VM) という名前の作成 *web1*, 、という名前の NIC に関連付けると *lb nic1 する*です。 ストレージ アカウントと呼ばれる *web1nrp* が次のコマンドを実行する前に作成されました。
 
     azure vm create --resource-group nrprg --name web1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
->[AZURE.IMPORTANT] ロード バランサーの VM は、同じ可用性セットに含まれている必要があります。 使用 `azure 可用性セットを作成` 可用性を作成するに設定します。 
+>[AZURE.IMPORTANT] ロード バランサー内の Vm は、同じ可用性セット内にある必要があります。 可用性セットを作成するには、`azure availset create` を使用します。 
 
 出力は次のようになります。
 
@@ -296,19 +297,19 @@ NIC を作成し (あるいは、既存の NIC を変更し)、それを NAT 規
     + Creating VM "web1"
     info:    vm create command OK
 
->[AZURE.NOTE] "**This is a NIC without publicIP configured**" という情報メッセージは、想定どおりの動作です。これは、ロード バランサー用に作成される NIC は、ロード バランサーのパブリック IP アドレスを使用してインターネットに接続されるためです。 
+>[AZURE.NOTE] 情報メッセージ **これは、構成されている publicIP せず NIC** NIC のロード バランサーのパブリック IP アドレスを使用してインターネットに接続するロード バランサーの作成後に想定します。 
 
-*lb-nic1-be* NIC は *rdp1* NAT 規則に関連付けられているため、ロード バランサーのポート 3441 で RDP を使用して *web1* に接続することができます。
+ *Lb nic1 する* に NIC が関連付けられている、 *rdp1* NAT 規則の場合に接続できる *web1* RDP を使用して、ロード バランサー上のポート 3441 経由します。
 
 ### 手順 4.
 
-*web2* という名前の仮想マシン (VM) を作成し、それを *lb-nic2-be* という名前の NIC に関連付けます。 次のコマンドを実行する前に、*web1nrp* というストレージ アカウントが作成されました。
+仮想マシン (VM) という名前の作成 *web2*, 、という名前の NIC に関連付けると *lb nic2 する*です。 ストレージ アカウントと呼ばれる *web1nrp* が次のコマンドを実行する前に作成されました。
 
     azure vm create --resource-group nrprg --name web2 --location eastus --vnet-    name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
 ## 既存のロード バランサーの更新
 
-既存のロード バランサーを参照する規則を追加できます。 次の例では、既存のロード バランサー **NRPlb** に新しいロード バランサー規則が追加されます。
+既存のロード バランサーを参照する規則を追加できます。 次の例では、既存のロード バランサーに新しいロード バランサー規則を追加 **NRPlb**
 
     azure network lb rule create -g nrprg -l nrplb -n lbrule2 -p tcp -f 8080 -b 8051 -t frontendnrppool -o NRPbackendpool
 
@@ -323,23 +324,20 @@ NIC を作成し (あるいは、既存の NIC を変更し)、それを NAT 規
 **-t** -フロント エンド プール名<BR>
 **-b** - 戻るエンド プール名<BR>
 
-## ロード バランサーの削除
+## ロード バランサーの削除 
+
 
 ロード バランサーを削除するには、次のコマンドを使用します。
 
     azure network lb delete -g nrprg -n nrplb 
 
-ここで **nrprg** はリソース グループ、**nrplb** はロード バランサーの名前です。
+ここで **nrprg** リソース グループと **nrplb** ロード バランサー名を指定します。
 
 ## 次のステップ
 
-[内部ロード バランサーの構成の開始します。](load-balancer-internal-getstarted.md)
+[内部ロード バランサーの構成の開始](load-balancer-internal-getstarted.md)
 
-[ロード バランサー分散モードを構成します。](load-balancer-distribution-mode.md)
+[ロード バランサー分散モードの構成](load-balancer-distribution-mode.md)
 
-[ロード バランサーのアイドル TCP タイムアウト設定を構成します。](load-balancer-tcp-idle-timeout.md)
-
-
-
-
+[ロード バランサーのアイドル TCP タイムアウト設定の構成](load-balancer-tcp-idle-timeout.md)
 

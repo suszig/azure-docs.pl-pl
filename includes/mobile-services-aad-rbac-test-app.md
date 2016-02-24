@@ -1,6 +1,7 @@
-次の手順とスクリーンショットは、Windows ストア クライアントのテストに適用されるものですが、Azure Mobile Services でサポートされている他のすべてのプラットフォームでこれをテストすることができます。
 
-1. Visual Studio で、クライアント アプリケーションを実行し、作成した Dave という名前のアカウントで認証を試みます。
+次の手順とスクリーンショットは、Windows ストア クライアントのテストに適用されるものですが、Azure Mobile Services でサポートされている他のすべてのプラットフォームでこれをテストすることができます。 
+
+1. Visual Studio で、クライアント アプリケーションを実行し、作成した Dave という名前のアカウントで認証を試みます。 
 
     ![](./media/mobile-services-aad-rbac-test-app/dave-login.png)
 
@@ -15,10 +16,6 @@
 4. Bob には Sales グループのメンバーシップがあります。 そのため、ロール ベースのアクセス確認によりテーブル操作へのアクセスが許可されます。
 
     ![](./media/mobile-services-aad-rbac-test-app/success.png)
-
-
-
-
 
 
 

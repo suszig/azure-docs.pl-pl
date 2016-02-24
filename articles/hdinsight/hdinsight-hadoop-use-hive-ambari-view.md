@@ -1,6 +1,6 @@
 <properties
    pageTitle="Ambari ビューによる HDInsight (Hadoop) での Hive の使用 | Microsoft Azure"
-   description="Web ブラウザーから Hive ビューを使用して Hive クエリを送信する方法について説明します。Hive ビューは、Linux ベースの HDInsight クラスターに付属する Ambari Web UI の要素です。"
+   description="Web ブラウザーから Hive ビューを使用して Hive クエリを送信する方法について説明します。 Hive ビューは、Linux ベースの HDInsight クラスターに付属する Ambari Web UI の要素です。"
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -17,46 +17,47 @@
    ms.date="12/03/2015"
    ms.author="larryfr"/>
 
-
-# HDInsight での Hive View と Hadoop の使用
+#HDInsight での Hive View と Hadoop の使用
 
 [AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Ambari は、Linux ベースの HDInsight クラスターに付属する管理および監視ユーティリティです。 Ambari が提供する機能の 1 つに、Hive クエリを実行するときに使用される Web UI があります。 これを __Hive ビュー__と呼びます。これは、HDInsight クラスターに付属する Ambari のビューの一部です。
-> [AZURE.NOTE] Ambari には多数の機能がありますが、このドキュメントではそれらについて説明しません。 詳細については、次を参照してください。 [Ambari Web UI を使用して、クラスターの HDInsight の管理](hdinsight-hadoop-manage-ambari.md)します。
+Ambari は、Linux ベースの HDInsight クラスターに付属する管理および監視ユーティリティです。 Ambari が提供する機能の 1 つに、Hive クエリを実行するときに使用される Web UI があります。 これは、 __Hive ビュー__, 、HDInsight クラスターに用意されている Ambari ビューの一部です。
 
-## 前提条件
+> [AZURE.NOTE] Ambari には、このドキュメントでは説明を省略できる機能の多くがあります。 詳細については、次を参照してください。 [Ambari Web UI を使用して、クラスターの HDInsight の管理](hdinsight-hadoop-manage-ambari.md)します。
+
+##前提条件
 
 - Linux ベースの HDInsight クラスター。 新しいクラスターを作成する方法の詳細については、次を参照してください。 [Linux ベースの HDInsight の概要](hdinsight-hadoop-linux-tutorial-get-started.md)します。
 
-## Hive ビューを開く
+##Hive ビューを開く
 
-Azure ポータルから Ambari ビューを表示するには、HDInsight クラスターを選択し、__[クイック リンク]__ セクションの __[Ambari ビュー]__ を選択します。
+Azure のポータルから Ambari ビューを作成することができます。HDInsight クラスターを選択し、[ __Ambari ビュー__ から、 __クイック リンク__ セクションです。
 
 ![quick links section](./media/hdinsight-hadoop-use-hive-ambari-view/quicklinks.png)
 
-Web ブラウザーで https://CLUSTERNAME.azurehdinsight.net に移動して Ambari に直接移動することもできます (ここで __CLUSTERNAME__ 、HDInsight クラスターの名前を指定) し、ページのメニューから四角形のセットを選択 (] の横に、 __Admin__ リンクと、ページの左側のボタン) をリストの使用可能なビューにします。 __[Hive view]__ を選択します。
+Web ブラウザーで https://CLUSTERNAME.azurehdinsight.net に移動して Ambari に直接移動することもできます (ここで __CLUSTERNAME__ 、HDInsight クラスターの名前を指定) し、ページのメニューから四角形のセットを選択 (] の横に、 __Admin__ リンクと、ページの左側のボタン) をリストの使用可能なビューにします。 選択、 __ビュー [ハイブの__です。
 
-![Ambari ビューを選択すると](./media/hdinsight-hadoop-use-hive-ambari-view/selecthiveview.png)します。
-> [AZURE.NOTE] Ambari にアクセスすると、サイトに対する認証が求められます。 管理者を入力してください (既定 `admin`,、) アカウント名とクラスターを作成するときに使用したパスワードです。
+![Selecting ambari views](./media/hdinsight-hadoop-use-hive-ambari-view/selecthiveview.png).
+
+> [AZURE.NOTE] Ambari にアクセスするときは、サイトに対する認証するように求められます。 クラスターを作成するときに使用した管理者アカウント名 (既定値は `admin`) とパスワードを入力します。
 
 次のようなページが表示されます。
 
 ![Image of the hive view page, containing a query editor section](./media/hdinsight-hadoop-use-hive-ambari-view/hiveview.png)
 
-## テーブルを表示する
+##テーブルを表示する
 
-ページの __[Database Explorer]__ セクションの __[Databases]__ タブで、__[default]__ エントリを選択します。 これにより、既定のデータベース内にあるテーブルの一覧が表示されます。 新しい HDInsight クラスターの場合、存在するテーブルは __hivesampletable__ のみです。
+ __データベース エクスプ ローラー__ 、ページのセクションで、 __既定__ のエントリ、 __データベース__ ] タブをクリックします。 これにより、既定のデータベース内にあるテーブルの一覧が表示されます。 新しい HDInsight クラスターの 1 つのテーブルが存在する必要があります。 __hivesampletable__します。
 
 ![database explorer with the default database expanded](./media/hdinsight-hadoop-use-hive-ambari-view/databaseexplorer.png)
 
 このドキュメントの手順に従って新しいテーブルを追加した際、データベース エクスプローラーの右上隅にある更新アイコンを使用すると、利用可能なテーブルの一覧を更新できます。
 
-## <a name="hivequery"></a>クエリ エディター
+##<a name="hivequery"></a>クエリ エディター
 
 クラスターに含まれるデータに対して Hive クエリを実行するには、Hive ビューで次の手順に従います。
 
-1. ページの __[Query Editor]__ セクションで、次の HiveQL ステートメントをワークシートに貼り付けます。
+1.  __クエリ エディター__ セクション、ページの次の HiveQL ステートメントをワークシートに貼り付けます。
 
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -66,79 +67,82 @@ Web ブラウザーで https://CLUSTERNAME.azurehdinsight.net に移動して Am
 
     これらのステートメントは次のアクションを実行します。
 
-    - **DROP TABLE** - テーブルが既存の場合にテーブルとデータ ファイルを削除します。
-    - **CREATE EXTERNAL TABLE** - Hive に新しく "外部" テーブルを作成します。 外部テーブルは、Hive にテーブル定義のみを格納し、データは、元の場所に残します。
-    - **ROW FORMAT** - Hive にデータの形式を示します。 ここでは、各ログのフィールドは、スペースで区切られています。
-    - **STORED AS TEXTFILE LOCATION** - Hive に、データの格納先 (example/data ディレクトリ) と、データはテキストとして格納されていることを示します。
-    - **SELECT** - t4 列の値が [ERROR] であるすべての行の数を指定します。
-    >[AZURE.NOTE] 基盤となるデータを外部ソースによって更新する (データの自動アップロード処理など) 場合や別の MapReduce 操作によって更新する場合に、Hive クエリで最新のデータを使用する場合は、外部テーブルを使用する必要があります。 外部テーブルを削除しても、データは削除*されません*。テーブル定義のみが削除されます。
+    - **DROP TABLE** -テーブルが既に存在する場合は、テーブルとデータ ファイルを削除します。
+    - **CREATE EXTERNAL TABLE** -Hive に新しく「外部」テーブルを作成します。 外部テーブルは、Hive にテーブル定義のみを格納し、データは、元の場所に残します。
+    - **ROW FORMAT** -Hive にデータの形式です。 ここでは、各ログのフィールドは、スペースで区切られています。
+    - **STORED AS TEXTFILE LOCATION** - Hive にデータを格納格納先 (example/data ディレクトリ) といるテキストとして格納されています。
+    - **選択** の各行の t4 列に [ERROR] の値が含まれているすべての行の数を選択します。
 
-2. クエリ エディターの下部にある __[Execute]__ ボタンを使用してクエリを開始します。 ボタンの色がオレンジ色に変わり、テキストが __[Stop execution]__ に変わります。 クエリ エディターの下に __[Query Process Results]__ セクションが表示され、ジョブに関する情報が表示されます。
-    > [AZURE.IMPORTANT] ブラウザーによっては、ログまたは結果の情報が正しく更新されない場合があります。 ジョブを実行したときに、ジョブの実行が続いているにもかかわらずログが更新されたり結果が返されたりしない場合は、Mozilla FireFox または Google Chrome を代わりに使用してください。
+    >[AZURE.NOTE] 、または別の MapReduce 操作によってデータの自動アップロード処理などの外部ソースによって更新する基になるデータが予想される場合、外部テーブルを使用する必要がありますが、常に最新のデータを使用するための Hive クエリをします。 外部テーブルを削除しても *いない* データ、テーブル定義のみを削除します。
 
-3. クエリが完了すると、__[Query Process Results]__ セクションに操作の結果が表示されます。 __[Stop execution]__ ボタンも緑色の __[Execute]__ ボタンに戻ります。 __[Results]__ タブには次の情報が表示されます。
+2. 使用して、 __Execute__ クエリを開始するクエリ エディターの下部にあるボタンをクリックします。 オレンジ色を有効にする必要があり、テキストに変更 __の実行を停止__します。 A __クエリ プロセスの結果__ セクションのクエリ エディターの下に表示し、ジョブに関する情報を表示する必要があります。
+
+    > [AZURE.IMPORTANT] ブラウザーによっては、ログまたは結果の情報を正しく更新しない場合があります。 ジョブを実行したときに、ジョブの実行が続いているにもかかわらずログが更新されたり結果が返されたりしない場合は、Mozilla FireFox または Google Chrome を代わりに使用してください。
+    
+3. クエリが完了した後、 __クエリ プロセスの結果__ セクションは、操作の結果を表示します。  __の実行を停止__ ボタンが緑色にも変更されます __Execute__ ] ボタンをクリックします。  __結果__ ] タブで、次の情報を含める必要があります。
 
         sev       cnt
         [ERROR]   3
 
-    __[Logs]__ タブを使用すると、ジョブによって作成されたログ情報を表示できます。 ログ情報は、クエリに問題が発生した場合のトラブルシューティングに使用できます。
-    > [AZURE.TIP] __[Query Process Results]__ セクションの左上には __[Save results]__ ボックスがあります。これを使用して、結果をダウンロードしたり、CSV ファイルとして HDInsight のストレージに保存したりできます。
+     __ログ__ 、ジョブによって作成されたログ情報を表示] タブを使用できます。 このログ情報は、クエリに問題が発生した場合のトラブルシューティングに使用できます。
+    
+    > [AZURE.TIP] 注、 __結果を保存__ の上にあるドロップダウン ダイアログの左、 __クエリ プロセスの結果__ セクションです。 これを使用して、結果をダウンロードするか、CSV ファイルとして HDInsight のストレージに保存することができます。
+    
+3. このクエリの最初の 4 つの行を選択し、[ __Execute__します。 ジョブが完了したときに結果は生成されません。 これは、使用するため、 __Execute__ ボタン、クエリの一部を選択すると、選択したステートメントのみを実行します。 この場合は、テーブルの行を取得する最後のステートメントが選択範囲に含まれていませんでした。 その行だけを選択して使用する __Execute__, 、期待どおりの結果を表示する必要があります。
 
-3. このクエリの最初の 4 行を選択し、__[Execute]__ を選択します。 ジョブが完了したときに結果は生成されません。 これは、クエリの一部が選択されているときに __[Execute]__ ボタンを使用すると、選択したステートメントのみが実行されるためです。 この場合は、テーブルの行を取得する最後のステートメントが選択範囲に含まれていませんでした。 その行のみを選択して __[Execute]__ を使用すると、予想どおりの結果が表示されます。
-
-3. __クエリ エディター__の下部にある __[New Worksheet]__ ボタンを使用して新しいワークシートを作成します。 新しいワークシートに、次の HiveQL ステートメントを入力します。
+3. 使用して、 __新しいワークシート__ の下部にあるボタン、 __クエリ エディター__ 新しいワークシートを作成します。 新しいワークシートに、次の HiveQL ステートメントを入力します。
 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 
     これらのステートメントは次のアクションを実行します。
 
-    - **CREATE TABLE IF NOT EXISTS** - 既存のテーブルがない場合、テーブルを作成します。 **EXTERNAL** キーワードが使用されていないため、これは内部テーブルであり、Hive のデータ保管先に格納され、完全に Hive によって管理されます。 外部テーブルとは異なり、内部テーブルを削除すると、基盤となるデータも削除されます。
-    - **STORED AS ORC** - Optimized Row Columnar (ORC) 形式でデータを格納します。 この形式は、Hive にデータを格納するための、非常に効率的で適切な形式です。
+    - **テーブル IF NOT EXISTS の作成** -が既に存在しない場合は、テーブルを作成します。 以降、 **外部** キーワードが使用されていない、これは内部テーブルであり、Hive データ ウェアハウスに格納され、Hive によって完全に管理されます。 外部テーブルとは異なり、内部テーブルを削除すると、基盤となるデータも削除されます。
+    - **STORED AS ORC** -Optimized Row Columnar (ORC) 形式でデータを格納します。 この形式は、Hive にデータを格納するための、非常に効率的で適切な形式です。
     - **INSERT OVERWRITE ...選択** の行を選択、 **log4jLogs** [ERROR] を含むとにデータを挿入するテーブル、 **errorLogs** テーブルです。
+    
+    使用して、 __Execute__ このクエリを実行するボタンをクリックします。  __結果__ このクエリによって行が返されませんが、として状態が [は、タブに情報は含まれない __SUCCEEDED__します。
 
-    __[Execute]__ ボタンを使用してこのクエリを実行します。 このクエリで返される行はないため、__[Results]__ タブには情報が表示されませんが、状態は __[SUCCEEDED]__ と表示されます。
+###Hive の設定
 
-### Hive の設定
-
-エディターの右側にある __[Settings]__ アイコンを選択します。
+選択、 __設定__ エディターの右側にあるアイコン。
 
 ![icons](./media/hdinsight-hadoop-use-hive-ambari-view/settings.png)
 
 Settings では、Hive の実行エンジンを Tez (既定値) から MapReduce に変更するなど、さまざまな Hive 設定を変更できます。
 
-### ビジュアルの説明
+###ビジュアルの説明
 
-エディターの右側にある __[Visual Explain]__ アイコンを選択します。
+選択、 __Visual 説明__ エディターの右側にあるアイコン。
 
 ![icons](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplainicon.png)
-
-これは、クエリの __[Visual Explain]__ ビューです。このビューは、複雑なクエリのフローを理解する際に役立ちます。 クエリ エディターの __[Explain]__ ボタンを使用して、このビューに対応するテキストを表示できます。
+    
+これは、 __Visual 説明__ 複雑なクエリのフローを理解するうえで役に立ちますクエリのビューです。 このビューに相当するテキストを表示するにを使用して、 __説明__ クエリ エディターでのボタンをクリックします。
 
 ![visual explain image](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplain.png)
 
-### Tez
+###Tez
 
-エディターの右側にある __[Visual Explain]__ アイコンを選択します。
+選択、 __Visual 説明__ エディターの右側にあるアイコン。
 
 ![icons](./media/hdinsight-hadoop-use-hive-ambari-view/tez.png)
 
-このクエリのために Tez で使用される有向非巡回グラフ (DAG) が表示されます (利用できる場合)。 過去に実行したクエリの DAG を表示する場合は、__[Tez View]__ を使用します。
+このクエリのために Tez で使用される有向非巡回グラフ (DAG) が表示されます (利用できる場合)。 過去に実行したクエリ、ビュー、DAG にする場合は、使用、 __Tez ビュー__ 代わりにします。
 
-### 通知
+###通知
 
-エディターの右側にある __[Visual Explain]__ アイコンを選択します。
+選択、 __Visual 説明__ エディターの右側にあるアイコン。
 
 ![icons](./media/hdinsight-hadoop-use-hive-ambari-view/notifications.png)
 
 通知とは、クエリを実行するときに生成されるメッセージです。 たとえば、クエリを送信したときや、エラーが発生したときに、通知が届きます。
 
-## 保存済みのクエリ
+##保存済みのクエリ
 
 1. クエリ エディターから、新しいワークシートを作成し、次のクエリを入力します。
 
         SELECT * from errorLogs;
-
+    
     クエリを実行して、動作することを確認します。 結果は次のようになります。
 
         errorlogs.t1    errorlogs.t2    errorlogs.t3    errorlogs.t4    errorlogs.t5    errorlogs.t6    errorlogs.t7
@@ -146,21 +150,21 @@ Settings では、Hive の実行エンジンを Tez (既定値) から MapReduce
         2012-02-03  18:55:54    SampleClass1    [ERROR]     incorrect   id  
         2012-02-03  19:25:27    SampleClass4    [ERROR]     incorrect   id
 
-2. エディターの下部にある __[Save as]__ ボタンを使用します。 このクエリに __Errorlogs__ という名前を付け、__[OK]__ を選択します。 ワークシートの名前が __Errorlogs__ に変わります。
+2. 使用して、 __名前を付けて__ エディターの下部にあるボタンをクリックします。 このクエリに名前 __Errorlogs__ 選択 __OK__します。 ワークシートの名前を変更する __Errorlogs__します。
+    
+3. 選択、 __保存されているクエリ__ ハイブの表示] ページの上部にあるタブをクリックします。 なお __Errorlogs__ 保存されたクエリとして表示されます。 クエリは、削除されるまでこの一覧に表示されます。 名前を選択すると、クエリ エディターにクエリが表示されます。
 
-3. [Hive View] ページの上部にある __[Saved Queries]__ タブを選択します。 __Errorlogs__ が、保存済みのクエリとして表示されます。 クエリは、削除されるまでこの一覧に表示されます。 名前を選択すると、クエリ エディターにクエリが表示されます。
+##クエリの履歴
 
-## クエリの履歴
+ __履歴__ ハイブのビューの上部にあるボタンでは、以前に実行したクエリを表示することができます。 これを使用して、以前に実行したクエリの一部を選択できます。 クエリを選択すると、そのクエリがクエリ エディターに表示されます。
 
-[Hive View] ページの上部にある __[History]__ ボタンを選択すると、以前に実行したクエリを表示できます。 これを使用して、以前に実行したクエリの一部を選択できます。 クエリを選択すると、そのクエリがクエリ エディターに表示されます。
+##ユーザー定義関数 (UDF)
 
-## ユーザー定義関数 (UDF)
+Hive では拡張も **ユーザー定義関数 (UDF)**します。 UDF では、HiveQL で簡単にモデル化されない機能やロジックを実装することができます。 
 
-Hive は**ユーザー定義関数 (UDF)** で拡張することもできます。 UDF では、HiveQL で簡単にモデル化されない機能やロジックを実装することができます。
+[ハイブのビューの上部にある UDF] タブで宣言およびと併用して Udf のセットを保存することは HiveQL ステートメントの一部として、UDF を追加するには、クエリで、 __クエリ エディター__します。
 
-UDF は、クエリの HiveQL ステートメントの一部として追加できるほか、Hive ビューの上部にある [UDF] タブで、__クエリ エディター__で使用できる UDF のセットを宣言して保存できます。
-
-Hive ビューに UDF を追加すると、__[Insert udfs]__ ボタンが__クエリ エディター__の下部に表示されます。 このボタンを選択すると、Hive ビューで定義した UDF のドロップダウン リストが表示されます。 UDF を選択すると、HiveQL ステートメントがクエリに追加され、UDF が有効になります。
+Hive のビューに UDF を追加した後、 __udf を挿入__ の下部にあるボタンは表示、 __クエリ エディター__します。 このボタンを選択すると、Hive ビューで定義した UDF のドロップダウン リストが表示されます。 UDF を選択すると、HiveQL ステートメントがクエリに追加され、UDF が有効になります。
 
 たとえば、次のプロパティを持つ UDF を定義したとします。
 
@@ -168,33 +172,29 @@ Hive ビューに UDF を追加すると、__[Insert udfs]__ ボタンが__ク�
 * リソース パス: wasb:///myudfs.jar
 * UDF 名: myawesomeudf
 * UDF のクラス名: com.myudfs.Awesome
-
-__[Insert udfs]__ ボタンを使用すると、__myudfs__ という名前のエントリと、そのリソースに対して定義されている UDF ごとにドロップダウン リストが表示されます。 ここでは、__myawesomeudf__ が表示されます。 このエントリを選択すると、クエリの先頭に次の内容が追加されます。
+    
+使用して、 __udf を挿入__ ボタンという名前のエントリが表示されます __myudfs__, と他のボックスの一覧の各 UDF は、そのリソースに対して定義されているためです。 この場合、 __myawesomeudf__します。 このエントリを選択すると、クエリの先頭に次の内容が追加されます。
 
     add jar wasb:///myudfs.jar;
-    
+
     create temporary function myawesomeudf as 'com.myudfs.Awesome';
 
-これにより、クエリでこの UDF を使用できます。 たとえば、 `SELECT myawesomeudf(name) FROM の人物に`します。
+これにより、クエリでこの UDF を使用できます。 たとえば、「`SELECT myawesomeudf(name) FROM people;`」のように入力します。
 
 HDInsight において Hive で UDF を使用する方法の詳細については、以下の記事を参照してください。
 
-* [Python と Hive と HDInsight での Pig の使用](hdinsight-python.md)
+* [HDInsight における Python と Hive および Pig の使用](hdinsight-python.md)
 
 * [HDInsight にカスタムの Hive UDF を追加する方法](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
-## <a id="nextsteps"></a>次のステップ
+##<a id="nextsteps"></a>次のステップ
 
 HDInsight での Hive に関する全般的な情報
 
-* [HDInsight での Hadoop の Hive を使用します。](hdinsight-use-hive.md)
+* [HDInsight での Hive と Hadoop の使用](hdinsight-use-hive.md)
 
 HDInsight での Hadoop のその他の使用方法に関する情報
 
-* [HDInsight での Hadoop での Pig の使用](hdinsight-use-pig.md)
+* [HDInsight での Pig と Hadoop の使用](hdinsight-use-pig.md)
 
-* [HDInsight での Hadoop の MapReduce を使用します。](hdinsight-use-mapreduce.md)
-
-
-
-
+* [HDInsight での MapReduce と Hadoop の使用](hdinsight-use-mapreduce.md)

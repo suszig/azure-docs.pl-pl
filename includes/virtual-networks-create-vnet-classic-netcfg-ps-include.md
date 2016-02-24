@@ -5,7 +5,7 @@ Azure では、xml ファイルを使用して、サブスクリプションに�
 PowerShell で取得した netcfg ファイルを使用して VNet を作成するには、次の手順に従います。
 
 1. Azure PowerShell を初めて使用する場合は、次を参照してください。 [インストールおよび Azure PowerShell の構成方法](powershell-install-configure.md) Azure にサインインし、サブスクリプションを選択最後までの指示に従います。
-2. Azure PowerShell コンソールから、**Get AzureVnetConfig** コマンドレットを使用して次のコマンドを実行することで、ネットワーク構成ファイルをダウンロードします。
+2. Azure PowerShell コンソールを使用して、 **の Get-azurevnetconfig** コマンドレットを次のコマンドを実行して、ネットワーク構成ファイルをダウンロードします。 
 
         Get-AzureVNetConfig -ExportToFile c:\NetworkConfig.xml
 
@@ -15,8 +15,8 @@ PowerShell で取得した netcfg ファイルを使用して VNet を作成す�
         ----------------                                                                                                     
         <?xml version="1.0" encoding="utf-8"?>...  
 
-3. 任意の XML またはテキスト エディター アプリケーションを使用して上記の手順 2 で保存したファイルを開き、検索、* *<VirtualNetworkSites>*作成済みのネットワークがある場合は、各ネットワークが自分と表示されます **。*作成済みのネットワークがある場合は、各ネットワークが自分と表示されます **<VirtualNetworkSite>* * 要素。
-4. このシナリオで説明した仮想ネットワークを作成するには、次の XML を弱追加、* *<VirtualNetworkSites>* * 要素。
+3. 任意の XML またはテキスト エディター アプリケーションを使用して上記の手順 2 で保存したファイルを開き、検索、 **<VirtualNetworkSites>** 要素。 作成済みのネットワークがある場合は、各ネットワークが自分と表示されます **<VirtualNetworkSite>** 要素。
+4. このシナリオで説明した仮想ネットワークを作成するには、次の XML を弱追加、 **<VirtualNetworkSites>** 要素。
 
         <VirtualNetworkSite name="TestVNet" Location="Central US">
           <AddressSpace>
@@ -33,7 +33,7 @@ PowerShell で取得した netcfg ファイルを使用して VNet を作成す�
         </VirtualNetworkSite>
 
 9.  ネットワーク構成ファイルを保存します。
-10. Azure PowerShell コンソールから、**Set-AzureVnetConfig** コマンドレットを使用して次のコマンドを実行することで、ネットワーク構成ファイルをアップロードします。 コマンド下に表示される出力を参照してください。**OperationStatus** の下に **Succeeded** と表示されます。 表示されていない場合は、エラーがないか xml ファイルを確認します。
+10. Azure PowerShell コンソールを使用して、 **セット AzureVnetConfig** コマンドレットを次のコマンドを実行して、ネットワーク構成ファイルをアップロードします。 確認する必要があります [コマンド] の出力に注意してください **Succeeded** [ **OperationStatus**します。 表示されていない場合は、エラーがないか xml ファイルを確認します。
 
         Set-AzureVNetConfig -ConfigurationPath c:\NetworkConfig.xml
 
@@ -42,8 +42,8 @@ PowerShell で取得した netcfg ファイルを使用して VNet を作成す�
         OperationDescription OperationId                          OperationStatus
         -------------------- -----------                          ---------------
         Set-AzureVNetConfig  49579cb9-3f49-07c3-ada2-7abd0e28c4e4 Succeeded 
-
-11. Azure PowerShell コンソールから、**Get-AzureVnetSite** コマンドレットを使用して次のコマンドを実行することで、ネットワーク構成ファイルが追加されたことを確認します。
+    
+11. Azure PowerShell コンソールを使用して、 **Get AzureVnetSite** コマンドレットを次のコマンドを実行して、新しいネットワークが追加されたことを確認します。 
 
         Get-AzureVNetSite -VNetName TestVNet
 
@@ -64,8 +64,3 @@ PowerShell で取得した netcfg ファイルを使用して VNet を作成す�
         OperationDescription : Get-AzureVNetSite
         OperationId          : 3f35d533-1f38-09c0-b286-3d07cd0904d8
         OperationStatus      : Succeeded
-
-
-
-
-

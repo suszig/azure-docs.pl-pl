@@ -1,15 +1,13 @@
-Visual Studio の**サーバー エクスプ ローラー**を使用すると、Azure Storage テーブルを作成できます。
+Azure ストレージ テーブルを作成するには Visual Studio を使用して **サーバー エクスプ ローラー**します。
 
-![サーバー エクスプ ローラーのテーブル][image1]
+![サーバー エクスプ ローラーのテーブル][Image1]
 
-1. **[ビュー]** メニューで  **[サーバー エクスプ ローラー]** を選択します。
-2. [サーバー エクスプ ローラー] で、サブスクリプションの **[Azure]** ノード、**[Storage]** ノード、および Azure Storage の接続済みサービスで指定されたストレージ アカウントのノードを展開します。
-3. **[テーブル]** ノードを選択して、コンテキスト メニューから **[テーブルの作成]** を選択します。
-4. テーブルの名前を入力し、**[OK]**を選択します。
-
-
+1.  **ビュー** ] メニューの [選択 **サーバー エクスプ ローラー**します。
+2. サーバー エクスプ ローラーで、 **Azure** 、サブスクリプションのノードが展開、 **ストレージ** ノードと Azure ストレージで指定したストレージ アカウントのノードにサービスが接続されています。
+3. 選択、 **テーブル** ノードを選択して **Create Table** 、コンテキスト メニューからです。
+4. テーブルの名前を入力し、選択 **OK**します。   
 
 
 
-[image1]: ./media/vs-storage-getting-started-tables-include/vs-storage-create-tables-in-Server-Explorer.png 
 
+[Image1]: ./media/vs-storage-getting-started-tables-include/vs-storage-create-tables-in-Server-Explorer.png

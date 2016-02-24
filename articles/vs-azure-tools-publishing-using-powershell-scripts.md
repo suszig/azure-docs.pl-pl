@@ -15,7 +15,6 @@
    ms.date="09/08/2015"
    ms.author="tarcher" />
 
-
 # Windows PowerShell スクリプトを使用した開発環境およびテスト環境の発行
 
 Visual Studio で Web アプリケーションを作成するときに、Azure への Web サイトの発行を自動化するための Windows PowerShell スクリプトを生成できます。後でこのスクリプトを使用して、Web サイトを Azure App Service の Web アプリとして、または仮想マシンとして Azure に発行できます。 Windows PowerShell スクリプトは、要件に合わせて Visual Studio エディターで編集および拡張できます。また、既存のビルド スクリプト、テスト スクリプト、発行スクリプトと統合することもできます。
@@ -42,7 +41,7 @@ Azure 開発のために、Visual Studio で PowerShell を使用するための
 
 ## Visual Studio によって生成されるスクリプト
 
-Visual Studio では、**PublishScripts** というソリューション レベルのフォルダーが生成されます。このフォルダーには、仮想マシンまたは Web サイトの発行スクリプトと、スクリプトで使用できる関数が含まれたモジュールの 2 つの Windows PowerShell ファイルが含まれます。 また、Visual Studio では、デプロイするプロジェクトの詳細を指定した JSON 形式のファイルも生成されます。
+Visual Studio で生成というソリューション レベル フォルダー **PublishScripts** 仮想マシンまたは web サイトと、スクリプトで使用できる関数を含むモジュールの公開スクリプトを 2 つの Windows PowerShell ファイルを含みます。 また、Visual Studio では、デプロイするプロジェクトの詳細を指定した JSON 形式のファイルも生成されます。
 
 ### Windows PowerShell 発行スクリプト
 
@@ -54,7 +53,7 @@ Visual Studio によって生成される Windows PowerShell モジュールに�
 
 ### JSON 構成ファイル
 
-JSON ファイルは **[構成]** フォルダーに作成されます。このファイルには、Azure にデプロイするリソースを正確に指定した構成データが含まれています。 Visual Studio によって生成されるファイルの名前は、プロジェクト名-WAWS-dev.json (Web サイトを作成した場合)、またはプロジェクト名-VM-dev.json (仮想マシンを作成した場合) です。 Web サイトの作成時に生成される JSON 構成ファイルの例を次に示します。 ほとんどの値がわかりやすく記述されています。 Web サイト名は Azure によって生成されるので、プロジェクト名と一致しない場合があります。
+JSON ファイルが作成、 **構成** フォルダーを Azure にデプロイするリソースを正確に指定する構成データが含まれています。 Visual Studio によって生成されるファイルの名前は、プロジェクト名-WAWS-dev.json (Web サイトを作成した場合)、またはプロジェクト名-VM-dev.json (仮想マシンを作成した場合) です。 Web サイトの作成時に生成される JSON 構成ファイルの例を次に示します。 ほとんどの値がわかりやすく記述されています。 Web サイト名は Azure によって生成されるので、プロジェクト名と一致しない場合があります。
 
 ```
 {
@@ -79,7 +78,7 @@ JSON ファイルは **[構成]** フォルダーに作成されます。この�
     }
 }
 ```
-仮想マシンを作成するときには、JSON 構成ファイルは次のようになります。 クラウド サービスは、仮想マシンのコンテナーとして作成されます。 仮想マシンには、HTTP および HTTPS 経由の Web アクセスに使用する通常のエンドポイントと、Web Deploy のエンドポイントが含まれます。Web Deploy のエンドポイントにより、ローカル コンピューター、リモート デスクトップ、Windows PowerShell から Web サイトに発行できます。
+仮想マシンを作成するときには、JSON 構成ファイルは次のようになります。 クラウド サービスは、仮想マシンのコンテナーとして作成されます。 仮想マシンには、HTTP および HTTPS 経由の Web アクセスに使用する通常のエンドポイントと、Web Deploy のエンドポイントが含まれます。Web 配置のエンドポイントにより、ローカル コンピューター、リモート デスクトップ、Windows PowerShell から Web サイトに発行できます。
 
 ```
 {
@@ -148,9 +147,9 @@ JSON ファイルは **[構成]** フォルダーに作成されます。この�
 }
 ```
 
-JSON 構成を編集して、発行スクリプトの実行時の動作を変更できます。  `CloudService` と `virtualMachine` のセクションでは必須では、削除できます、 `データベース` セクション必要としない場合。 Visual Studio によって生成される既定の構成ファイルに含まれる空のプロパティは省略可能です。既定の構成ファイルで値が指定されているプロパティは必須です。
+JSON 構成を編集して、発行スクリプトの実行時の動作を変更できます。 `cloudService` セクションと `virtualMachine` セクションは必須ですが、`databases` セクションは不要であれば削除できます。 Visual Studio によって生成される既定の構成ファイルに含まれる空のプロパティは省略可能です。既定の構成ファイルで値が指定されているプロパティは必須です。
 
-Azure に運用サイトが 1 つだけ存在するのでなく、複数のデプロイ環境 (スロット) を持つ Web サイトがある場合は、JSON 構成ファイルの Web サイト名にスロット名を含めることができます。 たとえば、**mysite** という名前の Web サイトがあり、そのスロットが **test** という名前の場合、URI は mysite-test.cloudapp.net になります。ただし、構成ファイルで使用する正しい名前は mysite(test) です。 これが可能なのは、サブスクリプションに Web サイトとスロットが既に存在している場合に限られます。 存在していない場合は、スロットを指定せずにスクリプトを実行して Web サイトを作成し、Azure 管理ポータルでスロットを作成してから、変更した Web サイト名でスクリプトを実行します。 Web アプリの展開スロットの詳細については、次を参照してください。 [Azure App Service で web アプリのステージング環境をセットアップ](web-sites-staged-publishing.md)します。
+Azure に運用サイトが 1 つだけ存在するのでなく、複数のデプロイ環境 (スロット) を持つ Web サイトがある場合は、JSON 構成ファイルの Web サイト名にスロット名を含めることができます。 名前は、web サイトがある場合など **mysite** とという名前のスロット **テスト** URI は mysite test.cloudapp.net の場合、次ですが、構成ファイルで使用する正しい名前は mysite (test)。 これが可能なのは、サブスクリプションに Web サイトとスロットが既に存在している場合に限られます。 存在していない場合は、スロットを指定せずにスクリプトを実行して Web サイトを作成し、Azure 管理ポータルでスロットを作成してから、変更した Web サイト名でスクリプトを実行します。 Web アプリの展開スロットの詳細については、次を参照してください。 [Azure App Service で web アプリのステージング環境をセットアップ](web-sites-staged-publishing.md)します。
 
 ## 発行スクリプトの実行方法
 
@@ -162,13 +161,13 @@ Azure に運用サイトが 1 つだけ存在するのでなく、複数のデ�
 
     ![Web 配置パッケージの作成](./media/vs-azure-tools-publishing-using-powershell-scripts/IC767885.png)
 
-    詳細については、次を参照してください。 [方法: Visual Studio で Web 配置パッケージを作成](https://msdn.microsoft.com/library/dd465323.aspx)します。 このトピックの「**発行スクリプトのカスタマイズと拡張**」で説明するように、Web 配置パッケージの作成を自動化することもできます。
+    詳細については、次を参照してください。 [方法: Visual Studio で Web 配置パッケージを作成](https://msdn.microsoft.com/library/dd465323.aspx)します。 」セクションの説明に従って、Web Deploy パッケージの作成を自動化することも **のカスタマイズと発行スクリプトを拡張する** このトピックで後述します。
 
-1. **ソリューション エクスプローラー**でスクリプトのコンテキスト メニューを開き、**[PowerShell ISE で開く]** をクリックします。
+1.  **ソリューション エクスプ ローラー**, スクリプトは、コンテキスト メニューを開きを選択し、 **PowerShell ISE で開く**します。
 
 1. このコンピューターで Windows PowerShell スクリプトを初めて実行した場合は、管理者特権でコマンド プロンプト ウィンドウを開き、次のコマンドを入力します。
 
-    `Set-executionpolicy RemoteSigned`
+    `Set-ExecutionPolicy RemoteSigned`
 
 1. 次のコマンドを使用して Azure にサインインします。
 
@@ -176,13 +175,13 @@ Azure に運用サイトが 1 つだけ存在するのでなく、複数のデ�
 
     メッセージが表示されたら、ユーザー名とパスワードを入力します。
 
-    スクリプトを自動化すると、この方法で Azure 資格情報を提供できなくなります。 代わりに、.publishsettings ファイルを使用して、資格情報を提供する必要があります。 1 回だけ、**Get-AzurePublishSettingsFile** コマンドを使用してこのファイルを Azure からダウンロードしたら、それ以降は **Import-AzurePublishSettingsFile** を使用してファイルをインポートします。 詳細については、次を参照してください。 [をインストールして、Azure PowerShell を構成する方法](powershell-install-configure.md)します。
+    スクリプトを自動化すると、この方法で Azure 資格情報を提供できなくなります。 代わりに、.publishsettings ファイルを使用して、資格情報を提供する必要があります。 1 回だけ、コマンドを使用する **Get-azurepublishsettingsfile** を Azure からファイルをダウンロードし、それ以降を使用して **Import-azurepublishsettingsfile** 、ファイルをインポートします。 詳細については、次を参照してください。 [をインストールして、Azure PowerShell を構成する方法](powershell-install-configure.md)します。
 
-1. (省略可能) Web アプリケーションを発行せずに、仮想マシン、データベース、Web サイトなどの Azure リソースを作成する場合は、**-Configuration** 引数を JSON 構成ファイルに設定した **Publish-WebApplication.ps1** コマンドを使用します。 このコマンド ラインでは、JSON 構成ファイルを使用して作成するリソースを指定します。 他のコマンド ライン引数には既定の設定を使用するため、リソースは作成されますが、Web アプリケーションは発行されません。 –Verbose オプションを使用すると、進行状況の詳細情報が得られます。
+1. (省略可能)データベース、および、web アプリケーションを発行することがなく web サイトを使用して、仮想マシンなどの Azure リソースを作成する場合、 **Publish-webapplication.ps1** コマンドと組み合わせて、 **-構成** 引数 JSON 構成ファイルに設定します。 このコマンド ラインでは、JSON 構成ファイルを使用して作成するリソースを指定します。 他のコマンド ライン引数には既定の設定を使用するため、リソースは作成されますが、Web アプリケーションは発行されません。 –Verbose オプションを使用すると、進行状況の詳細情報が得られます。
 
-    `発行 WebApplication.ps1-詳細 – 構成 C:\Path\WebProject-WAWS-dev.json`
+    `Publish-WebApplication.ps1 -Verbose –Configuration C:\Path\WebProject-WAWS-dev.json`
 
-1. 次の例に示すように **Publish-WebApplication.ps1** コマンドを使用してスクリプトを起動し、Web アプリケーションを発行します。 サブスクリプション名、発行パッケージ名、仮想マシンの資格情報、データベース サーバーの資格情報など、他の引数の既定の設定を上書きする必要がある場合は、それらのパラメーターを指定します。 **–Verbose** オプションを使用すると、発行処理の進行状況の詳細が表示されます。
+1. 使用して、 **Publish-webapplication.ps1** コマンドは、スクリプトを起動し、web アプリケーションを発行するには、次の例の 1 つで表示します。 サブスクリプション名、発行パッケージ名、仮想マシンの資格情報、データベース サーバーの資格情報など、他の引数の既定の設定を上書きする必要がある場合は、それらのパラメーターを指定します。 使用して、 **– Verbose** オプション発行プロセスの進行状況に関する追加情報を表示します。
 
     ```
     Publish-WebApplication.ps1 –Configuration C:\Path\WebProject-WAWS-dev-json `
@@ -192,7 +191,7 @@ Azure に運用サイトが 1 つだけ存在するのでなく、複数のデ�
     -Verbose
     ```
 
-    仮想マシンを作成する場合、コマンドは次のようになります。 この例では、複数のデータベースの資格情報を指定する方法も示しています。 これらのスクリプトで作成される仮想マシンでは、SSL 証明書は信頼されたルート証明機関のものではありません。 したがって、**–AllowUntrusted** オプションを使用する必要があります。
+    仮想マシンを作成する場合、コマンドは次のようになります。 この例では、複数のデータベースの資格情報を指定する方法も示しています。 これらのスクリプトで作成される仮想マシンでは、SSL 証明書は信頼されたルート証明機関のものではありません。 そのため、使用する必要がある、 **– AllowUntrusted** オプション。
 
     ```
     Publish-WebApplication.ps1 `
@@ -205,64 +204,64 @@ Azure に運用サイトが 1 つだけ存在するのでなく、複数のデ�
     -Verbose
     ```
 
-    このスクリプトではデータベースを作成できますが、データベース サーバーは作成されません。 データベース サーバーを作成する場合は、Azure モジュールの **New-AzureSqlDatabaseServer** 関数を使用します。
+    このスクリプトではデータベースを作成できますが、データベース サーバーは作成されません。 データベース サーバーを作成する場合は、使用、 **New-azuresqldatabaseserver** 、Azure モジュールの関数です。
 
 ## 発行スクリプトのカスタマイズと拡張
 
-発行スクリプトと JSON 構成ファイルはカスタマイズできます。 **AzureWebAppPublishModule.psm1** Windows PowerShell モジュールの関数は、変更することを想定したものではありません。 別のデータベースを指定したり、仮想マシンの一部のプロパティを変更したりする場合は、JSON 構成ファイルを編集します。 プロジェクトのビルドとテストを自動化するためにスクリプトの機能を拡張する場合は、**Publish-WebApplication.ps1** の関数スタブを実装できます。
+発行スクリプトと JSON 構成ファイルはカスタマイズできます。 Windows PowerShell モジュールの関数 **AzureWebAppPublishModule.psm1** 変更するものではありません。 別のデータベースを指定したり、仮想マシンの一部のプロパティを変更したりする場合は、JSON 構成ファイルを編集します。 関数スタブを実装する場合は、プロジェクト ビルドとテストを自動化するスクリプトの機能を拡張するには、 **Publish-webapplication.ps1**します。
 
-プロジェクトのビルドを自動化するには、MSBuild を呼び出すコードを追加 `新規 WebDeployPackage` このコード例で示すようにします。 MSBuild コマンドのパスは、インストールされている Visual Studio のバージョンによって異なります。 正しいパスを取得するには、この例に示すように、**Get-MSBuildCmd** 関数を使用します。
+プロジェクトのビルドを自動化するには、次のコード例に示すように、MSBuild を呼び出すコードを `New-WebDeployPackage` に追加します。 MSBuild コマンドのパスは、インストールされている Visual Studio のバージョンによって異なります。 正しいパスを取得するには、関数を使用することができます **Get-msbuildcmd**, 、この例で示すようにします。
 
 ### プロジェクトのビルドを自動化するには
 
-1. 追加、 `$ProjectFile` グローバル パラメーター セクション内のパラメーターです。
+1. グローバル パラメーター セクションに `$ProjectFile` パラメーターを追加します。
 
     ```
     [Parameter(Mandatory = $false)]
-    [ValidateScript({Test-Path $_ -PathType Leaf})]
-    [String]
-    $ProjectFile,
+    [ValidateScript({Test-Path $_ -PathType Leaf})]
+    [String]
+    $ProjectFile,
     ```
 
-1. 関数をコピー `Get-msbuildcmd` スクリプト ファイルにします。
+1. `Get-MSBuildCmd` 関数をスクリプト ファイルにコピーします。
 
     ```
     function Get-MSBuildCmd
     {
-            process
+            process
             {
 
-                 $path =  Get-ChildItem "HKLM:\SOFTWARE\Microsoft\MSBuild\ToolsVersions\" |
-                                       Sort-Object {[double]$_.PSChildName} -Descending |
-                                       Select-Object -First 1 |
-                                       Get-ItemProperty -Name MSBuildToolsPath |
-                                       Select -ExpandProperty MSBuildToolsPath
-           
-                $path = (Join-Path -Path $path -ChildPath 'msbuild.exe')
+                 $path =  Get-ChildItem "HKLM:\SOFTWARE\Microsoft\MSBuild\ToolsVersions\" |
+                                       Sort-Object {[double]$_.PSChildName} -Descending |
+                                       Select-Object -First 1 |
+                                       Get-ItemProperty -Name MSBuildToolsPath |
+                                       Select -ExpandProperty MSBuildToolsPath
+           
+                $path = (Join-Path -Path $path -ChildPath 'msbuild.exe')
 
-            return Get-Item $path
-        }
+            return Get-Item $path
+        }
     }
     ```
 
-1. 置換 `新規 WebDeployPackage` で、次のコードおよび構築している行のプレース ホルダーを置き換える `$msbuildCmd`します。 このコードは Visual Studio 2015 用です。 Visual Studio 2013 を使用している場合は、変更、 **VisualStudioVersion** 以下のプロパティを `12.0`します。
+1. `New-WebDeployPackage` を次のコードで置き換え、`$msbuildCmd` を構築している行のプレースホルダーを置き換えます。 このコードは Visual Studio 2015 用です。 Visual Studio 2013 を使用している場合は、変更、 **VisualStudioVersion** 以下のプロパティを `12.0`します。
 
     ```
     function New-WebDeployPackage
       {
-        #Write a function to build and package your web application
-          
+        #Write a function to build and package your web application
+          
         #To build your web application, use MsBuild.exe. For help, see MSBuild Command-Line Reference at: http://go.microsoft.com/fwlink/?LinkId=391339
-          
+          
         Write-VerboseWithTime 'Build-WebDeployPackage: Start'
-          
+          
         $msbuildCmd = '"{0}" "{1}" /T:Rebuild;Package /P:VisualStudioVersion=14.0 /p:OutputPath="{2}\MSBuildOutputPath" /flp:logfile=msbuild.log,v=d' -f (Get-MSBuildCmd), $ProjectFile, $scriptDirectory
-          
+          
         Write-VerboseWithTime ('Build-WebDeployPackage: ' + $msbuildCmd)
-          
+          
         #Start execution of the build command
         $job = Start-Process cmd.exe -ArgumentList('/C "' + $msbuildCmd + '"') -WindowStyle Normal -Wait -PassThru
-          
+          
         if ($job.ExitCode -ne 0)
         {
           throw('MsBuild exited with an error. ExitCode:' + $job.ExitCode)
@@ -270,21 +269,21 @@ Azure に運用サイトが 1 つだけ存在するのでなく、複数のデ�
 
         #Obtain the project name
         $projectName = (Get-Item $ProjectFile).BaseName
-          
+          
         #Construct the path to web deploy zip package
-        $DeployPackageDir =  '.\MSBuildOutputPath\_PublishedWebsites\{0}_Package\{0}.zip' -f $projectName
-          
-          
+        $DeployPackageDir =  '.\MSBuildOutputPath\_PublishedWebsites\{0}_Package\{0}.zip' -f $projectName
+          
+          
         #Get the full path for the web deploy zip package. This is required for MSDeploy to work
         $WebDeployPackage = Resolve-Path –LiteralPath $DeployPackageDir
-          
+          
         Write-VerboseWithTime 'Build-WebDeployPackage: End'
-          
+          
         return $WebDeployPackage
       }
     ```
 
-1. 呼び出す、 `新規 WebDeployPackage` この行の前に関数: `$Config = 読み取り ConfigFile $Configuration` の web アプリのまたは `$Config = 読み取り ConfigFile $Configuration-HasWebDeployPackage:([Bool]$WebDeployPackage)` のバーチャル マシン。
+1. Web アプリでは `$Config = Read-ConfigFile $Configuration`、仮想マシンでは `$Config = Read-ConfigFile $Configuration -HasWebDeployPackage:([Bool]$WebDeployPackage)` の前に `New-WebDeployPackage` 関数を呼び出します。
 
     ```
     if($ProjectFile)
@@ -293,7 +292,7 @@ Azure に運用サイトが 1 つだけ存在するのでなく、複数のデ�
       }
     ```
 
-1. 受け渡しを使用してコマンドラインから、カスタマイズしたスクリプトを呼び出す、 `$Project` 引数は、次のコマンドラインの例に示すようにします。
+1. 次の例のコマンド ラインに示すように、`$Project` 引数を渡して、カスタマイズしたスクリプトをコマンド ラインから起動します。
 
     ```
     .\Publish-WebApplicationVM.ps1 -Configuration .\Configurations\WebApplication5-VM-dev.json `
@@ -303,56 +302,52 @@ Azure に運用サイトが 1 つだけ存在するのでなく、複数のデ�
     -Verbose
     ```
 
-    アプリケーションのテストを自動化するコードを追加 `テスト WebApplication`します。 **Publish-WebApplication.ps1** で、これらの関数が呼び出されている行のコメントを必ず解除してください。 これを実装しない場合は、Visual Studio でプロジェクトを手動でビルドし、発行スクリプトを実行して Azure に発行できます。
+    アプリケーションのテストを自動化するには、`Test-WebApplication` にコードを追加します。 関数が呼び出される必ず **Publish-webapplication.ps1** これらの関数が呼び出されます。 これを実装しない場合は、Visual Studio でプロジェクトを手動でビルドし、発行スクリプトを実行して Azure に発行できます。
 
 ## 発行関数の概要
 
-Windows PowerShell コマンド プロンプトで使用できる関数についてのヘルプを表示するには、コマンドを使用して `Get-help 関数名`します。 ヘルプには、パラメーターのヘルプと例が含まれています。 スクリプト ソース ファイル (**AzureWebAppPublishModule.psm1** と **Publish-WebApplication.ps1**) にも、同じヘルプ テキストが含まれています。 スクリプトとヘルプは、Visual Studio の言語でローカライズされています。
+Windows PowerShell コマンド プロンプトで使用できる関数のヘルプを取得するには、`Get-Help function-name` コマンドを使用します。 ヘルプには、パラメーターのヘルプと例が含まれています。 同じヘルプ テキストは、スクリプト ソース ファイルにも **AzureWebAppPublishModule.psm1** と **Publish-webapplication.ps1**します。 スクリプトとヘルプは、Visual Studio の言語でローカライズされています。
 
 **AzureWebAppPublishModule**
 
-| 関数名| 説明|
+|関数名|説明|
 |---|---|
-| Add-AzureSQLDatabase| 新しい Azure SQL データベースを作成します。|
-| Add-AzureSQLDatabases| Visual Studio によって生成される JSON 構成ファイルの値から Azure SQL データベースを作成します。|
-| Add-AzureVM| Azure 仮想マシンを作成し、デプロイされた VM の URL を返します。この関数は、前提条件を設定してから、**New-AzureVM** 関数 (Azure モジュール) を呼び出して新しい仮想マシンを作成します。|
-| Add-AzureVMEndpoints| 新しい入力エンドポイントを仮想マシンに追加し、新しいエンドポイントを持つ仮想マシンを返します。|
-| Add-AzureVMStorage| 現在のサブスクリプションに新しい Azure ストレージ アカウントを作成します。アカウントの名前は "devtest" で始まり、その後に一意の英数字の文字列が続きます。この関数は、新しいストレージ アカウントの名前を返します。新しいストレージ アカウントの場所またはアフィニティ グループを指定する必要があります。|
-| Add-AzureWebsite| 指定された名前と場所を使用して Web サイトを作成します。この関数は、Azure モジュールの **New-AzureWebsite** 関数を呼び出します。指定された名前の Web サイトがサブスクリプションにまだ含まれていない場合、この関数はその Web サイトを作成し、Web サイト オブジェクトを返します。それ以外を返します `$null`します。|
-| Backup-Subscription| 現在の Azure サブスクリプションを保存、 `$Script: $script:originalsubscription` スクリプト スコープに変数です。この関数は、現在の Azure サブスクリプションを保存 (で取得 `Get-azuresubscription-現在`) とそのストレージ アカウント、およびこのスクリプトによって変更されたサブスクリプション (変数に格納されている `$UserSpecifiedSubscription`) とそのストレージ アカウント、スクリプト スコープにします。値を保存できる関数を使用するなど `Restore-subscription`, 、現在の状態が変更された場合に、元の現在のサブスクリプションおよびストレージのアカウントを現在の状態に復元します。|
-| Find-AzureVM| 指定された Azure 仮想マシンを取得します。|
-| Format-DevTestMessageWithTime| メッセージの先頭に日付と時刻を追加します。この関数は、エラー ストリームと詳細ストリームに書き込まれるメッセージを対象としています。|
-| Get-AzureSQLDatabaseConnectionString| Azure SQL データベースに接続するための接続文字列をアセンブルします。|
-| Get-AzureVMStorage| 指定された場所またはアフィニティ グループの最初のストレージ アカウントの名前を "devtest*" という名前パターン (大文字と小文字を区別しない) で返します。"devtest*" ストレージ アカウントが場所またはアフィニティ グループと一致しない場合、そのアカウントは無視されます。場所またはアフィニティ グループを指定する必要があります。|
-| Get-MSDeployCmd| MsDeploy.exe ツールを実行するためのコマンドを返します。|
-| New-AzureVMEnvironment| JSON 構成ファイル内の値と一致する、サブスクリプション内の仮想マシンを検出または作成します。|
-| Publish-WebPackage| MsDeploy.exe と Web 発行パッケージの .ZIP ファイルを使用して、リソースを Web サイトにデプロイします。この関数では出力は生成されません。MSDeploy.exe の呼び出しに失敗した場合は、例外がスローされます。さらに詳しい出力を取得するには、**-Verbose** オプションを使用します。|
-| Publish-WebPackageToVM| パラメーター値を検証してから、**Publish-WebPackage** 関数を呼び出します。|
-| Read-ConfigFile| JSON 構成ファイルを検証し、選択した値のハッシュ テーブルを返します。|
-| Restore-Subscription| 現在のサブスクリプションを元のサブスクリプションにリセットします。|
-| Test-AzureModule| 返します。 `$true` 場合はインストールされている Azure モジュールのバージョンが 0.7.4 以降。返します。 `$false` 場合は、モジュールがインストールされていないか、以前のバージョン。この関数にはパラメーターはありません。|
-| Test-AzureModuleVersion| 返します。 `$true` 場合は、Azure モジュールのバージョンが 0.7.4 以降。返します。 `$false` 場合は、モジュールがインストールされていないか、以前のバージョン。この関数にはパラメーターはありません。|
-| Test-HttpsUrl| 入力 URL を System.Uri オブジェクトに変換します。返します。 `$True` 場合は、URL は絶対値であり、スキームが https です。返します。 `$false` URL が相対と、そのスキームが HTTPS、をでないまたは入力文字列は、URL に変換することはできません。|
-| Test-Member| 返します。 `$true` プロパティまたはメソッドがオブジェクトのメンバーである場合。それ以外の場合、返す `$false`します。|
-| Write-ErrorWithTime| 現在の時刻が先頭に付加されたエラー メッセージを書き込みます。この関数は、**Format-DevTestMessageWithTime** 関数を呼び出して先頭に時刻を付加してから、メッセージをエラー ストリームに書き込みます。|
-| Write-HostWithTime| 現在の時刻が先頭に付加されたメッセージをホスト プログラムに書き込みます (**Write-Host**)。ホスト プログラムへの書き込み結果はさまざまです。Windows PowerShell をホストするほとんどのプログラムが、これらのメッセージを標準出力に書き込みます。|
-| Write-VerboseWithTime| 現在の時刻が先頭に付加された詳細メッセージを書き込みます。この関数は **Write-Verbose** を呼び出すので、**Verbose** パラメーターを指定してスクリプトを実行した場合、または **VerbosePreference** 設定が **Continue** に設定されている場合にのみ、メッセージが表示されます。|
+|Add-AzureSQLDatabase|新しい Azure SQL データベースを作成します。|
+|Add-AzureSQLDatabases|Visual Studio によって生成される JSON 構成ファイルの値から Azure SQL データベースを作成します。|
+|Add-AzureVM|Azure 仮想マシンを作成し、デプロイされた VM の URL を返します。 この関数は、前提条件を設定しを呼び出して、 **New-azurevm** 関数 (Azure モジュール) を新しいバーチャル マシンを作成します。|
+|Add-AzureVMEndpoints|新しい入力エンドポイントを仮想マシンに追加し、新しいエンドポイントを持つ仮想マシンを返します。|
+|Add-AzureVMStorage|現在のサブスクリプションに新しい Azure ストレージ アカウントを作成します。 アカウントの名前は "devtest" で始まり、その後に一意の英数字の文字列が続きます。 この関数は、新しいストレージ アカウントの名前を返します。 新しいストレージ アカウントの場所またはアフィニティ グループを指定する必要があります。|
+|Add-AzureWebsite|指定された名前と場所を使用して Web サイトを作成します。 この関数は、 **New-azurewebsite** 、Azure モジュールの関数です。 指定された名前の Web サイトがサブスクリプションにまだ含まれていない場合、この関数はその Web サイトを作成し、Web サイト オブジェクトを返します。 それ以外の場合は、`$null` を返します。|
+|Backup-Subscription|現在の Azure サブスクリプションを、スクリプト スコープ内の `$Script:originalSubscription` 変数に保存します。この関数は、現在の Azure サブスクリプション (`Get-AzureSubscription -Current` によって取得) とそのストレージ アカウント、およびこのスクリプトによって変更されたサブスクリプション (`$UserSpecifiedSubscription` 変数に格納) とそのストレージ アカウントをスクリプト スコープ内に保存します。 値を保存することで、現在の状態が変わった場合に、`Restore-Subscription` などの関数を使用して、現在の元のサブスクリプションとストレージ アカウントを現在の状態に復元できます。|
+|Find-AzureVM|指定された Azure 仮想マシンを取得します。|
+|Format-DevTestMessageWithTime|メッセージの先頭に日付と時刻を追加します。 この関数は、エラー ストリームと詳細ストリームに書き込まれるメッセージを対象としています。|
+|Get-AzureSQLDatabaseConnectionString|Azure SQL データベースに接続するための接続文字列をアセンブルします。|
+|Get-AzureVMStorage|名前パターンを持つ最初のストレージ アカウントの名前を返す"devtest*"(大文字小文字を区別) で指定された場所またはアフィニティ グループ。場合は、"devtest*"ストレージ アカウントは、場所またはアフィニティ グループと一致しない、関数は無視されます。 場所またはアフィニティ グループを指定する必要があります。|
+|Get-MSDeployCmd|MsDeploy.exe ツールを実行するためのコマンドを返します。|
+|New-AzureVMEnvironment|JSON 構成ファイル内の値と一致する、サブスクリプション内の仮想マシンを検出または作成します。|
+|Publish-WebPackage|MsDeploy.exe と Web 発行パッケージの .ZIP ファイルを使用して、リソースを Web サイトにデプロイします。 この関数では出力は生成されません。 MSDeploy.exe の呼び出しに失敗した場合は、例外がスローされます。 さらに詳しい出力を取得する、 **-詳細** オプション。|
+|Publish-WebPackageToVM|パラメーター値を検証してから、 **Publish-webpackage** 関数です。|
+|Read-ConfigFile|JSON 構成ファイルを検証し、選択した値のハッシュ テーブルを返します。|
+|Restore-Subscription|現在のサブスクリプションを元のサブスクリプションにリセットします。|
+|Test-AzureModule|インストールされている Azure モジュールのバージョンが 0.7.4 以降の場合は、`$true` を返します。 モジュールがインストールされていないか以前のバージョンの場合は、`$false` を返します。 この関数にはパラメーターはありません。|
+|Test-AzureModuleVersion|Azure モジュールのバージョンが 0.7.4 以降の場合は、`$true` を返します。 モジュールがインストールされていないか以前のバージョンの場合は、`$false` を返します。 この関数にはパラメーターはありません。|
+|Test-HttpsUrl|入力 URL を System.Uri オブジェクトに変換します。 URL が絶対 URL で、スキームが https の場合は、`$True` を返します。 URL が相対 URL の場合、スキームが https でない場合、または入力文字列を URL に変換できない場合は、`$false` を返します。|
+|Test-Member|プロパティまたはメソッドがオブジェクトのメンバーである場合は、`$true` を返します。 それ以外の場合は、`$false` を返します。|
+|Write-ErrorWithTime|現在の時刻が先頭に付加されたエラー メッセージを書き込みます。 この関数は、 **Format-devtestmessagewithtime** 前に、メッセージをエラー ストリームに書き込む前に時刻を付加する関数。|
+|Write-HostWithTime|ホスト プログラムにメッセージを書き込みます (**Write-host**) の現在の時刻をプレフィックスします。 ホスト プログラムへの書き込み結果はさまざまです。 Windows PowerShell をホストするほとんどのプログラムが、これらのメッセージを標準出力に書き込みます。|
+|Write-VerboseWithTime|現在の時刻が先頭に付加された詳細メッセージを書き込みます。 呼び出すので **Write-verbose**, 、スクリプトの実行時のみ、メッセージが表示されます、 **Verbose** パラメーターとき、または、 **VerbosePreference** に設定されて **続行**します。|
 
 **Publish-WebApplication**
 
-| 関数名| 説明|
+|関数名|説明|
 |---|---|
-| New-AzureWebApplicationEnvironment| Web サイトや仮想マシンなどの Azure リソースを作成します。|
-| New-WebDeployPackage| この関数は実装されていません。この関数にコマンドを追加すると、プロジェクトをビルドできます。|
-| Publish-AzureWebApplication| Azure に Web アプリケーションを発行します。|
-| Publish-WebApplication| Visual Studio Web プロジェクト用の Web アプリ、仮想マシン、SQL データベース、ストレージ アカウントを作成し、デプロイします。|
-| Test-WebApplication| この関数は実装されていません。この関数にコマンドを追加すると、アプリケーションをテストできます。|
+|New-AzureWebApplicationEnvironment|Web サイトや仮想マシンなどの Azure リソースを作成します。|
+|New-WebDeployPackage|この関数は実装されていません。 この関数にコマンドを追加すると、プロジェクトをビルドできます。|
+|Publish-AzureWebApplication|Azure に Web アプリケーションを発行します。|
+|Publish-WebApplication|Visual Studio Web プロジェクト用の Web アプリ、仮想マシン、SQL データベース、ストレージ アカウントを作成し、デプロイします。|
+|Test-WebApplication|この関数は実装されていません。 この関数にコマンドを追加すると、アプリケーションをテストできます。|
 
 ## 次のステップ
 
 PowerShell スクリプトを読み取っての処理の詳細について [Windows PowerShell でのスクリプティング](https://technet.microsoft.com/library/bb978526.aspx) 時に、その他の Azure PowerShell スクリプトを表示し、 [スクリプト センター](https://azure.microsoft.com/documentation/scripts/)します。
-
-
-
-
 

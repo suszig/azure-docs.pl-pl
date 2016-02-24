@@ -16,7 +16,6 @@
     ms.date="12/03/2015"
     ms.author="sdanie"/>
 
-
 # Python で Azure Redis Cache を使用する方法
 
 > [AZURE.SELECTOR]
@@ -25,47 +24,45 @@
 - [Java](cache-java-get-started.md)
 - [Python](cache-python-get-started.md)
 
-
 このトピックでは、Python を使用して Azure Redis Cache を使用する方法を説明しています。
 
 
 ## 前提条件
 
-Install [redis-py](https://github.com/andymccurdy/redis-py).
+インストール [redis py](https://github.com/andymccurdy/redis-py)します。
 
 
 ## Azure で Redis Cache を作成する
 
-[Azure ポータル](http://go.microsoft.com/fwlink/?LinkId=398536), 、クリックして **新規**, 、**データ + ストレージ**, を選択し、 **Redis Cache**します。
+ [Azure ポータル](http://go.microsoft.com/fwlink/?LinkId=398536), 、クリックして **新規**, 、**データ + ストレージ**, を選択し、 **Redis Cache**します。
 
   ![][1]
 
-DNS ホスト名を入力します。フォームが '<name>
-  。.redis.cache.windows.net という ' です。 **[作成]** をクリックします。
+DNS ホスト名を入力します。 フォーム `<name>
+  .redis.cache.windows.net` が表示されます。 クリックして **作成**します。
 
   ![][2]
 
   作成すると、キャッシュ [参照する](cache-configure.md#configure-redis-cache-settings) キャッシュ設定を表示します。 次が必要です。
 
-  - **ホスト名。**キャッシュを作成したときに入力した名前です。
-  - **ポート。****[ポート]** の下のリンクをクリックしてポートを表示します。 SSL ポートを使用します。
-  - **アクセス キー。****[キー]** の下のリンクをクリックして、プライマリ キーをコピーします。
+  - **ホスト名です。**キャッシュを作成したときに入力した名前です。
+  - **ポートです。**下にあるリンクをクリックして **ポート** ポートを表示します。 SSL ポートを使用します。
+  - **キーにアクセスします。**下にあるリンクをクリックして **キー** プライマリ キーをコピーします。
 
-  ## キャッシュに何かを追加して取得する
+  ## キャッシュに何か追加し、取得する
 
   >>> redis をインポートします。
-  >>> r = redis です。StrictRedis (ホスト ='<name>..redis.cache.windows.net という '、
-  >>>        ポート 6380、db の = = 0、パスワード ='<key>'、ssl = True)
-  >>> r.set ('foo'、'バー')
-  >>>  True
-  >>> r.get('foo')
-  >>>  b'bar'
+  >>> r = redis です。StrictRedis(host='<name>。.redis.cache.windows.net という '、
+          ポート 6380、db の = = 0、パスワード ='<key>、ssl = True)
+    >>> r.set ('foo'、'バー')
+    True
+    >>> r.get('foo')
+    b'bar'
 
-置換 *< 名前 >* はキャッシュ名と *< キー >* をアクセス キー。
-
-
+置換 *& lt; 名前 & gt;* はキャッシュ名と *& lt; キー & gt;* アクセス キーを使用しています。
 
 
-[1]: ./media/cache-python-get-started/cache01.png 
-[2]: ./media/cache-python-get-started/cache02.png 
+<!--Image references-->
+[1]: ./media/cache-python-get-started/cache01.png
+[2]: ./media/cache-python-get-started/cache02.png
 

@@ -17,30 +17,29 @@
    ms.author="dobett"/>
 
 
-
 # デバイスを IoT Suite リモート監視構成済みソリューションに接続する
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## mbed で C のサンプル ソリューションをビルドして実行する
 
-次の手順は、接続するための手順を説明する [mbed 対応 Freescale FRDM-K64F ][lnk-mbed-home] デバイスをリモート監視ソリューションです。
+次の手順は、接続するための手順を説明する [Freescale の FRDM K64F を mbed が有効な][lnk-mbed-home] デバイスをリモート監視ソリューションです。
 
 ### デバイスをネットワークおよびデスクトップ コンピューターに接続する
 
 1. イーサネット ケーブルを使用して mbed デバイスをネットワークに接続する方法を説明します。 サンプル アプリケーションでは、インターネットへのアクセスが必要なため、この手順は必須です。
 
-2. 参照してください [mbed ][lnk-mbed-getstarted] mbed デバイスをデスクトップ PC に接続します。
+2. 参照してください [mbed 入門][lnk-mbed-getstarted] mbed デバイスをデスクトップ PC に接続します。
 
-3. デスクトップ PC が Windows を実行している場合は、次を参照してください。 [[PC 設定の ][lnk-mbed-pcconnect] mbed デバイスへのシリアル ポートへのアクセスを構成します。
+3. デスクトップ PC が Windows を実行している場合は、次を参照してください。 [PC 構成][lnk-mbed-pcconnect] mbed デバイスへのシリアル ポートへのアクセスを構成します。
 
 ### mbed プロジェクトを作成してサンプル コードをインポートする
 
-1. Web ブラウザーで、mbed.org に移動 [開発者向けサイト](https://developer.mbed.org/)します。 サインアップしていない場合は、新しいアカウントを作成するオプションが表示されます (アカウントの作成は無料です)。 既にサインアップしている場合は、アカウントの資格情報を使用してログインします。 次に、ページの右上隅の **[Compiler]** をクリックします。 これにより、ワークスペース管理インターフェイスが表示されます。
+1. Web ブラウザーで、mbed.org に移動 [開発者向けサイト](https://developer.mbed.org/)します。 サインアップしていない場合は、新しいアカウントを作成するオプションが表示されます (アカウントの作成は無料です)。 既にサインアップしている場合は、アカウントの資格情報を使用してログインします。 クリックし、 **コンパイラ** ページの右上隅にします。 これにより、ワークスペース管理インターフェイスが表示されます。
 
 2. 使用しているハードウェア プラットフォームがウィンドウの右上隅に表示されていることを確認するか、右上隅にあるアイコンをクリックしてハードウェア プラットフォームを選択します。
 
-3. メイン メニューの **[インポート]** をクリックします。 次に、mbed の地球ロゴの横にある **[ここをクリック]** をクリックし、URL リンクからインポートします。
+3. クリックして **インポート** メイン メニューでします。 クリックし、 **ここをクリックして** mbed 地球ロゴの横にある URL] リンクからインポートします。
 
     ![][6]
 
@@ -48,7 +47,7 @@
 
     ![][7]
 
-5. mbed コンパイラでは、このプロジェクトをインポートしたことでさまざまなライブラリがインポートされたことを確認できます。 いくつかについては、Azure の IoT チームで管理されている ([azureiot_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), 、[iothub_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), 、[iothub_amqp_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), 、[iothub_http_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_http_transport/), 、[proton c-mbed](https://developer.mbed.org/users/AzureIoTClient/code/proton-c-mbed/)), mbed ライブラリ カタログの使用可能なサード パーティ製のライブラリには他のユーザーです。
+5. mbed コンパイラでは、このプロジェクトをインポートしたことでさまざまなライブラリがインポートされたことを確認できます。 いくつかについては、Azure の IoT チームで管理されている ([azureiot_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), 、[iothub_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), 、[iothub_amqp_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), 、[iothub_http_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_http_transport/), 、[proton c-mbed](https://developer.mbed.org/users/AzureIoTClient/code/proton-c-mbed/)) mbed ライブラリ カタログの使用可能なサード パーティ製のライブラリには他のユーザーです。
 
     ![][8]
 
@@ -76,13 +75,14 @@
 
 ### プログラムをビルドして実行する
 
-1. **[コンパイル]** をクリックしてプログラムをビルドします。 警告は無視してかまいません。ただし、ビルドでエラーが発生する場合は、続行する前にそのエラーを修正してください。
+1. クリックして **コンパイル** プログラムをビルドします。 警告は無視してかまいません。ただし、ビルドでエラーが発生する場合は、続行する前にそのエラーを修正してください。
 
 2. ビルドが成功すると、プロジェクト名の付いた .bin ファイルが生成されます。 .bin ファイルをデバイスにコピーします。 .bin ファイルをデバイスに保存すると、デバイスに対する現在のターミナル セッションがリセットされます。 再接続したら、もう一度ターミナルを手動でリセットするか、新しいターミナルを開始します。 これにより、mbed デバイスはプログラムの実行をリセットして開始することができます。
 
 3. PuTTY などの SSH クライアント アプリケーションを使用して、デバイスに接続します。 Windows デバイス マネージャーを確認すると、デバイスで使用されているシリアル ポートを特定できます。
 
-4. PuTTY で、接続タイプとして **[シリアル]** をクリックします。 ほとんどの場合、デバイスの接続速度は 115200 であるため、この値を **[スピード]** ボックスに入力します。 その後、**[開く]** をクリックします。
+
+4. PuTTY をクリックして、 **シリアル** 接続の種類。 最も可能性の高いデバイス 115200 に接続すると、内でその値のように入力、 **速度** ボックス。 クリックして **開く**:
 
     ![][11]
 
@@ -91,13 +91,14 @@
 [AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
 
+[6]: ./media/iot-suite-connecting-devices-mbed/mbed1.png
+[7]: ./media/iot-suite-connecting-devices-mbed/mbed2a.png
+[8]: ./media/iot-suite-connecting-devices-mbed/mbed3a.png
+[9]: ./media/iot-suite-connecting-devices-mbed/suite6.png
+[11]: ./media/iot-suite-connecting-devices-mbed/mbed6.png
 
-[6]: ./media/iot-suite-connecting-devices-mbed/mbed1.png 
-[7]: ./media/iot-suite-connecting-devices-mbed/mbed2a.png 
-[8]: ./media/iot-suite-connecting-devices-mbed/mbed3a.png 
-[9]: ./media/iot-suite-connecting-devices-mbed/suite6.png 
-[11]: ./media/iot-suite-connecting-devices-mbed/mbed6.png 
-[lnk-mbed-home]: https://developer.mbed.org/platforms/FRDM-K64F/ 
-[lnk-mbed-getstarted]: https://developer.mbed.org/platforms/FRDM-K64F/#getting-started-with-mbed 
-[lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration 
+[lnk-mbed-home]: https://developer.mbed.org/platforms/FRDM-K64F/
+[lnk-mbed-getstarted]: https://developer.mbed.org/platforms/FRDM-K64F/#getting-started-with-mbed
+[lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
+
 

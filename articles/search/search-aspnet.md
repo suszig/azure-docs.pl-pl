@@ -1,6 +1,6 @@
 <properties
     pageTitle="ASP.NET MVC Web アプリを使用して Azure Search の接続 |Microsoft Azure |ホスト型クラウド検索サービス"
-    description="ASP.NET MVC Web アプリと、ホステッド クラウド検索サービスである Azure Search を接続します。.NET ライブラリまたは REST API を使用して接続、クエリ、結果の表示を行う方法について説明します。"
+    description="ASP.NET MVC Web アプリと、ホステッド クラウド検索サービスである Azure Search を接続します。 .NET ライブラリまたは REST API を使用して接続、クエリ、結果の表示を行う方法について説明します。"
     services="search"
     documentationCenter=""
     authors="HeidiSteen"
@@ -16,30 +16,29 @@
     ms.date="11/04/2015"
     ms.author="heidist"/>
 
+#Azure Search を ASP.NET MVC Web アプリと統合する方法
 
-# Azure Search を ASP.NET MVC Web アプリと統合する方法
+ASP.NET MVC は、Azure Search と統合できるカスタム ソリューションの主要 Web アプリケーション フレームワークです。 この記事では、ASP.NET Web アプリを Azure Search と接続し、一般的な操作に合わせて設計パターンを調整する方法について説明します。また、開発作業をスムーズにするために役立つコーディング方法もいくつか紹介します。 
 
-ASP.NET MVC は、Azure Search と統合できるカスタム ソリューションの主要 Web アプリケーション フレームワークです。 この記事では、ASP.NET Web アプリを Azure Search と接続し、一般的な操作に合わせて設計パターンを調整する方法について説明します。また、開発作業をスムーズにするために役立つコーディング方法もいくつか紹介します。
-
-## ASP.NET と Azure Search を使用したサンプルとデモ
+##ASP.NET と Azure Search を使用したサンプルとデモ
 
 Search と ASP.NET の統合方法がわかるコード サンプルは既にいくつかあります。 コードとデモ アプリについては、次のリンク先を参照してください。
 
-- [ニューヨーク市 (ニューヨーク) ジョブ デモ サイト](http://aka.ms/azjobsdemo)
-- [App Service + Azure Search を実行してください。](search-tryappservice.md)
+- [ニューヨーク市 (NYC) の仕事デモ サイト](http://aka.ms/azjobsdemo)
+- [Azure Search が使用された Try Azure App Service の試用](search-tryappservice.md)
 - [ビデオ、チュートリアル、デモ、およびコード サンプルの完全な一覧](earch-video-demo-tutorial-list.md)
 
-## サービスに接続する
+##サービスに接続する
 
-Web アプリケーションからサービスに接続し、要求を発行するために必要なものは、次の 3 つのみです。
+Web アプリケーションからサービスに接続し、要求を発行するために必要なものは、次の 3 つのみです。 
 
-- プロビジョニング、Azure Search サービスの URL 形式 https://<service-name>. search.windows.net
+- プロビジョニングする Azure Search サービスの URL が https://<service-name>.search.windows.net として書式設定
 - Azure Search への接続を認証する API キー (文字列)
 - 接続要求を構成する HTTPClient または SearchServiceClient
 
-#### URL と API キー
+####URL と API キー
 
-内の URL と API キーを見つけることができます、 [ポータル](search-create-service-portal.md) または使用してプログラムで取得、 [管理 REST API](https://msdn.microsoft.com/library/dn832684.aspx)します。
+内の URL と API キーを見つけることができます、 [ポータル](search-create-service-portal.md) または使用してプログラムで取得、 [管理 REST API](https://msdn.microsoft.com/library/dn832684.aspx)します。 
 
 通常、URL とキーは、両方ともユーザー操作プログラムの web.config ファイルに含めます。
 
@@ -49,7 +48,7 @@ Web アプリケーションからサービスに接続し、要求を発行す�
         . . .
       </appSettings>
 
-検索サービス名は、接続でのドメイン (search.windows.net) を追加する限り、プロビジョニング中に指定した短い名前にすることができますか、完全修飾名を指定できます (<service-name>. search.windows.net)、web.config ファイルでなく、HTTPS プレフィックスします。
+検索サービス名は、接続でのドメイン (search.windows.net) を追加する限り、プロビジョニング中に指定した短い名前にすることができますか、完全修飾名を指定できます (< サービス名 >. search.windows.net)、web.config ファイルでなく、HTTPS プレフィックスします。
 
 API キーは、サービスのプロビジョニング中に生成される認証トークンです (管理者キーのみ)。また、ポータルでクエリ キーを作成する場合に手動で生成されます。 キーの種類によって、アプリケーションに使用できる検索操作が決まります。
 
@@ -57,20 +56,21 @@ API キーは、サービスのプロビジョニング中に生成される認�
 - クエリ キー (読み取り専用、1 サービスにつき 50 個まで)
 
 API キーは、長さ 32 文字の文字列です。 管理者キーとクエリ キーに見た目の違いはありません。 コードに指定したキーがどちらの種類であるか分からなくなった場合は、ポータルを確認するか、Management REST API を使用してキーの種類を返します。 キーの詳細については、次を参照してください。 [Azure Search サービス REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)します。
-> [AZURE.TIP] クエリ キーによって、クライアントは読み取り専用機能を利用できます。 参照してください、 [TryAppService + Azure Search](search-tryappservice.md) テスト使用できる Azure Search 操作の場合は読み取り専用のサービスで利用できます。 TryAppService の Web アプリ コードはすべて修正できます。ASP.NET プロジェクトのすべての C# コードを編集して、Web ページのレイアウト、検索クエリの構造、または検索結果を修正できます。これは、サービス接続にクエリ API キーを追加して、読み取り専用の Azure Search サービス インデックスおよびドキュメントの読み込み操作を行うだけのコードです。
 
-#### クライアント接続
+> [AZURE.TIP] クエリ キーでは、クライアントに読み取り専用のエクスペリエンスを提供します。 参照してください、 [TryAppService + Azure Search](search-tryappservice.md) テスト使用できる Azure Search 操作の場合は読み取り専用のサービスで利用できます。 TryAppService の Web アプリ コードはすべて修正できます。ASP.NET プロジェクトのすべての C# コードを編集して、Web ページのレイアウト、検索クエリの構造、または検索結果を修正できます。これは、サービス接続にクエリ API キーを追加して、読み取り専用の Azure Search サービス インデックスおよびドキュメントの読み込み操作を行うだけのコードです。
+
+####クライアント接続
 
 次の 2 つのコード スニペットでは、URL と API キーを使用して Search サービスへの接続を設定します。 前述のように、サービス名と API キーは web.config ファイルに指定されています。 REST の呼び出しのためには、要求ヘッダーで管理者キーを渡す必要がありますが、クエリ キーはヘッダーで渡すか、URL で直接渡すことができます。
 
-* *[HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient.aspx) と REST API 呼び出し * *
+**[HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient.aspx) REST API 呼び出し**
 
     public class CatalogSearch
     {
         private static readonly Uri _serviceUri;
         private static HttpClient _httpClient;
         public static string errorMessage;
-    
+
         static CatalogSearch()
         {
             try
@@ -85,7 +85,7 @@ API キーは、長さ 32 文字の文字列です。 管理者キーとクエ�
             }
         }
 
-* *[SearchServiceClient](https://msdn.microsoft.com/library/azure/microsoft.azure.search.searchserviceclient.aspx) と .NET * *
+**[SearchServiceClient](https://msdn.microsoft.com/library/azure/microsoft.azure.search.searchserviceclient.aspx) .NET を使用して**
 
         static UsgsSearch()
         {
@@ -93,7 +93,7 @@ API キーは、長さ 32 文字の文字列です。 管理者キーとクエ�
             {
                 string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
                 string apiKey = ConfigurationManager.AppSettings["SearchServiceApiKey"];
-    
+
                 // Create an HTTP reference to the catalog index. Alternatively, include the index name in the query
                 _searchClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
             }
@@ -103,29 +103,30 @@ API キーは、長さ 32 文字の文字列です。 管理者キーとクエ�
             }
         }
 
-## 設計パターン
+##設計パターン
 
-Web アプリと Azure Search を統合する場合、クエリを構成し、結果を表示する必要があります。 このセクションでは、ユーザー操作コードを含むプログラムで実行する作業のコードを構成する方法について説明します。 スキーマの定義、インデックスの生成、およびデータの取り込みは意図的に除外されています。 これらの操作をコーディングする方法については、チュートリアルやサンプルに示されている参照してください [ビデオ、サンプル、および Azure search チュートリアル](search-video-demo-tutorial-list.md)します。
+Web アプリと Azure Search を統合する場合、クエリを構成し、結果を表示する必要があります。 このセクションでは、ユーザー操作コードを含むプログラムで実行する作業のコードを構成する方法について説明します。 スキーマの定義、インデックスの生成、およびデータの取り込みは意図的に除外されています。 これらの操作をコーディングする方法については、チュートリアルやサンプルに示されている参照してください [ビデオ、サンプル、および Azure search チュートリアル](search-video-demo-tutorial-list.md)します。 
 
-### クエリの構成
+###クエリの構成
 
-インデックスの全文検索は、インデックスが定義されているスキーマで **isSearchable** とマークされているフィールドに対して実行されます。 検索用語が入力されると (次の例では "q" という文字列で表されています)、検索エンジンでは検索可能なすべてのフィールドから一致が検索され、**isRetrievable** とマークされているフィールドから結果が返されます。
-> [AZURE.NOTE] 多くの場合、ほとんどのフィールドを検索可能にしますが、インデックスには、フィルター式にのみ使用されるフィールドが含まれていることがあります。このような場合、検索不可能とマークして全文検索から除外し、取得不可能とマークして検索結果から除外します。 
+としてマークされているフィールドに、インデックスに対して、フルテキスト検索が実行される **isSearchable** スキーマ内に、インデックスを定義します。 検索エンジンは、検索可能なすべてのフィールド内の一致を検索し、としてマークされているフィールドから結果が返されます (文字列"q"では、下表現)、検索用語の入力を指定するには、 **isRetrievable**します。 
+
+> [AZURE.NOTE] ほとんどのフィールドは検索可能である可能性がありますが、インデックスには、フルテキスト検索から除外する検索と検索から除外する - 取得可能としてマークし、ケースの結果のフィルター式でのみ使用されるフィールドが含まれます。 
 
 検索クエリでは、ユーザーが指定した入力用語を、ターゲット インデックスを指定する Search 要求にラップします。また、要求のフィルターや調整にパラメーターを使用します。 検索文字列に組み込んだ演算子 (+、-、| など) は自動的に処理されます。つまり、検索用語を解析するコーディングは必要ありません。 すべての解析は、内部処理として検索エンジンで実行されます。 渡した文字列はエンジンによって解析および分析されるものと仮定することができます。
 
-検索クエリには、**検索**と**提案**という 2 つの種類があります。 クエリの種類ごとに別のメソッドを定義します。 **検索**は、インデックス内のフィールドの全文検索です。 **提案**は、Azure Search の先行入力 (またはオートコンプリート) のクエリ機能です。ユーザーが入力した最初の 3 文字に基づいて、可能性のある検索用語の一覧を構築する機能です。 ほとんどの場合、**提案**は、区別されないデータを含むフィールドではなく、比較的固有の値または独特の値 (製品名や出版名) を含むフィールドにのみ制限します。
+検索クエリは次の 2 つの種類があります: **検索** または **提案**します。 クエリの種類ごとに別のメソッドを定義します。 **検索** 、インデックス内のフィールドをフルテキスト検索は、です。 **検索候補** はユーザー入力の最初の 3 つの文字に基づく可能性のある検索用語の一覧を作成する Azure Search で、先行入力またはオート コンプリート クエリ機能です。 制限はほとんどの場合、 **提案** 区別されないデータを含むフィールドではなく (製品またはパブリケーション名) のような比較的固有または独自の値を含むのフィールドだけにします。
 
 次のコード スニペットでは、REST API を使用するプログラムで検索用語の入力をキャプチャします。 入力用語は文字列 q で表されます。その他のパラメーターは、同じ検索ページのファセット ナビゲーション構造からフィルター値で渡すために使用されます。 入力用語とフィルター パラメーターはいずれも Search メソッドで使用されます。
 
         public ActionResult Search(string q = "", string color = null, string category = null, double? priceFrom = null, double? priceTo = null, string sort = null)
         {
             dynamic result = null;
-    
+
             // If blank search, assume they want to search everything
             if (string.IsNullOrWhiteSpace(q))
                 q = "*";
-    
+
             result = _catalogSearch.Search(q, sort, color, category, priceFrom, priceTo);
             ViewBag.searchString = q;
             ViewBag.color = color;
@@ -133,11 +134,10 @@ Web アプリと Azure Search を統合する場合、クエリを構成し、�
             ViewBag.priceFrom = priceFrom;
             ViewBag.priceTo = priceTo;
             ViewBag.sort = sort;
-    
+
             return View("Index", result);
         }
-
-このクエリを受け取る **Search** メソッドは次のように定義されます。 このメソッドでは、クエリ文字列のパラメーターを定義しているだけでなく、ファセット ナビゲーション構造 (検索結果の絞り込みに多くの処理を実行するフィルターでサポートされます) と並び順も定義しています。
+ **検索** をこのクエリを受け取るメソッドを次のように定義します。 このメソッドでは、クエリ文字列のパラメーターを定義しているだけでなく、ファセット ナビゲーション構造 (検索結果の絞り込みに多くの処理を実行するフィルターでサポートされます) と並び順も定義しています。
 
         public dynamic Search(string searchText, string sort, string color, string category, double? priceFrom, double? priceTo)
         {
@@ -146,20 +146,20 @@ Web アプリと Azure Search を統合する場合、クエリを構成し、�
             string paging = "&$top=10";
             string filter = BuildFilter(color, category, priceFrom, priceTo);
             string orderby = BuildSort(sort);
-    
+
             Uri uri = new Uri(_serviceUri, "/indexes/catalog/docs?$count=true" + search + facets + paging + filter + orderby);
             HttpResponseMessage response = AzureSearchHelper.SendSearchRequest(_httpClient, HttpMethod.Get, uri);
             AzureSearchHelper.EnsureSuccessfulSearchResponse(response);
-    
+
             return AzureSearchHelper.DeserializeJson<dynamic>(response.Content.ReadAsStringAsync().Result);
         }
 
-検索文字列を構築する .NET メソッドを MVC ビューまたはコントローラーに含めることができます。 この関数は、ホーム コントローラーに文字列を渡します。 また、結果のデータ構造も定義します。
+検索文字列を構築する .NET メソッドを MVC ビューまたはコントローラーに含めることができます。 この関数は、ホーム コントローラーに文字列を渡します。 また、結果のデータ構造も定義します。 
 
     function Search() {
-    
+
         var q = $("#q").val();
-    
+        
         $.post('/home/search',
         {
             q: q
@@ -183,12 +183,12 @@ Web アプリと Azure Search を統合する場合、クエリを構成し、�
                 searchResultsHTML += "<td>" + parseJsonDate(data[i].Document.DATE_CREATED) + "</td>";
                 searchResultsHTML += "<td>" + parseJsonDate(data[i].Document.DATE_EDITED) + "</td></tr>";
             }
-    
+
             $("#searchResults").html(searchResultsHTML);
-    
+
         });
 
-**Search** を呼び出す .NET メソッドは次のようになります。このメソッドは、接続と検索操作を提供するメイン C# プログラムに含めます。
+呼び出すための .NET メソッド **検索** 、主要な c# プログラムで接続して、検索操作を提供する格納されている、次のようになります。
 
         public DocumentSearchResponse Search(string searchText)
         {
@@ -205,7 +205,8 @@ Web アプリと Azure Search を統合する場合、クエリを構成し、�
             return null;
         }
 
-### 検索結果の処理
+
+###検索結果の処理
 
 検索結果は、インデックス スキーマで isRetrievable とマークされているフィールドで構成された行セットの形式で返されます。 結果セットを表示する簡単な方法の 1 つは、MVC で ViewBag システム オブジェクトを使用することです。 次のコード スニペットはでは Index.cshtml から、 [codeplex の AdventureWorksDemo プロジェクト](https://azuresearchadventureworksdemo.codeplex.com/)します。
 
@@ -231,9 +232,9 @@ Web アプリと Azure Search を統合する場合、クエリを構成し、�
             </form>
         </div>
 
-### ファセット ナビゲーション
+###ファセット ナビゲーション
 
-この Index.cshmtl ファイルには、自動フィルター処理の分類を提供し、色、価格、またはカテゴリ別に検索結果を徐々に絞り込む、ファセット ナビゲーション構造の構築に使用される HTML も含まれています。
+この Index.cshmtl ファイルには、自動フィルター処理の分類を提供し、色、価格、またはカテゴリ別に検索結果を徐々に絞り込む、ファセット ナビゲーション構造の構築に使用される HTML も含まれています。 
 
         if (@Model != null)
         {
@@ -293,7 +294,8 @@ Web アプリと Azure Search を統合する場合、クエリを構成し、�
         }
     }
 
-### 検索結果の強調表示
+
+###検索結果の強調表示
 
 検索結果の検索用語のインスタンスにスタイルを適用する処理は、ヒット ハイライトと呼ばれます。 Azure Search のヒット ハイライトは、クエリのハイライト検索パラメーターで指定します。このパラメーターに、一致する用語をスキャンするフィールドのコンマ区切りの一覧を指定します。 実際には、任意のスタイルを適用できます。 次の 3 つのコード スニペットから、 [TryAppService + Azure Search チュートリアル](search-tryappservice.md)します。
 
@@ -330,7 +332,7 @@ Web アプリと Azure Search を統合する場合、クエリを構成し、�
       <p style="padding-top:20px">1 - @response.Results.Count of @response.Count results for "@searchText"</p>
     
       <ul class="list-unstyled">
-        
+        <!-- Cycle through the search results -->
        @foreach (var item in response.Results)
         {
          <li>
@@ -344,35 +346,36 @@ Web アプリと Azure Search を統合する場合、クエリを構成し、�
       </ul>
     </div>
 
-## 一般的なコーディング方法
 
-MVC、.NET プログラミング、または REST API の初心者の場合、 以下のセクションを参照すると、コーディング方法の学習時間を短縮できます。
+##一般的なコーディング方法
 
-### MVC テンプレート
+MVC、.NET プログラミング、または REST API の初心者の場合、  以下のセクションを参照すると、コーディング方法の学習時間を短縮できます。
+
+###MVC テンプレート
 
 次の表は、Azure Search を含むアプリケーションで MVC テンプレート コンポーネントを使用する方法をまとめたものです。 MVC 4 または MVC 5 を使用している場合、通常、これらのモジュールに Azure Search が追加されます。
 
- ファイル| 説明
+ファイル|説明
 ----|-----------
- web.config| サービス URL と API キーを指定します。値を読み取るメイン プログラム モジュールの System.Configuration への参照を追加します。
- Program.cs| メイン プログラムでは、サービスとの接続を確立する HttpClient または SearchServiceClient を設定します。このプログラムに Search メソッドを追加します。
- DataModel| 使用されません。インデックス作成操作とデータの読み込み操作が別のプログラムと仮定すると、Web アプリケーションの Azure Search にデータ モデルは必要ありません。
- ビュー| ビューには、検索ボックスの入力から、検索結果を処理する動的 HTML まで、アプリケーション Web ページの HTML が含まれます。
- コントローラー| クエリの構造とエラー処理は、一般的に HomeContoller.cs に含まれます。コントローラーには、少なくとも Azure Search から結果を取得し、結果セットをビューに転送する検索メソッドを含める必要があります。
+web.config|サービス URL と API キーを指定します。 値を読み取るメイン プログラム モジュールの System.Configuration への参照を追加します。
+Program.cs|メイン プログラムでは、サービスとの接続を確立する HttpClient または SearchServiceClient を設定します。 このプログラムに Search メソッドを追加します。
+DataModel|使用されません。 インデックス作成操作とデータの読み込み操作が別のプログラムと仮定すると、Web アプリケーションの Azure Search にデータ モデルは必要ありません。
+ビュー|ビューには、検索ボックスの入力から、検索結果を処理する動的 HTML まで、アプリケーション Web ページの HTML が含まれます。
+コントローラー|クエリの構造とエラー処理は、一般的に HomeContoller.cs に含まれます。 コントローラーには、少なくとも Azure Search から結果を取得し、結果セットをビューに転送する検索メソッドを含める必要があります。 
 
 また、オートコンプリート クエリに提案を使用する場合、ユーザーが指定した検索用語の入力と一致する値がインデックスに含まれるかどうかに応じて、提案されたクエリを返すメソッドも含めます。
 
-### どちらを使用するか: .NET クライアント ライブラリとREST API
+###どちらを使用するか: .NET クライアント ライブラリとREST API
 
 ASP.NET アプリケーションでは、.NET クライアント ライブラリが推奨されています。その理由は、HTTP 接続を設定し、JSON シリアル化と逆シリアル化を処理する機能があり、コードを簡略化できるためです。
 
 2 つのアプローチの機能の類似性によって、どちらの API を選択するかが決まる場合もあります。 一般に、 [.NET クライアント ライブラリ](https://msdn.microsoft.com/library/azure/dn951165.aspx) と [サービス REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 両方で必要な操作が実装されている限りは同義です。 ただし、新しい機能がプレビュー リリースの一部として REST API に先に導入され、.NET ライブラリには数か月も後に追加されることがあります。 たとえば、インデクサーがあります。インデクサーは、特定のデータ ソースの種類からのデータ読み込み操作を自動化するために使用されます。インデクサーはプレビューの REST API に導入されてから、数か月後にクライアント ライブラリに導入されました。 機能の実装に関する制限は、機能のドキュメントに記載されています。
 
-### REST API に JSON のシリアル化と逆シリアル化の AzureSearchHelper.cs を含める
+###REST API に JSON のシリアル化と逆シリアル化の AzureSearchHelper.cs を含める
 
-.NET ライブラリではこの手順は自動的に行われますが、Service REST API の場合、サービスとの要求と応答の交換で JSON ドキュメントのシリアル化と逆シリアル化を行う必要があります。 JSON は、インデックスのドキュメントの読み込み時または更新時に使用されるデータ転送のペイロード形式です。
+.NET ライブラリではこの手順は自動的に行われますが、Service REST API の場合、サービスとの要求と応答の交換で JSON ドキュメントのシリアル化と逆シリアル化を行う必要があります。 JSON は、インデックスのドキュメントの読み込み時または更新時に使用されるデータ転送のペイロード形式です。 
 
-JSON シリアル化のコードについては、**AzureSearchHelper.cs** というファイルに含まれるいくつかのサンプルを参照してください。
+JSON のシリアル化のコードは記載されていくつかのサンプルのという名前のファイルで **AzureSearchHelper.cs**:
 
     using System;
     using System.Net.Http;
@@ -438,7 +441,7 @@ JSON シリアル化のコードについては、**AzureSearchHelper.cs** と�
         }
     }
 
-### コードの構成
+###コードの構成
 
 ワークロードを同じ Visual Studio ソリューション内で複数のスタンドアロン プロジェクトに分割すると、各プログラムを柔軟に設計、保守、実行できるようになります。 次の 3 つをお勧めします。
 
@@ -452,16 +455,12 @@ Azure Search のインデックス作成操作とドキュメント操作 (ド�
 
 ワークロードを分けると、Azure Search のアクセス許可レベルの分け方 (完全な管理者権限とクエリのみの権限)、異なるプログラミング言語の使用、プログラムごとのより詳細な依存関係などの利点があります。さらに、プログラムを別々に修正したり、中央のインデックス作成アプリケーションで構築および保守しているインデックスを操作するフロントエンド アプリケーションを複数作成したりすることもできるようになります。
 
-## 次のステップ
+##次のステップ
 
 Azure Search と ASP.NET の統合についてさらに理解を深めるには、次のリンク先を参照してください。
 
-- [.NET アプリケーションから Azure Search を使用する方法](search-howto-dotnet-sdk.md)
+- [.NET アプリケーションから Azure Search を使用する方法](search-howto-dotnet-sdk.md) 
 - [Azure Search 開発者向けのケース スタディ](search-dev-case-study-whattopedia.md)
-- [Azure Search 開発の一般的ワークフロー](search-workflow.md)
-
-
-
-
+- [Azure Search 開発の一般的ワークフロー](search-workflow.md) 
 
 

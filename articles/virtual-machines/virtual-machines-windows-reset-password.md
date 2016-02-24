@@ -17,7 +17,6 @@
     ms.date="10/14/2015"
     ms.author="dkshir"/>
 
-
 # Windows 仮想マシンのパスワードまたはリモート デスクトップ サービスをリセットする方法
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 従来のデプロイ モデルです。
@@ -41,28 +40,28 @@
 
 開始する前に、次の条件が必要です。
 
-- Azure PowerShell モジュール Version 0.8.5 以降。インストールした Azure PowerShell のバージョンは、**Get-Module azure | format-table version** コマンドで確認できます。手順と最新バージョンへのリンクでは、次を参照してください。 [をインストールして、Azure PowerShell を構成する方法](http://go.microsoft.com/fwlink/p/?linkid=320552&clcid=0x409)します。
+- Azure PowerShell モジュール Version 0.8.5 以降。 インストールされている Azure PowerShell のバージョンを確認することができます、 **Get-module azure | format-table バージョン** コマンドです。 手順と最新バージョンへのリンクでは、次を参照してください。 [をインストールして、Azure PowerShell を構成する方法](http://go.microsoft.com/fwlink/p/?linkid=320552&clcid=0x409)します。
 - 新しいローカル管理者アカウント パスワード。 リモート デスクトップ サービスの構成をリセットする場合、これは必要ありません。
 - VM エージェント。
 
-VMAccess 拡張機能は使用前にインストールする必要はありません。 VM エージェントが仮想マシンにインストールされていれば、**Set-AzureVMExtension** コマンドレットを使用する Azure PowerShell コマンドを実行すると自動的に拡張機能が読み込まれます。
+VMAccess 拡張機能は使用前にインストールする必要はありません。 使用する Azure PowerShell コマンドを実行すると、VM エージェントが仮想マシンにインストールされている限り、拡張機能を自動的にロードすることは、 **Set-azurevmextension** コマンドレットです。
 
-最初に、VM エージェントがインストールされていることを確認します。クラウド サービス名と仮想マシン名を追加して、管理者レベルの Azure PowerShell のコマンド プロンプトで、次のコマンドを実行します。置換を含む引用符内のすべての < と > 文字です。
+最初に、VM エージェントがインストールされていることを確認します。 クラウド サービス名と仮想マシン名を追加して、管理者レベルの Azure PowerShell のコマンド プロンプトで、次のコマンドを実行します。 置換を含む引用符内のすべての < と > 文字です。
 
     $csName = "<cloud service name>"
     $vmName = "<virtual machine name>"
     $vm = Get-AzureVM -ServiceName $csName -Name $vmName
     write-host $vm.VM.ProvisionGuestAgent
 
-クラウド サービスや仮想マシンの名前がわからない場合は、**Get-AzureVM** を実行します。現在のサブスクリプションのすべての仮想マシンの情報が表示されます。
+クラウド サービスや仮想マシンの名前がわからない場合は、実行 **Get-azurevm** に現在のサブスクリプションのすべての仮想マシンの情報が表示されます。
 
-**write-host** コマンドで **True** が表示される場合は、VM エージェントがインストールされています。表示される場合 **False**, 、手順とダウンロードへのリンクを参照してください、 [VM エージェントと拡張機能 - パート 2](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) Azure ブログの投稿です。
+場合、 **の write-host** コマンドが表示されます **True**, 、VM エージェントがインストールされています。 表示される場合 **False**, 、手順とダウンロードへのリンクを参照してください、 [VM エージェントと拡張機能 - パート 2](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) Azure ブログの投稿です。
 
 ポータルで仮想マシンを作成する場合は、次の追加のコマンドを実行します。
 
     $vm.GetInstance().ProvisionGuestAgent = $true
 
-このコマンドは、次のセクションで **Set-AzureVMExtension** コマンドを実行する場合、"IaaS VM アクセス拡張機能を設定する前に、VM オブジェクトでゲスト エージェントのプロビジョニングを有効にする必要がある" というエラーを防ぐことができます。
+実行しているときに、このコマンドが、「ゲスト エージェントのプロビジョニングする必要があります有効にする、VM オブジェクトで IaaS VM アクセス拡張機能を設定する前に」エラーを防ぐことは、 **Set-azurevmextension** コマンドを次のセクションでは、実行します。
 
 これで、以下のタスクを実行できます。
 
@@ -99,8 +98,8 @@ VMAccess 拡張機能によって仮想マシンで次の 2 つのコマンド�
 
 リモート デスクトップ アクセスの問題が解決しなかった場合は、実行、 [Azure IaaS (Windows) 診断パッケージ](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)します。
 
-1.  診断パッケージで、[**Microsoft Azure IaaS (Windows) 診断パッケージ**] をクリックして、新しい診断セッションを作成します。
-2.  [**Azure VM で発生している問題**] ページで、[**Azure VM との RDP 接続 (再起動が必要)**] の問題を選択します。
+1.  診断パッケージをクリックして **Microsoft Azure IaaS (Windows) 診断パッケージ** 新しい診断セッションを作成します。
+2.   **、次の問題の発生するいると、Azure VM で?** ] ページで、[、 **Azure VM (再起動が必要) の RDP 接続** 問題です。
 
 詳細については、次を参照してください。、 [Microsoft Azure IaaS (Windows) 診断パッケージ](http://support.microsoft.com/kb/2976864) サポート技術情報の記事です。
 
@@ -109,13 +108,9 @@ VMAccess 拡張機能によって仮想マシンで次の 2 つのコマンド�
 
 ## その他のリソース
 
-[Azure VM 拡張機能と機能](virtual-machines-extensions-features.md)
+[Azure VM 拡張機能とその機能](virtual-machines-extensions-features.md)
 
-[RDP または SSH で Azure の仮想マシンに接続します。](http://msdn.microsoft.com/library/azure/dn535788.aspx)
+[RDP または SSH を使用した Azure 仮想マシンへの接続](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
-[Windows ベースの Azure 仮想マシンへのリモート デスクトップ接続に関するトラブルシューティングします。](virtual-machines-troubleshoot-remote-desktop-connections.md)
-
-
-
-
+[Windows ベースの Azure 仮想マシンへのリモート デスクトップ接続に関するトラブルシューティング](virtual-machines-troubleshoot-remote-desktop-connections.md)
 

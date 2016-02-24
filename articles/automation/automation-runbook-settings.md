@@ -15,7 +15,6 @@
    ms.date="10/22/2015"
    ms.author="bwren" />
 
-
 # Runbook の設定
 
 Azure Automation 内の各 Runbook には、それぞれを識別し、ログ記録の動作を変更するのに役立つ設定が複数あります。 これらの各設定を以下に示し、その後にそれらの変更方法手順を記します。
@@ -38,12 +37,12 @@ Runbook の作成後に、名前を変更することはできません。 説�
 
 ### Azure 管理ポータルで Runbook の設定を変更する
 
-Runbook の設定変更は、Azure 管理ポータルで対象 Runbook の **[構成]** ページから実行できます。
+Azure 管理ポータルからでは、runbook の設定を変更することができます、 **構成** 、runbook のページです。
 
-1. Azure 管理ポータルで、**[Automation]** を選択し、次に Automation アカウントの名前をクリックします。
-1. **[Runbook]** タブを選択します。
-1. Runbook の名前をクリックします。
-1. **[構成]** タブを選択します。
+1. Azure の管理ポータルで [ **オートメーション** に automation アカウントの名前をクリックします。
+1. 選択、 **Runbook** ] タブをクリックします。
+1. Click the name of a runbook.
+1. 選択、 **構成** ] タブをクリックします。
 
 ### Windows PowerShell で Runbook の設定を変更する
 
@@ -58,10 +57,5 @@ Runbook の設定変更は、Azure 管理ポータルで対象 Runbook の **[�
     Set-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName –LogVerbose $true –Tags $tags
 
 ## 関連記事:
-
-- [Runbook の出力とメッセージ](../automation-runbook-output-and-messages)
-- [作成または Runbook をインポートします。](https://msdn.microsoft.com/library/dn643637.aspx)
-
-
-
-
+- [Runbook の出力とメッセージ](../automation-runbook-output-and-messages) 
+- [Runbook の作成またはインポート](https://msdn.microsoft.com/library/dn643637.aspx) 

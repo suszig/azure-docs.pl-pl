@@ -16,40 +16,38 @@
    ms.date="10/21/2015"
    ms.author="lodipalm;barbkess"/>
 
-
 # SQL Data Warehouse へのサンプル データのロード
 
-SQL Data Warehouse インスタンスを作成するときに、何らかのサンプル データを簡単に読み込むことができます。 プロビジョニング中にこの手順をされなかった場合にすることもできます [サンプル データを手動で読み込む:operator[]][]します。
+SQL Data Warehouse インスタンスを作成するときに、何らかのサンプル データを簡単に読み込むことができます。 この手順をプロビジョニング中に不足している場合 [サンプル データを手動で読み込む]。 
 
-ここでは、AdventureWorksDW をデータベースに読み込む方法の概要を説明します。 このデータセットは、AdventureWorks という架空の企業のサンプル データ ウェアハウス構造を元に作られています。データは主にこの会社の売上と顧客に関するものです。
+ここでは、AdventureWorksDW をデータベースに読み込む方法の概要を説明します。 このデータセットは、AdventureWorks という架空の企業のサンプル データ ウェアハウス構造を元に作られています。データは主にこの会社の売上と顧客に関するものです。 
 
 ## 作成時にサンプル データを追加する
+次の手順で、デプロイメント中にサンプル データを SQL Data Warehouse に読み込むことができます。   
 
-次の手順で、デプロイメント中にサンプル データを SQL Data Warehouse に読み込むことができます。
-
-1. 作成プロセスを開始するには、SQL Data Warehouse での検索、 [Azure 旧ポータルの][] をクリックして [+ 新規] と then 'のデータとストレージ' または ' SQL Data Warehouse' を検索して、Marketplace にします。
-
-2. プロセスが開始されたら、[ソースの選択] をクリックして、[サンプル] に設定します。 新しいサーバーを作成しない場合は、作成に使用しているサーバーのログイン情報の入力も求められます。
+1. クリックして [+ 新規]、[Azure クラシック ポータル] で SQL Data Warehouse を検索して、作成プロセスを開始し、then 'のデータとストレージ' または ' SQL Data Warehouse' を検索して、Marketplace にします。 
+ 
+2. プロセスが開始されたら、[ソースの選択] をクリックして、[サンプル] に設定します。 新しいサーバーを作成しない場合は、作成に使用しているサーバーのログイン情報の入力も求められます。  
 
 
-> [AZURE.NOTE] インスタンスにサンプル データを読み込むには、Azure サービスでサーバーへのアクセスを有効にする必要があります (新しいサーバーを作成する場合の既定では有効です)。 これを行わない場合、読み込みは失敗すると、ことはできます [サンプル データを手動で読み込む:operator[]][]します。
+> [AZURE.NOTE] インスタンスにサンプル データを読み込むためには (ように、既定では、新しいサーバーを作成するときに) サーバーにアクセスする Azure サービスを有効にする必要があります。  これを行わない場合、読み込みは失敗すると、ことはできます [サンプル データを手動で読み込む]。
 
 
 ## PowerBI を使用して Adventureworks を分析する
 
-初めて PowerBI を使用するときは、サンプル データ セットを使用することをお勧めします。 サンプル データを読み込んだ後、Azure クラシック ポータルで Power BI で開く] ボタンをクリックするかをいずれかの SQL Data Warehouse への接続を開くことができます [Power BI の][]  と [SQL Data Warehouse に接続する][]します。 接続後は、データ ウェアハウスと同じ名前で新しいデータセットが作成されます。 分析を簡単にするために、ここでは、会社の売上分析に重要ないくつかのメトリックを含む 'AggregateSales' というビューを作成しました。 このビューの名前をクリックすると、ビューが展開されて含まれる列が表示されます。次の手順で、いくつかの簡単な視覚エフェクトを作成できます。
+初めて PowerBI を使用するときは、サンプル データ セットを使用することをお勧めします。 サンプル データを読み込んだ後は、Azure クラシック ポータルまたはしようとして [Power BI] と [SQL Data Warehouse に接続する] ボタンをクリック 'Power BI で開く] をクリックして、SQL Data Warehouse への接続を開くことができます。 接続後は、データ ウェアハウスと同じ名前で新しいデータセットが作成されます。  分析を簡単にするために、ここでは、会社の売上分析に重要ないくつかのメトリックを含む 'AggregateSales' というビューを作成しました。 このビューの名前をクリックすると、ビューが展開されて含まれる列が表示されます。次の手順で、いくつかの簡単な視覚エフェクトを作成できます。
 
-1. まず、[PostalCode] 列と [SalesAmount] 列をクリックして、全売上のマップを簡単に作成できます。 Power BI では、このデータを地理データとして自動的に認識し、マップに配置することができます。
+1. まず、[PostalCode] 列と [SalesAmount] 列をクリックして、全売上のマップを簡単に作成できます。 Power BI では、このデータを地理データとして自動的に認識し、マップに配置することができます。 
 
 2. 売上の棒グラフを作成するには、[SalesAmount] 列をクリックすると、自動的に作成されます。 [CustomerIncome] グラフを [AggregateSales] の左にある [Axis] フィールドにドラッグすると、次元が追加され、顧客の収入ブラケット別の売上が表示されます。
 
 3. 最後に、売上のタイムラインを作成する場合、必要な操作は、[SalesAmount]、[OrderDate]、および [折れ線グラフ] ([視覚エフェクト] の 2 行目の最初のアイコン) のクリックのみです。
 
-左上にある [保存] をクリックし、視覚エフェクトをレポートとして保存することで、進行状況をいつでも保存できます。
+左上にある [保存] をクリックし、視覚エフェクトをレポートとして保存することで、進行状況をいつでも保存できます。 
 
 ## サンプルへの接続とクエリ
 
-また、従来の方法を使用してサンプル データを分析することもできます。 」の説明に従って、 [接続し、クエリの][] ドキュメントを Visual Studio での SQL Server Data Tools を使用してこのデータベースに接続することができます。 SQL Data Warehouse にサンプル データをロードしたら、いくつかのクエリの実行をすぐに開始できます。
+また、従来の方法を使用してサンプル データを分析することもできます。 」の説明に従って、[接続し、クエリ] ドキュメントを Visual Studio での SQL Server Data Tools を使用してこのデータベースに接続することができます。 SQL Data Warehouse にサンプル データをロードしたら、いくつかのクエリの実行をすぐに開始できます。 
 
 簡単な SELECT ステートメントを実行して、従業員のすべての情報を取得できます。
 
@@ -70,29 +68,29 @@ WHERE 句を使用して、ある日付以前の注文をフィルター処理�
     GROUP BY OrderDateKey
     ORDER BY OrderDateKey;
 
-実際には、SQL Data Warehouse はほぼすべての SQL Server は、T-SQL コンストラクトをサポートしているし、の違いの一部を見つけることができます、 [コードを移行][] ドキュメントです。
+実際には、SQL Data Warehouse はほぼすべての SQL Server は、T-SQL コンストラクトをサポートしているし、の違いの一部を見つけることができます、[コードの移行] ドキュメントです。  
 
 
 
 ## 次のステップ
+これでながらウォーミング アップして時間を紹介しましたサンプル データ [読み込み] [] を開発する方法を確認するか [移行]。
 
-これでしばらくながらウォーミング アップしてサンプル データのチェック アウトする方法を紹介しました [を開発][], 、[を読み込む][], 、または [を移行][]します。
+<!--Image references-->
 
+<!--Article references-->
+[migrate]: ./sql-data-warehouse-overview-migrate.md
+[develop]: ./sql-data-warehouse-overview-develop.md
+[load]: ./sql-data-warehouse-overview-load.md
+[connect and query]: ./sql-data-warehouse-get-started-connect.md
+[migrate code]: ./sql-data-warehouse-migrate-code.md
+[load sample data manually]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[Azure Classic Portal]: https://portal.azure.com/
+[Power BI]: http://www.powerbi.com/
+[connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 
+<!--MSDN references-->
+[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/download/details.aspx?id=36433/
 
-
-
-
-
-[migrate]: ./sql-data-warehouse-overview-migrate.md 
-[develop]: ./sql-data-warehouse-overview-develop.md 
-[load]: ./sql-data-warehouse-overview-load.md 
-[connect and query]: ./sql-data-warehouse-get-started-connect.md 
-[migrate code]: ./sql-data-warehouse-migrate-code.md 
-[load sample data manually]: ./sql-data-warehouse-get-started-manually-load-samples.md 
-[azure classic portal]: https://portal.azure.com/ 
-[power bi]: http://www.powerbi.com/ 
-[connecting to sql data warehouse]: ./sql-data-warehouse-integrate-power-bi.md 
-[microsoft command line utilities for sql server]: http://www.microsoft.com/download/details.aspx?id=36433/ 
-[sample data scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/ 
+<!--Other Web references-->
+[Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/ 
 

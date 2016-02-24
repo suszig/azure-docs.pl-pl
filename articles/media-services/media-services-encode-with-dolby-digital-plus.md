@@ -16,42 +16,41 @@
     ms.date="09/07/2015"   
     ms.author="juliako"/>
 
+#ドルビー デジタル プラスを使ったメディアのエンコード
 
-# ドルビー デジタル プラスを使ったメディアのエンコード
-
-Azure メディア エンコーダーでは、**ドルビー® デジタル プラス** エンコードがサポートされています。 ドルビー® デジタル プラス (別称 Enhanced AC-3 (E-AC-3)) は、日々進化するメディア専用に設計された先進的なサラウンド サウンド オーディオ コーデックです。 ホーム シアターやホーム PC を初め、携帯電話やオンライン ストリーミングまで、ドルビー デジタル プラスは高品質な音声を実現します。 あらゆるエンターテイメントにおいて、よく知られたドルビーの映画のような音響表現が可能になります。 ドルビー デジタル プラスはドルビー デジタルの主要なテクノロジを基盤としています。ドルビー デジタルは、映画、放送、ホーム シアターのサラウンド サウンドの規格として確立されています。 モバイル デバイスの急増に伴い、ドルビー デジタル プラスはモバイル エンターテイメントの規格としても使用されています。 オーディオの拡張にこの先進的な新しいテクノロジを取り入れることで、より高品質なサウンドと帯域幅の節減を実現できます。 帯域幅が限られている場合でも、ほとんど途切れることなくすばらしいコンテンツを入手できます。
+Azure メディア エンコーダーをサポートしています **ドルビー ® デジタル プラス** エンコードします。 ドルビー® デジタル プラス (別称 Enhanced AC-3 (E-AC-3)) は、日々進化するメディア専用に設計された先進的なサラウンド サウンド オーディオ コーデックです。 ホーム シアターやホーム PC を初め、携帯電話やオンライン ストリーミングまで、ドルビー デジタル プラスは高品質な音声を実現します。 あらゆるエンターテイメントにおいて、よく知られたドルビーの映画のような音響表現が可能になります。 ドルビー デジタル プラスはドルビー デジタルの主要なテクノロジを基盤としています。ドルビー デジタルは、映画、放送、ホーム シアターのサラウンド サウンドの規格として確立されています。 モバイル デバイスの急増に伴い、ドルビー デジタル プラスはモバイル エンターテイメントの規格としても使用されています。 オーディオの拡張にこの先進的な新しいテクノロジを取り入れることで、より高品質なサウンドと帯域幅の節減を実現できます。 帯域幅が限られている場合でも、ほとんど途切れることなくすばらしいコンテンツを入手できます。
 
 
-## ドルビー デジタル プラスを使ったエンコード用の Azure メディア エンコーダーのセットアップ
+##ドルビー デジタル プラスを使ったエンコード用の Azure メディア エンコーダーのセットアップ
 
-### Azure メディア エンコーダー プロセッサの取得
+###Azure メディア エンコーダー プロセッサの取得 
 
 Azure メディア エンコーダーでは、ドルビー デジタル プラスがサポートされています。 参照を取得する、 **Azure Media Encoder**, を参照してください、 [メディア プロセッサの取得](media-services-get-media-processor.md) トピックです。
 
-### <a id="configure_preset"></a>Azure メディア エンコーダーを設定します。
+###<a id="configure_preset"></a>Azure メディア エンコーダーの設定
 
-Azure メディア エンコーダーで使用するエンコード設定を構成したときに、覚えやすい文字列で表された定義済みプリセットが多数ありました。ドルビー デジタル プラス エンコーダーは、数多くのコントロールは、「[<DolbyDigitalPlusAudioProfile>] (https://msdn.microsoft.com/library/azure/dn296500.aspx) の詳細。したがって、このコーデックを使用する既成の文字列プリセットはありません。目的のエンコーダー設定は XML ファイルで指定し、次のコード例にあるタスクを使ってこのデータを送信する必要があります。
-
-    string configuration = File.ReadAllText(pathToXMLConfigFile));
+Azure メディア エンコーダーで使用するエンコード設定を構成したときに、覚えやすい文字列で表された定義済みプリセットが多数ありました。 ドルビー デジタル プラス エンコーダーは、数多くのコントロールは、「 [<DolbyDigitalPlusAudioProfile>](https://msdn.microsoft.com/library/azure/dn296500.aspx) の詳細。 したがって、このコーデックを使用する既成の文字列プリセットはありません。 目的のエンコーダー設定は XML ファイルで指定し、次のコード例にあるタスクを使ってこのデータを送信する必要があります。
     
+    string configuration = File.ReadAllText(pathToXMLConfigFile));
+
     ITask task = job.Tasks.AddNew("My Dolby Digital Plus Encode Task",
         processor,
         configuration,
         _clearConfig);
 
-このトピックでは、エンコーダー設定を構成する XML プリセットの例をいくつか示します。ドルビー デジタル プラス エンコーディングの構成に使用される要素は [<DolbyDigitalPlusAudioProfile>] (https://msdn.microsoft.com/library/azure/dn296500.aspx) の子ノードとして表示される、 <AudioProfile> Azure Media Encoder XML プリセット内の要素。この XML 要素には、エンコードのさまざまな要素を制御する多数の属性が含まれます。
+このトピックでは、エンコーダー設定を構成する XML プリセットの例をいくつか示します。 ドルビー デジタル プラス エンコーディングの構成に使用される要素は [<DolbyDigitalPlusAudioProfile>](https://msdn.microsoft.com/library/azure/dn296500.aspx) の子ノードとして表示される、 <AudioProfile> 、Azure Media Encoder XML プリセット内の要素。 この XML 要素には、エンコードのさまざまな要素を制御する多数の属性が含まれます。
 
-## ドルビー デジタル プラス 5.1 マルチチャネルへのエンコード
+##ドルビー デジタル プラス 5.1 マルチチャネルへのエンコード
 
-ドルビー デジタル プラス 5.1 マルチチャネルにエンコードするには、Codec および EncoderMode 属性を "DolbyDigitalPlus" に設定します。AudioCodingMode 属性を使用してエンコードされるチャンネル数が指定された、 <DolbyDigitalPlusAudioProfile> 要素。5.1 マルチチャネルのエンコード用に AudioCodingMode を "Mode32" に設定します。
+ドルビー デジタル プラス 5.1 マルチチャネルにエンコードするには、Codec および EncoderMode 属性を "DolbyDigitalPlus" に設定します。 AudioCodingMode 属性を使用してエンコードされるチャンネル数を指定します <DolbyDigitalPlusAudioProfile> 要素。 5.1 マルチチャネルのエンコード用に AudioCodingMode を "Mode32" に設定します。 
 
 次の XML プリセットには、H264 ブロードバンド 1080p ビデオとドルビー デジタル プラス 5.1 マルチチャネル オーディオを持つ MP4 ファイルを生成する完全な Azure メディア エンコーダー XML プリセットが含まれています。 このプリセットは、LFEOn 属性を true に設定して指定される重低音効果 (LFE) チャネルをエンコードする目的でも指定します。 指定しない属性については、すべて既定値が使用されます。
 
-この XML プリセットに渡す必要があります、 **Azure Media Encoder** 」の説明に従って、エンコード ジョブを作成する [この](media-services-dotnet-encode-asset.md) トピック (渡しますが、定義済みプリセット文字列の代わりにのみ、XML プリセット全体の説明に従って [ここで](#configure_preset))します。
+この XML プリセットに渡す必要があります、 **Azure Media Encoder** 」の説明に従って、エンコード ジョブを作成する [この](media-services-dotnet-encode-asset.md) トピック (渡しますが、定義済みプリセット文字列の代わりにのみ、XML プリセット全体の説明に従って [ここで](#configure_preset))。
 
 
     <?xml version="1.0" encoding="utf-16"?>
-    
+    <!--Created for Azure Media Encoder, May 26 2013 -->
       <Preset
         Version="5.0">
         <Job />
@@ -126,14 +125,14 @@ Azure メディア エンコーダーで使用するエンコード設定を構�
         </MediaFile>
       </Preset>
 
-## ドルビー デジタル プラス ステレオへのエンコード
+##ドルビー デジタル プラス ステレオへのエンコード
 
-ドルビー デジタル プラス ステレオにエンコードするには、Codec および EncoderMode 属性を "DolbyDigitalPlus" に設定します。エンコードするチャネルの数は、AudioCodingMode 属性を使用して指定します。ステレオ エンコード用に AudioCodingMode を "Mode20" に設定します。次の XML プリセットの例では、 <DolbyDigitalPlusAudioProfile> 5.1 オーディオにエンコードするために使用します。指定しない属性については、すべて既定値が使用されます。
+ドルビー デジタル プラス ステレオにエンコードするには、Codec および EncoderMode 属性を "DolbyDigitalPlus" に設定します。 エンコードするチャネルの数は、AudioCodingMode 属性を使用して指定します。 ステレオ エンコード用に AudioCodingMode を "Mode20" に設定します。 次の XML プリセットの例では、 <DolbyDigitalPlusAudioProfile> 5.1 オーディオにエンコードするために使用します。 指定しない属性については、すべて既定値が使用されます。
 
-この XML プリセットに渡す必要があります、 **Azure Media Encoder** 」の説明に従って、エンコード ジョブを作成する [この](media-services-dotnet-encode-asset.md) トピック (渡しますが、定義済みプリセット文字列の代わりにのみ、XML プリセット全体の説明に従って [ここで](#configure_preset))します。
+この XML プリセットに渡す必要があります、 **Azure Media Encoder** 」の説明に従って、エンコード ジョブを作成する [この](media-services-dotnet-encode-asset.md) トピック (渡しますが、定義済みプリセット文字列の代わりにのみ、XML プリセット全体の説明に従って [ここで](#configure_preset))。
 
     <?xml version="1.0" encoding="utf-16"?>
-    
+    <!--Created for Azure Media Encoder, May 26 2013 -->
       <Preset
         Version="5.0">
         <Job />
@@ -207,11 +206,11 @@ Azure メディア エンコーダーで使用するエンコード設定を構�
         </MediaFile>
       </Preset>
 
-## 複数の MP4 ファイルへのエンコード
+##複数の MP4 ファイルへのエンコード 
 
-1 つの XML プリセット内で複数の MP4 にエンコードできます。生成する各 MP4 についての追加、 <Preset> 要素を構成にします。各 <Preset> 要素は、ビデオ、オーディオ、またはその両方の構成情報を含めることができます。
+1 つの XML プリセット内で複数の MP4 にエンコードできます。 生成する各 MP4 について次のように追加します、。 <Preset> 要素を構成にします。 各 <Preset> 要素には、ビデオ、オーディオ、またはその両方の構成情報を含めることができます。
 
-### 構成
+###構成
 
 次の構成では、以下の出力が生成されます。
 
@@ -233,9 +232,9 @@ Azure メディア エンコーダーで使用するエンコード設定を構�
     - AAC Stereo @ 56 kbps
 - .ism マニフェスト
 - 生成された MP4 ファイルのプロパティの一覧を含む XML ファイル
-
-        <?xml version="1.0" encoding="utf-16"?>
         
+        <?xml version="1.0" encoding="utf-16"?>
+        <!--Created for Azure Media Encoder, May 16 2013 -->
         <Presets>
           <Preset
             Version="5.0">
@@ -540,15 +539,14 @@ Azure メディア エンコーダーで使用するエンコード設定を構�
           </Preset>
         </Presets>
 
+##商用のエンコード サービスの作成
 
-## 商用のエンコード サービスの作成
+Azure Media Services を利用して商用のエンコード サービスを構築したい場合があります。 こうした "ビルドオン" サービスを作成する場合は、すべてのドルビー デジタル プラス エンコード パラメーターを利用できることが重要です。 内のすべてのパラメーターを確認してください、 <DolbyDigitalPlusAudioProfile> タグは、エンドユーザーが公開され、構成可能なです。 これらのパラメーターを利用できるようにするためのガイダンスが必要な場合は、prolicensingsupport@dolby.com までお問い合わせください。
 
-Azure Media Services を利用して商用のエンコード サービスを構築したい場合があります。こうした "ビルドオン" サービスを作成する場合は、すべてのドルビー デジタル プラス エンコード パラメーターを利用できることが重要です。内のすべてのパラメーターを確認してください、 <DolbyDigitalPlusAudioProfile> タグ エンドユーザーによって公開され、構成可能なは。これらのパラメーターを利用できるようにするためのガイダンスが必要な場合は、prolicensingsupport@dolby.com までお問い合わせください。
+##Dolby Professional Loudness Metering (DPLM) サポートの使用
 
-## Dolby Professional Loudness Metering (DPLM) サポートの使用
-
-Azure メディア エンコーダーでは DPLM SDK を使用して、入力オーディオのダイアログのラウドネスを測定し、DialogNormalization の正確な値を設定できます。この機能は、オーディオがドルビー デジタル プラスにエンコードされている場合にのみ利用できます。DPLM を使用してプリセット構成ファイルで構成されている、 <LoudnessMetering> 要素の子である、 <DolbyDigitalPlusAudioProfile> 要素。次のプリセットの例は、DPLM の構成方法を示しています。
-
+Azure メディア エンコーダーでは DPLM SDK を使用して、入力オーディオのダイアログのラウドネスを測定し、DialogNormalization の正確な値を設定できます。 この機能は、オーディオがドルビー デジタル プラスにエンコードされている場合にのみ利用できます。 DPLM を使用してプリセット構成ファイルで構成されている、 <LoudnessMetering> 要素の子では、 <DolbyDigitalPlusAudioProfile> 要素。 次のプリセットの例は、DPLM の構成方法を示しています。
+    
     <?xml version="1.0" encoding="utf-16"?>
     <Preset
       Version="5.0">
@@ -585,48 +583,48 @@ Azure メディア エンコーダーでは DPLM SDK を使用して、入力オ
       </MediaFile>
     </Preset>
 
-<LoudnessMetering> 要素は、内のみ指定できます、 <DolbyDigitalPlusAudioProfile> 要素。場合、 <LoudnessMetering> 要素を使用し、DialogNormalization 属性を使用しないでください。エンコーダーは、両方に、エラーを生成、 <LoudnessMetering> 要素と DialogNormalization 属性を使用します。LoudnessMetering のすべての属性は省略可能であり、エンコーダーによって Dolby Laboratories, Inc. が推奨する値が既定で使用されます。
+この <LoudnessMetering> 要素は、内のみ指定できます、 <DolbyDigitalPlusAudioProfile> 要素。 また、 <LoudnessMetering> 要素は、DialogNormalization 属性を使用しない必要がありますが使用されます。 エンコーダーは、両方に、エラーを生成します <LoudnessMetering> 要素と DialogNormalization 属性が使用されます。 LoudnessMetering のすべての属性は省略可能であり、エンコーダーによって Dolby Laboratories, Inc. が推奨する値が既定で使用されます。
 
 以降のセクションで、各属性について説明します。
 
-### Mode 属性
+###Mode 属性
 
 この属性は、ラウドネス測定モードを指定します。 使用できる値は、以下のとおりです。
 
+ 
+**ITU_R_BS_1770_2_DI** (既定) - ITU-R bs.1770-2 と Dialogue Intelligence
 
-**ITU_R_BS_1770_2_DI** (既定) - ITU-R BS.1770-2 と Dialogue Intelligence を指定します
+**ITU_R_BS_1770_1_DI** -ITU-R bs.1770-1 と Dialogue Intelligence
 
-**ITU_R_BS_1770_1_DI** - ITU-R BS.1770-1 と Dialogue Intelligence を指定します
+**ITU_R_BS_1770_2** -ITU-R bs.1770-2 を示します
 
-**ITU_R_BS_1770_2** - ITU-R BS.1770-2 を指定します
-
-**LEQA_DI** - Leq(A) と Dialogue Intelligence を指定します
+**LEQA_DI** -(a) と Dialogue Intelligence を示します
 
 **注:**
 
-** EBU R128** でモードを実現できます **ITU_R_BS_1770_2_DI**
+* * で実現できます EBU r128 モード **ITU_R_BS_1770_2_DI**
 
-**Leq(A)** は純粋に従来の資産として含まれており、特定の従来型ワークフローでのみ使用してください。
+ **Leq(A)** は純粋に従来、組み込まれており、特定の従来型ワークフローでのみ使用する必要があります
 
-**ITU** は最近、BS.1770-3 という名前の更新版を公開しました。これは、TruePeakDCBlock と TruePeakEmphasis が共に false に設定された BS.1770-2 に相当します。
+ **ITU** BS.1770 ~ 3 は、TruePeakDCBlock と truepeakemphasis が共に false に設定された bs.1770-2 に相当する」というタイトル更新プログラムをリリースが最近
 
-### SpeechThreshold 属性
+###SpeechThreshold 属性
 
 DPLM が統合ラウドネスの結果を生成するために使用する音声のしきい値を指定します (たとえば、音声ゲーティング、レベル ゲーティング、ゲーティングなしのいずれかを選択)。 音声のしきい値は、0% から 100% の範囲で 1% 単位で設定します。 このパラメーターは、DPLM が Dialogue Intelligence を使用するモードで構成されている場合にのみ有効になります。これは、Mode が ITU_R_BS_1770_2_DI または ITU_R_BS_1770_1_DI に設定されている場合にのみ指定できることを意味します。 Mode が ITU_R_BS_1770_2_DI または ITU_R_BS_1770_1_DI のいずれかである場合、既定値は 20% です。 この属性の値は、0、1 ～ 100 の範囲内に設定する必要があります。
 
-### TruePeakDCBlock 属性
+###TruePeakDCBlock 属性
 
 この入力パラメーターでは、トゥルー ピーク測定内の DC ブロックを有効 (true) にするか、無効 (false) にするかを指定します。 DC ブロックの詳細については、ITU‐R BS.1770‐2 をご覧ください。既定値は false です。
 
-### TruePeakEmphasis 属性
+###TruePeakEmphasis 属性
 
 トゥルー ピーク測定内の強調フィルターを有効 (true) にするか、無効 (false) にするかを指定します。 強調フィルターの詳細については、ITU‐R BS.1770‐2 をご覧ください。既定値は false です。
 
 
-### DPLM の結果
+###DPLM の結果
 
 エンコード タスクで DPLM を使用することを指定した場合、ラウドネス計測の結果は出力アセットのメタデータ XML に含まれます。 たとえば次のようになります。
-
+    
     <LoudnessMeteringResultParameters 
          DPLMVersionInformation="Dolby Professional Loudness Metering Development Kit Version 1.0"
          DialogNormalization="-15" 
@@ -638,30 +636,26 @@ DPLM が統合ラウドネスの結果を生成するために使用する音声
 
 各属性の詳細は次のとおりです。
 
-**DPLMVersionInformation** - 使用される DPLM SDK のバージョンを示す文字列。
+**DPLMVersionInformation** - 使用される DPLM SDK のバージョンを表す文字列。
 
-**DialogNormalization** - 入力オーディオからの DialNorm の測定値 (デシベル単位)。出力 DD+ ストリームに {-31, -30, …, -1} dB の範囲で埋め込まれます。
+**DialogNormalization** -(デシベル単位) の DialNorm の値の範囲の出力 DD + ストリーム、埋め込まれる入力オーディオから測定 {-31,-30,…,-1} dB です。
 
-**IntegratedLoudness** - DPLM で計測された -70 ～ +10 LKFS/dBFS の範囲の統合されたラウドネス (ここで、dBFS は Mode が LEQA_DI に設定された場合にのみ使用されます)。
+**IntegratedLoudness** --70 ~ +10 LKFS/dBFS (dBFS が使用されているモードが LEQA_DI に設定されている場合にのみ) の範囲 DPLM で計測されたラウドネスを統合します。
 
-**IntegratedLoudnessGatingMethod** - 有効な値: 0 - なし/ゲーティングなし、1 – 音声ゲーティングあり、2 – レベル ゲーティングあり。
+**IntegratedLoudnessGatingMethod** -有効な値: 0 ~ なし/ゲーティング、1 – 音声ゲーティング、2 – レベル ゲーティングします。
 
-**IntegratedLoudnessSpeechPercentage** - この結果には、音声が検出された入力メディアのタイムラインのパーセンテージが含まれます。 値の範囲は 0% ～ 100% です。
+**IntegratedLoudnessSpeechPercentage** -この結果には、音声が検出された入力メディアのタイムラインのパーセンテージが含まれています。 値の範囲は 0% ～ 100% です。
 
-**SamplePeak** - この結果には、測定のリセット以降の、任意のチャンネルにおけるサンプル絶対値の最大値 (-70 ～ +10 dBFS の範囲) が含まれます。
+**SamplePeak** -この結果には、測定のリセット以降の任意のチャンネルで-70 ~ +10 dBFS の範囲の最大絶対サンプル値が含まれています。
 
-**TruePeak** - この結果には、測定のリセット以降の、任意のチャンネルにおけるトゥルー ピーク絶対値の最大値が含まれます。 トゥルー ピークの詳細については、ITU‐R BS.1770‐2 をご覧ください。 -70 から 12.04 dBTP の範囲の値が考えられます。
+**TruePeak** -この結果、測定のリセット以降の任意のチャンネルにおける最大トゥルー ピーク絶対値の値を含まれています。 トゥルー ピークの詳細については、ITU‐R BS.1770‐2 をご覧ください。 -70 から 12.04 dBTP の範囲の値が考えられます。
+ 
 
-
-## Media Services のラーニング パス
+##Media Services のラーニング パス
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## フィードバックの提供
+##フィードバックの提供
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
 

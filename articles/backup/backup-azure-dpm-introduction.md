@@ -16,13 +16,11 @@
     ms.date="12/10/2015"
     ms.author="giridham;jimpark"/>
 
-
 # DPM を使用して Azure へのワークロードをバックアップするための準備
 
 > [AZURE.SELECTOR]
 - [Azure Backup](backup-azure-microsoft-azure-backup.md)
 - [SCDPM](backup-azure-dpm-introduction.md)
-
 
 この記事では、Microsoft Azure Backup を使用して System Center Data Protection Manager (DPM) サーバーとワークロードを保護する方法について概説します。 この記事を読むと次のことが理解できます。
 
@@ -33,8 +31,8 @@
 
 System Center DPM は、ファイルとアプリケーション データをバックアップします。 DPM にバックアップされるデータは、テープやディスクに保存することも、Microsoft Azure Backup を使って Azure にバックアップすることもできます。 DPM は、Azure Backup と次のように対話します。
 
-- **物理サーバーまたはオンプレミス仮想マシンとしてデプロイされている DPM** — DPM が物理サーバーまたはオンプレミス Hyper-V 仮想マシンとしてデプロイされている場合、データはディスクやテープだけでなく、Azure Backup コンテナーにバックアップすることができます。
-- **Azure の仮想マシンとしてデプロイされている DPM** — System Center 2012 R2 Update 3 以降、DPM は Azure 仮想マシンとしてデプロイすることができます。 DPM が Azure 仮想マシンとしてデプロイされている場合、DPM Azure 仮想マシンにアタッチされている Azure ディスクにデータをバックアップすることができます。またはデータを Azure Backup コンテナーにバックアップして、データ ストレージをオフロードすることができます。
+- **物理サーバーまたは内部設置型仮想マシンとしてデプロイされた DPM** — DPM は、デプロイする場合、物理サーバーまたはデータをバックアップするには、disk および tape に加えて、Azure Backup コンテナーに内部設置型 HYPER-V 仮想マシンとしてバックアップします。
+- **Azure の仮想マシンとしてデプロイされた DPM** -更新プログラム 3 で System Center 2012 R2、DPM を Azure の仮想マシンとして展開できます。 DPM が Azure 仮想マシンとしてデプロイされている場合、DPM Azure 仮想マシンにアタッチされている Azure ディスクにデータをバックアップすることができます。またはデータを Azure Backup コンテナーにバックアップして、データ ストレージをオフロードすることができます。
 
 ## DPM サーバーをバックアップする理由
 
@@ -44,19 +42,18 @@ DPM サーバーのバックアップに Azure Backup を使用するビジネ�
 - Azure の DPM デプロイメントでは、Azure Backup を使用して Azure ディスクからストレージをオフロードし、Azure Backup に古いデータを、ディスクに新しいデータを格納してスケールアップすることができます。
 
 ## DPM サーバーのバックアップ動作のしくみ
-
 仮想マシンをバックアップするには、まずデータの特定の時点のスナップショットが必要です。 Azure Backup サービスは、スケジュールされた時刻にバックアップ ジョブを開始し、バックアップ拡張機能をトリガーしてスナップショットを作成します。 バックアップ拡張機能は、インゲスト VSS サービスと連携して一貫性を実現し、一貫性に達すると、Azure ストレージ サービスの BLOB スナップショット API を呼び出します。 これにより、仮想マシンをシャット ダウンすることなく、一貫性のあるディスクのスナップショットが作成されます。
 
 スナップショットが作成されると、データは Azure Backup サービスによってバックアップ コンテナーに転送されます。 このサービスは、最新のバックアップから変更されたブロックのみを識別して転送することで、バックアップ ストレージとネットワークの効率を高めます。 データ転送が完了すると、スナップショットが削除され、回復ポイントが作成されます。 この回復ポイントは、Microsoft Azure 管理ポータルで確認できます。
->[AZURE.NOTE] Linux 仮想マシンでは、ファイル整合性のバックアップのみが可能です。
+
+>[AZURE.NOTE] Linux 仮想マシンのみファイルの整合性があるバックアップが可能です。
 
 ## 前提条件
-
 DPM データをバックアップするために Azure Backup を準備するには、次のようにします。
 
 1. **バックアップ コンテナーの作成** — Azure Backup コンソールでコンテナーを作成します。
-2. **コンテナー資格情報のダウンロード** — Azure Backup で、コンテナーに対して作成した管理証明書をダウンロードします。
-3. **Azure Backup エージェントのインストールおよびサーバーの登録** — Azure Backup から、各 DPM サーバーにエージェントをインストールし、バックアップ コンテナーに DPM サーバーを登録します。
+2. **資格情報コンテナーの資格情報をダウンロード** — Azure Backup 資格情報コンテナーを作成した管理証明書をアップロードします。
+3. **Azure Backup エージェントをインストールし、サーバー登録** — Azure Backup から、各 DPM サーバーにエージェントをインストールし、バックアップ コンテナーに DPM サーバーを登録します。
 
 [AZURE.INCLUDE [backup-create-vault](../../includes/backup-create-vault.md)]
 
@@ -72,7 +69,7 @@ DPM データをバックアップするために Azure Backup を準備する�
 - DPM サーバーには、Windows PowerShell および .Net Framework 4.5 がインストール済みである必要があります。
 - DPM は、ほとんどのワークロードを Azure Backup にバックアップできます。 サポート対象の詳細な一覧については、次に示す Azure Backup サポートの項目を参照してください。
 - Azure Backup に格納されているデータは、"テープにコピー" オプションでは回復できません。
-- Azure Backup 機能が有効になっている Azure アカウントを使用する必要があります。 アカウントがない場合は、無料試用版アカウントを数分で作成することができます。 ご覧 [Azure Backup の料金詳細](https://azure.microsoft.com/pricing/details/backup/)します。
+- Azure Backup 機能が有効になっている Azure アカウントを使用する必要があります。 アカウントがない場合は、無料試用版のアカウントを数分で作成することができます。 ご覧 [Azure Backup の料金](https://azure.microsoft.com/pricing/details/backup/)します。
 - Azure Backup を使用するには、バックアップ対象のサーバーに Azure Backup エージェントがインストールされていることが必要です。 各サーバーには、キャッシュ場所として 2.5 GB のローカル空きストレージ スペースが必要です (推奨は 15 GB です)。
 - データは、Azure コンテナー ストレージに格納されます。 Azure Backup コンテナーにバックアップできるデータ量に制限はありませんが、データ ソース (仮想マシンやデータベースなど) のサイズは 54,400 GB を超えないようにする必要があります。
 
@@ -93,9 +90,5 @@ Azure へのバックアップがサポートされているファイルの種�
 - 圧縮ストリーム
 - スパース ストリーム
 
->[AZURE.NOTE] System Center 2012 DPM SP1 以降では、Microsoft Azure Backup を使用して、DPM で保護されているワークロードを Azure にバックアップすることができます。
-
-
-
-
+>[AZURE.NOTE] System Center 2012 DPM sp1 以降にバックアップできます Microsoft Azure Backup を使用して Azure に DPM で保護されたワークロード。
 

@@ -16,14 +16,14 @@
     ms.date="12/09/2015"
     ms.author="dastrock"/>
 
-
 # アプリ モデル v2.0 プレビュー: Windows デスクトップ アプリへのサインインの追加
 
-v2.0 アプリ モデルを使用すると、Microsoft の個人および職場/学校アカウントの両方に対応したデスクトップ アプリに認証をすばやく追加できます。 アプリのバックエンドで安全に通信することもできます web api、両方のいくつか、 [Office 365 統合 Api](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)します。
-> [AZURE.NOTE]
-    この情報は、v2.0 アプリ モデルのパブリック プレビューに関するものです。 一般的に使用できる Azure AD と統合する方法については、サービスを参照してください、 [Azure Active Directory 開発者ガイド 』](active-directory-developers-guide.md)します。
+v2.0 アプリ モデルを使用すると、Microsoft の個人および職場/学校アカウントの両方に対応したデスクトップ アプリに認証をすばやく追加できます。  アプリのバックエンドで安全に通信することもできます web api、両方のいくつか、 [Office 365 統合 Api](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)します。
 
-[デバイス上で実行される .NET ネイティブ アプリ](active-directory-v2-flows.md#mobile-and-native-apps), 、Azure AD は、Active Directory 認証ライブラリ、または ADAL を提供します。 ADAL の唯一の目的は、アプリが Web サービスを呼び出すためのトークンを容易に取得できるようにすることです。 どれほど簡単かを示すために、ここで、次のような、.NET WPF To-Do List アプリを構築します。
+> [AZURE.NOTE]
+    この情報は、v2.0 アプリ モデルのパブリック プレビューに関するものです。  一般的に使用できる Azure AD と統合する方法については、サービスを参照してください、 [Azure Active Directory 開発者ガイド 』](active-directory-developers-guide.md)します。
+
+ [デバイス上で実行される .NET ネイティブ アプリ](active-directory-v2-flows.md#mobile-and-native-apps), 、Azure AD は、Active Directory 認証ライブラリ、または ADAL を提供します。  ADAL の唯一の目的は、アプリが Web サービスを呼び出すためのトークンを容易に取得できるようにすることです。  どれほど簡単かを示すために、ここで、次のような、.NET WPF To-Do List アプリを構築します。
 
 -   ユーザーのサインインし、アクセスを使用してトークンを取得、 [OAuth 2.0 認証プロトコル](active-directory-v2-protocols.md#oauth2-authorization-code-flow)します。
 -   バックエンド To-Do List Web サービスを安全に呼び出します。これは、OAuth 2.0 でも保護されます。
@@ -35,23 +35,21 @@ v2.0 アプリ モデルを使用すると、Microsoft の個人および職場/
 3. ADAL をインストールおよび構成する
 5. ADAL を使用して、Azure AD からトークンを取得する
 
-このチュートリアルのコードは保持 [github](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet)します。 理解するには [.zip としてアプリのスケルトンをダウンロードする](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/skeleton.zip) またはスケルトンを複製。
+このチュートリアルのコードは保持 [github](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet)します。  理解するには [.zip としてアプリのスケルトンをダウンロードする](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/skeleton.zip) またはスケルトンを複製。
 
-`git クローン--ブランチ スケルトン https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git`
+```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
 
 完成したアプリは、このチュートリアルの終わりにも示しています。
 
 ## 1.アプリを登録します
+新しいアプリを作成する [apps.dev.microsoft.com](https://apps.dev.microsoft.com), 、次の [詳細な手順について](active-directory-v2-app-registration.md)します。  次のことを確認します。
 
-新しいアプリを作成する [apps.dev.microsoft.com](https://apps.dev.microsoft.com), 、次の [詳細な手順について](active-directory-v2-app-registration.md)します。 次のことを確認します。
-
-- アプリに割り当てられた**アプリケーション ID** をメモしておきます。これは後で必要になります。
-- アプリ用の**モバイル** プラットフォームを追加します。
-- ポータルから**リダイレクト URI** をメモしておきます。 既定値を使用する必要があります `urn: ietf:wg:oauth:2.0:oob`します。
+- 下のコピー、 **アプリケーション Id** をアプリに割り当てる必要があります、すぐにします。
+- 追加、 **Mobile** アプリのプラットフォームです。
+- 下のコピー、 **リダイレクト URI** ポータルからです。 既定値の `urn:ietf:wg:oauth:2.0:oob`を使用する必要があります。
 
 ## 2.ADAL のインストールと構成
-
-マイクロソフトへのアプリの登録が完了したら、ADAL をインストールし、自分の ID 関連コードを記述できます。 ADAL が v2.0 エンドポイントと通信できるようにするには、アプリの登録に関するいくつかの情報を ADAL に提供する必要があります。
+マイクロソフトへのアプリの登録が完了したら、ADAL をインストールし、自分の ID 関連コードを記述できます。  ADAL が v2.0 エンドポイントと通信できるようにするには、アプリの登録に関するいくつかの情報を ADAL に提供する必要があります。
 
 -   最初に、パッケージ マネージャー コンソールを使用して、ADAL を TodoListClient プロジェクトに追加します。
 
@@ -59,17 +57,16 @@ v2.0 アプリ モデルを使用すると、Microsoft の個人および職場/
 PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease
 ```
 
--   TodoListClient プロジェクトで開きます `app.config`します。内の要素の値を置き換えて、 `< appSettings >` セクションで、アプリの登録ポータルで入力した値を反映するようにします。これらの値は、コードで ADAL を使用する際に常に参照されます。
-    -   `Ida: ClientId` は、 **アプリケーション Id** 、ポータルからコピーしたアプリのです。
-    -   `Ida: RedirectUri` は、 **リダイレクト Uri** ポータルからです。
-- TodoList サービス プロジェクトを開きます `web.config` プロジェクトのルートにします。
-    - 置き換える、 `ida: 対象ユーザー` 値では、同じ **アプリケーション Id** ポータルからです。
+-   TodoListClient プロジェクトで `app.config` を開きます。  アプリ登録ポータルで入力した値が反映されるように、`<appSettings>` セクションの要素の値を置き換えます。  これらの値は、コードで ADAL を使用する際に常に参照されます。
+    -    `ida:ClientId` は、 **アプリケーション Id** 、ポータルからコピーしたアプリのです。
+    -    `ida:RedirectUri` は、 **リダイレクト Uri** ポータルからです。
+- TodoList-Service プロジェクトで、プロジェクトのルートにある `web.config` を開きます。  
+    - 置き換える、 `ida:Audience` 値では、同じ **アプリケーション Id** ポータルからです。
 
 ## 3.ADAL を使用してトークンを取得します
+ADAL を使用することの基本的なメリットは、アプリがアクセス トークンを必要とする場合、必要な操作は `authContext.AcquireToken(...)` を呼び出すことだけで、残りの処理は ADAL が実行することです。  
 
-ADAL の背後にある基本的な原則は、アプリでは、アクセス トークンが必要、単に呼び出すことを `authContext.AcquireToken(...)`, 、残りの部分は ADAL で実行するとします。
-
--   `TodoListClient` プロジェクトを開き、 `MainWindow.xaml.cs` を検索し、 `OnInitialized(...)` メソッドです。 アプリケーションの初期化には、まず `AuthenticationContext` -ADAL のプライマリ クラスです。 ここでは、ADAL が Azure AD と通信し、トークンをキャッシュする方法を通知するために必要な調整項目を ADAL に渡します。
+-   `TodoListClient` プロジェクトで、`MainWindow.xaml.cs` を開き、`OnInitialized(...)` メソッドを見つけます。  最初の手順は、アプリの `AuthenticationContext` (ADAL のプライマリ クラス) を初期化することです。  ここでは、ADAL が Azure AD と通信し、トークンをキャッシュする方法を通知するために必要な調整項目を ADAL に渡します。
 
 ```C#
 protected override async void OnInitialized(EventArgs e)
@@ -82,7 +79,7 @@ protected override async void OnInitialized(EventArgs e)
 }
 ```
 
-- アプリの起動時に、ユーザーが既にアプリにサインインしているかどうかを確認する必要があります。 ただし、まだサインイン UI は呼び出しません。これを行うには、ユーザーに [サインイン] をクリックさせます。 また、 `OnInitialized(...)` メソッド。
+- アプリの起動時に、ユーザーが既にアプリにサインインしているかどうかを確認する必要があります。  ただし、まだサインイン UI は呼び出しません。これを行うには、ユーザーに [サインイン] をクリックさせます。  また、`OnInitialized(...)` メソッドで次のコードを実行します。
 
 ```C#
 // As the app starts, we want to check to see if the user is already signed in.
@@ -122,7 +119,7 @@ catch (AdalException ex)
 }
 ```
 
-- ユーザーがサインインしておらず、[サインイン] ボタンをクリックした場合、ログイン UI を呼び出し、ユーザーに資格情報を入力させます。 次のように、[サインイン] ボタン ハンドラーを実装します:
+- ユーザーがサインインしておらず、[サインイン] ボタンをクリックした場合、ログイン UI を呼び出し、ユーザーに資格情報を入力させます。  次のように、[サインイン] ボタン ハンドラーを実装します:
 
 ```C#
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
@@ -169,7 +166,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 }
 ```
 
-- ユーザーが正常にアット マークで ADAL を受信して、トークンをキャッシュするを呼び出すことができます、 `GetTodoList()` 信頼度を持つメソッドです。 実装するのには、ユーザーのタスクを取得するだけの `GetTodoList()` メソッドです。
+- ユーザーが正常にサインインすると、ADAL によりトークンが自動的に受信してキャッシュされ、`GetTodoList()` メソッドの呼び出しを実行できます。  ユーザーのタスクを取得するために必要な操作は、`GetTodoList()` メソッドの実装だけです。
 
 ```C#
 private async void GetTodoList()
@@ -240,25 +237,21 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
         ...
 ```
 
-ご利用ありがとうございます。ユーザーを認証し、OAuth 2.0 を使用して安全に Web API を呼び出すことができる、.NET WPF アプリが動作するようになりました。両方のプロジェクトを実行し、個人用の Microsoft アカウントか職場または学校アカウントでサインインしてください。ユーザーの To Do リストにタスクを追加します。いったんサインアウトしてから、別のユーザーとして再度サインインし、ユーザーの To Do リストを表示します。アプリを閉じて、再び実行します。ユーザーのセッションに影響がないことを確認してください。これは、アプリがトークンをローカル ファイルにキャッシュしているためです。
+ご利用ありがとうございます。 ユーザーを認証し、OAuth 2.0 を使用して安全に Web API を呼び出すことができる、.NET WPF アプリが動作するようになりました。  両方のプロジェクトを実行し、個人用の Microsoft アカウントか職場または学校アカウントでサインインしてください。  ユーザーの To Do リストにタスクを追加します。  いったんサインアウトしてから、別のユーザーとして再度サインインし、ユーザーの To Do リストを表示します。  アプリを閉じて、再び実行します。  ユーザーのセッションに影響がないことを確認してください。これは、アプリがトークンをローカル ファイルにキャッシュしているためです。
 
-ADAL では、個人用アカウントと職場アカウントの両方を使用して、一般的な ID 機能をアプリに簡単に組み込むことができます。 キャッシュ管理、OAuth プロトコル サポート、ログイン UI を使用してのユーザーの提示、有効期限切れとなったトークンの更新など、面倒な操作を容易に実装できます。 本当に知っておきたいは、単一の API 呼び出し、 `authContext.AcquireTokenAsync(...)`します。
+ADAL では、個人用アカウントと職場アカウントの両方を使用して、一般的な ID 機能をアプリに簡単に組み込むことができます。  キャッシュ管理、OAuth プロトコル サポート、ログイン UI を使用してのユーザーの提示、有効期限切れとなったトークンの更新など、面倒な操作を容易に実装できます。  習得する必要があるのは、単一の API 呼び出し、`authContext.AcquireTokenAsync(...)` のみです。
 
 リファレンスについては、完全なサンプル (構成値) を除く [.zip をここでは現状](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip), 、または GitHub から複製することができます。
 
-`git クローン--ブランチの完全な https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git`
+```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
 
 ## 次のステップ
 
-これ以降は、さらに高度なトピックに進むことができます。 次のチュートリアルを試してみてください。
+これ以降は、さらに高度なトピックに進むことができます。  次のチュートリアルを試してみてください。
 
-- [TodoListService Web API v2.0 アプリ モデルをセキュリティで保護する >>](active-directory-v2-devquickstarts-dotnet-api.md)
+- [v2.0 アプリ モデルでの TodoListService Web API の保護 >>](active-directory-v2-devquickstarts-dotnet-api.md)
 
 その他のリソースについては、以下を参照してください。
 - [アプリ モデル v2.0 プレビュー >>](active-directory-appmodel-v2-overview.md)
 - [StackOverflow"adal"タグ >>](http://stackoverflow.com/questions/tagged/adal)
-
-
-
-
 

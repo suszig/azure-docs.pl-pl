@@ -17,7 +17,6 @@
   ms.date="06/17/2015" 
   ms.author="ahmetb" />
 
-
 # Azure への独自のプライベート Docker Registry のデプロイ
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,23 +28,23 @@ Azure Blob ストレージを使用して Microsoft Azure で Docker プライ�
 
 このドキュメントでは以下のことが想定されています。
 
-1. 読者は Docker の使用方法を理解しており、格納する Docker イメージを持っている。 (そうでない場合は、 [Docker についてください。](https://www.docker.com))
-2. Docker エンジンがインストールされているサーバーがある。 (そうでない場合は、 [短時間では Azure です。](http://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/))
+1. 読者は Docker の使用方法を理解しており、格納する Docker イメージを持っている。 (そうでない場合は、 [Docker について学習](https://www.docker.com))
+2. Docker エンジンがインストールされているサーバーがある。 (そうでない場合は、 [Azure で迅速にしないでください](http://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/))。
 
 
 ## プライベート Docker レジストリとは
 
 コンテナー化されたアプリケーションをクラウドに出荷するのには
 Docker コンテナー イメージを構築し、格納できるようにどこかに
-自分と他のユーザーが使用されます。
+自分と他のユーザーが使用されます。 
 
 コンテナー イメージを作成して、クラウドに出荷する際に簡単です。
 生成されたイメージを確実に格納するの困難になります。 そのため、
-Docker と呼ばれる集中サービスを提供する [Docker Hub ][docker-hub] を格納するには
+Docker と呼ばれる集中サービスを提供する [Docker Hub][docker-hub] を格納するには
 コンテナーは、クラウドでのイメージし、コンテナーを作成することができます。
 いつでもそれらのイメージを使用します。
 
-ただし、 [Docker Hub ][docker-hub] を格納するための有料サービスは、
+ただし、 [Docker Hub][docker-hub] を格納するための有料サービスには
 プライベート アプリケーション コンテナー イメージ、Docker は、開発者のニーズを尊重し、
 独自のプライベート Docker のイメージを格納する、オープン ソース ツールセットを提供します。
 ファイアウォールまたはパブリック インターネット接続することがなくオンプレミスの背後にあるレジストリです。
@@ -57,10 +56,10 @@ Azure Blob ストレージはセキュリティで保護する簡単なので簡
 Microsoft Azure で Docker Registry インスタンスをホストして格納すること、
 Azure Blob ストレージにイメージ、いくつかの利点があることができます。
 
-**セキュリティ:** ので、作業を行う、Docker イメージが Azure データ センター残されていません。
+**セキュリティ:** ため、実行する Docker イメージが Azure データ センター残されていません。
   Docker Hub を使用しているかのように、パブリック インターネットを通過しません。
-
-**パフォーマンス:** 、Docker イメージは、同じ保存
+  
+**パフォーマンス:** Docker イメージは、同じ保存
 データ センターまたはアプリケーションと地域。 これは、ため、イメージが表示されます。
 高速かつ Docker Hub に比べて安全かつ確実にプルされます。
 
@@ -70,14 +69,14 @@ storage (Ssd) とします。
 
 ## Azure BLOB ストレージを使用するための Docker Registry の構成
 
-(、を読み取ることをお勧め [Docker Registry 2.0 のドキュメントの ][registry-docs]
+(を読み取ることをお勧めします [Docker Registry 2.0 のドキュメント][registry-docs]
 続行します。) する前に
 
-実行できます [[レジストリ設定] を構成する][registry-config] Docker Registry を 2 つの方法です。
+実行できます [構成][registry-config] Docker Registry を 2 つの方法です。
 そのための方法は次のとおりです。
 
-1. 使用して、 `config.yml` ファイルです。 この場合、作成する必要が、
-  上に別の Docker イメージ `レジストリ` イメージ。
+1. `config.yml` ファイルを使用します。 この場合、作成する必要が、
+  上に別の Docker イメージ `registry` イメージ。
 2. 環境変数から既定の構成ファイルをオーバーライドします。
   作成して、別の Docker イメージを保守なしで実行されることを取得します。
 
@@ -90,7 +89,7 @@ storage (Ssd) とします。
 * 認証が構成されていない (下記のメモを参照しないでください)
 
 bash で次のような Docker コマンドを実行する必要があります。
-ターミナル (置換 `< ストレージ アカウント >` と `< ストレージ キー >` 
+ターミナル (置換 `<storage-account>` と `<storage-key>` 
 資格情報を使用)。
 
 ```sh
@@ -119,17 +118,17 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 レジストリの仮想マシンのエンドポイントのポートまたはロード バランサーの場合は、
 上記の展開コマンドを使用します。
 >
-> [構成 Docker をお読みください。
-セキュリティで保護する方法については、ドキュメントをレジストリ] の [レジストリの構成]、
+> お読みください、 [Docker の構成
+レジストリ][registry-config] をセキュリティで保護する方法について説明するドキュメント、
 レジストリ インスタンスとイメージ。
 
 ## 次のステップ
 
-レジストリを設定したら、使用できます。 Docker [レジストリ ドキュメント] を開始します。
+レジストリを設定したら、使用できます。 Docker で始まる [registry-docs]します。 
 
-
-[docker-hub]: https://hub.docker.com/ 
-[registry]: https://github.com/docker/distribution 
-[registry-docs]: http://docs.docker.com/registry/ 
-[registry-config]: http://docs.docker.com/registry/configuration/ 
+[docker-hub]: https://hub.docker.com/
+[registry]: https://github.com/docker/distribution
+[registry-docs]: http://docs.docker.com/registry/
+[registry-config]: http://docs.docker.com/registry/configuration/
+ 
 

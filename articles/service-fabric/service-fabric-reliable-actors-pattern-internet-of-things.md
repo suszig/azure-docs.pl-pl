@@ -1,14 +1,15 @@
+
 <properties
-   pageTitle ="モ ノのインターネットの高信頼アクター |Microsoft Azure]
-   description =「Service Fabric 高信頼アクターに、HTTPS、MQTT、AMQP などの複数のトランスポートをサポートしているメッセージ システム フロント エンドを結合する、システムである、重要な構成要素は」です。
-   サービス ="service fabric"
+   pageTitle="モノのインターネットの Reliable Actors | Microsoft Azure"
+   description="Service Fabric 高信頼アクターは、HTTPS、MQTT、AMQP などの複数のトランスポートをサポートするメッセージ システム フロントエンドを結合する、システム内の重要な構成要素です。"
+   services="service-fabric"
    documentationCenter=".net"
-   authors ="vturecek"
-   manager ="timlt"
+   authors="vturecek"
+   manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="service fabric"
+   ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
@@ -16,8 +17,7 @@
    ms.date="11/14/2015"
    ms.author="vturecek"/>
 
-# 高信頼アクターの設計パターン: モノのインターネット (IoT)
-
+# Reliable Actors の設計パターン: モノのインターネット (IoT)
 デバイスとクラウド サービス両方での技術の進歩に伴って IoT が新しいトレンドになり、開発者はシステムを開発の主要な構成要素に注目し始めています。
 次の図は、Service Fabric 高信頼アクターを使用して実現される重要なシナリオを示したものです。
 
@@ -27,9 +27,9 @@ Service Fabric 高信頼アクターは、HTTPS、MQTT、AMQP などの複数の
 このサンプルでは、イベント/メッセージ層の詳細を意図的に省略してあることに注意してください。これにより、アクターはデバイスと通信でき、アクター モデルに注目できます。
 通常組み合わされている基本的に 2 つのシナリオがあります。
 
-* *単一または複数のデバイスからのテレメトリおよび状態のデータの収集と、それらの状態の維持*。 データを送信している何万ものネズミ取りを間が手ください (これは、実際の顧客シナリオです)。基本的にデバイスが悪質なペストを捕獲したかどうかと同じです。 データは地域ごとに集計され、1 つの地域で十分な数のネズミが捕獲されると、エンジニアはデバイスをクリーンアップするために派遣されます。 ネズミ取りがアクターです。 そして、 リージョンごとのグループ アクターがアグリゲーターです。 おわかりですね。
+* *単一または一連のデバイスからのテレメトリおよび状態のデータを収集して、その状態を維持する*です。 データを送信している何万ものネズミ取りを間が手ください (これは、実際の顧客シナリオです)。基本的にデバイスが悪質なペストを捕獲したかどうかと同じです。 データは地域ごとに集計され、1 つの地域で十分な数のネズミが捕獲されると、エンジニアはデバイスをクリーンアップするために派遣されます。 ネズミ取りがアクターです。 そして、 リージョンごとのグループ アクターがアグリゲーターです。 おわかりですね。
 
-* *単一または複数のデバイスへのデバイスの動作と構成のプッシュ*。 ベンダーが消費パターンと季節的要因に基づいて異なる構成をプッシュする家庭用太陽光発電装置を考えてみてください。
+* *デバイスの動作と構成の単一または一連のデバイスへのプッシュ*します。 ベンダーが消費パターンと季節的要因に基づいて異なる構成をプッシュする家庭用太陽光発電装置を考えてみてください。
 
 ## テレメトリ データとデバイスのグループ化
 
@@ -192,7 +192,6 @@ Sending an engineer to repair/replace devices in Richmond
 * レポート用に設計された明示的なストアを保持します。 アグリゲーターはデータをバッファーに格納し、さらなるクエリと分析のためにレポート ストアにデータを定期的にプッシュできます。
 
 ## デバイスの操作
-
 ここまでは問題ありませんが、これらのデバイスでの操作についてはどうでしょうか。 デバイスと同様、管理者がデバイスで操作を実行できるようにアクターは操作インターフェイスを公開できます。 たとえば、管理者は、季節/リージョンの変化に応じて、家庭用太陽光発電デバイスのグループに新しい構成をプッシュする必要があります (もう 1 つの現実的シナリオです)。
 
 ここでの重要なアイデアは、テレメトリなどのデバイスからの受信データを集計するのか、多数のデバイスに構成などのデータを送信するのかに関係なく、"Thing" アクターを使用して各デバイスを、また "ThingGroup" アクターを使用してグループ操作を、きめ細かく制御できることです。 デバイス アクターの分布およびそれらの間のメッセージングはプラットフォームによって処理され、それは開発者に対して完全に透過的です。
@@ -206,7 +205,6 @@ Azure Service Fabric アクターは、アクターの有効期間も処理し�
 ますます多くのユーザーが、IoT の実装の重要な構成要素として Azure Service Fabric アクターを考えるようになるはずです。
 
 ## 次のステップ
-
 [パターン: スマート キャッシュ](service-fabric-reliable-actors-pattern-smart-cache.md)
 
 [パターン: 分散ネットワークとグラフ](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
@@ -217,12 +215,11 @@ Azure Service Fabric アクターは、アクターの有効期間も処理し�
 
 [パターン: 分散計算](service-fabric-reliable-actors-pattern-distributed-computation.md)
 
-[いくつかアンチ パターン](service-fabric-reliable-actors-anti-patterns.md)
+[いくつかのアンチ パターン](service-fabric-reliable-actors-anti-patterns.md)
 
 [Service Fabric アクターの概要](service-fabric-reliable-actors-introduction.md)
 
-
-
-[1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png 
-[2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png 
+<!--Image references-->
+[1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
+[2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
 

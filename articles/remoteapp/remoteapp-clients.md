@@ -1,10 +1,11 @@
+
 <properties
-    pageTitle ="任意のデバイスからアプリへのアクセス |Microsoft Azure]
-    description =「どのようなクライアントは、Azure RemoteApp のサポート、およびアプリへのアクセス方法を説明します」。
-    サービス =「remoteapp」
+    pageTitle="任意のデバイスからのアプリへのアクセス | Microsoft Azure"
+    description="Azure RemoteApp にサポートされているクライアントとアプリへのアクセス方法について説明します。"
+    services="remoteapp"
     documentationCenter=""
-    authors ="lizap"
-    manager ="mbaldwin"/>
+    authors="lizap"
+    manager="mbaldwin" />
 
 <tags
     ms.service="remoteapp"
@@ -13,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="10/10/2015"
-    ms.author="elizapo"/>
+    ms.author="elizapo" />
 
 
 
@@ -27,7 +28,7 @@ Azure RemoteApp の優れた点の 1 つは、どのデバイスからでもア�
 
 デバイスがこれらのいずれかのオペレーティング システムを実行している場合は、次の手順を使用して RemoteApp にアクセスできます。
 
- - Windows 10
+ - Windows 10 
  - Windows 8.1
  - Windows 8
  - Windows 7 Service Pack 1
@@ -35,6 +36,7 @@ Azure RemoteApp の優れた点の 1 つは、どのデバイスからでもア�
  - iOS
  - Mac OS X
  - Android
+
 
  シン クライアントはどうでしょうか。 次の Windows Embedded のシン クライアントはサポートされています。
 
@@ -54,21 +56,21 @@ Azure RemoteApp の優れた点の 1 つは、どのデバイスからでもア�
 
 ## Android
 
-Google Play ストアから、Microsoft リモート デスクトップ アプリをインストールすると、**[リモート デスクトップ]** にアプリの一覧が表示されます。
+Google Play ストアから、Microsoft リモート デスクトップ アプリをインストールした後は、アプリの一覧で見つけることができます **リモート デスクトップ**します。
 
-1. アプリを起動すると、まだアプリを使用していない場合は、空の接続センターに移動します。 Azure RemoteApp を開始するには、追加ボタン **[+]** をタップし、 **[Azure RemoteApp]** をタップします。
+1. アプリを起動すると、まだアプリを使用していない場合は、空の接続センターに移動します。 Azure RemoteApp を開始するには、追加ボタンをタップ **「"+」"** タップ **Azure RemoteApp**します。 
 
      ![空の接続センター](./media/remoteapp-clients/Android1.png)
 
-2. サービスにアクセスするには、メール アドレスでサインインする必要があります。 **[開始]** をタップします。
+2. サービスにアクセスするには、メール アドレスでサインインする必要があります。 タップ **開始**します。
 
     ![サインインのプロンプト](./media/remoteapp-clients/Android2.png)
 
-3. 次のページで **メール アドレス** を入力し、**[続行]** をタップします。 これで、Azure Active Directory を使用したサインイン プロセスが開始されます。
+3. 次のページで入力、 **電子メール アドレス** タップ **続行**します。 これで、Azure Active Directory を使用したサインイン プロセスが開始されます。
 
     ![Azure Active Directory の最初のページ](./media/remoteapp-clients/Android3.png)
 
-4. 画面の指示に従って、Microsoft アカウント (以前の "LiveID") や組織 ID でサインインします。 サインインすると、受信したすべての招待を一覧表示したページが表示されます。 信頼する招待を選択し、 **[完了]** をタップします。
+4. 画面の指示に従って、Microsoft アカウント (以前の "LiveID") や組織 ID でサインインします。 サインインすると、受信したすべての招待を一覧表示したページが表示されます。 信頼し、タップへの招待を選択する場合は、 **実行**します。 
 
     ![招待のページ](./media/remoteapp-clients/Android4.png)
 
@@ -76,7 +78,7 @@ Google Play ストアから、Microsoft リモート デスクトップ アプ�
 
     ![フィードによる接続センター](./media/remoteapp-clients/Android5.png)
 
-6. まだ招待がない場合でも、サービスを試すことができます。 サービスを試すには、プロンプトが表示されたら、**[無料試用版を試す]** をタップします。
+6. まだ招待がない場合でも、サービスを試すことができます。 これを行うには、タップ **には、無料評価版** 入力を求められたらします。
 
     ![デモ フィードのプロンプト](./media/remoteapp-clients/Android6.png)
 
@@ -86,17 +88,17 @@ Google Play ストアから、Microsoft リモート デスクトップ アプ�
 
 ## iOS
 
-アプリ ストアから、Microsoft リモート デスクトップ アプリをインストールすると、**「RD Client」** にアプリの一覧が表示されます。
+App store から Microsoft リモート デスクトップ アプリをインストールした後は、アプリの一覧で検索できます **RD Client**します。
 
-1. アプリを起動すると、まだアプリを使用していない場合は、空の接続センターに移動します。 Azure RemoteApp を開始するには、追加ボタン **[+]** をタップし、 **[Azure RemoteApp を追加]** をタップします。
+1. アプリを起動すると、まだアプリを使用していない場合は、空の接続センターに移動します。 Azure RemoteApp を開始するには、追加ボタンをタップ **「"+」"** タップ **[Azure RemoteApp を**します。
 
     ![空の接続センター](./media/remoteapp-clients/IOS1.png)
 
-2. サービスにアクセスし、プロセスを開始するには、メールアドレスでサインインし、**[メールアドレス]** に入力し、**[続行]** をタップします。
+2. 必要なプロセスを開始するサービスにアクセスする、電子メール アドレスでサインインに入力する、 **電子メール アドレス** タップ **続行**します。
 
     ![サインインのプロンプト](./media/remoteapp-clients/picture1.png)
 
-3. 画面の指示に従って、Microsoft アカウント (LiveID) や組織 ID でサインインします。 サインインすると、受信したすべての招待を一覧表示したページが表示されます。 信頼する招待を選択し、 **[完了]** をタップします。
+3. 画面の指示に従って、Microsoft アカウント (LiveID) や組織 ID でサインインします。 サインインすると、受信したすべての招待を一覧表示したページが表示されます。 信頼し、タップへの招待を選択する場合は、 **実行**します。
 
     ![招待のページ](./media/remoteapp-clients/IOS3.png)
 
@@ -104,7 +106,7 @@ Google Play ストアから、Microsoft リモート デスクトップ アプ�
 
     ![フィードによる接続センター](./media/remoteapp-clients/IOS4.png)
 
-5. まだ招待がない場合でも、サービスを試すことができます。 サービスを試すには、プロンプトが表示されたら、**[無料試用版を試す]** をタップします。
+5. まだ招待がない場合でも、サービスを試すことができます。 これを行うには、タップ **には、無料評価版** 入力を求められたらします。
 
     ![デモ フィードのプロンプト](./media/remoteapp-clients/IOS5.png)
 
@@ -114,17 +116,17 @@ Google Play ストアから、Microsoft リモート デスクトップ アプ�
 
 ## Mac OS X
 
-アプリ ストアから、Microsoft リモート デスクトップ アプリをインストールすると、**[Microsoft リモート デスクトップ]** にアプリの一覧が表示されます。
+App store から Microsoft リモート デスクトップ アプリをインストールした後は、アプリの一覧で検索できます **Microsoft リモート デスクトップ**します。
 
-1. アプリを起動すると、まだアプリを使用していない場合は、空の接続センターに移動します。 Azure RemoteApp を開始するには、**[Azure RemoteApp]** ボタンをクリックします。
+1. アプリを起動すると、まだアプリを使用していない場合は、空の接続センターに移動します。 Azure RemoteApp を開始する] をクリックして、 **Azure RemoteApp** ] ボタンをクリックします。
 
     ![空の接続センター](./media/remoteapp-clients/Mac1.png)
 
-2. サービスにアクセスし、プロセスを開始するには、メールアドレスでサインインし、**[開始する]** をタップします。
+2. そのプロセスを開始する、サービスにアクセスし、メール アドレスでサインイン タップ **開始**します。
 
     ![サインインのプロンプト](./media/remoteapp-clients/Mac2.png)
 
-3. 次のページで **メール アドレス** を入力し、**[続行]** をタップします。 これで、Azure Active Directory を使用したサインイン プロセスが開始されます。
+3. 次のページで入力、 **電子メール アドレス** タップ **続行**します。 これで、Azure Active Directory を使用したサインイン プロセスが開始されます。
 
     ![Azure Active Directory の最初のページ](./media/remoteapp-clients/picture2.png)
 
@@ -136,7 +138,7 @@ Google Play ストアから、Microsoft リモート デスクトップ アプ�
 
     ![フィードによる接続センター](./media/remoteapp-clients/Mac5.png)
 
-6. まだ招待がない場合でも、サービスを試すことができます。 サービスを試すには、プロンプトが表示されたら、**[無料試用版を試す]** をタップします。
+6. まだ招待がない場合でも、サービスを試すことができます。 これを行うには、次のようにクリックします。 **には、無料評価版** 入力を求められたらします。
 
     ![デモ フィードのプロンプト](./media/remoteapp-clients/Mac6.png)
 
@@ -146,17 +148,17 @@ Google Play ストアから、Microsoft リモート デスクトップ アプ�
 
 ## Windows (Windows Phone 以外のサポートされているすべてのバージョン)
 
-インストールが終了すると、クライアントは自動的に起動しますが、後でもう一度アクセスする必要がある場合は、 **[Azure RemoteApp]** の名前のアプリの一覧に表示されます。
+ただしそれにアクセスする必要があるときに後でもう一度があるアプリの一覧、名の下をインストールが終了した後、クライアントは自動的に起動 **Azure RemoteApp**します。
 
-1. クライアントを起動すると、最初に、Azure RemoteApp の開始ページが表示されます。 続けるには、**[開始]** をクリックします。
+1. クライアントを起動すると、最初に、Azure RemoteApp の開始ページが表示されます。 続行するにはクリックして **開始**します。
 
     ![Azure RemoteApp のクライアントの開始ページ](./media/remoteapp-clients/Windows1.png)
 
-2. 次のページでは、Azure Active Directory を使用した Azure RemoteApp のサインイン プロセスが開始されます。 過去に Microsoft のサービスを使用したことのあるユーザーには、このプロセスは見慣れたものです。 **メール アドレス** を入力して、**[続行]** をクリックします。
+2. 次のページでは、Azure Active Directory を使用した Azure RemoteApp のサインイン プロセスが開始されます。 過去に Microsoft のサービスを使用したことのあるユーザーには、このプロセスは見慣れたものです。 開始」と入力して、 **電子メール アドレス** ] をクリック **続行**します。
 
     ![Azure Active Directory の最初のプロンプト](./media/remoteapp-clients/Windows2.png)
 
-3. 画面の指示に従って、Microsoft アカウント (LiveID) や組織 ID でサインインします。 サインインすると、受信したすべての招待を一覧表示したページが表示されます。 信頼する招待を選択し、 **[完了]** をタップします。
+3. 画面の指示に従って、Microsoft アカウント (LiveID) や組織 ID でサインインします。 サインインすると、受信したすべての招待を一覧表示したページが表示されます。 招待状を信頼し、をクリックするを選択する場合は、 **実行**します。
 
     ![Azure RemoteApp のクライアントの招待のページ](./media/remoteapp-clients/Windows3.png)
 
@@ -170,25 +172,25 @@ Google Play ストアから、Microsoft リモート デスクトップ アプ�
 
 ## Windows Phone 8.1
 
-Windows Phone 8.1 ストアから、Microsoft リモート デスクトップ アプリをインストールすると、**[リモート デスクトップ]** にアプリの一覧が表示されます。
+Windows Phone 8.1 ストアから、Microsoft リモート デスクトップ アプリをインストールした後は、アプリの一覧で見つけることができます **リモート デスクトップ**します。
 
-1. アプリを起動すると、まだアプリを使用していない場合は、空の接続センターに移動します。 Azure RemoteApp を開始するには、画面の下部にある追加ボタン **[+]** をタップします。
+1. アプリを起動すると、まだアプリを使用していない場合は、空の接続センターに移動します。 Azure RemoteApp を開始するには、追加ボタンをタップ **「"+」"** 、画面の下部にあります。
 
     ![空の接続センター](./media/remoteapp-clients/WinPhone1.png)
 
-2. 次に、**[Azure RemoteApp]** をタップします。
+2. 次に、[タップ **Azure RemoteApp**します。
 
     ![項目ページの追加](./media/remoteapp-clients/WinPhone2.png)
 
-3. サービスにアクセスし、プロセスを開始するには、メールアドレスでサインインし、**[接続]** をタップします。
+3. そのプロセスを開始する、サービスにアクセスし、メール アドレスでサインイン タップ **接続**します。
 
     ![サインインのプロンプト](./media/remoteapp-clients/WinPhone3.png)
 
-4. 次のページで **メール アドレス** を入力し、**[続行]** をタップします。 これで、Azure Active Directory を使用したサインイン プロセスが開始されます。
+4. 次のページで入力、 **電子メール アドレス** タップ **続行**します。 これで、Azure Active Directory を使用したサインイン プロセスが開始されます。
 
     ![Azure Active Directory の最初のページ](./media/remoteapp-clients/WinPhone4.png)
 
-5. 画面の指示に従って、Microsoft アカウント (LiveID) や組織 ID でサインインします。 サインインすると、受信したすべての招待を一覧表示したページが表示されます。 信頼する招待を選択し、 **[保存]** をタップします。
+5. 画面の指示に従って、Microsoft アカウント (LiveID) や組織 ID でサインインします。 サインインすると、受信したすべての招待を一覧表示したページが表示されます。 信頼し、タップへの招待を選択する場合は、 **保存**します。
 
     ![招待のページ](./media/remoteapp-clients/WinPhone5.png)
 
@@ -196,15 +198,11 @@ Windows Phone 8.1 ストアから、Microsoft リモート デスクトップ �
 
     ![フィードによる接続センター](./media/remoteapp-clients/WinPhone6.png)
 
-7. まだ招待がない場合でも、サービスを試すことができます。 サービスを試すには、プロンプトが表示されたら、**[はい]** をタップします。
+7. まだ招待がない場合でも、サービスを試すことができます。 これを行うには、タップ **はい** 入力を求められたらします。
 
     ![デモ フィードのプロンプト](./media/remoteapp-clients/WinPhone7.png)
 
 8. これで基本的なアプリのセットにアクセスし、RemoteApp を開始できます。
 
     ![Azure RemoteApp のデモ フィード](./media/remoteapp-clients/WinPhone8.png)
-
-
-
-
-
+ 

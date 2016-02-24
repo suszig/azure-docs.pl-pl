@@ -17,13 +17,12 @@
    ms.date="08/06/2015"
    ms.author="kundanap"/>
 
-
 # Windows 仮想マシンでのカスタムのスクリプト拡張機能
 
 この記事では、Azure PowerShell コマンドレットを使って Windows VM でカスタムのスクリプト拡張機能を使用する概要について説明します。
 
 Microsoft や信頼された第三者の発行元によってビルドされた仮想マシン (VM) の拡張機能を使って、VM の機能を拡張します。 VM 拡張機能の概要については、次を参照してください。
-[Azure VM 拡張機能と機能](virtual-machines-extensions-features.md)します。
+[Azure の VM 拡張機能と機能](virtual-machines-extensions-features.md)です。
 
 リンク:
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [リソース マネージャー モデル](virtual-machines-extensions-customscript%20-with%20template.md)します。
@@ -35,7 +34,7 @@ Windows のカスタム スクリプト拡張機能を使うと、リモート�
 
 ### カスタム スクリプト拡張機能を実行する前提条件
 
-1. Azure PowerShell コマンドレット バージョン 0.8.0 以降のインストール以降から <a href="http://azure.microsoft.com/downloads" target="_blank">ここ</a>します。
+1. Azure PowerShell コマンドレット バージョン 0.8.0 以降をインストールまたはからそれ以降 <a href="http://azure.microsoft.com/downloads" target="_blank">ここ</a>.
 2. スクリプトは、既存の仮想マシンで実行されて、VM で、VM エージェントが有効になっているかどうかを必ずそうでない場合この後に <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">記事</a> いずれかをインストールします。
 3. VM で実行するスクリプトを Azure Storage にアップロードします。 スクリプトは、1 つのコンテナーまたは複数のストレージ コンテナーから取得できます。
 4. スクリプトは、拡張機能によって起動されるエントリ スクリプトが、他のスクリプトを順に起動するように記述されている必要があります。
@@ -44,7 +43,7 @@ Windows のカスタム スクリプト拡張機能を使うと、リモート�
 
 ### 既定コンテナーへのファイルのアップロード
 
-下記の例は、サブスクリプションの既定アカウントのストレージ コンテナーにスクリプトがある場合に、VM でスクリプトを実行する方法について示しています。 ContainerName は、スクリプトをアップロードする場所を示します。 既定のストレージ アカウントは、**Get-AzureSubscription –Default** コマンドを使って検証できます。
+下記の例は、サブスクリプションの既定アカウントのストレージ コンテナーにスクリプトがある場合に、VM でスクリプトを実行する方法について示しています。 ContainerName は、スクリプトをアップロードする場所を示します。 既定のストレージ アカウントを使用して確認できる、 **Get-azuresubscription – 既定** コマンドです。
 
 次の例では新しい VM が作成されますが、同じシナリオを既存の VM でも実行できます。
 
@@ -55,7 +54,7 @@ Windows のカスタム スクリプト拡張機能を使うと、リモート�
     $vm = Set-AzureVMCustomScriptExtension -VM $vm -ContainerName $container -FileName 'start.ps1'
     New-AzureVM -ServiceName $servicename -Location $location -VMs $vm
     #  After the VM is created, the extension downloads the script from the storage location and executes it on the VM.
-    
+
     # Viewing the  script execution output.
     $vm = Get-AzureVM -ServiceName $servicename -Name $name
     # Use the position of the extension in the output as index.
@@ -73,9 +72,10 @@ Windows のカスタム スクリプト拡張機能を使うと、リモート�
 
       Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileUri $fileUrl1, $fileUrl2 -Run 'file.ps1' | Update-AzureVM
 
+
 ### Azure ポータルからのカスタム スクリプト拡張機能の追加
 
-内の VM に参照、 <a href="https://portal.azure.com/ " target="_blank">Azure ポータル </a> を実行するスクリプト ファイルを指定することによって、拡張機能を追加します。
+内の VM に参照します <a href="https://portal.azure.com/ " target="_blank">Azure ポータル </a> 実行するスクリプト ファイルを指定することによって、拡張機能を追加します。
 
   ![][5]
 
@@ -90,7 +90,6 @@ Windows のカスタム スクリプト拡張機能を使うと、リモート�
 
 テンプレートとカスタム スクリプト拡張機能を併用する方法については、このマニュアルをご覧ください [こちら](virtual-machines-extensions-customscript -with template.md)。
 
-
-
-[5]: ./media/virtual-machines-extensions-customscript/addcse.png 
+<!--Image references-->
+[5]: ./media/virtual-machines-extensions-customscript/addcse.png
 

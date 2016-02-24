@@ -17,7 +17,6 @@
    ms.date="11/30/2015"
    ms.author="joaoma" />
 
-
 # インターネットに接続するロード バランサー (クラウド サービス用) の作成の開始
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
@@ -29,7 +28,7 @@
 クラウド サービスはロード バランサーで自動的に構成され、サービス モデルを使用してカスタマイズできます。
 
 ## サービス定義ファイルを使用してロード バランサーを作成します。
-
+ 
 Azure SDK for .NET 2.5 を使用してクラウド サービスを更新できます。 クラウド サービスのエンドポイントの設定が行われた、 [サービス定義](https://msdn.microsoft.com/library/azure/gg557553.aspx).csdef ファイルです。
 
 次の例は、クラウド デプロイメントの servicedefinition.csdef ファイルを構成する方法を示しています。
@@ -43,9 +42,9 @@ Azure SDK for .NET 2.5 を使用してクラウド サービスを更新でき�
         <InputEndpoint name=“FE_External_Http” protocol=“http” port=“10000“ />
         <InputEndpoint name=“FE_External_Tcp“  protocol=“tcp“  port=“10001“ />
         <InputEndpoint name=“FE_External_Udp“  protocol=“udp“  port=“10002“ />
-    
+
         <InputEndpointname=“HTTP_Probe” protocol=“http” port=“80” loadBalancerProbe=“MyProbe“ />
-    
+
         <InstanceInputEndpoint name=“InstanceEP” protocol=“tcp” localPort=“80“>
            <AllocatePublicPortFrom>
               <FixedPortRange min=“10110” max=“10120“  />
@@ -56,7 +55,11 @@ Azure SDK for .NET 2.5 を使用してクラウド サービスを更新でき�
     </WorkerRole>
     </ServiceDefinition>
 
+
+
+
 ## クラウド サービスのロード バランサーの正常性状態を確認する
+
 
 次に、正常性プローブの例を示します。
 
@@ -75,14 +78,10 @@ Azure SDK for .NET 2.5 を使用してクラウド サービスを更新でき�
 
 ## 次のステップ
 
-[内部ロード バランサーの構成の開始します。](load-balancer-internal-getstarted.md)
+[内部ロード バランサーの構成の開始](load-balancer-internal-getstarted.md)
 
-[ロード バランサー分散モードを構成します。](load-balancer-distribution-mode.md)
+[ロード バランサー分散モードの構成](load-balancer-distribution-mode.md)
 
-[ロード バランサーのアイドル TCP タイムアウト設定を構成します。](load-balancer-tcp-idle-timeout.md)
-
-
-
-
+[ロード バランサーのアイドル TCP タイムアウト設定の構成](load-balancer-tcp-idle-timeout.md)
 
 

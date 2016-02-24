@@ -17,7 +17,6 @@
    ms.date="11/20/2015"
    ms.author="telmos" />
 
-
 # PowerShell での静的プライベート IP アドレスの設定方法
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
@@ -28,11 +27,10 @@
 
 [AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-以下の PowerShell のサンプル コマンドでは、上記シナリオに基づいて単純な環境が既に作成されていると想定します。 このドキュメントに表示されているように、コマンドを実行する場合は、最初に説明されているテスト環境にビルド [vnet を作成する](virtual-networks-create-vnet-arm-ps.md)します。
+以下の PowerShell のサンプル コマンドでは、上記シナリオに基づいて単純な環境が既に作成されていると想定します。 このドキュメントに表示されているように、コマンドを実行する場合は、最初に説明されているテスト環境にビルド [vnet を作成する](virtual-networks-create-vnet-arm-ps.md)です。
 
 ## VM 作成時に静的プライベート IP アドレスを指定する方法
-
-静的プライベート IP *192.168.1.101* を使用して、*TestVNet* という名前の VNet の *FrontEnd* サブネットで *DNS01* という名前の VM を作成するには、以下の手順に従います。
+という名前の VM を作成する *DNS01* で、 *フロント エンド* という名前の VNet のサブネット *TestVNet* の静的なプライベート ip アドレス *192.168.1.101*, 、次の手順に従います。
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
@@ -78,10 +76,8 @@
         StatusCode          : OK 
 
 
-
 ## VM 用の静的プライベート IP アドレス情報を取得する方法
-
-上記のスクリプトで作成された VM の静的プライベート IP アドレス情報を表示するには、次の PowerShell コマンドを実行し、*PrivateIpAddress* と *PrivateIpAllocationMethod* の値を確認します。
+前述のスクリプトで作成した VM の静的なプライベート IP アドレス情報を表示する次の PowerShell コマンドを実行しの値を確認します *PrivateIpAddress* と *PrivateIpAllocationMethod*:
 
     Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
 
@@ -131,9 +127,8 @@
     Primary              : True
 
 ## VM から静的プライベート IP アドレスを削除する方法
-
 上記のスクリプトで VM に追加された静的プライベート IP アドレスを削除するには、次の PowerShell コマンドを実行します。
-
+    
     $nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
     $nic.IpConfigurations[0].PrivateIpAllocationMethod = "Dynamic"
     Set-AzureRmNetworkInterface -NetworkInterface $nic
@@ -184,7 +179,6 @@
     Primary              : True
 
 ## 既存の VM に静的プライベート IP アドレスを追加する方法
-
 上記のスクリプトを使用して作成した VM に静的プライベート IP アドレスを追加するには、次のコマンドを実行します。
 
     $nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
@@ -197,7 +191,3 @@
 - について学習 [予約済みパブリック IP](../virtual-networks-reserved-public-ip) アドレス。
 - について学習 [インスタンス レベル パブリック IP (ILPIP)](../virtual-networks-instance-level-public-ip) アドレス。
 - 参照してください、 [予約済み IP REST Api](https://msdn.microsoft.com/library/azure/dn722420.aspx)します。
-
-
-
-

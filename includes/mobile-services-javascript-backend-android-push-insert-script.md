@@ -1,10 +1,11 @@
-1. [Azure クラシック ポータル](https://manage.windowsazure.com/), 、] をクリックして、 **データ** ] タブでをクリックし、 **TodoItem** テーブルです。
 
-2. **[todoitem]** で、**[スクリプト]** タブをクリックし、**[挿入]** をクリックします。
+1.  [Azure クラシック ポータル](https://manage.windowsazure.com/), 、] をクリックして、 **データ** ] タブでをクリックし、 **TodoItem** テーブルです。 
+ 
+2.  **Todoitem**, をクリックして、 **スクリプト** ] タブで選択し、 **挿入**します。
+   
+    これで、挿入が発生したときに呼び出される関数が表示されます、 **TodoItem** テーブルです。
 
-    **TodoItem** テーブルで挿入が発生したときに呼び出される関数が表示されます。
-
-3. insert 関数を次のコードに置き換え、**[保存]** をクリックします。
+3. クリックして insert 関数を次のコードに置き換えます **保存**:
 
         function insert(item, user, request) {
         // Define a simple payload for a GCM notification.
@@ -34,8 +35,4 @@
           });
         }
 
-    これを使用してを新しい挿入スクリプトを登録、 [gcm オブジェクト](http://go.microsoft.com/fwlink/p/?LinkId=282645) 、挿入が成功した後に、すべての登録済みデバイスにプッシュ通知を送信します。
-
-
-
-
+    これを使用してを新しい挿入スクリプトを登録、 [gcm オブジェクト](http://go.microsoft.com/fwlink/p/?LinkId=282645) 、挿入が成功した後に、すべての登録済みデバイスにプッシュ通知を送信します。 

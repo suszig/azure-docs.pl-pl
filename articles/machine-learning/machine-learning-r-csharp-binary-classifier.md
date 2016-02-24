@@ -18,38 +18,36 @@
 
 
 
+#バイナリ分類器
 
-# バイナリ分類器
-
-データセットを用意し、独立変数に基づいてバイナリ従属変数を予測するとします。 'ロジスティック回帰' は、こうした予測のための一般的な統計手法です。 ここでは、従属変数はバイナリ変数や二値変数で、p は関心のある特性が存在する確率です。
+データセットを用意し、独立変数に基づいてバイナリ従属変数を予測するとします。 'ロジスティック回帰' は、こうした予測のための一般的な統計手法です。 ここでは、従属変数はバイナリ変数や二値変数で、p は関心のある特性が存在する確率です。 
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-単純なシナリオとしては、研究者が情報 (高校の GPA、家族の収入、居住状況、性別) を基に、見込みのある学生が大学への入学許可を受け入れるかどうかを予測しようとする場合が考えられます。 予測結果は、見込みのある学生が入学許可を受け入れる確率です。 これは、 [web サービス](https://datamarket.azure.com/dataset/aml_labs/log_regression) ロジスティック回帰モデルのデータに適合し、データ内の観測ごとに確率値 (y) を出力します。
+単純なシナリオとしては、研究者が情報 (高校の GPA、家族の収入、居住状況、性別) を基に、見込みのある学生が大学への入学許可を受け入れるかどうかを予測しようとする場合が考えられます。 予測結果は、見込みのある学生が入学許可を受け入れる確率です。 これは、 [web サービス]( https://datamarket.azure.com/dataset/aml_labs/log_regression) ロジスティック回帰モデルのデータに適合し、データ内の観測ごとに確率値 (y) を出力します。  
+  
+>この Web サービスは、モバイル アプリ、Web サイト、ローカル コンピューターなどからユーザーが使用できます。 この Web サービスのもう 1 つの目的は、Azure Machine Learning を使用して R コード上に Web サービスを作成する方法の例を示すことです。 数行の R コードを記述し、Azure Machine Learning Studio 内でボタンを何回かクリックするだけで、R コードで実験を作成し、Web サービスとして発行できます。 この Web サービスは Azure Marketplace に発行され、Web サービスの作成者がインフラストラクチャを設定することなく、世界中のユーザーやデバイスで使用されます。  
+  
 
->この Web サービスは、モバイル アプリ、Web サイト、ローカル コンピューターなどからユーザーが使用できます。 この Web サービスのもう 1 つの目的は、Azure Machine Learning を使用して R コード上に Web サービスを作成する方法の例を示すことです。 数行の R コードを記述し、Azure Machine Learning Studio 内でボタンを何回かクリックするだけで、R コードで実験を作成し、Web サービスとして発行できます。 この Web サービスは Azure Marketplace に発行され、Web サービスの作成者がインフラストラクチャを設定することなく、世界中のユーザーやデバイスで使用されます。
-
-
-## Web サービスの使用
-
+##Web サービスの使用  
 この Web サービスは、観察のすべての独立変数に基づいて、従属変数の予測値を示します。 Web サービスでは、エンド ユーザーが、行をコンマ (,) で区切り、列をセミコロン (;) で区切った文字列として、データを入力する必要があります。 Web サービスでは、一度に 1 行が入力され、最初の列は従属変数であると想定されます。 データセットの例は、次のようになります。
 
 ![サンプル データ][1]
 
-従属変数を指定しない観察の場合は、y に「NA」と入力する必要があります。 Th 電子データの上のデータセットは、次の文字列を入力します。"1; 5; 2, 1; 1; 6,0; 5.3; 2.1,0; 5; 5, 0; 3; 4, 1; 2; 1, NA; 3; 4"です。 出力は、独立変数に基づく各行に対する予測値です。
+従属変数を指定しない観察の場合は、y に「NA」と入力する必要があります。 上のデータセットへの入力データは、次の文字列になります。“1;5;2,1;1;6,0;5.3;2.1,0;5;5,0;3;4,1;2;1,NA;3;4”. 出力は、独立変数に基づく各行に対する予測値です。 
 
->Azure Marketplace でホストされているこのサービスは、OData サービスです。これらは、POST や GET メソッドによって呼び出すことができます。
+>Azure Marketplace でホストされているこのサービスは、OData サービスです。これらは、POST や GET メソッドによって呼び出すことができます。 
 
-自動でサービスの利用の複数の方法があります (アプリケーション例が [ここ](http://microsoftazuremachinelearning.azurewebsites.net/BinaryClassifier.aspx))。
+自動でサービスの利用の複数の方法があります (アプリケーション例が [ここ](http://microsoftazuremachinelearning.azurewebsites.net/BinaryClassifier.aspx ))。
 
-### Web サービスを使用する C# コードを開始します。
+###Web サービスを使用する C# コードを開始します。
 
     public class Input
     {
         public string value;
     }
-    
+
     public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
     {
         byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
@@ -71,24 +69,23 @@
         var scoreResult = result.ReadAsStringAsync().Result;
     }
 
-## Web サービスの作成
 
+##Web サービスの作成  
 >この Web サービスは、Azure Machine Learning を使用して作成されました。 無料評価版として入門ビデオ実験を作成し、 [web サービスを公開](machine-learning-publish-a-machine-learning-web-service.md), を参照してください [azure.com/ml](http://azure.com/ml)します。 Web サービスを作成した実験のスクリーン ショット、および実験内の各モジュールに対するコード例を以下に示します。
 
-Azure Machine Learning 内で、新しい空白の実験が作成された 2 つと [R スクリプトの実行 ][execute-r-script] 、ワークスペース上に取得しました。 この Web サービスは、基になる R スクリプトで Azure Machine Learning の実験を実行します。 つまり、この実験には、スキーマ定義とモデルのトレーニング + スコア付けの 2 つの部分があります。 最初のモジュールは、入力されたデータセットに必要な構造を定義します。最初の変数を従属変数、残りを独立変数とします。 2 番目のモジュールは、入力データを汎用ロジスティック回帰モデルに適合させます。
+内で Azure Machine Learning では、新しい空白の実験が作成され、[R スクリプトの実行] [- r のスクリプトの実行] の 2 つのモジュールが、ワークスペース上に取得しました。 この Web サービスは、基になる R スクリプトで Azure Machine Learning の実験を実行します。 つまり、この実験には、スキーマ定義とモデルのトレーニング + スコア付けの 2 つの部分があります。 最初のモジュールは、入力されたデータセットに必要な構造を定義します。最初の変数を従属変数、残りを独立変数とします。 2 番目のモジュールは、入力データを汎用ロジスティック回帰モデルに適合させます。    
 
 ![実験フロー][2]
 
-#### モジュール 1:
+####モジュール 1:
 
     #Schema definition  
     data <- data.frame(value = "1;2;3,1;5;6,0;8;9", stringsAsFactors=FALSE) 
     maml.mapOutputPort("data");  
 
-#### モジュール 2:
-
-    #GLM modeling   
-    data <- maml.mapInputPort(1) # class: data.frame  
+####モジュール 2:
+    #GLM のモデリング   
+    データ <-maml.mapInputPort(1) # クラス: data.frame  
     
     data.split <- strsplit(data[1,1], ",")[[1]] 
     data.split <- sapply(data.split, strsplit, ";", simplify = TRUE) 
@@ -109,17 +106,18 @@ Azure Machine Learning 内で、新しい空白の実験が作成された 2 つ
     pred2 <- as.data.frame(group) 
     maml.mapOutputPort("pred2");  
 
-## 制限事項
 
-これは、バイナリ分類 Web サービスのきわめて単純な例です。 上のコード例からわかるように、エラーのキャッチは実装されていません。このサービスでは、Web サービスの作成時に数値のみを入力するため、すべてがバイナリの連続した変数 (カテゴリ別機能は使用できません) である必要があります。 また、サービスが処理できるデータ サイズは制限されています。これは、Web サービス呼び出しの要求/応答の性質と、Web サービスを呼び出すたびにモデルが適合されることによります。
+##制限事項
+これは、バイナリ分類 Web サービスのきわめて単純な例です。 上のコード例からわかるように、エラーのキャッチは実装されていません。このサービスでは、Web サービスの作成時に数値のみを入力するため、すべてがバイナリの連続した変数 (カテゴリ別機能は使用できません) である必要があります。 また、サービスが処理できるデータ サイズは制限されています。これは、Web サービス呼び出しの要求/応答の性質と、Web サービスを呼び出すたびにモデルが適合されることによります。 
 
-## FAQ
-
+##FAQ
 Web サービスまたは Azure Marketplace への発行の使用に関するよく寄せられる質問は、次を参照してください。 [ここ](machine-learning-marketplace-faq.md)します。
 
+[1]: ./media/machine-learning-r-csharp-binary-classifier/binary1.png
+[2]: ./media/machine-learning-r-csharp-binary-classifier/binary2.png
 
 
-[1]: ./media/machine-learning-r-csharp-binary-classifier/binary1.png 
-[2]: ./media/machine-learning-r-csharp-binary-classifier/binary2.png 
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/ 
+<!-- Module References -->
+[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
+ 
 

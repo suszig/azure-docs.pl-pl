@@ -15,7 +15,6 @@
    ms.date="12/09/2015"
    ms.author="sethm" />
 
-
 # Service Bus による Shared Access Signature 認証
 
 [共有アクセス署名 (SAS)](service-bus-sas-overview.md) 認証により、アプリケーションはどの特定の権限が関連付けられていると、名前空間またはメッセージング エンティティ (キューまたはトピック) で構成されたアクセス キーを使用して Service Bus への認証にします。 次に、このキーを使用して、クライアントが後で Service Bus に対する認証に使用できる SAS トークンを生成できます。
@@ -42,16 +41,16 @@ Service Bus の名前空間、キュー、トピックでは、このような�
 
 ![SAS](./media/service-bus-shared-access-signature-authentication/IC676272.gif)
 
-この図では、*manageRuleNS*、*sendRuleNS*、*listenRuleNS* という承認規則がキュー Q1 とトピック T1 の両方に適用されると同時に、*listenRuleQ* と *sendRuleQ* はキュー Q1 のみに適用され、*sendRuleT* はトピック T1 のみに適用されています。
+この図では、 *manageRuleNS*, 、*sendRuleNS*, 、および *listenRuleNS* キュー Q1 とトピック T1 の両方に承認規則を適用中に *listenRuleQ* と *sendRuleQ* キュー Q1 にのみ適用し、 *sendRuleT* トピック T1 のみに適用されます。
 
 キー パラメーター、 [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) は次のようになります。
 
-| パラメーター| 説明|
+|パラメーター|説明|
 |---|---|
-| *KeyName*| 承認規則を説明する文字列。|
-| *PrimaryKey*| SAS トークンの署名と検証用の Base64 でエンコードされた 256 ビットのプライマリ キー。|
-| *SecondaryKey*| SAS トークンの署名と検証用の Base64 でエンコードされた 256 ビットのセカンダリ キー。|
-| *AccessRights*| 承認規則によって付与されたアクセス権限の一覧。これらの権限には、Listen、Send、Manage 権限の任意のコレクションを指定できます。|
+|*KeyName*|承認規則を説明する文字列。|
+|*PrimaryKey*|SAS トークンの署名と検証用の Base64 でエンコードされた 256 ビットのプライマリ キー。|
+|*SecondaryKey*|SAS トークンの署名と検証用の Base64 でエンコードされた 256 ビットのセカンダリ キー。|
+|*AccessRights*|承認規則によって付与されたアクセス権限の一覧。 これらの権限には、Listen、Send、Manage 権限の任意のコレクションを指定できます。|
 
 Service Bus 名前空間をプロビジョニングするときは、 [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx), と [KeyName](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.keyname.aspx) に設定 **RootManageSharedAccessKey**, 、既定で作成されます。 2 つの既定 [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) オブジェクト通知ハブ用に構成されて: Listen 権限のみで、Listen、Send、および管理の権限を持つ 1 つとします。
 
@@ -69,23 +68,23 @@ Service Bus 名前空間をプロビジョニングするときは、 [SharedAcc
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-**署名** 、SAS トークンが計算への署名文字列を hmac-sha256 のハッシュを使用する、 [PrimaryKey](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.primarykey.aspx) 承認規則のプロパティです。 署名文字列は、リソース URI と有効期限で構成され、次のような形式になります。
+ **署名** 、SAS トークンが計算への署名文字列を hmac-sha256 のハッシュを使用する、 [PrimaryKey](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.primarykey.aspx) 承認規則のプロパティです。 署名文字列は、リソース URI と有効期限で構成され、次のような形式になります。
 
 ```
 StringToSign = <resourceURI> + "\n" + expiry;
 ```
 
-この操作には、エンコード済みのリソース URI を使用する必要があることに注意してください。リソース URI とは、アクセスが要求される Service Bus リソースの完全な URI です。たとえば、 `http://&lt;namespace&gt;.servicebus.windows.net/&lt;entityPath&gt;` または `sb://< 名前空間 >.servicebus.windows.net/< entityPath >`、つまり `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`します。
+この操作には、エンコード済みのリソース URI を使用する必要があることに注意してください。 リソース URI とは、アクセスが要求される Service Bus リソースの完全な URI です。 たとえば、`http://<namespace>.servicebus.windows.net/<entityPath>` または `sb://<namespace>.servicebus.windows.net/<entityPath>` (つまり `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`) です。
 
 有効期限は 1970 年 1 月 1 日の 00 時 00 分 00 秒 UTC からのエポック秒で表されます。
 
-署名に使用される共有アクセス承認規則は、この URI、またはその階層の親のいずれかで指定したエンティティに構成する必要があります。 たとえば、 `http://contoso.servicebus.windows.net/contosoTopics/T1` または `http://contoso.servicebus.windows.net` 前の例です。
+署名に使用される共有アクセス承認規則は、この URI、またはその階層の親のいずれかで指定したエンティティに構成する必要があります。 たとえば、前の例では、`http://contoso.servicebus.windows.net/contosoTopics/T1` または `http://contoso.servicebus.windows.net` となります。
 
-SAS トークンの下にあるすべてのリソースの有効、 `< resourceURI >` 署名対象文字列で使用します。
+SAS トークンは、署名文字列で使用される `<resourceURI>` の下のすべてのリソースで有効です。
 
-[KeyName](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.keyname.aspx) 、sas トークンが参照する、 **keyName** 、トークンを生成するために使用する共有アクセス認証ルールのです。
+ [KeyName](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.keyname.aspx) 、sas トークンが参照する、 **keyName** 、トークンを生成するために使用する共有アクセス認証ルールのです。
 
-*URL-encoded-resourceURI* は、署名の計算中に署名文字列で使用する URI と同じものにする必要があります。  [パーセント エンコード](https://msdn.microsoft.com/library/4fkewx0t.aspx)します。
+ *URL でエンコードされた resourceURI* 、署名の計算中に署名する文字列で使用する URI と同じである必要があります。  [パーセント エンコード](https://msdn.microsoft.com/library/4fkewx0t.aspx)します。
 
 ## Service Bus による Shared Access Signature 認証の使用方法
 
@@ -95,7 +94,7 @@ SAS トークンの下にあるすべてのリソースの有効、 `< resourceU
 
 ## 名前空間の共有アクセス承認規則へのアクセス
 
-Service Bus 名前空間のルートに対する操作では、証明書の認証が必要です。 Azure サブスクリプションの管理証明書をアップロードする必要があります。 管理証明書をアップロードするにはクリックして **設定** の左側のウィンドウで、 [Azure クラシック ポータルの [][]します。 Azure 管理証明書の詳細については、次を参照してください。 [Azure の管理証明書を作成する](https://msdn.microsoft.com/library/azure/gg551722.aspx)します。
+Service Bus 名前空間のルートに対する操作では、証明書の認証が必要です。 Azure サブスクリプションの管理証明書をアップロードする必要があります。 管理証明書をアップロードするにはクリックして **設定** の左側のウィンドウで、 [Azure クラシック ポータル][]します。 Azure 管理証明書の詳細については、次を参照してください。 [Azure の管理証明書を作成する](https://msdn.microsoft.com/library/azure/gg551722.aspx)です。
 
 Service Bus 名前空間の共有アクセス承認規則にアクセスするためのエンドポイントは次のようになります。
 
@@ -103,91 +102,95 @@ Service Bus 名前空間の共有アクセス承認規則にアクセスする�
 https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/
 ```
 
-To create a [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) object on a Service Bus namespace, execute a POST operation on this endpoint with the rule information serialized as JSON or XML. For example:
+作成する、 [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) Service Bus 名前空間のオブジェクトは、JSON または XML としてシリアル化された規則情報でこのエンドポイントに対して、POST 操作を実行します。 次に例を示します。
+
 ```
-名前空間での承認規則にアクセスするためのベース アドレス
-文字列の baseAddress = @"https://management.core.windows.net/<subscriptionId>/services/ServiceBus/名前空間/<namespace>/AuthorizationRules/"です。
+// Base address for accessing authorization rules on a namespace
+string baseAddress = @"https://management.core.windows.net/<subscriptionId>/services/ServiceBus/namespaces/<namespace>/AuthorizationRules/";
 
-Base64 でエンコードされた 256 ビットのキーおよび送信権限を持つ承認規則を構成します。
-var sendRule = 新しい SharedAccessAuthorizationRule ("contosoSendAll"、
-    SharedAccessAuthorizationRule.GenerateRandomKey()、
-    新しい {AccessRights.Send})。
+// Configure authorization rule with base64-encoded 256-bit key and Send rights
+var sendRule = new SharedAccessAuthorizationRule("contosoSendAll",
+    SharedAccessAuthorizationRule.GenerateRandomKey(),
+    new[] { AccessRights.Send });
 
-Service Bus 名前空間のルートに対する操作は、証明書の認証を必要とします。
-Webrequesthandler である場合ハンドラー = 新しい webrequesthandler である場合
+// Operations on the Service Bus namespace root require certificate authentication.
+WebRequestHandler handler = new WebRequestHandler
 {
-    ClientCertificateOptions ClientCertificateOption.Manual =
+    ClientCertificateOptions = ClientCertificateOption.Manual
 };
-サブジェクト名で管理証明書にアクセスします。
-ハンドラー。ClientCertificates.Add (GetCertificate (<certificateSN>)) です。
+// Access the management certificate by subject name
+handler.ClientCertificates.Add(GetCertificate(<certificateSN>));
 
-HttpClient httpClient = 新しい HttpClient(handler)
+HttpClient httpClient = new HttpClient(handler)
 {
-    BaseAddress = 新しい Uri(baseAddress)
+    BaseAddress = new Uri(baseAddress)
 };
-httpClient.DefaultRequestHeaders.Accept.Add (
-    新しい MediaTypeWithQualityHeaderValue("application/json")) です。
-httpClient.DefaultRequestHeaders.Add ("x-version ms"、"2015年-01-01") です。
+httpClient.DefaultRequestHeaders.Accept.Add(
+    new MediaTypeWithQualityHeaderValue("application/json"));
+httpClient.DefaultRequestHeaders.Add("x-ms-version", "2015-01-01");
 
-認証ルールを作成する上記のベース アドレスに対して、POST 操作を実行します。
-var postResult = httpClient.PostAsJsonAsync (""、sendRule)。結果です。
+// Execute a POST operation on the baseAddress above to create an auth rule
+var postResult = httpClient.PostAsJsonAsync("", sendRule).Result;
 ```
 
-Similarly, use a GET operation on the endpoint to read the authorization rules configured on the namespace.
+同様に、名前空間に構成された承認規則を読み取るには、エンドポイントに対して GET 操作を使用します。
 
-To update or delete a specific authorization rule, use the following endpoint:
+特定の承認規則を更新または削除するには、次のエンドポイントを使用します。
+
 ```
-https://management.core.windows.net/{サブスクリプション Id}/services/ServiceBus/名前空間/{名前空間}/AuthorizationRules/{キー名}
+https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/{KeyName}
 ```
 
-## Accessing Shared Access Authorization rules on an entity
+## エンティティの共有アクセス承認規則へのアクセス
 
-You can access a [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) object configured on a Service Bus queue or topic through the [AuthorizationRules](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.authorizationrules.aspx) collection in the corresponding [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx), [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx), or [NotificationHubDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.notifications.notificationhubdescription.aspx) objects.
+アクセスできる、 [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) Service Bus キューまたはトピックを通じてに構成されているオブジェクト、 [AuthorizationRules](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.authorizationrules.aspx) に対応するコレクション [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx), 、[TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx), 、または [NotificationHubDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.notifications.notificationhubdescription.aspx) オブジェクトです。
 
-The following code shows how to add authorization rules for a queue.
+次のコードでは、キューの承認規則を追加する方法を示します。
+
 ```
-操作の NamespaceManager のインスタンスを作成します。
-NamespaceManager nsm = NamespaceManager.CreateFromConnectionString ( 
+// Create an instance of NamespaceManager for the operation
+NamespaceManager nsm = NamespaceManager.CreateFromConnectionString( 
     <connectionString> );
-QueueDescription qd = 新しい QueueDescription ( <qPath> ) です。
+QueueDescription qd = new QueueDescription( <qPath> );
 
-Send 権限と keyName"contosoQSendKey"としてルールを作成します。
-キューの説明を追加します。
-qd します。Authorization.Add (新しい SharedAccessAuthorizationRule ("contosoSendKey"、 
-    SharedAccessAuthorizationRule.GenerateRandomKey()、 
-    新しい {AccessRights.Send})) です。
+// Create a rule with send rights with keyName as "contosoQSendKey"
+// and add it to the queue description.
+qd.Authorization.Add(new SharedAccessAuthorizationRule("contosoSendKey", 
+    SharedAccessAuthorizationRule.GenerateRandomKey(), 
+    new[] { AccessRights.Send }));
 
-"ContosoQListenKey"としてと keyName listen 権限を持つルールを作成します。
-キューの説明を追加します。
-qd します。Authorization.Add (新しい SharedAccessAuthorizationRule ("contosoQListenKey"、
-    SharedAccessAuthorizationRule.GenerateRandomKey()、
-    新しい {AccessRights.Listen})) です。
+// Create a rule with listen rights with keyName as "contosoQListenKey"
+// and add it to the queue description.
+qd.Authorization.Add(new SharedAccessAuthorizationRule("contosoQListenKey",
+    SharedAccessAuthorizationRule.GenerateRandomKey(),
+    new[] { AccessRights.Listen }));
 
-"ContosoQManageKey"としてと keyName 管理権限を持つルールを作成します。
-キューの説明を追加します。
-管理権限を持つルールする必要がありますも送受信権限です。
-qd します。Authorization.Add (新しい SharedAccessAuthorizationRule ("contosoQManageKey"、
-    SharedAccessAuthorizationRule.GenerateRandomKey()、
-    新しい {AccessRights.Manage AccessRights.Listen、AccessRights.Send})) です。
+// Create a rule with manage rights with keyName as "contosoQManageKey"
+// and add it to the queue description.
+// A rule with manage rights must also have send and receive rights.
+qd.Authorization.Add(new SharedAccessAuthorizationRule("contosoQManageKey",
+    SharedAccessAuthorizationRule.GenerateRandomKey(),
+    new[] {AccessRights.Manage, AccessRights.Listen, AccessRights.Send }));
 
-キューを作成します。
-nsm します。CreateQueue(qd) です。
+// Create the queue.
+nsm.CreateQueue(qd);
 ```
 
-## Using Shared Access Signature authorization
+## Shared Access Signature 承認の使用
 
-Applications using the Azure .NET SDK with the Service Bus .NET libraries can use SAS authorization through the [SharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.sharedaccesssignaturetokenprovider.aspx) class. The following code illustrates the use of the token provider to send messages to a Service Bus queue.
+Service Bus .NET ライブラリと Azure .NET SDK を使用してアプリケーションがにより SAS 認証を使用して、 [SharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.sharedaccesssignaturetokenprovider.aspx) クラスです。 次のコードでは、Service Bus キューにメッセージを送信するトークン プロバイダーの使用を示しています。
+
 ```
-Uri runtimeUri = ServiceBusEnvironment.CreateServiceUri ("sb"、 
-    <yourServiceNamespace>, 、文字列。空の場合)。
-MessagingFactory mf MessagingFactory.Create (runtimeUri、= 
-    TokenProvider.CreateSharedAccessSignatureTokenProvider (keyName、キー)) です。
-QueueClient sendClient = mf です。CreateQueueClient(qPath) です。
+Uri runtimeUri = ServiceBusEnvironment.CreateServiceUri("sb", 
+    <yourServiceNamespace>, string.Empty);
+MessagingFactory mf = MessagingFactory.Create(runtimeUri, 
+    TokenProvider.CreateSharedAccessSignatureTokenProvider(keyName, key));
+QueueClient sendClient = mf.CreateQueueClient(qPath);
 
-こんにちはメッセージをキューに送信しています。
-BrokeredMessage helloMessage = 新しい BrokeredMessage (「こんにちは, Service Bus!」) です。
-helloMessage.MessageId ="SAS のサンプル-Message"です。
-sendClient.Send(helloMessage) です。
+//Sending hello message to queue.
+BrokeredMessage helloMessage = new BrokeredMessage("Hello, Service Bus!");
+helloMessage.MessageId = "SAS-Sample-Message";
+sendClient.Send(helloMessage);
 ```
 
 アプリケーションは、接続文字列を受け入れるメソッドで SAS 接続文字列を使用することで、認証に SAS を使用することもできます。
@@ -198,54 +201,54 @@ Service Bus リレーで SAS 承認を使用するには、Service Bus 名前空
 
 次の表に、Service Bus のリソースでのさまざまな操作に必要となるアクセス権を示します。
 
-| 操作| 必要な要求| 要求のスコープ|
+|操作|必要な要求|要求のスコープ|
 |---|---|---|
-| **名前空間**| | |
-| 名前空間での承認規則を構成する| 管理| 任意の名前空間アドレス|
-| **サービス レジストリ**| | |
-| プライベート ポリシーを列挙する| 管理| 任意の名前空間アドレス|
-| リレー| | |
-| 名前空間でリッスンを開始する| リッスン| 任意の名前空間アドレス|
-| 名前空間のリスナーにメッセージを送信する| 送信| 任意の名前空間アドレス|
-| **キュー**| | |
-| キューを作成する| 管理| 任意の名前空間アドレス|
-| キューを削除する| 管理| 任意の有効なキュー アドレス|
-| キューを列挙する| 管理| /$Resources/Queues|
-| キューの説明を取得する| 管理または送信| 任意の有効なキュー アドレス|
-| キューの承認規則を構成する| 管理| 任意の有効なキュー アドレス|
-| キューに送信する| 送信| 任意の有効なキュー アドレス|
-| キューからメッセージを受信する| リッスン| 任意の有効なキュー アドレス|
-| ピーク ロック モードでメッセージを受信した後にそのメッセージを破棄または終了する| リッスン| 任意の有効なキュー アドレス|
-| 後で取得するためにメッセージを保留する| リッスン| 任意の有効なキュー アドレス|
-| メッセージを配信不能にする| リッスン| 任意の有効なキュー アドレス|
-| メッセージのキュー セッションに関連付けられた状態を取得する| リッスン| 任意の有効なキュー アドレス|
-| メッセージのキュー セッションに関連付けられた状態を設定する| リッスン| 任意の有効なキュー アドレス|
-| **トピック**| | |
-| トピックを作成する| 管理| 任意の名前空間アドレス|
-| トピックを削除する| 管理| 任意の有効なトピック アドレス|
-| トピックを列挙する| 管理| /$Resources/Topics|
-| トピックの説明を取得する| 管理または送信| 任意の有効なトピック アドレス|
-| トピックの承認規則を構成する| 管理| 任意の有効なトピック アドレス|
-| トピックに送信する| 送信| 任意の有効なトピック アドレス|
-| **サブスクリプション**| | |
-| サブスクリプションを作成する| 管理| 任意の名前空間アドレス|
-| サブスクリプションを削除する| 管理| ../myTopic/Subscriptions/mySubscription|
-| サブスクリプションを列挙する| 管理| ../myTopic/Subscriptions|
-| サブスクリプションの説明を取得する| 管理またはリッスン| ../myTopic/Subscriptions/mySubscription|
-| ピーク ロック モードでメッセージを受信した後にそのメッセージを破棄または終了する| リッスン| ../myTopic/Subscriptions/mySubscription|
-| 後で取得するためにメッセージを保留する| リッスン| ../myTopic/Subscriptions/mySubscription|
-| メッセージを配信不能にする| リッスン| ../myTopic/Subscriptions/mySubscription|
-| トピック セッションに関連付けられた状態を取得する| リッスン| ../myTopic/Subscriptions/mySubscription|
-| トピック セッションに関連付けられた状態を設定する| リッスン| ../myTopic/Subscriptions/mySubscription|
-| **ルール**| | |
-| 規則を作成する| 管理| ../myTopic/Subscriptions/mySubscription|
-| 規則を削除する| 管理| ../myTopic/Subscriptions/mySubscription|
-| 規則を列挙する| 管理またはリッスン| ../myTopic/Subscriptions/mySubscription/Rules|
-| **Notification Hubs**| | |
-| 通知ハブを作成する| 管理| 任意の名前空間アドレス|
-| アクティブなデバイスの登録を作成または更新する| リッスンまたは管理| ../notificationHub/tags/{tag}/registrations|
-| PNS 情報を更新する| リッスンまたは管理| ../notificationHub/tags/{tag}/registrations/updatepnshandle|
-| 通知ハブに送信する| 送信| ../notificationHub/messages|
+|**名前空間**|||
+|名前空間での承認規則を構成する|管理|任意の名前空間アドレス|
+|**サービス レジストリ**|||
+|プライベート ポリシーを列挙する|管理|任意の名前空間アドレス|
+|リレー|||
+|名前空間でリッスンを開始する|リッスン|任意の名前空間アドレス|
+|名前空間のリスナーにメッセージを送信する|送信|任意の名前空間アドレス|
+|**キュー**|||
+|キューを作成する|管理|任意の名前空間アドレス|
+|キューを削除する|管理|任意の有効なキュー アドレス|
+|キューを列挙する|管理|/$Resources/Queues|
+|キューの説明を取得する|管理または送信|任意の有効なキュー アドレス|
+|キューの承認規則を構成する|管理|任意の有効なキュー アドレス|
+|キューに送信する|送信|任意の有効なキュー アドレス|
+|キューからメッセージを受信する|リッスン|任意の有効なキュー アドレス|
+|ピーク ロック モードでメッセージを受信した後にそのメッセージを破棄または終了する|リッスン|任意の有効なキュー アドレス|
+|後で取得するためにメッセージを保留する|リッスン|任意の有効なキュー アドレス|
+|メッセージを配信不能にする|リッスン|任意の有効なキュー アドレス|
+|メッセージのキュー セッションに関連付けられた状態を取得する|リッスン|任意の有効なキュー アドレス|
+|メッセージのキュー セッションに関連付けられた状態を設定する|リッスン|任意の有効なキュー アドレス|
+|**トピック**|||
+|トピックを作成する|管理|任意の名前空間アドレス|
+|トピックを削除する|管理|任意の有効なトピック アドレス|
+|トピックを列挙する|管理|/$Resources/Topics|
+|トピックの説明を取得する|管理または送信|任意の有効なトピック アドレス|
+|トピックの承認規則を構成する|管理|任意の有効なトピック アドレス|
+|トピックに送信する|送信|任意の有効なトピック アドレス|
+|**[サブスクリプション]**|||
+|サブスクリプションを作成する|管理|任意の名前空間アドレス|
+|サブスクリプションを削除する|管理|../myTopic/Subscriptions/mySubscription|
+|サブスクリプションを列挙する|管理|../myTopic/Subscriptions|
+|サブスクリプションの説明を取得する|管理またはリッスン|../myTopic/Subscriptions/mySubscription|
+|ピーク ロック モードでメッセージを受信した後にそのメッセージを破棄または終了する|リッスン|../myTopic/Subscriptions/mySubscription|
+|後で取得するためにメッセージを保留する|リッスン|../myTopic/Subscriptions/mySubscription|
+|メッセージを配信不能にする|リッスン|../myTopic/Subscriptions/mySubscription|
+|トピック セッションに関連付けられた状態を取得する|リッスン|../myTopic/Subscriptions/mySubscription|
+|トピック セッションに関連付けられた状態を設定する|リッスン|../myTopic/Subscriptions/mySubscription|
+|**ルール**|||
+|規則を作成する|管理|../myTopic/Subscriptions/mySubscription|
+|規則を削除する|管理|../myTopic/Subscriptions/mySubscription|
+|規則を列挙する|管理またはリッスン|../myTopic/Subscriptions/mySubscription/Rules|
+|**Notification Hubs**|||
+|通知ハブを作成する|管理|任意の名前空間アドレス|
+|アクティブなデバイスの登録を作成または更新する|リッスンまたは管理|../notificationHub/tags/{tag}/registrations|
+|PNS 情報を更新する|リッスンまたは管理|../notificationHub/tags/{tag}/registrations/updatepnshandle|
+|通知ハブに送信する|送信|../notificationHub/messages|
 
 ## 次のステップ
 
@@ -253,6 +256,4 @@ Service Bus の SAS の大まかな概要については、次を参照してく
 
 参照してください [Service Bus 認証と承認](service-bus-authentication-and-authorization.md) Service Bus 認証背景情報についてです。
 
-
-[azure classic portal]: http://manage.windowsazure.com 
-
+[Azure classic portal]: http://manage.windowsazure.com

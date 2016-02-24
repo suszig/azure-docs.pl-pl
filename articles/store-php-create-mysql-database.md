@@ -17,8 +17,7 @@
     ms.date="11/19/2015"
     ms.author="robmcm"/>
 
-
-# Azure で MySQL データベースを作成する方法
+#Azure で MySQL データベースを作成する方法
 
 [AZURE.INCLUDE [create-mysql-db](../includes/create-mysql-db.md)]
 
@@ -27,8 +26,4 @@ Azure での PHP による MySQL の使用方法を示すサンプルは <https:
 ## 次のステップ
 
 詳細については、次を参照してください。、 [PHP デベロッパー センター](/develop/php/)します。
-
-
-
-
 

@@ -15,12 +15,11 @@
    ms.date="08/24/2015"
    ms.author="tarcher" />
 
-
 # テーブル デザイナー用のフィルター文字列の作成
 
 ## 概要
 
-Visual Studio **テーブル デザイナー**に表示される Azure テーブルのデータをフィルター処理するには、フィルター文字列を作成してフィルター フィールドに入力します。 フィルター文字列の構文は、WCF Data Services で定義されており、SQL の WHERE 句に似ています。ただし、文字列は HTTP 要求を介して Table サービスに送信されます。 必要なエンコード処理は**テーブル デザイナー**で自動的に行われます。したがって、目的のプロパティ値を条件としてフィルター処理するときに必要なことは、フィルター フィールドにプロパティ名、比較演算子、条件値、ブール演算子を入力するだけです (ブール演算子は省略可能)。 URL を使用してこのテーブルに対してクエリを作成する場合と同様に、$filter クエリ オプションを含める必要はありません、 [ストレージ サービス REST API リファレンス](http://go.microsoft.com/fwlink/p/?LinkId=400447)します。
+Visual Studio に表示されている Azure のテーブルにデータをフィルター処理する **テーブル デザイナー**, 、フィルター文字列を作成し、[フィルター] フィールドに入力します。 フィルター文字列の構文は、WCF Data Services で定義されており、SQL の WHERE 句に似ています。ただし、文字列は HTTP 要求を介して Table サービスに送信されます。  **テーブル デザイナー** 適切なエンコーディングを処理するには、必要なプロパティの値をフィルター処理する必要があるを入力するだけのプロパティ名、比較演算子、条件値、および必要に応じて、ブール値をフィルター] フィールドに演算子。 URL を使用してこのテーブルに対してクエリを作成する場合と同様に、$filter クエリ オプションを含める必要はありません、 [ストレージ サービス REST API リファレンス](http://go.microsoft.com/fwlink/p/?LinkId=400447)します。
 
 WCF Data Services がに基づいて、 [Open Data Protocol](http://go.microsoft.com/fwlink/p/?LinkId=214805) (OData)。 Filter システム クエリ オプションの詳細 (**$filter**) を参照してください、 [OData URI 規則仕様](http://go.microsoft.com/fwlink/p/?LinkId=214806)します。
 
@@ -28,17 +27,17 @@ WCF Data Services がに基づいて、 [Open Data Protocol](http://go.microsoft
 
 次の論理演算子は、全種類のプロパティでサポートされます。
 
-| 論理演算子| 説明| フィルター文字列の例|
+|論理演算子|説明|フィルター文字列の例|
 |---|---|---|
-| eq| 等しい| City eq 'Redmond'|
-| gt| より大きい| Price gt 20|
-| ge| 以上| Price ge 10|
-| lt| より小さい| Price lt 20|
-| le| 以下| Price le 100|
-| ne| 等しくない| City ne 'London'|
-| と| 論理積| Price le 200 and Price gt 3.5|
-| または| または| Price le 3.5 or Price gt 200|
-| not| Not| not isAvailable|
+|eq|等しい|City eq 'Redmond'|
+|gt|より大きい|Price gt 20|
+|ge|以上|Price ge 10|
+|lt|より小さい|Price lt 20|
+|le|以下|Price le 100|
+|ne|等しくない|City ne 'London'|
+|と|論理積|Price le 200 and Price gt 3.5|
+|または|または|Price le 3.5 or Price gt 200|
+|not|Not|not isAvailable|
 
 フィルター文字列を作成するときに重要となる規則は次のとおりです。
 
@@ -52,7 +51,7 @@ WCF Data Services がに基づいて、 [Open Data Protocol](http://go.microsoft
 
 文字列のプロパティを条件としてフィルター処理を行うには、文字列定数を単一引用符で囲みます。
 
-次の例では、**PartitionKey** プロパティおよび **RowKey** プロパティにフィルターを適用しています。キー以外のプロパティをフィルター文字列に追加することもできます。
+次の例は、フィルター、 **PartitionKey** と **RowKey** ; キー以外プロパティは、フィルター文字列にも追加できます。
 
     PartitionKey eq 'Partition1' and RowKey eq '00001'
 
@@ -78,13 +77,13 @@ WCF Data Services がに基づいて、 [Open Data Protocol](http://go.microsoft
 
 ## ブール型プロパティのフィルター処理
 
-ブール値を条件としてフィルター処理を行うには、引用符なしで **true** または  **false** を指定します。
+指定するブール値でフィルター処理、 **true** または **false** 引用符なし。
 
-次の例は、IsActive プロパティが **true** に設定されているすべてのエンティティを返します。
+次の例は、IsActive プロパティに設定されているすべてのエンティティを返す **true**:
 
     IsActive eq true
 
-このフィルター式は、論理演算子なしで記述することもできます。 次の例でも、Table サービスは IsActive が **true** であるすべてのエンティティを返します。
+このフィルター式は、論理演算子なしで記述することもできます。 次の例では、テーブル サービスが返すこともすべてのエンティティ IsActive が **true**:
 
     IsActive
 
@@ -94,11 +93,9 @@ IsActive が false であるすべてのエンティティを返すには、not 
 
 ## DateTime プロパティのフィルター処理
 
-DateTime 値を条件としてフィルター処理を行うには、**datetime** キーワードに続けて、単一引用符で囲んだ日付/時刻の定数を指定します。 日付/時刻の定数が結合 UTC 形式である必要があります」の説明に従って [DateTime プロパティ値の書式設定](http://go.microsoft.com/fwlink/p/?LinkId=400449)します。
+DateTime 値でフィルター処理するには指定、 **datetime** キーワードの後に単一引用符で日付/時刻の定数です。 日付/時刻の定数が結合 UTC 形式である必要があります」の説明に従って [DateTime プロパティ値の書式設定](http://go.microsoft.com/fwlink/p/?LinkId=400449)します。
 
 次の例は、CustomerSince プロパティが 2008 年 7 月 10 日と等しいエンティティを返します。
 
     CustomerSince eq datetime'2008-07-10T00:00:00Z'
-
-
 

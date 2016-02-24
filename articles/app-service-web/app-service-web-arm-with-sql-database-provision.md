@@ -16,7 +16,6 @@
     ms.date="12/16/2015" 
     ms.author="tomfitz"/>
 
-
 # Web アプリと SQL Database をプロビジョニングする
 
 このトピックでは、Web アプリと SQL Database をデプロイする Azure リソース マネージャー テンプレートを作成する方法について説明します。 デプロイ対象のリソースを定義する方法を学習し、 
@@ -28,7 +27,7 @@
 
 完全なテンプレートを参照してください。 [Web アプリと SQL データベースのテンプレート](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json)します。
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## デプロイ対象
 
@@ -41,9 +40,9 @@
 - アラート ルール
 - App Insights
 
-デプロイを自動的に実行するには、次のボタンをクリックします。
+デプロイメントを自動的に実行するには、次のボタンをクリックします。
 
-[![を Azure にデプロイ](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)] (https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
+[![DAzure に eploy](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
 ## 指定するパラメーター
 
@@ -121,7 +120,7 @@
 
 ### requestedServiceObjectiveName
 
-エディションのパフォーマンス レベルに対応する名前。
+エディションのパフォーマンス レベルに対応する名前。 
 
     "requestedServiceObjectiveName": {
       "type": "string",
@@ -131,12 +130,13 @@
       }
     }
 
+
 ## デプロイするリソース
 
 ### SQL Server と Database
 
-新しい SQL Server とデータベースを作成します。 サーバーの名前を **serverName** パラメーターに、場所を **serverLocation** パラメーターに指定します。 新しいサーバーを作成するときに
-データベース サーバー管理者のログイン名とパスワードを入力する必要があります。
+新しい SQL Server とデータベースを作成します。 サーバーの名前が指定された、 **serverName** パラメーターとで指定した場所、 **serverLocation** パラメーター。 新しいサーバーを作成するときに
+データベース サーバー管理者のログイン名とパスワードを入力する必要があります。 
 
     {
       "name": "[parameters('serverName')]",
@@ -180,10 +180,11 @@
       ]
     },
 
+
 [AZURE.INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 
-### Web アプリ
+### Web Apps
 
     {
       "apiVersion": "2015-08-01",
@@ -286,7 +287,7 @@
       }
     },
 
-### ステータス コード 403 と 500 用のアラート ルール、高い CPU 使用率、および HTTP キューの長さ
+### ステータス コード 403 と 500 用のアラート ルール、高い CPU 使用率、および HTTP キューの長さ 
 
     //Alert-Rules --> 5xx
     {
@@ -456,4 +457,5 @@
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 
+ 
 

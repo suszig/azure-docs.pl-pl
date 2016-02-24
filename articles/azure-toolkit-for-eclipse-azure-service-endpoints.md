@@ -16,50 +16,49 @@
     ms.date="11/19/2015" 
     ms.author="robmcm"/>
 
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268600.aspx -->
 
+# Azure サービス エンドポイント #
 
+Azure サービス エンドポイントは、アプリケーションがどこにデプロイされて管理されるかを決定します (グローバル Azure プラットフォーム、中国の 21Vianet が運営する Azure、プライベート Azure プラットフォームのいずれか)。  **サービス エンドポイント** ダイアログ ボックスで使用するサービス エンドポイントを指定できます。 開くには、 **サービス エンドポイント** ダイアログで、Eclipse 内でクリックして **ウィンドウ**, 、] をクリックして **設定**, 、展開 **Azure**, 、] をクリックし、 **サービス エンドポイント**します。 設定、 **アクティブ セット** フィールドは、現在のワークスペース内の Azure プロジェクトの Azure サービス エンドポイントの使用を決定します。
 
-# Azure サービス エンドポイント
-
-Azure サービス エンドポイントは、アプリケーションがどこにデプロイされて管理されるかを決定します (グローバル Azure プラットフォーム、中国の 21Vianet が運営する Azure、プライベート Azure プラットフォームのいずれか)。  **[サービス エンドポイント]** ダイアログで、使用するサービス エンドポイントを指定できます。 **[サービスエンド ポイント]** ダイアログを開くには、Eclipse で **[Window]**、**[Preferences]** の順にクリックし、**[Azure]** を展開し、**[Service Endpoints]** をクリックします。 **[Active Set]** フィールドを設定することで、現在のワークスペース内の Azure プロジェクトで使用される Azure サービス エンドポイントが決まります。
-
-**[Service Endpoints]** ダイアログを次に示します。
+次に示す、 **サービス エンドポイント** ダイアログ。
 
 ![][ic719493]
 
-## サービス エンドポイントを設定するには
+## サービス エンドポイントを設定するには ##
 
-**[Service Endpoints]** ダイアログで、次のいずれかを行います。
+ **サービス エンドポイント** ダイアログで、次のいずれかを行います。
 
-* グローバル Azure プラットフォームを使用する場合は、**[Active Set]** ドロップダウン リストから **[windowsazure.com]** を選択し、**[OK]** をクリックします。
-* 中国の 21Vianet が運営する Azure を使用する場合は、**[Active Set]** ドロップダウン リストから **[windowsazure.cn (China)]** を選択し、**[OK]** をクリックします。
+* グローバル Azure プラットフォームを使用するかどうか、 **アクティブ セット** ドロップダウン リストで、 **windowsazure.com** ] をクリック **OK**します。
+* 中国の 21 vianet が運営する Azure を使用するかどうか、 **アクティブ セット** ドロップダウン リストで、 **windowsazure.cn (中国)** ] をクリック **OK**します。
 * プライベート Azure プラットフォームを使用する場合:
-    1. **[編集]** をクリックします。
-    2. **[Service Endpoints]** ダイアログを閉じて基本設定ファイルを開くことを通知するダイアログ ボックスが表示されます。 **[OK]** をクリックします。
-    3. Preferencesets.xml ファイルでは、新しい作成 `preferenceset` 要素。 この新しい要素に対して作成 `名`, 、`blob`, 、`管理`, 、`portalURL` と `publishsettings` 属性、および、プライベート Azure プラットフォームに対応するそれらの値を追加します。 既存の指定した値を使用する `preferenceset` テンプレートとしての要素。 **注**: 使用される値、 `blob` 属性は、URL には、"blob"というテキストを含める必要があります。
+    1. クリックして **編集**します。
+    2. 通知するダイアログ ボックスが表示される、 **サービス エンドポイント** ダイアログが閉じ、基本設定セット ファイルが表示されます。 Click **OK**.
+    3. Preferencesets.xml ファイルに、新しい `preferenceset` 要素を作成します。 この新しい要素の `name`、`blob`、`management`、`portalURL`、および `publishsettings` 属性を作成し、各属性にプライベート Azure プラットフォームに該当する値を追加します。 既存の `preferenceset` 要素に指定されている値をテンプレートとして使用できます。 **注**: 使用される値、 `blob` 属性は、URL には、"blob"というテキストを含める必要があります。
     4. preferencesets.xml を保存して閉じます。
-    5. **[Service Endpoints]** ダイアログを再度開きます。
-    6. **[Active Set]** ドロップダウン リストから、作成したアクティブ セットを選択し、**[OK]** をクリックします。
-    7. プライベート Azure プラットフォームを作成した後 `preferenceset` 要素をクリックして、それに割り当てられている値を変更することができます、 **編集** ボタンをクリックして、 **サービス エンドポイント** ダイアログ。 また、複数のプライベート Azure プラットフォームを作成することもできます。 `preferenceset` 要素、必要な場合です。
+    5. 再度開く、 **サービス エンドポイント** ダイアログ。
+    6.  **アクティブ セット** ドロップダウン リストで、アクティブな設定を作成しをクリックして、[ **OK**します。
+    7. プライベート Azure プラットフォームを作成した後 `preferenceset` 要素をクリックして、それに割り当てられている値を変更することができます、 **編集** ボタンをクリックして、 **サービス エンドポイント** ダイアログ。 必要であれば、複数のプライベート Azure プラットフォームの `preferenceset` 要素を作成することもできます。
 
-## 関連項目
+## 関連項目 ##
 
-[Azure Toolkit for Eclipse の][]
+[Azure Toolkit for Eclipse][]
 
-[Azure Toolkit for Eclipse のをインストールします。][]
+[Azure Toolkit for Eclipse のインストール][] 
 
-[Eclipse ので、Azure の Hello World アプリケーションを作成します。][]
+[Azure 向け Hello World アプリケーションを Eclipse で作成する][]
 
-Java で Azure を使用する方法の詳細については、次を参照してください。、 [Azure Java デベロッパー センターの []][]します。
+Java で Azure を使用する方法の詳細については、次を参照してください。、 [Azure Java デベロッパー センター][]します。
 
+<!-- URL List -->
 
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
+<!-- IMG List -->
 
-
-
-[azure java developer center]: http://go.microsoft.com/fwlink/?LinkID=699547 
-[azure toolkit for eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529 
-[creating a hello world application for azure in eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533 
-[installing the azure toolkit for eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546 
-[ic719493]: ./media/azure-toolkit-for-eclipse-azure-service-endpoints/ic719493.png 
+[ic719493]: ./media/azure-toolkit-for-eclipse-azure-service-endpoints/ic719493.png
 

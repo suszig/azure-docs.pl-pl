@@ -16,12 +16,8 @@
     ms.author="awills"/>
 
 
-
 # Web サイトの可用性と応答性の監視
 
-> [AZURE.NOTE] この記事は移動しました。 参照してください: [可用性と任意の web サイトの応答性監視](../app-insights-monitor-web-app-availability.md)
 
-
-
-
-
+> [AZURE.NOTE] この記事は移動しました。 参照してください: [可用性と任意の web サイトの応答性の監視](../app-insights-monitor-web-app-availability.md)
+ 

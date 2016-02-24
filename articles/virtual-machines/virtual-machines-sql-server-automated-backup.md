@@ -16,7 +16,6 @@
     ms.date="11/12/2015"
     ms.author="jroth" />
 
-
 # Azure Virtual Machines での SQL Server の自動バックアップ
 
 自動化されたバックアップを自動的に構成 [Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) SQL Server 2014 Standard または Enterprise を実行する Azure VM 上のすべての既存および新規データベース用です。 これにより、永続的な Azure BLOB ストレージを利用した日常的なデータベース バックアップを構成できます。
@@ -27,37 +26,39 @@
 
 自動バックアップで構成できるオプションを次の表に示します。 実際の構成手順は、Azure ポータルと Azure Windows PowerShell コマンドのどちらを使用するかによって異なります。
 
-| 設定| 範囲 (既定値)| 説明|
+|設定|範囲 (既定値)|説明|
 |---|---|---|
-| **自動化されたバックアップ**| 有効/無効 (無効)| SQL Server 2014 Standard または Enterprise を実行している Azure VM で、自動バックアップを有効または無効にします。|
-| **保有期間**| 1 ～ 30 日 (30 日)| バックアップを保持する日数。|
-| **ストレージ アカウント**| Azure ストレージ アカウント (指定された VM 用に作成されたストレージ アカウント)| 自動バックアップのファイルを BLOB ストレージに保存するために使用する Azure ストレージ アカウント。この場所にコンテナーが作成され、すべてのバックアップ ファイルが保存されます。バックアップ ファイルの名前付け規則には、日付、時刻、およびコンピューター名が含まれます。|
-| **暗号化**| 有効/無効 (無効)| 暗号化を有効または無効にします。暗号化を有効にすると、バックアップの復元に使用する証明書は、指定されたストレージ アカウントの同じ automaticbackup コンテナー内に、同じ名前付け規則を使用して配置されます。パスワードが変更された場合、そのパスワードを使用して新しい証明書が生成されますが、以前のバックアップの復元には古い証明書が引き続き使用されます。|
-| **パスワード**| パスワード テキスト (なし)| 暗号化キーのパスワード。暗号化を有効にした場合にのみ必須となります。暗号化されたバックアップを復元するには、バックアップの作成時に使用した正しいパスワードおよび関連する証明書が必要です。|
+|**自動化されたバックアップ**|有効/無効 (無効)|SQL Server 2014 Standard または Enterprise を実行している Azure VM で、自動バックアップを有効または無効にします。|
+|**保有期間**|1 ～ 30 日 (30 日)|バックアップを保持する日数。|
+|**ストレージ アカウント**|Azure ストレージ アカウント (指定された VM 用に作成されたストレージ アカウント)|自動バックアップのファイルを BLOB ストレージに保存するために使用する Azure ストレージ アカウント。 この場所にコンテナーが作成され、すべてのバックアップ ファイルが保存されます。 バックアップ ファイルの名前付け規則には、日付、時刻、およびコンピューター名が含まれます。|
+|**暗号化**|有効/無効 (無効)|暗号化を有効または無効にします。 暗号化を有効にすると、バックアップの復元に使用する証明書は、指定されたストレージ アカウントの同じ automaticbackup コンテナー内に、同じ名前付け規則を使用して配置されます。 パスワードが変更された場合、そのパスワードを使用して新しい証明書が生成されますが、以前のバックアップの復元には古い証明書が引き続き使用されます。|
+|**パスワード**|パスワード テキスト (なし)|暗号化キーのパスワード。 暗号化を有効にした場合にのみ必須となります。 暗号化されたバックアップを復元するには、バックアップの作成時に使用した正しいパスワードおよび関連する証明書が必要です。|
 
 ## Azure ポータルでの自動バックアップの構成
 
-新しい SQL Server 2014 仮想マシンを作成するときに、Azure ポータルを使用して、自動バックアップを構成できます。
->[AZURE.NOTE] 自動バックアップは、SQL Server IaaS エージェントに依存します。 このエージェントをインストールして構成するには、ターゲット仮想マシン上で Azure VM エージェントが実行されている必要があります。 仮想マシン ギャラリーの最近のイメージでは、このオプションが既定で有効になっていますが、既存の VM では、Azure VM エージェントが存在しない可能性があります。 独自の VM イメージを使用している場合は、SQL Server IaaS エージェントもインストールする必要があります。 詳細については、次を参照してください。 [VM エージェントと拡張機能](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/)します。
+新しい SQL Server 2014 仮想マシンを作成するときに、Azure ポータルを使用して、自動バックアップを構成できます。 
 
-次の Azure ポータルのスクリーンショットは、**[オプションの構成]** の **[SQL 自動バックアップ]** の各オプションを示しています。
+>[AZURE.NOTE] 自動化されたバックアップは、SQL Server IaaS エージェントに依存しています。 このエージェントをインストールして構成するには、ターゲット仮想マシン上で Azure VM エージェントが実行されている必要があります。 仮想マシン ギャラリーの最近のイメージでは、このオプションが既定で有効になっていますが、既存の VM では、Azure VM エージェントが存在しない可能性があります。 独自の VM イメージを使用している場合は、SQL Server IaaS エージェントもインストールする必要があります。 詳細については、次を参照してください。 [VM エージェントと拡張機能](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/)です。
+
+次の Azure ポータルのスクリーン ショットは、これらのオプションを示しています **オプションの構成** | **。SQL 自動バックアップ**します。
 
 ![Azure ポータルの SQL 自動バックアップ構成](./media/virtual-machines-sql-server-automated-backup/IC778483.jpg)
 
-既存の SQL Server 2014 仮想マシンでは、仮想マシンのプロパティの **[構成]** セクションで **[自動バックアップ]** 設定を選択します。 **[自動化されたバックアップ]** ウィンドウでは、機能の有効化、保有期間の設定、ストレージ アカウントの選択、暗号化の設定を行うことができます。 次のスクリーンショットにこれを示します。
+既存の SQL Server 2014 仮想マシンを選択、 **自動バックアップ** の設定、 **構成** バーチャル マシンのプロパティのセクションです。  **自動バックアップ** ウィンドウで、この機能を有効にする、保有期間の設定、ストレージ アカウントを選択および暗号化を設定します。 次のスクリーンショットにこれを示します。
 
 ![Azure ポータルの自動バックアップ構成](./media/virtual-machines-sql-server-automated-backup/IC792133.jpg)
->[AZURE.NOTE] 自動バックアップを初めて有効にすると、バックグラウンドで SQL Server IaaS エージェントが構成されます。 この間、Azure ポータルには自動バックアップが構成されていることは示されません。 エージェントがインストールされ、構成されるまで数分待ちます。 その後、Azure ポータルに新しい設定が反映されます。
+
+>[AZURE.NOTE] 最初に自動化されたバックアップを有効にすると、Azure は、バック グラウンドで SQL Server IaaS エージェントを構成します。 この間、Azure ポータルには自動バックアップが構成されていることは示されません。 エージェントがインストールされ、構成されるまで数分待ちます。 その後、Azure ポータルに新しい設定が反映されます。
 
 ## PowerShell を使用した自動バックアップの構成
 
-次の PowerShell の例では、既存の SQL Server 2014 VM の自動バックアップを構成しています。 **New-AzureVMSqlServerAutoBackupConfig** コマンドは、$storageaccount 変数で指定された Azure ストレージ アカウントにバックアップを保存するように、自動バックアップ設定を構成します。 これらのバックアップは 10 日間保持されます。 **Set-AzureVMSqlServerExtension** コマンドは、指定された Azure VM をこれらの設定で更新します。
+次の PowerShell の例では、既存の SQL Server 2014 VM の自動バックアップを構成しています。  **New-azurevmsqlserverautobackupconfig** コマンドは、$storageaccount 変数で指定された Azure ストレージ アカウントにバックアップを保存する自動バックアップ設定を構成します。 これらのバックアップは 10 日間保持されます。  **Set-azurevmsqlserverextension** コマンドでは、これらの設定を指定された Azure VM を更新します。
 
     $storageaccount = "<storageaccountname>"
     $storageaccountkey = (Get-AzureStorageKey -StorageAccountName $storageaccount).Primary
     $storagecontext = New-AzureStorageContext -StorageAccountName $storageaccount -StorageAccountKey $storageaccountkey
     $autobackupconfig = New-AzureVMSqlServerAutoBackupConfig -StorageContext $storagecontext -Enable -RetentionPeriod 10
-    
+
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -AutoBackupSettings $autobackupconfig | Update-AzureVM
 
 SQL Server IaaS エージェントのインストールと構成には数分かかる場合があります。
@@ -70,10 +71,10 @@ SQL Server IaaS エージェントのインストールと構成には数分か�
     $password = "P@ssw0rd"
     $encryptionpassword = $password | ConvertTo-SecureString -AsPlainText -Force  
     $autobackupconfig = New-AzureVMSqlServerAutoBackupConfig -StorageContext $storagecontext -Enable -RetentionPeriod 10 -EnableEncryption -CertificatePassword $encryptionpassword
-    
+
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -AutoBackupSettings $autobackupconfig | Update-AzureVM
 
-自動バックアップを無効にするには、**New-AzureVMSqlServerAutoBackupConfig** の **-Enable** パラメーターを指定せずに、同じスクリプトを実行します。 インストールと同様に、自動バックアップの無効化には数分かかる場合があります。
+自動バックアップを無効にする場合、同じスクリプトを実行せず、 **-を有効にする** パラメーターを **New-azurevmsqlserverautobackupconfig**します。 インストールと同様に、自動バックアップの無効化には数分かかる場合があります。
 
 ## SQL Server IaaS エージェントの無効化とアンインストール
 
@@ -85,15 +86,15 @@ SQL Server IaaS エージェントをアンインストールするには、次�
 
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension –Uninstall | Update-AzureVM
 
-**Remove-AzureVMSqlServerExtension** コマンドを使用して、拡張機能をアンインストールすることもできます。
+拡張機能を使用して、アンインストールすることもできる、 **Remove-azurevmsqlserverextension** コマンド。
 
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Remove-AzureVMSqlServerExtension | Update-AzureVM
 
->[AZURE.NOTE] SQL Server IaaS エージェントを無効化またはアンインストールしても、以前に構成されたマネージ バックアップ設定は削除されません。 SQL Server IaaS エージェントを無効化またはアンインストールする前に、自動バックアップを無効にしておく必要があります。
+>[AZURE.NOTE] 無効化と SQL Server IaaS エージェントのアンインストールでは、以前に構成されたマネージ バックアップの設定は削除されません。 SQL Server IaaS エージェントを無効化またはアンインストールする前に、自動バックアップを無効にしておく必要があります。
 
 ## 互換性
 
-次の製品は、自動化されたバックアップの SQL Server IaaS エージェント機能と互換性があります。
+次の製品は、自動バックアップの SQL Server IaaS エージェント機能と互換性があります。
 
 - Windows Server 2012
 
@@ -112,8 +113,4 @@ SQL Server IaaS エージェントをアンインストールするには、次�
 Azure で SQL Server vm の関連機能は [Azure 仮想マシンにおける SQL Server の自動修正](virtual-machines-sql-server-automated-patching.md)します。
 
 その他のレビュー [Azure Virtual Machines における SQL Server を実行するためのリソース](virtual-machines-sql-server-infrastructure-services.md)します。
-
-
-
-
 

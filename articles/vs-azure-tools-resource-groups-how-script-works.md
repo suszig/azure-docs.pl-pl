@@ -16,10 +16,9 @@
     ms.date="11/17/2015"
     ms.author="kempb" />
 
-
 # Azure リソース グループ プロジェクトのデプロイメント スクリプトの概要
 
-Azure リソース グループのデプロイメント プロジェクトは、ファイルとその他のアーティファクトを Azure にステージングおよびデプロイする作業を支援します。 Visual Studio で Azure リソース マネージャーのデプロイメント プロジェクトを作成するときは、**Deploy-AzureResourceGroup.ps1** と呼ばれる PowerShell スクリプトがプロジェクトに追加されます。 このトピックでは、このスクリプトで実行される操作と、Visual Studio の内部と外部の両方でのスクリプトの実行方法について説明します。
+Azure リソース グループのデプロイメント プロジェクトは、ファイルとその他のアーティファクトを Azure にステージングおよびデプロイする作業を支援します。 Visual Studio で Azure リソース マネージャーの展開プロジェクトを作成するときに、PowerShell スクリプトと呼ばれる **Deploy-azureresourcegroup.ps1** プロジェクトに追加します。 このトピックでは、このスクリプトで実行される操作と、Visual Studio の内部と外部の両方でのスクリプトの実行方法について説明します。
 
 ## このスクリプトで実行される操作
 
@@ -30,12 +29,13 @@ Deploy-AzureResourceGroup.ps1 スクリプトは、デプロイメント ワー�
 
 スクリプトの最初の部分では、デプロイメント用のファイルとアーティファクトをアップロードし、スクリプト内の最後のコマンドレットで実際にテンプレートをデプロイします。 たとえば、スクリプトを使用して仮想マシンを構成する必要がある場合、デプロイメント スクリプトは最初に構成スクリプトを Azure ストレージ アカウントへセキュリティで保護された方法でアップロードします。 これにより、プロビジョニング中に仮想マシンを構成するために Azure リソース マネージャーで構成スクリプトを使用できるようになります。
 
-アップロードする必要がある追加のアーティファクトは、すべてのテンプレート デプロイメントで必要なわけではないため、*uploadArtifacts* と呼ばれるスイッチ パラメーターが評価されます。 アーティファクトをアップロードする必要がある場合は、スクリプトの呼び出し時に *uploadArtifacts* スイッチを設定します。 メインのテンプレート ファイルとパラメーター ファイルはアップロードする必要がないことに注意してください。 構成スクリプト、ネストしたデプロイメント テンプレート、およびアプリケーション ファイルなど、その他のファイルのみをアップロードする必要があります。
+すべてのテンプレートのデプロイが余分な成果物は、アップロードする必要が必要があるため、スイッチ パラメーターと呼ばれる *uploadArtifacts* が評価されます。 そのようなアイテムは、アップロードする場合に、設定、 *uploadArtifacts* のスクリプトの呼び出し時に切り替えます。 メインのテンプレート ファイルとパラメーター ファイルはアップロードする必要がないことに注意してください。 構成スクリプト、ネストしたデプロイメント テンプレート、およびアプリケーション ファイルなど、その他のファイルのみをアップロードする必要があります。
 
 ## スクリプトの詳細な説明
 
 Azure PowerShell スクリプト Deploy-AzureResourceGroup.ps1 の特定のセクションでの実行内容について、次に説明します。
->[AZURE.NOTE] ここでは、バージョン 1.0 の Deploy-AzureResourceGroup.ps1 スクリプトについて説明します。
+
+>[AZURE.NOTE] これには、バージョン 1.0 の Deploy-azureresourcegroup.ps1 スクリプトが説明します。
 
 1.  Azure リソース マネージャーのデプロイメント プロジェクトに必要なパラメーターを宣言します。 いくつかのパラメーターには、プロジェクトの作成時に設定された既定値があります。 スクリプト内でこれらの既定値を変更したり、スクリプトを実行する前に異なるパラメーター値を追加したりすることができます。
 
@@ -55,30 +55,30 @@ Azure PowerShell スクリプト Deploy-AzureResourceGroup.ps1 の特定のセ�
     )
     ```
 
-    | パラメーター| 説明|
+    |パラメーター|説明|
     |---|---|
-    | $ResourceGroupLocation| **米国西部**や**東アジア**など、リソース グループに対するリージョンまたはデータ センターの場所。|
-    | $ResourceGroupName| Azure リソース グループの名前。|
-    | $UploadArtifacts| アーティファクトをシステムから Azure にアップロードする必要があるかどうかを示すバイナリ値。|
-    | $StorageAccountName| アーティファクトがアップロードされる Azure ストレージ アカウントの名前。|
-    | $StorageAccountResourceGroupName| ストレージ アカウントを含む Azure リソース グループの名前。|
-    | $StorageContainerName| アーティファクトをアップロードするために使用するストレージ コンテナーの名前。|
-    | $TemplateFile| 配置ファイルへのパス (`< アプリ名 > .json`)、Azure リソース グループ プロジェクトにします。|
-    | $TemplateParametersFile| パラメーター ファイルへのパス (`< アプリ名 >. parameters.json`)、Azure リソース グループ プロジェクトにします。|
-    | $ArtifactStagingDirectory| PowerShell スクリプトのルート フォルダーを含む、アーティファクトがローカルにアップロードされているシステム上のパス。このパスには、絶対パス、またはスクリプトの場所に対する相対パスを指定できます。|
-    | $AzCopyPath| PowerShell スクリプトのルート フォルダーを含む、AzCopy.exe ツールがその .zip ファイルをコピーするパス。このパスには、絶対パス、またはスクリプトの場所に対する相対パスを指定できます。|
-    | $DSCSourceFolder| PowerShell スクリプトのルート フォルダーを含む、DSC (Desired State Configuration) ソース フォルダーへのパス。このパスには、絶対パス、またはスクリプトの場所に対する相対パスを指定できます。参照してください [Azure PowerShell DSC (Desired State Configuration) 拡張機能の概要](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx), 詳細については、適用可能な場合です。|
+    |$ResourceGroupLocation|領域またはデータ センターの場所、リソース グループなど、 **米国西部** または **東アジア**します。|
+    |$ResourceGroupName|Azure リソース グループの名前。|
+    |$UploadArtifacts|アーティファクトをシステムから Azure にアップロードする必要があるかどうかを示すバイナリ値。|
+    |$StorageAccountName|アーティファクトがアップロードされる Azure ストレージ アカウントの名前。|
+    |$StorageAccountResourceGroupName|ストレージ アカウントを含む Azure リソース グループの名前。|
+    |$StorageContainerName|アーティファクトをアップロードするために使用するストレージ コンテナーの名前。|
+    |$TemplateFile|Azure リソース グループ プロジェクト内のデプロイメント ファイル (`<app name>.json`) へのパス。|
+    |$TemplateParametersFile|Azure リソース グループ プロジェクト内のパラメーター ファイル (`<app name>.parameters.json`) へのパス。|
+    |$ArtifactStagingDirectory|PowerShell スクリプトのルート フォルダーを含む、アーティファクトがローカルにアップロードされているシステム上のパス。 このパスには、絶対パス、またはスクリプトの場所に対する相対パスを指定できます。|
+    |$AzCopyPath|PowerShell スクリプトのルート フォルダーを含む、AzCopy.exe ツールがその .zip ファイルをコピーするパス。 このパスには、絶対パス、またはスクリプトの場所に対する相対パスを指定できます。|
+    |$DSCSourceFolder|PowerShell スクリプトのルート フォルダーを含む、DSC (Desired State Configuration) ソース フォルダーへのパス。 このパスには、絶対パス、またはスクリプトの場所に対する相対パスを指定できます。 参照してください [Azure PowerShell DSC (Desired State Configuration) 拡張機能の概要](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx), 詳細については、適用可能な場合です。|
 
 1.  アーティファクトを Azure にアップロードする必要があるかどうかを確認します。 必要ない場合は、手順 11 に進みます。 それ以外の場合は、次の手順を実行します。
 
-1.  相対パスを含むすべての変数を絶対パスに変換します。 たとえば、などのパスを変更 `.\Tools\AzCopy.exe` に `C:\YourFolder\Tools\AzCopy.exe`します。 また、変数 *ArtifactsLocationName* と *ArtifactsLocationSasTokenName* を null に初期化します。 *ArtifactsLocation* と *SaSToken* はテンプレートに対するパラメーターである可能性があります。 パラメーター ファイル内を読み取った後にそれらの値が null の場合、スクリプトは、それらの値を生成します。
+1.  相対パスを含むすべての変数を絶対パスに変換します。 たとえば、`..\Tools\AzCopy.exe` のようなパスを `C:\YourFolder\Tools\AzCopy.exe` に変更します。 また、変数を初期化 *ArtifactsLocationName* と *ArtifactsLocationSasTokenName* を null にします。 *ArtifactsLocation* と *SaSToken* テンプレート パラメーターである可能性があります。 パラメーター ファイル内を読み取った後にそれらの値が null の場合、スクリプトは、それらの値を生成します。
 
-    Azure ツールは、パラメーター値を使用して *_artifactsLocation* と *_artifactsLocationSasToken* アイテムを管理するテンプレートです。 PowerShell スクリプトが、これらの名前を持つパラメーターを見つけて、パラメーターの値が指定されていない場合、スクリプトはアーティファクトをアップロードして、これらのパラメーターの適切な値を返します。 コマンドレットを使用して、渡す `@OptionsParameters`します。
+    Azure ツールは、パラメーター値を使用して *_artifactsLocation* と *_artifactsLocationSasToken* アイテムを管理するテンプレートです。 PowerShell スクリプトが、これらの名前を持つパラメーターを見つけて、パラメーターの値が指定されていない場合、スクリプトはアーティファクトをアップロードして、これらのパラメーターの適切な値を返します。 その後、`@OptionsParameters` を通じてコマンドレットにそれらの値を渡します。
 
-    | 変数| 説明|
+    |変数|説明|
     |---|---|
-    | ArtifactsLocationName| Azure アーティファクトが配置されている場所のパス。|
-    | ArtifactsLocationSasTokenName| Service Bus を認証するためにスクリプトによって使用される SAS (Shared Access Signature) トークン名。参照してください [Service Bus での共有アクセス署名認証](service-bus-shared-access-signature-authentication.md) の詳細。|
+    |ArtifactsLocationName|Azure アーティファクトが配置されている場所のパス。|
+    |ArtifactsLocationSasTokenName|Service Bus を認証するためにスクリプトによって使用される SAS (Shared Access Signature) トークン名。 参照してください [Service Bus での共有アクセス署名認証](service-bus-shared-access-signature-authentication.md) の詳細。|
 
     ```
     if ($UploadArtifacts) {
@@ -94,8 +94,8 @@ Azure PowerShell スクリプト Deploy-AzureResourceGroup.ps1 の特定のセ�
     $OptionalParameters.Add($ArtifactsLocationSasTokenName, $null)
     ```
 
-1.  このセクションのチェックをするかどうか、 <app name>. parameters.json ファイル (「パラメーター ファイル」と呼ばれます) がという名前の親ノード **パラメーター** (で、 `他` ブロック) します。それ以外の場合、親ノードはありません。いずれの形式も受け入れられます。
-
+1.  このセクションのチェックをするかどうか、 <app name>. parameters.json ファイル (「パラメーター ファイル」と呼ばれる) という名前の親ノードを持つ **パラメーター** (で、 `else` ブロック) します。 それ以外の場合、親ノードはありません。 いずれの形式も受け入れられます。
+    
     ```
     if ($JsonParameters -eq $null) {
             $JsonParameters = $JsonContent
@@ -148,7 +148,7 @@ Azure PowerShell スクリプト Deploy-AzureResourceGroup.ps1 の特定のセ�
     }
     ```
 
-1.  **AzCopy** ユーティリティ (Azure リソース グループ デプロイメント プロジェクトの **Tools** フォルダーに含まれます) を使用して、ローカル ストレージのドロップ パスから、オンラインの Azure ストレージ アカウントにファイルをコピーします。 この手順に失敗した場合、必要なアーティファクトがないとデプロイメントは成功しないため、スクリプトを終了します。
+1.  使用して、 **AzCopy** ユーティリティ (に含まれる、 **ツール** 、Azure リソース グループ デプロイ プロジェクトのフォルダー)、ローカル ストレージのドロップ パスから、オンラインの Azure ストレージ アカウントにすべてのファイルをコピーします。 この手順に失敗した場合、必要なアーティファクトがないとデプロイメントは成功しないため、スクリプトを終了します。
 
     ```
     # Use AzCopy to copy files from the local storage drop path to the storage account container
@@ -193,32 +193,33 @@ Azure PowerShell スクリプト Deploy-AzureResourceGroup.ps1 の特定のセ�
 
 ### Visual Studio でリソース グループをデプロイするには
 
-1. Azure リソース グループ プロジェクトのショートカット メニューで **[デプロイ]** > **[新しい配置]** を選択します。
+1. Azure リソース グループ プロジェクトのショートカット メニューで **展開** > **新しい展開**します。
 
     ![][0]
 
-1. **リソース グループにデプロイ** ] ダイアログ ボックスを選択するか、既存のリソース グループに配置を選択するドロップダウン リスト ボックスに **< [新規作成] >** 新しいリソース グループを作成します。
+1.  **リソース グループにデプロイ** ] ダイアログ ボックスを選択するか、既存のリソース グループに配置を選択するドロップダウン リスト ボックスに **& lt;Gt; を新規作成する (& r)** 新しいリソース グループを作成します。
 
     ![][1]
 
-1. 求められた場合は、**[リソース グループの作成]** ダイアログ ボックスにリソース グループの名前と場所を入力し、**[作成]** ボタンをクリックします。
+1. 求められた場合は、リソース グループ名と場所を入力してください。、 **リソース グループの作成** ] ダイアログ ボックスを選択し、、 **作成** ] ボタンをクリックします。
 
     ![][2]
 
-1. **[パラメーターの編集]** ボタンをクリックして、**[パラメーターの編集]** ダイアログ ボックスを表示し、不足しているパラメーターの値を入力します。
+1. 選択、 **パラメーターの編集** を表示するボタン、 **パラメーターの編集** ] ダイアログ ボックスし、不足しているパラメーターの値を入力します。
 
     ![][3]
-    >[AZURE.NOTE] 必須パラメーターの値が必要な場合、デプロイ時に、このダイアログ ボックスが自動的に表示されます。
+
+    >[AZURE.NOTE] 必要なパラメーターに値が必要がある場合このダイアログ ボックスに自動的に、展開するときに表示されます。
 
     ![][4]
 
-1. パラメーター値の入力が完了したら、**[保存]** ボタンをクリックして、次に **[デプロイ]** ボタンをクリックします。
+1. 終了したらパラメーターの値を入力して、選択、 **保存** ボタンをクリックし、選択、 **展開** ] ボタンをクリックします。
 
     デプロイメント スクリプト (Deploy-AzureResourceGroup.ps1) が実行され、テンプレートがすべてのアーティファクトと共に Azure にデプロイされます。
 
 ### PowerShell を使用してリソース グループをデプロイするには
 
-Visual Studio の [デプロイ] コマンドと UI を使用せずにスクリプトを実行する場合、スクリプトのショートカット メニューで **[PowerShell ISE で開く]** を選択します。
+Visual Studio の配置コマンドを使用せず、スクリプトを実行するし、UI、スクリプトは、ショートカット メニューで選択 **PowerShell ISE で開く**します。
 
 ![][5]
 
@@ -229,7 +230,7 @@ Visual Studio の [デプロイ] コマンドと UI を使用せずにスクリ�
 
 この例では、既定のパラメーター値を使用してスクリプトを実行する方法を示します。 (場所のパラメーターには既定値がないため、明示的に指定する必要があります。)
 
-`.\Deploy-AzureResourceGroup.ps1 - ResourceGroupLocation eastus`
+`.\Deploy-AzureResourceGroup.ps1 -ResourceGroupLocation eastus`
 
 ### 既定値をオーバーライドするデプロイ
 
@@ -254,14 +255,11 @@ $(Build.StagingDirectory)/AzureResourceGroup1/Scripts/Deploy-AzureResourceGroup.
 ```
 
 ## 次のステップ
-
 詳細については、Azure リソース マネージャーを参照して [Azure リソース マネージャーの概要](resource-group-overview.md)します。
 
-
-[0]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy1c.png 
-[1]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy2bc.png 
-[2]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy3bc.png 
-[3]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy4bc.png 
-[4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png 
-[5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png 
-
+[0]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy1c.png
+[1]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy2bc.png
+[2]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy3bc.png
+[3]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy4bc.png
+[4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
+[5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png

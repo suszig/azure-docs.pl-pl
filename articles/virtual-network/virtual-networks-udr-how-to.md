@@ -15,18 +15,14 @@
    ms.date="12/07/2015"
    ms.author="telmos" />
 
-
 # Azure でルートを作成して IP 転送を有効にする方法
-
-Azure では、仮想アプライアンスを使用して、Azure Virtual Network のトラフィックを処理することができます。 ただし、仮想ネットワーク内の VM とクラウド サービスから (目的とする宛先ではなく) 仮想アプライアンスにパケットを送信するためのルートを作成する必要があります。 また、仮想アプライアンスとして機能する VM は、実際には自分に宛てられていないパケットを受信して転送する必要があるので、IP 転送を有効にする必要があります。
+Azure では、仮想アプライアンスを使用して、Azure Virtual Network のトラフィックを処理することができます。 ただし、仮想ネットワーク内の VM とクラウド サービスから (目的とする宛先ではなく) 仮想アプライアンスにパケットを送信するためのルートを作成する必要があります。 また、仮想アプライアンスとして機能する VM は、実際には自分に宛てられていないパケットを受信して転送する必要があるので、IP 転送を有効にする必要があります。 
 
 ## ルートを管理する方法
-
 Azure におけるルートの追加、削除、変更は、PowerShell で行うことができます。 ルートを作成するには、そのルートをホストするルート テーブルを事前に作成しておく必要があります。
 
 ### テーブルの作成方法
-
-*FrontEndSubnetRouteTable* という名前のルート テーブルを作成するには、次の PowerShell コマンドを実行します。
+という名前のルート テーブルを作成する *FrontEndSubnetRouteTable*, 、次の PowerShell コマンドを実行します。
 
     ```powershell
     New-AzureRouteTable -Name FrontEndSubnetRouteTable `
@@ -41,8 +37,7 @@ Azure におけるルートの追加、削除、変更は、PowerShell で行う
     FrontEndSubnetRouteTable  West US    Route table for front end subnet
 
 ### ルート テーブルにルートを追加する方法
-
-*10.2.0.0/16* サブネットの次ホップとして *10.1.1.10* が設定されたルートを先ほど作成したルート テーブルに追加するには、次の PowerShell コマンドを実行します。
+設定するルートを追加する *10.1.1.10* 次ホップとして、 *10.2.0.0/16* 、上記で作成したルート テーブル内のサブネットは、次の PowerShell コマンドを実行します。
 
     ```powershell
     Get-AzureRouteTable FrontEndSubnetRouteTable `
@@ -62,8 +57,7 @@ Azure におけるルートの追加、削除、変更は、PowerShell で行う
                firewallroute        10.2.0.0/16       VirtualAppliance     10.1.1.10    
 
 ### サブネットにルートを関連付ける方法
-
-ルート テーブルを使用するためには、そのルート テーブルを少なくとも 1 つのサブネットに関連付ける必要があります。 仮想ネットワーク *ProductionVnet* の *FrontEndSubnet* というサブネットに *FrontEndSubnetRouteTable* ルート テーブルを関連付けるには、次のPowerShell コマンドを実行します。
+ルート テーブルを使用するためには、そのルート テーブルを少なくとも 1 つのサブネットに関連付ける必要があります。 関連付けるには、 *FrontEndSubnetRouteTable* という名前のサブネットにルート テーブルを *FrontEndSubnet* 仮想ネットワークで *ProductionVnet*, 、次の PowerShell コマンドを実行します。
 
     ```powershell
     Set-AzureSubnetRouteTable -VirtualNetworkName ProductionVnet `
@@ -72,10 +66,9 @@ Azure におけるルートの追加、削除、変更は、PowerShell で行う
     ```
 
 ### VM 内の適用されたルートを確認する方法
-
 特定の VM またはロール インスタンスで実際に適用されているルートは、Azure に照会して確認できます。 表示されるルートには、Azure によって提供された既定のルートに加え、VPN ゲートウェイによってアドバタイズされたルートが含まれます。 表示されるルートの上限は 800 個です。
 
-*FWAppliance1* という VM 上のプライマリ NIC に関連付けられているルートを確認するには、次の PowerShell コマンドを実行します。
+という名前の VM 上のプライマリ NIC に関連付けられているルート *FWAppliance1*, 、次の PowerShell コマンドを実行します。
 
     ```powershell
     Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
@@ -95,14 +88,14 @@ Azure におけるルートの追加、削除、変更は、PowerShell で行う
                                        {192.168.0.0/16}  Null                                 Active   Default    
                        firewallroute   {10.2.0.0/16}     Null             10.1.1.10           Active   User      
 
-*FWAppliance1* という VM 上の *backendnic* という名前のセカンダリ NIC に関連付けられているルートを確認するには、次の PowerShell コマンドを実行します。
+という名前のセカンダリ NIC に関連付けられているルート *backendnic* という VM 上 *FWAppliance1*, 、次の PowerShell コマンドを実行します。
 
     ```powershell
     Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
         | Get-AzureEffectiveRouteTable -NetworkInterfaceName backendnic
     ```
 
-クラウド サービス *ProductionVMs* に属している *myRole* というロール インスタンス上のプライマリ NIC に関連付けられているルートを確認するには、次の PowerShell コマンドを実行します。
+という名前のロール インスタンスのプライマリ NIC に関連付けられているルートに *myRole* という名前のクラウド サービスの一部である *ProductionVMs*, 、次の PowerShell コマンドを実行します。
 
     ```powershell
     Get-AzureEffectiveRouteTable -ServiceName ProductionVMs `
@@ -110,19 +103,17 @@ Azure におけるルートの追加、削除、変更は、PowerShell で行う
     ```
 
 ## IP 転送を管理する方法
-
-既に述べたように、仮想アプライアンスとして機能する VM またはロール インスタンスに対して IP 転送を有効にする必要があります。
+既に述べたように、仮想アプライアンスとして機能する VM またはロール インスタンスに対して IP 転送を有効にする必要があります。 
 
 ### IP 転送を有効にする方法
-
-*FWAppliance1* という VM の IP 転送を有効にするには、次の PowerShell コマンドを実行します。
+という名前の VM の IP 転送を有効にする *FWAppliance1*, 、次の PowerShell コマンドを実行します。
 
 ```powershell
 Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
     | Set-AzureIPForwarding -Enable
 ```
 
-クラウド サービス *DMZService* の *FWAppliance* というロール インスタンスの IP 転送を有効にするには、次の PowerShell コマンドを実行します。
+という名前のロール インスタンスの IP 転送を有効にする *FWAppliance* というクラウド サービス *DMZService*, 、次の PowerShell コマンドを実行します。
 
 ```powershell
 Set-AzureIPForwarding -ServiceName DMZService `
@@ -130,15 +121,14 @@ Set-AzureIPForwarding -ServiceName DMZService `
 ```
 
 ### IP 転送を無効にする方法
-
-*FWAppliance1* という VM の IP 転送を無効にするには、次の PowerShell コマンドを実行します。
+という名前の VM の IP 転送を無効にする *FWAppliance1*, 、次の PowerShell コマンドを実行します。
 
 ```powershell
 Get-AzureVM -Name FWAppliance1 -ServiceName DMZService `
     | Set-AzureIPForwarding -Disable
 ```
 
-クラウド サービス *DMZService* の *FWAppliance* というロール インスタンスの IP 転送を無効にするには、次の PowerShell コマンドを実行します。
+という名前のロール インスタンスの IP 転送を無効にする *FWAppliance* というクラウド サービス *DMZService*, 、次の PowerShell コマンドを実行します。
 
 ```powershell
 Set-AzureIPForwarding -ServiceName DMZService `
@@ -146,14 +136,9 @@ Set-AzureIPForwarding -ServiceName DMZService `
 ```
 
 ### IP 転送の状態を確認する方法
-
-*FWAppliance1* という VM の IP 転送の状態を確認にするには、次の PowerShell コマンドを実行します。
+という名前の VM の IP 転送の状態を表示する *FWAppliance1*, 、次の PowerShell コマンドを実行します。
 
 ```powershell
 Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
     | Get-AzureIPForwarding
-```
-
-
-
-
+``` 

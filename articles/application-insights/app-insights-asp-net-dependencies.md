@@ -16,14 +16,14 @@
     ms.author="awills"/>
 
 
-
 # Application Insights の設定: 依存関係の追跡
+
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
 
 
-*依存関係*は、アプリによって呼び出される外部コンポーネントです。 一般的には、HTTP を使用して呼び出されるサービス、またはデータベース、あるいはファイル システムです。 Visual Studio Application Insights では、アプリケーションが依存関係を待機する期間や、依存関係の呼び出しが失敗する頻度を簡単に確認できます。
+A *依存関係* アプリによって呼び出される外部コンポーネントです。 一般的には、HTTP を使用して呼び出されるサービス、またはデータベース、あるいはファイル システムです。 Visual Studio Application Insights では、アプリケーションが依存関係を待機する期間や、依存関係の呼び出しが失敗する頻度を簡単に確認できます。
 
 ![サンプルのグラフ](./media/app-insights-asp-net-dependencies/10-intro.png)
 
@@ -33,7 +33,7 @@
  * SQL データベース
  * HTTP ベースのバインドを使用する ASP.NET Web および WCF サービス
  * ローカルまたはリモートの HTTP 呼び出し
- * Azure DocumentDb、テーブル、BLOB ストレージ、およびキュー
+ * Azure DocumentDb、テーブル、Blob Storage、およびキュー
 * Java
  * 使用してデータベースへの呼び出し、 [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) MySQL、SQL Server、PostgreSQL、SQLite などのドライバーです。
 
@@ -52,19 +52,19 @@
 
     ![Microsoft アカウントの資格情報で Azure にサインインする](./media/app-insights-asp-net-dependencies/appinsights-035-signin.png)
 
-    * 接続エラーでしょうか。 参照してください [トラブルシューティング](#troubleshooting). *
+    *接続エラーでしょうか。 参照してください [トラブルシューティング](#troubleshooting)します。*
 
 5. 監視するインストール済みの Web アプリケーションまたは Web サイトを選択し、Application Insights ポータルで結果を表示するときに使用するリソースを構成します。
 
     ![アプリとリソースを選択します。](./media/app-insights-asp-net-dependencies/appinsights-036-configAIC.png)
 
-    通常、新しいリソースを構成する」を選択し、 [リソース グループ ][roles]します。
+    通常、新しいリソースを構成する」を選択し、 [リソース グループ][roles]します。
 
-    既に設定した場合、それ以外の場合、既存のリソースを使用して [web テストの ][availability] 、サイトのまたは [web クライアントの監視 ][client]します。
+    既に設定した場合、それ以外の場合、既存のリソースを使用して [web テスト][availability] 、サイトのまたは [web クライアントの監視][client]します。
 
 6. IIS を再起動します。
 
-    ![ダイアログの上部にある ](./media/app-insights-asp-net-dependencies/appinsights-036-restart.png)
+    ![ダイアログの上部にある [再起動] を選択します。](./media/app-insights-asp-net-dependencies/appinsights-036-restart.png)
 
     少しの間、Web サービスが中断されます。
 
@@ -85,18 +85,18 @@
 
 Azure の Web アプリのコントロール パネルで、Application Insights 拡張機能を追加します。
 
-![Web アプリで、](./media/app-insights-asp-net-dependencies/05-extend.png)
+![Web アプリで、[設定]、[拡張機能]、[追加]、[Application Insights] の順に選択する](./media/app-insights-asp-net-dependencies/05-extend.png)
 
 
 ### Azure Cloud Services プロジェクトの場合
 
 [スクリプトを web ロールとワーカー ロールに追加](app-insights-cloudservices.md)します。
 
-## <a name="diagnosis"></a> 依存関係のパフォーマンスの問題を診断します。
+## <a name="diagnosis"></a> 依存関係のパフォーマンスの問題の診断
 
 サーバーでの要求のパフォーマンスを評価するには、次のようにします。
 
-![Application Insights 内のアプリケーションの ](./media/app-insights-asp-net-dependencies/01-performance.png)
+![Application Insights 内のアプリケーションの [概要] ページで、[パフォーマンス] タイルをクリックします](./media/app-insights-asp-net-dependencies/01-performance.png)
 
 下方向へスクロールして、要求のグリッドを確認します。
 
@@ -110,13 +110,14 @@ Azure の Web アプリのコントロール パネルで、Application Insights
 ![要求回数の一覧](./media/app-insights-asp-net-dependencies/03-instances.png)
 
 実行時間の長いインスタンスがあればそれをクリックし、さらに検査します。
-> [AZURE.NOTE] 少し下にスクロールして、インスタンスを選択します。 パイプラインでの待機時間は、上部のインスタンスのデータが不完全であることを示す場合があります。
+
+> [AZURE.NOTE] 1 ビット、インスタンスの選択が下にスクロールします。 パイプラインでの待機時間は、上部のインスタンスのデータが不完全であることを示す場合があります。
 
 この要求に関連したリモート依存関係呼び出しまで下にスクロールします。
 
 ![リモートの依存関係への呼び出しを見つけ、異常な期間を特定します](./media/app-insights-asp-net-dependencies/04-dependencies.png)
 
-この要求に使われた時間のほとんどが、ローカル サービスへの呼び出しに費やされたように見えます。
+この要求に使われた時間のほとんどが、ローカル サービスへの呼び出しに費やされたように見えます。 
 
 さらに情報を得るには、その行をクリックします。
 
@@ -141,11 +142,11 @@ Azure の Web アプリのコントロール パネルで、Application Insights
 
 ## カスタム依存関係の追跡
 
-標準の依存関係追跡モジュールは、外部の依存関係 (データベース、REST API など) を自動的に検出しますが、 同じように扱える追加のコンポーネントが必要になる可能性もあります。
+標準の依存関係追跡モジュールは、外部の依存関係 (データベース、REST API など) を自動的に検出しますが、 同じように扱える追加のコンポーネントが必要になる可能性もあります。 
 
 同じを使用して、依存関係情報を送信するコードを記述できます [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency) 標準のモジュールで使用されています。
 
-たとえば、自分で記述していないアセンブリを使ってコードを作成する場合、それに対するすべての呼び出しを測定し、何が応答時間に貢献するかを知ることができます。 Application Insights での依存関係グラフに表示されるこのデータを表示するには、送信を使用してその `TrackDependency`します。
+たとえば、自分で記述していないアセンブリを使ってコードを作成する場合、それに対するすべての呼び出しを測定し、何が応答時間に貢献するかを知ることができます。 このデータを Application Insights 内の依存関係グラフに表示するには、データを `TrackDependency` を使用して送信します。
 
 ```C#
 
@@ -173,23 +174,23 @@ Azure の Web アプリのコントロール パネルで、Application Insights
 
 
 
+<!--Link references-->
 
+[api]: app-insights-api-custom-events-metrics.md
+[apikey]: app-insights-api-custom-events-metrics.md#ikey
+[availability]: app-insights-monitor-web-app-availability.md
+[azure]: ../insights-perf-analytics.md
+[client]: app-insights-javascript.md
+[detect]: app-insights-detect-triage-diagnose.md
+[diagnostic]: app-insights-diagnostic-search.md
+[knowUsers]: app-insights-overview-usage.md
+[metrics]: app-insights-metrics-explorer.md
+[netlogs]: app-insights-asp-net-trace-logs.md
+[perf]: app-insights-web-monitor-performance.md
+[portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-asp-net-dependencies.md
+[roles]: app-insights-resources-roles-access-control.md
+[start]: app-insights-overview.md
 
-
-[api]: app-insights-api-custom-events-metrics.md 
-[apikey]: app-insights-api-custom-events-metrics.md#ikey 
-[availability]: app-insights-monitor-web-app-availability.md 
-[azure]: ../insights-perf-analytics.md 
-[client]: app-insights-javascript.md 
-[detect]: app-insights-detect-triage-diagnose.md 
-[diagnostic]: app-insights-diagnostic-search.md 
-[knowusers]: app-insights-overview-usage.md 
-[metrics]: app-insights-metrics-explorer.md 
-[netlogs]: app-insights-asp-net-trace-logs.md 
-[perf]: app-insights-web-monitor-performance.md 
-[portal]: http://portal.azure.com/ 
-[qna]: app-insights-troubleshoot-faq.md 
-[redfield]: app-insights-asp-net-dependencies.md 
-[roles]: app-insights-resources-roles-access-control.md 
-[start]: app-insights-overview.md 
-
+ 

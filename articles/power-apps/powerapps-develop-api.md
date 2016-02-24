@@ -17,15 +17,14 @@
    ms.date="11/25/2015"
    ms.author="rajram"/>
 
-
 # PowerApps 用 API の開発
 
 PowerApps 内で使用できる独自の API を作成または開発できます。 これには次の手順が含まれます。
 
 - API の構築とデプロイ
-- 作成者 [Swagger 2.0](http://swagger.io/) 、API の API の定義
+- 作成者 [Swagger 2.0](http://swagger.io/) した API 向け API の定義
 
-このトピックでは次の手順を示します。
+このトピックでは次の手順を示します。 
 
 ## 手順 1: API の構築とデプロイ
 
@@ -33,28 +32,25 @@ PowerApps 用 API の構築とデプロイは通常の API の作成と似てい
 
 次の記事は、App Service 環境での、.Net、Java、または Node.js API の構築とデプロイについて書かれています。
 
-- [構築し、Azure App Service で .NET のデプロイ](../app-service-api-dotnet-get-started.md)
-- [構築し、Azure App Service での Java API アプリのデプロイ](../app-service-api-java-api-app.md)
-- [構築し、Azure App Service での Node.js API アプリのデプロイ](../app-service-api-nodejs-api-app.md)
+- [Azure App Service での .NET の構築とデプロイ](../app-service-api-dotnet-get-started.md)
+- [Azure App Service での Java API アプリの構築とデプロイ](../app-service-api-java-api-app.md)
+- [Azure App Service での Node.js API アプリの構築とデプロイ](../app-service-api-nodejs-api-app.md)
 
 
 ## 手順 2: API のための Swagger 2.0 API 定義の記述
 
-*手順 1* で挙げた参照先の記事のいずれかに従えば、標準的な Swagger 2.0 API 定義が API のために自動的に生成されます。 PowerApps のための最適化として、次のスキーマ拡張を使用して生成された Swagger 2.0 API 定義を必要に応じてカスタマイズできます。
+参照先の記事では、いずれかに従う場合 *手順 1.*, 、API の標準的な Swagger 2.0 API 定義が自動的に生成します。 PowerApps のための最適化として、次のスキーマ拡張を使用して生成された Swagger 2.0 API 定義を必要に応じてカスタマイズできます。
 
 一般に Swagger 2.0 API 定義をカスタマイズする方法については、次を参照してください。 [をカスタマイズする Swashbuckle で生成された API 定義](../app-service-api-dotnet-swashbuckle-customize.md)します。
 
 ### スキーマの拡張機能
-
-Swashbuckle によって自動生成された Swagger だけでなく、PowerApps 用の API 作成時には追加で Swagger 拡張機能がいくつか使用可能です。 このセクションではこれらの拡張機能について記述します。
+Swashbuckle によって自動生成された Swagger だけでなく、PowerApps 用の API 作成時には追加で Swagger 拡張機能がいくつか使用可能です。 このセクションではこれらの拡張機能について記述します。 
 
 ##### x-ms-summary
-
-Swagger spec ファイルで定義されている集計フィールドがないエンティティの表示名を表す文字列。 **パラメーター名**がその例です。
+Swagger spec ファイルで定義されている集計フィールドがないエンティティの表示名を表す文字列。 **パラメーター名** 例を示します。 
 
 ##### x-ms-visibility
-
-この値は、エンティティがロジック フロー デザイナーに表示されているかどうかについて説明します。 次の値を使用できます。
+この値は、エンティティがロジック フロー デザイナーに表示されているかどうかについて説明します。 次の値を使用できます。 
 
 - "none" (既定値)
 - "advanced"
@@ -63,21 +59,18 @@ Swagger spec ファイルで定義されている集計フィールドがない�
 操作が「重要」としてマークされている場合は、ロジック フロー クライアントでこれらの操作が強調表示されている必要があります。
 
 ##### x-ms-trigger
-
 ロジック フロー内でのトリガーとしてこの操作を使用できるかどうかを定義します。 次のオプションがあります。
-
+    
 - "none" (既定値): 操作をトリガーとして使用できません。
 - "single": 操作をトリガーとしても使用できます。
-- "batched": この操作はトリガーとして使用できます。 さらに、この操作は、JSON オブジェクトの ' array' で応答し、配列内の各項目のトリガーが起動されたロジック フローします。
+- "batched": この操作はトリガーとして使用できます。  さらに、この操作は、JSON オブジェクトの ' array' で応答し、配列内の各項目のトリガーが起動されたロジック フローします。
 
 
 ##### x-ms-dynamic-values
-
-ロジック フロー デザイナーに対して、API がこのパラメーターに対して動的に有効な値の一覧をヒントとして提供します。 ロジック フロー デザイナーはこのフィールドの値によって定義されている操作を呼び出し、結果から使用可能な値を抽出することができます。 ロジック フロー デザイナーはこれらの値をエンド ユーザーに対してオプションとして表示できます。
-
+ロジック フロー デザイナーに対して、API がこのパラメーターに対して動的に有効な値の一覧をヒントとして提供します。 ロジック フロー デザイナーはこのフィールドの値によって定義されている操作を呼び出し、結果から使用可能な値を抽出することができます。  ロジック フロー デザイナーはこれらの値をエンド ユーザーに対してオプションとして表示できます。  
 
 値は次のプロパティを含むオブジェクトです。
-
+    
 - operationId: 呼び出される操作の operationId に一致する文字列
 - parameters: プロパティで操作に必要なパラメーターが定義されているオブジェクト
 - value-collection: 応答ペイロード内でオブジェクトの配列に対して評価するパス文字列
@@ -90,19 +83,19 @@ Swagger spec ファイルで定義されている集計フィールドがない�
 ```javascript
 "/api/tables/{table}/items": {
   "post": {
-    "operationId": "TableData_CreateItem",
-    "summary": "Create an object in {Salesforce}",
-    "parameters": [
-      {
-        "name": "table",
-        "x-ms-summary": "Object Type",
-        "x-ms-dynamic-values": {
-          "operationId": "TableMetadata_ListTables",      // operation that needs to be invoked
-          "parameters": { },                              // parameters for the above operation, if any
-          "value-collection": "values",                   // field that contains the collection
-          "value-path": "Name",                           // field that contains the value
-          "value-title": "DisplayName"                    // field that contains a display name for the value
-      }
+    "operationId": "TableData_CreateItem",
+    "summary": "Create an object in {Salesforce}",
+    "parameters": [
+      {
+        "name": "table",
+        "x-ms-summary": "Object Type",
+        "x-ms-dynamic-values": {
+          "operationId": "TableMetadata_ListTables",      // operation that needs to be invoked
+          "parameters": { },                              // parameters for the above operation, if any
+          "value-collection": "values",                   // field that contains the collection
+          "value-path": "Name",                           // field that contains the value
+          "value-title": "DisplayName"                    // field that contains a display name for the value
+      }
       // ...
     ]
     // ...
@@ -111,13 +104,12 @@ Swagger spec ファイルで定義されている集計フィールドがない�
 }
 ```
 
-上の例では、Swagger は Salesforce に新しいオブジェクトを作成する _TableData_CreateItem_ と呼ばれる操作を定義しています。
+上記の例では、swagger 定義と呼ばれる操作 _TableData_CreateItem_ Salesforce で新しいオブジェクトを作成します。 
 
-Salesforce には、多数の組み込みのオブジェクトがあります。 _x ms 動的値_ は組み込みのリストをデザイナーの図のためにここで使用で Salesforce オブジェクトです。 取得するには、_TableMetadata_ListTables_ を呼び出す必要があります。
+Salesforce には、多数の組み込みのオブジェクトがあります。 _x ms 動的値_ は組み込みのリストをデザイナーの図のためにここで使用で Salesforce オブジェクトです。 呼び出して取得 _TableMetadata_ListTables_します。
 
 ##### x-ms-dynamic-schema
-
-ロジック フロー デザイナーにとって、このパラメーターのスキーマ (または応答) がもともと動的であるというヒントとなります。 このフィールドの値で定義されているように操作が呼び出され、スキーマを動的に検出します。 適切な UI を表示して、ユーザーからの入力を促したり、使用可能なフィールドを表示したりできます。
+ロジック フロー デザイナーにとって、このパラメーターのスキーマ (または応答) がもともと動的であるというヒントとなります。  このフィールドの値で定義されているように操作が呼び出され、スキーマを動的に検出します。  適切な UI を表示して、ユーザーからの入力を促したり、使用可能なフィールドを表示したりできます。
 
 例:
 
@@ -129,16 +121,12 @@ Salesforce には、多数の組み込みのオブジェクトがあります。
   "x-ms-dynamic-schema": {
     "operationId": "Metadata_GetTableSchema",
     "parameters": {
-      "tablename": "{table}"              // the value that the user has selected from the above parameter
+      "tablename": "{table}"              // the value that the user has selected from the above parameter
     },
-    "value-path": "Schema"                // the field that contains the JSON schema
+    "value-path": "Schema"                // the field that contains the JSON schema
   }
 },
 ```
 
-操作に対する入力が動的なシナリオにおいてこれは役立ちます。 たとえば、SQL の場合を考えてみましょう。 各テーブルのスキーマは異なります。 そのため、ユーザーが特定のテーブルを選択する場合、ロジック フロー デザイナーはテーブルの構造を理解して列名を表示できるようにする必要があります。 このコンテキストでは、Swagger 定義に _x-ms-dynamic-schema_ がある場合、スキーマの取得に対応する操作を呼び出します。
-
-
-
-
+操作に対する入力が動的なシナリオにおいてこれは役立ちます。 たとえば、SQL の場合を考えてみましょう。 各テーブルのスキーマは異なります。 そのため、ユーザーが特定のテーブルを選択する場合、ロジック フロー デザイナーはテーブルの構造を理解して列名を表示できるようにする必要があります。 Swagger 定義がある場合、このコンテキストで _x ms 動的スキーマ_, 、スキーマの取得に対応する操作を呼び出します。
 

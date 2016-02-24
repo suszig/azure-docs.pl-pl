@@ -6,7 +6,7 @@
     authors="TomArcher" 
     manager="douge" 
     editor="tglee"/>
-
+  
 <tags 
     ms.service="active-directory" 
     ms.workload="web" 
@@ -16,20 +16,15 @@
     ms.date="09/03/2015" 
     ms.author="tarcher"/>
 
-
 # Azure Active Directory と Visual Studio 接続済みサービスの概要 (Web API プロジェクト)
 
 > [AZURE.SELECTOR]
-> - [作業の開始](vs-active-directory-webapi-getting-started.md)
+> - [Getting Started (概要)](vs-active-directory-webapi-getting-started.md)
 > - [変更内容](vs-active-directory-webapi-what-happened.md)
 
-## コントローラーへのアクセスに対して認証を要求する
+##コントローラーへのアクセスに対して認証を要求する
+ 
+プロジェクト内のすべてのコント ローラーが修飾された、 **Authorize** 属性です。 この属性により、ユーザーがこれらのコントローラーによって定義された API にアクセスする際に認証が求められます。 これらのコントローラーに匿名でアクセスできるようにするには、コントローラーからこの属性を削除します。 より細かなレベルでアクセス許可を設定するには、コントローラー クラスではなく、認証を必要とするそれぞれのメソッドに対してこの属性を割り当てます。
 
-プロジェクトに含まれるすべてのコントローラーには、**Authorize** 属性が設定されています。 この属性により、ユーザーがこれらのコントローラーによって定義された API にアクセスする際に認証が求められます。 これらのコントローラーに匿名でアクセスできるようにするには、コントローラーからこの属性を削除します。 より細かなレベルでアクセス許可を設定するには、コントローラー クラスではなく、認証を必要とするそれぞれのメソッドに対してこの属性を割り当てます。
-
-[Azure Active Directory の詳細についてください。](http://azure.microsoft.com/services/active-directory/)
-
-
-
-
-
+[Azure Active Directory の詳細を確認する](http://azure.microsoft.com/services/active-directory/)
+ 

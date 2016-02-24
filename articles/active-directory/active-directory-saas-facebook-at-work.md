@@ -1,6 +1,6 @@
 <properties
-    pageTitle="チュートリアル: Azure Active Directory の職場での Facebook と統合 |Microsoft Azure"
-    description="職場で Azure Active Directory と Facebook の間でのシングル サインオンを構成する方法について説明します。"
+    pageTitle="チュートリアル: Azure Active Directory と Facebook at Work の統合 | Microsoft Azure"
+    description="Azure Active Directory と Facebook at Work の間でシングル サインオンを構成する方法について説明します。"
     services="active-directory"
     documentationCenter=""
     authors="asmalser-msft"
@@ -17,20 +17,19 @@
     ms.author="asmalser"/>
 
 
+# チュートリアル: Azure Active Directory と Facebook at Work の統合
 
-# チュートリアル: Azure Active Directory の職場での Facebook と統合
+このチュートリアルでは、Azure Active Directory (Azure AD) を職場での Facebook を統合する方法を説明します。<br>職場での Facebook を Azure AD と統合するには、次のメリットがあります。 
 
-このチュートリアルでは、Azure Active Directory (Azure AD) を職場での Facebook を統合する方法を説明します。<br>職場を Azure AD と統合する Facebook を使うと、次の利点があります。
-
-- 作業の Facebook へのアクセスを持っている Azure AD で制御できます。
+- Facebook at Work にアクセスする Azure AD ユーザーを制御できます 
 - Facebook at Work へのアクセス権が付与されているユーザーには、アカウントを自動的にプロビジョニングできます
-- 自動的に署名済みの作業 (シングル サインオン) での Facebook には Azure AD アカウントでユーザーを有効にすることができます。
-- 1 つの場所でアカウントを管理できます
+- ユーザーが自分の Azure AD アカウントで自動的に Facebook at Work にサインオン (シングル サインオン) する機能を有効にすることができます
+- 1 つの場所でアカウントを管理できます 
 
 Azure AD と SaaS アプリの統合に関する詳細を確認するを参照して [アプリケーションへのアクセスと Azure Active Directory でのシングル サインオン](active-directory-appssoaccess-whatis.md)します。
 
 
-## 前提条件
+## 前提条件 
 
 CS Stars と Azure AD の統合を構成するには、次のものが必要です。
 
@@ -40,59 +39,58 @@ CS Stars と Azure AD の統合を構成するには、次のものが必要で�
 このチュートリアルの手順をテストするには、次の推奨事項に従ってください。
 
 - 必要な場合を除き、運用環境は使用しないでください。
-- Azure AD の評価環境を取得していない場合は、1 か月の試用版を入手できます [ここ](https://azure.microsoft.com/pricing/free-trial/)します。
+- Azure AD の評価環境を取得していない場合は、1 か月の試用版を入手できます [ここ](https://azure.microsoft.com/pricing/free-trial/)します。 
 
 
 ## ギャラリーから Facebook at Work を追加する
+Azure AD への Facebook at Work の統合を構成するには、ギャラリーから管理対象 SaaS アプリの一覧に Facebook at Work を追加する必要があります。
 
-Facebook の統合を構成すると、Azure AD に作業を管理対象 SaaS アプリの一覧に、ギャラリーからの職場で Facebook を追加する必要があります。
+**ギャラリーから Facebook at Work を追加するには、次の手順に従います。**
 
-**ギャラリーから、職場で Facebook を追加するには、次の手順を実行します。**
-
-1. **Microsoft Azure 管理ポータル**の左側のナビゲーション ウィンドウで、**[Active Directory]** をクリックします。 
+1.  **Azure 管理ポータル**, 、左側のナビゲーション ウィンドウで、次のようにクリックします。 **Active Directory**します。 
 <br><br>![Active Directory][1]<br>
 
-2. **[ディレクトリ]** の一覧から、ディレクトリ統合を有効にするディレクトリを選択します。
+2.  **ディレクトリ** 一覧で、ディレクトリ統合を有効にディレクトリを選択します。
 
-3. アプリケーション ビューを開くには、ディレクトリ ビューでトップ メニューの **[アプリケーション]** をクリックします。
+3. ディレクトリ ビューで、[アプリケーション] ビューを開くにはクリックして **アプリケーション** 上部のメニュー。
 <br><br>![アプリケーション][2]<br>
 
-4. ページの下部にある **[追加]** をクリックします。
+4. クリックして **追加** ページの下部にあります。
 <br><br>![アプリケーション][3]<br>
 
-5. **[実行する内容]** ダイアログで、**[ギャラリーからアプリケーションを追加します]** をクリックします。
+5.  **実行する操作** ダイアログ ボックスで、をクリックして **ギャラリーからアプリケーションを追加**します。
 <br><br>![アプリケーション][4]<br>
 
-6. 検索ボックスに「**Facebook at Work**」と入力します。
+6. 検索ボックスに入力 **職場での Facebook**します。
 
 7. 結果ウィンドウで [ **職場での Facebook**, 、] をクリックし、 **完了** アプリケーションを追加します。
 
 
 ### Azure AD シングル サインオンの構成
 
-このセクションでは、ユーザーに職場での Facebook のアカウントで SAML プロトコルに基づくフェデレーションを使用して、Azure Active Directory 認証を有効にする方法について説明します。
+このセクションでは、SAML プロトコルに基づくフェデレーションを使用して、ユーザーが Azure Active Directory のアカウントで Facebook at Work に対する認証を行えるようにする方法を説明します。
 
-**職場での Facebook と Azure AD シングル サインオンを構成するには、次の手順を実行します。**
+**Facebook at Work で Azure AD シングル サインオンを構成するには、次の手順に従います。**
 
-1.  Microsoft Azure 管理ポータルで Facebook at Work を追加したら、**[シングル サインオンの構成]** をクリックします。
+1.  Azure 管理ポータルで、職場で Facebook を追加したら、クリックして **シングル サインオンを構成する**です。
 
-2.  **[アプリケーション URL の構成]** 画面に、ユーザーが Facebook at Work にサインインする URL を入力します。 これは、Facebook の作業のテナント url 
+2.   **アプリケーション URL の構成** 画面で、ユーザーが作業のアプリケーションで、Facebook にサインインする場所の URL を入力します。 これは、Facebook の作業のテナント url 
 (例: https://example.facebook.com/)。 完了すると、クリックして **次**します。
 
-3.  別の web ブラウザーのウィンドウで、管理者として、Facebook の作業の会社サイトにログインします。
+3.  別の Web ブラウザーのウィンドウで、Facebook at Work 企業サイトに管理者としてログインします。
 
 4. Facebook を id プロバイダーとして Azure AD を使用する作業で構成する次の URL での指示に従います: [https://developers.facebook.com/docs/facebook-at-work/authentication/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/authentication/cloud-providers)
 
-5.  完了したら、Microsoft Azure 管理ポータルが表示されているブラウザー ウィンドウに戻り、手順を完了したことを確認するチェックボックスをオンにして、**[次へ]** と **[完了]** をクリックします。
+5.  完了すると、Azure 管理ポータルを表示するブラウザー ウィンドウに戻るを手順を完了したことを確認するチェック ボックスをクリックしてクリックして **次** と **完了**します。
 
 
 ## ユーザーを Facebook at Work に自動的にプロビジョニングする
 
 Azure AD は、割り当てられたユーザーのアカウントの詳細を Facebook at Work と自動的に同期する機能をサポートしています。 この自動同期機能によって、ユーザーが初めてサインインする前に、Facebook at Work がユーザーのアクセスを承認するために必要なデータを取得することができます。 また、Azure AD のアクセス権が取り消された場合、Facebook at Work からユーザーのプロビジョニングを解除することができます。
 
-自動プロビジョニングを設定するには、Microsoft Azure 管理ポータル ウィンドウで **[アカウント プロビジョニングの構成]** をクリックします。
+クリックするを自動プロビジョニングを設定できます **アカウント プロビジョニングの構成** 、Azure 管理ポータル ウィンドウでします。
 
-自動プロビジョニングを構成する方法に関する追加詳細については、「 [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)
+自動プロビジョニングを構成する方法の詳細については、次を参照してください [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers。](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)
 
 
 ## ユーザーを Facebook at Work に割り当てる
@@ -101,24 +99,27 @@ Azure AD は、割り当てられたユーザーのアカウントの詳細を F
 
 **ユーザーを Facebook at Work に割り当てるには:**
 
-1.  Microsoft Azure 管理ポータルの Facebook at Work のスタート ページで、**[アカウントの割り当て]** をクリックします。
+1.  Azure 管理ポータルでの職場での Facebook の開始ページでクリックして **アカウントを割り当てて、**です。
 
-2.  **[表示]** メニューで、Facebook at Work にユーザーとグループのどちらを割り当てるかを選択し、チェックマーク ボタンをクリックします。
+2.   **表示** ] メニューの [ユーザーまたはグループを職場での Facebook に割り当てるし、チェック マークをクリックするかどうかを選択します。
 
 3.  結果の一覧で、Facebook at Work を割り当てるユーザーまたはグループを選択します。
 
-4.  ページ フッターにある **[割り当て]** をクリックします。
+4.  ページ フッター内をクリックして、 **割り当てる** ] ボタンをクリックします。
 
 
 ## その他のリソース
 
-* [Azure Active Directory による SaaS アプリを統合する方法に関するチュートリアルの一覧](active-directory-saas-tutorial-list.md)
-* [アプリケーション アクセスと Azure Active Directory でのシングル サインオンとは](active-directory-appssoaccess-whatis.md)
+* [SaaS アプリと Azure Active Directory を統合する方法に関するチュートリアルの一覧](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory のアプリケーション アクセスとシングル サインオンとは](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+[1]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_04.png
 
 
 
-[1]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_01.png 
-[2]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_02.png 
-[3]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_03.png 
-[4]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_04.png 
+
 

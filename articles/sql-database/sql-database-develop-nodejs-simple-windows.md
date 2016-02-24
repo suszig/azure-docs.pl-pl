@@ -1,6 +1,6 @@
 <properties
     pageTitle="Windows 上で Node.js を使用して、SQL Database に接続する"
-    description="Azure SQL Database への接続に使用できる Node.js コード サンプルについて説明します。サンプルは、Windows クライアント コンピューター上で実行されます。"
+    description="Azure SQL Database への接続に使用できる Node.js コード サンプルについて説明します。 サンプルは、Windows クライアント コンピューター上で実行されます。"
     services="sql-database"
     documentationCenter=""
     authors="meet-bhagdev"
@@ -18,8 +18,8 @@
     ms.author="meetb"/>
 
 
-
 # Windows 上で Node.js を使用して、SQL Database に接続する
+
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
@@ -28,6 +28,7 @@
 
 
 ## 前提条件
+
 
 次のソフトウェア アイテムが、クライアント開発コンピューターに存在する必要があります。
 
@@ -41,17 +42,17 @@
 ### 必要なモジュールのインストール
 
 要件を満たしたら、Node.js バージョン 0.8.9 が表示されていることを確認します。 これは、コマンド ライン ターミナルから次のコマンド node -v で確認できます。
-<br> **Cmd.exe** コマンド ライン ウィンドウで、たとえば C:\NodeJSSQLProject で、プロジェクト ディレクトリに移動します。表示された順序で、次のコマンドを入力します。
+<br> **Cmd.exe** コマンド ライン ウィンドウで、たとえば C:\NodeJSSQLProject で、プロジェクト ディレクトリに移動します。 表示された順序で、次のコマンドを入力します。
 
     npm init
     npm install msnodesql
 
-次に node_modules\msnodesql フォルダーに移動して、**msnodesql-0.2.1-v0.8-ia32** 実行可能ファイルを実行します。 インストール ウィザードの手順に従い、完了したら [完了] をクリックします。 この時点で Node.js SQL Server ドライバーがインストールされている必要があります。 次の手順に従って接続文字列を取得すると、Node.js アプリケーションから Azure SQL DB に接続できるはずです。
+次に node_modules \msnodesql フォルダーに移動し、実行、 **msnodesql 0.2.1 より v0.8 ia32** 実行可能ファイルです。 インストール ウィザードの手順に従い、完了したら [完了] をクリックします。 この時点で Node.js SQL Server ドライバーがインストールされている必要があります。 次の手順に従って接続文字列を取得すると、Node.js アプリケーションから Azure SQL DB に接続できるはずです。
 
 
 ### SQL Database
 
-参照してください、 [開始ページ](sql-database-get-started.md) にサンプル データベースを作成する方法について説明します。 ガイドに従って、**AdventureWorks データベースのテンプレート**を作成することが重要です。 以下に示す例は、**AdventureWorks スキーマ** とのみ動作します。
+参照してください、 [開始ページ](sql-database-get-started.md) にサンプル データベースを作成する方法について説明します。  作成するガイドを実行する重要である、 **AdventureWorks データベースのテンプレート**します。 のみ以下に示す例を使用、 **AdventureWorks スキーマ**します。
 
 
 ## 手順 1. 接続の詳細を取得する
@@ -60,7 +61,9 @@
 
 ## 手順 2. 接続する
 
+
 - プロジェクト ディレクトリ内にある .js ファイルの次のコードをコピーします。
+
 
         var http = require('http');
         var sql = require('msnodesql');
@@ -79,13 +82,15 @@
                 console.log("Successfuly connected");
         });
 
+
 - 次のコマンドを発行して .js ファイルを実行します。
+
 
         node index.js
 
 
-
 ## 手順 3: クエリを実行します。
+
 
     var http = require('http');
     var sql = require('msnodesql');
@@ -102,8 +107,8 @@
         }
         else
             console.log("Successfuly connected");
-    
-    
+
+
         conn.queryRaw("SELECT c.CustomerID, c.CompanyName,COUNT(soh.SalesOrderID) AS OrderCount FROM SalesLT.Customer AS c LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID GROUP BY c.CustomerID, c.CompanyName ORDER BY OrderCount DESC;", function (err, results) {
             if (err) {
                 console.log("Error running query1!");
@@ -115,7 +120,9 @@
         });
     });
 
+
 ## 手順 4: 行を挿入します。
+
 
     var http = require('http');
     var sql = require('msnodesql');
@@ -132,8 +139,8 @@
         }
         else
             console.log("Successfuly connected");
-    
-    
+
+
         conn.queryRaw("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express', 'SQLEXPRESS', 0, 0, CURRENT_TIMESTAMP)", function (err, results) {
             if (err) {
                 console.log("Error running query!");
@@ -145,9 +152,11 @@
         });
     });
 
+
 ## 手順 5: トランザクションをロールバックします。
 
-メソッド **conn.beginTransactions** は、Azure SQL Database では機能しません。 代わりに、次のコード サンプルに従って、SQL Databaseでトランザクションを実行します。
+
+メソッド **conn.beginTransactions** Azure SQL Database では機能しません。 代わりに、次のコード サンプルに従って、SQL Databaseでトランザクションを実行します。
 
 
     var http = require('http');
@@ -165,8 +174,8 @@
         }
         else
             console.log("Successfuly connected");
-    
-    
+
+
         conn.queryRaw("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New ', 'SQLEXPRESS New', 1, 1, CURRENT_TIMESTAMP)", function (err, results) {
             if (err) {
                 console.log("Error running query!");
@@ -176,7 +185,7 @@
                 console.log("Product ID Inserted : "+results.rows[i]);
             }
         });
-    
+
         conn.queryRaw("ROLLBACK TRANSACTION; ", function (err, results) {
                 if (err) {
                 console.log("Rollback failed");
@@ -184,6 +193,7 @@
             }
             });
     });
+
 
 ## 手順 6. ストアド プロシージャ
 
@@ -205,7 +215,7 @@
         }
         else
             console.log("Successfuly connected");
-    
+
         conn.query("exec NameOfStoredProcedure", function (err, results) {
             if (err) {
             console.log("Error running query8!");
@@ -214,11 +224,8 @@
         });
     });
 
+
 ## 次のステップ
 
 詳細については、次を参照してください。、 [Node.js デベロッパー センター](/develop/nodejs/)します。
-
-
-
-
 

@@ -17,14 +17,12 @@
    ms.author="amanbha"/>
 
 
-
 # アクター イベント
-
 アクター イベントは、アクターからクライアントにベスト エフォート通知を送信する方法を提供します。 アクター イベントは、アクターとクライアントの通信用に設計されており、アクター間の通信には使用できません。
 
 次のコード スニペットは、アプリケーションでアクター イベントを使用する方法を示しています。
 
-アクターによって発行されたイベントを表すインターフェイスを定義します。 このインターフェイスから派生する必要があります、 `IActorEvents` インターフェイスです。 メソッドの引数には、 [データ コントラクト シリアル化可能](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)します。 イベント通知が一方向かつベスト エフォートであるため、メソッドは void を返す必要があります。
+アクターによって発行されたイベントを表すインターフェイスを定義します。 このインターフェイスは、`IActorEvents` インターフェイスから派生する必要があります。 メソッドの引数には、 [データ コントラクト シリアル化可能](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)します。 イベント通知が一方向かつベスト エフォートであるため、メソッドは void を返す必要があります。
 
 ```csharp
 public interface IGameEvents : IActorEvents
@@ -65,7 +63,7 @@ var proxy = ActorProxy.Create<IGameActor>(
 proxy.SubscribeAsync(new GameEventsHandler()).Wait();
 ```
 
-フェールオーバーが発生した場合、アクターは別のプロセスまたはノードにフェールオーバーする可能性があります。アクター プロキシは、アクティブなサブスクリプションを管理し、自動的に再サブスクライブします。を介して、再サブスクリプションの間隔を制御する、 `ActorProxyEventExtensions.SubscribeAsync < TEvent >` API です。使用して、サブスクリプションを解除する、 `ActorProxyEventExtensions.UnsubscribeAsync < TEvent >` API です。
+フェールオーバーが発生した場合、アクターは別のプロセスまたはノードにフェールオーバーする可能性があります。 アクター プロキシは、アクティブなサブスクリプションを管理し、自動的に再サブスクライブします。 `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API を介して、再サブスクリプションの間隔を制御できます。 サブスクリプションを解除するには、`ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API を使用します。
 
 アクターで、イベントが発生したときに単純に発行します。 イベントをサブスクライブしているユーザーがいる場合、アクター ランタイムはこれらのユーザーに通知を送信します。
 
@@ -73,8 +71,4 @@ proxy.SubscribeAsync(new GameEventsHandler()).Wait();
 var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), State.Status.Score);
 ```
-
-
-
-
 

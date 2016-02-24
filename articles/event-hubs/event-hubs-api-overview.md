@@ -15,7 +15,6 @@
    ms.date="10/14/2015"
    ms.author="sethm" />
 
-
 # Event Hubs API 概要
 
 この記事は主要な Event Hubs .NET クライアント API についてまとめてあります。 2 つのカテゴリがあります。管理 API とランタイム API です。 ランタイム API はメッセージの送受信に必要なすべての操作で構成されています。 管理操作では、エンティティを作成、更新、削除することで Event Hubs エンティティの状態を管理できます。
@@ -24,7 +23,7 @@
 
 ## 管理 API
 
-次の管理操作を実行するには、Service Bus 名前空間の**管理**権限が必要になります。
+以下にする必要があります管理操作を実行する **管理** Service Bus 名前空間に対するアクセス許可。
 
 ### 作成
 
@@ -96,7 +95,7 @@ EventHubReceiver consumer = await defaultConsumerGroup.CreateReceiverAsync(shard
 
 // From one day ago
 EventHubReceiver consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index, startingDateTimeUtc:DateTime.Now.AddDays(-1));
-
+                        
 // From specific offset, -1 means oldest
 EventHubReceiver consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index,startingOffset:-1); 
 ```
@@ -108,7 +107,7 @@ var message = await consumer.ReceiveAsync();
 
 // Provide a serializer
 var info = message.GetBody<Type>(Serializer)
-
+                                    
 // Get a byte[]
 var info = message.GetBytes(); 
 msg = UnicodeEncoding.UTF8.GetString(info);
@@ -132,7 +131,7 @@ EventProcessorHost host = new EventProcessorHost(WorkerName, EventHubName, defau
 host.UnregisterEventProcessorAsync().Wait();   
 ```
 
-[IEventProcessor](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ieventprocessor.aspx) インターフェイスは次のように定義します。
+ [IEventProcessor](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ieventprocessor.aspx) インターフェイスは次のように定義します。
 
 ```
 public class SimpleEventProcessor : IEventProcessor
@@ -158,7 +157,7 @@ public class SimpleEventProcessor : IEventProcessor
         {
             Process messages here
         }
-
+        
         // Checkpoint when appropriate
         await context.CheckpointAsync();
 
@@ -179,17 +178,13 @@ public class SimpleEventProcessor : IEventProcessor
 
 Event Hubs シナリオに関する詳細については、次のリンク先を参照してください。
 
-- [Azure Event Hubs とは何ですか。](event-hubs-what-is-event-hubs.md)
+- [Azure Event Hubs とは](event-hubs-what-is-event-hubs.md)
 - [Event Hubs の概要](event-hubs-overview.md)
-- [Event Hub プログラミング ガイド](event-hubs-programming-guide.md)
+- [Event Hubs のプログラミング ガイド](event-hubs-programming-guide.md)
 - [Event Hubs コード サンプル](http://code.msdn.microsoft.com/site/search?query=event hub & f [0]。値 = event hub & f [0]。入力 = SearchText & ac = 5)
 
 .NET API リファレンスはここにあります。
 
 - [Service Bus と Event Hubs の .NET API リファレンス](https://msdn.microsoft.com/library/azure/mt419900.aspx)
 - [イベント プロセッサ ホスト API リファレンス](https://msdn.microsoft.com/library/azure/mt445521.aspx)
-
-
-
-
 

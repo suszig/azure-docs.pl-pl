@@ -16,27 +16,25 @@
    ms.date="10/20/2015"
    ms.author="twounder"/>
 
-
 # Visual Studio を使用した接続とクエリ
 
 > [AZURE.SELECTOR]
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
 - [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-
 このチュートリアルでは、Visual Studio を使用して、Azure SQL Data Warehouse データベースへの接続とクエリを数分で実行する方法について説明します。 このチュートリアルでは次を行います。
 
 + 前提条件のソフトウェアをインストールする
 + AdventureWorksDW サンプル データベースを含んだデータベースに接続する
-+ サンプル データベースに対してクエリを実行する
++ サンプル データベースに対してクエリを実行する  
 
 ## 前提条件
 
-+ ダウンロードと Visual Studio 2015 または SSDT のインストール、を参照してください visual Studio 2013/2015 - [Visual Studio のインストールや SSDT](sql-data-warehouse-install-visual-studio.md)。
++ Visual Studio 2013/2015 - をダウンロードし、Visual Studio 2015/SSDT のインストールを参照してください [Visual Studio のインストールや SSDT](sql-data-warehouse-install-visual-studio.md)
 
 ## 完全修飾 Azure SQL サーバー名を取得します。
 
-データベースに接続するには、サーバーの完全な名前を必要 (*** servername**. **.database.windows.net*) に接続するデータベースが格納されています。
+データベースに接続するには、サーバーの完全な名前を必要 (***servername**..database.windows.net を付けて*) に接続するデータベースが格納されています。
 
 1. 移動して、 [Azure ポータル](https://portal.azure.com)します。
 2. 接続先のデータベースを探します。
@@ -47,17 +45,17 @@
 ## SQL Database に接続する
 
 1. Visual Studio を開きます。
-2. [表示] メニューから **SQL Server オブジェクト エクスプローラー**を開きます。
-
+2. 開いている、 **SQL Server オブジェクト エクスプ ローラー** [表示] メニュー
+ 
 ![][2]
 
-3. **[SQL Server の追加]** をクリックします。
+3. クリックして、 **SQL Server の追加** ボタン
 
 ![][3]
 
-4. 前の手順で取得した*サーバー名*を入力します。
-5. **[認証]** リストで、**[SQL Server 認証]** を選択します。
-6. SQL Database サーバーを作成したときに指定した**ログイン情報**と**パスワード**を入力し、**[接続]** をクリックします。
+4. 入力、 *サーバー名* 上収集しました
+5.  **認証** 一覧で、[ **SQL Server 認証**します。
+6. 入力、 **ログイン** と **パスワード** ] をクリックして、SQL データベース サーバーの作成時に指定した **接続**します。
 
 ## サンプル クエリの実行
 
@@ -65,7 +63,7 @@
 
 1. SSDT でユーザー データベースをクリックします。
 
-2. **[新しいクエリ]** をクリックします。 新しいウィンドウが開きます。
+2. クリックして、 **新しいクエリ** ] ボタンをクリックします。 新しいウィンドウが開きます。
 
 ![][4]
 
@@ -77,18 +75,18 @@
 
 4. クエリを実行します。
 
-    クエリをクリックして、緑色の矢印を実行または、ショートカット キーを使用します。 `CTRL`+`shift キーを押し`+`E`します。
+    クエリを実行するには、緑色の矢印をクリックするか、`CTRL`+`SHIFT`+`E` のショートカット キーを使用します。
 
 ## 次のステップ
 
-これで接続して、クエリを実行できる、 [PowerBI で接続する][]します。
+これで接続して、クエリを実行できる、 [PowerBI に接続する][]です。
+
+[connecting with PowerBI]: ./sql-data-warehouse-integrate-power-bi.md  
 
 
+<!--Image references-->
 
-
-[connecting with powerbi]: ./sql-data-warehouse-integrate-power-bi.md 
-[1]: ./media/sql-data-warehouse-get-started-connect-query/get-server-name.png 
-[2]: ./media/sql-data-warehouse-get-started-connect-query/open-ssdt.png 
-[3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png 
-[4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png 
-
+[1]: ./media/sql-data-warehouse-get-started-connect-query/get-server-name.png
+[2]: ./media/sql-data-warehouse-get-started-connect-query/open-ssdt.png
+[3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png
+[4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png

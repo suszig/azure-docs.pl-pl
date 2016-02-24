@@ -1,6 +1,6 @@
 <properties
    pageTitle="Publish-WebApplicationWebSite (Windows PowerShell スクリプト)"
-   description="Web プロジェクトを Azure Web サイトに発行する方法について説明します。このスクリプトは、必要なリソースが Azure サブスクリプションに存在しない場合にそれらを作成します。"
+   description="Web プロジェクトを Azure Web サイトに発行する方法について説明します。 このスクリプトは、必要なリソースが Azure サブスクリプションに存在しない場合にそれらを作成します。"
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,10 +15,9 @@
    ms.date="08/13/2015"
    ms.author="tarcher" />
 
-
 # Publish-WebApplicationWebSite (Windows PowerShell スクリプト)
 
-## 構文
+##構文
 
 Web プロジェクトを Azure Web サイトに発行します。 このスクリプトは、必要なリソースが Azure サブスクリプションに存在しない場合にそれらを作成します。
 
@@ -30,70 +29,71 @@ Web プロジェクトを Azure Web サイトに発行します。 このスク�
     -SendHostMessagesToOutput
     -Verbose
 
+
 ## 構成
 
 デプロイの詳細が記述されている JSON 構成ファイルへのパス。
 
-| パラメーター| 既定値|
+|パラメーター|既定値|
 |---|---|
-| 別名| なし|
-| 必須| true|
-| 位置| named|
-| 既定値| なし|
-| パイプライン入力を許可する| false|
-| ワイルドカード文字を許可する| false|
+|別名|なし|
+|必須|true|
+|位置|named|
+|既定値|なし|
+|パイプライン入力を許可する|false|
+|ワイルドカード文字を許可する|false|
 
 ## SubscriptionName
 
 Web サイトを作成する Azure サブスクリプションの名前。
 
-| パラメーター| 既定値|
+|パラメーター|既定値|
 |---|---|
-| 別名| なし|
-| 必須| false|
-| 位置| named|
-| 既定値| なし|
-| パイプライン入力を許可する| false|
-| ワイルドカード文字を許可する| false|
+|別名|なし|
+|必須|false|
+|位置|named|
+|既定値|なし|
+|パイプライン入力を許可する|false|
+|ワイルドカード文字を許可する|false|
 
 ## WebDeployPackage
 
 Web サイトに発行する Web デプロイ パッケージへのパス。 Visual Studio で Web の発行ウィザードを使用して、このパッケージを作成できます。 詳細については、次を参照してください。 [Azure Cloud Services と ASP.NET を使ってみる](http://go.microsoft.com/fwlink/p/?LinkID=623089)します。
 
-| パラメーター| 既定値|
+|パラメーター|既定値|
 |---|---|
-| 別名| なし|
-| 必須| false|
-| 位置| named|
-| 既定値| なし|
-| パイプライン入力を許可する| false|
-| ワイルドカード文字を許可する| false|
+|別名|なし|
+|必須|false|
+|位置|named|
+|既定値|なし|
+|パイプライン入力を許可する|false|
+|ワイルドカード文字を許可する|false|
 
 ## DatabaseServerPassword
 
 Azure の SQL データベースのユーザー名およびパスワード。
 
-| パラメーター| 既定値|
+|パラメーター|既定値|
 |---|---|
-| 別名| なし|
-| 必須| false|
-| 位置| named|
-| 既定値| なし|
-| パイプライン入力を許可する| false|
-| ワイルドカード文字を許可する| false|
+|別名|なし|
+|必須|false|
+|位置|named|
+|既定値|なし|
+|パイプライン入力を許可する|false|
+|ワイルドカード文字を許可する|false|
 
 ## SendHostMessagesToOutput
 
 true の場合、スクリプトからのメッセージは出力ストリームに出力されます。
 
-| パラメーター| 既定値|
+|パラメーター|既定値|
 |---|---|
-| 別名| なし|
-| 必須| false|
-| 位置| named|
-| 既定値| false|
-| パイプライン入力を許可する| false|
-| ワイルドカード文字を許可する| false|
+|別名|なし|
+|必須|false|
+|位置|named|
+|既定値|false|
+|パイプライン入力を許可する|false|
+|ワイルドカード文字を許可する|false|
 
 ## 解説
 
@@ -127,9 +127,5 @@ JSON 構成ファイルは、デプロイ対象を変更するように編集で
 
 ## 次のステップ
 
-詳細については、を参照してください [(Windows PowerShell スクリプト) を発行 WebApplicationVM](vs-azure-tools-publish-webapplicationvm.md)。
-
-
-
-
+詳細については、次を参照してください [発行 WebApplicationVM (Windows PowerShell スクリプト)。](vs-azure-tools-publish-webapplicationvm.md)
 

@@ -16,12 +16,11 @@
  ms.date="12/02/2015"
  ms.author="araguila"/>
 
-
 # 予測的なメンテナンスの構成済みソリューションのチュートリアル
 
 ## はじめに
 
-IoT Suite の予測的なメンテナンスの構成済みソリューションは、障害が発生する可能性があるポイントを予測するビジネス シナリオに対応したエンド ツー エンド ソリューションです。 この構成済みソリューションを使用すると、メンテナンスの最適化などのアクティビティを先手を打って実行できます。 ソリューションを含む、主要な Azure の IoT Suite サービスを組み合わせて、 [Azure Machine Learning ][lnk_machine_learning] パブリック サンプル データ セットに基づいて、航空機のエンジンの残り便利なライフ (RUL) を予測する実験を備えたワークスペース。 このソリューションでは、独自の固有のビジネス要件で必要なこの種類の IoT ソリューションを計画および実装するための開始地点として使用できる、完全なビジネス シナリオが実装されています。
+IoT Suite の予測的なメンテナンスの構成済みソリューションは、障害が発生する可能性があるポイントを予測するビジネス シナリオに対応したエンド ツー エンド ソリューションです。 この構成済みソリューションを使用すると、メンテナンスの最適化などのアクティビティを先手を打って実行できます。 ソリューションを含む、主要な Azure の IoT Suite サービスを組み合わせて、 [Azure Machine Learning][lnk_machine_learning] パブリック サンプル データ セットに基づいて、航空機のエンジンの残り便利なライフ (RUL) を予測する実験を備えたワークスペース。 このソリューションでは、独自の固有のビジネス要件で必要なこの種類の IoT ソリューションを計画および実装するための開始地点として使用できる、完全なビジネス シナリオが実装されています。
 
 ## 論理アーキテクチャ
 
@@ -35,36 +34,36 @@ IoT Suite の予測的なメンテナンスの構成済みソリューション�
 
 緑色の項目は、シミュレートされている航空機エンジン デバイスです。 シミュレートされているデバイスの詳細については、以下を参照してください。
 
-灰色の項目は、*デバイスの管理*機能を実装しているコンポーネントを示します。 予測的なメンテナンスの構成済みソリューションの現在のリリースでは、これらのリソースはプロビジョニングできません。 デバイス管理の詳細についてを参照してください、 [リモート監視 ][lnk-remote-monitoring]します。
+灰色の項目を実装するコンポーネントを表す *デバイス管理* 機能します。 予測的なメンテナンスの構成済みソリューションの現在のリリースでは、これらのリソースはプロビジョニングできません。 デバイス管理の詳細についてを参照してください、 [監視ソリューションが事前に構成されているリモート][lnk-remote-monitoring]します。
 
 ## シミュレートされたデバイス
 
 構成済みのソリューションでは、航空機エンジン デバイスをシミュレーションしています。 このソリューションでは、1 台の航空機にマッピングされる 2 つのエンジンをプロビジョニングしています。 各エンジンは、Machine Learning モデルがそのエンジンの残存耐用年数 (RUL) を計算するために必要なデータを提供するセンサー 9、センサー 11、センサー 14、およびセンサー 15 の 4 種類のテレメトリを出力します。 シミュレートされたデバイスはそれぞれ、次のテレメトリ メッセージを IoT Hub に送信します。
 
-*サイクル数*。 サイクルとは、長さが 2 ～ 10 時間に渡る完了しているフライトを示します。フライトの期間中、テレメトリ データは 30 分ごとにキャプチャされます。
+*数サイクル*します。 サイクルとは、長さが 2 ～ 10 時間に渡る完了しているフライトを示します。フライトの期間中、テレメトリ データは 30 分ごとにキャプチャされます。
 
-*テレメトリ*。 エンジン属性を示すセンサーは 4 つあります。 センサーは総称的に、センサー 9、センサー 11、センサー 14、およびセンサー 15 とラベル付けされています。 これら 4 つのセンサーは、RUL 用に Machine Learning モデルから有用な結果を得るテレメトリを表します。 このモデルは、実際のエンジンのセンサー データなど、公開されているデータ セットから作成されています。 元のデータ セットからモデルの作成方法の詳細については、次を参照してください。、 [Cortana Analytics テンプレート ギャラリーには予測メンテナンス ][lnk-cortana-analytics]します。
+*製品利用統計情報*します。 エンジン属性を示すセンサーは 4 つあります。 センサーは総称的に、センサー 9、センサー 11、センサー 14、およびセンサー 15 とラベル付けされています。 これら 4 つのセンサーは、RUL 用に Machine Learning モデルから有用な結果を得るテレメトリを表します。 このモデルは、実際のエンジンのセンサー データなど、公開されているデータ セットから作成されています。 元のデータ セットからモデルの作成方法の詳細については、次を参照してください。、 [Cortana Analytics テンプレート ギャラリーには予測メンテナンス][lnk-cortana-analytics]します。
 
 シミュレートされたデバイスは、IoT Hub から送信された次のコマンドを処理できます。
 
-| コマンド| 説明|
+| コマンド | 説明 |
 |---------|-------------|
-| StartTelemetry| シミュレーションの状態を制御します。<br/>テレメトリを送信するデバイスの起動|
-| StopTelemetry| シミュレーションの状態を制御します。<br/>テレメトリを送信するデバイスを停止します。|
+| StartTelemetry | シミュレーションの状態を制御します。<br/>デバイスのテレメトリ送信を開始します。     |
+| StopTelemetry  | シミュレーションの状態を制御します。<br/>テレメトリを送信するデバイスを停止します。 |
 
 IoT Hub は、デバイスのコマンドの受信確認を渡します。
 
 ## Azure Stream Analytics ジョブ
 
-**ジョブ: 製品利用統計情報** は 2 つのステートメントを使用して、受信デバイス テレメトリ ストリームで動作します。 1 つ目では、デバイスからのすべてのテレメトリを選択し、Web アプリで視覚化されるデータが格納される Blob Storage に送信します。 2 つ目のステートメントは 2 分間のスライディング ウィンドウに渡る平均センサー値を計算し、このデータを Event Hub を介して**イベント プロセッサ**に送信します。
+**ジョブ: 製品利用統計情報** は 2 つのステートメントを使用して、受信デバイス テレメトリ ストリームで動作します。 1 つ目では、デバイスからのすべてのテレメトリを選択し、Web アプリで視覚化されるデータが格納される Blob Storage に送信します。 2 番目のステートメントを計算平均センサーを選択し、値は 2 分スライディング ウィンドウでこのデータを Event hub に送信する **イベント プロセッサ**します。
 
 ## イベント プロセッサ
 
-**イベント プロセッサ** のサイクルが完了した平均センサーの値は、これらの値をエンジンの RUL を計算する機械学習トレーニング済みモデルを公開する API に渡します。
+ **イベント プロセッサ** のサイクルが完了した平均センサーの値は、これらの値をエンジンの RUL を計算する機械学習トレーニング済みモデルを公開する API に渡します。
 
 ## Azure Machine Learning
 
-元のデータ セットからモデルの作成方法の詳細については、次を参照してください。、 [Cortana Analytics テンプレート ギャラリーには予測メンテナンス ][lnk-cortana-analytics]します。
+元のデータ セットからモデルの作成方法の詳細については、次を参照してください。、 [Cortana Analytics テンプレート ギャラリーには予測メンテナンス][lnk-cortana-analytics]します。
 
 ## チュートリアルの開始
 
@@ -72,18 +71,18 @@ IoT Hub は、デバイスのコマンドの受信確認を渡します。
 
 ### 予測的なメンテナンスのダッシュボード
 
-Web アプリケーションでは、このページは、PowerBI JavaScript コントロールを使用して (を参照してください、 [PowerBI ビジュアル リポジトリ ][lnk-powerbi]) を視覚化します。
+Web アプリケーションでは、このページは、PowerBI JavaScript コントロールを使用して (を参照してください、 [PowerBI ビジュアル リポジトリ][lnk-powerbi]) を視覚化します。
 
 - Blob Storage 内の Stream Analytics ジョブから出力されたデータ。
 - 各航空機エンジンの RUL とサイクル数。
 
 ### クラウド ソリューションの動作を確認する
 
-Azure ポータルを参照して選択したソリューションの名前を持つリソース グループに移動し、準備されたリソースを表示できます。
+Azure ポータルにアクセスし、指定したソリューション名の付いたリソース グループに移動すると、プロビジョニングされたリソースを確認できます。
 
 ![][img-resource-group]
 
-構成済みのソリューションをプロビジョニングすると、Machine Learning ワークスペースへのリンクを含む電子メールを受信します。 この Machine Learning ワークスペースに移動することも、[azureiotsuite.com ][lnk-azureiotsuite] 、プロビジョニング済みのソリューションにあるときのページ、 **準備ができて** 状態です。
+構成済みのソリューションをプロビジョニングすると、Machine Learning ワークスペースへのリンクを含む電子メールを受信します。 この Machine Learning ワークスペースに移動することも、[azureiotsuite.com][lnk-azureiotsuite] 、プロビジョニング済みのソリューションにあるときのページ、 **準備ができて** 状態です。
 
 ![][img-machine-learning]
 
@@ -91,7 +90,7 @@ Azure ポータルを参照して選択したソリューションの名前を�
 
 ![][img-simulation-stopped]
 
-**[シミュレーションを開始する]** をクリックすると、シミュレーションが開始され、センサーの履歴、RUL、サイクル数、および RUL 履歴がダッシュボードに入力されます。
+クリックして **シミュレーションを開始する** 履歴がダッシュ ボードを作成するには、シミュレーションでは、センサーの履歴、RUL、サイクル、および RUL を確認します。
 
 ![][img-simulation-running]
 
@@ -103,24 +102,24 @@ RUL が (デモンストレーション用に選択した任意のしきい値�
 
 148 サイクルの完全なデータセットのシミュレーションが実行され、最終的な RUL とサイクル数が出されます。
 
-シミュレーションは任意のポイントで停止できます。**[シミュレーションを開始する]** をクリックすると、データセットの先頭からのシミュレーションを再生できます。
+いずれかでシミュレーションを停止するポイント、クリックしても **開始シミュレーション** データセットの先頭からのシミュレーションを再生します。
 
 ## 次のステップ
 
-参照してください、変更をすることがあります、予測のメンテナンスが構成済みのソリューションを実行したようになりました [構成済みのソリューションをカスタマイズする方法のガイダンス ][lnk-customize]します。
+参照してください、変更をすることがあります、予測のメンテナンスが構成済みのソリューションを実行したようになりました [構成済みのソリューションをカスタマイズする方法のガイダンス][lnk-customize]します。
 
+  
+[img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
+[img-resource-group]: media/iot-suite-predictive-walkthrough/resource-group.png
+[img-machine-learning]: media/iot-suite-predictive-walkthrough/machine-learning.png
+[img-simulation-stopped]: media/iot-suite-predictive-walkthrough/simulation-stopped.png
+[img-simulation-running]: media/iot-suite-predictive-walkthrough/simulation-running.png
+[img-simulation-warning]: media/iot-suite-predictive-walkthrough/simulation-warning.png
 
-
-[img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png 
-[img-resource-group]: media/iot-suite-predictive-walkthrough/resource-group.png 
-[img-machine-learning]: media/iot-suite-predictive-walkthrough/machine-learning.png 
-[img-simulation-stopped]: media/iot-suite-predictive-walkthrough/simulation-stopped.png 
-[img-simulation-running]: media/iot-suite-predictive-walkthrough/simulation-running.png 
-[img-simulation-warning]: media/iot-suite-predictive-walkthrough/simulation-warning.png 
-[lnk-powerbi]: https://www.github.com/Microsoft/PowerBI-visuals 
-[lnk_machine_learning]: https://azure.microsoft.com/services/machine-learning/ 
-[lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md 
-[lnk-cortana-analytics]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3 
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/ 
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md 
+[lnk-powerbi]: https://www.github.com/Microsoft/PowerBI-visuals
+[lnk_machine_learning]: https://azure.microsoft.com/services/machine-learning/
+[lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-cortana-analytics]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
+[lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 

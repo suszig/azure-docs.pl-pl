@@ -17,7 +17,6 @@
     ms.author="markusvi;andkjell"/>
 
 
-
 # Azure AD Connect Sync: パスワード同期の実装
 
 パスワード同期により、ユーザーはオンプレミス Active Directory にサインインするときと同じパスワードを使用して Azure Active Directory にサインインできるようになります。
@@ -27,6 +26,7 @@
 ## パスワード同期とは
 
 パスワード同期は Azure Active Directory Connect 同期サービス (Azure AD Connect Sync) の機能であり、オンプレミス Active Directory と Azure Active Directory (Azure AD) のユーザー パスワードを同期します。 この機能を使用すると、ユーザーは、オンプレミス ネットワークにログインするときと同じパスワードを使用して、Azure Active Directory のサービス (Office 365、Microsoft Intune、CRM Online など) にログインできます。
+
 > [AZURE.NOTE] FIPS とパスワードの同期が構成されている Active Directory ドメイン サービスに関する詳細については、次を参照してください。 [パスワードの同期と FIPS](#password-synchronization-and-fips)します。
 
 ### パスワード同期の可用性
@@ -44,7 +44,8 @@ Active Directory ドメイン サービスは、実際のユーザー パスワ�
 パスワード同期機能を初めて有効にすると、パスワードの初期同期を実行し、スコープ内のすべてのユーザーのパスワードをオンプレミス Active Directory から Azure Active Directory に同期します。 パスワードをクラウドに同期するユーザーのセットを明示的に定義することはできません。 その後は、オンプレミス ユーザーがパスワードを変更すると、パスワード同期機能は、ほとんどの場合は数分以内に、それを検出して変更されたパスワードを同期します。 パスワードの同期が失敗すると、パスワード同期機能は自動的に再試行します。 パスワード同期の試行中にエラーが発生した場合、イベント ビューアーにエラーが表示されます。
 
 パスワードの同期によって、現在ログイン中のユーザーが影響を受けることはありません。 クラウド サービスにログインしているユーザーがオンプレミスのパスワードを変更した場合でも、クラウド サービスのセッションは中断せずに続けられます。 ただし、クラウド サービスでユーザーの再認証が必要になったときは、すぐに新しいパスワードを提供する必要があります。 この時点で、ユーザーは新しいパスワード、つまりその前にオンプレミス Active Directory からクラウドに同期されたパスワードを提供する必要があります。
-> [AZURE.NOTE] パスワード同期は、Active Directory でオブジェクトの種類がユーザーであるオブジェクトのみがサポートされます。 オブジェクトの種類が INetOrgPerson であるオブジェクトはサポートされません。
+
+> [AZURE.NOTE] パスワード同期は、Active Directory のユーザー オブジェクトの種類に対してのみサポートされます。 オブジェクトの種類が INetOrgPerson であるオブジェクトはサポートされません。
 
 ### Azure AD Domain Services のパスワード同期のしくみ
 
@@ -66,11 +67,12 @@ Azure AD でこのサービスを有効にする場合、シングル サイン�
 **パスワードの複雑性のポリシー**
 
 パスワード同期を有効にすると、オンプレミス Active Directory で構成されているパスワードの複雑性のポリシーにより、同期されるユーザーに対してクラウドで定義されている複雑性のポリシーが上書きされます。 つまり、ユーザーのオンプレミス Active Directory 環境において有効なパスワードは、Azure AD サービスのアクセスに使用できます。
-> [AZURE.NOTE] クラウド内で直接作成されたユーザーのパスワードには、引き続きクラウドで定義されているパスワード ポリシーが適用されます。
+
+> [AZURE.NOTE] クラウドで直接作成されるユーザーのパスワードは、クラウドで定義されているパスワード ポリシーがまだ適用です。
 
 **パスワードの有効期限のポリシー**
 
-ユーザーがパスワード同期のスコープ内にいる場合、クラウド アカウントのパスワードは "*期限なし*" に設定されます。 つまり、オンプレミス環境でユーザーのパスワードの期限が切れても、クラウド サービスにはその期限切れパスワードを使用して引き続きログインできる可能性があります。
+クラウド アカウントのパスワードを設定、ユーザーがパスワード同期のスコープ内にある場合は、"*無期限*"です。 つまり、オンプレミス環境でユーザーのパスワードの期限が切れても、クラウド サービスにはその期限切れパスワードを使用して引き続きログインできる可能性があります。
 
 クラウドのパスワードは、次にユーザーがオンプレミス環境でパスワードを変更したときに更新されます。
 
@@ -84,6 +86,7 @@ Azure AD でこのサービスを有効にする場合、シングル サイン�
 
 ## パスワード同期の準備
 
+
 ### パスワード同期の有効化
 
 Azure AD Connect のインストール時に簡単設定を使用すると、既定でパスワード同期が有効になります。
@@ -91,7 +94,7 @@ Azure AD Connect のインストール時に簡単設定を使用すると、既
 Azure AD をインストールするときに、カスタム設定を使用する場合、接続ユーザーのサインイン ページでパスワード同期を有効にします。
 ![usersignin](./media/active-directory-aadsync-implement-password-synchronization/usersignin.png)
 
-**AD FS とのフェデレーション**の使用を選択する場合、AD FS インフラストラクチャで障害が発生した際のバックアップとして、パスワード同期を有効にすることができます。 Azure AD Domain Services を使用する予定がある場合にも、有効にすることができます。
+使用を選択する場合 **AD FS とのフェデレーション** 必要に応じてように指定できますパスワード同期バックアップとして、AD FS インフラストラクチャに失敗した場合。 Azure AD Domain Services を使用する予定がある場合にも、有効にすることができます。
 
 ### パスワード同期と FIPS
 
@@ -107,36 +110,35 @@ FIPS (Federal Information Processing Standard) に従ってサーバーがロッ
 
 config ファイルの末尾に configuration/runtime ノードがあります。
 
-セキュリティについておよび FIPSを参照してください [AAD パスワード同期、暗号化、FIPS コンプライアンス](http://blogs.technet.com/b/ad/archive/2014/06/28/aad-password-sync-encryption-and-and-fips-compliance.aspx)。
+セキュリティおよび FIPS に関する情報を参照してください [AAD パスワード同期、暗号化、FIPS コンプライアンス。](http://blogs.technet.com/b/ad/archive/2014/06/28/aad-password-sync-encryption-and-and-fips-compliance.aspx)
 
 ## パスワード同期の管理
 
 ### パスワード同期のトラブルシューティング
 
-**Synchronization Service Manager** を起動し、**[コネクタ]** を開き、ユーザーが属する Active Directory Connector を選択し、**[コネクタ スペースの検索]** を選択し、対象のユーザーを検索します。
+開始 **Synchronization Service Manager**, 、開かれている **コネクタ**, をユーザーにある Active Directory コネクタを選択し、選択 **検索コネクタ スペース**, 、し、探しているユーザーを検索します。
 
 ![csuser](./media/active-directory-aadsync-implement-password-synchronization/cspasswordsync.png)
 
-ユーザーについて、**[系列]** タブを選択し、少なくとも 1 つの同期規則の **[パスワード同期]** に **[True]** と表示されていることを確認します。 既定の構成では、**[In from AD - User AccountEnabled]** という同期規則です。
+ユーザー単位で選択して、 **系列** ] タブで少なくとも 1 つの同期規則の表示になっていることを確認し、 **パスワード同期** として **True**します。 既定の構成で名前付きの同期ルールになります **で AD - User AccountEnabled から**します。
 
-オブジェクトのパスワード同期の詳細を確認するには、このページの下部にある **[ログ...]** をクリックします。 過去 1 週間分、ユーザーのパスワード同期状態の履歴が表示されます。
+オブジェクトの詳細を同期する、ボタンをクリックして、パスワードを表示する **ログ...** このページの下部にあります。 過去 1 週間分、ユーザーのパスワード同期状態の履歴が表示されます。
 
 ![オブジェクト ログ](./media/active-directory-aadsync-implement-password-synchronization/csobjectlog.png)
 
 状態列には次のような値が表示されます。ここには、問題と、パスワードが同期されない理由も表示されます。
 
-| 状態| 説明|
+| 状態 | 説明 |
 | ---- | ----- |
-| 成功| パスワードが正常に同期されました。|
-| FilteredByTarget| パスワードは **[ユーザーは次回ログオン時にパスワードの変更が必要]** に設定されています。パスワードは同期されていません。|
-| NoTargetConnection| メタバースまたは Azure AD コネクタ スペースなオブジェクトがありません。|
-| SourceConnectorNotPresent| オンプレミスの Active Directory コネクタ スペースにオブジェクトがありません。|
-| TargetNotExportedToDirectory| Azure AD コネクタ スペースのオブジェクトはまだエクスポートされていません。|
-| MigratedCheckDetailsForMoreInfo| ログ エントリはビルド 1.0.9125.0 より前に作成されており、従来の状態で表示されます。|
+| 成功 | パスワードが正常に同期されました。 |
+| FilteredByTarget | 設定されているパスワード **ユーザーは次回ログオン時にパスワードを変更する必要があります**します。 パスワードは同期されていません。 |
+| NoTargetConnection | メタバースまたは Azure AD コネクタ スペースなオブジェクトがありません。 |
+| SourceConnectorNotPresent | オンプレミスの Active Directory コネクタ スペースにオブジェクトがありません。 |
+| TargetNotExportedToDirectory | Azure AD コネクタ スペースのオブジェクトはまだエクスポートされていません。 |
+| MigratedCheckDetailsForMoreInfo | ログ エントリはビルド 1.0.9125.0 より前に作成されており、従来の状態で表示されます。 |
 
 
 ### すべてのパスワードの完全同期の開始
-
 すべてのパスワードを強制的に完全同期する必要はありませんが、何らかの理由で必要な場合は、PowerShell を利用できます。
 
     $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
@@ -151,12 +153,11 @@ config ファイルの末尾に configuration/runtime ノードがあります�
     Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $false
     Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true
 
+
+
+
 ## その他のリソース
 
 * [Azure AD Connect Sync: 同期オプションのカスタマイズ](active-directory-aadconnectsync-whatis.md)
-* [内部設置型 id と Azure Active Directory の統合](active-directory-aadconnect.md)
-
-
-
-
+* [オンプレミス ID と Azure Active Directory の統合](active-directory-aadconnect.md)
 

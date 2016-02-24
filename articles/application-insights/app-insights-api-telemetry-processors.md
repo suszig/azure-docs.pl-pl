@@ -5,7 +5,7 @@
     documentationCenter="" 
     authors="alancameronwills" 
     manager="douge"/>
-
+ 
 <tags 
     ms.service="application-insights" 
     ms.workload="tbd" 
@@ -15,14 +15,9 @@
     ms.date="10/22/2015" 
     ms.author="awills"/>
 
-
 # 製品利用統計情報を前処理し、サンプリング、フィルター処理
 
 このコンテンツは [ここに移動](app-insights-api-filtering-sampling.md), 、し、このファイルは間もなく削除されます。
 
 
-
-
-
-
-
+ 

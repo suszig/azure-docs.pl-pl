@@ -18,7 +18,6 @@
     ms.author="josephd"/>
 
 
-
 # Azure 仮想マシンへの SharePoint 2010 のデプロイ
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーのモデルです。
@@ -29,6 +28,7 @@ Microsoft SharePoint Server 2010 は高度に柔軟なデプロイを行い、�
 Azure 仮想マシンは複数のワークロードをサポートしますが、この記事では SharePoint のデプロイを取り上げます。 Azure の仮想マシンを使用すると、SharePoint インフラストラクチャをすばやく作成して管理できるだけでなく、ほぼすべてのホストを対象として汎用的にプロビジョニングやアクセスを行えます。 プロセッサ、RAM、CPU 範囲などの SharePoint 仮想マシン リソースを全面的にコントロールして管理できます。
 
 Azure の仮想マシンを活用すると、ハードウェアを用意する必要性が減少するため、高い事前コストや複雑な処理に対処するのではなく、規模に応じてインフラストラクチャを構築し管理することに目を向けることができます。 つまり、従来のデプロイのように日単位や週単位ではなく、時間単位で技術革新、実験、反復作業ができるようになります。
+
 > [AZURE.NOTE] Azure の SharePoint 2013 の展開については、次を参照してください。 [SharePoint 2013 用の Microsoft Azure アーキテクチャ](https://technet.microsoft.com/library/dn635309.aspx) と [Azure インフラストラクチャ サービスでホストされる SharePoint ファーム](virtual-machines-sharepoint-infrastructure-services.md)します。
 
 ## Azure 仮想マシン上の SharePoint Server
@@ -51,7 +51,7 @@ SharePoint の物理サーバーとファームをデプロイ、テスト、お
 
 ### 使用量の測定
 
-Azure の仮想マシンには、SharePoint シナリオ用のコンピューティング パワー、メモリ、ストレージが用意されており、その価格は一般にリソースの消費量に基づいて決められます。 使用した分だけ料金を支払えばよく、SharePoint インフラストラクチャを実行するのに必要な容量はすべて提供されます。 料金と課金の詳細についてを参照してください [Azure の料金詳細](http://azure.microsoft.com/pricing/)します。 Azure からオンプレミスのネットワークにストレージとデータを移動すると、料金が若干掛かります。 ただし Azure の場合、データのアップロードには料金がかかりません。
+Azure の仮想マシンには、SharePoint シナリオ用のコンピューティング パワー、メモリ、ストレージが用意されており、その価格は一般にリソースの消費量に基づいて決められます。 使用した分だけ料金を支払えばよく、SharePoint インフラストラクチャを実行するのに必要な容量はすべて提供されます。 料金と課金の詳細についてを参照してください [料金の詳細 Azure](http://azure.microsoft.com/pricing/)します。 Azure からオンプレミスのネットワークにストレージとデータを移動すると、料金が若干掛かります。 ただし Azure の場合、データのアップロードには料金がかかりません。
 
 ### 柔軟性
 
@@ -59,7 +59,7 @@ Azure の仮想マシンでは、開発者は目的の言語またはランタ�
 
 ## プロビジョニング プロセス
 
-Azure のイメージ ライブラリには、利用できる構成済みの仮想マシンが一覧表示されています。 ユーザーは、SharePoint Server、SQL Server、Windows Server などの ISO/VHD をイメージ ライブラリに発行できます。 仮想マシンの作成を単純にするために、作成された基本イメージはライブラリに発行されます。 正規ユーザーはこのイメージを使用して目的の仮想マシンを生成できます。 詳細についてを参照してください [Azure クラシック ポータルで Windows を実行する仮想マシンを作成する](virtual-machines-windows-tutorial-classic-portal.md)します。 図 1 は、Azure クラシック ポータルを使用して仮想マシンを作成する基本的な手順を示しています。
+Azure のイメージ ライブラリには、利用できる構成済みの仮想マシンが一覧表示されています。 ユーザーは、SharePoint Server、SQL Server、Windows Server などの ISO/VHD をイメージ ライブラリに発行できます。 仮想マシンの作成を単純にするために、作成された基本イメージはライブラリに発行されます。 正規ユーザーはこのイメージを使用して目的の仮想マシンを生成できます。 詳細についてを参照してください [Azure クラシック ポータルで Windows を実行する仮想マシンを作成する](virtual-machines-windows-tutorial-classic-portal.md)です。 図 1 は、Azure クラシック ポータルを使用して仮想マシンを作成する基本的な手順を示しています。
 
 ![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-2.png)
 
@@ -78,20 +78,20 @@ Azure クラシック ポータルでは、SysPrep ツールが既に実行さ�
 次の手順に従うことで、従来のデプロイ モデルを使用して SharePoint 2010 を Azure にデプロイできます。
 
 1. サインイン、 [Azure クラシック ポータル](http://manage.windowsazure.com/) Azure サブスクリプション アカウントを使用します。 Azure のアカウントがあるない場合 [Azure の無料評価版にサインアップ](http://azure.microsoft.com/pricing/free-trial/)します。
-2. 基本オペレーティング システムの仮想マシンを作成するには、Azure クラシック ポータルで、**[新規]、[Compute]、[仮想マシン]、[ギャラリーから]** の順にクリックします。
-3. **[イメージの選択]** ダイアログ ボックスが表示されます。 **[Windows Server 2008 R2 SP1]** プラットフォーム イメージをクリックし、右矢印をクリックします。
-4. **[仮想マシンの構成]** ダイアログ ボックスが表示されます。 次の情報を指定します。
-    - **[仮想マシン名]** ボックスに入力します。
+2. Azure クラシック ポータル上の基本オペレーティング システムと仮想マシンを作成するにはクリックして **新規 > コンピューティング > 仮想マシン > ギャラリーから**します。
+3.  **イメージの選択** ] ダイアログ ボックスが表示されます。 クリックして、 **Windows Server 2008 R2 SP1** プラットフォーム イメージを作成し、右矢印をクリックします。
+4.  **仮想マシンの構成** ] ダイアログ ボックスが表示されます。 次の情報を指定します。
+    - 入力、 **仮想マシン名**します。
     - 適切なサイズを選択します。 運用環境の場合 (SharePoint アプリケーション サーバーおよびデータベース)、A3 (4 コア、7 GB メモリ) 以上を使用することをお勧めします。
-    - **[新しいユーザー名]** に、ローカル管理者アカウント名を入力します。
-    - **[新しいパスワード]** に、強力なパスワードを入力します。
-    - **[確認]** に、パスワードを再度入力し、右矢印をクリックします。
-5. 2 つ目の **[仮想マシンの構成]** ダイアログ ボックスが表示されます。 次の情報を指定します。
-    - **[クラウド サービス]** で、**[新しいクラウド サービスの作成]** を選択するか (こちらを選択する場合は、クラウド サービスの DNS 名を入力する必要があります)、既存のクラウド サービスを選択します。
-    - **[リージョン/アフィニティ グループ/Virtual Network]** で、仮想イメージをホストするリージョンを選択します。
-    - **[ストレージ アカウント]** で、**[自動的に生成されたストレージ アカウントを使用]** をクリックするか、既存のストレージ アカウント名を選択します。 自動的に作成されるストレージ アカウントはリージョンあたり 1 つだけです。 この設定で作成する他のすべての仮想マシンがこのストレージ アカウントに配置されます。 ストレージ アカウントは 20 個に制限されています。 詳細についてを参照してください [で、Azure ストレージ アカウントの作成](virtual-machines-create-upload-vhd-windows-server.md#step-2-create-a-storage-account-in-azure)します。
-    - **[可用性セット]** の **[(なし)]** を選択し、右矢印をクリックします。
-6. 3 つ目の **[仮想マシンの構成]** ダイアログ ボックスで、チェックマークをクリックして仮想マシンを作成します。
+    -  **新しいユーザー名**, 、ローカル管理者アカウント名を入力します。
+    -  **新しいパスワード**, 、強力なパスワードを入力します。
+    -  **Confirm**, をパスワードを再入力して、右矢印をクリックします。
+5. 2 番目 **仮想マシンの構成** ] ダイアログ ボックスが表示されます。 次の情報を指定します。
+    -  **クラウド サービス**, [ **新しいクラウド サービスを作成する**, にする必要がありますもクラウド サービス DNS 名を入力または選択した既存のクラウド サービスです。
+    -  **リージョン/アフィニティ グループ/仮想ネットワーク**, 、仮想イメージをホストするリージョンを選択します。
+    -  **ストレージ アカウント**, 、] をクリックして **自動的に生成されたストレージ アカウントを使用して** か、既存のストレージ アカウント名を選択します。 自動的に作成されるストレージ アカウントはリージョンあたり 1 つだけです。 この設定で作成する他のすべての仮想マシンがこのストレージ アカウントに配置されます。 ストレージ アカウントは 20 個に制限されています。 詳細についてを参照してください [で、Azure ストレージ アカウントの作成](virtual-machines-create-upload-vhd-windows-server.md#step-2-create-a-storage-account-in-azure)します。
+    -  **可用性セット**, を選択 **(なし)**, 、右矢印をクリックします。
+6. 3 つ目の **仮想マシンの構成** ] ダイアログ ボックスで、仮想マシンを作成するチェック マークをクリックします。
 
 仮想マシンに接続するを参照してください。 [Windows Server を実行する仮想マシンへのサインイン方法](virtual-machines-log-on-windows-server.md)します。
 
@@ -113,7 +113,7 @@ Azure クラシック ポータルでは、SysPrep ツールが既に実行さ�
 手順 2. 基本オペレーティング システムの別の仮想マシンを作成して (上記の手順 1. ～ 6. を参照)、SharePoint Server をプロビジョニングします。 この仮想マシン上に SharePoint Server を構築するには、次のいずれかのオプションを選択します。
 
 - SharePoint GUI を使用してプロビジョニングします。
-    - 作成して、SharePoint ファームを準備をするには [Microsoft SharePoint server ファームを作成する](http://technet.microsoft.com/library/ee805948.aspx#CreateConfigure)します。
+    - 作成して、SharePoint ファームを準備をするには [Microsoft SharePoint server ファームを作成する](http://technet.microsoft.com/library/ee805948.aspx#CreateConfigure)です。
     - Web またはアプリケーション サーバーをファームに追加するには [web またはアプリケーション サーバーをファームに追加](http://technet.microsoft.com/library/cc261752.aspx)します。
     - データベース サーバーを既存のファームを追加するには [データベース サーバーを既存のファームに追加](http://technet.microsoft.com/library/cc262781)します。
     - SharePoint ファームで SQL Server 2012 を使用するには、アプリケーションをインストールした後、サーバーの構成はしないで、SharePoint Server 2010 の Service Pack 1 をダウンロードしてインストールする必要があります。 詳細についてを参照してください [SharePoint Server 2010 Service Pack 1](http://www.microsoft.com/download/details.aspx?id=26623)します。
@@ -130,7 +130,8 @@ Azure クラシック ポータルでは、SysPrep ツールが既に実行さ�
 手順 4. スクリプトの実行が完了したら、仮想マシン ダッシュボードを使用して仮想マシンに接続します。
 
 SharePoint の構成を確認するために、SharePoint Server にサインインして、[サーバーの全体管理] を使用します。
-> [AZURE.NOTE] 必ず Azure クラシック ポータル エンドポイントでセキュリティを構成し、仮想マシンの Windows ファイアウォールで着信ポートを設定してください。 その後、管理者の資格情報で Windows PowerShell セッションを開いて、SharePoint アプリケーション サーバーの 1 つに対してリモート Windows PowerShell セッションを開始できることを確認します。
+
+> [AZURE.NOTE] Azure クラシック ポータル エンドポイントでセキュリティを構成し、バーチャル マシンの Windows ファイアウォールで着信ポートを設定することを確認します。 その後、管理者の資格情報で Windows PowerShell セッションを開いて、SharePoint アプリケーション サーバーの 1 つに対してリモート Windows PowerShell セッションを開始できることを確認します。
 
 ### 仮想ハード ディスクの作成とアップロード
 
@@ -156,7 +157,7 @@ SharePoint の構成を確認するために、SharePoint Server にサインイ
 
 SharePoint 開発環境とテスト環境を Azure に実装するには、次の手順に従います。
 
-1. プロビジョニング: まず、Azure Virtual Network を使用してオンプレミスのシステムおよび Azure との VPN 接続をプロビジョニングします  (ここでは Active Directory を使用していないため、VPN トンネルが必要です)。 詳細についてを参照してください [仮想ネットワークの概要](../virtual-network/virtual-networks-overview.md)します。 次に、Azure クラシック ポータルで、イメージ ギャラリーにあるストック イメージを使用して、新しい仮想マシンをプロビジョニングします。
+1. プロビジョニング: まず、Azure Virtual Network を使用してオンプレミスのシステムおよび Azure との VPN 接続をプロビジョニングします  (ここでは Active Directory を使用していないため、VPN トンネルが必要です)。詳細についてを参照してください [仮想ネットワークの概要](../virtual-network/virtual-networks-overview.md)します。 次に、Azure クラシック ポータルで、イメージ ギャラリーにあるストック イメージを使用して、新しい仮想マシンをプロビジョニングします。
     - オンプレミスの SharePoint 開発およびテスト仮想マシンを Azure のストレージ アカウントにアップロードして、その仮想マシンをイメージ ライブラリから参照して必要な環境を構築することができます。
     - Windows Server 2008 R2 SP1 イメージの代わりに SQL Server 2012 イメージを使用できます。 詳細についてを参照してください [Azure 上の SQL Server 仮想マシンをプロビジョニング](virtual-machines-provision-sql-server.md)します。
 
@@ -285,9 +286,5 @@ SharePoint Server を Azure の仮想マシンに正常にデプロイするに�
 
 [Azure インフラストラクチャ サービス実装ガイドライン](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-[Azure での SharePoint Server 2016 IT Preview のテストします。](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)
-
-
-
-
+[SharePoint Server 2016 IT Preview を Azure でテストする](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)
 

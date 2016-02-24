@@ -17,11 +17,10 @@
     ms.date="10/05/2015"
     ms.author="josephd"/>
 
-
 # Azure 仮想マシンでホストされている Oracle ソフトウェア
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーのモデルです。
-
+ 
 
 Azure インフラストラクチャ サービス内で、仮想マシン上で実行される 1 番目または 2 番目の開発およびテスト、または運用 Oracle データベースを設定します。 構成のしやすさ、また Oracle データベースのワークロードをすばやく拡張して新しい容量を含める機能をご活用ください。
 
@@ -55,9 +54,5 @@ Azure インフラストラクチャ サービス内で、仮想マシン上で�
 
 ## Oracle GoldenGate
 
-[Azure 用の Oracle GoldenGate の構成](virtual-machines-configuring-oracle-goldengate.md) データベースおよびレプリケーションのセットアップの手順を説明します。
-
-
-
-
+[Azure の Oracle GoldenGate の構成](virtual-machines-configuring-oracle-goldengate.md) データベースおよびレプリケーションのセットアップの手順を説明します。
 

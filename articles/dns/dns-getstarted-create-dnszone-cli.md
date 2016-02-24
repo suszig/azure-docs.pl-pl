@@ -16,13 +16,13 @@
    ms.date="11/10/2015"
    ms.author="joaoma"/>
 
-
 # CLI で Azure DNS の使用を開始する
+
+
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 - [PowerShell](dns-getstarted-create-dnszone.md)
-
 
 
 ドメイン "contoso.com" には、"mail.contoso.com" (メール サーバー用) や "www.contoso.com" (Web サイト用) など、多数の DNS レコードが含まれている場合があります。 DNS ゾーンは、特定のドメインの DNS レコードをホストするために使用されます。
@@ -39,8 +39,9 @@ Azure CLI をインストールします。 Windows 用、Linux 用、MAC 用の
 
     Azure network
 
->[AZURE.IMPORTANT] DNS コマンドを使用するには、Azure CLI バージョン 0.9.8 以上が必要です。 型 `azure v`どの Azure CLI のバージョンがコンピューター上で現在インストールされているかを確認します。
 
+>[AZURE.IMPORTANT] DNS コマンドに必要な Azure CLI バージョン 0.9.8 またはそれ以降。 コンピューターに現在インストールされている Azure CLI のバージョンを確認するには、「`azure -v`」と入力します。
+ 
 ### 手順 2.
 
 Azure DNS では、Azure リソース マネージャーを使用します。 arm コマンドおよび DNS を使用するように CLI を切り替えます。
@@ -56,7 +57,6 @@ Azure アカウントにサインインします。
 資格情報を使用して認証を行うように求めるメッセージが表示されます。 使用できるのは ORGID アカウントだけであることに留意してください。
 
 ### 手順 4.
-
 使用する Azure サブスクリプションを選択します。
 
     Azure account set "subscription name"
@@ -85,11 +85,12 @@ Azure DNS サービスは Microsoft.Network リソース プロバイダーに�
 
 ## DNS ゾーンの作成
 
-使用して DNS ゾーンを作成、 `azure ネットワークの dns ゾーン作成` コマンドです。 次の例では、"MyResourceGroup" というリソース グループに "contoso.com" という DNS ゾーンを作成します。
+DNS ゾーンは、`azure network dns zone create` コマンドを使用して作成します。 次の例では、"MyResourceGroup" というリソース グループに "contoso.com" という DNS ゾーンを作成します。
 
     Azure network dns zone create -n contoso.com -g myresourcegroup
 
->[AZURE.NOTE] Azure DNS では、ゾーン名を指定する際に末尾に "." を付けないでください。たとえば、"contoso.com." ではなく "contoso.com" とします。
+
+>[AZURE.NOTE] Azure dns を付けないでゾーン名を指定する '.'、"contoso.com"ではなく、"contoso.com"などとして。
 
 
 これで、Azure DNS に DNS ゾーンが作成されました。 DNS ゾーンを作成すると、次の DNS レコードも作成されます。
@@ -101,8 +102,9 @@ Azure DNS サービスは Microsoft.Network リソース プロバイダーに�
 
     Usage: network dns record-set show <resource-group> <dns-zone-name> <name> <type>
 
-次の例で、リソース グループ "myresourcegroup"、レコード セット名 "@" (ルート レコード)、タイプ "SOA" でコマンドを実行すると、次の出力が生成されます。
 
+次の例で、リソース グループ "myresourcegroup"、レコード セット名 "@" (ルート レコード)、タイプ "SOA" でコマンドを実行すると、次の出力が生成されます。
+ 
 
     azure network dns record-set show myresourcegroup "contoso.com" "@" SOA
     info:    Executing command network dns-record-set show
@@ -120,7 +122,6 @@ Azure DNS サービスは Microsoft.Network リソース プロバイダーに�
     data:      Refresh time                  : 900
     data:      Retry time                    : 300
     data:                                    :
-
 <BR>
 作成された NS レコードを表示するには、次のコマンドを使用します。
 
@@ -140,12 +141,12 @@ Azure DNS サービスは Microsoft.Network リソース プロバイダーに�
     data:
     info:    network dns-record-set show command OK
 
->[AZURE.NOTE] DNS ゾーンのルート (または '頂点') にあるレコード セットは、レコード セット名として "@" を使用します。
+>[AZURE.NOTE] DNS のルート (または '頂点') でレコード セットのゾーンを使用して"@"、レコード セット名として。
 
-最初の DNS ゾーンを作成したところで、nslookup、DIG、**Resolve-DnsName** PowerShell コマンドレットなどの DNS ツールを使用してそのゾーンをテストできます。
+最初の DNS ゾーンが作成されたため、アプリケーションをテスト nslookup、DIG などの DNS ツールを使用して、または **Resolve-dnsname** PowerShell コマンドレット。
 Azure DNS の新しいゾーンを使用するためのドメインの委任をまだ行っていない場合は、ゾーンのネーム サーバーの 1 つに DNS クエリを直接送信する必要があります。 ゾーンのネーム サーバーは、上の "azure network dns-record-set show" でリスとされるように、NS レコードで与えられます。 次のコマンドを実際のゾーンの正しい値に置き換えてください。
 
-次の例では、DIG を使用し、DNS ゾーンに割り当てられたネーム サーバーを使用して、ドメイン contoso.com をクエリします。クエリに使用する対象のネーム サーバーを指すが `@< ゾーンのネーム サーバー >` 、DIG を使用してゾーンの名前。
+次の例では、DIG を使用し、DNS ゾーンに割り当てられたネーム サーバーを使用して、ドメイン contoso.com をクエリします。 クエリでは、`@<name server for the zone>` で使用したネーム サーバーとゾーン名を、DIG を使用して指定する必要があります。
 
      <<>> DiG 9.10.2-P2 <<>> @ns1-05.azure-dns.com contoso.com
     (1 server found)
@@ -154,16 +155,16 @@ Azure DNS の新しいゾーンを使用するためのドメインの委任を�
     ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 60963
     flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
     WARNING: recursion requested but not available
-    
+
     OPT PSEUDOSECTION:
     EDNS: version: 0, flags:; udp: 4000
     QUESTION SECTION:
     contoso.com.                        IN      A
-    
+
     AUTHORITY SECTION:
     contoso.com.         300     IN      SOA     edge1.azuredns-cloud.net.
     msnhst.microsoft.com. 6 900 300 604800 300
-    
+
     Query time: 93 msec
     SERVER: 208.76.47.5#53(208.76.47.5)
     WHEN: Tue Jul 21 16:04:51 Pacific Daylight Time 2015
@@ -171,12 +172,9 @@ Azure DNS の新しいゾーンを使用するためのドメインの委任を�
 
 ## 次のステップ
 
+
 [レコード セットとレコードの作成の概要します。](dns-getstarted-create-recordset-cli.md)<BR>
 [DNS ゾーンを管理する方法](dns-operations-dnszones-cli.md)<BR>
 [DNS レコードを管理する方法](dns-operations-recordsets-cli.md)<BR>
 [.NET SDK を使用した Azure の操作を自動化します。](dns-sdk.md)<BR>
 [Azure DNS REST API リファレンス](https://msdn.microsoft.com/library/azure/mt163862.aspx)
-
-
-
-

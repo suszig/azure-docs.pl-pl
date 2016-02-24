@@ -16,10 +16,8 @@
    ms.date="09/29/2015"
    ms.author="claudioc"/>
 
-
 # 高信頼アクターの設計パターン: 分散ネットワークおよびグラフ
-
-Service Fabric 高信頼アクターは、関係に関する複雑なソリューションのモデル化とそれらの関係のオブジェクトとしてのモデル化に自然に適合します。
+Service Fabric 高信頼アクターは、関係に関する複雑なソリューションのモデル化とそれらの関係のオブジェクトとしてのモデル化に自然に適合します。  
 
 ![][1]
 
@@ -211,24 +209,22 @@ public Task PublishMessageAsync(long participantId, string message)
 実際には、信頼性の高いアクターの機能を利用するだけです。この機能により、アクターは ID でクラスター内の別のアクターのアドレスを指定し、通信できるようになります。配置、アドレス指定、キャッシュ、メッセージング、シリアル化、またはルーティングについて心配する必要はありません。
 
 ## 次のステップ
-
 [パターン: スマート キャッシュ](service-fabric-reliable-actors-pattern-smart-cache.md)
 
 [パターン: リソースのガバナンス](service-fabric-reliable-actors-pattern-resource-governance.md)
 
 [パターン: ステートフル サービスの構成](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
 
-[モ ノのインターネットのパターン:](service-fabric-reliable-actors-pattern-internet-of-things.md)
+[パターン: モノのインターネット](service-fabric-reliable-actors-pattern-internet-of-things.md)
 
 [パターン: 分散計算](service-fabric-reliable-actors-pattern-distributed-computation.md)
 
-[いくつかアンチ パターン](service-fabric-reliable-actors-anti-patterns.md)
+[いくつかのアンチ パターン](service-fabric-reliable-actors-anti-patterns.md)
 
 [Service Fabric アクターの概要](service-fabric-reliable-actors-introduction.md)
 
 
-
-
-[1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png 
-[2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png 
+<!--Image references-->
+[1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
+[2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
 

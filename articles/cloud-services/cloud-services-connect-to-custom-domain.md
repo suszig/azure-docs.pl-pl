@@ -16,7 +16,6 @@
     ms.date="03/05/2015"
     ms.author="vmaker"/>
 
-
 # Azure でホストされているカスタム AD ドメイン コントローラーへの Azure Cloud Services ロールの接続
 
 ## Azure でホストされているカスタム ドメイン コントローラーに Azure Web ロールまたは worker ロールを接続するための手順ガイド
@@ -34,7 +33,7 @@
 Azure に Virtual Network を作成するには、Azure クラシック ポータルか PowerShell を使います。 このチュートリアルでは、PowerShell を使用します。 Azure クラシック ポータルを使用して、仮想ネットワークを作成するを参照してください。 [仮想ネットワークの作成](../create-virtual-network.md)します。
 
     #Create Virtual Network
-    
+
     $vnetStr =
     @"<?xml version="1.0" encoding="utf-8"?>
     <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
@@ -54,7 +53,7 @@ Azure に Virtual Network を作成するには、Azure クラシック ポー�
       </VirtualNetworkConfiguration>
     </NetworkConfiguration>
     "@;
-    
+
     $vnetConfigPath = "<path-to-vnet-config>"
     Set-AzureVNetConfig -ConfigurationPath $vnetConfigPath;
 
@@ -65,7 +64,7 @@ Virtual Network の設定が完了したら、AD ドメイン コントローラ
 そのためには、PowerShell で次のコマンドを使用して仮想マシンを作成します。
 
     #Initialize variables
-    
+
     $vnetname = '<your-vnet-name>'
     $subnetname = '<your-subnet-name>'
     $vmsvc1 = ‘<your-hosted-service>’
@@ -73,19 +72,19 @@ Virtual Network の設定が完了したら、AD ドメイン コントローラ
     $username = ‘<your-username>’
     $password = ‘<your-password>’
     $ affgrp = ‘<your- affgrp>’
-    
+
     #Create a VM and add it to the Virtual Network
-    
+
     New-AzureQuickVM -Windows -ServiceName $vmsvc1 -name $vm1 -ImageName $imgname -AdminUsername $username -Password $password -AffinityGroup $affgrp -SubnetNames $subnetname -VNetName $vnetname
 
-## 仮想マシンをドメイン コントローラーに昇格させる
 
+## 仮想マシンをドメイン コントローラーに昇格させる
 仮想マシンを AD ドメイン コントローラーとして構成するには、VM にログインして構成する必要があります。
 
 VM にログインするには、PowerShell で次のコマンドを使用して RDP ファイルを取得します。
 
     #Get RDP file
-    
+
     Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-path>
 
 VM にログインすると仮想マシン設定を AD ドメイン コント ローラーとして、次のステップ バイ ステップ ガイドの [カスタム AD ドメイン コント ローラーの設定方法](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx)します。
@@ -99,14 +98,14 @@ VM にログインすると仮想マシン設定を AD ドメイン コント �
         <Instances count="[number-of-instances]" />
       </Role>
       <NetworkConfiguration>
-    
-        
+
+        <!--optional-->
         <Dns>
           <DnsServers><DnsServer name="[dns-server-name]" IPAddress="[ip-address]" /></DnsServers>
         </Dns>
-        
-    
-        
+        <!--optional-->
+
+        <!--VNET settings-->
         <VirtualNetworkSite name="[virtual-network-name]" />
         <AddressAssignments>
           <InstanceAddress roleName="[role-name]">
@@ -115,27 +114,27 @@ VM にログインすると仮想マシン設定を AD ドメイン コント �
             </Subnets>
           </InstanceAddress>
         </AddressAssignments>
-        
-    
+        <!--VNET settings-->
+
       </NetworkConfiguration>
     </ServiceConfiguration>
 
-次に、クラウド サービス プロジェクトをビルドして Azure にデプロイします。 クラウド サービス パッケージを Azure にデプロイすることを参照してください [を作成して、クラウド サービスをデプロイする方法](cloud-services-how-to-create-deploy.md#deploy)
+次に、クラウド サービス プロジェクトをビルドして Azure にデプロイします。 クラウド サービス パッケージを Azure にデプロイすることにヘルプを表示するには、次を参照してください [を作成して、クラウド サービスをデプロイする方法。](cloud-services-how-to-create-deploy.md#deploy)
 
 ## AD ドメイン拡張機能を使用して、Web ロールまたは worker ロールをカスタム ドメインに接続する
 
 Azure にクラウド サービス プロジェクトをデプロイした後は、AD ドメイン拡張機能を使用して、ロール インスタンスをカスタム AD ドメインに接続します。 AD ドメイン拡張機能を既存のクラウド サービス デプロイメントに追加し、カスタム ドメインに参加させるには、PowerShell で次のコマンドを実行します。
 
     #Initialize domain variables
-    
+
     $domain = ‘<your-domain-name>’;
     $dmuser = ‘$domain\<your-username>’;
     $dmpswd = '<your-domain-password>';
     $dmspwd = ConvertTo-SecureString $dmpswd -AsPlainText -Force;
     $dmcred = New-Object System.Management.Automation.PSCredential ($dmuser, $dmspwd);
-    
+
     #Add AD Domain Extension to the cloud service roles
-    
+
     Set-AzureServiceADDomainExtension -Service <your-cloud-service-hosted-service-name> -Role <your-role-name> -Slot <staging-or-production> -DomainName $domain -Credential $dmcred -JoinOption 35;
 
 これで終わりです。
@@ -148,8 +147,4 @@ Azure にクラウド サービス プロジェクトをデプロイした後は
 私たちは、仮想マシンをドメイン コントローラーに昇格させる拡張機能の有用性に関して皆さんからのご意見を募集しています。 このような拡張機能が便利だと思われる方は、コメントを残してください。
 
 この記事がお役に立てばさいわいです。
-
-
-
-
-
+ 

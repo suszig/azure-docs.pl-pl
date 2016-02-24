@@ -6,7 +6,7 @@
    authors="nitinme" 
    manager="paulettm" 
    editor="cgronlun"/>
-
+ 
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
@@ -16,23 +16,22 @@
    ms.date="12/11/2015"
    ms.author="nitinme"/>
 
-
 # Azure Storage BLOB から Data Lake Store へのデータのコピー
 
 コマンド ライン ツールを提供する azure Data Lake ストア [AdlCopy](http://aka.ms/downloadadlcopy), 、Azure ストレージ Blob からデータをデータ湖のストアにコピーします。 ツールには 2 つの使用方法があります。
 
-* **スタンドアロン**。Data Lake Store リソースを使用してタスクを実行する方法です。
-* **Data Lake Analytics アカウントの使用**。Data Lake Analytics アカウントに割り当てられているユニットを使用して、コピー操作を実行する方法です。 予測可能な方法でコピー操作を実行したい場合は、このオプションを利用できます。
+* **スタンドアロン**, 、タスクを実行するツールが Data Lake ストアのリソースを使用します。
+* **Data Lake 分析アカウントを使用して**, Data Lake 分析アカウントに割り当てられた単位がコピー操作の実行に使用されます。 予測可能な方法でコピー操作を実行したい場合は、このオプションを利用できます。
 
-## 前提条件
+##前提条件
 
 この記事を読み始める前に、次の項目を用意する必要があります。
 
-- **Azure サブスクリプション**。 参照してください [取得 Azure 無料試用版](https://azure.microsoft.com/pricing/free-trial/)します。
-- Data Lake Store のパブリック プレビューに対して、**Azure サブスクリプションを有効にする**。 参照してください [指示](data-lake-store-get-started-portal.md#signup)します。
-- データが含まれる **Azure Storage Blobs** コンテナー。
+- **Azure サブスクリプション**します。 参照してください [取得 Azure 無料試用版](https://azure.microsoft.com/pricing/free-trial/)します。
+- **Azure サブスクリプションを有効にする** 湖のデータ ストアのパブリック プレビューします。 参照してください [指示](data-lake-store-get-started-portal.md#signup)します。 
+- **Azure のストレージ Blob** いくつかのデータを含むコンテナーです。
 - **Azure Data Lake 分析アカウント (省略可能)** -を参照してください [Azure Data Lake 分析を使ってみる](data-lake-analytics/data-lake-analytics-get-started-portal.md) 湖のデータ ストアのアカウントを作成する方法についてです。
-- **AdlCopy ツール**。 ツールをインストールする AdlCopy から [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy)します。
+- **AdlCopy ツール**します。 ツールをインストールする AdlCopy から [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy)します。
 
 ## AdlCopy ツールの構文
 
@@ -42,19 +41,19 @@ AdlCopy ツールを操作するには、次の構文を使用します。
 
 構文のパラメーターを次に示します。
 
-| オプション| 説明|
+| オプション    | 説明                                                                                                                                                                                                                                                                                                                                                                                                          |
 |-----------|------------|
-| Source| Azure Storage Blob のソース データの場所を指定します。ソースには BLOB コンテナーまたは BLOB を使用できます。|
-| Dest| Data Lake Store のコピー先を指定します。|
-| SourceKey| Azure Storage Blob ソースのストレージ アクセス キーを指定します。|
-| Account| **省略可能**。Azure Data Lake Analytics アカウントを使用してコピー ジョブを実行する場合に、このオプションを使用します。構文に /Account オプションを使用して、Data Lake Analytics アカウントを指定しない場合、AdlCopy は既定のアカウントを使用してジョブを実行します。また、このオプションを使用する場合、ソース (Azure Storage Blob) とコピー先 (Azure Data Lake Store) を Data Lake Analytics アカウントのデータ ソースとして追加する必要があります。|
-| Units| コピー ジョブに使用する Data Lake Analytics ユニット数を指定します。 **/Account** オプションを使用して Data Lake Analytics アカウントを指定する場合、このオプションは必須です。
+| Source    | Azure Storage Blob のソース データの場所を指定します。 ソースには BLOB コンテナーまたは BLOB を使用できます。                                                                                                                                                                                                                                                                                                    |
+| Dest      | Data Lake Store のコピー先を指定します。                                                                                                                                                                                                                                                                                                                                                                |
+| SourceKey | Azure Storage Blob ソースのストレージ アクセス キーを指定します。                                                                                                                                                                                                                                                                                                                                                  |
+| アカウント   | **省略可能な**です。 Azure Data Lake Analytics アカウントを使用してコピー ジョブを実行する場合に、このオプションを使用します。 構文に /Account オプションを使用して、Data Lake Analytics アカウントを指定しない場合、AdlCopy は既定のアカウントを使用してジョブを実行します。 また、このオプションを使用する場合、ソース (Azure Storage Blob) とコピー先 (Azure Data Lake Store) を Data Lake Analytics アカウントのデータ ソースとして追加する必要があります。  |
+| Units     |  コピー ジョブに使用する Data Lake Analytics ユニット数を指定します。 このオプションを使用する場合は必須です、 **/アカウント** Data Lake 分析アカウントを指定するにはオプションです。                                                                                                                                                                                                                                                                                                                                               
 
 
 
 ## スタンドアロンとして AdlCopy ツールを使用する
 
-1. コマンド プロンプトを開き、AdlCopy がインストールされている、通常、ディレクトリに移動 `%HOMEPATH%\Documents\adlcopy`します。
+1. コマンド プロンプトを開き、AdlCopy がインストールされているディレクトリ (通常は `%HOMEPATH%\Documents\adlcopy`) に移動します。
 
 2. 次のコマンドを実行して、ソース コンテナーの特定の BLOB を Data Lake Store にコピーします。
 
@@ -82,8 +81,7 @@ AdlCopy ツールを操作するには、次の構文を使用します。
 
         AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== 
 
-
-
+    
 
 ## Data Lake Analytics アカウントで AdlCopy を使用する
 
@@ -103,15 +101,11 @@ Data Lake Analytics アカウントと AdlCopy を使用するには、ソース
 
 * AdlCopy ツールをスタンドアロンとして使用する場合、ソースの Azure Storage アカウントが Data Lake Store と同じリージョン内になければ、データの移動に関する送信コストがかかります。
 
-* 場合は、Data Lake 分析で AdlCopy ツールを使用するアカウントの場合、標準的な [料金を課金 Data Lake 分析](https://azure.microsoft.com/pricing/details/data-lake-analytics/) が適用されます。
+* 場合は、Data Lake 分析で AdlCopy ツールを使用するアカウントの場合、標準的な [料金を課金 Data Lake 分析](https://azure.microsoft.com/pricing/details/data-lake-analytics/) が適用されます。 
 
 ## 次のステップ
 
-- [Data Lake ストア内のデータをセキュリティで保護します。](data-lake-store-secure-data.md)
-- [データ湖ストアでの Azure Data Lake 分析の使用します。](data-lake-analytics-get-started-portal.md)
-- [Data Lake ストアと Azure HDInsight を使用してください。](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-
-
-
+- [Data Lake Store のデータをセキュリティで保護する](data-lake-store-secure-data.md)
+- [Data Lake Store で Azure Data Lake Analytics を使用する](data-lake-analytics-get-started-portal.md)
+- [Data Lake Store で Azure HDInsight を使用する](data-lake-store-hdinsight-hadoop-use-portal.md)
 

@@ -16,7 +16,6 @@
    ms.date="11/23/2015"
    ms.author="chackdan"/>
 
-
 # Service Fabric クラスターのアップグレード
 
 Service Fabric クラスターは、お客様が所有するものの、Microsoft が部分的に管理するリソースです。 この記事では、何が自動的に管理され、何をお客様が構成できるかについて説明します。
@@ -66,11 +65,11 @@ Microsoft は、クラスターで実行されるファブリック コードと
 
 ポータルから、または servicefabric.cluster リソースへの PUT コマンドの発行を通じて、プライマリまたはセカンダリ証明書を簡単に更新できます。
 
-![CertificateUpgrade][certificateupgrade]
+![CertificateUpgrade][CertificateUpgrade]
 
-**注** クラスター リソースに使用する証明書を特定する前に、次の手順を完了しておく必要があります。この手順を行わなかった場合、新しい証明書は使用されません。
-1)、新しい証明書を資格情報コンテナーにアップロードする-を参照してください [Service Fabric のセキュリティ](service-fabric-cluster-security.md) 手順をそのドキュメントの手順 2 から開始します。
-2) 証明書がデプロイされるように、クラスターを構成するすべての Virtual Machines を更新します。 参照してください [このブログの投稿](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx) を説明します。
+**注** クラスター リソースを使用する証明書を識別する前に、次の手順を完了している必要があります、それ以外の場合、新しい証明書は使用されません。
+1) 新しい証明書を資格情報コンテナーにアップロード - を参照してください [Service Fabric のセキュリティ](service-fabric-cluster-security.md) 手順をそのドキュメントの手順 2 から開始します。
+2) 証明書を取得して展開できるように、クラスターを構成するすべての仮想マシンを更新します。 参照してください [このブログの投稿](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx) を説明します。
 
 ### アプリケーション ポート
 
@@ -82,18 +81,20 @@ Microsoft は、クラスターで実行されるファブリック コードと
 
     ポータルを使用して、クラスターをデプロイした場合、ノード タイプごとのロード バランサーの名前は "loadBalancer-0"、"loadBalancer-1" のようになります。 ロード バランサー名はリソース グループ (RG) 内でのみ一意であるため、検索は特定の RG の下で行うことをお勧めします。
 
-    ![AddingProbes][addingprobes]
+    ![AddingProbes][AddingProbes]
+
 
 2. **ロード バランサーに新しい規則を追加する**
 
     同じロード バランサーに、前の手順で作成したプローブを使用して、新しい規則を追加します。
 
-    ![AddingLBRules][addinglbrules]
+    ![AddingLBRules][AddingLBRules]
 
 
 ### 配置プロパティ
 
   ノードの種類ごとに、アプリケーションで使用するカスタム配置プロパティを追加できます。 NodeType は、明示的に追加せずに使用できる、既定のプロパティです。
+
   >[AZURE.NOTE] 配置プロパティの使用方法の詳細についてを参照してください [配置制約ドキュメント](service-fabric-placement-constraint.md)します。
 
 ### 容量メトリック
@@ -101,22 +102,19 @@ Microsoft は、クラスターで実行されるファブリック コードと
 ノードの種類ごとに、アプリケーションで負荷をレポートするために使用するカスタム容量メトリックを追加できます。 負荷を報告するに対して容量メトリックの使用方法の詳細についてを参照してください [動的な負荷レポートの概要](service-fabric-resource-balancer-dynamic-load-reporting.md)します。
 
 ### クラスターを構成する Virtual Machines への OS 修正プログラムの適用
-
 これは、準備中の機能です。 現在の Vm のパッチを適用する責任があります。 時に 1 つ以上の VM を実行しないように、時に、この 1 つの VM を行う必要があります。
 
 ### クラスターを構成する Virtual Machines での新しい OS へのアップグレード
-
 使用している OS イメージをアップグレードする必要がある場合は、一度に 1 つずつの VM で、お客様自身がアップグレードを行う必要があります。 現時点では、自動化はできません。
 
 
 ## 次のステップ
 
 - 学習方法 [、クラスターのスケール アップ/ダウン](service-fabric-cluster-scale-up-down.md)
-- について [アプリケーションのアップグレード](service-fabric-application-upgrade.md)
+- について学習 [アプリケーションのアップグレード](service-fabric-application-upgrade.md)
 
-
-
-[certificateupgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade.png 
-[addingprobes]: ./media/service-fabric-cluster-upgrade/addingProbes.png 
-[addinglbrules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png 
+<!--Image references-->
+[CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade.png
+[AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
+[AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 

@@ -17,7 +17,6 @@
     ms.date="10/08/2015"
     ms.author="davidmu"/>
 
-
 # リソース マネージャーと PowerShell で Windows VM を作成する
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [従来のデプロイ モデル](virtual-machines-ps-create-preconfigure-windows-vms.md)します。
@@ -57,7 +56,7 @@ Azure データセンターの場所を指定する必要があります。 Azur
 
     Get-AzureLocation | sort Name | Select Name
 
-以下の PowerShell コマンド ブロックをテキスト エディターにコピーします。選択したストレージ アカウントおよび場所に入力を含む引用符内のすべてを置き換える、< と > 文字です。
+以下の PowerShell コマンド ブロックをテキスト エディターにコピーします。 選択したストレージ アカウントおよび場所に入力を含む引用符内のすべてを置き換える、< と > 文字です。
 
     $stName = "<chosen storage account name>"
     $locName = "<chosen Azure location name>"
@@ -86,8 +85,8 @@ Azure データセンターの場所を指定する必要があります。 Azur
     PS C:\> $rgName="TestRG"
     PS C:\> New-AzureRmResourceGroup -Name $rgName -Location $locName
     VERBOSE: 12:45:15 PM - Created resource group 'TestRG' in location 'westus'
-    
-    
+
+
     ResourceGroupName : TestRG
     Location          : westus
     ProvisioningState : Succeeded
@@ -96,10 +95,10 @@ Azure データセンターの場所を指定する必要があります。 Azur
                         Actions  NotActions
                         =======  ==========
                         *
-    
+
     ResourceId        : /subscriptions/fd92919d-eeca-4f5b-840a-e45c6770d92e/resourceGroups/TestRG
-    
-    
+
+
     PS C:\> $storageAcc=New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_GRS" -Location $locName
     PS C:\> $singleSubnet=New-AzureRmVirtualNetworkSubnetConfig -Name singleSubnet -AddressPrefix 10.0.0.0/24
     PS C:\> $vnet=New-AzureRmVirtualNetwork -Name TestNet3 -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
@@ -113,8 +112,8 @@ Azure データセンターの場所を指定する必要があります。 Azur
     PS C:\> $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/MyWindowsVMosDisk.vhd"
     PS C:\> $vm = Set-AzureRmVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
     PS C:\> New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm
-    
-    
+
+
     EndTime             : 4/28/2015 1:00:05 PM -07:00
     Error               :
     Output              :
@@ -126,19 +125,15 @@ Azure データセンターの場所を指定する必要があります。 Azur
 
 ## その他のリソース
 
-[Azure Compute、ネットワーク、記憶域プロバイダー Azure リソース マネージャーにおける](virtual-machines-azurerm-versus-azuresm.md)
+[Azure リソース マネージャーにおける Azure Compute、Network、ストレージ プロバイダー](virtual-machines-azurerm-versus-azuresm.md)
 
 [Azure リソース マネージャーの概要](resource-group-overview.md)
 
-[リソース マネージャー テンプレートと PowerShell で Windows 仮想マシンを作成します。](virtual-machines-create-windows-powershell-resource-manager-template-simple.md)
+[リソース マネージャー テンプレートと PowerShell で Windows 仮想マシンを作成する](virtual-machines-create-windows-powershell-resource-manager-template-simple.md)
 
-[Powershell と従来のデプロイ モデルによる Windows の仮想マシンを作成します。](virtual-machines-ps-create-preconfigure-windows-vms.md)
+[Powershell とクラシック デプロイ モデルを使用して Windows 仮想マシンを作成する](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-[Virtual machines のドキュメント](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[仮想マシンに関するドキュメント](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[インストールして、Azure PowerShell を構成する方法](install-configure-powershell.md)
-
-
-
-
+[Azure PowerShell のインストールおよび構成方法](install-configure-powershell.md)
 

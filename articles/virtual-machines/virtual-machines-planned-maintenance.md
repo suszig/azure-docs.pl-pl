@@ -18,7 +18,6 @@
     ms.author="kenazk"/>
 
 
-
 # Azure Virtual Machines に対する計画的なメンテナンス
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,7 +28,7 @@ Microsoft Azure は、世界各地で定期的に更新を行い、仮想マシ�
 
 ただし、一部の更新では、インフラストラクチャに必須の更新を適用する際に仮想マシンの再起動が必要になります。 その場合、インフラストラクチャにパッチを適用する間、仮想マシンはシャットダウンされ、その後、仮想マシンの再起動が行われます。
 
-仮想マシンの可用性に影響を及ぼす可能性があるメンテナンスには、計画的なメンテナンスと計画外のメンテナンスの 2 種類があります。 このページでは、Microsoft Azure による計画的なメンテナンスの実行について説明します。 計画外メンテナンスの詳細については、次を参照してください。 [計画されたダウンタイムと計画外メンテナンスについて理解する](virtual-machines-manage-availability.md)します。
+仮想マシンの可用性に影響を及ぼす可能性があるメンテナンスには、計画的なメンテナンスと計画外のメンテナンスの 2 種類があります。 このページでは、Microsoft Azure による計画的なメンテナンスの実行について説明します。 計画外メンテナンスの詳細については、次を参照してください。 [計画されたダウンタイムと計画外メンテナンスについて理解する](virtual-machines-manage-availability.md)です。
 
 ## メモリ保護更新
 
@@ -39,7 +38,7 @@ Microsoft Azure の更新のクラスの場合、実行中の仮想マシンに�
 
 このメカニズムを使用してすべての更新をデプロイできるわけではありませんが、一時停止の期間が短い場合、この方法で更新をデプロイすることにより、仮想マシンへの影響が大幅に軽減されます。
 
-複数インスタンスの更新 (可用性セット内の仮想マシンの場合) が、一度に 1 つの更新ドメインに適用されます。
+複数インスタンスの更新 (可用性セット内の仮想マシンの場合) が、一度に 1 つの更新ドメインに適用されます。  
 
 ## 仮想マシンの構成
 
@@ -47,7 +46,7 @@ Microsoft Azure の更新のクラスの場合、実行中の仮想マシンに�
 
 マルチインスタンス構成では冗長性が得られます。アプリケーションの可用性を確保するために、この構成の使用をお勧めします。 可用性セットには、いずれもほぼ同一の仮想マシンを配置し、それぞれのアプリケーションに対する目的も同じにする必要があります。
 
-高可用性のための仮想マシン構成の詳細についてを参照してください [、仮想マシンの可用性管理](virtual-machines-manage-availability.md)します。
+高可用性を達成するための仮想マシン構成の詳細については、「[仮想マシンの可用性管理](virtual-machines-manage-availability.md)」を参照してください。
 
 対照的に、可用性セットに配置されていないスタンドアロンの仮想マシンに対しては、単一インスタンス構成が使用されます。 これらの仮想マシンは、同一の可用性セットに複数の仮想マシンがデプロイされていることを必要とするサービス レベル アグリーメント (SLA) の対象になりません。
 
@@ -62,7 +61,7 @@ Sla の詳細については、の「クラウド サービス、仮想マシン
 
 基盤となる Azure プラットフォームにより、可用性セット内の各仮想マシンに更新ドメインと障害ドメインが割り当てられます。 各更新ドメインは同じ時間帯に再起動される仮想マシンのグループです。 また、各障害ドメインは共通の電源とネットワーク スイッチを使用する仮想マシンのグループです。
 
-更新ドメインと障害ドメインの詳細については、次を参照してください。 [冗長性の可用性セットに複数の仮想マシンを構成する](virtual-machines-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)します。
+更新ドメインと障害ドメインの詳細については、「[冗長性実現のために複数の仮想マシンを可用性セット内に構成する](virtual-machines-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)」を参照してください。
 
 更新ドメインが同時にオフラインにならないように、メンテナンスは、更新ドメイン内のそれぞれの仮想マシンをシャットダウンし、ホスト コンピューターに更新を適用した後、仮想マシンを再起動して、次の更新ドメインに移るという流れで進行します。 すべての更新ドメインが更新されると、計画的メンテナンス イベントは終了します。
 
@@ -70,8 +69,8 @@ Sla の詳細については、の「クラウド サービス、仮想マシン
 
 仮想マシンが復元されると、Windows イベント ビューアーに次のような情報が表示される場合があります。
 
-
-![][image2]
+<!--Image reference-->
+![image2]
 
 ## 単一インスタンス構成の更新
 
@@ -87,8 +86,8 @@ Sla の詳細については、の「クラウド サービス、仮想マシン
 
 単一インスタンスとマルチインスタンスの仮想マシンの構成に限り、Azure では計画的なメンテナンスが近づいていることを注意喚起するために電子メールを事前に送信します (単一インスタンスについては 1 週間前、マルチインスタンスについては 48 時間前に)。 この電子メールは、サブスクリプションに設定されているアカウント管理者と共同管理者の電子メール アカウントに送信されます。 この電子メールの例を次に示します。
 
-
-![][image1]
+<!--Image reference-->
+![image1]
 
 ## リージョンのペア
 
@@ -96,27 +95,28 @@ Azure では、一連のリージョン ペアとしてリージョンがまと�
 
 現在のリージョン ペアについては、次の表を参照してください。
 
- リージョン 1| リージョン 2
+リージョン 1 | リージョン 2
 :----- | ------:
- 米国中北部| 米国中南部
- 米国東部| 米国西部
- 米国東部 2| 米国中央部
- 北ヨーロッパ| 西ヨーロッパ
- 東南アジア| 東アジア
- 中国東部| 中国北部
- 東日本| 西日本
- ブラジル南部| 米国中南部
- オーストラリア南東部| オーストラリア東部
- 米国政府アイオワ州| 米国政府バージニア州
+米国中北部 | 米国中南部
+米国東部 | 米国西部
+米国東部 2 | 米国中央部
+北ヨーロッパ | 西ヨーロッパ
+東南アジア | 東アジア
+中国東部 | 中国北部
+東日本 | 西日本
+ブラジル南部 | 米国中南部
+オーストラリア南東部 | オーストラリア東部
+米国政府アイオワ州 | 米国政府バージニア州
 
 たとえば、計画的なメンテナンス中、Azure では、米国東部がメンテナンス中の場合、米国西部に対して同時に更新がロールアウトされることはありません。 ただし、北ヨーロッパなどのその他のリージョンは、米国東部と同時にメンテナンスされる可能性があります。
 
+<!--Anchors-->
+[image1]: ./media/virtual-machines-planned-maintenance/vmplanned1.png
+[image2]: ./media/virtual-machines-planned-maintenance/EventViewerPostReboot.png
+[image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.PNG
 
 
-
-[image1]: ./media/virtual-machines-planned-maintenance/vmplanned1.png 
-[image2]: ./media/virtual-machines-planned-maintenance/EventViewerPostReboot.png 
-[image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.PNG 
-[virtual machines manage availability]: virtual-machines-windows-tutorial.md 
-[understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/ 
+<!--Link references-->
+[Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
+[Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 

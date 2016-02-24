@@ -17,8 +17,7 @@
    ms.date="11/12/2015"
    ms.author="telmos" />
 
-
-# PowerShell を使用した複数 NIC VM (クラシック) のデプロイ
+#PowerShell を使用した複数 NIC VM (クラシック) のデプロイ
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
@@ -28,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-この時点では、単一の NIC を含む VM と複数の NIC を含む VM を同じクラウド サービス内で保持できないため、バックエンド サーバーを特定のクラウド サービスに実装したら、シナリオ内の他のすべてのコンポーネントは別のクラウド サービスに実装します。 以下の手順では、メイン リソースに *IaaSStory* という名前のクラウド サービスを使用し、バックエンド サーバーに *IaaSStory-BackEnd* を使用します。
+この時点では、単一の NIC を含む VM と複数の NIC を含む VM を同じクラウド サービス内で保持できないため、バックエンド サーバーを特定のクラウド サービスに実装したら、シナリオ内の他のすべてのコンポーネントは別のクラウド サービスに実装します。 次の手順がという名前のクラウド サービスを使用して *IaaSStory* の主要なリソースと *IaaSStory バックエンド* バック エンド サーバーのです。
 
 ## 前提条件
 
@@ -40,9 +39,9 @@
 
 バックエンド VM は、以下にリストしたリソースの作成に依存します。
 
-- **バックエンド サブネット**。 データベース サーバーは、トラフィックを分離するために、別のサブネットに含まれます。 次のスクリプトでは、このサブネットが *WTestVnet* という名前の Vnet に存在する必要があります。
-- **データ ディスクのストレージ アカウント**。 パフォーマンスを高めるために、データベース サーバー上のデータ ディスクはソリッド ステート ドライブ (SSD) テクノロジーを使用します。これには、Premium Storage アカウントが必要です。 デプロイする Azure の場所が Premium Storage をサポートすることを確認してください。
-- **可用性セット**。 メンテナンス中に少なくとも 1 つの VM が稼働し、実行されているようにするためには、すべてのデータベース サーバーを単一の可用性セットに追加します。
+- **バックエンド サブネット**します。 データベース サーバーは、トラフィックを分離するために、別のサブネットに含まれます。 次のスクリプトに必要なという名前の vnet に存在しているこのサブネット *WTestVnet*します。
+- **データ ディスクのストレージ アカウント**します。 パフォーマンスを高めるために、データベース サーバー上のデータ ディスクはソリッド ステート ドライブ (SSD) テクノロジーを使用します。これには、Premium Storage アカウントが必要です。 デプロイする Azure の場所が Premium Storage をサポートすることを確認してください。
+- **可用性セット**します。 メンテナンス中に少なくとも 1 つの VM が稼働し、実行されているようにするためには、すべてのデータベース サーバーを単一の可用性セットに追加します。 
 
 ### 手順 1 - スクリプトの開始
 
@@ -65,7 +64,6 @@
         $dataDiskSuffix        = "datadisk"
         $ipAddressPrefix       = "192.168.2."
         $numberOfVMs           = 2
-
 
 ### 手順 2 - VM 用に必要なリソースの作成
 
@@ -99,16 +97,15 @@
 
         $cred = Get-Credential -Message "Enter username and password for local admin account"
 
-
 ### 手順 3 - VM の作成
 
 ループを使用して必要な数の VM を作成し、必要な NIC と VM をループ内に作成します。 NIC と VM を作成するには、次の手順を実行します。
 
-1. 開始、 `の` をバーチャル マシンと、必要に応じて何度でも 2 つの Nic を作成するためのコマンドを繰り返すループの値に基づいて、 `$numberOfVMs` 変数です。
+1. `$numberOfVMs` 変数の値に基づいて、`for` ループを開始して、1 つの VM と 2 つの NIC を作成するコマンドを必要な回数繰り返します。
 
         for ($suffixNumber = 1; $suffixNumber -le $numberOfVMs; $suffixNumber++){
 
-2. 作成、 `VMConfig` イメージやサイズなど、VM に対する可用性セットを指定するオブジェクト。
+2. VM のイメージ、サイズ、可用性セットを指定する `VMConfig` オブジェクトを作成します。
 
             $vmName = $vmNamePrefix + $suffixNumber
             $vmConfig = New-AzureVMConfig -Name $vmName `
@@ -136,17 +133,17 @@
 
 6. 各 VM のデータ ディスクを作成します。
 
-         $dataDisk1Name = $vmName + "-" + $dataDiskSuffix + "-1"    
-         Add-AzureDataDisk -CreateNew -VM $vmConfig `
-             -DiskSizeInGB $diskSize `
-             -DiskLabel $dataDisk1Name `
-             -LUN 0       
-    
-         $dataDisk2Name = $vmName + "-" + $dataDiskSuffix + "-2"   
-         Add-AzureDataDisk -CreateNew -VM $vmConfig `
-             -DiskSizeInGB $diskSize `
-             -DiskLabel $dataDisk2Name `
-             -LUN 1
+            $dataDisk1Name = $vmName + "-" + $dataDiskSuffix + "-1"    
+            Add-AzureDataDisk -CreateNew -VM $vmConfig `
+                -DiskSizeInGB $diskSize `
+                -DiskLabel $dataDisk1Name `
+                -LUN 0       
+        
+            $dataDisk2Name = $vmName + "-" + $dataDiskSuffix + "-2"   
+            Add-AzureDataDisk -CreateNew -VM $vmConfig `
+                -DiskSizeInGB $diskSize `
+                -DiskLabel $dataDisk2Name `
+                -LUN 1
 
 7. 各 VM を作成し、ループを終了します。
 
@@ -156,27 +153,21 @@
                 -VNetName $vnetName
         }
 
-
 ### 手順 4 - スクリプトの実行
 
 ニーズに合わせてスクリプトをダウンロードおよび変更し、スクリプトを実行して複数の NIC を持つバックエンド データベース VM を作成しました。
 
-1. スクリプトを保存し、それを **PowerShell** コマンド プロンプトまたは **PowerShell ISE** から実行します。 次のように、最初の出力が表示されます。
+1. スクリプトを保存してから実行、 **PowerShell** コマンド プロンプトまたは **PowerShell ISE**します。 次のように、最初の出力が表示されます。
 
-     OperationDescription    OperationId                          OperationStatus
-     --------------------    -----------                          ---------------
-     New-AzureService        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
-     New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
-    
-     WARNING: No deployment found in service: 'IaaSStory-Backend'.
+        OperationDescription    OperationId                          OperationStatus
+        --------------------    -----------                          ---------------
+        New-AzureService        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
+        New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
+                                                                                    
+        WARNING: No deployment found in service: 'IaaSStory-Backend'.
 
-2. 資格情報プロンプトに必要な情報を入力して、**[OK]** をクリックします。 次の出力が表示されます。
+2. 資格情報プロンプトに必要な情報を記入 **OK**します。 次の出力が表示されます。
 
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded 
-
-
-
-
-
 

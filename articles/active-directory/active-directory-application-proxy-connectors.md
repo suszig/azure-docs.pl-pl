@@ -17,10 +17,9 @@
     ms.author="kgremban"/>
 
 
-
 # コネクタ グループを使用して別のネットワークや場所にアプリケーションを発行する
 
-> [AZURE.NOTE] アプリケーション プロキシは、Azure Active Directory の Premium または Basic エディションにアップグレードしている場合にのみ利用できる機能です。 詳細については、次を参照してください。 [Azure Active Directory のエディション](active-directory-editions.md)します。
+> [AZURE.NOTE] アプリケーション プロキシは、Premium または Azure Active Directory の Basic エディションにアップグレードする場合にのみ提供される機能です。 詳細については、次を参照してください。 [Azure Active Directory のエディション](active-directory-editions.md)します。
 
 コネクタ グループは、以下をはじめとする、さまざまなシナリオで役立ちます。
 
@@ -34,44 +33,34 @@
 
 
 ## コネクタ グループの操作
-
 コネクタをグループ化するためには、ことを確認する必要がある [複数のコネクタがインストールされている](active-directory-application-proxy-enable.md), 、それらの名前を指定し、それらをグループ化するとします。 最後に、特定のアプリに割り当てる必要があります。
 
 ## 手順 1: コネクタ グループを作成する
-
-必要な数のコネクタ グループを作成します。 コネクタ グループの作成は、Azure ポータルで実行します。 ディレクトリを選択し、**[構成]** をクリックします。 次に、アプリケーション プロキシ] の下をクリックして **コネクタ グループの管理** し、グループに名前を提供することにより新しいコネクタ グループを作成します。
+必要な数のコネクタ グループを作成します。 コネクタ グループの作成は、Azure ポータルで実行します。 目的のディレクトリを選択し、クリックして **構成**します。 次に、アプリケーション プロキシ] の下をクリックして **コネクタ グループの管理** し、グループに名前を提供することにより新しいコネクタ グループを作成します。
     ![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_creategroup.png)
     ![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_namegroup.png)
 ## 手順 2: コネクタをグループに割り当てる
-
-コネクタ グループを作成したら、コネクタを適切なグループに移動します。 **[アプリケーション プロキシ]** で、**[コネクタの管理]** をクリックし、**[グループ]** でコネクタごとに目的のグループを選択します。 コネクタが新しいグループでアクティブになるのに最大 10 分かかる場合があります。
+コネクタ グループを作成したら、コネクタを適切なグループに移動します。  **アプリケーション プロキシ**, をクリックして **コネクタの管理** [ **グループ**, 、コネクタごとにグループを選択します。 コネクタが新しいグループでアクティブになるのに最大 10 分かかる場合があります。
     ![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_connectorlist.png)
 ## 手順 3: コネクタ グループにアプリケーションを割り当てる
-
-最後の手順は、アプリケーションにサービスを提供するコネクタ グループへの各アプリケーションの設定です。 Azure ポータルのディレクトリで、グループに割り当てるアプリケーションを選択し、**[構成]** をクリックします。 **[コネクタ グループ]** で、アプリケーションで使用するグループを選択します。 この変更は直ちに適用されます。
+最後の手順は、アプリケーションにサービスを提供するコネクタ グループへの各アプリケーションの設定です。 ディレクトリに、Azure ポータルでグループに割り当てる] をクリックするアプリケーションを選択 **構成**します。  **コネクタ グループ**, 、アプリケーションで使用するグループを選択します。 この変更は直ちに適用されます。
     ![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_newgroup.png)
-アプリケーションの発行の詳細については、を参照してください [ドメイン名を使用してアプリケーションを公開](active-directory-application-proxy-custom-domains.md)。
+アプリケーションの発行の詳細については、次を参照してください [ドメイン名を使用してアプリケーションを公開。](active-directory-application-proxy-custom-domains.md)
 ## 関連項目
-
 アプリケーション プロキシを使ってできることは他にもたくさんあります。
 
-- [アプリケーション プロキシを有効にします。](active-directory-application-proxy-enable.md)
-- [シングル サインオンの有効化にします。](active-directory-application-proxy-sso-using-kcd.md)
-- [条件付きアクセスを有効にします。](active-directory-application-proxy-conditional-access.md)
-- [クレーム対応アプリケーションの使用](active-directory-application-proxy-claims-aware-apps.md)
-- [アプリケーション プロキシが発生した問題をトラブルシューティングします。](active-directory-application-proxy-troubleshoot.md)
+- [アプリケーション プロキシを有効にする](active-directory-application-proxy-enable.md)
+- [シングル サインオンを有効にする](active-directory-application-proxy-sso-using-kcd.md)
+- [条件付きアクセスを有効にする](active-directory-application-proxy-conditional-access.md)
+- [要求に対応するアプリケーションを利用する](active-directory-application-proxy-claims-aware-apps.md)
+- [アプリケーション プロキシで発生した問題のトラブルシューティングを行う](active-directory-application-proxy-troubleshoot.md)
 
 ## アプリケーション プロキシに関するその他の情報
-
-- [こちらをご覧オンライン ヘルプ](active-directory-application-proxy-enable.md)
-- [アプリケーション プロキシに関するブログします。](http://blogs.technet.com/b/applicationproxyblog/)
-- [Channel 9 のビデオを見る。](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
+- [オンライン ヘルプ](active-directory-application-proxy-enable.md)
+- [アプリケーション プロキシに関するブログ](http://blogs.technet.com/b/applicationproxyblog/)
+- [Channel 9 ビデオ](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## その他のリソース
 
 * [Kerberos の制約付き委任について](http://technet.microsoft.com/library/cc995228.aspx)
-
-
-
-
 

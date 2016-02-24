@@ -1,26 +1,25 @@
-既定では、モバイル アプリ バックエンドの API は匿名で呼び出すことができます。 次に、認証されたクライアントのみにアクセスを制限する必要があります。
 
-+ **Node.js バックエンド (ポータル経由)** :
+既定では、モバイル アプリ バックエンドの API は匿名で呼び出すことができます。 次に、認証されたクライアントのみにアクセスを制限する必要があります。  
 
-    モバイル アプリの **[設定]** で、**[簡単テーブル]** をクリックし、目的のテーブルを選択します。 **[アクセス許可の変更]** をクリックし、すべてのアクセス許可に対して **[認証済みアクセスのみ]** を選択し、**[保存]** をクリックします。
++ **(ポータル) を使用して Node.js バックエンド** :  
+    
+    モバイル アプリの **設定**, 、] をクリックして **簡単テーブル** と、テーブルを選択します。 をクリックして **アクセス許可を変更**, [ **認証済みアクセスのみ** アクセス権をすべて次] をクリックし、 **保存**します。 
 
-+ **.NET バックエンド (C#)**:
++ **.NET バックエンド (c#)**:  
 
-    サーバー プロジェクトで、**[Controllers]**、**[TodoItemController.cs]** の順に移動します。 追加、 `[Authorize]` 属性を **TodoItemController** クラスに、次のようにします。 アクセスを特定のメソッドのみに制限するには、この属性を、クラスではなく、そのメソッドのみに適用するだけです。 サーバー プロジェクトを発行します。
+    サーバー プロジェクトに移動 **コント ローラー** > **TodoItemController.cs**します。 追加、 `[Authorize]` 属性を **TodoItemController** クラスに、次のようにします。 アクセスを特定のメソッドのみに制限するには、この属性を、クラスではなく、そのメソッドのみに適用するだけです。 サーバー プロジェクトを発行します。
+
 
         [Authorize]
         public class TodoItemController : TableController<TodoItem>
 
-+ **Node.js バックエンド (Node.js コード経由)** :
-
++ **(Node.js コード) を使用して Node.js バックエンド** :  
+    
     テーブルへのアクセスに対して認証を要求するには、Node.js サーバー スクリプトに次の行を追加します。
+
 
         table.access = 'authenticated';
 
-    詳細についてを参照してください [方法: テーブルへのアクセスに対して認証を要求](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth)します。 自分のサイトからのクイック スタート コード プロジェクトをダウンロードする方法については、次を参照してください。 [方法: Node.js バックエンド クイック スタート コードを Git を使用してプロジェクトのダウンロード](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)します。
-
-
-
-
+    For more details, refer to [How to: Require authentication for access to tables](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). To learn how to download the quickstart code project from your site, see [How to: Download the Node.js backend quickstart code project using Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).
 
 

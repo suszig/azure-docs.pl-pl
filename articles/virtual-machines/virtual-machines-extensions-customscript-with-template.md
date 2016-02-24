@@ -17,7 +17,6 @@
    ms.date="11/01/2015"
    ms.author="kundanap"/>
 
-
 # Azure リソース マネージャー テンプレートでのカスタム スクリプト拡張機能の使用
 
 この記事では、Linux VM または Windows VM のブートストラップ ワークロード用に、カスタム スクリプト拡張機能を使用して Azure リソース マネージャー テンプレートを作成する方法の概要を説明します。
@@ -33,12 +32,12 @@
 Azure リソース マネージャー テンプレートでは、リソース間の依存関係を定義することで、JSON 言語で Azure IaaS インフラストラクチャを宣言によって指定できます。 Azure リソース マネージャー テンプレートの概要については、次の記事をご覧ください。
 
 - [リソース グループの概要](../resource-group-overview)
-- [Azure CLI でテンプレートを展開します。](virtual-machines-deploy-rmtemplates-azure-cli)
-- [Azure Powershell を使用したテンプレートを展開します。](virtual-machines-deploy-rmtemplates-powershell)
+- [Azure CLI を使用したテンプレートのデプロイ](virtual-machines-deploy-rmtemplates-azure-cli)
+- [Azure Powershell を使用したテンプレートのデプロイ](virtual-machines-deploy-rmtemplates-powershell)
 
 ### 前提条件
 
-1. 最新の Azure PowerShell コマンドレットまたは Azure CLI からインストール [ここ](http://azure.microsoft.com/downloads)します。
+1. [ここ](http://azure.microsoft.com/downloads)から最新の Azure PowerShell コマンドレットまたは Azure CLI をインストールします。
 2. スクリプトは、既存の仮想マシンで実行は、VM で、VM エージェントが有効になっていることを確認そうでない場合に従う [この](virtual-machines-extensions-install) いずれかをインストールします。
 3. VM で実行するスクリプトを Azure Storage にアップロードします。 スクリプトは、1 つか複数のストレージ コンテナーから取得できます。
 4. スクリプトを Github アカウントにアップロードすることもできます。
@@ -101,11 +100,7 @@ Azure リソース マネージャー テンプレートでは、リソース間
 
 カスタム スクリプト拡張機能を使用して、VM でアプリケーションを構成する完全なサンプルについては、次の例をご覧ください。
 
-<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Linux VM 上のカスタム スクリプト拡張機能</a>します。
+<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Linux VM 上のカスタム スクリプト拡張機能</a>.
 </br>
-<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Windows 仮想マシン上のカスタム スクリプト拡張機能</a>します。
-
-
-
-
+<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Windows 仮想マシン上のカスタム スクリプト拡張機能</a>.
 

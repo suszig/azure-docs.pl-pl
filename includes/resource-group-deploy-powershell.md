@@ -10,7 +10,7 @@
           --                             ----    
           example@contoso.com            User       ...   
 
-2. 複数のサブスクリプションがある場合、デプロイに使用するサブスクリプション ID を提供します。
+2. 複数のサブスクリプションがある場合、デプロイに使用するサブスクリプション ID を提供します。 
 
           Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
 
@@ -34,10 +34,10 @@
                     *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-5. リソース グループに新しいデプロイメントを作成するには、**New-AzureResourceGroupDeployment** コマンドを実行して必要なパラメーターを指定します。 パラメーターにはデプロイメントの名前、リソース グループの名前、作成したテンプレートへのパスや URL、シナリオに必要なその他のパラメーターが含まれます。
-
-   次のオプションを使用してパラメーターの値を提供できます。
-
+5. リソース グループに新しいデプロイメントを作成するには、実行、 **New-azureresourcegroupdeployment** コマンドを使用し、必要なパラメーターを指定します。 パラメーターにはデプロイの名前、リソース グループの名前、作成したテンプレートへのパスや URL、シナリオに必要なその他のパラメーターが含まれます。 
+   
+   次のオプションを使用してパラメーターの値を提供できます。 
+   
    - インライン パラメーターを使用する
 
             New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
@@ -60,7 +60,6 @@
              Mode              : Incremental
              ...
 
-
 6. デプロイメント エラーに関する情報を取得するには
 
         Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
@@ -68,9 +67,4 @@
 7. デプロイメント エラーに関する詳細情報を取得するには
 
         Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
-
-
-
-
-
 

@@ -16,14 +16,9 @@
    ms.date="09/22/2015"
    ms.author="mbaldwin"/>
 
-
 # Azure Key Vault サービスの制限
 
 これらは、Azure Key Vault サービスの制限です。
 
 [AZURE.INCLUDE [key-vault-limits](../../includes/key-vault-limits.md)]
-
-
-
-
 

@@ -16,7 +16,6 @@
     ms.date="12/07/2015"
     ms.author="glenga"/>
 
-
 # ソース管理へのモバイル サービス プロジェクト コードの保存
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
@@ -25,31 +24,31 @@
 
 
 > [AZURE.SELECTOR]
-- [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
-- [Javascript backend](mobile-services-store-scripts-source-control.md)
-
+- [.NET バックエンド](mobile-services-dotnet-backend-store-code-source-control.md)
+- [Javascript バックエンド](mobile-services-store-scripts-source-control.md)
 
 このトピックでは、.NET バックエンド サービス プロジェクトの格納に Azure のモバイル サービスによって提供される、ソース管理を使用する方法を説明します。 実稼働環境のモバイル サービスに、ローカルの Git リポジトリからアップロードすることで、プロジェクトをパブリッシュできます。
 
 このチュートリアルを完了する必要がありますが既に作成したモバイル サービスいずれかの操作を完了することで、[モバイル サービスの開始を取得] チュートリアルです。
 
-## <a name="enable-source-control"></a>モバイル サービスでソース管理を有効にします。
+##<a name="enable-source-control"></a>モバイル サービスでソース管理を有効にする
 
 [AZURE.INCLUDE [mobile-services-enable-source-control](../../includes/mobile-services-enable-source-control.md)]
 
-## <a name="clone-repo"></a>Git をインストールし、ローカル リポジトリを作成します。
+##<a name="clone-repo"></a>Git をインストールし、ローカル リポジトリを作成する
 
 1. ローカル コンピューターに Git をインストールします。
 
     Git をインストールするために必要な手順は、オペレーティング システムによって異なります。 オペレーティング システム固有の配布とインストールのガイダンスについては、[Git のインストール] を参照してください。
+
     > [AZURE.NOTE]
     > オペレーティング システムによっては、コマンド ラインと GUI の両方のバージョンの Git を使用できます。 この記事で説明する手順では、コマンド ライン バージョンを使用します。
 
-2. **GitBash** (Windows) や **Bash** (Unix シェル) などのコマンド ラインを開きます。 OS X システムでは、**ターミナル** アプリケーションを使用してコマンド ラインにアクセスできます。
+2. などのコマンド ラインを開く **GitBash** (Windows) または **Bash** (Unix シェル)。 OS X システムで使用してコマンドラインにすることができますアクセス、 **ターミナル** アプリケーションです。
 
-3. コマンド ラインで、スクリプトを格納するディレクトリに移動します。 たとえば、 `cd SourceControl`します。
+3. コマンド ラインで、スクリプトを格納するディレクトリに移動します。 たとえば、「`cd SourceControl`」のように入力します。
 
-4. 次のコマンドを使用して、新しい Git リポジトリのローカル コピーを作成する置換 `< your_git_URL >` をモバイル サービスの Git リポジトリの URL:
+4. 次のコマンドを使用して、新しい Git リポジトリのローカル コピーを作成します。`<your_git_URL>` の部分は、モバイル サービスの Git リポジトリの URL に置き換えます。
 
         git clone <your_git_URL>
 
@@ -60,11 +59,11 @@
         remote: Total 8 (delta 1), reused 0 (delta 0)
         Unpacking objects: 100% (8/8), done.
 
-6. 実行したディレクトリに移動、 `git クローン` コマンド、およびモバイル サービスの名前の新しいディレクトリが作成されたことに注意してください。 .NET バックエンド モバイル サービスでは、git リポジトリははじめは空です。
+6. 実行する `git clone` コマンド、およびモバイル サービスの名前で作成された新しいディレクトリの通知を参照します。 .NET バックエンド モバイル サービスでは、git リポジトリははじめは空です。
 
 ローカル リポジトリを作成すると、このリポジトリから .NET バックエンド サービス プロジェクトを発行することができます。
 
-## <a name="deploy-scripts"></a>Git を使用して、プロジェクトを発行します。
+##<a name="deploy-scripts"></a>Git を使用して、プロジェクトを発行する
 
 1. Visual Studio 2013 で新しい .NET バックエンド モバイル サービス プロジェクトを作成するか既存のプロジェクトを新しいローカル リポジトリに移動します。
 
@@ -94,15 +93,14 @@
 
 モバイル サービス プロジェクトは、ソース管理で管理され、ローカル リポジトリから更新をプッシュすることで、サービスの更新を発行することができます。 SQL データベースを使用する .NET バックエンド モバイル サービスでデータ モデルの変更を行う方法の詳細については、[を .NET バックエンド モバイル サービス データ モデルを変更する方法] を参照してください。
 
+<!-- Anchors. -->
 
+<!-- Images. -->
 
-
-
-
-
-[git website]: http://git-scm.com 
-[source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643 
-[installing git]: http://git-scm.com/book/en/Getting-Started-Installing-Git 
-[get started with mobile services]: mobile-services-dotnet-backend-ios-get-started.md 
-[how to make data model changes to a .net backend mobile service]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md 
+<!-- URLs. -->
+[Git website]: http://git-scm.com
+[Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+[Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
+[How to make data model changes to a .NET backend mobile service]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 

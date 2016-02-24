@@ -15,7 +15,6 @@
    ms.date="12/11/2015"
    ms.author="telmos" />
 
-
 # Virtual Network FAQ
 
 [AZURE.INCLUDE [virtual-networks-vnet-faq-include](../../includes/virtual-networks-vnet-faq-include.md)]
@@ -23,8 +22,4 @@
 ## Virtual Network Cross-premises Connectivity (VPN)
 
 仮想ネットワーク Vpn の最新の faq を参照してください、 [VPN ゲートウェイ FAQ](vpn-gateway-vpn-faq.md)します。
-
-
-
-
 

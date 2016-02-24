@@ -17,7 +17,6 @@
     ms.date="08/25/2015"
     ms.author="davidmu"/>
 
-
 # .NET ライブラリとテンプレートを使用した Azure リソースのデプロイ
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 従来のデプロイ モデルです。
@@ -49,7 +48,7 @@ Azure AD を使用して Azure リソース マネージャーへの要求を認
 
         New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-    >[AZURE.NOTE] アプリケーションが作成された後で、返されたアプリケーション ID をメモしてください。これは次の手順で必要になります。 アプリケーション ID は、Azure ポータルの Active Directory セクションにあるアプリケーションのクライアント ID フィールドでも確認できます。
+    >[AZURE.NOTE] 次の手順に必要なため、アプリケーションを作成した後に返されるアプリケーション識別子を書き留めます。 アプリケーション ID は、Azure ポータルの Active Directory セクションにあるアプリケーションのクライアント ID フィールドでも確認できます。
 
 3. {application-id} を記録しておいた ID に置き換えてから、次のようにアプリケーションのサービス プリンシパルを作成します。
 
@@ -59,20 +58,19 @@ Azure AD を使用して Azure リソース マネージャーへの要求を認
 
         New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
 
-
 ## 手順 2: Visual Studio プロジェクト、テンプレート ファイル、パラメーター ファイルを作成する
 
-### テンプレート ファイルを作成する
+###テンプレート ファイルを作成する
 
 Azure リソース マネージャー テンプレートによって、リソースや関連するデプロイ パラメーターの JSON 記述を使用して、Azure リソースをまとめてデプロイし、管理することが可能になります。 Visual Studio で、次の手順を実行します。
 
-1. **[ファイル]**、**[新規作成]**、**[プロジェクト]** の順にクリックします。
+1. クリックして **ファイル** > **新しい** > **プロジェクト**します。
 
-2. **[テンプレート]** の **[Visual C#]** で **[コンソール アプリケーション]** を選択し、プロジェクトの名前と場所を入力して、**[OK]** をクリックします。
+2.  **テンプレート** > **Visual c#**, [ **コンソール アプリケーション**, 、プロジェクトの場所と名前を入力し、クリックして **[ok]**します。
 
-3. ソリューション エクスプローラーでプロジェクト名を右クリックし、**[追加]**、**[新しいアイテム]** の順にクリックします。
+3. ソリューション エクスプ ローラーでプロジェクト名を右クリックし、 **追加** > **[新しい項目の**です。
 
-4.  [新しい項目の追加] ウィンドウで、**[テキスト ファイル]** を選択し、名前に「*VirtualMachineTemplate.json*」と入力して、**[追加]** をクリックします。
+4.  [新しい項目の追加] ウィンドウで選択 **テキスト ファイル**, 、入力 *VirtualMachineTemplate.json* 名、およびクリック **追加**します。
 
 5.  VirtualMachineTemplate.json ファイルを開き、開始と終了の角かっこ、必要なスキーマ要素、および必要な contentVersion 要素を追加します。
 
@@ -270,13 +268,13 @@ Azure リソース マネージャー テンプレートによって、リソー
 
 9.  作成したテンプレート ファイルを保存します。
 
-### パラメーター ファイルの作成
+###パラメーター ファイルの作成
 
 テンプレートで定義されているリソース パラメーターの値を指定するには、値を含むパラメーター ファイルを作成し、テンプレートと共にリソース マネージャーに送信します。 Visual Studio で、次の手順を実行します。
 
-1.  ソリューション エクスプ ローラーでプロジェクト名を右クリックし、 **追加**, 、し  **[新しい項目の**します。
+1.  ソリューション エクスプ ローラーでプロジェクト名を右クリックし、 **追加**, 、し  **[新しい項目の**です。
 
-2.  [新しい項目の追加] ウィンドウで、**[テキスト ファイル]** を選択し、名前に「*Parameters.json*」と入力して、**[追加]** をクリックします。
+2.  [新しい項目の追加] ウィンドウで選択 **テキスト ファイル**, 、入力 *Parameters.json* 名、およびクリック **追加**します。
 
 3.  Parameters.json ファイルを開き、次の JSON コンテンツを追加します。
 
@@ -300,7 +298,8 @@ Azure リソース マネージャー テンプレートによって、リソー
           }
         }
 
-    >[AZURE.NOTE] イメージの vhd 名はイメージ ギャラリーで定期的に変更されるので、仮想マシンをデプロイするには現在のイメージ名を取得する必要があります。 これを行うには、次を参照してください。 [仮想マシンのイメージについて](https://azure.microsoft.com/documentation/articles/virtual-machines-images/), 、し {ソース イメージ名} を使用する vhd ファイルの名前に置き換えます。 たとえば、"a699494373c04fc0bc8f2bb1389d6106__windows-server-2012-r2-201412.01-en.us-127gb.vhd など"です。 {subscription-id} を、サブスクリプションの ID に置き換えます。
+    >[AZURE.NOTE] イメージの vhd 名は、仮想マシンを展開する現在のイメージ名を取得する必要がありますに、イメージ ギャラリーで定期的に変更します。 これを行うには、次を参照してください。 [仮想マシンのイメージについて](https://azure.microsoft.com/documentation/articles/virtual-machines-images/), 、し {ソース イメージ名} を使用する vhd ファイルの名前に置き換えます。 たとえば、"a699494373c04fc0bc8f2bb1389d6106__windows-server-2012-r2-201412.01-en.us-127gb.vhd など"です。 {subscription-id} を、サブスクリプションの ID に置き換えます。
+
 
 4.  作成したパラメーター ファイルを保存します。
 
@@ -308,23 +307,23 @@ Azure リソース マネージャー テンプレートによって、リソー
 
 1.  サーバー エクスプローラーを開き、ファイルを配置するストレージ アカウント内のコンテナーに移動します。 このチュートリアルでは、テンプレートを配置するコンテナーの名前は templates です。
 
-2.  テンプレート コンテナー ウィンドウの右上隅にある BLOB アップロード アイコンをクリックし、作成した VirtualMachineTemplate.json ファイルを参照して、**[開く]** をクリックします。
+2.  テンプレート コンテナー ウィンドウの右上隅にある Blob アップロード アイコンを作成した VirtualMachineTemplate.json ファイルを参照してクリックをクリックして **開く**します。
 
-3. BLOB アップロード アイコンを再びクリックし、作成した Parameters.json ファイルを参照して、**[開く]** をクリックします。
+3. Blob アップロード アイコンをもう一度クリックして、をクリックし、作成した Parameters.json ファイルを見つけます **開く**します。
 
-## 手順 3: ライブラリをインストールする
+##手順 3: ライブラリをインストールする
 
 NuGet パッケージを使用すると、このチュートリアルを完了するために必要なライブラリを簡単にインストールできます。 Azure リソース管理ライブラリと Azure Active Directory 認証ライブラリをインストールする必要があります。 Visual Studio でこれらのライブラリを入手するには、次の手順に従います。
 
-1.  ソリューション エクスプローラーでプロジェクト名を右クリックし、**[NuGet パッケージの管理]** をクリックします。
+1.  ソリューション エクスプ ローラーでプロジェクト名を右クリックし、 **NuGet パッケージの管理**します。
 
-2.  検索ボックスに「*Active Directory*」と入力し、Active Directory Authentication Library パッケージの **[インストール]** をクリックして、パッケージのインストール手順に従います。
+2.  型 *Active Directory* [検索] ボックスで、 **インストール** Active Directory 認証ライブラリのパッケージ化、およびパッケージをインストールする手順に従います。
 
-3.  ページの上部で、**[リリース前のパッケージを含める]** を選択します。 検索ボックスに「*Azure リソース管理*」と入力し、Microsoft Azure リソース管理ライブラリの **[インストール]** をクリックして、パッケージのインストール手順に従います。
+3.  ページの上部にある次のように選択します。 **プレリリースを含める**します。 型 *Azure リソース管理* [検索] ボックスで、 **インストール** Microsoft Azure リソース管理ライブラリにし、パッケージをインストールする指示に従います。
 
 これで、ライブラリを使用してアプリケーションの作成を開始する準備が整いました。
 
-## 手順 4: 要求の認証に使用する資格情報を作成する
+##手順 4: 要求の認証に使用する資格情報を作成する
 
 Azure Active Directory アプリケーションを作成し、認証ライブラリをインストールしたので、次にアプリケーションの情報を使用して、Azure リソース マネージャーへの要求の認証に使用される資格情報を作成します。 以下の手順を実行します。
 
@@ -337,22 +336,22 @@ Azure Active Directory アプリケーションを作成し、認証ライブラ
 
 2.  資格情報の作成に必要なトークンを取得するために、次のメソッドを Program クラスに追加します。
 
-    private static string GetAuthorizationHeader()
-    {
-      ClientCredential cc = new ClientCredential("{application-id}", "{password}");
-        var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-        var result = context.AcquireToken("https://management.azure.com/", cc);
-      if (result == null)
-      {
-        throw new InvalidOperationException("Failed to obtain the JWT token");
-      }
-    
-      string token = result.AccessToken;
-    
-      return token;
-    }
+        private static string GetAuthorizationHeader()
+        {
+          ClientCredential cc = new ClientCredential("{application-id}", "{password}");
+            var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
+            var result = context.AcquireToken("https://management.azure.com/", cc);
+          if (result == null)
+          {
+            throw new InvalidOperationException("Failed to obtain the JWT token");
+          }
 
-{application-id} を前に記録したアプリケーション ID に、{password} を AD アプリケーション用に選択したパスワードに、{tenant-id} をサブスクリプションのテナント ID に、それぞれ置き換えます。 テナント ID は Get-AzureSubscription を実行して確認できます。
+          string token = result.AccessToken;
+
+          return token;
+        }
+
+    {application-id} を前に記録したアプリケーション ID に、{password} を AD アプリケーション用に選択したパスワードに、{tenant-id} をサブスクリプションのテナント ID に、それぞれ置き換えます。 テナント ID は Get-AzureSubscription を実行して確認できます。
 
 3.  資格情報を作成するには、Program.cs ファイルの Main メソッドに次のコードを追加します。
 
@@ -362,7 +361,7 @@ Azure Active Directory アプリケーションを作成し、認証ライブラ
 4.  Program.cs ファイルを保存します。
 
 
-## 手順 5: テンプレートをデプロイするためのコードを追加する
+##手順 5: テンプレートをデプロイするためのコードを追加する
 
 リソースは常にテンプレートからリソース グループにデプロイされます。 使用する、 [ResourceGroup](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.models.resourcegroup.aspx) と [ResourceManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx) クラスに、リソースが配置されているリソース グループを作成します。
 
@@ -416,8 +415,7 @@ Azure Active Directory アプリケーションを作成し、認証ライブラ
         CreateTemplateDeployment(credential);
         Console.ReadLine();
 
-
-## 手順 6: リソースを削除するコードを追加する
+##手順 6: リソースを削除するコードを追加する
 
 Azure で使用されるリソースに対して課金されるため、不要になったリソースは削除することを常にお勧めします。 リソース グループから各リソースを個別に削除する必要はありません。 リソース グループを削除すると、そのすべてのリソースが自動的に削除されます。
 
@@ -437,20 +435,15 @@ Azure で使用されるリソースに対して課金されるため、不要�
         DeleteResourceGroup(credential);
         Console.ReadLine();
 
+##手順 7: コンソール アプリケーションを実行する
 
-## 手順 7: コンソール アプリケーションを実行する
+1.  コンソール アプリケーションを実行するにはクリックして **開始** Visual Studio し、同じユーザー名と、サブスクリプションで使用するパスワードを使用して Azure AD にサインインします。
 
-1.  コンソール アプリケーションを実行するには、Visual Studio で **[開始]** をクリックし、サブスクリプションで使用するのと同じユーザー名とパスワードを使用して Azure AD にサインインします。
-
-2.  各状態コードが返されたら **Enter** キーを押して各リソースを作成します。 仮想マシンが作成されたら、次の手順を実行した後、Enter キーを押してすべてのリソースを削除します。
+2.  キーを押して **Enter** 後、各リソースを作成する各状態コードが返されます。 仮想マシンが作成されたら、次の手順を実行した後、Enter キーを押してすべてのリソースを削除します。
 
     このコンソール アプリケーションが実行を開始してから完全に終了するまでには、約 5 分かかります。 Enter キーを押してリソースの削除を開始する前に、Azure ポータルでリソースの作成状況を確認することもできます。
 
 3. Azure ポータルで監査ログを参照し、リソースの状況を確認します。
 
     ![AD アプリケーションの作成](./media/arm-template-deployment/crpportal.png)
-
-
-
-
 

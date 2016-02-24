@@ -15,7 +15,6 @@
    ms.date="12/07/2015"
    ms.author="joaoma" />
 
-
 # サービス構成ファイルでの DNS 設定の指定
 
 ## DNS 要素
@@ -30,20 +29,16 @@
         <DnsServer name="ID3" IPAddress="IPAddress3" />
       </DnsServers>
 
->[AZURE.WARNING] **DnsServer** 要素の **name** 属性は、参照名としてのみ使用されます。 DNS サーバーのホスト名を表してはいません。 各 **DnsServer** 属性の値は、Microsoft Azure サブスクリプション全体で一意である必要があります。
+>[AZURE.WARNING]  **名前** 属性、 **DnsServer** 要素は、参照名としてのみ使用します。 DNS サーバーのホスト名を表してはいません。 各 **DnsServer** 属性の値は、Microsoft Azure サブスクリプション全体にわたって一意でなければなりません。
 
 ## 関連項目
 
 [Azure サービス構成スキーマ (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
-[Azure の仮想ネットワークの構成スキーマ](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Azure Virtual Network の構成スキーマ](http://go.microsoft.com/fwlink/?LinkId=248093)
 
-[ネットワーク構成ファイルを使用して仮想ネットワークを構成します。](http://go.microsoft.com/fwlink/?LinkId=248094)
+[ネットワーク構成ファイルを使用した Virtual Network の構成](http://go.microsoft.com/fwlink/?LinkId=248094)
 
-[管理ポータルでの仮想ネットワークの設定について](http://go.microsoft.com/fwlink/?LinkId=248092)
-
-
-
-
+[管理ポータルでの Virtual Network の設定について](http://go.microsoft.com/fwlink/?LinkId=248092)
 
 

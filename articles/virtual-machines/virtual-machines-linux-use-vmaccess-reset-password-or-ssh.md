@@ -17,13 +17,12 @@
     ms.date="08/28/2015"
     ms.author="cynthn"/>
 
-
-# Linux 仮想マシンのパスワードまたは SSH をリセットする方法
+# Linux 仮想マシンのパスワードまたは SSH をリセットする方法 #
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーのモデルです。
 
 
-パスワードを忘れた、Secure Shell (SSH) キーが正しくない、または SSH の構成に問題のため、Linux 仮想マシンに接続できない場合は、Azure ポータルまたは VMAccessForLinux 拡張機能を使用して、パスワードまたは SSH キーをリセットするか、または SSH 構成を修正します。 この記事は、**クラシック** デプロイ モデルを使用して作成された仮想マシンを対象としています。
+パスワードを忘れた、Secure Shell (SSH) キーが正しくない、または SSH の構成に問題のため、Linux 仮想マシンに接続できない場合は、Azure ポータルまたは VMAccessForLinux 拡張機能を使用して、パスワードまたは SSH キーをリセットするか、または SSH 構成を修正します。 この記事を使用して作成された仮想マシンに適用されます、 **クラシック** 配置モデルです。
 
 ## Azure ポータル
 
@@ -40,30 +39,30 @@ SSH の構成をリセットする、 [Azure ポータル](https://portal.azure.
 
 以下のものが必要になります。
 
-- Microsoft Azure Linux エージェント バージョン 2.0.5 またはそれ以降。 仮想マシン ギャラリー内のほとんどの Linux イメージには、バージョン 2.0.5 が含まれています。 インストールされているバージョンを確認するには、**waagent -version** を実行します。 エージェントを更新するには、[Azure Linux エージェント ユーザー ガイド] 設定を指示します。
-- Azure コマンド ライン インターフェイス (CLI)。 Azure CLI の設定の詳細については、「 [インストールして、Azure コマンド ライン インターフェイスを構成する](../xplat-cli-install.md)します。
+- Microsoft Azure Linux エージェント バージョン 2.0.5 またはそれ以降。 仮想マシン ギャラリー内のほとんどの Linux イメージには、バージョン 2.0.5 が含まれています。 インストールされているバージョンを見つけるには実行 **waagent のバージョン**です。 エージェントを更新するには、[Azure Linux エージェント ユーザー ガイド] 設定を指示します。
+- Azure コマンド ライン インターフェイス (CLI)。 Azure CLI の設定の詳細については、「 [インストールして、Azure コマンド ライン インターフェイスを構成する](../xplat-cli-install.md)です。
 - Azure PowerShell。 Set-AzureVMExtension コマンドレットでコマンドを使用して、VMAccessForLinux 拡張機能を自動的に読み込み、構成します。 詳細については、Azure PowerShell の設定は、[Azure PowerShell を構成する方法] を参照してください。
 - 新しいパスワードまたは一連の SSH キー (いずれかをリセットする場合)。 SSH の構成をリセットする場合、これらは必要ありません。
 
 ### インストールは必要ありません
 
-VMAccess 拡張機能は使用前にインストールする必要はありません。 Linux エージェントが仮想マシンにインストールされていれば、**Set-AzureVMExtension** コマンドレットを使用する Azure PowerShell コマンドを実行すると自動的に拡張機能が読み込まれます。
+VMAccess 拡張機能は使用前にインストールする必要はありません。 使用する Azure PowerShell コマンドを実行すると、Linux エージェントが仮想マシンにインストールされている限り、拡張機能を自動的にロードすることは、 **Set-azurevmextension** コマンドレットです。
 
 ## Azure CLI の使用
 
-Azure CLI を使用すると、コマンド ライン インターフェイス (Bash、Terminal、Command プロンプト) から **azure** コマンドを使用してコマンドにアクセスできます。 拡張機能の詳しい使用方法については、**azure vm extension set –help** を実行します。
+Azure CLI を使用したことができますを使用する、 **azure** コマンド ライン インターフェイス (Bash、Terminal、Command プロンプト) からのコマンドをコマンドにアクセスします。 実行 **azure vm 拡張機能は、次の設定 – ヘルプ** の詳細な拡張機能を使用します。
 
 Azure CLI を使用すると、次のタスクを実行できます。
 
-+ [パスワードをリセットします。](#pwresetcli)
-+ [SSH キーをリセットします。](#sshkeyresetcli)
-+ [パスワードと SSH キーをリセットします。](#resetbothcli)
-+ [新しい sudo ユーザー アカウントを作成します。](#createnewsudocli)
-+ [SSH 構成をリセットします。](#sshconfigresetcli)
-+ [ユーザーを削除します。](#deletecli)
-+ [VMAccess 拡張機能の状態を表示します。](#statuscli)
++ [パスワードのリセット](#pwresetcli)
++ [SSH キーのリセット](#sshkeyresetcli)
++ [パスワードと SSH キーのリセット](#resetbothcli)
++ [新しい sudo ユーザー アカウントの作成](#createnewsudocli)
++ [SSH 構成のリセット](#sshconfigresetcli)
++ [ユーザーの削除](#deletecli)
++ [VMAccess 拡張機能の状態の表示](#statuscli)
 
-### <a name="pwresetcli"></a>パスワードをリセットします。
+### <a name="pwresetcli"></a>パスワードのリセット
 
 手順 1. プレースホルダーの値を置き換えて、次の内容を含む PrivateConf.json という名前のファイルを作成しします。
 
@@ -77,7 +76,7 @@ Azure CLI を使用すると、次のタスクを実行できます。
 
     azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* –-private-config-path PrivateConf.json
 
-### <a name="sshkeyresetcli"></a>SSH キーをリセットします。
+### <a name="sshkeyresetcli"></a>SSH キーのリセット
 
 手順 1. プレースホルダーの値を置き換えて、次の内容を含む PrivateConf.json という名前のファイルを作成しします。
 
@@ -90,7 +89,7 @@ Azure CLI を使用すると、次のタスクを実行できます。
 
     azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
-### <a name="resetbothcli"></a>パスワードと SSH キーをリセットします。
+### <a name="resetbothcli"></a>パスワードと SSH キーのリセット
 
 手順 1. プレースホルダーの値を置き換えて、次の内容を含む PrivateConf.json という名前のファイルを作成しします。
 
@@ -104,7 +103,7 @@ Azure CLI を使用すると、次のタスクを実行できます。
 
     azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
-### <a name="createnewsudocli"></a>新しい sudo ユーザー アカウントを作成します。
+### <a name="createnewsudocli"></a>新しい sudo ユーザー アカウントの作成
 
 自身のユーザー名を忘れた場合は、VMAccess を使用して、sudo 権限を持つ新しいユーザーを作成できます。 この場合、既存のユーザー名とパスワードは変更されません。
 
@@ -114,10 +113,11 @@ SSH キーのアクセス権を持つ新しい sudo ユーザーを作成する�
 
 使用することも [パスワードと SSH キーのリセット](#resetbothcli) パスワードと SSH キーへのアクセスの両方で、新しいユーザーを作成します。
 
-### <a name="sshconfigresetcli"></a>SSH 構成をリセットします。
+### <a name="sshconfigresetcli"></a>SSH 構成のリセット
 
 SSH の構成が望ましい状態でない場合は、VM にアクセスできなくなる可能性もあります。 VMAccess 拡張機能を使用して、構成を既定の状態にリセットすることができます。 そのために必要なのは、"reset_ssh" キーを "True" に設定することだけです。 拡張機能によって SSH サーバーが再起動し、VM 上の SSH ポートが開いて、SSH 構成が既定値にリセットされます。 ユーザー アカウント (名前、パスワード、または SSH キー) は変更されません。
-> [AZURE.NOTE] リセットされる SSH の構成ファイルは、/etc/ssh/sshd_config にあります。
+
+> [AZURE.NOTE] リセットされる SSH の構成ファイルは、/etc/ssh/sshd_config にします。
 
 手順 1. 次の内容を含む PrivateConf.json という名前のファイルを作成します。
 
@@ -129,7 +129,7 @@ SSH の構成が望ましい状態でない場合は、VM にアクセスでき�
 
     azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
-### <a name="deletecli"></a>ユーザーを削除します。
+### <a name="deletecli"></a>ユーザーの削除
 
 VM にログインせずに直接ユーザー アカウントを削除するには、このスクリプトを使用できます。
 
@@ -143,25 +143,27 @@ VM にログインせずに直接ユーザー アカウントを削除するに�
 
     azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
-### <a name="statuscli"></a>VMAccess 拡張機能の状態を表示します。
+### <a name="statuscli"></a>VMAccess 拡張機能の状態の表示
 
 VMAccess 拡張機能の状態を表示するには、次のコマンドを実行します。
 
     azure vm extension get
 
+
 ## Azure PowerShell の使用
 
-**Set-AzureVMExtension** コマンドレットを使用して、VMAccess に変更を加えます。 すべてのケースで、クラウド サービス名と仮想マシン名を使用して開始して、仮想マシン オブジェクトを取得し、変数に格納します。
+使用して、 **Set-azurevmextension** 変更のいずれかにその VMAccess を行うコマンドレットでは、行うことができます。 すべてのケースで、クラウド サービス名と仮想マシン名を使用して開始して、仮想マシン オブジェクトを取得し、変数に格納します。
 
-クラウド サービス名と仮想マシン名を入力して、管理者レベルの Azure PowerShell のコマンド プロンプトで次のコマンドを実行します。置換を含む引用符内のすべての < と > 文字です。
+クラウド サービス名と仮想マシン名を入力して、管理者レベルの Azure PowerShell のコマンド プロンプトで次のコマンドを実行します。 置換を含む引用符内のすべての < と > 文字です。
 
     $CSName = "<cloud service name>"
     $VMName = "<virtual machine name>"
     $vm = Get-AzureVM -ServiceName $CSName -Name $VMName
 
-クラウド サービスや仮想マシンの名前がわからない場合は、**Get-AzureVM** を実行します。現在のサブスクリプションのすべての VM の情報が表示されます。
+クラウド サービスや仮想マシンの名前がわからない場合は、実行 **Get-azurevm** に現在のサブスクリプションのすべての Vm の情報が表示されます。
 
-> [AZURE.NOTE] $ で始まるコマンド ラインは、後で PowerShell コマンドで使用する PowerShell 変数を設定します。
+
+> [AZURE.NOTE] $ で始まるコマンドラインでは、PowerShell コマンドで後で使用する PowerShell 変数を設定します。
 
 Azure クラシック ポータルで仮想マシンを作成する場合は、次の追加のコマンドを実行します。
 
@@ -171,14 +173,14 @@ Azure クラシック ポータルで仮想マシンを作成する場合は、�
 
 次に、以下のタスクを実行できます。
 
-+ [パスワードをリセットします。](#password)
-+ [SSH キーをリセットします。](#SSHkey)
-+ [パスワードと SSH キーをリセットします。](#both)
-+ [SSH 構成をリセットします。](#config)
-+ [ユーザーを削除します。](#delete)
-+ [VMAccess 拡張機能の状態を表示します。](#status)
++ [パスワードのリセット](#password)
++ [SSH キーのリセット](#SSHkey)
++ [パスワードと SSH キーのリセット](#both)
++ [SSH 構成のリセット](#config)
++ [ユーザーの削除](#delete)
++ [VMAccess 拡張機能の状態の表示](#status)
 
-### <a name="password"></a>パスワードをリセットします。
+### <a name="password"></a>パスワードのリセット
 
 Linux の現在のユーザー名と新しいパスワードを入力し、これらのコマンドを実行します。
 
@@ -190,10 +192,10 @@ Linux の現在のユーザー名と新しいパスワードを入力し、こ�
     $Version =  "1.*"
     Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-> [AZURE.NOTE] 既存のユーザー アカウント用のパスワードまたは SSH キーをリセットする場合は、必ず正確なユーザー名を入力してください。 別の名前を入力した場合は、VMAccess 拡張機能が新しいユーザー アカウントを作成し、そのアカウントにパスワードを割り当てます。
+> [AZURE.NOTE] パスワードまたは既存のユーザー アカウント用に SSH キーをリセットするには、必ず正確なユーザー名を入力します。 別の名前を入力した場合は、VMAccess 拡張機能が新しいユーザー アカウントを作成し、そのアカウントにパスワードを割り当てます。
 
 
-### <a name="SSHKey"></a>SSH キーをリセットします。
+### <a name="SSHKey"></a>SSH キーのリセット
 
 Linux の現在のユーザー名と、SSH キーを含む証明書へのパスを入力し、これらのコマンドを実行します。
 
@@ -205,7 +207,7 @@ Linux の現在のユーザー名と、SSH キーを含む証明書へのパス�
     $Version =  "1.*"
     Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-### <a name="both"></a>パスワードと SSH キーをリセットします。
+### <a name="both"></a>パスワードと SSH キーのリセット
 
 Linux の現在のユーザー名、新しいパスワード、および SSH キーを含む証明書へのパスを入力し、これらのコマンドを実行します。
 
@@ -218,7 +220,7 @@ Linux の現在のユーザー名、新しいパスワード、および SSH キ
     $Version =  "1.*"
     Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-### <a name="config"></a>SSH 構成をリセットします。
+### <a name="config"></a>SSH 構成のリセット
 
 SSH の構成にエラーがあると、仮想マシンにアクセスできない場合があります。 SSH の構成を既定の状態にリセットして修正することができます。 これにより、ユーザー名、パスワード、SSH キーなど、構成ですべての新しいアクセス パラメーターが削除されますが、ユーザー アカウントのパスワードまたは SSH キーは変わりません。 拡張機能によって SSH サーバーが再起動し、仮想マシン上の SSH ポートが開いて、SSH 構成が既定値にリセットされます。
 
@@ -230,9 +232,9 @@ SSH の構成にエラーがあると、仮想マシンにアクセスできな�
     $Version = "1.*"
     Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-> [AZURE.NOTE] SSH の構成ファイルは、/etc/ssh/sshd_config にあります。
+> [AZURE.NOTE] SSH の構成ファイルは、/etc/ssh/sshd_config にします。
 
-### <a name="delete"></a> ユーザーを削除します。
+### <a name="delete"></a> ユーザーの削除
 
 削除するには、Linux ユーザー名を入力し、次のコマンドを実行します。
 
@@ -243,23 +245,24 @@ SSH の構成にエラーがあると、仮想マシンにアクセスできな�
     $Version = "1.*"
     Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-### <a name="status"></a>VMAccess 拡張機能の状態を表示します。
+
+### <a name="status"></a>VMAccess 拡張機能の状態の表示
 
 VMAccess 拡張機能の状態を表示するには、次のコマンドを実行します。
 
     $vm.GuestAgentStatus
 
+
 ## その他のリソース
 
 [Azure VM 拡張機能と機能][]
 
-[RDP または SSH で、Azure の仮想マシンに接続します。][]
+[RDP または SSH で Azure の仮想マシンに接続する][]
 
 
-
-
-[azure linux agent user guide]: virtual-machines-linux-agent-user-guide.md 
-[how to install and configure azure powershell]: ../install-configure-powershell.md 
-[azure vm extensions and features]: virtual-machines-extensions-features.md 
-[connect to an azure virtual machine with rdp or ssh]: http://msdn.microsoft.com/library/azure/dn535788.aspx 
+<!--Link references-->
+[Azure Linux Agent User Guide]: virtual-machines-linux-agent-user-guide.md
+[How to install and configure Azure PowerShell]: ../install-configure-powershell.md
+[Azure VM Extensions and Features]: virtual-machines-extensions-features.md
+[Connect to an Azure virtual machine with RDP or SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 

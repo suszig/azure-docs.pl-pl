@@ -17,15 +17,13 @@
    ms.date="09/01/2015"
    ms.author="kundanap"/>
 
-
 # Azure Windows VM 拡張機能の構成サンプル
 
 > [AZURE.SELECTOR]
-- [Azure PowerShell - Template](virtual-machines-extensions-configuration-samples-windows.md)
-- [Azure CLI - Template](virtual-machines-extensions-configuration-samples-linux.md)
+- [Azure PowerShell のテンプレート](virtual-machines-extensions-configuration-samples-windows.md)
+- [Azure CLI でテンプレート](virtual-machines-extensions-configuration-samples-linux.md)
 
-
-<br>
+<br> 
 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 従来のデプロイ モデルです。
@@ -35,14 +33,13 @@
 この記事には、Windows VM に対して Azure VM 拡張機能を構成する際の構成のサンプルが記載されています。
 
 
-これらの拡張機能に関する詳細については、を参照してください [Azure VM 拡張機能の概要。](virtual-machines-extensions-features.md)。
+これらの拡張機能の詳細については、次を参照してください。 [Azure VM 拡張機能の概要です。](virtual-machines-extensions-features.md)
 
-拡張機能のテンプレートの作成に関する詳細については、を参照してください [拡張機能のテンプレートの作成。](virtual-machines-extensions-authoring-templates.md)。
+拡張機能のテンプレートの作成の詳細については、次を参照してください。 [拡張機能のテンプレートの作成。](virtual-machines-extensions-authoring-templates.md)
 
 この記事では、一部の Windows 拡張機能について、予測される構成値の一覧を示します。
 
 ## VM 拡張機能のサンプル テンプレート スニペット
-
 拡張機能をデプロイするためのテンプレート スニペットは次のようになります。
 
       {
@@ -69,7 +66,6 @@
 拡張機能をデプロイする前に、拡張機能の最新バージョンを確認し、"typeHandlerVersion" を最新のバージョンに置き換えてください。
 
 ### CustomScript 拡張機能
-
     {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
@@ -97,7 +93,6 @@
       }
 
 ### DSC 拡張機能
-
       {
           "publisher": "Microsoft.Powershell",
           "type": "DSC",
@@ -128,8 +123,8 @@
           }
       }
 
-### Symantec Endpoint Protection
 
+### Symantec Endpoint Protection
       {
         "publisher": "SymantecEndpointProtection",
         "type": "Symantec",
@@ -138,26 +133,24 @@
       }
 
 ### Trend Micro Deep Security Agent
-
       {
         "publisher": "TrendMicro.DeepSecurity",
         "type": "TrendMicroDSA",
         "typeHandlerVersion": "9.6",
         "settings": {
           "ManagerAddress" : "Enter the externally accessible DNS name or IP address of the Deep Security Manager. Please enter \"agents.deepsecurity.trendmicro.com\" if using Deep Security as a Service",
-    
+
           "ActivationPort" : "Enter the port number of the Deep Security Manager, default value - 443",
-    
+
           "TenantIdentifier" : "Enter the tenant ID, which is a hyphenated, 36-character string available in the Deployment Scripts dialog box in the Deep Security console. This parameter is mandatory if using Deep Security as a Service, or a multi-tenant installation of Deep Security Manager. Type NA if using a non multi-tenant installation of Deep Security Manager.",
-    
+
           "TenantActivationPassword" : "Enter the tenant activation password, which is a hyphenated, 36-character string available in the Deployment Scripts dialog box in the Deep Security console. This parameter is mandatory if using Deep Security as a Service, or a multi-tenant installation of Deep Security Manager. Type NA if using a non multi-tenant installation of Deep Security Manager.",
-    
+
           "SecurityPolicy" : "Optional : Enter the name or numeric ID of the security policy defined in the Deep Security Manager which will be applied on agent activation to protect this virtual machine (recommended). No security policy will be applied to the virtual machine if this parameter is blank. This parameter is optional if using Deep Security as a Service."
         }
       }
 
 ### Vormertric Transparent Encryption Agent
-
             {
               "publisher": "Vormetric",
               "type": "VormetricTransparentEncryptionAgent",
@@ -167,7 +160,6 @@
             }
 
 ### Puppet Enterprise Agent
-
             {
               "publisher": "PuppetLabs",
               "type": "PuppetEnterpriseAgent",
@@ -178,7 +170,6 @@
             }  
 
 ### Azure Operational Insights 向け Microsoft Monitoring Agent
-
             {
               "publisher": "Microsoft.EnterpriseCloud.Monitoring",
               "type": "MicrosoftMonitoringAgent",
@@ -193,7 +184,6 @@
             }
 
 ### McAfee EndpointSecurity
-
             {
               "publisher": "McAfee.EndpointSecurity",
               "type": "McAfeeEndpointSecurity",
@@ -208,7 +198,6 @@
             }
 
 ### Azure IaaS マルウェア対策
-
           {
             "publisher": "Microsoft.Azure.Security",
             "type": "IaaSAntimalware",
@@ -227,7 +216,6 @@
           }
 
 ### ESET File Security
-
           {
             "publisher": "ESET",
             "type": "FileSecurity",
@@ -237,7 +225,6 @@
           }
 
 ### Datadog Agent
-
           {
             "publisher": "Datadog.Agent",
             "type": "DatadogWindowsAgent",
@@ -248,7 +235,6 @@
           }
 
 ### Confer の Azure 向けの Advanced Threat Prevention and Incident Response
-
           {
             "publisher": "Confer",
             "type": "ConferForAzure",
@@ -260,7 +246,6 @@
           }
 
 ### CloudLink SecureVM Agent
-
           {
             "publisher": "CloudLinkEMC.SecureVM",
             "type": "CloudLinkSecureVMWindowsAgent",
@@ -271,7 +256,6 @@
           }
 
 ### Microsoft Azure 用 Barracuda VPN Connectivity Agent
-
           {
             "publisher": "Barracuda.Azure.ConnectivityAgent",
             "type": "BarracudaConnectivityAgent",
@@ -285,7 +269,6 @@
           }
 
 ### Alert Logic Log Manager
-
           {
             "publisher": "AlertLogic.Extension",
             "type": "AlertLogicLM",
@@ -296,7 +279,6 @@
           }
 
 ### Chef Agent
-
           {
             "publisher": "Chef.Bootstrap.WindowsAzure",
             "type": "ChefClient",
@@ -310,7 +292,7 @@
 
 ### Azure 診断
 
-診断を構成する方法の詳細については、を参照してください [Azure 診断の拡張機能](virtual-machines-extensions-diagnostics-windows-template.md)。
+診断を構成する方法の詳細については、次を参照してください [Azure 診断の拡張機能。](virtual-machines-extensions-diagnostics-windows-template.md)
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
@@ -333,8 +315,4 @@
 カスタム スクリプト拡張機能を使用した完全な VM テンプレートの例については、次を参照してください。
 
 [Windows VM のカスタム スクリプト拡張機能](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
-
-
-
-
 

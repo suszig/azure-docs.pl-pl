@@ -16,47 +16,46 @@
     ms.date="11/20/2015"
     ms.author="robmcm"/>
 
-
 # Azure アプリケーションでの Node.js のバージョンの指定
 
 Node.js アプリケーションをホストするときに、アプリケーションで特定のバージョンの Node.js を使用することが必要になる場合があります。 Azure でホストされるアプリケーションについてこれを行うには、いくつかの方法があります。
 
-## 既定のバージョン
+##既定のバージョン
 
 Azure が提供する Node.js のバージョンは常に更新されます。 別に指定しない場合、最新のバージョンを使用します。
-> [AZURE.NOTE] Azure クラウド サービス (Web ロールまたは worker ロール) でアプリケーションをホストしており、初めてアプリケーションをデプロイした場合、開発環境にインストールされていた Node.js が Azure で使用できる既定のバージョンのいずれかと一致するときには、同じバージョンを使用することが試行されます。
 
-## package.json でバージョンを指定する
+> [AZURE.NOTE] Azure クラウド サービス (web またはワーカー ロール) でアプリケーションをホストするいるし、アプリケーションを展開した初めてのときは、Azure は Azure で使用できる既定のバージョンのいずれかと一致する場合、開発環境にインストールしている Node.js の同じバージョンを使用しようとします。
 
-次の内容を **package.json** ファイルに追加することによって、使用する Node.js のバージョンを指定できます。
+##package.json でバージョンを指定する
+
+次のコードを追加することで使用する Node.js のバージョンを指定する、 **package.json** ファイル。
 
     "engines":{"node":version}
 
-ここで、*version* は使用する特定のバージョン番号です。 バージョンについてより複雑な条件をよう指定でくことができます。
+ここで *バージョン* を使用する特定のバージョン番号を指定します。 バージョンについてより複雑な条件をよう指定でくことができます。
 
     "engines":{"node": "0.6.22 || 0.8.x"}
 
 0.6.22 はホスティング環境で利用可能なバージョンには含まれていないため、0.8 シリーズで利用可能な最も高いバージョンである 0.8.4 が代わりに使用されます。
 
-## アプリケーションの設定で Websites のバージョンを指定する
+##アプリケーションの設定で Websites のバージョンを指定する
+Web サイトでアプリケーションをホストしている場合は、環境変数を設定することができます **WEBSITE_NODE_DEFAULT_VERSION** を目的のバージョン。 
 
-Web サイトでアプリケーションをホストしている場合は、環境変数 **WEBSITE_NODE_DEFAULT_VERSION** を目的のバージョンに設定できます。
+##PowerShell で Cloud Services のバージョンを指定する
 
-## PowerShell で Cloud Services のバージョンを指定する
-
-クラウド サービスでアプリケーションをホストしており、Microsoft Azure PowerShell を使用してアプリケーションをデプロイしている場合は、PowerShell の **Set-AzureServiceProjectRole** コマンドレットを使用して既定の Node.js のバージョンをオーバーライドできます。 次に例を示します。
+使用して既定の Node.js バージョンをオーバーライドするには、クラウド サービスでアプリケーションをホストして Azure PowerShell を使用してアプリケーションをデプロイする場合、 **Set-azureserviceprojectrole** PowerShell コマンドレット。 次に例を示します。
 
     Set-AzureServiceProjectRole WebRole1 Node 0.8.4
 
-上記のステートメント内のパラメーターは大文字と小文字が区別されます。 Node.js の正しいバージョンが選択されていることを検証できます。このためには、ロールの **package.json** の **engines** プロパティを確認します。
+上記のステートメント内のパラメーターは大文字と小文字が区別されます。  チェックによって、正しいバージョンの Node.js が選択されたことを確認できる、 **エンジン** ロールのプロパティ **package.json**します。
 
-また、**Get-AzureServiceProjectRoleRuntime** を使用して、クラウド サービスとしてホストされるアプリケーションで利用可能な Node.js のバージョンの一覧を取得できます。 プロジェクトが依存している Node.js のバージョンは、この一覧でいつでも確認できます。
+使用することも、 **Get-azureserviceprojectroleruntime** Node.js のバージョンが使用できるクラウド サービスとしてホストされるアプリケーションの一覧を取得します。  プロジェクトが依存している Node.js のバージョンは、この一覧でいつでも確認できます。
 
-## Azure Websites でカスタム バージョンを使用する
+##Azure Websites でカスタム バージョンを使用する
 
-Azure には Node.js の既定のバージョンが複数用意されていますが、既定以外のバージョンを使用することもできます。 アプリケーションが Azure Website としてホストされている場合、**iisnode.yml** ファイルを使用してこれを実現できます。 以下の手順では、Azure Website で Node.Js のカスタム バージョンを使用するプロセスを説明します。
+Azure には Node.js の既定のバージョンが複数用意されていますが、既定以外のバージョンを使用することもできます。 アプリケーションが Azure Website としてホストされている場合、これを使用して、 **iisnode.yml** ファイルです。 以下の手順では、Azure Website で Node.Js のカスタム バージョンを使用するプロセスを説明します。
 
-1. 新しいディレクトリを作成し、そのディレクトリ内に **server.js** ファイルを作成します。 **server.js** ファイルの内容は次のようになっている必要があります。
+1. 新しいディレクトリを作成し、作成、 **server.js** ディレクトリ内のファイルです。  **Server.js** ファイルは、次を含める必要があります。
 
         var http = require('http');
         http.createServer(function(req,res) {
@@ -66,23 +65,23 @@ Azure には Node.js の既定のバージョンが複数用意されていま�
 
     これにより、Web サイトを閲覧するときに、使用されている Node.js のバージョンが表示されます。
 
-2. 新しい Web サイトを作成し、サイトの名前をメモしておきます。 たとえば、次はという名前の新しい Azure Website を作成する [Azure コマンド ライン ツール] を使用 **mywebsite**, 、web サイトに対して Git リポジトリを有効にします。
+2. 新しい Web サイトを作成し、サイトの名前をメモしておきます。 たとえば、次の用途、 [Azure Command-line tools] という名前の新しい Azure Website を作成する **mywebsite**, 、web サイトに対して Git リポジトリを有効にします。
 
         azure site create mywebsite --git
 
-3. **server.js** ファイルが格納されているディレクトリの子として **bin** という名前の新しいディレクトリを作成します。
+3. という名前の新しいディレクトリを作成する **bin** を含んでいるディレクトリの子として、 **server.js** ファイルです。
 
-4. アプリケーションで使用する特定のバージョンの **node.exe** (Windows 版) をダウンロードします。 たとえば、次の例では **curl** を使用してバージョン 0.8.1 をダウンロードします。
+4. 特定のバージョンをダウンロード **node.exe** (Windows 版) をアプリケーションで使用する場合します。 たとえば、次の用途 **curl** バージョン 0.8.1 をダウンロードします。
 
         curl -O http://nodejs.org/dist/v0.8.1/node.exe
 
-    **node.exe** ファイルを前の手順で作成した **bin** フォルダーに保存します。
+    保存、 **node.exe** ファイルを **bin** フォルダーの以前に作成します。
 
-5. **iisnode.yml** ファイルを **server.js** ファイルと同じディレクトリに作成し、次の内容を **iisnode.yml** ファイルに追加します。
+5. 作成、 **iisnode.yml** と同じディレクトリ内のファイル、 **server.js** ファイルを開き、次の内容を追加、 **iisnode.yml** ファイル。
 
         nodeProcessCommandLine: "D:\home\site\wwwroot\bin\node.exe"
 
-    このパスは、アプリケーションを Azure Website に発行した際に、プロジェクト内の **node.exe** ファイルが配置される場所です。
+    このパスは、where、 **node.exe** Azure web サイトにアプリケーションを発行した、プロジェクト内のファイルが配置されます。
 
 6. アプリケーションを発行します。 たとえば、先ほど --git パラメーターを指定して新しい Web サイトを作成したので、次のコマンドによって、自分のローカル Git リポジトリにアプリケーション ファイルが追加された後、Web サイトのリポジトリにプッシュされます。
 
@@ -92,15 +91,14 @@ Azure には Node.js の既定のバージョンが複数用意されていま�
 
     アプリケーションが発行された後、ブラウザーで Web サイトを開きます。 "Hello from Azure running node version: v0.8.1" というメッセージが表示されます。
 
-## 次のステップ
+##次のステップ
 
-これで、アプリケーションによって使用されている Node.js のバージョンを指定する方法を理解する [モジュール] を使用する方法について [ビルドし、配置を Node.js Web サイト] および [Mac および Linux 用 Azure コマンド ライン ツールを使用する方法]。
+説明をアプリケーションによって使用されている Node.js のバージョンを指定する方法を理解する方法 [work with modules], 、[build and deploy a Node.js Web Site], 、および [How to use the Azure Command-Line Tools for Mac and Linux]します。
 
 詳細については、次を参照してください。、 [Node.js デベロッパー センター](/develop/nodejs/)します。
 
-
-[how to use the azure command-line tools for mac and linux]: xplat-cli-install.md 
-[azure command-line tools]: xplat-cli-install.md 
-[work with modules]: nodejs-use-node-modules-azure-apps.md 
-[build and deploy a node.js web site]: web-sites-nodejs-develop-deploy-mac.md 
+[How to use the Azure Command-Line Tools for Mac and Linux]: xplat-cli-install.md
+[Azure Command-line tools]: xplat-cli-install.md
+[work with modules]: nodejs-use-node-modules-azure-apps.md
+[build and deploy a Node.js Web Site]: web-sites-nodejs-develop-deploy-mac.md
 

@@ -17,13 +17,11 @@
     ms.author="juliako"/>
 
 
-
 # Media Services REST API を使用して Media Services アカウントに接続する
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-connect_programmatically.md)
-- [REST](media-services-rest-connect_programmatically.md)
-
+- [REST ()](media-services-rest-connect_programmatically.md)
 
 このトピックでは、Media Services REST API でプログラミングしている場合に、Microsoft Azure Media Services にプログラムで接続する方法について説明します。
 
@@ -31,12 +29,13 @@ Microsoft Azure Media Services にアクセスする際には、Azure Access Con
 
 次の手順では、Media Services REST API を使用して Media Services に接続するときの最も一般的なワークフローについて説明します。
 
-1. アクセス トークンの取得
-2. Media Services URI への接続
-    >[AZURE.NOTE] Https://media.windows.net に正常に接続されると、別の Media Services の URI を指定する 301 リダイレクトを受け取ります。 その新しい URI に再度コールする必要があります。
+1. アクセス トークンの取得 
+2. Media Services URI への接続 
+
+    >[AZURE.NOTE] Https://media.windows.net に正常に接続した後は、別の Media Services URI が指定された 301 リダイレクトを受け取ります。 その新しい URI に再度コールする必要があります。
     ODATA API メタデータの説明が含まれる HTTP/1.1 200 応答が表示される場合もあります。
 
-3. 続けて、新しい URL に API コールを行います。
+3. 続けて、新しい URL に API コールを行います。 
 
     たとえば、接続しようとした後に次のようなメッセージが表示されます。
 
@@ -45,7 +44,7 @@ Microsoft Azure Media Services にアクセスする際には、Azure Access Con
 
     この場合、続けて、「https://wamsbayclus001rest-hs.cloudapp.net/api/」へ API コールを行う必要があります。
 
-## アクセス トークンの取得
+##アクセス トークンの取得
 
 REST API から直接 Media Services にアクセスするには、ACS からアクセス トークンを取得して、Media Services に行う各 HTTP 要求で使用します。 このトークンは、OAuth v2 プロトコルを使用して、HTTP 要求のヘッダーで提供されるアクセス要求に基づいて ACS で提供されるその他のトークンに似ています。 Media Services に直接接続するための前提条件は、これ以外にはありません。
 
@@ -61,17 +60,20 @@ REST API から直接 Media Services にアクセスするには、ACS からア
     Connection: Keep-Alive
     Accept: application/json
 
+    
 **本文**:
 
-この要求の本文で、client_id と client_secret の値を指定する必要があります。client_id と client_secret はそれぞれ、AccountName と AccountKey の値に対応します。 Media Services では、アカウントを設定したときにこれらの値が提供されます。
+この要求の本文で、client_id と client_secret の値を指定する必要があります。client_id と client_secret はそれぞれ、AccountName と AccountKey の値に対応します。 Media Services では、アカウントを設定したときにこれらの値が提供されます。 
 
-Media Services アカウントの AccountKey が URL エンコードする必要があります (を参照してください [パーセントエンコーディング](http://tools.ietf.org/html/rfc3986#section-2.1) 、アクセス トークン要求で client_secret 値として使用するとします。
+Media Services アカウントの AccountKey が URL エンコードする必要があります (を参照してください [パーセント エンコード](http://tools.ietf.org/html/rfc3986#section-2.1) 、アクセス トークン要求で client_secret 値として使用するとします。
 
     grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
-次に例を示します。
+
+次に例を示します。 
 
     grant_type=client_credentials&client_id=amstestaccount001&client_secret=wUNbKhNj07oqjqU3Ah9R9f4kqTJ9avPpfe6Pk3YZ7ng%3d&scope=urn%3aWindowsAzureMediaServices
+
 
 次の例は、本文にアクセス トークンを含む HTTP 応答を示します。
 
@@ -92,30 +94,32 @@ Media Services アカウントの AccountKey が URL エンコードする必要
        "expires_in":"21600",
        "scope":"urn:WindowsAzureMediaServices"
     }
+    
 
 >[AZURE.NOTE]
 "access_token " と "expires_in " の値は外部ストレージにキャッシュすることをお勧めします。 後でそのストレージからトークンのデータを取り出し、Media Services REST API コールで再利用できます。 これはトークンが複数のプロセスやコンピューターで安全に共有される場合に、特に便利です。
 
 アクセス トークンの "expires_in" 値を確認し、必要に応じて新しいトークンで REST API コールを更新してください。
 
-### Media Services URI への接続
+###Media Services URI への接続
 
 メディア サービスのルート URI は「https://media.windows.net/」です。 まず、この URI に接続して、301 リダイレクトが返された場合は続けて新しい URI にコールする必要があります。 加えて、要求に auto-redirect/follow ロジックを使うことはできません。 HTTP 動詞や応答本文はその新しい URI に転送されません。
 
 アセット ファイルをアップロードしたりダウンロードしたりするルート URI は「https://yourstorageaccount.blob.core.windows.net/」です。ストレージ アカウント名には、メディア サービス アカウントで設定したものと同じものが使われます。
 
-次の例では、Media Services ルート URI (https://media.windows.net/) への HTTP 要求を示します。 要求に対して 301 リダイレクトが返されています。 後続の要求では、新しい URI (https://wamsbayclus001rest-hs.cloudapp.net/api/) を使用しています。
+次の例では、Media Services ルート URI (https://media.windows.net/) への HTTP 要求を示します。 要求に対して 301 リダイレクトが返されています。 後続の要求では、新しい URI (https://wamsbayclus001rest-hs.cloudapp.net/api/) を使用しています。     
 
 **HTTP 要求**:
-
+    
     GET https://media.windows.net/ HTTP/1.1
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f19258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
     x-ms-version: 2.11
     Accept: application/json
     Host: media.windows.net
 
-**HTTP 応答**:
 
+**HTTP 応答**:
+    
     HTTP/1.1 301 Moved Permanently
     Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
     Server: Microsoft-IIS/8.5
@@ -130,16 +134,18 @@ Media Services アカウントの AccountKey が URL エンコードする必要
     <h2>Object moved to <a href="https://wamsbayclus001rest-hs.cloudapp.net/api/">here</a>.</h2>
     </body></html>
 
-**HTTP 要求** (新しい URI を使用):
 
+**HTTP 要求** (新しい URI を使用)。
+            
     GET https://wamsbayclus001rest-hs.cloudapp.net/api/ HTTP/1.1
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f19258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
     x-ms-version: 2.11
     Accept: application/json
     Host: wamsbayclus001rest-hs.cloudapp.net
 
-**HTTP 応答**:
 
+**HTTP 応答**:
+    
     HTTP/1.1 200 OK
     Cache-Control: no-cache
     Content-Length: 1250
@@ -154,19 +160,17 @@ Media Services アカウントの AccountKey が URL エンコードする必要
     Date: Sat, 17 Jan 2015 07:44:52 GMT
     
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata","value":[{"name":"AccessPolicies","url":"AccessPolicies"},{"name":"Locators","url":"Locators"},{"name":"ContentKeys","url":"ContentKeys"},{"name":"ContentKeyAuthorizationPolicyOptions","url":"ContentKeyAuthorizationPolicyOptions"},{"name":"ContentKeyAuthorizationPolicies","url":"ContentKeyAuthorizationPolicies"},{"name":"Files","url":"Files"},{"name":"Assets","url":"Assets"},{"name":"AssetDeliveryPolicies","url":"AssetDeliveryPolicies"},{"name":"IngestManifestFiles","url":"IngestManifestFiles"},{"name":"IngestManifestAssets","url":"IngestManifestAssets"},{"name":"IngestManifests","url":"IngestManifests"},{"name":"StorageAccounts","url":"StorageAccounts"},{"name":"Tasks","url":"Tasks"},{"name":"NotificationEndPoints","url":"NotificationEndPoints"},{"name":"Jobs","url":"Jobs"},{"name":"TaskTemplates","url":"TaskTemplates"},{"name":"JobTemplates","url":"JobTemplates"},{"name":"MediaProcessors","url":"MediaProcessors"},{"name":"EncodingReservedUnitTypes","url":"EncodingReservedUnitTypes"},{"name":"Operations","url":"Operations"},{"name":"StreamingEndpoints","url":"StreamingEndpoints"},{"name":"Channels","url":"Channels"},{"name":"Programs","url":"Programs"}]}
+     
 
->[AZURE.NOTE] 新しい URI を取得したら、その URI を使用して Media Services と通信します。 
+
+>[AZURE.NOTE] 新しい URI を取得した後は、Media Services との通信に使用される URI です。 
 
 
-## Media Services のラーニング パス
+##Media Services のラーニング パス
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## フィードバックの提供
+##フィードバックの提供
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
 

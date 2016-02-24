@@ -16,17 +16,14 @@
    ms.date="11/12/2015"
    ms.author="bharatn@microsoft.com"/>
 
-
 # Reliable Services によるサービスのリモート処理
-
 WebAPI や WCF など、特定の通信プロトコルやスタックに関連付けられていないサービスでは、サービスのリモート プロシージャ コールを迅速簡単に設定するためのリモート処理のメカニズムをフレームワークが提供します。
 
 ## サービスでのリモート処理の設定
-
 サービスのリモート処理の設定は、次の 2 つの簡単な手順で行われます。
 
-1. 実装するサービスのインターフェイスを作成します。 このインターフェイスはサービスのリモート プロシージャ コールで使用できるメソッドを定義します。このメソッドはタスクを返す非同期メソッドである必要があります。 インターフェイスを実装する必要があります `Microsoft.ServiceFabric.Services.Remoting.IService` をサービスのリモート処理インターフェイスことを通知します。
-2. 使用 `Microsoft.ServiceFabric.Services.Remoting.Runtime.ServiceRemotingListener` サービスです。 これは、 `ICommunicationListener` リモート処理機能を提供する実装。
+1. 実装するサービスのインターフェイスを作成します。 このインターフェイスはサービスのリモート プロシージャ コールで使用できるメソッドを定義します。このメソッドはタスクを返す非同期メソッドである必要があります。 インターフェイスは `Microsoft.ServiceFabric.Services.Remoting.IService` を実装し、そのサービスにリモート処理インターフェイスがあることを示す必要があります。 
+2. `Microsoft.ServiceFabric.Services.Remoting.Runtime.ServiceRemotingListener` をサービスに使用します。 これは、リモート処理機能を提供する `ICommunicationListener` の実装です。
 
 たとえば、この Hello World サービスでは、リモート プロシージャ コールで "Hello World" を取得する 1 つのメソッドを公開します。
 
@@ -48,13 +45,13 @@ internal class HelloWorldStateful : StatefulService, IHelloWorldStateful
         return Task.FromResult("Hello World!");
     }
 }
+
 ```
 > [AZURE.NOTE] 引数と戻り値の型をサービス インターフェイスは、単純な複雑なまたはカスタムの種類をことができますが、.net でシリアル化する必要があります [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx)します。
 
 
 ## リモート サービス メソッドの呼び出し
-
-リモート処理スタックを使用してサービスに対してメソッドを呼び出してを使用してサービスをローカル プロキシを使用して、 `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` クラスです。  `ServiceProxy` サービスを実装する同じインターフェイスを使用してローカル プロキシを作成します。 そのプロキシを使用して、インターフェイス上のメソッドをリモートで簡単に呼び出すことができます。
+リモート処理スタックを使用したサービスでのメソッドの呼び出しは、サービスに対して `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` クラスを介し、ローカル プロキシを使用して行われます。 `ServiceProxy` は、サービスに実装されている同じインターフェイスを使用してローカル プロキシを作成します。 そのプロキシを使用して、インターフェイス上のメソッドをリモートで簡単に呼び出すことができます。
 
 
 ```csharp
@@ -62,18 +59,15 @@ internal class HelloWorldStateful : StatefulService, IHelloWorldStateful
 IHelloWorldStateful helloWorldClient = ServiceProxy.Create<IHelloWorldStateful>(new Uri("fabric:/MyApplication/MyHelloWorldService"));
 
 string message = await helloWorldClient.GetHelloWorld();
+
 ```
 
-リモート処理フレームワークは、サービスでスローされた例外をクライアントに伝達します。 例外の処理ロジックを使用してクライアントで `ServiceProxy` サービスをスローする例外を直接処理することができます。
-
+リモート処理フレームワークは、サービスでスローされた例外をクライアントに伝達します。 そのため、`ServiceProxy` を使用したクライアントでの例外処理ロジックでは、サービスがスローする例外を直接処理できます。
+ 
 ## 次のステップ
 
-* [Reliable Services で OWIN による web API](service-fabric-reliable-services-communication-webapi.md)
+* [Reliable Services の OWIN 対応 Web API](service-fabric-reliable-services-communication-webapi.md)
 
-* [信頼性の高いサービスと WCF の通信](service-fabric-reliable-services-communication-wcf.md)
-
-
-
-
+* [Reliable Services との WCF 通信](service-fabric-reliable-services-communication-wcf.md)
 
 

@@ -16,7 +16,6 @@
     ms.date="10/27/2015" 
     ms.author="tdykstra"/>
 
-
 # API アプリの保護: Azure Active Directory またはソーシャル プロバイダーの認証の追加
 
 [AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
@@ -40,23 +39,23 @@ Azure App Service での認証についての詳細については、次を参�
 
 このチュートリアルで作成した API アプリでは [API アプリの作成](app-service-dotnet-create-api-app.md) にデプロイ [API アプリのデプロイ](app-service-dotnet-deploy-api-app.md)します。
 
-## ブラウザーを使用した API アプリの呼び出し
+## ブラウザーを使用した API アプリの呼び出し 
 
 API アプリにパブリックにアクセスできることを確認する最も簡単な方法は、ブラウザーから呼び出すことです。
 
-1. ブラウザーでは、[Azure プレビュー ポータル] に移動します。
+1. ブラウザーでに移動、 [Azure preview portal]します。
 
-3. ホーム ページで **[参照]、[API Apps]** の順にクリックし、次に、保護する API アプリの名前をクリックします。
+3. ホーム ページからクリックして **参照 > API Apps** し保護する API アプリの名前をクリックします。
 
     ![参照](./media/app-service-api-dotnet-add-authentication/browse.png)
 
     ![API アプリの選択](./media/app-service-api-dotnet-add-authentication/select.png)
 
-3. **[API アプリ]** ブレードで、API アプリを呼び出すブラウザーのウィンドウを開くための **URL** をクリックします。
+3.  **API アプリ** ブレードで、をクリックして、 **URL** 、API アプリを呼び出すブラウザー ウィンドウを開きます。
 
-    ![API App ブレード](./media/app-service-api-dotnet-add-authentication/chooseapiappurl.png)
+    ![API App blade](./media/app-service-api-dotnet-add-authentication/chooseapiappurl.png)
 
-2. 追加 `/api/連絡先/get/` ブラウザーのアドレス バーの URL にします。
+2. ブラウザーのアドレス バーに表示されている URL に `/api/contacts/get/` を追加します。
 
     たとえば、次の URL が API アプリの URL だとします。
 
@@ -75,21 +74,21 @@ API アプリにパブリックにアクセスできることを確認する最�
 ## API アプリの保護
 
 API アプリをデプロイしたときに、リソース グループにデプロイしました。 Web アプリと他の API アプリを同じリソース グループに追加することができます。リソース グループ内の各 API アプリには、次の 3 種類のアクセス レベルのいずれかを設定することができます。
+<!--todo: diagram showing different accessibility settings-->
 
+- **パブリック (匿名)** -ログインせずに、リソース グループの外部から API アプリを呼び出すすべてのユーザーことができます。
+- **パブリック (認証済み)** -認証されたユーザーのみがリソース グループの外部から API アプリを呼び出すことができます。
+- **内部** -同じリソース グループ内の他の API アプリのみが API アプリを呼び出すことができます。 (Web アプリからの呼び出しは、Web アプリが同じリソース グループにある場合でも外部と見なさます)。
 
-- **パブリック (匿名)** - すべてのユーザーがログインせずにリソース グループの外部から API アプリを呼び出すことができます。
-- **パブリック (認証済み)** - 認証されたユーザーのみがリソース グループの外部から API アプリを呼び出すことができます。
-- **内部** - 同一リソース グループに属する他の API アプリのみが API アプリを呼び出すことができます  (Web アプリからの呼び出しは、Web アプリが同じリソース グループにある場合でも外部と見なさます)。
+Visual Studio では、リソース グループを作成するため、これも作成、 *ゲートウェイ*します。  ゲートウェイは、リソース グループ内の API アプリ宛てのすべての要求を処理する、専用の Web アプリです。
 
-Visual Studio でリソース グループが作成されたときに、*ゲートウェイ*も作成されました。 ゲートウェイは、リソース グループ内の API アプリ宛てのすべての要求を処理する、専用の Web アプリです。
-
-[Azure プレビュー ポータル] で、リソース グループのブレードに移動するときに、図内のゲートウェイと API アプリを確認できます。
+リソース グループのブレードに移動すると、 [Azure preview portal], 、図内のゲートウェイと API アプリを確認できます。
 
 ![リソース グループの図](./media/app-service-api-dotnet-add-authentication/rgdiagram.png)
 
-### <a id="apiapp"></a>認証を要求する API アプリを構成します。
+### <a id="apiapp"></a>認証を要求するように API アプリを構成する
 
-認証された要求のみを受け入れるように API アプリを構成するには、API アプリのアクセス レベルを**[パブリック (認証済み)]** に設定します。さらに、Azure Active Directory、Google、Facebook などのプロバイダーからの認証を必要とするようにゲートウェイを構成します。
+認証された要求のみを受け入れるように API アプリを構成するのアクセス レベルを設定します **パブリック (認証済み)** し、Azure Active Directory、Google、Facebook などのプロバイダーからの認証を要求するようにゲートウェイを構成します。
 
 [AZURE.INCLUDE [app-service-api-config-auth](../../includes/app-service-api-config-auth.md)]
 
@@ -101,24 +100,24 @@ Visual Studio でリソース グループが作成されたときに、*ゲー�
 
 ## 認証の動作の確認
 
-**注:** 次の手順を実行する際にログインで問題が発生した場合は、プライベートまたは匿名でウィンドウを開いてみてください。
-
-1. ブラウザーのウィンドウを開き、アドレス バーを呼び出す API アプリの URL を入力してください。 `取得` メソッドをする前と同じです。
+**注:** 次の手順を実行する際にログインで問題がある場合は、プライベートまたは匿名でウィンドウを開いてみてください。
+ 
+1. ブラウザーのウィンドウを開き、アドレス バーに、API アプリの `Get` メソッドを呼び出す URL を、先ほどと同様に入力します。
 
     今回は、API アプリへのアクセスを試みると、エラー メッセージが表示されます。
 
     ![Chrome の GET 応答に失敗](./media/app-service-api-dotnet-add-authentication/chromegetfail.png)
 
-2. ブラウザーで、次のログイン URL に移動します。 URL のパターンは次のとおりです。
+2. ブラウザーで、次のログイン URL に移動します。 URL のパターンは次のとおりです。 
 
         http://[gatewayurl]/login/[providername]
 
-    ゲートウェイの URL を取得できます、 **ゲートウェイ** ブレード、[Azure プレビュー ポータル] にします。 (**[ゲートウェイ]** ブレードにアクセスするには、**[リソース グループ]** ブレードに表示される図内のゲートウェイをクリックします)。
+    ゲートウェイの URL を取得できます、 **ゲートウェイ** ブレードで、 [Azure preview portal]します。 (に移動する、 **ゲートウェイ** ブレードに表示される図内のゲートウェイをクリックして、 **リソース グループ** ブレードです)。
 
     ![ゲートウェイ URL](./media/app-service-api-dotnet-add-authentication/gatewayurl.png)
 
     [providername] には、次の値のいずれかを指定する必要があります。
-
+    
     * "microsoftaccount"
     * "facebook"
     * "twitter"
@@ -129,11 +128,11 @@ Visual Studio でリソース グループが作成されたときに、*ゲー�
 
         https://dropboxrgaeb4ae60b7cb4f3d966dfa43.azurewebsites.net/login/aad/
 
-    先ほどの URL とは異なりこの 1 つ含まれていません API アプリの名前に注意してください。 ゲートウェイは、ユーザーを認証して、API アプリではありません。 ゲートウェイは、リソース グループ内のすべての API アプリの認証を処理します。
+    先ほどの URL とは異なりこの 1 つ含まれていません API アプリの名前に注意してください。 ゲートウェイは、ユーザーを認証して、API アプリではありません。  ゲートウェイは、リソース グループ内のすべての API アプリの認証を処理します。
 
-3. ブラウザーにログイン ページが表示されたら資格情報を入力します。
-
-    Azure Active Directory ログインを構成した場合に表示されるユーザーのいずれかを使用、 **ユーザー** admin@contoso.onmicrosoft.com などのタブの [Azure ポータル、]、[Azure Active Directory] タブで作成したアプリケーションにします。
+3. ブラウザーにログイン ページが表示されたら資格情報を入力します。 
+ 
+    Azure Active Directory ログインを構成した場合に表示されるユーザーのいずれかを使用、 **ユーザー** タブの [Azure Active Directory] タブで作成したアプリケーションを [Azure portal], 、admin@contoso.onmicrosoft.com などです。
 
     ![AAD ユーザー](./media/app-service-api-dotnet-add-authentication/aadusers.png)
 
@@ -147,11 +146,11 @@ Visual Studio でリソース グループが作成されたときに、*ゲー�
 
     ![Chrome の GET 応答](./media/app-service-api-dotnet-add-authentication/chromeget.png)
 
-    Swagger UI を有効にしている場合、Swagger UI ページにも移動できるようになりました。 ただし、ページの右下隅に赤い**エラー** アイコンが表示されます。このアイコンをクリックすると、Swagger JSON ファイルにアクセスできないことを示すメッセージが表示されます。 これは、Swagger で Zumo トークンを含めずに AJAX を呼び出し、JSON ファイルを取得しようとすることが原因です。 これは、Swagger UI ページの動作を妨げません。
+    Swagger UI を有効にしている場合、Swagger UI ページにも移動できるようになりました。 ただし、赤色がわかります **エラー** 下にあるアイコンが、ページの上を右、およびアイコンをクリックする場合は、Swagger JSON ファイルにアクセスできることを示すメッセージが表示されます。 これは、Swagger で Zumo トークンを含めずに AJAX を呼び出し、JSON ファイルを取得しようとすることが原因です。 これは、Swagger UI ページの動作を妨げません。
 
 ## Postman を使用した Post 要求の送信
 
-ゲートウェイにログインすると、ゲートウェイは認証トークンを返信します。 このトークンは、ゲートウェイを経由する外部のソースからのすべての要求に含まれている必要があります。 ブラウザーで API にアクセスすると、通常、ブラウザーはトークンを cookie に格納し、後続のすべての呼び出しと共にこのトークンを API に送信します。
+ゲートウェイにログインすると、ゲートウェイは認証トークンを返信します。  このトークンは、ゲートウェイを経由する外部のソースからのすべての要求に含まれている必要があります。 ブラウザーで API にアクセスすると、通常、ブラウザーはトークンを cookie に格納し、後続のすべての呼び出しと共にこのトークンを API に送信します。
 
 このため、バックグラウンドで行われている処理を確認することができます。チュートリアルこのセクションでは、ブラウザー ツールを使用して Post 要求を作成および送信し、cookie から認証トークンを取得して HTTP ヘッダーに含めます。 このセクションは省略可能です。前のセクションで既に、API アプリが認証済みアクセスのみを受け付けることを検証済みです。
 
@@ -161,11 +160,11 @@ Visual Studio でリソース グループが作成されたときに、*ゲー�
 
     ![[リソース] タブに移動](./media/app-service-api-dotnet-add-authentication/resources.png)
 
-3. Chrome 開発者ツールの **[リソース]** タブで、ゲートウェイの cookie を検索します。**x-zumo-auth** cookie のすべての値をトリプルクリックして選択します。
+3.  **リソース** タブ Chrome 開発者ツール、ゲートウェイの cookie を検索しの値をトリプル クリックして、 **x zumo 認証** cookie をすべて選択します。
 
     **注:**  すべての cookie の値を取得するかどうかを確認します。 ダブルクリックでは、最初の部分しか取得されません。
 
-5. **x-zumo-auth** cookie の **[値]** を右クリックし、**[コピー]** をクリックします。
+5. 右クリックし、 **値** の **x zumo 認証** クリックして、クッキー **コピー**します。
 
     ![認証トークンのコピー](./media/app-service-api-dotnet-add-authentication/copyzumotoken.png)
 
@@ -173,33 +172,33 @@ Visual Studio でリソース グループが作成されたときに、*ゲー�
 
 6. Postman 拡張機能を開きます。
 
-7. 要求 URL のフィールドで、以前は、使用した、API アプリの Get メソッドに URL を入力しますが、省略 `取得/` 末尾からです。
-
+7. 要求 URL のフィールドに、先ほど使用した、API アプリの Get メソッドの URL を入力しますが、末尾の `get/` は省略します。
+ 
         http://[apiappurl]/api/contacts
+    
+8. クリックして **ヘッダー**, 、追加し、 *x zumo 認証* ヘッダー。 クリップボードからトークンの値を貼り付け、 **値** フィールドです。
 
-8. **[ヘッダー]** をクリックし、*x-zumo-auth* ヘッダーを追加します。 クリップボードからトークンの値を **[値]** フィールドに貼り付けます。
+9. 追加、 *Content-type* 値を持つヘッダー *-application/json*します。
 
-9. *Content-Type* ヘッダーに値 *application/json* を追加します。
-
-10. **form-data** をクリックし、*contact* キーを追加して、次の値を指定します。
+10. クリックして **フォーム データ**, 、し、追加、 *にお問い合わせください* 次の値を持つキー。
 
         {   "Id": 0,   "Name": "Li Yan",   "EmailAddress": "yan@contoso.com" }
 
 11. [送信] をクリックします。
 
-    API アプリは、応答 *201 Created* を返します。
+    API アプリの戻り値を *201 Created* 応答します。
 
     ![ヘッダーと本文の追加](./media/app-service-api-dotnet-add-authentication/addcontact.png)
 
 12. この要求が認証トークンなしでは実行されないことを確認するために、認証ヘッダーを削除してから、もう一度 [送信] をクリックします。
 
-    応答 *403 Forbidden* が返されます。
+    取得する、 *403 アクセス不可* 応答します。
 
     ![応答 403 Forbidden](./media/app-service-api-dotnet-add-authentication/403forbidden.png)
 
 ## ログオンしているユーザーに関する情報の取得
 
-このセクションでは、ログオン ユーザーの名前と電子メール アドレスを取得して返すように ContactsList API アプリのコードを変更します。
+このセクションでは、ログオン ユーザーの名前と電子メール アドレスを取得して返すように ContactsList API アプリのコードを変更します。  
 
 1. Visual Studio に配置されている API アプリ プロジェクトを開く [API アプリのデプロイ](app-service-dotnet-deploy-api-app.md) およびチュートリアルではこの呼び出しされました。
 
@@ -231,13 +230,13 @@ Visual Studio でリソース グループが作成されたときに、*ゲー�
     * "microsoftaccount"
     * "google"
     * "twitter"
-    * "facebook"
+    * "facebook" 
 
-3. *ContactsController.cs* ファイルに追加し、 `を使用して` ステートメントをファイルの先頭にします。
+3.  *ContactsController.cs* ファイルに追加し、 `using` ステートメントをファイルの先頭にします。
 
         using Microsoft.Azure.AppService.ApiApps.Service;
 
-2. コードで置き換え、 `取得` メソッドを次のコードです。
+2. コードで置き換え、 `Get` メソッドを次のコードです。
 
         var runtime = Runtime.FromAppSettings(Request);
         var user = runtime.CurrentUser;
@@ -249,21 +248,21 @@ Visual Studio でリソース グループが作成されたときに、*ゲー�
             new Contact { Id = 1, EmailAddress = email, Name = name }
         };
 
-    このコードは、3 つのサンプルの連絡先ではなく、ログオン ユーザーの連絡先情報を返します。
+    このコードは、3 つのサンプルの連絡先ではなく、ログオン ユーザーの連絡先情報を返します。 
 
     サンプル コードでは、Azure Active Directory を使用しています。 その他のプロバイダーについては、前の手順に示すように、適切なトークン名と要求識別子を使用します。
 
     利用できる Azure Active Directory の要求の詳細については、次を参照してください。 [サポートされているトークンとクレームの種類](https://msdn.microsoft.com/library/dn195587.aspx)します。
 
-3. 使用して、追加のステートメント `Microsoft.Azure.AppService.ApiApps.Service`します。
+3. `Microsoft.Azure.AppService.ApiApps.Service` の using ステートメントを追加します。
 
         using Microsoft.Azure.AppService.ApiApps.Service;
 
-3. プロジェクトを再デプロイします。
+3. プロジェクトを再デプロイします。  
 
-    Visual Studio はに従ってプロジェクトをデプロイしたときの設定を保存すること、 [展開](app-service-dotnet-deploy-api-app.md) チュートリアルです。 プロジェクトを右クリックし、**[発行]** をクリックします。次に、**[Web の発行]** ダイアログの **[発行]** をクリックします。
+    Visual Studio はに従ってプロジェクトをデプロイしたときの設定を保存すること、 [展開](app-service-dotnet-deploy-api-app.md) チュートリアルです。  プロジェクトを右クリックし、をクリックして **発行**, 、クリックして **発行** で、 **Web の発行** ダイアログ。
 
-6. 保護されている API アプリに Get 要求を送信したときの手順に従います。
+6. 保護されている API アプリに Get 要求を送信したときの手順に従います。 
 
     応答メッセージに、ログインするときに使用したユーザーの名前と ID が表示されます。
 
@@ -271,9 +270,8 @@ Visual Studio でリソース グループが作成されたときに、*ゲー�
 
 ## 次のステップ
 
-ここまでは、Azure Active Directory またはソーシャル プロバイダーの認証を必要とすることによって Azure API アプリを保護する方法について説明しました。 詳細については、次を参照してください。 [API apps と mobile apps の認証](../app-service/app-service-authentication-overview.md)します。
+ここまでは、Azure Active Directory またはソーシャル プロバイダーの認証を必要とすることによって Azure API アプリを保護する方法について説明しました。 詳細については、次を参照してください。 [API apps と mobile apps の認証](../app-service/app-service-authentication-overview.md)します。 
 
-
-[azure portal]: https://manage.windowsazure.com/ 
-[azure preview portal]: https://portal.azure.com/ 
+[Azure portal]: https://manage.windowsazure.com/
+[Azure preview portal]: https://portal.azure.com/
 

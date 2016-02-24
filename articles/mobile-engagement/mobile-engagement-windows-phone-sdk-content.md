@@ -15,30 +15,25 @@
     ms.topic="article"
     ms.date="08/10/2015" 
     ms.author="piyushjo" />
-
-
-# Windows Phone Silverlight SDK コンテンツ
+    
+#Windows Phone Silverlight SDK コンテンツ
 
 このドキュメントでは、アプリケーションで SDK により展開されるコンテンツについて説明します。
 
-## `/Resources` フォルダー
+##`/Resources` フォルダー 
 
 このフォルダーには、Mobile Engagement が必要とするすべてのリソースが含まれています。 アプリに適合するように、これらをカスタマイズすることもできます。
 
-- `EngagementIconNotification.png` : 通知の左側に表示されるブランド アイコンに換えますこの自分のブランド アイコン。
+- `EngagementIconNotification.png`: 通知の左側に表示されるブランド アイコン。これは自分のブランド アイコンに換えます。
 
-- `EngagementIconOk.png` : ページ ApplicationBar の [Ok] アイコンの適用範囲を拡大します。
+- `EngagementIconOk.png`: リーチ ページ ApplicationBarの [OK] アイコンです。
+ 
+- `EngagementIconCancel.png`: リーチ ページ ApplicationBar の [キャンセル] アイコンです。
+ 
+- `EngagementIconCloseLight.png`: モバイル エンゲージメントのリーチ通知のWindows Phone ライト テーマ用 [終了] アイコンです。
+ 
+- `EngagementIconCloseDark.png`: モバイル エンゲージメントのリーチ通知のWindows Phone ダーク テーマ用 [終了] アイコンです。
 
-- `EngagementIconCancel.png` : ページ ApplicationBar の [キャンセル] アイコンの適用範囲を拡大します。
-
-- `EngagementIconCloseLight.png` : モバイル エンゲージメントの [終了] アイコンが通知の Windows Phone ライト テーマ用に到達します。
-
-- `EngagementIconCloseDark.png` : モバイル エンゲージメントの [終了] アイコンが通知の Windows Phone ダーク テーマ用に到達します。
-
-- `EngagementConfiguration.xml` : [モバイル エンゲージメントの構成ファイルでは、これは、エンゲージメントの設定をカスタマイズできます (エンゲージメント接続文字列、クラッシュ レポートなど)。
-
-
-
-
-
+- `EngagementConfiguration.xml`: モバイル エンゲージメントの構成ファイルであり、エンゲージメントの設定をカスタマイズできます (エンゲージメント接続文字列、クラッシュ レポートなど)。
+ 
 

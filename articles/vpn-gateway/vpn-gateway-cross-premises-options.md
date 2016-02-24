@@ -15,10 +15,9 @@
    ms.date="12/01/2015"
    ms.author="cherylmc" />
 
-
 # 仮想ネットワークのセキュリティで保護されたクロスプレミス接続について
 
-オンプレミスのサイトを仮想ネットワークに安全に接続するには、サイト間、ポイント対サイト、および ExpressRoute の 3 つのオプションがあります。
+オンプレミスのサイトを仮想ネットワークに安全に接続するには、サイト間、ポイント対サイト、および ExpressRoute の 3 つのオプションがあります。 
 
 選択するオプションは、次のようなさまざまな考慮事項によって異なります。
 
@@ -33,18 +32,18 @@
 次の表は、ソリューションに最適な接続オプションを決定するのに役立ちます。
 
 
-| -| **ポイント対サイト**| **サイト間**| **ExpressRoute**|
+|  -                            | **ポイント対サイト**                                                                            | **サイト間**                                                                                        | **ExpressRoute**                                                                                                                     |
 |------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| **Azure には、サービスがサポートされています。**| クラウド サービスおよび仮想マシン| クラウド サービスおよび仮想マシン| [サービスの一覧](../expressroute/expressroute-faqs.md#supported-services)|
-| **一般的な帯域幅**| 通常 < 100 Mbps の集計| 通常 < 100 Mbps の集計| 50 Mbps、100 Mbps、200 Mbps、500 Mbps、1 Gbps、2 Gbps、5 Gbps、10 Gbps|
-| **サポートされるプロトコル**| セキュリティで保護されたソケットのトンネリング プロトコル (SSTP)| IPsec| NSP の VPN テクノロジ (MPLS、VPLS...) の Vlan 経由で直接接続|
-| **ルーティング**| ルート ベース (動的)| ポリシー ベース (静的ルーティング)、およびルート ベース (動的ルーティング VPN) サポートします。| BGP|
-| **接続の回復**| アクティブ/パッシブ| アクティブ/パッシブ| アクティブ/アクティブ|
-| **一般的なユース ケース**| プロトタイプの作成、開発/テスト/クラウド サービスおよび仮想マシンをラボのシナリオ| 開発/テスト/ラボ シナリオや小規模クラウド サービスおよび仮想マシンの実稼働ワークロードを小数点以下桁数。| すべての Azure サービス (検証済みリスト)、エンタープライズ クラスとバックアップ、ビッグ データ、Azure を DR サイトとしてミッション クリティカルなワークロードへのアクセス|
-| **SLA**| [SLA](https://azure.microsoft.com/support/legal/sla/)| [SLA](https://azure.microsoft.com/support/legal/sla/)| [SLA](https://azure.microsoft.com/support/legal/sla/)|
-| **料金**| [価格設定](http://azure.microsoft.com/pricing/details/vpn-gateway/)| [価格設定](http://azure.microsoft.com/pricing/details/vpn-gateway/)| [価格設定](http://azure.microsoft.com/pricing/details/expressroute/)|
-| **テクニカル ドキュメント**| [VPN ゲートウェイのドキュメント](https://azure.microsoft.com/documentation/services/vpn-gateway/)| [VPN ゲートウェイのドキュメント](https://azure.microsoft.com/documentation/services/vpn-gateway/)| [ExpressRoute に関するドキュメント](https://azure.microsoft.com/documentation/services/expressroute/)|
-| ** FAQ **| [VPN Gateway に関する FAQ](vpn-gateway-vpn-faq.md)| [VPN Gateway に関する FAQ](vpn-gateway-vpn-faq.md)| [ExpressRoute の FAQ](../expressroute/expressroute-faqs.md)|
+| **Azure には、サービスがサポートされています。** | クラウド サービスおよび仮想マシン                                                          | クラウド サービスおよび仮想マシン                                                                     | [サービスの一覧](../expressroute/expressroute-faqs.md#supported-services)                                                       |
+| **一般的な帯域幅**       | 通常 < 100 Mbps の集計                                                               | 通常 < 100 Mbps の集計                                                                          | 50 Mbps、100 Mbps、200 Mbps、500 Mbps、1 Gbps、2 Gbps、5 Gbps、10 Gbps                                                               |
+| **サポートされるプロトコル**      | セキュリティで保護されたソケットのトンネリング プロトコル (SSTP)                                                     | IPsec                                                | NSP の VPN テクノロジ (MPLS、VPLS...) の Vlan 経由で直接接続                                                                                                    |
+| **ルーティング**                  | ルート ベース (動的)                                                                        | ポリシー ベース (静的ルーティング)、およびルート ベース (動的ルーティング VPN) サポートします。                 | BGP                                                                                                                                  |
+| **接続の回復**    | アクティブ/パッシブ                                                                               | アクティブ/パッシブ                                                                                          | アクティブ/アクティブ                                                                                                                        |
+| **一般的なユース ケース**         | プロトタイプの作成、開発/テスト/クラウド サービスおよび仮想マシンをラボのシナリオ              | 開発/テスト/ラボ シナリオや小規模クラウド サービスおよび仮想マシンの実稼働ワークロードを小数点以下桁数。 | すべての Azure サービス (検証済みリスト)、エンタープライズ クラスとバックアップ、ビッグ データ、Azure を DR サイトとしてミッション クリティカルなワークロードへのアクセス |
+| **SLA**                      | [SLA](https://azure.microsoft.com/support/legal/sla/)                                        | [SLA](https://azure.microsoft.com/support/legal/sla/)                                                   | [SLA](https://azure.microsoft.com/support/legal/sla/)                                                                                |
+| **価格**                  | [価格](http://azure.microsoft.com/pricing/details/vpn-gateway/)                           | [価格](http://azure.microsoft.com/pricing/details/vpn-gateway/)                                      | [価格](http://azure.microsoft.com/pricing/details/expressroute/)                                                                   |
+| **テクニカル ドキュメント**  | [VPN ゲートウェイのドキュメント](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [VPN ゲートウェイのドキュメント](https://azure.microsoft.com/documentation/services/vpn-gateway/)            | [ExpressRoute に関するドキュメント](https://azure.microsoft.com/documentation/services/expressroute/)                                        |
+| * * よく寄せられる質問 * *                     | [VPN Gateway に関する FAQ](vpn-gateway-vpn-faq.md)                                                    | [VPN Gateway に関する FAQ](vpn-gateway-vpn-faq.md)                                                               | [ExpressRoute の FAQ](../expressroute/expressroute-faqs.md)                                                                             |
 
 
 ## サイト間接続
@@ -55,14 +54,14 @@
 
 - ハイブリッドなソリューションを作成する場合。
 - クライアント側の構成を必要としない、オンプレミスの場所と仮想ネットワークの間の接続が必要な場合。
-- 永続的な接続が必要な場合。
+- 永続的な接続が必要な場合。 
 
-**要件**
+**必要条件**
 
 - オンプレミスの VPN デバイスには、インターネットに接続された IPv4 IP アドレスが必要です。 これは、NAT の内側にすることはできません。
-- 互換性のある VPN デバイスが必要です。 参照してください [VPN デバイスについて](http://go.microsoft.com/fwlink/p/?LinkID=615099)します。
+- 互換性のある VPN デバイスが必要です。 参照してください [VPN デバイスについて](http://go.microsoft.com/fwlink/p/?LinkID=615099)します。 
 - 使用する VPN デバイスが、ソリューションに必要なゲートウェイの種類と互換する必要があります。 参照してください [VPN ゲートウェイについて](vpn-gateway-about-vpngateways.md)します。
-- ゲートウェイの SKU は、集計スループットにも影響します。 参照してください [ゲートウェイの Sku](vpn-gateway-about-vpngateways.md#gateway-skus) の詳細。
+- ゲートウェイの SKU は、集計スループットにも影響します。 参照してください [ゲートウェイの Sku](vpn-gateway-about-vpngateways.md#gateway-skus) の詳細。 
 
 Azure クラシック ポータルと従来のデプロイ モデルを使用して、サイト間 VPN ゲートウェイの接続を構成する方法の詳細については、次を参照してください。 [のサイト間 VPN 接続で仮想ネットワークの構成](vpn-gateway-site-to-site-create.md)します。 リソース マネージャーの配置モデルを使用して、サイト間 VPN の構成については、次を参照してください。 [のサイト間 VPN 接続で仮想ネットワークの作成](vpn-gateway-create-site-to-site-rm-powershell.md)します。
 
@@ -85,7 +84,7 @@ Azure クラシック ポータルと従来のデプロイ モデルを使用し
 
 - インターネットに接続された IPv4 IP アドレスが VPN デバイスにない。
 
-ポイント対サイト接続を構成する方法の詳細については、次を参照してください。 [仮想ネットワークへのポイント対サイト VPN 接続を構成する](vpn-gateway-point-to-site-create.md)します。
+ポイント対サイト接続を構成する方法の詳細については、次を参照してください。 [仮想ネットワークへのポイント対サイト VPN 接続を構成する](vpn-gateway-point-to-site-create.md)です。
 
 ## ExpressRoute 接続
 
@@ -99,10 +98,6 @@ ExpressRoute の詳細については、次を参照してください。、 [Ex
 ## 次のステップ
 
 参照してください、 [ExpressRoute の FAQ](../expressroute/expressroute-faqs.md) と [VPN ゲートウェイ FAQ](vpn-gateway-vpn-faq.md) の詳細。
-
-
-
-
 
 
 

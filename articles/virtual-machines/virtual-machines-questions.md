@@ -17,7 +17,6 @@
     ms.date="11/16/2015"
     ms.author="cynthn"/>
 
-
 # クラシック デプロイ モデルで作成された Azure Virtual Machines についてよく寄せられる質問
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーのモデルです。
@@ -29,7 +28,7 @@
 
 すべてのサブスクライバーは、Azure 仮想マシンでサーバー ソフトウェアを実行できます。 最近のバージョンの Windows Server だけでなく、さまざまな Linux ディストリビューションを実行できます。 サポートの詳細については、次の項目を参照してください。
 
-• Windows Vm の場合-- [Microsoft サーバー ソフトウェア サポート Azure Virtual Machines の](http://go.microsoft.com/fwlink/p/?LinkId=393550)
+• Windows Vm の場合-- [Microsoft Azure Virtual Machines のサーバー ソフトウェアのサポート](http://go.microsoft.com/fwlink/p/?LinkId=393550)
 
 • Linux Vm の場合-- [Linux Azure-動作保証済みディストリビューション](http://go.microsoft.com/fwlink/p/?LinkId=393551)
 
@@ -43,7 +42,7 @@ Azure のストレージ アカウントでは、オペレーティング シス
 
 ## どのようなタイプの仮想ハード ディスクを使用できますか。
 
-Azure では、VHD 形式の仮想ハード ディスク (固定型) のみをサポートしています。 HYPER-V マネージャーを使用して変換する必要がある場合は、Azure で使用する VHDXyou 場合がある場合は、または [CONVERT-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) コマンドレットです。 その後を使用して [Add-azurevhd](https://msdn.microsoft.com/library/azure/dn495173.aspx) コマンドレットが (サービス管理モード) の仮想マシンで使用できるように、Azure でストレージ アカウントに、VHD をアップロードします。
+Azure では、VHD 形式の仮想ハード ディスク (固定型) のみをサポートしています。 HYPER-V マネージャーを使用して変換する必要がある場合は、Azure で使用する VHDXyou 場合がある場合は、または [CONVERT-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) コマンドレットです。 その後を使用して [Add-azurevhd](https://msdn.microsoft.com/library/azure/dn495173.aspx) コマンドレットが (サービス管理モード) の仮想マシンで使用できるように、Azure でストレージ アカウントに、VHD をアップロードします。 
 
 - Linux の手順については、次を参照してください。 [の作成とアップロード Linux オペレーティング システムを含むバーチャル ハード ディスク](virtual-machines-linux-create-upload-vhd.md)します。
 
@@ -55,7 +54,7 @@ Azure では、VHD 形式の仮想ハード ディスク (固定型) のみを�
 
 - Azure では、仮想マシンにアクセスするためのコンソールが提供されません。 起動が完了するまで、VM にアクセスする方法はありません。
 - ほとんどの azure Vm [サイズ](virtual-machines-size-specs.md) もがあることを 1 つだけの外部 IP アドレスを 1 つだけの仮想ネットワーク アダプターがあります。 (A8 サイズと A9 サイズでは、インスタンス間でのアプリケーション通信に 2 つ目のネットワーク アダプターが使用される場合があります。)
-- Azure Vm では、第 2 世代の HYPER-V VM の機能はサポートされていません。 これらの機能に関する詳細については、「 [HYPER-V の仮想マシンの仕様](http://technet.microsoft.com/library/dn592184.aspx) と [ジェネレーション 2 仮想マシンの概要] (https://technet.microsoft.com/library/dn282285.aspx).
+- Azure Vm では、第 2 世代の HYPER-V VM の機能はサポートされていません。 これらの機能に関する詳細については、「 [Hyper-v の仮想マシンの仕様](http://technet.microsoft.com/library/dn592184.aspx) と [ジェネレーション 2 仮想マシンの概要] (https://technet.microsoft.com/library/dn282285.aspx).
 
 ## これらの仮想マシンで、既存のオンプレミス ネットワーク インフラストラクチャを使用することはできますですか。
 
@@ -67,14 +66,14 @@ Azure では、VHD 形式の仮想ハード ディスク (固定型) のみを�
 
 Windows 仮想マシンまたは Linux VM 用の Secure Shell (SSH) に対するリモート デスクトップ接続を使用してリモート接続を確立し、仮想マシンにログオンする必要があります。 手順については、次の項目を参照してください。
 
-- [Windows Server を実行する仮想マシンにログオンする方法](virtual-machines-log-on-windows-server.md)します。 最大 2 つの同時接続がサポートされます (サーバーがリモート デスクトップ サービスのセッション ホストとして構成されている場合を除く)。
+- [Windows Server を実行する仮想マシンにログオンする方法](virtual-machines-log-on-windows-server.md)します。 最大 2 つの同時接続がサポートされます (サーバーがリモート デスクトップ サービスのセッション ホストとして構成されている場合を除く)。  
 - [Linux を実行する仮想マシンにログオンする方法](virtual-machines-linux-how-to-log-on.md)します。 SSH では、既定で最大 10 の同時接続が可能です。 この接続数は構成ファイルを編集することで増やすことができます。
 
-リモート デスクトップまたは SSH について問題がある場合は、インストールして使用する、 [VMAccess](virtual-machines-extensions-features.md) 問題を修正するために拡張します。
+リモート デスクトップまたは SSH について問題がある場合は、インストールして使用する、 [VMAccess](virtual-machines-extensions-features.md) 問題を修正するために拡張します。 
 
 Windows VM の場合は、次のオプションもあります。
 
-- Azure クラシック ポータルで VM を検索し、コマンド バーで **[リモート アクセスのリセット]** をクリックする。
+- Azure クラシック ポータルで VM を検索] をクリックし、 **リモート アクセスのリセット** コマンド バーからです。
 - レビュー [Windows ベースの Azure 仮想マシンへのリモート デスクトップのトラブルシューティングを行う接続](virtual-machines-troubleshoot-remote-desktop-connections.md)します。
 - Windows PowerShell リモート処理を使用して VM に接続するか、その他のリソースに対する追加のエンドポイントを作成して VM に接続する。 詳細については、「 [仮想マシンに対してエンドポイントを設定する方法](virtual-machines-set-up-endpoints.md)します。
 
@@ -93,9 +92,9 @@ Windows 仮想マシンでは、ページ ファイルを移動してドライ�
 アップグレードという言葉は一般に、オペレーティング システムを現在のハードウェアのままで新しいリリースに移行することを指します。 Azure VM の場合、新しいリリースに移行するプロセスは Windows や Linux の場合と異なります。
 
 - Linux VM の場合、配布には適切なパッケージ管理ツールと手順を使用してください。
-- Windows 仮想マシンの場合、Windows Server 移行ツールのようなものを使用してサーバーを移行する必要があります。 ゲスト OS が Azure 上に存在する状態でアップグレードを行うことは避けてください。 仮想マシンへのアクセスが失われる恐れがあるため、この操作はサポートされていません。 アップグレード中に問題が発生すると、リモート デスクトップ セッションを開始できなくなり、問題のトラブルシューティングができなくなる可能性があります。
+- Windows 仮想マシンの場合、Windows Server 移行ツールのようなものを使用してサーバーを移行する必要があります。 ゲスト OS が Azure 上に存在する状態でアップグレードを行うことは避けてください。 仮想マシンへのアクセスが失われる恐れがあるため、この操作はサポートされていません。 アップグレード中に問題が発生すると、リモート デスクトップ セッションを開始できなくなり、問題のトラブルシューティングができなくなる可能性があります。 
 
-ツールや Windows Server を移行するためのプロセスに関する詳細については、次を参照してください。 [移行の役割と機能 Windows Server を](http://go.microsoft.com/fwlink/p/?LinkId=396940)します。
+ツールや Windows Server を移行するためのプロセスに関する詳細については、次を参照してください。 [移行の役割と機能 Windows Server を](http://go.microsoft.com/fwlink/p/?LinkId=396940)します。 
 
 
 
@@ -110,15 +109,16 @@ VM エージェントをインストールしたパスワードを忘れてし�
 
 - Linux イメージの場合、Azure クラシック ポータルを使用すると既定のユーザー名として「azureuser」が指定されますが、仮想マシンの作成に [簡易作成] ではなく [ギャラリーから] を使用すれば、ユーザー名をを変更できます。 また [ギャラリーから] では、ログインにパスワードを使用するか、SSH キーを使用するか、それとも両方を使用するかを指定することもできます。 既定のユーザー アカウントは、特権のあるコマンドを実行するための "sudo" アクセス権を付与された、特権のないユーザーです。 "root" アカウントは無効化されます。
 
+
 - Windows イメージの場合は、VM の作成時にユーザー名とパスワードを指定する必要があります。 アカウントは Administrators グループに追加されます。
 
 ## Azure では、仮想マシン上でウイルス対策を実行できますか。
 
 Azure ではウイルス対策ソリューションとしていくつかのオプションが提供されていますが、管理はユーザーに委ねられています。 これは、マルウェア対策ソフトウェアを個別のサブスクリプションで導入したい場合や、スキャン実行、更新プログラム インストールのタイミングを指定したい場合などを考慮したものです。 ユーザーは、Windows 仮想マシンの作成時やそれ以降のタイミングで、Microsoft マルウェア対策、Symantec Endpoint Protection、または TrendMicro Deep Security Agent 用の VM 拡張機能により、ウイルス対策サポートを追加することができます。 Symantec と TrendMicro 用の拡張機能では、無償の期間限定の試用版サブスクリプションか、既存のエンタープライズ サブスクリプションを使用することができます。 Microsoft マルウェア対策は無償です。 詳細については、次のリンクを参照してください。
 
-- [インストールし、Azure VM に Symantec Endpoint Protection を構成する方法](http://go.microsoft.com/fwlink/p/?LinkId=404207)
-- [インストールして、Azure VM 上のサービスとして Trend Micro Deep Security を構成する方法](http://go.microsoft.com/fwlink/p/?LinkId=404206)
-- [Azure 仮想マシン上のマルウェア対策ソリューションを展開します。](http://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
+- [How to install and configure Symantec Endpoint Protection on an Azure VM (Azure VM に Symantec Endpoint Protection をインストールし、構成する方法)](http://go.microsoft.com/fwlink/p/?LinkId=404207)
+- [How to install and configure Trend Micro Deep Security as a Service on an Azure VM (Azure VM に Trend Micro Deep Security をサービスとしてインストールし、構成する方法)](http://go.microsoft.com/fwlink/p/?LinkId=404206)
+- [Azure Virtual Machines へのマルウェア対策ソリューションのデプロイ](http://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## バックアップと回復についてはどのようなオプションがありますか。
 
@@ -140,7 +140,7 @@ VM が実行中または停止状態のときには料金が発生しますが�
 
 ## Azure では、メンテナンスのために VM が再起動されることはありますか。
 
-Azure では、Azure データ センターでの定期的な計画メンテナンス更新の一環として、VM が再起動されることがあります。
+Azure では、Azure データ センターでの定期的な計画メンテナンス更新の一環として、VM が再起動されることがあります。 
 
 また、VM に影響する重大なハードウェア問題が Azure で検出された場合には、計画外のメンテナンス イベントが発生する場合もあります。 計画外イベントの場合、Azure は VM を正常な状態のホストへと自動的に移行し、VM を再起動します。
 
@@ -152,13 +152,9 @@ Azure では、Azure データ センターでの定期的な計画メンテナ�
 
 ## その他のリソース
 
-[Azure Virtual Machines について](virtual-machines-about.md)
+[Azure の仮想マシンについて](virtual-machines-about.md)
 
 [Linux 仮想マシンを作成するさまざまな方法](virtual-machines-linux-choices-create-vm.md)
 
 [Windows 仮想マシンを作成するさまざまな方法](virtual-machines-windows-choices-create-vm.md)
-
-
-
-
 

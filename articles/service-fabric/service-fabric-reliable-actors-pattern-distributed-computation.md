@@ -1,6 +1,6 @@
 <properties
    pageTitle="分散計算パターン | Microsoft Azure"
-   description="Service Fabric 高信頼アクターは並列非同期メッセージングに最適であり、分散状態の管理や並列計算が容易になります。"
+   description="Service Fabric Reliable Actors は並列非同期メッセージングに最適であり、分散状態の管理や並列計算が容易になります。"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -16,9 +16,7 @@
    ms.date="11/14/2015"
    ms.author="vturecek"/>
 
-
 # 高信頼アクターの設計パターン: 分散計算
-
 これは、Service Fabric 高信頼アクターで実際の顧客が驚くほど短時間で安易に金融計算を行う状況を監視する (つまり、リスク計算のためにモンテカルロ シミュレーションを行う) ためにも必要です。
 
 最初は、特にドメインの特定の知識のないユーザーには、Map/Reduce や MPI などのより一般的な手法と比べて、Azure Service Fabric のこの種のワークロード処理はわかりにくいかもしれません。
@@ -191,7 +189,6 @@ public class Finaliser : StatefulActor<FinalizerState>, IFinaliser
 決して、Azure Service Fabric がビッグ データ フレームワークやハイ パフォーマンス コンピューティングの他の分散計算に一時的に代用されることを断言しているわけではありません。 ただ処理において他のものより優れている点がいくつかあるというだけです。 ただし、Azure Service Fabric ではワークフローと分散並列計算をモデル化できるため、やはり操作が簡単になるという利点があります。
 
 ## 次のステップ
-
 [パターン: スマート キャッシュ](service-fabric-reliable-actors-pattern-smart-cache.md)
 
 [パターン: 分散ネットワークとグラフ](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
@@ -200,14 +197,13 @@ public class Finaliser : StatefulActor<FinalizerState>, IFinaliser
 
 [パターン: ステートフル サービスの構成](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
 
-[モ ノのインターネットのパターン:](service-fabric-reliable-actors-pattern-internet-of-things.md)
+[パターン: モノのインターネット](service-fabric-reliable-actors-pattern-internet-of-things.md)
 
-[いくつかアンチ パターン](service-fabric-reliable-actors-anti-patterns.md)
+[いくつかのアンチ パターン](service-fabric-reliable-actors-anti-patterns.md)
 
 [Service Fabric アクターの概要](service-fabric-reliable-actors-introduction.md)
 
 
-
-
-[1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png 
+<!--Image references-->
+[1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
 

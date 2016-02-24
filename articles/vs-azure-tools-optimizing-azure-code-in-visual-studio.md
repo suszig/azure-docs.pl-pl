@@ -15,7 +15,6 @@
    ms.date="09/08/2015"
    ms.author="tarcher" />
 
-
 # Azure コードの最適化
 
 Microsoft Azure を使用するアプリケーションをプログラミングする場合、クラウド環境でのアプリケーションのスケーラビリティ、動作、パフォーマンスに関する問題の回避に役立つコーディングの手法がいくつかあります。 Microsoft では、このような一般的に発生する問題の一部を認識および特定し、その解決を支援する Azure コード分析ツールを提供しています。 このツールは、NuGet を使用して Visual Studio でダウンロードできます。
@@ -54,17 +53,17 @@ AP1000
 
 ### 説明
 
-非同期のメソッドを作成する (よう [await](https://msdn.microsoft.com/library/hh156528.aspx)) の外部、 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) メソッドから非同期メソッドを呼び出すと [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)します。 宣言する、[[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)] (https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) メソッドを async により再起動ループに入るには、ワーカー ロールです。
+非同期のメソッドを作成する (よう [await](https://msdn.microsoft.com/library/hh156528.aspx)) の外部、 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) メソッドから非同期メソッドを呼び出すと [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)します。 宣言、 [[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) メソッドを async により再起動ループに入るには、ワーカー ロールです。
 
 アイデアやでフィードバックを共有してください [Azure コード分析のフィードバック](http://go.microsoft.com/fwlink/?LinkId=403771)します。
 
 ### 理由
 
-内部で非同期メソッドを呼び出して、 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) メソッドにより、クラウド サービスのランタイム ワーカー ロールを再利用します。 ワーカー ロールの開始時にすべてのプログラムの実行内で行われて、 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) メソッドです。 終了、 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) メソッドは、worker ロールを再起動します。 worker ロールのランタイムは、非同期メソッドを検出すると、非同期メソッドの後のすべての操作をディスパッチしてから制御を戻します。 これを終了するワーカー ロールが原因で、[[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)] (https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)] (https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)] (https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) メソッドを再起動します。 実行の次の反復では、worker ロールが非同期メソッドを再度検出して再起動することで、worker ロールももう一度再利用されます。
+内部で非同期メソッドを呼び出して、 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) メソッドにより、クラウド サービスのランタイム ワーカー ロールを再利用します。 ワーカー ロールの開始時にすべてのプログラムの実行内で行われて、 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) メソッドです。 終了、 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) メソッドは、worker ロールを再起動します。 worker ロールのランタイムは、非同期メソッドを検出すると、非同期メソッドの後のすべての操作をディスパッチしてから制御を戻します。 これにより、ワーカー ロールを終了する、 [[[[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) メソッドと再起動します。 実行の次の反復では、worker ロールが非同期メソッドを再度検出して再起動することで、worker ロールももう一度再利用されます。
 
 ### 解決策
 
-以外のすべての非同期操作を置き、 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) メソッドです。 内部からリファクターされた非同期メソッドを呼び出して、[[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)] RunAsync () .wait などの (https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) メソッドです。 Azure コード分析ツールにより、この問題を解決できます。
+以外のすべての非同期操作を置き、 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) メソッドです。 内部からリファクターされた非同期メソッドを呼び出して、 [[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) RunAsync () .wait などのメソッドです。 Azure コード分析ツールにより、この問題を解決できます。
 
 次のコード スニペットは、この問題のコード修正を示しています。
 
@@ -124,11 +123,11 @@ BrokeredMessage receivedMessage = sc.Receive();
 
 詳細については、次のトピックを参照してください。
 
-- 概要については、「 [Service Bus での共有アクセス署名認証](https://msdn.microsoft.com/library/dn170477.aspx)
+- 概要については、次を参照してください [Service Bus での共有アクセス署名認証。](https://msdn.microsoft.com/library/dn170477.aspx)
 
-- [Service Bus による共有アクセス署名認証の使用方法](https://msdn.microsoft.com/library/dn205161.aspx)
+- [Service Bus での共有アクセス署名認証の使用方法](https://msdn.microsoft.com/library/dn205161.aspx)
 
-- サンプル プロジェクトを参照してください [Service Bus サブスクリプションで使用する共有アクセス署名 (SAS) 認証](http://code.msdn.microsoft.com/windowsazure/Using-Shared-Access-e605b37c)
+- サンプル プロジェクトについては、次を参照してください [Service Bus サブスクリプションで使用する共有アクセス署名 (SAS) 認証。](http://code.msdn.microsoft.com/windowsazure/Using-Shared-Access-e605b37c)
 
 ## "受信ループ" を回避するために OnMessage メソッドの使用を検討する
 
@@ -138,17 +137,17 @@ AP2002
 
 ### 説明
 
-"受信ループ" に入らないようにするには、メッセージを受信するために **Receive** メソッドを呼び出すよりも、**OnMessage** メソッドを呼び出す方がソリューションとして優れています。 ただし、**Receive** メソッドを使用する必要があり、既定値以外のサーバー待機時間を指定した場合は、サーバー待機時間が 1 分を超えていることを確認します。
+「受信ループ」に入らないようにするを呼び出す、 **OnMessage** メソッドは、通話を超えるメッセージを受信するための優れたソリューション、 **受信** メソッドです。 ただし、使用する場合、 **受信** 既定以外のサーバー待機時間を指定するメソッドとするは、サーバー待機時間は 1 分以上になっていることを確認します。
 
 アイデアやでフィードバックを共有してください [Azure コード分析のフィードバック](http://go.microsoft.com/fwlink/?LinkId=403771)します。
 
 ### 理由
 
-**OnMessage** を呼び出すと、クライアントは、キューまたはサブスクリプションを常にポーリングする内部メッセージ ポンプを起動します。 このメッセージ ポンプには、メッセージを受信する呼び出しを発行する無限ループが含まれています。 呼び出しがタイムアウトすると、新しい呼び出しが発行されます。 タイムアウト間隔は、の値によって決まりますが、 [OperationTimeout](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx) のプロパティ、 [MessagingFactory](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagingfactory.aspx)使用されています。
+呼び出すときに **OnMessage**, 、クライアントが常にキューまたはサブスクリプションをポーリングする内部メッセージ ポンプを起動します。 このメッセージ ポンプには、メッセージを受信する呼び出しを発行する無限ループが含まれています。 呼び出しがタイムアウトすると、新しい呼び出しが発行されます。 タイムアウト間隔は、の値によって決まりますが、 [OperationTimeout](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx) のプロパティ、 [MessagingFactory](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagingfactory.aspx)使用されています。
 
-**Receive** に比べ、**OnMessage** を使用する利点は、メッセージのポーリング、例外の処理、複数のメッセージの並列処理、メッセージの完了をユーザーが手動で行う必要がないことです。
+使用する利点 **OnMessage** と比較して **受信** ユーザーが手動でメッセージをポーリング、例外を処理、並列で複数のメッセージ処理およびメッセージの完了を持っていないことができます。
 
-既定値を使用せずに **Receive** を呼び出す場合は、必ず *ServerWaitTime* 値が 1 分を超えるようにしてください。 *ServerWaitTime* を 1 分を超える値に設定すると、メッセージが完全に受信されるまでサーバーはタイムアウトしなくなります。
+呼び出した場合 **受信** の既定値を使用しなくても、必ず、 *ServerWaitTime* 値は 1 分以上です。 設定 *ServerWaitTime* 1 分以上により、このサーバーは、メッセージが完全に受信される前にタイムアウトします。
 
 ### 解決策
 
@@ -156,7 +155,7 @@ AP2002
 
 Azure のメッセージング インフラストラクチャのパフォーマンスを向上させるには、デザイン パターンを参照してください。 [非同期メッセージングの基本](https://msdn.microsoft.com/library/dn589781.aspx)します。
 
-**OnMessage** を使用してメッセージを受信する例を次に示します。
+使用する例を次に示します **OnMessage** メッセージを受信します。
 
 ```
 void ReceiveMessages()
@@ -177,7 +176,7 @@ void ReceiveMessages()
     Console.ReadKey();
 ```
 
-既定のサーバー待機時間で **Receive** を使用する例を次に示します。
+使用する例を次に示します **受信** 既定のサーバー待機時間。
 
 ```
 string connectionString =  
@@ -210,7 +209,7 @@ while (true)
    }
 ```
 
-既定値以外のサーバー待機時間を指定して **Receive** を使用する例を次に示します。
+使用する例を次に示します **受信** 既定以外のサーバー待機時間。
 
 ```
 while (true)  
@@ -252,7 +251,7 @@ AP2003
 
 ### 理由
 
-各呼び出しの実行時にメイン スレッドはブロックされないため、非同期メソッドを使用することで、アプリケーション プログラムの同時実行が可能になります。 Service Bus メッセージング メソッドを操作の実行を使用する場合 (送信、受信、削除などです)。 時間がかかります。 この時間には、要求と応答の待機時間だけでなく、Service Bus サービスによる操作の処理時間も含まれます。 時間あたりの操作数を増やすには、操作を同時に実行する必要があります。 詳細についてを参照してください [パフォーマンスの向上を使用して Service Bus 仲介型メッセージングのベスト プラクティス](https://msdn.microsoft.com/library/azure/hh528527.aspx)します。
+各呼び出しの実行時にメイン スレッドはブロックされないため、非同期メソッドを使用することで、アプリケーション プログラムの同時実行が可能になります。 Service Bus メッセージング メソッドを使用すると、操作 (送信、受信、削除など) の実行に時間がかかります。 この時間には、要求と応答の待機時間だけでなく、Service Bus サービスによる操作の処理時間も含まれます。 時間あたりの操作数を増やすには、操作を同時に実行する必要があります。 詳細についてを参照してください [パフォーマンスの向上を使用して Service Bus 仲介型メッセージングのベスト プラクティス](https://msdn.microsoft.com/library/azure/hh528527.aspx)します。
 
 ### 解決策
 
@@ -288,7 +287,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-詳細については、を参照してください [パーティション分割されている Service Bus キューおよびトピック |。Microsoft Azure のブログ](http://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/) とチェック アウト、 [Microsoft Azure Service Bus パーティション分割されたキュー](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f) サンプルです。
+詳細については、次を参照してください [パーティション分割されている Service Bus キューおよびトピック |。Microsoft Azure のブログ](http://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/) とチェック アウト、 [Microsoft Azure Service Bus パーティション分割されたキュー](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f) サンプルです。
 
 ## SharedAccessStartTime を設定しない
 
@@ -406,11 +405,11 @@ CloudConfigurationManager は、アプリケーション環境に適した構成
 
 次のコード スニペットは、この問題のコード修正を示しています。 *Views\\Home\\AllDates.cshtml*
 
-`var 設定 ConfigurationManager.AppSettings["mySettings ="];`
+`var settings = ConfigurationManager.AppSettings["mySettings"];`
 
 を以下に置き換えることができます。
 
-`var 設定 = CloudConfigurationManager.GetSetting("mySettings") です。`
+`var settings = CloudConfigurationManager.GetSetting("mySettings");`
 
 App.config ファイルまたは Web.config ファイルに構成設定を保存する方法の例を次に示します。 設定は、構成ファイルの appSettings セクションに追加します。 前のコード例の Web.config ファイルを次に示します。
 
@@ -450,7 +449,7 @@ AP4001
 
 - ASP.NET vNext アプリケーションでは、configuration.json を使用して接続文字列を保存します。
 
-Web.config または app.config などの構成ファイルの使用方法の詳細については、次を参照してください。 [ASP.NET Web の構成ガイドライン](https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx)します。 Azure の環境変数の機能については、次を参照してください。 [Azure の Web サイト: アプリケーション文字列と接続文字列は機能](http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)します。 ソース管理への接続文字列を格納する方法の詳細については、次を参照してください。 [のソース コード リポジトリに格納されているファイルの接続文字列などの機密情報を含めるのは避ける](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)します。
+Web.config または app.config などの構成ファイルの使用方法の詳細については、次を参照してください。 [ASP.NET Web の構成ガイドライン](https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx)します。 Azure の環境変数の機能については、次を参照してください。 [Azure の Web サイト: アプリケーション文字列と接続文字列は機能](http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)です。 ソース管理への接続文字列を格納する方法の詳細については、次を参照してください。 [のソース コード リポジトリに格納されているファイルの接続文字列などの機密情報を含めるのは避ける](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)します。
 
 ## 診断構成ファイルを使用する
 
@@ -476,9 +475,9 @@ WAD 1.3 (Azure SDK 2.5 に付属) 以降では、コードを使用して診断�
 
 1. 構成するロールのショートカット メニューで [プロパティ] をクリックし、[構成] タブをクリックします。
 
-1. **[診断]** セクションで、**[診断の有効化]** チェック ボックスがオンになっていることを確認します。
+1.  **診断** セクションで、ことを確認して、 **を有効にする診断** ] チェック ボックスをオンします。
 
-1. **[構成]** をクリックします。
+1. 選択、 **構成** ] ボタンをクリックします。
 
   ![[診断の有効化] オプションへのアクセス](./media/vs-azure-tools-optimizing-azure-code-in-visual-studio/IC796660.png)
 
@@ -532,8 +531,4 @@ public class BlogsController : Controller
 ## 次のステップ
 
 Optimzing と Azure アプリケーションのトラブルシューティングの詳細については、次を参照してください。 [Visual Studio を使用して Azure App Service で web アプリケーションのトラブルシューティング](web-sites-dotnet-troubleshoot-visual-studio.md)します。
-
-
-
-
 

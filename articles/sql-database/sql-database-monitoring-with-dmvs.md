@@ -17,25 +17,24 @@
    ms.date="09/15/2015"
    ms.author="rickbyh"/>
 
-
 # 動的管理ビューを使用した Azure SQL Database の監視
 
-Microsoft Azure SQL Database では、クエリのブロック、クエリの長時間実行、リソースのボトルネック、不適切なクエリ プランなどが原因で発生するパフォーマンスの問題を、動的管理ビューの一部を使用して診断できます。 このトピックでは、動的管理ビューを使用して一般的なパフォーマンスの問題を検出する方法について説明します。
+Microsoft Azure SQL Database では、クエリのブロック、クエリの長時間実行、リソースのボトルネック、不適切なクエリ プランなどが原因で発生するパフォーマンスの問題を、動的管理ビューの一部を使用して診断できます。 このトピックでは、動的管理ビューを使用して一般的なパフォーマンスの問題を検出する方法について説明します。 
 
-SQL Database は、次に示す 3 つの動的管理ビューを一部サポートしています。
+SQL Database は、次に示す 3 つの動的管理ビューを一部サポートしています。 
 
 - データベース関連の動的管理ビュー。
-- 実行関連の動的管理ビュー。
-- トランザクション関連の動的管理ビュー。
+- 実行関連の動的管理ビュー。 
+- トランザクション関連の動的管理ビュー。 
 
 動的管理ビューの詳細については、次を参照してください。 [動的管理ビューおよび関数 (TRANSACT-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) SQL Server オンライン ブック。
 
 ## アクセス許可
 
-SQL Database で、動的管理ビューに対してクエリを実行するには、**VIEW DATABASE STATE** アクセス許可が必要です。 **VIEW DATABASE STATE** アクセス許可は、現在のデータベース内のすべてのオブジェクトに関する情報を返します。
-**VIEW DATABASE STATE** アクセス許可を特定のデータベース ユーザーに付与するには、次のクエリを実行します。
+SQL データベースの動的管理ビューをクエリする必要があります **VIEW DATABASE STATE** アクセス許可。  **VIEW DATABASE STATE** 権限は、現在のデータベース内のすべてのオブジェクトに関する情報を返します。
+付与する、 **VIEW DATABASE STATE** 特定のデータベース ユーザーへのアクセス許可は、次のクエリを実行します。
 
-`与えられたビュー データベース状態 database_user です。 `
+```GRANT VIEW DATABASE STATE TO database_user; ```
 
 オンプレミスの SQL Server のインスタンスでは、動的管理ビューにサーバーの状態についての情報が表示されます。 SQL Database では、動的管理ビューには現在の論理データベースに関する情報のみが表示されます。
 
@@ -79,7 +78,7 @@ JOIN sys.dm_exec_sessions AS s
 WHERE c.session_id = @@SPID;
 ```
 
-> [AZURE.NOTE] **sys.dm_exec_requests** と **sys.dm_exec_sessions views** を実行するときに、ユーザーがデータベースに対するアクセス許可 **VIEW DATABASE STATE** を持っていると、データベースで実行中のすべてのセッションがユーザーに表示されます。ユーザーがアクセス許可を持っていない場合は、現在のセッションのみが表示されます。
+> [AZURE.NOTE] 実行するとき、 **sys.dm_exec_requests** と **sys.dm_exec_sessions ビュー**, 場合は、ユーザーがある、 **VIEW DATABASE STATE** データベースに対する権限は、ユーザー セッションが表示されます実行中のすべてのデータベースでは、ユーザーが現在のセッションのみを表示するそれ以外の場合。
 
 ## クエリのパフォーマンスの監視
 
@@ -87,7 +86,7 @@ WHERE c.session_id = @@SPID;
 
 ### 上位 N 個のクエリの検索
 
-次の例では、平均 CPU 時間の上位 5 個のクエリに関する情報を返します。 この例では、論理的に等価なクエリがリソースの累計消費量ごとにグループ化されるように、クエリ ハッシュに応じてクエリを集計します。
+次の例では、平均 CPU 時間の上位 5 個のクエリに関する情報を返します。 この例では、論理的に等価なクエリがリソースの累計消費量ごとにグループ化されるように、クエリ ハッシュに応じてクエリを集計します。 
 
 ```
 SELECT TOP 5 query_stats.query_hash AS "Query Hash", 
@@ -112,7 +111,7 @@ ORDER BY 2 DESC;
 
 ### クエリ プランの監視
 
-クエリ プランの効率が悪いと、CPU の消費量が増える可能性があります。 次の例では、 [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) ビューによって最も累積 CPU 使用量がクエリを決定します。
+クエリ プランの効率が悪いと、CPU の消費量が増える可能性があります。 次の例では、 [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) ビューによって最も累積 CPU 使用量がクエリを決定します。 
 
 ```
 SELECT 
@@ -136,8 +135,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 ## 関連項目
 
-[SQL データベースの概要](sql-database-technical-overview.md)
-
-
-
-
+[SQL Database の概要](sql-database-technical-overview.md) 

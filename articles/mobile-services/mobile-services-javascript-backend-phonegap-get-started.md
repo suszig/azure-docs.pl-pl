@@ -16,7 +16,6 @@
     ms.date="11/06/2015"
     ms.author="ggailey777"/>
 
-
 # Mobile Services の使用
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
@@ -42,8 +41,8 @@
 
     - Windows Phone: インストール [Visual Studio 2012 Express for Windows Phone](https://go.microsoft.com/fwLink/p/?LinkID=268374)
     - iOS: インストール [Xcode] (v4.4 以上が必要)
-    - Android: インストール、 [Android Developer Tools ][android sdk]
-        <br/>(Android 用 Mobile Services SDK は Android 2.2 またはそれ以降のバージョンのアプリをサポートします。 Android 4.2 以降がクイック スタート アプリケーションの実行に必要です。)
+    - Android: [Android Developer Tools] のインストール [Android SDK]
+        <br/>(Android 向けのMobile Services SDK は Android 2.2 以降用のアプリケーションをサポートします。 Android 4.2 以降がクイック スタート アプリケーションの実行に必要です。)
 
 ## 新しいモバイル サービスを作成する
 
@@ -55,7 +54,7 @@
 
 1.  クリックして、[Azure クラシック ポータル] で、 **Mobile Services**, 、し、先ほど作成したモバイル サービスをクリックします。
 
-2. [クイック スタート] タブの **[プラットフォームの選択]** で **[PhoneGap]** を選択し、**[新しい PhoneGap アプリを作成する]** を展開します。
+2. クイック スタート] タブをクリックして **PhoneGap** [ **プラットフォームの選択]** 展開 **新しい PhoneGap アプリケーションを作成**します。
 
     ![][0]
 
@@ -65,11 +64,11 @@
 
 3. まだインストールしていない場合は、PhoneGap および、プラットフォーム開発ツールの少なくとも 1 つ (Windows Phone、iOS、または Android) をダウンロードしてインストールします。
 
-4. **[TodoItem テーブルを作成する]** をクリックして、アプリケーション データを格納するテーブルを作成します。
+4. クリックして **作成 TodoItem テーブル** アプリケーション データを格納するテーブルを作成します。
 
-5. **[アプリケーションをダウンロードして実行する]** の下の **[ダウンロード]** をクリックします。
+5. [ **をダウンロードしてアプリケーションを実行する**, 、] をクリックして **ダウンロード**します。
 
-    これにより、Mobile Services に接続されている _To do list_ サンプル アプリケーションのプロジェクトが、Mobile Services JavaScript SDK と共にダウンロードされます。 圧縮されたプロジェクト ファイルをローカル コンピューターに保存し、保存場所を書き留めておいてください。
+    これにより、サンプルのプロジェクトがダウンロード _作業の一覧に_ Mobile Services JavaScript SDK と共に、モバイル サービスに接続されているアプリケーションです。 圧縮されたプロジェクト ファイルをローカル コンピューターに保存し、保存場所を書き留めておいてください。
 
 ## 新しい PhoneGap アプリケーションを実行する
 
@@ -81,35 +80,38 @@
 
     + **Windows Phone 8**
 
-        1. Windows Phone 8: Visual Studio 2012 Express for Windows Phone の **platforms\wp8** フォルダーにある .sln ファイルを開きます。
+        1. Windows Phone 8: .sln ファイルを開き、 **\wp8** Visual Studio 2012 Express for Windows Phone でのフォルダーです。
 
-        2. **F5** キーを押してプロジェクトをリビルドし、アプリケーションを開始します。
+        2. キーを押して、 **f5 キーを押して** キーをプロジェクトをリビルドし、アプリケーションを開始します。
 
         ![][2]
 
     + **iOS**
 
-        1. Xcode の **platforms/ios** フォルダーのプロジェクトを開きます。
+        1. プロジェクトを開き、 **プラットフォーム/ios** Xcode 内のフォルダーです。
 
-        2. **[実行]** をクリックしてプロジェクトをビルドし、このプロジェクトの既定である iPhone エミュレーターでアプリケーションを開始します。
+        2. キーを押して、 **実行** 、プロジェクトをビルドし、既定でこのプロジェクトである iPhone エミュレーターでアプリケーションを開始] ボタンをクリックします。
 
         ![][3]
 
     + **Android**
 
-        1. Eclipse で、**[File]**、**[Import]** の順にクリックし、**[Android]** を展開します。**[Existing Android Code into Workspace]** をクリックし、**[Next]** をクリックします。
+        1. Eclipse で [ **ファイル** し **インポート**, 、展開 **Android**, 、] をクリックして **既存の Android Code into workspace]**, 、] をクリックし、 **次です。**
 
-        2. **[Browse]** をクリックします。展開したプロジェクト ファイルの場所を参照し、**[OK]** をクリックします。TodoActivity プロジェクトのチェック ボックスがオンになっていることを確認し、**[Finish]** をクリックします。 <p>これにより、プロジェクト ファイルは、現在のワークスペースにインポートします。</p>
+        2. をクリックして **参照**, 展開したプロジェクト ファイルの場所を [参照] をクリックして、 **OK**, を TodoActivity プロジェクトがオンになっているかどうかを確認し、をクリックして **完了**します。 <p>これにより、プロジェクト ファイルが現在のワークスペースにインポートされます。</p>
 
-        3. **[Run]** メニューの **[Run]** をクリックして、Android エミュレーター内でプロジェクトを開始します。
+        3.  **実行** ] メニューのをクリックして **実行** を Android エミュレーターでプロジェクトを開始します。
 
             ![][4]
-        >[AZURE.NOTE]プロジェクトを Android エミュレーターで実行するには、Android Virtual Device (AVD) を 1 つ以上定義する必要があります。 これらのデバイスを作成および管理するには、AVD Manager を使用します。
 
-3. 上で示したモバイル エミュレーターのいずれかでアプリケーションを起動した後、テキスト ボックスにテキストを入力し、**[追加]** をクリックします。
+        >[AZURE.NOTE]プロジェクトを Android エミュレーターで実行できるようにするを少なくとも 1 つ Android Virtual Device (AVD) を定義する必要があります。 これらのデバイスを作成および管理するには、AVD Manager を使用します。
 
-    これで、Azure でホストされている新しいモバイル サービスに POST 要求が送信されます。 要求のデータは **TodoItem** テーブルに挿入されます。 テーブルに格納された項目がモバイル サービスによって返され、データが一覧に表示されます。
-    > [AZURE.IMPORTANT] メイン プロジェクトが PhoneGap ツールで再ビルドされる場合、このプラットフォーム プロジェクトへの重要な変更が上書きされます。 以下のセクションで説明されているように、代わりの方法として、変更はプロジェクトのルートの www ディレクトリで行います。
+
+3. 示したモバイル エミュレーターのいずれかでアプリケーションを起動すた後には、テキスト ボックスにテキストを入力し、 **追加**します。
+
+    これで、Azure でホストされている新しいモバイル サービスに POST 要求が送信されます。 要求のデータが挿入される、 **TodoItem** テーブルです。 テーブルに格納された項目がモバイル サービスによって返され、データが一覧に表示されます。
+
+    > [AZURE.IMPORTANT] メイン プロジェクトが PhoneGap ツールで再ビルドされる場合、このプラットフォーム プロジェクトへの変更が上書きされます。 以下のセクションで説明されているように、代わりの方法として、変更はプロジェクトのルートの www ディレクトリで行います。
 
 4. ポータルに戻り、[Azure クラシック] をクリックして、 **データ** ] タブでをクリックし、 **TodoItem** テーブルです。
 
@@ -146,37 +148,35 @@
 
             phonegap local build android
 
-
 4. 前のセクションで説明したように、適切な開発環境で各プロジェクトを開きます。
 
->[AZURE.NOTE]Mobile Services にアクセスして js/index.js ファイルにあるデータを照会および挿入するコードを確認できます。
+>[AZURE.NOTE]モバイル サービスを照会および挿入して js/index.js ファイルにあるデータにアクセスするコードを確認できます。
 
 ## 次のステップ
-
 クイック スタートはこれで完了です。Mobile Services で重要になるこれ以外の作業については、以下のトピックを参照してください。
 
 * **[アプリに認証の追加]**  
-  ID プロバイダーを使用してアプリケーションのユーザーを認証する方法について説明します。
+  ID プロバイダーを使用してアプリケーションのユーザーを認証する方法について説明します。  
 
-* * *[アプリにプッシュ通知を追加](https://msdn.microsoft.com/magazine/dn879353.aspx)* *  
+* **[アプリへのプッシュ通知を追加します。](https://msdn.microsoft.com/magazine/dn879353.aspx)**  
   登録を行い、アプリにプッシュ通知を送信する方法について説明します。
 
-* * *[モバイル サービス Html/javascript の使用方法の概念リファレンス](mobile-services-html-how-to-use-client-library.md)* *  
+* **[モバイル サービス Html/javascript の使用方法の概念リファレンス](mobile-services-html-how-to-use-client-library.md)**  
   カスタム Api を呼び出して、認証を実行し、データにアクセスする JavaScript クライアント ライブラリを使用する方法について説明します。
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
+<!-- Images. -->
+[0]: ./media/mobile-services-javascript-backend-phonegap-get-started/portal-screenshot1.png
+[1]: ./media/mobile-services-javascript-backend-phonegap-get-started/portal-screenshot2.png
+[2]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-wp8.png
+[3]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-ios.png
+[4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
 
-
-
-[0]: ./media/mobile-services-javascript-backend-phonegap-get-started/portal-screenshot1.png 
-[1]: ./media/mobile-services-javascript-backend-phonegap-get-started/portal-screenshot2.png 
-[2]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-wp8.png 
-[3]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-ios.png 
-[4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png 
-[add authentication to your app]: mobile-services-html-get-started-users.md 
-[android sdk]: https://go.microsoft.com/fwLink/p/?LinkID=280125 
-[azure classic portal]: https://manage.windowsazure.com/ 
-[xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532 
-[visual studio 2012 express for windows phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374 
-
+<!-- URLs. -->
+[Add authentication to your app]: mobile-services-html-get-started-users.md
+[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+[Azure classic portal]: https://manage.windowsazure.com/
+[Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
+ 

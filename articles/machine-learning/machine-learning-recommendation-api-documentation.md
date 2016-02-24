@@ -16,34 +16,32 @@
     ms.date="12/10/2015" 
     ms.author="LuisCa"/>
 
-
-# Azure Machine Learning Recommendations API のドキュメント
+#Azure Machine Learning Recommendations API のドキュメント
 
 このドキュメントは、Microsoft Azure Machine Learning の Recommendations API を示しています。
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## 1.概要
-
+##1. 概要
 このドキュメントは、API リファレンスです。 最初に、ドキュメント『Azure Machine Learning Recommendations – クイック スタート』をお読みください。
 
 Azure Machine Learning の Recommendations API は、次の論理グループに分割できます。
 
-- <ins>制限事項</ins> の Recommendations API の制限事項です。
-- <ins>一般的な情報</ins> -については、認証サービス URI およびバージョン管理します。
+- <ins>制限事項</ins> Recommendations API の制限です。
+- <ins>一般的な情報</ins> -認証、サービス URI およびバージョン管理に関する情報です。
 - <ins>基本モデル</ins> – モデルに関する基本的な操作を実行できるようにする Api (例: 作成、更新およびモデルの削除) します。
 - <ins>高度なモデル</ins> – モデルのデータ分析の高度な取得できるようにする Api。
 - <ins>ビジネス ルールのモデル</ins> – モデルの推奨結果に関するビジネス ルールを管理できるようにする Api。
-- <ins>カタログ</ins> – モデルのカタログに関する基本操作を実行できるようにする Api。 カタログには、使用状況データ項目に関するメタ データ情報が含まれています。
+- <ins>カタログ</ins> – モデルのカタログに関する基本操作を実行できるようにする Api。 カタログには、使用状況データ項目に関するメタデータ情報が含まれています。
 - <ins>機能</ins> -にこの情報を使用して、良い推奨事項をビルドする方法と、カタログ項目のインサイトを有効にする Api。
 - <ins>使用状況データ</ins> – モデルの使用状況データに関する基本操作を実行できるようにする Api。 基本フォームの使用状況データは、&#60;userId&#62;,&#60;itemId&#62; のペアを含む行で構成されます。
-- <ins>ビルド</ins> – モデルのビルドをトリガーし、このビルドに関連する基本的な操作を実行できるようにする Api。 モデルのビルドは、有効な使用状況データが存在する場合に起動できます。
+- <ins>構築</ins> – モデルのビルドをトリガーし、このビルドに関連する基本的な操作を実行するための Api。 モデルのビルドは、有効な使用状況データが存在する場合に起動できます。
 - <ins>推奨</ins> – モデルのビルドが終了した後に、推奨を使用できるようにする Api。
 - <ins>ユーザー データ</ins> -ユーザー使用状況データに関する情報が取得できるようにする Api。
-- <ins>通知</ins> – API の操作に関連する問題の通知を受信するための Api です。 (たとえば、データ取得により使用状況データを報告していて、イベント処理のほとんどが失敗する場合、 エラー通知が発生します)。
+- <ins>通知</ins> – API の操作に関連する問題の通知を受信できるようにする Api。 (たとえば、データ取得により使用状況データを報告していて、イベント処理のほとんどが失敗する場合、 エラー通知が発生します)。
 
-## 2.制限事項
+##2. 制限事項
 
 - サブスクリプションごとのモデルの最大数は 10 です。
 - カタログが保持できる項目の最大数は 100,000 です。
@@ -51,67 +49,62 @@ Azure Machine Learning の Recommendations API は、次の論理グループに
 - POST で送信できるデータ (例: カタログ データのインポート、使用データのインポート) の最大サイズは 200 MB です。
 - 無効な推奨モデルのビルドの 1 秒あたりのトランザクションの数は ~2TPS です。 有効な推奨モデルのビルドは、最大で 20TPS を保持できます。
 
-## 3.API の概要
+##3. API の概要
 
-### 3.1.認証
-
+###3.1. 認証
 認証に関する Microsoft Azure Marketplace のガイドラインに従ってください。 Marketplace は、Basic または OAuth のいずれかの認証方法をサポートします。
 
-### 3.2.サービス URI
+###3.2. サービス URI
+サービス ルート Azure Machine Learning の Recommendations Api の URI は [ここです。](https://api.datamarket.azure.com/amla/recommendations/v3/)
 
-サービス ルート Azure Machine Learning の Recommendations Api の URI は [ここ](https://api.datamarket.azure.com/amla/recommendations/v3/)。
+サービス URI はすべて、OData 仕様の要素を使用して表されます。  
 
-サービス URI はすべて、OData 仕様の要素を使用して表されます。
-
-### 3.3API バージョン
-
+###3.3 API バージョン
 各 API 呼び出しでは、最後に apiVersion というクエリ パラメーターを 1.0 に設定する必要があります。
 
-### 3.4.ID には大文字小文字の区別がある
-
+###3.4. ID には大文字小文字の区別がある
 API のいずれかにより返される ID は大文字と小文字の区別があり、後続の API 呼び出しにパラメーターとして渡されるときにはそのとおりに使用する必要があります。 たとえば、モデル ID およびカタログ ID では、大文字と小文字が区別されます。
 
-## 4.推奨事項の品質とコールド項目
+##4. 推奨事項の品質とコールド項目
 
-### 4.1.推奨事項の品質
+###4.1. 推奨事項の品質
 
-通常、システムで推奨事項を提供するには、推奨モデルを作成すれば十分です。 ただし、推奨事項の品質は、処理される使用状況とカタログの対象範囲に基づいて異なります。 たとえば、多数のコールド項目 (使用頻度の高くない項目) がある場合、システムがそのような項目の推奨事項を提供したり、そのような項目を推奨項目として使用したりすることは困難になります。 コールド項目の問題を防ぐために、システムでは項目のメタデータを使用して推奨事項を強化できます。 このメタデータのことを "特徴" と言います。 一般的な特徴には、本の著者や映画の俳優があります。 特徴はキーと値の文字列の形式のカタログを使用して提供されます。 カタログ ファイルの完全なフォーマットを参照してください、 [カタログ セクションのインポート](#81-import-catalog-data)します。
+通常、システムで推奨事項を提供するには、推奨モデルを作成すれば十分です。 ただし、推奨事項の品質は、処理される使用状況とカタログの対象範囲に基づいて異なります。 たとえば、多数のコールド項目 (使用頻度の高くない項目) がある場合、システムがそのような項目の推奨事項を提供したり、そのような項目を推奨項目として使用したりすることは困難になります。 コールド項目の問題を防ぐために、システムでは項目のメタデータを使用して推奨事項を強化できます。 このメタデータのことを "特徴" と言います。 一般的な特徴には、本の著者や映画の俳優があります。 特徴はキーと値の文字列の形式のカタログを使用して提供されます。 カタログ ファイルの完全なフォーマットを参照してください、 [カタログ セクションのインポート](#81-import-catalog-data)します。 
 
-### 4.2.順位付けのビルド
+###4.2. 順位付けのビルド
 
 特徴で推奨モデルを強化できますが、そのためには意味のある特徴を使用する必要があります。 この目的のため、順位付けのビルドという、新しいビルドが導入されました。 このビルドは、特徴の有用性を順位付けします。 意味のある特徴は、順位付けのスコアが 2 以上のものです。
-どの特徴が意味があるのか理解したら、意味のある特徴のリスト (またはサブリスト) を使用して推奨事項のビルドをトリガーします。 これらの特徴を使用して、ウォーム項目とコールド項目の両方を強化できます。 ウォーム項目の使用するために、 `UseFeatureInModel` ビルド パラメーターを設定する必要があります。 コールド項目の機能を使用するために、 `AllowColdItemPlacement` ビルド パラメーターを有効にする必要があります。
-注: は有効にする `AllowColdItemPlacement` を有効にせず `UseFeatureInModel`します。
+どの特徴が意味があるのか理解したら、意味のある特徴のリスト (またはサブリスト) を使用して推奨事項のビルドをトリガーします。 これらの特徴を使用して、ウォーム項目とコールド項目の両方を強化できます。 ウォーム項目のために特徴を使用するには、`UseFeatureInModel` ビルド パラメーターを設定する必要があります。 コールド項目のために特徴を使用するには、`AllowColdItemPlacement` ビルド パラメーターを有効にする必要があります。
+注: `UseFeatureInModel` を有効にせずに `AllowColdItemPlacement` を有効にすることはできません。
 
-### 4.3.推奨の理由
+###4.3. 推奨の理由
 
 推奨の理由は、特徴の使用のもう 1 つの側面です。 実際には、Azure Machine Learning Recommendations エンジンは、(ルール サブタイプ) 推奨事項の説明を提供するのに機能を使用できます。 理由)、推奨事項のコンシューマーから推奨項目の詳細の信頼性に 。
-理由を有効にする、 `AllowFeatureCorrelation` と `ReasoningFeatureList` パラメーターを推奨事項のビルドを要求する前にセットアップする必要があります。
+理由を有効にするには、推奨事項のビルドを要求する前に `AllowFeatureCorrelation` パラメーターと `ReasoningFeatureList` パラメーターをセットアップする必要があります。
 
 
-## 5.基本モデル
+##5. 基本モデル
 
-### 5.1.モデルの作成
-
+###5.1. モデルの作成
 "モデルの作成" 要求を作成します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| POST| `< rootURI >/CreateModel?modelName=%27 < model_name > %27 & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/CreateModel?modelName=%27MyFirstModel%27 & apiVersion=%271.0%27`|
+|POST     |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelName| 唯一英字 (A ~ Z、a ~ z)、数字 (0 ~ 9)、ハイフン (-) とアンダー スコア (_) が許可されます。<br>最大長: 20|
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+|   modelName   |   唯一英字 (A ~ Z、a ~ z)、数字 (0 ~ 9)、ハイフン (-) とアンダー スコア (_) が許可されます。<br>最大長: 20 |
+|   apiVersion      | 1.0 |
+|||
+| 要求本文 | なし |
 
 
 **応答**:
 
 HTTP 状態コード: 200
 
-- `フィードまたはエントリ/コンテンツとプロパティ/id` – モデル ID が含まれます
+- `feed/entry/content/properties/id` – モデル ID が含まれます。
 **注**: モデル ID は大文字小文字を区別します。
 
 OData XML
@@ -144,20 +137,19 @@ OData XML
       </entry>
     </feed>
 
-### 5.2.モデルの取得
-
+###5.2. モデルの取得
 "モデルの取得" 要求を作成します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/GetModel?id=%27 < model_id > %27 & apiVersion=%271.0%27`<br>例:<br>`< rootURI >/GetModel?id=%271cac7b76-def4-41f1-bc81-29b806adb1de%27 & apiVersion=%271.0%27`|
+|GET     |`<rootURI>/GetModel?id=%27<model_id>%27&apiVersion=%271.0%27`<br>例:<br>`<rootURI>/GetModel?id=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| id| モデルの一意識別子 (大文字小文字を区別する)|
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+|   id  |   モデルの一意識別子 (大文字小文字を区別する) |
+|   apiVersion      | 1.0 |
+|||
+| 要求本文 | なし |
 
 **応答**:
 
@@ -165,16 +157,16 @@ HTTP 状態コード: 200
 
 モデルのデータは、次の要素の下で見つかります。
 
-- `フィードまたはエントリ/コンテンツとプロパティ/Id` – モデルの一意の id。
-- `フィード/エントリ/コンテンツとプロパティ/名` – モデル名。
-- `フィード/エントリ/コンテンツとプロパティ/日付` – モデルの作成日。
-- `フィード/エントリ/コンテンツとプロパティ/状態` – モデルの状態。 次のいずれか:
+- `feed/entry/content/properties/Id` – モデルの一意の ID。
+- `feed/entry/content/properties/Name` – モデル名。
+- `feed/entry/content/properties/Date` – モデルの作成日。
+- `feed/entry/content/properties/Status` – モデルの状態。 次のいずれか:
     - Created - モデルは作成済みですが、カタログと使用状況が含まれていません。
     - ReadyForBuild – モデルは作成済みで、カタログと使用状況が含まれています。
-- `フィード/エントリ/コンテンツとプロパティ/HasActiveBuild` – モデルが正常にビルドされたかどうかを示します。
-- `フィード/エントリ/コンテンツとプロパティ/BuildId` – モデルのアクティブなビルド id。
-- `フィード/エントリ/コンテンツとプロパティ/Mpr` モデル-平均パーセン タイル順位付け (MPR - 詳細については、ModelInsight を参照してください)。
-- `フィード エントリ/コンテンツとプロパティ//username` – モデル内部ユーザー名。
+- `feed/entry/content/properties/HasActiveBuild` – モデルが正常にビルドされたかどうかを示します。
+- `feed/entry/content/properties/BuildId` – モデルのアクティブなビルド ID。
+- `feed/entry/content/properties/Mpr` – モデルの平均パーセンタイル順位付け (MPR - 詳細については、ModelInsight を参照してください)。
+- `feed/entry/content/properties/UserName` – モデル内部ユーザー名。
 
 OData XML
 
@@ -209,38 +201,37 @@ OData XML
       </entry>
     </feed>
 
-### 5.3.すべてのモデルの取得
-
+###5.3. すべてのモデルの取得
 現在のユーザーのすべてのモデルを取得します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/GetAllModels?apiVersion=%271.0%27`<br>例:<br>`< rootURI >/GetAllModels?apiVersion=%271.0%27`|
+|GET     |`<rootURI>/GetAllModels?apiVersion=%271.0%27`<br>例:<br>`<rootURI>/GetAllModels?apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+|   apiVersion      | 1.0 |
+|||
+| 要求本文 | なし |
 
 **応答**:
 
 HTTP 状態コード: 200
 
-- `フィードまたはエントリ/コンテンツとプロパティ/Id` – モデルの一意の id。
-- `フィード/エントリ/コンテンツとプロパティ/名` – モデル名。
-- `フィード/エントリ/コンテンツとプロパティ/日付` – モデルの作成日。
-- `フィード/エントリ/コンテンツとプロパティ/状態` – モデルの状態。 次のいずれか:
+- `feed/entry/content/properties/Id` – モデルの一意の ID。
+- `feed/entry/content/properties/Name` – モデル名。
+- `feed/entry/content/properties/Date` – モデルの作成日。
+- `feed/entry/content/properties/Status` – モデルの状態。 次のいずれか:
   - Created - モデルは作成済みですが、カタログと使用状況が含まれていません。
   - ReadyForBuild – モデルは作成済みで、カタログと使用状況が含まれています。
-- `フィード/エントリ/コンテンツとプロパティ/HasActiveBuild` – モデルが正常にビルドされたかどうかを示します。
-- `フィード/エントリ/コンテンツとプロパティ/BuildId` – モデルのアクティブなビルド id。
-- `フィード/エントリ/コンテンツとプロパティ/Mpr` – モデルの MPR (詳細については、ModelInsight を参照してください)。
-- `フィード エントリ/コンテンツとプロパティ//username` – モデル内部ユーザー名。
-- `フィード/エントリ/コンテンツとプロパティ/UsageFileNames` – コンマで区切られたモデルの使用状況ファイルの一覧です。
-- `フィード/エントリ/コンテンツとプロパティ/カタログ Id` – モデル カタログの id。
-- `フィード/エントリ/コンテンツとプロパティ/説明` – モデルの説明。
-- `フィード/エントリ/コンテンツとプロパティ/CatalogFileName` – モデル カタログのファイル名。
+- `feed/entry/content/properties/HasActiveBuild` – モデルが正常にビルドされたかどうかを示します。
+- `feed/entry/content/properties/BuildId` – モデルのアクティブなビルド ID。
+- `feed/entry/content/properties/Mpr` – モデルの MPR (詳細については ModelInsight を参照してください)。
+- `feed/entry/content/properties/UserName` – モデル内部ユーザー名。
+- `feed/entry/content/properties/UsageFileNames` – コンマで区切られたモデルの使用状況ファイルの一覧。
+- `feed/entry/content/properties/CatalogId` – モデル カタログの ID。
+- `feed/entry/content/properties/Description` – モデルの説明。
+- `feed/entry/content/properties/CatalogFileName` – モデル カタログのファイル名。
 
 OData XML
 
@@ -276,42 +267,41 @@ OData XML
         </entry>
     </feed>
 
-### 5.4.モデルの更新
+###5.4. モデルの更新
 
-モデルの説明またはアクティブなビルド ID を更新することができます。<br>
-<ins>アクティブなビルド ID</ins> – すべてのモデルのすべてのビルドがビルドの id。アクティブな "ビルド ID" は、新しいモデルそれぞれの最初の正常なビルドです。アクティブなビルド ID があり、同じモデルに対して追加のビルドを実行する場合は、必要に応じて、既定のビルド ID として明示的に設定する必要があります。使用するビルド ID が指定されていない場合に推奨を使用するときにいずれかの既定値が自動的に使用します。<br>
+モデルの説明またはアクティブなビルド ID を更新できます。<br>
+<ins>アクティブなビルド ID</ins> – すべてのモデルのすべてのビルドがビルドの id。 アクティブな "ビルド ID" は、新しいモデルそれぞれの最初の正常なビルドです。 アクティブなビルド ID があり、同じモデルに対して追加のビルドを実行する場合は、必要に応じて、既定のビルド ID として明示的に設定する必要があります。 推奨を使用する際に、使用するビルド ID を指定しないと、既定の ID が自動的に使用されます。<br>
 このメカニズムにより、推奨モデルが運用環境にあるときに、新しいモデルを構築して、それを運用環境に移行する前にテストすることができます。
 
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| PUT| `< rootURI >/UpdateModel?id=%27 < modelId > %27 & apiVersion=%271.0%27`<br>例:<br>`< rootURI >/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27 & apiVersion=%271.0%27`|
+|PUT     |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br>例:<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| id| モデルの一意識別子 (大文字小文字を区別する)|
-| apiVersion| 1.0|
-| | |
-| 要求本文| `< ModelUpdateParams xmlns:xsd ="http://www.w3.org/2001/XMLSchema"xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance">`<br>`< 説明 > 新しい説明 </説明 >`<br>`< ActiveBuildId >-1 </ActiveBuildId >`<br>` </ModelUpdateParams >`<br><br>注 XML タグ Description と ActiveBuildId は省略可能です。Description または ActiveBuildId を設定しない場合は、タグ全体を削除します。|
+|   id      | モデルの一意識別子 (大文字小文字を区別する)  |
+|   apiVersion      | 1.0 |
+|||
+| 要求本文 | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>XML タグ Description と ActiveBuildId は省略可能なことに注意してください。 Description や ActiveBuildId を設定したくない場合は、タグ全体を削除します。|
 
 **応答**:
 
 HTTP 状態コード: 200
 
-### 5.5.モデルの削除
-
+###5.5. モデルの削除
 既存のモデルを ID で削除します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| 削除| `< rootURI >/DeleteModel?id=%27 < model_id > %27 & apiVersion=%271.0%27`<br>例:<br>`< rootURI >/DeleteModel?id=%271cac7b76-def4-41f1-bc81-29b806adb1de%27 & apiVersion=%271.0%27`|
+|削除     |`<rootURI>/DeleteModel?id=%27<model_id>%27&apiVersion=%271.0%27`<br>例:<br>`<rootURI>/DeleteModel?id=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| id| モデルの一意識別子 (大文字小文字を区別する)|
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+|   id  |   モデルの一意識別子 (大文字小文字を区別する) |
+|   apiVersion      | 1.0 |
+|||
+| 要求本文 | なし |
 
 **応答**:
 
@@ -339,24 +329,23 @@ OData XML
       </entry>
     </feed>
 
-## 6.高度なモデル
+##6. 高度なモデル
 
-### 6.1.モデル データの分析
-
+###6.1. モデル データの分析
 このモデルがビルドされた際の使用状況データに関する統計データを返します。
 
 推奨事項のビルドでのみ使用できます。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/GetDataInsight?modelId=%27 < model_id > %27 & apiVersion=%271.0%27`<br>例:<br>`< rootURI >/GetDataInsight?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27 & apiVersion=%271.0%27`|
+|GET     |`<rootURI>/GetDataInsight?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br>例:<br>`<rootURI>/GetDataInsight?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+|   modelId |   モデルの一意識別子 |
+|   apiVersion      | 1.0 |
+|||
+| 要求本文 | なし |
 
 **応答**:
 
@@ -364,28 +353,28 @@ HTTP 状態コード: 200
 
 データは、プロパティのコレクションとして返されます。
 
-- `フィード/エントリ/id とコンテンツとプロパティ/キー` -プロパティ名を保持します。
-- `フィード/エントリ/id/コンテンツとプロパティ/値` -プロパティの値を保持します。
+- `feed/entry/id/content/properties/key` - プロパティ名を保持します。
+- `feed/entry/id/content/properties/value` - プロパティの値を保持します。
 
 次の表は、各キーを表す値を示しています。
 
-| キー| 説明|
+|キー|説明|
 |:-----|:----|
-| AvgItemLength| 項目ごとの別個のユーザーの平均数。|
-| AvgUserLength| ユーザーごとの別個の項目の平均数。|
-| DensificationNumberOfItems| モデル化できない項目を排除した後の項目数。|
-| DensificationNumberOfUsers| モデル化できないユーザーと項目を排除した後の使用状況ポイントの数。|
-| DensificationNumberOfRecords| モデル化できないユーザーと項目を排除した後の使用状況ポイントの数。|
-| MaxItemLength| 最も人気のある項目の別個のユーザー数。|
-| MaxUserLength| ユーザーごとの別個の項目の最大数。|
-| MinItemLength| 項目ごとの別個のユーザーの最大数。|
-| MinUserLength| ユーザーごとの別個の項目の最小数。|
-| RawNumberOfItems| 使用状況ファイルのアイテムの数。|
-| RawNumberOfUsers| 排除する前の使用状況ポイントの数。|
-| RawNumberOfRecords| 排除する前の使用状況ポイントの数。|
-| SamplingNumberOfItems| 該当なし|
-| SamplingNumberOfRecords| 該当なし|
-| SamplingNumberOfUsers| 該当なし|
+| AvgItemLength | 項目ごとの別個のユーザーの平均数。 |
+| AvgUserLength | ユーザーごとの別個の項目の平均数。 |
+| DensificationNumberOfItems | モデル化できない項目を排除した後の項目数。 |
+| DensificationNumberOfUsers | モデル化できないユーザーと項目を排除した後の使用状況ポイントの数。 |
+| DensificationNumberOfRecords | モデル化できないユーザーと項目を排除した後の使用状況ポイントの数。 |
+| MaxItemLength | 最も人気のある項目の別個のユーザー数。 |
+| MaxUserLength | ユーザーごとの別個の項目の最大数。 |
+| MinItemLength | 項目ごとの別個のユーザーの最大数。 |
+| MinUserLength | ユーザーごとの別個の項目の最小数。 |
+| RawNumberOfItems | 使用状況ファイルのアイテムの数。 |
+| RawNumberOfUsers | 排除する前の使用状況ポイントの数。 |
+| RawNumberOfRecords | 排除する前の使用状況ポイントの数。 |
+| SamplingNumberOfItems | 該当なし |
+| SamplingNumberOfRecords | 該当なし |
+| SamplingNumberOfUsers | 該当なし |
 
 OData XML
 
@@ -578,23 +567,22 @@ OData XML
     </entry>
     </feed>
 
-### 6.2.モデルの分析
-
+###6.2. モデルの分析
 アクティブなビルドまたは特定のビルド (指定した場合) のモデルの分析を返します。
 
 推奨事項のビルドでのみ使用できます。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| アクティブなビルド ID:<br>`< rootURI >/GetModelInsight?modelId=%27 < model_id > %27 & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/GetModelInsight?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27 & apiVersion=%271.0%27`<br><br>特定のビルド ID:<br>`< rootURI >/GetModelInsight?modelId=%27 < model_id > %27 & buildId = 27 %27 < build_id > % & apiVersion=%271.0%27`|
+|GET     |アクティブなビルド ID の場合:<br>`<rootURI>/GetModelInsight?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/GetModelInsight?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`<br><br>特定のビルド ID の場合:<br>`<rootURI>/GetModelInsight?modelId=%27<model_id>%27&buildId=%27<build_id>%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| buildId| 省略可能 – 成功したビルドを識別する数値。|
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+|   modelId |   モデルの一意識別子 |
+|   buildId |   省略可能 – 成功したビルドを識別する数値。 |
+|   apiVersion      | 1.0 |
+|||
+| 要求本文 | なし |
 
 **応答**:
 
@@ -602,17 +590,17 @@ HTTP 状態コード: 200
 
 データは、プロパティのコレクションとして返されます。
 
-- `フィード/エントリ/id とコンテンツとプロパティ/キー`
-- `フィードとエントリ/id/コンテンツとプロパティ/値`
+- `feed/entry/id/content/properties/key`
+- `feed/entry/id/content/properties/value`
 
 
 次の表は、各キーを表す値を示しています。
 
-| キー| 説明|
+| キー | 説明 |
 |:---- |:----|
-| CatalogCoverage| 使用状況のパターンを使用してモデル化できるカタログの部分。項目の残りの部分は、内容に基づく特徴でなければなりません。|
-| Mpr| モデルの平均パーセンタイル順位付け。小さいほど良好です。|
-| NumberOfDimensions| 行列因子分解アルゴリズムによって使用されるディメンションの数。|
+| CatalogCoverage | 使用状況のパターンを使用してモデル化できるカタログの部分。 項目の残りの部分は、内容に基づく特徴でなければなりません。 |
+| Mpr | モデルの平均パーセンタイル順位付け。 小さいほど良好です。 |
+| NumberOfDimensions | 行列因子分解アルゴリズムによって使用されるディメンションの数。 |
 
 
 OData XML
@@ -662,20 +650,19 @@ OData XML
     </entry>
     </feed>
 
-### 6.3.モデルのサンプルの取得
-
+###6.3. モデルのサンプルの取得
 推奨モデルのサンプルを取得します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/GetModelSample?modelId=%27 < model_id > %27 & apiVersion=%271.0%27`<br>例:<br>`< rootURI >/GetModelSample?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27 & apiVersion=%271.0%27`<br><br>特定のビルド ID:<br>`< rootURI >/GetModelSample?modelId=%27 < model_id > %27 & buildId = 27 %27 < build_id > % & apiVersion=%271.0%27`<br>例:<br>`< rootURI >/GetModelSample?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27 & buildId % を 271500068% = 27 & apiVersion=%271.0%27`|
+|GET     |`<rootURI>/GetModelSample?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br>例:<br>`<rootURI>/GetModelSample?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`<br><br>特定のビルド IDの場合:<br>`<rootURI>/GetModelSample?modelId=%27<model_id>%27&buildId=%27<build_id>%27&apiVersion=%271.0%27`<br>例:<br>`<rootURI>/GetModelSample?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&buildId=%271500068%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+|   modelId |   モデルの一意識別子 |
+|   apiVersion      | 1.0 |
+|||
+| 要求本文 | なし |
 
 **応答**:
 
@@ -687,8 +674,7 @@ OData XML
 
 <pre>
 Level 1
--------
-
+---------------
 655fc955-a5a3-4a26-9723-3090859cb27b, Prey: A Novel
     655fc955-a5a3-4a26-9723-3090859cb27b, Prey: A Novel Rating: 0.5215
     3f471802-f84f-44a0-99c8-6d2e7418eec1, Black Hawk Down: A Story of Modern War Rating: 0.5151
@@ -729,7 +715,7 @@ ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work: The Craft of Baseball
     d008dae9-c73a-40a1-9a9b-96d5cf546f36, The Gulag Archipelago 1918-1956: An Experiment in Literary Investigation I-II Rating: 0.5416
     ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work: The Craft of Baseball Rating: 0.5403
     49dec30e-0adb-411a-b186-48eaabf6f8bc, Fatherland Rating: 0.5394
-    cc7964fd-d30f-478e-a425-93ddbdf094ed、魔法の収集: 分野 vol. 1 の評価: 0.5379
+    cc7964fd-d30f-478e-a425-93ddbdf094ed, Magic the Gathering: Arena Vol. 1 Rating: 0.5379
     8a1e9f36-97af-4614-bed9-24e3940a05f3, More Sniglets: Any Word That Doesn't Appear in the Dictionary but Should Rating: 0.5377
 12a6d988-be21-4a09-8143-9d5f4261ba16, A Dream of Eagles
     07b10e28-9e7c-4032-90b7-10acab7f2460, Cryptonomicon Rating: 0.5417
@@ -751,8 +737,7 @@ de1f62a4-89e6-44d2-aaee-992a4bf093f1, The Map That Changed the World: William Sm
     e53b4baa-8c09-45c4-95c0-b6a26b98770b, Miss Smillas Feeling for Snow Rating: 0.5367
 
 Level 2
--------
-
+---------------
 352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig (Hillerman Tony)
     352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig (Hillerman Tony) Rating: 0.5425
     74c49398-bc10-4af5-a658-a996a1201254, Children of the Storm (Peters Elizabeth) Rating: 0.5387
@@ -766,11 +751,11 @@ c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days
     6f6e192e-0d64-49ca-9b63-f09413ea1ee6, Politically Correct Holiday Stories: For an Enlightened Yuletide Season Rating: 0.5307
     798051a8-147d-4d46-b0dc-e836325029e6, AGE OF INNOCENCE (MOVIE TIE-IN) Rating: 0.5301
 73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics)
-    cba8163f-6536-436b-8130-47b4a43c827f、信頼する人はいません (公式ガイド X ファイル vol. 2) の評価: 0.5434
+    cba8163f-6536-436b-8130-47b4a43c827f, Trust No One (The Official Guide to the X-Files Vol. 2) Rating: 0.5434
     5708e4cb-2492-49c0-94a8-cc413eec5d89, Small Gods (Discworld Novels (Paperback)) Rating: 0.5406
     73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics) Rating: 0.5403
     d885b0bd-ae4b-452d-bdf2-faa90197dbc9, The Color of Magic Rating: 0.539
-    b133a9c4-4784-4db3-b100-d0d6dffb94d2、実際には世の中 (公式ガイド X ファイル vol. 1) の評価: 0.5367
+    b133a9c4-4784-4db3-b100-d0d6dffb94d2, The Truth Is Out There (The Official Guide to the X-Files Vol. 1) Rating: 0.5367
 271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke: Or I Know Why the Winged Whale Sings
     271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke: Or I Know Why the Winged Whale Sings Rating: 0.5445
     2de1c354-90ff-47c5-a0db-1bad7d88ef94, The Salaryman's Wife (Children of Violence Series) Rating: 0.5329
@@ -819,37 +804,36 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 
 
 
-## 7.ビジネス ルールのモデル
-
+##7. ビジネス ルールのモデル
 サポートされているルールの種類を次に示します。
-- <strong>BlockList</strong> -BlockList では、推奨事項の結果を返すしたくない項目の一覧を指定します。
-- <strong>FeatureBlockList</strong> -機能 BlockList では、その機能の値に基づいて項目をブロックすることができます。
+- <strong>ブロック リスト</strong> -BlockList では、推奨事項の結果を返すしたくない項目の一覧を指定します。
+- <strong>FeatureBlockList</strong> -特徴 BlockList では、特徴の値に基づいて項目をブロックします。
 - <strong>Upsale</strong> -Upsale では、推奨事項の結果で返されるアイテムを強制することができます。
-- <strong>ホワイト リスト</strong> -ホワイト リストは、項目の一覧からの推奨事項を提案することができます。
-- <strong>FeatureWhiteList</strong> -ホワイト リストの機能では、特定の機能の値を持つ項目のみが推奨することができます。
-- <strong>PerSeedBlockList</strong> --perseedblocklist では、項目ごとの推奨結果として返すことができない項目の一覧を提供することができます。
+- <strong>ホワイト リスト</strong> ホワイト リストを使用すると、項目の一覧からの推奨事項を提案することができます。
+- <strong>FeatureWhiteList</strong> -特徴のホワイト リストでは、特定の機能の値を持つ項目のみが推奨することができます。
+- <strong>PerSeedBlockList</strong> -あたり-perseedblocklist では、推奨事項の結果として返すことができない項目の一覧の項目ごとに指定します。
 
 
-### 7.1.モデルのルールの取得
+###7.1. モデルのルールの取得
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/GetModelRules?modelId=%27 < model_id > %27 & apiVersion=%271.0%27`<br>例:<br>`< rootURI >/GetModelRules?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27 & apiVersion=%271.0%27`|
+|GET     |`<rootURI>/GetModelRules?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br>例:<br>`<rootURI>/GetModelRules?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+|   modelId |   モデルの一意識別子 |
+|   apiVersion      | 1.0 |
+|||
+| 要求本文 | なし |
 
 **応答**:
 
 HTTP 状態コード: 200
 
-- `フィードまたはエントリ/コンテンツとプロパティ/Id` – このルールの一意の識別子。
-- `フィード、エントリ、コンテンツとプロパティ/型` – ルールの種類。
-- `フィード]、[エントリ/コンテンツとプロパティ/パラメーター` – 規則のパラメーターです。
+- `feed/entry/content/properties/Id` – このルールの一意識別子。
+- `feed/entry/content/properties/Type` – ルールの種類。
+- `feed/entry/content/properties/Parameter` – ルールのパラメーター。
 
 OData XML
 
@@ -888,31 +872,30 @@ OData XML
     </entry>
     </feed>
 
-### 7.2.ルールの追加
+###7.2. ルールの追加
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| POST| `< rootURI >/AddRule?apiVersion=%271.0%27`|
-| ヘッダー| `"Content-type"、"テキスト/xml"`|
+|POST     |`<rootURI>/AddRule?apiVersion=%271.0%27`|
+|ヘッダー   |`"Content-Type", "text/xml"`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| apiVersion| 1.0|
-| | |
-| 要求本文|
-
+|   apiVersion      | 1.0 |
+|||
+| 要求本文 | 
 <ins>項目 Id を提供する、ビジネス ルールに、必ずアイテム (同じ Id のカタログ ファイルで使用した) の外部の Id を使用するように</ins><br>
-<ins>BlockList ルールを追加する:</ins><br>`< ApiFilter xmlns:xsd ="http://www.w3.org/2001/XMLSchema"xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance">< ModelId > 24024f7e-b45c-419e-bfa2-dfd947e0d253 </ModelId >< ブロック リストの種類 > </型 >< 値 > {"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]} </value ></ApiFilter >`<br><br><ins>
+<ins>BlockList ルールを追加します。</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>
 <ins>FeatureBlockList ルールを追加します。</ins><br>
 <br>
-`< ApiFilter xmlns:xsd ="http://www.w3.org/2001/XMLSchema"xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance">< ModelId > 24024f7e-b45c-419e-bfa2-dfd947e0d253 </ModelId >< FeatureBlockList の種類 > </型 >< 値 > {"Name":"Movie_category"、"Values": [「成人向け」、「ドラマ」]} </value ></ApiFilter >`<br><br><ins>
-Upsale ルールを追加する:</ins><br>`< ApiFilter xmlns:xsd ="http://www.w3.org/2001/XMLSchema"xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance">< ModelId > 24024f7e-b45c-419e-bfa2-dfd947e0d253 </ModelId >< Upsale の種類 > </型 >< 値 > {"ItemsToUpsale": ["2406E770-769C-4189-89DE-1C9283F93A96"]} </value ></ApiFilter >`<br><br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>
+Upsale ルールを追加します。</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br>
 <ins>WhiteList ルールを追加するには。</ins><br>
-`< ApiFilter xmlns:xsd ="http://www.w3.org/2001/XMLSchema"xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance">< ModelId > 24024f7e-b45c-419e-bfa2-dfd947e0d253 </ModelId >< ホワイト リストの種類 > </型 >< 値 > {"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]} </value ></ApiFilter >`<br><br><ins>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
 <ins>FeatureWhiteList ルールを追加します。</ins><br>
 <br>
-`< ApiFilter xmlns:xsd ="http://www.w3.org/2001/XMLSchema"xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance">< ModelId > 24024f7e-b45c-419e-bfa2-dfd947e0d253 </ModelId >< FeatureWhiteList の種類 > </型 >< 値 > {"Name":"Movie_rating"、"Values": ["PG13"]} </value ></ApiFilter >`<br><br><ins>
-PerSeedBlockList ルールを追加する:</ins><br>`< ApiFilter xmlns:xsd ="http://www.w3.org/2001/XMLSchema"xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance">< ModelId > 24024f7e-b45c-419e-bfa2-dfd947e0d253 </ModelId >< PerSeedBlockList の種類 > </型 >< 値 > {"SeedItems": [「9949」]"ItemsToExclude": [「9862」、「8158」、「8244」]} </value ></ApiFilter >`|
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>
+PerSeedBlockList ルールを追加する:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 
 **応答**:
@@ -921,9 +904,9 @@ HTTP 状態コード: 200
 
 API は、新しく作成されたルールとその詳細を返します。 ルールのプロパティは、次のパスから取得できます。
 
-- `フィードまたはエントリ/コンテンツとプロパティ/Id` – このルールの一意の識別子。
-- `フィード、エントリ、コンテンツとプロパティ/型` – ルールのタイプ。 BlockList または Upsale。
-- `フィード]、[エントリ/コンテンツとプロパティ/パラメーター` – 規則のパラメーターです。
+- `feed/entry/content/properties/Id` – このルールの一意識別子。
+- `feed/entry/content/properties/Type` – ルールのタイプ。BlockList または Upsale。
+- `feed/entry/content/properties/Parameter` – ルールのパラメーター。
 
 OData XML
 
@@ -949,78 +932,78 @@ OData XML
     </entry>
     </feed>
 
-### 7.3.ルールの削除
+###7.3. ルールの削除
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| 削除| `< rootURI >/DeleteRule?modelId=%27 < model_id > %27 & filterId = 27 %27 < filter_Id > % & apiVersion=%271.0%27`<br><br>例:<br>`DeleteRule? modelId = 27 %2724024f7e-b45c-419e-bfa2-dfd947e0d253% & filterId % を 271000011% = 27 & apiVersion=%271.0%27`|
+|削除     |`<rootURI>/DeleteRule?modelId=%27<model_id>%27&filterId=%27<filter_Id>%27&apiVersion=%271.0%27`<br><br>例:<br>`DeleteRule?modelId=%2724024f7e-b45c-419e-bfa2-dfd947e0d253%27&filterId=%271000011%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| filterId| フィルターの一意識別子|
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+|   modelId |   モデルの一意識別子 |
+|   filterId    |   フィルターの一意識別子 |
+|   apiVersion      | 1.0 |
+|||
+| 要求本文 | なし |
 
 **応答**:
 
 HTTP 状態コード: 200
 
-### 7.4.すべてのルールの削除
+###7.4. すべてのルールの削除
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| 削除| `< rootURI >/DeleteAllRules?modelId=%27 < model_id > %27 & apiVersion=%271.0%27`<br><br>例:<br>`DeleteAllRules? modelId = 27 %2724024f7e-b45c-419e-bfa2-dfd947e0d253% & apiVersion=%271.0%27`|
+|削除     |`<rootURI>/DeleteAllRules?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>例:<br>`DeleteAllRules?modelId=%2724024f7e-b45c-419e-bfa2-dfd947e0d253%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+|   modelId |   モデルの一意識別子 |
+|   apiVersion      | 1.0 |
+|||
+| 要求本文 | なし |
 
 **応答**:
 
 HTTP 状態コード: 200
 
-## 8.カタログ
+##8. カタログ
 
-### 8.1.カタログ データのインポート
+###8.1. カタログ データのインポート
 
 複数の呼び出しで同じモデルに複数のカタログ ファイルがアップロードされた場合は、新しいカタログ項目のみを挿入します。 既存の項目は、元の値でそのまま残ります。 このメソッドを使用して、カタログ データを更新することはできません。
 
 カタログ データは、次の形式に従う必要があります。
 
-- 特徴なし - `< 項目 Id > < 項目名 > < Item Category > [、< 説明 >]`
+- 特徴なし - `<Item Id>,<Item Name>,<Item Category>[,<Description>]`
 
-- 特徴あり - `< 項目 Id > < 項目名 > < Item Category > [< 説明 >] < 機能の一覧 >`
+- 特徴あり - `<Item Id>,<Item Name>,<Item Category>,[<Description>],<Features list>`
 
 注: ファイルの最大サイズは、200 MB です。
 
-** 形式の詳細 **
+* * 形式の詳細 * *
 
-| 名前| 必須| 型| 説明|
+| 名前 | 必須 | 型 |  説明 |
 |:---|:---|:---|:---|
-| 項目 ID| はい| [A-z]、[a ~ z]、[0-9] [_] & #40 です。#41 (&)、アンダー スコアは、[-] & #40; ダッシュ & #41 です。<br> 最大長: 50| 項目の一意識別子|
-| Item Name| あり| 任意の英数字<br> 最大長: 255| 項目名。|
-| Item Category| はい| 任意の英数字 <br> 最大長: 255| この項目が属しているカテゴリ (例: 料理本、ドラマ...)。空にすることができます。|
-| 説明| いいえ。ただし特徴が存在する場合を除きます (しかし、空にすることはできます)| 任意の英数字 <br> 最大長: 4000| この項目の説明。|
-| Features list| いいえ| 任意の英数字 <br> 最大長: 4000 です。機能: 20 の最大数| 機能名のコンマ区切りの一覧をモデルの推奨事項を強化するために使用する特徴の値を =参照してください [詳細事項](#2-advanced-topics) セクションです。|
+| 項目 ID |あり | [A-z]、[a ~ z]、[0-9] [_] & #40 です。#41 (&)、アンダー スコアは、[-] & #40; ダッシュ & #41 です。<br> 最大長: 50 | 項目の一意識別子 |
+| Item Name | あり | 任意の英数字<br> 最大長: 255 | 項目名。 | 
+| Item Category | あり | 任意の英数字 <br> 最大長: 255 | この項目が属しているカテゴリ (例: 料理本、ドラマ...)。空にすることができます。 |
+| 説明 | いいえ。ただし特徴が存在する場合を除きます (しかし、空にすることはできます) | 任意の英数字 <br> 最大長: 4000 | この項目の説明。 |
+| Features list | いいえ | 任意の英数字 <br> 最大長: 4000 です。機能: 20 の最大数 | 機能名のコンマ区切りの一覧をモデルの推奨事項を強化するために使用する特徴の値を =参照してください [詳細事項](#2-advanced-topics) セクションです。 |
 
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| POST| `< rootURI >/ImportCatalogFile?modelId=%27 < modelId > %27 とファイル名 = 27 %27 < fileName > % & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27 & filename=%27catalog10_small.txt%27 apiVersion=%271.0%27`|
-| ヘッダー| `"Content-type"、"テキスト/xml"`|
+|POST     |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+|ヘッダー   |`"Content-Type", "text/xml"`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| filename| カタログのテキスト形式の識別子です。<br>英字 (A ~ Z、a ~ z)、数字 (0 ~ 9)、ハイフン (-)、アンダー スコア (_) が許可されるのみです<br>。最大長: 50|
-| apiVersion| 1.0|
-| | |
-| 要求本文| 例 (機能):<br/>2406e770-769 c-4189-89de-1c9283f93a96、クララ Callan、書籍、ブックの説明を作成 Richard ライトを = パブリッシャー = Harper Flamingo Canada、年 = 2001年<br>21bf8088-b6c0-4509-870 c-e1c7ac78304a を忘れてしまったルーム: A Fiction (この書籍)、書籍、および作成者 = Nick Bantock パブリッシャー = Harpercollins、年 = 1997年<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23、Spadework、書籍、および作成者 = Timothy Findley パブリッシャー = HarperFlamingo Canada 年 = 2001年<br>552a1940-21e4-4399-82bb-594b46d7ed54、用紙の怪物、書籍、ブックの説明を作成 = Magnus Mills が、publisher = Arcade Publishing 年 = 1998年</pre>|
+|   modelId |   モデルの一意識別子  |
+| filename | カタログを表すテキスト形式の識別子。<br>唯一英字 (A ~ Z、a ~ z)、数字 (0 ~ 9)、ハイフン (-) とアンダー スコア (_) が許可されます。<br>最大長: 50 |
+|   apiVersion      | 1.0 |
+|||
+| 要求本文 | (機能) がある例:<br/>2406e770-769 c-4189-89de-1c9283f93a96、クララ Callan、書籍、ブックの説明を作成 Richard ライトを = publisher = Harper Flamingo Canada、year = 2001年<br>21bf8088-b6c0-4509-870 c-e1c7ac78304a を忘れてしまったルーム: A Fiction (この書籍)、書籍、および作成者 = Nick Bantock publisher = Harpercollins、year = 1997年<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23、Spadework、書籍、および作成者 = Timothy Findley publisher = HarperFlamingo Canada year = 2001年<br>552a1940-21e4-4399-82bb-594b46d7ed54、用紙の怪物、書籍、ブックの説明を作成 = Magnus Mills が、publisher = Arcade Publishing year = 1998年</pre> |
 
 
 **応答**:
@@ -1028,8 +1011,8 @@ HTTP 状態コード: 200
 HTTP 状態コード: 200
 
 この API には、インポートのレポートが返されます。
-- `feed\entry\content\properties\LineCount` – 受け入れられた行数。
-- `feed\entry\content\properties\ErrorCount` – エラーのために挿入されなかった行数を指定します。
+- `feed\entry\content\properties\LineCount` – 受け入れられる行数。
+- `feed\entry\content\properties\ErrorCount` – エラーのために挿入されなかった行数。
 
 OData XML
 
@@ -1054,20 +1037,19 @@ OData XML
     </entry>
     </feed>
 
-### 8.2.カタログの取得
-
+###8.2. カタログの取得
 すべてのカタログ項目を取得します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/GetCatalog?modelId=%27 < model_id > %27 & apiVersion=%271.0%27`<br><br>例:<br>`GetCatalog? modelId = 27 %2724024f7e-b45c-419e-bfa2-dfd947e0d253% & apiVersion=%271.0%27`|
+|GET     |`<rootURI>/GetCatalog?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>例:<br>`GetCatalog?modelId=%2724024f7e-b45c-419e-bfa2-dfd947e0d253%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+|   modelId |   モデルの一意識別子 |
+|   apiVersion      | 1.0 |
+|||
+| 要求本文 | なし |
 
 **応答**:
 
@@ -1075,12 +1057,12 @@ HTTP 状態コード: 200
 
 応答には、カタログ項目ごとに 1 つのエントリが含まれています。 各エントリには、次のデータが含まれています。
 
-- `フィード/エントリ/コンテンツとプロパティ/ExternalId` – カタログ項目外部 ID、顧客が指定したカタログ項目。
-- `フィード/エントリ/コンテンツとプロパティ/internalid など` – カタログ項目の内部 ID、Azure Machine Learning Recommendations が生成しました。
-- `フィード/エントリ/コンテンツとプロパティ/名` – カタログ項目の名前。
-- `フィード/エントリ/コンテンツとプロパティ/カテゴリ` – カタログ項目のカテゴリ。
-- `フィード/エントリ/コンテンツとプロパティ/説明` – カタログ項目の説明。
-- `フィード/エントリ/コンテンツとプロパティ/メタデータ` – カタログ項目のメタデータ。
+- `feed/entry/content/properties/ExternalId` – カタログ項目の外部 ID。顧客が指定したカタログ項目。
+- `feed/entry/content/properties/InternalId` – カタログ項目の内部 ID。Azure Machine Learning Recommendations が生成したカタログ項目。
+- `feed/entry/content/properties/Name` – カタログ項目の名前。
+- `feed/entry/content/properties/Category` – カタログ項目のカテゴリ。
+- `feed/entry/content/properties/Description` – カタログ項目の説明。
+- `feed/entry/content/properties/Metadata` – カタログ項目のメタデータ。
 
 
 OData XML
@@ -1158,19 +1140,19 @@ OData XML
     </entry>
     </feed>
 
-### 8.3.トークンによるカタログ項目の取得
+###8.3. トークンによるカタログ項目の取得
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/GetCatalogItemsByToken?modelId=%27 < modelId > %27 & トークン = 27 %27 < トークン > % & apiVersion=%271.0%27`<br><br>例:<br>`GetCatalogItemsByToken? modelId = 27 %270dbb55fa-7f11-418 d-8537-8ff2d9d1d9c6% & トークン = 27% 27cla% & apiVersion=%271.0%27`|
+|GET     |`<rootURI>/GetCatalogItemsByToken?modelId=%27<modelId>%27&token=%27<token>%27&apiVersion=%271.0%27`<br><br>例:<br>`GetCatalogItemsByToken?modelId=%270dbb55fa-7f11-418d-8537-8ff2d9d1d9c6%27&token=%27Cla%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| token| カタログ項目の名前のトークン。3 文字以上にする必要があります。|
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+|   modelId |   モデルの一意識別子 |
+|   token   |   カタログ項目の名前のトークン。 3 文字以上にする必要があります。 |
+|   apiVersion      | 1.0 |
+|||
+| 要求本文 | なし |
 
 **応答**:
 
@@ -1178,12 +1160,12 @@ HTTP 状態コード: 200
 
 応答には、カタログ項目ごとに 1 つのエントリが含まれています。 各エントリには、次のデータが含まれています。
 
-- `フィード/エントリ/コンテンツとプロパティ/ExternalId` – カタログ項目外部 ID、顧客が指定したカタログ項目。
-- `フィード/エントリ/コンテンツとプロパティ/internalid など` – カタログ項目の内部 ID、Azure Machine Learning Recommendations が生成しました。
-- `フィード/エントリ/コンテンツとプロパティ/名` – カタログ項目の名前。
-- `フィード/エントリ/コンテンツとプロパティ/カテゴリ` – カタログ項目のカテゴリ。
-- `フィード/エントリ/コンテンツとプロパティ/説明` – カタログ項目の説明。
-- `フィード/エントリ/コンテンツとプロパティ/メタデータ` – カタログ項目のメタデータ。
+- `feed/entry/content/properties/ExternalId` – カタログ項目の外部 ID。顧客が指定したカタログ項目。
+- `feed/entry/content/properties/InternalId` – カタログ項目の内部 ID。Azure Machine Learning Recommendations が生成したカタログ項目。
+- `feed/entry/content/properties/Name` – カタログ項目の名前。
+- `feed/entry/content/properties/Category` – カタログ項目のカテゴリ。
+- `feed/entry/content/properties/Description` – カタログ項目の説明。
+- `feed/entry/content/properties/Metadata` – カタログ項目のメタデータ。
 
 OData XML
 
@@ -1212,32 +1194,29 @@ OData XML
         </entry>
     </feed>
 
-## 9.使用状況データ
-
-### 9.1.使用状況データのインポート
-
-#### 9.1.1.ファイルのアップロード
-
+##9. 使用状況データ
+###9.1. 使用状況データのインポート
+####9.1.1. ファイルのアップロード
 このセクションでは、ファイルを使用して使用状況データをアップロードする方法を示します。 この API は使用状況データと共に何度も呼び出すことができます。 すべての呼び出しですべての使用状況データが保存されます。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| POST| `< rootURI >/ImportUsageFile?modelId=%27 < modelId > %27 とファイル名 = 27 %27 < fileName > % & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27 & filename=%27ImplicitMatrix10_Guid_small.txt%27 apiVersion=%271.0%27`|
+|POST     |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| filename| カタログのテキスト形式の識別子です。<br>英字 (A ~ Z、a ~ z)、数字 (0 ~ 9)、ハイフン (-)、アンダー スコア (_) が許可されるのみです<br>。最大長: 50|
-| apiVersion| 1.0|
-| | |
-| 要求本文| 使用状況データ。Format:<br>`<User Id>,<Item Id>[,&lt;Time&gt;,&lt;Event&gt;]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>User Id</td><td>Yes</td><td>[A-z], [a-z], [0-9], [_] &#40;#41 (&)、アンダー スコアは、[-] & #40; ダッシュ & #41 です。<br> 最大長: 255 </td><td>ユーザーの一意の識別子</td>。</tr><tr><td>Item Id</td><td>Yes</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;#41 (&)、アンダー スコアは、[-] & #40; ダッシュ & #41 です。<br> 最大長: 50</td><td>項目の一意の識別子</td>。</tr><tr><td>Time</td><td>No</td><td>Date in format: YYYY/MM/DDTHH:MM:SS (e.g. 2013/06/20T10:00:00)</td><td>Time of data.</td></tr><tr><td>イベント</td><td>ノーです指定した場合も、日付を記述する必要があります</td><td>、次のいずれか:<br>•] をクリック<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• 購入</td><td></td></tr></table><br>ファイルの最大サイズ: 200 MB<br><br>例:<br><pre>149452、1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>6360 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>50321 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>71285 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>224450 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>236645 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>107951 1b3d95e2-84e4-414 c-bb38-be9cf461c347</pre>|
+|   modelId |   モデルの一意識別子  |
+| filename | カタログを表すテキスト形式の識別子。<br>唯一英字 (A ~ Z、a ~ z)、数字 (0 ~ 9)、ハイフン (-) とアンダー スコア (_) が許可されます。<br>最大長: 50 |
+|   apiVersion      | 1.0 |
+|||
+| 要求本文 | 使用状況データ。 形式:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>名</th><th>必須</th><th>型</th><th>説明</th></tr><tr><td>ユーザー Id</td><td>はい</td><td>A ~ z、[a ~ z]、[0-9] [_] (& a) #40 です。#41 (&)、アンダー スコアは、[-] & #40; ダッシュ & #41;<br> 最大長: 255 </td><td>ユーザーの一意の識別子</td></tr><tr><td>。項目の Id</td><td>はい</td><td>A ~ z、[a ~ z]、[0-9] [& #95;] (& a) #40 です。#41 (&)、アンダー スコアは、[-] & #40; ダッシュ & #41;<br> 最大長: 50</td><td>項目の一意の識別子</td></tr><tr><td>。時間</td><td>いいえ</td><td>形式の日付: YYYY と MM/DDTHH:MM:SS (例:. 2013年/06/20T10:00:00)</td><td>データの時間</td></tr><tr><td>。イベント</td><td>ノーです指定した場合も、日付を記述する必要があります</td><td>、次のいずれか:<br>•] をクリック<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• 購入</td><td></td></tr></table><br>ファイルの最大サイズ: 200 MB<br><br>例:<br><pre>149452 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>6360 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>50321 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>71285 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>224450 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>236645 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>107951 1b3d95e2-84e4-414 c-bb38-be9cf461c347。</pre> |
 
 **応答**:
 
 HTTP 状態コード: 200
 
-- `Feed\entry\content\properties\LineCount` – 受け入れられた行数。
-- `Feed\entry\content\properties\ErrorCount` – エラーのために挿入されなかった行数を指定します。
+- `Feed\entry\content\properties\LineCount` – 受け入れられる行数。
+- `Feed\entry\content\properties\ErrorCount` – エラーのために挿入されなかった行数。
 - `Feed\entry\content\properties\FileId` – ファイル識別子。
 
 OData XML
@@ -1264,19 +1243,19 @@ OData XML
     </entry>
     </feed>
 
-#### 9.1.2.データ取得の使用
 
+####9.1.2. データ取得の使用
 このセクションでは、Web サイトから Azure Machine Learning Recommendations にリアルタイムでイベントを送信する方法を示します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| POST| `< rootURI >/AddUsageEvent?apiVersion=%271.0%27`|
-| ヘッダー| `"Content-type"、"テキスト/xml"`|
+|POST     |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27`|
+|ヘッダー   |`"Content-Type", "text/xml"`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| apiVersion| 1.0|
-| Request body| 送信する各イベントのイベント データ エントリ。同じユーザーまたはブラウザーのセッションに対して、SessionId フィールドに同じ ID を送信する必要があります。(以下のイベントの本文のサンプルを参照してください)。|
+|   apiVersion      | 1.0 |
+|Request body| 送信する各イベントのイベント データ エントリ。 同じユーザーまたはブラウザーのセッションに対して、SessionId フィールドに同じ ID を送信する必要があります。 (以下のイベントの本文のサンプルを参照してください)。|
 
 
 - 'Click' のイベントの例:
@@ -1352,6 +1331,11 @@ OData XML
             </EventData>
         </EventData>
         </Event>
+        
+        
+        
+
+
 
 - 2 つのイベント "Click" と "AddShopCart" を送信する例:
 
@@ -1373,24 +1357,22 @@ OData XML
         </EventData>
         </Event>
 
-
 **応答**:
 HTTP 状態コード: 200
 
-### 9.2.モデルの使用状況ファイルの一覧
-
+###9.2. モデルの使用状況ファイルの一覧
 すべてのモデルに関する使用状況ファイルのメタデータを取得します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/ListModelUsageFiles?forModelId=%27 < model_id > %27 & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/ListModelUsageFiles?forModelId=%270dbb55fa-7f11-418d-8537-8ff2d9d1d9c6%27 & apiVersion=%271.0%27`|
+|GET     |`<rootURI>/ListModelUsageFiles?forModelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/ListModelUsageFiles?forModelId=%270dbb55fa-7f11-418d-8537-8ff2d9d1d9c6%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| forModelId| モデルの一意識別子|
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+|   forModelId  |   モデルの一意識別子 |
+|   apiVersion      | 1.0 |
+|||
+| 要求本文 | なし |
 
 **応答**:
 
@@ -1398,8 +1380,8 @@ HTTP 状態コード: 200
 
 応答には、使用状況ファイルごとに 1 つのエントリが含まれています。 各エントリには、次のデータが含まれています。
 
-- `feed\entry\content\properties\Id` – 使用状況ファイルの id。
-- `feed\entry\content\properties\Length` – 使用状況ファイルの長さ (mb)。
+- `feed\entry\content\properties\Id` – 使用状況ファイルの ID。
+- `feed\entry\content\properties\Length` -使用状況ファイルの長さ (MB)。
 - `feed\entry\content\properties\DateModified` – 使用状況ファイルが作成された日付。
 - `feed\entry\content\properties\UseInModel` – 使用状況ファイルがモデルで使用されるかどうか。
 
@@ -1440,26 +1422,24 @@ OData XML
             </m:properties>
         </content>
     </entry>
-
 </feed>
 
-### 9.3.使用状況の統計の取得
-
+###9.3. 使用状況の統計の取得
 使用状況の統計を取得します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/GetUsageStatistics?modelId=%27 < modelId > %27 & startDate = 27 %27 < 日付 > % & endDate = 27 %27 < 日付 > % & eventTypes = 27 %27 < 種類 > % & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/GetUsageStatistics?modelId=%271d20c34f-dca1-4eac-8e5d-f299e4e4ad66%27 & startDate = % 272014% 2f10% 2f17t00% 3a00% 3A00 %27 & endDate = % 272014% 2f11% 2f16t00% 3a00% 3A00 %27 & eventTypes = % 271 %2 C 2 %2 C 3 %2 C 4 C 5 %2% 27 & apiVersion=%271.0%27`|
+|GET     |`<rootURI>/GetUsageStatistics?modelId=%27<modelId>%27& startDate=%27<date>%27&endDate=%27<date>%27&eventTypes=%27<types>%27&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/GetUsageStatistics?modelId=%271d20c34f-dca1-4eac-8e5d-f299e4e4ad66%27&startDate=%272014%2F10%2F17T00%3A00%3A00%27&endDate=%272014%2F11%2F16T00%3A00%3A00%27&eventTypes=%271%2C2%2C3%2C4%2C5%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| startDate| 開始日。形式: yyyy/MM/ddTHH:mm:ss|
-| endDate| 終了日。形式: yyyy/MM/ddTHH:mm:ss|
-| eventTypes| イベント種類のコンマ区切りの文字列。すべてのイベントを取得する場合は null 値。|
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+| modelId | モデルの一意識別子  |
+| startDate |   開始日。 形式: yyyy/MM/ddTHH:mm:ss |
+| endDate | 終了日。 形式: yyyy/MM/ddTHH:mm:ss |
+| eventTypes |  イベント種類のコンマ区切りの文字列。すべてのイベントを取得する場合は null 値。  |
+| apiVersion | 1.0 |
+|||
+| 要求本文 | なし |
 
 **応答**:
 
@@ -1467,8 +1447,8 @@ HTTP 状態コード: 200
 
 キーと値の要素のコレクション。 各コレクションには、時間別にグループ化された特定のイベントの種類のイベント数の合計が含まれます。
 
-- `feed\entry [i] \content\properties\Key` – (時間別にグループ化) の時間とイベントの種類が含まれています。
-- `feed\entry [i] \content\properties\Value` – 合計イベント数。
+- `feed\entry[i]\content\properties\Key` – 時間 (時間別にグループ化) と、イベントの種類が含まれています。
+- `feed\entry[i]\content\properties\Value` – 合計イベント数。
 
 OData XML
 
@@ -1529,21 +1509,20 @@ OData XML
     </entry>
     </feed>
 
-### 9.4.使用状況ファイルのサンプルの取得
-
+###9.4. 使用状況ファイルのサンプルの取得
 使用状況ファイルの内容の最初の 2 KB を取得します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/GetUsageFileSample?modelId=%27 < modelId > %27 & fileId = < fileId > %27 27% & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/GetUsageFileSample?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27 & fileId = 274c067b42 e975-4cb2-8 c a6ab80ed6d63 98 %27 & apiVersion=%271.0%27`|
+|GET     |`<rootURI>/GetUsageFileSample?modelId=%27<modelId>%27& fileId=%27<fileId>%27&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/GetUsageFileSample?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&fileId=%274c067b42-e975-4cb2-8c98-a6ab80ed6d63%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| フィールド| モデルの使用状況ファイルの一意識別子。|
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+| modelId | モデルの一意識別子  |
+| フィールド |  モデルの使用状況ファイルの一意識別子。  |
+| apiVersion | 1.0 |
+|||
+| 要求本文 | なし |
 
 **応答**:
 
@@ -1569,22 +1548,21 @@ HTTP 状態コード: 200
 </pre>
 
 
-### 9.5.モデルの使用状況ファイルの取得
-
+###9.5. モデルの使用状況ファイルの取得
 使用状況ファイルのすべての内容を取得します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/GetModelUsageFile?mid=%27 < modelId > %27 & fid 27 %27 < fileId > % = (&) をダウンロード = 27 %27 < download_value > % & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/GetModelUsageFile?mid=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27 & fid 273126 d 816-4e80-4248-8339-1ebbdb9d544d %27 を = & ダウンロード % を 271% = 27 & apiVersion=%271.0%27`|
+|GET     |`<rootURI>/GetModelUsageFile?mid=%27<modelId>%27& fid=%27<fileId>%27&download=%27<download_value>%27&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/GetModelUsageFile?mid=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&fid=%273126d816-4e80-4248-8339-1ebbdb9d544d%27&download=%271%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| mid| モデルの一意識別子|
-| fid| モデルの使用状況ファイルの一意識別子。|
-| ダウンロード| 1|
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+| mid | モデルの一意識別子  |
+| fid | モデルの使用状況ファイルの一意識別子。 |
+| ダウンロード | 1 |
+| apiVersion | 1.0 |
+|||
+| 要求本文 | なし |
 
 **応答**:
 
@@ -1627,67 +1605,63 @@ HTTP 状態コード: 200
 144717 552A1940-21E4-4399-82BB-594B46D7ED54、2014年/11/02T13:40:15、True、1
 </pre>
 
-### 9.6.使用状況ファイルの削除
-
+###9.6. 使用状況ファイルの削除
 指定されたモデルの使用状況ファイルを削除します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| 削除| `< rootURI >/DeleteUsageFile?modelId=%27 < modelId > %27 & fileId = < fileId > %27 27% & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/DeleteUsageFile?modelId=%270f86d698-d0f4-4406-a684-d13d22c47a73%27 & fileId = 27 %27f2e0b09d-be5c-46b2-9ac2-c7f622e5e1a5% & apiVersion=%271.0%27`|
+|削除     |`<rootURI>/DeleteUsageFile?modelId=%27<modelId>%27&fileId=%27<fileId>%27&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/DeleteUsageFile?modelId=%270f86d698-d0f4-4406-a684-d13d22c47a73%27&fileId=%27f2e0b09d-be5c-46b2-9ac2-c7f622e5e1a5%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+| パラメーター名    |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| フィールド| 削除するファイルの一意識別子|
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+| modelId | モデルの一意識別子  |
+| フィールド | 削除するファイルの一意識別子 |
+| apiVersion | 1.0 |
+|||
+| 要求本文 | なし |
 
 **応答**:
 
 HTTP 状態コード: 200
 
 
-### 9.7.すべての使用状況ファイルの削除
-
+###9.7. すべての使用状況ファイルの削除
 すべてのモデルの使用状況ファイルを削除します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| 削除| `< rootURI >/DeleteAllUsageFiles?modelId=%27 < modelId > %27 & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/DeleteAllUsageFiles?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27 & apiVersion=%271.0%27`|
+|削除     |`<rootURI>/DeleteAllUsageFiles?modelId=%27<modelId>%27&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/DeleteAllUsageFiles?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+| パラメーター名    |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+| modelId | モデルの一意識別子  |
+| apiVersion | 1.0 |
+|||
+| 要求本文 | なし |
 
 **応答**:
 
 HTTP 状態コード: 200
 
-## 10.特徴
-
+##10. 特徴
 このセクションでは特徴の情報 (インポートされた特徴とその値、順位付け、この順位付けが割り当てられた時期など) を取得する方法を説明します。 特徴は、カタログ データの一部としてインポートされ、順位付けのビルドが実行されたときに順位付けが関連付けられます。
 使用状況データと項目の種類のパターンに従って特徴の順位を変更できます。 しかし、使用状況と項目の一貫性を保つため、順位付けの変動は小さくなければなりません。
 特徴の順位は負以外の数値です。 数 0 は、機能が順位付けされていないことを意味します (最初の順位付けのビルドの完了前にこの API を呼び出す場合に行われます)。 順位付けの日付をスコアの鮮度と言います。
 
-### 10.1.特徴の情報の取得 (最後の順位付けのビルド)
-
+###10.1. 特徴の情報の取得 (最後の順位付けのビルド)
 前回成功した順位付けのビルドの特徴の情報 (順位付けを含む) を取得します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/GetModelFeatures?modelId=%27 < modelId > %27 & samplingSize = 27 %27 < samplingSize > % & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/GetModelFeatures?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27 & samplingSize = 10 の 27% & apiVersion=%271.0%27`
+|GET      |`<rootURI>/GetModelFeatures?modelId=%27<modelId>%27&samplingSize=%27<samplingSize>%27&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/GetModelFeatures?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&samplingSize=10%27&apiVersion=%271.0%27`
 
-| パラメーター名| 有効な値|
+| パラメーター名    |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| samplingSize| カタログ内に存在するデータに従い、特徴ごとに含める値の数。<br/>指定できる値は:<br> -1 - すべてのサンプルです。<br>0 - サンプリングなし。<br>N - 特徴名ごとに n 個のサンプルを返します。|
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+| modelId | モデルの一意識別子  |
+|samplingSize| カタログ内に存在するデータに従い、特徴ごとに含める値の数。 <br/>次のいずれかの値になります。<br> -1 - すべてのサンプルです。 <br>0 - サンプリングなし。 <br>N - 特徴名ごとに n 個のサンプルを返します。|
+| apiVersion | 1.0 |
+|||
+| 要求本文 | なし |
 
 
 **応答**:
@@ -1696,10 +1670,10 @@ HTTP 状態コード: 200
 
 応答には、特徴の情報エントリの一覧が含まれています。 各エントリは、次のとおりです。
 
-- `フィード/エントリ/コンテンツ/m:properties/d:Name` -特徴名。
-- `フィード/エントリ/コンテンツ/m:properties/d:RankUpdateDate` -をランクに割り当てられた日付この機能とも呼ばれます スコアの鮮度特徴です。 古代の日付 ('0001-01-01T00:00:00') は、順位付けのビルドが実行されていないことを意味します。
-- `フィード/エントリ/コンテンツ/m:properties/d:Rank` -特徴の順位 (float)。 2.0 以上の順位は良好な特徴であると見なせます。
-- `フィード/エントリ/コンテンツ/m:properties/d:SampleValues` -要求されたサンプリング サイズまで値のコンマ区切りリスト。
+- `feed/entry/content/m:properties/d:Name` - 特徴名。
+- `feed/entry/content/m:properties/d:RankUpdateDate` -あるランクに割り当てられた日付この機能とも呼ばれます スコアの鮮度特徴です。 古代の日付 ('0001-01-01T00:00:00') は、順位付けのビルドが実行されていないことを意味します。
+- `feed/entry/content/m:properties/d:Rank` - 特徴の順位 (float)。 2.0 以上の順位は良好な特徴であると見なせます。
+- `feed/entry/content/m:properties/d:SampleValues` -要求されたサンプリング サイズまでの値のコンマ区切りの一覧。
 
 OData XML
 
@@ -1752,26 +1726,25 @@ OData XML
         </m:properties>
         </content>
     </entry>
-
 </feed>
 
 
-### 10.2.特徴の情報の取得 (特定の順位付けのビルド)
+###10.2. 特徴の情報の取得 (特定の順位付けのビルド)
 
 特定の順位付けのビルドの特徴の情報 (順位付けを含む) を取得します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/GetModelFeatures?modelId=%27 < modelId > %27 & samplingSize = 27 %27 < samplingSize > % & rankBuildId = < rankBuildId > & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/GetModelFeatures?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27 & samplingSize = 10 の 27% & rankBuildId = 1000551 & apiVersion=%271.0%27`
+|GET      |`<rootURI>/GetModelFeatures?modelId=%27<modelId>%27&samplingSize=%27<samplingSize>%27&rankBuildId=<rankBuildId>&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/GetModelFeatures?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&samplingSize=10%27&rankBuildId=1000551&apiVersion=%271.0%27`
 
-| パラメーター名| 有効な値|
+| パラメーター名    |   有効な値    |
 |:--------          |:--------          |
-| modelId| モデルの一意識別子|
-| samplingSize| カタログ内に存在するデータに従い、各特徴に含める値の数。<br/>指定できる値は:<br> -1 - すべてのサンプルです。<br>0 - サンプリングなし。<br>N - 特徴名ごとに n 個のサンプルを返します。|
-| rankBuildId| 順位付けのビルドの一意識別子。最後の順位付けのビルドの場合は -1。|
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+| modelId | モデルの一意識別子  |
+|samplingSize| カタログ内に存在するデータに従い、特徴ごとに含める値の数。<br/> 次のいずれかの値になります。<br> -1 - すべてのサンプルです。 <br>0 - サンプリングなし。 <br>N - 特徴名ごとに n 個のサンプルを返します。|
+|rankBuildId| 順位付けのビルドの一意識別子。最後の順位付けのビルドの場合は -1。|
+| apiVersion | 1.0 |
+|||
+| 要求本文 | なし |
 
 
 **応答**:
@@ -1780,10 +1753,10 @@ HTTP 状態コード: 200
 
 応答には、特徴の情報エントリの一覧が含まれています。 各エントリは、次のとおりです。
 
-- `フィード/エントリ/コンテンツ/m:properties/d:Name` -特徴名。
-- `フィード/エントリ/コンテンツ/m:properties/d:RankUpdateDate` -をランクに割り当てられた日付この機能とも呼ばれます スコアの鮮度特徴です。 古代の日付 ('0001-01-01T00:00:00') は、順位付けのビルドが実行されていないことを意味します。
-- `フィード/エントリ/コンテンツ/m:properties/d:Rank` -特徴の順位 (float)。 2.0 以上の順位は良好な特徴であると見なせます。
-- `フィード/エントリ/コンテンツ/m:properties/d:SampleValues` -要求されたサンプリング サイズまで値のコンマ区切りリスト。
+- `feed/entry/content/m:properties/d:Name` - 特徴名。
+- `feed/entry/content/m:properties/d:RankUpdateDate` -あるランクに割り当てられた日付この機能とも呼ばれます スコアの鮮度特徴です。 古代の日付 ('0001-01-01T00:00:00') は、順位付けのビルドが実行されていないことを意味します。
+- `feed/entry/content/m:properties/d:Rank` - 特徴の順位 (float)。 2.0 以上の順位は良好な特徴であると見なせます。
+- `feed/entry/content/m:properties/d:SampleValues` -要求されたサンプリング サイズまでの値のコンマ区切りの一覧。
 
 OData
 
@@ -1838,7 +1811,8 @@ OData
         </entry>
     </feed>
 
-## 11.構築
+
+##11. 構築
 
   このセクションでは、ビルドに関連する様々な API について説明します。 ビルドには、推奨事項のビルド、順位付けのビルド、FBT (Frequently Bought Together) ビルドの 3 種類があります。
 
@@ -1851,12 +1825,12 @@ OData
 - 呼び出して、特徴の順位を取得、 [機能情報を見る](#101-get-features-info-for-last-rank-build) API です。
 - 次のパラメーターを使用して推奨事項のビルドを構成します。
     - `useFeatureInModel` -True に設定します。
-    - `ModelingFeatureList` -2.0 より (前の手順で取得したランク) に従ってのスコアで特徴のコンマ区切りのリストを設定します。
+    - `ModelingFeatureList` -2.0 より (前の手順で取得したランク) に従ってのスコアの機能のコンマ区切りの一覧に設定します。
     - `AllowColdItemPlacement` -True に設定します。
     - 必要に応じて設定 `EnableFeatureCorrelation` を True におよび `ReasoningFeatureList` に (通常、同じ機能の一覧をモデル化またはサブリストで使用) の説明を使用する機能の一覧にします。
 - 構成済みのパラメーターを使用して推奨事項のビルドをトリガーします。
 
-注: すべてのパラメーターを構成しなかった場合 (例: パラメーターを指定しないで推奨事項のビルドを呼び出す) 機能の使用状況を明示的に無効しなかった、または (例: `UseFeatureInModel` を False に設定)、順位付けのビルドが存在する場合は、システムを前述の値を機能に関連するパラメーターを設定します。
+注: パラメーターを構成しない場合 (パラメーターなしで推奨事項のビルドを呼び出す場合など) や、特徴の使用状況を明示的に無効にしない場合 (`UseFeatureInModel` を False に設定する場合など)、順位付けのビルドが存在しているなら、システムは特徴に関連するパラメーターを前述の値に設定します。
 
 順位付けのビルドと推奨事項のビルドを同じモデルに対して同時に実行することに関して制限はありません。 ただし、同じモデルに同じ型の 2 つのビルドを並列で実行することはできません。
 
@@ -1865,77 +1839,74 @@ FBT (よく一緒に購入されている品目) のビルドは「控えめな�
 注: アップロードした使用状況ファイルにオプション フィールド "イベントの種類" が含まれている場合、FBT モデル化では "購買" イベントのみが使用されます。 イベントの種類を指定しない場合、すべてのイベントが購買として考慮されます。
 
 
-#### 11.1 ビルド パラメーター
+####11.1 ビルド パラメーター
 
 各種のビルドは一連のパラメーター (以下を参照) を使用して構成できます。 パラメーターを構成しない場合、システムは、ビルドをトリガーする時点で存在する情報に応じて、自動的にパラメーターに値を付与します。
 
-##### 11.1.1.使用状況コンデンサー
-
+#####11.1.1. 使用状況コンデンサー
 いくつかの使用状況ポイントを持つユーザーまたは項目には、情報よりも多くのノイズが含まれている可能性があります。 システムは 1 つのモデルで使用されるユーザー/項目ごとの使用状況のポイントの最小数を予測しようとします。 この数値は、項目の場合は ItemCutoffLowerBound パラメーターと ItemCutoffUpperBound パラメーターで定義されている範囲内になり、ユーザーの場合は UserCutOffLowerBound パラメーターと UserCutoffUpperBound パラメーターで定義されている範囲内になります。 対応する境界の少なくとも 1 つをゼロに設定することによって、項目またはユーザーに対するコンデンサーの影響を最小化できます。
 
-##### 11.1.2.順位付けのビルドのパラメーター
+#####11.1.2. 順位付けのビルドのパラメーター
 
 次の表は、順位付けのビルドのビルド パラメーターを示しています。
 
-| キー| 説明| 型| 有効な値:|
+|キー|説明|型|有効な値:|
 |:-----|:----|:----|:---|
-| NumberOfModelIterations| モデルが実行するイテレーションの数は、全体的なコンピューティング時間とモデルの精度に反映されます。数値が高いと精度が向上しますが、コンピューティング時間が長くなります。| 整数| 10-50|
-| NumberOfModelDimensions| ディメンションの数は、データ内でモデルが検索しようとする「特徴」の数に関連しています。ディメンションの数を増やすと、結果をより詳細に微調整して、小さいクラスターにすることができます。ただし、ディメンションが多すぎると、モデルが項目間の相関関係を検出できなくなります。| 整数| 10-40|
-| ItemCutOffLowerBound| コンデンサーの項目の下限を定義します。前述の使用状況コンデンサーを参照してください。| 整数| 2 以上 (0 でコンデンサーが無効)|
-| ItemCutOffUpperBound| コンデンサーの項目の上限を定義します。前述の使用状況コンデンサーを参照してください。| 整数| 2 以上 (0 でコンデンサーが無効)|
-| UserCutOffLowerBound| コンデンサーのユーザーの下限を定義します。前述の使用状況コンデンサーを参照してください。| 整数| 2 以上 (0 でコンデンサーが無効)|
-| UserCutOffUpperBound| コンデンサーのユーザーの上限を定義します。前述の使用状況コンデンサーを参照してください。| 整数| 2 以上 (0 でコンデンサーが無効)|
+|NumberOfModelIterations | モデルが実行するイテレーションの数は、全体的なコンピューティング時間とモデルの精度に反映されます。 数値が高いと精度が向上しますが、コンピューティング時間が長くなります。| 整数 | 10-50 |
+| NumberOfModelDimensions | ディメンションの数は、データ内でモデルが検索しようとする「特徴」の数に関連しています。 ディメンションの数を増やすと、結果をより詳細に微調整して、小さいクラスターにすることができます。 ただし、ディメンションが多すぎると、モデルが項目間の相関関係を検出できなくなります。 | 整数 | 10-40 |
+|ItemCutOffLowerBound| コンデンサーの項目の下限を定義します。 前述の使用状況コンデンサーを参照してください。 | 整数 | 2 以上 (0 でコンデンサーが無効) |
+|ItemCutOffUpperBound| コンデンサーの項目の上限を定義します。 前述の使用状況コンデンサーを参照してください。 | 整数 | 2 以上 (0 でコンデンサーが無効) |
+|UserCutOffLowerBound| コンデンサーのユーザーの下限を定義します。 前述の使用状況コンデンサーを参照してください。 | 整数 | 2 以上 (0 でコンデンサーが無効) |
+|UserCutOffUpperBound| コンデンサーのユーザーの上限を定義します。 前述の使用状況コンデンサーを参照してください。 | 整数 | 2 以上 (0 でコンデンサーが無効) |
 
-##### 11.1.3.推奨事項のビルドのパラメーター
-
+#####11.1.3. 推奨事項のビルドのパラメーター
 次の表は、推奨事項のビルドのビルド パラメーターを示しています。
 
-| キー| 説明| 型| 有効な値:|
+|キー|説明|型|有効な値:|
 |:-----|:----|:----|:---|
-| NumberOfModelIterations| モデルが実行するイテレーションの数は、全体的なコンピューティング時間とモデルの精度に反映されます。数値が高いと精度が向上しますが、コンピューティング時間が長くなります。| 整数| 10-50|
-| NumberOfModelDimensions| ディメンションの数は、データ内でモデルが検索しようとする「特徴」の数に関連しています。ディメンションの数を増やすと、結果をより詳細に微調整して、小さいクラスターにすることができます。ただし、ディメンションが多すぎると、モデルが項目間の相関関係を検出できなくなります。| 整数| 10-40|
-| ItemCutOffLowerBound| コンデンサーの項目の下限を定義します。前述の使用状況コンデンサーを参照してください。| 整数| 2 以上 (0 でコンデンサーが無効)|
-| ItemCutOffUpperBound| コンデンサーの項目の上限を定義します。前述の使用状況コンデンサーを参照してください。| 整数| 2 以上 (0 でコンデンサーが無効)|
-| UserCutOffLowerBound| コンデンサーのユーザーの下限を定義します。前述の使用状況コンデンサーを参照してください。| 整数| 2 以上 (0 でコンデンサーが無効)|
-| UserCutOffUpperBound| コンデンサーのユーザーの上限を定義します。前述の使用状況コンデンサーを参照してください。| 整数| 2 以上 (0 でコンデンサーが無効)|
-| 説明| ビルドの説明。| String| 任意のテキスト (最大 512 文字)|
-| EnableModelingInsights| 推奨モデルのメトリックを計算することができます。| Boolean| True または False|
-| UseFeaturesInModel| 推奨モデルを強化するために特徴を使用するかどうかを示します。| Boolean| True または False|
-| ModelingFeatureList| 推奨事項を強化するために推奨事項のビルドに使用される、特徴名のコンマ区切りの一覧。| String| 特徴名 (最大 512 文字）|
-| AllowColdItemPlacement| 推奨事項が特徴の類似性を使用してコールド項目もプッシュするかどうかを示します。| Boolean| True または False|
-| EnableFeatureCorrelation| 理由で特徴を使用するかどうかを示します。| Boolean| True または False|
-| ReasoningFeatureList| 理由の文 (推奨事項の説明など) に使用される特徴名のコンマ区切りの一覧。| String| 特徴名 (最大 512 文字）|
-| EnableU2I| 個人用に設定された推奨事項、別名U2I (ユーザーから項目の推奨事項) を許可します。| Boolean| True または False (既定値は True)|
+|NumberOfModelIterations | モデルが実行するイテレーションの数は、全体的なコンピューティング時間とモデルの精度に反映されます。 数値が高いと精度が向上しますが、コンピューティング時間が長くなります。| 整数 | 10-50 |
+| NumberOfModelDimensions | ディメンションの数は、データ内でモデルが検索しようとする「特徴」の数に関連しています。 ディメンションの数を増やすと、結果をより詳細に微調整して、小さいクラスターにすることができます。 ただし、ディメンションが多すぎると、モデルが項目間の相関関係を検出できなくなります。 | 整数 | 10-40 |
+|ItemCutOffLowerBound| コンデンサーの項目の下限を定義します。 前述の使用状況コンデンサーを参照してください。 | 整数 | 2 以上 (0 でコンデンサーが無効) |
+|ItemCutOffUpperBound| コンデンサーの項目の上限を定義します。 前述の使用状況コンデンサーを参照してください。 | 整数 | 2 以上 (0 でコンデンサーが無効) |
+|UserCutOffLowerBound| コンデンサーのユーザーの下限を定義します。 前述の使用状況コンデンサーを参照してください。 | 整数 | 2 以上 (0 でコンデンサーが無効) |
+|UserCutOffUpperBound| コンデンサーのユーザーの上限を定義します。 前述の使用状況コンデンサーを参照してください。 | 整数 | 2 以上 (0 でコンデンサーが無効) |
+| 説明 | ビルドの説明。 | String | 任意のテキスト (最大 512 文字) |
+| EnableModelingInsights | 推奨モデルのメトリックを計算することができます。 | Boolean | True または False |
+| UseFeaturesInModel | 推奨モデルを強化するために特徴を使用するかどうかを示します。 | Boolean | True または False |
+| ModelingFeatureList | 推奨事項を強化するために推奨事項のビルドに使用される、特徴名のコンマ区切りの一覧。 | String | 特徴名 (最大 512 文字） |
+| AllowColdItemPlacement | 推奨事項が特徴の類似性を使用してコールド項目もプッシュするかどうかを示します。 | Boolean | True または False |
+| EnableFeatureCorrelation | 理由で特徴を使用するかどうかを示します。 | Boolean | True または False |
+| ReasoningFeatureList | 理由の文 (推奨事項の説明など) に使用される特徴名のコンマ区切りの一覧。  | String | 特徴名 (最大 512 文字） |
+| EnableU2I | 個人用に設定された推奨事項、別名 U2I (ユーザーから項目の推奨事項) を許可します。 | Boolean | True または False (既定値は True) |
 
-##### 11.1.4.FBT ビルド パラメーター
-
+#####11.1.4. FBT ビルド パラメーター
 次の表は、推奨事項のビルドのビルド パラメーターを示しています。
 
-| キー| 説明| 型| 有効な値 (既定値)|
+|キー|説明|型|有効な値 (既定値)|
 |:-----|:----|:----|:---|
-| FbtSupportThreshold| モデルがどの程度控えめか。モデル化で考慮すべき項目の同時発生の数。| 整数| 3-50 (6)|
-| FbtMaxItemSetSize| 頻度のセット内のアイテム数の限度を定めます。| 整数| 2-3 (2)|
-| FbtMinimalScore| 返される結果に含めるために頻度のセットが持つべきスコアの最小値。大きいほど良好です。| Double| 0 以上 (0)|
-| FbtSimilarityFunction| ビルドで使用する類似関数を定義します。リフトではセレンディピティが、共起では予測可能性が、2 項間では Jaccard が適しています。| String| 共起、リフト、Jaccard (リフト)|
+|FbtSupportThreshold | モデルがどの程度控えめか。 モデル化で考慮すべき項目の同時発生の数。| 整数 | 3-50 (6) |
+|FbtMaxItemSetSize | 頻度のセット内のアイテム数の限度を定めます。| 整数 | 2-3 (2) |
+|FbtMinimalScore | 返される結果に含めるために頻度のセットが持つべきスコアの最小値。 大きいほど良好です。| Double | 0 以上 (0) |
+|FbtSimilarityFunction | ビルドで使用する類似関数を定義します。 リフトではセレンディピティが、共起では予測可能性が、2 項間では Jaccard が適しています。 | String | 共起、リフト、Jaccard (リフト) |
 
 
-### 11.2.推奨事項のビルドのトリガー
+###11.2. 推奨事項のビルドのトリガー
 
   既定では、この API は推奨モデルのビルドをトリガーします。 (特徴をスコア付け) するための順位付けのビルドをトリガーするビルドの種類のパラメーターを持つビルド API の変種を使用する必要があります。
 
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| POST| `< rootURI > いること (&)、/BuildModel?modelId=%27 < modelId > %27 = 27 %27 < 説明 > % & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27 & いること = % 27first% 20build %27 & apiVersion=%271.0%27`|
-| ヘッダー| `"Content-type"、"テキスト/xml"` (要求の本文を送信する) 場合|
+|POST     |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
+|ヘッダー   |`"Content-Type", "text/xml"` (送信の場合、要求本文)|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| userDescription| カタログを表すテキスト形式の識別子。空白を使用する場合は、%20 にエンコードする必要があることに注意してください上記の例を参照してください。<br>最大長: 50|
-| apiVersion| 1.0|
-| | |
-| 要求本文| 空の場合、既定のビルド パラメーターを使用して、ビルドが実行されます。<br><br>ビルド パラメーターを設定する場合は、パラメーターとして送信 XML の例を次の本文にします。(詳細については、パラメーターのパラメーターのビルド」セクションを参照してください)。`< NumberOfModelIterations > 40 </NumberOfModelIterations >< NumberOfModelDimensions > 20 </NumberOfModelDimensions >< MinItemAppearance > 5 </MinItemAppearance >< MinUserAppearance > 5 </MinUserAppearance >< EnableModelingInsights > true </EnableModelingInsights >< UseFeaturesInModel > false </UseFeaturesInModel >< ModelingFeatureList > feature_name_1、feature_name_2] </ModelingFeatureList >< AllowColdItemPlacement > false </AllowColdItemPlacement >< EnableFeatureCorrelation > false </EnableFeatureCorrelation >< ReasoningFeatureList > feature_name_a、… feature_name_b </ReasoningFeatureList ></BuildParametersList >`|
+| modelId | モデルの一意識別子  |
+| userDescription | カタログを表すテキスト形式の識別子。 空白を使用する場合は、%20 にエンコードする必要があることに注意してください (上記の例を参照)。<br>最大長: 50 |
+| apiVersion | 1.0 |
+|||
+| 要求本文 | 場合、既定で、ビルドが実行される空のままビルド パラメーター<br><br>。ビルド パラメーターを設定する場合は、次の例の本文に XML としてパラメーターを送信します。 (詳細については、パラメーターのパラメーターのビルド」セクションを参照してください)。`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **応答**:
 
@@ -1956,7 +1927,7 @@ HTTP 状態コード: 200
 - Cancelling – ビルドの取り消し要求が送信されました。
 
 
-ビルド ID は次のパスにあります注: `Feed\entry\content\properties\Id`
+ビルド ID は、次のパスの下にあります：`Feed\entry\content\properties\Id`
 
 OData XML
 
@@ -1997,21 +1968,21 @@ OData XML
     </entry>
     </feed>
 
-### 11.3.トリガーのビルド (推奨事項、ランク付け、または FBT)
+###11.3. トリガーのビルド (推奨事項、ランク付け、または FBT)
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| POST| `< rootURI >/BuildModel?modelId=%27 < modelId > %27 & いること = 27 %27 < 説明 > % & buildType = 27 %27 < buildType > % & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27 & いること = % 27first% 20build %27 & buildType = 27% 27ranking% & apiVersion=%271.0%27`|
-| ヘッダー| `"Content-type"、"テキスト/xml"` (要求の本文を送信する) 場合|
+|POST     |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&buildType=%27<buildType>%27&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&buildType=%27Ranking%27&apiVersion=%271.0%27`|
+|ヘッダー   |`"Content-Type", "text/xml"` (送信の場合、要求本文)|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| userDescription| カタログを表すテキスト形式の識別子。空白を使用する場合は、%20 にエンコードする必要があることに注意してください上記の例を参照してください。<br>最大長: 50|
-| buildType| 呼び出すビルドの種類: <br/> -推奨事項のビルドには、' Recommendation' <br> - 順位付けのビルド '順位付け' <br/> -ビルドは' Fbt'
-| apiVersion| 1.0|
-| | |
-| 要求本文| 空の場合、既定のビルド パラメーターを使用して、ビルドが実行されます。<br><br>ビルド パラメーターを設定する場合に XML として送信のように、次のサンプルの本体にです。(説明とパラメーターの完全な一覧について、パラメーターのビルド」セクションを参照してください)。`< BuildParametersList >< NumberOfModelIterations > 40 </NumberOfModelIterations >< NumberOfModelDimensions > 20 </NumberOfModelDimensions >< MinItemAppearance > 5 </MinItemAppearance >< MinUserAppearance > 5 </MinUserAppearance ></BuildParametersList >`|
+| modelId | モデルの一意識別子  |
+| userDescription | カタログを表すテキスト形式の識別子。 空白を使用する場合は、%20 にエンコードする必要があることに注意してください (上記の例を参照)。<br>最大長: 50 |
+| buildType | 呼び出すビルドの種類。 <br/> -推奨事項のビルドには、' recommendation' <br> -'順位付けのビルドの場合はランク付け <br/> -ビルドは ' Fbt'
+| apiVersion | 1.0 |
+|||
+| 要求本文 | 場合、既定で、ビルドが実行される空のままビルド パラメーター<br><br>。ビルド パラメーターを設定する場合は、ように、次の例の本文に XML として送信します。 (説明とパラメーターの完全な一覧について、パラメーターのビルド」セクションを参照してください)。`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **応答**:
 
@@ -2031,7 +2002,7 @@ HTTP 状態コード: 200
 - Cancelled – ビルドが取り消されました。
 - Cancelling – ビルドが取り消されます。
 
-ビルド ID は次のパスにあります注: `Feed\entry\content\properties\Id`
+ビルド ID は、次のパスの下にあります：`Feed\entry\content\properties\Id`
 
 OData XML
 
@@ -2072,20 +2043,22 @@ OData XML
     </entry>
     </feed>
 
-### 11.4.モデルのビルド状態の取得
 
+
+
+###11.4. モデルのビルド状態の取得
 指定したモデルのビルドとそれらの状態を取得します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/GetModelBuildsStatus?modelId=%27 < modelId > %27 & onlyLastBuild = < bool > & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/GetModelBuildsStatus?modelId=%279559872f-7a53-4076-a3c7-19d9385c1265%27 & onlyLastBuild = true & apiVersion=%271.0%27`|
+|GET     |`<rootURI>/GetModelBuildsStatus?modelId=%27<modelId>%27&onlyLastBuild=<bool>&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/GetModelBuildsStatus?modelId=%279559872f-7a53-4076-a3c7-19d9385c1265%27&onlyLastBuild=true&apiVersion=%271.0%27`|
 
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| onlyLastBuild| モデルのすべてのビルド履歴を返すか、最新のビルドの状態のみを返すかを示します|
-| apiVersion| 1.0|
+|   modelId         |   モデルの一意識別子  |
+|   onlyLastBuild   |   モデルのすべてのビルド履歴を返すか、最新のビルドの状態のみを返すかを示します  |
+|   apiVersion      |   1.0                                 |
 
 
 **応答**:
@@ -2094,19 +2067,19 @@ HTTP 状態コード: 200
 
 応答には、ビルドごとに 1 つのエントリが含まれています。 各エントリには、次のデータが含まれています。
 
-- `フィード エントリ/コンテンツとプロパティ//username` – ユーザーの名前。
-- `フィード/エントリ/コンテンツとプロパティ/ModelName` – モデルの名前。
-- `フィード/エントリ/コンテンツとプロパティ/ModelId` – モデルの一意の識別子。
-- `フィード/エントリ/コンテンツとプロパティ/配備` – ビルドの配置 (ルール サブタイプ) かどうか アクティブなビルド)。
-- `フィード/エントリ/コンテンツとプロパティ/BuildId` – ビルドの一意識別子。
-- `フィード/エントリ/コンテンツとプロパティ/BuildType` -ビルドの種類。
-- `フィード/エントリ/コンテンツとプロパティ/状態` – ビルド状態。 次のいずれか: Error、Building、Queued、Cancelling、Cancelled、Success。
-- `フィード/エントリ/コンテンツとプロパティ/StatusMessage` – 詳細なステータス メッセージ (特定の状態にのみ適用されます)。
-- `フィード/エントリ/コンテンツとプロパティ/進行` – ビルドの進捗状況 (%)。
-- `フィード/エントリ/コンテンツとプロパティ/StartTime` – ビルドの開始時刻。
-- `フィード/エントリ/コンテンツとプロパティ/EndTime` – ビルドの終了時刻。
-- `フィード/エントリ/コンテンツとプロパティ/ExecutionTime` – ビルドの期間。
-- `フィード/エントリ/コンテンツとプロパティ/ProgressStep` -進行中のビルドの現在のステージの詳細。
+- `feed/entry/content/properties/UserName` – ユーザーの名前。
+- `feed/entry/content/properties/ModelName` – モデルの名前。
+- `feed/entry/content/properties/ModelId` – モデルの一意識別子。
+- `feed/entry/content/properties/IsDeployed` – かどうか、ビルドがデプロイされる (ルール サブタイプ) アクティブなビルド)。
+- `feed/entry/content/properties/BuildId` – ビルドの一意識別子。
+- `feed/entry/content/properties/BuildType` - ビルドの種類。
+- `feed/entry/content/properties/Status` – ビルド状態。 次のいずれか: Error、Building、Queued、Cancelling、Cancelled、Success。
+- `feed/entry/content/properties/StatusMessage` – 詳細なステータス メッセージ (特定の状態にのみ適用されます)。
+- `feed/entry/content/properties/Progress` – ビルドの進捗状況 (%)。
+- `feed/entry/content/properties/StartTime` – ビルドの開始時刻。
+- `feed/entry/content/properties/EndTime` – ビルドの終了時刻。
+- `feed/entry/content/properties/ExecutionTime` – ビルドの期間。
+- `feed/entry/content/properties/ProgressStep` - 進行中のビルドの現在のステージの詳細。
 
 有効なビルド状態:
 - 作成 – ビルド要求のエントリが作成されました。
@@ -2157,19 +2130,19 @@ OData XML
         </entry>
     </feed>
 
-### 11.5.ビルド状態の取得
 
+###11.5. ビルド状態の取得
 ユーザーのすべてのモデルに関するビルド状態を取得します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/GetUserBuildsStatus ですか? onlyLastBuilds = < bool > & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/GetUserBuildsStatus? onlyLastBuilds = true & apiVersion=%271.0%27`|
+|GET     |`<rootURI>/GetUserBuildsStatus?onlyLastBuilds=<bool>&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/GetUserBuildsStatus?onlyLastBuilds=true&apiVersion=%271.0%27`|
 
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| onlyLastBuild| モデルのすべてのビルド履歴を返すか、最新のビルドの状態のみを返すかを示します。|
-| apiVersion| 1.0|
+|   onlyLastBuild   |   モデルのすべてのビルド履歴を返すか、最新のビルドの状態のみを返すかを示します。 |
+|   apiVersion      |   1.0                                 |
 
 
 **応答**:
@@ -2178,19 +2151,19 @@ HTTP 状態コード: 200
 
 応答には、ビルドごとに 1 つのエントリが含まれています。 各エントリには、次のデータが含まれています。
 
-- `フィード エントリ/コンテンツとプロパティ//username` – ユーザーの名前。
-- `フィード/エントリ/コンテンツとプロパティ/ModelName` – モデルの名前。
-- `フィード/エントリ/コンテンツとプロパティ/ModelId` – モデルの一意の識別子。
-- `フィード/エントリ/コンテンツとプロパティ/配備` – ビルドがデプロイされるかどうか。
-- `フィード/エントリ/コンテンツとプロパティ/BuildId` – ビルドの一意識別子。
-- `フィード/エントリ/コンテンツとプロパティ/BuildType` -ビルドの種類。
-- `フィード/エントリ/コンテンツとプロパティ/状態` – ビルド状態。 次のいずれか: Error、Building、Queued、Cancelled、Cancelling、Success。
-- `フィード/エントリ/コンテンツとプロパティ/StatusMessage` – 詳細なステータス メッセージ (特定の状態にのみ適用されます)。
-- `フィード/エントリ/コンテンツとプロパティ/進行` – ビルドの進捗状況 (%)。
-- `フィード/エントリ/コンテンツとプロパティ/StartTime` – ビルドの開始時刻。
-- `フィード/エントリ/コンテンツとプロパティ/EndTime` – ビルドの終了時刻。
-- `フィード/エントリ/コンテンツとプロパティ/ExecutionTime` – ビルドの期間。
-- `フィード/エントリ/コンテンツとプロパティ/ProgressStep` -進行中のビルドの現在のステージの詳細。
+- `feed/entry/content/properties/UserName` – ユーザーの名前。
+- `feed/entry/content/properties/ModelName` – モデルの名前。
+- `feed/entry/content/properties/ModelId` – モデルの一意識別子。
+- `feed/entry/content/properties/IsDeployed` – ビルドがデプロイされるかどうか。
+- `feed/entry/content/properties/BuildId` – ビルドの一意識別子。
+- `feed/entry/content/properties/BuildType` - ビルドの種類。
+- `feed/entry/content/properties/Status` – ビルド状態。 次のいずれか: Error、Building、Queued、Cancelled、Cancelling、Success。
+- `feed/entry/content/properties/StatusMessage` – 詳細なステータス メッセージ (特定の状態にのみ適用されます)。
+- `feed/entry/content/properties/Progress` – ビルドの進捗状況 (%)。
+- `feed/entry/content/properties/StartTime` – ビルドの開始時刻。
+- `feed/entry/content/properties/EndTime` – ビルドの終了時刻。
+- `feed/entry/content/properties/ExecutionTime` – ビルドの期間。
+- `feed/entry/content/properties/ProgressStep` - 進行中のビルドの現在のステージの詳細。
 
 有効なビルド状態:
 - 作成 – ビルド要求のエントリが作成されました。
@@ -2242,80 +2215,78 @@ OData XML
         </entry>
     </feed>
 
-### 11.6.ビルドの削除
 
+###11.6. ビルドの削除
 ビルドを削除します。
 
-注: <br>アクティブなビルドを削除することはできません。削除する前に、別のアクティブなビルドで、モデルを変更する必要があります。<br>進行中のビルドを削除することはできません。呼び出して最初にビルドを取り消す必要があります <strong>ビルドのキャンセル</strong>します。
+メモ: <br>アクティブなビルドを削除することはできません。 削除する前に、別のアクティブなビルドで、モデルを変更する必要があります。<br>進行中のビルドを削除することはできません。 呼び出して最初にビルドを取り消す必要があります。 <strong>ビルドのキャンセル</strong>.
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| 削除| `< rootURI >/DeleteBuild?buildId=%27 < buildId > %27 & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/DeleteBuild?buildId=%271500068%27 & apiVersion=%271.0%27`|
+|削除     |`<rootURI>/DeleteBuild?buildId=%27<buildId>%27&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/DeleteBuild?buildId=%271500068%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| buildId| ビルドの一意識別子。|
-| apiVersion| 1.0|
+| buildId | ビルドの一意識別子。 |
+| apiVersion | 1.0 |
 
 **応答:**
 
 HTTP 状態コード: 200
 
-### 11.7.ビルドのキャンセル
-
+###11.7. ビルドのキャンセル
 ビルド中の状態にあるビルドをキャンセルします。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| PUT| `< rootURI >/CancelBuild?buildId=%27 < buildId > %27 & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/CancelBuild?buildId=%271500076%27 & apiVersion=%271.0%27`|
+|PUT     |`<rootURI>/CancelBuild?buildId=%27<buildId>%27&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/CancelBuild?buildId=%271500076%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| buildId| ビルドの一意識別子。|
-| apiVersion| 1.0|
+| buildId | ビルドの一意識別子。 |
+| apiVersion | 1.0 |
 
 **応答:**
 
 HTTP 状態コード: 200
 
-### 11.8.ビルド パラメーターの取得
-
+###11.8. ビルド パラメーターの取得
 ビルド パラメーターを取得します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/GetBuildParameters?buildId=%27 < buildId > %27 & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/GetBuildParameters?buildId=%271000653%27 & apiVersion=%271.0%27`|
+|GET     |`<rootURI>/GetBuildParameters?buildId=%27<buildId>%27&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/GetBuildParameters?buildId=%271000653%27&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| buildId| ビルドの一意識別子。|
-| apiVersion| 1.0|
+| buildId | ビルドの一意識別子。 |
+| apiVersion | 1.0 |
 
 **応答:**
 
 HTTP 状態コード: 200
 
 この API は、キーと値の要素のコレクションを返します。 各要素は、パラメーターとその値を表します。
-- `フィード/エントリ/コンテンツとプロパティ/キー` – ビルドのパラメーター名を使用します。
-- `フィード/エントリ/コンテンツとプロパティ/値` – ビルドのパラメーターの値。
+- `feed/entry/content/properties/Key` – ビルドのパラメーターの名前。
+- `feed/entry/content/properties/Value` – ビルドのパラメーターの値。
 
 次の表は、各キーを表す値を示しています。
 
-| キー| 説明| 型| 有効な値:|
+|キー|説明|型|有効な値:|
 |:-----|:----|:----|:---|
-| NumberOfModelIterations| モデルが実行するイテレーションの数は、全体的なコンピューティング時間とモデルの精度に反映されます。数値が高いと精度が向上しますが、コンピューティング時間が長くなります。| 整数| 10-50|
-| NumberOfModelDimensions| ディメンションの数は、データ内でモデルが検索しようとする「特徴」の数に関連しています。ディメンションの数を増やすと、結果をより詳細に微調整して、小さいクラスターにすることができます。ただし、ディメンションが多すぎると、モデルが項目間の相関関係を検出できなくなります。| 整数| 10-40|
-| ItemCutOffLowerBound| コンデンサーの項目の下限を定義します。前述の使用状況コンデンサーを参照してください。| 整数| 2 以上 (0 でコンデンサーが無効)|
-| ItemCutOffUpperBound| コンデンサーの項目の上限を定義します。前述の使用状況コンデンサーを参照してください。| 整数| 2 以上 (0 でコンデンサーが無効)|
-| UserCutOffLowerBound| コンデンサーのユーザーの下限を定義します。前述の使用状況コンデンサーを参照してください。| 整数| 2 以上 (0 でコンデンサーが無効)|
-| UserCutOffUpperBound| コンデンサーのユーザーの上限を定義します。前述の使用状況コンデンサーを参照してください。| 整数| 2 以上 (0 でコンデンサーが無効)|
-| 説明| ビルドの説明。| String| 任意のテキスト (最大 512 文字)|
-| EnableModelingInsights| 推奨モデルのメトリックを計算することができます。| Boolean| True または False|
-| UseFeaturesInModel| 推奨モデルを強化するために特徴を使用するかどうかを示します。| Boolean| True または False|
-| ModelingFeatureList| 推奨事項を強化するために推奨事項のビルドに使用される、特徴名のコンマ区切りの一覧。| String| 特徴名 (最大 512 文字）|
-| AllowColdItemPlacement| 推奨事項が特徴の類似性を使用してコールド項目もプッシュするかどうかを示します。| Boolean| True または False|
-| EnableFeatureCorrelation| 理由で特徴を使用するかどうかを示します。| Boolean| True または False|
-| ReasoningFeatureList| 理由の文 (推奨事項の説明など) に使用される特徴名のコンマ区切りの一覧。| String| 特徴名 (最大 512 文字）|
+|NumberOfModelIterations | モデルが実行するイテレーションの数は、全体的なコンピューティング時間とモデルの精度に反映されます。 数値が高いと精度が向上しますが、コンピューティング時間が長くなります。| 整数 | 10-50 |
+| NumberOfModelDimensions | ディメンションの数は、データ内でモデルが検索しようとする「特徴」の数に関連しています。 ディメンションの数を増やすと、結果をより詳細に微調整して、小さいクラスターにすることができます。 ただし、ディメンションが多すぎると、モデルが項目間の相関関係を検出できなくなります。 | 整数 | 10-40 |
+|ItemCutOffLowerBound| コンデンサーの項目の下限を定義します。 前述の使用状況コンデンサーを参照してください。 | 整数 | 2 以上 (0 でコンデンサーが無効) |
+|ItemCutOffUpperBound| コンデンサーの項目の上限を定義します。 前述の使用状況コンデンサーを参照してください。 | 整数 | 2 以上 (0 でコンデンサーが無効) |
+|UserCutOffLowerBound| コンデンサーのユーザーの下限を定義します。 前述の使用状況コンデンサーを参照してください。 | 整数 | 2 以上 (0 でコンデンサーが無効) |
+|UserCutOffUpperBound| コンデンサーのユーザーの上限を定義します。 前述の使用状況コンデンサーを参照してください。 | 整数 | 2 以上 (0 でコンデンサーが無効) |
+| 説明 | ビルドの説明。 | String | 任意のテキスト (最大 512 文字) |
+| EnableModelingInsights | 推奨モデルのメトリックを計算することができます。 | Boolean | True または False |
+| UseFeaturesInModel | 推奨モデルを強化するために特徴を使用するかどうかを示します。 | Boolean | True または False |
+| ModelingFeatureList | 推奨事項を強化するために推奨事項のビルドに使用される、特徴名のコンマ区切りの一覧。 | String | 特徴名 (最大 512 文字） |
+| AllowColdItemPlacement | 推奨事項が特徴の類似性を使用してコールド項目もプッシュするかどうかを示します。 | Boolean | True または False |
+| EnableFeatureCorrelation | 理由で特徴を使用するかどうかを示します。 | Boolean | True または False |
+| ReasoningFeatureList | 理由の文 (推奨事項の説明など) に使用される特徴名のコンマ区切りの一覧。  | String | 特徴名 (最大 512 文字） |
 
 
 OData XML
@@ -2485,23 +2456,22 @@ OData XML
         </entry>
     </feed>
 
-## 12.推奨
-
-### 12.1.項目の推奨事項の取得 (アクティブなビルド)
+##12. 推奨
+###12.1. 項目の推奨事項の取得 (アクティブなビルド)
 
 シード (入力) 項目の一覧に基づき、「推奨事項」や「Fbt」の種類のアクティブなビルドの推奨事項を取得します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/ItemRecommend?modelId=%27 < modelId > %27 & Itemid = 27 %27 < itemId > % & numberOfResults = < int > & includeMetadata = < bool > & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27 & Itemid % を 271003% = 27 & numberOfResults = 10 & includeMetadata = false & apiVersion=%271.0%27`|
+|GET     |`<rootURI>/ItemRecommend?modelId=%27<modelId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| itemIds| 推奨項目のコンマ区切りの一覧。<br>アクティブなビルドが FBT の種類の場合は、1 つの項目を送信できます。<br>最大長: 1024年|
-| numberOfResults| 必要な結果の数|
-| includeMetatadata| 将来的に利用 (常に false)|
-| apiVersion| 1.0|
+| modelId | モデルの一意識別子 |
+| itemIds | 推奨項目のコンマ区切りの一覧。 <br>アクティブなビルドが FBT の種類の場合は、1 つの項目を送信できます。 <br>最大長: 1024 |
+| numberOfResults | 必要な結果の数 |
+| includeMetatadata | 将来的に利用 (常に false) |
+| apiVersion | 1.0 |
 
 **応答:**
 
@@ -2511,7 +2481,7 @@ HTTP 状態コード: 200
 応答には、推奨項目ごとに 1 つのエントリが含まれています。 各エントリには、次のデータが含まれています。
 - `Feed\entry\content\properties\Id` – 推奨項目の id。
 - `Feed\entry\content\properties\Name` – 項目の名前。
-- `Feed\entry\content\properties\Rating` –; 推奨事項の評価の高い数値は高い信頼度ことを意味します。
+- `Feed\entry\content\properties\Rating` –; 推奨事項の評価大きい数値では、高い信頼度を意味します。
 - `Feed\entry\content\properties\Reasoning` – 推奨の理由 (例: 推奨事項の説明)。
 
 次の応答例には、10 個の推奨項目が含まれています。
@@ -2667,22 +2637,22 @@ OData XML
      </entry>
     </feed>
 
-### 12.2.推奨事項の取得 (特定のビルド)
+###12.2. 推奨事項の取得 (特定のビルド)
 
 「推奨事項」または「Fbt」の種類の特定のビルドの推奨事項を取得します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/ItemRecommend?modelId=%27 < modelId > %27 & Itemid = 27 %27 < itemId > % & numberOfResults = < int > (& a) includeMetadata = < bool > & buildId = < int > & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27 & Itemid % を 271003% = 27 & numberOfResults = 10 & includeMetadata = false & buildId 1234 を = (& a) apiVersion=%271.0%27`|
+|GET     |`<rootURI>/ItemRecommend?modelId=%27<modelId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&buildId=<int>&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&buildId=1234&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| itemIds| 推奨項目のコンマ区切りの一覧。<br>アクティブなビルドが FBT の種類の場合は、1 つの項目を送信できます。<br>最大長: 1024年|
-| numberOfResults| 必要な結果の数|
-| includeMetatadata| 将来的に利用 (常に false)
-| buildId| この推奨事項の要求で使用するビルド ID|
-| apiVersion| 1.0|
+| modelId | モデルの一意識別子 |
+| itemIds | 推奨項目のコンマ区切りの一覧。 <br>アクティブなビルドが FBT の種類の場合は、1 つの項目を送信できます。 <br>最大長: 1024 |
+| numberOfResults | 必要な結果の数 |
+| includeMetatadata | 将来的に利用 (常に false)
+| buildId | この推奨事項の要求で使用するビルド ID |
+| apiVersion | 1.0 |
 
 **応答:**
 
@@ -2692,27 +2662,27 @@ HTTP 状態コード: 200
 応答には、推奨項目ごとに 1 つのエントリが含まれています。 各エントリには、次のデータが含まれています。
 - `Feed\entry\content\properties\Id` – 推奨項目の id。
 - `Feed\entry\content\properties\Name` – 項目の名前。
-- `Feed\entry\content\properties\Rating` –; 推奨事項の評価の高い数値は高い信頼度ことを意味します。
+- `Feed\entry\content\properties\Rating` –; 推奨事項の評価大きい数値では、高い信頼度を意味します。
 - `Feed\entry\content\properties\Reasoning` – 推奨の理由 (例: 推奨事項の説明)。
 
 12.1 の応答の例を参照してください。
 
-### 12.3.FBT の推奨事項の取得（アクティブなビルド）
+###12.3. FBT の推奨事項の取得（アクティブなビルド）
 
 シード (入力) 項目に基づいて「Fbt」の種類のアクティブなビルドの推奨事項を取得します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/ItemFbtRecommend?modelId=%27 < modelId > %27 & itemId = 27 %27 < itemId > % & numberOfResults = < int > & minimalScore < double > = (& a) includeMetadata = < bool > & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/ItemFbtRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27 & itemId % を 271003% = 27 & numberOfResults = 10 & minimalScore < double > = (& a) includeMetadata = false & apiVersion=%271.0%27`|
+|GET     |`<rootURI>/ItemFbtRecommend?modelId=%27<modelId>%27&itemId=%27<itemId>%27&numberOfResults=<int>&minimalScore=<double>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/ItemFbtRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemId=%271003%27&numberOfResults=10&minimalScore=<double>&includeMetadata=false&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| itemId| 推奨する項目です。<br>最大長: 1024年|
-| numberOfResults| 必要な結果の数|
-| minimalScore| 返される結果に含めるために頻度のセットが持つべきスコアの最小値。|
-| includeMetatadata| 将来的に利用 (常に false)|
-| apiVersion| 1.0|
+| modelId | モデルの一意識別子 |
+| itemId | 推奨する項目です。 <br>最大長: 1024 |
+| numberOfResults | 必要な結果の数 |
+| minimalScore | 返される結果に含めるために頻度のセットが持つべきスコアの最小値。 |
+| includeMetatadata | 将来的に利用 (常に false) |
+| apiVersion | 1.0 |
 
 **応答:**
 
@@ -2724,7 +2694,7 @@ HTTP 状態コード: 200
 - `Feed\entry\content\properties\Name1` – 項目の名前。
 - `Feed\entry\content\properties\Id2` – 2 番目の推奨項目 ID (省略可能)。
 - `Feed\entry\content\properties\Name2` – (省略可能) の 2 番目のアイテムの名前。
-- `Feed\entry\content\properties\Rating` –; 推奨事項の評価の高い数値は高い信頼度ことを意味します。
+- `Feed\entry\content\properties\Rating` –; 推奨事項の評価大きい数値では、高い信頼度を意味します。
 - `Feed\entry\content\properties\Reasoning` – 推奨の理由 (例: 推奨事項の説明)。
 
 次の応答例には、3 個の推奨項目セットが含まれています。
@@ -2788,23 +2758,23 @@ OData XML
      </entry>
     </feed>
 
-### 12.4.FBT の推奨事項の取得 (特定のビルド)
+###12.4. FBT の推奨事項の取得 (特定のビルド)
 
 「Fbt」の種類の特定のビルドの推奨事項を取得します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/ItemFbtRecommend?modelId=%27 < modelId > %27 & itemId = 27 %27 < itemId > % & numberOfResults = < int > & minimalScore < double > = (& a) includeMetadata = < bool > (& a) buildId = < int > & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/ItemFbtRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27 & itemId % を 271003% = 27 & numberOfResults = 10 & minimalScore = 0.1 & includeMetadata = false & buildId = 1234年 (& a) apiVersion=%271.0%27`|
+|GET     |`<rootURI>/ItemFbtRecommend?modelId=%27<modelId>%27&itemId=%27<itemId>%27&numberOfResults=<int>&minimalScore=<double>&includeMetadata=<bool>&buildId=<int>&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/ItemFbtRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemId=%271003%27&numberOfResults=10&minimalScore=0.1&includeMetadata=false&buildId=1234&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| itemId| 推奨する項目です。<br>最大長: 1024年|
-| numberOfResults| 必要な結果の数|
-| minimalScore| 返される結果に含めるために頻度のセットが持つべきスコアの最小値。|
-| includeMetatadata| 将来的に利用 (常に false)|
-| buildId| この推奨事項の要求で使用するビルド ID|
-| apiVersion| 1.0|
+| modelId | モデルの一意識別子 |
+| itemId | 推奨する項目です。 <br>最大長: 1024 |
+| numberOfResults | 必要な結果の数 |
+| minimalScore | 返される結果に含めるために頻度のセットが持つべきスコアの最小値。 |
+| includeMetatadata | 将来的に利用 (常に false) |
+| buildId | この推奨事項の要求で使用するビルド ID |
+| apiVersion | 1.0 |
 
 **応答:**
 
@@ -2816,32 +2786,32 @@ HTTP 状態コード: 200
 - `Feed\entry\content\properties\Name1` – 項目の名前。
 - `Feed\entry\content\properties\Id2` – 2 番目の推奨項目 ID (省略可能)。
 - `Feed\entry\content\properties\Name2` – (省略可能) の 2 番目のアイテムの名前。
-- `Feed\entry\content\properties\Rating` –; 推奨事項の評価の高い数値は高い信頼度ことを意味します。
+- `Feed\entry\content\properties\Rating` –; 推奨事項の評価大きい数値では、高い信頼度を意味します。
 - `Feed\entry\content\properties\Reasoning` – 推奨の理由 (例: 推奨事項の説明)。
 
 12.3 の応答の例をご覧ください。
 
-### 12.5.ユーザーの推奨事項の取得（アクティブなビルド）
+###12.5. ユーザーの推奨事項の取得（アクティブなビルド）
 
 アクティブなビルドとしてマークされた「推奨事項」の種類の推奨事項を取得します。
 
 API では、ユーザーの使用率の履歴に基づいて予測される項目の一覧を返します。
 
-注:
+注: 
  1. FBT ビルドに対するユーザーの推奨事項はありません。
  2. アクティブなビルドが FBT の場合、このメソッドはエラーを返します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/UserRecommend?modelId=%27 < modelId > %27 & userId = 27 %27 < userId > % & numberOfResults = < int > & includeMetadata = < bool > & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27 & userId = 27% 27u1101% & numberOfResults = 10 & includeMetadata = false & apiVersion=%271.0%27`|
+|GET     |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| userId| ユーザーの一意識別子。|
-| numberOfResults| 必要な結果の数|
-| includeMetatadata| 将来的に利用 (常に false)|
-| apiVersion| 1.0|
+| modelId | モデルの一意識別子 |
+| userId  | ユーザーの一意識別子。 |
+| numberOfResults | 必要な結果の数 |
+| includeMetatadata | 将来的に利用 (常に false) |
+| apiVersion | 1.0 |
 
 **応答:**
 
@@ -2851,34 +2821,34 @@ HTTP 状態コード: 200
 応答には、推奨項目ごとに 1 つのエントリが含まれています。 各エントリには、次のデータが含まれています。
 - `Feed\entry\content\properties\Id` – 推奨項目の id。
 - `Feed\entry\content\properties\Name` – 項目の名前。
-- `Feed\entry\content\properties\Rating` –; 推奨事項の評価の高い数値は高い信頼度ことを意味します。
+- `Feed\entry\content\properties\Rating` –; 推奨事項の評価大きい数値では、高い信頼度を意味します。
 - `Feed\entry\content\properties\Reasoning` – 推奨の理由 (例: 推奨事項の説明)。
 
 12.1 の応答の例を参照してください。
 
-### 12.6.ユーザーの推奨事項と項目リストの取得（アクティブなビルド）
+###12.6. ユーザーの推奨事項と項目リストの取得（アクティブなビルド）
 
 アクティブなビルドとしてマークされた「推奨事項」の種類の推奨事項と項目リストを取得します。
 
 API では、ユーザーとその他に提供された項目の使用率の履歴に基づいて予測される項目の一覧を返します。
 
-注:
+注: 
  1. FBT ビルドに対するユーザーの推奨事項はありません。
  2. アクティブなビルドが FBT の場合、このメソッドはエラーを返します。
 
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/UserRecommend?modelId=%27 < modelId > %27 & userId = %27 < userId > & itemsIds = 27 %27 < itemsIds > % & numberOfResults = < int > & includeMetadata = < bool > & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27 & userId = 27% 27u1101% & itemsIds %271003 = %2 C 1000 の 27% & numberOfResults = 10 & includeMetadata = false & apiVersion=%271.0%27`|
+|GET     |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%2C1000%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| userId| ユーザーの一意識別子。|
-| itemIds| 推奨項目のコンマ区切りの一覧。最大長: 1024|
-| numberOfResults| 必要な結果の数|
-| includeMetatadata| 将来的に利用 (常に false)|
-| apiVersion| 1.0|
+| modelId | モデルの一意識別子 |
+| userId  | ユーザーの一意識別子。 |
+| itemIds | 推奨項目のコンマ区切りの一覧。 最大長: 1024 |
+| numberOfResults | 必要な結果の数 |
+| includeMetatadata | 将来的に利用 (常に false) |
+| apiVersion | 1.0 |
 
 **応答:**
 
@@ -2888,12 +2858,12 @@ HTTP 状態コード: 200
 応答には、推奨項目ごとに 1 つのエントリが含まれています。 各エントリには、次のデータが含まれています。
 - `Feed\entry\content\properties\Id` – 推奨項目の id。
 - `Feed\entry\content\properties\Name` – 項目の名前。
-- `Feed\entry\content\properties\Rating` –; 推奨事項の評価の高い数値は高い信頼度ことを意味します。
+- `Feed\entry\content\properties\Rating` –; 推奨事項の評価大きい数値では、高い信頼度を意味します。
 - `Feed\entry\content\properties\Reasoning` – 推奨の理由 (例: 推奨事項の説明)。
 
 12.1 の応答の例を参照してください。
 
-### 12.7.(特定のビルド) のユーザーの推奨事項の取得します。
+###12.7. (特定のビルド) のユーザーの推奨事項の取得します。
 
 「推奨事項」の種類の特定のビルドでユーザーの推奨事項を取得します。
 
@@ -2901,19 +2871,19 @@ API では、ユーザーの使用率の履歴 (特定のビルドで使用) に
 
 注: FBT ビルドに対するユーザーの推奨事項はありません。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/UserRecommend?modelId=%27 < modelId > %27 & userId = 27 %27 < userId > % & numberOfResults = < int > & includeMetadata = < bool > & buildId = < int > & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27 & userId = 27% 27u1101% & numberOfResults = 10 & includeMetadata = false & buildId = 50012 & apiVersion=%271.0%27`|
+|GET     |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>%27&numberOfResults=<int>&includeMetadata=<bool>&buildId=<int>&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&numberOfResults=10&includeMetadata=false&buildId=50012&apiVersion=%271.0%27`|
 
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| userId| ユーザーの一意識別子。|
-| numberOfResults| 必要な結果の数|
-| includeMetatadata| 将来的に利用 (常に false)|
-| buildId| この推奨事項の要求で使用するビルド ID|
-| apiVersion| 1.0|
+| modelId | モデルの一意識別子 |
+| userId  | ユーザーの一意識別子。 |
+| numberOfResults | 必要な結果の数 |
+| includeMetatadata | 将来的に利用 (常に false) |
+| buildId | この推奨事項の要求で使用するビルド ID |
+| apiVersion | 1.0 |
 
 **応答:**
 
@@ -2923,13 +2893,13 @@ HTTP 状態コード: 200
 応答には、推奨項目ごとに 1 つのエントリが含まれています。 各エントリには、次のデータが含まれています。
 - `Feed\entry\content\properties\Id` – 推奨項目の id。
 - `Feed\entry\content\properties\Name` – 項目の名前。
-- `Feed\entry\content\properties\Rating` –; 推奨事項の評価の高い数値は高い信頼度ことを意味します。
+- `Feed\entry\content\properties\Rating` –; 推奨事項の評価大きい数値では、高い信頼度を意味します。
 - `Feed\entry\content\properties\Reasoning` – 推奨の理由 (例: 推奨事項の説明)。
 
 12.1 の応答の例を参照してください。
 
 
-### 12.8.ユーザーの推奨事項と項目リストの取得（特定のビルド）
+###12.8. ユーザーの推奨事項と項目リストの取得（特定のビルド）
 
 「推奨事項」とその他の項目リストの種類の特定のビルドでユーザーの推奨事項を取得します。
 
@@ -2937,21 +2907,21 @@ API では、ユーザーとその他の項目リストにおける使用率の�
 
 注: FBT ビルドに対するユーザーの推奨事項はありません。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/UserRecommend?modelId=%27 < modelId > %27 & userId = 27 %27 < userId > % & itemsIds = 27 %27 < itemsIds > % & numberOfResults = < int > & includeMetadata = < bool > & buildId = < int > & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27 & userId = 27% 27u1101% & itemsIds % を 271003% = 27 & numberOfResults = 10 & includeMetadata = false & buildId = 50012 & apiVersion=%271.0%27`|
+|GET     |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>%27&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&buildId=<int>&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%27&numberOfResults=10&includeMetadata=false&buildId=50012&apiVersion=%271.0%27`|
 
 
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| userId| ユーザーの一意識別子。|
-| itemIds| 推奨項目のコンマ区切りの一覧。最大長: 1024|
-| numberOfResults| 必要な結果の数|
-| includeMetatadata| 将来的に利用 (常に false)|
-| buildId| この推奨事項の要求で使用するビルド ID|
-| apiVersion| 1.0|
+| modelId | モデルの一意識別子 |
+| userId  | ユーザーの一意識別子。 |
+| itemIds | 推奨項目のコンマ区切りの一覧。 最大長: 1024 |
+| numberOfResults | 必要な結果の数 |
+| includeMetatadata | 将来的に利用 (常に false) |
+| buildId | この推奨事項の要求で使用するビルド ID |
+| apiVersion | 1.0 |
 
 **応答:**
 
@@ -2961,33 +2931,31 @@ HTTP 状態コード: 200
 応答には、推奨項目ごとに 1 つのエントリが含まれています。 各エントリには、次のデータが含まれています。
 - `Feed\entry\content\properties\Id` – 推奨項目の id。
 - `Feed\entry\content\properties\Name` – 項目の名前。
-- `Feed\entry\content\properties\Rating` –; 推奨事項の評価の高い数値は高い信頼度ことを意味します。
+- `Feed\entry\content\properties\Rating` –; 推奨事項の評価大きい数値では、高い信頼度を意味します。
 - `Feed\entry\content\properties\Reasoning` – 推奨の理由 (例: 推奨事項の説明)。
 
 12.1 の応答の例を参照してください。
 
-## 13.ユーザーの使用状況の履歴
-
+##13. ユーザーの使用状況の履歴
 推奨モデルが構築されたら、システムでは構築に使用したユーザーの履歴 (特定のユーザーに関連する項目) を取得できるようになります。
 この API により、ユーザーの履歴が取得できます。
 
 注: ユーザーの履歴は現在推奨設定のビルドに対してのみ利用できます。
 
-### 13.1 ユーザー履歴の取得
-
+###13.1 ユーザー履歴の取得
 アクティブなビルドや指定されたビルドで使用した特定のユーザー ID の項目リストを取得します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| アクティブなビルドのユーザー履歴を取得します。<br/>`< rootURI >/GetUserHistory?modelId=%27 < model_id > %27 & userId = 27 %27 < userId > % & apiVersion=%271.0%27`<br/><br/>、特定のビルドのユーザー履歴を取得 `< rootURI >/GetUserHistory?modelId=%27 < model_id > %27 & userId = 27 %27 < userId > % & buildId = < int > & apiVersion=%271.0%27`<br/><br/>例:`< rootURI >/GetUserHistory?modelId=%2727967136e8-f868-4258-9331-10d567f87fae%27 & & userId = 27% 27u_1013% & apiVersion=%271.0%277`|
+|GET     | アクティブなビルドのユーザー履歴を取得します。<br/>`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&apiVersion=%271.0%27`<br/><br/>指定したビルドのユーザー履歴を取得します。`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&buildId=<int>&apiVersion=%271.0%27`<br/><br/>例:`<rootURI>/GetUserHistory?modelId=%2727967136e8-f868-4258-9331-10d567f87fae%27&&userId=%27u_1013%27&apiVersion=%271.0%277`|
 
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| userId| ユーザーの一意識別子
-| buildId| 省略可能なパラメーター。ユーザーの履歴フェッチをするビルドを指定できます。
-| apiVersion| 1.0|
+| modelId | モデルの一意識別子|
+| userId | ユーザーの一意識別子
+| buildId | 省略可能なパラメーター。ユーザーの履歴フェッチをするビルドを指定できます。
+| apiVersion | 1.0 |
 
 
 **応答:**
@@ -3025,32 +2993,29 @@ OData XML
             </m:properties>
         </content>
     </entry>
-
 </feed>
 
-## 14.通知
-
+##14. 通知
 Azure Machine Learning Recommendations は、システムで永続的なエラーが発生した際に、通知を作成します。 通知の 3 種類があります。
 1.  ビルドの失敗 - この通知は、すべてのビルドの失敗により生成されます。
 2.  データ取得プロセスの失敗 - この通知は、1 つのモデルの使用状況イベント処理で、最後の 5 分間に 100 を超えるエラーが発生した場合に生成されます。
 3.  推奨の使用の失敗 - この通知は、1 つのモデルの推奨要求処理で、最後の 5 分間に 100 を超えるエラーが発生した場合に生成されます。
 
 
-### 14.1.通知の取得
-
+###14.1. 通知の取得
 すべてのモデル、または 1 つのモデルのすべての通知を取得します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| GET| `< rootURI >/GetNotifications?modelId=%27 < model_id > %27 & apiVersion=%271.0%27`<br><br>すべてのモデルのすべての通知を取得する:<br>`< rootURI >/GetNotifications?apiVersion=%271.0%27`<br><br>の特定のモデルの通知を取得する例:<br>`< rootURI >/GetNotifications?modelId=%27967136e8-f868-4258-9331-10d567f87fae%27 & apiVersion=%271.0%277`|
+|GET     |`<rootURI>/GetNotifications?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>すべてのモデルのすべての通知を取得する場合:<br>`<rootURI>/GetNotifications?apiVersion=%271.0%27`<br><br>特定のモデルの通知を取得する例:<br>`<rootURI>/GetNotifications?modelId=%27967136e8-f868-4258-9331-10d567f87fae%27&apiVersion=%271.0%277`|
 
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| 省略可能なパラメーター。省略すると、すべてのモデルのすべての通知が取得されます。<br>有効な値: モデルの一意の識別子。|
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+| modelId | 省略可能なパラメーター。 省略すると、すべてのモデルのすべての通知が取得されます。 <br>有効な値: モデルの一意の識別子。|
+| apiVersion | 1.0 |
+|||
+| 要求本文 | なし |
 
 **応答:**
 
@@ -3064,7 +3029,7 @@ OData XML
         * feed\entry\content\properties\Message – Notification message.
         * feed\entry\content\properties\DateCreated – Date that this notification was created in UTC format.
         * feed\entry\content\properties\NotificationType – Notification types. Values are BuildFailure, RecommendationFailure, and DataAquisitionFailure.
-    
+
     <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetNotifications" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
         <title type="text" />
         <subtitle type="text">Get a list of Notifications for a user</subtitle>
@@ -3089,40 +3054,38 @@ OData XML
         </entry>
     </feed>
 
-### 14.2.モデル通知の削除
-
+###14.2. モデル通知の削除
 モデルのすべての読み取り通知を削除します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| 削除| `< rootURI >/DeleteModelNotifications?modelId=% < model_id > %27 & apiVersion=%271.0%27`<br><br>例:<br>`< rootURI >/DeleteModelNotifications?modelId=%27967136e8-f868-4258-9331-10d567f87fae%27 & apiVersion=%271.0%27`|
+|削除     |`<rootURI>/DeleteModelNotifications?modelId=%<model_id>%27&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/DeleteModelNotifications?modelId=%27967136e8-f868-4258-9331-10d567f87fae%27&apiVersion=%271.0%27`|
 
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| modelId| モデルの一意識別子|
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+| modelId | モデルの一意識別子 |
+| apiVersion | 1.0 |
+|||
+| 要求本文 | なし |
 
 **応答**:
 
 HTTP 状態コード: 200
 
-### 14.3.ユーザー通知の削除
-
+###14.3. ユーザー通知の削除
 すべてのモデルのすべての通知を削除します。
 
-| HTTP メソッド| URI|
+| HTTP メソッド | URI |
 |:--------|:--------|
-| 削除| `< rootURI >/DeleteUserNotifications?apiVersion=%271.0%27`|
+|削除     |`<rootURI>/DeleteUserNotifications?apiVersion=%271.0%27`|
 
 
-| パラメーター名| 有効な値|
+|   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
-| apiVersion| 1.0|
-| | |
-| 要求本文| なし|
+| apiVersion | 1.0 |
+|||
+| 要求本文 | なし |
 
 **応答**:
 
@@ -3131,15 +3094,10 @@ HTTP 状態コード: 200
 
 
 
-## 15.法的情報
-
-このドキュメントは "現状のまま" 提供されます。情報および見解は、URL やその他のインターネット Web サイトの参照も含め、このドキュメントには、予告なく変更可能性があります。<br><br>
-使用している例は、例示のみを目的に提供された、架空のものです。実際の関連やつながりなくの目的は、推論する必要があります。<br><br>
-このドキュメントは、Microsoft 製品に含まれる知的財産に対するいかなる法的権利も提供するものではありません。コピーし、このドキュメントを使用して、内部的な参照目的に限りです。<br><br>
+##15. 法的情報
+このドキュメントは "現状のまま" 提供されます。 このドキュメントに記載された情報および見解は、URL やその他のインターネット Web サイトの参照も含め、予告なく変更する可能性があります。<br><br>
+使用している例は、例示のみを目的に提供された、架空のものです。 実際の関連やつながりはなく、推測によるものです。<br><br>
+このドキュメントは、Microsoft 製品に含まれる知的財産に対するいかなる法的権利も提供するものではありません。 お客様の社内での参照目的に限り、このドキュメントをコピーし使用することができます。<br><br>
 © 2015 Microsoft です。 All rights reserved.
-
-
-
-
-
+ 
 

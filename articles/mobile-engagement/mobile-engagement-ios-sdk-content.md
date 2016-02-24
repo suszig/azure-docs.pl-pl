@@ -16,34 +16,29 @@
     ms.date="08/10/2015"
     ms.author="piyushjo" />
 
-
-# SDK の内容
+#SDK の内容
 
 このドキュメントでは、SDK アーカイブの内容を一覧にして説明しています。
 
-## Engagement SDK
+##Engagement SDK
 
 `EngagementSDK`
 
 > コア Engagement SDK には、ヘッダー、ライブラリ、IDFA コレクションを有効または無効にするソース コードとして指定された追加のクラスが含まれています。
 
-## Engagement Reach SDK
+##Engagement Reach SDK
 
 `EngagementReach`
 
 > Engagement Reach SDK には、ヘッダー、ライブラリ、関連付けられているリソースが含まれています。
 
-## 追加ファイル
+##追加ファイル
 
-`doc/index.html` (で `doc` フォルダー)
+`doc/index.html`(`doc` フォルダー内)
 
 > エンゲージメント SDK とリーチ SDK OBJECTIVE-C のドキュメント。
 
 `src` フォルダー
 
 > エンゲージメント ビュー コントローラーとリーチ SDK のソース コード (エンゲージメント クラスをニーズに適応させたいパワー ユーザー向け)。
-
-
-
-
 

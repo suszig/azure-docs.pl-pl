@@ -1,9 +1,4 @@
 > [AZURE.SELECTOR]
-- [Azure Portal](../articles/storage/storage-create-storage-account.md)
-- [Azure Classic Portal](../articles/storage/storage-create-storage-account-classic-portal.md)
-
-
-
-
-
+- [Azure ポータル](../articles/storage/storage-create-storage-account.md)
+- [Azure クラシック ポータル](../articles/storage/storage-create-storage-account-classic-portal.md)
 

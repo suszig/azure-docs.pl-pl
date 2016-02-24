@@ -17,22 +17,21 @@
     ms.tgt_pltfrm="NA"/>
 
 
-
 # Transact-SQL を使用した Azure SQL Database のコピーの作成
 
 **1 つのデータベース**
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-copy.md)
+- [Azure ポータル](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
 - [SQL](sql-database-copy-transact-sql.md)
 
 
 
-
 次の手順は、Transact-SQL を使って SQL データベースをコピーする方法を示しています。 データベース コピー操作では、使用して新しいデータベースに SQL データベースをコピー、 [CREATE DATABASE]() ステートメントです。 コピーは、同じサーバーか別のサーバーで作成するデータベースのスナップショット バックアップです。
 
-> [AZURE.NOTE] Azure SQL Database では、復元できるすべてのユーザー データベースのバックアップが自動的に作成され、保守されます。 詳細については、「 [ビジネス継続性の概要](sql-database-business-continuity.md)します。
+
+> [AZURE.NOTE] Azure SQL データベースは自動的に作成され、すべてのユーザー データベースを復元するバックアップを保持します。 詳細については、「 [ビジネス継続性の概要](sql-database-business-continuity.md)します。
 
 
 コピー プロセスが完了すると、新しいデータベースは、コピー元のデータベースに依存せずに完全に機能するデータベースになります。 コピーの完了時点で、新しいデータベースのトランザクションはコピー元のデータベースと同じになります。 データベース コピーのサービス レベルとパフォーマンス レベル (価格レベル) はコピー元のデータベースと同じになります。 コピーの完了後、コピーは完全に機能する独立したデータベースになります。 ログイン、ユーザー、アクセス許可は非依存で管理できます。
@@ -43,8 +42,8 @@
 
 この記事の手順を完了するには、次のものが必要です。
 
-- Azure サブスクリプション。 Azure サブスクリプションをお持ちでない場合、このページの上部の**無料試用版**をクリックしてからこの記事に戻り、最後まで完了してください。
-- Azure SQL Database。 SQL データベースがない、1 つ作成この記事の手順: [最初の Azure SQL Database を作成する](sql-database-get-started.md)します。
+- Azure サブスクリプション。 をクリックする必要がある場合、Azure サブスクリプションだけで **無料評価版** これの上部にあるページをこの記事を完了する通します。
+- Azure SQL Database。 SQL データベースがない、1 つ作成この記事の手順: [最初の Azure SQL Database を作成する](sql-database-get-started.md)です。
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms174173.aspx)します。 SSMS を持っていない場合、またはこの記事で説明する機能が利用できない [最新バージョンをダウンロード](https://msdn.microsoft.com/library/mt238290.aspx)します。
 
 
@@ -77,6 +76,7 @@ CREATE DATABASE ステートメントを使用して、コピー元データベ�
     -- Execute on the master database of the target server (server2)
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database1_copy AS COPY OF server1.Database1;
+    
 
 ## コピー操作の進行状況の監視
 
@@ -90,6 +90,7 @@ sys.databases ビューと sys.dm_database_copies ビューを照会して、コ
 
 ## 次のステップ
 
+
 - 進行中のコピーをキャンセルする場合は、実行、 [DROP DATABASE](https://msdn.microsoft.com/library/ms178613.aspx) ステートメントを新しいデータベースに対して。 また、コピー元のデータベースに対して DROP DATABASE ステートメントを実行することによっても、コピー操作を取り消すことができます。
 - 新しいデータベースが移行先サーバーでオンラインになってを使用して、 [ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx) ユーザーを新しいデータベースを移行先サーバーでログインを再マップするステートメントです。 新しいデータベースのすべてのユーザーは、コピー元データベースで保持していたアクセス許可を保持します。 データベースのコピーを開始したユーザーが新しいデータベースのデータベース所有者になり、新しいセキュリティ識別子 (SID) が割り当てられます。 コピーが成功した後、他のユーザーが再マップされるまでは、コピーを開始したログイン、つまりデータベース所有者 (DBO) のみが新しいデータベースにログオンできます。
 
@@ -99,10 +100,6 @@ sys.databases ビューと sys.dm_database_copies ビューを照会して、コ
 ## その他のリソース
 
 - [ビジネス継続性の概要](sql-database-business-continuity.md)
-- [災害復旧の訓練](sql-database-disaster-recovery-drills.md)
+- [障害復旧訓練](sql-database-disaster-recovery-drills.md)
 - [SQL Database のドキュメント](https://azure.microsoft.com/documentation/services/sql-database/)
-
-
-
-
 

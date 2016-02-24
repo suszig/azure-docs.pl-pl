@@ -15,7 +15,6 @@
     ms.date="12/01/2015"
     ms.author="sidneyh; ddove" />
 
-
 # Elastic Database ジョブの概要
 
 Azure SQL Database の Elastic Database ジョブ (プレビュー) を使用すると、複数のデータベースに対して T-SQL スクリプトを確実に実行できます。また、スクリプトは自動的に再試行されるので、最終的な完了が保証されます。 エラスティック データベース ジョブ機能の詳細については、次を参照してください、 [機能の概要ページ](sql-database-elastic-jobs-overview.md)します。
@@ -30,21 +29,22 @@ Azure SQL Database の Elastic Database ジョブ (プレビュー) を使用す
 
 ここでは、シャード マップ マネージャーといくつかのシャードを作成し、シャードにデータを挿入します。 シャードがすでにセットアップされ、シャード データが取り込まれている場合は、以下の手順を省略して、次のセクションに進むことができます。
 
-1. 「**「エラスティック データベース ツールの概要**」に示されているサンプル アプリケーションをビルドして実行します。 手順の手順で 7 まで [をダウンロードして、サンプル アプリケーションを実行](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools)します。 手順 7 を終了すると、次のコマンド プロンプトが表示されます。
+1. ビルドおよび実行する、 **エラスティック データベース ツールの概要** サンプル アプリケーションです。 手順の手順で 7 まで [をダウンロードして、サンプル アプリケーションを実行](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools)します。 手順 7 を終了すると、次のコマンド プロンプトが表示されます。
 
     ![コマンド プロンプト][1]
 
-2.  コマンド ウィンドウで、「1」を入力し、**Enter** キーを押します。 シャード マップ マネージャーが作成され、2 つのシャードがサーバーに追加されます。 「3」を入力し、**Enter** キーを押します。この操作を 4 回を繰り返します。 これにより、サンプルのデータ行がシャードに挿入されます。
+2.  コマンド ウィンドウに「1」のように入力し、キーを押して **Enter**します。 シャード マップ マネージャーが作成され、2 つのシャードがサーバーに追加されます。 入力「3」し、キーを押して **Enter**; この操作を 4 回を繰り返します。 これにより、サンプルのデータ行がシャードに挿入されます。
 
-3.  [Azure ポータル](https://portal.azure.com) 、v12 サーバーに次の 3 つの新しいデータベースを表示する必要があります。
+3.   [Azure ポータル](https://portal.azure.com) 、v12 サーバーに次の 3 つの新しいデータベースを表示する必要があります。
 
     ![Visual Studio の確認][2]
 
     この段階で、シャード マップのすべてのデータベースを反映するカスタム データベース コレクションを作成します。 こうすると、シャード全体に新しいテーブルを追加するジョブを作成し、実行できるようになります。
 
-この場合、通常は **New-AzureSqlJobTarget** コマンドレットを使用してシャード マップ ターゲットを作成します。 シャード マップ マネージャー データベースをデータベース ターゲットとして設定する必要があります。指定したシャード マップがターゲットとして設定されます。 ここでは別の方法を利用し、サーバー内のすべてのデータベースを列挙して、マスター データベース以外のデータベースを新しいカスタム コレクションに追加します。
+ここでシャード マップを通常作成の対象を使用して、 **新規 AzureSqlJobTarget** コマンドレットです。 シャード マップ マネージャー データベースをデータベース ターゲットとして設定する必要があります。指定したシャード マップがターゲットとして設定されます。 ここでは別の方法を利用し、サーバー内のすべてのデータベースを列挙して、マスター データベース以外のデータベースを新しいカスタム コレクションに追加します。
 
-## カスタム コレクションを作成し、サーバー内のマスター以外のすべてのデータベースをカスタム コレクション ターゲットに追加します。
+##カスタム コレクションを作成し、サーバー内のマスター以外のすべてのデータベースをカスタム コレクション ターゲットに追加します。
+
 
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
@@ -55,7 +55,7 @@ Azure SQL Database の Elastic Database ジョブ (プレビュー) を使用す
     $currentdb = $_.DatabaseName 
     $ErrorActionPreference = "Stop"
     Write-Output ""
-    
+
     Try
     {
        New-AzureSqlJobTarget -ServerName $ServerName -DatabaseName $currentdb | Write-Output
@@ -64,52 +64,51 @@ Azure SQL Database の Elastic Database ジョブ (プレビュー) を使用す
     {
         $ErrorMessage = $_.Exception.Message
         $ErrorCategory = $_.CategoryInfo.Reason
-    
+                
         if ($ErrorCategory -eq 'UniqueConstraintViolatedException')
         {
              Write-Host $currentdb "is already a database target." 
         }
-    
+
         else
         {
             throw $_
         }
     
     }
-    
+
     Try
     {
         if ($currentdb -eq "master")
         {
             Write-Host $currentdb "will not be added custom collection target" $CustomCollectionName "."
         }
-    
+
         else
         {
             Add-AzureSqlJobChildTarget -CustomCollectionName $CustomCollectionName -ServerName $ServerName -DatabaseName $currentdb
             Write-Host $currentdb "was added to" $CustomCollectionName "."
         }
-    
+
     }
     Catch 
     {
         $ErrorMessage = $_.Exception.Message
         $ErrorCategory = $_.CategoryInfo.Reason
-    
+
         if ($ErrorCategory -eq 'UniqueConstraintViolatedException')
         {
              Write-Host $currentdb "is already in the custom collection target" $CustomCollectionName"."
         }
-    
+
         else
         {
             throw $_
         }
     }
     $ErrorActionPreference = "Continue"
-
 }
-
+    
 ## データベース全体に対して実行する T-SQL スクリプトを作成する
 
     $scriptName = "NewTable"
@@ -124,11 +123,11 @@ Azure SQL Database の Elastic Database ジョブ (プレビュー) を使用す
     GO
     INSERT INTO Test(InsertionTime) VALUES (sysutcdatetime());
     GO"
-    
+
     $script = New-AzureSqlJobContent -ContentName $scriptName -CommandText $scriptCommandText
     Write-Output $script
 
-## カスタムのデータベース グループ全体に対してスクリプトを実行するジョブを作成する
+##カスタムのデータベース グループ全体に対してスクリプトを実行するジョブを作成する
 
     $jobName = "create on server dbs"
     $scriptName = "NewTable"
@@ -138,7 +137,8 @@ Azure SQL Database の Elastic Database ジョブ (プレビュー) を使用す
     $job = New-AzureSqlJob -JobName $jobName -CredentialName $credentialName -ContentName $scriptName -TargetId $target.TargetId
     Write-Output $job
 
-## ジョブを実行する
+
+##ジョブを実行する 
 
 既存のジョブを実行するには、次の PowerShell スクリプトを使用できます。
 
@@ -147,10 +147,10 @@ Azure SQL Database の Elastic Database ジョブ (プレビュー) を使用す
     $jobName = "create on server dbs"
     $jobExecution = Start-AzureSqlJobExecution -JobName $jobName 
     Write-Output $jobExecution
-
+ 
 ## 1 つのジョブ実行の状態を取得する
 
-子ジョブ実行の状態 (つまり、ジョブのターゲットである各データベースに対する各ジョブ実行の状態) を確認するには、**IncludeChildren** パラメーターを指定して、同じ **Get-AzureSqlJobExecution** コマンドレットを実行します。
+同じ使用 **Get AzureSqlJobExecution** コマンドレットと、 **includechildren で** パラメーターの各ジョブの実行、ジョブの対象となる各データベースに対して特定の状態つまり子ジョブの実行の状態を表示します。
 
     $jobExecutionId = "{Job Execution Id}"
     $jobExecutions = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId -IncludeChildren
@@ -158,7 +158,7 @@ Azure SQL Database の Elastic Database ジョブ (プレビュー) を使用す
 
 ## 複数のジョブ実行全体の状態を確認する
 
-**Get AzureSqlJobExecution** コマンドレットには、省略可能なパラメーターが複数あり、指定したパラメーターでフィルターされた複数のジョブ実行を表示できます。 次に、Get-AzureSqlJobExecution の使用例を示します。
+ **Get AzureSqlJobExecution** コマンドレットは、指定されたパラメーターでフィルター処理、複数のジョブの実行を表示するために使用する複数の省略可能なパラメーターです。 次に、Get-AzureSqlJobExecution の使用例を示します。
 
 すべてのアクティブな最上位レベル ジョブ実行を取得します。
 
@@ -192,7 +192,7 @@ Azure SQL Database の Elastic Database ジョブ (プレビュー) を使用す
     $customCollectionName = "{Custom Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
-
+ 
 指定したジョブ実行内のジョブ タスク実行の一覧を取得します。
 
     $jobExecutionId = "{Job Execution Id}"
@@ -209,7 +209,7 @@ Azure SQL Database の Elastic Database ジョブ (プレビュー) を使用す
 
 ## ジョブ タスク実行内のエラーを取得します。
 
-JobTaskExecution オブジェクトには、タスクの Lifecycle のプロパティと Message プロパティが含まれています。 ジョブ タスク実行に失敗すると、Lifecycle プロパティは *Failed* に設定され、Message プロパティは結果の例外メッセージとそのスタックに設定されます。 ジョブが成功しなかった場合、特定のジョブが成功しなかったジョブ タスクの詳細を確認することをお勧めします。
+JobTaskExecution オブジェクトには、タスクの Lifecycle のプロパティと Message プロパティが含まれています。 ジョブ タスクの実行に失敗した場合、ライフ サイクルのプロパティに設定されます *失敗* し、結果として得られる例外メッセージとスタックにメッセージ プロパティが設定されます。 ジョブが成功しなかった場合、特定のジョブが成功しなかったジョブ タスクの詳細を確認することをお勧めします。
 
     $jobExecutionId = "{Job Execution Id}"
     $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
@@ -231,14 +231,14 @@ JobTaskExecution オブジェクトには、タスクの Lifecycle のプロパ�
 ## カスタム実行ポリシーを作成する
 
 Elastic Database ジョブは、ジョブの開始時に適用できるカスタム実行ポリシーの作成をサポートしています。
-
+  
 現在、実行ポリシーでは以下を定義できます。
 
 * 名前: 実行ポリシーの識別子。
 * ジョブのタイムアウト: Elastic Database ジョブによってジョブが取り消されるまでの合計時間。
 * 初期再試行間隔: 最初の再試行前に待機する間隔。
 * 最大再試行間隔: 使用する再試行間隔の上限。
-* 再試行間隔のバックオフ係数: 次回の再試行間隔の計算に使用される係数。 (初期再試行間隔) * Math.pow((間隔のバックオフ係数), (再試行回数) - 2) という式が使用されます。
+* 再試行間隔のバックオフ係数: 次回の再試行間隔の計算に使用される係数。  (初期再試行間隔) * Math.pow((間隔のバックオフ係数), (再試行回数) - 2) という式が使用されます。 
 * 最大試行回数: 1 つのジョブ内で実行する最大再試行回数。
 
 既定の実行ポリシーでは、次の値を使用します。
@@ -273,37 +273,36 @@ Elastic Database ジョブは、ジョブの開始時に適用できるカスタ
     $retryIntervalBackoffCoefficient = 1.5
     $updatedExecutionPolicy = Set-AzureSqlJobExecutionPolicy -ExecutionPolicyName $executionPolicyName -InitialRetryInterval $initialRetryInterval -JobTimeout $jobTimeout -MaximumAttempts $maximumAttempts -MaximumRetryInterval $maximumRetryInterval -RetryIntervalBackoffCoefficient $retryIntervalBackoffCoefficient
     Write-Output $updatedExecutionPolicy
-
+ 
 ## ジョブを取り消す
 
-Elastic Database ジョブは、ジョブ取り消し要求をサポートしています。 Elastic Database ジョブで、現在実行されているジョブの取り消し要求が検出されると、ジョブの停止が試行されます。
+Elastic Database ジョブは、ジョブ取り消し要求をサポートしています。  Elastic Database ジョブで、現在実行されているジョブの取り消し要求が検出されると、ジョブの停止が試行されます。
 
 Elastic Database ジョブには、2 種類の取り消し方法があります。
 
-1. 現在実行中のタスクを取り消す: タスクの実行中に取り消しが検出されると、現在実行中のタスクの範囲内で取り消しが試行されます。 たとえば、取り消しを試行したときに、実行時間が長いクエリが実行中の場合、クエリの取り消しが試行されます。
+1. 現在実行中のタスクを取り消す: タスクの実行中に取り消しが検出されると、現在実行中のタスクの範囲内で取り消しが試行されます。  たとえば、取り消しを試行したときに、実行時間が長いクエリが実行中の場合、クエリの取り消しが試行されます。
 2. タスクの再試行を取り消す: タスクの実行が開始される前に、コントロール スレッドによって取り消しが検出されると、タスクの開始が回避され、要求は取り消し済みと宣言されます。
 
 親ジョブについてジョブの取り消しが要求されると、親ジョブとそのすべての子ジョブについて、取り消し要求が受け入れられます。
-
-取り消し要求を送信するには、**Stop-AzureSqlJobExecution** コマンドレットを使用し、**JobExecutionId** パラメーターを設定します。
+ 
+キャンセル要求を送信する、 **Stop AzureSqlJobExecution** コマンドレットを設定し、 **JobExecutionId** パラメーター。
 
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
 
 ## ジョブの名前と履歴を使用してジョブを削除する
 
-Elastic Database ジョブは、ジョブの非同期削除をサポートしています。 ジョブを削除対象としてマークすることができます。マークされたジョブのすべてのジョブ実行が完了すると、ジョブとそのジョブ履歴は削除されます。 アクティブなジョブ実行は自動的に取り消されません。
+Elastic Database ジョブは、ジョブの非同期削除をサポートしています。 ジョブを削除対象としてマークすることができます。マークされたジョブのすべてのジョブ実行が完了すると、ジョブとそのジョブ履歴は削除されます。 アクティブなジョブ実行は自動的に取り消されません。  
 
 アクティブなジョブ実行を取り消すには、Stop-AzureSqlJobExecution を呼び出す必要があります。
 
-ジョブの削除をトリガーするには、**Remove-AzureSqlJob** コマンドレットを使用して、**JobName** パラメーターを設定します。
+ジョブの削除をトリガーするには、使用、 **削除 AzureSqlJob** コマンドレットを設定し、 **JobName** パラメーター。
 
     $jobName = "{Job Name}"
     Remove-AzureSqlJob -JobName $jobName
-
+ 
 ## カスタム データベース ターゲットを作成する
-
-Elastic Database ジョブでは、カスタム データベース ターゲットを定義できます。このターゲットは、直接の実行、またはカスタム データベース グループ内に含まれる実行に使用できます。 **Elastic Database プール**は、まだ PowerShell API で直接サポートされていません。そのため、プール内のすべてのデータベースを網羅するカスタム データベース ターゲットとカスタム データベース コレクション ターゲットを作成します。
+Elastic Database ジョブでは、カスタム データベース ターゲットを定義できます。このターゲットは、直接の実行、またはカスタム データベース グループ内に含まれる実行に使用できます。  **エラスティック データベース プール** はまだ直接サポートされていません、PowerShell Api を介した単純に作成するカスタム データベースのターゲットと、プール内のすべてのデータベースがすべて含まれているデータベースのカスタム コレクションの対象です。
 
 目的のデータベース情報を反映するように、次の変数を設定します。
 
@@ -312,7 +311,6 @@ Elastic Database ジョブでは、カスタム データベース ターゲッ�
     New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName 
 
 ## カスタム データベース コレクション ターゲットを作成する
-
 定義済みの複数のデータベース ターゲットに対する実行を有効にするようにカスタム データベース コレクション ターゲットを定義できます。 データベース グループを作成すると、データベースをカスタム コレクション ターゲットに関連付けることができます。
 
 目的のカスタム コレクション ターゲットの構成を反映するように次の変数を設定します。
@@ -333,8 +331,8 @@ Elastic Database ジョブでは、カスタム データベース ターゲッ�
 
 #### カスタム データベース コレクション ターゲット内のデータベースを確認する
 
-**Get-AzureSqlJobTarget** コマンドレットを使用して、カスタム データベース コレクション ターゲット内の子データベースを取得します。
-
+使用して、 **Get AzureSqlJobTarget** コマンドレットをその子内のデータベース、データベースのカスタム コレクションの対象を取得します。 
+ 
     $customCollectionName = "{Custom Database Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $childTargets = Get-AzureSqlJobTarget -ParentTargetId $target.TargetId
@@ -342,7 +340,7 @@ Elastic Database ジョブでは、カスタム データベース ターゲッ�
 
 ### カスタム データベース コレクション ターゲット全体に対してスクリプトを実行するジョブを作成する
 
-**New-AzureSqlJob** コマンドレットを使用して、カスタム データベース コレクション ターゲットに定義されているデータベース グループに対するジョブを作成します。 Elastic Database ジョブによって、カスタム データベース コレクション ターゲットに関連付けられているデータベースに対応する複数の子ジョブにまでジョブの対象が拡張されるので、各データベースに対して確実にスクリプトが実行されます。 ここでも、スクリプトをべき等にして、再試行に対して回復力を持たせるようにすることが重要です。
+使用して、 **新規 AzureSqlJob** コマンドレットをデータベースのカスタム コレクションの対象が定義されているデータベースのグループに対してジョブを作成します。 エラスティック データベース ジョブによって、カスタム データベース コレクション ターゲットに関連付けられているデータベースに対応する複数の子ジョブにまでジョブの対象が拡張されるので、各データベースに対して確実にスクリプトが実行されます。 ここでも、スクリプトをべき等にして、再試行に対して回復力を持たせるようにすることが重要です。
 
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
@@ -354,7 +352,7 @@ Elastic Database ジョブでは、カスタム データベース ターゲッ�
 
 ## データベース全体のデータ収集
 
-**Elastic Database ジョブ**は、データセット グループ全体に対するクエリの実行をサポートしています。結果は指定したデータベースのテーブルに送信されます。 その結果の後にテーブルに対してクエリを実行して、各データベースのクエリ結果を確認することができます。 この方法で、多数のデータベース全体に対してクエリを実行する非同期メカニズムを実現できます。 データベースのいずれかが一時的に使用できないなど、失敗が発生した場合、再試行で自動的に処理されます。
+**弾力性データベース ジョブ** グループ全体のデータベースのクエリの実行をサポートし、指定されたデータベースのテーブルに結果を送信します。 その結果の後にテーブルに対してクエリを実行して、各データベースのクエリ結果を確認することができます。 この方法で、多数のデータベース全体に対してクエリを実行する非同期メカニズムを実現できます。 データベースのいずれかが一時的に使用できないなど、失敗が発生した場合、再試行で自動的に処理されます。
 
 指定した対象テーブルは、返される結果セットのスキーマに対応する既存のテーブルがない場合、自動的に作成されます。 スクリプト実行から複数の結果セットが返された場合、Elastic Database ジョブからは、1 つの結果セットのみが指定した対象テーブルに送信されます。
 
@@ -374,7 +372,6 @@ Elastic Database ジョブでは、カスタム データベース ターゲッ�
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
 
 ### データ収集シナリオのジョブを作成して開始する
-
     $job = New-AzureSqlJob -JobName $jobName -CredentialName $executionCredentialName -ContentName $scriptName -ResultSetDestinationServerName $destinationServerName -ResultSetDestinationDatabaseName $destinationDatabaseName -ResultSetDestinationSchemaName $destinationSchemaName -ResultSetDestinationTableName $destinationTableName -ResultSetDestinationCredentialName $destinationCredentialName -TargetId $target.TargetId
     Write-Output $job
     $jobExecution = Start-AzureSqlJobExecution -JobName $jobName
@@ -406,34 +403,36 @@ Elastic Database ジョブでは、カスタム データベース ターゲッ�
 ### スケジュールされた関連付けを解除してジョブのスケジュール実行を停止する
 
 ジョブ トリガーによるジョブ実行の繰り返しを停止するには、ジョブ トリガーを削除します。 
-**Remove-AzureSqlJobTrigger** コマンドレットを使用してジョブ トリガーを削除すると、スケジュールに従ってジョブが実行されなくなります。
+使用してスケジュールに従って実行されるジョブを停止するジョブ トリガーを削除、 **削除 AzureSqlJobTrigger** コマンドレットです。
 
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
     Remove-AzureSqlJobTrigger -ScheduleName $scheduleName -JobName $jobName
+
+
+
+
 
 ## エラスティック データベース クエリの結果を Excel にインポートする
 
  クエリの結果は Excel ファイルにインポートすることができます。
 
 1. Excel 2013 を起動します。
-2.  **[データ]** リボンに移動します。
-3.  **[その他のデータ ソース]** をクリックし、**[SQL Server]** をクリックします。
+2.  移動し、 **データ** リボンです。
+3.  クリックして **その他のソース** ] をクリック **SQL Server から**します。
 
-    ![他のソースから Excel へのインポート][5]
-4.  **[データ接続ウィザード]** で、サーバー名とログイン時の資格情報を入力します。 その後、**[次へ]** をクリックします。
-5.  **[使用するデータが含まれているデータベースを選択]** ダイアログ ボックスで、**[ElasticDBQuery]** データベースを選択します。
-6.  リスト ビューで **[Customers]** テーブルを選択し、**[次へ]** をクリックします。 **[完了]** をクリックします。
-7.  **[データのインポート]** フォームの **[このデータをブックでどのように表示するかを選択してください。]** で、**[テーブル]** を選択し、**[OK]** をクリックします。
+    ![Excel の他のソースからのインポート][5]
+4.   **データ接続ウィザード** サーバー名とログインの資格情報を入力します。 クリックして **次**します。
+5.  ダイアログ ボックスで **データを含むデータベースを選択して**, を選択、 **ElasticDBQuery** データベースです。
+6.  選択、 **顧客** リスト ビューでテーブルを **次**します。 クリックして **完了**します。
+7.   **データのインポート** フォームの **ブックでこのデータを表示する方法を選択**, [ **テーブル** ] をクリック **[ok]**します。
 
-さまざまなシャードに格納されている、**[Customers]** テーブルからのすべての行が Excel シートに読み込まれます。
+すべての行を **顧客** さまざまなシャードに格納されているテーブルが Excel シートを作成します。
 
 ## 次のステップ
-
 これで Excel の強力なデータ機能を使用できるようになりました。 サーバー名、データベース名、および資格情報が含まれる接続文字列を使用して、BI とデータ統合ツールをエラスティック クエリ データベースに接続することができます。 ご使用のツールのデータ ソースとして SQL Server がサポートされていることを確認してください。 エラスティック クエリ データベースおよび外部テーブル (ツールを使用して接続するその他の SQL Server データベースおよび SQL Server テーブルのような) を参照できます。
 
 ### コスト
-
 Elastic Database クエリ機能を使用する場合に追加の料金は発生しません。 ただし、この時点で、この機能はエンド ポイントとして動作するプレミアム データベースでしか利用できません。ただし、シャードのサービス階層に制限はありません。
 
 料金情報については、次を参照してください。 [SQL Database の料金詳細](http://azure.microsoft.com/pricing/details/sql-database/)します。
@@ -441,15 +440,11 @@ Elastic Database クエリ機能を使用する場合に追加の料金は発生
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-
-
-
-
-
-
-[1]: ./media/sql-database-elastic-query-getting-started/cmd-prompt.png 
-[2]: ./media/sql-database-elastic-query-getting-started/portal.png 
-[3]: ./media/sql-database-elastic-query-getting-started/tiers.png 
-[4]: ./media/sql-database-elastic-query-getting-started/details.png 
-[5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png 
+<!--Image references-->
+[1]: ./media/sql-database-elastic-query-getting-started/cmd-prompt.png
+[2]: ./media/sql-database-elastic-query-getting-started/portal.png
+[3]: ./media/sql-database-elastic-query-getting-started/tiers.png
+[4]: ./media/sql-database-elastic-query-getting-started/details.png
+[5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
+<!--anchors-->
 

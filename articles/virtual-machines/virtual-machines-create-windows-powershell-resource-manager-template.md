@@ -17,22 +17,20 @@
     ms.date="10/08/2015"
     ms.author="davidmu"/>
 
-
 # リソース マネージャー テンプレートで Windows 仮想マシンを作成する
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
+- [Windows azure ポータル](virtual-machines-windows-tutorial.md)
 - [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [Azure PowerShell のテンプレート](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Azure ポータル - Linux](virtual-machines-linux-tutorial-portal-rm.md)
 - [Azure CLI](virtual-machines-linux-tutorial.md)
-
 
 <br>
 
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 従来のデプロイ モデルです。 このリソースは、クラシック デプロイ モデルを使用して作成することはできません。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 従来のデプロイ モデルです。 このリソースは、クラシック デプロイメント モデルを使用して作成することはできません。
 
 Windows ベースの Azure 仮想マシンは、Azure PowerShell からリソース マネージャー テンプレートを使って簡単に新規作成できます。 このテンプレートは、新しいリソース グループにサブネットを 1 つ持った新しい仮想ネットワークに、Windows を実行する単一の仮想マシンを作成するものです。
 
@@ -224,6 +222,7 @@ Azure PowerShell で、Github テンプレート リポジトリ内のリソー�
     ]
     }
 
+
 ### 手順 2. テンプレートで仮想マシンを作成する
 
 Azure のデプロイ名、リソース グループ名、Azure データ センターの場所を入力し、次のコマンドを実行します。
@@ -235,7 +234,7 @@ Azure のデプロイ名、リソース グループ名、Azure データ セン
     New-AzureRmResourceGroup –Name $RGName –Location $locName
     New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-**New-AzureRmResourceGroupDeployment** コマンドを実行すると、JSON ファイルの "parameters" セクションにあるパラメーター値を指定するよう求められます。 パラメーターの値がすべて指定されていれば、リソース グループと仮想マシンが作成されます。
+実行すると、 **新規 AzureRmResourceGroupDeployment** コマンドを JSON ファイルの"parameters"セクションのパラメーター値を指定するように求められます。 パラメーターの値がすべて指定されていれば、リソース グループと仮想マシンが作成されます。
 
 たとえば次のようになります。
 
@@ -265,8 +264,8 @@ Azure のデプロイ名、リソース グループ名、Azure データ セン
     VERBOSE: 10:57:45 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
     VERBOSE: 10:57:45 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
     VERBOSE: 11:01:59 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
-    
-    
+
+
     DeploymentName    : TestDeployment
     ResourceGroupName : TestRG
     ProvisioningState : Succeeded
@@ -281,26 +280,22 @@ Azure のデプロイ名、リソース グループ名、Azure データ セン
                         adminPassword    SecureString
                         dnsNameForPublicIP  String                     contoso9875
                         windowsOSVersion  String                     2012-R2-Datacenter
-    
+
     Outputs           :
 
 これで、新しいリソース グループに MyWindowsVM という名前の新しい Windows 仮想マシンが作成されました。
 
 ## その他のリソース
 
-[Azure コンピューティング、ネットワーク、および記憶域プロバイダーでは、Azure リソース マネージャー](virtual-machines-azurerm-versus-azuresm.md)
+[Azure リソース マネージャーにおける Azure Compute、ネットワーク、ストレージ プロバイダー](virtual-machines-azurerm-versus-azuresm.md)
 
 [Azure リソース マネージャーの概要](resource-group-overview.md)
 
-[Azure リソース マネージャーと PowerShell の使用の Windows 仮想マシンの作成します。](virtual-machines-create-windows-powershell-resource-manager.md)
+[Azure リソース マネージャーと PowerShell で Windows 仮想マシンを作成する](virtual-machines-create-windows-powershell-resource-manager.md)
 
-[Powershell と従来のデプロイ モデルによる Windows の仮想マシンを作成します。](virtual-machines-ps-create-preconfigure-windows-vms.md)
+[Powershell とクラシック デプロイ モデルを使用して Windows 仮想マシンを作成する](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-[Virtual machines のドキュメント](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[仮想マシンに関するドキュメント](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[インストールして、Azure PowerShell を構成する方法](install-configure-powershell.md)
-
-
-
-
+[Azure PowerShell のインストールおよび構成方法](install-configure-powershell.md)
 

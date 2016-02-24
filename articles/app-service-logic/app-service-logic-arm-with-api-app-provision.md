@@ -16,16 +16,15 @@
     ms.date="12/16/2015" 
     ms.author="tomfitz"/>
 
-
 # テンプレートを使用したロジック アプリと API アプリの作成
 
 このトピックでは、ロジック アプリと App Service API アプリを作成するための Azure リソース マネージャー テンプレートを作成する方法について説明します。 ロジック アプリを使用すると、トリガーと一連の手順によって目的を明確に表すワークフローを設計できます。各手順から API アプリを呼び出すと同時に、認証と、持続性のある実行などのベスト プラクティスにも確実に対処します。
 
 デプロイ対象のリソースを定義する方法と、デプロイの実行時に指定されるパラメーターを定義する方法について説明します。 このテンプレートは、独自のデプロイに使用することも、要件に合わせてカスタマイズすることもできます。
 
-ロジック アプリのプロパティの詳細については、次を参照してください。 [ロジック アプリ ワークフローの管理 API](https://msdn.microsoft.com/library/azure/dn948513.aspx)します。
+ロジック アプリのプロパティの詳細については、次を参照してください。 [ロジック アプリ ワークフローの管理 API](https://msdn.microsoft.com/library/azure/dn948513.aspx)します。 
 
-定義自体の例については、次を参照してください。 [Author Logic App 定義](app-service-logic-author-definitions.md)します。
+定義自体の例については、次を参照してください。 [Author Logic App 定義](app-service-logic-author-definitions.md)します。 
 
 テンプレートの作成方法の詳細については、次を参照してください。 [Azure リソース マネージャー テンプレートの作成](../resource-group-authoring-templates.md)します。
 
@@ -40,7 +39,7 @@
 
 デプロイを自動的に実行するには、次のボタンを選択します。
 
-[![を Azure にデプロイ](http://azuredeploy.net/deploybutton.png)] (https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-api-app-create%2Fazuredeploy.json)
+[![DAzure に eploy](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-api-app-create%2Fazuredeploy.json) 
 
 ## パラメーター
 
@@ -70,12 +69,12 @@ API アプリのシークレット。
         "defaultValue": "0000000000000000000000000000000000000000000000000000000000000000",
         "type": "securestring"
     }
-
+    
 ## デプロイ対象のリソース
 
 ### App Service プラン
 
-App Service プランを作成します。
+App Service プランを作成します。 
 
 デプロイ先のリソース グループと同じ場所を使用します。
 
@@ -395,4 +394,5 @@ App Service プランを作成します。
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-logic-app-api-app-create/azuredeploy.json -g ExampleDeployGroup
 
 
+ 
 

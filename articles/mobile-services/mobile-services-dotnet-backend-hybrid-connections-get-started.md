@@ -17,7 +17,6 @@
     ms.author="glenga"/>
 
 
-
 # ハイブリッド接続を使用して Azure Mobile Services からオンプレミスの SQL Server に接続する
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
@@ -29,7 +28,7 @@
 
 このチュートリアルでは、サービスでプロビジョニングされた既定の Azure SQL Database の代わりに、ローカルのオンプレミスの SQL Server データベースを使用するように .NET バックエンド モバイル サービスを変更する方法について説明します。 」の説明に従って、ハイブリッド接続は JavaScript バックエンド モバイル サービスのサポートもされて [今回](http://blogs.msdn.com/b/azuremobile/archive/2014/05/12/connecting-to-an-external-database-with-node-js-backend-in-azure-mobile-services.aspx)します。
 
-## 前提条件
+##前提条件##
 
 このチュートリアルを完了するには、次のものが必要です。
 
@@ -45,7 +44,7 @@
 
 [AZURE.INCLUDE [hybrid-connections-create-new](../../includes/hybrid-connections-create-new.md)]
 
-## オンプレミスのハイブリッド接続マネージャーをインストールして接続を完了する
+## オンプレミス ハイブリッド接続マネージャーをインストールして接続を完了する
 
 [AZURE.INCLUDE [hybrid-connections-install-connection-manager](../../includes/hybrid-connections-install-connection-manager.md)]
 
@@ -57,7 +56,7 @@
 
     .NET バックエンド プロジェクトをダウンロードする方法については、次を参照してください。 [モバイル サービスを使ってみる](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) します。
 
-2. ソリューション エクスプローラーで、Web.config ファイルを開き、 **connectionStrings** セクションを探し、次のような新しい SqlClient エントリを追加します。このエントリはオンプレミスの SQL Server データベースを指しています。
+2. ソリューション エクスプ ローラーで、Web.config ファイルを開き、検索、 **connectionStrings** セクションで、内部設置型 SQL Server データベースをポイントする次のような新しい SqlClient エントリを追加します。
 
         <add name="OnPremisesDBConnection"
          connectionString="Data Source=OnPremisesServer,1433;
@@ -67,12 +66,13 @@
          MultipleActiveResultSets=True"
          providerName="System.Data.SqlClient" />
 
-    置き換えるようにして `< * * secure_password * * >` 用に作成したパスワードを使用してこの文字列内で、 *HbyridConnectionLogin*します。
+    置き換えるようにして `<**secure_password**>` 用に作成したパスワードを使用してこの文字列内で、 *HbyridConnectionLogin*します。
 
-3. Visual Studio で **[保存]** をクリックして、Web.config ファイルを保存します。
-    > [AZURE.NOTE]この接続設定は、ローカル コンピューターで実行されるときに使用されます。 Azure で実行される場合、この設定は、ポータルで定義された接続設定によってオーバーライドされます。
+3. をクリックして **保存** Visual studio を Web.config ファイルを保存します。
 
-4. **Models** フォルダーを展開し、*Context.cs* で終わるデータ モデル ファイルを開きます。
+    > [AZURE.NOTE]この設定は、ローカル コンピューターで実行されているときに使用されます。 Azure で実行される場合、この設定は、ポータルで定義された接続設定によってオーバーライドされます。
+
+4. 展開、 **モデル** フォルダーとで終わるデータ モデル ファイルを開きます *Context.cs*します。
 
 6. 変更、 **DbContext** インスタンス コンス トラクターに値を渡す `OnPremisesDBConnection` ベース **DbContext** コンス トラクター、次のスニペットに似ています。
 
@@ -86,7 +86,7 @@
 
     これで、サービスは、SQL Server データベースへの新しい接続を使用するようになります。
 
-## データベース接続をローカルでテストする
+##データベース接続をローカルでテストする
 
 ハイブリッド接続を Azure に発行して使用する前に、ローカルで実行したときにデータベース接続が機能するかどうかを確認することをお勧めします。 これによって、接続に関する問題を簡単に診断して修正した後、ハイブリッド接続を再発行して使用を開始できます。
 
@@ -98,7 +98,7 @@
 
 1. [Azure クラシック ポータル]、モバイル サービスに移動します。
 
-1. [**構成**] タブをクリックして、[**接続文字列**] セクションを参照します。
+1. クリックして、 **構成** タブをクリックし、検索 **接続文字列** セクションです。
 
     ![オンプレミスのデータベースの接続文字列](./media/mobile-services-dotnet-backend-hybrid-connections-get-started/11.png)
 
@@ -106,35 +106,35 @@
 
         Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>
 
-    置換 `< * * secure_password * * >` のセキュリティ保護されたパスワード *HybridConnectionLogin*します。
 
-2. [**保存**] をクリックして、今作成したハイブリッド接続と接続文字列を保存します。
+    置換 `<**secure_password**>` のセキュリティ保護されたパスワード *HybridConnectionLogin*します。
+
+2. キーを押して **保存** を保存、ハイブリッド接続と接続文字列で作成しました。
 
 3. Visual Studio を使用して、更新済みのモバイル サービス プロジェクトを Azure に発行します。
 
     サービスのスタート ページが表示されます。
 
-4. これまでのようにスタート ページの [**今すぐ試す**] ボタン、またはモバイル サービスに接続されたクライアント アプリのいずれかを使用して、データベースの変更を生成するいくつかの操作を呼び出します。
-    >[AZURE.NOTE][**今すぐ試す**] ボタンを使用して API のヘルプ ページを起動する場合は、アプリケーション キーをパスワードとして指定します (ユーザー名は空白にします)。
+4. いずれかを使用して、 **[今すぐ試す** スタート ページにボタン、または、モバイル サービスに接続されたクライアント アプリケーション、データベースの変更を生成するいくつかの操作を呼び出します。
 
-4. SQL Server Management Studio で、SQL Server インスタンスに接続し、オブジェクト エクスプローラーを開き、**OnPremisesDB** データベースを展開し、**[テーブル]** を展開します。
+    >[AZURE.NOTE]使用すると、 **[今すぐ試す** ] をクリックする API のヘルプ ページを起動 (使用するユーザー名は空白) パスワードとしてアプリケーション キーを指定します。
 
-5. **hybridService1.TodoItems** テーブルを右クリックし、[**先頭の 1000 行を選択**] をクリックすると、結果が表示されます。
+4. SQL Server Management Studio で、SQL Server インスタンスへの接続、オブジェクト エクスプ ローラーを開き、展開、 **OnPremisesDB** データベースし、展開 **テーブル**します。
+
+5. 右クリックし、 **hybridService1.TodoItems** テーブルが表示され選択 **[上位 1000年行** 結果を表示します。
 
     アプリで発生した変更が、モバイル サービスによって、ハイブリッド接続を介してオンプレミスのデータベースに保存されたことに注意してください。
 
-## 関連項目
+##関連項目##
 
-+ [ハイブリッド接続の web サイト](../../services/biztalk-services/)
++ [ハイブリッド接続の Web サイト](../../services/biztalk-services/)
 + [ハイブリッド接続の概要](../integration-hybrid-connection-overview.md)
-+ [BizTalk サービス: ダッシュ ボード、モニター、スケール、構成、およびハイブリッド接続] タブ](../biztalk-dashboard-monitor-scale-tabs.md)
-+ [.NET バックエンド モバイル サービスの変更をデータ モデルを作成する方法](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)
++ [BizTalk サービス: [ダッシュボード]、[監視]、[スケール]、[構成]、および [ハイブリッド接続] タブ](../biztalk-dashboard-monitor-scale-tabs.md)
++ [データ モデルの変更を .NET バックエンド モバイル サービスに加える方法](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)
+
+<!-- IMAGES -->
 
 
-
-
-
-
-[azure classic portal]: http://manage.windowsazure.com 
-[get started with mobile services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md 
-
+<!-- Links -->
+[Azure classic portal]: http://manage.windowsazure.com
+[Get started with Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md

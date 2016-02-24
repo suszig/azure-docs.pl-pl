@@ -1,6 +1,6 @@
 <properties
    pageTitle="Publish-WebApplicationVM | Microsoft Azure"
-   description="仮想マシンに Web アプリケーションをデプロイする方法を学習します。このスクリプトは、必要なリソースが Azure サブスクリプションに存在しない場合にそれらを作成します。"
+   description="仮想マシンに Web アプリケーションをデプロイする方法を学習します。 このスクリプトは、必要なリソースが Azure サブスクリプションに存在しない場合にそれらを作成します。"
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -14,7 +14,6 @@
    ms.workload="multiple"
    ms.date="09/30/2015"
    ms.author="tarcher" />
-
 
 # Publish-WebApplicationVM (Windows PowerShell スクリプト)
 
@@ -35,85 +34,85 @@ Publish-WebApplicationVM
 
 デプロイの詳細が記述されている JSON 構成ファイルへのパス。
 
-| 別名| なし|
+|別名|なし|
 |---|---|
-| 必須| true|
-| 位置| named|
-| 既定値| なし|
-| パイプライン入力を許可する| false|
-| ワイルドカード文字を許可する| false|
+|必須|true|
+|位置|named|
+|既定値|なし|
+|パイプライン入力を許可する|false|
+|ワイルドカード文字を許可する|false|
 
 ### SubscriptionName
 
 仮想マシンを作成する Azure サブスクリプションの名前。
 
-| 別名| なし|
+|別名|なし|
 |---|---|
-| 必須| false|
-| 位置| named|
-| 既定値| サブスクリプション ファイルで最初のサブスクリプションを使用する|
-| パイプライン入力を許可する| false|
-| ワイルドカード文字を許可する| false|
+|必須|false|
+|位置|named|
+|既定値|サブスクリプション ファイルで最初のサブスクリプションを使用する|
+|パイプライン入力を許可する|false|
+|ワイルドカード文字を許可する|false|
 
 ### WebDeployPackage
 
 仮想マシンに発行する Web デプロイ パッケージへのパス。 Visual Studio で Web の発行ウィザードを使用して、このパッケージを作成できます。 参照してください [方法: Visual Studio で Web 配置パッケージを作成](https://msdn.microsoft.com/library/dd465323.aspx)します。
 
-| 別名| なし|
+|別名|なし|
 |---|---|
-| 必須| false|
-| 位置| named|
-| 既定値| なし|
-| パイプライン入力を許可する| false|
-| ワイルドカード文字を許可する| false|
+|必須|false|
+|位置|named|
+|既定値|なし|
+|パイプライン入力を許可する|false|
+|ワイルドカード文字を許可する|false|
 
 ### AllowUntrusted
 
 True の場合は、信頼されたルート証明機関によって署名されていない証明書の使用が許可されます。
 
-| 別名| なし|
+|別名|なし|
 |---|---|
-| 必須| false|
-| 位置| named|
-| 既定値| false|
-| パイプライン入力を許可する| false|
-| ワイルドカード文字を許可する| false|
+|必須|false|
+|位置|named|
+|既定値|false|
+|パイプライン入力を許可する|false|
+|ワイルドカード文字を許可する|false|
 
 ### VMPassword
 
 仮想マシンアカウントの資格情報。 例: -VMPassword @{Name = "admin"; Password = "password"}
 
-| 別名| なし|
+|別名|なし|
 |---|---|
-| 必須| false|
-| 位置| named|
-| 既定値| なし|
-| パイプライン入力を許可する| false|
-| ワイルドカード文字を許可する| false|
+|必須|false|
+|位置|named|
+|既定値|なし|
+|パイプライン入力を許可する|false|
+|ワイルドカード文字を許可する|false|
 
 ### DatabaseServerPassword
 
 Azure での SQL Database の資格情報。 例: -DatabaseServerPassword @{Name = "admin"; Password = "password"}
 
-| 別名| なし|
+|別名|なし|
 |---|---|
-| 必須| false|
-| 位置| named|
-| 既定値| なし|
-| パイプライン入力を許可する| false|
-| ワイルドカード文字を許可する| false|
+|必須|false|
+|位置|named|
+|既定値|なし|
+|パイプライン入力を許可する|false|
+|ワイルドカード文字を許可する|false|
 
 ### SendHostMessagesToOutput
 
 true の場合、スクリプトからのメッセージは出力ストリームに出力されます。
 
-| 別名| なし|
+|別名|なし|
 |---|---|
-| 必須| false|
-| 位置| named|
-| 既定値| false|
-| パイプライン入力を許可する| false|
-| ワイルドカード文字を許可する| false|
+|必須|false|
+|位置|named|
+|既定値|false|
+|パイプライン入力を許可する|false|
+|ワイルドカード文字を許可する|false|
 
 ## 解説
 
@@ -189,8 +188,4 @@ JSON 構成ファイルではデプロイ対象の詳細が指定されます。
 ```
 
 プロビジョニング対象が変更されるように JSON 構成ファイルを編集できます。 仮想マシンとクラウド サービスは必須ですが、データベースのセクションは省略可能です。
-
-
-
-
 

@@ -16,8 +16,7 @@
     ms.date="11/23/2015"
     ms.author="piyushjo"/>
 
-
-# ゲーム アプリで Mobile Engagement を実装する
+#ゲーム アプリで Mobile Engagement を実装する
 
 ## 概要
 
@@ -25,7 +24,7 @@
 
 に基づいて、 [Azure モバイル エンゲージメント - ファースト ステップ ガイドのベスト プラクティスで](mobile-engagement-getting-started-best-practices.md) engagement 戦略を構築します。
 
-## 目標と KPI
+##目標と KPI
 
 ゲームの主要な関係者で顔合わせをします。 全員が、プレミアム パッケージの売上を 15% 上げるという 1 つの大きな目標に合意しています。 この目標の進捗を測定して推進するため、次のようなビジネスの主要業績評価指標 (KPI) を作成します。
 
@@ -33,7 +32,7 @@
 * ユーザーごと、セッションごと、週ごと、月ごとの収益はどれくらいか。
 * 人気の購入タイプは何か。
 
-第 1 部、 [ファースト ステップ ガイド](mobile-engagement-getting-started-best-practices.md) 目標と Kpi を定義する方法について説明します。
+第 1 部、 [ファースト ステップ ガイド](mobile-engagement-getting-started-best-practices.md) 目標と Kpi を定義する方法について説明します。 
 
 ビジネスの KPI が定義されたことで、モバイル製品マネージャーがエンゲージメント KPI を作成し、新しいユーザーの傾向とリテンション期間を決定します。
 
@@ -62,15 +61,12 @@ IT チームからの推奨事項に基づき、次の質問に答えるため�
 * レベル 20 をクリアしたユーザーは週に $10 以上費やすようになる。
 * ユーザーは、レベル 16、24、および 32 でプレミアム パッケージを購入する傾向がある。
 
-この分析により、モバイル プロジェクト ディレクターは、アプリの売上を強化するための特定のプッシュ通知シーケンスを作成することにしました。 彼は、スタート時プログラム、セールス プログラムおよび非アクティブ プログラムを呼び出す 3 つのプッシュ シーケンスを作成します。 詳細については、を参照してください [プレイブック](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)
+この分析により、モバイル プロジェクト ディレクターは、アプリの売上を強化するための特定のプッシュ通知シーケンスを作成することにしました。 彼は、スタート時プログラム、セールス プログラムおよび非アクティブ プログラムを呼び出す 3 つのプッシュ シーケンスを作成します。 詳細についてを参照してください、 [プレイブック](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)
     ![][1]
 
+<!--Image references-->
 
+[1]: ./media/mobile-engagement-game-scenario/notification-scenario.png
 
-
-
-
-
-
-[1]: ./media/mobile-engagement-game-scenario/notification-scenario.png 
+<!--Link references-->
 

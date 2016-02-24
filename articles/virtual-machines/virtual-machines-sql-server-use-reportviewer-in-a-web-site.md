@@ -16,27 +16,28 @@
     ms.date="12/11/2015"
     ms.author="jroth" />
 
-
 # Azure でホストされる Web サイトで ReportViewer を使用する
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーのモデルです。
 
 
 Microsoft Azure 仮想マシンに保存されたレポートを表示する Visual Studio ReportViewer コントロールを使用して、Microsoft Azure Web サイトを作成できます。 ReportViewer コントロールは、ASP.NET Web アプリケーション テンプレートを使用して作成する Web アプリケーション内にあります。
->[AZURE.IMPORTANT] ASP.NET MVC Web アプリケーション テンプレートでは、ReportViewer コントロールはサポートされません。
+
+>[AZURE.IMPORTANT] ASP.NET MVC Web アプリケーション テンプレートは、ReportViewer コントロールをサポートしていません。
 
 ReportViewer を Microsoft Azure Web サイトに組み込むには、次のタスクを完了する必要があります。
 
-- デプロイ パッケージにアセンブリを**追加する**
+- **追加** 展開パッケージにアセンブリ
 
-- 認証と承認を**構成する**
+- **構成** 認証と承認
 
-- ASP.NET Web アプリケーションを Azure に**発行する**
+- **発行** ASP.NET Web アプリケーションを Azure に
 
 ## 前提条件
 
 「一般的な推奨事項とベスト プラクティス」のセクションを参照 [SQL Server Business Intelligence Azure Virtual Machines で](virtual-machines-sql-server-business-intelligence.md)します。
->[AZURE.NOTE] ReportViewer コントロールは、Standard Edition 以上のエディションの Visual Studio に含まれています。 インストールする必要があります Web Developer Express Edition を使用している場合、 [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) 、ReportViewer ランタイム機能を使用します。
+
+>[AZURE.NOTE] ReportViewer コントロールは Visual studio と Standard Edition 以上に含まれています。 インストールする必要があります Web Developer Express Edition を使用している場合、 [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) 、ReportViewer ランタイム機能を使用します。
 >
 >Microsoft Azure では、ローカル処理モードで構成された ReportViewer はサポートされません。
 
@@ -48,19 +49,19 @@ ASP.NET アプリケーションをオンプレミスでホストする場合、
 
 リモート処理モードでは、次のアセンブリが ReportViewer コントロールで使用されます。
 
-- **Microsoft.ReportViewer.WebForms.dll**: ページ内で ReportViewer を使用するために必要な ReportViewer コードが含まれています。 プロジェクト内の ASP.NET ページに ReportViewer コントロールをドロップすると、このアセンブリへの参照がプロジェクトに追加されます。
+- **Microsoft.ReportViewer.WebForms.dll**: ページで ReportViewer を使用する必要がある ReportViewer コードが含まれています。 プロジェクト内の ASP.NET ページに ReportViewer コントロールをドロップすると、このアセンブリへの参照がプロジェクトに追加されます。
 
-- **Microsoft.ReportViewer.Common.dll**: 実行時に ReportViewer コントロールによって使用されるクラスが含まれています。 自動的にはプロジェクトに追加されません。
+- **Microsoft.ReportViewer.Common.dll**: 実行時に ReportViewer コントロールで使用されるクラスが含まれています。 自動的にはプロジェクトに追加されません。
 
 ### Microsoft.ReportViewer.Common に参照を追加する
 
-- プロジェクトの **[参照]** ノードを右クリックして **[参照の追加]** を選択し、[.NET] タブからアセンブリを選択して **[OK]** をクリックします。
+- プロジェクトを右クリックして **参照** ノード **参照の追加**, [.NET] タブでアセンブリを選択し、クリックして、 **[ok]**します。
 
 ### ASP.NET アプリケーションからアセンブリにローカル アクセスできるようにする
 
-1. **[参照]** フォルダー内の Microsoft.ReportViewer.Common アセンブリをクリックすると、プロパティがプロパティ ペインに表示されます。
+1.  **参照** フォルダー内の Microsoft.ReportViewer.Common アセンブリをクリックして、プロパティ ペインでそのプロパティが表示されます。
 
-1. プロパティ ペインで、**[ローカルにコピー]** を True に設定します。
+1. プロパティ ペインで次のように設定します。 **ローカル コピー** True に設定します。
 
 1. Microsoft.ReportViewer.WebForms についても、手順 1. と 2. を繰り返します。
 
@@ -70,21 +71,21 @@ ASP.NET アプリケーションをオンプレミスでホストする場合、
 
 1. ドロップダウン リストから言語を選択すると、ダウンロード センターの対応するページにリダイレクトされます。
 
-1. **[ダウンロード]** をクリックして、ReportViewerLP.exe のダウンロードを開始します。
+1. クリックして **ダウンロード** ReportViewerLP.exe のダウンロードを開始します。
 
-1. ReportViewerLP.exe をダウンロードしたら、**[実行]** をクリックしてすぐにインストールするか、**[保存]** をクリックしてコンピューターに保存します。 **[保存]** をクリックした場合は、ファイルを保存したフォルダーの名前を覚えておいてください。
+1. ReportViewerLP.exe をダウンロードした後] をクリックして **実行** 即座に、インストールするか、クリックして **保存** をコンピューターに保存します。 クリックすると **保存**, 、ファイルを保存するフォルダーの名前に注意してください。
 
-1. ファイルを保存したフォルダーを見つけます。 ReportViewerLP.exe を右クリックし、**[管理者として実行]**、**[はい]** の順にクリックします。
+1. ファイルを保存したフォルダーを見つけます。 ReportViewerLP.exe を右クリックし、をクリックして **管理者として実行**, 、クリックして **はい**します。
 
-1. ReportViewerLP.exe を実行した後、C:\windows\assembly にリソース ファイル **Microsoft.ReportViewer.Webforms.Resources** および **Microsoft.ReportViewer.Common.Resources** が含まれていることが確認できます。
+1. ReportViewerLP.exe を実行した後、c:\windows\assembly にリソース ファイルを表示、 **Microsoft.ReportViewer.Webforms.Resources** と **Microsoft.ReportViewer.Common.Resources**します。
 
 ### ローカライズされた ReportViewer コントロール用に構成する
 
 1. 前の手順に従って、Microsoft Report Viewer 2012 Runtime 再頒布可能パッケージをダウンロードしてインストールします。
 
-1. 作成 <language> コピーとプロジェクトに関連付けられたリソース アセンブリ ファイル フォルダーがあります。コピーするリソース アセンブリ ファイル: **Microsoft.ReportViewer.Webforms.Resources.dll** と **Microsoft.ReportViewer.Common.Resources.dll**します。リソース アセンブリ ファイルを選択し、プロパティ ペインで次のように設定します。 **出力ディレクトリにコピー** に"**常にコピー**"です。
+1. プロジェクトに <language> フォルダーを作成し、関連付けられたリソース アセンブリ ファイルをそこにコピーします。 コピーするリソース アセンブリ ファイル: **Microsoft.ReportViewer.Webforms.Resources.dll** と **Microsoft.ReportViewer.Common.Resources.dll**します。リソース アセンブリ ファイルを選択し、プロパティ ペインで次のように設定します。 **出力ディレクトリにコピー** に"**常にコピー**"です。
 
-1. Web プロジェクトのカルチャと UI カルチャを設定します。ASP.NET Web ページのカルチャおよび UI カルチャを設定する方法の詳細については、次を参照してください。 [方法: ASP.NET Web ページのグローバリゼーション用のカルチャおよび UI カルチャの設定](http://go.microsoft.com/fwlink/?LinkId=237461)します。
+1. Web プロジェクトのカルチャと UI カルチャを設定します。 ASP.NET Web ページのカルチャおよび UI カルチャを設定する方法の詳細については、次を参照してください。 [方法: ASP.NET Web ページのグローバリゼーション用のカルチャおよび UI カルチャの設定](http://go.microsoft.com/fwlink/?LinkId=237461)します。
 
 ## 認証と承認を構成する
 
@@ -93,7 +94,8 @@ ReportViewer は、適切な資格情報を使用してレポート サーバー
 ## ASP.NET Web アプリケーションを Azure に発行する
 
 ASP.NET Web アプリケーションを Azure に発行する方法については、次を参照してください。 [方法: 移行し、Visual Studio から Azure に Web アプリケーションを発行](../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) と [Web Apps と ASP.NET を使ってみる](../app-service-web/web-sites-dotnet-get-started.md)します。
->[AZURE.IMPORTANT] [Azure デプロイ プロジェクトの追加] または [Azure クラウド サービス プロジェクトの追加] コマンドがソリューション エクスプローラーのショートカット メニューに表示されない場合は、必要に応じてプロジェクトの [ターゲット フレームワーク] を .NET Framework 4 に変更してください。
+
+>[AZURE.IMPORTANT] ソリューション エクスプ ローラーで、ショートカット メニューで、[Azure デプロイ プロジェクトまたは Azure クラウド サービス プロジェクトの追加] コマンドが表示されない場合は、プロジェクトのターゲット フレームワークを .NET Framework 4 に変更する必要があります。
 >
 >これら 2 つのコマンド機能は、実質的には同じです。 インストールされている Microsoft Azure SDK のバージョンに合わせて応じて、いずれか一方のコマンドがショートカット メニューに表示されます。
 
@@ -101,13 +103,9 @@ ASP.NET Web アプリケーションを Azure に発行する方法について�
 
 [Microsoft レポート](http://go.microsoft.com/fwlink/?LinkId=205399)
 
-[Azure の仮想マシンで SQL Server Business Intelligence](virtual-machines-sql-server-business-intelligence.md)
+[Azure Virtual Machines での SQL Server Business Intelligence](virtual-machines-sql-server-business-intelligence.md)
 
-[PowerShell でネイティブ モード レポート サーバーと Azure VM を作成するには](virtual-machines-sql-server-create-native-mode-report-server-powershell.md)
+[ネイティブ モードのレポート サーバーを実行する Azure VM を PowerShell を使用して作成する](virtual-machines-sql-server-create-native-mode-report-server-powershell.md)
 
-[Reporting Services レポート ビューアー コントロールと Microsoft Azure 仮想マシン ベースのレポート サーバー](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
-
-
-
-
+[Reporting Services のレポート ビューアー制御と Microsoft Azure 仮想マシン ベースのレポート サーバー](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 

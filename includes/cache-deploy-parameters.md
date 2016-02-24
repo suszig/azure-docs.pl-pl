@@ -1,3 +1,4 @@
+
 ### redisCacheName
 
 作成する Azure Redis Cache の名前です。
@@ -30,7 +31,7 @@ SKU のファミリです。
 
 ### redisCacheCapacity
 
-新しい Azure Redis Cache インスタンスのサイズです。
+新しい Azure Redis Cache インスタンスのサイズです。 
 
     "redisCacheCapacity": {
       "type": "int",
@@ -49,6 +50,4 @@ SKU のファミリです。
       "type": "string",
       "defaultValue": "2.8"
     }
-
-
 

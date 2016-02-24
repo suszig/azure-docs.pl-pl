@@ -1,7 +1,8 @@
 次のステップに従って、MongoDB を CentOS Linux が実行されている仮想マシンにインストールして実行します。
-> [AZURE.WARNING] 認証、IP アドレス バインドなどの MongoDB セキュリティ機能は既定では有効になっていません。 MongoDB を運用環境に展開する前に、セキュリティ機能を有効にすることをお勧めします。 参照してください [セキュリティと認証](http://www.mongodb.org/display/DOCS/Security+and+Authentication) の詳細。
 
-1. MongoDB をインストールできるようにパッケージ管理システム (YUM) を構成します。 */etc/yum.repos.d/10gen.repo* ファイルを作成し、リポジトリの情報を保存して、以下を追加します。
+> [AZURE.WARNING] 認証、IP アドレス バインドなどの MongoDB セキュリティ機能は、既定では無効です。 MongoDB を運用環境に展開する前に、セキュリティ機能を有効にすることをお勧めします。  参照してください [セキュリティと認証](http://www.mongodb.org/display/DOCS/Security+and+Authentication) の詳細。
+
+1. MongoDB をインストールできるようにパッケージ管理システム (YUM) を構成します。 作成、 */etc/yum.repos.d/10gen.repo* ファイルをリポジトリの情報を保持し、次を追加します。
 
         [10gen]
         name=10gen Repository
@@ -19,18 +20,18 @@
 
     MongoDB がダウンロードおよびインストールされるまで待ちます。
 
-4. データ ディレクトリを作成します。 MongoDB では */data/db* ディレクトリにデータが保存されるように既定で設定されていますが、このディレクトリは作成する必要があります。 作成するには、次のように実行します。
+4. データ ディレクトリを作成します。 既定では MongoDB にデータを保存、 */データ/db* ディレクトリがこのディレクトリは作成する必要があります。 作成するには、次のように実行します。
 
         $ sudo mkdir -p /srv/datadrive/data
         $ sudo chown `id -u` /srv/datadrive/data
 
-    Linux での MongoDB のインストールの詳細については、次を参照してください。 [クイック スタート Unix ][quickstartunix]します。
+    Linux での MongoDB のインストールの詳細については、次を参照してください。 [クイック スタート Unix][QuickstartUnix]します。
 
 5. データベースを開始するには、次を実行します。
 
         $ mongod --dbpath /srv/datadrive/data --logpath /srv/datadrive/data/mongod.log
 
-    MongoDB サーバーがジャーナル ファイルを開始して事前に割り当てると、すべてのログ メッセージが */srv/datadrive/data/mongod.log* ファイルにダイレクトされます。 MongoDB がジャーナル ファイルを事前に割り当てて、接続のリッスンを開始するには、数分かかる場合があります。
+    すべてのログ メッセージが表示されます、 */srv/datadrive/data/mongod.log* ファイル、MongoDB サーバーが開始して、事前のジャーナル ファイルに割り当てるとします。 MongoDB がジャーナル ファイルを事前に割り当てて、接続のリッスンを開始するには、数分かかる場合があります。
 
 6. MongoDB 管理シェルを開始するには、個別の SSH または PuTTY ウィンドウを開いて実行します。
 
@@ -46,13 +47,13 @@
 
     データベースは挿入によって作成されます。
 
-7. MongoDB をインストールしたら、MongoDB にリモートでアクセスできるように、エンドポイントを構成する必要があります。 管理ポータルで、**[仮想マシン]**、新しい仮想マシンの名前、**[エンドポイント]** の順にクリックします。
+7. MongoDB をインストールしたら、MongoDB にリモートでアクセスできるように、エンドポイントを構成する必要があります。 管理ポータルで、クリックして **仮想マシン**, を新しい仮想マシンの名前をクリックしてクリックして **エンドポイント**します。
+    
+    ![エンドポイント][Image7]
 
-    ![Endpoints][image7]
-
-8. ページの下部にある **[エンドポイントの追加]** をクリックします。
-
-    ![Endpoints][image8]
+8. クリックして **エンドポイントの追加** ページの下部にあります。
+    
+    ![エンドポイント][Image8]
 
 9. 次の設定で、エンドポイントを追加します。
 
@@ -60,13 +61,14 @@
  - **プロトコル**: TCP
  - **パブリック ポート**: 27017
  - **プライベート ポート**: 27017
-
+ 
  これにより、MongoDB へのリモート アクセスが可能になります。
 
 
 
+[QuickStartUnix]: http://www.mongodb.org/display/DOCS/Quickstart+Unix
 
-[quickstartunix]: http://www.mongodb.org/display/DOCS/Quickstart+Unix 
-[image7]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png 
-[image8]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png 
+
+[Image7]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
+[Image8]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png
 

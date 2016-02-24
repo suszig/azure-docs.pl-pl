@@ -16,8 +16,8 @@
     ms.date="12/14/2015"
     ms.author="lauraa"/>
 
-
 # Azure Site Recovery と PowerShell を使用して VMM クラウドの Hyper-V 仮想マシンをレプリケートする
+
 
 ## 概要
 
@@ -37,11 +37,10 @@ Azure Site Recovery は、さまざまなデプロイ シナリオでの仮想�
 ### Azure の前提条件
 
 - 必要があります、 [Microsoft Azure](http://azure.microsoft.com/) アカウントです。 まず、 [無料評価版](pricing/free-trial/)します。
-- レプリケートしたデータを格納するには Azure ストレージ アカウントが必要になります。 アカウントでは geo レプリケーションを有効にする必要があります。 アカウントは Azure Site Recovery コンテナーと同じリージョンである必要があり、同じサブスクリプションに関連付けられている必要があります。 [の詳細については、Azure ストレージ](../storage/storage-introduction.md)します。
+- レプリケートしたデータを格納するには Azure ストレージ アカウントが必要になります。 アカウントでは geo レプリケーションを有効にする必要があります。 アカウントは Azure Site Recovery コンテナーと同じリージョンである必要があり、同じサブスクリプションに関連付けられている必要があります。 [Azure ストレージの詳細について](../storage/storage-introduction.md)します。
 - 保護する仮想マシンに準拠しているかどうかを確認する必要があります [Azure の仮想マシンの前提条件](site-recovery-best-practices.md#virtual-machines)します。
 
 ### VMM の前提条件
-
 - VMM サーバーの System Center 2012 R2 で実行されている必要があります。
 - 保護する VMM サーバーにクラウドが少なくとも 1 つ必要です。 このクラウドには以下のものが含まれている必要があります。
     - 1 つ以上の VMM ホスト グループ。
@@ -51,11 +50,10 @@ Azure Site Recovery は、さまざまなデプロイ シナリオでの仮想�
 ### Hyper-V の前提条件
 
 - ホスト Hyper-V サーバーは、少なくとも Hyper-V ロールを持つ Windows Server 2012 を実行しており、最新の更新プログラムがインストールされている必要があります。
-- クラスターで Hyper-V を実行している場合に、静的 IP アドレス ベースのクラスターが存在すると、クラスター ブローカーが自動的に作成されません。 クラスター ブローカーを手動で構成する必要があります。 これを行うには、Server Manager でフェイルオーバー クラスター マネージャーを選択します。クラスターに接続し、**[ロールの構成]** をクリックし、高可用性ウィザードの **[ロールの選択]** 画面で **[Hyper-V レプリカ ブローカー]** を選択します。
+- クラスターで Hyper-V を実行している場合に、静的 IP アドレス ベースのクラスターが存在すると、クラスター ブローカーが自動的に作成されません。 クラスター ブローカーを手動で構成する必要があります。 これを行う、サーバー マネージャーで > フェールオーバー クラスター マネージャーでは、クラスターに接続して、をクリックして **役割の構成** 選択 **HYPER-V レプリカ ブローカー** で、 **役割の選択** 高可用性ウィザードの画面です。 
 - 保護を管理するすべての Hyper-V ホスト サーバーまたはクラスターが VMM クラウドに属している必要があります。
 
 ### ネットワーク マッピングの前提条件
-
 仮想マシンを Azure ネットワーク マッピングで保護する場合、ソース VMM サーバー上の VM ネットワークとターゲットの Azure ネットワークをマップして以下を実現します。
 
 - 同じネットワーク上でフェールオーバーするすべてのマシンは、どの復旧計画に含まれていても、相互に接続できる。
@@ -66,15 +64,14 @@ Azure Site Recovery は、さまざまなデプロイ シナリオでの仮想�
 
 - ソース VMM サーバー上の保護する仮想マシンが VM ネットワークに接続している。 そのネットワークは、クラウドに関連付けられた論理ネットワークにリンクされている必要があります。
 - レプリケートされた仮想マシンがフェールオーバー後に接続できる Azure ネットワーク。 フェールオーバー時にこのネットワークを選択します。 ネットワークは Azure Site Recovery サブスクリプションと同じリージョンである必要があります。
-- [詳細](site-recovery-network-mapping.md) ネットワーク マッピングに関する。
+- [詳細については](site-recovery-network-mapping.md) ネットワーク マッピングに関する。
 
-### PowerShell の前提条件
-
-Azure PowerShell を使用する準備が整っていることを確認してください。 PowerShell を使用している場合は、0.8.10 以降のバージョンにアップグレードする必要があります。 PowerShell の設定の詳細については、次を参照してください。 [をインストールして、Azure PowerShell を構成する方法](powershell-install-configure.md)します。 設定し、PowerShell を構成すると、すべてのサービスの利用可能なコマンドレットを表示できます [ここ](https://msdn.microsoft.com/library/dn850420.aspx)します。
+###PowerShell の前提条件
+Azure PowerShell を使用する準備が整っていることを確認してください。 PowerShell を使用している場合は、0.8.10 以降のバージョンにアップグレードする必要があります。 PowerShell の設定の詳細については、次を参照してください。 [をインストールして、Azure PowerShell を構成する方法](powershell-install-configure.md)します。 設定し、PowerShell を構成すると、すべてのサービスの利用可能なコマンドレットを表示できます [ここ](https://msdn.microsoft.com/library/dn850420.aspx)します。 
 
 処理方法などのパラメーター値、入力呼び出し力は通常 Azure PowerShell でのコマンドレットを使用するのに役立つヒントについてを参照してください。 [Azure コマンドレットの概要](https://msdn.microsoft.com/library/azure/jj554332.aspx)します。
 
-## ステップ 1: サブスクリプションを設定する
+## ステップ 1: サブスクリプションを設定する 
 
 PowerShell で、次のコマンドレットを実行します。
 
@@ -83,11 +80,12 @@ PowerShell で、次のコマンドレットを実行します。
             $UserName = "<user@live.com>"
     $Password = "<password>"
     $AzureSubscriptionName = "prod_sub1"
-    
+
     $SecurePassword = ConvertTo-SecureString -AsPlainText $Password -Force
     $Cred = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $securePassword
     Add-AzureAccount -Credential $Cred;
     $AzureSubscription = Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
+
 
 "< >" 内の要素をユーザー固有の情報に置き換えます。
 
@@ -100,12 +98,14 @@ PowerShell で "< >" 内の要素をユーザー固有の情報に置き換え�
     $VaultName = "<testvault123>"
     $VaultGeo  = "<Southeast Asia>"
     $OutputPathForSettingsFile = "<c:\>"
+
 ```
 
 
 ```
     New-AzureSiteRecoveryVault -Location $VaultGeo -Name $VaultName;
     $vault = Get-AzureSiteRecoveryVault -Name $VaultName;
+
 ```
 
 ## ステップ 3: コンテナー登録キーを生成する
@@ -113,44 +113,52 @@ PowerShell で "< >" 内の要素をユーザー固有の情報に置き換え�
 コンテナーの登録キーを生成します。 Azure Site Recovery プロバイダーをダウンロードして VMM サーバーにインストールした後で、このキーを使用して、VMM サーバーをコンテナーに登録します。
 
 1.  コンテナー設定ファイルを取得し、コンテキストを設定します。
-
+    
     ```
+    
         $VaultName = "<testvault123>"
         $VaultGeo  = "<Southeast Asia>"
         $OutputPathForSettingsFile = "<c:\>"
-
+    
         $VaultSetingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;
+    
     ```
-
+    
 2.  次のコマンドを実行して、コンテナーのコンテキストを設定します。
-
+    
     ``` 
-        $VaultSettingFilePath $vaultSetingsFile.FilePath = 
-        $VaultContext = インポート AzureSiteRecoveryVaultSettingsFile-パス $VaultSettingFilePath-erroraction の停止
+        $VaultSettingFilePath = $vaultSetingsFile.FilePath 
+        $VaultContext = Import-AzureSiteRecoveryVaultSettingsFile -Path $VaultSettingFilePath -ErrorAction Stop
 ```
 
 ## Step 4: Install the Azure Site Recovery Provider
 
 1.  On the VMM machine, create a directory by running the following command:
-```
-
+    
+    ```
+    
         pushd C:\ASR\
     
     ```
-
-2. 次のコマンドを実行して、ダウンロードしたプロバイダーを使用して、ファイルを抽出します。
-
+    
+2. Extract the files using the downloaded provider by running the following command
+    
     ```
+    
         AzureSiteRecoveryProvider.exe /x:. /q
+    
     ```
-
-3. 次のコマンドを使用してプロバイダーをインストールします。
-
+    
+3. Install the provider using the following commands:
+    
     ```
+    
     .\SetupDr.exe /i
+    
     ```
-
+    
     ```
+    
     $installationRegPath = "hklm:\software\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter"
     do
     {
@@ -160,174 +168,192 @@ PowerShell で "< >" 内の要素をユーザー固有の情報に置き換え�
                                     $isNotInstalled = $false;
                     }
     }While($isNotInstalled)
+    
     ```
-
-    インストールが完了するのを待ちます。
-
-4. 次のコマンドを使用して、コンテナーにサーバーを登録します。
-
+    
+    Wait for the installation to finish.
+    
+4. Register the server in the vault using the following command:
+    
     ```
+    
     $BinPath = $env:SystemDrive+"\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin"
     pushd $BinPath
     $encryptionFilePath = "C:\temp\"
     .\DRConfigurator.exe /r /Credentials $VaultSettingFilePath /vmmfriendlyname $env:COMPUTERNAME /dataencryptionenabled $encryptionFilePath /startvmmservice
+    
     ```
+    
+## Step 5: Create an Azure storage account
 
-## ステップ 5: Azure のストレージ アカウントを作成する
-
-Azure のストレージ アカウントを持っていない場合、次のコマンドを実行して、geo レプリケーションが有効になっているアカウントを作成します。
+If you don't have an Azure storage account, create a geo-replication enabled account by running the following command:
 
 ```
 
-$StorageAccountName = "teststorageacc1"
-$StorageAccountGeo  = "Southeast Asia"
+$StorageAccountName ="teststorageacc1"
+$StorageAccountGeo ="Southeast Asia"
 
-New-AzureStorageAccount -StorageAccountName $StorageAccountName -Label $StorageAccountName -Location $StorageAccountGeo;
+新しい AzureStorageAccount StorageAccountName $StorageAccountName-$StorageAccountName にラベルを付ける-場所 $StorageAccountGeo です。
+
 ```
 
-ストレージ アカウントは Azure Site Recovery サービスと同じリージョンである必要があり、同じサブスクリプションに関連付けられている必要があります。
+Note that the storage account must be in the same region as the Azure Site Recovery service, and be associated with the same subscription.
 
 
-## ステップ 6: Azure Recovery Services エージェントをインストールする
+## Step 6: Install the Azure Recovery Services Agent
 
-Azure ポータルから、保護する VMM クラウドに配置されている Hyper-V ホスト サーバーごとに、Azure Recovery Services エージェントをインストールします。
+From the Azure portal, install the Azure Recovery Services agent on each Hyper-V host server located in the VMM clouds you want to protect.
 
-すべての VMM ホストで次のコマンドを実行します。
+Run the following command on all VMM hosts:
 
 ```
 
     marsagentinstaller.exe /q /nu
+
 ```
 
 
-## ステップ 7: クラウドの保護設定を構成する
+## Step 7: Configure cloud protection settings
 
-1.  次のコマンドを実行して、Azure にクラウド保護のプロファイルを作成します。
-
+1.  Create a cloud protection profile to Azure by running the following command:
+    
     ```
+    
     $ReplicationFrequencyInSeconds = "300";
     $ProfileResult = New-AzureSiteRecoveryProtectionProfileObject -ReplicationProvider  HyperVReplica -RecoveryAzureSubscription $AzureSubscriptionName `
     -RecoveryAzureStorageAccount $StorageAccountName -ReplicationFrequencyInSeconds     $ReplicationFrequencyInSeconds;
+    
     ```
-
-2.  次のコマンドを実行して、保護コンテナーを取得します。
-
+    
+2.  Get a protection container by running the following commands:
+    
     ```
+    
         $PrimaryCloud = "testcloud"
         $protectionContainer = Get-AzureSiteRecoveryProtectionContainer -Name $PrimaryCloud;    
+    
     ```
-
-3.  クラウドと保護コンテナーとのアソシエーションを開始します。
-
+    
+3.  Start the association of the protection container with the cloud:
+    
     ```
+    
         $associationJob = Start-AzureSiteRecoveryProtectionProfileAssociationJob -  ProtectionProfile $profileResult -PrimaryProtectionContainer $protectionContainer;      
+    
     ```
-
-4.  ジョブが完了したら、次のコマンドを実行します。
+    
+4.  After the job has finished, run the following command:
 
             $job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
             if($job -eq $null -or $job.StateDescription -ne "Completed")
             {
                 $isJobLeftForProcessing = $true;
             }
-
-5. ジョブの処理が完了したら、次のコマンドを実行します。
+5. After the job has finished processing, run the following command:
 
         if($isJobLeftForProcessing)
             {
             Start-Sleep -Seconds 60
             }
                 }While($isJobLeftForProcessing)
+    
+    
+To check the completion of the operation, follow the steps in [Monitor Activity](#monitor).
 
+## Step 8: Configure network mapping
+Before you begin network mapping verify that virtual machines on the source VMM server are connected to a VM network. In addition, create one or more Azure virtual networks. Note that multiple VM networks can be mapped to a single Azure network.
 
+Note that if the target network has multiple subnets and one of those subnets has the same name as subnet on which the source virtual machine is located, then the replica virtual machine will be connected to that target subnet after failover. If there is not a target subnet with a matching name, the virtual machine will be connected to the first subnet in the network.
 
-操作の完了を確認する」の手順に従います [アクティビティを監視する](#monitor)します。
-
-## ステップ 8: ネットワーク マッピングを構成する
-
-ネットワーク マッピングを開始する前に、ソース VMM サーバー上の仮想マシンが VM ネットワークに接続されていることを確認してください。 さらに、1 つまたは複数の Azure 仮想ネットワークを作成します。 複数の VM ネットワークを 1 つの Azure ネットワークにマップできることに注意してください。
-
-ターゲット ネットワークに複数のサブネットがあり、そのサブネットのいずれかが、ソースの仮想マシンが配置されているサブネットと同じ名前である場合、フェールオーバー後、レプリカの仮想マシンはそのターゲット サブネットに接続することに注意してください。 ターゲットのサブネットで名前が一致するものがなければ、仮想マシンはネットワークの最初のサブネットに接続されます。
-
-最初のコマンドは、現在の Azure Site Recovery コンテナーのサーバーを取得します。 このコマンドは、$Servers 配列変数に、Microsoft Azure Site Recovery のサーバーを格納します。
+The first command gets servers for the current Azure Site Recovery vault. The command stores the Microsoft Azure Site Recovery servers in the $Servers array variable.
 
 
 
     $Servers = Get-AzureSiteRecoveryServer
 
-2 番目のコマンドは、$Servers 配列内の最初のサーバーの Site Recovery ネットワークを取得します。 コマンドは、$Networks 変数に、ネットワークを格納します。
+
+The second command gets the site recovery network for the first server in the $Servers array. The command stores the networks in the $Networks variable.
 
 ```
 
     $Networks = Get-AzureSiteRecoveryNetwork -Server $Servers[0]
+
 ```
 
-3 番目のコマンドは、Get-AzureSubscription コマンドレットを使用して Azure のサブスクリプションを取得し、$Subscriptions 変数にその値を格納します。
+The third command gets your Azure subscriptions by using the Get-AzureSubscription cmdlet, and then stores that value in the $Subscriptions variable. 
 
 ```
 
     $Subscriptions = Get-AzureSubscription
+
 ```
 
-4 番目のコマンドは、Get AzureVNetSite コマンドレットを使用して Azure の仮想ネットワークを取得し、$AzureVmNetworks 変数にその値を格納します。
+The fourth command gets Azure virtual networks by using the Get-AzureVNetSite cmdlet, and then that value in the $AzureVmNetworks variable.
 
 ```
 
     $AzureVmNetworks = Get-AzureVNetSite
-```
-
-最後のコマンドレットは、プライマリ ネットワークと Azure の仮想マシンのネットワーク間のマッピングを作成します。 このコマンドレットは $Networks の最初の要素として、プライマリ ネットワークを指定します。 このコマンドレットは、仮想マシンのネットワークを、その ID を使用して $AzureVmNetworks の最初の要素として指定します。 このコマンドは、Azure サブスクリプションの ID を含みます。
 
 ```
 
-PS C:\> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
+The final cmdlet creates a mapping between the primary network and the Azure virtual machine network. The cmdlet specifies the primary network as the first element of $Networks. The cmdlet specifies a virtual machine network as the first element of $AzureVmNetworks by using its ID. The command includes your Azure subscription ID. 
+
 ```
 
-## ステップ 9: 仮想マシンの保護を有効化する
+PS C:\ > 新しい AzureSiteRecoveryNetworkMapping PrimaryNetwork $Networks [0] AzureSubscriptionId $Subscriptions [0]。SubscriptionId AzureVMNetworkId $AzureVmNetworks [0] をダブルクリックします。Id
 
-サーバー、クラウド、およびネットワークを正しく構成した後で、クラウド内の仮想マシンの保護を有効にすることができます。 以下の点に注意してください。
+```
 
-仮想マシンが満たす必要がある [Azure の仮想マシンの前提条件](site-recovery-best-practices.md#virtual-machines)します。
+## Step 9: Enable protection for virtual machines
 
-オペレーティング システムとオペレーティング システム ディスクの保護を有効にするには、仮想マシンにプロパティを設定する必要があります。 仮想マシン テンプレートを使用して VMM 内で仮想マシンを作成する際に、プロパティを設定できます。 また、仮想マシンのプロパティの **[全般]** タブと **[ハードウェア構成]** タブで既存の仮想マシンに対してこれらのプロパティを設定することもできます。 VMM でこれらのプロパティを設定していない場合は、Azure Site Recovery ポータルで構成できます。
+After servers, clouds, and networks are configured correctly, you can enable protection for virtual machines in the cloud. Note the following:
+
+Virtual machines must meet [Azure virtual machine prerequisites](site-recovery-best-practices.md#virtual-machines).
+
+To enable protection the operating system and operating system disk properties must be set for the virtual machine. When you create a virtual machine in VMM using a virtual machine template you can set the property. You can also set these properties for existing virtual machines on the **General** and **Hardware Configuration** tabs of the virtual machine properties. If you don't set these properties in VMM you'll be able to configure them in the Azure Site Recovery portal.
 
 
-
-1.  保護を有効にするには、次のコマンドを実行して保護コンテナーを取得します。
-
+    
+1.  To enable protection, run the following command to get the protection container:
+        
     ```
+    
     $ProtectionContainer = Get-AzureSiteRecoveryProtectionContainer -Name $CloudName
+    
     ```
-
-2. 次のコマンドを実行して、保護エンティティ (VM) を取得します。
-
+    
+2. Get the protection entity (VM) by running the following command:
+        
     ```
+    
     $protectionEntity = Get-AzureSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
+        
+        ```
+            
+3. Enable the DR for the VM by running the following command:
+
+    
+    $jobResult = Set-AzureSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity  -Protection Enable -Force
+    
+
+## Test your deployment
+
+To test your deployment you can run a test failover for a single virtual machine, or create a recovery plan consisting of multiple virtual machines and run a test failover for the plan. Test failover simulates your failover and recovery mechanism in an isolated network. Note that:
+
+- If you want to connect to the virtual machine in Azure using Remote Desktop after the failover, enable Remote Desktop Connection on the virtual machine before you run the test failover.
+- After failover, you'll use a public IP address to connect to the virtual machine in Azure using Remote Desktop. If you want to do this, ensure you don't have any domain policies that prevent you from connecting to a virtual machine using a public address.
+
+To check the completion of the operation, follow the steps in [Monitor Activity](#monitor).
+
+### Create a recovery plan
+
+1. Create an .xml file as a template for your recovery plan using the data below, and then save it as "C:\RPTemplatePath.xml".
+2. Change the RecoveryPlan node Id, Name, PrimaryServerId, and SecondaryServerId.
+3. Change the ProtectionEntity node PrimaryProtectionEntityId (vmid from VMM).
+4. You can add more VMs by adding more ProtectionEntity nodes.
+    
     ```
-
-3. 次のコマンドを実行して VM の DR を有効にします。
-
-    $jobResult = セット AzureSiteRecoveryProtectionEntity ProtectionEntity $protectionEntity の保護を有効にする - Force
-
-
-## デプロイのテスト
-
-デプロイをテストするために、1 台の仮想マシンに対するテスト フェールオーバーを実行することや、複数の仮想マシンで構成される復旧計画を作成して、その計画のテスト フェールオーバーを実行することができます。 テスト フェールオーバーは、孤立したネットワークでフェールオーバーと復旧のシミュレーションを実行します。 以下の点に注意してください。
-
-- フェールオーバー後に Azure でリモート デスクトップを使用して仮想マシンに接続する場合は、テストのフェールオーバーを実行する前に、仮想マシンのリモート デスクトップ接続を有効にします。
-- フェールオーバー後、パブリック IP アドレスを使用して、Azure の仮想マシンにリモート デスクトップで接続します。 この接続では、パブリック アドレスを使用する仮想マシンの接続を妨げるドメイン ポリシーを使用していないことを確認してください。
-
-操作の完了を確認する」の手順に従います [アクティビティを監視する](#monitor)します。
-
-### 復旧計画の作成
-
-1. 次のデータを使用して .xml ファイルを復旧計画のテンプレートとして作成し、「C:\RPTemplatePath.xml」として保存します。
-2. RecoveryPlan ノードの Id、Name、PrimaryServerId、SecondaryServerId を変更します。
-3. ProtectionEntity ノードの PrimaryProtectionEntityId (VMM の vmid) を変更します。
-4. ProtectionEntity ノードを追加することでさらに VM を追加することができます。
-
-    ```
-
+    
     <#
     <?xml version="1.0" encoding="utf-16"?>
     <RecoveryPlan Id="d0323b26-5be2-471b-addc-0a8742796610" Name="rp-test"  PrimaryServerId="9350a530-d5af-435b-9f2b-b941b5d9fcd5"  SecondaryServerId="21a9403c-6ec1-44f2-b744-b4e50b792387" Description=""     Version="V2014_07">
@@ -354,67 +380,74 @@ PS C:\> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureS
       </ActionGroupSequence>
     </RecoveryPlan>
     #>
+    
     ```
-
-4. テンプレートのデータを入力します。
-
+    
+4. Fill in the data in the template:
+    
     ```
+    
     $TemplatePath = "C:\RPTemplatePath.xml";
+    
     ```
-
-5. RecoveryPlan を作成します。
-
+    
+5. Create the RecoveryPlan:
+    
     ```
+    
         $RPCreationJob = New-AzureSiteRecoveryRecoveryPlan -File $TemplatePath -WaitForCompletion;
+    
     ```
+    
+### Run a test failover
 
-### テスト フェールオーバーの実行
-
-1. 次のコマンドを実行して RecoveryPlan オブジェクトを取得します。
-
+1. Get the RecoveryPlan object by running the following command:
+    
     ```
+    
         $RPObject = Get-AzureSiteRecoveryRecoveryPlan -Name $RPName;
+    
     ```
-
-2. 次のコマンドを実行してテスト フェールオーバーを開始します。
-
+    
+2. Start the test failover by running the following command:
+    
     ```
+    
     $jobIDResult = Start-AzureSiteRecoveryTestFailoverJob -RecoveryPlan $RPObject -Direction PrimaryToRecovery;
+    
     ```
+    
+## <a name=monitor></a> Monitor Activity
 
-## <a name=monitor></a> アクティビティの監視
-
-アクティビティを監視するには、次のコマンドを使用します。 ジョブの処理が終了するまで待機する必要があります。
+Use the following commands to monitor the activity. Note that you have to wait in between jobs for the processing to finish.
 
 ```
 
-Do
+操作を行います
 {
-                $job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
-                Write-Host "Job State:{0}, StateDescription:{1}" -f Job.State, $job.StateDescription;
-                if($job -eq $null -or $job.StateDescription -ne "Completed")
+                $job = get AzureSiteRecoveryJob-Id $associationJob.JobId です。
+                Write-host"ジョブの状態: {0}、StateDescription: \\ 1 \\"-f Job.State $job します。StateDescription です。
+                場合 ($job-eq $null- または $job です。StateDescription-ne「完了」)
                 {
-                                $isJobLeftForProcessing = $true;
+                                $isJobLeftForProcessing = $true です。
                 }
+
 ```
 
 ```
 
 if($isJobLeftForProcessing)
                 {
-                                Start-Sleep -Seconds 60
+                                Start-sleep - 60 (秒)
                 }
-}While($isJobLeftForProcessing)
+} While($isJobLeftForProcessing)
+
 ```
 
 
-## 次のステップ
+## Next steps
 
-[詳細](https://msdn.microsoft.com/library/dn850420.aspx) Azure Site Recovery の PowerShell コマンドレットに関するします。 </a>.
-
-
-
-
+[Read more](https://msdn.microsoft.com/library/dn850420.aspx) about Azure Site Recovery PowerShell cmdlets. </a>.
 
 
 

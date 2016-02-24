@@ -1,11 +1,12 @@
 
-1. 次に、コメントを解除または次のコード行を追加および置換 `< yourClient >` 、プロジェクトをモバイル サービスに接続したときに service.js ファイルに追加された変数とします。
+
+1. 次に、コメントを解除するか次のコード行を追加して、`<yourClient>` をプロジェクトをモバイル サービスに接続したときの service.js ファイルに追加された変数で置き換えます。
 
         var todoTable = <yourClient>.getTable('TodoItem');
 
-    このコードでは、caching フィルターを使用して、新しいデータベース テーブルのプロキシ オブジェクト (**todoTable**) を作成します。
+    このコードは、プロキシ オブジェクトを作成 (**todoTable**)、新しいデータベース テーブルのキャッシュを使用してフィルター処理します。 
 
-2. **InsertTodoItem** 関数を次のコードで置き換えます。
+2. 置き換える、 **InsertTodoItem** 関数を次のコード。
 
         var insertTodoItem = function (todoItem) {
             // Inserts a new row into the database. When the operation completes
@@ -17,7 +18,7 @@
 
     このコードでは、新しい項目をテーブルに挿入します。
 
-3. **RefreshTodoItems** 関数を次のコードで置き換えます。
+3. 置き換える、 **RefreshTodoItems** 関数を次のコード。
 
         var refreshTodoItems = function () {
             // This code refreshes the entries in the list by querying the table.
@@ -29,10 +30,10 @@
             });
         };
 
-    これにより、todoTable 内で、モバイル サービスから返されたすべての **TodoItem** オブジェクトが格納される項目のコレクションへのバインディングが設定されます。
+    これにより、todoTable 内でのすべてが格納される項目のコレクションへのバインドの設定、 **TodoItem** 、モバイル サービスからオブジェクトが返されます。 
 
-4. **UpdateCheckedTodoItem** 関数を次のコードで置き換えます。
-
+4. 置き換える、 **UpdateCheckedTodoItem** 関数を次のコード。
+        
         var updateCheckedTodoItem = function (todoItem) {
             // This code takes a freshly completed TodoItem and updates the database. 
             todoTable.update(todoItem);
@@ -43,8 +44,4 @@
     これにより、項目の更新がモバイル サービスに送信されます。
 
 バックエンド ストレージのモバイル サービスを使用するようにアプリケーションを更新した後は、モバイル サービスに対してアプリケーションをテストします。
-
-
-
-
 

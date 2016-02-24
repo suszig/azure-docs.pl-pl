@@ -17,7 +17,6 @@
     ms.author="markusvi;andkjell"/>
 
 
-
 # Azure AD Connect Sync: 技術的概念
 
 Azure AD Connect Sync は、堅牢なメタディレクトリ同期プラットフォームを基盤としています。
@@ -90,9 +89,8 @@ ID が一緒にリンクされ、インポート フローのマッピングを�
 ## その他のリソース
 
 * [Azure AD Connect Sync: 同期オプションのカスタマイズ](active-directory-aadconnectsync-whatis.md)
-* [内部設置型 id と Azure Active Directory の統合](active-directory-aadconnect.md)
+* [オンプレミス ID と Azure Active Directory の統合](active-directory-aadconnect.md)
 
-
-
-[1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png 
+<!--Image references-->
+[1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
 

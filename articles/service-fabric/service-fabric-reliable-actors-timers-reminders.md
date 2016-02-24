@@ -17,12 +17,10 @@
    ms.author="amanbha"/>
 
 
-
 # アクターのタイマー
-
 アクターのタイマーは、アクターのランタイムによって提供されるターンごとの同時実行の保証をコールバック メソッドが考慮するように、.NET タイマーの単純なラッパーを提供します。
 
-アクターが使用できる、 `RegisterTimer` と `UnregisterTimer` メソッドをその基本クラスを登録し、タイマーの登録を解除します。 次の例はタイマー API の使用を示します。 API は、.NET タイマーによく似ています。 タイマーの期限が次の例で、 `MoveObject` メソッドがアクター ランタイムによって呼び出され、ターンごとの同時実行、つまり他のアクターのメソッドまたはタイマーとアラームのコールバックがない進行中のこのコールバックまでの実行が完了を尊重することが保証されます。
+アクターは、`RegisterTimer` と `UnregisterTimer` のメソッドをその基本クラスに使用して、タイマーを登録/登録解除できます。 次の例はタイマー API の使用を示します。 API は、.NET タイマーによく似ています。 次の例で、タイマーの期限に達している場合、`MoveObject` メソッドがアクターのランタイムによって呼び出され、ターンごとの同時実行が考慮されることが保証されます。つまり、このコールバックの実行が完了するまで、他のアクターのメソッドまたはタイマーとアラームのコールバックが進行しません。
 
 ```csharp
 class VisualObjectActor : StatefulActor<VisualObject>, IVisualObject
@@ -67,12 +65,11 @@ class VisualObjectActor : StatefulActor<VisualObject>, IVisualObject
 ガベージ コレクションの一部としてアクターが非アクティブ化され、その後にタイマーのコールバックが呼び出されないと、すべてのタイマーが停止します。 また、アクターのランタイムは、非アクティブ化の前に実行されていたタイマーについての情報は保持しません。 その後、再アクティブ化したときに必要なタイマーを登録するかどうかはアクターによって異なります。 詳細についてを参照してください [アクターのガベージ コレクション](service-fabric-reliable-actors-lifecycle.md)します。
 
 ## アクターのアラーム
-
 アラームは、指定した時間にアクターに永続的なコールバックをトリガーするメカニズムです。 機能はタイマーに似ていますが、タイマーとは異なり、アラームはアクターによって明示的に登録が解除されるまでのすべての状況下でトリガーされます。 具体的には、アラームはアクターの無効化およびフェールオーバーによりトリガーされます。これは、アクターのランタイムがアクターのアラームに関する情報を永続化するためです。
 
-アラームは、ステートフル アクターのみでサポートされます。 ステートレス アクターは、アラームを使用できません。 アクターの状態プロバイダーは、アクターによって登録されているアラームに関する情報を保存する役割を担います。
+アラームは、ステートフル アクターのみでサポートされます。 ステートレス アクターは、アラームを使用できません。 アクターの状態プロバイダーは、アクターによって登録されているアラームに関する情報を保存する役割を担います。  
 
-アクターを呼び出してアラームを登録する、 `RegisterReminder` 次の例のように、基本クラスで提供されるメソッドです。
+アラームを登録するため、アクターは次の例に示すように、基本クラスで提供されている  `RegisterReminder` メソッドを呼び出します。
 
 ```csharp
 string task = "Pay cell phone bill";
@@ -85,9 +82,9 @@ Task<IActorReminder> reminderRegistration = RegisterReminder(
                                                 ActorReminderAttributes.None);
 ```
 
-上記の例で `「携帯電話料金を支払う」` はアラーム名であり、アクターがアラームを一意に識別に使用する文字列です。 `BitConverter.GetBytes(amountInDollars)` アラームに関連付けられているコンテキストします。 これはアクターに戻りますアラームのコールバックに渡す引数としてつまり `IRemindable.ReceiveReminderAsync`します。
+上記の例で `"Pay cell phone bill"` はアラーム名であり、アクターがアラームを一意に識別に使用する文字列です。 `BitConverter.GetBytes(amountInDollars)` アラームに関連付けられているコンテキストです。 これはアクターに戻りますアラームのコールバックに渡す引数としてつまり `IRemindable.ReceiveReminderAsync`
 
-アラームを使用するアクターを実装する必要があります `IRemindable` インターフェイスを次の例で示すようにします。
+アラームを使用するアクターは、次の例に示すように `IRemindable` インターフェイスを実装する必要があります。
 
 ```csharp
 public class ToDoListActor : StatefulActor<ToDoList>, IToDoListActor, IRemindable
@@ -104,20 +101,16 @@ public class ToDoListActor : StatefulActor<ToDoList>, IToDoListActor, IRemindabl
 }
 ```
 
-Fabric アクター ランタイムが呼び出すアラームがトリガーされると、 `ReceiveReminderAsync` アクターのメソッドです。 アクターは、複数のアラームを登録でき、 `ReceiveReminderAsync` メソッドには、いつでもこれらの確認メッセージのいずれかがトリガーが呼び出されます。 アクターに渡されるアラーム名を使用できます、 `ReceiveReminderAsync` どのアラームがトリガーされたを確認するメソッドです。
+アラームがトリガーされると、ファブリックのアクターのランタイムがアクターの `ReceiveReminderAsync` メソッドを呼び出します。 アクターは複数のアラームを登録でき、`ReceiveReminderAsync` メソッドは、そのいずれかのアラームがトリガーされると必ず呼び出されます。 アクターは `ReceiveReminderAsync` メソッドに渡されるアラーム名を使用して、どのアラームがトリガーされたかを判別できます。
 
-ランタイムは、アクターを保存するアクター状態のときに、 `ReceiveReminderAsync` 呼び出しが完了します。 状態の保存中にエラーが発生した場合、そのアクターのオブジェクトは非アクティブ化し、新しいインスタンスがアクティブ化されます。 状態がアラームのコールバックの完了時に保存する必要がないかを指定する、 `ActorReminderAttributes.ReadOnly` フラグを設定できる、 `属性` パラメーターと、 `RegisterReminder` アラームを作成するメソッドが呼び出されます。
+アクターのランタイムは、`ReceiveReminderAsync` の呼び出しが完了するとアクターの状態を保存します。 状態の保存中にエラーが発生した場合、そのアクターのオブジェクトは非アクティブ化し、新しいインスタンスがアクティブ化されます。 アラームのコールバックの完了時に状態を保存する必要がないことを指定するため、 `RegisterReminder` メソッドを呼び出してアラームを作成するときに、 `attributes` パラメーターに `ActorReminderAttributes.ReadOnly` フラグを設定することができます。
 
-アラームの登録を解除する、 `UnregisterReminder` 次の例のように、メソッドを呼び出す必要があります。
+アラームの登録を解除するには、次の例に示すように `UnregisterReminder` メソッドを呼び出す必要があります。
 
 ```csharp
 IActorReminder reminder = GetReminder("Pay cell phone bill");
 Task reminderUnregistration = UnregisterReminder(reminder);
 ```
 
-上のように、 `UnregisterReminder` メソッドは、 `IActorReminder` インターフェイスです。 アクターの基本クラスがサポートする、 `GetReminder` を取得するために使用するメソッド、 `IActorReminder` アラーム名で渡すことによって、インターフェイスです。 これは、アクターが永続化する必要がないので便利、 `IActorReminder` から返されたインターフェイス、 `RegisterReminder` メソッドの呼び出しです。
-
-
-
-
+上記の例のように、 `UnregisterReminder` メソッドは、`IActorReminder` インターフェイスを受け入れます。 アクターの基本クラスは、アラーム名で渡すことで、`IActorReminder` インターフェイスを取得できる `GetReminder` メソッドをサポートします。 これにより、アクターが `RegisterReminder` メソッドの呼び出しから返された `IActorReminder` インターフェイスを永続化する必要がなくなるため便利です。
 

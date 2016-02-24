@@ -16,7 +16,6 @@
     ms.date="10/26/2015"
     ms.author="danlep"/>
 
-
 # Azure リソース マネージャーでの、Mac、Linux、および Windows 用 Azure CLI の使用
 
 > [AZURE.SELECTOR]
@@ -25,17 +24,17 @@
 
 
 
-
 この記事では、Azure リソース マネージャー モードで、Mac、Linux、Windows 用 Azure コマンドライン インターフェイス (CLI) を使用して、Azure リソースを作成し、管理する方法について説明します。
->[AZURE.NOTE] 作成し、コマンドラインでの Azure リソースの管理には、Azure アカウントが必要 ([無料評価版は、ここ](http://azure.microsoft.com/pricing/free-trial/))します。 必要がありますも [Azure CLI をインストール](xplat-cli-install.md), 、および [自分のアカウントに関連付けられている Azure のリソースを使用するログオン](xplat-cli-connect.md)します。 これらの操作を完了した場合は、使用する準備が整いました。
+
+>[AZURE.NOTE] 作成し、コマンドラインでの Azure リソースの管理には、Azure アカウントが必要 ([無料評価版は、ここ](http://azure.microsoft.com/pricing/free-trial/))。 必要がありますも [Azure CLI をインストール](xplat-cli-install.md), 、および [自分のアカウントに関連付けられている Azure のリソースを使用するログオン](xplat-cli-connect.md)します。 これらの操作を完了した場合は、使用する準備が整いました。
 
 ## Azure リソース
 
-Azure リソース マネージャーを使用して、作成のグループを管理 _リソース_ (ユーザーによって管理されるバーチャル マシン、データベース サーバー、データベース、または web サイトなどのエンティティ) 1 つの論理単位 _resource とします。
+Azure リソース マネージャーを使用して、作成のグループを管理 _リソース_ (ユーザーによって管理されるバーチャル マシン、データベース サーバー、データベース、または web サイトなどのエンティティ) 1 つの論理単位としてまたは _リソース グループ_します。
 
-Azure リソース マネージャーの長所を 1 つは、JSON *テンプレート*にリソースのデプロイ可能なグループの構造とリレーションシップを記述するという_宣言型_の方法で Azure のリソースを作成できることです。 テンプレートはパラメーターを特定します。そのパラメーターに値をコマンドの実行時にインラインで入力するか、別の JSON azuredeploy-parameters.json ファイルに保存できます。 これにより、同じテンプレートに異なるパラメーターを設定して、新しいリソースを簡単に作成できます。 たとえば、Web サイトを作成するテンプレートには、サイト名や Web サイトを配置するリージョンなどの共通的な設定を用意できます。
+利点の 1 つの Azure リソース マネージャーは、Azure のリソースを作成すること、 _宣言_ 方法: 構造体と JSON 内のリソースのデプロイ可能なグループの関係を記述する *テンプレート*します。 テンプレートはパラメーターを特定します。そのパラメーターに値をコマンドの実行時にインラインで入力するか、別の JSON azuredeploy-parameters.json ファイルに保存できます。 これにより、同じテンプレートに異なるパラメーターを設定して、新しいリソースを簡単に作成できます。 たとえば、Web サイトを作成するテンプレートには、サイト名や Web サイトを配置するリージョンなどの共通的な設定を用意できます。
 
-テンプレートを使用してグループを変更または作成すると、_デプロイ_が作成されてグループに適用されます。 Azure リソース マネージャーの詳細については、次を参照してください。、 [Azure リソース マネージャーの概要](../resource-group-overview.md)します。
+変更するか、グループを作成するテンプレートを使用すると、 _展開_ 作成されると、グループに適用されます。 Azure リソース マネージャーの詳細については、次を参照してください。、 [Azure リソース マネージャーの概要](../resource-group-overview.md)します。
 
 デプロイを作成すると、従来の (サービス管理) デプロイ モデルと同様に、個々のリソースをコマンド ラインで強制的に管理できます。 たとえば、Azure リソース マネージャーの CLI コマンドを使用して開始、停止、またはなどのリソースを削除する [Azure リソース マネージャーの仮想マシン](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md)します。
 
@@ -44,7 +43,8 @@ Azure リソース マネージャーの長所を 1 つは、JSON *テンプレ�
 Azure CLI を使用して Azure リソース マネージャーを操作するには、仕事か学校のアカウント (組織アカウント) か Microsoft アカウント (CLI バージョン 0.9.10 より) を使用して Microsoft Azure で認証する必要があります。 .publishsettings ファイルによってインストールされた証明書の場合、このモードでは認証できません。
 
 Microsoft Azure への認証の詳細については、次を参照してください。 [Azure CLI から Azure サブスクリプションへの接続](xplat-cli-connect.md)します。
->[AZURE.NOTE] Azure Active Directory によって管理される職場か学校のアカウントを使用しするとき、Azure のロールベースの Access Control (RBAC) を使用して、Azure リソースへのアクセスと使用状況を管理することもできます。 詳細については、「 [の管理とリソースへのアクセスの監査](resource-group-rbac.md)します。
+
+>[AZURE.NOTE] 作業を使用するか、学校のアカウント - Azure Active Directory によって管理--される場合は、アクセスと Azure リソースの使用量を管理する azure のロールベースのアクセス制御 (RBAC) を使用することもできます。 詳細については、「 [の管理とリソースへアクセスの監査](resource-group-rbac.md)します。
 
 ## Azure リソース マネージャー モードの設定
 
@@ -64,7 +64,7 @@ Azure リソース マネージャー モードは既定で無効になってい
 
 ## リソース グループの作成
 
-リソース グループは、ネットワーク、ストレージ、その他のリソースの論理グループです。 Azure リソース マネージャー モードのほとんどすべてのコマンドにはリソース グループが必要です。 次のコマンドを使用して、たとえば _testRG_ という名前のリソース グループを作成することができます。
+リソース グループは、ネットワーク、ストレージ、その他のリソースの論理グループです。 Azure リソース マネージャー モードのほとんどすべてのコマンドにはリソース グループが必要です。 という名前のリソース グループを作成する _testRG_, 、たとえば、次のコマンドを使用します。
 
     azure group create -n "testRG" -l "West US"
 
@@ -84,11 +84,11 @@ Azure リソース マネージャー モードは既定で無効になってい
 * パスワード
 * VM のドメイン名
 
->[AZURE.TIP] 以下の手順では、Azure CLI で VM テンプレートを使用する方法を 1 つだけ紹介します。 その他の例については、次を参照してください。 [展開 Azure リソース マネージャー テンプレートと Azure CLI を使用して仮想マシンの管理と](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md)します。
+>[AZURE.TIP] 次の手順では、Azure CLI を使用した VM テンプレートを使用する方法の 1 つを説明します。 その他の例については、次を参照してください。 [展開 Azure リソース マネージャー テンプレートと Azure CLI を使用して仮想マシンの管理と](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md)です。
 
 1. ダウンロード ファイル azuredeploy.json およびから azuredeploy.parameters.json [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm) 、ローカル コンピューター上の作業フォルダーにします。
 
-2. テキスト エディターで azuredeploy.parameters.json ファイルを開き、お使いの環境に適したパラメーター値を入力します (**ubuntuOSVersion** 値は変更しないでください)。
+2. テキスト エディターで、azuredeploy.parameters.json ファイルを開き、環境に適したパラメーター値を入力 (まま、 **ubuntuOSVersion** 値が変更されていない)。
 
         {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -111,9 +111,8 @@ Azure リソース マネージャー モードは既定で無効になってい
             }
           }
         }
-
     ```
-3. azuredeploy.parameters.json ファイルを保存した後、次のコマンドを使用して、テンプレートに基づく新しいリソース グループを作成します。  `-E` オプションは、前の手順で変更した azuredeploy.parameters.json ファイルを指定します。 *testRG* を使用するグループ名と置き換え、*testDeploy* を自分で選んだデプロイ名と置き換えます。 場所は、テンプレート パラメーター ファイルに指定されている場所と同じ場所にする必要があります。
+3. azuredeploy.parameters.json ファイルを保存した後、次のコマンドを使用して、テンプレートに基づく新しいリソース グループを作成します。 `-e` オプションにより、前の手順で変更した azuredeploy.parameters.json ファイルが指定されます。 置き換える、 *testRG* を使用するにはグループ名と *testDeploy* 、任意の展開名を使用します。 場所は、テンプレート パラメーター ファイルに指定されている場所と同じ場所にする必要があります。
 
         azure group create "testRG" "West US" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
 
@@ -123,7 +122,7 @@ Azure リソース マネージャー モードは既定で無効になってい
 
         azure group deployment show "testRG" "testDeploy"
 
-    **ProvisioningState** に、デプロイの状態が表示されます。
+     **ProvisioningState** 展開の状態を表示します。
 
     デプロイが成功した場合は、次のような出力が表示されます。
 
@@ -145,31 +144,32 @@ Azure リソース マネージャー モードは既定で無効になってい
         data:    ubuntuOSVersion        String        14.04.2-LTS
         info:    group deployment show command OK
 
-    >[AZURE.NOTE] 構成が適切でないことがわかった場合、または実行時間の長いデプロイを停止する必要がある場合は、次のコマンドを使用します。
+    >[AZURE.NOTE] ことを理解して、構成が、正しくないし、実行時間の長いデプロイを停止する必要がある場合は、次のコマンドを使用します。
     >
-    > `azure group 展開 stop"testRG""testDeploy"`
+    > `azure group deployment stop "testRG" "testDeploy"`
     >
-    > デプロイ名を指定しない場合、テンプレート ファイル名に基づいてデプロイ名が自動的に作成されます。 出力の一部として返される、 `azure グループを作成` コマンドです。
+    > デプロイ名を指定しない場合、テンプレート ファイル名に基づいてデプロイ名が自動的に作成されます。 作成されたデプロイ名は、`azure group create` コマンドの出力の一部として返されます。
 
-    これで、指定したドメイン名を利用し、VM に SSH 接続できます。VM に接続をする必要がある場合、フォームの完全修飾ドメイン名を使用する `< domainName >. < 地域 >. cloudapp.azure.com`, など `MyDomainName.westus.cloudapp.azure.com`します。
+    これで、指定したドメイン名を利用し、VM に SSH 接続できます。 VM に接続するとき、 `MyDomainName.westus.cloudapp.azure.com` のような、`<domainName>.<region>.cloudapp.azure.com` 形式の完全修飾ドメイン名を使用する必要があります。
 
 5. グループを表示するには、次のコマンドを使用します。
 
         azure group show "testRG"
 
-    このコマンドにより、グループ内のリソースに関する情報が返されます。 複数のグループがあればを使用して、 `azure グループの一覧` グループ名の一覧を取得し、使用するコマンド `azure グループの表示` 特定のグループの詳細を表示します。
+    このコマンドにより、グループ内のリソースに関する情報が返されます。 複数のグループがある場合は、`azure group list` コマンドでグループ名の一覧を表示した後、`azure group show` コマンドを使用して特定のグループの詳細を表示します。
 
-直接テンプレートを使用することもできます。 [GitHub](https://github.com/Azure/azure-quickstart-templates), 、コンピューターにダウンロードする代わりにします。 その場合、コマンドに **--template-url** オプションを指定し、テンプレートの azuredeploy.json ファイルに URL を渡します。 URL を取得するには、GitHub で _raw_ モードで azuredeploy.json を開き、ブラウザーのアドレス バーに表示される URL をコピーします。 次のようにコマンドを使用し、この URL を使用してデプロイを直接作成できます。
+直接テンプレートを使用することもできます。 [GitHub](https://github.com/Azure/azure-quickstart-templates), 、コンピューターにダウンロードする代わりにします。 これを行うには、URL に渡すコマンドでテンプレートの azuredeploy.json ファイルを使用して、 **--template-url** オプション。 URL を取得するには、github の azuredeploy.json を開きます _生_ モード、およびブラウザーのアドレス バーに表示される URL をコピーします。 次のようにコマンドを使用し、この URL を使用してデプロイを直接作成できます。
 
     azure group deployment create "testDeploy" -g "testResourceGroup" --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json
-
 必要なテンプレート パラメーターを入力するように求められます。
-> [AZURE.NOTE] _raw_ モードで JSON テンプレートを開くことが重要です。 ブラウザーのアドレス バーに表示される URL は、通常モードで表示される URL とは異なります。 GitHub でファイルを表示するときに_未加工_モードでファイルを開くには、右上にある **[未加工]** をクリックします。
+
+> [AZURE.NOTE] 重要では、JSON テンプレートを開く _生_ モードです。 ブラウザーのアドレス バーに表示される URL は、通常モードで表示される URL とは異なります。 ファイルを開く _生_ モードの右上隅で、GitHub でファイルを表示する] をクリックと **Raw**します。
 
 ## リソースの操作
 
-テンプレート言語を使用すると、グループ全体の構成の変更を宣言できますが、場合によっては、特定のリソースのみの操作が必要になることがあります。 これを使用して行える、 `azure リソース` コマンドです。
-> [AZURE.NOTE] 使用する場合、 `azure リソース` コマンド以外、 `リスト` コマンドを使用して、操作はリソースの API バージョンを指定する必要があります、 `-o` パラメーター。 使用する API バージョンが不明な場合は、テンプレート ファイルでリソースの **apiVersion** フィールドを確認してください。
+テンプレート言語を使用すると、グループ全体の構成の変更を宣言できますが、場合によっては、特定のリソースのみの操作が必要になることがあります。 このような場合には、`azure resource` コマンドを使用します。
+
+> [AZURE.NOTE] 使用する場合、 `azure resource` コマンド以外、 `list` コマンドを使用して、操作はリソースの API バージョンを指定する必要があります、 `-o` パラメーター。 使用する API バージョンについて確信できない場合、テンプレート ファイルを見つけて、 **apiVersion** リソースに対応するフィールドです。
 
 1. グループ内のすべてのリソースの一覧を表示するには、次のコマンドを使用します。
 
@@ -179,36 +179,34 @@ Azure リソース マネージャー モードは既定で無効になってい
 
         azure resource show "testRG" "MyUbuntuVM" Microsoft.Compute/virtualMachines -o "2015-06-15"
 
-    **Microsoft.Compute/virtualMachines** パラメーターに注意してください。 このパラメーターは、情報を要求するリソースの種類を示します。 前の手順でダウンロードしたテンプレート ファイルを確認すると、テンプレートに記述されている仮想マシンのリソースで、種類の定義にこの同じ値が使用されていることがわかります。
+    通知、 **Microsoft.Compute/virtualMachines** パラメーター。 このパラメーターは、情報を要求するリソースの種類を示します。 前の手順でダウンロードしたテンプレート ファイルを確認すると、テンプレートに記述されている仮想マシンのリソースで、種類の定義にこの同じ値が使用されていることがわかります。
 
     このコマンドを実行すると、仮想マシンに関する情報が表示されます。
 
-3. リソースの詳細を表示しているときを使用して、多くの場合、 `-json` パラメーター。 一部の値が入れ子構造や集合になるので、出力が読みやすくなります。 次の例のコマンドを実行すると、**show** コマンドの結果を JSON ドキュメントとして表示した場合の例が示されます。
+3. リソースの詳細を表示するとき、多くの場合、`--json` パラメーターを使用すると便利です。 一部の値が入れ子構造や集合になるので、出力が読みやすくなります。 次の例の結果を返す、 **表示** コマンドを JSON ドキュメントとして。
 
         azure resource show "testRG" "MyUbuntuVM" Microsoft.Compute/virtualMachines -o "2015-06-15" --json
 
-    >[AZURE.NOTE] > 文字を使用して出力をファイルにパイプすると、JSON データをファイルに保存できます。 次に例を示します。
+    >[AZURE.NOTE] JSON データをファイルに保存するにを使用して、& gt;ファイルに出力をパイプする文字。 次に例を示します。
     >
-    > `azure リソースの表示"testRG""MyUbuntuVM"Microsoft.Compute/virtualMachines-o「2015年-06-15」-json > myfile.json`
+    > `azure resource show "testRG" "MyUbuntuVM" Microsoft.Compute/virtualMachines -o "2015-06-15" --json > myfile.json`
 
 4. 既存のリソースを削除するには、次のようなコマンドを使用します。
 
         azure resource delete "testRG" "MyUbuntuVM" Microsoft.Compute/virtualMachines -o "2015-06-15"
 
-
 ## ログの記録
 
-グループに対して実行される操作の記録された情報を表示するには、使用、 `azure グループ ログ表示` コマンドです。 既定では、グループに対して実行された直前の操作が表示されます。 省略可能なを使用してすべての操作を表示する `--すべて` パラメーター。 最後の展開を使用して `--last-deployment`します。 特定の展開を使用して `--展開` し、展開名を指定します。 次の例では、*MyGroup* グループで実行されたすべての操作のログが表示されます。
+グループに実行された操作に関してログに記録された情報を表示するには、`azure group log show` コマンドを使用します。 既定では、グループに対して実行された直前の操作が表示されます。 すべての操作を表示するには、任意指定の `--all` パラメーターを使用します。 最後のデプロイについて表示するには、`--last-deployment` を使用します。 特定のデプロイについて表示するには、`--deployment` とデプロイ名を指定します。 次の例は、グループで実行されるすべての操作のログを返して *MyGroup*します。
 
     azure group log show MyGroup --all
 
 ## 次のステップ
 
 * Azure リソース マネージャーで Azure PowerShell を使用する方法の詳細については、次を参照してください。 [Azure リソース マネージャーで Azure PowerShell を使用して](../powershell-azure-resource-manager.md)します。
-* Azure ポータルから Azure リソース マネージャーを使用する方法については、次を参照してください。 [[psrm] Azure リソースを管理するリソース グループを使用した][psrm]します。
+* Azure ポータルから Azure リソース マネージャーを使用する方法については、次を参照してください。 [リソース グループを使用した Azure リソースの管理に][psrm]します。
 
-
-[signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/ 
-[adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant 
-[psrm]: http://go.microsoft.com/fwlink/?LinkId=394760 
+[signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
+[adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
+[psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 

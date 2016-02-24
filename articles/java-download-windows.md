@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Azure SDK for Java のダウンロード (Windows)" 
-    description="Azure SDK for Java をダウンロードします。Maven 用のコードを示します。Azure Tookit for Eclipse のインストール手順を示します。" 
+    description="Azure SDK for Java をダウンロードします。 Maven 用のコードを示します。 Azure Tookit for Eclipse のインストール手順を示します。" 
     services="" 
     documentationCenter="java" 
     authors="rmcmurray" 
@@ -16,8 +16,7 @@
     ms.date="10/12/2015" 
     ms.author="robmcm"/>
 
-
-# Azure SDK for Java のダウンロード
+#Azure SDK for Java のダウンロード
 
 [AZURE.INCLUDE [download_libraries](../includes/download_libraries.md)]
 
@@ -26,8 +25,4 @@
 ## 次のステップ
 
 詳細については、次を参照してください。、 [Java デベロッパー センター](/develop/java/)します。
-
-
-
-
 

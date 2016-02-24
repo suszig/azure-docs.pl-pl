@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="What is Azure Machine Learning Studio とは|Microsoft Azure"
+    pageTitle="Azure Machine Learning Studio とは | Microsoft Azure"
     description="そのまま使うことのできるアルゴリズムやモジュールを含んだライブラリから、ドラッグ アンド ドロップでモデルをすばやく構築できるツール Azure ML Studio の概要です。"
     keywords="azure machine learning,azure ml, ml studio"
     services="machine-learning"
@@ -17,7 +17,6 @@
     ms.date="10/13/2015"
     ms.author="garye"/>
 
-
 # Azure Machine Learning Studio とは
 
 Microsoft Azure Machine Learning Studio は、データを活用した予測分析ソリューションの構築、テスト、デプロイをドラッグ アンド ドロップで行うことができる、コラボレーションに対応したツールです。 Machine Learning Studio でモデルを Web サービスとして公開すれば、カスタム アプリや BI ツール (Excel など) からそのモデルを簡単に利用することができます。
@@ -30,7 +29,8 @@ Machine Learning Studio があれば、最新のデータ サイエンスとク�
 
 一般的な予測分析モデルの作成では、1 種類以上のソースからデータを入手し、さまざまなデータ操作と統計的特徴を適用してデータを変換することにより、一連の結果を生成します。 このようなモデルの作成プロセスは対話型プロセスになります。 十分にトレーニングされた有効なモデルが作成されるまで、さまざまな特徴とパラメーターを繰り返し調整します。
 
-**Azure Machine Learning Studio** では、予測分析モデルの作成、テスト、反復作業を支援する、視覚的操作に対応した対話型ワークスペースが提供されます。 ドラッグ アンド ドロップする *** データセット *** と分析 *** モジュール *** 対話型の上に *** キャンバス ***, 、フォームを同時に接続、 *** 実験 ***, 、これを *** 実行 *** Machine Learning Studio でします。 モデルのデザインに反復処理する *** edit *** 、実験 *** 保存 *** 、再実行して、必要に応じてコピーします。 準備ができたら、ときに、変換、 *** トレーニング実験 *** に、 *** 予測実験 ***, 、し *** 発行 *** として、 *** web サービス *** モデルは、他のユーザーがアクセスできるようにします。
+**Azure Machine Learning Studio** 簡単にビルド、テスト、および反復処理、予測分析モデルの対話型、視覚的ワークスペースで表示できます。 ドラッグ アンド ドロップする ***データセット*** と分析 ***モジュール*** 対話型の上に ***キャンバス***, 、フォームを同時に接続、 ***実験***, 、これを ***実行*** Machine Learning Studio でします。 モデルのデザインに反復処理する ***編集*** 、実験 ***保存*** 、再実行して、必要に応じてコピーします。 準備ができたら、ときに、変換、 ***トレーニング実験*** に、 ***予測実験***, 、し ***発行*** として、 ***web サービス*** モデルは、他のユーザーがアクセスできるようにします。
+
 >[AZURE.TIP] ダウンロードして、Machine Learning Studio の機能の概要を示すダイアグラムを印刷する、次を参照してください。 [Azure Machine Learning Studio の機能の概要図](machine-learning-studio-overview-diagram.md)します。
 
 データセットとモジュールを視覚的に接続すれば予測分析モデルが完成するため、プログラミングは必要ありません。
@@ -41,24 +41,24 @@ Machine Learning Studio があれば、最新のデータ サイエンスとク�
 
 入力すると [Machine Learning Studio](https://studio.azureml.net) するを参照してください、 **ホーム** ページです。 そこからドキュメントやビデオ、ウェビナーなど、有益なリソースにアクセスすることができます。
 
-最上部には、**[ホーム]** (開始位置)、**[スタジオ]**、**[ギャラリー]** の 3 つのタブが並んでいます。
+3 つのタブが上部にある: **ホーム** (ここで開始)、 **Studio**, 、および **ギャラリー**します。
 
 ### スタジオ
 
-**[スタジオ]** タブをクリックすると、Microsoft アカウントを使用するか職場または学校アカウントを使用してサインインするように求められます。 サインインすると、次のタブが左側に表示されます。
+クリックして、 **Studio** ] タブをクリックして、Microsoft アカウントまたは職場または学校アカウントを使用してサインインを求められます。 サインインすると、次のタブが左側に表示されます。
 
-- **実験** - 作成済み、実行済み、ドラフトとして保存済みの実験です。
-- **[Web サービス]** - 実験からデプロイした Web サービスです。
-- **[ノートブック]** - 作成済みの Jupyter ノートブックです。
-- **[データセット]** - Studio にアップロード済みのデータセット。
-- **[トレーニング済みのモデル]** - 実験でトレーニングし、Studio で保存したモデルです。
-- **設定** - アカウントとリソースを構成するための各種設定がまとめられています。
+- **実験** -作成された実験の実行、およびドラフトとして保存
+- **WEB サービス** -Web サービス実験からにデプロイされています。
+- **ノートブック** -作成した Jupyter notebook
+- **データセット** -Studio にアップロードしたデータセット
+- **トレーニング済みのモデル** -モデルを実験でトレーニングを受けて、Studio で保存しています。
+- **設定** -アカウントとリソースを構成に使用できる設定のコレクション。
 
 ### ギャラリー
 
-**[ギャラリー]** タブをクリックすると、Cortana Analytics ギャラリーに移動します。 ギャラリーは、データ サイエンティストや開発者のコミュニティが、Cortana Analytics Suite のコンポーネントを使用してソリューションを共有できる場です。
+クリックして、 **ギャラリー** ] タブをクリックして、Cortana Analytics ギャラリーに表示されます。 ギャラリーは、データ サイエンティストや開発者のコミュニティが、Cortana Analytics Suite のコンポーネントを使用してソリューションを共有できる場です。
 
-ギャラリーの詳細については、次を参照してください。 [共有 Cortana Analytics ギャラリー内のソリューションの検出と](machine-learning-gallery-how-to-use-contribute-publish.md)します。
+ギャラリーの詳細については、次を参照してください。 [共有 Cortana Analytics ギャラリー内のソリューションの検出と](machine-learning-gallery-how-to-use-contribute-publish.md)です。
 
 ## 実験の構成要素
 
@@ -70,7 +70,7 @@ Machine Learning Studio があれば、最新のデータ サイエンスとク�
 - モジュールのすべての入力ポートが、何らかの形でデータ フローに接続されている。
 - モジュールの必須パラメーターがすべて設定されている。
 
-実験を最初から作成するか、既にあるサンプル実験をテンプレートとして使用してください。 詳細については、次を参照してください。 [のサンプル実験を使用して新しい実験を作成する](machine-learning-sample-experiments.md)します。
+実験を最初から作成するか、既にあるサンプル実験をテンプレートとして使用してください。 詳細については、次を参照してください。 [のサンプル実験を使用して新しい実験を作成する](machine-learning-sample-experiments.md)です。
 
 簡単な実験の作成例を参照してください。 [Azure Machine Learning Studio で簡単な実験の作成](machine-learning-create-experiment.md)します。
 
@@ -80,9 +80,9 @@ Machine Learning Studio があれば、最新のデータ サイエンスとク�
 
 データセットを Machine Learning Studio にアップロードすることで、これらのデータセットをモデル作成プロセスで使用できるようになります。 Machine Learning Studio には数多くのサンプル データセットが既に含まれているため、これらを実験で試すことができます。また、必要に応じてさらにデータセットをアップロードできます。 提供されるデータセットには以下のようなものがあります。
 
-- **さまざまな自動車の燃費データ** - シリンダー数や馬力などによって分類された、自動車の燃費値 (MPG) です。
-- **乳がんデータ** - 乳がんの診断データです。
-- **森林火災データ** - ポルトガル北東地域を対象とする森林火災の規模データです。
+- **さまざまな自動車の燃費データ** の数、シリンダー数や馬力などによって分類された、自動車の燃費 (MPG) が値です。
+- **乳がんデータ** -乳がんの診断データです。
+- **森林火災データ** -森林火災の規模ポルトガル北東地域を対象にします。
 
 利用可能なデータセットは、実験を作成するときにキャンバスの左側の一覧から選択できます。
 
@@ -92,26 +92,26 @@ Machine Learning Studio に含まれるサンプル データセットの一覧�
 
 モジュールとは、データに対して実行できるアルゴリズムのことです。 Machine Learning Studio には、データの受信機能や、データのトレーニング、スコア付け、検証などに対応したさまざまなモジュールが用意されています。 提供されるモジュールには以下のようなものがあります。
 
-- [ARFF ][convert-to-arff] -.NET でシリアル化されたデータセットを属性関係ファイル フォーマット (ARFF) に変換します。
-- [[初歩的な統計情報] の基本的な統計][elementary-statistics] -平均や標準偏差などの基本的な統計を計算します。
-- [線形回帰 ][linear-regression] -オンライン傾斜降下に基づく線形回帰モデルを作成します。
-- [モデルのスコア付け ][score-model] -トレーニングされた分類または回帰モデルをスコア付けします。
+- [ARFF への変換][変換-を-arff] - は、.NET でシリアル化されたデータセットを属性関係ファイル フォーマット (ARFF) を変換します。
+- [基本的な統計][基本の統計] には、平均、標準偏差などの基本的な統計を計算します。
+- [線形回帰][回帰直線] - オンライン傾斜降下に基づく線形回帰モデルを作成します。
+- [モデルのスコア付け]スコアのモデルでは、トレーニングされた分類または回帰モデルをスコアです。
 
-利用可能なモジュールは、実験を作成するときにキャンバスの左側の一覧から選択できます。
+利用可能なモジュールは、実験を作成するときにキャンバスの左側の一覧から選択できます。  
 
-モジュールに一連のパラメーターが含まれている場合、これらを使用してモジュールの内部アルゴリズムを構成することができます。 モジュールのパラメーターは、キャンバスでモジュールを選択するとキャンバス右側の **[プロパティ]** ウィンドウに表示されます。 このウィンドウでパラメーターを変更することにより、モデルを微調整できます。
+モジュールに一連のパラメーターが含まれている場合、これらを使用してモジュールの内部アルゴリズムを構成することができます。 モジュールのパラメーターが表示されます、キャンバスでモジュールを選択すると、 **プロパティ** キャンバスの右側のウィンドウです。 このウィンドウでパラメーターを変更することにより、モデルを微調整できます。
 
-いくつかのヘルプ内の移動に関する機械学習アルゴリズムが使用可能なは、大規模なライブラリを参照してください。 [を Microsoft Azure Machine Learning のアルゴリズムを選択する方法](machine-learning-algorithm-choice.md)します。
+いくつかのヘルプ内の移動に関する機械学習アルゴリズムが使用可能なは、大規模なライブラリを参照してください。 [Microsoft Azure Machine Learning のアルゴリズムを選択する方法](machine-learning-algorithm-choice.md)します。
 
 ## 予測分析 Web サービスのデプロイ
 
 予測分析モデルの準備が整ったら、それを Machine Learning Studio から Web サービスとしてデプロイすることができます。 このプロセスの詳細については、次を参照してください。 [Azure Machine Learning web サービスを配置](machine-learning-publish-a-machine-learning-web-service.md)します。
 
+[ml-studio-overview]:./media/machine-learning-what-is-ml-studio/azure-ml-studio-diagram.jpg
 
-
-[ml-studio-overview]: ./media/machine-learning-what-is-ml-studio/azure-ml-studio-diagram.jpg 
-[convert-to-arff]: https://msdn.microsoft.com/library/azure/62d2cece-d832-4a7a-a0bd-f01f03af0960/ 
-[elementary-statistics]: https://msdn.microsoft.com/library/azure/3086b8d4-c895-45ba-8aa9-34f0c944d4d3/ 
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/ 
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/ 
+<!-- Module References -->
+[convert-to-arff]: https://msdn.microsoft.com/library/azure/62d2cece-d832-4a7a-a0bd-f01f03af0960/
+[elementary-statistics]: https://msdn.microsoft.com/library/azure/3086b8d4-c895-45ba-8aa9-34f0c944d4d3/
+[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
+[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 

@@ -1,10 +1,11 @@
+
 <properties
-    pageTitle ="Azure RemoteApp の新機能とは |Microsoft Azure]
-    description ="の変更と Azure remoteapp の改善点について説明します"。
-    サービス =「remoteapp」
+    pageTitle="Azure RemoteApp の新機能。 | Microsoft Azure"
+    description="Azure RemoteApp の変更点と改善点について説明します。"
+    services="remoteapp"
     documentationCenter=""
-    authors ="lizap"
-    manager ="mbaldwin"/>
+    authors="lizap"
+    manager="mbaldwin" />
 
 <tags
     ms.service="remoteapp"
@@ -13,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="10/23/2015"
-    ms.author="elizapo"/>
+    ms.author="elizapo" />
 
 
 
@@ -22,7 +23,6 @@
 Azure RemoteApp の利点の 1 つは、常に改善の努力がされていることです。 改善を行うたびに、どのような変更を加えたかをここでお知らせします。
 
 ## 2015 年 9 月
-
 - Microsoft Office 365 テンプレートとギャラリー イメージの InfoPath を追加しました。 InfoPath を共有する場合、コレクションを最新のイメージで更新します。
 - クライアント更新:
     - Windows クライアントが更新され、フィードバック (特に、接続問題に関する) を共有できるようになりました。
@@ -32,11 +32,10 @@ Azure RemoteApp の利点の 1 つは、常に改善の努力がされている�
 - Azure RemoteApp で QuickBooks を共有したいのに手順がわかりませんか。 チェック アウト [Eric の新しい記事](remoteapp-quickbooks.md) を行うにはどのように指示します。
 
 ## 2015 年 8 月
-
 8 月に大きな変化がありました。ここに概要を記載します。
 
 - クラウド コレクションで Azure VNET を使えるようになりました。 チェック アウト、 [クラウドの作成手順](remoteapp-create-cloud-deployment.md) 手順については、新しいします。
-- Apps を追加できるように、 ** スタート **Windows RemoteApp クライアントのメニュー。 アプリはアプリケーションの一覧表示されに固定することができます、 ** スタート **Windows メニューにします。
+- Windows RemoteApp クライアントの [スタート] メニューをアプリに追加できるようになりました。 アプリがアプリケーションの一覧に表示されるので、それを Windows の [スタート] メニューに固定できます。
 - Azure VM ギャラリーに新しいイメージが追加されました。「Windows Server Remote Desktop Session Host with Microsoft Office 365 ProPlus」です。
 - Mac クライアントが修正され、モーダル ウィンドウのアプリのフリーズを解消しました。
 - 使用する方法を文書化、 [Office 365 ProPlus サブスクリプション](remoteapp-officesubscription.md) Azure RemoteApp を使用します。
@@ -46,7 +45,7 @@ Azure RemoteApp の利点の 1 つは、常に改善の努力がされている�
 
 7 月は 8 月に予定されている変更の準備をしているため、現時点でお知らせはほとんどなく、大半はドキュメントの更新です。 最新の変更内容を次に示します。
 
-- ポータルに **[サポート]** タブが追加されました。これにより、フォーラムなどのサポート リソースにアクセスしやすくなりました。
+- 追加、 **サポート** 、フォーラムなどのサポート リソースをより簡単にアクセスできるように、ポータルにタブをクリックします。
 - ハイブリッド コレクションの作成に関するトラブルシューティング情報が修正されました。 チェック アウト [最新で最高](remoteapp-hybridtrouble.md) トラブルシューティングのヒントについて、VNET を構成する正しいポートを特定する方法などです。
 - どのように記載されている [ユーザー データ](remoteapp-upd.md) を作成し、Azure RemoteApp に保存します。
 - 文書化する方法を [アプリケーション ロックダウン](remoteapp-secure.md)します。
@@ -83,10 +82,5 @@ Azure RemoteApp が実際に使われている様子を確認したいですか�
 
 
 ### サポートのサポートのお願い
-
-記事を評価したり、下にコメントを投稿したりするだけでなく、記事自体を変更できることを知っていましたか。 説明不足ですか。 間違いがありますか。 わかりにくいことが書いてありますか。 上へスクロールし、**[GitHub で編集]** をクリックして、変更を加えることができます。変更はこちらで確認し、承認されると、変更点や改善点がこのページに反映されます。
-
-
-
-
+記事を評価したり、下にコメントを投稿したりするだけでなく、記事自体を変更できることを知っていましたか。 説明不足ですか。 間違いがありますか。 わかりにくいことが書いてありますか。 上にスクロールしてクリックして **GitHub の編集** の変更を加えるについては、私たちに来るし、次に、筆に一度表示されます、変更および強化ここです。
 

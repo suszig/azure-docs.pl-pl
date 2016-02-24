@@ -16,7 +16,6 @@
    ms.author="alkohli" />
 
 
-
 # StorSimple サポート パッケージを作成および管理する
 
 ## 概要
@@ -25,7 +24,7 @@
 
 このチュートリアルでは、次の手段を使用してサポート パッケージを作成および管理するための手順を取り上げています。
 
-- StorSimple Manager サービスの **[メンテナンス]** ページの **[サポート パッケージ]** セクション
+- **サポート パッケージ** のセクションで、 **メンテナンス** 、StorSimple Manager サービス ページ
 - StorSimple 用 Windows PowerShell
 
 このチュートリアルを読むと、次のことができるようになります。
@@ -42,24 +41,24 @@ StorSimple Manager サービスに発生する可能性のある問題をトラ�
 
 #### Azure クラシック ポータルでサポート パッケージを作成するには
 
-1. **[デバイス]、[メンテナンス]** の順にクリックします。
+1. 移動 **デバイス > メンテナンス**します。
 
-2. **[サポート パッケージ]** セクションで **[サポート パッケージの作成とアップロード]** をクリックします。
+2.  **サポート パッケージ** ] をクリックして **サポート パッケージの作成とアップロード**します。
 
-3. **[サポート パッケージの作成とアップロード]** ダイアログ ボックスで、次の操作を実行します。
+3.  **サポート パッケージの作成とアップロード** ] ダイアログ ボックスで、次の操作します。
 
     ![サポート パッケージの作成](./media/storsimple-create-manage-support-package/IC740923.png)
-
-    - **サポート パスキー**を指定します。 このキーは、Microsoft サポート エンジニアから電子メールで送信されます。
-
-    - **サポート パッケージを Microsoft サポート サイトへ自動的にアップロードする**ことに同意するチェック ボックスをオンにします。
-
-    - チェック アイコンをクリックして ![チェック マーク アイコン](./media/storsimple-create-manage-support-package/IC740895.png)します。
+                                            
+    - 提供、 **サポート パスキー**します。 このキーは、Microsoft サポート エンジニアから電子メールで送信されます。
+    
+    - ことに同意するコンボ ボックスをオン **サポート パッケージを Microsoft サポート サイトに自動的にアップロード**します。
+    
+    - チェック マーク アイコンをクリックします。 ![チェック マーク アイコン](./media/storsimple-create-manage-support-package/IC740895.png).
 
 
 ## StorSimple 用 Windows PowerShell でサポート パッケージを作成する
 
-パッケージを作成する前にログ ファイルを編集する必要がある場合は、StorSimple 用 Windows PowerShell を使用してパッケージを作成する必要があります。
+パッケージを作成する前にログ ファイルを編集する必要がある場合は、StorSimple 用 Windows PowerShell を使用してパッケージを作成する必要があります。 
 
 StorSimple 用 Windows PowerShell でサポート パッケージを作成するには、次の手順を実行します。
 
@@ -68,58 +67,63 @@ StorSimple 用 Windows PowerShell でサポート パッケージを作成する
 
 1. StorSimple デバイスへの接続に使用されるリモート コンピューターで、次のコマンドを入力し、Windows PowerShell セッションを管理者として起動します。
 
-    `PowerShell の起動`
+    `Start PowerShell`
 
-2. Windows PowerShell セッションで、次の手順を実行し、デバイスの SSAdmin コンソール実行空間に接続します。
+2. Windows PowerShell セッションで、次の手順を実行し、デバイスの SSAdmin コンソール実行空間に接続します。 
 
-    - コマンド プロンプトに、次のコマンドを入力します。
 
-        `$MS = New-pssession-ComputerName < DATA 0 の IP アドレス > の資格情報の SSAdmin ConfigurationName"SSAdminConsole"`
-
-    1. 表示されたダイアログ ボックスで、デバイス管理者のパスワードを入力します。 既定のパスワードは次のとおりです。
-
+    - At the command prompt, type: 
+            
+        `$MS = New-PSSession -ComputerName <IP address for DATA 0> -Credential SSAdmin -ConfigurationName "SSAdminConsole"`
+        
+        
+    1. In the dialog box that opens, type your device administrator password. The default password is:
+     
         `Password1`
 
-        ![SSAdmin コンソール実行空間に対する PowerShell セッション](./media/storsimple-create-manage-support-package/IC740962.png)
+        ![PowerShell Session To SSAdminConsole Runspace](./media/storsimple-create-manage-support-package/IC740962.png)
 
-    2. **[OK]** をクリックします。
-    1. コマンド プロンプトに、次のコマンドを入力します。
+    2. Click **OK**.
+    1. At the command prompt, type: 
+        
+        `Enter-PSSession $MS`
 
-        `Enter-pssession $MS`
 
-3. 表示されたセッションに、適切なコマンドを入力します。
+3. 表示されたセッションに、適切なコマンドを入力します。 
 
-    - ネットワーク共有がパスワードで保護されている場合は、次のコマンドを入力します。
 
-        `Export-hcssupportpackage – PackageTag"MySupportPackage":"Username"を資格情報の強制`
+    - For network shares that are password protected, type:
 
-        パスワード、ネットワーク共有フォルダーへのパス、および暗号化パスフレーズ (サポート パッケージが暗号化されているため) を入力するよう求められます。 これらを入力すると、指定したフォルダーにサポート パッケージが作成されます。
+        `Export-HcsSupportPackage –PackageTag "MySupportPackage" –Credential "Username" -Force`
 
-    - ネットワーク共有フォルダーがオープン (パスワードで保護されていないもの)、する必要はありません、 `-資格情報` パラメーター。 次のコマンドを入力します。
+        You will be prompted for a password, a path to the network shared folder, and an encryption passphrase (because the support package is encrypted). When these are provided, a support package will be created in the specified folder.
+                                            
 
-        `Export-hcssupportpackage – PackageTag"MySupportPackage"の強制`
+    - For open network shared folders (those that are not password protected), you do not need the `-Credential` parameter. Type the following: 
 
-        サポート パッケージは、指定したネットワーク共有フォルダー内の両方のコントローラー用に作成されます。 これは、トラブルシューティングの際に Microsoft サポートに送信できる、暗号化された圧縮ファイルです。 詳細については、次を参照してください。 [Microsoft サポートに問い合わせる](storsimple-contact-microsoft-support.md)します。
+        `Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
+
+        The support package will be created for both controllers in the specified network shared folder. It is an encrypted, compressed file that can be sent to Microsoft Support for troubleshooting. For more information, see [Contact Microsoft Support](storsimple-contact-microsoft-support.md).
 
 
 ### Export-HcsSupportPackage コマンドレットの詳細
-
 Export-HcsSupportPackage コマンドレットで使用できるさまざまなパラメーターを次の表にまとめています。
 
-| 連続番号| パラメーター| 必須/省略可能| 説明|
+| 連続 番号 | パラメーター            | 必須/省略可能 | 説明                                                                                                                                                             |
 |--------|----------------------|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1| パス| 必須| サポート パッケージが配置されるネットワーク共有フォルダーの場所を指定するためにします。|
-| 2| EncryptionPassphrase| 必須| サポート パッケージの暗号化に使用するパスフレーズを指定するためにします。|
-| 3| 資格情報| 省略可能| ネットワーク共有フォルダーのアクセス資格情報を指定するためにします。|
-| 4| Force| 省略可能| 暗号化パスフレーズの確認手順をスキップするために使用します。|
-| 5| PackageTag| 省略可能| サポート パッケージが配置される、Path で指定した場所の下のディレクトリを指定するために使用します。既定値は [デバイス名]-[現在の日時 (yyyy-MM-dd-HH-mm-ss)] です。|
-| 6| Scope| 省略可能| 両方のコントローラーのサポート パッケージを作成する場合は、**Cluster** (既定値) と指定します。現在のコントローラーのみのパッケージを作成する場合は、**Controller** を指定します。|
+| 1      | パス                 | 必須          | サポート パッケージが配置されるネットワーク共有フォルダーの場所を指定するためにします。                                                                 |
+| 2      | EncryptionPassphrase | 必須          | サポート パッケージの暗号化に使用するパスフレーズを指定するためにします。                                                                                                        |
+| 3      | 資格情報           | 省略可能          | ネットワーク共有フォルダーのアクセス資格情報を指定するためにします。                                                                                        |
+| 4      | Force                | 省略可能          | 暗号化パスフレーズの確認手順をスキップするために使用します。                                                                                                                |
+| 5      | PackageTag           | 省略可能          | サポート パッケージが配置される、Path で指定した場所の下のディレクトリを指定するために使用します。 既定値は [デバイス名]-[現在の日時 (yyyy-MM-dd-HH-mm-ss)] です。       |
+| 6      | Scope                | 省略可能          | として指定 **クラスター** (既定値) の両方のコント ローラー サポート パッケージを作成します。 現在のコント ローラーのみのパッケージを作成する場合は、指定 **コント ローラー**します。 |
 
 
 ## サポート パッケージを編集する
 
-サポート パッケージを生成した後、パッケージを編集して、ボリューム名、デバイスの IP アドレス、バックアップ名などのユーザー固有の情報をログ ファイルから削除することが必要になる場合があります。
-> [AZURE.IMPORTANT] 編集できるのは、StorSimple 用 Windows PowerShell を使って生成されたサポート パッケージのみです。 Azure クラシック ポータルで StorSimple Manager サービスを使用して作成したパッケージを編集することはできません。 
+サポート パッケージを生成した後、パッケージを編集して、ボリューム名、デバイスの IP アドレス、バックアップ名などのユーザー固有の情報をログ ファイルから削除することが必要になる場合があります。 
+
+> [AZURE.IMPORTANT] StorSimple 用 Windows PowerShell を使って生成されたサポート パッケージのみ編集できます。 Azure クラシック ポータルで StorSimple Manager サービスを使用して作成したパッケージを編集することはできません。 
 
 サポート パッケージを Microsoft サポート サイトにアップロードする前に編集するには、サポート パッケージの暗号化を解除し、ファイルを編集して、もう一度暗号化する必要があります。 サポート パッケージを編集するには、次の手順を実行します。
 
@@ -130,28 +134,29 @@ Export-HcsSupportPackage コマンドレットで使用できるさまざまな�
 2. [スクリプトをダウンロード](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) クライアントのローカルにします。
 
 3. Windows PowerShell モジュールをインポートします。 スクリプトをダウンロードしたローカル フォルダーへのパスを指定する必要があります。 モジュールをインポートするには、次のコマンドを入力します。
+ 
+    `Import-module <Path to the folder that contains the Windows PowerShell script>`
 
-    `モジュールのインポート < Windows PowerShell スクリプトを含むフォルダーへのパス >`
+4. サポート パッケージ フォルダーを開きます。 すべてのファイルがメモ *.aes* ファイルの圧縮し、暗号化します。 ファイルを開きます。 ファイルを開くには、次のコマンドを入力します。
 
-4. サポート パッケージ フォルダーを開きます。 すべてのファイルが圧縮および暗号化された *.aes* ファイルであることに注意してください。 ファイルを開きます。 ファイルを開くには、次のコマンドを入力します。
-
-    `開く HcsSupportPackage < サポート パッケージ ファイルを含むフォルダーへのパス >`
+    `Open-HcsSupportPackage <Path to the folder that contains support package files>`
 
     これにより、ファイルが展開され、暗号化が解除されます。 すべてのファイルに実際のファイルの拡張子が表示されます。
-
+    
     ![サポート パッケージの編集 3](./media/storsimple-create-manage-support-package/IC750706.png)
+
 
 5. 暗号化パスフレーズの入力を求められたら、サポート パッケージの作成時に使用したパスフレーズを入力します。
 
-     cmdlet Open-HcsSupportPackage at command pipeline position 1
+        cmdlet Open-HcsSupportPackage at command pipeline position 1
     
-     Supply values for the following parameters:EncryptionPassphrase: ****
-
+        Supply values for the following parameters:EncryptionPassphrase: ****
+    
 6. ログ ファイルが格納されているフォルダーに移動します。 ログ ファイルが展開され、暗号化が解除されているので、元のファイル拡張子が表示されます。 これらのファイルを変更し、ユーザー固有の情報 (ボリューム名やデバイスの IP アドレスなど) があれば削除して、ファイルを保存します。
 
 7. ファイルを閉じます。 ファイルを閉じると、ファイルは Gzip で圧縮され、AES-256 を使用して暗号化されます。 これは、サポート パッケージをネットワーク経由で転送するときのセキュリティと速度のためです。 ファイルを閉じるには、次のコマンドを入力します。
 
-    `閉じる HcsSupportPackage < サポート パッケージ ファイルを含むフォルダーへのパス >`
+    `Close-HcsSupportPackage <Path to the folder that contains support package files>`
 
     ![サポート パッケージの編集 2](./media/storsimple-create-manage-support-package/IC750707.png)
 
@@ -191,12 +196,8 @@ Export-HcsSupportPackage コマンドレットで使用できるさまざまな�
 
 ## 次のステップ
 
-- 学習方法 [デバイスのデプロイをトラブルシューティングするサポート パッケージとデバイスのログを使用して](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting)します。
-- 学習方法 [StorSimple Manager サービスを使用して、StorSimple デバイスを管理する](storsimple-manager-service-administration.md)します。
-
-
-
-
+- 学習方法 [デバイスのデプロイをトラブルシューティングするサポート パッケージとデバイスのログを使用して](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting)します。 
+- 学習方法 [StorSimple Manager サービスを使用して、StorSimple デバイスを管理する](storsimple-manager-service-administration.md)です。
 
 
 

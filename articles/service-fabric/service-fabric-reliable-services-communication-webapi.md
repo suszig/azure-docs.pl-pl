@@ -16,17 +16,16 @@
    ms.date="11/13/2015"
    ms.author="vturecek"/>
 
-
 # OWIN 自己ホストによる Microsoft Azure Service Fabric Web API の概要
 
-Service Fabric は、サービスがユーザーや相互に通信する方法を決定する際に役立ちます。 このチュートリアルでは、Service Fabric の*Reliable Services* API で、ASP.NET Web API と OWIN 自己ホストを使用して、サービスの通信を実装することに焦点を合わせています。 *Reliable Services*のプラグ可能な通信 API について詳しく説明し、例として使用する Web API によってサービスのカスタム通信リスナーを設定する方法を手順を追って示します。 Web API 通信リスナーの完全な例を参照してください、 [GitHub の Service Fabric WebApplication のサンプル](https://github.com/Azure/servicefabric-samples/tree/master/samples/Services/VS2015/WebApplication)します。
+Service Fabric は、サービスがユーザーや相互に通信する方法を決定する際に役立ちます。 このチュートリアルは、Service Fabric で OWIN 自己ホストと ASP.NET Web API を使用してサービスの通信を実装することに重点を置いています *信頼性の高いサービス* API です。 詳しく状態になる、 *信頼性の高いサービス* プラグ可能な通信 API と例として使用する Web API でのカスタム通信リスナー サービスをセットアップする方法について手順を追って表示されます。 Web API 通信リスナーの完全な例を参照してください、 [GitHub の Service Fabric WebApplication のサンプル](https://github.com/Azure/servicefabric-samples/tree/master/samples/Services/VS2015/WebApplication)します。
 
 
 ## Service Fabric の Web API の概要
 
 ASP.NET Web API は、.NET Framework に基づいて HTTP API を構築するための人気のある強力なフレームワークです。  [Www.asp.net/webapi](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) を使い慣れていないに既に場合 Web API の詳細について参照してください。
 
-Service Fabric の Web API は、馴染みのある同じ ASP.NET Web API です。 違いは Web API アプリケーションの*ホスト*の方法にあります (ヒント: IIS を使用しません)。 違いを深く理解するために、2 つの部分に分けてみましょう。
+Service Fabric の Web API は、馴染みのある同じ ASP.NET Web API です。 方法に違いがする *ホスト* Web API アプリケーション (ヒント: IIS を使用することはありません)。 違いを深く理解するために、2 つの部分に分けてみましょう。
 
  1. Web API アプリケーション (コント ローラー、モデルなど)
  2. ホスト (Web サーバー、通常 IIS)
@@ -44,7 +43,7 @@ Visual Studio 2015 で、1 つのステートレス サービスと新しい Ser
 
 これにより、Web API アプリケーションをホストする空のステートレス サービスが得られます。 アプリケーションを最初からセットアップして、どのようにそれをまとめるかを見ていきます。
 
-最初の手順は、Web API のいくつかの NuGet パッケージを取得することです。 使用するパッケージは **Microsoft.AspNet.WebApi.OwinSelfHost** です。 このパッケージには、必要なすべての Web API パッケージと、後で重要になる*ホスト* パッケージが含まれます。
+最初の手順は、Web API のいくつかの NuGet パッケージを取得することです。 使用するパッケージが **Microsoft.AspNet.WebApi.OwinSelfHost**します。 このパッケージには、必要なすべての Web API パッケージが含まれています。 および *ホスト* 重要になる後でパッケージです。
 
 ![](media/service-fabric-reliable-services-communication-webapi/webapi-nuget.png)
 
@@ -71,6 +70,7 @@ namespace WebApiService
         }
     }
 }
+
 ```
 
 Controllers ディレクトリに既定のコントローラーを追加します。
@@ -120,9 +120,10 @@ namespace WebApiService.Controllers
         }
     }
 }
+
 ```
 
-最後に、プロジェクト ルートにルーティング、フォーマッタ、およびその他の構成セットアップを登録するスタートアップ クラスを追加します。 これは、Web API が*ホスト*にプラグインする場所でもあり、後で再度参照します。 スタートアップ クラスのセットアップ中に、構成メソッドを定義するスタートアップ クラスに *IOwinAppBuilder* というインターフェイスを作成します。 Web API が機能するために技術的に必須ではありませんが、後でスタートアップ クラスを柔軟に使用できるようになります。
+最後に、プロジェクト ルートにルーティング、フォーマッタ、およびその他の構成セットアップを登録するスタートアップ クラスを追加します。 これは、ここで Web API にプラグインもとは、 *ホスト*, 、後で再度参照されます。 スタートアップ クラスを設定中と呼ばれるインターフェイスを作成 *IOwinAppBuilder* 構成メソッドを定義するスタートアップ クラスにします。 Web API が機能するために技術的に必須ではありませんが、後でスタートアップ クラスを柔軟に使用できるようになります。
 
  + Startup.cs
 
@@ -146,6 +147,7 @@ namespace WebApiService
         }
     }
 }
+
 ```
 
  + IOwinAppBuilder.cs
@@ -161,6 +163,7 @@ namespace WebApiService
         void Configuration(IAppBuilder appBuilder);
     }
 }
+
 ```
 
 以上が、アプリケーション部分です。 この時点では、ごく基本的な Web API プロジェクト レイアウトをセットアップしただけです。 過去に作成した Web API プロジェクトや基本的な Web API テンプレートと比較して、今までのところそれほど大きく違うように見えないはずです。 ビジネス ロジックは、通常どおりに、コント ローラーとモデルに進みます。
@@ -170,7 +173,7 @@ namespace WebApiService
 
 ## サービスのホスト
 
-Service Fabric では、サービスは*サービス ホスト プロセス* (サービス コードを実行する実行可能ファイル) で実行します。 Reliable Services API を使用してサービスを作成する場合、および実際に .NET の Service Fabric 上のサービスを作成するほとんどの場合に、サービス プロジェクトは、サービスの種類を登録して、コードを実行する .EXE にコンパイルするだけです。 実際に、ステートレス サービス プロジェクトの **Program.cs** を開いた場合、次が表示されるはずです。
+Service fabric でサービスの実行、 *サービス ホスト プロセス* - する実行可能ファイルは、サービス コードを実行します。 Reliable Services API を使用してサービスを作成する場合、および実際に .NET の Service Fabric 上のサービスを作成するほとんどの場合に、サービス プロジェクトは、サービスの種類を登録して、コードを実行する .EXE にコンパイルするだけです。 実際には、開く場合 **Program.cs** ステートレス サービス プロジェクトに表示されます。
 
 ```csharp
 
@@ -194,17 +197,19 @@ public class Program
         }
     }
 }
+
 ```
 
 コンソール アプリケーションへのエントリ ポイントのように見える場合は、それが次のようになっているためです。
 
-サービス ホスト プロセスとサービス登録の詳細についてはここで取り上げませんが、今のところ、**サービス コードが、独自のプロセスで実行している**ことを知っておくことが重要です。
+サービス ホスト プロセスとサービスの登録に関する詳細は扱いませんが、この記事を理解しておく必要できた **独自のプロセスで、サービスのコードが実行されている**します。
 
 ## OWIN ホストによる自己ホスト型 Web API
 
-Web API アプリケーション コードが、その独自のプロセスでホストされている場合、それをどのようにして Web サーバーに接続するのでしょうか。 Enter [OWIN](http://owin.org/). OWIN は .NET Web アプリケーションと Web サーバー間の単なるコントラクトです。 従来、ASP.NET (MVC 5 まで) では、Web アプリケーションは System.Web 経由で IIS に厳密に結合されていました。 しかし、Web API は OWIN を実装しているため、ホストされる Web サーバーから分離した Web アプリケーションを書くことができます。 これにより、独自のプロセスで起動でき、先述の Service Fabric ホスティング モデルに完全に適合する*自己ホスト* OWIN Web サーバーを使用できます。
+Web API アプリケーション コードが、その独自のプロセスでホストされている場合、それをどのようにして Web サーバーに接続するのでしょうか。 入力 [OWIN](http://owin.org/)します。 OWIN は .NET Web アプリケーションと Web サーバー間の単なるコントラクトです。 従来、ASP.NET (MVC 5 まで) では、Web アプリケーションは System.Web 経由で IIS に厳密に結合されていました。 しかし、Web API は OWIN を実装しているため、ホストされる Web サーバーから分離した Web アプリケーションを書くことができます。 これにより、使用して、 *自己ホスト* OWIN web サーバーを独自のプロセスでは、先ほど説明した Service Fabric ホスティング モデルにぴったり収まるにすることができます。
 
 この記事では、Web API アプリケーションの OWIN ホストとして Katana を使用します。 Katana は、オープン ソース OWIN ホスト実装です。
+
 > [AZURE.NOTE] Katana の詳細についてに進んで、 [Katana サイト](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana), 、Katana を使用して Web API を自己ホストする方法の簡単な概要については、この記事を確認および [OWIN 移動 ASP.NET Web API 2 を使用して](http://www.asp.net/web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api)します。
 
 
@@ -218,6 +223,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 {
     ...
 }
+
 ```
 
 Web サーバーおよび Websocket などの今後使用する可能性のある他の任意の通信スタックは、システムに正しく統合されるように ICommunicationListener インターフェイスを使用する必要があります。 この理由は、次の手順で明らかになります。
@@ -254,15 +260,16 @@ namespace WebApi
         }
     }
 }
+
 ```
 
 ICommunicationListener インターフェイスは、サービスの通信リスナーを管理する 3 つのメソッドを提供します。
 
  + **OpenAsync**: 要求のリッスンを開始します。
- + **CloseAsync**: 要求のリッスンを停止し、実行中の要求を完了して、正常にシャット ダウンします。
- + **Abort**: すべてのものをキャンセルし、ただちに停止します。
+ + **CloseAsync**: 要求のリッスンを停止し、実行中の要求を完了し、正常にシャット ダウンします。
+ + **中止**: すべてのものをキャンセルし、すぐに停止します。
 
-最初に、URL パス プレフィックスのプライベート クラス メンバーと以前に作成した **Startup** クラスを追加します。 これらは、コンストラクターによって初期化され、後でリッスンする URL を設定するときに使用されます。 さらに、初期化時と、後でサーバーが起動したときに、それぞれ作成されるリッスンしているアドレスとサーバー ハンドルを保存するためのプライベート クラス メンバーを追加します。
+最初に、URL パス プレフィックスのプライベート クラス メンバーを追加し、 **スタートアップ** 先ほど作成したクラスです。 これらは、コンストラクターによって初期化され、後でリッスンする URL を設定するときに使用されます。 さらに、初期化時と、後でサーバーが起動したときに、それぞれ作成されるリッスンしているアドレスとサーバー ハンドルを保存するためのプライベート クラス メンバーを追加します。
 
 ```csharp
 
@@ -282,16 +289,17 @@ public class OwinCommunicationListener : ICommunicationListener
     }        
 
     ...
+
 ```
 
 ### 実装
 
 Web サーバーをセットアップするには、2 つの情報が必要です。
 
- + **URL パス プレフィックス**。 オプションですが、アプリケーションで複数の Web サービスを安全にホストできるように、ここでこれを設定することをお勧めします。
- + **ポート**。
+ + **URL パス プレフィックス**します。 オプションですが、アプリケーションで複数の Web サービスを安全にホストできるように、ここでこれを設定することをお勧めします。
+ + **ポート**します。
 
-Web サーバーのポートを取得する前に、Service Fabric が、アプリケーションとそれが実行される基盤のオペレーティング システム間のバッファーとして機能するアプリケーション層を提供することを理解しておくことが重要です。 そのために Service Fabric は、サービスの*エンドポイント*を構成する方法を提供します。 Service Fabric は、サービスでエンドポイントを確実に使用できるように準備するため、ユーザーは基盤の OS 環境で、自分でそれを構成する必要はありません。 これにより、さまざまな環境で、Service Fabric アプリケーションを変更する必要なく簡単にホストできます (たとえば、Azure や独自のデータ センターで、同じアプリケーションをホストできます)。
+Web サーバーのポートを取得する前に、Service Fabric が、アプリケーションとそれが実行される基盤のオペレーティング システム間のバッファーとして機能するアプリケーション層を提供することを理解しておくことが重要です。 Service Fabric を構成する方法を提供するよう、 *エンドポイント* サービスです。 Service Fabric は、サービスでエンドポイントを確実に使用できるように準備するため、ユーザーは基盤の OS 環境で、自分でそれを構成する必要はありません。 これにより、さまざまな環境で、Service Fabric アプリケーションを変更する必要なく簡単にホストできます (たとえば、Azure や独自のデータ センターで、同じアプリケーションをホストできます)。
 
 PackageRoot\ServiceManifest.xml で HTTP エンドポイントを構成します。
 
@@ -302,6 +310,7 @@ PackageRoot\ServiceManifest.xml で HTTP エンドポイントを構成します
         <Endpoint Name="ServiceEndpoint" Type="Input" Protocol="http" Port="80" />
     </Endpoints>
 </Resources>
+
 ```
 
 サービス ホスト プロセスは制限付き資格情報 (Windows 上のネットワーク サービス) で実行されますが、これはサービスが独自の HTTP エンドポイントを設定するためにアクセスできないことを意味するため、この手順が重要になります。 エンドポイント構成を使用することによって、Service Fabric は、エンドポイントを構成する標準の場所を提供しながら、サービスがリッスンする URL の正しい ACL を設定することを認識します。
@@ -324,6 +333,7 @@ public Task<string> OpenAsync(CancellationToken cancellationToken)
             ? String.Empty
             : this.appRoot.TrimEnd('/') + '/');
     ...
+
 ```
 
 ここで "http://+" が使われていることに注意してください。 これは、Web サーバーが、localhost、FQDN、マシン IP など、使用可能なすべてのアドレスで確実にリッスンするようにするためです。
@@ -343,9 +353,10 @@ OpenAsync を実装することは、Web サーバー (または任意の通信�
 
     return Task.FromResult(publishAddress);
 }
+
 ```
 
-これは、コンストラクターで OwinCommunicationListener に渡された **Startup** クラスを参照します。 この Startup インスタンスは、Web サーバーが Web API アプリケーションを起動するために使用します。
+この参照、 **スタートアップ** コンス トラクターで OwinCommunicationListener に渡されたクラスです。 この Startup インスタンスは、Web サーバーが Web API アプリケーションを起動するために使用します。
 
 後でアプリケーションを実行したときに、Web サーバーが正常に起動していることを知らせるため、診断イベント ウィンドウに ServiceEventSource.Current.Message() 行が表示されます。
 
@@ -381,13 +392,14 @@ private void StopWebServer()
         }
     }
 }
+
 ```
 
 この例の実装では、CloseAsync と Abort のどちらも単に Web サーバーを停止するだけです。 CloseAsync で、実行中の要求の完了を待ってから戻るなど、Web サーバーのより適切に調整されたシャットダウンを実行することもできます。
 
 ## Web サーバーの起動
 
-これで、OwinCommunicationListener のインスタンスを作成して、返し、Web サーバーを起動する準備が整いました。 サービス クラス (Service.cs) に戻り、**CreateServiceInstanceListeners()** メソッドをオーバーライドします。
+これで、OwinCommunicationListener のインスタンスを作成して、返し、Web サーバーを起動する準備が整いました。 オーバーライドをサービス クラス (Service.cs) に戻り、 **CreateServiceInstanceListeners()** メソッド。
 
 ```csharp
 
@@ -398,9 +410,10 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
         new ServiceInstanceListener(initParams => new OwinCommunicationListener("webapp", new Startup(), initParams))
     };
 }
+
 ```
 
-ここで、Web API *アプリケーション*と OWIN *ホスト*が最終的に接触します。*ホスト* (**OwinCommunicationListener**) に*アプリケーション* (**Startup** 経由の Web API) のインスタンスが与えられ、Service Fabric がそのライフサイクルを管理します。 この同じパターンは、一般に通信スタックでも従うことができます。
+これは、ような場合、Web API *アプリケーション* と OWIN *ホスト* 最終的に接触: *ホスト* (**OwinCommunicationListener**) のインスタンスが与え、 *アプリケーション* (経由の Web API **スタートアップ**)、および Service Fabric がそのライフ サイクルを管理します。 この同じパターンは、一般に通信スタックでも従うことができます。
 
 ## まとめ
 
@@ -427,9 +440,10 @@ namespace WebApiService
         }
     }
 }
+
 ```
 
-完全な `OwinCommunicationListener` クラス。
+さらに、`OwinCommunicationListener` クラスを完成させます。
 
 ```csharp
 
@@ -451,7 +465,7 @@ namespace WebApiService
         private readonly ServiceInitializationParameters serviceInitializationParameters;
         private IDisposable serverHandle;
         private string listeningAddress;
-
+        
         public OwinCommunicationListener(string appRoot, IOwinAppBuilder startup, ServiceInitializationParameters serviceInitializationParameters)
         {
             this.startup = startup;
@@ -512,6 +526,7 @@ namespace WebApiService
         }
     }
 }
+
 ```
 
 すべての部分を適切に配置したら、プロジェクトは、Reliable Services API エントリ ポイントと OWIN ホストのある一般的な Web API アプリケーションのようになったはずです。
@@ -521,14 +536,15 @@ namespace WebApiService
 
 ## Web ブラウザーによる実行と接続
 
-実行していない場合、 [開発環境を設定する](service-fabric-get-started.md)します。
+実行していない場合、 [開発環境を設定する](service-fabric-get-started.md)です。
 
 
-これでサービスを構築し、デプロイできます。 Visual Studio で **F5** キーを押して、アプリケーションを構築し、デプロイします。 診断イベント] ウィンドウで、web サーバーで開かれたことを示すメッセージが表示する必要があります **http://localhost:80/webapp/api**
+これでサービスを構築し、デプロイできます。 キーを押して **f5 キーを押して** Visual studio をビルドして、アプリケーションをデプロイします。 診断イベント] ウィンドウで、web サーバーで開かれたことを示すメッセージが表示する必要があります **http://localhost:80/webapp/api**
 
 
 ![](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
-> [AZURE.NOTE] ポートが既に、コンピューターの別のプロセスによって開かれている場合、リスナーを開けなかったことを示すエラーが表示されることがあります。 その場合は、ServiceManifest.xml のエンドポイント構成で、別のポートを使用してみてください。
+
+> [AZURE.NOTE] ポートが既にある場合、コンピューター上の別のプロセスによって開かれて、リスナーを開くことができませんでしたを示すエラーが表示されます。 その場合は、ServiceManifest.xml のエンドポイント構成で、別のポートを使用してみてください。
 
 
 ブラウザーを開き、サービスが実行されるに移動 [http://localhost/webapp/api/values](http://localhost/webapp/api/values) それをテストします。
@@ -540,6 +556,7 @@ namespace WebApiService
 ```powershell
 
 New-ServiceFabricService -ApplicationName "fabric:/WebServiceApplication" -ServiceName "fabric:/WebServiceApplication/WebService" -ServiceTypeName "WebServiceType" -Stateless -PartitionSchemeSingleton -InstanceCount -1
+
 ```
 
 または Visual Studio ステートレス サービス プロジェクトで既定のサービスを定義するときに設定します。
@@ -553,19 +570,16 @@ New-ServiceFabricService -ApplicationName "fabric:/WebServiceApplication" -Servi
     </StatelessService>
   </Service>
 </DefaultServices>
+
 ```
 
 アプリケーションとサービス インスタンスの作成の詳細については、次を参照してください。 [のデプロイとアプリケーションを削除する方法](service-fabric-deploy-remove-applications.md)します。
 
 ## ASP.NET 5
 
-ASP.NET 5 でも、Web アプリケーションで*ホスト*から*アプリケーション*を分離する概念とプログラミング モデルは同じです。 それは他の形式の通信にも適用できます。 さらに、ASP.NET 5 では*ホスト*は異なることがありますが、Web API *アプリケーション*層は同じままで、そこにアプリケーション ロジックの大半が実際に存在します。
+ASP.NET 5 では、概念および分離することのあるプログラミング モデルで、 *アプリケーション* から、 *ホスト* web アプリケーションでは同じです。 それは他の形式の通信にも適用できます。 さらに、ですが、 *ホスト* ASP.NET 5、Web API で異なる場合があります *アプリケーション* レイヤーは同じままである、アプリケーション ロジックの大半が実際に存在します。
 
 ## 次のステップ
 
 [Visual Studio での Service Fabric アプリケーションのデバッグ](service-fabric-debugging-your-application.md)
-
-
-
-
 

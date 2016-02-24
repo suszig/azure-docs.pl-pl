@@ -17,8 +17,11 @@
                 ms.author="markusvi"/>
 
 
-
 # Azure Active Directory とは
+
+
+
+
 
 Azure Active Directory (Azure AD) は、マイクロソフトが提供する、マルチテナントに対応したクラウド ベースのディレクトリと ID の管理サービスです。
 
@@ -66,13 +69,12 @@ Azure AD はマルチテナント型で地理的に分散した高可用性の�
 
 
 ## 利用を始めるには?
-
 -   IT 管理者の方:
  - [試してみる!](https://azure.microsoft.com/trial/get-started-active-directory/) -無料 30 日の試用版にサインアップし、このリンクを使用して、5 分以内に、最初のクラウド ソリューションの配置
  - Azure AD の概要に関するページで、Azure AD テナントをすばやく稼働させるためのヒントとテクニックをお読みください。
 -   開発者の場合:
- - チェック アウト、 [開発者向けガイド](active-directory-developers-guide.md) を Azure Active Directory
- - [の評価を開始](https://azure.microsoft.com/trial/get-started-active-directory/) 、30 日間無料評価版を今すぐサインアップ – Azure AD とアプリの統合を開始して
+ - チェック アウト、 [開発者向けガイド](active-directory-developers-guide.md) を Azure Active Directory 
+ - [評価を開始](https://azure.microsoft.com/trial/get-started-active-directory/) 、30 日間無料評価版を今すぐサインアップ – Azure AD とアプリの統合を開始して
 
 
 
@@ -81,29 +83,25 @@ Azure AD はマルチテナント型で地理的に分散した高可用性の�
 Azure AD について理解を深めていただけるよう、豊富なオンライン リソースをご用意しています。 理解を深めるのに適した優れた記事を以下にリストしましたので、ご活用ください。
 
 
-- [ディレクトリの Azure AD Connect のハイブリッド管理を有効にします。](active-directory-aadconnect.md)
+- [Azure AD Connect によるディレクトリのハイブリッド管理を有効にする](active-directory-aadconnect.md)
 
-- [これまでとは、追加のセキュリティ](multi-factor-authentication.md)
+- [多要素認証とは](multi-factor-authentication.md)
 
-- [ユーザー プロビジョニングと Azure Active Directory による SaaS アプリをプロビジョニング解除の自動化します。](active-directory-saas-app-provisioning.md)
+- [Azure Active Directory による SaaS アプリへのユーザー プロビジョニングとプロビジョニング解除の自動化](active-directory-saas-app-provisioning.md)
 
 - [Azure AD レポートの概要](active-directory-reporting-getting-started.md)
 
-- [任意の場所からパスワードを管理します。](articles/active-directory-passwords.md)
+- [任意の場所からのパスワードの管理](articles/active-directory-passwords.md)
 
-- [アプリケーション アクセスと Azure Active Directory でのシングル サインオンとは](active-directory-appssoaccess-whatis.md)
+- [Azure Active Directory のアプリケーション アクセスとシングル サインオンとは](active-directory-appssoaccess-whatis.md)
 
-- [ユーザー プロビジョニングと Azure Active Directory による SaaS アプリをプロビジョニング解除の自動化します。](active-directory-saas-app-provisioning.md)
+- [Azure Active Directory による SaaS アプリへのユーザー プロビジョニングとプロビジョニング解除の自動化](active-directory-saas-app-provisioning.md)
 
-- [内部設置型アプリケーションをセキュリティで保護されたリモート アクセスを提供する方法](active-directory-application-proxy-get-started.md)
+- [オンプレミス アプリケーションへの安全なリモート アクセスを実現する方法](active-directory-application-proxy-get-started.md)
 
-- [Azure Active Directory グループによるリソースへのアクセスを管理します。](active-directory-manage-groups.md)
+- [Azure Active Directory グループによるリソースへのアクセス管理](active-directory-manage-groups.md)
 
-- [Microsoft Azure Active Directory ライセンスとでしょうか。](active-directory-licensing-what-is.md)
+- [Microsoft Azure Active Directory ライセンスとは](active-directory-licensing-what-is.md)
 
 - [自分の組織内で使用される承認されていないクラウド アプリを検出する方法](active-directory-cloudappdiscovery-whatis.md)
-
-
-
-
 

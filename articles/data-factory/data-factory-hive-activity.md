@@ -16,7 +16,6 @@
     ms.date="11/09/2015" 
     ms.author="spelluru"/>
 
-
 # Hive アクティビティ
 
 Data Factory での HDInsight Hive アクティビティ [パイプライン](data-factory-create-pipelines.md) で Hive クエリを実行 [独自](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) または [オンデマンド](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows または Linux ベースの HDInsight クラスター。 この記事に基づき、 [データ変換のアクティビティ](data-factory-data-transformation-activities.md) データ変換とサポートされる変換アクティビティの概要を説明する記事です。
@@ -50,24 +49,24 @@ Data Factory での HDInsight Hive アクティビティ [パイプライン](da
           "interval": 1
         }
     }
-
+    
 ## 構文の詳細
 
- プロパティ| 説明| 必須
+プロパティ | 説明 | 必須
 -------- | ----------- | --------
- name| アクティビティの名前| あり
- description| アクティビティの用途を説明するテキストです。| いいえ
- type| HDinsightHive| あり
- inputs| Hive アクティビティによって使用される入力| いいえ
- outputs| Hive アクティビティによって生成される出力| あり
- linkedServiceName| Data Factory のリンクされたサービスとして登録されている HDInsight クラスターへの参照| あり
- script (スクリプト)| Hive スクリプトをインラインに指定します| いいえ
- スクリプトのパス| Hive スクリプトを Azure BLOB ストレージに格納し、ファイルへのパスを指定します。'script' プロパティまたは 'scriptPath' プロパティを使用します。両方を同時に使用することはできません| いいえ
- defines| 'hiveconf' を使用して Hive スクリプト内で参照するキーと値のペアとしてパラメーターを指定します| いいえ
+name | アクティビティの名前 | はい
+description | アクティビティの用途を説明するテキストです。 | いいえ
+type | HDinsightHive | あり
+inputs | Hive アクティビティによって使用される入力 | いいえ
+outputs | Hive アクティビティによって生成される出力 | あり 
+linkedServiceName | Data Factory のリンクされたサービスとして登録されている HDInsight クラスターへの参照 | あり 
+script (スクリプト) | Hive スクリプトをインラインに指定します | いいえ
+スクリプトのパス | Hive スクリプトを Azure BLOB ストレージに格納し、ファイルへのパスを指定します。 'script' プロパティまたは 'scriptPath' プロパティを使用します。 両方を同時に使用することはできません | いいえ 
+defines | 'hiveconf' を使用して Hive スクリプト内で参照するキーと値のペアとしてパラメーターを指定します  | いいえ
 
 ## 例
 
-ゲームのログ分析の例について考えてみましょう。ここでは、お客様の会社が発売したゲームをユーザーがプレイした時間を特定します。
+ゲームのログ分析の例について考えてみましょう。ここでは、お客様の会社が発売したゲームをユーザーがプレイした時間を特定します。 
 
 以下はゲーム ログのサンプルです。コンマ (,) で区切られていて、ProfileID、SessionStart、Duration、SrcIPAddress、GameType の各フィールドが含まれています。
 
@@ -77,7 +76,7 @@ Data Factory での HDInsight Hive アクティビティ [パイプライン](da
     1809,2014-05-04 05:24:22.2100000,23,192.84.66.141,KingHill
     .....
 
-このデータを処理する **Hive スクリプト**は、次のようになります。
+ **Hive スクリプト** プロセスがこのデータは、次のようになります。
 
     DROP TABLE IF EXISTS HiveSampleIn; 
     CREATE EXTERNAL TABLE HiveSampleIn 
@@ -106,9 +105,10 @@ Data Factory パイプラインでこの Hive スクリプトを実行するに�
 
 1. 登録するリンクされたサービスを作成する [独自の HDInsight コンピューティング クラスター](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) または構成 [、オンデマンドの HDInsight コンピューティング クラスター](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)します。 このリンクされたサービスを "HDInsightLinkedService" と呼ぶことにしましょう。
 2. 作成、 [のリンクされたサービス](data-factory-azure-storage-connector.md) 、データをホストする Azure Blob ストレージへの接続を構成します。 このリンクされたサービスを "StorageLinkedService" と呼ぶことにしましょう。
-3. 作成 [データセット](data-factory-create-datasets.md) 、入力と出力データを指定します。 入力データセットは "HiveSampleIn"、出力データセットは "HiveSampleOut" と呼ぶことにしましょう。
-4. コピーをファイルとして Azure Blob ストレージに Hive クエリは、上記の手順 2. で構成されます。 データをホストするためのリンクされたサービスがこのクエリ ファイルをホストしているものと異なる場合は、別の Azure ストレージのリンクされたサービスを作成し、アクティビティの構成のトークンを参照します。 使用 **scriptPath * * hive クエリ ファイルへのパスを指定し、* * scriptLinkedService** をスクリプト ファイルを含む Azure のストレージを指定します。
-    > [AZURE.NOTE] また、**script** プロパティを使えば、アクティビティ定義で Hive スクリプトをインライン化することもできます。ただし、JSON ドキュメント内でスクリプトのすべての特殊文字をエスケープする必要があり、デバッグの問題の原因となる場合があるため、この方法はお勧めできません。 手順 4 の使用をお勧めします。
+3. 作成 [データセット](data-factory-create-datasets.md) 入力と出力データを指定します。 入力データセットは "HiveSampleIn"、出力データセットは "HiveSampleOut" と呼ぶことにしましょう。
+4. コピーをファイルとして Azure Blob ストレージに Hive クエリは、上記の手順 2. で構成されます。 データをホストするためのリンクされたサービスがこのクエリ ファイルをホストしているものと異なる場合は、別の Azure ストレージのリンクされたサービスを作成し、アクティビティの構成のトークンを参照します。 使用して * * scriptPath * * hive クエリ ファイルへのパスを指定し、 **scriptLinkedService** をスクリプト ファイルを含む Azure のストレージを指定します。 
+
+    > [AZURE.NOTE] 使用して、Hive スクリプトをインラインでアクティビティ定義でもできる、 **スクリプト** プロパティが、これは使用しないで、JSON ドキュメント内のスクリプトですべての特殊文字をエスケープする必要があるし、デバッグの問題の原因可能性があります。 手順 4. の使用をお勧めします。
 5.  HDInsightHive アクティビティで下のパイプラインを作成してデータを処理します。
 
         {
@@ -142,17 +142,17 @@ Data Factory パイプラインでこの Hive スクリプトを実行するに�
           }
         }
 
-6.  パイプラインをデプロイします。 参照してください [パイプラインを作成する](data-factory-create-pipelines.md) の詳細については、資料です。
-7.  データ ファクトリの監視と管理のビューを使用して、パイプラインを監視します。 参照してください [監視し、Data Factory パイプラインを管理する](data-factory-monitor-manage-pipelines.md) の詳細については、資料です。
+6.  パイプラインをデプロイします。 参照してください [パイプラインを作成する](data-factory-create-pipelines.md) の詳細については、資料です。 
+7.  データ ファクトリの監視と管理のビューを使用して、パイプラインを監視します。 参照してください [監視し、Data Factory パイプラインを管理する](data-factory-monitor-manage-pipelines.md) の詳細については、資料です。 
 
 
-## defines 要素を使用する Hive スクリプトのパラメーターの指定
+## defines 要素を使用する Hive スクリプトのパラメーターの指定 
 
 ゲームのログが Azure BLOB ストレージに毎日取り込まれ、日付と時刻で分割されたフォルダーに格納される例を考えてみましょう。 Hive スクリプトをパラメーター化し、実行時に入力フォルダーの場所を動的に渡し、さらに、日付と時刻で分割された出力も生成する必要があるとします。
 
 パラメーター化された Hive スクリプトを使用するには、次の手順に従います。
 
-- **defines** でパラメーターを定義します。
+- パラメーターを定義 **定義**します。
 
         {
             "name": "HiveActivitySamplePipeline",
@@ -189,35 +189,30 @@ Data Factory パイプラインでこの Hive スクリプトを実行するに�
           }
         }
 
-- Hive スクリプトでは、**${hiveconf:parameterName}** を使用してパラメーターを参照します。
+- Hive スクリプトでは、パラメーターを使用して、参照してください **${hiveconf:parametername}**します。 
 
-      DROP TABLE IF EXISTS HiveSampleIn; 
-      CREATE EXTERNAL TABLE HiveSampleIn 
-      (
-          ProfileID   string, 
-          SessionStart    string, 
-          Duration    int, 
-          SrcIPAddress    string, 
-          GameType    string
-      ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:Input}'; 
-    
-      DROP TABLE IF EXISTS HiveSampleOut; 
-      CREATE EXTERNAL TABLE HiveSampleOut 
-      (
-          ProfileID   string, 
-          Duration    int
-      ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:Output}';
-    
-      INSERT OVERWRITE TABLE HiveSampleOut
-      Select 
-          ProfileID,
-          SUM(Duration)
-      FROM HiveSampleIn Group by ProfileID
-
-
-
-
-
+        DROP TABLE IF EXISTS HiveSampleIn; 
+        CREATE EXTERNAL TABLE HiveSampleIn 
+        (
+            ProfileID   string, 
+            SessionStart    string, 
+            Duration    int, 
+            SrcIPAddress    string, 
+            GameType    string
+        ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:Input}'; 
+        
+        DROP TABLE IF EXISTS HiveSampleOut; 
+        CREATE EXTERNAL TABLE HiveSampleOut 
+        (
+            ProfileID   string, 
+            Duration    int
+        ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:Output}';
+        
+        INSERT OVERWRITE TABLE HiveSampleOut
+        Select 
+            ProfileID,
+            SUM(Duration)
+        FROM HiveSampleIn Group by ProfileID
 
 
 

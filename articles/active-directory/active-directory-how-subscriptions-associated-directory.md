@@ -16,25 +16,24 @@
     ms.date="12/01/2015"
     ms.author="curtand"/>
 
-
 # Azure サブスクリプションを Azure Active Directory に関連付ける方法
 
 このトピックでは、Microsoft Azure へのサインインのほか、Azure サブスクリプションと Azure Active Directory (Azure AD) の関係など、関連する問題について説明します。
 
 ## サインインに使用できるアカウント
-
 サインインに使用できるアカウントから始めます。 Microsoft アカウント (旧称 Microsoft Live ID) と、Azure AD に格納されるアカウントである職場または学校アカウントの 2 種類があります。
 
- Microsoft アカウント| Azure AD アカウント
-------------- | -------------
- Microsoft によって実行されるコンシューマー ID システム| Microsoft によって実行されるビジネス ID システム
- Hotmail や MSN などのコンシューマー指向サービスに対する認証| Office 365 などのビジネス指向サービスに対する認証
- コンシューマーは、電子メールにサインアップするときなどに、専用の Microsoft アカウントを作成します| 企業および組織は、専用の職場または学校アカウントを作成および管理します
- ID が作成されて Microsoft アカウント システムに格納されます| Azure または Office 365 などの他のサービスを使用して ID が作成され、組織に割り当てられている Azure AD インスタンスに格納されます
+ Microsoft アカウント  | Azure AD アカウント
+    ------------- | -------------
+Microsoft によって実行されるコンシューマー ID システム | Microsoft によって実行されるビジネス ID システム
+Hotmail や MSN などのコンシューマー指向サービスに対する認証 | Office 365 などのビジネス指向サービスに対する認証
+コンシューマーは、電子メールにサインアップするときなどに、専用の Microsoft アカウントを作成します | 企業および組織は、専用の職場または学校アカウントを作成および管理します
+ID が作成されて Microsoft アカウント システムに格納されます | Azure または Office 365 などの他のサービスを使用して ID が作成され、組織に割り当てられている Azure AD インスタンスに格納されます
 
-最初、Azure には Microsoft アカウント ユーザーのみがアクセスできましたが、現在では*両方の*システムのユーザーがアクセスできます。 これは、すべての Azure プロパティが認証のために Azure AD を信頼し、Azure AD が組織のユーザーを認証し、Azure AD が Microsoft アカウント コンシューマー ID システムを信頼してコンシューマー ユーザーを認証するフェデレーション関係を作成することによって実現されました。 その結果、Azure AD は「ゲスト」 Microsoft アカウントだけでなく「ネイティブ」 Azure AD アカウントも認証できます。
+ユーザーからのアクセスを許可ようになりましたが、Azure には、Microsoft アカウント ユーザーのみがアクセスが許可されていた、 *両方* システムです。 これは、すべての Azure プロパティが認証のために Azure AD を信頼し、Azure AD が組織のユーザーを認証し、Azure AD が Microsoft アカウント コンシューマー ID システムを信頼してコンシューマー ユーザーを認証するフェデレーション関係を作成することによって実現されました。 その結果、Azure AD は「ゲスト」 Microsoft アカウントだけでなく「ネイティブ」 Azure AD アカウントも認証できます。
 
 たとえば、Microsoft アカウントを使用するユーザーは Azure クラシック ポータルにサインインします。
+
 > [AZURE.NOTE]
 > Azure クラシック ポータルにサインインするのは、msmith@hotmail.com が Azure のサブスクリプションが必要です。 アカウントは、サービス管理者またはサブスクリプションの共同管理者のいずれかである必要があります。
 
@@ -57,7 +56,6 @@
 ![][2]
 
 ## サブスクリプションとディレクトリを管理する方法
-
 Azure サブスクリプションの管理ロールは、Azure サブスクリプションに関連付けられているリソースを管理します。 これらのロールと、サブスクリプションを管理するためのベスト プラクティスは「 [Azure Active Directory での管理者ロールの割り当て](active-directory-assign-admin-roles.md)します。
 
 既定では、サインアップすると、サービス管理者ロールを割り当てられます。 他のユーザーが同じサブスクリプションを使用してサインインし、サービスにアクセスする必要がある場合は、共同管理者として追加できます。 サービス管理者および共同管理者になることができるのは、Azure サブスクリプションが関連付けられているディレクトリの Microsoft アカウントか、職場または学校アカウントです。
@@ -99,33 +97,32 @@ Azure にサインアップする前に Office 365 にサインアップした�
 
 ### Azure のサブスクリプションがない場合
 
-この場合は [Azure へのサインアップ](sign-up-organization.md) 同じ職場アカウントまたは学校のアカウントを使用して、Office 365 にサインインを使用します。 Office 365 アカウントからの関連情報が、Azure のサインアップ フォームに事前に入力されます。 アカウントは、サブスクリプションのサービス管理者ロールに割り当てられます。
+この場合は [Azure へのサインアップ](sign-up-organization.md) 同じ職場アカウントまたは学校のアカウントを使用して、Office 365 にサインインを使用します。 Office 365 アカウントからの関連情報が、Azure のサインアップ フォームに事前に入力されます。 アカウントは、サブスクリプションのサービス管理者ロールに割り当てられます。  
 
 ### Microsoft アカウントを使用する Azure のサブスクリプションがある場合
 
 職場または学校アカウントを使用して Office 365 にサインアップした後、Microsoft アカウントを使用して Azure にサインアップした場合は、2 つのディレクトリがあります。1 つは職場または学校用で、もう 1 つは Azure にサインアップしたときに作成された既定のディレクトリです。
 
 Azure クラシック ポータルで両方のディレクトリを管理するには、以下の手順を実行します。
+
 > [AZURE.NOTE]
-> この手順は、ユーザーが Microsoft アカウントでサインインしているときにのみ実行できます。 ユーザーが職場または学校アカウントでサインインしている場合は、ホーム ディレクトリ (つまり、職場または学校アカウントが格納されていて、職場または学校によって所有されているディレクトリ) によってのみアカウントを認証できるので、**[既存のディレクトリの使用]** オプションは使用できません。
+> この手順は、ユーザーが Microsoft アカウントでサインインしているときにのみ実行できます。 ユーザーが職場または学校のアカウント、オプションを使用して署名されている場合 **既存のディレクトリを使用して** は職場または学校のアカウントは、そのホーム ディレクトリでのみ認証できるため使用できません (職場または学校のアカウントが格納されたディレクトリは、いて、職場または学校によって所有されている)。
 
 1. Microsoft アカウントを使用して、Azure クラシック ポータルにサインインします。
-2. **[新規]**、**[App Services]**、**[Active Directory]**、**[ディレクトリ]**、**[カスタム作成]** の順にクリックします。
-3. **[既存のディレクトリの使用]** をクリックして、**[サインアウトする準備ができました]** をオンにし、チェック マークをクリックしてアクションを完了します。
+2. クリックして **新規** > **App services** > **Active Directory** > **ディレクトリ** > **カスタム作成**します。
+3. をクリックして **既存のディレクトリを使用して** チェックと **今すぐサインアウトする準備ができました** 、操作を完了するチェック マークをクリックします。
 4. 職場または学校のディレクトリのグローバル管理者権限を持つアカウントを使用して、Azure クラシック ポータルにサインインします。
-5. **[Azure で Contoso ディレクトリを使用しますか]** と表示されたら、**[続行]** をクリックします。
-6. **[今すぐサインアウト]** をクリックします。
+5. 求められたら **Azure で Contoso ディレクトリを使用?**, 、] をクリック **続行**します。
+6. クリックして **今すぐサインアウト**します。
 7. Microsoft アカウントを使用して、Azure クラシック ポータルに再度サインインします。 両方のディレクトリが Active Directory 拡張機能に表示されます。
 
 
 ## 参照トピック
-
-[組織として Azure にサインアップします。](sign-up-organization.md)
-
+[Azure への組織としてのサインアップ](sign-up-organization.md)
 
 
-
-[1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png 
-[2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png 
-[3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG 
+<!--Image references-->
+[1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png
+[2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
+[3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 

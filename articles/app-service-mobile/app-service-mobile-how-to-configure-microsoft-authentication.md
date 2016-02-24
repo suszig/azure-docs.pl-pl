@@ -16,7 +16,6 @@
     ms.date="11/20/2015"
     ms.author="mahender"/>
 
-
 # Microsoft アカウント ログインを使用するように App Service アプリケーションを構成する方法
 
 [AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -26,49 +25,53 @@
 
 このトピックでは、認証プロバイダーとして Microsoft アカウントを使用するように Azure App Services を構成する方法を示します。
 
+
 > [AZURE.NOTE]
 このトピックでは、App Service 認証/承認の使用例を示します。 ほとんどのアプリケーションで、これが App Service ゲートウェイに取って代わっています。 ゲートウェイを使用する場合との相違点は、トピック全体を通してメモに記載しています。
 
 
-## <a name="register"> </a>アプリケーションの Microsoft アカウントを登録します。
+## <a name="register"> </a>Microsoft アカウントにアプリケーションを登録する
 
-1. [Azure ポータル] にログオンし、アプリケーションに移動します。 **[URL]** をコピーします。 この URL は、Microsoft アカウント アプリを構成するのに使用します。
+1. ログオン、 [Azure portal], 、アプリケーションに移動します。 コピー、 **URL**します。 この URL は、Microsoft アカウント アプリを構成するのに使用します。
 
-2. Microsoft アカウント デベロッパー センターの [マイ アプリケーション] ページに移動し、必要な場合は、Microsoft アカウントでログオンします。
+2. 移動し、 [My Applications] Microsoft アカウント デベロッパー センター ページし、必要な場合は、Microsoft アカウントでログオンします。
 
-4. **[アプリケーションの作成]** をクリックし、**[アプリケーション名]** に名前を入力して、**[同意する]** をクリックします。
+4. をクリックして **アプリケーションを作成する**, 、入力、 **アプリケーション名** ] をクリック **同意**します。
 
-5. **[API 設定]** をクリックします。 **[モバイル クライアント アプリ/デスクトップ クライアント アプリ]** に対して **[はい]** を選択します。 **[リダイレクト URL]** フィールドに、アプリケーションの**リダイレクト URL** を入力し、**[保存]** をクリックします。 リダイレクト URI は、アプリケーションの URL にパス _/.auth/login/microsoftaccount/callback_ を追加したものです。 たとえば、 `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`します。 HTTPS スキームを使用していることを確認します。
+5. クリックして **API 設定**します。 選択 **はい** の **モバイル クライアント アプリ/デスクトップ クライアント アプリ**します。  **リダイレクト URL** フィールドに「アプリケーションの **リダイレクト URL** ] をクリック **保存**します。 URI は、末尾のパス、アプリケーションの URL リダイレクト _/.auth/login/microsoftaccount/callback_します。 たとえば、「`https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`」のように入力します。 HTTPS スキームを使用していることを確認します。
 
     ![][0]
 
+
     > [AZURE.NOTE]
-    App Service の認証/承認機能ではなく、App Service ゲートウェイを使用している場合、リダイレクト URL では、ゲートウェイ URL とパス _/signin-microsoft_ を使用します。
-
-6. **[アプリ設定]** をクリックして、**[クライアント ID]** と **[クライアント シークレット]** の値を書き留めます。
-
-    > [AZURE.NOTE] クライアント シークレットは、重要なセキュリティ資格情報です。 クライアント シークレットを他のユーザーと共有したり、クライアント アプリケーション内で配信したりしないでください。
+    If you are using the App Service Gateway instead of the App Service Authentication / Authorization feature, your redirect URL instead uses the gateway URL with the _/signin-microsoft_ path.
 
 
-## <a name="secrets"> </a>をアプリケーションに Microsoft アカウントの追加情報
+6. クリックして **アプリ設定** の値をメモしておきます、 **クライアント ID** と **クライアント シークレット**します。
+
+
+    > [AZURE.NOTE] The client secret is an important security credential. Do not share the client secret with anyone or distribute it within a client application.
+    
+
+## <a name="secrets"> </a>Microsoft アカウントの情報をアプリケーションに追加します。
 
 > [AZURE.NOTE]
-App Service ゲートウェイを使用する場合は、このセクションの内容は無視し、ポータル内で目的のゲートウェイに移動します。 **[設定]**、**[ID]**、**[Microsoft アカウント]** の順に選択します。 先に取得した値を貼り付けて、**[保存]** をクリックします。
+App Service ゲートウェイを使用する場合は、このセクションの内容は無視し、ポータル内で目的のゲートウェイに移動します。 選択 **設定**, 、**Identity**, 、し **Microsoft アカウント**します。 先に取得した値に貼り付け、クリックして **保存**します。
 
 
-7. ポータルに戻り、[Azure] には、アプリケーションに移動します。 **[設定]**、**[認証/承認]** の順にクリックします。
+7. 戻り、 [Azure portal], 、アプリケーションに移動します。 クリックして **設定**, 、し **認証/承認**します。
 
-8. [認証/承認] 機能が有効になっていない場合は、スイッチを **[オン]** に切り替えます。
+8. 場合は、認証/承認の機能が有効になっていない、スイッチを有効に **に**します。
 
-9. **[Microsoft アカウント]** をクリックします。 前の手順で取得した App ID と App Secret の値を貼り付けます。アプリケーションで必要なスコープを有効にします (省略可能)。 次に、 **[OK]** をクリックします
+9. クリックして **Microsoft アカウント**します。 前の手順で取得した App ID と App Secret の値を貼り付けます。アプリケーションで必要なスコープを有効にします (省略可能)。 クリックして **OK**します。
 
     ![][1]
+    
+    App Service は既定では認証を行いますが、サイトのコンテンツと API へのアクセス承認については制限を設けていません。 アプリケーション コードでユーザーを承認する必要があります。 
 
-    App Service は既定では認証を行いますが、サイトのコンテンツと API へのアクセス承認については制限を設けていません。 アプリケーション コードでユーザーを承認する必要があります。
+17. (省略可能)Microsoft アカウントによって認証されたユーザーのみに、サイトへのアクセスを制限するには設定 **要求が認証されていない場合に実行するアクション** に **Microsoft アカウント**します。 この場合、要求はすべて認証される必要があり、認証されていない要求はすべて認証のために Microsoft アカウントにリダイレクトされます。
 
-17. (省略可能) Microsoft によって認証されたユーザーしかサイトにアクセスできないように制限するには、**[要求が認証されていないときに実行するアクション]** を **[Microsoft アカウント]** に設定します。 この場合、要求はすべて認証される必要があり、認証されていない要求はすべて認証のために Microsoft アカウントにリダイレクトされます。
-
-11. **[保存]** をクリックします。
+11. クリックして **保存**します。 
 
 
 これで、アプリケーションで認証に Microsoft アカウントを使用する準備ができました。
@@ -77,17 +80,17 @@ App Service ゲートウェイを使用する場合は、このセクション�
 
 [AZURE.INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
+<!-- Authenticate your app with Live Connect Single Sign-On: [Windows](windows-liveconnect) -->
 
 
 
+<!-- Images. -->
 
+[0]: ./media/app-service-mobile-how-to-configure-microsoft-authentication/app-service-microsoftaccount-redirect.png
+[1]: ./media/app-service-mobile-how-to-configure-microsoft-authentication/mobile-app-microsoftaccount-settings.png
 
+<!-- URLs. -->
 
-
-
-
-[0]: ./media/app-service-mobile-how-to-configure-microsoft-authentication/app-service-microsoftaccount-redirect.png 
-[1]: ./media/app-service-mobile-how-to-configure-microsoft-authentication/mobile-app-microsoftaccount-settings.png 
-[my applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039 
-[azure portal]: https://portal.azure.com/ 
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Azure portal]: https://portal.azure.com/
 

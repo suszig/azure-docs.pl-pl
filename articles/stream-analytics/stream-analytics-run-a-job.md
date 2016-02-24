@@ -17,46 +17,40 @@
     ms.date="12/04/2015" 
     ms.author="jeffstok"/>
 
-
 # Azure Stream Analytics でストリーミング ジョブを実行する方法
 
 ジョブの入力、クエリ、および出力をすべて指定したら、Stream Analytics ジョブを開始できます。
 
 ジョブを開始するには:
 
-1.  Azure ポータルのジョブ ダッシュボードから、ページの下部にある **[開始]** をクリックします。
+1.  ジョブのダッシュ ボードから、Azure ポータルで、クリックして **開始** ページの下部にあります。
 
-    ![[ジョブの開始] ボタン](./media/stream-analytics-run-a-job/1-stream-analytics-run-a-job.png)
+    ![[ジョブの開始] ボタン](./media/stream-analytics-run-a-job/1-stream-analytics-run-a-job.png)  
 
-    Azure プレビュー ポータルで、ジョブ ページの上部にある **[開始]** をクリックします。
+    Azure プレビュー ポータルで、クリックして **開始** ジョブ ページの上部にあります。
 
-    ![Azure プレビュー ポータルの ](./media/stream-analytics-run-a-job/4-stream-analytics-run-a-job.png)
+    ![Azure プレビュー ポータルの [ジョブの開始] ボタン](./media/stream-analytics-run-a-job/4-stream-analytics-run-a-job.png)  
 
-2.  このジョブが出力の生成をいつ開始するかを決定する **[出力の開始]** 値を指定します。 過去に開始されたことがないジョブの既定の設定は **[ジョブの開始時刻]** です。ここでは、ジョブはデータの処理を直ちに開始します。 **[カスタム]** を使用して、過去の時刻 (履歴データを使用します) または未来の時刻 (その時刻まで処理を遅らせます) を指定することもできます。 ジョブがこれまでに開始されて停止されている場合は、最後の出力時刻からジョブを再開してデータの損失を回避するための **[最後に停止した時刻]** オプションを使用できます。
+2.  指定する **出力の開始** ときに、このジョブではその出力を生成を開始するかを決定する値。 既に開始されていないジョブの既定の設定は **ジョブの開始時刻**, 、つまり、ジョブは、データの処理にすぐに開始されます。 指定することも、 **カスタム** (履歴データを使用) するための過去または (将来の時刻までの処理を遅延) する将来の時間。 ジョブが既に開始し、停止すると、オプションの場合の **最終停止時刻** は最後の出力時刻からジョブを再開し、データ損失を回避するために使用できます。  
 
-    ![開始ストリーミング ジョブ時刻](./media/stream-analytics-run-a-job/2-stream-analytics-run-a-job.png)
+    ![開始ストリーミング ジョブ時刻](./media/stream-analytics-run-a-job/2-stream-analytics-run-a-job.png)  
 
-    ![Azure プレビュー ポータルの開始ストリーミング ジョブ時刻](./media/stream-analytics-run-a-job/5-stream-analytics-run-a-job.png)
+    ![Azure プレビュー ポータルの開始ストリーミング ジョブ時刻](./media/stream-analytics-run-a-job/5-stream-analytics-run-a-job.png)  
 
-3.  選択内容を確認します。 ジョブが開始されると、ジョブの状態が *[開始中]* に変わり、まもなく *[実行中]* に移行します。 **Notification Hub** で**開始**操作の進行状況を監視できます。
+3.  選択内容を確認します。 ジョブの状態が変わります *開始* は、すぐに移動して *を実行している* 、ジョブが開始します。 進行状況を監視する、 **開始** 操作で、 **通知ハブ**:
 
-    ![ストリーミング ジョブの進捗状況](./media/stream-analytics-run-a-job/3-stream-analytics-run-a-job.png)
+    ![ストリーミング ジョブの進捗状況](./media/stream-analytics-run-a-job/3-stream-analytics-run-a-job.png)  
 
-    ![Azure プレビュー ポータルのストリーミング ジョブの進捗状況](./media/stream-analytics-run-a-job/6-stream-analytics-run-a-job.png)
+    ![Azure プレビュー ポータルのストリーミング ジョブの進捗状況](./media/stream-analytics-run-a-job/6-stream-analytics-run-a-job.png)  
 
 ## 問い合わせ
-
-詳細については、当社を参照してください [Azure Stream Analytics フォーラム](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+詳細については、参照してください、 [Azure Stream Analytics フォーラム](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## 次のステップ
 
 - [Azure Stream Analytics の概要](stream-analytics-introduction.md)
-- [Azure Stream Analytics の使用を開始します。](stream-analytics-get-started.md)
-- [Azure Stream Analytics ジョブをスケーリングします。](stream-analytics-scale-jobs.md)
-- [Azure Stream Analytics クエリ言語リファレンス](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Azure Stream Analytics Management REST API リファレンス](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-
-
-
+- [Azure Stream Analytics の使用](stream-analytics-get-started.md)
+- [Azure Stream Analytics ジョブのスケーリング](stream-analytics-scale-jobs.md)
+- [Stream Analytics Query Language Reference (Stream Analytics クエリ言語リファレンス)](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics management REST API reference (Azure ストリーム分析の管理 REST API リファレンス)](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

@@ -16,7 +16,6 @@
    ms.date="12/02/2015"
    ms.author="andkjell"/>
 
-
 # Azure AD Connect: バージョンのリリース履歴
 
 Azure Active Directory チームは、Azure AD Connect を新機能で定期的に更新しています。 すべての追加機能がすべてのユーザーに適用されるわけではありません。
@@ -25,11 +24,10 @@ Azure Active Directory チームは、Azure AD Connect を新機能で定期的�
 
 関連リンク:
 
-- 更新プログラムを適用するために必要なアクセス許可、を参照してください [アカウントとアクセス許可](active-directory-aadconnect-accounts-permissions.md#upgrade)。
+- 更新プログラムを適用するために必要なアクセス許可を参照してください [アカウントとアクセス許可。](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [Azure AD Connect のダウンロード](http://go.microsoft.com/fwlink/?LinkId=615771)
 
 ## 1.0.9131.0
-
 リリース日: 2015 年 12 月
 
 **修正された問題:**
@@ -40,7 +38,6 @@ Azure Active Directory チームは、Azure AD Connect を新機能で定期的�
 - リモートの SQL Server で以前のリリースの Azure AD Connect から更新すると、「ADSync SQL データベースにアクセスできません」というエラーが表示される。
 
 ## 1.0.9125.0
-
 リリース: 2015 年 11 月
 
 **新機能:**
@@ -66,7 +63,7 @@ Azure Active Directory チームは、Azure AD Connect を新機能で定期的�
     - 同期に含める新しい OU を選択する際に、完全なパスワード同期は必要ありません。
     - 無効なユーザーが有効になっても、パスワードは同期されません。
     - パスワード再試行キューは無制限です。5,000 個のオブジェクトを上限として削除されるという以前の制限は削除されました。
-    - [が改善されました。 トラブルシューティング](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)します。
+    - [トラブルシューティングが向上](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)します。
 - Windows Server 2016 フォレスト機能レベルを使用して Active Directory に接続することはできなくなりました。
 - 最初のインストール後にグループ フィルターに使用したグループを変更できなくなりました。
 - パスワード ライトバックを有効にした状態でパスワードを変更して、各ユーザーの Azure AD Connect の新しいユーザー プロファイルを作成することはできなくなりました。
@@ -74,7 +71,6 @@ Azure Active Directory チームは、Azure AD Connect を新機能で定期的�
 - 到達不能なドメイン コントローラーがある場合、[デバイスの書き戻し] チェックボックスは無効なままです。
 
 ## 1.0.8667.0
-
 リリース日: 2015 年 8 月
 
 **新機能:**
@@ -100,7 +96,6 @@ Azure Active Directory チームは、Azure AD Connect を新機能で定期的�
 - プレビュー機能 [ユーザーの書き戻し](active-directory-aadconnect-feature-preview.md#user-writeback) プレビューお客様からのフィードバックに基づいて一時的に削除されました。 このプレビュー機能は、提供されたフィードバックに対処した後で、再度追加されます。
 
 ## 1.0.8641.0
-
 リリース日: 2015 年 6 月
 
 **Azure AD Connect の最初のリリースです。**
@@ -109,11 +104,11 @@ Azure Active Directory チームは、Azure AD Connect を新機能で定期的�
 
 **新機能:**
 
-- [Express 設定](active-directory-aadconnect-get-started-express.md) インストール
-- できます [ADFS を構成する](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
-- できます [DirSync からアップグレード](active-directory-aadconnect-dirsync-upgrade-get-started.md)
-- [偶発的な削除を不可します。](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
-- 導入 [ステージング モード](active-directory-aadconnectsync-operations.md#staging-mode)
+- [設定を express](active-directory-aadconnect-get-started-express.md) インストール
+- できます [ADFS を構成します。](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
+- できます [DirSync からのアップグレード](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+- [誤って削除されないように保護する](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
+- 導入された [ステージング モード](active-directory-aadconnectsync-operations.md#staging-mode)
 
 **新しいプレビュー機能:**
 
@@ -124,7 +119,6 @@ Azure Active Directory チームは、Azure AD Connect を新機能で定期的�
 
 
 ## 1.0.494.0501
-
 リリース日: 2015 年 5 月
 
 **新しい要件:**
@@ -136,7 +130,6 @@ Azure Active Directory チームは、Azure AD Connect を新機能で定期的�
 - Azure AD からのパスワード ライトバックが、servicebus 接続のエラーで失敗します。
 
 ## 1.0.491.0413
-
 リリース日: 2015 年 4 月
 
 **修正された問題と機能強化:**
@@ -154,7 +147,6 @@ Azure Active Directory チームは、Azure AD Connect を新機能で定期的�
 - 結合で、MV の "任意" のオブジェクト型に接続できるようになりました。
 
 ## 1.0.485.0222
-
 リリース日: 2015 年 2 月
 
 **機能強化:**
@@ -169,7 +161,6 @@ Azure Active Directory チームは、Azure AD Connect を新機能で定期的�
 - 同じフォレスト内の複数のドメインの外部セキュリティ プリンシパル (FSP) を結合すると、あいまい結合のエラーが発生します。
 
 ## 1.0.475.1202
-
 リリース日: 2014 年 12 月
 
 **新機能:**
@@ -191,7 +182,6 @@ Azure Active Directory チームは、Azure AD Connect を新機能で定期的�
 - パスワード同期の ETW トレースの問題が修正されました。
 
 ## 1.0.470.1023
-
 リリース日: 2014 年 10 月
 
 **新機能:**
@@ -212,16 +202,10 @@ Azure AD Sync が既にインストールされている場合、標準の同期
 AD アカウントには、AD からのパスワード ハッシュを読み取ることができるように、追加のアクセス許可を与える必要があります。 付与するアクセス許可の名前は、[ディレクトリの変更のレプリケート] と [ディレクトリの変更をすべてにレプリケート] です。 パスワード ハッシュを読み取るためには、両方のアクセス許可が必要です。
 
 ## 1.0.419.0911
-
 リリース日: 2014 年 9 月
 
 **Azure AD Sync の最初のリリースです。**
 
 ## 次のステップ
-
 詳細について [内部設置型 id と Azure Active Directory の統合](active-directory-aadconnect.md)します。
-
-
-
-
 

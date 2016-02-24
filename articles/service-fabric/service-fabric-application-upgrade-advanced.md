@@ -1,5 +1,5 @@
 <properties
-   pageTitle="アプリケーションのアップグレード: 詳細事項 |Microsoft Azure"
+   pageTitle="アプリケーションのアップグレード: 高度なトピック | Microsoft Azure"
    description="この記事では、Service Fabric アプリケーションのアップグレードに関連する高度なトピックについて説明します。"
    services="service-fabric"
    documentationCenter=".net"
@@ -16,16 +16,15 @@
    ms.date="07/17/2015"
    ms.author="subramar"/>
 
-
-# Service Fabric アプリケーションのアップグレード: 詳細事項
+# Service Fabric アプリケーションのアップグレード: 高度なトピック
 
 ## 手動アップグレード モード
 
-> [AZURE.NOTE] エラーが発生したまたは中断されたアップグレードに対してのみ、Unmonitored Manual モードも検討します。 Monitored モードは、Service Fabric アプリケーションで推奨されるアップグレード モードです。
+> [AZURE.NOTE] 障害が発生したまたは中断されたアップグレードに対してのみ、Unmonitored Manual モードも検討してください。 Monitored モードは、Service Fabric アプリケーションで推奨されるアップグレード モードです。
 
 Service Fabric では開発と運用環境のクラスターをサポートする複数のアップグレード モードが提供されます。 各デプロイメント オプションは、さまざまな環境に適しています。 Monitored Rolling Application Upgrade は、実稼働環境で使用される最も一般的なアップグレードです。 アップグレードのポリシーを指定すると、Service Fabric は、アップグレードを実行する前に、アプリケーションの正常性を確認します。 より多くのカスタマイズや複雑な正常性評価ポリシーが必要とされる、または一般的ではないアップグレードがある (アプリケーションが既にデータの損失の状態にあるなど) 特定の状況では、アプリケーション管理者は、Manual Rolling Application Upgrade モードを使用して、さまざまなアップグレード ドメインからアップグレードの進行状況を全面的に制御できます。 最後に、Automated Rolling Application Upgrade は、開発やテスト環境にサービス開発中の迅速な繰り返しサイクルを提供するのに役立ちます。
 
-**手動** - 現在の UD でアプリケーションのアップグレードを停止し、アップグレード モードを Unmonitored Manual に変更します。 管理者は、**MoveNextApplicationUpgradeDomainAsync** を手動で呼び出して、アップグレードを続行したり、新しいアップグレードを開始することでロールバックをトリガーしたりします。 アップグレードが、手動モードに入ると、新しいアップグレードが開始されるまでは手動モードのままになります。  **GetApplicationUpgradeProgressAsync**コマンド FABRIC\_APPLICATION\_UPGRADE\_STATE\_ROLLING\_FORWARD\_PENDING が返されます。
+**手動**- 現在の UD でアプリケーションのアップグレードを停止し、アップグレード モードを Unmonitored Manual に変更します。 管理者は、手動で呼び出す必要がある **MoveNextApplicationUpgradeDomainAsync** アップグレードを続行し、新しいアップグレードを開始することでロールバックをトリガーしたりします。 アップグレードが、手動モードに入ると、新しいアップグレードが開始されるまでは手動モードのままになります。  **GetApplicationUpgradeProgressAsync**コマンド FABRIC\_APPLICATION\_UPGRADE\_STATE\_ROLLING\_FORWARD\_PENDING が返されます。
 
 ## 差分のパッケージを使用したアップグレード
 
@@ -50,9 +49,5 @@ Service Fabric アプリケーションは、完全な自己完結型のアプ�
 [データのシリアル化](service-fabric-application-upgrade-data-serialization.md)
 
 [アプリケーション アップグレードのトラブルシューティング](service-fabric-application-upgrade-troubleshooting.md)
-
-
-
-
-
+ 
 

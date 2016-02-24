@@ -16,7 +16,6 @@
    ms.date="09/21/2015"
    ms.author="inhenk"/>
 
-
 # Azure Privileged Identity Management: ロールをアクティブ化または非アクティブ化する方法
 
 ## ロールのアクティブ化または非アクティブ化
@@ -24,23 +23,18 @@
 1. ログイン [http://portal.azure.com](http://portal.azure.com)します。
 2. 手順に従います [Azure Privileged Identity Management の概要](active-directory-privileged-identity-management-getting-started.md) ポータルのダッシュ ボードに Azure PIM を配置します。
 3. セキュリティ ウィザードの手順が完了すると、Azure PIM のメイン メニューが表示されます。
-4. **[ロールのアクティブ化]** をクリックします。
+4. をクリックして **私の仕事をアクティブ化**します。
 5. 割り当てられているロールの一覧が表示されます。
 6. アクティブ化するロールをクリックします。
-7. **[アクティブ化]** をクリックします。 **[ロール アクティブ化要求]** ブレードが表示されます。
+7. クリックして **をアクティブ化**します。  **ロールのアクティブ化を要求** ブレードが表示されます。
 8. テキスト フィールドにアクティブ化要求の理由を入力します。
-9. **[OK]** をクリックします。 ロールがアクティブ化されます。
-10. ロールをアクティブ化した後は、**[非アクティブ化]** をクリックしてロールを非アクティブ化できます。 」の手順を使用して、ロールをユーザーから削除するさらに、 [追加またはロールを削除する](active-directory-privileged-identity-management-how-to-add-role-to-user.md)します。
+9. Click **OK**.  ロールがアクティブ化されます。
+10. 一度、ロールがアクティブ化を無効にできますロールをクリックして **Deactivate**します。  」の手順を使用して、ロールをユーザーから削除するさらに、 [追加またはロールを削除する](active-directory-privileged-identity-management-how-to-add-role-to-user.md)です。
 
-- ロールのアクティブ化の詳細については、設定は、を参照してください [ロールのアクティブ化を構成する方法](active-directory-privileged-identity-management-how-to-configure-role-activation.md)。
+- 詳細については、ロールのアクティブ化の設定を参照してください [ロールのアクティブ化を構成する方法](active-directory-privileged-identity-management-how-to-configure-role-activation.md)
 - 詳細については、セキュリティ ロールのアクティブ化設定に固有のアラートを参照してください [セキュリティ アラートの構成方法](active-directory-privileged-identity-management-how-to-configure-security-alerts)します。
 
-
-## 次のステップ
-
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+##次のステップ
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-
-
-
 

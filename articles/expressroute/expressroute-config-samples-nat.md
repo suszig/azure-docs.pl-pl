@@ -15,15 +15,15 @@
    ms.date="10/12/2015"
    ms.author="cherylmc"/>
 
-
 # NAT をセットアップして管理するためのルーター構成のサンプル
 
-このページでは、Cisco ASA と Juniper MX シリーズ ルーターの NAT 構成のサンプルを示します。 これらはガイダンスとしてのみ使用することを目的としたサンプルであり、現状のまま使用することはできません。 ベンダーと協力して、ネットワークに適した構成を考えてください。
->[AZURE.IMPORTANT] このページのサンプルは、ガイダンスとしてのみ使用することを目的としています。 ベンダーの販売/技術チームおよび自社のネットワーク チームと協力して、ニーズに対応する適切な構成を考える必要があります。 Microsoft では、このページに示す構成に関連する問題には対応できません。 サポートの問題については、デバイス ベンダーに問い合わせる必要があります。
+このページでは、Cisco ASA と Juniper MX シリーズ ルーターの NAT 構成のサンプルを示します。 これらはガイダンスとしてのみ使用することを目的としたサンプルであり、現状のまま使用することはできません。 ベンダーと協力して、ネットワークに適した構成を考えてください。 
+
+>[AZURE.IMPORTANT] このページのサンプルは、ガイダンスだけに使用します。 ベンダーの販売/技術チームおよび自社のネットワーク チームと協力して、ニーズに対応する適切な構成を考える必要があります。 Microsoft では、このページに示す構成に関連する問題には対応できません。 サポートの問題については、デバイス ベンダーに問い合わせる必要があります。
 
 次のルーター構成のサンプルは、Azure パブリック ピアリングと Microsoft ピアリングに適用されます。 Azure プライベート ピアリングの NAT は構成しないでください。 レビュー [ExpressRoute のピアリング](expressroute-circuit-peerings.md) と [ExpressRoute NAT 要件](expressroute-nat.md) 詳細です。
 
-**注:** インターネットと ExpressRoute への接続には個別の NAT IP プールを使用する必要があります。 インターネットと ExpressRoute で同じ NAT IP プールを使用すると、非対称ルーティングになり、接続が失われます。
+**注:** インターネットと ExpressRoute の接続を別の NAT IP プールを使用する必要があります。 インターネットと ExpressRoute で同じ NAT IP プールを使用すると、非対称ルーティングになり、接続が失われます。
 
 ## Cisco ASA ファイアウォール
 
@@ -48,15 +48,13 @@
     
     nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
 
-### Microsoft からお客様のネットワークへのトラフィックの PAT 構成
+### Microsoft から顧客ネットワークへのトラフィックのための PAT 構成
 
 #### インターフェイスと方向:
-
     Source Interface (where the traffic enters the ASA): inside
     Destination Interface (where the traffic exits the ASA): outside
 
 #### Configuration:
-
 NAT プール:
 
     object network outbound-PAT
@@ -79,7 +77,8 @@ NAT コマンド:
 
     nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
 
-## Juniper MX シリーズ ルーター
+
+## Juniper MX シリーズ ルーター 
 
 ### 1.クラスターの冗長イーサネット インターフェイスの作成
 
@@ -113,46 +112,48 @@ NAT コマンド:
         }
     }
 
+
 ### 2.2 つのセキュリティ ゾーンの作成
 
  - 内部ネットワークには信頼ゾーンを作成し、エッジ ルーターに接続する外部ネットワークには非信頼ゾーンを作成します。
  - 適切なインターフェイスをゾーンに割り当てます。
  - インターフェイス上のサービスを許可します。
 
-    セキュリティ {   
-     ゾーン {
-            セキュリティ ゾーン信頼 {
-                ホストの受信トラフィック {
-                    システム サービス {
-                        ping を実行します。
-                    {
-                    プロトコル {
-                        bgp です。
-                    {
-                {
-                インターフェイス {
-                    reth0.100 です。
-                {
-            {
-            セキュリティ ゾーン信頼 {
-                ホストの受信トラフィック {
-                    システム サービス {
-                        ping を実行します。
-                    {
-                    プロトコル {
-                        bgp です。
-                    {
-                {
-                インターフェイス {
-                    reth1.100 です。
-                {
-            {
-        {
-    {
+
+    security {   
+     zones {
+            security-zone Trust {
+                host-inbound-traffic {
+                    system-services {
+                        ping;
+                    }
+                    protocols {
+                        bgp;
+                    }
+                }
+                interfaces {
+                    reth0.100;
+                }
+            }
+            security-zone Untrust {
+                host-inbound-traffic {
+                    system-services {
+                        ping;
+                    }
+                    protocols {
+                        bgp;
+                    }
+                }
+                interfaces {
+                    reth1.100;
+                }
+            }
+        }
+    }
 
 
 ### 3.ゾーン間のセキュリティ ポリシーの作成
-
+ 
     security {
         policies {
             from-zone Trust to-zone Untrust {
@@ -182,8 +183,8 @@ NAT コマンド:
         }
     }
 
-### 4.NAT ポリシーの構成
 
+### 4.NAT ポリシーの構成
  - 2 つの NAT プールを作成します。 1 つは Microsoft に送信される NAT トラフィックに使用され、もう 1 つは Microsoft から顧客への NAT トラフィックに使用されます。
  - それぞれのトラフィックの NAT 規則の作成
 
@@ -241,7 +242,6 @@ NAT コマンド:
                 }
             }
         }
-
 
 
 ### 5.各方向でプレフィックスを選択してアドバタイズする BGP の構成
@@ -347,8 +347,4 @@ NAT コマンド:
 ## 次のステップ
 
 参照してください、 [ExpressRoute の FAQ](expressroute-faqs.md) 詳細です。
-
-
-
-
 

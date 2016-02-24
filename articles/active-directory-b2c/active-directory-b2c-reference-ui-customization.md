@@ -16,10 +16,10 @@
     ms.date="09/22/2015"
     ms.author="swkrish"/>
 
-
 # Azure Active Directory B2C プレビュー: Azure AD B2C ユーザー インターフェイス (UI) をカスタマイズする方法
 
-コンシューマー向けのアプリケーションでは、ユーザー エクスペリエンスが最も重要です。 ユーザー エクスペリエンスは、単に悪くないだけのアプリケーションと優れたアプリケーションを分けるものであると同時に、コンシューマーがアクティブ ユーザーにとどまるか、それともコンシューマーから真のエンゲージメントを獲得できるかを分けるものでもあるからです。 Azure Active Directory (AD) B2C では、コンシューマーのサインアップ ページ、サインイン ページ (*下記の注参照*)、およびプロファイルの編集ページをピクセル単位で正確に制御してカスタマイズすることができます。
+コンシューマー向けのアプリケーションでは、ユーザー エクスペリエンスが最も重要です。 ユーザー エクスペリエンスは、単に悪くないだけのアプリケーションと優れたアプリケーションを分けるものであると同時に、コンシューマーがアクティブ ユーザーにとどまるか、それともコンシューマーから真のエンゲージメントを獲得できるかを分けるものでもあるからです。 Azure Active Directory (AD) B2C では、コンシューマーのサインアップ、サインインをカスタマイズすることができます (*下記のメモ*) プロファイル ピクセルにとって完璧なコントロールを含むページを編集するとします。
+
 > [AZURE.NOTE]
 現時点では、ローカル アカウントのサインイン ページ、電子メールの検証およびセルフ サービス パスワード リセット ページは、カスタマイズ可能なを使用してのみ、 [会社のブランド機能](./active-directory/active-directory-add-company-branding.md) この記事で説明されているメカニズムではなく。
 
@@ -34,9 +34,9 @@
 
 ## ページのユーザー インターフェイス (UI) カスタマイズ機能
 
-ページの UI のカスタマイズ機能では、カスタマイズ、および外観のサインアップ、サインインのコンシューマーとプロファイルのページを編集することができます (構成して [ポリシー](active-directory-b2c-reference-policies.md))します。 Azure AD B2C サービスで提供されるページとアプリケーションの間を移動する際に、コンシューマーに一貫したユーザー エクスペリエンスを実現します。
+ページの UI のカスタマイズ機能では、カスタマイズ、および外観のサインアップ、サインインのコンシューマーとプロファイルのページを編集することができます (構成して [ポリシー](active-directory-b2c-reference-policies.md))。 Azure AD B2C サービスで提供されるページとアプリケーションの間を移動する際に、コンシューマーに一貫したユーザー エクスペリエンスを実現します。
 
-その他のサービスでは、オプションは制限されていたり、API 経由での利用に限られていたりするのに対し、Azure AD B2C では、ページの UI のカスタマイズに最新の (わかりやすい) 手法を使用しています。ここで、そのしくみ: Azure AD B2C がコンシューマーのブラウザーでコードを実行しと呼ばれる最新のアプローチを使用 [クロス オリジン リソース共有 (CORS)](http://www.w3.org/TR/cors/) ポリシーで指定された URL からコンテンツの読み込みにします。URL はページごとに別々に指定することができます。Azure AD B2C のコンテンツ (UI 要素と呼ばれます) と URL からロードしたコンテンツをマージし、コンシューマーにページを表示する作業は、コードが担当します。コンテンツを適切な形式の HTML5 を作成を行うだけで済みますが、 `< div id ="api"></div >` 要素内にある、 `< body >` -これは、Azure AD B2C のコンテンツを取得にマージされた場所。それが終わったら、(CORS が有効な) HTTPS エンドポイントでコンテンツをホストします。Azure AD B2C UI 要素全体をスタイル設定することもできます。
+その他のサービスでは、オプションは制限されていたり、API 経由での利用に限られていたりするのに対し、Azure AD B2C では、ページの UI のカスタマイズに最新の (わかりやすい) 手法を使用しています。 ここで、そのしくみ: Azure AD B2C がコンシューマーのブラウザーでコードを実行しと呼ばれる最新のアプローチを使用 [クロス オリジン リソース共有 (CORS)](http://www.w3.org/TR/cors/) ポリシーで指定された URL からコンテンツの読み込みにします。 URL はページごとに別々に指定することができます。 Azure AD B2C のコンテンツ (UI 要素と呼ばれます) と URL からロードしたコンテンツをマージし、コンシューマーにページを表示する作業は、コードが担当します。 このため、必要な作業は、適切な形式の HTML5 コンテンツを作成し、`<body>` 内に `<div id="api"></div>` 要素 (ここに Azure AD B2C のコンテンツとマージするコンテンツを記述します) を配置するだけです。 それが終わったら、(CORS が有効な) HTTPS エンドポイントでコンテンツをホストします。 Azure AD B2C UI 要素全体をスタイル設定することもできます。
 
 ## UI カスタマイズ機能を試す
 
@@ -44,7 +44,8 @@
 
 ## ページの種類ごとの基本的な UI 要素
 
-以下のセクションでは Azure AD B2C をマージして、(ページの種類は各) 用の HTML5 フラグメントの例が表示されます、 <div id="api"></div> コンテンツ内にある要素。これらの UI 要素は独自のスタイル シートを使用してカスタマイズできます。これらのスタイル シートは、これらのページに追加する既定のスタイル シートをオーバーライドする必要が、 <head> フラグメントです。
+以下のセクションでは Azure AD B2C をマージして、(ページの種類は各) 用の HTML5 フラグメントの例が表示されます、 <div id="api"></div> コンテンツ内にある要素。 これらの UI 要素は独自のスタイル シートを使用してカスタマイズできます。 これらのスタイル シートは、これらのページに追加する既定のスタイル シートをオーバーライドする必要が、 <head> フラグメントします。
+
 > [AZURE.IMPORTANT]
     プレビューの間は、ユーザーのフィードバックに基づいて改善が施されるため、実際の UI 要素は変更になる可能性があります。 常に最新の更新プログラムの既定のページのソース コードを調べてください。 実際に考えられる最初の変更は、既定のスタイル シートの削除です。これは、コンテンツ内の UI 要素のための独自のスタイル シートを常に用意する必要があることを意味します。
 
@@ -58,7 +59,7 @@
     <div class="intro">
          <p>Sign up</p>
     </div>
-
+    
     <div>
         <ul>
             <li>
@@ -73,6 +74,7 @@
         </ul>
     </div>
 </div>
+
 ```
 
 ## ローカル アカウントのサインアップ ページ
@@ -85,7 +87,7 @@
     <div class="intro"> 
         <p>Create your account by providing the following details</p>
     </div>
-
+    
     <div id="attributeVerification"> 
         <div class="errorText" id="passwordEntryMismatch" style="display: none;">The password entry fields do not match. Please enter the same password in both fields and try again.</div>
         <div class="errorText" id="requiredFieldMissing" style="display: none;">A required field is missing. Please fill out all required fields and try again.</div>
@@ -189,6 +191,7 @@
         <div id="verifying_blurb"></div>
     </div>
 </div>
+
 ```
 
 ## ソーシャル アカウントのサインアップ ページ
@@ -211,10 +214,10 @@
             <div class="phoneNumber">
                 <select id="countryCode" style="display:inline-block">
                     <option value="+93">Afghanistan (+93)</option>
-                    
+                    <!-- Not all country codes listed -->
                     <option value="+44">United Kingdom (+44)</option>
                     <option value="+1" selected="">United States (+1)</option>
-                    
+                    <!-- Not all country codes listed -->
                 </select>
             </div>
             <div class="phoneNumber">
@@ -238,9 +241,11 @@
         <div id="dialing_blurb"></div><div id="dialing_number"></div>
     </div>
 </div>
+
 ```
 
 ## エラー ページ
+
 
 ```HTML
 
@@ -254,6 +259,7 @@
         <div class="error-page-detail">AADB2C90065: A B2C client-side error 'Access is denied.' has occurred requesting the remote resource.</div>
     </div>
 </div>
+
 ```
 
 ## 独自のコンテンツを構築する際の注意点
@@ -271,8 +277,4 @@
     - Google Chrome 42.0
     - Mozilla Firefox 38.0
     - Mozilla Firefox 37.0
-
-
-
-
 

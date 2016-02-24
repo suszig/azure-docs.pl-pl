@@ -16,7 +16,6 @@
     ms.date="11/05/2015"
     ms.author="sethm"/>
 
-
 # Event Hubs の使用
 
 [AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
@@ -31,33 +30,33 @@ Event Hubs は、接続されているデバイスとアプリケーションか
 
 + Microsoft Visual Studio 2013、Microsoft Visual Studio Express 2013 for Windows。
 
-+ アクティブな Azure アカウント <br/>アカウントを持っていない場合は、ほんの数分で無料の試用アカウントを作成できます。 詳細については、[Azure の無料評価版] を参照してください (http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02 & returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target ="_blank") です。
++ アクティブな Azure アカウント <br/>アカウントがない場合は、無料試用版のアカウントを数分で作成することができます。 詳細については、[Azure の無料評価版] を参照してください (http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02 & amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target ="_blank") です。
 
 ## Event Hub を作成する
 
-1. ログオン、 [Azure クラシック ポータルの [][], 、] をクリック **新規** 、画面の下部にあります。
+1. [Azure クラシック ポータル] にログオンし、クリックして **新規** 、画面の下部にあります。
 
-2. **[アプリケーション サービス]**、**[Service Bus]**、**[Event Hub]**、**[簡易作成]** の順にクリックします。
+2. をクリックして **App Services**, 、し **Service Bus**, 、し **Event Hub**, 、し **簡易作成**します。
 
     ![][1]
 
-3. Event Hub の名前を入力して、目的のリージョンを選択し、**[Create a new Event Hub (新しい Event Hub を作成する)]** をクリックします。
+3. Event Hub の名前を入力を目的のリージョンを選択してクリックして **新しい Event Hub 作成**します。
 
     ![][2]
 
-4. 作成した名前空間をクリックして (通常 *** イベント ハブ名 *-ns**)。
+4. 作成した名前空間をクリックして (通常 ***イベント ハブ名*-ns**)。
 
     ![][3]
 
-5. ページ上部にある、**[Event Hubs]]** タブをクリックし、先ほど作成したイベント ハブをクリックします。
+5. クリックして、 **Event Hubs** 、ページの上部にあるタブを作成した Event Hub をクリックします。
 
     ![][4]
 
-6. 上部の **[構成]** タブをクリックし、**SendRule** という名前のルールに *Send* 権限を追加します。もう 1 つの R**eceiveRule** というルールには *Manage、Send、Listen* 権限を追加し、**[保存]** をクリックします。
+6. をクリックして、 **構成** ] タブの上部にある、という名前のルールを追加 **SendRule** と *送信* 権限でという別のルールを追加する **ReceiveRule** と *管理、送信、リッスン* 権限、およびクリック **保存**します。
 
     ![][5]
 
-7. ページ上部の **[ダッシュボード]** タブをクリックし、**[接続情報]** をクリックします。 2 つの接続文字列をメモするか、このチュートリアルで後で使用する場所にコピーします。
+7. クリックして、 **ダッシュ ボード** 、ページの上部にあるタブをクリックして **接続情報**します。 2 つの接続文字列をメモするか、このチュートリアルで後で使用する場所にコピーします。
 
     ![][6]
 
@@ -72,11 +71,11 @@ Event Hubs は、接続されているデバイスとアプリケーションか
 
 これで、アプリケーションを実行する準備が整いました。
 
-1.  Visual Studio 内で **Receiver** プロジェクトを実行し、すべてのパーティションに対してレシーバーが起動するまで待機します。
+1.  Visual Studio 内で実行、 **受信者** プロジェクトをし、すべてのパーティションに対してレシーバーが起動するまで待機します。
 
     ![][21]
 
-2.  **Sender** プロジェクトを実行し、コンソール ウィンドウで **Enter** キーを押します。すると、レシーバーのウィンドウにイベントが表示されます。
+2.  実行、 **送信者** プロジェクトで、キーを押して **Enter** イベントが受信側ウィンドウに表示し、コンソール ウィンドウにします。
 
     ![][22]
 
@@ -84,26 +83,28 @@ Event Hubs は、接続されているデバイスとアプリケーションか
 
 Event Hub を作成し、データを送受信する実用的なアプリケーションが構築できたので、次のシナリオに移動します。
 
-- 完全な [Event Hubs を使用するサンプル アプリケーション][]します。
-- [Event Hubs でイベント処理のスケール][] サンプルです。
-- A [メッセージング ソリューションのキューに置かれた][] Service Bus キューを使用します。
-- [イベント ハブの概要][]
+- A 完了 [Event Hub を使用するサンプル アプリケーション]。
+- [Event Hubs でイベント処理のスケール] サンプルです。
+- [キューに置かれたメッセージング ソリューション] のサービス バス キューを使用します。
+- [Event Hubs の概要][]
 
+<!-- Images. -->
+[1]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub1.png
+[2]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub2.png
+[3]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub3.png
+[4]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub4.png
+[5]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub5.png
+[6]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub6.png
 
+[21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
+[22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
-
-[1]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub1.png 
-[2]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub2.png 
-[3]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub3.png 
-[4]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub4.png 
-[5]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub5.png 
-[6]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub6.png 
-[21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png 
-[22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png 
-[azure classic portal]: https://manage.windowsazure.com/ 
-[event processor host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost 
-[event hubs overview]: event-hubs-overview.md 
-[sample application that uses event hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097 
-[scale out event processing with event hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3 
-[queued messaging solution]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md 
+<!-- Links -->
+[Azure classic portal]: https://manage.windowsazure.com/
+[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Event Hubs overview]: event-hubs-overview.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[queued messaging solution]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+ 
 

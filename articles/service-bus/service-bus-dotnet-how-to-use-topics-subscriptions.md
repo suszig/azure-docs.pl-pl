@@ -1,6 +1,6 @@
 <properties
     pageTitle="Service Bus トピックの使用 (.NET) | Microsoft Azure"
-    description="Azure における Service Bus のトピックとサブスクリプションを .NET で使用する方法について学習します。コード サンプルは .NET アプリケーション向けに作成されています。"
+    description="Azure における Service Bus のトピックとサブスクリプションを .NET で使用する方法について学習します。 コード サンプルは .NET アプリケーション向けに作成されています。"
     services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
@@ -15,7 +15,6 @@
     ms.topic="get-started-article"
     ms.date="10/15/2015"
     ms.author="sethm"/>
-
 
 # Service Bus のトピックとサブスクリプションの使用方法
 
@@ -40,8 +39,8 @@ Service Bus API を取得し、Service Bus 依存関係をすべて備えたア�
 
 1.  ソリューション エクスプ ローラーで右クリック **参照**, 、] をクリックし、
     **NuGet パッケージの管理**します。
-2.  "Service Bus"を検索し、選択、* * Microsoft Azure
-    Service bus の項目。 クリックして **インストール** 、インストールを完了するには
+2.  "Service Bus"を検索し、選択、 **Microsoft Azure
+    Service Bus** 項目。 クリックして **インストール** 、インストールを完了するには
     次のダイアログ ボックスを閉じます。
 
     ![][7]
@@ -59,7 +58,7 @@ Service Bus では、接続文字列を使用してエンドポイントと資�
 
 ### Cloud Services を使用する場合の接続文字列の構成
 
-サービス構成メカニズムは Azure クラウド サービス プロジェクトに特有と動的に構成設定を変更することができます、 [Azure クラシック ポータルの [][] 、アプリケーションを再デプロイしなくてもします。 たとえば、追加、 `設定` 、サービス定義にラベル (***.csdef**) ファイルは次の例に示すようにします。
+サービス構成メカニズムは Azure クラウド サービス プロジェクトに特有と動的に構成設定を変更することができます、 [Azure クラシック ポータル][] 、アプリケーションを再デプロイしなくてもします。 たとえば、追加、 `Setting` 、サービス定義にラベル (***.csdef**) ファイルは次の例に示すようにします。
 
 ```
 <ServiceDefinition name="Azure1">
@@ -92,7 +91,7 @@ Service Bus では、接続文字列を使用してエンドポイントと資�
 
 ### Azure Websites サイトまたは Azure Virtual Machines を使用する場合の接続文字列の構成
 
-Websites または Virtual Machines を使用する場合には、.NET 構成システム (Web.config など) を使用することをお勧めします。使用して接続文字列を格納する、 `< appSettings >` 要素。
+Websites または Virtual Machines を使用する場合には、.NET 構成システム (Web.config など) を使用することをお勧めします。 `<appSettings>` 要素を使用して接続文字列を格納します。
 
 ```
 <configuration>
@@ -117,163 +116,171 @@ SAS の資格情報で構成されます。 この接続文字列は、次のよ
 Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey
 ```
 
-Use the following example, given the configuration settings in the previous section.
+前のセクションの構成設定であれば、次の例を使用します。
+
 ```
-既に存在しない場合は、トピックを作成します。
-文字列の connectionString =
+// Create the topic if it does not exist already.
+string connectionString =
     CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
 var namespaceManager =
-    NamespaceManager.CreateFromConnectionString(connectionString) です。
+    NamespaceManager.CreateFromConnectionString(connectionString);
 
-場合 (! namespaceManager.TopicExists("TestTopic"))
+if (!namespaceManager.TopicExists("TestTopic"))
 {
-    namespaceManager.CreateTopic("TestTopic") です。
-{
+    namespaceManager.CreateTopic("TestTopic");
+}
 ```
 
-There are overloads of the [CreateTopic](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createtopic.aspx) method that enable you to tune properties of the topic, for example, to set the default time-to-live (TTL) value to be applied to messages sent to the topic. These settings are applied by using the [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx) class. The following example shows how to create a topic named **TestTopic** with a maximum size of 5 GB and a default message TTL of 1 minute.
-```
-トピックの設定を構成します。
-TopicDescription td = 新しい TopicDescription("TestTopic") です。
-td します。MaxSizeInMegabytes = 5120 です。
-td します。DefaultMessageTimeToLive = 新しい TimeSpan (0, 1, 0) です。
+オーバー ロードがあり、 [CreateTopic](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createtopic.aspx) など、トピックのプロパティを調整する、トピックに送信されるメッセージに適用される既定の有効期間 (TTL) 値を設定できるようにするメソッドです。 使用してこれらの設定が適用される、 [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx) クラスです。 次の例は、という名前のトピックを作成する方法を示しています。 **TestTopic** 5 GB、既定値の最大サイズが、メッセージの 1 分の TTL であります。
 
-カスタム設定で新しいトピックを作成します。
-文字列の connectionString =
+```
+// Configure Topic Settings.
+TopicDescription td = new TopicDescription("TestTopic");
+td.MaxSizeInMegabytes = 5120;
+td.DefaultMessageTimeToLive = new TimeSpan(0, 1, 0);
+
+// Create a new Topic with custom settings.
+string connectionString =
     CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
 var namespaceManager =
-    NamespaceManager.CreateFromConnectionString(connectionString) です。
+    NamespaceManager.CreateFromConnectionString(connectionString);
 
-場合 (! namespaceManager.TopicExists("TestTopic"))
+if (!namespaceManager.TopicExists("TestTopic"))
 {
-    namespaceManager.CreateTopic(td) です。
-{
+    namespaceManager.CreateTopic(td);
+}
 ```
 
-> [AZURE.NOTE] You can use the [TopicExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.topicexists.aspx) method on [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) objects to check whether a topic with a specified name already exists within a namespace.
+> [AZURE.NOTE] 使用することができます、 [TopicExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.topicexists.aspx) メソッドを [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) オブジェクトを名前空間内で指定した名前のトピックが既に存在するかどうかを確認します。
 
-## Create a subscription
+## サブスクリプションを作成する
 
-You can also create topic subscriptions using the [`NamespaceManager`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) class. Subscriptions are named and can have an optional filter that
-restricts the set of messages passed to the subscription's virtual queue.
+トピック サブスクリプションを作成することも、 [`NamespaceManager`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) クラスです。 サブスクリプションを指定し、
+サブスクリプションの仮想キューに渡されるメッセージのセットを制限します。
 
-### Create a subscription with the default (MatchAll) filter
+### 既定の (MatchAll) フィルターを適用したサブスクリプションの作成
 
-The **MatchAll** filter is the default filter that is used if no filter is specified when a new subscription is created. When you use the **MatchAll** filter, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named "AllMessages" and uses the default **MatchAll** filter.
+ **MatchAll** フィルターは、新しいサブスクリプションが作成されるときにフィルターが指定されていない場合に使用される既定のフィルターです。 使用すると、 **MatchAll** フィルター、トピックに発行されたすべてのメッセージがサブスクリプションの仮想キューに置かれます。 次の例は、"AllMessages"という名前のサブスクリプションを作成し、既定値を使用して **MatchAll** フィルター。
+
 ```
-文字列の connectionString =
+string connectionString =
     CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
 var namespaceManager =
-    NamespaceManager.CreateFromConnectionString(connectionString) です。
+    NamespaceManager.CreateFromConnectionString(connectionString);
 
-場合 (! namespaceManager.SubscriptionExists ("TestTopic"、"AllMessages"))
+if (!namespaceManager.SubscriptionExists("TestTopic", "AllMessages"))
 {
-    namespaceManager.CreateSubscription ("TestTopic"、"AllMessages") です。
-{
+    namespaceManager.CreateSubscription("TestTopic", "AllMessages");
+}
 ```
 
-### Create subscriptions with filters
+### フィルターを適用したサブスクリプションの作成
 
-You can also set up filters that enable you to specify which messages sent to a topic should appear within a specific topic subscription.
+トピックに送信されたメッセージのうち、特定のトピック サブスクリプション内に表示されるメッセージを指定できるフィルターを設定することもできます。
 
-The most flexible type of filter supported by subscriptions is the [SqlFilter][] class, which implements a subset of SQL92. SQL filters operate on the properties of the messages that are published to the topic. For more information about the expressions that can be used with a SQL filter, see the [SqlFilter.SqlExpression][] syntax.
+サブスクリプションでサポートされるフィルターの最も柔軟性の高い型は、 [SqlFilter][] を SQL92 のサブセットを実装するクラス。 SQL フィルターは、トピックに発行されるメッセージのプロパティに対して適用されます。 SQL フィルターで使用できる式の詳細については、次を参照してください。、 [SqlFilter.SqlExpression][] 構文です。
 
-The following example creates a subscription named **HighMessages** with a [SqlFilter][] object that only selects messages that have a custom **MessageNumber** property greater than 3.
+という名前のサブスクリプションを作成する例を次 **HighMessages** で、 [SqlFilter][] のみ、カスタム メッセージを選択するオブジェクト **MessageNumber** プロパティが 3 を超える。
+
 ```
-フィルター選択された"HighMessages"サブスクリプションを作成します。
+// Create a "HighMessages" filtered subscription.
 SqlFilter highMessagesFilter =
-   新しい SqlFilter ("MessageNumber > 3") です。
+   new SqlFilter("MessageNumber > 3");
 
-namespaceManager.CreateSubscription ("TestTopic"、
-   "HighMessages"
-   highMessagesFilter) です。
+namespaceManager.CreateSubscription("TestTopic",
+   "HighMessages",
+   highMessagesFilter);
 ```
 
-Similarly, the following example creates a subscription named **LowMessages** with a [SqlFilter][] that only selects messages that have a **MessageNumber** property less than or equal to 3.
+同様に、次の例がという名前のサブスクリプションを作成 **LowMessages** で、 [SqlFilter][] のみを持つメッセージを選択する、 **MessageNumber** 3 のプロパティができます。
+
 ```
-フィルター選択に"LowMessages"サブスクリプションを作成します。
+// Create a "LowMessages" filtered subscription.
 SqlFilter lowMessagesFilter =
-   新しい SqlFilter ("MessageNumber < = 3") です。
+   new SqlFilter("MessageNumber <= 3");
 
-namespaceManager.CreateSubscription ("TestTopic"、
-   "LowMessages"
-   lowMessagesFilter) です。
+namespaceManager.CreateSubscription("TestTopic",
+   "LowMessages",
+   lowMessagesFilter);
 ```
 
-Now when a message is sent to `TestTopic`, it is always delivered to receivers subscribed to the **AllMessages** topic subscription, and selectively delivered to receivers subscribed to the **HighMessages** and **LowMessages** topic subscriptions (depending on the message content).
+メッセージが送信されるタイミングに今すぐ `TestTopic`, をサブスクライブした受信者に必ず配信、 **AllMessages** トピック サブスクリプションにサブスクライブされた受信者に対して選択的に配信されると、 **HighMessages** と **LowMessages** (メッセージの内容に応じてトピックのサブスクリプション。
 
-## Send messages to a topic
+## メッセージをトピックに送信する
 
-To send a message to a Service Bus topic, your application creates a [TopicClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) object using the connection string.
+Service Bus トピックにメッセージを送信するアプリケーションを作成、 [TopicClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) オブジェクトの接続文字列を使用します。
 
-The following code demonstrates how to create a [TopicClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) object for the **TestTopic** topic created earlier using the [`CreateFromConnectionString`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.createfromconnectionstring.aspx) API call.
+次のコードを作成する方法の例、 [TopicClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) のオブジェクト、 **TestTopic** トピックが既に作成されて、 [`CreateFromConnectionString`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.createfromconnectionstring.aspx) API 呼び出し。
+
 ```
-文字列の connectionString =
+string connectionString =
     CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-TopicClient クライアント =
-    TopicClient.CreateFromConnectionString (connectionString、"TestTopic") です。
+TopicClient Client =
+    TopicClient.CreateFromConnectionString(connectionString, "TestTopic");
 
-Client.Send (新しい BrokeredMessage()) です。
+Client.Send(new BrokeredMessage());
 ```
 
-Messages sent to Service Bus topics are instances of the [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) class. [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) objects have a set of
-standard properties (such as [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) and [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), a dictionary that is used to hold custom application-specific properties, and a body of arbitrary application data. An application can set the body of the message by passing any serializable object to the constructor of the [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) object, and the appropriate **DataContractSerializer** is then used to serialize the object. Alternatively, a **System.IO.Stream** can be provided.
+Service Bus トピックに送信されたメッセージは、 [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) クラスです。 [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) オブジェクトのセットがあります。
+標準的なプロパティ (よう [ラベル](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) と [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)) アプリケーションに固有のカスタム プロパティの保持に使用するディクショナリ、および任意のアプリケーション データの本体。 アプリケーションは、のコンス トラクターにシリアル化可能なオブジェクトを渡すことによって、メッセージの本文を設定することができます、 [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) オブジェクト、および適切な **DataContractSerializer** オブジェクトをシリアル化に使用されます。 または、 **System.IO.Stream** を指定できます。
 
-The following example demonstrates how to send five test messages to the **TestTopic** [TopicClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) object obtained in the previous code example. Note that the [MessageNumber](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.properties.aspx) property value of each message varies depending on the iteration of the loop (this determines which subscriptions receive it).
+次の例では、5 つのテスト メッセージを送信する方法、 **TestTopic** [TopicClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) 前のコード例でオブジェクトを取得します。 なお、 [MessageNumber](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.properties.aspx) 各メッセージのプロパティの値がループの反復回数に応じて変化 ([受信するサブスクリプションが決定されます)。
+
 ```
-(int i = 0; は < 5; i + +)
+for (int i=0; i<5; i++)
 {
-  本文の文字列メッセージを渡すメッセージを作成します。
-  BrokeredMessage メッセージ = 新しい BrokeredMessage ("テスト message"+ i) です。
+  // Create message, passing a string message for the body.
+  BrokeredMessage message = new BrokeredMessage("Test message " + i);
 
-  追加のカスタム アプリケーションに固有のプロパティを設定します。
-  メッセージです。プロパティ ["MessageNumber"] = i です。
+  // Set additional custom app-specific property.
+  message.Properties["MessageNumber"] = i;
 
-  メッセージをトピックに送信します。
-  Client.Send(message) です。
-{
+  // Send message to the topic.
+  Client.Send(message);
+}
 ```
 
-Service Bus topics support a [maximum message size of 256 KB](service-bus-quotas.md) (the header, which includes the standard and custom application properties, can have a maximum size of 64 KB). There is no limit on the number of messages held in a topic but there is a cap on the total size of the messages held by a topic. This topic size is defined at creation time, with an upper limit of 5 GB. If partitioning is enabled, the upper limit is higher. For more information, see [Partitioning Messaging Entities](https://msdn.microsoft.com/library/azure/dn520246.aspx).
+Service Bus のトピックではサポート、 [256 KB のメッセージの最大サイズ](service-bus-quotas.md) (標準とカスタムのアプリケーション プロパティが含まれているヘッダーは 64 KB の最大サイズを設定できます)。 トピックで保持されるメッセージ数には上限がありませんが、1 つのトピックで保持できるメッセージの合計サイズには上限があります。 このトピックのサイズはトピックの作成時に定義します。上限は 5 GB です。 パーティション分割が有効な場合、上限が高くなります。 詳細については、次を参照してください。 [メッセージング エンティティのパーティション分割](https://msdn.microsoft.com/library/azure/dn520246.aspx)します。
 
-## How to receive messages from a subscription
+## サブスクリプションからメッセージを受信する方法
 
-The recommended way to receive messages from a subscription is to use a [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) object. [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) objects can work in two different modes: [ReceiveAndDelete and PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx).
+サブスクリプションからメッセージを受信することをお勧めを使用して、 [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) オブジェクトです。 [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) オブジェクトには 2 つの異なるモードで動作します。 [ReceiveAndDelete と PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx)します。
 
-When using the **ReceiveAndDelete** mode, receive is a single-shot operation; that is, when Service Bus receives a read request for a message in a subscription, it marks the message as being consumed and returns it to the application. **ReceiveAndDelete** mode is the simplest model and works best for scenarios in which an application can tolerate not processing a message in the event of a failure. To understand this, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus will have marked the message as consumed, when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.
+使用する場合、 **ReceiveAndDelete** モードでは、受信は単発の操作です。 つまり、Service Bus はサブスクリプション内のメッセージに対する読み取り要求を受け取る、メッセージを読み取り中としてマークし、アプリケーションに返します。 **ReceiveAndDelete** モードは最もシンプルなモデルであり、障害発生時のメッセージを処理しない、アプリケーションが許容できるシナリオに最適です。 このことを理解するために、コンシューマーが受信要求を発行した後で、メッセージを処理する前にクラッシュしたというシナリオを考えてみましょう。 Service Bus はメッセージを読み取り済みとしてマークするため、アプリケーションが再起動してメッセージの読み取りを再開すると、クラッシュ前に読み取られていたメッセージは見落とされることになります。
 
-In **PeekLock** mode (which is the default mode), the receive process becomes a two-stage operation which makes it possible to support applications that cannot tolerate missing messages. When Service Bus receives a request,
-it finds the next message to be consumed, locks it to prevent other consumers receiving it, and then returns it to the application. After the application finishes processing the message (or stores it reliably for future processing), it completes the second stage of the receive process by calling [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) on the received message. When Service Bus sees the **Complete** call, it marks the message as being consumed and removes it from the subscription.
+ **PeekLock** モード (既定のモード) で、受信処理メッセージが失われることが許容できないアプリケーションに対応することが 2 段階の動作になります。 Service Bus は、要求を受け取る場合
+次のメッセージを使用するを見つけ、その他のコンシューマーが受信できないようロックして、し、アプリケーションに返します。 呼び出して受信処理の第 2 段階を完了したら、アプリケーションがメッセージの処理 (または後で処理するために確実に保存) [完了](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) を完了します。 Service Bus が確認、 **完了** 呼び出し、メッセージを読み取り中としてマークし、サブスクリプションから削除されます。
 
-The following example demonstrates how messages can be received and processed using the default **PeekLock** mode. To specify a different [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) value, you can use another overload for [CreateFromConnectionString](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.createfromconnectionstring.aspx). This example uses the [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) callback to process messages as they arrive
-into the **HighMessages** subscription.
+次の例は、メッセージの受信および既定値を使用して処理を示しています。 **PeekLock** モードです。 異なる [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) 値、別のオーバー ロードを使用する [CreateFromConnectionString](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.createfromconnectionstring.aspx)します。 この例では、 [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) が到着するごとにメッセージを処理するコールバック
+ **HighMessages** サブスクリプションです。
+
 ```
-文字列の connectionString =
+string connectionString =
     CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-SubscriptionClient クライアント =
+SubscriptionClient Client =
     SubscriptionClient.CreateFromConnectionString
-            (接続文字列で"TestTopic"、"HighMessages") です。
+            (connectionString, "TestTopic", "HighMessages");
 
-コールバック オプションを構成します。
-OnMessageOptions オプション = 新しい OnMessageOptions() です。
-オプションです。AutoComplete = false。
-オプションです。AutoRenewTimeout = TimeSpan.FromMinutes(1) です。
+// Configure the callback options.
+OnMessageOptions options = new OnMessageOptions();
+options.AutoComplete = false;
+options.AutoRenewTimeout = TimeSpan.FromMinutes(1);
 
-Client.OnMessage((message) = >
+Client.OnMessage((message) =>
 {
     try
     {
-        サブスクリプションからメッセージを処理します。
-        Console.WriteLine ("\n**高メッセージ**") です。
-        Console.WriteLine ("本文:"+ メッセージです。GetBody<string>()) です。
-        Console.WriteLine ("MessageID:"+ メッセージです。MessageId) です。
-        Console.WriteLine ("メッセージ番号:"+
-            メッセージです。Properties["MessageNumber"]) です。
+        // Process message from subscription.
+        Console.WriteLine("\n**High Messages**");
+        Console.WriteLine("Body: " + message.GetBody<string>());
+        Console.WriteLine("MessageID: " + message.MessageId);
+        Console.WriteLine("Message Number: " +
+            message.Properties["MessageNumber"]);
 
         // Remove message from subscription.
         message.Complete();
@@ -283,51 +290,53 @@ Client.OnMessage((message) = >
         // Indicates a problem, unlock message in subscription.
         message.Abandon();
     }
-
-}、オプション)。
+}, options);
 ```
 
-This example configures the [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) callback using an [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx) object. [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) is set to **false** to enable manual control of when to call [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) on the received message. [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) is set to 1 minute, which causes the client to wait for up to one minute for a message before the call times out and the client makes a new call to check for messages. This property value reduces the number of times the client makes chargeable calls that do not retrieve messages.
+この例では構成、 [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) コールバックを使用して、 [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx) オブジェクトです。 [オートコンプリート](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) に設定されている **false** を呼び出すときに手動で制御を有効にする [完了](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) 受信したメッセージに対してです。 [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) により、クライアント呼び出しがタイムアウトになると、クライアントがメッセージを確認する新しい呼び出しを行う前に、メッセージの最大 1 分間の待機が 1 分間に設定されています。 このプロパティ値により、メッセージを取得しない課金対象呼び出しをクライアントが行う回数が減ります。
 
-## How to handle application crashes and unreadable messages
+## アプリケーションのクラッシュと読み取り不能のメッセージを処理する方法
 
-Service Bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message. If a receiving application is unable to process the message for some reason, then it can call the [Abandon](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.abandon.aspx) method on the received message (instead
-of the [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) method). This causes Service Bus to unlock the message within the subscription and make it available to be received again, either by the same consuming application or by another consuming application.
+Service Bus には、アプリケーションにエラーが発生した場合や、メッセージの処理に問題がある場合に復旧を支援する機能が備わっています。 受信側のアプリケーションが何らかの理由でのメッセージを処理できないかどうかは、呼び出すことができます、 [破棄](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.abandon.aspx) メソッドを受信したメッセージ (代わりに
+ [完了](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) メソッド)。 このメソッドが呼び出されると、Service Bus によりサブスクリプション内のメッセージのロックが解除され、メッセージが再度受信できる状態に変わります。このメッセージは、同じコンシューマー側アプリケーションまたは他のコンシューマー側アプリケーションで受信されます。
 
-There is also a time-out associated with a message locked within the subscription, and if the application fails to process the message before the lock time-out expires (for example, if the application crashes), then Service Bus unlocks the message automatically and makes it available to be received again.
+サブスクリプション内でロックされているメッセージにはタイムアウトも設定されています。アプリケーションがクラッシュした場合など、ロックがタイムアウトになる前にアプリケーションがメッセージの処理に失敗した場合には、Service Bus によってメッセージのロックが自動的に解除され、再度受信できる状態に変わります。
 
-In the event that the application crashes after processing the message but before the [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) request is issued, the message will be redelivered to the application when it restarts. This is often called *At Least Once processing*; that is, each message is processed at least once but in certain situations the same message may be
-redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This is often achieved using the
-[MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) property of the message, which will remain constant across delivery attempts.
+前に、メッセージを処理した後、アプリケーションがクラッシュすること、 [完了](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) 要求が発行される、再起動する際にそのメッセージがアプリケーションに再配信されます。 一般的に、 *At Least Once 処理*つまり、すべてのメッセージが 1 回以上処理がは特定の状況で、同じメッセージがあります。
+再配信されます。 重複処理が許されないシナリオの場合、重複メッセージの配信を扱うロジックをアプリケーションに追加する必要があります。 通常、この問題はメッセージの
+[MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) は一定に保たれる配信が試行されると、メッセージのプロパティです。
 
-## Delete topics and subscriptions
+## トピックとサブスクリプションを削除する
 
-The following example demonstrates how to delete the topic **TestTopic** from the **HowToSample** service namespace.
+次の例は、トピックを削除する方法を示します **TestTopic** から、 **HowToSample** サービス名前空間。
+
 ```
-トピックを削除します。
-namespaceManager.DeleteTopic("TestTopic") です。
+// Delete Topic.
+namespaceManager.DeleteTopic("TestTopic");
 ```
 
-Deleting a topic also deletes any subscriptions that are registered with the topic. Subscriptions can also be deleted independently. The following code demonstrates how to delete a subscription named **HighMessages** from the **TestTopic** topic.
+トピックを削除すると、そのトピックに登録されたサブスクリプションもすべて削除されます。 サブスクリプションは、個別に削除することもできます。 次のコードでは、という名前のサブスクリプションを削除する方法の例 **HighMessages** から、 **TestTopic** トピックです。
+
 ```
-namespaceManager.DeleteSubscription ("TestTopic"、"HighMessages") です。
+namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 ```
 
 ## 次のステップ
 
 これで、Service Bus のトピックとサブスクリプションの基本を学習できました。さらに詳細な情報が必要な場合は、次のリンク先を参照してください。
 
--   参照してください [キュー、トピック、およびサブスクリプションの][]します。
--   API リファレンス [SqlFilter:operator[]][]します。
--   サービス バス キューとメッセージを送受信する実用アプリケーションの作成: [サービス バス仲介型メッセージングに関する .NET チュートリアル][]します。
+-   参照してください [キュー、トピック、およびサブスクリプション][]します。
+-   API リファレンス [SqlFilter][]します。
+-   サービス バス キューとメッセージを送受信する実用アプリケーションの作成: [サービス バスの仲介型メッセージングに関する .NET チュートリアル][]します。
 -   Service Bus のサンプル: からダウンロード [Azure サンプル][] または参照してください、 [概要](service-bus-samples.md)します。
 
+  [Azure classic portal]: http://manage.windowsazure.com
 
-[azure classic portal]: http://manage.windowsazure.com 
-[7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png 
-[queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md 
-[sqlfilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx 
-[sqlfilter.sqlexpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx 
-[service bus brokered messaging .net tutorial]: service-bus-brokered-tutorial-dotnet.md 
-[azure samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2 
+  [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
+
+  [Queues, Topics, and Subscriptions]: service-bus-queues-topics-subscriptions.md
+  [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
+  [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+  [Service Bus Brokered Messaging .NET Tutorial]: service-bus-brokered-tutorial-dotnet.md
+  [Azure Samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 

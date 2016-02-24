@@ -15,7 +15,6 @@
     ms.topic="article" 
     ms.date="12/09/2014" 
     ms.author="support@blitline.com"/>
-
 # Azure と Azure Storage で Blitline を使用する方法
 
 このガイドでは、Blitline サービスへのアクセス方法と Blitline へのジョブの送信方法について説明します。
@@ -62,7 +61,7 @@ Blitline では、JSON を使用して画像に対して実行する操作を定
 
 この JSON では、"src" 画像として "...boys.jpeg" を取得し、その画像のサイズを 240x140 に変更します。
 
-アプリケーション ID は、Azure の **[接続文字列]** タブまたは **[管理]** タブに表示される ID です。 これは、Blitline でのジョブの実行を可能にする秘密の識別子です。
+アプリケーション ID は、参照して、 **接続情報]** または **管理** Azure でのタブをクリックします。 これは、Blitline でのジョブの実行を可能にする秘密の識別子です。
 
 "save" パラメーターは、処理された画像を配置する場所に関する情報を識別します。 この簡単なケースでは定義されていません。 場所が定義されていない場合、Blitline により独自のクラウドの場所にローカルで (かつ一時的に) 保存されます。 Blitline を作成すると、Blitline により返された JSON からその場所を取得できるようになります。 "image" 識別子は必須であり、保存されたこの特定の画像を識別するときに返されます。
 
@@ -85,8 +84,9 @@ Blitline では、JSON を使用して画像に対して実行する操作を定
          }
     }
 
+
 これは、Blitline が要求を受け取って処理キューに配置したことと、完了後は画像が次の場所で取得可能になることを示しています。
-**https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
+**https://s3.amazonaws.com/dev.blitline/2011110722/YOUR \_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
 ## 画像を Azure ストレージ アカウントに保存する方法
 
@@ -109,15 +109,17 @@ Azure ストレージ アカウントを持っている場合は、処理され�
          }]
        }'
 
+
 大文字の値を独自の値に設定すると、この JSON を http://api.blitline.com/job に送信できます。"src" 画像は、blur フィルターで処理された後、Azure の送信先にプッシュされます。
 
-### 注意:
+###注意:
 
 SAS には、送信先ファイルのファイル名を含む SAS URL 全体が含まれている必要があります。
 
 例:
 
     http://blitline.blob.core.windows.net/sample/image.jpg?sr=b&sv=2012-02-12&st=2013-04-12T03%3A18%3A30Z&se=2013-04-12T04%3A18%3A30Z&sp=w&sig=Bte2hkkbwTT2sqlkkKLop2asByrE0sIfeesOwj7jNA5o%3D
+
 
 Azure ストレージに関する Blitline のドキュメントの最新版を参照することもできます。 [ここ](http://www.blitline.com/docs/azure_storage)します。
 
@@ -130,8 +132,4 @@ Azure ストレージに関する Blitline のドキュメントの最新版を�
 * Blitline API 関数 <http://www.blitline.com/docs/functions>
 * Blitline API の例 <http://www.blitline.com/docs/examples>
 * サード パーティの Nuget ライブラリ <http://nuget.org/packages/Blitline.Net>
-
-
-
-
 

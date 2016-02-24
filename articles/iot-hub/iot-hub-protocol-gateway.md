@@ -16,7 +16,6 @@
    ms.date="09/29/2015"
    ms.author="kdotchko"/>
 
-
 # IoT Hub に対するその他のプロトコルのサポート
 
 IoT Hub は HTTPS および AMQP プロトコルを介した通信をネイティブでサポートします。 場合によっては、デバイスまたはフィールド ゲートウェイでこれらの標準プロトコルをいずれも使用できず、プロトコルの適応が必要になることがあります。 そのような場合は、カスタム ゲートウェイによって IoT Hub に対するトラフィックをブリッジすることにより、IoT Hub エンドポイントにプロトコルを適応できます。 Azure IoT プロトコル ゲートウェイを使用して、IoT Hub にプロトコルを適応し、MQTT プロトコル アダプターを実装して MQTT プロトコルを介した IoT デバイスと IoT Hub の通信を有効にすることができます。
@@ -35,10 +34,6 @@ MQTT アダプターは、その他のプロトコルのプロトコル アダ�
 
 Azure IoT プロトコル ゲートウェイについて、およびそれを IoT ソリューションの一部として使用およびデプロイする方法については、以下をご覧ください。
 
-* [GitHub の azure の IoT プロトコル ゲートウェイ リポジトリ](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
-* [Azure の IoT プロトコル ゲートウェイ開発者ガイド](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
-
-
-
-
+* [Azure IoT protocol gateway repository on GitHub (GitHub の Azure IoT プロトコル ゲートウェイ リポジトリ)](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
+* [Azure IoT protocol gateway developer guide (Microsoft Azure  IoT プロトコル ゲートウェイ開発者ガイド)](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 

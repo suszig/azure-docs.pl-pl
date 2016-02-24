@@ -17,7 +17,6 @@
     ms.date="11/06/2015" 
     ms.author="sethm"/>
 
-
 # Service Bus と AMQP 1.0 で Java Message Service (JMS) API を使用する方法に関するページ
 
 Advanced Message Queuing Protocol (AMQP) 1.0 は、堅牢なクロスプラットフォーム メッセージング アプリケーションを作成するために使用できる、効率的で信頼性の高い回線レベルのメッセージング プロトコルです。
@@ -29,7 +28,8 @@ Service Bus での AMQP 1.0 のサポートにより、仲介型メッセージ�
 ## Service Bus の概要
 
 このガイドは、"queue1" という名前のキューが含まれている Service Bus 名前空間が既にあることを前提としています。 そうしないかどうか、名前空間を作成してキューを使用して、 [Azure クラシック ポータル](http://manage.windowsazure.com)します。 Service Bus 名前空間とキューを作成する方法の詳細については、次を参照してください。 [Service Bus キューの使用方法](service-bus-dotnet-how-to-use-queues.md)します。
-> [AZURE.NOTE] パーティション分割されたキューおよびトピックも AMQP をサポートします。 詳細については、次を参照してください。 [パーティション分割されたメッセージング エンティティ](service-bus-partitioning.md) と [Service Bus の AMQP 1.0 のサポートには、キューおよびトピックがパーティション分割されている](service-bus-partitioned-queues-and-topics-amqp-overview.md)します。
+
+> [AZURE.NOTE] パーティション分割されたキューおよびトピックは、AMQP もサポートします。 詳細については、次を参照してください。 [パーティション分割されたメッセージング エンティティ](service-bus-partitioning.md) と [Service Bus の AMQP 1.0 のサポートには、キューおよびトピックがパーティション分割されている](service-bus-partitioned-queues-and-topics-amqp-overview.md)します。
 
 ## AMQP 1.0 JMS クライアント ライブラリのダウンロード
 
@@ -38,13 +38,9 @@ Apache Qpid JMS AMQP 1.0 クライアント ライブラリの最新バージョ
 Service Bus を使用する JMS アプリケーションをビルドおよび実行するときは、次の 4 つの JAR ファイルを Apache Qpid JMS AMQP 1.0 ディストリビューション アーカイブから Java CLASSPATH に追加する必要があります。
 
 *    geronimo-jms\_1.1\_spec-1.0.jar
-
 *    qpid-amqp-1-0-client-[version].jar
-
 *    qpid-amqp-1-0-client-jms-[version].jar
-
 *    qpid-amqp-1-0-common-[version].jar
-
 
 ## Java アプリケーションのコーディング
 
@@ -54,11 +50,11 @@ JMS では、Java Naming and Directory Interface (JNDI) を使用して論理名
 
 ```
 # servicebus.properties - sample JNDI configuration
-
+    
 # Register a ConnectionFactory in JNDI using the form:
 # connectionfactory.[jndi_name] = [ConnectionURL]
 connectionfactory.SBCF = amqps://[username]:[password]@[namespace].servicebus.windows.net
-
+    
 # Register some queues in JNDI using the form
 # queue.[jndi_name] = [physical_name]
 # topic.[jndi_name] = [physical_name]
@@ -67,38 +63,39 @@ queue.QUEUE = queue1
 
 #### ConnectionFactory の構成
 
-Qpid Properties File JNDI Provider で **ConnectionFactory** の定義に使用するエントリは、次のような形式になります。
+定義に使用するエントリ、 **ConnectionFactory** Qpid Properties File JNDI Provider では、次の形式。
 
 ```
 connectionfactory.[jndi_name] = [ConnectionURL]
 ```
 
-ここで、**[jndi_name]** と **[ConnectionURL]** には次の意味があります。
+ここで **[jndi_name]** と **[ConnectionURL]** は次の意味があります。
 
 - **[jndi_name]**: ConnectionFactory の論理名。 Java アプリケーションで JNDI IntialContext.lookup() メソッドを使用して解決される名前です。
-- **[ConnectionURL]**: AMQP ブローカーに必要な情報を JMS ライブラリに渡すための URL。
+- **[ConnectionURL]**: AMQP ブローカーに必要な情報を JMS ライブラリを提供するための URL。
 
-**ConnectionURL** の形式は次のようになります。
+形式、 **ConnectionURL** は次のようになります。
 
 ```
 amqps://[username]:[password]@[namespace].servicebus.windows.net
 ```
-Where **[namespace]**, **[username]** and **[password]** have the following meanings:
+ここで **[namespace]**, 、**[username]** と **[password]** は次の意味があります。
 
-- **[namespace]**: The Service Bus namespace.
-- **[username]**: The Service Bus issuer name.
-- **[password]**: URL-encoded form of the Service Bus issuer key.
+- **[namespace]**: Service Bus 名前空間。
+- **[username]**: Service Bus 発行者名。
+- **[パスワード]**: Service Bus 発行者キーの URL でエンコードされた形式です。
 
-> [AZURE.NOTE] You must URL-encode the password manually. A useful URL-encoding utility is available at [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
+> [AZURE.NOTE] URL エンコード パスワード手動で、 便利な URL エンコード ユーティリティは、「 [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp)します。
 
-#### Configure destinations
+#### 送信先の構成
 
-The entry used to define a destination in the Qpid Properties File JNDI Provider is of the following format:
+Qpid Properties File JNDI Provider で送信先の定義に使用するエントリは、次のような形式になります。
+
 ```
-キューです。[jndi_name] = [physical_name]
+queue.[jndi_name] = [physical_name]
 ```
 
-or
+または
 
 ```
 topic.[jndi_name] = [physical_name]
@@ -107,24 +104,24 @@ topic.[jndi_name] = [physical_name]
 ここで **[jndi \_name]** と **[physical \_name]** は次の意味があります。
 
 - **[jndi_name]**: 送信先の論理名。 Java アプリケーションで JNDI IntialContext.lookup() メソッドを使用して解決される名前です。
-- **[physical_name]**: アプリケーションでのメッセージの送受信に使用する Service Bus エンティティの名前。
+- **[physical_name]**: するアプリケーションで送信または受信メッセージの Service Bus エンティティの名前。
 
-> [AZURE.NOTE] Service Bus トピック サブスクリプションから受信した場合は、JNDI で指定された物理名がトピックの名前になります。 サブスクリプション名は、持続性の高いサブスクリプションが JMS アプリケーション コードで作成されるときに指定されます。  [Service Bus AMQP 1.0 開発者ガイド](service-bus-amqp-dotnet.md) JMS から Service Bus トピック サブスクリプションの使用方法に関する詳細を示します。
+> [AZURE.NOTE] をサービス バス トピック サブスクリプションから受信する場合、JNDI で指定された物理名は、トピックの名前をする必要があります。 サブスクリプション名は、持続性の高いサブスクリプションが JMS アプリケーション コードで作成されるときに指定されます。  [Service Bus AMQP 1.0 開発者ガイド](service-bus-amqp-dotnet.md) JMS から Service Bus トピック サブスクリプションの使用方法に関する詳細を示します。
 
 ### JMS アプリケーションの記述
 
-JMS と Service Bus の使用時に必要になる特殊な API やオプションはありません。 ただし、この後で取り上げているようないくつかの制限があります。 いずれの JMS アプリケーションでも、まず、**ConnectionFactory** と送信先の名前解決が可能になるように JNDI 環境を構成する必要があります。
+JMS と Service Bus の使用時に必要になる特殊な API やオプションはありません。 ただし、この後で取り上げているようないくつかの制限があります。 いずれの JMS アプリケーションでは、最初に必要な構成が解決できることには、JNDI 環境を **ConnectionFactory** および変換先です。
 
 #### JNDI InitialContext の構成
 
-JNDI 環境を構成するには、構成情報のハッシュ テーブルを javax.naming.InitialContext クラスのコンストラクターに渡します。 ハッシュ テーブル内の 2 つの必須の要素は Initial Context Factory と Provider URL です。 次のコードでは、Qpid Properties File JNDI Provider と、**servicebus.properties** という名前のプロパティ ファイルを使用して、JNDI 環境を構成する方法を示しています。
+JNDI 環境を構成するには、構成情報のハッシュ テーブルを javax.naming.InitialContext クラスのコンストラクターに渡します。 ハッシュ テーブル内の 2 つの必須の要素は Initial Context Factory と Provider URL です。 次のコードは、Qpid properties file JNDI Provider とという名前のプロパティ ファイルを使用する JNDI 環境を構成する方法を示します **servicebus.properties**します。
 
 ```
 Hashtable<String, String> env = new Hashtable<String, String>(); 
 env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory"); 
 env.put(Context.PROVIDER_URL, "servicebus.properties"); 
 InitialContext context = new InitialContext(env);
-```
+``` 
 
 ### Service Bus キューを使用するシンプルな JMS アプリケーション
 
@@ -232,13 +229,13 @@ InitialContext context = new InitialContext(env);
 ```
 > java SimpleSenderReceiver
 Press [enter] to send a message. Type 'exit' + [enter] to quit.
-
+    
 Sent message with JMSMessageID = ID:2867600614942270318
 Received message with JMSMessageID = ID:2867600614942270318
-
+    
 Sent message with JMSMessageID = ID:7578408152750301483
 Received message with JMSMessageID = ID:7578408152750301483
-
+    
 Sent message with JMSMessageID = ID:956102171969368961
 Received message with JMSMessageID = ID:956102171969368961
 exit
@@ -248,7 +245,7 @@ exit
 
 このガイドでは、JMS を使用して Service Bus との間でメッセージを送信および受信する方法について説明しました。 しかし、AMQP 1.0 の主な利点の 1 つは、さまざまな言語で書かれたコンポーネントからアプリケーションを作成して、高い信頼性と完全な忠実度でメッセージ交換を行えることにあります。
 
-上記で説明したサンプル JMS アプリケーションと必携ガイドから取得した類似の .NET アプリケーションを使用して [.NET Service Bus .NET API で AMQP 1.0 を使用する方法](service-bus-dotnet-advanced-message-queuing.md), 、.NET と Java の間でメッセージを交換することができます。
+上記で説明したサンプル JMS アプリケーションと必携ガイドから取得した類似の .NET アプリケーションを使用して [.NET Service Bus .NET API で AMQP 1.0 を使用する方法](service-bus-dotnet-advanced-message-queuing.md), 、.NET と Java の間でメッセージを交換することができます。 
 
 クロスプラット フォーム メッセージングの詳細についてはサービス バスと AMQP 1.0 を使用して参照してください、 [Service Bus AMQP 1.0 開発者ガイド](service-bus-amqp-dotnet.md)します。
 
@@ -258,7 +255,7 @@ JMS から .NET のメッセージングを試してみるには、次の手順�
 
 * .NET サンプル アプリケーションを、コマンド ライン引数を使わずに起動します。
 * Java サンプル アプリケーションを、"sendonly" コマンド ライン引数を使って起動します。 このモードでは、アプリケーションはキューからメッセージを受信せずに送信のみを行います。
-* Java アプリケーションのコンソールで **Enter** キーを何度か押します。メッセージが送信されます。
+* キーを押して **Enter** 何度か Java アプリケーションのコンソールはメッセージが送信されます。
 * それらのメッセージが .NET アプリケーションによって受信されます。
 
 #### JMS アプリケーションの出力
@@ -289,7 +286,7 @@ exit
 
 * .NET サンプル アプリケーションを、"sendonly" コマンド ライン引数を使って起動します。 このモードでは、アプリケーションはキューからメッセージを受信せずに送信のみを行います。
 * Java サンプル アプリケーションを、コマンド ライン引数を使わずに起動します。
-* .NET アプリケーションのコンソールで **Enter** キーを何度か押します。メッセージが送信されます。
+* キーを押して **Enter** 何度か .NET アプリケーションのコンソールはメッセージが送信されます。
 * それらのメッセージが Java アプリケーションによって受信されます。
 
 #### .NET アプリケーションの出力
@@ -318,10 +315,10 @@ exit
 
 JMS を AMQP 1.0 と Service Bus で使用する場合は、次の制限があります。
 
-* **Session** ごとに作成できる **MessageProducer** または **MessageConsumer** は 1 つのみです。 アプリケーションで複数の **MessageProducers** または **MessageConsumers** を作成する必要がある場合は、それぞれに専用の**セッション**を作成してください。
+* 1 つだけ **MessageProducer** または **MessageConsumer** ごとに許可される **セッション**します。 複数作成する必要がある場合 **MessageProducers** または **MessageConsumers** 作成アプリケーションでは、専用 **セッション** それぞれのです。
 * 揮発性トピック サブスクリプションは現在サポートされていません。
 * **MessageSelectors** は現在サポートされていません。
-* 一時的な送信先である **TemporaryQueue** と **TemporaryTopic**、およびそれらを使用する **QueueRequestor** API と **TopicRequestor** API は現在サポートされていません。
+* 一時的な送信先、つまり、 **TemporaryQueue**, 、**TemporaryTopic** 現在サポートされていない、と共にで、 **QueueRequestor** と **TopicRequestor** それらを使用する Api。
 * トランザクション セッションと分散トランザクションはサポートされません。
 
 ## まとめ
@@ -332,17 +329,13 @@ Service Bus AMQP 1.0 のサポートは、.NET、C、Python、PHP など、そ�
 
 ## 次のステップ
 
-* [Azure Service Bus で AMQP 1.0 サポート](service-bus-amqp-overview.md)
-* [Service Bus .NET API で AMQP 1.0 を使用する方法](service-bus-dotnet-advanced-message-queuing.md)
-* [Service Bus AMQP 1.0 開発者ガイド](service-bus-amqp-dotnet.md)
+* [Azure のサービス バスの AMQP 1.0 のサポートに関するページ](service-bus-amqp-overview.md)
+* [.NET サービス バス API で AMQP 1.0 を使用する方法](service-bus-dotnet-advanced-message-queuing.md)
+* [サービス バス AMQP 1.0: 開発者ガイド](service-bus-amqp-dotnet.md)
 * [Service Bus キューの使用方法](service-bus-dotnet-how-to-use-queues.md)
 * [Java デベロッパー センター](/develop/java/)します。
 
 
 
-
-
-
-
-
+ 
 

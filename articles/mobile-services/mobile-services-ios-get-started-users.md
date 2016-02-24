@@ -16,7 +16,6 @@
     ms.date="10/01/2015"
     ms.author="krisragh"/>
 
-
 # 既存の Azure Mobile Services アプリに認証を追加する
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
@@ -28,21 +27,21 @@
 
 [Mobile Services クイック スタート チュートリアル] に認証を追加するこのチュートリアルではサポートされている id プロバイダーを使用します。
 
-まず、[Mobile Services クイック スタート チュートリアル]」を完了することをお勧めします。 または、[Azure クラシック ポータル] をクリックしてから iOS のクイック スタート プロジェクトをダウンロード  **モバイル サービス** >、モバイル サービス > クラウドの左上隅にサインイン > **iOS** > **新しい iOS アプリを作成** > **をダウンロードし、アプリの実行** > **Objective C** > **ダウンロード**します。 テーブルをまだ作成していない場合は、**[TodoItem テーブルを作成する]** をクリックしてから、**[ダウンロード]** をクリックしてください。
+まず、[Mobile Services クイック スタート チュートリアル]」を完了することをお勧めします。 または、だけから iOS のクイック スタート プロジェクトをダウンロード、 [Azure classic portal] ] をクリックして  **Mobile Services** >、モバイル サービス > クラウドの左上隅にサインイン > **iOS** > **新しい iOS アプリを作成** > **ダウンロード アプリの実行と** > **Objective C** > **ダウンロード**します。 クリックする **TodoItem テーブルの作成** をクリックする前に **ダウンロード**, テーブルをまだ作成していない場合は、です。
 
-## <a name="register"></a>認証用のアプリを登録します。
+##<a name="register"></a>認証用のアプリを登録します。
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-## <a name="permissions"></a>認証されたユーザーへのデータのアクセス許可を制限します。
+##<a name="permissions"></a>認証されたユーザーへのデータのアクセス許可を制限します。
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-## <a name="add-authentication"></a>アプリに認証を追加します。
+##<a name="add-authentication"></a>アプリに認証を追加します。
 
 [AZURE.INCLUDE [mobile-services-ios-authenticate-app](../../includes/mobile-services-ios-authenticate-app.md)]
 
-## <a name="store-authentication"></a>アプリケーションに認証トークンを保存します。
+##<a name="store-authentication"></a>アプリケーションに認証トークンを保存します。
 
 [AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
 
@@ -50,6 +49,20 @@
 
 次に、説明 [、ユーザー ID 値を使用して、返されたデータをフィルター処理する方法](mobile-services-javascript-backend-service-side-authorization.md)します。
 
+<!-- Anchors. -->
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
+[Next Steps]:#next-steps
+[Storing authentication tokens in your app]:#store-authentication
+
+<!-- Images. -->
+
+
+
+
+[4]: ./media/mobile-services-ios-get-started-users/mobile-services-selection.png
+[5]: ./media/mobile-services-ios-get-started-users/mobile-service-uri.png
 
 
 
@@ -57,26 +70,22 @@
 
 
 
+[13]: ./media/mobile-services-ios-get-started-users/mobile-identity-tab.png
+[14]: ./media/mobile-services-ios-get-started-users/mobile-portal-data-tables.png
+[15]: ./media/mobile-services-ios-get-started-users/mobile-portal-change-table-perms.png
 
-[register your app for authentication and configure mobile services]: #register 
-[restrict table permissions to authenticated users]: #permissions 
-[add authentication to the app]: #add-authentication 
-[next steps]: #next-steps 
-[storing authentication tokens in your app]: #store-authentication 
-[4]: ./media/mobile-services-ios-get-started-users/mobile-services-selection.png 
-[5]: ./media/mobile-services-ios-get-started-users/mobile-service-uri.png 
-[13]: ./media/mobile-services-ios-get-started-users/mobile-identity-tab.png 
-[14]: ./media/mobile-services-ios-get-started-users/mobile-portal-data-tables.png 
-[15]: ./media/mobile-services-ios-get-started-users/mobile-portal-change-table-perms.png 
-[service-side authorization of mobile services users]: mobile-services-javascript-backend-service-side-authorization.md 
-[submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582 
-[my applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039 
-[live sdk for windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253 
-[single sign-on for windows store apps by using live connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet 
-[mobile services quick start tutorial]: /develop/mobile/tutorials/get-started-ios 
-[get started with data]: /develop/mobile/tutorials/get-started-with-data-ios 
-[get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios 
-[get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-ios 
-[authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios 
-[azure classic portal]: https://manage.windowsazure.com/ 
+
+<!-- URLs. -->
+[Service-side authorization of Mobile Services users]: mobile-services-javascript-backend-service-side-authorization.md
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Single sign-on for Windows Store apps by using Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Mobile Services Quick Start tutorial]: /develop/mobile/tutorials/get-started-ios
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-ios
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-ios
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
+
+[Azure classic portal]: https://manage.windowsazure.com/
 

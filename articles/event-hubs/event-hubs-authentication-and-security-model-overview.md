@@ -15,7 +15,6 @@
    ms.date="10/07/2015"
    ms.author="sethm" />
 
-
 # Event Hubs の認証とセキュリティ モデルの概要
 
 Event Hubs のセキュリティ モデルは、次の要件に対応します。
@@ -38,7 +37,7 @@ Event Hubs セキュリティ モデルの組み合わせに基づいて [共有
 
 ### SAS キーを作成する
 
-Service Bus は、名前空間を作成するときに、**RootManageSharedAccessKey** という名前の 256 ビットの SAS キーを生成します。 このキーは、名前空間に対する送信、リッスン、および管理権限を与えます。 追加のキーを作成できます。 特定の Event Hub に送信アクセス許可を与えるキーを生成することをお勧めします。 このトピックの残りの部分はものとこのキーを名前付き `EventHubSendKey`します。
+Service Bus がという名前の 256 ビット SAS キーを生成、名前空間を作成するときに **RootManageSharedAccessKey**します。 このキーは、名前空間に対する送信、リッスン、および管理権限を与えます。 追加のキーを作成できます。 特定の Event Hub に送信アクセス許可を与えるキーを生成することをお勧めします。 これ以降、このトピックでは、このキーは `EventHubSendKey` という名前であることを前提とします。
 
 次の例では、Event Hub を作成するときに送信専用のキーを作成します。
 
@@ -62,13 +61,13 @@ nm.CreateEventHub(ed);
 
 ### トークンを生成する
 
-SAS キーを使用してトークンを生成できます。 デバイスごとにトークンを 1 つだけ作成する必要があります。 トークンは、次のメソッドを使用して生成できます。 すべてのトークンは、**EventHubSendKey** キーを使用して生成されます。 各トークンには、一意の URI が割り当てられます。
+SAS キーを使用してトークンを生成できます。 デバイスごとにトークンを 1 つだけ作成する必要があります。 トークンは、次のメソッドを使用して生成できます。 使用してすべてのトークンを生成、 **EventHubSendKey** キー。 各トークンには、一意の URI が割り当てられます。
 
 ```
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
 ```
 
-として指定する必要があります、URI でこのメソッドを呼び出すとき `//< 名前空間 >.servicebus.windows.net/< EVENT_HUB_NAME >/publishers/< PUBLISHER_NAME >`します。すべてのトークンの URI は同じですが、例外として `PUBLISHER_NAME`, 、トークンごとに異なるをする必要があります。理想的には、 `PUBLISHER_NAME` そのトークンを受信するデバイスの ID を表します。
+このメソッドを呼び出すときは、URI に `//<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>` を指定する必要があります。 すべてのトークンで同じ URI を使用しますが、`PUBLISHER_NAME` のみ、トークンごとに異なるものにする必要があります。 `PUBLISHER_NAME` はそのトークンを受信するデバイスの ID を表していると理想的です。
 
 このメソッドは、次の構造を持つトークンを生成します。
 
@@ -106,13 +105,13 @@ Service Bus の現在のバージョンは、個々のサブスクリプショ�
 
 ACS サービス id、証明書利用者、およびルールを作成するさまざまな方法をサポートしていますが、これを行う最も簡単な方法を使用して、 [SBAZTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93)します。 次に例を示します。
 
-1. **EventHubSender** のサービス ID を作成します。 これは、作成されたサービス ID の名前とそのキーを返します。
+1. サービス id を作成、 **EventHubSender**します。 これは、作成されたサービス ID の名前とそのキーを返します。
 
     ```
     sbaztool.exe exe -n <namespace> -k <key>  makeid eventhubsender
     ```
 
-2. Event Hub に、**EventHubSender** "クレーム送信" 権限を与えます。
+2. Grant **EventHubSender** 「クレーム送信」Event Hub にします。
 
     ```
     sbaztool.exe -n <namespace> -k <key> grant Send /AuthTestEventHub eventhubsender
@@ -130,7 +129,7 @@ ACS サービス id、証明書利用者、およびルールを作成するさ�
     sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup1 consumergroup1receiver
     ```
 
-5. **Consumer Group 2** に対するレシーバー用のサービス ID を作成します。
+5. サービス id を作成する受信者の **Consumer Group 2**:
 
     ```
     sbaztool.exe exe -n <namespace> -k <key>  makeid consumergroup2receiver
@@ -146,12 +145,12 @@ ACS サービス id、証明書利用者、およびルールを作成するさ�
 
 Event Hubs の詳細については、次のトピックを参照してください。
 
-- [Event Hubs の概要] です。
-- A [Event Hub を使用するサンプル アプリケーション] を完了します。
-- [キューに置かれたメッセージング ソリューション] サービス バス キューを使用します。
+- [Event Hubs overview].
+- 完全な [sample application that uses Event Hubs]します。
+- A [queued messaging solution] Service Bus キューを使用します。
 
-
-[event hubs overview]: event-hubs-overview.md 
-[sample application that uses event hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097 
-[queued messaging solution]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md 
+[Event Hubs overview]: event-hubs-overview.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[queued messaging solution]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+ 
 

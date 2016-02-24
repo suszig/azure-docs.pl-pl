@@ -19,7 +19,6 @@
 
 
 
-
 # Windows 仮想マシンからディスクを切断する方法
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーのモデルです。
@@ -29,11 +28,7 @@
 
 ## その他のリソース
 
-[ディスクとバーチャル マシンの Vhd について](virtual-machines-disks-vhds.md)
+[仮想マシン用のディスクと VHD について](virtual-machines-disks-vhds.md)
 
-[Windows 仮想マシンにデータ ディスクをアタッチする方法](storage-windows-attach-disk.md)
-
-
-
-
+[データ ディスクを Windows 仮想マシンに接続する方法](storage-windows-attach-disk.md)
 

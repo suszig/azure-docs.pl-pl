@@ -16,18 +16,18 @@
     ms.date="10/20/2015" 
     ms.author="fashah;garye;bradsev" /> 
 
+#Azure の SQL Server Virtual Machine に格納されているデータを探索する
 
-# Azure の SQL Server Virtual Machine に格納されているデータを探索する
-
-この**メニュー**は、多様なストレージ環境のデータを探索するツールの使用方法を説明するトピックにリンクしています。 このタスクは、Cortana Analytics Process (CAP) の 1 ステップです。
+これは、 **メニュー** ツールを使用して、記憶域のさまざまな環境からデータを探索する方法を説明するトピックへのリンク。 このタスクは、Cortana Analytics Process (CAP) の 1 ステップです。
 
 [AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
-## はじめに
+##はじめに
 
 このドキュメントでは、Azure の SQL Server VM に格納されているデータを探索する方法について説明します。 これは、SQL を使用してデータを処理するか、Python などのプログラミング言語を使用して実行できます。
 
-> [AZURE.NOTE] このドキュメントのサンプルの SQL ステートメントは、データが SQL Server に存在することを前提としています。 存在しない場合は、クラウド データ サイエンス プロセス マップを参照して、SQL Server へデータを移動する方法を確認してください。
+
+> [AZURE.NOTE] このドキュメントのサンプル SQL ステートメントでは、データが SQL Server であると仮定します。 存在しない場合は、クラウド データ サイエンス プロセス マップを参照して、SQL Server へデータを移動する方法を確認してください。
 
 
 
@@ -37,23 +37,23 @@ SQL Server のデータ ストアの探索に使用できるいくつかのサ�
 
 1. 1 日ごとの所見の数を取得する
 
-    `変換 (日付、< date_columnname >) によって < tablename > に対する c グループとして count(*) の日付として選択 CONVERT(date, <date_columnname>)`
+    `SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)` 
 
 2. カテゴリ列内のレベルを取得する
 
-    `< databasename > から個別 < column_name > の選択します。`
+    `select  distinct <column_name> from <databasename>`
 
-3. 2 つのカテゴリ列の組み合わせ内のレベルの数を取得する
+3. 2 つのカテゴリ列の組み合わせ内のレベルの数を取得する 
 
-    `select < column_a > < column_b > < column_a > で < tablename > グループから count(*) < column_b >`
+    `select <column_a>, <column_b>,count(*) from <tablename> group by <column_a>, <column_b>`
 
 4. 数値型列の分布を取得する
 
-    `select < column_name > < column_name > で < tablename > グループから count(*)`
+    `select <column_name>, count(*) from <tablename> group by <column_name>`
 
 > [AZURE.NOTE] 使用できる実用的な例、 [NYC タクシー データセット](http://www.andresmh.com/nyctaxitrips/) 」というタイトルの IPNB を参照して [NYC データの処理 IPython Notebook と SQL Server を使用して](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) エンド ツー エンド チュートリアルについては、です。
 
-## <a name="python"></a>Python による SQL データを探索します。
+##<a name="python"></a>Python による SQL データを探索します。
 
 説明に従って、Python を使用して Azure blob でデータの処理と似ています Python を使用してデータを探索し、データが SQL Server の特徴を生成する [Azure Blob データを処理するデータ サイエンス環境で](machine-learning-data-science-process-data-blob.md)します。 データは、データベースから pandas データ フレームに読み込む必要があります。その後、さらに処理することができます。 このセクションでは、データベースに接続して、データ フレームにデータを読み込むプロセスについて記載します。
 
@@ -63,7 +63,7 @@ SQL Server のデータ ストアの探索に使用できるいくつかのサ�
     import pyodbc   
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-[Pandas ライブラリ](http://pandas.pydata.org/) Python では、データを操作するため、Python プログラミングのデータ構造とデータ解析ツールの豊富なセットを提供します。 次のコードは、SQL Server データベースから返される結果を Pandas データ フレームに読み取ります。
+ [Pandas ライブラリ](http://pandas.pydata.org/) Python では、データを操作するため、Python プログラミングのデータ構造とデータ解析ツールの豊富なセットを提供します。 次のコードは、SQL Server データベースから返される結果を Pandas データ フレームに読み取ります。
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
@@ -74,8 +74,4 @@ SQL Server のデータ ストアの探索に使用できるいくつかのサ�
 
 公開されているデータセットを使用して、Cortana Analytics プロセスのチュートリアルの例は、次を参照してください。 [の動作の Cortana Analytics プロセス: SQL Server を使用して](machine-learning-data-science-process-sql-walkthrough.md)します。
 
-
-
-
-
-
+ 

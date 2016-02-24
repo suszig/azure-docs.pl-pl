@@ -20,7 +20,6 @@
 
 
 
-
 # アプリケーションの規模の自動設定方法
 
 Azure クラシック ポータルの [スケール] ページで、アプリケーションの規模を手動で設定するか、パラメーターを指定して自動的に規模を設定することができます。 Web ロール、worker ロール、または Virtual Machines を実行しているアプリケーションの規模を設定できます。 Web ロールまたは worker ロールのインスタンスを実行しているアプリケーションの規模を設定するには、ロール インスタンスを追加または削除してワーク ロードを調整します。
@@ -44,27 +43,27 @@ Virtual Machines を実行しているアプリケーションの規模を増減
 
 [スケール] ページで、クラウド サービスで実行中のインスタンスの数を手動で増減できます。
 
-1. [Azure クラシック ポータル](https://manage.windowsazure.com/), 、] をクリックして **クラウド サービス**, 、ダッシュ ボードをクラウド サービスの名前をクリックします。
+1.  [Azure クラシック ポータル](https://manage.windowsazure.com/), 、] をクリックして **クラウド サービス**, 、ダッシュ ボードをクラウド サービスの名前をクリックします。
 
-2. **[スケール]** をクリックします。 既定では、すべてのロールに対して自動的な規模の設定は無効になっていますが、アプリケーションで使用するインスタンスの数を手動で変更できます。
+2. クリックして **スケール**します。 既定では、すべてのロールに対して自動的な規模の設定は無効になっていますが、アプリケーションで使用するインスタンスの数を手動で変更できます。
 
     ![[スケール] ページ][manual_scale]
 
 3. クラウド サービス内の各ロールには、使用するインスタンスの数を変更するスライダーがあります。 ロール インスタンスを追加するには、垂直バーを右にドラッグします。 インスタンスを削除するには、バーを左にドラッグします。
-
-    ![ロールの規模の設定][slider_role]
-
+    
+    ![ロールの規模の設定][slider_role] 
+    
     増やすことができるのは、インスタンスをサポートするために適切な数のコアを使用できる場合に使用されるインスタンスの数だけです。 スライダーの色は、サブスクリプションで使用しているコアと使用できるコアを表します。
-
+    
     - ブルーは、選択したロールで使用されているコアを表します
-
+    
     - ダーク グレーは、サブスクリプションのすべてのロールと Virtual Machines で使用されているコアを表します
-
+    
     - ライト グレーは、規模の設定に使用できるコアを表します
-
+    
     - ピンクは、保存されていない変更を表します
 
-4. **[保存]** をクリックします。 選択に応じて、ロール インスタンスが追加または削除されます。
+4. クリックして **保存**します。 選択に応じて、ロール インスタンスが追加または削除されます。
 
 ## Web ロール、worker ロール、または Virtual Machines を実行しているアプリケーションの規模の自動設定
 
@@ -75,28 +74,28 @@ Virtual Machines を実行しているアプリケーションの規模を増減
 
 ## 平均 CPU 使用率
 
-1. [Azure クラシック ポータル](https://manage.windowsazure.com/), 、] をクリックして **クラウド サービス**, 、ダッシュ ボードをクラウド サービスの名前をクリックします。
+1.  [Azure クラシック ポータル](https://manage.windowsazure.com/), 、] をクリックして **クラウド サービス**, 、ダッシュ ボードをクラウド サービスの名前をクリックします。
 
-2. **[スケール]** をクリックします。
+2. クリックして **スケール**します。
 
-3. ロールまたは可用性セットのセクションにスクロールし、**[CPU]** をクリックします。 これで、アプリケーションが使用する CPU リソースの平均パーセンテージに基づいて、アプリケーションの規模が自動的に設定されます。
+3. ロールまたは可用性セットのセクションまでスクロールし、をクリックし、 **CPU**します。 これで、アプリケーションが使用する CPU リソースの平均パーセンテージに基づいて、アプリケーションの規模が自動的に設定されます。
 
     ![規模の自動設定オン][autoscale_on]
 
 4. 各ロールまたは可用性セットには、使用できるインスタンスの数を変更するスライダーがあります。 使用できるインスタンスの最大数を設定するには、右側のバーを右にドラッグします。 使用できるインスタンスの最小数を設定するには、左側のバーを左にドラッグします。
-
-    **注:** [スケール] ページの **[インスタンス]** は、ロール インスタンスまたは仮想マシンのインスタンスを表します。
-
+    
+    **注:** [スケール] ページで、 **インスタンス** ロール インスタンスまたは仮想マシンのインスタンスを表します。
+    
     ![インスタンス範囲][instance_range]
-
+    
     インスタンスの最大数は、サブスクリプションで使用できるコア数で制限されます。 スライダーの色は、サブスクリプションで使用しているコアと使用できるコアを表します。
-
+    
     - ブルーは、ロールが使用できる最大コア数を表します。
-
+    
     - ダーク グレーは、サブスクリプションのすべてのロールと Virtual Machines で使用されているコアを表します この値がロールで使用するコア数と重なると、色はダーク ブルーに変わります。
-
+    
     - ライト グレーは、規模の設定に使用できるコアを表します。
-
+    
     - ピンクは、保存されていない変更を表します。
 
 5. スライダーが、平均 CPU 使用率 (%) の範囲を指定するために使用されます。 平均 CPU 使用率 (%) が最大設定を上回った場合、より多くのロール インスタンスが作成されるか、Virtual Machines がオンになります。 平均 CPU 使用率 (%) が最小設定を下回った場合、ロール インスタンスが削除されるか、Virtual Machines がオフになります。 平均 CPU 使用率の最大値を設定するには、右側のバーを右にドラッグします。 平均 CPU 使用率の最小値を設定するには、左側のバーを左にドラッグします。
@@ -113,32 +112,32 @@ Virtual Machines を実行しているアプリケーションの規模を増減
 
     平均 CPU 使用率 (%) の計算時にはすべてのインスタンスが含まれ、平均はその前の 1 時間の使用状況に基づきます。 アプリケーションで使用しているインスタンスの数によっては、待機時間が非常に低く設定されている場合、規模設定操作が行われるまでに指定した待機時間よりも長い時間がかかることがあります。 規模設定操作の間の最小時間は 5 分です。 いずれかのインスタンスが移行中の状態にある場合、規模設定操作は実行できません。
 
-8. アプリケーションの規模が縮小したときに削除またはオフにするインスタンスの数も指定できます。 アプリケーションの規模が縮小したときに削除またはオフにするインスタンスの数を増やすには、バーを右にドラッグします。 数を減らすには、バーを左にドラッグします。
+8. アプリケーションの規模が縮小したときに削除またはオフにするインスタンスの数も指定できます。  アプリケーションの規模が縮小したときに削除またはオフにするインスタンスの数を増やすには、バーを右にドラッグします。 数を減らすには、バーを左にドラッグします。
 
     ![CPU の規模縮小][scale_cpudown]
-
+    
     アプリケーションで CPU 使用率の突然の増加がある場合は、インスタンスの最低数がそれらを処理するために十分であることを確認する必要があります。
 
 9. 最後の規模設定操作と次の規模縮小操作の間の待機時間 (分) を設定します。 最後の規模設定操作は、規模拡大または規模縮小です。
 
     ![休止時間][scale_downtime]
 
-10. **[保存]** をクリックします。 規模設定操作は、終了までに最大で 5 分かかります。
+10. クリックして **保存**します。 規模設定操作は、終了までに最大で 5 分かかります。
 
 ## キュー メッセージ
 
-1. [Azure クラシック ポータル](https://manage.windowsazure.com/), 、] をクリックして **クラウド サービス**, 、ダッシュ ボードをクラウド サービスの名前をクリックします。
-2. **[スケール]** をクリックします。
-3. ロールまたは可用性セットのセクションにスクロールし、**[キュー]** をクリックします。 これで、キュー メッセージの目標数に基づいて、アプリケーションの規模が自動的に設定されます。
+1.  [Azure クラシック ポータル](https://manage.windowsazure.com/), 、] をクリックして **クラウド サービス**, 、ダッシュ ボードをクラウド サービスの名前をクリックします。
+2. クリックして **スケール**します。
+3. ロールまたは可用性セットのセクションまでスクロールし、をクリックし、 **キュー**します。 これで、キュー メッセージの目標数に基づいて、アプリケーションの規模が自動的に設定されます。
 
     ![キューの規模の設定][scale_queue]
 
 4. クラウド サービス内の各ロールまたは可用性セットには、使用できるインスタンスの数を変更するスライダーがあります。 使用できるインスタンスの最大数を設定するには、右側のバーを右にドラッグします。 使用できるインスタンスの最小数を設定するには、左側のバーを左にドラッグします。
 
     ![キューの範囲][queue_range]
-
-    **注:** [スケール] ページの **[インスタンス]** は、ロール インスタンスまたは仮想マシンのインスタンスを表します。
-
+    
+    **注:** [スケール] ページで、 **インスタンス** ロール インスタンスまたは仮想マシンのインスタンスを表します。
+    
     インスタンスの最大数は、サブスクリプションで使用できるコア数で制限されます。 スライダーの色は、サブスクリプションで使用しているコアと使用できるコアを表します。
     - ブルーは、ロールが使用できる最大コア数を表します。
     - ダーク グレーは、サブスクリプションのすべてのロールと Virtual Machines で使用されているコアを表します この値がロールで使用するコア数と重なると、色はダーク ブルーに変わります。
@@ -147,7 +146,7 @@ Virtual Machines を実行しているアプリケーションの規模を増減
 
 5. 使用するキューに関連付けられたストレージ アカウントを選択します。
 
-    ![ストレージ名][storage_name]
+    ![ストレージ名][storage_name]   
 
 6. キューを選択します
 
@@ -164,10 +163,10 @@ Virtual Machines を実行しているアプリケーションの規模を増減
 9. 最後の規模設定操作と次の規模拡大操作の間の待機時間 (分) を設定します。 最後の規模設定操作は、規模拡大または規模縮小です。
 
     ![稼働時間][scale_uptime]
-
+    
     規模設定操作の間の最小時間は 5 分です。 いずれかのインスタンスが移行中の状態にある場合、規模設定操作は実行できません。
 
-10. アプリケーションの規模が縮小したときに削除するインスタンス、または使用しないインスタンスの数も指定できます。 スライダーを使用して、規模設定の増分を指定します。 アプリケーションの規模が縮小したときに削除するインスタンス、または使用しないインスタンスの数を増やすには、バーを右にドラッグします。 数を減らすには、バーを左にドラッグします。
+10. アプリケーションの規模が縮小したときに削除するインスタンス、または使用しないインスタンスの数も指定できます。  スライダーを使用して、規模設定の増分を指定します。 アプリケーションの規模が縮小したときに削除するインスタンス、または使用しないインスタンスの数を増やすには、バーを右にドラッグします。 数を減らすには、バーを左にドラッグします。
 
     ![CPU の規模縮小][scale_cpudown]
 
@@ -175,34 +174,34 @@ Virtual Machines を実行しているアプリケーションの規模を増減
 
     ![休止時間][scale_downtime]
 
-12. **[保存]** をクリックします。 規模設定操作は、終了までに最大で 5 分かかります。
+12. クリックして **保存**します。 規模設定操作は、終了までに最大で 5 分かかります。
 
 ## リンク済みリソースの規模の設定
 
 多くの場合、ロールの規模を設定するときに、アプリケーションが使用しているデータベースの規模もあわせて変更するのが得策です。 データベースをクラウド サービスにリンクする場合、[スケール] ページで SQL Database のエディションを変更し、データベースの規模を変更します。
 
-1. [Azure クラシック ポータル](https://manage.windowsazure.com/), 、] をクリックして **クラウド サービス**, 、ダッシュ ボードをクラウド サービスの名前をクリックします。
-2. **[スケール]** をクリックします。
+1.  [Azure クラシック ポータル](https://manage.windowsazure.com/), 、] をクリックして **クラウド サービス**, 、ダッシュ ボードをクラウド サービスの名前をクリックします。
+2. クリックして **スケール**します。
 3. [リンク済みリソース] セクションで、データベースに使用するエディションを選択します。
 
     ![リンク済みリソース][linked_resources]
 
 4. データベースのサイズを選択します。
-5. **[保存]** をクリックして、リンクされたリソースを更新します。
+5. クリックして **保存** 、リンクされたリソースを更新します。
 
 ## アプリケーションのスケールのスケジュール
 
 さまざまな時間のスケジュールを構成することで、アプリケーションの自動規模設定をスケジュールできます。 自動規模設定では、次のオプションを使用できます。
 
-- **スケジュールなし**: これは既定のオプションで、常に同じ方法でアプリケーションを自動的に規模設定できるようにします。
+- **スケジュールを使用しない** - これは、既定のオプションと、アプリケーションを自動的に規模設定できるようには常にします。
 
-- **昼夜**: このオプションを使用すると、昼夜の特定の時刻に規模設定を指定できます。
+- **日中と夜間** -このオプションを使用して、昼夜の特定の時刻規模設定を指定します。
 
-**注:** Virtual Machines を使用するアプリケーションには、現在のところスケジュールを使用できません。
+**注:** は、現在スケジュールいない仮想マシンを使用するアプリケーションで使用できます。
 
-1. [Azure クラシック ポータル](https://manage.windowsazure.com/), 、] をクリックして **クラウド サービス**, 、ダッシュ ボードをクラウド サービスの名前をクリックします。
-2. **[スケール]** をクリックします。
-3. [スケール] ページで、**[スケジュール時間の設定]** をクリックします。
+1.  [Azure クラシック ポータル](https://manage.windowsazure.com/), 、] をクリックして **クラウド サービス**, 、ダッシュ ボードをクラウド サービスの名前をクリックします。
+2. クリックして **スケール**します。
+3. [スケール] ページをクリックして **スケジュール時間の設定**します。
 
     ![スケールのスケジュール][scale_schedule]
 
@@ -212,23 +211,23 @@ Virtual Machines を実行しているアプリケーションの規模を増減
 
 6. ページの下部にあるチェック マークをオンにして、スケジュールを保存します。
 
-7. スケジュールは、保存すると一覧に表示されます。 使用する時間スケジュールを選択すると、スケール設定を変更できます。 スケール設定は、選択したスケジュール中のみ適用されます。 スケジュールは、**[スケジュール時間の設定]** をクリックすることで編集できます。
+7. スケジュールは、保存すると一覧に表示されます。 使用する時間スケジュールを選択すると、スケール設定を変更できます。 スケール設定は、選択したスケジュール中のみ適用されます。 クリックして、スケジュールを編集する **スケジュール時間の設定**します。
 
-
-[manual_scale]: ./media/cloud-services-how-to-scale/CloudServices_ManualScaleRoles.png 
-[slider_role]: ./media/cloud-services-how-to-scale/CloudServices_SliderRole.png 
-[autoscale_on]: ./media/cloud-services-how-to-scale/CloudServices_AutoscaleOn.png 
-[instance_range]: ./media/cloud-services-how-to-scale/CloudServices_InstanceRange.png 
-[target_cpu]: ./media/cloud-services-how-to-scale/CloudServices_TargetCPURange.png 
-[scale_cpuup]: ./media/cloud-services-how-to-scale/CloudServices_ScaleUpBy.png 
-[scale_uptime]: ./media/cloud-services-how-to-scale/CloudServices_ScaleUpWaitTime.png 
-[scale_cpudown]: ./media/cloud-services-how-to-scale/CloudServices_ScaleDownBy.png 
-[scale_downtime]: ./media/cloud-services-how-to-scale/CloudServices_ScaleDownWaitTime.png 
-[scale_queue]: ./media/cloud-services-how-to-scale/CloudServices_QueueScale.png 
-[queue_range]: ./media/cloud-services-how-to-scale/CloudServices_QueueRange.png 
-[storage_name]: ./media/cloud-services-how-to-scale/CloudServices_StorageAccountName.png 
-[queue_name]: ./media/cloud-services-how-to-scale/CloudServices_QueueName.png 
-[message_number]: ./media/cloud-services-how-to-scale/CloudServices_TargetMessageNumber.png 
-[linked_resources]: ./media/cloud-services-how-to-scale/CloudServices_ScaleLinkedResources.png 
-[scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png 
+[manual_scale]: ./media/cloud-services-how-to-scale/CloudServices_ManualScaleRoles.png
+[slider_role]: ./media/cloud-services-how-to-scale/CloudServices_SliderRole.png
+[autoscale_on]: ./media/cloud-services-how-to-scale/CloudServices_AutoscaleOn.png
+[instance_range]: ./media/cloud-services-how-to-scale/CloudServices_InstanceRange.png
+[target_cpu]: ./media/cloud-services-how-to-scale/CloudServices_TargetCPURange.png
+[scale_cpuup]: ./media/cloud-services-how-to-scale/CloudServices_ScaleUpBy.png
+[scale_uptime]: ./media/cloud-services-how-to-scale/CloudServices_ScaleUpWaitTime.png
+[scale_cpudown]: ./media/cloud-services-how-to-scale/CloudServices_ScaleDownBy.png
+[scale_downtime]: ./media/cloud-services-how-to-scale/CloudServices_ScaleDownWaitTime.png
+[scale_queue]: ./media/cloud-services-how-to-scale/CloudServices_QueueScale.png
+[queue_range]: ./media/cloud-services-how-to-scale/CloudServices_QueueRange.png
+[storage_name]: ./media/cloud-services-how-to-scale/CloudServices_StorageAccountName.png
+[queue_name]: ./media/cloud-services-how-to-scale/CloudServices_QueueName.png
+[message_number]: ./media/cloud-services-how-to-scale/CloudServices_TargetMessageNumber.png
+[linked_resources]: ./media/cloud-services-how-to-scale/CloudServices_ScaleLinkedResources.png
+[scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
+ 
 

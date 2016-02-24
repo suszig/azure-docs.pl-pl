@@ -8,11 +8,11 @@
     editor=""/>
 
 <tags
-    ms.service="devtest lab"
+    ms.service="devtest-lab"
     ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic=「get-開始の記事」
+    ms.topic="get-started-article"
     ms.date="11/01/2015"
     ms.author="tarcher"/>
 
@@ -30,20 +30,20 @@ DevTest ラボを作成するには、次のものが必要です。
 
 1. サインイン、 [Azure プレビュー ポータル](http://portal.azure.com)します。
 
-1. **[参照]** をタップします。
+1. タップ **参照**します。
 
-1. 一覧から **[DevTest ラボ]** をタップします。
+1. タップ **DevTest ラボ** リストからです。
 
-1. **[DevTest ラボ]** ブレードで **[追加]** をタップします。
+1.  **DevTest ラボ** ブレードで、tap **追加**します。
 
     ![DevTest ラボの追加](./media/devtest-lab-create-lab/add-lab-button.png)
 
-1. **[DevTest ラボの作成]** ブレードで:
+1.  **DevTest ラボ作成** ブレード。
 
-    1. 新しいラボの **[ラボ名]** を入力します。
-    1. ラボに関連付ける **[サブスクリプション]** を選択します。
-    1. ラボを格納する **[場所]** を選択します。
-    1. **[作成]** をタップします。
+    1. 入力、 **ラボ名前** 新しいラボのです。
+    1. 選択、 **サブスクリプション** 、ラボに関連付ける。
+    1. 選択、 **場所** 、ラボを格納します。
+    1. タップ **作成**します。
 
     ![DevTest ラボ ブレードの作成](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
@@ -53,15 +53,11 @@ DevTest ラボを作成するには、次のものが必要です。
 
 - [DevTest ラボへのアクセスをセキュリティで保護された](devtest-lab-add-devtest-user.md)します。
 
-- [Set lab policies](devtest-lab-set-lab-policy.md).
+- [ラボのポリシーを設定する](devtest-lab-set-lab-policy.md)です。
 
-- [ラボ テンプレートを作成する](devtest-lab-create-template.md)します。
+- [ラボ テンプレートを作成](devtest-lab-create-template.md)します。
 
 - [Vm 用のカスタムの成果物を作成](devtest-lab-artifact-author.md)します。
 
-- [のアーティファクトで VM を Azure DevTest ラボ追加](devtest-lab-add-vm-with-artifacts.md)します。
-
-
-
-
+- [成果物と VM を Azure DevTest ラボ追加](devtest-lab-add-vm-with-artifacts.md)します。
 

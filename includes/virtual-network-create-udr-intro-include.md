@@ -7,7 +7,3 @@
 
 UDR と IP 転送の詳細については、次を参照してください。 [ユーザー定義のルートと IP 転送](./virtual-networks-udr-overview.md)します。
 
-
-
-
-

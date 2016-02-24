@@ -1,10 +1,11 @@
+
 <properties
-    pageTitle ="Azure RemoteApp クライアントのためのベスト プラクティス |Microsoft Azure]
-    description ="RemoteApp クライアントを使用するためのベスト プラクティスについて説明します"。
-    サービス =「remoteapp」
+    pageTitle="Azure RemoteApp クライアントのベストプラクティス | Microsoft Azure"
+    description="RemoteApp のクライアントを使用するためのベスト プラクティスについて説明します"
+    services="remoteapp"
     documentationCenter=""
-    authors ="lizap"
-    manager ="mbaldwin"/>
+    authors="lizap"
+    manager="mbaldwin" />
 
 <tags
     ms.service="remoteapp"
@@ -13,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="12/05/2015"
-    ms.author="elizapo"/>
+    ms.author="elizapo" />
 
 
 
@@ -24,8 +25,4 @@ Azure RemoteApp クライアントを使用するうえで役立つ情報を次�
 - 常に最新のクライアントを使用します。 これによって、実行しているクライアントのバージョンに、最新のバグの修正プログラムや最新の機能、拡張機能が備わることになります。 適切なストアでクライアントの更新プログラムを自動的に受信するようにサインアップする必要があります。
 
 - RemoteApp はユーザーが一定の時間、非アクティブな状態になるとユーザーを自動的にログオフします。 データの損失を防ぐためには、サービスの使用を終了する際には、アプリケーションを閉じることをお勧めします。
-
-
-
-
 

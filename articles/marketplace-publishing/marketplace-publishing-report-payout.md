@@ -16,7 +16,6 @@
    ms.date="10/12/2015"
    ms.author="v-jeana; hascipio"/>
 
-
 # Azure Marketplace 支払いレポートについて
 
 ## 支払いレポートへのアクセス
@@ -26,7 +25,7 @@
   ![accessingpayoutreport][1]
 
   1. Https://publish.windowsazure.com で公開ポータルに移動します。
-  2. **[発行元]** セクションで **[支払いレポート]** をクリックします
+  2.  **パブリッシャー** ] をクリックして **支払いレポート**します。
   3. ドロップダウン リストをクリックすると、使用可能なすべての四半期支払いレポートが表示されます。
 
 ## 支払いレポートの読み取り
@@ -58,18 +57,17 @@
 ![payoutquestions][5]
 
 1. サポート ページに移動します。
-2. **[支払い]** を選択します。
-3. **[支払いに関連する質問]** を選択します。
-4. **[要求の開始]** をクリックします。
+2. 選択 **支払**します。
+3. 選択 **支払い関連の問い合わせ**します。
+4. クリックして **開始要求**します。
 
 ## 次のステップ
 
 他のサポート クエリ https://portal.azure.com で問題にログインしてください。
 
-
-[1]: ./media/marketplace-publishing-report-payout/accessingpayoutreport.png 
-[2]: ./media/marketplace-publishing-report-payout/readingpayoutreport.png 
-[3]: ./media/marketplace-publishing-report-payout/financialdefinitions.png 
-[4]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png 
-[5]: ./media/marketplace-publishing-report-payout/payoutquestions.png 
+[1]: ./media/marketplace-publishing-report-payout/accessingpayoutreport.png
+[2]: ./media/marketplace-publishing-report-payout/readingpayoutreport.png
+[3]: ./media/marketplace-publishing-report-payout/financialdefinitions.png
+[4]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
+[5]: ./media/marketplace-publishing-report-payout/payoutquestions.png
 

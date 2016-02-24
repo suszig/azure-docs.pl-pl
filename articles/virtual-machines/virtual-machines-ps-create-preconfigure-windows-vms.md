@@ -17,14 +17,12 @@
     ms.date="10/13/2015"
     ms.author="cynthn"/>
 
-
-# Powershell とクラシック デプロイ モデルを使用して Windows 仮想マシンを作成する
+# Powershell とクラシック デプロイ モデルを使用して Windows 仮想マシンを作成する 
 
 > [AZURE.SELECTOR]
-- [Azure classic portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure クラシック ポータル - Windows](virtual-machines-windows-tutorial-classic-portal.md)
 - [Powershell - Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 - [PowerShell - Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
-
 
 <br>
 
@@ -45,14 +43,14 @@
 
 ## 手順 2. サブスクリプションとストレージ アカウントを設定する
 
-Azure PowerShell コマンド プロンプトで次のコマンドを実行して Azure サブスクリプションとストレージ アカウントを設定します。置換を含む引用符内のすべて、<、>、正しい名前の文字。
+Azure PowerShell コマンド プロンプトで次のコマンドを実行して Azure サブスクリプションとストレージ アカウントを設定します。 置換を含む引用符内のすべて、<、>、正しい名前の文字。
 
     $subscr="<subscription name>"
     $staccount="<storage account name>"
     Select-AzureSubscription -SubscriptionName $subscr –Current
     Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-**Get-AzureSubscription** コマンドで出力される SubscriptionName プロパティで正しいサブスクリプション名を取得できます。 **Select-AzureSubscription** コマンドの実行後、**Get-AzureStorageAccount** コマンドを実行して出力される Label プロパティで正しいストレージ アカウント名を取得できます。
+出力される SubscriptionName プロパティから正しいサブスクリプション名を取得することができます、 **Get-azuresubscription** コマンドです。 出力のラベルのプロパティから正しいストレージ アカウント名を取得できます、 **Get-azurestorageaccount** コマンドを実行した後、 **Select-azuresubscription** コマンドです。
 
 ## 手順 3. ImageFamily を特定する
 
@@ -83,7 +81,7 @@ Windows ベースのコンピューターで使用する ImageFamily 値の例�
 
 ## 手順 4. コマンド セットを構築する
 
-コマンド セットを新しいテキスト ファイルまたは ISE に次のブロックの適切なセットをコピーの変数の値を入力し、削除の残りの部分を構築、< と > 文字です。2 つを参照してください [例](#examples) 、最終結果のアイデアは、この記事の最後にします。
+コマンド セットを新しいテキスト ファイルまたは ISE に次のブロックの適切なセットをコピーの変数の値を入力し、削除の残りの部分を構築、< と > 文字です。 2 つを参照してください [例](#examples) 、最終結果のアイデアは、この記事の最後にします。
 
 この 2 つのコマンド ブロックのいずれかを選択することからコマンド セットを開始します (必須)。
 
@@ -169,14 +167,14 @@ Active Directory ドメイン コントローラーでは、$hcaching を "None"
 
 ## 手順 5. コマンド セットを実行する
 
-手順 4. でテキスト エディターまたは PowerShell ISE を使用して作成した、複数のコマンド ブロックで構成される Azure PowerShell コマンド セットを確認します。必要なすべての変数が指定され、それらの値がすべて正しいことを確認します。すべて削除したことを確認します < と > 文字です。
+手順 4. でテキスト エディターまたは PowerShell ISE を使用して作成した、複数のコマンド ブロックで構成される Azure PowerShell コマンド セットを確認します。 必要なすべての変数が指定され、それらの値がすべて正しいことを確認します。 すべて削除したことを確認します < と > 文字です。
 
 テキスト エディターを使用している場合は、コマンド セットをクリップボードにコピーしてから、開いている Azure PowerShell コマンド プロンプトを右クリックします。 この操作により、コマンド セットが一連の PowerShell コマンドとして実行され、Azure 仮想マシンが作成されます。 または、PowerShell ISE でコマンド セットを実行します。
 
 この仮想マシンまたは同様のマシンを再び作成する場合は、次のことができます。
 
 - このコマンド セットを PowerShell スクリプト ファイル (*.ps1) として保存する。
-- Azure クラシック ポータルの **[オートメーション]** セクションで、このコマンド セットを Azure Automation Runbook として保存する。
+- このコマンド セットを Azure automation runbook として保存、 **オートメーション** Azure クラシック ポータルのセクションです。
 
 ## <a id="examples"></a>例
 
@@ -201,20 +199,20 @@ Active Directory ドメイン コントローラーでは、$hcaching を "None"
     $vmname="AZDC1"
     $vmsize="Medium"
     $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
-    
+
     $cred=Get-Credential -Message "Type the name and password of the local administrator account."
     $vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
-    
+
     $vm1 | Set-AzureSubnet -SubnetNames "BackEnd"
-    
+
     $vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.244.4
-    
+
     $disksize=20
     $disklabel="DCData"
     $lun=0
     $hcaching="None"
     $vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $disksize -DiskLabel $disklabel -LUN $lun -HostCaching $hcaching
-    
+
     $svcname="Azure-TailspinToys"
     $vnetname="AZDatacenter"
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
@@ -237,38 +235,35 @@ Active Directory ドメイン コントローラーでは、$hcaching を "None"
     $vmname="LOB1"
     $vmsize="Large"
     $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
-    
+
     $cred1=Get-Credential –Message "Type the name and password of the local administrator account."
     $cred2=Get-Credential –Message "Now type the name (not including the domain) and password of an account that has permission to add the machine to the domain."
     $domaindns="corp.contoso.com"
     $domacctdomain="CORP"
     $vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $domacctdomain -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domaindns
-    
+
     $vm1 | Set-AzureSubnet -SubnetNames "FrontEnd"
-    
+
     $disksize=200
     $disklabel="LOBData"
     $lun=0
     $hcaching="ReadWrite"
     $vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $disksize -DiskLabel $disklabel -LUN $lun -HostCaching $hcaching
-    
+
     $svcname="Azure-TailspinToys"
     $vnetname="AZDatacenter"
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
+
 ## その他のリソース
 
-[Virtual machines のドキュメント](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[仮想マシンに関するドキュメント](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Azure の仮想マシンに関する FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 
 [Azure の仮想マシンの概要](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[インストールして、Azure PowerShell を構成する方法](../install-configure-powershell.md)
-
-
-
-
+[Azure PowerShell のインストールおよび構成方法](../install-configure-powershell.md)
 
 
 

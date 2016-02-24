@@ -17,7 +17,6 @@
    ms.date="11/24/2015"
    ms.author="joaoma" />
 
-
 # リソース マネージャーで PowerShell を使用して、インターネットに接続するロード バランサーを作成を開始する
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
@@ -28,7 +27,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-以下の手順では、PowerShell で Azure リソース マネージャーを使用して、インターネットに接続するロード バランサーを作成する方法を示します。 Azure リソース マネージャーでは、インターネットに接続するロード バランサーを作成するための項目は、個別に構成されてから、リソースを作成するためにまとめられます。
+以下の手順では、PowerShell で Azure リソース マネージャーを使用して、インターネットに接続するロード バランサーを作成する方法を示します。 Azure リソース マネージャーでは、インターネットに接続するロード バランサーを作成するための項目は、個別に構成されてから、リソースを作成するためにまとめられます。 
 
 ここでは、ロード バランサーを作成するために実行する必要のある一連の作業を個別に取り上げ、目的を達成するために実行する事柄を詳しく説明します。
 
@@ -36,9 +35,9 @@
 
 ロード バランサーをデプロイするには、次のオブジェクトを作成して構成する必要があります。
 
-- フロント エンド IP 構成 - 受信ネットワーク トラフィックのパブリック IP アドレスが含まれます。
+- フロント エンド IP 構成 - 受信ネットワーク トラフィックのパブリック IP アドレスが含まれます。 
 
-- バック エンド アドレス プール - ロード バランサーからネットワーク トラフィックを受信する、仮想マシンのネットワーク インターフェイス (NIC) が含まれます。
+- バック エンド アドレス プール - ロード バランサーからネットワーク トラフィックを受信する、仮想マシンのネットワーク インターフェイス (NIC) が含まれます。 
 
 - 負荷分散規則 - ロード バランサーのパブリック ポートをバック エンド アドレス プール内のポートにマッピングする規則が含まれます。
 
@@ -57,26 +56,30 @@ PowerShell 用 Azure モジュールが最新の製品版であり、Azure サ�
 
         PS C:\> Login-AzureRmAccount
 
+
+
 ### 手順 2.
 
-アカウントのサブスクリプションを確認する
+アカウントのサブスクリプションを確認する 
 
         PS C:\> get-AzureRmSubscription 
 
-適宜認証資格情報を使用します。<BR>
+資格情報を使用して認証を行うよう求められます。<BR>
 
-### 手順 3.
+### 手順 3. 
 
 使用する Azure サブスクリプションを選択します。 <BR>
 
 
         PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
+
 ### 手順 4.
 
 新しいリソース グループを作成します (既存のリソース グループを使用する場合は、この手順をスキップしてください)。
 
     PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+
 
 ## 仮想ネットワークと、フロント エンド IP プールのパブリック IP アドレスの作成
 
@@ -87,26 +90,26 @@ PowerShell 用 Azure モジュールが最新の製品版であり、Azure サ�
     $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
     New-AzureRmvirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
 
-### 手順 2
+### 手順 2.
 
-フロントエンド IP プールで使用される *PublicIP* という名前のパブリック IP アドレス (PIP) を作成します。DNS 名は *loadbalancernrp.westus.cloudapp.azure.com* です。 次のコマンドでは、静的な割り当てタイプが使用されます。
+名前付きパブリック IP アドレス (PIP) を作成する *PublicIP* DNS 名を持つフロント エンド IP プールによって使用される *loadbalancernrp.westus.cloudapp.azure.com*します。 次のコマンドでは、静的な割り当てタイプが使用されます。
 
     $publicIP = New-AzureRmPublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Static -DomainNameLabel loadbalancernrp 
 
->[AZURE.IMPORTANT] ロード バランサーはその FQDN のプレフィックスとしてパブリック IP のドメイン ラベルを使用します。 これは、ロード バランサー FQDN としてクラウド サービスを使用するクラシック デプロイ モデルからの変更点です。 
->この例では、FQDN は *loadbalancernrp.westus.cloudapp.azure.com* になります。
+>[AZURE.IMPORTANT] ロード バランサーに、FQDN のプレフィックスとしてパブリック IP のドメインのラベルを使用します。 これは、ロード バランサー FQDN としてクラウド サービスを使用するクラシック デプロイ モデルからの変更点です。 
+>この例では、FQDN がなります *loadbalancernrp.westus.cloudapp.azure.com*します。
 
 ## フロント エンド IP プールとバック エンド アドレス プールの作成
 
-### 手順 1
+### 手順 1. 
 
-*PublicIp* PIP を使用する *LB-Frontend* という名前のフロントエンド IP プールを作成します。
+という名前のフロント エンド IP プールを作成する *LB フロント エンド* を使用して、 *PublicIp* PIP です。
 
     $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PublicIpAddress $publicIP 
 
-### 手順 2
+### 手順 2. 
 
-*LB-backend* という名前のバックエンド アドレス プールを作成します。
+という名前のバック エンド アドレス プールを作成 *LB バックエンド*します。 
 
     $beaddresspool= New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
 
@@ -117,7 +120,7 @@ PowerShell 用 Azure モジュールが最新の製品版であり、Azure サ�
 - ポート 3441 のすべての受信トラフィックをポート 3389 に転送する NAT 規則。
 - ポート 3442 のすべての受信トラフィックをポート 3389 に転送する NAT 規則。
 - バックエンド プールのアドレスでポート 80 ～ 80 に入ってくるすべてのトラフィックを分散するロード バランサー規則。
-- *HealthProbe.aspx* という名前のページで正常性状態を確認するプローブ規則。
+- という名前のページ上のヘルス状態を確認するプローブ ルール *HealthProbe.aspx*します。
 - 上記のオブジェクトをすべて使用するロード バランサー。
 
 
@@ -127,7 +130,7 @@ PowerShell 用 Azure モジュールが最新の製品版であり、Azure サ�
 NAT 規則を作成します。
 
     $inboundNATRule1= New-AzureRmLoadBalancerInboundNatRuleConfig -Name "RDP1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
-    
+
     $inboundNATRule2= New-AzureRmLoadBalancerInboundNatRuleConfig -Name "RDP2" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
 
 ### 手順 2
@@ -152,22 +155,22 @@ NAT 規則を作成します。
 
 NIC を作成し (あるいは、既存の NIC を変更し)、それを NAT 規則、ロード バランサー規則、プローブに関連付ける必要があります。
 
-### 手順 1
+### 手順 1 
 
 NIC を作成する必要がある VNet とサブネットを取得します。
 
     $vnet = Get-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
     $backendSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet 
 
-### 手順 2
+### 手順 2.
 
-*lb-nic1-be* という名前の NIC を作成し、それを最初の NAT 規則に関連付け、それから最初 (で唯一) のバックエンド アドレス プールに関連付けます。
-
+という名前の NIC を作成する *lb nic1 する*, 、し、最初の NAT ルール、および最初の (そして唯一の) のバック エンド アドレス プールに関連付けます。
+    
     $backendnic1= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-be -Location "West US" -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
 
 ### 手順 3.
 
-*lb-nic2-be* という名前の NIC を作成し、それを 2 番目の NAT 規則に関連付け、それから最初 (で唯一) のバックエンド アドレス プールに関連付けます。
+という名前の NIC を作成する *lb nic2 する*, 、し、2 番目の NAT ルール、および最初の (そして唯一の) のバック エンド アドレス プールに関連付けます。 
 
     $backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 
@@ -222,13 +225,16 @@ NIC を確認します。
     NetworkSecurityGroup : null
     Primary              : False
 
+
+
 ### 手順 5.
 
-使用して、 `追加 AzureRmVMNetworkInterface` コマンドレットでは、Nic を異なる Vm に割り当てるをします。
+`Add-AzureRmVMNetworkInterface` コマンドレットを使用し、NIC をさまざまな VM に割り当てます。
 
-仮想マシンを作成する方法のガイダンスを検索して内の NIC に割り当てる [の作成とリソース マネージャーと Azure PowerShell で Windows 仮想マシンを事前構成する](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example), の例では、オプション 5 を使用します。
+仮想マシンを作成する方法のガイダンスを検索して内の NIC に割り当てる [の作成とリソース マネージャーと Azure PowerShell で Windows 仮想マシンを事前構成する](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example), の例では、オプション 5 を使用します。 
 
 ## 既存のロード バランサーの更新
+
 
 ### 手順 1
 
@@ -242,28 +248,25 @@ NIC を確認します。
 
     $slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
 
+
 ### 手順 3.
 
-Set-AzureLoadBalancer を使用して、新しい構成を保存します。
+Set-AzureLoadBalancer を使用して、新しい構成を保存します。 
 
     $slb | Set-AzureRmLoadBalancer
 
 ## ロード バランサーの削除
 
-削除 AzureLoadBalancer コマンドを使用して、名前"NRP LB"リソース グループに「NRP RG」と呼ばれる以前に作成したロード バランサーの削除
+削除 AzureLoadBalancer コマンドを使用して、名前"NRP LB"リソース グループに「NRP RG」と呼ばれる以前に作成したロード バランサーの削除 
 
     Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
->[AZURE.NOTE] オプションのスイッチ -Force を使用することで、削除のためのプロンプトを回避できます。
+>[AZURE.NOTE] 省略可能なを使用するスイッチ - 強制的に削除のプロンプトを回避します。
 
 ## 次のステップ
 
-[内部ロード バランサーの構成の開始します。](load-balancer-internal-getstarted.md)
+[内部ロード バランサーの構成の開始](load-balancer-internal-getstarted.md)
 
-[ロード バランサー分散モードを構成します。](load-balancer-distribution-mode.md)
+[ロード バランサー分散モードの構成](load-balancer-distribution-mode.md)
 
-[ロード バランサーのアイドル TCP タイムアウト設定を構成します。](load-balancer-tcp-idle-timeout.md)
-
-
-
-
+[ロード バランサーのアイドル TCP タイムアウト設定の構成](load-balancer-tcp-idle-timeout.md)

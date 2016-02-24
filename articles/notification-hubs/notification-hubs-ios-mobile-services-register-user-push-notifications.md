@@ -16,14 +16,13 @@
     ms.date="11/01/2015" 
     ms.author="yuaxu"/>
 
-
 # モバイル サービスを使用した現在のユーザーのプッシュ通知への登録
 
 > [AZURE.SELECTOR]
->[Windows ストア C#](notification-hubs-windows-store-mobile-services-register-user-push-notifications.md)
->[iOS](notification-hubs-ios-mobile-services-register-user-push-notifications.md)
+[Windows ストア C#](notification-hubs-windows-store-mobile-services-register-user-push-notifications.md)
+[iOS](notification-hubs-ios-mobile-services-register-user-push-notifications.md)
 
-このトピックでは、Azure Mobile Services により登録が行われる場合、Azure Notification Hubs でプッシュ通知登録を要求する方法について説明します。 このトピックでは、[通知ハブによるユーザーに通知する] このチュートリアルを拡張します。 認証されたモバイル サービスを作成するには、このチュートリアルの必要な手順を既に完了している必要があります。 ユーザー通知シナリオの詳細については、[通知ハブによるユーザーに通知する] を参照してください。
+このトピックでは、Azure Mobile Services により登録が行われる場合、Azure Notification Hubs でプッシュ通知登録を要求する方法について説明します。 このトピックでは、[通知ハブによるユーザーに通知する] このチュートリアルを拡張します。 認証されたモバイル サービスを作成するには、このチュートリアルの必要な手順を既に完了している必要があります。 ユーザー通知シナリオの詳細については、[通知ハブによるユーザーに通知する] を参照してください。  
 
 1. Xcode で、前提条件のチュートリアルを完了したときに作成したプロジェクトの QSTodoService.h ファイルを開く [認証] を使用し、以下の追加 **deviceToken** プロパティ。
 
@@ -31,7 +30,7 @@
 
     このプロパティには、デバイス トークンが格納されます。
 
-2. QSTodoService.m ファイルで、次の **getDeviceTokenInHex** メソッドを追加します。
+2. QSTodoService.m ファイルで次のコードを追加 **getDeviceTokenInHex** メソッド。
 
             - (NSString*)getDeviceTokenInHex {
                 const unsigned *tokenBytes = [[self deviceToken] bytes];
@@ -44,7 +43,7 @@
 
     このメソッドは、デバイス トークンを 16 進数の文字列値に変換します。
 
-3. QSAppDelegate.m ファイルで、次のコード行を **didFinishLaunchingWithOptions** メソッドに追加します。
+3. QSAppDelegate.m ファイルで、次のコード行を追加、 **didFinishLaunchingWithOptions** メソッド。
 
             [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
@@ -56,8 +55,9 @@
                 [QSTodoService defaultService].deviceToken = deviceToken;
             }
 
-    これにより、**deviceToken** プロパティが更新されます。
-    > [AZURE.NOTE] この時点では、このメソッドに他のコードは存在しません。 呼び出しが既にある場合、 **registerNativeWithDeviceToken** メソッドを実行したときに追加された、 [Notification Hubs を使ってみる](/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank") チュートリアル, する必要がありますコメント アウトまたはその呼び出しを削除します。
+    これにより、更新、 **deviceToken** プロパティです。
+
+    > [AZURE.NOTE] この時点がないこと、他のコードでこのメソッドです。 呼び出しが既にある場合、 **registerNativeWithDeviceToken** メソッドを実行したときに追加された、 [Notification Hubs を使ってみる](/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank") チュートリアル, する必要がありますコメント アウトまたはその呼び出しを削除します。
 
 5.  (省略可能) QSAppDelegate.m ファイルで、次のハンドラー メソッドを追加します。
 
@@ -71,52 +71,53 @@
 
     アプリケーションが実行中に通知を受信すると、このメソッドは UI にアラートを表示します。
 
-6. QSTodoListViewController.m ファイルで、**registerForNotificationsWithBackEnd** メソッドを追加します。
+6. QSTodoListViewController.m ファイルで、追加、 **registerForNotificationsWithBackEnd** メソッド。
 
-         - (void)registerForNotificationsWithBackEnd {
-             NSString* json = [NSString  stringWithFormat:@"{\"platform\":\"ios\", \"deviceToken\":\"%@\"}", [self.todoService getDeviceTokenInHex] ];
-    
-             [self.todoService.client invokeAPI:@"register_notifications" data:[json dataUsingEncoding:NSUTF8StringEncoding] HTTPMethod:@"POST" parameters:nil headers:nil completion:^(id result, NSHTTPURLResponse *response, NSError *error) {
-                 if (error != nil) {
-                     NSLog(@"Registration failed: %@", error);
-                 } else {
-                     // display UIAlert with successful login
-                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Back-end registration" message:@"Registration successful" delegate:nil cancelButtonTitle: @"OK" otherButtonTitles:nil, nil];
-                     [alert show];
-                 }
-             }];
-         }
+            - (void)registerForNotificationsWithBackEnd {
+                NSString* json = [NSString  stringWithFormat:@"{\"platform\":\"ios\", \"deviceToken\":\"%@\"}", [self.todoService getDeviceTokenInHex] ];
 
- このメソッドは、デバイス トークンを含む json ペイロードを作成します。 その後、モバイル サービスでカスタム API を呼び出して通知に登録します。 このメソッドは、プッシュ通知のデバイス トークンを作成し、Notification Hubs で登録を作成するカスタム API メソッドに、デバイスの種類と共に送信します。 [通知ハブによるユーザーに通知する] は、このカスタム API を定義しました。
-
-7.  最後に、ユーザーが正常に認証された後、**viewDidAppear** メソッド内の新しい **registerForNotificationsWithBackEnd** メソッドにこのメソッドへの呼び出しを追加します。次に例を示します。
-
-        - (void)viewDidAppear:(BOOL)animated
-        {
-            MSClient *client = self.todoService.client;
-    
-            if (client.currentUser != nil) {
-                return;
+                [self.todoService.client invokeAPI:@"register_notifications" data:[json dataUsingEncoding:NSUTF8StringEncoding] HTTPMethod:@"POST" parameters:nil headers:nil completion:^(id result, NSHTTPURLResponse *response, NSError *error) {
+                    if (error != nil) {
+                        NSLog(@"Registration failed: %@", error);
+                    } else {
+                        // display UIAlert with successful login
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Back-end registration" message:@"Registration successful" delegate:nil cancelButtonTitle: @"OK" otherButtonTitles:nil, nil];
+                        [alert show];
+                    }
+                }];
             }
+
+    このメソッドは、デバイス トークンを含む json ペイロードを作成します。 その後、モバイル サービスでカスタム API を呼び出して通知に登録します。 このメソッドは、プッシュ通知のデバイス トークンを作成し、Notification Hubs で登録を作成するカスタム API メソッドに、デバイスの種類と共に送信します。 [通知ハブによるユーザーに通知する] は、このカスタム API を定義しました。
+
+7.  最後に、 **viewDidAppear** メソッド呼び出しを追加してこの新しい **registerForNotificationsWithBackEnd** メソッド、ユーザーが正常に認証されると、次の例に示すように。
+
+            - (void)viewDidAppear:(BOOL)animated
+            {
+                MSClient *client = self.todoService.client;
+
+                if (client.currentUser != nil) {
+                    return;
+                }
+
+                [client loginWithProvider:@"microsoftaccount" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
+                    [self refresh];
+                    [self registerForNotificationsWithBackEnd];
+                }];
+            }
+
+    > [AZURE.NOTE] これにより、登録が要求されるたびに、ページが読み込まれることを確認します。 アプリケーションでは、この登録が常に最新の状態となるように、定期的な登録のみ行うことができます。
     
-            [client loginWithProvider:@"microsoftaccount" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
-                [self refresh];
-                [self registerForNotificationsWithBackEnd];
-            }];
-        }
-
-> [AZURE.NOTE] これにより、ページが読み込まれるたびに登録が要求されるようになります。 アプリケーションでは、この登録が常に最新の状態となるように、定期的な登録のみ行うことができます。
-
 これで、クライアント アプリケーションが更新されて、[通知ハブによるユーザーへの通知] を返し、通知ハブを使用して通知を送信するモバイル サービスを更新します。
 
+<!-- Anchors. -->
+
+<!-- Images. -->
 
 
+<!-- URLs. -->
+[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios/
 
-
-
-
-
-[notify users with notification hubs]: /manage/services/notification-hubs/notify-users 
-[get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios/ 
-[get started with notification hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios/ 
+[Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
+ 
 

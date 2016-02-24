@@ -16,7 +16,6 @@
    ms.date="09/22/2015"
    ms.author="barbkess"/>
 
-
 # システム ビュー
 
 ## SQL Data Warehouse カタログ ビュー
@@ -44,15 +43,15 @@
 
 ## SQL Database カタログ ビュー
 
-- [dbo.server_quotas (Azure SQL データベース)](http://msdn.microsoft.com/library/dn308512.aspx)
-- [sys.bandwidth_usage (Azure SQL データベース)](http://msdn.microsoft.com/library/dn269985.aspx)
-- [sys.database_connection_stats (Azure SQL データベース)](http://msdn.microsoft.com/library/dn269986.aspx)
-- [sys.database_firewall_rules (Azure SQL データベース)](http://msdn.microsoft.com/library/dn269982.aspx)
-- [sys.database_usage (Azure SQL データベース)](http://msdn.microsoft.com/library/azure/ff951626.aspx)
-- [sys.event_log (Azure SQL データベース)](http://msdn.microsoft.com/library/dn270018.aspx)
-- [sys.database_firewall_rules (Azure SQL データベース)](http://msdn.microsoft.com/library/dn269982.aspx)
-- [sys.firewall_rules (Azure SQL データベース)](http://msdn.microsoft.com/library/azure/ff951627.aspx)
-- [sys.resource_stats (Azure SQL データベース)](http://msdn.microsoft.com/library/dn269979.aspx)
+- [dbo.server_quotas (Azure SQL Database)](http://msdn.microsoft.com/library/dn308512.aspx)
+- [sys.bandwidth_usage (Azure SQL Database)](http://msdn.microsoft.com/library/dn269985.aspx)
+- [sys.database_connection_stats (Azure SQL Database)](http://msdn.microsoft.com/library/dn269986.aspx)
+- [sys.database_firewall_rules (Azure SQL Database)](http://msdn.microsoft.com/library/dn269982.aspx)
+- [sys.database_usage (Azure SQL Database)](http://msdn.microsoft.com/library/azure/ff951626.aspx)
+- [sys.event_log (Azure SQL Database)](http://msdn.microsoft.com/library/dn270018.aspx)
+- [sys.database_firewall_rules (Azure SQL Database)](http://msdn.microsoft.com/library/dn269982.aspx)
+- [sys.firewall_rules (Azure SQL Database)](http://msdn.microsoft.com/library/azure/ff951627.aspx)
+- [sys.resource_stats (Azure SQL Database)](http://msdn.microsoft.com/library/dn269979.aspx)
 - sys.resource_usage (Azure SQL Database)
 
 
@@ -103,7 +102,7 @@
 - [sys.databases](http://msdn.microsoft.com/library/ms178534.aspx)
 - [sys.default_constraints](http://msdn.microsoft.com/library/ms173758.aspx)
 - [sys.extended_properties](http://msdn.microsoft.com/library/ms177541.aspx)
-- [sys.external_file 形式](http://msdn.microsoft.com/library/dn935025.aspx)
+- [sys.external_file formats](http://msdn.microsoft.com/library/dn935025.aspx)
 - [sys.external_tables](http://msdn.microsoft.com/library/dn935029.aspx)
 - [sys.external_data_sources](http://msdn.microsoft.com/library/dn935019.aspx)
 - [sys.filegroups](http://msdn.microsoft.com/library/ms187782.aspx)
@@ -142,82 +141,83 @@
 
 ## SQL Data Warehouse で使用可能な SQL Server DMV のリスト
 
-SQL Data Warehouse では、多くの SQL Server 動的管理ビュー (DMV) が公開されています。 これらのビューは、SQL Data Warehouse でクエリされると、ディストリビューションで実行されている SQL Database の状態を報告します。
+SQL Data Warehouse では、多くの SQL Server 動的管理ビュー (DMV) が公開されています。 これらのビューは、SQL Data Warehouse でクエリされると、ディストリビューションで実行されている SQL Database の状態を報告します。 
 
 SQL Data Warehouse はマイクロソフトの MPP テクノロジに基づいて構築されているため、SQL Data Warehouse と Analytics Platform System の Parallel Data Warehouse (PDW) はどちらも、同じシステム ビューを使用します。
 
 このため、これらの各 DMV には pdw_node_id という名前の特定の列があります。 これは、コンピューティング ノードの識別子です。 PDW では、コンピューティング ノードはアーキテクチャのより強力な概念です。 SQL Data Warehouse では、アーキテクチャはディストリビューションにさらに大きく依存します。
->[AZURE.NOTE] これらのビューを使用するには、次の表に示すように ”pdw_nodes_” を名前に挿入します。 
+
+>[AZURE.NOTE] これらのビューを使用するには、次の表に示すように、名前にように"pdw_nodes _' を挿入します。 
 
 
-| SQL Data Warehouse での DMV 名| MSDN での SQL Server Transact-SQL のトピックへのリンク|
+| SQL Data Warehouse での DMV 名 | MSDN での SQL Server Transact-SQL のトピックへのリンク |
 | :----------------------------- | :-------------------------------------------- |
-| sys.dm_pdw_nodes_db_file_space_usage| [sys.dm_db_file_space_usage (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms174412.aspx)|
-| sys.dm_pdw_nodes_db_index_usage_stats| [sys.dm_db_index_usage_stats (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms188755.aspx)|
-| sys.dm_pdw_nodes_db_partition_stats| [sys.dm_db_partition_stats (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms187737.aspx)|
-| sys.dm_pdw_nodes_db_session_space_usage| [sys.dm_db_session_space_usage (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms187938.aspx)|
-| sys.dm_pdw_nodes_db_task_space_usage| [sys.dm_db_task_space_usage (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms190288.aspx)|
-| sys.dm_pdw_nodes_exec_background_job_queue| [sys.dm_exec_background_job_queue (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms173512.aspx)|
-| sys.dm_pdw_nodes_exec_background_job_queue_stats| [sys.dm_exec_background_job_queue_stats (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms176059.aspx)|
-| sys.dm_pdw_nodes_exec_cached_plans| [sys.dm_exec_cached_plans (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms187404.aspx)|
-| sys.dm_pdw_nodes_exec_connections| [sys.dm_exec_connections (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms181509.aspx)|
-| sys.dm_pdw_nodes_exec_procedure_stats| [sys.dm_exec_procedure_stats (TRANSACT-SQL)](http://msdn.microsoft.com/library/cc280701.aspx)|
-| sys.dm_pdw_nodes_exec_query_memory_grants| [sys.dm_exec_query_memory_grants (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms365393.aspx)|
-| sys.dm_pdw_nodes_exec_query_optimizer_info| [sys.dm_exec_query_optimizer_info (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms175002.aspx)|
-| sys.dm_pdw_nodes_exec_query_resource_semaphores| [sys.dm_exec_query_resource_semaphores (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms366321.aspx)|
-| sys.dm_pdw_nodes_exec_query_stats| [sys.dm_exec_query_stats (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms189741.aspx)|
-| sys.dm_pdw_nodes_exec_requests| [sys.dm_exec_requests (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms177648.aspx)|
-| sys.dm_pdw_nodes_exec_sessions| sys.dm_pdw_nodes_exec_sessions (Transact-SQL)|
-| sys.dm_pdw_nodes_io_cluster_shared_drives| [sys.dm_io_cluster_shared_drives (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms188930.aspx)|
-| sys.dm_pdw_nodes_io_pending_io_requests| [sys.dm_io_pending_io_requests (Transact-sql)](http://msdn.microsoft.com/library/ms188762.aspx)|
-| sys.dm_pdw_nodes_os_buffer_descriptors| [sys.dm_os_buffer_descriptors (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms173442.aspx)|
-| sys.dm_pdw_nodes_os_child_instances| [sys.dm_os_child_instances (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms165698.aspx)|
-| sys.dm_pdw_nodes_os_cluster_nodes| [sys.dm_os_cluster_nodes (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms187341.aspx)|
-| sys.dm_pdw_nodes_os_dispatcher_pools| [sys.dm_os_dispatcher_pools (TRANSACT-SQL)](http://msdn.microsoft.com/library/bb630336.aspx)|
-| sys.dm_pdw_nodes_os_dispatchers| Transact-SQL のドキュメントはありません。|
-| sys.dm_pdw_nodes_os_hosts| [sys.dm_os_hosts (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms187800.aspx)|
-| sys.dm_pdw_nodes_os_latch_stats| [sys.dm_os_latch 統計 (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms175066.aspx)|
-| sys.dm_pdw_nodes_os_loaded_modules| [sys.dm_os_loaded_modules (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms179907.aspx)|
-| sys.dm_pdw_nodes_os_memory_brokers| [sys.dm_os_memory_brokers (TRANSACT-SQL)](http://msdn.microsoft.com/library/bb522548.aspx)|
-| sys.dm_pdw_nodes_os_memory_cache_clock_hands| [sys.dm_os_memory_cache_clock_hands (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms173786.aspx)|
-| sys.dm_pdw_nodes_os_memory_cache_counters| [sys.dm_os_memory_cache_counters (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms188760.aspx)|
-| sys.dm_pdw_nodes_os_memory_cache_entries| [sys.dm_os_memory_cache_entries (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms189488.aspx)|
-| sys.dm_pdw_nodes_os_memory_cache_hash_tables| [sys.dm_os_memory_cache_hash_tables (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms182388.aspx)|
-| sys.dm_pdw_nodes_os_memory_clerks| [sys.dm_os_memory_clerks (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms175019.aspx)|
-| sys.dm_pdw_nodes_os_memory_node_access_stats| Transact-SQL のドキュメントはありません。|
-| sys.dm_pdw_nodes_os_memory_nodes| [sys.dm_os_memory_nodes (TRANSACT-SQL)](http://msdn.microsoft.com/library/bb510622.aspx)|
-| sys.dm_pdw_nodes_os_memory_pools| [sys.dm_os_memory_pools (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms175022.aspx)|
-| sys.dm_pdw_nodes_os_nodes| [sys.dm_os_nodes (TRANSACT-SQL)](http://msdn.microsoft.com/library/bb510628.aspx)|
-| sys.dm_pdw_nodes_os_performance_counters| [sys.dm_os_performance_counters (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms187743.aspx)|
-| sys.dm_pdw_nodes_os_process_memory| [sys.dm_os_process_memory (TRANSACT-SQL)](http://msdn.microsoft.com/library/bb510747.aspx)|
-| sys.dm_pdw_nodes_os_schedulers| [sys.dm_os_schedulers (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms177526.aspx)|
-| sys.dm_pdw_nodes_os_spinlock_stats| sys.dm_os_spinlock_stats (Transact-SQL)|
-| sys.dm_pdw_nodes_os_sys_info| [sys.dm_os_sys_info (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms175048.aspx)|
-| sys.dm_pdw_nodes_os_sys_memory| [sys.dm_os_memory_nodes (TRANSACT-SQL)](http://msdn.microsoft.com/library/bb510622.aspx)|
-| sys.dm_pdw_nodes_os_tasks| [sys.dm_os_tasks (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms174963.aspx)|
-| sys.dm_pdw_nodes_os_threads| [sys.dm_os_threads (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms187818.aspx)|
-| sys.dm_pdw_nodes_os_virtual_address_dump| sys.dm_virtual_address_dump (Transact-SQL)|
-| sys.dm_pdw_nodes_os_wait_stats| sys.ldm_pdw_nodes_os_wait_stats (Transact-SQL)|
-| sys.dm_pdw_nodes_os_waiting_tasks| sys.dm_waiting_tasks (Transact-SQL)|
-| sys.dm_pdw_nodes_os_workers| sys.dm_workers (Transact-SQL)|
-| sys.dm_pdw_nodes_resource_governor_resource_pools| [sys.dm_resource_governor_resource_pools (TRANSACT-SQL)](http://msdn.microsoft.com/library/bb934023.aspx)|
-| sys.dm_pdw_nodes_resource_governor_workload_groups| [sys.dm_resource_governor_workload_groups (TRANSACT-SQL)](http://msdn.microsoft.com/library/bb934197.aspx)|
-| sys.dm_pdw_nodes_tran_active_snapshot_database_transactions| [sys.dm_tran_active_snapshot_database_transactions (Transact_SQL)](http://msdn.microsoft.com/library/ms180023.aspx)|
-| sys.dm_pdw_nodes_tran_active_transactions| [sys.dm_tran_active_transactions (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms174302.aspx)|
-| sys.dm_pdw_nodes_tran_commit_table| Transact-SQL のドキュメントはありません。|
-| sys.dm_pdw_nodes_tran_current_snapshot| [sys.dm_tran_current_snapshot (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms184390.aspx)|
-| sys.dm_pdw_nodes_tran_locks| [sys.dm_tran_locks (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms190345.aspx)|
-| sys.dm_pdw_nodes_tran_session_transactions| [sys.dm_tran_session_transactions (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms188739.aspx)|
-| sys.dm_pdw_nodes_tran_top_version_generators| [sys.dm_tran_top_version_generators (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms188778.aspx)|
+| sys.dm_pdw_nodes_db_file_space_usage | [sys.dm_db_file_space_usage (Transact-SQL)](http://msdn.microsoft.com/library/ms174412.aspx) |
+| sys.dm_pdw_nodes_db_index_usage_stats | [sys.dm_db_index_usage_stats (Transact-SQL)](http://msdn.microsoft.com/library/ms188755.aspx) |
+| sys.dm_pdw_nodes_db_partition_stats | [sys.dm_db_partition_stats (Transact-SQL)](http://msdn.microsoft.com/library/ms187737.aspx) |
+| sys.dm_pdw_nodes_db_session_space_usage | [sys.dm_db_session_space_usage (Transact-SQL)](http://msdn.microsoft.com/library/ms187938.aspx) |
+| sys.dm_pdw_nodes_db_task_space_usage | [sys.dm_db_task_space_usage (Transact-SQL)](http://msdn.microsoft.com/library/ms190288.aspx) |
+| sys.dm_pdw_nodes_exec_background_job_queue | [sys.dm_exec_background_job_queue (Transact-SQL)](http://msdn.microsoft.com/library/ms173512.aspx) |
+| sys.dm_pdw_nodes_exec_background_job_queue_stats | [sys.dm_exec_background_job_queue_stats (Transact-SQL)](http://msdn.microsoft.com/library/ms176059.aspx) |
+| sys.dm_pdw_nodes_exec_cached_plans | [sys.dm_exec_cached_plans (Transact-SQL)](http://msdn.microsoft.com/library/ms187404.aspx) |
+| sys.dm_pdw_nodes_exec_connections | [sys.dm_exec_connections (Transact-SQL)](http://msdn.microsoft.com/library/ms181509.aspx) |
+| sys.dm_pdw_nodes_exec_procedure_stats | [sys.dm_exec_procedure_stats (Transact-SQL)](http://msdn.microsoft.com/library/cc280701.aspx) |
+| sys.dm_pdw_nodes_exec_query_memory_grants | [sys.dm_exec_query_memory_grants (Transact-SQL)](http://msdn.microsoft.com/library/ms365393.aspx) |
+| sys.dm_pdw_nodes_exec_query_optimizer_info | [sys.dm_exec_query_optimizer_info (Transact-SQL)](http://msdn.microsoft.com/library/ms175002.aspx) |
+| sys.dm_pdw_nodes_exec_query_resource_semaphores | [sys.dm_exec_query_resource_semaphores (Transact-SQL)](http://msdn.microsoft.com/library/ms366321.aspx) |
+| sys.dm_pdw_nodes_exec_query_stats | [sys.dm_exec_query_stats (Transact-SQL)](http://msdn.microsoft.com/library/ms189741.aspx) |
+| sys.dm_pdw_nodes_exec_requests | [sys.dm_exec_requests (Transact-SQL)](http://msdn.microsoft.com/library/ms177648.aspx) |
+| sys.dm_pdw_nodes_exec_sessions | sys.dm_pdw_nodes_exec_sessions (Transact-SQL) |
+| sys.dm_pdw_nodes_io_cluster_shared_drives | [sys.dm_io_cluster_shared_drives (Transact-SQL)](http://msdn.microsoft.com/library/ms188930.aspx) |
+| sys.dm_pdw_nodes_io_pending_io_requests | [sys.dm_io_pending_io_requests (Transact-SQL)](http://msdn.microsoft.com/library/ms188762.aspx) |
+| sys.dm_pdw_nodes_os_buffer_descriptors | [sys.dm_os_buffer_descriptors (Transact-SQL)](http://msdn.microsoft.com/library/ms173442.aspx) |
+| sys.dm_pdw_nodes_os_child_instances | [sys.dm_os_child_instances (Transact-SQL)](http://msdn.microsoft.com/library/ms165698.aspx) |
+| sys.dm_pdw_nodes_os_cluster_nodes | [sys.dm_os_cluster_nodes (Transact-SQL)](http://msdn.microsoft.com/library/ms187341.aspx) |
+| sys.dm_pdw_nodes_os_dispatcher_pools | [sys.dm_os_dispatcher_pools (Transact-SQL)](http://msdn.microsoft.com/library/bb630336.aspx) |
+| sys.dm_pdw_nodes_os_dispatchers | Transact-SQL のドキュメントはありません。 |
+| sys.dm_pdw_nodes_os_hosts | [sys.dm_os_hosts (Transact-SQL)](http://msdn.microsoft.com/library/ms187800.aspx) |
+| sys.dm_pdw_nodes_os_latch_stats | [sys.dm_os_latch stats (Transact-SQL)](http://msdn.microsoft.com/library/ms175066.aspx) |
+| sys.dm_pdw_nodes_os_loaded_modules | [sys.dm_os_loaded_modules (Transact-SQL)](http://msdn.microsoft.com/library/ms179907.aspx) |
+| sys.dm_pdw_nodes_os_memory_brokers | [sys.dm_os_memory_brokers (Transact-SQL)](http://msdn.microsoft.com/library/bb522548.aspx) |
+| sys.dm_pdw_nodes_os_memory_cache_clock_hands | [sys.dm_os_memory_cache_clock_hands (Transact-SQL)](http://msdn.microsoft.com/library/ms173786.aspx) |
+| sys.dm_pdw_nodes_os_memory_cache_counters | [sys.dm_os_memory_cache_counters (Transact-SQL)](http://msdn.microsoft.com/library/ms188760.aspx) |
+| sys.dm_pdw_nodes_os_memory_cache_entries | [sys.dm_os_memory_cache_entries (Transact-SQL)](http://msdn.microsoft.com/library/ms189488.aspx) |
+| sys.dm_pdw_nodes_os_memory_cache_hash_tables | [sys.dm_os_memory_cache_hash_tables (Transact-SQL)](http://msdn.microsoft.com/library/ms182388.aspx) |
+| sys.dm_pdw_nodes_os_memory_clerks | [sys.dm_os_memory_clerks (Transact-SQL)](http://msdn.microsoft.com/library/ms175019.aspx) |
+| sys.dm_pdw_nodes_os_memory_node_access_stats | Transact-SQL のドキュメントはありません。 |
+| sys.dm_pdw_nodes_os_memory_nodes | [sys.dm_os_memory_nodes (Transact-SQL)](http://msdn.microsoft.com/library/bb510622.aspx) |
+| sys.dm_pdw_nodes_os_memory_pools | [sys.dm_os_memory_pools (Transact-SQL)](http://msdn.microsoft.com/library/ms175022.aspx) |
+| sys.dm_pdw_nodes_os_nodes | [sys.dm_os_nodes (Transact-SQL)](http://msdn.microsoft.com/library/bb510628.aspx) |
+| sys.dm_pdw_nodes_os_performance_counters | [sys.dm_os_performance_counters (Transact-SQL)](http://msdn.microsoft.com/library/ms187743.aspx) |
+| sys.dm_pdw_nodes_os_process_memory | [sys.dm_os_process_memory (Transact-SQL)](http://msdn.microsoft.com/library/bb510747.aspx) |
+| sys.dm_pdw_nodes_os_schedulers | [sys.dm_os_schedulers (Transact-SQL)](http://msdn.microsoft.com/library/ms177526.aspx) |
+| sys.dm_pdw_nodes_os_spinlock_stats | sys.dm_os_spinlock_stats (Transact-SQL) |
+| sys.dm_pdw_nodes_os_sys_info | [sys.dm_os_sys_info (Transact-SQL)](http://msdn.microsoft.com/library/ms175048.aspx) |
+| sys.dm_pdw_nodes_os_sys_memory | [sys.dm_os_memory_nodes (Transact-SQL)](http://msdn.microsoft.com/library/bb510622.aspx) |
+| sys.dm_pdw_nodes_os_tasks | [sys.dm_os_tasks (Transact-SQL)](http://msdn.microsoft.com/library/ms174963.aspx) |
+| sys.dm_pdw_nodes_os_threads | [sys.dm_os_threads (Transact-SQL)](http://msdn.microsoft.com/library/ms187818.aspx) |
+| sys.dm_pdw_nodes_os_virtual_address_dump | sys.dm_virtual_address_dump (Transact-SQL) |
+| sys.dm_pdw_nodes_os_wait_stats | sys.ldm_pdw_nodes_os_wait_stats (Transact-SQL) |
+| sys.dm_pdw_nodes_os_waiting_tasks | sys.dm_waiting_tasks (Transact-SQL) |
+| sys.dm_pdw_nodes_os_workers | sys.dm_workers (Transact-SQL) |
+| sys.dm_pdw_nodes_resource_governor_resource_pools | [sys.dm_resource_governor_resource_pools (Transact-SQL)](http://msdn.microsoft.com/library/bb934023.aspx) |
+| sys.dm_pdw_nodes_resource_governor_workload_groups | [sys.dm_resource_governor_workload_groups (Transact-SQL)](http://msdn.microsoft.com/library/bb934197.aspx) |
+| sys.dm_pdw_nodes_tran_active_snapshot_database_transactions | [sys.dm_tran_active_snapshot_database_transactions (Transact_SQL)](http://msdn.microsoft.com/library/ms180023.aspx) |
+| sys.dm_pdw_nodes_tran_active_transactions | [sys.dm_tran_active_transactions (Transact-SQL)](http://msdn.microsoft.com/library/ms174302.aspx) |
+| sys.dm_pdw_nodes_tran_commit_table | Transact-SQL のドキュメントはありません。 |
+| sys.dm_pdw_nodes_tran_current_snapshot | [sys.dm_tran_current_snapshot (Transact-SQL)](http://msdn.microsoft.com/library/ms184390.aspx) |
+| sys.dm_pdw_nodes_tran_locks | [sys.dm_tran_locks (Transact-SQL)](http://msdn.microsoft.com/library/ms190345.aspx) |
+| sys.dm_pdw_nodes_tran_session_transactions | [sys.dm_tran_session_transactions (Transact-SQL)](http://msdn.microsoft.com/library/ms188739.aspx) |
+| sys.dm_pdw_nodes_tran_top_version_generators | [sys.dm_tran_top_version_generators (Transact-SQL)](http://msdn.microsoft.com/library/ms188778.aspx) |
 
 ## SQL Data Warehouse で使用可能な SQL Server 2016 PolyBase DMV
 
-- [sys.dm_exec_compute_node_errors (TRANSACT-SQL)](http://msdn.microsoft.com/library/mt146380.aspx)
-- [sys.dm_exec_compute_node_status (TRANSACT-SQL)](http://msdn.microsoft.com/library/mt146382.aspx)
+- [sys.dm_exec_compute_node_errors (Transact-SQL)](http://msdn.microsoft.com/library/mt146380.aspx)
+- [sys.dm_exec_compute_node_status (Transact-SQL)](http://msdn.microsoft.com/library/mt146382.aspx)
 - sys.dm_exec_compute_nodes (Transact-SQL)
 - sys.dm_exec_distributed_request_steps (Transact-SQL)
-- [sys.dm_exec_distributed_requests (TRANSACT-SQL)](http://msdn.microsoft.com/library/mt146385.aspx)
-- [sys.dm_exec_distributed_sql_requests (TRANSACT-SQL)](http://msdn.microsoft.com/library/mt146390.aspx)
+- [sys.dm_exec_distributed_requests (Transact-SQL)](http://msdn.microsoft.com/library/mt146385.aspx)
+- [sys.dm_exec_distributed_sql_requests (Transact-SQL)](http://msdn.microsoft.com/library/mt146390.aspx) 
 - sys.dm_exec_dms_services (Transact-SQL)
 - sys.dm_exec_dms_workers (Transact-SQL)
 - sys.dm_exec_external_operations (Transact-SQL)
@@ -237,41 +237,37 @@ SQL Data Warehouse はマイクロソフトの MPP テクノロジに基づい�
 
 これらは、SQL Server PDW で使用できる SQL Server 情報スキーマ ビューへのリンクです。 SQL Server で予期されるすべての INFORMATION_SCHEMA ビューを SQL Server PDW で使用できます。
 
-- [CHECK_CONSTRAINTS (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms189772.aspx)
-- [COLUMN_DOMAIN_USAGE (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms189447.aspx)
-- [COLUMN_PRIVILEGES (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms186812.aspx)
-- [列 (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms188348.aspx)
-- [制約列の使用法 (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms174431.aspx)
-- [CONSTRAINT_TABLE_USAGE (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms179883.aspx)
-- [ドメイン (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms190371.aspx)
-- [KEY_COLUMN_USAGE (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms189789.aspx)
-- [パラメーター (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms173796.aspx)
-- [参照に関する制約 (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms179987.aspx)
-- [日常的な列 (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms187350.aspx)
-- [ルーチン (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms188757.aspx)
-- [概要 (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms182642.aspx)
-- [テーブルの制約 (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms181757.aspx)
-- [テーブルの特権 (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms186233.aspx)
-- [テーブル (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms186224.aspx)
-- [ビュー列の使用法 (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms190492.aspx)
-- [ビュー テーブルの使用 (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms173869.aspx)
-- [ビュー (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms181381.aspx)
+- [CHECK_CONSTRAINTS (Transact-SQL)](http://msdn.microsoft.com/library/ms189772.aspx)
+- [COLUMN_DOMAIN_USAGE (Transact-SQL)](http://msdn.microsoft.com/library/ms189447.aspx)
+- [COLUMN_PRIVILEGES (Transact-SQL)](http://msdn.microsoft.com/library/ms186812.aspx)
+- [COLUMNS (Transact-SQL)](http://msdn.microsoft.com/library/ms188348.aspx)
+- [CONSTRAINT COLUMN USAGE (Transact-SQL)](http://msdn.microsoft.com/library/ms174431.aspx)
+- [CONSTRAINT_TABLE_USAGE (Transact-SQL)](http://msdn.microsoft.com/library/ms179883.aspx)
+- [DOMAINS (Transact-SQL)](http://msdn.microsoft.com/library/ms190371.aspx)
+- [KEY_COLUMN_USAGE (Transact-SQL)](http://msdn.microsoft.com/library/ms189789.aspx)
+- [PARAMETERS (Transact-SQL)](http://msdn.microsoft.com/library/ms173796.aspx)
+- [REFERENTIAL CONSTRAINTS (Transact-SQL)](http://msdn.microsoft.com/library/ms179987.aspx)
+- [ROUTINE COLUMNS (Transact-SQL)](http://msdn.microsoft.com/library/ms187350.aspx)
+- [ROUTINES (Transact-SQL)](http://msdn.microsoft.com/library/ms188757.aspx)
+- [SCHEMATA (Transact-SQL)](http://msdn.microsoft.com/library/ms182642.aspx)
+- [TABLE CONSTRAINTS (Transact-SQL)](http://msdn.microsoft.com/library/ms181757.aspx)
+- [TABLE PRIVILEGES (Transact-SQL)](http://msdn.microsoft.com/library/ms186233.aspx)
+- [TABLES (Transact-SQL)](http://msdn.microsoft.com/library/ms186224.aspx)
+- [VIEW COLUMN USAGE (Transact-SQL)](http://msdn.microsoft.com/library/ms190492.aspx)
+- [VIEW TABLE USAGE (Transact-SQL)](http://msdn.microsoft.com/library/ms173869.aspx)
+- [VIEWS (Transact-SQL)](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## 次のステップ
+詳細な参照情報については、SQL Data Warehouse リファレンスの概要に関するページを参照してください。
 
-参照の詳細については、次を参照してください。 [SQL Data Warehouse の概要 [] を参照する][]します。
+<!--Image references-->
 
+<!--Article references-->
+[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
 
-
-
-
-
-
-
+<!--MSDN references-->
 
 
+<!--Other Web references-->
 
-
-
-[sql data warehouse reference overview]: sql-data-warehouse-overview-reference.md 
 

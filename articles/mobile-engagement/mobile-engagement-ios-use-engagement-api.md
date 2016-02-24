@@ -17,36 +17,35 @@
     ms.author="piyushjo" />
 
 
-
-# iOS でエンゲージメント API を使用する方法
+#iOS でエンゲージメント API を使用する方法
 
 このドキュメントは、「iOS でエンゲージメントを統合する方法」を補足し、エンゲージメント API を使用してアプリケーションの統計情報を報告する方法について詳しく説明します。
 
-場合は、アプリケーションのセッション、アクティビティ、クラッシュ、および技術情報について報告するエンゲージメントのみが必要、し、最も簡単な方法があるすべてのカスタムを作成することに留意してください `UIViewController` から、対応するオブジェクトを継承 `EngagementViewController` クラスです。
+エンゲージメントでアプリケーションのセッション、アクティビティ、クラッシュ、技術情報を報告するだけの場合、最も簡単な方法は、すべてのカスタムの `UIViewController` オブジェクトを、対応する `EngagementViewController` クラスから継承することです。
 
-アプリケーション固有のイベント、エラー、ジョブを報告する必要がある場合の例については、複数の操作を実行するかに実装されているものよりも、別の方法でアプリケーションのアクティビティを報告する必要がある場合、 `EngagementViewController` クラス、エンゲージメント API を使用する必要があります。
+他の操作を実行する場合、たとえば、アプリケーションの特定のイベント、エラー、ジョブを報告する場合や、`EngagementViewController` クラスに実装されているのとは別の方法でアプリケーションのアクティビティを報告する必要がある場合は、エンゲージメント API を使用する必要があります。
 
-エンゲージメント API はによって提供される、 `EngagementAgent` クラスです。 呼び出してこのクラスのインスタンスを取得することができます、 `[EngagementAgent shared]` 静的メソッド (なお、 `EngagementAgent` 返されるオブジェクトはシングルトン)。
+エンゲージメント API は `EngagementAgent` クラスによって提供されます。 このクラスのインスタンスは、`[EngagementAgent shared]` 静的メソッドを呼び出すことで取得できます (返される `EngagementAgent` オブジェクトはシングルトンです)。
 
-すべての API 呼び出しの前に、 `EngagementAgent` メソッドを呼び出してオブジェクトを初期化する必要があります `[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION します。ドメイン};SdkKey {YOUR_SDK_KEY} を =;AppId = {YOUR_APPID}"];`
+すべての API 呼び出しの前に、メソッド `[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];` を呼び出して、`EngagementAgent` オブジェクトを初期化する必要があります
 
-## エンゲージメントの概念
+##エンゲージメントの概念
 
 次の部分は、一般的なを絞り込む [モバイル エンゲージメントの概念](mobile-engagement-concepts.md) 、iOS プラットフォーム向けです。
 
-### `セッション` と `アクティビティ`
+### `Session` と `Activity`
 
-*アクティビティ* つまりは通常、アプリケーションの 1 つの画面に関連付けられて、 *アクティビティ* 画面が表示され、画面を閉じるときに停止したときに開始: を使用して、エンゲージメント SDK を統合した場合、そうでは、 `EngagementViewController` クラスです。
+ *アクティビティ* つまりは通常、アプリケーションの 1 つの画面に関連付けられて、 *アクティビティ* 画面が表示され、画面を閉じるときに停止したときに開始: を使用して、エンゲージメント SDK を統合した場合、そうでは、 `EngagementViewController` クラスです。
 
-ただし、*アクティビティ*はエンゲージメント API を使用して手動で制御することも可能です。 これにより、特定の画面をいくつかのサブ パートに分割して、この画面の使用状況の詳細情報を取得できます (たとえば、ダイアログがこの画面内で使用される頻度や時間を知ることができます)。
+ *アクティビティ* 制御することも手動でエンゲージメント API を使用しています。 これにより、特定の画面をいくつかのサブ パートに分割して、この画面の使用状況の詳細情報を取得できます (たとえば、ダイアログがこの画面内で使用される頻度や時間を知ることができます)。
 
-## アクティビティを報告する
+##アクティビティを報告する
 
 ### ユーザーが新しいアクティビティを開始する
 
             [[EngagementAgent shared] startActivity:@"MyUserActivity" extras:nil];
 
-呼び出す必要がある `startActivity()` ユーザー アクティビティが変更されるたびにします。 この関数の最初の呼び出しで、新しいユーザー セッションが開始します。
+ユーザー アクティビティが変更されるたびに `startActivity()` を呼び出す必要があります。 この関数の最初の呼び出しで、新しいユーザー セッションが開始します。
 
 ### ユーザーが現在のアクティビティを終了する
 
@@ -54,7 +53,7 @@
 
 > [AZURE.WARNING] 必要があります **しない** 、複数のセッションにアプリケーションの用途の 1 つに分割する場合は、以外を自分では、この関数を呼び出します。 この関数を呼び出すと終了、現在のセッションで、すぐにため、後続の呼び出しに `startActivity()` 新しいセッションが開始します。 この関数は、アプリケーションを閉じると、SDK によって自動的に呼び出されます。
 
-## イベントを報告する
+##イベントを報告する
 
 ### セッション イベント
 
@@ -99,7 +98,7 @@
 
     [[EngagementAgent shared] sendEvent:@"received_notification" extras:nil];
 
-## エラーの報告
+##エラーの報告
 
 ### セッション エラー
 
@@ -127,7 +126,7 @@
 
     [[EngagementAgent shared] sendError:@"something_failed" extras:nil];
 
-## ジョブを報告する
+##ジョブを報告する
 
 **例:**
 
@@ -138,9 +137,9 @@
     {
       /* Start job */
       [[EngagementAgent shared] startJob:@"sign_in" extras:nil];
-    
+
       [... sign in ...]
-    
+
       /* End job */
       [[EngagementAgent shared] endJob:@"sign_in"];
     }
@@ -159,26 +158,26 @@
     {
       /* Start job */
       [[EngagementAgent shared] startJob:@"sign_in" extras:nil];
-    
+
       BOOL success = NO;
       while (!success) {
         /* Try to sign in */
         NSError* error = nil;
         [self trySigin:&error];
         success = error == nil;
-    
+
         /* If an error occured report it */
         if(!success)
         {
           [[EngagementAgent shared] sendJobError:@"sign_in_error"
                          jobName:@"sign_in"
                           extras:[NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error"]];
-    
+
           /* Retry after a moment */
           [NSThread sleepForTimeInterval:20];
         }
       }
-    
+
       /* End job */
       [[EngagementAgent shared] endJob:@"sign_in"];
     };
@@ -212,16 +211,17 @@
     }
     [...]
 
-## 追加のパラメーター
+##追加のパラメーター
 
 任意のデータをイベント、エラー、アクティビティ、ジョブに添付できます。
 
 このデータは構造化することができ、iOS の NSDictionary クラスを使用します。
 
-Extras に含められることに注意してください `配列 (NSArray、NSMutableArray)`, 、`番号 (NSNumber クラス)`, 、`文字列 (NSString、NSMutableString)`, 、`urls(NSURL)`, 、`データ (NSData、NSMutableData)` またはその他の `NSDictionary` インスタンス。
-> [AZURE.NOTE] 追加のパラメーターは、JSON でシリアル化されます。 上記以外の別のオブジェクトを渡す場合は、クラス内に次のメソッドを実装する必要があります。
+これには `arrays(NSArray, NSMutableArray)`、`numbers(NSNumber class)`、`strings(NSString, NSMutableString)`、`urls(NSURL)`、`data(NSData, NSMutableData)`、`NSDictionary`、またはその他の インスタンスが含まれます。
+
+> [AZURE.NOTE] 追加のパラメーターは JSON でシリアル化されます。 上記以外の別のオブジェクトを渡す場合は、クラス内に次のメソッドを実装する必要があります。
 >
-             -(NSString*) JSONRepresentation です。
+             -(NSString*)JSONRepresentation;
 >
 > このメソッドは、JSON 表記のオブジェクトを返す必要があります。
 
@@ -234,9 +234,9 @@ Extras に含められることに注意してください `配列 (NSArray、NS
 
 ### 制限
 
-#### キー
+#### 構成する
 
-内の各キー、 `NSDictionary` 次の正規表現に一致する必要があります。
+`NSDictionary` の各キーは、次の正規表現と一致する必要があります。
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
@@ -244,19 +244,19 @@ Extras に含められることに注意してください `配列 (NSArray、NS
 
 #### サイズ
 
-追加は、1 回の呼び出しにつき **1024** 文字に制限されます (エンゲージメント エージェントによって JSON でエンコードされた場合)。
+Extras は **1024年** (エンゲージメント エージェントによってエンコードされた JSON で 1 回) 呼び出しにつき文字です。
 
 前の例では、サーバーに送信される JSON は 58 文字です。
 
     {"ref_click":"http:\/\/foobar.com\/blog","video_id":"123"}
 
-## アプリケーションの情報を報告する
+##アプリケーションの情報を報告する
 
-追跡情報 (またはその他のアプリケーション固有情報) を使用して手動で報告できます、 `sendAppInfo:` 関数です。
+`sendAppInfo:` 関数を使用して、追跡情報 (または他のアプリケーション固有の情報) を手動で報告できます。
 
 これらの情報は段階的に送信される可能性があることにご注意ください。特定のキーの最新の値のみが特定のデバイスに保持されます。
 
-イベントの追加と同様に、 `NSDictionary` クラスは、配列またはサブディクショナリが、(JSON のシリアル化を使用して) 単純な文字列として処理することはアプリケーションの情報の要約に使用します。
+イベントの追加と同様に、`NSDictionary` クラスはアプリケーション情報の要約に使用されます。配列またはサブディクショナリが (JSON のシリアル化を使用して) 単純な文字列として処理されます。
 
 **例:**
 
@@ -267,9 +267,9 @@ Extras に含められることに注意してください `配列 (NSArray、NS
 
 ### 制限
 
-#### キー
+#### 構成する
 
-内の各キー、 `NSDictionary` 次の正規表現に一致する必要があります。
+`NSDictionary` の各キーは、次の正規表現と一致する必要があります。
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
@@ -277,11 +277,9 @@ Extras に含められることに注意してください `配列 (NSArray、NS
 
 #### サイズ
 
-アプリケーション情報は、1 回の呼び出しにつき **1024** 文字に制限されます (エンゲージメント エージェントによって JSON でエンコードされた場合)。
+アプリケーションの情報に限定 **1024年** (エンゲージメント エージェントによってエンコードされた JSON で 1 回) 呼び出しにつき文字です。
 
 前の例では、サーバーに送信される JSON は 44 文字です。
 
     {"birthdate":"1983-12-07","gender":"female"}
-
-
 

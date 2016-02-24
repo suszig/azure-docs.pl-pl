@@ -1,6 +1,6 @@
 <properties
-    pageTitle="チュートリアル: Promapp と Azure Active Directory の統合 |Microsoft Azure"
-    description="Azure Active Directory と Promapp の間でのシングル サインオンを構成する方法について説明します。"
+    pageTitle="チュートリアル: Azure Active Directory と Promapp の統合 | Microsoft Azure"
+    description="Azure Active Directory と Promapp の間でシングル サインオンを構成する方法について説明します。"
     services="active-directory"
     documentationCenter=""
     authors="markusvi"
@@ -17,204 +17,206 @@
     ms.author="markusvi"/>
 
 
+# チュートリアル: Azure Active Directory と Promapp の統合
 
-# チュートリアル: Promapp と Azure Active Directory の統合
+このチュートリアルでは、Azure Active Directory (Azure AD) と Promapp を統合する方法を説明します。<br>Promapp を Azure AD と統合するには、次のメリットがあります。 
 
-このチュートリアルでは、Azure Active Directory (Azure AD) と Promapp を統合する方法を説明します。<br>Azure AD と統合する Promapp を使うと、次の利点があります。
-
-- Azure AD ユーザー Promapp へのアクセスを制御できます。
-- 自動的に署名 - Promapp (シングル サインオン) には Azure AD アカウントでユーザーを有効にすることができます。
+- Promapp にアクセスする Azure AD ユーザーを制御できます。 
+- ユーザーが自分の Azure AD アカウントで自動的に Promapp にサインオン (シングル サインオン) できるようにします。
 - 1 つの中央サイト (Azure Active Directory ポータル) でアカウントを管理できます。
 
 Azure AD と SaaS アプリの統合に関する詳細を確認するを参照して [アプリケーションへのアクセスと Azure Active Directory でのシングル サインオン](active-directory-appssoaccess-whatis.md)します。
 
-## 前提条件
+## 前提条件 
 
-Promapp を使用して Azure AD の統合を構成するには、次の項目が必要です。
+Promapp と Azure AD の統合を構成するには、次のものが必要です。
 
 - Azure AD サブスクリプション
-- 有効なサブスクリプションで、Promapp シングル サインオン
+- Promapp でのシングル サインオンが有効なサブスクリプション
 
 
-> [AZURE.NOTE] このチュートリアルの手順をテストする場合、運用環境を使用しないことをお勧めします。
+> [AZURE.NOTE] このチュートリアルでは、手順をテストするには、実稼働環境の使用をおしないでいます。
 
 
 このチュートリアルの手順をテストするには、次の推奨事項に従ってください。
 
 - 必要な場合を除き、運用環境は使用しないでください。
-- Azure AD の評価環境を取得していない場合は、1 か月の試用版を入手できます [ここ](https://azure.microsoft.com/pricing/free-trial/)します。
+- Azure AD の評価環境を取得していない場合は、1 か月の試用版を入手できます [ここ](https://azure.microsoft.com/pricing/free-trial/)します。 
 
-
+ 
 ## シナリオの説明
-
-このチュートリアルでは、使用すると、テスト環境で Azure AD シングル サインオンをテストします。 <br>
+このチュートリアルの目的は、テスト環境で Azure AD のシングル サインオンをテストできるようにすることです。 <br>
 このチュートリアルで紹介するシナリオは、次の 3 つの主な構成要素で構成されます。
 
-1. ギャラリーから Promapp を追加する
+1. ギャラリーから Promapp を追加する 
 2. Azure AD シングル サインオンの構成とテスト
 
 
 ## ギャラリーから Promapp を追加する
-
-Promapp の Azure AD への統合を構成するのには、Promapp をギャラリーから管理対象 SaaS アプリの一覧に追加する必要があります。
+Azure AD への Promapp の統合を構成するには、ギャラリーから管理対象 SaaS アプリの一覧に Promapp を追加する必要があります。
 
 **ギャラリーから Promapp を追加するには、次の手順を実行します。**
 
-1. **Azure 管理ポータル**, 、左側のナビゲーション ウィンドウで、次のようにクリックします。 **Active Directory**します。 <br><br>
+1.  **Azure 管理ポータル**, 、左側のナビゲーション ウィンドウで、次のようにクリックします。 **Active Directory**します。 <br><br>
 ![Active Directory][1]<br>
 
-2. **[ディレクトリ]** の一覧から、ディレクトリ統合を有効にするディレクトリを選択します。
+2.  **ディレクトリ** 一覧で、ディレクトリ統合を有効にディレクトリを選択します。
 
 3. ディレクトリ ビューで、[アプリケーション] ビューを開くにはクリックして **アプリケーション** 上部のメニュー。<br><br>
 ![アプリケーション][2]<br>
 4. クリックして **追加** ページの下部にあります。<br><br>
 ![アプリケーション][3]<br>
-5. **実行する操作** ダイアログ ボックスで、をクリックして **ギャラリーからアプリケーションを追加**します。<br><br>
+5.  **実行する操作** ダイアログ ボックスで、をクリックして **ギャラリーからアプリケーションを追加**します。<br><br>
 ![アプリケーション][4]<br>
 6. 検索ボックスに入力 **Promapp**します。<br><br>
 ![アプリケーション][5]<br>
 7. 結果ウィンドウで [ **Promapp**, 、クリックして **完了** アプリケーションを追加します。
 <br><br>![アプリケーション][500]<br>
 
-## Azure AD シングル サインオンの構成とテスト
+##  Azure AD シングル サインオンの構成とテスト
+このセクションの目的は、"Britta Simon" というテスト ユーザーに基づいて、Promapp で Azure AD のシングル サインオンを構成し、テストする方法について説明することです。
 
-このセクションでは、構成し、"Britta Simon"というテスト ユーザーに基づいて Promapp と Azure AD シングル サインオンをテストする方法を説明します。
-
-シングル サインオンの動作する、Azure AD はユーザーが Azure AD でユーザー Promapp に対応するを把握する必要があります。つまり、Azure AD のユーザーと Promapp に関連するユーザーの間のリンクの関係を確立する必要があります。<br>
+シングル サインオンを機能させるには、Azure AD ユーザーに対応する Promapp ユーザーが Azure AD で認識されている必要があります。 つまり、Azure AD のユーザーと Promapp に関連するユーザーの間のリンクの関係を確立する必要があります。<br>
 値を割り当てることでこのリンクの関係が確立される、 **ユーザー名** の値として Azure AD で、 **Username** Promapp にします。
+ 
+Promapp で Azure AD のシングル サインオンを構成してテストするには、次の構成要素を完了する必要があります。
 
-を構成して、Azure AD シングル サインオン Promapp でテストするには、次の要素を完了する必要があります。
-
-1. * *[構成する Azure AD シングル サインオン](#configuring-azure-ad-single-single-sign-on)* * - この機能を使用するユーザーをできるようにします。
-2. * *[Azure AD テスト ユーザーを作成する](#creating-an-azure-ad-test-user)* * - を Azure AD シングル サインオン Britta Simon でテストします。
-4. * *[Promapp テスト ユーザーを作成する](#creating-a-halogen-software-test-user)* * - 自分の Azure AD の表現にリンクされている Promapp に Britta Simon に対応します。
-5. * *[Azure AD テスト ユーザーの割り当て](#assigning-the-azure-ad-test-user)* * - Azure AD シングル サインオンを使用する Britta Simon をできるようにします。
-5. * *[シングル サインオンをテスト](#testing-single-sign-on)* * - 構成が機能するかどうかを確認します。
+1. **[Azure AD シングル サインオンを構成する](#configuring-azure-ad-single-single-sign-on)** - この機能を使用するユーザーをできるようにします。
+2. **[Azure AD テスト ユーザーを作成する](#creating-an-azure-ad-test-user)** - を Azure AD シングル サインオン Britta Simon でテストします。
+4. **[Promapp テスト ユーザーを作成する](#creating-a-halogen-software-test-user)** - 自分の Azure AD の表現にリンクされている Promapp に Britta Simon に対応します。
+5. **[Azure AD テスト ユーザーの割り当て](#assigning-the-azure-ad-test-user)** - Azure AD シングル サインオンを使用する Britta Simon をできるようにします。
+5. **[シングル サインオン テスト](#testing-single-sign-on)** - 構成が機能するかどうかを確認します。
 
 ### Azure AD シングル サインオンの構成
 
 このセクションの目的は、Azure AD シングル サインオン Azure AD ポータルで有効にして、Promapp アプリケーションでシングル サインオンを構成するには。<br>
 
-**Promapp と Azure AD シングル サインオンを構成するには、次の手順を実行します。**
+**Promapp で Azure AD シングル サインオンを構成するには、次の手順を実行します。**
 
 1. Azure AD ポータルでの **Promapp** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、 **シングル サインオンを構成する**  ダイアログ。
 <br><br> ![でのシングル サインオンを構成する][6] <br>
 
-2. **どのような Promapp にサインオン** ] ページで、[ **Azure AD シングル サインオン**, 、順にクリック **次**します。
+2.  **どのような Promapp にサインオン** ] ページで、[ **Azure AD シングル サインオン**, 、順にクリック **次**します。
 <br><br> ![Azure AD シングル サインオン][7] <br>
 
-3. **[アプリケーション設定の構成]** ダイアログ ページで、次の手順に従います。
+3.  **アプリケーション設定の構成** ] ダイアログ ページで、次の手順を実行します。
 <br><br>![Azure AD シングル サインオン][8] <br>
-
+ 
      a.  **サインオン URL** Promapp サイトへのサインオンに、ユーザーが URL を使用] ボックスに、種類 (例:: *https://companyname.promapp.com/instancename*)。
 
-     b. **[次へ]** をクリックします。
 
-4. **Promapp でのシングル サインオンの構成** ] ページで、次の手順を実行します。
+     b. Click **Next**.
+ 
+4.  **Promapp でのシングル サインオンの構成** ] ページで、次の手順を実行します。
 <br><br>![Azure AD シングル サインオン][9] <br>
 
     a. [証明書のダウンロード] をクリックし、コンピューターにファイルを保存します。
 
-    b. **[次へ]** をクリックします。
+    b. クリックして **次**します。
 
-6. サインオン Promapp 会社サイトに管理者として。
 
-6. 上部のメニューで **[Admin]** をクリックします。 
+6. Promapp 企業サイトに管理者としてサインオンします。 
+
+6. 上部にあるメニュー [ **Admin**します。 
 <br><br>![Azure AD シングル サインオン][12]<br>
 
-6. **[構成]** をクリックします。 
+6. クリックして **構成**します。 
 <br><br>![Azure AD シングル サインオン][13]<br>
 
-4. **セキュリティ** ] ダイアログ ボックスで、次の手順を実行します。
+
+
+4.  **セキュリティ** ] ダイアログ ボックスで、次の手順を実行します。
 <br><br>![Azure AD シングル サインオン][14] <br>
 
     a. Azure ポータルで、 **Promapp でのシングル サインオンの構成** ダイアログ ボックスで、コピー、 **リモート ログイン URL**, に貼り付けること、 **SSO ログイン URL** ] ボックスに、順にクリック **保存**します。
 
-    b. **[SSO - Single Sign-on Mode]** として **[Optional]** を選択し、**[Save]** をクリックします。
+    b. として **SSO のシングル サインオン モード**, [ **省略可能**, 、] をクリックし、 **保存**します。
 
-    c. ダウンロードした証明書をメモ帳で開き、最初の行 (*-----BEGIN CERTIFICATE-----*) と最後の行 (*-----END CERTIFICATE-----*) を除く証明書の内容をコピーし、**[SSO-x.509 Certificate]** に貼り付け、**[Save]** をクリックします。
+    c. ダウンロードした証明書をメモ帳で、コピーの最初の行がない証明書の内容を開いている (*------BEGIN---*) と最後の行 (*---証明書の終了---*)、全体をコピーして、 **SSO x.509 証明書** ] ボックスに、順にクリック **保存**します。
 
-6. Azure AD ポータルで、シングル サインオンの構成確認を選択し、**[次へ]** をクリックします。 
+
+
+
+6. Azure AD ポータルでのシングル サインオンの構成情報を選択し、 **次**します。 
 <br><br>![Azure AD シングル サインオン][10]<br>
 
-7. **[シングル サインオンの確認]** ページで **[完了]** をクリックします。
+7.  **シングル サインオンによる確認** ] ページで [ **完了**します。  
 
-  <br><br>![Azure AD シングル サインオン][11]
+  <br><br>![Azure AD Single Sign-On][11]
 
 
 
 
 ### Azure AD のテスト ユーザーの作成
-
-このセクションでは、Britta Simon と呼ばれる Azure ポータルでテスト ユーザーを作成します。<br>
-ユーザーの一覧で選択 **Britta Simon**.<br><br>![Azure AD ユーザーを作成][20]<br>
+このセクションの目的は、Azure ポータルで Britta Simon というテスト ユーザーを作成することです。<br>
+ユーザーの一覧で選択 **Britta Simon**.<br><br>![Azure AD ユーザーを作成します。][20]<br>
 
 **Azure AD でテスト ユーザーを作成するには、次の手順に従います。**
 
-1. **Microsoft Azure 管理ポータル**の左側のナビゲーション ウィンドウで、**[Active Directory]** をクリックします。
-<br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-promapp-tutorial/create_aaduser_09.png) <br>
+1.  **Azure 管理ポータル**, 、左側のナビゲーション ウィンドウで、次のようにクリックします。 **Active Directory**します。
+<br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-promapp-tutorial/create_aaduser_09.png) <br> 
 
-2. **[ディレクトリ]** の一覧から、ディレクトリ統合を有効にするディレクトリを選択します。
+2.  **ディレクトリ** 一覧で、ディレクトリ統合を有効にディレクトリを選択します。
 
 3. 上部のメニューで、ユーザーの一覧を表示する] をクリックして **ユーザー**します。
 <br><br> ![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-promapp-tutorial/create_aaduser_03.png) <br>
-
+ 
 4. 開くには、 **ユーザーの追加** ] ダイアログ ボックスで、下部にあるツールバーをクリックして **ユーザーの追加**します。 
 <br><br> ![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-promapp-tutorial/create_aaduser_04.png) <br>
 
-5. **このユーザーについてお聞かせ** ] ダイアログ ページで、次の手順を実行します。 
-<br><br> ![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-promapp-tutorial/create_aaduser_05.png) <br>
+5.  **このユーザーについてお聞かせ** ] ダイアログ ページで、次の手順を実行します。 
+<br><br> ![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-promapp-tutorial/create_aaduser_05.png) <br> 
 
     a. [ユーザーの種類] として [組織内の新しいユーザー] を選択します。
 
-    b. **[ユーザー名]** ボックスに「**BrittaSimon**」と入力します。
+    b. [ユーザー名 **textbox**, 、型 **BrittaSimon**します。
 
-    c. **[次へ]** をクリックします。
+    c. クリックして **次**します。
 
-6.  **ユーザー プロファイル** ] ダイアログ ページで、次の手順を実行します。 
+6.   **ユーザー プロファイル** ] ダイアログ ページで、次の手順を実行します。 
 <br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-promapp-tutorial/create_aaduser_06.png) <br>
+ 
+    a.  **名** ] ボックスに「 **Britta**します。  
 
-    a. **[名]** ボックスに「**Britta**」と入力します。
+    b.  **姓** ] ボックスに、型、 **Simon**します。
 
-    b. **[姓]** ボックスに「**Simon**」と入力します。
+    c.  **表示名** ] ボックスに「 **Britta Simon**します。
 
-    c. **[表示名]** ボックスに「**Britta Simon**」と入力します。
+    d.  **ロール** 一覧で、[ **ユーザー**します。
+    e. クリックして **次**します。
 
-    d. **[ロール]** 一覧で **[ユーザー]** を選択します。
-    e. **[次へ]** をクリックします。
-
-7. **一時パスワードの取得** ダイアログ ページで、をクリックして **作成**します。
+7.  **一時パスワードの取得** ダイアログ ページで、をクリックして **作成**します。
 <br><br> ![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-promapp-tutorial/create_aaduser_07.png) <br>
-
-8. **一時パスワードの取得** ] ダイアログ ページで、次の手順を実行します。
+ 
+8.  **一時パスワードの取得** ] ダイアログ ページで、次の手順を実行します。
 <br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-promapp-tutorial/create_aaduser_08.png) <br>
+  
+    a. 値を書き留めて、 **新しいパスワード**します。
 
-    a. **[新しいパスワード]** の値を書き留めます。
+    b. クリックして **完了**します。   
 
-    b. **[完了]** をクリックします。
-
-
-
+  
+ 
 ### Promapp のテスト ユーザーの作成
 
-Promapp アプリケーション サポート ジャストイン タイム プロビジョニングします。
-そのため、アクセス パネルを使用してアプリケーションにアクセスを試みると、必要に応じてユーザー アカウントが自動的に作成されます。
+Promapp アプリケーションでは、ジャストインタイム プロビジョニングがサポートされています。
+そのため、アクセス パネルを使用してアプリケーションにアクセスを試みると、必要に応じてユーザー アカウントが自動的に作成されます。  
 
 
 ### Azure AD テスト ユーザーの割り当て
 
 このセクションでは、Britta Simon Promapp に自分のアクセスを与えることで Azure シングル サインオンの使用を有効にするとします。
-<br><br>![ユーザーを割り当てる][200] <br>
+<br><br>![ユーザーの割り当て][200] <br>
 
-**を Promapp に Britta Simon を割り当てるには、次の手順を実行します。**
+**Promapp に Britta Simon を割り当てるには、次の手順を実行します。**
 
 1. Azure ポータルで、ディレクトリ ビューでアプリケーション ビューを開く] をクリックして **アプリケーション** 上部のメニュー。
 <br><br>![ユーザーを割り当てる][201] <br>
 2. アプリケーションの一覧で選択 **Promapp**します。
 <br><br>![ユーザーを割り当てる][202] <br>
-1. 上部のメニューで **[ユーザー]** をクリックします。
+1. 上部にあるメニュー [ **ユーザー**します。
 <br><br>![ユーザーを割り当てる][203] <br>
-1. ユーザーの一覧で **[Britta Simon]** を選択します。
+1. ユーザーの一覧で選択 **Britta Simon**します。
 
 2. 下部にあるツールバー [ **割り当てる**します。
 <br><br>![ユーザーを割り当てる][205]
@@ -224,41 +226,46 @@ Promapp アプリケーション サポート ジャストイン タイム プ�
 ### シングル サインオンのテスト
 
 このセクションでは、構成のテスト Azure AD シングル サインオン アクセス パネルを使用します。<br>
-アクセス パネルに Promapp タイルをクリックするとする必要があります取得自動的にサインオン Promapp アプリケーションにします。
+アクセス パネルで [Promapp] タイルをクリックすると、自動的に Promapp アプリケーションにサインオンします。
 
 
 ## その他のリソース
 
-* [Azure Active Directory による SaaS アプリを統合する方法に関するチュートリアルの一覧](active-directory-saas-tutorial-list.md)
-* [アプリケーション アクセスと Azure Active Directory でのシングル サインオンとは](active-directory-appssoaccess-whatis.md)
+* [SaaS アプリと Azure Active Directory を統合する方法に関するチュートリアルの一覧](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory のアプリケーション アクセスとシングル サインオンとは](active-directory-appssoaccess-whatis.md)
 
 
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_04.png
+[5]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_01.png
+
+[500]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_500.png
+
+[6]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_05.png
+[7]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_02.png
+[8]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_03.png
+[9]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_04.png
+[10]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_06.png
+[11]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_07.png
+[12]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_05.png
+[13]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_06.png
+[14]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_07.png
+
+[20]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_10.png
+[203]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_203.png
+[204]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_204.png
+[205]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_205.png
 
 
-
-[1]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_01.png 
-[2]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_02.png 
-[3]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_03.png 
-[4]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_04.png 
-[5]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_01.png 
-[500]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_500.png 
-[6]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_05.png 
-[7]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_02.png 
-[8]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_03.png 
-[9]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_04.png 
-[10]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_06.png 
-[11]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_07.png 
-[12]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_05.png 
-[13]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_06.png 
-[14]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_07.png 
-[20]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_100.png 
-[200]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_200.png 
-[201]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_201.png 
-[202]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_10.png 
-[203]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_203.png 
-[204]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_204.png 
-[205]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_205.png 
-[400]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_400.png 
-[401]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_401.png 
-[402]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_402.png 
+[400]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_400.png
+[401]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_401.png
+[402]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_402.png
 

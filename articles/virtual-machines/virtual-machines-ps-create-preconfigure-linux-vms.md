@@ -17,21 +17,19 @@
     ms.date="11/11/2015"
     ms.author="cynthn"/>
 
-
 # Azure PowerShell を使用して Linux 仮想マシンを作成および事前構成する
 
 > [AZURE.SELECTOR]
 - [Azure CLI](virtual-machines-linux-tutorial.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
-
 <br>
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーのモデルです。
+ 
+Azure PowerShell コマンド セットを作成するために、空欄を埋める方式を使用して Linux 仮想マシンを作成する方法を説明します。 この方法は、Azure PowerShell を初めて使う場合や、構成を正しく行うためにどの値を指定するとよいかを知りたい場合に役立ちます。 
 
-Azure PowerShell コマンド セットを作成するために、空欄を埋める方式を使用して Linux 仮想マシンを作成する方法を説明します。 この方法は、Azure PowerShell を初めて使う場合や、構成を正しく行うためにどの値を指定するとよいかを知りたい場合に役立ちます。
-
-コマンド セットをテキスト ファイル、または、PowerShell ISE の変数の値を入力し、削除へのコマンド ブロックのセットをコピーするビルド、< と > 文字です。2 つを参照してください [例](#examples) 、最終結果のアイデアは、この記事の最後にします。
+コマンド セットをテキスト ファイル、または、PowerShell ISE の変数の値を入力し、削除へのコマンド ブロックのセットをコピーするビルド、< と > 文字です。 2 つを参照してください [例](#examples) 、最終結果のアイデアは、この記事の最後にします。
 
 Windows ベースの仮想マシンの関連トピックを参照してください。 [Windows ベースの仮想マシンを作成する Azure PowerShell を使用して](virtual-machines-ps-create-preconfigure-windows-vms.md)します。
 
@@ -41,11 +39,11 @@ Windows ベースの仮想マシンの関連トピックを参照してくださ
 
 ## サブスクリプションとストレージ アカウントの設定
 
-Azure PowerShell コマンド プロンプトで次のコマンドを実行して Azure サブスクリプションとストレージ アカウントを設定します。
+Azure PowerShell コマンド プロンプトで次のコマンドを実行して Azure サブスクリプションとストレージ アカウントを設定します。 
 
-**Get-AzureSubscription** コマンドで出力される **SubscriptionName** プロパティで正しいサブスクリプション名を取得できます。
+正しいサブスクリプション名を取得することができます、 **SubscriptionName** の出力のプロパティ、 **Get-azuresubscription** コマンドです。 
 
-Select-AzureSubscription コマンドの実行後、**Get-AzureStorageAccount** コマンドを実行すると、出力される **Label** プロパティで正しいストレージ アカウント名を取得できます。
+適切なストレージ アカウント名を取得することができます、 **ラベル** の出力のプロパティ、 **Get-azurestorageaccount** Select-azuresubscription コマンドを発行した後のコマンドです。 
 
 置換を含む引用符内のすべて、<、>、正しい名前の文字。
 
@@ -54,7 +52,8 @@ Select-AzureSubscription コマンドの実行後、**Get-AzureStorageAccount** 
     Select-AzureSubscription -SubscriptionName $subscr –Current
     Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-## 使用するイメージを検索します。
+
+## 使用するイメージを検索する
 
 次に、使用するイメージの ImageFamily 値を特定する必要があります。 次のコマンドで、利用可能な ImageFamily 値の一覧を取得できます。
 
@@ -81,7 +80,7 @@ Linux ベースのコンピューターで使用する ImageFamily 値の例は�
     $vmsize="<Specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
     $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-**オプション 2**: 名前、サイズ、可用性セット名を指定します。
+**オプション 2**: 名前、サイズ、および可用性セット名を指定します。
 
     $vmname="<machine name>"
     $vmsize="<Specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
@@ -93,18 +92,18 @@ D、DS、または G シリーズの仮想マシンの InstanceSize 値は、次
 
 ## ユーザー アクセス セキュリティ オプションの設定
 
-**オプション 1**: 最初の Linux ユーザー名とパスワードを指定します (必須)。 強力なパスワードを選択してください。 強度を確認するを参照してください。 [パスワード チェッカー: 強力なパスワードを使用して](https://www.microsoft.com/security/pc-security/password-checker.aspx)します。
+**オプション 1**: 最初の Linux ユーザー名とパスワード (必須) を指定します。 強力なパスワードを選択してください。 強度を確認するを参照してください。 [パスワード チェッカー: 強力なパスワードを使用して](https://www.microsoft.com/security/pc-security/password-checker.aspx)します。
 
     $cred=Get-Credential -Message "Type the name and password of the initial Linux account."
     $vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
-**オプション 2**: サブスクリプションにデプロイ済みの SSH キー ペアのセットを指定します。
+**オプション 2**: サブスクリプションに既に配置されている SSH キー ペアのセットを指定します。
 
     $vm1 | Add-AzureProvisioningConfig -Linux -SSHKeyPairs "<SSH key pairs>"
 
 詳細については、次を参照してください。 [Azure 上の Linux で SSH を使用する方法](virtual-machines-linux-use-ssh-key.md)します。
 
-**オプション 3**: サブスクリプションにデプロイ済みの SSH 公開キーの一覧を指定します。
+**オプション 3**: サブスクリプションに既に配置されている SSH 公開キーの一覧を指定します。
 
     $vm1 | Add-AzureProvisioningConfig -Linux - SSHPublicKeys "<SSH public keys>"
 
@@ -121,14 +120,15 @@ D、DS、または G シリーズの仮想マシンの InstanceSize 値は、次
 
     Test-AzureStaticVNetIP –VNetName <VNet name> –IPAddress <IP address>
 
-## 省略可能: 特定のサブネットに仮想マシンを割り当てる
+## 省略可能: 特定のサブネットに仮想マシンを割り当てる 
 
 次のように、Azure 仮想ネットワークの特定のサブネットに仮想マシンを割り当てます。
 
     $vm1 | Set-AzureSubnet -SubnetNames "<name of the subnet>"
 
+    
 ## 省略可能: データ ディスクを追加する
-
+    
 以下をコマンド セットに追加し、データ ディスクを仮想マシンに追加します。
 
     $disksize=<size of the disk in GB>
@@ -137,7 +137,7 @@ D、DS、または G シリーズの仮想マシンの InstanceSize 値は、次
     $hcaching="<Specify one: ReadOnly, ReadWrite, None>"
     $vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $disksize -DiskLabel $disklabel -LUN $lun -HostCaching $hcaching
 
-## 省略可能: 既存の負荷分散セットに仮想マシンを追加する
+## 省略可能: 既存の負荷分散セットに仮想マシンを追加する 
 
 以下をコマンド セットに追加して、外部トラフィックを処理するために、既存の負荷分散セットに仮想マシンを次のように追加します。
 
@@ -151,17 +151,17 @@ D、DS、または G シリーズの仮想マシンの InstanceSize 値は、次
     $probepath="<URL path for probe traffic>"
     $vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
-## 仮想マシンの作成プロセスを開始する方法を決める
+## 仮想マシンの作成プロセスを開始する方法を決める 
 
 ブロックをコマンド セットに追加して、次のコマンド ブロックのいずれかを選択して、仮想マシン作成プロセスを開始します。
 
-**オプション 1**: 既存のクラウド サービスに仮想マシンを作成します。
+**オプション 1**: 既存のクラウド サービスにバーチャル マシンを作成します。
 
     New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
 クラウド サービスの短い名前が、Azure クラシック ポータルの [クラウド サービス] ボックスの一覧か、Azure ポータルの [リソース グループ] ボックスの一覧に表示されます。
 
-**オプション 2**: 仮想マシンを既存のクラウド サービスと仮想ネットワークに作成します。
+**オプション 2**: 既存のクラウド サービスと仮想ネットワークの仮想マシンを作成します。
 
     $svcname="<short name of the cloud service>"
     $vnetname="<name of the virtual network>"
@@ -169,16 +169,16 @@ D、DS、または G シリーズの仮想マシンの InstanceSize 値は、次
 
 ## コマンド セットの実行
 
-テキスト エディターに構築した Azure PowerShell コマンド セットまたは PowerShell ISE をレビューして、すべての変数を指定していることと、それらの値が正しいことを確認します。また、すべてを削除したことを確認してください、< と > 文字です。
+テキスト エディターに構築した Azure PowerShell コマンド セットまたは PowerShell ISE をレビューして、すべての変数を指定していることと、それらの値が正しいことを確認します。 また、すべてを削除したことを確認してください、< と > 文字です。
 
-クリップボードにコマンド セットをコピーしてから、開いている Azure PowerShell コマンド プロンプトを右クリックします。 この操作により、コマンド セットが一連の PowerShell コマンドとして実行され、Azure 仮想マシンが作成されます。
+クリップボードにコマンド セットをコピーしてから、開いている Azure PowerShell コマンド プロンプトを右クリックします。 この操作により、コマンド セットが一連の PowerShell コマンドとして実行され、Azure 仮想マシンが作成されます。 
 
 仮想マシンが作成されると表示 [Linux を実行する仮想マシンにログオンする方法](virtual-machines-linux-how-to-log-on.md)します。
 
 コマンド セットを再利用する場合は、以下の操作を実行できます。
 
 - このコマンド セットを PowerShell スクリプト ファイル (*.ps1) として保存する。
-- Azure クラシック ポータルの **[オートメーション]** セクションで、このコマンド セットを Azure Automation Runbook として保存する
+- このコマンド セットを Azure automation runbook として保存、 **オートメーション** Azure クラシック ポータルのセクション
 
 ## <a id="examples"></a>例
 
@@ -199,24 +199,24 @@ D、DS、または G シリーズの仮想マシンの InstanceSize 値は、次
 
     $family="Ubuntu Server 12.10"
     $image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-    
+
     $vmname="AZMYSQL1"
     $vmsize="Large"
     $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
-    
+
     $cred=Get-Credential -Message "Type the name and password of the initial Linux account."
     $vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
-    
+
     $vm1 | Set-AzureSubnet -SubnetNames "BackEnd"
-    
+
     $vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.244.4
-    
+
     $disksize=500
     $disklabel="MySQLData"
     $lun=0
     $hcaching="None"
     $vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $disksize -DiskLabel $disklabel -LUN $lun -HostCaching $hcaching
-    
+
     $svcname="Azure-TailspinToys"
     $vnetname="AZDatacenter"
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
@@ -236,22 +236,22 @@ D、DS、または G シリーズの仮想マシンの InstanceSize 値は、次
 
     $family="SUSE Linux Enterprise Server 12"
     $image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-    
+
     $vmname="LOB1"
     $vmsize="Medium"
     $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
-    
+
     $cred=Get-Credential -Message "Type the name and password of the initial Linux account."
     $vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
-    
+
     $vm1 | Set-AzureSubnet -SubnetNames "FrontEnd"
-    
+
     $disksize=50
     $disklabel="LOBApp"
     $lun=0
     $hcaching="ReadWrite"
     $vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $disksize -DiskLabel $disklabel -LUN $lun -HostCaching $hcaching
-    
+
     $prot="tcp"
     $localport=80
     $pubport=80
@@ -261,26 +261,22 @@ D、DS、または G シリーズの仮想マシンの InstanceSize 値は、次
     $probeport=80
     $probepath="/"
     $vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
-    
+
     $svcname="Azure-TailspinToys"
     $vnetname="AZDatacenter"
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
 ## その他のリソース
 
-[Virtual machines のドキュメント](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[仮想マシンに関するドキュメント](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Azure の仮想マシンに関する FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 
 [Azure の仮想マシンの概要](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[インストールして、Azure PowerShell を構成する方法](../install-configure-powershell.md)
+[Azure PowerShell のインストールおよび構成方法](../install-configure-powershell.md)
 
 [Linux を実行する仮想マシンにログオンする方法](virtual-machines-linux-how-to-log-on.md)
 
-[Azure PowerShell を使用して作成し、Windows ベースの仮想マシンを事前構成する.](virtual-machines-ps-create-preconfigure-windows-vms.md)
-
-
-
-
+[Azure PowerShell を使用して Windows ベースの仮想マシンを作成および事前構成する](virtual-machines-ps-create-preconfigure-windows-vms.md)
 

@@ -1,6 +1,6 @@
 <properties
     pageTitle="SSMS を使用した SQL データベースへの接続 | Microsoft Azure"
-    description="SQL Server Management Studio (SSMS) を使用した Azure SQL データベースへの接続方法について説明します。次に、TRANSACT-SQL (T-SQL) を使用して、サンプル クエリを実行します。"
+    description="SQL Server Management Studio (SSMS) を使用した Azure SQL データベースへの接続方法について説明します。 次に、TRANSACT-SQL (T-SQL) を使用して、サンプル クエリを実行します。"
     metaCanonical=""
     keywords="connect to sql database,sql server management studio"
     services="sql-database"
@@ -18,14 +18,12 @@
     ms.date="10/09/2015"
     ms.author="sstein" />
 
-
 # SQL Server Management Studio を使用して SQL Database に接続し、T-SQL サンプル クエリを実行する
 
 > [AZURE.SELECTOR]
 - [C#](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
-
 
 この記事では、SQL Server Management Studio (SSMS) を使用して Azure SQL データベースに接続し、TRANSACT-SQL (T-SQL) ステートメントを使用して簡単なクエリを実行する方法を示します。
 
@@ -38,9 +36,9 @@ SQL Database で作業を行う場合、最新のバージョンの SSMS を使�
 ## SSMS を起動し、SQL データベース サーバーに接続する
 
 1. Windows 検索ボックスで、「Microsoft SQL Server Management Studio」と入力し、デスクトップ アプリをクリックして SSMS を起動します。
-2. **サーバーへの接続** ダイアログ ボックスで、 **サーバー名** ボックス形式で、SQL データベースをホストするサーバーの名前を入力 *< servername >*.**.database.windows.net を付けて**します。
-3. **[認証]** リストで、**[SQL Server 認証]** を選択します。
-4. サーバーを作成した際に設定した**ログイン**と**パスワード**を入力し、**[接続]** をクリックして SQL Database に接続します。
+2.  **サーバーへの接続** ダイアログ ボックスで、 **サーバー名** ボックス形式で、SQL データベースをホストするサーバーの名前を入力 *& lt; サーバー名 >*.**.database.windows.net を付けて**します。
+3. 選択 **SQL Server 認証** から、 **認証** ] ボックスの一覧です。
+4. 型、 **ログイン** と **パスワード** 、サーバーを作成したときに設定して、順にクリックして **接続** SQL データベースに接続します。
 
     ![SQL Server Management Studio: SQL Database サーバーへの接続](./media/sql-database-connect-query-ssms/1-connect.png)
 
@@ -54,8 +52,8 @@ SQL Database で作業を行う場合、最新のバージョンの SSMS を使�
 
 SQL Database に接続すると、サンプル クエリを実行できるようになります。 AdventureWorks のサンプルを使用してデータベースを作成していないかどうかは [Microsoft Azure SQL Database を使ってみる](sql-database-get-started.md), 、このクエリは機能しません。 学習を進めるには、飛ばして次のステップに進んでください。
 
-1. **オブジェクト エクスプローラー**で、**[AdventureWorks]** データベースに移動します。
-2. データベースを右クリックし、**[新しいクエリ]** を選択します。
+1.  **オブジェクト エクスプ ローラー**, に移動し、 **AdventureWorks** データベースです。
+2. データベースを右クリックし、[ **新しいクエリ**します。
 
     ![新しいクエリ](./media/sql-database-connect-query-ssms/4-run-query.png)
 
@@ -69,7 +67,7 @@ SQL Database に接続すると、サンプル クエリを実行できるよう
         ,CompanyName
         FROM SalesLT.Customer;
 
-4. **[実行]** ボタンをクリックします。 次のスクリーン ショットに、成功したクエリを示します。
+4. クリックして、 **Execute** ] ボタンをクリックします。  次のスクリーン ショットに、成功したクエリを示します。
 
     ![成功](./media/sql-database-connect-query-ssms/5-success.png)
 
@@ -78,8 +76,4 @@ SQL Database に接続すると、サンプル クエリを実行できるよう
 SQL Server で可能な方法とほぼ同じように、T-SQL ステートメントを使用して Azure にデータベースを作成して管理することもできます。 SQL Server で T-SQL の使用に詳しい方ならを参照してください。 [Azure SQL Database TRANSACT-SQL 情報)](sql-database-transact-sql-information.md) の相違点の概要についてです。
 
 T-SQL の初めての場合は、次を参照してください。 [チュートリアル: TRANSACT-SQL ステートメントの作成](https://msdn.microsoft.com/library/ms365303.aspx) と [TRANSACT-SQL リファレンス (データベース エンジン)](https://msdn.microsoft.com/library/bb510741.aspx)します。
-
-
-
-
 

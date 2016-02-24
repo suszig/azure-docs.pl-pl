@@ -17,8 +17,8 @@
     ms.author="raynew"/>
 
 
-
 # Azure Site Recovery を使用して 2 つのオンプレミス データセンター間で Hyper-V 仮想マシンをレプリケーションするために、記憶域マッピングを準備する
+
 
 Azure Site Recovery は、仮想マシンと物理サーバーのレプリケーション、フェールオーバー、復旧を調整してビジネス継続性と障害復旧 (BCDR) 戦略に貢献します。 この記事では記憶域マッピングについて説明します。これを利用すれば、Site Recovery を使って 2 つのオンプレミス データ センター間で Hyper-V 仮想マシンをレプリケートするときに、記憶域を最適に使用できます。
 
@@ -29,15 +29,15 @@ Azure Site Recovery は、仮想マシンと物理サーバーのレプリケー
 記憶域マッピングが有効なのは、次のように、Hyper-V レプリカまたは SAN レプリケーションを使用して、VMM クラウドに配置されている Hyper-V 仮想マシンをプライマリ データセンターからセカンダリ データセンターにレプリケートする場合のみです。
 
 
-- **Hyper-V レプリカを使用したオンプレミス間のレプリケーション** - 次の目的で、ソースとターゲットの VMM サーバーで記憶域分類をマップすることで、記憶域マッピングを設定します。
+- **HYPER-V レプリカによる内部設置型のレプリケーションを On-premises)**— 記憶域をマッピングにマップして設定記憶域の分類、ソースと、ターゲットの VMM サーバーに、次の操作します。
 
-    - **レプリカ仮想マシンのターゲット記憶域の特定** - 仮想マシンは、選択した記憶域ターゲット (SMA 共有またはクラスター共有ボリューム (CSV)) にレプリケートされます。
-    - **レプリカ仮想マシンの配置** - 記憶域マッピングを使用して、Hyper-V ホスト サーバーにレプリカ仮想マシンを最適に配置します。 レプリカ仮想マシンは、マップされた記憶域分類にアクセスできるホストに配置されます。
-    - **記憶域マッピングなし** - 記憶域マッピングを構成しない場合、仮想マシンは、レプリカ仮想マシンに関連付けられている Hyper-V ホスト サーバーで指定された既定の記憶域の場所にレプリケートされます。
+    - **ターゲット記憶域レプリカ仮想マシンの特定**— 仮想マシンを記憶域ターゲット (SMB 共有またはクラスター共有ボリューム (Csv)) にレプリケートされます選択します。
+    - **レプリカ仮想マシンの配置**-HYPER-V ホスト サーバーにレプリカ仮想マシンを最適に配置する記憶域マッピングを使用します。 レプリカ仮想マシンは、マップされた記憶域分類にアクセスできるホストに配置されます。
+    - **記憶域マッピングなし**— 仮想マシンをレプリカ仮想マシンに関連付けられている HYPER-V ホスト サーバーで指定された既定の保存先にレプリケートされますにストレージ マッピングを構成していない場合。
 
-- **SAN を使用したオンプレミス間のレプリケーション** - ソースとターゲットの VMM サーバーで記憶域配列プールをマッピングすることで、記憶域マッピングを設定します。
-    - **プールの指定** - プライマリ プールからレプリケーション データを受け取るセカンダリ記憶域プールを指定します。
-    - **ターゲット記憶域プールの特定** - ソース レプリケーション グループ内の LUN が、マップされたターゲット記憶域プールにレプリケートされるようにします。
+- **内部設置型への SAN を使用した内部設置型のレプリケーション**— 記憶域をマッピングにマップして設定記憶域配列プールをソースと、ターゲット VMM サーバー。
+    - **プールを指定して**— セカンダリ ストレージ プールが、プライマリ プールからレプリケーション データを受信するように指定します。
+    - **ターゲット記憶域プールの特定**— ソース レプリケーション グループ内の Lun が、任意のマップされたターゲット記憶域プールにレプリケートされることを確認します。
 
 ## Hyper-V レプリケーション用に記憶域分類を設定する
 
@@ -52,16 +52,16 @@ HYPER-V レプリカを使用して Site Recovery にレプリケートすると
 
 VMM で分類が適切に構成されている場合、記憶域マッピング中にソースとターゲットの VMM サーバーを選択すると、ソース分類とターゲット分類が表示されます。 ニューヨークとシカゴの 2 つの拠点がある組織での記憶域のファイル共有と分類の例を以下に示します。
 
- **場所**| **VMM サーバー**| **ファイル共有 (ソース)**| **分類 (ソース)**| **マップ先**| **ファイル共有 (ターゲット)**
+**Location (場所)** | **VMM サーバー** | **ファイル共有 (ソース)** | **分類 (ソース)** | **マップ先** | **ファイル共有 (ターゲット)**
 ---|---|--- |---|---|---
- ニューヨーク| VMM_Source| SourceShare1| GOLD| GOLD_TARGET| TargetShare1
-| | SourceShare2| SILVER| SILVER_TARGET| TargetShare2
-| | SourceShare3| BRONZE| BRONZE_TARGET| TargetShare3
- シカゴ| VMM_Target| | GOLD_TARGET| マッピングなし|
-| | | SILVER_TARGET| マッピングなし|
-| | | BRONZE_TARGET| マッピングなし
+ニューヨーク | VMM_Source| SourceShare1 | GOLD | GOLD_TARGET | TargetShare1
+ |  | SourceShare2 | SILVER | SILVER_TARGET | TargetShare2
+ | | SourceShare3 | BRONZE | BRONZE_TARGET | TargetShare3
+シカゴ | VMM_Target |  | GOLD_TARGET | マッピングなし |
+| | | SILVER_TARGET | マッピングなし |
+ | | | BRONZE_TARGET | マッピングなし
 
-Site Recovery ポータルの **[リソース]** ページの **[サーバー記憶域]** タブでこれらを構成しました。
+これらを構成する、 **サーバー記憶域** ] タブで、 **リソース** 、Site Recovery ポータルのページです。
 
 ![ストレージ マッピングの構成](./media/site-recovery-storage-mapping/storage-mapping1.png)
 
@@ -79,28 +79,24 @@ Site Recovery ポータルの **[リソース]** ページの **[サーバー記
 
 この例の記憶域分類とクラスター共有ボリュームの設定を次の表に示します。
 
- **場所**| **分類**| **関連付けられた記憶域**
+**Location (場所)** | **分類** | **関連付けられた記憶域**
 ---|---|---
- ニューヨーク| GOLD| <p>C:\ClusterStorage\SourceVolume1</p><p>\\FileServer\SourceShare1</p>
-| SILVER| <p>C:\ClusterStorage\SourceVolume2</p><p>\\FileServer\SourceShare2</p>
- シカゴ| GOLD_TARGET| <p>C:\ClusterStorage\TargetVolume1</p><p>\\FileServer\TargetShare1</p>
-| SILVER_TARGET| <p>C:\ClusterStorage\TargetVolume2</p><p>\\FileServer\TargetShare2</p>
+ニューヨーク | GOLD | <p>C:\ClusterStorage\SourceVolume1</p><p>\\FileServer\SourceShare1</p>
+ | SILVER | <p>C:\ClusterStorage\SourceVolume2</p><p>\\FileServer\SourceShare2</p>
+シカゴ | GOLD_TARGET | <p>C:\ClusterStorage\TargetVolume1</p><p>\\FileServer\TargetShare1</p>
+ | SILVER_TARGET| <p>C:\ClusterStorage\TargetVolume2</p><p>\\FileServer\TargetShare2</p>
 
 この例の環境で仮想マシン (VM1 ～ VM5) の保護を有効にしたときの動作を次の表にまとめます。
 
- **仮想マシン**| **ソース記憶域**| **ソース分類**| **マップされたターゲット記憶域**
+**仮想マシン** | **ソース記憶域** | **ソース分類** | **マップされたターゲット記憶域**
 ---|---|---|---
- VM1| C:\ClusterStorage\SourceVolume1| GOLD| <p>C:\ClusterStorage\SourceVolume1</p><p>\\\FileServer\SourceShare1</p><p>両方 GOLD_TARGET</p>
- VM2| \\FileServer\SourceShare1| GOLD| <p>C:\ClusterStorage\SourceVolume1</p><p>\\FileServer\SourceShare1</p> <p>両方 GOLD_TARGET</p>
- VM3| C:\ClusterStorage\SourceVolume2| SILVER| <p>C:\ClusterStorage\SourceVolume2</p><p>\FileServer\SourceShare2</p>
- VM4| \FileServer\SourceShare2| SILVER| <p>C:\ClusterStorage\SourceVolume2</p><p>\\FileServer\SourceShare2</p><p>両方 SILVER_TARGET</p>
- VM5| C:\ClusterStorage\SourceVolume3| 該当なし| マッピングを構成していないため、Hyper-V ホストの既定の記憶域の場所が使用されます。
+VM1 | C:\ClusterStorage\SourceVolume1 | GOLD | <p>C:\ClusterStorage\SourceVolume1</p><p>\\\FileServer\SourceShare1</p><p>両方の GOLD_TARGET</p>
+VM2 | \\FileServer\SourceShare1 | GOLD | <p>C:\ClusterStorage\SourceVolume1</p><p>\\FileServer\SourceShare1</p> <p>両方の GOLD_TARGET</p>
+VM3 | C:\ClusterStorage\SourceVolume2 | SILVER | <p>C:\ClusterStorage\SourceVolume2</p><p>\FileServer\SourceShare2</p>
+VM4 | \FileServer\SourceShare2 | SILVER |<p>C:\ClusterStorage\SourceVolume2</p><p>\\FileServer\SourceShare2</p><p>両方の SILVER_TARGET</p>
+VM5 | C:\ClusterStorage\SourceVolume3 | 該当なし | マッピングを構成していないため、Hyper-V ホストの既定の記憶域の場所が使用されます。
 
 ## 次のステップ
 
 記憶域マッピングの理解を深めるしたら [Azure Site Recovery を配置する準備](site-recovery-best-practices.md)します。
-
-
-
-
 

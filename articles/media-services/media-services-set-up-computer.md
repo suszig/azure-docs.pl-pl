@@ -16,15 +16,12 @@
     ms.date="12/05/2015"  
     ms.author="juliako"/>
 
-
 # 環境をセットアップする
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-create-account.md)
+- [ポータル](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
-- [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
-
-
+- [残りの部分](https://msdn.microsoft.com/library/azure/dn167014.aspx)
 <a id="create_account"></a>
 
 以下の手順は、Azure Media Services で開発を行うために必要な前提条件を説明したものです。
@@ -34,7 +31,7 @@
 Azure Media Services アカウントを作成するには、Azure クラシック ポータル、.NET SDK、または REST API を使用します。
 
 <a id="setup_dev_env"></a>
-## 開発環境を設定する
+## 開発環境を設定する  
 
 開発環境に関して .NET または REST API を選択します。
 
@@ -48,16 +45,12 @@ Azure Media Services アカウントを作成するには、Azure クラシッ�
 [AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
 
 
-## 次のステップ: Azure Media Services のラーニング パス
+##次のステップ: Azure Media Services のラーニング パス
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## フィードバックの提供
+##フィードバックの提供
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
 
 

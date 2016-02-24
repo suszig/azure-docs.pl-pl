@@ -16,7 +16,6 @@
     ms.date="11/20/2015"
     ms.author="kempb" />
 
-
 # Azure リソース グループ プロジェクトの PowerShell スクリプトの更新
 
 Visual Studio の Azure リソース グループ デプロイメント プロジェクトでは、Azure PowerShell スクリプトを使用して、資産を準備し、Visual Studio から Azure にデプロイします。 プロジェクトのスクリプトで使用される Azure PowerShell のバージョンは、0.9.8 です。 ただし、新しい Azure PowerShell バージョン 1.0 がリリースされました。
@@ -31,16 +30,15 @@ Visual Studio の Azure リソース グループ デプロイメント プロ�
 
 - Visual Studio の外部の PowerShell コマンド ウィンドウでスクリプトを実行すると、次のようなエラーが発生する場合があります。
 
-    *、用語 'Switch-azuremode' は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前としては認識されません。 名前のスペル チェック、またはパスが含まれている場合、パスが正しいことを確認し、again.* を実行してください。
+    *用語 'Switch-azuremode' は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前としては認識されません。 名のスペルを確認するかパスが含まれている場合、パスが正しいことを確認し、もう一度やり直してください。*
 
 新しい Azure PowerShell のために Azure リソース グループ プロジェクトをデプロイできない場合は、次の方法で解決します。
 
 - Azure PowerShell の最新バージョンをアンインストールして、以前のバージョン (0.9.8) を使用して再インストールすることができます、 [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx)します。
 
-- デプロイメント プロジェクトの PowerShell スクリプトに対してこの問題に対処するためだけの変更を行った後、PowerShell コマンド ウィンドウから手動でスクリプトを実行します。 Visual Studio の **[配置]** メニュー項目からスクリプトを実行できなくなります。 PowerShell スクリプトを更新する手順および完全に更新済みのスクリプトのコピーを後で示します。
+- デプロイメント プロジェクトの PowerShell スクリプトに対してこの問題に対処するためだけの変更を行った後、PowerShell コマンド ウィンドウから手動でスクリプトを実行します。 スクリプトを実行することはできません、 **展開** Visual Studio のメニュー項目です。 PowerShell スクリプトを更新する手順および完全に更新済みのスクリプトのコピーを後で示します。
 
 ## Azure PowerShell スクリプトの更新
-
 次の手順では行番号を示しています。 Visual Studio の行番号を有効にするには、「 [方法: エディターで行番号の表示](https://msdn.microsoft.com/library/ms165340.aspx)します。
 
 1. 61 行目の次のコードを置き換えます。
@@ -113,7 +111,6 @@ Visual Studio の Azure リソース グループ デプロイメント プロ�
     ```
 
 ## 更新されたスクリプト
-
 前に説明したすべての更新を変更した後のスクリプトを次に示します。
 
 ```
@@ -136,6 +133,7 @@ Param(
 Import-Module Azure -ErrorAction SilentlyContinue
 
 try {
+  [Microsoft.Azure.Common.Authentication.AzureSession]::ClientFactory.AddUserAgent("VSAzureTools-$UI$($host.name)".replace(" ","_"), "2.7.2")
 } catch { }
 
 Set-StrictMode -Version 3
@@ -228,9 +226,5 @@ New-AzureRMResourceGroupDeployment `
     -TemplateParameterFile $TemplateParametersFile `
     @OptionalParameters `
     -Verbose -Force
+
 ```
-
-
-
-[microsoft.azure.common.authentication.azuresession]: :ClientFactory.AddUserAgent("VSAzureTools-$UI$($host.name)".replace(" ","_"), "2.7.2""
-

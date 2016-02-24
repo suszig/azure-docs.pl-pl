@@ -17,43 +17,44 @@
     ms.author="juliako"/>
 
 
-
 # Azure Media Packager を使用して静的パッケージ タスクを実行する
 
->[AZURE.NOTE]Windows Azure Media Packager、Windows Azure Media Encryptor は 2016 年 3 月 1 日に製造中止に到達します。 提供中止後は、これらのコンポーネントを使用できなくなります。 形式の変換機能と暗号化機能は、動的パッケージと動的暗号化で引き続き使用できます。 
+>[AZURE.NOTE]Windows Azure Media Packager、Windows Azure Media Encryptor は 2016 年 3 月 1 日に製造中止に到達します。 提供中止後は、これらのコンポーネントを使用できなくなります。  形式の変換機能と暗号化機能は、動的パッケージと動的暗号化で引き続き使用できます。 
 
 ## 概要
 
 インターネット経由でデジタル ビデオを配信するには、メディアを圧縮する必要があります。 デジタル ビデオ ファイルはサイズがとても大きく、インターネット経由で配信したり、顧客のデバイスでうまく表示したりできない可能性があります。 エンコードはビデオやオーディオを圧縮するプロセスです。圧縮することでメディア コンテンツが見やすくなります。 エンコードしたビデオは、さまざまなファイル コンテナーに配置できます。 エンコードしたビデオをコンテナーに配置するプロセスは、パッケージと呼ばれます。 たとえば、MP4 ファイルがある場合、Azure Media Packager を使用して Smooth Streaming または HLS コンテンツに変換できます。 詳細については、次を参照してください。 [エンコーディングとパッケージング](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/)します。
 
 Media Services は、動的パッケージと静的パッケージをサポートしています。 静的パッケージを使用する場合は、顧客に必要な各形式でコンテンツのコピーを作成する必要があります。 動的パッケージを使用する場合、必要な操作は、一連のアダプティブ ビットレート MP4 または Smooth Streaming ファイルを含むアセットの作成のみです。 そうすれば、マニフェストまたはフラグメント要求で指定された形式に基づき、オンデマンド ストリーミング サーバーによって、ユーザーが選択したプロトコルでストリームを受信するようになります。 その結果、保存と課金の対象となるのは、単一のストレージ形式のファイルのみです。Media Services がクライアントからの要求に応じて、適切な応答を構築して返します。
+
 >[AZURE.NOTE]使用することをお勧め [動的パッケージング](media-services-dynamic-packaging-overview.md)します。
 
-ただし、静的パッケージが必要なシナリオもあります。
+ただし、静的パッケージが必要なシナリオもあります。 
 
 - 外部エンコーダーで (たとえば、サードパーティ エンコーダーを使用して) エンコードされたアダプティブ ビットレート MP4 を検証する。
 
 静的パッケージを使用して、次のタスクを実行することもできます。 ただし、動的暗号化を使用することが推奨されます。
 
 - 静的暗号化を使用して PlayReady で Smooth および MPEG DASH を保護する
-- 静的暗号化を使用して AES-128 でHLSv3 を保護する
-- 静的暗号化を使用して PlayReady でHLSv3 を保護する
+- 静的暗号化を使用して AES-128 で HLSv3 を保護する
+- 静的暗号化を使用して PlayReady で HLSv3 を保護する
 
 
 ## 外部エンコーダーを使用してエンコードされたアダプティブ ビットレート MP4 を検証する
 
 Media Services Encoder でエンコードしていないアダプティブ ビットレート (マルチビットレート) MP4 ファイルのセットを使用する場合、ファイルを検証してから次の処理に進む必要があります。 Media Services Packager では、MP4 ファイルのセットを含む資産が検証し、資産を Smooth Streaming  または HLS にパッケージ化できるかどうかを確認することができます。 検証タスクに失敗すると、タスクを処理しているジョブはエラーで完了します。 検証タスクのプリセットを定義する XML は記載されて、 [Azure Media Packager のタスク プリセット](http://msdn.microsoft.com/library/azure/hh973635.aspx) トピックです。
->[AZURE.NOTE]Media Services Encoder を使用して生成するか、Media Services Packager を使用してコンテンツを検証して、実行時の問題を防ぎます。 オンデマンド ストリーミング サーバーで実行時にソース ファイルを解析できない場合、HTTP 1.1 エラー “415 Unsupported Media Type” を受け取ります。 サーバーで繰り返しソース ファイルを解析できない場合、オンデマンド ストリーミング サーバーのパフォーマンスに影響があり、他の要求の処理に使用できる帯域幅が減る可能性があります。 Azure Media Services には、オンデマンド ストリーミング サービスに関するサービス レベル アグリーメント (SLA) が用意されています。ただし、サーバーが上記のように誤用されている場合、この SLA は適用されません。
+
+>[AZURE.NOTE]実行時の問題を回避するために、Media Services Encoder を生成するのにか、コンテンツを検証して、Media Services Packager を使用します。 オンデマンド ストリーミング サーバーで実行時にソース ファイルを解析できない場合、HTTP 1.1 エラー “415 Unsupported Media Type” を受け取ります。 サーバーで繰り返しソース ファイルを解析できない場合、オンデマンド ストリーミング サーバーのパフォーマンスに影響があり、他の要求の処理に使用できる帯域幅が減る可能性があります。 Azure Media Services には、オンデマンド ストリーミング サービスに関するサービス レベル アグリーメント (SLA) が用意されています。ただし、サーバーが上記のように誤用されている場合、この SLA は適用されません。
 
 このセクションでは、検証タスクの処理方法について説明します。 また、JobStatus.Error で完了したジョブの状態とエラー メッセージを確認する方法についても説明します。
 
 Media Services Packager を使用して MP4 ファイルを検証するには、独自のマニフェスト (.ism) ファイルを作成し、ソース ファイルと共に Media Services アカウントにアップロードする必要があります。 Azure Media Encoder で生成される .ism ファイルのサンプルを以下に示します。 ファイル名の大文字と小文字は区別されます。 また、.ism ファイルのテキストは UTF-8 エンコード形式にする必要があります。
 
-
+    
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
     <smil xmlns="http://www.w3.org/2001/SMIL20/Language">
       <head>
-    
+    <!-- Tells the server that these input files are MP4s – specific to Dynamic Packaging -->
         <meta name="formats" content="mp4" /> 
       </head>
       <body>
@@ -71,8 +72,8 @@ Media Services Packager を使用して MP4 ファイルを検証するには、
 
 アダプティブ ビットレート MP4 を設定すると、動的パッケージを利用できます。 Dynamic Packaging を使用すると、さらにパッケージ化せずに、指定したプロトコルでストリームを配信できます。 詳細については、次を参照してください。 [動的パッケージング](media-services-dynamic-packaging-overview.md)します。
 
-次のコード サンプルでは、Azure Media Services .NET SDK Extensions を使用します。 入力 MP4 ファイルと .ism ファイルがあるフォルダーを指すようにコードを更新します。 これは、MediaPackager_ValidateTask.xml ファイルがある場所でもあります。 この XML ファイルがで定義されている [Azure Media Packager 用のタスク プリセット](http://msdn.microsoft.com/library/azure/hh973635.aspx) トピックです。
-
+次のコード サンプルでは、Azure Media Services .NET SDK Extensions を使用します。  入力 MP4 ファイルと .ism ファイルがあるフォルダーを指すようにコードを更新します。 これは、MediaPackager_ValidateTask.xml ファイルがある場所でもあります。 この XML ファイルがで定義されている [Azure Media Packager 用のタスク プリセット](http://msdn.microsoft.com/library/azure/hh973635.aspx) トピックです。
+    
     using Microsoft.WindowsAzure.MediaServices.Client;
     using System;
     using System.Collections.Generic;
@@ -191,7 +192,7 @@ Media Services Packager を使用して MP4 ファイルを検証するには、
                         Console.WriteLine("Job progress: {0:0.##}%", j.GetOverallProgress());
                     },
                     CancellationToken.None).Result;
-    
+              
                 // If the validation task fails and job completes with JobState.Error,
                 // display the error message and throw an exception.
                 if (job.State == JobState.Error)
@@ -244,12 +245,13 @@ Media Services Packager を使用して MP4 ファイルを検証するには、
 このセクションの例では、中間ファイル (ここでは MP4) をアダプティブ ビットレート MP4 ファイルにエンコードします。 次に、MP4 を Smooth Streaming にパッケージ化してから、PlayReady で Smooth Streaming を暗号化します。 その結果、Smooth Streaming または MPEG DASH をストリーミングできるようになります。
 
 Media Services では、Microsoft PlayReady ライセンスの配信サービスが提供されるようになりました。 この記事の例で、Media Services PlayReady ライセンス配信サービスを構成する方法について説明します (以下のコードに定義されている ConfigureLicenseDeliveryService メソッドを参照してください)。 Media Services PlayReady ライセンス配信サービスの詳細については、次を参照してください。 [PlayReady 動的暗号化とライセンス提供サービス](media-services-protect-with-drm.md)します。
+
 >[AZURE.NOTE]PlayReady で暗号化された MPEG DASH を配信するには、useSencBox および adjustSubSamples プロパティを設定して CENC オプションを使用することを確認してください (で説明されている、 [用 Azure Media Encryptor のタスク プリセット](http://msdn.microsoft.com/library/azure/hh973610.aspx) トピック) を true にします。  
 
 
 入力 MP4 ファイルがあるフォルダーを指すように、次のコードを更新します。
 
-また、MediaPackager_MP4ToSmooth.xml と MediaEncryptor_PlayReadyProtection.xml のファイルがある場所を指すように更新します。 MediaPackager_MP4ToSmooth.xml がで定義されている [Azure Media Packager 用のタスク プリセット](http://msdn.microsoft.com/library/azure/hh973635.aspx) MediaEncryptor_PlayReadyProtection.xml がで定義されていると、 [用 Azure Media Encryptor のタスク プリセット](http://msdn.microsoft.com/library/azure/hh973610.aspx) トピックです。
+また、MediaPackager_MP4ToSmooth.xml と MediaEncryptor_PlayReadyProtection.xml のファイルがある場所を指すように更新します。 MediaPackager_MP4ToSmooth.xml がで定義されている [Azure Media Packager 用のタスク プリセット](http://msdn.microsoft.com/library/azure/hh973635.aspx) MediaEncryptor_PlayReadyProtection.xml がで定義されていると、 [用 Azure Media Encryptor のタスク プリセット](http://msdn.microsoft.com/library/azure/hh973610.aspx) トピックです。 
 
 この例では、MediaEncryptor_PlayReadyProtection.xml を動的に更新できる UpdatePlayReadyConfigurationXMLFile メソッドを定義します。 使用可能なキー シードがある場合は、CommonEncryption.GeneratePlayReadyContentKey メソッドを使用して、keySeedValue 値と KeyId 値に基づいてコンテンツ キーを生成することができます。
 
@@ -270,7 +272,7 @@ Media Services では、Microsoft PlayReady ライセンスの配信サービス
     {
         class Program
         {
-    
+           
             private static readonly string _mediaFiles =
                 Path.GetFullPath(@"../..\Media");
     
@@ -688,12 +690,13 @@ Media Services では、Microsoft PlayReady ライセンスの配信サービス
 ## 静的暗号化を使用して AES-128 でHLSv3 を保護する
 
 AES-128 を使用して HLS を暗号化する場合、動的暗号化 (推奨されるオプション) と静的暗号化 (このセクションの説明を参照) のどちらかを選択できます。 動的暗号化を使用する場合を参照してください。 [aes-128 動的暗号化を使用するとキー配信サービス](media-services-protect-with-aes128)します。
->[AZURE.NOTE]コンテンツを HLS に変換するには、まずコンテンツを Smooth Streaming に変換/エンコードする必要があります。
+
+>[AZURE.NOTE]コンテンツを HLS に変換するためにする必要がありますまず変換/エンコード、コンテンツをスムーズ ストリーミングにします。
 >また、AES で HLS を暗号化するには、MediaPackager_SmoothToHLS.xml ファイルで次のプロパティを設定します。暗号化プロパティを true に設定し、キー値を設定し、認証/承認サーバーを指すように keyuri 値を設定するようにします。
 Media Services でキー ファイルが作成され、資産コンテナーに配置されます。 /asset-containerguid/*.key ファイルは、サーバーにコピーし (または独自のキー ファイルを作成し)、資産コンテナーから *.key ファイルを削除する必要があります。
 
 このセクションの例では、中間ファイル (ここでは MP4) をマルチビットレート MP4 ファイルにエンコードし、MP4 を Smooth Streaming にパッケージ化します。 また、Smooth Streaming は、Advanced Encryption Standard (AES) 128 ビット ストリーム暗号化で暗号化された HTTP Live Streaming (HLS) にパッケージ化されます。 入力 MP4 ファイルがあるフォルダーを指すように、次のコードを更新します。 また、MediaPackager_MP4ToSmooth.xml と MediaPackager_SmoothToHLS.xml 構成ファイルがある場所も示すように更新します。 これらのファイルでの定義を検索できる、 [Azure Media Packager 用のタスク プリセット](http://msdn.microsoft.com/library/azure/hh973635.aspx) トピックです。
-
+    
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -715,7 +718,7 @@ Media Services でキー ファイルが作成され、資産コンテナーに�
     
             private static readonly string _mediaFiles =
                 Path.GetFullPath(@"../..\Media");
-    
+            
             private static readonly string _singleMP4File =
                 Path.Combine(_mediaFiles, @"SingleMP4\BigBuckBunny.mp4");
     
@@ -850,7 +853,7 @@ Media Services でキー ファイルが作成され、資産コンテナーに�
                     {
                         Console.WriteLine("Uploading '{0}' - Progress: {1:0.##}%", af.Name, p.Progress);
                     });
-    
+     
                 return asset;
             }
     
@@ -966,14 +969,15 @@ Media Services でキー ファイルが作成され、資産コンテナーに�
 ## 静的暗号化を使用して PlayReady でHLSv3 を保護する
 
 使用する選択肢がある PlayReady でコンテンツを保護する場合は、 [動的な暗号化](media-services-protect-with-drm.md) (推奨されるオプション) または静的な暗号化 (としてこのセクションで説明)。
->[AZURE.NOTE] PlayReady を使用してコンテンツを保護するには、まずコンテンツを Smooth Streaming 形式に変換/エンコードする必要があります。
+
+>[AZURE.NOTE] PlayReady を使用してコンテンツを保護するためにする必要がありますまず変換/エンコード、コンテンツをスムーズ ストリーミング形式にします。
 
 このセクションの例では、中間ファイル (ここでは MP4) をマルチビットレート MP4 ファイルにエンコードします。 次に、MP4 を Smooth Streaming にパッケージ化し、PlayReady で Smooth Streaming を暗号化します。 PlayReady で暗号化された HTTP Live Streaming (HLS) を生成するには、PlayReady Smooth Streaming 資産を HLS にパッケージ化する必要があります。 このトピックでは、これらすべての手順を実行する方法について説明します。
 
-Media Services では、Microsoft PlayReady ライセンスの配信サービスが提供されるようになりました。 この記事の例で、Media Services PlayReady ライセンス配信サービスを構成する方法について説明します (以下のコードに定義されている **ConfigureLicenseDeliveryService** メソッドを参照してください)。
+Media Services では、Microsoft PlayReady ライセンスの配信サービスが提供されるようになりました。 この記事の例では、Media Services PlayReady ライセンス配信サービスを構成する方法を示します (を参照してください、 **ConfigureLicenseDeliveryService** メソッドを次のコードで定義されている)。 
 
 入力 MP4 ファイルがあるフォルダーを指すように、次のコードを更新します。 また、MediaPackager_MP4ToSmooth.xml、MediaPackager_SmoothToHLS.xml、および MediaEncryptor_PlayReadyProtection.xml のファイルがある場所を指すように更新します。 MediaPackager_MP4ToSmooth.xml と MediaPackager_SmoothToHLS.xml が定義されて [Azure Media Packager 用のタスク プリセット](http://msdn.microsoft.com/library/azure/hh973635.aspx) MediaEncryptor_PlayReadyProtection.xml がで定義されていると、 [用 Azure Media Encryptor のタスク プリセット](http://msdn.microsoft.com/library/azure/hh973610.aspx) トピックです。
-
+    
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -1437,15 +1441,11 @@ Media Services では、Microsoft PlayReady ライセンスの配信サービス
         }
     }
 
-## Media Services のラーニング パス
+##Media Services のラーニング パス
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## フィードバックの提供
+##フィードバックの提供
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
 

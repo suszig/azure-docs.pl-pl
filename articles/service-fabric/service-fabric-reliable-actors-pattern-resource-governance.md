@@ -1,6 +1,6 @@
 <properties
    pageTitle="リソース ガバナンス設計パターン | Microsoft Azure"
-   description="Service Fabric 高信頼アクターを利用し、拡張するが制約のあるリソースを使用するアプリケーション ニーズをモデル化する設計パターン。"
+   description="Service Fabric Reliable Actors を利用し、拡張するが制約のあるリソースを使用するアプリケーション ニーズをモデル化する設計パターン。"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -15,7 +15,6 @@
    ms.workload="NA"
    ms.date="11/13/2015"
    ms.author="vturecek"/>
-
 
 # 高信頼アクターの設計パターン: リソースのガバナンス
 
@@ -418,17 +417,16 @@ public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
 
 [パターン: ステートフル サービスの構成](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
 
-[モ ノのインターネットのパターン:](service-fabric-reliable-actors-pattern-internet-of-things.md)
+[パターン: モノのインターネット](service-fabric-reliable-actors-pattern-internet-of-things.md)
 
 [パターン: 分散計算](service-fabric-reliable-actors-pattern-distributed-computation.md)
 
-[いくつかアンチ パターン](service-fabric-reliable-actors-anti-patterns.md)
+[いくつかのアンチ パターン](service-fabric-reliable-actors-anti-patterns.md)
 
 [Service Fabric アクターの概要](service-fabric-reliable-actors-introduction.md)
 
-
-
-[1]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch1.png 
-[2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png 
-[3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png 
+<!--Image references-->
+[1]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch1.png
+[2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
+[3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 

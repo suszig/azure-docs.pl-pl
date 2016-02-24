@@ -17,7 +17,6 @@
    ms.date="12/11/2015"
    ms.author="telmos" />
 
-
 # PowerShell で NSG (クラシック) を作成する方法
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
@@ -28,15 +27,14 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-以下の PowerShell のサンプル コマンドでは、上記シナリオに基づいて単純な環境が既に作成されていると想定します。 このドキュメントに表示されているように、コマンドを実行する場合は、最初、テスト環境にビルド [VNet を作成する](virtual-networks-create-vnet-classic-netcfg-ps)します。
+以下の PowerShell のサンプル コマンドでは、上記シナリオに基づいて単純な環境が既に作成されていると想定します。 このドキュメントに表示されているように、コマンドを実行する場合は、最初、テスト環境にビルド [VNet を作成する](virtual-networks-create-vnet-classic-netcfg-ps)です。
 
 ## フロントエンドのサブネットの NSG を作成する方法
-
-上記のシナリオに基づいて *NSG-FrontEnd* という名前の NSG を作成するには、次の手順に従います。
+名前を名前付き NSG を作成する *NSG フロント エンド* 上記のシナリオに基づいて、以下の手順。
 
 1. Azure PowerShell を初めて使用する場合は、次を参照してください。 [インストールおよび Azure PowerShell の構成方法](powershell-install-configure.md) Azure にサインインし、サブスクリプションを選択最後までの指示に従います。
 
-3. **NSG-FrontEnd** という名前のネットワーク セキュリティ グループを作成します。
+3. ネットワーク セキュリティ グループを作成 **NSG フロント エンド**します。
 
         New-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" -Location uswest `
             -Label "Front end subnet NSG"
@@ -47,85 +45,85 @@
         ----         --------   -----               
         NSG-FrontEnd West US    Front end subnet NSG
 
-4. インターネットからポート 3389 へのアクセスを許可するセキュリティ規則を作成します。
 
-     Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
-     | Set-AzureNetworkSecurityRule -Name rdp-rule `
-         -Action Allow -Protocol TCP -Type Inbound -Priority 100 `
-         -SourceAddressPrefix Internet  -SourcePortRange '*' `
-         -DestinationAddressPrefix '*' -DestinationPortRange '3389' 
+4. インターネットからポート 3389 へのアクセスを許可するセキュリティ規則を作成します。 
 
- 予想される出力:
+        Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
+        | Set-AzureNetworkSecurityRule -Name rdp-rule `
+            -Action Allow -Protocol TCP -Type Inbound -Priority 100 `
+            -SourceAddressPrefix Internet  -SourcePortRange '*' `
+            -DestinationAddressPrefix '*' -DestinationPortRange '3389' 
 
-     Name     : NSG-FrontEnd
-     Location : Central US
-     Label    : Front end subnet NSG
-     Rules    : 
-    
-                   Type: Inbound
-    
-                Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
-                                                        Prefix          Range         Address Prefix   Port Range             
-                ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
-                rdp-rule             100       Allow    INTERNET        *             *                3389           TCP     
-                ALLOW VNET INBOUND   65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
-                ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
-                BALANCER INBOUND                        CER                                                                   
-                DENY ALL INBOUND     65500     Deny     *               *             *                *              *       
-    
-    
-                   Type: Outbound
-    
-                Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
-                                                        Prefix          Range         Address Prefix   Port Range             
-                ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
-                ALLOW VNET OUTBOUND  65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
-                ALLOW INTERNET       65001     Allow    *               *             INTERNET         *              *       
-                OUTBOUND                                                                                                      
-                DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *
+    予想される出力:
 
-4. インターネットからポート 80 へのアクセスを許可するセキュリティ規則を作成します。
+        Name     : NSG-FrontEnd
+        Location : Central US
+        Label    : Front end subnet NSG
+        Rules    : 
+                   
+                      Type: Inbound
+                   
+                   Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
+                                                           Prefix          Range         Address Prefix   Port Range             
+                   ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
+                   rdp-rule             100       Allow    INTERNET        *             *                3389           TCP     
+                   ALLOW VNET INBOUND   65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
+                   ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
+                   BALANCER INBOUND                        CER                                                                   
+                   DENY ALL INBOUND     65500     Deny     *               *             *                *              *       
+                   
+                   
+                      Type: Outbound
+                   
+                   Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
+                                                           Prefix          Range         Address Prefix   Port Range             
+                   ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
+                   ALLOW VNET OUTBOUND  65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
+                   ALLOW INTERNET       65001     Allow    *               *             INTERNET         *              *       
+                   OUTBOUND                                                                                                      
+                   DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *
 
-     Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
-     | Set-AzureNetworkSecurityRule -Name web-rule `
-         -Action Allow -Protocol TCP -Type Inbound -Priority 200 `
-         -SourceAddressPrefix Internet  -SourcePortRange '*' `
-         -DestinationAddressPrefix '*' -DestinationPortRange '80' 
+4. インターネットからポート 80 へのアクセスを許可するセキュリティ規則を作成します。 
 
- 予想される出力:
+        Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
+        | Set-AzureNetworkSecurityRule -Name web-rule `
+            -Action Allow -Protocol TCP -Type Inbound -Priority 200 `
+            -SourceAddressPrefix Internet  -SourcePortRange '*' `
+            -DestinationAddressPrefix '*' -DestinationPortRange '80' 
 
-     Name     : NSG-FrontEnd
-     Location : Central US
-     Label    : Front end subnet NSG
-     Rules    : 
-    
-                   Type: Inbound
-    
-                Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
-                                                        Prefix          Range         Address Prefix   Port Range             
-                ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
-                rdp-rule             100       Allow    INTERNET        *             *                3389           TCP     
-                web-rule             200       Allow    INTERNET        *             *                80             TCP     
-                ALLOW VNET INBOUND   65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
-                ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
-                BALANCER INBOUND                        CER                                                                   
-                DENY ALL INBOUND     65500     Deny     *               *             *                *              *       
-    
-    
-                   Type: Outbound
-    
-                Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
-                                                        Prefix          Range         Address Prefix   Port Range             
-                ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
-                ALLOW VNET OUTBOUND  65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
-                ALLOW INTERNET       65001     Allow    *               *             INTERNET         *              *       
-                OUTBOUND                                                                                                      
-                DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
+    予想される出力:
+        
 
+        Name     : NSG-FrontEnd
+        Location : Central US
+        Label    : Front end subnet NSG
+        Rules    : 
+                   
+                      Type: Inbound
+                   
+                   Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
+                                                           Prefix          Range         Address Prefix   Port Range             
+                   ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
+                   rdp-rule             100       Allow    INTERNET        *             *                3389           TCP     
+                   web-rule             200       Allow    INTERNET        *             *                80             TCP     
+                   ALLOW VNET INBOUND   65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
+                   ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
+                   BALANCER INBOUND                        CER                                                                   
+                   DENY ALL INBOUND     65500     Deny     *               *             *                *              *       
+                   
+                   
+                      Type: Outbound
+                   
+                   Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
+                                                           Prefix          Range         Address Prefix   Port Range             
+                   ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
+                   ALLOW VNET OUTBOUND  65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
+                   ALLOW INTERNET       65001     Allow    *               *             INTERNET         *              *       
+                   OUTBOUND                                                                                                      
+                   DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
 
 ## バックエンドのサブネットの NSG を作成する方法
-
-3. **NSG-BackEnd** という名前のネットワーク セキュリティ グループを作成します。
+3. ネットワーク セキュリティ グループを作成 **NSG バックエンド**します。
 
         New-AzureNetworkSecurityGroup -Name "NSG-BackEnd" -Location uswest `
             -Label "Back end subnet NSG"
@@ -136,82 +134,78 @@
         ----        --------   -----              
         NSG-BackEnd West US    Back end subnet NSG
 
-4. フロント エンドのサブネットからポート 1433 (SQL Server で使用される既定のポート) へのアクセスを許可するセキュリティ規則を作成します。
 
-     Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
-     | Set-AzureNetworkSecurityRule -Name rdp-rule `
-         -Action Allow -Protocol TCP -Type Inbound -Priority 100 `
-         -SourceAddressPrefix 192.168.1.0/24  -SourcePortRange '*' `
-         -DestinationAddressPrefix '*' -DestinationPortRange '1433' 
+4. フロント エンドのサブネットからポート 1433 (SQL Server で使用される既定のポート) へのアクセスを許可するセキュリティ規則を作成します。 
 
- 予想される出力:
+        Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
+        | Set-AzureNetworkSecurityRule -Name rdp-rule `
+            -Action Allow -Protocol TCP -Type Inbound -Priority 100 `
+            -SourceAddressPrefix 192.168.1.0/24  -SourcePortRange '*' `
+            -DestinationAddressPrefix '*' -DestinationPortRange '1433' 
 
-     Name     : NSG-BackEnd
-     Location : Central US
-     Label    : Back end subnet NSG
-     Rules    : 
-    
-                   Type: Inbound
-    
-                Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
-                                                        Prefix          Range         Address Prefix   Port Range             
-                ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
-                fe-rule              100       Allow    192.168.1.0/24  *             *                1433           TCP     
-                ALLOW VNET INBOUND   65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
-                ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
-                BALANCER INBOUND                        CER                                                                   
-                DENY ALL INBOUND     65500     Deny     *               *             *                *              *       
-    
-    
-                   Type: Outbound
-    
-                Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
-                                                        Prefix          Range         Address Prefix   Port Range             
-                ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
-                ALLOW VNET OUTBOUND  65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
-                ALLOW INTERNET       65001     Allow    *               *             INTERNET         *              *       
-                OUTBOUND                                                                                                      
-                DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *      
+    予想される出力:
 
-4. サブネットからインターネットへのアクセスをブロックするセキュリティ規則を作成します。
+        Name     : NSG-BackEnd
+        Location : Central US
+        Label    : Back end subnet NSG
+        Rules    : 
+                   
+                      Type: Inbound
+                   
+                   Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
+                                                           Prefix          Range         Address Prefix   Port Range             
+                   ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
+                   fe-rule              100       Allow    192.168.1.0/24  *             *                1433           TCP     
+                   ALLOW VNET INBOUND   65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
+                   ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
+                   BALANCER INBOUND                        CER                                                                   
+                   DENY ALL INBOUND     65500     Deny     *               *             *                *              *       
+                   
+                   
+                      Type: Outbound
+                   
+                   Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
+                                                           Prefix          Range         Address Prefix   Port Range             
+                   ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
+                   ALLOW VNET OUTBOUND  65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
+                   ALLOW INTERNET       65001     Allow    *               *             INTERNET         *              *       
+                   OUTBOUND                                                                                                      
+                   DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *      
 
-     Get-AzureNetworkSecurityGroup -Name "NSG-BackEnd" `
-     | Set-AzureNetworkSecurityRule -Name block-internet `
-         -Action Deny -Protocol '*' -Type Outbound -Priority 200 `
-         -SourceAddressPrefix '*'  -SourcePortRange '*' `
-         -DestinationAddressPrefix Internet -DestinationPortRange '*' 
+4. サブネットからインターネットへのアクセスをブロックするセキュリティ規則を作成します。 
 
- 予想される出力:
+        Get-AzureNetworkSecurityGroup -Name "NSG-BackEnd" `
+        | Set-AzureNetworkSecurityRule -Name block-internet `
+            -Action Deny -Protocol '*' -Type Outbound -Priority 200 `
+            -SourceAddressPrefix '*'  -SourcePortRange '*' `
+            -DestinationAddressPrefix Internet -DestinationPortRange '*' 
 
-     Name     : NSG-BackEnd
-     Location : Central US
-     Label    : Back end subnet NSG
-     Rules    : 
-    
-                   Type: Inbound
-    
-                Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
-                                                        Prefix          Range         Address Prefix   Port Range             
-                ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
-                fe-rule              100       Allow    192.168.1.0/24  *             *                1433           TCP     
-                ALLOW VNET INBOUND   65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
-                ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
-                BALANCER INBOUND                        CER                                                                   
-                DENY ALL INBOUND     65500     Deny     *               *             *                *              *       
-    
-    
-                   Type: Outbound
-    
-                Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
-                                                        Prefix          Range         Address Prefix   Port Range             
-                ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
-                block-internet       200       Deny     *               *             INTERNET         *              *       
-                ALLOW VNET OUTBOUND  65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
-                ALLOW INTERNET       65001     Allow    *               *             INTERNET         *              *       
-                OUTBOUND                                                                                                      
-                DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
+    予想される出力:
 
-
-
-
-
+        Name     : NSG-BackEnd
+        Location : Central US
+        Label    : Back end subnet NSG
+        Rules    : 
+                   
+                      Type: Inbound
+                   
+                   Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
+                                                           Prefix          Range         Address Prefix   Port Range             
+                   ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
+                   fe-rule              100       Allow    192.168.1.0/24  *             *                1433           TCP     
+                   ALLOW VNET INBOUND   65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
+                   ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
+                   BALANCER INBOUND                        CER                                                                   
+                   DENY ALL INBOUND     65500     Deny     *               *             *                *              *       
+                   
+                   
+                      Type: Outbound
+                   
+                   Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
+                                                           Prefix          Range         Address Prefix   Port Range             
+                   ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
+                   block-internet       200       Deny     *               *             INTERNET         *              *       
+                   ALLOW VNET OUTBOUND  65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
+                   ALLOW INTERNET       65001     Allow    *               *             INTERNET         *              *       
+                   OUTBOUND                                                                                                      
+                   DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   

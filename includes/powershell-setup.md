@@ -9,7 +9,6 @@
    ms.date="05/12/2015"
    ms.author="josephd" />
 
-
 ## PowerShell のセットアップ
 
 Azure PowerShell を使用する前に次の手順を実行します。
@@ -32,7 +31,7 @@ Windows PowerShell を使用するには、Windows PowerShell Version 3.0 か 4.
     PSCompatibleVersions           {1.0, 2.0, 3.0}
     PSRemotingProtocolVersion      2.2
 
-**PSVersion** の値が 3.0 または 4.0 であることを確認します。 互換性のあるバージョンをインストールするを参照してください。 [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) または [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)します。
+いることを確認の値 **PSVersion** が 3.0 または 4.0。 互換性のあるバージョンをインストールするを参照してください。 [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) または [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)します。
 
 また、Azure PowerShell Version 0.8.0 以降も必要です。 インストールした Azure PowerShell のバージョンは、Azure PowerShell コマンド プロンプトで次のコマンドを使用して確認できます。
 
@@ -72,14 +71,10 @@ Azure サブスクリプションが複数ある場合は、次のコマンド�
     CurrentStorageAccountName : 
     TenantId                  : 32fa88b4-86f1-419f-93ab-2d7ce016dba7
 
-Azure PowerShell コマンド プロンプトで次のコマンドを実行して、現在の Azure サブスクリプションを設定します。置換を含む引用符内のすべての < と > 適切な名前の文字。
+Azure PowerShell コマンド プロンプトで次のコマンドを実行して、現在の Azure サブスクリプションを設定します。 置換を含む引用符内のすべての < と > 適切な名前の文字。
 
     $subscr="<SubscriptionName from the display of Get-AzureSubscription>"
     Select-AzureSubscription -SubscriptionName $subscr -Current 
 
 Azure サブスクリプションとアカウントの詳細については、次を参照してください。 [方法: サブスクリプションへの接続](powershell-install-configure.md#Connect)します。
-
-
-
-
 

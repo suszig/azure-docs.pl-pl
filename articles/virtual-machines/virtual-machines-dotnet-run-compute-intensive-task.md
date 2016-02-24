@@ -1,12 +1,12 @@
 <properties
-    pageTitle="VM で多くのコンピューティング処理を要する .NET アプリケーションを実行する | Microsoft Azure"
-    description="Azure 仮想マシンに多くのコンピューティング処理を要する .NET アプリケーションをデプロイして実行する方法と、Azure Service Bus キューを使用して進捗をリモートで監視する方法について説明します。"
-    services="virtual-machines"
+    pageTitle ="VM でのコンピューティング処理を要する .NET アプリケーションの実行 |Microsoft Azure]
+    description =「展開し、Azure の仮想マシンでのコンピューティング処理を要する .NET アプリケーションの実行、および Azure Service Bus キューを使用して進捗をリモートで監視する方法について説明します」。
+    サービス =「仮想マシン」
     documentationCenter=".net"
-    authors="wadepickett"
+    authors ="wadepickett"
     manager="wpickett"
-    editor="mollybos"
-    tags=“azure-service-management"/>
+    エディター ="mollybos"
+    タグ =「azure サービス管理」/>
 
 <tags
     ms.service="virtual-machines"
@@ -16,7 +16,6 @@
     ms.topic="article"
     ms.date="06/25/2015"
     ms.author="wpickett"/>
-
 
 # Azure の仮想マシンで多くのコンピューティング処理を要する .NET タスクを実行する方法
 
@@ -50,22 +49,22 @@ Azure で仮想マシンを使用することで、多くのコンピューテ�
 ## 仮想マシンを作成するには
 
 1. ログイン、 [Azure クラシック ポータル](https://manage.windowsazure.com)します。
-2. **[新規]** をクリックします。
-3. **[仮想マシン]** をクリックします。
-4. **[簡易作成]** をクリックします。
-5. **[仮想マシンを作成する]** 画面で、**[DNS 名]** に値を入力します。
-6. **[イメージ]** ボックスの一覧で、イメージ (**[Windows Server 2012 R2]** など) を選択します。
-7. **[ユーザー名]** フィールドに、管理者の名前を入力します。 この名前と次に入力するパスワードを忘れないでください。仮想マシンにリモート ログインするときに使用します。
-8. **[新しいパスワード]** フィールドにパスワードを入力し、**[確認]** フィールドにもう一度パスワードを入力します。
-9. **[場所]** ボックスの一覧で、仮想マシンを配置するデータ センターの場所を選択します。
-10. **[仮想マシンの作成]** をクリックします。 Azure クラシック ポータルの **[仮想マシン]** セクションで状態を監視できます。 状態が **[有効]** と表示されたら、仮想マシンにログインできます。
+2. クリックして **新しい**します。
+3. クリックして **仮想マシン**します。
+4. クリックして **簡易作成**します。
+5.  **仮想マシンの作成** 画面で、値を入力 **DNS 名**します。
+6.  **イメージ** ドロップ ダウン ボックスの一覧で、イメージを選択します。 **Windows Server 2012 R2**します。
+7. 管理者の名前を入力、 **ユーザー名** フィールドです。 この名前と次に入力するパスワードを忘れないでください。仮想マシンにリモート ログインするときに使用します。
+8. パスワードを入力、 **新しいパスワード** フィールドとに再度入力、 **Confirm** フィールドです。
+9.  **場所** ドロップダウン リストで、データ センターの仮想マシンの場所。
+10. クリックして **仮想マシンの作成**します。 ステータスを監視することができます、 **仮想マシン** Azure クラシック ポータルのセクションです。 その状態が表示される場合 **Active**, 、仮想マシンにログインすることができます。
 
 ## 仮想マシンにリモート ログインするには
 
 1. ログイン、 [Azure クラシック ポータル](https://manage.windowsazure.com)します。
-2. **[仮想マシン]** をクリックします。
+2. クリックして **仮想マシン**します。
 3. ログインする仮想マシンの名前をクリックします。
-4. **[接続]** をクリックします。
+4. クリックして **接続**します。
 5. 表示される画面で必要に応じて入力して、仮想マシンに接続します。 管理者名とパスワードの入力画面が表示されたら、仮想マシンの作成時に指定した値を使用します。
 
 ## Service Bus 名前空間の作成方法
@@ -77,22 +76,23 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
 サービス名前空間を作成するには:
 
 1.  ログイン、 [Azure クラシック ポータル](https://manage.windowsazure.com)します。
-2.  Azure クラシック ポータルの左のナビゲーション ウィンドウで、**[Service Bus]** をクリックします。
+2.  Azure クラシック ポータルの左側のナビゲーション ウィンドウで、クリックして **Service Bus**します。
 3.  Azure クラシック ポータルの下のウィンドウで、クリックして  **作成**します。
 
     ![新しい Service Bus の作成][create_service_bus]
-4.  **[名前空間を作成する]** ダイアログ ボックスで、名前空間の名前を入力します。 その名前が使用できるかどうかがすぐに自動で確認されます。重複する名前は使用できません。
+4.   **名前空間の作成** ] ダイアログ ボックスで、名前空間の名前を入力します。 その名前が使用できるかどうかがすぐに自動で確認されます。重複する名前は使用できません。
 
     ![[名前空間を作成する] ダイアログ][create_namespace_dialog]
 5.  入力した名前が利用できることを確認できたら、名前空間をホストするリージョンを選択します (仮想マシンをホストするリージョンと同じリージョンを必ず使用してください)。
-    > [AZURE.IMPORTANT] 仮想マシンが使用するリージョンまたは使用する予定のリージョンと**同じリージョン**を選択してください。 そうすることで、パフォーマンスが最高になります。
+
+    > [AZURE.IMPORTANT] 選択、 **同じリージョン** を使用するか、仮想マシンに使用する予定です。 そうすることで、パフォーマンスが最高になります。
 
 6. ログオンしたアカウントに複数の Azure サブスクリプションがある場合は、名前空間で使用するサブスクリプションを選択します (ログオンしたアカウントにサブスクリプションが 1 つしかない場合、サブスクリプションのドロップダウン リストは表示されません)。
 7. チェック マークをクリックします。 これで、システムによってサービス名前空間が 作成および有効化されます。 システムがアカウントのリソースを準備し 終わるまでに、数分間かかる場合があります。
 
     ![クリックして作成するスクリーンショット][click_create]
 
-作成した名前空間が Azure クラシック ポータルに表示され、アクティブになります。これには少し時間がかかります。 状態が **[有効]** になるのを待ってから、次の手順に進みます。
+作成した名前空間が Azure クラシック ポータルに表示され、アクティブになります。これには少し時間がかかります。 待機状態になるまで **Active** 次の手順に進む前にします。
 
 ## 名前空間の既定の管理資格情報の取得
 
@@ -102,19 +102,19 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
 
 1.  左側のナビゲーション ウィンドウで、クリックして **Service Bus** に
     使用できる名前空間の一覧を表示します。
-    ![使用可能な名前空間のスクリーン ショット][available_namespaces]
+    ![使用できる名前空間のスクリーン ショット][available_namespaces]
 2.  一覧から先ほど作成した名前空間を選択します。
     ![名前空間の一覧のスクリーン ショット][namespace_list]
-3. **[接続情報]** をクリックします。
-    ![[アクセス キー] ボタン][access_key_button]
-4.  ダイアログ ボックスで、**[接続文字列]** エントリを見つけます。 この値を書き留めておきます。この情報は、後で名前空間に対して操作を実行するときに使用します。
+3. クリックして **接続情報**します。
+    ![アクセス キー] ボタン][access_key_button]
+4.  ダイアログ ボックスで、検索、 **接続文字列** エントリです。 この値を書き留めておきます。この情報は、後で名前空間に対して操作を実行するときに使用します。
 
 ## 多くのコンピューティング処理を要するタスクを実行する .NET アプリケーションの作成方法
 
 1. 開発コンピューターで (これに作成した仮想マシンはありません)、ダウンロード、 [Azure SDK for .NET](http://azure.microsoft.com/develop/net/)します。
-2. TSPSolver というプロジェクト名で .NET コンソール アプリケーションを作成します。 ターゲット フレームワークが、(**.NET Framework 4 Client Profile** ではなく) **.NET Framework 4** 以降に設定されていることを確認します。 ターゲット フレームワークは、プロジェクトを作成した後に変更することもできます。その場合は、Visual Studio で **[プロジェクト]** メニューの **[プロパティ]** をクリックし、**[アプリケーション]** タブをクリックして、**[ターゲット フレームワーク]** の値を設定します。
+2. TSPSolver というプロジェクト名で .NET コンソール アプリケーションを作成します。 ターゲット フレームワークが設定されていることを確認します**。.NET Framework 4** 以降 (いない **.NET Framework 4 Client Profile**)。 ターゲット フレームワークを設定できる、プロジェクトを作成したら、次: Visual Studio のメニューでクリックして **プロジェクト**, 、] をクリックして **プロパティ**, 、] をクリックして、 **アプリケーション** タブをクリックしの値を設定し、 **ターゲット フレームワーク**します。
 3. Microsoft ServiceBus ライブラリを追加します。 Visual Studio ソリューション エクスプ ローラーで右クリックし **TSPSolver**, 、] をクリックして **参照の追加**, をクリックして、 **参照** タブで、Azure .NET SDK (たとえば、C:\Program files \microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef) を参照し、選択 **Microsoft.ServiceBus.dll** 参照として。
-4. System Runtime Serialization ライブラリを追加します。 Visual Studio のソリューション エクスプローラーで、**[TSPSolver]** を右クリックし、**[参照の追加]** をクリックします。**[.NET]** タブをクリックし、**[System.Runtime.Serialization]** を参照として選択します。
+4. System Runtime Serialization ライブラリを追加します。 Visual Studio ソリューション エクスプ ローラーで右クリックし **TSPSolver**, 、] をクリックして **参照の追加**, 、] をクリックして、 **.NET** タブをクリックし、選択 **System.Runtime.Serialization** として参照します。
 5. Program.cs ファイルの内容として、このセクションの末尾にあるコード例を使用します。
 6. 変更、 **your\_connection\_string** Service Bus を使用するプレース ホルダー **接続文字列**します。
 7. アプリケーションをコンパイルします。 これにより、プロジェクトの bin フォルダー (リリース ビルドかデバッグ ビルドかに応じて bin\release または bin\debug) に TSPSolver.exe が作成されます。 この実行可能ファイルと Microsoft.ServiceBus.dll を後で仮想マシンにコピーします。
@@ -126,10 +126,10 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
     using System.Linq;
     using System.Text;
     using System.IO;
-    
+
     using Microsoft.ServiceBus;
     using Microsoft.ServiceBus.Messaging;
-    
+
     namespace TSPSolver
     {
         class Program
@@ -137,26 +137,26 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
             // Value specifying how often to provide an update to the console.
             private static long loopCheck = 100000000;
             private static long nTimes = 0, nLoops = 0;
-    
+
             private static double[,] distances;
             private static String[] cityNames;
             private static int[] bestOrder;
             private static double minDistance;
-    
+
             private static NamespaceManager namespaceManager;
             private static QueueClient queueClient;
             private static String queueName = "TSPQueue";
-    
+
             private static void BuildDistances(String fileLocation, int numCities)
             {
-    
+
                 try
                 {
                     StreamReader sr = new StreamReader(fileLocation);
                     String[] sep1 = { ", " };
-    
+
                     double[,] cityLocs = new double[numCities, 2];
-    
+
                     for (int i = 0; i < numCities; i++)
                     {
                         String[] line = sr.ReadLine().Split(sep1, StringSplitOptions.None);
@@ -165,7 +165,7 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
                         cityLocs[i, 1] = Convert.ToDouble(line[2]);
                     }
                     sr.Close();
-    
+
                     for (int i = 0; i < numCities; i++)
                     {
                         for (int j = i; j < numCities; j++)
@@ -180,17 +180,17 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
                     throw e;
                 }
             }
-    
+
             private static double hypot(double x, double y)
             {
                 return Math.Sqrt(x * x + y * y);
             }
-    
+
             private static void permutation(List<int> startCities, double distSoFar, List<int> restCities)
             {
                 try
                 {
-    
+
                     nTimes++;
                     if (nTimes == loopCheck)
                     {
@@ -200,7 +200,7 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
                         Console.Write("Current time is {0}.", dateTime);
                         Console.WriteLine(" Completed {0} iterations of size of {1}.", nLoops, loopCheck);
                     }
-    
+
                     if ((restCities.Count == 1) && ((minDistance == -1) || (distSoFar + distances[restCities[0], startCities[0]] + distances[restCities[0], startCities[startCities.Count - 1]] < minDistance)))
                     {
                         startCities.Add(restCities[0]);
@@ -224,14 +224,14 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
                     throw e;
                 }
             }
-    
+
             private static void newBestDistance(List<int> cities, double distance)
             {
                 try
                 {
                     minDistance = distance;
                     String cityList = "Shortest distance is " + minDistance + ", with route: ";
-    
+
                     for (int i = 0; i < bestOrder.Length; i++)
                     {
                         bestOrder[i] = cities[i];
@@ -247,19 +247,19 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
                     throw e;
                 }
             }
-    
+
             static void Main(string[] args)
             {
                 try
                 {
-    
+
                   String connectionString = @"your_connection_string";
-    
+
                     int numCities = 10; // Use as the default, if no value is specified
                     // at the command line.
                     if (args.Count() != 0)
                     {
-    
+
                         if (args[0].ToLower().CompareTo("createqueue") == 0)
                         {
                             // No processing to occur other than creating the queue.
@@ -268,7 +268,7 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
                             Console.WriteLine("Queue named {0} was created.", queueName);
                             Environment.Exit(0);
                         }
-    
+
                         if (args[0].ToLower().CompareTo("deletequeue") == 0)
                         {
                             // No processing to occur other than deleting the queue.
@@ -277,19 +277,19 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
                             Console.WriteLine("Queue named {0} was deleted.", queueName);
                             Environment.Exit(0);
                         }
-    
+
                         // Neither creating or deleting a queue.
                         // Assume the value passed in is the number of cities to solve.
                         numCities = Convert.ToInt32(args[0]);
                     }
-    
+
                     Console.WriteLine("Running for {0} cities.", numCities);
-    
+
                     queueClient = QueueClient.CreateFromConnectionString(connectionString, "TSPQueue");
-    
+
                     List<int> startCities = new List<int>();
                     List<int> restCities = new List<int>();
-    
+
                     startCities.Add(0);
                     for (int i = 1; i < numCities; i++)
                     {
@@ -303,10 +303,10 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
                     permutation(startCities, 0, restCities);
                     Console.WriteLine("Final solution found!");
                     queueClient.Send(new BrokeredMessage("Complete"));
-    
+
                     queueClient.Close();
                     Environment.Exit(0);
-    
+
                 }
                 catch (ServerBusyException serverBusyException)
                 {
@@ -333,11 +333,13 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
         }
     }
 
+
+
 ## 多くのコンピューティング処理を要するタスクの進捗状況を監視する .NET アプリケーションの作成方法
 
-1. 開発用コンピューターで、TSPClient というプロジェクト名で .NET コンソール アプリケーションを作成します。 ターゲット フレームワークが、(**.NET Framework 4 Client Profile** ではなく) **.NET Framework 4** 以降に設定されていることを確認します。 ターゲット フレームワークは、プロジェクトを作成した後に設定することもできます。その場合は、Visual Studio で **[プロジェクト]** メニューの **[プロパティ]** をクリックし、**[アプリケーション]** タブをクリックして、**[ターゲット フレームワーク]** の値を設定します。
+1. 開発用コンピューターで、TSPClient というプロジェクト名で .NET コンソール アプリケーションを作成します。 ターゲット フレームワークが設定されていることを確認します**。.NET Framework 4** 以降 (いない **.NET Framework 4 Client Profile**)。 次に、プロジェクトを作成した後、ターゲット フレームワークを設定することができます。 Visual Studio のメニューで、[] をクリック **プロジェクト**, 、] をクリック **プロパティ**, 、] をクリック、 **アプリケーション** タブをクリックし、の値を設定し、 **ターゲット フレームワーク**です。
 2. Microsoft ServiceBus ライブラリを追加します。 Visual Studio ソリューション エクスプ ローラーで右クリックし **TSPClient**, 、] をクリックして **参照の追加**, をクリックして、 **参照** タブで、Azure .NET SDK (たとえば、C:\Program files \microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef) を参照し、選択 **Microsoft.ServiceBus.dll** 参照として。
-3. System Runtime Serialization ライブラリを追加します。 Visual Studio のソリューション エクスプローラーで、**[TSPClient]** を右クリックし、**[参照の追加]** をクリックします。**[.NET]** タブをクリックし、**[System.Runtime.Serialization]** を参照として選択します。
+3. System Runtime Serialization ライブラリを追加します。 Visual Studio ソリューション エクスプ ローラーで右クリックし **TSPClient**, 、] をクリックして **参照の追加**, 、] をクリックして、 **.NET** タブをクリックし、選択 **System.Runtime.Serialization** として参照します。
 4. Program.cs ファイルの内容として、このセクションの末尾にあるコード例を使用します。
 5. 変更、 **your\_connection\_string** Service Bus を使用するプレース ホルダー **接続文字列**します。
 6. アプリケーションをコンパイルします。 これにより、プロジェクトの bin フォルダー (リリース ビルドかデバッグ ビルドかに応じて bin\release または bin\debug) に TSPClient.exe が作成されます。 このコードを開発用コンピューターから実行することも、別のコンピューターに実行可能ファイルと Microsoft.ServiceBus.dll をコピーして、そこでクライアント アプリケーションを実行することもできます (アプリケーションを仮想マシン上に置く必要はありません)。
@@ -349,55 +351,55 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
     using System.Linq;
     using System.Text;
     using System.IO;
-    
+
     using Microsoft.ServiceBus;
     using Microsoft.ServiceBus.Messaging;
     using System.Threading; // For Thread.Sleep
-    
+
     namespace TSPClient
     {
         class Program
         {
-    
+
             static void Main(string[] args)
             {
-    
+
                 try
                 {
-    
+
                     Console.WriteLine("Starting at {0}", DateTime.Now);
-    
+
                                     String connectionString = @"your_connection_string";
-    
+
                     QueueClient queueClient = QueueClient.CreateFromConnectionString(connectionString, "TSPQueue");
-    
+
                     BrokeredMessage message;
-    
+
                     int waitMinutes = 3;  // Use as the default, if no value
                     // is specified at command line.
-    
+
                     if (0 != args.Length)
                     {
                         waitMinutes = Convert.ToInt16(args[0]);
                     }
-    
+
                     String waitString;
                     waitString = (waitMinutes == 1) ? "minute" : waitMinutes.ToString() + " minutes";
-    
+
                     while (true)
                     {
                         message = queueClient.Receive();
-    
+
                         if (message != null)
                         {
                             try
                             {
                                 string str = message.GetBody<string>();
                                 Console.WriteLine(str);
-    
+
                                 // Remove message from queue.
                                 message.Complete();
-    
+
                                 if ("Complete" == str)
                                 {
                                     Console.WriteLine("Finished at {0}.", DateTime.Now);
@@ -520,11 +522,11 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
  数値を指定しなかった場合、プログラムは 10 都市を対象として実行されます。 現時点で最短の経路が見つかると、それがキューに追加されます。
 
 プログラムはすべての経路の調査が完了すると終了します。
+
 > [AZURE.NOTE]
 > 指定した数値が大きいほど、プログラムの実行時間は長くなります。 たとえば、14 都市の場合は数分で実行できても、15 都市になると実行に数時間かかることがありえます。 16 都市以上にすると実行時間が数日になる可能性があります (最終的には数週間、数か月、数年になります)。 これは都市数が増えるにつれてプログラムが評価する順列の数が急増するためです。
 
 ### 監視用のクライアント アプリケーションの実行方法
-
 1. クライアント アプリケーションを実行するコンピューターにログインします。 これは、TSPSolver アプリケーションを実行するコンピューターと同じでなくてもかまいません。
 2. アプリケーションを実行するフォルダーを作成します。 たとえば、c:\TSP です。
 3. TSPClient プロジェクトの bin フォルダーにある TSPClient.exe と Microsoft.ServiceBus.dll を c:\TSP フォルダーにコピーします。
@@ -541,22 +543,19 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
 
         TSPSolver deletequeue
 
-
 ## .NET アプリケーションの停止方法
 
 問題を解くアプリケーションとクライアント アプリケーションのどちらでも、Ctrl + C キーを押すと、通常の処理が完了する前にアプリケーションが終了します。
 
 ## TSPSolver を使用しないでキューを作成し削除する方法
-
 TSPSolver を使用して作成またはキューを削除するの代わりに作成または削除を使用して、キュー、 [Azure クラシック ポータル](https://manage.windowsazure.com)します。 Azure クラシック ポータルの Service Bus セクションには、キューを作成し削除する機能のほかに、接続文字列や発行者、アクセス キーを取得する機能も用意されています。 また、Service Bus キューのダッシュボードを表示して、受信メッセージと送信メッセージのメトリックを表示することもできます。
 
-
-[solver_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png 
-[client_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPClient.png 
-[create_service_bus]: ./media/virtual-machines-dotnet-run-compute-intensive-task/ServiceBusCreateNew.png 
-[create_namespace_dialog]: ./media/virtual-machines-dotnet-run-compute-intensive-task/CreateNameSpaceDialog.png 
-[available_namespaces]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AvailableNamespaces.png 
-[click_create]: ./media/virtual-machines-dotnet-run-compute-intensive-task/ClickCreate.png 
-[namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png 
-[access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png 
+[solver_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png
+[client_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPClient.png
+[create_service_bus]: ./media/virtual-machines-dotnet-run-compute-intensive-task/ServiceBusCreateNew.png
+[create_namespace_dialog]: ./media/virtual-machines-dotnet-run-compute-intensive-task/CreateNameSpaceDialog.png
+[available_namespaces]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AvailableNamespaces.png
+[click_create]: ./media/virtual-machines-dotnet-run-compute-intensive-task/ClickCreate.png
+[namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
+[access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 

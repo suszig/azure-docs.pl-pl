@@ -16,12 +16,11 @@
     ms.date="08/10/2015" 
     ms.author="piyushjo" />
 
-
-# SDK の内容
+#SDK の内容
 
 このドキュメントでは、SDK アーカイブの内容を一覧にして説明しています。
 
-`mobile engagement-VERSION.jar`
+`mobile-engagement-VERSION.jar`
 
 > Engagement SDK のクラス ファイル。
 
@@ -33,15 +32,11 @@
 
 > Engagement SDK のソース コード。
 >
-> サービスのソースが含まれていないことに注意してください (`com.microsoft.azure.engagement.service.EngagementService` とその関連するソース ファイル)。
+> サービスのソース (`com.microsoft.azure.engagement.service.EngagementService` および関連するソース ファイル) は含まれていません。
 
 `documentation.html`
 
 > ダウンロードした SDK のバージョンに対応するドキュメント サイトへのショートカット。
 
 その他のファイルはソフトウェア ライセンスのコピーです。
-
-
-
-
-
+ 

@@ -1,10 +1,11 @@
-次に、登録を試みる前にユーザーが認証されるように、プッシュ通知を登録する方法を変更する必要があります。
 
-1. Visual Studio のソリューション エクスプローラーで、**Application_Launching** イベント ハンドラー内の app.xaml.cs プロジェクト ファイルを開き、**AcquirePushChannel** メソッドの呼び出しをコメントアウトまたは削除します。
+次に、登録を試みる前にユーザーが認証されるように、プッシュ通知を登録する方法を変更する必要があります。 
 
-2. 変更、 **AcquirePushChannel** からメソッド `プライベート` に `パブリック` を追加し、 `静的` 修飾子です。
+1. ソリューション エクスプ ローラーで Visual Studio で app.xaml.cs プロジェクト ファイルを開くし、[、 **Application_Launching** イベント ハンドラーのコメント アウトまたはへの呼び出しを削除、 **AcquirePushChannel** メソッドです。 
+ 
+2. 変更、 **AcquirePushChannel** メソッドから `private` に `public` を追加し、 `static` 修飾子です。 
 
-3. MainPage.xaml.cs プロジェクト ファイルを開き、**OnNavigatedTo** メソッドのオーバーライドを次のコードに置き換えます。
+3. MainPage.xaml.cs プロジェクト ファイルを開き、置換、 **OnNavigatedTo** に次のメソッドをオーバーライドします。
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -12,8 +13,3 @@
             App.AcquirePushChannel();
             RefreshTodoItems();
         }
-
-
-
-
-

@@ -1,9 +1,4 @@
 > [AZURE.SELECTOR]
-- [Windows cluster](../articles/hdinsight/hdinsight-develop-deploy-java-mapreduce.md)
-- [Linux cluster](../articles/hdinsight/hdinsight-develop-deploy-java-mapreduce-linux.md)
-
-
-
-
-
+- [Windows クラスター](../articles/hdinsight/hdinsight-develop-deploy-java-mapreduce.md)
+- [Linux クラスター](../articles/hdinsight/hdinsight-develop-deploy-java-mapreduce-linux.md)
 

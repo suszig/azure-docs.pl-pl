@@ -16,7 +16,6 @@
    ms.date="09/29/2015"
    ms.author="danlep"/>
 
-
 # HPC Pack IaaS デプロイ スクリプトを使用し、Azure VM でハイ パフォーマンス コンピューティング (HPC) クラスターを作成する
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーのモデルです。
@@ -32,17 +31,20 @@ Azure インフラストラクチャの完全な HPC Pack クラスターを展�
 
 
 HPC Pack クラスターの計画に関する背景情報を参照してください、 [製品の評価と計画](https://technet.microsoft.com/library/jj899596.aspx) と [作業の開始](https://technet.microsoft.com/library/jj899590.aspx) HPC Pack は、TechNet ライブラリのコンテンツ。
->[AZURE.NOTE]Azure リソース マネージャーのテンプレートを使用して HPC Pack クラスターをデプロイすることもできます。 例については、次を参照してください。 [HPC クラスターを作成](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/), 、[、HPC クラスターを作成、カスタムの計算ノード イメージ](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/), 、または [Linux 計算ノードと共に HPC クラスターを作成する](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)します。
+
+>[AZURE.NOTE]また、HPC Pack クラスターをデプロイするのに Azure リソース マネージャー テンプレートを使用することができます。 例については、次を参照してください。 [HPC クラスターを作成](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/), 、[、HPC クラスターを作成、カスタムの計算ノード イメージ](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/), 、または [Linux 計算ノードと共に HPC クラスターを作成する](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)です。
 
 ## 前提条件
 
-* **Azure サブスクリプション** - Azure Global または Azure China サービスのサブスクリプションを利用できます。 ご利用のサブスクリプションの制限によりデプロイ可能なクラスター ノードの数と種類が変わります。 詳細については、次を参照してください。 [Azure サブスクリプションとサービスの制限、クォータ、および制約](../azure-subscription-service-limits.md)します。
+* **Azure サブスクリプション** -Azure Global または Azure China service でサブスクリプションを使用することができます。 ご利用のサブスクリプションの制限によりデプロイ可能なクラスター ノードの数と種類が変わります。 詳細については、次を参照してください。 [Azure サブスクリプションとサービスの制限、クォータ、および制約](../azure-subscription-service-limits.md)します。
+
 
 * **Windows クライアント コンピューターと Azure PowerShell 0.8.7 以降がインストールおよび構成されている** -を参照してください [をインストールして、Azure PowerShell を構成する方法](../powershell-install-configure.md)します。 このスクリプトは Azure サービス管理で実行されます。
 
-* **HPC Pack IaaS デプロイメント スクリプト** - をダウンロードしてから、スクリプトの最新バージョンを開梱、 [Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=44949)します。 実行して、スクリプトのバージョンをチェックする `New-hpciaascluster.ps1 – バージョン`します。 この記事はバージョン 4.4.0 のスクリプトに基づきます。
 
-* **スクリプトの設定ファイル** - HPC クラスターを設定するためにスクリプトにより使用される XML ファイルを作成する必要があります。 情報とサンプルについては、この記事の後半のセクションを参照してください。
+* **HPC Pack IaaS デプロイメント スクリプト** - をダウンロードしてから、スクリプトの最新バージョンを開梱、 [Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=44949)します。 `New-HPCIaaSCluster.ps1 –Version` を実行すると、スクリプトのバージョンを確認できます。 この記事はバージョン 4.4.0 のスクリプトに基づきます。
+
+* **スクリプトの構成ファイル** -HPC クラスターを構成するスクリプトで使用される XML ファイルを作成する必要があります。 情報とサンプルについては、この記事の後半のセクションを参照してください。
 
 
 ## 構文
@@ -50,27 +52,29 @@ HPC Pack クラスターの計画に関する背景情報を参照してくだ�
 ```
 New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminPassword] <String>] [[-HPCImageName] <String>] [[-LogFile] <String>] [-Force] [-NoCleanOnFailure] [-PSSessionSkipCACheck] [<CommonParameters>]
 ```
->[AZURE.NOTE]このスクリプトは管理者として実行する必要があります。
+>[AZURE.NOTE]管理者として、スクリプトを実行する必要があります。
 
 ### パラメーター
 
-* **ConfigFile** - HPC クラスターについて説明する構成ファイルのファイル パスを指定します。 詳細については、次を参照してください。 [構成ファイル](#Configuration-file) このトピックでは、またはある Manual.rtf ファイル、フォルダーにスクリプトを含みます。
+* **ConfigFile** -HPC クラスターを記述する構成ファイルのファイル パスを指定します。 詳細については、次を参照してください。 [構成ファイル](#Configuration-file) このトピックでは、またはある Manual.rtf ファイル、フォルダーにスクリプトを含みます。
 
-* **AdminUserName** - ユーザー名を指定します。 ドメイン フォレストがこのスクリプトにより作成される場合、これがすべての VM のローカル管理者ユーザー名となり、また、ドメイン管理者名となります。 ドメイン フォレストが既に存在する場合、HPC Pack をインストールするために、ドメイン ユーザーがローカル管理者ユーザー名として指定されます。
+* **AdminUserName** -ユーザー名を指定します。 ドメイン フォレストがこのスクリプトにより作成される場合、これがすべての VM のローカル管理者ユーザー名となり、また、ドメイン管理者名となります。 ドメイン フォレストが既に存在する場合、HPC Pack をインストールするために、ドメイン ユーザーがローカル管理者ユーザー名として指定されます。
 
-* **AdminPassword** - 管理者のパスワードを指定します。 コマンド ラインで指定されない場合、パスワードを入力するように求められます。
+* **AdminPassword** -管理者のパスワードを指定します。 コマンド ラインで指定されない場合、パスワードを入力するように求められます。
 
-* **HPCImageName** (省略可能) - HPC クラスターのデプロイに使用される HPC Pack VM イメージ名が指定されます。 これは Azure Marketplace から Microsoft が提供する HPC Pack イメージにする必要があります。 指定されていない場合 (ほとんどの場合に推奨)、最近公開された HPC Pack イメージが選択されます。
-    >[AZURE.NOTE] 有効な HPC Pack イメージを指定しない場合、デプロイは失敗します。
+* **HPCImageName** (省略可能) - HPC Pack VM を指定する HPC クラスターをデプロイするために使用するイメージの名前。 これは Azure Marketplace から Microsoft が提供する HPC Pack イメージにする必要があります。 指定されていない場合 (ほとんどの場合に推奨)、最近公開された HPC Pack イメージが選択されます。
 
-* **LogFile** (省略可能) - デプロイ ログ ファイルのパスを指定します。 指定しない場合、スクリプトを実行しているコンピューターの一時ディレクトリにログ ファイルが作成されます。
+    >[AZURE.NOTE] HPC Pack の有効なイメージを指定しない場合は、展開は失敗します。
 
-* **Force** (省略可能) - すべての確認プロンプトを非表示にします。
+* **ログ ファイル** (省略可能) - 展開のログ ファイルのパスを指定します。 指定しない場合、スクリプトを実行しているコンピューターの一時ディレクトリにログ ファイルが作成されます。
 
-* **NoCleanOnFailure** (省略可能) - デプロイできなかった Azure VM を削除しません。 デプロイできなかった VM を最初に手動で削除してから、スクリプトを再実行し、デプロイを続行します。そうしないと、デプロイは失敗します。
+* **Force** (省略可能) - すべての確認プロンプトを表示しないようにします。
 
-* **PSSessionSkipCACheck** (省略可能)- このスクリプトで VM がデプロイされたすべてのクラウド サービスに対して、Azure により、自己署名付きの証明書が自動生成されます。クラウド サービスのすべての VM でこの証明書を既定の Windows リモート管理 (WinRM) 証明書として使用します。 HPC 機能を Azure Vm を展開するには、スクリプト既定で一時的にこれらの証明書でインストールをスクリプトの実行中に"信頼されていない CA"セキュリティ エラーを抑制するクライアント コンピューターのローカル Computer\\Trusted ルート証明機関ストアスクリプトが完了したら、証明書が削除されます。 このパラメーターが指定されている場合、証明書はクライアント コンピューターにインストールされず、セキュリティ警告が非表示になります。
-    >[AZURE.IMPORTANT] 本稼働デプロイの場合、このパラメーターは推奨されません。
+* **NoCleanOnFailure** (省略可能) - 正常に展開していない Azure Vm が削除されなかったことを指定します。 デプロイできなかった VM を最初に手動で削除してから、スクリプトを再実行し、デプロイを続行します。そうしないと、デプロイは失敗します。
+
+* **PSSessionSkipCACheck** (省略可能) - このスクリプトによって展開されたバーチャル マシンのすべてのクラウド サービスの自己署名証明書が自動的に Azure によって生成し、クラウド サービス内のすべての Vm は、既定の Windows リモート管理 (WinRM) 証明書としてこの証明書を使用します。 HPC 機能を Azure Vm を展開するには、スクリプト既定で一時的にこれらの証明書でインストールをスクリプトの実行中に"信頼されていない CA"セキュリティ エラーを抑制するクライアント コンピューターのローカル Computer\\Trusted ルート証明機関ストアスクリプトが完了したら、証明書が削除されます。 このパラメーターが指定されている場合、証明書はクライアント コンピューターにインストールされず、セキュリティ警告が非表示になります。
+
+    >[AZURE.IMPORTANT] 運用環境のデプロイメントでは、このパラメーターは推奨されません。
 
 ### 例
 
@@ -87,6 +91,7 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 * このスクリプトは Azure Marketplace の HPC Pack VM イメージを使用し、クラスター ヘッド ノードを作成します。 現在のイメージは HPC Pack 2012 R2 更新プログラム 3 をインストールした Windows Server 2012 R2 Datacenter に基づいています。
 
 * このスクリプトでは、任意で、HPC Pack Web ポータルまたは HPC Pack REST API を通してジョブ送信を有効にできます。
+
 
 * このスクリプトでは、追加ソフトウェアをインストールするか、その他の設定を構成する場合、カスタムの構成前スクリプトと構成後スクリプトを任意で実行できます。
 
@@ -172,6 +177,7 @@ MyHPCCNService03 と mycnstorage03 に作成されます)。 コンピューテ�
     <CertificateId>1</CertificateId>
   </AutoGrowShrink>
 </IaaSClusterConfig>
+
 ```
 
 ### 例 2
@@ -409,6 +415,7 @@ Windows Server 2008 R2 オペレーティング システム。 すべてのク�
 ```
 ## 既知の問題
 
+
 * **「VNet がありません」エラー** - 複数展開する HPC Pack IaaS デプロイメント スクリプトを実行する場合
 1 つまたは複数の 1 つのサブスクリプションで同時に Azure のクラスター
 展開がエラーで失敗する可能性があります"VNet *VNet\_Name* が存在しない"です。
@@ -426,7 +433,7 @@ Windows Server 2008 R2 オペレーティング システム。 すべてのク�
     フォワーダー DNS サーバーです。 サーバー マネージャーのクリックで **ツール** >
     **DNS** DNS マネージャーを開きをダブルクリックする **フォワーダー**します。
 
-* **RDMA のネットワークのサイズ A8 または A9 の Vm へのアクセスに問題** - Windows Server のコンピューティング ノードまたはブローカー ノードのサイズが A8 Vm を追加する場合、または
+* **RDMA ネットワークのサイズ A8 または A9 の Vm のアクセスに関する問題** - Windows Server のコンピューティング ノードまたはブローカー ノードのサイズが A8 Vm を追加する場合、または
 配置スクリプトを使用して、A9、問題が発生する可能性があります。
 これらの Vm をアプリケーションの RDMA ネットワークに接続します。 この理由の 1 つ
 発生する可能性が HpcVmDrivers 拡張機能が正しくインストールされていないかどうかは、
@@ -445,9 +452,5 @@ Windows Server 2008 R2 オペレーティング システム。 すべてのク�
 
 * クラスターを作成し、HPC ワークロードを実行するスクリプトを使用するチュートリアルについては、次を参照してください。 [Excel と SOA ワークロードを実行する Azure で HPC Pack クラスターを使ってみる](virtual-machines-excel-cluster-hpcpac), 、[Linux での Microsoft HPC Pack での実行の NAMD の計算ノードとして Azure](virtual-machines-linux-cluster-hpcpack-namd.md), 、または [Linux での Microsoft HPC Pack での実行の OpenFOAM の計算ノードとして Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md)します。
 
-* HPC Pack のツールを試し、作成したクラスターからコンピューティング ノードを開始、停止、追加、削除してください。 を参照してください [HPC pack コンピューティング ノードの管理は、Azure におけるクラスター](virtual-machines-hpcpack-cluster-node-manage.md)
-
-
-
-
+* HPC Pack のツールを試し、作成したクラスターからコンピューティング ノードを開始、停止、追加、削除してください。 参照してください [Azure のクラスターの HPC pack コンピューティング ノードの管理](virtual-machines-hpcpack-cluster-node-manage.md)
 

@@ -17,21 +17,20 @@
     ms.tgt_pltfrm="NA"/>
 
 
-
 # PowerShell を使用した Azure SQL Database のコピーの作成
 
 **1 つのデータベース**
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-copy.md)
+- [Azure ポータル](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
 - [SQL](sql-database-copy-transact-sql.md)
 
 
 
-
 次の手順では、PowerShell で SQL データベースをコピーする方法を説明します。 データベース コピー操作では、使用して新しいデータベースに SQL データベースをコピー、 [Start-azuresqldatabasecopy](https://msdn.microsoft.com/library/dn720220.aspx) コマンドレットです。 コピーは、同じサーバーか別のサーバーで作成するデータベースのスナップショット バックアップです。
-> [AZURE.NOTE] Azure SQL Database では、復元できるすべてのユーザー データベースのバックアップが自動的に作成され、保守されます。 詳細については、「 [ビジネス継続性の概要](sql-database-business-continuity.md)します。
+
+> [AZURE.NOTE] Azure SQL データベースは自動的に作成され、すべてのユーザー データベースを復元するバックアップを保持します。 詳細については、「 [ビジネス継続性の概要](sql-database-business-continuity.md)します。
 
 コピー プロセスが完了すると、新しいデータベースは、コピー元のデータベースに依存せずに完全に機能するデータベースになります。 コピーの完了時点で、新しいデータベースのトランザクションはコピー元のデータベースと同じになります。 データベース コピーのサービス レベルとパフォーマンス レベル (価格レベル) はコピー元のデータベースと同じになります。 コピーの完了後、コピーは完全に機能する独立したデータベースになります。 ログイン、ユーザー、アクセス許可は非依存で管理できます。
 
@@ -41,9 +40,9 @@
 
 この記事を完了するには、以下が必要です。
 
-- Azure サブスクリプション。 Azure サブスクリプションをお持ちでない場合、このページの上部の**無料試用版**をクリックしてからこの記事に戻り、最後まで完了してください。
-- Azure SQL Database。 SQL データベースがない、1 つ作成この記事の手順: [最初の Azure SQL Database を作成する](sql-database-get-started.md)します。
-- Azure PowerShell。ダウンロードして実行して、Azure PowerShell モジュールをインストール、 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)します。詳細については、次を参照してください。 [をインストールして、Azure PowerShell を構成する方法](powershell-install-configure.md)します。
+- Azure サブスクリプション。 をクリックする必要がある場合、Azure サブスクリプションだけで **無料評価版** これの上部にあるページをこの記事を完了する通します。
+- Azure SQL Database。 SQL データベースがない、1 つ作成この記事の手順: [最初の Azure SQL Database を作成する](sql-database-get-started.md)です。
+- Azure PowerShell。 ダウンロードして実行して、Azure PowerShell モジュールをインストール、 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)します。 詳細については、次を参照してください。 [をインストールして、Azure PowerShell を構成する方法](powershell-install-configure.md)します。
 
 
 
@@ -58,11 +57,11 @@
 
 ### Azure サブスクリプションを選択します。
 
-サブスクリプションを選択するには、サブスクリプション ID またはサブスクリプション名 (**-SubscriptionName**) が必要になります。 サブスクリプション ID は前の手順で示された情報からコピーできます。または、複数のサブスクリプションがあり、詳しい情報が必要な場合は、**Get-AzureSubscription** コマンドレットを実行して、結果セットから目的のサブスクリプション情報をコピーできます。 ご利用のサブスクリプションを取得したら次のコマンドレットを実行します。
+サブスクリプションを選択する必要があります、サブスクリプション Id とサブスクリプション名 (**-subscriptionname**)。 サブスクリプション Id をコピーするには、前の手順から表示された情報からか、サブスクリプションが複数あり、詳細情報を必要な場合は、実行、 **Get-azuresubscription** コマンドレット、結果セットから目的のサブスクリプション情報をコピーします。 ご利用のサブスクリプションを取得したら次のコマンドレットを実行します。
 
     Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-**Select-AzureSubscription** を正常に実行すると、PowerShell プロンプトに戻ります。 サブスクリプションが複数ある場合は、**Get-AzureSubscription** を実行して、使用するサブスクリプションが **IsCurrent: True** と表示されていることを確認できます。
+正常に実行した後 **Select-azuresubscription** プロンプト、PowerShell に戻されます。 1 つ以上のサブスクリプションがある場合は、実行 **Get-azuresubscription** サブスクリプションの表示を使用することを確認および **IsCurrent: True**します。
 
 
 ## 特定の環境用の変数の設定
@@ -73,15 +72,19 @@
 
     # The name of the server on which the source database resides.
     $ServerName = "sourceServerName"
-    
+
     # The name of the source database (the database to copy). 
     $DatabaseName = "sourceDatabaseName" 
     
     # The name of the server that hosts the target database. This server must be in the same Azure subscription as the source database server. 
     $PartnerServerName = "partnerServerName"
-    
+
     # The name of the target database (the name of the copy).
     $PartnerDatabaseName = "partnerDatabaseName" 
+
+
+
+
 
 ## SQL データベースを同じサーバーにコピーする
 
@@ -96,51 +99,50 @@
 
     # Copy a database to a different server
     Start-AzureSqlDatabaseCopy -ServerName $ServerName -DatabaseName $DatabaseName -PartnerServer $PartnerServerName -PartnerDatabase $PartnerDatabaseName
+    
 
 ## コピー操作の進行状況の監視
 
-**Start-AzureSqlDatabaseCopy** の実行後に、コピー要求の状態を確認できます。 要求直後にこれを実行すると、通常は、**State : Pending** または **State : Running** が返されます。したがって、出力に **State : COMPLETED** が表示されるまで、これを複数回実行できます。
+[実行後 **Start-azuresqldatabasecopy** コピー要求の状態を確認することができます。 この後すぐに実行して、要求は通常返します **状態: 保留中** または **状態: を実行している** が表示されるまで、これを複数回を実行できるように **状態: 完了** 出力にします。 
 
 
     Get-AzureSqlDatabaseOperation -ServerName $ServerName -DatabaseName $DatabaseName
+
 
 ## SQL Database のコピーの PowerShell スクリプト
 
     # The name of the server where the source database resides
     $ServerName = "sourceServerName"
-    
+
     # The name of the source database (the database to copy) 
     $DatabaseName = "sourceDatabaseName" 
     
     # The name of the server to host the database copy. This server must be in the same Azure subscription as the source database server
     $PartnerServerName = "partnerServerName"
-    
+
     # The name of the target database (the name of the copy)
     $PartnerDatabaseName = "partnerDatabaseName" 
-    
-    
+
+
     Add-AzureAccount
     Select-AzureSubscription -SubscriptionName "myAzureSubscriptionName"
-    
+      
     # Copy a database to a different server (remove the -PartnerServer parameter to copy to the same server)
     Start-AzureSqlDatabaseCopy -ServerName $ServerName -DatabaseName $DatabaseName -PartnerServer $PartnerServerName -PartnerDatabase $PartnerDatabaseName
     
     # Monitor the status of the copy
     Get-AzureSqlDatabaseOperation -ServerName $ServerName -DatabaseName $DatabaseName
+    
 
 ## 次のステップ
 
-- [SQL Server Management Studio (SSMS) による接続します。](sql-database-connect-to-database.md)
-- [データベースを BACPAC にエクスポートします。](sql-database-export-powershell.md)
+- [SQL Server Management Studio (SSMS) での接続](sql-database-connect-to-database.md)
+- [データベースを BACPAC にエクスポートする](sql-database-export-powershell.md)
 
 
 ## その他のリソース
 
 - [ビジネス継続性の概要](sql-database-business-continuity.md)
-- [災害復旧の訓練](sql-database-disaster-recovery-drills.md)
+- [障害復旧訓練](sql-database-disaster-recovery-drills.md)
 - [SQL Database のドキュメント](https://azure.microsoft.com/documentation/services/sql-database/)
-
-
-
-
 

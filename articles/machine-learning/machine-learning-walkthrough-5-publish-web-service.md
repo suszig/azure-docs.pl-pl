@@ -17,41 +17,39 @@
     ms.author="garye"/>
 
 
-
 # チュートリアル手順 5: Azure Machine Learning Web サービスをデプロイする
 
 これは、5 番目の手順のチュートリアルでは、 [Azure ML を使用した予測ソリューションの開発](machine-learning-walkthrough-develop-predictive-solution.md)
 
 
-1.  [Machine Learning ワークスペースを作成します。](machine-learning-walkthrough-1-create-ml-workspace.md)
-2.  [既存のデータをアップロードします。](machine-learning-walkthrough-2-upload-data.md)
-3.  [新しい実験を作成します。](machine-learning-walkthrough-3-create-new-experiment.md)
-4.  [トレーニングしてモデルを評価します。](machine-learning-walkthrough-4-train-and-evaluate-models.md)
+1.  [Machine Learning ワークスペースの作成](machine-learning-walkthrough-1-create-ml-workspace.md)
+2.  [既存のデータをアップロードする](machine-learning-walkthrough-2-upload-data.md)
+3.  [新しい実験を作成する](machine-learning-walkthrough-3-create-new-experiment.md)
+4.  [モデルをトレーニングして評価する](machine-learning-walkthrough-4-train-and-evaluate-models.md)
 5.  **Web サービスをデプロイする**
-6.  [Web サービスにアクセスします。](machine-learning-walkthrough-6-access-web-service.md)
+6.  [Web サービスにアクセスする](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
-
 
 この予測モデルを他のユーザーが利用できるようにするには、Azure 上に Web サービスとしてデプロイします。
 
 これまでは、モデルのトレーニングを実験してきました。 ただし、デプロイしたサービスのトレーニングは終了します。ユーザーの入力に基づく予測を開始します。 それではいくつかの準備を行い、この実験をユーザーがアクセスできる機能する Web サービスとしてデプロイします。 このサービスでは、ユーザーから送信された信用貸付申請データのセットに対して信用リスクの予測が返されます。
 
-これを実現するには、次の操作を行う必要があります。
+これを実現するには、次の操作を行う必要があります。  
 
-- 作成した*トレーニング実験*を*予測実験*に変換する
+- 変換、 *トレーニング実験* 作成した、 *予測実験*
 - Web サービスとして予測実験をデプロイする
 
-最初に、この実験を少しスリム化する必要があります。 現在、実験には 2 つの異なるモデルがありますが、モデルを 1 つ選択してデプロイします。
+最初に、この実験を少しスリム化する必要があります。 現在、実験には 2 つの異なるモデルがありますが、モデルを 1 つ選択してデプロイします。  
 
-使用にあたってはブースト ツリー モデルの方が優れていると判断したとします。 最初にすることを削除、 [2 クラス サポート ベクター マシン ][two-class-support-vector-machine] モジュールとトレーニングのために使用されたモジュール。 まずは実験キャンバスの下にある **[名前を付けて保存]** をクリックして実験のコピーを作成します。
+使用にあたってはブースト ツリー モデルの方が優れていると判断したとします。 したがって、まず最初にでは [2 クラス サポート ベクター マシン] [2 つのクラスのサポート-ベクター-マシン] モジュールとトレーニングのために使用されたモジュールを削除します。 クリックすると、まず、実験のコピーを作成することも **名前を付けて保存** 実験キャンバスの下部にあります。
 
-次のモジュールを削除する必要があります。
+次のモジュールを削除する必要があります。  
 
-1.  [2 クラス サポート ベクター マシン ][two-class-support-vector-machine]
-2.  [[モデルのトレーニング] モデルのトレーニング][train-model] と [モデルのスコア付け ][score-model] 接続されているモジュール
-3.  [データの正規化 ][normalize-data] (それらの両方)
-4.  [[評価モデル] のモデルを評価します。][evaluate-model]
+1.  [2 クラス サポート ベクター マシン][2 台のクラスのサポートのベクトルのコンピューター]
+2.  [モデルのトレーニング][モデルのトレーニング] と [モデルのスコア付け] の [モデルのスコア付け] モジュールに接続されています。
+3.  [データの正規化][正規化データ](これらの両方)
+4.  [モデルの評価][評価モデル]
 
 これでこのモデルをデプロイする準備ができました。
 
@@ -63,76 +61,76 @@
 2. 実験をトリミングしてトレーニングのためのみに必要だったモジュールを削除します。
 3. Web サービスの入力と出力ノードの場所を定義します。
 
-幸いにも、この 3 つの手順はすべて実験キャンバスの下にある **[Web サービスのデプロイ]** をクリックするだけで完了できます (**[予測 Web サービス]** オプションを選択します)。
+すべての 3 つの手順を実行して、クリックするだけで幸いにも、 **Web サービスの展開** 実験キャンバスの下部にある (選択、 **予測 Web サービス** オプション)。
 
-**[Web サービスのデプロイ]** をクリックすると、次の動作が行われます。
+クリックすると、 **Web サービスの展開**, 、いくつかの処理が行われます。
 
-- トレーニングしたモデルは、**トレーニング済みのモデル** モジュールとして実験キャンバスの左側にあるモジュールのパレットに保存されます (**[トレーニング済みのモデル]**のパレットにあります)。
+- としてトレーニング モデルを保存、 **トレーニング済みのモデル** 実験キャンバスの左側にあるモジュール パレット内のモジュール (パレットの下で見つかります **トレーニング済みのモデル**)。
 - トレーニングに使用したモジュールは削除されます。 具体的には次の処理が行われます。
-  - [2 クラス ブースト デシジョン ツリー ][two-class-boosted-decision-tree]
-  - [[モデルのトレーニング] モデルのトレーニング][train-model]
-  - [分割 ][split]
-  - 2 番目 [R スクリプトの実行 ][execute-r-script] テスト データに使用したモジュール
+  - [2 クラス ブースト デシジョン ツリー][2 つのクラスのブーストのデシジョン ツリー]
+  - [モデルのトレーニング][モデルのトレーニング]
+  - [分割][分割]
+  - テスト データに使用した 2 つ目の [R スクリプトの実行] [- r のスクリプトの実行] モジュール
 - 保存したトレーニング済みのモデルは実験に追加されます。
-- **Web サービスの入力** と **Web サービスの出力**モジュールが追加されます。
+- **Web サービスの入力** と **サービスからの出力を Web** モジュールが追加されます。
 
-> [AZURE.NOTE] 実験は、元のトレーニング実験と新しい予測実験の 2 つに保存されます。 実験のキャンバスの上部にあるタブを使用していずれかにアクセスできます。
+> [AZURE.NOTE] 実験を 2 つの部分に保存されている: 元のトレーニング実験と新しい予測実験します。 実験のキャンバスの上部にあるタブを使用していずれかにアクセスできます。
 
 この実験では、追加の手順を実行する必要があります。
-Machine Learning Studio では、1 つ削除 [R スクリプトの実行 ][execute-r-script] モジュールに削除する際に、 [分割 ][split] モジュールが、もう一方のまま [R スクリプトの実行 ][execute-r-script] モジュールです。
-トレーニングとテスト (、重み付けで関数を提供、サンプル データ) のみそのモジュールが使用した、のでお今すぐ削除して接続できます [メタデータ エディター ][metadata-editor] に [モデルのスコア付け ][score-model]します。
+Machine Learning Studio は、[分割] [分割] モジュールを削除してが中断して、他のモジュールの [R スクリプトの実行] [- r のスクリプトの実行]、[R スクリプトの実行] [- r のスクリプトの実行] の 1 つのモジュールを削除します。
+トレーニングとテスト (、重み付けで関数を提供、サンプル データ) のみそのモジュールが使用した、のでおこれで、それを削除し、[メタデータ エディター] [メタデータ エディター] を [モデルのスコア付け] [モデルのスコア付け] に接続することができます。    
 
-現在、実験は以下のようになっています。
+現在、実験は以下のようになっています。  
 
-![Scoring the trained model][4]
+![Scoring the trained model][4]  
 
 
 UCI のドイツ語のクレジット カード データ データセットはどうして予測実験に残されたか疑問に思われるでしょう。 このサービスでは、元のデータセットではなくユーザーのデータを使用します。それにもかかわらずなぜこれらを接続したままにしているのでしょうか?
 
-サービスで元のクレジット カード データを必要としないのは本当です。 しかし、列がいくつあり、どの列が数値型であるかなどの情報を含むこのデータのスキーマが必要になります。 このスキーマ情報は、ユーザーのデータを解釈するうえで必要になります。 そこで、これらのコンポーネントを接続したままにして、サービスが実行されているときにスコア付けモジュールがデータセット スキーマを利用できるようにしています。 データは使用されません。スキーマだけが使用されます。
+サービスで元のクレジット カード データを必要としないのは本当です。 しかし、列がいくつあり、どの列が数値型であるかなどの情報を含むこのデータのスキーマが必要になります。 このスキーマ情報は、ユーザーのデータを解釈するうえで必要になります。 そこで、これらのコンポーネントを接続したままにして、サービスが実行されているときにスコア付けモジュールがデータセット スキーマを利用できるようにしています。 データは使用されません。スキーマだけが使用されます。  
 
-最後にもう一度実験を実行します (**[実行]** をクリックします)。 モデルがまだ稼動していることを確認する場合の出力] をクリックして、 [モデルのスコア付け ][score-model] モジュールと選択 **結果を表示する**します。 元のデータが、信用リスク値 ("スコア付けラベル") とスコア付け確率値 ("スコア付け確率") と共に表示されます。
+最後にもう一度実験を実行 (をクリックして **実行**)。 モデルがまだ稼動していることを確認する場合、[モデルのスコア付け] の [モデルのスコア付け] モジュールの出力をクリックし、選択 **結果を表示する**です。 元のデータが、信用リスク値 ("スコア付けラベル") とスコア付け確率値 ("スコア付け確率") と共に表示されます。  
 
 ## Web サービスをデプロイする
 
-実験から派生する Web サービスをデプロイするには、キャンバスの下にある **[Web サービスのデプロイ]** をクリックします。 Machine Learning Studio によって実験が Web サービスとしてデプロイされ、サービス ダッシュボードが表示されます。
-> [AZURE.TIP] Web サービスをデプロイした後で更新できます。 たとえばモデルを変更する場合、トレーニング実験だけ編集し、モデルのパラメーターを調整して **[Web サービスのデプロイ]** をクリックします。 もう一度実験をデプロイすると、Web サービスが置き換えられ、更新済みのモデルが使用されるようになります。  
+実験から派生する web サービスを展開するにはクリックして **Web サービスの展開** キャンバスの下です。 Machine Learning Studio によって実験が Web サービスとしてデプロイされ、サービス ダッシュボードが表示されます。   
 
-サービスを構成するには、**[構成]** タブをクリックします。 このタブでは、サービス名 (既定で実験名が付けられます) を変更したり、説明を追加したりできます。 また、入力列と出力列にわかりやすいラベルを付けることもできます。
+> [AZURE.TIP] 展開した後は、web サービスを更新できます。 たとえば、モデルを変更する場合は、トレーニング実験を編集、モデル パラメーターを調整し、クリックするだけ **Web サービスの展開**します。 もう一度実験をデプロイすると、Web サービスが置き換えられ、更新済みのモデルが使用されるようになります。  
 
-![Web サービスを構成する][5]
+クリックしてサービスを構成することができます、 **構成** ] タブをクリックします。 このタブでは、サービス名 (既定で実験名が付けられます) を変更したり、説明を追加したりできます。 また、入力列と出力列にわかりやすいラベルを付けることもできます。  
+
+![Web サービスを構成する][5]  
 
 ## Web サービスをテストする
+ **ダッシュ ボード** ] ページで、をクリックして、 **テスト** ] にある [ **既定のエンドポイント**します。 サービスの入力データを要求するダイアログが表示されます。 これらは、元のドイツの信用リスク データセットに含まれるのと同じ列です。  
+![Web サービスをテストします。][6]  
 
-**[ダッシュボード]** ページで、**[既定のエンドポイント]** の下の **[テスト]** リンクをクリックします。 サービスの入力データを要求するダイアログが表示されます。 これらは、元のドイツの信用リスク データセットに含まれるのと同じ列です。  
-![Web サービスをテストする][6]
 
+一連のデータを入力し、クリックして **OK**します。  
 
-データのセットを入力し、**[OK]** をクリックします。
-
-Web サービスによって生成された結果がダッシュボードの下部に表示されます。 サービスの構成に応じて、スコア付けモジュールによって生成された結果が表示されます。
+Web サービスによって生成された結果がダッシュボードの下部に表示されます。 サービスの構成に応じて、スコア付けモジュールによって生成された結果が表示されます。   
 
 
 ----------
 
+**次: [web サービスにアクセス](machine-learning-walkthrough-6-access-web-service.md)**
 
-* * 次: [web サービスにアクセス](machine-learning-walkthrough-6-access-web-service.md)* *
+[1]: ./media/machine-learning-walkthrough-5-publish-web-service/publish1.png
+[2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
+[3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png
+[4]: ./media/machine-learning-walkthrough-5-publish-web-service/publish4.png
+[5]: ./media/machine-learning-walkthrough-5-publish-web-service/publish5.png
+[6]: ./media/machine-learning-walkthrough-5-publish-web-service/publish6.png
 
 
-
-[1]: ./media/machine-learning-walkthrough-5-publish-web-service/publish1.png 
-[2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png 
-[3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png 
-[4]: ./media/machine-learning-walkthrough-5-publish-web-service/publish4.png 
-[5]: ./media/machine-learning-walkthrough-5-publish-web-service/publish5.png 
-[6]: ./media/machine-learning-walkthrough-5-publish-web-service/publish6.png 
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/ 
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/ 
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/ 
-[normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/ 
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/ 
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/ 
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/ 
-[two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/ 
-[two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/ 
+<!-- Module References -->
+[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
+[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
+[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/
+[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
+[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
+[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
+[two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
+[two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 

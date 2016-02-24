@@ -17,8 +17,7 @@
     ms.date="11/05/2015"
     ms.author="donnam"/>
 
-
-# <a name="getting-started"></a>モバイル サービスを使ってみる
+# <a name="getting-started"></a>Mobile Services の使用
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
@@ -30,7 +29,7 @@
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
-このチュートリアルでは、Azure Mobile Services を使用して Xamarin.Android アプリにクラウドベースのバックエンド サービスを追加する方法を示します。 このチュートリアルでは、新しいモバイル サービスと、新しいモバイル サービスにアプリケーション データを保存する簡単な *To do list* アプリケーションの両方を作成します。
+このチュートリアルでは、Azure Mobile Services を使用して Xamarin.Android アプリにクラウドベースのバックエンド サービスを追加する方法を示します。 このチュートリアルでは、新しいモバイル サービスと、新しいモバイル サービスにアプリ データを保存する簡単な *To do list* アプリの両方を作成します。
 
 このチュートリアルのビデオを見る場合は、下のクリップでこのチュートリアルと同じ手順が表示されます。
 
@@ -45,9 +44,10 @@
 このチュートリアルを完了する必要があります [Xamarin.Android]、Xamarin Studio、Visual Studio プラグイン (Windows 上) と最新の Android プラットフォームをインストールします。 このほか、Android SDK のバージョン 4.2 以降が必要になります。
 
 ダウンロードしたクイック スタート プロジェクトには、Xamarin.Android 向けの Azure Mobile Services コンポーネントが含まれています。 このプロジェクトではバージョン 4.2 以降の Android をターゲットにしていますが、Mobile Services SDK ではバージョン 2.2 以降があれば問題ありません。
-> [AZURE.IMPORTANT] このチュートリアルを完了するには、Azure アカウントが必要です。 アカウントがない場合は、Azure 試用版にサインアップして最大 10 の無料モバイル サービスを取得し、試用期間が終わった後でも使用し続けることができます。 詳細については、「 [Azure 無料試用版](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5)します。
 
-## <a name="create-new-service"> </a>新しいモバイル サービスの作成
+> [AZURE.IMPORTANT] このチュートリアルを完了するには、Azure アカウントが必要です。 アカウントがない場合は、Azure 試用版にサインアップして最大 10 の無料モバイル サービスを取得し、試用期間が終わった後でも使用し続けることができます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5)をご覧ください。
+
+## <a name="create-new-service"> </a>新しいモバイル サービスを作成する
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
 
@@ -59,7 +59,7 @@
 
 1.  クリックして、[Azure クラシック ポータル] で、 **Mobile Services**, 、し、先ほど作成したモバイル サービスをクリックします。
 
-2. [クイック スタート] タブの **[プラットフォームの選択]** で **[Xamarin.Android]** を選択し、**[新しい Android アプリを作成する]** を展開します。
+2. クイック スタート] タブをクリックして **Xamarin.Android** [ **プラットフォームの選択]** 展開 **新しい Android アプリを作成**します。
 
     ![][6]
 
@@ -67,11 +67,11 @@
 
     ![][7]
 
-3. **[TodoItem テーブルを作成する]** をクリックして、アプリケーション データを格納するテーブルを作成します。
+3. クリックして **作成 TodoItem テーブル** アプリケーション データを格納するテーブルを作成します。
 
-4. **[アプリをダウンロードして実行する]** の下の **[ダウンロード]** をクリックします。
+4.  **をダウンロードしてアプリケーションを実行する**, をクリックして **ダウンロード**します。
 
-    これにより、Mobile Services に接続されている _To do list_ サンプル アプリケーションのプロジェクトがダウンロードされます。 圧縮されたプロジェクト ファイルをローカル コンピューターに保存し、保存場所を書き留めておいてください。
+    これにより、サンプルのプロジェクトがダウンロード _作業の一覧に_ 、モバイル サービスに接続されているアプリケーションです。 圧縮されたプロジェクト ファイルをローカル コンピューターに保存し、保存場所を書き留めておいてください。
 
 ## Android アプリを実行する
 
@@ -79,16 +79,18 @@
 
 1. 圧縮されたプロジェクト ファイルの保存場所を参照し、ファイルをコンピューター上に展開します。
 
-2. Xamarin Studio または Visual Studio で、**[File]**、**[Open]** の順にクリックし、サンプル ファイルを展開した場所を参照します。**XamarinTodoQuickStart.Android.sln** を選択して開きます。
+2. Xamarin Studio または Visual Studio では、次のようにクリックします。 **ファイル** し、 **を開く**, 、サンプル ファイルに移動して、選択、 **XamarinTodoQuickStart.Android.sln** を開きます。
 
-3. **[Run]** ボタンを押してプロジェクトをビルドし、アプリケーションを開始します。 エミュレーターまたは接続されている USB デバイスを選択するよう求めるメッセージが表示されます。
-    > [AZURE.NOTE] プロジェクトを Android エミュレーターで実行できるようにするには、Android Virtual Device (AVD) を 1 つ以上定義する必要があります。 これらのデバイスを作成および管理するには、AVD Manager を使用します。
+3. キーを押して、 **実行** 、プロジェクトをビルドし、アプリケーションを開始] ボタンをクリックします。 エミュレーターまたは接続されている USB デバイスを選択するよう求めるメッセージが表示されます。
 
-4. アプリケーションで、たとえば、tutorial_ の意味のあるテキストを入力し、クリックして **追加**します。
+    > [AZURE.NOTE] プロジェクトを Android エミュレーターで実行できるようにするには、少なくとも 1 つ Android Virtual Device (AVD) を定義する必要があります。 これらのデバイスを作成および管理するには、AVD Manager を使用します。
+
+4. アプリケーションで、意味のあるテキストをなど入力 _に関するチュートリアルを完了_, 、] をクリックし、 **追加**します。
 
     ![][10]
 
     これで、Azure でホストされている新しいモバイル サービスに POST 要求が送信されます。 要求のデータは TodoItem テーブルに挿入されます。 テーブルに格納された項目がモバイル サービスによって返され、データが一覧に表示されます。
+
     > [AZURE.NOTE]
     > モバイル サービスにアクセスして ToDoActivity.cs C# ファイルにあるデータをクエリおよび挿入するコードを確認できます。
 
@@ -101,7 +103,6 @@
     ![][12]
 
 ## <a name="next-steps"> </a>次のステップ
-
 クイック スタートはこれで完了です。Mobile Services で重要になるこれ以外の作業については、以下のトピックを参照してください。
 
 * [オフライン データの同期の開始を取得]
@@ -118,33 +119,36 @@
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
+<!-- Anchors. -->
+[Getting started with Mobile Services]:#getting-started
+[Create a new mobile service]:#create-new-service
+[Define the mobile service instance]:#define-mobile-service-instance
+[Next Steps]:#next-steps
+
+<!-- Images. -->
+[0]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-completed-android.png
+[2]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-create.png
+[3]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-create-page1.png
+[4]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-create-page2.png
+[5]: ./media/partner-xamarin-mobile-services-android-get-started/obile-services-selection.png
+[6]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-portal-quickstart-xamarin-android.png
+[7]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-steps-xamarin-android.png
+[8]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-xamarin-project-android-xs.png
+[9]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-xamarin-project-android-vs.png
+[10]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-startup-android.png
+[11]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-data-tab.png
+[12]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-data-browse.png
+[13]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-services-diagram.png
 
 
+<!-- URLs. -->
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-android
+[Get started with offline data sync]: mobile-services-xamarin-android-get-started-offline-data.md
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-android
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-xamarin-android
+[Xamarin.Android]: http://xamarin.com/download
+[Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Azure]: http://azure.microsoft.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 
-
-[getting started with mobile services]: #getting-started 
-[create a new mobile service]: #create-new-service 
-[define the mobile service instance]: #define-mobile-service-instance 
-[next steps]: #next-steps 
-[0]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-completed-android.png 
-[2]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-create.png 
-[3]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-create-page1.png 
-[4]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-create-page2.png 
-[5]: ./media/partner-xamarin-mobile-services-android-get-started/obile-services-selection.png 
-[6]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-portal-quickstart-xamarin-android.png 
-[7]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-steps-xamarin-android.png 
-[8]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-xamarin-project-android-xs.png 
-[9]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-xamarin-project-android-vs.png 
-[10]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-startup-android.png 
-[11]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-data-tab.png 
-[12]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-data-browse.png 
-[13]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-services-diagram.png 
-[get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-android 
-[get started with offline data sync]: mobile-services-xamarin-android-get-started-offline-data.md 
-[get started with authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-android 
-[get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-xamarin-android 
-[xamarin.android]: http://xamarin.com/download 
-[mobile services android sdk]: https://go.microsoft.com/fwLink/p/?LinkID=266533 
-[azure]: http://azure.microsoft.com/ 
-[azure classic portal]: https://manage.windowsazure.com/ 
 

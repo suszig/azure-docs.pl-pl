@@ -16,19 +16,17 @@
    ms.date="10/20/2015"
    ms.author="twounder"/>
 
-
 # SQLCMD を使用した接続とクエリ
 
 > [AZURE.SELECTOR]
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
 - [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-
 このチュートリアルでは、sqlcmd.exe ユーティリティを使用して、Azure SQL Data Warehouse データベースへの接続とクエリを数分で実行する方法について説明します。 このチュートリアルでは次を行います。
 
 + 前提条件のソフトウェアをインストールする
 + AdventureWorksDW サンプル データベースを含んだデータベースに接続する
-+ サンプル データベースに対してクエリを実行する
++ サンプル データベースに対してクエリを実行する  
 
 ## 前提条件
 
@@ -36,7 +34,7 @@
 
 ## 完全修飾 Azure SQL サーバー名を取得します。
 
-データベースに接続するには、サーバーの完全な名前を必要 (*** servername**. **.database.windows.net*) に接続するデータベースが格納されています。
+データベースに接続するには、サーバーの完全な名前を必要 (***servername**..database.windows.net を付けて*) に接続するデータベースが格納されています。
 
 1. 移動して、 [Azure ポータル](https://portal.azure.com)します。
 2. 接続先のデータベースを探します。
@@ -47,13 +45,13 @@
 
 ## sqlcmd で SQL Data Warehouse に接続する
 
-sqlcmd を使用するときに SQL Data Warehouse の特定のインスタンスに接続するには、コマンド プロンプトを開いて、**sqlcmd** の後に、SQL Data Warehouse データベースの接続文字列を入力する必要があります。 接続文字列では、次のパラメーターを指定します。
+コマンド プロンプトを開き、入力する必要があります sqlcmd を使用する場合は、SQL Data Warehouse の特定のインスタンスに接続する **sqlcmd** 後に、SQL Data Warehouse データベースの接続文字列。 接続文字列では、次のパラメーターを指定します。
 
 + **ユーザー (・ U):** 形式でサーバー ユーザー `<`ユーザー`>`
-+ **パスワード (-P):** ユーザーに関連付けられているパスワード。
++ **パスワード (-P):** ユーザーに関連付けられているパスワードです。
 + **サーバー (-S):** 形式でサーバー `<`サーバー名`>`..database.windows.net を付けて
 + **データベース (-D):** データベース名。
-+ **引用符で囲まれた ID の有効化 (-I):** SQL Data Warehouse インスタンスに接続するには、引用符で囲まれた ID を有効にする必要があります。
++ **引用符で囲まれた識別子を有効にする (-I):** 引用符で囲まれた識別子は、SQL Data Warehouse インスタンスに接続するために有効にする必要があります。
 
 したがって、SQL Data Warehouse インスタンスに接続するには、次のように入力します。
 
@@ -63,7 +61,7 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 
 ## サンプル クエリの実行
 
-接続後、インスタンスに対してサポートされているすべての Transact-SQL ステートメントを発行できます。
+接続後、インスタンスに対してサポートされているすべての Transact-SQL ステートメントを発行できます。 
 
 ```
 C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
@@ -77,10 +75,11 @@ Sqlcmd に関する追加情報を参照してください、 [sqlcmd のドキ�
 
 ## 次のステップ
 
-これで接続して、クエリを実行できる、 [PowerBI で接続する][]します。
+これで接続して、クエリを実行できる、 [PowerBI に接続する][]です。
 
+[connecting with PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
+ 
 
-
-[connecting with powerbi]: ./sql-data-warehouse-integrate-power-bi.md 
-[1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png 
+<!--Image references-->
+[1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 

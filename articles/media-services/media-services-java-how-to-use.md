@@ -16,32 +16,31 @@
     ms.date="12/08/2015" 
     ms.author="robmcm"/>
 
-
-# 方法: Java で Media Services を使用する
+#方法: Java で Media Services を使用する
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-## Media Services 用の Azure アカウントの設定
+##Media Services 用の Azure アカウントの設定
 
 Media Services アカウントを設定するには、Azure クラシック ポータルを使用します。 トピックを参照して [Media Services アカウントを作成する方法](media-services-create-account.md)します。 Azure クラシック ポータルでアカウントを作成すると、Media Services 開発用にコンピューターをセットアップできるようになります。
 
-## Media Services 開発のための設定
+##Media Services 開発のための設定
 
 このセクションでは、Media Services SDK for Java を使用したメディア サービス開発の大まかな前提条件について説明します。
 
-### 前提条件
+###前提条件
 
 -   新規または既存の Azure サブスクリプションで作成した Media Services アカウント。 トピックを参照して [Media Services アカウントを作成する方法](media-services-create-account.md)します。
--   Azure Libraries for Java。 これからインストールすること、 [Azure Java デベロッパー センターの []][]します。
+-   Azure Libraries for Java。 これからインストールすること、 [Azure Java デベロッパー センター][]します。
 
-## 方法: Java で Media Services を使用する
+##方法: Java で Media Services を使用する
 
 次のコードは、資産を作成してメディア ファイルを資産にアップロードし、資産の変換タスクを伴うジョブを実行して、ビデオをストリーミングするためのロケーターを作成する方法を示しています。
 
 このコードを使用する前に、メディア サービス アカウントを設定する必要があります。 アカウントの設定の詳細については、次を参照してください。 [Media Services アカウントを作成する方法](media-services-create-account.md)します。
 
-値を置き換えて、 `clientId` と `clientSecret` 変数です。 また、このコードは、ローカル保存されているファイルに依存しています。 実際に使用するファイルを用意する必要があります。
-
+変数 `clientId` と `clientSecret` は、実際の値に置き換えてください。 また、このコードは、ローカル保存されているファイルに依存しています。 実際に使用するファイルを用意する必要があります。
+    
     import java.io.*;
     import java.security.NoSuchAlgorithmException;
     import java.util.EnumSet;
@@ -79,36 +78,36 @@ Media Services アカウントを設定するには、Azure クラシック ポ�
         private static String clientId = "account name";
         private static String clientSecret = "account key";
         private static String scope = "urn:WindowsAzureMediaServices";
-    
+        
         // Encoder configuration
         private static String preferedEncoder = "Media Encoder Standard";
         private static String encodingPreset = "H264 Multiple Bitrate 720p";
     
         public static void main(String[] args)
         {
-    
+        
             try {
                 // Set up the MediaContract object to call into the Media Services account
                 Configuration configuration = MediaConfiguration.configureWithOAuthAuthentication(
                 mediaServiceUri, oAuthUri, clientId, clientSecret, scope);
                 mediaService = MediaService.create(configuration);
-    
-    
+                
+                
                 // Upload a local file to an Asset
                 AssetInfo uploadAsset = uploadFileAndCreateAsset("BigBuckBunny.mp4");
                 System.out.println("Uploaded Asset Id: " + uploadAsset.getId());
-    
-    
+                
+                
                 // Transform the Asset
                 AssetInfo encodedAsset = encode(uploadAsset);
                 System.out.println("Encoded Asset Id: " + encodedAsset.getId());
-    
+                
                 // Create the Streaming Origin Locator
                 String url = getStreamingOriginLocator(encodedAsset);
-    
+                
                 System.out.println("Origin Locator URL: " + url);
                 System.out.println("Sample completed!");
-    
+            
             } catch (ServiceException se) {
                 System.out.println("ServiceException encountered.");
                 System.out.println(se.toString());
@@ -116,49 +115,49 @@ Media Services アカウントを設定するには、Azure クラシック ポ�
                 System.out.println("Exception encountered.");
                 System.out.println(e.toString());
             }
-    
+        
         }
     
         private static AssetInfo uploadFileAndCreateAsset(String fileName)
             throws ServiceException, FileNotFoundException, NoSuchAlgorithmException {
-    
+
             WritableBlobContainerContract uploader;
             AssetInfo resultAsset;
             AccessPolicyInfo uploadAccessPolicy;
             LocatorInfo uploadLocator = null;
-    
+            
             // Create an Asset
             resultAsset = mediaService.create(Asset.create().setName(fileName).setAlternateId("altId"));
             System.out.println("Created Asset " + fileName);
-    
+            
             // Create an AccessPolicy that provides Write access for 15 minutes
             uploadAccessPolicy = mediaService
                 .create(AccessPolicy.create("uploadAccessPolicy", 15.0, EnumSet.of(AccessPolicyPermission.WRITE)));
-    
+            
             // Create a Locator using the AccessPolicy and Asset
             uploadLocator = mediaService
                 .create(Locator.create(uploadAccessPolicy.getId(), resultAsset.getId(), LocatorType.SAS));
-    
+            
             // Create the Blob Writer using the Locator
             uploader = mediaService.createBlobWriter(uploadLocator);
-    
+            
             File file = new File("BigBuckBunny.mp4");//(ConnectToAMSView.class.getClassLoader().getResource("").getPath() + fileName);
-    
+            
             // The local file that will be uploaded to your Media Services account
             InputStream input = new FileInputStream(file);
-    
+            
             System.out.println("Uploading " + fileName);
-    
+            
             // Upload the local file to the asset
             uploader.createBlockBlob(fileName, input);
-    
+            
             // Inform Media Services about the uploaded files
             mediaService.action(AssetFile.createFileInfos(resultAsset.getId()));
             System.out.println("Uploaded Asset File " + fileName);
-    
+            
             mediaService.delete(Locator.delete(uploadLocator.getId()));
             mediaService.delete(AccessPolicy.delete(uploadAccessPolicy.getId()));
-    
+            
             return resultAsset;
         }
     
@@ -194,7 +193,7 @@ Media Services アカウントを設定するには、Azure クラシック ポ�
                     .setName(String.format("Encoding %s to %s", assetToEncode.getName(), encodingPreset))
                     .addInputMediaAsset(assetToEncode.getId()).setPriority(2).addTaskCreator(task);
             JobInfo job = mediaService.create(jobCreator);
-    
+            
             String jobId = job.getId();
             System.out.println("Created Job with Id: " + jobId);
     
@@ -206,7 +205,7 @@ Media Services アカウントを設定するには、Azure クラシック ポ�
             ListResult<AssetInfo> outputAssets = mediaService.list(Asset.list(job.getOutputAssetsLink()));
             return outputAssets.get(0);
         }
-    
+        
     
         public static String getStreamingOriginLocator(AssetInfo asset) throws ServiceException {
             // Get the .ISM AssetFile
@@ -241,7 +240,7 @@ Media Services アカウントを設定するには、Azure クラシック ポ�
             while (!done) {
                 // Sleep for 5 seconds
                 Thread.sleep(5000);
-    
+                
                 // Query the updated Job state
                 jobState = mediaService.get(Job.get(jobId)).getState();
                 System.out.println("Job state: " + jobState);
@@ -254,23 +253,24 @@ Media Services アカウントを設定するには、Azure クラシック ポ�
     
     }
 
-## Media Services のラーニング パス
+
+##Media Services のラーニング パス
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## フィードバックの提供
+##フィードバックの提供
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-## その他のリソース
+##その他のリソース
 
-メディア サービスに関する Javadoc ドキュメントについては、次を参照してください。 [Azure Libraries for Java のドキュメントの []][]します。
+メディア サービスに関する Javadoc ドキュメントについては、次を参照してください。 [Azure Libraries for Java のドキュメント][]します。
 
+<!-- URLs. -->
 
+  [Azure Java Developer Center]: http://azure.microsoft.com/develop/java/
+  [Azure Libraries for Java documentation]: http://dl.windowsazure.com/javadoc/
+  [Media Services Client Development]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
 
-
-[azure java developer center]: http://azure.microsoft.com/develop/java/ 
-[azure libraries for java documentation]: http://dl.windowsazure.com/javadoc/ 
-[media services client development]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx 
-
+ 

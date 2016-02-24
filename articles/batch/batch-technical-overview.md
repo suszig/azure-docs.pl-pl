@@ -16,20 +16,19 @@
     ms.date="11/19/2015"
     ms.author="danlep"/>
 
-
 # Azure Batch の基礎
 
 Azure Batch を使用すると、大規模な並列コンピューティングやハイ パフォーマンス コンピューティング (HPC) のアプリケーションをクラウドで効率的に実行できます。 Azure Batch は、多くのコンピューティング処理を要する作業を仮想マシン (コンピューティング ノード) の管理されたコレクション上で実行するようにスケジュール設定するためのプラットフォーム サービスです。ジョブのニーズに合わせてコンピューティング リソースをスケールすることができます。 Batch サービスでは、Azure のコンピューティング リソースと大規模なバッチ ジョブをオンデマンドで、またはスケジュールに従って実行するようにプログラムで定義します。HPC クラスター、個々の仮想マシン、仮想ネットワーク、またはジョブ スケジューラの構成と管理を手動で行う必要がありません。
 
 ## ユース ケース
 
-Batch は、*バッチ処理*または*バッチ コンピューティング*のための管理されたサービスで、期待した結果が得られるように類似のタスクを大量に実行します。 バッチ コンピューティングは、スケジュールに従って、またはオンデマンドで大量のデータの処理、変換、および分析を行う組織にとっては一般的なアプローチで、金融サービスからエンジニアリングまで各種分野で実践されています。
+バッチとは、管理されたサービスの *バッチ処理* または *バッチ コンピューティング* -望ましい結果が大量の一部を取得する同様のタスクを実行します。 バッチ コンピューティングは、スケジュールに従って、またはオンデマンドで大量のデータの処理、変換、および分析を行う組織にとっては一般的なアプローチで、金融サービスからエンジニアリングまで各種分野で実践されています。
 
 Batch は、本質的に並列である ("驚異的並列性" とも呼ばれます) アプリケーションやワークロードに対応するため、複数のコンピューターで並列タスクを実行するのに役立ちます。 図 1 を参照してください。
 
 ![並列タスク][parallel]
 
-* * 図 1 です。 複数のコンピューター * * で実行される並列タスク
+**図 1. 複数のコンピューターで実行される並列タスク**
 
 たとえば、次のようになります。
 
@@ -40,7 +39,8 @@ Batch は、本質的に並列である ("驚異的並列性" とも呼ばれま
 * ソフトウェアのテスト
 
 また、Batch で並列計算を実行すると、最終的により少ないステップで、より複雑な他の並列ワークロードを処理できます。
->[AZURE.NOTE]現時点では、Batch は、Windows Server ベースの仮想マシンで実行されるワークロードのみをサポートしています。 また、現時点では、Batch は Message Passing Interface (MPI) アプリケーションをサポートしていません。
+
+>[AZURE.NOTE]バッチには、この時点で、Windows Server ベースの仮想マシンで実行されるワークロードのみサポートしています。 また、現時点では、Batch は Message Passing Interface (MPI) アプリケーションをサポートしていません。
 
 バッチの他の HPC ソリューションのオプションで、Azure との比較では、次を参照してください。 [Batch および HPC ソリューション](batch-hpc-solutions.md)します。
 
@@ -54,17 +54,17 @@ Batch API を使用した開発では、コンピューティング ノードの
 
 + **Azure アカウントとサブスクリプション** -できるアクティブ化するアカウントを持っていない場合、 [MSDN サブスクライバーの特典](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) サインアップや、 [無料評価版](http://azure.microsoft.com/pricing/free-trial/)します。
 
-+ **Batch アカウント** - Batch の API 呼び出しを行う際に、Batch アカウントの名前と URL、およびアクセス キーを資格情報として使用します。 コンピューティング ノード、プール、ジョブ、タスクなどの Batch リソースはすべて Batch アカウントに関連付けられています。 Batch アカウントの作成し、アカウントは、使用するために、アクセス キーを管理する方法の 1 つ、 [Azure ポータル](batch-account-create-portal.md)します。
++ **Batch アカウント** -として使用する名前と、Batch アカウントとアクセス キーの URL の資格情報 Batch API 呼び出しを行うとします。 コンピューティング ノード、プール、ジョブ、タスクなどの Batch リソースはすべて Batch アカウントに関連付けられています。 Batch アカウントの作成し、アカウントは、使用するために、アクセス キーを管理する方法の 1 つ、 [Azure ポータル](batch-account-create-portal.md)します。
 
-+ **ストレージ アカウント** - ほとんどの Batch シナリオでは、データの入力と出力、およびコンピューティング ノード上で実行されるスクリプトや実行可能ファイルを格納するために、Azure ストレージ アカウントが必要になります。 ストレージ アカウントを作成するを参照してください。 [は Azure ストレージ アカウント](../storage/storage-create-storage-account.md)します。
++ **ストレージ アカウント** : データ入力と出力スクリプト、または計算ノード上で実行される実行可能ファイルを保存するアカウントのほとんどのバッチ シナリオが Azure のストレージを必要があります。 ストレージ アカウントを作成するを参照してください。 [は Azure ストレージ アカウント](../storage/storage-create-storage-account.md)します。
 
 ### Batch 開発ライブラリおよびツール
 
 Azure Batch アプリケーションの開発と管理には、以下の .NET ライブラリとツールを使用します。
 
-+ [バッチ クライアント .NET ライブラリ](http://www.nuget.org/packages/Azure.Batch/) (NuGet)-Batch サービスでジョブを実行するクライアント アプリケーションの開発
-+ [バッチ管理 .NET ライブラリ](http://www.nuget.org/packages/Microsoft.Azure.Management.Batch/) (NuGet)-バッチの管理アカウント
-+ [Batch Explorer](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer) (GitHub) - 参照するには、この GUI アプリケーションを構築、アクセス、およびジョブとタスクを含む、Batch アカウントの更新リソースがノードとプール、計算ノード上のファイルを計算します。 See the [blog post](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx).
++ [バッチのクライアントの .NET ライブラリ](http://www.nuget.org/packages/Azure.Batch/) (NuGet)-Batch サービスでジョブを実行するクライアント アプリケーションの開発
++ [Batch 管理 .NET ライブラリ](http://www.nuget.org/packages/Microsoft.Azure.Management.Batch/) (NuGet)-バッチの管理アカウント
++ [Batch Explorer](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer) (GitHub) - 参照するには、この GUI アプリケーションを構築、アクセス、およびジョブとタスクを含む、Batch アカウントの更新リソースがノードとプール、計算ノード上のファイルを計算します。 参照してください、 [ブログの投稿](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx)します。
 
 
 ## シナリオ: 並列ワークロードをスケールアウトする
@@ -76,7 +76,7 @@ Batch API を使用する一般的なシナリオでは、数千個ものコン�
 
 ![作業項目のワークフロー][work_item_workflow]
 
-* * 図 2 です。 並列ワークロード バッチ * * をスケール アウト
+**図 2. 並列ワークロードのバッチをスケール アウト**
 
 1.  ジョブに必要な入力ファイル (ソース データやイメージ) を Azure ストレージ アカウントにアップロードします。 ジョブ タスクが実行されると、Batch サービスはコンピューティング ノードにファイルを読み込みます。
 
@@ -97,10 +97,9 @@ Batch API を使用する一般的なシナリオでは、数千個ものコン�
 
 ## 次のステップ
 
-* を使用して最初のアプリケーションの開発を開始する [バッチ クライアント .NET ライブラリ](batch-dotnet-get-started.md)
-* [Batch のコード サンプルを参照 [GitHub](https://github.com/Azure/azure-batch-samples)
+* 使用して最初のアプリケーションの開発を開始する、 [バッチ クライアント .NET ライブラリ](batch-dotnet-get-started.md)
+* 上の Batch のコード サンプルを参照 [GitHub](https://github.com/Azure/azure-batch-samples)
 
-
-[parallel]: ./media/batch-technical-overview/parallel.png 
-[work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png 
+[parallel]: ./media/batch-technical-overview/parallel.png
+[work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 

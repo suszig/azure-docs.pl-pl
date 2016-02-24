@@ -16,7 +16,6 @@
     ms.date="12/16/2015" 
     ms.author="tomfitz"/>
 
-
 # GitHub リポジトリにリンクされる Web アプリのデプロイ
 
 このトピックでは、GitHub リポジトリ内のプロジェクトにリンクされる Web アプリをデプロイする Azure Resource Manager テンプレートを作成する方法について説明します。 デプロイ対象のリソースを定義する方法を学習し、 
@@ -26,15 +25,15 @@
 
 完全なテンプレートを参照してください。 [Web アプリにリンクされている GitHub テンプレート](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.json)します。
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## デプロイ対象
 
 このテンプレートを使用して、GitHub 内のプロジェクトのコードを含む Web アプリケーションをデプロイします。
 
-デプロイを自動的に実行するには、次のボタンをクリックします。
+デプロイメントを自動的に実行するには、次のボタンをクリックします。
 
-[![を Azure にデプロイ](./media/app-service-web-arm-from-github-provision/deploybutton.png)] (https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
+[![DAzure に eploy](./media/app-service-web-arm-from-github-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
 
 ## パラメーター
 
@@ -57,24 +56,24 @@
         "type": "string",
         "defaultValue": "master"
     }
-
-## デプロイするリソース
+    
+## デプロイ対象のリソース
 
 [AZURE.INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
-### Web アプリ
+### Web Apps
 
-GitHub 内のプロジェクトにリンクされる Web アプリを作成します。
+GitHub 内のプロジェクトにリンクされる Web アプリを作成します。 
 
-**siteName** パラメーターに Web アプリの名前を、**siteLocation** パラメーターに Web アプリの場所を指定します。  **DependsOn** 要素、テンプレートは、web アプリを定義します。 
+使用して web アプリの名前を指定する、 **siteName** パラメーター、および使用して web アプリの場所、 **siteLocation** パラメーター。  **DependsOn** 要素、テンプレートは、web アプリを定義します。 
 サービス ホスティング プランには依存とします。 ホスティング プランに依存するため、ホスティング プランの作成が完了するまで、Web アプリは作成されません。  **DependsOn** 要素が配置を指定するためのみ 
 順序です。 Azure Resource Mananger は、同時に両方のリソースを作成しようとします。 ホスティング プランに依存するものとして web アプリをオフにした場合と、web アプリがホストする前に作成された場合にエラーが発生する可能性があります。 
 計画してください。
 
-また、Web アプリには **resources** セクションに定義される子リソースがあります。 この子リソースは、Web アプリと共にデプロイされるプロジェクトのソース管理を定義します。 このテンプレートでは、ソース管理 
-特定の GitHub リポジトリにリンクされます。 GitHub リポジトリは、**"RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git"** コードによって定義されます。繰り返しデプロイされる単一のプロジェクトを、最小数のパラメーターを使用して作成する場合は、リポジトリの URL をハードコーディングできます。
-リポジトリの URL をハードコーディングする代わりに、リポジトリの URL 用のパラメーターを追加し、その値を **RepoUrl** プロパティで使用できます。 リポジトリ URL パラメーターの例を見ることができます、 
-[Web アプリと Web ジョブ テンプレート](../app-service-web-deploy-web-app-with-webjobs.md)します。
+Web アプリにも子リソースで定義されている **リソース** 以下のセクションです。 この子リソースは、Web アプリと共にデプロイされるプロジェクトのソース管理を定義します。 このテンプレートでは、ソース管理 
+特定の GitHub リポジトリにリンクされます。 GitHub リポジトリがコードで定義されている **"RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git"** する可能性がありますハード コード リポジトリの URL を繰り返しパラメーターの最小数を必要とするときに 1 つのプロジェクトを展開するテンプレートを作成するときにします。
+リポジトリの URL をハードコーディングする代わりに、リポジトリの URL のパラメーターを追加およびをこの値を使用して、 **RepoUrl** プロパティです。 リポジトリ URL パラメーターの例を見ることができます、 
+[Web ジョブ テンプレートを使用して web アプリ](../app-service-web-deploy-web-app-with-webjobs.md)します。
 
     {
       "apiVersion":"2015-04-01",
@@ -116,4 +115,5 @@ GitHub 内のプロジェクトにリンクされる Web アプリを作成し�
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json
 
 
+ 
 

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="クラウド サービス ロールがリサイクルされる一般的な原因 | Microsoft Azure"
-   description="クラウド サービス ロールが突然リサイクルされることで、重大なダウンタイムが生じることがあります。ロールのリサイクルを引き起こす一般的な問題とダウンタイムの防止策を取り上げました。"
+   description="クラウド サービス ロールが突然リサイクルされることで、重大なダウンタイムが生じることがあります。 ロールのリサイクルを引き起こす一般的な問題とダウンタイムの防止策を取り上げました。"
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
@@ -16,10 +16,9 @@
    ms.date="10/14/2015"
    ms.author="daleche" />
 
-
 # ロールのリサイクルを引き起こす一般的な問題
 
-デプロイに伴う問題の一般的な原因と問題解決に役立つトラブルシューティングのヒントを紹介します。 アプリケーションに存在する問題の兆候として、ロール インスタンスが起動に失敗したり、**初期化**、**ビジー**、**停止**という状態を繰り返したりすることが挙げられます。
+デプロイに伴う問題の一般的な原因と問題解決に役立つトラブルシューティングのヒントを紹介します。 アプリケーションに問題があることを示す値は、ロール インスタンスが起動に失敗し、交互に切り替えること、 **初期化**, 、**ビジー**, と **停止** 状態です。
 
 ## Azure カスタマー サポートへの問い合わせ
 
@@ -34,11 +33,11 @@
 
 アプリケーションをビルドしてパッケージ化する前に、次のことを確認します。
 
-- Visual studio を使用している場合、Azure SDK や .NET Framework に含まれていない、プロジェクトのすべての参照アセンブリの **[ローカル コピー]** プロパティが **[True]** に設定されていること。
+- Visual studio を使用して、確認、 **ローカル コピー** にプロパティが設定されている **True** Azure SDK または .NET Framework の一部ではない、プロジェクト内の各参照アセンブリのです。
 
-- **web.config** ファイルの **compilation** 要素が、未使用のアセンブリを参照していないこと。
-
-- すべての .cshtml ファイルの **[ビルド アクション]** が **[コンテンツ]** に設定されていること。 この設定によって当該ファイルが正しくパッケージに追加され、他の参照ファイルをパッケージに追加することができます。
+- 必ず、 **web.config** ファイル内の未使用のアセンブリを参照しない、 **コンパイル** 要素。
+ 
+-  **ビルド アクション** に設定されているファイルの各 .cshtml **コンテンツ**します。 この設定によって当該ファイルが正しくパッケージに追加され、他の参照ファイルをパッケージに追加することができます。
 
 
 
@@ -50,36 +49,36 @@ Azure は 64 ビット環境です。 そのため、32 ビット ターゲッ�
 
 ## 初期化中または停止中ハンドルされない例外をロールがスローする
 
-[OnStart] が含まれている [RoleEntryPoint] クラスのメソッドによってスローされる例外 [OnStop] と [実行] が未処理の例外です。 そのいずれかのメソッドでハンドルされない例外が発生した場合、ロールはリサイクルされます。 ロールが何度もリサイクルされる場合、起動の途中でハンドルされない例外がスローされている可能性があります。
+メソッドによってスローされる例外、 [RoleEntryPoint] を含むクラス、 [OnStart], 、[OnStop], 、および [Run], 、未処理の例外です。 そのいずれかのメソッドでハンドルされない例外が発生した場合、ロールはリサイクルされます。 ロールが何度もリサイクルされる場合、起動の途中でハンドルされない例外がスローされている可能性があります。
 
 
 ## Run メソッドが終了している
 
-[Run] メソッドは無期限に実行する対象としています。 コードでは、[Run] メソッドをオーバーライドする場合、無制限にスリープする必要があります。 [実行] のメソッドが返される場合は、ロールがリサイクルされます。
+ [Run] 無期限に実行するメソッドが対象としています。 コードをオーバーライドする場合、 [Run] 、メソッド、スリープ無期限にします。 場合、 [Run] メソッドが戻る、ロールがリサイクルされます。
 
 
 
 
 ## DiagnosticsConnectionString の設定に誤りがある
 
-アプリケーションが Azure 診断を使用する場合、サービス構成ファイルを指定する必要があります、 `DiagnosticsConnectionString` 構成設定。 この設定で、Azure にある該当ストレージ アカウントへの HTTPS 接続を指定します。
+アプリケーションで Azure 診断を使用している場合、サービス構成ファイルで `DiagnosticsConnectionString` 構成設定を指定する必要があります。 この設定で、Azure にある該当ストレージ アカウントへの HTTPS 接続を指定します。
 
-いることを確認する、 `DiagnosticsConnectionString` を Azure にアプリケーション パッケージを展開する前に、設定が正しいこと、次のことを確認します。
+アプリケーション パッケージを Azure にデプロイする前に `DiagnosticsConnectionString` が正しく設定されていることを確かめるために、次の点を確認してください。  
 
-- `DiagnosticsConnectionString` ポイントを Azure で有効なストレージ アカウントに設定します。  
+- Azure 内の有効なストレージ アカウントが `DiagnosticsConnectionString` の設定に指定されていること。  
   既定では、エミュレートされたストレージ アカウントが指定されているため、アプリケーション パッケージをデプロイする前に、この設定を明示的に変更する必要があります。 この設定を変更しなかった場合、ロール インスタンスが診断モニターを起動しようとしたときに例外がスローされます。 ロール インスタンスが無限にリサイクルされる原因となる場合があります。
-
-- 次の接続文字列が指定されている [形式](storage-configure-connection-string.md) (HTTPS とプロトコルを指定する必要があります)。 *MyAccountName* には該当するストレージ アカウントの名前を、*MyAccountKey* には該当するアクセス キーを指定してください。
+  
+- 次の接続文字列が指定されている [形式](storage-configure-connection-string.md) (HTTPS とプロトコルを指定する必要があります)。 置換 *MyAccountName* 、ストレージ アカウントの名前と *MyAccountKey* をアクセス キー。    
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
-  For Microsoft Visual Studio の Azure Tools を使用して、アプリケーションを開発する場合は、使用、 [プロパティ ページ](https://msdn.microsoft.com/library/ee405486) この値を設定します。
+  For Microsoft Visual Studio の Azure Tools を使用して、アプリケーションを開発する場合は、使用、 [プロパティ ページ](https://msdn.microsoft.com/library/ee405486) この値を設定します。 
 
 
 
 ## エクスポートした証明書に秘密キーが含まれていない
 
-Web ロールを SSL で実行する場合は、エクスポートした管理証明書に秘密キーが含まれていることを確認してください。 *Windows 証明書マネージャー*を使用して証明書をエクスポートする場合は必ず、*[はい、秘密キーをエクスポートします]* オプションを選択してください。 証明書は PFX 形式でエクスポートする必要があります。現在サポートされている形式はこれだけです。
+Web ロールを SSL で実行する場合は、エクスポートした管理証明書に秘密キーが含まれていることを確認してください。 使用する場合、 *Windows 証明書マネージャー* 、証明書をエクスポートするには、必ず選択して、 *はい*, 、秘密キーのオプションをエクスポートします。 証明書は PFX 形式でエクスポートする必要があります。現在サポートされている形式はこれだけです。
 
 
 
@@ -90,9 +89,7 @@ Web ロールを SSL で実行する場合は、エクスポートした管理�
 
 
 
-
-[roleentrypoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx 
-[onstart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx 
-[onstop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx 
-[run]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx 
-
+[RoleEntryPoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx
+[OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
+[OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
+[Run]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx

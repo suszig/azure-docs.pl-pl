@@ -1,6 +1,6 @@
 <properties 
     pageTitle="メディア エンコーダー プレミアム ワークフローでの高度なエンコード" 
-    description="メディア エンコーダー プレミアム ワークフローでエンコードする方法について説明します。コード サンプルは C# で記述され、Media Services SDK for .NET を利用しています。" 
+    description="メディア エンコーダー プレミアム ワークフローでエンコードする方法について説明します。 コード サンプルは C# で記述され、Media Services SDK for .NET を利用しています。" 
     services="media-services" 
     documentationCenter="" 
     authors="juliako,anilmur" 
@@ -16,50 +16,49 @@
     ms.date="10/15/2015"  
     ms.author="juliako"/>
 
+#メディア エンコーダー プレミアム ワークフローでの高度なエンコード
 
-# メディア エンコーダー プレミアム ワークフローでの高度なエンコード
+**注** このトピックで説明するメディア エンコーダー プレミアム ワークフロー メディア プロセッサは中国で使用できません。 
 
-**注** このトピックで説明するメディア エンコーダー プレミアム ワークフロー メディア プロセッサは中国では提供されません。
+##概要
 
-## 概要
+Microsoft Azure Media Services の概要、 **メディア エンコーダー プレミアム ワークフロー** メディア プロセッサ。 このプロセッサでは、プレミアム オンデマンド ワークフローの高度なエンコード機能が提供されます。 
 
-Microsoft Azure Media Services には、**メディア エンコーダー プレミアム ワークフロー** メディア プロセッサが導入されています。 このプロセッサでは、プレミアム オンデマンド ワークフローの高度なエンコード機能が提供されます。
-
-次のトピックでは、**メディア エンコーダー プレミアム ワークフロー**に関連する詳細の概要を説明します。
+次のトピックに関連する詳細を説明する **メディア エンコーダー プレミアム ワークフロー**: 
 
 - [メディア エンコーダー プレミアム ワークフローでサポートされる形式](media-services-premium-workflow-encoder-formats.md) – ファイル形式し、について説明でサポートされているコーデック **メディア エンコーダー プレミアム ワークフロー**します。
 
-- [エンコーダーの比較](media-services-encode-asset.md#compare_encoders) セクションのエンコード機能を比較 **メディア エンコーダー プレミアム ワークフロー** と **Azure Media Encoder**します。
+-  [エンコーダーの比較](media-services-encode-asset.md#compare_encoders) セクションのエンコード機能を比較 **メディア エンコーダー プレミアム ワークフロー** と **Azure Media Encoder**します。
 
-このトピックでは、.NET を使用して**メディア エンコーダー プレミアム ワークフロー**でエンコードする方法を示します。
+このトピックでエンコードする方法を示します **メディア エンコーダー プレミアム ワークフロー** .NET を使用します。
 
-**メディア エンコーダー プレミアム ワークフロー**のエンコード タスクには、ワークフロー ファイルと呼ばれる別の構成ファイルが必要です。 これらのファイルは .workflow 拡張子があるし、を使用して作成されて、 [ワークフロー デザイナー](media-services-workflow-designer.md) ツールです。
+エンコード タスク、 **メディア エンコーダー プレミアム ワークフロー** ワークフロー ファイルと呼ばれる別の構成ファイルを必要とします。 これらのファイルは .workflow 拡張子があるし、を使用して作成されて、 [ワークフロー デザイナー](media-services-workflow-designer.md) ツールです。
 
-## エンコード
+##エンコード
 
-**メディア エンコーダー プレミアム ワークフロー**のエンコード タスクには、ワークフロー ファイルと呼ばれる別の構成ファイルが必要です。 これらのファイルは .workflow 拡張子があるし、を使用して作成されて、 [ワークフロー デザイナー](media-services-workflow-designer.md) ツールです。
+エンコード タスク、 **メディア エンコーダー プレミアム ワークフロー** ワークフロー ファイルと呼ばれる別の構成ファイルを必要とします。 これらのファイルは .workflow 拡張子があるし、を使用して作成されて、 [ワークフロー デザイナー](media-services-workflow-designer.md) ツールです。
 
 
 取得することも、既定のワークフロー ファイル [ここ](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)します。 フォルダーにはこれらのファイルの説明も含まれています。
 
 ワークフロー ファイルは、アセットとして Media Services アカウントにアップロードする必要があり、このアセットをエンコード タスクに渡す必要があります。
 
-次の例では、**メディア エンコーダー プレミアム ワークフロー**でエンコードする方法を示しています。
+次の例を使用したエンコード **メディア エンコーダー プレミアム ワークフロー**します。 
 
-次の手順を実行します。
-
-1. アセットを作成し、ワークフロー ファイルをアップロードします。
+次の手順を実行します。 
+ 
+1. アセットを作成し、ワークフロー ファイルをアップロードします。 
 2. アセットを作成し、ソース メディア ファイルをアップロードします。
 3. "メディア エンコーダー プレミアム ワークフロー" メディア プロセッサを取得します。
 4. ジョブとタスクを作成します。
 5. 2 つの入力アセットをタスクに追加します。
-
+    
     a. 1 – ワークフロー アセット。
 
     b. 2 - ビデオ アセット。
-
-    **注**: ワークフロー アセットは、メディア アセットの前にタスクに追加する必要あります。 
-このタスクの構成文字列は空にする必要があります。
+    
+    **注**: ワークフロー アセットは、メディア アセットの前にタスクを追加する必要があります。 
+このタスクの構成文字列は空にする必要があります。 
 
 6. エンコード ジョブを送信します。
 
@@ -96,7 +95,7 @@ Microsoft Azure Media Services には、**メディア エンコーダー プレ
     
             private static readonly string _workflowFilePath =
                 Path.GetFullPath(_supportFiles + @"\H264 Progressive Download MP4.workflow");
-    
+            
             private static readonly string _singleMP4InputFilePath =
                 Path.GetFullPath(_supportFiles + @"\BigBuckBunny.mp4");
     
@@ -265,20 +264,17 @@ Microsoft Azure Media Services には、**メディア エンコーダー プレ
         }
     }
 
-## 既知の問題
 
-入力ビデオにクローズド キャプションが含まれない場合でも、出力アセットには空の TTML ファイルが含まれます。
+##既知の問題
+
+入力ビデオにクローズド キャプションが含まれない場合でも、出力アセットには空の TTML ファイルが含まれます。 
 
 
-## Media Services のラーニング パス
+##Media Services のラーニング パス
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## フィードバックの提供
+##フィードバックの提供
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
 

@@ -16,7 +16,6 @@
     ms.date="12/14/2015"
     ms.author="raynew"/>
 
-
 # Site Recovery を使用したオンプレミス間の Hyper-V レプリケーションに関するパフォーマンス テストとスケールの結果
 
 Microsoft Azure Site Recovery を使用すると、Azure またはセカンダリ データセンターへの仮想マシンと物理サーバーのレプリケーションを調整および管理することができます。 この記事では、2 つのオンプレミス データセンター間で Hyper-V 仮想マシンを複製する際に実行したパフォーマンス テストの結果を示します。
@@ -106,7 +105,7 @@ Hyper-V レプリカが使用する復旧サーバーのメモリは少なく、
 
 ### まとめ
 
-結果では、Hyper-V レプリカと組み合わせた Azure Site Recovery には、大規模なクラスター構成でオーバーヘッドを最小限にする優れた拡張性があることが明確に示されました。 Azure Site Recovery は、シンプルなデプロイ、レプリケーション、管理および監視を実現します。 Hyper-V レプリカは、レプリケーションを正常にスケーリングするために必要なインフラストラクチャを提供します。 ダウンロードすることお勧めを最適な展開の計画の [HYPER-V Replica Capacity Planner](https://www.microsoft.com/download/details.aspx?id=39057)します。
+結果では、Hyper-V レプリカと組み合わせた Azure Site Recovery には、大規模なクラスター構成でオーバーヘッドを最小限にする優れた拡張性があることが明確に示されました。  Azure Site Recovery は、シンプルなデプロイ、レプリケーション、管理および監視を実現します。 Hyper-V レプリカは、レプリケーションを正常にスケーリングするために必要なインフラストラクチャを提供します。 ダウンロードすることお勧めを最適な展開の計画の [HYPER-V Replica Capacity Planner](https://www.microsoft.com/download/details.aspx?id=39057)します。
 
 ## テスト環境の詳細
 
@@ -124,10 +123,10 @@ Hyper-V レプリカが使用する復旧サーバーのメモリは少なく、
 
 ![プライマリのハードウェア要件](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744922.png)
 
-| サーバー| RAM| モデル| プロセッサ| プロセッサの数| NIC| ソフトウェア|
+|サーバー|RAM|モデル|プロセッサ|プロセッサの数|NIC|ソフトウェア|
 |---|---|---|---|---|---|---|
-| クラスター内の HYPER-V サーバー: <br />estlab-host11<br />estlab-host12<br />estlab-host13<br />estlab-host14<br />estlab-host25| 128ESTLAB HOST25 に 256| Dell ™ PowerEdge ™ R820| Intel(R) Xeon(R) CPU E5-4620 0 (2.20 GHz)| 4| I Gbps x 4| Windows Server Datacenter 2012 R2 (x64) + Hyper-V ロール|
-| VMM サーバー| 2| | | 2| 1 Gbps| Windows Server Database 2012 R2 (x64) + VMM 2012 R2|
+|クラスター内の HYPER-V サーバー: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25|128ESTLAB HOST25 に 256|Dell ™ PowerEdge ™ R820|Intel(R) Xeon(R) CPU E5-4620 0 (2.20 GHz)|4|I Gbps x 4|Windows Server Datacenter 2012 R2 (x64) + Hyper-V ロール|
+|VMM サーバー|2|||2|1 Gbps|Windows Server Database 2012 R2 (x64) + VMM 2012 R2|
 
 ### セカンダリ (復旧) サイト
 
@@ -137,12 +136,12 @@ Hyper-V レプリカが使用する復旧サーバーのメモリは少なく、
 
 ![プライマリのハードウェア仕様](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744923.png)
 
-| サーバー| RAM| モデル| プロセッサ| プロセッサの数| NIC| ソフトウェア|
+|サーバー|RAM|モデル|プロセッサ|プロセッサの数|NIC|ソフトウェア|
 |---|---|---|---|---|---|---|
-| クラスター内の HYPER-V サーバー: <br />ESTLAB HOST07<br />ESTLAB HOST08<br />ESTLAB HOST09<br />ESTLAB HOST10| 96| Dell ™ PowerEdge ™ R720| Intel(R) Xeon(R) CPU E5-2630 0 (2.30 GHz)| 2| I Gbps x 4| Windows Server Datacenter 2012 R2 (x64) + Hyper-V ロール|
-| ESTLAB-HOST17| 128| Dell ™ PowerEdge ™ R820| Intel(R) Xeon(R) CPU E5-4620 0 (2.20 GHz)| 4| | Windows Server Datacenter 2012 R2 (x64) + Hyper-V ロール|
-| ESTLAB-HOST24| 256| Dell ™ PowerEdge ™ R820| Intel(R) Xeon(R) CPU E5-4620 0 (2.20 GHz)| 2| | Windows Server Datacenter 2012 R2 (x64) + Hyper-V ロール|
-| VMM サーバー| 2| | | 2| 1 Gbps| Windows Server Database 2012 R2 (x64) + VMM 2012 R2|
+|クラスター内の HYPER-V サーバー: <br />ESTLAB HOST07<br />ESTLAB HOST08<br />ESTLAB HOST09<br />ESTLAB HOST10|96|Dell ™ PowerEdge ™ R720|Intel(R) Xeon(R) CPU E5-2630 0 (2.30 GHz)|2|I Gbps x 4|Windows Server Datacenter 2012 R2 (x64) + Hyper-V ロール|
+|ESTLAB-HOST17|128|Dell ™ PowerEdge ™ R820|Intel(R) Xeon(R) CPU E5-4620 0 (2.20 GHz)|4||Windows Server Datacenter 2012 R2 (x64) + Hyper-V ロール|
+|ESTLAB-HOST24|256|Dell ™ PowerEdge ™ R820|Intel(R) Xeon(R) CPU E5-4620 0 (2.20 GHz)|2||Windows Server Datacenter 2012 R2 (x64) + Hyper-V ロール|
+|VMM サーバー|2|||2|1 Gbps|Windows Server Database 2012 R2 (x64) + VMM 2012 R2|
 
 ### サーバー ワークロード
 
@@ -152,13 +151,13 @@ Hyper-V レプリカが使用する復旧サーバーのメモリは少なく、
 
 - IOMeter のすべてのプロファイルは、ランダムにバイトを書き込むよう設定して、ワークロードに対して、最悪の場合の書き込みパターンをシミュレートしました。
 
-| ワークロード| I/O サイズ (KB)| アクセスの割合| 読み取りの割合| 処理待ち I/O 数| I/O パターン|
+|ワークロード|I/O サイズ (KB)|アクセスの割合|読み取りの割合|処理待ち I/O 数|I/O パターン|
 |---|---|---|---|---|---|
-| ファイル サーバー| 48163264| 60% 20% 5% 5% 10%| 80% 80% 80% 80% 80%| 88888| すべて 100% ランダム|
-| SQL Server (ボリューム 1) SQL Server (ボリューム 2)| 864| 100% 100%| 70% 0%| 88| 100% ランダム 100% シーケンシャル|
-| Exchange| 32| 100%| 67%| 8| 100% ランダム|
-| ワークステーション/VDI| 464| 66% 34%| 70% 95%| 11| どちらも 100% ランダム|
-| Web ファイル サーバー| 4864| 33% 34% 33%| 95% 95% 95%| 888| すべて 75% ランダム|
+|ファイル サーバー|48163264|60% 20% 5% 5% 10%|80% 80% 80% 80% 80%|88888|すべて 100% ランダム|
+|SQL Server (ボリューム 1) SQL Server (ボリューム 2)|864|100% 100%|70% 0%|88|100% ランダム 100% シーケンシャル|
+|Exchange|32|100%|67%|8|100% ランダム|
+|ワークステーション/VDI|464|66% 34%|70% 95%|11|どちらも 100% ランダム|
+|Web ファイル サーバー|4864|33% 34% 33%|95% 95% 95%|888|すべて 75% ランダム|
 
 ### 仮想マシンの構成
 
@@ -168,14 +167,14 @@ Hyper-V レプリカが使用する復旧サーバーのメモリは少なく、
 
 - 仮想マシンでは、次の表に要約したワークロードを実行。 すべて VMM テンプレートを使用して作成されました。
 
-| ワークロード| VM の数| 最小 RAM 容量 (GB)| 最大 RAM 容量 (GB)| VM あたりの論理ディスク サイズ (GB)| 最大 IOPS|
+|ワークロード|# VM|最小 RAM 容量 (GB)|最大 RAM 容量 (GB)|VM あたりの論理ディスク サイズ (GB)|最大 IOPS|
 |---|---|---|---|---|---|
-| SQL Server| 51| 1| 4| 167| 10|
-| Exchange Server| 71| 1| 4| 552| 10|
-| ファイル サーバー| 50| 1| 2| 552| 22|
-| VDI| 149| 0.5| 1| 80| 6|
-| Web サーバー| 149| 0.5| 1| 80| 6|
-| 合計| 470| | | 96.83 TB (テラバイト)| 4108|
+|SQL Server|51|1|4|167|10|
+|Exchange Server|71|1|4|552|10|
+|ファイル サーバー|50|1|2|552|22|
+|VDI|149|0.5|1|80|6|
+|Web サーバー|149|0.5|1|80|6|
+|合計|470|||96.83 TB (テラバイト)|4108|
 
 ### Azure Site Recovery 設定
 
@@ -183,35 +182,31 @@ Hyper-V レプリカが使用する復旧サーバーのメモリは少なく、
 
 - VMM サーバーには、Hyper-V クラスター サーバーとその仮想マシンを含むクラウドが 4 つ構成されています。
 
-| プライマリ VMM クラウド| クラウド内の保護された仮想マシン| レプリケーションの頻度| 追加の復旧ポイント|
+|プライマリ VMM クラウド|クラウド内の保護された仮想マシン|レプリケーションの頻度|追加の復旧ポイント|
 |---|---|---|---|
-| PrimaryCloudRpo15m| 142| 15 分| なし|
-| PrimaryCloudRpo30s| 47| 30 秒| なし|
-| PrimaryCloudRpo30sArp1| 47| 30 秒| 1|
-| PrimaryCloudRpo5m| 235| 5 分| なし|
+|PrimaryCloudRpo15m|142|15 分|なし|
+|PrimaryCloudRpo30s|47|30 秒|なし|
+|PrimaryCloudRpo30sArp1|47|30 秒|1|
+|PrimaryCloudRpo5m|235|5 分|なし|
 
 ### パフォーマンス メトリック
 
 この表では、このデプロイにおいて測定されたパフォーマンス メトリックとカウンターの概要を示します。
 
-| メトリック| カウンター|
+|メトリック|カウンター|
 |---|---|
-| CPU| \Processor(_Total)\% Processor Time|
-| 使用可能なメモリ| \Memory\Available MBytes|
-| IOPS| \PhysicalDisk(_Total)\Disk Transfers/sec|
-| VM 読み取り (IOPS) 操作数/秒| \Hyper-V 仮想記憶域デバイス (<VHD>) \Read Operations/sec|
-| VM 書き込み (IOPS) 操作数/秒| \Hyper-V 仮想記憶域デバイス (<VHD>) \Write 操作/秒|
-| VM 読み取りスループット| \Hyper-V 仮想記憶域デバイス (<VHD>) \Read バイト数/秒|
-| VM 書き込みスループット| \Hyper-V 仮想記憶域デバイス (<VHD>) \Write バイト数/秒|
+|CPU|\Processor(_Total)\% Processor Time|
+|使用可能なメモリ|\Memory\Available MBytes|
+|IOPS|\PhysicalDisk(_Total)\Disk Transfers/sec|
+|VM 読み取り (IOPS) 操作数/秒|\Hyper-V 仮想記憶域デバイス (<VHD>) \Read Operations/sec|
+|VM 書き込み (IOPS) 操作数/秒|\Hyper-V 仮想記憶域デバイス (<VHD>) \Write 操作/秒|
+|VM 読み取りスループット|\Hyper-V 仮想記憶域デバイス (<VHD>) \Read バイト数/秒|
+|VM 書き込みスループット|\Hyper-V 仮想記憶域デバイス (<VHD>) \Write バイト数/秒|
 
 
 ## 次のステップ
 
-- [2 つの内部設置型 VMM サイト間の保護を設定します。](site-recovery-vmm-to-vmm.md)
+- [Set up protection between two on-premises VMM sites (2 つのオンプレミスの VMM サイト間の保護の設定)](site-recovery-vmm-to-vmm.md)
 
-
-
-
-
-
+ 
 

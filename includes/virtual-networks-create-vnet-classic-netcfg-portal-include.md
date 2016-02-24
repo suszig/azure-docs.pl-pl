@@ -5,18 +5,18 @@ Azure では、xml ファイルを使用して、サブスクリプションに�
 Azure ポータルで取得した netcfg ファイルを使用して VNet を作成するには、次の手順に従います。
 
 1. ブラウザーから、http://manage.windowsazure.com に移動し、必要に応じて、サインイン、Azure アカウントを使用しています。
-2. 以下に示すように、サービスの一覧を下へスクロールし、[**ネットワーク**] をクリックします。
+2. サービスの一覧を下へスクロールし、をクリックして **ネットワーク** 次に示すようにします。
 
     ![Azure 仮想ネットワーク](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure1.gif)
 
-3. ページ下部にある次のような [**エクスポート**] ボタンをクリックします。
+3. ページの下部にあるをクリックして、 **エクスポート** ] ボタン、次のようにします。
 
     ![[エクスポート] ボタン](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure2.png)
 
-4. [**ネットワーク構成のエクスポート**] ページで、仮想ネットワーク構成のエクスポート元となるサブスクリプションを選択してから、ページ左下隅のチェック マーク ボタンをクリックします。
-5. ブラウザーの使用手順に従って、**NetworkConfig.xml** ファイルを保存します。 ファイルの保存場所を覚えておいてください。
-6. 任意の XML またはテキスト エディター アプリケーションを使用して上記の手順 5 で保存したファイルを開き、検索、* *<VirtualNetworkSites>*作成済みのネットワークがある場合は、各ネットワークが自分と表示されます **。*作成済みのネットワークがある場合は、各ネットワークが自分と表示されます **<VirtualNetworkSite>* * 要素。
-7. このシナリオで説明した仮想ネットワークを作成するには、次の XML を弱追加、* *<VirtualNetworkSites>* * 要素。
+4.  **エクスポート ネットワーク構成** ] ページで、仮想ネットワークの構成をエクスポートするサブスクリプションを選択して、ページの左下隅のチェック マーク ボタンをクリックします。
+5. 手順については、ブラウザーを保存する、 **NetworkConfig.xml** ファイルです。 ファイルの保存場所を覚えておいてください。
+6. 任意の XML またはテキスト エディター アプリケーションを使用して上記の手順 5 で保存したファイルを開き、検索、 **<VirtualNetworkSites>** 要素。 作成済みのネットワークがある場合は、各ネットワークが自分と表示されます **<VirtualNetworkSite>** 要素。
+7. このシナリオで説明した仮想ネットワークを作成するには、次の XML を弱追加、 **<VirtualNetworkSites>** 要素。
 
         <VirtualNetworkSite name="TestVNet" Location="Central US">
           <AddressSpace>
@@ -33,23 +33,18 @@ Azure ポータルで取得した netcfg ファイルを使用して VNet を作
         </VirtualNetworkSite>
 
 8.  ネットワーク構成ファイルを保存します。
-9.  次の図に示すように、Azure ポータルのページ左下隅で、[**新規**]、[**ネットワーク サービス**]、[**仮想ネットワーク**] 、[**構成のインポート**] の順にクリックします。
+9.  Azure のポータル ページの左下隅のをクリックして **新規**, 、順にクリックして **ネットワーク サービス**, 、順にクリックして **仮想ネットワーク**, 、] をクリックし、 **構成のインポート** 次の図に示すようにします。
 
     ![構成のインポート](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure3.gif)
 
-10.  [**ネットワーク構成ファイルをインポートする**] ページで、[**ファイルの参照...**] をクリックしてから、上記の手順 8. でファイルを保存したフォルダーに移動し、そのファイルを選択して [**開く**] をクリックします。 この Web ページは、次の図のように表示されます。 ページの右下隅にある矢印ボタンをクリックすると、次の手順に移動できます。
+10.   **ネットワーク構成ファイルをインポート** ] ページで [ **ファイルの参照]**, を上記の手順 8. でファイルを保存したフォルダーに移動し、ファイルを選択してクリックして **開く**します。 この Web ページは、次の図のように表示されます。 ページの右下隅にある矢印ボタンをクリックすると、次の手順に移動できます。
 
     ![Import network configuration file page](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure4.png)
 
-11.   次の図のように、[**ネットワークを構築しています**] ページに新しい VNet のエントリが表示されます。
+11.    **ネットワークを構築して** ] ページで、次の図に示すように、新しい VNet 用のエントリが表示されます。
 
     ![Building your network page](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure5.png)
 
 12.   ページの右下隅にあるチェック マーク ボタンをクリックすると、VNet が作成されます。 数秒後、次の図に示すように、作成した VNet が利用可能な VNet の一覧に表示されます。
 
     ![New virtual network](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure6.png)
-
-
-
-
-

@@ -1,6 +1,6 @@
 <properties
  pageTitle="Scheduler の概念、用語、およびエンティティ | Microsoft Azure"
- description="Azure Scheduler の概念、用語、およびエンティティ階層構造 (ジョブやジョブ コレクションなど)。スケジュールされたジョブの全体をまとめた例を示します。"
+ description="Azure Scheduler の概念、用語、およびエンティティ階層構造 (ジョブやジョブ コレクションなど)。  スケジュールされたジョブの全体をまとめた例を示します。"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -15,30 +15,29 @@
  ms.date="12/04/2015"
  ms.author="krisragh"/>
 
-
 # Scheduler の概念、用語集、エンティティ階層構造
 
 ## Scheduler エンティティの階層構造
 
 次の表では、Scheduler API で公開または使用される主要なリソースについて説明します。
 
-| リソース| 説明|
+|リソース | 説明 |
 |---|---|
-| **クラウド サービス**| 概念的には、クラウド サービスは、アプリケーションを表します。サブスクリプションには、いくつかのクラウド サービスが含まれていることがあります。|
-| **ジョブ コレクション**| ジョブ コレクションはジョブのグループを含み、コレクション内のジョブで共有される設定、クォータ、調整を保持します。ジョブ コレクションは、サブスクリプションの所有者によって作成され、使用状況やアプリケーションの境界に基づいてジョブをグループ化します。ジョブ コレクションは、1 つのリージョンに制限されます。ジョブ コレクションでは、クォータを適用して、そのコレクション内のすべてのジョブの使用量を制限することもできます。クォータには、MaxJobs と MaxRecurrence が含まれます。|
-| **ジョブ**| ジョブは、単純または複雑な実行方法による単一の反復的な操作を定義します。操作には、HTTP 要求やストレージ キュー要求を含めることができます。|
-| **ジョブ履歴**| ジョブ履歴は、ジョブの実行の詳細を表します。応答の詳細と、ジョブの実行結果 (成功または失敗) が含まれます。|
+|**クラウド サービス**|概念的には、クラウド サービスは、アプリケーションを表します。 サブスクリプションには、いくつかのクラウド サービスが含まれていることがあります。|
+|**ジョブ コレクション**|ジョブ コレクションはジョブのグループを含み、コレクション内のジョブで共有される設定、クォータ、調整を保持します。 ジョブ コレクションは、サブスクリプションの所有者によって作成され、使用状況やアプリケーションの境界に基づいてジョブをグループ化します。 ジョブ コレクションは、1 つのリージョンに制限されます。 ジョブ コレクションでは、クォータを適用して、そのコレクション内のすべてのジョブの使用量を制限することもできます。 クォータには、MaxJobs と MaxRecurrence が含まれます。|
+|**Job**|ジョブは、単純または複雑な実行方法による単一の反復的な操作を定義します。 操作には、HTTP 要求やストレージ キュー要求を含めることができます。|
+|**ジョブ履歴**|ジョブ履歴は、ジョブの実行の詳細を表します。 応答の詳細と、ジョブの実行結果 (成功または失敗) が含まれます。|
 
 ## Scheduler エンティティの管理
 
 大まかに言うと、Scheduler およびサービス管理 API は、リソースに対する次の操作を公開します。
 
-| 機能| 説明と URI アドレス|
+|機能|説明と URI アドレス|
 |---|---|
-| **クラウド サービスの管理**| GET、PUT、および DELETE の作成とクラウド サービスの変更のサポート <p>`{subscriptionid} の https://management.core.windows.net//cloudservices/{cloudServiceName}`</p>|
-| **ジョブ コレクションの管理**| ジョブ コレクションとジョブ コレクション内のジョブを作成と変更するための GET、PUT、および DELETE のサポート。ジョブ コレクションはジョブのコンテナーであり、クォータと共有設定にマップされます。後で説明するクォータの例としては、ジョブの最大数や最小の繰り返し間隔があります。<p>PUT と DELETE: `{subscriptionid} の https://management.core.windows.net/{cloudServiceName}/cloudservices//リソース/スケジューラ/jobcollections/{jobCollectionName}`</p><p>取得: `/cloudservices/{cloudServiceName} の https://management.core.windows.net/{サブスクリプション Id}/リソース/スケジューラ/{jobCollectionName}`</p>
-| **ジョブの管理**| ジョブを作成と変更するための GET、PUT、POST、PATCH、および DELETE のサポート。すべてのジョブは、暗黙的な作成はありませんが既に存在するジョブ コレクションに属する必要があります。<p>`https://management.core.windows.net/{サブスクリプション Id}/cloudservices/{cloudServiceName}/{jobId} のリソース/スケジューラ/{jobCollectionName}/jobs/`</p>|
-| **ジョブ履歴の管理**| ジョブの経過時間やジョブの実行結果など、60 日分のジョブの実行履歴を取得するための GET のサポート。状態およびステータスに基づいてフィルター処理のクエリ文字列パラメーターのサポートを追加します。 <P>`/cloudservices/{cloudServiceName} の https://management.core.windows.net/{サブスクリプション Id}/{jobId} のリソース/スケジューラ/{jobCollectionName}/jobs//履歴`</p>|
+|**クラウド サービス管理**|クラウド サービスを作成と変更するための GET、PUT、および DELETE のサポート<p>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}`</p>|
+|**ジョブ コレクションの管理**|ジョブ コレクションとジョブ コレクション内のジョブを作成と変更するための GET、PUT、および DELETE のサポート。 ジョブ コレクションはジョブのコンテナーであり、クォータと共有設定にマップされます。 後で説明するクォータの例としては、ジョブの最大数や最小の繰り返し間隔があります。 <p>PUT および DELETE: `https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/jobcollections/{jobCollectionName}`</p><p>GET: `https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}`</p>
+|**ジョブの管理**|ジョブを作成と変更するための GET、PUT、POST、PATCH、および DELETE のサポート。 すべてのジョブは、暗黙的な作成はありませんが既に存在するジョブ コレクションに属する必要があります。 <p>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}/jobs/{jobId}`</p>|
+|**ジョブ履歴の管理**|ジョブの経過時間やジョブの実行結果など、60 日分のジョブの実行履歴を取得するための GET のサポート。 状態およびステータスに基づいてフィルター処理のクエリ文字列パラメーターのサポートを追加します。 <P>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}/jobs/{jobId}/history`</p>|
 
 ## ジョブの種類
 
@@ -48,13 +47,13 @@
 
 基本的なレベルでは、スケジュールされたジョブは、次のような要素で構成されます。
 
-- ジョブ タイマーが起動するときに実行するアクション
+- ジョブ タイマーが起動するときに実行するアクション  
 
-- (省略可能) ジョブを実行する時間
+- (省略可能) ジョブを実行する時間  
 
-- (省略可能) ジョブを繰り返し実行するタイミングと頻度
+- (省略可能) ジョブを繰り返し実行するタイミングと頻度  
 
-- (省略可能) プライマリ アクションが失敗した場合に実行するアクション
+- (省略可能) プライマリ アクションが失敗した場合に実行するアクション  
 
 内部的には、スケジュールされたジョブには、システム指定のデータ (次のスケジュールされた実行時間など) も含まれています。
 
@@ -72,7 +71,7 @@
                 "method": "PUT",                        // required
                 "body": "Posting from a timer",         // optional
                 "headers":                              // optional
-    
+
                 {
                     "Content-Type": "application/json"
                 },
@@ -112,17 +111,17 @@
 
 上記のスケジュールされたジョブの例に示すように、ジョブ定義はいくつかの要素から構成されます。
 
-- 開始時刻 ("startTime")
+- 開始時刻 ("startTime")  
 
 - アクション ("action")。エラー時のアクション ("errorAction") が含まれています。
 
-- 繰り返し ("recurrence")
+- 繰り返し ("recurrence")  
 
-- 状態 ("state")
+- 状態 ("state")  
 
-- ステータス ("status")
+- ステータス ("status")  
 
-- 再試行ポリシー ("retryPolicy")
+- 再試行ポリシー ("retryPolicy")  
 
 以降では、これらについて詳しく説明します。
 
@@ -154,15 +153,15 @@
 
 recurrence には、次の要素が含まれます。
 
-- frequency: minute、hour、day、week、month、または year。
+- frequency: minute、hour、day、week、month、または year。  
 
-- interval: 指定した頻度で繰り返しジョブを実行する間隔。
+- interval: 指定した頻度で繰り返しジョブを実行する間隔。  
 
-- 所定の schedule: 繰り返しジョブを実行する minutes (分)、hours (時)、weekdays (曜日)、months (月)、および monthdays (日にち) を指定します。
+- 所定の schedule: 繰り返しジョブを実行する minutes (分)、hours (時)、weekdays (曜日)、months (月)、および monthdays (日にち) を指定します。  
 
-- count: 実行回数。
+- count: 実行回数。  
 
-- endTime: 指定された終了日時以降、ジョブは実行されません。
+- endTime: 指定された終了日時以降、ジョブは実行されません。  
 
 JSON 定義に定期実行オブジェクトが指定されている場合、ジョブは定期的に実行されます。 count と endTime の両方を指定した場合、最初に実行される完了ルールが優先されます。
 
@@ -172,7 +171,6 @@ JSON 定義に定期実行オブジェクトが指定されている場合、ジ
 
 
         "state": "disabled", // enabled, disabled, completed, or faulted
-
 completed または faulted のジョブは、60 日後に削除されます。
 
 ## status
@@ -183,33 +181,29 @@ Scheduler ジョブが開始すると、ジョブの現在のステータスに�
 
 ## retryPolicy
 
-Scheduler ジョブが失敗した場合、再試行ポリシーを指定して、アクションを再試行するかどうかと再試行の方法を指定できます。 そのためには、**retryType** オブジェクトを使用します。再試行ポリシーがない場合は、上の例に示すように、このオブジェクトを **none** に設定します。 再試行ポリシーがある場合は、このオブジェクトを **fixed** に設定します。
+Scheduler ジョブが失敗した場合、再試行ポリシーを指定して、アクションを再試行するかどうかと再試行の方法を指定できます。 によって決定される、 **retryType** オブジェクト-に設定されている **none** 上記のように、再試行ポリシーがない場合。 設定 **固定** 再試行ポリシーがある場合。
 
-再試行ポリシーを設定する場合、再試行間隔 (**retryInterval**) と再試行回数 (**retryCount**) の 2 つの追加の設定を指定できます。
+再試行ポリシーを設定するには、2 つの追加設定を指定することがあります: 再試行間隔 (**retryInterval**) と再試行回数 (**retryCount**)。
 
-**retryInterval** オブジェクトを使用して指定する再試行間隔は、再試行の間隔を示します。 既定値は 1 分です。最小値は 1 分、最大値は 18 か月です。 この値は、ISO 8601 形式で定義します。 同様に、**retryCount** オブジェクトを使用して指定する再試行回数は、再試行を行う回数を示します。 既定値は 5、および、最大値は 20 です。 **retryInterval** と **retryCount** は両方とも省略可能です。 **retryType** を **fixed** に設定し、値を明示的に指定しない場合、これらの設定では既定値が使用されます。
+指定された再試行間隔は、 **retryInterval** オブジェクト、再試行の間隔。 既定値は 1 分です。最小値は 1 分、最大値は 18 か月です。 この値は、ISO 8601 形式で定義します。 再試行の回数の値が指定されている同様に、 **retryCount** オブジェクトです。 再試行を行う回数を超えることができます。 既定値は 5、および、最大値は 20 です。 両方とも **retryInterval** と **retryCount** は省略可能です。 場合に、既定値が与え、 **retryType** に設定されている **固定** 値が明示的に指定しないとします。
 
 ## 関連項目
 
- [Scheduler とは何ですか。](scheduler-intro.md)
-
- [Azure ポータルでのスケジューラの使用の概要します。](scheduler-get-started-portal.md)
+ [Scheduler とは](scheduler-intro.md)
+ 
+ [Azure ポータル内で Scheduler を使用した作業開始](scheduler-get-started-portal.md)
 
  [Azure Scheduler のプランと課金](scheduler-plans-billing.md)
 
- [複雑なスケジュールと Azure Scheduler で高度な繰り返しを構築する方法](scheduler-advanced-complexity.md)
+ [Azure Scheduler で複雑なスケジュールと高度な定期実行を構築する方法](scheduler-advanced-complexity.md)
 
  [Azure Scheduler REST API リファレンス](https://msdn.microsoft.com/library/dn528946)
 
- [Azure のスケジューラの PowerShell コマンドレット リファレンス](scheduler-powershell-reference.md)
+ [Azure Scheduler PowerShell コマンドレット リファレンス](scheduler-powershell-reference.md)
 
  [Azure Scheduler の高可用性と信頼性](scheduler-high-availability-reliability.md)
 
- [Azure Scheduler の制限、規定値、およびエラー コード](scheduler-limits-defaults-errors.md)
+ [Azure Scheduler の制限、既定値、エラー コード](scheduler-limits-defaults-errors.md)
 
- [Azure のスケジューラ送信認証](scheduler-outbound-authentication.md)
-
-
-
-
+ [Azure Scheduler 送信認証](scheduler-outbound-authentication.md)
 

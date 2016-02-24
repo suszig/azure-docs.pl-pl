@@ -16,20 +16,22 @@
     ms.date="12/07/2015" 
     ms.author="sdanie"/>
 
-
 # Azure API Management の詳細な構成について
 
 このセクションでは、API Management の詳細な構成とタスクに関するチュートリアルを紹介しています。
 
--   [で Azure API Management 開発者ポータルのカスタマイズ][] -このチュートリアルは、お客様のブランドとの整合性が開発者ポータルのルック アンド フィールを変更する方法を示します。
--   [Azure API Management ので呼び出しをトレース API Inspector を使用する方法][] -API Inspector を使用してトレースし、操作の呼び出しに関する情報を収集する方法を説明します。
--   [とレート制限 Azure API Management のを使用して API を保護する][] - レート制限とクォータ ポリシーの構成方法について説明し、しを超えるレート制限まで操作を呼び出すデモを行っています。
--   [をユーザーの登録と成果物のサブスクリプションを委任する方法][] - 開発者のサインイン-で/サインアップを処理するため、既存の web サイトを使用する方法を説明し、として製品へのサブスクリプションではなく、開発者ポータルで組み込みの機能を使用します。
+-   [Azure API Management で開発者ポータルのカスタマイズ][] -このチュートリアルは、お客様のブランドとの整合性が開発者ポータルのルック アンド フィールを変更する方法を示します。
+-   [Azure API Management での呼び出しをトレースする API Inspector を使用する方法][] -API Inspector を使用してトレースし、操作の呼び出しに関する情報を収集する方法を説明します。
+-   [レート制限の Azure API Management を使用して API を保護する][] - レート制限とクォータ ポリシーの構成方法について説明し、しを超えるレート制限まで操作を呼び出すデモを行っています。
+-   [ユーザーの登録と成果物のサブスクリプションを委任する方法][] - 開発者のサインイン-で/サインアップを処理するため、既存の web サイトを使用する方法を説明し、として製品へのサブスクリプションではなく、開発者ポータルで組み込みの機能を使用します。
 
 
+[Customizing the developer portal in Azure API Management]: api-management-customize-portal.md
 
-[customizing the developer portal in azure api management]: api-management-customize-portal.md 
-[how to use the api inspector to trace calls in azure api management]: api-management-howto-api-inspector.md 
-[protect your api with rate limits using azure api management]: api-management-howto-product-with-rules.md 
-[how to delegate user registration and product subscription]: api-management-howto-setup-delegation.md 
+[How to use the API Inspector to trace calls in Azure API Management]: api-management-howto-api-inspector.md
 
+[Protect your API with rate limits using Azure API Management]: api-management-howto-product-with-rules.md
+
+[How to delegate user registration and product subscription]: api-management-howto-setup-delegation.md
+
+ 

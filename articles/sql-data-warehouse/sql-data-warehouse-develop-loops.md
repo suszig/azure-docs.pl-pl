@@ -16,19 +16,16 @@
    ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
-
 # SDL Data Warehouse でのループ
-
-SQL Data Warehouse をサポートしています、 [の中に][] ステートメント ブロックを繰り返し実行するループします。 これは、指定された条件に該当する限り、またはまでコードは、具体的には、ループを使用して終了、続きます、 `中断` キーワードです。 ループは、SQL コードで定義されているカーソルを置き換えるために特に便利です。 また、SQL コードで記述されているほとんどすべてのカーソルは、高速順方向、読み取り専用など豊富です。 そのため [中] は、ループは優れた代替 if する表示を置き換える必要があります。
+SQL Data Warehouse には、ステートメント ブロックを繰り返し実行するための [WHILE] ループがサポートしています。 これは、指定された条件が true の場合に限り、またはコードが `BREAK` キーワードを使用してループを終了するまで実行されます。 ループは、SQL コードで定義されているカーソルを置き換えるために特に便利です。 また、SQL コードで記述されているほとんどすべてのカーソルは、高速順方向、読み取り専用など豊富です。 そのため [中] は、ループは優れた代替 if する表示を置き換える必要があります。
 
 ## SQL Data Warehouse でのループの活用とカーソルの置換
-
 ただし、始める前に、まず、自分で「このカーソルは、セット ベースの操作を使用して再作成できるか」と問いかけてください。 多くの場合、答えは「はい」であり、この方法が最適です。 セット ベースの操作は、1 行ずつの反復的なアプローチをとるよりも非常に速く実行されます。
 
 高速順方向の読み取り専用カーソルは、ループ構造で簡単に置き換えることができます。 単純な例を次に示します。 このコード例は、データベース内のすべてのテーブルの統計を更新します。 ループ内のテーブルを反復処理することで、シーケンス内の各コマンドを実行できます。
 
 最初に、個々のステートメントを識別するための一意の行番号が含まれている、一時テーブルを作成します。
-
+  
 ```
 CREATE TABLE #tbl 
 WITH 
@@ -69,23 +66,21 @@ DROP TABLE #tbl;
 ```
 
 
-
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 ## 次のステップ
+他の開発のヒントについては、[開発の概要に関するページを参照してください。
 
-他の開発のヒントを参照してください。 [開発の概要 []][]します。
+<!--Image references-->
 
+<!--Article references-->
+[development overview]: sql-data-warehouse-overview-develop.md
 
-
-
-
-
-
-
-
+<!--MSDN references-->
+[WHILE]: https://msdn.microsoft.com/library/ms178642.aspx
 
 
+<!--Other Web references-->
 
-[development overview]: sql-data-warehouse-overview-develop.md 
-[while]: https://msdn.microsoft.com/library/ms178642.aspx 
+
 

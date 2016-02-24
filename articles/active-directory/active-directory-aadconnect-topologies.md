@@ -16,40 +16,36 @@
    ms.date="12/02/2015"
    ms.author="andkjell"/>
 
-
 # Azure AD Connect のトポロジ
 
 このトピックでは、主要な統合ソリューションとして Azure AD Connect Sync を使用した、さまざまなオンプレミスと Azure AD のトポロジについて説明します。 サポートされている構成とサポートされていない構成の両方について説明します。
 
 ドキュメント内の図の凡例:
 
-| 説明| アイコン|
+| 説明 | アイコン |
 |-----|-----|
-| オンプレミスの Active Directory フォレスト| ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)|
-| Active Directory とフィルター処理されたインポート| ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)|
-| Azure AD Connect 同期サーバー| ![同期](./media/active-directory-aadconnect-topologies/LegendSync1.png)|
-| Azure AD Connect 同期サーバー "ステージング モード"| ![同期](./media/active-directory-aadconnect-topologies/LegendSync2.png)|
-| GALSync と FIM2010 または MIM2016| ![同期](./media/active-directory-aadconnect-topologies/LegendSync3.png)|
-| Azure AD Connect 同期サーバー、詳細| ![同期](./media/active-directory-aadconnect-topologies/LegendSync4.png)|
-| Azure AD ディレクトリ| ![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)|
-| サポートされていないシナリオ| ![サポートされていません](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
+| オンプレミスの Active Directory フォレスト | ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)|
+| Active Directory とフィルター処理されたインポート | ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)|
+| Azure AD Connect 同期サーバー | ![同期](./media/active-directory-aadconnect-topologies/LegendSync1.png)|
+|  Azure AD Connect 同期サーバー "ステージング モード" | ![同期](./media/active-directory-aadconnect-topologies/LegendSync2.png)|
+| GALSync と FIM2010 または MIM2016 | ![同期](./media/active-directory-aadconnect-topologies/LegendSync3.png)|
+| Azure AD Connect 同期サーバー、詳細 |![同期](./media/active-directory-aadconnect-topologies/LegendSync4.png)|
+| Azure AD ディレクトリ |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)|
+| サポートされていないシナリオ | ![サポートされていません](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
 
 
 
 ## 単一のフォレスト、単一の Azure AD ディレクトリ
-
 ![SingleForestSingleDirectory](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
 
 最も一般的なトポロジは、1 つのフォレストの内部設置型、1 つまたは複数のドメインと、1 つと Azure AD ディレクトリ (ルール サブタイプ) テナント)。 Azure AD 認証は、パスワード同期で行われます。 これは、Azure AD Connect の高速インストールでサポートされているトポロジです。
 
 ### 単一のフォレスト、1 つの Azure AD ディレクトリに対する複数の同期サーバー
-
 ![SingleForestFilteredUnsupported](./media/active-directory-aadconnect-topologies/SingleForestFilteredUnsupported.png)
 
-相互に排他的な一連のオブジェクトを同期するように構成されている場合でも、同じ Azure AD ディレクトリに接続する複数の Azure AD Connect 同期サーバーがあることはできません (例外として、 [ステージング サーバー](#staging-server))します。 一般的なネットワークの場所からフォレスト内の 1 つのドメインにアクセスできないために失敗するか、複数のサーバーに同期の負荷を分散しようとして失敗します。
+相互に排他的な一連のオブジェクトを同期するように構成されている場合でも、同じ Azure AD ディレクトリに接続する複数の Azure AD Connect 同期サーバーがあることはできません (例外として、 [ステージング サーバー](#staging-server))。 一般的なネットワークの場所からフォレスト内の 1 つのドメインにアクセスできないために失敗するか、複数のサーバーに同期の負荷を分散しようとして失敗します。
 
 ## 複数のフォレスト、単一の Azure AD ディレクトリ
-
 ![MultiForestSingleDirectory](./media/active-directory-aadconnect-topologies/MultiForestSingleDirectory.png)
 
 多くの組織が、複数のオンプレミス Active Directory フォレストを含む環境を使用しています。 複数のオンプレミス Active Directory フォレストがデプロイされる理由はさまざまです。 典型的な例は、アカウント リソース フォレスト、合併や買収に関連したフォレスト、データの外注に使用されるフォレストなどの目的です。
@@ -60,24 +56,22 @@ Azure AD Connect ウィザードには、ユーザーを統合する方法とし
 
 一般的なトポロジのについては、次のセクションで説明します。 [別々 のトポロジ](#multiple-forests-separate-topologies), 、[フル メッシュ](#multiple-forests-full-mesh-with-optional-galsync), 、および [アカウント リソース](#multiple-forests-account-resource-forest)します。
 
-Azure AD Connect sync によって提供される既定の構成、次の仮定が行われます。
+Azure AD Connect Sync で提供される既定の構成は、次の内容を前提としています。
 1.  ユーザーが持つ有効なアカウントは 1 つのみで、このアカウントが配置されているフォレストがユーザーの認証に使用されます。 これには、パスワード同期とフェデレーションの両方が該当します。userPrincipalName と sourceAnchor/immutableID は、このフォレストから取得されます。
 2.  ユーザーのメールボックスは 1 つのみです。
 3.  ユーザーのメールボックスをホストするフォレストは、Exchange のグローバル アドレス一覧 (GAL) で確認できる属性に対して最適なデータ品質を備えています。 ユーザーにメールボックスがない場合、どのフォレストを使用してもこれらの属性値を提供できます。
 4.  リンクされたメールボックスがある場合は、ログインに使用される別のアカウントも別のフォレストにあります。
 
-環境内でこのような想定が一致しない場合、次のように行われます。
--   1 つ以上のアクティブなアカウントまたは 1 つ以上のメールボックスがある場合は、同期エンジンはいずれかを選択し、他方を無視します。
--   メールボックスがないその他のアカウントをリンクしている場合は、これらのアカウントは Azure AD にエクスポートできず、ユーザーがどのグループのメンバーにできません。 DirSync では、リンクされたメールボックスは通常のメールボックスとして表されるので、これはマルチ フォレスト シナリオをよりよくサポートするための意図的に異なる動作です。
+環境がこれらの前提と一致しない場合は、次のようになります。
+-   複数のアクティブなアカウントまたは複数のメールボックスがある場合、同期エンジンは 1 つを選び、他は無視します。
+-   リンクされたメールボックスはあるが、その他のアカウントがない場合、それらのアカウントは Azure AD にはエクスポートされず、そのユーザーはどのグループのメンバーにもなりません。 DirSync では、リンクされたメールボックスは通常のメールボックスとして表されるので、これはマルチ フォレスト シナリオをよりよくサポートするための意図的に異なる動作です。
 
 ### 複数のフォレスト、1 つの Azure AD ディレクトリに対する複数の同期サーバー
-
 ![MultiForestMultiSyncUnsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiSyncUnsupported.png)
 
-1 つ以上の Azure AD Connect Sync サーバーを 1 つに接続があることはできません Azure AD ディレクトリ (例外として、 [ステージング サーバー](#staging-server))します。
+1 つ以上の Azure AD Connect Sync サーバーを 1 つに接続があることはできません Azure AD ディレクトリ (例外として、 [ステージング サーバー](#staging-server))。
 
 ### 複数のフォレスト – 分離トポロジ
-
 [ユーザーは、すべてのディレクトリで 1 度だけ示されます。]
 
 ![MultiForestUsersOnce](./media/active-directory-aadconnect-topologies/MultiForestUsersOnce.png)
@@ -89,13 +83,11 @@ Azure AD Connect sync によって提供される既定の構成、次の仮定�
 この図では、すべてのフォレスト内の各オブジェクトが、一度メタバースに表され、ターゲットの Azure AD ディレクトリに集約されます。
 
 ### 複数のフォレスト - ユーザーの一致
-
 [複数のディレクトリにユーザー ID が存在します] のいずれかのオプションを選択した場合に、すべてのマルチ フォレスト シナリオに共通するのは、配布とセキュリティ グループがすべてのフォレストで見つかり、ユーザー、連絡先、および FSP (外部セキュリティ プリンシパル) の組み合わせを含めることができるということです。
 
 FSP は、セキュリティ グループ内の他のフォレストのメンバーを表すために、ADDS で使用されます。 同期エンジンは FSP を実際のユーザーに解決し、Azure AD 内のセキュリティ グループを、実際のオブジェクトに解決されるすべての FSP で表します。
 
 ### 複数のフォレスト - オプションの GALSync を使用したフル メッシュ
-
 [複数のディレクトリにユーザー ID が存在します。 次を使用した一致: メール属性]
 
 ![MultiForestUsersMail](./media/active-directory-aadconnect-topologies/MultiForestUsersMail.png)
@@ -109,7 +101,6 @@ FSP は、セキュリティ グループ内の他のフォレストのメンバ
 このシナリオでは、ID オブジェクトはメール属性を使用して結合されます。 この結果、あるフォレストでメールボックスを使用するユーザーは、他のフォレストの連絡先と結合されます。
 
 ### 複数のフォレスト – アカウント リソース フォレスト
-
 [複数のディレクトリにユーザー ID が存在します。 次を使用した一致: ObjectSID および msExchMasterAccountSID 属性]
 
 ![MultiForestUsersObjectSID](./media/active-directory-aadconnect-topologies/MultiForestUsersObjectSID.png)
@@ -121,16 +112,14 @@ FSP は、セキュリティ グループ内の他のフォレストのメンバ
 このシナリオは、すべてのアカウント フォレストを信頼する 1 つのフォレストを含んでいます。 このフォレストには、通常、Exchange および Lync を使用する拡張 AD スキーマがあります。 すべての Exchange および Lync サービスと、他の共有サービスは、このフォレストに配置されます。 ユーザーのユーザー アカウントはこのフォレストで無効になり、メールボックスはアカウント フォレストにリンクされます。
 
 ## Office 365 とトポロジの考慮事項
-
 Office 365 の一部のワークロードでは、サポートされるトポロジに一定の制限が生じます。 これらのいずれかを使用する場合は、各ワークロードのサポートされているトポロジのページを参照してください。
 
-| ワークロード| |
+| ワークロード |  |
 | --------- | --------- |
-| Exchange Online| オンプレミスに複数の Exchange 組織がある場合 (つまり、Exchange が複数のフォレストにデプロイされている場合) は、Exchange 2013 SP1 以降を使用する必要があります。詳細について参照してください: [を複数の Active Directory フォレストとのハイブリッド デプロイ](https://technet.microsoft.com/en-us/library/jj873754.aspx)|
-| Skype for Business| オンプレミスで複数のフォレストを使用する場合は、アカウント リソース フォレスト トポロジのみがサポートされます。詳細にサポートされているトポロジをこちら: [ビジネス Server 2015 の Skype の環境要件](https://technet.microsoft.com/en-us/library/dn933910.aspx)|
+| Exchange Online | オンプレミスに複数の Exchange 組織がある場合 (つまり、Exchange が複数のフォレストにデプロイされている場合) は、Exchange 2013 SP1 以降を使用する必要があります。 詳細について参照してください: [を複数の Active Directory フォレストとのハイブリッド展開](https://technet.microsoft.com/en-us/library/jj873754.aspx) |
+| Skype for Business | オンプレミスで複数のフォレストを使用する場合は、アカウント リソース フォレスト トポロジのみがサポートされます。 詳細にサポートされているトポロジをこちら: [ビジネス Server 2015 の Skype の環境の要件](https://technet.microsoft.com/en-us/library/dn933910.aspx) |
 
 ## ステージング サーバー
-
 ![StagingServer](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
 
 Azure AD Connect では、"ステージング モード" でのセカンド サーバーのインストールがサポートされています。 このモードのサーバーは、すべての接続されているディレクトリからデータの読み取りだけを行い、ID データの更新されたコピーを持ちます。 障害が発生し、プライマリ サーバーがエラーになった場合は、Azure AD Connect ウィザードを使用して、セカンド サーバーに手動で簡単にフェールオーバーできます。 このセカンド サーバーは、別のデータ センターに配置することをお勧めします。そうすれば、インフラストラクチャをプライマリ サーバーと共有することがありません。 プライマリ サーバーでの構成の変更は、ユーザーがセカンド サーバーにコピーする必要があります。
@@ -142,20 +131,18 @@ Azure AD Connect では、"ステージング モード" でのセカンド サ�
 異なるデータ センターに複数のバックアップを用意する場合は、複数のステージング サーバーを持つことができます。
 
 ## 複数の Azure AD ディレクトリ
-
 組織の Azure AD には 1 つのディレクトリを置くことをお勧めします。
 複数の Azure AD ディレクトリの使用を計画する前に、これらのトピックでは 1 つのディレクトリを使用できる一般的なシナリオについて説明しています。
 
-| トピック| |
+| トピック |  |
 | --------- | --------- |
-| 管理単位を使用した委任| [Azure AD での管理単位の管理 ](active-directory-administrative-units-management.md)
+| 管理単位を使用した委任 | [Azure AD の管理単位 ](active-directory-administrative-units-management.md)
 
 ![MultiForestMultiDirectory](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 
 Azure AD Connect 同期サーバーと Azure AD ディレクトリには、1:1 のリレーションシップがあります。 各 Azure AD ディレクトリに、1 つの Azure AD Connect 同期サーバーをインストールする必要があります。 各 Azure AD ディレクトリ インスタンスは分離されるデザインになっており、1 つのディレクトリのユーザーは他のディレクトリ内のユーザーを見ることができません。 これが意図しているものであれば、サポートされている構成ですが、そうでない場合は上記の単一 Azure AD ディレクトリ モデルを使用する必要があります。
 
 ### Azure AD ディレクトリでの各オブジェクトの 1 回のみの使用
-
 ![SingleForestFiltered](./media/active-directory-aadconnect-topologies/SingleForestFiltered.png)
 
 このトポロジでは、1 つの AAD Connect 同期サーバーが各 Azure AD ディレクトリに接続されます。 各 Azure AD Connect 同期サーバーは、操作対象のオブジェクトのセットが相互排他的になるようなフィルター処理を構成する必要があります。たとえば、各サーバーが特定のドメインまたは OU をスコープにするようにします。 DNS ドメインは 1 つの Azure AD ディレクトリにしか登録できないため、オンプレミス AD のユーザーの UPN も個別の名前空間を使用する必要があります。 たとえば、上の図では、3 つの個別の UPN サフィックスがオンプレミス AD の contoso.com、fabrikam.com、および wingtiptoys.com に登録されています。 各オンプレミス AD ドメインのユーザーは、別の名前空間を使用します。
@@ -165,37 +152,29 @@ Azure AD Connect 同期サーバーと Azure AD ディレクトリには、1:1 �
 このトポロジでは、1 つの Azure AD ディレクトリだけが、オンプレミス Active Directory を持つ Exchange ハイブリッドを有効にできます。
 
 オブジェクトの相互排他的なセットの要件は、書き戻しにも適用されます。 そのため、単一構成のオンプレミスを前提としている一部の書き戻し機能は、このトポロジではサポートされません。 次のトピックがあります。
--   既定の構成とグループの書き戻し
+-   既定の構成によるグループの書き戻し
 -   デバイスの書き戻し
 
 ### Azure AD ディレクトリでの各オブジェクトの複数の使用
-
 ![SingleForestMultiDirectoryUnsupported](./media/active-directory-aadconnect-topologies/SingleForestMultiDirectoryUnsupported.png) ![SingleForestMultiConnectorsUnsupported](./media/active-directory-aadconnect-topologies/SingleForestMultiConnectorsUnsupported.png)
 
 複数の Azure AD ディレクトリへの同じユーザーの同期は、サポートされていません。 1 つの Azure AD のユーザーを他の Azure AD ディレクトリで連絡先として表示するような構成の変更もサポートされていません。 複数の Azure AD ディレクトリに接続するような Azure AD Connect Sync の変更もサポートされていません。
 
 ### 書き戻しの使用による GALsync
-
 ![MultiForestMultiDirectoryGALSync1Unsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync1Unsupported.png) ![MultiForestMultiDirectoryGALSync2Unsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync2Unsupported.png)
 
 Azure AD のディレクトリは、分離するように設計されています。 ディレクトリ間に共通の統合された GAL を構築しようとする際に他の Azure AD ディレクトリからデータを読み取るような、Azure AD Connect Sync の構成の変更はサポートされていません。 Azure AD Connect Sync を使用している別のオンプレミス AD の連絡先としてユーザーをエクスポートすることもサポートされていません。
 
 ### GALsync とオンプレミスの同期サーバー
-
 ![MultiForestMultiDirectoryGALSync](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync.png)
 
 2 つの Exchange 組織間でユーザーを GALsync するための、オンプレミスでの FIM2010/MIM2016 の使用はサポートされています。 1 つの組織内のユーザーは、他の組織では外部ユーザーおよび連絡先として表示されます。 これらの異なるオンプレミス AD は、独自の Azure AD ディレクトリと同期できます。
 
 
 ## 次のステップ
-
 このようなシナリオの Azure AD Connect をインストールする方法については、次を参照してください。 [Azure AD Connect のカスタム インストール](active-directory-aadconnect-get-started-custom.md)します。
 
 詳細について、 [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) 構成します。
 
 詳細について [内部設置型 id と Azure Active Directory の統合](active-directory-aadconnect.md)します。
-
-
-
-
 

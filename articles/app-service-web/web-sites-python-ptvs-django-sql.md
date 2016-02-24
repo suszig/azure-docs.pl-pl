@@ -20,8 +20,7 @@
 
 
 
-
-# Python Tools 2.2 for Visual Studio を使用した Azure 上の Django と SQL Database
+# Python Tools 2.2 for Visual Studio を使用した Azure 上の Django と SQL Database 
 
 このチュートリアルでは、PTVS サンプル テンプレートのいずれかを使用して簡単な投票 web アプリを作成する [Python Tools for Visual Studio] を使用してします。 このチュートリアルではでもご覧いただけます、 [ビデオ](https://www.youtube.com/watch?v=ZwcoGcIeHF4)します。
 
@@ -38,27 +37,28 @@ Bottle、Flask、Django web フレームワークを MongoDB、Azure テーブ�
  - [Python 2.7 32-bit]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+
 >[AZURE.NOTE] 場合は、Azure アカウントがサインアップする前に Azure App Service の使用を開始するには、 [App Service の試用](http://go.microsoft.com/fwlink/?LinkId=523751), 、App Service で有効期間の短いスターター web アプリをすぐに作成する場所です。 このサービスの利用にあたり、クレジット カードは必要ありません。契約も必要ありません。
 
 ## プロジェクトを作成する
 
 このセクションでは、サンプル テンプレートを使用して Visual Studio プロジェクトを作成します。 仮想環境を作成し、必要なパッケージをインストールします。 sqlite を使用して、ローカル データベースを作成します。 Web アプリをローカルで実行します。
 
-1.  Visual Studio で、**[ファイル]**、**[新しいプロジェクト]** の順にクリックします。
+1.  Visual Studio で、次のように選択します。 **ファイル**, 、**新しいプロジェクト**します。
 
-1.  PTVS サンプル VSIX のプロジェクト テンプレートは、**[Python]** の **[サンプル]** にあります。 **[投票 Django Web プロジェクト]** を選択し、[OK] をクリックしてプロジェクトを作成します。
+1.  PTVS サンプル vsix のプロジェクト テンプレートが [利用可能な **Python**, 、**サンプル**します。 選択 **投票 Django Web プロジェクト** プロジェクトを作成するには、[ok] をクリックします。
 
     ![[新しいプロジェクト] ダイアログ](./media/web-sites-python-ptvs-django-sql/PollsDjangoNewProject.png)
 
-1.  外部のパッケージをインストールするよう求めるメッセージが表示されます。 **[仮想環境にインストールする]** を選択します。
+1.  外部のパッケージをインストールするよう求めるメッセージが表示されます。 選択 **仮想環境にインストール**します。
 
     ![External Packages ダイアログ](./media/web-sites-python-ptvs-django-sql/PollsDjangoExternalPackages.png)
 
-1.  基になるインタープリターとして **Python 2.7** を選択します。
+1.  選択 **Python 2.7** ベース インタープリターとして。
 
     ![Add Virtual Environment ダイアログ](./media/web-sites-python-ptvs-django-sql/PollsCommonAddVirtualEnv.png)
 
-1.  プロジェクト ノードを右クリックして、**[Python]**、**[Django Sync DB]** の順に選択します。
+1.  プロジェクト ノードを右クリックして **Python**, 、**Django Sync DB**します。
 
     ![Django Sync DB コマンド](./media/web-sites-python-ptvs-django-sql/PollsDjangoSyncDB.png)
 
@@ -68,9 +68,9 @@ Bottle、Flask、Django web フレームワークを MongoDB、Azure テーブ�
 
     ![Django Management Console ウィンドウ](./media/web-sites-python-ptvs-django-sql/PollsDjangoConsole.png)
 
-1.  キーを押して、アプリケーションが動作することを確認 <kbd>f5 キーを押して</kbd>します。
+1.  キーを押して、アプリケーションが動作することを確認します。 <kbd>F5</kbd>.
 
-1.  上部にあるナビゲーション バーで、**[ログイン]** をクリックします。
+1.  クリックして **ログイン** 上部にあるナビゲーション バーからです。
 
     ![Web ブラウザー](./media/web-sites-python-ptvs-django-sql/PollsDjangoCommonBrowserLocalMenu.png)
 
@@ -78,7 +78,7 @@ Bottle、Flask、Django web フレームワークを MongoDB、Azure テーブ�
 
     ![Web ブラウザー](./media/web-sites-python-ptvs-django-sql/PollsDjangoCommonBrowserLocalLogin.png)
 
-1.  **[サンプル投票の作成]** をクリックします。
+1.  クリックして **サンプル投票の作成**します。
 
     ![Web ブラウザー](./media/web-sites-python-ptvs-django-sql/PollsDjangoCommonBrowserNoPolls.png)
 
@@ -94,21 +94,23 @@ Bottle、Flask、Django web フレームワークを MongoDB、Azure テーブ�
 
 1.  [Azure ポータル] にログインします。
 
-1.  ナビゲーション ウィンドウの下部にある **[+新規]** をクリックします。 、をクリックして **データ + ストレージ** > **SQL Database**します。
+1.  ナビゲーション ウィンドウの下部にあるをクリックして **新規**します。 、をクリックして **データ + ストレージ** > **SQL Database**します。
 
+    <!-- ![New Button](./media/web-sites-python-ptvs-django-sql/PollsCommonAzurePlusNew.png) -->
 
 1.  新しいリソース グループを作成することで、新しい SQL Database を構成し、適切な場所を選択します。
 
+    <!-- ![Quick Create SQL Database](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlCreate.png) -->
 
-1.  SQL Database が作成されたら、データベース ブレードの **[Visual Studio で開く]** をクリックします。
-2.  **[Configure your firewall]** をクリックします。
-3.  **[ファイアウォールの設定]** ブレードで、 **開始 IP** と **終了 IP**で ファイアウォール規則を追加し、開発用コンピューターのパブリック IP アドレスに設定します。 **[保存]** をクリックします。
+1.  SQL データベースが作成されたら、クリックして **Visual Studio で開く** データベース ブレードにします。
+2.  クリックして **ファイアウォールを構成する**です。
+3.   **ファイアウォールの設定** ブレードでファイアウォール規則を追加 **開始 IP** と **終了 IP** 開発用コンピューターのパブリック IP アドレスに設定します。 クリックして **保存**します。
 
     これで、開発用のコンピューターからデータベース サーバーに接続できるようになります。
 
-4.  データベース ブレードに戻り、**[プロパティ]** をクリックし、**[Show database connection strings (データベース接続文字列を表示)]** をクリックします。
+4.  データベース ブレードに戻りクリックして **プロパティ**, 、] をクリックし、 **データベース接続文字列の表示**します。 
 
-2.  [コピー] ボタンを使用して、**ADO.NET** の値をクリップボードにコピーします。
+2.  値をコピー] ボタンを使用して **ADO.NET** クリップボードにコピーします。
 
 ## プロジェクトを構成する
 
@@ -116,12 +118,11 @@ Bottle、Flask、Django web フレームワークを MongoDB、Azure テーブ�
 対して行います。 また、Django で SQL Database を使用するために必要な Python パッケージも 
 別途インストールします。 Web アプリをローカルで実行します。
 
-1.  Visual Studio で、*ProjectName* フォルダーから **settings.py** を開きます。 エディターで、接続文字列を一時的に貼り付けます。 この接続文字列の形式を次に示します。
+1.  Visual Studio で開きます **settings.py**, から、 *ProjectName* フォルダーです。 エディターで、接続文字列を一時的に貼り付けます。 この接続文字列の形式を次に示します。
 
         Server=<ServerName>,<ServerPort>;Database=<DatabaseName>;User ID=<UserName>;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-
-定義を編集 `データベース` 上記の値を使用します。
+`DATABASES` の定義を編集して、上記の値を使用します。
 
         DATABASES = {
             'default': {
@@ -138,47 +139,49 @@ Bottle、Flask、Django web フレームワークを MongoDB、Azure テーブ�
             }
         }
 
-1.  ソリューション エクスプローラーで、**[Python 環境]** の下にある仮想環境を右クリックし、**[Python パッケージのインストール]** を選択します。
+1.  ソリューション エクスプ ローラーで [ **Python 環境**, 仮想環境を右クリックして、選択 **Install Python Package**します。
 
 1.  パッケージをインストール `pyodbc` を使用して **pip**します。
 
     ![Install Python Package ダイアログ](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackagePyodbc.png)
 
-1.  パッケージをインストール `django pyodbc azure` を使用して **pip**します。
+1.  パッケージをインストール `django-pyodbc-azure` を使用して **pip**します。
 
     ![Install Python Package ダイアログ](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackageDjangoPyodbcAzure.png)
 
-1.  プロジェクト ノードを右クリックして、**[Python]**、**[Django Sync DB]** の順に選択します。
+1.  プロジェクト ノードを右クリックして **Python**, 、**Django Sync DB**します。 
 
     前のセクションで作成した SQL Database のテーブルが作成されます。 プロンプトに従ってユーザーを作成してください。最初のセクションで作成した sqlite データベースのユーザーと一致させる必要はありません。
 
     ![Django Management Console ウィンドウ](./media/web-sites-python-ptvs-django-sql/PollsDjangoConsole.png)
 
-1.  `F5` キーでアプリケーションを実行します。 **[サンプル投票の作成]** で作成された投票と、投票によって送信されたデータは、SQL database でシリアル化されます。
+1.  `F5` キーでアプリケーションを実行します。 作成された投票 **[Create Sample Polls** と投票によって送信されたデータは、SQL database でシリアル化されます。
 
 
 ## Web アプリを Azure App Service に発行する
 
 Azure .NET SDK を使用すると、Web アプリを  Azure App Service Web Apps に簡単にデプロイできます。
 
-1.  **ソリューション エクスプローラー**で、プロジェクト ノードを右クリックし、**[発行]** をクリックします。
+1.   **ソリューション エクスプ ローラー**, プロジェクト ノードを右クリックし、選択、 **発行**します。
 
+    <!-- ![Publish Web Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonPublishWebSiteDialog.png) -->
 
-1.  **[Microsoft Azure Web Apps]** をクリックします。
+1.  をクリックして **Microsoft Azure Web Apps**します。
 
-1.  **[新規]** をクリックして、新しい Web アプリを作成します。
+1.  をクリックして **新規** 新しい web アプリを作成します。
 
-1.  次のフィールドに入力し、**[作成]** をクリックします。
--   **[Web アプリケーション名]**
--   **[App Service プラン]**
--   **[リソース グループ]**
--   **[リージョン]**
--   **[データベース サーバー]** は、**[データベースなし]** のままにしておきます。
+1.  次のフィールドに入力し、クリックして **作成**します。
+    -   **[Web アプリケーション名]**
+    -   **App Service プラン**
+    -   **リソース グループ**
+    -   **リージョン**
+    -   ままにして **データベース サーバー** 設定 **データベースが存在しません**
 
+    <!-- ![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonCreateWebSite.png) -->
 
-1.  他のすべての既定値をそのまま使用し、**[発行]** をクリックします。
+1.  その他のすべての既定値をそのまま使用し、クリックして **発行**します。
 
-1.  Web ブラウザーが自動的に開いて、発行した Web アプリが表示されます。 想定どおりに Web アプリ が Azure でホストされている **SQL** データベースを使用して動作していることが確認できます。
+1.  Web ブラウザーが自動的に開いて、発行した Web アプリが表示されます。 を使用して想定どおりに動作して web アプリを表示する必要があります、 **SQL** Azure でホストされているデータベースです。
 
     ご利用ありがとうございます。
 
@@ -196,26 +199,25 @@ Python Tools for Visual Studio、Django および SQL Database の詳細につ�
 - [SQL データベース]
 
 ## 変更内容
-
 * Web サイトから App Service への変更のガイドを参照してください: [Azure App Service と既存の Azure サービスへの影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 
+<!--Link references-->
+[Python Developer Center]: /develop/python/
+[Azure Cloud Services]: ../cloud-services-python-ptvs.md
 
-
-
-[python developer center]: /develop/python/ 
-[azure cloud services]: ../cloud-services-python-ptvs.md 
-[azure portal]: https://portal.azure.com 
-[python tools for visual studio]: http://aka.ms/ptvs 
-[python tools 2.2 for visual studio]: http://go.microsoft.com/fwlink/?LinkID=624025 
-[python tools 2.2 for visual studio samples vsix]: http://go.microsoft.com/fwlink/?LinkID=624025 
-[azure sdk tools for vs 2013]: http://go.microsoft.com/fwlink/?LinkId=323510 
-[azure sdk tools for vs 2015]: http://go.microsoft.com/fwlink/?LinkId=518003 
-[python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
-[python tools for visual studio documentation]: http://aka.ms/ptvsdocs 
-[remote debugging on microsoft azure]: http://go.microsoft.com/fwlink/?LinkId=624026 
-[web projects]: http://go.microsoft.com/fwlink/?LinkId=624027 
-[cloud service projects]: http://go.microsoft.com/fwlink/?LinkId=624028 
-[django documentation]: https://www.djangoproject.com/ 
-[sql database]: /documentation/services/sql-database/ 
+<!--External Link references-->
+[Azure Portal]: https://portal.azure.com
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
+[Remote Debugging on Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
+[Web Projects]: http://go.microsoft.com/fwlink/?LinkId=624027
+[Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
+[Django Documentation]: https://www.djangoproject.com/
+[SQL Database]: /documentation/services/sql-database/
 

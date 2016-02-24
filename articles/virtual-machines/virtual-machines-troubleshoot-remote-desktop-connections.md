@@ -1,6 +1,6 @@
 <properties
     pageTitle="Azure VM へのリモート デスクトップ接続のトラブルシューティング |Microsoft Azure"
-    description="Windows VM に対するリモート デスクトップ接続のエラーをトラブルシューティングします。簡単な軽減手順、エラー メッセージごとのヘルプ、および詳細なネットワーク トラブルシューティングを説明します。"
+    description="Windows VM に対するリモート デスクトップ接続のエラーをトラブルシューティングします。 簡単な軽減手順、エラー メッセージごとのヘルプ、および詳細なネットワーク トラブルシューティングを説明します。"
     keywords="Remote desktop error,remote desktop connection error,cannot connect to VM,remote desktop troubleshooting"
     services="virtual-machines"
     documentationCenter=""
@@ -18,10 +18,9 @@
     ms.date="10/27/2015"
     ms.author="dkshir"/>
 
+# Windows を実行する Azure 仮想マシンへの Remote Desktop 接続に関するトラブルシューティング
 
-# Windows を実行する Azure Virtual Machines への Remote Desktop 接続に関するトラブルシューティング
-
-Windows ベースの Azure 仮想マシンに接続しようとしたときに発生するリモート デスクトップ (RDP) エラーにはいくつかの原因が考えられます。 VM 上の RDP ソフトウェア、基になっているホスト コンピューター、ネットワーク接続、接続元のクライアント側などに関する問題が発生します。 この記事は、原因を特定して修正するために役立ちます。
+Windows ベースの Azure 仮想マシンに接続しようとしたときに発生するリモート デスクトップ (RDP) エラーにはいくつかの原因が考えられます。 VM 上の RDP ソフトウェア、基になっているホスト コンピューター、ネットワーク接続、接続元のクライアント側などに関する問題が発生します。 この記事は、原因を特定して修正するために役立ちます。  
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -36,21 +35,21 @@ Windows ベースの Azure 仮想マシンに接続しようとしたときに�
 これらの基本手順を使用すると、クラシック デプロイメント モデルを使用して作成された仮想マシンのリモート デスクトップ接続に関する一般的なエラーをほとんど解決できます。 各手順を実行した後、仮想マシンに再接続してみてください。
 
 - リモート デスクトップ サービスを再設定、 [Azure ポータル](https://portal.azure.com) RDP サーバーとスタートアップの問題を解決します。<br>
-    [すべて参照]、[仮想マシン (クラシック)]、ご使用の Windows 仮想マシン、**[リモート アクセスのリセット]** の順にクリックします。
+    すべての参照] をクリックして > 仮想マシン (クラシック) > Windows 仮想マシン > **リモート アクセスのリセット**します。
 
     ![RDP 構成のリセットを示すスクリーンショット](./media/virtual-machines-troubleshoot-remote-desktop-connections/Portal-RDP-Reset-Windows.png)
 
-- その他のスタートアップの問題に対処する仮想マシンを再起動します。<br>
-    [すべて参照]、[仮想マシン (クラシック)]、Windows 仮想マシン、**[再起動]** の順にクリックします。
+- その他の起動の問題に対処するには仮想マシンを再起動します。<br>
+    すべての参照] をクリックして > 仮想マシン (クラシック) > Windows 仮想マシン > **再起動**します。
 
-- ホストの問題を修正する VM のサイズを変更します。<br>
-    [すべて参照]、[仮想マシン (クラシック)]、Windows 仮想マシン、[設定]、**[サイズ]** の順にクリックします。 詳細については、「 [仮想マシン サイズを変更する](https://msdn.microsoft.com/library/dn168976.aspx)します。
+- ホストの問題を解決するには、VM のサイズを変更します。<br>
+    すべての参照] をクリックして > 仮想マシン (クラシック) > Windows 仮想マシン > 設定 > **サイズ**します。 詳細については、次を参照してください。 [仮想マシンのサイズを変更する](https://msdn.microsoft.com/library/dn168976.aspx)です。
 
 - 起動の問題を修正するには、VM のコンソール ログまたはスクリーンショットを確認してください。
-    [すべて参照]、[仮想マシン (クラシック)]、Windows 仮想マシン、**[起動の診断]** の順にクリックします。
+    すべての参照] をクリックして > 仮想マシン (クラシック) > Windows 仮想マシン > **診断を起動**
 
 - VM のリソースの状態でプラットフォームの問題を確認します。 
-    [すべて参照]、[Virtual Machines (クラシック)]、Windows 仮想マシン、**[正常性の確認]** の順にクリックします。
+    すべての参照] をクリックして > 仮想マシン (クラシック) > Windows 仮想マシン > **正常性の確認**
 
 ## リソース マネージャー デプロイメント モデルでの一般的なリモート デスクトップ エラーの修正手順
 
@@ -70,29 +69,29 @@ Windows ベースの Azure 仮想マシンに接続しようとしたときに�
     Set-AzureVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccessExtension" -ExtensionType "VMAccessAgent" -Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" -Location Westus
     ```
 
-- その他のスタートアップの問題に対処する仮想マシンを再起動します。<br>
-    [すべて参照]、[Virtual Machines]、Windows 仮想マシン、**[再起動]** の順にクリックします。
+- その他の起動の問題に対処するには仮想マシンを再起動します。<br>
+    すべての参照] をクリックして > 仮想マシン > Windows 仮想マシン > **再起動**します。
 
-- ホストの問題を修正する VM のサイズを変更します。<br>
-    [すべて参照]、[Virtual Machines]、Windows 仮想マシン、[設定]、**[サイズ]** の順にクリックします。
+- ホストの問題を解決するには、VM のサイズを変更します。<br>
+    すべての参照] をクリックして > 仮想マシン > Windows 仮想マシン > 設定 > **サイズ**します。
 
 - 起動の問題を修正するには、VM のコンソール ログまたはスクリーンショットを確認してください。
-    [すべて参照]、[Virtual Machines]、Windows 仮想マシン、**[起動の診断]** の順にクリックします。
+    すべての参照] をクリックして > 仮想マシン > Windows 仮想マシン > **診断を起動**
 
 
 ## 特定のリモート デスクトップ接続エラーのトラブルシューティング
 
 Azure 仮想マシンに Remote Desktop 接続しようとしたときに発生する可能性がある一般的なエラーは次のとおりです。
 
-1. [リモート デスクトップ接続のエラー: リモート デスクトップ ライセンスを提供するサーバーのライセンスがないために、リモート セッションが切断されました](#rdplicense)します。
+1. [リモート デスクトップ接続エラー: リモート デスクトップ ライセンスを提供するサーバーのライセンスがないために、リモート セッションが切断されました](#rdplicense)します。
 
-2. [リモート デスクトップ接続のエラー: リモート デスクトップはコンピューター"name"を見つけられない](#rdpname)します。
+2. [リモート デスクトップ接続エラー: リモート デスクトップはコンピューター"name"を見つけられない](#rdpname)します。
 
-3. [リモート デスクトップ接続エラー: 認証エラーが発生しました。 ローカル セキュリティ機関には、contacted](#rdpauth) をすることはできません。
+3. [Remote Desktop 接続エラー: 認証エラーが発生しました。ローカル セキュリティ機関にアクセスできません。](#rdpauth)
 
-4. [Windows セキュリティ エラー: 資格情報が正しくない](#wincred)します。
+4. [Windows のセキュリティ エラー: 資格情報が正しくない](#wincred)します。
 
-5. [リモート デスクトップ接続のエラー: このコンピューターがリモート コンピューターに接続できません](#rdpconnect)します。
+5. [リモート デスクトップ接続エラー: このコンピューターがリモート コンピューターに接続できません](#rdpconnect)します。
 
 <a id="rdplicense"></a>
 ### Remote Desktop 接続エラー: ライセンスを提供する Remote Desktop ライセンス サーバーがないため、リモート セッションが切断されました。
@@ -122,11 +121,10 @@ Azure 仮想マシンに Remote Desktop 接続しようとしたときに発生�
         full address:s:tailspin-azdatatier.cloudapp.net:55919
         prompt for credentials:i:1
 
-
 この RDP ファイルのアドレス部分には、VM を含むクラウド サービスの完全修飾ドメイン名 (この例では tailspin-azdatatier.cloudapp.net) と、Remote Desktop トラフィック用のエンドポイントの外部 TCP ポート (55919) が含まれます。
 
 <a id="rdpauth"></a>
-### Remote Desktop 接続エラー: 認証エラーが発生しました。ローカル セキュリティ機関にアクセスできません。
+### Remote Desktop 接続エラー: 認証エラーが発生しました。 ローカル セキュリティ機関にアクセスできません。
 
 原因: ターゲット VM が、資格情報のユーザー名の部分でセキュリティ機関を見つけることができませんでした。
 
@@ -161,7 +159,7 @@ Windows ベースのコンピューターでは、ローカル アカウント�
 
 すべての Windows コンピューターには Remote Desktop ユーザーのローカル グループがあり、このグループには、リモートでログオンできるアカウントとグループが含まれます。 ローカルの Administrators グループのメンバーもアクセスできますが、これらのアカウントは Remote Desktop ユーザーのローカル グループのメンバーとしてリストされません。 ドメインに参加しているマシンの場合、ローカルの Administrators グループにはドメインのドメイン管理者も含まれます。
 
-接続するために使用しているアカウントに、Remote Desktop ログオン権限があることを確認してください。 回避策として、ドメイン管理者アカウントまたはローカル管理者アカウントを使用して Remote Desktop で接続した後、コンピューターの管理スナップイン (**[システム ツール] > [ローカル ユーザーとグループ] > [グループ] > [リモート デスクトップ ユーザー]**) を使用して、必要なアカウントをリモート デスクトップ ユーザーのローカル グループに追加します。
+接続するために使用しているアカウントに、Remote Desktop ログオン権限があることを確認してください。 この問題を回避するには、リモート デスクトップ経由で接続し、コンピューターの管理スナップインで使用するドメインまたはローカル管理者アカウントを使用 (**システム ツール > ローカル ユーザーとグループ > グループ > リモート デスクトップ ユーザー**) Remote Desktop Users ローカル グループに必要なアカウントを追加します。
 
 ## リモート デスクトップ エラーの詳細なトラブルシューティング
 
@@ -172,15 +170,11 @@ Windows ベースのコンピューターでは、ローカル アカウント�
 
 [Azure IaaS (Windows) 診断パッケージ](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
 
-[パスワードまたはリモート デスクトップ サービスを Windows 仮想マシンをリセットする方法](virtual-machines-windows-reset-password.md)
+[Windows 仮想マシンのパスワードまたはリモート デスクトップ サービスをリセットする方法](virtual-machines-windows-reset-password.md)
 
-[インストールして、Azure PowerShell を構成する方法](../install-configure-powershell.md)
+[Azure PowerShell のインストールおよび構成方法](../install-configure-powershell.md)
 
-[Linux ベースの Azure 仮想マシンに Secure Shell (SSH) 接続をトラブルシューティングします。](virtual-machines-troubleshoot-ssh-connections.md)
+[Linux ベースの Azure 仮想マシンに対する Secure Shell (SSH) 接続のトラブルシューティング](virtual-machines-troubleshoot-ssh-connections.md)
 
-[Azure の仮想マシンで実行されているアプリケーションへのアクセスのトラブルシューティングを行う](virtual-machines-troubleshoot-access-application.md)
-
-
-
-
+[Azure 仮想マシンで実行されているアプリケーションへのアクセスに関するトラブルシューティング](virtual-machines-troubleshoot-access-application.md)
 

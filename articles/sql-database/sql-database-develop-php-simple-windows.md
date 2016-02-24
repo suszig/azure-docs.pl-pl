@@ -18,8 +18,8 @@
     ms.author="meetb"/>
 
 
-
 # Windows 上で PHP を使用して SQL Database に接続する
+
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
@@ -31,7 +31,7 @@
 
 ### SQL Database
 
-参照してください、 [開始ページ](sql-database-get-started.md) にサンプル データベースを作成する方法について説明します。 ガイドに従って、**AdventureWorks データベースのテンプレート**を作成することが重要です。 以下に示す例は、**AdventureWorks スキーマ** とのみ動作します。
+参照してください、 [開始ページ](sql-database-get-started.md) にサンプル データベースを作成する方法について説明します。  作成するガイドを実行する重要である、 **AdventureWorks データベースのテンプレート**します。 のみ以下に示す例を使用、 **AdventureWorks スキーマ**します。
 
 
 ## 手順 1. 接続の詳細を取得する
@@ -41,7 +41,8 @@
 
 ## 手順 2: 接続
 
-**OpenConnection** 関数は、後に続くすべての関数の上部近くで呼び出されます。
+
+これは、 **OpenConnection** すべて次の関数の先頭付近にある関数が呼び出されます。
 
 
     function OpenConnection()
@@ -61,9 +62,10 @@
         }
     }
 
+
 ## 手順 3: クエリを実行します。
 
-[Sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) 関数を使用して、結果 SQL Database に対するクエリのセットを取得します。 この関数は本質的には任意のクエリと接続オブジェクトを受け入れるしの使用を反復処理できる結果セットを返します [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php)します。
+ [Sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) 関数を使用して、結果 SQL Database に対するクエリのセットを取得します。 この関数は本質的には任意のクエリと接続オブジェクトを受け入れるしの使用を反復処理できる結果セットを返します [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php)します。
 
     function ReadData()
     {
@@ -90,9 +92,10 @@
         }
     }
 
+
 ## 手順 4: 行を挿入します。
 
-実行する方法を参照してください、この例では、 [挿入](https://msdn.microsoft.com/library/ms174335.aspx) ステートメントからアプリケーションを保護するためのパラメーターを渡すを安全に [SQL インジェクション](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) 脆弱性、および自動生成された取得 [主キー](https://msdn.microsoft.com/library/ms179610.aspx) 値。
+実行する方法を参照してください、この例では、 [挿入](https://msdn.microsoft.com/library/ms174335.aspx) ステートメントからアプリケーションを保護するためのパラメーターを渡すを安全に [SQL インジェクション](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) 脆弱性、および自動生成された取得 [主キー](https://msdn.microsoft.com/library/ms179610.aspx) 値。  
 
 
     function InsertData()
@@ -100,7 +103,7 @@
         try
         {
             $conn = OpenConnection();
-    
+
             $tsql = "INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT            INSERTED.ProductID VALUES ('SQL Server 1', 'SQL Server 2', 0, 0, getdate())";
             //Insert query
             $insertReview = sqlsrv_query($conn, $tsql);
@@ -122,6 +125,7 @@
 
 ## 手順 5: トランザクションをロールバックします。
 
+
 このコード例は、以下のトランザクションの使用について示します。
 
 - トランザクションの開始
@@ -136,18 +140,18 @@
         try
         {
             $conn = OpenConnection();
-    
+
             if (sqlsrv_begin_transaction($conn) == FALSE)
                 die(FormatErrors(sqlsrv_errors()));
-    
+
             $tsql1 = "INSERT INTO SalesLT.SalesOrderDetail (SalesOrderID,OrderQty,ProductID,UnitPrice)
             VALUES (71774, 22, 709, 33)";
             $stmt1 = sqlsrv_query($conn, $tsql1);
-    
+
             /* Set up and execute the second query. */
             $tsql2 = "UPDATE SalesLT.SalesOrderDetail SET OrderQty = (OrderQty + 1) WHERE ProductID = 709";
             $stmt2 = sqlsrv_query( $conn, $tsql2);
-    
+
             /* If both queries were successful, commit the transaction. */
             /* Otherwise, rollback the transaction. */
             if($stmt1 && $stmt2)
@@ -170,11 +174,9 @@
         }
     }
 
+
 ## 次のステップ
 
-PHP のインストールと使用に関する詳細については、次を参照してください。 [PHP で SQL Server データベースをアクセスする](http://technet.microsoft.com/library/cc793139.aspx)します。
 
-
-
-
+PHP のインストールと使用に関する詳細については、次を参照してください。 [PHP で SQL Server データベースをアクセスする](http://technet.microsoft.com/library/cc793139.aspx)です。
 

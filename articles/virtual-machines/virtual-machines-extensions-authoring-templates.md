@@ -17,11 +17,10 @@
    ms.date="09/01/2015"
    ms.author="kundanap"/>
 
-
 # VM 拡張機能を使用した Azure リソース マネージャー テンプレートの作成
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 従来のデプロイ モデルです。
-
+ 
 
 ## Azure リソース マネージャー テンプレートの概要
 
@@ -30,7 +29,6 @@ Azure リソース マネージャー テンプレートでは、リソース間
 [リソース グループの概要](../resource-group-overview.md)
 
 ## VM 拡張機能のサンプル テンプレート スニペット
-
 VM 拡張機能を Azure リソース マネージャーのテンプレートの一部としてデプロイするには、テンプレートで拡張機能の構成を宣言で指定する必要があります。
 拡張機能の構成の指定形式を次に示します。
 
@@ -89,11 +87,7 @@ VM の拡張機能を使用して完成したテンプレートを取得する�
 
 [Windows VM のカスタム スクリプト拡張機能](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-[Linux VM 上のカスタム スクリプト拡張機能](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
+[Linux VM のカスタム スクリプト拡張機能](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
 テンプレートを作成したら、Azure CLI または Azure Powershell を使用してそのテンプレートをデプロイできます。
-
-
-
-
 

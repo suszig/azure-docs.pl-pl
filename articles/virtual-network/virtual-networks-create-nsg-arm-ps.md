@@ -17,7 +17,6 @@
    ms.date="11/20/2015"
    ms.author="telmos" />
 
-
 # PowerShell で NSG を作成する方法
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
@@ -31,8 +30,7 @@
 以下の PowerShell のサンプル コマンドでは、上記シナリオに基づいて単純な環境が既に作成されていると想定します。 このドキュメントに表示されているように、コマンドを実行する場合は、最初にビルド、テスト環境を展開して [このテンプレート](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), をクリックして **Deploy to Azure**, 、必要に応じて、既定のパラメーター値を置き換えるし、ポータルの指示に従います。
 
 ## フロントエンドのサブネットの NSG を作成する方法
-
-上記のシナリオに基づいて *NSG-FrontEnd* という名前の NSG を作成するには、次の手順に従います。
+名前を名前付き NSG を作成する *NSG フロント エンド* 上記のシナリオに基づいて、以下の手順です。
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
@@ -45,14 +43,14 @@
             -SourceAddressPrefix Internet -SourcePortRange * `
             -DestinationAddressPrefix * -DestinationPortRange 3389
 
-4. インターネットからポート 80 へのアクセスを許可するセキュリティ規則を作成します。
+4. インターネットからポート 80 へのアクセスを許可するセキュリティ規則を作成します。 
 
         $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" `
             -Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
             -SourceAddressPrefix Internet -SourcePortRange * `
             -DestinationAddressPrefix * -DestinationPortRange 80
 
-5. 上記で作成した規則を **NSG-FrontEnd** という名前の新しい NSG に追加します。
+5. という名前の新しい NSG を上記で作成した規則を追加 **NSG フロント エンド**します。
 
         $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-FrontEnd" `
             -SecurityRules $rule1,$rule2
@@ -96,13 +94,13 @@
                                  }
                                ]
 
-6. 上記で作成した NSG を *FrontEnd* サブネットに関連付けます。
+6. 上記で作成したに NSG を関連付ける、 *フロント エンド* サブネットです。
 
         $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
         Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
             -AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $nsg
 
-    出力には *FrontEnd* サブネット設定のみが表示されます。**NetworkSecurityGroup** プロパティの値に注目してください。
+    のみを示す出力、 *フロント エンド* サブネットの設定の値に注意してください、 **NetworkSecurityGroup** プロパティ。
 
         Subnets           : [
                               {
@@ -125,8 +123,7 @@
                                 "ProvisioningState": "Succeeded"
                               }
 
-
->[AZURE.WARNING] 上のコマンドの出力では、仮想ネットワーク構成オブジェクトの内容が示されます。これは、PowerShell を実行しているコンピューターにのみ存在します。 これらの設定を Azure に保存するには、**Set-AzureRmVirtualNetwork** コマンドレットを実行する必要があります。
+>[AZURE.WARNING] 上記のコマンドの出力は、PowerShell を実行しているコンピューター上にのみ存在する仮想ネットワークの構成オブジェクトのコンテンツを表示します。 実行する必要があります、 **セット AzureRmVirtualNetwork** コマンドレットを Azure にこれらの設定を保存します。
 
 7. 新しい VNet 設定を Azure に保存します。
 
@@ -138,10 +135,8 @@
           "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
         }
 
-
 ## バックエンドのサブネットの NSG を作成する方法
-
-上記のシナリオに基づいて *NSG-BackEnd* という名前の NSG を作成するには、次の手順に従います。
+名前を名前付き NSG を作成する *NSG バックエンド* 上記のシナリオに基づいて、以下の手順です。
 
 1. フロント エンドのサブネットからポート 1433 (SQL Server で使用される既定のポート) へのアクセスを許可するセキュリティ規則を作成します。
 
@@ -150,24 +145,24 @@
             -SourceAddressPrefix 192.168.1.0/24 -SourcePortRange * `
             -DestinationAddressPrefix * -DestinationPortRange 1433
 
-4. インターネットへのアクセスをブロックするセキュリティ規則を作成します。
+4. インターネットへのアクセスをブロックするセキュリティ規則を作成します。 
 
         $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Block Internet" `
             -Access Deny -Protocol * -Direction Outbound -Priority 200 `
             -SourceAddressPrefix * -SourcePortRange * `
             -DestinationAddressPrefix Internet -DestinationPortRange *
 
-5. 上記で作成した規則を **NSG-BackEnd** という名前の新しい NSG に追加します。
+5. という名前の新しい NSG を上記で作成した規則を追加 **NSG バックエンド**します。
 
         $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `-Name "NSG-BackEnd" `
             -SecurityRules $rule1,$rule2
 
-6. 上記で作成した NSG を *BackEnd* サブネットに関連付けます。
+6. 上記で作成したに NSG を関連付ける、 *バックエンド* サブネットです。
 
         Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
             -AddressPrefix 192.168.2.0/24 -NetworkSecurityGroup $nsg
 
-    出力には *BackEnd* サブネット設定のみが表示されます。**NetworkSecurityGroup** プロパティの値に注目してください。
+    のみを示す出力、 *バックエンド* サブネットの設定の値に注意してください、 **NetworkSecurityGroup** プロパティ。
 
         Subnets           : [
                       {
@@ -186,8 +181,3 @@
 7. 新しい VNet 設定を Azure に保存します。
 
         Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-
-
-
-
-

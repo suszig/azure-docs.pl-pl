@@ -1,6 +1,6 @@
 <properties 
     pageTitle="SendGrid 電子メール サービスの使用方法 (PHP) | Microsoft Azure" 
-    description="Azure で SendGrid 電子メール サービスを使用して電子メールを送信する方法について説明します。コード サンプルは PHP で記述されています。" 
+    description="Azure で SendGrid 電子メール サービスを使用して電子メールを送信する方法について説明します。 コード サンプルは PHP で記述されています。" 
     documentationCenter="php" 
     services="" 
     manager="sendgrid" 
@@ -15,16 +15,15 @@
     ms.topic="article" 
     ms.date="10/30/2014" 
     ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com"/>
-
 # PHP から SendGrid 電子メール サービスを使用する方法
 
 このガイドでは、Azure の SendGrid 電子メール サービスを使用して一般的なプログラム タスクを実行する方法を紹介します。 サンプルは PHP で記述されています。
-紹介するシナリオは、**電子メールの作成**、**電子メールの送信**、および**添付ファイルの追加**です。 SendGrid と電子メールの送信の詳細については、次を参照してください。、 [次のステップ](#next-steps) セクションです。
+紹介するシナリオ **電子メールの作成**, 、**電子メールを送信する**, 、および **添付ファイルの追加**します。 SendGrid と電子メールの送信の詳細については、次を参照してください。、 [次のステップ](#next-steps) セクションです。
 
 ## SendGrid 電子メール サービスとは
 
-SendGrid は、[クラウド ベース電子メール サービス] を信頼性の高いを提供します。
-[トランザクション電子メール配信]、スケーラビリティ、およびリアルタイム分析の柔軟な Api 機能
+SendGrid は、 [cloud-based email service] 信頼性を提供します。
+[transactional email delivery], 、スケーラビリティ、およびリアルタイム分析の柔軟な Api 機能
 を備えているためカスタム統合も容易です。 SendGrid の一般的な使用シナリオを以下に
 示します。
 
@@ -37,7 +36,7 @@ SendGrid は、[クラウド ベース電子メール サービス] を信頼性
 -   顧客の問い合わせを転送する
 - アプリケーションからの電子メール通知
 
-詳細については、次を参照してください。 [https://sendgrid.com:operator[]][]します。
+詳細については、次を参照してください。 [https://sendgrid.com][]します。
 
 ## SendGrid アカウントの作成
 
@@ -59,8 +58,8 @@ SMTP、または SendGrid の Web API を使用して電子メールを
 
 SendGrid SMTP API を使用して電子メールを送信する使用 *Swift Mailer*, 、
 *Swift Mailer* を使用します。Swift Mailer は、PHP アプリケーションから電子メールを送信するためのコンポーネントベースのライブラリです。 クラスターの
-ダウンロードできる、 *Swift Mailer* からライブラリ
-[http://swiftmailer.org/download:operator[]][] v5.3.0 (Swift Mailer をインストールするには、[Composer] を使用します)。 このライブラリを使用して
+ダウンロードできる、 *Swift Mailer* ライブラリから
+[http://swiftmailer.org/download][] v5.3.0 (を使用して [Composer] Swift Mailer をインストールする)。 このライブラリを使用して
 電子メールを送信するには、
 <span class="auto-style2">Swift \_smtptransport</span>,、
 <span class="auto-style2">Swift \_mailer</span>, と
@@ -95,26 +94,26 @@ SendGrid SMTP API を使用して電子メールを送信する使用 *Swift Mai
      );
      // Email subject
      $subject = 'Example PHP Email';
-    
+
      // Login credentials
      $username = 'yoursendgridusername';
      $password = 'yourpassword';
-    
+     
      // Setup Swift mailer parameters
      $transport = Swift_SmtpTransport::newInstance('smtp.sendgrid.net', 587);
      $transport->setUsername($username);
      $transport->setPassword($password);
      $swift = Swift_Mailer::newInstance($transport);
-    
+
      // Create a message (subject)
      $message = new Swift_Message($subject);
-    
+
      // attach the body of the email
      $message->setFrom($from);
      $message->setBody($html, 'text/html');
      $message->setTo($to);
      $message->addPart($text, 'text/plain');
-    
+     
      // send message 
      if ($recipients = $swift->send($message, $failures))
      {
@@ -133,11 +132,11 @@ SendGrid SMTP API を使用して電子メールを送信する使用 *Swift Mai
 Php の [curl 関数][] SendGrid Web API を使用して電子メールを送信します。
 
     <?php
-    
+
      $url = 'https://api.sendgrid.com/';
      $user = 'USERNAME';
      $pass = 'PASSWORD'; 
-    
+
      $params = array(
           'api_user' => $user,
           'api_key' => $pass,
@@ -147,26 +146,26 @@ Php の [curl 関数][] SendGrid Web API を使用して電子メールを送信
           'text' => 'testing body',
           'from' => 'anna@contoso.com',
        );
-    
+       
      $request = $url.'api/mail.send.json';
-    
+     
      // Generate curl request
      $session = curl_init($request);
-    
+     
      // Tell curl to use HTTP POST
      curl_setopt ($session, CURLOPT_POST, true);
-    
+     
      // Tell curl that this is the body of the POST
      curl_setopt ($session, CURLOPT_POSTFIELDS, $params);
-    
+     
      // Tell curl not to return headers, but do return the response
      curl_setopt($session, CURLOPT_HEADER, false);
      curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
-    
+     
      // obtain response
      $response = curl_exec($session);
      curl_close($session);
-    
+     
      // print everything out
      print_r($response);
 
@@ -199,10 +198,10 @@ Swift Mailer を使用して電子メールを送信するコード行を追加�
              </p>
           </body>
           </html>";
-    
+
      // This is your From email address
      $from = array('someone@example.com' => 'Name To Appear');
-    
+     
      // Email recipients
      $to = array(
           'john@contoso.com'=>'Destination 1 Name',
@@ -210,27 +209,27 @@ Swift Mailer を使用して電子メールを送信するコード行を追加�
      );
      // Email subject
      $subject = 'Example PHP Email';
-    
+     
      // Login credentials
      $username = 'yoursendgridusername';
      $password = 'yourpassword';
-    
+     
      // Setup Swift mailer parameters
      $transport = Swift_SmtpTransport::newInstance('smtp.sendgrid.net', 587);
      $transport->setUsername($username);
      $transport->setPassword($password);
      $swift = Swift_Mailer::newInstance($transport);
-    
+     
      // Create a message (subject)
      $message = new Swift_Message($subject);
-    
+     
      // attach the body of the email
      $message->setFrom($from);
      $message->setBody($html, 'text/html');
      $message->setTo($to);
      $message->addPart($text, 'text/plain');
      $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName("file_name"));
-    
+     
      // send message 
      if ($recipients = $swift->send($message, $failures))
      {
@@ -249,9 +248,9 @@ Swift Mailer を使用して電子メールを送信するコード行を追加�
      $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName('file_name'));
 
 このコード行では、
-<span class="auto-style2">\_Message</span> オブジェクト
-メソッド <span class="auto-style2">fromPath</span> で、
-<span class="auto-style2">Swift\_Attachment</span> クラスを取得し、
+<span class="auto-style2">Swift\_Message</span> オブジェクトに添付メソッドを呼び出し、
+静的メソッド <span class="auto-style2">fromPath</span> を
+<span class="auto-style2">Swift\_Attachment</span> クラスに呼び出すことで、ファイルを取得し、
 メッセージに添付しています。
 
 ### Web API
@@ -265,14 +264,14 @@ Web API を使用した添付ファイルの送信は、Web API を使用した�
 例:
 
     <?php
-    
+
      $url = 'https://api.sendgrid.com/';
      $user = 'USERNAME';
      $pass = 'PASSWORD';
-    
+     
      $fileName = 'myfile';
      $filePath = dirname(__FILE__);
-    
+
      $params = array(
          'api_user' => $user,
          'api_key' => $pass,
@@ -283,28 +282,28 @@ Web API を使用した添付ファイルの送信は、Web API を使用した�
          'from' => 'anna@contoso.com',
          'files['.$fileName.']' => '@'.$filePath.'/'.$fileName
      );
-    
+     
      print_r($params);
-    
+     
      $request = $url.'api/mail.send.json';
-    
+     
      // Generate curl request
      $session = curl_init($request);
-    
+     
      // Tell curl to use HTTP POST
      curl_setopt ($session, CURLOPT_POST, true);
-    
+     
      // Tell curl that this is the body of the POST
      curl_setopt ($session, CURLOPT_POSTFIELDS, $params);
-    
+     
      // Tell curl not to return headers, but do return the response
      curl_setopt($session, CURLOPT_HEADER, false);
      curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
-    
+     
      // obtain response
      $response = curl_exec($session);
      curl_close($session);
-    
+     
      // print everything out
      print_r($response);
 
@@ -319,61 +318,61 @@ SendGrid では、"フィルター" を使用することで追加の電子メ�
 フィルターは、フィルター固有の設定を格納したハッシュで指定します。 この
 フッター フィルターを有効にし、電子メール メッセージの下部に
 追加されるテキスト メッセージを指定しています。
-この例では、[sendgrid php ライブラリ] を使用します。
-ライブラリをインストールするのにには、[作成ツール] を使用します。
-
+この例で使用して、 [sendgrid-php library]します。
+使用 [Composer] ライブラリをインストールします。
+    
     php composer.phar require sendgrid/sendgrid 2.1.1
 
-例:
+例:    
 
     <?php
      /*
       * This example is used for sendgrid-php V2.1.1 (https://github.com/sendgrid/sendgrid-php/tree/v2.1.1)
       */
      include "vendor/autoload.php";
-    
+
      $email = new SendGrid\Email();
      // The list of addresses this message will be sent to
      // [This list is used for sending multiple emails using just ONE request to SendGrid]
      $toList = array('john@contoso.com', 'anna@contoso.com');
-    
+
      // Specify the names of the recipients
      $nameList = array('Name 1', 'Name 2');
-    
+
      // Used as an example of variable substitution
      $timeList = array('4 PM', '5 PM');
-    
+
      // Set all of the above variables
      $email->setTos($toList);
      $email->addSubstitution('-name-', $nameList);
      $email->addSubstitution('-time-', $timeList);
-    
+
      // Specify that this is an initial contact message
      $email->addCategory("initial");
-    
+
      // You can optionally setup individual filters here, in this example, we have 
      // enabled the footer filter
      $email->addFilter('footer', 'enable', 1);
      $email->addFilter('footer', "text/plain", "Thank you for your business");
      $email->addFilter('footer', "text/html", "Thank you for your business");
-    
+
      // The subject of your email
      $subject = 'Example SendGrid Email';
-    
+
      // Where is this message coming from. For example, this message can be from 
      // support@yourcompany.com, info@yourcompany.com
      $from = 'someone@example.com';
-    
+
      // If you do not specify a sender list above, you can specifiy the user here. If 
      // a sender list IS specified above, this email address becomes irrelevant.
      $to = 'john@contoso.com';
-    
+
      # Create the body of the message (a plain-text and an HTML version). 
      # text is your plain-text email 
      # html is your html version of the email
      # if the receiver is able to view html emails then only the html
      # email will be displayed
-    
+
      /*
       * Note the variable substitution here =)
       */
@@ -382,7 +381,7 @@ SendGrid では、"フィルター" を使用することで追加の電子メ�
      Thank you for your interest in our products. We have set up an appointment to call you at -time- EST to discuss your needs in more detail.
      Regards,
      Fred";
-    
+
      $html = "
      <html> 
      <head></head>
@@ -390,33 +389,33 @@ SendGrid では、"フィルター" を使用することで追加の電子メ�
      <p>Hello -name-,<br>
      Thank you for your interest in our products. We have set up an appointment
      to call you at -time- EST to discuss your needs in more detail.
-    
+
      Regards,
-    
+
      Fred<br>
      </p>
      </body>
      </html>";
-    
+
      // set subject
      $email->setSubject($subject);
-    
+
      // attach the body of the email
      $email->setFrom($from);
      $email->setHtml($html);
      $email->addTo($to);
      $email->setText($text);
-    
+
      // Your SendGrid account credentials
      $username = 'sendgridusername@yourdomain.com';
      $password = 'example';
-    
+
      // Create SendGrid object
      $sendgrid = new SendGrid($username, $password);
-    
+
      // send message
      $response = $sendgrid->send($email);
-    
+
      print_r($response);
 
 ## 次のステップ
@@ -431,15 +430,14 @@ SendGrid では、"フィルター" を使用することで追加の電子メ�
 詳細については、「関連項目、 [PHP デベロッパー センター](/develop/php/)します。
 
 
-
-[https://sendgrid.com]: https://sendgrid.com 
-[https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing 
-[special offer]: https://www.sendgrid.com/windowsazure.html 
-[packaging and deploying php applications for azure]: http://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx 
-[http://swiftmailer.org/download]: http://swiftmailer.org/download 
-[curl function]: http://php.net/curl 
-[cloud-based email service]: https://sendgrid.com/email-solutions 
-[transactional email delivery]: https://sendgrid.com/transactional-email 
-[sendgrid-php library]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1 
-[composer]: https://getcomposer.org/download/ 
+  [https://sendgrid.com]: https://sendgrid.com
+  [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
+  [special offer]: https://www.sendgrid.com/windowsazure.html
+  [Packaging and Deploying PHP Applications for Azure]: http://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
+  [http://swiftmailer.org/download]: http://swiftmailer.org/download
+  [curl function]: http://php.net/curl
+  [cloud-based email service]: https://sendgrid.com/email-solutions
+  [transactional email delivery]: https://sendgrid.com/transactional-email
+  [sendgrid-php library]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
+  [Composer]: https://getcomposer.org/download/
 

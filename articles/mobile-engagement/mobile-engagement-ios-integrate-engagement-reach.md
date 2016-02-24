@@ -16,17 +16,16 @@
     ms.date="08/05/2015"
     ms.author="MehrdadMzfr" />
 
+#iOS でエンゲージメント リーチを統合する方法
 
-# iOS でエンゲージメント リーチを統合する方法
-
-> [AZURE.IMPORTANT] このガイドを実行する前に、「iOS でエンゲージメントを統合する方法」のドキュメントに記載されている統合手順に従う必要があります。
+> [AZURE.IMPORTANT] 統合手順エンゲージメントを統合する方法で iOS ドキュメントに従う必要がある必要があります。
 
 
 ### アプリがサイレント プッシュ通知を受信できるようにする
 
 [AZURE.INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
 
-## 統合手順
+##統合手順
 
 ### iOS プロジェクトにエンゲージメント リーチ SDK を埋め込む
 
@@ -39,48 +38,47 @@
         [...]
         #import "AEReachModule.h"
 
--   メソッドの内部 `applicationDidFinishLaunching:` または `Application:didfinishlaunchingwithoptions::`, 、reach モジュールを作成し、それを既存の Engagement 初期化行に渡します。
+-   メソッド `applicationDidFinishLaunching:` または `application:didFinishLaunchingWithOptions:` 内で、reach モジュールを作成し、これを既存の Engagement 初期化行に渡します。
 
-    - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-      AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
-      [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}" modules:reach, nil];
-      [...]
-    
-      return YES;
-    }
+        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+          AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
+          [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}" modules:reach, nil];
+          [...]
 
--   通知アイコンの **'icon.png'** 文字列とイメージ名を変更します。
--   オプションを使用する場合は、 *更新バッジ値* リーチ キャンペーンまたはネイティブ プッシュを使用するかどうかに \</SaaS/Reach API/Campaign format/Native Push\> キャンペーン、Reach モジュールにバッジ アイコン自体 (アプリケーション バッジは自動的にクリアされ、アプリケーションが起動またはフォア グラウンドで実行するたびに、Engagement が格納されている値もリセット) を管理できるようにする必要があります。これは、Reach モジュールの初期化後に、次の行を追加することによって行われます。
+          return YES;
+        }
+
+-   変更 **'icon.png'** 文字列と通知アイコン イメージ名。
+-   オプションを使用する場合は、 *更新バッジ値* リーチ キャンペーンまたはネイティブ プッシュを使用するかどうかに \ </SaaS/API/キャンペーン形式またはネイティブ プッシュ > キャンペーン、Reach モジュールにバッジ アイコン自体 (アプリケーション バッジは自動的にクリアされ、アプリケーションが起動またはフォア グラウンドで実行するたびに、Engagement が格納されている値もリセット) を管理できるようにする必要があります。 これは、Reach モジュールの初期化後に、次の行を追加することによって行われます。
 
         [reach setAutoBadgeEnabled:YES];
 
--   Reach データ プッシュを処理する場合に準拠して、アプリケーション デリゲートを使用する必要があります、 `AEReachDataPushDelegate` プロトコルです。 Reach モジュールの初期化後に、次の行を追加します。
+-   Reach データ プッシュを処理する場合は、アプリケーション デリゲートに `AEReachDataPushDelegate` プロトコルを準拠させる必要があります。 Reach モジュールの初期化後に、次の行を追加します。
 
         [reach setDataPushDelegate:self];
 
--   メソッドを実装したり、 `onDataPushStringReceived:` と `onDataPushBase64ReceivedWithDecodedBody:andEncodedBody:` 、アプリケーション デリゲート。
+-   これにより、メソッド `onDataPushStringReceived:` と `onDataPushBase64ReceivedWithDecodedBody:andEncodedBody:` をアプリケーション デリゲートに実装できます。
 
-    -(BOOL)didReceiveStringDataPushWithCategory:(NSString*)category body:(NSString*)body
-    {
-       NSLog(@"String data push message with category <%@> received: %@", category, body);
-       return YES;
-    }
-    
-    -(BOOL)didReceiveBase64DataPushWithCategory:(NSString*)category decodedBody:(NSData *)decodedBody encodedBody:(NSString *)encodedBody
-    {
-       NSLog(@"Base64 data push message with category <%@> received: %@", category, encodedBody);
-       // Do something useful with decodedBody like updating an image view
-       return YES;
-    }
+        -(BOOL)didReceiveStringDataPushWithCategory:(NSString*)category body:(NSString*)body
+        {
+           NSLog(@"String data push message with category <%@> received: %@", category, body);
+           return YES;
+        }
 
+        -(BOOL)didReceiveBase64DataPushWithCategory:(NSString*)category decodedBody:(NSData *)decodedBody encodedBody:(NSString *)encodedBody
+        {
+           NSLog(@"Base64 data push message with category <%@> received: %@", category, encodedBody);
+           // Do something useful with decodedBody like updating an image view
+           return YES;
+        }
 
 ### カテゴリ
 
-カテゴリ パラメーターは、データ プッシュ キャンペーンを作成するときに指定でき、データ プッシュをフィルター処理するために使用できます。 これはさまざまな種類をプッシュする場合に役立ちます。 の `Base64` データやを解析前にそれらの種類を識別します。
+カテゴリ パラメーターは、データ プッシュ キャンペーンを作成するときに指定でき、データ プッシュをフィルター処理するために使用できます。 これは、さまざまな種類の `Base64` データをプッシュする場合や、データの解析前に型を識別する場合に役立ちます。
 
 **アプリケーションは、リーチ コンテンツを受信して表示する準備ができました。**
 
-## お知らせとポーリングを常に受信する方法
+##お知らせとポーリングを常に受信する方法
 
 エンゲージメントは、Apple Push Notification Service を使用して、いつでもエンドユーザーにリーチ通知を送信できます。
 
@@ -94,7 +92,7 @@
 
 *この時点で、アプリケーションにはエンゲージメント フロントエンドで登録済みの Apple プッシュ証明書が必要になります。*
 
-まだ登録していない場合は、プッシュ通知を受信するアプリケーションを登録する必要があります。 アプリケーションの起動時には、次の行を追加 (通常 `Application:didfinishlaunchingwithoptions::`)。
+まだ登録していない場合は、プッシュ通知を受信するアプリケーションを登録する必要があります。 アプリケーションの起動時に、次の行を追加します (通常は `application:didFinishLaunchingWithOptions:`)。
 
     if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
         [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
@@ -104,21 +102,21 @@
         [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     }
 
-次に、Apple サーバーによって返されたデバイス トークンをエンゲージメントに提供する必要があります。 これはという名前のメソッドで行います `アプリケーション: didRegisterForRemoteNotificationsWithDeviceToken:` 、アプリケーション デリゲート。
+次に、Apple サーバーによって返されたデバイス トークンをエンゲージメントに提供する必要があります。 これは、アプリケーション デリゲートの `application:didRegisterForRemoteNotificationsWithDeviceToken:` という名前のメソッドで行われます。
 
     - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
     {
         [[EngagementAgent shared] registerDeviceToken:deviceToken];
     }
 
-最後に、アプリケーションがリモート通知を受信したときに、エンゲージメント SDK を通知する必要があります。 これを実行するメソッドを呼び出して `applicationDidReceiveRemoteNotification:fetchCompletionHandler:` 、アプリケーション デリゲート。
+最後に、アプリケーションがリモート通知を受信したときに、エンゲージメント SDK を通知する必要があります。 これを行うには、アプリケーション デリゲートのメソッド `applicationDidReceiveRemoteNotification:fetchCompletionHandler:` を呼び出します。
 
     - (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
     {
         [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
     }
 
-> [AZURE.NOTE] 上記のメソッドは、iOS 7 で導入されました。IOS を対象としている場合は、<、7 は、メソッドを実装することを確認 `アプリケーション: didReceiveRemoteNotification:` 、アプリケーション デリゲートの呼び出しで `applicationDidReceiveRemoteNotification` の代わりに nil を渡して engagementagent、 `ハンドラー` 引数。
+> [AZURE.NOTE] 上記のメソッドは、iOS 7 で導入されました。 iOS 7 以前を対象としている場合は、必ず、アプリケーション デリゲートに `application:didReceiveRemoteNotification:` メソッドを実装し、`handler` 引数の代わりに nil を渡して EngagementAgent の `applicationDidReceiveRemoteNotification` を呼び出してください。
 
     - (void)application:(UIApplication*)application
     didReceiveRemoteNotification:(NSDictionary*)userInfo
@@ -126,7 +124,7 @@
         [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
     }
 
-> [AZURE.IMPORTANT] 既定では、エンゲージメント リーチが completionHandler を制御します。 手動で応答する場合、 `ハンドラー` 、コード内のブロックに nil を渡すことが、 `ハンドラー` ブロック引数と完了の制御を自分でします。 参照してください、 `UIBackgroundFetchResult` 一覧については、使用可能な値の型。
+> [AZURE.IMPORTANT] 既定では、エンゲージメント リーチが completionhandler です。 コード内の `handler` ブロックに手動で応答する場合は、`handler` 引数の代わりに nil を渡し、完了ブロックを自分で制御できます。 使用可能な値の一覧については、`UIBackgroundFetchResult` 型に関するページを参照してください、。
 
 
 ### 完全な例
@@ -135,36 +133,36 @@
 
     #pragma mark -
     #pragma mark Application lifecycle
-    
+
     - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
     {
       /* Reach module */
       AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
       [reach setAutoBadgeEnabled:YES];
-    
+
       /* Engagement initialization */
       [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}" modules:reach, nil];
       [[EngagementAgent shared] setPushDelegate:self];
-    
+
       /* Views */
       [window addSubview:[tabBarController view]];
       [window makeKeyAndVisible];
-    
+
       [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
       return YES;
     }
-    
+
     - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
     {
       [[EngagementAgent shared] registerDeviceToken:deviceToken];
     }
-    
+
     - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
     {
         [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
     }
 
-## キャンペーンをカスタマイズする方法
+##キャンペーンをカスタマイズする方法
 
 ### 通知
 
@@ -176,9 +174,9 @@
 
 #### レイアウト
 
-アプリ内通知の外観を変更するには、ファイルだけで変更できます `AENotificationView.xib` タグの値と、既存のサブビューの種類を保持している限りのニーズにします。
+アプリ内通知の外観を変更するには、既存のサブビューのタグの値と種類を保持している限り、必要に応じてファイル `AENotificationView.xib` を変更するだけです。
 
-既定では、アプリ内通知は画面の下部に表示されます。 画面の上部に表示する場合は、編集、提供された `AENotificationView.xib` を変更して、 `自動` そのスーパー ビューの上部にある保存できるように、メイン ビューのプロパティです。
+既定では、アプリ内通知は画面の下部に表示されます。 画面の上部に表示する場合は、指定された `AENotificationView.xib` を編集し、メイン ビューの `AutoSizing` プロパティを変更すると、そのスーパービューの上部に表示させることができます。
 
 #### カテゴリ
 
@@ -190,9 +188,9 @@
     [reach registerNotifier:myNotifier forCategory:@"my_category"];
     ...
 
-`myNotifier` プロトコルに準拠しているオブジェクトのインスタンスである必要があります `AENotifier`します。
+`myNotifier` は、プロトコル `AENotifier` に準拠しているオブジェクトのインスタンスである必要があります。
 
-自分でプロトコル メソッドを実装するか、既存のクラスを再実装することもできます `AEDefaultNotifier` を既に多くの作業を実行します。
+プロトコル メソッドを自分で実装したり、既に多くの作業を行っている既存のクラス `AEDefaultNotifier` を再実装することも可能です。
 
 たとえば、特定のカテゴリの通知ビューを再定義する場合は、次の例に従って操作します。
 
@@ -200,27 +198,27 @@
     #import "AENotificationView.h"
     @interface MyNotifier : AEDefaultNotifier
     @end
-    
+
     @implementation MyNotifier
-    
+
     -(NSString*)nibNameForCategory:(NSString*)category
     {
       return "MyNotificationView";
     }
-    
+
     @end
 
-この簡単なカテゴリ例では、という名前のファイルを使用するいると仮定 `MyNotificationView.xib` メイン アプリケーション バンドルにします。 メソッドを見つけ、対応するかどうかは `.xib`, 、通知は表示されませんし、エンゲージメントはコンソールにメッセージを出力します。
+この簡単なカテゴリ例では、`MyNotificationView.xib` という名前のファイルがメイン アプリケーション バンドルにあると想定しています。 このメソッドが対応する `.xib` を検出できない場合、通知は表示されず、エンゲージメントはコンソールにメッセージを出力します。
 
 指定された nib ファイルは、次の規則を遵守する必要があります。
 
 -   1 つのビューのみを含む。
--   サブビューは、指定された nib ファイル内のものと同じタイプという名前で `AENotificationView.xib`
--   サブビューは、指定した内のものと同じタグを持つ必要がありますという名前の nib ファイル `AENotificationView.xib`
+-   サブビューは、指定された `AENotificationView.xib` という名前の nib ファイル内のものと同じ種類である。
+-   サブビューは、指定された `AENotificationView.xib` という名前の nib ファイル内のものと同じタグを持つ。
 
-> [AZURE.TIP] という名前の指定された nib ファイルをコピーするだけ `AENotificationView.xib`, 、し、そこから作業を開始します。 注意してください、この nib ファイル内のビューがクラスに関連付けられている `AENotificationView`します。 このクラスは、メソッドを再定義 `layoutSubViews` に移動し、コンテキストに応じてサブビューをサイズ変更します。 コードに ことも、 `UIView` やカスタム ビュー クラスです。
+> [AZURE.TIP] という名前の指定された nib ファイルをコピーするだけ `AENotificationView.xib`, 、し、そこから作業を開始します。 この nib ファイル内のビューは、クラス `AENotificationView` に関連付けられていることに注意してください。 このクラスは、コンテキストに応じてサブビューを移動し、サイズ変更するようにメソッド `layoutSubViews` を再定義しました。 これを `UIView` や自分のカスタム ビュー クラスに置き換えることができます。
 
-通知の細かくカスタマイズする必要がある場合 (インスタンスの場合、コードから直接、ビューを読み込む)、指定されたソース コードやクラスのドキュメントを確認することをお勧め `プロトコル ReferencesDefaultNotifier` と `AENotifier`します。
+通知をさらに細かくカスタマイズする必要がある場合 (コードから直接ビューを読み込む場合など) は、`Protocol ReferencesDefaultNotifier` と `AENotifier` の指定されたソース コードやクラスのドキュメントをご確認ください。
 
 複数のカテゴリに対して同じ通知を使用できます。
 
@@ -231,18 +229,18 @@
 
 ##### 通知の処理
 
-いくつかのライフ サイクル メソッドを呼び出す既定のカテゴリを使用する場合、 `AEReachContent` オブジェクトの統計情報を報告し、キャンペーンの状態を更新します。
+既定のカテゴリを使用する場合、いくつかのライフ サイクル メソッドは、`AEReachContent` オブジェクトを呼び出して統計情報を報告し、キャンペーンの状態を更新します。
 
--   アプリケーションでは、通知が表示されるときに、 `displayNotification` メソッドが呼び出されます (統計情報を報告) によって `AEReachModule` 場合 `handleNotification:` を返します `はい`します。
--   通知を閉じる場合、 `exitNotification` メソッドが呼び出されて統計情報が報告され、次のキャンペーンが処理できるようことができます。
--   通知をクリックすると、 `actionNotification` が呼び出されると、統計情報を報告し、関連付けられたアクションを実行します。
+-   通知がアプリケーションに表示されたときに、`handleNotification:` が `YES` を返すと、`displayNotification` メソッドが `AEReachModule` によって呼び出されます (統計情報を報告します)。
+-   通知を閉じると、`exitNotification` メソッドが呼び出されて統計情報が報告され、次のキャンペーンを処理できるようになります。
+-   通知をクリックすると、`actionNotification` が呼び出されて統計情報が報告され、関連付けられたアクションが実行されます。
 
-場合は、実装の `AENotifier` 既定の動作をバイパスを自分でこれらのライフ サイクル メソッドを呼び出す必要があります。 次の例では、既定の動作がバイパスされるいくつかのケースを示しています。
+`AENotifier` の実装が既定の動作をバイパスする場合は、これらのライフ サイクル メソッドを自分で呼び出す必要があります。 次の例では、既定の動作がバイパスされるいくつかのケースを示しています。
 
--   拡張しない `AEDefaultNotifier`, 、最初からカテゴリの処理を実装した場合などです。
--   オーバーライドした場合 `prepareNotificationView:forContent:`, 、ともがマッピングを必ず `onNotificationActioned` または `onNotificationExited` がいずれかの U.I コントロールです。
+-   `AEDefaultNotifier` を拡張しない場合 (最初からカテゴリの処理を実装した場合など)。
+-   `prepareNotificationView:forContent:` をオーバーライドした場合 (少なくとも `onNotificationActioned` または `onNotificationExited` がいずれかの U.I コントロールにマップされていることをご確認ください)。
 
-> [AZURE.WARNING] 場合 `handleNotification:` をスローし、例外は、コンテンツを削除し、 `ドロップ` が呼び出されると、これは統計情報で報告し、次のキャンペーンを処理できるようします。
+> [AZURE.WARNING] 場合 `handleNotification:` をスローし、例外は、コンテンツを削除し、 `drop` が呼び出されると、これは統計情報で報告し、次のキャンペーンを処理できるようします。
 
 #### 既存のビューの一部に通知を含める
 
@@ -254,9 +252,9 @@
 
 1.  インターフェイス ビルダーを使用して、通知ビューを追加します。
 
-    -   [*インターフェイス ビルダー*] を開きます。
-    -   320 x 60 (または、iPad を使用している場合) を配置 `UIView` 通知を表示します。
-    -   このビューのタグ値を **36822491** に設定します。
+    -   開いている *インターフェイス ビルダー*
+    -   通知を表示する場所に 320 x 60 (または、iPad の場合は 768 x 60) の `UIView` を配置します。
+    -   このビューのタグ値の設定: **36822491**
 
 2.  プログラムを使用して通知ビューを追加します。 ビューが初期化されたら、次のコードを追加します。
 
@@ -264,15 +262,15 @@
         notificationView.tag = NOTIFICATION_AREA_VIEW_TAG;
         [self.view addSubview:notificationView];
 
+`NOTIFICATION_AREA_VIEW_TAG` マクロは `AEDefaultNotifier.h` にあります。
 
-`NOTIFICATION_AREA_VIEW_TAG` マクロを参照して `AEDefaultNotifier.h`します。
-> [AZURE.NOTE] 既定の通知は、通知のレイアウトがこのビューに含まれていて、オーバーレイが追加されていないことを自動的に検出します。
+> [AZURE.NOTE] 既定の通知は、通知のレイアウトがこのビューに含まれ、その、オーバーレイが追加されませんに自動的に検出します。
 
 ### お知らせとポーリング
 
 #### レイアウト
 
-ファイルを変更して `AEDefaultAnnouncementView.xib` と `AEDefaultPollView.xib` タグの値と、既存のサブビューの種類を保持している限りです。
+既存のサブビューのタグの値と種類を保持している限り、`AEDefaultAnnouncementView.xib` ファイルと `AEDefaultPollView.xib` ファイルを変更できます。
 
 #### カテゴリ
 
@@ -280,34 +278,34 @@
 
 通知と同様に、キャンペーンのカテゴリを使用して、お知らせとポーリングの代替レイアウトを設定できます。
 
-お知らせのカテゴリを作成するには、**AEAnnouncementViewController** を拡張し、reach モジュールが初期化された時点でこれを登録する必要があります。
+お知らせのカテゴリを作成するには、拡張する必要があります **AEAnnouncementViewController** し、reach モジュールが初期化された後に登録します。
 
     AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
     [reach registerAnnouncementController:[MyCustomAnnouncementViewController class] forCategory:@"my_category"];
 
-> [AZURE.NOTE] 毎回ユーザーがクリックしてカテゴリ「my \_category」のお知らせ通知に登録されているビュー コント ローラー (その場合は `MyCustomAnnouncementViewController`) メソッドを呼び出すことによって初期化される `initWithAnnouncement:` され、現在のアプリケーション ウィンドウ ビューが追加されます。
+> [AZURE.NOTE] 毎回ユーザーがクリックしてカテゴリ「my \_category」のお知らせ通知に登録されているビュー コント ローラー (その場合は `MyCustomAnnouncementViewController`) メソッドを呼び出すことによって初期化される `initWithAnnouncement:` され現在のアプリケーション ウィンドウにビューが追加されます。
 
-実装で、 `AEAnnouncementViewController` クラス、プロパティを読み取ることが `アナウンス` 、サブビューを初期化します。 次の例を検討してください、2 つのラベルを使用してが初期化は `タイトル` と `本文` のプロパティ、 `AEReachAnnouncement` クラス。
+`AEAnnouncementViewController` クラスの実装では、`announcement` プロパティを読み取り、サブビューを初期化する必要があります。 次の例について検討してみましょう。ここでは、2 つのラベルが `AEReachAnnouncement` クラスの `title` プロパティと `body` プロパティを使用して初期化されています。
 
     -(void)loadView
     {
         [super loadView];
-    
+
         UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 300, 60)];
         titleLabel.font = [UIFont systemFontOfSize:32.0];
         titleLabel.text = self.announcement.title;
-    
+
         UILabel* bodyLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 300, 60)];
         bodyLabel.font = [UIFont systemFontOfSize:24.0];
         bodyLabel.text = self.announcement.body;
-    
+
         [self.view addSubview:titleLabel];
         [self.view addSubview:bodyLabel];
     }
 
-自分でビューをロードしたくない場合は、既定のお知らせビューのレイアウトを再利用する、カスタム ビュー コント ローラーは作成するだけが提供されているクラスを拡張 `AEDefaultAnnouncementViewController`します。 その場合は、nib ファイルを複製 `AEDefaultAnnouncementView.xib` し、カスタム ビュー コント ローラーで読み込めるように名前を変更 (という名前のコント ローラーの `CustomAnnouncementViewController`, 、nib ファイルを呼び出す必要があります `CustomAnnouncementView.xib`)。
+自分でビューを読み込まずに、既定のお知らせビューのレイアウトを再利用する場合は、カスタム ビュー コントローラーを使用して指定されたクラス `AEDefaultAnnouncementViewController` を拡張できます。 この場合は、カスタム ビュー コントローラーで読み込めるように、nib ファイル `AEDefaultAnnouncementView.xib` を複製して名前を変更します (`CustomAnnouncementViewController` という名前のコントローラーの場合は、nib ファイル `CustomAnnouncementView.xib` を呼び出す必要があります)。
 
-お知らせの既定のカテゴリを置き換えるで定義されたカテゴリ用にカスタム ビュー コント ローラーを登録するだけで `kAEReachDefaultCategory`:
+お知らせの既定のカテゴリを置き換えるには、`kAEReachDefaultCategory` で定義されているカテゴリのカスタム ビュー コントローラーを登録します。
 
     [reach registerAnnouncementController:[MyCustomAnnouncementViewController class] forCategory:kAEReachDefaultCategory];
 
@@ -316,8 +314,9 @@
     AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
     [reach registerPollController:[MyCustomPollViewController class] forCategory:@"my_category"];
 
-このときに、指定された `MyCustomPollViewController` 拡張する必要があります `AEPollViewController`します。 既定のコント ローラーから拡張することができますか。 `AEDefaultPollViewController`します。
-> [AZURE.IMPORTANT] いずれかを呼び出さないことを忘れないでください `アクション` (`submitAnswers:` カスタム ポーリング ビュー コント ローラーの) または `終了` メソッド ビュー コント ローラーが閉じる前にします。 これを行わないと、統計情報は送信されず (キャンペーンは分析されません)、さらに重要な次のキャンペーンが、アプリケーション プロセスが再起動するまで通知されないことになります。
+今回は指定された `MyCustomPollViewController` が `AEPollViewController` を拡張する必要があります。 あるいは、既定のコント ローラー `AEDefaultPollViewController` から拡張できます。
+
+> [AZURE.IMPORTANT] いずれかを呼び出さないことを忘れないでください `action` (`submitAnswers:` カスタム ポーリング ビュー コント ローラーの) または `exit` メソッド ビュー コント ローラーが閉じる前にします。 これを行わないと、統計情報は送信されず (キャンペーンは分析されません)、さらに重要な次のキャンペーンが、アプリケーション プロセスが再起動するまで通知されないことになります。
 
 ##### 実装例
 
@@ -335,13 +334,13 @@
       UIButton* okButton;
       UIButton* cancelButton;
     }
-    
+
     @property (nonatomic, retain) IBOutlet UILabel* titleLabel;
     @property (nonatomic, retain) IBOutlet UITextView* descTextView;
     @property (nonatomic, retain) IBOutlet UIWebView* htmlWebView;
     @property (nonatomic, retain) IBOutlet UIButton* okButton;
     @property (nonatomic, retain) IBOutlet UIButton* cancelButton;
-    
+
     -(IBAction)okButtonClicked:(id)sender;
     -(IBAction)cancelButtonClicked:(id)sender;
 
@@ -354,7 +353,7 @@
     @synthesize htmlWebView;
     @synthesize okButton;
     @synthesize cancelButton;
-    
+
     -(id)initWithAnnouncement:(AEReachAnnouncement*)anAnnouncement
     {
       self = [super initWithNibName:@"CustomAnnouncementViewController" bundle:nil];
@@ -363,7 +362,7 @@
       }
       return self;
     }
-    
+
     - (void) dealloc
     {
       [titleLabel release];
@@ -373,13 +372,13 @@
       [cancelButton release];
       [super dealloc];
     }
-    
+
     - (void)viewDidLoad {
       [super viewDidLoad];
-    
+
       /* Init announcement title */
       titleLabel.text = self.announcement.title;
-    
+
       /* Init announcement body */
       if(self.announcement.type == AEAnnouncementTypeHtml)
       {
@@ -393,29 +392,27 @@
         htmlWebView.hidden = YES;
         descTextView.text = self.announcement.body;
       }
-    
+
       /* Set action button label */
       if([self.announcement.actionLabel length] > 0)
         [okButton setTitle:self.announcement.actionLabel forState:UIControlStateNormal];
-    
+
       /* Set exit button label */
       if([self.announcement.exitLabel length] > 0)
         [cancelButton setTitle:self.announcement.exitLabel forState:UIControlStateNormal];
     }
-    
+
     #pragma mark Actions
-    
+
     -(IBAction)okButtonClicked:(id)sender
     {
         [self action];
     }
-    
+
     -(IBAction)cancelButtonClicked:(id)sender
     {
         [self exit];
     }
-    
+
     @end
-
-
 

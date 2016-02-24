@@ -15,7 +15,6 @@
    ms.date="09/15/2015"
    ms.author="sethm" />
 
-
 # Service Bus ブローカー メッセージングの REST チュートリアル
 
 このチュートリアルでは、基本的な REST ベースの Azure Service Bus のキューおよびトピック/サブスクリプション サービスを作成する方法を示します。
@@ -28,11 +27,11 @@
 
 1. サービス名前空間を作成する方法の詳細については、トピックを参照してください。 [How To: 作成または Service Bus Service 名前空間を変更する](https://msdn.microsoft.com/library/azure/hh690931.aspx) で、 [Service Bus サービス名前空間を管理する](https://msdn.microsoft.com/library/azure/hh690928.aspx) セクションです。
 
-1. メイン ウィンドウで、 [Azure クラシック ポータルの [][], 、前の手順で作成した名前空間の名前をクリックします。
+1. メイン ウィンドウで、 [Azure クラシック ポータル][], 、前の手順で作成した名前空間の名前をクリックします。
 
-1. **[構成]** タブをクリックします。
+1. クリックして、 **構成** ] タブをクリックします。
 
-1. **[共有アクセス キー生成コンポーネント]** セクションで、**RootManageSharedAccessKey** ポリシーに関連付けられている **[プライマリ キー]** をメモしておくか、クリップボードにコピーします。 この値は、このチュートリアルの後半で使用します。
+1.  **共有アクセス キー生成** ] セクションでは、メモ、 **主キー** に関連付けられている、 **RootManageSharedAccessKey** ポリシー、またはクリップボードにコピーします。 この値は、このチュートリアルの後半で使用します。
 
 ## コンソール クライアントを作成する
 
@@ -56,11 +55,11 @@ Service Bus キューを使用すると、先入れ先出しキューにメッ�
 
 ### コンソール アプリケーションの作成
 
-1. 管理者として Visual Studio を開始します。そのためには、**[スタート]** メニューの [Visual Studio] を右クリックし、**[管理者として実行]** をクリックします。
+1. プログラムを右クリックして、管理者として Visual Studio を開始、 **開始** ] メニューのをクリックし、 **管理者として実行**します。
 
-1. 新しいコンソール アプリケーション プロジェクトを作成します。 **[ファイル]** メニューから、**[新規作成]**、**[プロジェクト]** の順にクリックします。 **[新しいプロジェクト]** ダイアログ ボックスで **[Visual C#]** をクリックします (**[Visual C#]** が表示されない場合は、**[他の言語]** からクリックします)。**[コンソール アプリケーション]** テンプレートを選択し、「**Microsoft.ServiceBus.Samples**」と名前を付けます。 既定の [場所] を使用します。 **[OK]** をクリックしてプロジェクトを作成します。
+1. 新しいコンソール アプリケーション プロジェクトを作成します。 クリックして、 **ファイル** メニューをクリック **新規**, 、] をクリックし、 **プロジェクト**です。  **新しいプロジェクト** ダイアログ ボックスで、] をクリックして **Visual c#** (場合 **Visual C# の場合** 見当たらない場合は、下を見て **他の言語**) を選択、 **コンソール アプリケーション** テンプレートと名付けます **Microsoft.ServiceBus.Samples**します。 既定の [場所] を使用します。 クリックして **OK** プロジェクトを作成します。
 
-1. Program.cs で行うことを確認して、 `を使用して` ステートメントは次のように表示されます。
+1. Program.cs で、`using` ステートメントが次のようになっていることを確認します。
 
     ```
     using System;
@@ -72,10 +71,10 @@ Service Bus キューを使用すると、先入れ先出しキューにメッ�
     using System.Xml;
     ```
 
-1. 必要に応じて、Visual Studio の既定のプログラムの名前空間の名前を変更 `Microsoft.ServiceBus.Samples`します。
+1. 必要であれば、プログラムの名前空間を Visual Studio の既定の名前から `Microsoft.ServiceBus.Samples` に変更します。
 
-1. 内部、 `プログラム` クラスを次のグローバル変数を追加します。
-
+1. `Program` クラスに、次のグローバル変数を追加します。
+    
     ```
     static string serviceNamespace;
     static string baseAddress;
@@ -83,56 +82,56 @@ Service Bus キューを使用すると、先入れ先出しキューにメッ�
     const string sbHostName = "servicebus.windows.net";
     ```
 
-1. 内部 `Main()`, 、次のコードを貼り付けます。
+1. `Main()` 内に、次のコードを貼り付けます。
 
     ```
     Console.Write("Enter your service namespace: ");
     serviceNamespace = Console.ReadLine();
-
+    
     Console.Write("Enter your SAS key: ");
     string SASKey = Console.ReadLine();
-
+    
     baseAddress = "https://" + serviceNamespace + "." + sbHostName + "/";
     try
     {
         token = GetSASToken("RootManageSharedAccessKey", SASKey);
-
+    
         string queueName = "Queue" + Guid.NewGuid().ToString();
-
+    
         // Create and put a message in the queue
         CreateQueue(queueName, token);
         SendMessage(queueName, "msg1");
         string msg = ReceiveAndDeleteMessage(queueName);
-
+    
         string topicName = "Topic" + Guid.NewGuid().ToString();
         string subscriptionName = "Subscription" + Guid.NewGuid().ToString();
         CreateTopic(topicName);
         CreateSubscription(topicName, subscriptionName);
         SendMessage(topicName, "msg2");
-
+    
         Console.WriteLine(ReceiveAndDeleteMessage(topicName + "/Subscriptions/" + subscriptionName));
-
+    
         // Get an Atom feed with all the queues in the namespace
         Console.WriteLine(GetResources("$Resources/Queues"));
-
+    
         // Get an Atom feed with all the topics in the namespace
         Console.WriteLine(GetResources("$Resources/Topics"));
-
+    
         // Get an Atom feed with all the subscriptions for the topic we just created
         Console.WriteLine(GetResources(topicName + "/Subscriptions"));
-
+    
         // Get an Atom feed with all the rules for the topic and subscription we just created
         Console.WriteLine(GetResources(topicName + "/Subscriptions/" + subscriptionName + "/Rules"));
-
+    
         // Delete the queue we created
         DeleteResource(queueName);
-
+    
         // Delete the topic we created
         DeleteResource(topicName);
-
+    
         // Get an Atom feed with all the topics in the namespace, it shouldn't have the one we created now
         Console.WriteLine(GetResources("$Resources/Topics"));
-
+    
         // Get an Atom feed with all the queues in the namespace, it shouldn't have the one we created now
         Console.WriteLine(GetResources("$Resources/Queues"));
     }
@@ -150,7 +149,7 @@ Service Bus キューを使用すると、先入れ先出しキューにメッ�
             }
         }
     }
-
+    
     Console.WriteLine("\nPress ENTER to exit.");
     Console.ReadLine();
     ```
@@ -161,7 +160,7 @@ Service Bus キューを使用すると、先入れ先出しキューにメッ�
 
 ### GetSASToken() メソッドを作成する
 
-後は、次のコードを貼り付け、 `Main()` メソッドで、 `プログラム` クラス。
+次のコードを `Program` クラスの `Main()` メソッドの後に貼り付けます。
 
 ```
 private static string GetSASToken(string SASKeyName, string SASKeyValue)
@@ -177,11 +176,11 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
   return sasToken;
 }
 ```
-## キューの作成
+## キューを作成する
 
 次の手順では、REST スタイルの HTTP PUT コマンドを使用してキューを作成するメソッドを作成します。
 
-次のコードの直後に貼り付け、 `GetSASToken()` 前の手順で追加したコード。
+1 つ前の手順で追加した `GetSASToken()` のコードの直後に、次のコードを貼り付けます。
 
 ```
 // Uses HTTP PUT to create the queueprivatestaticstring CreateQueue(string queueName, string token)
@@ -207,7 +206,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 
 この手順では、REST スタイルの HTTP POST コマンドを使用して前の手順で作成したキューにメッセージを送信するメソッドを追加します。
 
-1. 次のコードの直後に貼り付け、 `CreateQueue()` 前の手順で追加したコード。
+1. 1 つ前の手順で追加した `CreateQueue()` のコードの直後に、次のコードを貼り付けます。
 
     ```
     // Sends a message to the "queueName" queue, given the name and the value to enqueue
@@ -217,12 +216,12 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
         Console.WriteLine("\nSending message {0} - to address {1}", body, fullAddress);
         WebClient webClient = new WebClient();
         webClient.Headers[HttpRequestHeader.Authorization] = token;
-
+    
         webClient.UploadData(fullAddress, "POST", Encoding.UTF8.GetBytes(body));
     }
     ```
 
-1. 標準の仲介型メッセージのプロパティに配置されます、 `BrokerProperties` HTTP ヘッダー。 ブローカーのプロパティは、JSON 形式でシリアル化する必要があります。 指定する、 **TimeToLive** メッセージへの値は 30 秒とメッセージ ラベル"M1"を追加する、直前に次のコードを追加、 `webClient.UploadData()` 前の例に示すように呼び出します。
+1. ブローカー メッセージの標準プロパティが `BrokerProperties` HTTP ヘッダーに配置されます。 ブローカーのプロパティは、JSON 形式でシリアル化する必要があります。 指定する、 **TimeToLive** メッセージへの値は 30 秒とメッセージ ラベル"M1"を追加する、直前に次のコードを追加、 `webClient.UploadData()` 前の例に示すように呼び出します。
 
     ```
     // Add brokered message properties "TimeToLive" and "Label"
@@ -231,7 +230,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 
     ブローカー メッセージのプロパティが追加されていること、および今後追加されることに注意してください。 したがって、送信要求では、要求の一部であるすべてのブローカー メッセージのプロパティをサポートする API バージョンを指定する必要があります。 指定されている API のバージョンがブローカー メッセージのプロパティをサポートしていない場合は、そのプロパティは無視されます。
 
-1. カスタム メッセージのプロパティは、キーと値のペアのセットとして定義されます。 各カスタム プロパティは、独自の TPPT ヘッダーに格納されます。 カスタム プロパティ"Priority"および"Customer"を追加するには、次のコードを直前に追加、 `webClient.UploadData()` 前の例に示すように呼び出します。
+1. カスタム メッセージのプロパティは、キーと値のペアのセットとして定義されます。 各カスタム プロパティは、独自の TPPT ヘッダーに格納されます。 カスタム プロパティ "Priority" と "Customer" を追加するには、前の例で示した `webClient.UploadData()` の呼び出しの直前に次のコードを追加します。
 
     ```
     // Add custom properties "Priority" and "Customer".
@@ -243,7 +242,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 
 次の手順では、REST スタイルの HTTP DELETE コマンドを使用してキューからメッセージを受信し削除するメソッドを追加します。
 
-次のコードの直後に貼り付け、 `SendMessage()` 前の手順で追加したコード。
+1 つ前の手順で追加した `SendMessage()` のコードの直後に、次のコードを貼り付けます。
 
 ```
 // Receives and deletes the next message from the given resource (queue, topic, or subscription)
@@ -269,7 +268,7 @@ private static string ReceiveAndDeleteMessage(string resourceName)
 
 ### トピックを作成する
 
-次のコードの直後に貼り付け、 `ReceiveAndDeleteMessage()` 前の手順で追加したコード。
+1 つ前の手順で追加した `ReceiveAndDeleteMessage()` のコードの直後に、次のコードを貼り付けます。
 
 ```
 // Using an HTTP PUT request.
@@ -295,7 +294,7 @@ private static string CreateTopic(string topicName)
 
 ### サブスクリプションを作成する
 
-次のコードでは、前の手順で作成したトピックへのサブスクリプションを作成します。 次のコードを追加直接後、 `CreateTopic()` 定義します。
+次のコードでは、前の手順で作成したトピックへのサブスクリプションを作成します。 `CreateTopic()` の定義の直後に次のコードを追加します。
 
 ```
 private static string CreateSubscription(string topicName, string subscriptionName)
@@ -324,7 +323,7 @@ private static string CreateSubscription(string topicName, string subscriptionNa
 
 ### 指定されたリソースで Atom フィードを取得する
 
-次のコードを追加直接後、 `CreateSubscription()` 前の手順で追加したメソッド。
+1 つ前の手順で追加した `CreateSubscription()` メソッドの直後に、次のコードを追加します。
 
 ```
 private static string GetResources(string resourceAddress)
@@ -356,7 +355,7 @@ private static string DeleteResource(string resourceName)
 
 ### Atom フィードの書式を設定する
 
-`GetResources()` メソッドへの呼び出しに含まれる、 `FormatXml()` 、取得した Atom を再フォーマットする方法のフィードを読み取りやすくします。 定義を次に示します `FormatXml()`; の後に、このコードを直接追加、 `DeleteResource()` 前のセクションで追加したコード。
+`GetResources()` メソッドの中で呼び出されている `FormatXml()` メソッドは、取得された Atom フィードの書式をさらに読みやすいように変更します。 次に示すのは `FormatXml()` の定義です。前のセクションで追加した `DeleteResource()` のコードの直後に、このコードを追加します。
 
 ```
 // Formats the XML string to be more human-readable; intended for display purposes
@@ -378,7 +377,7 @@ private static string FormatXml(string inputXml)
 
 ## アプリケーションの構築と実行
 
-アプリケーションをビルドして実行できる状態になりました。 Visual Studio で、**[ビルド]** メニューの **[ソリューションのビルド]** をクリックするか、F6 キーを押します。
+アプリケーションをビルドして実行できる状態になりました。  **ビルド** Visual Studio のメニューをクリックして **ソリューションのビルド**, 、または F6 キーを押します。
 
 ### アプリケーションの実行
 
@@ -627,9 +626,7 @@ namespace Microsoft.ServiceBus.Samples
 詳細については、次の記事を参照してください。
 
 - [Service Bus メッセージングの概要](service-bus-messaging-overview.md)
-- [Azure Service Bus の基礎](fundamentals-service-bus-hybrid-solutions.md)
-- [Service Bus リレーの REST チュートリアル](service-bus-relay-rest-tutorial.md)
+- [Service Bus の基礎](fundamentals-service-bus-hybrid-solutions.md)
+- [Service Bus リレー型メッセージングの REST チュートリアル](service-bus-relay-rest-tutorial.md)
 
-
-[azure classic portal]: http://manage.windowsazure.com 
-
+[Azure classic portal]: http://manage.windowsazure.com

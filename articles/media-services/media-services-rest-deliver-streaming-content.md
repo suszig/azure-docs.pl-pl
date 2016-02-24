@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Media Services からストリーミング コンテンツを配信する方法" 
-    description="ストリーミング URL の構築に使用するロケーターを作成する方法について説明します。コードは REST API を使用しています。" 
+    description="ストリーミング URL の構築に使用するロケーターを作成する方法について説明します。 コードは REST API を使用しています。" 
     authors="Juliako" 
     manager="dwrede" 
     editor="" 
@@ -17,42 +17,41 @@
     ms.author="juliako"/>
 
 
-
-# 方法: ストリーミング コンテンツを配信する
+#方法: ストリーミング コンテンツを配信する
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-deliver-streaming-content.md)
-- [REST](media-services-rest-deliver-streaming-content.md)
-- [Portal](media-services-manage-content.md#publish)
+- [REST ()](media-services-rest-deliver-streaming-content.md)
+- [ポータル](media-services-manage-content.md#publish)
+
+##概要
 
 
-## 概要
+オンデマンド ストリーミング ロケーターを作成してストリーミング URL を構築することで、アダプティブ ビットレート MP4 セットをストリーミングできます。  [アセットをエンコードする](media-services-rest-encode-asset.md) トピック アダプティブ ビットレート MP4 セットにエンコードする方法について説明します。 コンテンツが暗号化されている場合は、アセット配信ポリシーを構成する (」の説明に従って [この](media-services-rest-configure-asset-delivery-policy.md) トピック) ロケーターを作成する前にします。 
 
-オンデマンド ストリーミング ロケーターを作成してストリーミング URL を構築することで、アダプティブ ビットレート MP4 セットをストリーミングできます。  [アセットをエンコードする](media-services-rest-encode-asset.md) トピック アダプティブ ビットレート MP4 セットにエンコードする方法について説明します。 コンテンツが暗号化されている場合は、アセット配信ポリシーを構成する (」の説明に従って [この](media-services-rest-configure-asset-delivery-policy.md) トピック) ロケーターを作成する前にします。
-
-また、オンデマンド ストリーミング ロケーターを使って、プログレッシブ ダウンロードができる MP4 ファイルの URL を作成できます。
+また、オンデマンド ストリーミング ロケーターを使って、プログレッシブ ダウンロードができる MP4 ファイルの URL を作成できます。  
 
 このトピックでは、オンデマンド ストリーミング ロケーターを作成して資産を発行し、 Smooth、MPEG DASH、HLS ストリーミング URL を作成する方法について説明します。 また、プログレッシブ ダウンロードを行う URL を作成する方法についても説明します。
 
-[次](#types) セクションが REST コールでの値が使用される列挙型を示します。
-
-## オンデマンド ストリーミング ロケーターを作成する
+ [次](#types) セクションが REST コールでの値が使用される列挙型を示します。   
+  
+##オンデマンド ストリーミング ロケーターを作成する
 
 オンデマンド ストリーミング ロケーターを作成して URL を取得するには、次の手順に従います。
 
 
    1. コンテンツが暗号化されている場合は、アクセス ポリシーを定義します。
    2. オンデマンド ストリーミング ロケーターを作成します。
-   3. ストリーミングする場合は、資産のストリーミング マニフェスト ファイル (.ism) を取得します。
+   3. ストリーミングする場合は、資産のストリーミング マニフェスト ファイル (.ism) を取得します。 
+        
+    If you plan to progressively download, get the names of MP4 files in the asset. 
+   4. マニフェスト ファイルまたは MP4 ファイルへの URL を作成します。 
 
-    プログレッシブ ダウンロードをする場合は、資産内の MP4 ファイルの名前を取得します。
-   4. マニフェスト ファイルまたは MP4 ファイルへの URL を作成します。
 
-
-### アクセス ポリシーを作成します。
+###アクセス ポリシーを作成します。
 
 要求:
-
+        
     POST https://media.windows.net/api/AccessPolicies HTTP/1.1
     Content-Type: application/json
     DataServiceVersion: 1.0;NetFx
@@ -66,9 +65,9 @@
     Content-Length: 68
     
     {"Name":"access policy","DurationInMinutes":43200.0,"Permissions":1}
-
+    
 応答:
-
+    
     HTTP/1.1 201 Created
     Cache-Control: no-cache
     Content-Length: 311
@@ -86,12 +85,12 @@
     
     {"odata.metadata":"https://media.windows.net/api/$metadata#AccessPolicies/@Element","Id":"nb:pid:UUID:69c80d98-7830-407f-a9af-e25f4b0d3e5f","Created":"2015-02-18T06:52:09.8862191Z","LastModified":"2015-02-18T06:52:09.8862191Z","Name":"access policy","DurationInMinutes":43200.0,"Permissions":1}
 
-### オンデマンド ストリーミング ロケーターを作成する
+###オンデマンド ストリーミング ロケーターを作成する
 
 指定された資産と資産ポリシーのロケーターを作成します。
 
 要求:
-
+    
     POST https://media.windows.net/api/Locators HTTP/1.1
     Content-Type: application/json
     DataServiceVersion: 1.0;NetFx
@@ -107,7 +106,7 @@
     {"AccessPolicyId":"nb:pid:UUID:1480030d-c481-430a-9687-535c6a5cb272","AssetId":"nb:cid:UUID:cc1e445d-1500-80bd-538e-f1e4b71b465e","StartTime":"2015-02-18T06:34:47.267872Z","Type":2}
 
 応答:
-
+    
     HTTP/1.1 201 Created
     Cache-Control: no-cache
     Content-Length: 637
@@ -125,40 +124,42 @@
     
     {"odata.metadata":"https://media.windows.net/api/$metadata#Locators/@Element","Id":"nb:lid:UUID:be245661-2bbd-4fc6-b14f-9cf9a1492e5e","ExpirationDateTime":"2015-03-20T06:34:47.267872+00:00","Type":2,"Path":"http://amstest1.streaming.mediaservices.windows.net/be245661-2bbd-4fc6-b14f-9cf9a1492e5e/","BaseUri":"http://amstest1.streaming.mediaservices.windows.net","ContentAccessComponent":"be245661-2bbd-4fc6-b14f-9cf9a1492e5e","AccessPolicyId":"nb:pid:UUID:1480030d-c481-430a-9687-535c6a5cb272","AssetId":"nb:cid:UUID:cc1e445d-1500-80bd-538e-f1e4b71b465e","StartTime":"2015-02-18T06:34:47.267872+00:00","Name":null}
 
-### ストリーミング URL を作成します。
+###ストリーミング URL を作成します。
 
-ロケーター作成後に返される **Path** 値を使って、Smooth、HLS、MPEG DASH の URL を作成します。
+使用して、 **パス** Smooth、HLS、MPEG DASH の Url を構築するロケーターの作成後に値が返されます。 
 
-Smooth Streaming: **Path** + マニフェスト ファイル名 + "/manifest"
+Smooth Streaming: **パス** + マニフェスト ファイル名 +"/manifest"
 
 例:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
 
-HLS: **Path** + マニフェスト ファイル名 + "/manifest(format=m3u8-aapl)"
+HLS: **パス** + マニフェスト ファイル名 +"/(format = m3u8-aapl)"
 
 例:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
-DASH: **Path** + マニフェスト ファイル名 + "/manifest(format=mpd-time-csf)"
+
+DASH: **パス** + マニフェスト ファイル名 +"/(format = mpd-time-csf)"
 
 
 例:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
-### プログレッシブ ダウンロード URL を作成します。
 
-ロケーター作成後に返される **Path** 値を使って、プログレッシブ ダウンロード URL を作成します。
+###プログレッシブ ダウンロード URL を作成します。
 
-URL: **Path** + アセット ファイル mp4 名
+使用して、 **パス** 、プログレッシブ ダウンロード URL を構築するロケーターの作成後に値が返されます。   
+
+URL: **パス** + アセット ファイル mp4 名
 
 例:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-## <a id="types"></a>列挙型
+##<a id="types"></a>列挙型
 
     [Flags]
     public enum AccessPermissions
@@ -169,7 +170,7 @@ URL: **Path** + アセット ファイル mp4 名
         Delete = 4,
         List = 8,
     }
-    
+
     public enum LocatorType
     {
         None = 0,
@@ -177,15 +178,11 @@ URL: **Path** + アセット ファイル mp4 名
         OnDemandOrigin = 2,
     }
 
-## Media Services のラーニング パス
+##Media Services のラーニング パス
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## フィードバックの提供
+##フィードバックの提供
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
 

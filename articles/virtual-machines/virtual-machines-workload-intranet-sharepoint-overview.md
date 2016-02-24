@@ -17,7 +17,6 @@
     ms.date="12/11/2015"
     ms.author="josephd"/>
 
-
 # Azure での SharePoint と SQL Server AlwaysOn 可用性グループのデプロイ
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 従来のデプロイ モデルです。
@@ -38,11 +37,11 @@
 
 この構成を次のフェーズでデプロイします。
 
-- [フェーズ 1: Azure を構成する](virtual-machines-workload-intranet-sharepoint-phase1.md)します。 ストレージ アカウント、可用性セット、およびクロスプレミス仮想ネットワークを作成します。
-- [フェーズ 2: ドメイン コント ローラー構成](virtual-machines-workload-intranet-sharepoint-phase2.md)します。 レプリカ Active Directory ドメイン サービス (AD DS) ドメイン コントローラーを作成して構成します。
-- [フェーズ 3: SQL Server インフラストラクチャの構成](virtual-machines-workload-intranet-sharepoint-phase3.md)します。 SQL Server 仮想マシンを作成して構成し、SharePoint 用に準備して、クラスターを作成します。
-- [フェーズ 4: SharePoint の構成サーバー](virtual-machines-workload-intranet-sharepoint-phase4.md)します。 4 つの SharePoint 仮想マシンを作成して構成します。
-- [フェーズ 5: 可用性グループを作成し、SharePoint データベースの追加](virtual-machines-workload-intranet-sharepoint-phase5.md)します。 データベースを準備し、SQL Server AlwaysOn 可用性グループを作成します。
+- [フェーズ 1: Azure を構成する](virtual-machines-workload-intranet-sharepoint-phase1.md)です。 ストレージ アカウント、可用性セット、およびクロスプレミス仮想ネットワークを作成します。
+- [フェーズ 2: ドメイン コント ローラーを構成する](virtual-machines-workload-intranet-sharepoint-phase2.md)です。 レプリカ Active Directory ドメイン サービス (AD DS) ドメイン コントローラーを作成して構成します。
+- [フェーズ 3: SQL Server インフラストラクチャを構成する](virtual-machines-workload-intranet-sharepoint-phase3.md)です。 SQL Server 仮想マシンを作成して構成し、SharePoint 用に準備して、クラスターを作成します。
+- [フェーズ 4: SharePoint サーバーの構成](virtual-machines-workload-intranet-sharepoint-phase4.md)します。 4 つの SharePoint 仮想マシンを作成して構成します。
+- [フェーズ 5: 可用性グループの作成し、SharePoint データベースの追加](virtual-machines-workload-intranet-sharepoint-phase5.md)します。 データベースを準備し、SQL Server AlwaysOn 可用性グループを作成します。
 
 この SharePoint と SQL Server AlwaysOn のデプロイに付属するように設計された、 [SharePoint と SQL Server AlwaysOn のインフォ グラフィック](http://go.microsoft.com/fwlink/?LinkId=394788) し、最新の推奨事項を組み込みます。
 
@@ -57,14 +56,11 @@
 開発/テスト環境や、概念実証の - この構成をビルドするを参照してください。 [テスト用のハイブリッド クラウドでの SharePoint イントラネット ファームの設定](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)します。
 
 SharePoint と SQL Server AlwaysOn 可用性グループの追加については、次を参照してください。 [を構成する SQL Server 2012 AlwaysOn 可用性グループを SharePoint 2013 用](https://technet.microsoft.com/library/jj715261.aspx)します。
-> [AZURE.NOTE] Microsoft は、SharePoint Server 2016 IT Preview をリリースしました。 SharePoint Server 2016 IT Preview とその前提条件があらかじめインストールされた Azure 仮想マシン ギャラリー イメージを使用すると、このプレビュー版を簡単にインストールしてテストすることができます。 詳細については、次を参照してください。 [Azure での SharePoint Server 2016 IT Preview のテスト](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)します。
+
+> [AZURE.NOTE] マイクロソフトでは、SharePoint Server 2016 IT Preview をリリースしました。 SharePoint Server 2016 IT Preview とその前提条件があらかじめインストールされた Azure 仮想マシン ギャラリー イメージを使用すると、このプレビュー版を簡単にインストールしてテストすることができます。 詳細については、次を参照してください。 [Azure での SharePoint Server 2016 IT Preview のテスト](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)します。
 
 ## 次のステップ
 
 - 使用してこのワークロードの構成を起動 [フェーズ 1](virtual-machines-workload-intranet-sharepoint-phase1.md)します。
-
-
-
-
 
 

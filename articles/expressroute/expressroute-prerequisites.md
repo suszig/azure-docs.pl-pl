@@ -16,8 +16,7 @@
    ms.author="cherylmc"/>
 
 
-
-# ExpressRoute の前提条件
+# ExpressRoute の前提条件   
 
 ExpressRoute を使用して Microsoft クラウド サービスに接続する場合は、以下のセクションにある前提条件を満たしていることを確認する必要があります。
 
@@ -36,7 +35,7 @@ ExpressRoute を使用して Microsoft クラウド サービスに接続する�
 
 ## ネットワークと接続プロバイダーの間の物理接続
 
-接続モデルの詳細については、接続モデルのセクションを参照してください。 お客様はオンプレミスのインフラストラクチャがその説明にあるモデルの 1 つを介してサービス プロバイダー インフラストラクチャに物理的に接続されていることを確認する必要があります。
+接続モデルの詳細については、接続モデルのセクションを参照してください。 お客様はオンプレミスのインフラストラクチャがその説明にあるモデルの 1 つを介してサービス プロバイダー インフラストラクチャに物理的に接続されていることを確認する必要があります。 
 
 ## 接続の冗長性要件
 
@@ -45,7 +44,7 @@ Microsoft はレイヤー 3 の冗長性を必要とします。 Microsoft は�
 
 ## IP アドレスとルーティングに関する考慮事項
 
-お客様/接続プロバイダーは、Microsoft エッジ インフラストラクチャと冗長 BGM セッションを構築しなければなりません。 IP VPN 経由の接続を選択するお客様は、通常、ルーティング構成の管理を接続プロバイダーに任せます。 Exchange と併置される、あるいはポイントツーポイントのイーサネット プロバイダー経由で Microsoft に接続するお客様は、可用性 SLA 要件を満たすために、ピアリングごとに冗長 BGP セッションを構成する必要があります。 接続プロバイダーはこれを付加価値サービスとして提供することがあります。 
+お客様/接続プロバイダーは、Microsoft エッジ インフラストラクチャと冗長 BGM セッションを構築しなければなりません。  IP VPN 経由の接続を選択するお客様は、通常、ルーティング構成の管理を接続プロバイダーに任せます。 Exchange と併置される、あるいはポイントツーポイントのイーサネット プロバイダー経由で Microsoft に接続するお客様は、可用性 SLA 要件を満たすために、ピアリングごとに冗長 BGP セッションを構成する必要があります。 接続プロバイダーはこれを付加価値サービスとして提供することがあります。 
 ドメインのルーティング テーブルを参照してください、 [ExpressRoute 回路とルーティング ドメイン](expressroute-circuit-peerings.md) 制限に関する詳細情報についての記事です。
 
 ## セキュリティとファイアウォール
@@ -60,22 +59,18 @@ Microsoft はレイヤー 3 の冗長性を必要とします。 Microsoft は�
 
 Office 365 の要件の詳細については、次のリソースを確認します。
 
-- [ネットワーク プランニングと Office 365 のパフォーマンス チューニング](http://aka.ms/tune)
-- [Office 365 のネットワーク トラフィックの管理](https://msft.spoppe.com/teams/cpub/teams/IW_Admin/modsquad/_layouts/15/WopiFrame.aspx?sourcedoc=%7b23f09224-0668-4476-8627-aaff30931439%7d&action=edit&source=https%3A%2F%2Fmsft%2Espoppe%2Ecom%2Fteams%2Fcpub%2Fteams%2FIW%5FAdmin%2Fmodsquad%2FSitePages%2FHome%2Easpx)
-- 参照してください、 [ExpressRoute のサービス品質 (QoS) 要求](expressroute-qos.md) QoS 要件と構成に関する詳細なガイダンスについては、資料です。 あなたの VPN にサービスのクラスを複数提供するかどうかを接続プロバイダーにお問い合わせください。
+- [Office 365 のネットワーク計画とパフォーマンスのチューニング](http://aka.ms/tune)
+- [Office 365 ネットワーク トラフィック管理](https://msft.spoppe.com/teams/cpub/teams/IW_Admin/modsquad/_layouts/15/WopiFrame.aspx?sourcedoc=%7b23f09224-0668-4476-8627-aaff30931439%7d&action=edit&source=https%3A%2F%2Fmsft%2Espoppe%2Ecom%2Fteams%2Fcpub%2Fteams%2FIW%5FAdmin%2Fmodsquad%2FSitePages%2FHome%2Easpx)
+- 参照してください、 [ExpressRoute のサービス品質 (QoS) 要求](expressroute-qos.md) QoS 要件と構成に関する詳細なガイダンスについては、資料です。 あなたの VPN にサービスのクラスを複数提供するかどうかを接続プロバイダーにお問い合わせください。 
 
 ## 次のステップ
 
 - ExpressRoute の詳細については、次を参照してください。、 [ExpressRoute の FAQ](expressroute-faqs.md)します。
 - サービス プロバイダーを検索します。 参照してください [ExpressRoute パートナーとピアリングの場所](expressroute-locations.md)します。
-- Refer to requirements for [Routing](expressroute-routing.md), [NAT](expressroute-nat.md) and [QoS](expressroute-qos.md).
+- 要件を参照して [ルーティング](expressroute-routing.md), 、[NAT](expressroute-nat.md) と [QoS](expressroute-qos.md)します。
 - ExpressRoute 接続を構成します。
-    - [ExpressRoute 回線を作成します。](expressroute-howto-circuit-classic.md)
-    - [ルーティングを構成します。](expressroute-howto-routing-classic.md)
-    - [VNet を ExpressRoute 回線にリンクします。](expressroute-howto-linkvnet-classic.md)
-
-
-
-
+    - [ExpressRoute 回線の作成](expressroute-howto-circuit-classic.md)
+    - [ルーティングの構成](expressroute-howto-routing-classic.md)
+    - [ExpressRoute 回線への VNet のリンク](expressroute-howto-linkvnet-classic.md)
 
 

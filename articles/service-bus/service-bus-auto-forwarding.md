@@ -15,14 +15,13 @@
    ms.date="09/18/2015"
    ms.author="sethm" />
 
-
 # 自動転送を使用した Service Bus エンティティのチェーン
 
-*自動転送*機能を使用すると、キューまたはサブスクリプションを同じサービスの名前空間に属する別のキューまたはトピックにチェーンできます。 自動転送が有効な場合は、Service Bus は、一方のキューまたはサブスクリプション (転送元) にあるメッセージを自動的に削除し、もう一方のキューまたはトピック (転送先) に追加します。 ここで、転送先エンティティにメッセージを直接送信できることに注意してください。 また、配信不能キューなどのサブキューは別のキューまたはトピックにチェーンできないことにも注意してください。
+ *自動転送* 機能では、キューまたはサブスクリプションを別のキューまたは同じサービス名前空間の一部であるトピックをチェーンすることができます。 自動転送が有効な場合は、Service Bus は、一方のキューまたはサブスクリプション (転送元) にあるメッセージを自動的に削除し、もう一方のキューまたはトピック (転送先) に追加します。 ここで、転送先エンティティにメッセージを直接送信できることに注意してください。 また、配信不能キューなどのサブキューは別のキューまたはトピックにチェーンできないことにも注意してください。
 
 ## 自動転送の使用
 
-自動転送を有効に設定できます、 [QueueDescription.ForwardTo:operator[]][] または [SubscriptionDescription.ForwardTo][] プロパティを [QueueDescription][] または [SubscriptionDescription][] 次の例のように、ソースのオブジェクト。
+自動転送を有効に設定できます、 [QueueDescription.ForwardTo][] または [SubscriptionDescription.ForwardTo][] プロパティを [QueueDescription][] または [SubscriptionDescription][] 次の例のように、ソースのオブジェクト。
 
 ```
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -50,7 +49,7 @@ Alice が休暇中の場合、ERP トピックではなく、個人用のキュ�
 
 Service Bus では、メッセージの転送ごとに 1 操作を請求します。 たとえば、別のキューまたはトピックにメッセージを自動転送するようにそれぞれ構成されている 20 のサブスクリプションを持つトピックにメッセージを送信した場合、第 1 レベルのすべてのサブスクリプションがメッセージを受信すると、21 の操作として請求されます。
 
-別のキューまたはトピックにチェーンされているサブスクリプションを作成するには、サブスクリプションの作成者は、転送元エンティティと転送先エンティティの両方に対する**管理**アクセス許可が必要です。 転送元トピックにメッセージを送信する場合は、転送元トピックに対する**送信**アクセス許可のみが必要です。
+もう 1 つのキューまたはトピックにチェーンされるサブスクリプションを作成するサブスクリプションの作成者が必要 **管理** 元と転送先エンティティの両方に対する権限。 メッセージを転送元トピックに送信することのみを必要と **送信** 元トピックに対するアクセスを許可します。
 
 ## 次のステップ
 
@@ -60,14 +59,12 @@ Service Bus では、メッセージの転送ごとに 1 操作を請求しま�
 - [QueueDescription][]
 - [SubscriptionDescription][]
 
-サービス バスのパフォーマンスの改善点についての詳細についてを参照してください。 [パーティション分割のメッセージング エンティティ []][]します。
+サービス バスのパフォーマンスの改善点についての詳細についてを参照してください。 [メッセージング エンティティのパーティション分割][]します。
 
-
-[queuedescription.forwardto]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx 
-[subscriptiondescription.forwardto]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx 
-[queuedescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx 
-[subscriptiondescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx 
-[0]: ./media/service-bus-auto-forwarding/IC628631.gif 
-[1]: ./media/service-bus-auto-forwarding/IC628632.gif 
-[partitioning messaging entities]: service-bus-partitioning.md 
-
+  [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
+  [SubscriptionDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx
+  [QueueDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx
+  [SubscriptionDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx
+  [0]: ./media/service-bus-auto-forwarding/IC628631.gif
+  [1]: ./media/service-bus-auto-forwarding/IC628632.gif
+  [Partitioning Messaging Entities]: service-bus-partitioning.md

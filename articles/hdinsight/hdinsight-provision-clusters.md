@@ -17,13 +17,12 @@
    ms.date="12/11/2015"
    ms.author="jgao"/>
 
-
 # HDInsight で Hadoop クラスターを作成する
 
 HDInsight クラスターの作成を計画する方法について説明します。
 
 
-### 前提条件:
+###前提条件:
 
 この記事の手順を開始する前に、次の項目を用意する必要があります。
 
@@ -50,15 +49,15 @@ HDInsight クラスターを作成する際の基本的な構成オプション�
     Azure リソース マネージャー (ARM) では、アプリケーションで、グループとしてリソースを使用することができます。 
     Azure リソース グループと呼ばれます。 デプロイ、更新、監視、すべてのリソースの削除 
     1 つのアプリケーションの操作を調整します。 詳細については、 
-    参照してください [Azure リソース マネージャーの概要](resource-group-overview.md)します。
-
+    参照してください [Azure リソース マネージャーの概要](resource-group-overview.md)します。  
+    
 - **オペレーティング システム**
 
     次の 2 つのオペレーティング システムのいずれかで、HDInsight クラスターを作成できます。
     - **Windows (Windows Server 2012 R2 Datacenter) での HDInsight**:
     - **Linux (Ubuntu 12.04 LTS for Linux) での HDInsight**: HDInsight は Azure で Linux クラスターを構成するオプションを提供します。 Linux または Unix に詳しい場合や、Linux 向けに構築された Hadoop エコシステム コンポーネントとの簡単な統合が必要な場合は、既存の Linux ベースの Hadoop ソリューションから移行することで Linux クラスターを構成します。 詳細については、次を参照してください。 [HDInsight の Linux での Hadoop 入門](hdinsight-hadoop-linux-get-started.md)します。
 
-- **クラスターの種類** と * * (ルール サブタイプ) のクラスター サイズ データ ノード) * *
+- **クラスターの種類** と **クラスター サイズ (データ ノードとも呼ばれます)**
 
     HDInsight を使用すると、さまざまなクラスターの種類を、異なるデータ分析ワークロードにデプロイできるようになります。 現在提供されているクラスターの種類は次のとおりです。
 
@@ -68,7 +67,8 @@ HDInsight クラスターを作成する際の基本的な構成オプション�
     - Spark クラスター (プレビュー): メモリ内処理、対話型クエリ、ストリーミング、機械学習の各ワークロード用
 
     ![HDInsight クラスター](./media/hdinsight-provision-clusters/hdinsight.clusters.png)
-    > [AZURE.NOTE] "Azure HDInsight クラスター" は、"HDInsight の Hadoop クラスター"、または "HDInsight クラスター" とも呼ばれます。****** また、"Hadoop クラスター" と同じ意味で使用される場合もあります。** これらはすべて、Microsoft Azure 環境でホストされている Hadoop クラスターを指します。
+
+    > [AZURE.NOTE] *Azure HDInsight クラスター* ともいいます *HDInsight の Hadoop クラスター*, 、または *HDInsight クラスター*します。 場合によってを使用している同じ意味で *Hadoop クラスター*します。 これらはすべて、Microsoft Azure 環境でホストされている Hadoop クラスターを指します。
 
     特定のクラスターの種類には、各種ノードのさまざまなロールがあります。これにより、ワークロードの詳細に適した特定のロールでノードのサイズを設定できます。 たとえば、Hadoop クラスターで実行する分析がメモリ消費型である場合、大量のメモリを備えた worker ノードを作成できます。
 
@@ -93,36 +93,40 @@ HDInsight クラスターを作成する際の基本的な構成オプション�
     - Supervisor サーバー (1 つ以上のノード)
     - Zookeeper ノード (3 つのノード)
 
-    ![HDInsight Hadoop クラスター ロール](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)
 
-    HDInsight の Spark クラスターは、3 つのロールでデプロイされます。
-    - ヘッド ノード (2 ノード)
-    - ワーカー ノード (1 つ以上のノード)
-    - Zookeeper ノード (3 ノード) (A1 Zookeeper は無料)
+    ![HDInsight Hadoop cluster roles](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)
 
-    クラスターの有効期間中、これらのノードの使用量に対して課金されます。課金は、クラスターが作成された時点で開始され、クラスターが削除されると終了します (クラスターを割り当て解除したり、保留にしたりすることはできません)。クラスター サイズはクラスターの価格に影響します。学習目的の場合、データ ノードを 1 つ使用することをお勧めします。HDInsight の料金の詳細については、次を参照してください。 [HDInsight 料金](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)します。
+    Spark clusters for HDInsight are deployed with three roles:
+    - Head node (2 nodes)
+    - Worker node (at least 1 node)
+    - Zookeeper nodes (3 nodes) (Free for A1 Zookeepers)
 
-    >[AZURE.NOTE] クラスター サイズの制限は、Azure サブスクリプションによって異なります。 制限値を上げるには、課金サポートにお問い合わせください。
+    Customers are billed for the usage of those nodes for the duration of the cluster’s life. Billing starts once a cluster is created and stops when the cluster is deleted (clusters can’t be de-allocated or put on hold). The cluster size affects the cluster price. For learning purposes, it is recommended to use 1 data node. For more information about HDInsight pricing, see [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
+
+
+    >[AZURE.NOTE] The cluster size limit varies among Azure subscriptions. Contact billing support to increase the limit.
 
 - **HDInsight のバージョン**
 
-    このクラスターに使用する HDInsight のバージョンを指定するために使用します。詳細については、を参照してください [Hadoop クラスターのバージョンと HDInsight でのコンポーネント](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409)。
+    このクラスターに使用する HDInsight のバージョンを指定するために使用します。 詳細については、次を参照してください [Hadoop クラスターのバージョンと HDInsight でのコンポーネント。](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409)
+
 
 - **場所 (リージョン)**
 
     HDInsight クラスターとその既定のストレージ アカウントは、同じ Azure の場所に配置されている必要があります。
+    
+    ![Azure Azure リージョン](./media/hdinsight-provision-clusters/Azure.regions.png)
 
-    ![Azure リージョン](./media/hdinsight-provision-clusters/Azure.regions.png)
-
-    サポートされているリージョンの一覧を表示するには、クリックして、 **領域** ドロップダウン リストで [HDInsight 料金](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)します。
+    サポートされているリージョンの一覧を表示するには、クリックして、 **地域** ドロップダウン リストで [HDInsight 料金](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)します。
 
 - **ノード サイズ**
 
     ![HDInsight VM ノードのサイズ](./media/hdinsight-provision-clusters/hdinsight.node.sizes.png)
 
-    ノードの VM サイズを選択します。 詳細については、を参照してください [クラウド サービスのサイズ](cloud-services-sizes-specs.md)。
+    ノードの VM サイズを選択します。 詳細については、次を参照してください [クラウド サービスのサイズ。](cloud-services-sizes-specs.md)
 
-    VM の選択に基づき、価格が異なる場合があります。 HDInsight は、クラスター ノードにすべて Standard レベルの VM を使用します。 VM のサイズに応じた料金の方法については、次を参照してください。 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 料金</a>します。
+    VM の選択に基づき、料金が異なる場合があります。 HDInsight は、クラスター ノードにすべて Standard レベルの VM を使用します。 VM のサイズに応じた料金の方法については、次を参照してください。 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight の料金詳細</a>.
+
 
 - **HDInsight ユーザー**
 
@@ -130,27 +134,32 @@ HDInsight クラスターを作成する際の基本的な構成オプション�
 
     - HTTP ユーザー。 既定のユーザー名は、Azure ポータルで基本構成を使用する admin です。
     - RDP ユーザー (Windows クラスター): RDP を使用してクラスターに接続する際に使用します。 アカウントの作成時に、当日から 90 日以内の有効期限を設定する必要があります。
-    - SSH ユーザー (Linux クラスター): SSH を使用してクラスターに接続する際に使用します。 追加の SSH ユーザー アカウントを作成するには、次の手順に従って、クラスターを作成した後 [SSH Linux、Unix、または OS X から HDInsight 上の Linux ベースの Hadoop を使用する](hdinsight-hadoop-linux-use-ssh-unix.md)します。
+    - SSH ユーザー (Linux クラスター): SSH を使用してクラスターに接続する際に使用します。 追加の SSH ユーザー アカウントを作成するには、次の手順に従って、クラスターを作成した後 [SSH Linux、Unix、または OS X から HDInsight 上の Linux ベースの Hadoop を使用する](hdinsight-hadoop-linux-use-ssh-unix.md)です。
+
+
 
 - **Azure ストレージ アカウント**
 
     元の HDFS では、クラスターの多数のローカル ディスクを使用します。 HDInsight では、データ ストレージとして Azure BLOB ストレージを使用します。 Azure BLOB ストレージは、堅牢な汎用ストレージ ソリューションであり、HDInsight とシームレスに統合されます。 Hadoop 分散ファイル システム (HDFS) のインターフェイスを利用して、HDInsight のすべてのコンポーネントが BLOB ストレージの構造化データまたは非構造化データを直接操作できます。 BLOB ストレージにデータを格納した場合、計算で使用する HDInsight クラスターを削除してもユーザー データは失われません。
 
-    構成時に、Azure ストレージ アカウントと、その Azure ストレージ アカウントの Azure BLOB ストレージ コンテナーを指定する必要があります。 一部の作成プロセスには、事前に作成された Azure ストレージ アカウントと BLOB ストレージ コンテナーが必要です。 BLOB ストレージ コンテナーは、既定の保存先としてクラスターで使用されます。 必要に応じて、クラスターがアクセス可能なその他の Azure Storage アカウント (リンクされたストレージ) を指定できます。 また、クラスターは、完全なパブリック読み取りアクセスまたは BLOB だけを対象とするパブリック読み取りアクセスで構成された BLOB コンテナーにアクセスすることもできます。 アクセスの制限の詳細については、次を参照してください。 [Azure ストレージ リソースへのアクセスの管理](storage-manage-access-to-resources.md)します。
+    構成時に、Azure ストレージ アカウントと、その Azure ストレージ アカウントの Azure BLOB ストレージ コンテナーを指定する必要があります。 一部の作成プロセスには、事前に作成された Azure ストレージ アカウントと BLOB ストレージ コンテナーが必要です。  BLOB ストレージ コンテナーは、既定の保存先としてクラスターで使用されます。 必要に応じて、クラスターがアクセス可能なその他の Azure Storage アカウント (リンクされたストレージ) を指定できます。 また、クラスターは、完全なパブリック読み取りアクセスまたは BLOB だけを対象とするパブリック読み取りアクセスで構成された BLOB コンテナーにアクセスすることもできます。  アクセスの制限の詳細については、次を参照してください。 [Azure ストレージ リソースへのアクセスの管理](storage-manage-access-to-resources.md)します。
 
     ![HDInsight ストレージ](./media/hdinsight-provision-clusters/HDInsight.storage.png)
-    >[AZURE.NOTE] 次の図に示すように、BLOB ストレージ コンテナーには、一連の BLOB がまとめられています。
+
+    >[AZURE.NOTE] Blob ストレージ コンテナーは、図のように blob のセットをグループ化を提供します。
 
     ![Azure BLOB ストレージ](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
 
-    >[AZURE.WARNING] 1 つの Blob ストレージ コンテナーを複数のクラスターで共有しないでください。 これはサポートされていません。
 
-    セカンダリの Blob ストアの使用の詳細については、次を参照してください。 [HDInsight で Azure Blob ストレージを使用して](hdinsight-use-blob-storage.md)します。
+    >[AZURE.WARNING] Don't share one Blob storage container for multiple clusters. This is not supported.
+
+    For more information on using secondary Blob stores, see [Using Azure Blob Storage with HDInsight](hdinsight-use-blob-storage.md).
 
 - **Hive/Oozie メタストア**
 
     メタストアには、Hive テーブル、パーティション、スキーマ、列などについての Hive と Oozie メタデータが格納されます。 メタストアを使用すると Hive と Oozie メタデータを保持できるため、新しいクラスターを作成するときに、Hive テーブルまたは Oozie ジョブを再作成する必要はありません。 既定では、Hive は組み込みの Azure SQL Database を使用してこの情報を格納します。 組み込みデータベースは、クラスターが削除されるとメタデータを保持できません。 たとえば、Hive メタストアを使用して作成されたクラスターがあるとします。 作成済みの Hive テーブルがいくつかあります。 クラスターを削除した後に、同じ Hive メタストアを使用してクラスターを再作成すると、元のクラスターで作成していた Hive テーブルがあることがわかります。
-    > [AZURE.NOTE] HBase のクラスターの種類では、メタストア構成は使用できません。
+    
+    > [AZURE.NOTE] メタストアの構成では、HBase クラスターの種類を使用できません。
 
 ## 高度な構成オプション
 
@@ -196,13 +205,13 @@ Hive 構成をカスタマイズする Azure PowerShell スクリプトの例を
 
     # hdfs-site.xml configuration
     $HdfsConfigValues = @{ "dfs.blocksize"="64m" } #default is 128MB in HDI 3.0 and 256MB in HDI 2.1
-    
+
     # core-site.xml configuration
     $CoreConfigValues = @{ "ipc.client.connect.max.retries"="60" } #default 50
-    
+
     # mapred-site.xml configuration
     $MapRedConfigValues = @{ "mapreduce.task.timeout"="1200000" } #default 600000
-    
+
     # oozie-site.xml configuration
     $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 
@@ -213,12 +222,12 @@ Hive 構成をカスタマイズする Azure PowerShell スクリプトの例を
 
 ### スクリプト アクションを使用したクラスターのカスタマイズ
 
-追加コンポーネントをインストールするか、作成中にスクリプトを使用してクラスターの構成をカスタマイズできます。 このようなスクリプトは、**スクリプト アクション**によって呼び出されます。これは、ポータル、HDInsight Windows PowerShell コマンドレット、または HDInsight .NET SDK で使用できる構成オプションです。 詳細については、次を参照してください。 [HDInsight クラスターのカスタマイズ Script Action を使って](hdinsight-hadoop-customize-cluster.md)します。
+追加コンポーネントをインストールするか、作成中にスクリプトを使用してクラスターの構成をカスタマイズできます。 このようなスクリプトを使用して実行します。 **Script Action**, 、これは、ポータルから使用できる構成オプション HDInsight Windows PowerShell コマンドレットまたは HDInsight .NET SDK です。 詳細については、次を参照してください。 [HDInsight クラスターのカスタマイズ Script Action を使って](hdinsight-hadoop-customize-cluster.md)します。
 
 
 ### Azure Virtual Network の使用
 
-[Azure Virtual Network](http://azure.microsoft.com/documentation/services/virtual-network/) ソリューションに必要なリソースを含む、セキュリティで保護された永続的なネットワークを作成することができます。 仮想ネットワークでは、次のことが可能になります。
+[Azure の仮想ネットワーク](http://azure.microsoft.com/documentation/services/virtual-network/) ソリューションに必要なリソースを含む、セキュリティで保護された永続的なネットワークを作成することができます。 仮想ネットワークでは、次のことが可能になります。
 
 * プライベート ネットワーク (クラウドのみ) 内でのクラウド リソース間の接続
 
@@ -235,12 +244,13 @@ Hive 構成をカスタマイズする Azure PowerShell スクリプトの例を
     ![ポイント対サイト構成の図](./media/hdinsight-provision-clusters/hdinsight-vnet-point-to-site.png)
 
 仮想ネットワーク機能、利点、および機能の詳細については、次を参照してください。、 [Azure 仮想ネットワークの概要](../virtual-network/virtual-networks-overview.md)します。
-> [AZURE.NOTE] HDInsight クラスターをプロビジョニングする前に、Azure 仮想ネットワークを作成する必要があります。 詳細については、次を参照してください。 [Hadoop クラスターを仮想ネットワークを作成する](hdinsight-hbase-provision-vnet.md#provision-an-hbase-cluster-into-a-virtual-network)します。
+
+> [AZURE.NOTE] HDInsight クラスターをプロビジョニングする前に、Azure の仮想ネットワークを作成する必要があります。 詳細については、次を参照してください。 [Hadoop クラスターを仮想ネットワークを作成する](hdinsight-hbase-provision-vnet.md#provision-an-hbase-cluster-into-a-virtual-network)です。
 >
 > Azure HDInsight は場所ベースの Virtual Networks のみをサポートし、アフィニティ グループ ベースの Virtual Networks は現在取り扱っていません。 既存の Azure Virtual Network が場所ベースかどうかを確認するには、Azure PowerShell コマンドレットの Get-AzureVNetConfig を使用します。 Virtual Network が場所ベースでない場合、次のオプションがあります。
 >
-> -既存の仮想ネットワークの構成をエクスポートし、新しい仮想ネットワークを作成します。 すべての新しい仮想ネットワークは、既定で場所ベースです。
-> -場所ベースの仮想ネットワークに移行します。 参照してください [リージョン スコープへの既存のサービスの移行](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)します。
+> - 既存の Virtual Network 構成をエクスポートし、新しい Virtual Network を作成します。 すべての新しい仮想ネットワークは、既定で場所ベースです。
+> - 場所ベースの Virtual Network に移行します。  参照してください [リージョン スコープへの既存のサービスの移行](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)します。
 >
 > 1 つのクラスターには単一のサブネットを指定することを強くお勧めします。
 
@@ -250,89 +260,97 @@ Hive 構成をカスタマイズする Azure PowerShell スクリプトの例を
 
 **HDInsight クラスターを作成するには**
 
-1. サインイン、 [Azure ポータルの ][azure-preview-portal]します。
-2. **[新規]**、**[データ分析]**、**[HDInsight]** の順にクリックします。
+1. サインイン、 [Azure ポータル][azure-preview-portal]します。
+2. クリックして **新規**, 、] をクリックして **データ分析**, 、] をクリックし、 **HDInsight**します。
 
     ![Azure ポータルでの新しいクラスターの作成](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Portal")
 
 3. 次の値を入力または選択します。
 
-  * **[クラスター名]**: クラスターの名前を入力します。 その名前を使用できる場合は、クラスター名の横に緑色のチェック マークが表示されます。
-  * **[クラスターの種類]**: **[Hadoop]** を選択します。
-  * **[クラスターのオペレーティング システム]**: **[Windows Server 2012 R2 Datacenter]** を選択します。
-  * **[サブスクリプション]**: このクラスターを作成するために使用する Azure サブスクリプションを選択します。
-  * **[リソース グループ]**: 既存のリソース グループを選択するか、新しいリソース グループを作成します。 このエントリには、既存のリソース グループを使用できる場合は、そのうちの 1 つが既定値として設定されます。
-  * **[資格情報]**: Hadoop ユーザー (HTTP ユーザー) のユーザー名とパスワードを構成します。 クラスターのリモート デスクトップを有効にする場合は、リモート デスクトップ ユーザーのユーザー名とパスワード、アカウントの有効期限を構成する必要があります。 下部にある **[選択]** をクリックして、変更を保存します。
+  * **クラスター名**: クラスターの名前を入力します。 その名前を使用できる場合は、クラスター名の横に緑色のチェック マークが表示されます。
+  * **クラスターの種類**: 選択 **Hadoop**します。
+  * **オペレーティング システムをクラスター**: 選択 **Windows Server 2012 R2 Datacenter**します。
+  * **サブスクリプション**: このクラスターの作成に使用される Azure サブスクリプションを選択します。
+  * **リソース グループ**: 既存を選択するか、新しいリソース グループを作成します。 このエントリには、既存のリソース グループを使用できる場合は、そのうちの 1 つが既定値として設定されます。
+  * **資格情報**: ユーザー名とパスワード、Hadoop ユーザー (HTTP ユーザー) を構成します。 クラスターのリモート デスクトップを有効にする場合は、リモート デスクトップ ユーザーのユーザー名とパスワード、アカウントの有効期限を構成する必要があります。 クリックして **選択** 下部には、変更を保存します。
 
-     ![クラスターの資格情報の指定](./media/hdinsight-provision-clusters/HDI.CreateCluster.3.png "Provide cluster credentials")
+        ![Provide cluster credentials](./media/hdinsight-provision-clusters/HDI.CreateCluster.3.png "Provide cluster credentials")
 
-  * **[データ ソース]**: クラスターの既定のファイル システムとして使用する Azure Storage アカウントを新しく作成するか、既存の Azure Storage アカウントを選択します。
+  * **データ ソース**: 新しいを作成するか、クラスターの既定のファイル システムとして使用する既存の Azure ストレージ アカウントを選択します。
 
-     ![[データ ソース] ブレード](./media/hdinsight-provision-clusters/HDI.CreateCluster.4.png "Provide data source configuration")
+        ![Data source blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.4.png "Provide data source configuration")
 
-     * **選択方法**: すべてのサブスクリプションのストレージ アカウントを参照できるようにする場合は、**[すべてのサブスクリプションから]** を設定します。 既存のストレージ アカウントの **[ストレージ名]** と **[アクセス キー]** を入力する場合は、**[アクセス キー]** を設定します。
-     * **ストレージ アカウントの選択/新規作成**: クラスターに関連付ける既存のストレージ アカウントを参照して選択する場合は **[ストレージ アカウントの選択]** をクリックします。 新しいストレージ アカウントを作成する場合は **[新規作成]** をクリックします。 表示されたフィールドに、ストレージ アカウントの名前を入力します。 名前を使用できる場合は、緑色のチェック マークが表示されます。
-     * **[既定のコンテナーの選択]**: これを使用して、クラスターで使用する既定のコンテナーの名前を入力します。 任意の名前を入力できますが、コンテナーが特定のクラスターで使用されていることを簡単に認識できるように、クラスターと同じ名前を使用することをお勧めします。
-     * **場所**: ストレージ アカウントが存在するリージョン、またはその中にストレージ アカウントが作成されるリージョン。 この場所は、クラスターの場所を決定します。 クラスターとその既定のストレージ アカウントは、同じデータセンター内に配置されている必要があります。
-
-  * **ノード価格レベル**: クラスターで必要なワーカー ノードの数を設定します。 クラスターの推定コストがブレード内に表示されます。
-
-     ![[ノード価格レベル] ブレード](./media/hdinsight-provision-clusters/HDI.CreateCluster.5.png "Specify number of cluster nodes")
-
-  * **[オプションの構成]** をクリックし、クラスターのバージョンを選択して、その他のオプションの設定を構成します。その他のオプションには、**Virtual Network** への参加、Hive と Oozie 用のデータを保持する**外部メタストア**の設定、スクリプト アクションを使用してカスタム コンポーネントをインストールするようにクラスターをカスタマイズすること、クラスターでの追加のストレージ アカウントの使用などがあります。
-
-   * **[HDInsight のバージョン]**: クラスターで使用するバージョンを選択します。 詳細については、次を参照してください。 [HDInsight クラスター バージョン](hdinsight-component-versioning.md)します。
-   * **[Virtual Network]**: クラスターを仮想ネットワークに配置する場合は、Azure Virtual Network とサブネットを選択します。
-
-     ![Virtual network blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.6.png "Specify virtual network details")
+        * **Selection Method**: Set this to **From all subscriptions** to enable browsing of storage accounts from all your subscriptions. Set this to **Access Key** if you want to enter the **Storage Name** and **Access Key** of an existing storage account.
+        * **Select storage account / Create New**: Click **Select storage account** to browse and select an existing storage account you want to associate with the cluster. Or, click **Create New** to create a new storage account. Use the field that appears to enter the name of the storage account. A green check will appear if the name is available.
+        * **Choose Default Container**: Use this to enter the name of the default container to use for the cluster. While you can enter any name here, we recommend using the same name as the cluster so that you can easily recognize that the container is used for this specific cluster.
+        * **Location**: The geographic region that the storage account is in, or will be created in. This location will determine the cluster location.  The cluster and its default storage account must co-locate in the same Azure data center.
     
-     >[AZURE.NOTE] Windows based HDInsight cluster can only be placed into a classical virtual network.
+  * **ノードの価格レベルの**: クラスターに必要なワーカー ノードの数を設定します。 クラスターの推定コストがブレード内に表示されます。
+  
 
-   * **[外部メタストア]**: クラスターに関連付けられた Hive と Oozie のメタデータを保存するための SQL Database を指定します。
+        ![Node pricing tiers blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.5.png "Specify number of cluster nodes")
 
-     > [AZURE.NOTE] Metastore configuration is not available for HBase cluster types.
+
+  * **オプションの構成** をクラスターのバージョンを選択できるだけでなく、その他のオプションの設定を追加するなど、 **仮想ネットワーク**, で、設定を **外部メタストア** Hive と Oozie のデータを保持するために、Script Action を使用して、カスタム コンポーネントをインストールするのには、クラスターをカスタマイズするか、クラスターで追加のストレージ アカウントを使用しています。
+
+        * **HDInsight Version**: Select the version you want to use for the cluster. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
+        * **Virtual Network**: Select an Azure virtual network and the subnet if you want to place the cluster into a virtual network.  
+
+            ![Virtual network blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.6.png "Specify virtual network details")
+
+            >[AZURE.NOTE] Windows based HDInsight cluster can only be placed into a classical virtual network.
+        
+        * **External Metastores**: Specify an Azure SQL database to store Hive and Oozie metadata associated with the cluster.
+ 
+            > [AZURE.NOTE] Metastore configuration is not available for HBase cluster types.
+
+            ![Custom metastores blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.7.png "Specify external metastores")
+
+            For **Use an existing SQL DB for Hive** metadata, click **Yes**, select a SQL database, and then provide the username/password for the database. Repeat these steps if you want to **Use an existing SQL DB for Oozie metadata**. Click **Select** till you are back on the **Optional Configuration** blade.
+
+            >[AZURE.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Azure Services**, click **Yes**, and then click **Save**.
+        
+        * **Script Actions** if you want to use a custom script to customize a cluster, as the cluster is being created. For more information about script actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md). On the Script Actions blade provide the details as shown in the screen capture.
+
+            ![Script action blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.8.png "Specify script action")
+
+        * **Azure Storage Keys**: Specify additional storage accounts to associate with the cluster. In the **Azure Storage Keys** blade, click **Add a storage key**, and then select an existing storage account or create a new account.
+
+            ![Additional storage blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.9.png "Specify additional storage accounts")
+
+4. クリックして **作成**します。 選択すると **スタート画面にピン** 、ポータルのスタート画面にクラスターは、タイルを追加します。 アイコンはクラスターが作成中であることを示し、作成が完了すると、[HDInsight] アイコンを表示するように変化します。
+
+
+    | While creating | Creationg complete |
+    | ------------------ | --------------------- |
+    | ![Provisioning indicator on startboard](./media/hdinsight-provision-clusters/provisioning.png) | ![Provisioned cluster tile](./media/hdinsight-provision-clusters/provisioned.png) |
+
+
     
-     ![Custom metastores blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.7.png "Specify external metastores")
+    > [AZURE.NOTE] It will take some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the provisioning process.
     
-     For **Use an existing SQL DB for Hive** metadata, click **Yes**, select a SQL database, and then provide the username/password for the database. Repeat these steps if you want to **Use an existing SQL DB for Oozie metadata**. Click **Select** till you are back on the **Optional Configuration** blade.
-    
-     >[AZURE.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Azure Services**, click **Yes**, and then click **Save**.
-
-   * クラスターを作成するときに、カスタム スクリプトを使用してクラスターをカスタマイズする場合は、**[スクリプト アクション]** をクリックします。 スクリプト アクションの詳細については、次を参照してください。 [をカスタマイズする HDInsight クラスターの Script Action を使って](hdinsight-hadoop-customize-cluster.md)します。 [Script Action] ブレードで、次の画面キャプチャに示すように、詳細を指定します。
-
-       ![Script action blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.8.png "Specify script action")
-
-   * **[Azure ストレージ キー]**: クラスターに関連付ける追加のストレージ アカウントを指定します。 **[Azure ストレージ キー]** ブレードで、**[ストレージ キーの追加]** をクリックし、既存のストレージ アカウントを選択するか新しいアカウントを作成します。
-
-       ![Additional storage blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.9.png "Specify additional storage accounts")
-
-
-4. **[作成]** をクリックします。 **[スタート画面にピン留めする]** を選択すると、ポータルのスタート画面にクラスターのタイルが追加されます。 アイコンはクラスターが作成中であることを示し、作成が完了すると、[HDInsight] アイコンを表示するように変化します。
-
-   | 作成中| 作成完了|
-   | ------------------ | --------------------- |
-   | ![スタート画面のプロビジョニング中インジケーター](./media/hdinsight-provision-clusters/provisioning.png)| ![プロビジョニングされたクラスターのタイル](./media/hdinsight-provision-clusters/provisioned.png)|
-
-
-    > [AZURE.NOTE] クラスターが作成されるまで、通常は約 15 分かかります。 プロビジョニング プロセスをチェックするには、スタート画面のタイルまたはページの左側の **[通知]** エントリを使用します。
 
 5. 作成が完了したら、スタート画面でクラスター用のタイルをクリックして、クラスター ブレードを起動します。 クラスター ブレードには、名前、属しているリソース グループ、場所、オペレーティング システム、クラスター ダッシュボードの URL などのクラスターに関する基本情報が表示されます。
 
-    ![クラスター ブレード](./media/hdinsight-provision-clusters/HDI.Cluster.Blade.png "Cluster properties")
 
-    次の説明を参照して、このブレードの上部と **[要点]** セクションにあるアイコンについて理解してください。
+    ![Cluster blade](./media/hdinsight-provision-clusters/HDI.Cluster.Blade.png "Cluster properties")
 
-    * **[設定]** と **[すべての設定]**: クラスター用の **[設定]** ブレードを表示します。このブレードを使用して、クラスターの詳細な構成情報にアクセスできます。
-    * **[ダッシュボード]**、**[クラスター ダッシュボード]**、**[URL]**: これらはいつでもクラスター ダッシュボードにアクセスする方法です。クラスター ダッシュボードは、クラスターに関するジョブを実行するための Web ポータルです。
-    * **[リモート デスクトップ]**: クラスター ノードのリモート デスクトップを有効/無効にすることができます。
-    * **[クラスターのスケーリング]**: このクラスターの worker ノードの数を変更できます。
-    * **削除**: HDInsight クラスターを削除します。
-    * **クイック スタート** (![クラウドとサンダー ボルトのアイコンのクイック スタートを =](./media/hdinsight-provision-clusters/quickstart.png)): のに役立つ情報を表示 HDInsight の概要です。
-    * **ユーザー** (![ユーザー アイコン](./media/hdinsight-provision-clusters/users.png)): Azure サブスクリプションで、他のユーザーの _portal management_ このクラスターのアクセス許可を設定することができます。
 
-        > [AZURE.IMPORTANT] これは、ポータルでのこのクラスターへのアクセスと権限だけに影響し、どのユーザーが HDInsight__クラスターに接続でき、ジョブを送信できるかには影響しません。
+    Use the following to understand the icons at the top of this blade, and in the **Essentials** section:
 
-    * **タグ** (![タグ アイコン](./media/hdinsight-provision-clusters/tags.png)): タグでは、クラウド サービスのカスタム分類を定義するキー/値ペアを設定することができます。 たとえば、__プロジェクト__という名前のキーを作成し、特定のプロジェクトに関連付けられているすべてのサービスに共通の値を使用できます。
+
+    * **Settings** and **All Settings**: Displays the **Settings** blade for the cluster, which allows you to access detailed configuration information for the cluster.
+    * **Dashboard**, **Cluster Dashboard**, and **URL**: These are all ways to access the cluster dashboard, which is a Web portal to run jobs on the cluster.
+    * **Remote Desktop**: Enables you to enable/disable remote desktop on the cluster nodes.
+    * **Scale Cluster**: Allows you to change the number of worker nodes for this cluster.
+    * **Delete**: Deletes the HDInsight cluster.
+    * **Quickstart** (![cloud and thunderbolt icon = quickstart](./media/hdinsight-provision-clusters/quickstart.png)): Displays information that will help you get started using HDInsight.
+    * **Users** (![users icon](./media/hdinsight-provision-clusters/users.png)): Allows you to set permissions for _portal management_ of this cluster for other users on your Azure subscription.
+    
+
+        > [AZURE.IMPORTANT] This _only_ affects access and permissions to this cluster in the Portal, and has no effect on who can connect to or submit jobs to the HDInsight cluster.
+        
+    * **Tags** (![tag icon](./media/hdinsight-provision-clusters/tags.png)): Tags allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named __project__, and then use a common value for all services associated with a specific project.
 
 ## ARM のテンプレートを使用した作成
 
@@ -344,41 +362,40 @@ Azure リソース マネージャー (ARM) のテンプレートを使用する
 2. 必要な場合は、パラメーターを設定します。
 3. 次の PowerShell スクリプトを使用して、テンプレートを実行します。
 
-     $subscriptionId = "<Azure Subscription ID"
-    
-     $newResourceGroupName = "<Azure Resource Group Name>"
-     $Location = "EAST US 2" # for creating ARM group
-    
-     $armDeploymentName = "New-HDInsigt-Cluster-" + (Get-Date -Format MMdd)
-     $newClusterName = "<HDInsight Cluster Name>"
-     $clusterStorageAccountName = "<Default Storage Account Name>"
-    
-     # Connect to Azure
-     #Login-AzureRmAccount
-     #Select-AzureRmSubscription -SubscriptionId $subscriptionId
-    
-     # Create a resource group
-     New-AzureRmResourceGroup -Name $newResourceGroupName -Location $Location
-    
-     # Create cluster and the dependent storage accounge
-     $parameters = @{clusterName="$newClusterName";clusterStorageAccountName="$clusterStorageAccountName"}
-    
-     New-AzureRmResourceGroupDeployment `
-         -Name $armDeploymentName `
-         -ResourceGroupName $newResourceGroupName `
-         -TemplateFile E:\HDITutorials-ARM\Create-clusters\hdinsight-arm-template.json `
-         -TemplateParameterObject $parameters
-    
-     # List cluster
-     Get-AzureRmHDInsightCluster -ResourceGroupName $newResourceGroupName -ClusterName $newClusterName 
+        $subscriptionId = "<Azure Subscription ID"
+        
+        $newResourceGroupName = "<Azure Resource Group Name>"
+        $Location = "EAST US 2" # for creating ARM group
+                
+        $armDeploymentName = "New-HDInsigt-Cluster-" + (Get-Date -Format MMdd)
+        $newClusterName = "<HDInsight Cluster Name>"
+        $clusterStorageAccountName = "<Default Storage Account Name>"
+                
+        # Connect to Azure
+        #Login-AzureRmAccount
+        #Select-AzureRmSubscription -SubscriptionId $subscriptionId
+                
+        # Create a resource group
+        New-AzureRmResourceGroup -Name $newResourceGroupName -Location $Location
+                
+        # Create cluster and the dependent storage accounge
+        $parameters = @{clusterName="$newClusterName";clusterStorageAccountName="$clusterStorageAccountName"}
+                
+        New-AzureRmResourceGroupDeployment `
+            -Name $armDeploymentName `
+            -ResourceGroupName $newResourceGroupName `
+            -TemplateFile E:\HDITutorials-ARM\Create-clusters\hdinsight-arm-template.json `
+            -TemplateParameterObject $parameters
+                
+        # List cluster
+        Get-AzureRmHDInsightCluster -ResourceGroupName $newResourceGroupName -ClusterName $newClusterName 
 
- PowerShell スクリプトは、クラスター名とストレージ アカウント名のみを構成します。 ARM テンプレートのその他の値は設定可能です。
-
+    PowerShell スクリプトは、クラスター名とストレージ アカウント名のみを構成します。  ARM テンプレートのその他の値は設定可能です。 
+    
 その他のメソッドを使用して ARM テンプレートを展開するため、次を参照してください。 [Azure リソース マネージャー テンプレートを使用してアプリケーションを配置](resource-group-template-deploy.md)します。
 
 
 ## Azure PowerShell を使用した作成
-
 Azure PowerShell は、Azure のワークロードのデプロイメントと管理を制御し自動化するために使用できる強力なスクリプティング環境です。 このセクションでは、Azure PowerShell を使用して HDInsight クラスターをプロビジョニングする方法について説明します。 HDInsight Windows PowerShell コマンドレットを実行するワークステーションの構成方法の詳細については、次を参照してください。 [をインストールし、Azure PowerShell を構成](../install-configure-powershell.md)します。 HDInsight で Azure PowerShell の使用の詳細については、次を参照してください。 [PowerShell を使用した HDInsight の管理](hdinsight-administer-use-powershell.md)します。 HDInsight Windows PowerShell コマンドレットの一覧で、次を参照してください。 [HDInsight コマンドレット リファレンス](https://msdn.microsoft.com/library/azure/dn858087.aspx)します。
 
 
@@ -389,52 +406,52 @@ Azure PowerShell を使用して HDInsight クラスターを作成するには�
 - Azure BLOB コンテナーの作成
 - HDInsight クラスターの作成
 
-    $subscriptionId ="<Azure Subscription ID>"
 
-    $newResourceGroupName ="<Azure Resource Group Name>"
-    $location ="<Azure Location>"# 例については、"米国東部 2"
-    $newDefaultStorageAccountName ="<Azure Storage Account Name>"
-    $newClusterName ="<Azure HDInsight Cluster Name>"
+    $subscriptionId = "<Azure Subscription ID>"
+    
+    $newResourceGroupName = "<Azure Resource Group Name>"
+    $location = "<Azure Location>" # for example, "East US 2"
+    $newDefaultStorageAccountName = "<Azure Storage Account Name>"
+    $newClusterName = "<Azure HDInsight Cluster Name>"
     $clusterSizeInNodes = 1
-
+    
     ###########################################
-    # ログイン Azure
+    # login Azure
     ###########################################
-    ログイン AzureRmAccount
-    [AzureRmSubscription SubscriptionId $subscriptionId
-
+    Login-AzureRmAccount
+    Select-AzureRmSubscription -SubscriptionId $subscriptionId
+    
     ###########################################
-    # リソース グループを作成します。
+    # Create the resource group
     ###########################################
-    新しい AzureRmResourceGroup-$newRresourceGroupName という名前の $location の場所
-
+    New-AzureRmResourceGroup -Name $newRresourceGroupName -Location $location
+    
     ###########################################
-    # Preapre 既定のストレージ アカウントとコンテナー
+    # Preapre default storage account and container
     ###########################################
-    新しい AzureRmStorageAccount ResourceGroupName $newResourceGroupName-$newDefaultStorageAccountName という名前の $location の場所
-
-    $defaultStorageAccountKey get AzureRmStorageAccountKey ResourceGroupName $newResourceGroupName = の名前を $newDefaultStorageAccountName | %{ $_.Key1}
-    $defaultStorageContext = New-azurestoragecontext StorageAccountName $newDefaultStorageAccountName StorageAccountKey $defaultStorageAccountKey
-    新しい AzureStorageContainer-$newClusterName という名前のコンテキスト $defaultStorageContext #use クラスター名、コンテナー名
-
+    New-AzureRmStorageAccount -ResourceGroupName $newResourceGroupName -Name $newDefaultStorageAccountName -Location $location
+    
+    $defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $newResourceGroupName -Name $newDefaultStorageAccountName |  %{ $_.Key1 }
+    $defaultStorageContext = New-AzureStorageContext -StorageAccountName $newDefaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
+    New-AzureStorageContainer -Name $newClusterName -Context $defaultStorageContext #use the cluster name as the container name
+        
     ###########################################
-    # は、クラスターを作成します。
+    # Create the cluster
     ###########################################
-    $httpCredential = Get-credential-メッセージ"HTTP アカウントの資格情報を入力してください"。
-    新しい AzureRmHDInsightCluster '
-        ResourceGroupName $newResourceGroupName '
-        ClusterName $newClusterName '
-        -Location $location '
-        ClusterSizeInNodes $clusterSizeInNodes'
-        -ClusterType Hadoop '
-        -OSType Windows
-        -Version「3.2」'
-        HttpCredential $httpCredential
+    $httpCredential =Get-Credential -Message "Enter the HTTP account credential:"
+    New-AzureRmHDInsightCluster `
+        -ResourceGroupName $newResourceGroupName `
+        -ClusterName $newClusterName `
+        -Location $location `
+        -ClusterSizeInNodes $clusterSizeInNodes `
+        -ClusterType Hadoop `
+        -OSType Windows `
+        -Version "3.2" `
+        -HttpCredential $httpCredential 
 
 
 
 ## HDInsight .NET SDK を使用した作成
-
 HDInsight .NET SDK は、.NET Framework アプリケーションから HDInsight を簡単に操作できる .NET クライアント ライブラリを提供します。 Visual Studio コンソール アプリケーションを作成し、クラスターを作成するためのコードを貼り付けるには、次の手順に従います。
 
 **Visual Studio コンソール アプリケーションを作成するには**
@@ -445,132 +462,131 @@ HDInsight .NET SDK は、.NET Framework アプリケーションから HDInsight
         Install-Package Microsoft.Azure.Common.Authentication -pre
         Install-Package Microsoft.Azure.Management.HDInsight -Pre
 
-6. ソリューション エクスプローラーで、**Program.cs** をダブルクリックして開き、次のコードを貼り付け、変数の値を指定します。
+6. ソリューション エクスプ ローラーでダブルクリック **Program.cs** を開くには、次のコードを貼り付けるし、変数の値を指定します。
 
-     using System;
-     using System.Security;
-     using Microsoft.Azure;
-     using Microsoft.Azure.Common.Authentication;
-     using Microsoft.Azure.Common.Authentication.Factories;
-     using Microsoft.Azure.Common.Authentication.Models;
-     using Microsoft.Azure.Management.HDInsight;
-     using Microsoft.Azure.Management.HDInsight.Models;
-    
-     namespace CreateHDInsightCluster
-     {
-         class Program
-         {
-             private static HDInsightManagementClient _hdiManagementClient;
-    
-             private static Guid SubscriptionId = new Guid("<Azure Subscription ID");
-             private const string ExistingResourceGroupName = "<Azure Resource Group Name>";
-             private const string ExistingStorageName = "<Default Storage Account Name>.blob.core.windows.net";
-             private const string ExistingStorageKey = "<Default Storage Account Key>";
-             private const string ExistingBlobContainer = "<Default Blob Container Name>";
-             private const string NewClusterName = "<HDInsight Cluster Name>";
-             private const int NewClusterNumNodes = 1;
-             private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
-             private const OSType NewClusterOsType = OSType.Windows;
-             private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
-             private const string NewClusterVersion = "3.2";
-             private const string NewClusterUsername = "admin";
-             private const string NewClusterPassword = "<HTTP User password";
-    
-             static void Main(string[] args)
-             {
-                 System.Console.WriteLine("Running");
-    
-                 var tokenCreds = GetTokenCloudCredentials();
-                 var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
-    
-                 _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
-    
-                 var parameters = new ClusterCreateParameters
-                 {
-                     ClusterSizeInNodes = NewClusterNumNodes,
-                     UserName = NewClusterUsername,
-                     Password = NewClusterPassword,
-                     Location = NewClusterLocation,
-                     DefaultStorageAccountName = ExistingStorageName,
-                     DefaultStorageAccountKey = ExistingStorageKey,
-                     DefaultStorageContainer = ExistingBlobContainer,
-                     ClusterType = NewClusterType,
-                     OSType = NewClusterOsType
-                 };
-    
-                 _hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, parameters);
-             }
-             private static void CreateCluster()
-             {
-                 var parameters = new ClusterCreateParameters
-                 {
-                     ClusterSizeInNodes = NewClusterNumNodes,
-                     UserName = NewClusterUsername,
-                     Password = NewClusterPassword,
-                     Location = NewClusterLocation,
-                     DefaultStorageAccountName = ExistingStorageName,
-                     DefaultStorageAccountKey = ExistingStorageKey,
-                     DefaultStorageContainer = ExistingBlobContainer,
-                     ClusterType = NewClusterType,
-                     OSType = NewClusterOsType
-                 };
-    
-                 _hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, parameters);
-             }
-    
-             public static TokenCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
-             {
-                 var authFactory = new AuthenticationFactory();
-    
-                 var account = new AzureAccount { Type = AzureAccount.AccountType.User };
-    
-                 if (username != null && password != null)
-                     account.Id = username;
-    
-                 var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
-    
-                 var accessToken =
-                     authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
-                         .AccessToken;
-    
-                 return new TokenCloudCredentials(accessToken);
-             }
-    
-             public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(TokenCloudCredentials creds, Guid subId)
-             {
-                 return new TokenCloudCredentials(subId.ToString(), creds.Token);
-    
-             }
-         }
-     }
+        using System;
+        using System.Security;
+        using Microsoft.Azure;
+        using Microsoft.Azure.Common.Authentication;
+        using Microsoft.Azure.Common.Authentication.Factories;
+        using Microsoft.Azure.Common.Authentication.Models;
+        using Microsoft.Azure.Management.HDInsight;
+        using Microsoft.Azure.Management.HDInsight.Models;
+        
+        namespace CreateHDInsightCluster
+        {
+            class Program
+            {
+                private static HDInsightManagementClient _hdiManagementClient;
+        
+                private static Guid SubscriptionId = new Guid("<Azure Subscription ID");
+                private const string ExistingResourceGroupName = "<Azure Resource Group Name>";
+                private const string ExistingStorageName = "<Default Storage Account Name>.blob.core.windows.net";
+                private const string ExistingStorageKey = "<Default Storage Account Key>";
+                private const string ExistingBlobContainer = "<Default Blob Container Name>";
+                private const string NewClusterName = "<HDInsight Cluster Name>";
+                private const int NewClusterNumNodes = 1;
+                private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
+                private const OSType NewClusterOsType = OSType.Windows;
+                private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+                private const string NewClusterVersion = "3.2";
+                private const string NewClusterUsername = "admin";
+                private const string NewClusterPassword = "<HTTP User password";
+        
+                static void Main(string[] args)
+                {
+                    System.Console.WriteLine("Running");
+        
+                    var tokenCreds = GetTokenCloudCredentials();
+                    var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+        
+                    _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
+                
+                    var parameters = new ClusterCreateParameters
+                    {
+                        ClusterSizeInNodes = NewClusterNumNodes,
+                        UserName = NewClusterUsername,
+                        Password = NewClusterPassword,
+                        Location = NewClusterLocation,
+                        DefaultStorageAccountName = ExistingStorageName,
+                        DefaultStorageAccountKey = ExistingStorageKey,
+                        DefaultStorageContainer = ExistingBlobContainer,
+                        ClusterType = NewClusterType,
+                        OSType = NewClusterOsType
+                    };
+        
+                    _hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, parameters);
+                }
+                private static void CreateCluster()
+                {
+                    var parameters = new ClusterCreateParameters
+                    {
+                        ClusterSizeInNodes = NewClusterNumNodes,
+                        UserName = NewClusterUsername,
+                        Password = NewClusterPassword,
+                        Location = NewClusterLocation,
+                        DefaultStorageAccountName = ExistingStorageName,
+                        DefaultStorageAccountKey = ExistingStorageKey,
+                        DefaultStorageContainer = ExistingBlobContainer,
+                        ClusterType = NewClusterType,
+                        OSType = NewClusterOsType
+                    };
+        
+                    _hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, parameters);
+                }
+        
+                public static TokenCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
+                {
+                    var authFactory = new AuthenticationFactory();
+        
+                    var account = new AzureAccount { Type = AzureAccount.AccountType.User };
+        
+                    if (username != null && password != null)
+                        account.Id = username;
+        
+                    var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
+        
+                    var accessToken =
+                        authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
+                            .AccessToken;
+        
+                    return new TokenCloudCredentials(accessToken);
+                }
+        
+                public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(TokenCloudCredentials creds, Guid subId)
+                {
+                    return new TokenCloudCredentials(subId.ToString(), creds.Token);
+        
+                }
+            }
+        }
 
-7. **F5** キーを押してアプリケーションを実行します。 コンソール ウィンドウが開き、アプリケーションの状態が表示されます。 Azure アカウントの資格情報の入力も求められます。 HDInsight クラスターの作成は数分かかる場合があります。
+7. キーを押して **f5 キーを押して** アプリケーションを実行します。 コンソール ウィンドウが開き、アプリケーションの状態が表示されます。 Azure アカウントの資格情報の入力も求められます。 HDInsight クラスターの作成は数分かかる場合があります。
 
 ## オンプレミスの SQL Server Integration Services を利用した作成
 
 SQL Server Integration Services (SSIS) を利用して HDInsight クラスターを作成または削除することもできます。 Azure Feature Pack for SSIS には、HDInsight クラスターと連動する次のコンポーネントがあります。
 
 
-- [Azure HDInsight クラスター タスクの作成 ][ssisclustercreate]
-- [Azure HDInsight クラスター タスクの削除 ][ssisclusterdelete]
-- [Azure サブスクリプションの接続マネージャー ][connectionmanager]
+- [Azure HDInsight クラスターの作成タスク][ssisclustercreate]
+- [Azure HDInsight クラスターの削除タスク][ssisclusterdelete]
+- [Azure サブスクリプション接続マネージャー][connectionmanager]
 
-SSIS を Azure Feature Pack について学ぶこと [ここ ][ssispack]します。
+SSIS を Azure Feature Pack について学ぶこと [ここ][ssispack]します。
 
 
-## 次のステップ
-
+##次のステップ
 この記事では、HDInsight クラスターを作成する方法をいくつか説明しました。 詳細については、次の記事を参照してください。
 
 * [Azure HDInsight の概要](hdinsight-get-started.md) -HDInsight クラスターの使用を開始する方法について説明
 * [HDInsight での Sqoop の使用](hdinsight-use-sqoop.md) -HDInsight と SQL Database または SQL Server の間でデータをコピーする方法について
 * [PowerShell を使用した HDInsight の管理](hdinsight-administer-use-powershell.md) -Azure PowerShell を使用して HDInsight を操作する方法について説明
-* [プログラムによる Hadoop の送信ジョブ](hdinsight-submit-hadoop-jobs-programmatically.md) -プログラムを使用して HDInsight にジョブを送信する方法について説明
-* [Azure HDInsight SDK のドキュメント ][hdinsight-sdk-documentation] -HDInsight SDK の検出
+* [プログラムによる Hadoop ジョブの送信](hdinsight-submit-hadoop-jobs-programmatically.md) -プログラムを使用して HDInsight にジョブを送信する方法について説明
+* [Azure HDInsight SDK のドキュメント] [hdinsight-sdk-documentation] -HDInsight SDK の検出
 
 
 
-## 付録 A - ARM テンプレート
+##付録 A - ARM テンプレート
 
 次に示す Azure リソース マネージャーのテンプレートは、Azure ストレージ アカウントに依存する Hadoop クラスターを作成します。
 
@@ -730,10 +746,10 @@ SSIS を Azure Feature Pack について学ぶこと [ここ ][ssispack]しま�
     }
 
 
-[hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx 
-[azure-preview-portal]: https://manage.windowsazure.com 
-[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx 
-[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx 
-[ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx 
-[ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx 
+[hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
+[azure-preview-portal]: https://manage.windowsazure.com
+[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
+[ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
+[ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 

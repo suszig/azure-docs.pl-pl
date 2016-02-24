@@ -16,7 +16,6 @@
     ms.date="12/01/2015" 
     ms.author="tamram"/>
 
-
 # Azure のストレージ メトリックの有効化とメトリック データの表示
 
 [AZURE.INCLUDE [storage-selector-portal-enable-and-view-metrics](../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -31,9 +30,9 @@
 
 メトリックを有効にする次の手順に従って、 [Azure ポータル](portal.azure.com):
 
-1. ストレージ アカウントに移動します。
-1. **[設定]** ブレードを開き、**[診断]** を選択します。
-1. **[状態]** が **[オン]** に設定されていることを確認します。
+1. ストレージ アカウントに移動します。 
+1. 開いている、 **設定** ブレード **診断**します。
+1. いることを確認 **ステータス** に設定されている **に**します。
 1. 監視するサービスのメトリックを選択します。
 2. リテンション ポリシーを指定して、メトリックとログ データを保持する期間を示します。
 
@@ -53,11 +52,11 @@
 
 たとえば、次のコマンドは、既定のストレージ アカウントの BLOB サービスの分単位メトリックを 5 日間に設定されたリテンション期間でオンにします。
 
-`Set-azurestorageservicemetricsproperty-metricstype 分 ServiceType Blob - MetricsLevel ServiceAndApi - RetentionDays 5`
+`Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
 
 次のコマンドは、既定のストレージ アカウントの BLOB サービスの現在の時間単位メトリック レベルとリテンション日数を取得します。
 
-`Get-azurestorageservicemetricsproperty MetricsType 時間 ServiceType Blob します。`
+`Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob`
 
 構成する方法については、Azure サブスクリプションとを使用する既定のストレージ アカウントを選択する方法を使用する Azure PowerShell コマンドレットを参照してください: [をインストールして、Azure PowerShell を構成する方法](../install-configure-powershell.md)します。
 
@@ -67,66 +66,64 @@
 
     // Parse connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
-    
+
     // Create service client for credentialed access to the Blob service.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-    
+
     // Enable Storage Analytics logging and set retention policy to 10 days. 
     ServiceProperties properties = new ServiceProperties();
     properties.Logging.LoggingOperations = LoggingOperations.All;
     properties.Logging.RetentionDays = 10;
     properties.Logging.Version = "1.0";
-    
+
     // Configure service properties for metrics. Both metrics and logging must be set at the same time.
     properties.HourMetrics.MetricsLevel = MetricsLevel.ServiceAndApi;
     properties.HourMetrics.RetentionDays = 10;
     properties.HourMetrics.Version = "1.0";
-    
+
     properties.MinuteMetrics.MetricsLevel = MetricsLevel.ServiceAndApi;
     properties.MinuteMetrics.RetentionDays = 10;
     properties.MinuteMetrics.Version = "1.0";
-    
+
     // Set the default service version to be used for anonymous requests.
     properties.DefaultServiceVersion = "2015-04-05";
-    
+
     // Set the service properties.
     blobClient.SetServiceProperties(properties);
 
+    
 ## ストレージ メトリックを表示する
 
 ストレージ アカウントを監視するように Storage Analytics メトリックを構成すると、ストレージ アカウントのよく知られたテーブルのセットにメトリックが記録されます。 時間単位のメトリックを表示するためにグラフを構成することができます、 [Azure ポータル](portal.azure.com):
 
 1. ストレージ アカウントに移動、 [Azure ポータル](portal.azure.com)します。
-2. **[監視]** セクションで、**[タイルを追加]** をクリックして新しいグラフを追加します。 **タイル ギャラリー**で、表示するメトリックを選択し、**[監視]** セクションにドラッグします。
-3. グラフに表示するメトリックを編集するには、**[編集]** をクリックします。 個々のメトリックを選択または選択解除して、メトリックを追加または削除することができます。
-4. メトリックの編集作業が終わったら、**[保存]** をクリックします。
+2.  **監視** ] をクリックして **タイルの追加** 新しいグラフを追加します。  **タイル ギャラリー**, 、表示するメトリックを選択し、ドラッグ、 **監視** セクションです。
+3. グラフに表示するメトリックを編集する] をクリックして、 **編集** リンクします。 個々のメトリックを選択または選択解除して、メトリックを追加または削除することができます。
+4. クリックして **保存** メトリックを編集が完了しました。
 
 長期間ストレージのメトリックをダウンロードし、それらをローカルで分析する場合、ツールを使用するか、コードを記述し、テーブルを読み込む必要があります。 分析のために分単位メトリックをダウンロードする必要があります。 ストレージ アカウントにすべてのテーブルを一覧表示した場合、このテーブルは表示されない場合がありますが、名前で直接アクセスできます。 多くのサード パーティ製ストレージ閲覧ツールは、これらのテーブルを認識しするため、直接表示を有効にする (ブログの投稿を参照してください [Microsoft Azure ストレージ エクスプ ローラー](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) 使用可能なツールの一覧については)。
 
 ### 時間単位のメトリック
-
 - $MetricsHourPrimaryTransactionsBlob
 - $MetricsHourPrimaryTransactionsTable
 - $MetricsHourPrimaryTransactionsQueue
 
 ### 分単位のメトリック
-
 - $MetricsMinutePrimaryTransactionsBlob
 - $MetricsMinutePrimaryTransactionsTable
 - $MetricsMinutePrimaryTransactionsQueue
 
 ### 容量
-
 - $MetricsCapacityBlob
 
 これらのテーブルのスキーマの完全な詳細情報を見つけることができます [Storage Analytics Metrics のテーブル スキーマ](https://msdn.microsoft.com/library/azure/hh343264.aspx)します。 下のサンプル行は、一部の利用できる列のみを示していますが、ストレージ メトリックがこれらのメトリックを保存するしくみについて、重要な特徴をいくつか説明しています。
 
-| PartitionKey| RowKey| タイムスタンプ| TotalRequests| TotalBillableRequests| TotalIngress| TotalEgress| 可用性| AverageE2ELatency| AverageServerLatency| PercentSuccess|
+| PartitionKey  |       RowKey       |                    タイムスタンプ | TotalRequests | TotalBillableRequests | TotalIngress | TotalEgress | 可用性 | AverageE2ELatency | AverageServerLatency | PercentSuccess |
 |---------------|:------------------:|-----------------------------:|---------------|-----------------------|--------------|-------------|--------------|-------------------|----------------------|----------------|
-| 20140522T1100| user;All| 2014-05-22T11:01:16.7650250Z| 7| 7| 4003| 46801| 100| 104.4286| 6.857143| 100|
-| 20140522T1100| user;QueryEntities| 2014-05-22T11:01:16.7640250Z| 5| 5| 2694| 45951| 100| 143.8| 7.8| 100|
-| 20140522T1100| user;QueryEntity| 2014-05-22T11:01:16.7650250Z| 1| 1| 538| 633| 100| 3| 3| 100|
-| 20140522T1100| user;UpdateEntity| 2014-05-22T11:01:16.7650250Z| 1| 1| 771| 217| 100| 9| 6| 100|
+| 20140522T1100 |      user;All      | 2014-05-22T11:01:16.7650250Z | 7             | 7                     | 4003         | 46801       | 100          | 104.4286          | 6.857143             | 100            |
+| 20140522T1100 | user;QueryEntities | 2014-05-22T11:01:16.7640250Z | 5             | 5                     | 2694         | 45951       | 100          | 143.8             | 7.8                  | 100            |
+| 20140522T1100 |  user;QueryEntity  | 2014-05-22T11:01:16.7650250Z | 1             | 1                     | 538          | 633         | 100          | 3                 | 3                    | 100            |
+| 20140522T1100 | user;UpdateEntity  | 2014-05-22T11:01:16.7650250Z | 1             | 1                     | 771          | 217         | 100          | 9                 | 6                    | 100               |
 
 この例の分単位メトリック データでは、パーティション キーは分単位解決の時間を使用しています。 行キーは、行に保存され、アクセス タイプと要求タイプという 2 つの情報から構成されるタイプの情報を識別します。
 
@@ -186,6 +183,9 @@
     
     }
 
+
+
+
 ## ストレージ メトリックを有効にした場合に発生する課金
 
 メトリックのテーブル エンティティを作成する要求を記述すると、すべての Azure Storage 操作に適用される標準料金で課金されます。
@@ -201,10 +201,5 @@
 - BLOB の容量テーブルには、毎日、2 つの行が追加されます (ユーザーがログを選択している場合)。つまり、このテーブルのサイズは、毎日、最大約 300 バイト増えることになります。
 
 ## 次のステップ:
-
-[ストレージ ログおよびログ データへのアクセスを有効にします。](https://msdn.microsoft.com/library/dn782840.aspx)
-
-
-
-
-
+[ストレージ ログの有効化とログ データへのアクセス](https://msdn.microsoft.com/library/dn782840.aspx)
+ 

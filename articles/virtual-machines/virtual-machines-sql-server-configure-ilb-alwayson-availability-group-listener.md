@@ -16,30 +16,27 @@
     ms.date="11/06/2015"
     ms.author="jroth" />
 
-
 # Azure での AlwaysOn 可用性グループの ILB リスナーの構成
 
 > [AZURE.SELECTOR]
-- [Internal Listener](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
-- [External Listener](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
-
+- [内部リスナー](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
+- [外部リスナー](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
 
 ## 概要
 
-このトピックでは、**内部 Load Balancer (ILB)** を使用して AlwaysOn 可用性グループのリスナーを構成する方法について説明します。
+このトピックを使用して、AlwaysOn 可用性グループのリスナーを構成する方法、 **内部ロード バランサー (ILB)**します。 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーのモデルです。
+ 
 
-
-可用性グループには、オンプレミスのみ、Azure のみ、またはオンプレミスと Azure の両方にまたがるハイブリッド構成のレプリカを含めることができます。 Azure レプリカは、同じリージョン内に配置することも、複数の仮想ネットワーク (VNet) を使用して複数のリージョンに配置することもできます。 次の手順では、既にあると仮定 [可用性グループに構成](virtual-machines-sql-server-alwayson-availability-groups-gui.md) がリスナーは構成されていません。
+可用性グループには、オンプレミスのみ、Azure のみ、またはオンプレミスと Azure の両方にまたがるハイブリッド構成のレプリカを含めることができます。 Azure レプリカは、同じリージョン内に配置することも、複数の仮想ネットワーク (VNet) を使用して複数のリージョンに配置することもできます。 次の手順では、既にあると仮定 [可用性グループに構成](virtual-machines-sql-server-alwayson-availability-groups-gui.md) しますが、リスナーは構成されていません。 
 
 ## 内部リスナーのガイドラインと制限事項
-
 ILB を使用した Azure の可用性グループ リスナーに関する次のガイドラインを確認してください。
 
 - 可用性グループ リスナーは、Windows Server 2008 R2、Windows Server 2012、および Windows Server 2012 R2 でサポートされます。
 
-- 内部可用性グループ リスナーは、クラウド サービスごとに 1 つのみサポートされます。これは、リスナーが ILB に対して構成されており、クラウド サービスごとに 1 つの ILB しか持たないためです。 ただし、複数の外部リスナーを作成することができます。 詳細については、次を参照してください。 [Azure で AlwaysOn 可用性グループの外部のリスナーを構成する](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)します。
+- 内部可用性グループ リスナーは、クラウド サービスごとに 1 つのみサポートされます。これは、リスナーが ILB に対して構成されており、クラウド サービスごとに 1 つの ILB しか持たないためです。 ただし、複数の外部リスナーを作成することができます。 詳細については、次を参照してください。 [Azure で AlwaysOn 可用性グループの外部のリスナーを構成する](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)です。
 
 - クラウド サービスのパブリック VIP を使用する外部リスナーも含まれるクラウド サービスに内部リスナーを作成することはできません。
 
@@ -47,47 +44,47 @@ ILB を使用した Azure の可用性グループ リスナーに関する次�
 
 [AZURE.INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-この記事では、**内部ロード バランサー (ILB)** を使用するリスナーの作成を中心に説明します。 パブリック/外部リスナーを必要がある場合は、を設定するための手順は、この記事のバージョンを参照してください [外部リスナー](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)。
+この記事では使用するリスナーの作成に、 **内部ロード バランサー (ILB)**します。 パブリック/外部リスナーを必要がある場合を設定するための手順は、この記事のバージョンを参照してください、 [外部リスナー](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
 
 ## Direct Server Return を使用して負荷分散 VM エンドポイントを作成する
 
-ILB の場合、まず内部ロード バランサーを作成する必要があります。 これについては、後述のスクリプトで行います。
+ILB の場合、まず内部ロード バランサーを作成する必要があります。 これについては、後述のスクリプトで行います。 
 
 [AZURE.INCLUDE [load-balanced-endpoints](../../includes/virtual-machines-ag-listener-load-balanced-endpoints.md)]
 
-1. **ILB** の場合、静的 IP アドレスを割り当てる必要があります。 最初に、次のコマンドを実行して現在の VNet 構成を確認します。
+1.  **ILB**, 、静的 IP アドレスを割り当てる必要があります。 最初に、次のコマンドを実行して現在の VNet 構成を確認します。
 
         (Get-AzureVNetConfig).XMLConfiguration
 
-1. レプリカをホストする VM が含まれるサブネットの**サブネット**名をメモします。 これは、スクリプトの **$SubnetName** パラメーターで使用します。
+1. 注、 **サブネット** という名前を含む Vm サブネットをホストするレプリカです。 これは、使用、 **$SubnetName** スクリプトのパラメーターです。 
 
-1. 次に、レプリカをホストする VM が含まれるサブネットの **VirtualNetworkSite** 名と開始する **AddressPrefix** をメモします。 両方の値を **Test-AzureStaticVNetIP** コマンドに渡し、**AvailableAddresses** を確認することによって、使用可能な IP アドレスを探します。 たとえば、VNet の名前が *MyVNet* であり、サブネット アドレスの範囲が *172.16.0.128* から始まる場合、次のコマンドを実行すると、使用可能なアドレスのリストが表示されます。
+1. 次に注意してください、 **VirtualNetworkSite** 名と、開始 **AddressPrefix** レプリカをホストする Vm を含むサブネットにします。 両方の値を渡すことによって、使用可能な IP アドレスを探します、 **Test-azurestaticvnetip** コマンドと検査、 **AvailableAddresses**します。 たとえば、VNet の名前が *MyVNet* に開始したサブネット アドレス範囲にあり *172.16.0.128*, 、次のコマンドには、使用可能なアドレスが一覧表示します。
 
         (Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 
-1. 使用可能なアドレスのいずれかを選択し、後述のスクリプトの **$ILBStaticIP** パラメーターで使用します。
+1. 使用可能なアドレスのいずれかを選択しで使用、 **$ILBStaticIP** 、次のスクリプトのパラメーターです。 
 
 3. 次の PowerShell スクリプトをテキスト エディターにコピーし、環境に合わせて変数の値を設定します (一部のパラメーターには既定値が指定されています)。 アフィニティ グループを使用している既存のデプロイでは、ILB を追加できないことに注意してください。 ILB の要件の詳細については、次を参照してください。 [内部ロード バランサー](../load-balancer/load-balancer-internal-overview.md)します。 また、可用性グループが複数の Azure リージョンにまたがっている場合、各データセンターにおいて、そのデータセンターに存在するクラウド サービスおよびノードごとにスクリプトを 1 回ずつ実行する必要があります。
 
-     # Define variables
-     $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
-     $AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
-     $SubnetName = "<MySubnetName>" # subnet name that the replicas use in the VNet
-     $ILBStaticIP = "<MyILBStaticIPAddress>" # static IP address for the ILB in the subnet
-     $ILBName = "AGListenerLB" # customize the ILB name or use this default value
-    
-     # Create the ILB
-     Add-AzureInternalLoadBalancer -InternalLoadBalancerName $ILBName -SubnetName $SubnetName -ServiceName $ServiceName -StaticVNetIPAddress $ILBStaticIP
-    
-     # Configure a load balanced endpoint for each node in $AGNodes using ILB
-     ForEach ($node in $AGNodes)
-     {
-         Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM 
-     }
+        # Define variables
+        $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
+        $AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
+        $SubnetName = "<MySubnetName>" # subnet name that the replicas use in the VNet
+        $ILBStaticIP = "<MyILBStaticIPAddress>" # static IP address for the ILB in the subnet
+        $ILBName = "AGListenerLB" # customize the ILB name or use this default value
+        
+        # Create the ILB
+        Add-AzureInternalLoadBalancer -InternalLoadBalancerName $ILBName -SubnetName $SubnetName -ServiceName $ServiceName -StaticVNetIPAddress $ILBStaticIP
+        
+        # Configure a load balanced endpoint for each node in $AGNodes using ILB
+        ForEach ($node in $AGNodes)
+        {
+            Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM 
+        }
 
-1. 変数の設定後、スクリプトを、テキスト エディターからそれを実行する Azure PowerShell セッションにコピーします。 プロンプトにまだ >> が表示される場合、スクリプトの実行が確実に開始されるようにするため、Enter キーを再度押します。
+1. 変数の設定後、スクリプトを、テキスト エディターからそれを実行する Azure PowerShell セッションにコピーします。 プロンプトにまだ >> が表示される場合、スクリプトの実行が確実に開始されるようにするため、Enter キーを再度押します。 
 
->[AZURE.NOTE] 現時点において、Azure クラシック ポータルでは内部 Load Balancer をサポートしていないため、Azure クラシック ポータルには ILB とエンドポイントのどちらも表示されません。 ただし、エンドポイントで Load Balancer が実行されている場合は、**Get-AzureEndpoint** によって内部 IP アドレスが返されます。 それ以外の場合、Null が返されます。
+>[AZURE.NOTE] Azure クラシック ポータルは、ILB または Azure クラシック ポータルでは、エンドポイントは表示されませんのでもこの時点で、内部ロード バランサーをできません。 ただし、 **Get-azureendpoint** ことで、ロード バランサーが実行されている場合は、内部 IP アドレスを返します。 それ以外の場合、Null が返されます。
 
 ## KB2854082 がインストールされていることを確認する (必要に応じて)
 
@@ -109,19 +106,19 @@ ILB の場合、まず内部ロード バランサーを作成する必要があ
 
 1. VM のいずれかで、次の PowerShell スクリプトをテキスト エディターにコピーし、変数を先ほどメモした値に設定します。
 
-     # Define variables
-     $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-     $IPResourceName = "<IPResourceName>" # the IP Address resource name 
-     $ILBIP = “<X.X.X.X>” # the IP Address of the Internal Load Balancer (ILB)
-    
-     Import-Module FailoverClusters
-    
-     # If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code. 
-    
-     # Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-     # cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
+        # Define variables
+        $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+        $IPResourceName = "<IPResourceName>" # the IP Address resource name 
+        $ILBIP = “<X.X.X.X>” # the IP Address of the Internal Load Balancer (ILB)
+        
+        Import-Module FailoverClusters
+        
+        # If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code. 
+        
+        # Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+        # cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
-1. 変数の設定後、管理者特権で Windows PowerShell ウィンドウを開いて、スクリプトをテキスト エディターからコピーし、それを実行する Azure PowerShell セッションに貼り付けます。 プロンプトにまだ >> が表示される場合、スクリプトの実行が確実に開始されるようにするため、Enter キーを再度押します。
+1. 変数の設定後、管理者特権で Windows PowerShell ウィンドウを開いて、スクリプトをテキスト エディターからコピーし、それを実行する Azure PowerShell セッションに貼り付けます。 プロンプトにまだ >> が表示される場合、スクリプトの実行が確実に開始されるようにするため、Enter キーを再度押します。 
 
 2. 各 VM で、これを繰り返します。 このスクリプトでは、クラウド サービスの IP アドレスを使用して IP アドレス リソースを構成し、プローブ ポートなどの他のパラメーターを設定します。 IP アドレス リソースがオンラインになると、プローブ ポートにおいて、このチュートリアルで先ほど作成した負荷分散エンドポイントからのポーリングに応答できます。
 
@@ -140,10 +137,6 @@ ILB の場合、まず内部ロード バランサーを作成する必要があ
 ## 次のステップ
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
-
-
-
-
 
 
 

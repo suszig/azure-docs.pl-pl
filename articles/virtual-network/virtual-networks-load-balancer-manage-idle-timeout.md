@@ -17,36 +17,33 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    /> 
-
-
+   
 # 仮想ネットワークの管理: ロード バランサーの TCP アイドル タイムアウト
 
-**TCP アイドル タイムアウト**を使うと、Azure ロード バランサーに関連するクライアントとサーバーのセッションで、アイドル状態を保証する時間のしきい値を指定できます。 TCP アイドル タイムアウトの値は 4 分です (Azure ロード バランサーの既定)。つまり、Azure ロード バランサーに関連するクライアントとサーバーのセッションで 4 分間アイドル状態が続くと、接続が終了します。
+**TCP アイドル タイムアウト** により、開発者は、Azure ロード バランサーに関連するクライアントとサーバーのセッション中に非アクティブ状態の保証されたしきい値を指定します。  TCP アイドル タイムアウトの値は 4 分です (Azure ロード バランサーの既定)。つまり、Azure ロード バランサーに関連するクライアントとサーバーのセッションで 4 分間アイドル状態が続くと、接続が終了します。
 
 クライアントとサーバーの接続が終了すると、クライアント アプリケーションで "基礎になる接続が閉じられました: 維持される必要があった接続が、サーバーによって切断されました" というエラー メッセージが表示されます。
 
-[TCP Keep-alive](http://tools.ietf.org/html/rfc1122#page-101) 長いそれ以外の場合に非アクティブな期間中に接続を維持することは一般的 [(MSDN の例)](http://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx)します。 TCP Keep-Alive が使用された場合、単純なパケットがクライアントによって定期的に (通常はサーバーのアイドル状態のタイムアウトしきい値よりも短い頻度) 送信されます。 他のアクティビティが発生していなくても、サーバーによってこのパケット送信が接続アクティビティであると認識され、アイドル タイムアウト値に達することがなくなり、長時間接続が維持されます。
+[TCP Keep-alive](http://tools.ietf.org/html/rfc1122#page-101) 長いそれ以外の場合に非アクティブな期間中に接続を維持することは一般的 [(MSDN の例)](http://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx)します。 TCP Keep-Alive が使用された場合、単純なパケットがクライアントによって定期的に (通常はサーバーのアイドル状態のタイムアウトしきい値よりも短い頻度) 送信されます。  他のアクティビティが発生していなくても、サーバーによってこのパケット送信が接続アクティビティであると認識され、アイドル タイムアウト値に達することがなくなり、長時間接続が維持されます。
 
 TCP Keep-Alive は便利ですが、モバイル アプリケーションでは有効ではありません。モバイル デバイスの限られた電力を消費するためです。 モバイル アプリケーションで TCP Keep-Alive を使うと、継続的にネットワーク接続用に電力が使用されるため、バッテリーの消費が激しくなります。
 
-モバイル デバイスの場合は、Azure ロード バランサーがサポートしている TCP アイドル タイムアウトの構成を使用してください。 TCP アイドル タイムアウトは、受信接続を 4 分から 30 分の間で任意に設定できます (TCP アイドル タイムアウトは発信接続には設定できません)。 これによって、クライアントがアクティブでない状態を長く続けても、サーバーとの接続をより長い間維持できます。 モバイル デバイスのアプリケーションで TCP Keep-Alive 機能を使用し、30 分を超えてアイドル状態を続けてもサーバーとの接続を維持できます。ただし、この長時間の TCP アイドル タイムアウトでは、モバイル デバイスの電力消費を大幅に抑えながら、TCP Keep-Alive 要求を通常よりはるかに少ない頻度で送信します。
+モバイル デバイスの場合は、Azure ロード バランサーがサポートしている TCP アイドル タイムアウトの構成を使用してください。 TCP アイドル タイムアウトは、受信接続を 4 分から 30 分の間で任意に設定できます (TCP アイドル タイムアウトは発信接続には設定できません)。 これによって、クライアントがアクティブでない状態を長く続けても、サーバーとの接続をより長い間維持できます。  モバイル デバイスのアプリケーションで TCP Keep-Alive 機能を使用し、30 分を超えてアイドル状態を続けてもサーバーとの接続を維持できます。ただし、この長時間の TCP アイドル タイムアウトでは、モバイル デバイスの電力消費を大幅に抑えながら、TCP Keep-Alive 要求を通常よりはるかに少ない頻度で送信します。
 
 ## 実装
 
-TCP アイドル タイムアウトは次のように構成できます。
+TCP アイドル タイムアウトは次のように構成できます。 
 
-* [インスタンス レベル パブリック Ip](virtual-networks-instance-level-public-ip.md)
+* [インスタンス レベル パブリック IP](virtual-networks-instance-level-public-ip.md)
 * [負荷分散エンドポイント セット](../load-balancer/load-balancer-overview.md)
 * [仮想マシン エンドポイント](../virtual-machines/virtual-machines-set-up-endpoints.md)
-* [Web ロール](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
-* [ワーカー ロール](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
+* [Web ロールの比較](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
+* [Worker ロール](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 
 ## 次のステップ
-
 * TBD
 
 ## PowerShell の例
-
 ダウンロードしてください [最新の Azure PowerShell リリース](https://github.com/Azure/azure-sdk-tools/releases) をお勧めします。
 
 ### インスタンスレベル パブリック IP の TCP タイムアウトを 15 分で構成します。
@@ -79,7 +76,7 @@ IdleTimeoutInMinutes の設定は任意です。 設定しない場合、既定�
     Acl : {}
     InternalLoadBalancerName :
     IdleTimeoutInMinutes : 15
-
+    
 ### 負荷分散エンドポイント セットでの TCP タイムアウトを設定します。
 
 エンドポイントが負荷分散エンドポイント セットの一部である場合、TCP タイムアウトは負荷分散エンドポイント セットで設定される必要があります。
@@ -110,10 +107,10 @@ Azure SDK for .NET を使用してクラウド サービスをアップデート
         </InstanceAddress>
       </AddressAssignments>
     </NetworkConfiguration>
-
+    
 ## API の例
 
-ロード バランサーの分散は、サービス管理 API を使って構成できます。 x-ms-version ヘッダーが 2014-06-01 以降のバージョンで設定されていることをご確認ください。
+ロード バランサーの分散は、サービス管理 API を使って構成できます。  x-ms-version ヘッダーが 2014-06-01 以降のバージョンで設定されていることをご確認ください。
 
 ### デプロイされているすべての仮想マシンで、指定した負荷分散入力エンドポイントの構成をアップデートします。
 
@@ -153,6 +150,5 @@ LoadBalancerDistribution の値のできます 2 組のアフィニティ、3 �
         </EndpointACL>
       </InputEndpoint>
     </LoadBalancedEndpointList>
-
-
+ 
 

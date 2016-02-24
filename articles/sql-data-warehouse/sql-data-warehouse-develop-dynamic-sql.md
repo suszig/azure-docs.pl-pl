@@ -16,10 +16,8 @@
    ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
-
 # SQL Data Warehouse での動的 SQL
-
-SQL Data Warehouse のアプリケーション コードを開発する際に、柔軟性が高く汎用的なモジュール ソリューションを提供するための動的 SQL を使用する必要のある場合があります。 現時点では、SQL Data Warehouse は BLOB データ型をサポートしていません。 これにより、blob 型には varchar (max) と nvarchar (max) の両方の型が含まれるので、文字列のサイズが制限される場合があります。 大量の文字列を構築するときにアプリケーション コードでこれらの型を使用した場合、コードをチャンクに分割し、代わりに EXEC ステートメントを使用する必要があります。
+SQL Data Warehouse のアプリケーション コードを開発する際に、柔軟性が高く汎用的なモジュール ソリューションを提供するための動的 SQL を使用する必要のある場合があります。 現時点では、SQL Data Warehouse は BLOB データ型をサポートしていません。 これにより、blob 型には varchar (max) と nvarchar (max) の両方の型が含まれるので、文字列のサイズが制限される場合があります。 大量の文字列を構築するときにアプリケーション コードでこれらの型を使用した場合、コードをチャンクに分割し、代わりに EXEC ステートメントを使用する必要があります。 
 
 単純な例を次に示します。
 
@@ -31,22 +29,19 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-文字列が短い場合は、使う [sp_executesql:operator[]][] 通常どおりです。
+文字列が短い場合は、通常どおり [sp_executesql] を使用することができます。
 
 
 ## 次のステップ
+他の開発のヒントについては、[開発の概要に関するページを参照してください。
 
-他の開発のヒントを参照してください。 [開発の概要 []][]します。
+<!--Image references-->
 
+<!--Article references-->
+[development overview]: sql-data-warehouse-overview-develop.md
 
+<!--MSDN references-->
+[sp_executesql]: https://msdn.microsoft.com/library/ms188001.aspx
 
-
-
-
-
-
-
-
-[development overview]: sql-data-warehouse-overview-develop.md 
-[sp_executesql]: https://msdn.microsoft.com/library/ms188001.aspx 
+<!--Other Web references-->
 

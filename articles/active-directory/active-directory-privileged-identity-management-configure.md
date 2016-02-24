@@ -16,31 +16,30 @@
     ms.date="09/21/2015"
     ms.author="inhenk"/>
 
-
 # Azure AD Privileged Identity Management
 
-Azure AD Privileged Identity Management を使用すると、特権 ID と、Azure AD および他の Microsoft オンライン サービス (Office 365 や Microsoft Intune など) のリソースへの特権 ID のアクセスを管理、制御、監視できます。
+Azure AD Privileged Identity Management を使用すると、特権 ID と、Azure AD および他の Microsoft オンライン サービス (Office 365 や Microsoft Intune など) のリソースへの特権 ID のアクセスを管理、制御、監視できます。  
 
-ユーザーが特権操作を実行できるよう、組織は多くのユーザーに Azure AD、Azure や Office 365 のリソース、他の SaaS アプリへの永続的な特権アクセスを付与することが必要になる場合がよくあります。 多くの顧客にとって、これは、このようなユーザーが管理者特権で行っていることを十分に監視できないため、クラウドでホストされるリソースに対するセキュリティ リスクの増大になります。 さらに、特権アクセス権を持つユーザー アカウントが侵害されると、全体的なクラウド セキュリティに影響を与える可能性があります。 Azure AD Privileged Identity Management はこのリスクの解決に役立ちます。
+ユーザーが特権操作を実行できるよう、組織は多くのユーザーに Azure AD、Azure や Office 365 のリソース、他の SaaS アプリへの永続的な特権アクセスを付与することが必要になる場合がよくあります。 多くの顧客にとって、これは、このようなユーザーが管理者特権で行っていることを十分に監視できないため、クラウドでホストされるリソースに対するセキュリティ リスクの増大になります。 さらに、特権アクセス権を持つユーザー アカウントが侵害されると、全体的なクラウド セキュリティに影響を与える可能性があります。 Azure AD Privileged Identity Management はこのリスクの解決に役立ちます。  
 
-このプレビューの Azure AD Privileged Identity Management では次のことが可能です。
+このプレビューの Azure AD Privileged Identity Management では次のことが可能です。  
 
 - Azure AD の管理者であるユーザーを検出する
 - ディレクトリ リソースへのオンデマンド "ジャスト イン タイム" 管理アクセスを有効にする
 - 管理者のアクセス履歴および管理者の割り当ての変更に関するレポートを取得する
 - 特権ロールへのアクセスに関するアラートを受け取る
 
-このプレビューの Azure AD Privileged Identity Management では、次の組み込み Azure Active Directory 組織ロールを管理できます。
+このプレビューの Azure AD Privileged Identity Management では、次の組み込み Azure Active Directory 組織ロールを管理できます。  
 
 - グローバル管理者
 - 課金管理者
-- サービス管理者
+- サービス管理者  
 - ユーザー管理者
 - パスワード管理者
 
 ## ジャスト イン タイム管理者アクセス
 
-従来、管理者ロールへのユーザーの割り当てには、Azure 管理ポータルまたは Windows PowerShell が使用されています。 その結果、そのユーザーは**永続的な管理者**になり、割り当てられたロールが常に有効になっています。 このプレビューでは、**一時的な管理者**のサポートが追加されています。これは、割り当てられたロールに対するアクティブ化プロセスを完了する必要があるユーザーです。 アクティブ化プロセスにより、Azure AD でのロールへのユーザーの割り当てが非アクティブからアクティブに変わります。
+従来、管理者ロールへのユーザーの割り当てには、Azure 管理ポータルまたは Windows PowerShell が使用されています。 その結果、そのユーザーが **永続的な管理者**, 、自分の割り当てられたロールに常にアクティブです。 このプレビューのサポートが追加、 **一時的な管理者**, 、これは、割り当てられたロールに対するアクティブ化プロセスを完了する必要があるユーザーです。  アクティブ化プロセスにより、Azure AD でのロールへのユーザーの割り当てが非アクティブからアクティブに変わります。
 
 ## ディレクトリの Privileged Identity Management の有効化
 
@@ -55,7 +54,7 @@ Azure AD Privileged Identity Management を使用すると、特権 ID と、Azu
 
 Azure AD Privileged Identity Management には、次のような重要な情報を提供するダッシュボードがあります。
 
-- 各特権ロールに割り当てられているユーザーの数
+- 各特権ロールに割り当てられているユーザーの数  
 - 一時的管理者および永続的管理者の数
 - 管理者のアクセスの履歴
 
@@ -73,13 +72,13 @@ Azure AD Privileged Identity Management では、各ロールに永続的また�
 
 - ロールのアクティブ化の期間
 - ロールのアクティブ化の通知
-- ロール アクティブ化プロセス中にユーザーが提供する必要のある情報
+- ロール アクティブ化プロセス中にユーザーが提供する必要のある情報  
 
 ![][4]
 
-## ロールのアクティブ化
+## ロールのアクティブ化  
 
-ロールをアクティブ化するには、一時的管理者は、ロールに対する時間制限付き「アクティブ化」を要求する必要があります。 アクティブ化の要求は、Azure AD Privileged Identity Management の **[ロールのアクティブ化]** オプションを使用して行うことができます。
+ロールをアクティブ化するには、一時的管理者は、ロールに対する時間制限付き「アクティブ化」を要求する必要があります。 使用して、ライセンス認証を要求できる、 **私の仕事をアクティブ化** Azure AD Privileged Identity management オプション。
 
 ロールのアクティブ化を要求する管理者は、Azure プレビュー ポータルで Azure AD Privileged Identity Management を初期化する必要があります。
 
@@ -96,15 +95,13 @@ Azure AD Privileged Identity Management を使用すると、特権ロールの�
 ![][6]
 
 ## 次のステップ
-
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-
-
-[1]: ./media/active-directory-privileged-identity-management-configure/Search_PIM.png 
-[2]: ./media/active-directory-privileged-identity-management-configure/PIM_Dash.png 
-[3]: ./media/active-directory-privileged-identity-management-configure/PIM_AddRemove.png 
-[4]: ./media/active-directory-privileged-identity-management-configure/PIM_RoleActivationSettings.png 
-[5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png 
-[6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png 
+<!--Image references-->
+[1]: ./media/active-directory-privileged-identity-management-configure/Search_PIM.png
+[2]: ./media/active-directory-privileged-identity-management-configure/PIM_Dash.png
+[3]: ./media/active-directory-privileged-identity-management-configure/PIM_AddRemove.png
+[4]: ./media/active-directory-privileged-identity-management-configure/PIM_RoleActivationSettings.png
+[5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
+[6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 

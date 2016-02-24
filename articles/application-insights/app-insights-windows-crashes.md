@@ -15,21 +15,20 @@
     ms.date="11/21/2015" 
     ms.author="awills"/>
 
-
 # Application Insights による Windows ストア アプリと Windows Phone アプリでのクラッシュの検出と診断
 
 *Application Insights はプレビュー段階です。*
 
 自分のアプリでユーザーがクラッシュに遭遇した場合は、それをすばやく把握し、何が起きたのかを詳しく知る必要があります。 Application Insights を使ってクラッシュ発生頻度、get とアラートを生成し、各インシデントのレポートの調査を監視できます。
 
-"クラッシュ" とは、キャッチされない例外に起因してアプリケーションが終了することを意味します。 それをレポートできるアプリが例外をキャッチする場合、 [TrackException API ][apiexceptions] 動作は継続します。 その場合、クラッシュとしてはログに記録されません。
+"クラッシュ" とは、キャッチされない例外に起因してアプリケーションが終了することを意味します。 それをレポートできるアプリが例外をキャッチする場合、 [TrackException API][apiexceptions] 動作は継続します。 その場合、クラッシュとしてはログに記録されません。
 
 
 ## クラッシュ発生頻度の監視
 
-これは既に完了していない、追加 [アプリに Application Insights をプロジェクトの ][windows], を再発行します。
+これは既に完了していない、追加 [アプリ プロジェクトに Application Insights][windows], を再発行します。 
 
-アプリケーションの概要ブレードで番組がクラッシュした [Application Insights ポータルの ][portal]します。
+アプリケーションの概要ブレードで番組がクラッシュした [Application Insights ポータル][portal]します。
 
 ![](./media/app-insights-windows-crashes/appinsights-d018-oview.png)
 
@@ -38,7 +37,7 @@
 
 ## クラッシュを検出するアラートの設定
 
-![クラッシュのグラフから、](./media/app-insights-windows-crashes/appinsights-d023-alert.png)
+![クラッシュのグラフから、[アラート ルール]、[アラートの追加] の順にクリックします](./media/app-insights-windows-crashes/appinsights-d023-alert.png)
 
 ## クラッシュの診断
 
@@ -51,8 +50,8 @@
 
 ![](./media/app-insights-windows-crashes/appinsights-d26crashExceptions.png)
 
-[診断検索の ][diagnostic]します。
-
+[診断検索でフィルター処理の詳細について][diagnostic]します。
+ 
 
 関連するプロパティやスタック トレースなどの詳細を表示するには、いずれかの例外をクリックします。
 
@@ -65,7 +64,7 @@
 
 ## トレース ログとイベントの挿入
 
-問題の診断を支援するには [トレース呼び出しを挿入して、Application Insights の ][diagnostic]します。
+問題の診断を支援するには [トレース呼び出しを挿入して、Application Insights でログの検索][diagnostic]します。
 
 ## <a name="debug"></a>デバッグ モードとリリース モード
 
@@ -79,26 +78,26 @@
 
 ## <a name="next"></a>次のステップ
 
-[検出、トリアージ、および Application Insights による問題を診断する ][detect]
+[Application Insights を使用した問題の検出、トリアージ、および診断][detect]
 
-[Application Insights API ][api]
+[Application Insights API][api]
 
-[[トレース] の診断ログをキャプチャします。][trace]
+[診断ログのキャプチャ][trace]
 
 [トラブルシューティング](app-insights-windows-troubleshoot.md)
 
 
 
 
+<!--Link references-->
 
+[api]: app-insights-api-custom-events-metrics.md
+[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
+[detect]: app-insights-detect-triage-diagnose.md
+[diagnostic]: app-insights-diagnostic-search.md
+[platforms]: app-insights-platforms.md
+[portal]: http://portal.azure.com/
+[trace]: app-insights-search-diagnostic-logs.md
+[windows]: app-insights-windows-get-started.md
 
-
-[api]: app-insights-api-custom-events-metrics.md 
-[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception 
-[detect]: app-insights-detect-triage-diagnose.md 
-[diagnostic]: app-insights-diagnostic-search.md 
-[platforms]: app-insights-platforms.md 
-[portal]: http://portal.azure.com/ 
-[trace]: app-insights-search-diagnostic-logs.md 
-[windows]: app-insights-windows-get-started.md 
-
+ 

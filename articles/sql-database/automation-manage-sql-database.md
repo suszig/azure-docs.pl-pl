@@ -18,8 +18,7 @@
 
 
 
-
-# Azure Automation を使用した Azure SQL データベースの管理
+#Azure Automation を使用した Azure SQL データベースの管理
 
 このガイドでは、Azure Automation サービスと、このサービスを使用して Azure SQL データベースの管理を簡略化する方法について紹介します。
 
@@ -39,12 +38,12 @@ Azure Automation でクラウド管理タスクを自動実行すれば、運用
 
 さらに、Azure Automation には、PowerShell を使用して SQL コマンドを発行することにより、SQL サーバーと直接通信する機能もあります。
 
-[Azure Automation runbook ギャラリー](http://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) 製品チームおよびコミュニティの runbook を Azure SQL データベース、その他の Azure サービスおよびサード パーティ製システムの管理を自動化するためのさまざまなが含まれています。 ギャラリーに含まれている Runbook の例を示します。
+ [Azure Automation runbook ギャラリー](http://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) 製品チームおよびコミュニティの runbook を Azure SQL データベース、その他の Azure サービスおよびサード パーティ製システムの管理を自動化するためのさまざまなが含まれています。 ギャラリーに含まれている Runbook の例を示します。
 
- * [SQL Server データベースに対して SQL クエリを実行します。](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
- * [垂直方向にスケール (アップまたはダウン)、スケジュールに従って、Azure SQL データベース](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
- * [データベースが最大サイズに近づいた場合の SQL テーブルを切り捨てください。](https://gallery.technet.microsoft.com/scriptcenter/Azure-Automation-Your-SQL-30f8736b)
- * [Azure SQL データベースのテーブルの断片化率が高い場合のインデックスします。](https://gallery.technet.microsoft.com/scriptcenter/Indexes-tables-in-an-Azure-73a2a8ea)
+ * [SQL Server データベースに対する SQL クエリの実行](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
+ * [スケジュールに従った Azure SQL データベースの垂直スケール (アップまたはダウン)](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
+ * [データベースがその最大サイズに近づいた場合の SQL テーブルの切り捨て](https://gallery.technet.microsoft.com/scriptcenter/Azure-Automation-Your-SQL-30f8736b)
+ * [Azure SQL データベースにおけるテーブルの断片化率が高い場合のインデックス作成](https://gallery.technet.microsoft.com/scriptcenter/Indexes-tables-in-an-Azure-73a2a8ea)
 
 ## 次のステップ
 
@@ -52,9 +51,5 @@ Azure Automation でクラウド管理タスクを自動実行すれば、運用
 
  * Azure automation の [チュートリアル入門](../automation-create-runbook-from-samples.md)
  * 読み取り、 [Azure Automation: クラウド内の SQL エージェント](http://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) ブログの投稿
-
-
-
-
-
+ 
 

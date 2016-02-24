@@ -17,8 +17,7 @@
     ms.author="huvalo"/>
 
 
-
-# Python Tools 2.2 for Visual Studio を使用した Azure 上の Bottle と Azure テーブル ストレージ
+# Python Tools 2.2 for Visual Studio を使用した Azure 上の Bottle と Azure テーブル ストレージ 
 
 このチュートリアルでは、PTVS サンプル テンプレートのいずれかを使用して簡単な投票 web アプリを作成する [Python Tools for Visual Studio] を使用してします。 このチュートリアルではでもご覧いただけます、 [ビデオ](https://www.youtube.com/watch?v=GJXDGaEPy94)します。
 
@@ -37,29 +36,30 @@ Bottle、Flask、Django web フレームワークを MongoDB、Azure テーブ�
  - [Python 2.7 32-bit] または [Python 3.4 32-bit]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+
 >[AZURE.NOTE] 場合は、Azure アカウントがサインアップする前に Azure App Service の使用を開始するには、 [App Service の試用](http://go.microsoft.com/fwlink/?LinkId=523751), 、App Service で有効期間の短いスターター web アプリをすぐに作成する場所です。 このサービスの利用にあたり、クレジット カードは必要ありません。契約も必要ありません。
 
 ## プロジェクトを作成する
 
 このセクションでは、サンプル テンプレートを使用して Visual Studio プロジェクトを作成します。 仮想環境を作成し、必要なパッケージをインストールします。 次に、既定のメモリ内リポジトリを使用してアプリケーションをローカルで実行します。
 
-1.  Visual Studio で、**[ファイル]**、**[新しいプロジェクト]** の順にクリックします。
+1.  Visual Studio で、次のように選択します。 **ファイル**, 、**新しいプロジェクト**します。
 
-1.  PTVS サンプル VSIX のプロジェクト テンプレートは、**[Python]** の **[サンプル]** にあります。 **[Polls Bottle Web Project]** を選択し、[OK] をクリックしてプロジェクトを作成します。
+1.  PTVS サンプル vsix のプロジェクト テンプレートが [利用可能な **Python**, 、**サンプル**します。 選択 **Polls Bottle Web Project** プロジェクトを作成するには、[ok] をクリックします。
 
     ![[新しいプロジェクト] ダイアログ](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleNewProject.png)
 
-1.  外部のパッケージをインストールするよう求めるメッセージが表示されます。 **[仮想環境にインストールする]** を選択します。
+1.  外部のパッケージをインストールするよう求めるメッセージが表示されます。 選択 **仮想環境にインストール**します。
 
     ![External Packages ダイアログ](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleExternalPackages.png)
 
-1.  ベース インタープリターとして **[Python 2.7]** または **[Python 3.4]** を選択します。
+1.  選択 **Python 2.7** または **Python 3.4** ベース インタープリターとして。
 
     ![Add Virtual Environment ダイアログ](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAddVirtualEnv.png)
 
-1.  `F5` キーを押してアプリケーションの動作を確認します 既定では、アプリケーションは、構成を必要としないメモリ内リポジトリを使用します。 Web サーバーが停止すると、すべてのデータが失われます。
+1.  `F5` キーを押して、アプリケーションが動作することを確認します。 既定では、アプリケーションは、構成を必要としないメモリ内リポジトリを使用します。 Web サーバーが停止すると、すべてのデータが失われます。
 
-1.  **[Create Sample Polls]** をクリックし、投票内容をクリックして投票します。
+1.  クリックして **[Create Sample Polls**, 投票] をクリックし、投票します。
 
     ![Web ブラウザー](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleInMemoryBrowser.png)
 
@@ -69,13 +69,15 @@ Bottle、Flask、Django web フレームワークを MongoDB、Azure テーブ�
 
 1.  ログイン、 [Azure ポータル](https://portal.azure.com/)します。
 
-2. ポータルの左上にある **[新規]** アイコンをクリックし、**[データ + ストレージ]** > **[ストレージ アカウント]** をクリックします。 をクリックして、 **作成** ] ボタンをクリックし、ストレージ アカウントに一意の名前を新規作成 [リソース グループ](../resource-group-overview.md) にします。
+2. クリックして、 **新規** ポータルの上部にあるアイコンを左クリックし、 **データ + ストレージ** > **ストレージ アカウント**します。  をクリックして、 **作成** ] ボタンをクリックし、ストレージ アカウントに一意の名前を新規作成 [リソース グループ](../resource-group-overview.md) にします。
 
+    <!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->
 
- ストレージ アカウントが作成されると、**[通知]** ボタンに緑色の "**成功**" という文字が点滅し、ストレージ アカウントのブレードが開いて、作成した新しいリソース グループに属していることが示されます。
+    ストレージ アカウントが作成されると、 **通知** ボタンが緑色の点滅 **成功** し、ストレージ アカウントのブレードが開いて、作成した新しいリソース グループに属していることを表示します。
 
+    <!-- ![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png) -->
 
-5. ストレージ アカウントのブレードの **[設定]** 部をクリックします。 アカウント名とプライマリ キーをメモします。
+5. クリックして、 **設定** ブレードで、ストレージ アカウントの一部です。 アカウント名とプライマリ キーをメモします。
 
     この情報は、次のセクションでプロジェクトを構成するために必要です。
 
@@ -83,81 +85,90 @@ Bottle、Flask、Django web フレームワークを MongoDB、Azure テーブ�
 
 このセクションでは、先ほど作成したストレージ アカウントを使用するための構成をアプリケーションに対して行います。 その後、アプリケーションをローカルで実行します。
 
-1.  Visual Studio のソリューション エクスプローラーで、使用するプロジェクト ノードを右クリックし、**[プロパティ]** を選択します。 **[デバッグ]** タブをクリックします。
+1.  Visual Studio で、ソリューション エクスプ ローラーでプロジェクト ノードを右クリックし、選択 **プロパティ**します。 をクリックして、 **デバッグ** ] タブをクリックします。
 
     ![Project Debug 設定](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleAzureTableStorageProjectDebugSettings.png)
 
-1.  **[サーバー コマンドのデバッグ]** の **[環境]** で、アプリケーションに必要な環境変数の値を設定します。
+1.  アプリケーションに必要な環境変数の値を設定 **サーバー コマンドのデバッグ**, 、**環境**します。
 
         REPOSITORY_NAME=azuretablestorage
         STORAGE_NAME=<storage account name>
         STORAGE_KEY=<primary access key>
 
-    これにより、**デバッグを開始**したときに環境変数が設定されます。 **デバッグなしで開始**したときに変数を設定する場合は、**[サーバー コマンドの実行]** でも同じ値を設定します。
+    これは、環境変数を設定時に、 **[デバッグ開始]**します。 ときに設定する変数の場合、 **デバッグなしで開始**, 、下にある同じ値を設定 **サーバー コマンドの実行** もします。
 
     Windows コントロール パネルを使用して環境変数を定義してもかまいません。 ソース コードまたはプロジェクト ファイルに資格情報を格納するのを避ける場合には、これがより優れた方法です。 新しい環境変数の値をアプリケーションから利用するためには、Visual Studio を再起動する必要があります。
 
-1.  Azure テーブル ストレージ リポジトリを実装するコードは、**models/azuretablestorage.py** にあります。 Python からテーブル サービスを使用する方法の詳細については、[ドキュメント] を参照してください。
+1.  Azure テーブル ストレージ リポジトリを実装するコードは **models/azuretablestorage.py**します。 Python からテーブル サービスを使用する方法の詳細については、[ドキュメント] を参照してください。
 
-1.  `F5` キーでアプリケーションを実行します。 **[サンプル投票の作成]** で作成された投票と、投票によって送信されたデータは、Azure テーブル ストレージでシリアル化されます。
-    > [AZURE.NOTE] Python 2.7 仮想環境では、Visual Studio で例外による中断が発生する場合があります。 キーを押して `f5 キーを押して` web プロジェクトの読み込みを続行します。 
+1.  `F5` キーでアプリケーションを実行します。 作成された投票 **[Create Sample Polls** と投票によって送信されたデータは、Azure テーブル ストレージにシリアル化されます。
 
-1.  アプリケーションが、**Azure テーブル ストレージ** リポジトリを使用していることを確認するには、**[情報]** ページを確認します。
+    > [AZURE.NOTE] Python 2.7 仮想環境によっては、Visual Studio で、例外による中断があります。  `F5` を押して Web プロジェクトの読み込みを続行します。 
+
+1.  参照、 **に関する** アプリケーションを使用していることを確認する] ページ、 **Azure テーブル ストレージ** リポジトリです。
 
     ![Web ブラウザー](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleAzureTableStorageAbout.png)
 
 ## Azure テーブル ストレージを調査する
 
 ストレージ テーブルは、Visual Studio のサーバー エクスプローラーを使用して簡単に表示したり編集したりできます。 このセクションでは、投票アプリケーションに使用されているテーブルの内容をサーバー エクスプローラーを使用して表示します。
+
 > [AZURE.NOTE] Microsoft Azure ツールをインストールする、使用できる必要があります [Azure SDK for .NET] の一部として。
 
-1.  **[サーバー エクスプローラー]**を開きます。 **[Azure]**、**[ストレージ]**、使用するストレージ アカウント、**[テーブル]** の順に展開します。
+1.  開いている **サーバー エクスプ ローラー**します。 展開 **Azure**, 、**ストレージ**, 、ストレージ アカウントを **テーブル**します。
 
+    <!-- ![Server Explorer](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorer.png) -->
 
-1.  **投票**テーブルか**選択肢**テーブルをダブルクリックすると、ドキュメント ウィンドウでテーブルの内容を表示し、エンティティを追加、削除、編集できます。
+1.  ダブルクリックして、 **ポーリング** または **選択肢** エンティティを追加、削除、編集と同様に、ドキュメント ウィンドウで、テーブルの内容を表示するテーブル。
 
+    <!-- ![Table Query Results](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorerTable.png) -->
 
 ## Web アプリを Azure App Service に発行する
 
 Azure .NET SDK を使用すると、Web アプリを Azure App Service に簡単にデプロイできます。
 
-1.  **ソリューション エクスプローラー**で、プロジェクト ノードを右クリックし、**[発行]** をクリックします。
+1.   **ソリューション エクスプ ローラー**, プロジェクト ノードを右クリックし、選択、 **発行**します。
 
+    <!-- ![Publish Web Dialog](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonPublishWebSiteDialog.png) -->
 
-1.  **[Microsoft Azure Web Apps]** をクリックします。
+1.  をクリックして **Microsoft Azure Web Apps**します。
 
-1.  **[新規]** をクリックして、新しい Web アプリを作成します。
+1.  をクリックして **新規** 新しい web アプリを作成します。
 
-1.  次のフィールドに入力し、**[作成]** をクリックします。
--   **[Web アプリケーション名]**
--   **[App Service プラン]**
--   **[リソース グループ]**
--   **[リージョン]**
--   **[データベース サーバー]** は、**[データベースなし]** のままにしておきます。
+1.  次のフィールドに入力し、クリックして **作成**します。
+    -   **[Web アプリケーション名]**
+    -   **App Service プラン**
+    -   **リソース グループ**
+    -   **リージョン**
+    -   ままにして **データベース サーバー** 設定 **データベースが存在しません**
 
+    <!-- ![Create Web App on Microsoft Azure Dialog](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonCreateWebSite.png) -->
 
-1.  他のすべての既定値をそのまま使用し、**[発行]** をクリックします。
+1.  その他のすべての既定値をそのまま使用し、クリックして **発行**します。
 
-1.  Web ブラウザーが自動的に開いて、発行した Web アプリが表示されます。 [情報] ページを参照すると、**Azure テーブル ストレージ**リポジトリではなく、**メモリ内**リポジトリを使用していることが確認できます。
+1.  Web ブラウザーが自動的に開いて、発行した Web アプリが表示されます。 参照する場合は、情報] ページが表示されますが使用される、 **インメモリ** リポジトリ、いない、 **Azure テーブル ストレージ** リポジトリです。
 
-    これは、Azure App Service の Web Apps インスタンスで環境変数が設定されていないので、**settings.py** で指定された既定値が使用されているためです。
+    あるためで指定された既定値を使用して、環境変数が、Azure App Service で Web アプリのインスタンスに設定されていないため **settings.py**します。
 
 ## Web Apps インスタンスを構成する
 
 このセクションでは、Web Apps インスタンスの環境変数を構成します。
 
-1.  [Azure ポータル] で、**[参照]**、 **[Web Apps]**、Web アプリ名の順にクリックして、Web アプリのブレードを開きます。
+1.  [Azure ポータル] をクリックして、web アプリのブレードを開きます。 **参照** > **Web Apps** > web アプリの名前。
 
-1.  Web アプリのブレードで、**[すべての設定]**、**[アプリケーションの設定]** の順にクリックします。
+1.  Web アプリのブレードで、[ **設定をすべて**, 、順にクリックして **アプリケーション設定**します。
 
+    <!-- ![Top Menu](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteTopMenu.png) -->
 
 1.  下へスクロールして、 **アプリ設定** セクションし、値を設定します **移動**, 、**前** と **STORAGE\_KEY** 」の説明に従って、 **プロジェクトを構成する** セクションです。
 
+    <!-- ![App Settings](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png) -->
 
-1. **[保存]**、**[再起動]** の順にクリックし、最後に **[参照]** をクリックします。
+1. をクリックして **保存**, 、し **再起動** し、最後に **参照**します。
 
+    <!-- ![Bottom Menu](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureBottomMenu.png) -->
 
-1.  想定どおりに Web アプリが**Azure テーブル ストレージ** リポジトリを使用して動作していることが確認できます。
+1.  を使用して想定どおりに動作して web アプリを表示する必要があります、 **Azure テーブル ストレージ** リポジトリです。
 
     ご利用ありがとうございます。
 
@@ -177,31 +188,31 @@ Python Tools for Visual Studio、Bottle および Azure テーブル ストレ�
 - [Python からテーブル ストレージ サービスを使用する方法]
 
 ## 変更内容
-
 * Web サイトから App Service への変更のガイドを参照してください: [Azure App Service と既存の Azure サービスへの影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 
+<!--Link references-->
+[Python Developer Center]: /develop/python/
+[Azure Cloud Services]: ../cloud-services-python-ptvs.md
+[documentation]: ../storage-python-how-to-use-table-storage.md
+[How to Use the Table Storage Service from Python]: ../storage-python-how-to-use-table-storage.md
 
-
-
-[python developer center]: /develop/python/ 
-[azure cloud services]: ../cloud-services-python-ptvs.md 
-[documentation]: ../storage-python-how-to-use-table-storage.md 
-[how to use the table storage service from python]: ../storage-python-how-to-use-table-storage.md 
-[azure portal]: https://portal.azure.com 
-[azure sdk for .net]: http://azure.microsoft.com/downloads/ 
-[python tools for visual studio]: http://aka.ms/ptvs 
-[python tools 2.2 for visual studio]: http://go.microsoft.com/fwlink/?LinkId=624025 
-[python tools 2.2 for visual studio samples vsix]: http://go.microsoft.com/fwlink/?LinkId=624025 
-[azure sdk tools for vs 2013]: http://go.microsoft.com/fwlink/?LinkId=323510 
-[azure sdk tools for vs 2015]: http://go.microsoft.com/fwlink/?LinkId=518003 
-[python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
-[python 3.4 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517191 
-[python tools for visual studio documentation]: http://aka.ms/ptvsdocs 
-[bottle documentation]: http://bottlepy.org/docs/dev/index.html 
-[remote debugging on microsoft azure]: http://go.microsoft.com/fwlink/?LinkId=624026 
-[web projects]: http://go.microsoft.com/fwlink/?LinkId=624027 
-[cloud service projects]: http://go.microsoft.com/fwlink/?LinkId=624028 
-[azure storage]: http://azure.microsoft.com/documentation/services/storage/ 
-[azure sdk for python]: https://github.com/Azure/azure-sdk-for-python 
+<!--External Link references-->
+[Azure Portal]: https://portal.azure.com
+[Azure SDK for .NET]: http://azure.microsoft.com/downloads/
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=624025
+[Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=624025
+[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 3.4 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517191
+[Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
+[Bottle Documentation]: http://bottlepy.org/docs/dev/index.html
+[Remote Debugging on Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
+[Web Projects]: http://go.microsoft.com/fwlink/?LinkId=624027
+[Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
+[Azure Storage]: http://azure.microsoft.com/documentation/services/storage/
+[Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python
+ 
 

@@ -17,15 +17,12 @@
     ms.date="11/17/2015"
     ms.author="heidist"/>
 
-
 # REST API を使用した Azure Search インデックスの作成
-
 > [AZURE.SELECTOR]
-- [Overview](search-what-is-an-index.md)
-- [Portal](search-create-index-portal.md)
+- [概要](search-what-is-an-index.md)
+- [ポータル](search-create-index-portal.md)
 - [.NET](search-create-index-dotnet.md)
-- [REST](search-create-index-rest-api.md)
-
+- [REST ()](search-create-index-rest-api.md)
 
 この記事には、使用してインデックスを作成する方法がでは、 [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)します。 次の内容の一部は [Create Index (Azure Search REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx)します。 詳しいコンテキストについては、元の記事を参照してください。
 
@@ -35,13 +32,14 @@
 
 REST API を使用してインデックスを作成するには、Azure Search の URL エンドポイントに POST 要求を発行します。 インデックスの構造は、要求の本文で JSON を使用して定義します。
 
-**要求と要求ヘッダー**:
+**要求ヘッダーを要求して**:
 
-次の例では、サービスの URL エンドポイントを使用する必要があります。具体的には、サービス名と適切な API バージョン (このドキュメントが書かれた時点で最新の API バージョンは "2015-02-28") に注意してください。 要求ヘッダーにもする必要があるしたときに、サービスのプライマリ管理者キーを提供 [サービスを作成する](https://msdn.microsoft.com/library/azure/dn798941.aspx/)します。
+次の例では、サービスの URL エンドポイントを使用する必要があります。具体的には、サービス名と適切な API バージョン (このドキュメントが書かれた時点で最新の API バージョンは "2015-02-28") に注意してください。 要求ヘッダーにもする必要があるしたときに、サービスのプライマリ管理者キーを提供 [サービスを作成する](https://msdn.microsoft.com/library/azure/dn798941.aspx/)です。
 
     POST https://[servicename].search.windows.net/indexes?api-version=2015-02-28
     Content-Type: application/JSON
     api-key:[primary admin key]
+
 
 **要求本文**:
 
@@ -66,8 +64,4 @@ REST API を使用してインデックスを作成するには、Azure Search �
     }
 
 要求が成功した場合、状態コード "201 Created" が返ります。 REST API を使用してインデックスを作成する方法については、次を参照してください [このページ](https://msdn.microsoft.com/library/azure/dn798941.aspx)します。
-
-
-
-
 

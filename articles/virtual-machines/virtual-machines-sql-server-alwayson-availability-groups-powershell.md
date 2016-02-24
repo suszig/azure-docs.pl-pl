@@ -16,13 +16,11 @@
     ms.date="12/04/2015"
     ms.author="jroth" />
 
-
 # Azure VM での AlwaysOn 可用性グループの構成 (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [Azure クラシック ポータル](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
 - [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
-
 
 <br/>
 
@@ -49,7 +47,7 @@ Azure 仮想マシン (VM) を使用すると、データベース管理者は�
 
 - インストールされている、 [Azure PowerShell コマンドレット](..\powershell-install-configure.md)します。
 
-- GUI を使用して、仮想マシン ギャラリーから SQL Server VM をプロビジョニングする方法を知っている。 詳細については、を参照してください [Azure で SQL Server 仮想マシンをプロビジョニング](virtual-machines-provision-sql-server.md)。
+- GUI を使用して、仮想マシン ギャラリーから SQL Server VM をプロビジョニングする方法を知っている。 詳細については、次を参照してください [Azure で SQL Server 仮想マシンのプロビジョニング。](virtual-machines-provision-sql-server.md)
 
 - オンプレミス ソリューションにおける AlwaysOn 可用性グループについて十分に理解している。 詳細については、次を参照してください。 [AlwaysOn 可用性グループ (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)します。
 
@@ -61,8 +59,9 @@ Azure 仮想マシン (VM) を使用すると、データベース管理者は�
         Get-AzurePublishSettingsFile
         Import-AzurePublishSettingsFile <publishsettingsfilepath>
 
-    **Get-AzurePublishgSettingsFile** コマンドを実行すると、管理証明書が自動的に生成され、Azure によってローカル コンピューターにダウンロードされます。 ブラウザーが自動的に開き、Azure サブスクリプションに使用する Microsoft アカウントの資格情報を入力するように求められます。 ダウンロードされた **.publishsettings** ファイルには、Azure サブスクリプションを管理するうえで必要になる情報がすべて含まれています。 このファイルをローカル ディレクトリに保存した後、**Import-AzurePublishSettingsFile** コマンドを使用してインポートしてください。
-    >[AZURE.NOTE] publishsettings ファイルには、Azure のサブスクリプションとサービスの管理に使用される (エンコードされていない) 資格情報が保存されています。 このファイルのセキュリティに関するベスト プラクティスは、このファイルをソース ディレクトリの外 (Libraries\Documents フォルダーなど) に一時的に保存し、インポートが完了したらそのファイルを削除することです。 悪意のあるユーザーが publishsettings ファイルへのアクセス許可を取得すると、Azure サービスを編集、作成、削除できるためです。
+     **Get AzurePublishgSettingsFile** コマンド管理を自動的に生成する Azure での証明書がコンピューターにダウンロードします。 ブラウザーが自動的に開き、Azure サブスクリプションに使用する Microsoft アカウントの資格情報を入力するように求められます。 ダウンロードした **.publishsettings** ファイルには、Azure サブスクリプションを管理する必要があります。 すべての情報が含まれています。 このファイルをローカル ディレクトリに保存して、インポートを使用して、 **Import-azurepublishsettingsfile** コマンドです。
+
+    >[AZURE.NOTE] 発行設定ファイルには、Azure サブスクリプションとサービスの管理に使用される (エンコードされていない) 資格情報が含まれています。 このファイルのセキュリティに関するベスト プラクティスは、このファイルをソース ディレクトリの外 (Libraries\Documents フォルダーなど) に一時的に保存し、インポートが完了したらそのファイルを削除することです。 悪意のあるユーザーが publishsettings ファイルへのアクセス許可を取得すると、Azure サービスを編集、作成、削除できるためです。
 
 1. クラウド IT インフラストラクチャの作成に使用する一連の変数を定義します。
 
@@ -86,13 +85,13 @@ Azure 仮想マシン (VM) を使用すると、データベース管理者は�
 
     後でコマンドを正しく実行できるように、次の点に注意してください。
 
-    - **$storageAccountName** 変数と **$dcServiceName** 変数はそれぞれ、インターネット上でクラウドのストレージ アカウントとクラウド サーバーを識別するために使用されます。一意の値を指定する必要があります。
+    - 変数 **$storageAccountName** と **$dcServiceName** それぞれ、インターネット上にあるクラウドのストレージ アカウントとクラウド サーバーを識別するものですので一意である必要があります。
 
-    - **$affinityGroupName** 変数と **$virtualNetworkName** 変数に指定した名前は、後で使用する仮想ネットワークの構成ドキュメントに設定されます。
+    - 変数に指定した名前 **$affinityGroupName** と **$virtualNetworkName** 後で使用する仮想ネットワーク構成ドキュメントで構成されます。
 
-    - **$sqlImageName** には、SQL Server 2012 Service Pack 1 Enterprise Edition が存在する VM イメージの最新の名前を指定します。
+    - **$sqlImageName** SQL Server 2012 Service Pack 1 Enterprise Edition を格納した VM イメージの最新の名前を指定します。
 
-    - わかりやすくするために、**Contoso! 000** というパスワードをチュートリアル全体で使用します。
+    - わかりやすいように、 **Contoso! 000** チュートリアル全体で使用されるパスワードと同じであります。
 
 1. アフィニティ グループを作成します。
 
@@ -107,7 +106,7 @@ Azure 仮想マシン (VM) を使用すると、データベース管理者は�
         Set-AzureVNetConfig `
             -ConfigurationPath $networkConfigPath
 
-    この構成ファイルの内容は、以下の XML ドキュメントになっています。 簡単に説明すると、このファイルでは、**ContosoAG** というアフィニティ グループの **ContosoNET** という仮想ネットワークを指定し、アドレス空間 **10.10.0.0/16** に加え、**10.10.1.0/24** と **10.10.2.0/24** という 2 つのサブネットがそれぞれ、フロント サブネットとバック サブネットとして設定されています。 フロント サブネットは Microsoft SharePoint などのクライアント アプリケーションを配置できる場所であり、バック サブネットは SQL Server VM を配置する場所です。 **$affinityGroupName** 変数と **$virtualNetworkName** 変数を前の手順で変更した場合は、以下でも対応する名前を変更する必要があります。
+    この構成ファイルの内容は、以下の XML ドキュメントになっています。 呼ばれる仮想ネットワークを指定する、簡単に言えば **ContosoNET** アフィニティ グループと呼ばれる **ContosoAG**, 、アドレス空間があると **10.10.0.0/16** が 2 つのサブネットと **10.10.1.0/24** と **10.10.2.0/24**, 、これは、フロント サブネットとバック サブネットは、それぞれします。 フロント サブネットは Microsoft SharePoint などのクライアント アプリケーションを配置できる場所であり、バック サブネットは SQL Server VM を配置する場所です。 変更した場合、 **$affinityGroupName** と **$virtualNetworkName** 変数する必要がありますも変更が以下の対応する名前。
 
         <NetworkConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
@@ -160,40 +159,39 @@ Azure 仮想マシン (VM) を使用すると、データベース管理者は�
 
     パイプで接続されたこの一連のコマンドは次の処理を実行します。
 
-    - **New-AzureVMConfig** は、VM 構成を作成します。
+    - **New-azurevmconfig** VM 構成を作成します。
 
-    - **Add-AzureProvisioningConfig** は、スタンドアロン Windows サーバーの構成パラメーターを設定します。
+    - **追加 AzureProvisioningConfig** スタンドアロン Windows サーバーの構成パラメーターを提供します。
 
-    - **Add-AzureDataDisk** は、キャッシュ オプションが None に設定されている場合、Active Directory データを格納するために使用するデータ ディスクを追加します。
+    - **追加 AzureDataDisk** キャッシュなし] に設定するオプション、Active Directory データを格納するために使用するデータ ディスクを追加します。
 
-    - **New-AzureVM** は、新しいクラウド サービスを作成し、そこに新しい Azure VM を作成します。
+    - **New-azurevm** 新しいクラウド サービスを作成し、新しいクラウド サービスに新しい Azure VM を作成します。
 
 1. 新しい VM が完全にプロビジョニングされるのを待ち、リモート デスクトップ ファイルを自分の作業ディレクトリにダウンロードします。 新しい Azure VM のプロビジョニングには長い時間がかかるため、while ループでは、使用の準備が整うまで VM に対するポーリングを続けます。
 
-     $VMStatus = Get-AzureVM -ServiceName $dcServiceName -Name $dcServerName
-    
-     While ($VMStatus.InstanceStatus -ne "ReadyRole")
-     {
-         write-host "Waiting for " $VMStatus.Name "... Current Status = " $VMStatus.InstanceStatus
-         Start-Sleep -Seconds 15
-         $VMStatus = Get-AzureVM -ServiceName $dcServiceName -Name $dcServerName
-     }
-    
-     Get-AzureRemoteDesktopFile `
-         -ServiceName $dcServiceName `
-         -Name $dcServerName `
-         -LocalPath "$workingDir$dcServerName.rdp"
+        $VMStatus = Get-AzureVM -ServiceName $dcServiceName -Name $dcServerName
 
+        While ($VMStatus.InstanceStatus -ne "ReadyRole")
+        {
+            write-host "Waiting for " $VMStatus.Name "... Current Status = " $VMStatus.InstanceStatus
+            Start-Sleep -Seconds 15
+            $VMStatus = Get-AzureVM -ServiceName $dcServiceName -Name $dcServerName
+        }
+
+        Get-AzureRemoteDesktopFile `
+            -ServiceName $dcServiceName `
+            -Name $dcServerName `
+            -LocalPath "$workingDir$dcServerName.rdp"
 
 これで、DC サーバーは正常にプロビジョニングされました。 次に、この DC サーバー上の Active Directory ドメインを構成します。 ローカル コンピューターで、PowerShell ウィンドウを開いたままにしておきます。 2 つの SQL Server VM を作成するために、後でまた使用します。
 
 ## ドメイン コントローラーの構成
 
-1. リモート デスクトップ ファイルを起動して、DC サーバーに接続します。 新しい VM の作成時に指定した、コンピューター管理者のユーザー名 (AzureAdmin) とパスワード (**Contoso!000**) を使用します。
+1. リモート デスクトップ ファイルを起動して、DC サーバーに接続します。 コンピューター管理者の AzureAdmin ユーザー名とパスワードを使用して **Contoso! 000**, 、新しい VM の作成時に指定しました。
 
 1. 管理者モードで PowerShell ウィンドウを開きます。
 
-1. 次の **DCPROMO.EXE** コマンドを実行して、**corp.contoso.com** ドメインをセットアップし、データ ディレクトリをドライブ M に配置します。
+1. 次のコマンド実行 **DCPROMO です。EXE** コマンドをセットアップ、 **corp.contoso.com** ドメイン、M ドライブ上のデータ ディレクトリとします。
 
         dcpromo.exe `
             /unattend `
@@ -213,7 +211,7 @@ Azure 仮想マシン (VM) を使用すると、データベース管理者は�
 
     コマンドが完了すると、VM が自動的に再起動されます。
 
-1. リモート デスクトップ ファイルを起動して、DC サーバーに再接続します。 今回は、**CORP\Administrator** としてログインします。
+1. リモート デスクトップ ファイルを起動して、DC サーバーに再接続します。 この時点でログイン **corp \administrator**します。
 
 1. 管理者モードで PowerShell ウィンドウを開き、次のコマンドを使用して Active Directory PowerShell モジュールをインポートします。
 
@@ -241,9 +239,9 @@ Azure 仮想マシン (VM) を使用すると、データベース管理者は�
             -ChangePasswordAtLogon $false `
             -Enabled $true
 
-    **CORP\Install** は、SQL Server サービスのインスタンス、WSFC クラスター、および可用性グループに関連するすべての構成に使用されます。 **CORP\SQLSvc1** と **CORP\SQLSvc2** は、2 つの SQL Server VM の SQL Server サービス アカウントとして使用されます。
+    **Corp \install** は SQL Server サービスのインスタンス、WSFC クラスターおよび可用性グループに関連するすべての構成に使用します。 **Corp \sqlsvc1** と **corp \sqlsvc2** は 2 つの SQL Server Vm の SQL Server サービス アカウントとして使用します。
 
-1. 次に、以下のコマンドを実行して、ドメインにコンピューター オブジェクトを作成する権限を **CORP\Install** に付与します。
+1. 次に、付与するには、次のコマンドを実行 **corp \install** ドメインにコンピューター オブジェクトを作成する権限です。
 
         Cd ad:
         $sid = new-object System.Security.Principal.SecurityIdentifier (Get-ADUser "Install").SID
@@ -254,7 +252,7 @@ Azure 仮想マシン (VM) を使用すると、データベース管理者は�
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
 
-    上記で指定した GUID は、コンピューター オブジェクト タイプの GUID です。 **CORP\Install** アカウントには、WSFC クラスターの Active Directory オブジェクトを作成するための **Read All Properties** 権限と **Create Computer Objects** 権限が必要です。 **Read All Properties** 権限については、CORP\Install に既定で割り当てられるため、明示的に付与する必要はありません。 WSFC クラスターを作成するために必要なアクセス許可の詳細については、次を参照してください。 [フェールオーバー クラスター ステップ バイ ステップ ガイド: Active Directory アカウントの構成](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx)します。
+    上記で指定した GUID は、コンピューター オブジェクト タイプの GUID です。  **Corp \install** ニーズを考慮、 **すべてのプロパティの読み取り** と **コンピューター オブジェクトの作成** 、WSFC クラスターのアクティブな直接オブジェクトを作成するためにアクセスを許可します。  **すべてのプロパティの読み取り** 権限既に与えられ、corp \install に既定では、明示的に付与する必要はありませんので。 WSFC クラスターを作成するために必要なアクセス許可の詳細については、次を参照してください。 [フェールオーバー クラスター ステップ バイ ステップ ガイド: Active Directory アカウントの構成](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx)します。
 
     これで Active Directory オブジェクトとユーザー オブジェクトの構成が終了したので、2 つの SQL Server VM を作成し、このドメインに参加させます。
 
@@ -273,9 +271,9 @@ Azure 仮想マシン (VM) を使用すると、データベース管理者は�
         $dataDiskSize = 100
         $dnsSettings = New-AzureDns -Name "ContosoBackDNS" -IPAddress "10.10.0.4"
 
-    IP アドレス **10.10.0.4** は、通常、Azure Virtual Network の **10.10.0.0/16** サブネットに作成する最初の VM に割り当てられます。 **IPCONFIG** を実行して、これが DC サーバーのアドレスであることを確認します。
+    IP アドレス **10.10.0.4** で作成する最初の VM に割り当てられた通常、 **10.10.0.0/16** 、Azure の仮想ネットワークのサブネット。 実行して、これは、DC サーバーのアドレスを確認する必要があります **IPCONFIG**します。
 
-1. 以下のパイプ処理されたコマンドを実行して、WSFC クラスターの最初の VM を **ContosoQuorum** という名前で作成します。
+1. 次は、という名前の WSFC クラスター内の最初の VM を作成するためのコマンドをパイプ処理された実行 **ContosoQuorum**:
 
         New-AzureVMConfig `
             -Name $quorumServerName `
@@ -303,117 +301,117 @@ Azure 仮想マシン (VM) を使用すると、データベース管理者は�
 
     上記のコマンドに関して、次の点に注意してください。
 
-    - **New-AzureVMConfig** は、希望する可用性セット名で VM 構成を作成します。 その後作成される VM は、同じ可用性セットに参加するように、同じ可用性セット名を使用します。
+    - **New-azurevmconfig** 任意の可用性セット名で VM 構成を作成します。 その後作成される VM は、同じ可用性セットに参加するように、同じ可用性セット名を使用します。
 
-    - **Add-AzureProvisioningConfig** は、作成した Active Directory ドメインに VM を参加させます。
+    - **追加 AzureProvisioningConfig** VM を作成した Active Directory ドメインに参加させます。
 
-    - **Set-AzureSubnet** は、VM をバック サブネットに配置します。
+    - **Set-azuresubnet** バック サブネットに VM を配置します。
 
-    - **New-AzureVM** は、新しいクラウド サービスを作成し、そこに新しい Azure VM を作成します。 **DnsSettings** パラメーターは、新しいクラウド サービス内にあるサーバーの DNS サーバーが、DC サーバーの IP アドレスである **10.10.0.4** を持つことを指定します。 このパラメーターは、クラウド サービスの新しい VM を有効にして、Active Directory ドメインに正常に参加できるようにするために必要です。 このパラメーターを指定しない場合は、VM で IPv4 設定を手動で設定して、VM がプロビジョニングされた後に DC サーバーをプライマリ DNS サーバーとして使用できるようにしてから、VM を Active Directory ドメインに参加させる必要があります。
+    - **New-azurevm** 新しいクラウド サービスを作成し、新しいクラウド サービスに新しい Azure VM を作成します。  **DnsSettings** パラメーターは、新しいクラウド サービスにサーバーの DNS サーバーに IP アドレスがあることを指定 **10.10.0.4**, 、DC サーバーの IP アドレスであります。 このパラメーターは、クラウド サービスの新しい VM を有効にして、Active Directory ドメインに正常に参加できるようにするために必要です。 このパラメーターを指定しない場合は、VM で IPv4 設定を手動で設定して、VM がプロビジョニングされた後に DC サーバーをプライマリ DNS サーバーとして使用できるようにしてから、VM を Active Directory ドメインに参加させる必要があります。
 
-1. 以下のパイプ処理されたコマンドを実行して、**ContosoSQL1** および **ContosoSQL2** という名前の SQL Server VM を作成します。
+1. 次は、という名前の SQL Server Vm を作成するためのコマンドをパイプ処理された実行 **ContosoSQL1** と **ContosoSQL2**します。
 
-     # Create ContosoSQL1...
-     New-AzureVMConfig `
-         -Name $sql1ServerName `
-         -InstanceSize Large `
-         -ImageName $sqlImageName `
-         -MediaLocation "$storageAccountContainer$sql1ServerName.vhd" `
-         -AvailabilitySetName $availabilitySetName `
-         -HostCaching "ReadOnly" `
-         -DiskLabel "OS" |
-         Add-AzureProvisioningConfig `
-             -WindowsDomain `
-             -AdminUserName $vmAdminUser `
-             -Password $vmAdminPassword `
-             -DisableAutomaticUpdates `
-             -Domain $domainName `
-             -JoinDomain $FQDN `
-             -DomainUserName $vmAdminUser `
-             -DomainPassword $vmAdminPassword |
-             Set-AzureSubnet `
-                 -SubnetNames $subnetName |
-                 Add-AzureEndpoint `
-                     -Name "SQL" `
-                     -Protocol "tcp" `
-                     -PublicPort 1 `
-                     -LocalPort 1433 |
-                     New-AzureVM `
-                         -ServiceName $sqlServiceName
-    
-     # Create ContosoSQL2...
-     New-AzureVMConfig `
-         -Name $sql2ServerName `
-         -InstanceSize Large `
-         -ImageName $sqlImageName `
-         -MediaLocation "$storageAccountContainer$sql2ServerName.vhd" `
-         -AvailabilitySetName $availabilitySetName `
-         -HostCaching "ReadOnly" `
-         -DiskLabel "OS" |
-         Add-AzureProvisioningConfig `
-             -WindowsDomain `
-             -AdminUserName $vmAdminUser `
-             -Password $vmAdminPassword `
-             -DisableAutomaticUpdates `
-             -Domain $domainName `
-             -JoinDomain $FQDN `
-             -DomainUserName $vmAdminUser `
-             -DomainPassword $vmAdminPassword |
-             Set-AzureSubnet `
-                 -SubnetNames $subnetName |
-                 Add-AzureEndpoint `
-                     -Name "SQL" `
-                     -Protocol "tcp" `
-                     -PublicPort 2 `
-                     -LocalPort 1433 |
-                     New-AzureVM `
-                         -ServiceName $sqlServiceName
+        # Create ContosoSQL1...
+        New-AzureVMConfig `
+            -Name $sql1ServerName `
+            -InstanceSize Large `
+            -ImageName $sqlImageName `
+            -MediaLocation "$storageAccountContainer$sql1ServerName.vhd" `
+            -AvailabilitySetName $availabilitySetName `
+            -HostCaching "ReadOnly" `
+            -DiskLabel "OS" |
+            Add-AzureProvisioningConfig `
+                -WindowsDomain `
+                -AdminUserName $vmAdminUser `
+                -Password $vmAdminPassword `
+                -DisableAutomaticUpdates `
+                -Domain $domainName `
+                -JoinDomain $FQDN `
+                -DomainUserName $vmAdminUser `
+                -DomainPassword $vmAdminPassword |
+                Set-AzureSubnet `
+                    -SubnetNames $subnetName |
+                    Add-AzureEndpoint `
+                        -Name "SQL" `
+                        -Protocol "tcp" `
+                        -PublicPort 1 `
+                        -LocalPort 1433 |
+                        New-AzureVM `
+                            -ServiceName $sqlServiceName
 
- 上記のコマンドに関して、次の点に注意してください。
+        # Create ContosoSQL2...
+        New-AzureVMConfig `
+            -Name $sql2ServerName `
+            -InstanceSize Large `
+            -ImageName $sqlImageName `
+            -MediaLocation "$storageAccountContainer$sql2ServerName.vhd" `
+            -AvailabilitySetName $availabilitySetName `
+            -HostCaching "ReadOnly" `
+            -DiskLabel "OS" |
+            Add-AzureProvisioningConfig `
+                -WindowsDomain `
+                -AdminUserName $vmAdminUser `
+                -Password $vmAdminPassword `
+                -DisableAutomaticUpdates `
+                -Domain $domainName `
+                -JoinDomain $FQDN `
+                -DomainUserName $vmAdminUser `
+                -DomainPassword $vmAdminPassword |
+                Set-AzureSubnet `
+                    -SubnetNames $subnetName |
+                    Add-AzureEndpoint `
+                        -Name "SQL" `
+                        -Protocol "tcp" `
+                        -PublicPort 2 `
+                        -LocalPort 1433 |
+                        New-AzureVM `
+                            -ServiceName $sqlServiceName
 
- - **New-AzureVMConfig** は、DC サーバーと同じ可用性セット名を使用し、仮想マシン ギャラリーの SQL Server 2012 Service Pack 1 Enterprise Edition イメージを使用します。 また、オペレーティング システム ディスクを読み取りキャッシュ専用 (書き込みキャッシュなし) に設定しています。 データベース ファイルは、VM にアタッチする専用のデータ ディスクに移行し、読み取りキャッシュと書き込みキャッシュなしで構成することをお勧めします。 ただし、次善の処理は、オペレーティング システム ディスクで書き込みキャッシュを削除することです。オペレーティング システム ディスクでは、読み取りキャッシュを削除できないためです。
+    上記のコマンドに関して、次の点に注意してください。
 
- - **Add-AzureProvisioningConfig** は、作成した Active Directory ドメインに VM を参加させます。
+    - **New-azurevmconfig** 、DC サーバーと同じ可用性セット名を使用し、SQL Server 2012 Service Pack 1 Enterprise Edition イメージを使用して、仮想マシン ギャラリー内です。 また、オペレーティング システム ディスクを読み取りキャッシュ専用 (書き込みキャッシュなし) に設定しています。 データベース ファイルは、VM にアタッチする専用のデータ ディスクに移行し、読み取りキャッシュと書き込みキャッシュなしで構成することをお勧めします。 ただし、次善の処理は、オペレーティング システム ディスクで書き込みキャッシュを削除することです。オペレーティング システム ディスクでは、読み取りキャッシュを削除できないためです。
 
- - **Set-AzureSubnet** は、VM をバック サブネットに配置します。
+    - **追加 AzureProvisioningConfig** VM を作成した Active Directory ドメインに参加させます。
 
- - **Add-AzureEndpoint** は、クライアント アプリケーションからインターネット上の SQL Server サービス インスタンスにアクセスできるように、アクセス エンドポイントを追加します。 ContosoSQL1 と ContosoSQL2 には、異なるポートが用意されます。
+    - **Set-azuresubnet** バック サブネットに VM を配置します。
 
- - **New-AzureVM** は、ContosoQuorum と同じクラウド サービスに新しい SQL Server VM を作成します。 VM を同じ可用性セットに含める場合は、VM を同じクラウド サービスに配置する必要があります。
+    - **追加 AzureEndpoint** アクセス エンドポイントを追加して、クライアント アプリケーションは、インターネット上の SQL Server サービス インスタンスにアクセスできるようにします。 ContosoSQL1 と ContosoSQL2 には、異なるポートが用意されます。
+
+    - **New-azurevm** ContosoQuorum と同じクラウド サービスに新しい SQL Server VM を作成します。 VM を同じ可用性セットに含める場合は、VM を同じクラウド サービスに配置する必要があります。
 
 1. 各 VM が完全にプロビジョニングされるのを待ち、リモート デスクトップ ファイルを自分の作業ディレクトリにダウンロードします。 for ループは 3 つの新しい VM を順に処理し、各 VM に対して、最上位の中かっこ内にあるコマンドを実行します。
 
-     Foreach ($VM in $VMs = Get-AzureVM -ServiceName $sqlServiceName)
-     {
-         write-host "Waiting for " $VM.Name "..."
-    
-         # Loop until the VM status is "ReadyRole"
-         While ($VM.InstanceStatus -ne "ReadyRole")
-         {
-             write-host "  Current Status = " $VM.InstanceStatus
-             Start-Sleep -Seconds 15
-             $VM = Get-AzureVM -ServiceName $VM.ServiceName -Name $VM.InstanceName
-         }
-    
-         write-host "  Current Status = " $VM.InstanceStatus
-    
-         # Download remote desktop file
-         Get-AzureRemoteDesktopFile -ServiceName $VM.ServiceName -Name $VM.InstanceName -LocalPath "$workingDir$($VM.InstanceName).rdp"
-     }
+        Foreach ($VM in $VMs = Get-AzureVM -ServiceName $sqlServiceName)
+        {
+            write-host "Waiting for " $VM.Name "..."
 
- これで SQL Server VM がプロビジョニングされ、実行されている状態になりましたが、これらは SQL Server と共に既定のオプションでインストールされています。
+            # Loop until the VM status is "ReadyRole"
+            While ($VM.InstanceStatus -ne "ReadyRole")
+            {
+                write-host "  Current Status = " $VM.InstanceStatus
+                Start-Sleep -Seconds 15
+                $VM = Get-AzureVM -ServiceName $VM.ServiceName -Name $VM.InstanceName
+            }
+
+            write-host "  Current Status = " $VM.InstanceStatus
+
+            # Download remote desktop file
+            Get-AzureRemoteDesktopFile -ServiceName $VM.ServiceName -Name $VM.InstanceName -LocalPath "$workingDir$($VM.InstanceName).rdp"
+        }
+
+    これで SQL Server VM がプロビジョニングされ、実行されている状態になりましたが、これらは SQL Server と共に既定のオプションでインストールされています。
 
 ## WSFC クラスター VM の初期化
 
 このセクションでは、WSFC クラスターと SQL Server のインストールで使用する 3 台のサーバーを変更する必要があります。 具体的には次の処理が行われます。
 
-- (すべてのサーバー) **フェールオーバー クラスタリング**機能をインストールする必要があります。
+- (すべてのサーバー)インストールする必要がある、 **フェールオーバー クラスタ リング** 機能します。
 
-- (すべてのサーバー) コンピューターの**管理者**として **CORP\Install** を追加する必要があります。
+- (すべてのサーバー)追加する必要があります。 **corp \install** マシンと **管理者**します。
 
-- (ContosoSQL1 と ContosoSQL2 のみ) 既定のデータベースの **sysadmin** ロールとして **CORP\Install** を追加する必要があります。
+- (ContosoSQL1 と ContosoSQL2 のみ)追加する必要があります。 **corp \install** として、 **sysadmin** 既定のデータベースの役割です。
 
-- (ContosoSQL1 と ContosoSQL2 のみ) 次の権限を持つログインとして **NT AUTHORITY\System** を追加する必要があります。
+- (ContosoSQL1 と ContosoSQL2 のみ)追加する必要があります。 **NT authority \system** 次のアクセス許可を持つログインとして。
 
     - 可用性グループの変更
 
@@ -421,13 +419,13 @@ Azure 仮想マシン (VM) を使用すると、データベース管理者は�
 
     - サーバー状態の表示
 
-- (ContosoSQL1 と ContosoSQL2 のみ) SQL Server VM では、**TCP** プロトコルが既に有効になっています。 ただし、SQL Server にリモート アクセスするためには、ファイアウォールを解放する必要があります。
+- (ContosoSQL1 と ContosoSQL2 のみ) **TCP** プロトコルは、SQL Server VM を既に有効にします。 ただし、SQL Server にリモート アクセスするためには、ファイアウォールを解放する必要があります。
 
-これで開始する準備ができました。 まず **ContosoQuorum** で、次の手順に従ってください。
+これで開始する準備ができました。 始まる **ContosoQuorum**, 、次の手順に従います。
 
-1. リモート デスクトップ ファイルを起動して **ContosoQuorum** に接続します。 VM の作成時に指定した、コンピューター管理者のユーザー名 (**AzureAdmin**) とパスワード (**Contoso!000**) を使用します。
+1. 接続 **ContosoQuorum** リモート デスクトップ ファイルを起動しています。 コンピューター管理者のユーザー名を使用して **AzureAdmin** とパスワード **Contoso! 000**, 、Vm の作成時に指定しました。
 
-1. コンピューターが正常に **corp.contoso.com** に参加していることを確認します。
+1. コンピュータに正常に結合されていることを確認 **corp.contoso.com**します。
 
 1. SQL Server のインストールで、自動化された初期化タスクの実行が完了してから、先に進みます。
 
@@ -438,7 +436,7 @@ Azure 仮想マシン (VM) を使用すると、データベース管理者は�
         Import-Module ServerManager
         Add-WindowsFeature Failover-Clustering
 
-1. **CORP\Install** をローカル管理者として追加します。
+1. 追加 **corp \install** ローカル管理者として。
 
         net localgroup administrators "CORP\Install" /Add
 
@@ -446,12 +444,11 @@ Azure 仮想マシン (VM) を使用すると、データベース管理者は�
 
         logoff.exe
 
+次に、初期化 **ContosoSQL1** と **ContosoSQL2**します。 次の手順に従います。どちらの SQL Server VM でも手順は同じです。
 
-次に、**ContosoSQL1** と **ContosoSQL2** を初期化します。 次の手順に従います。どちらの SQL Server VM でも手順は同じです。
+1. リモート デスクトップ ファイルを起動して、2 つの SQL Server VM に接続します。 コンピューター管理者のユーザー名を使用して **AzureAdmin** とパスワード **Contoso! 000**, 、Vm の作成時に指定しました。
 
-1. リモート デスクトップ ファイルを起動して、2 つの SQL Server VM に接続します。 VM の作成時に指定した、コンピューター管理者のユーザー名 (**AzureAdmin**) とパスワード (**Contoso!000**) を使用します。
-
-1. コンピューターが正常に **corp.contoso.com** に参加していることを確認します。
+1. コンピュータに正常に結合されていることを確認 **corp.contoso.com**します。
 
 1. SQL Server のインストールで、自動化された初期化タスクの実行が完了してから、先に進みます。
 
@@ -462,7 +459,7 @@ Azure 仮想マシン (VM) を使用すると、データベース管理者は�
         Import-Module ServerManager
         Add-WindowsFeature Failover-Clustering
 
-1. **CORP\Install** をローカル管理者として追加します。
+1. 追加 **corp \install** ローカル管理者として
 
         net localgroup administrators "CORP\Install" /Add
 
@@ -471,12 +468,12 @@ Azure 仮想マシン (VM) を使用すると、データベース管理者は�
         Set-ExecutionPolicy -Execution RemoteSigned -Force
         Import-Module -Name "sqlps" -DisableNameChecking
 
-1. 既定の SQL Server インスタンスの sysadmin ロールとして **CORP\Install** を追加します。
+1. 追加 **corp \install** 既定の SQL Server インスタンスの sysadmin ロールとして。
 
         net localgroup administrators "CORP\Install" /Add
         Invoke-SqlCmd -Query "EXEC sp_addsrvrolemember 'CORP\Install', 'sysadmin'" -ServerInstance "."
 
-1. 前に説明した 3 つの権限を持つログインとして **NT AUTHORITY\System** を追加します。
+1. 追加 **NT authority \system** 上記で説明した 3 つの権限を持つログインとして。
 
         Invoke-SqlCmd -Query "CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS" -ServerInstance "."
         Invoke-SqlCmd -Query "GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
@@ -491,12 +488,11 @@ Azure 仮想マシン (VM) を使用すると、データベース管理者は�
 
         logoff.exe
 
-
-これで可用性グループを構成する準備が整いました。 **ContosoSQL1** 上の作業はすべて、SQL Server PowerShell プロバイダーを使用して行います。
+これで可用性グループを構成する準備が整いました。 上のすべての作業を実行する SQL Server PowerShell プロバイダーを使用して、 **ContosoSQL1**します。
 
 ## 可用性グループの構成
 
-1. リモート デスクトップ ファイルを起動して **ContosoSQL1** に再度接続します。 ログインには、コンピューター アカウントではなく、**CORP\Install** を使用してください。
+1. 接続 **ContosoSQL1** リモート デスクトップ ファイルを起動してもう一度です。 使用してコンピューター アカウントを使用してではなく、ログイン **corp \install**します。
 
 1. 管理者モードで PowerShell ウィンドウを開きます。
 
@@ -547,7 +543,7 @@ Azure 仮想マシン (VM) を使用すると、データベース管理者は�
         Set-ExecutionPolicy Unrestricted -Force
         .\CreateAzureFailoverCluster.ps1 -ClusterName "$clusterName" -ClusterNode "$server1","$server2","$serverQuorum"
 
-1. **ContosoSQL1** と **ContosoSQL2** で、既定の SQL Server インスタンスの AlwaysOn 可用性グループを有効にします。
+1. 既定の SQL Server インスタンスで AlwaysOn 可用性グループを有効にする **ContosoSQL1** と **ContosoSQL2**します。
 
         Enable-SqlAlwaysOn `
             -Path SQLSERVER:\SQL\$server1\Default `
@@ -567,7 +563,7 @@ Azure 仮想マシン (VM) を使用すると、データベース管理者は�
         net share backup=$backup "/grant:$acct1,FULL" "/grant:$acct2,FULL"
         icacls.exe "$backup" /grant:r ("$acct1" + ":(OI)(CI)F") ("$acct2" + ":(OI)(CI)F")
 
-1. データベースを作成、 **ContosoSQL1** と呼ばれる **MyDB1**, 、完全バックアップとログのバックアップの両方を実行およびでそれらを復元 **ContosoSQL2** で、 ** WITH NORECOVERY ** オプション。
+1. データベースを作成、 **ContosoSQL1** と呼ばれる **MyDB1**, 、完全バックアップとログのバックアップの両方を実行およびでそれらを復元 **ContosoSQL2** で、* * WITH NORECOVERY * * オプション。
 
         Invoke-SqlCmd -Query "CREATE database $db"
         Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server1
@@ -577,25 +573,25 @@ Azure 仮想マシン (VM) を使用すると、データベース管理者は�
 
 1. SQL Server VM 上に可用性グループのエンドポイントを作成し、それらのエンドポイントに適切な権限を設定します。
 
-     $endpoint =
-         New-SqlHadrEndpoint MyMirroringEndpoint `
-         -Port 5022 `
-         -Path "SQLSERVER:\SQL\$server1\Default"
-     Set-SqlHadrEndpoint `
-         -InputObject $endpoint `
-         -State "Started"
-     $endpoint =
-         New-SqlHadrEndpoint MyMirroringEndpoint `
-         -Port 5022 `
-         -Path "SQLSERVER:\SQL\$server2\Default"
-     Set-SqlHadrEndpoint `
-         -InputObject $endpoint `
-         -State "Started"
-    
-     Invoke-SqlCmd -Query "CREATE LOGIN [$acct2] FROM WINDOWS" -ServerInstance $server1
-     Invoke-SqlCmd -Query "GRANT CONNECT ON ENDPOINT::[MyMirroringEndpoint] TO [$acct2]" -ServerInstance $server1
-     Invoke-SqlCmd -Query "CREATE LOGIN [$acct1] FROM WINDOWS" -ServerInstance $server2
-     Invoke-SqlCmd -Query "GRANT CONNECT ON ENDPOINT::[MyMirroringEndpoint] TO [$acct1]" -ServerInstance $server2
+        $endpoint =
+            New-SqlHadrEndpoint MyMirroringEndpoint `
+            -Port 5022 `
+            -Path "SQLSERVER:\SQL\$server1\Default"
+        Set-SqlHadrEndpoint `
+            -InputObject $endpoint `
+            -State "Started"
+        $endpoint =
+            New-SqlHadrEndpoint MyMirroringEndpoint `
+            -Port 5022 `
+            -Path "SQLSERVER:\SQL\$server2\Default"
+        Set-SqlHadrEndpoint `
+            -InputObject $endpoint `
+            -State "Started"
+
+        Invoke-SqlCmd -Query "CREATE LOGIN [$acct2] FROM WINDOWS" -ServerInstance $server1
+        Invoke-SqlCmd -Query "GRANT CONNECT ON ENDPOINT::[MyMirroringEndpoint] TO [$acct2]" -ServerInstance $server1
+        Invoke-SqlCmd -Query "CREATE LOGIN [$acct1] FROM WINDOWS" -ServerInstance $server2
+        Invoke-SqlCmd -Query "GRANT CONNECT ON ENDPOINT::[MyMirroringEndpoint] TO [$acct1]" -ServerInstance $server2
 
 1. 可用性レプリカを作成します。
 
@@ -630,14 +626,8 @@ Azure 仮想マシン (VM) を使用すると、データベース管理者は�
             -Path "SQLSERVER:\SQL\$server2\Default\AvailabilityGroups\$ag" `
             -Database $db
 
-
 ## 次のステップ
-
-これで、Azure に可用性グループを作成して、SQL Server AlwaysOn を実装できました。 この可用性グループのリスナーを構成するのを参照してください。 [Azure で AlwaysOn 可用性グループ用の ILB リスナーを構成する](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)します。
+これで、Azure に可用性グループを作成して、SQL Server AlwaysOn を実装できました。 この可用性グループのリスナーを構成するのを参照してください。 [Azure で AlwaysOn 可用性グループ用の ILB リスナーを構成する](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)です。
 
 Azure での SQL Server の使用についての他の情報を参照してください。 [Azure 仮想マシン上の SQL Server](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)します。
-
-
-
-
 

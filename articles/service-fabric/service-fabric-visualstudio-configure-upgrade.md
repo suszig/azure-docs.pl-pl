@@ -15,54 +15,54 @@
    ms.date="10/08/2015"
    ms.author="cawaMS" />
 
-
 # Visual Studio での Service Fabric アプリケーションのアップグレードの構成
 
-Visual Studio Service Fabric Tools は、ローカルまたはリモート クラスターへの発行のアップグレード サポートを提供します。 テストおよびデバッグ中にアプリケーションを置き換えるのではなく、アプリケーションを新しいバージョンにアップグレードすることには、2 つの利点があります。1 つは、アップグレード中にアプリケーション データが失われないことです。もう 1 つは、複数のアップグレード ドメインにわたって十分な数のサービス インスタンスが存在すれば、アップグレード中にサービスの中断が発生しないので、高可用性が実現されることです。 アプリケーションのアップグレード中に、アプリケーションに対してテストを実行できます。
+Visual Studio Service Fabric Tools は、ローカルまたはリモート クラスターへの発行のアップグレード サポートを提供します。 テストおよびデバッグ中にアプリケーションを置き換えるのではなく、アプリケーションを新しいバージョンにアップグレードすることには、2 つの利点があります。1 つは、アップグレード中にアプリケーション データが失われないことです。もう 1 つは、複数のアップグレード ドメインにわたって十分な数のサービス インスタンスが存在すれば、アップグレード中にサービスの中断が発生しないので、高可用性が実現されることです。 アプリケーションのアップグレード中に、アプリケーションに対してテストを実行できます。 
 
 ## アップグレードに必要なパラメーター
 
 標準とアップグレードの 2 種類のデプロイメントから選択できます。 標準デプロイメントではクラスター上の以前のデプロイメント情報とデータが消去され、アップグレード デプロイメントではこれらが保持されます。 Visual Studio で Service Fabric アプリケーションをアップグレードするときには、アプリケーション アップグレード パラメーターと正常性チェック ポリシーを提供する必要があります。 アプリケーション アップグレード パラメーターによってアップグレードが制御され、正常性チェック ポリシーによってアップグレードが成功したかどうかが判断されます。 参照してください [Service Fabric アプリケーションのアップグレード: アップグレード パラメーター](service-fabric-application-upgrade-parameters.md) 詳細です。
 
-*Monitored*、*UnmonitoredAuto*、*Manual* の 3 種類のアップグレード モードがあります。
+次の 3 つのアップグレード モードがあります: *監視*, 、*UnmonitoredAuto*, 、および *手動*します。
 
-  - *Monitored* アップグレードでは、アップグレードとアプリケーションの正常性チェックが自動化されます。
+  - A *監視* アップグレードは、アップグレードを自動化し、アプリケーションの正常性チェックします。
 
   - * UnmonitoredAuto* アップグレードでは、アップグレードは自動化されますが、アプリケーションの正常性チェックは省略されます。
 
-  - *Manual* アップグレードを実行する場合は、各アップグレード ドメインを手動でアップグレードする必要があります。
+  - 実行すると、 *手動* 各アップグレード ドメインを手動でアップグレードする必要がアップグレードされます。
 
 各アップグレード モードには、それぞれ異なるパラメーター セットが必要です。 参照してください [アプリケーション アップグレード パラメーター](service-fabric-application-upgrade-parameters.md) を使用できるアップグレード オプションの詳細を参照してください。
 
 ## Visual Studio での Service Fabric アプリケーションのアップグレード
 
-Visual Studio Service Fabric Tools を使用して Service Fabric アプリケーションをアップグレードする場合、**[アプリケーションのアップグレード]** チェック ボックスをオンにして、発行プロセスが標準デプロイメントではなくアップグレード デプロイメントであることを指定できます。
+Service Fabric アプリケーションをアップグレードする Visual Studio Service Fabric ツールを使用している場合は、発行プロセスをチェックして、日常的な展開ではなく、アップグレードを指定できます、 **アプリケーションをアップグレード** チェック ボックスをオンします。
 
 ### アップグレード パラメーターを構成するには
 
-1. チェック ボックスの横の **[設定]** ボタンをクリックします。 **[アップグレード パラメーターの編集]** ダイアログが表示されます。 **[アップグレード パラメーターの編集]** ダイアログでは、*Monitored*、*UnmonitoredAuto*、*UnmonitoredManual* の各アップグレード モードをサポートしています。
+1. クリックして、 **設定** チェック ボックスの横にあるボタンをクリックします。  **アップグレード パラメーターの編集** ダイアログが表示されます。  **アップグレード パラメーターの編集** ダイアログをサポートしています、 *監視*, 、*UnmonitoredAuto* と *UnmonitoredManual* モードをアップグレードします。
 
 2. 使用するアップグレード モードを選択し、パラメーター グリッドに値を入力します。
 
-    各パラメーターには既定値があります。 オプション パラメーターの *DefaultServiceTypeHealthPolicy* パラメーターは、ハッシュ テーブルの入力を受け取ります。 *DefaultServiceTypeHealthPolicy* のハッシュ テーブルの入力形式の例を次に示します。
+    各パラメーターには既定値があります。 省略可能なパラメーター *DefaultServiceTypeHealthPolicy* パラメーターには、ハッシュ テーブルの入力します。 ハッシュ テーブルの入力形式の例を次に示します *DefaultServiceTypeHealthPolicy*:
 
     ```
     @{ ConsiderWarningAsError = "false"; MaxPercentUnhealthyDeployedApplications = 0; MaxPercentUnhealthyServices = 0; MaxPercentUnhealthyPartitionsPerService = 0; MaxPercentUnhealthyReplicasPerPartition = 0 }
     ```
-
-    *ServiceTypeHealthPolicyMap* は、次の形式のハッシュ テーブルの入力を受け取るもう 1 つのオプション パラメーターです。
+    
+    *ServiceTypeHealthPolicyMap* を次の形式でハッシュ テーブルの入力を受け取るもう 1 つの省略可能なパラメーターには。
 
     ```    
     @ {"ServiceTypeName" : "MaxPercentUnhealthyPartitionsPerService,MaxPercentUnhealthyReplicasPerPartition,MaxPercentUnhealthyServices"}
     ```
 
-    実際の例を次に示します。
+
+    Here's a real-life example:
 
     ```
     @{ "ServiceTypeName01" = "5,10,5"; "ServiceTypeName02" = "5,5,5" }
     ```
 
-3. *UnmonitoredManual* アップグレード モードを選択した場合は、PowerShell コンソールを手動で起動してアップグレード プロセスを続行し、プロセスを完了する必要があります。 参照してください [Service Fabric アプリケーションのアップグレード: 高度なトピック](service-fabric-application-upgrade-advanced.md) については手動によるアップグレードの動作
+3. 選択した場合 *UnmonitoredManual* アップグレード モードは、手動で続行され、アップグレード処理を終了する PowerShell コンソールを開始する必要があります。 参照してください [Service Fabric アプリケーションのアップグレード: 高度なトピック](service-fabric-application-upgrade-advanced.md) については手動によるアップグレードの動作
 
 ## PowerShell を使用したアプリケーションのアップグレード
 
@@ -88,11 +88,6 @@ Service Fabric アプリケーションの各サービスでは、既定値を�
 </Policies>
 ```
 ## 次のステップ
-
 アプリケーションの展開に関する詳細については、次を参照してください。 [Azure Service Fabric の既存のアプリケーションを展開](service-fabric-deploy-existing-app.md)します。
-
-
-
-
 
 

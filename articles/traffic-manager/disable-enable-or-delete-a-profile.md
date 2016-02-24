@@ -15,8 +15,8 @@
    ms.date="12/02/2015"
    ms.author="joaoma" />
 
-
 # プロファイルの無効化、有効化、または削除
+
 
 構成されたエンドポイントに対するユーザーの要求を参照しないように、既存の Traffic Manager プロファイルを無効にすることができます。 Traffic Manager プロファイルを無効にすると、プロファイル自体とプロファイルに含まれる情報は元のまま残ります。このため、Traffic Manager インターフェイスで編集することもできます。 プロファイルを再度有効にする場合は、Azure ポータルから設定するだけで、参照が再開されます。 Traffic Manager プロファイルは、Azure ポータルで作成すると自動的に有効になります。
 
@@ -36,25 +36,22 @@
 
 ## プロファイルの削除
 
+
 1. インターネット DNS サーバー上の DNS リソース レコードが、Traffic Manager プロファイルのドメイン名を指す CNAME リソース レコードを使用していないことを確認します。
-1. 削除するプロファイルを選択します。 プロファイルを選択するには、[Traffic Manager] ページのプロファイル名の横の列をクリックして、
+1. 削除するプロファイルを選択します。 プロファイルを選択するには、[Traffic Manager] ページのプロファイル名の横の列をクリックして、 
 1. プロファイルを強調表示します。 プロファイルの名前または名前の横の矢印をクリックしないでください。クリックすると、プロファイルの設定ページへ移動します。
 1. プロファイルを選択した後に、ページ下部にある [削除] をクリックします。
 
 ## 次のステップ
 
-[トラフィック マネージャー - 無効または有効にするエンドポイント](disable-or-enable-an-endpoint.md)
+[Traffic Manager - エンドポイントの無効化または有効化](disable-or-enable-an-endpoint.md)
 
-[フェールオーバーのルーティング方法を構成します。](traffic-manager-configure-failover-routing-method.md)
+[フェールオーバーのルーティング方法の構成](traffic-manager-configure-failover-routing-method.md)
 
-[ラウンド ロビンのルーティング方法を構成します。](traffic-manager-configure-round-robin-routing-method.md)
+[ラウンド ロビンによるトラフィック ルーティング方法の構成](traffic-manager-configure-round-robin-routing-method.md)
 
-[パフォーマンスのルーティング方法を構成します。](traffic-manager-configure-performance-routing-method.md)
+[パフォーマンスによるトラフィック ルーティング方法の構成](traffic-manager-configure-performance-routing-method.md)
 
-[Traffic Manager のトラブルシューティングに状態が低下しています](traffic-manager-troubleshooting-degraded.md)
-
-
-
-
+[Traffic Manager の機能低下状態のトラブルシューティング](traffic-manager-troubleshooting-degraded.md)
 
 

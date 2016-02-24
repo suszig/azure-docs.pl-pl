@@ -1,17 +1,18 @@
+
 <properties
-    pageTitle ="プッシュ通知 (Android JavaScript) を使ってみる |Microsoft Azure]
-    description =「Azure Mobile Services を使用して Android JavaScript アプリにプッシュ通知を送信する方法について説明します」。
-    サービス「モバイル サービス、通知ハブ」を =
-    documentationCenter ="android"
-    authors ="RickSaling"
-    ライター ="ricksal"
+    pageTitle="プッシュ通知の使用 (Android JavaScript) | Microsoft Azure"
+    description="Azure モバイル サービスを使用して Android JavaScript アプリにプッシュ通知を送信する方法について説明します。"
+    services="mobile-services, notification-hubs"
+    documentationCenter="android"
+    authors="RickSaling"
+    writer="ricksal"
     manager="dwrede"
     editor=""/>
 
 <tags
-    ms.service=「モバイル サービス」
+    ms.service="mobile-services"
     ms.workload="mobile"
-    ms.tgt_pltfrm="mobile android"
+    ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="article"
     ms.date="10/06/2015"
@@ -31,7 +32,6 @@
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
 ## サンプル コード
-
 移動する完全なソース コードを確認する [ここ](https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPush)します。
 
 ## Google Cloud Messaging を有効にする
@@ -44,15 +44,17 @@
 
 ## アプリケーションにプッシュ通知を追加する
 
-次の手順は、Google Play サービスをインストールすることです。 Google Cloud Messaging には、マニフェストの **minSdkVersion** プロパティが準拠する必要がある、開発およびテストに関する最小 API レベル要件があります。
+
+
+次の手順は、Google Play サービスをインストールすることです。 開発、およびテストに関する最小 API レベル要件を持つ Google Cloud Messaging、 **minSdkVersion** マニフェスト内のプロパティが準拠する必要があります。
 
 古いデバイスを使用している場合は、Google Play Services SDK のセットアップに関するページを参考に、どれだけ小さな値を設定できるか判断し、適切に設定してください。
 
-### プロジェクトへの Google Play Services の追加
+###プロジェクトへの Google Play Services の追加
 
 [AZURE.INCLUDE [Add Play Services](../../includes/mobile-services-add-google-play-services.md)]
 
-### コードの追加
+###コードの追加
 
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push.md)]
 
@@ -66,7 +68,7 @@
 
 Android フォンを USB ケーブルで直接接続するか、エミュレーターで仮想デバイスを使用する方法により、アプリケーションをテストできます。
 
-### テスト用の Android エミュレーターの設定
+###テスト用の Android エミュレーターの設定
 
 このアプリケーションをエミュレーターで実行する場合は、Google API をサポートしている Android Virtual Device (AVD) を使用してください。
 
@@ -80,11 +82,11 @@ Android フォンを USB ケーブルで直接接続するか、エミュレー�
 
     これで、AVD が Google API を使用するようになります。
 
-### テストの実行
+###テストの実行
 
-1. **[実行]** メニュー アイテムの **[Run app (アプリを実行)]** をクリックして、アプリケーションを開始します。
+1.  **実行** メニューの項目をクリックして **アプリケーションを実行する** 、アプリケーションを開始します。
 
-2. アプリケーションで、「新しいモバイル サービス タスク」など意味のあるテキストを入力しクリック、 **追加** ] ボタンをクリックします。
+2. アプリケーションで、意味のあるテキストをなど入力 _新しいモバイル サービス タスク_ ] をクリックし、 **追加** ] ボタンをクリックします。
 
     ![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-quickstart-push1-android.png)
 
@@ -101,48 +103,61 @@ Android フォンを USB ケーブルで直接接続するか、エミュレー�
 
 ## 次のステップ
 
+<!---This tutorial demonstrated the basics of enabling an Android app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
+
++ [Send broadcast notifications to subscribers]
+    <br/>ユーザーの登録およびに興味のあるカテゴリに関してプッシュ通知を受信する方法について説明します。
+
++ [Send template-based notifications to subscribers]
+    <br/>テンプレートを使用して、バックエンドでプラットフォームに固有のペイロードを作成することがなく、モバイル サービスからプッシュ通知を送信する方法について説明します。
+-->
+
 Mobile Services と Notification Hubs については次のトピックを参照してください。
 
 * [認証の使用の開始を取得]
-  <br/>別のアカウントの種類のモバイル サービスを使用して、アプリのユーザーを認証する方法について説明します。
+  <br/>Mobile Services を使用して別のアカウントの種類のアプリケーションのユーザーを認証する方法について説明します。
 
-* [通知ハブは何ですか?]
+* [What are Notification Hubs?]
   <br/>通知を配信するアプリケーションにすべての主要なクライアントのプラットフォームの通知ハブの動作について説明します。
 
 * [Notification Hubs アプリケーションをデバッグします。](http://go.microsoft.com/fwlink/p/?linkid=386630)
   </br>ガイドのトラブルシューティングと Notification Hubs ソリューションのデバッグを取得します。
 
 * [モバイル サービス向け Android クライアント ライブラリの使用方法]
-  <br/>Android と共に Mobile Services を使用する方法について説明します。
+  <br/>Android で Mobile Services を使用する方法について説明します。
 
-* [モバイル サービスのサーバー スクリプト リファレンス]
+* [Mobile Services server script reference]
   <br/>モバイル サービスにビジネス ロジックを実装する方法について説明します。
 
 
+<!-- Anchors. -->
+[Register your app for push notifications and configure Mobile Services]: #register
+[Update the generated push notification code]: #update-scripts
+[Insert data to receive notifications]: #test
+[Next Steps]:#next-steps
+
+<!-- Images. -->
+[13]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push1.png
+[14]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push2.png
 
 
+<!-- URLs. -->
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Get started with Mobile Services]: mobile-services-android-get-started.md
+[Get started with authentication]: mobile-services-android-get-started-users.md
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js
+[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-js
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-js
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
+[Set Up Google Play Services SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
+[Azure classic portal]: https://manage.windowsazure.com/
+[How to use the Android client library for Mobile Services]: mobile-services-android-how-to-use-client-library.md
 
+[gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645
 
-[register your app for push notifications and configure mobile services]: #register 
-[update the generated push notification code]: #update-scripts 
-[insert data to receive notifications]: #test 
-[next steps]: #next-steps 
-[13]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push1.png 
-[14]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push2.png 
-[submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582 
-[my applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039 
-[get started with mobile services]: mobile-services-android-get-started.md 
-[get started with authentication]: mobile-services-android-get-started-users.md 
-[get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js 
-[push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-js 
-[authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-js 
-[javascript and html]: /develop/mobile/tutorials/get-started-with-push-js 
-[set up google play services sdk]: http://go.microsoft.com/fwlink/?LinkId=389801 
-[azure classic portal]: https://manage.windowsazure.com/ 
-[how to use the android client library for mobile services]: mobile-services-android-how-to-use-client-library.md 
-[gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645 
-[mobile services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293 
-[what are notification hubs?]: ../notification-hubs-overview.md 
-[send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md 
-[send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md 
+[Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
+[What are Notification Hubs?]: ../notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
+[Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
 

@@ -17,7 +17,6 @@
     ms.date="11/23/2015"
     ms.author="jeffstok"/>
 
-
 # Stream Analytics から Azure DocumentDB for JSON 出力をターゲットにする
 
 Stream Analytics を絞り込む [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) JSON の出力は、JSON データの非構造化に関するデータのアーカイブおよび待機時間の短いクエリを有効にします。 この統合を実装する最適な方法について説明します。
@@ -25,7 +24,6 @@ Stream Analytics を絞り込む [Azure DocumentDB](http://azure.microsoft.com/s
 DocumentDB に精通している方を見て [DocumentDB のラーニング パス](https://azure.microsoft.com/documentation/learning-paths/documentdb/) 開始します。
 
 ## 出力ターゲットとしての DocumentDB の基礎
-
 Stream Analytics で Azure DocumentDB 出力を使用すると、ストリーム処理の結果を JSON 出力として DocumentDB コレクションに書き込むことができます。 Stream Analytics は、データベース内にコレクションを作成せず、代わりにユーザーが前もってコレクションを作成するように要求します。 これは、パフォーマンス、一貫性とを使用して直接、コレクションの容量が調整できるようにし、透明の DocumentDB コレクションの課金のコストができるように、 [DocumentDB Api](https://msdn.microsoft.com/library/azure/dn781481.aspx)します。 ストリーミング ジョブのコレクションを論理的に分離するには、ストリーミング ジョブごとに 1 つの DocumentDB データベースを使用することをお勧めします。
 
 DocumentDB コレクションの一部のオプションの詳細を以下に示します。
@@ -40,9 +38,9 @@ DocumentDB コレクションは、3 種類のパフォーマンス レベル (S
 
 ## Stream Analytics からのアップサート
 
-Stream Analytics を DocumentDB と統合することで、特定のドキュメント ID 列に基づき、レコードを DocumentDB コレクションに挿入または更新できるようになります。 この機能は、*アップサート*とも呼ばれています。
+Stream Analytics を DocumentDB と統合することで、特定のドキュメント ID 列に基づき、レコードを DocumentDB コレクションに挿入または更新できるようになります。 これは、別名、 *Upsert*します。
 
-Stream Analytics では、オプティミスティック アップサート手法を採用しています。この手法では、ドキュメント ID の競合が原因で挿入に失敗した場合にのみ更新が実行されます。 この更新は Stream Analytics によって PATCH として実行されるため、ドキュメントに対する部分更新が可能になります。つまり、新しいプロパティの追加や既存のプロパティの置き換えは段階的に実行されます。 アレイ全体に上書きを取得するには、配列、JSON ドキュメントの結果の配列プロパティの値の変更がマージしないことに注意してください。
+Stream Analytics では、オプティミスティック アップサート手法を採用しています。この手法では、ドキュメント ID の競合が原因で挿入に失敗した場合にのみ更新が実行されます。 この更新は Stream Analytics によって PATCH として実行されるため、ドキュメントに対する部分更新が可能になります。つまり、新しいプロパティの追加や既存のプロパティの置き換えは段階的に実行されます。 JSON ドキュメント内の配列プロパティの値を変更すると、配列全体が上書きされることになるので注意してください。つまり、配列はマージされません。
 
 ## DocumentDB でのデータのパーティション分割
 
@@ -54,19 +52,15 @@ DocumentDB のコレクションを使用すると、クエリ パターンと�
 
 Stream Analytics で DocumentDB を出力として作成すると、以下に示すように、情報を求めるプロンプトが表示されます。 このセクションでは、各プロパティの定義について説明します。
 
-![documentdb stream analytics 出力画面](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output.png)
+![documentdb stream analytics 出力画面](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output.png)  
 
--   **出力のエイリアス** – ASA クエリ内でこの出力を意味するエイリアス。
--   **アカウント名** – DocumentDB アカウントの名前またはエンドポイント URI。
--   **アカウント キー** – DocumentDB アカウントの共有アクセス キー。
--   **データベース** – DocumentDB データベース名。
--   **コレクション名のパターン** – 使用するコレクションのコレクション名のパターン。 コレクション名の形式は、オプションの {partition} トークンを使用して構成できます。この場合、パーティションは 0 から開始します。 有効な入力値のサンプルを次に示します。  
+-   **出力のエイリアス** – ASA クエリでは、この出力を参照する別名  
+-   **アカウント名** – 名前またはエンドポイントの DocumentDB アカウントの URI。  
+-   **アカウント キー** : DocumentDB アカウントの共有アクセス キー。  
+-   **データベース** : DocumentDB データベースの名前。  
+-   **コレクション名パターン** – 使用するコレクションのコレクション名パターン。 コレクション名の形式は、オプションの {partition} トークンを使用して構成できます。この場合、パーティションは 0 から開始します。 有効な入力値のサンプルを次に示します。  
    1) MyCollection – 1 つのコレクション"MyCollection"という名前が存在する必要があります。  
-   2 \) – このようなコレクションが存在する必要があります: MyCollection {partition}"MyCollection0"、"MyCollection1"や"MyCollection2"です。
--   **パーティション キー** – コレクション間で出力をパーティション分割するためのキーの指定に使用される、出力イベント内のフィールドの名前。 コレクションの出力が 1 つの場合は、PartitionId など、任意の出力列を使用できます。
--   **Document ID** – 省略可能です。 挿入操作または更新操作の基準となるプライマリ キーを指定するために使用される、出力イベント内のフィールドの名前。
-
-
-
-
+   2 \) – このようなコレクションが存在する必要があります: MyCollection {partition}"MyCollection0"、"MyCollection1"や"MyCollection2"です。  
+-   **パーティション キー** – コレクション間で出力をパーティション分割のキーを指定するために使用する出力イベント内のフィールドの名前。 コレクションの出力が 1 つの場合は、PartitionId など、任意の出力列を使用できます。  
+-   **ID を文書化** -省略可能です。 挿入操作または更新操作の基準となるプライマリ キーを指定するために使用される、出力イベント内のフィールドの名前。  
 

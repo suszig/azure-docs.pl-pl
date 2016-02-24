@@ -15,28 +15,27 @@
     ms.date="11/24/2015"
     ms.author="awills"/>
 
-
 # Application Insights による利用状況分析
 
 ユーザーによるアプリケーションの使用状況を把握することで、ユーザーにとって最も重要なシナリオに重点を置いて開発作業を行うことができ、実現するのが簡単またはより困難であるとユーザーが捉えている目標を理解することができます。
 
 Application Insights を使用すると、アプリケーションの利用状況を明確に把握できるため、ユーザー エクスペリエンスの向上やビジネス目標の達成に役立ちます。
 
-Application Insights は、スタンドアロン アプリ (iOS、Android Windows) でも、Web アプリ (.NET または J2EE でホストされた) でも機能します。
+Application Insights は、スタンドアロン アプリ (iOS、Android Windows) でも、Web アプリ (.NET または J2EE でホストされた) でも機能します。 
 
 ## アプリケーションの正常性と利用状況の監視
 
 最初に、サブスクリプションを取得するに [Microsoft Azure](https://azure.com)します。 (無料評価版を利用できます。この試用期間が終了しても、サービスの無料の層は引き続きご利用いただけます)。
 
-[Azure ポータル](https://portal.azure.com), 、Application Insights リソースを作成します。 アプリに関する使用状況とパフォーマンス データはここに表示されます。
+ [Azure ポータル](https://portal.azure.com), 、Application Insights リソースを作成します。 アプリに関する使用状況とパフォーマンス データはここに表示されます。
 
-![Azure で、](./media/app-insights-overview-usage/01-create.png)
+![Azure で、[新規]、[開発者向けサービス]、[Application Insights] の順にクリックします。](./media/app-insights-overview-usage/01-create.png)
 
-**アプリがデバイス アプリの場合**、Application Insights SDK をプロジェクトに追加します。 実際の手順によって異なります、 [IDE とプラットフォーム](app-insights-platforms.md)します。 Windows アプリの場合、Visual Studio でプロジェクトを右クリックし、[Application Insights の追加] を選択します。
+**アプリが、デバイス アプリの場合** Application Insights SDK をプロジェクトに追加します。 実際の手順によって異なります、 [IDE とプラットフォーム](app-insights-platforms.md)します。 Windows アプリの場合、Visual Studio でプロジェクトを右クリックし、[Application Insights の追加] を選択します。
 
-**Web アプリの場合、**クイック スタート ブレードを開き、Web ページに追加するコード スニペットを取得します。 このスニペットを使用して再発行します。
+**Web アプリである場合** クイック スタート ブレードを開き、web ページに追加するコード スニペットを取得します。 このスニペットを使用して再発行します。
 
-![クイック スタートを開き、[web ページを監視するコードを取得] をクリックします。 マスターの web ページの先頭に、スクリプトをコピーします。](. media/app-insights-overview-usage/02-monitor-web-page.png/)
+![クイック スタートを開き、[Web ページを監視するコードを取得する] をクリックします。 マスター Web ページの先頭にスクリプトをコピーします。](./media/app-insights-overview-usage/02-monitor-web-page.png)
 
 Application Insights を追加することも、 [ASP.NET](app-insights-asp-net.md) または [J2EE](app-insights-java-get-started.md) クライアントとサーバーの両方から利用統計情報を結合するためにサーバー コードです。
 
@@ -45,7 +44,7 @@ Application Insights を追加することも、 [ASP.NET](app-insights-asp-net.
 
 数分後に、デバッグ モードで、プロジェクトを実行しに移動し、 [Azure ポータル](http://portal.azure.com) Application Insights で、プロジェクト リソースを参照します。
 
-![Azure で、](./media/app-insights-overview-usage/00-start.png)
+![Azure で、[参照]、[Application Insights] の順にクリックして、目的のプロジェクトを選択します。](./media/app-insights-overview-usage/00-start.png)
 
 アプリを発行してさらに多くのテレメトリを取得し、このアプリを使ってユーザーが何を行っているのかを確認します。
 
@@ -54,7 +53,7 @@ Application Insights を追加することも、 [ASP.NET](app-insights-asp-net.
 
 [ページ ビュー] タイルをクリックして、利用状況の詳細を表示します。
 
-![Azure で、](./media/app-insights-overview-usage/01-overview.png)
+![Azure で、[参照]、[Application Insights]、プロジェクトの順に選択し、[ページ ビュー] タイルまで下へスクロールします](./media/app-insights-overview-usage/01-overview.png)
 
 グラフ上の空白部分にマウス ポインターを移動すると、特定のポイントにおける数が表示されます。 それ以外の場合は、特定の期間にわたって集計された値 (平均、合計、期間における一意のユーザーの数など) が表示されます。
 
@@ -64,13 +63,13 @@ Web セッションは、非アクティブな状態が 30 分続いた後でカ
 
 任意のグラフをクリックすると、より詳細な情報が表示されます。 次に例を示します。
 
-![概要ブレードで、](./media/app-insights-overview-usage/02-sessions.png)
+![概要ブレードで、[セッション] グラフをクリックします](./media/app-insights-overview-usage/02-sessions.png)
 
 (この例は Web サイトの例ですが、デバイスで実行されるアプリの場合も同じようなグラフが表示されます)。
 
 前の週と比較して、変化していることがあるかどうかを調べることができます。
 
-![1 つのメトリックを表示するグラフを選択し、](./media/app-insights-overview-usage/021-prior.png)
+![1 つのメトリックを表示するグラフを選択し、[前の週] をオンにします](./media/app-insights-overview-usage/021-prior.png)
 
 2 つのメトリック (たとえば、ユーザーと新しいユーザー) を比較することもできます。
 
@@ -78,7 +77,7 @@ Web セッションは、非アクティブな状態が 30 分続いた後でカ
 
 プロパティ (ブラウザー、オペレーティング システム、市区町村など) に基づいてデータをグループ化 (分割) できます。
 
-![1 つのメトリックを表示するグラフを選択します。](./media/app-insights-overview-usage/03-browsers.png)
+![1 つのメトリックを表示するグラフを選択します。[グループ] をオンにし、プロパティを選択します](./media/app-insights-overview-usage/03-browsers.png)
 
 
 ## ページ利用状況
@@ -86,7 +85,7 @@ Web セッションは、非アクティブな状態が 30 分続いた後でカ
 [ページ ビュー] タイルをクリックすると、最も人気のあるページの内訳が表示されます。
 
 
-![概要ブレードで、](./media/app-insights-overview-usage/05-games.png)
+![概要ブレードで、[ページ ビュー] グラフをクリックします](./media/app-insights-overview-usage/05-games.png)
 
 上の例はゲーム Web サイトの情報を示しています。 この情報から、次のことがすぐにわかります。
 
@@ -120,13 +119,14 @@ Web セッションは、非アクティブな状態が 30 分続いた後でカ
     Dim tc = New Microsoft.ApplicationInsights.TelemetryClient()
     tc.TrackEvent("GameEnd")
 
+
 最もよく使用されるカスタム イベントは、概要ブレードに示されます。
 
-![概要ブレードで、下へスクロールし、](./media/app-insights-overview-usage/04-events.png)
+![概要ブレードで、下へスクロールし、[カスタム イベント] をクリックします。](./media/app-insights-overview-usage/04-events.png)
 
 テーブルの先頭をクリックすると、イベントの合計数が表示されます。 イベント名などのさまざまな属性によって、グラフを分割することができます。
 
-![Select a chart that shows just one metric. Switch on Grouping. プロパティを選択します。 すべてのプロパティが使用されます。](./media/app-insights-overview-usage/06-eventsSegment.png)
+![1 つのメトリックのみを示すグラフを選択します。 [グループ] をオンにします。 プロパティを選択します。 使用できないプロパティもあります。](./media/app-insights-overview-usage/06-eventsSegment.png)
 
 タイムラインには、変化を他のメトリックやイベントに関連付けることができるという便利な機能があります。 たとえば、プレイするゲームが多くなると、破棄されたゲームも多くなると予想されます。 しかし、破棄されたゲーム数の増加率には偏りがあります。そこで、高い負荷が原因となってユーザーが許容できない問題が発生しているかどうかを確認してみましょう。
 
@@ -161,7 +161,6 @@ Web セッションは、非アクティブな状態が 30 分続いた後でカ
 ここから、このユーザーは最新のスコアを確認するためにのみログオンしたことがわかります。 スコアの確認を簡単にするユーザー ストーリーの作成を検討することが必要である可能性があります  (加えて、この特定のストーリーが発生したことを報告するカスタム イベントを実装する必要があります)。
 
 ## プロパティを使用してデータをフィルター処理、検索、および分割する
-
 イベントには任意のタグと数値をアタッチできます。
 
 
@@ -181,7 +180,7 @@ Web セッションは、非アクティブな状態が 30 分続いた後でカ
         {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
     var measurements = new Dictionary <string, double>
         {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
-    
+
     // Send the event:
     telemetry.TrackEvent("WinGame", properties, measurements);
 
@@ -191,11 +190,11 @@ Web セッションは、非アクティブな状態が 30 分続いた後でカ
     Dim properties = New Dictionary (Of String, String)
     properties.Add("game", currentGame.Name)
     properties.Add("difficulty", currentGame.Difficulty)
-    
+
     Dim measurements = New Dictionary (Of String, Double)
     measurements.Add("Score", currentGame.Score)
     measurements.Add("Opponents", currentGame.OpponentCount)
-    
+
     ' Send the event:
     telemetry.TrackEvent("WinGame", properties, measurements)
 
@@ -210,7 +209,7 @@ Web セッションは、非アクティブな状態が 30 分続いた後でカ
 診断検索で、イベントのそれぞれの発生箇所をクリックしてプロパティを表示します。
 
 
-![イベントの一覧で、イベントを開き、](./media/app-insights-overview-usage/11-details.png)
+![イベントの一覧で、イベントを開くし、[...] をクリックし、 その他のプロパティを表示するには](./media/app-insights-overview-usage/11-details.png)
 
 [検索] ボックスを使用して、特定のプロパティ値を持つイベントを表示します。
 
@@ -229,7 +228,7 @@ Application Insights ポータルでは、タグに基づいてデータをフ�
 サーバー側の C#
 
     using Microsoft.ApplicationInsights.DataContracts;
-    
+
     var context = new TelemetryContext();
     context.Properties["Game"] = currentGame.Name;
     var telemetry = new TelemetryClient(context);
@@ -266,6 +265,7 @@ Application Insights ポータルでは、タグに基づいてデータをフ�
         .Add(new MyTelemetryInitializer());
     }
 
+
 ## ビルド、評価、学習
 
 分析は、単に問題の解決に役立つだけのものではなく、開発サイクルの重要な部分を構成します。 いくつかのヒントを次に示します。
@@ -279,17 +279,13 @@ Application Insights ポータルでは、タグに基づいてデータをフ�
 
 ## 詳細情報
 
-* [検出、トリアージ、およびがクラッシュして、アプリのパフォーマンスの問題を診断します。](app-insights-detect-triage-diagnose.md)
-* [多くのプラットフォームでの Application Insights を概要します。](app-insights-detect-triage-diagnose.md)
+* [Application Insights を使用した検出、トリアージ、診断](app-insights-detect-triage-diagnose.md)
+* [さまざまなプラットフォームで Application Insights を使ってみる](app-insights-detect-triage-diagnose.md)
 
 
 ## ビデオ
 
 > [AZURE.VIDEO usage-monitoring-application-insights]
 
-
-
-
-
-
+ 
 

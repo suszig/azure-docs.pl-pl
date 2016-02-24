@@ -16,7 +16,6 @@
    ms.author="tarcher" />
 
 
-
 # Emulator Express を使用したローカル コンピューターでのクラウド サービス実行とデバッグ
 
 Emulator Express を使用することにより、管理者として Visual Studio を実行せずに、クラウド サービスをテストおよびデバッグできます。 クラウド サービスの要件に応じて、Emulator Express または完全なエミュレーターのどちらを使用するかをプロジェクト設定で指定できます。 フル装備のエミュレーターの詳細については、次を参照してください。 [コンピューティング エミュレーターで Azure アプリケーションを実行](../storage/storage-use-emulator.md)します。 Emulator Express は Azure SDK 2.1 で最初に付属し、Azure SDK 2.3 以降は既定のエミュレーターになりました。
@@ -27,11 +26,11 @@ Azure SDK 2.3 以降で新しいプロジェクト作成すると、Emulator Exp
 
 ### Emulator Express を使用するようにプロジェクトを構成するには
 
-1. Azure プロジェクトのショートカット メニューで、**[プロパティ]** を選択し、**[Web]** タブを選択します。
+1. Azure プロジェクトのショートカット メニューを選択 **プロパティ**, を選択し、 **Web** ] タブをクリックします。
 
-1. **[ローカル開発サーバー]** で、**[IIS Express を使用する]** オプションを選択します。 Emulator Express は IIS Web サーバーと互換性がありません。
+1. [ **ローカル開発サーバー**, 、選択、 **オプションの IIS Express を使用する** ] ボタンをクリックします。 Emulator Express は IIS Web サーバーと互換性がありません。
 
-1. **[エミュレーター]** で、**[Emulator Express を使用する]** オプションを選択します。
+1.  **エミュレーター**, 、選択、 **エミュレーター Express を使用する** オプション ボタンをクリックします。
 
     ![Emulator Express](./media/vs-azure-tools-emulator-express-debug-run/IC673363.gif)
 
@@ -49,13 +48,9 @@ Emulator Express を使用する前に、いくつかの制限事項に注意す
 
 - 1,000 未満のポート番号にはアクセスできません。 たとえば、通常 1,000 未満のポートが使用される認証プロバイダーを使用する場合は、この値を 1,000 を超えるポート番号に変更する必要がある可能性があります。
 
-- Azure コンピューティング エミュレーターに適用されるすべての制限は、Emulator Express にも適用されます。 たとえば、デプロイあたり 50 を超えるロール インスタンスを保持できません。 を参照してください [コンピューティング エミュレーターでの Azure アプリケーションの実行](http://go.microsoft.com/fwlink/p/?LinkId=623050)
+- Azure コンピューティング エミュレーターに適用されるすべての制限は、Emulator Express にも適用されます。 たとえば、デプロイあたり 50 を超えるロール インスタンスを保持できません。 参照してください [コンピューティング エミュレーターでの Azure アプリケーションの実行](http://go.microsoft.com/fwlink/p/?LinkId=623050)
 
 ## 次のステップ
 
-[クラウド サービスのデバッグ](https://msdn.microsoft.com/library/azure/ee405479.aspx)
-
-
-
-
+[Cloud Services のデバッグ](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 

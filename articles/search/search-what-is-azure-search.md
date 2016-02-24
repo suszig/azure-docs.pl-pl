@@ -1,6 +1,6 @@
 <properties
     pageTitle="Azure Search とは | Microsoft Azure | ホスト型クラウド検索サービス"
-    description="Azure Search はホスト型クラウド検索サービスです。この技術の概要と主な機能について説明します。"
+    description="Azure Search はホスト型クラウド検索サービスです。 この技術の概要と主な機能について説明します。"
     services="search"
     documentationCenter=""
     authors="HeidiSteen"
@@ -17,7 +17,6 @@
     ms.date="11/04/2015"
     ms.author="heidist"/>
 
-
 # Azure Search とは
 
 Azure Search Service は完全管理のホスト型クラウド検索サービスであり、開発者は .NET SDK または REST API を利用して機能が豊富な検索アプリケーションを作成できます。 コンテンツ全体の全文検索以外に、用語の部分入力に基づく予測変換、検索語の強調表示、ファセット ナビゲーションなど、商用 Web 検索エンジンに見られるものと同様の高度な検索機能も備えています。 自然言語のサポートが組み込まれており、指定言語に適した言語規則が利用されます。
@@ -26,17 +25,17 @@ Azure Search Service は完全管理のホスト型クラウド検索サービ�
 
 Azure Search は Web サービスと HTTP の使い方を理解している開発者とシステム インテグレーター向けの API ベース サービスです。 Azure Search はクラウド検索サービスの管理から複雑性を取り払い、検索ベースの Web/モバイル アプリケーションの作成を簡単にしています。
 
-## 動作のしくみ
+##動作のしくみ
 
 Azure Search は、 [PaaS サービス](https://wikipedia.org/wiki/Platform_as_a_service) をすぐに使用できるサービス検索データを入力して、アプリケーションからアクセスすることを Microsoft サーバーとインフラストラクチャの管理を委任します。 サービスの構成方法に基づき、他の Azure Search サブスクライバーと共有される無料サービスを利用するか、あなたのサービス専用のリソースを提供する Standard 価格レベルを利用します。 Standard 検索は拡張可能です。ストレージやクリエの負荷要求の増加に対応できます。
 
 Azure Search ではデータがインデックスに保存されます。それを全文クエリで検索できます。 このようなインデックスのスキーマは Azure クラシック ポータルで作成するか、クライアント ライブラリまたは REST API でプログラミングして作成できます。 スキーマが定義されたら、データを Azure Search サービスにアップロードできます。データには順番にインデックスが付けられます。
 
-プル モデルまたはプッシュ モデルを使用し、インデックスにデータをアップロードできます。 プル モデルは、オンデマンドまたはスケジュールされた更新プログラム用に構成できるインデクサーを通じて提供されます (を参照してください [インデクサー操作 (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn946891.aspx)), 、または、Azure DocumentDB、Azure SQL データベースから変更データとデータを簡単に取り込むには、Azure VM でホストされている SQL Server を許可します。 プッシュ モデルは SDK または REST API によって提供され、更新したドキュメントをインデックスに送信するために使用されます。 JSON 形式であれば、実質上、あらゆるデータセットからデータをプッシュできます。 参照してください [ドキュメントの追加、更新、または delete](https://msdn.microsoft.com/library/azure/dn798930.aspx) または [.NET SDK を使用する方法)](search-howto-dotnet-sdk.md) ガイダンスについては、データの読み込み。
+プル モデルまたはプッシュ モデルを使用し、インデックスにデータをアップロードできます。 プル モデルは、オンデマンドまたはスケジュールされた更新プログラム用に構成できるインデクサーを通じて提供されます (を参照してください [インデクサー操作 (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn946891.aspx))、または、Azure DocumentDB、Azure SQL データベースから変更データとデータを簡単に取り込むには、Azure VM でホストされている SQL Server を許可します。 プッシュ モデルは SDK または REST API によって提供され、更新したドキュメントをインデックスに送信するために使用されます。 JSON 形式であれば、実質上、あらゆるデータセットからデータをプッシュできます。 参照してください [ドキュメントの追加、更新、または delete](https://msdn.microsoft.com/library/azure/dn798930.aspx) または [.NET SDK を使用する方法)](search-howto-dotnet-sdk.md) ガイダンスについては、データの読み込み。
 
 開発者によっては便利なインデクサーを選択します。 他の開発者にとっては、プッシュ モデルは作業が増えるだけの価値があります。 プッシュ モデルを選択する理由は 2 つあります。 まず、クローラースタイルのメカニズムがデータ サーバーに与える余計な負荷を回避できます。 次に、インデックスの定期作成に内在する遅延を回避できます。 サイバー マンデーまたはブラック フライデーに在庫について最新状況を検索することがあります。 プッシュ モデルはその度合いの精度を提供できます。
 
-## 作成するものと保存するもの
+##作成するものと保存するもの
 
 一般的なワークフローは、ローカル開発環境でスキーマとドキュメントを構築し、次に .NET SDK または REST API を利用してデータをアップロードし、処理し、そして最終的に問い合わせることです。 インデックスが付けられたデータはすべて Azure Search に留まり、パフォーマンスの改善と検索操作全体の一貫性維持に貢献します。
 
@@ -48,75 +47,75 @@ Azure Search ではデータがインデックスに保存されます。それ�
 
 ドキュメントは検索エンジンによって検索結果で返される詳細データです。 たとえば、検索アプリケーションがオンライン カタログの場合、SKU ごとに 1 つのドキュメントが与えられ、ドキュメントから返された、検索語句に一致する値を利用し、検索結果ページが構築されます。
 
-## 実際の様子をご覧ください。
+##実際の様子をご覧ください。
 
 動画でシナリオと機能について学習してください。 参照してください [Azure Search: チュートリアル、ビデオ デモ、およびサンプル](search-video-demo-tutorial-list.md) ビデオ コンテンツへのリンク。
 
-## 機能のドリルダウン
+##機能のドリルダウン
 
 Azure Search は、プロビジョニングと拡大縮小、プログラミング、アクセスと制御など、複数のカテゴリで値を届け、また、カスタム検索アプリケーションでの実装を選択した機能で値を届けます。
 
-次の機能チェックリストは、検索アプリケーションのニーズに合わせて Azure Search を評価する際に役立ちます。 新しい機能は Azure Search の最新の更新で告知されます。 Azure Search 機能要求ページを確認し、まだ実装されていない機能の状態を確認することもできます。
+次の機能チェックリストは、検索アプリケーションのニーズに合わせて Azure Search を評価する際に役立ちます。 新しい機能は Azure Search の最新の更新で告知されます。 Azure Search 機能要求ページを確認し、まだ実装されていない機能の状態を確認することもできます。 
 
-特定の機能に関する質問 実行してください、 [MSDN の Azure Search フォーラム](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch)します。 確認することも、 [Azure Search 機能要求ページ](http://feedback.azure.com/forums/263029-azure-search) まだ実装されていない機能の状態を確認します。
+特定の機能に関する質問 実行してください、 [MSDN の Azure Search フォーラム](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch)します。 確認することも、 [Azure Search 機能要求ページ](http://feedback.azure.com/forums/263029-azure-search) まだ実装されていない機能の状態を確認します。 
 
-### 容量と拡大縮小の機能と制限
+###容量と拡大縮小の機能と制限
 
 このサービスは Standard と共有サービスのデプロイのいずれかとして実行できます。 Standard 検索では、ワークロードに基づいて規模の変更が可能な専用リソースがサポートされます。 共有サービスは無料であり、サービスの機能を確認するために提供され、パフォーマンスは保証されません。
 
-ストレージとドキュメント カウント (パーティション) のインクリメントとクエリ負荷 (レプリカ) で**拡張可能** 各レプリカでインデックスの 1 つのコピーが実行されます。 高可用性にはクエリ ワークロードのために 2 つのレプリカと読み書きワークロード (クエリとインデックス作成) のために 3 つのレプリカが要求されます。 容量計画の詳細について「制限と制約 (Azure Search)」を参照してください。
+**拡張性の高い** とクエリ負荷 (レプリカ) ストレージとドキュメント カウント (パーティション) のインクリメントでします。 各レプリカでインデックスの 1 つのコピーが実行されます。 高可用性にはクエリ ワークロードのために 2 つのレプリカと読み書きワークロード (クエリとインデックス作成) のために 3 つのレプリカが要求されます。 容量計画の詳細について「制限と制約 (Azure Search)」を参照してください。
 
-Azure Search は自動的に、インデックスとドキュメントのスパンをこのサービスに割り当てたパーティション全体とします。 つまり、インデックスとドキュメントを一連のパーティションとレプリカに固定することはできません。
+Azure Search は自動的に、インデックスとドキュメントのスパンをこのサービスに割り当てたパーティション全体とします。 つまり、インデックスとドキュメントを一連のパーティションとレプリカに固定することはできません。 
 
-パーティションとレプリカはサービス全体のリソースであり、すべてのインデックスがすべてのレプリカで実行されます。 インデックスの分離が必要な場合、あるいはデータ センターの場所によってサービスとリソースを分散させる必要がある場合、2 つ目のサービスを作成できます。
+パーティションとレプリカはサービス全体のリソースであり、すべてのインデックスがすべてのレプリカで実行されます。 インデックスの分離が必要な場合、あるいはデータ センターの場所によってサービスとリソースを分散させる必要がある場合、2 つ目のサービスを作成できます。 
 
 ストレージとサービスに読み込まれるインデックスとドキュメントの数には上限があります。 物理的なストレージを使い果たすか、インデックスまたはドキュメントの上限に到達するか、いずれか早い方が上限到達となります。 参照してください [制限および制約 (Azure Search)](search-limits-quotas-capacity.md) 詳細です。
 
-### プログラミング
+###プログラミング
 
 REST API は HTTP 要求、応答、JSON 形式のコンテンツから構成されます。 サービスにアクセスするための API とサービスを管理するための API があります。 参照してください [Azure Search サービス REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) と [Azure Search 管理 REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx) 詳細です。
 
 .NET SDK に含まれるクラスを利用すれば、HTTP と JSON を直接操作しなくても、Azure Search サービスを簡単に使用できます。 参照してください [Azure Search .NET SDK を使用する方法](search-howto-dotnet-sdk.md) の詳細。
 
-### アクセスと制御
+###アクセスと制御
 
 Azure Search には HTTPS でのみアクセスできます。
 
-ホスト アプリケーションから Azure Search への認証は HTTP ヘッダーの管理 API キーで行われます。 ユーザーごとの認証や承認モデルはありません。 ただし、$filter を利用し、ユーザー ID でアクセスを限定できます。 また、複数のクエリ API キーをさまざまなクライアント アプリケーションに割り当てることができます。 キーの管理についての詳細については、次を参照してください。 [Microsoft Azure で検索サービスを管理する](search-manage.md)します。 参照してください [ドキュメントの検索 (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx) $filter に関する詳細。
+ホスト アプリケーションから Azure Search への認証は HTTP ヘッダーの管理 API キーで行われます。 ユーザーごとの認証や承認モデルはありません。 ただし、$filter を利用し、ユーザー ID でアクセスを限定できます。 また、複数のクエリ API キーをさまざまなクライアント アプリケーションに割り当てることができます。 キーの管理についての詳細については、次を参照してください。 [Microsoft Azure で検索サービスを管理する](search-manage.md)です。 参照してください [ドキュメントの検索 (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx) $filter に関する詳細。
 
-### インデックスとドキュメント
+###インデックスとドキュメント
 
 複数のインデックスを持つことができます (を参照してください [制限および制約 (Azure Search)](search-limits-quotas-capacity.md) 価格レベルに基づいた制限について)。 現在のところ、インデックスの結合はサポートされていないことに注意してください。 検索要求では 1 つのインデックスを指定できます。
 
-**ドキュメント**にはフィールドと関連付けられている属性が含まれています。 フィールドには検索可能テキスト、フィルターとスコアリング プロファイルで主に (あるいは排他的に) 使用される値、そして多くの場合、画像など、他のデータ ストアのコンテンツの URL またはポインターが含まれます。 多くの検索アプリケーションで複数のストレージ形態が利用されています。 画像と動画は、Azure BLOB ストレージなど、他のストレージ メディアに保管すればコストが減ります。
+**ドキュメント** フィールドと関連付けられた属性が含まれます。 フィールドには検索可能テキスト、フィルターとスコアリング プロファイルで主に (あるいは排他的に) 使用される値、そして多くの場合、画像など、他のデータ ストアのコンテンツの URL またはポインターが含まれます。 多くの検索アプリケーションで複数のストレージ形態が利用されています。 画像と動画は、Azure BLOB ストレージなど、他のストレージ メディアに保管すればコストが減ります。
 
-**インデクサー**を利用し、Azure SQL Database、Azure VM の SQL Server、Azure DocumentDB で変更されたデータのインデックス更新をスケジュールできます。 [インデクサー操作 (Azure Search サービス REST API)] を参照してください ((https://msdn.microsoft.com/library/azure/dn946891.aspx) 詳細についてです。
+**インデクサー** Azure SQL Database、Azure の仮想マシンまたは Azure DocumentDB の SQL Server で変更されたデータからのインデックス更新をスケジュールするために使用できます。 [インデクサー操作 (Azure Search サービス REST API)] を参照してください ((https://msdn.microsoft.com/library/azure/dn946891.aspx) 詳細についてです。
 
-**クエリ**はブール型フィルターの場合は OData 構文で、全文検索の場合は簡単なクエリ構文で作成できます。 参照してください [Azure Search の OData 式の構文](https://msdn.microsoft.com/library/azure/dn798921.aspx) と [Azure Search の簡単なクエリ構文](https://msdn.microsoft.com/library/azure/dn798920.aspx) 詳細です。
+**クエリ** ブール フィルターと、フルテキスト検索の簡単なクエリ構文の OData 構文を使用して作成できます。 参照してください [Azure Search の OData 式の構文](https://msdn.microsoft.com/library/azure/dn798921.aspx) と [Azure Search の簡単なクエリ構文](https://msdn.microsoft.com/library/azure/dn798920.aspx) 詳細です。
 
 ID に基づいて特定のドキュメントを探し、特定のアイテムを迅速に取得できます。 これは特定の検索結果をクリックし、そのドキュメントに関する特定の詳細を探すときに便利です。 参照してください [Lookup Document (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn798929.aspx) 詳細です。
 
-## 検索アプリケーションの機能
+##検索アプリケーションの機能
 
-**全文検索** (既定ではテキスト フィールド) は検索可能な属性が含まれるすべてのフィールドで有効になっています。 全文検索は接頭辞の一致を基礎とします。つまり、真ん中の部分や終わりの部分ではなく、検索語句の最初の部分に基づいて照合されます。 参照してください [Create Index (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx) または [、ポータルでインデックスの作成](search-create-index-portal.md) インデックスを定義する方法についてです。
+**フル テキスト検索** (に既定でテキスト フィールド) 検索可能な属性を持つ任意のフィールドに対して有効にします。 全文検索は接頭辞の一致を基礎とします。つまり、真ん中の部分や終わりの部分ではなく、検索語句の最初の部分に基づいて照合されます。 参照してください [Create Index (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx) または [、ポータルでインデックスの作成](search-create-index-portal.md) インデックスを定義する方法についてです。
 
-**スコアリング プロファイル**はビジネス目標に基づいて検索を最適化するランク付けモデルの構築に使用されます。 たとえば、新しい製品や割り引き製品を検索結果の上位に表示することが望ましい場合があります。 あるいは、追跡記録し、個別に保存しておいた顧客の検索傾向に基づいてパーソナライズされたスコアリングのタグを利用し、スコアリング プロファイルを作成できます。 参照してください [(Azure Search サービス REST API) 検索インデックスにスコア付けプロファイルを追加](https://msdn.microsoft.com/library/azure/dn798928.aspx) 詳細です。
+**スコアリング プロファイル** はビジネス目標に基づいて検索を最適化するランク付けモデルの構築に使用します。 たとえば、新しい製品や割り引き製品を検索結果の上位に表示することが望ましい場合があります。 あるいは、追跡記録し、個別に保存しておいた顧客の検索傾向に基づいてパーソナライズされたスコアリングのタグを利用し、スコアリング プロファイルを作成できます。 参照してください [(Azure Search サービス REST API) 検索インデックスにスコア付けプロファイルを追加](https://msdn.microsoft.com/library/azure/dn798928.aspx) 詳細です。
 
-50 カ国の**言語サポート**が組み込まれています。有名な Lucene アナライザーと Microsoft Office または Bing (プレビューのみ) の動力となる Microsoft 独自のアナライザーを含む、自然言語処理スタックの選択肢が複数あります。 参照してください [言語サポート (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn879793.aspx) Lucene、についておよび [Azure Search サービス REST API バージョン 2015年-02-28-preview](search-api-2015-02-28-Preview.md) 自然言語プロセッサ。
+**言語サポート** は自然言語処理スタックでの複数のオプションを使用して 50 種類の言語の組み込みなど、有名な Lucene アナライザーと Microsoft Office または Bing (プレビューのみ) の動力 Microsoft 独自のアナライザーです。 参照してください [言語サポート (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn879793.aspx) Lucene、についておよび [Azure Search サービス REST API バージョン 2015年-02-28-preview](search-api-2015-02-28-Preview.md) 自然言語プロセッサ。
 
-**ファセット ナビゲーション**は、ブランド、モデル、サイズ、あるいはデータにとって意味のある何らかのカテゴリを基準とする自律検索に使用される分類ツリーです。 ファセット ナビゲーションは、インデックスの属性がクエリで指定されたファセット フィールドと組み合わされることで実装されます。 参照してください [ファセット ナビゲーション](search-faceted-navigation.md) 詳細です。
+**ファセット ナビゲーション** は多くの場合、ブランド、モデル、サイズ、または何らかのカテゴリには、データが合理的に基づく、自律検索に使用される分類ツリーを参照します。 ファセット ナビゲーションは、インデックスの属性がクエリで指定されたファセット フィールドと組み合わされることで実装されます。 参照してください [ファセット ナビゲーション](search-faceted-navigation.md) 詳細です。 
 
-部分入力に基づく**検索候補**またはオートコンプリート クエリはインデックスの属性によってサポートされます。 Azure Search はあいまい一致と挿入時照合 (フィールド コンテンツの一部に一致する) の両方に対応しています。 両方を実行できます。相互に排他的ではありません。 参照してください [Create Index (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx) ヒントについては、有効化については、 [検索候補 (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn798936.aspx) それらを使用するためです。
+**検索候補** 先行入力またはオートコンプリート クエリはインデックスの属性によってサポートされます。 Azure Search はあいまい一致と挿入時照合 (フィールド コンテンツの一部に一致する) の両方に対応しています。 両方を実行できます。相互に排他的ではありません。 参照してください [Create Index (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx) ヒントについては、有効化については、 [検索候補 (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn798936.aspx) それらを使用するためです。
 
-**フィルター**はファセット ナビゲーションの実装とクエリの作成に使用され、検索操作を制約し、コードで構築した基準をフィルタリングするためにグローバルで使用されます。 フィルターはインデックス スキーマと $Filter 検索パラメーターを介して特定のフィールドに対して有効になります。 参照してください [Create Index (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx) と [ドキュメントの検索 (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx) 詳細です。
+**フィルター** ファセット ナビゲーションを実装するために使用、クエリの構造で使用またはコードで設定した条件をフィルター処理する検索操作を制限するためにグローバルに使用できます。 フィルターはインデックス スキーマと $Filter 検索パラメーターを介して特定のフィールドに対して有効になります。 参照してください [Create Index (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx) と [ドキュメントの検索 (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx) 詳細です。
 
-**並べ替え**もインデックス スキーマを介して特定のフィールドに対して有効になり、$orderBy パラメーターを介して検索パラメーターとして実装されます。 もう一度 [Create Index (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx) と [ドキュメントの検索 (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx) 、詳細を含む
+**並べ替え** は、インデックス スキーマを介して特定のフィールドも有効になり、$orderBy パラメーターを介して検索パラメーターとして実装されます。 もう一度 [Create Index (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx) と [ドキュメントの検索 (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx) 、詳細を含む
 
-クエリに対して返される検索結果の**数**と一度に返す検索結果の数を調整する機能は $top と $skip により実装されます。 参照してください [ドキュメントの検索 (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx) 詳細です。
+**カウント** クエリ、および一度に返されるヒット数を調整する機能は $top と $skip により実装されるに返される検索ヒットします。 参照してください [ドキュメントの検索 (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx) 詳細です。
 
-**検索結果の強調表示**はクエリの強調表示パラメーターで指定されます。ユーザーが入力した検索語句から見つけられた重要な言葉を強調表示するテキストの断片をユーザーに表示できます。 参照してください [ドキュメントの検索 (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx) クエリ パラメーターの詳細についてです。
+**結果の強調** は highlight クエリ パラメーターで指定し、ユーザーが入力した検索語句から見つけられた重要な言葉を強調表示するテキストの断片をユーザーに表示することはできます。 参照してください [ドキュメントの検索 (Azure Search サービス REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx) クエリ パラメーターの詳細についてです。
 
-## レポート作成と分析
+##レポート作成と分析
 
 リソース使用率がサービス ダッシュボードに表示されるので、ストレージの使用状況をすばやく確認できます。
 
@@ -124,7 +123,7 @@ ID に基づいて特定のドキュメントを探し、特定のアイテム�
 
 クエリのスループットやその他のサービス操作を測定するためのメカニズムは組み込まれていません。 また、現在のところ、検索結果を記録したり、分析したりすること (たとえば、結果が検索されなかった検索語句の一覧を取得することや検索要求を基点としてレポートを作成すること) はできません。
 
-## 実際に使ってみる
+##実際に使ってみる
 
 参照してください [Azure Search サービスを作成する](search-create-service-portal.md) サービスを設定したり、使用する [Try Azure App Service](http://go.microsoft.com/fwlink/p/?LinkId=618214) 設定やサブスクリプションが必要ないと、無料の 1 時間セッションでします。
 
@@ -133,8 +132,4 @@ ID に基づいて特定のドキュメントを探し、特定のアイテム�
 [.NET で Azure Search を使用する方法](search-howto-dotnet-sdk.md)
 [Azure Search .NET を使用します。](search-get-started-dotnet.md)
 [Azure Search: チュートリアル、ビデオ デモ、およびサンプル](search-video-demo-tutorial-list.md)
-
-
-
-
 

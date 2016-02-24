@@ -16,14 +16,12 @@
       ms.date="11/24/2015"
       ms.author="hascipio; avikova" />
 
-
 # CSDL を使用した既存の Web サービスの OData へのマッピングの例
 
 ## 例： "POST" を使用して返される "生" データのための FunctionImport
+POST の生データを使用して、新しい従属要素を作成し、サーバーによって定義された URL (場所) を返したり、サーバーによって定義された URL で従属要素の一部を更新したりします。  ここで、ストリームは、下位つまり 非構造化、ex。 テキスト ファイルです。  場所がないと、POST はべき等ではない状態になることに注意してください。
 
-POST の生データを使用して、新しい従属要素を作成し、サーバーによって定義された URL (場所) を返したり、サーバーによって定義された URL で従属要素の一部を更新したりします。 ここでは従属要素はストリームです。つまり、テキスト ファイルなどの非構造化データです。 場所がないと、POST はべき等ではない状態になることに注意してください。
-
-        
+        <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="AddUsageEvent" ReturnType="Raw(text/plain)" d:EncodeParameterValues="true" d:AllowedHttpMethods="POST" d:BaseUri="http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
         <d:Title d:Map="" />
         <d:Rights d:Map="" />
@@ -39,7 +37,6 @@ POST の生データを使用して、新しい従属要素を作成し、サー
         </FunctionImport>
 
 ## 例: "DELETE" を使用する FunctionImport
-
 DELETE を使用して、指定した URI を削除します。
 
         <EntitySet Name="DeleteUsageFileEntitySet" EntityType="MyOffer.DeleteUsageFileEntity" />
@@ -61,8 +58,7 @@ DELETE を使用して、指定した URI を削除します。
         </EntityType>
 
 ## 例: "POST" を使用する FunctionImport
-
-POST の生データを使用して、新しい従属要素を作成し、サーバーによって定義された URL (場所) を返したり、サーバーによって定義された URL で従属要素の一部を更新したりします。 ここでは従属要素は構造化データです。 場所がない場合、POST はべき等ではないことに注意してください。
+POST の生データを使用して、新しい従属要素を作成し、サーバーによって定義された URL (場所) を返したり、サーバーによって定義された URL で従属要素の一部を更新したりします。  ここでは従属要素は構造化データです。 場所がない場合、POST はべき等ではないことに注意してください。
 
         <EntitySet Name="CreateANewModelEntitySet2" EntityType=" MyOffer.CreateANewModelEntity2" />
         <FunctionImport Name="CreateModel" EntitySet="CreateANewModelEntitySet2" ReturnType="Collection(MyOffer.CreateANewModelEntity2)" d:EncodeParameterValues="true" d:AllowedHttpMethods="POST" d:BaseUri=”http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -80,8 +76,7 @@ POST の生データを使用して、新しい従属要素を作成し、サー
         </FunctionImport>
 
 ## 例: "PUT" を使用する FunctionImport
-
-PUT を使用して、新しい従属要素を作成したり、サーバーによって定義された URL で従属要素全体を更新したりします。 ここでは従属要素は構造化データであり、PUT はべき等であるため、複数回発生しても結果は同じ状態になります (x=5)。 PUT は、指定したリソースの全内容と共に使用する必要があります。
+PUT を使用して、新しい従属要素を作成したり、サーバーによって定義された URL で従属要素全体を更新したりします。  構造体を下位には、PUT はべき等にするため、同じ状態で複数回出現すると、つまり x = 5 です。  PUT は、指定したリソースの全内容と共に使用する必要があります。
 
         <EntitySet Name="UpdateAnExistingModelEntitySet" EntityType="MyOffer.UpdateAnExistingModelEntity" />
         <FunctionImport Name="UpdateModel" EntitySet="UpdateAnExistingModelEntitySet" ReturnType="Collection(MyOffer.UpdateAnExistingModelEntity)" d:EncodeParameterValues="true" d:AllowedHttpMethods="PUT" d:BaseUri=”http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -101,11 +96,11 @@ PUT を使用して、新しい従属要素を作成したり、サーバーに�
         <Property Name="string"     Type="String" Nullable="true" d:Map="./string" />
         </EntityType>
 
+
 ## 例： "PUT" を使用して返される "生" データのための FunctionImport
+PUT の生データを使用して、新しい従属要素を作成したり、サーバーによって定義された URL で従属要素全体を更新したりします。  ここで、ストリームは、下位つまり 非構造化、ex。 テキスト ファイルです。  PUT はべき等ため、同じ状態で複数回出現すると、つまり x = 5 です。  PUT は、指定したリソースの全内容と共に使用する必要があります。
 
-PUT の生データを使用して、新しい従属要素を作成したり、サーバーによって定義された URL で従属要素全体を更新したりします。 ここでは従属要素はストリームです。つまり、テキスト ファイルなどの非構造化データです。 PUT はべき等であるため、複数回発生しても結果は同じ状態になります (x=5)。 PUT は、指定したリソースの全内容と共に使用する必要があります。
-
-        
+        <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="CancelBuild” ReturnType="Raw(text/plain)" d:AllowedHttpMethods="PUT" d:EncodeParameterValues="true" d:BaseUri=” http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
         <d:Title d:Map="" />
         <d:Rights d:Map="" />
@@ -120,11 +115,11 @@ PUT の生データを使用して、新しい従属要素を作成したり、�
         </d:Namespaces>
         </FunctionImport>
 
-## 例： "GET" を使用して返される "生" データのための FunctionImport
 
+## 例： "GET" を使用して返される "生" データのための FunctionImport
 GET の生データを使用して、構造化されていない従属要素 (テキストなど) を返します。
 
-        
+        <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="GetModelUsageFile" ReturnType="Raw(text/plain)" d:EncodeParameterValues="true" d:AllowedHttpMethods="GET" d:BaseUri="https://cmla.cloudapp.net/api2/model/builder/build?buildId={buildId}&amp;apiVersion={apiVersion}">
         <d:Title d:Map="" />
         <d:Rights d:Map="" />
@@ -141,8 +136,7 @@ GET の生データを使用して、構造化されていない従属要素 (�
         </FunctionImport>
 
 ## 例: 返されたデータの "ページング" のための FunctionImport
-
-GET で取得したデータの RESTful なページングを実装します。 既定のページングは、データ ページあたり 100 行に設定されています。
+GET で取得したデータの RESTful なページングを実装します。  既定のページングは、データ ページあたり 100 行に設定されています。
 
         <EntitySet Name=”CropEntitySet" EntityType="MyOffer.CropEntity" />
         <FunctionImport Name="GetCropReport" EntitySet="CropEntitySet” ReturnType="Collection(MyOffer.CropEntity)" d:EmitSelfLink="false" d:EncodeParameterValues="true" d:Paging="SkipTake" d:MaxPageSize="100" d:BaseUri="http://api.mydata.org/Crop? report={report}&amp;series={series}&amp;start={$skip}&amp;size=100">
@@ -157,12 +151,7 @@ GET で取得したデータの RESTful なページングを実装します。 
         </FunctionImport>
 
 ## 関連項目
-
 - 全体的な OData マッピング プロセスと目的を理解する場合は、この記事を読む [データ サービスの OData マッピング](marketplace-publishing-data-service-creation-odata-mapping.md) 定義、構造、および指示を確認します。
 - この記事を参照している場合は、学習や、特定のノードとそのパラメーターを理解することに興味のある、 [データ サービスの OData マッピング ノード](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) 定義し、説明、例については、および使用するケースのコンテキストのです。
 - この記事を参照データ サービスを Azure Marketplace に発行するための指定されたパスに戻り、 [データ サービスの発行ガイド](marketplace-publishing-data-service-creation.md)します。
-
-
-
-
 

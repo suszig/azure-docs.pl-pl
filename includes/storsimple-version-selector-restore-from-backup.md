@@ -1,9 +1,4 @@
 > [AZURE.SELECTOR]
-- [Update 2](../articles/storsimple/storsimple-restore-from-backup-set-u2.md)
-- [Update 1 & earlier](../articles/storsimple/storsimple-restore-from-backup-set.md)
-
-
-
-
-
+- [更新プログラム 2](../articles/storsimple/storsimple-restore-from-backup-set-u2.md)
+- [1 & 以前の更新](../articles/storsimple/storsimple-restore-from-backup-set.md)
 

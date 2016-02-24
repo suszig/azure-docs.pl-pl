@@ -15,12 +15,10 @@
     ms.date="10/09/2015"
     ms.author="adegeo"/>
 
-
 # クラウド サービス モデルとそのパッケージ化について
+クラウド サービスは、3 つのコンポーネント、サービス定義から作成される _(.csdef)_, 、サービスの構成 _(.cscfg)_, 、サービス パッケージ _(.cspkg)_します。 両方の **ServiceDefinition.csdef** と **ServiceConfig.cscfg** ファイルは XML ベースし、まとめて、モデルと呼ばれる、クラウド サービスと構成; の構造を記述します。  **ServicePackage.cspkg** から生成される zip ファイルには、 **ServiceDefinition.csdef** 特に、すべての必要なバイナリに基づく依存関係が含まれます。 Azure は、2 つのクラウド サービスを作成、 **ServicePackage.cspkg** と **ServiceConfig.cscfg**します。
 
-クラウド サービスは、サービス定義 _(.csdef)_、サービスの構成 _(.cscfg)_、サービス パッケージ _(.cspkg)_ の 3 つのコンポーネントから作成されます。 **ServiceDefinition.csdef** ファイルと **ServiceConfig.cscfg** ファイルは XML ベースで、クラウド サービスの構成とその構成方法について説明しており、総称してモデルと呼ばれます。 **ServicePackage.cspkg** は、**ServiceDefinition.csdef** とその他のものから生成される zip ファイルで、必要なすべてのバイナリベースの依存関係が含まれます。 Azure は、**ServicePackage.cspkg** と **ServiceConfig.cscfg** の両方からクラウド サービスを作成します。
-
-Azure でクラウド サービスが実行されている場合は、**ServiceConfig.cscfg** ファイルを使用して再構成することはできますが、定義後は変更できません。
+Azure でクラウド サービスが実行されるは、使用してを再構成、 **ServiceConfig.cscfg** は、ファイルが、定義を変更できません。
 
 ## 詳細について
 
@@ -28,15 +26,14 @@ Azure でクラウド サービスが実行されている場合は、**ServiceC
 * については、既にわかってしてほしい [例をいくつか](#next-steps) 構成可能なのです。
 * 作成する、 [ServicePackage.cspkg](#cspkg)します。
 * Visual Studio を使用しているのですが...
-    * [新しいクラウド サービス ][vs_create]
-    * [既存のクラウド サービス ][vs_reconfigure]
-    * [[Vs_deploy] クラウド サービス プロジェクトをデプロイします。][vs_deploy]
-    * [[Remotedesktop] クラウド サービスのインスタンスにリモート デスクトップ接続][remotedesktop]
+    * [[新しいクラウド サービスの作成]][vs_create]
+    * [既存のクラウド サービスの再構成][vs_reconfigure]
+    * [クラウド サービス プロジェクトのデプロイ][vs_deploy]
+    * [クラウド サービス インスタンスへのリモート デスクトップ接続][remotedesktop]
 
 <a name="csdef"></a>
 ## ServiceDefinition.csdef
-
-**ServiceDefinition.csdef** ファイルは、Azure が使用する設定を指定して、クラウド サービスを構成します。  [Azure サービス定義スキーマ (.csdef ファイル)](https://msdn.microsoft.com/library/azure/ee758711.aspx) サービス定義ファイルの使用可能な形式を提供します。 次の例は、Web ロールと Worker ロールに定義できる設定を示しています。
+ **ServiceDefinition.csdef** ファイルをクラウド サービスを構成するのには、Azure によって使用される設定を指定します。  [Azure サービス定義スキーマ (.csdef ファイル)](https://msdn.microsoft.com/library/azure/ee758711.aspx) サービス定義ファイルの使用可能な形式を提供します。 次の例は、Web ロールと Worker ロールに定義できる設定を示しています。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -87,9 +84,9 @@ Azure でクラウド サービスが実行されている場合は、**ServiceC
 </ServiceDefinition>
 ```
 
-参照することができます、 [サービス定義スキーマの][] について理解を深めるここで使用する XML スキーマのただし、ここでは、要素のいくつか簡単に説明します。
+ここで使用する XML スキーマの詳細については、[サービスの定義スキーマ][] をご覧ください。ここでは、いくつかの要素を簡単に説明します。
 
->**[サイト] を**  
+>**サイト**  
 >IIS7 でホストされているサイトまたは web アプリケーションの定義が含まれています。
 >
 >**InputEndpoints**  
@@ -107,18 +104,17 @@ Azure でクラウド サービスが実行されている場合は、**ServiceC
 >**LocalResources**  
 >ローカル ストレージ リソースの定義を含みます。 ローカル ストレージ リソースは、ロールのインスタンスが実行されている仮想マシンのファイル システム内の予約されたディレクトリです。
 >
->**インポートする**  
+>**インポート**  
 >インポートされたモジュールの定義が含まれています。 上記のコード例は、リモート デスクトップ接続と Azure Connect のモジュールを示します。
 >
->**Startup**  
+>**スタートアップ**  
 >ロールの開始時に実行されるタスクが含まれています。 タスクは、.cmd ファイルか実行可能ファイルで定義されます。
 
 
 
 <a name="cscfg"></a>
 ## ServiceConfiguration.cscfg
-
-クラウド サービスのための設定の構成は、**ServiceConfiguration.cscfg** ファイルの値によって決定されます。 このファイル内の各ロールにデプロイするインスタンスの数を指定します。 サービス定義ファイルで定義した構成設定の値は、サービス構成ファイルに追加されます。 クラウド サービスに関連付けられている管理証明書のサムプリントは、ファイルにも追加されます。  [Azure サービス構成スキーマ (.cscfg ファイル)](https://msdn.microsoft.com/library/azure/ee758710.aspx) サービス構成ファイルの使用可能な形式を提供します。
+クラウド サービスの設定の構成は内の値によって決まります、 **ServiceConfiguration.cscfg** ファイルです。 このファイル内の各ロールにデプロイするインスタンスの数を指定します。 サービス定義ファイルで定義した構成設定の値は、サービス構成ファイルに追加されます。 クラウド サービスに関連付けられている管理証明書のサムプリントは、ファイルにも追加されます。  [Azure サービス構成スキーマ (.cscfg ファイル)](https://msdn.microsoft.com/library/azure/ee758710.aspx) サービス構成ファイルの使用可能な形式を提供します。
 
 サービス構成ファイルは、アプリケーションに付属していませんが、個別のファイルとして Azure にアップロードされ、クラウド サービスの構成に使用されます。 クラウド サービスを再デプロイしなくても、新しいサービス構成ファイルをアップロードできます。 クラウド サービスの実行中にクラウド サービスの構成値を変更できます。 次の例は、Web ロールと Worker ロールに定義できる構成設定を示しています。
 
@@ -144,20 +140,20 @@ Azure でクラウド サービスが実行されている場合は、**ServiceC
 
 >**インスタンス**  
 >実行中のロールのインスタンス数を構成します。 アップグレード中にクラウド サービスが利用できなくなるのを避けるために、Web に接続されたロールの 2 つ以上のインスタンスをデプロイすることを推奨します。 これにより、」のガイドラインを満たしている、 [Azure コンピューティング サービス レベル アグリーメント (SLA)](http://azure.microsoft.com/support/legal/sla/), 2 つのインターネットに接続されたロールの 99.95% の外部接続を保証する、または以上のロール インスタンスは、サービスのデプロイします。
->
+
 >**ConfigurationSettings**  
->ロールの実行中のインスタンスの設定を構成します。名前、 `< 設定 >` 要素がサービス定義ファイルで設定の定義と一致する必要があります。
->
+>ロールの実行中のインスタンスの設定を構成します。 `<Setting>` 要素の名前は、サービス定義ファイルの設定の定義と一致する必要があります。
+
 >**証明書**  
->サービスによって使用される証明書を構成します。 上記のコード例は、RemoteAccess モジュールの証明書を定義する方法を示します。 *サムプリント* 属性の値は、使用する証明書のサムプリントに設定する必要があります。
+>サービスによって使用される証明書を構成します。 上記のコード例は、RemoteAccess モジュールの証明書を定義する方法を示します。 値、 *拇印* 属性は、使用する証明書のサムプリントに設定する必要があります。
 
 <p/>
- >[AZURE.NOTE] テキスト エディターを使用して、証明書のサムプリントを構成ファイルに追加するか、値を Visual Studio のロールの**プロパティ**ページの**証明書**タブに追加できます。
+
+ >[AZURE.NOTE] 証明書の拇印は、テキスト エディターを使用して、構成ファイルに追加できますかの値を追加することができます、 **証明書** のタブ、 **プロパティ** Visual Studio での役割のページです。
 
 
 
 ## ロール インスタンスのポートを定義する
-
 Azure では、Web ロールに 1 つのエントリ ポイントのみを使用できます。 これは、1 つの IP アドレスからのすべてのトラフィックが発生したことを意味します。 ホスト ヘッダーを構成することによって、Web サイトを構成してポートを共有し、正しい場所に要求を送信できます。 またアプリケーションを構成して、IP アドレス上の既知のポートをリッスンすることもできます。
 
 次の例では、Web サイトと Web アプリケーションとの Web ロールの構成を示します。 Web サイトは、ポート 80 の既定のエントリ場所として構成され、Web アプリケーションは、"mail.mysite.cloudapp.net" という別のホスト ヘッダーから要求を受信するように構成されます。
@@ -196,7 +192,6 @@ Azure では、Web ロールに 1 つのエントリ ポイントのみを使用
 
 
 ## ロールの構成を変更する
-
 クラウド サービスは、Azure で実行中に、サービスをオフラインにせずに更新できます。 構成情報を変更するには、新しい構成ファイルをアップロードするか、構成ファイルを編集して、実行中のサービスに適用します。 次の変更がサービスの構成に適用されます。
 
 - **構成設定の値を変更します。**  
@@ -209,41 +204,38 @@ Azure では、Web ロールに 1 つのエントリ ポイントのみを使用
 証明書を更新できるは、ロール インスタンスがオフラインのときだけです。 ロール インスタンスがオンラインの間に、証明書が追加、削除、変更されると、Azure はインスタンスを正常にオフラインにし、証明書を更新し、変更の完了後にオンラインに戻します。
 
 ### サービス ランタイム イベントを使用して構成変更を処理する
+ [Azure ランタイム ライブラリ](https://msdn.microsoft.com/library/azure/dn511024.aspx) を含む、 [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx) 名前空間は、ロールのインスタンスで実行されているコードから Azure 環境とやり取りするクラスを提供します。  [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) クラスは、次の構成の変更の前後に発生するイベントを定義します。
 
-[Azure ランタイム ライブラリ](https://msdn.microsoft.com/library/azure/dn511024.aspx) を含む、 [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx) 名前空間は、ロールのインスタンスで実行されているコードから Azure 環境とやり取りするクラスを提供します。  [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) クラスは、次の構成の変更の前後に発生するイベントを定義します。
-
-- **[Changing](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx) event**  
+- **[変更する](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx) イベント**  
 これは、構成の変更が必要な場合は、ロール インスタンスを停止する機会を与えるロールの指定インスタンスに適用される前に発生します。
-- **[Changed](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx) event**  
+- **[変更された](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx) イベント**  
 指定されたロールのインスタンスに、構成の変更が適用された後に発生します。
 
-> [AZURE.NOTE] 証明書の変更は、常にロール インスタンスをオフラインにするため、RoleEnvironment.Changing や RoleEnvironment.Changed イベントは発生しません。
+> [AZURE.NOTE] 証明書の変更は常に、ロールのインスタンスをオフラインかかる、ため、RoleEnvironment.Changing または RoleEnvironment.Changed イベントは発生しません。
 
 <a name="cspkg"></a>
 ## ServicePackage.cspkg
-
 Azure のクラウド サービスとしてアプリケーションをデプロイするには、まず適切な形式でアプリケーションをパッケージ化する必要があります。 使用することができます、 **CSPack** コマンド ライン ツール (と共にインストールされる、 [Azure SDK](http://azure.microsoft.com/downloads/)) の代わりに Visual Studio パッケージ ファイルを作成します。
 
-**CSPack** はサービス定義ファイルとサービス構成ファイルの内容を使用して、パッケージの内容を定義します。 **CSPack** を使用して Azure にアップロードできるアプリケーション パッケージ ファイル (.cspkg) を生成、 [Azure クラシック ポータル](cloud-services-how-to-create-deploy/#how-to-deploy-a-cloud-service)します。 既定では、パッケージが名前付き `[ServiceDefinitionFileName] .cspkg`, を使用して別の名前を指定することが、 `/out` のオプション **CSPack**します。
+**CSPack** サービス定義ファイルとサービス構成ファイルの内容を使用して、パッケージの内容を定義します。 **CSPack** を使用して Azure にアップロードできるアプリケーション パッケージ ファイル (.cspkg) を生成、 [Azure クラシック ポータル](cloud-services-how-to-create-deploy/#how-to-deploy-a-cloud-service)します。 既定では、パッケージが名前付き `[ServiceDefinitionFileName].cspkg`, を使用して別の名前を指定することが、 `/out` のオプション **CSPack**します。
 
 ###### CSPack ツール(Windows 上) の場所
-
-| SDK のバージョン| パス|
+| SDK のバージョン | パス |
 | ----------- | ---- |
-| 1.7+| C:\\Program files \\microsoft SDKs\\Azure\\.NET SDK\\\ [sdk \] \\bin\\|
-| <1.6| C:\\Program Files\\Azure SDK\\\ [sdk \] \\bin\\|
+| 1.7+        | C:\\Program files \\microsoft SDKs\\Azure\\.NET SDK\\\ [sdk \] \\bin\\ |
+| &lt;1.6        | C:\\Program Files\\Azure SDK\\\ [sdk \] \\bin\\ |
 
 >[AZURE.NOTE]
-CSPack.exe (windows 上) は、SDK にインストール済みの **Microsoft Azure コマンド プロンプト** ショートカットを実行して使用可能です。  
+CSPack.exe (windows 上) を実行して、使用可能な **Microsoft Azure コマンド プロンプト** SDK と共にインストールされるショートカットです。  
 >  
 >CSPack.exe プログラムを実行して、必要なすべてのスイッチとコマンドについてのドキュメントをご覧ください。
 
 <p />
+
 >[AZURE.TIP]
-**Microsoft Azure コンピューティング エミュレーター**でクラウド サービスをローカルで実行し、**/copyonly** オプション を使用します。このオプションは、アプリケーションのバイナリ ファイルをコンピューティング エミュレーターで実行できるディレクトリ レイアウトにコピーします。
+クラウド サービスをローカルに実行、 **Microsoft Azure コンピューティング エミュレーター**, を使用して、 **/copyonly** オプションは、このオプションは、アプリケーションが、元となるコンピューティング エミュレーターで実行できるディレクトリ レイアウトにバイナリ ファイルをコピーします。
 
 ### クラウド サービスをパッケージ化するコマンド例
-
 次の例では、Web ロールの情報を含むアプリケーション パッケージを作成します。 このコマンドは、使用するサービス定義ファイル、バイナリ ファイルがあるディレクトリ、パッケージ ファイルの名前を指定します。
 
     cspack [DirectoryName]\[ServiceDefinition]
@@ -261,39 +253,38 @@ CSPack.exe (windows 上) は、SDK にインストール済みの **Microsoft Az
 
 変数が定義されている場所は次のとおりです。
 
-| 変数| 値|
+| 変数                  | 値 |
 | ------------------------- | ----- |
-| \[DirectoryName\]| Azure プロジェクトの .csdef ファイルを含むルート プロジェクト ディレクトリの下のサブディレクトリです。|
-| \[ServiceDefinition\]| サービス定義ファイルの名前。既定では、このファイルの名前は ServiceDefinition.csdef です。|
-| \[OutputFileName\]| 生成されたパッケージ ファイルの名前。通常、これは、アプリケーションの名前に設定されます。ファイル名が指定されていない場合は、アプリケーション パッケージが \[ApplicationName\].cspkg として作成されます。|
-| \[RoleName\]| サービス定義ファイルに定義されているロールの名前です。|
-| \[RoleBinariesDirectory]| ロールのバイナリ ファイルの場所です。|
-| \[VirtualPath\]| サービス定義ファイルの Sites セクションで定義されている各仮想パスの物理ディレクトリです。|
-| \[PhysicalPath\]| サービス定義ファイルの [サイト] ノードで定義されている各仮想パスの内容の物理ディレクトリです。|
-| \[RoleAssemblyName\]| ロールのバイナリ ファイルの名前です。|
+| \[DirectoryName\]         | Azure プロジェクトの .csdef ファイルを含むルート プロジェクト ディレクトリの下のサブディレクトリです。|
+| \[ServiceDefinition\]     | サービス定義ファイルの名前。 既定では、このファイルの名前は ServiceDefinition.csdef です。  |
+| \[OutputFileName\]        | 生成されたパッケージ ファイルの名前。 通常、これは、アプリケーションの名前に設定されます。 ファイル名が指定されていない場合は、アプリケーション パッケージが \[ApplicationName\].cspkg として作成されます。|
+| \[RoleName\]              | サービス定義ファイルに定義されているロールの名前です。|
+| \[RoleBinariesDirectory] | ロールのバイナリ ファイルの場所です。|
+| \[VirtualPath\]           | サービス定義ファイルの Sites セクションで定義されている各仮想パスの物理ディレクトリです。|
+| \[PhysicalPath\]          | サービス定義ファイルの [サイト] ノードで定義されている各仮想パスの内容の物理ディレクトリです。|
+| \[RoleAssemblyName\]      | ロールのバイナリ ファイルの名前です。| 
 
 
 ## 次のステップ
 
 クラウド サービス パッケージを作成しているのですが...
 
-* [ローカル ストレージ リソースを構成します。](cloud-services-configure-local-storage-resources.md)
-* [リモート デスクトップ ][remotedesktop]
-* [クラウド サービス プロジェクトの配置 ][deploy]
+* [ローカル ストレージ リソースを構成する](cloud-services-configure-local-storage-resources.md)
+* [クラウド サービスのインスタンスのリモート デスクトップのセットアップ][remotedesktop]
+* [クラウド サービス プロジェクトのデプロイ][deploy]
 
 Visual Studio を使用しているのですが...
 
-* [新しいクラウド サービス ][vs_create]
-* [既存のクラウド サービス ][vs_reconfigure]
-* [[Vs_deploy] クラウド サービス プロジェクトをデプロイします。][vs_deploy]
-* [リモート デスクトップ ][vs_remote]
+* [[新しいクラウド サービスの作成]][vs_create]
+* [既存のクラウド サービスの再構成][vs_reconfigure]
+* [クラウド サービス プロジェクトのデプロイ][vs_deploy]
+* [クラウド サービスのインスタンスのリモート デスクトップのセットアップ][vs_remote]
 
 
-
-[deploy]: cloud-services-how-to-create-deploy-portal.md 
-[remotedesktop]: cloud-services-role-enable-remote-desktop.md 
-[vs_remote]: https://msdn.microsoft.com/library/gg443832.aspx 
-[vs_deploy]: https://msdn.microsoft.com/library/ee460772.aspx 
-[vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx 
-[vs_create]: https://msdn.microsoft.com/library/ee405487.aspx 
+[deploy]: cloud-services-how-to-create-deploy-portal.md
+[remotedesktop]: cloud-services-role-enable-remote-desktop.md
+[vs_remote]: https://msdn.microsoft.com/library/gg443832.aspx
+[vs_deploy]: https://msdn.microsoft.com/library/ee460772.aspx
+[vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
+[vs_create]: https://msdn.microsoft.com/library/ee405487.aspx
 

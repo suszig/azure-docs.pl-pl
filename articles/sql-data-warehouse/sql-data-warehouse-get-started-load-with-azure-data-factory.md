@@ -16,14 +16,12 @@
    ms.date="11/19/2015"
    ms.author="lodipalm"/>
 
-
 # Azure Data Factory を使用してデータを読み込む
 
 > [AZURE.SELECTOR]
 - [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
 - [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
-
 
  このチュートリアルでは、Azure Storage BLOB から SQL Data Warehouse にデータを移動するパイプラインを Azure Data Factory に作成する方法について説明します。 以降の手順では、次の操作を実行します。
 
@@ -37,9 +35,9 @@
 
 このチュートリアルを行うには、以下のリソースが必要です。
 
-   + **Azure Storage Blob**:、Azure Storage の Blob は、パイプラインのデータ ソースになります。 既存の blob を使用する、または [、新しいものをプロビジョニング](../storage/storage-create-storage-account/)します。
+   + **Azure Storage Blob**:、Azure Storage の Blob は、パイプラインのデータ ソースになります。  既存の blob を使用する、または [、新しいものをプロビジョニング](../storage/storage-create-storage-account/)します。
 
-   + **SQL Data Warehouse**: このチュートリアルでは、SQL Data Warehouse にデータを移動します。 インスタンス セットアップがあるない場合は、学習方法  [ここ](sql-data-warehouse-get-started-provision.md)します。 さらに、インスタンスは、AdventureWorks DW データセットを使って設定する必要があります。 サンプル データを含む、データ ウェアハウスをプロビジョニングしていない場合は、 [これを手動で読み込む](sql-data-warehouse-get-started-manually-load-samples.md)します。
+   + **SQL Data Warehouse**: このチュートリアルで移動するにはデータ SQL Data Warehouse にします。  インスタンス セットアップがあるない場合は、学習方法  [ここ](sql-data-warehouse-get-started-provision.md)します。  さらに、インスタンスは、AdventureWorks DW データセットを使って設定する必要があります。  サンプル データを含む、データ ウェアハウスをプロビジョニングしていない場合は、 [これを手動で読み込む](sql-data-warehouse-get-started-manually-load-samples.md)です。
 
    + **Azure Data Factory**: Azure Data Factory は、実際の負荷を完了し、詳細については、Azure Data Factory の設定やパイプラインを作成する必要がある場合、あることがわかります [ここ](../data-factory/data-factory-build-your-first-pipeline-using-editor/)します。
 
@@ -47,9 +45,9 @@
 
 ## サンプル データ
 
-パイプラインの各要素に加えて、Azure Data Factory でデータを読み込む練習に使用できるサンプル データも必要になります。
+パイプラインの各要素に加えて、Azure Data Factory でデータを読み込む練習に使用できるサンプル データも必要になります。  
 
-1. まず、 [サンプル データをダウンロード](https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv)します。 このデータは、ご利用のサンプル データに既に含まれているサンプル データと共に使用することで、さらに 3 年分の売上データを提供します。
+1. まず、 [サンプル データをダウンロード](https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv)します。  このデータは、ご利用のサンプル データに既に含まれているサンプル データと共に使用することで、さらに 3 年分の売上データを提供します。
 
 2. ダウンロードしたデータは、AZCopy で次のスクリプトを実行して BLOB ストレージに移動できます。
 
@@ -57,17 +55,17 @@
 
     参照してください、 [AZCopy ドキュメント](../storage/storage-use-azcopy/) AZCopy をインストールして使用する方法についての追加。
 
-データを準備した後は、ストレージ アカウントから SQL Data Warehouse にデータを移動するパイプラインを作成するために、データ ファクトリに移動します。
+データを準備した後は、ストレージ アカウントから SQL Data Warehouse にデータを移動するパイプラインを作成するために、データ ファクトリに移動します。  
 
 ## Azure Data Factory の使用
 
-すべての設定が完了したら、Azure ポータルの Azure Data Factory インスタンスに移動して、パイプラインの設定を開始できます。 移動してそのため、 [Azure Classic Portal](portal.azure.com) 左側のメニューから、data factory を選択するとします。
+すべての設定が完了したら、Azure ポータルの Azure Data Factory インスタンスに移動して、パイプラインの設定を開始できます。  移動してそのため、 [Azure Classic Portal](portal.azure.com) 左側のメニューから、data factory を選択するとします。
 
 データ ウェアハウスにデータを転送する Azure Data Factory パイプラインを設定するには、サービスのリンク、データセットの定義、パイプラインの作成の 3 つの手順を実行します。
 
 ### リンクされたサービスの作成
 
-最初の手順では、Azure ストレージ アカウントと SQL Data Warehouse をデータ ファクトリにリンクします。
+最初の手順では、Azure ストレージ アカウントと SQL Data Warehouse をデータ ファクトリにリンクします。  
 
 1. まず、データ ファクトリの [リンクされたサービス] セクション、[新しいデータ ストア] の順にクリックして、登録プロセスを開始します。 次に、Azure ストレージを登録する名前を選択します。種類として [Azure Storage] を選択し、アカウント名とアカウント キーを入力します。
 
@@ -84,14 +82,13 @@
             }
         }
 
-
 ### データセットの登録
 
-リンクされたサービスを作成した後は、データ セットを定義する必要があります。 これは、ストレージからデータ ウェアハウスに移動するデータの構造を定義することを意味します。 作成に関する詳しい情報を得ることができます。
+リンクされたサービスを作成した後は、データ セットを定義する必要があります。  これは、ストレージからデータ ウェアハウスに移動するデータの構造を定義することを意味します。  作成に関する詳しい情報を得ることができます。
 
 1. データ ファクトリの [作成とデプロイ] セクションに移動し、このプロセスを開始します。
 
-2. [新しいデータセット]、[Azure BLOB ストレージ] の順にクリックし、ストレージをデータ ファクトリにリンクします。 次のスクリプトを使用して、Azure BLOB ストレージのデータを定義することができます。
+2. [新しいデータセット]、[Azure BLOB ストレージ] の順にクリックし、ストレージをデータ ファクトリにリンクします。  次のスクリプトを使用して、Azure BLOB ストレージのデータを定義することができます。
 
         {
             "name": "<Dataset Name>",
@@ -122,44 +119,45 @@
             }
         }
 
-3. 次に、SQL Data Warehouse のデータセットも定義します。 前の手順と同様に、[新しいデータセット]、[Azure SQL Data Warehouse] の順にクリックします。
 
-     {
-       "name": "<dataset name>",
-       "properties": {
-         "type": "AzureSqlDWTable",
-         "linkedServiceName": "<linked data warehouse name>",
-         "typeProperties": {
-           "tableName": "FactInternetSales"
-         },
-         "availability": {
-           "frequency": "Hour",
-           "interval": 1
-         }
-       }
-     }
-    
-     {
-       "name": "DWDataset",
-       "properties": {
-         "type": "AzureSqlDWTable",
-         "linkedServiceName": "AzureSqlDWLinkedService",
-         "typeProperties": {
-           "tableName": "FactInternetSales"
-         },
-         "availability": {
-           "frequency": "Hour",
-           "interval": 1
-         }
-       }
-     }
 
+3. 次に、SQL Data Warehouse のデータセットも定義します。  前の手順と同様に、[新しいデータセット]、[Azure SQL Data Warehouse] の順にクリックします。
+
+        {
+          "name": "<dataset name>",
+          "properties": {
+            "type": "AzureSqlDWTable",
+            "linkedServiceName": "<linked data warehouse name>",
+            "typeProperties": {
+              "tableName": "FactInternetSales"
+            },
+            "availability": {
+              "frequency": "Hour",
+              "interval": 1
+            }
+          }
+        }
+
+        {
+          "name": "DWDataset",
+          "properties": {
+            "type": "AzureSqlDWTable",
+            "linkedServiceName": "AzureSqlDWLinkedService",
+            "typeProperties": {
+              "tableName": "FactInternetSales"
+            },
+            "availability": {
+              "frequency": "Hour",
+              "interval": 1
+            }
+          }
+        }
 
 ### パイプラインの設定
 
-最後に、Azure Data Factory でパイプラインを設定して実行します。 これは、実際のデータの移動を実行する操作です。 SQL Data Warehouse と Azure Data Factory で実行できる操作の完全なビューを検索する [ここ](../data-factory/data-factory-azure-sql-data-warehouse-connector/)します。
+最後に、Azure Data Factory でパイプラインを設定して実行します。  これは、実際のデータの移動を実行する操作です。  SQL Data Warehouse と Azure Data Factory で実行できる操作の完全なビューを検索する [ここ](../data-factory/data-factory-azure-sql-data-warehouse-connector/)します。
 
-[作成とデプロイ] セクションで、[その他のコマンド]、[新しいパイプライン] の順にクリックします。 パイプラインを作成した後、次のコードを使用して、データ ウェアハウスにデータを転送できます。
+[作成とデプロイ] セクションで、[その他のコマンド]、[新しいパイプライン] の順にクリックします。  パイプラインを作成した後、次のコードを使用して、データ ウェアハウスにデータを転送できます。
 
     {
     "name": "<Pipeline Name>",
@@ -206,6 +204,5 @@
         "isPaused": false
     }
     }
-
-
+    
 

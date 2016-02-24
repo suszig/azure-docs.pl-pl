@@ -16,26 +16,25 @@
    ms.date="11/24/2015"
    ms.author="mfussell"/>
 
-
 # RunAs: 異なるセキュリティ アクセス許可での Service Fabric アプリケーションの実行
-
 Service Fabric では、"RunAs" と呼ばれる別のユーザー アカウントを使用して、クラスターで実行しているアプリケーションをセキュリティで保護できます。 さらに、そのユーザー アカウントを使用するアプリケーションによって使用されるファイル、ディレクトリ、証明書などのリソースも保護されます。
 
-既定では、Service Fabric アプリケーションは、Fabric.exe プロセスを実行しているアカウントで実行されます。 また、アプリケーションのマニフェストで指定されているローカル ユーザー アカウントを使用してアプリケーションを実行することもできます。 RunAs でサポートされるアカウントの種類は、**LocalUser**、**NetworkService**、**LocalService**、**LocalSystem** です。
-> [AZURE.NOTE] ドメイン アカウントは、Active Directory が使用可能な Windows Server のデプロイメントでサポートされます。 
+既定では、Service Fabric アプリケーションは、Fabric.exe プロセスを実行しているアカウントで実行されます。 また、アプリケーションのマニフェストで指定されているローカル ユーザー アカウントを使用してアプリケーションを実行することもできます。 サポートされているアカウントの種類については、RunAs **LocalUser**, 、**NetworkService**, 、**LocalService** と **LocalSystem**します。
+
+> [AZURE.NOTE] Active Directory を使用する Windows Server の展開では、ドメイン アカウントがサポートされています。 
 
 ユーザー グループを定義して作成し、ユーザーをこのグループに追加してまとめて管理できます。 これは、異なるサービス エントリ ポイントに対して複数のユーザーが存在し、グループ レベルで使用できる特定の共通の特権が必要な場合に、特に便利です。
 
 ## セットアップ EntryPoint に対する RunAs ポリシーの設定
 
-」の説明に従って、 [アプリケーション モデル](service-fabric-application-model.md) 、 **SetupEntryPoint** Service Fabric と同じ資格情報で実行する特権を持つエントリ ポイントは、(通常、 *ネットワーク* アカウント) の他のエントリ ポイントの前にします。 通常、**EntryPoint** で指定された実行可能ファイルは、実行時間の長いサービス ホストで別々のセットアップのエントリ ポイントを持つことで、長時間にわたって高い権限でサービス ホスト exe を実行することを回避できます。 **EntryPoint** で指定された実行可能ファイルは、**SetupEntryPoint** が正常に終了した後に実行されます。 結果のプロセスは、終了またはクラッシュした場合に、監視されて再起動されます (**SetupEntryPoint** で再起動)。
+」の説明に従って、 [アプリケーション モデル](service-fabric-application-model.md) 、 **SetupEntryPoint** Service Fabric と同じ資格情報で実行する特権を持つエントリ ポイントは、(通常、 *ネットワーク* アカウント) の他のエントリ ポイントの前にします。 指定された実行可能ファイル **EntryPoint** は、通常、実行時間の長いサービス ホストを別々 のセットアップ エントリ ポイント長期間の高度な権限でサービス ホスト exe を実行することを回避できます。 指定された実行可能ファイル **EntryPoint** 後に実行 **SetupEntryPoint** が正常に終了します。 結果のプロセスを監視し、再実行 (以降でもう一度 **SetupEntryPoint**) これまでに終了またはクラッシュした場合。
 
 サービスの SetupEntryPoint およびメイン EntryPoint を示す簡単なサービス マニフェストの例を次に示します。
 
 ~~~
 <?xml version="1.0" encoding="utf-8" ?>
 <ServiceManifest Name="MyServiceManifest" Version="SvcManifestVersion1" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Description>サービス マニフェストの例</Description>
+  <Description>An example service manifest</Description>
   <ServiceTypes>
     <StatelessServiceType ServiceTypeName="MyServiceType" />
   </ServiceTypes>
@@ -81,62 +80,60 @@ SetupEntryPoint にサービスを構成したアプリケーション マニフ
 </ApplicationManifest>
 ~~~
 
-最初に、SetupAdminUser などのユーザー名で **Principals** セクションを作成します。 これは、ユーザーが Administrators システム グループのメンバーであることを示します。
+最初に作成、 **プリンシパル** セクションのユーザーに SetupAdminUser などの名前します。 これは、ユーザーが Administrators システム グループのメンバーであることを示します。
 
-次に、**ServiceManifestImport** セクションで、このプリンシパルを **SetupEntryPoint** に適用するためのポリシーを構成します。 これにより、MySetup.bat ファイルは Administrator 特権で実行する必要があることを Service Fabric に通知します。 メイン エントリ ポイントに対してポリシーを適用*しない*と、MyServiceHost.exe のコードは、すべてのサービス エントリ ポイントが RunAs で実行する既定のアカウントであるシステム NetworkService アカウントで実行します。
+[次へ]、 **ServiceManifestImport** ] セクションで構成するには、このプリンシパルに適用するポリシー、 **SetupEntryPoint**します。 これにより、MySetup.bat ファイルは Administrator 特権で実行する必要があることを Service Fabric に通知します。  *いない* 適用 MyServiceHost.exe 内のコードのメイン エントリ ポイントにポリシーは、システムのすべてのサービス エントリ ポイントは、RunAs を既定のアカウントが NetworkService アカウントで実行されます。
 
-それでは、MySetup.bat ファイルを Visual Studio プロジェクトに追加して、Administrator 特権をテストしてみます。 Visual Studio でサービス プロジェクトを右クリックし、MySetup.bat の新しいファイル呼び出しを追加します。 次に、このファイルをサービス パッケージに含める必要があります。既定では含まれません。 MySetup.bat ファイルをパッケージに含めるには、ファイルを右クリックしてコンテキスト メニューを表示し、[プロパティ] を選択して、[プロパティ] ダイアログで **[出力ディレクトリにコピー]** を **[新しい場合はコピーする]** に設定します。 これを示したものが下記のスクリーンショットです。
+それでは、MySetup.bat ファイルを Visual Studio プロジェクトに追加して、Administrator 特権をテストしてみます。 Visual Studio でサービス プロジェクトを右クリックし、MySetup.bat の新しいファイル呼び出しを追加します。 次に、このファイルをサービス パッケージに含める必要があります。既定では含まれません。 ファイルには、パッケージの選択で MySetup.bat ファイルが含まれてことを確認するを右クリックし、コンテキスト メニューを取得し、プロパティを選択して、プロパティ] ダイアログでいることを確認、 **出力ディレクトリにコピー** に設定されている **新しい場合はコピー**します。 これを示したものが下記のスクリーンショットです。
 
 ![SetupEntryPoint バッチ ファイルの Visual Studio CopyToOutput][image1]
 
 次に、MySetup.bat ファイルを開き、次のコマンドを追加します。
 
 ~~~
-REM では、システム環境変数を設定します。 これにより、管理者特権が必要です。
-setx m TestVariable"MyValue"
-設定するシステム TestVariable をエコー > test.txt
-echo TestVariable % >> test.txt
+REM Set a system environment variable. This requires administrator privilege
+setx -m TestVariable "MyValue"
+echo System TestVariable set to > test.txt
+echo %TestVariable% >> test.txt
 
-REM を削除このシステム変数私たち
-REM REG"hkey_local_machine \system\currentcontrolset\control\session Manager\Environment"/v TestVariable/f を削除します。
+REM To delete this system variable us
+REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ~~~
 
-次に、ソリューションをビルドして、開発用のローカル クラスターにデプロイします。 サービスが開始した後、Service Fabric Explorer で示されるように、MySetup.bat が成功したことを 2 つの方法で確認できます。 PowerShell コマンド プロンプトを起動し、次を入力します。
+次に、ソリューションをビルドして、開発用のローカル クラスターにデプロイします。  サービスが開始した後、Service Fabric Explorer で示されるように、MySetup.bat が成功したことを 2 つの方法で確認できます。 PowerShell コマンド プロンプトを起動し、次を入力します。
 
 ~~~
-PS C:\[Environment]::GetEnvironmentVariable("TestVariable","Machine")
-プロパティ
+PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
+MyValue
 ~~~
 
-もう 1 つの方法は、サービスがデプロイされて開始されたノードの名前を Service Fabric Explorer で確認し (例: Node 1)、アプリケーション インスタンスの作業フォルダーに移動して、out.txt ファイルで **TestVariable** の値を調べます。 たとえば、これが Node 2 にデプロイされた場合、MyApplicationType の次のパスに移動します。
+次に、サービスが配置され、ノード 1 例: Service Fabric エクスプ ローラーで開始ノードの名前をメモしの値を示す out.txt ファイルを検索するアプリケーション インスタンスの作業フォルダに移動 **TestVariable**します。 たとえば、これが Node 2 にデプロイされた場合、MyApplicationType の次のパスに移動します。
 
 ~~~
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ~~~
 
-## SetupEntryPoint からの PowerShell コマンドの起動
-
-**SetupEntryPoint** ポイントから PowerShell を実行するには、PowerShell ファイルを指し示すバッチ ファイルで PowerShell.exe を実行します。 最初に、PowerShell ファイル (例: MySetup.ps1) をサービス プロジェクトに追加します。 このファイルがサービス パッケージにも含まれるように、*[新しい場合はコピーする]* プロパティを忘れずに設定します。 システム環境変数 *TestVariable* を設定する PowerShell ファイル MySetup.ps1 を起動するバッチ ファイルの例を次に示します。
+##  SetupEntryPoint からの PowerShell コマンドの起動
+PowerShell を実行するために、 **SetupEntryPoint** PowerShell.exe を実行するには PowerShell ファイルを指すバッチ ファイルにポイントします。 最初に、PowerShell ファイル (例: MySetup.ps1) をサービス プロジェクトに追加します。 設定してください、 *新しい場合はコピー* プロパティできるように、このファイルは、サービス パッケージにも含まれます。 次の例と呼ばれるシステム環境変数を設定している MySetup.ps1 という名前の PowerShell ファイルを起動するサンプルのバッチ ファイルを示しています。 *TestVariable*します。
 
 PowerShell ファイルを起動するための MySetup.bat。
 
 ~~~
-powershell.exe ExecutionPolicy バイパス - コマンド".\MySetup.ps1"
+powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 ~~~
 
 PowerShell ファイルで、システム環境変数を設定するために次を追加します。
 
 ```
+[Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
 ```
 
-## サービスへの RunAsPolicy の適用
-
-上の手順では、SetupEntryPoint に RunAs ポリシーを適用する方法を説明しました。 ここでは、サービス ポリシーとして適用できる別のプリンシパルを作成する方法をもう少し詳しく説明します。
+## サービスへの RunAsPolicy の適用 
+上の手順では、SetupEntryPoint に RunAs ポリシーを適用する方法を説明しました。 ここでは、サービス ポリシーとして適用できる別のプリンシパルを作成する方法をもう少し詳しく説明します。 
 
 ### ローカル ユーザー グループの作成
-
-ユーザー グループを定義して作成し、ユーザーをこのグループに追加できます。 これは、異なるサービス エントリ ポイントに対して複数のユーザーが存在し、グループ レベルで使用できる特定の共通の特権が必要な場合に、特に便利です。 次の例では、Administrator 特権を持つローカル グループ **LocalAdminGroup** を示します。 2 人のユーザー Customer1 と Customer2 がこのローカル グループのメンバーになっています。
+ユーザー グループを定義して作成し、ユーザーをこのグループに追加できます。 これは、異なるサービス エントリ ポイントに対して複数のユーザーが存在し、グループ レベルで使用できる特定の共通の特権が必要な場合に、特に便利です。 次の例と呼ばれるローカル グループを示しています。 **LocalAdminGroup** 管理者特権を使用します。 2 人のユーザー Customer1 と Customer2 がこのローカル グループのメンバーになっています。
 
 ~~~
 <Principals>
@@ -163,7 +160,6 @@ PowerShell ファイルで、システム環境変数を設定するために次
 ~~~
 
 ### ローカル ユーザーの作成
-
 アプリケーション内のサービスをセキュリティで保護するために使用できるローカル ユーザーを作成できます。 アプリケーション マニフェストの Principals セクションでアカウントの種類として LocalUser が指定されている場合、Service Fabric はアプリケーションがデプロイされているコンピューターにローカル ユーザー アカウントを作成します。 既定では、これらのアカウントにはアプリケーション マニフェストで指定されている同じ名前は設定されず (たとえば、次の例では “Customer3”)、名前は動的に生成されてランダムなパスワードが設定されます。
 
 ~~~
@@ -173,12 +169,18 @@ PowerShell ファイルで、システム環境変数を設定するために次
   </Users>
 </Principals>
 ~~~
+ 
+<!-- If an application requires that the user account and password be same on all machines (e.g. to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true and also specify an NTLMAuthenticationPasswordSecret that will be used to generate the same password across all machines.
 
-
+<Section Name="Hosting">
+      <Parameter Name="EndpointProviderEnabled" Value="true"/>
+      <Parameter Name="NTLMAuthenticationEnabled" Value="true"/>
+      <Parameter Name="NTLMAuthenticationPassworkSecret" Value="******" IsEncrypted="true"/>
+ </Section>
+-->
 
 ## サービス コード パッケージへのポリシーの割り当て
-
-**ServiceManifestImport** の **RunAsPolicy** セクションでは、コード パッケージの実行に使用する必要がある Principals セクションのアカウントが指定されており、サービス マニフェストのコード パッケージと Principals セクションのユーザー アカウントが関連付けられています。 これは、Setup または Main エントリ ポイントに対して指定することも、または All を指定して両方に適用することもできます。 次の例では、異なるポリシーの適用を示します。
+ **RunAsPolicy** については、「、 **ServiceManifestImport** プリンシパル セクション内のユーザー アカウントを使用してサービス マニフェストからパッケージと関連コンポーネントのコード パッケージのコードを実行するために使用する必要がありますプリンシパル セクションからアカウントを指定します。 これは、Setup または Main エントリ ポイントに対して指定することも、または All を指定して両方に適用することもできます。 次の例では、異なるポリシーの適用を示します。
 
 ~~~
 <Policies>
@@ -187,11 +189,10 @@ PowerShell ファイルで、システム環境変数を設定するために次
 </Policies>
 ~~~
 
-**EntryPointType** が指定されていない場合は、既定で EntryPointType=”Main” に設定されます。 **SetupEntryPoint** の指定は、高い特権を必要とする特定のセットアップ操作はシステム アカウントで実行する必要があり、実際のサービス コードは低い特権のアカウントで実行できる場合に、特に便利です。
+場合 **EntryPointType** が指定されていない、EntryPointType に既定値が設定されている ="Main"です。 指定する、 **SetupEntryPoint** は実際のサービス コードは、低い特権のあるアカウントで実行できますが、システム アカウントで特定の権限レベルの高いセットアップ操作を実行するときに特に便利です。 
 
 ### すべてのサービス コード パッケージへの既定ポリシーの適用
-
-**DefaultRunAsPolicy** セクションは、特定の **RunAsPolicy** が定義されていないすべてのコード パッケージに対する既定のユーザー アカウントを指定するために使用します。 アプリケーションによって使用されるサービス マニフェストで指定されているほとんどのコード パッケージが同じ RunAs ユーザーで実行する必要がある場合、すべてのコード パッケージに **RunAsPolicy** を指定する代わりに、そのユーザー アカウントで既定の RunAs ポリシーを定義するだけで済ますことができます。 たとえば、次の例では、コード パッケージで **RunAsPolicy** が指定されていない場合、コード パッケージは Principals セクションで指定されている MyDefaultAccount を使用して実行するように指定しています。
+ **DefaultRunAsPolicy** セクションを使用して、特定がインストールされていないすべてのコード パッケージの既定のユーザー アカウントを指定 **RunAsPolicy** を定義します。 アプリケーションが、指定する代わりにユーザー アカウントを使って既定 RunAs ポリシーを定義できますだけを同じ RunAs ユーザーで実行する必要がほとんどのコード パッケージが、アプリケーションで使用されるサービス マニフェストで指定した場合、 **RunAsPolicy** コード パッケージごとにします。 次に例を次の例を指定するコード パッケージにない場合 **RunAsPolicy** コード パッケージは指定すると、プリンシパルのセクションで指定された MyDefaultAccount で実行する必要があります。 
 
 ~~~
 <Policies>
@@ -200,32 +201,30 @@ PowerShell ファイルで、システム環境変数を設定するために次
 ~~~
 
 ## http および https エンドポイントに対する SecurityAccessPolicy の割り当て
-
-サービスに RunAs ポリシーを適用し、サービス マニフェストで http プロトコルを使用するエンドポイント リソースが宣言されている場合は、**SecurityAccessPolicy** を指定して、これらのエンドポイントに割り当てられているポートに、サービスが実行する RunAs ユーザー アカウントの ACL が正しく適用されるようにする必要があります。 そうしないと、http.sys はサービスにアクセスできず。クライアントからの呼び出しは失敗します。 次の例では、Customer3 アカウントを *ServiceEndpointName* エンドポイントに適用し、フル アクセス権限を付与しています。
+指定する必要があるかどうかは、サービスに RunAs ポリシーを適用して、サービス マニフェストは、http プロトコルでエンドポイント リソースを宣言して、 **SecurityAccessPolicy** にこれらのエンドポイントに割り当てられているポートが適切である、acl で制御用 RunAs ユーザー アカウント、サービスを実行していることを確認します。 そうしないと、http.sys はサービスにアクセスできず。クライアントからの呼び出しは失敗します。 次の例では、呼び出し先のエンドポイントに Customer3 アカウントが適用されます *ServiceEndpointName* のフル アクセス権を付与します。
 
 ~~~
 <Policies>
    <RunAsPolicy CodePackageRef="Code" UserRef="Customer1" />
-   
+   <!--SecurityAccessPolicy is needed if RunAsPolicy is defined and the Endpoint is http -->
    <SecurityAccessPolicy ResourceRef="EndpointName" PrincipalRef="Customer1" />
 </Policies>
 ~~~
 
-https エンドポイントの場合は、**EndpointBindingPolicy** のクライアントに返す証明書の名前も指定する必要があります。これは、アプリケーション マニフェストの certificates セクションで定義されています。
+Https エンドポイントを追加する必要があるをクライアントに戻るには、証明書の名前を示す、 **EndpointBindingPolicy** wuth 証明書が、アプリケーション マニフェストに証明書] セクションで定義されています。
 
 ~~~
 <Policies>
    <RunAsPolicy CodePackageRef="Code" UserRef="Customer1" />
-  
+  <!--SecurityAccessPolicy is needed if RunAsPolicy is defined and the Endpoint is http -->
    <SecurityAccessPolicy ResourceRef="EndpointName" PrincipalRef="Customer1" />
-  
+  <!--EndpointBindingPolicy is needed if the EndpointName is secured with https -->
   <EndpointBindingPolicy EndpointRef="EndpointName" CertificateRef="Cert1" />
-</ポリシー
+</Policies
 ~~~
 
 
 ## 完全なアプリケーション マニフェストの例
-
 これまでに説明したさまざまな設定を示すアプリケーション マニフェストの例を次に示します。
 
 ~~~
@@ -240,9 +239,9 @@ https エンドポイントの場合は、**EndpointBindingPolicy** のクライ
       <Policies>
          <RunAsPolicy CodePackageRef="Code" UserRef="Customer1" />
          <RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup" />
-        
+        <!--SecurityAccessPolicy is needed if RunAsPolicy is defined and the Endpoint is http -->
          <SecurityAccessPolicy ResourceRef="EndpointName" PrincipalRef="Customer1" />
-        
+        <!--EndpointBindingPolicy is needed the EndpointName is secured with https -->
         <EndpointBindingPolicy EndpointRef="EndpointName" CertificateRef="Cert1" />
      </Policies>
    </ServiceManifestImport>
@@ -267,7 +266,7 @@ https エンドポイントの場合は、**EndpointBindingPolicy** のクライ
                <Group NameRef="LocalAdminGroup" />
             </MemberOf>
          </User>
-         
+         <!--Customer1 below create a local account that this service runs under -->
          <User Name="Customer1" />
          <User Name="MyDefaultAccount" AccountType="NetworkService" />
       </Users>
@@ -282,14 +281,12 @@ https エンドポイントの場合は、**EndpointBindingPolicy** のクライ
 ~~~
 
 
-
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 次のステップ
 
-* [アプリケーション モデルを理解します。](service-fabric-application-model.md)
-* [サービス マニフェストでリソースを指定します。](service-fabric-service-manifest-resources.md)
-* [アプリケーションを配置します。](service-fabric-deploy-remove-applications.md)
+* [アプリケーション モデルを理解する](service-fabric-application-model.md)
+* [サービス マニフェストでのリソースの指定](service-fabric-service-manifest-resources.md)
+* [アプリケーションをデプロイする](service-fabric-deploy-remove-applications.md)
 
-
-[environment]: :SetEnvironmentVariable("TestVariable", "MyValue", "Machine""
-[image1]: ./media/service-fabric-application-runas-security/copy-to-output.png 
+[image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 

@@ -17,7 +17,6 @@
     ms.date="11/18/2015"
     ms.author="danlep"/>
 
-
 # Azure リソース マネージャーでの、Mac、Linux、および Windows 用 Azure CLI の使用
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [従来のデプロイ モデル](virtual-machines-command-line-tools.md)
@@ -28,19 +27,19 @@ Azure リソース マネージャーを使用することにより、リソー�
 
 ## 記事の適用範囲
 
-この記事では、リソース マネージャー デプロイメント モデルで一般的に使用されている Azure CLI コマンドの構文とオプションについて説明しています。 これは完全な参照資料ではありません。ご使用の CLI バージョンで異なるコマンドやパラメーターが表示される場合もあります。 現在のコマンド構文とリソース マネージャー モードでコマンド ライン オプションでは、次のように入力します。 `azure ヘルプ` または特定のコマンドのヘルプを表示する `azure help [コマンド]`します。 ドキュメントには、特定の Azure サービスを作成および管理するための CLI の例もあります。
+この記事では、リソース マネージャー デプロイメント モデルで一般的に使用されている Azure CLI コマンドの構文とオプションについて説明しています。 これは完全な参照資料ではありません。ご使用の CLI バージョンで異なるコマンドやパラメーターが表示される場合もあります。 リソース マネージャー モードのコマンド ラインでの現在のコマンド構文とオプションについては `azure help` と入力します。特定のコマンドのヘルプを表示するには、`azure help [command]` と入力します。 ドキュメントには、特定の Azure サービスを作成および管理するための CLI の例もあります。
 
 オプション パラメーターは、ブラケットで囲んで表記しています (例 [parameter])。 その他のパラメーターはすべて指定する必要があります。
 
-ここに記載している、コマンド固有のオプション パラメーターに加えて、要求オプションや状態コードなどの詳細出力の表示に使用できるオプション パラメーターが 3 つあります。 -v パラメーターでは詳細な出力を、-vv パラメーターではより詳細な出力を得ることができます。 --json オプションを使用すると、結果が raw json 形式で出力されます。 --json スイッチは非常によく使用されるもので、リソースの情報、状態、およびログを返す Azure CLI 操作の結果を取得したり理解したりする上で重要です。このスイッチでもテンプレートを使用します。 **jq** や **jsawk** などの JSON パーサー ツールをインストールするか、好みの言語ライブラリを使用できます。
+ここに記載している、コマンド固有のオプション パラメーターに加えて、要求オプションや状態コードなどの詳細出力の表示に使用できるオプション パラメーターが 3 つあります。 -v パラメーターでは詳細な出力を、-vv パラメーターではより詳細な出力を得ることができます。 --json オプションを使用すると、結果が raw json 形式で出力されます。 --json スイッチは非常によく使用されるもので、リソースの情報、状態、およびログを返す Azure CLI 操作の結果を取得したり理解したりする上で重要です。このスイッチでもテンプレートを使用します。 などの JSON パーサー ツールをインストールすることも **jq** または **jsawk** か、好みの言語ライブラリを使用します。
 
 ## 命令型のアプローチと宣言型のアプローチ
 
-場合と同様、 [Azure サービス管理モード](../virtual-machines-command-line-tools.md), 、Azure cli リソース マネージャー モードには、コマンドラインで強制的にリソースを作成するコマンドが用意されています。例では、入力した場合の `azure グループを作成 < groupname >< 場所 >` は、Azure リソース グループを作成するかを確認して `azure グループの展開 < resourcegroup >< deploymentname > を作成する` 任意の数のアイテムの展開を作成し、グループに配置する Azure をように指示しています。リソースの種類ごとに命令型のコマンドがあるため、これらを連携させることで非常に複雑なデプロイメントを作成できます。
+場合と同様、 [Azure サービス管理モード](../virtual-machines-command-line-tools.md), 、Azure cli リソース マネージャー モードには、コマンドラインで強制的にリソースを作成するコマンドが用意されています。 たとえば、「`azure group create <groupname> <location>`」と入力すると、Azure はリソース グループを作成する要求を受け、「`azure group deployment create <resourcegroup> <deploymentname>`」と入力すると、Azure は任意の数のアイテムのデプロイメントを作成しグループに配置する指示を受けます。 リソースの種類ごとに命令型のコマンドがあるため、これらを連携させることで非常に複雑なデプロイメントを作成できます。
 
-ただし、リソース グループを説明するリソース グループ _テンプレート_を使用する宣言型のアプローチは、これよりはるかに強力で、(ほとんど) どんな目的であれ、また (ほとんど) 任意の数のリソースの複雑なデプロイメントを自動化することができます。 テンプレートを使用する場合、命令型のコマンドはデプロイの指示のみです。 テンプレート、リソース、およびリソース グループの一般的な概要については、次を参照してください。 [Azure リソース グループの概要](../resource-group-overview.md)します。
+ただし、リソース グループを使用して _テンプレート_ リソースを説明するグループははるかに強力な宣言型のアプローチであり、(ほとんど) どんな目的でリソースの (ほとんど) 任意の数の複雑なデプロイメントを自動化することができます。 テンプレートを使用する場合、命令型のコマンドはデプロイの指示のみです。 テンプレート、リソース、およびリソース グループの一般的な概要については、次を参照してください。 [Azure リソース グループの概要](../resource-group-overview.md)します。  
 
-## 使用要件
+##使用要件
 
 Azure CLI でリソース マネージャー モードを使用するためのセットアップ要件は次のとおりです。
 
@@ -50,31 +49,30 @@ Azure CLI でリソース マネージャー モードを使用するための�
 
 アカウントを用意して Azure CLI をインストールしたら、
 
-- [Azure cli の](../xplat-cli-connect.md) 、職場または学校のアカウントまたは Microsoft アカウント id を使用するには
-- 」と入力して、リソース マネージャー モードに切り替える `azure config モード arm`
+- [Azure cli の](../xplat-cli-connect.md) 、職場または学校のアカウントまたは Microsoft アカウント id を使用するには 
+- `azure config mode arm` を入力して、リソース マネージャー モードに切り替えます。
 
 
 ## Azure アカウント: アカウント情報の管理
-
 Azure のサブスクリプション情報は、ツールがアカウントにアクセスする際に使用されます。
 
-**インポートされたサブスクリプションを一覧表示します**
+**インポートされたサブスクリプションの一覧を表示します。**
 
     account list [options]
 
-**サブスクリプションに関する詳細を表示します**
+**サブスクリプションに関する詳細を表示します**  
 
     account show [options] [subscriptionNameOrId]
 
-**現在のサブスクリプションを設定します**
+**現在のサブスクリプションを設定します。**
 
     account set [options] <subscriptionNameOrId>
 
-**サブスクリプションまたは環境を削除、または保存されているアカウント情報と環境情報をすべてクリアします**
+**サブスクリプションまたは環境を削除、または保存されているアカウント情報と環境情報をすべてクリアします**  
 
     account clear [options]
 
-**アカウント環境を管理するコマンド**
+**アカウント環境の管理用コマンド**  
 
     account env list [options]
     account env show [options] [environment]
@@ -142,9 +140,10 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 
     config set <name> <value>
 
-* * Azure CLI 動作モードを設定するか、 `arm` または `asm`* *
+**Azure CLI 動作モードを設定するか、 `arm` または `asm`**
 
     config mode [options] <modename>
+
 
 ## Azure の機能: アカウント機能を管理するコマンド
 
@@ -186,7 +185,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 
     group log show [options] [name]
 
-**リソース グループのデプロイを管理するコマンド**
+**リソース グループのデプロイメントを管理するコマンド**
 
     group deployment create [options] [resource-group] [name]
     group deployment list [options] <resource-group> [state]
@@ -217,7 +216,6 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 **仮想ネットワークを管理するコマンド**
 
     network vnet create [options] <resource-group> <name> <location>
-
 新しい仮想ネットワークを作成します。 次の例では、米国西部地域に、リソース グループ myresourcegroup の newvnet という名前の仮想ネットワークを作成します。
 
 
@@ -239,6 +237,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     data:
     info:    network vnet create command OK
 
+
 パラメーターのオプション:
 
     -h, --help                                 output usage information
@@ -250,14 +249,13 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     -a, --address-prefixes <address-prefixes>  the comma separated list of address prefixes for this virtual network
       For example -a 10.0.0.0/24,10.0.1.0/24.
       Default value is 10.0.0.0/8
-    
+
     -d, --dns-servers <dns-servers>            the comma separated list of DNS servers IP addresses
     -t, --tags <tags>                          the tags set on this virtual network.
       Can be multiple. In the format of "name=value".
       Name is required and value is optional.
       For example, -t tag1=value1;tag2
      -s, --subscription <subscription>          the subscription identifier
-
 <BR>
 
     network vnet set [options] <resource-group> <name>
@@ -265,7 +263,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 リソース グループ内の仮想ネットワーク構成を更新します。
 
     azure network vnet set myresourcegroup newvnet
-    
+
     info:    Executing command network vnet set
     + Looking up virtual network "newvnet"
     + Updating virtual network "newvnet"
@@ -295,18 +293,17 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
         This list will be appended to the current list of address prefixes.
         The address prefixes in this list should not overlap between them.
         The address prefixes in this list should not overlap with existing address prefixes in the vnet.
-    
+
        -d, --dns-servers [dns-servers]            the comma separated list of DNS servers IP addresses.
         This list will be appended to the current list of DNS server IP addresses.
-    
+
        -t, --tags <tags>                          the tags set on this virtual network.
         Can be multiple. In the format of "name=value".
         Name is required and value is optional. For example, -t tag1=value1;tag2.
         This list will be appended to the current list of tags
-    
+
        --no-tags                                  remove all existing tags
        -s, --subscription <subscription>          the subscription identifier
-
 <BR>
 
     network vnet list [options] <resource-group>
@@ -315,7 +312,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 
 
     C:\>azure network vnet list myresourcegroup
-    
+
     info:    Executing command network vnet list
     + Listing virtual networks
         data:    ID
@@ -338,11 +335,10 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 <BR>
 
     network vnet show [options] <resource-group> <name>
-
 リソース グループの仮想ネットワークのプロパティが表示されます。
 
     azure network vnet show -g myresourcegroup -n newvnet
-    
+
     info:    Executing command network vnet show
     + Looking up virtual network "newvnet"
     data:    Id:                   /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet
@@ -357,15 +353,13 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     data:    Subnets:
     data:
     info:    network vnet show command OK
-
 <BR>
 
     network vnet delete [options] <resource-group> <name>
-
 仮想ネットワークが削除されます。
 
     azure network vnet delete myresourcegroup newvnetX
-    
+
     info:    Executing command network vnet delete
     + Looking up virtual network "newvnetX"
     Delete virtual network newvnetX? [y/n] y
@@ -382,14 +376,14 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
      -q, --quiet                            quiet mode, do not ask for delete confirmation
      -s, --subscription <subscription>      the subscription identifier
 
+
 **仮想ネットワークのサブネットを管理するコマンド**
 
     network vnet subnet create [options] <resource-group> <vnet-name> <name>
-
 コマンドを使用して既存の仮想ネットワークに別のサブネットを追加します。
 
     azure network vnet subnet create -g myresourcegroup --vnet-name newvnet -n subnet --address-prefix 10.0.1.0/24
-    
+
     info:    Executing command network vnet subnet create
     + Looking up the subnet "subnet"
     + Creating subnet "subnet"
@@ -423,7 +417,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 
 
     C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
-    
+
     info:    Executing command network vnet subnet set
     + Looking up the subnet "subnet1"
     + Setting subnet "subnet1"
@@ -434,7 +428,6 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     data:    Provisioning state:        Succeeded
     data:    Address prefix:            10.0.1.0/24
     info:    network vnet subnet set command OK
-
 <BR>
 
     network vnet subnet list [options] <resource-group> <vnet-name>
@@ -442,7 +435,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 リソース グループ内の特定の仮想ネットワークについて、仮想ネットワークのサブネットすべてを一覧表示します。
 
     azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
-    
+
     info:    Executing command network vnet subnet set
     + Looking up the subnet "subnet1"
     + Setting subnet "subnet1"
@@ -453,15 +446,13 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     data:    Provisioning state:        Succeeded
     data:    Address prefix:            10.0.1.0/24
     info:    network vnet subnet set command OK
-
 <BR>
 
     network vnet subnet show [options] <resource-group> <vnet-name> <name>
-
 仮想ネットワークのサブネットのプロパティが表示されます
 
     azure network vnet subnet show -g myresourcegroup --vnet-name newvnet -n subnet1
-    
+
     info:    Executing command network vnet subnet show
     + Looking up the subnet "subnet1"
     data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft
@@ -481,15 +472,13 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     -e, --vnet-name <vnet-name>            the name of the virtual network
     -n, --name <name>                      the name of the subnet
     -s, --subscription <subscription>      the subscription identifier
-
 <BR>
 
     network vnet subnet delete [options] <resource-group> <vnet-name> <subnet-name>
-
 既存の仮想ネットワークからサブネットを削除します。
 
     azure network vnet subnet delete -g myresourcegroup --vnet-name newvnet -n subnet1
-    
+
     info:    Executing command network vnet subnet delete
     + Looking up the subnet "subnet1"
     Delete subnet "subnet1"? [y/n] y
@@ -510,11 +499,10 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 **ロード バランサーを管理するコマンド**
 
     network lb create [options] <resource-group> <name> <location>
-
 ロード バランサー セットを作成します。
 
     azure network lb create -g myresourcegroup -n mylb -l westus
-    
+
     info:    Executing command network lb create
     + Looking up the load balancer "mylb"
     + Creating load balancer "mylb"
@@ -538,15 +526,13 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
      Can be multiple. In the format of "name=value".
      Name is required and value is optional. For example, -t tag1=value1;tag2
     -s, --subscription <subscription>      the subscription identifier
-
 <BR>
 
     network lb list [options] <resource-group>
-
 リソース グループ内のロード バランサーのリソースを一覧表示します。
 
     azure network lb list myresourcegroup
-    
+
     info:    Executing command network lb list
     + Getting the load balancers
     data:    Name  Location
@@ -561,7 +547,6 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     --json                                 use json output
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
-
 <BR>
 
     network lb show [options] <resource-group> <name>
@@ -569,7 +554,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 リソース グループ内の特定のロード バランサーのロード バランサーの情報を表示します
 
     azure network lb show myresourcegroup mylb -v
-    
+
     info:    Executing command network lb show
     verbose: Looking up the load balancer "mylb"
     data:    Id:                           /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb
@@ -595,7 +580,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 ロード バランサーのリソースを削除します。
 
     azure network lb delete  myresourcegroup mylb
-    
+
     info:    Executing command network lb delete
     + Looking up the load balancer "mylb"
     Delete load balancer "mylb"? [y/n] y
@@ -619,7 +604,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 ロード バランサーの正常性状態に関するプローブ構成を作成します。 ただし、次の点に注意してください。このコマンドを実行するには、ロード バランサーにフロントエンド IP リソースを指定する必要があります ("Azure ネットワーク フロントエンド IP" コマンドをチェック アウトして、IP アドレスをロード バランサーに割り当ててください)。
 
     azure network lb probe create -g myresourcegroup --lb-name mylb -n mylbprobe --protocol tcp --port 80 -i 300
-    
+
     info:    Executing command network lb probe create
     + Looking up the load balancer "mylb"
     + Updating load balancer "mylb"
@@ -647,7 +632,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 既存のロード バランサー プローブの値を新しい値に更新します。
 
     azure network lb probe set -g myresourcegroup -l mylb -n mylbprobe -p mylbprobe1 -p TCP -o 443 -i 300
-    
+
     info:    Executing command network lb probe set
         + Looking up the load balancer "mylb"
     + Updating load balancer "mylb"
@@ -668,7 +653,6 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     -i, --interval <interval>              the new value for probe interval in seconds
     -c, --count <count>                    the new value for number of probes
     -s, --subscription <subscription>      the subscription identifier
-
 <BR>
 
     network lb probe list [options] <resource-group> <lb-name>
@@ -676,7 +660,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 ロード バランサー セットのプローブのプロパティを一覧表示します。
 
     C:\>azure network lb probe list -g myresourcegroup -l mylb
-    
+
     info:    Executing command network lb probe list
     + Looking up the load balancer "mylb"
     data:    Name       Protocol  Port  Path  Interval  Count
@@ -692,14 +676,13 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     -g, --resource-group <resource-group>  the name of the resource group
     -l, --lb-name <lb-name>                the name of the load balancer
     -s, --subscription <subscription>      the subscription identifier
-    
-    
-    network lb probe delete [options] <resource-group> <lb-name> <name>
 
+
+    network lb probe delete [options] <resource-group> <lb-name> <name>
 ロード バランサー用に作成されたプローブを削除します。
 
     azure network lb probe delete -g myresourcegroup -l mylb -n mylbprobe
-    
+
     info:    Executing command network lb probe delete
     + Looking up the load balancer "mylb"
     Delete a probe "mylbprobe?" [y/n] y
@@ -709,11 +692,10 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 **ロード バランサーのフロントエンド IP 構成を管理するコマンド**
 
     network lb frontend-ip create [options] <resource-group> <lb-name> <name>
-
 既存のロード バランサー セットに、フロントエンド IP 構成を作成します。
 
     azure network lb frontend-ip create -g myresourcegroup --lb-name mylb -n myfrontendip -o Dynamic -e subnet -m newvnet
-    
+
     info:    Executing command network lb frontend-ip create
     + Looking up the load balancer "mylb"
     + Looking up the subnet "subnet"
@@ -741,7 +723,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 フロント エンド IP の既存の構成を更新できます。次のコマンドでは、myfrontendip という名前の既存のロード バランサー フロントエンド IP に mypubip5 という名前のパブリック IP を追加します。
 
     azure network lb frontend-ip set -g myresourcegroup --lb-name mylb -n myfrontendip -i mypubip5
-    
+
     info:    Executing command network lb frontend-ip set
     + Looking up the load balancer "mylb"
     + Looking up the public ip "mypubip5"
@@ -791,7 +773,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 ロード バランサー用に構成されたすべてのフロントエンド IP リソースを一覧表示します。
 
     azure network lb frontend-ip list -g myresourcegroup -l mylb
-    
+
     info:    Executing command network lb frontend-ip list
     + Looking up the load balancer "mylb"
     data:    Name         Provisioning state  Private IP allocation method  Subnet
@@ -807,11 +789,9 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     -g, --resource-group <resource-group>  the name of the resource group
     -l, --lb-name <lb-name>                the name of the load balancer
     -s, --subscription <subscription>      the subscription identifier
-
 <BR>
 
     network lb frontend-ip delete [options] <resource-group> <lb-name> <name>
-
 ロード バランサーに関連付けられているフロントエンド IP オブジェクトを削除します
 
     network lb frontend-ip delete -g myresourcegroup -l mylb -n myfrontendip
@@ -838,7 +818,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 ロード バランサーのバックエンド アドレス プールを作成します。
 
     azure network lb address-pool create -g myresourcegroup --lb-name mylb -n myaddresspool
-    
+
     info:    Executing command network lb address-pool create
     + Looking up the load balancer "mylb"
     + Updating load balancer "mylb"
@@ -873,7 +853,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 次の例では、以前に作成した "nic1" という名前のネットワーク インターフェイスを使用して、バックエンド アドレス プールの範囲を作成しています。
 
     azure network lb address-pool add -g myresourcegroup -l mylb -n mybackendpool -a nic1
-    
+
     info:    Executing command network lb address-pool add
     + Looking up the load balancer "mylb"
     + Getting network interfaces
@@ -912,7 +892,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 バックエンド IP アドレス プールの範囲から、ネットワーク インターフェイスを削除します。
 
     azure network lb address-pool remove -g myresourcegroup -l mylb -n mybackendpool -a nic1
-    
+
     info:    Executing command network lb address-pool remove
     + Looking up the load balancer "mylb"
     + Getting network interfaces
@@ -942,7 +922,6 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     e.g. ""/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkInterfaces/<nic-name>"
     -a, --nic-name <nic-name>              the name of the network interface
     -s, --subscription <subscription>      the subscription identifier
-
 <BR>
 
     network lb address-pool list [options] <resource-group> <lb-name>
@@ -950,7 +929,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 特定のリソース グループのバックエンド IP アドレス プールの範囲を一覧表示します
 
     azure network lb address-pool list -g myresourcegroup -l mylb
-    
+
     info:    Executing command network lb address-pool list
     + Looking up the load balancer "mylb"
     data:    Name           Provisioning state
@@ -968,12 +947,12 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     -s, --subscription <subscription>      the subscription identifier
 
 <BR>
-    [オプション] を削除するネットワーク アドレス プールの lb <resource-group> <lb-name> <name>
+    ネットワーク lb アドレス プールの削除 [オプション] < リソース グループ >< lb 名 > <name>
 
 ロード バランサーからバックエンド IP プールの範囲のリソースを削除します。
 
     azure network lb address-pool delete -g myresourcegroup -l mylb -n mybackendpool
-    
+
     info:    Executing command network lb address-pool delete
     + Looking up the load balancer "mylb"
     Delete backend address pool "mybackendpool"? [y/n] y
@@ -994,7 +973,6 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 **ロード バランサー規則を管理するコマンド**
 
     network lb rule create [options] <resource-group> <lb-name> <name>
-
 ロード バランサー規則を作成します。
 
 ロード バランサーのフロントエンド エンドポイント、および着信ネットワーク トラフィックを受信するバックエンド アドレス プールの範囲を構成するロード バランサー規則を作成できます。 設定には、フロントエンド IP エンドポイントのポート、およびバックエンド アドレス プールの範囲のポートも含まれます。
@@ -1002,8 +980,8 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 次の例では、フロント エンド エンドポイントがリッスンするポート 80 の TCP と負荷分散ネットワーク トラフィックがバックエンド アドレス プールの範囲のポート 8080 に送信するロード バランサー ルールを作成する方法を示します。
 
     azure network lb rule create -g myresourcegroup -l mylb -n mylbrule -p tcp -f 80 -b 8080 -i 10
-    
-    
+
+
     info:    Executing command network lb rule create
     + Looking up the load balancer "mylb"
     + Updating load balancer "mylb"
@@ -1030,7 +1008,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 特定のリソース グループ内の既存のロード バランサー規則セットを更新します。 次の例では、規則名を mylbrule から mynewlbrule に変更します。
 
     azure network lb rule set -g myresourcegroup -l mylb -n mylbrule -r mynewlbrule -p tcp -f 80 -b 8080 -i 10 -t myfrontendip -o mybackendpool
-    
+
     info:    Executing command network lb rule set
     + Looking up the load balancer "mylb"
     + Updating load balancer "mylb"
@@ -1068,18 +1046,18 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     -t, --frontend-ip-name <frontend-ip-name>          the name of the frontend ip configuration in the same load balancer
     -o, --backend-address-pool <backend-address-pool>  name of the backend address pool defined in the same load balancer
     -s, --subscription <subscription>                  the subscription identifier
-    
-    
+
+
     network lb rule list [options] <resource-group> <lb-name>
 
 特定のリソース グループ内のロード バランサー用に構成されたすべてのロード バランサー規則を一覧表示します。
 
     azure network lb rule list -g myresourcegroup -l mylb
-    
+
     info:    Executing command network lb rule list
     + Looking up the load balancer "mylb"
     data:    Name         Provisioning state  Protocol  Frontend port  Backend port  Enable floating IP  Idle timeout in minutes  Backend address pool  Probe data
-    
+
     data:    mynewlbrule  Succeeded           Tcp       80             8080          false               10                       /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/backendAddressPools/mybackendpool
     info:    network lb rule list command OK
 
@@ -1091,13 +1069,13 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     -g, --resource-group <resource-group>  the name of the resource group
     -l, --lb-name <lb-name>                the name of the load balancer
     -s, --subscription <subscription>      the subscription identifier
-    
+
     network lb rule delete [options] <resource-group> <lb-name> <name>
 
 ロード バランサー規則を削除します。
 
     azure network lb rule delete -g myresourcegroup -l mylb -n mynewlbrule
-    
+
     info:    Executing command network lb rule delete
     + Looking up the load balancer "mylb"
     Delete load balancing rule mynewlbrule? [y/n] y
@@ -1118,14 +1096,13 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 **ロード バランサーの受信 NAT 規則を管理するコマンド**
 
     network lb inbound-nat-rule create [options] <resource-group> <lb-name> <name>
-
 ロード バランサーの受信 NAT 規則を作成します。
 
 次の例では、フロントエンド IP (定義済みのもの。 詳細については、"azure network frontend-ip" コマンドを参照してください) から NAT 規則を作成しています。この規則では、受信リッスン ポートと、ロード バランサーがネットワーク トラフィックを送信する送信ポートが指定されています。
 
 
     azure network lb inbound-nat-rule create -g myresourcegroup -l mylb -n myinboundnat -p tcp -f 80 -b 8080 -i myfrontendip
-    
+
     info:    Executing command network lb inbound-nat-rule create
     + Looking up the load balancer "mylb"
     + Updating load balancer "mylb"
@@ -1161,15 +1138,13 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     Please use vm-id if that is not the case.
     this parameter will be ignored if --vm-id is specified
     -s, --subscription <subscription>              the subscription identifier
-
 <BR>
 
     network lb inbound-nat-rule set [options] <resource-group> <lb-name> <name>
-
 既存の受信 NAT 規則を更新します。次の例では、受信リッスン ポートを 80 から 81 に変更しています。
 
     azure network lb inbound-nat-rule set -g group-1 -l mylb -n myinboundnat -p tcp -f 81 -b 8080 -i myfrontendip
-    
+
     info:    Executing command network lb inbound-nat-rule set
     + Looking up the load balancer "mylb"
     + Updating load balancer "mylb"
@@ -1205,7 +1180,6 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     This virtual machine must exist in the same resource group as the lb.
     Please use vm-id if that is not the case
     -s, --subscription <subscription>              the subscription identifier
-
 <BR>
 
     network lb inbound-nat-rule list [options] <resource-group> <lb-name>
@@ -1213,14 +1187,14 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 ロード バランサーのすべての受信 NAT 規則を一覧表示します。
 
     azure network lb inbound-nat-rule list -g myresourcegroup -l mylb
-    
+
     info:    Executing command network lb inbound-nat-rule list
     + Looking up the load balancer "mylb"
     data:    Name          Provisioning state  Protocol  Frontend port  Backend port  Enable floating IP  Idle timeout in minutes  Backend IP configuration
     data:    ------------  ------------------  --------  -------------  ------------  ------------------  -----------------------  ---
     ---------------------
     data:    myinboundnat  Succeeded           Tcp       81             8080          false               4
-    
+
     info:    network lb inbound-nat-rule list command OK
 
 パラメーターのオプション:
@@ -1231,7 +1205,6 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     -g, --resource-group <resource-group>  the name of the resource group
     -l, --lb-name <lb-name>                the name of the load balancer
     -s, --subscription <subscription>      the subscription identifier
-
 <BR>
 
     network lb inbound-nat-rule delete [options] <resource-group> <lb-name> <name>
@@ -1239,7 +1212,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 特定のリソース グループ内のロード バランサーの NAT 規則を削除します。
 
     azure network lb inbound-nat-rule delete -g myresourcegroup -l mylb -n myinboundnat
-    
+
     info:    Executing command network lb inbound-nat-rule delete
     + Looking up the load balancer "mylb"
     Delete inbound NAT rule "myinboundnat?" [y/n] y
@@ -1260,7 +1233,6 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 **パブリック IP アドレスを管理するコマンド**
 
     network public-ip create [options] <resource-group> <name> <location>
-
 パブリック IP リソースを作成します。 パブリック IP リソースを作成し、ドメイン名に関連付けることができます。
 
     azure network public-ip create -g myresourcegroup -n mytestpublicip1 -l eastus -d azureclitest -a "Dynamic"
@@ -1278,6 +1250,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     data:    Domain name label:    azureclitest
     data:    FQDN:                 azureclitest.eastus.cloudapp.azure.com
     info:    network public-ip create command OK
+
 
 パラメーターのオプション:
 
@@ -1297,11 +1270,9 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     Name is required and value is optional.
     For example, -t tag1=value1;tag2
     -s, --subscription <subscription>            the subscription identifier
-
 <br>
 
     network public-ip set [options] <resource-group> <name>
-
 既存のパブリック IP リソースのプロパティを更新します。 次の例では、パブリック IP アドレスを動的から静的に変更しています。
 
     azure network public-ip set -g group-1 -n mytestpublicip1 -d azureclitest -a "Static"
@@ -1341,11 +1312,11 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     -s, --subscription <subscription>            the subscription identifier
 
 <br>
-    ネットワークのパブリック ip list [オプション] <resource-group>
+    ネットワークのパブリック ip list [オプション] < リソース グループ >
 リソース グループ内のすべてのパブリック IP リソースを一覧表示します。
 
     azure network public-ip list -g myresourcegroup
-    
+
     info:    Executing command network public-ip list
     + Getting the public ip addresses
     data:    Name             Location  Allocation  IP Address    Idle timeout  DNS Name
@@ -1362,13 +1333,12 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     --json                                 use json output
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
-
 <BR>
-    ネットワークのパブリック ip show [オプション] <resource-group> <name>
+    ネットワークのパブリック ip show [オプション] < リソース グループ > <name>
 リソース グループ内のパブリック ip リソースのパブリック ip プロパティが表示されます。
 
     azure network public-ip show -g myresourcegroup -n mytestpublicip
-    
+
     info:    Executing command network public-ip show
     + Looking up the public ip "mytestpublicip1"
     data:    Id:                   /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/publicIPAddresses/mytestpublicip
@@ -1391,8 +1361,8 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     -g, --resource-group <resource-group>  the name of the resource group
     -n, --name <name>                      the name of the public IP
     -s, --subscription <subscription>      the subscription identifier
-    
-    
+
+
     network public-ip delete [options] <resource-group> <name>
 
 パブリック IP リソースを削除します。
@@ -1414,14 +1384,14 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     -q, --quiet                            quiet mode, do not ask for delete confirmation
     -s, --subscription <subscription>      the subscription identifier
 
+
 **ネットワーク インターフェイスを管理するコマンド**
 
     network nic create [options] <resource-group> <name> <location>
-
 ネットワーク インターフェイス (NIC) と呼ばれるリソースを作成します。このリソースは、ロード バランサーに使用するか、Virtual Machine と関連付けることができます。
 
     azure network nic create -g myresourcegroup -l eastus -n testnic1 --subnet-name subnet-1 --subnet-vnet-name myvnet
-    
+
     info:    Executing command network nic create
     + Looking up the network interface "testnic1"
     + Looking up the subnet "subnet-1"
@@ -1473,7 +1443,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 <BR>
 
     network nic set [options] <resource-group> <name>
-    
+
     network nic list [options] <resource-group>
     network nic show [options] <resource-group> <name>
     network nic delete [options] <resource-group> <name>
@@ -1571,7 +1541,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 
 ## Azure Storage: Storage のオブジェクトを管理するコマンド
 
-**Storage のアカウントを管理するコマンド**
+**ストレージ アカウントの管理用コマンド**
 
     storage account list [options]
     storage account show [options] <name>
@@ -1579,7 +1549,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     storage account set [options] <name>
     storage account delete [options] <name>
 
-**Storage のアカウント キーを管理するコマンド**
+**ストレージ アカウント キーの管理用コマンド**
 
     storage account keys list [options] <name>
     storage account keys renew [options] <name>
@@ -1811,7 +1781,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 **リソース グループにクラスターを作成するコマンド**
 
     hdinsight cluster create [options] <clusterName>
-
+     
 例: Linux クラスターでの Storm の作成
 
     azure hdinsight cluster create -g mahirg001 -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
@@ -1827,7 +1797,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     info:    Executing command hdinsight cluster create
     + Submitting the request to create cluster...
     info:    hdinsight cluster create command OK
-
+    
 パラメーターのオプション:
 
     -h, --help                                                 output usage information
@@ -1881,6 +1851,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     Name is required and value is optional.
     For example, --tags tag1=value1;tag2
 
+
 **クラスターを削除するコマンド**
 
     hdinsight cluster delete [options] <clusterName>
@@ -1912,6 +1883,4 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
 **クラスターの HTTP アクセスを無効にするコマンド**
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
-
-
 

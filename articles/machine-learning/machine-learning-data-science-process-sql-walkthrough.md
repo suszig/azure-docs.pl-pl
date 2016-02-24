@@ -17,7 +17,6 @@
     ms.author="mohabib;fashah;bradsev"/>
 
 
-
 # Cortana Analytics Process の活用: SQL Server を使用する
 
 このチュートリアル, するチュートリアルで構築および公開されているデータセットを使用してモデルを展開する-- [NYC タクシー乗車](http://www.andresmh.com/nyctaxitrips/) データセット。 手順は、Cortana Analytics Process (CAP) ワークフローに従います。
@@ -45,7 +44,6 @@ NYC タクシー乗車データは、約 20GB の圧縮された CSV ファイ�
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-
 trip\_data と trip\_fare を結合するための一意のキーは、[medallion]、[hack\_licence] および [pickup\_datetime} の各フィールドで構成されています。
 
 ## <a name="mltasks"></a>予測タスクの例
@@ -62,7 +60,7 @@ trip\_data と trip\_fare を結合するための一意のキーは、[medallio
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
 
-3. 回帰タスク: 乗車で支払われたチップの金額を予測します。
+3. 回帰タスク: 乗車で支払われたチップの金額を予測します。  
 
 
 ## <a name="setup"></a>設定 Azure データ サイエンス環境のセットアップの高度な分析
@@ -76,20 +74,21 @@ trip\_data と trip\_fare を結合するための一意のキーは、[medallio
 
 Azure のデータ サイエンス環境をセット アップするには、
 
-1. [ストレージ アカウントを作成します。](../storage-create-storage-account.md)
+1. [ストレージ アカウントの作成](../storage-create-storage-account.md)
 
-2. [Azure ML ワークスペースを作成します。](machine-learning-create-workspace.md)
+2. [Azure ML ワークスペースを作成する](machine-learning-create-workspace.md)
 
 3. [データ サイエンス仮想マシンをプロビジョニング](machine-learning-data-science-setup-sql-server-virtual-machine.md), 、IPython Notebook サーバーとして SQL Server とする機能はします。
-    > [AZURE.NOTE] サンプル スクリプトと IPython Notebook は、セットアップ プロセス中、データ サイエンス仮想マシンにダウンロードされます。 仮想マシンのインストール後スクリプトが完了すると、サンプルは仮想マシンのドキュメント ライブラリに入ります。  
-    > サンプル スクリプト: `C:\Users\ < ユーザー名 > \Documents\Data Science Scripts`  
-    > サンプルの IPython Notebooks: `C:\Users\ < ユーザー名 > \Documents\IPython Notebooks\DataScienceSamples`  
-    > ここで `< user_name >` VM の Windows ログイン名を指定します。ここでのサンプル フォルダーは **Sample Scripts** と **Sample IPython Notebooks** です。
+
+    > [AZURE.NOTE] サンプル スクリプトと IPython notebook は、セットアップ プロセス中に、データ サイエンス仮想マシンにダウンロードされます。 仮想マシンのインストール後スクリプトが完了すると、サンプルは仮想マシンのドキュメント ライブラリに入ります。  
+    > - サンプルのスクリプト: `C:\Users\<user_name>\Documents\Data Science Scripts`  
+    > - サンプルの IPython Notebooks: `C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
+    > ここで、`<user_name>` は VM の Windows ログイン名です。 サンプル フォルダーは参照 **サンプル スクリプト** と **Sample IPython Notebooks**します。
 
 
 データセットのサイズ、データ ソースの場所、および選択した Azure ターゲット環境に基づく、このシナリオはのような [シナリオ \#5: ローカル ファイルの大規模データセットは、Azure VM 内の SQL Server を対象](../machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb)します。
 
-## <a name="getdata"></a>公開されているソースからデータを取得します。
+## <a name="getdata"></a>公開されているソースからデータを取得する
 
 取得する、 [NYC タクシー乗車](http://www.andresmh.com/nyctaxitrips/) 公開されている場所からのデータセットを使用することがで説明したメソッドの [と Azure Blob ストレージの間でデータ移動](machine-learning-data-science-move-azure-blob.md) 、新しい仮想マシンにデータをコピーします。
 
@@ -99,41 +98,41 @@ AzCopy を使用してデータをコピーするには
 
 2. VM のデータ ディスクで新しいディレクトリを作成します (注記: VM にデータ ディスクとして付属する一時ディスクは使用しないでください)。
 
-3. コマンド プロンプト ウィンドウで次の Azcopy コマンドラインを実行します。 置換 <path_to_data_folder> 、(2) で作成したデータ フォルダーにします。
+3. コマンド プロンプト ウィンドウで、< path_to_data_folder > を (2) で作成したデータ フォルダーに置き換えて次の Azcopy コマンド ラインでを実行します。
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
     AzCopy が完了すると、合計 24 個の圧縮された CSV ファイル (trip\_data に 12 個、trip\_fare に 12 個) がデータ フォルダーに存在するはずです。
 
-4. ダウンロードしたファイルを解凍します。圧縮されていないファイルが存在するフォルダーに注意してください。このフォルダーとして参照される、 <path\_to\_data\_files\>します。
+4. ダウンロードしたファイルを解凍します。 圧縮されていないファイルが存在するフォルダーに注意してください。 このフォルダーは < path\_to\_data\_files\ > としてに参照されます。
 
-## <a name="dbload"></a>SQL Server データベースにデータを一括インポート
+## <a name="dbload"></a>SQL Server データベースにデータを一括インポートする
 
-_Partitioned テーブルと Views_ を使用すると、大量のデータを SQL データベースおよび後続のクエリに読み込んだり転送する際のパフォーマンスを向上させることができます。 このセクションでは」に記載の指示に従って [並行一括インポートを使用して SQL パーティション テーブル データ](machine-learning-data-science-parallel-load-sql-partitioned-tables.md) 新しいデータベースを作成し、データをパーティション分割されたテーブルに並列的にロードします。
+使用して読み込み/転送する大量のデータを SQL データベースおよび後続のクエリのパフォーマンスが向上する _パーティション テーブルとビュー_します。 このセクションでは」に記載の指示に従って [並行一括インポートを使用して SQL パーティション テーブル データ](machine-learning-data-science-parallel-load-sql-partitioned-tables.md) 新しいデータベースを作成し、データをパーティション分割されたテーブルに並列的にロードします。
 
-1. VM にログオンした状態で、**SQL Server Management Studio** を起動します。
+1. VM にログオンした状態で、開始 **SQL Server Management Studio**します。
 
 2. Windows 認証を使用して接続します。
 
     ![SSMS 接続][12]
 
-3. という名前のスクリプト ファイルを開く場合は、SQL Server 認証モードを変更して、SQL ログイン ユーザーの新規作成したがまだ、 **ある change \_auth.sql** で、 **サンプル スクリプト** フォルダーです。 既定のユーザー名とパスワードを変更します。 ツールバーにある **[!Execute]** をクリックすると、スクリプトが実行されます。
+3. という名前のスクリプト ファイルを開く場合は、SQL Server 認証モードを変更して、SQL ログイン ユーザーの新規作成したがまだ、 **ある change \_auth.sql** で、 **サンプル スクリプト** フォルダーです。 既定のユーザー名とパスワードを変更します。 クリックして **!実行** スクリプトを実行するには、ツールバーのです。
 
     ![スクリプトの実行][13]
 
 4. SQL Server の既定のデータベースとログ フォルダーを確認または変更し、新規作成したデータベースが確実にデータ ディスクに格納されるようにします。 データウェアハウス用に最適化された SQL Server VM イメージは、データとログ ディスクが事前構成されています。 VM にデータ ディスクが含まれていなかったため、VM のセットアップ プロセス中に新しい仮想ハードディスクを追加した場合は、既定のフォルダーを次のように変更します。
 
-    - 左側のパネルで SQL Server 名を右クリックしてから、**[プロパティ]** をクリックします。
+    - 左側のパネルで SQL Server 名を右クリックし、クリックして **プロパティ**します。
 
         ![SQL Server プロパティ][14]
 
-    - 左側の **[ページの選択]** リストから、**[データベース設定]** を選択します。
+    - 選択 **データベース設定** から、 **ページの選択** 左側の一覧です。
 
-    - **[データベースの既定の場所]** が選択した**データ ディスク**の場所になっているか確認し、なっていなければ変更します。 この場所は、既定の位置設定で作成した場合に新しいデータベースが存在する場所です。
+    - 確認または変更し、 **データベースの既定の場所** に、 **データ ディスク** 任意の場所。 この場所は、既定の位置設定で作成した場合に新しいデータベースが存在する場所です。
 
-        ![SQL Database 既定値][15]
+        ![SQL Database 既定値][15]  
 
-5. 新しいデータベースと一連のパーティション分割されたテーブルを保持するファイル グループを作成するには、サンプル スクリプトを開きます **create\_db\_default.sql**します。 スクリプトは、既定のデータの場所に **TaxiNYC** という名前の新しいデータベースと 12 のファイルグループを作成します。 各ファイルグループは、1 か月分の trip\_data と trip\_fare data を保持します。 必要な場合は、データベース名を変更します。 スクリプトを実行するには、**[!Execute]** をクリックします。
+5. 新しいデータベースと一連のパーティション分割されたテーブルを保持するファイル グループを作成するには、サンプル スクリプトを開きます **create\_db\_default.sql**します。 スクリプトでは、という名前の新しいデータベースを作成します。 **TaxiNYC** と 12 のファイルグループの既定のデータの場所。 各ファイルグループは、1 か月分の trip\_data と trip\_fare data を保持します。 必要な場合は、データベース名を変更します。 クリックして **!実行** 、スクリプトを実行します。
 
 6. 次に、2 つのパーティション テーブルを作成します。1 つは trip\_data 用に、もう 1 つは trip\_fare 用です。 サンプル スクリプトを開きます **create\_partitioned\_table.sql**, は。
 
@@ -141,12 +140,12 @@ _Partitioned テーブルと Views_ を使用すると、大量のデータを S
     - 各月のデータを別のファイルグループにマップするパーティション スキームを作成します。
     - パーティション構成にマップされている 2 つのパーティション分割されたテーブルを作成: **nyctaxi \_trip** は trip \_data を保持し、 **nyctaxi \_fare** trip \_fare のデータを保持します。
 
-    **[!Execute]** をクリックしてスクリプトを実行し、パーティション分割されたテーブルを作成します。
+    クリックして **!実行** にスクリプトを実行し、パーティション分割されたテーブルを作成します。
 
-7. **Sample Scripts** フォルダーには、SQL Server テーブルへのデータの並行一括インポートのデモを行うために用意された 2 つのサンプル PowerShell スクリプトがあります。
+7.  **サンプル スクリプト** フォルダー、SQL Server テーブルへのデータの並行一括インポートを示すために用意された 2 つのサンプル PowerShell スクリプトがあります。
 
     - **bcp\_parallel\_generic.ps1** テーブルにデータを並行一括インポートする汎用スクリプトです。 このスクリプトを変更し、スクリプト内のコメント行に示されているとおりに入力変数とターゲット変数を設定します。
-    - **bcp\_parallel\_nyctaxi.ps1** 汎用スクリプトの構成済みのバージョンは、両方のテーブル、NYC タクシー乗車データを読み込むに使用されることができます。
+    - **bcp\_parallel\_nyctaxi.ps1** 汎用スクリプトの構成済みのバージョンは、両方のテーブル、NYC タクシー乗車データを読み込むに使用されることができます。  
 
 8. 右クリックし、 **bcp\_parallel\_nyctaxi.ps1** スクリプト名およびクリック **編集** PowerShell で開きます。 事前設定された変数を確認し、選択したデータベース名、入力データ フォルダー、対象のログ フォルダー、およびサンプルのフォーマット ファイルへのパスに従って変更 **nyctaxi_trip.xml** と **nyctaxi\_fare.xml** (で提供される、 **サンプル スクリプト** フォルダー)。
 
@@ -158,27 +157,27 @@ _Partitioned テーブルと Views_ を使用すると、大量のデータを S
 
 10. これで、データベースは、探索、特徴エンジニア リング、および必要に応じてその他の操作を行える状態になりました。 」の手順に従ってテーブルがパーティション分割されるので、 **pickup \_datetime** フィールドが含まれるクエリ **pickup \_datetime** に条件、 **、** 句は、パーティション スキームからメリットです。
 
-11. **SQL Server Management Studio**, 、提供されているサンプル スクリプトを調べる **sample \_queries.sql**します。 サンプル クエリのいずれかを実行するには、クエリ行を強調表示してから、ツールバーの **[!Execute]** をクリックします。
+11.  **SQL Server Management Studio**, 、提供されているサンプル スクリプトを調べる **sample \_queries.sql**します。 サンプル クエリのいずれかを実行するには、クエリ行を強調表示し、をクリックして **!実行** ツールバーです。
 
 12. NYC タクシー乗車データは、2 つの個別のテーブルに読み込まれます。 結合操作を向上させるため、テーブルのインデックスを作成することを強くお勧めします。 サンプル スクリプト **create\_partitioned\_index.sql** 複合結合キーにパーティション分割されたインデックスを作成 **medallion、hack \_license、および pickup \_datetime**します。
 
-## <a name="dbexplore"></a>データの探索と SQL Server の特徴エンジニア リング
+## <a name="dbexplore"></a>SQL Server でのデータの探索および特徴エンジニアリング
 
-このセクションでは、以前作成した SQL Server データベースを使用して、**SQL Server Management Studio** で直接 SQL クエリを実行することで、データの探索および特徴の生成を行います。 という名前のサンプル スクリプト **sample \_queries.sql** で提供される、 **サンプル スクリプト** フォルダーです。 データベース名が既定の名前 (**TaxiNYC**) と異なる場合は、スクリプトのデータベース名を変更します。
+このセクションでは実行データの探索および特徴の生成で直接 SQL クエリを実行して、 **SQL Server Management Studio** 前に作成した SQL Server データベースを使用します。 という名前のサンプル スクリプト **sample \_queries.sql** で提供される、 **サンプル スクリプト** フォルダーです。 既定値と異なる場合は、データベース名を変更するスクリプトを変更します。 **TaxiNYC**します。
 
 この演習では、以下のことを実行します。
 
-- Windows 認証を使用するか、SQL 認証で SQL ログイン名およびパスワードを使用して、**SQL Server Management Studio** に接続します。
+- 接続 **SQL Server Management Studio** いずれかの Windows 認証を使用するか、SQL 認証と SQL ログイン名とパスワードを使用します。
 - さまざまな期間で、いくつかのフィールドのデータの分布を探索する。
 - [経度] フィールドと [緯度] フィールドのデータの品質を調査する。
 - 基づくバイナリおよび多クラス分類ラベルを生成する、 **\_amount**します。
 - 特徴を生成するとともに、乗車距離を計算または比較する。
 - 2 つのテーブルを結合して、モデルのビルドに使用するランダム サンプルを抽出する。
 
-Azure Machine Learning に進む準備ができれば、次のいずれかを実行できます。
+Azure Machine Learning に進む準備ができれば、次のいずれかを実行できます。  
 
-1. 抽出し、データのサンプルに直接クエリをコピーおよび貼り付けを最終的な SQL クエリを保存、 [リーダー ][reader] Azure Machine Learning のモジュールまたは
-2. サンプリングを永続化し、エンジニア リング データが新しいデータベースで作成するモデルを使用しようとするテーブルが表示され、新しいテーブルを使用して、 [リーダー ][reader] Azure Machine Learning のモジュール。
+1. 展開し、データのサンプルと Azure Machine Learning で [リーダー] [リーダー] モジュールに直接クエリをコピー アンド ペーストする最終的な SQL クエリを保存または
+2. 新しいデータベース テーブルに作成するモデルを使用し、Azure Machine Learning で [リーダー] [リーダー] モジュールで、新しいテーブルを使用する予定のサンプリングおよびエンジニア リング データを保持します。
 
 このセクションでは、最終的なクエリを保存してから、データの抽出とサンプリングを実行します。 2 番目のメソッドの説明については、 [データの探索と特徴エンジニア リング IPython Notebook で](#ipnb) セクションです。
 
@@ -186,7 +185,7 @@ Azure Machine Learning に進む準備ができれば、次のいずれかを実
 
     -- Report number of rows in table nyctaxi_trip without table scan
     SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')
-    
+
     -- Report number of columns in table nyctaxi_trip
     SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'
 
@@ -264,11 +263,11 @@ Azure Machine Learning に進む準備ができれば、次のいずれかを実
 
 #### SQL クエリでの特徴エンジニアリング
 
-ラベルの生成と geography 変換探索クエリは、カウントする部分を削除してラベルや特徴を生成することにも使用できます。 その他の特徴エンジニア リングの SQL の例が記載されて、 [データの探索と特徴エンジニア リング IPython Notebook で](#ipnb) セクションです。 SQL Server データベースのインスタンスで直接実行する SQL クエリを使用して、データセット全体または大規模なサブセットで特徴生成クエリを実行するとより効率的です。 クエリは **SQL Server Management Studio**、IPython Notebook、データベースにローカルやリモートにアクセスできるいずれかの開発ツールまたは環境で実行します。
+ラベルの生成と geography 変換探索クエリは、カウントする部分を削除してラベルや特徴を生成することにも使用できます。 その他の特徴エンジニア リングの SQL の例が記載されて、 [データの探索と特徴エンジニア リング IPython Notebook で](#ipnb) セクションです。 SQL Server データベースのインスタンスで直接実行する SQL クエリを使用して、データセット全体または大規模なサブセットで特徴生成クエリを実行するとより効率的です。 クエリを実行することがあります **SQL Server Management Studio**, 、IPython Notebook、または任意の開発ツールまたは環境にローカルやリモート データベースにアクセスできます。
 
 #### モデル作成用にデータを準備する
 
-次のクエリの結合、 **nyctaxi \_trip** と **nyctaxi \_fare** テーブル、二項分類ラベルを生成 **tipped**, 、多クラス分類ラベル **[tip \_class]**, 、結合データセット全体から 1% のランダム サンプルを抽出します。 このクエリをコピーしてに直接貼り付け、 [Azure Machine Learning Studio](https://studio.azureml.net) [リーダー ][reader] モジュールを Azure の SQL Server データベース インスタンスから直接データを取り込めます。 このクエリは、座標が正しくないレコード (0, 0) を除外します。
+次のクエリの結合、 **nyctaxi \_trip** と **nyctaxi \_fare** テーブル、二項分類ラベルを生成 **tipped**, 、多クラス分類ラベル **[tip \_class]**, 、結合データセット全体から 1% のランダム サンプルを抽出します。 このクエリをコピーしてに直接貼り付け、 [Azure Machine Learning Studio](https://studio.azureml.net) [リーダー] [リーダー] モジュールの Azure の SQL Server データベース インスタンスから直接データを取り込めます。 このクエリは、座標が正しくないレコード (0, 0) を除外します。
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,  f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -285,10 +284,11 @@ Azure Machine Learning に進む準備ができれば、次のいずれかを実
     AND   t.pickup_datetime = f.pickup_datetime
     AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
-## <a name="ipnb"></a>データの探索と IPython Notebook での特徴エンジニア リング
+
+## <a name="ipnb"></a>IPython Notebook でのデータの探索および特徴エンジニアリング
 
 このセクションでは、以前作成した SQL Server データベースに対して、Python と SQL クエリの両方のクエリを使用して
-データの探索および特徴の生成を実行します。 **machine-Learning-data-science-process-sql-story.ipynb** という名前のサンプルの IPython Notebooks が、**Sample IPython Notebooks** フォルダーに用意されています。 このノートブックはできるも [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks)します。
+データの探索および特徴の生成を実行します。 という名前のサンプル IPython notebook **machine-Learning-data-science-process-sql-story.ipynb** で提供される、 **Sample IPython Notebooks** フォルダーです。 このノートブックはできるも [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks)します。
 
 ビッグ データを操作する場合に推奨される手順を次に示します。
 
@@ -298,12 +298,12 @@ Azure Machine Learning に進む準備ができれば、次のいずれかを実
 - 大規模なデータの探索、データの操作、および特徴エンジニアリングの場合は、Python を使用して Azure VM の SQL Server データベースに対して直接 SQL クエリを実行します。
 - Azure Machine Learning のモデルの構築に使用するサンプルのサイズを決定します。
 
-Azure Machine Learning に進む準備ができたら、次のいずれかを実行します。
+Azure Machine Learning に進む準備ができたら、次のいずれかを実行します。  
 
-1. 抽出し、データのサンプルに直接クエリをコピーおよび貼り付けを最終的な SQL クエリを保存、 [リーダー ][reader] Azure Machine Learning のモジュール。 この方法では説明して、 [Azure Machine Learning でモデルの作成](#mlmodel) セクションです。
-2. 新しいデータベースのテーブルを作成するモデルで使用する予定のサンプリングおよびエンジニア リング データを保持し、新しいテーブルを使用して、 [リーダー ][reader] モジュールです。
+1. 展開し、データのサンプルと Azure Machine Learning で [リーダー] [リーダー] モジュールに直接クエリをコピー アンド ペーストする最終的な SQL クエリを保存します。 この方法では説明して、 [Azure Machine Learning でモデルの作成](#mlmodel) セクションです。    
+2. 新しいデータベースのテーブルを作成するモデルの使用を計画し、[リーダー] [リーダー] モジュールで、新しいテーブルを使用するサンプリングおよびエンジニア リング データを保存します。
 
-いくつかのデータの探索、データの視覚化、および特徴エンジニアリングの例を次に示します。 その他の例については、**Sample IPython Notebooks** フォルダーにあるサンプルの SQL IPython Notebook を参照してください。
+いくつかのデータの探索、データの視覚化、および特徴エンジニアリングの例を次に示します。 例については、サンプルの SQL IPython notebook を参照してください、 **Sample IPython Notebooks** フォルダーです。
 
 #### データベースの資格情報を初期化する
 
@@ -326,23 +326,23 @@ Azure Machine Learning に進む準備ができたら、次のいずれかを実
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('nyctaxi_trip')
     ''', conn)
-    
+
     print 'Total number of rows = %d' % nrows.iloc[0,0]
-    
+
     ncols = pd.read_sql('''
         SELECT COUNT(*) FROM information_schema.columns
         WHERE table_name = ('nyctaxi_trip')
     ''', conn)
-    
+
     print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-- 行数の合計 = 173179759
+- 行数の合計 = 173179759  
 - 列数の合計 = 14
 
 #### SQL Server データベースから小規模なサンプルのデータを読み込む
 
     t0 = time.time()
-    
+
     query = '''
         SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax,
             f.tolls_amount, f.total_amount, f.tip_amount
@@ -352,12 +352,12 @@ Azure Machine Learning に進む準備ができたら、次のいずれかを実
         AND   t.hack_license = f.hack_license
         AND   t.pickup_datetime = f.pickup_datetime
     '''
-    
+
     df1 = pd.read_sql(query, conn)
-    
+
     t1 = time.time()
     print 'Time to read the sample table is %f seconds' % (t1-t0)
-    
+
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
 サンプルのテーブルの読み取り時間は 6.492000 秒です。  
@@ -424,20 +424,20 @@ Azure Machine Learning に進む準備ができたら、次のいずれかを実
 
 ### SQL でのデータのサブサンプリング
 
-作成するモデル データを準備する際に [Azure Machine Learning Studio](https://studio.azureml.net), 、いずれかを決定することがあります、 **リーダー モジュールで直接使用する SQL クエリ** したり、新しいテーブルをで使用することでエンジニア リングとサンプリングされたデータを保存したり、 [リーダー ][reader] 、単純なモジュール * * を選択 * FROM <your\_new\_table\_name>* *。
+構築するモデル データを準備するときに [Azure Machine Learning Studio](https://studio.azureml.net), 、いずれかを決定することがあります、 **リーダー モジュールで直接使用する SQL クエリ** 、単純な [リーダー] [リーダー] モジュールで使用する新しいテーブルにエンジニア リングとサンプリングされたデータを保持または **選択 * < your\_new\_table\_name > から**します。
 
 このセクションでは、サンプリング データとエンジニアリング データを保持するためにテーブルを新規作成します。 モデルを構築するための直接的な SQL クエリの例が提供される、 [データの探索と SQL Server の特徴エンジニア リング](#dbexplore) セクションです。
 
-#### サンプルのテーブルを作成し、結合されたテーブルの 1% を入力します。存在する場合は最初にテーブルを削除します。
+#### サンプルのテーブルを作成し、結合されたテーブルの 1% を入力します。 存在する場合は最初にテーブルを削除します。
 
 このセクションでテーブルを結合して **nyctaxi \_trip** と **nyctaxi \_fare**, 1% のランダム サンプルを抽出し、名前の新しいテーブルにサンプリングされたデータを永続化、 **\_one\_percent**:
 
     cursor = conn.cursor()
-    
+
     drop_table_if_exists = '''
         IF OBJECT_ID('nyctaxi_one_percent', 'U') IS NOT NULL DROP TABLE nyctaxi_one_percent
     '''
-    
+
     nyctaxi_one_percent_insert = '''
         SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, f.total_amount, f.tip_amount
         INTO nyctaxi_one_percent
@@ -448,7 +448,7 @@ Azure Machine Learning に進む準備ができたら、次のいずれかを実
         AND   t.pickup_datetime = f.pickup_datetime
         AND   pickup_longitude <> '0' AND dropoff_longitude <> '0'
     '''
-    
+
     cursor.execute(drop_table_if_exists)
     cursor.execute(nyctaxi_one_percent_insert)
     cursor.commit()
@@ -464,7 +464,7 @@ Azure Machine Learning に進む準備ができたら、次のいずれかを実
         FROM nyctaxi_one_percent
         GROUP BY CONVERT(date, dropoff_datetime)
     '''
-    
+
     pd.read_sql(query,conn)
 
 #### 探索: medallion (タクシー番号) ごとの乗車回数の分布
@@ -474,7 +474,7 @@ Azure Machine Learning に進む準備ができたら、次のいずれかを実
         FROM nyctaxi_one_percent
         GROUP BY medallion
     '''
-    
+
     pd.read_sql(query,conn)
 
 ### IPython Notebook での SQL クエリを使用した特徴の生成
@@ -485,31 +485,30 @@ Azure Machine Learning に進む準備ができたら、次のいずれかを実
 
 次の例では、モデリング用に 2 セットのラベルを生成します。
 
-1. 二項ラベル **tipped** (チップが支払われるかどうか予測する)
+1. 二項ラベル **tipped** (チップが支払われるかどうかを予測する)
 2. 多クラス ラベル **[tip \_class]** (チップまたは範囲を予測する)
 
-     nyctaxi_one_percent_add_col = '''
-         ALTER TABLE nyctaxi_one_percent ADD tipped bit, tip_class int
-     '''
-    
-     cursor.execute(nyctaxi_one_percent_add_col)
-     cursor.commit()
-    
-     nyctaxi_one_percent_update_col = '''
-         UPDATE nyctaxi_one_percent
-         SET
-            tipped = CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END,
-            tip_class = CASE WHEN (tip_amount = 0) THEN 0
-                             WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
-                             WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
-                             WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
-                             ELSE 4
-                         END
-     '''
-    
-     cursor.execute(nyctaxi_one_percent_update_col)
-     cursor.commit()
+        nyctaxi_one_percent_add_col = '''
+            ALTER TABLE nyctaxi_one_percent ADD tipped bit, tip_class int
+        '''
 
+        cursor.execute(nyctaxi_one_percent_add_col)
+        cursor.commit()
+
+        nyctaxi_one_percent_update_col = '''
+            UPDATE nyctaxi_one_percent
+            SET
+               tipped = CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END,
+               tip_class = CASE WHEN (tip_amount = 0) THEN 0
+                                WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
+                                WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
+                                WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
+                                ELSE 4
+                            END
+        '''
+
+        cursor.execute(nyctaxi_one_percent_update_col)
+        cursor.commit()
 
 #### 特徴エンジニアリング: カテゴリ列の特徴をカウントする
 
@@ -518,10 +517,10 @@ Azure Machine Learning に進む準備ができたら、次のいずれかを実
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent ADD cmt_count int, vts_count int
     '''
-    
+
     cursor.execute(nyctaxi_one_percent_insert_col)
     cursor.commit()
-    
+
     nyctaxi_one_percent_update_col = '''
         WITH B AS
         (
@@ -531,14 +530,14 @@ Azure Machine Learning に進む準備ができたら、次のいずれかを実
             FROM nyctaxi_one_percent
             GROUP BY medallion, hack_license
         )
-    
+
         UPDATE nyctaxi_one_percent
         SET nyctaxi_one_percent.cmt_count = B.cmt_count,
             nyctaxi_one_percent.vts_count = B.vts_count
         FROM nyctaxi_one_percent A INNER JOIN B
         ON A.medallion = B.medallion AND A.hack_license = B.hack_license
     '''
-    
+
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
@@ -549,17 +548,17 @@ Azure Machine Learning に進む準備ができたら、次のいずれかを実
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent ADD trip_time_bin int
     '''
-    
+
     cursor.execute(nyctaxi_one_percent_insert_col)
     cursor.commit()
-    
+
     nyctaxi_one_percent_update_col = '''
         WITH B(medallion,hack_license,pickup_datetime,trip_time_in_secs, BinNumber ) AS
         (
             SELECT medallion,hack_license,pickup_datetime,trip_time_in_secs,
             NTILE(5) OVER (ORDER BY trip_time_in_secs) AS BinNumber from nyctaxi_one_percent
         )
-    
+
         UPDATE nyctaxi_one_percent
         SET trip_time_bin = B.BinNumber
         FROM nyctaxi_one_percent A INNER JOIN B
@@ -567,7 +566,7 @@ Azure Machine Learning に進む準備ができたら、次のいずれかを実
         AND A.hack_license = B.hack_license
         AND A.pickup_datetime = B.pickup_datetime
     '''
-    
+
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
@@ -580,10 +579,10 @@ Azure Machine Learning に進む準備ができたら、次のいずれかを実
         ADD l1 varchar(6), l2 varchar(3), l3 varchar(3), l4 varchar(3),
             l5 varchar(3), l6 varchar(3), l7 varchar(3)
     '''
-    
+
     cursor.execute(nyctaxi_one_percent_insert_col)
     cursor.commit()
-    
+
     nyctaxi_one_percent_update_col = '''
         UPDATE nyctaxi_one_percent
         SET l1=round(pickup_longitude,0)
@@ -594,7 +593,7 @@ Azure Machine Learning に進む準備ができたら、次のいずれかを実
             , l6 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 5 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),5,1) ELSE '0' END     
             , l7 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 6 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),6,1) ELSE '0' END
     '''
-    
+
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
@@ -609,14 +608,14 @@ Azure Machine Learning に進む準備ができたら、次のいずれかを実
 
 2. 多クラス分類: 以前定義したクラスに従って、支払われたチップの範囲を予測します。
 
-3. 回帰タスク: 乗車で支払われたチップの金額を予測します。
+3. 回帰タスク: 乗車で支払われたチップの金額を予測します。  
 
 
-## <a name="mlmodel"></a>Azure Machine Learning でモデルの作成
+## <a name="mlmodel"></a>Azure Machine Learning でのモデルの作成
 
-モデリングの演習を開始するには、Azure Machine Learning ワークスペースにログインします。 Machine learning ワークスペースを作成がない場合は、次を参照してください。 [Azure ML ワークスペースを作成する](machine-learning-create-workspace.md)します。
+モデリングの演習を開始するには、Azure Machine Learning ワークスペースにログインします。 Machine learning ワークスペースを作成がない場合は、次を参照してください。 [Azure ML ワークスペースを作成する](machine-learning-create-workspace.md)です。
 
-1. Azure Machine Learning を使ってみる、を参照してください [Azure Machine Learning Studio は何ですか?](machine-learning-what-is-ml-studio.md)。
+1. Azure Machine Learning で開始するを参照してください。 [Azure Machine Learning Studio は何ですか。](machine-learning-what-is-ml-studio.md)
 
 2. ログイン [Azure Machine Learning Studio](https://studio.azureml.net)します。
 
@@ -624,7 +623,7 @@ Azure Machine Learning に進む準備ができたら、次のいずれかを実
 
 一般的なトレーニング実験は以下のもので構成されています。
 
-1. **+NEW** 実験を作成する
+1. 作成、 **+ 新規** 実験します。
 2. Azure ML へのデータの取得。
 3. 必要に応じたデータの事前処理、変換、および操作。
 4. 必要に応じた特徴の生成。
@@ -637,30 +636,31 @@ Azure Machine Learning に進む準備ができたら、次のいずれかを実
 
 この演習では、既に SQL Server でデータの探索とエンジニアリングを実行し、Azure ML に取り込むサンプルのサイズを決定しました。 決定した 1 つ以上の予測モデルを作成するには、
 
-1. Azure ML を使用するデータの取得、 [リーダー ][reader] モジュールで使用できる、 **データの入力と出力** セクションです。 詳細については、次を参照してください。、 [リーダー ][reader] モジュール リファレンスのページです。
+1. 使用できる [リーダー] [リーダー] モジュールを使用して Azure ML にデータを取得、 **データの入力と出力** セクションです。 詳細については、[リーダー] [リーダー] モジュールのリファレンス ページを参照してください。
 
     ![Azure ML リーダー][17]
 
-2. **[プロパティ]** パネルで、**Azure SQL Database** を**データ ソース**として選択します。
+2. 選択 **Azure SQL Database** として、 **データソース** で、 **プロパティ** パネルです。
 
-3. データベースの DNS 名を **[データベース サーバー名]** フィールドに入力します。形式: `tcp: < your_virtual_machine_DNS_name > 1433年`
+3. データベースの DNS 名を入力して、 **データベース サーバー名** フィールドです。 形式: `tcp:<your_virtual_machine_DNS_name>,1433`
 
-4. **データベース名**を対応するフィールドに入力します。
+4. 入力、 **データベース名** 、対応するフィールドです。
 
-5. 入力、 **SQL ユーザー名** で、 **サーバーのユーザー アカウント名とパスワードの * * Server ユーザー アカウントのパスワード**します。
+5. 入力、 **SQL ユーザー名** で、* * サーバーのユーザー アカウント名とパスワードの **サーバー ユーザー アカウントのパスワード**します。
 
-6. **[サーバー証明書を受け入れる]** オプションにチェックを入れます。
+6. 確認 **サーバー証明書を受け入れる** オプション。
 
-7. **データベース クエリ**テキスト編集領域で、必要なデータベース フィールド (ラベルなどの計算フィールドなど) を抽出するクエリを貼り付けてから、データを希望するサンプルのサイズにダウンサンプリングします。
+7.  **データベース クエリ** テキスト編集領域、必要なデータベースのフィールド (ラベルなどの計算フィールドを含む) を抽出するクエリを貼り付けるし、データを希望するサンプルのサイズにダウン サンプリングします。
 
 SQL Server データベースから直接データを読み取る、二項分類の実験の例を次の図に示します。 同様の実験を、多クラス分類と回帰問題で構築することができます。
 
 ![Azure ML トレーニング][10]
-> [AZURE.IMPORTANT] 前のセクションに記載されたモデリング データの抽出とサンプリングのクエリの例では、**3 つのモデリングの演習用のラベルはすべてクエリに含まれています**。 各モデリングの演習における重要な (必須の) 手順は、他の 2 つの問題用の不要なラベルと、その他のすべての**ターゲット リーク**を**除外する**ことです。 例: 二項分類を使用して、ラベルを使用して **tipped** し、フィールドを除外する **[tip \_class]**, 、**\_amount**, 、および **total\_amount**します。 使用しないものは支払われたチップを意味しているため、ターゲットのリークになります。
->
-> 不要な列を除外またはターゲット リークを使用する可能性があります、 [プロジェクト列 ][project-columns] モジュールまたは [メタデータ エディター ][metadata-editor]します。 詳細については、次を参照してください。 [プロジェクト列 ][project-columns] と [メタデータ エディター ][metadata-editor] ページを参照します。
 
-## <a name="mldeploy"></a>Azure Machine Learning でモデルを配置します。
+> [AZURE.IMPORTANT] モデリング データの抽出とサンプリングのクエリの例で提供される前のセクションでは、 **クエリで次の 3 つのモデリングの演習用のすべてのラベルが含まれている**します。 各モデリングの演習における重要な (必須) 手順が、 **除外** の他の 2 つの問題およびその他の不要なラベル **ターゲット リーク**します。 例: 二項分類を使用して、ラベルを使用して **tipped** し、フィールドを除外する **[tip \_class]**, 、**\_amount**, 、および **total\_amount**します。 使用しないものは支払われたチップを意味しているため、ターゲットのリークになります。
+>
+> 不要な列を除外またはターゲット リークをするには、[プロジェクト列] の [プロジェクト列] モジュールまたは [メタデータのエディター] [メタデータ エディター] を使用できます。 詳細については、[プロジェクト列] の [プロジェクト列]「」を参照し、[メタデータ エディター] [メタデータ エディター] ページを参照します。
+
+## <a name="mldeploy"></a>Azure Machine Learning にモデルを配置する
 
 モデルの準備ができたら、実験から直接 Web サービスとして簡単にデプロイできます。 Azure ML web サービスの展開に関する詳細については、次を参照してください。 [Azure Machine Learning web サービスを配置](machine-learning-publish-a-machine-learning-web-service.md)します。
 
@@ -669,19 +669,19 @@ SQL Server データベースから直接データを読み取る、二項分類
 1. スコア付け実験の作成。
 2. Web サービスのデプロイ。
 
-**終了した**トレーニング実験からスコア付け実験を作成するには、下部の操作バーにある **[スコア付け実験の作成]** をクリックしてください。
+スコア付け実験を作成する、 **完了** をクリックして実験をトレーニングするには、 **スコアリング実験の作成** 下部の操作バーにします。
 
 ![Azure スコアリング][18]
 
 Azure Machine Learning は、トレーニング実験のコンポーネントに基づいて、スコア付け実験の作成を試みます。 特に、以下のことを実行します。
 
 1. トレーニング済みのモデルを保存し、モデルのトレーニング モジュールを削除する。
-2. 予想される入力データ スキーマを表す論理**入力ポート**を特定する。
-3. 予想される Web サービスの出力スキーマを表す論理**出力ポート**を特定する。
+2. 特定の論理 **入力ポート** 予想される入力データ スキーマを表します。
+3. 論理識別 **出力ポート** を予想される web サービスの出力スキーマを表します。
 
-スコア付け実験が作成されたら、それを確認し、必要に応じて調整します。 一般的な調整は、入力データセットまたはクエリを、ラベル フィールドを除外した入力データセットまたはクエリに置き換えることです。これらはサービスが呼び出されると使用できなくなるためです。 入力データセットまたはクエリのサイズを、入力スキーマを示すのに十分な 2、3 個のレコードまで削減することをお勧めします。 出力ポートは、すべての入力フィールドを除外する/のみ含める一般的、 **Scored Labels** と **Scored Probabilities** を使用して、出力、 [プロジェクト列 ][project-columns] モジュールです。
+スコア付け実験が作成されたら、それを確認し、必要に応じて調整します。 一般的な調整は、入力データセットまたはクエリを、ラベル フィールドを除外した入力データセットまたはクエリに置き換えることです。これらはサービスが呼び出されると使用できなくなるためです。 入力データセットまたはクエリのサイズを、入力スキーマを示すのに十分な 2、3 個のレコードまで削減することをお勧めします。 出力ポートは、すべての入力フィールドを除外する/のみ含める一般的、 **スコア付けラベル** と **スコア付け確率** [プロジェクト列] の [プロジェクト列] モジュールを使用して出力します。
 
-サンプルのスコア付け実験を次の図に示します。 デプロイできる状態になったら、下部の操作バーにある **[Web サービスの発行]** ボタンをクリックします。
+サンプルのスコア付け実験を次の図に示します。 展開する準備ができたらをクリックして、 **WEB サービスの発行** 下部の操作バー ボタンをクリックします。
 
 ![Azure ML 発行][11]
 
@@ -694,31 +694,32 @@ Azure Machine Learning は、トレーニング実験のコンポーネントに
 ### 参照
 
 •   [Andrés Monroy NYC タクシー乗車ダウンロード ページ](http://www.andresmh.com/nyctaxitrips/)  
-•   [NYC の Chris する (whong) で乗車データをタキシング](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+•   [NYC のでは、乗車データをタキシング Chris する (whong) によって](http://chriswhong.com/open-data/foil_nyc_taxi/)   
 •   [ニューヨーク市タクシーおよびリムジン コミッション調査および統計](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
+[1]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_26_1.png
+[2]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_28_1.png
+[3]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_35_1.png
+[4]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_36_1.png
+[5]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_39_1.png
+[6]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_42_1.png
+[7]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_44_1.png
+[8]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_46_1.png
+[9]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_71_1.png
+[10]: ./media/machine-learning-data-science-process-sql-walkthrough/azuremltrain.png
+[11]: ./media/machine-learning-data-science-process-sql-walkthrough/azuremlpublish.png
+[12]: ./media/machine-learning-data-science-process-sql-walkthrough/ssmsconnect.png
+[13]: ./media/machine-learning-data-science-process-sql-walkthrough/executescript.png
+[14]: ./media/machine-learning-data-science-process-sql-walkthrough/sqlserverproperties.png
+[15]: ./media/machine-learning-data-science-process-sql-walkthrough/sqldefaultdirs.png
+[16]: ./media/machine-learning-data-science-process-sql-walkthrough/bulkimport.png
+[17]: ./media/machine-learning-data-science-process-sql-walkthrough/amlreader.png
+[18]: ./media/machine-learning-data-science-process-sql-walkthrough/amlscoring.png
 
 
-[1]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_26_1.png 
-[2]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_28_1.png 
-[3]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_35_1.png 
-[4]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_36_1.png 
-[5]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_39_1.png 
-[6]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_42_1.png 
-[7]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_44_1.png 
-[8]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_46_1.png 
-[9]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_71_1.png 
-[10]: ./media/machine-learning-data-science-process-sql-walkthrough/azuremltrain.png 
-[11]: ./media/machine-learning-data-science-process-sql-walkthrough/azuremlpublish.png 
-[12]: ./media/machine-learning-data-science-process-sql-walkthrough/ssmsconnect.png 
-[13]: ./media/machine-learning-data-science-process-sql-walkthrough/executescript.png 
-[14]: ./media/machine-learning-data-science-process-sql-walkthrough/sqlserverproperties.png 
-[15]: ./media/machine-learning-data-science-process-sql-walkthrough/sqldefaultdirs.png 
-[16]: ./media/machine-learning-data-science-process-sql-walkthrough/bulkimport.png 
-[17]: ./media/machine-learning-data-science-process-sql-walkthrough/amlreader.png 
-[18]: ./media/machine-learning-data-science-process-sql-walkthrough/amlscoring.png 
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/ 
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/ 
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/ 
+<!-- Module References -->
+[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 

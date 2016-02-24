@@ -16,23 +16,22 @@
     ms.date="10/15/2015"
     ms.author="darosa"/>
 
-
-# Service Bus の Premium および Standard メッセージング レベル
+# Service Bus の Premium および Standard メッセージング レベル 
 
 Service Bus 仲介型メッセージングには、キューやトピックなどのメッセージング エンティティが含まれており、エンタープライズ メッセージング機能と、クラウド スケールの豊富なパブリッシュ/サブスクライブ セマンティクスが結合されます。 Service Bus 仲介型メッセージングは、多くの高度なクラウド ソリューションで、通信のバックボーンとして使用されます。
 
-Service Bus メッセージングに *Premium* レベルを導入して、ミッションクリティカルなアプリケーションのスケール、パフォーマンス、および可用性に関する顧客の一般的な要求に対処しています。 機能セットとほぼ同じですが、Azure Service Bus メッセージングのこれら 2 つのレベルは、さまざまなユース ケースに応えるように設計されています。
+導入に伴い、 *Premium* 層スケール、パフォーマンス、およびミッションクリティカルなアプリケーションの可用性に関する一般的な顧客の要求をアドレス指定は、Service Bus メッセージングのです。 機能セットとほぼ同じですが、Azure Service Bus メッセージングのこれら 2 つのレベルは、さまざまなユース ケースに応えるように設計されています。
 
 次の表に、大まかな違いのいくつかを示します。
 
-| Premium| Standard|
+| Premium                               | Standard                       |
 |---------------------------------------|--------------------------------|
-| 高スループット| 変わりやすいスループット|
-| 予測可能なパフォーマンス| 変わりやすい待機時間|
-| 予測可能な料金| 従量性の変わりやすい料金|
-| ワークロードを上下に設定する機能| 該当なし|
+| 高スループット                       | 変わりやすいスループット            |
+| 予測可能なパフォーマンス               | 変わりやすい待機時間               |
+| 予測可能な料金                   | 従量性の変わりやすい料金 |
+| ワークロードを上下に設定する機能 | 該当なし                            |
 
-**Azure Service Bus Premium メッセージング**では、各顧客のワークロードの分離で実行されるように、CPU およびメモリ層でのリソースの分離を提供します。 このリソースのコンテナーを、*メッセージング ユニット*と呼びます。 各 Premium 名前空間には、1 つ以上のメッセージング ユニットが割り当てられます。 Service Bus の Premium 名前空間ごとに、1 個、2 個、または 4 個のメッセージング ユニットを購入できます。 1 つのワークロードまたはエンティティは、複数のメッセージング ユニットにまたがることができます。課金は 24 時間単位、すなわち日単位ですが、メッセージング ユニットの数は自由に変更できます。 その結果、Service Bus ベースのソリューションのパフォーマンスは、予測可能で反復可能になります。
+**Azure Service Bus Premium メッセージング** 各顧客のワークロードの分離で実行されるように、CPU およびメモリの層でリソースの分離を提供します。 このリソースのコンテナーの名前は、 *メッセージング単位*します。 各 Premium 名前空間には、1 つ以上のメッセージング ユニットが割り当てられます。 Service Bus の Premium 名前空間ごとに、1 個、2 個、または 4 個のメッセージング ユニットを購入できます。 1 つのワークロードまたはエンティティは、複数のメッセージング ユニットにまたがることができます。課金は 24 時間単位、すなわち日単位ですが、メッセージング ユニットの数は自由に変更できます。 その結果、Service Bus ベースのソリューションのパフォーマンスは、予測可能で反復可能になります。
 
 このパフォーマンスは、より予測可能かつ利用可能なだけでなく、より高速です。 導入されたメッセージングのビルド、ストレージ エンジンを azure のサービス バス Premium [Azure Event Hubs](http://azure.microsoft.com/services/event-hubs/)します。 Premium メッセージングでのピークのパフォーマンスは、Standard レベルよりもはるかに高速です。
 
@@ -52,13 +51,9 @@ Premium および Standard メッセージング レベルの間でのいくつ�
 
 Service Bus メッセージングの詳細については、次のトピックをご覧ください。
 
-- [Azure サービス バスの Premium メッセージング (ブログの投稿) の概要](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-- [Azure サービス バスの Premium (Channel9) メッセージングの概要](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
+- [Azure Service Bus Premium メッセージングの概要 (ブログの投稿)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+- [Azure Service Bus Premium メッセージングの概要(Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Service Bus メッセージングの概要](service-bus-messaging-overview.md)
-- [Azure Service Bus アーキテクチャの概要](service-bus-fundamentals-hybrid-solutions.md)
+- [Azure Service Bus Architectural Overview (Azure Service Bus アーキテクチャの概要)](service-bus-fundamentals-hybrid-solutions.md)
 - [Service Bus キューの使用方法](service-bus-dotnet-how-to-use-queues.md)
-
-
-
-
 

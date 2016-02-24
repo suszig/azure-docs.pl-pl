@@ -1,5 +1,5 @@
 <properties
-    pageTitle="ASP.NET プロジェクトの変更点 | Microsoft Azure | Visual Studio 接続済みサービス"
+    pageTitle="ASP.NET プロジェクトの変更点 |Microsoft Azure |Visual Studio 接続済みサービス"
     description="Visual Studio 接続済みサービスを使用して ASP.NET プロジェクトに Azure Storage を追加した後の変更点について説明します。"
     services="storage"
     documentationCenter=""
@@ -15,7 +15,6 @@
     ms.topic="article"
     ms.date="12/16/2015"
     ms.author="tarcher"/>
-
 
 # ASP.NET プロジェクトの変更点 (Visual Studio Azure Storage 接続済みサービス)
 
@@ -33,13 +32,8 @@ Visual Studio プロジェクトに Azure Storage の NuGet パッケージが�
 - **System.Data**
 - **System.Spatial**
 
-## Azure Storage の接続文字列の追加
-
+##Azure Storage の接続文字列の追加
 選択されたストレージ アカウントの接続文字列とキーを使用して、プロジェクトの web.config ファイル内に要素が作成されました。
 
 詳細については、次を参照してください。 [ASP.NET](http://www.asp.net)します。
-
-
-
-
 

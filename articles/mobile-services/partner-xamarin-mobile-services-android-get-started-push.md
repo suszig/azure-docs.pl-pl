@@ -16,7 +16,6 @@
     ms.date="12/07/2015"
     ms.author="glenga"/>
 
-
 # Mobile Services アプリへのプッシュ通知の追加
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
@@ -26,41 +25,40 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
-## 概要
-
+##概要
 このトピックでは、Azure Mobile Services を使用して Xamarin Android アプリにプッシュ通知を送信する方法について説明します。 このチュートリアルでは、Google Cloud Messaging (GCM) サービスを使用してプッシュ通知を追加、[を使ってみるモバイル サービス] プロジェクトです。 完了すると、モバイル サービスは、レコードが挿入されるたびにプッシュ通知を送信します。
 
 このチュートリアルには、次のものが必要です。
 
 + アクティブな Google アカウント。
-+ [Google Cloud Messaging クライアント コンポーネント] です。 このコンポーネントは、チュートリアル中に追加します。
++ [Google Cloud Messaging Client Component]. このコンポーネントは、チュートリアル中に追加します。
 
-[Xamarin.Android] が既にあり、[Azure Mobile Services コンポーネント] は、いずれかを完了すると、プロジェクトにインストールされている [モバイル サービスの開始を取得] です。
+いれば、 [Xamarin.Android] と [Azure Mobile Services Component] からいずれかを完了すると、プロジェクトにインストールされている [モバイル サービスの開始を取得] です。
 
-## <a id="register"></a>Google Cloud Messaging を有効にします。
+##<a id="register"></a>Google Cloud Messaging を有効にする
 
 [AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
-## <a id="configure"></a>プッシュ要求を送信する、モバイル サービスを構成します。
+##<a id="configure"></a>プッシュ要求を送信するように Mobile Services を構成する
 
 [AZURE.INCLUDE [mobile-services-android-configure-push](../../includes/mobile-services-android-configure-push.md)]
 
-## <a id="update-scripts"></a>登録の更新通知を送信するスクリプトを挿入します。
+##<a id="update-scripts"></a>登録の更新通知を送信するスクリプトを挿入します。
 
->[AZURE.TIP] 次の手順では、Azure クラシック ポータルの TodoItem テーブルに対する挿入操作に登録されているスクリプトを更新する方法を示します。 このモバイル サービス スクリプトは、Visual Studio のサーバー エクスプローラーの Azure ノードで、直接アクセスして編集することもできます。
+>[AZURE.TIP] 次の手順では、Azure 旧ポータルで、TodoItem テーブルに対する挿入操作に登録されているスクリプトを更新する方法を説明します。 このモバイル サービス スクリプトは、Visual Studio のサーバー エクスプローラーの Azure ノードで、直接アクセスして編集することもできます。
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
 
-## <a id="configure-app"></a>プッシュ通知の既存のプロジェクトを構成します。
+##<a id="configure-app"></a>プッシュ通知の既存のプロジェクトを構成します。
 
 [AZURE.INCLUDE [mobile-services-xamarin-android-push-configure-project](../../includes/mobile-services-xamarin-android-push-configure-project.md)]
 
-## <a id="add-push"></a>アプリにプッシュ通知コードを追加します。
+##<a id="add-push"></a>アプリケーションにプッシュ通知コードを追加する
 
 [AZURE.INCLUDE [mobile-services-xamarin-android-push-add-to-app](../../includes/mobile-services-xamarin-android-push-add-to-app.md)]
 
-## <a id="test"></a>アプリでプッシュ通知をテストします。
+##<a id="test"></a>アプリケーションでプッシュ通知をテストする
 
 Android フォンを USB ケーブルで直接接続するか、エミュレーターで仮想デバイスを使用する方法により、アプリケーションをテストできます。
 
@@ -76,7 +74,7 @@ Mobile Services と Notification Hubs については次のトピックを参照
   <br/>別のアカウントの種類のモバイル サービスを使用して、アプリのユーザーを認証する方法について説明します。
 
 * [Notification Hubs とは](../notification-hubs-overview.md)
-  <br/>通知を配信するアプリケーションにすべての主要なクライアントのプラットフォームの通知ハブの動作について説明します。
+  <br/>通知ハブがすべての主要なクライアント プラットフォーム全体のアプリケーションに通知を配信するための動作を説明します。
 
 * [Notification Hubs アプリケーションをデバッグします。](http://go.microsoft.com/fwlink/p/?linkid=386630)
   </br>ガイドのトラブルシューティングと Notification Hubs ソリューションのデバッグを取得します。
@@ -87,10 +85,10 @@ Mobile Services と Notification Hubs については次のトピックを参照
 * [モバイル サービスのサーバー スクリプト リファレンス](mobile-services-how-to-use-server-scripts.md)
   <br/>モバイル サービスにビジネス ロジックを実装する方法について説明します。
 
+<!-- URLs. -->
+[Get started with Mobile Services]: mobile-services-ios-get-started.md
 
-
-[get started with mobile services]: mobile-services-ios-get-started.md 
-[google cloud messaging client component]: http://components.xamarin.com/view/GCMClient/ 
-[xamarin.android]: http://xamarin.com/download/ 
-[azure mobile services component]: http://components.xamarin.com/view/azure-mobile-services/ 
+[Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
+[Xamarin.Android]: http://xamarin.com/download/
+[Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 

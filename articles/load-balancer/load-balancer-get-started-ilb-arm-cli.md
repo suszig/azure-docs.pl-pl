@@ -17,7 +17,6 @@
    ms.date="11/16/2015"
    ms.author="joaoma" />
 
-
 # Azure CLI を使用した内部ロード バランサーの作成の概要
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
@@ -32,9 +31,9 @@
 
 ロード バランサーをデプロイするには、次のオブジェクトを作成して構成する必要があります。
 
-- フロント エンド IP 構成 - 受信ネットワーク トラフィックのプライベート IP アドレスを構成します。
+- フロント エンド IP 構成 - 受信ネットワーク トラフィックのプライベート IP アドレスを構成します。 
 
-- バック エンド アドレス プール - ロード バランサーからトラフィックを受信するためのネットワーク インターフェイス (NIC) が含まれます。
+- バック エンド アドレス プール - ロード バランサーからトラフィックを受信するためのネットワーク インターフェイス (NIC) が含まれます。 
 
 - 負荷分散規則 - バック エンド プール内のネットワーク トラフィックの受信ポートへの着信ネットワーク トラフィックのポートのマッピング規則が含まれます。
 
@@ -48,7 +47,7 @@ Azure リソース マネージャーであるの詳細については、ロー�
 
 1. Azure CLI を初めて使用する場合は、次を参照してください。 [のインストールと Azure CLI の構成](xplat-cli.md) Azure アカウントとサブスクリプションを選択する時点までの指示に従います。
 
-2. 次に示すように、**azure config mode** コマンドを実行してリソース マネージャー モードに切り替えます。
+2. 実行、 **azure config モード** コマンドを次に示すように、リソース マネージャー モードに切り替えます。
 
         azure config mode arm
 
@@ -56,16 +55,15 @@ Azure リソース マネージャーであるの詳細については、ロー�
 
         info:    New mode is arm
 
-
-## 内部ロード バランサーの作成手順
+## 内部ロード バランサーの作成手順 
 
 次の手順では前述のシナリオに基づいて内部ロード バランサーを作成します。
 
-### 手順 1.
+### 手順 1. 
 
 したがまだ実行していない場合は、最新バージョンをダウンロード [Azure コマンド ライン インターフェイス](https://azure.microsoft.com/downloads/)します。
 
-### 手順 2.
+### 手順 2. 
 
 インストールしたら、アカウントを認証します。
 
@@ -85,22 +83,24 @@ Azure リソース マネージャーのすべてのリソースは、リソー�
 
     azure group create <resource group name> <location>
 
-## 内部ロード バランサー セットを作成します。
 
-### 手順 1.
+## 内部ロード バランサー セットを作成します。 
 
-内部ロード バランサーを使用して、作成 `azure ネットワーク lb 作成` コマンドです。 次のシナリオでは、"nrprg" という名前のリソース グループが米国東部リージョンで作成されています。
 
+### 手順 1. 
+
+`azure network lb create` コマンドを使用して内部ロード バランサーを作成します。 次のシナリオでは、"nrprg" という名前のリソース グループが米国東部リージョンで作成されています。
+    
     azure network lb create -n nrprg -l westus
 
->[AZURE.NOTE] 仮想ネットワークや仮想ネットワーク サブネットなどの内部ロード バランサーのすべてのリソースは同じリソース グループ、同じリージョンにある必要があります。
+>[AZURE.NOTE] 内部ロード バランサーの仮想ネットワークおよび仮想ネットワーク サブネットなどのすべてのリソースは、同じリソース グループと同じリージョンである必要があります。
 
 
-### 手順 2
+### 手順 2. 
 
 内部ロード バランサーのフロント エンド IP アドレスを作成します。 使用される IP アドレスは、仮想ネットワークのサブネットの範囲内にある必要があります。
 
-
+    
     azure network lb frontend-ip create -g nrprg -l ilbset -n feilb -a 10.0.0.7 -e nrpvnetsubnet -m nrpvnet
 
 使用されるパラメーター:
@@ -110,11 +110,11 @@ Azure リソース マネージャーのすべてのリソースは、リソー�
 **-n** - フロント エンド IP の名前 
 **-a** -サブネットの範囲内のプライベート IP アドレスです。
 **-e** -サブネット名
-**-m** -仮想ネットワーク名
+**-m** -仮想ネットワーク名 
 
-### 手順 3.
+### 手順 3. 
 
-バック エンド アドレス プールを作成します。
+バック エンド アドレス プールを作成します。 
 
     azure network lb address-pool create -g nrprg -l ilbset -n beilb
 
@@ -128,7 +128,8 @@ Azure リソース マネージャーのすべてのリソースは、リソー�
 
 ### 手順 4.
 
-内部ロード バランサーのロード バランサー規則を作成します。 下のシナリオでは、コマンドによりロード バランサー規則を作成します。フロント エンド プールでポート 1433 をリッスンし、ロード バランス ネットワーク トラフィックをバックエンド アドレス プールにポート 1433 を使用して送信する規則になります。
+
+内部ロード バランサーのロード バランサー規則を作成します。 下のシナリオでは、コマンドによりロード バランサー規則を作成します。フロント エンド プールでポート 1433 をリッスンし、ロード バランス ネットワーク トラフィックをバックエンド アドレス プールにポート 1433 を使用して送信する規則になります。 
 
     azure network lb rule create -g nrprg -l ilbset -n ilbrule -p tcp -f 1433 -b 1433 -t feilb -o beilb
 
@@ -159,7 +160,7 @@ Azure リソース マネージャーのすべてのリソースは、リソー�
 **-f** -ロード バランサーのフロント エンドでの着信ネットワーク トラフィックをリッスン ポート
 **-b** バック エンド アドレス プール内のネットワーク トラフィックの受信ポート。
 
-### 手順 5.
+### 手順 5. 
 
 ロード バランサーの正常性プローブを作成します。 正常性プローブは、すべての仮想マシン インスタンスを確認し、ネットワーク トラフィックを送信できるかどうかを確認します。 プローブのチェックで失敗した仮想マシン インスタンスは、オンラインに戻り、プローブチェックが正常になるまで、ロード バランサーから削除されます。
 
@@ -170,28 +171,29 @@ Azure リソース マネージャーのすべてのリソースは、リソー�
 **-n** - 正常性プローブの名前
 **-p** -正常性プローブによって使用されるプロトコル
 **-i** -プローブ間隔 (秒)
-**-c** チェックの数。
->[AZURE.NOTE] Microsoft Azure Platform は、さまざまな管理シナリオに静的でパブリックにルーティング可能な IPv4 アドレスを使用します。 IP アドレスは 168.63.129.16 です。 この IP アドレスはファイアウォールによってブロックされないように設定しておく必要があります。ブロックされると、予期しない動作が発生する可能性があるためです。
+**-c** チェックの数。 
+
+>[AZURE.NOTE] Microsoft Azure プラットフォームでは、さまざまな管理シナリオの静的パブリック ルーティング可能な IPv4 アドレスを使用します。 IP アドレスは 168.63.129.16 です。 この IP アドレスはファイアウォールによってブロックされないように設定しておく必要があります。ブロックされると、予期しない動作が発生する可能性があるためです。
 >Azure 内部負荷分散については、この IP アドレスはロード バランサーからの監視プローブによって使用され、負荷分散セットでの仮想マシンの正常性状態が判別されます。 ネットワーク セキュリティ グループが、内部負荷分散セットで Azure の仮想マシンへのトラフィックを制限するために使用されている場合、または仮想ネットワーク サブネットに適用されている場合、168.63.129.16 からのトラフィックを許可するネットワーク セキュリティの規則が追加されていることを確認します。
 
 ## NIC の作成
 
 NIC を作成し (あるいは、既存の NIC を変更し)、それを NAT 規則、ロード バランサー規則、プローブに関連付ける必要があります。
 
-### 手順 1
+### 手順 1. 
 
-*lb-nic1-be* という名前の NIC を作成し、それを *rdp1* NAT 規則と *beilb* バック エンド アドレス プールに関連付けます。
-
+という名前の NIC を作成する *lb nic1 する*, 、関連付けます、 *rdp1* NAT 規則、および *beilb* バック エンド アドレス プール。
+    
     azure network nic create -g nrprg -n lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" eastus
 
 パラメーター:
 
-- **-g** - リソース グループ名
-- **-n** - NIC リソースの名前
-- **--subnet-name** - サブネットの名前
-- **--subnet-vnet-name** - 仮想ネットワークの名前
-- **-d** /subscription/始まり - バック エンド プールのリソースの ID - {subscriptionID/resourcegroups/<resourcegroup-name>/providers/Microsoft.Network/loadbalancers/<load-balancer-name>/backendaddresspools/<name-of-the-backend-pool>
-- **-e** /subscriptions/###/resourcegroups/始まり - NIC のリソースに関連付けられる、NAT ルールの ID -<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>
+- **-g** -リソース グループ名
+- **-n** - NIC のリソースの名前
+- **-サブネット名** - サブネットの名前 
+- **-サブネット vnet 名** - 仮想ネットワークの名前
+- **-d** /subscription/{subscriptionID/resourcegroups/< リソース グループ名 >/providers/Microsoft.Network/loadbalancers/< ロード バランサー名 >/backendaddresspools/< 名前の-、-バックエンド-プール > 始まり - バック エンド プールのリソースの ID - 
+- **-e** - NIC のリソースに関連付けられる、NAT ルールの ID - から始まります/subscriptions/###/resourcegroups/< リソース グループ名 >/providers/Microsoft.Network/loadBalancers/< ロード バランサー名 >/inboundNatRules/< nat 規則名 >
 
 
 予想される出力:
@@ -222,41 +224,38 @@ NIC を作成し (あるいは、既存の NIC を変更し)、それを NAT 規
 
 ### 手順 2.
 
-*lb-nic2-be* という名前の NIC を作成し、それを *rdp2* NAT 規則と *beilb* バック エンド アドレス プールに関連付けます。
+という名前の NIC を作成する *lb nic2 する*, 、関連付けます、 *rdp2* NAT 規則、および *beilb* バック エンド アドレス プール。
 
     azure network nic create -g nrprg -n lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" eastus
 
-### 手順 3.
+### 手順 3. 
 
-*DB1* という名前の仮想マシン (VM) を作成し、それを *lb-nic1-be* という名前の NIC に関連付けます。 *web1nrp* と呼ばれるストレージ アカウントが次のコマンドを実行する前に作成されました。
+仮想マシン (VM) という名前の作成 *DB1*, 、という名前の NIC に関連付けると *lb nic1 する*です。 ストレージ アカウントと呼ばれる *web1nrp* が次のコマンドを実行する前に作成されました。
 
     azure vm create --resource-group nrprg --name DB1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
->[AZURE.IMPORTANT] ロード バランサーの VM は、同じ可用性セットに含まれている必要があります。 使用 `azure 可用性セットを作成` 可用性を作成するに設定します。 
+>[AZURE.IMPORTANT] ロード バランサー内の Vm は、同じ可用性セット内にある必要があります。 可用性セットを作成するには、`azure availset create` を使用します。 
 
 ### 手順 4.
 
-*DB2* という名前の仮想マシン (VM) を作成し、それを *lb-nic2-be* という名前の NIC に関連付けます。 次のコマンドを実行する前に、*web1nrp* というストレージ アカウントが作成されました。
+仮想マシン (VM) という名前の作成 *DB2*, 、という名前の NIC に関連付けると *lb nic2 する*です。 ストレージ アカウントと呼ばれる *web1nrp* が次のコマンドを実行する前に作成されました。
 
     azure vm create --resource-group nrprg --name DB2 --location eastus --vnet- name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
-## ロード バランサーの削除
+## ロード バランサーの削除 
+
 
 ロード バランサーを削除するには、次のコマンドを使用します。
 
     azure network lb delete -g nrprg -n ilbset 
 
-ここで **nrprg** はリソース グループ、**ilbset** は内部ロード バランサーの名前です。
+ここで **nrprg** はリソース グループと **ilbset** 内部ロード バランサー名を指定します。
 
 
 ## 次のステップ
 
-[ソース IP アフィニティを使用してロード バランサー分散モードを構成します。](load-balancer-distribution-mode.md)
+[ソース IP アフィニティを使用したロード バランサー分散モードの構成](load-balancer-distribution-mode.md)
 
-[ロード バランサーのアイドル TCP タイムアウト設定を構成します。](load-balancer-tcp-idle-timeout.md)
-
-
-
-
+[ロード バランサーのアイドル TCP タイムアウト設定の構成](load-balancer-tcp-idle-timeout.md)
 
 

@@ -16,22 +16,21 @@
     ms.date="10/13/2015"
     ms.author="brandwe"/>
 
-
 # Azure AD の Android アプリへの統合
 
 [AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-デスクトップ アプリケーションを開発する場合、Azure AD を使用すると、Active Directory アカウントを使用してユーザーの認証処理を容易に行うことができます。 また、Office 365 API や Azure API などの Azure AD によって保護された任意の Web API をアプリケーションで安全に使用することもできます。
+デスクトップ アプリケーションを開発する場合、Azure AD を使用すると、Active Directory アカウントを使用してユーザーの認証処理を容易に行うことができます。  また、Office 365 API や Azure API などの Azure AD によって保護された任意の Web API をアプリケーションで安全に使用することもできます。
 
-保護されたリソースにアクセスする必要がある Android クライアントに対しては、Azure AD は Active Directory 認証ライブラリ (ADAL) を提供します。 ADAL の唯一の目的は、アプリがアクセス トークンを容易に取得できるようにすることです。 それがどれほど簡単であるかを示すために、ここで、次を実行する Android To-Do List アプリケーションを作成します。
+保護されたリソースにアクセスする必要がある Android クライアントに対しては、Azure AD は Active Directory 認証ライブラリ (ADAL) を提供します。  ADAL の唯一の目的は、アプリがアクセス トークンを容易に取得できるようにすることです。  それがどれほど簡単であるかを示すために、ここで、次を実行する Android To-Do List アプリケーションを作成します。
 
 -   アクセスを使用して To-Do List API を呼び出すためのトークンを取得、 [OAuth 2.0 認証プロトコル](https://msdn.microsoft.com/library/azure/dn645545.aspx)します。
 -   ユーザーの To-Do List を取得します。
 -   ユーザーのサインアウト処理を行います。
 
-作業を開始するには、ユーザーを作成し、アプリケーションを登録できるようにするために Azure AD テナントが必要になります。 場合は、テナントをまだ持っていない [いずれかを取得する方法について](active-directory-howto-tenant.md)します。
+作業を開始するには、ユーザーを作成し、アプリケーションを登録できるようにするために Azure AD テナントが必要になります。  場合は、テナントをまだ持っていない [いずれかを取得する方法について](active-directory-howto-tenant.md)します。
 
 ## 手順 1. Node.js REST API の TODO サンプル サーバーをダウンロードして実行する
 
@@ -39,13 +38,13 @@
 
 この設定方法については、次の既存のサンプルを参照してください。
 
-* [Node.js 用 Microsoft Azure Active Directory のサンプル REST API サービス](active-directory-devquickstarts-webapi-nodejs.md)
+* [Node.js 用の Microsoft Azure Active Directory のサンプル REST API サービス](active-directory-devquickstarts-webapi-nodejs.md)
 
 ## 手順 2. Web API を Microsoft Azure AD テナントに登録する
 
 **実行する事柄**
 
-* Microsoft Active Directory では、2 種類のアプリケーションの追加をサポートします。 サービスをユーザーに提供する Web API と、それらの Web API にアクセスする (Web 上またはデバイス上のいずれかで実行する) アプリケーションです。 この手順では、このサンプルをテストするために、ローカルで実行している Web API を登録します。 この Web API は、通常、アプリがアクセスする機能を提供する REST サービスです。 Microsoft Azure Active Directory は、任意のエンドポイントを保護することができます *。
+*Microsoft Active Directory では、2 種類のアプリケーションの追加をサポートします。 サービスをユーザーに提供する Web API と、それらの Web API にアクセスする (Web 上またはデバイス上のいずれかで実行する) アプリケーションです。 この手順では、このサンプルをテストするために、ローカルで実行している Web API を登録します。 この Web API は、通常、アプリがアクセスする機能を提供する REST サービスです。 Microsoft Azure Active Directory は、任意のエンドポイントを保護できます。*
 
 *ここでは前述の TODO REST API を登録することを想定していますが、この方法は、Azure Active Directory で保護するすべての Web API に有効です。*
 
@@ -58,24 +57,24 @@ Microsoft Azure AD を使用して Web API を登録する手順
 5. ドロアーで、[追加] をクリックします。
 6. [組織で開発中のアプリケーションを追加] をクリックします。
 7. たとえば "TodoListService" など、アプリケーションのわかりやすい名前を入力し、[Web アプリケーションや Web API] を選択して、[次へ] をクリックします。
-8. サインオン url には、既定では、サンプルのベース URL を入力 `https://localhost:8080`します。
-9. アプリ ID の URI を入力してください。 `https://<your_tenant_name>/TodoListService`, 、置換 `< your_tenant_name >` 、Azure AD テナントの名前に置き換えます。[OK] クリックして登録を完了します。
+8. サインオン URL には、サンプルのベース URL を入力します。既定では `https://localhost:8080` となります。
+9. アプリ ID URI には、「`https://<your_tenant_name>/TodoListService`」と入力します。これは `<your_tenant_name>` を Azure AD テナントの名前に置き換えます。  [OK] クリックして登録を完了します。
 10. 引き続き Azure ポータルで、アプリケーションの [構成] タブをクリックします。
-11. **クライアント ID 値を見つけて、コピーして保持しておきます**。これは後でアプリケーションを構成するときに必要になります。
+11. **クライアント ID 値を見つけて、コピーを保持しておきます**, 、この必要になります後で、アプリケーションを構成するときにします。
 
 ## 手順 3. サンプルの Android ネイティブ クライアント アプリケーションを登録する
 
 最初の手順として、Web アプリケーションを登録します。 次に、アプリケーションについて Azure Active Directory に通知する必要があります。 これにより、アプリケーションは登録した Web API と通信できるようになります。
 
-**実行する事柄**
+**実行する事柄**  
 
-* 前述のように、Microsoft Azure Active Directory は、2 種類のアプリケーションの追加をサポートします。 サービスをユーザーに提供する Web API と、それらの Web API にアクセスする (Web 上またはデバイス上のいずれかで実行する) アプリケーションです。 この手順では、このサンプルのアプリケーションを登録します。 このアプリケーションが、登録した Web API へのアクセスを要求できるようにするために、この手順は必要です。 Azure Active Directory は、登録されていないアプリケーションに対して、サインインを要求することさえも拒否します。 これは、モデルのセキュリティの一部
+*前述のように、Microsoft Azure Active Directory は、2 種類のアプリケーションの追加をサポートします。 サービスをユーザーに提供する Web API と、それらの Web API にアクセスする (Web 上またはデバイス上のいずれかで実行する) アプリケーションです。 この手順では、このサンプルのアプリケーションを登録します。 このアプリケーションが、登録した Web API へのアクセスを要求できるようにするために、この手順は必要です。 Azure Active Directory は、登録されていないアプリケーションに対して、サインインを要求することさえも拒否します。 これは、モデルのセキュリティの一部です。*
 
 *ここでは上述のサンプル アプリケーションを登録することを想定していますが、手順は開発するすべてのアプリケーションに有効です。*
 
 **アプリケーションと Web API の両方を 1 テナントに配置する理由**
 
-* ご想像のとおりには、別のテナントから Azure Active Directory に登録されている外部 API にアクセスするアプリを構築できます。 そのようにすると、お客様に対してアプリケーションでの API の使用に同意が求められることになります。 このようにする利点として、iOS 向け Active Directory 認証ライブラリがユーザーに代わって同意に対応することになります。 より高度な機能を利用するようになるにつれて、これが、Azure、Office、および他のすべてのサービス プロバイダーから一連の Microsoft API にアクセスするために必要な処理の重要な部分であることがわかるようになります。 この時点では、同じテナントに Web API とアプリケーションの両方を登録しているので、同意のプロンプトは表示されません。 これは通常大文字と小文字だけ use.* する会社のアプリケーションを開発している場合
+*ご想像のとおりには、別のテナントから Azure Active Directory に登録されている外部 API にアクセスするアプリを構築できます。 そのようにすると、お客様に対してアプリケーションでの API の使用に同意が求められることになります。 このようにする利点として、iOS 向け Active Directory 認証ライブラリがユーザーに代わって同意に対応することになります。 より高度な機能を利用するようになるにつれて、これが、Azure、Office、および他のすべてのサービス プロバイダーから一連の Microsoft API にアクセスするために必要な処理の重要な部分であることがわかるようになります。 この時点では、同じテナントに Web API とアプリケーションの両方を登録しているので、同意のプロンプトは表示されません。 のみを使用する会社でアプリケーションを開発している場合は通常、ケースになります。*
 
 1. サインイン、 [Azure 管理ポータル](https://manage.windowsazure.com)します。
 2. 左側のナビゲーションで [Active Directory] をクリックします。
@@ -84,10 +83,10 @@ Microsoft Azure AD を使用して Web API を登録する手順
 5. ドロアーで、[追加] をクリックします。
 6. [組織で開発中のアプリケーションを追加] をクリックします。
 7. たとえば "TodoListClient-Android" など、アプリケーションのわかりやすい名前を入力し、[ネイティブ クライアント アプリケーション] を選択して、[次へ] をクリックします。
-8. リダイレクト URI には、入力 `http://TodoListClient`します。 [完了] をクリックします。
+8. リダイレクト URI には、「`http://TodoListClient`」を入力します。  [完了] をクリックします。
 9. アプリケーションの [構成] タブをクリックします。
 10. クライアント ID 値を見つけて、コピーして保持しておきます。これは後でアプリケーションを構成するときに必要になります。
-11. [その他のアプリケーションに対するアクセス許可] で、[アプリケーションの追加] をクリックします。[表示] ドロップダウンで [その他] を選択し、上のチェック マークをクリックします。TodoListService を見つけてクリックし、下のチェック マークをクリックしてアプリケーションを追加します。[委任されたアクセス許可] ドロップダウンで [TodoListService へのアクセス (Access TodoListService)] を選択し、構成を保存します。
+11. [その他のアプリケーションに対するアクセス許可] で、[アプリケーションの追加] をクリックします。  [表示] ドロップダウンで [その他] を選択し、上のチェック マークをクリックします。  TodoListService を見つけてクリックし、下のチェック マークをクリックしてアプリケーションを追加します。  [委任されたアクセス許可] ドロップダウンで [TodoListService へのアクセス (Access TodoListService)] を選択し、構成を保存します。
 
 
 
@@ -95,9 +94,9 @@ Maven を使用して構築するために、最上位レベルで pom.xml を�
 
   * このリポジトリを任意のディレクトリに複製します。
 
-  `$ git 複製 git@github.com:AzureADSamples/NativeClient Android.git`
+  `$ git clone git@github.com:AzureADSamples/NativeClient-Android.git`  
 
-  * 手順に従って、 [Prerequests android maven セクション](https://github.com/MSOpenTech/azure-activedirectory-library-for-android/wiki/Setting-up-maven-environment-for-Android)
+  * 手順に従う [Prerequests android maven セクション](https://github.com/MSOpenTech/azure-activedirectory-library-for-android/wiki/Setting-up-maven-environment-for-Android)
   * SDK 19 でエミュレーターをセットアップします。
   * リポジトリを複製したルート フォルダーに移動します。
   * コマンド mvn clean install を実行します。
@@ -113,20 +112,20 @@ aar パッケージに加え、jar パッケージも送信されます。
 このライブラリを Android プロジェクトで簡単に使用できるようにするために、複数のオプションが用意されています。
 
 * ソース コードを使用して、このライブラリを Eclipse にインポートし、アプリケーションにリンクします。
-* Android Studio を使用する場合は、*aar* パッケージ形式を使用して、バイナリを参照します。
+* Android Studio を使用して場合、は、使用 *aar* パッケージ形式、バイナリを参照します。
 
-#### オプション 1. ソース Zip
+####オプション 1. ソース Zip
 
 ソース コードのコピーをダウンロードするには、ページの右側にある [ZIP のダウンロードをクリックします [ここ](https://github.com/AzureAD/azure-activedirectory-library-for-android/archive/v1.0.9.tar.gz)します。
 
-#### オプション 2. Git 経由のソース
+####オプション 2. Git 経由のソース
 
 SDK のソース コードを Git 経由で取得するには、次のように入力します。
 
     git clone git@github.com:AzureAD/azure-activedirectory-library-for-android.git
     cd ./azure-activedirectory-library-for-android/src
 
-#### オプション 3. Gradle 経由のバイナリ
+####オプション 3. Gradle 経由のバイナリ
 
 Maven 中央リポジトリからバイナリを取得できます。 aar パッケージは、次のようにして AndroidStudio でプロジェクトに含めることができます。
 
@@ -148,7 +147,7 @@ dependencies {
 }
 ```
 
-#### オプション 4. Maven 経由の aar
+####オプション 4. Maven 経由の aar
 
 Eclipse で m2e プラグインを使用する場合は、pom.xml ファイルで次のように依存関係を指定できます。
 
@@ -162,12 +161,12 @@ Eclipse で m2e プラグインを使用する場合は、pom.xml ファイル�
 ```
 
 
-#### オプション 5. libs フォルダー内の jar パッケージ
-
-Maven リポジトリから jar ファイルを取得して、プロジェクトの *libs* フォルダーにドロップできます。 jar パッケージには含まれていないので、必要なリソースもプロジェクトにコピーする必要があります。
+####オプション 5. libs フォルダー内の jar パッケージ
+Maven リポジトリから jar ファイルを取得し、ドロップ、 *libs* プロジェクトのフォルダーにします。 jar パッケージには含まれていないので、必要なリソースもプロジェクトにコピーする必要があります。
 
 
 ### 手順 5. プロジェクトに Android ADAL への参照を追加する
+
 
 2. プロジェクトへの参照を追加し、Android ライブラリとして指定します。 [ここをクリックして詳細情報] の方法がわからない場合は (http://developer.android.com/tools/projects/projects-eclipse.html)
 
@@ -265,13 +264,13 @@ Maven リポジトリから jar ファイルを取得して、プロジェクト
 
 省略可能:  **acquireTokenSilent**
 
-キャッシュとトークン更新を処理するために、**acquireTokenSilent** を呼び出すことができます。 これは同期バージョンも提供します。 ユーザー ID をパラメーターとして受け入れます。
+呼び出すことができます **acquireTokenSilent** をキャッシュを処理し、トークン更新します。 これは同期バージョンも提供します。 ユーザー ID をパラメーターとして受け入れます。
 
     ```java
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **ブローカー**:
+11. **Broker**:
   Microsoft Intune ポータル サイト アプリでは、ブローカー コンポーネントを提供します。 この認証システムで作成された 1 つのユーザー アカウントがあり、開発者がそれをスキップしないことを選択すると、ADAL はブローカー アカウントを使用します。 開発者は、次のように指定してブローカー ユーザーをスキップすることができます。
 
     ```java
@@ -390,7 +389,7 @@ private syncronized void writeToLogFile(Context ctx, String msg) {
 次のようにログ レベルを設定するとします。
 ```Java
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
-```
+ ```
 
  すべてのログ メッセージは、任意のカスタム ログのコールバックだけでなく、logcat にも送信されます。
  次に示すとおり、ログをファイル形式の logcat で取得することもできます。
@@ -402,16 +401,15 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
 #### ネットワーク トレース
 
-さまざまなツールを使用して、ADAL が生成する HTTP トラフィックをキャプチャすることができます。 これは、OAuth プロトコルを使い慣れている場合、または Microsoft や他のサポート チャネルに診断情報を提供する必要がある場合に、最も役立ちます。
+さまざまなツールを使用して、ADAL が生成する HTTP トラフィックをキャプチャすることができます。  これは、OAuth プロトコルを使い慣れている場合、または Microsoft や他のサポート チャネルに診断情報を提供する必要がある場合に、最も役立ちます。
 
-Fiddler は、最も簡単な HTTP トレース ツールです。 これが ADAL ネットワーク トラフィックを正しく記録するように、次のリンク先にある情報を用いて設定します。 Fiddler、または Charles などのツールはいずれも、役立つものとするには、暗号化されていない SSL トラフィックを記録するように構成することが必要です。 注: この方法で生成されたトレースには、アクセス トークン、ユーザー名、パスワードなどの、非常に機密性の高い情報が含まれている可能性があります。 運用環境のアカウントを使用している場合は、それらのトレースを第三者と共有することがないようにしてください。 サポートを受けるためにトレースを他者に提供する必要がある場合は、共有しても問題がないユーザー名とパスワードを使う一時的なアカウントを使用して問題を再現します。
+Fiddler は、最も簡単な HTTP トレース ツールです。  これが ADAL ネットワーク トラフィックを正しく記録するように、次のリンク先にある情報を用いて設定します。  Fiddler、または Charles などのツールはいずれも、役立つものとするには、暗号化されていない SSL トラフィックを記録するように構成することが必要です。  注: この方法で生成されたトレースには、アクセス トークン、ユーザー名、パスワードなどの、非常に機密性の高い情報が含まれている可能性があります。  運用環境のアカウントを使用している場合は、それらのトレースを第三者と共有することがないようにしてください。  サポートを受けるためにトレースを他者に提供する必要がある場合は、共有しても問題がないユーザー名とパスワードを使う一時的なアカウントを使用して問題を再現します。
 
-+ [Fiddler For Android の設定](http://docs.telerik.com/fiddler/configure-fiddler/tasks/ConfigureForAndroid)
-+ [ADAL の Fiddler の規則を構成します。](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/How-to-listen-to-httpUrlConnection-in-Android-app-from-Fiddler)
++ [Configure Fiddler For Android](http://docs.telerik.com/fiddler/configure-fiddler/tasks/ConfigureForAndroid)
++ [Configure Fiddler Rules For ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/How-to-listen-to-httpUrlConnection-in-Android-app-from-Fiddler)
 
 
 ### ダイアログ モード
-
 アクティビティがない acquireToken メソッドは、ダイアログ プロンプトをサポートします。
 
 ### 暗号化
@@ -452,12 +450,7 @@ ADAL ライブラリには、次の 2 つの ProgressDialog メッセージの�
 =======
 
 ### NTLM ダイアログ
-
 ADAL バージョン 1.1.0 は、WebViewClient からの onReceivedHttpAuthRequest イベントを通して処理される NTLM ダイアログをサポートしています。 ダイアログのレイアウトと文字列はカスタマイズすることができます。### 手順 5. iOS ネイティブ クライアントのサンプル コードをダウンロードする
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-
-
+ 

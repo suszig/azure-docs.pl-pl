@@ -19,8 +19,7 @@
 
 
 
-
-# Azure 上の Linux に対応するユーザー名の選択
+#Azure 上の Linux に対応するユーザー名の選択#
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -28,15 +27,14 @@ Azure に Linux 仮想マシンをプロビジョニングするとき、後で 
 
 ほとんどの場合、新規ユーザーは基本イメージ上に存在せず、プロビジョニング プロセス中に作成されます。 VM ユーザーが既に基本 VM イメージ上に存在する場合、Azure Linux エージェントは VM の作成時に渡された情報に基づいて、そのユーザーのパスワードや SSH キーを構成します。
 
-**ただし**、Linux では、使用しない方がよいユーザー名が定められています。 UID 0 ～ 99 で定義されている既存のシステム ユーザーを使用して Linux VM をプロビジョニングしようとすると、プロビジョニング プロセスは**失敗**します。 典型的な例は、 `ルート` UID が 0 を持つユーザーです。
+**ただし**, 、Linux を使用しないでユーザー名のセットを定義します。 プロビジョニング プロセスは **失敗** UID 0 ~ 99 で定義されている、既存のシステム ユーザーを使用して Linux VM をプロビジョニングしようとするとします。 代表的な例は、UID が 0 である `root` ユーザーです。
 
- - 関連項目: [Linux 標準ベース - ユーザー ID の範囲は](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
+ - 関連項目: [Linux 標準ベース - ユーザー ID の範囲](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
 
-以下のリストは、Linux 仮想マシンのプロビジョニング時に使用を避けるべきユーザー名を示します。 使用するとプロビジョニング プロセスが失敗するおそれがあるため、**これらのユーザー名を使用しない**ことをお勧めします。
+以下のリストは、Linux 仮想マシンのプロビジョニング時に使用を避けるべきユーザー名を示します。 お勧めする **これらのユーザー名を使用しないで**, 、それ以外の場合、VM プロビジョニング手順が失敗します。
 
 
 ## openSUSE
-
 - abrt
 - adm
 - audio
@@ -94,7 +92,6 @@ Azure に Linux 仮想マシンをプロビジョニングするとき、後で 
 
 
 ## SLES
-
 - audio
 - bin
 - cdrom
@@ -139,9 +136,8 @@ Azure に Linux 仮想マシンをプロビジョニングするとき、後で 
 - wwwrun
 - xok
 
-
+ 
 ## CentOS
-
 - abrt
 - adm
 - audio
@@ -199,7 +195,6 @@ Azure に Linux 仮想マシンをプロビジョニングするとき、後で 
 
 
 ## Ubuntu
-
 - adm
 - admin
 - audio
@@ -254,8 +249,4 @@ Azure に Linux 仮想マシンをプロビジョニングするとき、後で 
 - whoopsie
 - www-data
 
-
-
-
-
-
+ 

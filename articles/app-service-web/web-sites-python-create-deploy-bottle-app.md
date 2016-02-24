@@ -18,14 +18,14 @@
     ms.author="huvalo"/>
 
 
-
 # Azure での Bottle を使用した Web アプリの作成
 
 このチュートリアルでは、Azure App Service Web Apps で Python を実行するための基本的な方法について説明します。 Web Apps では、制限付きの無料のホスティングや迅速なデプロイを実行できます。また、Python も使用できます。 アプリケーションの拡張に合わせて、有料のホスティングに切り替えることができます。また、他のすべての Azure サービスと統合することもできます。
 
-Bottle web フレームワークを使用して web アプリを作成します (このチュートリアルの代替バージョンを参照してください [Django](web-sites-python-create-deploy-django-app.md) と [Flask](web-sites-python-create-deploy-flask-app.md))します。 Azure Marketplaceから Web アプリを作成し、Git デプロイを設定して、リポジトリをローカルで複製します。 Web アプリをローカルで実行、変更を加える、コミットおよびプッシュするには、 [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)します。 チュートリアルでは、Windows または Mac/Linux での手順を紹介します。
+Bottle web フレームワークを使用して web アプリを作成します (このチュートリアルの代替バージョンを参照してください [Django](web-sites-python-create-deploy-django-app.md) と [Flask](web-sites-python-create-deploy-flask-app.md))。 Azure Marketplaceから Web アプリを作成し、Git デプロイを設定して、リポジトリをローカルで複製します。 Web アプリをローカルで実行、変更を加える、コミットおよびプッシュするには、 [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)します。 チュートリアルでは、Windows または Mac/Linux での手順を紹介します。
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+
 >[AZURE.NOTE] 場合は、Azure アカウントがサインアップする前に Azure App Service の使用を開始するには、 [App Service の試用](http://go.microsoft.com/fwlink/?LinkId=523751), 、App Service で有効期間の短いスターター web アプリをすぐに作成する場所です。 このサービスの利用にあたり、クレジット カードは必要ありません。契約も必要ありません。
 
 ## 前提条件
@@ -34,9 +34,9 @@ Bottle web フレームワークを使用して web アプリを作成します 
 - Python 2.7 または 3.4
 - setuptools、pip、virtualenv (Python 2.7 のみ)
 - Git
-- [Visual Studio の Python ツール 2.2][] (PTVS) に注意してくださいこれは省略可能。
+- [Python Tools 2.2 for Visual Studio](PTVS) に注意してくださいこれは省略可能。
 
-**注**: 現在、TFS 発行は Python プロジェクトではサポートされていません。
+**注**: Python プロジェクト現在は TFS 発行はできません。
 
 ### Windows
 
@@ -53,15 +53,15 @@ Python と Git は既にインストールされていると思いますが、Py
 
 ## Azure ポータルでの Web アプリの作成
 
-アプリを作成する最初の手順がで web アプリを作成するには、 [Azure ポータル](https://portal.azure.com)します。
+アプリを作成する最初の手順がで web アプリを作成するには、 [Azure ポータル](https://portal.azure.com)します。  
 
-1. Azure ポータルの画面左下にある **[新規]** ボタンをクリックします。
-2. **[Web + モバイル]** をクリックします。
+1. Azure ポータルにログインし、をクリックして、 **新規** 左下隅のボタンをクリックします。 
+2. クリックして **Web + モバイル**します。
 3. 検索ボックスに、「python」と入力します。
-4. 検索結果で **[Bottle]** を選択し、**[作成]** をクリックします。
-5. 新しい App Service プランやそのリソース グループ名の作成など、新しい Bottle アプリを構成します。 **[作成]** をクリックします。
+4. 検索結果に次のように選択します。 **Bottle**, 、クリック **作成**します。
+5. 新しい App Service プランやそのリソース グループ名の作成など、新しい Bottle アプリを構成します。 クリックして **作成**します。
 6. 新しく作成した web アプリの Git 発行を構成する」の手順に従って、 [Azure App Service での GIT による継続的なデプロイ](web-sites-publish-source-control.md)します。
-
+ 
 ## アプリケーションの概要
 
 ### Git リポジトリのコンテンツ
@@ -77,7 +77,7 @@ Python と Git は既にインストールされていると思いますが、Py
     \views\index.tpl
     \views\layout.tpl
 
-アプリケーションのメイン ソース。 マスター レイアウトを使用した 3 つのページ (index、about、contact) で構成されます。 静的コンテンツとスクリプト (bootstrap、jquery、modernizr、respond など)。
+アプリケーションのメイン ソース。 マスター レイアウトを使用した 3 つのページ (index、about、contact) で構成されます。  静的コンテンツとスクリプト (bootstrap、jquery、modernizr、respond など)。
 
     \app.py
 
@@ -95,7 +95,7 @@ Python と Git は既にインストールされていると思いますが、Py
     \requirements.txt
 
 このアプリケーションで必要な外部パッケージ。 デプロイ スクリプトにより、このファイルに記載してあるパッケージが pip インストールされます。
-
+ 
     \web.2.7.config
     \web.3.4.config
 
@@ -119,7 +119,7 @@ IIS 構成ファイル。 デプロイごとに web.x.y.config から作成さ�
 
     \env\
 
-Python 仮想環境。 互換性のある仮想環境がまだ Web アプリ上にない場合に、デプロイ時に作成されます。 requirements.txt に示されているパッケージは pip インストールされますが、パッケージを既にインストールしている場合は pip でインストールがスキップされます。
+Python 仮想環境。 互換性のある仮想環境がまだ Web アプリ上にない場合に、デプロイ時に作成されます。  requirements.txt に示されているパッケージは pip インストールされますが、パッケージを既にインストールしている場合は pip でインストールがスキップされます。
 
 次の 3 つのセクションでは、以下の 3 つの異なる環境における Web アプリ開発を使用した処理方法を説明します。
 
@@ -140,17 +140,17 @@ Python 仮想環境。 互換性のある仮想環境がまだ Web アプリ上�
 
 ### 仮想環境の作成
 
-次にローカル開発用の仮想環境を作成します。 **[Python 環境]** を右クリックし、**[仮想環境の追加]** を選択します。
+次にローカル開発用の仮想環境を作成します。 右クリックして **Python 環境** 選択 **仮想環境の追加...**します。
 
-- 環境の名前が確認 `env`します。
+- 環境名が、`env` となっていることを確認します。
 
-- ベース インタープリターを選択します。 Web アプリで選択したものと同じバージョンの Python を使用していることを確認します (runtime.txt または Azure ポータルにある Web アプリの **[アプリケーションの設定]** ブレード)。
+- ベース インタープリターを選択します。 Web アプリの同じバージョンの選択されている Python を使用してください (runtime.txt または **アプリケーション設定** Azure ポータルで web アプリのブレード)。
 
 - パッケージのダウンロードとインストールのオプションが選択されていることを確認します。
 
 ![](./media/web-sites-python-create-deploy-bottle-app/ptvs-add-virtual-env-27.png)
 
-**[作成]** をクリックします。 これにより、仮想環境が作成され、requirements.txt に指定されている依存関係がインストールされます。
+クリックして **作成**します。 これにより、仮想環境が作成され、requirements.txt に指定されている依存関係がインストールされます。
 
 ### 開発サーバーを使用した実行
 
@@ -172,19 +172,19 @@ F5 キーを押してデバッグを開始します。ローカルに実行さ�
 
 アプリケーションが、Python と Bottle 以外の依存関係を持つ場合があります。
 
-pip を使用して追加のパッケージをインストールできます。 パッケージをインストールするには、仮想環境を右クリックし、**[Install Python Package]** を選択します。
+pip を使用して追加のパッケージをインストールできます。 パッケージをインストールするには、仮想環境を右クリックして **Install Python Package**します。
 
-たとえば、Azure storage、service bus などその他の Azure サービスへのアクセスを提供、Python 用 Azure SDK をインストールする次のように入力します `azure`:。
+たとえば、Azure Storage、Service Bus などの他の Azure サービスにアクセスできるようになる Azure SDK for Python をインストールするには、`azure` を入力します。
 
 ![](./media/web-sites-python-create-deploy-bottle-app/ptvs-install-package-dialog.png)
 
-仮想環境を右クリックし、**[Generate requirements.txt]** を選択して requirements.txt を更新します。
+仮想環境を右クリックして **requirements.txt を生成** requirements.txt を更新します。
 
 その後、requirements.txt への変更内容を Git リポジトリにコミットします。
 
 ### Azure へのデプロイ
 
-デプロイを開始するには、**[同期]** または **[プッシュ]** をクリックします。 同期ではプッシュとプルの両方が実行されます。
+デプロイを開始するには、をクリックして **同期** または **プッシュ**します。 同期ではプッシュとプルの両方が実行されます。
 
 ![](./media/web-sites-python-create-deploy-bottle-app/ptvs-git-push.png)
 
@@ -297,7 +297,6 @@ Python 2.7 の場合:
 Python 3.4 の場合:
 
     python -m venv env
-
 または
     pyvenv env
 
@@ -368,8 +367,8 @@ Azure URL を参照して、変更内容を表示します。
 
 ## 次のステップ
 
-Bottle と Python Tools for Visual Studio の詳細については、次のリンクをご覧ください。
-
+Bottle と Python Tools for Visual Studio の詳細については、次のリンクをご覧ください。 
+ 
 - [Bottle のドキュメント]
 - [Python Tools for Visual Studio のドキュメント]
 
@@ -379,23 +378,23 @@ Azure Table Storage と MongoDB の使用方法については、次のリンク
 - [Bottle と Python Tools for Visual Studio を使用した Azure 上の Azure テーブル ストレージ]
 
 ## 変更内容
-
 * Web サイトから App Service への変更のガイドを参照してください: [Azure App Service と既存の Azure サービスへの影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 
+<!--Link references-->
+[Bottle and MongoDB on Azure with Python Tools for Visual Studio]: web-sites-python-ptvs-bottle-table-storage.md
+[Bottle and Azure Table Storage on Azure with Python Tools for Visual Studio]: web-sites-python-ptvs-bottle-table-storage.md
 
-
-
-[bottle and mongodb on azure with python tools for visual studio]: web-sites-python-ptvs-bottle-table-storage.md 
-[bottle and azure table storage on azure with python tools for visual studio]: web-sites-python-ptvs-bottle-table-storage.md 
-[azure sdk for python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281 
-[azure sdk for python 3.4]: http://go.microsoft.com/fwlink/?linkid=516990 
-[python.org]: http://www.python.org/ 
-[git for windows]: http://msysgit.github.io/ 
-[github for windows]: https://windows.github.com/ 
-[python tools for visual studio]: http://aka.ms/ptvs 
-[python tools 2.2 for visual studio]: http://go.microsoft.com/fwlink/?LinkID=624025 
-[visual studio]: http://www.visualstudio.com/ 
-[python tools for visual studio documentation]: http://aka.ms/ptvsdocs 
-[bottle documentation]: http://bottlepy.org/docs/dev/index.html 
+<!--External Link references-->
+[Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
+[Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?linkid=516990
+[python.org]: http://www.python.org/
+[Git for Windows]: http://msysgit.github.io/
+[GitHub for Windows]: https://windows.github.com/
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Visual Studio]: http://www.visualstudio.com/
+[Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs 
+[Bottle Documentation]: http://bottlepy.org/docs/dev/index.html
+ 
 

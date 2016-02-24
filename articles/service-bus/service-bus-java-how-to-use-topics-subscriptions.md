@@ -1,6 +1,6 @@
 <properties
     pageTitle="Java で Service Bus トピックを使用する方法 | Microsoft Azure"
-    description="Azure での Service Bus のトピックとサブスクリプションの使用方法について学習します。コード サンプルは Java アプリケーション向けに作成されています。"
+    description="Azure での Service Bus のトピックとサブスクリプションの使用方法について学習します。 コード サンプルは Java アプリケーション向けに作成されています。"
     services="service-bus"
     documentationCenter="java"
     authors="sethmanheim"
@@ -16,19 +16,18 @@
     ms.date="10/07/2015"
     ms.author="sethm"/>
 
-
 # Service Bus のトピックとサブスクリプションの使用方法
 
 [AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-このガイドでは、Service Bus のトピックとサブスクリプションの使用方法について説明します。 サンプルが使用して Java で記述され、 [Azure SDK for Java の][]します。 紹介するシナリオ **トピックとサブスクリプションの作成**, 、**サブスクリプション フィルターの作成**, 、**トピックにメッセージを送信する**, 、**サブスクリプションからメッセージを受信**, と
+このガイドでは、Service Bus のトピックとサブスクリプションの使用方法について説明します。 サンプルが使用して Java で記述され、 [Azure SDK for Java][]します。 紹介するシナリオ **トピックとサブスクリプションの作成**, 、**サブスクリプション フィルターの作成**, 、**トピックにメッセージを送信する**, 、**サブスクリプションからメッセージを受信**, と
 **トピックとサブスクリプションの削除**します。
 
 [AZURE.INCLUDE [service-bus-java-how-to-create-topic](../../includes/service-bus-java-how-to-create-topic.md)]
 
 ## Service Bus を使用するようにアプリケーションを構成する
 
-インストールされていることを確認、 [Azure SDK for Java の][] このサンプルをビルドする前にします。 Eclipse を使用している場合は、インストール、 [Azure Toolkit for Eclipse の][] 、Azure SDK for Java が含まれます。 これで **Microsoft Azure Libraries for Java** をプロジェクトに追加できます。
+インストールされていることを確認、 [Azure SDK for Java][] このサンプルをビルドする前にします。 Eclipse を使用している場合は、インストール、 [Azure Toolkit for Eclipse][] 、Azure SDK for Java が含まれます。 追加することができますし、 **Microsoft Azure Libraries for Java** をプロジェクトに。
 
 ![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
@@ -50,7 +49,7 @@ Azure Libraries for Java をビルド パスに追加し、プロジェクトの
 それを管理するアクセス許可を持つ SAS トークンと **ServiceBusContract** クラスは、
 Azure との唯一の通信ポイントです。
 
-**ServiceBusService** クラスを作成、列挙、メソッドを提供
+ **ServiceBusService** クラスを作成、列挙、メソッドを提供
 および削除のためのメソッドが用意されています。 例を次にどのように、 **ServiceBusService** オブジェクト
 という名前のトピックを作成するために使用できる `TestTopic`, と呼ばれる名前空間を持つ `HowToSample`:
 
@@ -61,7 +60,7 @@ Azure との唯一の通信ポイントです。
           "SAS_key_value",
           ".servicebus.windows.net"
           );
-    
+
     ServiceBusContract service = ServiceBusService.create(config);
     TopicInfo topicInfo = new TopicInfo("TestTopic");
     try  
@@ -97,7 +96,7 @@ Azure との唯一の通信ポイントです。
 
 ### 既定の (MatchAll) フィルターを適用したサブスクリプションの作成
 
-**MatchAll** フィルターはフィルターなしの場合に使用される既定のフィルター
+ **MatchAll** フィルターはフィルターなしの場合に使用される既定のフィルター
 に使用される既定のフィルターです。 ときに、 **MatchAll**
 フィルターを使用すると、トピックに発行されたすべてのメッセージが
 サブスクリプションの仮想キューに置かれます。 次の例では、
@@ -114,13 +113,13 @@ Azure との唯一の通信ポイントです。
 特定のトピック サブスクリプション内に表示されるメッセージに絞り込むフィルターを設定することもできます。
 
 サブスクリプションでサポートされるフィルターのうち、最も柔軟性の高いものが、
-[SqlFilter:operator[]][], 、SQL92 のサブセットを実装します。 SQL フィルターは
+[SqlFilter][], 、SQL92 のサブセットを実装します。 SQL フィルターは
 トピックに発行されるメッセージのプロパティに対して適用されます。 次に
 SQL フィルターで使用できる式の詳細については、
-確認、 [SqlFilter.SqlExpression:operator[]][] 構文です。
+確認、 [SqlFilter.SqlExpression][] 構文です。
 
 次の例は、という名前のサブスクリプションを作成 `HighMessages` で、
-[SqlFilter:operator[]][] のみ、カスタム メッセージを選択するオブジェクト
+[SqlFilter][] のみ、カスタム メッセージを選択するオブジェクト
 **MessageNumber** 3 を超えるプロパティ。
 
     // Create a "HighMessages" filtered subscription  
@@ -147,6 +146,7 @@ SQL フィルターで使用できる式の詳細については、
     // Delete the default rule, otherwise the new rule won't be invoked.
     service.deleteRule("TestTopic", "LowMessages", "$Default");
 
+
 メッセージを今すぐ送信と `TestTopic`, は常に
 サブスクライブした受信者に配信される、 `AllMessages` 、サブスクリプションにサブスクライブされた受信者に対して選択的に配信されると、 `HighMessages` と `LowMessages` サブスクリプション (に応じて、
 。
@@ -161,12 +161,12 @@ SQL フィルターで使用できる式の詳細については、
     service.sendTopicMessage("TestTopic", message);
 
 サービス バス トピックに送信されたメッセージは、
-[BrokeredMessage:operator[]][] クラスです。 [BrokeredMessage:operator[]][]* オブジェクトのセットがあります。
+[BrokeredMessage][] クラスです。 [BrokeredMessage][]* オブジェクトのセットがあります。
 標準的なメソッド (よう **setLabel** と **TimeToLive**)、ディクショナリ
 アプリケーションに固有のカスタム プロパティの保持に使用するディクショナリが用意されており、
 任意のアプリケーション データの本体が格納されます。 アプリケーションでは、
 BrokeredMessage のコンストラクターにシリアル化可能なオブジェクトを渡すことによってメッセージの本文を設定できます。
-[BrokeredMessage:operator[]][], 、適切な **DataContractSerializer** されます
+[BrokeredMessage][], 、適切な **DataContractSerializer** されます
 オブジェクトをシリアル化します。 この方法に代わって、
 **java.io.InputStream** を指定できます。
 
@@ -210,7 +210,7 @@ Service Bus トピックでは、最大 256 MB までのメッセージをサポ
 クラッシュ前に読み取られていたメッセージは
 見落とされることになります。
 
-**PeekLock** モードでは、受信は、2 段階の操作になります
+ **PeekLock** モードでは、受信は、2 段階の操作になります
 メッセージが失われることが許容できないアプリケーションに対応することができます
 。 Service Bus が要求を受け取ると、次に読み取られるメッセージを検索して、
 他のコンシューマーが受信できないようロックしてから、
@@ -228,7 +228,7 @@ Service Bus トピックでは、最大 256 MB までのメッセージをサポ
     {
         ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
         opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
-    
+
         while(true)  {
             ReceiveSubscriptionMessageResult  resultSubMsg =
                 service.receiveSubscriptionMessage("TestTopic", "HighMessages", opts);
@@ -313,20 +313,18 @@ Service Bus には、
     service.deleteSubscription("TestTopic", "AllMessages");
     service.deleteSubscription("TestTopic", "HighMessages");
     service.deleteSubscription("TestTopic", "LowMessages");
-    
+
     // Delete a topic
     service.deleteTopic("TestTopic");
 
 ## 次のステップ
 
-これをサービス バス キューの基本を学習できました。、を参照してください。 [Service Bus のキュー、トピック、およびサブスクリプションの []][] の詳細。
+これをサービス バス キューの基本を学習できました。、を参照してください。 [Service Bus キュー、トピック、およびサブスクリプション][] の詳細。
 
-
-[azure sdk for java]: http://azure.microsoft.com/develop/java/ 
-[azure toolkit for eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx 
-[azure classic portal]: http://manage.windowsazure.com/ 
-[service bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md 
-[sqlfilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx 
-[sqlfilter.sqlexpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx 
-[brokeredmessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx 
-
+  [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+  [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
+  [Azure classic portal]: http://manage.windowsazure.com/
+  [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
+  [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx 
+  [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+  [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx

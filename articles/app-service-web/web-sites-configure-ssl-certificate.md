@@ -18,14 +18,9 @@
     ms.author="cephalin"/>
 
 
-
-# アプリに対する HTTPS を Azure App Service で有効にする
+#アプリに対する HTTPS を Azure App Service で有効にする
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 [AZURE.INCLUDE [configure-ssl-web-site](../../includes/configure-ssl-web-site.md)]
-
-
-
-
 

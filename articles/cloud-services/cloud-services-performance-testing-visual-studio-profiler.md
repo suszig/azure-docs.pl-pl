@@ -18,31 +18,30 @@
     ms.date="09/14/2015" 
     ms.author="tarcher"/>
 
-
 # Visual Studio プロファイラーを使用した、Azure コンピューティング エミュレーターでのクラウド サービスのパフォーマンスのローカルなテスト
 
 クラウド サービスのパフォーマンスのテストには、さまざまなツールや手法を使用できます。
 Azure にクラウド サービスを発行するとき、
-データ分析して」の説明に従って、ローカルで [[1] Azure アプリケーションのプロファイリング][1]します。
+データ分析して」の説明に従って、ローカルで [Azure アプリケーションのプロファイリング][1]します。
 また、
-このカウンターの」の説明に従って [Azure ][2]します。
+このカウンターの」の説明に従って [Azure でパフォーマンス カウンターの使用][2]します。
 アプリケーションをクラウドにデプロイする前に、コンピューティング エミュレーターでローカルにプロファイルすることもできます。
 
-この記事では、エミュレーターでローカルに実行できるプロファイル手法である CPU サンプリングについて説明します。 CPU サンプリングは、あまり侵入的でないプロファイル手法です。 プロファイラーは、指定されたサンプリング間隔でコール スタックのスナップショットを取得します。 データはある期間にわたって収集され、レポートに示されます。 このプロファイル手法では、コンピューティング処理が集中するアプリケーションで大部分の CPU 処理が行われる箇所が示されます。 これによって、アプリケーションが多くの時間を費やしている "ホット パス" に焦点を合わせる機会が与えられます。
+この記事では、エミュレーターでローカルに実行できるプロファイル手法である CPU サンプリングについて説明します。 CPU サンプリングは、あまり侵入的でないプロファイル手法です。 プロファイラーは、指定されたサンプリング間隔でコール スタックのスナップショットを取得します。 データはある期間にわたって収集され、レポートに示されます。 このプロファイル手法では、コンピューティング処理が集中するアプリケーションで大部分の CPU 処理が行われる箇所が示されます。  これによって、アプリケーションが多くの時間を費やしている "ホット パス" に焦点を合わせる機会が与えられます。
 
 
 
 ## 手順 1. Visual Studio をプロファイル向けに構成する
 
-まず、プロファイル時に有用な Visual Studio の構成オプションがいくつかあります。 プロファイル レポートを理解しやすくするために、アプリケーションのシンボル (.pdb ファイル) およびシステム ライブラリのシンボルが必要です。 使用可能なシンボル サーバーを参照していることを確認してください。 確認するには、Visual Studio の **[ツール]** メニューで、**[オプション]**、**[デバッグ]**、**[シンボル]** の順に選択します。 Microsoft シンボル サーバーが **[シンボル ファイル (.pdb) の場所]** の下に表示されていることを確認します。 その他のシンボル ファイルが含まれている http://referencesource.microsoft.com/symbols を参照することもできます。
+まず、プロファイル時に有用な Visual Studio の構成オプションがいくつかあります。 プロファイル レポートを理解しやすくするために、アプリケーションのシンボル (.pdb ファイル) およびシステム ライブラリのシンボルが必要です。 使用可能なシンボル サーバーを参照していることを確認してください。 [、 **ツール** Visual Studio のメニュー選択 **オプション**, を選択し、 **デバッグ**, 、し、 **シンボル**します。 [Microsoft シンボル サーバーが表示されていることを確認 **シンボル (.pdb) ファイルの場所**します。  その他のシンボル ファイルが含まれている http://referencesource.microsoft.com/symbols を参照することもできます。
 
 ![][4]
 
-必要な場合は、[マイ コードのみ] を設定して、プロファイラーが生成するレポートを簡素化することができます。 [マイ コードのみ] を有効にすると、完全にライブラリおよび .NET Framework の内部への呼び出しがレポートから隠されるように関数コール スタックが簡素化されます。 **[ツール]** メニューの **[オプション]** を選択します。 次に、**[パフォーマンス ツール]** ノードを展開し、**[全般]** を選択します。 **[プロファイラー レポートでマイ コードのみを有効にする]** チェック ボックスをオンにします。
+必要な場合は、[マイ コードのみ] を設定して、プロファイラーが生成するレポートを簡素化することができます。 [マイ コードのみ] を有効にすると、完全にライブラリおよび .NET Framework の内部への呼び出しがレポートから隠されるように関数コール スタックが簡素化されます。  **ツール** ] メニューの [選択 **オプション**します。 順に展開、 **パフォーマンス ツール** ] ノードを選択して **全般**します。 チェック ボックスをオン **を有効にするマイ コードのみプロファイラー レポートで**します。
 
 ![][17]
 
-これらの手順は、既存のプロジェクトまたは新規プロジェクトに適用できます。 以降で説明する手法を試すために新規プロジェクトを作成する場合は、C# の **[Azure クラウド サービス]** プロジェクトを選択し、**[Web ロール]** および **[worker ロール]** を選択します。
+これらの手順は、既存のプロジェクトまたは新規プロジェクトに適用できます。  以下で説明する手法を試すために新規プロジェクトを作成する場合は、次の選択、c# **Azure クラウド サービス** [プロジェクト] を選択、 **Web ロール** と **ワーカー ロール**します。
 
 ![][5]
 
@@ -75,13 +74,13 @@ worker ロールの RoleEntryPoint から派生したクラスの RunAsync メ�
             }
         }
 
-ソリューション構成を **[リリース]** に設定して、デバッグ (Ctrl + F5 キー) を行わずに、クラウド サービスをローカルでビルドして実行します。 これによって、アプリケーションをローカルに実行するためにすべてのファイルとフォルダーが作成され、すべてのエミュレーターが起動されます。 コンピューティング エミュレーター UI をタスク バーから起動して、worker ロールが実行していることを確認します。
+ビルドして (ctrl キーを押しながら f5 キー)、デバッグを行わずに設定するソリューション構成では、クラウド サービスをローカルで実行 **リリース**します。 これによって、アプリケーションをローカルに実行するためにすべてのファイルとフォルダーが作成され、すべてのエミュレーターが起動されます。 コンピューティング エミュレーター UI をタスク バーから起動して、worker ロールが実行していることを確認します。
 
 ## 手順 2. プロセスにアタッチする
 
-アプリケーションを Visual Studio 2010 IDE から起動してプロファイルするのではなく、実行中のプロセスにプロファイラーをアタッチする必要があります。
+アプリケーションを Visual Studio 2010 IDE から起動してプロファイルするのではなく、実行中のプロセスにプロファイラーをアタッチする必要があります。 
 
-プロファイラーをプロセスにアタッチするには、**[分析]** メニューで **[プロファイラー]**、**[アタッチ/デタッチ]** の順に選択します。
+プロセスにプロファイラーをアタッチする、 **分析** ] メニューの [選択 **プロファイラー** と **アタッチ/デタッチ**します。
 
 ![][6]
 
@@ -109,7 +108,7 @@ worker ロールの場合は、WaWorkerHost.exe プロセスを見つけます�
 
 アタッチしたプロセスについて、アプリケーションの UI で手順に従って (必要な場合) シナリオを再現します。
 
-プロファイルを停止する場合は、**[プロファイルの停止]** を選択します。
+プロファイリングを停止する場合は、選択、 **プロファイリングの停止** リンクします。
 
 ![][10]
 
@@ -123,7 +122,7 @@ worker ロールの場合は、WaWorkerHost.exe プロセスを見つけます�
 ![][11]
 
 
-[ホット パス] に "String.wstrcpy" が表示されている場合は、[マイ コードのみ] をクリックして、ユーザー コードだけを表示するようにビューを変更します。 "String.Concat" が表示されている場合は、[すべてのコードの表示] を押してみてください。
+[ホット パス] に "String.wstrcpy" が表示されている場合は、[マイ コードのみ] をクリックして、ユーザー コードだけを表示するようにビューを変更します。  "String.Concat" が表示されている場合は、[すべてのコードの表示] を押してみてください。
 
 Concatenate メソッドと String.Concat が実行時間の大部分を占めていることがわかります
 。
@@ -136,7 +135,7 @@ Concatenate メソッドと String.Concat が実行時間の大部分を占め�
 
 ## 手順 4. 変更を行ってパフォーマンスを比較する
 
-コードを変更する前後でパフォーマンスを比較することもできます。 実行中のプロセスを停止します。コードを編集して、文字列連結操作を StringBuilder の使用に置き換えます。
+コードを変更する前後でパフォーマンスを比較することもできます。  実行中のプロセスを停止します。コードを編集して、文字列連結操作を StringBuilder の使用に置き換えます。
 
     public static string Concatenate(int number)
     {
@@ -149,7 +148,7 @@ Concatenate メソッドと String.Concat が実行時間の大部分を占め�
         return builder.ToString();
     }
 
-パフォーマンス測定用にもう一度実行し、パフォーマンスを比較します。 パフォーマンス エクスプローラーで、2 回の実行が同じセッションにある場合は、両方のレポートを選択し、ショートカット メニューを開いて **[パフォーマンス レポートの比較]** を選択します。 別のパフォーマンス セッション内の実行と比較する場合は、**[分析]** メニューを開いて **[パフォーマンス レポートの比較]** を選択します。 表示されるダイアログ ボックスで、両方のファイルを指定します。
+パフォーマンス測定用にもう一度実行し、パフォーマンスを比較します。 パフォーマンス エクスプ ローラーでテストの実行が同じセッション内にある場合だけを選択、これらのレポート、ショートカット メニューを開いてして選択 **パフォーマンス レポートの比較**します。 開いた別のパフォーマンス セッション内の実行と比較する場合、 **Analyze** ] メニューの [選択 **パフォーマンス レポートの比較**します。 表示されるダイアログ ボックスで、両方のファイルを指定します。
 
 ![][15]
 
@@ -159,42 +158,41 @@ Concatenate メソッドと String.Concat が実行時間の大部分を占め�
 
 ご利用ありがとうございます。 プロファイラーの使用を開始しました。
 
-## トラブルシューティング
+##  トラブルシューティング
 
 - リリース ビルドをプロファイルしていることを確認し、デバッグを行わずに起動します。
 
 - [プロファイラー] メニューで [アタッチ/デタッチ] オプションが有効になっていない場合は、パフォーマンス ウィザードを実行します。
 
-- コンピューティング エミュレーター UI を使用して、アプリケーションの状態を表示します。
+- コンピューティング エミュレーター UI を使用して、アプリケーションの状態を表示します。 
 
 - エミュレーターでのアプリケーションの起動や、プロファイラーのアタッチに問題がある場合は、コンピューティング エミュレーターをシャットダウンし、再起動します。 これで問題が解決しない場合は、コンピューターを再起動してみてください。 コンピューティング エミュレーターを使用して、実行中のデプロイメントを中断および削除すると、この問題が発生することがあります。
 
 - コマンド ラインからいずれかのプロファイル コマンドを使用した場合は
 (特にグローバル設定)、VSPerfClrEnv /globaloff が呼び出され、VsPerfMon.exe がシャットダウンされたことを確認します。
 
-- サンプリング時にメッセージ "PRF0025: データは収集されませんでした" が表示された場合は、アタッチ先のプロセスに CPU 活動があることをチェックします。 コンピューティング作業を行っていないアプリケーションは、サンプリング データを生成しないことがあります。 また、サンプリングが行われる前にプロセスが終了した可能性もあります。 プロファイル中のロールの Run メソッドが終了していないことをチェックします。
+- サンプリング時にメッセージ "PRF0025: データは収集されませんでした" が表示された場合は、アタッチ先のプロセスに CPU 活動があることをチェックします。 コンピューティング作業を行っていないアプリケーションは、サンプリング データを生成しないことがあります。  また、サンプリングが行われる前にプロセスが終了した可能性もあります。 プロファイル中のロールの Run メソッドが終了していないことをチェックします。
 
 ## 次のステップ
 
-Visual Studio プロファイラーでは、エミュレーター内の Azure バイナリのインストルメント化はサポートされていませんが、メモリの割り当てをテストする場合は、プロファイル時にこのオプションを選択できます。 また、スレッドがロックの競合のために時間を浪費しているかどうかの判断に役立つ同時実行プロファイルを選択することも、アプリケーションの層間 (最も多いのはデータ層と worker ロールの間) で相互作用するときのパフォーマンス問題の追跡に役立つ階層の相互作用のプロファイルを選択することもできます。 アプリケーションが生成するデータベース クエリを表示し、プロファイル データを使用してデータベースの使用を強化することができます。 階層相互作用プロファイル方法の詳細については、ブログの投稿を参照してください。 [チュートリアル: Visual Studio Team System 2010 ][3]します。
+Visual Studio プロファイラーでは、エミュレーター内の Azure バイナリのインストルメント化はサポートされていませんが、メモリの割り当てをテストする場合は、プロファイル時にこのオプションを選択できます。 また、スレッドがロックの競合のために時間を浪費しているかどうかの判断に役立つ同時実行プロファイルを選択することも、アプリケーションの層間 (最も多いのはデータ層と worker ロールの間) で相互作用するときのパフォーマンス問題の追跡に役立つ階層の相互作用のプロファイルを選択することもできます。  アプリケーションが生成するデータベース クエリを表示し、プロファイル データを使用してデータベースの使用を強化することができます。 階層相互作用プロファイル方法の詳細については、ブログの投稿を参照してください。 [チュートリアル: Visual Studio Team System 2010 で階層相互作用のプロファイラーを使用して][3]します。
 
 
 
-
-[1]: http://msdn.microsoft.com/library/azure/hh369930.aspx 
-[2]: http://msdn.microsoft.com/library/azure/hh411542.aspx 
-[3]: http://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx 
-[4]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png 
-[5]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png 
-[6]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png 
-[7]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally05.png 
-[8]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally010.png 
-[9]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally07.png 
-[10]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally06.png 
-[11]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally03.png 
-[12]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally011.png 
+[1]: http://msdn.microsoft.com/library/azure/hh369930.aspx
+[2]: http://msdn.microsoft.com/library/azure/hh411542.aspx
+[3]: http://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
+[4]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
+[5]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png
+[6]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png
+[7]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally05.png
+[8]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally010.png
+[9]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally07.png
+[10]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally06.png
+[11]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally03.png
+[12]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally011.png
 [14]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally04.png 
-[15]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally013.png 
-[16]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally012.png 
-[17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png 
-
+[15]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally013.png
+[16]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally012.png
+[17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
+ 

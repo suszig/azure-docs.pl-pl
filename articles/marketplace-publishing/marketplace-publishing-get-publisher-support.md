@@ -17,7 +17,6 @@
    ms.author="v-jeana; hascipio"/>
 
 
-
 # Azure Marketplace の発行元サポートへのアクセス
 
 マイクロソフトでは、さまざまな製品やサービスについてサポートを提供します。 適切でタイムリーな回答を得るには、お問い合わせを送る正しいサポート チームを見つけることが重要です。 次のシナリオを検討して、お問い合わせを適切なチームに送るのに役立ててください。
@@ -45,7 +44,7 @@ Https://publish.windowsazure.com/に移動し、Microsoft アカウントの資�
 
 ## 2.発行元のサポート ページへの案内
 
-右上のメニューから、**[サポートの要求]** を選択します。
+右上にあるメニューから選択 **サポートにお問い合わせ**します。
 
   ![サポートを受ける][2]
 
@@ -66,13 +65,13 @@ Https://publish.windowsazure.com/に移動し、Microsoft アカウントの資�
 
 ## 4.サポートの要求
 
-問題の種類とカテゴリを選択したら、**[要求の開始]** ボタンをクリックします。
+問題の種類とカテゴリを選択してクリックして、 **開始要求** ] ボタンをクリックします。
 
 ![サポートの開始][4]
 
 ## 5.連絡先情報の提供と問題の説明
 
-すべてのファイル (スクリーン ショット、ネットワーク トレースなど) は、完全にすると次のようにできますとの問題を説明します。 お客様の問題の解決に役立つする必要があります。
+問題についてできる限り詳細に説明し、問題の解決に役立つ可能性のあるすべてのファイル (スクリーン ショット、ネットワークのトレースなど) を提供します。
 
 ![問題の説明][5]
 
@@ -88,11 +87,10 @@ Https://publish.windowsazure.com/に移動し、Microsoft アカウントの資�
 
 特定のサポートの問題を解決する方法については、次を参照してください。 [Azure Marketplace の一般的な問題のトラブルシューティング](marketplace-publishing-support-common-issues.md)します。
 
-
-[1]: ./media/marketplace-publishing-get-publisher-support/step1.png 
-[2]: ./media/marketplace-publishing-get-publisher-support/step2.png 
-[3]: ./media/marketplace-publishing-get-publisher-support/step3.png 
-[4]: ./media/marketplace-publishing-get-publisher-support/step4.png 
-[5]: ./media/marketplace-publishing-get-publisher-support/step5.png 
-[6]: ./media/marketplace-publishing-get-publisher-support/step6.png 
+[1]: ./media/marketplace-publishing-get-publisher-support/step1.png
+[2]: ./media/marketplace-publishing-get-publisher-support/step2.png
+[3]: ./media/marketplace-publishing-get-publisher-support/step3.png
+[4]: ./media/marketplace-publishing-get-publisher-support/step4.png
+[5]: ./media/marketplace-publishing-get-publisher-support/step5.png
+[6]: ./media/marketplace-publishing-get-publisher-support/step6.png
 

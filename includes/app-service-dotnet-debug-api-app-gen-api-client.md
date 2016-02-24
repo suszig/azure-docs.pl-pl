@@ -1,36 +1,36 @@
-## API アプリ クライアントの生成
+## API アプリ クライアントの生成 
 
-Visual Studio の API アプリ ツールでは、デスクトップ アプリ、ストア アプリ、モバイル アプリから Azure API Apps を呼び出す C# コードを簡単に生成できます。
+Visual Studio の API アプリ ツールでは、デスクトップ アプリ、ストア アプリ、モバイル アプリから Azure API Apps を呼び出す C# コードを簡単に生成できます。 
 
-1. Visual Studio から API アプリを含むソリューションを開き、 [API アプリの作成](../article/app-service-api/app-service-dotnet-create-api-app.md) トピックです。
+1. Visual Studio から API アプリを含むソリューションを開き、 [API アプリの作成](../article/app-service-api/app-service-dotnet-create-api-app.md) トピックです。 
 
-2. **ソリューション エクスプローラー**で、ソリューションを右クリックし、**[追加]**、**[新しいプロジェクト]** の順に選択します。
+2.  **ソリューション エクスプ ローラー**, ソリューションを右クリックして、選択、 **追加** > **新しいプロジェクト**します。
 
     ![新しいプロジェクトの追加](./media/app-service-dotnet-debug-api-app-gen-api-client/01-add-new-project-v3.png)
 
-3. **[新しいプロジェクトの追加]** ダイアログで、次の手順に従います。
+3.  **新しいプロジェクトの追加** ] ダイアログ ボックスで、次の手順を実行します。
 
-    1. **[Windows デスクトップ]** カテゴリを選択します。
-
-    2. **[コンソール アプリケーション]** プロジェクト テンプレートを選択します。
-
+    1. 選択、 **Windows デスクトップ** カテゴリ。
+    
+    2. 選択、 **コンソール アプリケーション** プロジェクト テンプレートです。
+    
     3. プロジェクトに名前を付けます。
-
-    4. **[OK]** をクリックして、既存のソリューションで新しいプロジェクトを生成します。
-
+    
+    4. クリックして **OK** 、既存のソリューションで新しいプロジェクトを生成します。
+    
     ![新しいプロジェクトの追加](./media/app-service-dotnet-debug-api-app-gen-api-client/02-contact-list-console-project-v3.png)
 
-4. 新しく作成されたコンソール アプリケーション プロジェクトを右クリックし、**[追加]**、**[Azure API アプリ クライアント]** の順に選択します。
+4. 新しく作成されたコンソール アプリケーション プロジェクトを右クリックして **追加** > **Azure API アプリ クライアント**です。 
 
     ![新しいクライアントの追加](./media/app-service-dotnet-debug-api-app-gen-api-client/03-add-azure-api-client-v3.png)
+    
+5.  **Microsoft Azure API アプリのクライアントを追加** ] ダイアログ ボックスで、次の手順を実行します。 
 
-5. **[Microsoft Azure API アプリ クライアントの追加]** ダイアログで、次の手順に従います。
-
-    1. **[ダウンロード]** オプションを選択します。
-
-    2. ドロップダウン リストから、先ほど作成した API アプリを選択します。
-
-    3. **[OK]** をクリックします。
+    1. 選択、 **ダウンロード** オプション。 
+    
+    2. ドロップダウン リストから、先ほど作成した API アプリを選択します。 
+    
+    3. Click **OK**. 
 
     ![生成画面](./media/app-service-dotnet-debug-api-app-gen-api-client/04-select-the-api-v3.png)
 
@@ -38,54 +38,49 @@ Visual Studio の API アプリ ツールでは、デスクトップ アプリ�
 
     ![生成中を示す画面](./media/app-service-dotnet-debug-api-app-gen-api-client/05-metadata-downloading-v3.png)
 
-    コードの生成が完了すると、API アプリの名前が付いた新しいフォルダーがソリューション エクスプローラーに表示されます。 このフォルダーには、クライアントとデータ モデルを実装するコードが含まれています。
+    コードの生成が完了すると、API アプリの名前が付いた新しいフォルダーがソリューション エクスプローラーに表示されます。 このフォルダーには、クライアントとデータ モデルを実装するコードが含まれています。 
 
     ![生成完了画面](./media/app-service-dotnet-debug-api-app-gen-api-client/06-code-gen-output-v3.png)
 
-6. プロジェクトのルートから **Program.cs** ファイルを開き、**Main** メソッドを次のコードに置き換えます。
+6. 開いている、 **Program.cs** プロジェクトのルートからファイルし、置換、 **Main** メソッドを次のコード。 
 
-     static void Main(string[] args)
-     {
-         var client = new ContactsList();
+        static void Main(string[] args)
+        {
+            var client = new ContactsList();
     
-         // Send GET request.
-         var contacts = client.Contacts.Get();
-         foreach (var c in contacts)
-         {
-             Console.WriteLine("{0}: {1} {2}",
-                 c.Id, c.Name, c.EmailAddress);
-         }
+            // Send GET request.
+            var contacts = client.Contacts.Get();
+            foreach (var c in contacts)
+            {
+                Console.WriteLine("{0}: {1} {2}",
+                    c.Id, c.Name, c.EmailAddress);
+            }
     
-         // Send POST request.
-         client.Contacts.Post(new Models.Contact
-         {
-             EmailAddress = "lkahn@contoso.com",
-             Name = "Loretta Kahn",
-             Id = 4
-         });
+            // Send POST request.
+            client.Contacts.Post(new Models.Contact
+            {
+                EmailAddress = "lkahn@contoso.com",
+                Name = "Loretta Kahn",
+                Id = 4
+            });
     
-         Console.WriteLine("Finished");
-         Console.ReadLine();
-     }
-
+            Console.WriteLine("Finished");
+            Console.ReadLine();
+        }
 
 ## API アプリ クライアントのテスト
 
 API アプリのコーディングが終わったら、次はコードをテストします。
 
-1. **ソリューション エクスプローラー**を開きます。
+1. 開いている **ソリューション エクスプ ローラー**します。
 
 2. 前のセクションで作成したコンソール アプリケーションを右クリックします。
 
-3. コンソール アプリケーションのコンテキスト メニューから、**[デバッグ]、[新しいインスタンスを開始]** の順に選択します。
+3. コンソール アプリケーションのコンテキスト メニューから選択 **デバッグ > 新しいインスタンスを開始**します。 
 
-4. コンソール ウィンドウが開き、すべての連絡先が表示されます。
+4. コンソール ウィンドウが開き、すべての連絡先が表示されます。 
 
     ![コンソール アプリの実行](./media/app-service-dotnet-debug-api-app-gen-api-client/running-console-app.png)
 
-5. **Enter** キーを押してコンソール ウィンドウを閉じます。
-
-
-
-
+5. キーを押して **Enter** コンソール ウィンドウを閉じます。          
 

@@ -16,7 +16,6 @@
    ms.date="12/16/2015"
    ms.author="andkjell"/>
 
-
 # Windows PowerShell コネクタに関するテクニカル リファレンス
 
 この記事では、Windows PowerShell コネクタについて説明します。 この記事は次の製品に適用されます。
@@ -40,7 +39,7 @@ PowerShell コネクタを利用すれば、Windows PowerShell ベースの API 
 
 同期サービスのサーバーの実行ポリシーで、Windows PowerShell スクリプトの実行をコネクタに許可するように構成する必要があります。 コネクタが実行するスクリプトにデジタル署名がない場合を除き、このコマンドを実行して実行ポリシーを構成します。
 
-`Set-executionpolicy-ExecutionPolicy RemoteSigned`
+`Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
 
 ## 新しいコネクタの作成
 
@@ -48,7 +47,7 @@ PowerShell コネクタを利用すれば、Windows PowerShell ベースの API 
 
 Windows PowerShell コネクタは、同期サービスのデータベース内に各スクリプトを保存するように設計されています。 ファイル システムに保存されているスクリプトを実行することはできますが、各スクリプトの本文をコネクタの構成に直接挿入する方がはるかに簡単です。
 
-PowerShell を作成するには、**[同期サービス]** で **[管理エージェント]** を選択し、**[作成]** を選択します。 **PowerShell (Microsoft)** コネクタを選択します。
+PowerShell コネクタを作成する **同期サービス** 選択 **管理エージェント** と **作成**します。 選択、 **PowerShell (マイクロソフト)** コネクタです。
 
 ![コネクタの作成](./media/active-directory-aadconnectsync-connector-powershell/createconnector.png)
 
@@ -62,16 +61,16 @@ PowerShell を作成するには、**[同期サービス]** で **[管理エー�
 
 **接続**
 
-| パラメーター| 既定値| 目的|
+| パラメーター | 既定値 | 目的 |
 | --- | --- | --- |
-| サーバー| <Blank>| コネクタの接続先のサーバーの名前です。|
-| ドメイン| <Blank>| コネクタの実行時に使用するために保存する資格情報のドメインです。|
-| ユーザー| <Blank>| コネクタの実行時に使用するために保存する資格情報のユーザー名です。|
-| パスワード| <Blank>| コネクタの実行時に使用するために保存する資格情報のパスワードです。|
-| コネクタ アカウントの偽装| False| True の場合、同期サービスは上記で指定された資格情報のコンテキストで Windows PowerShell スクリプトを実行します。可能であれば、各スクリプトに渡される $Credentials パラメーターを偽装の代わりに使用することが推奨されます。このパラメーターを使用するために必要な追加のアクセス許可の詳細については、「偽装の追加構成」を参照してください。|
-| 偽装時のユーザー プロファイルの読み込み| False| 偽装中に、コネクタの資格情報のユーザー プロファイルの読み込むように Windows に指示します。偽装するユーザーにローミング プロファイルがある場合、コネクタはローミング プロファイルを読み込みません。このパラメーターを使用するために必要な追加のアクセス許可の詳細については、「偽装の追加構成」を参照してください。|
-| 偽装時のログオンの種類| なし| 偽装中のログオンの種類詳細についてを参照してください、 [dwLogonType ][dw] ドキュメントです。|
-| 署名済みスクリプトのみ| False| True の場合、Windows PowerShell コネクタは、各スクリプトに有効なデジタル署名があることを検証します。False の場合、同期サービス サーバーの Windows PowerShell 実行ポリシーを「RemoteSigned」または「Unrestricted」にします。|
+| サーバー | <Blank> | コネクタの接続先のサーバーの名前です。 |
+| ドメイン | <Blank> | コネクタの実行時に使用するために保存する資格情報のドメインです。 |
+| ユーザー | <Blank> | コネクタの実行時に使用するために保存する資格情報のユーザー名です。 |
+| パスワード | <Blank> | コネクタの実行時に使用するために保存する資格情報のパスワードです。 |
+| コネクタ アカウントの偽装 | False | True の場合、同期サービスは上記で指定された資格情報のコンテキストで Windows PowerShell スクリプトを実行します。 可能であれば、各スクリプトに渡される $Credentials パラメーターを偽装の代わりに使用することが推奨されます。 このパラメーターを使用するために必要な追加のアクセス許可の詳細については、「偽装の追加構成」を参照してください。 |
+| 偽装時のユーザー プロファイルの読み込み | False | 偽装中に、コネクタの資格情報のユーザー プロファイルの読み込むように Windows に指示します。 偽装するユーザーにローミング プロファイルがある場合、コネクタはローミング プロファイルを読み込みません。 このパラメーターを使用するために必要な追加のアクセス許可の詳細については、「偽装の追加構成」を参照してください。 |
+| 偽装時のログオンの種類 | なし | 偽装中のログオンの種類 詳細については、[dwLogonType] [dw] ドキュメントを参照してください。 |
+| 署名済みスクリプトのみ | False | True の場合、Windows PowerShell コネクタは、各スクリプトに有効なデジタル署名があることを検証します。 False の場合、同期サービス サーバーの Windows PowerShell 実行ポリシーを「RemoteSigned」または「Unrestricted」にします。 |
 
 **共通モジュール**
 
@@ -80,10 +79,10 @@ PowerShell を作成するには、**[同期サービス]** で **[管理エー�
 インポート、エクスポート、パスワード同期のスクリプトについては、共通モジュールはコネクタの MAData フォルダーに抽出されます。 スキーマ、検証、階層、パーティションの探索スクリプトについては、共通モジュールは %TEMP% フォルダーに抽出されます。 いずれの場合も、抽出された共通モジュール スクリプトには共通モジュール スクリプト名設定に基づいて名前が付けられます。
 
 MAData フォルダーから FIMPowerShellConnectorModule.psm1 という名前のモジュールをロードするには、次のステートメントを使用します。
-`モジュールのインポート (結合パス-パス [Microsoft.MetadirectoryServices.MAUtils]::MAFolder - ChildPath"FIMPowerShellConnectorModule.psm1")`
+`Import-Module (Join-Path -Path [Microsoft.MetadirectoryServices.MAUtils]::MAFolder -ChildPath "FIMPowerShellConnectorModule.psm1")`
 
 FIMPowerShellConnectorModule.psm1 を %TEMP% フォルダーから呼び出されたモジュールをロードするには、次のステートメントを使用します。
-`モジュールのインポート (結合パス-パス $env:path: TEMP ChildPath"FIMPowerShellConnectorModule.psm1")`
+`Import-Module (Join-Path -Path $env:TEMP -ChildPath "FIMPowerShellConnectorModule.psm1")`
 
 **パラメーター検証**
 
@@ -95,11 +94,11 @@ FIMPowerShellConnectorModule.psm1 を %TEMP% フォルダーから呼び出さ�
 
 検証スクリプトは、コネクタから次のパラメーターを受け取ります。
 
-| 名前| データ型| 説明|
+| 名前 | データ型 | 説明 |
 | --- | --- | --- |
-| ConfigParameterPage| [ConfigParameterPage ][cpp]| 検証要求をトリガーした [構成] タブまたはダイアログ。|
-| ConfigParameters| [KeyedCollection ][keyk] [文字列、 [ConfigParameter ][cp]]| コネクタの構成パラメーターのテーブル。|
-| 資格情報| [PSCredential ][pscred]| [接続] タブで管理者が入力した資格情報が含まれます。|
+| ConfigParameterPage | [ConfigParameterPage][cpp] | 検証要求をトリガーした [構成] タブまたはダイアログ。 |
+| ConfigParameters | [KeyedCollection][keyk][文字列 [ConfigParameter] [cp] | コネクタの構成パラメーターのテーブル。 |
+| 資格情報 | [PSCredential][pscred] | [接続] タブで管理者が入力した資格情報が含まれます。 |
 
 検証スクリプトは、1 つの ParameterValidationResult オブジェクトをパイプラインに返します。
 
@@ -109,12 +108,12 @@ FIMPowerShellConnectorModule.psm1 を %TEMP% フォルダーから呼び出さ�
 
 スキーマ検出スクリプトは、コネクタから次のパラメーターを受け取ります。
 
-| 名前| データ型| 説明|
+| 名前 | データ型 | 説明 |
 | --- | --- | --- |
-| ConfigParameters| [KeyedCollection ][keyk] [文字列、 [ConfigParameter ][cp]]| コネクタの構成パラメーターのテーブル。|
-| 資格情報| [PSCredential ][pscred]| [接続] タブで管理者が入力した資格情報が含まれます。|
+| ConfigParameters | [KeyedCollection][keyk][文字列 [ConfigParameter] [cp] | コネクタの構成パラメーターのテーブル。 |
+| 資格情報 | [PSCredential][pscred] | [接続] タブで管理者が入力した資格情報が含まれます。 |
 
-このスクリプトは、1 つを返す必要があります [スキーマ ][schema] パイプラインにオブジェクトです。 スキーマ オブジェクトから成ります [SchemaType ][schemat] オブジェクトの種類 (例: ユーザー、グループなど) を表すオブジェクト。 SchemaType オブジェクトのコレクションを保持する [SchemaAttribute ][schemaa] (例: 指定された名前、姓、住所の郵便番号など) の属性を表すオブジェクト 型。
+スクリプトは、パイプラインに 1 つの [スキーマ] [schema] オブジェクトを返す必要があります。 スキーマ オブジェクトは、オブジェクトの種類 (例: ユーザー、グループなど) を表す [SchemaType] [schemaT] のオブジェクトで構成されます。 SchemaType オブジェクトは、型の属性 (たとえば、指定された名前、姓、住所の郵便番号など) を表す [SchemaAttribute] [schemaA] オブジェクトのコレクションを格納します。
 
 **追加パラメーター**
 
@@ -122,7 +121,7 @@ FIMPowerShellConnectorModule.psm1 を %TEMP% フォルダーから呼び出さ�
 
 カスタム構成設定を指定するには、コンマ (,) で各パラメーターの名前を区切ります。
 
-スクリプトからカスタム構成設定にアクセスするには、名に、アンダー スコア (\) と (グローバル、パーティション、または実行手順) のパラメーターのスコープをサフィックスする必要があります。 たとえば、グローバル ファイル名のパラメーターにアクセスする次のコード スニペットを使用します。 `$ConfigurationParameters ["FileName_Global"] です。値`
+スクリプトからカスタム構成設定にアクセスするには、名に、アンダー スコア (\) と (グローバル、パーティション、または実行手順) のパラメーターのスコープをサフィックスする必要があります。 たとえば、Global FileName パラメーターにアクセスするには、このコード スニペットを使用します。 `$ConfigurationParameters["FileName_Global"].Value`
 
 ### 機能
 
@@ -130,25 +129,25 @@ FIMPowerShellConnectorModule.psm1 を %TEMP% フォルダーから呼び出さ�
 
 ![機能](./media/active-directory-aadconnectsync-connector-powershell/capabilities.png)
 
-| 機能| 説明|
+| 機能 | 説明 |
 | --- | --- |
-| [識別名スタイル ][dnstyle]| コネクタで識別名を利用できるかどうかと、利用できる場合、その様式を示します。|
-| [[Exportt] の種類をエクスポートします。][exportt]| エクスポート スクリプトに表示されるオブジェクトの種類を決定します。<li>AttributeReplace – には、属性が変更されたときに、複数値属性の値の完全なセットが含まれています。</li><li>AttributeUpdate – 属性が変更されたときに、複数値属性の差分だけが含まれます</li>。<li>MultivaluedReferenceAttributeUpdate - 非参照型複数値属性の値と複数値の参照属性に対するデルタのみの完全なセットが含まれています</li>。<li>ObjectReplace – すべてが含まれますオブジェクトの属性のいずれかの属性の変更時に</li>|
-| [データの正規化 ][datanorm]| スクリプトに提供する前にアンカー属性を正規化するように同期サービスに指示します。|
-| [オブジェクトの確認 ][oconf]| 同期サービスの保留中のインポートの動作を構成します。<li>通常 – インポートを使用して確認するにはエクスポートされたすべての変更が必要ですが、既定の動作</li><li>NoDeleteConfirmation – オブジェクトが削除されるは保留中のインポートを生成します</li>。<li>NoAddAndDeleteConfirmation – オブジェクトを作成または削除された場合は保留中のインポートを生成します。</li>
-| アンカーとして DN を使用する| 識別名の様式が LDAP に設定されている場合、コネクタ スペースのアンカー属性も識別名になります。|
-| 複数のコネクタの同時操作| 選択した場合、複数の Windows PowerShell コネクタを同時に実行できます。|
-| パーティション| 選択した場合、コネクタは複数のパーティションとパーティション検出に対応します。|
-| 階層| 選択した場合、コネクタは LDAP 様式の階層構造に対応します。|
-| インポートの有効化| 選択した場合、コネクタはインポート スクリプトでデータをインポートします。|
-| 差分インポートの有効化| 選択した場合、コネクタはインポート スクリプトから差分を要求できます。|
-| エクスポートの有効化| 選択した場合、コネクタはエクスポート スクリプトでデータをエクスポートします。|
-| 完全エクスポートの有効化| 選択した場合、エクスポート スクリプトはコネクタ スペース全体のエクスポートに対応します。このオプションを使用するには、エクスポート有効化も選択する必要があります。|
-| 最初のエクスポート パスに参照値なし| 選択した場合、参照属性は 2 番目のエクスポート パスでエクスポートされます。|
-| オブジェクトの名前変更の有効化| 選択した場合、識別名を変更できます。|
-| 置換として削除/追加| 選択した場合、削除/追加操作が 1 つの置換としてエクスポートされます。|
-| パスワード操作の有効化| 選択した場合、パスワード同期スクリプトを利用できます。|
-| 最初のパスのエクスポート パスワードの有効化| 選択した場合、プロビジョニング中に設定されたパスワードがオブジェクトの作成時にエクスポートされます。|
+| [識別名のスタイル][dnstyle] | コネクタで識別名を利用できるかどうかと、利用できる場合、その様式を示します。 |
+| [エクスポートの種類][exportT] | エクスポート スクリプトに表示されるオブジェクトの種類を決定します。 <li>AttributeReplace – には、属性が変更されたときに、複数値属性の値の完全なセットが含まれています。</li><li>AttributeUpdate – には、属性が変更されたときに、複数値属性の差分だけが含まれています。</li><li>MultivaluedReferenceAttributeUpdate - には、非参照型複数値属性の値と複数値の参照属性に対するデルタのみの完全なセットが含まれています。</li><li>ObjectReplace – すべてが含まれますオブジェクトの属性のいずれかの属性の変更時に</li> |
+| [データの正規化][DataNorm] | スクリプトに提供する前にアンカー属性を正規化するように同期サービスに指示します。 |
+| [オブジェクトの確認][oconf] | 同期サービスの保留中のインポートの動作を構成します。 <li>通常 – インポートを使用して確認するにはエクスポートされたすべての変更が必要ですが、既定の動作</li><li>NoDeleteConfirmation – オブジェクトが削除されるは生成された保留中のインポートです。</li><li>NoAddAndDeleteConfirmation – オブジェクトの作成または削除された場合は生成された保留中のインポート、</li>
+| アンカーとして DN を使用する | 識別名の様式が LDAP に設定されている場合、コネクタ スペースのアンカー属性も識別名になります。 |
+| 複数のコネクタの同時操作 | 選択した場合、複数の Windows PowerShell コネクタを同時に実行できます。 |
+| パーティション | 選択した場合、コネクタは複数のパーティションとパーティション検出に対応します。 |
+| 階層 | 選択した場合、コネクタは LDAP 様式の階層構造に対応します。 |
+| インポートの有効化 | 選択した場合、コネクタはインポート スクリプトでデータをインポートします。 |
+| 差分インポートの有効化 | 選択した場合、コネクタはインポート スクリプトから差分を要求できます。 |
+| エクスポートの有効化 | 選択した場合、コネクタはエクスポート スクリプトでデータをエクスポートします。 |
+| 完全エクスポートの有効化 | 選択した場合、エクスポート スクリプトはコネクタ スペース全体のエクスポートに対応します。 このオプションを使用するには、エクスポート有効化も選択する必要があります。|
+| 最初のエクスポート パスに参照値なし | 選択した場合、参照属性は 2 番目のエクスポート パスでエクスポートされます。 |
+| オブジェクトの名前変更の有効化 | 選択した場合、識別名を変更できます。 |
+| 置換として削除/追加 | 選択した場合、削除/追加操作が 1 つの置換としてエクスポートされます。 |
+| パスワード操作の有効化 | 選択した場合、パスワード同期スクリプトを利用できます。 |
+| 最初のパスのエクスポート パスワードの有効化 | 選択した場合、プロビジョニング中に設定されたパスワードがオブジェクトの作成時にエクスポートされます。 |
 
 ### グローバル パラメーター
 
@@ -160,12 +159,12 @@ FIMPowerShellConnectorModule.psm1 を %TEMP% フォルダーから呼び出さ�
 
 パーティション検出スクリプトは、コネクタから次のパラメーターを受け取ります。
 
-| 名前| データ型| 説明|
+| 名前 | データ型 | 説明 |
 | --- | --- | --- |
-| ConfigParameters| [KeyedCollection ][keyk][文字列、 [ConfigParameter ][cp]]| コネクタの構成パラメーターのテーブル。
-| 資格情報| [PSCredential ][pscred]| [接続] タブで管理者が入力した資格情報が含まれます。|
+| ConfigParameters  | [KeyedCollection][keyk][文字列 [ConfigParameter] [cp] | コネクタの構成パラメーターのテーブル。
+| 資格情報 | [PSCredential][pscred] | [接続] タブで管理者が入力した資格情報が含まれます。 |
 
-スクリプト返す必要がありますか、1 つの [[一部] をパーティション分割][part] オブジェクトまたはパイプラインにパーティションのオブジェクトの一覧の [T] です。
+スクリプトに返す必要か、単一の [パーティション] [一部] オブジェクトまたはパーティションのオブジェクトの一覧 [T] パイプラインです。
 
 **階層検出**
 
@@ -173,11 +172,11 @@ FIMPowerShellConnectorModule.psm1 を %TEMP% フォルダーから呼び出さ�
 
 階層検出スクリプトは、コネクタから次のパラメーターを受け取ります。
 
-| 名前| データ型| 説明|
+| 名前 | データ型 | 説明 |
 | --- | --- | --- |
-| ConfigParameters| [KeyedCollection ][keyk][文字列、 [ConfigParameter ][cp]]| コネクタの構成パラメーターのテーブル。|
-| 資格情報| [PSCredential ][pscred]| [接続] タブで管理者が入力した資格情報が含まれます。|
-| ParentNode| [HierarchyNode ][hn]| 階層のルート ノードであり、この下にある直接の子をスクリプトが返します。|
+| ConfigParameters | [KeyedCollection][keyk][文字列 [ConfigParameter] [cp] | コネクタの構成パラメーターのテーブル。 |
+| 資格情報 | [PSCredential][pscred] | [接続] タブで管理者が入力した資格情報が含まれます。 |
+| ParentNode | [HierarchyNode][hn] | 階層のルート ノードであり、この下にある直接の子をスクリプトが返します。 |
 
 スクリプトは 1 つの子 HierarchyNode オブジェクトか子 HierarchyNode オブジェクトの List[T] を返します。
 
@@ -191,16 +190,16 @@ FIMPowerShellConnectorModule.psm1 を %TEMP% フォルダーから呼び出さ�
 
 インポート開始スクリプトは、コネクタから次のパラメーターを受け取ります。
 
-| 名前| データ型| 説明|
+| 名前 | データ型 | 説明 |
 | --- | --- | --- |
-| ConfigParameters| [KeyedCollection ][keyk][文字列、 [ConfigParameter ][cp]]| コネクタの構成パラメーターのテーブル。|
-| 資格情報| [PSCredential ][pscred]| [接続] タブで管理者が入力した資格情報が含まれます。|
-| OpenImportConnectionRunStep| [OpenImportConnectionRunStep ][oicrs]| インポート実行の種類 (差分または完全)、パーティション、階層、透かし、予想ページ サイズをスクリプトに通知します。
-| 型| [スキーマ ][schema]| インポートするコネクタ スペースのスキーマ。|
+| ConfigParameters | [KeyedCollection][keyk][文字列 [ConfigParameter] [cp] | コネクタの構成パラメーターのテーブル。 |
+| 資格情報 | [PSCredential][pscred] | [接続] タブで管理者が入力した資格情報が含まれます。 |
+| OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | インポート実行の種類 (差分または完全)、パーティション、階層、透かし、予想ページ サイズをスクリプトに通知します。
+| 型 | [スキーマ][スキーマ] | インポートするコネクタ スペースのスキーマ。 |
 
-このスクリプトは、1 つを返す必要があります [OpenImportConnectionResults ][oicres] パイプラインにオブジェクトです。 下のサンプル コードは、OpenImportConnectionResults オブジェクトがパイプラインに返されるしくみを示しています。
+スクリプトは、パイプラインに 1 つの [OpenImportConnectionResults] [oicres] オブジェクトを返す必要があります。 下のサンプル コードは、OpenImportConnectionResults オブジェクトがパイプラインに返されるしくみを示しています。
 
-`Write-output (新しいオブジェクト Microsoft.MetadirectoryServices.OpenImportConnectionResults)`
+`Write-Output (New-Object Microsoft.MetadirectoryServices.OpenImportConnectionResults)`
 
 **データのインポート**
 
@@ -208,15 +207,15 @@ FIMPowerShellConnectorModule.psm1 を %TEMP% フォルダーから呼び出さ�
 
 データのインポート スクリプトは、コネクタから次のパラメーターを受け取ります。
 
-| 名前| データ型| 説明|
+| 名前 | データ型 | 説明 |
 | --- | --- | --- |
-| ConfigParameters| [KeyedCollection ][keyk][文字列、 [ConfigParameter ][cp]]| コネクタの構成パラメーターのテーブル。|
-| 資格情報| [PSCredential ][pscred]| [接続] タブで管理者が入力した資格情報が含まれます。|
-| GetImportEntriesRunStep| [ImportRunStep ][irs]| ページングされたインポートと差分インポートで使用される透かし (CustomData) を保持します。|
-| OpenImportConnectionRunStep| [OpenImportConnectionRunStep ][oicrs]| インポート実行の種類 (差分または完全)、パーティション、階層、透かし、予想ページ サイズをスクリプトに通知します。|
-| 型| [スキーマ ][schema]| インポートするコネクタ スペースのスキーマ。|
+| ConfigParameters | [KeyedCollection][keyk][文字列 [ConfigParameter] [cp] | コネクタの構成パラメーターのテーブル。 |
+| 資格情報 | [PSCredential][pscred] | [接続] タブで管理者が入力した資格情報が含まれます。 |
+| GetImportEntriesRunStep | [ImportRunStep][内国] | ページングされたインポートと差分インポートで使用される透かし (CustomData) を保持します。 |
+| OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | インポート実行の種類 (差分または完全)、パーティション、階層、透かし、予想ページ サイズをスクリプトに通知します。 |
+| 型 | [スキーマ][スキーマ] | インポートするコネクタ スペースのスキーマ。 |
 
-データのスクリプトのインポート リストに書き込む必要があります [[CSEntryChange ][csec]] パイプラインにオブジェクトです。 このコレクションは、インポートされる各オブジェクトを表す CSEntryChange 属性で構成されます。 完全インポート実行の間、このコレクションには、個々のオブジェクトすべての属性を持つ CSEntryChange オブジェクトの完全セットが与えられます。 差分インポートの間、CSEntryChange オブジェクトには、インポートする各オブジェクトの属性レベル差分か変更された完全なオブジェクト (置換モード) が含まれます。
+データ スクリプトのインポートは、[CSEntryChange] [csec] の一覧オブジェクトをパイプラインに書き込む必要があります。 このコレクションは、インポートされる各オブジェクトを表す CSEntryChange 属性で構成されます。 完全インポート実行の間、このコレクションには、個々のオブジェクトすべての属性を持つ CSEntryChange オブジェクトの完全セットが与えられます。 差分インポートの間、CSEntryChange オブジェクトには、インポートする各オブジェクトの属性レベル差分か変更された完全なオブジェクト (置換モード) が含まれます。
 
 **インポート終了**
 
@@ -224,15 +223,15 @@ FIMPowerShellConnectorModule.psm1 を %TEMP% フォルダーから呼び出さ�
 
 インポート終了スクリプトは、コネクタから次のパラメーターを受け取ります。
 
-| 名前| データ型| 説明|
+| 名前 | データ型 | 説明 |
 | --- | --- | --- |
-| ConfigParameters| [KeyedCollection ][keyk][文字列、 [ConfigParameter ][cp]]| コネクタの構成パラメーターのテーブル。|
-| 資格情報| [PSCredential ][pscred]| [接続] タブで管理者が入力した資格情報が含まれます。|
-| OpenImportConnectionRunStep| [OpenImportConnectionRunStep ][oicrs]| インポート実行の種類 (差分または完全)、パーティション、階層、透かし、予想ページ サイズをスクリプトに通知します。|
-| CloseImportConnectionRunStep| [CloseImportConnectionRunStep ][cecrs]| インポートが終了した理由をスクリプトに通知します。|
+| ConfigParameters | [KeyedCollection][keyk][文字列 [ConfigParameter] [cp] | コネクタの構成パラメーターのテーブル。 |
+| 資格情報 | [PSCredential][pscred] | [接続] タブで管理者が入力した資格情報が含まれます。 |
+| OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | インポート実行の種類 (差分または完全)、パーティション、階層、透かし、予想ページ サイズをスクリプトに通知します。 |
+| CloseImportConnectionRunStep | [CloseImportConnectionRunStep][cecrs] | インポートが終了した理由をスクリプトに通知します。 |
 
-このスクリプトは、1 つを返す必要があります [CloseImportConnectionResults ][cicres] パイプラインにオブジェクトです。 次のサンプル コードでは、パイプラインに CloseImportConnectionResults オブジェクトを返す方法を示しています。
-`Write-output (新しいオブジェクト Microsoft.MetadirectoryServices.CloseImportConnectionResults)`
+スクリプトは、パイプラインに 1 つの [CloseImportConnectionResults] [cicres] オブジェクトを返す必要があります。 次のサンプル コードでは、パイプラインに CloseImportConnectionResults オブジェクトを返す方法を示しています。
+`Write-Output (New-Object Microsoft.MetadirectoryServices.CloseImportConnectionResults)`
 
 #### エクスポート
 
@@ -244,12 +243,12 @@ FIMPowerShellConnectorModule.psm1 を %TEMP% フォルダーから呼び出さ�
 
 エクスポート開始スクリプトは、コネクタから次のパラメーターを受け取ります。
 
-| 名前| データ型| 説明|
+| 名前 | データ型 | 説明 |
 | --- | --- | --- |
-| ConfigParameters| [KeyedCollection ][keyk][文字列、 [ConfigParameter ][cp]]| コネクタの構成パラメーターのテーブル。|
-| 資格情報| [PSCredential ][pscred]| [接続] タブで管理者が入力した資格情報が含まれます。|
-| OpenExportConnectionRunStep| [OpenExportConnectionRunStep ][oecrs]| エクスポート実行の種類 (差分または完全)、パーティション、階層、予想ページ サイズをスクリプトに通知します。|
-| 型| [スキーマ ][schema]| エクスポートするコネクタ スペースのスキーマ。|
+| ConfigParameters | [KeyedCollection][keyk][文字列 [ConfigParameter] [cp] | コネクタの構成パラメーターのテーブル。 |
+| 資格情報 | [PSCredential][pscred] | [接続] タブで管理者が入力した資格情報が含まれます。 |
+| OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | エクスポート実行の種類 (差分または完全)、パーティション、階層、予想ページ サイズをスクリプトに通知します。 |
+| 型 | [スキーマ][スキーマ] | エクスポートするコネクタ スペースのスキーマ。 |
 
 スクリプトはパイプラインに出力を返しません。
 
@@ -259,18 +258,18 @@ FIMPowerShellConnectorModule.psm1 を %TEMP% フォルダーから呼び出さ�
 
 データのエクスポート スクリプトは、コネクタから次のパラメーターを受け取ります。
 
-| 名前| データ型| 説明|
+| 名前 | データ型 | 説明 |
 | --- | --- | --- |
-| ConfigParameters| [KeyedCollection ][keyk][文字列、 [ConfigParameter ][cp]]| コネクタの構成パラメーターのテーブル。|
-| 資格情報| [PSCredential ][pscred]| [接続] タブで管理者が入力した資格情報が含まれます。|
-| CSEntries| IList[CSEntryChange ][csec]| すべてのコネクタ スペース オブジェクトとこのパスで処理する保留中エクスポートを一覧表示します。|
-| OpenExportConnectionRunStep| [OpenExportConnectionRunStep ][oecrs]| エクスポート実行の種類 (差分または完全)、パーティション、階層、予想ページ サイズをスクリプトに通知します。|
-| 型| [スキーマ ][schema]| エクスポートするコネクタ スペースのスキーマ。|
+| ConfigParameters | [KeyedCollection][keyk][文字列 [ConfigParameter] [cp] | コネクタの構成パラメーターのテーブル。|
+| 資格情報 | [PSCredential][pscred] | [接続] タブで管理者が入力した資格情報が含まれます。|
+| CSEntries | IList [CSEntryChange] [csec] | すべてのコネクタ スペース オブジェクトとこのパスで処理する保留中エクスポートを一覧表示します。 |
+| OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | エクスポート実行の種類 (差分または完全)、パーティション、階層、予想ページ サイズをスクリプトに通知します。 |
+| 型 | [スキーマ][スキーマ] | エクスポートするコネクタ スペースのスキーマ。 |
 
-エクスポート データ スクリプトを返す必要があります、 [PutExportEntriesResults ][peeres] パイプラインにオブジェクトです。 このオブジェクトには、エラーまたはアンカー属性の変更が発生しない限り、エクスポートされたコネクタごとに結果情報を含める必要はありません。
+エクスポート データ スクリプトでは、パイプラインに [PutExportEntriesResults] [peeres] オブジェクトを返す必要があります。 このオブジェクトには、エラーまたはアンカー属性の変更が発生しない限り、エクスポートされたコネクタごとに結果情報を含める必要はありません。
 
 次のサンプル コードでは、パイプラインに PutExportEntriesResults オブジェクトを返す方法を示しています。
-`Write-output (新しいオブジェクト Microsoft.MetadirectoryServices.PutExportEntriesResults)`
+`Write-Output (New-Object Microsoft.MetadirectoryServices.PutExportEntriesResults)`
 
 **エクスポート終了**
 
@@ -278,12 +277,12 @@ FIMPowerShellConnectorModule.psm1 を %TEMP% フォルダーから呼び出さ�
 
 エクスポート終了スクリプトは、コネクタから次のパラメーターを受け取ります。
 
-| 名前| データ型| 説明|
+| 名前 | データ型 | 説明 |
 | --- | --- | --- |
-| ConfigParameters| [KeyedCollection ][keyk][文字列、 [ConfigParameter ][cp]]| コネクタの構成パラメーターのテーブル。|
-| 資格情報| [PSCredential ][pscred]| [接続] タブで管理者が入力した資格情報が含まれます。|
-| OpenExportConnectionRunStep| [OpenExportConnectionRunStep ][oecrs]| エクスポート実行の種類 (差分または完全)、パーティション、階層、予想ページ サイズをスクリプトに通知します。|
-| CloseExportConnectionRunStep| [CloseExportConnectionRunStep ][cecrs]| エクスポートが終了した理由をスクリプトに通知します。|
+| ConfigParameters | [KeyedCollection][keyk][文字列 [ConfigParameter] [cp] | コネクタの構成パラメーターのテーブル。 |
+| 資格情報 | [PSCredential][pscred] | [接続] タブで管理者が入力した資格情報が含まれます。 |
+| OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | エクスポート実行の種類 (差分または完全)、パーティション、階層、予想ページ サイズをスクリプトに通知します。 |
+| CloseExportConnectionRunStep | [CloseExportConnectionRunStep][cecrs] | エクスポートが終了した理由をスクリプトに通知します。 |
 
 スクリプトはパイプラインに出力を返しません。
 
@@ -293,26 +292,26 @@ Windows PowerShell コネクタをパスワードの変更/リセットのター
 
 パスワード スクリプトは、コネクタから次のパラメーターを受け取ります。
 
-| 名前| データ型| 説明|
+| 名前 | データ型 | 説明 |
 | --- | --- | --- |
-| ConfigParameters| [KeyedCollection ][keyk][文字列、 [ConfigParameter ][cp]]| コネクタの構成パラメーターのテーブル。|
-| 資格情報| [PSCredential ][pscred]| [接続] タブで管理者が入力した資格情報が含まれます。|
-| Partition| [パーティション ][part]| CSEntry が入るディレクトリ パーティション。|
-| CSEntry| [CSEntry ][cse]| パスワードの変更またはリセットを受け取ったオブジェクトのコネクタ スペース エントリ。|
-| OperationType| String| 操作がリセット (**SetPassword**) または変更 (**ChangePassword**) であることを示します。|
-| PasswordOptions| [PasswordOptions ][pwdopt]| 目的のパスワードのリセット動作を指定するフラグ。このパラメーターは、OperationType が **SetPassword** の場合にのみ利用できます。|
-| OldPassword| String| パスワード変更のためにオブジェクトの古いパスワードが入力されます。このパラメーターは、OperationType が **ChangePassword** の場合にのみ利用できます。|
-| NewPassword| String| スクリプトで設定するオブジェクトの新しいパスワードが入力されます。|
+| ConfigParameters | [KeyedCollection][keyk][文字列 [ConfigParameter] [cp] | コネクタの構成パラメーターのテーブル。 |
+| 資格情報 | [PSCredential][pscred] | [接続] タブで管理者が入力した資格情報が含まれます。 |
+| Partition | [パーティション][一部] | CSEntry が入るディレクトリ パーティション。 |
+| CSEntry | [CSEntry][cse] | パスワードの変更またはリセットを受け取ったオブジェクトのコネクタ スペース エントリ。 |
+| OperationType | String | 操作が、リセットであることを示します (**SetPassword**) の変更、または (**ChangePassword**)。 |
+| PasswordOptions | [PasswordOptions][pwdopt] | 目的のパスワードのリセット動作を指定するフラグ。 このパラメーターは OperationType 場合のみ **SetPassword**します。 |
+| OldPassword | String | パスワード変更のためにオブジェクトの古いパスワードが入力されます。 このパラメーターは OperationType 場合のみ **ChangePassword**します。 |
+| NewPassword | String | スクリプトで設定するオブジェクトの新しいパスワードが入力されます。 |
 
 パスワード スクリプトは、Windows PowerShell パイプラインに結果を返しません。 パスワード スクリプトでエラーが発生した場合、スクリプトは次のいずれかの例外をスローし、同期サービスに問題を通知します。
 
-- [PasswordPolicyViolationException ][pwdex1] – パスワードは接続のシステムでは、パスワード ポリシーを満たしていない場合にスローされます。
-- [PasswordIllFormedException ][pwdex2] – パスワードが接続されているシステムで許容できる場合にスローされます。
-- [PasswordExtension ][pwdex3] – パスワード スクリプト内の他のすべてのエラーがスローされます。
+- [PasswordPolicyViolationException][pwdex1] – パスワードは接続のシステムでは、パスワード ポリシーを満たしていない場合にスローされます。
+- [PasswordIllFormedException][pwdex2] – パスワードが接続されているシステムで許容できる場合にスローされます。
+- [PasswordExtension][pwdex3] – パスワード スクリプト内の他のすべてのエラーがスローされます。
 
 ## サンプル コネクタ
 
-使用可能なサンプルのコネクタの完全な概要については、次を参照してください。 [Windows PowerShell 用のコネクタ サンプル コネクタ コレクション ][samp]します。
+使用可能なサンプルのコネクタの完全な概要については、[Windows PowerShell コネクタ サンプル コネクタ コレクション] [samp] を参照してください。
 
 ## 他の注意事項
 
@@ -336,43 +335,42 @@ $account.Translate([System.Security.Principal.SecurityIdentifier]).Value
 
 - %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\Extensions
 - %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\ExtensionsCache
-- %ProgramFiles%\Microsoft forefront Identity Manager\2010\Synchronization Service\MaData\<ConnectorName>
+- %ProgramFiles%\Microsoft forefront Identity Manager\2010\Synchronization Service\MaData\ < ConnectorName >
 
-用 Windows PowerShell のコネクタの名前に置き換えます、 <ConnectorName> プレース ホルダーです。
+用 Windows PowerShell のコネクタの名前に置き換えてください、 <ConnectorName> プレース ホルダーです。
 
 ## トラブルシューティング
 
 -   コネクタのトラブルシューティングを行うへのログ記録を有効にする方法については、次を参照してください。、 [コネクタの ETW トレースを有効にする方法](http://go.microsoft.com/fwlink/?LinkId=335731)します。
 
-
-
-[cpp]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.configparameterpage.aspx 
-[keyk]: https://msdn.microsoft.com/library/ms132438.aspx 
-[cp]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.configparameter.aspx 
-[pscred]: https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx 
-[schema]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.schema.aspx 
-[schemat]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.schematype.aspx 
-[schemaa]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.schemaattribute.aspx 
-[dnstyle]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.madistinguishednamestyle.aspx 
-[exportt]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.maexporttype.aspx 
-[datanorm]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.manormalizations.aspx 
-[oconf]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.maobjectconfirmation.aspx 
-[dw]: https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx 
-[part]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.partition.aspx 
-[hn]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.hierarchynode.aspx 
-[oicrs]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.openimportconnectionrunstep.aspx 
-[cecrs]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.closeexportconnectionrunstep.aspx 
-[oicres]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.openimportconnectionresults.aspx 
-[cecrs]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.closeexportconnectionrunstep.aspx 
-[cicres]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.closeimportconnectionresults.aspx 
-[oecrs]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.openexportconnectionrunstep.aspx 
-[irs]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.importrunstep.aspx 
-[cse]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.csentry.aspx 
-[csec]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.csentrychange.aspx 
-[peeres]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.putexportentriesresults.aspx 
-[pwdopt]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordoptions.aspx 
-[pwdex1]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordpolicyviolationexception.aspx 
-[pwdex2]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordillformedexception.aspx 
-[pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx 
-[samp]: http://go.microsoft.com/fwlink/?LinkId=394291 
+<!--Reference style links - using these makes the source content way more readable than using inline links-->
+[cpp]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.configparameterpage.aspx
+[keyk]: https://msdn.microsoft.com/library/ms132438.aspx
+[cp]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.configparameter.aspx
+[pscred]: https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx
+[schema]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.schema.aspx
+[schemaT]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.schematype.aspx
+[schemaA]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.schemaattribute.aspx
+[dnstyle]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.madistinguishednamestyle.aspx
+[exportT]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.maexporttype.aspx
+[DataNorm]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.manormalizations.aspx
+[oconf]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.maobjectconfirmation.aspx
+[dw]: https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx
+[part]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.partition.aspx
+[hn]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.hierarchynode.aspx
+[oicrs]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.openimportconnectionrunstep.aspx
+[cecrs]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.closeexportconnectionrunstep.aspx
+[oicres]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.openimportconnectionresults.aspx
+[cecrs]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.closeexportconnectionrunstep.aspx
+[cicres]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.closeimportconnectionresults.aspx
+[oecrs]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.openexportconnectionrunstep.aspx
+[irs]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.importrunstep.aspx
+[cse]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.csentry.aspx
+[csec]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.csentrychange.aspx
+[peeres]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.putexportentriesresults.aspx
+[pwdopt]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordoptions.aspx
+[pwdex1]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordpolicyviolationexception.aspx
+[pwdex2]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordillformedexception.aspx
+[pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
+[samp]: http://go.microsoft.com/fwlink/?LinkId=394291
 

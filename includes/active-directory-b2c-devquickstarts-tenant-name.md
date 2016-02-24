@@ -1,5 +1,1 @@
-> [AZURE.NOTE] B2C テナントの名前はテナントの作成時に入力したドメインで、Azure プレビュー ポータルのディレクトリのブレードに表示されます。 通常のサフィックスで終わること `. onmicrosoft.com`, 、たとえば、 `contosob2c.onmicrosoft.com`します。
-
-
-
-
+> [AZURE.NOTE] B2C テナントの名前は、テナントの作成時に入力し、Azure プレビュー ポータルでディレクトリのブレードに表示されるドメインです。  通常、`.onmicrosoft.com` という接尾辞が付けられます (`contosob2c.onmicrosoft.com` など)。

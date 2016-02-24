@@ -15,12 +15,11 @@
    ms.date="09/18/2015"
    ms.author="sethm" />
 
-
 # パーティション分割されたメッセージング エンティティ
 
 Azure Service Bus では、メッセージを処理する複数のメッセージ ブローカーとメッセージを格納する複数のメッセージング ストアを採用しています。 従来のキューまたはトピックは、単一のメッセージ ブローカーで処理されて 1 つのメッセージング ストアに格納されます。 Service Bus では、キューまたはトピックを複数のメッセージ ブローカーとメッセージング ストアにパーティション分割することもできます。 そのため、パーティション分割されたキューまたはトピックの全体のスループットは、単一のメッセージ ブローカーまたはメッセージング ストアのパフォーマンスによって制限されなくなりました。 また、1 つのメッセージング ストアが一時的に停止しても、パーティション分割されたキューまたはトピックは使用することができます。 パーティション分割されたキューとトピックには、トランザクションやセッションのサポートなど、あらゆる高度な Service Bus 機能を含めることができます。
 
-サービス バスの内部構造についての詳細については、次を参照してください。、 [Service Bus アーキテクチャ []][] トピックです。
+サービス バスの内部構造についての詳細については、次を参照してください。、 [Service Bus アーキテクチャ][] トピックです。
 
 ## パーティション分割されたキューとトピック
 
@@ -32,11 +31,11 @@ Azure Service Bus では、メッセージを処理する複数のメッセー�
 
 ## パーティション分割の有効化
 
-パーティション分割されたキューおよびトピックでは、Microsoft Azure Service Bus を使用する Azure sdk バージョン 2.2 またはそれ以降、または指定 `api バージョン 2013年-10 =` 、HTTP 要求でします。
+Microsoft Azure Service Bus でパーティション分割されたキューとトピックを使用するには、Azure SDK Version 2.2 以降を使用するか、HTTP 要求で `api-version=2013-10` を指定します。
 
-Service Bus のキューとトピックは、1 GB、2 GB、3 GB、4 GB、5 GB で作成できます (既定値は 1 GB)。 パーティション分割が有効な場合、Service Bus は指定された GB 数に対して 1 GB ごとに 16 個のパーティションを作成します。 そのため、サイズが 5 GB のキューを作成する場合は、16 個のパーティションでキューの最大サイズになります (5 \ * 16) = 80 GB です。 パーティション分割されたキューまたはトピックの最大サイズを確認するに対応するエントリを見て、 [Azure クラシック ポータルの [][]します。
+Service Bus のキューとトピックは、1 GB、2 GB、3 GB、4 GB、5 GB で作成できます (既定値は 1 GB)。 パーティション分割が有効な場合、Service Bus は指定された GB 数に対して 1 GB ごとに 16 個のパーティションを作成します。 そのため、サイズが 5 GB のキューを作成する場合は、16 個のパーティションでキューの最大サイズになります (5 \ * 16) = 80 GB です。 パーティション分割されたキューまたはトピックの最大サイズを確認するに対応するエントリを見て、 [Azure クラシック ポータル][]します。
 
-パーティション分割されたキューまたはトピックを作成する方法は複数あります。 アプリケーションからキューまたはトピックを作成するときは、それぞれ設定してキューまたはトピックのパーティション分割を有効にできます、 [QueueDescription.EnablePartitioning:operator[]][] または [TopicDescription.EnablePartitioning][] プロパティを **true**します。 これらのプロパティは、キューまたはトピックの作成時に設定する必要があります。 既存のキューまたはトピックでこれらのプロパティを変更することはできません。 次に例を示します。
+パーティション分割されたキューまたはトピックを作成する方法は複数あります。 アプリケーションからキューまたはトピックを作成するときは、それぞれ設定してキューまたはトピックのパーティション分割を有効にできます、 [QueueDescription.EnablePartitioning][] または [TopicDescription.EnablePartitioning][] プロパティを **true**します。 これらのプロパティは、キューまたはトピックの作成時に設定する必要があります。 既存のキューまたはトピックでこれらのプロパティを変更することはできません。 次に例を示します。
 
 ```
 // Create partitioned topic
@@ -46,7 +45,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-または、パーティション分割されたキューまたはか Visual Studio でのトピックを作成、 [Azure クラシック ポータルの [][]します。 ポータルで新しいキューまたはトピックを作成する場合は、キューまたはトピック ウィンドウの **[構成]** タブにある **[パーティション分割の有効化]** チェック ボックスをオンにします。 Visual Studio で作成する場合は、**[新しいキュー]** または **[新しいトピック]** ダイアログ ボックスの **[パーティション分割の有効化]** チェック ボックスをオンにします。
+または、パーティション分割されたキューまたはか Visual Studio でのトピックを作成、 [Azure クラシック ポータル][]します。 確認して、ポータルで新しいキューまたはトピックを作成するときに、 **パーティション分割を有効にする** オプション、 **構成** キューまたはトピック ウィンドウのタブをクリックします。 Visual Studio で、[、 **パーティション分割を有効にする** 内のチェック ボックス、 **新しいキュー** または **新しいトピック** ] ダイアログ ボックス。
 
 ## パーティション キーの使用
 
@@ -62,19 +61,19 @@ ns.CreateTopic(td);
 
 **PartitionKey**: メッセージがある場合、 [BrokeredMessage.PartitionKey][] プロパティではなく、 [BrokeredMessage.SessionId][] プロパティを設定し、サービス バスを使用して、 [PartitionKey][] プロパティをパーティション キーとして。 メッセージの両方があるあれば、 [SessionId][] と [PartitionKey][] プロパティを設定、両方のプロパティは、同一である必要があります。 場合、 [PartitionKey][] プロパティが異なる値に設定されている、 [SessionId][] プロパティ、サービス バスを返します、 **InvalidOperationException** 例外です。  [PartitionKey][] 送信者は、セッション以外に注意してくださいトランザクション メッセージを送信する場合、プロパティを使用する必要があります。 パーティション キーを使用することにより、トランザクション内で送信されるすべてのメッセージを同じメッセージング ブローカーで処理することができます。
 
-**MessageId**: キューまたはトピックがある場合、 [QueueDescription.RequiresDuplicateDetection][] プロパティに設定 **true** と [BrokeredMessage.SessionId][] または [BrokeredMessage.PartitionKey][] プロパティが設定されていない、 [BrokeredMessage.MessageId][] プロパティは、パーティション キーとして機能します。 (送信元のアプリケーションでメッセージ ID が割り当てられていない場合は、Microsoft .NET および AMQP のライブラリによって自動的にメッセージ ID が割り当てられます)。 この場合は、同じメッセージのすべてのコピーが同じメッセージ ブローカーによって処理されます。 これにより、Service Bus は重複したメッセージを検出し削除することができるようになります。 場合、 [QueueDescription.RequiresDuplicateDetection][] にプロパティが設定されていない **true**, 、Service Bus と見なしません、 [MessageId][] パーティション キーとしてのプロパティです。
+**MessageId**: キューまたはトピックがある場合、 [QueueDescription.RequiresDuplicateDetection][] プロパティに設定 **true** と [BrokeredMessage.SessionId][] または [BrokeredMessage.PartitionKey][] プロパティが設定されていない、 [BrokeredMessage.MessageId][] プロパティは、パーティション キーとして機能します。 (送信元のアプリケーションでメッセージ ID が割り当てられていない場合は、Microsoft .NET および AMQP のライブラリによって自動的にメッセージ ID が割り当てられます)。この場合は、同じメッセージのすべてのコピーが同じメッセージ ブローカーによって処理されます。 これにより、Service Bus は重複したメッセージを検出し削除することができるようになります。 場合、 [QueueDescription.RequiresDuplicateDetection][] にプロパティが設定されていない **true**, 、Service Bus と見なしません、 [MessageId][] パーティション キーとしてのプロパティです。
 
 ### パーティション キーを使用しない場合
 
 パーティション キーが存在しない場合、Service Bus は、ラウンドロビン方式で、パーティション分割されたキューまたはトピックのすべてのフラグメントにメッセージを配信します。 選択されたフラグメントが使用できない場合、Service Bus はメッセージを別のフラグメントに割り当てます。 このように、メッセージング ストアが一時的に使用できなくても送信操作は成功します。
 
-サービス バスを提供するのに十分な時間キューへのメッセージを別のフラグメントに、 [MessagingFactorySettings.OperationTimeout:operator[]][] メッセージは 15 秒より大きくなければなりませんを送信するクライアントによって指定された値。 設定することをお勧めしますが、 [OperationTimeout][] プロパティを 60 秒間の既定値にします。
+サービス バスを提供するのに十分な時間キューへのメッセージを別のフラグメントに、 [MessagingFactorySettings.OperationTimeout][] メッセージは 15 秒より大きくなければなりませんを送信するクライアントによって指定された値。 設定することをお勧めしますが、 [OperationTimeout][] プロパティを 60 秒間の既定値にします。
 
 パーティション キーは、メッセージを特定のフラグメントに "ピン留め" します。 このフラグメントを保持しているメッセージング ストアを使用できない場合、Service Bus はエラーを返します。 パーティション キーが存在しない場合、Service Bus は異なるフラグメントを選択できるので、操作は成功します。 したがって、パーティション キーが必要でない場合は、パーティション キーを指定しないことをお勧めします。
 
 ## 高度なトピック: パーティション分割されたエンティティでのトランザクションの使用
 
-トランザクションの一部として送信されるメッセージでは、パーティション キーを指定する必要があります。 これは、次のプロパティのいずれかを指定できます: [BrokeredMessage.SessionId][], 、[BrokeredMessage.PartitionKey:operator[]][], 、または [BrokeredMessage.MessageId][]します。 同じトランザクションの一部として送信されるすべてのメッセージで、同じパーティション キーを指定する必要があります。 トランザクション内でパーティション キーなしのメッセージを送信しようとすると、Service Bus は **InvalidOperationException** 例外を返します。 同じトランザクション内で異なるパーティション キーを持つ複数のメッセージを送信しようとすると、Service Bus は **InvalidOperationException** 例外を返します。 次に例を示します。
+トランザクションの一部として送信されるメッセージでは、パーティション キーを指定する必要があります。 これは、次のプロパティのいずれかを指定できます: [BrokeredMessage.SessionId][], 、[BrokeredMessage.PartitionKey][], 、または [BrokeredMessage.MessageId][]します。 同じトランザクションの一部として送信されるすべてのメッセージで、同じパーティション キーを指定する必要があります。 Service Bus の取得のかどうかは、トランザクション内でパーティション キーを使用しないメッセージを送信すると、 **InvalidOperationException** 例外です。 Service Bus の取得のかどうかは、異なるパーティション キーが設定されている、同じトランザクション内の複数のメッセージを送信すると、 **InvalidOperationException** 例外です。 次に例を示します。
 
 ```
 CommittableTransaction committableTransaction = new CommittableTransaction();
@@ -92,9 +91,9 @@ committableTransaction.Commit();
 
 ## パーティション分割されたエンティティでのセッションの使用
 
-セッションを認識するトピックまたはキューへトランザクション メッセージを送信するメッセージが必要、 [BrokeredMessage.SessionId:operator[]][] プロパティ セット。 場合、 [BrokeredMessage.PartitionKey:operator[]][] プロパティが指定されても、それと同一である必要があります、 [SessionId][] プロパティです。 これらが異なる場合、Service Bus は **InvalidOperationException** 例外を返します。
+セッションを認識するトピックまたはキューへトランザクション メッセージを送信するメッセージが必要、 [BrokeredMessage.SessionId][] プロパティ セット。 場合、 [BrokeredMessage.PartitionKey][] プロパティが指定されても、それと同一である必要があります、 [SessionId][] プロパティです。 Service Bus 返しますのかどうかは異なる、 **InvalidOperationException** 例外です。
 
-通常の (パーティション分割されていない) キューまたはトピックと異なり、単一のトランザクションを使用して複数のメッセージを別々のセッションに送信することはできません。 Service Bus が取得しようとすると、 ** InvalidOperationException **例外です。 次に例を示します。
+通常の (パーティション分割されていない) キューまたはトピックと異なり、単一のトランザクションを使用して複数のメッセージを別々のセッションに送信することはできません。 これを試みると、Service Bus は **InvalidOperationException** 例外を返します。 次に例を示します。
 
 ```
 CommittableTransaction committableTransaction = new CommittableTransaction();
@@ -126,23 +125,22 @@ Azure Service Bus では、パーティション分割されたエンティテ�
 
 ## 次のステップ
 
-パーティション分割されている Service Bus キューおよびトピック (近日提供!) の AMQP 1.0 のサポートの説明を参照してください。 paritioning メッセージング エンティティの詳細を表示します。
+メッセージング エンティティのパーティション分割の詳細については、Service Bus のパーティション分割されたキューとトピックの AMQP 1.0 のサポートについての説明 (近日公開予定!) を参照してください。 
 
-
-[service bus architecture]: service-bus-architecture.md 
-[azure classic portal]: http://manage.windowsazure.com 
-[queuedescription.enablepartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx 
-[topicdescription.enablepartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx 
-[brokeredmessage.sessionid]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx 
-[brokeredmessage.partitionkey]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.partitionkey.aspx 
-[sessionid]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx 
-[partitionkey]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.partitionkey.aspx 
-[queuedescription.requiresduplicatedetection]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection.aspx 
-[brokeredmessage.messageid]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx 
-[messageid]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx 
-[queuedescription.requiresduplicatedetection]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection.aspx 
-[messagingfactorysettings.operationtimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx 
-[operationtimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx 
-[queuedescription.forwardto]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx 
-[amqp 1.0 support for service bus partitioned queues and topics]: service-bus-partitioned-entities-amqp-overview.md 
+  [Service Bus Architecture]: service-bus-architecture.md
+  [Azure classic portal]: http://manage.windowsazure.com
+  [QueueDescription.EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
+  [TopicDescription.EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx
+  [BrokeredMessage.SessionId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx
+  [BrokeredMessage.PartitionKey]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.partitionkey.aspx
+  [SessionId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx
+  [PartitionKey]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.partitionkey.aspx
+  [QueueDescription.RequiresDuplicateDetection]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection.aspx
+  [BrokeredMessage.MessageId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx
+  [MessageId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx
+  [QueueDescription.RequiresDuplicateDetection]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection.aspx
+  [MessagingFactorySettings.OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
+  [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
+  [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
+  [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-entities-amqp-overview.md
 

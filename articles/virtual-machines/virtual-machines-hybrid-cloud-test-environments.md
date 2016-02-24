@@ -17,7 +17,6 @@
     ms.date="09/16/2015"
     ms.author="josephd"/>
 
-
 # Azure ハイブリッド クラウド テスト環境
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーのモデルです。
@@ -27,7 +26,7 @@
 
 ## ハイブリッド クラウドの基本構成
 
-[ハイブリッド クラウドの基本構成](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md) で構成されます。
+ [ハイブリッド クラウドの基本構成](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md) で構成されます。
 
 - 4 つの仮想マシン (ドメイン コントローラー、アプリケーション サーバー、クライアント コンピューター、および Windows サーバーを実行してルーティングとリモート アクセスを行う VPN デバイス) を備えた、簡略化されたオンプレス ネットワーク
 - レプリカ ドメイン コントローラーを備えた Azure 仮想ネットワーク
@@ -35,15 +34,15 @@
 
 ## ハイブリッド クラウドでの SharePoint イントラネット ファーム
 
-[ハイブリッド クラウド テスト環境での SharePoint イントラネット ファーム](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md) 、SQL Server 2014 サーバーと SharePoint Server 2013 のサーバーをハイブリッド クラウドの基本構成に追加します。 これによって、簡略化されたオンプレミス ネットワーク上のクライアント コンピューターからアクセスできる、2 層の SharePoint ファームが作成されます。
+ [ハイブリッド クラウド テスト環境での SharePoint イントラネット ファーム](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md) 、SQL Server 2014 サーバーと SharePoint Server 2013 のサーバーをハイブリッド クラウドの基本構成に追加します。 これによって、簡略化されたオンプレミス ネットワーク上のクライアント コンピューターからアクセスできる、2 層の SharePoint ファームが作成されます。
 
 ## ハイブリッド クラウドでの Web ベースの基幹業務 (LOB) アプリケーション
 
-[ハイブリッド クラウド テスト環境で web ベース LOB アプリケーション](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md) ハイブリッド クラウドの基本構成に SQL Server 2014 サーバーとインターネット インフォメーション サービス (IIS) サーバーを追加します。 これによって、Web ベースの階層型 LOB アプリケーションをデプロイしてテストできるインフラストラクチャが作成されます。
+ [ハイブリッド クラウド テスト環境で web ベース LOB アプリケーション](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md) ハイブリッド クラウドの基本構成に SQL Server 2014 サーバーとインターネット インフォメーション サービス (IIS) サーバーを追加します。 これによって、Web ベースの階層型 LOB アプリケーションをデプロイしてテストできるインフラストラクチャが作成されます。
 
 ## ハイブリッド クラウドでの Office 365 ディレクトリ同期 (DirSync) サーバー
 
-[ハイブリッド クラウド テスト環境での Office 365 DirSync サーバー](../virtual-network/virtual-networks-setup-dirsync-hybrid-cloud-testing.md) DirSync サーバーをハイブリッド クラウドの基本構成に追加し、評価版の Office 365 サブスクリプションに対してパスワード同期と Office 365 DirSync をデモンストレーションします。
+ [ハイブリッド クラウド テスト環境での Office 365 DirSync サーバー](../virtual-network/virtual-networks-setup-dirsync-hybrid-cloud-testing.md) DirSync サーバーをハイブリッド クラウドの基本構成に追加し、評価版の Office 365 サブスクリプションに対してパスワード同期と Office 365 DirSync をデモンストレーションします。
 
 ## シミュレートされたハイブリッド クラウド テスト環境
 
@@ -54,13 +53,9 @@
 
 [Azure インフラストラクチャ サービスでホストされる SharePoint ファーム](virtual-machines-sharepoint-infrastructure-services.md)
 
-[Azure インフラストラクチャ サービスのワークロード: 高可用性の基幹業務アプリケーション](virtual-machines-workload-high-availability-LOB-application.md)
+[Azure インフラストラクチャ サービスのワークロード: 高可用な基幹業務アプリケーション](virtual-machines-workload-high-availability-LOB-application.md)
 
-[Microsoft Azure での Office 365 ディレクトリ同期 (DirSync) の展開します。](https://technet.microsoft.com/library/dn635310.aspx)
+[Microsoft Azure での Office 365 ディレクトリ同期 (DirSync) のデプロイ](https://technet.microsoft.com/library/dn635310.aspx)
 
 [Azure インフラストラクチャ サービス実装ガイドライン](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-
-
-
 

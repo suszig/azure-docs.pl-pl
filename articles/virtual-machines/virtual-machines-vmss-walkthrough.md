@@ -17,7 +17,6 @@
     ms.date="11/19/2015"
     ms.author="davidmu"/>
 
-
 # 仮想マシン スケール セットでのマシンの自動スケール
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [従来のデプロイ モデル](virtual-machines-create-windows-powershell-service-manager.md)します。
@@ -34,22 +33,21 @@
 
 ## 手順 1: リソース グループとストレージ アカウントの作成
 
-1.  **Microsoft Azure にサインイン**します。 Microsoft Azure PowerShell ウィンドウを開いて **Login-AzureRmAccount** を実行します。
+1.  **Microsoft Azure へのサインイン**します。 Microsoft Azure PowerShell ウィンドウを開き、実行 **ログイン AzureRmAccount**します。
 
-2.  **リソース グループを作成します**。リソースはすべてリソース グループにデプロイする必要があります。 このチュートリアルでは、リソース グループに **vmss-test1** という名前を付けます。 参照してください [新しい AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)します。
+2.  **リソース グループを作成** – すべてのリソースをリソース グループに展開する必要があります。 このチュートリアルでは、名前、リソース グループ **vmss test1**します。 参照してください [新しい AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)します。
 
-3.  **ストレージ アカウントを新しいリソース グループにデプロイします**。仮想マシン スケール セットを単純化するために、このチュートリアルでは、いくつかのストレージ アカウントを使用しています。 使用 [新規 AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) という名前のストレージ アカウントを作成する **vmssstore1**します。 この後の手順に備えて、Azure PowerShell ウィンドウは開いたままにしておいてください。
+3.  **ストレージ アカウントを新しいリソース グループに展開** – このチュートリアルでは、仮想マシンのスケール設定を容易にするためにいくつかのストレージ アカウントを使用します。 使用 [新規 AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) という名前のストレージ アカウントを作成する **vmssstore1**します。 この後の手順に備えて、Azure PowerShell ウィンドウは開いたままにしておいてください。
 
 ## 手順 2: テンプレートの作成
-
 Azure リソース マネージャー テンプレートを使用すると、Azure リソースとそれに関連するデプロイ パラメーターを JSON 形式で記述することによって、それらのリソースをまとめてデプロイし、管理することができます。
 
 1.  任意のテキスト エディターで C:\VMSSTemplate.json ファイルを作成し、このテンプレートをサポートする初期 JSON 構造体を追加します。
 
     ```
 {
-        "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/VM.json",
-   "contentVersion": "1.0.0.0",
+        "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/VM.json"
+   "contentVersion":「1.0.0.0」
  "parameters": {
         }
         "variables": {
@@ -68,6 +66,7 @@ Azure リソース マネージャー テンプレートを使用すると、Azu
     - スケール セットに最初に作成する仮想マシンのインスタンス数。
     - 仮想マシンの管理者アカウントの名前とパスワード。
     - スケール セット内の仮想マシンに使用するストレージ アカウントの名前のプレフィックス。
+
 
     ```
     "vmName": {
@@ -92,6 +91,7 @@ Azure リソース マネージャー テンプレートを使用すると、Azu
         "type": "string"
       }
     ```
+
 
 3.  絶えず値が変化する場合や、複数のパラメーター値を組み合わせて値を作成する必要がある場合は、テンプレートの中で変数を使用して指定できます。
 
@@ -272,6 +272,7 @@ Azure リソース マネージャー テンプレートを使用すると、Azu
 
 8.  Jumpbox 仮想マシンで使用するネットワーク インターフェイス リソースを追加します。
 
+
     ```
     {
         "apiVersion": "2015-05-01-preview",
@@ -300,6 +301,7 @@ Azure リソース マネージャー テンプレートを使用すると、Azu
         }
     },
     ```
+
 
 9.  同じネットワーク内の仮想マシン リソースを スケール セットとして追加します。 仮想マシン スケール セット内のマシンは、パブリック IP アドレスで直接アクセスすることはできません。そのため、スケール セットと同じ仮想ネットワークに Jumpbox 仮想マシンを作成し、Jumpbox 仮想マシンを使用して、その スケール セット内のマシンにリモートからアクセスすることになります。
 
@@ -350,9 +352,9 @@ Azure リソース マネージャー テンプレートを使用すると、Azu
 
 10. 仮想マシン スケール セット リソースを追加し、スケール セット内のすべての仮想マシンにインストールする診断拡張機能を指定します。 このリソースに使用する設定の多くは、仮想マシン リソースと同様です。 主な違いは次のとおりです。
 
-    - **capacity** - スケール セット内で初期化する仮想マシンの数を指定します。 この値は、instanceCount パラメーターの値を指定することによって設定します。
+    - **容量** -仮想マシンの数をスケール設定で初期化するかを指定します。 この値は、instanceCount パラメーターの値を指定することによって設定します。
 
-    - **upgradePolicy** – スケール セット内の仮想マシンに対する更新の適用方法を指定します。 Manual を指定すると、テンプレートにおける変更が、新しい仮想マシンにのみ、再デプロイ時に適用されます。 Automatic を指定した場合、スケール セット内のすべてのマシンが更新され、再起動されます。
+    - **upgradePolicy** – スケール セット内の仮想マシンに更新を実行する方法を指定します。 Manual を指定すると、テンプレートにおける変更が、新しい仮想マシンにのみ、再デプロイ時に適用されます。 Automatic を指定した場合、スケール セット内のすべてのマシンが更新され、再起動されます。
 
     仮想マシン スケール セットは、dependsOn 要素に指定されたすべてのストレージ アカウントが作成されたときに初めて作成されます。
 
@@ -465,18 +467,18 @@ Azure リソース マネージャー テンプレートを使用すると、Azu
 
 11. スケール セットの仮想マシンのプロセッサ使用率に基づく調整方法を定義する autoscaleSettings リソースを追加します。 このチュートリアルで重要となる値は次のとおりです。
 
- - **metricName** - これは、wadperfcounter 変数で定義したパフォーマンス カウンターと同じです。 その変数を使用して、診断拡張機能は、収集、  **プロセッサ (_Total) \ % Processor Time** カウンターです。
- - **metricResourceUri** - 仮想マシン スケール セットのリソース識別子です。
- - **timeGrain** – 収集するメトリックの粒度です。 このテンプレートでは 1 分に設定しています。
- - **statistic** – 自動スケーリング処理に対応するためのメトリックの集計方法を指定します。 指定できる値は Average、Min、Max です。 このテンプレートでは、スケール セットに含まれる仮想マシンの平均合計 CPU 使用率を検出しています。
- - **timeWindow** – インスタンス データを収集する時間の範囲です。 5 分～ 12 時間の範囲で指定する必要があります。
- - **timeAggregation** – 時間経過に沿って収集されたデータの集計方法を指定します。 既定値は Average です。 指定できる値は Average、Minimum、Maximum、Last、Total、Count です。
- - **operator** – メトリック データとしきい値を比較するときに用いる演算子です。 指定できる値は、Equals、NotEquals、GreaterThan、GreaterThanOrEqual、LessThan、LessThanOrEqual です。
- - **threshold** – スケール処理の開始点となる値です。 このテンプレートでは、スケール セット内のマシンの平均 CPU 使用率が 50% を超えたとき、スケール セットにマシンが追加されます。
- - **direction** – しきい値に達したときに実行するアクションを指定します。 指定できる値は Increase または Decrease です。 このテンプレートでは、定義された時間枠 (timeWindow) 内にしきい値が 50% を超えた場合、スケール セット内の仮想マシンの数が増やされます。
- - **type** – 発生させるアクションの種類です。これは ChangeCount に設定する必要があります。
- - **value** – スケール セットに追加する仮想マシンの数または スケール セットから削除する仮想マシンの数です。 1 以上の値を設定する必要があります。 既定値は 1 です。 このテンプレートでは、しきい値に達したときに、スケール セット内の仮想マシンの数が 1 つ増やされます。
- - **cooldown** – 前回のスケーリング処理から次回のスケーリング処理までの待機時間です。 1 分～ 1 週間の範囲で指定する必要があります。
+ - **metricName** -これは、wadperfcounter 変数で定義したパフォーマンス カウンターと同じです。 その変数を使用して、診断拡張機能は、収集、  **プロセッサ (_Total) \ % Processor Time** カウンターです。
+ - **metricResourceUri** -これは、仮想マシンのスケール設定のリソース識別子。
+ - **timeGrain** – これは、収集されるメトリックの単位です。 このテンプレートでは 1 分に設定しています。
+ - **統計** – これは、自動スケーリング処理に対応するメトリックを結合する方法を決定します。 指定できる値は Average、Min、Max です。 このテンプレートでは、スケール セットに含まれる仮想マシンの平均合計 CPU 使用率を検出しています。
+ - **timewindow プロパティ** – この場合、どのインスタンス データの時間の範囲を収集します。 5 分～ 12 時間の範囲で指定する必要があります。
+ - **timeAggregation** – これは、時間の経過と共に収集されるデータを結合する方法を決定します。 既定値は Average です。 指定できる値は Average、Minimum、Maximum、Last、Total、Count です。
+ - **演算子** – これは、メトリック データとしきい値の比較に使用される演算子です。 指定できる値は、Equals、NotEquals、GreaterThan、GreaterThanOrEqual、LessThan、LessThanOrEqual です。
+ - **しきい値** – これは、スケール アクションをトリガーする値。 このテンプレートでは、スケール セット内のマシンの平均 CPU 使用率が 50% を超えたとき、スケール セットにマシンが追加されます。
+ - **方向** – これが、しきい値の値が達成ときに行われる動作を決定します。 指定できる値は Increase または Decrease です。 このテンプレートでは、定義された時間枠 (timeWindow) 内にしきい値が 50% を超えた場合、スケール セット内の仮想マシンの数が増やされます。
+ - **型** – これは、実行するアクションの種類、これは、ChangeCount に設定する必要があります。
+ - **値** – これは、追加または拡張セットから削除される仮想マシンの数。 1 以上の値を設定する必要があります。 既定値は 1 です。 このテンプレートでは、しきい値に達したときに、スケール セット内の仮想マシンの数が 1 つ増やされます。
+ - **cooldown** – これは、次のアクションが発生する前に、最後のスケーリング処理から待機する時間。 1 分～ 1 週間の範囲で指定する必要があります。
 
     ```
     {
@@ -526,7 +528,7 @@ Azure リソース マネージャー テンプレートを使用すると、Azu
     }
     ```
 
-12. テンプレート ファイルを保存します。
+12. テンプレート ファイルを保存します。    
 
 ## 手順 3: ストレージへのテンプレートのアップロード
 
@@ -557,7 +559,6 @@ Azure リソース マネージャー テンプレートを使用すると、Azu
         $fileName = "C:\" + $BlobName
         Set-AzureStorageBlobContent -File $fileName -Container $ContainerName -Blob  $BlobName -Context $ctx
 
-
 ## 手順 4: テンプレートのデプロイ
 
 テンプレートが完成したら、リソースのデプロイ作業に進むことができます。 その作業を開始するには、次のコマンドを使用します。
@@ -575,7 +576,8 @@ Enter キーを押すと、先ほど割り当てた変数の値を入力する�
     resourcePrefix: vmsstest
 
 すべてのリソースが正常にデプロイされるまでに約 15 分かかります。
->[AZURE.NOTE]ポータルの機能を利用してリソースをデプロイすることもできます。 これを行うには、このリンクを使用します。
+
+>[AZURE.NOTE]作成することも、ポータルの機能を使用して、リソースをデプロイします。 これを行うには、このリンクを使用します。
 https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
 
 ## 手順 4: リソースの監視
@@ -583,7 +585,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JS
 仮想マシン スケール セットに関する情報の一部は、次の方法で入手することができます。
 
  - Azure ポータル - 現在、ポータルを使用して入手できる情報の量は限られています。
- - [Azure リソース エクスプ ローラー](https://resources.azure.com/) -これは、スケール設定の現在の状態を表示する最適なツールです。 作成した スケール セットのインスタンス ビューは次のパスをたどって表示できます。
+ -  [Azure リソース エクスプ ローラー](https://resources.azure.com/) -これは、スケール設定の現在の状態を表示する最適なツールです。 作成した スケール セットのインスタンス ビューは次のパスをたどって表示できます。
 
         subscriptions > {your subscription} > resourceGroups > vmss-test1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
 
@@ -593,7 +595,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JS
 
  - 通常の仮想マシンに接続するときと同じように Jumpbox 仮想マシンに接続し、スケール セット内の仮想マシンにリモートからアクセスして個々のプロセスを監視することができます。
 
->[AZURE.NOTE]には、スケールの設定に関する情報を取得するための完全な REST API を参照して [仮想マシンのスケール設定](https://msdn.microsoft.com/library/mt589023.aspx)
+>[AZURE.NOTE]スケールの設定に関する情報を取得するための完全な REST API を参照して [仮想マシンのスケール設定](https://msdn.microsoft.com/library/mt589023.aspx)
 
 ## 手順 5: リソースの削除
 
@@ -604,6 +606,4 @@ Azure で使用されるリソースに対して課金されるため、不要�
 リソース グループを維持する必要がある場合は、スケール セットのみを削除することができます。
 
     Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmss-test1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
-
-
 

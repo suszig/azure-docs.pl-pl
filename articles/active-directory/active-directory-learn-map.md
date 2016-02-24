@@ -16,11 +16,9 @@
     ms.date="09/21/2015"
     ms.author="curtand"/>
 
-
 # Azure AD の詳細情報
 
 ### このトピックに関するその他の記事
-
 [Azure AD とは何ですか。](active-directory-whatis.md)<br>
 [作業のでしょうか。](active-directory-works.md)<br>
 [概要します。](active-directory-get-started.md)<br>
@@ -35,15 +33,11 @@ REST API エンドポイントから Azure AD にプログラムでアクセス�
 
 独自のカスタム ドメイン名を Azure Active Directory に追加し、それを Microsoft オンライン サービスで使用できます。 [インターネット ドメインの管理](active-directory-add-domain.md)
 
-使用上の制約と Azure Active Directory サービスの他のサービスの制限については、を参照してください [Azure AD サービスの制限と制約事項](active-directory-service-limits-restrictions.md)。
+使用上の制約およびその他のサービスの制限、Azure Active Directory サービスの詳細については、次を参照してください [Azure AD サービスの制限と制約事項。](active-directory-service-limits-restrictions.md)
 
 
 ## その他のリソース
 
-* [組織として Azure にサインアップします。](sign-up-organization.md)
-* [Azure Id](fundamentals-identity.md)
-
-
-
-
+* [Azure への組織としてのサインアップ](sign-up-organization.md)
+* [Azure ID](fundamentals-identity.md)
 

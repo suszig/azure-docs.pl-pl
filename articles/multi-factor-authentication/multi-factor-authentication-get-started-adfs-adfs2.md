@@ -15,17 +15,15 @@
     ms.topic="article" 
     ms.date="11/19/2015" 
     ms.author="billmath"/>
-
 # Azure Multi-Factor Authentication Server と AD FS 2.0 を使用したクラウドおよびオンプレミスのリソースのセキュリティ保護
 
 お客様の組織が Azure Active Directory とフェデレーションされており、オンプレミスまたはクラウドにセキュリティ保護したいリソースがある場合、Azure Multi-Factor Authentication Sever を使用して、AD FS と連動するよう構成し、価値の高いエンド ポイントで多要素認証がトリガーされるようにすることによってセキュリティ保護を行えます。
 
-このドキュメントでは、Azure Multi-Factor Authentication Server と AD FS 2.0 の使用について説明します。 Windows Serve 2012 R2 の AD FS での Azure 多要素認証の使用に関する情報を参照してください。 [と Windows Server 2012 R2 AD FS の Azure Multi-factor Authentication Server を使用してクラウドと内部設置型のリソースをセキュリティで保護された](multi-factor-authentication-get-started-adfs-w2k12.md)します。
+このドキュメントでは、Azure Multi-Factor Authentication Server と AD FS 2.0 の使用について説明します。  Windows Serve 2012 R2 の AD FS での Azure 多要素認証の使用に関する情報を参照してください。 [と Windows Server 2012 R2 AD FS の Azure Multi-factor Authentication Server を使用してクラウドと内部設置型のリソースをセキュリティで保護された](multi-factor-authentication-get-started-adfs-w2k12.md)します。
 
 
 ## AD FS 2.0 プロキシ
-
-プロキシで AD FS 2.0 を保護するには、次の手順に従って ADFS プロキシ サーバーに Azure Multi-factor Authentication Server をインストールし、サーバーを構成します。
+プロキシで AD FS 2.0 を保護するには、次の手順に従って ADFS プロキシ サーバーに Azure Multi-factor Authentication Server をインストールし、サーバーを構成します。 
 
 ### プロキシで AD FS 2.0 を保護するには
 
@@ -65,10 +63,9 @@
 
 ## プロキシを持たない AD FS 2.0 Direct
 
-AD FS プロキシが使用されないときに AD FS 2.0 を保護するには、次の手順に従って ADFS サーバーに Azure Multi-factor Authentication Server をインストールし、サーバーを構成します。
+AD FS プロキシが使用されないときに AD FS 2.0 を保護するには、次の手順に従って ADFS サーバーに Azure Multi-factor Authentication Server をインストールし、サーバーを構成します。 
 
 ### プロキシなしで AD FS 2.0 を保護するには
-
 1. Azure Multi-factor Authentication Server 内で、左側のメニューの [IIS 認証] アイコンをクリックします。
 2. [HTTP] タブをクリックします。
 3. [追加] をクリックしてください. をクリックしてください。
@@ -83,10 +80,10 @@ AD FS プロキシが使用されないときに AD FS 2.0 を保護するには
 
 
 ## 信頼される IP
-
-信頼される IP は、特定の IP アドレスまたはサブネットから発生する Web サイト要求に関して、ユーザーが Azure Multi-Factor Authentication をバイパスできるようにします。 たとえば、社内からのログイン中は、Azure Multi-Factor Authentication からユーザーを除外することもできます。 その場合、社内のサブネットを信頼される IP エントリとして指定します。
+信頼される IP は、特定の IP アドレスまたはサブネットから発生する Web サイト要求に関して、ユーザーが Azure Multi-Factor Authentication をバイパスできるようにします。 たとえば、社内からのログイン中は、Azure Multi-Factor Authentication からユーザーを除外することもできます。 その場合、社内のサブネットを信頼される IP エントリとして指定します。 
 
 ### 信頼される IP を構成するには
+
 
 1. [IIS 認証] セクションで、[信頼される IP] タブをクリックします。
 1. [追加] をクリックしてください. をクリックしてください。
@@ -96,8 +93,4 @@ AD FS プロキシが使用されないときに AD FS 2.0 を保護するには
 
 <center>![セットアップ](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
 
-
-
-
-
-
+ 

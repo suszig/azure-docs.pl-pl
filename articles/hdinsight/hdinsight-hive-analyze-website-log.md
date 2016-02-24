@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Web サイトのログ分析のための Hadoop での Hive の使用| Microsoft Azure" 
-    description="Web サイトのログを分析するために HDInsight で Hive を使用する方法を説明します。HDInsight テーブルへの入力にログ ファイルを使用し、HiveQL を使用してデータを照会します。" 
+    description="Web サイトのログを分析するために HDInsight で Hive を使用する方法を説明します。 HDInsight テーブルへの入力にログ ファイルを使用し、HiveQL を使用してデータを照会します。" 
     services="hdinsight" 
     documentationCenter="" 
     authors="nitinme" 
@@ -17,7 +17,6 @@
     ms.date="11/29/2015" 
     ms.author="nitinme"/>
 
-
 # Web サイトのログを分析するための HDInsight での Hive の使用
 
 Web サイトのログを分析するために HDInsight で HiveQL を使用する方法を説明します。 Web サイトのログ分析は、類似するアクティビティに基づく対象ユーザーの区分、人口統計によるサイト訪問者の分類、参照されたコンテンツや訪問元の Web サイトの確認などのために使用できます。
@@ -31,34 +30,33 @@ Web サイトのログを分析するために HDInsight で HiveQL を使用す
 
 ![HDI.Samples.Website.Log.Analysis][img-hdi-weblogs-sample]
 
-## 前提条件
+##前提条件
 
-- Azure HDInsight 上で Hadoop クラスターをプロビジョニングしておく必要があります。 手順については、次を参照してください。 [HDInsight クラスターのプロビジョニング ][hdinsight-provision]します。
+- Azure HDInsight 上で Hadoop クラスターをプロビジョニングしておく必要があります。 手順については、次を参照してください。 [HDInsight クラスターのプロビジョニング][hdinsight-provision]します。 
 - Microsoft Excel 2013 または Microsoft Excel 2010 がインストールされていること。
 - 必要があります [Microsoft Hive ODBC ドライバー](http://www.microsoft.com/download/details.aspx?id=40886) Hive から Excel にデータをインポートします。
 
 
-## サンプルを実行するには
+##サンプルを実行するには
 
-1. [Azure ポータル](https://ms.portal.azure.com/), 、スタート ボードで (クラスターが登録している) 場合、このサンプルを実行するクラスターのタイルをクリックします。
+1.  [Azure ポータル](https://ms.portal.azure.com/), 、スタート ボードで (クラスターが登録している) 場合、このサンプルを実行するクラスターのタイルをクリックします。
 
-2. クラスターのブレードの **[クイック リンク]** で **[クラスター ダッシュボード]** をクリックし、**[クラスター ダッシュボード**] ブレードで **[HDInsight クラスター ダッシュボード]** をクリックします。 または、次に示す URL を使用してダッシュボードを直接開くこともできます。
+2. クラスター ブレードから [ **クイック リンク**, 、] をクリックして **クラスターのダッシュ ボード**, 、し、 **クラスターのダッシュ ボード** ブレードで、をクリックして **HDInsight クラスターのダッシュ ボード**します。 または、次に示す URL を使用してダッシュボードを直接開くこともできます。
 
         https://<clustername>.azurehdinsight.net
-
+    
     入力を要求されたら、クラスターをプロビジョニングするときに使用した管理者名とパスワードを使用して認証します。
-
-2. 表示された Web ページで **[概要ギャラリー]** タブをクリックし、**[サンプル]** カテゴリにある **[Web サイト ログ分析]** サンプルを選択します。
+  
+2. 表示された web ページをクリックして、 **Getting Started ギャラリー** ] タブで、下にある、 **サンプル** カテゴリで、] をクリックして、 **web サイト ログ分析** サンプルです。
 
 3. Web ページに記載されている手順に従って、サンプルを完了します。
 
-## 次のステップ
-
-次の例を実行してください: [HDInsight で Hive を使用したセンサー データを分析する](hdinsight-hive-analyze-sensor-data.md)します。
-
+##次のステップ
+次の例を実行してください: [HDInsight で Hive を使用したセンサー データを分析する](hdinsight-hive-analyze-sensor-data.md)です。
 
 
-[hdinsight-provision]: hdinsight-provision-clusters.md 
-[hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis.md 
-[img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png 
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis.md
 
+[img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
+ 

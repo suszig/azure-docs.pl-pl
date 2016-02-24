@@ -15,7 +15,6 @@
    ms.date="12/11/2015"
    ms.author="telmos" />
 
-
 # VM またはロール インスタンスを別のサブネットに移動する方法
 
 PowerShell を使用すると、同じ Virtual Network (VNet) 内のサブネット間で VM を移動することができます。 ロール インスタンスを移動する場合は、PowerShell を使用せずに、CSCFG を編集します。
@@ -41,7 +40,7 @@ VM に対して静的 DIP が指定されている場合は、VM を新しいサ
 
 ## 別のサブネットにロール インスタンスを移動する方法
 
-ロール インスタンスを移動するには、CSCFG ファイルを編集します。 以下の例では、Virtual Network *VNETName* 内の「Role0」 を、現在のサブネットから *Subnet-2* に移動します。 ロール インスタンスは既にデプロイされているので、単に Subnet name = Subnet-2 の部分を変更します。 必ず、環境に合わせて例を編集してください。
+ロール インスタンスを移動するには、CSCFG ファイルを編集します。 仮想ネットワークの"Role0"を移動して次の例で *VNETName* に現在のサブネットから *subnet-2*します。 ロール インスタンスは既にデプロイされているので、単に Subnet name = Subnet-2 の部分を変更します。 必ず、環境に合わせて例を編集してください。
 
     <NetworkConfiguration>
         <VirtualNetworkSite name="VNETName" />
@@ -51,6 +50,3 @@ VM に対して静的 DIP が指定されている場合は、VM を新しいサ
            </InstanceAddress>
         </AddressAssignments>
     </NetworkConfiguration> 
-
-
-

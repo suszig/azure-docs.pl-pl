@@ -17,19 +17,16 @@
     ms.date="11/09/2015"
     ms.author="heidist"/>
 
-
 # .NET を使用した Azure Search インデックスの作成
-
 > [AZURE.SELECTOR]
-- [Overview](search-what-is-an-index.md)
-- [Portal](search-create-index-portal.md)
+- [概要](search-what-is-an-index.md)
+- [ポータル](search-create-index-portal.md)
 - [.NET](search-create-index-dotnet.md)
-- [REST](search-create-index-rest-api.md)
-
+- [REST ()](search-create-index-rest-api.md)
 
 この記事には、使用してインデックスを作成する方法がでは、 [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)します。 次の内容のサブセットである、 [.NET アプリケーションから Azure Search の使用方法](search-howto-dotnet-sdk.md)します。 エンド ツー エンドの手順については、元の記事を参照してください。
 
-インデックスの作成の前提条件を含めるを使用して行う通常の検索サービスとの接続を確立したこと、 `SearchServiceClient`します。 スムーズに再デプロイできるように、同じ名前のインデックスが既に存在する場合はそれを削除することをお勧めします。
+インデックスを作成するうえでの前提条件には、(通常は `SearchServiceClient` を介して) 検索サービスへの接続が既に確立されていることが挙げられます。 スムーズに再デプロイできるように、同じ名前のインデックスが既に存在する場合はそれを削除することをお勧めします。 
 
 "Hotels"という名前のインデックスにある場合を構築できますメソッドの次のようになります。
 
@@ -41,7 +38,7 @@
         }
     }
 
-このメソッドを使用して、指定された `SearchServiceClient` 確認するには、インデックスが存在する場合は、そして管理者であればそれを削除します。
+このメソッドは、指定された `SearchServiceClient` を使用してインデックスが存在するかどうかを確認し、存在する場合は、それを削除します。
 
 新しい "hotels" インデックスを作成するには、次のようなメソッドを作成します。
 
@@ -63,12 +60,8 @@
                 new Field("location", DataType.GeographyPoint)              { IsFilterable = true, IsSortable = true }
             }
         };
-    
+
         serviceClient.Indexes.Create(definition);
     }
 
-このメソッドが、新たに作成 `インデックス` オブジェクトのリストで `フィールド` 、新しいインデックスのスキーマを定義するオブジェクト。 各フィールドには、名前、データ型、および検索動作を定義するいくつかの属性があります。 フィールドに加えて、スコアリング プロファイル、サジェスター、または CORS オプションを Index に追加することもできます (簡潔さを優先し、サンプルではこれらは省略されています)。 上の詳細については、Index オブジェクトと、SDK の参照を使用してその構成要素を見つけることができます [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx), などでも、 [Azure Search REST API リファレンス](https://msdn.microsoft.com/library/azure/dn798935.aspx)します。
-
-
-
-
+このメソッドは、新しいインデックスのスキーマを定義する `Field` オブジェクトのリストで新しい `Index` オブジェクトを作成します。 各フィールドには、名前、データ型、および検索動作を定義するいくつかの属性があります。 フィールドに加えて、スコアリング プロファイル、サジェスター、または CORS オプションを Index に追加することもできます (簡潔さを優先し、サンプルではこれらは省略されています)。 上の詳細については、Index オブジェクトと、SDK の参照を使用してその構成要素を見つけることができます [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx), などでも、 [Azure Search REST API リファレンス](https://msdn.microsoft.com/library/azure/dn798935.aspx)します。

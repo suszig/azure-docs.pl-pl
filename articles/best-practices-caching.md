@@ -17,7 +17,6 @@
    ms.date="04/28/2015"
    ms.author="masashin"/>
 
-
 # キャッシュに関するガイダンス
 
 ![](media/best-practices-caching/pnp-logo.png)
@@ -71,7 +70,7 @@
 
 ![アプリケーションの複数のインスタンスにおけるメモリ内キャッシュの使用](media/best-practices-caching/Figure1.png)
 
-_Figure 1: application_ の異なるインスタンスにおけるメモリ内キャッシュの使用
+_図 1: アプリケーションの複数のインスタンスにおけるメモリ内キャッシュの使用_
 
 ### Shared Caching
 
@@ -83,7 +82,7 @@ _Figure 1: application_ の異なるインスタンスにおけるメモリ内�
 
 ![共有キャッシュの使用](media/best-practices-caching/Figure2.png)
 
-_Figure 2: 共有キャッシュの使用
+_図 2: 共有キャッシュの使用_
 
 共有のキャッシュ方法を使用する重要な利点は、
 スケーラビリティを提供することをおします。 共有キャッシュ サービスの多くは
@@ -214,7 +213,8 @@ e コマース アプリケーション、またはコストがかかる共有�
 ない場合はキャッシュから削除する項目を原因となったスライド式の値として
 指定した時間内にアクセスします。 この設定は、キャッシュ全体をオーバーライドします。
 指定したオブジェクトについては、有効期限ポリシーです。
-> [AZURE.NOTE] キャッシュの有効期限とキャッシュに含まれるオブジェクトを慎重に検討してください。 有効期限を短くしすぎると、オブジェクトはすぐに期限切れになり、キャッシュを使用するメリットが損なわれます。 有効期限を長くしすぎると、データが古くなる危険性があります。
+
+> [AZURE.NOTE] キャッシュと慎重に含まれているオブジェクトの有効期間を検討してください。 有効期限を短くしすぎると、オブジェクトはすぐに期限切れになり、キャッシュを使用するメリットが損なわれます。 有効期限を長くしすぎると、データが古くなる危険性があります。
 
 データの維持が許可された場合、キャッシュがいっぱいにこともできます。
 長時間にわたって常駐します。 ここでは、いずれかを要求に新しい項目を追加します
@@ -262,8 +262,8 @@ web プロキシ)、リソースが更新された場合に、最新の情報を
 データとの競合が発生する可能性の性質によっては
 同時実行制御の 2 つの方法のいずれかを採用することができます。
 
-- __オプティミスティック同時実行制御。__アプリケーションは、キャッシュ内のデータを更新する直前に、取得後にそのデータが変更されたかどうかを確認します。 データが同じままの場合、変更できます。 それ以外の場合、アプリケーションはこのデータを更新するかどうかを決定する必要があります (この決定の基準になるビジネス ロジックはアプリケーションごとに異なります)。 この方法は、更新が頻繁に行われる状況、または競合が発生する可能性がない状況に適しています。
-- __ペシミスティック同時実行制御。__アプリケーションは、キャッシュ内のデータを取得するときにそのデータをロックして、他のインスタンスがそのデータを変更できないようにします。 このプロセスによって競合は起きなくなりますが、同じデータを処理する必要がある他のインスタンスもブロックされる可能性があります。 ペシミスティック同時実行制御は、ソリューションのスケーラビリティに影響をあたえる可能性があるため、一時的な操作にのみ使用するようにする必要があります。 この方法は、競合が発生する可能性が高い状況、特にアプリケーションがキャッシュ内の複数の項目を更新するため、こうした変更が矛盾なく適用されるようにする必要がある場合に適しています。
+- __オプティミスティックします。__アプリケーションは、キャッシュ内のデータを更新する直前に、取得後にそのデータが変更されたかどうかを確認します。 データが同じままの場合、変更できます。 それ以外の場合、アプリケーションはこのデータを更新するかどうかを決定する必要があります (この決定の基準になるビジネス ロジックはアプリケーションごとに異なります)。 この方法は、更新が頻繁に行われる状況、または競合が発生する可能性がない状況に適しています。
+- __ペシミスティックします。__アプリケーションは、キャッシュ内のデータを取得するときにそのデータをロックして、他のインスタンスがそのデータを変更できないようにします。 このプロセスによって競合は起きなくなりますが、同じデータを処理する必要がある他のインスタンスもブロックされる可能性があります。 ペシミスティック同時実行制御は、ソリューションのスケーラビリティに影響をあたえる可能性があるため、一時的な操作にのみ使用するようにする必要があります。 この方法は、競合が発生する可能性が高い状況、特にアプリケーションがキャッシュ内の複数の項目を更新するため、こうした変更が矛盾なく適用されるようにする必要がある場合に適しています。
 
 ### 高可用性とスケーラビリティの実装およびパフォーマンスの向上
 
@@ -300,8 +300,8 @@ web プロキシ)、リソースが更新された場合に、最新の情報を
 共有キャッシュにアクセスできない場合は、バッファーとして機能します。 図 3
 この構造を示しています。
 
-![共有キャッシュとローカルなプライベート キャッシュの併用](media/best-practices-caching/Caching3.png)
-_Figure 3: 共有キャッシュとローカルなプライベート キャッシュを使用します。
+![共有キャッシュとローカルなプライベート キャッシュを使用します。](media/best-practices-caching/Caching3.png)
+_図 3: 共有キャッシュとローカルなプライベート キャッシュを使用します。_
 
 いくつか有効期間が比較的長いデータを保持する大規模なキャッシュをサポートするために
 キャッシュ サービスを実装する高可用性オプションを提供します。
@@ -312,7 +312,7 @@ _Figure 3: 共有キャッシュとローカルなプライベート キャッ�
 失われました。 複数への書き込みに関連付けられている待機時間を減らす
 プライマリ上のキャッシュにデータが書き込まれたときの宛先
 サーバー、セカンダリ サーバーへのレプリケーションが発生します。
-非同期的にします。 このアプローチを可能性です。
+非同期的にします。  このアプローチを可能性です。
 キャッシュされた情報が、障害発生時に失われる可能性がありますが、
 このデータの大部分べき小さな全体と比較して
 キャッシュのサイズ。
@@ -429,7 +429,8 @@ Azure Redis cache は、多くのさまざまなとの互換性
 既にオンプレミスで実行して、Redis を使用するアプリケーション、
 Azure Redis キャッシュのキャッシュへのクイック移行パスを提供します。
 で、クラウドになります。
-> [AZURE.NOTE] Azure では、Managed Cache Service も提供します。 この
+
+> [AZURE.NOTE] Azure では、マネージ キャッシュ サービスも提供します。 この
   サービスは Microsoft AppFabric Cache エンジンに基づいています。 その方法は
   共有できる分散キャッシュを作成することができます。
   疎結合アプリケーション。 キャッシュがホストされています。
@@ -452,7 +453,7 @@ Azure Redis キャッシュのキャッシュへのクイック移行パスを�
   Azure Redis Cache に移行すると、複数のメリットをもたらします可能性があります。
   詳細については、Azure Redis Cache を使用するかどうか
   または、ロール内キャッシュ、ページを参照してください
-  [どの Azure Cache を利用に最適な?](http://msdn.microsoft.com/library/azure/dn766201.aspx) 、Microsoft web サイトです。
+  [どの Azure Cache を利用に最適な?](http://msdn.microsoft.com/library/azure/dn766201.aspx) Microsoft web サイトです。
 
 
 ### Redis の機能
@@ -466,6 +467,7 @@ Redis はより単純なキャッシュ サーバーです。分散型メモリ�
 ### メモリ内データベースとしての Redis
 
 Redis は、読み取りと書き込みの両方をサポートします。 (一時的なデータ ストアとみなす必要がある) 多くのキャッシュとは異なり、書き込み内容は、ローカルのスナップショット ファイルまたは追加専用のログ ファイルに定期的に保存することで、システムの故障から保護することができます。 すべての書き込みは非同期であり、クライアントによるデータの読み取りと書き込みをブロックしません。 Redis の実行を開始すると、スナップショットまたはログ ファイルからデータを読み取り、そのデータを使用してメモリ内キャッシュを構築します。 詳細については、次を参照してください。 [Redis の永続化](http://redis.io/topics/persistence) Redis web サイトです。
+
 > [AZURE.NOTE] Redis では、イベント内のすべての書き込みが保存されることは保証されません。
   重大なエラーが、最悪の事態にはいくつかの秒数が失われることのみ必要があります。
   分のデータです。 キャッシュとして機能するものではありませんに注意してください、
@@ -479,10 +481,11 @@ Redis はキー値ストアであり、値には単純な型や、ハッシュ�
 
 #### Redis のレプリケーションとクラスタリング
 
-Redis は、可用性を確保しつつスループットを維持するために、マスターと下位のレプリケーションをサポートしています。Redis マスター ノードへの書き込み操作は 1 つまたは複数の下位ノードにレプリケートされ、読み取り操作はマスター ノードまたはいずれかの下位ノードで処理することができます。 ネットワーク パーティションが発生した場合、下位ノードはデータの処理を継続してから、接続が再度確立されたときにマスターと透過的に再同期することができます。 詳細については、次を参照してください。、 [レプリケーション](http://redis.io/topics/replication) Redis web サイトのページです。
+Redis は、可用性を確保しつつスループットを維持するために、マスターと下位のレプリケーションをサポートしています。Redis マスター ノードへの書き込み操作は 1 つまたは複数の下位ノードにレプリケートされ、読み取り操作はマスター ノードまたはいずれかの下位ノードで処理することができます。 ネットワーク パーティションが発生した場合、下位ノードはデータの処理を継続してから、接続が再度確立されたときにマスターと透過的に再同期することができます。 詳細については、次を参照してください。、 [レプリケーション](http://redis.io/topics/replication) 、Redis web サイトのページです。
 
 Redis ではクラスタリングも提供されるため、サーバー間のシャードにデータを透過的に分割して、負荷を分散することができます。 この機能によって、キャッシュのサイズの増加に合わせて新しい Redis サーバーを追加し、データを再分割することができるため、スケーラビリティが向上します。 さらに、マスターと下位のレプリケーションを使用し、クラスター内の各ノード間の可用性を確保して、クラスター内の各サーバーをレプリケートすることができます。 クラスタ リングとシャーディングの詳細については、次を参照してください。、 [Redis クラスター チュートリアル ページ](http://redis.io/topics/cluster-tutorial) Redis web サイトです。
-> [AZURE.NOTE] 現在、Azure Redis Cache ではクラスタリングをサポートしていません。 Redis クラスターを作成する場合は、独自のカスタム Redis サーバーを構築できます。 詳細については、このドキュメントの後半の「カスタム Redis キャッシュの構築」セクションを参照してください。
+
+> [AZURE.NOTE] Azure Redis Cache では、クラスタ リングを現在はサポートしていません。 Redis クラスターを作成する場合は、独自のカスタム Redis サーバーを構築できます。 詳細については、このドキュメントの後半の「カスタム Redis キャッシュの構築」セクションを参照してください。
 
 ### Redis のメモリ使用量
 
@@ -504,7 +507,8 @@ Redis ではデータへの高速アクセスを実現することのみに重�
 
 Redis ではデータの暗号化形式は直接的にサポートされていないため、すべてのエンコードはクライアント アプリケーションが実行する必要があります。 さらに、Redis ではトランスポート セキュリティが提供されないため、ネットワーク内を流れるデータを保護する必要がある場合には、SSL プロキシを実装する必要があります。
 
-詳細については、次を参照してください。、 [Redis のセキュリティ](http://redis.io/topics/security) Redis web サイトのページです。
+詳細については、次を参照してください。、 [Redis のセキュリティ](http://redis.io/topics/security) 、Redis web サイトのページです。
+
 > [AZURE.NOTE] Azure Redis Cache; クライアントが接続を経由する独自のセキュリティ レイヤーを提供します。基になる Redis
   サーバーは、パブリック ネットワークには公開されません。
 
@@ -519,7 +523,8 @@ Microsoft Azure 管理ポータルを使用する場合、キャッシュの削�
 Microsoft Azure 管理ポータルには、キャッシュのパフォーマンスを監視できるようにする、便利なグラフィカル表示が含まれています。 たとえば、確立されている接続の数、実行された要求の数、読み込みおよび書き込みの量、キャッシュ ミスに対するキャッシュ ヒットの数を確認できます。 この情報を使用してキャッシュの有効性を判断し、必要に応じて、別の構成に切り替えるか、削除ポリシーを変更することができます。 さらに、1 つ以上の重要な指標が想定される範囲を超えた場合に管理者に電子メール メッセージを送信する、アラートを作成することもできます。 たとえば、過去 1 時間でキャッシュ ミスの数が指定された値を上回った場合、キャッシュが小さすぎるかデータの削除が早すぎるというアラートを、管理者に送ることができます。
 
 CPU、メモリ、およびキャッシュのネットワーク使用率を監視することもできます。
-> [AZURE.NOTE] Azure Redis Cache は、データベースではなく、単なるキャッシュとして機能するように設計されています。 したがって、現在は Redis の永続性を実装していません。
+
+> [AZURE.NOTE] Azure Redis Cache は単なるデータベースではなく、キャッシュとして機能するためのものです。 したがって、現在は Redis の永続性を実装していません。
 
 詳しい情報と作成して Azure Redis Cache を構成する方法の例では、ページを参照して [Azure Redis Cache に関する説明](http://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) Azure ブログのです。
 
@@ -534,9 +539,10 @@ Azure の Web ロールを使用して実行される ASP.NET Web アプリケ�
 - 圧縮を使用してメモリを節約し、ネットワーク パフォーマンスを改善できます。
 
 詳細については、次を参照してください。、 [Azure Redis Cache 用の ASP.NET セッション状態プロバイダー](http://msdn.microsoft.com/library/azure/dn690522.aspx) 、Microsoft web サイトのページです。
-> [AZURE.NOTE] Azure 環境の外で実行される ASP.NET アプリケーションには、Azure Redis Cache 用のセッション状態プロバイダーを使用しないでください。 Azure の外部からのキャッシュへのアクセスで発生する待機時間によって、データをキャッシュするパフォーマンスの利点が失われる可能性があります。
 
-同様に、Azure Redis Cache 用の出力キャッシュ プロバイダーを使用すると、ASP.NET Web アプリケーションによって生成される HTTP 応答を削減できます。 出力キャッシュ プロバイダーと Azure Redis Cache を併用すると、複雑な HTML 出力を表示するアプリケーションの応答時間を改善することができます。似たような応答を生成するアプリケーション インスタンスは、このような HTML 出力を新たに生成するのではなく、キャッシュ内の共有出力フラグメントを活用できます。 詳細については、次を参照してください。、 [Azure Redis Cache 用の ASP.NET 出力キャッシュ プロバイダー](http://msdn.microsoft.com/library/azure/dn798898.aspx) 、Microsoft web サイトのページです。
+> [AZURE.NOTE] Azure 環境外で実行される ASP.NET アプリケーションで Azure Redis Cache のセッション状態プロバイダーを使用しないでください。 Azure の外部からのキャッシュへのアクセスで発生する待機時間によって、データをキャッシュするパフォーマンスの利点が失われる可能性があります。
+
+同様に、Azure Redis Cache 用の出力キャッシュ プロバイダーを使用すると、ASP.NET Web アプリケーションによって生成される HTTP 応答を削減できます。 出力キャッシュ プロバイダーと Azure Redis Cache を併用すると、複雑な HTML 出力を表示するアプリケーションの応答時間を改善することができます。似たような応答を生成するアプリケーション インスタンスは、このような HTML 出力を新たに生成するのではなく、キャッシュ内の共有出力フラグメントを活用できます。  詳細については、次を参照してください。、 [Azure Redis Cache 用の ASP.NET 出力キャッシュ プロバイダー](http://msdn.microsoft.com/library/azure/dn798898.aspx) 、Microsoft web サイトのページです。
 
 ## カスタムの Redis キャッシュの構築
 
@@ -557,26 +563,27 @@ Azure Redis キャッシュは、基になる Redis サーバーに対するフ�
 
 Redis キャッシュでパーティション分割を実装するには、次の方法のいずれかを採用します。
 
-- サーバー側でクエリをルーティングしますこの方法で _、クライアント アプリケーションに要求を送信のいずれか、。
+- _サーバー側でクエリをルーティングします。_この方法でクライアント アプリケーションはのいずれかに要求を送信します
   Redis キャッシュ (おそらくは最も近いサーバー) を構成するサーバー。 各 Redis サーバーに保管します。
   保持していると、に関する情報も含まれますが、パーティションを記述するメタデータ
   パーティションは、他のサーバーに配置されます。 Redis サーバーがクライアント要求を評価し、
   解決できるローカルで、操作を実行する要求された、それ以外の場合は、転送、
   適切なサーバーにログオンを要求します。 このモデルは Redis クラスタ リングによって実装され、は
-  さらに詳しく説明されている、 [Redis クラスター チュートリアル](http://redis.io/topics/cluster-tutorial) Redis web サイトのページです。 Redis クラスタ リング
+  さらに詳しく説明されている、 [Redis クラスター チュートリアル](http://redis.io/topics/cluster-tutorial) 、Redis web サイトのページです。 Redis クラスタ リング
   クライアント アプリケーション、およびその他の Redis サーバーをクラスターに追加するのには透過的
   (および再パーティション分割されたデータ)、クライアントを再構成することを必要とせずします。
-  > [AZURE.IMPORTANT] 現在、Azure Redis Cache と Redis クラスタリングは併用できません。 する場合
+
+  > [AZURE.IMPORTANT] Azure Redis Cache では、Redis クラスタ リングを現在はサポートしていません。 する場合
   このアプローチを実装し、既に説明したようにカスタムの Redis キャッシュを構築する必要があります。
 
-- _ 側でパーティション分割します。 このモデルでは、クライアント アプリケーションで _ には、(おそらくのロジックが含まれています。
+- _クライアント側でパーティション分割します。_このモデルではクライアント アプリケーションに (おそらくのロジックが含まれています
   ライブラリの形式) のルートを適切な Redis サーバーに要求することです。 このアプローチ
   Azure Redis キャッシュで使用できます。複数の Azure Redis Cache (各データに対して 1 つを作成します。
   パーティション) を適切な要求をルーティングするクライアント側ロジックを実装
   キャッシュします。 (追加の Azure Redis Cache を作成する場合、パーティション分割構成が変更された場合
   たとえば、) クライアント アプリケーションは、再構成する必要があります。
 
-- パーティション分割 (_p). 支援しますこのスキームで _、クライアント アプリケーションの要求を送信、。
+- _プロキシでパーティション分割します。_このスキームでは、クライアント アプリケーションは要求を送信します。
   中間プロキシ サービス、データを分割する方法を理解して、ルート
   適切な Redis サーバーに要求します。 この方法は、Azure でも使用できます。
   Redis Cache。プロキシ サービスは、Azure クラウド サービスとして実装できます。 この
@@ -590,13 +597,13 @@ Redis では、web サイトは、Redis でパーティション分割の実装�
 
 Redis は、さまざまなプログラミング言語で記述されたクライアント アプリケーションをサポートします。 .NET Framework を使用して新しいアプリケーションを作成する場合は、StackExchange.Redis クライアント ライブラリを使用する方法をお勧めします。 このライブラリは Redis サーバーへの接続、コマンドの送信、および応答の受信の詳細を抽象化する .NET Framework のオブジェクト モデルを提供します。 このライブラリは NuGet パッケージとして Visual Studio で入手できます。 この同じライブラリを使用すると、Azure Redis Cache または VM でホストされているカスタムの Redis キャッシュに接続することができます。
 
-Redis サーバーへ接続するには、静的なを使用する `接続` のメソッド、 `ConnectionMultiplexer` クラスです。 このメソッドで作成される接続は、クライアント アプリケーションの有効期間を通して使用するように設計されているため、複数の同時実行スレッドで同じ接続を使用できます。パフォーマンスが低下する可能性があるので、Redis 操作を実行するたびに再接続/切断しないでください。 Redis ホストのアドレスやパスワードなどの接続パラメーターを指定できます。 Azure Redis Cache を使用している場合、このパスワードは、Microsoft Azure 管理ポータルを使用して Azure Redis Cache 用に生成されたプライマリまたはセカンダリ キーになります。
+Redis サーバーに接続するには、`ConnectionMultiplexer` クラスの静的な `Connect` メソッドを使用します。 このメソッドで作成される接続は、クライアント アプリケーションの有効期間を通して使用するように設計されているため、複数の同時実行スレッドで同じ接続を使用できます。パフォーマンスが低下する可能性があるので、Redis 操作を実行するたびに再接続/切断しないでください。 Redis ホストのアドレスやパスワードなどの接続パラメーターを指定できます。 Azure Redis Cache を使用している場合、このパスワードは、Microsoft Azure 管理ポータルを使用して Azure Redis Cache 用に生成されたプライマリまたはセカンダリ キーになります。
 
-Redis サーバーに接続すると、キャッシュとして機能する Redis データベースを操作できます。 Redis 接続が提供する、 `GetDatabase` これを行うメソッドです。 キャッシュから項目を取得しを使用してキャッシュにデータを格納できる、 `StringGet` と `StringSet` メソッドです。 これらのメソッドをパラメーターとしてキーの予想し、一致する値を持つキャッシュに項目が返されるか (`StringGet`) このキーを使用してキャッシュに項目を追加または (`StringSet`)。
+Redis サーバーに接続すると、キャッシュとして機能する Redis データベースを操作できます。 Redis 接続では、これを行う `GetDatabase` メソッドが提供されます。 キャッシュから項目を取得したりキャッシュにデータを格納したりするには、`StringGet` メソッドと `StringSet` メソッドを使用します。 これらのメソッドにはパラメーターとしてキーを指定する必要があります。一致する値を持つキャッシュ内の項目 (`StringGet`) が返されるか、このキーを持つキャッシュに項目が追加されます (`StringSet`)。
 
 Redis サーバーの場所によっては、多くの操作で、要求がサーバーに転送され応答がクライアントに返されるまでの待機時間が発生する可能性があります。 StackExchange ライブラリには、クライアント アプリケーションの応答性を保つために公開されている、非同期バージョンのメソッドが多数あります。 これらのメソッドをサポート、 [タスク ベースの非同期パターン](http://msdn.microsoft.com/library/hh873175.aspx) .NET Framework にします。
 
-次のコード スニペットは、という名前のメソッドを示しています。 `RetrieveItem` Redis と StackExchange ライブラリに基づくキャッシュア サイド パターンの実装の例です。 メソッドを選択して文字列のキー値が呼び出すことによって Redis キャッシュから対応する項目を取得しようとしています、 `StringGetAsync` メソッド (非同期バージョンの `StringGet`)。 場合は、項目が見つかっていませんが、基になるデータ ソースを使用して、フェッチ、 `GetItemFromDataSourceAsync` メソッドは、ローカル メソッドであり StackExchange ライブラリの一部ではない) を使用してキャッシュに追加し、 `StringSetAsync` メソッドを取得するより迅速に次回ようにします。
+次のコード スニペットに示す `RetrieveItem` という名前のメソッドは、Redis と StackExchange ライブラリをベースにしたキャッシュアサイド パターンの実装例です。 このメソッドは、文字列のキー値を取り、`StringGetAsync` メソッド (非同期バージョンの `StringGet`) を呼び出すことによって Redis キャッシュから対応する項目を取得しようとします。 項目が見つからない場合は、`GetItemFromDataSourceAsync` メソッド (ローカル メソッドであり StackExchange ライブラリには含まれません) を使用してベースとなっているデータ ソースから項目を取得し、`StringSetAsync` メソッドを使用してキャッシュに追加することで、次回からより迅速に取得できるようにします。
 
 ```csharp
 // Connect to the Azure Redis cache
@@ -624,7 +631,7 @@ private async Task<string> RetrieveItem(string itemKey)
 }
 ```
 
-`StringGet` と `StringSet` メソッドが取得および文字列の値を格納するためだけではありません。 バイト配列としてシリアル化された任意の項目になることができます。 .NET オブジェクトを保存する必要がある場合は、バイト ストリームとしてシリアル化し、StringSet メソッドを使用してキャッシュに書き込むことができます。 同様に、StringGet メソッドを使用してキャッシュからオブジェクトを読み取り、.NET オブジェクトとして逆シリアル化できます。 次のコードは、IDatabase インターフェイスの拡張メソッドのセット (Redis 接続の GetDatabase メソッドが戻る、 `IDatabase` オブジェクト)、およびこれらのメソッドを使用してキャッシュに BlogPost オブジェクトを読み書きするいくつかのサンプル コード。
+`StringGet` と `StringSet` は、文字列値の取得と格納のためだけのメソッドではありません。バイトの配列としてシリアル化された任意の項目を取ることができます。 .NET オブジェクトを保存する必要がある場合は、バイト ストリームとしてシリアル化し、StringSet メソッドを使用してキャッシュに書き込むことができます。 同様に、StringGet メソッドを使用してキャッシュからオブジェクトを読み取り、.NET オブジェクトとして逆シリアル化できます。 次のコードは、IDatabase インターフェイスの拡張メソッドのセット (Redis 接続の GetDatabase メソッドが戻る、 `IDatabase` オブジェクト)、およびこれらのメソッドを使用してキャッシュに BlogPost オブジェクトを読み書きするいくつかのサンプル コード。
 
 ```csharp
 public static class RedisCacheExtensions
@@ -679,7 +686,7 @@ public static class RedisCacheExtensions
 }
 ```
 
-次のコードは、という名前のメソッドを示しています。 `RetrieveBlogPost` これらの拡張メソッドを使用して、読み書き可能なシリアル化できるを `BlogPost` キャッシュア サイド パターンに従ってキャッシュするオブジェクト。
+次のコードに示す `RetrieveBlogPost` という名前のメソッドは、これらの拡張メソッドを使用してシリアル化可能な `BlogPost` オブジェクトを読み取り、キャッシュアサイド パターンに従ってキャッシュに書き込みます。
 
 ```csharp
 // The BlogPost type
@@ -728,7 +735,7 @@ var customer1 = cache.Wait(task1);
 var customer2 = cache.Wait(task2);
 ```
 
-ページ [Azure Redis Cache の開発](http://msdn.microsoft.com/library/azure/dn690520.aspx) 、microsoft web サイトが Azure Redis cache を使用するクライアント アプリケーションを作成する方法に関する詳細を提供します。 詳細については、 [基本的な使用状況] ページ](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) StackExchange.Redis の web サイトで、ページの [パイプラインと Multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md) 、同じ web サイトの詳細については、非同期操作と Redis と StackExchange ライブラリでパイプライン処理を提供します。 このガイダンス後半の「Redis キャッシュのユースケース」セクションで、Redis キャッシュに保持されているデータに適用できる、より高度な手法の例をいくつか示します。
+ページ [Azure Redis Cache の開発](http://msdn.microsoft.com/library/azure/dn690520.aspx) 、microsoft web サイトが Azure Redis cache を使用するクライアント アプリケーションを作成する方法に関する詳細を提供します。 詳細については、 [基本的な使用状況] ページ](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) StackExchange.Redis の web サイトで、ページの [パイプラインと Multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md) 、同じ web サイトの詳細については、非同期操作と Redis と StackExchange ライブラリでパイプライン処理を提供します。  このガイダンス後半の「Redis キャッシュのユースケース」セクションで、Redis キャッシュに保持されているデータに適用できる、より高度な手法の例をいくつか示します。
 
 ## Redis キャッシュのユースケース
 
@@ -740,11 +747,11 @@ Redis のキー/値のペアの値には、1 次元のバイナリ文字列以�
 
 ### アトミック操作とバッチ操作の実行
 
-Redis は、文字列値を取得および設定する一連のアトミック操作をサポートします。 これらの操作が別の使用時に発生する可能性がある可能性のある競合状態によるハザードを削除する `取得` と `設定` コマンドです。 次のような操作を実行できます。
+Redis は、文字列値を取得および設定する一連のアトミック操作をサポートします。 これらの操作では、`GET` コマンドと `SET` コマンドを個別に使用するときに発生する可能性のある競合状態によるハザードを排除します。 次のような操作を実行できます。
 
 - `INCR`, 、`INCRBY`, 、`DECR`, 、および `DECRBY` のインクリメントおよびデクリメントするアトミック操作を実行します。
   整数データ値。 StackExchange ライブラリのオーバー ロードされたバージョンには、
-  `IDatabase.StringIncrementAsync` と `IDatabase.StringDecrementAsync` を実行するメソッド
+  `IDatabase.StringIncrementAsync`  `IDatabase.StringDecrementAsync` を実行するメソッド
   これらの操作と、キャッシュに格納されている結果として得られる値が返されます。 次のコードは、
   これらのメソッドを使用する方法を示しています。
 
@@ -763,8 +770,8 @@ Redis は、文字列値を取得および設定する一連のアトミック�
   // newValue should be 50
   ```
 
-- `GETSET` キーに関連付けられている値を取得し、新しい値に変更します。 この
-  StackExchange ライブラリでは、この操作を通じて、 `IDatabase.StringGetSetAsync`
+- `GETSET` は、キーに関連付けられている値を取得し、新しい値に変更します。 この
+  StackExchange ライブラリでは、この操作を `IDatabase.StringGetSetAsync`
   メソッドを呼び出します。 以下のコード スニペットに、このメソッドの例を示します。 このコードは、現在を返します。
   値が"データ: counter"前の例からのキーに関連付けられているし、値にリセット
   このキーを同じ操作の一部としてすべてゼロにするには。
@@ -776,8 +783,8 @@ Redis は、文字列値を取得および設定する一連のアトミック�
   string oldValue = await cache.StringGetSetAsync("data:counter", 0);
   ```
 
-- `MGET` と `MSET`, を返すか、単一の操作として文字列値のセットを変更します。 この
-  `IDatabase.StringGetAsync` と `IDatabase.StringSetAsync` をサポートするメソッドはオーバー ロード
+- `MGET` と `MSET` は、単一の操作として、一連の文字列値を返すか変更します。 この
+  `IDatabase.StringGetAsync`  `IDatabase.StringSetAsync` をサポートするメソッドはオーバー ロード
   この機能は、次の例で示すようにします。
 
   ```csharp
@@ -803,7 +810,7 @@ Redis は、文字列値を取得および設定する一連のアトミック�
   // values should contain { "value1", "value2", "value3" }
   ```
 
-このガイダンスの「Redis のトランザクションとバッチ」セクションで説明されているように、複数の操作を組み合わせて 1 つの Redis トランザクションにすることもできます。 StackExchange ライブラリを使用したトランザクションのサポートには、 `ITransaction` インターフェイスです。 IDatabase.CreateTransaction メソッドを使用して ITransaction オブジェクトを作成して提供されるメソッドを使用して、トランザクションにコマンドを呼び出す `ITransaction` オブジェクトです。  `ITransaction` インターフェイスは類似した一連のメソッドへのアクセスを提供、 `IDatabase` インターフェイスを除くすべてのメソッドは非同期です。 はしか実行、 `ITransaction.Execute` メソッドが呼び出されます。 Execute メソッドから返される値は、トランザクションが正常に作成されたか (true) 作成に失敗したか (false) を示します。
+このガイダンスの「Redis のトランザクションとバッチ」セクションで説明されているように、複数の操作を組み合わせて 1 つの Redis トランザクションにすることもできます。 StackExchange ライブラリは、`ITransaction` インターフェイスを介してトランザクションをサポートします。 IDatabase.CreateTransaction メソッドを使用することで ITransaction オブジェクトを作成し、`ITransaction` オブジェクトが提供するメソッドを使用することでトランザクションに対してコマンドを呼び出すことができます。 `ITransaction` インターフェイスでは、`IDatabase` インターフェイスと同様の一連のメソッドを使用できますが、すべてのメソッドが非同期である点が異なります。これらのメソッドは、`ITransaction.Execute` メソッドが呼び出されたときにのみ実行されます。 Execute メソッドから返される値は、トランザクションが正常に作成されたか (true) 作成に失敗したか (false) を示します。
 
 次のコード スニペットに、同じトランザクションの中で 2 つのカウンターをインクリメントおよびデクリメントする例を示します。
 
@@ -856,7 +863,7 @@ cache.StringIncrement("data:key1", flags: CommandFlags.FireAndForget);
 
 ### 自動的に期限切れになるキー
 
-Redis キャッシュに項目を格納するときに、項目をキャッシュから自動的に削除するまでのタイムアウトを指定できます。 どれほど多くの時間、キーが使用して、有効期限が切れる前にクエリすることもできます、 `TTL` コマンドは、IDatabase.KeyTimeToLive メソッドを使用して、このコマンドは StackExchange アプリケーションで使用できます。
+Redis キャッシュに項目を格納するときに、項目をキャッシュから自動的に削除するまでのタイムアウトを指定できます。 `TTL` コマンドを使用すると、キーが期限切れになるまでに残されている時間をクエリすることもできます。このコマンドを StackExchange アプリケーションで使用するには、IDatabase.KeyTimeToLive メソッドを使用します。
 
 次のコード スニペットに、キーに 20 秒の有効期限を設定して、キーの残り時間をクエリする例を示します。
 
@@ -885,7 +892,7 @@ await cache.KeyExpireAsync("data:key1",
 ...
 ```
 
-> _ヒント:_ 項目をキャッシュから手動で削除するには DEL コマンドを使用します。このコマンドは、StackExchange ライブラリでは IDatabase.KeyDeleteAsync メソッドとして使用できます。
+> _ヒント:_ 、StackExchange ライブラリは IDatabase.KeyDeleteAsync メソッドとして使用可能な DEL コマンドを使用して項目をキャッシュから手動で削除することができます。
 
 ### タグを使用するキャッシュされた項目のクロス関連付け
 
@@ -983,7 +990,7 @@ foreach (var value in await cache.SetMembersAsync("tag:iot:blog:posts"))
 
 ### 最近アクセスした項目の検索
 
-多くのアプリケーションに伴う共通の問題に、最近アクセスした項目の検索があります。 たとえば、あるブログ サイトで最近読まれたブログの投稿を表示する必要があるとしましょう。 この機能を実装するには、Redis リストを使用します。 Redis リストには、同じキーを共有する複数の項目が含まれていますが、このリストは両端キューとして機能します。 LPUSH (左プッシュ) コマンドと RPUSH (右プッシュ) コマンドを使用すると、リストのどちら側の終端にも項目をプッシュできます。 LPOP コマンドと RPOP コマンドを使用すると、リストのどちら側の終端からも項目を取得できます。 LRANGE コマンドと RRANGE コマンドを使用すると、要素のセットを返すこともできます。 以下のコード スニペットに、StackExchange ライブラリを使用してこれらの操作を実行する方法を示します。 このコードでは、これまでの例の BlogPost 型を使用します。 ブログの投稿がユーザーに読まれると、IDatabase.ListLeftPushAsync メソッドを使用して、ブログの投稿のタイトルが Redis キャッシュの "blog:recent_posts" キーに関連付けられているリストにプッシュされます。
+多くのアプリケーションに伴う共通の問題に、最近アクセスした項目の検索があります。 たとえば、あるブログ サイトで最近読まれたブログの投稿を表示する必要があるとしましょう。 この機能を実装するには、Redis リストを使用します。 Redis リストには、同じキーを共有する複数の項目が含まれていますが、このリストは両端キューとして機能します。 LPUSH (左プッシュ) コマンドと RPUSH (右プッシュ) コマンドを使用すると、リストのどちら側の終端にも項目をプッシュできます。 LPOP コマンドと RPOP コマンドを使用すると、リストのどちら側の終端からも項目を取得できます。  LRANGE コマンドと RRANGE コマンドを使用すると、要素のセットを返すこともできます。 以下のコード スニペットに、StackExchange ライブラリを使用してこれらの操作を実行する方法を示します。 このコードでは、これまでの例の BlogPost 型を使用します。 ブログの投稿がユーザーに読まれると、IDatabase.ListLeftPushAsync メソッドを使用して、ブログの投稿のタイトルが Redis キャッシュの "blog:recent_posts" キーに関連付けられているリストにプッシュされます。
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -1035,7 +1042,7 @@ foreach (var post in await cache.SortedSetRangeByRankWithScoresAsync(redisKey))
 }
 ```
 
-> [AZURE.NOTE] StackExchange ライブラリには、スコアの順序でデータを返す IDatabase.SortedSetRangeByRankAsync メソッドもあります。ただしこのメソッドは、スコアは返しません。
+> [AZURE.NOTE] StackExchange ライブラリでは、スコアの順序でデータを返しますスコアは返しません IDatabase.SortedSetRangeByRankAsync メソッドも提供します。
 
 IDatabase.SortedSetRangeByRankWithScoresAsync メソッドに追加のパラメーターを指定することで、スコアの降順でも項目を取得でき、返される項目の数を制限することもできます。 次の例では、上位 10 個のブログの投稿のタイトルとスコアを表示します。
 
@@ -1108,34 +1115,30 @@ subscriber.PublishAsync("messages:blogPosts", blogPost.Title);
 次のパターンは、アプリケーションでキャッシュを実装するときのシナリオにも関連することがあります。
 
 - [キャッシュア サイド パターン](http://msdn.microsoft.com/library/dn589799.aspx): このパターンは、データ ストアからキャッシュにデータをオンデマンドを読み込む方法をについて説明します。 このパターンは、キャッシュに保持されているデータと、元のデータ ストア内のデータの一貫性の維持にも役立ちます。
-- [シャーディング パターン](http://msdn.microsoft.com/library/dn589797.aspx) を格納する場合は、スケーラビリティを向上させる水平的パーティション分割と、大量のデータへのアクセスの実装に関する情報を提供します。
+-  [シャーディング パターン](http://msdn.microsoft.com/library/dn589797.aspx) を格納する場合は、スケーラビリティを向上させる水平的パーティション分割と、大量のデータへのアクセスの実装に関する情報を提供します。
 
 ## 詳細情報
 
-- [MemoryCache クラス](http://msdn.microsoft.com/library/system.runtime.caching.memorycache.aspx) 、Microsoft web サイトのページです。
-- [Microsoft Azure Cache](http://msdn.microsoft.com/library/windowsazure/gg278356.aspx) 、Microsoft web サイトのページです。
-- [どの Azure Cache を利用に最適な?](http://msdn.microsoft.com/library/azure/dn766201.aspx) 、Microsoft web サイトのページです。
-- [構成モデル](http://msdn.microsoft.com/library/windowsazure/hh914149.aspx) 、Microsoft web サイトのページです。
-- [タスク ベースの非同期パターン](http://msdn.microsoft.com/library/hh873175.aspx) 、Microsoft web サイトのページです。
-- [パイプラインと Multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md) StackExchange.Redis GitHub リポジトリのページです。
-- [Redis の永続化](http://redis.io/topics/persistence) Redis web サイトのページです。
-- [レプリケーション ページ](http://redis.io/topics/replication) Redis web サイトです。
-- [Redis クラスター チュートリアル](http://redis.io/topics/cluster-tutorial) Redis web サイトのページです。
-- [パーティション分割: 複数の Redis インスタンス間でデータを分割する方法](http://redis.io/topics/partitioning) Redis web サイトのページです。
+-  [MemoryCache クラス](http://msdn.microsoft.com/library/system.runtime.caching.memorycache.aspx) 、Microsoft web サイトのページです。
+-  [Microsoft Azure Cache](http://msdn.microsoft.com/library/windowsazure/gg278356.aspx) 、Microsoft web サイトのページです。
+-  [どの Azure Cache を利用に最適な?](http://msdn.microsoft.com/library/azure/dn766201.aspx) 、Microsoft web サイトのページです。
+-  [構成モデル](http://msdn.microsoft.com/library/windowsazure/hh914149.aspx) 、Microsoft web サイトのページです。
+-  [タスク ベースの非同期パターン](http://msdn.microsoft.com/library/hh873175.aspx) 、Microsoft web サイトのページです。
+-  [パイプラインと Multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md) StackExchange.Redis GitHub リポジトリのページです。
+-  [Redis の永続化](http://redis.io/topics/persistence) 、Redis web サイトのページです。
+-  [レプリケーション ページ](http://redis.io/topics/replication) Redis web サイトです。
+-  [Redis クラスター チュートリアル](http://redis.io/topics/cluster-tutorial) 、Redis web サイトのページです。
+-  [パーティション分割: 複数の Redis インスタンス間でデータを分割する方法](http://redis.io/topics/partitioning) 、Redis web サイトのページです。
 - ページ [LRU キャッシュとしての Redis を使用して](http://redis.io/topics/lru-cache) Redis web サイトです。
-- [トランザクション] ページの](http://redis.io/topics/transactions) Redis web サイトです。
-- [Redis のセキュリティ](http://redis.io/topics/security) Redis web サイトのページです。
+-  [トランザクション] ページの](http://redis.io/topics/transactions) Redis web サイトです。
+-  [Redis のセキュリティ](http://redis.io/topics/security) 、Redis web サイトのページです。
 - ページ [Azure Redis Cache に関する説明](http://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) Azure ブログのです。
 - ページ [CentOS Linux VM で Redis を実行している](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) に、Microsoft web サイト Azure です。
-- [Azure Redis Cache 用の ASP.NET セッション状態プロバイダー](http://msdn.microsoft.com/library/azure/dn690522.aspx) 、Microsoft web サイトのページです。
-- [Azure Redis Cache 用の ASP.NET 出力キャッシュ プロバイダー](http://msdn.microsoft.com/library/azure/dn798898.aspx) 、Microsoft web サイトのページです。
+-  [Azure Redis Cache 用の ASP.NET セッション状態プロバイダー](http://msdn.microsoft.com/library/azure/dn690522.aspx) 、Microsoft web サイトのページです。
+-  [Azure Redis Cache 用の ASP.NET 出力キャッシュ プロバイダー](http://msdn.microsoft.com/library/azure/dn798898.aspx) 、Microsoft web サイトのページです。
 - ページ [Azure Redis Cache の開発](http://msdn.microsoft.com/library/azure/dn690520.aspx) Azure サイトにします。
 - ページ [An Introduction to Redis データ型と抽象化](http://redis.io/topics/data-types-intro) Redis web サイトです。
-- [基本的な使用法](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) StackExchange.Redis の web サイトのページです。
-- [Redis のトランザクション](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) StackExchange.Redis リポジトリのページです。
-- [データ パーティション分割ガイド](http://msdn.microsoft.com/library/dn589795.aspx) 、Microsoft web サイトです。
-
-
-
-
+-  [基本的な使用法](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) StackExchange.Redis の web サイトのページです。
+-  [Redis のトランザクション](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) StackExchange.Redis リポジトリのページです。
+-  [データ パーティション分割ガイド](http://msdn.microsoft.com/library/dn589795.aspx) 、Microsoft web サイトです。
 

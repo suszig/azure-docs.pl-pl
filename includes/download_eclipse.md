@@ -1,4 +1,4 @@
-## Azure Toolkit for Eclipse
+##Azure Toolkit for Eclipse
 
 前提条件:
 
@@ -8,14 +8,10 @@
 
 インストール手順:
 
-1. Eclipse で、**[Help]** メニューの **[Install New Software]** をクリックします。
+1. Eclipse から、 **ヘルプ** メニューの [ **Install New Software**します。
 2. サイトの場所を入力して <http://dl.msopentech.com/eclipse> とキーを押します **Enter**します。
-3. インストールする項目を選択して、**[Finish]** をクリックします。
+3. インストールして、をクリックする項目の選択 **完了**します。
 
-このプラグインでは、Azure SDK の最新バージョンが使用されています。Web Platform Installer (WebPI) を使用してダウンロードできます <http://go.microsoft.com/fwlink/?LinkID=252838>します。ただし、まだインストールしないうちに、最初の Azure デプロイ プロジェクトを作成すると、Azure Toolkit for Eclipse によって適切なバージョンの Azure SDK が自動的にインストールされます。
-
-
-
-
+このプラグインでは、Azure SDK の最新バージョンが使用されています。 Web Platform Installer (WebPI) を使用してダウンロードできます <http://go.microsoft.com/fwlink/?LinkID=252838>します。 ただし、まだインストールしないうちに、最初の Azure デプロイ プロジェクトを作成すると、Azure Toolkit for Eclipse によって適切なバージョンの Azure SDK が自動的にインストールされます。
 
 

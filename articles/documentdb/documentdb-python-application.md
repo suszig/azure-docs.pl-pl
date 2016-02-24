@@ -1,6 +1,6 @@
 <properties
     pageTitle="DocumentDB による Python Flask Web アプリケーション開発 | Microsoft Azure"
-    description="DocumentDB を使用してデータを格納し、Azure にホストされた Python Flask Web アプリケーションからそのデータにアクセスする方法をデータベース チュートリアルで確認します。アプリケーション開発ソリューションを探します。" 
+    description="DocumentDB を使用してデータを格納し、Azure にホストされた Python Flask Web アプリケーションからそのデータにアクセスする方法をデータベース チュートリアルで確認します。 アプリケーション開発ソリューションを探します。" 
     keywords="Application development, database tutorial, python flask, python web application, python web development, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
@@ -17,7 +17,6 @@
     ms.date="09/21/2015"
     ms.author="ryancraw"/>
 
-
 # DocumentDB による Python Flask Web アプリケーション開発
 
 > [AZURE.SELECTOR]
@@ -25,7 +24,6 @@
 - [Node.js](documentdb-nodejs-application.md)
 - [Java](documentdb-java-application.md)
 - [Python](documentdb-python-application.md)
-
 
 どの顧客効果的に活用して Azure DocumentDB を強調表示するには
 格納とクエリの JSON ドキュメントでは、このドキュメントでは、エンド ツー エンドの Python web アプリケーション
@@ -55,11 +53,11 @@ Azure の web サイトです。
 あるものをインストールします。
 
 - [Visual Studio 2013](http://www.visualstudio.com/) または以上、または Visual Studio express を起動、無償版です。
-- Python Tools for Visual Studio から [ここでは][]します。
+- Python Tools for Visual Studio から [ここ][]します。
 - Azure SDK for Visual Studio 2013, version 2.4 以降から利用できます。
-[here][1].
-- Python 2.7 から [ここで ][2]します。
-- Python 2.7 から、Microsoft Visual C コンパイラ [ここでは ][3]します。
+[ここで][1]します。
+- Python 2.7 から [ここ][2]します。
+- Python 2.7 から、Microsoft Visual C コンパイラ [ここ][3]します。
 
 ## 手順 1: DocumentDB データベース アカウントを作成する
 
@@ -74,15 +72,15 @@ Azure の web サイトです。
 
 ## 手順 2: 新しい Python Flask Web アプリケーションを作成する
 
-1. Visual Studio を開き、[ **ファイル** -\ > **新しいプロジェクト** -\ > **Python** -\ >、* * Flask Web
-プロジェクト**, 、名前の新しいプロジェクトを作成し、* * チュートリアル**します。
+1. Visual Studio を開き、[ **ファイル** -\ > **新しいプロジェクト** -\ > **Python** -\ >、 **Flask Web
+プロジェクト**, 、名前の新しいプロジェクトを作成および **チュートリアル**します。
 
-    Python Flask は、Python で Web アプリケーションを短時間で作成するための Web アプリケーション開発フレームワークです。 [ここ Flask のチュートリアルをクリックして][]します。
+    Python Flask は、Python で Web アプリケーションを短時間で作成するための Web アプリケーション開発フレームワークです。 [Flask のチュートリアルにアクセスするここをクリックして][]します。
 
-    ![Visual Studio の ](./media/documentdb-python-application/image9.png)
+    ![Visual Studio の [新しいプロジェクト] ウィンドウのスクリーン ショット。左側で [Python] が強調表示され、中央で [Python Flask Web プロジェクト] が選択され、[名前] ボックスに tutorial という名前が入力されている](./media/documentdb-python-application/image9.png)
 
 2. 要求を送信するかどうか
-外部パッケージをインストールします。 **[仮想環境にインストールする]** をクリックします。 現時点では PyDocumentDB は Python 3.x をサポートしていないため、必ず Python 2.7 をベースの環境として使用してください。 これで、プロジェクトに必要な Python 仮想環境が設定されます。
+外部パッケージをインストールします。 クリックして **に仮想環境にインストール**します。 現時点では PyDocumentDB は Python 3.x をサポートしていないため、必ず Python 2.7 をベースの環境として使用してください。  これで、プロジェクトに必要な Python 仮想環境が設定されます。
 
     ![[database tutorial - Python Tools for Visual Studio] ウィンドウのスクリーン ショット](./media/documentdb-python-application/image10.png)
 
@@ -94,7 +92,7 @@ Azure の web サイトです。
 プロジェクトを設定した後は、特定の Flask パッケージに追加する必要があります。
 DocumentDB 用の Python パッケージ pydocumentdb など、プロジェクトの必要があります。
 
-1. **requirements.txt** という名前のファイルを開き、既存のコードを次のコードに置き換えます。
+1. という名前のファイルを開く **requirements.txt** 内容を次に置き換えます。
 
         flask==0.9
         flask-mail==0.7.6
@@ -108,15 +106,15 @@ DocumentDB 用の Python パッケージ pydocumentdb など、プロジェク�
         flup
         pydocumentdb>=1.0.0
 
-2. **[env]** を右クリックし、**[requirements.txt からインストール]** をクリックします。
+2. 右クリック **env** ] をクリック **requirements.txt からインストール**します。
 
-    ![[env (Python 2.7)] を示すスクリーン ショット。リストで ](./media/documentdb-python-application/image11.png)
+    ![[env (Python 2.7)] を示すスクリーン ショット。リストで [requirements.txt からインストール] が選択されている](./media/documentdb-python-application/image11.png)
 
-> [AZURE.NOTE] まれに、出力ウィンドウにエラーが表示されることがあります。 もし
+> [AZURE.NOTE] まれに、出力ウィンドウにエラーが表示されます。 もし
 これが発生するかどうか、エラーがクリーンアップに関連を確認します。 場合によって、
 クリーンアップに失敗したが、インストールを成功にすることができます (上にスクロール
 出力ウィンドウに確認してください)。
-<a name="verify-the-virtual-environment"></a> このような場合は、続行するには、[ok] を勧めします。
+<a name="verify-the-virtual-environment"></a> その場合は続行しても問題ありません。
 
 
 ### 仮想環境の確認
@@ -132,7 +130,7 @@ web ブラウザーを開始します。 次のページが表示されます。
 
 投票アプリケーションを作成します。
 
-- ソリューション エクスプローラーの **tutorial** という名前のフォルダーを右クリックして、Python ファイルを追加します。 このファイルに **forms.py** という名前を付けます。
+- という名前のフォルダーを右クリックして、Python ファイルを追加 **チュートリアル** ソリューション エクスプ ローラー。  ファイルに名前を **forms.py**します。  
 
 ```python
 from flask.ext.wtf import Form
@@ -147,7 +145,7 @@ class VoteForm(Form):
 
 ### views.py への必要な import ステートメントの追加
 
-- **views.py** の先頭に、次の import ステートメントを追加します。 これらのステートメントにより、DocumentDB の PythonSDK および Flask パッケージがインポートされます。
+- 先頭に次の import ステートメントを追加 **views.py**します。 これらのステートメントにより、DocumentDB の PythonSDK および Flask パッケージがインポートされます。
 
 ```python
 from forms import VoteForm
@@ -158,29 +156,29 @@ import pydocumentdb.document_client as document_client
 
 ### データベース、コレクション、およびドキュメントの作成
 
-- 次のコードを **views.py** に追加します。 このコードでは、フォームで使用される
+- 次のコードを追加 **views.py**します。 このコードでは、フォームで使用される
 データベースの作成を行っています。 ファイル
-**views.py** します。 単にこのコードを末尾に追加してください。
+**views.py**します。 単にこのコードを末尾に追加してください。
 
 ```python
 @app.route('/create')
 def create():
     """Renders the contact page."""
         client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
-
+    
         # Attempt to delete the database.  This allows this to be used to recreate as well as create
         try:
         db = next((data for data in client.ReadDatabases() if data['id'] == config.DOCUMENTDB_DATABASE))
         client.DeleteDatabase(db['_self'])
         except:
         pass
-
+    
         # Create database
         db = client.CreateDatabase({ 'id': config.DOCUMENTDB_DATABASE })
-
+        
         # Create collection
         collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION }, { 'offerType': 'S1' })
-
+        
         # Create document
         document = client.CreateDocument(collection['_self'],
         { 'id': config.DOCUMENTDB_DOCUMENT,
@@ -189,7 +187,7 @@ def create():
           'Virtual Machine': 0,
           'name': config.DOCUMENTDB_DOCUMENT 
         })
-
+    
         return render_template(
             'create.html',
             title='Create Page',
@@ -197,11 +195,11 @@ def create():
             message='You just created a new database, collection, and document.  Your old votes have been deleted')
 ```
 
-> [AZURE.TIP] **CreateCollection** メソッドは、省略可能な 3 番目のパラメーター **RequestOptions** を受け取ります。 これを使用すると、コレクションのプランの種類を指定することができます。 offerType の値を指定しないと、コレクションは既定のプランの種類を使用して作成されます。 DocumentDB のプランの種類の詳細については、次を参照してください。 [DocumentDB のパフォーマンス レベル](documentdb-performance-levels.md)します。
+> [AZURE.TIP]  **CreateCollection** メソッドは、省略可能な **RequestOptions** 3 番目のパラメーターとして。 これを使用すると、コレクションのプランの種類を指定することができます。 offerType の値を指定しないと、コレクションは既定のプランの種類を使用して作成されます。 DocumentDB のプランの種類の詳細については、次を参照してください。 [DocumentDB のパフォーマンス レベル](documentdb-performance-levels.md)します。
 >
 ### データベース、コレクション、およびドキュメントの読み取りとフォームの送信
 
-- 次のコードを **views.py** に追加します。 これにより、セットアップの処理します。
+- 次のコードを追加 **views.py**します。 これにより、セットアップの処理します。
 データベース、コレクション、およびドキュメントの読み取りフォームです。 削除しないでください。
 既存のコードのいずれかの **views.py**します。 単にこのコードを末尾に追加してください。
 
@@ -212,39 +210,39 @@ def vote():
         replaced_document ={}
         if form.validate_on_submit(): # is user submitted vote  
         client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
-
+    
         # Read databases and take the first since the id should not be duplicated.
         db = next((data for data in client.ReadDatabases() if data['id'] == config.DOCUMENTDB_DATABASE))
-
+    
         # Read collections and take the first since the id should not be duplicated.
         coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.DOCUMENTDB_COLLECTION))
-
+    
         # Read documents and take the first since the id should not be duplicated.
         doc = next((doc for doc in client.ReadDocuments(coll['_self']) if doc['id'] == config.DOCUMENTDB_DOCUMENT))
-
+    
         # Take the data from the deploy_preference and increment your database
         doc[form.deploy_preference.data] = doc[form.deploy_preference.data] + 1
         replaced_document = client.ReplaceDocument(doc['_self'], doc)
-
+    
         # Create a model to pass to results.html
         class VoteObject:
             choices = dict()
                 total_votes = 0
-
+        
     vote_object = VoteObject()
         vote_object.choices = {
             "Web Site" : doc['Web Site'],
                 "Cloud Service" : doc['Cloud Service'],
                 "Virtual Machine" : doc['Virtual Machine']
     }
-
+        
         vote_object.total_votes = sum(vote_object.choices.values())
-
+    
         return render_template(
             'results.html',
                 year=datetime.now().year,
                 vote_object = vote_object)
-
+        
     else :
         return render_template(
             'vote.html',
@@ -258,7 +256,7 @@ def vote():
 
 templates フォルダーの下に、create.html、results.html、vote.html の各 html ファイルを追加します。
 
-1. 次のコードを **create.html** に追加します。 表示を行います
+1. 次のコードを追加 **create.html**します。 表示を行います
 新しいデータベース、コレクション、およびドキュメントを作成したことを示すメッセージ。
 
 ```html
@@ -270,7 +268,7 @@ templates フォルダーの下に、create.html、results.html、vote.html の�
 {% endblock %}
 ```
 
-2. 次のコードを **results.html** に追加します。 表示を行います
+2. 次のコードを追加 **results.html**します。 表示を行います
 投票の結果。
 
 ```html
@@ -278,7 +276,7 @@ templates フォルダーの下に、create.html、results.html、vote.html の�
 {% block content %}
 <h2>Results of the vote</h2>
     <br />
-
+    
 {% for choice in vote_object.choices %}
 <div class="row">
     <div class="col-sm-5">{{choice}}</div>
@@ -297,7 +295,7 @@ templates フォルダーの下に、create.html、results.html、vote.html の�
 {% endblock %}
 ```
 
-3. 次のコードを **vote.html** に追加します。 表示するコードは、
+3. 次のコードを追加 **vote.html**します。 表示するコードは、
 ポーリングを行い、投票を受け付けます。 コントロールは、投票が登録、します。
 views.py に渡さ投票キャストを認識し、
 ドキュメントを適宜追加します。
@@ -314,7 +312,7 @@ views.py に渡さ投票キャストを認識し、
 {% endblock %}
 ```
 
-4. **index.html** の内容を次の内容に置き換えます。 この
+4. 内容を置き換える **index.html** 伴っています。 この
 アプリケーションのランディング ページとして機能します。
 
 ```html
@@ -327,9 +325,9 @@ views.py に渡さ投票キャストを認識し、
 {% endblock %}
 ```
 
-### 構成ファイルを追加し、変更、\_\_init\_\_.py
+### 構成ファイルの追加と、\_\_init\_\_.py の変更
 
-1. プロジェクト [tutorial] を右クリックし、**config.py** ファイルを追加します。
+1. プロジェクト [tutorial を右クリックし、ファイルを追加 **config.py**します。
 この構成ファイルは、Flask のフォームで必要になります。 これを使用して、提供することができます、
 秘密キーも同様です。 このチュートリアルではこのキーは不要です。
 
@@ -367,13 +365,13 @@ import tutorial.views
 1. F5 キーを押すか、クリックして、 **実行** Visual Studio でが表示されます、
 次の画面にします。
 
-    ![Web ブラウザーに表示される ](./media/documentdb-python-application/image16.png)
+    ![Web ブラウザーに表示される [Python + DocumentDB Voting Application] のスクリーンショット](./media/documentdb-python-application/image16.png)
 
-2. **[投票データベースの作成/クリア]** をクリックして、データベースを生成します。
+2. クリックして **投票データベースの作成/クリア** 、データベースを生成します。
 
-    ![Web アプリケーションの ](./media/documentdb-python-application/image17.png)
+    ![Web アプリケーションの [Create Page] ページのスクリーン ショット - 開発詳細](./media/documentdb-python-application/image17.png)
 
-3. 次に、**[投票]** をクリックし、回答を選択します。
+3. クリックして **投票** し、オプションを選択します。
 
     ![投稿用の質問を表示する Web アプリケーションのスクリーン ショット](./media/documentdb-python-application/image18.png)
 
@@ -388,11 +386,11 @@ import tutorial.views
 DocumentDB、Azure の web サイトに展開するつもりです。
 
 1. ソリューション エクスプ ローラーでプロジェクトを右クリックして (がないかどうかを必ず実行中
-ローカルで) を選択して **発行**します。 次に、**[Microsoft Azure Websites]** を選択します。
+ローカルで) を選択して **発行**します。  クリックして **Microsoft Azure Websites**します。
 
-    ![tutorial が選択されたソリューション エクスプローラーのスクリーンショット。](./media/documentdb-python-application/image20.png)
+    ![tutorial が選択されたソリューション エクスプローラーのスクリーンショット。[発行] オプションが強調表示されている](./media/documentdb-python-application/image20.png)
 
-2. 資格情報を入力して Azure Web サイトを構成し、**[発行]** をクリックします。
+2. 資格情報を入力して Azure の web サイトを構成し、 **発行**します。
 
     ![[Web の発行] ウィンドウのスクリーン ショット](./media/documentdb-python-application/image21.png)
 
@@ -405,20 +403,19 @@ DocumentDB、Azure の web サイトに展開するつもりです。
 ご利用ありがとうございます。 最初 Python web アプリケーションを使用して、完了しました
 Azure DocumentDB と Azure Websites に発行します。
 
-マイクロソフトでは、このトピックをお客様からのフィードバックに基づいて頻繁に更新、改善しています。 チュートリアルを終了したら、このページの上部と下部にある投票ボタンを使用し、希望される改善内容についてのフィードバックをお寄せください。 マイクロソフトから直接ご連絡を差し上げて問題がなければ、コメント欄に電子メール アドレスをご記入ください。
+マイクロソフトでは、このトピックをお客様からのフィードバックに基づいて頻繁に更新、改善しています。  チュートリアルを終了したら、このページの上部と下部にある投票ボタンを使用し、希望される改善内容についてのフィードバックをお寄せください。 マイクロソフトから直接ご連絡を差し上げて問題がなければ、コメント欄に電子メール アドレスをご記入ください。
 
 Web アプリケーションに追加の機能を追加するに入手できる Api を確認、 [DocumentDB Python SDK](https://pypi.python.org/pypi/pydocumentdb)します。
 
 詳細については、次を参照してください。、 [Python デベロッパー センター](/develop/python/)します。
 
 
-
-[click here to access flask tutorials]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world 
-[visual studio express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx 
-[here]: http://aka.ms/ptvs 
-[1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409 
-[2]: https://www.python.org/downloads/windows/ 
-[3]: http://aka.ms/vcpython27 
-[microsoft web platform installer]: http://www.microsoft.com/web/downloads/platform.aspx 
-[azure portal]: http://portal.azure.com 
+  [Click here to access Flask tutorials]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
+  [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
+  [here]: http://aka.ms/ptvs
+  [1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409
+  [2]: https://www.python.org/downloads/windows/
+  [3]: http://aka.ms/vcpython27
+  [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+  [Azure portal]: http://portal.azure.com
 

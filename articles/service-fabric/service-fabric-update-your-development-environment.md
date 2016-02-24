@@ -16,7 +16,6 @@
    ms.date="10/30/2015"
    ms.author="seanmck"/>
 
-
 # Service Fabric 開発環境の更新
 
  Service Fabric は定期的に、ローカルでの開発に使用するランタイム、SDK、ツールの新しいリリースを提供します。 これらのリリースでローカル開発環境を常に更新しておくと、アプリケーションをローカルで構築してテストする際に、いつでも最新の機能とバグの修正を利用し、パフォーマンスを高めることができます。
@@ -24,16 +23,17 @@
 ## ローカル クラスターのクリーンアップ
 
  現在 Service Fabric では、ローカル クラスターの実行中には、Service Fabric ランタイムのアップグレードをサポートしていません。 クリーンなアップグレードを実行するには、まず、ローカル クラスターをクリーンアップすることが重要です。
- > [AZURE.NOTE] ローカル クラスターをクリーンアップすると、デプロイ済みのすべてのアプリケーションとそのデータが削除されます。
+
+ > [AZURE.NOTE] ローカル クラスターをクリーンアップすると、展開されたすべてのアプリケーションとそのデータが削除されます。
 
  次のように、ローカル クラスターをクリーンアップできます。
 
 
  1. その他のすべての PowerShell ウィンドウを閉じて、管理者として新しいウィンドウを起動します。
 
- 2. 使用してクラスター セットアップ ディレクトリに移動 `cd"$env:path: ProgramW6432\Microsoft sdks \service Fabric \clustersetup"`
+ 2. `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"` を使用してクラスター セットアップ ディレクトリに移動します。
 
- 3. 実行 `.\CleanCluster.ps1`
+ 3. `.\CleanCluster.ps1` を実行します。
 
 
 ## ランタイム、SDK、およびツールの更新
@@ -41,15 +41,15 @@
  既存のクラスターを正常にクリーンアップした後に、次のようにアップグレードを続行できます。
 
 
- 1. Web Platform Installer を起動 [[1] の新しいリリースに更新][1]します。
+ 1. Web Platform Installer を起動 [新しいリリースに更新][1]します。
 
- 2. 完了すると、新しい PowerShell ウィンドウを管理者として起動し、使用してクラスター セットアップ ディレクトリに移動 `cd"$env:path: \microsoft SDKs\ServiceFabric\ClusterSetup"`します。
+ 2. 完了したら、管理者として新しい PowerShell ウィンドウを起動し、`cd "$ENV:ProgramFiles\Microsoft SDKs\ServiceFabric\ClusterSetup"` で、クラスターのセットアップ ディレクトリに移動します。
 
- 3. 実行 `.\DevClusterSetup.ps1` 、ローカル クラスターを設定します。
+ 3. `.\DevClusterSetup.ps1` を実行し、ローカル クラスターをセットアップします。
 
 これで完了です。 Visual Studio を起動し、Service Fabric アプリケーションの構築を続行できます。
->[AZURE.NOTE] 既定のプロジェクトの構造は、このリリースで変更されました。 既存のプロジェクトは、Visual Studio で開いて実行することができます。 ただし、アプリケーションのビルド、配置、またはデバッグに問題が発生した場合は、新しいプロジェクトを作成して、コードを移行することを検討してください。
 
+>[AZURE.NOTE] 既定のプロジェクト構造は、このリリースで変更されました。 既存のプロジェクトは、Visual Studio で開いて実行することができます。 ただし、アプリケーションのビルド、配置、またはデバッグに問題が発生した場合は、新しいプロジェクトを作成して、コードを移行することを検討してください。
 
-[1]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI link"
+ [1]:  http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI link"
 

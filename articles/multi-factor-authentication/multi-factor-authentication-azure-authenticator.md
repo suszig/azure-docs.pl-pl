@@ -18,35 +18,35 @@
 
 
 
-
 # 新しい Azure Authenticator アプリへの移行
 
-使用可能な Azure Authenticator アプリのリリースで [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), 、[Android](https://play.google.com/store/apps/details?id=com.azure.authenticator), 、および [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458), 、古い Multi-factor Authentication アプリが置き換えられます。 Multi-Factor Authentication アプリは引き続き機能しますが、新しい Azure Authenticator アプリに移行することにした場合は、この記事が役に立ちます。
+使用可能な Azure Authenticator アプリのリリースで [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), 、[Android](https://play.google.com/store/apps/details?id=com.azure.authenticator), 、および [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458), 、古い Multi-factor Authentication アプリが置き換えられます。  Multi-Factor Authentication アプリは引き続き機能しますが、新しい Azure Authenticator アプリに移行することにした場合は、この記事が役に立ちます。  
 
 
-## 新しい Azure Authenticator アプリへの移行方法
+## 新しい Azure Authenticator アプリへの移行方法 
 
 **手順 1:** Azure Authenticator をインストールします。
 
 ![クラウド](./media/multi-factor-authentication-azure-authenticator/home.png)
 
-**手順 2:** 新しいアプリを使用して、アカウントをアクティブ化します。
+**手順 2:** 新しいアプリを使用して、アカウントをアクティブ化
 
 最初に、アプリに追加するアカウントにとって便利な QR コードまたは、手動入力用のコードおよび URL があることを確認します。
-> [AZURE.NOTE] QR コードの取得方法がわからない場合は、 ヘルプ デスクにサポートを要請してください。
+
+> [AZURE.NOTE] QR コードを取得する方法のわからないでしょうか。 ヘルプ デスクにサポートを要請してください。
 > 
 > 新しいアプリでアカウントをアクティブ化できない場合は、 ヘルプ デスクにお問い合わせください。
 >
 
 
-QR コードが取得できたら、アプリを起動します。 「+」をクリックします。
+QR コードが取得できたら、アプリを起動します。 「+」をクリックします。 
 
 
 ![アカウントの追加](./media/multi-factor-authentication-azure-authenticator/addaccount.png)
 
-これによって、QR コードをスキャンするためのカメラが起動します。 QR コードをスキャンできない場合は、いつでも手動入力オプションを使用できます。
+これによって、QR コードをスキャンするためのカメラが起動します。  QR コードをスキャンできない場合は、いつでも手動入力オプションを使用できます。 
 
-アカウントが正常にアクティブ化されたことを確認するには、アカウント ページに新しいアカウントが表示されることを確認してください。
+アカウントが正常にアクティブ化されたことを確認するには、アカウント ページに新しいアカウントが表示されることを確認してください。 
 
 
 新しいアプリに移行するすべてのアカウントについて、この手順に従います。
@@ -58,33 +58,35 @@ QR コードが取得できたら、アプリを起動します。 「+」をク
 すべてのアカウントを新しいアプリに追加したら、古いアプリを電話からアンインストールします。
 
 古いアプリから個々のアカウントを削除する場合は、
-アカウントをタップします。 そうすると、「削除」するためのオプションが表示されます。
+アカウントをタップします。 そうすると、「削除」するためのオプションが表示されます。 
 
 ![Remove account](./media/multi-factor-authentication-azure-authenticator/remove.png)
 
 ## バーコード スキャナーを使用してアカウントを追加する方法
 
-- まず、セキュリティ確認の設定ページに移動します。 このページに移動する方法の詳細についてを参照してください。 [セキュリティ設定を変更する](multi-factor-authentication-end-user-manage-settings.md)します。
 
-- [構成] ボタンをクリックします。
 
+- まず、セキュリティ確認の設定ページに移動します。  このページに移動する方法の詳細についてを参照してください。 [セキュリティ設定を変更する](multi-factor-authentication-end-user-manage-settings.md)です。
+
+- [構成] ボタンをクリックします。 
+ 
 ![アカウントの追加](./media/multi-factor-authentication-azure-authenticator/azureauthe.png)
 
 - バーコードを含む画面が表示されます。
-
+  
 ![Scan barcode](./media/multi-factor-authentication-azure-authenticator/barcode2.png)
 
-- ここで Azure Authenticator アプリを開くと、[アカウント] ページが表示されます。 ここでは、設定したアカウントの一覧が表示されます。 新しいアカウントを追加する場合は、"+" (プラス) ボタンをクリックします。 これでスキャナーが開きます。
+- ここで Azure Authenticator アプリを開くと、[アカウント] ページが表示されます。  ここでは、設定したアカウントの一覧が表示されます。  新しいアカウントを追加する場合は、"+" (プラス) ボタンをクリックします。  これでスキャナーが開きます。
 
 ![アカウントの追加](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
-- バーコードをスキャンします。
+- バーコードをスキャンします。 
 
 ![アカウントの追加](./media/multi-factor-authentication-azure-authenticator/scan.png)
 
 - アカウントがアクティブ化されるまで待ちます。
 
-- 以上です。 これで、[アカウント] ページに新しいアカウントが表示されます。
+- 以上です。  これで、[アカウント] ページに新しいアカウントが表示されます。
 
 ![アカウントの追加](./media/multi-factor-authentication-azure-authenticator/addaccount2.png)
 
@@ -93,17 +95,17 @@ QR コードが取得できたら、アプリを起動します。 「+」をク
 
 アカウントを手動で追加する場合は、次の手順に従います。
 
-- まず、セキュリティ確認の設定ページに移動します。 このページに移動する方法の詳細についてを参照してください。 [セキュリティ設定を変更する](multi-factor-authentication-end-user-manage-settings.md)します。
+- まず、セキュリティ確認の設定ページに移動します。  このページに移動する方法の詳細についてを参照してください。 [セキュリティ設定を変更する](multi-factor-authentication-end-user-manage-settings.md)です。
 
-- [構成] ボタンをクリックします。
-
+- [構成] ボタンをクリックします。 
+ 
 ![アカウントの追加](./media/multi-factor-authentication-azure-authenticator/azureauthe.png)
 
-- バーコードを含む画面が表示されます。 バーコードの下にあるコードと URL をメモしておきます。
-
+- バーコードを含む画面が表示されます。  バーコードの下にあるコードと URL をメモしておきます。
+  
 ![Scan barcode](./media/multi-factor-authentication-azure-authenticator/barcode2.png)
 
-- ここで Azure Authenticator アプリを開くと、[アカウント] ページが表示されます。 ここでは、設定したアカウントの一覧が表示されます。 新しいアカウントを追加する場合は、"+" (プラス) ボタンをクリックします。 これでスキャナーが開きます。
+- ここで Azure Authenticator アプリを開くと、[アカウント] ページが表示されます。  ここでは、設定したアカウントの一覧が表示されます。  新しいアカウントを追加する場合は、"+" (プラス) ボタンをクリックします。  これでスキャナーが開きます。
 
 ![アカウントの追加](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
@@ -111,61 +113,56 @@ QR コードが取得できたら、アプリを起動します。 「+」をク
 
 ![アカウントの追加](./media/multi-factor-authentication-azure-authenticator/scan.png)
 
-- バーコードが表示されているページに記載されたコードと URL を入力します。 この操作により、モバイル アプリのコードおよび URL ボックスに移動します。 これにより、アクティブ化が開始されます。
+- バーコードが表示されているページに記載されたコードと URL を入力します。  この操作により、モバイル アプリのコードおよび URL ボックスに移動します。  これにより、アクティブ化が開始されます。
 
 ![アカウントの追加](./media/multi-factor-authentication-azure-authenticator/manual.png)
 
 - アカウントがアクティブ化されるまで待ちます。
 
-- 以上です。 これで、[アカウント] ページに新しいアカウントが表示されます。
+- 以上です。  これで、[アカウント] ページに新しいアカウントが表示されます。
 
 ![アカウントの追加](./media/multi-factor-authentication-azure-authenticator/addaccount2.png)
 
 ## Azure 以外のアカウントを手動で追加する方法
 
-Microsoft アカウントなど、Azure 以外のアカウントを手動で追加する場合は、次の手順に従います。
+Microsoft アカウントなど、Azure 以外のアカウントを手動で追加する場合は、次の手順に従います。  
 
 
 - Azure 以外のアカウントの手動での追加は、QR コードをスキャンするかシークレット キーを入力することで実行できます。
--秘密キーを手動で入力する場合に関連付けられているサイトから秘密キーを取得します。たとえば、Outlook.com では、[アカウント設定] のセキュリティに関する設定に移動し、Authentication アプリの設定を選択します。[バーコードをスキャンしてシークレット キーを取得できない] を選択する必要があります。
------------------------------------------------------------------------------------------------------------------------------------------------------------------
+- シークレット キーを手動で入力する場合は、アカウントが関連付けられているサイトからシークレット キーを取得します。  たとえば、Outlook.com では、[アカウント設定] のセキュリティに関する設定に移動し、Authentication アプリの設定を選択します。  [バーコードをスキャンしてシークレット キーを取得できない] を選択する必要があります。
+- 
 
 ![アカウントの追加](./media/multi-factor-authentication-azure-authenticator/secretkey.png)
 
-- Azure Authenticator アプリを開くと、[アカウント] ページが表示されます。 ここでは、設定したアカウントの一覧が表示されます。 新しいアカウントを追加する場合は、"+" (プラス) ボタンをクリックします。 これでスキャナーが開きます。
+- Azure Authenticator アプリを開くと、[アカウント] ページが表示されます。  ここでは、設定したアカウントの一覧が表示されます。  新しいアカウントを追加する場合は、"+" (プラス) ボタンをクリックします。  これでスキャナーが開きます。
 
 ![アカウントの追加](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
-- QR キーをスキャンするか、下部にある [手動で入力] ボタンをクリックします。 QR コードをスキャンする場合は次の手順をスキップします。これはアクティブ化がすぐに開始されるためです。
+- QR キーをスキャンするか、下部にある [手動で入力] ボタンをクリックします。  QR コードをスキャンする場合は次の手順をスキップします。これはアクティブ化がすぐに開始されるためです。
 
 ![アカウントの追加](./media/multi-factor-authentication-azure-authenticator/scan.png)
 
-- シークレット キーを手動で入力する場合は、アカウント名とバーコードと同じページに表示されるシークレット キーを入力します。 この操作により、モバイル アプリのコードおよび URL ボックスに移動します。 これにより、アクティブ化が開始されます。
+- シークレット キーを手動で入力する場合は、アカウント名とバーコードと同じページに表示されるシークレット キーを入力します。  この操作により、モバイル アプリのコードおよび URL ボックスに移動します。  これにより、アクティブ化が開始されます。
 
 ![アカウントの追加](./media/multi-factor-authentication-azure-authenticator/manual.png)
 
-- アカウントがアクティブ化されるまで待ちます。 これで、新しいアカウントが追加されたことがわかります。
+- アカウントがアクティブ化されるまで待ちます。  これで、新しいアカウントが追加されたことがわかります。
 
 ![アカウントの追加](./media/multi-factor-authentication-azure-authenticator/msaccount.png)
 
-- アカウントの下にあるコード (この場合は 875 756) を入力し、シークレット キーを受け取ったページのボックスにこのコードを入力するとこのプロセスは完了するため、[次へ] をクリックします。
+- アカウントの下にあるコード (この場合は 875 756) を入力し、シークレット キーを受け取ったページのボックスにこのコードを入力するとこのプロセスは完了するため、[次へ] をクリックします。  
 
 ![アカウントの追加](./media/multi-factor-authentication-azure-authenticator/verify.png)
 
 ## Touch ID を使用してアカウントを追加する方法
+iOS の Azure Authenticator モバイル アプリでは、Touch ID がサポートされています。  Azure Multi-factor Authentication により、組織は、登録済みデバイスを所有するだけでなく、PIN を要求することもできます。 この新機能を使用すると、TouchID 対応デバイスを持つ iOS ユーザーは、これ以上 PIN を入力する必要がなくなります。 一度設定したら、ユーザーは、PIN を入力して [承認] をタップする代わりに、指紋をスキャンするだけです。
 
-iOS の Azure Authenticator モバイル アプリでは、Touch ID がサポートされています。 Azure Multi-factor Authentication により、組織は、登録済みデバイスを所有するだけでなく、PIN を要求することもできます。 この新機能を使用すると、TouchID 対応デバイスを持つ iOS ユーザーは、これ以上 PIN を入力する必要がなくなります。 一度設定したら、ユーザーは、PIN を入力して [承認] をタップする代わりに、指紋をスキャンするだけです。
-
-Azure Authenticator による Touch ID の設定はとても簡単で、 PIN を使用して通常の検証チャレンジを完了するだけです。デバイスで Touch ID がサポートされている場合は、自動的に設定されます。
+Azure Authenticator による Touch ID の設定はとても簡単で、 PIN を使用して通常の検証チャレンジを完了するだけです。デバイスで Touch ID がサポートされている場合は、自動的に設定されます。 
 
 ![Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid1.png)
 
 それ以降、サインインの確認が必要になった場合は、受信したプッシュ通知をタップし、PIN を入力する代わりに指紋をスキャンします。
 
 ![Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
-
-
-
-
 
 

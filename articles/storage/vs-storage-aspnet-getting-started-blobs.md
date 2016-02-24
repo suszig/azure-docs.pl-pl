@@ -16,7 +16,6 @@
     ms.date="12/16/2015"
     ms.author="tarcher"/>
 
-
 # BLOB ストレージと Visual Studio 接続済みサービスの概要 (ASP.NET)
 
 ## 概要
@@ -46,35 +45,35 @@ ASP.NET プロジェクトでプログラムを使用して BLOB にアクセス
         using Microsoft.WindowsAzure.Storage.Auth;
         using Microsoft.WindowsAzure.Storage.Blob;
 
-2. ストレージ アカウント情報を表す **CloudStorageAccount** オブジェクトを取得します。 次のコードを使用して、Azure サービス構成からストレージ接続文字列とストレージ アカウント情報を取得できます。
+
+2. 取得、 **CloudStorageAccount** をストレージ アカウント情報を表すオブジェクト。 次のコードを使用して、Azure サービス構成からストレージ接続文字列とストレージ アカウント情報を取得できます。
 
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
            CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-    > [AZURE.NOTE] このコードはすべて、以下のセクションのコードの前に使用してください。
+    > [AZURE.NOTE] 次のセクションでは、すべてのコードの前に、前のコードを使用します。
 
-3. ストレージ アカウント内の既存のコンテナーを参照する **CloudBlobClient** オブジェクトを取得します。
+3. 取得、 **CloudBlobClient** 、ストレージ アカウント内の既存のコンテナーを参照するオブジェクト。
 
-     // Create a blob client.
-     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-    
-     // Get a reference to a container named “mycontainer.”
-     CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
+        // Create a blob client.
+        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
+        // Get a reference to a container named “mycontainer.”
+        CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-> [AZURE.NOTE] ASP.NET 5 で Azure ストレージへの呼び出しを実行する API の一部は非同期です。 参照してください [Async および Await を使用した非同期プログラミング](http://msdn.microsoft.com/library/hh191443.aspx) の詳細。
+> [AZURE.NOTE] ASP.NET 5 で Azure Storage への呼び出しを実行する Api の一部は非同期です。 参照してください [Async および Await を使用した非同期プログラミング](http://msdn.microsoft.com/library/hh191443.aspx) の詳細。
 
 
 ## コードで BLOB コンテナーを作成する
 
-**CloudBlobClient** を使用して、ストレージ アカウントでコンテナーを作成することもできます。 必要な作業は、次の例に示すように、**CreateIfNotExistsAsync** への呼び出しを上記のコードに追加することだけです。
+使用することも、 **CloudBlobClient** 、ストレージ アカウント内のコンテナーを作成するオブジェクト。 呼び出しを追加を行うには必要なは **CreateIfNotExistsAsync** 上記のコードの次の例に示すようにします。
 
     // If “mycontainer” doesn’t exist, create it.
     await container.CreateIfNotExistsAsync();
 
 ## コンテナーに BLOB をアップロードする
 
-Azure BLOB ストレージでは、ブロック BLOB とページ BLOB がサポートされています。 ほとんどの場合は、ブロック BLOB を使用することをお勧めします。
+Azure BLOB ストレージでは、ブロック BLOB とページ BLOB がサポートされています。  ほとんどの場合は、ブロック BLOB を使用することをお勧めします。
 
 ファイルをブロック blob にアップロードするには、コンテナーの参照を取得し、
 それを使用してブロック blob の参照を取得します。 BLOB の参照を取得したら、
@@ -82,7 +81,7 @@ Azure BLOB ストレージでは、ブロック BLOB とページ BLOB がサポ
 存在する場合は上書きされます。 次の例は、BLOB をコンテナーにアップロードする方法を示しています。この例では、既にコンテナーが作成されていることを前提としています。
 
     // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code."
-    
+
     // Create or overwrite the "myblob" blob with contents from a local file.
     using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
     {
@@ -94,34 +93,34 @@ Azure BLOB ストレージでは、ブロック BLOB とページ BLOB がサポ
 コンテナー内の blob の一覧を表示する、 **ListBlobs** の blob やディレクトリを取得するメソッド
 を取得します。 返される
 返される **IListBlobItem**, にキャストする必要があります、 **CloudBlockBlob**,、
-**CloudPageBlob**, 、または **CloudBlobDirectory** オブジェクトです。 種類がわからない場合は、
-種類の確認を使うとどれにキャストすればよいかがわかります。 次のコードは、
+**CloudPageBlob**, 、または **CloudBlobDirectory** オブジェクトです。  種類がわからない場合は、
+種類の確認を使うとどれにキャストすればよいかがわかります。  次のコードは、
 コードは、
-**写真** コンテナーです。
+ **写真** コンテナーです。
 
     // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code."
-    
+
     // Loop over items within the container and output the length and URI.
     foreach (IListBlobItem item in container.ListBlobs(null, false))
     {
         if (item.GetType() == typeof(CloudBlockBlob))
         {
             CloudBlockBlob blob = (CloudBlockBlob)item;
-    
+
             Console.WriteLine("Block blob of length {0}: {1}", blob.Properties.Length, blob.Uri);
-    
+
         }
         else if (item.GetType() == typeof(CloudPageBlob))
         {
             CloudPageBlob pageBlob = (CloudPageBlob)item;
-    
+
             Console.WriteLine("Page blob of length {0}: {1}", pageBlob.Properties.Length, pageBlob.Uri);
-    
+
         }
         else if (item.GetType() == typeof(CloudBlobDirectory))
         {
             CloudBlobDirectory directory = (CloudBlobDirectory)item;
-    
+
             Console.WriteLine("Directory: {0}", directory.Uri);
         }
     }
@@ -141,15 +140,16 @@ Azure BLOB ストレージでは、ブロック BLOB とページ BLOB がサポ
     2011/photo7.jpg
 
 呼び出すと **ListBlobs** (前の例を参照) として、"photos"コンテナーに対して、コレクションが返されます
-**CloudBlobDirectory** と **CloudBlockBlob** オブジェクト
+ **CloudBlobDirectory** と **CloudBlockBlob** オブジェクト
 含まれています。 次の例は、結果として得られる出力を示します。
 
     Directory: https://<accountname>.blob.core.windows.net/photos/2010/
     Directory: https://<accountname>.blob.core.windows.net/photos/2011/
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
+
 必要に応じて設定、 **UseFlatBlobListing** のパラメーター、 **ListBlobs** メソッド
-**true**. これで、ディレクトリに関係なく、すべての BLOB が **CloudBlockBlob** として返されるようになります。 次の例では、**ListBlobs** への呼び出しを示しています。
+**true**します。 これは、結果として返されるすべての blob としてが、 **CloudBlockBlob**, ディレクトリに関係なく、します。  次の例では、呼び出しを **ListBlobs**します。
 
     // Loop over items within the container and output the length and URI.
     foreach (IListBlobItem item in container.ListBlobs(null, true))
@@ -168,30 +168,32 @@ Azure BLOB ストレージでは、ブロック BLOB とページ BLOB がサポ
     Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
+
+
 ## BLOB をダウンロードする
 
-BLOB をダウンロードするには、**DownloadToStream** メソッドを使用します。 次の
+Blob をダウンロードするには、使用、 **DownloadToStream** メソッドです。 次の
 例では、 **DownloadToStream** blob を転送する方法
 ローカル ファイルに保存できるストリーム オブジェクトに BLOB の内容を転送します。
 
     // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code"
-    
+
     // Retrieve a reference to a blob named "photo1.jpg".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("photo1.jpg");
-    
+
     // Save blob contents to a file.
     using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
     {
         blockBlob.DownloadToStream(fileStream);
     }
 
-**DownloadToStream** メソッドを使用して BLOB の内容をテキスト文字列としてダウンロードすることもできます。
+使用することも、 **DownloadToStream** メソッドをテキスト文字列としての blob の内容をダウンロードします。
 
     // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code"
-    
+
     // Retrieve a reference to a blob named "myblob.txt"
     CloudBlockBlob blockBlob2 = container.GetBlockBlobReference("myblob.txt");
-    
+
     string text;
     using (var memoryStream = new MemoryStream())
     {
@@ -201,33 +203,34 @@ BLOB をダウンロードするには、**DownloadToStream** メソッドを使
 
 ## BLOB を削除する
 
-BLOB を削除するには、**Delete** メソッドを使用します。
+Blob を削除するには、 **削除** メソッドです。
 
     // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code"
-    
+
     // Retrieve reference to a blob named "myblob.txt".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.txt");
-    
+
     // Delete the blob.
     blockBlob.Delete();
+
 
 ## BLOB をページで非同期に一覧表示する
 
 多数の BLOB を一覧表示する場合や、1 回の一覧表示操作で返される結果の数を制御する場合には、BLOB の一覧を結果のページで表示できます。 下記の例は、大きな結果のセットを返すために待機している間に実行がブロックされないように、結果をページで非同期に返す方法を示しています。
 
-この例では、BLOB をフラットな一覧で表示しますが、**ListBlobsSegmentedAsync** メソッドの **useFlatBlobListing** パラメーターを **false** に設定することで、階層化された一覧で表示することもできます。
+この例は、blob をフラット、階層的な一覧についてを設定して実行することも、 **useFlatBlobListing** のパラメーター、 **ListBlobsSegmentedAsync** メソッドを **false**します。
 
-サンプル メソッドは非同期メソッドを呼び出すため、先頭に **async** キーワードを付ける必要があり、また、**Task** オブジェクトを返す必要があります。 **ListBlobsSegmentedAsync** メソッドに対して指定された await キーワードは、一覧表示タスクが完了するまで、サンプル メソッドの実行を中断します。
+始まる必要がありますので、サンプル メソッドは、非同期メソッドを呼び出し、 **async** キーワード、およびそれを返す必要があります、 **タスク** オブジェクトです。 に対して指定された await キーワード、 **ListBlobsSegmentedAsync** メソッドが一覧表示タスクが完了するまで、サンプル メソッドの実行を中断します。
 
     async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer container)
     {
         //List blobs to the console window, with paging.
         Console.WriteLine("List blobs in pages:");
-    
+
         int i = 0;
         BlobContinuationToken continuationToken = null;
         BlobResultSegment resultSegment = null;
-    
+
         //Call ListBlobsSegmentedAsync and enumerate the result segment returned, while the continuation token is non-null.
         //When the continuation token is null, the last page has been returned and execution can exit the loop.
         do
@@ -241,7 +244,7 @@ BLOB を削除するには、**Delete** メソッドを使用します。
                 Console.WriteLine("\t{0}", blobItem.StorageUri.PrimaryUri);
             }
             Console.WriteLine();
-    
+
             //Get the continuation token.
             continuationToken = resultSegment.ContinuationToken;
         }
@@ -251,8 +254,4 @@ BLOB を削除するには、**Delete** メソッドを使用します。
 ## 次のステップ
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
-
-
-
-
 

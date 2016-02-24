@@ -16,32 +16,30 @@
     ms.date="12/03/2015" 
     ms.author="sdanie"/>
 
-
 # Azure Redis Cache の FAQ
 
 Azure Redis Cache についてよく寄せられる質問の回答、パターンとベスト プラクティスについて説明します。
 
 <a name="cache-size"></a>
 ## Redis Cache のサービス内容と適切なサイズの選択
-
-Azure Redis Cache には、さまざまなレベルの**サイズ**、**帯域幅**、**高可用性**、**SLA** オプションが用意されています。
+各 Azure Redis Cache のプランは、さまざまなレベルの **サイズ**, 、**帯域幅**, 、**高可用性** と **SLA** オプション。
 
 Cache のオプションを選択するときの考慮事項を次に示します。
 
--   **メモリ**: Basic レベルと Standard レベルでは、250 MB ～ 53 GB です。 Premium 階層で 530 GB までを提供する利用可能な [要求で](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase)します。 詳細については、次を参照してください。 [Azure Redis Cache の料金](https://azure.microsoft.com/pricing/details/cache/)します。
--   **ネットワーク パフォーマンス**: 高いスループットを必要とするワークロードがある場合、Standard または Basic より Premium レベルの方が多くの帯域幅を提供します。 また、各レベル内では、キャッシュをホストする基盤の VM のため、キャッシュのサイズが大きいほど帯域幅も増えます。 詳細については後の表を参照してください。
--   **スループット**: Premium レベルでは、使用可能な最大のスループットが提供されます。 キャッシュ サーバーまたはクライアントが帯域幅の限界に達した場合、クライアント側でタイムアウトが発生します。 詳細については後の表を参照してください。
--   **高可用性/SLA**: Azure Redis Cache は、Standard/Premium キャッシュについて 99.9% の可用性を保証します。 SLA の詳細については、次を参照してください。 [Azure Redis Cache の料金](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)します。 SLA は、Cache エンドポイントへの接続のみをカバーします。 SLA は、データ損失からの保護には対応していません。 Premium レベルの Redis データの保持機能を使用して、データ損失に対する復元性を高めることをお勧めします。
--   **Redis データの保持**: Premium レベルでは、Azure Storage アカウント内のキャッシュ データを永続化できます。 Basic/Standard のキャッシュでは、データはすべてメモリ内にのみ格納されます。 基盤となるインフラストラクチャに問題が発生した場合、データが失われる可能性があります。 Premium レベルの Redis データの保持機能を使用して、データ損失に対する復元性を高めることをお勧めします。 Azure Redis Cache には、Redis の永続化の RDB オプションと AOF オプション (近日公開予定) があります。 詳細については、次を参照してください。 [Premium Azure Redis Cache 用の永続化を構成する方法](cache-how-to-premium-persistence.md)します。
--   **Redis クラスター**: 53 GB を超えるキャッシュを作成するか、複数の Redis ノード間でデータを共有する場合、Premium レベルで利用可能な Redis クラスタリングを使用することができます。 各ノードは、高可用性対応のプライマリ/レプリカ キャッシュのペアで構成されています。 詳細については、次を参照してください。 [Premium Azure Redis Cache のクラスタ リングを構成する方法](cache-how-to-premium-clustering.md)します。
--   **強化されたセキュリティとネットワーク分離**: Azure Virtual Network (VNET) のデプロイメントでは、Azure Redis Cache のための強化されたセキュリティと分離、およびサブネット、アクセス制御ポリシー、さらにアクセスを制限するためのその他の機能が提供されます。 詳細については、次を参照してください。 [Premium Azure Redis Cache 用の仮想ネットワークのサポートを構成する方法](cache-how-to-premium-vnet.md)します。
--   **Redis の構成**: Standard レベルと Premium レベルでは、Keyspace 通知用に Redis を構成できます。
--   **最大クライアント接続数**: Premium レベルでは、Redis に接続できるクライアントの最大数が提供されます。キャッシュのサイズが大きいほど、接続の数は多くなります。 [詳細については、料金のページを参照してください](https://azure.microsoft.com/pricing/details/cache/)します。
--   **Redis サーバー専用コア**: Premium レベルでは、すべてのキャッシュ サイズに Redis 専用のコアがあります。 Basic と標準の階層、C1 のサイズし、上記の Redis サーバーの専用のコアがあります。
--   **Redis はシングル スレッドです**。したがって、3 つ以上のコアを使用しても 2 つのコアを使用する場合と比べて追加のメリットはありません。ただし、一般に、VM のサイズが大きいほど、小さなサイズよりも多くの帯域幅を利用できます。 キャッシュ サーバーまたはクライアントが帯域幅の制限に達すると、クライアント側でタイムアウトが発生します。
--   **パフォーマンス向上**: Premium レベルのキャッシュは、高速プロセッサを備え、Basic/Standard レベルと比較して優れたパフォーマンスを発揮するハードウェア上にデプロイされます。 Premium レベルのキャッシュは、スループットが高く、待機時間が低くなっています。
+-   **メモリ**: Basic と Standard レベルは、250 MB ~ 53 GB を提供します。 Premium 階層で 530 GB までを提供する利用可能な [要求で](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase)します。 詳細については、次を参照してください。 [Azure Redis Cache の料金](https://azure.microsoft.com/pricing/details/cache/)します。
+-   **ネットワーク パフォーマンス**: 高スループットを必要とするワークロードをして、Premium 階層は、Standard または Basic と比較してより多くの帯域幅を提供しています。 また、各レベル内では、キャッシュをホストする基盤の VM のため、キャッシュのサイズが大きいほど帯域幅も増えます。 詳細については後の表を参照してください。
+-   **スループット**: Premium 層が使用可能な最大のスループットを提供します。 キャッシュ サーバーまたはクライアントが帯域幅の限界に達した場合、クライアント側でタイムアウトが発生します。 詳細については後の表を参照してください。
+-   **高可用性/SLA**: Azure Redis Cache を標準とプレミアムのキャッシュは利用できる保証には、少なくとも 99.9% の時間。 SLA の詳細については、次を参照してください。 [Azure Redis Cache の料金](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)します。 SLA は、Cache エンドポイントへの接続のみをカバーします。 SLA は、データ損失からの保護には対応していません。 Premium レベルの Resis データの保持機能を使用して、データ損失に対する復元性を高めることをお勧めします。
+-   **データの永続性を redis**: Premium 層では、Azure ストレージ アカウント内のキャッシュ データを永続化することができます。 Basic/Standard のキャッシュでは、データはすべてメモリ内にのみ格納されます。 基盤となるインフラストラクチャに問題が発生した場合、データが失われる可能性があります。 Premium レベルの Redis データの保持機能を使用して、データ損失に対する復元性を高めることをお勧めします。 Azure Redis Cache には、Redis の永続化の RDB オプションと AOF オプション (近日公開予定) があります。 詳細については、次を参照してください。 [Premium Azure Redis Cache 用の永続化を構成する方法](cache-how-to-premium-persistence.md)します。
+-   **Redis クラスター**: 53 GB を超えるキャッシュを作成またはシャードのデータに複数の Redis ノード間で必要な場合は、Redis は、Premium 階層で利用可能なクラスタ リングを使用することができます。 各ノードは、高可用性対応のプライマリ/レプリカ キャッシュのペアで構成されています。 詳細については、次を参照してください。 [Premium Azure Redis Cache のクラスタ リングを構成する方法](cache-how-to-premium-clustering.md)します。
+-   **セキュリティとネットワーク分離を強化**: Azure 仮想ネットワーク (VNET) の展開が強化されたセキュリティと、Azure Redis Cache、だけでなく、アクセス制御ポリシー、サブネットの分離を提供し、さらにその他の機能のアクセスを制限します。 詳細については、次を参照してください。 [Premium Azure Redis Cache 用の仮想ネットワークのサポートを構成する方法](cache-how-to-premium-vnet.md)します。
+-   **Redis を構成する**: Standard および Premium の両方の階層では、キースペース通知の Redis を構成できます。
+-   **クライアント接続の最大数**: Redis、大きいサイズのキャッシュの接続の大きい番号が接続できるクライアントの最大数は、Premium 階層に用意されています。 [詳細については、料金のページを参照してください](https://azure.microsoft.com/pricing/details/cache/)します。
+-   **専用の Redis サーバーの中核となる**: Premium 階層で、すべてのキャッシュ サイズは Redis の専用のコアがあります。 Basic と標準の階層、C1 のサイズし、上記の Redis サーバーの専用のコアがあります。
+-   **Redis はシングル スレッド** 3 つ以上のコアを提供しませんという利点を 2 つのコアが大規模な VM のサイズは通常比較的小さなサイズよりも多くの帯域幅をあるようにします。 キャッシュ サーバーまたはクライアントが帯域幅の制限に達すると、クライアント側でタイムアウトが発生します。
+-   **パフォーマンスの向上**: Premium 階層内のキャッシュが高速のプロセッサがハードウェアに展開され、基本または標準の層と比較してパフォーマンスが向上します。 Premium レベルのキャッシュは、スループットが高く、待機時間が低くなっています。
 
-次の表に、標準のさまざまなサイズをテストした結果得られた最大帯域幅とプレミアムのキャッシュを使用して `benchmark.exe` Azure Redis Cache のエンドポイントに対して Iaas VM からです。 これらの値は保証された値ではなく、これらの値の SLA もありません。これらの値は、標準的な値と考えてください。 アプリケーションに最適なキャッシュ サイズを特定するには、アプリケーションに対してロード テストを実行する必要があります。
+次の表に、Azure Redis Cache のエンドポイントに対して Iaas VM から `redis-benchmark.exe` を使用して Standard および Premium キャッシュのさまざまなサイズをテストした結果得られた最大帯域幅を示します。 これらの値は保証された値ではなく、これらの値の SLA もありません。これらの値は、標準的な値と考えてください。 アプリケーションに最適なキャッシュ サイズを特定するには、アプリケーションに対してロード テストを実行する必要があります。
 
 この表からは次のような結論が得られます。
 
@@ -49,24 +47,24 @@ Cache のオプションを選択するときの考慮事項を次に示しま�
 -   Redis クラスタリングでは、クラスターのシャード (ノード) の数を増やすと、スループットもそれに比例して増加する。 例: 10 個のシャードの P4 クラスターを作成する場合は、使用可能なスループットの 250 K * 10 = 250万 RPS
 -   キー サイズを大きくしたときのスループットは、Standard レベルより Premium レベルのほうが高い。
 
-| [価格レベル]| サイズ| 使用可能な帯域幅| 1 KB のキーのサイズ|
+| [価格レベル]         | サイズ   | 使用可能な帯域幅        | 1 KB のキーのサイズ                  |
 |----------------------|--------|----------------------------|--------------------------------|
-| **Standard のキャッシュ サイズ**| &nbsp;| **メガビット/秒 (Mbps)**| **1 秒あたりの要求数 (RPS)**|
-| C0| 250 MB| 5| 600|
-| C1| 1 GB| 100| 12200|
-| C2| 2.5 GB| 200| 24000|
-| C3| 6 GB| 400| 49000|
-| C4| 13 GB| 500| 61000|
-| C5| 26 GB| 1,000| 115000|
-| C6| 53 GB| 2000| 150000|
-| **Premium のキャッシュ サイズ**| &nbsp;| &nbsp;| **1 秒あたりの要求数 (RPS)、シャードあたり**|
-| P1| 6 GB| 1,000| 140000|
-| P2| 13 GB| 2000| 220000|
-| P3| 26 GB| 2000| 220000|
-| P4| 53 GB| 4000| 250000|
+| **Standard のキャッシュ サイズ** | &nbsp;       |**メガビット/秒 (Mbps)** | **1 秒あたりの要求数 (RPS)**            |
+| C0                   | 250 MB | 5                          | 600                            |
+| C1                   | 1 GB   | 100                        | 12200                          |
+| C2                   | 2.5 GB | 200                        | 24000                          |
+| C3                   | 6 GB   | 400                        | 49000                          |
+| C4                   | 13 GB  | 500                        | 61000                          |
+| C5                   | 26 GB  | 1,000                       | 115000                         |
+| C6                   | 53 GB  | 2000                       | 150000                         |
+| **Premium のキャッシュ サイズ**  |  &nbsp;      |    &nbsp;                        | **1 秒あたりの要求数 (RPS)、シャードあたり** |
+| P1                   | 6 GB   | 1,000                       | 140000                         |
+| P2                   | 13 GB  | 2000                       | 220000                         |
+| P3                   | 26 GB  | 2000                       | 220000                         |
+| P4                   | 53 GB  | 4000                       | 250000                         |
 
 
-Redis ツールのダウンロードなどについて `benchmark.exe`, 、を参照してください [Redis コマンドを実行する方法ですか?](#cache-commands) section.
+Redis ツールのダウンロードなどについて `redis-benchmark.exe`, を参照してください、 [Redis コマンドを実行する方法ですか?](#cache-commands) セクションです。
 
 <a name="cache-region"></a>
 ## キャッシュを配置するリージョン
@@ -111,30 +109,30 @@ Microsoft Azure Redis Cache のインスタンスで監視できる、 [Azure �
 
 StackExchange.Redis には多くのオプションが用意されています。 ここでは、いくつかの一般的な設定について説明します。 StackExchange.Redis オプションについての詳細を参照してください。 [StackExchange.Redis の構成](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md)します。
 
- 構成オプション| 説明| 推奨
+構成オプション|説明|推奨
 ---|---|---
- AbortOnConnectFail| true の場合、ネットワーク障害の後に再接続が行われません。| StackExchange.Redis が自動的に再接続するように、false に設定します。
- ConnectRetry| 初期接続中に接続試行を繰り返す回数。| |
- ConnectTimeout| 接続操作のタイムアウト (ミリ秒単位)。|
+AbortOnConnectFail|true の場合、ネットワーク障害の後に再接続が行われません。|StackExchange.Redis が自動的に再接続するように、false に設定します。
+ConnectRetry|初期接続中に接続試行を繰り返す回数。||
+ConnectTimeout|接続操作のタイムアウト (ミリ秒単位)。|
 
 ほとんどの場合は、クライアントの既定値で十分です。 ワークロードに基づいてオプションを微調整できます。
 
 -   再試行
     -   ConnectRetry と ConnectTimeout に関する一般的なガイダンスは、早く失敗して再試行することです。 これは、ワークロードと、クライアントが Redis コマンドを発行してから応答を受け取るまでに要する時間の平均に基づきます。
-    -   自分で接続の状態を確認して再接続するのではなく、StackExchange.Redis が自動的に再接続するように設定します。 **ConnectionMultiplexer.IsConnected プロパティは使用しません**。
-    -   問題の肥大化 - ある問題が発生し、再試行しても問題が解決しないことがあります。ここでする必要がある」の説明に従って、指数関数的バックオフ再試行アルゴリズムを使用して [一般的なガイダンスを再試行](https://github.com/mspnp/azure-guidance/blob/master/Retry-General.md) 、Microsoft Patterns & Practices グループ発行します。
+    -   自分で接続の状態を確認して再接続するのではなく、StackExchange.Redis が自動的に再接続するように設定します。 **ConnectionMultiplexer.IsConnected プロパティは使用しないでください**します。
+    -   問題の肥大化 - ある問題が発生し、再試行しても問題が解決しないことがあります。 ここでする必要がある」の説明に従って、指数関数的バックオフ再試行アルゴリズムを使用して [一般的なガイダンスを再試行](https://github.com/mspnp/azure-guidance/blob/master/Retry-General.md) 、Microsoft Patterns & Practices グループ発行します。
 -   タイムアウト値
     -   ワークロードを考慮したうえで値を適宜設定します。 大きな値を保存する場合は、タイムアウトを大きな値に設定します。
         -   StackExchange.Redis が自動的に再接続するように、ABortOnConnectFail を false に設定します。
--   アプリケーションに対して ConnectionMultiplexer インスタンスを 1 つ使用します。 ように、Connection プロパティから返される 1 つのインスタンスを作成する、LazyConnection を使用する [ConnectionMultiplexer クラスを使用してキャッシュに接続する](https://msdn.microsoft.com/library/azure/dn690521.aspx#Connect)します。
--   設定、 `ConnectionMultiplexer.ClientName` を診断用のアプリケーション インスタンス一意な名前のプロパティです。
--   複数回使用 `ConnectionMultiplexer` カスタム ワークロードに対してインスタンス。
+-   アプリケーションに対して ConnectionMultiplexer インスタンスを 1 つ使用します。 ように、Connection プロパティから返される 1 つのインスタンスを作成する、LazyConnection を使用する [ConnectionMultiplexer クラスを使用してキャッシュに接続する](https://msdn.microsoft.com/library/azure/dn690521.aspx#Connect)です。
+-   診断用には、`ConnectionMultiplexer.ClientName` プロパティを、アプリ インスタンスの一意な名前に設定します。
+-   カスタム ワークロードに対しては複数の `ConnectionMultiplexer` インスタンスを使用します。
     -   アプリケーションの負荷が変化する場合は、このモデルに従うことができます。 次に例を示します。
-        -   1 つのマルチプレクサーを使用して、サイズの大きなキーを処理できます。
-        -   1 つのマルチプレクサーを使用して、サイズの小さなキーを処理できます。
+        -   1 つのマルチプレクサーを使用して、サイズの大きなキーを処理できます。 
+        -   1 つのマルチプレクサーを使用して、サイズの小さなキーを処理できます。 
         -   使用する ConnectionMultiplexer ごとに、異なる接続タイムアウト値と再試行ロジックを設定できます。
-        -   設定、 `ClientName` プロパティを各診断を支援するマルチプレクサーします。
-        -   これにより詳細になりますあたりの待機時間の合理化 `ConnectionMultiplexer`します。
+        -   診断を容易にするために、各マルチプレクサーで `ClientName` プロパティを設定します。 
+        -   これにより、`ConnectionMultiplexer` あたりの待機時間が合理化されます。
 
 <a name="cache-redis-commands"></a>
 ## 一般的な Redis コマンドの使用に関するいくつかの考慮事項
@@ -152,9 +150,9 @@ Redis サーバーは既定で SSL をサポートしませんが、Azure Redis 
 
 既定では、新しい Azure Redis Cache インスタンスに対して非 SSL ポートは無効になっています。 クライアントが、SSL をサポートしていないかどうかは、指示に従って、非 SSL ポートを有効にする必要があります、 [ポートへのアクセス](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) のセクションで、 [Azure Redis Cache でキャッシュを構成](https://msdn.microsoft.com/library/azure/dn793612.aspx) 記事です。
 
-Redis ツール `redis cli` SSL ポートを持つことはできませんなどのユーティリティを使用する `stunnel` に安全に接続ツールを SSL ポートで説明された手順に従って、 [プレビュー リリースの ASP.NET セッション状態プロバイダーを発表](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) ブログの投稿です。
+Redis ツール `redis-cli` SSL ポートを持つことはできませんなどのユーティリティを使用する `stunnel` に安全に接続ツールを SSL ポートで説明された手順に従って、 [プレビュー リリースの ASP.NET セッション状態プロバイダーを発表](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) ブログの投稿です。
 
-Redis ツールのダウンロード方法については、を参照してください [Redis コマンドを実行する方法ですか?](#cache-commands)。 section.
+Redis ツールのダウンロード方法の詳細については、次を参照してください。、 [Redis コマンドを実行する方法ですか?](#cache-commands) セクションです。
 
 <a name="cache-benchmarking"></a>
 ## キャッシュのベンチマークを実行およびテストする方法
@@ -164,7 +162,7 @@ Redis ツールのダウンロード方法については、を参照してく�
     -   ロード テスト クライアントと Redis Cache が同じリージョン内にあることを確認します。
 -   redis-cli.exe を使用し、INFO コマンドを使用してキャッシュを監視します。
     -   負荷が高いことが原因でメモリの断片化が発生している場合は、キャッシュのサイズをスケールアップする必要があります。
--   Redis ツールのダウンロード方法については、を参照してください [Redis コマンドを実行する方法ですか?](#cache-commands)。 section.
+-   Redis ツールのダウンロード方法の詳細については、次を参照してください。、 [Redis コマンドを実行する方法ですか?](#cache-commands) セクションです。
 
 <a name="cache-commands"></a>
 ## Redis コマンドの実行方法
@@ -174,8 +172,8 @@ Redis ツールのダウンロード方法については、を参照してく�
 -   使用して Redis コマンドを実行する標準またはプレミアムのキャッシュがあれば、 [Redis コンソール](cache-configure.md#redis-console)します。 これは、Azure ポータルで Redis コマンドを安全に実行するための方法です。
 -   Redis コマンド ライン ツールを使用することもできます。 これらを使用するには、次の手順に従います。
     -   ダウンロード、 [Redis コマンド ライン ツール](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip)します。
-    -   使用して、キャッシュへの接続 `cli.exe`します。 次の例に示すように、-h スイッチを使用してキャッシュ エンドポイントを渡し、-a を使用してキーを渡します。
-        -   `redis cli-h < キャッシュ名 >..redis.cache.windows.net という-a < キー >`
+    -   `redis-cli.exe` を使用してキャッシュに接続します。 次の例に示すように、-h スイッチを使用してキャッシュ エンドポイントを渡し、-a を使用してキーを渡します。
+        -   `redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
     -   Redis コマンド ライン ツールは SSL ポートで動作しないためですなどのユーティリティを使用する `stunnel` に安全に接続ツールを SSL ポートで説明された手順に従って、 [プレビュー リリースの ASP.NET セッション状態プロバイダーを発表](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) ブログの投稿です。
 
 <a name="cache-common-patterns"></a>
@@ -196,7 +194,7 @@ Microsoft Azure Redis Cache は、広く普及しているオープン ソース
 
 ## どの Azure Cache を利用すればよいですか。
 
->[AZURE.IMPORTANT] すべての新規の開発に Azure Redis Cache を使用することをお勧めします。
+>[AZURE.IMPORTANT] 新しいすべての開発は、Azure Redis Cache を使用することをお勧めします。
 
 現在、Azure Cache には 3 つのサービスがあります。
 
@@ -204,7 +202,7 @@ Microsoft Azure Redis Cache は、広く普及しているオープン ソース
 -   Azure Managed Cache Service
 -   Azure In-Role Cache
 
->[AZURE.IMPORTANT]Azure Managed Cache Service と Azure In-Role Cache は、2016 年 11 月 30 日に提供を終了する予定です。 提供終了に備えて、Azure Redis Cache に移行することをお勧めします。 
+>[AZURE.IMPORTANT]Azure マネージ キャッシュ サービスと Azure ロール内キャッシュの [2016 年 11 月 30 日、提供終了発表します。 提供終了に備えて、Azure Redis Cache に移行することをお勧めします。 
 >
 >Azure Redis Cache は一般公開され、中国と米国政府を含むすべての Azure リージョンで使用できるようになったため、推奨されるキャッシュ ソリューションになりました。 この一般公開により、Managed Cache Service と In-Role Cache サービスは提供が終了されます。 
 >
@@ -217,26 +215,19 @@ Microsoft Azure Redis Cache は、広く普及しているオープン ソース
 >ご質問があれば、次のようにしてください。 [問い合わせ](https://azure.microsoft.com/support/options/?WT.mc_id=azurebg_email_Trans_933)します。 
 
 ### Azure Redis Cache
-
 Azure Redis Cache は、最大 53 GB で一般公開されています。可用性の SLA は 99.9% です。 新しい [premium 階層](cache-premium-tier.md) 最大サイズは、530 GB とクラスタ リング、VNET、および 99.9% の sla の永続化のサポート。
 
 Azure Redis Cache では、Microsoft が管理する安全な専用 Redis Cache を利用できます。 このサービスでは、Redis が提供する豊富な機能セットとエコシステムを利用し、Microsoft による信頼性の高いホスティングと監視を受けられます。
 
 キーと値ペアのみを扱う従来のキャッシュとは異なり、Redis は高パフォーマンスな種類のデータに人気があります。 また、Redis は、このようなデータに対するアトミックな操作 (文字列の付加、ハッシュ内の値のインクリメント、リストへのプッシュ、積集合、和集合、および差集合の計算、並べ替えられた集合内で最高ランクのメンバーの取得など) の実行もサポートしています。 その他の機能として、トランザクションのサポート、パブリッシュ/サブスクライブ、Lua スクリプト、有効期限が制限されたキー、Redis を従来のキャッシュのように動作させるための構成設定があります。
 
-Redis が正常に動作するために重要な点は、Redis を中心として正常に動作する強力なオープン ソース エコシステムが構築されていることです。 また、その環境を複数の言語で使用できる多様な Redis クライアントに反映します。 そうすることで、Azure 内に構築するほとんどすべてのワークロードに使用できるようになります。
+Redis が正常に動作するために重要な点は、Redis を中心として正常に動作する強力なオープン ソース エコシステムが構築されていることです。 また、その環境を複数の言語で使用できる多様な Redis クライアントに反映します。 そうすることで、Azure 内に構築するほとんどすべてのワークロードに使用できるようになります。 
 
 Azure Redis Cache の概要の詳細については、次を参照してください。 [Azure Redis Cache の使用方法](cache-dotnet-how-to-use-azure-redis-cache.md) と [Azure Redis Cache のドキュメント](https://azure.microsoft.com/documentation/services/redis-cache/)します。
 
 ### Managed Cache Service
-
 既存の Azure Managed Cache Service のお客様は、既存のサービスを引き続き利用することも、Azure Redis Cache へ移行して豊富な機能セットを利用することもできます。 また、Azure Managed Cache Service は一般公開されており、可用性の SLA は 99.9% です。
 
 ### インロール キャッシュ
-
 In-role Cache を使用してキャッシュを自己ホストしている場合は、自己ホストを継続できます。 In-Role Cache は自己ホスト型コンポーネントであり、Microsoft ホスト型サービスではないので、SLA は用意されていません。 In-Role Cache ユーザーは、Azure Redis Cache に移行することで、豊富な機能を利用し、SLA を受けることができます。
-
-
-
-
 

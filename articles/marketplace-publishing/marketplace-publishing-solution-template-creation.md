@@ -16,13 +16,10 @@
       ms.date="10/28/2015"
       ms.author="hascipio; v-divte" />
 
-
 # Azure Marketplace 向けソリューション テンプレートの作成ガイド
-
-終了すると、手順 1、 [アカウントの作成と登録 ][link-acct-creation], にある Azure と互換性のあるソリューション テンプレートの作成時に、ガイド付きお [ソリューション テンプレートを作成するための技術的な前提条件](marketplace-publishing-solution-template-creation-prerequisites.md)します。 これで、手順を説明する複数の Vm 用のソリューション テンプレートを作成するための手順に従って、 [公開ポータルの ][link-pubportal] Azure Marketplace のです。
+終了すると、手順 1、 [アカウントの作成と登録][link-acct-creation], にある Azure と互換性のあるソリューション テンプレートの作成時に、ガイド付きお [ソリューション テンプレートを作成するための技術的な前提条件](marketplace-publishing-solution-template-creation-prerequisites.md)します。 これで、手順を説明する複数の Vm 用のソリューション テンプレートを作成するための手順に従って、 [公開ポータル][link-pubportal] Azure Marketplace のです。
 
 ## 発行ポータルでソリューション テンプレート プランを作成する
-
 移動して  [https://publish.windowsazure.com](http://publish.windowsazure.com)します。 初めてサインインするときに、 [公開ポータル](https://publish.windowsazure.com/), 、会社の販売者のプロファイルが登録されていると、同じアカウントを使用します。 発行ポータルでは、他の従業員を共同管理者として後から追加できます。
 
 ### 1.[ソリューション テンプレート] を選択する
@@ -34,8 +31,7 @@
   ![図][img-pubportal-sol-templ-new]
 
 ### 3.最初にトポロジを作成する
-
-ソリューション テンプレートは、作成したすべてのトポロジの 「親」 となります。 1 つのプランまたはソリューション テンプレートでは、複数のトポロジを定義できます。 プランをステージングにプッシュすると、すべてのトポロジも一緒にプッシュされます。 プランを定義するのには、次の手順に従います。
+ソリューション テンプレートは、作成したすべてのトポロジの 「親」 となります。 1 つのプランまたはソリューション テンプレートでは、複数のトポロジを定義できます。 プランをステージングにプッシュすると、すべてのトポロジも一緒にプッシュされます。 プランを定義するのには、次の手順に従います。     
 - トポロジを作成します。"トポロジ識別子"は、通常、トポロジのソリューション テンプレートの名前。 トポロジ識別子は、次に示すように URL で使用されます。
 
   Azure Marketplace。
@@ -47,26 +43,25 @@ https://ms.portal.azure.com/#gallery/{PublisherNamespace} します。{OfferIden
 - 新しいバージョンを追加します。
 
 ### 4.トポロジのバージョンの認定を受ける
-
 トポロジの特定バージョンをプロビジョニングするために必要な、すべてのファイルを含む zip ファイルをアップロードします。 この zip ファイルを次に含める必要があります。
 - *mainTemplate.json* と *createUiDefinition.json* のルート ディレクトリにあるファイルです。
 - 任意のリンクされたテンプレートおよび必要なすべてのスクリプトを使用して。
 
-zip ファイルをアップロードしたら、**[証明書の要求]** をクリックします。 Microsoft の認定チームがファイルを確認し、トポロジを認定します。
+Zip ファイルをアップロードすると、次のようにクリックします。 **証明書の要求**します。 Microsoft の認定チームがファイルを確認し、トポロジを認定します。
 
 以下の手順を実行すると、顧客向けに実際にデプロイメントを行わずに、作成エクスペリエンスを検証することもできます。
 
-1. *createUiDefinition.json* を保存して、絶対 URL を生成します。 この URL は、パブリックにアクセスできる必要があります。
+1. 保存、 *createUiDefinition.json* と絶対 URL を生成します。 この URL は、パブリックにアクセスできる必要があります。
 2. 位置にあるツールを使用して、URL をエンコード [http://www.url-encode-decode.com/](http://www.url-encode-decode.com/)します。
-3. 太字のテキストを、検証が必要な *createUiDefinition.json* の場所 (エンコードされた URL) に置き換えます。
+3. 太字のテキストを置き換えるの場所 (エンコードされた URL)、 *createUiDefinition.json* 検証する必要があります。
 
-> https://portal.azure.com/?clientOptimizations=false#blade/Microsoft_Azure_Compute/CreateMultiVmWizardBlade/internal_bladeCallId/anything/internal_bladeCallerParams/ **{"initialData": {}、"providerConfig": {"createUiDefinition":"http://yoururltocreateuidefinition.jsonURLencoded"}}**
+  > https://portal.azure.com/?clientOptimizations=false#blade/Microsoft_Azure_Compute/CreateMultiVmWizardBlade/internal_bladeCallId/anything/internal_bladeCallerParams/ **{"initialData": {}、"providerConfig": {"createUiDefinition":"http://yoururltocreateuidefinition.jsonURLencoded"}}**
 
 4. 任意のブラウザーで URL をコピーして貼り付けると、createUiDefinition.json ファイルのカスタマー エクスペリエンスを参照できます。
-  > [AZURE.TIP] 開発者がソリューション テンプレートのトポロジを作成して認定を取得する間、会社のビジネス、マーケティング、法務の部門はマーケティングおよび法的なコンテンツの作業を進めることができます。
+
+  > [AZURE.TIP] ソリューション テンプレートのトポロジを作成して、両者を認定を受けて、ビジネスに機能しますが、開発者は、会社の部門をマーケティング、または法的ながマーケティングおよび法的コンテンツで作業できます。
 
 ## 次のステップ
-
 これでソリューション テンプレートを作成して、証明書の必要なファイルの zip ファイルを送信して、ことができますできます引き続きを指示に従って、 [Marketplace マーケティング コンテンツ ガイド](marketplace-publishing-push-to-staging.md) ステージング環境でテストするため、サービスを準備する前にします。 または、marketplace の記事の発行の完全なセットを表示するを参照して [作業の開始: オファーを Azure Marketplace に発行する方法](marketplace-publishing-getting-started.md)します。
 
 必要に応じて次の関連する記事も参照してください。
@@ -79,9 +74,8 @@ zip ファイルをアップロードしたら、**[証明書の要求]** をク
 
 - ストレージ アカウントの調整: [のストレージ アカウントの制限の監視方法](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) と [Premium storage](../storage/storage-premium-storage-preview-portal/#scalability-and-performance-targets-when-using-premium-storage)
 
-
-[img-pubportal-menu-sol-templ]: media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png 
-[img-pubportal-sol-templ-new]: media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png 
-[link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md 
-[link-pubportal]: https://publish.windowsazure.com 
+[img-pubportal-menu-sol-templ]:media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
+[img-pubportal-sol-templ-new]:media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
+[link-acct-creation]:marketplace-publishing-microsoft-accounts-creation-registration.md
+[link-pubportal]:https://publish.windowsazure.com
 

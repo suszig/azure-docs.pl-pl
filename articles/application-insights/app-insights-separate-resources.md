@@ -15,35 +15,36 @@
     ms.date="11/25/2015" 
     ms.author="awills"/>
 
-
 # 開発、テスト、および実稼働用に Application Insights リソースを分ける
 
-デバッグ、テスト、および運用環境のバージョンのアプリからテレメトリの混同を避けるためには、独立した作成 [Application Insights の ][start] 各バージョンからデータを受信するリソースです。
 
-アプリケーションから受け取ったデータは Microsoft Azure *リソース*に格納され、Application Insights によって処理されます。 各リソースは、*インストルメンテーション キー*によって識別されます。アプリ内で、Application Insights SDK にキーが提供され、これにより、収集したデータを適切なリソースに送信できます。 キーは、コード内または ApplicationInsights.config で指定できます。 SDK 内のキーを変更することで、データをさまざまなリソースに送信できます。
+デバッグ、テスト、および運用環境のバージョンのアプリからテレメトリの混同を避けるためには、独立した作成 [Application Insights][start] 各バージョンからデータを受信するリソースです。
+
+アプリケーションから受け取ったデータが格納され、Microsoft Azure で Application Insights によって処理 *リソース*します。 各リソースがで識別される、 *インストルメンテーション キーです。*アプリ内で、Application Insights SDK にキーが提供され、これにより、収集したデータを適切なリソースに送信できます。 キーは、コード内または ApplicationInsights.config で指定できます。 SDK 内のキーを変更することで、データをさまざまなリソースに送信できます。 
 
 
 ## Application Insights リソースの作成
+  
 
-[Portal.azure.com](https://portal.azure.com), 、Application Insights のリソースを追加します。
+ [Portal.azure.com](https://portal.azure.com), 、Application Insights のリソースを追加します。
 
-![[新規]、](./media/app-insights-separate-resources/01-new.png)
+![[新規]、[Application Insights] の順にクリックする](./media/app-insights-separate-resources/01-new.png)
 
 
-* **アプリケーションの種類** 概要ブレードとで設定できるプロパティに表示されるものに影響を与えます [メトリックス エクスプ ローラーの ][metrics]します。 自分のアプリの種類が表示されない場合、Web ページの Web の種類のいずれかと、その他のデバイスの電話の種類のいずれかを選択します。
+* **アプリケーションの種類** 概要ブレードとで設定できるプロパティに表示されるものに影響を与えます [メトリックス エクスプ ローラー][metrics]します。 自分のアプリの種類が表示されない場合、Web ページの Web の種類のいずれかと、その他のデバイスの電話の種類のいずれかを選択します。
 * **リソース グループ** などのプロパティを管理するための便利な機能は、 [アクセス制御](app-insights-resources-roles-access-control.md)します。 開発、テスト、および実稼働用に別々のリソース グループを使用できます。
-* **サブスクリプション**は、Azure での支払いアカウントです。
-* **場所**は、データの保存場所です。 現在、これは変更できません。
-* **スタート画面への追加**は、Azure ホーム ページ上のリソースに対するクイック アクセス タイルを入れます。
+* **サブスクリプション** は、Azure での支払いアカウントです。
+* **場所** は、データの保存場所です。 現在、これは変更できません。
+* **スタート画面に追加** Azure ホーム ページ上のリソースに対するクイック アクセス タイルを配置します。 
 
-リソースの作成には数秒かかります。 完了したら、アラートが表示されます。
+Creating the resource takes a few seconds. 完了したら、アラートが表示されます。
 
 (記述することができます、 [PowerShell スクリプト](app-insights-powershell-script-create-resource.md) リソースを自動的に作成します)。
 
 
 ## インストルメンテーション キーのコピー
 
-インストルメンテーション キーは作成したリソースを識別します。
+インストルメンテーション キーは作成したリソースを識別します。 
 
 ![Essentials、インストルメンテーション キーの順にクリックし、Ctrl キーを押しながら C キーを押します。](./media/app-insights-separate-resources/02-props.png)
 
@@ -85,8 +86,14 @@ IKey にも使用、アプリの web ページで、 [クイック スタート 
     }) // ...
 
 
-[api]: app-insights-api-custom-events-metrics.md 
-[diagnostic]: app-insights-diagnostic-search.md 
-[metrics]: app-insights-metrics-explorer.md 
-[start]: app-insights-overview.md 
 
+
+
+<!--Link references-->
+
+[api]: app-insights-api-custom-events-metrics.md
+[diagnostic]: app-insights-diagnostic-search.md
+[metrics]: app-insights-metrics-explorer.md
+[start]: app-insights-overview.md
+
+ 

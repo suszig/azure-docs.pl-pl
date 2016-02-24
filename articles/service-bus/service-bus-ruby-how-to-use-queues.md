@@ -1,6 +1,6 @@
 <properties
     pageTitle="Ruby で Service Bus キューを使用する方法 | Microsoft Azure"
-    description="Azure での Service Bus キューの使用方法を学習します。コード サンプルは Ruby で記述されています。"
+    description="Azure での Service Bus キューの使用方法を学習します。 コード サンプルは Ruby で記述されています。"
     services="service-bus"
     documentationCenter="ruby"
     authors="sethmanheim"
@@ -15,7 +15,6 @@
     ms.topic="article"
     ms.date="12/09/2015"
     ms.author="sethm"/>
-
 
 # Service Bus キューの使用方法
 
@@ -47,10 +46,10 @@ Service Bus キューのサポート、 *仲介型メッセージング* 通信
 サービス バス キューは汎用テクノロジであり、
 さまざまなシナリオ:
 
--   [複数層の web および worker ロール間の通信
-    Azure application](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md) します。
+-   Web ロールとワーカー ロールの間の通信、 [多階層
+    Azure アプリケーション](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)します。
 -   によってホストされるアプリケーションを内部設置型アプリケーションと Azure 間の通信
-    [ハイブリッド ソリューション](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)します。
+     [ハイブリッド ソリューション](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)します。
 -   分散アプリケーションのコンポーネント間の通信
     異なる組織または部門の内部設置型を実行して、
     組織です。
@@ -81,15 +80,16 @@ Azure の Service Bus キューを使用するには、最初にサービス名�
 名前空間、名前空間の管理資格情報を取得する必要があります。
 
 Azure service bus 名前空間を作成するために実行した PowerShell コマンドレットが表示されます。
-名前空間を管理に使用できるキーです。 **DefaultKey** 値をコピーします。 クラスターの
+名前空間を管理に使用できるキーです。 コピー、 **DefaultKey** 値。 クラスターの
 このチュートリアルの後半で、コードでこの値を使用します。
 
 ![キーのコピー](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
+
 > [AZURE.NOTE] ログオンする場合は、このキーを検索することも、 [Azure クラシック ポータル](http://manage.windowsazure.com/) 、Service Bus 名前空間の接続情報に移動します。
 
 ## Ruby アプリケーションの作成
 
-Ruby アプリケーションを作成します。 手順については、次を参照してください。 [Azure Ruby アプリケーションを作成する](/develop/ruby/tutorials/web-app-with-linux-vm/)します。
+Ruby アプリケーションを作成します。 手順については、次を参照してください。 [Azure Ruby アプリケーションを作成する](/develop/ruby/tutorials/web-app-with-linux-vm/)です。
 
 ## Service Bus を使用するようにアプリケーションを構成する
 
@@ -97,7 +97,7 @@ Azure Service Bus を使用するには、Ruby Azure パッケージをダウン
 
 ### RubyGems を使用してパッケージを取得する
 
-1. **PowerShell** (Windows)、**ターミナル** (Mac)、**Bash** (Unix) などのコマンド ライン インターフェイスを使用します。
+1. コマンド ライン インターフェイスを使用して **PowerShell** (Windows)、 **ターミナル** (Mac)、または **Bash** (Unix)。
 
 2. コマンド ウィンドウに「gem install azure」と入力して、gem と依存関係をインストールします。
 
@@ -112,18 +112,18 @@ require "azure"
 ## Azure Service Bus 接続の設定
 
 Azure モジュールは、環境変数 **azure \_servicebus\_namespace** と **\_servicebus\_access_key**
-Service Bus 名前空間への接続に必要な情報です。 これらの環境変数が設定されていない場合は、**Azure::ServiceBusService** を使用する前に、次のコードを使用して名前空間情報を指定する必要があります。
+Service Bus 名前空間への接続に必要な情報です。 これらの環境変数が設定されていない場合は、使用する前に、名前空間情報を指定する必要があります **azure::servicebusservice** を次のコード。
 
 ```
 Azure.config.sb_namespace = "<your azure service bus namespace>"
 Azure.config.sb_access_key = "<your azure service bus access key>"
 ```
 
-作成した値には、URL 全体ではなく、名前空間値を設定してください。 たとえば、"yourexamplenamespace.servicebus.windows.net" ではなく、**"yourexamplenamespace"** を使用します。
+作成した値には、URL 全体ではなく、名前空間値を設定してください。 たとえば、使用して **"yourexamplenamespace"**, 、いない"yourexamplenamespace.servicebus.windows.net"でします。
 
 ## キューの作成方法
 
-**Azure::ServiceBusService** オブジェクトを使用して、キューを操作できます。 キューを作成するには、**create_queue()** メソッドを使用します。 次の例では、キューを作成するか、すべてのエラーを出力します。
+ **Azure::servicebusservice** オブジェクトを使用するキューを操作します。 キューを作成するには、 **create_queue()** メソッドです。 次の例では、キューを作成するか、すべてのエラーを出力します。
 
 ```
 azure_service_bus_service = Azure::ServiceBusService.new
@@ -134,7 +134,7 @@ rescue
 end
 ```
 
-**Azure::ServiceBus::Queue** オブジェクトに追加のオプションを渡すこともできます。これにより、メッセージの有効期間やキューの最大サイズなどの既定のキューの設定をオーバーライドできます。 次の例は、キューの最大サイズを 5 GB に、有効期間を 1 分に設定する方法を示しています。
+渡すことも、 **:queue** オブジェクトに追加のオプションのメッセージ期間や最大キュー サイズなどの既定のキュー設定をオーバーライドできます。 次の例は、キューの最大サイズを 5 GB に、有効期間を 1 分に設定する方法を示しています。
 
 ```
 queue = Azure::ServiceBus::Queue.new("test-queue")
@@ -160,7 +160,7 @@ Service Bus キューでは、最大 256 KB までのメッセージをサポー
 
 ## キューからメッセージを受信する方法
 
-使用してキューからメッセージを受信、 **receive \_queue\_message ()** メソッドを **azure::servicebusservice** オブジェクトです。 既定では、メッセージは読み取られて (ピークされて) ロックされますが、キューからは削除されません。 ただし、**:peek_lock** オプションを **false** に設定すると、読み取ったメッセージをキューから削除できます。
+使用してキューからメッセージを受信、 **receive \_queue\_message ()** メソッドを **azure::servicebusservice** オブジェクトです。 既定では、メッセージは読み取られて (ピークされて) ロックされますが、キューからは削除されません。 ただし、削除できますメッセージ キューからの設定によって読み取られるとき、 **::peek_lock** オプションを **false**します。
 
 既定の動作では、読み取りと削除が 2 段階の操作になるため、メッセージが失われることを許容できないアプリケーションにも対応することができます。 Service Bus は要求を受け取ると、次に読み取られるメッセージを検索して、他のコンシューマーが受信できないようロックしてから、アプリケーションにメッセージを返します。 呼び出して受信処理の第 2 段階を完了したら、アプリケーションがメッセージの処理 (または後で処理するために確実に保存) **delete \_queue\_message ()** メソッドをパラメーターとして削除するメッセージ。  **Delete \_queue\_message ()** メソッドは、メッセージが読み取り中としてマークされ、キューから削除します。
 
@@ -181,7 +181,7 @@ Service Bus には、アプリケーションにエラーが発生した場合�
 
 キュー内でロックされているメッセージにはタイムアウトも設定されています。アプリケーションがクラッシュした場合など、ロックがタイムアウトになる前にアプリケーションがメッセージの処理に失敗した場合には、メッセージのロックが自動的に解除され、再度受信できる状態に変わります。
 
-前に、メッセージを処理した後、アプリケーションがクラッシュすること、 **delete \_queue\_message ()** メソッドが呼び出されると、再起動する際にそのメッセージがアプリケーションに再配信されます。 一般的に、この動作は **1 回以上の処理**と呼ばれます。つまり、すべてのメッセージが 1 回以上処理されますが、特定の状況では、同じメッセージが再配信される可能性があります。 重複処理が許されないシナリオの場合、重複メッセージの配信を扱うロジックをアプリケーションに追加する必要があります。 これは、多くの場合を使用して、 **\_id** 配信が試行されると、メッセージのプロパティです。
+前に、メッセージを処理した後、アプリケーションがクラッシュすること、 **delete \_queue\_message ()** メソッドが呼び出されると、再起動する際にそのメッセージがアプリケーションに再配信されます。 一般的に、 **1 回の処理には、少なくとも**。 つまり、すべてのメッセージが 1 回以上処理がは特定の状況で、同じメッセージが再配信されます。 重複処理が許されないシナリオの場合、重複メッセージの配信を扱うロジックをアプリケーションに追加する必要があります。 これは、多くの場合を使用して、 **\_id** 配信が試行されると、メッセージのプロパティです。
 
 ## 次のステップ
 
@@ -191,9 +191,5 @@ Service Bus には、アプリケーションにエラーが発生した場合�
 -   参照してください、 [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) GitHub のリポジトリです。
 
 この記事で説明した Azure Service Bus キューおよび「比較、 [Azure キュー サービスを使用する方法](/develop/ruby/how-to-guides/queue-service/) 記事を参照してください [Azure キューと Azure Service Bus キューの比較](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-
-
-
-
-
+ 
 

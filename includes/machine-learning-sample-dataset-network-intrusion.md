@@ -1,6 +1,2 @@
-ツールのコンペティションのデータセット KDD Cup 1999 ナレッジ検出とデータ マイニング (<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>)。<p></p>データセットがダウンロードされ、Azure Blob ストレージに格納されている (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) トレーニングとテスト データセットの両方が含まれています。 トレーニングのデータセットには、ラベルを含む、約 126,000 行と 43 列が含まれます。ラベル情報の一部である 3 列と、数値、文字列、カテゴリによる特徴で構成される 40 列がモデルのトレーニングに使用できます。 テスト データには約 22,500 個のテスト例があります (トレーニング データと同じ 43 列が含まれます)。
-
-
-
-
+KDD Cup 1999 ナレッジ検出とデータ マイニング ツールのコンペティションの (からのデータセット<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).<p> </p>データセットがダウンロードされ、Azure Blob ストレージ (に格納されています。<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) とトレーニングとテスト データセットの両方が含まれています。 トレーニングのデータセットには、ラベルを含む、約 126,000 行と 43 列が含まれます。ラベル情報の一部である 3 列と、数値、文字列、カテゴリによる特徴で構成される 40 列がモデルのトレーニングに使用できます。 テスト データには約 22,500 個のテスト例があります (トレーニング データと同じ 43 列が含まれます)。
 

@@ -17,16 +17,13 @@
     ms.date="11/17/2015"
     ms.author="heidist"/>
 
-
 # REST 呼び出しを使用して Azure Search のクエリを作成する
-
 > [AZURE.SELECTOR]
-- [Overview](search-query-overview.md)
+- [概要](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
 - [Postman](search-chrome-postman.md)
 - [.NET](search-query-dotnet.md)
-- [REST](search-query-rest-api.md)
-
+- [REST ()](search-query-rest-api.md)
 
 この記事を使用して、インデックスに対してクエリを作成する方法を示します、 [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)します。 次の内容の一部は [ドキュメントの検索 (Azure Search REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx)します。 詳しいコンテキストについては、元の記事を参照してください。
 
@@ -34,7 +31,7 @@
 
 REST API を使用してインデックスを検索するには、GET HTTP 要求を発行します。 クエリ パラメーターは、HTTP 要求の URL 内で定義します。
 
-**要求と要求ヘッダー**:
+**要求ヘッダーを要求して**:
 
 URL では、サービス名、インデックス名、適切な API バージョンを提供する必要があります。 URL の最後のクエリ文字列では、クエリ パラメーターを指定します。 クエリ文字列内のパラメーターの 1 つで、適切な API バージョン (このドキュメントが書かれた時点で最新の API バージョンは "2015-02-28") を指定する必要があります。
 
@@ -69,8 +66,4 @@ Azure Search では、非常に強力なクエリを作成できる多くのオ�
     api-key:[primary admin key or secondary admin key]
 
 クエリが成功すると状態コード "200 OK" が返され、検索結果は応答本文に JSON 形式で格納されています。 詳細についてへの"Response"セクションを参照してください [このページ](https://msdn.microsoft.com/library/azure/dn798927.aspx)します。
-
-
-
-
 

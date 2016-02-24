@@ -1,26 +1,26 @@
+
 <properties
-   pageTitle ="インターネットに接続するロード バランサーの構成の開始 |Microsoft Azure]
-   description ="は最初のインターネットに接続するロード バランサーの仮想マシンまたはクラウド サービスを設定します。 "
-   サービス =「ロード バランサー」
-   documentationCenter ="na"
-   authors ="joaoma"
+   pageTitle="インターネットに接続するロード バランサーの構成の開始 | Microsoft Azure"
+   description="仮想マシンまたはクラウド サービスに、インターネットに接続する最初のロード バランサーを設定します。 "
+   services="load-balancer"
+   documentationCenter="na"
+   authors="joaoma"
    manager="adinah"
-   エディター"tysonn"=/>
+   editor="tysonn" />
 <tags
-   ms.service=「ロード バランサー」
+   ms.service="load-balancer"
    ms.devlang="na"
-   ms.topic=「ヒーロー記事」
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload=「インフラストラクチャ サービス」
+   ms.workload="infrastructure-services"
    ms.date="11/19/2015"
-   ms.author="joaoma"/>
+   ms.author="joaoma" />
 
 # インターネットに接続するロード バランサーの構成の開始
 
 > [AZURE.SELECTOR]
-- [Azure classic steps](load-balancer-internet-getstarted.md)
-- [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
-
+- [Azure クラシック手順](load-balancer-internet-getstarted.md)
+- [リソース マネージャーの Powershell の手順](load-balancer-arm-powershell.md)
 
 Microsoft Azure の負荷分散サービスは、すべてのテナントの種類 (IaaS または PaaS) とサポート対象のすべてのオペレーティング システム (Windows またはサポート対象の Linux ベース オペレーティング システム) で動作します。
 
@@ -31,46 +31,47 @@ Microsoft Azure の負荷分散サービスは、すべてのテナントの種�
 
 **仮想マシンの負荷分散セットを構成するには**
 
-1. Azure ポータルで、**[Virtual Machines]** をクリックし、負荷分散セットの仮想マシンの名前をクリックします。
-2.  **[エンドポイント]** をクリックし、**[追加]** をクリックします。
+1. Azure ポータルで、クリックして **仮想マシン**, 、負荷分散セット内の仮想マシンの名前をクリックします。
+2.  クリックして **エンドポイント**, 、] をクリックし、 **追加**します。
 
-4.  **[仮想マシンにエンドポイントを追加します]** ページで、右矢印をクリックします。
+4.   **仮想マシンにエンドポイントを追加** ] ページで、右矢印をクリックします。
 
-4.  **[エンドポイントの詳細を指定します]** ページで、次のように指定します。
-    - **[名前]** にエンドポイントの名前を入力するか、共通プロトコルにあらかじめ定義されているエンドポイントの一覧から選択します。
-    -  **[プロトコル]** で、エンドポイントの種類に応じて必要となるプロトコル (TCP または UDP) を選択します。
-    -  **[パブリック ポート] と [プライベート ポート]** に、仮想マシンで使用するポート番号を必要に応じて入力します。 仮想マシンのプライベート ポートとファイアウォール ルールを使って、アプリケーションに適した方法でトラフィックをリダイレクトすることができます。 プライベート ポートはパブリック ポートと同じにできます。 たとえば、Web (HTTP) トラフィック用のエンドポイントの場合、パブリック ポートとプライベート ポートの両方にポート 80 を割り当てることができます。
+4.   **エンドポイントの詳細を指定する** ページ。
+    -  **名**, 、エンドポイントの名前を入力、または一般的なプロトコル用の定義済みのエンドポイントの一覧から名前を選択します。
+    -   **プロトコル**, 、必要に応じて、エンドポイント、TCP または UDP のいずれかの種類で必要なプロトコルを選択します。
+    -   **パブリック ポートとプライベート ポート**, 、必要に応じて、使用するには、仮想マシンが必要なポート番号を入力します。 仮想マシンのプライベート ポートとファイアウォール ルールを使って、アプリケーションに適した方法でトラフィックをリダイレクトすることができます。 プライベート ポートはパブリック ポートと同じにできます。 たとえば、Web (HTTP) トラフィック用のエンドポイントの場合、パブリック ポートとプライベート ポートの両方にポート 80 を割り当てることができます。
 
-5.  **[負荷分散セットの作成]** を選択し、右矢印をクリックします。
+5.  選択 **負荷分散セットの作成**, 、右矢印をクリックします。
 
-6.  **[負荷分散セットの構成]** ページで、負荷分散セットの名前を入力し、Azure Load Balancer のプローブ動作の値を割り当てます。
+6.   **負荷分散セットを構成する** ] ページで、負荷分散セットの名前を入力して、Azure ロード バランサーのプローブ動作の値を割り当てます。
 Load Balancer はプローブを使用して、負荷分散セット内の仮想マシンが着信トラフィックを受信できるかどうかを判断します。
 
-7.  チェック マークをクリックして、負荷分散されたエンドポイントを作成します。 仮想マシンの **[エンドポイント]** ページの **[負荷分散セット名]** 列に **[はい]** が表示されます。
+7.  チェック マークをクリックして、負荷分散されたエンドポイントを作成します。 表示されます **はい** で、 **負荷分散セットの名前** の列、 **エンドポイント** 仮想マシンのページです。
 
-8.  ポータルで、**[Virtual Machines]**、負荷分散セットの追加の仮想マシンの名前、**[エンドポイント]**、**[追加]** の順にクリックします。
+8.  ポータルで、次のようにクリックします。 **仮想マシン**, を負荷分散セット内のその他の仮想マシンの名前をクリックし、[] をクリック **エンドポイント**, 、] をクリックし、 **追加**します。
 
-9.  **[仮想マシンにエンドポイントを追加します]** ページで、**[既存の負荷分散セットにエンドポイントを追加する]** をクリックし、負荷分散セットの名前を選択して、右矢印をクリックします。
+9.   **仮想マシンにエンドポイントを追加** ] ページで [ **既存の負荷分散セットにエンドポイントを追加**, を負荷分散セットの名前を選択して、右矢印をクリックします。
 
-10. **[エンドポイントの詳細を指定します]** ページで、エンドポイントの名前を入力し、チェック マークをクリックします。
+10.  **エンドポイントの詳細を指定する** ] ページで、エンドポイントの名前を入力してチェック マークをクリックします。
 負荷分散セットに仮想マシンを追加する場合は、手順 8. ～ 10. を繰り返します。
 
 次の Windows PowerShell コマンドレットでエンドポイントを構成することもできます。
 
 - Add-AzureEndpoint
 
-[追加 AzureEndpoint](https://msdn.microsoft.com/library/windowsazure/dn495300)
+[Add-AzureEndpoint](https://msdn.microsoft.com/library/windowsazure/dn495300)
 
 - Get-AzureEndpoint
 
-[Get-azureendpoint](https://msdn.microsoft.com/library/windowsazure/dn495158)
+[Get-AzureEndpoint](https://msdn.microsoft.com/library/windowsazure/dn495158)
 
 - Remove-AzureEndpoint
 
-[削除 AzureEndpoint](https://msdn.microsoft.com/library/windowsazure/dn495161)
+[Remove-AzureEndpoint](https://msdn.microsoft.com/library/windowsazure/dn495161)
 
 
 ## インターネットに接続するロード バランサーをクラウド サービスに設定する
+
 
 クラウド サービスはロード バランサーで自動的に構成され、サービス モデルを使用してカスタマイズできます。
 
@@ -87,9 +88,9 @@ Azure SDK for .NET 2.5 を使用してクラウド サービスを更新でき�
         <InputEndpoint name=“FE_External_Http” protocol=“http” port=“10000“ />
         <InputEndpoint name=“FE_External_Tcp“  protocol=“tcp“  port=“10001“ />
         <InputEndpoint name=“FE_External_Udp“  protocol=“udp“  port=“10002“ />
-    
+
         <InputEndpointname=“HTTP_Probe” protocol=“http” port=“80” loadBalancerProbe=“MyProbe“ />
-    
+
         <InstanceInputEndpoint name=“InstanceEP” protocol=“tcp” localPort=“80“>
            <AllocatePublicPortFrom>
               <FixedPortRange min=“10110” max=“10120“  />
@@ -100,7 +101,11 @@ Azure SDK for .NET 2.5 を使用してクラウド サービスを更新でき�
     </WorkerRole>
     </ServiceDefinition>
 
+
+
+
 ### クラウド サービスのロード バランサーの正常性状態を確認する
+
 
 次に、正常性プローブの例を示します。
 
@@ -125,15 +130,12 @@ Azure SDK for .NET 2.5 を使用してクラウド サービスを更新でき�
 
     Get-AzureVM -ServiceName "mycloudservice" -Name "MyVM" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
 
+
 ## 次のステップ
 
-[内部ロード バランサーの構成の開始します。](load-balancer-internal-getstarted.md)
+[内部ロード バランサーの構成の開始](load-balancer-internal-getstarted.md)
 
-[ロード バランサー分散モードを構成します。](load-balancer-distribution-mode.md)
+[ロード バランサー分散モードの構成](load-balancer-distribution-mode.md)
 
-[ロード バランサーのアイドル TCP タイムアウト設定を構成します。](load-balancer-tcp-idle-timeout.md)
-
-
-
-
+[ロード バランサーのアイドル TCP タイムアウト設定の構成](load-balancer-tcp-idle-timeout.md)
 

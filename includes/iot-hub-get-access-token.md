@@ -1,8 +1,8 @@
 ## リソース マネージャー トークンの取得
 
-Azure Active Directory では、Azure リソース マネージャーを使用してリソース上で実行するすべてのタスクを認証する必要があります。 その他の方法を参照してください、ここに示す例がパスワードの認証を使用して [Azure Resource Manager 要求 ][lnk-authenticate-arm]します。
+Azure Active Directory では、Azure リソース マネージャーを使用してリソース上で実行するすべてのタスクを認証する必要があります。 その他の方法を参照してください、ここに示す例がパスワードの認証を使用して [Azure Resource Manager 要求][lnk-authenticate-arm]します。
 
-1. Program.cs の **Main** メソッドに次のコードを追加し、アプリケーション ID とパスワードを利用して Azure AD からトークンを取得します。
+1. 次のコードを追加、 **Main** アプリケーション id とパスワードを使用して Azure AD からトークンを取得する Program.cs 内のメソッドです。
 
     ```
     var authContext = new AuthenticationContext(string.Format  
@@ -10,7 +10,7 @@ Azure Active Directory では、Azure リソース マネージャーを使用�
     var credential = new ClientCredential(applicationId, password);
     AuthenticationResult token = authContext.AcquireTokenAsync
       ("https://management.core.windows.net/", credential).Result;
-
+    
     if (token == null)
     {
       Console.WriteLine("Failed to obtain the token");
@@ -18,7 +18,7 @@ Azure Active Directory では、Azure リソース マネージャーを使用�
     }
     ```
 
-2. **Main** メソッドの終わりに次のコードを追加し、トークンを使用する **ResourceManagementClient** オブジェクトを作成します。
+2. 作成、 **ResourceManagementClient** の末尾に次のコードを追加することで、トークンを使用するオブジェクト、 **Main** メソッド。
 
     ```
     var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken);
@@ -38,6 +38,4 @@ Azure Active Directory では、Azure リソース マネージャーを使用�
     }
     ```
 
-
-[lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx 
-
+[lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx

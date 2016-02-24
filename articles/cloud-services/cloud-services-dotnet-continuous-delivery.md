@@ -1,6 +1,6 @@
 <properties
     pageTitle="Azure での TFS を使用したクラウド サービスの継続的な配信 | Microsoft Azure"
-    description="Azure クラウド アプリケーションの継続的な配信を設定する方法について説明します。MSBuild コマンド ライン ステートメントおよび PowerShell スクリプトのコード サンプル。"
+    description="Azure クラウド アプリケーションの継続的な配信を設定する方法について説明します。 MSBuild コマンド ライン ステートメントおよび PowerShell スクリプトのコード サンプル。"
     services="cloud-services"
     documentationCenter=""
     authors="TomArcher"
@@ -15,7 +15,6 @@
     ms.topic="article"
     ms.date="11/18/2015"
     ms.author="tarcher"/>
-
 
 # Azure での Cloud Services の継続的な配信
 
@@ -32,7 +31,7 @@
 について説明します。 このプロセスは、ビルド環境や
 Azure ターゲット環境に合わせてカスタマイズできます。
 
-また、Visual Studio Team Services (Azure でホストされる TFS のバージョン) を使用すると、これらの操作をより簡単に実行できます。 詳細については、次を参照してください。 [を使用する Visual Studio Team Services [] による Azure への継続的な配信][]します。
+また、Visual Studio Team Services (Azure でホストされる TFS のバージョン) を使用すると、これらの操作をより簡単に実行できます。 詳細については、次を参照してください。 [Visual Studio Team Services の使用による Azure への継続的な配信][]します。
 
 作業を開始する前に、Visual Studio からアプリケーションを発行する必要があります。
 これにより、発行プロセスの自動化を行う際にすべてのリソースが利用可能で、
@@ -45,10 +44,10 @@ MSBuild を使用して Azure パッケージを作成するには、
 
 ビルド サーバーには、Visual Studio をインストールする必要はありません。 もし
 を使用してビルド サーバーを管理する場合は、
-サーバー、の指示に従って、 [Team Foundation ビルド サービスの][]
+サーバーの指示に従って、 [Team Foundation ビルド サービス][]
 従ってください。
 
-1.  ビルド サーバーにインストール、 [.NET Framework 4.5.2:operator[]][], 、MSBuild が含まれます。
+1.  ビルド サーバーにインストール、 [.NET Framework 4.5.2][], 、MSBuild が含まれます。
 2.  最新のインストール [.NET 向け Azure Authoring Tools](https://azure.microsoft.com/develop/net/)します。
 3.  インストール、 [Azure Libraries for .NET](http://go.microsoft.com/fwlink/?LinkId=623519)します。
 4.  ビルド サーバーの Visual Studio インストールにある Microsoft.WebApplication.targets ファイルをコピーします。
@@ -73,7 +72,7 @@ TFS ビルド定義内でコマンド ラインを使用してもかまいませ
     Visual Studio がビルド サーバーにインストールされていない場合は、
     コマンド プロンプトを開き、MSBuild.exe へのパスを
     確認します。 MSBuild は、.NET Framework と共に
-    %WINDIR%\\Microsoft.NET\\Framework\\*バージョン*します。 たとえば、
+    %WINDIR%\\Microsoft.NET\\Framework\\*バージョン*です。 たとえば、
     .NET Framework 4 をインストールしたときに MSBuild.exe を
     PATH 環境変数に追加するには、コマンド プロンプトで次のコマンドを
     入力します。
@@ -107,7 +106,7 @@ TFS ビルド定義内でコマンド ラインを使用してもかまいませ
     2 つのファイルが生成されます。
 
     -   Project.cspkg
-    -   ServiceConfiguration.*TargetProfile*.cscfg
+    -   サービス構成*。TargetProfile*.cscfg
 
     既定で、各 Azure プロジェクトでは
     1 つのサービス構成ファイル (.cscfg ファイル) でローカル (デバッグ)
@@ -144,9 +143,9 @@ TFS ビルド定義内でコマンド ラインを使用してもかまいませ
 ビルド サーバーが、TFS ビルド コンピューターとして設定し、必要に応じてセットアップすることができます。
 Azure パッケージの自動化されたビルドを設定できます。 Team Foundation Server を
 ビルド システムとして設定および使用する方法については、「
-[スケール アウト ビルド システムの][]します。 特に、
+[ビルド システムをスケール][]します。 特に、
 次の手順では、
-」の説明に従って [配置してビルド サーバーを構成する][], 、作成しました。
+」の説明に従って [配置ビルド サーバーを構成および][], 、作成しました。
 およびチーム プロジェクトを作成し、チーム プロジェクトにクラウド サービス プロジェクトを作成していることを前提としています。
 
 Azure パッケージをビルドするために TFS を構成するには、次の手順を
@@ -165,14 +164,14 @@ Azure パッケージをビルドするために TFS を構成するには、次
     指定します。
 
 3.  選択、 **ソース設定** ] タブし、プロジェクト フォルダーが表示されていることを確認
-    **ソース管理フォルダー** 列、および状態は **Active**します。
+     **ソース管理フォルダー** 列、および状態は **Active**します。
 
 4.  選択、 **ビルドの既定値** タブをクリックし、ビルド コント ローラーの下にあることを確認
-    ビルド サーバーの名前を確認します。 また、オプションを選択 * * ビルドをコピー
-    出力を次ドロップ フォルダー * * して、目的の格納
+    ビルド サーバーの名前を確認します。  また、オプションを選択 **ビルドをコピー
+    次の格納フォルダーに出力** し、目的の格納の指定
     指定します。
 
-5.  **[プロセス]** タブを選択します。 [プロセス] タブで、既定の
+5.  選択、 **プロセス** ] タブをクリックします。 [プロセス] タブで、既定の
     テンプレート [ **ビルド**, 、プロジェクトを選択して選択されていない場合
     展開し、 **詳細** セクション、 **ビルド** グリッドのセクションです。
 
@@ -209,7 +208,7 @@ Visual Studio TFS チーム ビルドのプロセス テンプレート ワー�
     Azure PowerShell コマンドレットが読み込まれます。
 
 3.  PowerShell プロンプトで、PowerShell コマンドレットが読み込まれているかどうかを確認します。
-    部分的なコマンドを入力して `Get Azure` ステートメントの Tab キーを押すと
+    部分的なコマンドを入力して `Get-Azure` ステートメントの Tab キーを押すと
     確認します。
 
     Tab キーを何度か押すと、さまざまな Azure PowerShell コマンドが表示されるのを確認できます。
@@ -254,10 +253,10 @@ Visual Studio TFS チーム ビルドのプロセス テンプレート ワー�
 
             New-AzureStorageAccount -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
-
 7.  スクリプトは、Azure PowerShell から直接呼び出す以外に、
     ホスト ビルド自動化に関連付けてパッケージがビルドされるたびに実行されるように
     設定できます。
+
     >[AZURE.IMPORTANT] スクリプトが常に削除または、既存の置換
     (既存のデプロイが検出された場合)。 これは、ユーザー/オペレーターへのプロンプトが
     不可能な自動化から継続的な配信を実現するために
@@ -307,7 +306,7 @@ Visual Studio TFS チーム ビルドのプロセス テンプレート ワー�
     証明書を各ターゲット クラウド サービスに
     Azure 管理ポータルを開きます。 詳細に
     ついては、
-    [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx:operator[]][]します。
+    [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][].
 
     **デプロイのアップグレードとします。削除の展開-\ > 新しい配置**
 
@@ -324,6 +323,7 @@ Visual Studio TFS チーム ビルドのプロセス テンプレート ワー�
     *-enabledeploymentupgrade 0* を変更する、パラメーターとして、
     スクリプトの動作が変更され、既存のデプロイが削除された後、
     新しいデプロイが作成されます。
+
     >[AZURE.IMPORTANT] スクリプトが常に削除または、既存の置換
     (既存のデプロイが検出された場合)。 これは、ユーザー/オペレーターへのプロンプトが
     不可能な自動化から継続的な配信を実現するために
@@ -341,7 +341,7 @@ TFS チーム ビルドを関連付けます。 この
 
 1.  継続的なデプロイのためのビルド定義を編集します。
 
-2.  **[プロセス]** タブを選択します。
+2.  選択、 **プロセス** ] タブをクリックします。
 
 3.  次の [手順](http://msdn.microsoft.com/library/dd647551.aspx) を追加する、
     に従って、ビルド プロセス テンプレートのアクティビティ プロジェクトの追加、既定のテンプレートのダウンロードと
@@ -350,64 +350,64 @@ TFS チーム ビルドを関連付けます。 この
 
 3.  戻り、 **プロセス** タブをクリックし、使用して **詳細の表示** の利用可能な一覧を表示するには
     ビルド プロセス テンプレートの一覧を表示します。 選択、 **新規...** ボタンをクリックし、プロジェクトに移動します。
-    だけ追加およびチェックインします。 作成したテンプレートを確認できたら、**[OK]** をクリックします。
+    だけ追加およびチェックインします。 作成したテンプレートを見つけて選択 **OK**します。
 
 4.  選択したプロセス テンプレートを編集するために開きます。 このファイルは
     XML エディターを使って XAML を操作することも
     できます。
 
 5.  次の新しい引数を、ワークフロー デザイナーの引数タブに
-別の行項目として追加します。 すべての引数について、
-方向として [入力]、型として [文字列] を設定する必要があります。 これらは、ビルド定義のパラメーターを、
-発行スクリプトを呼び出すワークフローに送るために
-使用されます。
+    別の行項目として追加します。 すべての引数について、
+    方向として [入力]、型として [文字列] を設定する必要があります。 これらは、ビルド定義のパラメーターを、
+    発行スクリプトを呼び出すワークフローに送るために
+    使用されます。
 
-    SubscriptionName
-    StorageAccountName
-    CloudConfigLocation
-    PackageLocation
-    Environment
-    SubscriptionDataFileLocation
-    PublishScriptLocation
-    ServiceName
+        SubscriptionName
+        StorageAccountName
+        CloudConfigLocation
+        PackageLocation
+        Environment
+        SubscriptionDataFileLocation
+        PublishScriptLocation
+        ServiceName
 
-![][3]
+    ![][3]
 
-対応する XAML は次のようになります。
+    対応する XAML は次のようになります。
 
-    <Activity  _ />
-      <x:Members>
-        <x:Property Name="BuildSettings" Type="InArgument(mtbwa:BuildSettings)" />
-        <x:Property Name="TestSpecs" Type="InArgument(mtbwa:TestSpecList)" />
-        <x:Property Name="BuildNumberFormat" Type="InArgument(x:String)" />
-        <x:Property Name="CleanWorkspace" Type="InArgument(mtbwa:CleanWorkspaceOption)" />
-        <x:Property Name="RunCodeAnalysis" Type="InArgument(mtbwa:CodeAnalysisOption)" />
-        <x:Property Name="SourceAndSymbolServerSettings" Type="InArgument(mtbwa:SourceAndSymbolServerSettings)" />
-        <x:Property Name="AgentSettings" Type="InArgument(mtbwa:AgentSettings)" />
-        <x:Property Name="AssociateChangesetsAndWorkItems" Type="InArgument(x:Boolean)" />
-        <x:Property Name="CreateWorkItem" Type="InArgument(x:Boolean)" />
-        <x:Property Name="DropBuild" Type="InArgument(x:Boolean)" />
-        <x:Property Name="MSBuildArguments" Type="InArgument(x:String)" />
-        <x:Property Name="MSBuildPlatform" Type="InArgument(mtbwa:ToolPlatform)" />
-        <x:Property Name="PerformTestImpactAnalysis" Type="InArgument(x:Boolean)" />
-        <x:Property Name="CreateLabel" Type="InArgument(x:Boolean)" />
-        <x:Property Name="DisableTests" Type="InArgument(x:Boolean)" />
-        <x:Property Name="GetVersion" Type="InArgument(x:String)" />
-        <x:Property Name="PrivateDropLocation" Type="InArgument(x:String)" />
-        <x:Property Name="Verbosity" Type="InArgument(mtbw:BuildVerbosity)" />
-        <x:Property Name="Metadata" Type="mtbw:ProcessParameterMetadataCollection" />
-        <x:Property Name="SupportedReasons" Type="mtbc:BuildReason" />
-        <x:Property Name="SubscriptionName" Type="InArgument(x:String)" />
-        <x:Property Name="StorageAccountName" Type="InArgument(x:String)" />
-        <x:Property Name="CloudConfigLocation" Type="InArgument(x:String)" />
-        <x:Property Name="PackageLocation" Type="InArgument(x:String)" />
-        <x:Property Name="Environment" Type="InArgument(x:String)" />
-        <x:Property Name="SubscriptionDataFileLocation" Type="InArgument(x:String)" />
-        <x:Property Name="PublishScriptLocation" Type="InArgument(x:String)" />
-        <x:Property Name="ServiceName" Type="InArgument(x:String)" />
-      </x:Members>
-    
-      <this:Process.MSBuildArguments>
+        <Activity  _ />
+          <x:Members>
+            <x:Property Name="BuildSettings" Type="InArgument(mtbwa:BuildSettings)" />
+            <x:Property Name="TestSpecs" Type="InArgument(mtbwa:TestSpecList)" />
+            <x:Property Name="BuildNumberFormat" Type="InArgument(x:String)" />
+            <x:Property Name="CleanWorkspace" Type="InArgument(mtbwa:CleanWorkspaceOption)" />
+            <x:Property Name="RunCodeAnalysis" Type="InArgument(mtbwa:CodeAnalysisOption)" />
+            <x:Property Name="SourceAndSymbolServerSettings" Type="InArgument(mtbwa:SourceAndSymbolServerSettings)" />
+            <x:Property Name="AgentSettings" Type="InArgument(mtbwa:AgentSettings)" />
+            <x:Property Name="AssociateChangesetsAndWorkItems" Type="InArgument(x:Boolean)" />
+            <x:Property Name="CreateWorkItem" Type="InArgument(x:Boolean)" />
+            <x:Property Name="DropBuild" Type="InArgument(x:Boolean)" />
+            <x:Property Name="MSBuildArguments" Type="InArgument(x:String)" />
+            <x:Property Name="MSBuildPlatform" Type="InArgument(mtbwa:ToolPlatform)" />
+            <x:Property Name="PerformTestImpactAnalysis" Type="InArgument(x:Boolean)" />
+            <x:Property Name="CreateLabel" Type="InArgument(x:Boolean)" />
+            <x:Property Name="DisableTests" Type="InArgument(x:Boolean)" />
+            <x:Property Name="GetVersion" Type="InArgument(x:String)" />
+            <x:Property Name="PrivateDropLocation" Type="InArgument(x:String)" />
+            <x:Property Name="Verbosity" Type="InArgument(mtbw:BuildVerbosity)" />
+            <x:Property Name="Metadata" Type="mtbw:ProcessParameterMetadataCollection" />
+            <x:Property Name="SupportedReasons" Type="mtbc:BuildReason" />
+            <x:Property Name="SubscriptionName" Type="InArgument(x:String)" />
+            <x:Property Name="StorageAccountName" Type="InArgument(x:String)" />
+            <x:Property Name="CloudConfigLocation" Type="InArgument(x:String)" />
+            <x:Property Name="PackageLocation" Type="InArgument(x:String)" />
+            <x:Property Name="Environment" Type="InArgument(x:String)" />
+            <x:Property Name="SubscriptionDataFileLocation" Type="InArgument(x:String)" />
+            <x:Property Name="PublishScriptLocation" Type="InArgument(x:String)" />
+            <x:Property Name="ServiceName" Type="InArgument(x:String)" />
+          </x:Members>
+
+          <this:Process.MSBuildArguments>
 
 6.  [エージェントで実行] の最後に新しいシーケンスを追加します。
 
@@ -463,7 +463,7 @@ TFS チーム ビルドを関連付けます。 この
         4.  OutputEncoding=
             System.Text.Encoding.GetEncoding(System.Globalization.CultureInfo.InstalledUICulture.TextInfo.OEMCodePage)
 
-    7.  **標準出力の処理** ] セクションのテキスト ボックスの
+    7.   **標準出力の処理** ] セクションのテキスト ボックスの
         InvokeProcess では、"data"をテキスト ボックスの値を設定します。 これは、
         標準出力データを格納する変数です。
 
@@ -473,7 +473,7 @@ TFS チーム ビルドを関連付けます。 この
         を設定し、メッセージとして 'data' を設定します。 これにより、スクリプトの標準出力が
         ビルド出力に書き込まれます。
 
-    9.  **エラー出力の処理** ] セクションのテキスト ボックスの
+    9.   **エラー出力の処理** ] セクションのテキスト ボックスの
         InvokeProcess では、"data"をテキスト ボックスの値を設定します。 これは、
         標準エラーのデータを格納する変数です。
 
@@ -525,15 +525,16 @@ TFS チーム ビルドを関連付けます。 この
           </If>
         </Sequence>
 
+
 7.  ビルド プロセス テンプレート ワークフローを保存し、このファイルをチェックインします。
 
 8.  ビルド定義を編集します (既に開いている場合は閉じます)。
-    **新規** のプロセス テンプレートの一覧に新しいテンプレートがまだ表示されない場合のボタンをクリックします。
+     **新規** のプロセス テンプレートの一覧に新しいテンプレートがまだ表示されない場合のボタンをクリックします。
 
 9.  [その他] セクションのパラメーター プロパティ値を次のように設定します。
 
     1.  CloudConfigLocation ='c:\\drops\\app.publish\\ServiceConfiguration.Cloud.cscfg'
-        * この値の派生元:
+        *この値からを派生します。
         ($PublishDir)ServiceConfiguration.Cloud.cscfg*
 
     2.  PackageLocation = 'c:\\drops\\app.publish\\ContactManager.Azure.cspkg'
@@ -768,22 +769,21 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 
 ## 次のステップ
 
-継続的な配信を使用する場合は、リモート デバッグを有効にするには、「 [継続的な配信を使用して Azure に発行するときに、リモート デバッグ有効にする](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)します。
+継続的な配信を使用する場合は、リモート デバッグを有効にするには、「 [継続的な配信を使用して Azure に発行するときに、リモート デバッグを有効にする](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)です。
 
-
-[continuous delivery to azure by using visual studio team services]: cloud-services-continuous-delivery-use-vso.md 
-[team foundation build service]: https://msdn.microsoft.com/library/ee259687.aspx 
-[.net framework 4]: https://www.microsoft.com/download/details.aspx?id=17851 
-[.net framework 4.5]: https://www.microsoft.com/download/details.aspx?id=30653 
-[.net framework 4.5.2]: https://www.microsoft.com/download/details.aspx?id=42643 
-[scale out your build system]: https://msdn.microsoft.com/library/dd793166.aspx 
-[deploy and configure a build server]: https://msdn.microsoft.com/library/ms181712.aspx 
-[azure powershell cmdlets]: powershell-install-configure.md 
-[the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0 
-[0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01bc.png 
-[2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png 
-[3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png 
-[4]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png 
-[5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png 
-[6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png 
+  [Continuous Delivery to Azure by Using Visual Studio Team Services]: cloud-services-continuous-delivery-use-vso.md  
+  [Team Foundation Build Service]: https://msdn.microsoft.com/library/ee259687.aspx
+  [.NET Framework 4]: https://www.microsoft.com/download/details.aspx?id=17851
+  [.NET Framework 4.5]: https://www.microsoft.com/download/details.aspx?id=30653
+  [.NET Framework 4.5.2]: https://www.microsoft.com/download/details.aspx?id=42643
+  [Scale out your build system]: https://msdn.microsoft.com/library/dd793166.aspx
+  [Deploy and configure a build server]: https://msdn.microsoft.com/library/ms181712.aspx
+  [Azure PowerShell cmdlets]: powershell-install-configure.md
+  [the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
+  [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01bc.png
+  [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
+  [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png
+  [4]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png
+  [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
+  [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 

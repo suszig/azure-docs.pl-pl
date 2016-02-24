@@ -17,7 +17,6 @@
     ms.date="12/01/2015"
     ms.author="davidmu"/>
 
-
 # Azure リソース マネージャーのアーキテクチャ
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 従来のデプロイ モデルです。
@@ -70,21 +69,17 @@ Azure リソース マネージャーでは、リソース プロバイダーは
 
 このアプリケーションのこれらのリソースのすべては、それらを含む 1 つのリソース グループによって管理されます。
 
-また Azure PowerShell または Azure CLI を使用して、リソース マネージャー ベースの仮想マシンを作成するときに、コンポーネント化やリソースの依存関係も確認できます。 仮想マシンを作成するコマンドを実行する前に、 IP アドレスのあるサブネットと NICあるリソース グループ、ストレージ アカウント、仮想ネットワークを作成する必要があります。 詳細については、次を参照してください。 [の作成とリソース マネージャーと Azure PowerShell で Windows 仮想マシンを事前構成する](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)します。
+また Azure PowerShell または Azure CLI を使用して、リソース マネージャー ベースの仮想マシンを作成するときに、コンポーネント化やリソースの依存関係も確認できます。 仮想マシンを作成するコマンドを実行する前に、 IP アドレスのあるサブネットと NICあるリソース グループ、ストレージ アカウント、仮想ネットワークを作成する必要があります。 詳細については、次を参照してください。 [の作成とリソース マネージャーと Azure PowerShell で Windows 仮想マシンを事前構成する](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)です。
 
 ## 次のステップ
 
-[展開と管理仮想マシンが Azure リソース マネージャー テンプレートと Azure CLI を使用します。](virtual-machines-deploy-rmtemplates-azure-cli.md)
+[Azure リソース マネージャー テンプレートと Azure CLI を使用した Virtual Machines のデプロイと管理](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
-[展開し、Azure 仮想マシンを管理リソース マネージャー テンプレートと PowerShell を使用します。](virtual-machines-deploy-rmtemplates-powershell.md)
+[リソース マネージャー テンプレートと PowerShell を使用した Azure Virtual Machines のデプロイと管理](virtual-machines-deploy-rmtemplates-powershell.md)
 
 ## その他のリソース
 
-[Azure Compute、ネットワーク、記憶域プロバイダー Azure リソース マネージャーにおける](virtual-machines-azurerm-versus-azuresm.md)
+[Azure リソース マネージャーにおける Azure Compute、Network、ストレージ プロバイダー](virtual-machines-azurerm-versus-azuresm.md)
 
 [Azure リソース マネージャーの概要](resource-group-overview.md)
-
-
-
-
 

@@ -1,40 +1,41 @@
-Azure Marketplace には、Microsoft、サード パーティ企業、およびオープン ソース ソフトウェア活動によって開発された多種多様な人気の Web アプリが用意されています。 Azure Marketplace から作成した web アプリへの接続に使用するブラウザー以外のすべてのソフトウェアのインストールは不要、 [Azure プレビュー ポータル](http://go.microsoft.com/fwlink/?LinkId=529715)します。
+Azure Marketplace には、Microsoft、サード パーティ企業、およびオープン ソース ソフトウェア活動によって開発された多種多様な人気の Web アプリが用意されています。 Azure Marketplace から作成した web アプリへの接続に使用するブラウザー以外のすべてのソフトウェアのインストールは不要、 [Azure プレビュー ポータル](http://go.microsoft.com/fwlink/?LinkId=529715)します。 
 
 このチュートリアルでは、次のことについて説明します。
 
 - Azure Marketplace を通じて新しい web アプリを作成する方法。
 
 - Azure Preview ポータルを使用して Web アプリをデプロイする方法。
-
+ 
 既定のテンプレートを使用する WordPress ブログを構築します。 次の図に、完成したアプリケーションを示します。
 
 
 ![Wordpress blog][13]
+
 >[AZURE.NOTE] 場合は、Azure アカウントがサインアップする前に Azure App Service の使用を開始するには、 [App Service の試用](http://go.microsoft.com/fwlink/?LinkId=523751), 、App Service で有効期間の短いスターター web アプリをすぐに作成する場所です。 このサービスの利用にあたり、クレジット カードは必要ありません。契約も必要ありません。
 
 ## ポータルで Web アプリを作成する
 
 1. Azure プレビュー ポータルにログインします。
 
-2. **Marketplace** アイコンをクリックして、Azure Marketplace を開きます。
+2. クリックして、Azure Marketplace を開き、 **Marketplace** アイコン。
 
     ![Marketplace icon][marketplace]
 
-    または、ダッシュダッシュボードボードの右上の**[新規]** アイコンをクリックして、一覧の一番下にある**[Marketplace]** を選択します。
-
+    またはをクリックして、 **新規** 、ダッシュ ボードの右および選択アイコン **Marketplace** リストのダッシュダッシュにします。
+    
     ![新規作成][5]
-
-3. **[Web + Mobile]** を選択します。 **WordPress** を検索し、**[WordPress]** アイコンをクリックします。
+    
+3. 選択 **Web + モバイル**します。 検索 **WordPress** ] をクリックし、 **WordPress** アイコン。
 
     ![WordPress リスト][7]
+    
+5. WordPress アプリの説明を読んだら選択 **作成**します。
 
-5. WordPress アプリの説明を読んだら、**[作成]** を選択します。
-
-6. **[Web アプリ]** をクリックし、Web アプリを構成するために必要な値を指定します。
-
+6. をクリックして **Web アプリ**, 、および web アプリを構成するために必要な値を指定します。
+    
     ![configure your app][8]
 
-7. **[データベース]** をクリックし、MySQL データベースを構成するために必要な値を指定します。
+7. をクリックして **データベース**, 、および MySQL データベースを構成するために必要な値を指定します。 
 
     ![configure database][database]
 
@@ -42,29 +43,29 @@ Azure Marketplace には、Microsoft、サード パーティ企業、および�
 
     ![Set resource group][groupname]
 
-8. 必要に応じて、**[サブスクリプション]** をクリックし、使用するサブスクリプションを指定します。
+8. 必要に応じてクリックして **サブスクリプション**, を使用するサブスクリプションを指定します。 
 
-7. Web アプリの定義が完了したら、**[作成]** をクリックし、新しい Web アプリが作成されるのを待機します。
+7. Web アプリの定義が完了したら、クリックして **作成**, 、新しい web アプリが作成されるまで待機します。
 
    Web アプリが作成されると、Web アプリとデータベースを含む新しいリソース グループが表示されます。
 
    ![show group][resourcegroup]
 
 ## WordPress Web アプリの起動と管理
-
+    
 1. アプリの詳細を表示するには、新しい Web アプリをクリックします。
 
     ![launch dashboard][10]
 
-2. **[Essentials]** ページで、**[参照]** をクリックするか、**[URL]** の下のリンクをクリックして Web アプリのウェルカム ページを開きます。
+2.  **Essentials** ] ページで、[ **参照** または下のリンク **Url** web アプリのウェルカム ページを開きます。
 
     ![サイトの URL][browse]
 
-3. WordPress をインストールしていない場合は、WordPress に必要となる適切な構成情報を入力し、**[WordPress のインストール]** をクリックして構成を完了し、Web アプリのログイン ページを開きます。
+3. WordPress をインストールしていない場合は、WordPress] をクリックして必要な適切な構成情報を入力 **WordPress のインストール** 構成を完了し、web アプリのログイン ページを開きます。
 
-4. **[ログイン]** をクリックして、資格情報を入力します。
+4. クリックして **ログイン** 、資格情報を入力します。  
 
-5. 新しい WordPress Web アプリは次の Web アプリのようになります。
+5. 新しい WordPress Web アプリは次の Web アプリのようになります。    
 
     ![your WordPress site][13]
 
@@ -73,18 +74,17 @@ Azure Marketplace には、Microsoft、サード パーティ企業、および�
 
 
 
-
-[5]: ./media/website-from-gallery/start-marketplace.png 
-[6]: ./media/website-from-gallery/wordpressgallery-02.png 
-[7]: ./media/website-from-gallery/search-web-app.png 
-[8]: ./media/website-from-gallery/set-web-app.png 
-[9]: ./media/website-from-gallery/wordpressgallery-05.png 
-[10]: ./media/website-from-gallery/select-web.png 
-[13]: ./media/website-from-gallery/wordpressgallery-09.png 
-[webapps]: ./media/website-from-gallery/selectwebapps.png 
-[database]: ./media/website-from-gallery/set-db.png 
-[resourcegroup]: ./media/website-from-gallery/show-rg.png 
-[browse]: ./media/website-from-gallery/browse-web.png 
-[marketplace]: ./media/website-from-gallery/marketplace-icon.png 
-[groupname]: ./media/website-from-gallery/set-rg.png 
+[5]: ./media/website-from-gallery/start-marketplace.png
+[6]: ./media/website-from-gallery/wordpressgallery-02.png
+[7]: ./media/website-from-gallery/search-web-app.png
+[8]: ./media/website-from-gallery/set-web-app.png
+[9]: ./media/website-from-gallery/wordpressgallery-05.png
+[10]: ./media/website-from-gallery/select-web.png
+[13]: ./media/website-from-gallery/wordpressgallery-09.png
+[webapps]: ./media/website-from-gallery/selectwebapps.png
+[database]: ./media/website-from-gallery/set-db.png
+[resourcegroup]: ./media/website-from-gallery/show-rg.png
+[browse]: ./media/website-from-gallery/browse-web.png
+[marketplace]: ./media/website-from-gallery/marketplace-icon.png
+[groupname]: ./media/website-from-gallery/set-rg.png
 

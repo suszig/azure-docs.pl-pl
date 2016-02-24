@@ -16,10 +16,9 @@
  ms.date="12/01/2015"
  ms.author="stevehob"/>
 
-
 # 予測的なメンテナンスの構成済みソリューションの概要
 
-*予測メンテナンス* 構成済みのソリューションは、のいずれか、 [構成済みのソリューション ][lnk_preconfigured_solutions] の一部としてリリース [Microsoft Azure の IoT Suite ][lnk_iot_suite]します。 このソリューションを使用して作成、予測モデルとリアルタイムのデバイスのテレメトリの収集を統合する [Azure Machine Learning ][lnk_machine_learning]します。
+ *予測メンテナンス* 構成済みのソリューションは、のいずれか、 [ソリューションを構成済み][lnk_preconfigured_solutions] の一部としてリリース [Microsoft Azure の IoT Suite][lnk_iot_suite]します。 このソリューションを使用して作成、予測モデルとリアルタイムのデバイスのテレメトリの収集を統合する [Azure Machine Learning][lnk_machine_learning]します。
 
 
 Azure IoT Suite を使用することで、企業はすばやく簡単な接続、資産の監視、およびリアルタイムでのデータ分析を実行できるようになります。 予測的なメンテナンスの構成済みのソリューションは、そのデータを取り込んで、豊富なダッシュ ボードと視覚エフェクトを使用して、効率化を推進し、収益ストリームを強化する新しいインテリジェンスをビジネスに提供します。
@@ -34,26 +33,24 @@ Fabrikam の航空機のエンジンは、飛行中のエンジンの状態を�
 
 ## 予測的なメンテナンス ソリューションの構築方法
 
-理解しておく方法 [Azure IoT スイート ][lnk_iot_suite] により、機能のお客様は、予測のメンテナンスの潜在能力を実現するには、これを確認してください必要 [[lnk_infographic] のインフォ グラフィック][lnk_infographic]します。
+理解しておく方法 [Azure IoT スイート][lnk_iot_suite] により、機能のお客様は、予測のメンテナンスの潜在能力を実現するには、これを確認してください必要 [のインフォ グラフィック][lnk_infographic]します。
 
-IoT Suite サービスを通じて収集されたデバイスのテレメトリを使用するこれらの機能を示し、Web アプリケーションのユーザーに見えるようにするために、ソリューションでは、テンプレートとして利用可能な既存の Azure Machine Learning モデルを使用しています。 Microsoft が構築された、 [回帰モデル ][lnk_regression_model] 完全なテンプレート、データを公開および<sup>\[1\]</sup>, 、およびステップ バイ ステップ ガイドです。
+IoT Suite サービスを通じて収集されたデバイスのテレメトリを使用するこれらの機能を示し、Web アプリケーションのユーザーに見えるようにするために、ソリューションでは、テンプレートとして利用可能な既存の Azure Machine Learning モデルを使用しています。 Microsoft が構築された、 [回帰モデル][lnk_regression_model] 完全なテンプレート、データを公開および<sup>\[1\]</sup>, 、およびステップ バイ ステップ ガイドです。
 
 Azure IoT の予測的なメンテナンスの構成済みのソリューションでは、このテンプレートから作成された回帰モデルを使用しています。このモデルは、Azure サブスクリプションにデプロイされ、発行された API を介して公開されます。 ソリューションには、トレーニング済みのモデルから正確な結果を提供する、4 つのエンジン (合計 100) および 4 つのセンサー (合計 21) のデータ ストリームを示すテスト データのサブセットが含まれます。
 
-* \[1\] A. Saxena と K. Goebel (2008 年)。 「ターボファン エンジンのパフォーマンス低下のシミュレーション データ セット」、NASA だろう Prognostics データ リポジトリ (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/)、NASA だろう研究センター、Moffett フィールド、CA *
+*\[1\] A. Saxena と K. Goebel (2008 年)。 「ターボファン エンジンのパフォーマンス低下のシミュレーション データ セット」、NASA だろう Prognostics データ リポジトリ (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/)、NASA だろう研究センター、カリフォルニア州 Moffett フィールド*
 
 ## 次のステップ
 
-Azure の IoT が予測のメンテナンスのシナリオを実現する方法に関する詳細についてを参照してください [、モ ノのインターネット ][lnk_capture_value]します。
+Azure の IoT が予測のメンテナンスのシナリオを実現する方法に関する詳細についてを参照してください [モ ノのインターネットからの値をキャプチャ][lnk_capture_value]します。
 
-[チュートリアル ][lnk-predictive-walkthrough] 予測の保守の構成済みのソリューションです。
+ [チュートリアル][lnk-predictive-walkthrough] 予測の保守の構成済みのソリューションです。
 
-
-[lnk-predictive-walkthrough]: iot-suite-predictive-walkthrough.md 
-[lnk_preconfigured_solutions]: iot-suite-what-are-preconfigured-solutions.md 
-[lnk_iot_suite]: iot-suite-overview.md 
-[lnk_machine_learning]: https://azure.microsoft.com/services/machine-learning/ 
-[lnk_infographic]: https://www.microsoft.com/en-us/server-cloud/predictivemaintenance/Index.html 
-[lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3 
-[lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF 
-
+[lnk-predictive-walkthrough]: iot-suite-predictive-walkthrough.md
+[lnk_preconfigured_solutions]: iot-suite-what-are-preconfigured-solutions.md
+[lnk_iot_suite]: iot-suite-overview.md
+[lnk_machine_learning]: https://azure.microsoft.com/services/machine-learning/
+[lnk_infographic]: https://www.microsoft.com/en-us/server-cloud/predictivemaintenance/Index.html
+[lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
+[lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF

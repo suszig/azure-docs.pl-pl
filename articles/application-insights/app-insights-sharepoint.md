@@ -15,8 +15,8 @@
     ms.date="11/06/2015" 
     ms.author="awills"/>
 
-
 # Application Insights で SharePoint を監視する
+
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
@@ -25,13 +25,14 @@ Visual Studio Application Insights を使うと、アプリの可用性、パフ
 
 ## Application Insights リソースの作成
 
-[Azure ポータル](http://portal.azure.com), 、新しい Application Insights リソースを作成します。 アプリケーションの種類として ASP.NET を選択します。
+
+ [Azure ポータル](http://portal.azure.com), 、新しい Application Insights リソースを作成します。 アプリケーションの種類として ASP.NET を選択します。
 
 ![[プロパティ] をクリックし、キーを選択して、Ctrl キーを押しながら C キーを押す](./media/app-insights-sharepoint/01-new.png)
 
 
 表示されるブレードには、アプリケーションに関するパフォーマンスと使用状況データが表示されます。 次に Azure にログインするときにこのブレードに戻るには、スタート画面でそのタイルを見つけてください。 あるいは、[参照] ボタンをクリックして探します。
-
+    
 
 
 ## Web ページに、スクリプトを追加する
@@ -40,7 +41,7 @@ Visual Studio Application Insights を使うと、アプリの可用性、パフ
 
 ![](./media/app-insights-sharepoint/02-monitor-web-page.png)
 
-追跡するすべてのページの </head> タグの直前に、スクリプトを挿入します。 Web サイトにマスター ページがある場合は、そこにスクリプトを配置できます。 たとえば、ASP.NET MVC プロジェクトで、View\Shared\_Layout.cshtml にスクリプトを配置します。
+追跡するすべてのページの &lt;/head&gt; タグの直前に、スクリプトを挿入します。 Web サイトにマスター ページがある場合は、そこにスクリプトを配置できます。 たとえば、ASP.NET MVC プロジェクトで、View\Shared\_Layout.cshtml にスクリプトを配置します。
 
 このスクリプトには、Application Insights リソースに利用統計情報を転送するインストルメンテーション キーが含まれています。
 
@@ -55,14 +56,14 @@ Visual Studio Application Insights を使うと、アプリの可用性、パフ
 ![](./media/app-insights-sharepoint/03-master.png)
 
 
-直前にコードを追加、 </head> タグ。
+直前にコードを追加します </head> タグが挿入されないというバグです。 
 
 
 ![](./media/app-insights-sharepoint/04-code.png)
 
 #### あるいは個別ページで
 
-ページを限定して監視するには、ページ別にスクリプトを追加します。
+ページを限定して監視するには、ページ別にスクリプトを追加します。 
 
 Web パーツを挿入し、コード スニペットをそれに埋め込みます。
 
@@ -76,13 +77,13 @@ Web パーツを挿入し、コード スニペットをそれに埋め込みま
 
 アプリケーションのブレードに戻り、 [Azure ポータル](http://portal.azure.com)します。
 
-最初のイベントは、検索に表示されます。
+検索に最初のイベントが表示されます。 
 
 ![](./media/app-insights-sharepoint/09-search.png)
 
 大量のデータが予想される場合は、数秒後に [最新の情報に更新] をクリックします。
 
-概要ブレードから **[使用状況の分析]** をクリックし、ユーザー、セッション、およびページ ビューのグラフに表示します。
+概要ブレードでクリックして **利用状況分析** ユーザー、セッション、ページ ビューのグラフに表示します。
 
 ![](./media/app-insights-sharepoint/06-usage.png)
 
@@ -105,11 +106,7 @@ Web パーツを挿入し、コード スニペットをそれに埋め込みま
 
 
 
+<!--Link references-->
 
 
-
-
-
-
-
-
+ 

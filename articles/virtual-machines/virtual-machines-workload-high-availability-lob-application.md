@@ -17,18 +17,17 @@
     ms.date="11/09/2015" 
     ms.author="josephd"/>
 
-
 # Azure インフラストラクチャ サービスのワークロード: 高可用な基幹業務アプリケーション
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 従来のデプロイ モデルです。
 
 
 Microsoft Azure で、最初または次の、Web ベースでイントラネット専用の基幹業務アプリケーションを設定し、簡単に構成できる機能と、新機能を追加するためにアプリケーションを迅速に拡張する機能を活用します。
-
+ 
 Azure インフラストラクチャ サービスの Virtual Machines と Virtual Network を使用すると、組織のユーザーがアクセス可能な基幹業務アプリケーションをすばやくデプロイし、実行できるようになります。 たとえば、次のようにセットアップできます。
 
 ![](./media/virtual-machines-workload-high-availability-LOB-application/workload-lobapp-phase4.png)
-
+ 
 Azure Virtual Network は、すべての名前とトラフィック ルーティングを修正したオンプレミス ネットワークの拡張であるため、ユーザーは、オンプレミス データセンターにあるサーバーと同様に、基幹業務アプリケーションのサーバーにアクセスできます。
 
 この構成では、新しい Azure 仮想マシンを追加することで、アプリケーションの機能を簡単に拡張できます。この場合、ハードウェアとメンテナンス両方の継続的なコストは、独自のデータセンターで同等のアプリケーションを実行するよりも低くなります。
@@ -37,10 +36,10 @@ Azure Virtual Network は、すべての名前とトラフィック ルーティ
 
 ## Azure でホストされる開発/テスト基幹業務アプリケーションの作成
 
-クロスプレミス仮想ネットワークは、サイト間 VPN または ExpressRoute 接続を使用して、オンプレミス ネットワークに接続されています。 最終的な構成に似せた開発/テスト環境を作成して、アプリケーションへのアクセスを試して、VPN 接続経由でリモート管理の実行を参照してください場合 [テスト用のハイブリッド クラウドで web ベース LOB アプリケーションの設定](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)します。
+クロスプレミス仮想ネットワークは、サイト間 VPN または ExpressRoute 接続を使用して、オンプレミス ネットワークに接続されています。 最終的な構成に似せた開発/テスト環境を作成して、アプリケーションへのアクセスを試して、VPN 接続経由でリモート管理の実行を参照してください場合 [テスト用のハイブリッド クラウドで web ベース LOB アプリケーションの設定](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)します。 
 
 ![](./media/virtual-machines-workload-high-availability-LOB-application/CreateLOBAppHybridCloud_3.png)
-
+ 
 この開発/テスト環境を無料で作成するにはで、 [MSDN サブスクリプション](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/) または [Azure 試用サブスクリプション](http://azure.microsoft.com/pricing/free-trial/)します。
 
 次の手順では、Azure で高可用な基幹業務アプリケーションを作成します。
@@ -50,7 +49,7 @@ Azure Virtual Network は、すべての名前とトラフィック ルーティ
 Azure での高可用な基幹業務アプリケーションの基本的で代表的な構成は、次のようになります。
 
 ![](./media/virtual-machines-workload-high-availability-LOB-application/workload-lobapp-phase4.png)
-
+ 
 構成は次のとおりです。
 
 - Web層とデータベース層にサーバーが 2 つずつあるイントラネット専用基幹業務アプリケーション。
@@ -71,25 +70,24 @@ Azure での高可用な基幹業務アプリケーションの基本的で代�
 
 こちらが仮想マシンとそれぞれのこの構成に対する既定のサイズになります。
 
- 項目| 仮想マシンの説明| ギャラリー イメージ| 既定サイズ
---- | --- | --- | ---
+項目 | 仮想マシンの説明 | ギャラリー イメージ | 既定サイズ 
+--- | --- | --- | --- 
+1. | 最初のドメイン コントローラー | Windows Server 2012 R2 Datacenter | D1
+2. | 2 番目のドメイン コントローラー | Windows Server 2012 R2 Datacenter | D1
+3. | プライマリ データベース サーバー | Microsoft SQL Server 2014 Enterprise - Windows Server 2012 R2 | D4
+4. | セカンダリ データベース サーバー | Microsoft SQL Server 2014 Enterprise - Windows Server 2012 R2 | D4
+5. | クラスターのマジョリティ ノード | Windows Server 2012 R2 Datacenter | D1
+6. | 最初の Web サーバー | Windows Server 2012 R2 Datacenter | D3
+7. | 2 番目の Web サーバー | Windows Server 2012 R2 Datacenter | D3
 
-1. |最初のドメイン コント ローラー |Windows Server 2012 R2 Datacenter |D1
-2. |2 番目のドメイン コント ローラー |Windows Server 2012 R2 Datacenter |D1
-3. |プライマリ データベース サーバー |Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 |D4
-4. |セカンダリ データベース サーバー |Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 |D4
-5. |クラスターのマジョリティ ノード |Windows Server 2012 R2 Datacenter |D1
-6. |最初の web サーバー |Windows Server 2012 R2 Datacenter |D3
-7. |2 番目の web サーバー |Windows Server 2012 R2 Datacenter |D3
+この構成の見積もりコストを計算するため、次を参照してください。、 [Azure 料金計算ツール](https://azure.microsoft.com/pricing/calculator/)します。 
 
-この構成の見積もりコストを計算するため、次を参照してください。、 [Azure 料金計算ツール](https://azure.microsoft.com/pricing/calculator/)します。
-
-1. **[モジュール]** で、**[コンピューティング]** をクリックし、**[仮想マシン]** を必要なだけクリックして 7 つの仮想マシンを作成してください。
+1.  **モジュール**, 、] をクリックして **コンピューティング**, 、クリックして **仮想マシン** 7 つの仮想マシンのリストを作成するための十分な時間です。
 2. 各仮想マシンで次を選択してください。
     - 目的のリージョン
-    - 種類には **Windows**
-    - 価格レベルには **Standard**
-    - **インスタンスのサイズ**には、上記の表での既定のサイズもしくは目的のサイズ
+    - **Windows** の種類
+    - **標準的な** の価格レベル
+    - 前の表に、目的のサイズの既定のサイズ、 **インスタンス サイズ]**
 
 > [AZURE.NOTE] Azure 料金計算ツールでは、SQL Server 2014 Enterprise を実行している 2 つの仮想マシンの SQL Server ライセンスの追加のコストは含まれません。 参照してください [仮想マシンの料金 SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql) の詳細。
 
@@ -97,15 +95,15 @@ Azure での高可用な基幹業務アプリケーションの基本的で代�
 
 この構成をデプロイするには、次のプロセスを使用します。
 
-- フェーズ 1: Azure を構成する
+- フェーズ 1: Azure を構成する 
 
     Azure PowerShell を使用して、ストレージ アカウント、可用性セット、およびクロスプレミス仮想ネットワークを作成します。 詳細な構成手順については、次を参照してください。 [フェーズ 1](virtual-machines-workload-high-availability-LOB-application-phase1.md)します。
 
-- フェーズ 2: ドメイン コントローラーを構成する
+- フェーズ 2: ドメイン コントローラーを構成する 
 
     仮想ネットワークの 2 つの Active Directory レプリカ ドメイン コントローラーと DNS 設定を構成します。 詳細な構成手順については、次を参照してください。 [フェーズ 2](virtual-machines-workload-high-availability-LOB-application-phase2.md)します。
 
-- フェーズ 3: SQL Server インフラストラクチャを構成する
+- フェーズ 3: SQL Server インフラストラクチャを構成する  
 
     SQL Server を実行する仮想マシンと、クラスターを作成します。 詳細な構成手順については、次を参照してください。 [フェーズ 3](virtual-machines-workload-high-availability-LOB-application-phase3.md)します。
 
@@ -121,17 +119,13 @@ Azure での高可用な基幹業務アプリケーションの基本的で代�
 
 ## その他のリソース
 
-[高可用性基幹業務アプリケーションを Azure の展開します。](virtual-machines-workload-high-availability-LOB-application-overview.md)
+[Azure での高可用な基幹業務アプリケーションのデプロイ](virtual-machines-workload-high-availability-LOB-application-overview.md)
 
-[基幹業務アプリケーションのアーキテクチャ ブルー プリント](http://msdn.microsoft.com/dn630664)
+[基幹業務アプリケーションのアーキテクチャ ブループリント](http://msdn.microsoft.com/dn630664)
 
-[テスト用のハイブリッド クラウドで web ベース LOB アプリケーションの設定します。](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
+[テスト用のハイブリッド クラウドでの Web ベース LOB アプリケーションの設定](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
 [Azure インフラストラクチャ サービス実装ガイドライン](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-[SharePoint Server 2013 ファームを azure インフラストラクチャ サービスのワークロード:](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-
-
-
+[Azure インフラストラクチャ サービスのワークロード: SharePoint Server 2013 ファーム](virtual-machines-workload-intranet-sharepoint-farm.md)
 

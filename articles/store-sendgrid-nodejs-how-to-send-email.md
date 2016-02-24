@@ -1,6 +1,6 @@
 <properties 
     pageTitle="SendGrid 電子メール サービスの使用方法 (Node.js) | Microsoft Azure" 
-    description="Azure で SendGrid 電子メール サービスを使用して電子メールを送信する方法について説明します。コード サンプルは Node.js API を使用して記述されています。" 
+    description="Azure で SendGrid 電子メール サービスを使用して電子メールを送信する方法について説明します。 コード サンプルは Node.js API を使用して記述されています。" 
     services="" 
     documentationCenter="nodejs" 
     authors="erikre" 
@@ -15,13 +15,12 @@
     ms.topic="article" 
     ms.date="08/31/2015" 
     ms.author="erikre"/>
-
 # SendGrid を使用して Node.js から電子メールを送信する方法
 
 このガイドでは、Azure の SendGrid 電子メール サービスを使用して
 一般的なプログラム タスクを実行する方法を紹介します。 サンプルは Node.js API を使用して
 記述されています。 紹介するシナリオ **電子メールの作成**,、
-**電子メールを送信する**, 、**添付ファイルの追加**, 、**フィルターを使用して**, と
+**電子メールの送信**, 、**添付ファイルの追加**, 、**フィルターを使用して**, と
 **プロパティを更新**します。 SendGrid と電子メールの送信の詳細については、
 参照してください、 [次のステップ](#next-steps) セクションです。
 
@@ -59,7 +58,7 @@ Node.js 用の SendGrid モジュールは、次のコマンドを使用する�
 
     var sendgrid = require('sendgrid')(sendgrid_username, sendgrid_password);
 
-SendGrid モジュールは、**SendGrid** 機能および **Email** 機能をエクスポートします。
+SendGrid モジュールがエクスポート、 **SendGrid** と **電子メール** 関数です。
 **SendGrid** の Web API による電子メールの送信 
 中に **電子メール** 電子メール メッセージをカプセル化します。
 
@@ -86,12 +85,12 @@ text プロパティと html プロパティの両方を設定すると、HTML �
 サポートしないクライアント向けに正常なフォールバックができます。
 
 Email 関数でサポートされるプロパティの詳細については、
-参照してください [、sendgrid-nodejs:operator[]][]します。
+[sendgrid nodejs] を参照してください。
 
 ## 方法: 電子メールを送信する
 
 Email 関数で電子メール メッセージを作成した後、SendGrid の
-Web API を使用してメッセージを送信できます。
+Web API を使用してメッセージを送信できます。 
 
 ### Web API
 
@@ -100,7 +99,7 @@ Web API を使用してメッセージを送信できます。
         console.log(json);
     });
 
-> [AZURE.NOTE] 前の例では、電子メール オブジェクトとコールバック関数の
+> [AZURE.NOTE] 上記の例については、電子メール オブジェクトの受け渡しを示して、
 受け渡しを示していますが、電子メールのプロパティを直接指定
 することによって、send 関数を直接呼び出すこともできます。 次に例を示します。  
 >
@@ -113,11 +112,11 @@ sendgrid.send({
 });
 `````
 
-## 方法: 添付ファイルを追加する
+## How to: Add an Attachment
 
-添付ファイルをメッセージに追加するには、
-パスを **ファイル** プロパティです。 次の例に、
-添付ファイルを送信する方法を示します。
+Attachments can be added to a message by specifying the file name(s) and
+path(s) in the **files** property. The following example demonstrates
+sending an attachment:
 
     sendgrid.send({
         to: 'john@contoso.com',
@@ -136,22 +135,22 @@ sendgrid.send({
         ],
     });
 
-> [AZURE.NOTE] **files** プロパティを使用する場合、
-を通じて [fs.readFile](http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile)します。 添付するファイルが、BLOB コンテナーなどの Azure ストレージでホストされている場合、**files** プロパティを使用して添付ファイルとして送信するには、最初にファイルをローカル ストレージまたは Azure ドライブにコピーする必要があります。
+> [AZURE.NOTE] When using the **files** property, the file must be accessible
+through [fs.readFile](http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile). If the file you wish to attach is hosted in Azure Storage, such as in a Blob container, you must first copy the file to local storage or to an Azure drive before it can be sent as an attachment using the **files** property.
 
-## 方法: フィルターを使用してフッターと追跡を有効にする
+## How to: Use Filters to Enable Footers and Tracking
 
-SendGrid では、"フィルター" を使用することで追加の電子メール機能を
-利用することが できます。
-その設定を電子メール メッセージに追加することで、クリック追跡、Google 分析、
-サブスクリプション追跡などの独自の機能を有効にすることができます。 すべてのフィルターの一覧については、
-参照してください [フィルターの設定][]します。
+SendGrid provides additional email functionality through the use of
+filters. These are settings that can be added to an email message to
+enable specific functionality such as enabling click tracking, Google
+analytics, subscription tracking, and so on. For a full list of filters,
+see [Filter Settings][].
 
-フィルターは、**フィルター**のプロパティを使用してメッセージに適用できます。
-各フィルターは、フィルター固有の設定を格納したハッシュで指定します。
-次の例に、フッター フィルターとクリック追跡フィルターの使用方法を示します。
+Filters can be applied to a message by using the **filters** property.
+Each filter is specified by a hash containing filter-specific settings.
+The following examples demonstrate the footer and click tracking filters:
 
-### フッター
+### Footer
 
     var email = new sendgrid.Email({
         to: 'john@contoso.com',
@@ -168,10 +167,10 @@ SendGrid では、"フィルター" を使用することで追加の電子メ�
             }
         }
     });
-    
+
     sendgrid.send(email);
 
-### クリック追跡
+### Click Tracking
 
     var email = new sendgrid.Email({
         to: 'john@contoso.com',
@@ -190,42 +189,41 @@ SendGrid では、"フィルター" を使用することで追加の電子メ�
     
     sendgrid.send(email);
 
-## 方法: 電子メールのプロパティを更新する
+## How to: Update Email Properties
 
-使用して一部の電子メールのプロパティを上書きできる **設定 * プロパティ *** または
-使用して追加 **追加 * プロパティ ***します。 たとえば、次のようにして、
-新しい受信者を追加できます。
+Some email properties can be overwritten using **set*Property*** or
+appended using **add*Property***. For example, you can add additional
+recipients by using
 
     email.addTo('jeff@contoso.com');
 
-また、次のように、フィルターを設定することもできます。
+or set a filter by using
 
     email.addFilter('footer', 'enable', 1);
     email.addFilter('footer', 'text/html', '<strong>boo</strong>');
 
-詳細については、次を参照してください。 [、sendgrid-nodejs:operator[]][]します。
+For more information, see [sendgrid-nodejs][].
 
-## 方法: その他の SendGrid サービスを使用する
+## How to: Use Additional SendGrid Services
 
-SendGrid の Web ベース API を使用して、Azure アプリケーションから
-その他の SendGrid 機能を利用できます。 詳細については、
-詳細についてを参照してください、 [SendGrid API に関するドキュメントの][]します。
+SendGrid offers web-based APIs that you can use to leverage additional
+SendGrid functionality from your Azure application. For full
+details, see the [SendGrid API documentation][].
 
-## 次のステップ
+## Next Steps
 
-これで、SendGrid 電子メール サービスの基本を学習できました。
-さらに詳細な情報が必要な場合は、次のリンク先を参照してください。
+Now that you've learned the basics of the SendGrid Email service, follow
+these links to learn more.
 
--   SendGrid Node.js モジュールのリポジトリ: [、sendgrid-nodejs:operator[]][]
--   SendGrid API に関するドキュメント:
+-   SendGrid Node.js module repository: [sendgrid-nodejs][]
+-   SendGrid API documentation:
     <https://sendgrid.com/docs>
--   Azure ユーザー向けの SendGrid 特別プラン:
+-   SendGrid special offer for Azure customers:
     [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
-
-[special offer]: https://sendgrid.com/windowsazure.html 
-[sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs 
-[filter settings]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html 
-[sendgrid api documentation]: https://sendgrid.com/docs 
-[cloud-based email service]: https://sendgrid.com/email-solutions 
-[transactional email delivery]: https://sendgrid.com/transactional-email 
+  [special offer]: https://sendgrid.com/windowsazure.html
+  [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
+  [Filter Settings]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
+  [SendGrid API documentation]: https://sendgrid.com/docs
+  [cloud-based email service]: https://sendgrid.com/email-solutions
+  [transactional email delivery]: https://sendgrid.com/transactional-email
 

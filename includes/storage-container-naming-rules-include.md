@@ -1,4 +1,4 @@
-Azure Storage のどの BLOB もコンテナーに格納する必要があります。 コンテナーは、BLOB 名の一部を形成しています。 たとえば、 `mycontainer` サンプル blob の Uri でコンテナーの名前を指定します。
+Azure Storage のどの BLOB もコンテナーに格納する必要があります。 コンテナーは、BLOB 名の一部を形成しています。 たとえば、次の BLOB の URI のサンプルでは、`mycontainer` がコンテナーの名前です。
 
     https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
     https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
@@ -10,8 +10,4 @@ Azure Storage のどの BLOB もコンテナーに格納する必要がありま
 1. コンテナー名の文字はすべて小文字である必要があります。
 1. コンテナー名の長さは、3 ～ 63 文字にする必要があります。
 
-> [AZURE.IMPORTANT] コンテナーの名前は、常に小文字にする必要があります。 コンテナー名に大文字が含まれている場合や、コンテナーの名前付け規則の他の違反がある場合、400 エラー (無効な要求) が発生することがあります。 
-
-
-
-
+> [AZURE.IMPORTANT] 書き留めます。 コンテナーの名前が小文字で常にする必要があります。 コンテナー名に大文字が含まれている場合や、コンテナーの名前付け規則の他の違反がある場合、400 エラー (無効な要求) が発生することがあります。 

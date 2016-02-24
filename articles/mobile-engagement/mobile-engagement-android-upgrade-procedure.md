@@ -17,23 +17,22 @@
     ms.author="piyushjo" />
 
 
-
-# アップグレードの手順
+#アップグレードの手順
 
 既に古いバージョンの SDK をアプリケーションに統合している場合は、SDK をアップグレードする際に次の点を考慮する必要があります。
 
 SDK の一部のバージョンが不足している場合、いくつかの手順に従う必要があることがあります。 たとえば、1.4.0 から 1.6.0 に移行する場合、まず「1.4.0から 1.5.0」への手順を実行してから「1.5.0 から 1.6.0」への手順を実行する必要があります。
 
-どのバージョンからアップグレードを交換する必要がある、 `mobile engagement-VERSION.jar` を新しいものです。
+どのバージョンからアップグレードする場合でも、`mobile-engagement-VERSION.jar` を新しいバージョンのものに置き換える必要があります。
 
-## 4.0.0 から 4.1.0 に移行
+##4.0.0 から 4.1.0 に移行
 
 SDK で Android M の新しいアクセス許可モデルを処理できるようになりました。
 
 場所の機能を使用するか、全体像の通知をお読みください [ここ](mobile-engagement-android-integrate-engagement.md#android-m-permissions)します。
 
 新しいアクセス許可モデルに加え、実行時に場所の機能を構成できるようになりました。
-場所のマニフェスト パラメーターとの互換性は維持されていますが、推奨されません。 ランタイム構成を使用するには、削除から次のセクションでは、 `AndroidManifest.xml`:
+場所のマニフェスト パラメーターとの互換性は維持されていますが、推奨されません。 ランタイム構成を使用するには、``AndroidManifest.xml`` から次のセクションを削除します。
 
     <meta-data
       android:name="engagement:locationReport:lazyArea"
@@ -50,7 +49,7 @@ SDK で Android M の新しいアクセス許可モデルを処理できるよ�
 
 読み取りと [これは更新プロシージャ](mobile-engagement-android-integrate-engagement.md#location-reporting) ランタイム構成を代わりに使用します。
 
-## 3.0.0 から 4.0.0 に移行
+##3.0.0 から 4.0.0 に移行
 
 ### ネイティブ プッシュ通知
 
@@ -60,7 +59,7 @@ SDK で Android M の新しいアクセス許可モデルを処理できるよ�
 
 ### AndroidManifest.xml
 
-Reach 統合が変更されました `AndroidManifest.xml`します。
+``AndroidManifest.xml`` の Reach 統合が変更されました。
 
 こちらに置き換えてください。
 
@@ -112,28 +111,29 @@ Reach 統合が変更されました `AndroidManifest.xml`します。
 
 ### リソース
 
-新しい埋め込み `res/layout/engagement_loading.xml` ファイルをプロジェクトにします。
+プロジェクトに新しい `res/layout/engagement_loading.xml` ファイルが埋め込まれました。
 
-## 2.4.0 から 3.0.0 に移行
+##2.4.0 から 3.0.0 に移行
 
 Azure Mobile Engagement を使用するアプリに Capptain SAS によって提供される Capptain サービスから SDK の統合を移行する方法を次に示します。 以前のバージョンから移行する場合は、Capptain web サイトをご覧のうえ、まず 2.4.0 に移行し、次の手順を適用してください。
->[AZURE.IMPORTANT] Capptain と Mobile Engagement は、同じサービスではありません。次の手順では、クライアント アプリケーションを移行する方法についてのみ詳しく説明します。 アプリで SDK を移行しても、データは Capptain サーバーから Mobile Engagement のサーバーに移行されません。
+
+>[AZURE.IMPORTANT] Capptain とモバイル エンゲージメントは、同じサービスではないと、次の手順では、クライアント アプリケーションを移行する方法についてのみ詳しく説明します。 アプリで SDK を移行しても、データは Capptain サーバーから Mobile Engagement のサーバーに移行されません。
 
 ### JAR ファイル
 
-置換 `capptain.jar` によって `mobile engagement-VERSION.jar` で、 `libs` フォルダーです。
+`libs` フォルダーの `capptain.jar` を `mobile-engagement-VERSION.jar` に置き換えます。
 
 ### リソース ファイル
 
-提供されるすべてのリソース ファイル (付けた `capptain_`) を新しいファイルに置き換えられますが、(付いて `engagement_`)。
+提供されるすべてのリソース ファイル (`capptain_` で始まるファイル) を新しいファイル (`engagement_` で始まるファイル) に置き換える必要があります。
 
-これらのファイルがカスタマイズされている場合、新しいファイルにもそのカスタマイズを再適用する必要があります。**リソース ファイル内のすべての識別子の名前も変更されています**。
+新しいファイルにもそのカスタマイズを再適用する必要があるこれらのファイルをカスタマイズする場合は **リソース ファイル内のすべての識別子が変更されても**です。
 
 ### アプリケーション ID
 
 Engagement では、接続文字列を使用してアプリケーション ID などの SDK の識別子を構成します。
 
-使用する必要がある `EngagementAgent.init` メソッドを次のようなランチャー アクティビティで。
+ランチャー アクティビティで、`EngagementAgent.init` メソッドを次のように実行します。
 
             EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
             engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
@@ -141,27 +141,27 @@ Engagement では、接続文字列を使用してアプリケーション ID �
 
 アプリケーションの接続文字列が Azure ポータルに表示されます。
 
-呼び出しを削除してください `CapptainAgent.configure` として `EngagementAgent.init` そのメソッドが置き換えられます。
+`EngagementAgent.init` メソッドは `CapptainAgent.configure` に置き換えられるため、このメソッドに対する呼び出しをすべて削除してください。
 
-`AppId` を使用して構成することができます不要になった `AndroidManifest.xml`します。
+`appId` は `AndroidManifest.xml` を使用して構成できなくなりました。
 
-このセクションを削除してください、 `AndroidManifest.xml` ことがある場合。
+まだ存在する場合は、`AndroidManifest.xml` からこのセクションを削除してください。
 
             <meta-data android:name="capptain:appId" android:value="<YOUR_APPID>"/>
 
 ### Java API
 
-SDK の Java クラスへの呼び出しごとが名前を変更します。たとえば、 `CapptainAgent.getInstance(this)` 名前を変更する必要があります `EngagementAgent.getInstance(this)`, 、`拡張 CapptainActivity` 名前を変更する必要があります `拡張されている EngagementActivity` など.
+SDK の Java クラスに対する呼び出しの名前をすべて変更する必要があります。たとえば、`CapptainAgent.getInstance(this)` は `EngagementAgent.getInstance(this)`、`extends CapptainActivity` は `extends EngagementActivity` などのように名前を変更します。
 
-既定のエージェントの設定ファイルが統合されている場合、既定のファイル名は `engagement.agent` 、キーが `エンゲージメント: エージェント`します。
+既定のエージェントの設定ファイルに統合されている場合、既定のファイル名は `engagement.agent` に、キーは `engagement:agent` になります。
 
-Web アナウンスを作成するときに、Javascript バインダーになります `engagementReachContent`します。
+Web 通知を作成する場合、Javascript バインダーは `engagementReachContent` になります。
 
 ### AndroidManifest.xml
 
 多数の変更が発生し、サービスが共有されなくなったため、多くの受信者をエクスポートできなくなりました。
 
-サービスの宣言は単純です。 今すぐインテント フィルターと、その中にすべてのメタ データを削除し、追加 `エクスポート可能な = false`します。
+サービスの宣言が簡単になり、インテント フィルターとその内部のすべてのメタデータが削除され、`exportable=false` が追加されました。
 
 また、すべての名前に engagement が追加されました。
 
@@ -176,11 +176,11 @@ Web アナウンスを作成するときに、Javascript バインダーにな�
 テスト ログを有効にする場合は次のようにします。メタデータはアプリケーション タグに移動され、名前が変更されています。
 
             <application>
-    
+            
               <meta-data android:name="engagement:log:test" android:value="true" />
-    
+            
               <service/>
-    
+            
             </application>
 
 その他すべてのメタデータの名前も変更されています。一覧は次のとおりです (使用するメタデータの名前のみ変更します)。
@@ -224,7 +224,7 @@ Web アナウンスを作成するときに、Javascript バインダーにな�
             <meta-data
               android:name="engagement:reach:notification:icon"
               android:value="<DRAWABLE_NAME_WITHOUT_EXTENSION>"/>
-    
+            
             <activity android:name="SomeActivityWithoutReachOverlay">
               <meta-data
                 android:name="engagement:notification:overlay"
@@ -268,10 +268,10 @@ Reach のアクティビティは次のように宣言します。
                 <category android:name="android.intent.category.DEFAULT"/>
               </intent-filter>
             </activity>
+            
+Reach のアクティビティがカスタマイズされている場合は、インテント アクションを `com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT` または `com.microsoft.azure.engagement.reach.intent.action.POLL` のいずれかに一致するように変更します。
 
-いずれかに一致するように、インテント アクションを変更するときだけ必要があるカスタム Reach のアクティビティがあれば、 `com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT` または `com.microsoft.azure.engagement.reach.intent.action.POLL`します。
-
-ブロードキャスト レシーバーの名前が変更されていますと、次を追加 `エクスポート = false`します。 レシーバーの新しい詳細の一覧は次のとおりです (使用する受信者の名前のみ変更します)。
+ブロードキャスト レシーバーの名前が変更され、`exported=false` が追加されました。 レシーバーの新しい詳細の一覧は次のとおりです (使用する受信者の名前のみ変更します)。
 
             <receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
               android:exported="false">
@@ -285,14 +285,14 @@ Reach のアクティビティは次のように宣言します。
                 <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
               </intent-filter>
             </receiver>
-    
+            
             <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
               android:exported="false">
               <intent-filter>
                 <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
               </intent-filter>
             </receiver>
-    
+            
             <receiver
               android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver"
               android:permission="com.google.android.c2dm.permission.SEND">
@@ -302,14 +302,14 @@ Reach のアクティビティは次のように宣言します。
                 <category android:name="<your_package_name>"/>
               </intent-filter>
             </receiver>
-    
+            
             <receiver android:name="com.microsoft.azure.engagement.adm.EngagementADMEnabler"
               android:exported="false">
               <intent-filter>
                 <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT"/>
               </intent-filter>
             </receiver>
-    
+            
             <receiver
               android:name="com.microsoft.azure.engagement.adm.EngagementADMReceiver"
               android:permission="com.amazon.device.messaging.permission.SEND">
@@ -319,21 +319,21 @@ Reach のアクティビティは次のように宣言します。
                 <category android:name="<your_package_name>"/>
               </intent-filter>
             </receiver>
-    
+            
             <receiver android:name="<your_sub_class_of_com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver>"
               android:exported="false">
               <intent-filter>
                 <action android:name="com.microsoft.azure.engagement.reach.intent.action.DATA_PUSH" />
               </intent-filter>
             </receiver>
-    
+            
             <receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
                android:exported="false">
                <intent-filter>
                   <action android:name="android.intent.action.BOOT_COMPLETED" />
                </intent-filter>
             </receiver>
-    
+            
             <receiver android:name="<your_sub_class_of_com.microsoft.azure.engagement.EngagementConnectionReceiver.java>"
               android:exported="false">
               <intent-filter>
@@ -341,7 +341,7 @@ Reach のアクティビティは次のように宣言します。
                 <action android:name="com.microsoft.azure.engagement.intent.action.DISCONNECTED"/>
               </intent-filter>
             </receiver>
-    
+            
             <receiver
               android:name="<your_sub_class_of_com.microsoft.azure.engagement.EngagementMessageReceiver.java>"
               android:exported="false">
@@ -355,11 +355,11 @@ Reach のアクティビティは次のように宣言します。
           <receiver android:name="com.ubikod.capptain.android.sdk.track.CapptainTrackReceiver">
             <intent-filter>
               <action android:name="com.ubikod.capptain.intent.action.APPID_GOT" />
-              
+              <!-- possibly <action android:name="com.android.vending.INSTALL_REFERRER" /> -->
             </intent-filter>
           </receiver>
 
-なおブロードキャスト レシーバーの実装の宣言 **EngagementMessageReceiver** で変更された、 `AndroidManifest.xml`します。 これは、任意の XMPP エンティティから任意の XMPP メッセージを送受信する API と、デバイス間でメッセージを送受信する API が削除されているためです。 このため、**EngagementMessageReceiver** の実装から次のコールバックを削除する必要があります。
+なおブロードキャスト レシーバーの実装の宣言 **EngagementMessageReceiver** で変更された、 `AndroidManifest.xml`です。 これは、任意の XMPP エンティティから任意の XMPP メッセージを送受信する API と、デバイス間でメッセージを送受信する API が削除されているためです。 このため、削除する必要もから次のコールバック、 **EngagementMessageReceiver** 実装します。
 
             protected void onDeviceMessageReceived(android.content.Context context, java.lang.String deviceId, java.lang.String payload)
 
@@ -367,7 +367,7 @@ Reach のアクティビティは次のように宣言します。
 
             protected void onXMPPMessageReceived(android.content.Context context, android.os.Bundle message)
 
-その後、**EngagementAgent** に対する呼び出しを削除します。
+に対する呼び出しを削除し、 **EngagementAgent** の。
 
             sendMessageToDevice(java.lang.String deviceId, java.lang.String payload, java.lang.String packageName)
 
@@ -381,11 +381,9 @@ Proguard の構成はブランド変更の影響を受けるため、ルール�
 
             -dontwarn android.**
             -keep class android.support.v4.** { *; }
-    
+            
             -keep public class * extends android.os.IInterface
             -keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
               <methods>;
             }
-
-
-
+ 

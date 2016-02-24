@@ -1,14 +1,15 @@
+
 <properties
-    pageTitle ="Azure Active Directory ハイブリッドの id の設計に関する考慮事項の確認のアクセス制御 requirements|Microsoft Azure]
-    description =「id、およびハイブリッド環境でのユーザー向けリソースのアクセス要件の特定の柱について説明します」。
+    pageTitle="Azure Active Directory ハイブリッド ID の設計上の考慮事項 - アクセス制御要件の決定 | Microsoft Azure"
+    description="ID の柱と、ハイブリッド環境内のユーザーのリソースのアクセス要件について説明します。"
     documentationCenter=""
-    サービス ="active directory"
-    authors ="yuridio"
-    manager ="stevenpo"
+    services="active-directory"
+    authors="yuridio"
+    manager="stevenpo"
     editor=""/>
 
 <tags
-    ms.service="active directory"
+    ms.service="active-directory"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
@@ -17,7 +18,6 @@
     ms.author="yuridio"/>
 
 # ハイブリッド ID ソリューションのアクセス制御要件の決定
-
 組織がハイブリッド ID ソリューションを設計する場合、その機会に、ユーザーに使用できるようにする予定のリソースについて、アクセス要件を見直すこともできます。 データは、次に示す ID の 4 本の柱全体にかかっています。
 
 - 管理
@@ -26,11 +26,11 @@
 - 監査
 
 ここでは、認証と承認の詳細と、管理と監査がハイブリッド ID のライフサイクルに含まれていることを説明します。 読み取り [ハイブリッド id 管理タスクを決定](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md) 詳細については、これらの機能です。
+
 >[AZURE.NOTE]
 読み取り [、4 つの柱の Id でハイブリッド IT の時代に Id 管理](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) その柱のいずれかの詳細についてです。
 
 ## 認証と権限承認
-
 認証と承認にはさまざまなシナリオがあり、各シナリオには異なる要件があります。会社が採用する予定のハイブリッド ID ソリューションは、その要件を満たす必要があります。 企業間 (B2B) 通信に関係するシナリオの場合、組織が使用する認証および承認の方法で、ビジネス パートナーと通信できるようにする必要があるので、IT 管理者にとって課題が増える可能性があります。 認証と承認の要件を設計するプロセスでは、次のチェック項目に回答する必要があります。
 
 - 組織は、ID 管理システム内にあるユーザーのみを認証および承認しますか。
@@ -39,7 +39,7 @@
 - 採用する予定のハイブリッド ID ソリューションは、それらのプロトコルをサポートしていますか。
 
 考慮すべきもう 1 つの重要な点は、ユーザーとパートナーが使用する認証リポジトリがある場所と、使用する管理モデルです。 次の 2 つの主要なオプションを考慮してください。
-- 集中管理します。 このモデルでは、ユーザーの資格情報、ポリシー、および管理できる一元的な内部設置型またはクラウドにします。
+- 集中管理します。 このモデルでは、ユーザーの資格情報、ポリシー、および管理できる一元的な内部設置型またはクラウドにします。 
 - ハイブリッド: このモデルでは、ユーザーの資格情報、ポリシー、および管理になります一元的な内部設置型と、レプリケートされたクラウドです。
 
 組織が採用するモデルは、ビジネスの要件によって変わります。次のチェック項目に回答して、ID 管理システムを配置する場所と使用する管理モデルを特定してください。
@@ -57,25 +57,20 @@
 - 社内には、ID システムを管理するための昇格された特権を持つ複数のユーザーがいますか。
  - 「はい」の場合、各ユーザーに同じアクセス レベルが必要ですか。
 - 会社では、特定のリソースを管理するアクセス権をユーザーに委任する必要はありますか。
- - 「はい」の場合、その頻度はどのくらいですか。
+ - 「はい」の場合、その頻度はどのくらいですか。 
 - 会社のオンプレミスとクラウドのリソース間で、アクセス制御機能を統合する必要はありますか。
 - 何らかの条件に従ってリソースに対するアクセス権を制限する必要はありますか。
 - 何らかのリソースに対するカスタムの制御アクセスを必要とするアプリケーションはありますか。
  - 「はい」の場合、そのアプリケーションはどこにありますか (オンプレミスまたはクラウド)。
  - 「はい」の場合、その対象リソースはどこにありますか (オンプレミスまたはクラウド)。
-
+ 
 >[AZURE.NOTE]
-回答をメモし、その背後にある論理的根拠を理解してください。 [データ保護戦略の定義](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) 、使用可能なオプションと各オプションの長所/短所を超過します。 チェック項目に答えることで、ビジネス ニーズに最適な選択肢が見つかります。
+回答をメモし、その背後にある論理的根拠を理解してください。 [データ保護の戦略を定義する](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) 、使用可能なオプションと各オプションの長所/短所を超過します。  チェック項目に答えることで、ビジネス ニーズに最適な選択肢が見つかります。
 
 ## 次のステップ
 
-[インシデント対応要件を決定します。](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
+[インシデント対応要件の決定](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
 
 ## 関連項目
-
-[設計に関する考慮事項の概要](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
+[設計上の考慮事項の概要](active-directory-hybrid-identity-design-considerations-overview.md)
 

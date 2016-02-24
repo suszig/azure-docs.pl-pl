@@ -16,7 +16,6 @@
    ms.date="10/13/2015"
    ms.author="seanmck"/>
 
-
 # ローカル開発クラスターのセットアップをトラブルシューティングする
 
 ローカル開発クラスターとの対話中に問題が発生した場合は、次の推奨事項を確認して解決の参考にしてください。
@@ -34,6 +33,7 @@ DevClusterSetup スクリプトの実行中に、次のようなエラーが発�
     + ~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo : NotSpecified: (:) [Write-Error], WriteErrorException
     + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,DevClusterSetup.ps1
+
 
 #### 解決策
 
@@ -83,10 +83,6 @@ Visual Studio を使用してデバッグしている際に、FabricConnectionDe
 
 ## 次のステップ
 
-- [理解し、システム正常性レポートを使用したクラスターのトラブルシューティングを行う](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-- [Service Fabric エクスプ ローラーでクラスターの視覚化](service-fabric-visualizing-your-cluster.md)
-
-
-
-
+- [システム正常性レポートでクラスターを理解してトラブルシューティングする](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+- [Service Fabric Explorer を使用したクラスターの視覚化](service-fabric-visualizing-your-cluster.md)
 

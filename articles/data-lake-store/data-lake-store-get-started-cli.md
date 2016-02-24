@@ -6,7 +6,7 @@
    authors="nitinme" 
    manager="paulettm" 
    editor="cgronlun"/>
-
+ 
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
@@ -16,31 +16,29 @@
    ms.date="11/13/2015"
    ms.author="nitinme"/>
 
-
 # Azure コマンド ラインを使用して Azure Data Lake Store の使用を開始する
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-get-started-portal.md)
-- [Using PowerShell](data-lake-store-get-started-powershell.md)
-- [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Using Azure CLI](data-lake-store-get-started-cli.md)
-- [Using Node.js](data-lake-store-manage-use-nodejs.md)
-
+- [ポータルを使用してください。](data-lake-store-get-started-portal.md)
+- [PowerShell の使用](data-lake-store-get-started-powershell.md)
+- [.NET SDK の使用](data-lake-store-get-started-net-sdk.md)
+- [Azure CLI の使用](data-lake-store-get-started-cli.md)
+- [Node.js の使用](data-lake-store-manage-use-nodejs.md)
 
 Azure コマンド ライン インターフェイスを使用して、Azure Data Lake Store アカウントを作成し、フォルダーの作成、データ ファイルのアップロードとダウンロード、アカウントの削除などの基本操作を行う方法について説明します。湖のデータ ストアの詳細については、次を参照してください。 [データ湖ストアの概要](data-lake-store-overview.md)します。
 
-Azure CLI は Node.js で実装されます。 Windows、Mac、Linux など、Node.js をサポートするいずれのプラットフォームでも使用できます。 Azure CLI はオープン ソースです。 Github のソース コードの管理 <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>します。 この記事では、Data Lake Store での Azure CLI の使用についてのみ説明します。 Azure CLI を使用する方法の一般的なガイドラインを参照してください。 [[azure のコマンドのライン-ツール] の Azure CLI の使用方法][azure-command-line-tools]します。
+Azure CLI は Node.js で実装されます。 Windows、Mac、Linux など、Node.js をサポートするいずれのプラットフォームでも使用できます。 Azure CLI はオープン ソースです。 ソース コードは GitHub (<a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>) で管理されています。 この記事では、Data Lake Store での Azure CLI の使用についてのみ説明します。 Azure CLI を使用する方法の一般的なガイドラインを参照してください。 [Azure CLI の使用方法] [azure-command-line-tools]します。
 
 
-## 前提条件
+##前提条件
 
 この記事を読み始める前に、次の項目を用意する必要があります。
 
-- **Azure サブスクリプション**。 参照してください [取得 Azure 無料試用版](https://azure.microsoft.com/pricing/free-trial/)します。
-- Data Lake Store のパブリック プレビューに対して、**Azure サブスクリプションを有効にする**。 参照してください [指示](data-lake-store-get-started-portal.md#signup)します。
+- **Azure サブスクリプション**します。 参照してください [取得 Azure 無料試用版](https://azure.microsoft.com/pricing/free-trial/)します。
+- **Azure サブスクリプションを有効にする** 湖のデータ ストアのパブリック プレビューします。 参照してください [指示](data-lake-store-get-started-portal.md#signup)します。 
 - **Azure CLI** -を参照してください [をインストールし、Azure CLI の構成](../xplat-cli-install.md) インストールと構成情報。 CLI をインストールした後で、コンピューターを再起動してください。
 
-## Azure サブスクリプションへのログイン
+##Azure サブスクリプションへのログイン
 
 記載されている手順に従います [Azure サブスクリプションへの接続から、Azure コマンド ライン インターフェイス (Azure CLI)](xplat-cli-connect.md) を使用して、サブスクリプションに接続し、 __ログイン__ メソッドです。
 
@@ -53,15 +51,17 @@ Azure CLI は Node.js で実装されます。 Windows、Mac、Linux など、No
 
         azure login
 
-    Web ページを開いて認証コードを入力するよう求められます。 ページの指示に従って、Azure サブスクリプションにログインします。
+    Web ページを開いて認証コードを入力するよう求められます。 ページの指示に従って、Azure サブスクリプションにログインします。 
 
 2. 次のコマンドで Azure リソース マネージャー モードに切り替えます。
 
         azure config mode arm
 
+
 3. アカウントの Azure サブスクリプションを一覧表示します。
 
         azure account list
+
 
 4. 複数の Azure サブスクリプションがある場合は、次のコマンドを使用して、Azure CLI コマンドが使用するサブスクリプションを設定します。
 
@@ -77,7 +77,6 @@ Azure CLI は Node.js で実装されます。 Windows、Mac、Linux など、No
 
         azure datalake store account create <dataLakeStoreAccountName> <location> <resourceGroup>
 
-
 ## Data Lake Store にフォルダーを作成する
 
 Azure Data Lake Store アカウントにフォルダーを作成し、データの管理と保存を行うことができます。 次のコマンドを使用すると、Data Lake Store のルートに "mynewfolder" という名前のフォルダーが作成されます。
@@ -90,7 +89,7 @@ Azure Data Lake Store アカウントにフォルダーを作成し、データ�
 
 ## Data Lake Store にデータをアップロードする
 
-データは、ルート レベルで直接 Data Lake Store に、またはアカウント内で作成したフォルダーにアップロードできます。 以下のスニペットは、前のセクションで作成したフォルダー (**mynewfolder**) にいくつかのサンプル データをアップロードする方法を示します。
+データは、ルート レベルで直接 Data Lake Store に、またはアカウント内で作成したフォルダーにアップロードできます。 次のスニペット フォルダーにサンプル データをアップロードする方法を示して (**mynewfolder**) 前のセクションで作成します。
 
 アップロードするには、いくつかのサンプル データを探している場合は取得できます、 **救急データ** フォルダーから、 [Azure Data Lake Git リポジトリ](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData)します。 ファイルをダウンロードし、C:\sampledata\ など、コンピューター上のローカル ディレクトリに格納します。
 
@@ -99,6 +98,7 @@ Azure Data Lake Store アカウントにフォルダーを作成し、データ�
 次に例を示します。
 
     azure datalake store filesystem import mynewdatalakestore "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" "/mynewfolder/vehicle1_09142014.csv"
+
 
 ## Data Lake Store 内のファイルを一覧表示する
 
@@ -128,7 +128,7 @@ Data Lake Store アカウントのファイルを一覧表示するには、以�
 
 ## Data Lake Store からデータの名前変更、ダウンロード、および削除を行う
 
-* **ファイルの名前を変更する**には、次のコマンドを使用します。
+* **ファイルの名前を変更する**, 、次のコマンドを使用します。
 
         azure datalake store filesystem move <dataLakeStoreAccountName> <path/old_file_name> <path/new_file_name>
 
@@ -136,7 +136,7 @@ Data Lake Store アカウントのファイルを一覧表示するには、以�
 
         azure datalake store filesystem move mynewdatalakestore /mynewfolder/vehicle1_09142014.csv /mynewfolder/vehicle1_09142014_copy.csv
 
-* **ファイルをダウンロードする**には、次のコマンドを使用します。 既に存在するパスをダウンロード先として指定してください。
+* **ファイルをダウンロードする**, 、次のコマンドを使用します。 既に存在するパスをダウンロード先として指定してください。
 
         azure datalake store filesystem export <dataLakeStoreAccountName> <source_path> <destination_path>
 
@@ -144,15 +144,15 @@ Data Lake Store アカウントのファイルを一覧表示するには、以�
 
         azure datalake store filesystem export mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv "C:\mysampledata\vehicle1_09142014_copy.csv"
 
-* **ファイルを削除する**には、次のコマンドを使用します。
+* **ファイルを削除する**, 、次のコマンドを使用します。
 
         azure datalake store filesystem delete <dataLakeStoreAccountName> <path> 
 
     次に例を示します。
 
         azure datalake store filesystem delete mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv
-
-    確認を求めるメッセージが表示されたら、「**Y**」と入力して、項目を削除します。
+    
+    求められたら、入力 **Y** アイテムを削除します。
 
 ## Data Lake Store のフォルダーのアクセス制御リストを表示する
 
@@ -164,6 +164,7 @@ Data Lake Store フォルダーの ACL を表示するには、次のコマン�
 
     azure datalake store permissions show mynewdatalakestore /
 
+
 ## Data Lake Store アカウントを削除する
 
 Data Lake Store アカウントを削除するには、次のコマンドを使用します。
@@ -174,22 +175,21 @@ Data Lake Store アカウントを削除するには、次のコマンドを使�
 
     azure datalake store account delete mynewdatalakestore
 
-確認を求めるメッセージが表示されたら、「**Y**」と入力して、アカウントを削除します。
+求められたら、入力 **Y** 、アカウントを削除します。
 
 ## Data Lake Store アカウントの他の作成方法
 
-- [ポータルを使用してデータ湖ストアを使ってみる](data-lake-store-get-started-portal.md)
-- [.NET SDK を使用してデータ湖ストアを使ってみる](data-lake-store-get-started-net-sdk.md)
-- [PowerShell を使用してデータ湖ストアを使ってみる](data-lake-store-get-started-powershell.md)
+- [Azure プレビュー ポータルで Azure Data Lake Store の使用を開始する](data-lake-store-get-started-portal.md)
+- [.NET SDK で Azure Data Lake Store の使用を開始する](data-lake-store-get-started-net-sdk.md)
+- [Azure PowerShell で Data Lake Store の使用を開始する](data-lake-store-get-started-powershell.md)
 
 
 ## 次のステップ
 
-- [Data Lake ストア内のデータをセキュリティで保護します。](data-lake-store-secure-data.md)
-- [データ湖ストアでの Azure Data Lake 分析の使用します。](data-lake-analytics-get-started-portal.md)
-- [Data Lake ストアと Azure HDInsight を使用してください。](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Data Lake Store のデータをセキュリティで保護する](data-lake-store-secure-data.md)
+- [Data Lake Store で Azure Data Lake Analytics を使用する](data-lake-analytics-get-started-portal.md)
+- [Data Lake Store で Azure HDInsight を使用する](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 
-
-[azure-command-line-tools]: ../xplat-cli-install.md 
+[azure-command-line-tools]: ../xplat-cli-install.md
 

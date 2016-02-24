@@ -3,30 +3,30 @@
 Azure DNS は、DNS ドメインのホスティング サービスであり、Microsoft Azure インフラストラクチャを使用した名前解決を提供します。
 
 
-| プロパティ| 説明| 値の例|
+| プロパティ | 説明 | 値の例 |
 |---|---|---|
-| DNS ゾーン| 特定ドメインの DNS レコードをホストするドメイン ゾーンの情報| /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com",
- providers/Microsoft.Network/dnszones/contoso.com/A/www|
-| DNS ゾーン| 特定ドメインの DNS レコードをホストするドメイン ゾーンの情報| /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com"
+| DNS ゾーン | 特定ドメインの DNS レコードをホストするドメイン ゾーンの情報 | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com",
+providers/Microsoft.Network/dnszones/contoso.com/A/www |
+| DNS ゾーン | 特定ドメインの DNS レコードをホストするドメイン ゾーンの情報 | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com"
 
 
 ### DNS レコード セット
 
 DNS ゾーンには、レコード セットという名前の子オブジェクトがあります。 レコード セットは、DNS ゾーンに対する種類別のホスト レコードのコレクションです。 レコードの種類は、A、AAAA、CNAME、MX、NS、SOA、SRV、TXT です。
 
-| プロパティ| 説明| 値の例|
+| プロパティ | 説明 | 値の例 |
 |---|---|---|
-| A| IPv4 レコードの種類| /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www|
-| AAAA| IPv6 レコードの種類| /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/AAAA/hostrecord|
-| CNAME| レコードの種類の正規名 <sup>1</sup>| /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/CNAME/www|
-| MX| メール レコードの種類| /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/MX/mail|
-| NS| ネーム サーバー レコードの種類| /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/NS/|
-| SOA| レコードの種類の機関の開始 <sup>2</sup>| /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SOA|
-| SRV| サービス レコードの種類| /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SRV|
+| A | IPv4 レコードの種類 | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www |
+| AAAA | IPv6 レコードの種類| /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/AAAA/hostrecord |
+| CNAME | レコードの種類の正規名 <sup>1</sup> | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/CNAME/www |
+| MX | メール レコードの種類 | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/MX/mail |
+| NS | ネーム サーバー レコードの種類 | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/NS/ |
+| SOA | レコードの種類の機関の開始 <sup>2</sup> | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SOA |
+| SRV | サービス レコードの種類 | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SRV |
 
-<sup>1</sup> のみレコード セットあたり 1 つの値を許可します。
+<sup>1</sup> レコード セットあたり 1 つの値のみを許可します。
 
-<sup>2</sup> のみ DNS ゾーンごとの 1 つのレコード タイプ SOA ことができます。
+<sup>2</sup> DNS ゾーンごとの 1 つのレコード タイプ SOA をできるのみです。 
 
 Json 形式での DNS ゾーンの例:
 
@@ -88,8 +88,4 @@ Json 形式での DNS ゾーンの例:
 読み取り、 [REST API のドキュメントの DNS ゾーンについて ](https://msdn.microsoft.com/library/azure/mt130626.aspx) の詳細。
 
 読み取り、 [DNS レコード セットの REST API ドキュメント](https://msdn.microsoft.com/library/azure/mt130626.aspx) の詳細。
-
-
-
-
 

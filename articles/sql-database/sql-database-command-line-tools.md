@@ -16,14 +16,13 @@
     ms.date="12/01/2015" 
     ms.author="sstein"/>
 
-
 # PowerShell を使用した Azure SQL Database の管理
 
-> [AZURE.SELECTOR]
-- [Azure Portal](sql-database-manage-portal.md)
-- [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
-- [PowerShell](sql-database-command-line-tools.md)
 
+> [AZURE.SELECTOR]
+- [Azure ポータル](sql-database-manage-portal.md)
+- [Transact SQL (SSMS)](sql-database-manage-azure-ssms.md)
+- [PowerShell](sql-database-command-line-tools.md)
 
 このトピックでは、多数の Azure SQL Database タスクを実行する PowerShell コマンドについて説明します。
 
@@ -43,7 +42,7 @@ Azure サブスクリプションに PowerShell コマンドレットを実行�
 
 ## Azure サブスクリプションを選択します。
 
-使用するサブスクリプションを選択するには、サブスクリプション ID (**SubscriptionId**) またはサブスクリプション名 (**SubscriptionName**) が必要になります。 前の手順からコピーするか、複数のサブスクリプションがある場合は **Get-AzureSubscription** コマンドレットを実行して結果セットから目的のサブスクリプション情報をコピーできます。
+使用するサブスクリプションを選択する、サブスクリプション Id を作成する必要があります (**- SubscriptionId**) とサブスクリプション名 (**-subscriptionname**)。 前の手順からコピーするか、複数のサブスクリプションがある場合は、実行、 **Get-azuresubscription** コマンドレット、結果セットから目的のサブスクリプション情報をコピーします。
 
 現在のサブスクリプションを設定するには、サブスクリプション情報と共に次のコマンドレットを実行します。
 
@@ -53,7 +52,7 @@ Azure サブスクリプションに PowerShell コマンドレットを実行�
 
 ## リソース グループの作成
 
-サーバーを含むリソース グループを作成します。 任意の有効な場所を使用するには、次のコマンドを編集します。
+サーバーを含むリソース グループを作成します。 任意の有効な場所を使用するには、次のコマンドを編集します。 
 
 有効な Azure SQL Database サーバーの場所一覧については、次のコマンドレットを実行します。
 
@@ -63,19 +62,19 @@ Azure サブスクリプションに PowerShell コマンドレットを実行�
 
     New-AzureRmResourceGroup -Name "resourcegroupJapanWest" -Location "Japan West"
 
-## サーバーの作成
+## サーバーの作成 
 
 新しい V12 サーバーの作成、 [新規 AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx) コマンドレットです。 server12 をご利用のサーバー名に置き換えます。 サーバー名が既に使われている場合はエラーが発生する可能性があるため、Azure SQL Server で一意のサーバー名を使用する必要があります。 このコマンドは完了するまでに数分かかる場合があることに注意してください。 サーバーが正常に作成されると、サーバーの詳細と PowerShell のプロンプトが表示されます。 有効な場所を使用するコマンドを編集することができます。
 
     New-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -Location "Japan West" -ServerVersion "12.0"
 
-コマンドを実行すると、**[ユーザー名]** と **[パスワード]** の入力を求めるウィンドウが表示されます。 これは、Azure 資格情報ではありません、ユーザー名を入力し、新しいサーバーを作成する管理者の資格情報となるパスワードします。
+入力を求めるこのコマンドを実行すると、ウィンドウが開き、 **ユーザー名** と **パスワード**します。 これは、Azure 資格情報ではありません、ユーザー名を入力し、新しいサーバーを作成する管理者の資格情報となるパスワードします。
 
 ## サーバー ファイアウォール規則の作成
 
 サーバーの使用にアクセスするファイアウォール ルールを作成する、 [新規 AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860.aspx) コマンドです。 ご利用のクライアントで有効な開始 IP アドレスと終了 IP アドレスに置き換え、次のコマンドを実行します。
 
-サーバーで別の Azure サービスへのアクセス許可が必要な場合は、**- AllowAllAzureIPs** スイッチを追加して特別なファイアウォール規則を追加し、サーバーへのすべての Azure トラフィック アクセスを許可します。
+他の Azure サービスへのアクセスを許可するように、サーバーが必要な場合は、追加、 **- AllowAllAzureIPs** 特別なファイアウォール規則を追加し、サーバーへのすべての azure トラフィック アクセスを許可するスイッチです。
 
     New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -FirewallRuleName "clientFirewallRule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
 
@@ -87,11 +86,13 @@ Azure サブスクリプションに PowerShell コマンドレットを実行�
 
     New-AzureRmSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12" -Edition Standard -RequestedServiceObjectiveName "S1"
 
+
 ## SQL Database のパフォーマンス レベルを変更します
 
 データベースをスケール アップまたはダウンで、 [セット AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) コマンドです。 次の例では、TestDB12 という名前の SQL Database を、現在のパフォーマンス レベルから Standard S3 レベルにスケールアップします。
 
     Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12" -Edition Standard -RequestedServiceObjectiveName "S3"
+
 
 ## SQL Database の削除
 
@@ -105,14 +106,16 @@ SQL データベースを削除する、 [削除 AzureRmSqlDatabase](https://msd
 
     Remove-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12"
 
-これらの Azure SQL リソースまたは同様のリソースを再作成する場合は、次のことができます。
+
+
+これらの Azure SQL リソースまたは同様のリソースを再作成する場合は、次のことができます。 
 
 - これを PowerShell スクリプト ファイル (*.ps1) として保存します
-- Azure クラシック ポータルの [Automation] セクションに、これを Azure Automation Runbook として保存します
+- Azure クラシック ポータルの [Automation] セクションに、これを Azure Automation Runbook として保存します 
 
 ## 次のステップ
 
-コマンドを結合し、自動化します。たとえば、置換を含む引用符内のすべての < および > サーバー、ファイアウォール規則、およびデータベースを作成するため、値付きの文字。
+コマンドを結合し、自動化します。 たとえば、置換を含む引用符内のすべての < および > サーバー、ファイアウォール規則、およびデータベースを作成するため、値付きの文字。
 
 
     New-AzureRmResourceGroup -Name "<resourceGroupName>" -Location "<Location>"
@@ -123,7 +126,3 @@ SQL データベースを削除する、 [削除 AzureRmSqlDatabase](https://msd
 ## 関連情報
 
 - [Azure SQL Database コマンドレット](https://msdn.microsoft.com/library/azure/mt574084.aspx)
-
-
-
-

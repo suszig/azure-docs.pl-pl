@@ -17,7 +17,6 @@
    ms.date="11/20/2015"
    ms.author="joaoma" />
 
-
 # ARM テンプレートを使用したインターネットに接続するロード バランサーの作成の開始
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
@@ -38,7 +37,7 @@
 PowerShell を使用してダウンロードした ARM テンプレートをデプロイするには、次の手順に従います。
 
 1. Azure PowerShell を初めて使用する場合は、次を参照してください。 [インストールおよび Azure PowerShell の構成方法](powershell-install-configure.md) Azure にサインインし、サブスクリプションを選択最後までの指示に従います。
-2. 次に示すように、**Switch-AzureMode** コマンドレットを実行して、リソース マネージャー モードに切り替えます。
+2. 実行、 **Switch-azuremode** コマンドレットを次に示すように、リソース マネージャー モードに切り替えます。
 
         Switch-AzureMode AzureResourceManager
 
@@ -46,21 +45,20 @@ PowerShell を使用してダウンロードした ARM テンプレートをデ�
 
         WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
 
-    >[AZURE.WARNING] Switch-AzureMode コマンドレットは間もなく廃止予定です。 これらが廃止された場合は、すべてのリソース マネージャー コマンドレットの名前が変更されます。
+    >[AZURE.WARNING] Switch-azuremode コマンドレットは間もなく廃止されます。 これらが廃止された場合は、すべてのリソース マネージャー コマンドレットの名前が変更されます。
 
-3. テンプレートを使用してリソース グループを作成するには、**New-AzureResourceGroup** コマンドレットを実行します。
+3. 実行、 **New-azureresourcegroup** コマンドレットをテンプレートを使用してリソース グループを作成します。
 
         New-AzureResourceGroup -Name TestRG -Location uswest `
             -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.json' `
             -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.parameters.json'  
-
 
 ## Azure CLI を使用して ARM テンプレートをデプロイする
 
 Azure CLI を使用して ARM テンプレートをデプロイするには、次の手順に従います。
 
 1. Azure CLI を初めて使用する場合は、次を参照してください。 [のインストールと Azure CLI の構成](xplat-cli.md) Azure アカウントとサブスクリプションを選択する時点までの指示に従います。
-2. 次に示すように、**azure config mode** コマンドを実行してリソース マネージャー モードに切り替えます。
+2. 実行、 **azure config モード** コマンドを次に示すように、リソース マネージャー モードに切り替えます。
 
         azure config mode arm
 
@@ -68,21 +66,16 @@ Azure CLI を使用して ARM テンプレートをデプロイするには、�
 
         info:    New mode is arm
 
-3. 移動し、ブラウザーから **https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.parameters.json**, 、json ファイルの内容をコピーし、コンピューターに新しいファイルに貼り付けます。 このシナリオでは、次の値を **c:\lb\azuredeploy.parameters.json** という名前のファイルにコピーします。
-4. 上記でダウンロードして変更したテンプレート ファイルとパラメーター ファイルを使用し、**azure group deployment create** コマンドレットを実行して、新しいロード バランサーをデプロイします。 出力の後に表示される一覧では、使用されたパラメーターについて説明されています。
+3. 移動し、ブラウザーから **https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.parameters.json**, 、json ファイルの内容をコピーし、コンピューターに新しいファイルに貼り付けます。 このシナリオではあるをコピーしてより小さい値という名前のファイル **c:\lb\azuredeploy.parameters.json**します。
+4. 実行、 **azure グループの展開を作成** テンプレートとパラメーターを使用して新しいロード バランサーを展開するコマンドレットではファイルをダウンロードし、上の変更します。 出力の後に表示されるリストは、使用されたパラメーターについての説明です。
 
         azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.json' -e 'c:\lb\azuredeploy.parameters.json'
 
-
 ## 次のステップ
 
-[内部ロード バランサーの構成の開始します。](load-balancer-internal-getstarted.md)
+[内部ロード バランサーの構成の開始](load-balancer-internal-getstarted.md)
 
-[ロード バランサー分散モードを構成します。](load-balancer-distribution-mode.md)
+[ロード バランサー分散モードの構成](load-balancer-distribution-mode.md)
 
-[ロード バランサーのアイドル TCP タイムアウト設定を構成します。](load-balancer-tcp-idle-timeout.md)
-
-
-
-
+[ロード バランサーのアイドル TCP タイムアウト設定の構成](load-balancer-tcp-idle-timeout.md)
 

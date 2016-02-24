@@ -16,43 +16,42 @@
     ms.date="11/30/2015"
     ms.author="krisragh"/>
 
-
 # Azure Mobile Apps 向け iOS クライアント ライブラリの使用方法
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
-&nbsp;
-
+&nbsp; 
+ 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-このガイドでは、最新版を使用して一般的なシナリオを実行する方法について説明 [Azure モバイル アプリ iOS SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409)します。Azure モバイル アプリに慣れていない場合は最初完了 [Azure Mobile Apps のクイック スタート] をバックエンドを作成するテーブルを作成し、構築済みの iOS Xcode プロジェクトをダウンロードします。このガイドでは、クライアント側の iOS SDK に重点を置いています。バックエンドの .NET サーバー側 SDK に関する詳細については、を参照してください [.NET バックエンドを使用](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
+このガイドでは、最新版を使用して一般的なシナリオを実行する方法について説明 [Azure モバイル アプリ iOS SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409)します。 Azure モバイル アプリに慣れていない場合は最初完了 [Azure Mobile Apps のクイック スタート] をバックエンドを作成するテーブルを作成し、構築済みの iOS Xcode プロジェクトをダウンロードします。 このガイドでは、クライアント側の iOS SDK に重点を置いています。 バックエンドの .NET サーバー側 SDK の詳細については、次を参照してください [.NET バックエンドを使用。](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 
 ## リファレンス ドキュメント
 
 IOS クライアント SDK リファレンス ドキュメントは、: [Azure モバイル アプリ iOS クライアント リファレンス](http://azure.github.io/azure-mobile-services/iOS/v3/)します。
 
-## <a name="Setup"></a>セットアップと前提条件
+##<a name="Setup"></a>セットアップと前提条件
 
-このガイドでは、バックエンドとテーブルを作成済みであることを前提としています。 このガイドでは、テーブルのスキーマが、これらのチュートリアルのテーブルの場合と同じであることを前提とします。 このも前提として、コード内を参照している `WindowsAzureMobileServices.framework` およびインポート `WindowsAzureMobileServices/WindowsAzureMobileServices.h`します。
+このガイドでは、バックエンドとテーブルを作成済みであることを前提としています。 このガイドでは、テーブルのスキーマが、これらのチュートリアルのテーブルの場合と同じであることを前提とします。 また、コードで `WindowsAzureMobileServices.framework` を参照し、`WindowsAzureMobileServices/WindowsAzureMobileServices.h` をインポートしていることも前提となります。
 
-## <a name="create-client"></a>方法: クライアントを作成します。
+##<a name="create-client"></a>方法: クライアントを作成します。
 
-プロジェクトでの Azure モバイル アプリ バックエンドにアクセスするには、作成、 `MSClient`します。 置換 `AppUrl` アプリ URL を使用しています。 おく `gatewayURLString` と `applicationKey` 空です。 認証用のゲートウェイを設定する場合は入力 `gatewayURLString` ゲートウェイの URL を使用しています。
+プロジェクトで Azure Mobile Apps バックエンドにアクセスするには、`MSClient` を作成します。 `AppUrl` をアプリの URL に置き換えます。 `gatewayURLString` と `applicationKey` は空のままにしておいてかまいません。 認証用のゲートウェイを設定する場合は、ゲートウェイの URL で `gatewayURLString` を設定します。
 
 ```
 MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" gatewayURLString:@"" applicationKey:@""];
 ```
 
-## <a name="table-reference"></a>方法: テーブル参照を作成します。
+##<a name="table-reference"></a>方法: テーブル参照を作成します。
 
-データへのアクセスやデータの更新を行うには、バックエンド テーブルへの参照を作成します。 置換 `TodoItem` 、テーブルの名前に置き換えます。
+データへのアクセスやデータの更新を行うには、バックエンド テーブルへの参照を作成します。 `TodoItem` をテーブルの名前に置き換えます。
 
 ```
     MSTable *table = [client tableWithName:@"TodoItem"];
 ```
 
-## <a name="querying"></a>方法: データのクエリ
+##<a name="querying"></a>方法: データのクエリ
 
-データベース クエリを作成するには、クエリ、 `MSTable` オブジェクトです。 次のクエリすべての項目を取得する `TodoItem` し、各項目のテキストをログに記録します。
+データベース クエリを作成するには、`MSTable` オブジェクトのクエリを実行します。 次のクエリは、`TodoItem` 内のすべての項目を取得し、各項目のテキストをログに記録します。
 
 ```
 [table readWithCompletion:^(MSQueryResult *result, NSError *error) {
@@ -66,11 +65,11 @@ MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" gatewayURL
 }];
 ```
 
-## <a name="filtering"></a>方法: 返されるデータをフィルター処理
+##<a name="filtering"></a>方法: 返されるデータをフィルター処理
 
 結果をフィルター処理するには、多くのオプションを使用できます。
 
-フィルター処理する述語を使用して、 `NSPredicate` と `readWithPredicate`します。 次のコードは、返されたデータをフィルター処理して、不完全な Todo 項目のみを見つけます。
+述語を使用してフィルター処理するには、`NSPredicate` と `readWithPredicate` を使用します。 次のコードは、返されたデータをフィルター処理して、不完全な Todo 項目のみを見つけます。
 
 ```
 // Create a predicate that finds items where complete is false
@@ -87,16 +86,16 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 }];
 ```
 
-## <a name="query-object"></a>方法: MSQuery を使用
+##<a name="query-object"></a>方法: MSQuery を使用
 
-複雑なクエリ (並べ替えとページングを含む) を実行するには、作成、 `MSQuery` オブジェクトを直接または、述語を使用しています。
+複雑なクエリ (並べ替えとページングを含む) を実行するには、`MSQuery` オブジェクトを直接作成するか、述語を使用して作成します。
 
 ```
     MSQuery *query = [table query];
     MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"complete == NO"]];
 ```
 
-`MSQuery` 、次のような複数のクエリ動作を制御することができます。 実行、 `MSQuery` を呼び出してクエリ `readWithCompletion` で、次の例に示すようにします。
+`MSQuery` を使用すれば、次のような複数のクエリ動作を制御できます。 実行、 `MSQuery` を呼び出してクエリ `readWithCompletion` で、次の例に示すようにします。
 * 結果の順序を指定します。
 * 取得するには、どのフィールドを制限します。
 * 返されるレコードの数を制限します。
@@ -107,7 +106,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 ## <a name="sorting"></a>方法: MSQuery でデータを並べ替える
 
-結果の並べ替えの例を見てみましょう。 フィールドの昇順で `テキスト` 、フィールドを並べ替えて順 `完了`, 、呼び出す `MSQuery` 次のようにします。
+結果の並べ替えの例を見てみましょう。 `text` フィールドの昇順で並べ替えてから、`completion` の降順で並べ替えるには、次のように `MSQuery` を呼び出します。
 
 ```
 [query orderByAscending:@"text"];
@@ -126,13 +125,13 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 ## <a name="selecting"></a><a name="parameters"></a>方法: フィールドを制限し、MSQuery でクエリ文字列パラメーターを展開
 
-クエリで返されるフィールドを制限するには、**selectFields** プロパティにフィールド名を指定します。 次の例では、text フィールドと completed フィールドのみが返されます。
+クエリで返されるフィールドを制限するためのフィールドの名前を指定します、 **selectFields** プロパティです。 次の例では、text フィールドと completed フィールドのみが返されます。
 
 ```
     query.selectFields = @[@"text", @"completed"];
 ```
 
-(たとえば、カスタム サーバー側スクリプトを使用する) ために、サーバー要求に追加のクエリ文字列パラメーターを含める設定を `query.parameters` 次のようにします。
+サーバー要求に追加のクエリ文字列パラメーターを含めるには (たとえば、カスタム サーバー側のスクリプトで使用されているため)、`query.parameters` 次のように設定します。
 
 ```
     query.parameters = @{
@@ -141,11 +140,11 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
     };
 ```
 
-## <a name="inserting"></a>方法: データの挿入
+##<a name="inserting"></a>方法: データの挿入
 
-新しいテーブル行を挿入するには、新しい作成 `NSDictionary` を呼び出すと `表の挿入`します。 モバイル サービスに基づく新しい列を自動的に生成する、 `NSDictionary` [動的スキーマ] が無効になっていない場合。
+新しいテーブル行を挿入するには、新しい `NSDictionary` を作成して、`table insert` を呼び出します。 モバイル サービスに基づく新しい列を自動的に生成する、 `NSDictionary` 場合 [Dynamic Schema] は無効にします。
 
-場合 `id` が提供されていない場合、バックエンドは、新しい一意の ID を自動的に生成されます 独自に提供 `id` 電子メールを使用するアドレス、ユーザー名、または、独自のカスタム値を ID として 独自の ID を指定すると、結合およびビジネス指向のデータベース ロジックを容易にすることができます。
+`id` が指定されていない場合、バックエンドは新しい一意の ID を自動的に生成します。 電子メール アドレス、ユーザー名、または独自のカスタム値を ID として使用するには、独自の `id` を指定します。 独自の ID を指定すると、結合およびビジネス指向のデータベース ロジックを容易にすることができます。
 
 ```
     NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"complete" : @NO};
@@ -161,9 +160,9 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
     }];
 ```
 
-## <a name="modifying"></a>方法: データの変更
+##<a name="modifying"></a>方法: データの変更
 
-既存の行を更新するアイテムと呼び出しを変更 `更新`:
+既存の行を更新するには、次のように項目を変更して `update` を呼び出します。
 
 ```
     NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
@@ -181,11 +180,11 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
     }];
 ```
 
-少なくとも、 `id` の更新を行った場合は、属性を設定する必要があります。
+更新操作を行う場合は、少なくとも `id` 属性を設定する必要があります。
 
-## <a name="deleting"></a>方法: データを削除します。
+##<a name="deleting"></a>方法: データを削除します。
 
-項目を削除するには、呼び出す `削除` 項目にします。
+項目を削除するには、次のように、該当する項目を指定して `delete` を呼び出します。
 
 ```
     [self.table delete:item completion:^(id itemId, NSError *error) {
@@ -201,11 +200,11 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
     }];   
 ```
 
-少なくとも、 `id` 削除操作を行う場合は、属性を設定する必要があります。
+削除操作を行う場合は、少なくとも `id` 属性を設定する必要があります。
 
-## <a name="templates"></a>方法: レジスタ プッシュ テンプレート クロスプラット フォーム通知を送信するには
+##<a name="templates"></a>方法: プッシュ テンプレートを登録してクロス プラットフォーム通知を送信する
 
-テンプレートを登録するには、**client.push registerDeviceToken** メソッドを使用してクライアント アプリにテンプレートを渡すだけです。
+テンプレートを登録するだけで渡すとテンプレート、 **client.push registerDeviceToken** クライアント アプリ内のメソッドです。
 
         [client.push registerDeviceToken:deviceToken template:iOSTemplate completion:^(NSError *error) {
             ...
@@ -219,58 +218,60 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 これらの登録済みのテンプレートを使用して通知を送信する操作 [通知ハブの Api](https://msdn.microsoft.com/library/azure/dn495101.aspx)
 
-## <a name="errors"></a>方法: エラーを処理します。
+##<a name="errors"></a>方法: エラーを処理します。
 
-モバイル サービスを呼び出したときに、完了ブロックを格納、 `NSError * エラー` パラメーター。 エラーが発生すると、このパラメーターは null 以外の値になります。 コードでは、このパラメーターを確認し、必要に応じてエラーを処理する必要があります。
+モバイル サービスを呼び出したとき、完了ブロックには `NSError *error` パラメーターが含まれます。 エラーが発生すると、このパラメーターは null 以外の値になります。 コードでは、このパラメーターを確認し、必要に応じてエラーを処理する必要があります。
 
-ファイル [`< WindowsAzureMobileServices/MSError.h >`] (https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h)、定数を定義する `MSErrorResponseKey`, 、`MSErrorRequestKey`, 、および `MSErrorServerItemKey` エラーに関連する複数のデータを取得します。さらに、ファイルで、エラー コードごとに定数を定義します。これらの定数を使用する方法の例を参照してください [競合ハンドラー] の使用時の `MSErrorServerItemKey` と `MSErrorPreconditionFailed`します。
+ファイル [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h) 定数を定義 `MSErrorResponseKey`, 、`MSErrorRequestKey`, 、および `MSErrorServerItemKey` をエラーに関連する多くのデータを取得します。 さらに、ファイルで、エラー コードごとに定数を定義します。 これらの定数を使用する方法の例では、次を参照してください。 [Conflict-Handler] の使用時の `MSErrorServerItemKey` と `MSErrorPreconditionFailed`です。
 
+<!-- Anchors. -->
 
+[What is Mobile Services]: #what-is
+[Concepts]: #concepts
+[Setup and Prerequisites]: #Setup
+[How to: Create the Mobile Services client]: #create-client
+[How to: Create a table reference]: #table-reference
+[How to: Query data from a mobile service]: #querying
+[Filter returned data]: #filtering
+[Sort returned data]: #sorting
+[Return data in pages]: #paging
+[Select specific columns]: #selecting
+[How to: Bind data to the user interface]: #binding
+[How to: Insert data into a mobile service]: #inserting
+[How to: Modify data in a mobile service]: #modifying
+[How to: Authenticate users]: #authentication
+[Cache authentication tokens]: #caching-tokens
+[How to: Upload images and large files]: #blobs
+[How to: Handle errors]: #errors
+[How to: Design unit tests]: #unit-testing
+[How to: Customize the client]: #customizing
+[Customize request headers]: #custom-headers
+[Customize data type serialization]: #custom-serialization
+[Next Steps]: #next-steps
+[How to: Use MSQuery]: #query-object
 
+<!-- Images. -->
 
+<!-- URLs. -->
+[Azure Mobile Apps Quick Start]: app-service-mobile-ios-get-started.md
 
+[Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
+[Validate and modify data in Mobile Services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios
+[Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
+[iOS SDK]: https://developer.apple.com/xcode
 
-
-[what is mobile services]: #what-is 
-[concepts]: #concepts 
-[setup and prerequisites]: #Setup 
-[how to: create the mobile services client]: #create-client 
-[how to: create a table reference]: #table-reference 
-[how to: query data from a mobile service]: #querying 
-[filter returned data]: #filtering 
-[sort returned data]: #sorting 
-[return data in pages]: #paging 
-[select specific columns]: #selecting 
-[how to: bind data to the user interface]: #binding 
-[how to: insert data into a mobile service]: #inserting 
-[how to: modify data in a mobile service]: #modifying 
-[how to: authenticate users]: #authentication 
-[cache authentication tokens]: #caching-tokens 
-[how to: upload images and large files]: #blobs 
-[how to: handle errors]: #errors 
-[how to: design unit tests]: #unit-testing 
-[how to: customize the client]: #customizing 
-[customize request headers]: #custom-headers 
-[customize data type serialization]: #custom-serialization 
-[next steps]: #next-steps 
-[how to: use msquery]: #query-object 
-[azure mobile apps quick start]: app-service-mobile-ios-get-started.md 
-[add mobile services to existing app]: /develop/mobile/tutorials/get-started-data 
-[get started with mobile services]: /develop/mobile/tutorials/get-started-ios 
-[validate and modify data in mobile services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios 
-[mobile services sdk]: https://go.microsoft.com/fwLink/p/?LinkID=266533 
-[authentication]: /develop/mobile/tutorials/get-started-with-users-ios 
-[ios sdk]: https://developer.apple.com/xcode 
-[handling expired tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955 
-[live connect sdk]: http://go.microsoft.com/fwlink/p/?LinkId=301960 
-[permissions]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx 
-[service-side authorization]: mobile-services-javascript-backend-service-side-authorization.md 
-[use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios 
-[dynamic schema]: http://go.microsoft.com/fwlink/p/?LinkId=296271 
-[how to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers 
-[create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx 
-[nsdictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965 
-[ascii control codes c0 and c1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set 
-[cli to manage mobile services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables 
-[conflict-handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling 
+[Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
+[Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
+[Permissions]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
+[Service-side Authorization]: mobile-services-javascript-backend-service-side-authorization.md
+[Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Dynamic Schema]: http://go.microsoft.com/fwlink/p/?LinkId=296271
+[How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
+[Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
+[NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
+[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
+[Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 

@@ -17,9 +17,7 @@
    ms.author="sameerch"/>
 
 
-
 # Salesforce コネクタの使用開始とロジック アプリへの追加
-
 Salesforce に接続して、取引先企業、潜在顧客などのエンティティを作成、変更します。 Salesforce に関連する一般的な統合シナリオを次に示します。
 
 - Salesforce と ERP システム (SAP、QuickBooks など) との間のアカウントの同期
@@ -33,11 +31,10 @@ Salesforce に接続して、取引先企業、潜在顧客などのエンティ
 - [エンティティの削除] - 既存の Salesforce エンティティを削除するには、このアクションを使用します。
 - [クエリの実行] - Salesforce オブジェクト クエリ言語 (SOQL) で記述された SELECT クエリを実行するには、このアクションを使用します。
 
-ロジック アプリはさまざまなデータ ソースを基にトリガーでき、フローの一環としてデータの取得と処理のためのコネクタを提供します。 この Salesforce コネクタをビジネス ワークフローに追加し、ロジック アプリ内のそのワークフローの一部としてデータを処理できます。
+ロジック アプリはさまざまなデータ ソースを基にトリガーでき、フローの一環としてデータの取得と処理のためのコネクタを提供します。 この Salesforce コネクタをビジネス ワークフローに追加し、ロジック アプリ内のそのワークフローの一部としてデータを処理できます。 
 
 
 ## SalesForce コネクタの API アプリの作成
-
 1.  Azure ポータルの右下にある [+ 新規] オプションを使用して Azure Marketplace を開きます。
 2.  [Web + モバイル]、[API Apps] の順に移動し、"SalesForce" を検索します。
 3.  リソース グループにホスティング プランの詳細を提供する、API アプリの名前をクリックして Salesforce コネクタを構成します。  
@@ -48,7 +45,6 @@ Salesforce に接続して、取引先企業、潜在顧客などのエンティ
 
 
 ## ロジック アプリの作成
-
 Salesforce にアカウントを作成し、このアカウントの請求先住所の詳細を更新する単純なロジック アプリを作成してみましょう。
 
 1.  Azure ポータルの [新規]、[Web + モバイル]、[ロジック アプリ] をクリックしてログインします。  
@@ -100,29 +96,28 @@ Salesforce にアカウントを作成し、このアカウントの請求先住
 19. Salesforce アカウントに "Contoso" という名前の新しいアカウントが作成されたことを確認します。
 
 ## コネクタでできること
+コネクタが作成されたため、ロジック アプリを使用してコネクタをビジネス ワークフローに追加できます。 参照してください [Logic Apps とは?](app-service-logic-what-are-logic-apps.md)します。
 
-コネクタが作成されたため、ロジック アプリを使用してコネクタをビジネス ワークフローに追加できます。 を参照してください [Logic Apps とは?](app-service-logic-what-are-logic-apps.md).
 >[AZURE.NOTE] Azure Logic Apps と Azure アカウントにサインアップする前に開始する場合に、 [ロジック アプリを実行してください](https://tryappservice.azure.com/?appservice=logic), 、App Service で有効期間の短いスターター ロジック アプリをすぐに作成する場所です。 このサービスの利用にあたり、クレジット カードは必要ありません。契約も必要ありません。
 
 表示、Swagger の REST API リファレンス [コネクタと API Apps のリファレンス](http://go.microsoft.com/fwlink/p/?LinkId=529766)します。
 
 パフォーマンス統計をレビューし、コネクタに対するセキュリティを制御することもできます。 参照してください [の管理し、監視、組み込みの API Apps とコネクタ](app-service-logic-monitor-your-connectors.md)します。
 
-
-
-[1]: ./media/app-service-logic-connector-salesforce/1_New_Logic_App.png 
-[2]: ./media/app-service-logic-connector-salesforce/2_Logic_App_Settings.png 
-[3]: ./media/app-service-logic-connector-salesforce/3_Logic_App_Editor.png 
-[4]: ./media/app-service-logic-connector-salesforce/4_Manual_Logic_App.png 
-[5]: ./media/app-service-logic-connector-salesforce/5_Select_Salesforce_Gallery.png 
-[6]: ./media/app-service-logic-connector-salesforce/6_Salesforce_Authorize.png 
-[7]: ./media/app-service-logic-connector-salesforce/7_Salesforce_Login.png 
-[8]: ./media/app-service-logic-connector-salesforce/8_Salesforce_User_Consent.png 
-[9]: ./media/app-service-logic-connector-salesforce/9_Salesforce_Actions.png 
-[10]: ./media/app-service-logic-connector-salesforce/10_Salesforce_Create_Account.png 
-[11]: ./media/app-service-logic-connector-salesforce/11_Create_Account_OK.png 
-[12]: ./media/app-service-logic-connector-salesforce/12_Salesforce_Update_Account.png 
-[13]: ./media/app-service-logic-connector-salesforce/13_Record_ID_from_Create.png 
-[14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png 
-[15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png 
+<!--Image references-->
+[1]: ./media/app-service-logic-connector-salesforce/1_New_Logic_App.png
+[2]: ./media/app-service-logic-connector-salesforce/2_Logic_App_Settings.png
+[3]: ./media/app-service-logic-connector-salesforce/3_Logic_App_Editor.png
+[4]: ./media/app-service-logic-connector-salesforce/4_Manual_Logic_App.png
+[5]: ./media/app-service-logic-connector-salesforce/5_Select_Salesforce_Gallery.png
+[6]: ./media/app-service-logic-connector-salesforce/6_Salesforce_Authorize.png
+[7]: ./media/app-service-logic-connector-salesforce/7_Salesforce_Login.png
+[8]: ./media/app-service-logic-connector-salesforce/8_Salesforce_User_Consent.png
+[9]: ./media/app-service-logic-connector-salesforce/9_Salesforce_Actions.png
+[10]: ./media/app-service-logic-connector-salesforce/10_Salesforce_Create_Account.png
+[11]: ./media/app-service-logic-connector-salesforce/11_Create_Account_OK.png
+[12]: ./media/app-service-logic-connector-salesforce/12_Salesforce_Update_Account.png
+[13]: ./media/app-service-logic-connector-salesforce/13_Record_ID_from_Create.png
+[14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
+[15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 

@@ -16,18 +16,14 @@
    ms.date="11/17/2015"
    ms.author="bscholl"/>
 
-
 # Service Fabric Reliable Services をパーティション分割する方法
-
 この記事では、Service Fabric Reliable Services のパーティション分割に関する基本的な概念について説明します。 アーティクルで使用されるソース コードも [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions)します。
 
 ## パーティション分割とは
-
-パーティション分割は Service Fabric に固有のものではなく、スケーラブルなサービス構築の中心的なパターンです。 パーティション分割とは、広義では状態 (データ) の分割に関する概念と考えることができます。計算してアクセスしやすい小さな単位に分割することで、スケーラビリティとパフォーマンスを改善できます。 パーティション分割のよく知られているフォームが [データの ][wikipartition] シャーディングとも呼ばれます。
+パーティション分割は Service Fabric に固有のものではなく、スケーラブルなサービス構築の中心的なパターンです。 パーティション分割とは、広義では状態 (データ) の分割に関する概念と考えることができます。計算してアクセスしやすい小さな単位に分割することで、スケーラビリティとパフォーマンスを改善できます。 パーティション分割のよく知られているフォームは、[データ パーティション分割] [wikipartition] シャーディングとも呼ばれます。
 
 
 ### Service Fabric ステートレス サービスのパーティション分割
-
 ステートレス サービスの場合、パーティション分割は、1 つ以上のサービス インスタンスを含む論理単位と考えることができます。 図 1 は、1 つのパーティションを使用するクラスター全体に分散する 5 個のインスタンスがあるステートレス サービスです。
 
 ![ステートレス サービス](./media/service-fabric-concepts-partitioning/statelessservice.png)
@@ -37,12 +33,11 @@
 以降、このチュートリアルでは、ステートフル サービスを中心に説明します。
 
 ### Service Fabric ステートフル サービスのパーティション分割
-
 Service Fabric には状態 (データ) をパーティション分割する高度な機能があるので、スケーラブルなステートフル サービスを簡単に開発できます。 概念的にを信頼性の高いスケールの単位をされているステートフルなサービスのパーティションについて考えることができます [レプリカ](service-fabric-availability-services.md) 分散およびクラスターのノード間で分散されます。
 Service Fabric のステートフル サービスのコンテキストでのパーティション分割とは、プロセスのことを確認、特定のサービス パーティション (パーティションのセットは、前述のように、 [レプリカ](service-fabric-availability-services.md)) は、サービスのすべての状態の一部を担当します。 Service Fabric のメリットは、複数のノードにパーティションを配置できるので、ノードのリソース上限まで拡張できる点です。 データが増えると、パーティションも拡張され、Service Fabric はハードウェア リソースを継続して効率的に使用できるように、ノード全体のパーティションのバランスを再調整します。
 
 たとえば、5 ノードのクラスターがあり、10 パーティションと 3 つのレプリカのターゲットがあるサービスを構成するとします。 ここで Service Fabric はのバランスをとるクラスター間で複製物を配布しは最終的には主に 2 [レプリカ](service-fabric-availability-services.md) 1 つのノードです。
-Service Fabric が、プライマリのバランスを再調整は今すぐ 10 個のノードにクラスターを拡張する必要がある場合 [レプリカ](service-fabric-availability-services.md) 10 のすべてのノードでします。 同様に 5 ノードに縮小する場合、Service Fabric は 5 ノードすべてに分散するようにバランスを再調整します。
+Service Fabric が、プライマリのバランスを再調整は今すぐ 10 個のノードにクラスターを拡張する必要がある場合 [レプリカ](service-fabric-availability-services.md) 10 のすべてのノードでします。 同様に 5 ノードに縮小する場合、Service Fabric は 5 ノードすべてに分散するようにバランスを再調整します。  
 
 図 2 は、クラスターのスケーリング前と後の 10 パーティションの分散を示しています。
 
@@ -51,7 +46,6 @@ Service Fabric が、プライマリのバランスを再調整は今すぐ 10 �
 クライアントからの要求は複数のコンピューターに分散され、アプリケーションの全体的なパフォーマンスが改善され、データ チャンクへのアクセスの競合が軽減されるので、結果としてスケールアウトが達成されます。
 
 ## パーティション分割の計画
-
 サービスを実装する前に、スケールアウトに必要なパーティション分割戦略を考えておく必要があります。 さまざまな方法がありますが、どの方法でも、アプリケーションで達成する必要があることを中心に考えます。 この記事では、重要度が高いいくつかの側面について検討してみましょう。
 
 最初の手順として、パーティション分割する必要がある状態の構造について考えることをお勧めします。
@@ -67,9 +61,9 @@ Service Fabric が、プライマリのバランスを再調整は今すぐ 10 �
 この問題を回避するために、パーティション分割の点で次の 2 つの手順を実行する必要があります。
 
 - すべてのパーティションに均等に分散されるように状態をパーティション分割します。
-- [の各サービスのレプリカからメトリックを報告](service-fabric-resource-balancer-dynamic-load-reporting.md)します。 Service Fabric には、サービスに関するメモリ量やレコード数などのメトリックをレポートする機能があります。 Service Fabric では、レポートされたメトリックに基づいて一部のパーティションが他のパーティションよりも負荷が高いことが検出され、レプリカをより適切なノードに移動してクラスターのバランスが再調整されます。
+- [各サービスのレプリカからメトリックを報告](service-fabric-resource-balancer-dynamic-load-reporting.md)します。 Service Fabric には、サービスに関するメモリ量やレコード数などのメトリックをレポートする機能があります。 Service Fabric では、レポートされたメトリックに基づいて一部のパーティションが他のパーティションよりも負荷が高いことが検出され、レプリカをより適切なノードに移動してクラスターのバランスが再調整されます。
 
-場合によっては、特定のパーティションのデータ量がどのくらいになるかがわからないことがあります。そのため、一般的な推奨として、まずパーティション全体に均等に分散するパーティション分割戦略を採用してから、負荷をレポートするという、両方の方法を実行してみてください。 1 つ目の方法で投票の例で説明されている状況を防ぎ、2 つ目の方法で長期間にわたるアクセスまたは負荷の一時的な差異を均等にすることができます。
+場合によっては、特定のパーティションのデータ量がどのくらいになるかがわからないことがあります。そのため、一般的な推奨として、まずパーティション全体に均等に分散するパーティション分割戦略を採用してから、負荷をレポートするという、両方の方法を実行してみてください。  1 つ目の方法で投票の例で説明されている状況を防ぎ、2 つ目の方法で長期間にわたるアクセスまたは負荷の一時的な差異を均等にすることができます。
 
 パーティション分割計画のもう 1 つの側面は、正しいパーティション数から始めるということです。
 Service Fabric では、シナリオで想定されるパーティション数よりも多い数から始めることができます。
@@ -88,7 +82,6 @@ Service Fabric では、シナリオで想定されるパーティション数�
 [容量計画ガイド](service-fabric-capacity-planning.md) 、クラスターが必要なノードの数を確認する方法のガイダンスを提供します。
 
 ## パーティション分割する方法
-
 ここでは、サービスをパーティション分割する基本的な方法について説明します。
 
 Service Fabric には、3 つのパーティション スキーマが用意されています。
@@ -100,7 +93,6 @@ Service Fabric には、3 つのパーティション スキーマが用意さ�
 名前付きパーティション分割構成と単一パーティション分割構成は、範囲パーティションの特殊な形式です。 Service Fabric の Visual Studio テンプレートの既定では、最も一般的で便利な範囲パーティション分割が使用されています。 以降、この記事では、範囲パーティション分割構成を中心に説明します。
 
 ### 範囲パーティション分割構成
-
 これは、整数の範囲 (最低値と最高値のキーで識別される) と、パーティションの数 (n) を指定するために使用されます。 全体のパーティション キー範囲内の重複しないサブ範囲を担当する n 個のパーティションを作成します。 例: 範囲パーティション分割構成で、最低値キー 0、最高値キー 99、数値 4 が指定されると、次に示すとおり 4 つのパーティションが作成されます。
 
 ![範囲パーティション分割](./media/service-fabric-concepts-partitioning/range-partitioning.png)
@@ -109,7 +101,6 @@ Service Fabric には、3 つのパーティション スキーマが用意さ�
 
 
 ### ハッシュ アルゴリズムの選択
-
 ハッシュで重要なのは、ハッシュ アルゴリズムの選択です。 類似するキーを近接してグループ化することが目標か (局所性鋭敏型ハッシュ)、またはアクティビティをパーティション全体に広範に分散することが必要か (分散ハッシュ) という点を検討します。
 
 適切な分散ハッシュ アルゴリズムの特徴は、計算が簡単で、競合がほとんどなく、キーが均等に分散されることです。 効率的なハッシュ アルゴリズムの良い例は、 [FNV 1](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function) ハッシュ アルゴリズム。
@@ -118,13 +109,13 @@ Service Fabric には、3 つのパーティション スキーマが用意さ�
 ハッシュ コードのアルゴリズム選択全般に関する優れたリソースが [のハッシュ関数の Wikipedia ページ](http://en.wikipedia.org/wiki/Hash_function)します。
 
 ## 複数のパーティションがあるステートフル サービスの構築
-
 まず、複数のパーティションがある信頼性の高いステートフル サービスを作成してみましょう。 この例では、同じパーティション内に同じアルファベットから始まる姓をすべて格納するという、ごく単純なアプリケーションを構築します。
 
 コードを作成する前に、パーティションとパーティション キーについて考える必要があります。 アルファベットの各文字に 1 つ、合計 26 個のパーティションが必要ですが、最低値と最高値のキーはどうなるでしょうか。
 文字どおり、1 文字につき 1 つのパーティションを作成し、各文字に独自のキーがあるので、最低値キーには 0、最高値キーには 25 を使用します。
 
->[AZURE.NOTE] 実際には分散は不均等なので、このシナリオは単純化しています。 文字 S または M から始まる姓は、X や Y から始まる姓よりも一般的です。
+
+>[AZURE.NOTE] これは、実際には、配布も見られるようにしないもの簡略化したシナリオです。 文字 S または M から始まる姓は、X や Y から始まる姓よりも一般的です。
 
 
 1. Visual Studio を開き、[新規作成]、[プロジェクト] の順に選択します
@@ -137,7 +128,7 @@ Service Fabric には、3 つのパーティション スキーマが用意さ�
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
-    また、次のように、StatefulService 要素の LowKey と HighKey プロパティを更新する必要があります。
+    また、次のように StatefulService 要素の LowKey と HighKey プロパティも更新する必要があります。
     ```xml
     <Service Name="Processing">
       <StatefulService ServiceTypeName="ProcessingType" TargetReplicaSetSize="[Processing_TargetReplicaSetSize]" MinReplicaSetSize="[Processing_MinReplicaSetSize]">
@@ -154,11 +145,12 @@ Service Fabric には、3 つのパーティション スキーマが用意さ�
 
     以上の手順で、26 個のパーティションがある内部エンドポイントをリッスンするようにサービスが構成されました。
 
-7. 次をオーバーライドする必要があります、 `CreateServiceReplicaListeners()` 処理クラスのメソッドです。
-    >[AZURE.NOTE] この例では、単純な HttpCommunicationListener を使用しているという想定です。 信頼性の高いサービスの通信の詳細についてを参照できる [ここ](service-fabric-reliable-services-communication.md)します。
+7. 次に、Processing クラスの `CreateServiceReplicaListeners()` メソッドをオーバーライドする必要があります。
 
-8. レプリカがリッスンする url の推奨されるパターンは、次の形式: `://{スキーム} {nodeIp}: {port}/{パーティション id}/{replicaid}/{guid}` 、正しいエンドポイントでこのパターンを使用してリッスンするように、通信リスナーを構成するようにします。
-このサービスの複数のレプリカは同じコンピューターでホストされる可能性があるので、レプリカに対するこのアドレスを一意にする必要があります。そのため、パーティション ID + レプリカ ID を URL に含めています。 URL プレフィックスが一意であれば、HttpListener は同じポートでも複数のドレスをリッスンできます。 セカンダリ レプリカも読み取り専用要求をリッスンするような高度な場合に備えて、追加の GUID があります。 ケースがある場合は、新しい一意のアドレスを使用するプライマリからセカンダリへの移行時にクライアントが、もう一度、アドレスを解決するようにすることを確認します。 '+'、レプリカはすべての使用可能なホスト (IP、FQDM、localhost など) でリッスンするように、ここにアドレスとして使用 コード例を次に示します。
+    >[AZURE.NOTE] このサンプルの単純な HttpCommunicationListener を使用するいると想定しています。 信頼性の高いサービスの通信の詳細についてを参照できる [ここ](service-fabric-reliable-services-communication.md)します。
+
+8. レプリカがリッスンする URL について推奨されるパターンは、`{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}` という形式です。そのため、正しいエンドポイントをリッスンし、このパターンを使用する通信リスナーを構成します。
+このサービスの複数のレプリカは同じコンピューターでホストされる可能性があるので、レプリカに対するこのアドレスを一意にする必要があります。そのため、パーティション ID + レプリカ ID を URL に含めています。 URL プレフィックスが一意であれば、HttpListener は同じポートでも複数のドレスをリッスンできます。 セカンダリ レプリカも読み取り専用要求をリッスンするような高度な場合に備えて、追加の GUID があります。 ケースがある場合は、新しい一意のアドレスを使用するプライマリからセカンダリへの移行時にクライアントが、もう一度、アドレスを解決するようにすることを確認します。 '+'、レプリカはすべての使用可能なホスト (IP、FQDM、localhost など) でリッスンするように、ここにアドレスとして使用コード例を次に示します。
 
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -228,12 +220,12 @@ Service Fabric には、3 つのパーティション スキーマが用意さ�
       }
     ```
 
-    `ProcessInternalRequest` パーティションと呼び出しの呼び出しに使用するクエリ文字列パラメーターの値を読み取ります `AddUserAsync` 信頼性の高いディクショナリに姓を追加する `m_name`します。
+    `ProcessInternalRequest`は、パーティションの呼び出しに使用するクエリ文字列パラメーターの値を読み取り、`AddUserAsync` を呼び出して、信頼性の高い辞書 `m_name` に姓を追加します。    
 
 10. プロジェクトにステートレス サービスを追加して、特定のパーティションを呼び出す方法を見てみましょう。
 このサービスは、姓をクエリ文字列パラメーターとして受け取り、パーティション キーを決定し、Alphabet.Processing サービスに送信して処理するという、単純な Web インターフェイスとして機能します。
 11. [サービス] ダイアログ ボックスの作成でステートレスなサービスを選択し、Alphabet.WebApi 次のように付けます。
-![alphabetstateless](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png)します。
+![alphabetstateless](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png).
 12. Alphabet.WebApi サービスの ServiceManifest.xml のエンドポイント情報を更新し、次のようにポートを開きます。
 
     ```xml
@@ -255,8 +247,8 @@ Service Fabric には、3 つのパーティション スキーマが用意さ�
            var uriPublished = uriPrefix.Replace("+", m_nodeIP);
            return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInputRequest);
      }
-    ```
-14. 次に、処理ロジックを実装する必要があります。 HttpCommunicationListener 呼び出し `ProcessInputRequest` 要求を受信します。 次のコードを追加してみましょう。
+     ```
+14. 次に、処理ロジックを実装する必要があります。 HttpCommunicationListener は要求を受信すると `ProcessInputRequest` を呼び出します。 次のコードを追加してみましょう。
 
     ```CSharp
     private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
@@ -298,9 +290,9 @@ Service Fabric には、3 つのパーティション スキーマが用意さ�
                }
            }
       }
-    ```
+      ```
 
-    このコードを詳しく見ていきましょう。 コードは、クエリ文字列パラメーターの最初の文字を読み取ります `lastname` char にします。 この文字のパーティション キーと判断の 16 進数の値を減算し、 `A` 姓の先頭文字の 16 進値からです。
+    このコードを詳しく見ていきましょう。 このコードは、クエリ文字列パラメーター `lastname` の最初の文字を char 型で読み取ります。 その後、姓の最初の文字の 16 進数値から `A` の 16 進数値を引くことで、この文字のパーティション キーが決まります。
 
     ```CSharp
     string lastname = context.Request.QueryString["lastname"];
@@ -309,13 +301,13 @@ Service Fabric には、3 つのパーティション スキーマが用意さ�
     ```
 
     この例では、1 パーティションに 1 つのパーティション キーがある 26 個のパーティションを使用しています。
-    次に、サービス パーティションを取得 `パーティション` このキーを使用して、 `ResolveAsync` メソッドを `servicePartitionResolver` オブジェクトです。 `servicePartitionResolver` として定義
+    次に、サービス パーティションを取得 `partition` このキーを使用して、 `ResolveAsync` メソッドを `servicePartitionResolver` オブジェクトです。 `servicePartitionResolver` 見なさ
 
     ```CSharp
     private static readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
     ```
 
-    `ResolveAsync` メソッドはサービスの uri、パーティション キーと、キャンセル トークンのパラメーターとして。 処理サービスのサービスの uri は `ファブリック:/AlphabetPartitions/処理`  
+    `ResolveAsync` メソッドには、サービス URI、パーティション キー、キャンセル トークンのパラメーターがあります。 サービスの uri 処理サービスは、 `fabric:/AlphabetPartitions/Processing`  
     次に、パーティションのエンドポイントを取得します。
 
     ```CSharp
@@ -336,30 +328,29 @@ Service Fabric には、3 つのパーティション スキーマが用意さ�
 
     処理が完了したら、出力を書き戻します。
 
-15. 最後の手順は、サービスのテストです。 Visual Studio では、ローカル デプロイメントとクラウド デプロイメントにアプリケーション パラメーターを使用します。 26 のパーティションを持つサービスをテストするローカルで更新する必要が、 `Local.xml` AlphabetPartitions プロジェクトの ApplicationParameters フォルダーにファイルの次のようにします。
+15. 最後の手順は、サービスのテストです。 Visual Studio では、ローカル デプロイメントとクラウド デプロイメントにアプリケーション パラメーターを使用します。 ローカルに 26 個のパーティションがあるサービスをテストする場合、次のように、AlphabetPartitions プロジェクトの ApplicationParameters フォルダーにある `Local.xml`ファイルを更新する必要があります。
 
     ```xml
     <Parameters>
       <Parameter Name="Processing_PartitionCount" Value="26" />
       <Parameter Name="WebApi_InstanceCount" Value="1" />
   </Parameters>
-```
+  ```
 
-16. デプロイ後に、サービスとすべての Service Fabric エクスプ ローラーでパーティションをチェックすることができます。
-![サービス](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
-17. ブラウザーで入力してパーティション分割のロジックをテストできます `http://localhost:8090/? lastname = somename`します。 同じ文字で始まる各姓が同じパーティションに格納されることが表示されます。
-![[ブラウザー] ボタンを](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
+16. Once deployed you can check the service and all of its partitions in the Service Fabric Explorer.
+![Service](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
+17. In a browser you can test the partitioning logic by entering `http://localhost:8090/?lastname=somename`. You will see that each last name that starts with the same letter is being stored in the same partition.
+![Browser](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
-サンプルの完全なソース コードは [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions)
+The entire source code of the sample is available on [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions)
 
-## 次のステップ
+## Next steps
 
-Service Fabric の概念についての詳細は、次を参照してください。
+For information on Service Fabric concepts, see the following:
 
-- [Service Fabric サービスの可用性](service-fabric-availability-services.md)
+- [Availability of Service Fabric Services](service-fabric-availability-services.md)
 
-- [Service Fabric サービスのスケーラビリティ](service-fabric-concepts-scalability.md)
+- [Scalability of Service Fabric Services](service-fabric-concepts-scalability.md)
 
-
-[wikipartition]: https://en.wikipedia.org/wiki/Partition_(database) 
+[wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 

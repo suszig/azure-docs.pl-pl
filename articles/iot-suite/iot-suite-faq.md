@@ -15,8 +15,7 @@
   ms.workload="na"
   ms.date="11/17/2015"
   ms.author="araguila"/>
-
-
+   
 # よく寄せられる質問
 
 ### サブスクリプションには何個の DocumentDB インスタンスをプロビジョニングできますか?
@@ -29,18 +28,16 @@
 
 ### Azure ポータルでのリソース グループの削除と、azureiotsuite.com の構成済みソリューションで削除をクリックすることの違いは何ですか?
 
-- 構成済みのソリューションを削除すると [azureiotsuite.com ][lnk-azureiotsuite], 、構成済みのソリューションを作成したときにプロビジョニングされていたすべてのリソースを削除する、その他のリソースをリソース グループに追加した場合は、これらも削除します。
+- 構成済みのソリューションを削除すると [azureiotsuite.com][lnk-azureiotsuite], 、構成済みのソリューションを作成したときにプロビジョニングされていたすべてのリソースを削除する、その他のリソースをリソース グループに追加した場合は、これらも削除します。 
 
-- 内のリソース グループを削除した場合、 [Azure ポータルの ][lnk-azure-portal], 、そのリソース グループ内のリソースを削除するだけ; で構成済みのソリューションに関連付けられている Azure Active Directory アプリケーションを削除する必要がありますも、 [Azure クラシック ポータル ][lnk-classic-portal]します。
+- 内のリソース グループを削除した場合、 [Azure ポータル][lnk-azure-portal], 、そのリソース グループ内のリソースを削除するだけ; で構成済みのソリューションに関連付けられている Azure Active Directory アプリケーションを削除する必要がありますも、 [Azure クラシック ポータル][lnk-classic-portal]します。
 
 ### AAD テナントはどうすれば削除できますか?
 
-Eric Golpe ブログの投稿を参照してください [[lnk-削除-aad-見えます] Azure AD テナントを削除するためのチュートリアル][lnk-delete-aad-tennant]します。
+Eric Golpe ブログの投稿を参照してください [Azure AD テナントを削除するためのチュートリアル][lnk-delete-aad-tennant]します。
 
 
-
-[lnk-azure-portal]: https://portal.azure.com 
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/ 
-[lnk-classic-portal]: https://manage.windowsazure.com 
-[lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx 
-
+[lnk-azure-portal]: https://portal.azure.com
+[lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-classic-portal]: https://manage.windowsazure.com
+[lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx

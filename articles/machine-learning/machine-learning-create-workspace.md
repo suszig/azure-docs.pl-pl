@@ -17,54 +17,55 @@
     ms.author="garye;bradsev"/>
 
 
-
-# Azure Machine Learning ワークスペースの作成
+# Azure Machine Learning ワークスペースの作成 
 
 このメニューは、Cortana Analytics Process (CAP) によって使用されるさまざまなデータ サイエンス環境の設定方法を説明するトピックにリンクしています。
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
-Azure Machine Learning Studio を使用するには、機械学習ワークスペースが必要です。 このワークスペースには、実験を管理および公開するのに必要なツールが用意されています。
+Azure Machine Learning Studio を使用するには、Machine Learning ワークスペースが必要です。 このワークスペースには、実験を管理および公開するのに必要なツールが用意されています。 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## ワークスペースを作成するには
 
 1. Microsoft Azure アカウントにサインインします。
-2. Microsoft Azure サービス パネルで、**[MACHINE LEARNING]** をクリックします。
+2. Microsoft Azure サービス パネルでクリックして **MACHINE LEARNING**します。
 
     ![Machine Learning サービス][1]
 
-3. ウィンドウの下部にある **[+新規]** をクリックします。
-4. **[Data Services]**、**[MACHINE LEARNING]**、**[簡易作成]** の順にクリックします。
+3. クリックして **+ 新規** ウィンドウの下部にあります。
+4. をクリックして **データ サービス**, 、し **MACHINE LEARNING**, 、し **簡易作成**します。
 
-    ![新しいワークスペースの簡易作成][3]
+    ![新しいワークスペースの [簡易作成][3]
 
-5. **[ワークスペース名]** にワークスペースを入力し、**[ワークスペースの所有者]** を指定します。 ワークスペースの所有者は、有効な Microsoft アカウント (name@outlook.com など) である必要があります。
-    > [AZURE.NOTE] 後からワークスペースに招待することで、作業中の実験を自分以外のユーザーと共有することができます。 これは、Machine Learning Studio の **[設定]** ページから実行でき、 必要な情報は各ユーザーの Microsoft アカウントまたは組織アカウントだけです。
+5. 入力、 **ワークスペース名** にワークスペースを指定し、 **ワークスペースの所有者**します。 ワークスペースの所有者は、有効な Microsoft アカウント (name@outlook.com など) である必要があります。
 
-6. **[場所]** に Azure の場所を指定し、**[ストレージ アカウント]** に既存の Azure のストレージ アカウントを入力するか、**[新しいストレージ アカウントの作成]** を選択して新たに作成します。
-7. **[ML ワークスペースを作成]** をクリックします。
+    > [AZURE.NOTE] その後、他のユーザーをワークスペースに招待しての作業中の実験を共有できます。 これを行う Machine Learning Studio での **設定** ページです。 必要な情報は各ユーザーの Microsoft アカウントまたは組織アカウントだけです。
 
-Machine Learning ワークスペースが作成されると、**機械学習**のページの一覧に表示されます。
+6. Azure を指定 **場所**, 、既存の Azure を入力 **ストレージ アカウント** または選択 **新しいストレージ アカウントの作成** 新規に作成します。
+7. クリックして **ML ワークスペースを作成する**です。
 
-ワークスペースの管理方法の詳細については、[Azure Machine Learning ワークスペースの管理] を参照してください。
-ワークスペースの作成の問題が発生した場合は、次を参照してください。 [Troubleshooting guide 』: を作成し、Machine Learning ワークスペースへの接続] です。
+一覧に表示されます Machine Learning ワークスペースを作成した後、 **機械学習** ページです。
+
+ワークスペースの管理方法の詳細については、次を参照してください。 [Manage an Azure Machine Learning workspace]します。
+ワークスペースの作成の問題が発生した場合は、次を参照してください。 [Troubleshooting guide: Create and connect to an Machine Learning workspace]します。
+
+[Manage an Azure Machine Learning workspace]: machine-learning-manage-workspace.md
+[Troubleshooting guide: Create and connect to an Machine Learning workspace]: machine-learning-troubleshooting-creating-ml-workspace.md
+ 
+<!-- ![List of Machine Learning workspaces][2] -->
+
+<!--Anchors-->
+[To create a workspace]: #createworkspace
+
+<!--Image references-->
+[1]: media/machine-learning-create-workspace/cw1.png
+[2]: media/machine-learning-create-workspace/cw2.png
+[3]: media/machine-learning-create-workspace/cw3.png
 
 
 
-
-
-
-
-
-
-
-
-[manage an azure machine learning workspace]: machine-learning-manage-workspace.md 
-[troubleshooting guide: create and connect to an machine learning workspace]: machine-learning-troubleshooting-creating-ml-workspace.md 
-[to create a workspace]: #createworkspace 
-[1]: media/machine-learning-create-workspace/cw1.png 
-[2]: media/machine-learning-create-workspace/cw2.png 
-[3]: media/machine-learning-create-workspace/cw3.png 
+<!--Link references-->
+ 
 

@@ -15,7 +15,6 @@
    ms.date="09/30/2015"
    ms.author="sstein" />
 
-
 # Web および Business Edition の終了に関する FAQ
 
 Azure SQL Web データベースおよび Business データベースは提供終了になりました。 Basic、Standard、Premium、およびエラスティック階層は、提供終了になった Web データベースおよび Business データベースの代わりです。
@@ -24,10 +23,10 @@ Web データベースおよび Business データベースをアップグレー
 
 **お勧めの価格レベルは次のとおりです。**
 
-- [Azure ポータルを使用して SQL Database V12 へのアップグレード](sql-database-upgrade-server-portal.md)
-- [PowerShell を使用して SQL Database V12 へのアップグレード](sql-database-upgrade-server-powershell.md)
-- [Web または Business データベースの価格レベルを変更します。](sql-database-service-tier-advisor.md)
-
+- [Azure ポータルを使用し、SQL Database V12 にアップグレードします](sql-database-upgrade-server-portal.md)
+- [PowerShell を使用し、SQL Database V12 にアップグレードします](sql-database-upgrade-server-powershell.md)
+- [Web または Business データベースの価格レベルを変更します](sql-database-service-tier-advisor.md)
+ 
 
 
 ## Azure ポータルで Web Edition および Business Edition のデータベースが提供終了と表示されるのはどうしてですか
@@ -36,7 +35,7 @@ Web Edition および Business Edition のデータベースは、2015年 9 月�
 
 ## 既存の Web Edition および Business Edition のデータベースをアップグレードする最適な新しいサービス階層はどれでしょうか
 
-既存の Web データベースまたは Business データベースに適した新しいサービス階層とパフォーマンス レベルを選択する場合、アプリケーションで必要な具体的な機能およびパフォーマンスを考慮する必要があります。
+既存の Web データベースまたは Business データベースに適した新しいサービス階層とパフォーマンス レベルを選択する場合、アプリケーションで必要な具体的な機能およびパフォーマンスを考慮する必要があります。 
 
 適切な新しいサービス階層を選択するための詳細について、上記に記載価格レベルの提案を使用して、参照してください [を新しいサービス階層 SQL Database Web/ビジネス データベースをアップグレード](sql-database-upgrade-new-service-tiers.md)します。
 
@@ -50,7 +49,7 @@ Azure SQL Database には、お客様からのフィードバックに基づい�
 
 ## Basic、Standard、および Premium で利用できなくなった機能は何ですか
 
-フェデレーション機能が Web および Business Edition で提供終了となります。 各自のデータベースをスケール アウトする必要があるお客様は、代わりに使用または移行することをお勧め [エラスティック データベース ツール](sql-database-elastic-scale-get-started.md) の [Azure SQL Database](sql-database-elastic-scale-get-started.md), 、構築およびシャーディングを使用するアプリケーションの管理が単純化します。 アプリケーションで .NET クライアント ライブラリを使用すると、データをシャードにマッピングして OLTP リクエストを適切なデータベースにルーティングする方法を定義できます。 データをシャードにどのように割り振るかを再構成する管理操作に役立つように、お客様の Azure サブスクリプションの中でご利用いただける Azure クラウド サービス テンプレートが付属しています。 他に、 [エラスティック データベース ツール](sql-database-elastic-scale-get-started.md), を作成して発行を引き続き [カスタム シャーディング パターンし、プラクティスのガイダンス](https://msdn.microsoft.com/library/azure/dn764977.aspx) 協力による詳細なお客様との契約に基づきます。 スケール アウト機能を必要がある新しいお客様のチェック アウトする必要があります [エラスティック データベース ツール](sql-database-elastic-scale-get-started.md) や、それぞれのオプションを評価する Microsoft サポートに問い合わせてください。
+フェデレーション機能が Web および Business Edition で提供終了となります。 各自のデータベースをスケール アウトする必要があるお客様は、代わりに使用または移行することをお勧め [エラスティック データベース ツール](sql-database-elastic-scale-get-started.md) の [Azure SQL Database](sql-database-elastic-scale-get-started.md), 、構築およびシャーディングを使用するアプリケーションの管理が単純化します。 アプリケーションで .NET クライアント ライブラリを使用すると、データをシャードにマッピングして OLTP リクエストを適切なデータベースにルーティングする方法を定義できます。 データをシャードにどのように割り振るかを再構成する管理操作に役立つように、お客様の Azure サブスクリプションの中でご利用いただける Azure クラウド サービス テンプレートが付属しています。 他に、 [エラスティック データベース ツール](sql-database-elastic-scale-get-started.md), を作成して発行を引き続き [カスタム シャーディング パターンし、プラクティスのガイダンス](https://msdn.microsoft.com/library/azure/dn764977.aspx) 協力による詳細なお客様との契約に基づきます。 スケール アウト機能を必要がある新しいお客様のチェック アウトを行う [エラスティック データベース ツール](sql-database-elastic-scale-get-started.md) をそれぞれのオプションを評価する Microsoft サポートにお問い合わせやします。
 
 また、Premium データベースのデータベースのコピー操作も変わります。 以前はプレミアム データベース クォータが限られており、データベースを作成してください. コピーとしては、T-SQL では、Business データベースと同じレートで課金されている予約済みリソースなしで Suspended Premium データベースを作成します。 現在では、Premium クォータはより自由に使用できるようになり、Suspended Premium はサポートされなくなりました。 これからは、データベースのコピーは、ソースと同じエディションとパフォーマンス レベルで作成され、それに応じて課金されます。 必要に応じて、コピーされたデータベースを別のサービス階層やパフォーマンス レベルにダウングレードしてコストを下げることができます。 今回のリリースの一環として、既存の Suspended Premium データベースは Business Edition に変換される予定です。 ポイントインタイム リストアの導入により、データベースのバックアップ コピーを作成する必要性が軽減されると予想されます。
 
@@ -61,15 +60,11 @@ Basic、Standard、Premium の Azure SQL Database は時間単位で課金され
 
 ## 関連項目
 
-[Azure SQL データベース](https://azure.microsoft.com/documentation/services/sql-database/)
+[Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 
-[Web および Business 価格](https://azure.microsoft.com/pricing/details/sql-database/web-business/)
+[Web および Business の価格](https://azure.microsoft.com/pricing/details/sql-database/web-business/)
 
 [サービス階層](sql-database-service-tiers.md)
 
-[SQL Database Web/ビジネス データベースを新しいサービス階層にアップグレードします。](sql-database-upgrade-new-service-tiers.md)
-
-
-
-
+[SQL データベース Web/Business データベースを新しいサービス階層にアップグレードする](sql-database-upgrade-new-service-tiers.md)
 

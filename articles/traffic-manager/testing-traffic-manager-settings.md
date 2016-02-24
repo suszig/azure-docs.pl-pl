@@ -15,32 +15,32 @@
    ms.date="12/01/2015"
    ms.author="joaoma" />
 
-
 # Traffic Manager の設定のテスト
 
 Traffic Manager の設定をテストするには、複数のクライアントを設定してから、プロファイル内の、クラウド サービスと Web サイトで構成されるエンドポイントを一度に 1 つずつ停止するのが最善の方法です。 以下の各ヒントでは、Traffic Manager プロファイルをテストする方法について説明しています。
 
 ## 基本的なテスト手順
 
-- **DNS TTL を非常に短い時間に設定**して、変更がすぐに反映されるようにします。たとえば 30 秒に設定します。
+-**DNS TTL を非常に小さく設定** 変更がすぐに反映できるように 30 秒などです。
 
-- テストするプロファイル内の **Azure Cloud Services や Azure Websites の IP アドレスを確認します**。
+-**、Azure クラウド サービスと web サイトの IP アドレスを確認** でテストするプロファイル。
 
-- **DNS 名を IP アドレスに解決**してそのアドレスを表示できるツールを使用します。 会社のドメイン名がプロファイル内のエンドポイントの IP アドレスに解決されることを確認します。 その名前解決は Traffic Manager プロファイルと同じ負荷分散方法で行われる必要があります。 Windows を実行しているコンピューターでは、コマンド プロンプトまたは Windows PowerShell プロンプトから Nslookup.exe ツールを使用できます。 他にも、インターネット上には IP アドレスを調べることができるツールがあり、すぐに使用できる状態で公開されています。
+-**IP アドレスに DNS 名を解決するのに便利なツールを使用して** そのアドレスを表示します。 会社のドメイン名がプロファイル内のエンドポイントの IP アドレスに解決されることを確認します。 その名前解決は Traffic Manager プロファイルと同じ負荷分散方法で行われる必要があります。 Windows を実行しているコンピューターでは、コマンド プロンプトまたは Windows PowerShell プロンプトから Nslookup.exe ツールを使用できます。 他にも、インターネット上には IP アドレスを調べることができるツールがあり、すぐに使用できる状態で公開されています。
 
 ### nslookup を使用して Traffic Manager プロファイルを確認するには
 
 1 - 管理者としてコマンド プロンプトまたは Windows PowerShell プロンプトを開きます。
 
-2 種類 `ipconfig/flushdns` DNS リゾルバー キャッシュをフラッシュします。
+2- 「`ipconfig /flushdns`」と入力して、DNS リゾルバー キャッシュをフラッシュします。
 
-3 種類 `nslookup < Traffic Manager ドメイン名 >`します。たとえば、次のコマンドは、プレフィックスを持つドメイン名を確認します *myapp.contoso*。
+3- 「`nslookup <your Traffic Manager domain name>`」と入力します。 たとえば、次のコマンドは、プレフィックスを持つドメイン名を確認します *myapp.contoso。*
     nslookup myapp.contoso.trafficmanager.net
 通常、結果として次の情報が表示されます。
 - この Traffic Manager ドメイン名を解決するためにアクセスされる DNS サーバーの DNS 名と IP アドレス。
 - コマンド ラインで "nslookup" の後に入力した Traffic Manager ドメイン名と、その Traffic Manager ドメインから解決された IP アドレス。 この 2 番目の IP アドレスを確認することが重要です。 この IP アドレスは、テスト対象の Traffic Manager プロファイルに含まれるいずれかのクラウド サービスまたは Web サイトのパブリック仮想 IP (VIP) アドレスと一致している必要があります。
 
 ## 負荷分散方法のテスト
+
 
 ### フェールオーバー負荷分散方法をテストするには
 
@@ -72,8 +72,4 @@ Traffic Manager の設定をテストするには、複数のクライアント�
 
 [Traffic Manager のトラフィックのルーティング方法の詳細](../about-traffic-manager-balancing-methods.md)
 [Traffic Manager](../traffic-manager.md)
-
-
-
-
-
+ 

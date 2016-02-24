@@ -17,8 +17,7 @@
    ms.date="12/11/2015"
    ms.author="telmos" />
 
-
-# Azure CLI でユーザー定義のルート (UDR) を作成する
+#Azure CLI でユーザー定義のルート (UDR) を作成する
 
 [AZURE.INCLUDE [virtual-network-create-udr-arm-selectors-include.md](../../includes/virtual-network-create-udr-arm-selectors-include.md)]
 
@@ -33,10 +32,9 @@
 [AZURE.INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
 ## フロントエンドのサブネットの UDR を作成する
-
 上記のシナリオに基づいて、フロントエンドのサブネットに必要なルート テーブルとルートを作成するには、次の手順に従います。
 
-3. 実行します * *`azure ネットワークのルート テーブルを作成`* * フロント エンド サブネットのルート テーブルを作成するコマンドです。
+3. 実行、 **`azure network route-table create`** フロント エンド サブネットのルート テーブルを作成するコマンドです。
 
         azure network route-table create -g TestRG -n UDR-FrontEnd -l uswest
 
@@ -55,11 +53,11 @@
         info:    network route-table create command OK
 
     パラメーター:
-    - **-g (または --resource-group)**。 NSG の作成場所となるリソース グループの名前です。 ここでは、*TestRG* です。
-    - **-l (または --location)**。 NSG が作成される Azure リージョンです。 ここでは、*westus* です。
-    - **-n (または --name)**。 新しい NSG の名前です。 ここでは、*NSG-FrontEnd* です。
+    - **-g (または - リソース グループ)**します。 NSG の作成場所となるリソース グループの名前です。 このシナリオの *TestRG*します。
+    - **-l (または --location)**します。 NSG が作成される Azure リージョンです。 このシナリオの *westus*します。
+    - **n (または - 名前)**します。 新しい NSG の名前です。 このシナリオの *NSG フロント エンド*します。
 
-4. 実行、* *`azure ネットワーク ルート テーブルのルートを作成`* * をバック エンドのサブネット (192.168.2.0/24) に向かうすべてのトラフィックを送信する上記で作成したルート テーブル内のルートを作成するコマンド、 **FW1** VM (192.168.0.4)。
+4. 実行、 **`azure network route-table route create`** バック エンドのサブネット (192.168.2.0/24) に向かうすべてのトラフィックを送信する上記で作成したルート テーブル内のルートを作成するコマンド、 **FW1** VM (192.168.0.4)。
 
         azure network route-table route create -g TestRG -r UDR-FrontEnd -n RouteToBackEnd -a 192.168.2.0/24 -y VirtualAppliance -p 192.168.0.4
 
@@ -80,11 +78,11 @@
 
     パラメーター:
     - **-r (または - ルート テーブル名)**します。 ルートが追加されるルート テーブルの名前です。 このシナリオの *UDR フロント エンド*します。
-    - **-a (または --address-prefix)**。 パケットの送信先であるサブネットのアドレス プレフィックスです。 このシナリオの *192.168.2.0/24*します。
+    - **は、(または - アドレス プレフィックス)**します。 パケットの送信先であるサブネットのアドレス プレフィックスです。 このシナリオの *192.168.2.0/24*します。
     - **-y (--次ホップ タイプ)**します。 トラフィックの送信先となるオブジェクトの種類です。 指定できる値は *VirtualAppliance*, 、*VirtualNetworkGateway*, 、*VNETLocal*, 、*インターネット*, 、または *None*します。
-    - **~ p (または - 次ホップ ip アドレス**)。 次のホップ先の IP アドレスです。 ここでは、*192.168.0.4* です。
+    - **-p (または - 次ホップ ip アドレス**)。 次のホップ先の IP アドレスです。 このシナリオの *192.168.0.4*します。
 
-5. 実行、* *`azure ネットワーク vnet サブネットのセット`* * を上記で作成したルート テーブルに関連付けるコマンド、 **フロント エンド** サブネットです。
+5. 実行、 **`azure network vnet subnet set`** に上記で作成したルート テーブルに関連付けるコマンド、 **フロント エンド** サブネットです。
 
         azure network vnet subnet set -g TestRG -e TestVNet -n FrontEnd -r UDR-FrontEnd
 
@@ -113,35 +111,32 @@
         info:    network vnet subnet set command OK
 
     パラメーター:
-    - **-e (または--vnet 名)**します。 サブネットが置かれている VNet の名前です。 ここでは、*TestVNet* です。
-
+    - **e (または--vnet 名)**します。 サブネットが置かれている VNet の名前です。 このシナリオの *TestVNet*します。
+ 
 ## バックエンドのサブネットの UDR を作成する
-
 上記のシナリオに基づいて、バックエンドのサブネットに必要なルート テーブルとルートを作成するには、次の手順に従います。
 
-1. 実行します * *`azure ネットワークのルート テーブルを作成`* * バックエンド サブネットにルート テーブルを作成するコマンドです。
+1. 実行、 **`azure network route-table create`** バックエンド サブネットにルート テーブルを作成するコマンドです。
 
         azure network route-table create -g TestRG -n UDR-BackEnd -l westus
 
-4. 実行、* *`azure ネットワーク ルート テーブルのルートを作成`* * をフロント エンド サブネット (192.168.1.0/24) に向かうすべてのトラフィックを送信する上記で作成したルート テーブル内のルートを作成するコマンド、 **FW1** VM (192.168.0.4)。
+4. 実行、 **`azure network route-table route create`** にフロント エンド サブネット (192.168.1.0/24) に向かうすべてのトラフィックを送信する上記で作成したルート テーブル内のルートを作成するコマンド、 **FW1** VM (192.168.0.4)。
 
         azure network route-table route create -g TestRG -r UDR-BackEnd -n RouteToFrontEnd -a 192.168.1.0/24 -y VirtualAppliance -p 192.168.0.4
 
-5. 実行、* *`azure ネットワーク vnet サブネットのセット`* * を上記で作成したルート テーブルに関連付けるコマンド、 **バックエンド** サブネットです。
+5. 実行、 **`azure network vnet subnet set`** に上記で作成したルート テーブルに関連付けるコマンド、 **バックエンド** サブネットです。
 
         azure network vnet subnet set -g TestRG -e TestVNet -n BackEnd -r UDR-BackEnd
 
-
 ## FW1 で IP 転送を有効にする
+使用される NIC の IP 転送を有効にする **FW1**, 、次の手順に従います。
 
-**FW1** で使用される NIC での IP 転送を有効にするには、次の手順に従います。
-
-1. 実行、* *`azure ネットワーク nic ショー`* * コマンド、およびの値に注意してください **を有効にする IP 転送**します。 この値は、*false* に設定されている必要があります。
+1. 実行、 **`azure network nic show`** コマンド、およびの値に注意してください **を有効にする IP 転送**します。 設定する必要がある *false*します。
 
         azure network nic show -g TestRG -n NICFW1
 
     出力:
-
+        
         info:    Executing command network nic show
         info:    Looking up the network interface "NICFW1"
         data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/
@@ -167,7 +162,7 @@
         data:    
         info:    network nic show command OK
 
-2. 実行、* *`azure ネットワーク nic セット`* * コマンドを IP 転送を有効にします。
+2. 実行、 **`azure network nic set`** コマンドを IP 転送を有効にします。
 
         azure network nic set -g TestRG -n NICFW1 -f true
 
@@ -203,8 +198,4 @@
     パラメーター:
 
     - **-f (または - ip 転送を有効に)**します。 *true* または *false*します。
-
-
-
-
 

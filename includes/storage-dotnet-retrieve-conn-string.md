@@ -1,5 +1,4 @@
 ### 接続文字列の取得
-
 使用することができます、 **CloudStorageAccount** を表す型 
 ストレージ アカウント情報を表すことができます。 Azure プロジェクト テンプレートを 
 使用している場合や、
@@ -11,12 +10,10 @@ Microsoft.WindowsAzure.CloudConfigurationManager 名前空間への参照があ�
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-アプリケーションを作成している、Microsoft.WindowsAzure.CloudConfigurationManager への参照にあり、接続文字列が内にある場合、 `web.config` または `app.config` 前に示したとおりを実行して **ConfigurationManager** 接続文字列を取得します。 System.Configuration.dll への参照をプロジェクトに追加し、対応する名前空間宣言を追加する必要があります。
+アプリケーションを作成している、Microsoft.WindowsAzure.CloudConfigurationManager への参照にあり、接続文字列が内にある場合、 `web.config` または `app.config` 前に示したとおりを実行して **ConfigurationManager** 接続文字列を取得します。  System.Configuration.dll への参照をプロジェクトに追加し、対応する名前空間宣言を追加する必要があります。
 
     using System.Configuration;
     ...
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);
-
-
 

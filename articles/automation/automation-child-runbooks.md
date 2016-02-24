@@ -15,14 +15,14 @@
    ms.date="09/17/2015"
    ms.author="bwren" />
 
-
 # Azure Automation での子 Runbook
 
-Azure Automation では、他の Runbook でも使用できる個別の関数で再利用可能なモジュールの Runbook を作成することをお勧めします。 親 Runbook は多くの場合、必要な機能を実行する 1 つまたは複数の子 Runbook を呼び出します。 子 Runbook を呼び出すには 2 つの方法があります。それぞれの特徴的な相違点を理解しておくと、さまざまな状況でどちらが適しているかを判断できるようになります。
 
-## インライン実行で子 Runbook を呼び出す
+ Azure Automation では、他の Runbook でも使用できる個別の関数で再利用可能なモジュールの Runbook を作成することをお勧めします。 親 Runbook は多くの場合、必要な機能を実行する 1 つまたは複数の子 Runbook を呼び出します。 子 Runbook を呼び出すには 2 つの方法があります。それぞれの特徴的な相違点を理解しておくと、さまざまな状況でどちらが適しているかを判断できるようになります。
 
-別の Runbook からインラインで Runbook を呼び出すには、Runbook の名前を使用し、アクティビティやコマンドレットに使用するのと同じパラメーター値を指定します。 同じ Automation アカウントのすべての Runbook は、他のすべての Runbook で同じ方法で使用されます。 親 Runbook は子 Runbook が完了してから次の行に移動し、すべての出力は直接親に返されます。親 Runbook は子 Runbook が完了してから次の行に移動し、すべての出力は直接親に返されます。
+##  インライン実行で子 Runbook を呼び出す 
+
+別の Runbook からインラインで Runbook を呼び出すには、Runbook の名前を使用し、アクティビティやコマンドレットに使用するのと同じパラメーター値を指定します。  同じ Automation アカウントのすべての Runbook は、他のすべての Runbook で同じ方法で使用されます。 親 Runbook は子 Runbook が完了してから次の行に移動し、すべての出力は直接親に返されます。親 Runbook は子 Runbook が完了してから次の行に移動し、すべての出力は直接親に返されます。
 
 Runbook をインラインで呼び出すと、親 Runbook と同じジョブで実行されます。 実行された子 Runbook はジョブ履歴には表示されません。 子 Runbook からのすべての例外とストリーム出力は、親に関連付けられます。 これより、子 Runbook やストリーム出力のいずれかによって発生した例外が親 Runbook のジョブに関連付けられるため、ジョブの数が減って追跡しやすくなり、問題の解決がしやすくなります。
 
@@ -32,13 +32,13 @@ Runbook を発行する場合、呼び出される子 Runbook はすべて発行
 
 ### Runbook の種類
 
-使用することはできません、 [PowerShell ワークフローの runbook](automation-runbook-types.md#powershell-workflow-runbooks) または [グラフィカルな runbook](automation-runbook-types.md#graphical-runbooks) 内の子として、 [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) インライン実行を使用しています。 同様に、PowerShell Runbook を PowerShell ワークフロー Runbook またはグラフィカル Runbook のインライン実行で子として使用することはできません。 PowerShell Runbook は別の PowerShell のみを子として使用できます。 グラフィカル Runbook と PowerShell ワークフロー Runbook は、相互に相手を子 Runbook として使用できます。
+使用することはできません、 [PowerShell ワークフローの runbook](automation-runbook-types.md#powershell-workflow-runbooks) または [グラフィカルな runbook](automation-runbook-types.md#graphical-runbooks) 内の子として、 [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) インライン実行を使用しています。  同様に、PowerShell Runbook を PowerShell ワークフロー Runbook またはグラフィカル Runbook のインライン実行で子として使用することはできません。  PowerShell Runbook は別の PowerShell のみを子として使用できます。  グラフィカル Runbook と PowerShell ワークフロー Runbook は、相互に相手を子 Runbook として使用できます。
 
-インライン実行を使用してグラフィカル Runbook または PowerShell ワークフロー Runbook を子として呼び出すときは、Runbook の名前だけを使用します。 PowerShell 子 runbook を呼び出すときに、名前でありを付ける必要があります *. \\* スクリプトをローカル ディレクトリにあることを指定します。
+インライン実行を使用してグラフィカル Runbook または PowerShell ワークフロー Runbook を子として呼び出すときは、Runbook の名前だけを使用します。  PowerShell 子 runbook を呼び出すときに、名前でありを付ける必要があります *. \\* スクリプトをローカル ディレクトリにあることを指定します。 
 
 ### 例
 
-次の例では、複雑なオブジェクト、整数、およびブール値の 3 つのパラメーターを受け入れるテスト用の子 Runbook を呼び出します。 子 Runbook の出力は、変数に割り当てられます。 この場合は、子 Runbook は PowerShell ワークフロー Runbook です。
+次の例では、複雑なオブジェクト、整数、およびブール値の 3 つのパラメーターを受け入れるテスト用の子 Runbook を呼び出します。 子 Runbook の出力は、変数に割り当てられます。  この場合は、子 Runbook は PowerShell ワークフロー Runbook です。
 
     $vm = Get-AzureVM –ServiceName "MyVM" –Name "MyVM"
     $output = Test-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
@@ -48,9 +48,10 @@ Runbook を発行する場合、呼び出される子 Runbook はすべて発行
     $vm = Get-AzureVM –ServiceName "MyVM" –Name "MyVM"
     $output = .\Test-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 
-## コマンドレットを使用して子 Runbook を開始する
 
-使用することができます、 [Start-azureautomationrunbook](http://msdn.microsoft.com/library/dn690259.aspx) 」の説明に従って、runbook を開始するコマンドレット [Windows PowerShell で runbook を開始する](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell)します。 コマンドレットから子 Runbook を開始すると、子 Runbook に対してジョブが作成されると、親 Runbook はすぐに次の行に移動します。 Runbook から出力を取得する必要があるかどうかを使用してジョブにアクセスする必要があります [Get-azureautomationjoboutput](http://msdn.microsoft.com/library/dn690268.aspx)します。
+##  コマンドレットを使用して子 Runbook を開始する
+
+使用することができます、 [Start-azureautomationrunbook](http://msdn.microsoft.com/library/dn690259.aspx) 」の説明に従って、runbook を開始するコマンドレット [Windows PowerShell で runbook を開始する](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell)です。 コマンドレットから子 Runbook を開始すると、子 Runbook に対してジョブが作成されると、親 Runbook はすぐに次の行に移動します。 Runbook から出力を取得する必要があるかどうかを使用してジョブにアクセスする必要があります [Get-azureautomationjoboutput](http://msdn.microsoft.com/library/dn690268.aspx)します。
 
 コマンドレットで開始した子 Runbook のジョブは、親 Runbook とは別のジョブで実行されます。 これにより、インラインでスクリプトを呼び出す場合よりも多くのジョブが実行されるため、追跡が困難になります。 しかし親は、それぞれの子 Runbook の完了を待たずに、複数の子 Runbook を開始できます。 子 runbook をインラインで呼び出す並列実行の同種、親 runbook を使用しなければならない、 [並列キーワード](automation-powershell-workflow.md#parallel-processing)します。
 
@@ -81,18 +82,14 @@ Runbook を発行する場合、呼び出される子 Runbook はすべて発行
 
 | | インライン| コマンドレット|
 |:---|:---|:---|
-| ジョブ| 子 Runbook は、親と同じジョブで実行されます。| 子 Runbook 用に別のジョブが作成されます。|
-| 実行| 親 Runbook は、子 Runbook の完了を待ってから続行します。| 親 Runbook は、子 Runbook の開始後すぐに続行します。|
-| 出力| 親 Runbook は、子 Runbook から出力を直接取得できます。| 親 Runbook は、子 Runbook のジョブから出力を取得する必要があります。|
-| パラメーター| 子 Runbook のパラメーター値は個別に指定され、任意のデータ型を使用できます。| 子 Runbook のパラメーターの値は、1 つのハッシュテーブルに結合する必要があり、JSON のシリアル化を利用する、単純、配列、およびオブジェクトの各データ型のみを含めることができます。|
-| Automation アカウント| 親 Runbook は、同じ Automation アカウントの子 Runbook のみを使用できます。| 親 Runbook は、同じ Azure サブスクリプションのオートメーション アカウントの子 Runbook のほか、接続されていれば別のサブスクリプションのオートメーション アカウントの子 Runbook も使用できます。|
-| 発行| 親 Runbook を発行する前に、子 Runbook を発行する必要があります。| 親 Runbook を開始する前のある時点で、子 Runbook をパブリッシュする必要があります。|
+|ジョブ|子 Runbook は、親と同じジョブで実行されます。|子 Runbook 用に別のジョブが作成されます。|
+|実行|親 Runbook は、子 Runbook の完了を待ってから続行します。|親 Runbook は、子 Runbook の開始後すぐに続行します。|
+|出力|親 Runbook は、子 Runbook から出力を直接取得できます。|親 Runbook は、子 Runbook のジョブから出力を取得する必要があります。|
+|パラメーター|子 Runbook のパラメーター値は個別に指定され、任意のデータ型を使用できます。|子 Runbook のパラメーターの値は、1 つのハッシュテーブルに結合する必要があり、JSON のシリアル化を利用する、単純、配列、およびオブジェクトの各データ型のみを含めることができます。|
+|Automation アカウント|親 Runbook は、同じ Automation アカウントの子 Runbook のみを使用できます。|親 Runbook は、同じ Azure サブスクリプションの Automation アカウントの子 Runbook のほか、接続されていれば別のサブスクリプションの Automation アカウントの子 Runbook も使用できます。|
+|発行|親 Runbook を発行する前に、子 Runbook を発行する必要があります。|親 Runbook を開始する前のある時点で、子 Runbook をパブリッシュする必要があります。|
 
 ## 関連記事:
 
-- [Azure Automation で runbook の開始](automation-starting-a-runbook.md)
-- [Runbook の出力と Azure Automation 内のメッセージ](automation-runbook-output-and-messages.md)
-
-
-
-
+- [Azure Automation での Runbook の開始](automation-starting-a-runbook.md)
+- [Azure Automation での Runbook の出力および メッセージ](automation-runbook-output-and-messages.md)

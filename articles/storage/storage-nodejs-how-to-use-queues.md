@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Node.js から Queue ストレージを使用する方法 | Microsoft Azure" 
-    description="Azure Queue サービスを使用して、キューの作成と削除のほか、メッセージの挿入、取得、および削除を行う方法を説明します。サンプルは Node.js で記述されています。" 
+    description="Azure Queue サービスを使用して、キューの作成と削除のほか、メッセージの挿入、取得、および削除を行う方法を説明します。 サンプルは Node.js で記述されています。" 
     services="storage" 
     documentationCenter="nodejs" 
     authors="rmcmurray" 
@@ -17,7 +17,6 @@
     ms.author="robmcm"/>
 
 
-
 # Node.js から Queue ストレージを使用する方法
 
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
@@ -27,8 +26,8 @@
 このガイドは、Microsoft を使用して一般的なシナリオを実行する方法を示します
 一般的なシナリオを実行する方法について説明します。 サンプルは Node.js
 API を使用して記述されています。 紹介するシナリオ **挿入**, 、**ピーク**,、
-**を取得する**, 、および **を削除する** キュー メッセージだけでなく * * を作成し、
-* * キューを削除しています。
+**取得する**, 、および **を削除する** キュー メッセージだけでなく **を作成し、
+キューの削除**します。
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -36,7 +35,7 @@ API を使用して記述されています。 紹介するシナリオ **挿入
 
 ## Node.js アプリケーションの作成
 
-空の Node.js アプリケーションを作成します。 Node.js アプリケーションを作成する手順については、次を参照してください。 [作成および Node.js アプリケーションを Azure Web サイトの展開]、 [Node.js クラウド Service][node.js cloud service] (Windows PowerShell を使用)、または [WebMatrix による Web サイト]。
+空の Node.js アプリケーションを作成します。 Node.js アプリケーションを作成する手順については、次を参照してください。 [Create and deploy a Node.js application to an Azure Web Site], 、[Node.js クラウド サービス][Node.js Cloud Service] (Windows PowerShell を使用)、または [Web Site with WebMatrix]します。
 
 ## アプリケーションのストレージへのアクセスの構成
 
@@ -45,9 +44,9 @@ Azure Storage を使用するには、Azure Storage SDK for Node.js が必要で
 
 ### ノード パッケージ マネージャー (NPM) を使用してパッケージを取得する
 
-1.  **PowerShell** (Windows)、**Terminal** (Mac)、**Bash** (Unix) などのコマンド ライン インターフェイスを使用して、サンプル アプリケーションを作成したフォルダーに移動します。
+1.  コマンド ライン インターフェイスを使用して **PowerShell** (Windows)、 **ターミナル** (Mac)、または **Bash** (Unix)、サンプル アプリケーションを作成したフォルダーに移動します。
 
-2.  コマンド ウィンドウに「**npm install azure-storage**」と入力します。 このコマンドの出力は次の例のようになります。
+2.  型 **npm install** コマンド ウィンドウにします。 このコマンドの出力は次の例のようになります。
 
         azure-storage@0.5.0 node_modules\azure-storage
         +-- extend@1.2.1
@@ -74,9 +73,9 @@ Azure Storage を使用するには、Azure Storage SDK for Node.js が必要で
 
 ## Azure のストレージ接続文字列の設定
 
-azure モジュールは、Azure のストレージ アカウントに接続するために必要な情報として、環境変数 AZURE\_STORAGE\_ACCOUNT および AZURE\_STORAGE\_ACCESS\_KEY、または AZURE\_STORAGE\_CONNECTION\_STRING を読み取ります。 これらの環境変数が設定されていない場合、**createQueueService** を呼び出すときにアカウント情報を指定する必要があります。
+azure モジュールは、Azure のストレージ アカウントに接続するために必要な情報として、環境変数 AZURE\_STORAGE\_ACCOUNT および AZURE\_STORAGE\_ACCESS\_KEY、または AZURE\_STORAGE\_CONNECTION\_STRING を読み取ります。 これらの環境変数が設定されていない場合を呼び出すときにアカウント情報を指定する必要があります **createQueueService**します。
 
-環境変数を設定の例については、 [Azure ポータル](portal.azure.com) Azure web サイトでは、[使用する Node.js Web アプリケーション] を参照してください。
+環境変数を設定の例については、 [Azure ポータル](portal.azure.com) Azure の web サイトを参照してください。 [Node.js Web Application with Storage]
 
 ## 方法: キューを作成する
 
@@ -95,11 +94,11 @@ azure モジュールは、Azure のストレージ アカウントに接続す�
       }
     });
 
-場合は、キューが作成され、 `結果` は true を指定します。 キューが存在する場合は `結果` は false。
+キューが作成されると、`result` は true になります。 キューが存在する場合は、`result` は false です。
 
 ### フィルター
 
-オプションのフィルター操作は、**QueueService** を使用して行われる操作に適用できます。 フィルター操作には、ログ、自動的な再試行などが含まれる場合があります。フィルターは、次のシグネチャを持つメソッドを実装するオブジェクトです。
+オプションのフィルター操作を使用して行われる操作に適用できます **QueueService**します。 フィルター操作には、ログや自動的な再試行などが含まれる場合があります。フィルターは、次のシグネチャを持つメソッドを実装するオブジェクトです。
 
         function handle (requestOptions, next)
 
@@ -109,7 +108,7 @@ azure モジュールは、Azure のストレージ アカウントに接続す�
 
 このコールバックで、returnObject (サーバーへの要求からの応答) の処理の後に、コールバックは next を呼び出すか (他のフィルターの処理を続けるために next が存在する場合)、単に finalCallback を呼び出す必要があります (サービス呼び出しを終了する場合)。
 
-再試行のロジックを実装する 2 つのフィルター (**ExponentialRetryPolicyFilter** と **LinearRetryPolicyFilter**) が、Azure SDK for Node.js に含まれています。 次のコードは、**ExponentialRetryPolicyFilter** を使う **QueueService** オブジェクトを作成します。
+再試行ロジックを実装する 2 つのフィルターが Azure SDK for Node.js に含まれて **ExponentialRetryPolicyFilter** と **LinearRetryPolicyFilter**します。 次の作成、 **QueueService** を使用するオブジェクト、 **ExponentialRetryPolicyFilter**:
 
     var retryOperations = new azure.ExponentialRetryPolicyFilter();
     var queueSvc = azure.createQueueService().withFilter(retryOperations);
@@ -137,8 +136,9 @@ azure モジュールは、Azure のストレージ アカウントに接続す�
       }
     });
 
-`結果` メッセージが含まれています。
-> [AZURE.NOTE] キューにメッセージがないときに **peekMessages** を使用した場合、エラーは返されませんが、メッセージも返されません。
+`result` にはメッセージが含まれます。
+
+> [AZURE.NOTE] 使用して **peekMessages** キューにメッセージがない場合にエラーが返されない、ただし、メッセージは返されません。
 
 ## 方法: 次のメッセージをデキューする
 
@@ -148,7 +148,7 @@ azure モジュールは、Azure のストレージ アカウントに接続す�
 
 2. メッセージを削除する。
 
-メッセージをデキューするには、**getMessage** を使用します。 これによりメッセージはキューで参照できなくなるため、他のクライアントがこれを処理することもできません。 アプリケーションでメッセージが処理されたら、**deleteMessage** を呼び出してキューからこのメッセージを削除します。 次に、メッセージを取得してから削除する例を示します。
+メッセージをキューから削除するには使用 **getMessages**します。 これによりメッセージはキューで参照できなくなるため、他のクライアントがこれを処理することもできません。 アプリケーションがメッセージを処理すると、呼び出す **deleteMessage** をキューから削除します。 次に、メッセージを取得してから削除する例を示します。
 
     queueSvc.getMessages('myqueue', function(error, result, response){
       if(!error){
@@ -162,14 +162,14 @@ azure モジュールは、Azure のストレージ アカウントに接続す�
       }
     });
 
-> [AZURE.NOTE] 既定では、メッセージが非表示になるのは 30 秒間のみで、それ以降は他のクライアントから参照できます。 使用して別の値を指定する `options.visibilityTimeout` と **getMessages**します。
+> [AZURE.NOTE] 既定では、30 秒間、それ以降後は他のクライアントに表示されるメッセージはしか表示されません。 使用して別の値を指定する `options.visibilityTimeout` と **getMessages**します。
 
 > [AZURE.NOTE]
 > キューにメッセージがないときに **getMessages** を使用した場合、エラーは返されませんが、メッセージも返されません。
 
 ## 方法: キューに配置されたメッセージの内容を変更する
 
-**updateMessage** を使用すると、キュー内のメッセージの内容をインプレースで変更できます。 次に、メッセージのテキストを更新する例を示します。
+メッセージ内の場所のキューを使用して、内容を変更した **updateMessage**します。 次に、メッセージのテキストを更新する例を示します。
 
     queueSvc.getMessages('myqueue', function(error, result, response){
       if(!error){
@@ -187,10 +187,10 @@ azure モジュールは、Azure のストレージ アカウントに接続す�
 
 キューからのメッセージの取得をカスタマイズする方法は 2 つあります。
 
-* `options.numOfMessages` -(最大 32 個). メッセージのバッチを取得
-* `options.visibilityTimeout` -長いまたは短い非表示タイムアウトを設定します。
+* `options.numOfMessages` - メッセージをバッチで取得する (最大 32 個)。
+* `options.visibilityTimeout` - 非表示タイムアウトを長くするか、短くする。
 
-次のコード例では、**getMessages** メソッドを使用して、1 回の呼び出しで 15 個のメッセージを取得します。 その後、for ループを使用して、
+次の例では、 **getMessages** 1 回の呼び出しで 15 個のメッセージを取得します。 その後、for ループを使用して、
 各メッセージを処理します。 また、このメソッドで返されるすべてのメッセージの非表示タイムアウトを 5 分に設定します。
 
     queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
@@ -210,7 +210,7 @@ azure モジュールは、Azure のストレージ アカウントに接続す�
 
 ## 方法: キューの長さを取得する
 
-**getQueueMetadata** は、キューで待機中のおおよそのメッセージ数など、キューに関するメタデータを返します。
+ **GetQueueMetadata** キューで待機しているメッセージの概数をなど、キューに関するメタデータを返します。
 
     queueSvc.getQueueMetadata('myqueue', function(error, result, response){
       if(!error){
@@ -220,7 +220,7 @@ azure モジュールは、Azure のストレージ アカウントに接続す�
 
 ## 方法: キューを一覧表示する
 
-キューの一覧表示を取得するには、**listQueuesSegmented** を使用します。 特定のプレフィックスでフィルター処理した一覧を取得するには、**listQueuesSegmentedWithPrefix** を使用します。
+キューの一覧を取得するには使用 **listQueuesSegmented**します。 特定のプレフィックスでフィルター処理した一覧を取得するには使用 **listQueuesSegmentedWithPrefix**します。
 
     queueSvc.listQueuesSegmented(null, function(error, result, response){
       if(!error){
@@ -241,13 +241,13 @@ azure モジュールは、Azure のストレージ アカウントに接続す�
         }
     });
 
-すべてのメッセージを削除せずにキューからクリアするには、**clearMessages** を使用します。
+キューからのすべてのメッセージを削除せずにクリアするには使用 **clearMessages**します。
 
 ## 方法: 共有アクセス署名を操作する
 
 共有アクセス署名 (SAS) は、ストレージ アカウントの名前またはキーを指定せずにキューへの細密なアクセスを提供する安全な方法です。 SAS は、モバイル アプリによるメッセージの送信を許可する場合など、キューへの制限されたアクセスを提供する場合によく使用されます。
 
-クラウドベースのサービスなどの信頼されたアプリケーションは、**QueueService** の **generateSharedAccessSignature** を使用して SAS を生成し、信頼されていないか、部分的に信頼されたアプリケーションにこれを提供します。 たとえば、モバイル アプリなどです。 SAS は、SAS が有効である期間の開始日と終了日のほか、SAS の保有者に付与されたアクセス レベルを示したポリシーを使用して生成されます。
+クラウド ベースのサービスなど信頼されたアプリケーションを使用して SAS を生成、 **generateSharedAccessSignature** の **QueueService**, 、し、信頼されていないか、部分的に信頼されたアプリケーションに提供します。 たとえば、モバイル アプリなどです。 SAS は、SAS が有効である期間の開始日と終了日のほか、SAS の保有者に付与されたアクセス レベルを示したポリシーを使用して生成されます。
 
 次の例では、SAS の保有者によるキューへのメッセージの追加を許可する新しい共有アクセス ポリシーを生成します。このポリシーは作成後 100 分が経過すると期限切れになります。
 
@@ -263,13 +263,13 @@ azure モジュールは、Azure のストレージ アカウントに接続す�
         Expiry: expiryDate
       }
     };
-    
+
     var queueSAS = queueSvc.generateSharedAccessSignature('myqueue', sharedAccessPolicy);
     var host = queueSvc.host;
 
 SAS の保有者がキューにアクセスするときに必要なホスト情報も提供する必要があることに注意してください。
 
-その後、クライアント アプリケーションは、この SAS と **QueueServiceWithSAS** を使用してキューに対する操作を実行します。 次に、キューに接続してメッセージを作成する例を示します。
+クライアント アプリケーションは、この SAS とを使用して **QueueServiceWithSAS** キューに対する操作を実行します。 次に、キューに接続してメッセージを作成する例を示します。
 
     var sharedQueueService = azure.createQueueServiceWithSas(host, queueSAS);
     sharedQueueService.createMessage('myqueue', 'Hello world from SAS!', function(error, result, response){
@@ -305,7 +305,7 @@ ACL は、アクセス ポリシーの配列と、各ポリシーに関連付け
       }
     ];
 
-次の例では、**myqueue** の現在の ACL を取得てから、**setQueueAcl** を使用して新しいポリシーを追加します。 この手法で以下を実行できます。
+次の例の現在の ACL を取得する **myqueue**, を使用して新しいポリシーを追加 **setQueueAcl**します。 この手法で以下を実行できます。
 
     queueSvc.getQueueAcl('myqueue', function(error, result, response) {
       if(!error){
@@ -329,19 +329,23 @@ ACL を設定した後で、ポリシーの ID に基づいて SAS を作成で�
 さらに複雑なストレージ タスクについて学習するには、次のリンク先を参照してください。
 
 -   参照してください、 [Azure ストレージ チーム ブログ][]します。
--   参照してください、 [ノードの Azure Storage SDK][] GitHub のリポジトリです。
+-   参照してください、 [Azure Storage SDK for Node][] GitHub のリポジトリです。
 
+  [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
+  [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+  [Azure Portal]: portal.azure.com
+  [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
+  [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
+  [Node.js Web Application with Storage]: ../storage-nodejs-use-table-storage-web-site.md
 
-[azure storage sdk for node]: https://github.com/Azure/azure-storage-node 
-[using the rest api]: http://msdn.microsoft.com/library/azure/hh264518.aspx 
-[azure portal]: portal.azure.com 
-[create and deploy a node.js application to an azure web site]: ../web-sites-nodejs-develop-deploy-mac.md 
-[node.js cloud service with storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md 
-[node.js web application with storage]: ../storage-nodejs-use-table-storage-web-site.md 
-[queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png 
-[plus-new]: ./media/storage-nodejs-how-to-use-queues/plus-new.png 
-[quick-create-storage]: ./media/storage-nodejs-how-to-use-queues/quick-storage.png 
-[node.js cloud service]: ../cloud-services-nodejs-develop-deploy-app.md 
-[azure storage team blog]: http://blogs.msdn.com/b/windowsazurestorage/ 
-[web site with webmatrix]: ../web-sites-nodejs-use-webmatrix.md 
-
+  
+  [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
+  [plus-new]: ./media/storage-nodejs-how-to-use-queues/plus-new.png
+  [quick-create-storage]: ./media/storage-nodejs-how-to-use-queues/quick-storage.png
+  
+  
+  
+  [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
+  [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Web Site with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
+ 

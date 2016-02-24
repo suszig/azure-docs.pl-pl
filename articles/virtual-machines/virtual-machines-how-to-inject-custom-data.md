@@ -18,10 +18,9 @@
     ms.author="rasquill"/>
 
 
+#Azure の仮想マシンにカスタム データを挿入する
 
-# Azure の仮想マシンにカスタム データを挿入する
-
-Azure の仮想マシンをプロビジョニングしているときに、スクリプトなどのデータをその中に挿入する場合がよくあります。これは、オペレーティング システムが Windows であっても Linux ディストリビューションであっても同じです。
+Azure の仮想マシンをプロビジョニングしているときに、スクリプトなどのデータをその中に挿入する場合がよくあります。これは、オペレーティング システムが Windows であっても Linux ディストリビューションであっても同じです。 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーのモデルです。
 
@@ -34,11 +33,11 @@ Azure の仮想マシンをプロビジョニングしているときに、ス�
 
 - いくつかのシステムで利用できる特殊なツールを使用して、自動的にカスタム データを検出し、操作する。
 
-> [AZURE.NOTE] この記事では、Azure サービス管理 API で作成されたカスタム データを、VM を使用して挿入する方法について説明します。 Azure リソース管理 API を使用する方法を確認するには、次を参照してください。 [のサンプル テンプレート](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata)します。
+> [AZURE.NOTE] どのカスタム データを説明する Azure サービス管理 API で作成した VM を使用して挿入することができます。 Azure リソース管理 API を使用する方法を確認するには、次を参照してください。 [のサンプル テンプレート](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata)します。
 
 ## Azure 仮想マシンにカスタム データを挿入する
 
-この機能は現在サポートされてでのみ、 [Azure コマンド ライン インターフェイス](https://github.com/Azure/azure-xplat-cli)します。 オプションのいずれかを使用できますが、 `azure 仮想マシンの作成` コマンドを次にごく基本的な方法を説明します。
+この機能は現在サポートされてでのみ、 [Azure コマンド ライン インターフェイス](https://github.com/Azure/azure-xplat-cli)します。 `azure vm create` コマンドのオプションはすべて使用できますが、以下はきわめて基本的な方法の 1 つです。
 
 ```
     PASSWORD='AcceptablePassword -- more than 8 chars, a cap, a num, a special'
@@ -51,13 +50,14 @@ Azure の仮想マシンをプロビジョニングしているときに、ス�
 
 ## 仮想マシンでカスタム データを使用する
 
-+ Azure 仮想マシンが Windows ベースの仮想マシンではかどうか、は、カスタム データ ファイルに保存 `%SYSTEMDRIVE%\AzureData\CustomData.bin`します。 このファイルは、ローカル コンピューターから新しい仮想マシンに転送するために Base64 でエンコードされますが、自動的にデコードされるため、直ちに開いて使用できます。
-   > [AZURE.NOTE] このファイルが既に存在している場合には、上書きされます。 ディレクトリのセキュリティは、**"システム: フル コントロール"** と **"管理者: フル コントロール"** に設定されます。
++ Azure 仮想マシンが Windows ベース仮想マシンの場合、カスタム データのファイルは `%SYSTEMDRIVE%\AzureData\CustomData.bin` に保存されます。 このファイルは、ローカル コンピューターから新しい仮想マシンに転送するために Base64 でエンコードされますが、自動的にデコードされるため、直ちに開いて使用できます。
+
+   > [AZURE.NOTE] ファイルが存在する場合は上書きされます。 設定されているディレクトリのセキュリティ **システム: フル コントロール** と **管理者: フル コントロール**します。
 
 + Azure 仮想マシンが Linux ベースの仮想マシンの場合、カスタム データのファイルは次の 2 箇所にあります。 データは base64 でエンコードされているので、最初にデータをデコードする必要があります。
 
-    + `/Var/lib/waagent/ovf-env.xml`
-    + `/Var/lib/waagent/CustomData`
+    + `/var/lib/waagent/ovf-env.xml`
+    + `/var/lib/waagent/CustomData`
 
 
 
@@ -73,17 +73,13 @@ Azure 仮想マシンが Ubuntu イメージまたは CoreOS イメージから�
 
 
 
-
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 次のステップ: cloud-init を使用する
 
 詳細については、次を参照してください。、 [Ubuntu 用 cloud-init documentation ドキュメント](https://help.ubuntu.com/community/CloudInit)します。
 
-
-[ロール サービス管理 REST API リファレンスを追加します。](http://msdn.microsoft.com/library/azure/jj157186.aspx)
+<!--Link references-->
+[Add Role Service Management REST API Reference](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
 [Azure コマンド ライン インターフェイス](https://github.com/Azure/azure-xplat-cli)
-
-
-
-
 

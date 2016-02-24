@@ -16,7 +16,6 @@
     ms.date="12/07/2015"
     ms.author="sdanie"/>
 
-
 # Azure API Management での開発者ポータルのカスタマイズ
 
 このガイドでは、Azure API Management における開発者ポータルのルック アンド フィールをお客様のブランドに合わせてカスタマイズする方法について説明します。
@@ -25,75 +24,78 @@
 
 ポータルの代表的なカスタマイズとして、すべてのページの一番上に表示されるテキストを貴社の会社名またはロゴに置き換えることが挙げられます。
 
-開発者ポータル内のコンテンツに対する変更は、Azure クラシック ポータルから発行者ポータルにアクセスして行います。 API 発行者ポータルにアクセスするには、API Management サービスの Azure クラシック ポータルで **[管理]** をクリックします。
+開発者ポータル内のコンテンツに対する変更は、Azure クラシック ポータルから発行者ポータルにアクセスして行います。 クリックして、API パブリッシャー ポータルにアクセス **管理** 、API Management サービスの Azure クラシック ポータルで。
 
 ![パブリッシャー ポータル][api-management-management-console]
 
-開発者ポータルは、コンテンツ管理システム (CMS) がベースとなっています。 すべてのページに表示されるヘッダーは、"ウィジェット" と呼ばれる特殊なタイプのコンテンツです。 そのウィジェットの内容を編集するには、左側の **[開発者ポータル]** メニューで **[ウィジェット]** をクリックし、一覧から **[ヘッダー]** ウィジェットを選択します。
+開発者ポータルは、コンテンツ管理システム (CMS) がベースとなっています。 すべてのページに表示されるヘッダーは、"ウィジェット" と呼ばれる特殊なタイプのコンテンツです。 そのウィジェットの内容を編集する] をクリックして **ウィジェット** から、 **デベロッパー ポータル** 、左側のメニューを選択し、 **ヘッダー** リストからウィジェットです。
 
 ![Widgets header][api-management-widgets-header]
 
-ヘッダーの内容は、**[本文]** フィールドで編集することができます。 このテキストを "Fabrikam Developer Portal" に変更し、ページ下部の **[保存]** をクリックします。
+内から編集することは、ヘッダーの内容、 **本文** フィールドです。 テキストを"Fabrikam Developer Portal"に変更し、クリックして **保存** ページの下部にあります。
 
 以後、この新しいヘッダーが開発者ポータル内のすべてのページに表示されます。
 
-> パブリッシャー ポータルで開発者ポータルを開くには、上部のバーにある **[開発者ポータル]** をクリックします。
+> パブリッシャー ポータルで開発者ポータルを開くにはクリックして **デベロッパー ポータル** 上部のバーにします。
 
-## <a name="change-headers-styling"> </a>ヘッダーのスタイルを変更します。
+## <a name="change-headers-styling"> </a>ヘッダーのスタイルを変更する
 
-色、フォント、サイズ、文字間隔など、ポータル ページのスタイルに関連したあらゆる要素は、スタイルのルールによって定義されます。 スタイルを編集するには、パブリッシャー ポータルで **[開発者ポータル]** メニューの **[外観]** をクリックし、**[カスタマイズの開始]** をクリックしてスタイル エディターを有効にします。
+色、フォント、サイズ、文字間隔など、ポータル ページのスタイルに関連したあらゆる要素は、スタイルのルールによって定義されます。 スタイルを編集する] をクリックして **外観** から、 **デベロッパー ポータル** メニューをクリックして、パブリッシャー ポータルに **カスタマイズの開始** 、スタイル エディターを有効にします。
 
 ブラウザーが開発者ポータル内に置かれている非表示のページに切り替わり、サンプル コンテンツや、サイト上のいたるところに使用されている、スタイル上のさまざまなルールが例示されます。 スタイル エディターを開くには、ページの左端に設けられた縦長の薄い灰色の領域上にカーソルを移動します。 エディター ツール バーが表示されます。
 
 ![Customization toolbar][api-management-customization-toolbar]
 
-スタイル上のルールは、主に 2 つの方法で編集できます。**[すべてのルールを編集]** を選択すると、あらゆる場所で使用されているすべてのスタイル ルールが一覧表示されます。これに対し、**[要素を選択]** を選択した場合は、表示されているページから特定の要素を選択することができます。その場合、表示されるのは、選択した要素に関するスタイルだけです。
+スタイル ルールの編集の 2 つのメイン モードがあります- **すべてのルールを編集** すべてのスタイル ルールの一覧を表示中に使用される任意の場所、 **ピック要素** を使用しているページから要素を選択することができ、その要素のスタイルのみが表示されます。
 
-このセクションでは、ヘッダーのスタイルのみを変更することにします。 スタイル エディターのツール バーで **[要素を選択]** オプションをクリックし、続けて、**[カスタマイズする要素の選択]** をクリックします。 要素にマウスを重ねると、その要素が強調表示されるようになり、クリックした場合にどの要素のスタイルが編集対象となるかを把握できます。 ヘッダー内の会社名を表すテキスト (前セクションの手順でいうと "Fabrikam Developer Portal") 上にマウス カーソルを移動してクリックします。 名前とカテゴリを持つ一連のスタイル ルールがスタイル エディター内に表示されます。
+このセクションでは、ヘッダーのスタイルのみを変更することにします。 クリックして、 **ピック要素** スタイル エディターのツールバーからオプションをクリックして **をカスタマイズする要素を選択**します。 要素にマウスを重ねると、その要素が強調表示されるようになり、クリックした場合にどの要素のスタイルが編集対象となるかを把握できます。 ヘッダー内の会社名を表すテキスト (前セクションの手順でいうと "Fabrikam Developer Portal") 上にマウス カーソルを移動してクリックします。 名前とカテゴリを持つ一連のスタイル ルールがスタイル エディター内に表示されます。
 
 それぞれのルールは、選択された要素のスタイルに関するプロパティを表します。 たとえば、上で選択したヘッダー テキストの場合、テキストのサイズは @font-size-h1 で定義され、フォント (代替候補を含む) の名前は @headings-font-family で定義されています。
 
-> 慣れている場合 [をブートス トラップ][], 、これらのルールが実際には [小さい変数][] 開発者ポータルで使用されている bootstrap テーマです。
+> 慣れている場合 [ブートス トラップ][], 、これらのルールが実際には [LESS 変数][] 開発者ポータルで使用されている bootstrap テーマです。
 
-見出しテキストの色を変更してみましょう。 **[@headings-color]** ボックスの入力内容を選択し、「**#000000**」と入力します。 これは、黒色を表す 16 進コードです。 すると、テキスト ボックスの端に正方形のカラー インジケーターが表示されます。 このインジケーターをクリックするとカラー ピッカーが表示され、色を選択することができます。
+見出しテキストの色を変更してみましょう。 内のエントリを選択して、 **@headings-color** フィールドと型 **#000000**します。 これは、黒色を表す 16 進コードです。 すると、テキスト ボックスの端に正方形のカラー インジケーターが表示されます。 このインジケーターをクリックするとカラー ピッカーが表示され、色を選択することができます。
 
 ![Color picker][api-management-customization-toolbar-color-picker]
 
-選択した要素のスタイルに変更を加えたら、**[変更のプレビュー]** をクリックして画面上で結果を確認します。 この時点では、管理者にしか表示されません。 変更を全員が閲覧できるようにするには、スタイル エディターで **[発行]** をクリックして変更を確定してください。
+クリックして、選択した要素のスタイルに変更が終わったら、 **変更のプレビュー** 画面に結果を確認します。 この時点では、管理者にしか表示されません。 これらの変更をすべてのユーザーに表示するには、クリックして、 **発行** 、スタイル エディターでボタンをクリックし、変更を確認します。
 
 ![[発行] メニュー][api-management-customization-toolbar-publish-form]
 
-> ページの他の要素に適用されるスタイル ルールを変更するには、ヘッダーの場合と同じ手順を実行します。 スタイル エディターで **[要素を選択]** をクリックし、対象の要素を選択して、画面に表示されるスタイル ルールの値の変更を開始します。
+> ページの他の要素に適用されるスタイル ルールを変更するには、ヘッダーの場合と同じ手順を実行します。 クリックして **要素を選択** 、スタイル エディターから、目的を画面に表示されるスタイル ルールの値に変更を開始する要素を選択します。
 
-## <a name="edit-page-contents"> </a>ページの内容を編集
+## <a name="edit-page-contents"> </a>ページの内容を編集する
 
 開発者ポータルは、自動的に生成されるページ ([API]、[成果物]、[アプリケーション]、[問題] など) と手動で作成するコンテンツとで構成されます。 コンテンツ管理システムがベースとなっているため、そのようなコンテンツを必要に応じて作成することができます。
 
-既存のコンテンツ ページをすべて一覧表示するには、パブリッシャー ポータルの **[開発者ポータル]** メニューにある **[コンテンツ]** をクリックします。
+コンテンツのページをクリックして、既存のすべての一覧を表示する **コンテンツ** から、 **デベロッパー ポータル** パブリッシャー ポータルでのメニュー。
 
 ![Manage content][api-management-customization-manage-content]
 
-開発者ポータルのホーム ページに表示される内容を編集するには、**ウェルカム** ページをクリックします。 目的の変更を行い、必要に応じてプレビューしてから **[今すぐ発行]** をクリックすると、すべての人がその内容を閲覧できるようになります。
+クリックして、 **ようこそ** 開発者ポータルのホーム ページに表示される内容を編集するページです。 必要なプレビューし、必要に応じてクリックして変更を加える **[今すぐ発行** すべてのユーザーに表示されるようにします。
 
-> ホーム ページには、最上部にバナーを表示できる特殊なレイアウトが使用されています。 このバナーを **[コンテンツ]** セクションから編集することはできません。 このバナーを編集するには、**[開発者ポータル]** メニューの **[ウィジェット]** をクリックし、**[現在のレイヤー]** ボックスの一覧の **[ホーム ページ]** を選択して、**[おすすめ]** セクションにある **[バナー]** 項目を開きます。 このウィジェットの内容は、他のページとまったく同じように編集できます。
+> ホーム ページには、最上部にバナーを表示できる特殊なレイアウトが使用されています。 このバナーを編集はできません、 **コンテンツ** セクションです。 このバナーを編集する] をクリックして **ウィジェット** から、 **デベロッパー ポータル** メニューの [ **ホーム ページ** から、 **現在のレイヤー** ドロップダウン リストし、開きます、 **バナー** 項目の下にある、 **セクションの機能を備えた**します。 このウィジェットの内容は、他のページとまったく同じように編集できます。
 
 ## <a name="next-steps"> </a>次のステップ
 
 -   [その他のトピックもチェックして、 [高度な API の構成を使ってみる][] チュートリアルです。
 
+[Change the text/logo in the page headers]: #change-page-headers
+[Change the styling of the headers]: #change-headers-styling
+[Edit the contents of a page]: #edit-page-contents
+[Next steps]: #next-steps
 
-[change the text/logo in the page headers]: #change-page-headers 
-[change the styling of the headers]: #change-headers-styling 
-[edit the contents of a page]: #edit-page-contents 
-[next steps]: #next-steps 
-[azure classic portal]: https://manage.windowsazure.com/ 
-[api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png 
-[api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png 
-[api-management-customization-toolbar]: ./media/api-management-customize-portal/api-management-customization-toolbar.png 
-[api-management-customization-toolbar-color-picker]: ./media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png 
-[api-management-customization-toolbar-publish-form]: ./media/api-management-customize-portal/api-management-customization-toolbar-publish-form.png 
-[api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png 
-[get started with advanced api configuration]: api-management-get-started-advanced.md 
-[bootstrap]: http://getbootstrap.com/ 
-[less variables]: http://getbootstrap.com/css/ 
+[Azure Classic Portal]: https://manage.windowsazure.com/
+
+[api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
+[api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
+[api-management-customization-toolbar]: ./media/api-management-customize-portal/api-management-customization-toolbar.png
+[api-management-customization-toolbar-color-picker]: ./media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png
+[api-management-customization-toolbar-publish-form]: ./media/api-management-customize-portal/api-management-customization-toolbar-publish-form.png
+[api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
+
+
+[Get started with advanced API configuration]: api-management-get-started-advanced.md
+[bootstrap]: http://getbootstrap.com/
+[LESS variables]: http://getbootstrap.com/css/
 

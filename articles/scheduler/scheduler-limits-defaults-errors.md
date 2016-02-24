@@ -15,7 +15,6 @@
  ms.date="12/04/2015"
  ms.author="krisragh"/>
 
-
 # Scheduler の制限、既定値、エラー コード
 
 ## Scheduler のクォータ、制限、既定値、調整
@@ -34,21 +33,21 @@ Azure Scheduler REST API は、標準の HTTP 状態コードに加えて、拡�
 
 たとえば、HTTP 404 エラーはさまざまな原因で発生するため、拡張メッセージに追加情報を含めることで問題の解決に役立ちます。 REST API によって返される標準 HTTP コードの詳細については、次を参照してください。 [サービス管理のステータスとエラー コード](https://msdn.microsoft.com/library/windowsazure/ee460801.aspx)します。 サービス管理 API の REST API 操作で定義されている標準の HTTP ステータス コードを返す、[http/1.1 状態コード定義](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)します。 次の表に、サービスから返される可能性のある一般的なエラーについて説明します。
 
-| エラー コード| HTTP 状態コード| ユーザー メッセージ|
+|エラー コード|HTTP 状態コード|ユーザー メッセージ|
 |----|----|----|
-| MissingOrIncorrectVersionHeader| 正しくない要求 (400)| バージョン管理ヘッダーが指定されていないか、正しく指定されていませんでした。|
-| InvalidXmlRequest| 正しくない要求 (400)| 要求本文の XML が無効または正しく指定されていませんでした。|
-| MissingOrInvalidRequiredQueryParameter| 正しくない要求 (400)| この要求に対して必要なクエリ パラメーターが指定されていないか、正しく指定されていませんでした。|
-| InvalidHttpVerb| 正しくない要求 (400)| 指定した HTTP 動詞はサーバーで認識されなかったか、このリソースに対して有効ではありません。|
-| AuthenticationFailed| 禁止 (403)| サーバーは要求を認証できませんでした。証明書が有効で、このサブスクリプションと関連付けられていることを確認してください。|
-| ResourceNotFound| 見つかりません (404)| 指定したリソースは存在しません。|
-| InternalError| 内部サーバー エラー (500)| サーバーで内部エラーが発生しました。要求を再試行してください。|
-| OperationTimedOut| 内部サーバー エラー (500)| 許可された時間内に操作を完了できません。|
-| ServerBusy| サービスを利用できません (503)| サーバー (または内部コンポーネント) は現在要求の受信に使用できません。要求を再試行してください。|
-| SubscriptionDisabled| 禁止 (403)| サブスクリプションは無効の状態にあります。|
-| BadRequest| 正しくない要求 (400)| パラメーターが正しくありません。|
-| ConflictError| 競合 (409)| 操作の完了を妨げる競合が発生しました。|
-| TemporaryRedirect| 一時リダイレクト (307)| 指定したオブジェクトが見つかりません。オブジェクトの新しい場所の一時的 URI は応答の Location フィールドから取得できます。この新しい URI で元の要求を繰り返すことができます。|
+|MissingOrIncorrectVersionHeader|正しくない要求 (400)|バージョン管理ヘッダーが指定されていないか、正しく指定されていませんでした。|
+|InvalidXmlRequest|正しくない要求 (400)|要求本文の XML が無効または正しく指定されていませんでした。|
+|MissingOrInvalidRequiredQueryParameter|正しくない要求 (400)|この要求に対して必要なクエリ パラメーターが指定されていないか、正しく指定されていませんでした。|
+|InvalidHttpVerb|正しくない要求 (400)|指定した HTTP 動詞はサーバーで認識されなかったか、このリソースに対して有効ではありません。|
+|AuthenticationFailed|禁止 (403)|サーバーは要求を認証できませんでした。 証明書が有効で、このサブスクリプションと関連付けられていることを確認してください。|
+|ResourceNotFound|見つかりません (404)|指定したリソースは存在しません。|
+|InternalError|内部サーバー エラー (500)|サーバーで内部エラーが発生しました。 要求を再試行してください。|
+|OperationTimedOut|内部サーバー エラー (500)|許可された時間内に操作を完了できません。|
+|ServerBusy|サービスを利用できません (503)|サーバー (または内部コンポーネント) は現在要求の受信に使用できません。 要求を再試行してください。|
+|SubscriptionDisabled|禁止 (403)|サブスクリプションは無効の状態にあります。|
+|BadRequest|正しくない要求 (400)|パラメーターが正しくありません。|
+|ConflictError|競合 (409)|操作の完了を妨げる競合が発生しました。|
+|TemporaryRedirect|一時リダイレクト (307)|指定したオブジェクトが見つかりません。 オブジェクトの新しい場所の一時的 URI は応答の Location フィールドから取得できます。 この新しい URI で元の要求を繰り返すことができます。|
 
 API 操作は、管理サービスで定義されている追加のエラー情報も返す可能性があります。 この追加のエラー情報は、応答本文で返されます。 エラー応答の本文は、次に示す基本形式に従います。
 
@@ -60,25 +59,22 @@ API 操作は、管理サービスで定義されている追加のエラー情�
 
 ## 関連項目
 
- [Scheduler とは何ですか。](scheduler-intro.md)
 
- [Azure Scheduler の概念、用語、およびエンティティ階層](scheduler-concepts-terms.md)
+ [Scheduler とは](scheduler-intro.md)
+ 
+ [Azure Scheduler の概念、用語集、エンティティ階層構造](scheduler-concepts-terms.md)
 
- [Azure ポータルでのスケジューラの使用の概要します。](scheduler-get-started-portal.md)
+ [Azure ポータル内で Scheduler を使用した作業開始](scheduler-get-started-portal.md)
 
  [Azure Scheduler のプランと課金](scheduler-plans-billing.md)
 
  [Azure Scheduler REST API リファレンス](https://msdn.microsoft.com/library/dn528946)
 
- [Azure のスケジューラの PowerShell コマンドレット リファレンス](scheduler-powershell-reference.md)
+ [Azure Scheduler PowerShell コマンドレット リファレンス](scheduler-powershell-reference.md)
 
  [Azure Scheduler の高可用性と信頼性](scheduler-high-availability-reliability.md)
 
- [Azure のスケジューラ送信認証](scheduler-outbound-authentication.md)
-
-
-
-
-
-
+ [Azure Scheduler 送信認証](scheduler-outbound-authentication.md)
+ 
+  
 

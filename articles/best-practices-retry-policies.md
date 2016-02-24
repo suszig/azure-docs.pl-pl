@@ -17,17 +17,16 @@
    ms.date="04/09/2015"
    ms.author="masashin"/>
 
-
 # NuGet パッケージ
 
 <p class="lead">他のコンポーネントを開始通信するために、一時的なエラーは次のようになります。
-うまく処理するより重要です。一時的な障害処理の業務を扱う、
+うまく処理するより重要です。 一時的な障害処理の業務を扱う、
 再試行ポリシーの NuGet パッケージは、1 つのインスタンス内での再試行を処理できます。</p>
 
 > このドキュメントは、概念実証としてドラフトに基づいて作成されました。 実際はありません。
->  確認済みのガイダンスです。
+  確認済みのガイダンスです。
 
-Patterns & Practices `TransientFaultHandling` 一般的な再試行ポリシーの動作のコードをお勧めします。
+Patterns & Practices の `TransientFaultHandling` コードは、一般的な再試行ポリシーの動作に推奨されています。
 
 ```
 Install-Package EnterpriseLibrary.WindowsAzure.TransientFaultHandling
@@ -37,11 +36,11 @@ Install-Package EnterpriseLibrary.WindowsAzure.TransientFaultHandling
 
 セクションには、再試行機能の構成情報が含まれています。
 
- パラメーター| 説明
+パラメーター            | 説明
 -------------------- | ----------------------
- MaximumExecutionTime| 要求の最大実行時間 (考えられるすべての再試行が含まれます)。
- ServerTimeOut| 要求のサーバー タイムアウト間隔
- RetryPolicy| 再試行ポリシー。以下の「ポリシー」セクションを参照してください。
+MaximumExecutionTime | 要求の最大実行時間 (考えられるすべての再試行が含まれます)。
+ServerTimeOut        | 要求のサーバー タイムアウト間隔
+RetryPolicy          | 再試行ポリシー。 以下の「ポリシー」セクションを参照してください。
 
 ```csharp
 /// <summary>
@@ -84,15 +83,15 @@ __方法:__
 
 2 回目以降の試行のバックオフ間隔を指数関数的に大きくします。 すべてのクライアントが同時に再試行しないように、-20% ～ +20% の無作為化をバックオフ間隔に追加します。
 
-__構成:__
+__Configuration:__
 
- パラメーター| 説明
+パラメーター            | 説明
 -------------------- | -------------------------------------------------------
- maxAttempt| 再試行回数。
- deltaBackoff| 再試行のバックオフ間隔。この期間の倍数は、後続の再試行に使用されます。
- MinBackoff| deltaBackoff から計算されたすべての再試行間隔に追加されます。
- FastFirst| 最初の即時再試行
- MaxBackoff| MaxBackoff は、計算された再試行間隔が MaxBackoff より大きい場合に使用されます。この値は変更できません。
+maxAttempt           | 再試行回数。
+deltaBackoff         | 再試行のバックオフ間隔。 この期間の倍数は、後続の再試行に使用されます。
+MinBackoff           | deltaBackoff から計算されたすべての再試行間隔に追加されます。
+FastFirst            | 最初の即時再試行
+MaxBackoff           | MaxBackoff は、計算された再試行間隔が MaxBackoff より大きい場合に使用されます。 この値は変更できません。
 
 __実装ロジック:__
 
@@ -107,7 +106,7 @@ if(!ExponentialRetry.FastFirst){
 }
 ```
 
-## 線形
+## Linear
 
 サービスの調整を回避するために、サービスの呼び出しを直線的に繰り返し試行するように配置する場合に使用されます。
 
@@ -115,13 +114,13 @@ __方法:__
 
 試行間隔に指定された固定間隔を使用して、指定された回数の試行を実行します。 すべてのクライアントが同時に再試行しないように、-20% ～ +20% の無作為化をバックオフ間隔に追加します。
 
-__構成:__
+__Configuration:__
 
- パラメーター| 説明
+パラメーター            | 説明
 -------------------- | -------------------------------------------------------
- maxAttempt| 再試行回数。
- deltaBackoff| 再試行のバックオフ間隔。
- FastFirst| 最初の即時再試行
+maxAttempt | 再試行回数。
+deltaBackoff | 再試行のバックオフ間隔。
+FastFirst | 最初の即時再試行
 
 __実装ロジック:__
 
@@ -144,7 +143,7 @@ __方法:__
 応答ヘッダーのサービスによって渡されたエラー コード/メタデータに基づいて計算されたバックオフ間隔を使用して、指定された回数の再試行を実行します。
 
 
-__構成:__
+__Configuration:__
 
 構成できません。
 
@@ -154,7 +153,7 @@ __実装ロジック:__
 
 __サーキット ブレーカー:__
 
-に基づいて [遮断器](http://msdn.microsoft.com/library/dn589784.aspx)
+基づく [遮断器](http://msdn.microsoft.com/library/dn589784.aspx)
 
 ## 機能拡張
 
@@ -183,19 +182,15 @@ public interface IRetryPolicy
 
 EventSource を使って再試行を ETW イベントとしてログに記録します。 ここでは、再試行するたびにログに記録する必要があるフィールドを示します。
 
- パラメーター| 説明
+パラメーター            | 説明
 -------------------- | -------------------------------------------------------
- requestId| ""
- policyType| "RetryExponential"
- operation| "Get: https://retry-guidance-tests.servicebus.windows.net/TestQueue/?api-version=2014-05"
- operationStartTime| "9/5/2014 10:00:13 PM"
- operationEndTime| "9/5/2014 10:00:14 PM"
- iteration| "0"
- iterationSleep| "00:00:00.1000000"
- lastExceptionType| "Microsoft.ServiceBus.Messaging.MessagingCommunicationException"
- exceptionMessage| "The remote name could not be resolved: 'retry-guidance-tests.servicebus.windows.net'.TrackingId:6a26f99c-dc6d-422e-8565-f89fdd0d4fe3,TimeStamp:9/5/2014 10:00:13 PM"
-
-
-
-
+requestId | ""
+policyType | "RetryExponential"
+operation | "Get: https://retry-guidance-tests.servicebus.windows.net/TestQueue/?api-version=2014-05"
+operationStartTime | "9/5/2014 10:00:13 PM"
+operationEndTime | "9/5/2014 10:00:14 PM"
+iteration | "0"
+iterationSleep | "00:00:00.1000000"
+lastExceptionType | "Microsoft.ServiceBus.Messaging.MessagingCommunicationException"
+exceptionMessage | "The remote name could not be resolved: 'retry-guidance-tests.servicebus.windows.net'.TrackingId:6a26f99c-dc6d-422e-8565-f89fdd0d4fe3,TimeStamp:9/5/2014 10:00:13 PM"
 

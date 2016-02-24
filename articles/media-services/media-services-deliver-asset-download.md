@@ -1,6 +1,6 @@
 <properties 
     pageTitle="メディア アセットのダウンロード" 
-    description="コンピューターへのアセットのダウンロードについて説明します。コード サンプルは C# で記述され、Media Services SDK for .NET を利用しています。" 
+    description="コンピューターへのアセットのダウンロードについて説明します。 コード サンプルは C# で記述され、Media Services SDK for .NET を利用しています。" 
     services="media-services" 
     documentationCenter="" 
     authors="juliako" 
@@ -16,14 +16,13 @@
     ms.date="12/05/2015" 
     ms.author="juliako"/>
 
-
-# 方法: ダウンロードによってアセットを配信する
+#方法: ダウンロードによってアセットを配信する
 
 このトピックでは、メディア サービスにアップロードされたメディア アセットを配信するためのオプションについて説明します。 メディア サービスのコンテンツ配信には、さまざまな方法を適用できます。 メディア アセットをダウンロードするか、ロケーターを使用してアクセスすることができます。 メディア コンテンツは、別のアプリケーションまたは別のコンテンツ プロバイダーに送ることができます。 パフォーマンスとスケーラビリティを高めるために、Content Delivery Network (CDN) を使用してコンテンツを配信することもできます。
 
-この例では、メディア アセットを Media Services からローカル コンピューターにダウンロードする方法を紹介しています。 このコードは、ジョブ ID によってメディア サービス アカウントに関連付けられたジョブのクエリを実行し、**OutputMediaAssets** コレクション (ジョブの実行の結果である 1 つまたは複数の出力メディア アセットのセット) にアクセスします。 この例は、ジョブから出力メディア アセットをダウンロードする方法を示していますが、その他のアセットをダウンロードする同じアプローチを適用することができます。
+この例では、メディア アセットを Media Services からローカル コンピューターにダウンロードする方法を紹介しています。 コードは、ジョブの ID とアクセスでは、Media Services アカウントに関連付けられているジョブのクエリ、 **OutputMediaAssets** コレクション (ジョブの実行の結果である 1 つまたは複数の出力メディア アセットのセットです)。 この例は、ジョブから出力メディア アセットをダウンロードする方法を示していますが、その他のアセットをダウンロードする同じアプローチを適用することができます。
 
-
+    
     // Download the output asset of the specified job to a local folder.
     static IAsset DownloadAssetToLocal( string jobId, string outputFolder)
     {
@@ -73,21 +72,19 @@
         Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
     }
 
-## Media Services のラーニング パス
+
+
+##Media Services のラーニング パス
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## フィードバックの提供
+##フィードバックの提供
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
+   
+##関連項目 
 
-## 関連項目
-
-[ストリーミング コンテンツを配信します。](media-services-deliver-streaming-content.md)
-
-
-
-
+[ストリーミング コンテンツを配信する](media-services-deliver-streaming-content.md)
 
 

@@ -1,13 +1,13 @@
-# Azure のセキュリティに関するガイダンス
+#Azure のセキュリティに関するガイダンス
 
-## 要約
+##要約
 
 Azure のアプリケーションを開発する場合に
 注意する必要のある主要なセキュリティの項目は、ID とアクセスです。
 このトピックでは、クラウドでの ID とアクセスに関するセキュリティの主要項目と、
 クラウド アプリケーションを保護するための最良の方法について説明します。
 
-## 概要
+##概要
 
 アプリケーションのセキュリティは、アプリケーションの表面で機能します。 アプリケーションの公開先が増えるほど、
 セキュリティ上の懸念が拡大します。 次に
@@ -27,8 +27,8 @@ Database (旧 SQL Azure)、およびその他の多くのサービスは、
 クラウド アプリケーションでは、
 攻撃を食い止める高いセキュリティ標準を設計、開発、および保守するため、
 アプリケーション開発者の負担は従来よりも多くなります。
-以下の図を見てください (J.D. Meier のMeier の [Azure のセキュリティ
-ノート PDF] (http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx)): インフラストラクチャ部分によって指定される方法に注意してください、
+以下の図を見てください (J.D. Meier の Meier の [Azure のセキュリティ
+ノート PDF](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx)): インフラストラクチャ部分によって指定される方法に注意してください、
 インフラストラクチャ部分にどのように対応するかに注目してください。
 アプリケーション開発者に多くのセキュリティ関連作業が任されています。
 
@@ -52,7 +52,7 @@ Database (旧 SQL Azure)、およびその他の多くのサービスは、
 
 脅威、攻撃、脆弱性、および対処法の
 対応策は、patterns & practices の「を参照してください [Cheat Sheet: Web
-アプリケーションのセキュリティ フレーム] (http://msdn.microsoft.com/library/ff649461.aspx) と [セキュリティ Guidance for Applications Index](http://msdn.microsoft.com/library/ff650760.aspx)します。
+アプリケーションのセキュリティ フレーム](http://msdn.microsoft.com/library/ff649461.aspx) と [セキュリティ Guidance for Applications Index](http://msdn.microsoft.com/library/ff650760.aspx)します。
 
 クラウドにおける認証とアクセス制御のメカニズムは、
 内部設置型アプリケーションの場合と大きく異なります。 クラウド アプリケーションでは、
@@ -66,18 +66,18 @@ Database (旧 SQL Azure)、およびその他の多くのサービスは、
 たとえば、Azure Active Directory Access Control (以前の Access Control
 Service (ACS)) を使用します。
 
-## 脅威、脆弱性、および攻撃
+##脅威、脆弱性、および攻撃
 
 脅威は、機密情報の漏えいやサービスの利用停止など、
 避けなければならない潜在的な問題です。
 脅威は通常、各脅威の頭文字をとった「STRIDE」という区分で分類されます。
 
--   **S**poofing or identity theft (なりすましまたは ID の盗難)
--   **T**ampering with data (データの改ざん)
--   **R**epudiation of actions (アクションの否認)
--   **I**nformation disclosure (情報漏えい)
--   **D**enial of service (サービス拒否)
--   **E**levation of privileges (特権の昇格)
+-   **S**poofing または id の盗難
+-   **T**ampering データ
+-   **R**これがアクションの否認
+-   ****漏洩
+-   **D**ービス拒否
+-   **E**特権の levation
 
 脆弱性はコードの開発でもたらされるバグで、
 攻撃者によってアプリケーションの攻撃に利用される可能性があります。 たとえば、
@@ -92,7 +92,7 @@ Service (ACS)) を使用します。
 問題を脅威、脆弱性、および攻撃に限定します。
 Azure にデプロイした Web アプリケーションに関連する
 問題を概念化した次の図を参照してください (J.D.
-Meier の [Azure セキュリティ ノート PDF](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx)):
+Meier の [Azure セキュリティ ノート PDF](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx))。
 
 ![脅威、脆弱性、および攻撃][02]
 
@@ -122,7 +122,7 @@ ID およびアクセス制御の実装における潜在的な脆弱性を発�
 -   利用する承認メカニズムは、機密情報を漏えいせずに、
     または無制限のアクセスを許可せずに、安全に遮断しますか。
 
-## 対処法
+##対処法
 
 攻撃に対する最良の対処法は、
 (独自に実装せずに) プラットフォームによって提供される ID やアクセスのメカニズムを
@@ -141,9 +141,9 @@ Security Assertion Markup Language (SAML) などのトークンの処理など�
     。
 -   [Windows Identity Foundation ランタイム (.Net 3.5/4.0)](http://www.microsoft.com/download/details.aspx?id=17331) MSDN にします。
 -   [Windows Identity Foundation 3.5/4.0 サンプルおよび Visual Studio
-    2008/2010年テンプレート] (http://www.microsoft.com/download/details.aspx?displaylang=en & id = 4451) MSDN にします。
+    2008/2010年テンプレート](http://www.microsoft.com/download/details.aspx?displaylang=en&id=4451) MSDN にします。
 
-**Azure AD Access Control (以前の ACS)**。 
+**Azure の AD アクセス制御 (旧 ACS)**します。 
 Azure AD Access Control は、Security Token
 Service (STS) を提供するクラウド サービスです。企業の Active Directory などの
 さまざまな ID プロバイダー (IdP) または
@@ -151,10 +151,10 @@ Windows Live ID、Microsoft アカウント、Facebook、Google、Yahoo! など�
 フェデレーションを利用できます。 Azure AD Access Control の詳しい情報については、
 次のリソースを参照してください。
 
--   [アクセス制御サービス 2.0](http://msdn.microsoft.com/library/gg429786.aspx)
--   [シナリオと ACS を使用したソリューション](http://msdn.microsoft.com/library/gg185920.aspx)
--   [ACS 操作方法の](http://msdn.microsoft.com/library/windowsazure/gg185939.aspx)
--   [クレーム ベース Id およびアクセス制御のガイド](http://msdn.microsoft.com/library/ff423674.aspx)
+-   [Access Control Service 2.0](http://msdn.microsoft.com/library/gg429786.aspx) 
+-   [ACS を使用したシナリオとソリューション](http://msdn.microsoft.com/library/gg185920.aspx)
+-   [ACS の利用方法](http://msdn.microsoft.com/library/windowsazure/gg185939.aspx)
+-   [A Guide to Claims-Based Identity and Access Control (クレームベースの ID およびアクセス制御)](http://msdn.microsoft.com/library/ff423674.aspx)
 -   [Identity Developer Training Kit](http://www.microsoft.com/download/details.aspx?id=14347)
 -   [MSDN 提供の Identity Developer Training Course](http://msdn.microsoft.com/IdentityTrainingCourse)
 
@@ -165,52 +165,52 @@ Windows Server に関連する識別情報ソリューション [概要] タブ 
 ) をサポートします。 AD FS の詳しい情報については、次のリソースをご覧ください
 。
 
--   [AD FS 2.0 コンテンツ マップ](http://social.technet.microsoft.com/wiki/contents/articles/2735.ad-fs-2-0-content-map.aspx)
--   [Web SSO 設計 ][web sso design]
--   [フェデレーション Web SSO 設計 ][federated web sso design]
+-   [AD FS 2.0 Content Map (AD FS 2.0 コンテンツ マップ)](http://social.technet.microsoft.com/wiki/contents/articles/2735.ad-fs-2-0-content-map.aspx)
+-   [Web SSO の設計][Web SSO Design]
+-   [フェデレーション Web SSO の設計][Federated Web SSO Design]
 
 **Azure Shared Access Signature。**Shared Access Signature
 を使用すると、BLOB またはコンテナー リソースへのアクセスを調整できます。 この
 詳しい情報については、次のリソースを
 参照してください。
 
--   [コンテナーと Blob へのアクセスを管理します。](http://msdn.microsoft.com/library/ee393343.aspx)
--   [新しいストレージ機能: 共有アクセス署名](http://blog.smarx.com/posts/new-storage-feature-signed-access-signatures)
--   [共有アクセス署名は簡単に最近](http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days)
+-   [コンテナーと BLOB へのアクセス管理](http://msdn.microsoft.com/library/ee393343.aspx)
+-   [新しいストレージ機能: 共有アクセス署名 (ブログの投稿)](http://blog.smarx.com/posts/new-storage-feature-signed-access-signatures)
+-   [Shared Access Signatures Are Easy These Days (最近使いやすくなった共有アクセス署名)](http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days)
 
-## シナリオ マップ
+##シナリオ マップ
 
 このセクションでは、このトピックで扱う主なシナリオの概要を説明します。
 個々のアプリケーションに最適な ID ソリューションを決定する際の案内図として
 想定しています。
 
--   **フェデレーション認証を使用する ASP.NET Web フォーム アプリケーション。**イン
+-   **フェデレーション認証を ASP.NET Web フォーム アプリケーションです。**イン
     このシナリオでは、Windows Server Active Directory で管理される
     Live ID や Microsoft アカウントなどのインターネット ID、または企業 ID
     を使用して、ASP.NET Web フォームへのアクセスを制御します。
 -   **フェデレーション認証を使用する WCF (SOAP) サービス**。この
     Azure AD Access Control によって管理されるサービス ID を使用して、WCF (SOAP)
     サービスへのアクセスを制御します。
--   * * フェデレーション認証、Id を使用する WCF (SOAP) サービス
-    アクティブな Directory.* * このシナリオでは、WCF へのアクセスを制御します。
+-   **フェデレーション認証、Id を使用する WCF (SOAP) サービス
+    Active Directory。**このシナリオでは、
     企業の Windows Server Active Directory によって管理される ID を使用して、WCF (SOAP) Web
     サービスへのアクセスを制御します。
 -   **フェデレーション認証を使用する WCF (REST) サービス**。この
     シナリオでは、Azure AD Access Control によって管理されるサービス ID を使用して、WCF (REST)
     サービスへのアクセスを制御します。
--   * * Live ID を持つ WCF (REST) サービスと Microsoft アカウント、Facebook、
-    Google、yahoo!、Open ID.* * このシナリオでへのアクセスを制御します。
+-   **Live ID を使用する WCF (REST) サービスと Microsoft アカウント、Facebook、
+    Google、yahoo!、Open id。**このシナリオでは、Live ID や Microsoft アカウントなどの
     インターネット ID を使用して、WCF (REST) サービスへの
     アクセスを制御します。
--   **共有 SWT トークンを使用する REST WCF サービスへの ASP.NET Web アプリケーション。**イン
+-   **使用する REST WCF サービスへの ASP.NET Web アプリケーションは共有 SWT トークンです。**イン
     このシナリオでは、フロントエンド
     ASP.NET Web アプリケーションとダウンストリーム REST サービスを含む
     分散型アプリケーションがあり、エンド ユーザーのコンテキストを物理層でフローさせます。
--   * * 要求対応でロールに基づくアクセス制御 (RBAC) 承認
-    アプリケーションと Services.* * このシナリオでは、実装します。
+-   **要求対応でのロールベースのアクセス制御 (RBAC) 承認
+    アプリケーションおよびサービスです。**このシナリオでは、ロールに基づいて
     アプリケーションに承認ロジックを実装します。
--   * * クレーム対応アプリケーションでクレームに基づく承認し、
-    Services.* * 承認を実装するこのシナリオでは
+-   **クレーム対応アプリケーションでクレーム ベースの承認と
+    サービスです。**このシナリオでは、複雑な承認ルールに基づいて
     アプリケーションに承認ロジックを実装します。
 -   **Azure ストレージ サービスの Id とアクセスのシナリオ**。で
     このシナリオでは、Azure のストレージ BLOB およびコンテナーへの
@@ -228,13 +228,13 @@ Windows Server に関連する識別情報ソリューション [概要] タブ 
     このシナリオでは、Azure Marketplace のデータセットに安全にアクセスする
     必要があります。
 
-## Azure の ID とアクセスのシナリオ
+##Azure の ID とアクセスのシナリオ
 
 このセクションでは、さまざまなアプリケーション アーキテクチャの
 一般的な ID とアクセスのシナリオの概要について説明します。 簡単な説明については
 「シナリオ マップ」を参照してください。
 
-### フェデレーション認証を使用する ASP.NET Web フォーム アプリケーション
+###フェデレーション認証を使用する ASP.NET Web フォーム アプリケーション
 
 このアプリケーション アーキテクチャ シナリオでは、Web アプリケーションを
 Azure または内部設置型システムにデプロイできます。 このアプリケーションでは、
@@ -248,16 +248,16 @@ Identity Foundation を使用します。
 
 このシナリオを実装するには、以下のリソースを参照してください。
 
--   [ACS を使用して最初の要求対応 ASP.NET アプリケーションを作成する方法](http://msdn.microsoft.com/library/gg429779.aspx)
--   [方法: ホストのログイン ページを ASP.NET Web アプリケーションで](http://msdn.microsoft.com/library/gg185926.aspx)
--   [方法: WIF および ACS を使用して要求対応 ASP.NET アプリケーションで承認を要求する実装します。](http://msdn.microsoft.com/library/gg185907.aspx)
--   [方法: 実装ロール ベースの要求対応のアクセス制御 (RBAC)
-    WIF および ACS を使用して ASP.NET アプリケーション] (http://msdn.microsoft.com/library/gg185914.aspx)
--   [方法: ACS と ASP.NET Web アプリケーションの間の信頼を構成します。
-    X.509 証明書を使用する] (http://msdn.microsoft.com/library/gg185947.aspx)
--   [サンプル コード: ASP.NET の単純フォームします。](http://msdn.microsoft.com/library/gg185938.aspx)
+-   [方法: ACS を使用して最初の要求対応 ASP.NET アプリケーションを作成する](http://msdn.microsoft.com/library/gg429779.aspx)
+-   [方法: ASP.NET Web アプリケーションでログイン ページをホストする](http://msdn.microsoft.com/library/gg185926.aspx)
+-   [方法: WIF および ACS を使用して要求対応の ASP.NET アプリケーションで 要求承認を実装する](http://msdn.microsoft.com/library/gg185907.aspx)    
+-   [方法: 実装でロール ベースのアクセス制御 (RBAC) 要求対応
+    ロール ベースのアクセス制御 (RBAC) を実装する](http://msdn.microsoft.com/library/gg185914.aspx)
+-   [ACS と ASP.NET Web アプリケーション間の信頼を構成する方法
+    間の信頼を構成する](http://msdn.microsoft.com/library/gg185947.aspx)
+-   [コード サンプル:ASP.NET の単純なフォーム](http://msdn.microsoft.com/library/gg185938.aspx)
 
-### サービス ID を使用する WCF (SOAP) サービス
+###サービス ID を使用する WCF (SOAP) サービス
 
 このアプリケーション アーキテクチャ シナリオでは、WCF (SOAP) サービスを
 Azure または内部設置型システムにデプロイできます。 このサービスは
@@ -279,16 +279,16 @@ Azure AD Access Control を構成します。
 
 このシナリオを実装するには、以下のリソースを参照してください。
 
--   [方法: X.509 証明書、パスワードを使用してサービス Id の追加
-    または、対称キー] (http://msdn.microsoft.com/library/gg185924.aspx)
--   [方法: WCF サービスへのクライアント証明書による認証
-    ACS で保護された] (http://msdn.microsoft.com/library/hh289316.aspx)
--   [方法: ユーザー名とパスワードを WCF サービスで認証
-    ACS で保護された] (http://msdn.microsoft.com/library/gg185954.aspx)
--   [サンプル コード: WCF の証明書認証](http://msdn.microsoft.com/library/gg185952.aspx)
+-   [方法: X.509 証明書、パスワードを使用してサービス Id を追加します。
+    サービス ID を追加する](http://msdn.microsoft.com/library/gg185924.aspx)
+-   [方法: を WCF サービスへのクライアント証明書による認証
+    認証する](http://msdn.microsoft.com/library/hh289316.aspx)
+-   [方法: 認証ユーザー名とパスワードを WCF サービス
+    認証する](http://msdn.microsoft.com/library/gg185954.aspx)
+-   [サンプル コード: WCF の証明書の認証](http://msdn.microsoft.com/library/gg185952.aspx)
 -   [サンプル コード: WCF ユーザー名認証](http://msdn.microsoft.com/library/gg185927.aspx)
 
-### Active Directory のフェデレーション認証、ID を使用する WCF (SOAP) サービス
+###Active Directory のフェデレーション認証、ID を使用する WCF (SOAP) サービス
 
 このアプリケーション アーキテクチャ シナリオでは、WCF (SOAP) サービスを
 Azure または内部設置型システムにデプロイできます。 企業の Windows Server Active Directory (AD) によって
@@ -308,15 +308,15 @@ AD FS によってトークンが発行されます。 このトークンは、
 
 このシナリオを実装するには、以下のリソースを参照してください。
 
--   [方法: X.509 証明書、パスワードを使用してサービス Id の追加
-    または、対称キー] (http://msdn.microsoft.com/library/gg185924.aspx)
--   [方法: Id プロバイダーとしての AD FS 2.0 の構成](http://msdn.microsoft.com/library/gg185961.aspx)
+-   [方法: X.509 証明書、パスワードを使用してサービス Id を追加します。
+    サービス ID を追加する](http://msdn.microsoft.com/library/gg185924.aspx)
+-   [方法: AD FS 2.0 を ID プロバイダーとして構成する](http://msdn.microsoft.com/library/gg185961.aspx)
 -   [方法: AD FS 2.0 を構成する管理サービスを使用して、
-    エンタープライズ Id プロバイダー] (http://msdn.microsoft.com/library/gg185905.aspx)
+    エンタープライズ ID プロバイダーとして構成する](http://msdn.microsoft.com/library/gg185905.aspx)
 -   [サンプル コード: AD FS 2.0 による WCF フェデレーション認証
-(http://msdn.microsoft.com/library/hh127796.aspx)
+](http://msdn.microsoft.com/library/hh127796.aspx)
 
-### サービス ID を使用する WCF (REST) サービス
+###サービス ID を使用する WCF (REST) サービス
 
 このシナリオでは、WCF (REST) サービスを Azure または内部設置型システムに 
 デプロイできます。 このサービスはダウンストリーム サービスとして、
@@ -339,16 +339,16 @@ Simple Web Token (SWT) トークンを発行するように Azure AD Access Cont
 
 このシナリオを実装するには、以下のリソースを参照してください。
 
--   [方法: ACS と対称を使用して WCF サービスの間の信頼を構成します。
-    キー] (http://msdn.microsoft.com/library/gg185958.aspx)
--   [方法: Azure にデプロイした REST WCF サービスを認証するには
-    ACS を使用する] (http://msdn.microsoft.com/library/hh289317.aspx)
--   [サンプル コード: ASP.NET Web サービス](http://msdn.microsoft.com/library/gg983271.aspx)
--   [サンプル コード: Windows Phone 7 アプリケーション](http://msdn.microsoft.com/library/gg983271.aspx)
--   [Azure へのアクセス制御によって発行される SWT トークンを使用する REST WCF
-    サービス (ACS)] (http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0)
+-   [ACS と対称を使用して WCF サービス間の信頼を構成する方法
+    キー](http://msdn.microsoft.com/library/gg185958.aspx)
+-   [方法: Azure にデプロイした REST WCF サービスへの認証
+    認証する](http://msdn.microsoft.com/library/hh289317.aspx)
+-   [Code Sample: ASP.NET Web Service (サンプル コード: ASP.NET Web サービス)](http://msdn.microsoft.com/library/gg983271.aspx)
+-   [Code Sample: Windows Phone 7 Application (サンプル コード: Windows Phone 7 アプリケーション)](http://msdn.microsoft.com/library/gg983271.aspx)
+-   [REST WCF With SWT Token Issued By Azure Access Control Service (ACS) (Azure Access Control Service (ACS) によって発行される SWT トークンを
+    使用する REST WCF)](http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0)
 
-### Live ID/Microsoft アカウント、Facebook、Google、Yahoo!、Open ID を使用する WCF (REST) サービス。
+###Live ID/Microsoft アカウント、Facebook、Google、Yahoo!、Open ID を使用する WCF (REST) サービス。
 
 このシナリオでは、WCF (REST) サービスを Azure または内部設置型システムに 
 デプロイできます。 Live ID、Microsoft アカウント、Facebook などの
@@ -377,16 +377,16 @@ Web ブラウザー制御が簡易になります。
 
 このシナリオを実装するには、以下のリソースを参照してください。
 
--   [方法: ACS を使用して Azure にデプロイした REST WCF サービスへの認証](http://msdn.microsoft.com/library/hh289317.aspx)
--   [方法: Google を Id プロバイダーとして構成します。](http://msdn.microsoft.com/library/gg185976.aspx)
--   [方法: Facebook を Id プロバイダーとして構成します。](http://msdn.microsoft.com/library/gg185919.aspx)
--   [方法: yahoo! を構成します。 Id プロバイダー] として (http://msdn.microsoft.com/library/gg185977.aspx)
--  [ サンプル コード: Windows Phone 7 アプリケーション](http://msdn.microsoft.com/library/gg983271.aspx)
--   [Azure へのアクセス制御によって発行される SWT トークンを使用する REST WCF
-    サービス (ACS)] (http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0)
+-   [方法: ACS を使用して Azure にデプロイした REST WCF サービスを認証する](http://msdn.microsoft.com/library/hh289317.aspx)
+-   [方法: Google を ID プロバイダーとして構成する](http://msdn.microsoft.com/library/gg185976.aspx)
+-   [方法: Facebook を ID プロバイダーとして構成する](http://msdn.microsoft.com/library/gg185919.aspx)
+-   [方法: yahoo! を構成します。 Id プロバイダーとして](http://msdn.microsoft.com/library/gg185977.aspx)
+-  [ Code Sample: Windows Phone 7 Application (サンプル コード: Windows Phone 7 アプリケーション)](http://msdn.microsoft.com/library/gg983271.aspx)
+-   [REST WCF With SWT Token Issued By Azure Access Control Service (ACS) (Azure Access Control Service (ACS) によって発行される SWT トークンを
+    使用する REST WCF)](http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0)
 
 
-### 共有 SWT トークンを使用する REST WCF サービスへの ASP.NET Web アプリケーション
+###共有 SWT トークンを使用する REST WCF サービスへの ASP.NET Web アプリケーション
 
 このシナリオでは、フロントエンド ASP.NET Web アプリケーションとダウンストリーム REST サービスを含む
 分散型アプリケーションがあり、エンド ユーザーのコンテキストを
@@ -417,13 +417,13 @@ SWT トークンを発行するように Azure AD Access Control を構成しま
 
 このシナリオを実装するには、以下のリソースを参照してください。
 
--   [方法: Google を Id プロバイダーとして構成します。](http://msdn.microsoft.com/library/gg185976.aspx)
--   [方法: Facebook を Id プロバイダーとして構成します。](http://msdn.microsoft.com/library/gg185919.aspx)
--   [方法: yahoo! を構成します。 Id プロバイダー] として (http://msdn.microsoft.com/library/gg185977.aspx)
--   [共有 SWT を使用する REST WCF サービス委任への ASP.NET Web アプリケーション
-    トークン] (http://code.msdn.microsoft.com/ASPNET-Web-App-To-REST-WCF-b2b95f82)
+-   [方法: Google を ID プロバイダーとして構成する](http://msdn.microsoft.com/library/gg185976.aspx)
+-   [方法: Facebook を ID プロバイダーとして構成する](http://msdn.microsoft.com/library/gg185919.aspx)
+-   [方法: yahoo! を構成します。 Id プロバイダーとして](http://msdn.microsoft.com/library/gg185977.aspx)
+-   [ASP.NET Web App To REST WCF Service Delegation Using Shared SWT Token (共有 SWT トークンを使用する REST WCF サービス委任への ASP.NET Web
+    アプリケーション)](http://code.msdn.microsoft.com/ASPNET-Web-App-To-REST-WCF-b2b95f82)
 
-### 要求対応アプリケーションとサービスにおけるロールベースの Access Control (RBAC)
+###要求対応アプリケーションとサービスにおけるロールベースの Access Control (RBAC)
 
 このシナリオでは、ロールに基づいて Web
 ユーザー ロールに基づいて、アプリケーションまたはサービス: get の必要な役割を持つユーザー
@@ -442,7 +442,7 @@ http://schemas.microsoft.com/ws/2008/06/identity/claims/role
 のロールの種類の要求があり、IsInRole メソッドを呼び出すときに WIF が
 ロールのメンバーシップを検証できるようにすることです。
 
-**Azure AD Access Control**。 この実装では、 
+**Azure AD アクセス制御**します。 この実装では、 
 Azure AD Access Control の要求変換ルール エンジンが使用されます。 キューにメッセージがないときに
 入力方向の要求すべてをロールの種類の要求に変換して、
 トークンがアプリケーションまたはサービスに到達したときに、
@@ -451,7 +451,7 @@ WIF がこのロール要求を解析して IsInRole メソッドの呼び出し
 
 ![][09]
 
-**WIF ClaimsAuthenticationManager**。 この実装では、
+**WIF ClaimsAuthenticationManager**します。 この実装では、
 ClaimsAuthenticationManager を WIF の機能拡張ポイントとして使用します。 この方法を使用して、
 任意の入力方向の要求をアプリケーションでロールの要求の種類に
 変換します。 複雑な変換作業が、
@@ -459,7 +459,7 @@ ClaimsAuthenticationManager を WIF の機能拡張ポイントとして使用�
 
 ![][10]
 
-**samlSecurityTokenRequriement マッピング**。 この実装では、
+**samlSecurityTokenRequriement マッピング**します。 この実装では、
 samlSecurityTokenRequirement 構成を web.config で使用して、
 ロール要求として動作する要求の種類を WIF に通知できます。 たとえば、次のように入力します。
 トークンがグループの種類の要求を運ぶ場合、それをロール要求の種類に
@@ -475,15 +475,15 @@ WIF を使用して入力方向の要求が検査されます。
 
 このシナリオを実装するには、以下のリソースを参照してください。
 
--   [方法: 実装ロール ベースの要求対応のアクセス制御 (RBAC)
-    WIF および ACS を使用して ASP.NET アプリケーション] (http://msdn.microsoft.com/library/gg185914.aspx)
--   [方法: 規則を使用してトークン変換ロジックを実装する.](http://msdn.microsoft.com/library/gg185955.aspx)
--   [に対する RoleManager による承認の要求対応 (WIF) ASP.NET Web
-    アプリケーション] (http://blogs.msdn.com/b/alikl/archive/2010/11/18/authorization-with-rolemanager-for-claims-aware-wif-asp-net-web-applications.aspx)
--   サンプル コード: [Windows Identity Foundation での IsInRole の要求を使用します。
-    SDK] (http://www.microsoft.com/downloads/details.aspx?FamilyID=c148b2df-c7af-46bb-9162-2c9422208504)
+-   [方法: 実装でロール ベースのアクセス制御 (RBAC) 要求対応
+    ロール ベースのアクセス制御 (RBAC) を実装する](http://msdn.microsoft.com/library/gg185914.aspx)
+-   [方法: 規則を使用してトークン変換ロジックを実装する](http://msdn.microsoft.com/library/gg185955.aspx)
+-   [Authorization With RoleManager For Claims Aware (WIF) ASP.NET Web Applications (要求対応 (WIF) ASP.NET Web アプリケーションに対する RoleManager による
+    アプリケーション](http://blogs.msdn.com/b/alikl/archive/2010/11/18/authorization-with-rolemanager-for-claims-aware-wif-asp-net-web-applications.aspx)
+-   サンプル コード: での IsInRole の要求を使用する [Windows Identity Foundation
+    SDK](http://www.microsoft.com/downloads/details.aspx?FamilyID=c148b2df-c7af-46bb-9162-2c9422208504)
 
-### 要求対応アプリケーションとサービスにおける要求ベースの承認
+###要求対応アプリケーションとサービスにおける要求ベースの承認
 
 このシナリオでは、複雑な承認ロジックを
 Web アプリケーションまたはサービスに実装します。IsInRole() メソッドは
@@ -500,14 +500,14 @@ ClaimsAuthorizationManager では外部のアクセス チェックを呼び出�
 
 このシナリオを実装するには、以下のリソースを参照してください。
 
--   [方法: 規則を使用してトークン変換ロジックを実装する.](http://msdn.microsoft.com/library/gg185955.aspx)
--   [方法: 要求対応の ASP.NET での承認要求を実装します。
-    WIF および ACS を使用してアプリケーションを] (http://msdn.microsoft.com/library/gg185907.aspx)
--   サンプル コード: 要求ベースの [Windows Id の承認
-    Foundation SDK] (http://www.microsoft.com/downloads/details.aspx?FamilyID=c148b2df-c7af-46bb-9162-2c9422208504)
+-   [方法: 規則を使用してトークン変換ロジックを実装する](http://msdn.microsoft.com/library/gg185955.aspx)
+-   [方法: 要求要求対応の ASP.NET での承認を実装します。
+    アプリケーションで要求承認を実装する](http://msdn.microsoft.com/library/gg185907.aspx)
+-   サンプル コード: クレーム ベースの承認」 [Windows Id
+    Foundation SDK](http://www.microsoft.com/downloads/details.aspx?FamilyID=c148b2df-c7af-46bb-9162-2c9422208504)
 
 
-## Azure ストレージ サービスの ID とアクセスのシナリオ
+##Azure ストレージ サービスの ID とアクセスのシナリオ
 
 このシナリオでは、Azure のストレージ BLOB およびコンテナーへの
 共有アクセスを安全に保護する必要があります。
@@ -527,12 +527,13 @@ URL を使用します。
 
 このシナリオを解決するには、以下のリソースを参照してください。
 
--   [コンテナーと Blob へのアクセスを管理します。](http://msdn.microsoft.com/library/ee393343.aspx)
--   [新しいストレージ機能: 共有アクセス署名](http://blog.smarx.com/posts/new-storage-feature-signed-access-signatures)
--   [共有アクセス署名は簡単に最近](http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days)
+-   [コンテナーと BLOB へのアクセス管理](http://msdn.microsoft.com/library/ee393343.aspx)
+-   [新しいストレージ機能: 共有アクセス署名 (ブログの投稿)](http://blog.smarx.com/posts/new-storage-feature-signed-access-signatures)
+-   [Shared Access Signatures Are Easy These Days (最近使いやすくなった共有アクセス署名)](http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days)
 
 
 ## Azure SQL Database の ID とアクセスのシナリオ
+
 
 SQL データベースでは SQL Server 認証のみがサポートされています。 Windows
 認証 (統合セキュリティ) はサポートされていません。 ユーザーは
@@ -551,17 +552,17 @@ SQL Database。 情報漏えいを防ぐため、
 または、数多くある子トピックのいずれかを参照してください。次に一部のトピックを示します。
 
 
-- [方法: sqlcmd を使用して SQL データベースへの接続](http://msdn.microsoft.com/library/azure/ee336280.aspx)
-- [コード サンプル: ADO.NET を使用した Azure SQL Database に接続するためのロジックを再試行してください。](http://msdn.microsoft.com/library/azure/ee336243.aspx)
-- [方法: PHP を使用して SQL データベースへの接続](http://msdn.microsoft.com/library/azure/ff394110.aspx)
-- [方法: JDBC を使用して SQL データベースへの接続](http://msdn.microsoft.com/library/azure/gg715284.aspx)
+- [方法: sqlcmd を使用した Azure SQL Database への接続](http://msdn.microsoft.com/library/azure/ee336280.aspx)
+- [方法: ADO.NET を使用して Azure SQL Database に接続する](http://msdn.microsoft.com/library/azure/ee336243.aspx)
+- [方法: PHP を使用した Azure SQL Database への接続](http://msdn.microsoft.com/library/azure/ff394110.aspx)
+- [方法: JDBC を使用した Azure SQL Database への接続](http://msdn.microsoft.com/library/azure/gg715284.aspx)
 
 
 またはを参照してください。<br/>
 [Azure SQL Database のセキュリティのガイドラインと制限事項](http://msdn.microsoft.com/library/azure/ff394108.aspx#authentication)
 
 
-## Azure Service Bus の ID とアクセスのシナリオ
+##Azure Service Bus の ID とアクセスのシナリオ
 
 Service Bus と Azure AD Access Control には特別な関連があり、
 Service Bus の各サービス名前空間が、
@@ -577,10 +578,10 @@ Service Bus と Access Control が、相互の信頼関係および関連付け�
 
 -   [ACS による Service Bus のセキュリティ保護](http://channel9.msdn.com/posts/Securing-Service-Bus-with-ACS) (ビデオ)
 -   [ACS による Service Bus のセキュリティ保護](https://skydrive.live.com/view.aspx?cid=123CCD2A7AB10107&resid=123CCD2A7AB10107%211849) (スライド)
--   [Service Bus 認証とアクセス制御による承認
-    Service] (http://msdn.microsoft.com/library/hh403962.aspx)
+-   [Service Bus 認証とアクセス制御サービスによる
+    認証](http://msdn.microsoft.com/library/hh403962.aspx)
 
-## メモリ内キャッシュの ID とアクセスのシナリオ
+##メモリ内キャッシュの ID とアクセスのシナリオ
 
 メモリ内キャッシュ (以前の Azure Cache) は、
 認証を Azure AD Access Control に依存します。 管理ポータルから利用できる
@@ -594,20 +595,20 @@ Service Bus と Access Control が、相互の信頼関係および関連付け�
 このシナリオを解決するには、以下のリソースを参照してください。
 
 -   [方法: Azure プログラムを使用してキャッシュ クライアントを構成します。
-    キャッシュ] (http://msdn.microsoft.com/library/windowsazure/gg618003.aspx)
+    キャッシュ](http://msdn.microsoft.com/library/windowsazure/gg618003.aspx)
 -   [方法: アプリケーションの構成を使用してキャッシュ クライアントを構成します。
-    Azure キャッシュ用のファイル] (http://msdn.microsoft.com/library/windowsazure/gg278346.aspx)
+    構成する (Azure Shared Caching)](http://msdn.microsoft.com/library/windowsazure/gg278346.aspx)
 -   [Azure Service Bus および Caching のサンプル](http://msdn.microsoft.com/library/ee706741.aspx) (サンプルをキャッシュします。
     セクション)。
 
-## Azure Marketplace の ID とアクセスのシナリオ
+##Azure Marketplace の ID とアクセスのシナリオ
 
 Azure Marketplace データセットへのアクセスは、無料と有料のどちらの場合でも、
 ユーザーのアクセスを許可する前に認証する必要があります。 Azure プロジェクトを
 作成するときは、認証プロセスをコードに含める必要が
 コードにインポートします。 次の一般的なシナリオで考えてみましょう。
 
-### 自分のデータセットにアクセスする
+###自分のデータセットにアクセスする
 
 このシナリオでは、自分の Marketplace サブスクリプションでデータセットを使用する
 アプリケーションを作成しています。 あなたはアプリケーションのユーザーです。
@@ -620,9 +621,9 @@ Marketplace サブスクリプションから利用できる共有キーを
 
 このシナリオを解決するには、以下のリソースを参照してください。
 
--   [Marketplace アプリでの HTTP 基本認証を使用します。](http://msdn.microsoft.com/library/gg193417.aspx)
+-   [Marketplace アプリケーションでの HTTP 基本認証の実装](http://msdn.microsoft.com/library/gg193417.aspx)
 
-### ユーザーが自分のデータセットにアクセスする
+###ユーザーが自分のデータセットにアクセスする
 
 このシナリオでは、自分のデータセットにユーザーがアクセスするのを許可するアプリケーションを
 作成しています。 アプリケーションは、Azure、内部設置型のシステム、または Marketplace に
@@ -639,7 +640,7 @@ Live ID または Microsoft アカウントの資格情報を入力するよう�
 -   [OAuth Web クライアントの例](http://go.microsoft.com/fwlink/?LinkId=219162)
 -   [OAuth リッチ クライアントの例](http://go.microsoft.com/fwlink/?LinkId=219163)
 
-### Marketplace API にアクセスするアプリケーション
+###Marketplace API にアクセスするアプリケーション
 
 このシナリオでは、
 Marketplace API にアクセスするアプリケーションを作成しています。 Marketplace API の呼び出しを完了するには、
@@ -653,87 +654,87 @@ Azure Marketplace にデプロイします。
 
 このシナリオを解決するには、以下のリソースを参照してください。
 
--   [アプリケーション発行キットをダウンロードします。](http://go.microsoft.com/fwlink/?LinkId=221323)
+-   [アプリケーション発行キットのダウンロード](http://go.microsoft.com/fwlink/?LinkId=221323)
 -   [アプリケーション用の Azure Marketplace の紹介](https://datamarket.azure.com/)
 
-## セキュリティのヒント
+##セキュリティのヒント
 
 このセクションでは、Windows Identity Foundation と
 Azure AD Access Control のセキュリティのヒントについて説明します。 アプリケーションを設計およびデプロイするときに、
 テクノロジの基本的なセキュリティ チェックリストとして使用してください。
 
-### Windows Identity Foundation
+###Windows Identity Foundation
 
 WIF に関する主なセキュリティのヒントは次のとおりです。 この情報は、
 」から [WIF の設計に関する考慮事項](http://msdn.microsoft.com/library/ee517298.aspx) と [Windows Identity Foundation
-(WIF)ASP.NET のセキュリティは Web アプリケーションの脅威と対策] (http://blogs.msdn.com/b/alikl/archive/2010/12/02/windows-identity-foundation-wif-security-for-asp-net-web-applications-threats-amp-countermeasures.aspx)
+(WIF)セキュリティを ASP.NET Web アプリケーションの脅威と対策](http://blogs.msdn.com/b/alikl/archive/2010/12/02/windows-identity-foundation-wif-security-for-asp-net-web-applications-threats-amp-countermeasures.aspx)
 .
 
--   **IssuerNameRegistry** 信頼済み Security Token Services
+-   **IssuerNameRegistry**します。 信頼済み Security Token Services
     (STS) を指定します。 信頼済み STS のみがリストされていることを確認します。
--   **cookieHandler requireSsl="true"**: セッション
+-   **cookieHandler requireSsl ="true"**します。 セッション
     Cookie を SSL プロトコルで転送することを指定します。
--   **wsFederation's requireHttps="true"**: ID プロバイダーとの
+-   **wsfederation's requireHttps ="true"**します。 ID プロバイダーとの
     フェデレーション プロトコル通信を SSL プロトコル経由で行うことを
     指定します。
--   **tokenReplayDetection enabled="true"**: トークン再生検出機能を
+-   **有効になっている tokenReplayDetection ="true"**します。 トークン再生検出機能を
     有効にすることを指定します。 この機能は、
     使用されたトークンのローカル コピーの管理時にサーバー アフィニティを作成することに注意してください。
--   **audienceUris** トークンの想定されている読者を指定します。 アプリケーションが
+-   **audienceUris**します。 トークンの想定されている読者を指定します。 アプリケーションが
     想定しないトークンを受け取ると、
     WIF によって拒否されます。
--   **requestValidation** と **httpRuntime requestValidationType**:
+-   **requestValidation** と **httpRuntime requestValidationType**します。
     ASP.NET 検証機能を有効または無効にします。 「
     説明されている [Windows Identity Foundation (WIF): 潜在的 A
-    Dangerous Request.Form Value Was Detected from the Client](http://social.technet.microsoft.com/wiki/contents/articles/1725.windows-identity-foundation-wif-a-potentially-dangerous-request-form-value-was-detected-from-the-client-wresult-t-requestsecurityto.aspx)
+    危険な Request.Form 値が、クライアントから検出されました](http://social.technet.microsoft.com/wiki/contents/articles/1725.windows-identity-foundation-wif-a-potentially-dangerous-request-form-value-was-detected-from-the-client-wresult-t-requestsecurityto.aspx)
 
-### Azure AD Access Control
+###Azure AD Access Control
 
 Azure AD Access Control のデプロイにおいては、
-次のセキュリティに関するヒントを検討してください。 この情報は、「[ACS セキュリティです。
-ガイドライン] (http://msdn.microsoft.com/library/gg185962.aspx) と [証明書とキーの管理ガイドライン](http://msdn.microsoft.com/library/hh204521.aspx)します。
+次のセキュリティに関するヒントを検討してください。 この情報はからの抜粋 [ACS セキュリティ
+ガイドライン](http://msdn.microsoft.com/library/gg185962.aspx) と [証明書とキーの管理ガイドライン](http://msdn.microsoft.com/library/hh204521.aspx)します。
 
--   **STS トークンの有効期限**。 Azure AD Access Control
+-   **STS トークンの有効期限**します。 Azure AD Access Control
     の管理ポータルを使用して、トークンの有効期限を短く設定します。
--   **Error URL 機能の使用時にデータを検証する**。 Azure
+-   **エラー URL 機能の使用時にデータを検証**します。 Azure
     AD Access Control の Error URL 機能では、
     エラー メッセージを送信するアプリケーションのページへの匿名アクセスが必要です。 このページに届くすべてのデータは、
     信頼できないソースからの危険なデータであると想定します。
--   **機密性の高いシナリオに暗号化トークンを使用する**。 トークン上で
+-   **機密性の高いシナリオ用のトークンを暗号化**します。 トークン上で
     利用できる情報が漏えいする脅威を軽減するため、
     トークンを暗号化することを考慮してください。
--   **Azure にデプロイするときに RSA を使用して Cookie を暗号化する**。
+-   **Azure に展開するときに RSA を使用して cookie を暗号化する**です。
     WIF は既定で DPAPI を使用して Cookie を暗号化します。 Web ファームおよび Azure 環境にデプロイするときに、
     サーバー アフィニティが作成され、
     例外が発生する場合があります。 Web ファームや Azure のシナリオでは、RSA で 
     代用します。
--   **トークン署名証明書**。 サービス拒否を防ぐため、トークン署名証明書は
+-   **トークン署名証明書**します。 サービス拒否を防ぐため、トークン署名証明書は
     定期的に更新してください。 Azure AD Access
     Control は、発行するすべてのセキュリティ トークンに署名します。 X.509 証明書は、
     ACS が発行する SAML トークンを使用するアプリケーションをビルドするときに
     署名のために使用されます。 署名証明書の有効期限が切れると、
     トークンの要求時にエラーが発生します。
--   **トークン署名キー**。 サービス拒否を防ぐため、トークン署名キーは定期的に更新してください。
+-   **トークン署名キー**します。 サービス拒否を防ぐため、トークン署名キーは定期的に更新してください。
     定期的に更新してください。 Azure AD Access Control は、
     発行するすべてのセキュリティ トークンに署名します。 256 ビット対称署名キーは、
     ACS が発行する SWT トークンを使用するアプリケーションをビルドするときに
     使用されます。 署名キーの有効期限が切れると、
     トークンの要求時にエラーが発生します。
--   **トークン暗号化証明書**。 サービス拒否を防ぐため、トークン暗号化証明書は
+-   **トークン暗号化証明書**します。 サービス拒否を防ぐため、トークン暗号化証明書は
     定期的に更新してください。 トークン
     暗号化は、証明書利用者のアプリケーションが WS-Trust プロトコル上の
     proof-of-possession トークンを使用する Web サービスである場合に必須になります。
     それ以外の場合、トークン暗号化は任意です。 暗号化
     証明書の有効期限が切れると、トークンの要求時にエラーが発生
     します。
--   **トークン復号化証明書**。 サービス拒否を防ぐため、トークン復号化証明書は
+-   **トークン復号化証明書**します。 サービス拒否を防ぐため、トークン復号化証明書は
     定期的に更新してください。 Azure
     AD Access Control は WS-Federation ID プロバイダー (たとえば AD FS 2.0) の
     暗号化されたトークンを受け付けることができます。 Azure AD Access Control でホストされる X.509 証明書は、
     復号化に使用されます。
     復号化証明書の有効期限が切れると、
     トークンの要求時にエラーが発生します。
--   **サービス ID 資格情報**。 サービス拒否を防ぐため、サービス ID 資格情報は
+-   **サービス id 資格情報**します。 サービス拒否を防ぐため、サービス ID 資格情報は
     定期的に更新してください。 サービス ID とは、
     Azure AD Access Control 名前空間でグローバルに構成される資格情報で、
     これを使ってアプリケーションまたはクライアントは
@@ -742,8 +743,8 @@ Azure AD Access Control のデプロイにおいては、
     AD Access Control サービス id に関連付けることができます対称。
     キー、パスワード、および X.509 証明書です。 資格情報の有効期限が切れると、
     例外を受け取ります。
--   * * Azure AD Access Control 管理サービス アカウント
-    * * 資格情報。 サービス拒否を防ぐため、管理サービス資格情報は
+-   **Azure AD Access Control 管理サービス アカウント
+    資格情報**します。 サービス拒否を防ぐため、管理サービス資格情報は
     定期的に更新してください。 Azure AD Access Control
     管理サービスでは、Azure AD Access Control 名前空間用の設定を、
     プログラムによって管理および構成 
@@ -751,8 +752,8 @@ Azure AD Access Control のデプロイにおいては、
     3 種類あります。 それは、
     対称キー、パスワード、および X.509 証明書です。 次の
     例外を受け取ります。
--   * * Ws-federation id プロバイダーの署名と暗号化
-    証明書 * します。 サービス拒否を防ぐため、
+-   **Ws-federation id プロバイダーの署名と暗号化
+    証明書**します。 サービス拒否を防ぐため、
     WS-Federation ID プロバイダーの証明書の有効性を照会します。 WS-Federation
     ID プロバイダー証明書は、そのメタデータを介して利用できます。
     AD FS などの WS-Federation ID プロバイダーの構成時に、
@@ -763,55 +764,55 @@ Azure AD Access Control のデプロイにおいては、
     照会します。 証明書の有効期限が切れると、
     例外を受け取ります。
 
-## Azure Websites を使用する共有ホスティング
+##Azure Websites を使用する共有ホスティング
 
 このトピックで説明したすべてのシナリオおよびソリューションは、
 Azure Websites でアプリケーションをホストする場合に有効です。
 
-## Azure Virtual Machines
+##Azure Virtual Machines
 
 このトピックで説明したすべてのシナリオおよびソリューションは、
 Azure Virtual Machines でアプリケーションをホストする場合に有効です。
 
-## リソース
+##リソース
 
 -   [Identity Developer Training Kit](http://go.microsoft.com/fwlink/?LinkId=214555)
 -   [MSDN 提供の Identity Developer Training Course](http://go.microsoft.com/fwlink/?LinkId=214561)
--   [クレーム ベース Id およびアクセス制御のガイド](http://go.microsoft.com/fwlink/?LinkId=214562)
--   [アクセス制御サービス](http://msdn.microsoft.com/library/windowsazure/gg429786.aspx)
--   [ACS 操作方法の](http://msdn.microsoft.com/library/windowsazure/gg185939.aspx)
--   [アクセスを使用して Azure の Web ロール ASP.NET Web アプリケーションをセキュリティで保護された制御サービス v2.0](http://social.technet.microsoft.com/wiki/contents/articles/2590.aspx)
--   [Azure AD Access Control サービス (ACS) Academy のビデオ](http://social.technet.microsoft.com/wiki/contents/articles/2777.aspx)
--   [Microsoft セキュリティ開発ライフ サイクル](http://www.microsoft.com/security/sdl/default.aspx)
--   [SDL 脅威のモデル化ツール 3.1.8](http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=2955)
--   [セキュリティとプライバシーのブログ](http://www.microsoft.com/about/twc/en/us/blogs.aspx)
--   [Security Response Center](http://www.microsoft.com/security/msrc/default.aspx)
--   [セキュリティ インテリジェンス レポート](http://www.microsoft.com/security/sir/)
--   [セキュリティ開発ライフ サイクル](http://www.microsoft.com/security/sdl/default.aspx)
+-   [要求ベースの ID およびアクセス制御のガイド](http://go.microsoft.com/fwlink/?LinkId=214562)
+-   [Access Control Service](http://msdn.microsoft.com/library/windowsazure/gg429786.aspx)
+-   [ACS の利用方法](http://msdn.microsoft.com/library/windowsazure/gg185939.aspx)
+-   [Access Control Service v2.0 を使用して、Azure Web ロール ASP.NET Web アプリケーションをセキュリティ保護する](http://social.technet.microsoft.com/wiki/contents/articles/2590.aspx)
+-   [Azure AD Access Control Service (ACS) Academy のビデオ](http://social.technet.microsoft.com/wiki/contents/articles/2777.aspx)
+-   [Microsoft Security Development Lifecycle (Microsoft セキュリティ開発ライフサイクル)](http://www.microsoft.com/security/sdl/default.aspx)
+-   [SDL Threat Modeling Tool 3.1.8](http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=2955)
+-   [セキュリティおよびプライバシーのブログ](http://www.microsoft.com/about/twc/en/us/blogs.aspx)
+-   [Security Response Center (セキュリティ対応センター)](http://www.microsoft.com/security/msrc/default.aspx)
+-   [Security Intelligence Report (セキュリティ インテリジェンス レポート)](http://www.microsoft.com/security/sir/)
+-   [Security Development Lifecycles (セキュリティ開発ライフサイクル)](http://www.microsoft.com/security/sdl/default.aspx)
 -   [セキュリティ デベロッパー センター (MSDN)](http://msdn.microsoft.com/security/)
 
 
+[01]:./media/SecurityRX/01_SecuringTheApplication.gif
+[02]:./media/SecurityRX/02_ThreatsVulnerabilitiesandAttacks.gif
+[03]:./media/SecurityRX/03_WindowsAzureADAccesscontrol.gif
+[04]:./media/SecurityRX/04_WCF(SOAP)Service.gif
+[05]:./media/SecurityRX/05_AzureADAccessControl.gif
+[06]:./media/SecurityRX/06_RESTService.gif
+[07]:./media/SecurityRX/07_WIFisOptional.gif
+[08]:./media/SecurityRX/08_ASPNETWebApptoREST.gif
+[09]:./media/SecurityRX/09_RBAC.gif
+[10]:./media/SecurityRX/10_WIFClaimsAuthenticationManager.gif
+[11]:./media/SecurityRX/11_SecurityTokenRequriementmapping.gif
+[12]:./media/SecurityRX/12_CustomRoleManager.gif
+[13]:./media/SecurityRX/13_ClaimsAuthorizationManager.gif
+[14]:./media/SecurityRX/14_WindowsAzurestorage.gif
+[15]:./media/SecurityRX/15_SQLAzureIdentityandAccessScenarios.gif
+[16]:./media/SecurityRX/16_WindowsAzureServiceBusIdentity.gif
+[17]:./media/SecurityRX/17_WindowsAzureCacheIdentity.gif
+[18]:./media/SecurityRX/18_IAccessMyDataset.gif
+[19]:./media/SecurityRX/19_UsersAccessMyDatasets.gif
+[20]:./media/SecurityRX/20_ApplicationAccessMarketplaceAPI.gif
 
-[01]: ./media/SecurityRX/01_SecuringTheApplication.gif 
-[02]: ./media/SecurityRX/02_ThreatsVulnerabilitiesandAttacks.gif 
-[03]: ./media/SecurityRX/03_WindowsAzureADAccesscontrol.gif 
-[04]: ./media/SecurityRX/04_WCF(SOAP)Service.gif 
-[05]: ./media/SecurityRX/05_AzureADAccessControl.gif 
-[06]: ./media/SecurityRX/06_RESTService.gif 
-[07]: ./media/SecurityRX/07_WIFisOptional.gif 
-[08]: ./media/SecurityRX/08_ASPNETWebApptoREST.gif 
-[09]: ./media/SecurityRX/09_RBAC.gif 
-[10]: ./media/SecurityRX/10_WIFClaimsAuthenticationManager.gif 
-[11]: ./media/SecurityRX/11_SecurityTokenRequriementmapping.gif 
-[12]: ./media/SecurityRX/12_CustomRoleManager.gif 
-[13]: ./media/SecurityRX/13_ClaimsAuthorizationManager.gif 
-[14]: ./media/SecurityRX/14_WindowsAzurestorage.gif 
-[15]: ./media/SecurityRX/15_SQLAzureIdentityandAccessScenarios.gif 
-[16]: ./media/SecurityRX/16_WindowsAzureServiceBusIdentity.gif 
-[17]: ./media/SecurityRX/17_WindowsAzureCacheIdentity.gif 
-[18]: ./media/SecurityRX/18_IAccessMyDataset.gif 
-[19]: ./media/SecurityRX/19_UsersAccessMyDatasets.gif 
-[20]: ./media/SecurityRX/20_ApplicationAccessMarketplaceAPI.gif 
-[web sso design]: http://technet.microsoft.com/library/dd807033(WS.10).aspx 
-[federated web sso design]: http://technet.microsoft.com/library/dd807050(WS.10).aspx 
+[Web SSO Design]: http://technet.microsoft.com/library/dd807033(WS.10).aspx
+[Federated Web SSO Design]: http://technet.microsoft.com/library/dd807050(WS.10).aspx
 

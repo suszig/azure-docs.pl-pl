@@ -18,8 +18,7 @@
 
 
 
-
-# Azure Automation を使用した Azure Cloud Services の管理
+#Azure Automation を使用した Azure Cloud Services の管理
 
 このガイドでは、Azure Automation サービスと、このサービスを使用して Azure クラウド サービスの管理を簡略化する方法について紹介します。
 
@@ -42,9 +41,5 @@ Azure Automation でクラウド管理タスクを自動実行すれば、運用
 ここまで、Azure Automation の基本と Azure Automation を使用して Azure クラウド サービスを管理する方法について説明しました。Azure Automation の詳細については、これらのリンクを参照してください。
 
 Azure automation の [チュートリアル入門](../automation/automation-create-runbook-from-samples.md)
-
-
-
-
-
+ 
 

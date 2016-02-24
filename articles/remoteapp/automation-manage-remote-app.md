@@ -18,8 +18,7 @@
 
 
 
-
-# Azure Automation を使用した Azure RemoteApp の管理
+#Azure Automation を使用した Azure RemoteApp の管理
 
 このガイドでは、Azure Automation サービスと、このサービスを使用して Azure RemoteApp の管理を簡略化する方法について紹介します。
 
@@ -42,8 +41,4 @@ Azure Automation によってクラウド管理タスクを自動的に実行す
 ここまで、Azure Automation の基本と Azure Automation を使用して Azure RemoteApp を管理する方法について説明しました。Azure Automation の詳細については、これらのリンクを参照してください。
 
 * Azure automation の [チュートリアル入門](../automation-create-runbook-from-samples.md)
-
-
-
-
 

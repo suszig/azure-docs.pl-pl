@@ -1,6 +1,6 @@
 <properties
    pageTitle="サンプル ギャラリーを使用して、HDInsight での Hadoop について説明します。| Microsoft Azure"
-   description="HDInsight 概要ギャラリーのサンプル アプリケーションを実行して Hadoop をすばやく学習できます。サンプル データを使用するか、独自のデータを用意します。"
+   description="HDInsight 概要ギャラリーのサンプル アプリケーションを実行して Hadoop をすばやく学習できます。 サンプル データを使用するか、独自のデータを用意します。"
    services="hdinsight"
    documentationCenter=""
    authors="mumian"
@@ -15,7 +15,6 @@
    ms.topic="get-started-article"
    ms.date="12/02/2015"
    ms.author="jgao"/>
-
 
 # HDInsight の概要ギャラリーを使用して、Hadoop について説明します。
 
@@ -32,41 +31,40 @@ HDInsight 概要ギャラリーでは、HDInsight でサンプル アプリケ�
 
 [AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
 
-* [HDInsight の Getting Started ギャラリーを使用して Hadoop を説明します。](hdinsight-learn-hadoop-use-sample-gallery.md)
+* [HDInsight の概要ギャラリーを使用して、Hadoop について説明します。](hdinsight-learn-hadoop-use-sample-gallery.md)
 
 
-![HDInsight Hadoop、Storm、HBase 概要ギャラリー ソリューション (サンプル データ付き)。][hdinsight.sample.gallery]
+![HDInsight の Hadoop、Storm、HBase 概要ギャラリー ソリューションのサンプル データを含むします。][hdinsight.sample.gallery]
 
 次のビデオ クリップでは、Twitter の傾向分析サンプルを実行する方法を示しています。
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
 
-**概要ギャラリーからサンプルを実行するには**
+**Getting Started ギャラリーからサンプルを実行するには**
 
-1.  サインイン、 [Azure portal][azure.portal]します。
-2.  左側のメニューで **[HDInsight]** をクリックします。 Hadoop クラスター、Storm クラスター、HBase クラスターなど、既存の HDInsight クラスターの一覧が表示されます。
+1.  [Azure portal][azure.portal] にサインインします。
+2.  クリックして **HDInsight** 、左側のメニュー。 Hadoop クラスター、Storm クラスター、HBase クラスターなど、既存の HDInsight クラスターの一覧が表示されます。
 3.  サンプルを実行するクラスターをクリックします。
-4.  ページの下部にある、**[クエリ コンソール]** を選択します。
+4.  クリックして **クエリ コンソール** ページの下部にあります。
 5.  クラスターの Hadoop ユーザー名とパスワードを入力します。
-6.  ページの上部にある **[概要ギャラリー]** をクリックします。
+6.  クリックして **Getting Started ギャラリー** 、ページの上部にあります。
 7.  サンプルを 1 つクリックします。 各サンプルで、実行するための詳細な手順が表示されます。 次の図は、Twitter の傾向分析のサンプルを示しています。
 
-    ![HDInsight Twitter の傾向分析サンプル][hdinsight.twitter.sample]
+    ![HDInsight Twitter の傾向分析のサンプル][hdinsight.twitter.sample]
 
 ## 次のステップ
-
 HDInsight に関するその他の資料。
 
-- [HDInsight learning map][hdinsight.learn.map]
-- [HDInsight infographic][hdinsight.infographic]
+- [HDInsight の学習マップ][hdinsight.learn.map]
+- [HDInsight のインフォ グラフィック][hdinsight.infographic]
 
+<!--Image references-->
+[hdinsight.sample.gallery]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Getting-Started-Gallery.png
+[hdinsight.twitter.sample]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Twitter-Trend-Analysis-sample.png
 
-
-
-[hdinsight.sample.gallery]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Getting-Started-Gallery.png 
-[hdinsight.twitter.sample]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Twitter-Trend-Analysis-sample.png 
-[hdinsight.learn.map]: hdinsight-learn-map.md 
-[hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960 
-[azure.portal]: https://manage.windowsazure.com 
+<!--Link references-->
+[hdinsight.learn.map]: hdinsight-learn-map.md
+[hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
+[azure.portal]:https://manage.windowsazure.com
 

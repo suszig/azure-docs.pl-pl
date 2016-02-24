@@ -17,8 +17,7 @@
     ms.date="11/13/2015"
     ms.author="szark"/>
 
-
-# Azure での Linux 入門
+#Azure での Linux 入門
 
 このトピックでは、Azure クラウドで Linux 仮想マシンを使用するさまざまな局面について概説します。 Linux 仮想マシンのデプロイは、ギャラリー内に存在するイメージを使用する際に簡単に使用できるプロセスです。
 
@@ -26,22 +25,22 @@
 
 ## 認証: ユーザー名、パスワード、SSH 鍵。
 
-Azure クラシック ポータルを使用して Linux 仮想マシンを作成すると、ユーザー名、パスワードまたは SSH 公開キーの入力が求められます。Azure で Linux 仮想マシンをデプロイするユーザー名を選択する場合、root など、既に仮想マシン内に存在するシステム アカウント (UID <100) の名前は許可されない、という制約があります。
+Azure クラシック ポータルを使用して Linux 仮想マシンを作成すると、ユーザー名、パスワードまたは SSH 公開キーの入力が求められます。 Azure で Linux 仮想マシンをデプロイするユーザー名を選択する場合、root など、既に仮想マシン内に存在するシステム アカウント (UID <100) の名前は許可されない、という制約があります。
 
 
- - を参照してください [Linux を実行する仮想マシンを作成する](virtual-machines-linux-tutorial.md)
- - を参照してください [Azure 上の Linux で SSH を使用する方法](../linux-use-ssh-key.md)
+ - 参照してください [Linux を実行する仮想マシンの作成](virtual-machines-linux-tutorial.md)
+ - 参照してください [Azure 上の Linux で SSH を使用する方法](../linux-use-ssh-key.md)
 
 
-## スーパー ユーザーの特権を使用して取得する `sudo`
+## `sudo` を使用したスーパーユーザー権限の取得
 
-Azure での仮想マシン インスタンスをデプロイする際に指定したユーザー アカウントは、特権を持つアカウントです。 このアカウントが root (スーパー ユーザー アカウント) を使用する特権を昇格できる Azure Linux エージェントによって構成されている、 `sudo` ユーティリティです。 このユーザー アカウントを使用してログインすると、コマンド構文を使用して、root としてコマンドを実行できるようになります。
+Azure での仮想マシン インスタンスをデプロイする際に指定したユーザー アカウントは、特権を持つアカウントです。 このアカウントは、Azure Linux エージェントによって `sudo` ユーティリティを使用して権限を root (スーパーユーザー アカウント) に昇格できるように構成されます。 このユーザー アカウントを使用してログインすると、コマンド構文を使用して、root としてコマンドを実行できるようになります。
 
     # sudo <COMMAND>
 
-**sudo -s** を使用して root シェルを取得することもできます。
+使用して root シェルを必要に応じて取得 **sudo-s**します。
 
-- を参照してください [Azure で Linux 仮想マシンで root 権限の使用](virtual-machines-linux-use-root-privileges.md)
+- 参照してください [Azure で Linux 仮想マシンで root 権限の使用](virtual-machines-linux-use-root-privileges.md)
 
 
 ## ファイアウォールの構成
@@ -50,7 +49,7 @@ Azure では、Azure クラシック ポータルで指定されたポートに�
 
  - 参照: [仮想マシンに対してエンドポイントを設定する方法](virtual-machines-set-up-endpoints.md)
 
-既定では、Azure ギャラリー内の Linux のイメージを使用して*iptables* ファイアウォールを有効にすることはできません。 必要があれば、このファイアウォールにフィルターを追加するように構成することはできます。
+Azure ギャラリー内の Linux のイメージを有効にしない、 *iptables* 既定ではファイアウォールです。 必要があれば、このファイアウォールにフィルターを追加するように構成することはできます。
 
 
 ## ホスト名の変更
@@ -66,41 +65,37 @@ Azure Linux エージェントには、この名前の変更を自動的に検�
  - [Azure Linux エージェント ユーザー ガイド](virtual-machines-linux-agent-user-guide.md)
 
 ### Cloud-Init
-
-**Ubuntu** イメージと **CoreOS** イメージでは、仮想マシンをブートストラップするための追加機能を提供する Azure の cloud-init を使用します。
+**Ubuntu** と **CoreOS** イメージは、cloud-init を仮想マシンをブートス トラップするその他の機能を提供する Azure を使用します。
 
  - [カスタム データを挿入する方法](virtual-machines-how-to-inject-custom-data.md)
- - [カスタム データと Cloud-init on Microsoft Azure](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
- - [Cloud-init を使用した Azure スワップ パーティションを作成します。](https://wiki.ubuntu.com/AzureSwapPartitions)
- - [Azure で CoreOS を使用する方法](virtual-machines-linux-coreos-how-to.md)
+ - [Microsoft Azure のカスタム データと Cloud-Init](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
+ - [Cloud-Init を使用した Azure スワップ パーティションの作成](https://wiki.ubuntu.com/AzureSwapPartitions)
+ - [Azure 上で CoreOS を使用する方法](virtual-machines-linux-coreos-how-to.md)
 
 
 ## 仮想マシン イメージのキャプチャ
 
 Azure には、既存の仮想マシンの状態をイメージにキャプチャする機能があります。このイメージは、後で追加の仮想マシンのインスタンスをデプロイするために使用できます。 Azure Linux エージェントは、プロビジョニング中に実行したカスタマイズをロールバックするために使用することもできます。 仮想マシンをイメージとしてキャプチャする手順は次のとおりです。
 
-1. **waagent -deprovision** を実行してプロビジョニング中のカスタマイズを元に戻します。 または、**waagent -deprovision+user** を実行して、プロビジョニング中に指定したユーザー アカウントとすべての関連データを削除します。
+1. 実行 **waagent-プロビジョニング解除** プロビジョニング中のカスタマイズを元に戻す。 または **waagent-プロビジョニング解除 + ユーザー** を必要に応じて、プロビジョニングや関連付けられているすべてのデータの中に指定したユーザー アカウントを削除します。
 
 2. 仮想マシンをシャットダウン/電源オフします。
 
-3. Azure クラシック ポータルで *[キャプチャ]* をクリックするか、Powershell ツールまたは CLI ツールを使用して仮想マシンをイメージとしてキャプチャします。
+3. クリックして *キャプチャ* Azure クラシック ポータルまたは使用で、Powershell ツールまたは CLI ツールをバーチャル マシンをイメージとしてキャプチャします。
 
  - 参照: [をテンプレートとして使用するための Linux 仮想マシンをキャプチャする方法](virtual-machines-linux-capture-image.md)
 
 
 ## ディスクの接続
 
-各仮想マシンには、一時的なローカル *リソース ディスク*が接続されています。 リソース ディスク上のデータには、再起動を行った場合の持続性がないため、仮想マシン上で実行されているアプリケーションやプロセスは、多くの場合、このディスクを過渡的および**一時的な**ストレージとして使用します。 また、オペレーティング システムがページ ファイルやスワップ ファイルを格納する場合にも使用されます。
+各仮想マシンは一時的なローカル *リソース ディスク* アタッチします。 アプリケーションおよび過渡的仮想マシンで実行中のプロセスで多くの場合、使用リソース ディスク上のデータがないため永続的な再起動を行った、および **一時** データの格納します。 また、オペレーティング システムがページ ファイルやスワップ ファイルを格納する場合にも使用されます。
 
-Linux では通常、リソース ディスクは Azure Linux エージェントによって管理され、**/mnt/resource** (または Ubuntu イメージでは **/mnt**) に自動的にマウントされます。
-
->[AZURE.NOTE] リソース ディスクは **一時ディスク**であるため、仮想マシンが再起動されると削除され再フォーマットされることに注意してください。
-
-Linux ではカーネルによって、データ ディスクをという可能性があります `/デベロッパー/sdc`, 、ユーザーがパーティション分割し、書式を設定し、そのリソースをマウントする必要があります。 このチュートリアルで詳しく説明については: [にデータ ディスクを仮想マシンに接続する方法](virtual-machines-linux-how-to-attach-disk.md)します。
-
- - **関連項目:** [Linux でのソフトウェア RAID を構成する](virtual-machines-linux-configure-raid.md)
+Linux では、リソース ディスクは通常、Azure Linux エージェントによって管理し、に自動的にマウント **/mnt/retention/リソース** (または **/mnt** Ubuntu イメージで)。
 
 
+>[AZURE.NOTE] リソース ディスクは、 **一時** ディスク、および削除され、VM が再起動したときに再フォーマット可能性があります。
 
+Linux では、データ ディスクはカーネルによって `/dev/sdc` という名前が付けられる場合があり、ユーザーはこのリソースをパーティション分割し、フォーマットした上で、マウントする必要があります。 このチュートリアルで詳しく説明については: [にデータ ディスクを仮想マシンに接続する方法](virtual-machines-linux-how-to-attach-disk.md)します。
 
+ - **関連項目:** [Linux でのソフトウェア RAID の構成](virtual-machines-linux-configure-raid.md)
 

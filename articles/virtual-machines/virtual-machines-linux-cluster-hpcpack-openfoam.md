@@ -16,33 +16,34 @@
  ms.date="11/25/2015"
  ms.author="danlep"/>
 
-
 # Azure の Linux RDMA クラスター上で Microsoft HPC Pack を使用して OpenFoam を実行する
 
 この記事は、Azure と実行上の Microsoft HPC Pack クラスターをデプロイする方法を示します、 [OpenFoam](http://openfoam.com/) Azure リモート ダイレクト メモリ アクセス (RDMA) ネットワーク経由で接続する複数の Linux 計算ノード上のジョブ Intel MPI をします。
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーのモデルです。
 
-OpenFOAM (Open Field Operation And Manipulation) は、無償提供されているオープン ソースの計算流体力学 (CFD) ソフトウェア パッケージです。工学分野や科学分野の企業や学術機関で幅広く利用されています。 メッシュ化するためのツール (特に、複雑な CAD ジオメトリ用の並列メッシュ処理機構である snappyHexMesh) や、前処理と後処理のためのツールが備わっています。 ほぼすべての処理が並列に実行され、ユーザーは、コンピューターのハードウェアを最大限に活用できます。
+OpenFOAM (Open Field Operation And Manipulation) は、無償提供されているオープン ソースの計算流体力学 (CFD) ソフトウェア パッケージです。工学分野や科学分野の企業や学術機関で幅広く利用されています。 メッシュ化するためのツール (特に、複雑な CAD ジオメトリ用の並列メッシュ処理機構である snappyHexMesh) や、前処理と後処理のためのツールが備わっています。 ほぼすべての処理が並列に実行され、ユーザーは、コンピューターのハードウェアを最大限に活用できます。  
 
 Microsoft HPC Pack は、Microsoft Azure 仮想マシンのクラスター上で各種の大規模な HPC および並列アプリケーション (MPI アプリケーションなど) を実行する機能を備えています。 Microsoft HPC Pack 2012 R2 Update 2 以降、HPC Pack では、HPC Pack クラスターにデプロイされた Linux 計算ノード VM で Linux HPC アプリケーションを実行する機能もサポートしています。 参照してください [Azure で HPC Pack クラスターで Linux 計算ノードを使ってみる](virtual-machines-linux-cluster-hpcpack.md) Linux を使用する入門用の計算ノード HPC Pack を使用します。
->[AZURE.NOTE] この記事は、Linux のシステム管理について、また Linux HPC クラスターでの MPI ワークロードの実行について、ある程度の知識がある読者を対象としています。 
+
+>[AZURE.NOTE] この記事では、Linux HPC クラスターで MPI ワークロードを実行して Linux システムの管理に関する知識があると想定しています。 
 
 ## 前提条件
 
-*   **Linux の HPC Pack クラスター計算ノード** -を参照してください [Azure で HPC Pack クラスターで Linux 計算ノードを使ってみる](virtual-machines-linux-cluster-hpcpack.md) の前提条件と Linux の HPC Pack クラスターを展開する手順は、Azure Marketplace で Azure PowerShell スクリプトと HPC Pack イメージを使用して、Azure 上のノードを計算します。 Azure の RDMA ネットワークにアクセスする A8 コンピューティング集中型インスタンスを使用する追加の考慮事項を参照してください。 [A8、A9、A10、A11 コンピューティング集中型インスタンス](virtual-machines-a8-a9-a10-a11-specs.md)します。
+*   **Linux での HPC Pack クラスター計算ノード** -を参照してください [Azure で HPC Pack クラスターで Linux 計算ノードを使ってみる](virtual-machines-linux-cluster-hpcpack.md) の前提条件と Linux の HPC Pack クラスターを展開する手順は、Azure Marketplace で Azure PowerShell スクリプトと HPC Pack イメージを使用して、Azure 上のノードを計算します。 Azure の RDMA ネットワークにアクセスする A8 コンピューティング集中型インスタンスを使用する追加の考慮事項を参照してください。 [A8、A9、A10、A11 コンピューティング集中型インスタンス](virtual-machines-a8-a9-a10-a11-specs.md)します。
 
     A8 サイズの Windows Server 2012 R2 ヘッド ノード 1 つと、A8 サイズの SUSE Linux Enterprise Server 12 計算ノード 2 つとから成る Azure ベースの HPC Pack クラスターをデプロイする際に、そのスクリプトで使用する XML 構成ファイルのサンプルを次に示します。 該当する値は、実際のサブスクリプションとサービス名に置き換えてください。
-    >[AZURE.NOTE]現在、Azure の Linux RDMA ネットワークがサポートされるのは、Azure Marketplace の RDMA 対応 SUSE Linux Enterprise Server 12 イメージから作成された VM だけです (b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708)。
+
+    >[AZURE.NOTE]現時点では、ネットワークで、Azure Linux RDMA は Azure Marketplace (b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708) に RDMA 対応の SUSE Linux Enterprise Server 12 イメージから作成された Vm でのみサポートされています。
 
     ```
     <?xml version="1.0" encoding="utf-8" ?>
     <IaaSClusterConfig>
       <Subscription>
-        <SubscriptionName>サブスクリプション 1</SubscriptionName>
+        <SubscriptionName>Subscription-1</SubscriptionName>
         <StorageAccount>allvhdsje</StorageAccount>
       </Subscription>
-      <Location>東日本</Location>  
+      <Location>Japan East</Location>  
       <VNet>
         <VNetName>suse12rdmavnet</VNetName>
         <SubnetName>SUSE12RDMACluster</SubnetName>
@@ -55,15 +56,15 @@ Microsoft HPC Pack は、Microsoft Azure 仮想マシンのクラスター上で
         <DBOption>LocalDB</DBOption>
       </Database>
       <HeadNode>
-        <VMName>SUSE12RDMA HN</VMName>
-        <ServiceName>suse12rdma je</ServiceName>
+        <VMName>SUSE12RDMA-HN</VMName>
+        <ServiceName>suse12rdma-je</ServiceName>
         <VMSize>A8</VMSize>
         <EnableRESTAPI />
         <EnableWebPortal />
       </HeadNode>
       <LinuxComputeNodes>
-        <VMNamePattern>SUSE12RDMA LN % 1%</VMNamePattern>
-        <ServiceName>suse12rdma je</ServiceName>
+        <VMNamePattern>SUSE12RDMA-LN%1%</VMNamePattern>
+        <ServiceName>suse12rdma-je</ServiceName>
         <VMSize>A8</VMSize>
         <NodeCount>2</NodeCount>
         <ImageName>b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708</ImageName>
@@ -76,7 +77,7 @@ Microsoft HPC Pack は、Microsoft Azure 仮想マシンのクラスター上で
     *   Deploy all the Linux compute nodes within one cloud service to use the RDMA network connection between the nodes.
 
     *   After deploying the Linux nodes, if you need to connect by SSH to perform any additional administrative tasks, find the SSH connection details for each Linux VM in the Azure portal.  
-
+        
 *   **Intel MPI** - To run OpenFOAM on Linux compute nodes in Azure, you need the Intel MPI Library 5 runtime from the [Intel.com site](https://software.intel.com/en-us/intel-mpi-library/). In a later step, you'll install Intel MPI on your Linux compute nodes. To prepare for this, after you register with Intel, follow the link in the confirmation email to the related web page and copy the download link for the .tgz file for the appropriate version of Intel MPI. This article is based on Intel MPI version 5.0.3.048.
 
 *   **OpenFOAM Source Pack** - Download the OpenFOAM Source Pack software for Linux from the [OpenFOAM Foundation site](http://www.openfoam.org/download/source.php). This article is based on Source Pack version 2.3.1, available for download as OpenFOAM-2.3.1.tgz. Follow the instructions later in this article to unpack and compile OpenFOAM on the Linux compute nodes.
@@ -95,25 +96,25 @@ It's easy to generate an RSA key pair, which contains a public key and a private
 1.  Log on to a Linux computer.
 
 2.  Run the following command.
-```
+
+    ```
     ssh-keygen -t rsa
     ```
-    
+
     >[AZURE.NOTE] Press **Enter** to use the default settings until the command is completed. Do not enter a passphrase here; when prompted for a password, just press **Enter**.
-    
+
     ![Generate an RSA key pair][keygen]
 
-3.  ディレクトリを ~/.ssh ディレクトリに変更します。 秘密キーは id_rsa に格納され、公開キーは id_rsa.pub に格納されます。
+3.  Change directory to the ~/.ssh directory. The private key is stored in id_rsa and the public key in id_rsa.pub.
 
-    ![公開キーと秘密キー][keys]
+    ![Private and public keys][keys]
 
-### HPC Pack クラスターにキー ペアを追加する
+### Add the key pair to the HPC Pack cluster
+1.  Make a Remote Desktop connection to your head node with your HPC Pack administrator account (the administrator account you set up when you ran the deployment script).
 
-1.  HPC Pack の管理者アカウント (デプロイ スクリプトを実行したときにセットアップした管理者アカウント) を使用してヘッド ノードへのリモート デスクトップ接続を行います。
+2. Use standard Windows Server procedures to create a domain user account in the cluster's Active Directory domain. For example, use the Active Directory User and Computers tool on the head node. The examples in this article assume you create a domain user named hpclab\hpcuser.
 
-2. 標準的な Windows Server 手順を使用して、クラスターの Active Directory ドメインにドメイン ユーザー アカウントを作成します。 たとえば、ヘッド ノードで Active Directory ユーザーとコンピューター ツールを使用します。 この記事の例では、hpclab\hpcuser という名前のドメイン ユーザーを作成することを前提とします。
-
-3.  C:\cred.xml という名前のファイルを作成し、そこに RSA キーのデータをコピーします。 このファイルの例については、この記事の最後にあるサンプル ファイルを参照してください。
+3.  Create a file named C:\cred.xml and copy the RSA key data into it. You can find an example of this file in the sample files at the end of this article.
 
     ```
     <ExtendedData>
@@ -122,25 +123,25 @@ It's easy to generate an RSA key pair, which contains a public key and a private
     </ExtendedData>
     ```
 
-4.  コマンド プロンプトを開き、次のコマンドを入力して、hpclab\hpcuser アカウントの資格情報データを設定します。 **extendeddata** パラメーターを使用して、キー データ用に作成した C:\cred.xml ファイルの名前を渡します。
+4.  Open a Command Prompt and enter the following command to set the credentials data for the hpclab\hpcuser account. You use the **extendeddata** parameter to pass the name of C:\cred.xml file you created for the key data.
 
     ```
     hpccred setcreds /extendeddata:c:\cred.xml /user:hpclab\hpcuser /password:<UserPassword>
     ```
 
-    このコマンドは、出力なしで正常に終了します。 ジョブを実行するために必要なユーザー アカウントの資格情報を設定したら、cred.xml ファイルを安全な場所に保存するか、または削除します。
+    This command completes successfully without output. After setting the credentials for the user accounts you need to run jobs, store the cred.xml file in a secure location, or delete it.
 
-5.  Linux ノードの 1 つに対して RSA キー ペアを生成した場合は、キーの使用が終わった後に、それらを削除することを忘れないでください。 既存の id_rsa ファイルまたは id_rsa.pub ファイルが見つかった場合、HPC Pack は相互の信頼関係をセットアップしません。
+5.  If you generated the RSA key pair on one of your Linux nodes, remember to delete the keys after you finish using them. HPC Pack does not set up mutual trust if it finds an existing id_rsa file or id_rsa.pub file.
 
->[AZURE.IMPORTANT] 共有クラスター上でクラスター管理者として Linux ジョブを実行することは、お勧めできません。管理者によって送信されたジョブが Linux ノードのルート アカウントで実行されることが、その理由です。 管理者以外のユーザーによって送信されたジョブは、ジョブ ユーザーと同じ名前を持つローカルの Linux ユーザー アカウントで実行されます。HPC Pack は、ジョブに割り当てられたすべてのノード間に、この Linux ユーザー用の相互の信頼関係をセットアップします。 ジョブを実行する前に Linux ノードに対して手動で Linux ユーザーをセットアップすることも、ジョブの送信時に HPC Pack がユーザーを自動的に作成するようにすることもできます。 HPC Pack でユーザーを作成した場合、ジョブの完了後にユーザーは HPC Pack によって削除されます。 ノード上でジョブが完了すると、セキュリティ上の脅威を軽減するためにキーは削除されます。
+>[AZURE.IMPORTANT] We don’t recommend running a Linux job as a cluster administrator on a shared cluster, because a job submitted by an administrator runs under the root account on the Linux nodes. A job submitted by a non-administrator user runs under a local Linux user account with the same name as the job user, and HPC Pack sets up mutual trust for this Linux user across all the nodes allocated to the job. You can set up the Linux user manually on the Linux nodes before running the job, or HPC Pack creates the user automatically when the job is submitted. If HPC Pack creates the user, HPC Pack deletes it after the job completes. The keys are removed after job completion on the nodes to reduce security threats.
 
-## Linux ノード用にファイル共有をセットアップする
+## Set up a file share for Linux nodes
 
-今度は、ヘッド ノード上のフォルダーに標準の SMB 共有を設定し、すべての Linux ノード上に共有フォルダーをマウントすることで、それらの Linux ノードが共通のパスを使用してアプリケーション ファイルにアクセスできるようにします。 必要であれば他のファイル共有方法 (Azure Files 共有、NFS 共有など) を使用することもできます。特に Azure Files 共有は多くのシナリオに対応します。 ファイル共有での詳細な手順を参照してください [Azure で HPC Pack クラスターで Linux 計算ノードを使ってみる](virtual-machines-linux-cluster-hpcpack.md)します。
+Now set up a standard SMB share on a folder on the head node, and mount the shared folder on all Linux nodes to allow the Linux nodes to access application files with a common path. If you want, you can use another file sharing option, such as an Azure Files share - recommended for many scenarios - or an NFS share. See the file sharing information and detailed steps in [Get started with Linux compute nodes in an HPC Pack Cluster in Azure](virtual-machines-linux-cluster-hpcpack.md).
 
-1.  ヘッド ノードにフォルダーを作成します。読み書き権限を設定して、フォルダーを全員で共有します。 たとえば、ヘッド ノードで C:\OpenFOAM を \\\SUSE12RDMA-HN\OpenFOAM として共有します。 ここで *SUSE12RDMA-HN* は、ヘッド ノードのホスト名を表します。
+1.  Create a folder on the head node, and share it to everyone by setting Read/Write privileges. For example, share C:\OpenFOAM on the head node as \\\\SUSE12RDMA-HN\OpenFOAM. Here, *SUSE12RDMA-HN* is the host name of the head node.
 
-2.  Windows PowerShell ウィンドウを開き、次のコマンドを実行し、共有フォルダーをマウントします。
+2.  Open a Windows PowerShell window and run the following commands to mount the shared folder.
 
     ```
     clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
@@ -148,22 +149,24 @@ It's easy to generate an RSA key pair, which contains a public key and a private
     clusrun /nodegroup:LinuxNodes mount -t cifs //SUSE12RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>`,password='<password>’`,dir_mode=0777`,file_mode=0777
     ```
 
-最初のコマンドで「/openfoam」という名前のフォルダーが LinuxNodes グループのすべてのノードで作成されます。 2 つ目のコマンドにより、dir_mode ビットと file_mode ビットが「777」に設定された共有フォルダー //SUSE12RDMA-HN/OpenFOAM が Linux ノードにマウントされます。 コマンドの *username* と *password* は、ヘッド ノード上のユーザーの資格情報とする必要があります。
->[AZURE.NOTE]"\'"2 番目のコマンドで記号は PowerShell のエスケープ記号です。 "\'、"、「,」(コンマ) ことを意味のコマンドの一部であります。
+The first command creates a folder named /openfoam on all nodes in the LinuxNodes group. The second command mounts the shared folder //SUSE12RDMA-HN/OpenFOAM onto the Linux nodes with dir_mode and file_mode bits set to 777. The *username* and *password* in the command should be the credentials of a user on the head node.
 
-## MPI と OpenFOAM のインストール
+>[AZURE.NOTE]The “\`” symbol in the second command is an escape symbol for PowerShell. “\`,” means the “,” (comma character) is a part of the command.
 
-RDMA ネットワークで OpenFOAM を MPI ジョブとして実行するには、Intel MPI ライブラリを使って OpenFOAM をコンパイルする必要があります。
+## Install MPI and OpenFOAM
 
-最初にいくつかの **clusrun** コマンドを実行して、すべての Linux ノードに Intel MPI ライブラリと OpenFOAM をインストールします。 先ほど構成したヘッド ノードの共有場所を使用して、Linux ノード間でインストール ファイルを共有します。
->[AZURE.IMPORTANT]ここで説明したインストールとコンパイルの手順は例です。特に、必須となるコンパイラやライブラリを正しくインストールするためには、ある程度、Linux のシステム管理に関する知識が必要となります。 ご使用のバージョンの Intel MPI および OpenFOAM に必要な特定の環境変数や設定を変更しなければならない場合があります。 詳細をご覧ください [Linux のインストール ガイドについては、Intel MPI Library](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html) と [OpenFOAM ソース パックのインストール](http://www.openfoam.org/download/source.php)します。
+To run OpenFOAM as an MPI job on the RDMA network, you need to compile OpenFOAM with the Intel MPI libraries. 
+
+You'll first run several **clusrun** commands to install Intel MPI libraries and OpenFOAM on all of your Linux nodes. Use the head node share configured previously to share the installation files among the Linux nodes.
+
+>[AZURE.IMPORTANT]These installation and compiling steps are examples and require some knowledge of Linux system administration, particularly to ensure that dependent compilers and libraries are installed correctly. You might need to modify certain environment variables or other settings needed for your versions of Intel MPI and OpenFOAM. For details see [Intel MPI Library for Linux Installation Guide](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html) and [OpenFOAM Source Pack Installation](http://www.openfoam.org/download/source.php).
 
 
-### Intel MPI のインストール
+### Install Intel MPI
 
-ダウンロードした Intel MPI インストール パッケージ (この例では l_mpi_p_5.0.3.048.tgz) をヘッド ノード上の C:\OpenFoam に保存し、Linux ノードが /openfoam からこのファイルにアクセスできるようにします。 そのうえで、**clusrun** を実行してすべての Linux ノードに Intel MPI ライブラリをインストールします。
+Save the downloaded installation package for Intel MPI (l_mpi_p_5.0.3.048.tgz in this example) in C:\OpenFoam on the head node so that the Linux nodes can access this file from /openfoam. Then run **clusrun** to install Intel MPI library on all of the Linux nodes.
 
-1.  次のコマンドで、各ノードの /opt/intel にインストール パッケージをコピーして抽出します。
+1.  The following commands copy the installation package and extract it to /opt/intel on each node.
 
     ```
     clusrun /nodegroup:LinuxNodes mkdir -p /opt/intel
@@ -173,38 +176,39 @@ RDMA ネットワークで OpenFOAM を MPI ジョブとして実行するには
     clusrun /nodegroup:LinuxNodes tar -xzf /opt/intel/l_mpi_p_5.0.3.048.tgz -C /opt/intel/
     ```
 
-2.  Intel MPI Library をサイレント インストールするには、silent.cfg ファイルを使用します。 例については、この記事の最後にあるサンプル ファイルを参照してください。 このファイルを共有フォルダー /openfoam に格納します。 Silent.cfg ファイルに関する詳細については、「 [Linux Installation Guide - サイレント インストール用の Intel MPI Library](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html#silentinstall)します。
-    >[AZURE.TIP]silent.cfg ファイルは必ず、Linux の改行コード (CR LF ではなく LF のみ) でテキスト ファイルとして保存してください。 これにより、スクリプトは Linux ノード上で適切に動作します。
+2.  To install Intel MPI Library silently, use a silent.cfg file. You can find an example in the sample files at the end of this article. Place this file in the shared folder /openfoam. For details about the silent.cfg file, see [Intel MPI Library for Linux Installation Guide - Silent Installation](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html#silentinstall).
 
-3.  サイレント モードで Intel MPI Library をインストールします。
+    >[AZURE.TIP]Make sure that you save your silent.cfg file as a text file with Linux line endings (LF only, not CR LF). This ensures that it runs properly on the Linux nodes.
 
+3.  Install Intel MPI Library in silent mode.
+ 
     ```
     clusrun /nodegroup:LinuxNodes bash /opt/intel/l_mpi_p_5.0.3.048/install.sh --silent /openfoam/silent.cfg
     ```
+    
+### Configure MPI
 
-### MPI の構成
-
-テストを行うため、各 Linux ノード上の /etc/security/limits.conf に以下の行を追加してください。
+For testing, you should add the following lines to the /etc/security/limits.conf on each of the Linux nodes:
 
 ```
 *               hard    memlock         unlimited
 *               soft    memlock         unlimited
 ```
 
-limits.conf ファイルを更新した後で Linux ノードを再起動します。 たとえば、次の **clusrun** コマンドを使用します。
+Restart the Linux nodes after you update the limits.conf file. For example, use the following **clusrun** command.
 
 ```
-clusrun /nodegroup:LinuxNodes systemctl reboot
+clusrun/nodegroup:LinuxNodes systemctl 再起動
 ```
 
-再起動後、共有フォルダーが /openfoam としてマウントされていることを確認してください。
+After restarting, ensure that the shared folder is mounted as /openfoam.
 
-### OpenFOAM のコンパイルとインストール
+### Compile and install OpenFOAM
 
-ダウンロードした OpenFOAM Source Pack のインストール パッケージ (この例では OpenFOAM-2.3.1.tgz) をヘッド ノード上の C:\OpenFoam に保存し、Linux ノードが /openfoam からこのファイルにアクセスできるようにします。 そのうえで **clusrun** を実行し、すべての Linux ノードで OpenFOAM をコンパイルします。
+Save the downloaded installation package for the OpenFOAM Source Pack (OpenFOAM-2.3.1.tgz in this example) to C:\OpenFoam on the head node so that the Linux nodes can access this file from /openfoam. Then run **clusrun** to compile OpenFOAM on all of the Linux nodes.
 
 
-1.  すべての Linux ノードに /opt/OpenFOAM フォルダーを作成し、そのフォルダーにソース パッケージをコピーして抽出します。
+1.  Create a folder /opt/OpenFOAM on each Linux node, copy the source package to this folder, and extract it there.
 
     ```
     clusrun /nodegroup:LinuxNodes mkdir -p /opt/OpenFOAM
@@ -214,51 +218,51 @@ clusrun /nodegroup:LinuxNodes systemctl reboot
     clusrun /nodegroup:LinuxNodes tar -xzf /opt/OpenFOAM/OpenFOAM-2.3.1.tgz -C /opt/OpenFOAM/
     ```
 
-2.  Intel MPI Library を使って OpenFOAM をコンパイルするにはまず、Intel MPI と OpenFOAM の両方について、いくつかの環境変数を設定します。 設定には settings.sh という bash スクリプトを使用します。 例については、この記事の最後にあるサンプル ファイルを参照してください。 このファイルを共有フォルダー /openfoam に格納します (Linux の改行コードで保存すること)。 このファイルには、後で OpenFOAM ジョブを実行するときに使用する MPI と OpenFOAM のランタイムの設定が格納されています。
+2.  To compile OpenFOAM with the Intel MPI Library, first set up some environment variables for both Intel MPI and OpenFOAM. Use a bash script called settings.sh to do this. You can find an example in the sample files at the end of this article. Place this file (saved with Linux line endings) in the shared folder /openfoam. This file also contains settings for the MPI and OpenFOAM runtimes that you use later to run an OpenFOAM job.
 
-3. OpenFOAM をコンパイルするために必要な依存パッケージをインストールします。 そのために、Linux のディストリビューションによっては、最初にリポジトリの追加が必要になる場合があります。 次のような **clusrun** コマンドを実行します。
+3. Install dependent packages needed to compile OpenFOAM. Depending on your Linux distribution, you might first need to add a repository. Run **clusrun** commands similar to the following:
 
     ```
     clusrun /nodegroup:LinuxNodes zypper ar http://download.opensuse.org/distribution/13.2/repo/oss/suse/ opensuse
-
+    
     clusrun /nodegroup:LinuxNodes zypper -n --gpg-auto-import-keys install --repo opensuse --force-resolution -t pattern devel_C_C++
     ```
+    
+    If necessary, ssh to each Linux node to run the commands to confirm that they run properly.
 
-    必要な場合は、個々の Linux ノードに ssh で接続し、コマンドが正しく動作することを確認します。
-
-4.  以下のコマンドを実行して、OpenFOAM をコンパイルします。 コンパイル処理は完了までに少し時間がかかります。また、大量のログ情報が標準出力に生成されるので、**/interleaved** オプションを使用して、少しずつ出力が表示されるようにしてください。
+4.  Run the following command to compile OpenFOAM. The compilation process will take some time to complete and will generate a large amount of log information to standard output, so use the **/interleaved** option to display the output interleaved.
 
     ```
     clusrun /nodegroup:LinuxNodes /interleaved source /openfoam/settings.sh `&`& /opt/OpenFOAM/OpenFOAM-2.3.1/Allwmake
     ```
+    
+    >[AZURE.NOTE]The “\`” symbol in the command is an escape symbol for PowerShell. “\`&” means the “&” is a part of the command.
 
-    >[AZURE.NOTE]"\'"コマンドで記号は PowerShell のエスケープ記号です。"\' (& m)"を意味の"&"をコマンドの一部であります。
+## Prepare to run an OpenFOAM job
 
-## OpenFOAM ジョブを実行するための準備
+Now get ready to run an MPI job called sloshingTank3D, which is one of the OpenFoam samples, on 2 Linux nodes. 
 
-ここでは、sloshingTank3D (OpenFoam サンプルの 1 つ) という MPI ジョブを 2 つの Linux ノード上で実行するための準備を行います。
+### Set up the runtime environment
 
-### ランタイム環境のセットアップ
-
-すべての Linux ノードに MPI と OpenFOAM のランタイム環境をセットアップするには、ヘッド ノードの Windows PowerShell ウィンドウで次のコマンドを実行します。 (このコマンドは、SUSE Linux に対してのみ有効です。)
+Run the following command in a Windows PowerShell window on the head node to set up the runtime environments for MPI and OpenFOAM on all Linux nodes. (This command is valid for SUSE Linux only.)
 
 ```
-clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
+clusrun/nodegroup:LinuxNodes cp/openfoam/settings.sh/etc/profile.d/
 ```
 
-### サンプル データの準備
+### Prepare sample data
 
-先ほど構成した (/openfoam としたマウント) ヘッド ノードの共有場所を使用して、Linux ノード間でファイルを共有します。
+Use the head node share you configured previously to share files among the Linux nodes (mounted as /openfoam).
 
-1.  いずれかの Linux 計算ノードに SSH で接続します。
+1.  SSH to one of your Linux compute nodes.
 
-2.  OpenFOAM ランタイム環境のセットアップが済んでいない場合は、次のコマンドで設定します。
+2.  Run the following command to set up the OpenFOAM runtime environment, if you haven’t already done this.
 
     ```
     $ source /openfoam/settings.sh
     ```
-
-3.  sloshingTank3D サンプルを共有フォルダーにコピーし、そのフォルダーに移動します。
+    
+3.  Copy the sloshingTank3D sample to the shared folder and navigate to it.
 
     ```
     $ cp -r $FOAM_TUTORIALS/multiphase/interDyMFoam/ras/sloshingTank3D /openfoam/
@@ -266,15 +270,15 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
     $ cd /openfoam/sloshingTank3D
     ```
 
-4.  このサンプルのパラメーターをそのまま使用すると、数十分またはそれ以上、実行に時間がかかる場合があります。実行時間を短縮するために、必要に応じて一部のパラメーターを変更してください。 簡単な方法としては、system/controlDict (時間の制御や、ソリューション データの読み取り/書き込みに関連したあらゆる入力データを格納するファイル) で、時間ステップ変数 deltaT と writeInterval に変更を加えることが考えられます。 たとえば deltaT の値を 0.05 から 0.5 に、writeInterval の値を 0.05 から 0.5 に変更します。
+4.  When you use the default parameters of this sample, it can take tens of minutes or longer to run, so you might want to modify some parameters to make it run faster. One simple choice is to modify the time step variables deltaT and writeInterval in the system/controlDict file, which stores all input data relating to the control of time and reading and writing solution data. For example, you could change the value of deltaT from 0.05 to 0.5 and the value of writeInterval from 0.05 to 0.5.
 
     ![Modify step variables][step_variables]
 
-5.  system/decomposeParDict ファイル内の変数に適切な値を指定します。 この例では、それぞれ 8 つのコアを持った 2 つの Linux ノードを使用しているため、numberOfSubdomains は 16 に、hierarchicalCoeffs の n は (1 1 16) に設定することになります。つまり、16 のプロセスで OpenFOAM を並列実行するという意味です。 OpenFOAM が並列で実行する方法の詳細について「 [OpenFOAM ユーザー ガイド: 並列で実行するアプリケーションで 3.4](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4)します。
+5.  Specify desired values for the variables in the system/decomposeParDict file. This example uses 2 Linux nodes each with 8 cores, so set numberOfSubdomains to 16 and n of hierarchicalCoeffs to (1 1 16), which means run OpenFOAM in parallel with 16 processes. For more about how to run OpenFOAM in parallel, see [OpenFOAM User Guide: 3.4 Running applications in parallel](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4).
 
     ![Decompose processes][decompose]
 
-6.  sloshingTank3D ディレクトリから次のコマンドを実行して、サンプル データを準備します。
+6.  Run the following commands from the sloshingTank3D directory to prepare the sample data.
 
     ```
     $ . $WM_PROJECT_DIR/bin/tools/RunFunctions
@@ -287,325 +291,328 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
     $ runApplication setFields  
     ```
-
-7.  ヘッド ノードの C:\OpenFoam\sloshingTank3D にサンプル データ ファイルがコピーされていることがわかります  (C:\OpenFoam はヘッド ノード上の共有フォルダー)。
+    
+7.  On the head node, you should see the sample data files are copied into C:\OpenFoam\sloshingTank3D. (C:\OpenFoam is the shared folder on the head node.)
 
     ![Data files on the head node][data_files]
 
-### mpirun のホスト ファイル
+### Host file for mpirun
 
-この手順では、**mpirun** コマンドで使用するホスト ファイル (一連の計算ノード) を作成します。
+In this step you create a host file (a list of compute nodes) which the **mpirun** command will use.
 
-1.  いずれかの Linux ノードの /openfoam に、hostfile という名前の新しいファイルを作成します。このファイルには、すべての Linux ノードから /openfoam/hostfile でアクセスできます。
+1.  On one of the Linux nodes, create a new file named hostfile under /openfoam, so this file can be reached at /openfoam/hostfile on all Linux nodes.
 
-2.  実際の Linux ノードの名前をこのファイルに入力します。 このファイルの例を次に示します。
-
+2.  Write your Linux node names into this file. In this example, the file looks like this:
+    
     ```       
     SUSE12RDMA-LN1
     SUSE12RDMA-LN2
     ```
+    
+    >[AZURE.TIP]You can also create this file at C:\OpenFoam\hostfile on the head node. If you do this, save it as a text file with Linux line endings (LF only, not CR LF). This ensures that it runs properly on the Linux nodes.
 
-    >[AZURE.TIP]ヘッド ノードの C:\OpenFoam\hostfile にこのファイルを作成することもできます。 その場合、Linux の改行コード (CR LF ではなく LF のみ) を使ったテキスト ファイルとして保存してください。 これにより、スクリプトは Linux ノード上で適切に動作します。
+    **Bash script wrapper**
 
-    **Bash スクリプト ラッパー**
+    If you have many Linux nodes and your job will only run on some of them, it’s not a good idea to use a fixed host file, because you don’t know which nodes will be allocated to your job. In this case, write a bash script wrapper for **mpirun** to create the host file automatically. You can find an example bash script wrapper called hpcimpirun.sh in the sample files at the end of this article and save it as /openfoam/hpcimpirun.sh. This example script does the following:
 
-    Linux ノードが多数存在し、なおかつその一部でのみジョブを実行する場合、固定ホスト ファイルの使用はお勧めできません。どのノードがジョブに割り当てられるかを把握できないためです。 この場合は、**mpirun** の bash スクリプト ラッパーを作成し、ホスト ファイルを自動的に作成してください。 この記事の最後にあるサンプル ファイルで bash スクリプト ラッパーのサンプル (hpcimpirun.sh) を探し、/openfoam/hpcimpirun.sh として保存してください。 そのサンプル スクリプトでは、次の処理が実行されます。
-
-    1.  RDMA ネットワークを介して MPI ジョブを実行するために、**mpirun** の環境変数に加え、いくつかのコマンド パラメーターを設定します。 このケースでは、次の設定が行われます。
+    1.  Sets up the environment variables for **mpirun**, and some addition command parameters to run the MPI job through the RDMA network. In this case, it sets the following:
 
         *   I_MPI_FABRICS=shm:dapl
         *   I_MPI_DAPL_PROVIDER=ofa-v2-ib0
         *   I_MPI_DYNAMIC_CONNECTION=0
 
-    2.  環境変数 $CCP_NODES_CORES に従ってホスト ファイルを作成します。この変数は、ジョブを起動したときに HPC ヘッド ノードによって設定されます。
+    2.  Creates a host file according to the environment variable $CCP_NODES_CORES, which is set by the HPC head node when the job is activated.
 
-        $CCP_NODES_CORES の形式は、次のパターンに従います。
+        The format of $CCP_NODES_CORES follows this pattern:
 
         ```
         <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>...`
         ```
 
-        各値の説明:
+        where
 
-        * `< ノードの数 >`: このジョブに割り当てられているノードの数。
+        * `<Number of nodes>`: the number of nodes allocated to this job.  
+        
+        * `<Name of node_n_...>`: the name of each node allocated to this job.
+        
+        * `<Cores of node_n_...>`: the number of cores on the node allocated to this job.
 
-        * `< node_n_... の名前 >`: このジョブに割り当てられている各ノードの名前。
-
-        * `< node_n_. のコア >`: このジョブに割り当てられたノードのコア数。
-
-        たとえば、ジョブを実行するために 2 つのノードが必要である場合、$CCP_NODES_CORES は次のようになります。
-
+        For example, if the job needs 2 nodes to run, $CCP_NODES_CORES will be similar to
+        
         ```
         2 SUSE12RDMA-LN1 8 SUSE12RDMA-LN2 8
         ```
+        
+    3.  Calls the **mpirun** command and appends 2 parameters to the command line.
 
-    3.  **mpirun** コマンドを呼び出します。コマンド ラインに 2 つのパラメーターを追加してください。
+        * `--hostfile <hostfilepath>: <hostfilepath>` - the path of the host file the script creates
 
-        * `--ホストファイル < hostfilepath >: < hostfilepath >` -このスクリプトを作成、ホスト ファイルのパス
-
-        * `- np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}` -HPC Pack ヘッド ノードには、このジョブに割り当てられているコアの合計数を格納するによって設定される環境変数です。 この場合、**mpirun** のプロセスの数を指定します。
+        * `-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}` - an environment variable set by the HPC Pack head node, which stores the number of total cores allocated to this job. In this case it specifies the number of processes for **mpirun**.
 
 
-## OpenFOAM ジョブの送信
+## Submit an OpenFOAM job
 
-いよいよ HPC クラスター マネージャーでジョブを送信します。 いくつかのジョブ タスクでは、コマンド ラインにスクリプト hpcimpirun.sh を指定する必要があります。
+Now you can submit a job in HPC Cluster Manager. You'll need to pass the script hpcimpirun.sh in the command lines for some of the job tasks.
 
-1. クラスター ヘッド ノードに接続し、HPC クラスター マネージャーを開始します。
+1. Connect to your cluster head node and start HPC Cluster Manager.
 
-2. **[リソース管理]** で、Linux 計算ノードが**オンライン**状態にあることを確認します。 オンライン状態にない場合は、その計算ノードを選択し、**[オンラインにする]** をクリックします。
+2. **In Resource Management**, ensure that the Linux compute nodes are in the **Online** state. If they are not, select them and click **Bring Online**.
 
-3.  **[ジョブ管理]** で、**[新しいジョブ]** をクリックします。
+3.  In **Job Management**, click **New Job**.
 
-4.  ジョブの名前を入力します (たとえば、_sloshingTank3D_)。
+4.  Enter a name for job such as _sloshingTank3D_.
 
     ![Job details][job_details]
 
-5.  **[ジョブ リソース]** で、リソースの種類として “ノード” を選択し、[最小] を 2 に設定します。 この例では、それぞれ 8 つのコアを持つ 2 つの Linux ノード上でジョブが実行されます。
+5.  In **Job resources**, choose the type of resource as “Node” and set the Minimum to 2. This will run the job on 2 Linux nodes each of which has 8 cores in this example.
 
-    ![ジョブ リソース][job_resources]
+    ![Job resources][job_resources]
 
-6.  4 つのタスクをジョブに追加します。それぞれのタスクには、以下のコマンド ラインと設定を使用します。
-    >[AZURE.NOTE]実行している `ソース/openfoam/settings.sh` OpenFOAM コマンドの前に呼び出し、次のタスクのために、OpenFOAM MPI ランタイム環境を設定します。
+6.  Add 4 tasks to the job with the following command lines and settings for the tasks.
 
-    *   **タスク 1**: **decomposePar** を実行して、**interDyMFoam** を並列実行するためのデータ ファイルを生成します。
+    >[AZURE.NOTE]Running `source /openfoam/settings.sh` sets up the OpenFOAM and MPI runtime environments, so each of the following tasks calls it before the OpenFOAM command.
 
-        *   このタスクには 1 つのノードを割り当てます。
+    *   **Task 1**. Run **decomposePar** to generate data files for running **interDyMFoam** in parallel.
+    
+        *   Assign 1 node to the task
 
-        *   **コマンドライン** - `/openfoam/settings.sh のソース (& a) (& a) decomposePar-強制的に >/openfoam/decomposePar${CCP_JOBID}.log`
-
-        *   **作業ディレクトリ** - /openfoam/sloshingTank3D
-
-        次の図を参照してください。 残りのタスクも同様に構成します。
+        *   **Command line** - `source /openfoam/settings.sh && decomposePar -force > /openfoam/decomposePar${CCP_JOBID}.log`
+    
+        *   **Working directory** - /openfoam/sloshingTank3D
+        
+        See the following figure. You configure the remaining tasks similarly.
 
         ![Task 1 details][task_details1]
 
-    *   **タスク 2**: **interDyMFoam** を並列実行してサンプルを計算します。
+    *   **Task 2**. Run **interDyMFoam** in parallel to compute the sample.
 
-        *   このタスクには 2 つのノードを割り当てます。
+        *   Assign 2 nodes to the task
 
-        *   **コマンドライン** - `/openfoam/settings.sh のソース (& a) (& a)/openfoam/hpcimpirun.sh interDyMFoam-並列 >/openfoam/interDyMFoam${CCP_JOBID}.log`
+        *   **Command line** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh interDyMFoam -parallel > /openfoam/interDyMFoam${CCP_JOBID}.log`
 
-        *   **作業ディレクトリ** - /openfoam/sloshingTank3D
+        *   **Working directory** - /openfoam/sloshingTank3D
 
-    *   **タスク 3**: **reconstructPar** を実行して、すべての processor_N_ ディレクトリにある一連の time ディレクトリを結合し、単一の time ディレクトリにまとめます。
+    *   **Task 3**. Run **reconstructPar** to merge the sets of time directories from each processor_N_ directory into a single set of time directories.
 
-        *   このタスクには 1 つのノードを割り当てます。
+        *   Assign 1 node to the task
 
-        *   **コマンドライン** - `/openfoam/settings.sh のソース (& a) (& a) reconstructPar >/openfoam/reconstructPar${CCP_JOBID}.log`
+        *   **Command line** - `source /openfoam/settings.sh && reconstructPar > /openfoam/reconstructPar${CCP_JOBID}.log`
 
-        *   **作業ディレクトリ** - /openfoam/sloshingTank3D
+        *   **Working directory** - /openfoam/sloshingTank3D
 
-    *   **タスク 4**: **foamToEnsight** を並列実行して、OpenFOAM の結果ファイルを EnSight 形式に変換し、case ディレクトリにある Ensight という名前のディレクトリにこの EnSight ファイルを格納します。
+    *   **Task 4**. Run **foamToEnsight** in parallel to convert the OpenFOAM result files into EnSight format and place the EnSight files in a directory named Ensight in the case directory.
 
-        *   このタスクには 2 つのノードを割り当てます。
+        *   Assign 2 nodes to the task
 
-        *   **コマンドライン** - `/openfoam/settings.sh のソース (& a) (& a)/openfoam/hpcimpirun.sh foamToEnsight-並列 >/openfoam/foamToEnsight${CCP_JOBID}.log`
+        *   **Command line** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh foamToEnsight -parallel > /openfoam/foamToEnsight${CCP_JOBID}.log`
 
-        *   **作業ディレクトリ** - /openfoam/sloshingTank3D
+        *   **Working directory** - /openfoam/sloshingTank3D
 
-6.  これらのタスクに依存関係を追加します。タスクの昇順に追加してください。
+6.  Add dependencies to these tasks in ascending task order.
 
     ![Task dependencies][task_dependencies]
 
-7.  **[送信]** をクリックして、このジョブを実行します。
+7.  Click **Submit** to run this job.
 
-    既定では、HPC Pack は、ログオンした現在のユーザー アカウントとしてジョブを送信します。 **[送信]** をクリックした後、ユーザー名とパスワードの入力を求めるダイアログ ボックスが表示される場合があります。
+    By default, HPC Pack submits the job as your current logged-on user account. After you click **Submit**, you might see a dialog box prompting you to enter the user name and password.
 
-    ![ジョブの資格情報][creds]
+    ![Job credentials][creds]
 
-    条件によっては、HPC Pack は前に入力されたユーザー情報を記憶していて、このダイアログ ボックスを表示しません。 このダイアログ ボックスが HPC Pack によって再び表示されるようにするには、コマンド プロンプトに次のコマンドを入力し、ジョブを送信します。
+    Under some conditions HPC Pack remembers the user information you input before and won’t show this dialog box. To make HPC Pack show it again, enter the following in a Command Prompt window and then submit the job.
 
     ```
     hpccred delcreds
     ```
 
-8.  ジョブの実行には、サンプルに対して設定したパラメーターによって数十分から数時間かかります。 2 つの Linux ノードで実行中のジョブがヒートマップに表示されます。
+8.  The job takes from tens of minutes to several hours according to the parameters you have set for the sample. In the heat map you will see the job running on 2 Linux nodes. 
 
-    ![ヒート マップ][heat_map]
+    ![Heat map][heat_map]
 
-    それぞれのノードで 8 つのプロセスが開始されます。
+    On each node 8 processes are started.
 
     ![Linux processes][linux_processes]
 
-9.  ジョブが終了したら、C:\OpenFoam\sloshingTank3D 下のフォルダーにあるジョブの結果と、C:\OpenFoam にあるログ ファイルを探します。
+9.  When the job finishes, find the job results in folders under C:\OpenFoam\sloshingTank3D, and the log files at C:\OpenFoam.
 
 
-## EnSight で結果を表示する
+## View results in EnSight
 
-必要に応じて使用 [EnSight](https://www.ceisoftware.com/) に視覚化して OpenFOAM ジョブの結果を分析します。 詳細については、視覚化および EnSight でのアニメーションは、情報を参照して [ビデオ ガイド](http://www.ceisoftware.com/wp-content/uploads/screencasts/vof_visualization/vof_visualization.html)します。
+Optionally use [EnSight](https://www.ceisoftware.com/) to visualize and analyze the results of the OpenFOAM job. For more about visualization and animation in EnSight, see this [video guide](http://www.ceisoftware.com/wp-content/uploads/screencasts/vof_visualization/vof_visualization.html).
 
-1.  ヘッド ノードに EnSight をインストールし、起動します。
+1.  After you install EnSight on the head node, start it.
 
-2.  C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case を開きます。
+2.  Open C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case.
 
-    ビューアーにタンクが表示されます。
+    You will see a tank in the viewer.
 
     ![Tank in EnSight][tank]
 
-3.  **internalMesh** から **Isosurface** を作成し、**alpha_water** 変数を選択します。
+3.  Create an **Isosurface** from **internalMesh** and then choose the variable **alpha_water**.
 
     ![Create an isosurface][isosurface]
 
-4.  前の手順で作成した **Isosurface_part** の色を設定します。 たとえば水色に設定します。
+4.  Set the color for **Isosurface_part** created in the previous step. For example, set it to water blue.
 
     ![Edit isosurface color][isosurface_color]
 
-5.  **[Parts]** パネルの **[walls]** を選択して **[walls]** から **[Iso-volume]** を作成し、ツール バーの **[Isosurfaces]** ボタンをクリックします。
+5.  Create an **Iso-volume** from **walls** by selecting **walls** in the **Parts** panel and click the **Isosurfaces** button in the toolbar.
 
-6.  ダイアログ ボックスで **[Type]** に **[Isovolume]** を選び、**[Isovolume range]** の [Min] を「0.5」に設定します。 **[Create with selected parts]** をクリックして Isovolume を作成します。
+6.  In the dialog box, select **Type** as **Isovolume** and set the Min of **Isovolume range** to 0.5. Click **Create with selected parts** to create the isovolume.
 
-7.  前の手順で作成した **Iso_volume_part** の色を設定します。 たとえば濃い水色に設定します。
+7.  Set the color for **Iso_volume_part** created in the previous step. For example, set it to deep water blue.
 
-8.  **walls** の色を設定します。 たとえば透明白色に設定します。
+8.  Set the color for **walls**. For example, set it to transparent white.
 
-9. これで **[Play]** をクリックすると、シミュレーションの結果が表示されます。
+9. Now click **Play** to see the results of the simulation.
 
     ![Tank result][tank_result]
 
-## サンプル ファイル
+## Sample files
 
-### サンプル cred.xml ファイル
+
+### Sample cred.xml file
 
 ```
 <ExtendedData>
-  <PrivateKey>-----BEGIN RSA PRIVATE KEY-----
+  <PrivateKey>---開始 RSA 秘密キー--
 MIIEpQIBAAKCAQEAxJKBABhnOsE9eneGHvsjdoXKooHUxpTHI1JVunAJkVmFy8JC
 qFt1pV98QCtKEHTC6kQ7tj1UT2N6nx1EY9BBHpZacnXmknpKdX4Nu0cNlSphLpru
 lscKPR3XVzkTwEF00OMiNJVknq8qXJF1T3lYx3rW5EnItn6C3nQm3gQPXP0ckYCF
 Jdtu/6SSgzV9kaapctLGPNp1Vjf9KeDQMrJXsQNHxnQcfiICp21NiUCiXosDqJrR
-AfzePdl0XwsNngouy8t0fPlNSngZvsx+kPGh/AKakKIYS0cO9W3FmdYNW8Xehzkc
+AfzePdl0XwsNngouy8t0fPlNSngZvsx + kPGh/AKakKIYS0cO9W3FmdYNW8Xehzkc
 VzrtJhU8x21hXGfSC7V0ZeD7dMeTL3tQCVxCmwIDAQABAoIBAQCve8Jh3Wc6koxZ
 qh43xicwhdwSGyliZisoozYZDC/ebDb/Ydq0BYIPMiDwADVMX5AqJuPPmwyLGtm6
-9hu5p46aycrQ5+QA299g6DlF+PZtNbowKuvX+rRvPxagrTmupkCswjglDUEYUHPW
+9hu5p46aycrQ5 + QA299g6DlF + PZtNbowKuvX rRvPxagrTmupkCswjglDUEYUHPW
 05wQaNoSqtzwS9Y85M/b24FfLeyxK0n8zjKFErJaHdhVxI6cxw7RdVlSmM9UHmah
-wTkW8HkblbOArilAHi6SlRTNZG4gTGeDzPb7fYZo3hzJyLbcaNfJscUuqnAJ+6pT
+wTkW8HkblbOArilAHi6SlRTNZG4gTGeDzPb7fYZo3hzJyLbcaNfJscUuqnAJ + 6 pt
 iY6NNp1E8PQgjvHe21yv3DRoVRM4egqQvNZgUbYAMUgr30T1UoxnUXwk2vqJMfg2
-Nzw0ESGRAoGBAPkfXjjGfc4HryqPkdx0kjXs0bXC3js2g4IXItK9YUFeZzf+476y
+Nzw0ESGRAoGBAPkfXjjGfc4HryqPkdx0kjXs0bXC3js2g4IXItK9YUFeZzf + 476y
 OTMQg/8DUbqd5rLv7PITIAqpGs39pkfnyohPjOe2zZzeoyaXurYIPV98hhH880uH
 ZUhOxJYnlqHGxGT7p2PmmnAlmY4TSJrp12VnuiQVVVsXWOGPqHx4S4f9AoGBAMn/
 vuea7hsCgwIE25MJJ55FYCJodLkioQy6aGP4NgB89Azzg527WsQ6H5xhgVMKHWyu
-Q1snp+q8LyzD0i1veEvWb8EYifsMyTIPXOUTwZgzaTTCeJNHdc4gw1U22vd7OBYy
-nZCU7Tn8Pe6eIMNztnVduiv+2QHuiNPgN7M73/x3AoGBAOL0IcmFgy0EsR8MBq0Z
+Q1snp + q8LyzD0i1veEvWb8EYifsMyTIPXOUTwZgzaTTCeJNHdc4gw1U22vd7OBYy
+nZCU7Tn8Pe6eIMNztnVduiv + 2QHuiNPgN7M73/x3AoGBAOL0IcmFgy0EsR8MBq0Z
 ge4gnniBXCYDptEINNBaeVStJUnNKzwab6PGwwm6w2VI3thbXbi3lbRAlMve7fKK
 B2ghWNPsJOtppKbPCek2Hnt0HUwb7qX7Zlj2cX/99uvRAjChVsDbYA0VJAxcIwQG
 TxXx5pFi4g0HexCa6LrkeKMdAoGAcvRIACX7OwPC6nM5QgQDt95jRzGKu5EpdcTf
 g4TNtplliblLPYhRrzokoyoaHteyxxak3ktDFCLj9eW6xoCZRQ9Tqd/9JhGwrfxw
 MS19DtCzHoNNewM/135tqyD8m7pTwM4tPQqDtmwGErWKj7BaNZARUlhFxwOoemsv
-R6DbZyECgYEAhjL2N3Pc+WW+8x2bbIBN3rJcMjBBIivB62AwgYZnA2D5wk5o0DKD
-eesGSKS5l22ZMXJNShgzPKmv3HpH22CSVpO0sNZ6R+iG8a3oq4QkU61MT1CfGoMI
-a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
------END RSA PRIVATE KEY-----</PrivateKey>
-  <PublicKey>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEkoEAGGc6wT16d4Ye+yN2hcqigdTGlMcjUlW6cAmRWYXLwkKoW3WlX3xAK0oQdMLqRDu2PVRPY3qfHURj0EEellpydeaSekp1fg27Rw2VKmEumu6Wxwo9HddXORPAQXTQ4yI0lWSerypckXVPeVjHetbkSci2foLedCbeBA9c/RyRgIUl227/pJKDNX2Rpqly0sY82nVWN/0p4NAyslexA0fGdBx+IgKnbU2JQKJeiwOomtEB/N492XRfCw2eCi7Ly3R8+U1KeBm+zH6Q8aH8ApqQohhLRw71bcWZ1g1bxd6HORxXOu0mFTzHbWFcZ9ILtXRl4Pt0x5Mve1AJXEKb username@servername;</PublicKey>
+R6DbZyECgYEAhjL2N3Pc + WW + 8x2bbIBN3rJcMjBBIivB62AwgYZnA2D5wk5o0DKD
+eesGSKS5l22ZMXJNShgzPKmv3HpH22CSVpO0sNZ6R + iG8a3oq4QkU61MT1CfGoMI
+a8lxTKnZCsRXU1HexqZs DSc + 30tz50bNqLdido/l5B4EJnQP03ciO0 =
+---終了 RSA 秘密キー--</PrivateKey>
+  <PublicKey>ssh rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEkoEAGGc6wT16d4Ye + + IgKnbU2JQKJeiwOomtEB/N492XRfCw2eCi7Ly3R8 + U1KeBm + zH6Q8aH8ApqQohhLRw71bcWZ1g1bxd6HORxXOu0mFTzHbWFcZ9ILtXRl4Pt0x5Mve1AJXEKb username@servername です。</PublicKey>
 </ExtendedData>
 ```
-### サンプル silent.cfg ファイル
+### Sample silent.cfg file
 
 ```
-# Patterns used to check silent configuration file
+# サイレント構成ファイルを確認するために使用するパターン
 #
-# anythingpat - any string
-# filepat     - the file location pattern (/file/location/to/license.lic)
-# lspat       - the license server address pattern (0123@hostname)
-# snpat       - the serial number pattern (ABCD-01234567)
+# anythingpat - 任意の文字列
+# filepat - ファイルの場所のパターン (/file/location/to/license.lic)
+# lspat のライセンス サーバーのアドレスのパターン (0123@hostname)
+# snpat のシリアル番号のパターン (ABCD 01234567)
 
-# accept EULA, valid values are: {accept, decline}
-ACCEPT_EULA=accept
+# 使用許諾契約に同意有効な値: {承諾、拒否}
+ACCEPT_EULA = を受け入れる
 
-# optional error behavior, valid values are: {yes, no}
-CONTINUE_WITH_OPTIONAL_ERROR=yes
+# 有効な値は、省略可能なエラーの動作: {yes、no}
+CONTINUE_WITH_OPTIONAL_ERROR = [はい]
 
-# install location, valid values are: {/opt/intel, filepat}
-PSET_INSTALL_DIR=/opt/intel
+# インストール場所、有効な値: {/選択/intel filepat}
+PSET_INSTALL_DIR =/選択/intel
 
-# continue with overwrite of existing installation directory, valid values are: {yes, no}
-CONTINUE_WITH_INSTALLDIR_OVERWRITE=yes
+# 有効な値は既存のインストール ディレクトリの上書きを続行: {yes、no}
+CONTINUE_WITH_INSTALLDIR_OVERWRITE = [はい]
 
-# list of components to install, valid values are: {ALL, DEFAULTS, anythingpat}
-COMPONENTS=DEFAULTS
+# インストールするコンポーネントの一覧は、有効な値は: {すべて、既定値を anythingpat}
+コンポーネントの既定値 =
 
-# installation mode, valid values are: {install, modify, repair, uninstall}
-PSET_MODE=install
+# 有効な値は、インストール モード: {インストール、変更、修復、アンインストール}
+PSET_MODE = インストール
 
-# directory for non-RPM database, valid values are: {filepat}
-#NONRPM_DB_DIR=filepat
+# RPM でないデータベースのディレクトリは、有効な値は: {filepat}
+#NONRPM_DB_DIR filepat =
 
-# Serial number, valid values are: {snpat}
-#ACTIVATION_SERIAL_NUMBER=snpat
+# 有効な値は、シリアル番号: {snpat}
+#ACTIVATION_SERIAL_NUMBER snpat =
 
-# License file or license server, valid values are: {lspat, filepat}
-#ACTIVATION_LICENSE_FILE=
+# 有効値は、ライセンス ファイル、またはライセンス サーバーを: {lspat、filepat}
+#ACTIVATION_LICENSE_FILE =
 
-# Activation type, valid values are: {exist_lic, license_server, license_file, trial_lic, serial_number}
-ACTIVATION_TYPE=trial_lic
+# 有効な値は、ライセンス認証の種類: {exist_lic license_server、license_file、trial_lic、シリアル番号}
+ACTIVATION_TYPE trial_lic =
 
-# Path to the cluster description file, valid values are: {filepat}
-#CLUSTER_INSTALL_MACHINES_FILE=filepat
+# 有効な値は、クラスターの記述ファイルへのパス、: {filepat}
+#CLUSTER_INSTALL_MACHINES_FILE filepat =
 
-# Intel(R) Software Improvement Program opt-in, valid values are: {yes, no}
-PHONEHOME_SEND_USAGE_DATA=no
+# 有効値は、intel (r) ソフトウェアの改善プログラムのオプトイン、: {yes、no}
+PHONEHOME_SEND_USAGE_DATA = なし
 
-# Perform validation of digital signatures of RPM files, valid values are: {yes, no}
-SIGNING_ENABLED=yes
+# RPM ファイルのデジタル署名の検証を行う、有効な値: {yes、no}
+SIGNING_ENABLED = [はい]
 
-# Select yes to enable mpi-selector integration, valid values are: {yes, no}
-ENVIRONMENT_REG_MPI_ENV=no
+# [はい mpi セレクターの統合を有効にする有効な値: {yes、no}
+ENVIRONMENT_REG_MPI_ENV = なし
 
-# Select yes to update ld.so.conf, valid values are: {yes, no}
-ENVIRONMENT_LD_SO_CONF=no
-```
-
-### サンプル settings.sh スクリプト
+# [はい、ld.so.conf を更新する有効な値: {yes、no}
+ENVIRONMENT_LD_SO_CONF = なし
 
 ```
-#!/bin/bash
+
+### Sample settings.sh script
+
+```
+#! bash/unmount ビン分割
 
 # impi
-source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
-export MPI_ROOT=$I_MPI_ROOT
-export I_MPI_FABRICS=shm:dapl
-export I_MPI_DAPL_PROVIDER=ofa-v2-ib0
-export I_MPI_DYNAMIC_CONNECTION=0
+ソース/opt/intel/impi/5.0.3.048/bin64/mpivars.sh
+エクスポート MPI_ROOT = $I_MPI_ROOT
+エクスポート I_MPI_FABRICS shm:dapl =
+I_MPI_DAPL_PROVIDER をエクスポートした v2-ib0 =
+エクスポート I_MPI_DYNAMIC_CONNECTION = 0
 
 # openfoam
-export FOAM_INST_DIR=/opt/OpenFOAM
-source /opt/OpenFOAM/OpenFOAM-2.3.1/etc/bashrc
-export WM_MPLIB=INTELMPI
+エクスポート FOAM_INST_DIR =/選択/OpenFOAM
+ソース/opt/OpenFOAM/OpenFOAM-2.3.1/etc/bashrc
+エクスポート WM_MPLIB INTELMPI =
 ```
 
 
-### サンプル hpcimpirun.sh スクリプト
+###Sample hpcimpirun.sh script
 
 ```
-#!/bin/bash
+#! bash/unmount ビン分割
 
-# The path of this script
-SCRIPT_PATH="$( dirname "${BASH_SOURCE[0]}" )"
+# このスクリプトのパス
+SCRIPT_PATH =「$(dirname「${BASH_SOURCE [0]}」)」
 
-# Set mpirun runtime evironment
-source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
-export MPI_ROOT=$I_MPI_ROOT
-export I_MPI_FABRICS=shm:dapl
-export I_MPI_DAPL_PROVIDER=ofa-v2-ib0
-export I_MPI_DYNAMIC_CONNECTION=0
+# セット mpirun ランタイム環境から
+ソース/opt/intel/impi/5.0.3.048/bin64/mpivars.sh
+エクスポート MPI_ROOT = $I_MPI_ROOT
+エクスポート I_MPI_FABRICS shm:dapl =
+I_MPI_DAPL_PROVIDER をエクスポートした v2-ib0 =
+エクスポート I_MPI_DYNAMIC_CONNECTION = 0
 
-# mpirun command
-MPIRUN=mpirun
-# Argument of "--hostfile"
-NODELIST_OPT="--hostfile"
-# Argument of "-np"
-NUMPROCESS_OPT="-np"
+# mpirun コマンド
+MPIRUN mpirun =
+# 引数"--ホストファイル"
+NODELIST_OPT ="--ホストファイル"
+# 引数"-np"
+NUMPROCESS_OPT ="-np"
 
-# Get node information from ENVs
+# ENVs からノード情報を取得します。
 NODESCORES=(${CCP_NODES_CORES})
-COUNT=${#NODESCORES[@]}
+COUNT = ${#NODESCORES [@]}
 
-if [ ${COUNT} -eq 0 ]
-then
-    # CCP_NODES_CORES is not found or is empty, just run the mpirun without hostfile arg.
+場合 [${COUNT}-eq 0]
+Promise.then メソッドに関するページ
+    # CCP_NODES_CORES が見つからないか、実行するだけでなくホストファイル引数。 mpirun 空では、
     ${MPIRUN} $*
 else
-    # Create the hostfile file
-    NODELIST_PATH=${SCRIPT_PATH}/hostfile_$$
+    # ホストファイル ファイルを作成します。
+    NODELIST_PATH = ${SCRIPT_PATH}/hostfile_$ $
 
     # Get every node name and write into the hostfile file
     I=1
@@ -622,29 +629,29 @@ else
     rm -f ${NODELIST_PATH}
 fi
 
-exit ${RTNSTS}
+終了 $ {RTNSTS}
+
 ```
 
 
 
 
 
-
-
-[keygen]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/keygen.png 
-[keys]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/keys.png 
-[step_variables]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/step_variables.png 
-[data_files]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/data_files.png 
-[decompose]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/decompose.png 
-[job_details]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/job_details.png 
-[job_resources]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/job_resources.png 
-[task_details1]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/task_details1.png 
-[task_dependencies]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/task_dependencies.png 
-[creds]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/creds.png 
-[heat_map]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/heat_map.png 
-[tank]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/tank.png 
-[tank_result]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/tank_result.png 
-[isosurface]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/isosurface.png 
-[isosurface_color]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/isosurface_color.png 
-[linux_processes]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/linux_processes.png 
+<!--Image references-->
+[keygen]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/keygen.png
+[keys]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/keys.png
+[step_variables]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/step_variables.png
+[data_files]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/data_files.png
+[decompose]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/decompose.png
+[job_details]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/job_details.png
+[job_resources]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/job_resources.png
+[task_details1]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/task_details1.png
+[task_dependencies]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/task_dependencies.png
+[creds]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/creds.png
+[heat_map]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/heat_map.png
+[tank]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/tank.png
+[tank_result]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/tank_result.png
+[isosurface]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/isosurface.png
+[isosurface_color]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/isosurface_color.png
+[linux_processes]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/linux_processes.png
 

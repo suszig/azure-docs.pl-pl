@@ -16,8 +16,7 @@
     ms.date="09/23/2015"
     ms.author="yidingz"/>
 
-
-# .NET 向け Azure Batch ライブラリの概要
+# .NET 向け Azure Batch ライブラリの概要  
 
 Azure Batch .NET ライブラリで作業を開始するにはまず、サポート ファイルを設定するコンソール アプリケーションと、Azure Batch プールの複数のコンピューティング ノードで実行されるプログラムを作成します。 このチュートリアルで作成されるタスクは、Azure Storage にアップロードされたファイルのテキストを評価して、これらのファイルで最もよく使用される単語を返します。 サンプルは C# および使用で記述され、 [Azure Batch .NET ライブラリ](https://msdn.microsoft.com/library/azure/mt348682.aspx)します。
 
@@ -25,23 +24,23 @@ Azure Batch .NET ライブラリで作業を開始するにはまず、サポー
 
 - アカウント:
 
-    - **Azure アカウント** - 数分で無料試用版のアカウントを作成できます。 詳細については、「 [Azure 無料試用版](http://azure.microsoft.com/pricing/free-trial/)します。
+    - **Azure アカウント** -ほんの数分で無料の試用アカウントを作成することができます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/)をご覧ください。
 
     - **Batch アカウント** -を参照してください [を作成して、Azure Batch アカウントを管理](batch-account-create-portal.md)します。
 
-    - **ストレージ アカウント** -を参照してください、 **ストレージ アカウントの作成** の [は Azure ストレージ アカウント](../storage-create-storage-account.md)します。 このチュートリアルでは、**testcon1** という名前のアカウントでコンテナーを作成します。
+    - **ストレージ アカウント** -を参照してください、 **ストレージ アカウントの作成** の [は Azure ストレージ アカウント](../storage-create-storage-account.md)します。 このチュートリアルではという名前のアカウントでコンテナーを作成する **testcon1**します。
 
 - Visual Studio コンソール アプリケーション プロジェクト:
 
-    1.  Visual Studio を開き、[**ファイル**] メニューの [**新規作成**] をクリックした後、[**プロジェクト**] をクリックします。
+    1.  Visual Studio を開き、 **ファイル** ] メニューのをクリックして **新規**, 、クリックして **プロジェクト**します。
 
-    2.  **[Windows]** で、**[Visual C#]** の **[コンソール アプリケーション]** をクリックします。プロジェクト名として「**GettingStarted**」、ソリューション名として「**AzureBatch**」と入力し、**[OK]** をクリックします。
+    2.   **Windows**, [ **Visual c#**, 、] をクリックして **コンソール アプリケーション**, 、プロジェクトに名前を **GettingStarted**, 、ソリューションの名前 **AzureBatch**, 、] をクリックし、 **[ok]**します。
 
 - NuGet アセンブリ:
 
-    1. Visual Studio でプロジェクトを作成した後、**ソリューション エクスプローラー**でプロジェクトを右クリックし、**[NuGet パッケージの管理]** を選択します。 "**Azure.Batch**" をオンラインで検索し、[**インストール**] をクリックして Microsoft Azure Batch のパッケージと依存関係をインストールします。
+    1. Visual Studio でプロジェクトを作成した後で、プロジェクトを右クリックして **ソリューション エクスプ ローラー** 選択 **NuGet パッケージの管理**します。 オンラインで検索 **Azure.Batch** ] をクリックし、 **インストール** 、Microsoft Azure Batch のパッケージと依存関係をインストールします。
 
-    2. "**WindowsAzure.Storage**" をオンラインで検索し、[**インストール**] をクリックして Azure Storage のパッケージと依存関係をインストールします。
+    2. オンラインで検索 **WindowsAzure.Storage** ] をクリックし、 **インストール** 、Azure Storage のパッケージと依存関係をインストールします。
 
 > [AZURE.TIP] これにより、チュートリアルで説明したコア Batch の概念のいくつか使用する [Azure Batch の機能概要](batch-api-basics.md), 、もののバッチに新しいを読み込んでをお勧めします。
 
@@ -51,7 +50,7 @@ Azure Batch .NET ライブラリで作業を開始するにはまず、サポー
 
 ### ストレージ接続文字列を設定する
 
-1. GettingStarted プロジェクトの App.config ファイルを開き、追加、 *< appSettings >* 要素を *< configuration >*します。
+1. GettingStarted プロジェクトの App.config ファイルを開き、追加、 *& lt; appSettings & gt;* 要素を *& lt; 構成 & gt;*します。
 
         <?xml version="1.0" encoding="utf-8" ?>
         <configuration>
@@ -62,9 +61,9 @@ Azure Batch .NET ライブラリで作業を開始するにはまず、サポー
 
     次の値を置き換えます。
 
-    - **[account-name]** - 以前に作成したストレージ アカウントの名前。
+    - **[アカウント名]** -以前に作成したストレージ アカウントの名前。
 
-    - **[account-key]** - ストレージ アカウントのプライマリ キー。 Azure ポータルの [Storage] ページで、プライマリ キーを確認できます。
+    - **[アカウント キー]** -ストレージ アカウントのプライマリ キー。 Azure ポータルの [Storage] ページで、プライマリ キーを確認できます。
 
 2. App.config ファイルを保存します。
 
@@ -79,43 +78,44 @@ Azure のストレージ接続文字列の詳細については、次を参照�
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Blob;
 
-2. *System.Configuration* を、 GettingStarted プロジェクトの [**ソリューション エクスプローラー**] にある [**参照**] に追加します。
+2. 追加 *System.Configuration* に **参照** で **ソリューション エクスプ ローラー** GettingStarted プロジェクトの
 
 3. 次のメソッドを Program クラスに追加します。このメソッドは、ストレージ接続文字列を取得し、コンテナーを作成し、アクセス許可を設定します。
 
-     static void CreateStorage()
-     {
-         // Get the storage connection string
-         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-             ConfigurationManager.AppSettings["StorageConnectionString"]);
-    
-         // Create the container
-         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-         CloudBlobContainer container = blobClient.GetContainerReference("testcon1");
-         container.CreateIfNotExists();
-    
-         // Set permissions on the container
-         BlobContainerPermissions containerPermissions = new BlobContainerPermissions();
-         containerPermissions.PublicAccess = BlobContainerPublicAccessType.Blob;
-         container.SetPermissions(containerPermissions);
-         Console.WriteLine("Created the container. Press Enter to continue.");
-         Console.ReadLine();
-     }
+        static void CreateStorage()
+        {
+            // Get the storage connection string
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+                ConfigurationManager.AppSettings["StorageConnectionString"]);
+
+            // Create the container
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            CloudBlobContainer container = blobClient.GetContainerReference("testcon1");
+            container.CreateIfNotExists();
+
+            // Set permissions on the container
+            BlobContainerPermissions containerPermissions = new BlobContainerPermissions();
+            containerPermissions.PublicAccess = BlobContainerPublicAccessType.Blob;
+            container.SetPermissions(containerPermissions);
+            Console.WriteLine("Created the container. Press Enter to continue.");
+            Console.ReadLine();
+        }
 
 4. 次のコードを Main に追加します。このコードは、先ほど追加したメソッドを呼び出します。
 
         CreateStorage();
 
 5. Program.cs ファイルを保存します。
+
     > [AZURE.NOTE] 運用環境では勧めを使用すること、 [共有アクセス署名](https://msdn.microsoft.com/library/azure/ee395415.aspx)します。
 
-Blob ストレージの詳細については、を参照してください [.NET から Blob ストレージを使用する方法](../storage/storage-dotnet-how-to-use-blobs.md)。
+Blob ストレージの詳細については、次を参照してください [.NET から Blob ストレージを使用する方法。](../storage/storage-dotnet-how-to-use-blobs.md)
 
 ### 処理プログラムを作成する
 
-1. **ソリューション エクスプローラー** で、**ProcessTaskData** という名前の新しいコンソール アプリケーション プロジェクトを作成します。
+1.  **ソリューション エクスプ ローラー**, 、という名前の新しいコンソール アプリケーション プロジェクトを作成 **ProcessTaskData**します。
 
-2. Visual Studio でプロジェクトを作成した後、**ソリューション エクスプローラー**でそのプロジェクトを右クリックし、[**NuGet パッケージの管理**] を選択します。 "**WindowsAzure.Storage**" をオンラインで検索し、[**インストール**] をクリックして Azure Storage のパッケージと依存関係をインストールします。
+2. Visual Studio でプロジェクトを作成した後で、プロジェクトを右クリックして **ソリューション エクスプ ローラー** 選択 **NuGet パッケージの管理**します。 オンラインで検索 **WindowsAzure.Storage** ] をクリックし、 **インストール** 、Azure Storage のパッケージと依存関係をインストールします。
 
 3. 次の using ディレクティブを Program.cs の上部に追加します。
 
@@ -123,69 +123,69 @@ Blob ストレージの詳細については、を参照してください [.NET
 
 4. 次のコードを Main に追加します。このコードは、ファイルのテキストを処理します。
 
-     string blobName = args[0];
-     Uri blobUri = new Uri(blobName);
-     int numTopN = int.Parse(args[1]);
-    
-     CloudBlockBlob blob = new CloudBlockBlob(blobUri);
-     string content = blob.DownloadText();
-     string[] words = content.Split(' ');
-     var topNWords =
-       words.
-         Where(word => word.Length > 0).
-         GroupBy(word => word, (key, group) => new KeyValuePair<String, long>(key, group.LongCount())).
-         OrderByDescending(x => x.Value).
-         Take(numTopN).
-         ToList();
-    
-     foreach (var pair in topNWords)
-     {
-         Console.WriteLine("{0} {1}", pair.Key, pair.Value);
-     }
+        string blobName = args[0];
+        Uri blobUri = new Uri(blobName);
+        int numTopN = int.Parse(args[1]);
+
+        CloudBlockBlob blob = new CloudBlockBlob(blobUri);
+        string content = blob.DownloadText();
+        string[] words = content.Split(' ');
+        var topNWords =
+          words.
+            Where(word => word.Length > 0).
+            GroupBy(word => word, (key, group) => new KeyValuePair<String, long>(key, group.LongCount())).
+            OrderByDescending(x => x.Value).
+            Take(numTopN).
+            ToList();
+
+        foreach (var pair in topNWords)
+        {
+            Console.WriteLine("{0} {1}", pair.Key, pair.Value);
+        }
 
 5. ProcessTaskData プロジェクトを保存してビルドします。
 
 ### データ ファイルを作成する
 
-1. GettingStarted プロジェクトで、**taskdata1.txt** という名前の新しいテキスト ファイルを作成し、以下のテキストをこのファイルにコピーし、保存します。
+1. GettingStarted プロジェクトの作成という新しいテキスト ファイル **taskdata1.txt**, 、次のテキストをコピー、およびファイルを保存します。
 
     ビジネス ニーズに柔軟なリソースが必要な場合は、オンデマンドでスケーラブルなコンピューティング インフラストラクチャのプロビジョニングに Azure Virtual Machines を使用することができます。 ギャラリーから、Windows、Linux、エンタープライズ アプリケーション (SharePoint や SQL Server など) を実行する仮想マシンを作成することができます。 または、独自のイメージをキャプチャして使用し、カスタマイズされた仮想マシンを作成することができます。
 
-2. **taskdata2.txt** という名前の新しいテキスト ファイルを作成し、以下のテキストをこのファイルにコピーし、保存します。
+2. という新しいテキスト ファイルを作成する **taskdata2.txt**, 、次のテキストをコピー、およびファイルを保存します。
 
     Azure Cloud Services を使用して、迅速なデプロイと強力なアプリケーション管理を実現します。 アプリケーションをアップロードするだけで、Azure は継続的な可用性のために、プロビジョニングと負荷分散から稼動状況の監視まで、デプロイの詳細を処理します。 アプリケーションは、業界最高レベルの 99.95% の月間 SLA で支えられています。 インフラストラクチャでなく、アプリケーションに焦点を当てるだけです。
 
-3. **taskdata3.txt** という名前の新しいテキスト ファイルを作成し、以下のテキストをこのファイルにコピーし、保存します。
+3. という新しいテキスト ファイルを作成する **taskdata3.txt**, 、次のテキストをコピー、およびファイルを保存します。
 
     Azure の Web サイトでは、Web アプリケーションをホストするための、スケーラブルで信頼性が高く、使いやすい環境を提供します。 幅広いフレームワークおよびテンプレートからの選択により、わずか数秒で Web サイトを作成できます。 ツールや OS を使用して、.NET、PHP、Node.js、Python でサイトを開発します。 TFS、GitHub、BitBucket を含むさまざまなソース管理オプションから選択して、継続的インテグレーションの設定とチームとしての開発を実現できます。 ストレージ、CDN、SQL Database など、追加の Azure マネージ サービスを活用して、サイトの機能を段階的に拡張できます。
 
 ### Storage コンテナーにファイルをアップロードする
 
-1. **GettingStarted** プロジェクトの Program.cs ファイルを開き、次のメソッドを追加してファイルをアップロードします。
+1. Program.cs ファイルを開き、 **GettingStarted** プロジェクト、およびファイルをアップロードする、このメソッドを追加します。
 
-     static void CreateFiles()
-     {
-       CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-         ConfigurationManager.AppSettings["StorageConnectionString"]);
-       CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-       CloudBlobContainer container = blobClient.GetContainerReference("testcon1");
-    
-       CloudBlockBlob taskData1 = container.GetBlockBlobReference("taskdata1");
-       CloudBlockBlob taskData2 = container.GetBlockBlobReference("taskdata2");
-       CloudBlockBlob taskData3 = container.GetBlockBlobReference("taskdata3");
-       taskData1.UploadFromFile("..\\..\\taskdata1.txt", FileMode.Open);
-       taskData2.UploadFromFile("..\\..\\taskdata2.txt", FileMode.Open);
-     taskData3.UploadFromFile("..\\..\\taskdata3.txt", FileMode.Open);
-    
-         CloudBlockBlob storageassembly = container.GetBlockBlobReference("Microsoft.WindowsAzure.Storage.dll");
-         storageassembly.UploadFromFile("Microsoft.WindowsAzure.Storage.dll", FileMode.Open);
-    
-         CloudBlockBlob dataprocessor = container.GetBlockBlobReference("ProcessTaskData.exe");
-       dataprocessor.UploadFromFile("..\\..\\..\\ProcessTaskData\\bin\\debug\\ProcessTaskData.exe", FileMode.Open);
-    
-       Console.WriteLine("Uploaded the files. Press Enter to continue.");
-       Console.ReadLine();
-     }
+        static void CreateFiles()
+        {
+          CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+            ConfigurationManager.AppSettings["StorageConnectionString"]);
+          CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+          CloudBlobContainer container = blobClient.GetContainerReference("testcon1");
+
+          CloudBlockBlob taskData1 = container.GetBlockBlobReference("taskdata1");
+          CloudBlockBlob taskData2 = container.GetBlockBlobReference("taskdata2");
+          CloudBlockBlob taskData3 = container.GetBlockBlobReference("taskdata3");
+          taskData1.UploadFromFile("..\\..\\taskdata1.txt", FileMode.Open);
+          taskData2.UploadFromFile("..\\..\\taskdata2.txt", FileMode.Open);
+        taskData3.UploadFromFile("..\\..\\taskdata3.txt", FileMode.Open);
+
+            CloudBlockBlob storageassembly = container.GetBlockBlobReference("Microsoft.WindowsAzure.Storage.dll");
+            storageassembly.UploadFromFile("Microsoft.WindowsAzure.Storage.dll", FileMode.Open);
+
+            CloudBlockBlob dataprocessor = container.GetBlockBlobReference("ProcessTaskData.exe");
+          dataprocessor.UploadFromFile("..\\..\\..\\ProcessTaskData\\bin\\debug\\ProcessTaskData.exe", FileMode.Open);
+
+          Console.WriteLine("Uploaded the files. Press Enter to continue.");
+          Console.ReadLine();
+        }
 
 2. 次のコードを Main に追加します。このコードは、先ほど追加したメソッドを呼び出します。
 
@@ -193,9 +193,9 @@ Blob ストレージの詳細については、を参照してください [.NET
 
 3. Program.cs ファイルを保存します。
 
-## 手順 2:Batch アカウントにプールを追加する
+## 手順 2: Batch アカウントにプールを追加する
 
-コンピューティング ノードのプールは、タスクを実行するときに最初に作成する必要があるリソースのセットです。
+コンピューティング ノードのプールは、タスクを実行するときに最初に作成する必要があるリソースのセットです。  
 
 1.  これらの using ディレクティブを、GettingStarted プロジェクトの Program.cs の上部に追加します。
 
@@ -210,9 +210,9 @@ Blob ストレージの詳細については、を参照してください [.NET
 
     かっこで囲まれた値を置き換えてそれぞれ参照して、Batch アカウントに関連付けられた、 [Azure ポータル](https://portal.azure.com)します。 これらの値を見つけるには、にログイン、 [Azure ポータル](https://portal.azure.com) とします。
 
-    - **[account-name]** - **[Batch アカウント]** をクリックし、作成した Batch アカウントを選択します。
-    - **[account-url]** - [Batch アカウント] ブレードで、**[プロパティ]**、**[URL]** の順にクリックします。
-    - **[account-key]** - [Batch アカウント] ブレードで、**[プロパティ]**、**[キー]**、**[プライマリ アクセス キー]** の順にクリックします。
+    - **[アカウント名]** -[ **Batch アカウント**, 、先ほど作成した Batch アカウントを選択
+    - **[アカウントの url]** -Batch アカウント] ブレード内をクリックして **プロパティ** > **URL**
+    - **[アカウント キー]** -Batch アカウント] ブレード内をクリックして **プロパティ** > **キー** > **プライマリ アクセス キー**
 
 3.  次のメソッドを Program クラスに追加します。このメソッドは、プールを作成します。
 
@@ -258,17 +258,17 @@ Blob ストレージの詳細については、を参照してください [.NET
 
 1. 次のメソッドを Program クラスに追加します。このメソッドは、ジョブを作成します。
 
-     static CloudJob CreateJob (BatchClient client)
-     {
-         CloudJob newJob = client.JobOperations.CreateJob();
-         newJob.Id = "testjob1";
-         newJob.PoolInformation = new PoolInformation() { PoolId = "testpool1" };
-         newJob.Commit();
-         Console.WriteLine("Created the job. Press Enter to continue.");
-         Console.ReadLine();
-    
-         return newJob;
-     }
+        static CloudJob CreateJob (BatchClient client)
+        {
+            CloudJob newJob = client.JobOperations.CreateJob();
+            newJob.Id = "testjob1";
+            newJob.PoolInformation = new PoolInformation() { PoolId = "testpool1" };
+            newJob.Commit();
+            Console.WriteLine("Created the job. Press Enter to continue.");
+            Console.ReadLine();
+
+            return newJob;
+        }
 
 2. 次のコードを Main に追加します。このコードは、先ほど追加したメソッドを呼び出します。
 
@@ -300,45 +300,47 @@ Blob ストレージの詳細については、を参照してください [.NET
 
 1. 次のメソッドを Program クラスに追加します。このメソッドは、ジョブに 3 つのタスクを追加します。
 
-     static void AddTasks(BatchClient client)
-     {
-         CloudJob job = client.JobOperations.GetJob("testjob1");
-         ResourceFile programFile = new ResourceFile(
-             "https://[account-name].blob.core.windows.net/testcon1/ProcessTaskData.exe",
-             "ProcessTaskData.exe");
-       ResourceFile assemblyFile = new ResourceFile(
-             "https://[account-name].blob.core.windows.net/testcon1/Microsoft.WindowsAzure.Storage.dll",
-             "Microsoft.WindowsAzure.Storage.dll");
-         for (int i = 1; i < 4; ++i)
-         {
-             string blobName = "taskdata" + i;
-             string taskName = "mytask" + i;
-             ResourceFile taskData = new ResourceFile("https://[account-name].blob.core.windows.net/testcon1/" +
-               blobName, blobName);
-             CloudTask task = new CloudTask(taskName, "ProcessTaskData.exe https://[account-name].blob.core.windows.net/testcon1/" +
-               blobName + " 3");
-             List<ResourceFile> taskFiles = new List<ResourceFile>();
-             taskFiles.Add(taskData);
-             taskFiles.Add(programFile);
-             taskFiles.Add(assemblyFile);
-             task.ResourceFiles = taskFiles;
-             job.AddTask(task);
-             job.Commit();
-             job.Refresh();
-         }
-    
-         client.Utilities.CreateTaskStateMonitor().WaitAll(job.ListTasks(),
-     TaskState.Completed, new TimeSpan(0, 30, 0));
-         Console.WriteLine("The tasks completed successfully.");
-         foreach (CloudTask task in job.ListTasks())
-         {
-             Console.WriteLine("Task " + task.Id + " says:\n" + task.GetNodeFile(Constants.StandardOutFileName).ReadAsString());
-         }
-         Console.WriteLine("Press Enter to continue.");
-         Console.ReadLine();
-     }
+        static void AddTasks(BatchClient client)
+        {
+            CloudJob job = client.JobOperations.GetJob("testjob1");
+            ResourceFile programFile = new ResourceFile(
+                "https://[account-name].blob.core.windows.net/testcon1/ProcessTaskData.exe",
+                "ProcessTaskData.exe");
+          ResourceFile assemblyFile = new ResourceFile(
+                "https://[account-name].blob.core.windows.net/testcon1/Microsoft.WindowsAzure.Storage.dll",
+                "Microsoft.WindowsAzure.Storage.dll");
+            for (int i = 1; i < 4; ++i)
+            {
+                string blobName = "taskdata" + i;
+                string taskName = "mytask" + i;
+                ResourceFile taskData = new ResourceFile("https://[account-name].blob.core.windows.net/testcon1/" +
+                  blobName, blobName);
+                CloudTask task = new CloudTask(taskName, "ProcessTaskData.exe https://[account-name].blob.core.windows.net/testcon1/" +
+                  blobName + " 3");
+                List<ResourceFile> taskFiles = new List<ResourceFile>();
+                taskFiles.Add(taskData);
+                taskFiles.Add(programFile);
+                taskFiles.Add(assemblyFile);
+                task.ResourceFiles = taskFiles;
+                job.AddTask(task);
+                job.Commit();
+                job.Refresh();
+            }
 
- **[account-name]** は、前に作成したストレージ アカウントの名前に置き換える必要があります。 前の例では、**[account-name]** の 4 つのインスタンスすべてを置き換えてください。
+            client.Utilities.CreateTaskStateMonitor().WaitAll(job.ListTasks(),
+        TaskState.Completed, new TimeSpan(0, 30, 0));
+            Console.WriteLine("The tasks completed successfully.");
+            foreach (CloudTask task in job.ListTasks())
+            {
+                Console.WriteLine("Task " + task.Id + " says:\n" + task.GetNodeFile(Constants.StandardOutFileName).ReadAsString());
+            }
+            Console.WriteLine("Press Enter to continue.");
+            Console.ReadLine();
+        }
+
+
+    **[アカウント名]** 以前に作成したストレージ アカウントの名前に置き換える必要があります。 前の例では、4 つのすべてのインスタンスを更新 **[アカウント名]**します。
+
 
 2. 次のコードを Main に追加します。このコードは、先ほど追加したメソッドを呼び出します。
 
@@ -455,23 +457,23 @@ Azure のリソースに対して課金されるため、不要になったリ�
 
 7. Enter キーを押すと、タスクがジョブに追加されます。 タスクが追加されると、自動的に実行されます。
 
-     The tasks completed successfully.
-     Task mytask1 says:
-     can 3
-     you 3
-     and 3
-    
-     Task mytask2 says:
-     and 5
-     application 3
-     the 3
-    
-     Task mytask3 says:
-     a 5
-     and 5
-     to 3
-    
-     Press Enter to continue.
+        The tasks completed successfully.
+        Task mytask1 says:
+        can 3
+        you 3
+        and 3
+
+        Task mytask2 says:
+        and 5
+        application 3
+        the 3
+
+        Task mytask3 says:
+        a 5
+        and 5
+        to 3
+
+        Press Enter to continue.
 
 7. Enter キーを押すと、タスクとその状態の一覧が表示されます。
 
@@ -489,11 +491,7 @@ Azure のリソースに対して課金されるため、不要になったリ�
 
 ## 次のステップ
 
-1. ここまでは、タスクの実行の基本について説明してきました。アプリケーションの需要が変化した場合に、コンピューティング ノードを自動的にスケーリングする方法については、 これを行うを参照してください [Azure Batch プール内の計算ノードを自動的にスケール](batch-automatic-scaling.md)。
+1. ここまでは、タスクの実行の基本について説明してきました。アプリケーションの需要が変化した場合に、コンピューティング ノードを自動的にスケーリングする方法については、 これを行うには、次を参照してください [Azure Batch プール内の計算ノードを自動的にスケール。](batch-automatic-scaling.md)
 
 2. 一部のアプリケーションは、処理するのに困難な大量のデータを生成します。 これは解決するために 1 つの方法で [効率的なリスト クエリ](batch-efficient-list-queries.md)します。
-
-
-
-
 

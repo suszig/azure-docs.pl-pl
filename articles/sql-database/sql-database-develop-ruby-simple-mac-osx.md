@@ -18,7 +18,6 @@
     ms.author="andrela"/>
 
 
-
 # Mac OS X (Yosemite) での Ruby を使用した SQL Database への接続
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
@@ -45,7 +44,7 @@
 
 ### SQL Database
 
-参照してください、 [開始ページ](sql-database-get-started.md) にサンプル データベースを作成する方法について説明します。 ガイドに従って、**AdventureWorks データベースのテンプレート**を作成することが重要です。 以下に示す例は、**AdventureWorks スキーマ** とのみ動作します。
+参照してください、 [開始ページ](sql-database-get-started.md) にサンプル データベースを作成する方法について説明します。  作成するガイドを実行する重要である、 **AdventureWorks データベースのテンプレート**します。 のみ以下に示す例を使用、 **AdventureWorks スキーマ**します。
 
 
 ## 手順 1. 接続の詳細を取得する
@@ -54,7 +53,7 @@
 
 ## 手順 2: 接続
 
-[Tinytds::client](https://github.com/rails-sqlserver/tiny_tds) 関数を使用して、SQL データベースに接続します。
+ [Tinytds::client](https://github.com/rails-sqlserver/tiny_tds) 関数を使用して、SQL データベースに接続します。
 
     require 'tiny_tds'
     client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword',
@@ -63,7 +62,7 @@
 
 ## 手順 3: クエリを実行します。
 
-[::Result](https://github.com/rails-sqlserver/tiny_tds) 関数を使用して、SQL Database に対するクエリから設定の結果を取得します。 この関数は、クエリを受け入れ、結果セットを返します。 結果セットがを使用して反復処理 [することにより行う |row|](https://github.com/rails-sqlserver/tiny_tds).
+ [::Result](https://github.com/rails-sqlserver/tiny_tds) 関数を使用して、SQL Database に対するクエリから設定の結果を取得します。 この関数は、クエリを受け入れ、結果セットを返します。 結果セットが反復処理を使用して [することにより行う |row|](https://github.com/rails-sqlserver/tiny_tds)します。
 
     require 'tiny_tds'  
     print 'test'     
@@ -77,10 +76,10 @@
 
 ## 手順 4: 行を挿入します。
 
-実行する方法を参照してください、この例では、 [挿入](https://msdn.microsoft.com/library/ms174335.aspx) ステートメントからアプリケーションを保護するためのパラメーターを渡すを安全に [SQL インジェクション](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) 脆弱性、および自動生成された取得 [主キー](https://msdn.microsoft.com/library/ms179610.aspx) 値。
+実行する方法を参照してください、この例では、 [挿入](https://msdn.microsoft.com/library/ms174335.aspx) ステートメントからアプリケーションを保護するためのパラメーターを渡すを安全に [SQL インジェクション](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) 脆弱性、および自動生成された取得 [主キー](https://msdn.microsoft.com/library/ms179610.aspx) 値。  
 
 
-Azure で TinyTDS を使用することをお勧めのいくつか実行する `設定` ステートメントを現在のセッションが特定の情報がどのように処理する方法を変更します。 推奨 `設定` ステートメントは、コード サンプルに用意されています。 たとえば、 `設定 ANSI_NULL_DFLT_ON` 列の null 値許容ステータスが明示的に宣言されていない場合でも、null 値を許可するように作成された新しい列が許可されます。
+Azure で TinyTDS を使用するには、いくつかの `SET` ステートメントを実行して現在のセッションが特定の情報を処理する方法を変更することをお勧めします。 推奨 `SET` ステートメントは、コード サンプルに用意されています。 たとえば、`SET ANSI_NULL_DFLT_ON` は、列の NULL 値が許容されることが明示的に宣言されていない場合でも、作成された新しい列が NULL 値を持つことを許可します。
 
 Microsoft SQL Server に合うように [datetime](http://msdn.microsoft.com/library/ms187819.aspx) を使用して、書式設定、 [strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) 関数に対応する日付時刻形式にキャストします。
 
@@ -104,6 +103,4 @@ Microsoft SQL Server に合うように [datetime](http://msdn.microsoft.com/lib
     results.each do |row|
     puts row
     end
-
-
 

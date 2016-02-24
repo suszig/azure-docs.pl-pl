@@ -1,11 +1,11 @@
 <properties
-    pageTitle="HDInsight Application パートナー |Microsoft Azure" 
-    description="顧客には検出できるようになりました簡単にして、HDInsight クラスターのプロビジョニング ポータル内から直接と共にビッグ データ アプリケーションを展開します。"
-    services="hdinsight" 
-    documentationCenter="na" 
-    authors="pablissima" 
-    manager="paulettm="" 
-    tags=""/>
+    pageTitle ="HDInsight Application パートナー |Microsoft Azure] 
+    説明 ="顧客には検出できるようになりました簡単にし、HDInsight クラスターのプロビジョニング ポータル内から直接と共にビッグ データ アプリケーションを展開します"。
+    サービス ="hdinsight" 
+    documentationCenter ="na" 
+    authors ="pablissima" 
+    manager ="paulettm ="" 
+    タグ =""/>
 <tags
     ms.service="hdinsight"
     ms.devlang="na"
@@ -14,7 +14,6 @@
     ms.workload="na"
     ms.date="09/25/2015"
     ms.author="paulettm"/>
-
 # HDInsight アプリケーション パートナー
 
 ![](media/hdinsight-application-partners/dataguise1.png)  
@@ -89,20 +88,20 @@ Hadoop に格納されているデータです。 新しいスキルは必要あ
 ハイブのない Pig – RedPoint のグラフィカル ユーザー インターフェイスに協力してくれたと純粋です
 (Hortonworks では、Hadoop 2.0 で認定) YARN アーキテクチャです。
 
-RedPoint: と
+RedPoint: と  
 -  すべてのデータの品質およびデータ統合機能で実行できる、
 Hadoop クラスター – ELT、クレンジング、一致、重複、マージ/消去
 householding、解析、パーティション分割、追加、アドレスの標準化
-キーの作成と管理、自動化、通知を監視します。
--  MapReduce が関与していないと、MapReduce スキルは必要ありません。
+キーの作成と管理、自動化、通知を監視します。  
+-  MapReduce が関与していないと、MapReduce スキルは必要ありません。  
 -  データの品質との統合のプロセスとして効率的に – の実行します。
 多くユース ケースより効率的に – を RedPoint MapReduce ベースと同様
-ソリューション
+ソリューション  
 -  データ処理、分析、Hadoop から移動する必要はありません。
-レポートやその他の操作
+レポートやその他の操作  
 -  ソフトウェアをクラスター自体と RedPoint にインストールする必要がありません。
 YARN のタスクの優先順位ではなくコンピューティングについて競合を尊重します。
-クラスター内のリソース
+クラスター内のリソース  
 -  ユーザー データおよび管理できます従来の両方で 1 つの製品での Hadoop のリポジトリに別の環境からデータをでも収集
 または、他のいずれかからデータを移行します。
 
@@ -111,8 +110,8 @@ YARN のタスクの優先順位ではなくコンピューティングについ
 
 RedPoint に速度、一致する品質のユーザー調査で \#1 が評価されて、
 使用、および一般に顧客やサード パーティのデータを容易します。
-管理します。 [に問い合わせてください。
-us] (http://www.redpoint.net/Products/BigData.aspx) を表示する方法 RedPoint
+管理します。 [連絡先
+私たち](http://www.redpoint.net/Products/BigData.aspx) を表示する方法 RedPoint
 Hadoop での管理データの品質とデータの統合をことができます。
 容易かつ迅速で、低コストより効果的な環境です。
 
@@ -137,8 +136,4 @@ Kyvos はコミットによるビッグ データ分析の電源のロックを�
 ビッグ データの多次元分析します。 ユーザーを視覚化できます、
 探索し、なしで Hadoop 上で対話的に、データの分析
 プログラミングは必要です。
-
-
-
-
 

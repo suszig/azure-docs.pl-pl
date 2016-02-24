@@ -17,7 +17,6 @@
     ms.date="08/11/2015"
     ms.author="dkshir"/>
 
-
 # Linux 仮想マシンからディスクを切断する方法
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーのモデルです。
@@ -29,9 +28,5 @@
 
 [データ ディスクを Linux 仮想マシンに接続する方法](virtual-machines-linux-how-to-attach-disk.md)
 
-[サービス管理 API で Azure CLI の使用](virtual-machines-command-line-tools.md)
-
-
-
-
+[サービス管理 API での Azure CLI の使用](virtual-machines-command-line-tools.md)
 

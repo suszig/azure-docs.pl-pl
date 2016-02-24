@@ -16,13 +16,11 @@
     ms.date="08/14/2015"
     ms.author="inhenk"/>
 
-
-# Azure コマンドライン インターフェイス (Azure CLI) によるロールベースのアクセス制御の管理
+# Azure コマンドライン インターフェイス (Azure CLI) によるロールベースのアクセス制御の管理 #
 
 > [AZURE.SELECTOR]
 - [Windows PowerShell](role-based-access-control-powershell.md)
 - [Azure CLI](/role-based-access-control-xplat-cli-install.md)
-
 
 Azure ポータルと Azure リソース マネージャー API のロールベースのアクセス制御 (RBAC) を使用すると、サブスクリプションとリソースへのアクセスを詳細に管理できます。 この機能を使用すると、Active Directory ユーザー、グループ、サービス プリンシパルに特定のスコープで役割を割り当てて、アクセス権を付与できます。
 
@@ -30,28 +28,28 @@ Azure ポータルと Azure リソース マネージャー API のロールベ�
 
 **推定所要時間:** 15 分
 
-## 前提条件
+## 前提条件 ##
 
 Azure CLI を使用して RBAC を管理するには、事前に以下を用意しておく必要があります。
 
 - Azure CLI バージョン 0.8.8 以降。 最新のバージョンをインストールして、Azure サブスクリプションに関連付けるを参照してください。 [のインストールと Azure CLI の構成](../xplat-cli-install.md)します。
-- セットアップし、Azure CLI で Azure リソース マネージャーを使用に、またに慣れるための次のチュートリアルを読みしてください: [リソース マネージャーで Azure CLI を使用して](../xplat-cli-azure-resource-manager.md)
+- セットアップし、Azure CLI で Azure リソース マネージャーを使用に、またに慣れるための次のチュートリアルを読みしてください: [リソース マネージャーで Azure CLI の使用](../xplat-cli-azure-resource-manager.md)
 
-## このチュートリアルの内容
+## このチュートリアルの内容 ##
 
-* [サブスクリプションへの接続します。](#connect)
-* [既存のロール割り当てを確認します。](#check)
-* [ロールの割り当てを作成します。](#create)
-* [アクセス許可を確認します。](#verify)
+* [サブスクリプションへの接続](#connect)
+* [既存の役割の割り当ての確認](#check)
+* [役割の割り当ての作成](#create)
+* [アクセス許可の確認](#verify)
 * [次のステップ](#next)
 
-## <a id="connect"></a>サブスクリプションへの接続します。
+## <a id="connect"></a>サブスクリプションへの接続 ##
 
 RBAC は Azure リソース マネージャーのみと協働するので、最初に Azure リソース マネージャー モードに切り替えます。 次のコマンドを入力します。
 
     azure config mode arm
 
-詳細についてを参照してください [リソース マネージャーで Azure CLI を使用して](../xplat-cli-azure-resource-manager.md)
+詳細についてを参照してください [リソース マネージャーで Azure CLI の使用](../xplat-cli-azure-resource-manager.md)
 
 ご使用の Azure サブスクリプションに接続するには、以下のように入力します。
 
@@ -68,7 +66,7 @@ RBAC は Azure リソース マネージャーのみと協働するので、最�
 
 詳細についてを参照してください [のインストールし、Azure CLI の構成](../xplat-cli-install.md)します。
 
-## <a id="check"></a>既存のロール割り当てを確認します。
+## <a id="check"></a>既存の役割の割り当ての確認 ##
 
 ここで、既にサブスクリプションに存在している役割の割り当てを確認しましょう。 次のコマンドを入力します。
 
@@ -90,7 +88,7 @@ Azure AD ディレクトリ内の特定のユーザー (リソース グルー�
 
 このコマンドレットのパラメーターはすべて省略可能です。 パラメーターを組み合わせて、さまざまなフィルターで役割の割り当てを確認することができます。
 
-## <a id="create"></a>ロールの割り当てを作成します。
+## <a id="create"></a>役割の割り当ての作成 ##
 
 役割の割り当てを作成するには、以下の点について考慮する必要があります。
 
@@ -108,29 +106,29 @@ Azure AD ディレクトリ内の特定のユーザー (リソース グルー�
 
 - 割り当てる役割: 次のコマンドレットを使用して、サポートされているロールの定義を表示できます。
 
-    `azure ロールの一覧`
+    `azure role list`
 
 - 割り当てるスコープ: スコープには 3 つのレベルがあります。
 
     - 現在のサブスクリプション
-    - リソース グループ。 リソース グループの一覧を取得する入力 `azure グループ一覧`
-    - リソース。 リソースの一覧を取得する入力 `azure リソースの一覧`
+    - リソース グループ。 リソース グループの一覧を入手するには、`azure group list` と入力します。
+    - リソース。 リソースの一覧を入手するには、`azure resource list` と入力します。
 
-使用して `azure ロールの割り当てを作成` ロールの割り当てを作成します。 次に例を示します。
+次に、`azure role assignment create`  を使ってロールの割り当てを作成します。 次に例を示します。
 
  - ユーザーに関する現在のサブスクリプション レベルでの閲覧者の役割の割り当てが作成されます。
 
-    `azure ロールの割り当てが--upn < ユーザーの電子メール >-o リーダーを作成します。`
+    `azure role assignment create --upn <user's email> -o Reader`
 
 - 次を使用すると、リソース グループ レベルでの役割の割り当てが作成されます。
 
-    `PS C:\ > azure ロールの割り当ての作成 - upn < ユーザーの電子メール >-o Contributor-g group1`
+    `PS C:\> azure role assignment create --upn <user's email> -o Contributor -g group1`
 
 - 次を使用すると、リソース レベルでの役割の割り当てが作成されます。
 
-    `azure ロールの割り当ての作成-upn < ユーザーの電子メール >-o 所有者-g group1 r Microsoft.Web/sites-u site1`
+    `azure role assignment create --upn <user's email> -o Owner -g group1 -r Microsoft.Web/sites -u site1`
 
-## <a id="verify"></a>アクセス許可を確認します。
+## <a id="verify"></a>アクセス許可の確認 ##
 
 ご使用のアカウントに役割の割り当てがあることを確認してから、次を実行することで、実際に役割の割り当てが付与したアクセス許可を確認することができます。
 
@@ -139,21 +137,17 @@ Azure AD ディレクトリ内の特定のユーザー (リソース グルー�
 
 これらの 2 つのコマンドレットでは、読み取りのアクセス許可があるリソース グループまたはリソースのみが返されます。 また、持っているアクセス許可も表示します。
 
-コマンドレットなどの他を実行しようとし、 `azure グループを作成`, 、アクセス拒否エラーの場合は、アクセス許可があるありませんが表示されます。
+続いて、`azure group create` などの他のコマンドレットを実行しようとすると、アクセス許可がない場合にはアクセス拒否エラーを受け取ります。
 
-## <a id="next"></a>次のステップ
+## <a id="next"></a>次のステップ ##
 
 Azure CLI を使用したロールベースのアクセス制御の管理の詳細と、関連トピックについては、以下を参照してください。
 
-- [ロール ベースの Azure でのアクセス制御](../role-based-access-control-configure.md)
-- [インストールし、Azure CLI の構成](../xplat-cli-install.md)
-- [Azure CLI リソース マネージャーでの使用](../xplat-cli-azure-resource-manager.md)
-- [を使用してリソース グループを Azure のリソースを管理](../azure-preview-portal-using-resource-groups.md): を作成し、Azure 管理ポータルでリソース グループを管理する方法について説明します。
+- [Azure のロール ベースのアクセス制御](../role-based-access-control-configure.md)
+- [Azure CLI のインストールと構成](../xplat-cli-install.md)
+- [リソース マネージャーでの Azure CLI の使用](../xplat-cli-azure-resource-manager.md)
+- [Azure リソースを管理するリソース グループを使用した](../azure-preview-portal-using-resource-groups.md): を作成し、Azure 管理ポータルでリソース グループを管理する方法について説明します。
 - [Azure ブログ](http://blogs.msdn.com/windowsazure): Azure での新機能について説明します。
-- [Windows PowerShell を使用してロール ベース アクセス制御を構成します。](role-based-access-control-powershell.md)
-- [ロール ベース アクセス制御のトラブルシューティング](role-based-access-control-troubleshooting.md)
-
-
-
-
+- [Windows PowerShell を使用した役割ベースのアクセス制御の構成](role-based-access-control-powershell.md)
+- [役割ベースのアクセス制御のトラブルシューティング](role-based-access-control-troubleshooting.md)
 

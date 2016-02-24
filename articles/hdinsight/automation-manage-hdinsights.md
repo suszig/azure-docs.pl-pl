@@ -18,13 +18,10 @@
 
 
 
-
-# Azure Automation を使用した Azure HDInsight の管理
-
+#Azure Automation を使用した Azure HDInsight の管理
 このガイドでは、Azure Automation サービスと、このサービスを使用して Azure HDInsight でのクラスターの管理を簡略化し、一般的なタスクを自動化する方法について紹介します。
 
 ## Azure Automation とは
-
 [Azure Automation](http://azure.microsoft.com/services/automation/) プロセスの自動化によってクラウド管理を簡略化するための Azure サービスです。 Azure Automation を使用して手動タスク、頻繁に繰り返されるタスク、実行時間の長いタスク、エラーが発生しやすいタスクを自動化し、信頼性と効率性を向上して組織のゴール達成までの時間を短縮できます。
 
 Azure Automation は、ニーズに対応可能な信頼性と可用性の高いワークフロー実行エンジンを提供します。 Azure Automation では、サード パーティ製のシステムによって手動でプロセスを開始したり、必要なときに正確にタスクが起動されるようにスケジュールされた間隔でプロセスを開始できます。
@@ -36,19 +33,14 @@ Azure Automation でクラウド管理タスクを自動的に実行するよう
 
 使用して Azure Automation で HDInsight を管理できる、 [Azure HDInsight コマンドレット](https://msdn.microsoft.com/library/azure/dn479228.aspx) で提供される、 [Azure PowerShell ツール](https://msdn.microsoft.com/library/azure/jj156055.aspx)します。 Azure Automation には、こうしたコマンドレットがあらかじめ用意されており、サービス内でHDInsight 管理タスクを実行することができます。 Azure Automation 内のこれらのコマンドレットと別の Azure サービスのコマンドレットを組み合わせて、Azure サービスおよびサード パーティ システム全体の複雑なタスクを自動化することもできます。
 
-Azure HDInsight コマンドレットでは、Linux または Windows での HDInsight クラスターのプロビジョニング、クラスターの拡大/縮小、クラスターの管理、および MapReduce ジョブの送信などのタスクを自動化できます。 これらは、Azure Automation の PowerShell を使用して自動化できる多数のタスクのほんの一部です。
+Azure HDInsight コマンドレットでは、Linux または Windows での HDInsight クラスターのプロビジョニング、クラスターの拡大/縮小、クラスターの管理、および MapReduce ジョブの送信などのタスクを自動化できます。 これらは、Azure Automation の PowerShell を使用して自動化できる多数のタスクのほんの一部です。  
 
 
 ## 次のステップ
-
 ここまで、Azure Automation の基本と Azure Automation を使用して Azure HDInsight を管理する方法について説明しました。Azure Automation の詳細については、こちらのリンクをご覧ください。
 
 * Azure automation の [チュートリアル入門](../automation-create-runbook-from-samples.md)します。
-* 例を表示する [スクリプト センター](http://aka.ms/scriptcentergallery)します。
+* 例を表示する [スクリプト センター](http://aka.ms/scriptcentergallery)します。  
 
-
-
-
-
-
+ 
 

@@ -17,7 +17,6 @@
    ms.date="12/07/2015"
    ms.author="telmos"/>
 
-
 # Azure ポータルを使用した仮想ネットワーク (従来型) の作成
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
@@ -33,8 +32,4 @@ UI を使用し、netcfg ファイルをデプロイすることで、Azure ポ�
 [AZURE.INCLUDE [virtual-networks-create-vnet-classic-portal-include](../../includes/virtual-networks-create-vnet-classic-portal-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-classic-netcfg-portal-include](../../includes/virtual-networks-create-vnet-classic-netcfg-portal-include.md)]
-
-
-
-
 

@@ -15,15 +15,10 @@
    ms.date="10/14/2015"
    ms.author="sethm" />
 
-
 # Service Bus のクォータ
 
 ここでは、Microsoft Azure Service Bus のメッセージングの基本的なクォータとスロットルのしきい値について説明します。
 
 ## メッセージング クォータ
 
-[AZURE.INCLUDE [service-bus-quotas-table](../../includes/service-bus-quotas-table.md)]
-
-
-
-
+[AZURE.INCLUDE [service-bus-quotas-table](../../includes/service-bus-quotas-table.md)] 

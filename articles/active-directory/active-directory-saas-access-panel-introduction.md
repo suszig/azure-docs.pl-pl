@@ -17,14 +17,14 @@
     ms.author="markusvi"/>
 
 
-
 # アクセス パネルの概要
 
-アクセス パネルは Web ベースのポータルで、Azure Active Directory の組織アカウントを持つエンド ユーザーが、Azure AD 管理者によってアクセスを許可されたクラウドベースのアプリケーションを表示および起動することができます。Azure Active Directory のエディションで使用するエンドユーザーをある場合は、アクセス パネルを介してセルフ サービス グループ管理機能も利用できます。 <br>
-アクセス パネルは Azure 管理ポータルから独立し、ユーザーを Azure サブスクリプションを持っている必要はありません。
+
+アクセス パネルは Web ベースのポータルで、Azure Active Directory の組織アカウントを持つエンド ユーザーが、Azure AD 管理者によってアクセスを許可されたクラウドベースのアプリケーションを表示および起動することができます。 Azure Active Directory の各種エディションのエンド ユーザーの場合、アクセス パネルを使用してセルフサービスのグループ管理機能を利用することもできます。 <br>
+アクセス パネルは Azure 管理ポータルから独立し、ユーザーを Azure サブスクリプションを持っている必要はありません。 
 
 
-![アクセス パネル][1]
+![アクセス パネル][1] 
 
 
 アクセス パネルでは、ユーザーは自分のプロファイル設定を編集することができ、次のことができます。
@@ -39,12 +39,13 @@
 
 - Azure AD 管理者によってアクセス権が付与されているクラウドベースのアプリケーションを表示および起動する。 エンドユーザーの視点から見たアクセス パネルの詳細については、次を参照してください。 [アクセス パネルを使用して](https://msdn.microsoft.com/library/azure/dn756411.aspx)します。
 
-- グループを自己管理する。 具体的には、セキュリティ グループを作成および管理し、Azure AD のセキュリティ グループのメンバーシップを要求することができます。 詳細については、次を参照してください。 [Azure AD でユーザーのセルフ サービス グループ管理](active-directory-accessmanagement-self-service-group-management.md) と [グループの管理](active-directory-manage-groups.md)します。
+- グループを自己管理する。 具体的には、セキュリティ グループを作成および管理し、Azure AD のセキュリティ グループのメンバーシップを要求することができます。 詳細については、次を参照してください。 [Azure AD でユーザーのセルフ サービス グループ管理](active-directory-accessmanagement-self-service-group-management.md) と [グループの管理](active-directory-manage-groups.md)します。 
 
 
 
 
 ## アクセス パネルへのアクセス
+
 
 Web ブラウザーで次の URL にアクセスして、アクセス パネルにアクセスします。 <br> 
 **http://myapps.microsoft.com**
@@ -55,18 +56,18 @@ Web ブラウザーで次の URL にアクセスして、アクセス パネル�
 この場合は、次のスクリーン ショットに示すように、Microsoft Azure 管理ポータルのディレクトリの ［ドメイン］ タブで構成されている、アクティブまたは確認済みのドメイン名を使用できます。
 
 
-![Wingtip toys][2]
+![Wingtip toys][2]  
 
 
 この URL は、Azure AD と統合されたアプリケーションにサインインするすべてのユーザーに配布する必要があります。
-
+ 
 
 
 
 
 ## 認証
 
-、アクセス パネルに到達するためには、Azure AD で組織のアカウントを使用してユーザーを認証する必要があります。 <br>
+アクセス パネルにアクセスするには、Azure AD で、組織アカウントを使用してユーザーを認証する必要があります。 <br>
 ユーザーは、Azure ad で直接認証できます。 <br>
 または、組織が ADFS などのテクノロジを使用してフェデレーションを構成している場合、Windows Server Active Directory でユーザーを認証することができます。
 
@@ -74,8 +75,8 @@ Web ブラウザーで次の URL にアクセスして、アクセス パネル�
 組織がフェデレーションを構成している場合は、ユーザー名を入力するだけで十分です。
 
 ユーザーは認証されると、管理者によってディレクトリに統合されているアプリケーションを使用できるようになります。 
- アプリケーションを Azure AD と統合する方法については、を参照してください [アプリケーション アクセスと Azure Active Directory でのシングル サインオンには何ですか?](active-directory-appssoaccess-whatis.md)。.
-
+ アプリケーションを Azure AD と統合する方法については、次を参照してください。 [アプリケーション アクセスと Azure Active Directory でのシングル サインオンは、何ですか?](active-directory-appssoaccess-whatis.md)します。
+ 
 
 
 
@@ -100,10 +101,11 @@ IOS および Android デバイスでパスワード ベースの SSO アプリ�
 
 ### Android 用のマイ アプリ
 
+
 Android 用のマイ アプリはサポートされている Android バージョン 4.1 以上を実行する Android デバイスで、および現時点では、 [Google Play ストア](https://play.google.com/store/apps/details?id=com.microsoft.myapps)します。
 
 
-![マイ アプリ][3]
+![マイ アプリ][3]   
 
 
 
@@ -112,18 +114,20 @@ Android 用のマイ アプリはサポートされている Android バージ�
 
 ### IPhone および iPad 用のマイ アプリ
 
+
 IOS 用のマイ アプリは、iOS バージョン 7 以上を実行する iPhone または iPad でサポートされ、現在は Apple App Store で入手できます。
 
 
-![アプリケーション プロファイル][4]
-
-
-
-> [AZURE.NOTE] Azure AD とのフェデレーションをサポートするアプリケーション (Salesforce、Google Apps、Dropbox、Box、Concur、Workday、Office 365 など 70 を超えるアプリケーション) には、プラグインやモバイル アプリがなくても、事実上すべてのデバイスのすべての Web ブラウザーからサインインすることができます。 アクセス パネルの残りの部分で発生する [https://myapps.microsoft.com](https://myapps.microsoft.com/) はなくても、My Apps モバイル アプリ、モバイル デバイスで使用します。
+![アプリケーション プロファイル][4]    
 
 
 
 
+> [AZURE.NOTE] (Salesforce、Google Apps、Dropbox、ボックス、Concur、Workday、Office 365、および 70 を超えるその他を含む) Azure ad でフェデレーションをサポートするアプリケーションは、そのすべてのデバイスでは、ほとんどの web ブラウザーでプラグインやモバイル アプリを必要とせずに署名できます。 アクセス パネルの残りの部分で発生する [https://myapps.microsoft.com](https://myapps.microsoft.com/) はなくても、My Apps モバイル アプリ、モバイル デバイスで使用します。
+ 
+
+
+ 
 
 ## エンド ユーザー エクスペリエンスをテストするためのヒント
 
@@ -136,11 +140,11 @@ Azure 管理者がディレクトリのアカウントを使用して Microsoft 
 2. アクセス パネルに移動して **http://myapps.microsoft.com**します。
 
 3. サインイン ページで、テストするディレクトリのアカウントのユーザー名とパスワードを入力します。
-
+ 
 ## アプリケーションの起動
 
 アクセス パネルに表示できるアプリケーションには、いくつかの種類があります。
-
+ 
 ### Office 365 アプリケーション
 
 組織が Office 365 アプリケーションを使用していて、ユーザーがこれらのアプリケーションについてライセンスされている場合は、Office 365 アプリケーションがユーザーのアクセス パネルに表示されます。
@@ -180,10 +184,9 @@ Microsoft Azure 管理ポータルでアプリケーションのシングル サ
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-
-
-[1]: ./media/active-directory-saas-access-panel-introduction/ic767166.png 
-[2]: ./media/active-directory-saas-access-panel-introduction/ic767167.png 
-[3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png 
-[4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png 
+<!--Image references-->
+[1]: ./media/active-directory-saas-access-panel-introduction/ic767166.png
+[2]: ./media/active-directory-saas-access-panel-introduction/ic767167.png
+[3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
+[4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 

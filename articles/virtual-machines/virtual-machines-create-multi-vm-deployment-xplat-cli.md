@@ -17,11 +17,10 @@
    ms.date="02/20/2015"
    ms.author="alanst"/>
 
-
 # Azure CLI を使用して複数の VM のデプロイを作成する
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーのモデルです。
-
+ 
 
 次のスクリプトは、Azure コマンドライン インターフェイス (Azure CLI) を使用して VNET で複数 VM の複数クラウド サービスのデプロイを構成する方法を示しています。
 
@@ -29,12 +28,12 @@
 
 ![](./media/virtual-machines-create-multi-vm-deployment-xplat-cli/multi-vm-xplat-cli.png)
 
-このスクリプトによって、クラウド サービス **servercs** で 1 つの仮想マシン (**servervm**) が、クラウド サービス **workercs** で 2 つの仮想マシン (**clientvm1, clientvm2**) が作成されます。 どちらのクラウド サービスも VNET **samplevnet** にあります。 **servercs** クラウド サービスは、外部接続用に構成されたエンドポイントも保持しています。
+このスクリプトは、1 つの VM を作成 (**servervm**) クラウド サービスで **servercs** 2 つのデータ ディスクを接続し、2 つの Vm で (**clientvm1、clientvm2**) クラウド サービスで **workercs**します。 どちらのクラウド サービスを VNET に配置している **samplevnet**します。  **Servercs** クラウド サービスには、外部接続用に構成されるエンドポイント。
 
 ## CLI スクリプトでの構成
-
 比較的簡単なコードで構成できます。具体的には次の通りです。
->[AZURE.NOTE] ほとんどの場合、servercs と workercs の両クラウド サービスの名前は固有の名前に変更する必要があります。
+
+>[AZURE.NOTE] クラウド サービス名 servercs を変更する必要がありますし、一意である workercs のクラウド サービス名
 
     azure network vnet create samplevnet -l "West US"
     azure vm create -l "West US" -w samplevnet -e 10000 -z Small -n servervm servercs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-en-us-30GB azureuser Password@1
@@ -59,7 +58,7 @@
 
     azure network vnet create -l <Region> <VNet_name>
     azure network vnet delete -q <VNet_name>
-    
+
     azure vm create -l <Region> -w <Vnet_name> -e <SSH_port> -z <VM_size> -n <VM_name> <Cloud_service_name> <VM_image> <Username> <Password>
     azure vm delete -b -q <VM_name>
     azure vm disk attach-new <VM_name>
@@ -67,11 +66,8 @@
 
 ## 次のステップ
 
-* [Linux とオープン ソース Azure でのコンピューティング](virtual-machines-linux-opensource.md)
+
+* [Azure での Linux とオープン ソース コンピューティング](virtual-machines-linux-opensource.md)
 * [Linux を実行する仮想マシンにログオンする方法](virtual-machines-linux-how-to-log-on.md)
-
-
-
-
-
+ 
 

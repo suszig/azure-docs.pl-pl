@@ -18,8 +18,8 @@
     ms.author="tobiast"/>
 
 
-
 # .NET (c#) からの SQL Database 使用
+
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
@@ -32,7 +32,7 @@
 
 ### SQL Database
 
-参照してください、 [開始ページ](sql-database-get-started.md) にサンプル データベースを作成する方法について説明します。 ガイドに従って、**AdventureWorks データベースのテンプレート**を作成することが重要です。 以下に示す例は、**AdventureWorks スキーマ** とのみ動作します。
+参照してください、 [開始ページ](sql-database-get-started.md) にサンプル データベースを作成する方法について説明します。  作成するガイドを実行する重要である、 **AdventureWorks データベースのテンプレート**します。 のみ以下に示す例を使用、 **AdventureWorks スキーマ**します。  
 
 ## 手順 1: 接続文字列を取得します。
 
@@ -40,7 +40,7 @@
 
 ## 手順 2: 接続
 
-[System.Data.SqlClient.SqlConnection クラス](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) SQL データベースに接続するために使用します。
+ [System.Data.SqlClient.SqlConnection クラス](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) SQL データベースに接続するために使用します。
 
 
 ```
@@ -60,7 +60,7 @@ class Sample
 
 ## 手順 3. クエリを実行する
 
-[System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx) と [SqlDataReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqldatareader.aspx) クラスを使用して、結果 SQL Database に対するクエリのセットを取得します。 注 System.Data.SqlClient もサポートしているオフラインへのデータの取得 [System.Data.DataSet](https://msdn.microsoft.com/library/system.data.dataset.aspx)します。
+ [System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx) と [SqlDataReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqldatareader.aspx) クラスを使用して、結果 SQL Database に対するクエリのセットを取得します。 注 System.Data.SqlClient もサポートしているオフラインへのデータの取得 [System.Data.DataSet](https://msdn.microsoft.com/library/system.data.dataset.aspx)します。   
 
 ```
 using System;
@@ -95,11 +95,12 @@ class Sample
         }
     }
 }
-```
+
+```  
 
 ## 手順 4. 行を挿入する
 
-実行する方法を参照してください、この例では、 [挿入](https://msdn.microsoft.com/library/ms174335.aspx) ステートメントからアプリケーションを保護するためのパラメーターを渡すを安全に [SQL インジェクション](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) 脆弱性、および自動生成された取得 [主キー](https://msdn.microsoft.com/library/ms179610.aspx) 値。
+実行する方法を参照してください、この例では、 [挿入](https://msdn.microsoft.com/library/ms174335.aspx) ステートメントからアプリケーションを保護するためのパラメーターを渡すを安全に [SQL インジェクション](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) 脆弱性、および自動生成された取得 [主キー](https://msdn.microsoft.com/library/ms179610.aspx) 値。  
 
 ```
 using System;
@@ -131,8 +132,4 @@ class Sample
     }
 }
 ```
-
-
-
-
 

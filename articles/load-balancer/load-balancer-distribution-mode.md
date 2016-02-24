@@ -16,7 +16,6 @@
    ms.author="joaoma" />
 
 
-
 # ロード バランサー分散モード (ソース IP アフィニティ)
 
 ソース IP アフィニティと呼ばれる新しい分散モードが導入されています (セッション アフィニティやクライアント IP アフィニティとも呼ばれます)。 Azure Load Balancer を 2 組 (ソース IP、接続先 IP) または 3 組 (ソース IP、接続先 IP、プロトコル) を使用するように構成して、使用可能なサーバーにトラフィックをマップできます。 ソース IP アフィニティを使用して、同じクライアント コンピューターから開始された接続は、同じ DIP エンドポイントに移動します。
@@ -28,7 +27,7 @@
 
 - クライアントは、まず負荷分散されたパブリック アドレスに TCP セッションを開始し、特定の DIP に接続します。このチャネルは、アクティブなまま接続の状態を監視します。
 - 同じクライアント コンピューターからの新しい UDP セッションが、同じ負荷分散されたパブリック エンドポイントに開始されます。この接続は、前の TCP 接続と同じ DIP エンドポイントにも送られるため、メディアのアップロードは TCP 経由のコントロール チャネルを維持しながら高スループットで実行されることが予想されます。
-
+ 
 負荷分散されたセットが変更されると (仮想マシンの削除や追加)、クライアント要求の分散が再計算されます。 最終的に同じサーバーに接続する既存のクライアント セッションからの新しい接続に依存することはできません。 また、ソース IP アフィニティ分散モード を使用すると、トラフィックが均等に分散されない可能性があります。 プロキシの背後で実行しているクライアントは、1 つの固有のクライアント アプリケーションと見なすことができます。
 
 分散アルゴリズムは、5 つの組 (ソース IP、ソース ポート、接続先 IP、接続先ポート、プロトコルの種類) のハッシュを使用して、使用可能なサーバーにトラフィックをマップします。 これは、トランスポート セッション内でのみ持続性を提供します。 TCP または UDP の同じセッション内のパケットは、負荷分散されたエンドポイントの背後にある同じデータ センターの IP (DIP) インスタンスに送信されます。 クライアントがもう一度接続を開くか、同じソース IP から新しいセッションを開始すると、ソース ポートが変更され、トラフィックは別の DIP エンドポイントに送信されます。
@@ -37,20 +36,20 @@
 
 
 ## ロード バランサーのソース IP アフィニティ設定の構成
-
+ 
 仮想マシンでは、powershell を使用してタイムアウトの設定を変更できます。
-
+ 
 Azure エンドポイントを仮想マシンに追加してロード バランサー分散モードを設定する
 
     Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 
->[AZURE.NOTE] LoadBalancerDistribution は、2 組 (ソース IP と接続先 IP) の負荷分散の場合は sourceIP、3 組 (ソース IP、接続先 IP、プロトコル) の負荷分散の場合は sourceIPProtocol に設定できます。設定しない場合は、既定の動作 (5 組の負荷分散) を使用します。
+>[AZURE.NOTE] LoadBalancerDistribution は、2 組 (ソース IP、接続先 IP) の負荷分散、3 組 (ソース IP、接続 IP、プロトコル) の負荷分散 Sourceip または 5 組の負荷分散の既定の動作をする場合は none に設定できます。
 
 
 エンドポイント ロード バランサー分散モード構成を取得する
 
     PS C:\> Get-AzureVM –ServiceName MyService –Name MyVM | Get-AzureEndpoint
-    
+
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
     LocalPort : 80
@@ -68,10 +67,10 @@ Azure エンドポイントを仮想マシンに追加してロード バラン�
     InternalLoadBalancerName :
     IdleTimeoutInMinutes : 15
     LoadBalancerDistribution : sourceIP
-
+ 
 LoadBalancerDistribution 要素が存在しない場合、Azure Load Balancer は既定の 5 組のアルゴリズムを使用します。
 
-
+ 
 ### 負荷分散エンドポイント セットで分散モードを設定する
 
 エンドポイントが負荷分散エンドポイント セットの一部である場合、分散モードは負荷分散エンドポイント セットで設定される必要があります。
@@ -100,21 +99,22 @@ Azure SDK for .NET 2.5 (11 月にリリース予定) を使用してクラウド
     </AddressAssignments>
     </NetworkConfiguration>
 
+
 ## API の例
 
 ロード バランサーの分散は、サービス管理 API を使用して構成できます。
-追加することを確認、 `x ms バージョン` ヘッダーのバージョンに設定されて `2014年-09-01` またはそれ以降。
-
+追加することを確認、 `x-ms-version` ヘッダーのバージョンに設定されて `2014-09-01` またはそれ以降。
+ 
 デプロイで指定した負荷分散セットの構成をアップデートします。
 
 要求の例
 
     POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet 
-    
+
     x-ms-version: 2014-09-01 
-    
+
     Content-Type: application/xml 
-    
+
     <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"> 
     <InputEndpoint> 
     <LoadBalancedEndpointSetName> endpoint-set-name </LoadBalancedEndpointSetName> 
@@ -136,7 +136,7 @@ Azure SDK for .NET 2.5 (11 月にリリース予定) を使用してクラウド
 LoadBalancerDistribution の値のできます 2 組のアフィニティ、3 組のアフィニティの Sourceip、またはなし (アフィニティなし。 つまり 5 組)
 
     Response
-    
+
     HTTP/1.1 202 Accepted 
     Cache-Control: no-cache 
     Content-Length: 0 
@@ -149,11 +149,7 @@ LoadBalancerDistribution の値のできます 2 組のアフィニティ、3 �
 
 [内部ロード バランサーの概要](load-balancer-internal-overview.md)
 
-[インターネットへのロード バランサーの構成の開始します。](load-balancer-internet-getstarted.md)
+[インターネットに接続するロード バランサーの構成の開始](load-balancer-internet-getstarted.md)
 
-[ロード バランサーのアイドル TCP タイムアウト設定を構成します。](load-balancer-tcp-idle-timeout.md)
-
-
-
-
+[ロード バランサーのアイドル TCP タイムアウト設定の構成](load-balancer-tcp-idle-timeout.md) 
 

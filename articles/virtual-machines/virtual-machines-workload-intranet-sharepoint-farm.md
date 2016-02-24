@@ -17,7 +17,6 @@
     ms.date="10/29/2015"
     ms.author="josephd"/>
 
-
 # Azure インフラストラクチャ サービスのワークロード: イントラネット SharePoint ファーム
 
 [AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーの配置モデルです。
@@ -35,7 +34,8 @@ Azure Virtual Network は、すべての名前とトラフィック ルーティ
 Azure インフラストラクチャ サービスでイントラネット SharePoint ファームをホストする例として、基幹業務アプリケーションがあります。 概要については、次を参照してください。、 [基幹業務アプリケーションのアーキテクチャ ブルー プリント](http://msdn.microsoft.com/dn630664)します。
 
 次の手順は、Azure でホストされている開発/テスト イントラネット SharePoint ファームのセットアップです。
-> [AZURE.NOTE] Microsoft は、SharePoint Server 2016 IT Preview をリリースしました。 SharePoint Server 2016 IT Preview とその前提条件があらかじめインストールされた Azure 仮想マシン ギャラリー イメージを使用すると、このプレビュー版を簡単にインストールしてテストすることができます。 詳細については、次を参照してください。 [Azure での SharePoint Server 2016 IT Preview のテスト](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)します。
+
+> [AZURE.NOTE] マイクロソフトでは、SharePoint Server 2016 IT Preview をリリースしました。 SharePoint Server 2016 IT Preview とその前提条件があらかじめインストールされた Azure 仮想マシン ギャラリー イメージを使用すると、このプレビュー版を簡単にインストールしてテストすることができます。 詳細については、次を参照してください。 [Azure での SharePoint Server 2016 IT Preview のテスト](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)します。
 
 ## Azure でホストされている開発/テスト イントラネット SharePoint ファームを作成する
 
@@ -88,27 +88,26 @@ Azure でホストされている SharePoint の開発/テスト環境を作成�
 
 こちらが仮想マシンとそれぞれのこの構成に対する既定のサイズになります。
 
- 項目| 仮想マシンの説明| ギャラリー イメージ| 既定サイズ
+項目 | 仮想マシンの説明 | ギャラリー イメージ | 既定サイズ
 --- | --- | --- | ---
+1. | 最初のドメイン コントローラー | Windows Server 2012 R2 Datacenter | A2 (Medium)
+2. | 2 番目のドメイン コントローラー | Windows Server 2012 R2 Datacenter | A2 (Medium)
+3. | 最初のデータベース サーバー | Microsoft SQL Server 2014 Enterprise - Windows Server 2012 R2 | A5
+4. | 2 番目のデータベース サーバー | Microsoft SQL Server 2014 Enterprise - Windows Server 2012 R2 | A5
+5. | クラスターのマジョリティ ノード | Windows Server 2012 R2 Datacenter | A1 (Small)
+6. | 最初の SharePoint アプリケーション サーバー | Microsoft SharePoint Server 2013 評価版 - Windows Server 2012 R2 | A4 (ExtraLarge)
+7. | 2 番目の SharePoint アプリケーション サーバー | Microsoft SharePoint Server 2013 評価版 - Windows Server 2012 R2 | A4 (ExtraLarge)
+8. | 最初の SharePoint Web サーバー | Microsoft SharePoint Server 2013 評価版 - Windows Server 2012 R2 | A4 (ExtraLarge)
+9. | 2 番目の SharePoint Web サーバー | Microsoft SharePoint Server 2013 評価版 - Windows Server 2012 R2 | A4 (ExtraLarge)
 
-1. |最初のドメイン コント ローラー |Windows Server 2012 R2 Datacenter |A2 (中)
-2. |2 番目のドメイン コント ローラー |Windows Server 2012 R2 Datacenter |A2 (中)
-3. |最初のデータベース サーバー |Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 |A5
-4. |2 番目のデータベース サーバー |Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 |A5
-5. |クラスターのマジョリティ ノード |Windows Server 2012 R2 Datacenter |A1 (小)
-6. |最初の SharePoint アプリケーション サーバー |Microsoft SharePoint Server 2013 評価版-Windows Server 2012 R2 |A4 (特大)
-7. |2 番目の SharePoint アプリケーション サーバー |Microsoft SharePoint Server 2013 評価版-Windows Server 2012 R2 |A4 (特大)
-8. |最初の SharePoint web サーバー |Microsoft SharePoint Server 2013 評価版-Windows Server 2012 R2 |A4 (特大)
-9. |2 番目の SharePoint web サーバー |Microsoft SharePoint Server 2013 評価版-Windows Server 2012 R2 |A4 (特大)
+この構成の見積もりコストを計算するため、次を参照してください。、 [Azure 料金計算ツール](https://azure.microsoft.com/pricing/calculator/)します。 
 
-この構成の見積もりコストを計算するため、次を参照してください。、 [Azure 料金計算ツール](https://azure.microsoft.com/pricing/calculator/)します。
-
-1. [**モジュール**] で、[**コンピューティング**] をクリックし、[**仮想マシン**] を必要なだけクリックして 9 つの仮想マシンを作成してください。
+1.  **モジュール**, 、] をクリックして **コンピューティング**, 、] をクリックし、 **仮想マシン** 9 つの仮想マシンのリストを作成するための十分な時間です。
 2. 各仮想マシンで次を選択してください。
     - 目的のリージョン
-    - 種類には **Windows**
-    - 価格レベルには **Standard**
-    - **インスタンスのサイズ**には、上記の表での既定のサイズもしくは目的のサイズ
+    - **Windows** の種類
+    - **標準的な** の価格レベル
+    - 前の表に、目的のサイズの既定のサイズ、 **インスタンス サイズ]**
 
 > [AZURE.NOTE] Azure 料金計算ツールでは、SQL Server 2014 Enterprise を実行している 2 つの仮想マシンの SQL Server ライセンスの追加のコストは含まれません。 参照してください [仮想マシンの料金 SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql) の詳細。
 
@@ -124,7 +123,7 @@ Azure でホストされている SharePoint の開発/テスト環境を作成�
 
     仮想ネットワークの 2 つの Azure Active Directory レプリカ ドメイン コントローラーと DNS 設定を構成します。 詳細な構成手順については、次を参照してください。 [フェーズ 2](virtual-machines-workload-intranet-sharepoint-phase2.md)します。
 
-- フェーズ 3: SQL Server インフラストラクチャを構成する
+- フェーズ 3: SQL Server インフラストラクチャを構成する  
 
     SharePoint に使用する SQL Server 仮想マシンを準備し、SQL Server クラスターを作成します。 詳細な構成手順については、次を参照してください。 [フェーズ 3](virtual-machines-workload-intranet-sharepoint-phase3.md)します。
 
@@ -140,21 +139,17 @@ Azure でホストされている SharePoint の開発/テスト環境を作成�
 
 ## その他のリソース
 
-[SharePoint と SQL Server AlwaysOn 可用性グループで、Azure のデプロイ](virtual-machines-workload-deploy-spsqlao-overview.md)
+[Azure での SharePoint と SQL Server AlwaysOn 可用性グループのデプロイ](virtual-machines-workload-deploy-spsqlao-overview.md)
 
-[テスト用のハイブリッド クラウドでの SharePoint イントラネット ファームの設定します。](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
+[テスト用のハイブリッド クラウドでの SharePoint イントラネット ファームの設定](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
 [SharePoint 2013 用の Microsoft Azure アーキテクチャ](https://technet.microsoft.com/library/dn635309.aspx)
 
-[SharePoint と SQL Server AlwaysOn のインフォ グラフィック](http://go.microsoft.com/fwlink/?LinkId=394788)
+[SharePoint と SQL Server AlwaysOn のインフォグラフィック](http://go.microsoft.com/fwlink/?LinkId=394788)
 
 [Azure インフラストラクチャ サービスでホストされる SharePoint ファーム](virtual-machines-sharepoint-infrastructure-services.md)
 
 [Azure インフラストラクチャ サービス実装ガイドライン](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-[Azure インフラストラクチャ サービスのワークロード: 高可用性の基幹業務アプリケーション](virtual-machines-workload-high-availability-lob-application.md)
-
-
-
-
+[Azure インフラストラクチャ サービスのワークロード: 高可用な基幹業務アプリケーション](virtual-machines-workload-high-availability-lob-application.md)
 

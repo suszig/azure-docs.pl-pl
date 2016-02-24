@@ -16,7 +16,6 @@
     ms.date="11/25/2015" 
     ms.author="mahender"/>
 
-
 # Xamarin.iOS アプリに認証を追加する
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -25,23 +24,23 @@
 
 このトピックでは、クライアント アプリケーションから App Service モバイル アプリのユーザーを認証する方法について説明します。 このチュートリアルでは、App Service でサポートされている ID プロバイダーを使用して、Xamarin.iOS クイック スタート プロジェクトに認証を追加します。 モバイル アプリによって正常に認証され、承認されるとユーザー ID 値が表示され、制限付きのテーブル データにアクセスできます。
 
-[Xamarin.iOS アプリの作成] に関するチュートリアルを完了する必要があります。 ダウンロードしたクイック スタートのサーバー プロジェクトを使用しない場合は、認証拡張機能パッケージをプロジェクトに追加する必要があります。 サーバーの拡張機能パッケージの詳細については、次を参照してください。 [Azure モバイル アプリの .NET バックエンド サーバー SDK と連携](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)します。
+[Xamarin.iOS アプリの作成] に関するチュートリアルを完了する必要があります。 ダウンロードしたクイック スタートのサーバー プロジェクトを使用しない場合は、認証拡張機能パッケージをプロジェクトに追加する必要があります。 サーバーの拡張機能パッケージの詳細については、次を参照してください。 [Azure モバイル アプリの .NET バックエンド サーバー SDK と連携](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)します。 
 
-## アプリケーションを認証に登録し、App Services を構成する
+##アプリケーションを認証に登録し、App Services を構成する
 
-[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
+[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)] 
 
-## アクセス許可を、認証されたユーザーだけに制限する
+##アクセス許可を、認証されたユーザーだけに制限する
 
-[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
+[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
 
 &nbsp;&nbsp;4. Visual Studio または Xamarin Studio で、デバイスまたはエミュレーターを使用してクライアント プロジェクトを実行します。 アプリケーションの開始後に、状態コード 401 (許可されていません) のハンドルされない例外が発生することを確認します。 デバッガーのコンソールに、エラーが記録されます。 Visual Studio では、[出力] ウィンドウでエラーを確認する必要があります。
 
-&nbsp;&nbsp;この許可されていない問題は、アプリが認証されないユーザーとしてモバイル アプリのバックエンドにアクセスしようとするために発生します。 *TodoItem* テーブルは認証が必要になっています。
+&nbsp;&nbsp;この許可されていない問題は、アプリが認証されないユーザーとしてモバイル アプリのバックエンドにアクセスしようとするために発生します。  *TodoItem* テーブルには、今すぐ認証が必要です。
 
 次に、認証されたユーザーで Mobile App のバックエンドからリソースを要求するように、クライアント アプリを更新します。
 
-## アプリケーションに認証を追加する
+##アプリケーションに認証を追加する
 
 ここでは、データを表示する前にログイン画面を表示するようにアプリケーションを変更します。 アプリケーションが起動したときには、App Service には接続されず、データも表示されません。 ユーザーが最初に更新操作を実行した後で、ログイン画面が表示されます。ログインに成功すると、Todo 項目の一覧が表示されます。
 
@@ -55,7 +54,8 @@
         private MobileServiceUser user; 
         public MobileServiceUser User { get { return user; } }
 
-2. 次の定義を使用して、**QSTodoService** に **Authenticate** という新しいメソッドを追加します。
+2. という名前の新しいメソッドを追加 **認証** に **QSTodoService** を次の定義。
+
 
         public async Task Authenticate(UIViewController view)
         {
@@ -69,26 +69,27 @@
             }
         }
 
-    >[AZURE.NOTE] Facebook 以外の ID プロバイダーを使用している場合は、上の例の **LoginAsync** に渡される値を _MicrosoftAccount_、_Twitter_、_Google_、_WindowsAzureActiveDirectory_ のいずれかに変更します。
+    >[AZURE.NOTE] If you are using an identity provider other than a Facebook, change the value passed to **LoginAsync** above to one of the following: _MicrosoftAccount_, _Twitter_, _Google_, or _WindowsAzureActiveDirectory_.
 
-3. **QSTodoListViewController.cs** を開きます。 **ViewDidLoad** のメソッド定義を変更して、終わり近くにある **RefreshAsync()** の呼び出しを削除します。
+3. 開いている **QSTodoListViewController.cs**します。 メソッド定義を変更 **ViewDidLoad** への呼び出しを削除する **RefreshAsync()** 最後に記載します。
 
-     public override async void ViewDidLoad ()
-     {
-         base.ViewDidLoad ();
-    
-         todoService = QSTodoService.DefaultService;
-        await todoService.InitializeStoreAsync ();
-    
-        RefreshControl.ValueChanged += async (sender, e) => {
-             await RefreshAsync ();
+        public override async void ViewDidLoad ()
+        {
+            base.ViewDidLoad ();
+
+            todoService = QSTodoService.DefaultService;
+           await todoService.InitializeStoreAsync ();
+
+           RefreshControl.ValueChanged += async (sender, e) => {
+                await RefreshAsync ();
+           }
+
+            // Comment out the call to RefreshAsync
+            // await RefreshAsync ();
         }
-    
-         // Comment out the call to RefreshAsync
-         // await RefreshAsync ();
-     }
 
-4. **User** プロパティが null の場合、認証するメソッド **RefreshAsync** を変更します。 メソッド定義の最初に次のコードを追加します。
+
+4. メソッドを変更 **RefreshAsync** 場合認証のため、 **ユーザー** プロパティが null です。 メソッド定義の最初に次のコードを追加します。
 
         // start of RefreshAsync method
         if (todoService.User == null) {
@@ -99,15 +100,15 @@
             }
         }
         // rest of RefreshAsync method
-
-5. Mac の Xamarin Build Host に接続しているVisual Studio または Xamarin Studio で、デバイスまたはエミュレーターをターゲットとしているクライアント プロジェクトを実行します。 アプリケーションにデータが表示されないことを確認します。
+    
+5. Mac の Xamarin Build Host に接続しているVisual Studio または Xamarin Studio で、デバイスまたはエミュレーターをターゲットとしているクライアント プロジェクトを実行します。 アプリケーションにデータが表示されないことを確認します。 
 
     項目の一覧をプルダウンして更新操作を実行すると、ログイン画面が表示されます。 有効な資格情報を正しく入力すると、Todo 項目の一覧が表示され、データを更新できるようになります。
 
-
-
-
-[submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582 
-[my applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039 
-[create a xamarin.ios app]: app-service-mobile-xamarin-ios-get-started.md 
+ 
+<!-- URLs. -->
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Create a Xamarin.iOS app]: app-service-mobile-xamarin-ios-get-started.md
+ 
 

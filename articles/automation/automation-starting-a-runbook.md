@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure Automation での Runbook を開始する"
+   pageTitle="Azure Automation での Runbook の開始"
    description="Azure Automation の Runbook を開始するために使用できる各種方法についてまとめ、Azure ポータルと Windows PowerShell の両方の詳細な使用方法について説明します。"
    services="automation"
    documentationCenter=""
@@ -15,10 +15,9 @@
    ms.date="11/13/2015"
    ms.author="bwren;sngun"/>
 
+# Azure Automation での Runbook の開始
 
-# Azure Automation での Runbook を開始する
-
-次の表は、特定のシナリオに最も適している、Azure Automation の Runbook を開始する方法を決定するときに役立ちます。 この記事には、Azure ポータルと Windows PowerShell を使用して Runbook を開始する詳細情報が含まれます。 他の方法の詳細情報については、以下のリンクからアクセスできる他のドキュメントに記されています。
+次の表は、特定のシナリオに最も適している、Azure Automation の Runbook を開始する方法を決定するときに役立ちます。    この記事には、Azure ポータルと Windows PowerShell を使用して Runbook を開始する詳細情報が含まれます。  他の方法の詳細情報については、以下のリンクからアクセスできる他のドキュメントに記されています。
 
 <table>
  <tr>
@@ -67,7 +66,7 @@
    <ul>
     <li>1 つの HTTP 要求で Runbook を開始します。</li>
     <li>URL のセキュリティ トークンを使用して認証します。</li>
-    <li>クライアントは Webhook の作成時に指定されたパラメーター値を上書きできません。Runbook は、HTTP 要求の詳細が含まれる 1 つのパラメーターを定義できます。</li>
+    <li>クライアントは Webhook の作成時に指定されたパラメーター値を上書きできません。  Runbook は、HTTP 要求の詳細が含まれる 1 つのパラメーターを定義できます。</li>
     <li>Webhook URL でジョブの状態を追跡することはできません。</li>
    </ul>
   </td>
@@ -108,24 +107,24 @@
 
 
 
-## Azure ポータルで Runbook を開始する
+## Azure ポータルでの Runbook の開始
 
-1. Azure ポータルで、**[Automation]** を選択し、次に Automation アカウントの名前をクリックします。
-1. **[Runbook]** タブを選択します。
-1. Runbook を選択し、**[開始]** をクリックします。
+1. Azure ポータルで [ **オートメーション** に automation アカウントの名前をクリックします。
+1. 選択、 **Runbook** ] タブをクリックします。
+1. Runbook を選択し、 **開始**します。
 1. Runbook にパラメーターがある場合は、各パラメーターのテキスト ボックスに値を指定するように求めるプロンプトが表示されます。 参照してください [Runbook パラメーター](#Runbook-parameters) の下について詳しくパラメーター。
-1. **[開始]** Runbook メッセージの隣にある **[ジョブの表示]** を選択するか、Runbook の **[ジョブ]** タブを選択してその Runbook ジョブの状態を表示します。
+1. 選択するか **ジョブの表示** ] の横に、 **開始** runbook メッセージかを選択、 **ジョブ** runbook ジョブの状態を表示する runbook のタブをクリックします。
 
-## Azure プレビュー ポータルで Runbook を開始する
+## Azure プレビュー ポータルでの Runbook の開始
 
-1. Automation アカウントから、**[Runbook]** 部分をクリックして **[Runbook]** ブレードを開きます。
-1. Runbook をクリックすると、その **[Runbook]** ブレードが開きます。
-2. **[開始]** をクリックします。
-1. Runbook がパラメーターを持っていない場合は、開始するかどうかを確認するプロンプトが表示されます。 Runbook にパラメーターがある場合、**[Runbook の開始]** ブレードが開くので、パラメーター値を指定できます。 参照してください [Runbook パラメーター](#Runbook-parameters) の下について詳しくパラメーター。
-3. **[ジョブ]** ブレードが開くので、ジョブの状態を追跡できます。
+1. クリックして、オートメーション アカウントから、 **Runbook** を開くには一部、 **Runbook** ブレードです。
+1. 開くには、runbook をクリックしてその **Runbook** ブレードです。
+2. クリックして **開始**します。
+1. Runbook がパラメーターを持っていない場合は、開始するかどうかを確認するプロンプトが表示されます。  Runbook にパラメーターがある場合、 **Runbook の開始** が開くので、パラメーター値を指定できます。 参照してください [Runbook パラメーター](#Runbook-parameters) の下について詳しくパラメーター。
+3.  **ジョブ** ブレードが開くのでをジョブの状態を追跡することができます。
 
 
-## Windows PowerShell で Runbook を開始する
+## Windows PowerShell での Runbook の開始
 
 使用することができます、 [Start-azureautomationrunbook](http://msdn.microsoft.com/library/azure/dn690259.aspx) に Windows PowerShell で runbook を開始します。 次のサンプル コードは、Test-Runbook という Runbook を開始します。
 
@@ -157,7 +156,7 @@ Azure Automation Web サービスは、次のセクションで説明されて�
 
 ### 名前付きの値
 
-パラメーターのデータ型が [object] の場合、*{"Name1":Value1, "Name2":Value2, "Name3":Value3}* という JSON 形式を使用して名前付きの値の一覧を送信できます。 これらの値は単純型にする必要があります。 Runbook にパラメーターとしてお届け、 [PSCustomObject](http://msdn.microsoft.com/library/azure/system.management.automation.pscustomobject(v=vs.85).aspx) 各名前付きの値に対応するプロパティを使用します。
+かどうかは、パラメーター データ型 [object] では、名前付きの値の一覧を送信する次の JSON 形式を使用することができます: *{"Name1": Value1,"Name2"::value2,"Name3"::value3}*します。 これらの値は単純型にする必要があります。 Runbook にパラメーターとしてお届け、 [PSCustomObject](http://msdn.microsoft.com/library/azure/system.management.automation.pscustomobject(v=vs.85).aspx) 各名前付きの値に対応するプロパティを使用します。
 
 user というパラメーターを受け入れる次のテスト Runbook について考慮してください。
 
@@ -189,7 +188,7 @@ user パラメーターに対して、次のテキストを使用できます。
 
 [配列] などの配列は、パラメーターや [string[]]、次の JSON 形式を使用して、値の一覧を送信することができます: *[Value1, Value2, Value3]*します。 これらの値は単純型にする必要があります。
 
-*user* というパラメーターを受け入れる次のテスト Runbook について考慮してください。
+という名前のパラメーターを受け入れる次のテスト runbook について考えます *ユーザー*します。
 
     Workflow Test-Parameters
     {
@@ -229,18 +228,14 @@ credential というパラメーターを受け入れる次のテスト Runbook 
        $credential.UserName
     }
 
-*My Credential* という資格情報資産がある場合、user パラメーターで次のテキストを使用できます。
+場合、user パラメーターという資格情報資産が次のテキストを使用する *My Credential*します。
 
     My Credential
 
-資格情報のユーザー名が *jsmith* であると仮定すると、次の出力が生成されます。
+資格情報にユーザー名と仮定して *jsmith*, の次の出力が生成されます。
 
     jsmith
 
 ## 関連記事:
 
-- [Azure Automation の runbook を子](automation-child-runbooks.md)
-
-
-
-
+- [Azure Automation での子 Runbook](automation-child-runbooks.md) 

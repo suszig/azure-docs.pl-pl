@@ -16,14 +16,13 @@
     ms.date="12/11/2015"
     ms.author="emgerner"/>
 
-
 # Python から Azure BLOB ストレージを使用する方法
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## 概要
 
-この記事では、BLOB ストレージを使用して一般的なシナリオを実行する方法について説明します。 サンプルは Python で記述され使用する、 [Python Azure ストレージ パッケージ][]します。 紹介するシナリオは、BLOB の アップロード、一覧表示、
+この記事では、BLOB ストレージを使用して一般的なシナリオを実行する方法について説明します。 サンプルは Python で記述され使用する、 [Python Azure Storage のパッケージ][]します。 紹介するシナリオは、BLOB の アップロード、一覧表示、
 ダウンロード、削除などです。
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
@@ -32,21 +31,21 @@
 
 ## コンテナーを作成する
 
-> [AZURE.NOTE] Python をインストールする必要がある場合、または [Python Azure パッケージの][], を参照してください、 [Python インストール ガイド](../python-how-to-install.md)します。
+> [AZURE.NOTE] Python をインストールする必要がある場合、または [Python Azure パッケージ][], を参照してください、 [Python インストール ガイド](../python-how-to-install.md)します。
 
-**BlobService** オブジェクトを使用して、コンテナーおよび BLOB を操作できます。 この
+ **BlobService** オブジェクトでは、コンテナーおよび blob を操作することができます。 この
 次のコードを作成、 **BlobService** オブジェクトです。 次の内容を
 プログラムを使用して Azure Storage にアクセスするすべての Python ファイルの先頭。
 
     from azure.storage.blob import BlobService
 
-次のコードは、ストレージ アカウントの名前とアカウント キーを使用して、**BlobService** オブジェクトを作成します。 'myaccount' と 'mykey' の部分は、実際のアカウントとキーに置き換えてください。
+次のコード作成、 **BlobService** オブジェクトのストレージ アカウント名とアカウント キーを使用します。  'myaccount' と 'mykey' の部分は、実際のアカウントとキーに置き換えてください。
 
     blob_service = BlobService(account_name='myaccount', account_key='mykey')
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-次のコード サンプルでコンテナーが存在しない場合は、**BlobService** オブジェクトを使用してコンテナーを作成できます。
+次のコード例で使用できます、 **BlobService** が存在しない場合は、コンテナーを作成するオブジェクト。
 
     blob_service.create_container('mycontainer')
 
@@ -67,7 +66,7 @@
 
 **put \_block\_blob\_from\_path** 指定されたパスからファイルの内容をアップロードし、 **put \_block\_blob\_from\_file** 既に開かれているファイル/ストリームから内容をアップロードします。 **put \_block\_blob\_from\_bytes** (バイト単位) の配列をアップロードおよび **put \_block\_blob\_from\_text** は指定されたエンコード (既定値は utf-8) を使用して指定されたテキスト値をアップロードします。
 
-次の例では、**sunset.png** ファイルの内容を **myblob** BLOB にアップロードします。
+次の例の内容をアップロードする、 **sunset.png** ファイルを **myblob** blob です。
 
     blob_service.put_block_blob_from_path(
         'mycontainer',
@@ -81,7 +80,7 @@
 コンテナー内の blob の一覧を表示する、 **list \_blobs** メソッドです。 各
 呼び出す **list \_blobs** は結果のセグメントを返します。 すべての結果を取得するには
 チェック、 **next\_marker** 呼び出し、結果の **list \_blobs** として再度
-必要に応じて新しいストレージ アカウントを作成します。 次のコードの出力、 **名** コンテナー内の各 blob の
+必要に応じて新しいストレージ アカウントを作成します。 次のコードの出力、 **名前** コンテナー内の各 blob の
 出力します。
 
     blobs = []
@@ -109,7 +108,7 @@ Blob からデータをダウンロードするには使用 **\_blob\_to\_path**
 
 ## BLOB を削除する
 
-最後に、BLOB を削除するには、**delete_blob** を呼び出します。
+最後に、blob を削除する呼び出し **delete_blob**します。
 
     blob_service.delete_blob('mycontainer', 'myblob')
 
@@ -118,13 +117,12 @@ Blob からデータをダウンロードするには使用 **\_blob\_to\_path**
 これで、Blob ストレージの基本を説明した次のリンクします。
 さらに複雑なストレージ タスクについて学習するには、次のリンク先を参照してください。
 
-- アクセス、 [Azure ストレージ チーム ブログ][]
-- [AzCopy コマンド ライン ユーティリティを使用してデータを転送します。](storage-use-azcopy)
+- 参照してください、 [Azure ストレージ チーム ブログ][]
+- [AzCopy コマンド ライン ユーティリティを使ったデータの転送](storage-use-azcopy)
 
 詳細については、「関連項目、 [Python デベロッパー センター](/develop/python/)します。
 
-
-[azure storage team blog]: http://blogs.msdn.com/b/windowsazurestorage/ 
-[python azure package]: https://pypi.python.org/pypi/azure 
-[python azure storage package]: https://pypi.python.org/pypi/azure-storage 
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Python Azure package]: https://pypi.python.org/pypi/azure
+[Python Azure Storage package]: https://pypi.python.org/pypi/azure-storage  
 

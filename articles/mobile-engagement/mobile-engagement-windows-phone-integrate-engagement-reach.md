@@ -16,46 +16,46 @@
     ms.date="07/07/2015" 
     ms.author="piyushjo" />
 
-
-# Windows Phone Silverlight Reach SDK 統合
+#Windows Phone Silverlight Reach SDK 統合
 
 実行の統合手順を実行する必要があります、 [Windows Phone Silverlight Engagement SDK 統合](mobile-engagement-windows-phone-integrate-engagement.md) このガイドの手順の前にします。
 
-## エンゲージメント リーチ SDK を Windows Phone Silverlight プロジェクトに埋め込む
+##エンゲージメント リーチ SDK を Windows Phone Silverlight プロジェクトに埋め込む
 
-追加するものが必要はありません。 `EngagementReach` リファレンスとリソースは、既にプロジェクト内です。
-> [AZURE.TIP]  格納されているイメージをカスタマイズすることができます、 `リソース` ブランド アイコン (その既定のエンゲージメント アイコン) 特に、プロジェクトのフォルダーです。
+追加するものが必要はありません。 `EngagementReach` リファレンスとリソースは既にプロジェクトにします。
 
-## 機能を追加する
+> [AZURE.TIP]  格納されているイメージをカスタマイズすることができます、 `Resources` ブランド アイコン (その既定のエンゲージメント アイコン) 特に、プロジェクトのフォルダーです。
+
+##機能を追加する
 
 エンゲージメント Reach SDK には、いくつかの追加機能が必要になります。
 
-開いている、 `WMAppManifest.xml` ファイルであり、次の機能が宣言されていることを確認します。
+`WMAppManifest.xml` ファイルを開き、次の機能が宣言されていることを確認します。
 
 -   `ID_CAP_PUSH_NOTIFICATION`
 -   `ID_CAP_WEBBROWSERCOMPONENT`
 
 1 つ目はトースト通知の表示を許可するために MPNS サービスによって使用されます。 2 つ目は SDK にブラウザーのタスクを埋め込むために使用されます。
 
-編集、 `WMAppManifest.xml` ファイルおよび内に追加、 `< 機能/>` タグ。
+`WMAppManifest.xml` ファイルを編集し、`<Capabilities />` タグ内に追加します。
 
     <Capability Name="ID_CAP_PUSH_NOTIFICATION" />
     <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
 
-## Microsoft プッシュ通知サービスを有効にする
+##Microsoft プッシュ通知サービスを有効にする
 
-使用するために、 **Microsoft プッシュ通知サービス** (MPNS と呼ばれます)、 `WMAppManifest.xml` ファイルが必要な `< アプリ/>` タグを `パブリッシャー` 属性は、プロジェクトの名前に設定します。
+使用するために、 **Microsoft プッシュ通知サービス** (MPNS と呼ばれます)、 `WMAppManifest.xml` ファイルが必要な `<App />` タグを `Publisher` 属性は、プロジェクトの名前に設定します。
 
-## Engagement Reach SDK を初期化する
+##Engagement Reach SDK を初期化する
 
-### Engagement の構成
+### エンゲージメントの構成
 
-Engagement の構成がで集中管理、 `Resources\EngagementConfiguration.xml` 、プロジェクトのファイルです。
+Engagement の構成は、プロジェクトの `Resources\EngagementConfiguration.xml` ファイルで集中管理されます。
 
 このファイルを編集して、リーチの構成を指定します:
 
--   *オプション*, 、間ではなくまたはネイティブのプッシュ (MPNS) がアクティブかどうかを示す `< enableNativePush >` と `</enableNativePush >` タグ (`true` 既定では)。
--   *オプション*, 、間のプッシュ チャネルの名前を示す `< channelName >` と `</channelName >` タグ、そのために、アプリケーションの現在が使用または空白のままにします。
+-   *省略可能な*, 、間ではなくまたはネイティブのプッシュ (MPNS) がアクティブかどうかを示す `<enableNativePush>` と `</enableNativePush>` タグ (`true` 既定)。
+-   *省略可能な*, 、間のプッシュ チャネルの名前を示す `<channelName>` と `</channelName>` タグ、そのために、アプリケーションの現在が使用または空白のままにします。
 
 代わりに指定を実行時に行う場合は、エンゲージメント エージェントを初期化する前に、次のメソッドを呼び出すことができます。
 
@@ -75,15 +75,15 @@ Engagement の構成がで集中管理、 `Resources\EngagementConfiguration.xml
 
 > [AZURE.TIP] アプリケーションの MPNS プッシュ チャネルの名前を指定できます。 既定では、エンゲージメントはアプリ ID に基づいて、名前を作成します。 エンゲージメントの外部でプッシュ チャネルを使用する計画がある場合を除いて、自分で名前を指定する必要はありません。
 
-### Engagement の初期化
+### エンゲージメントの初期化
 
-変更、 `App.xaml.cs`:
+`App.xaml.cs` を変更します。
 
--   追加、 `を使用して` ステートメント。
+-   次の内容を `using` ステートメントに追加します。
 
         using Microsoft.Azure.Engagement;
 
--   挿入 `EngagementReach.Instance.Init` 直後 `EngagementAgent.Instance.Init` で `Application_Launching` :
+-   `Application_Launching` の `EngagementAgent.Instance.Init` の直後に `EngagementReach.Instance.Init` を挿入します。
 
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
@@ -91,7 +91,7 @@ Engagement の構成がで集中管理、 `Resources\EngagementConfiguration.xml
            EngagementReach.Instance.Init();
         }
 
--   挿入 `EngagementReach.Instance.OnActivated` で、 `Application_Activated` メソッド。
+-   `EngagementReach.Instance.OnActivated` を `Application_Activated` メソッドに挿入します。
 
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
@@ -99,34 +99,33 @@ Engagement の構成がで集中管理、 `Resources\EngagementConfiguration.xml
            EngagementReach.Instance.OnActivated(e);
         }
 
+> [AZURE.IMPORTANT]  `EngagementReach.Instance.Init` 専用のスレッドで実行します。 自分で実行する必要はありません。
 
-> [AZURE.IMPORTANT] `EngagementReach.Instance.Init` 専用のスレッドで実行します。 自分で実行する必要はありません。
-
-## アプリ ストアの送信に関する考慮事項
+##アプリ ストアの送信に関する考慮事項
 
 Microsoft はプッシュ通知を使用する場合のルールを設定しています。
 
-[アプリケーション ポリシー] の Microsoft ドキュメントから 2.9 をセクションします。
+Microsoft から [Application Policies] ドキュメント、セクション 2.9。
 
 1) ユーザーにプッシュ通知を受信することに同意するように依頼する必要があります。 次に、設定で、プッシュ通知を無効にする方法を追加します。
 
-EngagementReach オブジェクトは、オプトイン-で/オプトアウトを管理する 2 つのメソッドを提供 `EnableNativePush()` と `DisableNativePush()`します。 たとえば、設定でMPNS を有効または無効に切り替えるオプションを作成ができます。
+EngagementReach オブジェクトは、オプトイン / オプトアウト、`EnableNativePush()` と `DisableNativePush()` を管理する 2 つの方法を提供します。 たとえば、設定でMPNS を有効または無効に切り替えるオプションを作成ができます。
 
-エンゲージメントの構成 \ で MPNS を非アクティブ化することもできます<windows-phone-sdk-reach-configuration\>します。
+エンゲージメントの構成] \ < windows-電話の sdk-reach-\ > で MPNS を非アクティブ化することもできます。
 
-> 2.9.1) アプリケーション、最初に提供される通知について説明し、 **ユーザーの明確な許可 (オプトイン) を入手**, 、および **プッシュ通知を受信しないよう、ユーザー、メカニズムを提供する必要があります**します。 Microsoft プッシュ通知サービスを使用して提供されるすべての通知がユーザーに提供される説明と一致する必要があり、すべてに準拠する必要があります該当 [アプリケーション ポリシー ][content policies] 、および [アプリケーションの特定の種類の追加の要件] です。
+> 2.9.1) アプリケーションが提供される通知について説明する必要があります最初および **ユーザーの明確な許可 (オプトイン) を入手**, 、および **プッシュ通知を受信しないよう、ユーザー、メカニズムを提供する必要があります**します。 Microsoft プッシュ通知サービスを使用して提供されるすべての通知がユーザーに提供される説明と一致する必要があり、すべてに準拠する必要があります該当 [アプリケーション ポリシー] [Content Policies] と [Additional Requirements for Specific Application Types]します。
 
-2) プッシュ通知を使用しすぎないようにします。 エンゲージメントが代わりに通知を処理します。
+2) 多くのプッシュ通知を使用しないでください。 エンゲージメントが代わりに通知を処理します。
 
-> 2.9.2)、アプリケーションと Microsoft プッシュ通知サービスの使用方法過度にないネットワーク容量または Microsoft プッシュ通知サービスの帯域幅を使用またはそれ以外の場合必要以上に Microsoft の妥当な裁量によって決定と Windows Phone やその他の Microsoft デバイスまたは過剰なプッシュ通知の使用のサービスに負担とする必要がありますに損害を与えるや実行できません、Microsoft ネットワークまたはサーバーまたはサード パーティのサーバーまたは Microsoft プッシュ通知サービスに接続されているネットワークに干渉します。
+> 2.9.2) アプリケーションと Microsoft プッシュ通知サービスのアプリケーションの使用量は、Microsoft が合理的な裁量によって決定した、Microsoft プッシュ通知サービスのネットワーク容量または帯域幅を超えてはいけません。さもないと、過剰なプッシュ通知により、Windows Phone または、その他の Microsoft デバイスまたはサービスに過剰に負担がかかります。また Microsoft のネットワークまたはサーバーまたは Microsoft プッシュ通知サービスに接続されるサード パーティ製のサーバーまたはネットワークに損害を与えたり、干渉したりしてはいけません。
 
 3) 重要な情報の送信では MPNS に依存しないでください。 エンゲージメントは MPNS を使用するため, このルールはエンゲージメントのフロントエンド内で作成されるキャンペーンにも適用されます。
 
-> 2.9.ミッション クリティカルまたはそれ以外の場合に影響する可能性の生死、医療機器または条件に関連する重要な通知を制限なしなどの問題を通知を送信する、3) Microsoft プッシュ通知サービスを使用しない場合があります。 MICROSOFT は、Microsoft プッシュ通知サービスの使用またはMicrosoft プッシュ通知サービスの通知の配信が、中断やエラーがなく実行されること、また、リアルタイムで配信されることについての保証を一切いたしません。
+> 2.9.3) Microsoft プッシュ通知サービスは、ミッション クリティカルな通知、それ以外の生死にかかわる問題に影響を与える通知、医療機器または条件に関連するクリティカルな通知を含みますが、これらに限定することなく、これらの送信には使用できません。 MICROSOFT は、Microsoft プッシュ通知サービスの使用またはMicrosoft プッシュ通知サービスの通知の配信が、中断やエラーがなく実行されること、また、リアルタイムで配信されることについての保証を一切いたしません。
 
 **これらの推奨事項を順守しない場合は、アプリケーションが検証プロセスに合格することを保証できません。**
 
-## データのプッシュを操作する (オプション)
+##データのプッシュを操作する (オプション)
 
 アプリケーションが Reach データのプッシュを受信できるようにするには、EngagementReach クラスの 2 つのイベントを実装する必要があります。
 
@@ -143,18 +142,19 @@ EngagementReach オブジェクトは、オプトイン-で/オプトアウト�
        return true;
     };
 
-各メソッドのコールバックがブール値を返すことを確認できます。 データのプッシュをディスパッチした後、Engagement はバックエンドにフィードバックを送信します。 コールバックが false を返した場合、 `終了` フィードバックが送信されます。 それ以外の場合、なります `アクション`します。 イベントにコールバックが設定されていない場合、 `ドロップ` フィードバックがエンゲージメントに返されます。
-> [AZURE.WARNING] Engagement は、データのプッシュのフィードバックを複数受信することができません。 複数のハンドラーをイベントに設定する計画がある場合は、最後に送信されたものがフィードバックに相当することに注意してください。 この場合、フロントエンドでフィードバックが混同されるのを避けるために、常に同じ値を返すことをお勧めします。
+各メソッドのコールバックがブール値を返すことを確認できます。 データのプッシュをディスパッチした後、Engagement はバックエンドにフィードバックを送信します。 コールバックが false を返した場合、`exit` フィードバックが送信されます。 それ以外の場合は、`action` になります。 イベントにコールバックが設定されていない場合は、`drop` フィードバックがエンゲージメントに返されます。
 
-## UI をカスタマイズする (オプション)
+> [AZURE.WARNING] Engagement では、データ プッシュのフィードバックを複数の受信できません。 複数のハンドラーをイベントに設定する計画がある場合は、最後に送信されたものがフィードバックに相当することに注意してください。 この場合、フロントエンドでフィードバックが混同されるのを避けるために、常に同じ値を返すことをお勧めします。
+
+##UI をカスタマイズする (オプション)
 
 ### 最初の手順
 
 Reach UI をカスタマイズできるようにします。
 
-これを行うには、サブクラスを作成する必要がある、 `EngagementReachHandler` クラスです。
+そのためには、`EngagementReachHandler` クラスのサブクラスを作成する必要があります。
 
-**サンプル コード:**
+**サンプル コード :**
 
     using Microsoft.Azure.Engagement;
     
@@ -166,9 +166,9 @@ Reach UI をカスタマイズできるようにします。
        }
     }
 
-内容を次に、設定、 `EngagementReach.Instance.Handler` オブジェクトを使用してカスタム フィールド、 `App.xaml.cs` クラス内で、 `Application_Launching` メソッドです。
+次に、`Application_Launching` メソッドに含まれる `App.xaml.cs` クラスのカスタム オブジェクトを使用して、`EngagementReach.Instance.Handler` フィールドの内容を設定します。
 
-**サンプル コード:**
+**サンプル コード :**
 
     private void Application_Launching(object sender, LaunchingEventArgs e)
     {
@@ -185,9 +185,9 @@ Reach UI をカスタマイズできるようにします。
 
 ただし、これらのコンポーネントにブランドを反映するように独自のリソースを使用ができます。
 
-オーバーライドできます `EngagementReachHandler` サブクラス、レイアウトを使用して、エンゲージメントにメソッド。
+サブクラスに `EngagementReachHandler` メソッドをオーバーライドして、エンゲージメントにレイアウトを使用させることができます。
 
-**サンプル コード:**
+**サンプル コード :**
 
     // In your subclass of EngagementReachHandler
     
@@ -211,14 +211,15 @@ Reach UI をカスタマイズできるようにします。
        // return a new instance of your own notification
     }
 
-> [AZURE.TIP] `CreateNotification` メソッドは null を返します。 通知は表示されず、リーチ キャンペーンは削除されます。
+> [AZURE.TIP]  `CreateNotification` メソッドは null を返します。 通知は表示されず、リーチ キャンペーンは削除されます。
 
 レイアウトの実装を簡素化するために、コードの基礎として機能する独自の xaml を提供します。 それらはエンゲージメント SDK アーカイブに配置されています (/src/reach/)。
-> [AZURE.WARNING] 提供するソースは、使用されているものと全く同じものです。 それゆえ、直接変更する場合は、名前空間と名前を忘れずに変更します。
+
+> [AZURE.WARNING] 提供するソースでは、使用されている正確な同じものを示します。 それゆえ、直接変更する場合は、名前空間と名前を忘れずに変更します。
 
 ### 通知の位置
 
-既定では、アプリ内通知はアプリケーションの下部左側に表示されます。 この動作を変更するにはオーバーライドすることで、 `GetNotificationPosition` のメソッド、 `EngagementReachHandler` オブジェクトです。
+既定では、アプリ内通知はアプリケーションの下部左側に表示されます。 `GetNotificationPosition` オブジェクトの `EngagementReachHandler` メソッドをオーバーライドして、この動作を変更できます。
 
     // In your subclass of EngagementReachHandler
     
@@ -227,7 +228,7 @@ Reach UI をカスタマイズできるようにします。
        // return a value of the EngagementReachHandler.NotificationPosition enum (TOP or BOTTOM)
     }
 
-現時点から選択できます、 `下部` (既定値) と `上部` 位置。
+現在、`BOTTOM` (既定) と `TOP` の間で選択できます。
 
 ### メッセージを起動する
 
@@ -256,11 +257,12 @@ Reach UI をカスタマイズできるようにします。
      */
     EngagementReach.Instance.RetrieveLaunchMessageFailed += () => { [...] };
 
-コールバックを設定することができます、 `Application_Launching` のメソッド、 `App.xaml.cs` ファイル前が最適に、、 `EngagementReach.Instance.Init()` を呼び出します。
+`Application_Launching` ファイルの `App.xaml.cs` メソッドにコールバックを設定できます。`EngagementReach.Instance.Init()` コールの前が最適です。
+
 > [AZURE.TIP] 各ハンドラーは、UI スレッドにより呼び出されます。 メッセージボックスや UI 関連のものは、安心して使用できます。
 
-
-[application policies]: http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx 
-[content policies]: http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx 
-[additional requirements for specific application types]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx 
+[Application Policies]:http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
+[Content Policies]:http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
+[Additional Requirements for Specific Application Types]:http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
+ 
 

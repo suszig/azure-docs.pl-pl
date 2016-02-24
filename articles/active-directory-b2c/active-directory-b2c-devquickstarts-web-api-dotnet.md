@@ -16,73 +16,74 @@
     ms.date="09/22/2015"
     ms.author="dastrock"/>
 
-
 # Azure AD B2C プレビュー: .NET Web アプリから Web API を呼び出す
 
-Azure AD B2C を使用すると、簡単な手順で強力なセルフサービスの ID 管理機能を Web アプリと Web API に追加できます。 この記事では説明する方法
-.NET を呼び出す「to do リスト」web アプリケーションは、OAuth 2.0 ベアラー トークンを使用して API を web を .NET MVC を作成します。 Web アプリと web api を使用してユーザー id を管理する Azure AD B2C の両方
+<!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
+
+Azure AD B2C を使用すると、簡単な手順で強力なセルフサービスの ID 管理機能を Web アプリと Web API に追加できます。  この記事では説明する方法
+.NET を呼び出す「to do リスト」web アプリケーションは、OAuth 2.0 ベアラー トークンを使用して API を web を .NET MVC を作成します。  Web アプリと web api を使用してユーザー id を管理する Azure AD B2C の両方
 ユーザーを認証します。
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-この記事では、Azure AD B2C でサインイン、サインアップ、プロファイルの管理を実装する方法については説明しません。 ユーザーが既に認証された後での Web API の呼び出しに焦点を合わせています。
-まだインストールしていない場合、これを最初にください、 [.NET Web アプリケーション チュートリアル入門](active-directory-b2c-devquickstarts-web-dotnet.md) に Azure AD B2C の基本について説明します。
+この記事では、Azure AD B2C でサインイン、サインアップ、プロファイルの管理を実装する方法については説明しません。  ユーザーが既に認証された後での Web API の呼び出しに焦点を合わせています。
+まだインストールしていない場合、これを最初にください、 [.NET Web アプリケーション チュートリアル入門](active-directory-b2c-devquickstarts-web-dotnet.md) Azure AD B2C の基本について説明します。
 
 ## 1.Azure AD B2C ディレクトリの取得
 
-Azure AD B2C を使用するには、ディレクトリ (つまり、テナント) を作成しておく必要があります。 ディレクトリは、ユーザー、アプリ、グループなどをすべて格納するためのコンテナーです。 ない場合
+Azure AD B2C を使用するには、ディレクトリ (つまり、テナント) を作成しておく必要があります。  ディレクトリは、ユーザー、アプリ、グループなどをすべて格納するためのコンテナーです。  ない場合
 既に、やり [B2C ディレクトリを作成する](active-directory-b2c-get-started.md) に進む前にします。
 
 ## 2.アプリケーションの作成
 
-次に、B2C ディレクトリ内にアプリを作成する必要があります。これによって、アプリと安全に通信するために必要ないくつかの情報が Azure AD に提供されます。 Web アプリと
-web API は、1 つで表されます **アプリケーション ID** ここでは、1 つの論理アプリケーションを構成からです。 アプリを作成するには
-次の [手順](active-directory-b2c-app-registration.md)します。 このとき、
+ここで、B2C ディレクトリにアプリを作成する必要があります。このディレクトリによって、アプリと安全に通信するために必要ないくつかの情報を Azure AD に提供します。  Web アプリと
+web API は、1 つで表されます **アプリケーション ID** ここでは、1 つの論理アプリケーションを構成からです。  アプリを作成するには
+次の [手順](active-directory-b2c-app-registration.md)します。  このとき、
 
-- アプリケーションに **Web アプリまたは Web API** を含めます。
+- 含める、 **web アプリや web api** アプリケーションで
 - 入力 `https://localhost:44316/` として、 **応答 URL** -このコード サンプルの既定の URL であります。
-- アプリケーション用の**アプリケーション シークレット**を作成し、それをメモしておきます。 このプロジェクトはすぐに必要になります。
-- アプリケーションに割り当てられた**アプリケーション ID** をメモしておきます。 こちらもすぐに必要になります。
+- 作成、 **アプリケーション シークレット** 、アプリケーションをコピーします。  このプロジェクトはすぐに必要になります。
+- 下のコピー、 **アプリケーション ID** アプリに割り当てられています。  こちらもすぐに必要になります。
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3.ポリシーの作成
 
-Azure AD の B2C によってすべてのユーザー エクスペリエンスを定義、 [* * * * ポリシー](active-directory-b2c-reference-policies.md)します。 この web アプリには、3 つが含まれています 
-id は、エクスペリエンス - サインアップ、サインイン、およびプロファイルを編集します。 」の説明に従って、各種類の 1 つのポリシーを作成する必要が、 
-[ポリシーのリファレンス資料](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)します。 3 つのポリシーを作成するときは、必ず以下の操作を行ってください。
+Azure AD の B2C によってすべてのユーザー エクスペリエンスを定義、 [**ポリシー**](active-directory-b2c-reference-policies.md)します。  この web アプリには、3 つが含まれています 
+id は、エクスペリエンス - サインアップ、サインイン、およびプロファイルを編集します。  」の説明に従って、各種類の 1 つのポリシーを作成する必要が、 
+[ポリシーのリファレンス資料](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)します。  3 つのポリシーを作成するときは、以下の点に注意してください。
 
-- サインアップ ポリシーで、**表示名**と他のいくつかのサインアップ属性を選択します。
-- すべてのポリシーで、アプリケーション クレームとして**表示名**と**オブジェクト ID** を選択します。 その他のクレームも選択できます。
-- ポリシーの作成後、各ポリシーの**名前**をメモしておきます。 プレフィックスを持つ必要があります `b2c_1_`します。 これらのポリシー名はすぐに必要になります。
+- 選択、 **表示名** し、サインアップのポリシーでその他のいくつかのサインアップ属性です。
+- 選択、 **表示名** と **オブジェクト ID** すべてのポリシーでアプリケーションの要求。  その他のクレームも選択できます。
+- 下のコピー、 **名前** 作成した後は、各ポリシーのです。  名前には、`b2c_1_` というプレフィックスが付加されています。  これらのポリシー名はすぐに必要になります。
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)] 
 
 3 つのポリシーの作成が正常に完了したら、いつでもアプリをビルドできます。
 
-この記事では、作成したポリシーの使用方法については説明しません。 Azure AD の B2C でポリシーのしくみについて学習する場合
+この記事では、作成したポリシーの使用方法については説明しません。  Azure AD の B2C でポリシーのしくみについて学習する場合
 まず、 [.NET Web アプリケーション チュートリアル入門](active-directory-b2c-devquickstarts-web-dotnet.md)します。
 
 ## 4.コードのダウンロード
 
-このチュートリアルのコードは保持 [github](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet)します。 移動するようにサンプルをビルドするには 
-[.zip としてスケルトン プロジェクトをダウンロード](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/skeleton.zip) またはスケルトンを複製します。
+このチュートリアルのコードは保持 [github](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet)します。  移動するようにサンプルをビルドするには 
+[zip としてスケルトン プロジェクトをダウンロード](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/skeleton.zip) またはスケルトンを複製します。
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git
 ```
 
 完成したアプリケーションも [.zip として利用可能な](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip) または、
-`完了` 同じリポジトリの分岐します。
+`complete` 同じリポジトリの分岐。
 
-サンプル コードをダウンロードした後は、Visual Studio を開き `.sln` ファイルを開始します。 ソリューションに 2 つのプロジェクトがあることがわかります。、 `TaskWebApp` プロジェクトと `TaskService` プロジェクトです。  `TaskWebApp` 、WPF は、 
-web アプリのユーザーと対話するフロント エンドです。  `TaskService` はアプリのバックエンド web API を各ユーザーの to do リストに格納します。
+サンプル コードをダウンロードしたら、Visual Studio の `.sln` ファイルを開いて作業を開始します。  ソリューションに `TaskWebApp` プロジェクトと `TaskService` プロジェクトの 2 つのプロジェクトがあることがわかります。   `TaskWebApp` 、WPF は、 
+web アプリのユーザーと対話するフロント エンドです。  `TaskService` は、各ユーザーの To-Do リストを格納する、アプリのバックエンド Web API です。 
 
 ## 5.タスク サービスを構成する
 
-ときに、 `TaskService` receieves 要求、 `TaskWebApp`, 、要求の認証に有効なアクセス トークンを確認します。 アクセス トークンを検証するために 
-必要な `TaskService` アプリに関する情報を使用します。  `TaskService` プロジェクトを開き、 `web.config` ルートにあるファイル 
-プロジェクトの値を置き換えると、 `< appSettings >` セクション。
+`TaskService` は `TaskWebApp` から要求を受け取ると、要求を認証するための有効なアクセス トークンを確認します。  アクセス トークンを検証するために 
+必要な `TaskService` アプリに関する情報を使用します。   `TaskService` プロジェクトを開き、 `web.config` ルートにあるファイル 
+プロジェクトの値を置き換えると、 `<appSettings>` セクション。
 
 ```
 <appSettings>
@@ -96,17 +97,17 @@ web アプリのユーザーと対話するフロント エンドです。  `Tas
     <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
 </appSettings>
 ```
-
+  
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 
-この記事ではセキュリティ保護の詳細については説明しません、 `TaskService`します。 Web API が安全に Azure AD B2C を使用して要求を認証する方法について学習するには、チェック アウト、
-[Web API が概要記事](active-directory-b2c-devquickstarts-api-dotnet.md)します。
+この記事では、`TaskService` のセキュリティ保護の詳細は説明しません。  Web API が安全に Azure AD B2C を使用して要求を認証する方法について学習するには、チェック アウト、
+[Web API の概要記事](active-directory-b2c-devquickstarts-api-dotnet.md)します。
 
 ## 6.タスク Web アプリの構成
 
-ために、 `TaskWebApp` Azure AD B2C をやり取りするためには、いくつかの一般的なパラメーターを指定する必要があります。  `TaskWebApp` プロジェクトを開き、
-`web.config` 、プロジェクトのルート内のファイルし、の値を置き換える、 `< appSettings >` セクションです。これらの値は、Web アプリ全体で使用されます。
+`TaskWebApp` が Azure AD B2C と通信するために、指定する必要がある一般的なパラメーターがいくつかあります。   `TaskWebApp` プロジェクトを開き、
+`web.config` プロジェクトのルートにファイルし、の値を置き換える、 `<appSettings>` セクションです。  これらの値は、Web アプリ全体で使用されます。
 
 ```
 <appSettings>
@@ -124,11 +125,11 @@ web アプリのユーザーと対話するフロント エンドです。  `Tas
     <add key="ida:UserProfilePolicyId" value="[Enter your edit profile policy name, e.g. b2c_1_profile_edit" />
     <add key="api:TaskServiceUrl" value="https://localhost:44332/" />
 </appSettings>
-```
+```     
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-2 つ `[PolicyAuthorize]` デコレータのサインインでポリシー名を入力する必要があります。  `[PolicyAuthorize]` 属性は、特定の呼び出しに使用されます。
+また、サインイン ポリシー名の指定が必要な 2 つの `[PolicyAuthorize]` デコレータもあります。   `[PolicyAuthorize]` 属性は、特定の呼び出しに使用されます。
 ポリシー、ユーザーが認証を必要とするアプリのページにアクセスしようとするとします。
 
 ```C#
@@ -149,10 +150,10 @@ public class TasksController : Controller
 
 ## 7.アクセス トークンの取得とタスク API の呼び出し
 
-このセクションでは、Microsoft のライブラリとフレームワークを使用して、Web アプリで OAuth 2.0 トークンの交換を完了する方法を示します。 する場合
+このセクションでは、Microsoft のライブラリとフレームワークを使用して、Web アプリで OAuth 2.0 トークンの交換を完了する方法を示します。  する場合
 馴染みのない **認証コード** と **アクセス トークン**, に目を通しことをお勧めがある可能性があります、 [OpenID Connect プロトコル リファレンス](active-directory-b2c-reference-protocols.md)します。
 
-#### 承認コードの取得
+#### 承認コードを取得する
 
 通話の最初の手順、 `TaskService` web API がユーザーの認証を送受信するには、 **認証コード** Azure AD からです。
 プロファイル ポリシーの編集、サインイン、サインアップなど、何らかのポリシーが正常に実行された後に Azure AD から承認コードを受信できます。
@@ -166,7 +167,7 @@ PM> Install-Package Microsoft.Owin.Security.Cookies -ProjectName TaskWebApp
 PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TaskWebApp
 ```
 
-ファイルを開く `App_Start\Startup.Auth.cs`します。 これは、構成、OWIN 認証パイプライン B2C ディレクトリの詳細情報を提供
+ファイル `App_Start\Startup.Auth.cs` を開きます。  これは、構成、OWIN 認証パイプライン B2C ディレクトリの詳細情報を提供
 作成したアプリケーション:
 
 ```C#
@@ -232,21 +233,21 @@ public partial class Startup
 #### 承認コードを使用したアクセス トークンの取得
 
 Web アプリは、B2C のディレクトリを使用してユーザーを認証し、Azure AD からの承認コードを受信するように構成されました。
-次の手順では、Azure AD からのアクセス トークン用にこの承認コードを交換します。
+次の手順では、Azure AD からのアクセス トークン用にこの承認コードを交換します。 
 
-.NET Web アプリが Azure AD からアクセス トークンを取得する必要があるときは、**Active Directory 認証ライブラリ (ADAL)** を使用できます。  
+.NET web アプリは、Azure AD からアクセス トークンを取得する必要がある、際に、使用、 **Active Directory 認証ライブラリ (ADAL)**します。  
 このプロセスでは、ADAL を使用する必要はありませんが、ADAL しやすく担当 OAuth を送信するなど、多くの詳細
-2.0 個の認証のメッセージ、キャッシュ、およびトークンを更新します。
+2.0 認証メッセージには、キャッシュとトークンを更新します。
 
-最初に ADAL をインストール、 `TaskWebApp` プロジェクトのパッケージ マネージャー コンソールをもう一度使用します。
+最初に、もう一度パッケージ マネージャー コンソールを使用して ADAL を `TaskWebApp` プロジェクトにインストールします。
 
 ```
 PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TaskWebApp -IncludePrerelease
 ```
 
-今回は、承認コードを ADAL に渡してトークンを取得できるようにする必要があります。 OWIN OpenID Connect ミドルウェアは、通知を提供します。
+今回は、承認コードを ADAL に渡してトークンを取得できるようにする必要があります。  OWIN OpenID Connect ミドルウェアは、通知を提供します。
 -この認証コードを使用する通知をアプリが Azure AD から認証コードを受信するたびに発生させるされます。
-`App_Start\Startup.Auth.cs`, 、実装、 `OnAuthorizationCodeReceived` ADAL を使用して通知のハンドラー。
+`App_Start\Startup.Auth.cs` で、ADAL を使用して `OnAuthorizationCodeReceived` 通知ハンドラーを実装します。
 
 ```C#
 // App_Start\Startup.Auth.cs
@@ -271,13 +272,13 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
     // The token will be stored in the ADAL token cache, for use in our controllers
     AuthenticationResult result = await authContext.AcquireTokenByAuthorizationCodeAsync(notification.Code, new Uri(redirectUri), credential, new string[] { clientId }, mostRecentPolicy);
 }
-```
+``` 
 
 #### コントローラーでのアクセス トークンの取得
 
-これでのアクセス トークンを取得して、 `TaskService` バックエンド保管して ADAL のトークンのキャッシュの必要がありますが実際に使用します。
-`TasksController` と通信を行うには、 `TaskService` を読み取ったりを作成するには、API、および API への HTTP 要求の送信
-およびタスクを削除します。 HTTP 要求を送信する前に、ADAL からアクセス トークンを取得します。
+`TaskService` バックエンド用のアクセス トークンを取得し、ADAL のトークン キャッシュに保存しました。次は、これを実際に使用する必要があります。
+ `TasksController` と通信を行うには、 `TaskService` を読み取ったりを作成するには、API、および API への HTTP 要求の送信
+およびタスクを削除します。  HTTP 要求を送信する前に、ADAL からアクセス トークンを取得します。
 
 ```C#
 // Controllers\TasksController.cs
@@ -293,7 +294,7 @@ public async Task<ActionResult> Index()
 
         // We don't care which policy is used to access the TaskService, so let's use the most recent policy
         string mostRecentPolicy = ClaimsPrincipal.Current.FindFirst(Startup.AcrClaimType).Value;
-
+        
         // Here you ask for a token using the web app's clientId as the scope, since the web app and service share the same clientId.
         // AcquireTokenSilentAsync will return a token from the token cache, and throw an exception if it cannot do so.
         AuthenticationContext authContext = new AuthenticationContext(authority, new NaiveSessionCache(userObjectID));
@@ -308,14 +309,14 @@ public async Task<ActionResult> Index()
     }
     ...
 }
-```
+``` 
 
-ADAL では、トークンのキャッシング、トークンの有効期限が切れたときの更新、例外をスローしてもう一度サインインする必要がある場合の通知を処理します。 すべて
+ADAL では、トークンのキャッシング、トークンの有効期限が切れたときの更新、例外をスローしてもう一度サインインする必要がある場合の通知を処理します。  すべて
 必要な操作を呼び出すことです `AuthenticationContext.AcquireTokenSilentAsync(...)` アプリで、トークンを必要がある場合。
 
 #### Web API からのタスク読み取り
 
-トークンをしたらに HTTP GET 要求にアタッチできます、 `承認` ヘッダーを安全に呼び出す、 `TaskService`:
+トークンを使用できるようになったので、`Authorization` ヘッダーの HTTP GET 要求にトークンを添付して、`TaskService` を安全に呼び出すことができます。
 
 ```C#
 // Controllers\TasksController.cs
@@ -323,7 +324,7 @@ ADAL では、トークンのキャッシング、トークンの有効期限が
 public async Task<ActionResult> Index()
 {
     ... 
-
+    
     try 
     {
         HttpClient client = new HttpClient();
@@ -361,17 +362,18 @@ public async Task<ActionResult> Index()
         return new RedirectResult("/Error?message=An Error Occurred Reading To Do List: " + ex.Message);
     }
 }
+
 ```
 
 #### Web API でのタスクの作成および削除
 
-POST および DELETE 要求を送信する際に同じ正確なパターンを行うことができる、 `TaskService`します。 呼び出すだけで `AuthenticationContext.AcquireTokenSilentAsync(...)`,、
-結果として得られるトークンで要求を追加し、 `承認` ヘッダー。 実装しています、 `作成` の動作です。 Try 仕上げ、 `削除` 内のアクション
+POST 要求と DELETE 要求を `TaskService` に送信するときにも、まったく同じパターンを使用できます。  呼び出すだけで `AuthenticationContext.AcquireTokenSilentAsync(...)`,、
+結果として得られるトークンで要求を追加し、 `Authorization` ヘッダー。  ここでは、`Create` アクションが既に実装されています。  Try 仕上げ、 `Delete` 内のアクション
 `TasksController.cs` 自分でします。
 
 ## 8.ユーザーのサインアウト
 
-最後に、詳細な確認事項が 1 つあります。 ユーザーが Web アプリからサインアウトしたら、ADAL トークン キャッシュをクリアして、ユーザーの認証済みセッションの形跡をすべて削除する必要があります。
+最後に、詳細な確認事項が 1 つあります。  ユーザーが Web アプリからサインアウトしたら、ADAL トークン キャッシュをクリアして、ユーザーの認証済みセッションの形跡をすべて削除する必要があります。
 
 ```C#
 // Controllers/AccountController.cs
@@ -396,18 +398,24 @@ public void SignOut()
 }
 ```
 
-## 9.サンプル アプリの実行
+## 9.サンプル アプリを実行する
 
-最後に、ビルドし、両方を `TaskClient` と `TaskService`します。 アプリにサインアップまたはサインインし、サインインしているユーザーのタスクを作成します。 サインアウトして、別のユーザーとしてもう一度サインインし、そのユーザーのタスクを作成します。
+最後に、`TaskClient` と `TaskService` の両方をビルドして実行します。  アプリにサインアップまたはサインインし、サインインしているユーザーのタスクを作成します。  サインアウトして、別のユーザーとしてもう一度サインインし、そのユーザーのタスクを作成します。
 API でタスクがユーザーごとに保存されたことを確認します。これは、API が、受信したアクセス トークンからユーザーID を抽出したためです。
 
 リファレンスについては、完全なサンプルは [.zip をここでは現状](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip),、
 または、GitHub からプロジェクトを複製することができます。
 
-`git クローン--ブランチの完全な https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git`
+```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git```
 
+<!--
 
+## 次のステップ
 
+さらに高度な B2C のトピックに進むことができます。  次のチュートリアルを試してみてください。
 
+[Web アプリから Web API を呼び出す >>]()
 
+[B2C アプリの UX のカスタマイズ]()
 
+-->

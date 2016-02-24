@@ -17,7 +17,6 @@
  ms.author="joaoma"/>
 
 
-
 # Azure Automation を使用した Azure Traffic Manager の管理
 
 このガイドでは、Azure Automation サービスと、このサービスを使用して Azure Traffic Manager の管理を簡略化する方法について紹介します。
@@ -28,7 +27,7 @@
 
 Azure Automation は、組織の拡大に伴って変化するニーズに対応可能な、信頼性と可用性の高いワークフロー実行エンジンを提供します。 Azure Automation では、サード パーティ製のシステムによって手動でプロセスを開始したり、必要なときに正確にタスクが起動されるようにスケジュールされた間隔でプロセスを開始できます。
 
-Azure Automation によってクラウド管理タスクを自動的に実行することにより、運用上のオーバーヘッドが削減され、ビジネス価値の向上に重点的に取り組む IT/DevOps スタッフの負担が軽くなります。
+Azure Automation によってクラウド管理タスクを自動的に実行することにより、運用上のオーバーヘッドが削減され、ビジネス価値の向上に重点的に取り組む IT/DevOps スタッフの負担が軽くなります。 
 
 
 ## Azure Automation を Azure Traffic Manager の管理に役立てる方法
@@ -40,9 +39,5 @@ Azure Automation によってクラウド管理タスクを自動的に実行す
 
 ここまで、Azure Automation の基本と Azure Automation を使用して Traffic Manager を管理する方法について説明しました。Azure Automation の詳細については、次のリンクを参照してください。
 
-* Azure Automationチェック_アウト [ファースト ステップ ガイド](http://go.microsoft.com/fwlink/?LinkId=390560)
-
-
-
-
-
+* Azure Automation をチェック_アウト [ファースト ステップ ガイド](http://go.microsoft.com/fwlink/?LinkId=390560)
+ 

@@ -15,8 +15,7 @@
     ms.date="10/05/2015" 
     ms.author="awills"/>
 
-
-# Application Insights: コード サンプルとチュートリアル
+#  Application Insights: コード サンプルとチュートリアル
 
 *Application Insights はプレビュー段階です。*
 
@@ -35,10 +34,10 @@
 
 独自のツールを使用してテレメトリ データを分析する [エクスポート](app-insights-export-telemetry.md) ストレージに解析して処理できます。
 
-* [Power BI にエクスポートします。](app-insights-export-power-bi.md)
-* [ワーカー ロールを使用してエクスポートされたデータを解析します。](app-insights-code-sample-export-telemetry-sql-database.md)
-* [Stream Analytics を使用して SQL にエクスポートします。](app-insights-code-sample-export-sql-stream-analytics.md)
-* [Microsoft Dynamics CRM のテレメトリを有効にします。](app-insights-sample-mscrm.md)
+* [Power BI へのエクスポート](app-insights-export-power-bi.md) 
+* [worker ロールを使用してエクスポートされたデータを解析する](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Stream Analytics を使用して SQL にエクスポートする](app-insights-code-sample-export-sql-stream-analytics.md)
+* [Microsoft Dynamics CRM のテレメトリの有効化](app-insights-sample-mscrm.md)
 
 
 ## タスクの自動化
@@ -52,9 +51,5 @@
 
 
 
-
-
-
-
-
+ 
 

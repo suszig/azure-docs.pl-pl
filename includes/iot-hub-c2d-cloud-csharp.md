@@ -2,28 +2,28 @@
 
 このセクションでは、デバイスからクラウドへのメッセージを、シミュレートする デバイス アプリに送信する Windows コンソール アプリを作成します。
 
-1. 現在の Visual Studio ソリューションで作成、新しい Visual c# のデスクトップ アプリ プロジェクトを使用して、 **コンソール アプリケーション** プロジェクト テンプレートです。 プロジェクトに **SendCloudToDevice** という名前を付けます。
+1. 現在の Visual Studio ソリューションで作成、新しい Visual c# のデスクトップ アプリ プロジェクトを使用して、 **コンソール アプリケーション** プロジェクト テンプレートです。 プロジェクトに名前を **SendCloudToDevice**します。
 
     ![][20]
 
-2. ソリューション エクスプローラーでソリューションを右クリックし、**[ソリューション用 NuGet パッケージの管理]** をクリックします。
+2. ソリューション エクスプ ローラーでソリューションを右クリックし、をクリックし、 **... ソリューションの NuGet パッケージの管理**します。 
 
     [NuGet パッケージの管理] ウィンドウが表示されます。
 
-3. 検索 `Microsoft Azure のデバイス`, 、] をクリックして **インストール**, 、使用条件に同意します。
+3. 検索 `Microsoft Azure Devices`, 、] をクリックして **インストール**, 、使用条件に同意します。 
 
-    これによってダウンロード、インストールすると、され [Azure IoT - サービス SDK の NuGet パッケージ] への参照を追加します。
+    これをダウンロード、インストール、およびへの参照を追加、 [Azure IoT - Service SDK NuGet package]します。
 
-4. **Program.cs** ファイルの先頭に次の `using` ステートメントを追加します。
+4. 次の追加 `using` の上部にあるステートメント、 **Program.cs** ファイル。
 
         using Microsoft.Azure.Devices;
 
-5. 次のフィールドを追加、 **プログラム** から IoT hub の接続文字列でプレース ホルダーの値に置き換えるクラス [を使ってみる IoT Hub]。
+5. 次のフィールドを追加、 **プログラム** から IoT hub の接続文字列でプレース ホルダーの値に置き換えるクラス [Get started with IoT Hub]:
 
         static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
 
-6. **Program** クラスに次のメソッドを追加します。
+6. 次のメソッドを追加、 **プログラム** クラス。
 
         private async static Task SendCloudToDeviceMessageAsync()
         {
@@ -31,75 +31,80 @@
             await serviceClient.SendAsync("myFirstDevice", commandMessage);
         }
 
-    このメソッドは、id を持つデバイスをクラウドとデバイスの新しいメッセージを送信 `myFirstDevice`します。 このパラメーターは、適宜変更で使用されてから変更した場合に [を使ってみる IoT Hub] です。
+    このメソッドは、新しいクラウドからデバイスへのメッセージを ID `myFirstDevice` を持つデバイスに送信します。 このパラメーターは、適宜変更で使用されてから変更した場合に備えて [Get started with IoT Hub]します。
 
-7. 最後に、**Main** メソッドに次の行を追加します。
+7. 次の行を最後に、追加、 **Main** メソッド。
 
-     Console.WriteLine("Send Cloud-to-Device message\n");
-     serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
-    
-     Console.WriteLine("Press any key to send a C2D message.");
-     Console.ReadLine();
-     SendCloudToDeviceMessageAsync().Wait();
-     Console.ReadLine();
+        Console.WriteLine("Send Cloud-to-Device message\n");
+        serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
 
-8. Visual Studio 内でソリューションを右クリックし、**[スタートアップ プロジェクトの設定...]** を選択します。 **[マルチ スタートアップ プロジェクト]** を選択してから、**ProcessDeviceToCloudMessages**、**SimulatedDevice**、および **SendCloudToDevice** の **[開始]** アクションを選択します。
+        Console.WriteLine("Press any key to send a C2D message.");
+        Console.ReadLine();
+        SendCloudToDeviceMessageAsync().Wait();
+        Console.ReadLine();
 
-9.  **F5** キーを押すと、3 つすべてのアプリケーションが開始されていることを確認できます。 **[SendCloudToDevice]** ウィンドウを選択し、**Enter** キーを押します。シミュレートするアプリケーションでメッセージが受信されていることがわかります。
+8. Visual Studio でソリューションを右クリックし、選択 **設定のスタートアップ プロジェクト]**します。 選択 **マルチ スタートアップ プロジェクト**, 選択してから、 **開始** のアクション **ProcessDeviceToCloudMessages**, 、**SimulatedDevice**, 、および **SendCloudToDevice**します。
+
+9.  キーを押して **f5 キーを押して**, と開始すべての 3 つのアプリケーションを表示する必要があります。 選択、 **SendCloudToDevice** windows キーを押します **Enter**: シミュレーションのアプリケーションによって受信されるメッセージが表示されます。
 
     ![][21]
 
 ## 配信フィードバックの受信
+クラウドからデバイスへの各メッセージに対して IoT Hub からの配信 (または有効期限) 確認を要求できます。 これにより、クラウド バックエンドで再試行または補正ロジックを簡単に通知できるようになります。 参照してください、 [IoT Hub 開発者ガイド][IoT Hub Developer Guide - C2D] クラウドとデバイスからのフィードバックの詳細についてです。
 
-クラウドからデバイスへの各メッセージに対して IoT Hub からの配信 (または有効期限) 確認を要求できます。 これにより、クラウド バックエンドで再試行または補正ロジックを簡単に通知できるようになります。 参照してください、 [IoT Hub 開発者ガイド ][iot hub developer guide - c2d] クラウドとデバイスからのフィードバックの詳細についてです。
+このセクションでは、変更、 **SendCloudToDevice** をアプリケーションにフィードバックの要求および IoT Hub から受信します。
 
-このセクションでは、**SendCloudToDevice** アプリを、フィードバックを要求し、IoT Hub からそれらを受信するように変更します。
+1. Visual Studio での **SendCloudToDevice** プロジェクトで、次のメソッドを追加、 **プログラム** クラスです。
+   
+        private async static void ReceiveFeedbackAsync()
+        {
+            var feedbackReceiver = serviceClient.GetFeedbackReceiver();
 
-1. Visual Studio の **SendCloudToDevice** プロジェクトで、次のメソッドを **Program** クラスに追加します。
+            Console.WriteLine("\nReceiving c2d feedback from service");
+            while (true)
+            {
+                var feedbackBatch = await feedbackReceiver.ReceiveAsync();
+                if (feedbackBatch == null) continue;
 
-     private async static void ReceiveFeedbackAsync()
-     {
-         var feedbackReceiver = serviceClient.GetFeedbackReceiver();
-    
-         Console.WriteLine("\nReceiving c2d feedback from service");
-         while (true)
-         {
-             var feedbackBatch = await feedbackReceiver.ReceiveAsync();
-             if (feedbackBatch == null) continue;
-    
-             Console.ForegroundColor = ConsoleColor.Yellow;
-             Console.WriteLine("Received feedback: {0}", string.Join(", ", feedbackBatch.Records.Select(f => f.StatusCode)));
-             Console.ResetColor();
-    
-             await feedbackReceiver.CompleteAsync(feedbackBatch);
-         }
-     }
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Received feedback: {0}", string.Join(", ", feedbackBatch.Records.Select(f => f.StatusCode)));
+                Console.ResetColor();
 
- 受信パターンは、クラウドからデバイスへのメッセージをデバイス アプリから受信するために使用するものと同じであることに注意してください。
+                await feedbackReceiver.CompleteAsync(feedbackBatch);
+            }
+        }
+
+    受信パターンは、クラウドからデバイスへのメッセージをデバイス アプリから受信するために使用するものと同じであることに注意してください。
 
 2. 次のメソッドを追加、 **Main** メソッドの直後、 `serviceClient = ServiceClient.CreateFromConnectionString(connectionString)` 行。
 
         ReceiveFeedbackAsync();
 
-3. クラウドからデバイスへのメッセージの配信のためのフィードバックを要求するには、**SendCloudToDeviceMessageAsync** メソッドにプロパティを指定する必要があります。 直後に、次の行を追加、 `var commandMessage = 新しい Message(...);` 行。
+3. 内のプロパティを指定する必要が、クラウドとデバイス間のメッセージの配信のためのフィードバックを要求するために、 **SendCloudToDeviceMessageAsync** メソッドです。 `var commandMessage = new Message(...);` 行の直後に次の行を追加します。
 
         commandMessage.Ack = DeliveryAcknowledgement.Full;
 
-4.  **F5** キーを押してアプリを実行すると、3 つすべてのアプリケーションが開始されていることを確認できます。 **[SendCloudToDevice]** ウィンドウを選択して、**Enter** キーを押します。シミュレーション対象アプリによってメッセージが送信され、**SendCloudToDevice** アプリによりフィードバック メッセージが受信されたことがわかります。
+4.  キーを押して、アプリの実行 **f5 キーを押して**, と開始すべての 3 つのアプリケーションを表示する必要があります。 選択、 **SendCloudToDevice** windows キーを押します **Enter**: 受信されると、数秒後に、シミュレートされたアプリケーションによって、フィードバック メッセージを受信しているメッセージを表示する必要があります、 **SendCloudToDevice** アプリです。
 
     ![][22]
 
-> [AZURE.NOTE] わかりやすくするために、このチュートリアルでは再試行ポリシーは実装しません。 実稼働のコードでは、MSDN 記事 (一時的な障害処理) で推奨されているように、再試行ポリシー (指数関数的バックオフなど) を実装することをお勧めします。
+> [AZURE.NOTE] わかりやすくするために、このチュートリアルは、再試行ポリシーを実装していません。 実稼働コードでは reccommended、MSDN の記事に示されている (指数関数的バックオフ) などの再試行ポリシーを実装する [Transient Fault Handling]します。
+
+<!-- Links -->
+
+[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
+[Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[Transient Fault Handling]: https://msdn.microsoft.com/en-us/library/hh680901(v=pandp.50).aspx
+[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+
+<!-- Images -->
+[20]: ./media/iot-hub-c2d-cloud-csharp/create-identity-csharp1.png
+[21]: ./media/iot-hub-c2d-cloud-csharp/sendc2d1.png
+[22]: ./media/iot-hub-c2d-cloud-csharp/sendc2d2.png
 
 
 
 
 
-[iot hub developer guide - c2d]: iot-hub-devguide.md#c2d 
-[azure iot - service sdk nuget package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/ 
-[transient fault handling]: https://msdn.microsoft.com/en-us/library/hh680901(v=pandp.50).aspx 
-[get started with iot hub]: iot-hub-csharp-csharp-getstarted.md 
-[20]: ./media/iot-hub-c2d-cloud-csharp/create-identity-csharp1.png 
-[21]: ./media/iot-hub-c2d-cloud-csharp/sendc2d1.png 
-[22]: ./media/iot-hub-c2d-cloud-csharp/sendc2d2.png 
+
 

@@ -15,14 +15,13 @@
    ms.date="10/07/2015"
    ms.author="sethm" />
 
-
 # Azure Linux VM に Apache Qpid Proton-C をインストールする
 
 [AZURE.INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
 このセクションでは、Azure Virtual Machines を使用して CentOS Linux VM を作成する方法と、Python および PHP 言語バインドと共に Apache Qpid PROTON-C ライブラリをダウンロード、ビルド、インストールする方法を示します。 次の手順を完了すると、このガイドに含まれる Python および PHP のサンプルを実行できます。
 
-使用して最初の手順を実行、 [Azure クラシック ポータルの [][]します。 次のスクリーンショットでは、"scott centos" という名前の CentOS VM を作成する方法を示します。
+使用して最初の手順を実行、 [Azure クラシック ポータル][]します。 次のスクリーンショットでは、"scott centos" という名前の CentOS VM を作成する方法を示します。
 
 ![Azure Linux VM 上の Proton][0]
 
@@ -30,7 +29,7 @@
 
 ![Azure Linux VM 上の Proton][1]
 
-コンピューターにログオンするには、SSH のエンドポイント ポートを知る必要があります。 この値を取得できます、 [Azure クラシック ポータルの [][] を新しく作成した VM を選択しをクリックすると、 **エンドポイント** ] タブをクリックします。 次のスクリーンショットでは、このコンピューターのパブリック SSH ポートが 57146 であることが示されています。
+コンピューターにログオンするには、SSH のエンドポイント ポートを知る必要があります。 この値を取得できます、 [Azure クラシック ポータル][] を新しく作成した VM を選択しをクリックすると、 **エンドポイント** ] タブをクリックします。 次のスクリーンショットでは、このコンピューターのパブリック SSH ポートが 57146 であることが示されています。
 
 ![Azure Linux VM 上の Proton][2]
 
@@ -47,13 +46,13 @@ Python および PHP アプリの場合、この例では Apache の Proton ク�
     ```
     # required dependencies 
     yum install gcc cmake libuuid-devel
-
+    
     # dependencies needed for ssl support
     yum install openssl-devel
-
+    
     # dependencies needed for bindings
     yum install swig python-devel ruby-devel php-devel java-1.6.0-openjdk
-
+    
     # dependencies needed for python docs
     yum install epydoc
     ```
@@ -84,17 +83,17 @@ Python および PHP アプリの場合、この例では Apache の Proton ク�
 
     ```
     From the directory where you found this README file:    
-
+    
     mkdir build cd build
-
+            
     # Set the install prefix. You may need to adjust depending on your      
     # system.       
     cmake -DCMAKE\_INSTALL\_PREFIX=/usr ..
-
+            
     # Omit the docs target if you do not wish to build or install       
     # documentation.        
     make all docs
-
+            
     # Note that this step will require root privileges.     
     make install
     ```
@@ -107,11 +106,13 @@ Python および PHP アプリの場合、この例では Apache の Proton ク�
 
 - [Service Bus AMQP の概要]
 
+[Service Bus AMQP overview]: service-bus-amqp-overview.md
+[0]: ./media/service-bus-amqp-apache/amqp-apache-1.png
+[1]: ./media/service-bus-amqp-apache/amqp-apache-2.png
+[2]: ./media/service-bus-amqp-apache/amqp-apache-3.png
+[3]: ./media/service-bus-amqp-apache/amqp-apache-4.png
 
-[service bus amqp overview]: service-bus-amqp-overview.md 
-[0]: ./media/service-bus-amqp-apache/amqp-apache-1.png 
-[1]: ./media/service-bus-amqp-apache/amqp-apache-2.png 
-[2]: ./media/service-bus-amqp-apache/amqp-apache-3.png 
-[3]: ./media/service-bus-amqp-apache/amqp-apache-4.png 
-[azure classic portal]: http://manage.windowsazure.com 
+[Azure classic portal]: http://manage.windowsazure.com
+
+
 

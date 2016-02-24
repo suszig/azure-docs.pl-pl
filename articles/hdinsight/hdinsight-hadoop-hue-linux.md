@@ -16,7 +16,6 @@
     ms.date="11/05/2015" 
     ms.author="nitinme"/>
 
-
 # HDInsight Hadoop クラスターに Hue をインストールして使用する
 
 HDInsight Linux クラスターに Hue をインストールし、トンネリングを利用して Hue に要求を送信する方法について学習します。
@@ -35,28 +34,30 @@ Hue は Hadoop クラスターとの情報のやりとりに使用される一�
 
 ## スクリプト アクションを使用した Hue のインストール
 
-[Https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh) スクリプト アクションを使用して、HDInsight クラスターを色合いをインストールします。 このセクションでは、Azure クラシック ポータルを使用してクラスターをプロビジョニングする際にこのスクリプトを使用する方法について説明します。
-> [AZURE.NOTE] Azure PowerShell または HDInsight .NET SDK を使用し、このスクリプトを使用してクラスターを作成することもできます。 これらのメソッドの使用に関する詳細については、次を参照してください。 [Script Action を使用する HDInsight のカスタマイズ クラスタ](hdinsight-hadoop-customize-cluster-linux.md)します。
+ [Https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh) スクリプト アクションを使用して、HDInsight クラスターを色合いをインストールします。 このセクションでは、Azure クラシック ポータルを使用してクラスターをプロビジョニングする際にこのスクリプトを使用する方法について説明します。
 
-1. 」の手順を使用してプロビジョニングを開始 [HDInsight クラスターのプロビジョニング linux](hdinsight-hadoop-provision-linux-clusters.md#portal), が、プロビジョニングを完了できません。
-    > [AZURE.NOTE] HDInsight クラスターに Hue をインストールするには、A4 (8 コア、14 GB メモリ) 以上のヘッドノード サイズが推奨されます。
+> [AZURE.NOTE] このスクリプトを使用してクラスターを作成するのに Azure PowerShell または HDInsight .NET SDK を使用することもできます。 これらのメソッドの使用に関する詳細については、次を参照してください。 [Script Action を使用する HDInsight のカスタマイズ クラスタ](hdinsight-hadoop-customize-cluster-linux.md)します。
 
-2. **[オプションの構成]** ブレードで **[スクリプト アクション]** を選択し、以下のように情報を指定します。
+1. 」の手順を使用してプロビジョニングを開始 [Linux 上の HDInsight クラスターをクラスター](hdinsight-hadoop-provision-linux-clusters.md#portal), が、プロビジョニングを完了できません。
+
+    > [AZURE.NOTE] 色合いを HDInsight クラスターにインストールすることをお勧めのヘッドノードのサイズが少なくとも A4 (8 コア、14 GB メモリ)。
+
+2.  **オプションの構成** ブレードで、 **スクリプトのアクション**, 、し、次のように、情報を提供します。
 
     ![Hue のスクリプト アクション パラメーターを指定します。](./media/hdinsight-hadoop-hue-linux/hue_script_action.png "Provide script action parameters for Hue")
 
-    * __[名前]__: スクリプト アクションの表示名を入力します。
+    * __名前__: スクリプト アクションのフレンドリ名を入力します。
     * __スクリプト URI__: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh
-    * __[ヘッド]__: このオプションをオンにします。
-    * __[ワーカー]__: 空白のままにします。
-    * __[ZOOKEEPER]__: 空白のままにします。
-    * __[パラメーター]__: このスクリプトはパラメーターとして**クラスターの管理者パスワード**を要求します。 これはクラスターのプロビジョニング時に指定したパスワードです。 パスワードのプロビジョニング時に重要な考慮事項を以下に示します。
+    * __HEAD__: このチェック ボックス
+    * __ワーカー__: 空白のままにします。
+    * __ZOOKEEPER__: 空白のままにします。
+    * __パラメーター__: スクリプトが必要ですが、 **クラスター管理用パスワード** をパラメーターとして。 これはクラスターのプロビジョニング時に指定したパスワードです。 パスワードのプロビジョニング時に重要な考慮事項を以下に示します。
         * クラスターのユーザー名が "admin" の場合は、パスワードを単一引用符で囲んで指定するだけで済みます。
-        * クラスターのユーザー名が"admin"以外の場合は、としてパラメーターを指定する必要があります `-u [username] [1 つの引用符で囲まれた password]`
+        * クラスターのユーザー名が "admin" 以外の場合は、パラメーターを `-u [username] [password in single quotes]` として指定する必要があります。
 
-3. **[スクリプト アクション]** の下部で、**[選択]** を使用して構成を保存します。 最後に、**[オプションの構成]** ブレードの下部にある **[選択]** を使用して、オプションの構成情報を保存します。
+3. 下部にある、 **Script Action**, を使用して、 **選択** 構成を保存] ボタンをクリックします。 最後に、使用して、 **選択** の下部にあるボタン、 **オプションの構成** オプションの構成情報の保存先のブレードです。
 
-4. 」の説明に従って、クラスターのプロビジョニングを引き続き [HDInsight クラスターのプロビジョニング linux](hdinsight-hadoop-provision-linux-clusters.md#portal)します。
+4. 」の説明に従って、クラスターのプロビジョニングを引き続き [Linux 上の HDInsight クラスターをクラスター](hdinsight-hadoop-provision-linux-clusters.md#portal)します。
 
 ## HDInsight クラスターで Hue を使用する
 
@@ -67,39 +68,40 @@ SSH トンネリングは、実行後、クラスターの Hue にアクセス�
 2. SSH トンネルを作成し、これをトラフィックのプロキシとして使用するようにブラウザーを構成したら、ヘッド ノードのホスト名を見つける必要があります。 次の手順に従って、この情報を Ambari から取得します。
 
     1. ブラウザーでは、https://CLUSTERNAME.azurehdinsight.net に移動します。 ダイアログ ボックスが表示されたら、認証に管理者のユーザー名とパスワードを使用してサイトに入ります。
-
-    2. ページ上部のメニューから、__[ホスト]__ を選択します。
-
-    3. 「__hn0__」で始まるエントリを選択します。 ページが開くと、一番上にホスト名が表示されます。 ホスト名の形式は「__hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__」です。 これは Hue に接続するときに使用するホスト名です。
+    
+    2. ページの上部にあるメニューから選択 __ホスト__します。
+    
+    3. 始まるエントリを選択して __hn0__します。 ページが開くと、一番上にホスト名が表示されます。 ホスト名の形式は __hn0 CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__します。 これは Hue に接続するときに使用するホスト名です。
 
 2. SSH トンネルを作成し、ブラウザーがプロキシ トラフィックを構成すると後、は、ブラウザーを使用して、http://HOSTNAME:8888 で色合いポータルを開きます。 HOSTNAME を前の手順で Ambari から取得した名前に変えます。
-    > [AZURE.NOTE] 初めてログインするときには、Hue ポータルにログインするためのアカウントを作成するよう求められます。 ここで指定した資格情報はポータルに制限され、クラスターのプロビジョニング時に指定した管理者または SSH ユーザーの資格情報には関連しません。
+
+    > [AZURE.NOTE] 最初にログインするときは、色合いポータルにログインするアカウントを作成する促されます。 ここで指定した資格情報はポータルに制限され、クラスターのプロビジョニング時に指定した管理者または SSH ユーザーの資格情報には関連しません。
 
     ![Hue ポータルにログインする](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Login.png "Specify credentials for Hue portal")
 
 ### Hive クエリを実行する
 
-1. Hue ポータルから、**[クエリ エディター]** をクリックし、**[Hive]** をクリックして Hive エディターを開きます。
+1. 色合いポータルからクリックして **クエリ エディター**, 、順にクリック **Hive** Hive エディターを開きます。
 
     ![Hive を使用する](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.png "Use Hive")
 
-2. **[支援]** タブの **[データベース]** に **hivesampletable** が表示されるはずです。 これは HDInsight のすべての Hadoop クラスターに含まれるサンプル テーブルです。 右ペインでサンプル クエリを入力します。スクリーン キャプチャに示すように、下のペインの **[結果]** タブに出力が表示されます。
+2.  **支援** ] タブの [ **データベース**, 、はず **hivesampletable**します。 これは HDInsight のすべての Hadoop クラスターに含まれるサンプル テーブルです。 右側のペインにサンプル クエリを入力しの出力を参照してください、 **結果** 、下のウィンドウ] タブの画面キャプチャで示すようにします。
 
     ![Hive クエリを実行する](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.Query.png "Run Hive query")
 
-    **[グラフ]** タブを使用し、結果を視覚的に表示することもできます。
+    使用することも、 **グラフ** 結果のビジュアル表現を表示するタブをクリックします。
 
 ### クラスター ストレージを参照する
 
-1. Hue ポータルから、メニュー バーの右上隅にある **[ファイル ブラウザー]** をクリックします。
+1. 色合いポータルからクリックして **ファイル ブラウザー** 、メニュー バーの右上隅にあります。
 
-2. 既定では、ファイル ブラウザーは **/user/myuser** ディレクトリで起動します。 パスのユーザー ディレクトリの直前の斜線をクリックし、クラスターに関連付けられている Azure ストレージ コンテナーのルートに移動します。
+2. 既定では、ファイル ブラウザーが開きで、 **/ユーザー/myuser** ディレクトリ。 パスのユーザー ディレクトリの直前の斜線をクリックし、クラスターに関連付けられている Azure ストレージ コンテナーのルートに移動します。
 
     ![ファイル ブラウザーを使用する](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.File.Browser.png "Use file browser")
 
-3. ファイルまたはフォルダーを右クリックし、利用可能な操作を表示します。 現在のディレクトリにファイルをアップロードするには、右隅にある **[アップロード]** ボタンを使用します。 新しいファイルやディレクトリを作成するには、**[新規]** ボタンを使用します。
+3. ファイルまたはフォルダーを右クリックし、利用可能な操作を表示します。 使用して、 **アップロード** 右隅にある現在のディレクトリにファイルをアップロード] ボタンをクリックします。 使用して、 **新規** を新しいファイルやディレクトリを作成する] ボタンをクリックします。
 
-> [AZURE.NOTE] Hue ファイル ブラウザーは HDInsight クラスターに関連付けられている既定のコンテナーのコンテンツのみを表示できます。 追加のストレージ アカウント/コンテナーがクラスターに関連付けられている場合、ファイル ブラウザーではアクセスできません。 ただし、Hive ジョブの場合、クラスターに関連付けられている追加のコンテナーに常にアクセスできます。 たとえば、次のコマンドを入力する `dfs ls wasb://newcontainer@mystore.blob.core.windows.net` Hive エディターでも、追加のコンテナーの内容を確認できます。 このコマンドで、**newcontainer** はクラスターに関連付けられている既定のコンテナーではありません。
+> [AZURE.NOTE] 色合いファイル ブラウザーに表示できるは、HDInsight クラスターに関連付けられている既定のコンテナーの内容のみです。 追加のストレージ アカウント/コンテナーがクラスターに関連付けられている場合、ファイル ブラウザーではアクセスできません。 ただし、Hive ジョブの場合、クラスターに関連付けられている追加のコンテナーに常にアクセスできます。 たとえば、Hive エディターに `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` コマンドを入力すると、追加コンテナーのコンテンツを表示できます。 このコマンドで、 **新しいコンテナー** クラスターに関連付けられている既定のコンテナーではありません。
 
 ## 重要な考慮事項
 
@@ -117,22 +119,21 @@ SSH トンネリングは、実行後、クラスターの Hue にアクセス�
 
     これは既知の問題によるものです。 この問題を回避するには、アクティブな Resource Manager もヘッド ノード 0 で実行されるように Ambari を変更します。
 
-5.  HDInsight クラスターを使用して Azure ストレージを使用して、色相が WebHDFS を理解して `wasb://`します。 そのため、スクリプト アクションで使用されるカスタム スクリプトは WebWasb をインストールします。これは WASB と通信するための WebHDFS 互換サービスです。 そのため、Hue ポータルに HDFS と表示されている場合でも (**ファイル ブラウザー**の上にマウスを移動したときなど)、WASB として解釈するべきです。
+5.  HDInsight クラスターが `wasb://` で Azure Storage を使用するとき、Hue は WebHDFS を認識します。 そのため、スクリプト アクションで使用されるカスタム スクリプトは WebWasb をインストールします。これは WASB と通信するための WebHDFS 互換サービスです。 色合いポータルという場所での HDFS 場合でも (マウス ポインターを移動するときのように、 **ファイル ブラウザー**)、これは WASB として解釈する必要があります。
 
 
 ## 次のステップ
 
 - [インストールして HDInsight クラスターで Spark を使用する](hdinsight-hadoop-spark-install-linux.md) を使用する方法についてのクラスターをインストールして HDInsight Hadoop クラスターで Spark を使用してカスタマイズします。 Spark はビッグ データ分析アプリケーションのパフォーマンスを向上するメモリ内の処理をサポートする、オープン ソースの並列処理のフレームワークです。
 
-- [HDInsight クラスターでの Giraph のインストール](hdinsight-hadoop-giraph-install-linux.md)します。 クラスターのカスタマイズを使用して、HDInsight Hadoop クラスターに Giraph をインストールします。 Giraph は、Hadoop でグラフの処理を実行するために使用でき、Azure HDInsight で使用できます。
+- [HDInsight クラスターに Giraph をインストール](hdinsight-hadoop-giraph-install-linux.md)します。 クラスターのカスタマイズを使用して、HDInsight Hadoop クラスターに Giraph をインストールします。 Giraph は、Hadoop でグラフの処理を実行するために使用でき、Azure HDInsight で使用できます。
 
 - [HDInsight クラスターに Solr をインストール](hdinsight-hadoop-solr-install-linux.md)します。 クラスターのカスタマイズを使用して、HDInsight Hadoop クラスターに Solr をインストールします。 Solr は、格納されたデータに対して強力な検索操作を実行することができます。
 
-- [HDInsight クラスターで R のインストール](hdinsight-hadoop-r-scripts-linux.md)します。 クラスターのカスタマイズを使用して、HDInsight Hadoop クラスターに R をインストールします。 R は、統計計算用のオープン ソースの言語および環境です。 R は、数百の組み込み統計関数と、関数型プログラミングとオブジェクト指向のプログラミングの特徴を結合した独自のプログラミング言語を提供します。 また、広範なグラフィカル機能も提供します。
+- [HDInsight クラスターで R をインストール](hdinsight-hadoop-r-scripts-linux.md)します。 クラスターのカスタマイズを使用して、HDInsight Hadoop クラスターに R をインストールします。 R は、統計計算用のオープン ソースの言語および環境です。 R は、数百の組み込み統計関数と、関数型プログラミングとオブジェクト指向のプログラミングの特徴を結合した独自のプログラミング言語を提供します。 また、広範なグラフィカル機能も提供します。
 
-
-[powershell-install-configure]: install-configure-powershell-linux.md 
-[hdinsight-provision]: hdinsight-provision-clusters-linux.md 
-[hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md 
-[hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md 
+[powershell-install-configure]: install-configure-powershell-linux.md
+[hdinsight-provision]: hdinsight-provision-clusters-linux.md
+[hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
+[hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 

@@ -18,7 +18,6 @@
     ms.author="mingzhan"/>
 
 
-
 # Azure での PostgreSQL のインストールと構成
 
 PostgreSQL は、Oracle や DB2 に似た高機能のオープン ソース データベースです。 PostgreSQL には、完全な ACID 準拠、信頼性の高いトランザクション処理、複数バージョンの同時実行制御など、エンタープライズ対応の機能が含まれます。 また、ANSI SQL や SQL/MED などの標準をサポートします (Oracle、MySQL、MongoDB、その他多くの外部データ ラッパーを含みます). 12 を超える手続き型言語、GIN および GIST のインデックス、空間データ、および JSON またはキーと値に基づくアプリケーションに対する NoSQL に似た複数の機能などのサポートにより、高度な拡張を行えます。
@@ -31,10 +30,10 @@ PostgreSQL は、Oracle や DB2 に似た高機能のオープン ソース デ�
 
 ## PostgreSQL のインストール
 
-> [AZURE.NOTE] このチュートリアルを実行するには、Linux を実行する Azure Virtual Machines が既に存在している必要があります。 作成を続行する前に、Linux VM の設定は、次を参照してください、。
+> [AZURE.NOTE] このチュートリアルを完了するために Linux を実行する Azure の仮想マシンはすでに必要があります。 作成を続行する前に、Linux VM の設定は、次を参照してください、。
 [Azure Linux VM チュートリアル](virtual-machines-linux-tutorial.md)します。
 
-この例では、PostgreSQL ポートとしてポート 1999 を使用します。
+この例では、PostgreSQL ポートとしてポート 1999 を使用します。  
 
 PuTTY を使用して作成した Linux VM に接続します。 初めて Azure Linux VM を使用している場合を参照してください。 [ssh Azure 上の Linux の使用方法](virtual-machines-linux-use-ssh-key.md) を PuTTY を使用して Linux 仮想マシンに接続する方法を参照してください。
 
@@ -56,20 +55,19 @@ PuTTY を使用して作成した Linux VM に接続します。 初めて Azure
 
             # zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
 
-
 3. PostgreSQL をルート ディレクトリにダウンロードし、パッケージを解凍します。
 
-     # wget https://ftp.postgresql.org/pub/source/v9.3.5/postgresql-9.3.5.tar.bz2 -P /root/
-    
-     # tar jxvf  postgresql-9.3.5.tar.bz2
+        # wget https://ftp.postgresql.org/pub/source/v9.3.5/postgresql-9.3.5.tar.bz2 -P /root/
 
- 上に示したのは例です。 詳細なダウンロード アドレスを見つけることができます、 [/pub/ソース/のインデックス](https://ftp.postgresql.org/pub/source/)します。
+        # tar jxvf  postgresql-9.3.5.tar.bz2
+
+    上に示したのは例です。 詳細なダウンロード アドレスを見つけることができます、 [/pub/ソース/のインデックス](https://ftp.postgresql.org/pub/source/)します。
 
 4. ビルドを開始するには、以下のコマンドを実行します。
 
-     # cd postgresql-9.3.5
-    
-     # ./configure --prefix=/opt/postgresql-9.3.5
+        # cd postgresql-9.3.5
+
+        # ./configure --prefix=/opt/postgresql-9.3.5
 
 5. すべてのビルドできるドキュメント (HTML およびマニュアル ページ) やその他のモジュール (contrib) などをビルドする場合は、次のコマンドを実行します。
 
@@ -78,7 +76,6 @@ PuTTY を使用して作成した Linux VM に接続します。 初めて Azure
     次の確認メッセージが表示されます。
 
         PostgreSQL, contrib, and documentation successfully made. Ready to install.
-
 
 ## PostgreSQL の構成
 
@@ -90,17 +87,18 @@ PuTTY を使用して作成した Linux VM に接続します。 初めて Azure
 
         # mkdir -p /opt/pgsql_data
 
-3. root 以外のユーザーを作成し、そのユーザーのプロファイルを変更します。 この新しいユーザーに切り替えます (この例では *postgres*)。
+3. root 以外のユーザーを作成し、そのユーザーのプロファイルを変更します。 次に、この新しいユーザーに切り替えます (と呼ばれる *postgres* この例では)。
 
-     # useradd postgres
-    
-     # chown -R postgres.postgres /opt/pgsql_data
-    
-     # su - postgres
+        # useradd postgres
 
-> [AZURE.NOTE] セキュリティ上の理由から、PostgreSQL ではデータベースの初期化、開始、またはシャットダウンに root 以外のユーザーを使用します。
+        # chown -R postgres.postgres /opt/pgsql_data
 
-4. 次のコマンドを入力して、*bash_profile* ファイルを編集します。 以下の行を *bash_profile* ファイルの最後に追加します。
+        # su - postgres
+
+   > [AZURE.NOTE] セキュリティ上の理由は、PostgreSQL は、初期化、開始、またはデータベースをシャット ダウンするルートではないユーザーを使用します。
+
+
+4. 編集、 *bash_profile* ファイルを次のコマンドを入力します。 これらの行の末尾に追加されます、 *bash_profile* ファイル。
 
         cat >> ~/.bash_profile <<EOF
         export PGPORT=1999
@@ -115,7 +113,7 @@ PuTTY を使用して作成した Linux VM に接続します。 初めて Azure
         alias ll='ls -lh'
         EOF
 
-5. *bash_profile* ファイルを実行します。
+5. 実行、 *bash_profile* ファイル。
 
         $ source .bash_profile
 
@@ -141,16 +139,18 @@ PuTTY を使用して作成した Linux VM に接続します。 初めて Azure
 
 ## PostgreSQL のセットアップ
 
+<!--    [postgres@ test ~]$ exit -->
+
 次のコマンドを実行します。
 
     # cd /root/postgresql-9.3.5/contrib/start-scripts
-    
+
     # cp linux /etc/init.d/postgresql
 
-/etc/init.d/postgresql ファイルの 2 つの変数を変更します。 prefix には、PostgreSQL のインストール パス **/opt/pgsql** を設定します。 PGDATA には、PostgreSQL のデータ ストレージ パス **/opt/pgsql_data** を設定します。
+/etc/init.d/postgresql ファイルの 2 つの変数を変更します。 PostgreSQL のインストール パスにプレフィックスが設定されている: **/選択時**します。 PostgreSQL のデータの保存パスに設定されている PGDATA: **/opt/pgsql_data**します。
 
     # sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
-    
+
     # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 
 ![image](./media/virtual-machines-linux-postgresql/no2.png)
@@ -221,9 +221,9 @@ Postgres データベースを作成します。
 テーブルにさらに人を追加することもできます。 オプションをいくつか次に示します。独自に作成することもできます。
 
     INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Sandy', 'Key Lime Tarts', 'N', '2012-04-14');
-    
+
     INSERT INTO potluck (name, food, confirmed, signup_date) VALUES ('Tom', 'BBQ','Y', '2012-04-18');
-    
+
     INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Tina', 'Salad', 'Y', '2012-04-18');
 
 ### テーブルの表示
@@ -252,11 +252,7 @@ Postgres データベースを作成します。
 
     UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 
-## PostgreSQL の詳細情報
 
+##PostgreSQL の詳細情報
 PostgreSQL を Azure Linux VM にインストールする作業が完了したため、Azure でそれを使用できるようになりました。 PostgreSQL に関する詳細についてにアクセスしてください、 [PostgreSQL の web サイト](http://www.postgresql.org/)します。
-
-
-
-
 

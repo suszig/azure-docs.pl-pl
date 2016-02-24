@@ -16,14 +16,13 @@
     ms.date="12/16/2015" 
     ms.author="tomfitz"/>
 
-
 # テンプレートを使用したロジック アプリの作成
 
 Azure リソース マネージャー テンプレートを使用して、ワークフローを定義するために使用できる空のロジック アプリを作成します。 デプロイ対象のリソースと、デプロイの実行時に指定されるパラメーターを定義できます。 このテンプレートは、独自のデプロイに使用することも、要件に合わせてカスタマイズすることもできます。
 
-ロジック アプリのプロパティの詳細については、次を参照してください。 [ロジック アプリ ワークフローの管理 API](https://msdn.microsoft.com/library/azure/dn948513.aspx)します。
+ロジック アプリのプロパティの詳細については、次を参照してください。 [ロジック アプリ ワークフローの管理 API](https://msdn.microsoft.com/library/azure/dn948513.aspx)します。 
 
-定義自体の例については、次を参照してください。 [Author Logic App 定義](app-service-logic-author-definitions.md)します。
+定義自体の例については、次を参照してください。 [Author Logic App 定義](app-service-logic-author-definitions.md)します。 
 
 テンプレートの作成方法の詳細については、次を参照してください。 [Azure リソース マネージャー テンプレートの作成](../resource-group-authoring-templates.md)します。
 
@@ -33,9 +32,9 @@ Azure リソース マネージャー テンプレートを使用して、ワー
 
 このテンプレートを使用して、ロジック アプリをデプロイします。
 
-デプロイを自動的に実行するには、次のボタンを選択します。
+デプロイを自動的に実行するには、次のボタンを選択します。  
 
-[![を Azure にデプロイ](http://azuredeploy.net/deploybutton.png)] (https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+[![DAzure に eploy](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 ## パラメーター
 
@@ -47,12 +46,12 @@ Azure リソース マネージャー テンプレートを使用して、ワー
         "type": "string",
         "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
       }
-
+    
 ## デプロイ対象のリソース
 
 ### App Service プラン
 
-App Service プランを作成します。
+App Service プランを作成します。 
 
 デプロイ先のリソース グループと同じ場所を使用します。
 
@@ -76,9 +75,9 @@ App Service プランを作成します。
 
 ロジック アプリを作成します。
 
-テンプレートでは、ロジック アプリ名のパラメーター値を使用します。 ロジック アプリの場所がリソース グループと同じ場所に設定されます。
+テンプレートでは、ロジック アプリ名のパラメーター値を使用します。 ロジック アプリの場所がリソース グループと同じ場所に設定されます。 
 
-この特定の定義は、1 時間に 1 回実行され、**testUri** パラメーターで指定された場所に ping を実行します。
+この特定の定義を選択し、1 時間に 1 回の実行で指定した場所に ping を実行、 **testUri** パラメーター。 
 
     {
         "type": "Microsoft.Logic/workflows",
@@ -141,4 +140,5 @@ App Service プランを作成します。
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
 
 
+ 
 

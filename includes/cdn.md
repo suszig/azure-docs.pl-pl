@@ -4,21 +4,21 @@ Azure コンテンツ配信ネットワーク (CDN) は、
 高帯域幅コンテンツを配信するためのグローバル ソリューションを開発者に提供します。
 そのために、コンピューティング インスタンスの BLOB および静的コンテンツを米国、
 ヨーロッパ、アジア、オーストラリア、および南米の物理ノードにキャッシュします。 現在の CDN ノードの場所の一覧
-CDN ノードの場所は、[Azure CDN ノードの場所] を参照してください。
+CDN ノードの場所を参照してください [Azure CDN Node Locations]します。
 
 このタスクの手順は次のとおりです。
 
-* [手順 1: ストレージ アカウントを作成します。](#Step1)
-* [手順 2: ストレージ アカウントに対する新しい CDN エンドポイントを作成します。](#Step2)
-* [手順 3: CDN コンテンツにアクセスします。](#Step3)
-* [手順 4: CDN コンテンツを削除します。](#Step4)
+* [ステップ 1: ストレージ アカウントを作成する](#Step1)
+* [ステップ 2: ストレージ アカウントに対する新しい CDN エンドポイントを作成する](#Step2)
+* [ステップ 3: CDN コンテンツにアクセスする](#Step3)
+* [手順 4. CDN からコンテンツを削除する](#Step4)
 
 CDN を使用して Azure データをキャッシュすることには、次のような利点があります。
 
 -   コンテンツ ソースから遠く離れた場所にいる、コンテンツの読み込みに数多くの "インターネット トリップ" が必要なアプリケーションを使用するエンド ユーザーに対する、パフォーマンスとユーザー エクスペリエンスの向上
 -   製品発表イベントの開始時のような、瞬間的高負荷を処理しやすくする大型の配信スケール
 
-既存の CDN のお客様では、[Azure クラシック ポータル] で、Azure CDN を使用できます。 CDN はサブスクリプションのアドオン機能であり、別の[お支払いプラン]があります。
+既存の CDN のお客様で Azure CDN を使用できます、 [Azure classic portal]します。 CDN はサブスクリプションのアドオン機能であり、個別 [billing plan]します。
 
 <a id="Step1"> </a>
 <h2>ステップ 1: ストレージ アカウントを作成する</h2>
@@ -29,31 +29,32 @@ Azure ストレージ サービスにアクセスできます。 ストレージ
 アカウント
 コンポーネント: Blob サービス、キュー サービス、およびテーブル サービスです。 サブスクリプションの
 Azure ストレージ サービスに関する情報を参照してください [を使用して、
-Azure ストレージ サービス] (http://msdn.microsoft.com/library/azure/gg433040.aspx)。
+Azure ストレージ サービス](http://msdn.microsoft.com/library/azure/gg433040.aspx)します。
 
 ストレージ アカウントを作成するには、
 関連付けられているサブスクリプションのサービス管理者または共同管理者であることが必要です。
-> [AZURE.NOTE] Azure サービス管理 API を使用してこの操作を実行する方法については、
+
+> [AZURE.NOTE] 使用してこの操作を実行する方法について、
 Azure サービス管理 API を参照してください、 [ストレージ アカウントの作成](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx) リファレンス トピックです。
 
 **Azure サブスクリプションのストレージ アカウントを作成するには**
 
-1.  [Azure クラシック ポータル] にログインします。
-2.  左下隅にある **[新規]** をクリックします。 **[新規]** ダイアログ ボックスで、**[DATA　SERVICES]** を選択し、**[ストレージ]**、**[簡易作成]** の順にクリックします。
+1.  ログイン、 [Azure classic portal]します。
+2.  クリックして、左下隅で **新規**します。  **新規** ] ダイアログ ボックスで選択 **Data Services**, 、] をクリックし、 **ストレージ**, 、し **簡易作成**します。
 
-    **[ストレージ アカウントの作成]** ダイアログ ボックスが表示されます。
+     **ストレージ アカウントの作成** ダイアログが表示されます。
 
     ![ストレージ アカウントの作成][create-new-storage-account]
 
-4. **[URL]** フィールドにサブドメイン名を入力します。 文字数は 3 ～ 24 文字とし、アルファベット小文字と数字を使用できます。
+4.  **URL** フィールドにサブドメイン名を入力します。 文字数は 3 ～ 24 文字とし、アルファベット小文字と数字を使用できます。
 
     この値は、対応するサブスクリプションの
     BLOB リソース、キュー リソース、またはテーブル リソースのアドレス指定に使用される URI 内でホスト名になります。 To
     サービスでコンテナー リソースをアドレス指定するには、
-    次の形式で URI を *< StorageAccountLabel >* 参照
+    次の形式で URI を *& lt;StorageAccountLabel & gt;* 参照
     入力した値に **URL を入力**:
 
-    http://*< StorageAcountLabel >*.blob.core.windows.net/*< mycontainer >*
+    http://*& lt;StorageAcountLabel & gt;*.blob.core.windows.net/*& lt; mycontainer & gt;*
 
     **重要:** URL ラベルには、記憶域のサブドメイン
     URI のサブドメインとなるため、Azure のすべてのホステッド サービスで一意である必要が 
@@ -61,13 +62,13 @@ Azure サービス管理 API を参照してください、 [ストレージ ア
 
     この値は、このストレージ アカウントの名前として、ポータルやプログラムでこのアカウントにアクセスするときにも使用されます。
 
-5.  **[リージョン/アフィニティ グループ]** ボックスの一覧で、ストレージ アカウントのリージョンまたはアフィニティ グループを選択します。 ストレージ サービスを使用している他の Windows Azure サービスと同じデータ センターに存在する場合は、リージョンの代わりにアフィニティ グループを選択します。 これによりパフォーマンスが向上し、送信料金も発生しません。
+5.   **リージョン/アフィニティ グループ** ドロップダウン リストで、ストレージ アカウントのリージョンまたはアフィニティ グループを選択します。 使用している他の Microsoft Azure サービスと同じデータ センターにストレージ サービスを配置する場合は、リージョンの代わりにアフィニティ グループを選択します。 これによりパフォーマンスが向上し、送信料金も発生しません。  
 
-    **注:** アフィニティ グループを作成するには、管理ポータルの **[設定]** 領域を開き、**[アフィニティ グループ]** をクリックして、**[アフィニティ グループの追加]** または **[追加]** をクリックします。 作成し、Windows Azure サービス管理 API を使用してアフィニティ グループを管理することができます。 詳細については、「[アフィニティ グループに対する操作]」を参照してください。
+    **注:** アフィニティ グループを作成するには、開く、 **設定** 管理ポータルの領域をクリックして **アフィニティ グループ**, 、次に、 **アフィニティ グループを追加** または **追加**します。 また、Microsoft Azure サービス管理 API を使用してアフィニティ グループを作成し管理することもできます。 詳細については、「[アフィニティ グループに対する操作]」を参照してください。
 
-6. **[サブスクリプション]** ボックスの一覧で、ストレージ アカウントを使用するサブスクリプションを選択します。
-7.  **[ストレージ アカウントの作成]** をクリックします。 ストレージ アカウントを作成するプロセスは、完了までに数分かかる場合があります。
-8.  ストレージ アカウントが正常に作成されたことを確認するには、アカウントが **[Storage]** の一覧に表示され、状態が **[オンライン]** になっていることを確かめます。
+6.  **サブスクリプション** ドロップダウン リストで、ストレージ アカウントを使用するサブスクリプションを選択します。
+7.  クリックして **ストレージ アカウントの作成**します。 ストレージ アカウントを作成するプロセスは、完了までに数分かかる場合があります。
+8.  ストレージ アカウントが正常に作成されたことを確認する] の一覧にアカウントが表示されていることを確認します **ストレージ** の状態で **オンライン**します。
 
 <a id="Step2"> </a>
 <h2>ステップ 2: ストレージ アカウントに対する新しい CDN エンドポイントを作成する</h2>
@@ -80,31 +81,32 @@ Azure サービス管理 API を参照してください、 [ストレージ ア
 
 **ストレージ アカウントに対する新しい CDN エンドポイントを作成するには**
 
-1. クリックして、[Azure クラシック ポータル] で、ナビゲーション ウィンドウで **CDN**します。
+1.  [Azure classic portal], 、ナビゲーション ウィンドウで **CDN**します。
 
-2. リボンで、**[新規]** をクリックします。 **[新規]** ダイアログで、**[アプリケーション サービス]**、**[CDN]**、**[簡易作成]** の順に選択します。
+2. リボンのクリックして **新規**します。  **新規** ダイアログで、 **App Services**, 、し **CDN**, 、し **簡易作成**します。
 
-3. **[元のドメイン]** ボックスで、前のセクションで作成したストレージ アカウントを、利用可能なストレージ アカウントの一覧から選択します。
+3.  **元のドメイン** ドロップダウン リストで、ストレージ アカウントを選択、使用できるストレージ アカウントの一覧から前のセクションで作成しました。 
 
-4. **[作成]** ボタンをクリックして、新しいエンドポイントを作成します。
+4. クリックして、 **作成** 新しいエンドポイントを作成する] ボタンをクリックします。
 
-5. エンドポイントが作成されると、サブスクリプションのエンドポイントの一覧に表示されます。 一覧には、キャッシュされたコンテンツへのアクセスに使用する URL と元のドメインが表示されます。
+5. エンドポイントが作成されると、サブスクリプションのエンドポイントの一覧に表示されます。 一覧には、キャッシュされたコンテンツへのアクセスに使用する URL と元のドメインが表示されます。 
 
     元のドメインは、CDN がコンテンツをキャッシュする
-    場所です。 元のドメインは、ストレージ アカウントまたはクラウド サービスのどちらかになります。この例では、ストレージ アカウントが使用されます。 ストレージ コンテンツは、指定したキャッシュ制御の設定またはキャッシュ ネットワークの既定のヒューリスティックに従って末端サーバーにキャッシュされます。
+    場所です。 元のドメインは、ストレージ アカウントまたはクラウド サービスのどちらかになります。この例では、ストレージ アカウントが使用されます。 ストレージ コンテンツは、指定したキャッシュ制御の設定またはキャッシュ ネットワークの既定のヒューリスティックに従って末端サーバーにキャッシュされます。 
 
-    > [AZURE.NOTE] エンドポイント用に作成された構成は、
-    すぐには使用できません。CDN ネットワークを通じて伝播する
-    登録のために、最大で 60 分かかる場合があります。 CDN ドメイン名を
-    直ちに使用しようとするユーザーは、CDN を経由してコンテンツを取得できるように
-    なるまでは、状態コード 400 (正しくない要求) を受け取ります。
+
+    > [AZURE.NOTE] The configuration created for the endpoint will not
+    immediately be available; it can take up to 60 minutes for the
+    registration to propagate through the CDN network. Users who try to
+    use the CDN domain name immediately may receive status code 400
+    (Bad Request) until the content is available via the CDN.
 
 <a id="Step3"> </a>
-<h2>ステップ 3: CDN コンテンツにアクセスする</h2>
+<h2>ステップ 3: CDN コンテンツにアクセスする</h2> 
 
 CDN にキャッシュされたコンテンツにアクセスするには、ポータルで提供される CDN URL を使用します。 キャッシュされた BLOB のアドレスは、次のようになります。
 
-http://<*CDNNamespace*\>.vo.msecnd.net/<*myPublicContainer*\>/<*BlobName*\>
+p:\\ http://&lt*CDNNamespace*\ >.vo.msecnd.net/<*myPublicContainer*\ >/<*BlobName*\ >
 
 <a id="Step4"> </a>
 <h2>ステップ 4: CDN からコンテンツを削除する</h2>
@@ -126,24 +128,25 @@ CDN エンドポイントがまだ有効で、
 オブジェクトがまだ匿名アクセス可能かどうかが CDN によって確認されます。 そうでない場合、
 オブジェクトはキャッシュされなくなります。
 
-コンテンツを即座に消去する機能は、Azure 管理ポータルで現在サポートされていません。 お問い合わせください [Azure サポート](http://azure.microsoft.com/support/options/)  コンテンツを即座に消去する必要がある場合。
+コンテンツを即座に消去する機能は、Azure 管理ポータルで現在サポートされていません。 お問い合わせください [Azure サポート](http://azure.microsoft.com/support/options/)  コンテンツを即座に消去する必要がある場合。 
 
 ## その他のリソース
 
 -   [Azure でアフィニティ グループを作成する方法]
 -   [方法: Azure サブスクリプションのストレージ アカウントを管理する]
--   [サービス管理 API] の
--   [カスタム ドメインを CDN コンテンツをマップする方法]
+-   [サービス管理 API について]
+-   [CDN コンテンツをカスタム ドメインにマッピングする方法]
+
+  [Create Storage Account]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
+  [Azure CDN Node Locations]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx
+  [Azure classic portal]: https://manage.windowsazure.com/
+  [billing plan]: /pricing/calculator/?scenario=full
+  [How to Create an Affinity Group in Azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx
+  [Overview of the Azure CDN]: http://msdn.microsoft.com/library/windowsazure/ff919703.aspx
+  [About the Service Management API]: http://msdn.microsoft.com/library/windowsazure/ee460807.aspx
+  [How to Map CDN Content to a Custom Domain]: http://msdn.microsoft.com/library/windowsazure/gg680307.aspx
 
 
-[create storage account]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/ 
-[azure cdn node locations]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx 
-[azure classic portal]: https://manage.windowsazure.com/ 
-[billing plan]: /pricing/calculator/?scenario=full 
-[how to create an affinity group in azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx 
-[overview of the azure cdn]: http://msdn.microsoft.com/library/windowsazure/ff919703.aspx 
-[about the service management api]: http://msdn.microsoft.com/library/windowsazure/ee460807.aspx 
-[how to map cdn content to a custom domain]: http://msdn.microsoft.com/library/windowsazure/gg680307.aspx 
-[create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png 
-[previous management portal]: ../../Shared/Media/previous-portal.png 
+[create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
+[Previous Management Portal]: ../../Shared/Media/previous-portal.png
 

@@ -17,30 +17,29 @@
     ms.author="raynew"/>
 
 
-
 # Azure Site Recovery で VMM を使用して Hyper-V 仮想マシンを保護するために、ネットワーク マッピングを準備する
 
-Azure Site Recovery は、仮想マシンと物理サーバーのレプリケーション、フェールオーバー、復旧を調整してビジネス継続性と障害復旧 (BCDR) 戦略に貢献します。
+Azure Site Recovery は、仮想マシンと物理サーバーのレプリケーション、フェールオーバー、復旧を調整してビジネス継続性と障害復旧 (BCDR) 戦略に貢献します。 
 
-この記事では、2 つのオンプレミス データセンター間またはオンプレミスのデータセンターと Azure の間で、Site Recovery を使って VMM クラウド内の Hyper-V 仮想マシンをレプリケートする場合に、ネットワーク設定を最適に構成するのに役立つネットワーク マッピングについて説明します。 VMM クラウドを使用していない Hyper-V VM をレプリケートする場合、または VMware VM や物理サーバーをレプリケートする場合は、この記事の内容は当てはまりません。
+この記事では、2 つのオンプレミス データセンター間またはオンプレミスのデータセンターと Azure の間で、Site Recovery を使って VMM クラウド内の Hyper-V 仮想マシンをレプリケートする場合に、ネットワーク設定を最適に構成するのに役立つネットワーク マッピングについて説明します。 VMM クラウドを使用していない Hyper-V VM をレプリケートする場合、または VMware VM や物理サーバーをレプリケートする場合は、この記事の内容は当てはまりません。 
 
-この記事の投稿、に関するご質問を読んだ後 [Azure Recovery Services フォーラム](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
+この記事の投稿について質問を読んだ後、 [Azure Recovery Services フォーラム](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
 
 ## 概要
 
-ネットワーク マッピングは、Hyper-V レプリカまたは SAN レプリケーションを使用して Azure またはセカンダリ データセンターに Hyper-V 仮想マシンをレプリケートするために Azure Site Recovery をデプロイするときに使用します。
+ネットワーク マッピングは、Hyper-V レプリカまたは SAN レプリケーションを使用して Azure またはセカンダリ データセンターに Hyper-V 仮想マシンをレプリケートするために Azure Site Recovery をデプロイするときに使用します。 
 
-- **2 つのオンプレミス データセンター間で VMM クラウド内の Hyper-V 仮想マシンをレプリケート**—ネットワーク マッピングにより、ソース VMM サーバー上の VM ネットワークとターゲット VMM サーバー上の VM ネットワークをマップして、次の操作を行います。
+- **VMM クラウド内の HYPER-V 仮想マシンをレプリケートする 2 つのオンプレミス データ センター**— ネットワーク マッピングでは、次の操作をターゲット VMM サーバー上の VM ネットワークと、ソース VMM サーバー上の VM ネットワーク間。
 
-    - **フェールオーバー後に仮想マシンを接続**—フェールオーバー後に仮想マシンを適切なネットワークに接続します。 レプリカ仮想マシンは、ソース ネットワークにマップされているターゲット ネットワークに接続されます。
-    - **ホスト サーバー上にレプリカ仮想マシンを配置**—Hyper-V ホスト サーバーにレプリカ仮想マシンを最適な方法で配置します。 レプリカ仮想マシンは、マップされた VM ネットワークにアクセスできるホストに配置されます。
-    - **ネットワーク マッピングを構成しない**—ネットワーク マッピングを構成しない場合、レプリケートされた仮想マシンは、フェールオーバー後に VM ネットワークに接続されなくなります。
+    - **フェールオーバー後に仮想マシンを接続**— 仮想マシンがフェールオーバー後に適切なネットワークに接続することを確認します。 レプリカ仮想マシンは、ソース ネットワークにマップされているターゲット ネットワークに接続されます。
+    - **ホスト サーバー上のレプリカ仮想マシンの配置**-HYPER-V ホスト サーバーにレプリカ仮想マシンを最適に配置します。 レプリカ仮想マシンは、マップされた VM ネットワークにアクセスできるホストに配置されます。
+    - **ネットワーク マッピングなし**— レプリケートされた仮想マシンをフェールオーバー後の VM ネットワークに接続しないにネットワーク マッピングを構成していない場合。
 
-- **オンプレミスの VMM クラウド内の Hyper-V 仮想マシンを Azure にレプリケート**—ネットワーク マッピングにより、ソース VMM サーバー上の VM ネットワークとターゲット Azure ネットワークをマップして、次の操作を行います。
-    - **フェールオーバー後に仮想マシンを接続**—同じネットワーク上でフェールオーバーするすべてのマシンは、どの復旧計画に含まれていても、相互に接続できます。
-    - **ネットワーク ゲートウェイ**—ターゲットの Azure ネットワークでネットワーク ゲートウェイをセットアップすると、仮想マシンは、他のオンプレミスの仮想マシンに接続できます。
-    - **ネットワーク マッピングを構成しない**—ネットワーク マッピングを構成しない場合は、Azure へのフェールオーバー後、同じ復旧計画でフェールオーバーする仮想マシンのみが相互に接続できます。
+- **内部設置型 VMM クラウド内の HYPER-V 仮想マシンを Azure にレプリケートする**— ネットワーク マッピングでは、ソース VMM サーバー上の VM ネットワークとターゲット Azure ネットワークを次の操作します。
+    - **フェールオーバー後に仮想マシンを接続**-すべてのマシンが同じネットワーク上でフェールオーバーするが、相互に関係なく、どの復旧計画されているに接続できます。
+    - **ネットワーク ゲートウェイ**-その他の内部設置型仮想マシンに仮想マシンが接続できる場合は、ターゲット Azure ネットワークでネットワーク ゲートウェイを設定します。
+    - **ネットワーク マッピングなし**— ネットワーク マッピングを構成しない場合の仮想マシンのみ、同じ復旧計画でフェールオーバーができるようになります azure 経由でフェールオーバー後の相互に接続します。
 
 
 ## ネットワーク マッピングの例
@@ -51,12 +50,12 @@ VMM でネットワークが正しくセットアップされている場合、�
 
 このメカニズムを説明するために、次に例を示します。 ニューヨークとシカゴという 2 つの拠点がある組織を例にします。
 
- **場所**| **VMM サーバー**| **VM ネットワーク**| **マップ先**
+**Location (場所)** | **VMM サーバー** | **VM ネットワーク** | **マップ先**
 ---|---|---|---
- ニューヨーク| VMM-NewYork| VMNetwork1-NewYork| VMNetwork1-Chicago にマップされています
-| | VMNetwork2-NewYork| マッピングなし
- シカゴ| VMM-Chicago| VMNetwork1-Chicago| VMNetwork1-NewYork にマップされています
-| | VMNetwork1-Chicago| マッピングなし
+ニューヨーク | VMM-NewYork| VMNetwork1-NewYork | VMNetwork1-Chicago にマップされています
+ |  | VMNetwork2-NewYork | マッピングなし
+シカゴ | VMM-Chicago| VMNetwork1-Chicago | VMNetwork1-NewYork にマップされています
+ | | VMNetwork1-Chicago | マッピングなし
 
 この例では、次の点に注意してください。
 
@@ -67,31 +66,31 @@ VMM でネットワークが正しくセットアップされている場合、�
 
 ### クラウドの保護設定
 
- **保護されたクラウド**| **保護するクラウド**| **論理ネットワーク (ニューヨーク)**
+**保護されたクラウド** | **保護するクラウド** | **論理ネットワーク (ニューヨーク)**  
 ---|---|---
- GoldCloud1| GoldCloud2|
- SilverCloud1| SilverCloud2|
- GoldCloud2| <p>NA</p><p></p>| <p>LogicalNetwork1 newyork という</p><p>LogicalNetwork1 シカゴ</p>
- SilverCloud2| <p>NA</p><p></p>| <p>LogicalNetwork1 newyork という</p><p>LogicalNetwork1 シカゴ</p>
+GoldCloud1 | GoldCloud2 |
+SilverCloud1| SilverCloud2 |
+GoldCloud2 | <p>該当なし</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
+SilverCloud2 | <p>該当なし</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
 
 ### 論理設定と VM ネットワークの設定
 
- **場所**| **論理ネットワーク**| **関連付けられた VM ネットワーク**
+**Location (場所)** | **論理ネットワーク** | **関連付けられた VM ネットワーク**
 ---|---|---
- ニューヨーク| LogicalNetwork1-NewYork| VMNetwork1-NewYork
- シカゴ| LogicalNetwork1-Chicago| VMNetwork1-Chicago
-| LogicalNetwork2-Chicago| VMNetwork2-Chicago
+ニューヨーク | LogicalNetwork1-NewYork | VMNetwork1-NewYork
+シカゴ | LogicalNetwork1-Chicago | VMNetwork1-Chicago
+ | LogicalNetwork2-Chicago | VMNetwork2-Chicago
 
 ### ターゲット ネットワーク
 
 これらの設定に基づき、次の表は、ターゲット VM ネットワークを選択する場合に使用可能な選択肢を示します。
 
- **選択肢**| **保護されたクラウド**| **保護するクラウド**| **使用可能なターゲット ネットワーク**
+**[** | **保護されたクラウド** | **保護するクラウド** | **使用可能なターゲット ネットワーク**
 ---|---|---|---
- VMNetwork1-Chicago| SilverCloud1| SilverCloud2| 使用可能
-| GoldCloud1| GoldCloud2| 使用可能
- VMNetwork2-Chicago| SilverCloud1| SilverCloud2| 使用できません。
-| GoldCloud1| GoldCloud2| 使用可能
+VMNetwork1-Chicago | SilverCloud1 | SilverCloud2 | 使用可能
+ | GoldCloud1 | GoldCloud2 | 使用可能
+VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | 使用できません。
+ | GoldCloud1 | GoldCloud2 | 使用可能
 
 
 
@@ -105,26 +104,22 @@ VMM でネットワークが正しくセットアップされている場合、�
 フェールバック (レプリケーションの反転) の場合の動作を確認するために、次の設定で VMNetwork1-NewYork が VMNetwork1-Chicago にマップされていると仮定します。
 
 
- **仮想マシン**| **接続先の VM ネットワーク**
+**仮想マシン** | **接続先の VM ネットワーク**
 ---|---
- VM1| VMNetwork1-NewYork
- VM2 (VM1 のレプリカ)| VMNetwork1-Chicago
+VM1 | VMNetwork1-NewYork
+VM2 (VM1 のレプリカ) | VMNetwork1-Chicago
 
 これらの設定で、いくつかの可能なシナリオでの動作を確認しましょう。
 
- **シナリオ**| **結果**
+**シナリオ** | **結果**
 ---|---
- フェールオーバー後に VM-2 のネットワークのプロパティの変更がない。| VM-1 は、ソース ネットワークに接続されたままです。
- VM-2 のネットワークのプロパティがフェールオーバー後に変更され、VM-2 が切断される。| VM-1 が切断されます。
- VM-2 のネットワークのプロパティがフェールオーバー後に変更され、VM-2 が VMNetwork2-Chicago に接続される。| VMNetwork2-Chicago がマップされていない場合、VM-1 は切断されます。
- VMNetwork1-Chicago のネットワークのマッピングが変更される。| VM-1 は VMNetwork1-Chicago にマップされたネットワークに接続されます。
+フェールオーバー後に VM-2 のネットワークのプロパティの変更がない。 | VM-1 は、ソース ネットワークに接続されたままです。
+VM-2 のネットワークのプロパティがフェールオーバー後に変更され、VM-2 が切断される。 | VM-1 が切断されます。
+VM-2 のネットワークのプロパティがフェールオーバー後に変更され、VM-2 が VMNetwork2-Chicago に接続される。 | VMNetwork2-Chicago がマップされていない場合、VM-1 は切断されます。
+VMNetwork1-Chicago のネットワークのマッピングが変更される。 | VM-1 は VMNetwork1-Chicago にマップされたネットワークに接続されます。
 
 
 ## 次のステップ
 
 ネットワーク マッピングの理解を深めるしたら [Site Recovery のデプロイを使ってみる](site-recovery-best-practices.md)します。
-
-
-
-
 

@@ -15,7 +15,6 @@
     ms.date="12/07/2015"
     ms.author="awills"/>
 
-
 # Application Insights: 言語、プラットフォーム、統合
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
@@ -24,12 +23,12 @@
 
 ## 言語
 
-+ [C# |VB (.NET)](app-insights-asp-net.md)
-+ [C# |VB (Windows ストア)](app-insights-windows-get-started.md)
++ [C#|VB (.NET)](app-insights-asp-net.md)
++ [C#|VB (Windows ストア)](app-insights-windows-get-started.md)
 + [C++ (Windows ストア)](app-insights-windows-cpp.md)
 + [Java](app-insights-java-get-started.md)
-+ [JavaScript web ページ](app-insights-web-track-usage.md)
-+ [Objective C](https://github.com/Microsoft/ApplicationInsights-iOS)
++ [JavaScript Web ページ](app-insights-web-track-usage.md)
++ [Objective-C](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 + [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 + [Ruby](https://rubygems.org/gems/application_insights)
@@ -39,20 +38,20 @@
 
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 + [ASP.NET](app-insights-asp-net.md)
-+ [既にライブのアプリ向けの ASP.NET](app-insights-monitor-performance-live-website-now.md)
++ [ASP.NET - 既にライブとなっているアプリ用](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
-+ [Azure の web アプリと Vm](../insights-perf-analytics.md)
++ [Azure Web アプリと VM](../insights-perf-analytics.md)
 + [Azure Cloud Services](app-insights-cloudservices.md)& #151; web およびワーカー ロールの両方を含む
-+ [Microsoft Dynamics CRM をオンライン](app-insights-sample-mscrm.md)
++ [Microsoft Dynamics からの CRM オンライン](app-insights-sample-mscrm.md)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
-+ [既にライブのアプリ向けの J2EE](app-insights-java-live.md)
++ [J2EE - 既にライブとなっているアプリ用](app-insights-java-live.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
-+ [OS X](https://github.com/Microsoft/ApplicationInsights-OSX)
-+ [Windows ストア c# |VB](app-insights-windows-get-started.md)
++ [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
++ [Windows ストア C#|VB](app-insights-windows-get-started.md)
 + [Windows ストア C++](app-insights-windows-cpp.md)
-+ [Windows デスクトップ アプリケーション、サービス、およびワーカー ロール](app-insights-windows-desktop.md)
++ [Windows デスクトップのアプリケーションとサービス、および worker ロール](app-insights-windows-desktop.md)
 + [Xamarin](https://github.com/Microsoft/ApplicationInsights-Xamarin)
 + [その他](#projects)
 
@@ -67,10 +66,10 @@
 
 ## コンテンツ管理システム
 
-+ [具象型](https://github.com/fidmor89/appInsights-Concrete)
++ [Concrete](https://github.com/fidmor89/appInsights-Concrete)
 + [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 + [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
-+ [Orchard](https://orchardazureappinsights.codeplex.com)
++ [Orchard](https://orchardazureappinsights.codeplex.com) 
 + [SharePoint](app-insights-sharepoint.md)
 + [WordPress](https://wordpress.org/plugins/application-insights/)
 
@@ -83,9 +82,5 @@
 ## <a name="projects"></a> 独自の SDK をビルドします。
 
 使用する言語やプラットフォーム用の SDK がない場合は、自分で作成するという方法があります。 示されている既存の Sdk のコードを見て、 [GitHub の Application Insights SDK プロジェクト](https://github.com/Microsoft/AppInsights-Home)します。
-
-
-
-
 
 

@@ -16,7 +16,6 @@
     ms.date="10/05/2015"
     ms.author="ricksal"/>
 
-
 # Mobile Services Android アプリへの認証の追加 (JavaScript バックエンド)
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
@@ -34,7 +33,7 @@
 このチュートリアルでは、アプリケーションでの認証を有効にするための、次の基本的な手順について説明します。
 
 
-## 前提条件
+##前提条件
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
@@ -46,11 +45,11 @@
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-1. Android Studio で、チュートリアルを完了したときに作成したプロジェクトを開く [を使ってみるモバイル サービス] です。
+1. Android Studio で、チュートリアルを完了したときに作成したプロジェクトを開く [Get started with Mobile Services]します。
 
-2. **[Run]** メニューの **[Run app]** をクリックし、アプリケーションの開始後に、状態コード 401 (許可されていません) のハンドルされない例外が発生することを確認します。
+2.  **実行** ] メニューのをクリックし、 **アプリケーションを実行する**; アプリケーションの開始後に、状態コード 401 (許可されていません) のハンドルされない例外が発生することを確認します。
 
-     この問題は、認証されないユーザーとしてアプリケーションがモバイル サービスにアクセスしようとしても、_TodoItem_ テーブルでは認証が要求されるために発生します。
+     これは、問題は、アプリケーションは、認証されないユーザーとしてモバイル サービスにアクセスしようとしていますが、 _TodoItem_ テーブルには、今すぐ認証が必要です。
 
 次に、モバイル サービスのリソースを要求する前にユーザーを認証するようにアプリケーションを更新します。
 
@@ -58,11 +57,11 @@
 
 [AZURE.INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
 
-## <a name="cache-tokens"></a>クライアントで認証トークンをキャッシュします。
+## <a name="cache-tokens"></a>クライアントに認証トークンをキャッシュする
 
 [AZURE.INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
-## <a name="refresh-tokens"></a>トークンのキャッシュを更新します。
+## <a name="refresh-tokens"></a>トークン キャッシュを更新する
 
 [AZURE.INCLUDE [mobile-android-authenticate-app-refresh-token](../../includes/mobile-android-authenticate-app-refresh-token.md)]
 
@@ -70,7 +69,23 @@
 
 ## <a name="next-steps"></a>次のステップ
 
-次は、チュートリアルでは、[ユーザーの認証のスクリプト] で、ユーザー ID 値になりますが、認証されたユーザーに基づいてモバイル サービスによって提供され、モバイル サービスから返されたデータをフィルター処理に使用します。
+次のチュートリアルでは、 [Authorize users with scripts], 、認証されたユーザーに基づいてモバイル サービスによって提供されるユーザー ID 値を受け取り、モバイル サービスから返されたデータをフィルター処理に使用します。
+
+<!-- Anchors. -->
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
+[Store authentication tokens on the client]: #cache-tokens
+[Refresh expired tokens]: #refresh-tokens
+[Next Steps]:#next-steps
+
+<!-- Images. -->
+
+
+
+
+[4]: ./media/mobile-services-android-get-started-users/mobile-services-selection.png
+[5]: ./media/mobile-services-android-get-started-users/mobile-service-uri.png
 
 
 
@@ -78,23 +93,16 @@
 
 
 
+[13]: ./media/mobile-services-android-get-started-users/mobile-identity-tab.png
+[14]: ./media/mobile-services-android-get-started-users/mobile-portal-data-tables.png
+[15]: ./media/mobile-services-android-get-started-users/mobile-portal-change-table-perms.png
 
 
+<!-- URLs. -->
 
-[register your app for authentication and configure mobile services]: #register 
-[restrict table permissions to authenticated users]: #permissions 
-[add authentication to the app]: #add-authentication 
-[store authentication tokens on the client]: #cache-tokens 
-[refresh expired tokens]: #refresh-tokens 
-[next steps]: #next-steps 
-[4]: ./media/mobile-services-android-get-started-users/mobile-services-selection.png 
-[5]: ./media/mobile-services-android-get-started-users/mobile-service-uri.png 
-[13]: ./media/mobile-services-android-get-started-users/mobile-identity-tab.png 
-[14]: ./media/mobile-services-android-get-started-users/mobile-portal-data-tables.png 
-[15]: ./media/mobile-services-android-get-started-users/mobile-portal-change-table-perms.png 
-[submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582 
-[my applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039 
-[live sdk for windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253 
-[get started with mobile services]: mobile-services-android-get-started.md 
-[authorize users with scripts]: mobile-services-javascript-backend-service-side-authorization.md 
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Get started with Mobile Services]: mobile-services-android-get-started.md
+[Authorize users with scripts]: mobile-services-javascript-backend-service-side-authorization.md
 

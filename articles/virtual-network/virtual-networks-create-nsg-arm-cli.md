@@ -17,7 +17,6 @@
    ms.date="12/11/2015"
    ms.author="telmos" />
 
-
 # Azure CLI で NSG を作成する方法
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
@@ -31,12 +30,11 @@
 以下の Azure CLI のサンプル コマンドでは、上記シナリオに基づいて単純な環境が既に作成されていると想定します。 このドキュメントに表示されているように、コマンドを実行する場合は、最初にビルド、テスト環境を展開して [このテンプレート](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), 、クリックして **Deploy to Azure**, し、ポータルの指示に従って、必要に応じて、既定のパラメーター値を置き換えます。
 
 ## フロントエンドのサブネットの NSG を作成する方法
-
-上記のシナリオに基づいて *NSG-FrontEnd* という名前の NSG を作成するには、次の手順に従います。
+名前を名前付き NSG を作成する *NSG フロント エンド* 上記のシナリオに基づいて、以下の手順です。
 
 1. Azure CLI を初めて使用する場合は、次を参照してください。 [のインストールと Azure CLI の構成](xplat-cli-install.md) Azure アカウントとサブスクリプションを選択する時点までの指示に従います。
 
-2. 次に示すように、**azure config mode** コマンドを実行してリソース マネージャー モードに切り替えます。
+2. 実行、 **azure config モード** コマンドを次に示すように、リソース マネージャー モードに切り替えます。
 
         azure config mode arm
 
@@ -44,7 +42,7 @@
 
         info:    New mode is arm
 
-3. **azure network nsg create** コマンドを実行して NSG を作成します。
+3. 実行、 **azure ネットワーク nsg を作成** NSG を作成するコマンドです。
 
         azure network nsg create -g TestRG -l westus -n NSG-FrontEnd
 
@@ -71,11 +69,11 @@
         info:    network nsg create command OK
 
     パラメーター:
-    - **-g (または --resource-group)**。 NSG の作成場所となるリソース グループの名前です。 ここでは、*TestRG* です。
-    - **-l (または --location)**。 NSG が作成される Azure リージョンです。 ここでは、*westus* です。
-    - **-n (または --name)**。 新しい NSG の名前です。 ここでは、*NSG-FrontEnd* です。
+    - **-g (または - リソース グループ)**します。 NSG の作成場所となるリソース グループの名前です。 このシナリオの *TestRG*します。
+    - **-l (または --location)**します。 NSG が作成される Azure リージョンです。 このシナリオの *westus*します。
+    - **n (または - 名前)**します。 新しい NSG の名前です。 このシナリオの *NSG フロント エンド*します。
 
-4. **azure network nsg rule create** コマンドを実行して、インターネットからポート 3389 (RDP) へのアクセスを許可する規則を作成します。
+4. 実行、 **azure ネットワークの nsg ルールを作成** 、インターネットからポート 3389 (RDP) へのアクセスを許可するルールを作成するコマンドです。
 
         azure network nsg rule create -g TestRG -a NSG-FrontEnd -n rdp-rule -c Allow -p Tcp -r Inbound -y 100 -f Internet -o * -e * -u 3389
 
@@ -103,18 +101,18 @@
 
     パラメーター:
 
-    - **-a (または --nsg-name)**。 規則が作成される NSG の名前です。 ここでは、*NSG-FrontEnd* です。
-    - **-n (または --name)**。 新しい規則の名前です。 ここでは、*rdp-rule* です。
-    - **-c (または --access)**。 規則のアクセス レベルです (拒否または許可)。
-    - **-p (または --protocol)**。 規則のプロトコル (TCP、UDP、または *) です。
-    - **-r (または --direction)**。 接続の方向です (受信または送信)。
-    - **-y (または --priority)**。 規則の優先度です。
-    - **-f (または --source-address-prefix)**。 CIDR または既定のタグを使用する発信元アドレスのプレフィックス。
-    - **-o (または --source-port-range)**。 発信元ポート、またはポート範囲です。
-    - **-e (または --destination-address-prefix)**。 CIDR または既定のタグを使用する接続先アドレスのプレフィックス。
-    - **-u (または --destination-port-range)**。 接続先ポート、またはポート範囲です。
+    - **は、(または - nsg 名)**します。 規則が作成される NSG の名前です。 このシナリオの *NSG フロント エンド*します。
+    - **n (または - 名前)**します。 新しい規則の名前です。 このシナリオの *rdp ルール*します。
+    - **c キーを押します (または - アクセス)**します。 規則のアクセス レベルです (拒否または許可)。
+    - **-p または - プロトコル**します。 規則のプロトコル (TCP、UDP、または *) です。 
+    - **-r (または - の方向)**します。 接続の方向です (受信または送信)。
+    - **-y (または - 優先度)**します。 規則の優先度です。
+    - **-f (または - ソース アドレス プレフィックス)**します。 CIDR または既定のタグを使用する発信元アドレスのプレフィックス。
+    - **-o (または - ソース ポート範囲)**します。 発信元ポート、またはポート範囲です。
+    - **-e (または - 宛先アドレス プレフィックス)**します。 CIDR または既定のタグを使用する接続先アドレスのプレフィックス。
+    - **-u (または - 送信先ポート範囲)**します。 接続先ポート、またはポート範囲です。    
 
-5. **azure network nsg rule create** コマンドを実行して、インターネットからポート 80 (HTTP) へのアクセスを許可する規則を作成します。
+5. 実行、 **azure ネットワークの nsg ルールを作成** 、インターネットからポート 80 (HTTP) へのアクセスを許可するルールを作成するコマンドです。
 
         azure network nsg rule create -g TestRG -a NSG-FrontEnd -n web-rule -c Allow -p Tcp -r Inbound -y 200 -f Internet -o * -e * -u 80
 
@@ -139,7 +137,7 @@
         data:    Priority                        : 200
         info:    network nsg rule create command OK
 
-6. **azure network vnet subnet set** コマンドを実行して、NSG をフロントエンドのサブネットにリンクさせます。
+6. 実行、 **azure ネットワーク vnet サブネットのセット** フロント エンド サブネットに NSG をリンクするコマンドです。
 
         azure network vnet subnet set -g TestRG -e TestVNet -n FrontEnd -o NSG-FrontEnd
 
@@ -165,12 +163,10 @@
         data:    
         info:    network vnet subnet set command OK
 
-
 ## バックエンドのサブネットの NSG を作成する方法
+名前を名前付き NSG を作成する *NSG バックエンド* 上記のシナリオに基づいて、以下の手順です。
 
-上記のシナリオに基づいて *NSG-BackEnd* という名前の NSG を作成するには、次の手順に従います。
-
-3. **azure network nsg create** コマンドを実行して NSG を作成します。
+3. 実行、 **azure ネットワーク nsg を作成** NSG を作成するコマンドです。
 
         azure network nsg create -g TestRG -l westus -n NSG-BackEnd
 
@@ -197,7 +193,7 @@
         data:    DenyAllOutBound                *                  *            *               *                 *         Outbound   Deny    65500   
         info:    network nsg create command OK
 
-4. **azure network nsg rule create** コマンドを実行して、フロントエンドのサブネットからポート 1433 (SQL) へのアクセスを許可する規則を作成します。
+4. 実行、 **azure ネットワークの nsg ルールを作成** フロント エンド サブネットからポート 1433 (SQL) へのアクセスを許可するルールを作成するコマンドです。
 
         azure network nsg rule create -g TestRG -a NSG-BackEnd -n sql-rule -c Allow -p Tcp -r Inbound -y 100 -f 192.168.1.0/24 -o * -e * -u 1433
 
@@ -222,7 +218,7 @@
         data:    Priority                        : 100
         info:    network nsg rule create command OK
 
-5. **azure network nsg rule create** コマンドを実行して、インターネットへのアクセスを拒否する規則を作成します。
+5. 実行、 **azure ネットワークの nsg ルールを作成** からインターネットへのアクセスを拒否するルールを作成するコマンドです。
 
         azure network nsg rule create -g TestRG -a NSG-BackEnd -n web-rule -c Deny -p * -r Outbound -y 200 -f * -o * -e Internet -u *
 
@@ -247,7 +243,7 @@
         data:    Priority                        : 200
         info:    network nsg rule create command OK
 
-6. **azure network vnet subnet set** コマンドを実行して、NSG をバックエンドのサブネットにリンクさせます。
+6. 実行、 **azure ネットワーク vnet サブネットのセット** バックエンド サブネットに NSG をリンクするコマンドです。
 
         azure network vnet subnet set -g TestRG -e TestVNet -n BackEnd -o NSG-BackEnd
 
@@ -272,9 +268,4 @@
         Configurations/ipconfig1
         data:    
         info:    network vnet subnet set command OK
-
-
-
-
-
 

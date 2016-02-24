@@ -16,7 +16,6 @@
     ms.date="09/25/2015"
     ms.author="robb"/>
 
-
 # アラート用 Webhook の構成方法
 
 Webhook では、ユーザーは、後処理のために他のシステムに Azure アラート通知をルーティングしたり、カスタム通知をルーティングしたりすることできます。 たとえば、SMS の送信、バグのログ記録、チャット/メッセージング サービスなどを介したチームへの通知に関する受信 Web 要求を処理できるサービスにアラートをルーティングできます。
@@ -34,7 +33,7 @@ Webhook URI は有効な HTTP または HPPTS エンドポイントである必�
 
 認証には次の 2 種類があります。
 
-1. **トークン ベースの認証** - この場合は、webhook の uri を保存するなどのトークンの Id を持つ *https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue*
+1. **トークン ベース認証** - この場合は、webhook の uri を保存するなどのトークンの Id を持つ *https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue*
 2.  **基本認証** -ユーザー id とパスワードを使用します。
 Webhook の uri の保存ここで *https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar*
 
@@ -75,56 +74,53 @@ POST 操作には、すべてのメトリック ベース アラートの以下�
 }
 ```
 
->[AZURE.NOTE] 次の更新で、イベント ("conditionType": "Event") に対するアラートのサポートを追加します。
+>[AZURE.NOTE] 次回の更新は追加の通知のサポートのイベントを ("conditionType":"Event")
 
 
-| フィールド| 必須| 値の固定セット| メモ|
+| フィールド | 必須 | 値の固定セット | メモ |
 | :-------------| :-------------   | :-------------   | :-------------   |
-| status| Y| "Activated"、"Resolved"| これは、アラートの種類を確認する方法です。Azure は、各条件セットに対するアクティブ化されたアラートおよび解決済みのアラートを自動的に送信します。|
-| context| Y| | アラート コンテキスト|
-| timestamp| Y| | アラートがトリガーされた時刻。メトリックが診断ストレージから読み取られるとすぐに、アラートがトリガーされます。|
-| id| Y| | すべてのアラート ルールには一意の ID があります。|
-| name| Y| |
-| description| Y| | アラートについての説明。|
-| conditionType| Y| "Metric"、"Event"| 2 つの種類のアラートがサポートされています。1 つはメトリックに基づき、もう 1 つはイベントに基づきます。将来的には、イベントのアラートをサポートする予定です。この値を使用することで、アラートがメトリックとイベントのどちらに基づくものであるかを確認できるようになります。|
-| condition| Y| | これには、conditionType に基づいて確認するための特定のフィールドがあります。|
-| metricName| メトリック アラートの場合| | ルールによる監視対象を定義するメトリックの名前。|
-| metricUnit| メトリック アラートの場合| "Bytes"、"BytesPerSecond"、"Count"、"CountPerSecond"、"Percent"、"Seconds"| メトリックで使用できる単位。指定できる値: https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx|
-| metricValue| メトリック アラートの場合| | アラートの原因となったメトリックの実際の値|
-| threshold| メトリック アラートの場合| | アラートをアクティブ化するしきい値の値。|
-| windowSize| メトリック アラートの場合| | しきい値に基づいてアラート アクティビティを監視するために使用される期間。5 分から 1 日の間である必要があります。ISO 8601 期間形式。|
-| timeAggregation| メトリック アラートの場合| "Average"、"Last"、"Maximum"、"Minimum"、"None"、"Total"| 収集されたデータの経時的な結合方法。既定値は Average です。指定できる値: https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx|
-| operator| メトリック アラートの場合| | データとしきい値を比較するために使用する演算子。|
-| subscriptionId| Y| | Azure サブスクリプション GUID|
-| resourceGroupName| Y| | 影響を受けるリソースのリソース グループ名|
-| resourceName| Y| | 影響を受けるリソースのリソース名|
-| resourceType| Y| | 影響を受けるリソースの種類|
-| resourceId| Y| | 当該リソースを一意に識別するリソース ID URI|
-| resourceRegion| Y| | 影響を受けるリソースのリージョン/場所|
-| portalLink| Y| | リソースの概要ページへの Azure ポータルの直接のリンク|
-| プロパティ| N| 省略可能| 一連の <Key, Value> ペア (例: Dictionary<String, String>)、イベントに関する詳細情報が含まれます。properties フィールドは省略可能です。カスタム UI またはロジック アプリ ベースのワークフローでは、ユーザーは、ペイロードを使用して渡すことのできるキーと値を入力できます。Webhook URI 自体を (クエリ パラメーターとして) 使用して、カスタム プロパティを Webhook に戻すこともできます。|
+|status|Y|"Activated"、"Resolved"|これは、アラートの種類を確認する方法です。 Azure は、各条件セットに対するアクティブ化されたアラートおよび解決済みのアラートを自動的に送信します。|
+|context| Y | | アラート コンテキスト|
+|timestamp| Y | | アラートがトリガーされた時刻。 メトリックが診断ストレージから読み取られるとすぐに、アラートがトリガーされます。|
+|id | Y | | すべてのアラート ルールには一意の ID があります。|
+|name|Y                 |                           |
+|description        |Y                  |                           |アラートについての説明。|
+|conditionType      |Y                  |"Metric"、"Event"          |2 つの種類のアラートがサポートされています。 1 つはメトリックに基づき、もう 1 つはイベントに基づきます。 将来的には、イベントのアラートをサポートする予定です。この値を使用することで、アラートがメトリックとイベントのどちらに基づくものであるかを確認できるようになります。|
+|condition          |Y                  |                           |これには、conditionType に基づいて確認するための特定のフィールドがあります。|
+|metricName         |メトリック アラートの場合  |                           |ルールによる監視対象を定義するメトリックの名前。|
+|metricUnit         |メトリック アラートの場合  |"Bytes"、"BytesPerSecond"、"Count"、"CountPerSecond"、"Percent"、"Seconds"|  メトリックで使用できる単位。 指定できる値: https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx|
+|metricValue        |メトリック アラートの場合  |                           |アラートの原因となったメトリックの実際の値|
+|threshold          |メトリック アラートの場合  |                           |アラートをアクティブ化するしきい値の値。|
+|windowSize         |メトリック アラートの場合  |                           |しきい値に基づいてアラート アクティビティを監視するために使用される期間。 5 分から 1 日の間である必要があります。 ISO 8601 期間形式。|
+|timeAggregation    |メトリック アラートの場合  |"Average"、"Last"、"Maximum"、"Minimum"、"None"、"Total" |  収集されたデータの経時的な結合方法。 既定値は Average です。 指定できる値: https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx|
+|operator           |メトリック アラートの場合  |                           |データとしきい値を比較するために使用する演算子。|
+|subscriptionId     |Y                  |                           |Azure サブスクリプション GUID|
+|resourceGroupName  |Y                  |                           |影響を受けるリソースのリソース グループ名|
+|resourceName       |Y                  |                           |影響を受けるリソースのリソース名|
+|resourceType       |Y                  |                           |影響を受けるリソースの種類|
+|resourceId         |Y                  |                           |当該リソースを一意に識別するリソース ID URI|
+|resourceRegion     |Y                  |                           |影響を受けるリソースのリージョン/場所|
+|portalLink         |Y                  |                           |リソースの概要ページへの Azure ポータルの直接のリンク|
+|プロパティ         |N                  |省略可能                   |一連の < Key, Value > ペア (例: Dictionary < String, String >)、イベントに関する詳細情報が含まれています。 properties フィールドは省略可能です。 カスタム UI またはロジック アプリ ベースのワークフローでは、ユーザーは、ペイロードを使用して渡すことのできるキーと値を入力できます。 Webhook URI 自体を (クエリ パラメーターとして) 使用して、カスタム プロパティを Webhook に戻すこともできます。|
 
->[AZURE.NOTE] ポータルで properties フィールドを使用することはできません。 Insights SDK の今後のリリースでは、アラート API を使用して properties を設定できます。
+
+>[AZURE.NOTE] ポータルを使用して、プロパティ フィールドを使用することはできません。 Insights SDK の今後のリリースでは、アラート API を使用して properties を設定できます。
 
 ## 次のステップ
 
-詳細については、Azure のアラートとビデオで webhook の詳細を学習 [Azure アラート PagerDuty の統合](http://go.microsoft.com/fwlink/?LinkId=627080)
+詳細については、Azure Alerts とビデオの webhook の詳細を学習 [Azure アラート PagerDuty の統合](http://go.microsoft.com/fwlink/?LinkId=627080)
 
-Webhook を参照してくださいをプログラムで作成する方法については、 [Azure Insights SDK (c#) を使用して Webhook で警告を作成する](https://code.msdn.microsoft.com/Create-Azure-Alerts-with-b938077a)します。
+Webhook を参照してくださいをプログラムで作成する方法については、 [Azure Insights SDK (c#) を使用して Webhook で警告を作成する](https://code.msdn.microsoft.com/Create-Azure-Alerts-with-b938077a)です。
 
 Webhook とアラートを設定したら、他のオプションを調べ、自動化スクリプトを開始します。
 
-[Azure Automation スクリプト (Runbook) の実行します。](http://go.microsoft.com/fwlink/?LinkId=627081)
+[Azure Automation スクリプト (Runbook) の実行](http://go.microsoft.com/fwlink/?LinkId=627081)
 
 Azure アラートを使用して、メッセージを他のサービスに送信します。 次の例のテンプレートを使用して、開始します。
 
-[ロジック アプリを使用して、Twilio API を使用して SMS を送信するには](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+[Twilio API 経由で SMS を送信するロジック アプリを使用する場合](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
 
-[ロジック アプリを使用して、Slack のメッセージを送信するには](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
+[Slack メッセージを送信するロジック アプリを使用する場合](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
 
-[ロジック アプリを使用して Azure キューにメッセージを送信](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
-
-
-
-
+[Azure キューにメッセージを送信するロジック アプリを使用する場合](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 

@@ -17,26 +17,25 @@
     ms.date="09/15/2015"
     ms.author="cynthn"/>
 
-
-# Windows Server が実行されている仮想マシンにログオンする方法
+# Windows Server が実行されている仮想マシンにログオンする方法 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [従来のデプロイ モデル](virtual-machines-log-on-windows-server.md)します。
 
-Azure ポータルの **[接続]** ボタンを使用して、リモート デスクトップ セッションを開始します  まず仮想マシンに接続してからログインします。
+使用して、 **接続** Azure ポータルでリモート デスクトップ セッションを開始するボタンをクリックします。 まず仮想マシンに接続してからログインします。
 
 ## 仮想マシンへの接続
 
 1. サインインをまだ行っていない、か、 [Azure ポータル](https://portal.azure.com/)します。
 
-2.  ハブ メニューの **[参照]** をクリックします。
+2.  [ハブ] メニューをクリックして **参照**します。  
 
-3.  検索ブレードを下へスクロールし、**[仮想マシン]** をクリックします。
+3.  [検索] ブレードで、下へスクロールし、クリックして **仮想マシン**します。
 
     ![仮想マシンのサイズ](./media/virtual-machines-log-on-windows-server-preview/search-blade-preview-portal.png)
 
 4.  一覧から仮想マシンを選択します。
 
-5. 仮想マシンのブレードで、**[接続]** をクリックします。
+5. [仮想マシンのブレードで、次のようにクリックします。 **接続**します。
 
     ![仮想マシンへの接続](./media/virtual-machines-log-on-windows-server-preview/preview-portal-connect.png)
 
@@ -47,8 +46,4 @@ Azure ポータルの **[接続]** ボタンを使用して、リモート デ�
 ## トラブルシューティング
 
 ログ記録に関するヒントを提供しないまたはられないを参照してください場合 [Windows ベースの Azure 仮想マシンへのリモート デスクトップのトラブルシューティングを行う接続](virtual-machines-troubleshoot-remote-desktop-connections.md)します。 この記事では、一般的な問題の診断と解決の手順について説明します。
-
-
-
-
 

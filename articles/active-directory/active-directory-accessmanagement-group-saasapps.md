@@ -1,14 +1,15 @@
+
 <properties
-    pageTitle ="SaaS | へのアクセスを管理するグループを使用します。Microsoft Azure]
-    description =「グループを使用して Azure Active Directory Premium または Basic に Azure Active Directory と統合された SaaS アプリケーションへのアクセスを割り当てる方法です」。
-    サービス ="active directory"
+    pageTitle="SaaS アプリケーションへのアクセスをグループで管理する| Microsoft Azure"
+    description="Azure Active Directory と連携する SaaS アプリケーションへのアクセス権を、Azure Active Directory Premium または Basic でグループを使用して割り当てる方法について説明します。"
+    services="active-directory"
     documentationCenter=""
-    authors ="curtand"
-    manager ="stevenpo"
+    authors="curtand"
+    manager="stevenpo"
     editor=""/>
 
 <tags
-    ms.service="active directory"
+    ms.service="active-directory"
     ms.workload="identity"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
@@ -25,13 +26,15 @@ Azure Active Directory (Azure AD) Premium では、Azure AD と連携する SaaS
 
 **SaaS アプリケーションに対してグループのアクセス権を割り当てるには**
 
-1. 任意のブラウザーを開いて、Azure ポータルに移動します。 Azure ポータルの左側のナビゲーション バーで Active Directory 拡張機能を選択します。 **[ディレクトリ]** タブで、Saas アプリケーションに対するグループのアクセス権を割り当てるディレクトリをクリックします。
+1. 任意のブラウザーを開いて、Azure ポータルに移動します。 Azure ポータルの左側のナビゲーション バーで Active Directory 拡張機能を選択します。 下にある、 **ディレクトリ** ] タブで、Saas アプリケーションにグループのアクセス権を割り当てるディレクトリをクリックします。
 
-2. 目的のディレクトリの **[アプリケーション]** タブをクリックします。 アプリケーション ギャラリーから追加したアプリケーションを選択し、クリックして、 **ユーザーとグループ** ] タブをクリックします。
 
-3. **[ユーザーとグループ]** タブで、アクセス権を割り当てるグループの名前を **[指定値で始まる]** フィールドに入力し、右上のチェック マークをオンにします。 入力するのは、グループ名の先頭部分だけでかまいません。 その後グループをクリックして強調表示し、**[アクセス権の割り当て]** ボタンをクリックして、確認のメッセージが表示されたら **[はい]** をクリックします。
+2. クリックして、 **アプリケーション** 、ディレクトリのタブをクリックします。 アプリケーション ギャラリーから追加したアプリケーションを選択し、クリックして、 **ユーザーとグループ** ] タブをクリックします。
 
-4. アプリケーションに直接割り当てられているユーザーとグループのメンバーシップを通じて割り当てられているユーザーを表示することもできます。 その場合は、[表示] ドロップ ダウンを **[グループ]** から **[すべてのユーザー]** に変更してください。 ディレクトリ内のユーザーが一覧表示され、アプリケーションに割り当てられているかどうかがユーザーごとに表示されます。 ユーザーがアプリケーションに直接割り当てられているのか ([割り当ての種類] = [直接])、グループのメンバーシップを通じて割り当てられているのか ([割り当ての種類] = [継承済み]) も、このリストで確認できます。
+3.  **ユーザーとグループ** ] タブで、 **以降で** フィールドをアクセスを割り当てるグループの名前を入力し、右上隅のチェック マークをクリックします。 入力するのは、グループ名の先頭部分だけでかまいません。 その後にグループを強調表示して、をクリックし、をクリックして、 **のアクセスを割り当てる** ボタンをクリックし、をクリックして **はい** 確認メッセージが表示されている場合。
+
+
+4. アプリケーションに直接割り当てられているユーザーとグループのメンバーシップを通じて割り当てられているユーザーを表示することもできます。 これを行うには、変更、 **"Groups"からの表示] ドロップダウン** に **' すべてのユーザー]**します。 ディレクトリ内のユーザーが一覧表示され、アプリケーションに割り当てられているかどうかがユーザーごとに表示されます。 ユーザーがアプリケーションに直接割り当てられているのか ([割り当ての種類] = [直接])、グループのメンバーシップを通じて割り当てられているのか ([割り当ての種類] = [継承済み]) も、このリストで確認できます。
 
 
 > [AZURE.NOTE]
@@ -39,13 +42,9 @@ Azure Active Directory (Azure AD) Premium では、Azure AD と連携する SaaS
 
 次の記事は、Azure Active Directory に関する追加情報を示します。
 
-* [Azure Active Directory グループによるリソースへのアクセスを管理します。](active-directory-manage-groups.md)
+* [Azure Active Directory グループによるリソースへのアクセス管理](active-directory-manage-groups.md)
 
-* [Azure Active Directory とは何ですか。](active-directory-whatis.md)
+* [Azure Active Directory とは](active-directory-whatis.md)
 
-* [内部設置型 id と Azure Active Directory の統合](active-directory-aadconnect.md)
-
-
-
-
+* [オンプレミス ID と Azure Active Directory の統合](active-directory-aadconnect.md)
 

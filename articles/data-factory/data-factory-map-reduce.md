@@ -16,26 +16,23 @@
     ms.date="11/09/2015" 
     ms.author="spelluru"/>
 
-
 # Data Factory から MapReduce プログラムを起動する
+呼び出す方法を説明する **MapReduce** プログラムを使用して、Azure Data Factory パイプラインから、 **HDInsight MapReduce アクティビティ**します。 
 
-この記事では、**HDInsight の MapReduce アクティビティ**を使用して、Azure Data Factory パイプラインから **MapReduce** プログラムを起動する方法について説明しています。
-
-## はじめに
-
+## はじめに 
 Azure Data Factory のパイプラインは、リンクされたコンピューティング サービスを使用して、リンクされたストレージ サービス内のデータを処理します。 各アクティビティが特定の処理操作を実行するアクティビティのシーケンスが含まれています。 この記事では、HDInsight MapReduce アクティビティを使用する方法について説明しています。
+ 
+参照してください [Pig](data-factory-pig-activity) と [Hive](data-factory-hive-activity.md) の詳細については、Windows または Linux ベースの HDInsight で Pig と Hive スクリプトを実行するための Azure data factory パイプラインから HDInsight Pig および Hive アクティビティを使用して、クラスターの記事です。 
 
-参照してください [Pig](data-factory-pig-activity) と [Hive](data-factory-hive-activity.md) の詳細については、Windows または Linux ベースの HDInsight で Pig と Hive スクリプトを実行するための Azure data factory パイプラインから HDInsight Pig および Hive アクティビティを使用して、クラスターの記事です。
+## HDInsight MapReduce アクティビティの JSON 
 
-## HDInsight MapReduce アクティビティの JSON
-
-HDInsight アクティビティの JSON の定義で、以下を設定します。
-
-1. **activity** の **type** を **HDInsight** に設定します。
-3. **className** プロパティでクラスの名前を指定します。
-4. **jarFilePath** プロパティでファイル名を含む JAR ファイルへのパスを指定します。
-5. **jarLinkedService** プロパティで、JAR ファイルを含む Azure BLOB Storage を参照する、リンクされたサービスを指定します。
-6. **arguments** セクションで MapReduce プログラムに任意の引数を指定します。 実行時に、MapReduce フレームワークのいくつかの引数 (mapreduce.job.tags など) が表示されます。 MapReduce の引数を使用して、引数を区別するためには、次の例で示すように、引数としてオプションと値の両方を使用を検討してください (- s,--入力 - 出力など、その値の直後にオプション)。
+HDInsight アクティビティの JSON の定義で、以下を設定します。 
+ 
+1. 設定、 **型** の **アクティビティ** に **HDInsight**します。
+3. クラスの名前を指定 **className** プロパティです。
+4. ファイル名を含む JAR ファイルへのパスを指定して **jarFilePath** プロパティです。
+5. JAR ファイルを含む Azure Blob ストレージを参照するリンクされたサービス指定 **jarLinkedService** プロパティです。   
+6. MapReduce プログラムの引数の指定、 **引数** セクションです。 実行時に、MapReduce フレームワークのいくつかの引数 (mapreduce.job.tags など) が表示されます。 MapReduce の引数を使用して、引数を区別するためには、次の例で示すように、引数としてオプションと値の両方を使用を検討してください (- s,--入力 - 出力など、その値の直後にオプション)。
 
         {
             "name": "MahoutMapReduceSamplePipeline",
@@ -92,23 +89,19 @@ HDInsight アクティビティの JSON の定義で、以下を設定します�
                 "pipelineMode": "Scheduled"
             }
         }
-
-
-
+    
+    
 
 HDInsight MapReduce アクティビティを使用して、HDInsight クラスター上で MapReduce jar ファイルを実行できます。 次のサンプルのパイプラインの JSON 定義では、Mahout JAR ファイルを実行するために HDInsight アクティビティが構成されます。
 
 ## GitHub 上のサンプル
-
-HDInsight MapReduce アクティビティを使用するためのサンプルをダウンロードすることができます: [Data Factory Samples on GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample)します。
+HDInsight MapReduce アクティビティを使用するためのサンプルをダウンロードすることができます: [Data Factory Samples on GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample)します。  
 
 ## Word Count プログラムの実行
-
-このチュートリアルのパイプラインでは、Azure HDInsight クラスターで Word Count Map/Reduce プログラムを実行します。
+このチュートリアルのパイプラインでは、Azure HDInsight クラスターで Word Count Map/Reduce プログラムを実行します。   
 
 ### リンクされたサービス
-
-最初に、Azure HDInsight クラスターによって使用される Azure Storage を Azure データ ファクトリにリンクする、リンクされたサービスを作成します。 次のコードをコピー/貼り付けする場合は、**アカウント名**と**アカウント キー**を、使用する Azure Storage のアカウント名とアカウント キーに必ず置き換えてください。
+最初に、Azure HDInsight クラスターによって使用される Azure Storage を Azure データ ファクトリにリンクする、リンクされたサービスを作成します。 コピー/貼り付け、次のコードを場合、忘れずに置き換える **アカウント名** と **アカウント キー** 名前と、Azure ストレージのキーを使用します。 
 
 #### ストレージにリンクされたサービス
 
@@ -123,8 +116,7 @@ HDInsight MapReduce アクティビティを使用するためのサンプルを
     }
 
 #### Azure HDInsight のリンクされたサービス
-
-次に、Azure HDInsight クラスターを Azure データ ファクトリにリンクする、リンクされたサービスを作成します。 次のコードをコピー/貼り付けする場合は、**HDInsight クラスター名**を使用する HDInsight クラスターの名前に置き換え、ユーザー名とパスワードを変更してください。
+次に、Azure HDInsight クラスターを Azure データ ファクトリにリンクする、リンクされたサービスを作成します。 コピー/貼り付け、次のコードで場合、置き換えます **HDInsight クラスター名** ユーザー名とパスワードの値の変更、HDInsight クラスターの名前に置き換えます。   
 
     {
         "name": "HDInsightLinkedService",
@@ -139,11 +131,11 @@ HDInsight MapReduce アクティビティを使用するためのサンプルを
         }
     }
 
+
 ### データセット
 
 #### 出力データセット
-
-この例のパイプラインには入力はありません。 HDInsight MapReduce アクティビティ用の出力データセットを指定する必要があります。 これは、パイプラインのスケジュールを実行するために必要となる単なるダミーのデータセットです。
+この例のパイプラインには入力はありません。 HDInsight MapReduce アクティビティ用の出力データセットを指定する必要があります。 これは、パイプラインのスケジュールを実行するために必要となる単なるダミーのデータセットです。  
 
     {
         "name": "MROutput",
@@ -166,18 +158,17 @@ HDInsight MapReduce アクティビティを使用するためのサンプルを
     }
 
 ### パイプライン
+この例のパイプラインには、HDInsightMapReduce という種類のアクティビティが 1 つだけあります。 JSON の重要なプロパティの一部を次に示します。 
 
-この例のパイプラインには、HDInsightMapReduce という種類のアクティビティが 1 つだけあります。 JSON の重要なプロパティの一部を次に示します。
-
- プロパティ| メモ
+プロパティ | メモ
 :-------- | :-----
- type| type には、**HDInsightMapReduce** を設定する必要があります。
- className| クラスの名前は **wordcount** です。
- jarFilePath| 上記のクラスを含む jar ファイルのパス。次のコードをコピー/貼り付けする場合は、クラスターの名前を必ず変更してください。
- jarLinkedService| jar ファイルが含まれるAzure Storage のリンクされたサービス。これは、HDInsight クラスターに関連付けられるストレージです。
- arguments| wordcount プログラムは、入力と出力という2 つの引数を使用します。入力ファイルは davinci.txt ファイルです。
- frequency/interval| これらのプロパティの値は、出力データセットと一致します。
- linkedServiceName| 前に作成した HDInsight のリンクされたサービスを参照します。
+type | 種類に設定する必要があります **HDInsightMapReduce**します。 
+className | クラスの名前が: **ワード カウント**
+jarFilePath | 上記のクラスを含む jar ファイルのパス。 次のコードをコピー/貼り付けする場合は、クラスターの名前を必ず変更してください。 
+jarLinkedService | jar ファイルが含まれるAzure Storage のリンクされたサービス。 これは、HDInsight クラスターに関連付けられるストレージです。 
+arguments | wordcount プログラムは、入力と出力という2 つの引数を使用します。 入力ファイルは davinci.txt ファイルです。
+frequency/interval | これらのプロパティの値は、出力データセットと一致します。 
+linkedServiceName | 前に作成した HDInsight のリンクされたサービスを参照します。   
 
     {
         "name": "MRSamplePipeline",
@@ -218,12 +209,14 @@ HDInsight MapReduce アクティビティを使用するためのサンプルを
         }
     }
 
+[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908 
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456 
-[adfgetstarted]: data-factory-get-started.md 
-[adfgetstartedmonitoring]: data-factory-get-started.md#MonitorDataSetsAndPipeline 
-[adftutorial]: data-factory-tutorial.md 
-[developer reference]: http://go.microsoft.com/fwlink/?LinkId=516908 
-[azure classic portal]: http://portal.azure.com 
 
+[adfgetstarted]: data-factory-get-started.md
+[adfgetstartedmonitoring]:data-factory-get-started.md#MonitorDataSetsAndPipeline 
+[adftutorial]: data-factory-tutorial.md
+
+[Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[Azure Classic Portal]: http://portal.azure.com
+ 

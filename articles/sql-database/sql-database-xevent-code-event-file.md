@@ -1,6 +1,6 @@
 <properties 
     pageTitle="SQL Database の XEvent イベント ファイル コード | Microsoft Azure" 
-    description="Azure SQL Database の拡張イベントのイベント ファイル ターゲットを示す 2 段階コード サンプルの PowerShell と Transact-SQL を提供します。Azure Storage はこのシナリオの必須の部分です。" 
+    description="Azure SQL Database の拡張イベントのイベント ファイル ターゲットを示す 2 段階コード サンプルの PowerShell と Transact-SQL を提供します。 Azure Storage はこのシナリオの必須の部分です。" 
     services="sql-database" 
     documentationCenter="" 
     authors="MightyPen" 
@@ -19,8 +19,8 @@
     ms.author="genemi"/>
 
 
-
 # SQL Database の拡張イベントのためのイベント ファイル ターゲット コード
+
 
 拡張イベントに関する情報を確かな方法で取得し、レポートするための完全なコード サンプルが必要です。
 
@@ -40,22 +40,27 @@ Microsoft SQL Server で、 [イベント ファイル ターゲット](http://m
 
 ## 前提条件
 
+
 - Azure アカウントとサブスクリプション。 サインアップできる、 [無料評価版](http://azure.microsoft.com/pricing/free-trial/)します。
 
+
 - テーブルを作成できるデータベース。
- - ことができます必要に応じて [を作成、* * * * AdventureWorksLT デモ データベース](sql-database-get-started.md) (分) です。
+ - ことができます必要に応じて [を作成、 **AdventureWorksLT** デモ データベース](sql-database-get-started.md) (分) です。
+
 
 - SQL Server Management Studio (ssms.exe)、2015 年 8 月のプレビューまたはそれ以降のバージョン。 
 最新の ssms.exe をダウンロードすることができる。
  - トピック「 [SQL Server Management Studio のダウンロード](http://msdn.microsoft.com/library/mt238290.aspx)します。
- - [ダウンロードへの直接リンクします。](http://go.microsoft.com/fwlink/?linkid=616025)
+ - [ダウンロードへの直接リンク。](http://go.microsoft.com/fwlink/?linkid=616025)
  - マイクロソフトでは、ssms.exe を定期的に更新することをお勧めします。 ssms.exe は毎月更新されることもあります。
 
+
 - 必要があります、 [Azure PowerShell モジュール](http://go.microsoft.com/?linkid=9811175) をインストールします。
- - このモジュールから **New-AzureStorageAccount** などのコマンドが提供されます。
+ - モジュールは、コマンドを次のように、提供 **New-azurestorageaccount**します。
 
 
 ## フェーズ 1: Azure Storage コンテナーの PowerShell コード
+
 
 この PowerShell は 2 段階のコード サンプルの第 1 段階です。
 
@@ -63,16 +68,16 @@ Microsoft SQL Server で、 [イベント ファイル ターゲット](http://m
 
 
 
-1. PowerShell スクリプトを Notepad.exe のような単純なテキスト エディターに貼り付け、**.ps1** 拡張子が付いたファイルとしてスクリプトを保存します。
+1. PowerShell スクリプトを Notepad.exe などの単純なテキスト エディターに貼り付けるし、スクリプトを拡張子の付いたファイルとして保存 **.ps1**します。
 
 2. PowerShell ISE を管理者として起動します。
 
-3. プロンプトで「<br/>`Set-executionpolicy ExecutionPolicy Unrestricted - スコープ CurrentUser`<br/>Enter キーを押します。
+3. プロンプトで、「<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>」と入力し、Enter キーを押します。
 
-4. PowerShell ISE で、**.ps1** ファイルを開きます。 スクリプトを実行します。
+4. PowerShell ISE で開く、 **.ps1** ファイルです。 スクリプトを実行します。
 
 5. 最初に新しいウィンドウが開きます。そこから Azure にログインします。
- - セッションを妨げずにスクリプトを再実行するために、**Add-AzureAccount** コマンドをコメントアウトする便利なオプションがあります。
+ - 便利なオプションのコメント アウトすることがある、セッションを停止することがなく、スクリプトを再実行する場合、 **Add-azureaccount** コマンドです。
 
 
 ![Azure モジュールがインストールされ、スクリプトの実行準備が整っている PowerShell ISE。][30_powershell_ise]
@@ -145,6 +150,8 @@ If ($storageAccountName)
 
 #--------------- 5 -----------------------
 
+[System.DateTime]::Now.ToString()
+
 '
 Create a storage account. 
 This might take several minutes, will beep when ready.
@@ -153,6 +160,11 @@ This might take several minutes, will beep when ready.
 New-AzureStorageAccount `
     -StorageAccountName $storageAccountName `
     -Location           $storageAccountLocation
+
+[System.DateTime]::Now.ToString()
+
+[System.Media.SystemSounds]::Beep.Play()
+
 
 '
 Get the primary access key for your storage account.
@@ -249,6 +261,7 @@ PowerShell スクリプトが終了したら、出力された名前付きの値
 
 ## フェーズ 2: Azure Storage コンテナーを使用する Trasact-SQL コード
 
+
 - このコード サンプルの第 1 段階で、PowerShell スクリプトを実行し、Azure ストレージ コンテナーを作成しました。
 - 次の第 2 段階では、次の Transact-SQL スクリプトでそのコンテナーを使用する必要があります。
 
@@ -256,7 +269,7 @@ PowerShell スクリプトが終了したら、出力された名前付きの値
 このスクリプトは、前の実行があれば、その後でクリーンアップするコマンドで始まり、再実行可能として設計されています。
 
 
-PowerShell スクリプトの終了時に、名前付きの値がいくつか出力されました。 それらの値を使用するように Transact-SQL スクリプトを編集する必要があります。 Transact-SQL スクリプトの **TODO** を探し、編集する箇所を見つけます。
+PowerShell スクリプトの終了時に、名前付きの値がいくつか出力されました。 それらの値を使用するように Transact-SQL スクリプトを編集する必要があります。 検索 **TODO** エディット ポイントを検索する TRANSACT-SQL スクリプトにします。
 
 
 1. SQL Server Management Studio (ssms.exe) を開きます。
@@ -267,7 +280,7 @@ PowerShell スクリプトの終了時に、名前付きの値がいくつか出
 
 4. 次の Transact-SQL スクリプトをクエリ ウィンドウに貼り付けます。
 
-5. スクリプトにある **TODO** をすべて探し、適宜編集します。
+5. 検索すべて **TODO** スクリプトで適切な編集を行います。
 
 6. 保存し、スクリプトを実行します。
 
@@ -489,9 +502,10 @@ GO
 
 ## 出力
 
-Transact-SQL スクリプトが完了したら、**event_data_XML** 列ヘッダーの下にあるセルをクリックします。1 つ * *<event>* * 1 つの UPDATE ステートメントに示す要素が表示されます。
 
-ここでは 1 つ * *<event>* * テスト中に生成された要素。
+TRANSACT-SQL スクリプトが完了すると、下のセルをクリックして、 **event_data_XML** 列のヘッダー。 1 つ **<event>** 1 つの UPDATE ステートメントに示す要素が表示されます。
+
+ここでは 1 つ **<event>** テスト中に生成された要素。
 
 
 &nbsp;
@@ -545,39 +559,43 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 ## SQL Server で実行できるようにコード サンプルを変換する
 
+
 先の Transact-SQL サンプルを Microsoft SQL Server で実行するとします。
 
 
-- わかりやすくするために、Azure ストレージ コンテナーの使用を「**C:\myeventdata.xel**」のような単純なファイルに完全に置換します。 ファイルは SQL Server をホストするコンピューターのローカル ハード ドライブに書き込まれます。
+- など、単純なファイルを使用して Azure ストレージ コンテナーの使用を完全に置き換える必要わかりやすくするため **C:\myeventdata.xel**します。 ファイルは SQL Server をホストするコンピューターのローカル ハード ドライブに書き込まれます。
 
-- **CREATE MASTER KEY** と **CREATE CREDENTIAL** には Transact-SQL ステートメントを必要としません。
 
-- **CREATE EVENT SESSION** ステートメントの **ADD TARGET** 句で、**filename=** に割り当てられている HTTP 値を「**C:\myfile.xel**」のような完全パス文字列に置換します。
+- 必要はありません。 あらゆる種類の TRANSACT-SQL ステートメントの **CREATE MASTER KEY** と **CREATE CREDENTIAL**します。
+
+
+-  **CREATE EVENT SESSION** ステートメントで、その **ターゲットを追加** 句、割り当てられている Http の値の置換がに対する **ファイル名 =** のような完全なパス文字列に **C:\myfile.xel**します。
  - Azure ストレージ アカウントは必要ありません。
 
 
 ## 詳細情報
+
 
 Azure SQL Database での拡張イベントに関する主なトピックは次のとおりです。
 
 - [SQL データベースでの拡張イベント](sql-database-xevent-db-diff-from-svr.md) -は Azure SQL データベースで拡張イベントの主なトピックです。
  - Azure SQL Database と Microsoft SQL Server の間で異なる拡張イベントの機能を比較します。
 
-- [SQL データベースでの拡張イベントのリング バッファー ターゲット コード](sql-database-xevent-code-ring-buffer.md) -姉妹は、これは簡単ですが、する簡単なテストの詳細は、大規模なアクティビティの少ない堅牢なコード サンプルです。
+
+- [リング バッファー ターゲットのコードで SQL データベースの拡張イベントの](sql-database-xevent-code-ring-buffer.md) -姉妹は、これは簡単ですが、する簡単なテストの詳細は、大規模なアクティビティの少ない堅牢なコード サンプルです。
 
 
 Azure ストレージ サービスのアカウントとコンテナーに関する詳細については、次を参照してください。
 
-- [.NET から Blob ストレージを使用する方法](storage-dotnet-how-to-use-blobs.md/)
-- [名前付けおよびコンテナー、Blob、およびメタデータの参照](http://msdn.microsoft.com/library/azure/dd135715.aspx)
-- [ルート コンテナーの操作](http://msdn.microsoft.com/library/azure/ee395424.aspx)
+- [.NET から Blob Storage を使用する方法](storage-dotnet-how-to-use-blobs.md/)
+- [コンテナー、BLOB、メタデータの名前付けと参照](http://msdn.microsoft.com/library/azure/dd135715.aspx)
+- [ルート コンテナーの使用](http://msdn.microsoft.com/library/azure/ee395424.aspx)
 
 
+<!--
+Image references.
+-->
 
+[30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-
-[system.datetime]: :Now.ToString() 
-[system.datetime]: :Now.ToString() 
-[system.media.systemsounds]: :Beep.Play() 
-[30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png 
 

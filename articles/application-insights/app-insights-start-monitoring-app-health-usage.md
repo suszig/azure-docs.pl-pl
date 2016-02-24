@@ -16,7 +16,6 @@
     ms.author="awills"/>
 
 
-
 # Application Insights SDK を追加して ASP.NET アプリを監視する
 
 *Application Insights はプレビュー段階です。*
@@ -24,7 +23,7 @@
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
 
-Visual Studio Application Insights が監視するため、ライブ アプリケーション [を検出し、例外とパフォーマンスの問題を診断 ][detect], 、および [検出に使用される ][knowusers]します。 Application Insights は、さまざまな種類のアプリケーションで使用できます。 Azure Web Apps に加えて、独自のオンプレミス IIS サーバーや Azure の仮想マシンでホストされているアプリに対しても機能します。
+Visual Studio Application Insights が監視するため、ライブ アプリケーション [を検出し、例外とパフォーマンスの問題を診断][detect], 、および [アプリの使用方法の把握][knowUsers]します。 Application Insights は、さまざまな種類のアプリケーションで使用できます。 Azure Web Apps に加えて、独自のオンプレミス IIS サーバーや Azure の仮想マシンでホストされているアプリに対しても機能します。
 
 
 
@@ -33,7 +32,7 @@ Visual Studio Application Insights が監視するため、ライブ アプリ�
 *関連項目:*
 
 * [ASP.NET 5](app-insights-asp-net-five.md)
-* [デバイス アプリと Java サーバー ][platforms]
+* [デバイス アプリと Java サーバー][platforms]
 
 #### 開始する前に
 
@@ -47,13 +46,13 @@ Visual Studio Application Insights が監視するため、ライブ アプリ�
 
 ## <a name="add"></a> 1.Application Insights リソースの作成
 
-サインイン、 [Azure ポータルの ][portal], 、新しい Application Insights リソースを作成します。 アプリケーションの種類として ASP.NET を選択します。
+サインイン、 [Azure ポータル][portal], 、新しい Application Insights リソースを作成します。 アプリケーションの種類として ASP.NET を選択します。
 
-![[新規]、](./media/app-insights-start-monitoring-app-health-usage/01-new-asp.png)
+![[新規]、[Application Insights] の順にクリックする](./media/app-insights-start-monitoring-app-health-usage/01-new-asp.png)
 
-A [リソース ][roles] Azure では、サービスのインスタンス。 このリソースでは、アプリのテレメトリが分析されて画面に表示されます。
+A [リソース][roles] Azure では、サービスのインスタンス。 このリソースでは、アプリのテレメトリが分析されて画面に表示されます。
 
-リソース ブレードと、プロパティの既定のコンテンツを設定に表示されるアプリケーションの種類の選択 [メトリックス エクスプ ローラー ][metrics]します。
+リソース ブレードと、プロパティの既定のコンテンツを設定に表示されるアプリケーションの種類の選択 [メトリックス エクスプ ローラー][metrics]します。
 
 #### インストルメンテーション キーのコピー
 
@@ -69,30 +68,30 @@ Application Insights SDK のインストールと構成は、作業中のプラ�
 
 1. Visual Studio で、Web アプリ プロジェクトの NuGet パッケージを編集します。
 
-    ![プロジェクトを右クリックし、](./media/app-insights-start-monitoring-app-health-usage/03-nuget.png)
+    ![プロジェクトを右クリックし、[Nuget パッケージの管理] を選択する](./media/app-insights-start-monitoring-app-health-usage/03-nuget.png)
 
 2. Web Apps 向け Application Insights SDK をインストールします。
 
-    ![Search for "Application Insights"](./media/app-insights-start-monitoring-app-health-usage/04-ai-nuget.png)
+    !["Application Insights" の検索](./media/app-insights-start-monitoring-app-health-usage/04-ai-nuget.png)
 
 3. (NuGet のインストールによって追加された) ApplicationInsights.config を編集します。 次のコードを終了タグの直前に挿入します。
 
-    `< InstrumentationKey >` *コピーしたインストルメンテーション キー* `</InstrumentationKey >`
+    `<InstrumentationKey>` *コピーしたインストルメンテーション キー* `</InstrumentationKey>`
 
-    (または、 [[apikey] コードを記述してキーを設定][apikey] アプリです)。
+    (または、 [コードを記述してキーを設定][apikey] アプリです)。
 
 #### 新しいバージョンの SDK にアップグレードするには
 
 SDK の新しいバージョンは不定期でリリースされます。
 
-アップグレードする、 [SDK の新しいリリース](app-insights-release-notes-dotnet.md), 、NuGet パッケージ マネージャーをもう一度開いて、インストールされているパッケージでフィルター処理します。 **[Microsoft.ApplicationInsights.Web]**、**[アップグレード]** の順に選択します
+アップグレードする、 [SDK の新しいリリース](app-insights-release-notes-dotnet.md), 、NuGet パッケージ マネージャーをもう一度開いて、インストールされているパッケージでフィルター処理します。 Select **Microsoft.ApplicationInsights.Web** and choose **Upgrade**.
 
 ApplicationInsights.config をカスタマイズしている場合は、アップグレードする前にコピーを保存しておき、後から新しいバージョンに変更をマージします。
 
 
 ## <a name="run"></a> 3.プロジェクトの実行
 
-**F5** キーを使用してアプリケーションを実行して、試します。さまざまなページを開いて、いくつかのテレメトリを生成します。
+使用して、 **f5 キーを押して** をアプリケーションを実行し、試してみる: をいくつかのテレメトリを生成するさまざまなページを開きます。
 
 Visual Studio で、送信されたイベント数が表示されます。
 
@@ -100,7 +99,7 @@ Visual Studio で、送信されたイベント数が表示されます。
 
 ## <a name="monitor"></a> 4.テレメトリの表示
 
-戻り、 [Azure ポータルの ][portal] Application Insights リソースを参照します。
+戻り、 [Azure ポータル][portal] Application Insights リソースを参照します。
 
 
 概要グラフでデータを探します。 最初、1 つまたは 2 つのポイントだけが表示されます。 次に例を示します。
@@ -112,9 +111,9 @@ Visual Studio で、送信されたイベント数が表示されます。
 #### データが表示されない場合
 
 * アプリケーションを使用して、テレメトリがいくつか生成されるようにさまざまなページを開きます。
-* 開いている、 [検索 ][diagnostic] タイル、個々 のイベントを表示します。 メトリック パイプラインを経由すると、イベントの取得に少し時間がかかる場合があります。
-* 数秒待機してから **[最新の情報に更新]** をクリックします。 グラフは周期的に自動で更新されますが、データの表示を待機している場合、手動で更新することもできます。
-* 参照してください [トラブルシューティング ][qna]します。
+* 開いている、 [検索][diagnostic] タイル、個々 のイベントを表示します。 メトリック パイプラインを経由すると、イベントの取得に少し時間がかかる場合があります。
+* Wait a few seconds and click **Refresh**. グラフは周期的に自動で更新されますが、データの表示を待機している場合、手動で更新することもできます。
+* 参照してください [トラブルシューティング][qna]します。
 
 ## アプリケーションの発行
 
@@ -135,7 +134,8 @@ Visual Studio で、送信されたイベント数が表示されます。
 #### ビルド サーバーで問題が発生した場合
 
 参照してください [このトラブルシューティング項目](app-insights-troubleshoot-faq.md#NuGetBuild)します。
-> [AZURE.NOTE] (ASP.NET SDK バージョン 2.0.0-beta3 以降を使用している状態で) アプリから大量のテレメトリが生成されると、アダプティブ サンプリング モジュールからイベントの代表的な部分のみが送信され、ポータルに送信されるデータ量が自動的に削減されます。 ただし、同じ要求に関連するイベントはグループ単位で選択または選択解除されるので、関連するイベントごとに操作できます。 
+
+> [AZURE.NOTE] アプリはさまざまな利用統計情報を生成する場合 (ASP.NET の SDK バージョン 2.0.0-beta3 を使用している、またはそれ以降)、アダプティブ サンプリング モジュールはイベントの代表的な分数のみを送信することによって、ポータルに送信されるボリュームを自動的に削減します。 ただし、同じ要求に関連するイベントはグループ単位で選択または選択解除されるので、関連するイベントごとに操作できます。 
 > [サンプリングについて](app-insights-sampling.md)します。
 
 
@@ -157,7 +157,7 @@ IIS サーバーで実行した場合は、この手順によって、システ�
 
 Azure の Web アプリのコントロール パネルで、Application Insights 拡張機能を追加します。
 
-![Web アプリで、](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+![Web アプリで、[設定]、[拡張機能]、[追加]、[Application Insights] の順に選択する](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
 
 
 #### Azure Cloud Services プロジェクトの場合
@@ -173,16 +173,16 @@ Azure の Web アプリのコントロール パネルで、Application Insights
 
 すべてのページに JavaScript のスニペットを追加します。 コードは次に示す Application Insights のリソースから取得できます。
 
-![Web アプリでクイック スタートを開き、](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
+![Web アプリでクイック スタートを開き、[Web ページを監視するコードを取得する] をクリックする](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
 
 コードにはアプリケーション リソースを識別するインストルメンテーション キーが含まれています。
 
-[Web ページの追跡について説明します。](app-insights-web-track-usage.md)
+[Web ページの追跡についてはこちらをご覧ください。](app-insights-web-track-usage.md)
 
 
 ## アプリケーションのバージョンを追跡する
 
-確認 `buildinfo.config` MSBuild プロセスによって生成されます。 .csproj ファイルに、次のコードを追加します。
+MSBuild プロセスで `buildinfo.config` が生成されていることを確認します。 .csproj ファイルに、次のコードを追加します。  
 
 ```XML
 
@@ -191,7 +191,7 @@ Azure の Web アプリのコントロール パネルで、Application Insights
     </PropertyGroup> 
 ```
 
-ビルド情報がある場合、Application Insights Web モジュールは、**アプリケーションのバージョン**をプロパティとしてテレメトリのすべての項目に自動的に追加します。 バージョンで実行するときにフィルターを適用することができる [診断検索 ][diagnostic] または [[メトリック] メトリックを確認する][metrics]します。
+ビルド情報がある場合、Application Insights web モジュールは自動的に追加 **アプリケーション バージョン** テレメトリのすべてのアイテムにプロパティとして。 バージョンで実行するときにフィルターを適用することができる [診断検索の結果][diagnostic] または [メトリックを確認する][metrics]です。 
 
 ただし、Visual Studio で開発者向けのビルドではなく、MS ビルドでのみビルド バージョン番号が生成されることに注意してください。
 
@@ -199,9 +199,9 @@ Azure の Web アプリのコントロール パネルで、Application Insights
 
 アプリケーションを 360 度から表示するために実行できるいくつかの作業を次に示します。
 
-* [Web の設定は、][availability] を確認する、アプリケーションが動作していて応答します。
-* [キャプチャ ログをトレース ][netlogs] お気に入りのログ記録フレームワークから
-* [カスタム イベントおよびメトリック ][api] では、クライアントまたはサーバーまたはその両方をアプリケーションの使用方法の詳細を参照してください。
+* [Web テストを設定][availability] を確認する、アプリケーションが動作していて応答します。
+* [ログ トレースをキャプチャ][netlogs] お気に入りのログ記録フレームワークから
+* [カスタム イベントおよびメトリックスの追跡][api] では、クライアントまたはサーバーまたはその両方をアプリケーションの使用方法の詳細を参照してください。
 
 ## <a name="ide"></a> 自動化された方法
 
@@ -211,32 +211,32 @@ Azure の Web アプリのコントロール パネルで、Application Insights
 
 #### 新しいプロジェクトの場合
 
-Visual Studio で新しいジョブを作成するときは、**[Application Insights の追加]** が選択されていることを確認します。
+Visual Studio で新しいプロジェクトを作成するときに必ず **Application Insights の追加** が選択されています。
 
 
 ![ASP.NET プロジェクトを作成する](./media/app-insights-start-monitoring-app-health-usage/appinsights-01-vsnewp1.png)
 
-Visual Studio Application Insights にリソースを作成する、SDK をプロジェクトに追加、およびにキーを配置、 `.config` ファイルです。
+Visual Studio によって、Application Insights にリソースが作成され、プロジェクトに SDK が追加されて、キーが `.config` ファイルに配置されます。
 
-かどうかは、プロジェクトが web ページに、さらに、 [JavaScript SDK ][client] がマスター web ページです。
+かどうかは、プロジェクトが web ページに、さらに、 [JavaScript SDK][client] がマスター web ページです。
 
 #### 既存のプロジェクトの場合
 
-ソリューション エクスプローラーでプロジェクトを右クリックし、**[Application Insights の追加]** を選択します。
+ソリューション エクスプ ローラーでプロジェクトを右クリックし [ **Application Insights の追加**します。
 
 ![[Application Insights の追加] を選択する](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
 
-Visual Studio Application Insights にリソースを作成する、SDK をプロジェクトに追加、およびにキーを配置、 `.config` ファイルです。
+Visual Studio によって、Application Insights にリソースが作成され、プロジェクトに SDK が追加されて、キーが `.config` ファイルに配置されます。
 
-この場合、追加されません、 [JavaScript SDK ][client] web ページにお勧めする次の手順として。
+この場合、追加されません、 [JavaScript SDK][client] web ページにお勧めする次の手順として。
 
 #### セットアップ オプション
 
-初めての場合には、Microsoft Azure プレビュー版にログインまたはサインインするように求められます
+初めての場合には、Microsoft Azure プレビュー版にログインまたはサインインするように求められます 
 
-このアプリがより大きなアプリケーションの一部である場合は、**[設定の構成]** を使用して、他のコンポーネントと同じリソース グループに配置することをお勧めします。
+このアプリがより大きなアプリケーションの一部である場合は、使用する場合があります **設定を構成** 、他のコンポーネントと同じリソース グループに配置します。
 
-*No Application Insights option? Check that you're using Visual Studio 2013 Update 3 or later and that Application Insights Tools are enabled in Extensions and Updates.*
+*Application Insights オプションはありせんか。 Visual Studio 2013 Update 3 以降を使用しているし、拡張機能と更新プログラムでその Application Insights Tools が有効になっていることを確認します。*
 
 #### プロジェクトから Application Insights を開く
 
@@ -250,24 +250,23 @@ Visual Studio Application Insights にリソースを作成する、SDK をプ�
 > [AZURE.VIDEO getting-started-with-application-insights]
 
 
+<!--Link references-->
 
-
-
-[api]: app-insights-api-custom-events-metrics.md 
-[apikey]: app-insights-api-custom-events-metrics.md#ikey 
-[availability]: app-insights-monitor-web-app-availability.md 
-[azure]: ../insights-perf-analytics.md 
-[client]: app-insights-javascript.md 
-[detect]: app-insights-detect-triage-diagnose.md 
-[diagnostic]: app-insights-diagnostic-search.md 
-[knowusers]: app-insights-overview-usage.md 
-[metrics]: app-insights-metrics-explorer.md 
-[netlogs]: app-insights-asp-net-trace-logs.md 
-[perf]: app-insights-web-monitor-performance.md 
-[platforms]: app-insights-platforms.md 
-[portal]: http://portal.azure.com/ 
-[qna]: app-insights-troubleshoot-faq.md 
-[redfield]: app-insights-monitor-performance-live-website-now.md 
-[roles]: app-insights-resources-roles-access-control.md 
-[start]: app-insights-overview.md 
+[api]: app-insights-api-custom-events-metrics.md
+[apikey]: app-insights-api-custom-events-metrics.md#ikey
+[availability]: app-insights-monitor-web-app-availability.md
+[azure]: ../insights-perf-analytics.md
+[client]: app-insights-javascript.md
+[detect]: app-insights-detect-triage-diagnose.md
+[diagnostic]: app-insights-diagnostic-search.md
+[knowUsers]: app-insights-overview-usage.md
+[metrics]: app-insights-metrics-explorer.md
+[netlogs]: app-insights-asp-net-trace-logs.md
+[perf]: app-insights-web-monitor-performance.md
+[platforms]: app-insights-platforms.md
+[portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[roles]: app-insights-resources-roles-access-control.md
+[start]: app-insights-overview.md
 

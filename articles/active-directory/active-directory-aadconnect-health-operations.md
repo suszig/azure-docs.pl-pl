@@ -16,15 +16,13 @@
     ms.date="10/19/2015"
     ms.author="billmath"/>
 
-
 # Azure AD Connect Health の操作
 
 以下のトピックでは、Azure AD Connect Health を使って実行できる各種の操作について説明します。
 
 ## 電子メール通知の有効化
-
 Azure AD Connect Health サービス id インフラストラクチャが正常でないことを示すアラートが生成されたときに電子メール通知を送信するように構成することができます。 アラートが生成されたときのほか、解決済みとしてマークされたときにも通知が送信されます。 電子メール通知を構成するには以下の手順に従います。
->[AZURE.NOTE] 既定では、電子メール通知は無効です。
+>[AZURE.NOTE] 既定では、電子メール通知が無効になります。
 
 
 ### Azure AD Connect Health の電子メール通知を有効にするには
@@ -39,7 +37,6 @@ Azure AD Connect Health サービス id インフラストラクチャが正常�
 ## サーバーまたはサービス インスタンスを削除する
 
 ### Azure AD Connect Health サービスからのサーバーの削除
-
 特定のサーバーを監視対象から除外しなければならない場合があります。 Azure AD Connect Health サービスから特定のサーバーを削除するには以下の手順に従ってください。
 
 サーバーを削除する際は次の点に注意してください。
@@ -79,21 +76,19 @@ Azure AD Connect Health サービス id インフラストラクチャが正常�
 <br><br>
 
 
+[//]: # (Start of RBAC section)
 ## ロール ベースの Access Control を使用してアクセスを管理する
-
 ### 概要
-
 [ロールベースのアクセス制御](role-based-access-control-configure.md) に関する Azure AD Connect Health がユーザーまたは外部でのグローバル管理者のグループを Azure AD Connect Health サービスにアクセスを提供します。 これは、目的のユーザー/グループにロールを割り当て、ディレクトリ内のグローバル管理者を制限するメカニズムを用意することで実現します。
 
 #### ロール
-
 Azure AD Connect Health では、次の組み込みのロールをサポートします。
 
-| ロール| アクセス許可|
+| ロール | アクセス許可 |
 | ----------- | ---------- |
-| 所有者| 所有者ことができます *** 管理アクセス *** (例: 役割をユーザーまたはグループ) に割り当てる *** 表示すべて情報 *** (例: アラートの表示) ポータルからと *** 変更設定 *** (電子メールの通知など) 内での Azure AD Connect Health します。<br>既定では、Azure AD グローバル管理者がこのロールを割り当てられているし、これは変更できません。|
-| 共同作成者| 投稿者のことができます *** 表示すべて情報 *** (アラートの表示など) ポータルからと *** 変更設定 *** (電子メールの通知など) 内での Azure AD Connect Health します。|
-| 閲覧者| リーダーが *** 表示すべて情報 *** (アラートの表示など) 内での Azure AD Connect Health ポータルからです。|
+| 所有者 | 所有者ことができます ***のアクセスを管理*** (例: 役割をユーザーまたはグループ) に割り当てる ***すべての情報を表示*** (アラートの表示など)、ポータルからと ***の設定を変更*** (電子メールの通知など) 内での Azure AD Connect Health します。 <br>このロールは、既定で Azure AD のグローバル管理者に割り当てられ、これを変更することはできません。  |
+|共同作成者|  コントリビューターことができます ***すべての情報を表示*** (アラートの表示など)、ポータルからと ***の設定を変更*** (電子メールの通知など) 内での Azure AD Connect Health します。|
+|閲覧者| リーダーが ***すべての情報を表示*** (アラートの表示など) 内での Azure AD Connect Health ポータルからです。|
 
 上記以外のすべてのロール (「ユーザー アクセス管理者」 や「DevTest Lab ユーザー」など) は、ポータル エクスペリエンスで利用できる場合でも、Azure AD Connect Health 内のアクセスに影響することはありません。
 
@@ -101,25 +96,22 @@ Azure AD Connect Health では、次の組み込みのロールをサポート�
 
 Azure AD Connect では、2 つのレベルのアクセス管理をサポートします。
 
-- *** すべての service インスタンス ***: これは、ほとんどのユーザーの推奨パスであり、Azure AD Connect Health によって監視されているすべてのロールの種類間ですべてのサービス インスタンス (例: ad FS ファーム) へのアクセスを制御します。
+- ***すべてのサービス インスタンス***: これは、ほとんどのユーザーの推奨パスであり、Azure AD Connect Health によって監視されているすべてのロールの種類間ですべてのサービス インスタンス (例: ad FS ファーム) へのアクセスを制御します。
 
-- *** サービス インスタンス ***: 場合によっては、ロールの種類またはサービス インスタンスに基づいてアクセスを分離する必要があります。 この場合は、サービス インスタンス レベルでアクセスを管理できます。
+- ***サービス インスタンス***: 場合によっては、ロールの種類またはサービス インスタンスに基づいてアクセスを分離する必要があります。 この場合は、サービス インスタンス レベルでアクセスを管理できます。  
 
 アクセス許可は、エンド ユーザーがディレクトリ レベルまたはサービス インスタンス レベルのいずれかでアクセス権がある場合に与えられます。
 
 
 ### ユーザーまたはグループに Azure AD Connect Health へのアクセスを許可する方法
-
 #### 手順 1: 適切なアクセス スコープを選択する
-
 ユーザー アクセスを許可するように、 *すべてのサービス インスタンス* レベルの Azure AD Connect Health 内で、Azure AD Connect Health でメイン ブレードを開きます。<br>
 #### 手順 2: ユーザー/グループを追加し、ロールを割り当てる
-
 1. 構成セクションから「ユーザー」の部分をクリックします。<br>
 ![Azure AD Connect Health RBAC のメイン ブレード](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. [追加] を選択します。
 3. 「所有者」などの「役割」を選択します。<br>
-![Azure AD Connect Health RBAC のユーザーの追加](./media/active-directory-aadconnect-health/RBAC_add.png)
+![Azure AD Connect Health RBAC のユーザーの追加 ](./media/active-directory-aadconnect-health/RBAC_add.png)
 4. 対象となるユーザー/グループの名前または識別子を入力します。 1 つまたは複数のユーザー/グループを同時に選択できます。 "Select"をクリックします。
 ![Azure AD Connect Health RBAC のユーザーの選択](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. [Ok] を選択します。<br>
@@ -129,35 +121,28 @@ Azure AD Connect では、2 つのレベルのアクセス管理をサポート�
 
 これらの手順によって、一覧に表示されているユーザーとグループは、割り当てられたロールに従ってアクセスを許可されます。
 >[AZURE.NOTE]
-
 - 常にグローバル管理者であるすべての操作へのフル アクセスが、グローバル管理者アカウントは、上記のリストに表示されません。
 - Azure AD Connect Health では、「ユーザーの招待」機能はサポートされていません。
 
 #### 手順 3: ブレードの場所をユーザーまたはグループと共有する
-
 1. アクセス許可を割り当てた後、ユーザーがアクセスできる Azure AD Connect Health にアクセスして [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth)します。
 2. 1 回] ブレードで、ユーザーを固定できますブレードまたはダッシュ ボードにさまざまな部分「ダッシュ ボードには、暗証番号 (pin)」をクリックするだけで<br>
 ![Azure AD Connect Health RBAC のピン ブレード](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 
 
->[AZURE.NOTE] "閲覧者" ロールを割り当てられたユーザーは、Azure Marketplace から Azure AD Connect Health の拡張機能を取得する "作成" 操作を実行することはできません。 ただし、このユーザーは、上記のリンクに移動してブレードにアクセスできます。 引き続き使用するために、ブレードをダッシュボードにピン留めできます。
+>[AZURE.NOTE] 割り当てられた「リーダー」の役割を持つユーザーは Azure Marketplace から Azure AD Connect Health の拡張機能を取得する「作成」操作を実行できません。 ただし、このユーザーは、上記のリンクに移動してブレードにアクセスできます。 引き続き使用するために、ブレードをダッシュボードにピン留めできます。
 
 ### ユーザー/グループを削除する
-
 ユーザーまたはグループを右クリックし、[削除] を選択すると、Azure AD 接続正常性ロールベースのアクセス制御の部分に追加を削除することができます。<br>
 ![Azure AD Connect Health RBAC のユーザーの削除](./media/active-directory-aadconnect-health/RBAC_remove.png)
+
+[//]: # (End of RBAC section)
 
 ## 関連リンク
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [Azure AD 接続正常性エージェントのインストール](active-directory-aadconnect-health-agent-install.md)
-* [Azure AD Connect の使用正常性と AD FS](active-directory-aadconnect-health-adfs.md)
-* [同期のための Azure AD Connect Health の使用](active-directory-aadconnect-health-sync.md)
+* [Azure AD Connect Health エージェントのインストール](active-directory-aadconnect-health-agent-install.md)
+* [AD FS での Azure AD Connect Health の使用](active-directory-aadconnect-health-adfs.md)
+* [Azure AD Connect Health for Sync の使用](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health の FAQ](active-directory-aadconnect-health-faq.md)
-
-
-
-
-[//]: # "Start of RBAC section"
-[//]: # "End of RBAC section"
 

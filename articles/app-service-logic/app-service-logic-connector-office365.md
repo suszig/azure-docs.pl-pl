@@ -17,12 +17,10 @@
    ms.author="sameerch"/>
 
 
-
 # Office 365 コネクタの使用開始とロジック アプリへの追加
-
 Office 365 アカウントに接続して、電子メールの送受信、および予定表と連絡先の管理を実行できます。 電子メールの送受信や取得、予定表のイベントの作成や削除、連絡先の作成、更新、取得や削除など、さまざまなアクションを実行できます。
 
-ロジック アプリはさまざまなデータ ソースを基にトリガーでき、フローの一環としてデータの取得と処理のためのコネクタを提供します。 この Office 365 コネクタをビジネス ワークフローに追加し、ロジック アプリ内のそのワークフローの一部としてデータを処理できます。
+ロジック アプリはさまざまなデータ ソースを基にトリガーでき、フローの一環としてデータの取得と処理のためのコネクタを提供します。 この Office 365 コネクタをビジネス ワークフローに追加し、ロジック アプリ内のそのワークフローの一部としてデータを処理できます。 
 
 **基本的なアクション**
 
@@ -33,17 +31,15 @@ Office 365 アカウントに接続して、電子メールの送受信、およ
 - 連絡先の追加
 
 ## O365 コネクタの API アプリの作成
+コネクタは、ロジック アプリ内で作成することも、Azure Marketplace から直接作成することもできます。 Marketplace からコネクタを作成するには、次の操作を実行します。  
 
-コネクタは、ロジック アプリ内で作成することも、Azure Marketplace から直接作成することもできます。 Marketplace からコネクタを作成するには、次の操作を実行します。
-
-1. Azure のスタート画面で、**[Marketplace]** を選択します。
-2. "Office 365 コネクタ" を検索して選択し、**[作成]** を選択します。
+1. Azure のスタート画面では、次のように選択します。 **Marketplace**します。
+2. 「Office 365 コネクタ」を検索して選択し、選択 **作成**します。
 3.  リソース グループにホスティング プランの詳細を提供する API アプリの名前を選択して、Office 365 コネクタを構成します。  
 ![][21]
 
 
 ## ロジック アプリの作成
-
 ここでは、電子メールを受信したときに起動する簡単なロジック アプリを作成します (受信先は、sales@contoso.com などの営業用の問い合わせ電子メール ID とします)。 また、このロジック アプリでは、イベントの作成、差出人の詳細を含めた連絡先の追加、個人用アカウントへの電子メールの送信を行い、最後に、受信を確認したことを知らせる返信を送信します。
 
 1.  Azure ポータルにサインインして、[新規]、[Web + モバイル]、[ロジック アプリ] をクリックします。  
@@ -69,6 +65,7 @@ Office 365 アカウントに接続して、電子メールの送受信、およ
 ![][8]
 
 9.  "新しい電子メール" トリガーを選択すると、入力パラメーターが表示されます。
+
 
 10. トリガーの頻度を [分] を変更し、[✓] をクリックします。  
 ![][9]
@@ -97,6 +94,7 @@ Office 365 アカウントに接続して、電子メールの送受信、およ
 
 19. ギャラリーの [最近使用した項目] セクションから [Office 365 コネクタ] を選択すると、新しい "Office 365" アクションが追加されます。
 
+
 20. アクションと電子メールの送信の操作が表示されますの入力パラメーターの一覧から、電子メールの送信を選択します。  
 ![][19]
 
@@ -106,6 +104,7 @@ Office 365 アカウントに接続して、電子メールの送受信、およ
 
     ![][20]
 22. ギャラリーの [最近使用した項目] セクションから [Office 365 コネクタ] を選択すると、新しい "Office 365" アクションが追加されます。
+
 
 23. アクションと '返信先' の操作が表示されますの入力パラメーターの一覧からは、返信を選択します。  
 ![][16]
@@ -118,35 +117,34 @@ Office 365 アカウントに接続して、電子メールの送受信、およ
 26. トリガーを構成したアカウントに電子メールを送信すると、個人用のメール アカウントに電子メール、Office のメール アカウントに予定表のイベントおよび連絡先が表示されます。 また、営業の問い合わせに対してすぐに回答することを知らせる返信も受け取ります。
 
 ## コネクタでできること
+コネクタが作成されたため、ロジック アプリを使用してコネクタをビジネス ワークフローに追加できます。 参照してください [Logic Apps とは?](app-service-logic-what-are-logic-apps.md)します。
 
-コネクタが作成されたため、ロジック アプリを使用してコネクタをビジネス ワークフローに追加できます。 を参照してください [Logic Apps とは?](app-service-logic-what-are-logic-apps.md).
 > [AZURE.NOTE] Azure Logic Apps と Azure アカウントにサインアップする前に開始する場合に、 [ロジック アプリを実行してください](https://tryappservice.azure.com/?appservice=logic), 、App Service で有効期間の短いスターター ロジック アプリをすぐに作成する場所です。 このサービスの利用にあたり、クレジット カードは必要ありません。契約も必要ありません。
 
 表示、Swagger の REST API リファレンス [コネクタと API Apps のリファレンス](http://go.microsoft.com/fwlink/p/?LinkId=529766)します。
 
 パフォーマンス統計をレビューし、コネクタに対するセキュリティを制御することもできます。 参照してください [の管理し、監視、組み込みの API Apps とコネクタ](app-service-logic-monitor-your-connectors.md)します。
 
-
-
-[1]: ./media/app-service-logic-connector-office365/1_New_Logic_App.png 
-[2]: ./media/app-service-logic-connector-office365/2_Logic_App_Settings.png 
-[3]: ./media/app-service-logic-connector-office365/3_Logic_App_Editor.png 
-[4]: ./media/app-service-logic-connector-office365/4_Select_Office365_Gallery.png 
-[5]: ./media/app-service-logic-connector-office365/5_Office365_Authorize.png 
-[6]: ./media/app-service-logic-connector-office365/6_Office365_Login.png 
-[7]: ./media/app-service-logic-connector-office365/7_Office365_User_Consent.png 
-[8]: ./media/app-service-logic-connector-office365/8_Office365_Trigger.png 
-[9]: ./media/app-service-logic-connector-office365/9_Office365_Trigger_Settings.png 
-[10]: ./media/app-service-logic-connector-office365/10_Office365_Trigger_Configured.png 
-[11]: ./media/app-service-logic-connector-office365/11_Office365_Actions_List.png 
-[12]: ./media/app-service-logic-connector-office365/12_Office365_Create_Event_Inputs.png 
-[13]: ./media/app-service-logic-connector-office365/13_Office365_Add_Contact_Inputs.png 
-[14]: ./media/app-service-logic-connector-office365/14_Office365_Add_Contact_Email_FromTrigger.png 
-[15]: ./media/app-service-logic-connector-office365/15_Office365_Add_Contacts_Configured.png 
-[16]: ./media/app-service-logic-connector-office365/16_Office365_Reply_To_Inputs.png 
-[17]: ./media/app-service-logic-connector-office365/17_Office365_Reply_To_MessageId.png 
-[18]: ./media/app-service-logic-connector-office365/18_Office365_Reply_To_Configured.png 
-[19]: ./media/app-service-logic-connector-office365/19_Office365_Send_Inputs.png 
-[20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png 
-[21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png 
+<!--Image references-->
+[1]: ./media/app-service-logic-connector-office365/1_New_Logic_App.png
+[2]: ./media/app-service-logic-connector-office365/2_Logic_App_Settings.png
+[3]: ./media/app-service-logic-connector-office365/3_Logic_App_Editor.png
+[4]: ./media/app-service-logic-connector-office365/4_Select_Office365_Gallery.png
+[5]: ./media/app-service-logic-connector-office365/5_Office365_Authorize.png
+[6]: ./media/app-service-logic-connector-office365/6_Office365_Login.png
+[7]: ./media/app-service-logic-connector-office365/7_Office365_User_Consent.png
+[8]: ./media/app-service-logic-connector-office365/8_Office365_Trigger.png
+[9]: ./media/app-service-logic-connector-office365/9_Office365_Trigger_Settings.png
+[10]: ./media/app-service-logic-connector-office365/10_Office365_Trigger_Configured.png
+[11]: ./media/app-service-logic-connector-office365/11_Office365_Actions_List.png
+[12]: ./media/app-service-logic-connector-office365/12_Office365_Create_Event_Inputs.png
+[13]: ./media/app-service-logic-connector-office365/13_Office365_Add_Contact_Inputs.png
+[14]: ./media/app-service-logic-connector-office365/14_Office365_Add_Contact_Email_FromTrigger.png
+[15]: ./media/app-service-logic-connector-office365/15_Office365_Add_Contacts_Configured.png
+[16]: ./media/app-service-logic-connector-office365/16_Office365_Reply_To_Inputs.png
+[17]: ./media/app-service-logic-connector-office365/17_Office365_Reply_To_MessageId.png
+[18]: ./media/app-service-logic-connector-office365/18_Office365_Reply_To_Configured.png
+[19]: ./media/app-service-logic-connector-office365/19_Office365_Send_Inputs.png
+[20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
+[21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 

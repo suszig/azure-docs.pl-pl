@@ -1,6 +1,6 @@
 <properties
     pageTitle="Java での Service Bus キューの使用方法 | Microsoft Azure"
-    description="Azure での Service Bus キューの使用方法を学習します。コード サンプルは Java で記述されています。"
+    description="Azure での Service Bus キューの使用方法を学習します。 コード サンプルは Java で記述されています。"
     services="service-bus"
     documentationCenter="java"
     authors="sethmanheim"
@@ -16,25 +16,24 @@
     ms.date="10/07/2015"
     ms.author="sethm"/>
 
-
 # Service Bus キューの使用方法
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 この記事では、Service Bus キューの使用方法について説明します。 サンプルは
-使用して Java で記述され、 [Azure SDK for Java の][]します。 この
-紹介するシナリオ **キューの作成**, 、* * を送受信します。
-メッセージ**, 、および * * キューの削除**します。
+使用して Java で記述され、 [Azure SDK for Java][]します。 この
+紹介するシナリオ **キューの作成**, 、**を送受信します。
+メッセージ**, 、および **キューの削除**します。
 
 [AZURE.INCLUDE [service-bus-java-how-to-create-queue](../../includes/service-bus-java-how-to-create-queue.md)]
 
 ## Service Bus を使用するようにアプリケーションを構成する
 
-インストールされていることを確認、 [Azure SDK for Java の][] このサンプルをビルドする前にします。 Eclipse を使用している場合は、インストール、 [Azure Toolkit for Eclipse の][] 、Azure SDK for Java が含まれます。 これで **Microsoft Azure Libraries for Java** をプロジェクトに追加できます。
+インストールされていることを確認、 [Azure SDK for Java][] このサンプルをビルドする前にします。 Eclipse を使用している場合は、インストール、 [Azure Toolkit for Eclipse][] 、Azure SDK for Java が含まれます。 追加することができますし、 **Microsoft Azure Libraries for Java** をプロジェクトに。
 
 ![](media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
-次の追加 `インポート` ステートメントを Java ファイルの先頭にします。
+次の `import` ステートメントを Java ファイルの先頭に追加します。
 
 ```
 // Include the following imports to use Service Bus APIs
@@ -52,7 +51,7 @@ Service Bus キューの管理操作は、
 それを管理するアクセス許可を持つ SAS トークンと **ServiceBusContract** クラスは、
 Azure との唯一の通信ポイントです。
 
-**ServiceBusService** クラスを作成、列挙、メソッドを提供
+ **ServiceBusService** クラスを作成、列挙、メソッドを提供
 およびキューを削除します。 次の例に、どのように、 **ServiceBusService** オブジェクト
 "HowToSample"名前空間の名前が"TestQueue"キューの作成に使用できます。
 
@@ -63,7 +62,7 @@ Azure との唯一の通信ポイントです。
                     "SAS_key_value",
                     ".servicebus.windows.net"
                     );
-    
+
     ServiceBusContract service = ServiceBusService.create(config);
     QueueInfo queueInfo = new QueueInfo("TestQueue");
     try
@@ -109,8 +108,8 @@ Service Bus キューにメッセージを送信するアプリケーション�
         System.exit(-1);
     }
 
-メッセージには、送信、Service Bus から受信したキューのインスタンス、 [BrokeredMessage:operator[]][] クラスです。 [BrokeredMessage][] オブジェクトがある一連の標準的なプロパティ (よう [ラベル](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) と [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), 、ディクショナリ
-カスタム アプリケーション固有のプロパティおよび任意のアプリケーション データの本体を保持するために使用されます。 アプリケーションは、のコンス トラクターにシリアル化可能なオブジェクトを渡すことによって、メッセージの本文を設定することができます、 [BrokeredMessage][], 、オブジェクトをシリアル化する、適切なシリアライザーを使用しているとします。 または、**java.IO.InputStream** オブジェクトを提供することもできます。
+メッセージには、送信、Service Bus から受信したキューのインスタンス、 [BrokeredMessage][] クラスです。 [BrokeredMessage][] オブジェクトがある一連の標準的なプロパティ (よう [ラベル](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) と [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx))、ディクショナリ
+カスタム アプリケーション固有のプロパティおよび任意のアプリケーション データの本体を保持するために使用されます。 アプリケーションは、のコンス トラクターにシリアル化可能なオブジェクトを渡すことによって、メッセージの本文を設定することができます、 [BrokeredMessage][], 、オブジェクトをシリアル化する、適切なシリアライザーを使用しているとします。 または、提供、 **java。IO です。InputStream** オブジェクトです。
 
 以下の例では、前に示したコード スニペットで取得した
 `TestQueue` **MessageSender** 前のコード スニペットで取得しました。
@@ -150,7 +149,7 @@ Service Bus はマークするため、メッセージの読み取りとして
 アプリケーションが再起動して、メッセージの消費を開始するときに、
 クラッシュ前に読み取られていたメッセージは見落とされます。
 
-**PeekLock** モードでは、受信は、2 段階の操作になります
+ **PeekLock** モードでは、受信は、2 段階の操作になります
 メッセージが失われることが許容できないアプリケーションに対応することができます
 。 Service Bus が要求を受け取ると、次に読み取られるメッセージを検索して、
 他のコンシューマーが受信できないようロックしてから、
@@ -169,7 +168,7 @@ Service Bus はマークするため、メッセージの読み取りとして
     {
         ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
         opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
-    
+
         while(true)  {
              ReceiveQueueMessageResult resultQM =
                     service.receiveQueueMessage("TestQueue", opts);
@@ -246,14 +245,13 @@ Service Bus には、
 
 ## 次のステップ
 
-これをサービス バス キューの基本を学習できました。、を参照してください。 [キュー、トピック、およびサブスクリプションの []][] の詳細。
+これをサービス バス キューの基本を学習できました。、を参照してください。 [キュー、トピック、およびサブスクリプション][] の詳細。
 
 詳細については、次を参照してください。、 [Java デベロッパー センター](/develop/java/)します。
 
 
-
-[azure sdk for java]: http://azure.microsoft.com/develop/java/ 
-[azure toolkit for eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx 
-[queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md 
-[brokeredmessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx 
+  [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+  [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
+  [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
+  [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 

@@ -1,25 +1,20 @@
 #### 仮想デバイスを停止および開始するには
-
-仮想デバイスを停止するには、名前をクリックしてから **[シャットダウン]** をクリックします。 仮想デバイスのシャットダウン中、状態は **[停止中]** です。 仮想デバイスが停止した後、状態は **[停止]** になります。
+停止する仮想デバイスの名前をクリックし、クリックして **シャット ダウン**します。 仮想デバイスをシャット ダウン中の状態は **停止**します。 仮想デバイスを停止した後、状態は **Stopped**します。
 
 仮想デバイスを停止および開始するには、以下のコマンドレットを使用します。
 
-`Stop-azurevm-ServiceName"MyStorSimpleservice1"-"MyStorSimpleDevice"という名前を`
+`Stop-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
 
-`Start-azurevm-ServiceName"MyStorSimpleservice1"-"MyStorSimpleDevice"という名前を`
-
+`Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
+    
 #### 仮想デバイスを再起動するには
 
-実行中の仮想デバイスを再起動する場合は、名前をクリックしてから **[再起動]** をクリックします。 仮想デバイスの再起動中の状態は **[再開中]** になります。 仮想デバイスを使用する準備ができると、その状態は **[実行中]** になります。
+仮想デバイスで実行すると、それを再開する、その名前をクリックし、 **再起動**します。 仮想デバイスの再起動中の状態は **再開中**します。 使用するには、仮想デバイス、その状態は **を実行している**します。
 
 仮想デバイスを再起動するには、以下のコマンドレットを使用します。
 
-`Restart-azurevm-ServiceName"MyStorSimpleservice1"-"MyStorSimpleDevice"という名前を`
-
-
-
-
+`Restart-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
 
 

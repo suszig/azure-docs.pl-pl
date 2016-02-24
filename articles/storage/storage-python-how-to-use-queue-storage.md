@@ -16,34 +16,35 @@
     ms.date="12/11/2015" 
     ms.author="emgerner"/>
 
-
 # Python から Queue ストレージを使用する方法
 
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
 ## 概要
 
-このガイドでは、Azure Queue ストレージ サービスを使用して一般的なシナリオを実行する方法について説明します。 サンプルは Python で記述され使用する、 [Python Azure ストレージ パッケージ][]します。 紹介するシナリオ **挿入**, 、**ピーク**,、
-**を取得する**, 、および **を削除する** キュー メッセージだけでなく * * を作成し、
-* * キューを削除しています。 キューの詳細についてを参照してください、 [次のステップ][] セクションです。
+このガイドでは、Azure Queue ストレージ サービスを使用して一般的なシナリオを実行する方法について説明します。 サンプルは Python で記述され使用する、 [Python Azure Storage のパッケージ][]します。 紹介するシナリオ **挿入**, 、**ピーク**,、
+**取得する**, 、および **を削除する** キュー メッセージだけでなく **を作成し、
+キューの削除**します。 キューの詳細については、「[次のステップ][]」セクションを参照してください。
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-> [AZURE.NOTE] Python をインストールする必要がある場合、または [Python Azure パッケージの][], を参照してください、 [Python インストール ガイド](../python-how-to-install.md)します。
+
+> [AZURE.NOTE] Python をインストールする必要がある場合、または [Python Azure パッケージ][], を参照してください、 [Python インストール ガイド](../python-how-to-install.md)します。
 
 ## 方法: キューを作成する
 
-**QueueService** オブジェクトを使用して、キューを操作できます。 次のコードでは、**QueueService** オブジェクトを作成します。 プログラムを使用して Azure ストレージにアクセスするすべての Python ファイルの先頭付近に、次のコードを追加します。
+ **QueueService** オブジェクトを使用して、キューを操作できます。 次のコード作成、 **QueueService** オブジェクトです。 プログラムを使用して Azure Storage にアクセスするすべての Python ファイルの先頭付近に、次のコードを追加します。
 
     from azure.storage.queue import QueueService
 
-次のコードでは、ストレージ アカウント名とアカウント キーを使用して **QueueService** オブジェクトを作成します。 'myaccount' と 'mykey' の部分は、実際のアカウントとキーに置き換えてください。
+次のコード作成、 **QueueService** オブジェクトのストレージ アカウント名とアカウント キーを使用します。 'myaccount' と 'mykey' の部分は、実際のアカウントとキーに置き換えてください。
 
     queue_service = QueueService(account_name='myaccount', account_key='mykey')
-    
+
     queue_service.create_queue('taskqueue')
+
 
 ## 方法: メッセージをキューに挿入する
 
@@ -51,6 +52,7 @@
 新しいメッセージを作成し、キューに追加します。
 
     queue_service.put_message('taskqueue', 'Hello World')
+
 
 ## 方法: 次のメッセージをピークする
 
@@ -61,6 +63,7 @@
     messages = queue_service.peek_messages('taskqueue')
     for message in messages:
         print(message.message_text)
+
 
 ## 方法: 次のメッセージをデキューする
 
@@ -79,6 +82,7 @@
     for message in messages:
         print(message.message_text)
         queue_service.delete_message('taskqueue', message.message_id, message.pop_receipt)
+
 
 ## 方法: キューに配置されたメッセージの内容を変更する
 
@@ -129,12 +133,12 @@
 これで、キュー ストレージの基本を学習できました。さらに複雑なストレージ タスクを
 さらに複雑なストレージ タスクについて学習するには、次のリンク先を参照してください。
 
--   アクセス、 [Azure ストレージ チーム ブログ][]
+-   参照してください、 [Azure ストレージ チーム ブログ][]
 
 詳細については、「関連項目、 [Python デベロッパー センター](/develop/python/)します。
 
-
-[azure storage team blog]: http://blogs.msdn.com/b/windowsazurestorage/ 
-[python azure package]: https://pypi.python.org/pypi/azure 
-[python azure storage package]: https://pypi.python.org/pypi/azure-storage 
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Python Azure package]: https://pypi.python.org/pypi/azure
+[Python Azure Storage package]: https://pypi.python.org/pypi/azure-storage 
+ 
 

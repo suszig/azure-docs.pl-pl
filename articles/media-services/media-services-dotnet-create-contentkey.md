@@ -17,26 +17,25 @@
     ms.author="juliako"/>
 
 
-
-# .NET を使用したコンテンツ キーの作成
+#.NET を使用したコンテンツ キーの作成
 
 > [AZURE.SELECTOR]
-- [REST](media-services-rest-create-contentkey.md)
+- [REST ()](media-services-rest-create-contentkey.md)
 - [.NET](media-services-dotnet-create-contentkey.md)
 
+Media Services では、暗号化されたアセットを作成して送信できます。 A **ContentKey** にアクセスできるようにセキュリティで保護された、 **資産**秒です。 
 
-Media Services では、暗号化されたアセットを作成して送信できます。 **ContentKey** により、**アセット**に安全にアクセスすることができます。
-
-新しいアセットを作成する場合 (前に、 [ファイルをアップロード](media-services-dotnet-upload-files.md)), 、次の暗号化オプションを指定することができます: **StorageEncrypted**, 、**CommonEncryptionProtected**, 、または **EnvelopeEncryptionProtected**します。
+新しいアセットを作成する場合 (前に、 [ファイルをアップロード](media-services-dotnet-upload-files.md))、次の暗号化オプションを指定することができます: **StorageEncrypted**, 、**CommonEncryptionProtected**, 、または **EnvelopeEncryptionProtected**します。 
 
 クライアントにアセットを配信するとき [アセットが動的に暗号化するように構成](media-services-dotnet-configure-asset-delivery-policy.md) 際のいずれかで: **DynamicEnvelopeEncryption** または **DynamicCommonEncryption**します。
 
-暗号化されたアセットには、**ContentKey** を関連付ける必要があります。 この記事では、コンテンツ キーの作成方法について説明します。
->[AZURE.NOTE] Media Services .NET SDK を使用して新しい **StorageEncrypted** のアセットを作成する場合、**ContentKey** が自動的に作成され、アセットにリンクします。
+暗号化されたアセットを関連付ける必要がある **ContentKey**秒です。 この記事では、コンテンツ キーの作成方法について説明します。
 
-## ContentKeyType
+>[AZURE.NOTE] 新しいを作成するときに **StorageEncrypted** Media Services .NET SDK を使用してアセットを **ContentKey** が自動的に作成され、アセットにリンクします。
 
-コンテンツ キーの作成時には、タイプを設定する必要があります。 次のいずれかの値を選択します。
+##ContentKeyType
+
+コンテンツ キーの作成時には、タイプを設定する必要があります。 次のいずれかの値を選択します。 
 
     public enum ContentKeyType
     {
@@ -45,24 +44,24 @@ Media Services では、暗号化されたアセットを作成して送信で�
         /// </summary>
         /// <remarks>This is the default value.</remarks>
         CommonEncryption = 0,
-    
+
         /// <summary>
         /// Specifies a content key for storage encryption.
         /// </summary>
         StorageEncryption = 1,
-    
+
         /// <summary>
         /// Specifies a content key for configuration encryption.
         /// </summary>
         ConfigurationEncryption = 2,
-    
+
         /// <summary>
         /// Specifies a content key for Envelope encryption.  Only used internally.
         /// </summary>
         EnvelopeEncryption = 4
     }
 
-## <a id="envelope_contentkey"></a>エンベロープ タイプの ContentKey を作成します。
+##<a id="envelope_contentkey"></a>エンベロープ タイプの ContentKey の作成
 
 次のコード スニペットでは、エンベロープ暗号化タイプのコンテンツ キーを作成します。 その後、キーを指定されたアセットに関連付けます。
 
@@ -71,18 +70,18 @@ Media Services では、暗号化されたアセットを作成して送信で�
         // Create envelope encryption content key
         Guid keyId = Guid.NewGuid();
         byte[] contentKey = GetRandomBuffer(16);
-    
+
         IContentKey key = _context.ContentKeys.Create(
                                 keyId,
                                 contentKey,
                                 "ContentKey",
                                 ContentKeyType.EnvelopeEncryption);
-    
+
         asset.ContentKeys.Add(key);
-    
+
         return key;
     }
-    
+
     static private byte[] GetRandomBuffer(int size)
     {
         byte[] randomBytes = new byte[size];
@@ -90,7 +89,7 @@ Media Services では、暗号化されたアセットを作成して送信で�
         {
             rng.GetBytes(randomBytes);
         }
-    
+
         return randomBytes;
     }
 
@@ -98,7 +97,9 @@ Media Services では、暗号化されたアセットを作成して送信で�
 
     IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
 
-## <a id="common_contentkey"></a>共通タイプの ContentKey を作成します。
+
+
+##<a id="common_contentkey"></a>共通タイプの ContentKey の作成    
 
 次のコード スニペットでは、共通暗号化タイプのコンテンツ キーを作成します。 その後、キーを指定されたアセットに関連付けます。
 
@@ -107,45 +108,41 @@ Media Services では、暗号化されたアセットを作成して送信で�
         // Create common encryption content key
         Guid keyId = Guid.NewGuid();
         byte[] contentKey = GetRandomBuffer(16);
-    
+
         IContentKey key = _context.ContentKeys.Create(
                                 keyId,
                                 contentKey,
                                 "ContentKey",
                                 ContentKeyType.CommonEncryption);
-    
+
         // Associate the key with the asset.
         asset.ContentKeys.Add(key);
-    
+
         return key;
     }
-    
+
     static private byte[] GetRandomBuffer(int length)
     {
         var returnValue = new byte[length];
-    
+
         using (var rng =
             new System.Security.Cryptography.RNGCryptoServiceProvider())
         {
             rng.GetBytes(returnValue);
         }
-    
+
         return returnValue;
     }
-
 以下を呼び出します。
 
     IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
 
-## Media Services のラーニング パス
+
+##Media Services のラーニング パス
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## フィードバックの提供
+##フィードバックの提供
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
 

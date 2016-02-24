@@ -16,30 +16,27 @@
     ms.date="11/25/2015"
     ms.author="wesmc"/>
 
-
 # 登録管理
 
-## 概要
+##概要
 
-ここでは、プッシュ通知を受信するために通知ハブにデバイスを登録する方法について説明します。 また、登録の概要、デバイスを登録するための 2 つの主要パターン (デバイスから通知ハブに直接登録する方法と、アプリケーション バックエンド経由で登録する方法) についても説明します。
+ここでは、プッシュ通知を受信するために通知ハブにデバイスを登録する方法について説明します。 また、登録の概要、デバイスを登録するための 2 つの主要パターン (デバイスから通知ハブに直接登録する方法と、アプリケーション バックエンド経由で登録する方法) についても説明します。 
 
 
-## デバイス登録の概要
+##デバイス登録の概要
 
-Notification Hub にデバイスを登録するには、**登録**または**インストール**を使用します。
+使用して通知ハブにデバイスの登録を実行、 **登録** または **インストール**します。
 
 #### 登録
-
 登録は、通知ハブのサブエントリです。登録によって、デバイスのプラットフォーム通知サービス (PNS) ハンドルは、タグや、場合によってはテンプレートに関連付けられます。 PNS ハンドルは、ChannelURI、デバイス トークン、または GCM 登録 ID の場合があります。 タグは、通知を正しいデバイス ハンドル セットにルーティングするために使用されます。 詳細については、次を参照してください。 [ルーティングとタグ式](notification-hubs-routing-tag-expressions.md)します。 テンプレートは、登録ごとの変換を実装するために使用されます。 詳細については、次を参照してください。 [テンプレート](notification-hubs-templates.md)します。
 
 #### インストール
-
-インストールは、プッシュ関連の一連のプロパティを含む強化された登録です。 また、デバイス登録の最新の優れたアプローチです。
+インストールは、プッシュ関連の一連のプロパティを含む強化された登録です。 また、デバイス登録の最新の優れたアプローチです。 
 
 次に、インストールを使用する方法の主な利点について説明します。
 
 * インストールの作成または更新は、完全にべき等です。 そのため、重複した登録について心配することなく、再試行できます。
-* インストール モデルを使用すると、特定のデバイスを対象にした個別のプッシュを簡単に実行できるようになります。 システム タグ **"$InstallationId:[installationId]"** は、インストール ベースの登録ごとに自動的に追加されます。 そのため、コードを追加することなく、特定のデバイスを対象にしてこのタグに対する送信を呼び出すことができます。
+* インストール モデルを使用すると、特定のデバイスを対象にした個別のプッシュを簡単に実行できるようになります。 システム タグ **"$InstallationId: [installationId]"** 各インストール ベースの登録が自動的に追加します。 そのため、コードを追加することなく、特定のデバイスを対象にしてこのタグに対する送信を呼び出すことができます。
 * また、インストールを使用することで、部分的な登録の更新を実行できます。 インストールの部分的な更新して PATCH メソッドを使用して、要求された、 [JSON Patch 標準](https://tools.ietf.org/html/rfc6902)します。 これは登録時にタグを更新するときに特に便利です。 登録全体を取得し、前のタグすべてを再送信する必要はありません。
 
 インストール プログラムは現在でのみサポートされている、 [バックエンド操作の通知ハブ SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)します。 参照してください、 [インストール クラス](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation.aspx) の詳細。 バックエンドことがなくインストール ID を使用してクライアント デバイスから登録するには、使用する必要は [Notification Hubs REST API](https://msdn.microsoft.com/library/mt621153.aspx) この時点でします。
@@ -80,9 +77,11 @@ Notification Hub にデバイスを登録するには、**登録**または**イ
         }
     }
 
+ 
+
 登録、インストールと、それらに含まれる PNS ハンドルには有効期間があるので注意が必要です。 Notification Hub には、最大 90 日間の有効期間を設定できます。 この制限は、定期的に更新が必要であり、重要な情報の唯一の格納場所には適していないことを示します。 自動的に期限切れになるので、モバイル アプリケーションをアンインストールする場合のクリーンアップも簡単になります。
 
-登録とインストールには、各デバイス/チャネルの最新の PNS ハンドルを含める必要があります。 PNS ハンドルはデバイスのクライアント アプリでのみ取得できるので、クライアント アプリを使用してそのデバイスに直接登録する方法があります。 一方、タグに関連するセキュリティの考慮事項とビジネス ロジックによっては、アプリのバックエンドでデバイス登録を管理する作業が必要になる可能性があります。
+登録とインストールには、各デバイス/チャネルの最新の PNS ハンドルを含める必要があります。 PNS ハンドルはデバイスのクライアント アプリでのみ取得できるので、クライアント アプリを使用してそのデバイスに直接登録する方法があります。 一方、タグに関連するセキュリティの考慮事項とビジネス ロジックによっては、アプリのバックエンドでデバイス登録を管理する作業が必要になる可能性があります。 
 
 #### テンプレート
 
@@ -98,7 +97,7 @@ SecondaryTiles ディクショナリは、Windows ストア アプリで Seconda
 プライマリ タイルの ChannelUri と同様に、セカンダリ タイルの ChannelUris は常に変化する可能性があります。 通知ハブのインストールを最新の状態に保つには、デバイスがセカンダリ タイルの最新の ChannelUris を使用して更新する必要があります。
 
 
-## デバイスからの登録管理
+##デバイスからの登録管理
 
 クライアント アプリからデバイス登録を管理する場合、バックエンドは通知の送信のみを担当します。 クライアント アプリは、PNS ハンドルを最新の状態に保ち、タグを登録します。 このパターンについて次の図で説明します。
 
@@ -113,7 +112,7 @@ SecondaryTiles ディクショナリは、Windows ストア アプリで Seconda
 
 
 
-#### インストールを使用してデバイスから通知ハブに登録するコード例
+#### インストールを使用してデバイスから通知ハブに登録するコード例 
 
 この時点でのみでサポートを使用して、 [Notification Hubs REST API](https://msdn.microsoft.com/library/mt621153.aspx)します。
 
@@ -126,50 +125,50 @@ PATCH メソッドを使用して、使用することも、 [JSON Patch 標準]
         public string pushChannel { get; set; }
         public string[] tags { get; set; }
     }
-    
+
     private async Task<HttpStatusCode> CreateOrUpdateInstallationAsync(DeviceInstallation deviceInstallation,
          string hubName, string listenConnectionString)
     {
         if (deviceInstallation.installationId == null)
             return HttpStatusCode.BadRequest;
-    
+
         // Parse connection string (https://msdn.microsoft.com/library/azure/dn495627.aspx)
         ConnectionStringUtility connectionSaSUtil = new ConnectionStringUtility(listenConnectionString);
         string hubResource = "installations/" + deviceInstallation.installationId + "?";
         string apiVersion = "api-version=2015-04";
-    
+
         // Determine the targetUri that we will sign
         string uri = connectionSaSUtil.Endpoint + hubName + "/" + hubResource + apiVersion;
-    
+
         //=== Generate SaS Security Token for Authorization header ===
         // See, https://msdn.microsoft.com/library/azure/dn495627.aspx
         string SasToken = connectionSaSUtil.getSaSToken(uri, 60);
-    
+
         using (var httpClient = new HttpClient())
         {
             string json = JsonConvert.SerializeObject(deviceInstallation);
-    
+
             httpClient.DefaultRequestHeaders.Add("Authorization", SasToken);
-    
+
             var response = await httpClient.PutAsync(uri, new StringContent(json, System.Text.Encoding.UTF8, "application/json"));
             return response.StatusCode;
         }
     }
-    
+
     var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-    
+
     string installationId = null;
     var settings = ApplicationData.Current.LocalSettings.Values;
-    
+
     // If we have not stored a installation id in application data, create and store as application data.
     if (!settings.ContainsKey("__NHInstallationId"))
     {
         installationId = Guid.NewGuid().ToString();
         settings.Add("__NHInstallationId", installationId);
     }
-    
+
     installationId = (string)settings["__NHInstallationId"];
-    
+
     var deviceInstallation = new DeviceInstallation
     {
         installationId = installationId,
@@ -177,10 +176,10 @@ PATCH メソッドを使用して、使用することも、 [JSON Patch 標準]
         pushChannel = channel.Uri,
         //tags = tags.ToArray<string>()
     };
-    
+
     var statusCode = await CreateOrUpdateInstallationAsync(deviceInstallation, 
                         "<HUBNAME>", "<SHARED LISTEN CONNECTION STRING>");
-    
+
     if (statusCode != HttpStatusCode.Accepted)
     {
         var dialog = new MessageDialog(statusCode.ToString(), "Registration failed. Installation Id : " + installationId);
@@ -194,22 +193,25 @@ PATCH メソッドを使用して、使用することも、 [JSON Patch 標準]
         await dialog.ShowAsync();
     }
 
+   
+
 #### 登録を使用してデバイスから通知ハブに登録するコード例
+
 
 これらのメソッドで、呼び出すデバイスの登録を作成または更新します。 つまり、ハンドルまたはタグを更新するには、登録全体を上書きする必要があります。 登録は一時的なものなので、そのデバイスに必要な最新のタグを保存できる信頼性の高いストアを常に用意する必要があります。
 
 
     // Initialize the Notification Hub
     NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
-    
+
     // The Device id from the PNS
     var pushChannel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-    
+
     // If you are registering from the client itself, then store this registration id in device
     // storage. Then when the app starts, you can check if a registration id already exists or not before
     // creating.
     var settings = ApplicationData.Current.LocalSettings.Values;
-    
+
     // If we have not stored a registration id in application data, store in application data.
     if (!settings.ContainsKey("__NHRegistrationId"))
     {
@@ -227,18 +229,18 @@ PATCH メソッドを使用して、使用することも、 [JSON Patch 標準]
                 await hub.DeleteRegistrationAsync(registration);
             }
         }
-    
+
         newRegistrationId = await hub.CreateRegistrationIdAsync();
-    
+
         settings.Add("__NHRegistrationId", newRegistrationId);
     }
-    
+     
     string regId = (string)settings["__NHRegistrationId"];
-    
+
     RegistrationDescription registration = new WindowsRegistrationDescription(pushChannel.Uri);
     registration.RegistrationId = regId;
     registration.Tags = new HashSet<string>(YourTags);
-    
+
     try
     {
         await hub.CreateOrUpdateRegistrationAsync(registration);
@@ -248,6 +250,7 @@ PATCH メソッドを使用して、使用することも、 [JSON Patch 標準]
         // regId likely expired, delete from local storage and try again
         settings.Remove("__NHRegistrationId");
     }
+
 
 ## バックエンドからの登録管理
 
@@ -263,20 +266,20 @@ PATCH メソッドを使用して、使用することも、 [JSON Patch 標準]
 前述のように、クライアント デバイスは、PNS ハンドルと関連するインストール プロパティを取得し、バックエンドで、登録やタグの承認などを行うカスタム API を呼び出すことができます。バックエンドで利用できる、 [バックエンド操作の通知ハブ SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)します。
 
 PATCH メソッドを使用して、使用することも、 [JSON Patch 標準](https://tools.ietf.org/html/rfc6902) インストールを更新するためです。
-
+ 
 
     // Initialize the Notification Hub
     NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
-    
+
     // Custom API on the backend
     public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
     {
-    
+
         Installation installation = new Installation();
         installation.InstallationId = deviceUpdate.InstallationId;
         installation.PushChannel = deviceUpdate.Handle;
         installation.Tags = deviceUpdate.Tags;
-    
+
         switch (deviceUpdate.Platform)
         {
             case "mpns":
@@ -294,43 +297,41 @@ PATCH メソッドを使用して、使用することも、 [JSON Patch 標準]
             default:
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
         }
-    
-    
+
+
         // In the backend we can control if a user is allowed to add tags
         //installation.Tags = new List<string>(deviceUpdate.Tags);
         //installation.Tags.Add("username:" + username);
-    
+
         await hub.CreateOrUpdateInstallationAsync(installation);
-    
+
         return Request.CreateResponse(HttpStatusCode.OK);
     }
+
 
 #### 登録 ID を使用してデバイスから通知ハブに登録するコード例
 
 アプリ バックエンドから、登録に対して基本の CRUDS 操作を実行できます。 次に例を示します。
 
     var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
-    
+            
     // create a registration description object of the correct type, e.g.
     var reg = new WindowsRegistrationDescription(channelUri, tags);
-    
+
     // Create
     await hub.CreateRegistrationAsync(reg);
-    
+
     // Get by id
     var r = await hub.GetRegistrationAsync<RegistrationDescription>("id");
-    
+
     // update
     r.Tags.Add("myTag");
-    
+
     // update on hub
     await hub.UpdateRegistrationAsync(r);
-    
+
     // delete
     await hub.DeleteRegistrationAsync(r);
 
+
 バックエンドは、登録の更新が複数ある場合の並行処理に対応する必要があります。 Service Bus は、登録管理向けにオプティミスティック同時実行制御を提供しています。 HTTP レベルでは、この処理は登録管理操作に対して ETag を使用して実装されます。 この機能は、Microsoft SDK から透過的に使用されます。並行処理の理由で更新が拒否された場合は、例外がスローされます。 このような例外に対応し、必要に応じて更新を再試行する処理は、アプリ バックエンドの役割です。
-
-
-
-

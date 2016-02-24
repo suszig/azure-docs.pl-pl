@@ -16,8 +16,7 @@
     ms.date="11/30/2015"
     ms.author="krisragh"/>
 
-
-# iOS アプリの作成
+#iOS アプリの作成
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 &nbsp;  
@@ -25,13 +24,13 @@
 
 ## 概要
 
-このチュートリアルは、クラウド ベースのバックエンド サービスを使用する方法を示します ([Azure Mobile Apps](app-service-mobile-value-prop.md)) iOS モバイル アプリケーションにします。 新しいモバイル バックエンドが作成され、Azure でアプリケーション データを保存する簡単な _Todo list _ iOS アプリを使用します。
+このチュートリアルは、クラウド ベースのバックエンド サービスを使用する方法を示します ([Azure Mobile Apps](app-service-mobile-value-prop.md)) iOS モバイル アプリケーションにします。  新しいモバイル バックエンドが作成され、単純なを使用して _Todo リスト_ Azure にアプリケーション データを格納する iOS アプリケーション。
 
 ## 前提条件
 
 このチュートリアルを完了するには、以下が必要です。
 
-* [アクティブな Azure アカウント](http://azure.microsoft.com/pricing/free-trial/)
+*  [アクティブな Azure アカウント](http://azure.microsoft.com/pricing/free-trial/)
 
 * [Visual Studio Community 2013] で PC またはそれ以降
 
@@ -49,9 +48,9 @@
 
 ## サーバー プロジェクトのダウンロード
 
-1. PC で、[Azure ポータル] を参照してください。 **[すべて参照]**、**[Mobile Apps]** の順にクリックし、作成したモバイル アプリ バックエンドをクリックします。
+1. PC で、[Azure ポータル] を参照してください。 をクリックして **すべてを参照** > **Mobile Apps**, 、先ほど作成したモバイル アプリ バックエンドを順にクリックします。
 
-2. Mobile App ブレードで **[設定]** をクリックし、**[Mobile App]** の下で **[クイック スタート]**、**[iOS (Objective-C)]** の順にクリックします。 Swift を使用する場合は、**[クイック スタート]**、**[iOS (Swift)]** の順にクリックします。
+2. モバイル アプリ] ブレードで [ **設定**, 、し [ **モバイル アプリ**, をクリックして **クイック スタート** > **iOS (Objective C)**します。 Swift 場合は、クリックして **クイック スタート** > **iOS (Swift)** 代わりにします。
 
 ## サーバー プロジェクトの構成
 
@@ -63,11 +62,10 @@
 [AZURE.INCLUDE [app-service-mobile-ios-run-app](../../includes/app-service-mobile-ios-run-app.md)]
 
 
+<!-- Images. -->
 
-
-
-
-[azure portal]: https://portal.azure.com/ 
-[xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532 
-[visual studio community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203 
+<!-- URLs -->
+[Azure portal]: https://portal.azure.com/
+[Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 

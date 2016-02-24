@@ -16,7 +16,6 @@
    ms.date="10/28/2015"
    ms.author="nitinme"/>
 
-
 # Data Lake Store と他の Azure サービスを統合する
 
 Azure Data Lake Store を他の Azure サービスと連携させれば、さまざまなシナリオが可能になります。 次の記事では、Data Lake Store と統合できるサービスについてまとめてあります。
@@ -27,8 +26,8 @@ Azure Data Lake Store を他の Azure サービスと連携させれば、さま
 
 Data Lake Store で HDInsight クラスターにプロビジョニングする方法については、次を参照してください。
 
-* [Azure ポータルを使用してデータ湖ストアでの HDInsight クラスターをプロビジョニングします。](data-lake-store-hdinsight-hadoop-use-portal.md)
-* [Azure PowerShell を使用してデータ湖ストアでの HDInsight クラスターをプロビジョニングします。](data-lake-store-hdinsight-hadoop-use-powershell.md)
+* [Azure ポータルを使用して、Data Lake Store を使用する HDInsight クラスターをプロビジョニングする](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Azure PowerShell を使用して、Data Lake Store を使用する HDInsight クラスターをプロビジョニングする](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
 ## Azure Data Lake Analytics で Data Lake Store を使用する
@@ -47,11 +46,7 @@ Data Lake 分析を湖のデータ ストアを使用する方法については
 
 ## 関連項目
 
-- [Azure Data Lake ストアの概要](data-lake-store-overview.md)
-- [ポータルを使用してデータ湖ストアを使ってみる](data-lake-store-get-started-portal.md)
-- [PowerShell を使用してデータ湖ストアを使ってみる](data-lake-store-get-started-powershell.md)
-
-
-
-
+- [Azure Data Lake Store の概要](data-lake-store-overview.md)
+- [Azure プレビュー ポータルで Azure Data Lake Store の使用を開始する](data-lake-store-get-started-portal.md)
+- [Azure PowerShell で Azure Data Lake Store の使用を開始する](data-lake-store-get-started-powershell.md)  
 

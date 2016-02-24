@@ -20,7 +20,8 @@ Windows PowerShell Version 3.0 または 4.0 があることを確認します�
     PSCompatibleVersions           {1.0, 2.0, 3.0}
     PSRemotingProtocolVersion      2.2
 
-**PSVersion** の値が 3.0 または 4.0 であることを確認します。 ない場合を参照してください。 [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) または [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)します。
+
+いることを確認の値 **PSVersion** が 3.0 または 4.0。 ない場合を参照してください。 [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) または [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)します。
 
 ### Azure アカウントとサブスクリプションを設定する
 
@@ -47,14 +48,10 @@ Azure サブスクリプションが複数ある場合は、次のコマンド�
     CurrentStorageAccountName :
     TenantId                  : 32fa88b4-86f1-419f-93ab-2d7ce016dba7
 
-Azure PowerShell コマンド プロンプトで次のコマンドを実行して、現在の Azure サブスクリプションを設定します。置換を含む引用符内のすべての < と > 適切な名前の文字。
+Azure PowerShell コマンド プロンプトで次のコマンドを実行して、現在の Azure サブスクリプションを設定します。 置換を含む引用符内のすべての < と > 適切な名前の文字。
 
     $subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
     Select-AzureRmSubscription -SubscriptionName $subscr -Current
 
 Azure サブスクリプションとアカウントの詳細については、次を参照してください。 [方法: サブスクリプションへの接続](powershell-install-configure.md#Connect)します。
-
-
-
-
 

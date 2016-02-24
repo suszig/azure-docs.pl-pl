@@ -18,12 +18,12 @@
     ms.author="curtand"/>
 
 
-
 # Azure Active Directory グループによるリソースへのアクセス管理
 
 Azure Active Directory (Azure AD) は、包括的な ID およびアクセス管理ソリューションであり、信頼性の高い機能セットを備えています。この機能セットにより、Office 365 のような Microsoft オンライン サービスや Microsoft 以外の数多くの SaaS アプリケーションを含む、クラウドおよびオンプレミスのアプリケーションやリソースに対するアクセスが管理できます。
 
-> [AZURE.NOTE] Azure Active Directory を使用するには、Azure のアカウントが必要です。 アカウントを持っていない場合は、 [無料の Azure アカウントにサインアップ](http://azure.microsoft.com/pricing/free-trial/)します。
+
+> [AZURE.NOTE] Azure Active Directory を使用するには、Azure アカウントを作成する必要があります。 アカウントを持っていない場合は、 [無料の Azure アカウントにサインアップ](http://azure.microsoft.com/pricing/free-trial/)します。
 
 
 Azure Active Directory の主な機能の 1 つが、リソースへのアクセスを管理する機能です。 こういったリソースは、ディレクトリ内のロールによってオブジェクトを管理するアクセス許可のケースのように、ディレクトリに含まれる場合と、SaaS アプリケーション、Azure サービス、SharePoint サイト、オンプレミスのリソースなどのように、ディレクトリの外部のリソースという場合があります。 ユーザーにリソースへのアクセス権を割り当てる方法は 4 つあります。
@@ -55,7 +55,6 @@ Azure Active Directory の主な機能の 1 つが、リソースへのアクセ
 > [AZURE.VIDEO azure-ad--introduction-to-dynamic-memberships-for-groups]
 
 ## Azure Active Directory でのアクセス管理のしくみ
-
 Azure Active Directory のアクセス管理ソリューションの核となる機能は、セキュリティ グループです。 セキュリティ グループを使用してリソースへのアクセスを管理するというのはよく知られたパラダイムです。これにより、柔軟かつ理解しやすい方法で、対象となるユーザーのグループにリソースへのアクセス権を提供することが可能になります。 リソース所有者 (またはディレクトリの管理者) は、所有するリソースへの特定のアクセス権を提供するようにグループを割り当てることができます。 グループのメンバーにはアクセス権が提供され、リソースの所有者は、部門のマネージャーやヘルプ デスクの管理者などの他のユーザーに、グループのメンバー リストを管理する権限を委任することができます。
 
 ![Azure Active Directory アクセス管理図](./media/active-directory-access-management-groups/active-directory-access-management-works.png)
@@ -63,45 +62,38 @@ Azure Active Directory のアクセス管理ソリューションの核となる
 
 
 ## アクセス管理の開始
-
 使い始める準備はできていますか。 Azure AD グループを使用して実行できる基本的な作業を試してみる必要があります。 これらの機能を使用して、組織内のさまざまなユーザーのグループに、さまざまなリソースへの特別なアクセスを提供します。 最初の基本的な手順の一覧を以下に示します。
 
 
-* [グループの動的メンバーシップを構成する簡単なルールを作成します。](active-directory-accessmanagement-simplerulegroup.md)
+* [単純なルールを作成してグループの動的メンバーシップ管理を行う](active-directory-accessmanagement-simplerulegroup.md)
 
-* [グループを使用して SaaS アプリケーションへのアクセスを管理するには](active-directory-accessmanagement-group-saasapps.md)
+* [SaaS アプリケーションへのアクセスをグループで管理する](active-directory-accessmanagement-group-saasapps.md)
 
-* [グループ化すること、使用可能なエンドユーザーのセルフ サービス](active-directory-accessmanagement-self-service-group-management.md)
+* [エンド ユーザーのセルフ サービスによるグループ管理を有効にする](active-directory-accessmanagement-self-service-group-management.md)
 
 * [Azure AD Connect を使用して Azure へのオンプレミス グループの同期](active-directory-aadconnect.md)
 
-* [グループの所有者を管理します。](active-directory-accessmanagement-managing-group-owners.md)
+* [グループの所有者の管理](active-directory-accessmanagement-managing-group-owners.md)
 
 
 ## アクセス管理のための次の手順
-
 アクセス管理の基本については理解したので、ここでは Azure Active Directory でアプリケーションとリソースへのアクセス管理に使用できる、その他の高度な機能をいくつか紹介します。
 
-* [単純なルールを使用してグループを作成するには](active-directory-accessmanagement-simplerulegroup.md)
+* [単純なルールを使用してグループを作成する](active-directory-accessmanagement-simplerulegroup.md)
 
-* [属性を使用して、高度なルールを作成するには](active-directory-accessmanagement-groups-with-advanced-rules.md)
+* [属性を使用した高度なルールの作成](active-directory-accessmanagement-groups-with-advanced-rules.md)
 
-* [Azure Active Directory でセキュリティ グループを管理します。](active-directory-accessmanagement-manage-groups.md)
+* [Azure Active Directory のセキュリティ グループの管理](active-directory-accessmanagement-manage-groups.md)
 
-* [Azure Active Directory での専用グループを設定します。](active-directory-accessmanagement-dedicated-groups.md)
+* [Azure Active Directory の専用グループのセットアップ](active-directory-accessmanagement-dedicated-groups.md)
 
 
 ## 詳細情報
-
 次の記事は、Azure Active Directory に関する追加情報を示します。
 
-* [Azure Active Directory とは何ですか。](active-directory-whatis.md)
+* [Azure Active Directory とは](active-directory-whatis.md)
 
-* [内部設置型 id と Azure Active Directory の統合](active-directory-aadconnect.md)
+* [オンプレミス ID と Azure Active Directory の統合](active-directory-aadconnect.md)
 
-* [グループの graph API リファレンス](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
-
-
-
-
+* [グループ用の Graph API リファレンス](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 

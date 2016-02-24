@@ -16,7 +16,6 @@
    ms.date="09/21/2015"
    ms.author="inhenk"/>
 
-
 # Azure Privileged Identity Management の使用
 
 ## Privileged Identity Management 拡張機能の開始
@@ -25,19 +24,14 @@
 2.  Azure Active Directory にユーザーを追加します。
 3.  ディレクトリ内に数名のグローバル管理者を作成します。
 4.  ログイン <http://portal.azure.com> グローバル管理者アカウントを使用します。
-5.  ポータルの左上にある **[ユーザー名]** をクリックします。
-6.  先ほど作成した**ディレクトリ**を選択します。
-7.  左側のナビゲーションの **[新規]** アイコンをクリックします。
-8.  [作成] メニューから **[セキュリティ + ID]** 選択します。
-9.  **[セキュリティ + ID]** メニューから **[Azure AD Privileged Identity Management]** を選択します。
-10. **[スタート画面にピン留めする]** チェックボックスはオンのままで **[作成]** ボタンをクリックします。 Privileged Identity Management ダッシュボードが開きます。
+5.  をクリックして、 **username** ポータルの左上隅にあります。
+6.  選択、 **ディレクトリ** で作成しました。
+7.  クリックして、 **新規** 左側のナビゲーションでのアイコン。
+8.  選択 **セキュリティ + Id** 作成メニューからです。
+9.  選択 **Azure AD Privileged Identity Management** から、 **セキュリティ + Id** メニュー。
+10. ままに、 **スタート画面でチェック ボックスをオンにするには、暗証番号 (pin)** チェックし、 **作成** ] ボタンをクリックします。 Privileged Identity Management ダッシュボードが開きます。
 
-
-## 次のステップ
-
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+##次のステップ
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-
-
-
 

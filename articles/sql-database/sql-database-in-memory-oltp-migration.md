@@ -18,7 +18,6 @@
     ms.author="jodebrui"/>
 
 
-
 # インメモリ (プレビュー) を使用して SQL Database のアプリケーション パフォーマンスを向上させる
 
 既存のトランザクションのパフォーマンスを最適化するために次の手順に従って [Premium](sql-database-service-tiers.md) を使用して Azure SQL Database、 [インメモリ](sql-database-in-memory.md) 機能します。
@@ -32,7 +31,7 @@
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 ```
 
-*XTP* は、*Extreme Transaction Processing* (大量トランザクション処理) の略です。
+*XTP* 略 *極端なトランザクション処理*
 
 既存のデータベースを新しい V12 Premium データベースに移行する必要がある場合は、次の手順に従って、データをいったんエクスポートしてからインポートできます。
 
@@ -40,12 +39,12 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 
 次のいずれかを使用して、bacpac に実際の運用データベースをエクスポートします。
 
-- [エクスポート](sql-database-export.md) の機能、 [ポータル](https://portal.azure.com/)します。
+-  [エクスポート](sql-database-export.md) の機能、 [ポータル](https://portal.azure.com/)します。
 
-- **データ層アプリケーションのエクスポート** の機能、 [最新 SSMS.exe](http://msdn.microsoft.com/library/mt238290.aspx) (SQL Server Management Studio)。
- 1. **オブジェクト エクスプローラー**で、**[データベース]** ノードを展開します。
+-  **データ層アプリケーションのエクスポート** の機能、 [最新 SSMS.exe](http://msdn.microsoft.com/library/mt238290.aspx) (SQL Server Management Studio)。
+ 1.  **オブジェクト エクスプ ローラー**, 、展開、 **データベース** ノードです。
  2. 使用するデータベース ノードを右クリックします。
- 3. **[タスク]**、**[データ層アプリケーションのエクスポート]** の順にクリックします。
+ 3. クリックして **タスク** > **データ層アプリケーションのエクスポート**します。
  4. 表示されたウィザード ウィンドウの指示に従います。
 
 
@@ -55,21 +54,21 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 
 1. Azure の [ポータル](http://portal.azure.com/),、
  - サーバーに移動します。
- - 選択、 [インポート データベース](sql-database-import.md) オプション。
+ - 選択、 [データベースのインポート](sql-database-import.md) オプション。
  - Premium 価格レベルを選択します。
 
 2. SSMS を使用して、bacpac をインポートします。
- - **オブジェクト エクスプローラー**で、**[データベース]** ノードを右クリックします。
- - **[データ層アプリケーションのインポート]** をクリックします。
+ -  **オブジェクト エクスプ ローラー**, を右クリックし、 **データベース** ノードです。
+ - クリックして **データ層アプリケーションをインポート**します。
  - 表示されたウィザード ウィンドウの指示に従います。
 
 
 ## 手順 2. インメモリ OLTP に移行するオブジェクトを特定する
 
-SSMS には、アクティブなワークロードがあるデータベースに対して実行できる**トランザクション パフォーマンス分析の概要**レポートが用意されています。 このレポートを使用して、インメモリ OLTP への移行の候補となるテーブルとストアド プロシージャを特定できます。
+SSMS を含む、 **トランザクション パフォーマンス分析の概要** レポートをアクティブなワークロードを持つデータベースに対して実行することができます。 このレポートを使用して、インメモリ OLTP への移行の候補となるテーブルとストアド プロシージャを特定できます。
 
 SSMS では、レポートを生成します。
-- **オブジェクト エクスプ ローラー**, 、データベース ノードを右クリックします。
+-  **オブジェクト エクスプ ローラー**, 、データベース ノードを右クリックします。
 - クリックして **レポート** > **標準レポート** > **トランザクション パフォーマンス分析の概要**します。
 
 詳細については、次を参照してください。 [決定する場合は、テーブルまたはストアド プロシージャ必要があります移植して、インメモリ OLTP](http://msdn.microsoft.com/library/dn205133.aspx)します。
@@ -107,13 +106,13 @@ ALTER DATABASE CURRENT
 
 1. SSMS を使用して、テスト データベースに接続します。
 
-2. **オブジェクト エクスプローラー**で、テーブルを右クリックし、**メモリ最適化アドバイザー**をクリックします。
- - **テーブル メモリ オプティマイザー アドバイザー** ウィザードが表示されます。
+2.  **オブジェクト エクスプ ローラー**, 、テーブルを右クリックし、クリックして、 **メモリ最適化アドバイザー**します。
+ -  **テーブルのメモリ オプティマイザー アドバイザー** ウィザードが表示されます。
 
-3. ウィザードで、**[移行の検証]** (または **[次へ]** ボタン) をクリックし、メモリ最適化テーブルでサポートされていない機能がテーブルに含まれているかどうかを確認します。 詳細については、次を参照してください。
- - *メモリ最適化のチェックリスト* で [メモリ最適化アドバイザー](http://msdn.microsoft.com/library/dn284308.aspx)します。
- - [、インメモリ OLTP でサポートされていない transact SQL コンストラクト](http://msdn.microsoft.com/library/dn246937.aspx)します。
- - [、インメモリ OLTP に移行する](http://msdn.microsoft.com/library/dn247639.aspx)します。
+3. ウィザードで、次のようにクリックします。 **移行の検証** (または **次** ボタン) の表に、メモリ最適化テーブルでサポートされていない任意のサポートされていない機能が含まれている場合。 詳細については、次を参照してください。
+ -  *メモリ最適化のチェックリスト* で [メモリ最適化アドバイザー](http://msdn.microsoft.com/library/dn284308.aspx)します。
+ - [インメモリ OLTP でサポートされていない transact SQL コンストラクト](http://msdn.microsoft.com/library/dn246937.aspx)します。
+ - [インメモリ OLTP に移行する](http://msdn.microsoft.com/library/dn247639.aspx)です。
 
 4. サポートされていない機能がテーブルになければ、アドバイザーで実際のスキーマとデータの移行を実行できます。
 
@@ -126,7 +125,7 @@ ALTER DATABASE CURRENT
 
 2. 使用するテーブルとそのインデックスに対応した完全な T-SQL スクリプトを取得します。
  - SSMS で、テーブル ノードを右クリックします。
- - **[テーブルをスクリプト化]**、**[作成先]**、**[新しいクエリ ウィンドウ]** の順にクリックします。
+ - をクリックして **としてテーブルをスクリプト** > **作成** > **新しいクエリ ウィンドウ**です。
 
 3. スクリプト ウィンドウで、WITH (MEMORY_OPTIMIZED = ON) を CREATE TABLE ステートメントに追加します。
 
@@ -137,7 +136,7 @@ ALTER DATABASE CURRENT
 6. 編集した CREATE TABLE スクリプトを実行して、テーブルのメモリ最適化コピーを新規作成します。
 
 7. INSERT...SELECT * INTO を使用して、このメモリ最適化テーブルにデータをコピーします。
-
+    
 ```
 INSERT INTO <new_memory_optimized_table>
         SELECT * FROM <old_disk_based_table>;
@@ -182,6 +181,7 @@ CREATE PROCEDURE schemaname.procedurename
  - REPEATABLE READ
  - SERIALIZABLE
 
+
 - LANGUAGE の値は、sys.languages ビューに存在している必要があります。
 
 
@@ -223,7 +223,7 @@ CREATE PROCEDURE schemaname.procedurename
 
 運用環境でインメモリ機能の実装によるパフォーマンスへの影響を監視することを検討してください。
 
-- [インメモリ ストレージの監視](https://azure.microsoft.com/documentation/articles/sql-database-in-memory-oltp-monitoring/)します。
+- [メモリ内の記憶域の監視](https://azure.microsoft.com/documentation/articles/sql-database-in-memory-oltp-monitoring/)します。
 
 - [動的管理ビューを使用した Azure SQL Database の監視](sql-database-monitoring-with-dmvs.md)
 
@@ -235,9 +235,5 @@ CREATE PROCEDURE schemaname.procedurename
 - [ネイティブ コンパイル ストアド プロシージャの概要](http://msdn.microsoft.com/library/dn133184.aspx)
 
 - [メモリ最適化アドバイザー](http://msdn.microsoft.com/library/dn284308.aspx)
-
-
-
-
 
 

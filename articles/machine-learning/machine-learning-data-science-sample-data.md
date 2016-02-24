@@ -16,10 +16,9 @@
     ms.date="10/20/2015" 
     ms.author="fashah;garye;bradsev" /> 
 
+#<a name="heading"></a>Cortana Analytics Process のデータをサンプリングする
 
-# <a name="heading"></a>Cortana Analytics プロセスでサンプル データ
-
-この**メニュー**は、多様なストレージ環境のデータをサンプリングする方法を説明するトピックにリンクしています。 このタスクは、Cortana Analytics Process (CAP) の 1 ステップです。
+これは、 **メニュー** 記憶域のさまざまな環境からのデータをサンプリングする方法を説明するトピックへのリンク。 このタスクは、Cortana Analytics Process (CAP) の 1 ステップです。
 
 [AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
@@ -29,12 +28,8 @@
 
 このドキュメントでは、Cortana Analytics Process で一般的に使用されている 3 つの場所に格納されたデータをサンプリングする方法について説明します。
 
-- **データ**をサンプリングするには、プログラムでダウンロードし、サンプル Python コードを使用します。
-- **SQL Server データ**をサンプリングするには、SQL と Python プログラミング言語の両方を使用します。
-- **Hive テーブル データ**をサンプリングするには、Hive クエリを使用します。
-
-
-
-
+- **Azure blob コンテナーのデータ** をプログラムでダウンロードして、Python のサンプル コードでサンプリングしてサンプリングします。
+- **SQL Server データ** SQL と Python プログラミング言語の両方を使用してサンプリングされます。 
+- **テーブルのデータを hive** Hive クエリを使用してサンプリングされます。
 
 

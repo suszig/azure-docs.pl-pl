@@ -17,16 +17,16 @@
     ms.date="10/13/2015"
     ms.author="brohrer;garye" />
 
-
 # Microsoft Azure Machine Learning のアルゴリズムの選択方法
 
 「どのマシン学習アルゴリズムが使用する必要がありますか?」という質問に回答 "常に依存していることです" データのサイズ、品質、および性質によって異なります。 回答で何を行うかによって異なります。 アルゴリズムの数値演算が使用しているコンピューターの命令にどのように変換されるかによって異なります。 そして、どれだけ時間があるかによって異なります。 最も経験豊富なデータ科学者であっても、試してみる前にどのアルゴリズムが最適か判断することはできません。
 
 ## 機械学習アルゴリズム チート シート
 
-**Microsoft Azure Machine Learning のアルゴリズム チート シート**を使用すると、Microsoft Azure Machine Learning のアルゴリズム ライブラリから、予測分析ソリューションに適した機械学習アルゴリズムを選択できます。
+ **Microsoft Azure Machine Learning Algorithm Cheat Sheet** コンピューター、Microsoft Azure Machine Learning のアルゴリズム ライブラリから、予測分析ソリューションの学習アルゴリズムの右側の選択に役立ちます。
 この記事では、その使用方法について説明します。
-> [AZURE.NOTE] チート シートをダウンロードし、この記事も一緒にするには [機械学習アルゴリズム チート シートを Microsoft Azure Machine Learning Studio の](machine-learning-algorithm-cheat-sheet.md)します。
+
+> [AZURE.NOTE] チート シートをダウンロードし、この記事も一緒にするには [機械学習アルゴリズム チート シートを Microsoft Azure Machine Learning Studio の](machine-learning-algorithm-cheat-sheet.md)です。
 
 このチート シートは非常に特定のユーザーを対象にしていることに注意してください。Azure Machine Learning Studio でアルゴリズムを選択しようとしている機械学習について学部レベルの知識を持つデータ科学初心者です。 つまり、一部の一般化と過度の単純化を行いますが、安全な方向に案内します。 また、多くのアルゴリズムが一覧にないことも意味します。 Azure Machine Learning で使用可能な方法が増えたら、それらを追加します。
 
@@ -34,9 +34,9 @@
 
 ### チート シートの使用方法
 
-に応じて、グラフのパスとアルゴリズムの名前を判読"の * < パス
-ラベル > * を使用して *< アルゴリズム >*." たとえば、"の *速度* を使用して * 2
-クラス ロジスティック回帰 * です。" 場合によっては複数の分岐が適用されます。
+に応じて、グラフのパスとアルゴリズムの名前を判読"の *& lt; パス
+ラベル & gt;* 使用して *& lt; アルゴリズム & gt;*." たとえば、"の *速度* を使用して *2
+クラスのロジスティック回帰*." 場合によっては複数の分岐が適用されます。
 どれも完全に一致しない場合もあります。 することが目的です。
 一般の推奨事項、心配には正確であるためです。
 いくつかのデータ科学者が私の話し合いからそうはいっても、のみことを確認する方法
@@ -45,7 +45,8 @@
 次の例に示します、 [Cortana Analytics ギャラリー](http://gallery.azureml.net/) しようとした実験の
 データと比較して、結果は、同じに対して複数のアルゴリズム:
 [多クラス分類モデルの比較: 文字
-認識] (http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92)。
+認識](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92)します。
+
 >[AZURE.TIP] ダウンロードして、Machine Learning Studio の機能の概要を示すダイアグラムを印刷する、次を参照してください。 [Azure Machine Learning Studio の機能の概要図](machine-learning-studio-overview-diagram.md)します。
 
 ## 機械学習の種類
@@ -70,7 +71,7 @@ Azure Machine Learning のモジュールのすべての例外は教師あり学
 Azure Machine Learning 内で表されます分類、回帰、および異常。
 検出します。
 
-* **分類** データを予測に使用されている場合、
+* **分類**します。 データを予測に使用されている場合、
 カテゴリで、教師あり学習でが分類は呼び出されます。 そのため、
 '猫' のいずれかの画像として画像を割り当てている場合、または
 '犬' です。 これと呼ばれるだけ 2 つの選択肢が存在する場合、 **2 クラス**
@@ -78,10 +79,10 @@ Azure Machine Learning 内で表されます分類、回帰、および異常。
 年 3 月レースへの次の NCAA トーナメントの勝者を予想する際にこの
 問題と呼ばれる **多クラス分類**します。
 
-* **回帰** ときに、値が、予測する、株価と同様
+* **回帰**します。 ときに、値が、予測する、株価と同様
 教師あり学習は、回帰と呼ばれます。
 
-* **異常検出** 目標は、データ ポイントを特定することがあります。
+* **異常検出**します。 目標は、データ ポイントを特定することがあります。
 単に通常はないです。 たとえば、不正行為の検出で高
 異常なクレジット_カード支出パターンは、問題があるとです。 可能性のあります。
 バリエーションがさまざまなので、かなり少ないので、あるトレーニング例
@@ -142,13 +143,13 @@ Azure Machine Learning でアルゴリズム モジュールです。 強化学�
 
 ![非線形クラスの境界][1]
 
-*** 非線形クラス境界 *** * - 線形分類で証明書利用者
-アルゴリズムは低い精度 * ことになります
+***非線形クラス境界*** *- 線形分類で証明書利用者
+アルゴリズムが正確性の低いことになります*
 
 ![非線形傾向のデータ][2]
 
-*** と非線形の傾向 * データ** *-線形回帰メソッドを使用して、
-必要に応じて * よりも大きい程度エラーが発生します。
+***非線形傾向データ*** *の線形回帰メソッドを使用して、
+必要以上の大規模な程度エラーが発生します。*
 
 危険性に関係なく線形のアルゴリズムは、1 つ目として非常に普及
 攻撃の行。 多くの場合、アルゴリズムに簡単かつ迅速に
@@ -164,8 +165,8 @@ Azure Machine Learning でアルゴリズム モジュールです。 強化学�
 削除する必要があります。 通常、多数のパラメーターを持つアルゴリズムが必要
 最も試行錯誤を適切な組み合わせを検索します。
 
-または、[パラメーターがあります。
-sweeping](machine-learning-algorithm-parameters-optimize.md)
+または、 [パラメーター
+メーターをスイープ](machine-learning-algorithm-parameters-optimize.md)
 すべてのパラメーターを自動的に試行する Azure Machine Learning でモジュールのブロック
 選択したどのような粒度の組み合わせ。 この機能は優れた
 必要な時間をパラメーター領域にまたがるしたかどうかを確認する方法
@@ -191,58 +192,58 @@ sweeping](machine-learning-algorithm-parameters-optimize.md)
 必要なを提示しより優れた結果をより正確な予測
 または、トレーニング倍高速化します。
 
-| **アルゴリズム**| **精度**| **トレーニング時間**| **線形性**| **パラメーター**| **メモ**|
+|**アルゴリズム**|**精度**|**トレーニング時間**|**線形性**|**パラメーター**|**メモ**|
 |---|:---:|:---:|:---:|:---:|---|
-| **2 クラス分類**| | | | | |
-| [ロジスティック回帰](https://msdn.microsoft.com/library/azure/dn905994.aspx)| | ●| ●| 5| |
-| [デシジョン フォレスト](https://msdn.microsoft.com/library/azure/dn906008.aspx)| ●| ○| | 6| |
-| [デシジョン ジャングル](https://msdn.microsoft.com/library/azure/dn905976.aspx)| ●| ○| | 6| 低メモリ フットプリント|
-| [ブースト デシジョン ツリー](https://msdn.microsoft.com/library/azure/dn906025.aspx)| ●| ○| | 6| 大メモリ フットプリント|
-| [ニューラル ネットワーク](https://msdn.microsoft.com/library/azure/dn905947.aspx)| ●| | | 9| [その他のカスタマイズも可能です。](http://go.microsoft.com/fwlink/?LinkId=402867)|
-| [平均化パーセプトロン](https://msdn.microsoft.com/library/azure/dn906036.aspx)| ○| ○| ●| 4| |
-| [サポート ベクター マシン](https://msdn.microsoft.com/library/azure/dn905835.aspx)| | ○| ●| 5| 大きい特徴セットに好適|
-| [ローカル詳細サポート ベクター マシン](https://msdn.microsoft.com/library/azure/dn913070.aspx)| ○| | | 8| 大きい特徴セットに好適|
-| [ベイズ ポイント マシン](https://msdn.microsoft.com/library/azure/dn905930.aspx)| | ○| ●| 3| |
-| **多クラス分類**| | | | | |
-| [ロジスティック回帰](https://msdn.microsoft.com/library/azure/dn905853.aspx)| | ●| ●| 5| |
-| [デシジョン フォレスト](https://msdn.microsoft.com/library/azure/dn906015.aspx)| ●| ○| | 6| |
-| [デシジョン ジャングル ](https://msdn.microsoft.com/library/azure/dn905963.aspx)| ●| ○| | 6| 低メモリ フットプリント|
-| [ニューラル ネットワーク](https://msdn.microsoft.com/library/azure/dn906030.aspx)| ●| | | 9| [その他のカスタマイズも可能です。](http://go.microsoft.com/fwlink/?LinkId=402867)|
-| [1 つオール v](https://msdn.microsoft.com/library/azure/dn905887.aspx)| -| -| -| -| 選択した 2 つのクラス メソッドのプロパティを参照してください。|
-| **回帰**| | | | | |
-| [線形 ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| | ●| ●| 4| |
-| [ベイジアン線形](https://msdn.microsoft.com/library/azure/dn906022.aspx)| | ○| ●| 2| |
-| [デシジョン フォレスト](https://msdn.microsoft.com/library/azure/dn905862.aspx)| ●| ○| | 6| |
-| [ブースト デシジョン ツリー](https://msdn.microsoft.com/library/azure/dn905801.aspx)| ●| ○| | 5| 大メモリ フットプリント|
-| [高速フォレスト分位点](https://msdn.microsoft.com/library/azure/dn913093.aspx)| ●| ○| | 9| ポイントの予測ではなくディストリビューション|
-| [ニューラル ネットワーク](https://msdn.microsoft.com/library/azure/dn905924.aspx)| ●| | | 9| [その他のカスタマイズも可能です。](http://go.microsoft.com/fwlink/?LinkId=402867)|
-| [ポワソン ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | | ●| 5| 技術的に対数線形です。カウントを予測します。|
-| [序数に基づく](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | | 0| ランクの順序を予測するため|
-| **異常検出**| | | | | |
-| [サポート ベクター マシン](https://msdn.microsoft.com/library/azure/dn913103.aspx)| ○| ○| | 2| 大規模な機能セットに特に適した|
-| [PCA ベースの異常検出 ](https://msdn.microsoft.com/library/azure/dn913102.aspx)| | ○| ●| 3| |
-| [K-MEANS は](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| | ○| ●| 4| クラスタ リング アルゴリズム|
+|**2 クラス分類**| | | | | |
+|[ロジスティック回帰](https://msdn.microsoft.com/library/azure/dn905994.aspx)                    | |●|●|5| |
+|[デシジョン フォレスト](https://msdn.microsoft.com/library/azure/dn906008.aspx)|●|○| |6| |
+|[デシジョン ジャングル](https://msdn.microsoft.com/library/azure/dn905976.aspx)|●|○| |6|低メモリ フットプリント|
+|[ブースト デシジョン ツリー](https://msdn.microsoft.com/library/azure/dn906025.aspx)|●|○| |6|大メモリ フットプリント|
+|[ニューラル ネットワーク](https://msdn.microsoft.com/library/azure/dn905947.aspx)|●| | |9|[追加カスタマイズ可能](http://go.microsoft.com/fwlink/?LinkId=402867)|
+|[平均化パーセプトロン](https://msdn.microsoft.com/library/azure/dn906036.aspx)|○|○|●|4| |
+|[サポート ベクター マシン](https://msdn.microsoft.com/library/azure/dn905835.aspx)| |○|●|5|大きい特徴セットに好適|
+|[ローカル詳細サポート ベクター マシン](https://msdn.microsoft.com/library/azure/dn913070.aspx)|○| | |8|大きい特徴セットに好適|
+|[ベイズ ポイント マシン](https://msdn.microsoft.com/library/azure/dn905930.aspx)| |○|●|3| |
+|**多クラス分類**| | | | | |
+|[ロジスティック回帰](https://msdn.microsoft.com/library/azure/dn905853.aspx)| |●|●|5| |
+|[デシジョン フォレスト](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
+|[デシジョン ジャングル ](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|低メモリ フットプリント|
+|[ニューラル ネットワーク](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[追加カスタマイズ可能](http://go.microsoft.com/fwlink/?LinkId=402867)|
+|[1 つオール v](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|選択した 2 つのクラス メソッドのプロパティを参照してください。|
+|**回帰**| | | | | |
+|[linear ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| |
+|[ベイジアン線形](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| |
+|[デシジョン フォレスト](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| |
+|[ブースト デシジョン ツリー](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|大メモリ フットプリント|
+|[高速フォレスト分位点](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|ポイントの予測ではなくディストリビューション|
+|[ニューラル ネットワーク](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[追加カスタマイズ可能](http://go.microsoft.com/fwlink/?LinkId=402867)|
+|[ポワソン ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|技術的に対数線形です。 カウントを予測します。|
+|[序数に基づく](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|ランクの順序を予測するため|
+|**異常検出**| | | | | |
+|[サポート ベクター マシン](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|大規模な機能セットに特に適した|
+|[PCA ベースの異常検出 ](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| |
+|[K-MEANS は](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|クラスタ リング アルゴリズム|
 
 
 **アルゴリズムのプロパティ:**
 
-**●** - 極めて高い精度、高速のトレーニング時間、線形性の使用。
+**●** の優れた精度、高速なトレーニング時間が、および直線性の使用を示しています。
 
-**○** - 高い精度と中程度のトレーニング時間。
+**○** の優れた精度と中程度のトレーニング時間を示しています
 
 ## アルゴリズムの注意事項
 
 ### 線形回帰
 
-既に説明したよう、 [線形回帰](https://msdn.microsoft.com/library/azure/dn905978.aspx)
+前述の [線形回帰](https://msdn.microsoft.com/library/azure/dn905978.aspx)
 データ セットに、行 (または、平面または超平面) に対応します。 耐久性の高い
 シンプルで高速でもそれが問題の種類によって過度に単純な可能性があります。
-[線形回帰の場合は、ここにチェック
-tutorial](machine-learning-linear-regression-in-azure.md) します。
+ここをクリックして、 [線形回帰
+チュートリアル](machine-learning-linear-regression-in-azure.md)します。
 
 ![線形傾向のデータ][3]
 
-*** 線形の傾向 * とデータ**
+***undefined***
 
 ### ロジスティック回帰
 
@@ -259,24 +260,24 @@ tutorial](machine-learning-linear-regression-in-azure.md) します。
 
 ![特徴が 1 つだけの 2 クラス データに対するロジスティック回帰][4]
 
-*** 2 クラスのデータに 1 つだけ機能 * のロジスティック回帰** * -
-クラス境界があるロジスティック曲線は単に近い両方クラス * ポイントです。
+***1 つの機能を持つ 2 つのクラスのデータにロジスティック回帰*** *-
+クラス境界があるロジスティック曲線は単に近いクラスは両方ともポイントです。*
 
 ### ツリー、フォレスト、ジャングル
 
 デシジョン フォレスト
-([regression](https://msdn.microsoft.com/library/azure/dn905862.aspx),
-[two-class](https://msdn.microsoft.com/library/azure/dn906008.aspx),
+([回帰](https://msdn.microsoft.com/library/azure/dn905862.aspx),、
+[2 クラス](https://msdn.microsoft.com/library/azure/dn906008.aspx),、
 と
-[multiclass](https://msdn.microsoft.com/library/azure/dn906015.aspx)),
+[多クラス](https://msdn.microsoft.com/library/azure/dn906015.aspx))、
 デシジョン ジャングル
 ([2 クラス](https://msdn.microsoft.com/library/azure/dn905976.aspx)
 と
-[multiclass](https://msdn.microsoft.com/library/azure/dn905963.aspx)),
+[多クラス](https://msdn.microsoft.com/library/azure/dn905963.aspx))、
 ブースト デシジョン ツリー
 ([回帰](https://msdn.microsoft.com/library/azure/dn905801.aspx)
 と
-[2 つのクラス](https://msdn.microsoft.com/library/azure/dn906025.aspx))
+[2 クラス](https://msdn.microsoft.com/library/azure/dn906025.aspx))
 デシジョン ツリーに基づくはすべて、基本的な機械学習
 概念です。 デシジョン ツリーの多くのバリエーションがありますが、機能は、
 同じ: 領域では、ほとんど同じ機能領域に分割
@@ -285,8 +286,9 @@ tutorial](machine-learning-linear-regression-in-azure.md) します。
 
 ![デシジョン ツリーで特徴空間を細分化する][5]
 
-***デシジョン ツリーに細分化特徴空間の領域にほぼ
-値の統一された***
+***undefined
+は
+val、統一されました。***
 
 機能領域に分割できますので小さい
 領域を簡単に 1 つのデータを十分に細かく分割することを想像してください。
@@ -302,11 +304,11 @@ tutorial](machine-learning-linear-regression-in-azure.md) します。
 アルゴリズムには、それぞれにあることを知りますツリーのシーケンスが作成されます。
 エラーのままにする前にツリーが補正されます。 結果は、非常に
 多くのメモリを使用する傾向がある正確な学習器です。 完全に
-チェック アウト [Friedman のオリジナルの技術的な説明
-用紙] (http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf)。
+技術的な説明、チェック アウト [Friedman の元
+ホワイト ペーパー](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf)します。
 
 [高速フォレスト分位点
-回帰] (https://msdn.microsoft.com/library/azure/dn913093.aspx)
+回帰](https://msdn.microsoft.com/library/azure/dn913093.aspx)
 特殊なケースのデシジョン ツリーのバリエーションの 1 つは、します。
 地域内のデータの通常の (中間) 値だけでなくを知る
 分位点の形式で配布もします。
@@ -314,8 +316,8 @@ tutorial](machine-learning-linear-regression-in-azure.md) します。
 ### ニューラル ネットワークとパーセプトロン
 
 ニューラル ネットワークは脳性に優れた学習アルゴリズムをカバーします。
-[multiclass](https://msdn.microsoft.com/library/azure/dn906030.aspx),
-[two-class](https://msdn.microsoft.com/library/azure/dn905947.aspx),
+[多クラス](https://msdn.microsoft.com/library/azure/dn906030.aspx),、
+[2 クラス](https://msdn.microsoft.com/library/azure/dn905947.aspx),、
 と
 [回帰](https://msdn.microsoft.com/library/azure/dn905924.aspx)
 問題があります。 無限の種類が、ニューラル ネットワークでやり取りされる
@@ -332,18 +334,19 @@ learning"ほど技術報告を促進するかをサイエンス フィクショ�
 特に大規模なデータ セットで、たくさんのトレーニングに時間がかかる
 機能します。 ほとんどのアルゴリズムよりも多くのパラメーターもあるします。
 展開のトレーニング時間を考えると十分なパラメーターのスイープを意味します。
-あり、これら overachievers のユーザーを [独自のネットワークを指定します。
-構造体] (http://go.microsoft.com/fwlink/?LinkId=402867)、
+たい場合でも、overachievers [が独自のネットワークを指定します。
+構造体](http://go.microsoft.com/fwlink/?LinkId=402867), 、
 可能性は exhaustible です。
 
 ![ニューラル ネットワークによって学習された境界][6]
------------------------------
+---------------------------
 
-***ニューラル ネットワークで学習する境界を複雑になることができ、
-不規則な***
+***undefined
+nd
+irregu***
 
-[2 クラスの平均
-パーセプトロン] (https://msdn.microsoft.com/library/azure/dn906036.aspx)
+ [2 クラスの平均
+パーセプトロン](https://msdn.microsoft.com/library/azure/dn906036.aspx)
 トレーニング時間が急激に増加するニューラル ネットワークの答えです。 使用して、
 線形クラス境界は、ネットワーク構造体。 ほぼ
 現在の標準でプリミティブ作業の長い歴史があります。
@@ -354,8 +357,8 @@ learning"ほど技術報告を促進するかをサイエンス フィクショ�
 サポート ベクター マシン (Svm) は、クラスを分離する境界を検索します。
 できるだけ全体の余白とします。 2 つのクラスが明確にすることはできません。
 区切られた、アルゴリズムは、最適な境界を検索します。 書き込まれる
-Azure Machine Learning で、[2 クラス
-SVM] (https://msdn.microsoft.com/library/azure/dn905835.aspx) は
+Azure Machine Learning、 [2 クラス
+SVM](https://msdn.microsoft.com/library/azure/dn905835.aspx) は
 この直線だけでできます。 (SVM-speak では、線形カーネルを使用します。)
 この線形近似をにより、そのため、かなりを実行することが
 簡単にします。 テキストと同様に、機能が強化されたデータは、問題、します。
@@ -365,21 +368,22 @@ SVM] (https://msdn.microsoft.com/library/azure/dn905835.aspx) は
 
 ![サポート ベクター マシンのクラス境界][7]
 
-***通常のサポート ベクター マシン クラスの境界は、余白を最大化
-2 つのクラスを分離する***
+***undefined
+という名前で、
+2 つの付記を分離します。***
 
-Microsoft Research の別の製品、[クラスの 2 つのローカル詳細
-SVM] (https://msdn.microsoft.com/library/azure/dn913070.aspx) は、
+Microsoft Research の別の製品、 [2 クラスのローカル詳細
+SVM](https://msdn.microsoft.com/library/azure/dn913070.aspx) は、
 速度とメモリのほとんどを保持 SVM の非線形のバリアント
 線形のバージョンの効率。 場合に適している、線形
 十分な正確な応答アプローチすることはできません。 開発者が保持されます。
 一連の小さな直線 SVM に問題に分解して高速
-問題があります。 [すべてを読み取り
-説明] (http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf)
+問題があります。 読み取り、 [完全
+説明](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf)
 方法の詳細については、この裏技を実現します。
 
-[1 つのクラスの非線形 svm によるの巧妙な拡張機能の使用
-SVM] (https://msdn.microsoft.com/library/azure/dn913103.aspx) の描画します。
+非線形 Svm の巧妙な拡張機能を使用して、 [1 クラス
+SVM](https://msdn.microsoft.com/library/azure/dn913103.aspx) 描画
 データ セット全体を緊密に概説する境界。 適しています。
 異常検出します。 外側になるまでを任意の新しいデータ ポイント
 境界は注目に値するするほど、通常ではありません。
@@ -390,59 +394,60 @@ SVM] (https://msdn.microsoft.com/library/azure/dn913103.aspx) の描画します
 オーバー フィットします。 クライアントではいくつかの前提条件を事前作成を行います
 回答の可能性が高い配布します。 この別の副産物
 方法は、非常にいくつかのパラメーターがあることです。 Azure Machine Learning が両方
-両方の分類 ([2 クラスのベイズのポイントのベイジアン アルゴリズム
-machine] (https://msdn.microsoft.com/library/azure/dn905930.aspx))
-([ベイジアン線形回帰
-回帰] (https://msdn.microsoft.com/library/azure/dn906022.aspx))。
+両方の分類のためのベイジアン アルゴリズム ([2 クラスのベイズ ポイント
+マシン](https://msdn.microsoft.com/library/azure/dn905930.aspx))
+回帰 ([ベイジアン線形
+回帰](https://msdn.microsoft.com/library/azure/dn906022.aspx))。
 データの分割または直線を合わせることを前提としてこれらに注意してください。
 行の上に追加します。
 
 Microsoft で開発されたもののベイズ ポイント マシンの履歴に注意してください。
 調査します。 背後にあるいくつか非常に美しい理論的な作業があります。
-します。 目的の学生は [元のアーティクルに送られます
-JMLR] (http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) および
-[洞察力に富んだによるブログ Chris
-Bishop] (http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx)。
+します。 目的の学生が宛て、 [で元の記事
+JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) および
+[Chris による洞察力に富んだのブログ
+Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx)します。
 
 ### 特殊なアルゴリズム
 
 非常に特定の目標がある場合でも大丈夫です。 Azure Machine Learning 内で
 コレクションがありますが順位付けの予測に特化したアルゴリズム
 ([序数
-回帰] (https://msdn.microsoft.com/library/azure/dn906029.aspx))
-数の予測 ([ポワソン
-回帰] (https://msdn.microsoft.com/library/azure/dn905988.aspx))
-異常検出 (に基づいて 1 つずつ [プリンシパル コンポーネント
-analysis] (https://msdn.microsoft.com/library/azure/dn913102.aspx)
-[サポート ベクトルに基づく 1 つ
-machine] (https://msdn.microsoft.com/library/azure/dn913103.aspx) 秒)。
+回帰](https://msdn.microsoft.com/library/azure/dn906029.aspx))、
+予測のカウント ([ポワソン
+回帰](https://msdn.microsoft.com/library/azure/dn905988.aspx))、
+異常検出 (に基づいて 1 つの [の主要コンポーネント
+分析](https://msdn.microsoft.com/library/azure/dn913102.aspx)
+もう 1 つに基づく [サポート ベクトル
+マシン](https://msdn.microsoft.com/library/azure/dn913103.aspx)秒)。
 唯一のクラスタ リング アルゴリズムも、
-([K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)).
+([K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/))。
 
 ![PCA ベースの異常検出][8]
 
-*** PCA ベースの異常検出 *** *-データの大部分が
+***PCA ベースの異常検出*** *-膨大なデータの分類
 典型的なディストリビューションです。ポイントから大幅に逸脱する場合
-ディストリビューションがである問題があると *
+ディストリビューションが問題ありです。*
 
 ![K-means を使用してグループ化されたデータ セット][9]
 
-*** データ セットが K を使用して 5 つのクラスターにグループ化-、***
+***undefined***
 
-アンサンブル [一 v 全多クラスもあります。
-分類子] (https://msdn.microsoft.com/library/azure/dn905887.aspx)
+アンサンブルもあります [一 v 全多クラス
+分類子](https://msdn.microsoft.com/library/azure/dn905887.aspx),、
 N クラス分類の問題を分割 N-1 2 クラス
 分類の問題です。 正確度、トレーニング時間と直線性
 プロパティは、2 クラス分類モデルを使用して決定されます。
 
 ![3 クラス分類子を形成するために組み合わされた 2 クラス分類子][10]
 
-***3 クラスを形成する 2 つのクラスの分類子のペアを組み合わせる
-分類子***
+***undefined
+ss
+classif***
 
 Azure Machine Learning も強力なマシン ラーニング フレームワークへのアクセスが含まれています
-[Vowpal のタイトルの下
-Wabbit] (https://msdn.microsoft.com/library/azure/8383eb49-c0a3-45db-95c8-eb56a1fef5bf)。
+タイトルの下 [Vowpal
+Wabbit](https://msdn.microsoft.com/library/azure/8383eb49-c0a3-45db-95c8-eb56a1fef5bf)します。
 VW これは、両方の分類を知ることができますのでここでは、分類は太刀打ちできません。
 回帰問題を部分的にラベルが付いていないからも参照してください、
 データです。 学習の数のいずれかを使用するように構成することができます。
@@ -452,22 +457,21 @@ VW これは、両方の分類を知ることができますのでここでは�
 起動し、Microsoft Research 独自の John Langford 率いる、VW は、
 改造自動車アルゴリズムのフィールドの式の 1 つ入力します。 すべての問題
 VW に収まる場合、上昇する価値がある可能性がありますが、
-そのインターフェイス上の学習曲線です。 [スタンドアロンとして利用できます。
-ソース コードを開く] (https://github.com/JohnLangford/vowpal_wabbit) に
+そのインターフェイス上の学習曲線です。 でもご覧いただけます [スタンドアロン
+ソース コードを開き](https://github.com/JohnLangford/vowpal_wabbit) で
 複数の言語です。
 
 
+<!-- Media -->
 
-
-
-[1]: ./media/machine-learning-algorithm-choice/image1.png 
-[2]: ./media/machine-learning-algorithm-choice/image2.png 
-[3]: ./media/machine-learning-algorithm-choice/image3.png 
-[4]: ./media/machine-learning-algorithm-choice/image4.png 
-[5]: ./media/machine-learning-algorithm-choice/image5.png 
-[6]: ./media/machine-learning-algorithm-choice/image6.png 
-[7]: ./media/machine-learning-algorithm-choice/image7.png 
-[8]: ./media/machine-learning-algorithm-choice/image8.png 
-[9]: ./media/machine-learning-algorithm-choice/image9.png 
-[10]: ./media/machine-learning-algorithm-choice/image10.png 
+[1]: ./media/machine-learning-algorithm-choice/image1.png
+[2]: ./media/machine-learning-algorithm-choice/image2.png
+[3]: ./media/machine-learning-algorithm-choice/image3.png
+[4]: ./media/machine-learning-algorithm-choice/image4.png
+[5]: ./media/machine-learning-algorithm-choice/image5.png
+[6]: ./media/machine-learning-algorithm-choice/image6.png
+[7]: ./media/machine-learning-algorithm-choice/image7.png
+[8]: ./media/machine-learning-algorithm-choice/image8.png
+[9]: ./media/machine-learning-algorithm-choice/image9.png
+[10]: ./media/machine-learning-algorithm-choice/image10.png
 

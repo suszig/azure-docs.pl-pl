@@ -16,7 +16,6 @@
     ms.date="11/19/2015" 
     ms.author="billmath"/>
 
-
 # カスタム アプリに Multi-Factor Authentication を構築する (SDK)
 
 Azure Multi-Factor Authentication ソフトウェア開発キット (SDK) では、Azure AD テナントにあるアプリケーションのサインインおよびトランザクション プロセスに通話とテキスト メッセージの検証を直接作成することができます。
@@ -32,18 +31,19 @@ API は Azure Active Directory に登録されているユーザーにアクセ�
 
 
 
-## Azure Multi-Factor Authentication SDK のダウンロード
+## Azure Multi-Factor Authentication SDK のダウンロード 
 
-Azure Multi-Factor Authentication SDK は 2 とおりの方法でダウンロードできます。 どちらも Azure ポータルから実行できます。 1 つ目の方法では、Multi-Factor Authentication プロバイダーを直接管理します。 2 つ目の方法では、サービス設定を使用します。 2 つ目の方法には、多要素認証プロバイダーまたは Azure AD Premium ライセンスが必要です。
+Azure Multi-Factor Authentication SDK は 2 とおりの方法でダウンロードできます。 どちらも Azure ポータルから実行できます。  1 つ目の方法では、Multi-Factor Authentication プロバイダーを直接管理します。  2 つ目の方法では、サービス設定を使用します。  2 つ目の方法には、多要素認証プロバイダーまたは Azure AD Premium ライセンスが必要です。
 
 
 ### Azure ポータルから Azure Multi-Factor Authentication SDK をダウンロードするには
 
+
 1. Azure ポータルに管理者としてサインインします。
 2. 左側で、[Active Directory] を選択します。
-3. [Active Directory] ページの上部で **[多要素認証プロバイダー]** をクリックします。
-4. 下部で **[管理]** をクリックします。
-5. これにより、新しいページが開きます。 左側の下部で、[SDK] をクリックします。
+3. [Active Directory] ページの最上位のクリックで **多要素認証プロバイダー**
+4. 下部にあるクリックして **管理**
+5. これにより、新しいページが開きます。  左側の下部で、[SDK] をクリックします。
 <center>![ダウンロード](./media/multi-factor-authentication-sdk/download.png)</center>
 6. 言語を選択し、関連するダウンロード リンクのいずれかをクリックします。
 7. ダウンロードしたファイルを保存します。
@@ -52,41 +52,41 @@ Azure Multi-Factor Authentication SDK は 2 とおりの方法でダウンロー
 
 ### サービス設定を使用して Azure Multi-Factor Authentication SDK をダウンロードするには
 
+
 1. Azure ポータルに管理者としてサインインします。
 2. 左側で、[Active Directory] を選択します。
 3. Azure AD のインスタンスをダブルクリックします。
-4. 上部の **[構成]** をクリックします。
-5. Multi-Factor Authentication の **[サービス設定の管理]** を選択します。
+4. 上のクリックで **構成**
+5. 多要素認証を選択 **サービス設定の管理**
 ![ダウンロード](./media/multi-factor-authentication-sdk/download2.png)
-6. サービスの設定] ページで、画面の下部にあるクリックして **ポータルに移動する**します。
+6. サービスの設定] ページで、画面の下部にあるクリックして **ポータルに移動する**です。
 ![ダウンロード](./media/multi-factor-authentication-sdk/download3.png)
-7. これにより、新しいページが開きます。 左側の下部で、[SDK] をクリックします。
+7. これにより、新しいページが開きます。  左側の下部で、[SDK] をクリックします。
 8. 言語を選択し、関連するダウンロード リンクのいずれかをクリックします。
 9. ダウンロードしたファイルを保存します。
 
 ## Azure Multi-Factor Authentication SDK の内容
-
 SDK 内には、次の項目があります。
 
-- **README**。 新規または既存のアプリケーションで、Multi-Factor Authentication API を使用する方法について説明します。
-- Multi-Factor Authentication の**ソース ファイル**
-- Multi-Factor Authentication サービスとの通信に使用する**クライアント証明書**
-- 証明書の**秘密キー**
-- **呼び出し結果。**呼び出し結果コードの一覧です。 このファイルを開くには、ワードパッドなど、テキストの書式設定があるアプリケーションを使用します。 呼び出し結果コードは、アプリケーションに対する Multi-Factor Authentication の実装のテストとトラブルシューティングに使用します。 これらは認証ステータス コードではありません。
-- **例。**Multi-Factor Authentication の基本的な実装作業のサンプル コードです。
+- **README**します。 新規または既存のアプリケーションで、Multi-Factor Authentication API を使用する方法について説明します。
+- **ソース ファイル** 多要素認証
+- **クライアント証明書** Multi-factor Authentication サービスと通信するために使用します。
+- **秘密キー** 証明書の
+- **呼び出しの結果。**呼び出し結果コードの一覧です。 このファイルを開くには、ワードパッドなど、テキストの書式設定があるアプリケーションを使用します。 呼び出し結果コードは、アプリケーションに対する Multi-Factor Authentication の実装のテストとトラブルシューティングに使用します。 これらは認証ステータス コードではありません。
+- **例を示します。**Multi-Factor Authentication の基本的な実装作業のサンプル コードです。
 
 
->[AZURE.WARNING]クライアント証明書は、特定のユーザー向けに生成された一意のプライベート証明書です。 このファイルを共有しないよう、または紛失にはご注意ください。 これは、Multi-Factor Authentication サービスとの通信のセキュリティを確保するためのキーです。
+>[AZURE.WARNING]クライアント証明書は、特にユーザー向けに生成された一意のプライベート証明書です。 このファイルを共有しないよう、または紛失にはご注意ください。 これは、Multi-Factor Authentication サービスとの通信のセキュリティを確保するためのキーです。
 
 ## コード サンプル: 標準モードの通話検証
 
 このコード サンプルでは、Azure Multi-Factor Authentication SDK で API を使用して、アプリケーションに標準モードの音声通話検証を追加する方法を示します。 標準モードとは、ユーザーが # キーを押すことで応答する通話のことです。
 
 この例では、C# サーバー側ロジックが含まれる基本的な ASP.NET アプリケーションに C# .NET 2.0 Multi-Factor Authentication SDK を使用しますが、そのプロセスは他の言語での単純な実装によく似ています。 SDK には実行可能ファイルの代わりにソース ファイルが含まれるため、ファイルを作成してそれらを参照することや、それらをアプリケーションに直接追加することもできます。
->[AZURE.NOTE]Multi-Factor Authentication を実装する際には、追加の要素をプライマリ認証方法を補完する二次または三次検証として使用します。 これらの方法は、プライマリ認証方法として使用するように設計されていません。
+
+>[AZURE.NOTE]多要素認証を実装する場合は、プライマリ認証方法を補完する二次または三次検証としてその他の要素を使用します。 これらの方法は、プライマリ認証方法として使用するように設計されていません。
 
 ### コード サンプルの概要
-
 このサンプル コードは、# キーで応答する通話を使用してユーザーの認証を完了する、非常に単純なデモ Web アプリケーションです。 この通話要素は、Multi-Factor Authentication では標準モードと呼ばれます。
 
 クライアント側のコードに Multi-Factor Authentication に固有の要素は含まれません。 追加の認証要素はプライマリ認証とは無関係であるため、既存のサインオン インターフェイスを変更することがなく追加することができます。 Multi-Factor SDK の API を使用するとユーザー エクスペリエンスをカスタマイズできますが、何も変更しなくても問題ありません。
@@ -101,7 +101,7 @@ SDK 内には、次の項目があります。
 
 デモ ページの Web クライアント コードを次に示します。
 
-
+    
     <%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
     
     <!DOCTYPE html>
@@ -132,9 +132,10 @@ SDK 内には、次の項目があります。
     </body>
     </html>
 
+
 ### サーバー側コード
 
-次のサーバー側コードでは、手順 2 でMulti-Factor Authentication を構成して実行します。 標準モード (MODE_STANDARD) とは、ユーザーが # キーを押して応答する通話のことです。
+次のサーバー側コードでは、手順 2 でMulti-Factor Authentication を構成して実行します。 標準モード (MODE_STANDARD) とは、ユーザーが # キーを押して応答する通話のことです。 
 
     using System;
     using System.Collections.Generic;
@@ -166,7 +167,7 @@ SDK 内には、次の項目があります。
                 pfAuthParams.Username = username.Text;
                 pfAuthParams.Phone = "9134884271";
                 pfAuthParams.Mode = pf_auth.MODE_STANDARD;
-    
+                
                 // Specify a client certificate 
                 // NOTE: This file contains the private key for the client
                 // certificate. It must be stored with appropriate file 
@@ -191,6 +192,5 @@ SDK 内には、次の項目があります。
     
         }
     }
-
 
 

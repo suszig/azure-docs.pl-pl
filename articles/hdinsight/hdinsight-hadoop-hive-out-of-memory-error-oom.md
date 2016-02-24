@@ -1,6 +1,6 @@
 <properties
     pageTitle="メモリ不足エラー (OOM) - Hive 設定 | Microsoft Azure"
-    description="HDInsight の Hadoop で、Hive クエリによるメモリ不足 (OOM) エラーを修正します。ユーザーのシナリオは、多数の大きなテーブルに対するクエリです。"
+    description="HDInsight の Hadoop で、Hive クエリによるメモリ不足 (OOM) エラーを修正します。 ユーザーのシナリオは、多数の大きなテーブルに対するクエリです。"
     keywords="out of memory error, OOM, Hive settings"
     services="hdinsight"
     documentationCenter=""
@@ -16,7 +16,6 @@
     ms.workload="big-data"
     ms.date="12/10/2015"
     ms.author="rashimg;cgronlun"/>
-
 
 # Azure HDInsight の Hadoop の Hive メモリ設定を使用してメモリ不足 (OOM) エラーを修正する
 
@@ -85,11 +84,11 @@
 
 ## メモリ不足 (OOM) エラーのデバッグ
 
-当社のサポートとエンジニア リング チームの共同検出されたメモリ (OOM) エラーの原因で問題の 1 つ、 [既知の問題」に記載 Apache JIRA](https://issues.apache.org/jira/browse/HIVE-8306)します。 JIRA の説明を引用します。
+当社のサポートとエンジニア リング チームの共同検出されたメモリ (OOM) エラーの原因で問題の 1 つ、 [既知の問題が Apache JIRA」に記載](https://issues.apache.org/jira/browse/HIVE-8306)します。 JIRA の説明を引用します。
 
     When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum  of tables sizes in the map join is less than noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation doesnt take into account the overhead introduced by different HashTable implementation as results if the sum of input sizes is smaller than the noconditionaltask size by a small margin queries will hit OOM.
 
-hive-site.xml ファイルを確認したところ、**hive.auto.convert.join.noconditionaltask** が **true** に設定されていることが判明しました。
+確認し **hive.auto.convert.join.noconditionaltask** に実際に設定されている **true** hive-site.xml ファイル下探す。
 
     <property>
         <name>hive.auto.convert.join.noconditionaltask</name>
@@ -108,8 +107,9 @@ hive-site.xml ファイルを確認したところ、**hive.auto.convert.join.no
 ![Tez コンテナー メモリ図: メモリ不足エラー OOM Hive](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 
 
-ブログの投稿で提案したように、**hive.tez.container.size** と **hive.tez.java.opts** という 2 つのメモリ設定で、ヒープのコンテナー メモリを定義しています。 経験から判断すると、OOM 例外の原因は、コンテナー サイズが小さすぎることではありません。 Java ヒープ サイズ (hive.tez.java.opts) が小さすぎることが原因です。 そのため、OOM が発生する場合は、**hive.tez.java.opts** を増やしてみてください。 必要に応じて、**hive.tez.container.size** も増やす必要があります。 **java.opts** 設定は、**container.size** の約 80% にすることをお勧めします。
-> [AZURE.NOTE]  **hive.tez.java.opts** は、常に **hive.tez.container.size** よりも小さく設定する必要があります。
+次の 2 つのメモリ設定が、ヒープのメモリはコンテナーを定義するブログの投稿からわかるように、: **hive.tez.container.size** と **hive.tez.java.opts**します。 経験から判断すると、OOM 例外の原因は、コンテナー サイズが小さすぎることではありません。 Java ヒープ サイズ (hive.tez.java.opts) が小さすぎることが原因です。 増加しようとすることができます OOM を表示するたびに、 **hive.tez.java.opts**します。 必要な場合は大きく必要があります **hive.tez.container.size**します。  **Java.opts** 設定は、約 80% の **container.size**します。
+
+> [AZURE.NOTE]  設定 **hive.tez.java.opts** よりも小さい必ず **hive.tez.container.size**します。
 
 D12 コンピューターには 28 GB のメモリがあるので、10 GB (10,240 MB) のコンテナー サイズを使用し、80% を java.opts に割り当てることにしました。 そのために、Hive コンソールで次の設定を使用しました。
 
@@ -121,8 +121,4 @@ D12 コンピューターには 28 GB のメモリがあるので、10 GB (10,24
 ## 結論: OOM エラーとコンテナー サイズ
 
 OOM エラーの原因は、必ずしもコンテナー サイズが小さすぎるためではありません。 コンテナー サイズではなくヒープ サイズを増やし、コンテナー メモリ サイズの 80% 以上を割り当てるようにメモリ設定を構成することをお勧めします。
-
-
-
-
 

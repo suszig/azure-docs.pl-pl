@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Application Insights for C++ apps" 
-    description="使用状況と Application Insights を使って、C++ アプリのパフォーマンスを分析します。" 
-    services="application-insights" 
-    documentationCenter="cpp"
-    authors="crystk" 
-    manager="douge""/>
+    pageTitle ="C アプリの Application Insights" 
+    description =「使用量の分析と Application Insights を使って、C++ アプリのパフォーマンス」。 
+    サービス"application insights"を = 
+    documentationCenter ="cpp"になります。
+    authors ="crystk" 
+    manager ="douge""/>
 
 <tags 
     ms.service="application-insights" 
@@ -14,7 +14,6 @@
     ms.topic="article" 
     ms.date="11/17/2015" 
     ms.author="crystk"/>
-
 
 # C++ アプリ向けの Application Insights
 
@@ -30,34 +29,35 @@ Visual Studio Application Insights を使用すると、使用状況、イベン
 
 ## Application Insights リソースの作成
 
-[Azure ポータルの ][portal], 、新しい Application Insights リソースを作成します。 Windows Phone か Windows ストアのオプションを選択します。
+ [Azure ポータル][portal], 、新しい Application Insights リソースを作成します。 Windows Phone か Windows ストアのオプションを選択します。
 
-![[新規]、](./media/app-insights-windows-cpp/01-universal.png)
+![[新規]、[開発者向けサービス]、[Application Insights] の順にクリックする](./media/app-insights-windows-cpp/01-universal.png)
 
 表示されるブレードには、アプリケーションに関するパフォーマンスと使用状況データが表示されます。 次に Azure にログインするときにこのブレードに戻るには、スタート画面でそのタイルを見つけてください。 あるいは、[参照] ボタンをクリックして探します。
 
-#### インストルメンテーション キーをコピーします。
+####  インストルメンテーション キーをコピーします。
 
 これはリソースを識別するキーです。データをリソースに送信するために SDK の後の手順でインストールします。
 
 ![[プロパティ] をクリックし、キーを選択して、Ctrl キーを押しながら C キーを押す](./media/app-insights-windows-cpp/02-props-asp.png)
 
-## <a name="sdk"></a> アプリケーションで SDK をインストールします。
+## <a name="sdk"></a> アプリケーションに SDK をインストールする
+
 
 1. Visual Studio で、デスクトップ アプリ プロジェクトの NuGet パッケージを編集します。
 
-    ![プロジェクトを右クリックし、](./media/app-insights-windows-cpp/03-nuget.png)
+    ![プロジェクトを右クリックし、[Nuget パッケージの管理] を選択する](./media/app-insights-windows-cpp/03-nuget.png)
 
 2. C++ Apps 向け Application Insights SDK をインストールします。
 
     ![選択 * *、* * プレリリースおよび"Application Insights"を検索](./media/app-insights-windows-cpp/04-nuget.png)
 
-3. リリースとデバッグのプロジェクト設定で、次のようにします。
+3. リリースとデバッグのプロジェクト設定で、次のようにします。 
   - $(SolutionDir)packages\ApplicationInsights-CPP.1.0.0-Beta\src\inc をプロジェクト プロパティ -> VC++ ディレクトリ -> Include ディレクトリに追加する
-  - $ を追加 (SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native\<PLATFORM TYPE>\release\AppInsights_Win10-UAP をプロジェクト プロパティ -> vc++ ディレクトリ-> Library ディレクトリ
+  - $ を追加 (SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native\ < PLATFORM TYPE > \release\AppInsights_Win10-UAP をプロジェクト プロパティ -> vc++ ディレクトリ-> Library ディレクトリ
 
-4. ApplicationInsights.winmd を $ からプロジェクトへの参照として追加 (SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native\<PLATFORM TYPE>\release\ApplicationInsights
-5. $ から AppInsights_Win10 追加を追加する (SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native\<PLATFORM TYPE>\release\AppInsights_Win10-UAP します。プロパティに移動し、内容を YES に設定します。これにより、dll がビルド ディレクトリにコピーされます。
+4. ApplicationInsights.winmd を $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native\ < PLATFORM TYPE > \release\ApplicationInsights からプロジェクトへの参照として追加します。
+5. $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native\ < PLATFORM TYPE > \release\AppInsights_Win10-UAP から AppInsights_Win10 追加を追加します。 プロパティに移動し、内容を YES に設定します。 これにより、dll がビルド ディレクトリにコピーされます。
 
 
 #### 今後のバージョンに、SDK を更新するには
@@ -71,20 +71,20 @@ Visual Studio Application Insights を使用すると、使用状況、イベン
 
 SDK を初期化し、テレメトリの追跡を開始します。
 
-1. App.xaml.h で、次のようにします。
+1. App.xaml.h で、次のようにします。 
   - 追加します。
-    `ApplicationInsights::CX::SessionTracking ^ m_session です。`
+    `ApplicationInsights::CX::SessionTracking^ m_session;`
 2. App.xaml.cpp で、次のようにします。
   - 追加します。
-    `ApplicationInsights::CX; 名前空間の使用`
+    `using namespace ApplicationInsights::CX;`
 
   - App:App() で、次のようにします。
-
-     `自動のセッションを追跡し、コレクションのページの自動表示はこれ`
-     `m_session ref = 新しい ApplicationInsights::CX::SessionTracking() です。`
+    
+     `// this will do automatic session tracking and automatic page view collection`
+     `m_session = ref new ApplicationInsights::CX::SessionTracking();`
 
   - ルート フレームを作成したら (通常、App::OnLaunched の末尾)、m_session を初期化します。
-
+    
     ```
     String^ iKey = L"<YOUR INSTRUMENTATION KEY>";
     m_session->Initialize(this, rootFrame, iKey);
@@ -103,7 +103,7 @@ SDK を初期化し、テレメトリの追跡を開始します。
 ```
 
 
-## <a name="run"></a> プロジェクトを実行します。
+## <a name="run"></a> プロジェクトの実行
 
 アプリケーションを実行し、テレメトリを生成します。 開発用コンピューターでデバッグ モードで実行するか、発行してユーザーに実行させることができます。
 
@@ -111,7 +111,7 @@ SDK を初期化し、テレメトリの追跡を開始します。
 
 Return to http://portal.azure.com and browse to your Application Insights resource.
 
-検索を開く] をクリックして [診断検索の ][diagnostic] -ここには、最初のイベントが表示されます。 何も表示されない場合は 1 ～ 2 分待機し、[更新] をクリックします。
+検索を開く] をクリックして [診断検索][diagnostic] -ここには、最初のイベントが表示されます。 何も表示されない場合は 1 ～ 2 分待機し、[更新] をクリックします。
 
 ![[診断検索] をクリックする](./media/app-insights-windows-cpp/21-search.png)
 
@@ -126,25 +126,26 @@ Return to http://portal.azure.com and browse to your Application Insights resour
 
 ## <a name="usage"></a>次のステップ
 
-[アプリの ][track]
+[アプリの使用状況の追跡][track]
 
-[API を使用して送信するカスタム イベントおよびメトリック ][api]
+[API を使用してカスタム イベントとメトリックを送信する][api]
 
-[診断検索の ][diagnostic]
+[診断検索][diagnostic]
 
-[メトリックス エクスプ ローラーの ][metrics]
+[メトリックス エクスプローラー][metrics]
 
-[トラブルシューティング ][qna]
-
-
+[トラブルシューティング][qna]
 
 
 
+<!--Link references-->
 
-[api]: app-insights-api-custom-events-metrics.md 
-[diagnostic]: app-insights-diagnostic-search.md 
-[metrics]: app-insights-metrics-explorer.md 
-[portal]: http://portal.azure.com/ 
-[qna]: app-insights-troubleshoot-faq.md 
-[track]: app-insights-api-custom-events-metrics.md 
+[api]: app-insights-api-custom-events-metrics.md
+[diagnostic]: app-insights-diagnostic-search.md
+[metrics]: app-insights-metrics-explorer.md
+[portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
+[track]: app-insights-api-custom-events-metrics.md
+
+ 
 

@@ -1,6 +1,6 @@
 <properties
     pageTitle="CoreOS を使用する方法 |Microsoft Azure"
-    description="CoreOS について説明するほか、Azure 上でクラシック デプロイ モデルで CoreOS 仮想マシン クラスターを作成する方法とその基本的な使用方法について説明します。"
+    description="CoreOS について説明するほか、Azure 上でクラシック デプロイメント モデルで CoreOS 仮想マシン クラスターを作成する方法とその基本的な使用方法について説明します。"
     services="virtual-machines"
     documentationCenter=""
     authors="squillace"
@@ -16,7 +16,6 @@
     ms.workload="infrastructure-services"
     ms.date="10/21/2015"
     ms.author="rasquill"/>
-
 
 # Azure 上で CoreOS を使用する方法
 
@@ -42,7 +41,6 @@ CoreOS は可能性のある非常に大規模のみと Linux コンテナーを
 以上は、CoreOS とその機能の一般的な説明です。 CoreOS の詳細については、[CoreOS の概要] を参照してください。
 
 ## セキュリティに関する考慮事項
-
 現在、CoreOS では、SSH でクラスターと通信できるユーザーには、そのクラスターを管理するためのアクセス許可が与えられていることを前提としています。 そのため、CoreOS クラスターは、変更しなくてもテスト環境および開発環境として優れています。ただし、運用環境では、より強力なセキュリティ対策を実施する必要があります。
 
 ## Azure 上で CoreOs を使用する方法
@@ -58,19 +56,20 @@ CoreOS は可能性のある非常に大規模のみと Linux コンテナーを
 
 ### 通信用に公開キーと秘密キーを作成する
 
-」の指示に従って [ssh Azure 上の Linux の使用方法](virtual-machines-linux-use-ssh-key.md) ssh パブリックとプライベート キーを作成します。 (基本的な手順は、以下の指示に記載されています)。 これらのキーを使用してクラスターの VM に接続し、VM が動作中で互いに通信できることを確認します。
-> [AZURE.NOTE] このトピックでは、これらのキーはありませんし、作成する必要があると想定しています `'myprivatekey.pem'` と `myCert.pem` わかりやすくするためのファイルです。 パブリックが既にあり、秘密キーのペアを保存する場合 `~/.ssh/id_rsa`, 、だけを入力すれば `openssl req-x-x509-key ~/.ssh/id_rsa-ノード--days 365 - newkey rsa:2048--out Mycert.pem'` を Azure にアップロードする必要のある .pem ファイルを取得します。
+」の指示に従って [ssh Azure 上の Linux の使用方法](virtual-machines-linux-use-ssh-key.md) ssh パブリックとプライベート キーを作成します。 (基本的な手順は、以下の指示に記載されています)。これらのキーを使用してクラスターの VM に接続し、VM が動作中で互いに通信できることを確認します。
 
-1. 作業ディレクトリで次のように入力します。 `openssl req - x 509 - ノード--days 365 - newkey rsa:2048 - keyout myPrivateKey.key--out Mycert.pem'` 秘密キーを作成すると、X.509 証明書が関連付けられています。
+> [AZURE.NOTE] このトピックでは、これらのキーはありませんし、作成する必要があると想定しています `myPrivateKey.pem` と `myCert.pem` わかりやすくするためのファイルです。 既に公開キーと秘密キーのペアを `~/.ssh/id_rsa` に保存している場合は、「`openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem`」と入力するだけで、Azure にアップロードする必要のある .pem ファイルを取得できます。
 
-2. 秘密キーの所有者が読み取りまたはファイルの書き込みができる、assert 入力 `chmod 600 Myprivatekey.key'`します。
+1. 作業ディレクトリで、「`openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem`」と入力し、秘密キーと秘密キーに関連付けられた X.509 証明書を作成します。
 
-この時点でが両方とも、 `myPrivateKey.key` と `myCert.pem` 作業ディレクトリでファイルです。
+2. 秘密キーの所有者がファイルの読み取りや書き込みをできるかどうかをアサートするには、「`chmod 600 myPrivateKey.key`」と入力します。
+
+これで、作業ディレクトリに、`myPrivateKey.key` と `myCert.pem` ファイルの両方が作成されます。
 
 
 ### 使用するクラスターの etcd ID を取得する
 
-CoreOS の `etcd` デーモンでは、クラスターのすべてのノードを自動的に照会するのにデーモン検出 ID が必要です。 検出 ID を取得して、`etcdid` ファイルに保存するには、次を入力します。
+CoreOS の `etcd` デーモンでは、クラスターのすべてのノードを自動的に照会するのに検出 ID が必要です。 検出 ID を取得して、`etcdid` ファイルに保存するには、次を入力します。
 
 ```
 curl https://discovery.etcd.io/new | grep ^http.* > etcdid
@@ -78,8 +77,9 @@ curl https://discovery.etcd.io/new | grep ^http.* > etcdid
 
 ### cloud-config ファイルの作成
 
-でも、同じ作業ディレクトリにファイルを作成、任意のテキストを次のテキスト エディター、として保存 `cloud-config.yaml`します。 (任意のファイル名で保存できますが、次の手順で VM を作成するときに、**azure vm create** コマンドの **--custom-data** オプションでこのファイル名を参照する必要があります)。
-> [AZURE.NOTE] 入力 `cat etcdid` から etcd 検出 id を取得、 `etcdid` 上で作成したファイルし、置換 `< トークン >` 、次に `cloud-config.yaml` から生成された番号を持つファイル、 `etcdid` ファイルです。最後にクラスターを検証できない場合は、この手順を行っていない可能性があります。
+引き続き同じ作業ディレクトリで、任意のテキスト エディターを使用して次のテキストを含むファイルを作成し、`cloud-config.yaml` として保存します。 (するは、任意のファイル名を保存できますが、次の手順で Vm を作成する場合にこのファイルの名前を参照する必要があります、 **-カスタム データ** のオプションとして、 **azure 仮想マシンの作成** コマンドです)。
+
+> [AZURE.NOTE] 入力 `cat etcdid` から etcd 検出 id を取得、 `etcdid` 上で作成したファイルし、置換 `<token>` 、次に `cloud-config.yaml` から生成された番号を持つファイル、 `etcdid` ファイルです。 最後にクラスターを検証できない場合は、この手順を行っていない可能性があります。
 
 ```
 #cloud-config
@@ -98,43 +98,44 @@ coreos:
       command: start
 ```
 
-(Cloud-config ファイルの詳細については、次を参照してください [Using Cloud-config](https://coreos.com/docs/cluster-management/setup/cloudinit-cloud-config/) 」を参照します。)。
+(Cloud-config ファイルの詳細については、次を参照してください [。Using Cloud-config](https://coreos.com/docs/cluster-management/setup/cloudinit-cloud-config/) 」を参照します)。
 
 ### Azure CLI を使用して、新しい CoreOS VM を作成する
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 1. まだ行っていないためには、その著作物を使用してログインするか、[Azure コマンド ライン インターフェイス (Azure CLI)] をインストールまたは学校の ID をまたは .publishsettings ファイルをダウンロードし、アカウントにインポートします。
-2. CoreOS イメージを探します。 いつでも使用可能なイメージを見つけるには、入力 `azure vm イメージ リスト | grep CoreOS` のような結果の一覧を表示する必要があります。
+2. CoreOS イメージを探します。 「`azure vm image list | grep CoreOS`」と入力するといつでも使用可能なイメージを探すことができ、次のような結果が一覧表示されます。
 
     データ: 2b171e93f07c4903bcad35bda10acf22__CoreOS 安定性-522.6.0 Public Linux
 
 3. 」と入力して、基本的なクラスター用のクラウド サービスを作成します。
-`azure サービスの作成 < クラウド サービス名 >` 、 <*cloud-service-name*> 、CoreOS クラウド サービスの名前を指定します。この例では、名 * *`coreos クラスター`* * は、クラウド サービス内のインスタンスに CoreOS VM を作成する名前を再利用する必要があります。
+`azure service create <cloud-service-name>` ここで <*クラウド サービス名*>、CoreOS クラウド サービスの名前を指定します。 この例では、名 **`coreos-cluster`**; CoreOS VM クラウド サービス内のインスタンスを作成する名前を再利用する必要があります。
 
     1 つの注意: 作業をこれまでに確認する場合、 [プレビュー ポータル](https://portal.azure.com), 、クラウド サービスの名前がリソース グループとドメインの両方を次の画像で示すがわかります。
 
-    ![][cloudserviceinnewportal]
+    ![CloudServiceInNewPortal]
 
-4. クラウド サービスに接続し、**azure vm create** コマンドを使用して、新しい CoreOS VM インスタンスを作成します。 **--ssh-cert** オプションで X.509 証明書の場所を渡します。 次を入力して、最初の VM イメージを作成し、次のように必ず **coreos-cluster** を作成したクラウド サービスの名前に置き換えます。
+4. クラウド サービスに接続しを使用して、新しい CoreOS VM を作成、 **azure 仮想マシンの作成** コマンドです。 X.509 証明書の場所を渡しますが、 **--ssh-cert** オプション。 次のコマンドを入力して、最初の VM イメージを作成交換を記述する **coreos クラスター** を作成したクラウド サービスの名前。
 
     ```
-azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem --no-ssh-password --vm-name=node-1 --connect=coreos-cluster --location="West US" 2b171e93f07c4903bcad35bda10acf22__CoreOS-Stable-522.6.0 core
- ```
+azure の仮想マシンの作成 --custom-data = cloud-config.yaml - ssh = 22--ssh-cert=./myCert.pem--なし-ssh-パスワード--vm 名 = ノード 1 - 接続 coreos クラスター--場所の = =「米国西部」2b171e93f07c4903bcad35bda10acf22__CoreOS 安定性-522.6.0 コア
+```
 
-5. 手順 4. のコマンドを繰り返し、2 番目のノードを作成します。その際、**--vm-name** 値は **node-2** に、**--ssh** ポートの値は 2022 に置き換えます。
+5. Create the second node by repeating the command in step 4, replacing the **--vm-name** value with **node-2** and the **--ssh** port value with 2022.
 
-6. 手順 4. のコマンドを繰り返し、3 番目のノードを作成します。その際、**--vm-name** 値は **node-3** に、**--ssh** ポートの値は 3022 に置き換えます。
+6. Create the third node by repeating the command in step 4, replacing the **--vm-name** value with **node-3** and the **--ssh** port value with 3022.
 
-次の画像では、ポータルに CoreOS クラスターが表示されている状態を示します。
+You can see from the shot below how the CoreOS cluster appears in the portal.
 
-![][emptycoreoscluster]
+![][EmptyCoreOSCluster]
 
-### Azure VM で CoreOS クラスターをテストする
+### Test your CoreOS cluster from an Azure VM
 
-クラスターをテストするには、作業ディレクトリで次を入力し、**ssh** により **node-1** に接続して、秘密キーを渡します。
+To test your cluster, make sure you are in your working directory and then connect to **node-1** using **ssh**, passing the private key by typing:
 
     ssh core@coreos-cluster.cloudapp.net -p 22 -i ./myPrivateKey.key
 
-接続されると、入力 `sudo fleetctl 一覧-マシン` クラスターがクラスター内のすべての Vm を既に特定するかどうかを確認します。 次のような応答を受け取ります。
+Once connected, type `sudo fleetctl list-machines` to see whether the cluster has already identified all VMs in the cluster. You should receive a response similar to the following:
 
 
     core@node-1 ~ $ sudo fleetctl list-machines
@@ -143,34 +144,36 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
     a05e2d7c... 100.71.168.87   -
     f7de6717... 100.71.188.96   -
 
-### localhost で CoreOS クラスターをテストする
 
-最後に、ローカル Linux クライアントで CoreOS クラスターをテストします。 インストールすることもできます **fleetctl** を使用して **npm**, 、インストールするか **fleet** およびビルド **fleetctl** ローカル クライアントで自分でします。 **fleet** 必要 **golang**, ので、その最初に入力して、インストールする必要があります。
+### Test your CoreOS cluster from localhost
 
-`sudo apt get インストール golang`
+Finally, let's test your CoreOS cluster from your local Linux client. You might be able to install **fleetctl** by using **npm**, or you might want to install **fleet** and build **fleetctl** yourself on your local client. **fleet** requires **golang**, so you may need to install that first by typing:
 
-次を入力して、github から **fleet** リポジトリを複製します。
+`sudo apt-get install golang`
 
-`git クローン https://github.com/coreos/fleet.git`
+Then clone the **fleet** repository from github by typing:
 
-ビルド **fleet** を変更することで、 `fleet` ディレクトリと種類
+`git clone https://github.com/coreos/fleet.git`
 
-`。/build`
+Build **fleet** by changing to the `fleet` directory and type
 
-最後に、次のように **fleet** を使いやすいように配置します (**sudo** 使用する必要があるかどうかは、構成によって変わります)。
+`./build`
 
-`cp bin/fleetctl/usr/local/bin`
+And finally place **fleet** for easy use (depending upon your configuration you may or may not need to **sudo**):
 
-確認 **fleet** へのアクセスを持つ、 `myPrivateKey.key` 」と入力して、作業ディレクトリ。
+`cp bin/fleetctl /usr/local/bin`
 
-`ssh アド./myPrivateKey.key`
-> [AZURE.NOTE] 既に使用している場合、 `~/.ssh/id_rsa` キーしている追加 `ssh アド ~/.ssh/id_rsa`します。
+Make sure **fleet** has access to your `myPrivateKey.key` in the working directory by typing:
 
-これで、**node-1** で使用したのと同じ **fleetctl** コマンドを使用してリモートでテストできます。ただし、以下のようにリモート引数をいくつか渡します。
+`ssh-add ./myPrivateKey.key`
 
-`fleetctl--トンネル coreos cluster.cloudapp.net:22 一覧-マシン`
+> [AZURE.NOTE] If you are already using the `~/.ssh/id_rsa` key, then add that with `ssh-add ~/.ssh/id_rsa`.
 
-以下とまったく同じ結果が得られます。
+Now you are ready to test remotely using the same **fleetctl** command you used from **node-1**, but passing some remote arguments:
+
+`fleetctl --tunnel coreos-cluster.cloudapp.net:22 list-machines`
+
+The results should be exactly the same:
 
 
     MACHINE     IP      METADATA
@@ -178,30 +181,32 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
     a05e2d7c... 100.71.168.87   -
     f7de6717... 100.71.188.96   -
 
-## 次のステップ
+## Next steps
 
-これで、3 ノード構成の CoreOS クラスターが Azure 上で実行されています。 ここから、より複雑なクラスターを作成する方法、Docker を使用する方法、さらにより有益なアプリケーションを作成する方法を調べることができます。 いくつかの簡単な例については、[を使ってみる Azure 上の CoreOS で Fleet] を参照してください。
+You should now have a running three-node CoreOS cluster on Azure. From here, you can explore how to create more complex clusters and use Docker and create more interesting applications. To try a couple of quick examples, see [Get Started with Fleet on CoreOS on Azure].
+
+<!--Anchors-->
+[CoreOS, Clusters, and Linux Containers]: #intro
+[Security Considerations]: #security
+[How to use CoreOS on Azure]: #usingcoreos
+[Subheading 3]: #subheading-3
+[Next steps]: #next-steps
+
+<!--Image references-->
+[CloudServiceInNewPortal]: ./media/virtual-machines-linux-coreos-how-to/cloudservicefromnewportal.png
+[EmptyCoreOSCluster]: ./media/virtual-machines-linux-coreos-how-to/endresultemptycluster.png
+[6]: ./media/markdown-template-for-new-articles/pretty49.png
+[7]: ./media/markdown-template-for-new-articles/channel-9.png
 
 
-
-
-
-[coreos, clusters, and linux containers]: #intro 
-[security considerations]: #security 
-[how to use coreos on azure]: #usingcoreos 
-[subheading 3]: #subheading-3 
-[next steps]: #next-steps 
-[cloudserviceinnewportal]: ./media/virtual-machines-linux-coreos-how-to/cloudservicefromnewportal.png 
-[emptycoreoscluster]: ./media/virtual-machines-linux-coreos-how-to/endresultemptycluster.png 
-[6]: ./media/markdown-template-for-new-articles/pretty49.png 
-[7]: ./media/markdown-template-for-new-articles/channel-9.png 
-[azure command-line interface (azure cli)]: ../xplat-cli-install.md 
-[coreos]: https://coreos.com/ 
-[coreos overview]: https://coreos.com/using-coreos/ 
-[coreos with azure]: https://coreos.com/docs/running-coreos/cloud-providers/azure/ 
-[tim park's coreos tutorial]: https://github.com/timfpark/coreos-azure 
-[patrick chanezon's coreos tutorial]: https://github.com/chanezon/azure-linux/tree/master/coreos/cloud-init 
-[docker]: http://docker.io 
-[yaml]: http://yaml.org/ 
-[get started with fleet on coreos on azure]: virtual-machines-linux-coreos-fleet-get-started.md 
+<!--Link references-->
+[Azure Command-line Interface (Azure CLI)]: ../xplat-cli-install.md
+[CoreOS]: https://coreos.com/
+[CoreOS Overview]: https://coreos.com/using-coreos/
+[CoreOS with Azure]: https://coreos.com/docs/running-coreos/cloud-providers/azure/
+[Tim Park's CoreOS Tutorial]: https://github.com/timfpark/coreos-azure
+[Patrick Chanezon's CoreOS Tutorial]: https://github.com/chanezon/azure-linux/tree/master/coreos/cloud-init
+[Docker]: http://docker.io
+[YAML]: http://yaml.org/
+[Get Started with Fleet on CoreOS on Azure]: virtual-machines-linux-coreos-fleet-get-started.md
 

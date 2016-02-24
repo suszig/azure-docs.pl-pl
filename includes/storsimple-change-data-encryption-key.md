@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 12/01/15-->
 
 ### 手順 1. 管理ポータルでサービス データ暗号化キーを変更できるようにデバイスを承認する
 
@@ -26,18 +27,19 @@
 
 #### キーを変更するデバイスを承認するには
 
-1. サービスのダッシュボード ページで、**[サービス データ暗号化キーの変更]** をクリックします。
+1. サービスのダッシュ ボード] ページをクリックして **サービス データ暗号化キーの変更**します。
 
     ![サービス暗号化キーの変更](./media/storsimple-change-data-encryption-key/HCS_ChangeServiceDataEncryptionKey-include.png)
 
-2. **[サービス データ暗号化キーの変更]** ダイアログ ボックスで、サービス データ暗号化キーの変更を開始するデバイスを選択して承認します。 ドロップダウン リストに、承認可能なすべてのデバイスが表示されます。
+2.  **サービス データ暗号化キーの変更** ] ダイアログ ボックスで選択し、デバイスのサービス データ暗号化キーの変更開始を承認します。 ドロップダウン リストに、承認可能なすべてのデバイスが表示されます。
 
-3. チェック アイコンをクリックして ![チェック マーク アイコン](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png)します。
+3. チェック マーク アイコンをクリックします。 ![チェック マーク アイコン](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
 
 ### 手順 2. StorSimple 用 Windows PowerShell を使用してサービス データ暗号化キーの変更を開始する
 
 この手順は、承認済みの StorSimple デバイスの StorSimple 用 Windows PowerShell インターフェイスで実行されます。
-> [AZURE.NOTE] キーのロールオーバーが完了するまで、StorSimple Manager サービスの Azure クラシック ポータルでは操作を行うことができません。
+
+> [AZURE.NOTE] StorSimple Manager サービスの Azure クラシック ポータルでの操作は実行されませんキーのロール オーバーが完了するまで。
 
 デバイスのシリアル コンソールを使用して Windows PowerShell インターフェイスに接続している場合は、次の手順を実行します。
 
@@ -47,10 +49,11 @@
 
 2. コマンド プロンプトに、次のコマンドを入力します。
 
-     `呼び出す HcsmServiceDataEncryptionKeyChange`
+     `Invoke-HcsmServiceDataEncryptionKeyChange`
 
 3. コマンドレットが正常に完了すると、新しいサービス データ暗号化キーが表示されます。 このキーをコピーし、このプロセスの手順 3. で使用するために保存します。 このキーは、StorSimple Manager サービスに登録されている残りのすべてのデバイスの更新に使用されます。
-    > [AZURE.NOTE] このプロセスは、StorSimple デバイスを承認してから 4 時間以内に開始する必要があります。
+
+    > [AZURE.NOTE] このプロセスは、StorSimple デバイスを承認する 4 時間以内で開始する必要があります。
 
    4 時間を経過すると、この新しいキーはサービスに送信され、サービスに登録されているすべてのデバイスにプッシュされます。 そのようになると、サービスのダッシュボードにアラートが表示されます。 このサービスにより、登録済みのデバイス上でのすべての操作が無効になります。その後、デバイスの管理者は、他のデバイスのサービス データ暗号化キーを更新する必要があります。 ただし、I/O (データをクラウドに送信するホスト) は中断されません。
 
@@ -68,13 +71,9 @@ StorSimple Manager サービスに登録されているデバイスが複数あ�
 
 2. コマンド プロンプトに、次のコマンドを入力します。
 
-    `呼び出す-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
+    `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
 
 3. サービス データ暗号化キーで取得した指定 [手順 2: サービス データ暗号化キーの変更を開始する StorSimple 用 Windows PowerShell を使用して](#to-initiate-the-service-data-encryption-key-change)します。
-
-
-
-
 
 
 

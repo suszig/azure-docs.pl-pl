@@ -15,27 +15,27 @@
    ms.date="10/12/2015"
    ms.author="cherylmc"/>
 
-
 # 回線のプロビジョニングと回線の状態の ExpressRoute ワークフロー
-
-このページでは、サービス プロビジョニングと上位のルーティング構成ワークフローについて段階的に説明します。
+このページでは、サービス プロビジョニングと上位のルーティング構成ワークフローについて段階的に説明します。 
 
 ![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
-下の図とそれに対応する手順は、ExpressRoute 回線をエンドツーエンドでプロビジョニングするための作業を示しています。
+下の図とそれに対応する手順は、ExpressRoute 回線をエンドツーエンドでプロビジョニングするための作業を示しています。 
 
 1. PowerShell を利用し、ExpressRoute 回線を構成します。 指示に従って、 [作成の ExpressRoute 回線](expressroute-howto-circuit-classic.md) 詳細については資料です。
 
 2. サービス プロバイダーに接続を要求します。 このプロセスはさまざまです。 接続の要求方法に関する詳細については、接続プロバイダーにお問い合わせください。
 
-3. PowerShell で ExpressRoute のプロビジョニング状態を確認することで、回線が正常にプロビジョニングされていることを確認します。
+3. PowerShell で ExpressRoute のプロビジョニング状態を確認することで、回線が正常にプロビジョニングされていることを確認します。 
 
 4. ルーティング ドメインを構成します。 接続プロバイダーが代わりにレイヤー 3 を管理する場合、接続プロバイダーが回線のルーティングを構成します。 接続プロバイダーは、レイヤー 2 サービスのみを提供する場合は、」に記載のガイドラインに従ってルーティングを構成する必要があります、 [ルーティング要件を満たす](expressroute-routing.md) と [ルーティング構成](expressroute-howto-routing-classic.md) ページです。
 
     -  Azure プライベート ピアリングを有効にする - 仮想ネットワーク内にデプロイされている VM / クラウドに接続するには、このピアリングを有効にする必要があります。
     -  Azure パブリック ピアリングを有効にする - パブリック IP アドレスにホストされている Azure サービスに接続する場合、Azure パブリック ピアリングを有効にする必要があります。 Azure プライベート ピアリングの既定のルーティングを有効にする場合、これが Azure リソースにアクセスするための要件となります。
-    -  Microsoft ピアリングを有効にする - Office 365 と CRM Online サービスにアクセスするにはこれを有効にする必要があります。
-    >[AZURE.IMPORTANT] Microsoft ピアリングを有効にしている場合、Azure パブリック ピアリングも有効にしないと Azure AD にアクセスできません。 Microsoft に接続するには、インターネットに使用しているプロキシ/エッジとは別のプロキシ/エッジを使用する必要があります。 ExpressRoute とインターネットの両方に同じエッジを使用すると、ルーティングが非同期になり、ネットワークの接続が停止します。
+    -  Microsoft ピアリングを有効にする - Office 365 と CRM Online サービスにアクセスするにはこれを有効にする必要があります。 
+    
+    >[AZURE.IMPORTANT] Microsoft ピアリングを有効にする場合は、Azure AD にアクセスする Azure パブリック ピアリングを有効またことを確認します。 Microsoft に接続するには、インターネットに使用しているプロキシ/エッジとは別のプロキシ/エッジを使用する必要があります。 ExpressRoute とインターネットの両方に同じエッジを使用すると、ルーティングが非同期になり、ネットワークの接続が停止します。
+
 
     ![](./media/expressroute-workflows/expressroute-routing-workflow.png)
 
@@ -49,9 +49,9 @@
 - サービス プロバイダーのプロビジョニング状態
 - 状態
 
-状態は Microsoft のプロビジョニングの状態を表します。 このプロパティは「*有効*」、「*有効にしています*」、「*無効にしています*」のいずれかの状態になります。 ExpressRoute 回線を使用するには「有効」状態になっている必要があります。
+状態は Microsoft のプロビジョニングの状態を表します。 このプロパティは、次の状態のいずれかになります: *有効*, 、*Enabling*, 、または *無効化*します。 ExpressRoute 回線を使用するには「有効」状態になっている必要があります。
 
-接続プロバイダーのプロビジョニング状態は接続プロバイダー側の状態を表します。 これは「*プロビジョニングされていません*」、「*プロビジョニングしています*」、「*プロビジョニング済み*」のいずれかになります。 ExpressRoute 回線を使用するには「プロビジョニング済み」状態になっている必要があります。
+接続プロバイダーのプロビジョニング状態は接続プロバイダー側の状態を表します。 使用できる *NotProvisioned*, 、*プロビジョニング*, 、または *プロビジョニング済み*します。 ExpressRoute 回線を使用するには「プロビジョニング済み」状態になっている必要があります。
 
 ### ExpressRoute 回線の状態
 
@@ -64,12 +64,14 @@ PowerShell コマンドレットを実行し、ExpressRoute 回線を作成す�
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled
 
+
 #### 接続プロバイダーが回線にプロビジョニングしているとき
 
 サービス キーを接続プロバイダーに渡し、接続プロバイダーがプロビジョニングを開始すると、直後に ExpressRoute 回線の状態が以下のようになります。
 
     ServiceProviderProvisioningState : Provisioning
     Status                           : Enabled
+
 
 #### 接続プロバイダーがプロビジョニングを完了したとき
 
@@ -87,7 +89,7 @@ PowerShell コマンドレットを実行し、ExpressRoute 回線を削除す�
     ServiceProviderProvisioningState : Provisioned
     Status                           : Disabling
 
-ExpressRoute 回線のプロビジョニングを解除するには、接続プロバイダーに接触する必要があります。 **重要:** PowerShell コマンドレットを実行し、回線のプロビジョニングを解除するまで、Microsoft は回線に課金を続けます。
+ExpressRoute 回線のプロビジョニングを解除するには、接続プロバイダーに接触する必要があります。 **重要:** Microsoft は、回線のプロビジョニングを解除する PowerShell コマンドレットを実行するまで、回線の請求を継続します。
 
 #### サービス プロバイダー側でプロビジョニング解除が開始された場合
 
@@ -97,16 +99,17 @@ ExpressRoute 回線のプロビジョニングを解除するには、接続プ�
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled
 
-必要に応じて再度有効にしたり、PowerShell コマンドレットを実行して回線を削除したりできます。 **重要:** PowerShell コマンドレットを実行し、回線のプロビジョニングを解除するまで、Microsoft は回線に課金を続けます。
+必要に応じて再度有効にしたり、PowerShell コマンドレットを実行して回線を削除したりできます。 **重要:** Microsoft は、回線のプロビジョニングを解除する PowerShell コマンドレットを実行するまで、回線の請求を継続します。
 
 
 ## ルーティング セッション構成の状態
 
 BGP プロビジョニング状態からは、Microsoft エッジで BGP セッションが有効になっているかどうかがわかります。 ピアリングを使用するにはこの状態を有効にする必要があります。
 
-特に Microsoft ピアリングの場合、BGP セッションの状態を確認することが重要です。 BGP プロビジョニング状態に加え、「*アドバタイズされたパブリック プレフィックス*」と呼ばれているもう 1 つの状態があります。 BGP セッションを開始し、ルーティングをエンドツーエンドで動作させるには、「アドバタイズされたパブリック プレフィックス」状態を「*構成済み*」にする必要があります。
+特に Microsoft ピアリングの場合、BGP セッションの状態を確認することが重要です。 呼ばれる別の状態があるだけでなく、プロビジョニング状態 BGP *パブリック プレフィックスの状態をアドバタイズ*します。 アドバタイズされたパブリック プレフィックス状態がである必要があります *構成* 州、BGP セッションをアップして、エンド ツー エンドの機能へのルーティングの両方です。 
 
-「アドバタイズされたパブリック プレフィックス」状態が「*検証必須*」に設定されている場合、BGP セッションは無効になっています。アドバタイズされたプレフィックスがルーティング レジストリの AS 番号に一致しなかったためです。
+アドバタイズされたパブリック プレフィックス状態に設定されている場合、 *検証のために必要な* 状態にある場合、BGP セッションが有効になっていないと、アドバタイズされたプレフィックスは、ルーティングのレジストリのいずれかで AS 番号と一致しませんでした。 
+
 >[AZURE.IMPORTANT] アドバタイズされたパブリック プレフィックスの状態がである場合 *手動検証* 状態にある場合にサポート チケットを開く必要があります [Microsoft サポート](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) に沿って提供の自律システム番号が関連付けられている IP アドレスを所有している証拠を提供するとします。
 
 
@@ -114,10 +117,6 @@ BGP プロビジョニング状態からは、Microsoft エッジで BGP セッ�
 
 - ExpressRoute 接続を構成します。
 
-    - [ExpressRoute 回線を作成します。](expressroute-howto-circuit-classic.md)
-    - [ルーティングを構成します。](expressroute-howto-routing-classic.md)
-    - [VNet を ExpressRoute 回線にリンクします。](expressroute-howto-linkvnet-classic.md)
-
-
-
-
+    - [ExpressRoute 回線の作成](expressroute-howto-circuit-classic.md)
+    - [ルーティングの構成](expressroute-howto-routing-classic.md)
+    - [ExpressRoute 回線への VNet のリンク](expressroute-howto-linkvnet-classic.md)

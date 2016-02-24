@@ -17,7 +17,6 @@
     ms.author="markusvi;andkjell"/>
 
 
-
 # Azure AD Connect Sync: 宣言型のプロビジョニングの式について
 
 Azure AD Connect Sync は、Forefront Identity Manager 2010 で初めて導入された宣言型のプロビジョニングを基盤としています。これは、コンパイルされたコードを記述することなく完全な ID 統合ビジネス ロジックを実装できるようにするためのものです。
@@ -33,16 +32,15 @@ Azure AD Connect Sync は、Forefront Identity Manager 2010 で初めて導入�
 - 関数は、名前の後に山かっこで囲まれた引数が続きます。たとえば、FunctionName(argument 1,argument N) などです。
 - 属性は、角かっこで識別されます。たとえば、[attributeName] などです。
 - パラメーターは、パーセント記号で識別されます。たとえば、%ParameterName% などです。
-- 文字列定数は、引用符で囲まれます。たとえば、"Contoso"(注: 引用符を使用する必要があります""、引用符のないスマート"")
-- 数値は、引用符を使用しないで表され、10 進数であることが求められます。16 進数の値には、&H がプレフィックスとして付加されます。例: 98052, &HFF
+- 文字列定数は、引用符で囲まれます。たとえば、 "Contoso"(注: 引用符を使用する必要があります""、引用符のないスマート"")
+- 数値は、引用符を使用しないで表され、10 進数であることが求められます。 16 進数の値には、&H がプレフィックスとして付加されます。 例:  98052, &HFF
 - ブール値は、定数 (True、False) で表されます。
 - 組み込み定数は、その名前のみで表されます。たとえば、NULL、CRLF、IgnoreThisFlow などです。
 
 ### 関数
-
 宣言型のプロビジョニングでは、属性値を変換する機能を持つ多くの関数を使用します。 関数を入れ子にして、ある関数の結果を別の関数に渡すことができます。
 
-また、関数は複数値の属性も操作することができます。 この場合、関数は個々の値を操作し、同じ関数を各値に適用します。 たとえば `Trim([proxyAddresses])` proxyAddress 属性に含まれる値のトリムに操作を行います。
+また、関数は複数値の属性も操作することができます。 この場合、関数は個々の値を操作し、同じ関数を各値に適用します。 たとえば、`Trim([proxyAddresses])`は proxyAddress 属性の各値の Trim を実行します。
 
 関数の完全な一覧は記載されて、 [関数リファレンス](active-directory-aadconnectsync-functions-reference.md)します。
 
@@ -52,14 +50,14 @@ Azure AD Connect Sync は、Forefront Identity Manager 2010 で初めて導入�
 
 Active Directory Connector は、受信同期ルールについて次のパラメーターを提供しています。
 
-| パラメーター名| コメント|
+| パラメーター名 | コメント |
 | --- | --- |
-| Domain.Netbios| 現在インポートされているドメインの NetBIOS 形式 (FABRIKAMSALES など)|
-| Domain.FQDN| 現在インポートされているドメインの FQDN 形式 (sales.fabrikam.com など)|
-| Domain.LDAP| 現在インポートされているドメインの LDAP 形式 (DC=sales,DC=fabrikam,DC=com など)|
-| Forest.Netbios| 現在インポートされているフォレスト名の NetBIOS 形式 (FABRIKAMCORP など)|
-| Forest.FQDN| 現在インポートされているフォレスト名の FQDN 形式 (fabrikam.com など)|
-| Forest.LDAP| 現在インポートされているフォレスト名の LDAP 形式 (DC=fabrikam,DC=com など)|
+| Domain.Netbios | 現在インポートされているドメインの NetBIOS 形式 (FABRIKAMSALES など) |
+| Domain.FQDN | 現在インポートされているドメインの FQDN 形式 (sales.fabrikam.com など) |
+| Domain.LDAP | 現在インポートされているドメインの LDAP 形式 (DC=sales,DC=fabrikam,DC=com など) |
+| Forest.Netbios | 現在インポートされているフォレスト名の NetBIOS 形式 (FABRIKAMCORP など) |
+| Forest.FQDN | 現在インポートされているフォレスト名の FQDN 形式 (fabrikam.com など) |
+| Forest.LDAP | 現在インポートされているフォレスト名の LDAP 形式 (DC=fabrikam,DC=com など) |
 
 システムには次のパラメーターが用意されています。現在実行中のコネクタの識別子を取得するために使用されます。
 
@@ -73,13 +71,13 @@ Active Directory Connector は、受信同期ルールについて次のパラ�
 
 次の演算子を使用できます。
 
-- **比較**: <, <=, <>, 、=、>、> =
-- **算術**: +、-、*、-
+- **比較**: <、< =、<>、=、>、> =
+- **数学**: +、-、*、-
 - **文字列**: & (連結)
-- **論理**: && (AND)、|| (OR)
-- **評価順序**: ( )
+- **論理**: & & (and)、| |(または)
+- **評価順序**:)
 
-演算子は左から右に評価されます。評価の優先順位は同じです。 つまり、\ * する前に - (減算) (乗数) は評価されません。 2 \*(5 + 3) 2 \ と同じ*5 + 3 します。 かっこ () は、左から右への評価順が適切ではない場合に、評価順を変更するために使用されます。
+演算子は左から右に評価されます。評価の優先順位は同じです。 つまり、 \ * する前に - (減算) (乗数) は評価されません。 2\*(5+3) は、2 \ と同じではありません * 5 + 3 します。 かっこ () は、左から右への評価順が適切ではない場合に、評価順を変更するために使用されます。
 
 ## 一般的なシナリオ
 
@@ -87,13 +85,13 @@ Active Directory Connector は、受信同期ルールについて次のパラ�
 
 文字列属性は、既定では、インデックス可能で、最大長は 448 文字に設定されています。 それより多い文字を含む可能性がある文字列属性を使用する場合は、属性フローに次の式を含めるようにします。
 
-`attributeName <-Left([attributeName],448)`
+`attributeName <- Left([attributeName],448)`
 
 ### userPrincipalSuffix の変更
 
 Active Directory の userPrincipalName 属性は、常にユーザーに認識されるわけではなく、ログイン ID として適切でない場合があります。 Azure AD Connect Sync インストール ウィザードを使用すると、mail など異なる属性を選択できます。 ただし、場合によっては、属性を計算する必要があります。 たとえば、Contoso 社に 2 つの Azure AD ディレクトリがあり、一方は運用環境用、もう一方はテスト用であるとします。 テスト テナント内のユーザーについて、ログイン ID に含まれるサフィックスのみを変更しようと検討しています。
 
-`userPrincipalName <-済む &"@contosotest.com"`
+`userPrincipalName <- Word([userPrincipalName],1,"@") & "@contosotest.com"`
 
 この式では、最初の @ 記号の左側のすべてを使用し (Word)、固定文字列をそこに連結します。
 
@@ -101,7 +99,7 @@ Active Directory の userPrincipalName 属性は、常にユーザーに認識�
 
 Active Directory の一部の属性は、Active Directory ユーザーとコンピューターでは単一値に見えますが、スキーマでは複数値になっています。 例として挙げられるのが、説明属性です。
 
-`説明 <-IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
+`description <- IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
 
 この式で属性が値を持つ場合は、属性の最初のアイテムを使用し (Item)、先頭と末尾のスペースを削除して (Trim)、文字列の最初の 448 文字を維持します (Left)。
 
@@ -109,7 +107,7 @@ Active Directory の一部の属性は、Active Directory ユーザーとコン�
 
 ### NULL と IgnoreThisFlow
 
-受信同期ルールの場合は、定数 **NULL** を常に使用する必要があります。 これは、提供する値がフローになく、別のルールで値を提供できることを示します。 値を提供するルールがない場合、メタバース属性は削除されます。
+受信同期ルールの場合、定数の **NULL** 常に使用する必要があります。 これは、提供する値がフローになく、別のルールで値を提供できることを示します。 値を提供するルールがない場合、メタバース属性は削除されます。
 
 送信同期ルールでは、使用する定数として NULL および IgnoreThisFlow の 2 つがあります。 いずれも、提供する値が属性フローにないことを示しますが、相違点は、提供する値が他のルールにもないときの動作です。 接続されたディレクトリに既存の値がある場合、NULL は属性に delete をステージングして既存の値を削除しますが、IgnoreThisFlow は既存の値を維持します。
 
@@ -121,19 +119,15 @@ ImportedValues 関数は、属性名を角かっこではなく引用符で囲�
 
 この場合の例は、標準の同期ルールである Exchange の In from AD – User Common で確認できます。そこでは、Exchange ハイブリッドにおいて、Exchange Online で追加された値を、その値が正常にエクスポートされたことが確認された場合にのみ同期する必要があります。
 
-`proxyAddresses <-RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
+`proxyAddresses <- RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
 
-関数の一覧については、を参照してください [Azure AD Connect sync: 関数参照](active-directory-aadconnectsync-functions-reference.md)。
+関数の一覧については、次を参照してください [Azure AD Connect sync: 関数参照。](active-directory-aadconnectsync-functions-reference.md)
 
 
 ## その他のリソース
 
 * [Azure AD Connect Sync: 同期オプションのカスタマイズ](active-directory-aadconnectsync-whatis.md)
-* [内部設置型 id と Azure Active Directory の統合](active-directory-aadconnect.md)
+* [オンプレミス ID と Azure Active Directory の統合](active-directory-aadconnect.md)
 
-
-
-
-
-
+<!--Image references-->
 

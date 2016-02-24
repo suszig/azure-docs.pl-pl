@@ -17,22 +17,22 @@
    ms.author="ruturajd@microsoft.com"/>
 
 
-
 # 復旧計画への Azure Automation Runbook の追加
+
 
 このチュートリアルは、Azure Site Recovery を Azure と統合する方法を説明します。
 復旧計画に拡張性を持たを自動化できます。 復旧計画
-Azure Site Recovery を使用して、セカンダリ クラウドへのレプリケーションと Azure のシナリオへのレプリケーションの両方の保護、仮想マシンの回復を調整することができます。 復旧計画により、復旧を**常に正確**、**反復可能**で、**自動化**されるようにすることもできます。 Azure Automation との統合を拡張するが、仮想マシンを Azure で失敗する場合、
+Azure Site Recovery を使用して、セカンダリ クラウドへのレプリケーションと Azure のシナリオへのレプリケーションの両方の保護、仮想マシンの回復を調整することができます。 回復の際にも役立ちます **常に正確**, 、**repeatable**, 、および **自動**です。 Azure Automation との統合を拡張するが、仮想マシンを Azure で失敗する場合、
 回復では、プランし、runbook、ので、強力な自動化タスクを実行する機能を使用できます。
 
 ない耳にした Azure Automation まだ、サインアップします。
-[here](http://azure.microsoft.com/services/automation/) and
+[ここで](http://azure.microsoft.com/services/automation/) と
 サンプル スクリプトをダウンロードします。
-[here](http://azure.microsoft.com/documentation/scripts/). 読み取り
-[Azure サイトの詳細
-Recovery] (http://azure.microsoft.com/services/site-recovery/) と
+[ここで](http://azure.microsoft.com/documentation/scripts/)します。 読み取り
+詳細について [Azure サイト
+回復](http://azure.microsoft.com/services/site-recovery/) と
 復旧計画を使用した Azure への復旧を調整する方法
-[here](http://azure.microsoft.com/blog/?p=166264).
+[ここで](http://azure.microsoft.com/blog/?p=166264)します。
 
 このチュートリアルで見ていきます Azure Automation を統合する方法
 復旧計画に runbook です。 私たちの自動化は簡単なタスクを前の手順
@@ -42,17 +42,17 @@ Recovery] (http://azure.microsoft.com/services/site-recovery/) と
 
 ## Azure でのアプリケーションの保護
 
-はじめに、2 台の仮想マシンで構成される単純なアプリケーションについて説明します。 ここでは、Fabrikam の HRweb アプリケーションがあります。 Fabrikam-HRweb-frontend と Fabrikam-Hrweb-backend は、Azure Site Recovery を使用して Azure で保護されている 2 台の仮想マシンです。 Azure Site Recovery を使用して仮想マシンを保護するには、次の手順に従います。
+はじめに、2 台の仮想マシンで構成される単純なアプリケーションについて説明します。 ここでは、Fabrikam の HRweb アプリケーションがあります。 Fabrikam-HRweb-frontend と Fabrikam-Hrweb-backend は、Azure Site Recovery を使用して Azure で保護されている 2 台の仮想マシンです。 Azure Site Recovery を使用して仮想マシンを保護するには、次の手順に従います。 
 
 1.  仮想マシンの保護を有効にします。
 
 2.  仮想マシンの初期レプリケーションが完了したことを確認します。
-    およびレプリケートしています。
+    およびレプリケートしています。 
 
 3.  初期レプリケーションが完了して、レプリケーションの状態が [保護済み] になるまで待機します。
 
 ![](media/site-recovery-runbook-automation/01.png)
---------------------------------------------------
+---------------------
 
 このチュートリアルでは、Fabrikam HRweb アプリケーションの復旧計画を作成し、Azure にアプリケーションがフェールオーバーするようにします。 次に、この復旧計画を、フェールオーバーした Azure 仮想マシンにエンドポイントを作成する Runbook と統合し、ポート 80 で Web ページを提供します。
 
@@ -69,7 +69,7 @@ Azure にアプリケーションを復旧するには、復旧計画を作成�
 
 ![](media/site-recovery-runbook-automation/12.png)
 
-詳細、復旧計画に関するドキュメントを読む [ここ](https://msdn.microsoft.com/library/azure/dn788799.aspx "ここ")します。
+詳細、復旧計画に関するドキュメントを読む [ここ](https://msdn.microsoft.com/library/azure/dn788799.aspx "ここ")します。 
 
 次に、Azure Automation で必要なアーティファクトを作成します。
 
@@ -91,11 +91,11 @@ ASR コンテナーと同じリージョンに、アカウントを配置する�
 
 ### アセットとしてのサブスクリプション名の追加
 
-1.  新しい設定の追加 ![](media/site-recovery-runbook-automation/04.png) Azure オートメーションの資産とする] を選択します。 ![](media/site-recovery-runbook-automation/05.png)
+1.  Azure Automation アセットに新しい設定![](media/site-recovery-runbook-automation/04.png)を追加し、![](media/site-recovery-runbook-automation/05.png)を選択します。
 
-2.  変数の型として **[String]** を選択します。
+2.  変数の型として選択 **文字列**
 
-3.  変数名に **AzureSubscriptionName** を指定します。
+3.  変数名として指定 **AzureSubscriptionName**
 
     ![](media/site-recovery-runbook-automation/06.png)
 
@@ -104,7 +104,7 @@ ASR コンテナーと同じリージョンに、アカウントを配置する�
     ![](media/site-recovery-runbook-automation/07_1.png)
 
 [設定] ページからサブスクリプションの名前がわかります。
-Azure ポータルで自分のアカウントです。
+Azure ポータルで自分のアカウントです。 
 
 ### アセットとしての Azure ログイン資格情報の追加
 
@@ -114,11 +114,11 @@ Microsoft アカウントまたは職場または学校のアカウントを使�
 安全に使用する、資産にアカウントの資格情報を格納することができます。
 runbook。
 
-1.  新しい設定の追加 ![](media/site-recovery-runbook-automation/04.png) Azure Automation アセットし、[ ![](media/site-recovery-runbook-automation/09.png)
+1.  Azure Automation アセットに新しい設定![](media/site-recovery-runbook-automation/04.png)を追加し、![](media/site-recovery-runbook-automation/09.png)を選択します。
 
-2.  [資格情報の種類] には、**[Windows PowerShell 資格情報]** を選択します。
+2.  資格情報の種類を選択して **Windows PowerShell 資格情報**
 
-3.  名前に **AzureCredential** を指定します。
+3.  名前を指定 **AzureCredential**
 
     ![](media/site-recovery-runbook-automation/10.png)
 
@@ -130,7 +130,7 @@ runbook。
 
 使用してサブスクリプションに接続する方法の詳細について
 powershell が与えられます
-[here](../install-configure-powershell.md).
+[ここで](../install-configure-powershell.md)します。
 
 次に、追加の Azure Automation で runbook を作成するが、
 フェールオーバー後は、フロント エンドの仮想マシンのエンドポイントです。
@@ -138,40 +138,41 @@ powershell が与えられます
 ## Azure Automation コンテキスト
 
 ASR は、コンテキスト変数を作成するのに役立つ runbook に渡されます
-確定的なスクリプトです。 クラウド サービスと仮想マシンの名前は予測可能ともいえますが、常にそうであるとは限りません。これは、シナリオによっては、Azure でサポートされていない文字が原因で、仮想マシン名の名前が変更されている可能性がある場合などが考えられるためです。 したがって、この情報が*コンテキスト*の一部として、ASR 復旧計画に渡されます。
+確定的なスクリプトです。 クラウド サービスと仮想マシンの名前は予測可能ともいえますが、常にそうであるとは限りません。これは、シナリオによっては、Azure でサポートされていない文字が原因で、仮想マシン名の名前が変更されている可能性がある場合などが考えられるためです。 一部として、ASR 復旧計画にこの情報が渡されるので、 *コンテキスト*します。
 
-以下に、コンテキスト変数がどのようになっているかについて、例を示します。
+以下に、コンテキスト変数がどのようになっているかについて、例を示します。 
 
         {"RecoveryPlanName":"hrweb-recovery",
-    
+
         "FailoverType":"Test",
-    
+
         "FailoverDirection":"PrimaryToSecondary",
-    
+
         "GroupId":"1",
-    
+
         "VmMap":{"7a1069c6-c1d6-49c5-8c5d-33bfce8dd183":
-    
+
                 {"CloudServiceName":"pod02hrweb-Chicago-test",
-    
+
                 "RoleName":"Fabrikam-Hrweb-frontend-test"}
-    
+
                 }
-    
+
         }
+
 
 以下の表には、コンテキスト内の各変数の名前と説明が示されています。
 
- **変数名**| **説明**
+**変数名** | **説明**
 ---|---
- RecoveryPlanName| 実行される計画の名前です。同じスクリプトを使用して名前を基にアクションを実行するのに役に立ちます。
- FailoverType| テスト用のフェールオーバーか、計画されたフェールオーバーか、それとも計画外のフェールオーバーかを指定します。
- FailoverDirection| プライマリへの復旧か、それともセカンダリへの復旧かを指定します。
- GroupID| 復旧計画が実行される場合に、その計画内のグループ番号を識別します。
- VmMap| グループ内のすべての仮想マシンの配列です。
- VMMap キー| VM ごとの一意のキー (GUID) です。これは、該当する仮想マシンの VMM ID と同じです。
- RoleName| 復元される Azure VM の名前 です。
- CloudServiceName| 仮想マシンが作成される Azure Cloud Service の名前です。
+RecoveryPlanName | 実行される計画の名前です。 同じスクリプトを使用して名前を基にアクションを実行するのに役に立ちます。
+FailoverType | テスト用のフェールオーバーか、計画されたフェールオーバーか、それとも計画外のフェールオーバーかを指定します。 
+FailoverDirection | プライマリへの復旧か、それともセカンダリへの復旧かを指定します。
+GroupID | 復旧計画が実行される場合に、その計画内のグループ番号を識別します。
+VmMap | グループ内のすべての仮想マシンの配列です。
+VMMap キー | VM ごとの一意のキー (GUID) です。 これは、該当する仮想マシンの VMM ID と同じです。 
+RoleName | 復元される Azure VM の名前 です。
+CloudServiceName | 仮想マシンが作成される Azure Cloud Service の名前です。
 
 
 コンテキストで VmMap キーを識別するには、ASR の [VM のプロパティ] ページに移動し、VM GUID プロパティを参照することもできます。
@@ -190,11 +191,12 @@ ASR は、コンテキスト変数を作成するのに役立つ runbook に渡�
 2.  Runbook の [作成者] ビューに移動し、ドラフト モードに移行します。
 
 3.  まず、復旧計画のコンテキストとして使用する変数を指定します。
-
+  
     ```
         param (
             [Object]$RecoveryPlanContext
         )
+
     ```
 
 4.  次に、資格情報を使用してサブスクリプションに接続し、
@@ -202,14 +204,14 @@ ASR は、コンテキスト変数を作成するのに役立つ runbook に渡�
 
     ```
         $Cred = Get-AutomationPSCredential -Name 'AzureCredential'
-
+    
         # Connect to Azure
         $AzureAccount = Add-AzureAccount -Credential $Cred
         $AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
         Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
     ```
 
-    ここで、**AzureCredential** と **AzureSubscriptionName** という Azure アセットを使用することに注意してください。
+    Azure アセットを使用することに注意してください **AzureCredential** と **AzureSubscriptionName** ここです。
 
 5.  ここで、エンドポイントの詳細と、エンドポイントを公開する仮想マシンの GUID を指定します。 この場合は、フロントエンドの仮想マシンです。
 
@@ -222,7 +224,7 @@ ASR は、コンテキスト変数を作成するのに役立つ runbook に渡�
         $VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
     ```
 
-    これにより、Azure エンドポイント プロトコル、VM のローカル ポート、およびそのマップされたパブリック ポートが指定されます。 これらの変数は、仮想マシンにエンドポイントを追加する Azure のコマンドで必要なパラメーターです。 VMGUID には、稼働に必要な仮想マシンの GUID が保持されます。
+    これにより、Azure エンドポイント プロトコル、VM のローカル ポート、およびそのマップされたパブリック ポートが指定されます。 これらの変数は、仮想マシンにエンドポイントを追加する Azure のコマンドで必要なパラメーターです。 VMGUID には、稼働に必要な仮想マシンの GUID が保持されます。 
 
 6.  スクリプトは、特定の VM GUID のコンテキストを抽出ようになりましたし、
     これによって参照される仮想マシンにエンドポイントを作成します。
@@ -247,7 +249,7 @@ ASR は、コンテキスト変数を作成するのに役立つ runbook に渡�
         }
     ```
 
-7. この操作が完了すると、発行をヒット ![](media/site-recovery-runbook-automation/20.png) 、スクリプトの実行に使用できるようにします。
+7. この処理が完了したら、[発行]![](media/site-recovery-runbook-automation/20.png) をクリックし、スクリプトが実行で利用できるようにします。 
 
 以下に、完全なスクリプトを参考として示します。
 
@@ -259,7 +261,7 @@ ASR は、コンテキスト変数を作成するのに役立つ runbook に渡�
     )
 
     $Cred = Get-AutomationPSCredential -Name 'AzureCredential'
-
+    
     # Connect to Azure
     $AzureAccount = Add-AzureAccount -Credential $Cred
     $AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
@@ -271,7 +273,7 @@ ASR は、コンテキスト変数を作成するのに役立つ runbook に渡�
     $AEPublicPort = 80
     $AEName = "Port 80 for HTTP"
     $VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
-
+    
     #Read the VM GUID from the context
     $VM = $RecoveryPlanContext.VmMap.$VMGUID
 
@@ -335,7 +337,7 @@ Runbook を計画に追加した後は、テストを行うことができます
 
     ![](media/site-recovery-runbook-automation/18.png)
 
-4.  フェールオーバーが完了したら、Runbook の実行結果とは別に、[Azure 仮想マシン] ページにアクセスし、エンドポイントを参照すると、実行が成功したかどうかを確認できます。
+4.  フェールオーバーが完了したら、Runbook の実行結果とは別に、[Azure 仮想マシン] ページにアクセスし、エンドポイントを参照すると、実行が成功したかどうかを確認できます。 
 
 ![](media/site-recovery-runbook-automation/19.png)
 
@@ -347,11 +349,7 @@ Runbook を計画に追加した後は、テストを行うことができます
 
 [Azure Automation の概要](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation の概要")
 
-[サンプル Azure Automation スクリプト](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=User&f[0].Value=SC%20Automation%20Product%20Team&f[0].Text=SC%20Automation%20Product%20Team "サンプル Azure Automation スクリプト")
+[サンプル スクリプトが Azure Automation](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=User&f[0].Value=SC%20Automation%20Product%20Team&f[0].Text=SC%20Automation%20Product%20Team "サンプル Azure Automation スクリプト")
 
-
-
-
-
-
+ 
 

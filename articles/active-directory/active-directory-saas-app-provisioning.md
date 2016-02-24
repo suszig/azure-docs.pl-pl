@@ -16,10 +16,9 @@
    ms.date="09/08/2015"
    ms.author="liviodlc"/>
 
+#Azure Active Directory による SaaS アプリへのユーザー プロビジョニングとプロビジョニング解除の自動化
 
-# Azure Active Directory による SaaS アプリへのユーザー プロビジョニングとプロビジョニング解除の自動化
-
-## SaaS アプリへのユーザー プロビジョニングの自動化とは
+##SaaS アプリへのユーザー プロビジョニングの自動化とは
 
 Azure Active Directory (Azure AD) を使用すると、Dropbox、Salesforce、ServiceNow などのクラウド (SaaS) アプリケーションで、ユーザー ID の作成、保守、削除を自動化できます。
 
@@ -37,7 +36,7 @@ Azure Active Directory (Azure AD) を使用すると、Dropbox、Salesforce、Se
 - プロビジョニング エラーのためのオプションの電子メール通知。
 - 監視とトラブルシューティングに役立つレポートとアクティビティ ログ。
 
-## 自動プロビジョニングを使用する理由
+##自動プロビジョニングを使用する理由
 
 この機能を使用する一般的な動機は、次のとおりです。
 
@@ -46,7 +45,7 @@ Azure Active Directory (Azure AD) を使用すると、Dropbox、Salesforce、Se
 - 大量のユーザーを特定の SaaS アプリに簡単にインポートするため。
 - Azure AD シングル サインオン用に定義された同じアプリケーションのアクセス ポリシーからプロビジョニング ソリューションを実行させる利便性を享受するため。
 
-## よく寄せられる質問
+##よく寄せられる質問
 
 **Azure AD はどのくらいの頻度で SaaS アプリにディレクトリの変更を書き込みますか。**
 
@@ -72,12 +71,12 @@ Azure AD は 5 ～ 10 分ごとに変更を確認します。 SaaS アプリが�
 
 お問い合わせください、 [Azure Active Directory フィードバック フォーラム](http://feedback.azure.com/forums/169401-azure-active-directory)します。
 
-## 自動プロビジョニングのしくみ
+##自動プロビジョニングのしくみ
 
 Azure AD は、各アプリケーション ベンダーによって提供されるプロビジョニング エンドポイントに接続することで、SaaS アプリにユーザーをプロビジョニングします。 これらのエンドポイントを使用して、Azure AD はプログラムによってユーザーを作成、更新、削除します。 Azure AD がプロビジョニングを自動化するために行うさまざまな手順の概要を以下に示します。
 
 1. 初めてアプリのプロビジョニングを有効にする場合は、次の操作が実行されます。
- - Azure AD は、SaaS アプリ内の既存のユーザーとディレクトリ内の対応する ID を一致させようとします。 ユーザーが一致したとき、シングル サインオンは自動的に有効に*なりません*。 ユーザーがアプリケーションにアクセスできるようにするには、直接またはグループのメンバーシップを介して、ユーザーを Azure AD のアプリに明示的に割り当てる必要があります。
+ - Azure AD は、SaaS アプリ内の既存のユーザーとディレクトリ内の対応する ID を一致させようとします。 ユーザーが一致したとき *いない* シングル サインオンで自動的に有効にします。 ユーザーがアプリケーションにアクセスできるようにするには、直接またはグループのメンバーシップを介して、ユーザーを Azure AD のアプリに明示的に割り当てる必要があります。
  - アプリに割り当てられるユーザーを既に指定している場合や、Azure AD がこれらのユーザーに対する既存のアカウントを見つけることができない場合は、Azure AD はそのアプリに新しいアカウントをプロビジョニングします。
 2. 初期同期が完了すると、上記で説明したように Azure AD は 10 分ごとに次の変更を確認します。
  - 新しいユーザーがアプリに割り当てられている場合 (直接またはグループ メンバーシップを通じて) は、SaaS アプリに新しいアカウントがプロビジョニングされます。
@@ -87,11 +86,11 @@ Azure AD は、各アプリケーション ベンダーによって提供され�
 
 属性が Azure AD の間でどのようにマップされる方法の詳細については、の記事を参照して、SaaS アプリ [属性マッピングのカスタマイズ](active-directory-saas-customizing-attribute-mappings.md)します。
 
-## 自動ユーザー プロビジョニングをサポートするアプリの一覧
+##自動ユーザー プロビジョニングをサポートするアプリの一覧
 
 アプリをクリックして、自動プロビジョニングの構成方法に関するチュートリアルをご覧ください。
 
-- [ボックス](http://go.microsoft.com/fwlink/?LinkId=286016)
+- [Box](http://go.microsoft.com/fwlink/?LinkId=286016)
 - [Citrix GoToMeeting](http://go.microsoft.com/fwlink/?LinkId=309580)
 - [Concur](http://go.microsoft.com/fwlink/?LinkId=309575)
 - [Docusign](http://go.microsoft.com/fwlink/?LinkId=403254)
@@ -108,7 +107,3 @@ Azure AD は、各アプリケーション ベンダーによって提供され�
 連絡先、Azure AD エンジニア リング チームにその他のアプリケーションのプロビジョニングのサポートを要請してください。 メッセージを送信を通じて、 [Azure Active Directory フィードバック フォーラム](http://feedback.azure.com/forums/169401-azure-active-directory)します。
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
-
-
-
-

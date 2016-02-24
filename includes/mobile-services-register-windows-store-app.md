@@ -1,8 +1,9 @@
+
 1. アプリを登録済みでない場合は、移動、[アプリ送信のページ] に Windows ストア アプリのデベロッパー センターでは、Microsoft アカウントでログオンし、をクリックして **アプリ名**します。
 
     ![](./media/mobile-services-register-windows-store-app/mobile-services-submit-win8-app.png)
 
-2. [**一意の名前を予約することにより新しいアプリを作成する**] をクリックし、[**続行**] をクリックし、[**アプリ名**] にアプリケーションの名前を入力し、[**アプリの名前の予約**] をクリックし、[**保存**] をクリックします。
+2. 選択 **一意の名前を予約して新しいアプリを作成** ] をクリック **続行**, にあるアプリの名前を入力し、 **アプリ名**, 、] をクリックして **アプリ名の予約**, 、順にクリック **保存**します。
 
     ![](./media/mobile-services-register-windows-store-app/mobile-services-win8-app-name.png)
 
@@ -10,54 +11,54 @@
 
 3. Visual Studio で、チュートリアルを完了したときに作成したプロジェクトを開く [を使ってみるモバイル サービス] です。
 
-4. ソリューション エクスプローラーで Windows ストア アプリ プロジェクトを右クリックし、[**ストア**]、[**アプリケーションをストアと関連付ける**] の順にクリックします。
+4. ソリューション エクスプ ローラーで、Windows ストア アプリ プロジェクトを右クリックし、をクリックして **ストア**, 、クリックして **アプリケーションを... ストアと関連付ける**します。 
 
     ![](./media/mobile-services-register-windows-store-app/mobile-services-store-association.png)
 
-    **アプリケーションを Windows ストアと関連付ける**ウィザードが表示されます。
+    これを表示、 **アプリケーションを Windows ストアと関連付ける** ウィザード。
 
-5. ウィザードで、[**サインイン**] をクリックし、Microsoft アカウントでログインし、手順 2 で登録したアプリケーションを選択し、[**次へ**] をクリックし、[**関連付け**] をクリックします。
+5. ウィザードで、次のようにクリックします。 **サインイン** 手順 2. で登録したアプリケーションをクリックし、Microsoft アカウントでログイン] をクリックし **次**, 、順にクリック **関連付ける**します。
 
-    この操作により、必要な Windows ストア登録情報がアプリケーション マニフェストに追加されます。
+    この操作により、必要な Windows ストア登録情報がアプリケーション マニフェストに追加されます。   
 
-6. (省略可能) ユニバーサル Windows アプリケーションの場合、Windows Phone ストア プロジェクトの手順 4 および 5 を繰り返します。
+6. (省略可能) ユニバーサル Windows アプリケーションの場合、Windows Phone ストア プロジェクトの手順 4 および 5 を繰り返します。 
 
-6. 新しいアプリケーションの Windows デベロッパー センター ページに戻り、**[サービス]** をクリックします。
+6. 新しいアプリケーションの Windows デベロッパー センター ページに戻って **サービス**します。 
 
-    ![](./media/mobile-services-register-windows-store-app/mobile-services-win8-edit-app.png)
+    ![](./media/mobile-services-register-windows-store-app/mobile-services-win8-edit-app.png) 
 
-7. [サービス] ページで **[Azure のモバイル サービス]** の **[Live サービス サイト]** をクリックします。
+7. [サービス] ページをクリックして **Live サービス サイト** [ **Azure Mobile Services**します。
 
-    ![](./media/mobile-services-register-windows-store-app/mobile-services-win8-edit2-app.png)
+    ![](./media/mobile-services-register-windows-store-app/mobile-services-win8-edit2-app.png) 
 
 8. をクリックして **API 設定**, 、選択を有効にする **モバイルやデスクトップ クライアント アプリ**, 、としてモバイル サービス URL を指定、 **ターゲット ドメイン**, の値を指定 `https://<mobile_service>.azure-mobile.net/login/microsoftaccount/` で **リダイレクト URL**, 、順にクリックして **保存**します。
 
     ![](./media/mobile-services-register-windows-store-app/mobile-services-win8-app-push-auth-2.png)
 
-9. **[アプリ設定]** の **[クライアント ID]**、**[クライアント シークレット]**、**[パッケージ セキュリティ ID (SID)]** の値をメモしておきます。
+9.  **アプリ設定**, の値をメモしておいてください **クライアント ID**, 、**クライアント シークレット**, 、および **パッケージ セキュリティ id (SID)**します。 
 
     ![](./media/mobile-services-register-windows-store-app/mobile-services-win8-app-push-auth.png)
-    >[AZURE.NOTE]クライアント シークレットとパッケージ SID は、重要なセキュリティ資格情報です。 これらの機密情報は、他のユーザーと共有したり、アプリケーションで配信したりしないでください。
+
+    >[AZURE.NOTE]クライアント シークレットとパッケージ SID は重要なセキュリティ資格情報です。 これらの機密情報は、他のユーザーと共有したり、アプリケーションで配信したりしないでください。
 
 10. ログオン、 [Azure クラシック ポータル](https://manage.windowsazure.com/), 、] をクリックして **Mobile Services**, 、アプリケーションをクリックします。
 
-11. [**ID**] タブをクリックし、手順 4 で WNS から取得した [**クライアント シークレット**] および [**パッケージ SID**] の値を入力し、[**保存**] をクリックします。
+11. をクリックして、 **Identity** タブで、入力、 **クライアント シークレット** と **パッケージ SID** 値が手順 4. で WNS から取得した、クリックして **保存**します。
 
     ![](./media/mobile-services-register-windows-store-app/mobile-push-tab.png)
 
-13. **[ID]** タブをクリックします。 前のステップで入力した **[クライアント シークレット]** と **[パッケージ SID]** の値が既に設定されていることに注意してください。 先ほどのメモのとおりに **[クライアント ID]** を入力し、**[保存]** をクリックします。
+13. クリックして、 **Identity** ] タブをクリックします。 通知、 **クライアント シークレット** と **パッケージ SID** 値が、既に前の手順で設定します。 入力、 **クライアント ID** 先ほどのメモの順にクリックして **保存**します。
 
     ![](./media/mobile-services-register-windows-store-app/mobile-services-identity-tab.png)
+ 
+これで、アプリケーションで認証に Microsoft アカウントを使用する準備ができました。  
 
-これで、アプリケーションで認証に Microsoft アカウントを使用する準備ができました。
+<!-- Anchors. -->
 
+<!-- Images. -->
+ 
 
-
-
-
-
-
-
-[get started with mobile services]: /develop/mobile/tutorials/get-started/#create-new-service 
-[submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582 
+<!-- URLs. -->
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 

@@ -17,11 +17,10 @@
     ms.date="11/19/2015"
     ms.author="robmcm"/>
 
-
 # 仮想マシンで多くのコンピューティング処理を要する Java タスクを実行する方法
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーのモデルです。
-
+ 
 
 Azure で仮想マシンを使用することで、多くのコンピューティング処理を要するタスクを処理できます。 たとえば、仮想マシンでタスクを処理し、結果をクライアント マシンやモバイル アプリケーションに配信できます。 このガイドを記事を読むことで、多くのコンピューティング処理を要する Java アプリケーションを実行し、それを別の Java アプリケーションから監視できる仮想マシンの作成方法を理解できます。
 
@@ -50,36 +49,36 @@ Azure で仮想マシンを使用することで、多くのコンピューテ�
 ## 仮想マシンを作成するには
 
 1. ログイン、 [Azure クラシック ポータル](https://manage.windowsazure.com)します。
-2. **[新規]**、**[コンピューティング]**、**[仮想マシン]**、**[ギャラリーから]** をクリックします。
-3. **[仮想マシン イメージの選択]** ダイアログ ボックスで、**[JDK 7 Windows Server 2012]** を選択します。
-**[JDK 6 Windows Server 2012]** は、JDK 7 を実行する準備ができていないレガシ アプリケーションがある場合に表示されることに注意してください。
-4. **[次へ]** をクリックします。
+2. をクリックして **新規**, 、] をクリックして **コンピューティング**, 、] をクリックして **仮想マシン**, 、] をクリックし、 **ギャラリーから**します。
+3.  **仮想マシン イメージの選択** ダイアログ ボックスで、 **JDK 7 Windows Server 2012**します。
+なお **JDK 6 Windows Server 2012** はまだ準備ができていない JDK 7 を実行するレガシ アプリケーションがある場合にします。
+4. クリックして **次**します。
 4. **[仮想マシンの構成]** ダイアログ ボックスで次の作業を行います。
     1. 仮想マシンの名前を指定します。
     2. 仮想マシンに使用するサイズを指定します。
-    3. **[ユーザー名]** フィールドに、管理者の名前を入力します。 この名前と次に入力するパスワードは忘れないでください。仮想マシンにリモート ログインするときに使用します。
-    4. **[新しいパスワード]** フィールドにパスワードを入力し、**[確認]** フィールドに再びパスワードを入力します。 これは、Administrator アカウントのパスワードです。
-    5. **[次へ]** をクリックします。
+    3. 管理者の名前を入力、 **ユーザー名** フィールドです。 この名前と次に入力するパスワードは忘れないでください。仮想マシンにリモート ログインするときに使用します。
+    4. パスワードを入力、 **新しいパスワード** フィールド、および再入力、 **Confirm** フィールドです。 これは、Administrator アカウントのパスワードです。
+    5. クリックして **次**します。
 5. 次の **[仮想マシンの構成]** ダイアログ ボックスで次の作業を行います。
-    1. **[クラウド サービス]** には、既定の **[新しいクラウド サービスの作成]** を使用します。
-    2. **[クラウド サービス DNS 名]** の値は cloudapp.net 全体で一意であることが必要です。 一意であることを示す表示になるように、必要に応じてこの値を修正してください。
-    2. リージョン、アフィニティ グループ、または仮想ネットワークを指定します。 このチュートリアルでは、**[米国西部]** などのリージョンを指定します。
-    2. **[ストレージ アカウント]** で、**[自動的に生成されたストレージ アカウントを使用]** を選択します。
-    3. **[可用性セット]** は、**[(なし)]** を選択します。
-    4. **[次へ]** をクリックします。
+    1.  **クラウド サービス**, 、既定値を使用して **新しいクラウド サービスを作成する**です。
+    2. 値 **クラウド サービス DNS 名** cloudapp.net で一意である必要があります。 一意であることを示す表示になるように、必要に応じてこの値を修正してください。
+    2. リージョン、アフィニティ グループ、または仮想ネットワークを指定します。 このチュートリアルの目的のリージョンを指定よう **米国西部**します。
+    2.  **ストレージ アカウント**, [ **自動的に生成されたストレージ アカウントを使用して**します。
+    3.  **可用性セット**, [ **(なし)**します。
+    4. クリックして **次**します。
 5. 最後の **[仮想マシンの構成]** ダイアログ ボックスで次の作業を行います。
     1. 既定のエンドポイント エントリをそのまま使用します。
-    2. **[完了]** をクリックします。
+    2. クリックして **完了**します。
 
 ## 仮想マシンにリモート ログインするには
 
 1. ログオン、 [Azure クラシック ポータル](https://manage.windowsazure.com)します。
-2. **[仮想マシン]** をクリックします。
+2. クリックして **仮想マシン**します。
 3. ログインする仮想マシンの名前をクリックします。
-4. **[接続]** をクリックします。
+4. クリックして **接続**します。
 5. 表示される画面で必要に応じて入力して、仮想マシンに接続します。 管理者名とパスワードの入力画面が表示されたら、仮想マシンの作成時に指定した値を使用します。
 
-Azure の Service Bus 機能により、JRE の **cacerts** ストアの一部として Baltimore CyberTrust Root 証明書をインストールすることが求められます。 このチュートリアルで使用する Java ランタイム環境 (JRE) には、この証明書が自動的に含められます。 JRE には、この証明書がないかどうか **cacerts** ストアを参照してください [を Java CA 証明書ストア ][add_ca_cert] こと (およびそのを cacerts ストアに証明書を表示する方法) を追加する方法についてです。
+Azure Service Bus の機能が Baltimore CyberTrust Root 証明書を JRE の一部としてインストールする必要があります **cacerts** を格納します。 このチュートリアルで使用する Java ランタイム環境 (JRE) には、この証明書が自動的に含められます。 JRE には、この証明書がないかどうか **cacerts** ストアを参照してください [を Java CA 証明書ストアに証明書を追加する][add_ca_cert] こと (およびそのを cacerts ストアに証明書を表示する方法) を追加する方法についてです。
 
 ## Service Bus 名前空間の作成方法
 
@@ -90,19 +89,19 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
 サービス名前空間を作成するには:
 
 1.  ログオン、 [Azure クラシック ポータル](https://manage.windowsazure.com)します。
-2.  Azure クラシック ポータルの左下のナビゲーション ウィンドウで、**[サービス バス、アクセス制御、キャッシュ]** をクリックします。
-3.  Azure クラシック ポータルの左ペインで、クリックして、* * サービス
-    Bus * * ノードをクリックして、 **新規** ] ボタンをクリックします。  
-    ![[Service Bus] ノードのスクリーンショット][svc_bus_node]
-4.  **新しいサービス名前空間の作成** ] ダイアログ ボックスで入力してください、
+2.  Azure クラシック ポータルの左下のナビゲーション ウィンドウで、クリックして **Service Bus、Access Control、Caching**します。
+3.  Azure クラシック ポータルの左ペインで、クリックして、 **サービス
+    Bus** ノードをクリックして、 **新規** ] ボタンをクリックします。  
+    ![サービス バス] ノードのスクリーン ショット][svc_bus_node]
+4.   **新しいサービス名前空間の作成** ] ダイアログ ボックスで入力してください、
     **名前空間**, 、一意であることを確認するをクリックして、
-    **Check Availability** ] ボタンをクリックします。  
-    ![[名前空間の新規作成] のスクリーンショット][create_namespace]
+    **可用性を確認して** ] ボタンをクリックします。  
+    ![作成する新しい名前空間のスクリーン ショット][create_namespace]
 5.  入力した名前が利用できることを確認できたら、名前空間を
-    国または地域の名前空間がホストするようにしをクリックして、 **名前空間の作成** ] ボタンをクリックします。
+    国または地域の名前空間がホストするようにしをクリックして、 **名前空間の作成** ] ボタンをクリックします。  
 
     Azure クラシック ポータルに作成した名前空間が表示されます。
-    これには少し時間がかかります。 状態が **[有効]** になるのを待ってから、次の手順に進みます。
+    これには少し時間がかかります。 待機状態になるまで **Active** 次の手順に進む前にします。
 
 ## 名前空間の既定の管理資格情報の取得
 
@@ -118,7 +117,7 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
 3.  右側 **プロパティ** ペインのプロパティを一覧表示します
     新しい名前空間。
     ![[プロパティ] ウィンドウのスクリーン ショット][properties_pane]
-4.  **[既定のキー]** は表示されません。 クリックして、 **ビュー** を表示するボタンをクリックします。
+4.   **既定のキー** を非表示にします。 クリックして、 **ビュー** を表示するボタンをクリックします。
     セキュリティ資格情報。
     ![既定のキーのスクリーン ショット][default_key]
 5.  書き留めて、 **既定の発行者** と **既定のキー** します。
@@ -128,13 +127,13 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
 ## 多くのコンピューティング処理を要するタスクを実行する Java アプリケーションの作成方法
 
 1. 開発コンピューターで (これに作成した仮想マシンはありません)、ダウンロード、 [Azure SDK for Java](http://azure.microsoft.com/develop/java/)します。
-2. このセクションの末尾にあるコード例を使用して、Java コンソール アプリケーションを作成します。 このチュートリアルでは、Java ファイル名として **TSPSolver.java** を使用します。 変更、 **\_service\_bus\_namespace**, 、**your_service_bus_owner**, 、および **\_service\_bus\_key の各** サービス バスを使用するプレース ホルダー **名前空間**, 、**既定の発行者** と **既定のキー** それぞれ値します。
-3. コーディング後、実行可能な Java アーカイブ (JAR) にアプリケーションをエクスポートして、生成される JAR に、必要なライブラリをパッケージ化します。 このチュートリアルでは、生成される JAR 名として **TSPSolver.jar** を使用します。
+2. このセクションの末尾にあるコード例を使用して、Java コンソール アプリケーションを作成します。 このチュートリアルで使用して **TSPSolver.java** Java ファイル名として。 変更、 **\_service\_bus\_namespace**, 、**your_service_bus_owner**, 、および **\_service\_bus\_key の各** サービス バスを使用するプレース ホルダー **名前空間**, 、**既定の発行者** と **既定のキー** それぞれ値します。
+3. コーディング後、実行可能な Java アーカイブ (JAR) にアプリケーションをエクスポートして、生成される JAR に、必要なライブラリをパッケージ化します。 このチュートリアルで使用して **TSPSolver.jar** 生成される JAR 名として。
 
 <p/>
 
     // TSPSolver.java
-    
+
     import com.microsoft.windowsazure.services.core.Configuration;
     import com.microsoft.windowsazure.services.core.ServiceException;
     import com.microsoft.windowsazure.services.serviceBus.*;
@@ -145,20 +144,20 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
     import java.util.ArrayList;
     import java.util.Date;
     import java.util.List;
-    
+
     public class TSPSolver {
-    
+
         //  Value specifying how often to provide an update to the console.
         private static long loopCheck = 100000000;  
-    
+
         private static long nTimes = 0, nLoops=0;
-    
+
         private static double[][] distances;
         private static String[] cityNames;
         private static int[] bestOrder;
         private static double minDistance;
         private static ServiceBusContract service;
-    
+
         private static void buildDistances(String fileLocation, int numCities) throws Exception{
             try{
                 BufferedReader file = new BufferedReader(new InputStreamReader(new DataInputStream(new FileInputStream(new File(fileLocation)))));
@@ -179,9 +178,9 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
                 throw e;
             }
         }
-    
+
         private static void permutation(List<Integer> startCities, double distSoFar, List<Integer> restCities) throws Exception {
-    
+
             try
             {
                 nTimes++;
@@ -194,7 +193,7 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
                     System.out.print("Current time is " + dateFormat.format(date) + ". ");
                     System.out.println(  "Completed " + nLoops + " iterations of size of " + loopCheck + ".");
                 }
-    
+
                 if ((restCities.size() == 1) && ((minDistance == -1) || (distSoFar + distances[restCities.get(0)][startCities.get(0)] + distances[restCities.get(0)][startCities.get(startCities.size()-1)] < minDistance))){
                     startCities.add(restCities.get(0));
                     newBestDistance(startCities, distSoFar + distances[restCities.get(0)][startCities.get(0)] + distances[restCities.get(0)][startCities.get(startCities.size()-2)]);
@@ -215,7 +214,7 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
                 throw e;
             }
         }
-    
+
         private static void newBestDistance(List<Integer> cities, double distance) throws ServiceException, Exception {
             try
             {
@@ -239,19 +238,19 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
                 throw e;
             }
         }
-    
+
         public static void main(String args[]){
-    
+
             try {
-    
+
                 Configuration config = ServiceBusConfiguration.configureWithWrapAuthentication(
                         "your_service_bus_namespace", "your_service_bus_owner",
                         "your_service_bus_key",
                         ".servicebus.windows.net",
                         "-sb.accesscontrol.windows.net/WRAPv0.9");
-    
+
                 service = ServiceBusService.create(config);
-    
+
                 int numCities = 10;  // Use as the default, if no value is specified at command line.
                 if (args.length != 0)
                 {
@@ -259,31 +258,31 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
                     {
                         // No processing to occur other than creating the queue.
                         QueueInfo queueInfo = new QueueInfo("TSPQueue");
-    
+
                         service.createQueue(queueInfo);
-    
+
                         System.out.println("Queue named TSPQueue was created.");
-    
+
                         System.exit(0);
                     }
-    
+
                     if (args[0].toLowerCase().compareTo("deletequeue")==0)
                     {
                         // No processing to occur other than deleting the queue.
                         service.deleteQueue("TSPQueue");
-    
+
                         System.out.println("Queue named TSPQueue was deleted.");
-    
+
                         System.exit(0);
                     }
-    
+
                     // Neither creating or deleting a queue.
                     // Assume the value passed in is the number of cities to solve.
                     numCities = Integer.valueOf(args[0]);  
                 }
-    
+
                 System.out.println("Running for " + numCities + " cities.");
-    
+
                 List<Integer> startCities = new ArrayList<Integer>();
                 List<Integer> restCities = new ArrayList<Integer>();
                 startCities.add(0);
@@ -311,82 +310,84 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
                 System.exit(-1);
             }
         }
-    
+
     }
+
+
 
 ## 多くのコンピューティング処理を要するタスクの進捗状況を監視する Java アプリケーションの作成方法
 
-1. 開発用コンピューターで、このセクションの末尾にあるコード例を使用して、Java コンソール アプリケーションを作成します。 このチュートリアルでは、Java ファイル名として **TSPClient.java** を使用します。 前述したように、変更、 **\_service\_bus\_namespace**, 、**your_service_bus_owner**, 、および **\_service\_bus\_key の各** サービス バスを使用するプレース ホルダー **名前空間**, 、**既定の発行者** と **既定のキー** それぞれ値します。
-2. 実行可能な JAR にアプリケーションをエクスポートして、生成される JAR に、必要なライブラリをパッケージ化します。 このチュートリアルでは、生成される JAR 名として **TSPClient.jar** を使用します。
+1. 開発用コンピューターで、このセクションの末尾にあるコード例を使用して、Java コンソール アプリケーションを作成します。 このチュートリアルで使用して **TSPClient.java** Java ファイル名として。 前述したように、変更、 **\_service\_bus\_namespace**, 、**your_service_bus_owner**, 、および **\_service\_bus\_key の各** サービス バスを使用するプレース ホルダー **名前空間**, 、**既定の発行者** と **既定のキー** それぞれ値します。
+2. 実行可能な JAR にアプリケーションをエクスポートして、生成される JAR に、必要なライブラリをパッケージ化します。 このチュートリアルで使用して **TSPClient.jar** 生成される JAR 名として。
 
 <p/>
 
     // TSPClient.java
-    
+
     import java.util.Date;
     import java.text.DateFormat;
     import java.text.SimpleDateFormat;
     import com.microsoft.windowsazure.services.serviceBus.*;
     import com.microsoft.windowsazure.services.serviceBus.models.*;
     import com.microsoft.windowsazure.services.core.*;
-    
+
     public class TSPClient
     {
-    
+
         public static void main(String[] args)
         {
                 try
                 {
-    
+
                     DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
                     Date date = new Date();
                     System.out.println("Starting at " + dateFormat.format(date) + ".");
-    
+
                     String namespace = "your_service_bus_namespace";
                     String issuer = "your_service_bus_owner";
                     String key = "your_service_bus_key";
-    
+
                     Configuration config;
                     config = ServiceBusConfiguration.configureWithWrapAuthentication(
                             namespace, issuer, key,
                             ".servicebus.windows.net",
                             "-sb.accesscontrol.windows.net/WRAPv0.9");
-    
+
                     ServiceBusContract service = ServiceBusService.create(config);
-    
+
                     BrokeredMessage message;
-    
+
                     int waitMinutes = 3;  // Use as the default, if no value is specified at command line.
                     if (args.length != 0)
                     {
                         waitMinutes = Integer.valueOf(args[0]);  
                     }
-    
+
                     String waitString;
-    
+
                     waitString = (waitMinutes == 1) ? "minute." : waitMinutes + " minutes.";
-    
+
                     // This queue must have previously been created.
                     service.getQueue("TSPQueue");
-    
+
                     int numRead;
-    
+
                     String s = null;
-    
+
                     while (true)
                     {
-    
+
                         ReceiveQueueMessageResult resultQM = service.receiveQueueMessage("TSPQueue");
                         message = resultQM.getValue();
-    
+
                         if (null != message && null != message.getMessageId())
                         {
-    
+
                             // Display the queue message.
                             byte[] b = new byte[200];
-    
+
                             System.out.print("From queue: ");
-    
+
                             s = null;
                             numRead = message.getBody().read(b);
                             while (-1 != numRead)
@@ -412,7 +413,7 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
                             Thread.sleep(60000 * waitMinutes);
                         }
                     }
-    
+
             }
             catch (ServiceException se)
             {
@@ -426,21 +427,20 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
                 e.printStackTrace();
                 System.exit(-1);
             }
-    
+
         }
-    
+
     }
 
 ## Java アプリケーションの実行方法
-
 多くのコンピューティング処理を要するアプリケーションを、最初はキューを作成するために実行し、次に巡回セールスマン問題を解くために実行します。これにより、Service Bus キューに現在の最適な経路が追加されます。 多くのコンピューティング処理を要するアプリケーションの実行中に (または実行後に)、クライアントを実行して Service Bus キューから結果を表示します。
 
 ### 多くのコンピューティング処理を要するアプリケーションの実行するには
 
 1. 仮想マシンにログオンします。
-2. アプリケーションを実行するフォルダーを作成します。 たとえば、**c:\TSP** です。
-3. **TSPSolver.jar** を **c:\TSP** にコピーします。
-4. **c:\TSP\cities.txt** という名前のファイルを作成し、内容を次のようにします。
+2. アプリケーションを実行するフォルダーを作成します。 たとえば、 **c:\TSP**します。
+3. コピー **TSPSolver.jar** に **c:\TSP**,、
+4. という名前のファイルを作成する **c:\TSP\cities.txt** 次の内容にします。
 
         City_1, 1002.81, -1841.35
         City_2, -953.55, -229.6
@@ -509,17 +509,16 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
 > 指定した数値が大きいほど、プログラムの実行時間は長くなります。 たとえば、14 都市の場合は数分で実行できても、15 都市になると実行に数時間かかることがありえます。 16 都市以上にすると実行時間が数日になる可能性があります (最終的には数週間、数か月、数年かかります)。 これは都市数が増えるにつれてプログラムが評価する順列の数が急増するためです。
 
 ### 監視用のクライアント アプリケーションの実行方法
-
-1. クライアント アプリケーションを実行するコンピューターにログオンします。 これは、**TSPSolver** アプリケーションを実行するコンピューターと同じでなくてもかまいません。
-2. アプリケーションを実行するフォルダーを作成します。 たとえば、**c:\TSP** です。
-3. **TSPClient.jar** を **c:\TSP** にコピーします。
+1. クライアント アプリケーションを実行するコンピューターにログオンします。 これは、実行するコンピューターと同じにする必要はありません、 **TSPSolver** アプリケーションがあります。
+2. アプリケーションを実行するフォルダーを作成します。 たとえば、 **c:\TSP**します。
+3. コピー **TSPClient.jar** に **c:\TSP**,、
 4. JRE の bin フォルダーが PATH 環境変数に指定されていることを確認します。
 5. コマンド プロンプトで、ディレクトリを c:\TSP に変更します。
 6. 次のコマンドを実行します。
 
         java -jar TSPClient.jar
 
-    必要に応じて、コマンド ライン引数を渡してキューのチェック間隔を分単位で指定します。 キューのチェック間隔の既定値は 3 分です。**TSPClient** にコマンド ライン引数を渡さない場合は、この値が使用されます。 チェック間隔として別の値、たとえば 1 分を使用する場合は、次のコマンドを実行します。
+    必要に応じて、コマンド ライン引数を渡してキューのチェック間隔を分単位で指定します。 既定のチェック間隔のキューは 3 分間にコマンドライン引数が渡されない場合が使用 **TSPClient**します。 チェック間隔として別の値、たとえば 1 分を使用する場合は、次のコマンドを実行します。
 
         java -jar TSPClient.jar 1
 
@@ -530,18 +529,16 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
     プログラムはすべての経路の調査が完了すると終了します。
 
 ## Java アプリケーションの停止方法
-
-問題を解くアプリケーションとクライアント アプリケーションのどちらでも、**Ctrl + C** キーを押すと、通常の処理が完了する前にアプリケーションが終了します。
-
+問題を解くとクライアント アプリケーションの両方でのキーを押して **Ctrl + C** を正常に終了する前に終了する場合に終了します。
 
 
-[solver_output]: ./media/virtual-machines-java-run-compute-intensive-task/WA_JavaTSPSolver.png 
-[client_output]: ./media/virtual-machines-java-run-compute-intensive-task/WA_JavaTSPClient.png 
-[svc_bus_node]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_02_SvcBusNode.jpg 
-[create_namespace]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_03_CreateNewSvcNamespace.jpg 
-[avail_namespaces]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg 
-[namespace_list]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_05_NamespaceList.jpg 
-[properties_pane]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg 
-[default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg 
-[add_ca_cert]: ../java-add-certificate-ca-store.md 
+[solver_output]: ./media/virtual-machines-java-run-compute-intensive-task/WA_JavaTSPSolver.png
+[client_output]: ./media/virtual-machines-java-run-compute-intensive-task/WA_JavaTSPClient.png
+[svc_bus_node]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_02_SvcBusNode.jpg
+[create_namespace]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_03_CreateNewSvcNamespace.jpg
+[avail_namespaces]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
+[namespace_list]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_05_NamespaceList.jpg
+[properties_pane]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
+[default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
+[add_ca_cert]: ../java-add-certificate-ca-store.md
 

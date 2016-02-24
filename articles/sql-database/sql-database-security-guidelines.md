@@ -17,7 +17,6 @@
    ms.date="11/24/2015"
    ms.author="rickbyh"/>
 
-
 # Azure SQL Database のセキュリティのガイドラインと制限事項
 
 このトピックでは、Microsoft Azure SQL Database のガイドラインとセキュリティに関連する制限事項について説明します。 Azure SQL Database のセキュリティを管理するときには、以下の点に注意してください。
@@ -30,25 +29,27 @@ Azure SQL Database サービスは TCP ポート 1433 経由でのみ利用で�
 
 ## 接続の暗号化と証明書の検証
 
-SQL Database とアプリケーション間のすべての通信は、常に暗号化 (SSL) を必要とします。 クライアント アプリケーションが接続時に証明書を検証しない場合、SQL Database への接続は "man in the middle" 攻撃を受けやすくなります。
+SQL Database とアプリケーション間のすべての通信は、常に暗号化 (SSL) を必要とします。 クライアント アプリケーションが接続時に証明書を検証しない場合、SQL Database への接続は "man in the middle" 攻撃を受けやすくなります。 
 
 アプリケーション コードやツールで証明書を検証するには、暗号化された接続を明示的に要求し、サーバー証明書は信頼しないようにします。 アプリケーション コードやツールが、暗号化された接続を要求しない場合でも、暗号化された接続を受け付けることはできます。 ただし、サーバー証明書は検証されず、"man in the middle" 攻撃を受けやすくなります。
 
-ADO.NET アプリケーション コードで証明書を検証するには、次のように設定します。 `Encrypt = True` と `TrustServerCertificate = False` データベース接続文字列にします。 詳細については、次を参照してください。 [コード サンプル: ADO.NET を使用した Azure SQL Database に接続するためのロジックを再試行](https://msdn.microsoft.com/library/azure/ee336243.aspx)します。
+ADO.NET アプリケーション コードで証明書を検証するには、データベース接続文字列で ``Encrypt=True`` と ``TrustServerCertificate=False`` を設定します。 詳細については、次を参照してください。 [コード サンプル: ADO.NET を使用した Azure SQL Database に接続するためのロジックを再試行](https://msdn.microsoft.com/library/azure/ee336243.aspx)します。
 
-SQL Server Management Studio も、証明書の検証をサポートしています。 **[サーバーへの接続]** ダイアログ ボックスで、**[接続プロパティ]** タブの **[暗号化接続]** をクリックします。
-> [AZURE.NOTE] SQL Server Management Studio は、SQL Server 2008 R2 より前のバージョンでは SQL Database への接続をサポートしていません。
+SQL Server Management Studio も、証明書の検証をサポートしています。  **サーバーへの接続** ダイアログ ボックスで、をクリックして **接続を暗号化** で、 **接続のプロパティ** ] タブをクリックします。 
 
-SQLCMD は SQL Server 2008 以降で SQL Database をサポートしていますが、SQL Server 2008 R2 より前のバージョンでは証明書の検証をサポートしていません。 SQL Server 2008 R2 以降の SQLCMD で証明書を検証するには、 `-n` コマンド ライン オプションを選択し、使用しないでください、 `-c` オプション。 -N オプションを使用することで、SQLCMD は暗号化された接続を要求するようになります。 使用していないが、 `-c` オプション、SQLCMD は暗黙的に信頼関係、サーバー証明書および証明書の検証を強制します。
+> [AZURE.NOTE] SQL Server Management Studio は SQL Server 2008 R2 以前のバージョンで SQL データベースへの接続をサポートしていません。
+
+SQLCMD は SQL Server 2008 以降で SQL Database をサポートしていますが、SQL Server 2008 R2 より前のバージョンでは証明書の検証をサポートしていません。 SQL Server 2008 R2 以降の SQLCMD で証明書を検証するには、``-N`` コマンドライン オプションを使用し、``-C`` オプションは使用しないでください。 -N オプションを使用することで、SQLCMD は暗号化された接続を要求するようになります。 ``-C`` オプションを使用しないことで、SQLCMD はサーバー証明書を暗黙的に信頼しなくなり、証明書の検証が強制されるようになります。 
 
 補足技術情報については、次を参照してください。 [Azure SQL データベースの接続セキュリティ](http://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#comment-4847) 、TechNet Wiki サイトの記事です。
 
 ## 認証
 
-Active Directory 認証 (統合セキュリティ) は、SQL Database V12 のプレビューで使用できます。 AD 認証を構成する方法の詳細については、次を参照してください。 [SQL データベースを使用して Azure Active Directory 認証に接続する](sql-database-aad-authentication.md)します。 プレビューを使用しない場合、ユーザーは SQL Database に接続するたびに、資格情報 (ログイン名とパスワード) を入力する必要があります。 SQL Server 認証の詳細については、次を参照してください。 [認証モードの選択](https://msdn.microsoft.com/library/ms144284.aspx) SQL Server オンライン ブック。
+Active Directory 認証 (統合セキュリティ) は、SQL Database V12 のプレビューで使用できます。 AD 認証を構成する方法の詳細については、次を参照してください。 [SQL データベースを使用して Azure Active Directory 認証に接続する](sql-database-aad-authentication.md)です。 プレビューを使用しない場合、ユーザーは SQL Database に接続するたびに、資格情報 (ログイン名とパスワード) を入力する必要があります。 SQL Server 認証の詳細については、次を参照してください。 [認証モードの選択](https://msdn.microsoft.com/library/ms144284.aspx) SQL Server オンライン ブック。 
 
 [SQL Database V12](sql-database-v12-whats-new.md) データベースで包含データベース ユーザーを使用して認証することができます。 詳細については、次を参照してください。 [包含データベース ユーザー - ポータブルなデータベース](https://msdn.microsoft.com/library/ff929188.aspx), 、[CREATE USER (TRANSACT-SQL)](https://technet.microsoft.com/library/ms173463.aspx), 、および [包含データベース](https://technet.microsoft.com/library/ff929071.aspx)します。
-> [AZURE.NOTE] Microsoft は、包含データベース ユーザーを使用してスケーラビリティを高めることをお勧めします。
+
+> [AZURE.NOTE] Microsoft では、包含データベース ユーザーを使用してスケーラビリティを強化することをお勧めします。
 
 データベース エンジンは、30 分以上アイドル状態が続くと接続を閉じます。 接続する前に、もう一度ログインする必要があります。
 
@@ -60,19 +61,19 @@ SQL Database でのログインとユーザーの管理には、制限があり�
 
 サーバーレベル プリンシパル ログインには、次の制限が適用されます。
 
-- サーバーレベル プリンシパル ログインに対応する master データベースのデータベース ユーザーは、変更または削除できません。
-- サーバーレベル プリンシパル ログインは、**master** データベースの 2 つのデータベース ロール **dbmanager** と **loginmanager** のメンバーではありませんが、この 2 つのロールに許可されているすべての権限を持っています。
+- サーバーレベル プリンシパル ログインに対応する master データベースのデータベース ユーザーは、変更または削除できません。 
+- サーバー レベル プリンシパル ログインは、2 つのデータベース ロールのメンバーではありませんが **dbmanager** と **loginmanager** で、 **マスター** データベース、これら 2 つのロールに与えられるすべてのアクセス許可があります。
 
-> [AZURE.NOTE] このログインは、サーバーのプロビジョニング中に作成され、SQL Server のインスタンスの **sa** ログインと似ています。
+> [AZURE.NOTE] このログインはサーバーのプロビジョニング中に作成され、に似ていますが、 **sa** SQL Server のインスタンスにログインします。
 
 すべてのログインに、次の制限が適用されます。
 
 - 既定の言語は、英語 (米国)です。
-- **master** データベースにアクセスするには、各ログインは **master** データベースのユーザー アカウントにマップされている必要があります。 **master** データベースは、包含データベース ユーザーをサポートしていません。
-- 接続文字列でデータベースを指定しない場合は、既定で **master** データベースに接続されます。
-- 接続している、 **マスター** の実行時に、データベース、 `CREATE、ALTER、DROP LOGIN` と `CREATE、ALTER、DROP DATABASE` ステートメントです。
-- 実行時に、 `CREATE、ALTER、DROP LOGIN` と `CREATE、ALTER、DROP DATABASE` ADO.NET アプリケーション内のステートメント、パラメーター化コマンドの使用は許可されません。 詳細については、次を参照してください。 [コマンドおよびパラメーター](https://msdn.microsoft.com/library/ms254953.aspx)します。
-- 実行時に、 `CREATE、ALTER、DROP DATABASE` と `CREATE、ALTER、DROP LOGIN` ステートメントは、これらの各ステートメントは、TRANSACT-SQL バッチ内の唯一のステートメントをする必要があります。 一致しないと、エラーが発生します。 たとえば、以下の Transact-SQL は、データベースが存在するかどうかを確認します。 存在する場合、 `DROP DATABASE` ステートメントは、データベースを削除すると呼ばれます。  `DROP DATABASE` ステートメントがバッチ内の唯一のステートメントではない、次を実行する TRANSACT-SQL ステートメントと、エラーが発生します。
+- アクセスする、 **マスター** データベース、ログインはすべては、ユーザー アカウントに割り当てる必要があります、 **マスター** データベースです。  **マスター** データベースはサポートが含まれているデータベース ユーザーではありません。
+- 接続文字列でデータベースを指定しない場合に接続されます、 **マスター** 既定ではデータベースです。
+- 接続している、 **マスター** の実行時に、データベース、 ``CREATE/ALTER/DROP LOGIN`` と ``CREATE/ALTER/DROP DATABASE`` ステートメントです。 
+- ADO.NET アプリケーションで ``CREATE/ALTER/DROP LOGIN`` と ``CREATE/ALTER/DROP DATABASE`` ステートメントを実行する場合、パラメーター化コマンドは使用できません。 詳細については、次を参照してください。 [コマンドおよびパラメーター](https://msdn.microsoft.com/library/ms254953.aspx)します。
+- ``CREATE/ALTER/DROP DATABASE`` と ``CREATE/ALTER/DROP LOGIN`` ステートメントを実行する場合、これらの各ステートメントは、Transact-SQL バッチ内の唯一のステートメントである必要があります。 一致しないと、エラーが発生します。 たとえば、以下の Transact-SQL は、データベースが存在するかどうかを確認します。 存在する場合は、``DROP DATABASE`` ステートメントが呼び出され、データベースが削除されます。 ``DROP DATABASE`` ステートメントはバッチ内の唯一のステートメントではないので、これを実行すると Transact-SQL はエラーになります。
 
 ```
 IF EXISTS (SELECT [name]
@@ -82,14 +83,14 @@ IF EXISTS (SELECT [name]
 GO
 ```
 
-- 実行時に、 `CREATE USER` ステートメントを `FOR/FROM LOGIN` オプション、TRANSACT-SQL バッチ内の唯一のステートメントがある必要があります。
-- 実行時に、 `ALTER USER` ステートメントを `WITH LOGIN` オプション、TRANSACT-SQL バッチ内の唯一のステートメントがある必要があります。
-- サーバー レベル プリンシパル ログインのみとのメンバー、 **dbmanager** データベース ロール、 **マスター** データベースを実行する権限がある、 `CREATE DATABASE` と `DROP DATABASE` ステートメントです。
-- サーバー レベル プリンシパル ログインのみとのメンバー、 **loginmanager** データベース ロール、 **マスター** データベースを実行する権限がある、 `CREATE LOGIN`, 、`ALTER LOGIN`, 、および `DROP LOGIN` ステートメント。
-- `CREATE、ALTER、DROP` ユーザーが必要、 `ALTER ANY USER` データベースに対する権限。
-- データベース ロールの所有者が、そのデータベース ロールに対して他のデータベース ユーザーの追加または削除を行おうとすると、「**User or role 'Name' does not exist in this database.**」というエラーが発生する場合があります。このエラーは、所有者からはユーザーが見えないために発生します。 この問題を解決するには、ロールの所有者に許可、 `VIEW DEFINITION` ユーザーに対する権限。
+- ``CREATE USER`` ステートメントを ``FOR/FROM LOGIN`` オプションと共に実行する場合、これが Transact-SQL バッチ内の唯一のステートメントである必要があります。
+- ``ALTER USER`` ステートメントを ``WITH LOGIN`` オプションと共に実行する場合、これが Transact-SQL バッチ内の唯一のステートメントである必要があります。
+- サーバー レベル プリンシパル ログインのみとのメンバー、 **dbmanager** データベース ロール、 **マスター** データベースを実行する権限がある、 ``CREATE DATABASE`` と ``DROP DATABASE`` ステートメントです。
+- サーバー レベル プリンシパル ログインのみとのメンバー、 **loginmanager** データベース ロール、 **マスター** データベースを実行する権限がある、 ``CREATE LOGIN``, 、``ALTER LOGIN``, 、および ``DROP LOGIN`` ステートメントです。
+- ユーザーに対して ``CREATE/ALTER/DROP`` を実行するには、データベースに対する ``ALTER ANY USER`` 権限が必要です。
+- データベース ロールの所有者は、追加または他のデータベース ユーザーに、またはそのデータベース ロールを削除するときに、次のエラーが発生する可能性があります: **ユーザーまたはロール 'Name' がこのデータベースに存在しません。**このエラーは、所有者からはユーザーが見えないために発生します。 この問題を解決するには、そのユーザーに対する ``VIEW DEFINITION`` 権限をロールの所有者に許可します。 
 
-ログインとユーザーの詳細については、次を参照してください。 [Azure SQL Database におけるデータベースとログインを管理する](sql-database-manage-logins.md)します。
+ログインとユーザーの詳細については、次を参照してください。 [Azure SQL Database におけるデータベースとログインを管理する](sql-database-manage-logins.md)です。
 
 ## セキュリティのベスト プラクティス
 
@@ -104,13 +105,9 @@ Azure SQL Database アプリケーションのセキュリティの脅威に対�
 
 [Azure SQL Database ファイアウォール](sql-database-firewall-configure.md)
 
-[方法: ファイアウォール設定 (Azure SQL データベース) の構成](sql-database-configure-firewall-settings.md)
+[ファイアウォール設定の構成方法 (Azure SQL Database)](sql-database-configure-firewall-settings.md)
 
 [Azure SQL Database におけるデータベースとログインの管理](sql-database-manage-logins.md)
 
-[SQL Server データベース エンジンと Azure SQL データベースのセキュリティ センター](https://msdn.microsoft.com/library/bb510589)
-
-
-
-
+[SQL Server Database エンジンと Azure SQL Database のセキュリティ センター](https://msdn.microsoft.com/library/bb510589)
 

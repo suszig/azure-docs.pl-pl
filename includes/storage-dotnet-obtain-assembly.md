@@ -1,10 +1,6 @@
 ### アセンブリの取得
 
-NuGet を使用すると、取得、 `Microsoft.WindowsAzure.Storage.dll` アセンブリ。 **ソリューション エクスプローラー**でプロジェクトを右クリックし、**[NuGet パッケージの管理]** をクリックします。 "WindowsAzure.Storage" をオンライン検索し、**[インストール]** をクリックして Azure Storage のパッケージと依存関係をインストールします。
+NuGet を使用して `Microsoft.WindowsAzure.Storage.dll` アセンブリを取得できます。 プロジェクトを右クリックして **ソリューション エクスプ ローラー** 選択 **NuGet パッケージの管理**します。  "Windowsazure.storage"をオンライン検索し、クリックして **インストール** 、Azure Storage のパッケージと依存関係をインストールします。
 
-`Microsoft.WindowsAzure.Storage.dll` からダウンロードできる .NET の Azure SDK にも含まれる、 <a href="http://azure.microsoft.com/develop/net/#">.NET デベロッパー センター</a>します。アセンブリがインストールされている、 `% プログラム Files%\Microsoft SDKs\Azure\.NET sdk \ < sdk バージョン > \ref\` ディレクトリ。
-
-
-
-
+`Microsoft.WindowsAzure.Storage.dll` は、<a href="http://azure.microsoft.com/develop/net/#">.NET デベロッパー センター</a>からダウンロードできる Azure SDK for .NET にも含まれています。 このアセンブリは、`%Program Files%\Microsoft SDKs\Azure\.NET SDK\<sdk-version>\ref\` ディレクトリにインストールされます。
 

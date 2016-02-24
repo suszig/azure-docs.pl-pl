@@ -1,6 +1,6 @@
 <properties
     pageTitle="ハイブリッド接続の概要 | Microsoft Azure"
-    description="セキュリティ、TCP ポート、サポートされる構成を含め、ハイブリッド接続について説明します。MABS、WABS。"
+    description="セキュリティ、TCP ポート、サポートされる構成を含め、ハイブリッド接続について説明します。 MABS、WABS。"
     services="biztalk-services"
     documentationCenter=""
     authors="MandiOhlinger"
@@ -17,9 +17,7 @@
     ms.author="mandia"/>
 
 
-
 # ハイブリッド接続の概要
-
 この記事では、ハイブリッド接続の概要を示し、サポートされる構成および必要な TCP ポートを一覧表示します。
 
 
@@ -27,7 +25,7 @@
 
 ハイブリッド接続は Azure BizTalk Services の機能の一種です。 ハイブリッド接続は、Azure App Service の Web Apps 機能 (以前の Websites) と Azure App Service (以前の Mobile Services) の Mobile Apps 機能をファイアウォールの後ろにあるオンプレミスのリソースに簡単に接続する便利な方法を提供します。
 
-![ハイブリッド接続][hcimage]
+![ハイブリッド接続と][HCImage]
 
 ハイブリッド接続には、以下の利点があります。
 
@@ -36,7 +34,8 @@
 - ネットワークへのアクセスに必要な TCP ポート数が最小限になります。
 - ハイブリッド接続を使用するアプリケーションは、ハイブリッド接続を通じて発行される特定のオンプレミス リソースにのみ接続します。
 - SQL Server、MySQL、HTTP Web API、ほとんどのカスタム Web サービスなど、静的 TCP ポートを使用するすべてのオンプレミス リソースに接続できます。
-    > [AZURE.NOTE] 現在は、動的ポート (FTP パッシブ モードまたは拡張パッシブ モードなど) を使用する TCP ベースのサービスはサポートされていません。
+
+    > [AZURE.NOTE] 動的ポート (FTP パッシブ モードまたは拡張パッシブ モード) などを使用する TCP ベースのサービスは現在サポートされていません。
 
 - Web Apps でサポートされるすべてのフレームワーク (.NET、PHP、Java、Python、Node.js) と Mobile Apps でサポートされるすべてのフレームワーク (Node.js、.NET) で使用できます。
 - Web アプリとモバイル アプリは、これらがローカル ネットワークに配置されている場合とまったく同じ方法でオンプレミス リソースにアクセスできます。 たとえば、オンプレミスで使用される接続文字列は Azure でも使用できます。
@@ -62,8 +61,8 @@
 
 - 静的ポートを使用するように SQL Express の名前付きインスタンスを構成する必要があります。 既定では、SQL Express の名前付きインスタンスは動的ポートを使用します。
 - SQL Express の既定のインスタンスは静的ポートを使用しますが、TCP を有効にする必要があります。 既定では、TCP は有効ではありません。
-- クラスタ リング グループまたは可用性グループを使用する場合、 `MultiSubnetFailover = true` モードが現在サポートされていません。
-- `ApplicationIntent = ReadOnly` は現在サポートされていません。
+- クラスタリング グループまたは可用性グループを使用する場合、現在、`MultiSubnetFailover=true` モードはサポートされていません。
+- 現在、`ApplicationIntent=ReadOnly` はサポートされていません。
 - Azure アプリケーションおよびオンプレミスの SQL サーバーでサポートされるエンド ツー エンドの承認方法として、SQL 認証が必要になる場合があります。
 
 
@@ -75,19 +74,18 @@
 
 参照してください [を作成し、ハイブリッド接続の管理](integration-hybrid-connection-create-manage.md)します。
 
-*アプリケーションの承認は、ハイブリッド接続とは独立しています*。 適切であればどのような種類の承認方法でも使用できます。 承認方法は、Azure クラウドとオンプレミスのコンポーネントとの間でサポートされているエンド ツー エンドの承認方法によって異なります。 たとえば、Azure アプリケーションはオンプレミスの SQL Server にアクセスします。 このシナリオでは、SQL 承認を、サポートされるエンド ツー エンドの承認方法として使用できます。
+*アプリケーションの承認とは、ハイブリッド接続別*します。 適切であればどのような種類の承認方法でも使用できます。 承認方法は、Azure クラウドとオンプレミスのコンポーネントとの間でサポートされているエンド ツー エンドの承認方法によって異なります。 たとえば、Azure アプリケーションはオンプレミスの SQL Server にアクセスします。 このシナリオでは、SQL 承認を、サポートされるエンド ツー エンドの承認方法として使用できます。
 
 #### TCP ポート
-
 ハイブリッド接続では、プライベート ネットワークからの送信 TCP 接続または送信 HTTP 接続のみが必要です。 ネットワークへの受信接続を許可するために、ファイアウォール ポートを開いたり、ネットワーク境界の構成を変更したりする必要はありません。
 
 ハイブリッド接続では、次の TCP ポートが使用されます。
 
- ポート| 必要である理由
+ポート | 必要である理由
 --- | ---
- 9350 ～ 9354| これらのポートはデータ転送に使用されます。Service Bus Relay マネージャーはポート 9350 を調べて、TCP 接続を利用できるかどうかを決定します。利用できる場合は、ポート 9352 も利用可能であるとみなされます。データ トラフィックはポート 9352 を経由します。<br/><br/>これらのポートへの発信接続を許可します。
- 5671| ポート 9352 がデータ トラフィックに使用される場合、ポート 5671 は制御チャンネルとして使用されます。<br/><br/>このポートへの発信接続を許可します。
- 80、443| これらのポートは Azure へのデータ要求に使用されます。また、ポート 9352 と 5671 を使用しない場合、 *し* ポート 80 と 443 がデータ転送と制御チャネルに使用される代替のポート<br/>。<br/>これらのポートへの発信接続を許可します。<br/><br/>**注** 他の TCP ポートの代わりに代替のポートとしてこれらを使用することは推奨はされません。HTTP/WebSocket はデータ チャンネルのネイティブ TCP ではなくプロトコルとして使用されます。パフォーマンスの低下を招く可能性があります。
+9350 ～ 9354 | これらのポートはデータ転送に使用されます。 Service Bus Relay マネージャーはポート 9350 を調べて、TCP 接続を利用できるかどうかを決定します。 利用できる場合は、ポート 9352 も利用可能であるとみなされます。 データ トラフィックはポート 9352 を経由します。 <br/><br/>これらのポートへの発信接続を許可します。
+5671 | ポート 9352 がデータ トラフィックに使用される場合、ポート 5671 は制御チャンネルとして使用されます。 <br/><br/>このポートへの発信接続を許可します。
+80、443 | これらのポートは Azure へのデータ要求に使用されます。 また、ポート 9352 と 5671 を使用しない場合、 *し* ポート 80 と 443 がデータ転送と制御チャネルに使用される代替のポート<br/><br/>。これらのポートへの発信接続を許可します。 <br/><br/>**注** 他の TCP ポートの代わりに代替のポートとしてこれらを使用することは推奨はされません。 HTTP/WebSocket はデータ チャンネルのネイティブ TCP ではなくプロトコルとして使用されます。 パフォーマンスの低下を招く可能性があります。
 
 
 
@@ -106,9 +104,8 @@
 [Azure ポータルを使用して BizTalk サービスを作成します。](biztalk-provision-services.md)<br/>
 [BizTalk サービス: ダッシュ ボード、モニター、スケール タブ](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 
-
-[hcimage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png 
-[hybridconnectiontab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png 
-[hconpremsetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png 
-[hcmanageconnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png 
+[HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png
+[HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
+[HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
+[HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 

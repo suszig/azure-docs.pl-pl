@@ -15,7 +15,6 @@
    ms.date="12/09/2015"
    ms.author="sethm" />
 
-
 # Service Bus の認証と承認
 
 アプリケーションは、Shared Access Signature (SAS) 認証または Azure Active Directory Access Control (Access Control Service または ACS とも呼ばれます) を使用して、Azure Service Bus に対して認証できます。 Shared Access Signature 認証により、アプリケーションは、名前空間、または特定の権限が関連付けられているエンティティで構成されたアクセス キーを使用して Service Bus に対して認証できます。 次に、このキーを使用して、クライアントが Service Bus に対する認証に使用できる Shared Access Signature トークンを生成できます。
@@ -30,13 +29,13 @@ SAS のキーは Service Bus 名前空間で構成できます。 このキー�
 
 SAS を使用することができます、 [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) 名前空間、キュー、または以下のトピック上のオブジェクト。
 
-- 規則を識別する *KeyName*。
+- *KeyName* ルールを識別します。
 
-- *PrimaryKey* は、SAS トークンの署名または検証に使用される暗号化キーです。
+- *PrimaryKey* は SAS トークンの署名/検証に使用される暗号化キー。
 
-- *SecondaryKey* は、SAS トークンの署名または検証に使用される暗号化キーです。
+- *SecondaryKey* は SAS トークンの署名/検証に使用される暗号化キー。
 
-- 付与されたリッスン、送信、管理権限のコレクションを表す *Rights*。
+- *権限* リッスンのコレクションを表す、送信、または管理権限を付与します。
 
 名前空間レベルで構成された承認規則では、対応するキーを使用して署名されたトークンによって、クライアントの名前空間内のすべてのエンティティへのアクセス権を付与できます。 Service Bus の名前空間、キュー、トピックでは、このような承認規則を最大 12 個構成できます。 既定では、 [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) すべての権限を持つが構成されているすべての名前空間は、最初にプロビジョニングされたとき。
 
@@ -58,7 +57,7 @@ ACS 名前空間を作成しないようにするには、次のコマンドを�
 New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $false
 ```
 
-たとえば、**contoso.servicebus.windows.net** という名前の Service Bus 名前空間を作成する場合、**contoso-sb.accesscontrol.windows.net** という名前の付属の ACS 名前空間が自動的にプロビジョニングされます。 2014 年 8 月以前に作成されたすべての名前空間では、付属の ACS 名前空間も作成されていました。
+呼ばれる Service Bus 名前空間を作成する場合など **contoso.servicebus.windows.net**, 、コンパニオン ACS 名前空間と呼ばれる **contoso-sb.accesscontrol.windows.net です** 自動的にプロビジョニングされます。 2014 年 8 月以前に作成されたすべての名前空間では、付属の ACS 名前空間も作成されていました。
 
 この付属の ACS 名前空間では、すべての権限を持つ既定のサービス ID "所有者" が既定でプロビジョニングされます。 適切な信頼関係を構成することで、ACS を通じて任意の Service Bus エンティティに対する細かい制御が可能になります。 Service Bus エンティティへのアクセスを管理するために追加のサービス ID を構成できます。
 
@@ -73,10 +72,6 @@ Service Bus の ACS 認証サポートは、Azure .NET SDK バージョン 2.0 �
 Service Bus の SAS の大まかな概要については、次を参照してください。 [共有アクセス署名](service-bus-sas-overview.md)します。
 
 ACS トークンの詳細についてを検索する [方法: OAuth WRAP プロトコル経由で ACS からトークンを要求](https://msdn.microsoft.com/library/hh674475.aspx)します。
-
-
-
-
 
 
 

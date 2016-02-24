@@ -17,12 +17,11 @@
     ms.author="brandwe"/>
 
 
-
 # Azure AD を使用して API にアクセスするための Java コマンド ライン アプリ
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Azure AD を使用すると、数行のコードを追加するだけで、Web アプリの ID 管理を外部委託し、シングル サインインおよびサインアウトを提供することが、簡単に実現できます。 Java Web アプリでは、コミュニティ主導型の ADAL4J の Microsoft 実装を使用することで、これを実現できます。
+Azure AD を使用すると、数行のコードを追加するだけで、Web アプリの ID 管理を外部委託し、シングル サインインおよびサインアウトを提供することが、簡単に実現できます。  Java Web アプリでは、コミュニティ主導型の ADAL4J の Microsoft 実装を使用することで、これを実現できます。
 
   ここでに ADAL4J を使用します。
 - Id プロバイダーとして Azure AD を使用してアプリケーションにユーザーをサインインします。
@@ -36,30 +35,28 @@ Azure AD を使用すると、数行のコードを追加するだけで、Web �
 3. ADAL4J ライブラリを使用してサインイン要求とサインアウト要求を Azure AD に発行する
 4. ユーザーに関するデータを印刷する
 
-最初に、 [アプリのスケルトンをダウンロードする](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip) または [、完全なサンプルをダウンロード](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\/archive/complete.zip)します。 アプリケーションの登録先となる Azure AD テナントも必要です。 既にがあるない場合 [いずれかを取得する方法について](active-directory-howto-tenant.md)します。
+最初に、 [アプリのスケルトンをダウンロードする](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip) または [、完全なサンプルをダウンロード](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\/archive/complete.zip)します。  アプリケーションの登録先となる Azure AD テナントも必要です。  既にがあるない場合 [いずれかを取得する方法について](active-directory-howto-tenant.md)します。
 
 ## 1.アプリケーションを Azure AD に登録する
-
 アプリケーションがユーザー認証を処理できるようにするには、まず、アプリケーションをテナントに登録する必要があります。
 
 - Microsoft Azure の管理ポータルにサインインします。
-- 左側のナビゲーションで **[Active Directory]** をクリックします。
+- 左側のナビゲーションで] をクリックして **Active Directory**します。
 - アプリケーションの登録先となるテナントを選択します。
-- **[アプリケーション]** タブをクリックし、下部のドロアーで [追加] をクリックします。
-- 画面の指示に従い、新しい **Web アプリケーションまたは WebAPI** を作成します。
-    - アプリケーションの **[名前]** には、エンド ユーザーがアプリケーションの機能を把握できるような名前を設定します。
-    - **[サインオン URL]** は、アプリのベース URL です。 スケルトンの既定値は `adal4jsample/`します。
-    - **[アプリケーション ID/URI]** は、アプリケーションの一意識別子です。使用するが慣例 `https://<tenant-domain>/<app-name>`, など、 `adal4jsample/`
-- 登録が完了すると、AAD により、アプリケーションに一意のクライアント ID が割り当てられます。 この値は次のセクションで必要になるので、[構成] タブからコピーします。
+- クリックして、 **アプリケーション** ] タブ、および、下部のドロアーの追加] をクリックします。
+- 画面の指示に従ってされ、新しい作成 **Web アプリケーションまたは WebAPI**します。
+    -  **名前** アプリケーションのエンドユーザーに、アプリケーションの説明は
+    -  **サインオン URL** はアプリのベース URL です。  スケルトンの既定値は、`http://localhost:8080/adal4jsample/` です。
+    -  **App ID URI** アプリケーションの一意の識別子を指定します。  形式は、`https://<tenant-domain>/<app-name>` (たとえば、`http://localhost:8080/adal4jsample/`) です。
+- 登録が完了すると、AAD により、アプリケーションに一意のクライアント ID が割り当てられます。  この値は次のセクションで必要になるので、[構成] タブからコピーします。
 
-アプリケーションのポータルで、アプリケーションの**アプリケーション シークレット**を作成し、メモしておきます。 このプロジェクトはすぐに必要になります。
+1 回、アプリのポータルで次のように作成します。、 **アプリケーション シークレット** 、アプリケーションをコピーします。  このプロジェクトはすぐに必要になります。
 
 
 ## 2.Maven を使用して、ADAL4J ライブラリと前提条件を使用するようにアプリを設定する
+ここでは、OpenID Connect 認証プロトコルを使用するように ADAL4J を構成します。  ADAL4J は、サインイン要求とサインアウト要求の発行、ユーザー セッションの管理、ユーザーに関する情報の取得などを行うために使用されます。
 
-ここでは、OpenID Connect 認証プロトコルを使用するように ADAL4J を構成します。 ADAL4J は、サインイン要求とサインアウト要求の発行、ユーザー セッションの管理、ユーザーに関する情報の取得などを行うために使用されます。
-
--   プロジェクトのルート ディレクトリを作成または開く `pom.xml` を見つけて選択、 `//TODO: Maven の依存関係を提供` し、次に置き換えます。
+-   プロジェクトのルート ディレクトリで、`pom.xml` を開くか作成し、`// TODO: provide dependencies for Maven` を探して次のコードに置き換えます。
 
 ```Java
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -102,7 +99,7 @@ Azure AD を使用すると、数行のコードを追加するだけで、Web �
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.5</version>
         </dependency>
-        
+        <!-- Spring 3 dependencies -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -168,14 +165,15 @@ Azure AD を使用すると、数行のコードを追加するだけで、Web �
     </build>
 
 </project>
+
 ```
 
 
 ## 3.Java Web アプリケーション ファイル (WEB-INF) を作成する
 
-ここでは、OpenID Connect 認証プロトコルを使用するように、Java Web アプリを構成します。 ADAL4J ライブラリは、サインイン要求とサインアウト要求の発行、ユーザー セッションの管理、ユーザーに関する情報の取得などを行うために使用されます。
+ここでは、OpenID Connect 認証プロトコルを使用するように、Java Web アプリを構成します。  ADAL4J ライブラリは、サインイン要求とサインアウト要求の発行、ユーザー セッションの管理、ユーザーに関する情報の取得などを行うために使用されます。
 
--   最初に、開く、 `web.xml` 下にあるファイル `\webapp\WEB-INF\`, 、xml で、アプリの構成値を入力します。
+-   まず、`\webapp\WEB-INF\` にある `web.xml` ファイルを開き、アプリの構成値を xml に入力します。
 
 ファイルは次のようになります。
 
@@ -232,6 +230,7 @@ Azure AD を使用すると、数行のコードを追加するだけで、Web �
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 </web-app>
+
 ```
 
 
@@ -240,10 +239,11 @@ Azure AD を使用すると、数行のコードを追加するだけで、Web �
     - The `YOUR_TENANT_NAME` is the **tenant name** of your app, e.g. contoso.onmicrosoft.com
 
 構成パラメーターの残りの部分はそのままにしておきます。
-> [AZURE.NOTE]
-XML ファイルからわかるように書き込みと呼ばれる JSP/サーブレット webapp `mvc ディスパッチャー` を使用する、 `BasicFilter` アクセスされるたびに]、[セキュリティ保護された URL です。 さらに、後の手順では、保護されたコンテンツの格納場所として /secure を使用し、Azure Active Directory への認証を強制するように構成します。
 
--   次に、作成、 `mvc ディスパッチャー-servlet.xml` 下にあるファイル `\webapp\WEB-INF\`, を次を入力します。
+> [AZURE.NOTE]
+この XML ファイルからわかるように、ここでは、`mvc-dispatcher` という名前の JSP/サーブレット Web アプリを作成しています。この Web アプリでは、/secure URL にアクセスするたびに `BasicFilter` が使用されます。 さらに、後の手順では、保護されたコンテンツの格納場所として /secure を使用し、Azure Active Directory への認証を強制するように構成します。
+
+-   次に、`\webapp\WEB-INF\` の下に `mvc-dispatcher-servlet.xml` ファイルを作成し、次の情報を入力します。
 
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -276,11 +276,11 @@ XML ファイルからわかるように書き込みと呼ばれる JSP/サー�
 
 この段階で、WEB-INF での Web アプリの設定は半分しか終わっていません。 次に、構成で示唆した、Web アプリによって実行される実際の Java Server Pages ファイルを作成する必要があります。
 
-覚えて場合と言いました Java、xml で提供している構成ファイル、 `/` .jsp ファイルを読み込む必要がありますリソースと `/secure` フィルターを通過する必要がありますリソースを呼び出しました `BasicFilter`します。
+前述の xml 構成ファイルでは、.jsp ファイルを読み込む `/` リソースと、`BasicFilter` というフィルターを通過する `/secure` リソースがあることを Java で示しました。 
 
 ここでは、これらのリソースを作成します。
 
--   作成、 `index.jsp` 下にあるファイル `\webapp\`, と、次の切り取りと貼り付け。
+-   まず、`\webapp\` の下に `index.jsp` ファイルを作成し、次のコードをコピーして貼り付けます。
 
 ```jsp
 <html>
@@ -291,11 +291,12 @@ XML ファイルからわかるように書き込みと呼ばれる JSP/サー�
     </ul>
 </body>
 </html>
+
 ```
 
 これにより、単に、フィルターによって保護されているセキュリティで保護されたページにリダイレクトされます。
 
-- 次に、同じディレクトリで作成、 `error.jsp` ファイル可能性があるエラーをキャッチします。
+- 次に、同じディレクトリ内に、発生するすべてのエラーを受け取る `error.jsp` ファイルを作成します。
 
 ```jsp
 <html>
@@ -311,9 +312,9 @@ XML ファイルからわかるように書き込みと呼ばれる JSP/サー�
 </html>
 ```
 
-- 最後に、下のフォルダーを作成するセキュリティで保護された web ページを作成しましょう `\webapp` と呼ばれる `\secure` ようにディレクトリどうぞ `\webapp\secure`します。
+- 最後に、`\webapp` の下に `\secure` というフォルダーを作成して、そのセキュリティで保護された Web ページを作成します。これにより、ディレクトリは `\webapp\secure` になります。 
 
-- このディレクトリ内、作成、 `aad.jsp` ファイルと、次の切り取りと貼り付け。
+- このディレクトリ内に `aad.jsp` ファイルを作成し、次のコードをコピーして貼り付けます。
 
 ```jsp
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -342,7 +343,7 @@ XML ファイルからわかるように書き込みと呼ばれる JSP/サー�
 </html>
 ```
 
-このページを BasicFilter サーブレットはに対する読み取りし、し、実行を使用している特定の要求にリダイレクトすることを参照してください、 `ADAJ4J` ライブラリです。 比較的単純だと思いませんか。
+このページは、特定の要求にリダイレクトされることがわかります。これらの要求は、BasicFilter サーブレットによって読み取られた後、`ADAJ4J` ライブラリを使用して実行されます。 比較的単純だと思いませんか。
 
 当然ながら、次は、サーブレットが動作するように Java ファイルを設定する必要があります。
 
@@ -358,11 +359,11 @@ XML ファイルからわかるように書き込みと呼ばれる JSP/サー�
 
 それでは、この操作を行うための Java ファイルをいくつか作成しましょう。
 
-1. ルート ディレクトリに adal4jsample フォルダーを作成し、すべての Java ファイルを保存します。
+1. ルート ディレクトリに adal4jsample フォルダーを作成し、すべての Java ファイルを保存します。 
 
-名前空間を使用して `com.microsoft.aad.adal4jsample` 、java ファイルにします。 ほとんどの Ide では、入れ子になったフォルダー構造を作成この (例: `/com/microsoft/aad/adal4jsample`)。 これを行うには自由ですが、必要はありません。
+Java ファイルでは、`com.microsoft.aad.adal4jsample` 名前空間を使用します。 ほとんどの IDE では、このために入れ子のフォルダー構造が作成されます (たとえば、`/com/microsoft/aad/adal4jsample`)。 これを行うには自由ですが、必要はありません。
 
-2. という名前のファイルを作成、フォルダー内に `JSONHelper.java` ため、トークンからの JSON データを解析するために使用されます。 次のコードをコピーして貼り付けることができます。
+2. このフォルダー内に、`JSONHelper.java` という名前のファイルを作成します。このファイルは、トークンからの JSON データを解析するために使用します。 次のコードをコピーして貼り付けることができます。
 
 ```Java
 
@@ -582,9 +583,10 @@ public class JSONHelper {
     }
 
 }
+
 ```
 
-3. 次に、という名前のファイルを作成 `HttpClientHelper.java` ために、AAD エンドポイントからの HTTP データを解析するために使用されます。 次のコードをコピーして貼り付けることができます。
+3. 次に、`HttpClientHelper.java` という名前のファイルを作成します。このファイルは、AAD エンドポイントからの HTTP データを解析するために使用します。 次のコードをコピーして貼り付けることができます。
 
 ```Java
 
@@ -737,13 +739,14 @@ public class HttpClientHelper {
     }
 
 }
+
 ```
 
 ## 6.Java Graph API モデル ファイルを作成する (BasicFilter MVC 用)
 
-既に説明したとおり、ここでは Graph API を使用して、ログイン ユーザーに関するデータを取得します。 これを簡単に実現するには、**ディレクトリ オブジェクト**を表すファイルと、**ユーザー**を表す個々のファイルの両方を作成し、Java のオブジェクト指向パターンを使用できるようにします。
+既に説明したとおり、ここでは Graph API を使用して、ログイン ユーザーに関するデータを取得します。 これを簡単に復活できるを表すため、両方のファイルを作成する必要があります、 **ディレクトリ オブジェクト** と個々 のファイルを表す、 **ユーザー** Java のオブジェクト指向パターンを使用できるようにします。
 
-1. という名前のファイルを作成する `DirectoryObject.java` (これを行うことが他のグラフ クエリを後で使用するために解放する感じることができます)、DirectoryObject に関する基本的なデータを格納するために使用されます。 次のコードをコピーして貼り付けることができます。
+1. `DirectoryObject.java` という名前のファイルを作成します。このファイルは、DirectoryObject に関する基本的なデータを格納するために使用します (後で他のグラフ クエリを実行する際にこのファイルを自由に使用してかまいません)。 次のコードをコピーして貼り付けることができます。
 
 ```Java
 
@@ -754,17 +757,17 @@ package com.microsoft.aad.adal4jsample;
  *
  */
 public abstract class DirectoryObject {
-
+    
     public DirectoryObject() {
         super();
     }
-
+    
     /**
      * 
      * @return
      */
     public abstract String getObjectId();
-
+    
     /**
      * @param objectId
      */
@@ -781,7 +784,7 @@ public abstract class DirectoryObject {
      * @param objectType
      */
     public abstract void setObjectType(String objectType);
-
+    
     /**
      * 
      * @return
@@ -795,9 +798,10 @@ public abstract class DirectoryObject {
     public abstract void setDisplayName(String displayName);
 
 }
+
 ```
 
-2. という名前のファイルを作成する `User.java` ディレクトリのすべてのユーザーに関する基本的なデータを格納するために使用されます。 また、これはディレクトリ データ用の非常に基本的な getter と setter であるため、次のコードをコピーして貼り付けることができます。
+2. `User.java` という名前のファイルを作成します。このファイルは、ディレクトリの任意のユーザーに関する基本的なデータを格納するために使用します。 また、これはディレクトリ データ用の非常に基本的な getter と setter であるため、次のコードをコピーして貼り付けることができます。
 
 ```Java
 
@@ -816,7 +820,7 @@ import org.json.JSONObject;
  */
 @XmlRootElement
 public class User extends DirectoryObject{
-
+    
     // The following are the individual private members of a User object that holds
     // a particular simple attribute of an User object.
     protected String objectId;
@@ -852,17 +856,17 @@ public class User extends DirectoryObject{
      */
     // managerDisplayname of this user
     protected String managerDisplayname;
-
+    
     // The directReports holds a list of directReports
     private ArrayList<User> directReports;
-
+    
     // The groups holds a list of group entity this user belongs to. 
     private ArrayList<Group> groups;
-
+    
     // The roles holds a list of role entity this user belongs to. 
     private ArrayList<Group> roles;
-
-
+    
+    
     /**
      * The constructor for the User class. Initializes the dynamic lists and managerDisplayname variables.
      */
@@ -892,7 +896,7 @@ public class User extends DirectoryObject{
     public String getObjectId() {
         return objectId;
     }
-
+    
     /**
      * @param objectId The objectId to set to this User object.
      */
@@ -929,7 +933,7 @@ public class User extends DirectoryObject{
         this.userPrincipalName = userPrincipalName;
     }
 
-
+    
     /**
      * @return The usageLocation of this User.
      */
@@ -1069,7 +1073,7 @@ public class User extends DirectoryObject{
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
-
+    
     /**
      * @return The Password of this User.
      */
@@ -1097,7 +1101,7 @@ public class User extends DirectoryObject{
     public void setMail(String mail) {
         this.mail = mail;
     }
-
+    
     /**
      * @return The MailNickname of this User.
      */
@@ -1252,7 +1256,7 @@ public class User extends DirectoryObject{
     public void setAccountEnabled(String accountEnabled) {
         this.accountEnabled = accountEnabled;
     }
-
+    
     public boolean isIsDeleted() {
         return this.isDeleted;
     }
@@ -1265,11 +1269,11 @@ public class User extends DirectoryObject{
     public String toString() {
         return new JSONObject(this).toString();
     }
-
+    
     public String getManagerDisplayname(){
         return managerDisplayname;
     }
-
+    
     public void setManagerDisplayname(String managerDisplayname){
         this.managerDisplayname = managerDisplayname;
     }
@@ -1312,17 +1316,18 @@ public class User extends DirectoryObject{
 //  }
 //
 //}
+
 ```
 
 ## 7.認証モデルとコントローラーのファイルを作成する (BasicFilter 用)
 
-Java の記述は確かに冗長ですが、もう少しで完了です。 最後に、横にある、要求を処理する BasicFilter サーブレットを記述する前に記述されるファイルがいくつかの複数のヘルパー、 `ADAL4J` ライブラリ必要があります。
+Java の記述は確かに冗長ですが、もう少しで完了です。 最後から 2 番目の手順として、要求を処理する BasicFilter サーブレットを記述する前に、`ADAL4J` ライブラリで必要となるいくつかのヘルパー ファイルを追加で作成します。 
 
-1. という名前のファイルを作成 `AuthHelper.java` を使用して、ログインの使用の状態を判断するメソッドを提供ことができます。 チェックの内容は次のとおりです
+1. `AuthHelper.java` という名前のファイルを作成します。このファイルでは、ログイン ユーザーの状態を確認するために使用するメソッドが含まれます。 学習した内容は次のとおりです。
 
-- `isAuthenticated()` かどうか、ユーザーがログインかどうかを返すメソッド
-- `containsAuthenticationData()` されるかがわかりますか、トークンがデータを持つかどうか
-- `isAuthenticationSuccessful()` されるかがわかります認証がユーザーの成功したかどうか。
+- `isAuthenticated()` メソッド: ユーザーがログインしているかどうかを返します。
+- `containsAuthenticationData()`: トークンにデータが含まれているかどうかを返します。
+- `isAuthenticationSuccessful()`: ユーザーの認証が成功したかどうかを返します。
 
 次のコードをコピーして貼り付けます。
 
@@ -1372,7 +1377,7 @@ public final class AuthHelper {
 }
 ```
 
-2. という名前のファイルを作成する `AuthParameterNames.java` これが得られますいくつかの変更できない変数 `ADAL4J` が必要になります。 次のコードをコピーして貼り付けます。
+2. `AuthParameterNames.java` という名前のファイルを作成します。このファイルでは、`ADAL4J` で必要となる変更不可の変数を定義するために使用します。 次のコードをコピーして貼り付けます。
 
 ```Java
 package com.microsoft.aad.adal4jsample;
@@ -1390,7 +1395,7 @@ public final class AuthParameterNames {
 }
 ```
 
-3. 最後に、という名前のファイルを作成 `AadController.java` JSP コント ローラーが提供され、公開、MVC パターンのコント ローラーは、 `セキュリティで保護された/aad` URL エンドポイント、アプリケーションの動作をします。 さらに、このファイルにはグラフ クエリも配置します。
+3. 最後に、MVC パターンのコントローラーとなる `AadController.java` という名前のファイルを作成します。このファイルを使用して、JSP コントローラーを定義し、アプリの `secure/aad` URL エンドポイントを公開します。 さらに、このファイルにはグラフ クエリも配置します。
 
 次のコードをコピーして貼り付けます。
 
@@ -1466,13 +1471,14 @@ public class AadController {
     }
 
 }
+
 ```
 
 ## 8.BasicFilter ファイルを作成する (BasicFilter MVC 用)
 
 最終的に、ビュー (JSP ファイル) からの要求を処理する BasicFilter ファイルを作成する準備ができました。
 
-という名前のファイルを作成する `BasicFilter.java` 次が含まれています。
+次のコードを含む `BasicFilter.java` という名前のファイルを作成します。
 
 ```Java
 
@@ -1714,37 +1720,34 @@ public class BasicFilter implements Filter {
 }
 ```
 
-このサーブレットでは、すべてのメソッドを公開する `ADAL4J` 実行するようにアプリケーションからを必要とします。 次のトピックがあります。
+このサーブレットは、`ADAL4J` を実行するためにアプリケーションに求められるすべてのメソッドを公開します。 次のトピックがあります。
 
-- `getAccessTokenFromClientCredentials()` -、シークレットからアクセス トークンを取得
-- `getAccessTokenFromRefreshToken()` -更新トークンからのアクセス トークンを取得
-- `getAccessToken()` の OpenID Connect のフロー (これを使用) からアクセス トークンを取得
-- `createSessionPrincipal()` -Graph API アクセスに使用してプリンシパルを作成
-- `getRedirectUrl()` -ポータルで入力した値と比較する redirectURL を取得します。
+- `getAccessTokenFromClientCredentials()` - シークレットからアクセス トークンを取得します。
+- `getAccessTokenFromRefreshToken()` - 更新トークンからアクセス トークンを取得します。
+- `getAccessToken()` - OpenID Connect フローからアクセス トークンを取得します (ここでは、これを使用します)。
+- `createSessionPrincipal()` - Graph API へのアクセスに使用するプリンシパルを作成します。
+- `getRedirectUrl()` - ポータルに入力した値と比較する redirectURL を取得します。
 
-## サンプルをコンパイルして Tomcat で実行する
+##サンプルをコンパイルして Tomcat で実行する
 
-ルート ディレクトリを元に戻すに変更し、使用して配置する、サンプルをビルドする次のコマンドを実行して `maven`します。 これは、を使用して、 `pom.xml` ファイルの依存関係を作成します。
+ルート ディレクトリに戻り、次のコマンドを実行して、`maven` を使用して作成したサンプルをビルドします。 この場合、依存関係用に作成した `pom.xml` ファイルが使用されます。
 
-`$ mvn パッケージ`
+`$ mvn package`
 
-ようになります、 `adal4jsample.war` ファイルで、 `対象/` ディレクトリ。 そのファイルを Tomcat コンテナーにデプロイし、次の URL にアクセスします。
+これで、`/targets` ディレクトリに `adal4jsample.war` ファイルが作成されます。 そのファイルを Tomcat コンテナーにデプロイし、次の URL にアクセスします。 
 
-`adal4jsample/`
+`http://localhost:8080/adal4jsample/`
+
 
 > [AZURE.NOTE] 
-最新の Tomcat サーバーで WAR をデプロイするのは非常に簡単です。 移動するだけで `マネージャー/` にアップロードして、指示に従って、 `' adal4jsample.war` ファイルです。 ファイルは適切なエンドポイントに自動的にデプロイされます。
+最新の Tomcat サーバーで WAR をデプロイするのは非常に簡単です。 移動するだけで `http://localhost:8080/manager/` にアップロードして、指示に従って、' adal4jsample.war' ファイルです。 ファイルは適切なエンドポイントに自動的にデプロイされます。
 
-## 次のステップ
+##次のステップ
 
-ご利用ありがとうございます。 これで、作業中の Java アプリケーションで、ユーザーの認証、OAuth 2.0 を使用した Web API の安全な呼び出し、ユーザーに関する基本情報の取得が可能になりました。 テナントに一連のユーザーを設定します (設定していない場合)。
+ご利用ありがとうございます。 これで、作業中の Java アプリケーションで、ユーザーの認証、OAuth 2.0 を使用した Web API の安全な呼び出し、ユーザーに関する基本情報の取得が可能になりました。  テナントに一連のユーザーを設定します (設定していない場合)。
 
 リファレンスについては、完全なサンプル (構成値) を除く [.zip をここでは現状](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip), 、または GitHub から複製することができます。
 
-`git クローン--ブランチの完全な https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git`
-
-
-
-
+```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
 

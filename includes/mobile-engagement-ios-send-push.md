@@ -1,12 +1,12 @@
-### Mobile Engagement にプッシュ証明書へのアクセスを許可する
+###Mobile Engagement にプッシュ証明書へのアクセスを許可する
 
-Mobile Engagement がユーザーに代わりプッシュ通知を送信できるようにするには、Mobile Engagement に証明書へのアクセスを許可する必要があります。 このためには、証明書を Mobile Engagement ポータルに構成および入力します。 で説明したように、.p12 証明書を取得するかどうかを確認 [Apple のドキュメント](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
+Mobile Engagement がユーザーに代わりプッシュ通知を送信できるようにするには、Mobile Engagement に証明書へのアクセスを許可する必要があります。 このためには、証明書を Mobile Engagement ポータルに構成および入力します。 説明したように、.p12 証明書を取得するかどうかを確認 [Apple のドキュメント](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
 
-1. Mobile Engagement ポータルに移動します。 このプロジェクト用に使用しているアプリを対象にしていることを確認し、下部にある **[エンゲージ]** ボタンをクリックします。
+1. Mobile Engagement ポータルに移動します。 正しいおよびをクリックすることを確認、 **の関心を引く** 下部にあるボタンをクリックします。
 
     ![](./media/mobile-engagement-ios-send-push/engage-button.png)
 
-2. Engagement ポータルで **[設定]** ページをクリックします。 このページで、p12 証明書をアップロードするために **[ネイティブ プッシュ通知]** セクションをクリックします。
+2. をクリックして、 **設定** Engagement ポータルのページです。 クリックし、 **ネイティブ プッシュ通知** セクション、p12 証明書をアップロードします。
 
     ![](./media/mobile-engagement-ios-send-push/engagement-portal.png)
 
@@ -14,13 +14,13 @@ Mobile Engagement がユーザーに代わりプッシュ通知を送信でき�
 
     ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-## <a id="send"></a>アプリへ通知を送信します。
+##<a id="send"></a>アプリへ通知を送信します。
 
 プッシュ通知をアプリに送る簡単なプッシュ通知キャンペーンを作成してみましょう。
 
-1. Mobile Engagement ポータルで [**リーチ**] タブに移動します。
+1. 移動、 **到達** モバイル エンゲージメント ポータルでタブをクリックします。
 
-2. **[新しいお知らせ]** をクリックして、プッシュ キャンペーンを作成します。
+2. クリックして **新しいお知らせ** プッシュ キャンペーンを作成するには
 
     ![](./media/mobile-engagement-ios-send-push/new-announcement.png)
 
@@ -28,18 +28,18 @@ Mobile Engagement がユーザーに代わりプッシュ通知を送信でき�
 
     ![](./media/mobile-engagement-ios-send-push/campaign-first-params.png)
 
-    -   キャンペーンの**名前**を指定します。
-    -   **[配信時刻]** として **[アプリ外のみ]** を選択します。これはテキストを扱う単純な種類の Apple プッシュ通知です。
-    -   通知テキストとして、プッシュ通知の 1 行目になる **[タイトル]** を入力します。
-    -   次に、2 行目になる **[メッセージ]** を入力します。
+    -   提供、 **名前** キャンペーン 
+    -   選択、 **配信時刻** として **アプリ外のみ**: これは、テキストを扱う単純な Apple プッシュ通知タイプ。
+    -   まず通知のテキスト入力、 **タイトル** これが、プッシュの最初の行になります。
+    -   入力し、 **メッセージ** これが 2 番目の行になります
 
-4. スクロール ダウンし、コンテンツ セクションで [**通知のみ**] を選択します。
+4. スクロール ダウンし、コンテンツ セクションの選択で **通知のみ**
 
     ![](./media/mobile-engagement-ios-send-push/campaign-content.png)
 
-5. 最も基本的なキャンペーンの設定が完了しました。 下にスクロールし、**[作成]** ボタンをクリックしてプッシュ通知キャンペーンを保存します。
+5. 最も基本的なキャンペーンの設定が完了しました。 今すぐ下にスクロールし、をクリックして **作成** してプッシュ通知キャンペーンを保存] ボタンをクリックします。 
 
-6. 最後に、**[アクティブ化]** をクリックしてプッシュ通知を送信します。
+6. 最後に -] をクリックして **Activate** プッシュ通知を送信します。 
 
     ![](./media/mobile-engagement-ios-send-push/campaign-activate.png)
 
@@ -52,10 +52,6 @@ Mobile Engagement がユーザーに代わりプッシュ通知を送信でき�
     ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
 
 
+ 
 
-
-
-
-
-
-
+ 

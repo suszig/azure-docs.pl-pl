@@ -17,71 +17,68 @@
     ms.author="ireiter"/> 
 
 
+#二項分布スイート
 
-# 二項分布スイート
 
-二項分布スイートは、一連のサンプル web サービス ([二項ジェネレーター](https://datamarket.azure.com/dataset/aml_labs/bdg5), 、[確率計算](https://datamarket.azure.com/dataset/aml_labs/bdp4), 、[変位値計算](https://datamarket.azure.com/dataset/aml_labs/bdq5)) を生成し、二項分布を処理するのに役立ちます。 これらのサービスにより、任意の長さの二項分布シーケンスの生成、与えられた確率からの変位値の計算、および与えられた変位値からの確率の計算ができます。 それぞれのサービスは、選択したサービスに基づいて異なる結果を出力します (以下の説明を参照してください)。 二項分布スイートは、R の統計パッケージに含まれている R 関数 qbinom、rbinom、pbinom に基づいています。
+
+
+二項分布スイートは、一連のサンプル web サービス ([二項ジェネレーター](https://datamarket.azure.com/dataset/aml_labs/bdg5), 、[確率計算]( https://datamarket.azure.com/dataset/aml_labs/bdp4), 、[変位値計算]( https://datamarket.azure.com/dataset/aml_labs/bdq5)) を生成し、二項分布を処理するのに役立ちます。 これらのサービスにより、任意の長さの二項分布シーケンスの生成、与えられた確率からの変位値の計算、および与えられた変位値からの確率の計算ができます。 それぞれのサービスは、選択したサービスに基づいて異なる結果を出力します (以下の説明を参照してください)。 二項分布スイートは、R の統計パッケージに含まれている R 関数 qbinom、rbinom、pbinom に基づいています。 
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 >この Web サービスは、 モバイル アプリ、Web サイト、ローカル コンピューターなどから、Marketplace 上で直接ユーザーが使用できます。 この Web サービスのもう 1 つの目的は、Azure Machine Learning を使用して R コード上に Web サービスを作成する方法の例を示すことです。 数行の R コードを記述し、Azure Machine Learning Studio 内でボタンを何回かクリックするだけで、R コードで実験を作成し、Web サービスとして発行できます。 この Web サービスは Azure Marketplace に発行され、Web サービスの作成者がインフラストラクチャを設定することなく、世界中のユーザーやデバイスで使用されます。
 
-## Web サービスの使用
-
+##Web サービスの使用
 二項分布スイートには、次の 3 つのサービスが含まれています。
 
-### 二項分布の変位値計算
-
+###二項分布の変位値計算
 このサービスでは、正規分布の 4 つの引数を使用し、関連付けられている変位値を計算します。
 入力引数は、次のとおりです。
 
-- p – 複数の試行回数の 1 つの集計された確率
+- p – 複数の試行回数の 1 つの集計された確率  
 - size – 試行の回数
 - prob – 試行で成功する確率
-- Side - L は分布の下部、U は分布の上部
+- Side - L は分布の下部、U は分布の上部 
 
 サービスの出力は計算された変位値で、指定された確率に関連付けられています。
 
-### 二項分布の確率計算
-
+###二項分布の確率計算
 このサービスでは、二項分布の 4 つの引数を使用し、関連する変位値を計算します。
 入力引数は、次のとおりです。
 
-- q – 二項分布でのイベントの 1 つの変位値
+- q – 二項分布でのイベントの 1 つの変位値 
 - size – 試行の回数
 - prob – 試行で成功する確率
 - side– L は分布の下部、U は分布の上部、E は 1 つの成功数に相当します。
 
 サービスの出力は計算された確率で、指定された変位値に関連付けられています。
 
-### 二項分布ジェネレーター
-
+###二項分布ジェネレーター
 このサービスは、二項分布の 3 つの引数を使用し、二項分布の数値のランダム シーケンスを生成します。 
 要求には、次の引数を指定する必要があります。
 
-- n – 観察数
+- n – 観察数 
 - size – 試行の回数
 - prob – 成功する確率
 
 サービスの出力は、size と prob の引数に基づいた二項分布の長さ n のシーケンスです。
 
->Azure Marketplace でホストされているこのサービスは、OData サービスです。これらは、POST や GET メソッドによって呼び出すことができます。
+>Azure Marketplace でホストされているこのサービスは、OData サービスです。これらは、POST や GET メソッドによって呼び出すことができます。 
 
 自動でサービスの利用の複数の方法があります (アプリケーション例: [ジェネレーター](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionGenerator.aspx),、
 [確率計算](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionProbabilityCalculator.aspx),、
-[変位値計算](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionQuantileCalculator))します。
+[変位値計算](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionQuantileCalculator))。 
 
-### Web サービスを使用する C# コードを開始します。
+###Web サービスを使用する C# コードを開始します。
 
-### 二項分布の変位値計算
-
-    public class Input
+###二項分布の変位値計算
+    パブリック クラスの入力
     {
-            public string p;
-            public string size;
-            public string prob;
-            public string side;
+            パブリック文字列 p です。
+            パブリック文字列のサイズ。
+            パブリック文字列確率です。
+            パブリック文字列側です。
     }
     
     public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
@@ -105,14 +102,13 @@
             var scoreResult = result.ReadAsStringAsync().Result;
     }
 
-### 二項分布の確率計算
-
-    public class Input
+###二項分布の確率計算
+    パブリック クラスの入力
     {
-            public string q;
-            public string size;
-            public string prob;
-            public string side;
+            パブリック文字列 q です。
+            パブリック文字列のサイズ。
+            パブリック文字列確率です。
+            パブリック文字列側です。
     }
     
     public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
@@ -136,13 +132,13 @@
             var scoreResult = result.ReadAsStringAsync().Result;
     }
 
-### 二項分布ジェネレーター
 
-    public class Input
+###二項分布ジェネレーター
+    パブリック クラスの入力
     {
-            public string n;
-            public string size;
-            public string p;
+            パブリック文字列 n です。
+            パブリック文字列のサイズ。
+            パブリック文字列 p です。
     }
     
     public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
@@ -166,21 +162,23 @@
             var scoreResult = result.ReadAsStringAsync().Result;
     }
 
-## Web サービスの作成
+
+
+
+
+##Web サービスの作成 
 
 >この Web サービスは、Azure Machine Learning を使用して作成されました。 無料評価版として入門ビデオ実験を作成し、 [web サービスを公開](machine-learning-publish-a-machine-learning-web-service.md), を参照してください [azure.com/ml](http://azure.com/ml)します。 Web サービスを作成した実験のスクリーン ショット、および実験内の各モジュールに対するコード例を以下に示します。
 
-### 二項分布の変位値計算
+###二項分布の変位値計算
 
 ![Create workspace][4]
 
-#### モジュール 1:
-
-    #data schema with example data (replaced with data from web service)
-    data.set=data.frame(p=0.1,size=10,prob=.5,side='L');
-    maml.mapOutputPort("data.set"); #send data to output port
-
-#### モジュール 2:
+####モジュール 1:
+    #サンプル データ (web サービスからのデータに置き換えられます) を持つデータのスキーマ
+    data.set=data.frame(p=0.1,size=10,prob=.5,side='L') です。
+    maml.mapOutputPort("data.set") です。出力ポートに #send データ
+####モジュール 2:
 
     dataset1 <- maml.mapInputPort(1) # class: data.frame
     param = dataset1
@@ -191,7 +189,7 @@
     print('Bad input: p must be between 0 and 1')
     param$p = 1
     }
-    
+
     if (param$prob < 0 ) {
     print('Bad input: prob must be between 0 and 1')
     param$prob = 0
@@ -199,11 +197,11 @@
     print('Bad input: prob must be between 0 and 1')
     param$prob = 1
     }
-    
+
     quantile = qbinom(param$p,size=param$size,prob=param$prob)
     df = data.frame(x=1:param$size, prob=dbinom(1:param$size, param$size, prob=param$prob))
     quantile
-    
+
     if (param$side == 'U'){
     quantile = qbinom(param$p,size=param$size,prob=param$prob,lower.tail = F)
     band=subset(df,x>quantile)
@@ -213,31 +211,32 @@
     } else {
     print("Invalid side choice")
     }
-    
+
     output = as.data.frame(quantile)
     
     # Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
-### 二項分布の確率計算
 
-![ワークスペースの作成][5]
+###二項分布の確率計算
 
-#### モジュール 1:
+![Create workspace][5]
+
+####モジュール 1:
 
     #data schema with example data (replaced with data from web service)
     data.set=data.frame(q=5,size=10,prob=.5,side='L');
     maml.mapOutputPort("data.set"); #send data to output port
 
-#### モジュール 2:
 
-    dataset1 <- maml.mapInputPort(1) # class: data.frame
-    param = dataset1
-    prob = pbinom(param$q,size=param$size,prob=param$prob)
-    prob.eq = dbinom(param$q,size=param$size,prob=param$prob)
-    df = data.frame(x=1:param$size, prob=dbinom(1:param$size, param$size, prob=param$prob))
-    prob
-    
+####モジュール 2:
+    dataset1 <-maml.mapInputPort(1) # クラス: data.frame
+    param dataset1 を =
+    確率 = pbinom(param$q,size=param$size,prob=param$prob)
+    prob.eq dbinom(param$q,size=param$size,prob=param$prob) =
+    df = data.frame (x 1:param$ サイズ、確率 = = dbinom (1:param$ サイズ、param$ サイズ、確率 = param$ prob))
+    確率
+
     if (param$side == 'U'){
     prob = 1 - prob
     band=subset(df,x>param$q)
@@ -250,47 +249,49 @@
     } else {
     print("Invalid side choice")
     }
-    
+
     output = as.data.frame(prob)
     
     # Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
-### 二項分布ジェネレーター
+###二項分布ジェネレーター
 
 ![Create workspace][6]
 
-#### モジュール 1:
+####モジュール 1:
 
     #data schema with example data (replaced with data from web service)
     data.set=data.frame(n=50,size=10,p=.5);
     maml.mapOutputPort("data.set"); #send data to output port
 
-#### モジュール 2:
+####モジュール 2:
+    dataset1 <-maml.mapInputPort(1) # クラス: data.frame
+    param dataset1 を =
+    dist rbinom(param$n,param$size,param$p) =
 
-    dataset1 <- maml.mapInputPort(1) # class: data.frame
-    param = dataset1
-    dist = rbinom(param$n,param$size,param$p)
-    
     output = as.data.frame(t(dist))
     
     # Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
-## 制限事項
-
+##制限事項 
 これらは、二項分布周辺のきわめて単純な例です。 上のコード例からわかるように、エラーのキャッチはほとんど実装されていません。
 
-## FAQ
-
+##FAQ
 Web サービスまたは Azure Marketplace への発行の使用に関するよく寄せられる質問は、次を参照してください。 [ここ](machine-learning-marketplace-faq.md)します。
 
 
+[1]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_1.png
 
-[1]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_1.png 
-[2]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_2.png 
-[3]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_3.png 
-[4]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_4.png 
-[5]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_5.png 
-[6]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_6.png 
+[2]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_2.png
+
+[3]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_3.png
+
+[4]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_4.png
+
+[5]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_5.png
+
+[6]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_6.png
+ 
 

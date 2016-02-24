@@ -19,8 +19,8 @@
 
 
 
-
 # Azure Active Directory の Access Control で Web ユーザーを認証する方法
+
 
 このガイドでは、Microsoft、Google、Yahoo、Facebook などの ID プロバイダーのユーザーが Web アプリケーションにアクセスしようとするときに、それらのユーザーを認証するために Azure Active Directory の Access Control (Access Control サービス (ACS) とも呼ばれます) を使用する方法について説明します。
 
@@ -39,7 +39,7 @@ ACS では、次の機能を使用できます。
 -   ACS 設定への管理アクセスが可能な管理ポータル
     削除する必要があります。
 
-ACS の詳細については、次を参照してください。 [Access Control Service 2.0 の []][]します。
+ACS の詳細については、次を参照してください。 [Access Control Service 2.0][]します。
 
 ## 概念
 
@@ -48,21 +48,21 @@ ACS はクレームベース ID のプリンシパルに基づいており、こ
 このガイドのタスクを完了するには、このガイドで使用される次の用語と概念を理解している必要があります。
 
 
-**クライアント**: Web アプリケーションにアクセスしようとするブラウザー。
+**クライアント** -web アプリケーションにアクセスしようとするブラウザー。
 
-**証明書利用者 (RP) アプリケーション**: 使用している Web アプリケーション。 RP アプリケーションは、外部の機関に認証を委託する Web サイトまたは Web サービスです。 ID の分野では、"RP がその機関を信頼する" という表現を使います。 このガイドでは、アプリケーションが ACS を信頼するように構成する方法について説明します。
+**証明書利用者 (rp) アプリケーション** -web アプリです。 RP アプリケーションは、外部の機関に認証を委託する Web サイトまたは Web サービスです。 ID の分野では、"RP がその機関を信頼する" という表現を使います。 このガイドでは、アプリケーションが ACS を信頼するように構成する方法について説明します。
 
-**トークン**: ユーザーは RP アプリケーションが信頼している機関によって発行された有効なトークンを提示することによって、RP アプリケーションにアクセスできます。 クライアントの認証時に発行されたセキュリティ データのコレクションです。 これには、クレームのセット、つまり、ユーザーの名前や年齢、ユーザー ロールの ID など、認証されたユーザーの属性が含まれます。 トークンはデジタル署名されるため、発行者を特定でき、その内容は変更できません。
+**トークン** -ユーザーは、RP アプリケーションが信頼している機関によって発行された有効なトークンを提示することによって、RP アプリケーションにアクセス許可を取得します。 クライアントの認証時に発行されたセキュリティ データのコレクションです。 これには、クレームのセット、つまり、ユーザーの名前や年齢、ユーザー ロールの ID など、認証されたユーザーの属性が含まれます。 トークンはデジタル署名されるため、発行者を特定でき、その内容は変更できません。
 
 **Id プロバイダー (IP)** : ユーザー id を認証し、Microsoft アカウント (Windows Live ID)、Facebook、Google、Twitter、および Active Directory などのセキュリティ トークンを発行する機関です。 ACS が IP を信頼するように構成されている場合、ACS はその IP によって発行されたトークンを受け入れて検証します。 ACS は、ときに、アプリケーションは、ACS を信頼する、同時に複数の Ip を信頼できるので、アプリケーションことができます、認証するオプションを自動的に ACS が信頼している ip アドレスのいずれかがユーザーに提示できます。
 
-**フェデレーション プロバイダー (FP)**: ID プロバイダー (IP) はユーザーについての直接の情報を持ち、資格情報を使ってユーザーを認証し、ユーザーに関するクレームを発行します。 フェデレーション プロバイダー (FP) は、それとは別の種類の機関です。 ユーザーを直接認証する代わりに、FP は認証を仲介します。 証明書利用者アプリケーションと 1 つ以上の IP の間の仲介役として機能します。 ACS はフェデレーション プロバイダー (FP) です。
+**フェデレーション プロバイダー (FP)** -Id プロバイダー (Ip) は、ユーザーの直接の知識がある、自分の資格情報を使用してユーザーを認証し、ユーザーに関するクレームを発行します。 フェデレーション プロバイダー (FP) は、それとは別の種類の機関です。 ユーザーを直接認証する代わりに、FP は認証を仲介します。 証明書利用者アプリケーションと 1 つ以上の IP の間の仲介役として機能します。 ACS はフェデレーション プロバイダー (FP) です。
 
-**ACS 規則エンジン**: クレーム変換規則は、信頼されている IP からのトークンのクレームを変換するため、RP で使用できます。 ACS には、RP に指定するクレーム変換規則を適用するルール エンジンが含まれています。
+**ACS 規則エンジン** -クレーム変換規則では、RP で使用できるように信頼されている Ip からのトークンのクレームを変換します。 ACS には、RP に指定するクレーム変換規則を適用するルール エンジンが含まれています。
 
-**Access Control 名前空間**: アプリケーション内で ACS リソースのアドレスを指定するための一意のスコープが提供されます。 この名前空間には、信頼する IP、サービスを提供する RP アプリケーション、受信トークンに適用する規則などの設定が含まれ、アプリケーションと開発者が ACS とのやり取りに使用するエンドポイントが表示されます。
+**Access Control 名前空間** -アプリケーション内で ACS リソースのアドレスを指定するための一意のスコープを提供します。 この名前空間には、信頼する IP、サービスを提供する RP アプリケーション、受信トークンに適用する規則などの設定が含まれ、アプリケーションと開発者が ACS とのやり取りに使用するエンドポイントが表示されます。
 
-次の図は、Web アプリケーションで ACS 認証がどのように機能するかを 示しています。
+次の図は、Web アプリケーションで ACS 認証がどのように機能するかを示しています。
 
 ![][0]
 
@@ -84,11 +84,12 @@ ACS はクレームベース ID のプリンシパルに基づいており、こ
 
 ## 前提条件
 
+
 このガイドのタスクを完了するには、次のものが必要です。
 
 -   Azure サブスクリプション
 -   Microsoft Visual Studio 2012
--   Id および Access Tool for Visual Studio 2012 (ダウンロードするを参照してください [Id およびアクセス ツールの []][])。
+-   Id および Access Tool for Visual Studio 2012 (ダウンロードするを参照してください [Identity and Access Tool][])。
 
 
 ## Access Control 名前空間の作成
@@ -96,19 +97,19 @@ ACS はクレームベース ID のプリンシパルに基づいており、こ
 Azure で Active Directory Access Control を使用するには、Access Control 名前空間を作成します。 名前空間では、
 アプリケーション内で ACS リソースのアドレスを指定します。
 
-1.  ログイン、 [Azure 管理ポータルの][] (https://manage.WindowsAzure.com)。
+1.  ログイン、 [Azure 管理ポータル][] (https://manage.WindowsAzure.com)。
 
-2.  **[Active Directory]** をクリックします。
+2.  クリックして **Active Directory**します。  
 
     ![][1]
 
-3.  新しい Access Control 名前空間を作成するには、**[新規]** をクリックします。 **[アプリケーション サービス]** と **[アクセス制御]** が選択されます。 **[簡易作成]** をクリックします。
+3.  新しい Access Control 名前空間を作成する] をクリックして **新規**します。 **App Services** と **アクセス制御** が選択されます。 クリックして **簡易作成**します。
 
     ![][2]
 
 4.  名前空間の名前を入力します。 名前が一意であるかが確認されます。
 
-5.  名前空間が使用されるリージョンを選択します。 パフォーマンスを最高にするには、アプリケーションをデプロイするリージョンと同じにし、**[作成]** をクリックします。
+5.  名前空間が使用されるリージョンを選択します。 最適なパフォーマンスをアプリケーションをデプロイする地域を順にクリックを使用して **作成**します。
 
 名前空間が作成されて有効化されます。
 
@@ -117,15 +118,15 @@ Azure で Active Directory Access Control を使用するには、Access Control
 この手順では、ASP.NET MVC アプリケーションを作成します。 後の手順では、このシンプルな Web フォーム アプリケーションを ACS に統合します。
 
 1.  Visual Studio 2012 または Visual Studio Express for Web 2012 を起動します (それより前のバージョンの Visual Studio は、このチュートリアルでは機能しません)。
-1.  **[ファイル]** をクリックし、**[新しいプロジェクト]** をクリックします。
-1.  Visual C#/Web テンプレートを選択し、**[ASP.NET MVC 4 Web アプリケーション]** を選択します。
+1.  クリックして **ファイル**, 、] をクリックし、 **新しいプロジェクト**します。
+1.  [Visual c# Web テンプレート、し、、[ **ASP.NET MVC 4 Web アプリケーション**します。
 
     このガイドでは MVC アプリケーションを使用しますが、このタスクにはどの種類の Web アプリケーションでも使用できます。
 
     ![][3]
 
-1. **[名前]** に、「**MvcACS**」と入力して **[OK]** をクリックします。
-1. 次のダイアログで、**[インターネット アプリケーション]** を選択して **[OK]** をクリックします。
+1.  **名**, 、型 **MvcACS**, 、] をクリックし、 **OK**します。
+1. 次のダイアログ ボックスで選択 **インターネット アプリケーション**, 、] をクリックし、 **OK**します。
 1. 編集、 *Views\Shared\_LoginPartial.cshtml* ファイルし、内容を次のコードに置き換えます。
 
         @if (Request.IsAuthenticated)
@@ -152,7 +153,6 @@ Azure で Active Directory Access Control を使用するには、Access Control
             </ul>
         }
 
-
 現在のところ、ACS は User.Identity.Name を設定しないため、上記の変更を加える必要があります。
 
 1. F5 キーを押してアプリケーションを実行します。 既定の ASP.NET MVC アプリケーションが Web ブラウザーに表示されます。
@@ -161,17 +161,17 @@ Azure で Active Directory Access Control を使用するには、Access Control
 
 このタスクでは、ASP.NET Web アプリケーションを ACS と統合します。
 
-1.  ソリューション エクスプローラーで、MvcACS プロジェクトを右クリックし、**[Identity and Access]** をクリックします。
+1.  ソリューション エクスプ ローラーでは、MvcACS プロジェクトを右クリックして [ **Id およびアクセス**します。
 
-    **[Identity and Access]** オプションがコンテキスト メニューに表示されない場合、Identity and Access Tool をインストールします。 については、[Identity and Access Tool] を参照してください。
+    場合、 **Id およびアクセス** オプションが表示されないコンテキスト メニューで、Identity and Access Tool をインストールします。 詳細については、次を参照してください。 [Identity and Access Tool]します。
 
     ![][4]
 
-2.  [**プロバイダー**] タブで、[**Azure Access Control Service を使用する**] を選択します。
+2.   **プロバイダー** ] タブで [ **Azure Access Control Service を使用して**します。
 
     ![][44]
 
-3.  **[構成]** リンクをクリックします。
+3.  クリックして、 **構成** リンクします。
 
     ![][444]
 
@@ -179,25 +179,25 @@ Azure で Active Directory Access Control を使用するには、Access Control
 
     ![][17]
 
-4.  Azure 管理ポータルで、Access Control 名前空間をクリックし、**[管理]** をクリックします。
+4.  Azure の管理ポータルでアクセス制御名前空間をクリックし、をクリックして **管理**します。
 
     ![][8]
 
-5.  **[管理サービス]** をクリックし、**[管理クライアント]** をクリックします。
+5.  クリックして **管理サービス** ] をクリックし、 **管理クライアント**です。
 
     ![][18]
 
-6.  **[対称キー]** をクリックし、**[キーの表示]** をクリックして、キーの値をコピーします。 次に、**[キャンセル]** をクリックし、変更を加えずに管理クライアントの編集ページを終了します。
+6.  をクリックして **対称キー**, 、] をクリックして **[キーの表示**, 、キーの値をコピーします。 クリックして **キャンセル** 変更を加えずに管理クライアントの編集] ページを終了します。
 
     ![][19]
 
-7.  Visual Studio で、**[名前空間の管理キーを入力]** フィールドにキーを貼り付け、**[管理キーの保存]** をクリックして **[OK]** をクリックします。
+7.  Visual Studio でのキーを貼り付け、 **名前空間の管理キーを入力** フィールドでをクリックし、 **管理キー**, 、順にクリック **[ok]**します。
 
     ![][20]
 
     Visual Studio は、名前空間に関する情報を使用して ACS 管理ポータルに接続し、ID プロバイダー、領域、戻り先 URL など、名前空間の設定を取得します。
 
-8.  **[Windows Live ID]** (Microsoft アカウント) を選択して [OK] をクリックします。
+8.  選択 **Windows Live ID** (Microsoft アカウント) し、[ok] をクリックします。
 
     ![][5]
 
@@ -215,31 +215,30 @@ Azure で Active Directory Access Control を使用するには、Access Control
 
 ## ACS により送信されたクレームを参照する
 
-このセクションでは、ACS によって送信されたクレームが参照されるようにアプリケーションを変更します。 Identity and Access Tool により、IP からアプリケーションへのすべてのクレームを通過する規則グループが作成されています。 ID プロバイダーが異なると送信されるクレームが異なる点に注意してください。
+このセクションでは、ACS によって送信されたクレームが参照されるようにアプリケーションを変更します。  Identity and Access Tool により、IP からアプリケーションへのすべてのクレームを通過する規則グループが作成されています。  ID プロバイダーが異なると送信されるクレームが異なる点に注意してください。
 
-1. *Controllers\HomeController.cs* ファイルを開きます。 **System.Threading** の **using** ステートメントを追加します。
+1. 開いている、 *controllers \homecontroller.cs* ファイルです。 追加、 **を使用して** の声明 **System.Threading**:
 
     using System.Threading;
 
-1. HomeController クラスに、*Claims* メソッドを追加します。
+1. HomeController でクラスを追加、 *クレーム* メソッド。
 
- public ActionResult Claims()
- {
-     ViewBag.Message =「、要求ページです」;。
+    public ActionResult Claims()
+    {
+        ViewBag.Message =「、要求ページです」;。
 
-     ViewBag.ClaimsIdentity = Thread.CurrentPrincipal.Identity;
-    
-     return View();
+        ViewBag.ClaimsIdentity = Thread.CurrentPrincipal.Identity;
 
- {
+        return View();
+    }
 
-1. *Claims* メソッドを右クリックし、**[ビューの追加]** を選択します。
+1. 右クリックして、 *クレーム* メソッドと select **ビューの追加**します。
 
 ![][66]
 
-1. **[追加]** をクリックします。
+1. クリックして **追加**します。
 
-1. *Views\Home\Claims.cshtml* ファイルの内容を、次のコードに置き換えます。
+1. 内容を置き換える、 *Views\Home\Claims.cshtml* を次のコード ファイル。
 
         @{
             ViewBag.Title = "Claims";
@@ -289,7 +288,7 @@ Azure で Active Directory Access Control を使用するには、Access Control
         }
         </table>
 
-1. アプリケーションを実行し、*Claims* メソッドに移動します。
+1. アプリケーションを実行しに移動し、 *クレーム* メソッド。
 
 ![][666]
 
@@ -305,21 +304,23 @@ Visual Studio の Identity and Access Tool は、アプリケーションと ACS
 
 1.  Windows にログイン [Azure 管理ポータル](http://manage.WindowsAzure.com)します。
 
-2.  **[Active Directory]** をクリックします。
+2.  クリックして **Active Directory**します。
 
     ![][8]
 
-3.  Access Control 名前空間を選択し、**[管理]** をクリックします。 この操作により、ACS 管理ポータルが開きます。
+3.  Access Control の名前空間を選択し、クリックして **管理**します。 この操作により、ACS 管理ポータルが開きます。
 
     ![][9]
 
-4.  **[証明書利用者アプリケーション]** をクリックします。
+
+4.  クリックして **証明書利用者アプリケーション**します。
 
     新しい MvcACS アプリケーションが、証明書利用者アプリケーションの一覧に表示されます。 領域は、自動的にアプリケーション メイン ページに設定されます。
 
     ![][10]
 
-5.  **[MvcACS]** をクリックします。
+
+5.  クリックして **MvcACS**します。
 
     [証明書利用者アプリケーションの編集] ページには、MvcACS Web アプリケーションの構成設定が表示されます。 このページの設定を変更して保存すると、変更がすぐにアプリケーションに適用されます。
 
@@ -335,11 +336,11 @@ Visual Studio の Identity and Access Tool は、アプリケーションと ACS
 
 ACS 管理ポータルを使用して、MvcACS アプリケーションの認証を変更しましょう。 この例では、Google を MvcACS の ID プロバイダーとして追加します。
 
-1.  **[ID プロバイダー]** (ナビゲーション メニュー) をクリックし、**[追加]** をクリックします。
+1.  クリックして **Id プロバイダー** (ナビゲーション メニュー) の順にクリック **追加**します。
 
     ![][13]
 
-2.  **[Google]** をクリックし、**[次へ]** をクリックします。 MvcACS アプリケーションのチェック ボックスが既定でオンになっています。
+2.  クリックして **Google** ] をクリックし、 **次**します。 MvcACS アプリケーションのチェック ボックスが既定でオンになっています。
 
     ![][14]
 
@@ -348,7 +349,7 @@ ACS 管理ポータルを使用して、MvcACS アプリケーションの認証
     ![][15]
 
 
-これで完了です。 Visual Studio に戻ったら、MvcACS アプリケーションのプロジェクトを開いて **[Identity and Access]** をクリックすると、ツールにより Windows Live ID と Google ID プロバイダーの両方が一覧表示されます。
+これで完了です。 Visual Studio に戻る場合は、MvcACS アプリケーションのプロジェクトを開き] をクリックして **Id およびアクセス**, 、ツール、Windows Live ID と Google id プロバイダーを一覧表示します。  
 
 ![][16]
 
@@ -366,49 +367,50 @@ ACS と統合された Web アプリケーションを作成できました。 �
 
 アプリケーション ビジネス ロジックで処理するためにアプリケーションに送信されるクレームを決定する規則を、名前空間に追加することもできます。
 
-さらに ACS の機能を調べたりより多くのシナリオを試してみたりする場合は、[Access Control Service 2.0] を参照してください。
+さらに ACS の機能を調べたりより多くのシナリオを試してみたりする場合、次を参照してください。 [Access Control Service 2.0]します。
 
 
 
+  [What is ACS?]: #what-is
+  [Concepts]: #concepts
+  [Prerequisites]: #pre
+  [Create an ASP.NET MVC Application]: #create-web-app
+  [Create an Access Control Namespace]: #create-namespace
+  [Integrate your Web Application with ACS]: #Identity-Access
+  [Test the Integration with ACS]: #Test-ACS
+  [View the Application in the ACS Management Portal]: acs-portal
+  [Add an Identity Provider]: #add-IP
+  [What's Next]: #whats-next
+  [vcsb]: #bkmk_viewClaims
+  [vpp]: #bkmk_VP
 
-[what is acs?]: #what-is 
-[concepts]: #concepts 
-[prerequisites]: #pre 
-[create an asp.net mvc application]: #create-web-app 
-[create an access control namespace]: #create-namespace 
-[integrate your web application with acs]: #Identity-Access 
-[test the integration with acs]: #Test-ACS 
-[view the application in the acs management portal]: acs-portal 
-[add an identity provider]: #add-IP 
-[what's next]: #whats-next 
-[vcsb]: #bkmk_viewClaims 
-[vpp]: #bkmk_VP 
-[access control service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360 
-[identity and access tool]: http://go.microsoft.com/fwlink/?LinkID=245849 
-[azure management portal]: http://manage.WindowsAzure.com 
-[0]: ./media/active-directory-dotnet-how-to-use-access-control/acs-01.png 
-[1]: ./media/active-directory-dotnet-how-to-use-access-control/acsCreateNamespace.png 
-[2]: ./media/active-directory-dotnet-how-to-use-access-control/acsQuickCreate.png 
-[3]: ./media/active-directory-dotnet-how-to-use-access-control/rzMvc.png 
-[4]: ./media/active-directory-dotnet-how-to-use-access-control/rzIA.png 
-[44]: ./media/active-directory-dotnet-how-to-use-access-control/rzPT.png 
-[444]: ./media/active-directory-dotnet-how-to-use-access-control/rzC.png 
-[5]: ./media/active-directory-dotnet-how-to-use-access-control/acsIdAndAccess1.png 
-[6]: ./media/active-directory-dotnet-how-to-use-access-control/acsMSFTAcct.png 
-[66]: ./media/active-directory-dotnet-how-to-use-access-control/rzAv.png 
-[666]: ./media/active-directory-dotnet-how-to-use-access-control/rzCl.png 
-[7]: ./media/active-directory-dotnet-how-to-use-access-control/acsSignIn.png 
-[8]: ./media/active-directory-dotnet-how-to-use-access-control/acsClickManage.png 
-[9]: ./media/active-directory-dotnet-how-to-use-access-control/acsACSPortal.png 
-[10]: ./media/active-directory-dotnet-how-to-use-access-control/acsRPPage.png 
-[11]: ./media/active-directory-dotnet-how-to-use-access-control/acsEdit-RP.png 
-[12]: ./media/active-directory-dotnet-how-to-use-access-control/acsEdit-RP2.png 
-[13]: ./media/active-directory-dotnet-how-to-use-access-control/acsAdd-Idp.png 
-[14]: ./media/active-directory-dotnet-how-to-use-access-control/acsAdd-Google.png 
-[15]: ./media/active-directory-dotnet-how-to-use-access-control/acsSave-Google.png 
-[16]: ./media/active-directory-dotnet-how-to-use-access-control/acsIdAndA-after.png 
-[17]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace.png 
-[18]: ./media/active-directory-dotnet-how-to-use-access-control/acsManagementService.png 
-[19]: ./media/active-directory-dotnet-how-to-use-access-control/acsShowKey.png 
-[20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png 
+  [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
+  [Identity and Access Tool]: http://go.microsoft.com/fwlink/?LinkID=245849
+  [Azure Management Portal]: http://manage.WindowsAzure.com
+
+  [0]: ./media/active-directory-dotnet-how-to-use-access-control/acs-01.png
+  [1]: ./media/active-directory-dotnet-how-to-use-access-control/acsCreateNamespace.png
+  [2]: ./media/active-directory-dotnet-how-to-use-access-control/acsQuickCreate.png
+  [3]: ./media/active-directory-dotnet-how-to-use-access-control/rzMvc.png
+  [4]: ./media/active-directory-dotnet-how-to-use-access-control/rzIA.png
+[44]: ./media/active-directory-dotnet-how-to-use-access-control/rzPT.png
+ [444]: ./media/active-directory-dotnet-how-to-use-access-control/rzC.png
+  [5]: ./media/active-directory-dotnet-how-to-use-access-control/acsIdAndAccess1.png
+  [6]: ./media/active-directory-dotnet-how-to-use-access-control/acsMSFTAcct.png
+  [66]: ./media/active-directory-dotnet-how-to-use-access-control/rzAv.png
+  [666]: ./media/active-directory-dotnet-how-to-use-access-control/rzCl.png
+  [7]: ./media/active-directory-dotnet-how-to-use-access-control/acsSignIn.png
+  [8]: ./media/active-directory-dotnet-how-to-use-access-control/acsClickManage.png
+  [9]: ./media/active-directory-dotnet-how-to-use-access-control/acsACSPortal.png
+  [10]: ./media/active-directory-dotnet-how-to-use-access-control/acsRPPage.png
+  [11]: ./media/active-directory-dotnet-how-to-use-access-control/acsEdit-RP.png
+  [12]: ./media/active-directory-dotnet-how-to-use-access-control/acsEdit-RP2.png
+  [13]: ./media/active-directory-dotnet-how-to-use-access-control/acsAdd-Idp.png
+  [14]: ./media/active-directory-dotnet-how-to-use-access-control/acsAdd-Google.png
+  [15]: ./media/active-directory-dotnet-how-to-use-access-control/acsSave-Google.png
+  [16]: ./media/active-directory-dotnet-how-to-use-access-control/acsIdAndA-after.png
+  [17]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace.png
+  [18]: ./media/active-directory-dotnet-how-to-use-access-control/acsManagementService.png
+  [19]: ./media/active-directory-dotnet-how-to-use-access-control/acsShowKey.png
+  [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
 

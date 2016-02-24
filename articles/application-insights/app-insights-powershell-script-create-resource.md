@@ -15,12 +15,11 @@
     ms.date="10/21/2015" 
     ms.author="awills"/>
 
-
-# Application Insights リソースを作成するための PowerShell スクリプト
+#  Application Insights リソースを作成するための PowerShell スクリプト
 
 *Application Insights はプレビュー段階です。*
 
-際を監視する新しいアプリケーションまたは新しいバージョンのアプリケーションを監視する [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/), 、Microsoft Azure で新しいリソースを設定します。 このリソースは、アプリのテレメトリ データを分析、表示する場所です。
+際を監視する新しいアプリケーションまたは新しいバージョンのアプリケーションを監視する [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/), 、Microsoft Azure で新しいリソースを設定します。 このリソースは、アプリのテレメトリ データを分析、表示する場所です。 
 
 PowerShell を使用して、新しいリソースの作成を自動化できます。
 
@@ -33,7 +32,7 @@ PowerShell を使用して、新しいリソースの作成を自動化できま
 * App Insights 名 = ここで mytestapp
 * IKey =  00000000-0000-0000-0000-000000000000
 
-*PowerShell スクリプト*
+*PowerShell スクリプト*  
 
 ```PowerShell
 
@@ -75,30 +74,27 @@ New-AzureRoleAssignment -Mail "myTeam@fabrikam.com" -RoleDefinitionName Owner -S
 #Display iKey
 Write-Host "App Insights Name = " $resource.Name
 Write-Host "IKey = " $resource.Properties.InstrumentationKey
+
 ```
 
 ## iKey を使用して行うこと
 
-各リソースは、インストルメンテーション キー (iKey) によって識別されます。 IKey は、リソースの作成スクリプトの出力を示します。 ビルド スクリプトは、アプリケーションに埋め込まれた Application Insights SDK に iKey を提供します。
+各リソースは、インストルメンテーション キー (iKey) によって識別されます。 iKey はリソース作成スクリプトの出力です。 ビルド スクリプトで、アプリに組み込まれた Application Insights SDK に iKey を提供する必要があります。
 
 iKey を SDK で使用できるようにする方法は 2 つあります。
-
-* [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
- * `< instrumentationkey >`*ikey*`</instrumentationkey >`
-* または [初期化コード](app-insights-api-custom-events-metrics.md):
+  
+*  [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md): 
+ * `<instrumentationkey>`*ikey*`</instrumentationkey>`
+* またはで [初期化コード](app-insights-api-custom-events-metrics.md): 
  * `Microsoft.ApplicationInsights.Extensibility.
-    TelemetryConfiguration.Active.InstrumentationKey ="`* iKey *`";'
+    TelemetryConfiguration.Active.InstrumentationKey = "`*iKey*`";`
 
 
 
 ## 関連項目
 
-* [テンプレートから Application Insights と web テスト リソースを作成します。](app-insights-powershell.md)
-* [PowerShell で Azure 診断の監視の設定します。](app-insights-powershell-azure-diagnostics.md)
-* [PowerShell を使用して警告の設定](app-insights-alerts.md#set-alerts-by-using-powershell)
+* [テンプレートから Application Insights と Web テスト リソースを作成する](app-insights-powershell.md)
+* [PowerShell で Azure 診断の監視を設定する](app-insights-powershell-azure-diagnostics.md) 
+* [PowerShell を使用したアラートの設定](app-insights-alerts.md#set-alerts-by-using-powershell)
 
-
-
-
-
-
+ 

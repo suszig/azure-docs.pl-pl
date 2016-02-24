@@ -16,14 +16,13 @@
    ms.date="11/02/2015"
    ms.author="torsteng"/>
 
-
 # Azure SQL Database を使用したエラスティック データベース トランザクションの概要 (プレビュー)
 
-Azure SQL Database (SQL DB) のエラスティック データベース トランザクションは、SQL DB 内の複数のデータベースにまたがるトランザクションを実行する機能です。 SQL DB の弾力性データベースのトランザクションは ADO .NET を使用して .NET アプリケーションを利用し、使い慣れたプログラミング エクスペリエンスを使用して、統合、 [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) クラスです。
+Azure SQL Database (SQL DB) のエラスティック データベース トランザクションは、SQL DB 内の複数のデータベースにまたがるトランザクションを実行する機能です。 SQL DB の弾力性データベースのトランザクションは ADO .NET を使用して .NET アプリケーションを利用し、使い慣れたプログラミング エクスペリエンスを使用して、統合、 [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) クラスです。 
 
-従来、このようなシナリオをオンプレミスで実現するためには通常、Microsoft 分散トランザクション コーディネーター (MSDTC) が必要でした。 Azure における PaaS (Platform-as-a-Service) アプリケーションでは MSDTC が利用できないため、分散トランザクションの調整機能が SQL DB に直接統合されました。 アプリケーションは、任意の SQL Database に接続して分散トランザクションを開始できます。すると、いずれかのデータベースによって分散トランザクションが透過的に調整されます。そのようすを示したのが次の図です。
+従来、このようなシナリオをオンプレミスで実現するためには通常、Microsoft 分散トランザクション コーディネーター (MSDTC) が必要でした。 Azure における PaaS (Platform-as-a-Service) アプリケーションでは MSDTC が利用できないため、分散トランザクションの調整機能が SQL DB に直接統合されました。 アプリケーションは、任意の SQL Database に接続して分散トランザクションを開始できます。すると、いずれかのデータベースによって分散トランザクションが透過的に調整されます。そのようすを示したのが次の図です。 
 
-  ![エラスティック データベース トランザクションを使用した Azure SQL Database での分散トランザクション][1]
+  ![弾力性データベースのトランザクションを使用して Azure SQL Database の分散トランザクション][1]
 
 ## 一般的なシナリオ
 
@@ -48,7 +47,7 @@ SQL DB のエラスティック データベース トランザクションに�
 
 ### マルチデータベース アプリケーション
 
-次のサンプル コードは、.NET System.Transactions を使ったなじみ深いプログラミング技法によって記述しています。 TransactionScope クラスは、.NET でアンビエント トランザクションを確立するものです。 ("アンビエント トランザクション" とは現在のスレッドで実行されているトランザクションです。) TransactionScope 内で開かれたすべての接続はトランザクションに参加します。 複数の異なるデータベースが参加した場合、そのトランザクションは自動的に分散トランザクションに昇格されます。 トランザクションの最終的な結果は、スコープの完了 (コミットを意味する) を設定することによって制御します。
+次のサンプル コードは、.NET System.Transactions を使ったなじみ深いプログラミング技法によって記述しています。 TransactionScope クラスは、.NET でアンビエント トランザクションを確立するものです。 ("アンビエント トランザクション" とは現在のスレッドで実行されているトランザクションです。)TransactionScope 内で開かれたすべての接続はトランザクションに参加します。 複数の異なるデータベースが参加した場合、そのトランザクションは自動的に分散トランザクションに昇格されます。 トランザクションの最終的な結果は、スコープの完了 (コミットを意味する) を設定することによって制御します。
 
     using (var scope = new TransactionScope())
     {
@@ -59,7 +58,7 @@ SQL DB のエラスティック データベース トランザクションに�
             cmd1.CommandText = string.Format("insert into T1 values(1)");
             cmd1.ExecuteNonQuery();
         }
-    
+
         using (var conn2 = new SqlConnection(connStrDb2))
         {
             conn2.Open();
@@ -67,12 +66,12 @@ SQL DB のエラスティック データベース トランザクションに�
             cmd2.CommandText = string.Format("insert into T2 values(2)");
             cmd2.ExecuteNonQuery();
         }
-    
+
         scope.Complete();
     }
 
 ### シャード化されたデータベース アプリケーション
-
+ 
 SQL DB のエラスティック データベース トランザクションで、分散トランザクションの調整を行うこともできます。この場合、スケール アウトされたデータ層に使用する接続は、エラスティック データベース クライアント ライブラリの OpenConnectionForKey メソッドを使用して開きます。 たとえば、複数の異なるシャーディング キー値に対する変更で、トランザクションの一貫性を保証するとします。 異なるシャーディング キー値を持ったシャードに対する接続は、OpenConnectionForKey を使って取得することができます。 一般に、トランザクションの保証に分散トランザクションが伴うように、異なるシャードへの接続が取得されます。 
 次のコード サンプルに、この方法を示します。 ここでは、エラスティック データベース クライアント ライブラリのシャード マップを shardmap という変数で表しています。
 
@@ -85,7 +84,7 @@ SQL DB のエラスティック データベース トランザクションで�
             cmd1.CommandText = string.Format("insert into T1 values(1)");
             cmd1.ExecuteNonQuery();
         }
-    
+        
         using (var conn2 = shardmap.OpenConnectionForKey(tenantId2, credentialsStr))
         {
             conn2.Open();
@@ -93,13 +92,14 @@ SQL DB のエラスティック データベース トランザクションで�
             cmd2.CommandText = string.Format("insert into T1 values(2)");
             cmd2.ExecuteNonQuery();
         }
-    
+
         scope.Complete();
     }
 
+
 ## Azure worker ロールのセットアップ
 
-エラスティック データベース トランザクションに必要なバージョンの .NET とライブラリを Azure (ご利用のクラウド サービスのゲスト OS) にインストールしてデプロイする作業は自動化することができます。 Azure worker ロールの場合、スタートアップ タスクを使用します。 概念や手順は、「 [クラウド サービス役割インストールの .NET](../cloud-services/cloud-services-dotnet-install-dotnet.md)します。
+エラスティック データベース トランザクションに必要なバージョンの .NET とライブラリを Azure (ご利用のクラウド サービスのゲスト OS) にインストールしてデプロイする作業は自動化することができます。 Azure worker ロールの場合、スタートアップ タスクを使用します。 概念や手順は、「 [クラウド サービスの役割のインストールの .NET](../cloud-services/cloud-services-dotnet-install-dotnet.md)します。  
 
 .NET 4.6.1 のインストーラーは、Azure クラウド サービスでのブートストラップ プロセス中に、.NET 4.6 のインストーラーよりも一時的なストレージを多く必要とすることに注意してください。 正常かつ確実にインストールするには、次の例に示すように、ServiceDefinition.csdef ファイルの LocalResources セクションと、スタートアップ タスクの環境設定で、Azure クラウド サービスの一時的なストレージを増やす必要があります。
 
@@ -125,19 +125,19 @@ SQL DB のエラスティック データベース トランザクションで�
 ## トランザクションの状態の監視
 
 現在実行されているエラスティック データベース トランザクションの状態と進行状況は、SQL DB の動的管理ビュー (DMV) を使用して監視します。 トランザクションに関連したすべての DMV は、SQL DB の分散トランザクションにとって重要となります。 ここで Dmv の対応する一覧を入手できます: [トランザクション関連の動的管理ビューおよび関数 (TRANSACT-SQL)](https://msdn.microsoft.com/library/ms178621.aspx)します。
-
+ 
 次の DMV が特に重要となります。
 
 * **sys.dm\_tran\_active\_transactions**: 現在アクティブなトランザクションとそれらの状態を一覧表示します。 同じ分散トランザクションに属している子トランザクションは、UOW (Unit Of Work: 作業単位) 列で確認できます。 同じ分散トランザクションに属しているトランザクションはすべて同じ UOW 値を共有します。 参照してください、 [DMV ドキュメント](https://msdn.microsoft.com/library/ms174302.aspx) 詳細です。
 * **sys.dm\_tran\_database\_transactions**: ログ内のトランザクションの配置などのトランザクションの詳細について説明します。 参照してください、 [DMV ドキュメント](https://msdn.microsoft.com/library/ms186957.aspx) 詳細です。
 * **sys.dm\_tran\_locks**: 現在実行中のトランザクションで保持されているロックに関する情報を提供します。 参照してください、 [DMV ドキュメント](https://msdn.microsoft.com/library/ms190345.aspx) 詳細です。
 
-## 制限事項
+## 制限事項 
 
 SQL DB のエラスティック データベース トランザクションには現在、次の制限が適用されます。
 
-* サポートされるトランザクションの対象は、SQL DB 内のデータベースに限られます。 その他の [X/開く XA](https://en.wikipedia.org/wiki/X/Open_XA) リソース プロバイダーおよび SQL DB の外部でデータベースが弾力性データベースのトランザクションに参加できません。 つまり、オンプレミス SQL Server と Azure SQL Database にまたがってエラスティック データベース トランザクションを実行することはできません。 オンプレミスの分散トランザクションについては、引き続き MSDTC をご利用ください。
-* サポートされるのは、.NET アプリケーションからクライアント側で調整されるトランザクションだけです。 将来的には、サーバー側の T-SQL サポート (BEGIN DISTRIBUTED TRANSACTION など) が予定されていますが、現時点では利用できません。
+* サポートされるトランザクションの対象は、SQL DB 内のデータベースに限られます。 その他の [X/開く XA](https://en.wikipedia.org/wiki/X/Open_XA) リソース プロバイダーおよび SQL DB の外部でデータベースが弾力性データベースのトランザクションに参加できません。 つまり、オンプレミス SQL Server と Azure SQL Database にまたがってエラスティック データベース トランザクションを実行することはできません。 オンプレミスの分散トランザクションについては、引き続き MSDTC をご利用ください。 
+* サポートされるのは、.NET アプリケーションからクライアント側で調整されるトランザクションだけです。 将来的には、サーバー側の T-SQL サポート (BEGIN DISTRIBUTED TRANSACTION など) が予定されていますが、現時点では利用できません。 
 * Azure SQL DB V12 上のデータベースのみサポートされます。
 * サポートされるのは、SQL DB 内の同じ論理サーバーに属しているデータベースだけです。
 
@@ -145,7 +145,9 @@ SQL DB のエラスティック データベース トランザクションに�
 
 Azure アプリケーションでエラスティック データベースの機能を使ったことがないという方は、 チェック アウト、 [ドキュメント マップ](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)します。 に関する質問については、くださいに接続ことで、 [SQL Database フォーラム](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) 、機能に関するくださいに追加して、 [SQL Database に関するフィードバック フォーラム](http://feedback.azure.com/forums/217321-sql-database)します。
 
+<!--Image references-->
+[1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
 
-[1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png 
+
 

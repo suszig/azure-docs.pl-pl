@@ -16,7 +16,6 @@
     ms.date="10/07/2015"
     ms.author="sethm"/>
 
-
 # Azure Service Bus Relay を使用する .NET オンプレミス/クラウド ハイブリッド アプリケーション
 
 ## はじめに
@@ -83,17 +82,17 @@ Azure データ センターで実行される Web ロールが、
 
 Azure アプリケーションの開発を開始する前に、ツールを入手して、開発環境を設定します。
 
-1.  Azure SDK for で .NET インストール [ツールと SDK の][]します。
+1.  Azure SDK for で .NET インストール [ツールと SDK の入手][]します。
 
-2.  使用している Visual Studio のバージョンに対応する **[SDK のインストール]** をクリックします。 このチュートリアルの手順では、Visual Studio 2013 を使用します。
+2.  クリックして **SDK をインストール** を使用している Visual Studio のバージョン。 このチュートリアルの手順では、Visual Studio 2013 を使用します。
 
     ![][42]
 
-4.  インストーラーの実行や保存を求めるメッセージが表示されたら、**[実行]** をクリックします。
+4.  クリックして、インストーラー実行や保存を求められたら、 **実行**します。
 
     ![][2]
 
-5.  **Web Platform Installer** の **[インストール]** をクリックし、インストールの手順を進めます。
+5.   **Web Platform Installer**, 、クリックして **インストール** し、インストールを実行します。
 
     ![][3]
 
@@ -107,20 +106,20 @@ Azure アプリケーションの開発を開始する前に、ツールを入�
 
 Azure で Service Bus 機能を使用するには、最初にサービス名前空間を作成する必要があります。 名前空間は、アプリケーション内で Service Bus リソースをアドレス指定するためのスコープ コンテナーを提供します。
 
-名前空間と Service Bus メッセージング エンティティのいずれかを使用して管理することができます、 [Azure クラシック ポータルの [][] ポータル内から新しい名前空間が Visual Studio サーバー エクスプ ローラーで作成のみこともできます。
+名前空間と Service Bus メッセージング エンティティのいずれかを使用して管理することができます、 [Azure クラシック ポータル][] ポータル内から新しい名前空間が Visual Studio サーバー エクスプ ローラーで作成のみこともできます。
 
 ### Azure クラシック ポータルを使用して名前空間を作成する
 
-1.  サインイン、 [Azure クラシック ポータルの [][]します。
+1.  サインイン、 [Azure クラシック ポータル][]します。
 
 2.  ポータルの左側のナビゲーション ウィンドウで次のようにクリックします。
     **Service Bus**します。
 
-3.  ポータルの下のウィンドウで、**[作成]** をクリックします。
+3.  ポータルの下のウィンドウで、クリックして **作成**します。
 
     ![][5]
 
-4.  **[新しい名前空間を追加する]** ダイアログ ボックスで、名前空間の名前を入力します。
+4.   **新しい名前空間を追加** ] ダイアログ ボックスで、名前空間の名前を入力します。
     その名前が使用できるかどうかがすぐに自動で確認されます。
     ![][6]
 
@@ -128,14 +127,15 @@ Azure で Service Bus 機能を使用するには、最初にサービス名前�
     ホストする国または地域を選択します (
     コンピューター リソースをデプロイするのと同じ国/地域を
     使用してください)。
+
     > [AZURE.IMPORTANT] 選択、 *同じリージョン* 用に選択します。
     選択してください。 そうすることで、パフォーマンスが最高になります。
 
-6.  ダイアログ ボックスの他のフィールドは、既定値 (**[メッセージング]** と **[Standard]** レベル) のままにして、チェック マークをクリックします。 これで、システムによってサービス名前空間が作成され、有効になります。 システムがアカウントのリソースを準備し 終わるまでに、数分間かかる場合があります。
+6.  既定値] ダイアログ ボックスで、他のフィールドのままに (**メッセージング** と **標準** 層)、チェック マークをクリックします。 これで、システムによってサービス名前空間が作成され、有効になります。 システムがアカウントのリソースを準備し 終わるまでに、数分間かかる場合があります。
 
     ![][38]
 
-作成した名前空間は Azure クラシック ポータルに表示されます。アクティブ化するまで少し時間がかかります。 ステータスが **[アクティブ]** になるのを待ってから、次に進みます。
+作成した名前空間は Azure クラシック ポータルに表示されます。アクティブ化するまで少し時間がかかります。 待機状態になるまで **Active** に進む前にします。
 
 ## 名前空間の既定の管理資格情報の取得
 
@@ -145,11 +145,11 @@ Azure で Service Bus 機能を使用するには、最初にサービス名前�
 
     ![][39]
 
-2.  **[接続情報]** をクリックします。
+2.  クリックして **接続情報**します。
 
     ![][40]
 
-3.  **[接続情報へのアクセス]** ウィンドウで、SAS キーとキー名を含む接続文字列を見つけます。
+3.   **接続情報にアクセス** ] ウィンドウで、SAS キーとキー名を含む接続文字列を検索します。
 
     ![][45]
 
@@ -169,7 +169,7 @@ Service Bus の NuGet パッケージを使用して、Service Bus の
 簡単にインストールおよび更新できます。 Service Bus NuGet パッケージは、
 Service Bus API の取得およびアプリケーションの構成を
 すべて Service Bus の依存関係で最も簡単に行う方法です。 NuGet および Service Bus の使用については、
-Service Bus パッケージを参照してください [NuGet Service Bus パッケージのを使用して][]します。
+Service Bus パッケージを参照してください [NuGet Service Bus パッケージを使用して][]します。
 
 ### プロジェクトを作成する
 
@@ -183,19 +183,19 @@ Service Bus パッケージを参照してください [NuGet Service Bus パッ
 
     ![][10]
 
-3.  **インストールされたテンプレート**, [ **Visual c#**, 、] をクリックして * * コンソール
-    アプリケーション]** をクリックします。  **名** ボックスで、名前を入力します
-    **ProductsServer**:
+3.   **インストールされたテンプレート**, [ **Visual c#**, 、クリックして **コンソール
+    アプリケーション**します。  **名前** ボックスで、名前を入力します
+    **[Productsserver]**:
 
     ![][11]
 
-4.  **[OK]** をクリックして **ProductsServer** プロジェクトを作成します。
+4.  クリックして **OK** を作成する、 **ProductsServer** プロジェクトです。
 
 5.  ソリューション エクスプ ローラーで右クリック **ProductsServer**, 、し、
     クリックして **プロパティ**します。
 
-6.  クリックして、 **アプリケーション** 、左側のタブ、いることを確認し、* **.net
-    Framework 4 * * または **.NET Framework 4.5** で表示される、 **ターゲット フレームワーク** ] ボックスの一覧です。 表示されていない場合は、リストから選択し、プロジェクトを読み込み直すかどうかを確認するメッセージが表示されたら **[はい]** をクリックします。
+6.  クリックして、 **アプリケーション** 、左側のタブことを確認して **.NET
+    Framework 4** または **.NET Framework 4.5** で表示される、 **ターゲット フレームワーク** ] ボックスの一覧です。 ない場合は、一覧から選択し、 **はい** プロジェクトの再読み込みするように求められたらします。
 
     ![][12]
 
@@ -204,10 +204,10 @@ Service Bus パッケージを参照してください [NuGet Service Bus パッ
 7.  ソリューション エクスプ ローラーで右クリック **参照**, 、] をクリックし、
     **NuGet パッケージの管理**します。
 
-8.  **[NuGet]** ダイアログ ボックスの左側の列で、**[オンライン]** をクリックします。
+8.  左の列で、 **NuGet** ダイアログ ボックスで、をクリックして **オンライン**します。
 
-9.  右側の列をクリックして、 **検索** ボックスに、入力"**Service Bus**"を選択し、* * Microsoft
-    Azure Service Bus]** の項目を選択します。 クリックして **インストール** を完了する、
+9.  右側の列をクリックして、 **検索** ボックスに、入力"**Service Bus**"クリックして、 **Microsoft
+    Azure Service Bus** 項目。 クリックして **インストール** を完了する、
     インストールし、ダイアログ ボックスを閉じる。
 
     ![][13]
@@ -216,106 +216,106 @@ Service Bus パッケージを参照してください [NuGet Service Bus パッ
 
 9.  商品のコントラクト用に新しいクラスを追加します。 ソリューション エクスプローラーで、
     右クリックし、 **ProductsServer** プロジェクトを **追加**, 、] をクリックし、
-    **Class**.
+    **クラス**します。
 
     ![][14]
 
-10. **[名前]** ボックスに「**ProductsContract.cs**」と入力します。 次に、
+10.  **名前** ボックスに、名前を入力 **ProductsContract.cs**します。 次に、
     クリックして **追加**します。
 
-11. **ProductsContract.cs**, 、名前空間の定義を
-次のコードをサービスのコントラクトを定義します。
+11.  **ProductsContract.cs**, 、名前空間の定義を
+    次のコードをサービスのコントラクトを定義します。
 
-    namespace ProductsServer
-    {
-        using System.Collections.Generic;
-        using System.Runtime.Serialization;
-        using System.ServiceModel;
-    
-        // Define the data contract for the service
-        [DataContract]
-        // Declare the serializable properties.
-        public class ProductData
+        namespace ProductsServer
         {
-            [DataMember]
-            public string Id { get; set; }
-            [DataMember]
-            public string Name { get; set; }
-            [DataMember]
-            public string Quantity { get; set; }
+            using System.Collections.Generic;
+            using System.Runtime.Serialization;
+            using System.ServiceModel;
+
+            // Define the data contract for the service
+            [DataContract]
+            // Declare the serializable properties.
+            public class ProductData
+            {
+                [DataMember]
+                public string Id { get; set; }
+                [DataMember]
+                public string Name { get; set; }
+                [DataMember]
+                public string Quantity { get; set; }
+            }
+
+            // Define the service contract.
+            [ServiceContract]
+            interface IProducts
+            {
+                [OperationContract]
+                IList<ProductData> GetProducts();
+
+            }
+
+            interface IProductsChannel : IProducts, IClientChannel
+            {
+            }
         }
-    
-        // Define the service contract.
-        [ServiceContract]
-        interface IProducts
-        {
-            [OperationContract]
-            IList<ProductData> GetProducts();
-    
-        }
-    
-        interface IProductsChannel : IProducts, IClientChannel
-        {
-        }
-    }
 
 12. Program.cs では、名前空間の定義を
-コードは、プロファイル サービスとそのホストを追加します。
+    コードは、プロファイル サービスとそのホストを追加します。
 
-    namespace ProductsServer
-    {
-        using System;
-        using System.Linq;
-        using System.Collections.Generic;
-        using System.ServiceModel;
-    
-        // Implement the IProducts interface.
-        class ProductsService : IProducts
+        namespace ProductsServer
         {
-    
-            // Populate array of products for display on website.
-            ProductData[] products =
-                new []
-                    {
-                        new ProductData{ Id = "1", Name = "Rock",
-                                         Quantity = "1"},
-                        new ProductData{ Id = "2", Name = "Paper",
-                                         Quantity = "3"},
-                        new ProductData{ Id = "3", Name = "Scissors",
-                                         Quantity = "5"},
-                        new ProductData{ Id = "4", Name = "Well",
-                                         Quantity = "2500"},
-                    };
-    
-            // Display a message in the service console application
-            // when the list of products is retrieved.
-            public IList<ProductData> GetProducts()
+            using System;
+            using System.Linq;
+            using System.Collections.Generic;
+            using System.ServiceModel;
+
+            // Implement the IProducts interface.
+            class ProductsService : IProducts
             {
-                Console.WriteLine("GetProducts called.");
-                return products;
+
+                // Populate array of products for display on website.
+                ProductData[] products =
+                    new []
+                        {
+                            new ProductData{ Id = "1", Name = "Rock",
+                                             Quantity = "1"},
+                            new ProductData{ Id = "2", Name = "Paper",
+                                             Quantity = "3"},
+                            new ProductData{ Id = "3", Name = "Scissors",
+                                             Quantity = "5"},
+                            new ProductData{ Id = "4", Name = "Well",
+                                             Quantity = "2500"},
+                        };
+
+                // Display a message in the service console application
+                // when the list of products is retrieved.
+                public IList<ProductData> GetProducts()
+                {
+                    Console.WriteLine("GetProducts called.");
+                    return products;
+                }
+
             }
-    
-        }
-    
-        class Program
-        {
-            // Define the Main() function in the service application.
-            static void Main(string[] args)
+
+            class Program
             {
-                var sh = new ServiceHost(typeof(ProductsService));
-                sh.Open();
-    
-                Console.WriteLine("Press ENTER to close");
-                Console.ReadLine();
-    
-                sh.Close();
+                // Define the Main() function in the service application.
+                static void Main(string[] args)
+                {
+                    var sh = new ServiceHost(typeof(ProductsService));
+                    sh.Open();
+
+                    Console.WriteLine("Press ENTER to close");
+                    Console.ReadLine();
+
+                    sh.Close();
+                }
             }
         }
-    }
 
 13. ソリューション エクスプ ローラーでダブルクリックして、 **App.config** ファイル
     Visual Studio エディターでそのファイルを開きます。 次の
-    **< システムです。ServiceModel >** を次の XML コードです。 このとき、
+    **& lt; システムです。ServiceModel & gt;** 次の XML コードです。 このとき、
     置換 *yourServiceNamespace* 、サービスの名前に置き換えます
     名前空間、および *yourKey* 以前に取得した SAS キーを持つ
     Azure クラシック ポータル: から
@@ -348,7 +348,7 @@ Service Bus パッケージを参照してください [NuGet Service Bus パッ
           </behaviors>
         </system.serviceModel>
 
-14. F6 キーを押すか、**[ビルド]** メニューの **[ソリューションのビルド]** をクリックしてアプリケーションをビルドし、ここまでの作業に問題がないことを確認します。
+14. F6 キーを押してから、または、 **ビルド** ] メニューのをクリックして **ソリューションのビルド** これまで、正しく作業したことを確認するアプリケーションをビルドします。
 
 ## ASP.NET MVC アプリケーションを作成する
 
@@ -364,19 +364,19 @@ Service Bus パッケージを参照してください [NuGet Service Bus パッ
 2.  Visual Studio での **ファイル** ] メニューのをクリックして **新規**, 、し、
     クリックして **プロジェクト**します。
 
-3.  **[インストールされたテンプレート]** で **[Visual C#]** をクリックし、**[ASP.NET Web アプリケーション]** をクリックします。 プロジェクト名として、「**ProductsPortal**」と入力します。 次に、
+3.   **インストールされたテンプレート**, [ **Visual c#**, 、クリックして **ASP.NET Web アプリケーション**します。 プロジェクトに名前を **ProductsPortal**します。 次に、
     クリックして **OK**します。
 
     ![][15]
 
-4.  **テンプレートを選択して** 一覧で、クリックして **MVC**,、
+4.   **テンプレートを選択して** 一覧で、クリックして **MVC**,、
     クリックして **OK**します。
 
     ![][16]
 
 5.  ソリューション エクスプ ローラーで右クリックして **モデル** ] をクリックし、 **追加**,、
-    クリックし、 **クラス**します。  **名** ボックスで、名前を入力します
-    **Product.cs**します。 **[追加]** をクリックします。
+    クリックし、 **クラス**します。  **名前** ボックスで、名前を入力します
+    **Product.cs**します。 クリックして **追加**します。
 
     ![][17]
 
@@ -397,26 +397,26 @@ Service Bus パッケージを参照してください [NuGet Service Bus パッ
         }
 
 2.  Visual Studio の HomeController.cs ファイルで、既存の名前空間の定義を
-名前空間の定義を次のコードです。
+    名前空間の定義を次のコードです。
 
-    namespace ProductsWeb.Controllers
-    {
-        using System.Collections.Generic;
-        using System.Web.Mvc;
-        using Models;
-    
-        public class HomeController : Controller
+        namespace ProductsWeb.Controllers
         {
-            // Return a view of the products inventory.
-            public ActionResult Index(string Identifier, string ProductName)
+            using System.Collections.Generic;
+            using System.Web.Mvc;
+            using Models;
+
+            public class HomeController : Controller
             {
-                var products = new List<Product>
-                    {new Product {Id = Identifier, Name = ProductName}};
-                return View(products);
+                // Return a view of the products inventory.
+                public ActionResult Index(string Identifier, string ProductName)
+                {
+                    var products = new List<Product>
+                        {new Product {Id = Identifier, Name = ProductName}};
+                    return View(products);
+                }
+
             }
-    
         }
-    }
 
 3.  ソリューション エクスプローラーで、Views\Shared フォルダーを展開します。
 
@@ -424,9 +424,9 @@ Service Bus パッケージを参照してください [NuGet Service Bus パッ
 
 4.  ダブルクリックして **_Layout.cshtml** を Visual Studio エディターで開きます。
 
-5.  "**My ASP.NET Application**" となっている箇所をすべて "**LITWARE's Products**" に置き換えます。
+5.  出現箇所をすべて **My ASP.NET Application** に **litware's Products**します。
 
-6. **Home**、**About**、および **Contact** の各リンクを削除します。 次の例では、強調表示されたコードを削除します。
+6. 削除、 **ホーム**, 、**に関する**, 、および **連絡先** リンクします。 次の例では、強調表示されたコードを削除します。
 
     ![][41]
 
@@ -434,40 +434,40 @@ Service Bus パッケージを参照してください [NuGet Service Bus パッ
 
     ![][20]
 
-8.  **Index.cshtml** をダブルクリックして、Visual Studio エディターで開きます。
-ファイルの内容全体を次のコードに置き換えます。
+8.  ダブルクリックして **Index.cshtml** を Visual Studio エディターで開きます。
+    ファイルの内容全体を次のコードに置き換えます。
 
-    @model IEnumerable<ProductsWeb.Models.Product>
-    
-    @{
-        ViewBag.Title = "Index";
-    }
-    
-    <h2>Prod Inventory</h2>
-    
-    <table>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th></th>
-            <th>
-                @Html.DisplayNameFor(model => model.Quantity)
-            </th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-        </tr>
-    }
-    
-    </table>
+        @model IEnumerable<ProductsWeb.Models.Product>
+
+        @{
+            ViewBag.Title = "Index";
+        }
+
+        <h2>Prod Inventory</h2>
+
+        <table>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </th>
+            </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+            </tr>
+        }
+
+        </table>
 
 9.  作業の精度を検証するこれまでキーを押して **F6** または
     **Ctrl + Shift + B** プロジェクトをビルドします。
@@ -477,21 +477,21 @@ Service Bus パッケージを参照してください [NuGet Service Bus パッ
 
 アプリケーションを実行して、動作を確認します。
 
-1.  **ProductsPortal** がアクティブなプロジェクトであることを確認します。 次の
-    ソリューション エクスプ ローラーでプロジェクト名を右クリックし、
-    スタートアップ プロジェクト] を選択します。
-2.  **Visual Studio** で、F5 キーを押します。
+1.  いることを確認 **ProductsPortal** はアクティブなプロジェクトです。 次の
+    プロジェクトがソリューション エクスプ ローラーで名前を指定し、選択 **として設定
+    スタートアップ プロジェクト**します。
+2.   **Visual Studio**, 、F5 キーを押します。
 3.  アプリケーションがブラウザーに表示され、実行されます。
 
     ![][21]
 
 ## アプリケーションを AZURE にデプロイする準備を完了する
 
-アプリケーションは、Azure クラウド サービスまたは Azure の Web サイトにデプロイできます。 Web サイトとクラウド サービスの違いの詳細については、次を参照してください。 [Azure 実行モデルに関する][executionmodels]します。 Azure の web サイトにアプリケーションを展開する方法については、次を参照してください。 [Azure の web サイトに ASP.NET Web アプリケーションを配置する](http://azure.microsoft.com/develop/net/tutorials/get-started/)します。 このセクションには、アプリケーションを Azure クラウド サービスにデプロイする詳細な手順が記載されています。
+アプリケーションは、Azure クラウド サービスまたは Azure の Web サイトにデプロイできます。 Web サイトとクラウド サービスの違いの詳細については、次を参照してください。 [Azure 実行モデル][executionmodels]します。 Azure の web サイトにアプリケーションを展開する方法については、次を参照してください。 [Azure の web サイトに ASP.NET Web アプリケーションを配置する](http://azure.microsoft.com/develop/net/tutorials/get-started/)です。 このセクションには、アプリケーションを Azure クラウド サービスにデプロイする詳細な手順が記載されています。
 
 アプリケーションをクラウド サービスにデプロイするには、クラウド サービス プロジェクトのデプロイメント プロジェクトをソリューションに追加します。 このデプロイメント プロジェクトには、アプリケーションをクラウドで適切に実行するために必要な構成情報が含まれています。
 
-1.  アプリケーションをクラウドにデプロイできるようにするには、ソリューション エクスプローラーで **ProductsPortal** プロジェクトを右クリックし、**[変換]** をクリックしてから **[Azure クラウド サービス プロジェクトへの変換]** をクリックします。
+1.  アプリケーションをクラウドにデプロイできるようにするには、右クリックし、 **ProductsPortal** ソリューション エクスプ ローラーでプロジェクトを **変換**, 、] をクリックし、 **Azure クラウド サービス プロジェクトへの変換**します。
 
     ![][22]
 
@@ -507,118 +507,117 @@ Service Bus パッケージを参照してください [NuGet Service Bus パッ
 
 次の手順では、オンプレミスの商品サーバーと ASP.NET MVC アプリケーションを連結します。
 
-1.  「ASP.NET MVC アプリケーションの作成」セクションで作成した **ProductsPortal** プロジェクトを閉じている場合は、Visual Studio でもう一度開きます。
+1.  Visual Studio でもう一度開きます開いていない場合、 **ProductsPortal** 「ASP.NET MVC アプリケーションの作成」セクションで作成したプロジェクト。
 
-2.  「オンプレミス サーバーの作成」セクションに記載されている手順に従い、NuGet パッケージを Reference プロジェクトに追加します。 ソリューション エクスプローラーで **[参照]** を右クリックし、 **[NuGet パッケージの管理]** をクリックします。
+2.  「オンプレミス サーバーの作成」セクションに記載されている手順に従い、NuGet パッケージを Reference プロジェクトに追加します。 ソリューション エクスプ ローラーで右クリック **参照**, 、クリックして **NuGet パッケージの管理**します。
 
-3.  "Service Bus" を検索して、**[Microsoft Azure Service Bus]** 項目を選択します。 次に、インストールを完了し、このダイアログ ボックスを閉じます。
+3.  "Service Bus"を検索し、選択、 **Microsoft Azure Service Bus** 項目。 次に、インストールを完了し、このダイアログ ボックスを閉じます。
 
-4.  ソリューション エクスプローラーで **ProductsPortal** プロジェクトを右クリックし、**[追加]** をクリックしてから **[既存の項目]** をクリックします。
+4.  ソリューション エクスプ ローラーで右クリックし、 **ProductsPortal** プロジェクトををクリックし、 **追加**, 、し **既存項目の**です。
 
-5.  **ProductsServer** コンソール プロジェクトの **ProductsContract.cs** ファイルに移動します。 ProductsContract.cs を強調表示する] をクリックします。 **[追加]** の横の下向き矢印をクリックしてから、**[リンクとして追加]** をクリックします。
+5.  移動し、 **ProductsContract.cs** ファイルから、 **ProductsServer** コンソール プロジェクトです。 ProductsContract.cs を強調表示する] をクリックします。 次に、下矢印をクリックして **追加**, 、順にクリックして **リンクとして追加**します。
 
     ![][24]
 
-6.  開き、 **HomeController.cs** Visual Studio エディターでファイルし、名前空間の定義を次のコードに置き換えます。 *yourServiceNamespace* は実際のサービス名前空間の名前、*yourKey* は SAS キーに置き換えてください。 これで、クライアントからオンプレミスのサービスを呼び出し、その結果を返すことができます。
+6.  開き、 **HomeController.cs** Visual Studio エディターでファイルし、名前空間の定義を次のコードに置き換えます。 置き換えてください *yourServiceNamespace* 、サービスの名前空間の名前と *yourKey* SAS キーです。 これで、クライアントからオンプレミスのサービスを呼び出し、その結果を返すことができます。
 
-        namespace ProductsWeb.Controllers
-        {
-            using System.Linq;
-            using System.ServiceModel;
-            using System.Web.Mvc;
-            using Microsoft.ServiceBus;
-            using Models;
-            using ProductsServer;
-    
-            public class HomeController : Controller
+            namespace ProductsWeb.Controllers
             {
-                // Declare the channel factory.
-                static ChannelFactory<IProductsChannel> channelFactory;
-    
-                static HomeController()
+                using System.Linq;
+                using System.ServiceModel;
+                using System.Web.Mvc;
+                using Microsoft.ServiceBus;
+                using Models;
+                using ProductsServer;
+
+                public class HomeController : Controller
                 {
-                    // Create shared secret token credentials for authentication.
-                    channelFactory = new ChannelFactory<IProductsChannel>(new NetTcpRelayBinding(),
-                        "sb://yourServiceNamespace.servicebus.windows.net/products");
-                    channelFactory.Endpoint.Behaviors.Add(new TransportClientEndpointBehavior {
-                        TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider(
-                            "RootManageSharedAccessKey", "yourKey") });
-                }
-    
-                public ActionResult Index()
-                {
-                    using (IProductsChannel channel = channelFactory.CreateChannel())
+                    // Declare the channel factory.
+                    static ChannelFactory<IProductsChannel> channelFactory;
+
+                    static HomeController()
                     {
-                        // Return a view of the products inventory.
-                        return this.View(from prod in channel.GetProducts()
-                                         select
-                                             new Product { Id = prod.Id, Name = prod.Name,
-                                                 Quantity = prod.Quantity });
+                        // Create shared secret token credentials for authentication.
+                        channelFactory = new ChannelFactory<IProductsChannel>(new NetTcpRelayBinding(),
+                            "sb://yourServiceNamespace.servicebus.windows.net/products");
+                        channelFactory.Endpoint.Behaviors.Add(new TransportClientEndpointBehavior {
+                            TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider(
+                                "RootManageSharedAccessKey", "yourKey") });
+                    }
+
+                    public ActionResult Index()
+                    {
+                        using (IProductsChannel channel = channelFactory.CreateChannel())
+                        {
+                            // Return a view of the products inventory.
+                            return this.View(from prod in channel.GetProducts()
+                                             select
+                                                 new Product { Id = prod.Id, Name = prod.Name,
+                                                     Quantity = prod.Quantity });
+                        }
                     }
                 }
             }
-        }
+7.  ソリューション エクスプ ローラーで右クリックし、 **ProductsPortal**ソリューションでは、クリックして **追加**, 、順にクリックして **既存のプロジェクト**します。
 
-7.  ソリューション エクスプローラーで **ProductsPortal** ソリューションを右クリックし、**[追加]**、**[既存のプロジェクト]** の順にクリックします。
+8.  移動し、 **ProductsServer** プロジェクトをし、ダブルクリックして、 **ProductsServer.csproj** ソリューション ファイルを追加します。
 
-8.  **ProductsServer** プロジェクトに移動し、**ProductsServer.csproj** ソリューション ファイルをダブルクリックして追加します。
+9.  ソリューション エクスプ ローラーで右クリックし、 **ProductsPortal** ] をクリック **プロパティ**します。
 
-9.  ソリューション エクスプローラーで **ProductsPortal** ソリューションを右クリックして、**[プロパティ]** をクリックします。
-
-10. 左側で、**[スタートアップ プロジェクト]** をクリックします。 左側で、**[マルチ スタートアップ プロジェクト]** をクリックします。 **ProductsServer**、**ProductsPortal.Azure**、**ProductsPortal** がこの順序で表示され、**ProductsServer** と **ProductsPortal.Azure** の動作に **[開始]** が設定され、**ProductsPortal** の動作に **[なし]** が設定されているようにしてください。
+10. 左側にある [クリックして **スタートアップ プロジェクト**します。 右側にある、次のようにクリックします。 **マルチ スタートアップ プロジェクト**します。 いることを確認 **ProductsServer**, 、**[productsportal.azure]**, と **ProductsPortal** が、その順序で **開始** に対するアクションとして設定 **ProductsServer** と **[productsportal.azure]**, と **なし** に対するアクションとして設定 **ProductsPortal**します。
 
       ![][25]
 
-11. 引き続き **[プロパティ]** ダイアログ ボックスで、左側の **[ProjectDependencies]** をクリックします。
+11. まだ、 **プロパティ** ] ダイアログ ボックスをクリックして **[projectdependencies]** 左側にあります。
 
-12. **[プロジェクト]** リストで **[ProductsServer]** をクリックします。 **[ProductsPortal]** がオフ、**[ProductsPortal.Azure]** がオンになっていることを確認します。 次に、**[OK]** をクリックします。
+12.  **プロジェクト** 一覧で、クリックして **ProductsServer**します。 いることを確認 **ProductsPortal** が選択されていないと **ProductsPortal.Azure** が選択されています。 クリックして **OK**:
 
     ![][26]
 
 ## アプリケーションの実行
 
-1.  Visual Studio の **[ファイル]** メニューで **[すべて保存]** をクリックします。
+1.   **ファイル** Visual Studio のメニューをクリックして **すべて保存**します。
 
-2.  F5 キーを押して、アプリケーションをビルドして実行します。 次のスクリーンショットのように、まず、オンプレミスのサーバー (**ProductsServer** コンソール アプリケーション) を開始し、次に **ProductsWeb** アプリケーションをブラウザー ウィンドウで開始する必要があります。 この時点で、オンプレミスのシステムの商品サービスから取得された商品在庫一覧データが表示されます。
+2.  F5 キーを押して、アプリケーションをビルドして実行します。 内部設置型サーバー (、 **ProductsServer** コンソール アプリケーション)、最初に起動する必要があります、 **ProductsWeb** アプリケーションは、次のスクリーン ショットに示すようにブラウザーのウィンドウで開始する必要があります。 この時点で、オンプレミスのシステムの商品サービスから取得された商品在庫一覧データが表示されます。
 
     ![][1]
 
 ## Azure へのアプリケーションのデプロイ
 
-1.  ソリューション エクスプローラーで **ProductsPortal** プロジェクトを右クリックし、**[Microsoft Azure への発行]** をクリックします。
+1.  右クリックし、 **ProductsPortal** ソリューション エクスプ ローラーでプロジェクトをクリックして **Microsoft Azure への発行**します。
 
 2.  すべてのサブスクリプションを表示するために、サインインする必要が生じることがあります。
 
-    **[他のサブスクリプションを表示するためにサインイン]** をクリックします。
+    クリックして **他のサブスクリプションを表示するためサインイン**:
 
     ![][27]
 
 3.  Microsoft アカウントを使用してサインインします。
 
-8.  **[次へ]** をクリックします。 ホストされるサービスがサブスクリプションにまだ含まれていない場合は、ホステッド サービスの作成を求めるメッセージが表示されます。 ホストされるサービスには、Azure サブスクリプションにおけるアプリケーションのコンテナーとして機能します。 アプリケーションを識別する名前を入力し、アプリケーションが最適化される対象リージョンを選択します (このリージョンからアプリケーションにアクセスするユーザーは、読み込み時間が短くなることが期待できます)。
+8.  クリックして **次**します。 ホストされるサービスがサブスクリプションにまだ含まれていない場合は、ホステッド サービスの作成を求めるメッセージが表示されます。 ホストされるサービスには、Azure サブスクリプションにおけるアプリケーションのコンテナーとして機能します。 アプリケーションを識別する名前を入力し、アプリケーションが最適化される対象リージョンを選択します (このリージョンからアプリケーションにアクセスするユーザーは、読み込み時間が短くなることが期待できます)。
 
-9.  アプリケーションの発行先のホストされるサービスを選択します。 その他の設定については、次の図に示す既定のままにします。 **[次へ]** をクリックします。
+9.  アプリケーションの発行先のホストされるサービスを選択します。 その他の設定については、次の図に示す既定のままにします。 クリックして **次**します。
 
     ![][33]
 
-10. 最後のページで、**[発行]** をクリックしてデプロイメント プロセスを開始します。
+10. 最後のページでクリックして **発行** 展開プロセスを開始します。
 
     ![][34]
 これには約 5 ～ 7 分かかります。 これは最初の発行であるため、Azure が Virtual Machines (VM) を準備して、セキュリティを強化し、アプリケーションをホストするためのWeb ロールを VM 上に作成して、その Web ロールにコードをデプロイします。最後に、Load Balancer とネットワークを構成して、アプリケーションを発行します。
 
-11. 発行の進行中に、**[Azure のアクティビティ ログ]** ウィンドウでアクティビティを監視できます。通常、このウィンドウは Visual Studio または Visual Web Developer の下部にドッキングされています。
+11. 発行の進行中はことができます、アクティビティの監視、 **Azure のアクティビティ ログ** Visual Studio または Visual Web Developer の下部にドッキングされる通常のウィンドウです。
 
     ![][35]
 
-12. デプロイメントが完了したら、監視ウィンドウで **[Web サイトの URL]** リンクをクリックして、Web サイトを表示できます。
+12. クリックして、web サイトを表示するには展開が完了すると、 **web サイトの URL** 監視ウィンドウでリンクできます。
 
     ![][36]
 
-    Web サイトはオンプレミスのサーバーに依存するため、この Web サイトを正しく機能させるには、**ProductsServer** アプリケーションをローカルに実行する必要があります。 クラウドの Web サイトで要求を実行すると、次のスクリーンショットにある "GetProducts" の出力が示すように、オンプレミスのコンソール アプリケーションで要求が呼び出されることを確認できます。
+    Web サイトは、実行する必要がありますので、内部設置型サーバーとは異なります。、 **ProductsServer** アプリケーションをローカルに web サイトを適切に機能します。 クラウドの Web サイトで要求を実行すると、次のスクリーンショットにある "GetProducts" の出力が示すように、オンプレミスのコンソール アプリケーションで要求が呼び出されることを確認できます。
 
     ![][37]
 
-Web サイトとクラウド サービスの違いの詳細については、次を参照してください。 [Azure 実行モデルに関する][executionmodels]します。
+Web サイトとクラウド サービスの違いの詳細については、次を参照してください。 [Azure 実行モデル][executionmodels]します。
 
 ## アプリケーションの停止と削除
 
@@ -635,64 +634,72 @@ Azure では、消費されたサーバー時間の 1 時間単位の 料金が 
 次のステップでは、アプリケーションの停止と削除の方法を
 想定しています。
 
-1.  サインイン、 [Azure クラシック ポータル][], をクリックして **クラウド サービス**, 、サービスの名前をクリックします。
+1.  サインイン、 [Azure クラシック ポータル][], 、クリックして **クラウド サービス**, 、サービスの名前をクリックします。
 
-2.  **[ダッシュボード]** タブをクリックし、**[停止]** をクリックすると、アプリケーションが一時的に停止されます。 **[開始]** をクリックすることにより、再度開始できます。 **[削除]** をクリックすると、アプリケーションが Azure から完全に削除されます。復元することはできません。
+2.  クリックして、 **ダッシュ ボード** タブをクリックし、をクリックして **停止** 、アプリケーションを一時的に無効にします。 クリックして再開することができます **開始**します。 クリックして **削除** を復元することはないと、Azure からアプリケーションを完全に削除します。
 
     ![][43]
 
-## 次のステップ
+## 次のステップ  
 
-Service Bus の詳細については、次のリソースを参照してください。
+Service Bus の詳細については、次のリソースを参照してください。  
 
-* [Azure Service Bus ][sbwacom]
-* [[Sbwacomqhowto] のサービス バス キューの使用方法][sbwacomqhowto]
+* [Azure Service Bus][sbwacom]  
+* [Service Bus キューの使用方法][sbwacomqhowto]  
+
+
+  [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
+  [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
+  [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
+  [NuGet]: http://nuget.org
+  [2]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-3.png
+  [3]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-42-webpi.png
+
+
+  [Azure classic portal]: http://manage.windowsazure.com
+  [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
+  [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
 
 
 
-[0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png 
-[1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png 
-[get tools and sdk]: http://go.microsoft.com/fwlink/?LinkId=271920 
-[nuget]: http://nuget.org 
-[2]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-3.png 
-[3]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-42-webpi.png 
-[azure classic portal]: http://manage.windowsazure.com 
-[5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png 
-[6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png 
-[using the nuget service bus package]: https://msdn.microsoft.com/library/azure/dn741354.aspx 
-[10]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-1.png 
-[11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png 
-[12]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-3.png 
-[13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png 
-[14]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-4.png 
-[15]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.png 
-[16]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-4.png 
-[17]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-7.jpg 
-[18]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-10.jpg 
-[20]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-11.png 
-[21]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App1.png 
-[22]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-21.png 
-[23]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-22.png 
-[24]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-12.png 
-[25]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-13.png 
-[26]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-14.png 
-[27]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-33.png 
-[30]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-36.png 
-[31]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-37.png 
-[32]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-38.png 
-[33]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-39.png 
-[34]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-40.png 
-[35]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-41.png 
-[36]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png 
-[37]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png 
-[38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-27.png 
-[39]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-09.png 
-[40]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-06.png 
-[41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png 
-[42]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-41.png 
-[43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png 
-[45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png 
-[sbwacom]: /documentation/services/service-bus/ 
-[sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md 
-[executionmodels]: ../cloud-services/fundamentals-application-models.md 
+  [Using the NuGet Service Bus Package]: https://msdn.microsoft.com/library/azure/dn741354.aspx
+  [10]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-1.png
+  [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
+  [12]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-3.png
+  [13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png
+  [14]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-4.png
+  [15]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.png
+  [16]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-4.png
+  [17]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-7.jpg
+  [18]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-10.jpg
+
+  [20]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-11.png
+  [21]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App1.png
+  [22]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-21.png
+  [23]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-22.png
+  [24]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-12.png
+  [25]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-13.png
+  [26]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-14.png
+  [27]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-33.png
+
+
+  [30]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-36.png
+  [31]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-37.png
+  [32]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-38.png
+  [33]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-39.png
+  [34]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-40.png
+  [35]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-41.png
+  [36]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
+  [37]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png
+  [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-27.png
+  [39]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-09.png
+  [40]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-06.png
+  [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
+  [42]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-41.png
+  [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
+  [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
+
+  [sbwacom]: /documentation/services/service-bus/  
+  [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
+  [executionmodels]: ../cloud-services/fundamentals-application-models.md
 

@@ -17,15 +17,13 @@
    ms.date="09/01/2015"
    ms.author="kundanap"/>
 
-
 # Linux VM 拡張機能の構成のサンプル
 
 > [AZURE.SELECTOR]
-- [Azure PowerShell - Template](virtual-machines-extensions-configuration-samples-windows.md)
-- [Azure CLI - Template](virtual-machines-extensions-configuration-samples-linux.md)
+- [Azure PowerShell のテンプレート](virtual-machines-extensions-configuration-samples-windows.md)
+- [Azure CLI でテンプレート](virtual-machines-extensions-configuration-samples-linux.md)
 
-
-<br>
+<br> 
 
 
 この記事には、Linux VM に対して Azure VM 拡張機能を構成する際の構成のサンプルが記載されています。
@@ -33,14 +31,13 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 従来のデプロイ モデルです。
 
 
-ここをクリックしてこれらの拡張機能の詳細については、: [Azure VM 拡張機能の概要](virtual-machines-extensions-features.md)。
+ここをクリックしてこれらの拡張機能の詳細については、: [Azure VM 拡張機能の概要です。](virtual-machines-extensions-features.md)
 
-拡張機能の作成に関する詳細テンプレートここをクリックして: [拡張機能のテンプレートの作成します](virtual-machines-extensions-authoring-templates.md)。
+拡張機能の作成に関する詳細テンプレートここをクリックして: [拡張機能のテンプレートの作成します。](virtual-machines-extensions-authoring-templates.md)
 
 この記事では、一部の Linux 拡張機能について、予測される構成値の一覧を示します。
 
 ## VM 拡張機能のサンプル テンプレート スニペット
-
 拡張機能をデプロイするためのテンプレート スニペットは次のようになります。
 
       {
@@ -65,7 +62,6 @@
 以降では、Linux VM 拡張機能のサンプル構成を紹介します。
 
 ### CloudLink SecureVM Agent
-
           {
             "publisher": "CloudLinkEMC.SecureVM",
             "type": "CloudLinkSecureVMLinuxAgent",
@@ -76,7 +72,6 @@
           }
 
 ### Linux 用 CustomScript 拡張機能
-
     {
         "publisher": " Microsoft.OSTCExtensions",
         "type": "CustomScriptForLinux",
@@ -89,8 +84,8 @@
         }
     }
 
-### Datadog Agent
 
+### Datadog Agent
         {
           "publisher": "Datadog.Agent",
           "type": "DatadogLinuxAgent",
@@ -101,7 +96,6 @@
         }
 
 ### Chef Agent
-
         {
           "publisher": "Chef.Bootstrap.WindowsAzure",
           "type": "CentosChefClient|LinuxChefClient",
@@ -114,8 +108,7 @@
         }
 
 ### VM Access 拡張機能 (パスワード リセット)
-
-更新されたスキーマ、を参照してください [VMAccessForLinux ドキュメント](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
+更新されたスキーマを参照してください、 [VMAccessForLinux ドキュメント](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
         {
           "publisher": "Microsoft.OSTCExtensions",
@@ -131,8 +124,7 @@
         }
 
 ### OS の修正プログラム
-
-更新されたスキーマ、を参照してください [OSPatching ドキュメント](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching)
+更新されたスキーマを参照してください、 [OSPatching ドキュメント](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching)
 
         {
         "publisher": "Microsoft.OSTCExtensions",
@@ -157,8 +149,7 @@
         }
 
 ### Docker 拡張機能
-
-更新されたスキーマ、を参照してください [Docker 拡張機能のドキュメント](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema)
+更新されたスキーマを参照してください、 [Docker 拡張機能のドキュメント](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema)
 
         {
           "publisher": "Microsoft.Azure.Extensions ",
@@ -181,7 +172,7 @@
             }
             }
         }
-    
+
         ### Linux Diagnostics Extension
         {
         "storageAccountName": "storage account to receive data",
@@ -204,9 +195,5 @@
 
 拡張機能を使用して Linux VM を作成するための完全な VM テンプレートについては、次を参照してください。
 
-[Linux VM 上のカスタム スクリプト拡張機能](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
-
-
-
-
+[Linux VM のカスタム スクリプト拡張機能](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 

@@ -1,6 +1,6 @@
 <properties
     pageTitle="HDInsight での Hadoop のサンプルの実行 | Microsoft Azure"
-    description="用意されたサンプルを利用して、Azure HDInsight サービスを使い始めます。データ クラスター上で MapReduce プログラムを実行する PowerShell スクリプトを使用します。"
+    description="用意されたサンプルを利用して、Azure HDInsight サービスを使い始めます。 データ クラスター上で MapReduce プログラムを実行する PowerShell スクリプトを使用します。"
     services="hdinsight"
     documentationCenter=""
     tags="azure-portal"
@@ -17,120 +17,120 @@
     ms.date="10/29/2015"
     ms.author="jgao"/>
 
-
-# Windows ベースの HDInsight での Hadoop MapReduce サンプルの実行
+#Windows ベースの HDInsight での Hadoop MapReduce サンプルの実行
 
 [AZURE.INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
 Azure HDInsight を使用して、Hadoop クラスターで MapReduce ジョブの実行を始めるときに役立つサンプルが用意されています。 これらのサンプルは、HDInsight によって管理されるクラスターを作成して、それぞれのクラスターで利用できます。 これらのサンプルを実行すると、Hadoop クラスターで Azure PowerShell コマンドレットを使用してジョブを実行するのに慣れることができます。
 
-- [* * ワード数 * * ][hdinsight-sample-wordcount]: テキスト ファイル内の単語の出現回数をカウントします。
-- [* * の c# ストリーミング ワード カウント * * ][hdinsight-sample-csharp-streaming]: Hadoop ストリーミング インターフェイスを使用してテキスト ファイル内の単語の出現回数をカウントします。
-- [* * Pi estimator * * ][hdinsight-sample-pi-estimator]: 統計的手法を使用して (準モンテカルロ Carlo) メソッド pi の値を計算します。
-- [* * 10 GB Graysort * * ][hdinsight-sample-10gb-graysort]: HDInsight を使用して、10 GB のファイルに対して汎用 graysort を実行します。 実行するジョブは 3 つあります。データを生成する Teragen、データをソートする Terasort、データが適切にソートされているか確認する Teravalidate です。
+- [**文字数**][hdinsight-sample-wordcount]: テキスト ファイル内の単語の出現回数をカウントします。
+- [**C# ストリーミング ワード カウント**][hdinsight-sample-csharp-streaming]: Hadoop ストリーミング インターフェイスを使用してテキスト ファイル内の単語の出現回数をカウントします。
+- [**Pi 推定**][hdinsight-sample-pi-estimator]: 統計的手法を使用して (準モンテカルロ Carlo) メソッド pi の値を計算します。
+- [**10 GB Graysort**][hdinsight-sample-10gb-graysort]: HDInsight を使用して、10 GB のファイルに対して汎用 graysort を実行します。 実行するジョブは 3 つあります。データを生成する Teragen、データをソートする Terasort、データが適切にソートされているか確認する Teravalidate です。
 
->[AZURE.NOTE] ソース コードは「付録」にあります。 
+>[AZURE.NOTE] ソース コードは付録に記載されています。 
 
 Hadoop 関連技術の追加情報は、Java ベースの MapReduce プログラミングやストリーミング、Windows PowerShell スクリプトで使用するコマンドレットのドキュメントなど、Web 上に多数存在しています。 これらのリソースの詳細については、以下を参照してください。
 
-- [HDInsight での Hadoop 用 Java MapReduce プログラムを開発します。](hdinsight-develop-deploy-java-mapreduce.md)
-- [C# Hadoop ストリーミング プログラムを HDInsight 用開発します。](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
-- [HDInsight での Hadoop ジョブを送信します。](hdinsight-submit-hadoop-jobs-programmatically.md)
-- [Azure HDInsight の ][hdinsight-introduction]
+- [HDInsight での Hadoop 用 Java MapReduce プログラムの開発](hdinsight-develop-deploy-java-mapreduce.md)
+- [Develop C# Hadoop streaming programs for HDInsight (HDInsight 用 C# Hadoop ストリーミング プログラムの開発)](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
+- [HDInsight での Hadoop ジョブの送信](hdinsight-submit-hadoop-jobs-programmatically.md)
+- [Azure HDInsight 入門][hdinsight-introduction]
 
-今日では、多くの人が MapReduce より Hive と Pig を選びます。 詳細については、次を参照してください。
+今日では、多くの人が MapReduce より Hive と Pig を選びます。  詳細については、次を参照してください。
 
-- [HDInsight で Hive を使用します。](hdinsight-use-hive.md)
-- [HDInsight での Pig を使用します。](hdinsight-use-pig.md)
-
+- [HDInsight での Hive の使用](hdinsight-use-hive.md)
+- [HDInsight での Pig の使用](hdinsight-use-pig.md)
+ 
 **前提条件**:
 
-- **Azure サブスクリプション**。 参照してください [取得 Azure 無料試用版](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)します。
-- **HDInsight クラスター**。 このようなクラスターを作成できるさまざまな方法については、次を参照してください。 [作成の Hadoop クラスターの HDInsight](hdinsight-provision-clusters.md)します。
-- **Azure PowerShell を実行できるワークステーション**。 参照してください [Azure PowerShell 1.0 をインストールし、大きい](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater)します。
+- **Azure サブスクリプション**します。 参照してください [取得 Azure 無料試用版](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)します。
+- **HDInsight クラスター**します。 このようなクラスターを作成できるさまざまな方法については、次を参照してください。 [作成の Hadoop クラスターの HDInsight](hdinsight-provision-clusters.md)します。
+- **Azure PowerShell を実行できるワークステーション**します。 参照してください [Azure PowerShell 1.0 をインストールし、大きい](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater)します。
 
-## ワード カウント - Java
+## ワード カウント - Java 
 
-MapReduce プロジェクトを送信するには、まず、MapReduce ジョブ定義を作成します。 プログラムの MapReduce jar ファイルとは jar ファイルの場所を指定する、ジョブ定義の **wasb:///example/jars/hadoop-mapreduce-examples.jar**, 、クラス名と引数。 ワード カウント MapReduce プログラムでは 2 つの引数 (ワードのカウントに使用されるソース ファイルと、出力の場所) を使用します。
+MapReduce プロジェクトを送信するには、まず、MapReduce ジョブ定義を作成します。 プログラムの MapReduce jar ファイルとは jar ファイルの場所を指定する、ジョブ定義の **wasb:///example/jars/hadoop-mapreduce-examples.jar**, 、クラス名と引数。  ワード カウント MapReduce プログラムでは 2 つの引数 (ワードのカウントに使用されるソース ファイルと、出力の場所) を使用します。
 
 ソース コードは記載されて、 [付録 A](#apendix-a---the-word-count-MapReduce-program-in-java)します。
 
 プログラムの Java MapReduce の開発手順についてを参照してください - [HDInsight での Hadoop 用 Java MapReduce プログラム](hdinsight-develop-deploy-java-mapreduce.md)
-
+ 
 **ワード カウント MapReduce ジョブを送信するには**
 
-1. **Windows PowerShell ISE** を開きます。 手順については、次を参照してください。 [[powershell のインストールの構成] Azure PowerShell インストールおよび構成][powershell-install-configure]します。
+1. 開いている **Windows PowerShell ISE**します。 手順については、次を参照してください。 [をインストールし、Azure PowerShell を構成][powershell-install-configure]します。
 2. 次の PowerShell スクリプトを貼り付けます。
 
-     $subscriptionName = "<Azure Subscription Name>"
-     $resourceGroupName = "<Resource Group Name>"
-     $clusterName = "<HDInsight cluster name>"             # HDInsight cluster name
-    
-     Select-AzureRmSubscription $subscriptionName
-    
-     # Define the MapReduce job
-     $mrJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-                                 -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
-                                 -ClassName "wordcount" `
-                                 -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput1"
-    
-     # Submit the job and wait for job completion
-     $cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:" 
-     $mrJob = Start-AzureRmHDInsightJob `
-                         -ResourceGroupName $resourceGroupName `
-                         -ClusterName $clusterName `
-                         -HttpCredential $cred `
-                         -JobDefinition $mrJobDefinition 
-    
-     Wait-AzureRmHDInsightJob `
-         -ResourceGroupName $resourceGroupName `
-         -ClusterName $clusterName `
-         -HttpCredential $cred `
-         -JobId $mrJob.JobId 
-    
-     # Get the job output
-     $cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
-     $defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
-     $defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
-     $defaultStorageContainer = $cluster.DefaultStorageContainer
-    
-     Get-AzureRmHDInsightJobOutput `
-         -ResourceGroupName $resourceGroupName `
-         -ClusterName $clusterName `
-         -HttpCredential $cred `
-         -DefaultStorageAccountName $defaultStorageAccount `
-         -DefaultStorageAccountKey $defaultStorageAccountKey `
-         -DefaultContainer $defaultStorageContainer  `
-         -JobId $mrJob.JobId `
-         -DisplayOutputType StandardError
-    
-     # Download the job output to the workstation
-     $storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey 
-     Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
-    
-     # Display the output file
-     cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
+        $subscriptionName = "<Azure Subscription Name>"
+        $resourceGroupName = "<Resource Group Name>"
+        $clusterName = "<HDInsight cluster name>"             # HDInsight cluster name
+        
+        Select-AzureRmSubscription $subscriptionName
+        
+        # Define the MapReduce job
+        $mrJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
+                                    -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
+                                    -ClassName "wordcount" `
+                                    -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput1"
+        
+        # Submit the job and wait for job completion
+        $cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:" 
+        $mrJob = Start-AzureRmHDInsightJob `
+                            -ResourceGroupName $resourceGroupName `
+                            -ClusterName $clusterName `
+                            -HttpCredential $cred `
+                            -JobDefinition $mrJobDefinition 
+        
+        Wait-AzureRmHDInsightJob `
+            -ResourceGroupName $resourceGroupName `
+            -ClusterName $clusterName `
+            -HttpCredential $cred `
+            -JobId $mrJob.JobId 
+        
+        # Get the job output
+        $cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+        $defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
+        $defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
+        $defaultStorageContainer = $cluster.DefaultStorageContainer
+        
+        Get-AzureRmHDInsightJobOutput `
+            -ResourceGroupName $resourceGroupName `
+            -ClusterName $clusterName `
+            -HttpCredential $cred `
+            -DefaultStorageAccountName $defaultStorageAccount `
+            -DefaultStorageAccountKey $defaultStorageAccountKey `
+            -DefaultContainer $defaultStorageContainer  `
+            -JobId $mrJob.JobId `
+            -DisplayOutputType StandardError
 
- MapReduce ジョブは、単語と出現回数が記録された *part-r-00000* という名前のファイルを作成します。 スクリプトでは **findstr** コマンドを使用して、*"there"* を含む単語をすべて表示しています。
+        # Download the job output to the workstation
+        $storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey 
+        Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
+        
+        # Display the output file
+        cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
+
+    MapReduce ジョブには、という名前のファイルが生成されますが *- part-r-00000*, 、単語と出現回数が含まれています。 スクリプトを使用して、 **findstr** を含む単語をすべて一覧表示するコマンド *"there"*します。
 
 3. 最初の 3 つの変数を設定し、スクリプトを実行します。
 
 ## ワード カウント - C# ストリーミング
 
 Hadoop には MapReduce に対するストリーミング API が用意されていて、Java 以外の言語 map 関数と reduce 関数を記述できます。
-> [AZURE.NOTE] このチュートリアルの手順は、Windows ベースの HDInsight クラスターに対してのみ機能します。 Linux ベースの HDInsight クラスターのストリーミングの例は、次を参照してください。 [開発用 Python ストリーミング プログラム HDInsight](hdinsight-hadoop-streaming-python.md)します。
 
-この例では、mapper と reducer は実行可能ファイルからの入力を読み取ること [stdin ][stdin-stdout-stderr] (行) が出力を [stdout ][stdin-stdout-stderr]します。 プログラムはテキスト内の単語すべての出現数を計算します。
+> [AZURE.NOTE] このチュートリアルの手順は、Windows ベースの HDInsight クラスターにのみ適用されます。 Linux ベースの HDInsight クラスターのストリーミングの例は、次を参照してください。 [開発用 Python ストリーミング プログラム HDInsight](hdinsight-hadoop-streaming-python.md)します。
 
-**mapper** 用の実行可能ファイルが指定されると、各 mapper タスクは mapper 開始時に別のプロセスとしてその実行可能ファイルを起動します。 その入力の行に変換してに行をフィード mapper タスクを実行すると、 [stdin ][stdin-stdout-stderr] プロセスのです。
+この例では、mapper と reducer は、[stdin][stdin-stdout-stderr] から入力を (1 行ずつ) 読み取り、出力を [stdout][stdin-stdout-stderr] に書き込む実行可能ファイルです。 プログラムはテキスト内の単語すべての出現数を計算します。
+
+実行可能ファイルが指定されている場合 **mapper**, 、各 mapper タスクは、マッパーの初期化時に別のプロセスとして実行可能ファイルを起動します。 mapper タスクは実行されると、入力を行に変換して、その行をプロセスの [stdin][stdin-stdout-stderr] にフィードします。
 
 一方、mapper はプロセスの stdout から行指向の出力を収集します。 各行はキーと値のペアに変換され、mapper の出力として収集されます。 既定では、行の最初のタブ文字までがキーであり、行の残り (タブ文字を除く) が値です。 行にタブ文字がない場合は、行全体がキーと見なされ、値は null になります。
 
-**reducer** 用の実行可能ファイルが指定されると、各 reducer タスクは reducer 開始時に別のプロセスとしてその実行可能ファイルを起動します。 Reducer タスクは、実行、その入力のキー/値ペアを行に変換し、ライン フィード、 [stdin ][stdin-stdout-stderr] プロセスのです。
+実行可能ファイルが指定されている場合 **レジューサ**, 、各 reducer タスクは、reducer の初期化時に別のプロセスとして実行可能ファイルを起動します。 reducer タスクは実行されると、入力のキーと値のペアを行に変換して、その行をプロセスの [stdin][stdin-stdout-stderr] にフィードします。
 
-一方、reducer はから行指向の出力を収集、 [stdout ][stdin-stdout-stderr] プロセスのです。 各行はキーと値のペアに変換され、reducer の出力として収集されます。 既定では、行の最初のタブ文字までがキーであり、行の残り (タブ文字を除く) が値です。
+一方、reducer はプロセスの [stdout][stdin-stdout-stderr] から行指向の出力を収集します。 各行はキーと値のペアに変換され、reducer の出力として収集されます。 既定では、行の最初のタブ文字までがキーであり、行の残り (タブ文字を除く) が値です。
 
-Hadoop ストリーミング インターフェイスの詳細については、次を参照してください。 [Hadoop ストリーミング ][hadoop-streaming]します。
+Hadoop ストリーミング インターフェイスの詳細については、[Hadoop ストリーミングに関するサイト][hadoop-streaming] を参照してください。
 
 **C# ストリーミング ワード カウント ジョブを送信するには**
 
@@ -143,11 +143,11 @@ Hadoop ストリーミング インターフェイスの詳細については、
                                     -InputPath "/example/data/gutenberg/davinci.txt" `
                                     -OutputPath "/example/data/StreamingOutput/wc.txt"
 
+
     出力ファイルは次のようになります。
-
+    
         example/data/StreamingOutput/wc.txt/part-00000      
-
-
+                                
 ## Pi 推定
 
 Pi 推定では、統計的手法 (準モンテカルロ法) を使用して、Pi の値を推定します。 単位正方形の内部にランダムに配置された点は、その正方形に内接する円の内部にも円の面積に等しい確率 (Pi/4) で配置されます。 Pi の値は 4R という値で計算されます。ここで R は、正方形の内部にある点の総数と、円の内部にある点の数との比率です。 サンプルの点の数が大きくなるほど、推定値の精度が上がります。
@@ -163,55 +163,54 @@ Pi 推定では、統計的手法 (準モンテカルロ法) を使用して、P
                                     -ClassName "pi" `
                                     -Arguments "16", "10000000"
 
-
 ## 10 GB GraySort
 
 このサンプルでは、比較的高速に実行できるように、中程度のサイズの 10 GB のデータを使用します。 使用する MapReduce アプリケーションは Owen O'Malley と Arun Murthy が開発したもので、2009 年にはテラバイト ソート ベンチマークの汎用目的 ("daytona") 部門で 0.578 TB/分 (173 分で 100 TB) という年間記録を樹立しました。 これも含めたソート ベンチマークの詳細については、次を参照してください。、 [Sortbenchmark](http://sortbenchmark.org/) サイトです。
 
 このサンプルでは 3 組の MapReduce プログラムを使用します。
 
-1. **TeraGen** は、ソートするデータ行を生成するのに使用できる MapReduce プログラムです。
-2. **TeraSort** は入力データをサンプリングし、MapReduce を使用してデータを合計順にソートします。TeraSort は MapReduce 関数の標準ソートです。ただし、各 reduce のキー範囲を定義する N-1 個のサンプリングされたキーのソート済みリストを使用するカスタム partitioner を使用します。特に、sample[i-1] <= key < sample[i] となるキーはすべて reduce i に送られます。このため、reduce i の出力がすべて reduce i+1 の出力より小さくなることが保証されます。
-3. **TeraValidate** は、出力がグローバルにソートされているか検証する MapReduce プログラムです。 出力ディレクトリ内のファイルごとにマップを 1 つ作成します。各マップは各キーが前のキー以下であることを保証します。 map 関数は、各ファイルの最初のキーと最後のキーの記録も生成し、reduce 関数は、ファイル i の最初のキーがファイル i-1 の最後のキーよりも大きいことを確認します。 問題が見つかった場合は、reduce の出力として範囲外のキーがレポートされます。
+1. **TeraGen** ソートするデータの行を生成するのに使用できる MapReduce プログラムです。
+2. **TeraSort** 入力データをサンプリングして、MapReduce を合計順に、データの並べ替えを使用します。 TeraSort は MapReduce 関数の標準ソートです。ただし、各 reduce のキー範囲を定義する N-1 個のサンプリングされたキーのソート済みリストを使用するカスタム partitioner を使用します。 特に、sample[i-1] <= key < sample[i] となるキーはすべて reduce i に送られます。 このため、reduce i の出力がすべて reduce i+1 の出力より小さくなることが保証されます。
+3. **TeraValidate** 出力がグローバルにソートされていることを検証する MapReduce プログラムです。 出力ディレクトリ内のファイルごとにマップを 1 つ作成します。各マップは各キーが前のキー以下であることを保証します。 map 関数は、各ファイルの最初のキーと最後のキーの記録も生成し、reduce 関数は、ファイル i の最初のキーがファイル i-1 の最後のキーよりも大きいことを確認します。 問題が見つかった場合は、reduce の出力として範囲外のキーがレポートされます。
 
 3 つのアプリケーションすべてで使用される入力形式と出力形式は、適切な形式のテキスト ファイルを読み書きします。 ベンチマーク コンテストでは出力データを複数のノードにレプリケーションする必要がないため、reduce の出力ではレプリケーションが既定の 3 ではなく 1 に設定されます。
 
 サンプルでは 3 つのタスクを実行する必要があります。各タスクが、先ほど説明した MapReduce プログラムに対応しています。
 
-1. **TeraGen** MapReduce ジョブを実行して、ソート用のデータを生成します。
-2. **TeraSort** MapReduce ジョブを実行して、データをソートします。
-3. **TeraValidate** MapReduce ジョブを実行して、データが正しくソートされていることを確認します。
+1. 実行して、ソート用のデータを生成、 **TeraGen** MapReduce ジョブです。
+2. 実行して、データの並べ替え、 **TeraSort** MapReduce ジョブです。
+3. 実行して、データが正しくソートされていることを確認、 **TeraValidate** MapReduce ジョブです。
 
 **ジョブを送信するには**
 
 - 従って [文字数 - Java](#word-count-java), 、次のジョブ定義を使用します。
 
-    $teragen 新規 AzureRmHDInsightMapReduceJobDefinition = '
-                                Jar ファイルの"/example/jars/hadoop-mapreduce-examples.jar"'
+    $teragen = New AzureRmHDInsightMapReduceJobDefinition `
+                                -JarFile "/example/jars/hadoop-mapreduce-examples.jar" `
                                 ClassName"teragen"'
                                 引数"--dmapred.map.tasks=50"、「100000000」、「/例/データ/10 GB の並べ替えの入力」
-
-    $terasort 新規 AzureRmHDInsightMapReduceJobDefinition = '
-                                Jar ファイルの"/example/jars/hadoop-mapreduce-examples.jar"'
+    
+    $terasort = New AzureRmHDInsightMapReduceJobDefinition `
+                                -JarFile "/example/jars/hadoop-mapreduce-examples.jar" `
                                 ClassName"terasort"'
                                 引数"--dmapred.map.tasks=50"、"--dmapred.reduce.tasks=25"、「//データ/10 GB の並べ替えの入力例」、「/例/データ/10 GB の並べ替えの出力」
-
-    $teravalidate 新規 AzureRmHDInsightMapReduceJobDefinition = '
-                                Jar ファイルの"/example/jars/hadoop-mapreduce-examples.jar"'
+    
+    $teravalidate = New AzureRmHDInsightMapReduceJobDefinition `
+                                -JarFile "/example/jars/hadoop-mapreduce-examples.jar" `
                                 ClassName"teravalidate"'
                                 引数"--dmapred.map.tasks=50"、"--dmapred.reduce.tasks=25"、「//データ/10 GB の並べ替えの出力例」、「/例/データ/10 GB の並べ替えの検証」
 
 
-## 次のステップ
+##次のステップ 
 
 この記事および各サンプルの記事では、Azure PowerShell を使用して HDInsight クラスターに付属するサンプルを実行する方法を説明しました。 HDInsight で Pig、Hive、MapReduce を使用する方法のチュートリアルについては、次のトピックをご覧ください。
 
-* [モバイル ハンドセットの使用 ][hdinsight-get-started]
-* [[Hdinsight での pig の使用] を HDInsight での Hadoop での Pig を使用します。][hdinsight-use-pig]
-* [[Hdinsight を使用して hive] HDInsight での Hadoop の Hive を使用します。][hdinsight-use-hive]
-* [[Hdinsight でのジョブの送信] の HDInsight での Hadoop ジョブの送信します。][hdinsight-submit-jobs]
-* [Azure HDInsight SDK のドキュメント ][hdinsight-sdk-documentation]
-* [HDInsight で Hadoop のデバッグ: エラー メッセージ ][hdinsight-errors]
+* [HDInsight で Hive と Hadoop を使用し、モバイル ハンドセットの使用状況を分析する][hdinsight-get-started]
+* [HDInsight での Pig と Hadoop の使用][hdinsight-use-pig]
+* [HDInsight での Hive と Hadoop の使用][hdinsight-use-hive]
+* [HDInsight での Hadoop ジョブの送信] [hdinsight-submit-jobs]
+* [Azure HDInsight SDK のドキュメント][hdinsight-sdk-documentation]
+* [HDInsight での Hadoop のデバッグ: エラー メッセージ] [hdinsight-errors]
 
 
 ## 付録 A - ワード カウントのソース コード
@@ -229,15 +228,15 @@ Pi 推定では、統計的手法 (準モンテカルロ法) を使用して、P
     import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
     import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
     import org.apache.hadoop.util.GenericOptionsParser;
-    
+
     public class WordCount {
-    
+
     public static class TokenizerMapper
        extends Mapper<Object, Text, Text, IntWritable>{
-    
+
     private final static IntWritable one = new IntWritable(1);
     private Text word = new Text();
-    
+
     public void map(Object key, Text value, Context context
                     ) throws IOException, InterruptedException {
       StringTokenizer itr = new StringTokenizer(value.toString());
@@ -247,11 +246,11 @@ Pi 推定では、統計的手法 (準モンテカルロ法) を使用して、P
         }
       }
     }
-    
+
     public static class IntSumReducer
        extends Reducer<Text,IntWritable,Text,IntWritable> {
     private IntWritable result = new IntWritable();
-    
+
     public void reduce(Text key, Iterable<IntWritable> values,
                        Context context
                        ) throws IOException, InterruptedException {
@@ -263,7 +262,7 @@ Pi 推定では、統計的手法 (準モンテカルロ法) を使用して、P
       context.write(key, result);
       }
     }
-    
+
     public static void main(String[] args) throws Exception {
     Configuration conf = new Configuration();
     String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
@@ -284,15 +283,16 @@ Pi 推定では、統計的手法 (準モンテカルロ法) を使用して、P
     }
     }
 
+
 ## 付録 B - ワード カウントのストリーミング ソース コード
 
 MapReduce プログラムでは、cat.exe アプリケーションを map インターフェイスとして使ってコンソールにテキストをストリーミングし、wc.exe アプリケーションを reduce インターフェイスとして使って、文書からストリーミングされた単語の数を計算します。 mapper と reducer はどちらも標準入力ストリーム (stdin) から 1 行ずつ文字を読み取って、標準出力ストリーム (stdout) に書き込みます。
 
     // The source code for the cat.exe (Mapper).
-    
+
     using System;
     using System.IO;
-    
+
     namespace cat
     {
         class cat
@@ -303,7 +303,7 @@ MapReduce プログラムでは、cat.exe アプリケーションを map イン
                 {
                     Console.SetIn(new StreamReader(args[0]));
                 }
-    
+
                 string line;
                 while ((line = Console.ReadLine()) != null)
                 {
@@ -313,15 +313,17 @@ MapReduce プログラムでは、cat.exe アプリケーションを map イン
         }
     }
 
-Cat.cs ファイルの mapper コードを使用して、 [StreamReader ][streamreader] が静的な標準出力ストリームにストリームを書き込むと、コンソールに、受信ストリームの文字を読み取るためのオブジェクト [Console.Writeline ][console-writeline] メソッドです。
+
+
+Cat.cs ファイルの mapper コードを使用して、 [StreamReader][streamreader] が静的な標準出力ストリームにストリームを書き込むと、コンソールに、受信ストリームの文字を読み取るためのオブジェクト [Console.Writeline][console-writeline] メソッドです。
 
 
     // The source code for wc.exe (Reducer) is:
-    
+
     using System;
     using System.IO;
     using System.Linq;
-    
+
     namespace wc
     {
         class wc
@@ -330,11 +332,11 @@ Cat.cs ファイルの mapper コードを使用して、 [StreamReader ][stream
             {
                 string line;
                 var count = 0;
-    
+
                 if (args.Length > 0){
                     Console.SetIn(new StreamReader(args[0]));
                 }
-    
+
                 while ((line = Console.ReadLine()) != null) {
                     count += line.Count(cr => (cr == ' ' || cr == '\n'));
                 }
@@ -343,7 +345,8 @@ Cat.cs ファイルの mapper コードを使用して、 [StreamReader ][stream
         }
     }
 
-Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][streamreader]   オブジェクト、mapper の cat.exe によって出力された標準入力ストリームから文字を読み取ります。 使用して文字を読み取る、 [Console.Writeline ][console-writeline] メソッド、スペースと各単語の末尾にある行の末尾に文字をカウントすることによっての単語数をカウントにします。 合計を標準出力ストリームに書き込みますが、 [Console.Writeline ][console-writeline] メソッドです。
+
+Wc.cs ファイルの reducer コードを使用して、 [StreamReader][streamreader]   オブジェクト、mapper の cat.exe によって出力された標準入力ストリームから文字を読み取ります。 使用して文字を読み取る、 [Console.Writeline][console-writeline] メソッド、スペースと各単語の末尾にある行の末尾に文字をカウントすることによって、単語数をカウントしています。 合計を標準出力ストリームに書き込みますが、 [Console.Writeline][console-writeline] メソッドです。
 
 
 
@@ -370,13 +373,13 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
     * See the License for the specific language governing permissions and
     * limitations under the License.
     */
-    
+
     package org.apache.hadoop.examples;
-    
+
     import java.io.IOException;
     import java.math.BigDecimal;
     import java.util.Iterator;
-    
+
     import org.apache.hadoop.conf.Configured;
     import org.apache.hadoop.fs.FileSystem;
     import org.apache.hadoop.fs.Path;
@@ -399,8 +402,8 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
     import org.apache.hadoop.mapred.SequenceFileOutputFormat;
     import org.apache.hadoop.util.Tool;
     import org.apache.hadoop.util.ToolRunner;
-    
-    
+
+
     //A Map-reduce program to estimate the value of Pi
     //using quasi-Monte Carlo method.
     //
@@ -417,12 +420,12 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
     //and the area of unit square is 1.
     //Then, Pi is estimated value to be 4(numInside/numTotal).
     //
-    
+
     public class PiEstimator extends Configured implements Tool {
     //tmp directory for input/output
     static private final Path TMP_DIR = new Path(
     PiEstimator.class.getSimpleName() + "_TMP_3_141592654");
-    
+
     //2-dimensional Halton sequence {H(i)},
     //where H(i) is a 2-dimensional point and i >= 1 is the index.
     //Halton sequence is used to generate sample points for Pi estimation.
@@ -431,12 +434,12 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
     static final int[] P = {2, 3};
     //Maximum number of digits allowed
     static final int[] K = {63, 40};
-    
+
     private long index;
     private double[] x;
     private double[][] q;
     private int[][] d;
-    
+
     //Initialize to H(startindex),
     //so the sequence begins with H(startindex+1).
     HaltonSequence(long startindex) {
@@ -448,11 +451,11 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
     q[i] = new double[K[i]];
     d[i] = new int[K[i]];
     }
-    
+
     for(int i = 0; i < K.length; i++) {
     long k = index;
     x[i] = 0;
-    
+
     for(int j = 0; j < K[i]; j++) {
     q[i][j] = (j == 0? 1.0: q[i][j-1])/P[i];
     d[i][j] = (int)(k % P[i]);
@@ -461,7 +464,7 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
     }
     }
     }
-    
+
     //Compute next point.
     //Assume the current point is H(index).
     //Compute H(index+1).
@@ -482,13 +485,13 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
     return x;
     }
     }
-    
+
     //Mapper class for Pi estimation.
     //Generate points in a unit square and then
     //count points inside/outside of the inscribed circle of the square.
     public static class PiMapper extends MapReduceBase
     implements Mapper<LongWritable, LongWritable, BooleanWritable, LongWritable> {
-    
+
     //Map method.
     //@param offset samples starting from the (offset+1)th sample.
     //@param size the number of samples for this map
@@ -498,15 +501,15 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
     LongWritable size,
     OutputCollector<BooleanWritable, LongWritable> out,
     Reporter reporter) throws IOException {
-    
+
     final HaltonSequence haltonsequence = new HaltonSequence(offset.get());
     long numInside = 0L;
     long numOutside = 0L;
-    
+
     for(long i = 0; i < size.get(); ) {
     //generate points in a unit square
     final double[] point = haltonsequence.nextPoint();
-    
+
     //count points inside/outside of the inscribed circle of the square
     final double x = point[0] - 0.5;
     final double y = point[1] - 0.5;
@@ -515,43 +518,43 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
     } else {
     numInside++;
     }
-    
+
     //report status
     i++;
     if (i % 1000 == 0) {
     reporter.setStatus("Generated " + i + " samples.");
     }
     }
-    
+
     //output map results
     out.collect(new BooleanWritable(true), new LongWritable(numInside));
     out.collect(new BooleanWritable(false), new LongWritable(numOutside));
     }
     }
-    
-    
+
+
     //Reducer class for Pi estimation.
     //Accumulate points inside/outside results from the mappers.
     public static class PiReducer extends MapReduceBase
     implements Reducer<BooleanWritable, LongWritable, WritableComparable<?>, Writable> {
-    
+
     private long numInside = 0;
     private long numOutside = 0;
     private JobConf conf; //configuration for accessing the file system
-    
+
     //Store job configuration.
     @Override
     public void configure(JobConf job) {
     conf = job;
     }
-    
-    
+
+
     // Accumulate number of points inside/outside results from the mappers.
     // @param isInside Is the points inside?
     // @param values An iterator to a list of point counts
     // @param output dummy, not used here.
     // @param reporter
-    
+
     public void reduce(BooleanWritable isInside,
     Iterator<LongWritable> values,
     OutputCollector<WritableComparable<?>, Writable> output,
@@ -562,7 +565,7 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
     for(; values.hasNext(); numOutside += values.next().get());
     }
     }
-    
+
     //Reduce task done, write output to a file.
     @Override
     public void close() throws IOException {
@@ -577,7 +580,7 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
     writer.close();
     }
     }
-    
+
     //Run a map/reduce job for estimating Pi.
     //@return the estimated value of Pi.
     public static BigDecimal estimate(int numMaps, long numPoints, JobConf jobConf
@@ -585,29 +588,29 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
     throws IOException {
     //setup job conf
     jobConf.setJobName(PiEstimator.class.getSimpleName());
-    
+
     jobConf.setInputFormat(SequenceFileInputFormat.class);
-    
+
     jobConf.setOutputKeyClass(BooleanWritable.class);
     jobConf.setOutputValueClass(LongWritable.class);
     jobConf.setOutputFormat(SequenceFileOutputFormat.class);
-    
+
     jobConf.setMapperClass(PiMapper.class);
     jobConf.setNumMapTasks(numMaps);
-    
+
     jobConf.setReducerClass(PiReducer.class);
     jobConf.setNumReduceTasks(1);
-    
+
     // turn off speculative execution, because DFS doesn't handle
     // multiple writers to the same file.
     jobConf.setSpeculativeExecution(false);
-    
+
     //setup input/output directories
     final Path inDir = new Path(TMP_DIR, "in");
     final Path outDir = new Path(TMP_DIR, "out");
     FileInputFormat.setInputPaths(jobConf, inDir);
     FileOutputFormat.setOutputPath(jobConf, outDir);
-    
+
     final FileSystem fs = FileSystem.get(jobConf);
     if (fs.exists(TMP_DIR)) {
      throw new IOException("Tmp directory " + fs.makeQualified(TMP_DIR)
@@ -616,7 +619,7 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
      if (!fs.mkdirs(inDir)) {
      throw new IOException("Cannot create input directory " + inDir);
      }
-    
+
      //generate an input file for each map task
      try {
      for(int i=0; i < numMaps; ++i) {
@@ -633,14 +636,14 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
      }
      System.out.println("Wrote input for Map #"+i);
      }
-    
+
      //start a map/reduce job
      System.out.println("Starting Job");
      final long startTime = System.currentTimeMillis();
      JobClient.runJob(jobConf);
      final double duration = (System.currentTimeMillis() - startTime)/1000.0;
      System.out.println("Job Finished in " + duration + " seconds");
-    
+
      //read outputs
      Path inFile = new Path(outDir, "reduce-out");
      LongWritable numInside = new LongWritable();
@@ -651,7 +654,7 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
      } finally {
      reader.close();
      }
-    
+
      //compute estimated value
      return BigDecimal.valueOf(4).setScale(20)
      .multiply(BigDecimal.valueOf(numInside.get()))
@@ -661,7 +664,7 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
      fs.delete(TMP_DIR, true);
      }
      }
-    
+
     //Parse arguments and then runs a map/reduce job.
     //Print output in standard out.
     //@return a non-zero if there is an error. Otherwise, return 0.
@@ -671,25 +674,25 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
      ToolRunner.printGenericCommandUsage(System.err);
      return -1;
      }
-    
+
      final int nMaps = Integer.parseInt(args[0]);
      final long nSamples = Long.parseLong(args[1]);
-    
+
      System.out.println("Number of Maps = " + nMaps);
      System.out.println("Samples per Map = " + nSamples);
-    
+
      final JobConf jobConf = new JobConf(getConf(), getClass());
      System.out.println("Estimated value of Pi is "
      + estimate(nMaps, nSamples, jobConf));
      return 0;
      }
-    
+
      //main method for running it as a stand alone command.
      public static void main(String[] argv) throws Exception {
      System.exit(ToolRunner.run(null, new PiEstimator(), argv));
      }
      }
-
+     
 ## 付録 D -10 GB GraySort のソース コード
 
 このセクションでは、内容を確認するために TeraSort MapReduce プログラムのコードを示します。
@@ -712,15 +715,15 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
      * See the License for the specific language governing permissions and
      * limitations under the License.
      */
-    
+
     package org.apache.hadoop.examples.terasort;
-    
+
     import java.io.IOException;
     import java.io.PrintStream;
     import java.net.URI;
     import java.util.ArrayList;
     import java.util.List;
-    
+
     import org.apache.commons.logging.Log;
     import org.apache.commons.logging.LogFactory;
     import org.apache.hadoop.conf.Configured;
@@ -736,7 +739,7 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
     import org.apache.hadoop.mapred.Partitioner;
     import org.apache.hadoop.util.Tool;
     import org.apache.hadoop.util.ToolRunner;
-    
+
     /**
      * Generates the sampled split points, launches the job,
      * and waits for it to finish.
@@ -744,19 +747,19 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
      * To run the program:
      * <b>bin/hadoop jar hadoop-examples-*.jar terasort in-dir out-dir</b>
      */
-    
+
     public class TeraSort extends Configured implements Tool {
       private static final Log LOG = LogFactory.getLog(TeraSort.class);
-    
+
       /**
        * A partitioner that splits text keys into roughly equal
        * partitions in a global sorted order.
        */
-    
+
       static class TotalOrderPartitioner implements Partitioner<Text,Text>{
         private TrieNode trie;
         private Text[] splitPoints;
-    
+
         /**
          * A generic trie node
          */
@@ -771,14 +774,14 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
             return level;
           }
         }
-    
+
         /**
          * An inner trie node that contains 256 children based on the next
          * character.
          */
         static class InnerTrieNode extends TrieNode {
           private TrieNode[] child = new TrieNode[256];
-    
+
           InnerTrieNode(int level) {
             super(level);
           }
@@ -805,7 +808,7 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
             }
           }
         }
-    
+
         /**
          * A leaf trie node that does string compares to figure out where the given
          * key belongs between lower..upper.
@@ -837,8 +840,8 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
             strm.println(upper);
           }
         }
-    
-    
+
+
         /**
          * Read the cut points from the given sequence file.
          * @param fs the file system
@@ -860,7 +863,7 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
           reader.close();
           return parts.toArray(new Text[parts.size()]);  
         }
-    
+
         /**
          * Given a sorted set of cut points, build a trie that will find the correct
          * partition quickly.
@@ -901,7 +904,7 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
                                         maxDepth);
           return result;
         }
-    
+
         public void configure(JobConf job) {
           try {
             FileSystem fs = FileSystem.getLocal(job);
@@ -912,16 +915,16 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
             throw new IllegalArgumentException("can't read paritions file", ie);
           }
         }
-    
+
         public TotalOrderPartitioner() {
         }
-    
+
         public int getPartition(Text key, Text value, int numPartitions) {
           return trie.findPartition(key);
         }
-    
+
       }
-    
+
       public int run(String[] args) throws Exception {
         LOG.info("starting");
         JobConf job = (JobConf) getConf();
@@ -948,11 +951,11 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
         LOG.info("done");
         return 0;
       }
-    
+
       /**
        * @param args
        */
-    
+
       public static void main(String[] args) throws Exception {
         int res = ToolRunner.run(new JobConf(), new TeraSort(), args);
         System.exit(res);
@@ -960,19 +963,43 @@ Wc.cs ファイルの reducer コードを使用して、 [StreamReader ][stream
     }
 
 
-[hdinsight-errors]: hdinsight-debug-jobs.md 
-[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx 
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md 
-[hdinsight-introduction]: hdinsight-hadoop-introduction.md 
-[powershell-install-configure]: ../install-configure-powershell.md 
-[hdinsight-get-started]: ../hdinsight-get-started.md 
-[hdinsight-samples]: hdinsight-run-samples.md 
-[hdinsight-sample-10gb-graysort]: hdinsight-sample-10gb-graysort.md 
-[hdinsight-sample-csharp-streaming]: hdinsight-sample-csharp-streaming.md 
-[hdinsight-sample-pi-estimator]: hdinsight-sample-pi-estimator.md 
-[hdinsight-sample-wordcount]: hdinsight-sample-wordcount.md 
-[hdinsight-use-hive]: hdinsight-use-hive.md 
-[hdinsight-use-pig]: hdinsight-use-pig.md 
-[streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx 
-[console-writeline]: http://msdn.microsoft.com/library/system.console.writeline 
 
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+[hdinsight-errors]: hdinsight-debug-jobs.md
+
+[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
+
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-introduction]: hdinsight-hadoop-introduction.md
+
+
+[powershell-install-configure]: ../install-configure-powershell.md
+
+[hdinsight-get-started]: ../hdinsight-get-started.md
+
+[hdinsight-samples]: hdinsight-run-samples.md
+[hdinsight-sample-10gb-graysort]: hdinsight-sample-10gb-graysort.md
+[hdinsight-sample-csharp-streaming]: hdinsight-sample-csharp-streaming.md
+[hdinsight-sample-pi-estimator]: hdinsight-sample-pi-estimator.md
+[hdinsight-sample-wordcount]: hdinsight-sample-wordcount.md
+
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
+
+[streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
+[console-writeline]: http://msdn.microsoft.com/library/system.console.writeline

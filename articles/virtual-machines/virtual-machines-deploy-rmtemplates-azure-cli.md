@@ -17,15 +17,13 @@
     ms.date="11/01/2015"
     ms.author="rasquill"/>
 
-
 # Azure リソース マネージャー テンプレートと Azure CLI を使用した仮想マシンのデプロイと管理
 
 > [AZURE.SELECTOR]
 - [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 - [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
-
-<br>
+<br> 
 
 
 
@@ -33,30 +31,30 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 従来のデプロイ モデルです。 クラシック デプロイ モデルのテンプレートは使用できません。
 
-- [Azure の仮想マシンの簡易作成します。](#quick-create-a-vm-in-azure)
-- [テンプレートから Azure の仮想マシンの展開します。](#deploy-a-vm-in-azure-from-a-template)
-- [カスタム イメージから仮想マシンを作成します。](#create-a-custom-vm-image)
-- [仮想ネットワークとロード バランサーを使用する仮想マシンの展開します。](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
-- [リソース グループを削除します。](#remove-a-resource-group)
-- [リソース グループ デプロイのログを表示します。](#show-the-log-for-a-resource-group-deployment)
-- [仮想マシンに関する情報を表示](#display-information-about-a-virtual-machine)
-- [Linux ベースの仮想マシンに接続します。](#log-on-to-a-linux-based-virtual-machine)
-- [仮想マシンを停止します。](#stop-a-virtual-machine)
-- [仮想マシンを起動します。](#start-a-virtual-machine)
-- [データ ディスクを接続します。](#attach-a-data-disk)
+- [Azure での仮想マシンの簡易作成](#quick-create-a-vm-in-azure)
+- [テンプレートから Azure への仮想マシンのデプロイ](#deploy-a-vm-in-azure-from-a-template)
+- [カスタム イメージからの仮想マシンの作成](#create-a-custom-vm-image)
+- [仮想ネットワークおよびロード バランサーを使用する仮想マシンのデプロイ](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
+- [リソース グループの削除](#remove-a-resource-group)
+- [リソース グループ デプロイメントのログの表示](#show-the-log-for-a-resource-group-deployment)
+- [仮想マシンに関する情報の表示](#display-information-about-a-virtual-machine)
+- [Linux ベースの仮想マシンへの接続](#log-on-to-a-linux-based-virtual-machine)
+- [仮想マシンの停止](#stop-a-virtual-machine)
+- [仮想マシンの起動](#start-a-virtual-machine)
+- [データ ディスクの接続](#attach-a-data-disk)
 
-## 開発の準備
+## 準備
 
 Azure リソース グループで Azure CLI を使用するには、適切な Azure CLI のバージョンと Azure アカウントを用意する必要があります。 Azure CLI を持っていない場合 [インストール](xplat-cli-install.md)します。
 
 ### Azure CLI のバージョンを 0.9.0 以降に更新する
 
-型 `azure--バージョン` をバージョン 0.9.0 が既にインストールされているかどうかを確認またはそれ以降。
+「`azure --version`」と入力し、バージョン 0.9.0 以降が既にインストールされているかどうかを確認します。 
 
     azure --version
     0.9.0 (node: 0.10.25)
 
-バージョンが 0.9.0 か、後で、またはネイティブ インストーラーを使用して更新する必要があります **npm** 」と入力して `npm 更新-g azure-cli`します。
+バージョンが 0.9.0 か、後で、またはネイティブ インストーラーを使用して更新する必要があります **npm** 」と入力して `npm update -g azure-cli`します。
 
 次を使用して、Docker コンテナーとして Azure CLI を実行することも [Docker イメージ](https://registry.hub.docker.com/u/microsoft/azure-cli/)します。 Docker ホストから次のコマンドを実行します。
 
@@ -66,10 +64,11 @@ Azure リソース グループで Azure CLI を使用するには、適切な A
 
 Azure サブスクリプションをまだ持っていないが、MSDN サブスクリプションが、アクティブにできます、 [MSDN サブスクライバーの特典](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)します。 サインアップできるか、 [無料評価版](http://azure.microsoft.com/pricing/free-trial/)します。
 
-今すぐ [、Azure アカウントに対話形式ログオン](../xplat-cli-connect.md#use-the-log-in-method) 」と入力して `azure ログイン` 、Azure アカウントに対話型のログイン エクスペリエンスを画面の指示に従います。
-> [AZURE.NOTE] 会社または学校の ID できますでは、2 要素認証を有効にする必要はありませんがある場合 **も** を使用して `azure login-u` にログインする職場または学校の ID と共に *せず* 対話型セッションです。 した場合の会社や学校の ID、 [個人用の Microsoft アカウントから職場または学校の id を作成](resource-group-create-work-id-from-personal.md) と同じ方法でログインします。
+今すぐ [、Azure アカウントに対話形式ログオン](../xplat-cli-connect.md#use-the-log-in-method) 」と入力して `azure login` 、Azure アカウントに対話型のログイン エクスペリエンスを画面の指示に従います。 
 
-アカウントには、複数のサブスクリプションが含まれる場合があります。 」と入力して、サブスクリプションの一覧を表示できる `azure アカウント] ボックスの一覧`, 、これのように表示される可能性があります。
+> [AZURE.NOTE] 会社または学校の ID できますでは、2 要素認証を有効にする必要はありませんがある場合 **も** を使用して `azure login -u` にログインする職場または学校の ID と共に *せず* 対話型セッションです。 した場合の会社や学校の ID、 [個人用の Microsoft アカウントから職場または学校の id を作成](resource-group-create-work-id-from-personal.md) と同じ方法でログインします。
+
+アカウントには、複数のサブスクリプションが含まれる場合があります。 `azure account list` と入力することで、次のようにサブスクリプションの一覧を表示できます。
 
     azure account list
     info:    Executing command account list
@@ -84,9 +83,11 @@ Azure サブスクリプションをまだ持っていないが、MSDN サブス
 
     azure account set <subscription name or ID> true
 
+
+
 ### Azure CLI リソース グループ モードに切り替える
 
-既定では、Azure CLI はサービス管理モード (**asm** モード) で起動します。 以下を入力してリソース グループ モードに切り替えます。
+既定では、Azure CLI はサービス管理モードで起動 (**asm** モード)。 以下を入力してリソース グループ モードに切り替えます。
 
     azure config mode arm
 
@@ -94,7 +95,7 @@ Azure サブスクリプションをまだ持っていないが、MSDN サブス
 
 大部分のアプリケーションは、異なる種類のリソースの組み合わせ (1 つ以上の VM やストレージ アカウント、SQL データベース、仮想ネットワーク、コンテンツ配信ネットワークなど) から構築されます。 既定の Azure サービス管理 API と Azure クラシック ポータルでは、サービス単位のアプローチを使用してこれらの項目を表していました。 この方法では、個々のサービスを 1 つの論理的なデプロイ単位としてではなく、個別にデプロイ、管理 (またはこのことを実行するその他のツールを検索) する必要があります。
 
-ただし、*Azure リソース マネージャー テンプレート*では、これらの異なるリソースを 1 つの論理的なデプロイ単位として、宣言型の方法でデプロイし、管理することが可能になります。 何をデプロイするのかを Azure に 1 コマンドずつ命令するのではなく、JSON ファイル内にデプロイ全体、つまりすべてのリソースと、関連する構成およびデプロイ パラメーターを記述し、Azure にそれらのリソースを 1 つのグループとしてデプロイするよう指示します。
+*Azure リソース マネージャー テンプレート*, 、ただしを展開し、宣言型の方法の 1 つの論理的なデプロイ単位としてこれらの異なるリソースを管理できるようにします。 何をデプロイするのかを Azure に 1 コマンドずつ命令するのではなく、JSON ファイル内にデプロイメント全体、つまりすべてのリソースと、関連する構成およびデプロイメント パラメーターを記述し、Azure にそれらのリソースを 1 つのグループとしてデプロイするよう指示します。
 
 その後は、Azure CLI リソース管理コマンドを使用して以下を実行することで、そのグループのリソースのライフ サイクル全体を管理できます。
 
@@ -107,7 +108,7 @@ Azure リソース グループとどのような働きをする詳細につい�
 
 ## <a id="quick-create-a-vm-in-azure"></a>タスク: 簡易作成 Azure の VM で
 
-どのようなイメージが必要か理解していて、今すぐそのイメージの VM が必要で、しかもインフラストラクチャにはそれほどこだわらないという場合があります。たとえばクリーンな VM で何かをテストする必要があるような場合です。 これは、ような場合に使用する、 `azure vm の簡易作成` コマンド、およびバーチャル マシンとそのインフラストラクチャの作成に必要な引数を渡します。
+どのようなイメージが必要か理解していて、今すぐそのイメージの VM が必要で、しかもインフラストラクチャにはそれほどこだわらないという場合があります。たとえばクリーンな VM で何かをテストする必要があるような場合です。 そのようなときは、`azure vm quick-create` コマンドを使用し、VM とそのインフラストラクチャの作成に必要な引数を渡します。
 
 まずは、リソース グループを作成します。
 
@@ -124,30 +125,32 @@ Azure リソース グループとどのような働きをする詳細につい�
     data:
     info:    group create command OK
 
-次に、イメージが必要になります。 Azure CLI でイメージを検索するには、次を参照してください。 [ナビゲーションと PowerShell と Azure CLI による Azure の仮想マシン イメージを選択すると](resource-groups-vm-searching.md)します。 ただし、この記事については、一般的なイメージの簡単な一覧を用意しています。 この簡易作成には、CoreOS の安定版イメージを使用します。
-> [AZURE.NOTE] ComputeImageVersion では、テンプレートの言語と Azure CLI の両方のパラメーターとして "latest" を指定することもできます。 こうすることで、スクリプトやテンプレートを変更しなくても、常にパッチが適用された最新バージョンのイメージを使用できます。 一般的なイメージを以下に示します。
 
-| 発行元| プラン| SKU| バージョン|
+次に、イメージが必要になります。 Azure CLI でイメージを検索するには、次を参照してください。 [ナビゲーションと PowerShell と Azure CLI による Azure の仮想マシン イメージを選択すると](resource-groups-vm-searching.md)です。 ただし、この記事については、一般的なイメージの簡単な一覧を用意しています。 この簡易作成には、CoreOS の安定版イメージを使用します。
+
+> [AZURE.NOTE] ComputeImageVersion を単にも指定 latest」と Azure CLI でテンプレート言語の両方でパラメーターとして。 こうすることで、スクリプトやテンプレートを変更しなくても、常にパッチが適用された最新バージョンのイメージを使用できます。 一般的なイメージを以下に示します。
+
+| 発行元                        | プラン                                 | SKU                         | バージョン |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic| CentOS| 7| 7.0.201503|
-| OpenLogic| CentOS| 7.1| 7.1.201504|
-| CoreOS| CoreOS| ベータ版| 647.0.0|
-| CoreOS| CoreOS| 安定版| 633.1.0|
-| MicrosoftDynamicsNAV| DynamicsNAV| 2015| 8.0.40459|
-| MicrosoftSharePoint| MicrosoftSharePointServer| 2013| 1.0.0|
-| msopentech| Oracle-Database-12c-Weblogic-Server-12c| Standard| 1.0.0|
-| msopentech| Oracle-Database-12c-Weblogic-Server-12c| Enterprise| 1.0.0|
-| MicrosoftSQLServer| SQL2014-WS2012R2| Enterprise-Optimized-for-DW| 12.0.2430|
-| MicrosoftSQLServer| SQL2014-WS2012R2| Enterprise-Optimized-for-OLTP| 12.0.2430|
-| Canonical| UbuntuServer| 12.04.5-LTS| 12.04.201504230|
-| Canonical| UbuntuServer| 14.04.2-LTS| 14.04.201503090|
-| MicrosoftWindowsServer| WindowsServer| 2012-Datacenter| 3.0.201503|
-| MicrosoftWindowsServer| WindowsServer| 2012-R2-Datacenter| 4.0.201503|
-| MicrosoftWindowsServer| WindowsServer| Windows-Server-Technical-Preview| 5.0.201504|
-| MicrosoftWindowsServerEssentials| WindowsServerEssentials| WindowsServerEssentials| 1.0.141204|
-| MicrosoftWindowsServerHPCPack| WindowsServerHPCPack| 2012R2| 4.3.4665|
+| OpenLogic                        | CentOS                                     | 7                                | 7.0.201503          |
+| OpenLogic                        | CentOS                                     | 7.1                              | 7.1.201504          |
+| CoreOS                           | CoreOS                                     | ベータ版                             | 647.0.0             |
+| CoreOS                           | CoreOS                                     | 安定版                           | 633.1.0             |
+| MicrosoftDynamicsNAV             | DynamicsNAV                                | 2015                             | 8.0.40459           |
+| MicrosoftSharePoint              | MicrosoftSharePointServer                  | 2013                             | 1.0.0               |
+| msopentech                       | Oracle-Database-12c-Weblogic-Server-12c    | Standard                         | 1.0.0               |
+| msopentech                       | Oracle-Database-12c-Weblogic-Server-12c    | Enterprise                       | 1.0.0               |
+| MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-DW      | 12.0.2430           |
+| MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-OLTP    | 12.0.2430           |
+| Canonical                        | UbuntuServer                               | 12.04.5-LTS                      | 12.04.201504230     |
+| Canonical                        | UbuntuServer                               | 14.04.2-LTS                      | 14.04.201503090     |
+| MicrosoftWindowsServer           | WindowsServer                              | 2012-Datacenter                  | 3.0.201503          |
+| MicrosoftWindowsServer           | WindowsServer                              | 2012-R2-Datacenter               | 4.0.201503          |
+| MicrosoftWindowsServer           | WindowsServer                              | Windows-Server-Technical-Preview | 5.0.201504          |
+| MicrosoftWindowsServerEssentials | WindowsServerEssentials                    | WindowsServerEssentials          | 1.0.141204          |
+| MicrosoftWindowsServerHPCPack    | WindowsServerHPCPack                       | 2012R2                           | 4.3.4665            |
 
-だけを入力して、VM を作成、 `azure vm の簡易作成` コマンドと、画面の指示の準備完了です。 これは、次のようになります。
+VM を作成するために、`azure vm quick-create` コマンドを入力して、メッセージが表示されるのを待ちます。 これは、次のようになります。
 
     azure vm quick-create
     info:    Executing command vm quick-create
@@ -234,15 +237,15 @@ Azure リソース グループとどのような働きをする詳細につい�
 
 ## <a id="deploy-a-vm-in-azure-from-a-template"></a>タスク: テンプレートから Azure の VM でのデプロイします。
 
-Azure CLI でテンプレートを使用して新しい Azure VM をデプロイするには、以下のセクションの手順に従います。 このテンプレートでは、単一の仮想マシンを作成とは異なり、単一のサブネットを持つ新しい仮想ネットワークで `azure vm の簡易作成`, 、正確に何が必要に記述でき、エラーなしでそれを繰り返します。 このテンプレートによって作成されるものを次に示します。
+Azure CLI でテンプレートを使用して新しい Azure VM をデプロイするには、以下のセクションの手順に従います。 このテンプレートは、1 つのサブネットを持つ新しい仮想ネットワークに単一の仮想マシンを作成しますが、`azure vm quick-create` とは異なり、何が必要かを正確に記述し、エラーなしでそれを繰り返すことができます。 このテンプレートによって作成されるものを次に示します。
 
 ![](./media/virtual-machines-deploy-rmtemplates-azure-cli/new-vm.png)
 
 ### 手順 1. テンプレート パラメーターの JSON ファイルを確認する
 
-テンプレートの JSON ファイルの内容を次に示します。 (テンプレートは、にもある [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json).)
+テンプレートの JSON ファイルの内容を次に示します。 (テンプレートにもある [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json).)
 
-テンプレートは柔軟性が高いことから、デザイナーはテンプレートで多くのパラメーターを提供することがあります。逆に、比較的固定的なテンプレートを作成し、ごく少数のパラメーターだけを提供していることもあります。 テンプレートをパラメーターとして渡すために必要な情報を収集するには、テンプレート ファイル (このトピックでは、以下にインラインのテンプレートが含まれています) を開き、**parameters** の値を確認する必要があります。
+テンプレートは柔軟性が高いことから、デザイナーはテンプレートで多くのパラメーターを提供することがあります。逆に、比較的固定的なテンプレートを作成し、ごく少数のパラメーターだけを提供していることもあります。 テンプレート パラメーターとして渡す必要な情報を収集するためには、(このトピックでは、インラインのテンプレートの下) テンプレート ファイルを開き、確認、 **パラメーター** 値。
 
 この場合、下記のテンプレートから次の情報を求められます。
 
@@ -429,11 +432,12 @@ Azure CLI でテンプレートを使用して新しい Azure VM をデプロイ
     ]
     }
 
+
 ### 手順 2. テンプレートを使用して仮想マシンを作成する
 
 パラメーター値を用意したら、テンプレートのデプロイ用のリソース グループを作成し、テンプレートをデプロイする必要があります。
 
-リソース グループを作成するには、入力 `azure グループを作成 < グループ名 >< 場所 >` グループと展開先となるデータ センターの場所の名前に置き換えます。この作成はすばやく実行されます。
+リソース グループを作成するには、使用するグループ名とデプロイ先のデータセンターの場所を指定して、「`azure group create <group name> <location>`」を入力します。 この作成はすばやく実行されます。
 
     azure group create myResourceGroup westus
     info:    Executing command group create
@@ -448,7 +452,8 @@ Azure CLI でテンプレートを使用して新しい Azure VM をデプロイ
     data:
     info:    group create command OK
 
-展開を作成する呼び出し `azure グループの展開を作成` を渡します。
+
+デプロイを作成するには、`azure group deployment create` を呼び出し、次の情報を渡します。
 
 - テンプレート ファイル (上記の JSON テンプレートをローカル ファイルに保存した場合)
 - テンプレートの URI (GitHub や他の Web アドレスにあるファイルをポイントする場合)
@@ -493,6 +498,8 @@ JSON ファイルの "parameters" セクションのパラメーター値を指�
     data:    ubuntuOSVersion        String        14.10
     info:    group deployment create command OK
 
+
+
 ## <a id="create-a-custom-vm-image"></a>タスク: カスタム VM イメージを作成します。
 
 テンプレートの基本的な使用方法は前述したので、同様の手順に従うことで、Azure CLI でテンプレートを使用して、Azure にある特定の .vhd ファイルからカスタム VM を作成できます。 このテンプレートは、指定した仮想ハード ディスク (VHD) から単一の仮想マシンを作成するという点が異なります。
@@ -501,7 +508,7 @@ JSON ファイルの "parameters" セクションのパラメーター値を指�
 
 以下は、このセクションで例として使用するテンプレートの JSON ファイルの内容です。
 
-ここでも、既定値がないパラメーター用に入力する値を見つける必要があります。 実行すると、 `azure グループの展開を作成` コマンドを Azure CLI には、その値を入力するように求められます。
+ここでも、既定値がないパラメーター用に入力する値を見つける必要があります。 `azure group deployment create` コマンドを実行すると、Azure CLI からその値を入力するよう求められます。
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
@@ -694,7 +701,7 @@ Linux ベースの仮想マシンでは、次を参照してください。 [の
 
 ### 手順 3. テンプレートを使用して仮想マシンを作成する
 
-これで、.vhd に基づく新しい仮想マシンを作成する準備が整いました。使用して、展開するグループを作成する `azure グループを作成 < 場所 >`:
+これで、.vhd に基づく新しい仮想マシンを作成する準備が整いました。 デプロイ先のグループを作成するには、次のように `azure group create <location>` を使用します。
 
     azure group create myResourceGroupUser eastus
     info:    Executing command group create
@@ -709,7 +716,7 @@ Linux ベースの仮想マシンでは、次を参照してください。 [の
     data:
     info:    group create command OK
 
-使用して、展開を作成、 `--テンプレート uri` 、テンプレートを直接呼び出すこと (使用することも、 `--テンプレート ファイル` 保存したファイルをローカルで使用するオプション)。 テンプレートは既定値を指定されているため、求められる入力値は少数です。 さまざまな場所にテンプレートをデプロイする場合、既定値 (特に、作成する DNS 名) との名前付けの競合が発生する場合があります。
+次に、テンプレートを直接呼び出す `--template-uri` オプションを使用してデプロイを作成します (または `--template-file` オプションを使用してローカルに保存したファイルを使用することもできます)。 テンプレートは既定値を指定されているため、求められる入力値は少数です。 さまざまな場所にテンプレートをデプロイする場合、既定値 (特に、作成する DNS 名) との名前付けの競合が発生する場合があります。
 
     azure group deployment create \
     > --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json \
@@ -757,6 +764,7 @@ Linux ベースの仮想マシンでは、次を参照してください。 [の
     data:    nicName                        String        myNIC
     info:    group deployment create command OK
 
+
 ## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>タスク: 仮想ネットワークと外部ロード バランサーを使用する複数 VM アプリケーションをデプロイします。
 
 このテンプレートでは、ロード バランサーの下に 2 つの仮想マシンを作成し、ポート 80 の負荷分散ルールを構成することができます。 このテンプレートは、ストレージ アカウント、仮想ネットワーク、パブリック IP アドレス、可用性セット、ネットワーク インターフェイスもデプロイします。
@@ -767,7 +775,7 @@ Azure PowerShell コマンドで GitHub テンプレート リポジトリのリ
 
 ### 手順 1. テンプレートの JSON ファイルを確認する
 
-テンプレートの JSON ファイルの内容を次に示します。 最新のバージョンが必要な場合が配置されて [テンプレートの Github リポジトリに](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json)します。 このトピックでは、 `--テンプレート uri` テンプレートでは、呼び出しに切り替えますが、使用することも、 `-テンプレート ファイル` スイッチをローカル バージョンを渡します。
+テンプレートの JSON ファイルの内容を次に示します。 最新のバージョンが必要な場合が配置されて [テンプレートの Github リポジトリに](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json)します。 このトピックでは、テンプレートの呼び出しに `--template-uri` スイッチを使用しますが、ローカル バージョンを渡すために `--template-file` スイッチを使用することもできます。
 
 
     {
@@ -962,11 +970,11 @@ Azure PowerShell コマンドで GitHub テンプレート リポジトリのリ
                                     "id": "[concat('Microsoft.Network/loadBalancers/',parameters('lbName'),'/inboundNatRule/RDP-VM', copyindex())]"
                                 }
                             ]
-    
-    
+
+
                         }
                     ]
-    
+
                 }
             },
             {
@@ -992,7 +1000,7 @@ Azure PowerShell コマンドで GitHub テンプレート リポジトリのリ
                     "backendAddressPools": [
                         {
                             "name": "LBBE"
-    
+
                         }
                     ],
                     "inboundNatRules": [
@@ -1103,7 +1111,7 @@ Azure PowerShell コマンドで GitHub テンプレート リポジトリのリ
 
 ### 手順 2. テンプレートを使用してデプロイを作成する
 
-使用して、テンプレートのリソース グループを作成 `azure グループを作成 < 場所 >`します。使用してそのリソース グループへの展開を作成し、 `azure グループの展開を作成` リソース グループを渡すと、展開名を渡すおよび、既定値がないテンプレートのパラメーターに関するプロンプトに答えます。
+`azure group create <location>` を使用して、テンプレートのリソース グループを作成します。 `azure group deployment create` を使用してそのリソース グループへのデプロイを作成し、リソース グループを渡します。デプロイ名を渡して、既定値がないテンプレートのパラメーターに関するプロンプトに答えます。
 
 
     azure group create lbgroup westus
@@ -1119,7 +1127,8 @@ Azure PowerShell コマンドで GitHub テンプレート リポジトリのリ
     data:
     info:    group create command OK
 
-使用して、 `azure グループの展開を作成` コマンドと `--テンプレート uri` テンプレートを展開するオプションです。 以下に示すように入力を求められた場合に備えてパラメーター値を用意しておいてください。
+
+次に、`azure group deployment create` コマンドと `--template-uri` オプションを使用してテンプレートをデプロイします。 以下に示すように入力を求められた場合に備えてパラメーター値を用意しておいてください。
 
     azure group deployment create \
     > --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json \
@@ -1166,11 +1175,11 @@ Azure PowerShell コマンドで GitHub テンプレート リポジトリのリ
     data:    vmSize                 String        Standard_A1
     info:    group deployment create command OK
 
-このテンプレートでは Windows Server イメージをデプロイしますが、Linux イメージに簡単に置き換えることができます。 複数の Swarm マネージャーを備えた Docker クラスターを作成する必要がある場合には、 [You can do it](http://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
+このテンプレートでは Windows Server イメージをデプロイしますが、Linux イメージに簡単に置き換えることができます。 複数の Swarm マネージャーを備えた Docker クラスターを作成する必要がある場合には、 [これを行うことができます](http://azure.microsoft.com/documentation/templates/docker-swarm-cluster/)します。
 
 ## <a id="remove-a-resource-group"></a>タスク: リソース グループを削除します。
 
-リソース グループに再展開することができますが、いずれかで完了した場合を使用して削除できることに注意してください `azure グループの削除 < グループ名 >`します。
+リソース グループへの再デプロイは可能ですが、実行した場合は `azure group delete <group name>` を使用してリソース グループを削除できることに注意してください。
 
     azure group delete myResourceGroup
     info:    Executing command group delete
@@ -1180,9 +1189,9 @@ Azure PowerShell コマンドで GitHub テンプレート リポジトリのリ
 
 ## <a id="show-the-log-for-a-resource-group-deployment"></a>タスク: リソース グループ デプロイのログを表示します。
 
-これは、テンプレートの作成時や使用時によく行われます。グループのログを展開を表示する呼び出し `azure グループ ログの表示] < グループ名 >`, 、非常に大量の発生または発生しなかったもの理由を理解するのに便利な情報が表示されます。(問題に関するその他の情報と、デプロイのトラブルシューティングに関する詳細については、を参照してください [Azure でのリソース グループ デプロイのトラブルシューティング](resource-group-deploy-debug.md).)。
+これは、テンプレートの作成時や使用時によく行われます。 グループのデプロイ ログを表示するための呼び出しは `azure group log show <groupname>` ですが、これにより、何かが発生した場合、または発生しなかった場合、その理由を把握するのに役立つ大量の情報が表示されます  (問題に関するその他の情報と、デプロイのトラブルシューティングに関する詳細については、次を参照してください [。Azure でのリソース グループ デプロイのトラブルシューティング](resource-group-deploy-debug.md).)
 
-特定のエラーを対象にするには、たとえば **jq** のようなツールを使用すると、個々のエラーのうちどれを修正する必要があるかなど、もう少し的確な照会ができます。 次の例では、**jq** を使用して **lbgroup** のデプロイ ログを解析し、エラーを探しています。
+ターゲットの特定のエラーをなどのツールを使用するなど、 **jq** クエリもう少し正確には、どの個々 のエラーなどの修正する必要をします。 次の例では使用 **jq** 展開ログを解析する **lbgroup**, 、エラーを探しています。
 
     azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Failed") | .properties'
 
@@ -1193,9 +1202,10 @@ Azure PowerShell コマンドで GitHub テンプレート リポジトリのリ
       "statusMessage": "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"AcquireDiskLeaseFailed\",\"message\":\"Failed to acquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.windows.net/vhds/osdisk.vhd.\"}]}}"
     }
 
+
 ## <a id="display-information-about-a-virtual-machine"></a>タスク: 仮想マシンに関する情報を表示します。
 
-使用してリソース グループに特定の Vm に関する情報を確認できます、 `azure 仮想マシンの表示 < groupname >< vmname > コマンド`します。グループに複数の VM があれば、まず必要がありますを使用してグループ内の Vm を一覧 `azure vm 一覧 < グループ名 >`します。
+`azure vm show <groupname> <vmname> command` を使用して、リソース グループ内の特定の VM に関する情報を表示できます。 複数の VM がある場合、まずは `azure vm list <groupname>` を使用してグループ内の VM を一覧表示する必要があります。
 
     azure vm list zoo
     info:    Executing command vm list
@@ -1257,7 +1267,8 @@ Azure PowerShell コマンドで GitHub テンプレート リポジトリのリ
     data:      Id                            :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/availabilitySets/MYAVSET
     info:    vm show command OK
 
-> [AZURE.NOTE] プログラムを使用して格納し、コンソール コマンドの出力を操作する場合は、JSON 解析ツールなどを使用する場合 * *[jq](https://github.com/stedolan/jq)** または **[jsawk](https://github.com/micha/jsawk)* *、または、タスクに適した言語ライブラリです。
+
+> [AZURE.NOTE] プログラムを使用して格納し、コンソール コマンドの出力を操作する場合は、JSON 解析ツールなどを使用する可能性がある場合 **[jq](https://github.com/stedolan/jq)** または **[jsawk](https://github.com/micha/jsawk)**, 、または、タスクに適した言語ライブラリです。
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>タスク: Linux ベースの仮想マシンにログオン
 
@@ -1269,7 +1280,7 @@ Azure PowerShell コマンドで GitHub テンプレート リポジトリのリ
 
     azure vm stop <group name> <virtual machine name>
 
->[AZURE.IMPORTANT] このパラメーターは、VM が VNET 内の最後の VM である場合に、その VNET の仮想 IP (VIP) を保持するために使用します。<br><br> 使用する場合、 `StayProvisioned` パラメーターを VM に対して引き続き課金されます。
+>[AZURE.IMPORTANT] ある場合に、その vnet 内の最後の VM に vnet の仮想 IP (VIP) を保持するのにには、このパラメーターを使用します。 <br><br> `StayProvisioned` パラメーターを使用する場合、その VM に対して引き続き課金されます。
 
 ## <a id="start-a-virtual-machine"></a>タスク: VM を起動します。
 
@@ -1297,8 +1308,4 @@ Azure PowerShell コマンドで GitHub テンプレート リポジトリのリ
 Azure CLI の使用状況の例については非常に多く、 **arm** モードを参照してください [Mac、Linux、および Windows Azure リソース マネージャーでの Azure CLI を使用して](xplat-cli-azure-resource-manager.md)します。 Azure リソースとその概念の詳細については、次を参照してください。 [Azure リソース マネージャーの概要](../resource-group-overview.md)します。
 
 他のテンプレートを使用する、次を参照してください。 [Azure クイック スタート テンプレート](http://azure.microsoft.com/documentation/templates/) と [テンプレートを使用したアプリケーション フレームワーク](virtual-machines-app-frameworks.md)します。
-
-
-
-
 

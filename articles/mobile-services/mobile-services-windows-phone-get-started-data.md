@@ -17,7 +17,6 @@
     ms.author="glenga"/>
 
 
-
 # 既存のアプリケーションへの Mobile Services の追加
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
@@ -27,51 +26,52 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
-## 概要
+##概要
 
-このトピックでは、Azure Mobile Services を使用して Windows Phone 8 アプリケーションのデータを活用する方法について説明します。 このチュートリアルでには、現在のメモリにデータを格納するアプリケーションをダウンロード、新しいモバイル サービスの作成、アプリケーションとログインを使用し、[Azure クラシック ポータル] にデータに、アプリケーションの実行中に加えられた変更を表示するモバイル サービスを統合します。
+このトピックでは、Azure Mobile Services を使用して Windows Phone 8 アプリケーションのデータを活用する方法について説明します。 このチュートリアルでがメモリにデータを格納するアプリケーションをダウンロードして、新しいモバイル サービスの作成、アプリケーション、およびへのログインと、モバイル サービスを統合、 [Azure classic portal] データに、アプリケーションの実行中に加えられた変更を表示します。
 
 次のビデオで、Nick Harris によるこのチュートリアルのデモをご覧いただけます。
 >[AZURE.VIDEO mobile-get-started-with-data-windows-phone]
 
-## 前提条件
+##前提条件
 
-+ Visual Studio 2012 Express for Windows Phone 8 および [Windows Phone 8 SDK] Windows 8 で実行されています。 このチュートリアルを完了して、Windows Phone 8.1 アプリケーションを作成するには、Visual Studio 2013 Update 2 以降が必要です。
++ Visual Studio 2012 Express for Windows Phone 8、および [Windows Phone 8 SDK] Windows 8 で実行されています。 このチュートリアルを完了して、Windows Phone 8.1 アプリケーションを作成するには、Visual Studio 2013 Update 2 以降が必要です。
 
-+ Azure アカウント。 アカウントがない場合は、無料試用版アカウントを数分で作成することができます。 詳細については、「 [Azure 無料試用版](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Farticles%2Fdocumentation%2Fmobile-services-windows-phone-get-started-data%2F)します。
++ Azure アカウント。 アカウントがない場合は、無料の試用アカウントを数分で作成することができます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Farticles%2Fdocumentation%2Fmobile-services-windows-phone-get-started-data%2F)を参照してください。
 
-## <a name="download-app"></a>GetStartedWithData プロジェクトをダウンロードします。
+##<a name="download-app"></a>GetStartedWithData プロジェクトをダウンロードする
 
-このチュートリアルを基づいて、 [GetStartedWithData アプリ開発者コード サンプル集のサイト][developer code samples site], 、Windows Phone Silverlight 8 アプリケーション プロジェクトします。
+このチュートリアルを基づいて、 [GetStartedWithData アプリケーション][Developer Code Samples site], 、Windows Phone Silverlight 8 アプリケーション プロジェクトします。
 
-1. [デベロッパー サンプル コード集のサイトから、GetStartedWithData サンプル アプリケーション プロジェクトをダウンロードします。
-    >[AZURE.NOTE]Windows Phone Silverlght 8.1 アプリケーションを作成するには、ダウンロードした Windows Phone Silverlight 8 アプリケーション プロジェクトの対象 OS を Windows Phone 8.1 に変更します。 Windows Phone ストア アプリを作成するには、ダウンロード、 [Windows Phone Store アプリケーション バージョン](http://go.microsoft.com/fwlink/p/?LinkId=397372) の GetStartedWithData サンプル アプリケーション プロジェクト。
+1. GetStartedWithData サンプル アプリケーション プロジェクトをダウンロード、 [Developer Code Samples site]します。
+
+    >[AZURE.NOTE]Windows Phone Silverlght 8.1 アプリケーションを作成するには、Windows Phone 8.1 をダウンロードした Windows Phone Silverlight 8 アプリケーション プロジェクトの対象 OS に変更します。 Windows Phone ストア アプリを作成するには、ダウンロード、 [Windows Phone Store アプリケーション バージョン](http://go.microsoft.com/fwlink/p/?LinkId=397372) の GetStartedWithData サンプル アプリケーション プロジェクト。
 
 2. Visual Studio で、ダウンロードしたプロジェクトを開き、MainPage.xaml.cs ファイルを確認します。
 
-    追加された **TodoItem** オブジェクトはメモリ内の **ObservableCollection&lt;TodoItem&gt;** に格納されます。
+    追加された **TodoItem** オブジェクトがメモリ内に格納されている **ObservableCollection & lt;TodoItem & gt;**します。
 
-3. **F5** キーを押してプロジェクトをリビルドし、アプリケーションを開始します。
+3. キーを押して、 **f5 キーを押して** キーをプロジェクトをリビルドし、アプリケーションを開始します。
 
-4. アプリケーションで、テキスト ボックスに任意のテキストを入力し、**[Save]** をクリックします。
+4. アプリケーションで、テキスト ボックスにテキストを入力し、クリックして、 **保存** ] ボタンをクリックします。
 
     ![][0]
 
     保存されたテキストが下のリストに表示されます。
 
-## <a name="create-service"></a>Azure クラシック ポータルで新しいモバイル サービスを作成します。
+##<a name="create-service"></a>Azure クラシック ポータルで新しいモバイル サービスを作成します。
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../../includes/mobile-services-create-new-service-data.md)]
 
-## <a name="add-table"></a>モバイル サービスに新しいテーブルを追加します。
+##<a name="add-table"></a>新しいテーブルをモバイル サービスに追加する
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data-2](../../includes/mobile-services-create-new-service-data-2.md)]
 
-## <a name="update-app"></a>更新プログラム、アプリ、モバイル サービスのデータ アクセスを使用するには
+##<a name="update-app"></a>モバイル サービスをデータ アクセスに使用するためにアプリケーションを更新する
 
 モバイル サービスの準備が整ったら、ローカル コレクションの代わりに Mobile Services に項目を格納するようにアプリケーションを更新します。
 
-1. Visual Studio の**ソリューション エクスプローラー**で、プロジェクト名を右クリックし、**[NuGet パッケージの管理]** をクリックします。
+1.  **ソリューション エクスプ ローラー** Visual Studio で、[プロジェクト名を右クリックして [ **NuGet パッケージの管理**します。
 
 2. 左ペインで選択、 **オンライン** カテゴリで、検索 `WindowsAzure.MobileServices`, 、] をクリックして **インストール** 上、 **Azure Mobile Services** をパッケージ化し、使用許諾契約書に同意します。
 
@@ -79,88 +79,88 @@
 
     これにより、Mobile Services クライアント ライブラリがプロジェクトに追加されます。
 
-3. クリックして、[Azure クラシック ポータル] で、 **Mobile Services**, 、し、先ほど作成したモバイル サービスをクリックします。
+3.  [Azure classic portal], 、] をクリックして **Mobile Services**, 、作成したモバイル サービスをクリックします。
 
-4. **[ダッシュボード]** タブをクリックし、**サイトの URL** をメモに記録します。次に、**[キーの管理]** をクリックし、**アプリケーション キー**をメモに記録します。
+4. クリックして、 **ダッシュ ボード** タブし、メモ、 **サイトの URL**, 、順にクリックして **キーの管理** のメモに記録、 **アプリケーション キー**します。
 
     ![][8]
 
     これらの値は、アプリケーション コードからモバイル サービスにアクセスするときに必要になります。
 
-5. Visual Studio で App.xaml.cs ファイルを開くして、追加したり、次のコメントを解除 `を使用して` ステートメント。
+5. Visual Studio で App.xaml.cs ファイルを開き、次の `using` ステートメントを追加またはコメント解除します。
 
         using Microsoft.WindowsAzure.MobileServices;
 
-6. この同じファイルで、**MobileService** 変数を定義する次のコードをコメント解除します。また、**MobileServiceClient** コンストラクターに、モバイル サービスで入手した URL とアプリケーション キーを (この順序で) 指定します。
+6. この同じファイルで定義する次のコードをコメント解除、 **MobileService** 変数、および URL とアプリケーション キーでモバイル サービスを指定、 **MobileServiceClient** コンス トラクターに順にします。
 
         //public static MobileServiceClient MobileService = new MobileServiceClient(
         //    "AppUrl",
         //    "AppKey"
         //);
 
-    これで、モバイル サービスへのアクセスに使用される **MobileServiceClient** の新しいインスタンスが作成されます。
+    新しいインスタンスを作成 **MobileServiceClient** 、モバイル サービスにアクセスするために使用されます。
 
-6. MainPage.cs ファイルで追加または、次のコメントを解除 `を使用して` ステートメント。
+6. MainPage.cs ファイルで、次の `using` ステートメントを追加またはコメント解除します。
 
         using Microsoft.WindowsAzure.MobileServices;
         using Newtonsoft.Json;
 
-7. この DataModel フォルダーで、**TodoItem** クラス定義を次のコードに置き換えます。
+7. この DataModel フォルダーに置き換える、 **TodoItem** クラス定義を次のコード。
 
-     public class TodoItem
-     {
-         public string Id { get; set; }
-    
-         [JsonProperty(PropertyName = "text")]
-         public string Text { get; set; }
-    
-         [JsonProperty(PropertyName = "complete")]
-         public bool Complete { get; set; }
-     }
+        public class TodoItem
+        {
+            public string Id { get; set; }
 
-7. 既存の **items** コレクションを定義する行をコメント アウトし、次の行をコメント解除します。
+            [JsonProperty(PropertyName = "text")]
+            public string Text { get; set; }
+
+            [JsonProperty(PropertyName = "complete")]
+            public bool Complete { get; set; }
+        }
+
+7. 既存を定義する行をコメント **項目** コレクション、次の行をコメント解除します。
 
         private MobileServiceCollection<TodoItem, TodoItem> items;
         private IMobileServiceTable<TodoItem> todoTable =
             App.MobileService.GetTable<TodoItem>();
 
-    このコードは、モバイル サービス対応のバインディング コレクション (**items**) と SQL データベース テーブルのプロキシ クラス **TodoItem** (**todoTable**) を作成します。
+    このコードでは、モバイル サービス対応のバインディング コレクション (**項目**) と SQL データベース テーブルのプロキシ クラス **TodoItem** (**todoTable**)。
 
-7. **InsertTodoItem** メソッド内で、**TodoItem**.**Id** プロパティを設定するコード行を削除し、**async** 修飾子をメソッドに追加して、次のコード行をコメント解除します。
+7.  **InsertTodoItem** メソッドを設定するコード行を削除して、 **TodoItem**.**Id** プロパティには、追加、 **async** 修飾子をメソッドには、次のコード行をコメント解除します。
 
         await todoTable.InsertAsync(todoItem);
 
     このコードでは、新しい項目をテーブルに挿入します。
 
-8. **RefreshTodoItems** メソッド内で、**async** 修飾子をメソッドに追加して、次のコード行をコメント解除します。
+8.  **RefreshTodoItems** メソッドを追加、 **async** 修飾子をメソッドは、次のコード行をコメント解除します。
 
         items = await todoTable.ToCollectionAsync();
 
     これにより、todoTable 内で、モバイル サービスから返されたすべての TodoItem オブジェクトが格納される項目のコレクションへのバインディングが設定されます。
 
-9. **UpdateCheckedTodoItem** メソッド内で、**async** 修飾子をメソッドに追加して、次のコード行をコメント解除します。
+9.  **UpdateCheckedTodoItem** メソッドを追加、 **async** 修飾子をメソッドには、次のコード行をコメント解除します。
 
          await todoTable.UpdateAsync(item);
 
     これにより、項目の更新がモバイル サービスに送信されます。
 
-バックエンド ストレージの Mobile Services を使用するようにアプリケーションを更新した後は、Mobile Services に対してアプリケーションをテストします。
+バックエンド ストレージのモバイル サービスを使用するようにアプリケーションを更新した後は、モバイル サービスに対してアプリケーションをテストします。
 
-## <a name="test-app"></a>新しいモバイル サービスに対するアプリケーションをテストします。
+##<a name="test-app"></a>新しいモバイル サービスに対するアプリケーションのテスト
 
 1. Visual Studio で、F5 キーを押してアプリケーションを実行します。
 
-2. 前と同様に、テキスト ボックスにテキストを入力し、**[Save]** をクリックします。
+2. 前に、テキスト ボックスに、テキストを入力し、クリックと **保存**します。
 
     これにより、新しい項目が挿入としてモバイル サービスに送信されます。
 
-3. [Azure クラシック ポータル]、[クリックして **Mobile Services**, 、モバイル サービスをクリックします。
+3.  [Azure classic portal], をクリックして **Mobile Services**, 、モバイル サービスをクリックします。
 
-4. **[データ]** タブをクリックし、**[参照]** をクリックします。
+4. クリックして、 **データ** ] タブの [ **参照**します。
 
     ![][9]
 
-    **TodoItem** テーブルに、Mobile Services によって生成された ID 値を持つデータが含まれ、アプリケーションの TodoItem クラスに対応してその列が自動的にテーブルに追加されていることに注目してください。
+    注意して、 **TodoItem** テーブルには、モバイル サービスによって生成された id 値を持つデータには今すぐが含まれていて、アプリケーションの TodoItem クラスに対応テーブルに列が自動的に追加されています。
 
 これでチュートリアルは終了します。
 
@@ -177,23 +177,25 @@
 * [Mobile Services C# の場合操作方法に関する概念リファレンス](mobile-services-windows-dotnet-how-to-use-client-library.md)
   <br/>.NET で Mobile Services を使用する方法について説明します。
 
+<!-- Anchors. -->
+[Download the Windows Phone 8 app project]: #download-app
+[Create the mobile service]: #create-service
+[Add a data table for storage]: #add-table
+[Update the app to use Mobile Services]: #update-app
+[Test the app against Mobile Services]: #test-app
+[Next Steps]:#next-steps
 
+<!-- Images. -->
+[0]: ./media/mobile-services-windows-phone-get-started-data/mobile-quickstart-startup-wp8.png
+[7]: ./media/mobile-services-windows-phone-get-started-data/mobile-add-nuget-package-wp.png
+[8]: ./media/mobile-services-windows-phone-get-started-data/mobile-dashboard-tab.png
+[9]: ./media/mobile-services-windows-phone-get-started-data/mobile-todoitem-data-browse.png
 
+<!-- URLs. -->
 
+[Azure classic portal]: https://manage.windowsazure.com/
+[Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
+[Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
+[Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
 
-
-[download the windows phone 8 app project]: #download-app 
-[create the mobile service]: #create-service 
-[add a data table for storage]: #add-table 
-[update the app to use mobile services]: #update-app 
-[test the app against mobile services]: #test-app 
-[next steps]: #next-steps 
-[0]: ./media/mobile-services-windows-phone-get-started-data/mobile-quickstart-startup-wp8.png 
-[7]: ./media/mobile-services-windows-phone-get-started-data/mobile-add-nuget-package-wp.png 
-[8]: ./media/mobile-services-windows-phone-get-started-data/mobile-dashboard-tab.png 
-[9]: ./media/mobile-services-windows-phone-get-started-data/mobile-todoitem-data-browse.png 
-[azure classic portal]: https://manage.windowsazure.com/ 
-[windows phone 8 sdk]: http://go.microsoft.com/fwlink/p/?LinkID=268374 
-[mobile services sdk]: http://go.microsoft.com/fwlink/p/?LinkID=268375 
-[developer code samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146 
 

@@ -16,7 +16,6 @@
     ms.date="09/17/2015"
     ms.author="tarcher"/>
 
-
 # 接続済みサービスを使用して Azure Mobile Services を追加したことによる Visual Studio .NET プロジェクトへの影響
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
@@ -25,7 +24,7 @@
 
 
 > [AZURE.SELECTOR]
-> - [作業の開始](vs-mobile-services-dotnet-getting-started.md)
+> - [Getting Started (概要)](vs-mobile-services-dotnet-getting-started.md)
 > - [変更内容](vs-mobile-services-dotnet-what-happened.md)
 
 ## リファレンスの追加
@@ -40,16 +39,12 @@
 
 ## Mobile Services 用の接続文字列の値
 
-選択したモバイル サービスのアプリケーション URL とアプリケーション キーを使用して、App.xaml.cs ファイル内に **MobileServiceClient** オブジェクトが作成されました。
+App.xaml.cs ファイルで、 **MobileServiceClient** で選択したモバイル サービスのアプリケーション URL とアプリケーション キー オブジェクトが作成されました。
 
 ## Mobile Services プロジェクトの追加
 
 Connected Service Provider に .NET モバイル サービスが作成されている場合、モバイル サービス プロジェクトはソリューションに追加されています。
 
 
-[モバイル サービスの詳細についてください。](http://azure.microsoft.com/documentation/services/mobile-services/)
-
-
-
-
+[モバイル サービスの詳細を確認する](http://azure.microsoft.com/documentation/services/mobile-services/)
 

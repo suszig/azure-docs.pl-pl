@@ -17,7 +17,6 @@
    ms.date="11/09/2015"
    ms.author="joaoma" />
 
-
 # テンプレートを使用した内部ロード バランサーの作成の概要
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
@@ -37,7 +36,7 @@
 PowerShell を使用してダウンロードしたテンプレートをデプロイするには、次の手順に従います。
 
 1. Azure PowerShell を初めて使用する場合は、次を参照してください。 [インストールおよび Azure PowerShell の構成方法](powershell-install-configure.md) Azure にサインインし、サブスクリプションを選択最後までの指示に従います。
-2. 次に示すように、**Switch-AzureMode** コマンドレットを実行して、リソース マネージャー モードに切り替えます。
+2. 実行、 **Switch-azuremode** コマンドレットを次に示すように、リソース マネージャー モードに切り替えます。
 
         Switch-AzureMode AzureResourceManager
 
@@ -45,26 +44,25 @@ PowerShell を使用してダウンロードしたテンプレートをデプロ
 
         WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
 
+>[AZURE.WARNING] Switch-azuremode コマンドレットは間もなく廃止されます。 これらが廃止された場合は、すべてのリソース マネージャー コマンドレットの名前が変更されます。
 
->[AZURE.WARNING] Switch-AzureMode コマンドレットは間もなく廃止予定です。 これらが廃止された場合は、すべてのリソース マネージャー コマンドレットの名前が変更されます。
-
-3.ダウンロード、 [パラメーター](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.parameters.json) ファイルをローカル ディスクにします。<BR>
+3. ダウンロード、 [パラメーター](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.parameters.json) ファイルをローカル ディスクにします。<BR>
 4. ファイルを編集し、保存します。<BR>
-5. テンプレートを使用してリソース グループを作成するには、**New-AzureResourceGroup** コマンドレットを実行します。
+5. 実行、 **New-azureresourcegroup** コマンドレットをテンプレートを使用してリソース グループを作成します。 
+
 
         New-AzureResourceGroup -Name TestRG -Location westus `
             -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json' `
             -TemplateParameterFile 'C:\temp\azuredeploy.parameters.json'
-
-
-
-
+    
+                
+        
 ## Azure CLI を使用してテンプレートをデプロイする
 
 Azure CLI を使用してテンプレートをデプロイするには、次の手順に従います。
 
 1. Azure CLI を初めて使用する場合は、次を参照してください。 [のインストールと Azure CLI の構成](xplat-cli.md) Azure アカウントとサブスクリプションを選択する時点までの指示に従います。
-2. 次に示すように、**azure config mode** コマンドを実行してリソース マネージャー モードに切り替えます。
+2. 実行、 **azure config モード** コマンドを次に示すように、リソース マネージャー モードに切り替えます。
 
         azure config mode arm
 
@@ -72,24 +70,19 @@ Azure CLI を使用してテンプレートをデプロイするには、次の�
 
         info:    New mode is arm
 
-3. 開いている、 [パラメーター ファイル](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.parameters.json), 、その内容を選択して、コンピューターのファイルに保存します。 この例では、パラメーター ファイルを *parameters.json* に保存しました。
+3. 開いている、 [パラメーター ファイル](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.parameters.json), 、その内容を選択して、コンピューターのファイルに保存します。 この例では、パラメーター ファイルを保存しました *parameters.json*します。
 
-4. 上記でダウンロードして変更したテンプレート ファイルとパラメーター ファイルを使用して、**azure group deployment create** コマンドレットを実行して新しい VNet をデプロイします。 出力の後に表示される一覧では、使用されたパラメーターについて説明されています。
+4. 実行、 **azure グループの展開を作成** テンプレートとパラメーターを使用して、新しい VNet を展開するコマンドレットではファイルをダウンロードし、上の変更します。 出力の後に表示されるリストは、使用されたパラメーターについての説明です。
 
         azure group create -n TestRG -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json -e parameters.json
 
 
 
-
 ## 次のステップ
 
-[ソース IP アフィニティを使用してロード バランサー分散モードを構成します。](load-balancer-distribution-mode.md)
+[ソース IP アフィニティを使用したロード バランサー分散モードの構成](load-balancer-distribution-mode.md)
 
-[ロード バランサーのアイドル TCP タイムアウト設定を構成します。](load-balancer-tcp-idle-timeout.md)
-
-
-
-
+[ロード バランサーのアイドル TCP タイムアウト設定の構成](load-balancer-tcp-idle-timeout.md)
 
 
 

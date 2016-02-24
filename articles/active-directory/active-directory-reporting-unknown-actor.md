@@ -16,10 +16,9 @@
    ms.date="12/07/2015"
    ms.author="kenhoff"/>
 
-
 # Azure Active Directory での 'Unknown Actor' イベントのレポート
 
-* このドキュメントの一部である、 [Azure Active Directory のレポート作成ガイド](active-directory-reporting-guide.md). *
+*このドキュメントの一部である、 [Azure Active Directory のレポート作成ガイド](active-directory-reporting-guide.md)します。*
 
 まれに、Azure AD のレポートの "Actor" または "User" フィールドで異常な値を参照する可能性があります。 この動作は予期されているものであり、次の 2 つのイベントのいずれかによって発生します。
 
@@ -39,9 +38,5 @@
 
 これは既知のバグであり、解決に向けて鋭意取り組んでいます。
 
-
-
-
-
-
+<!-- ![](./media/active-directory-reporting-unknown-actor/uid-actor.png) -->
 

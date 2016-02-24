@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Application Insights に関するトラブルシューティングと Q & A" 
-    description="Visual Studio Application Insights について不明な点や問題点はありませんか?ここで解決してください。" 
+    description="Visual Studio Application Insights について不明な点や問題点はありませんか? ここで解決してください。" 
     services="application-insights" 
     documentationCenter=".net"
     authors="alancameronwills" 
@@ -14,17 +14,16 @@
     ms.topic="article" 
     ms.date="11/25/2015" 
     ms.author="awills"/>
-
-
+ 
 # トラブルシューティングと Q & A - Application Insights for ASP.NET
 
 ## Application Insights と共に使用できるもの
 
-[プラットフォーム ][platforms]
+[プラットフォームを確認][platforms]
 
 ## これは無料ですか。
 
-* 無料の選択した場合は yes。 [価格レベル](app-insights-pricing.md)します。 ほとんどの機能と大量のデータが手に入ります。
+* 無料の選択した場合は yes。 [価格レベル](app-insights-pricing.md)します。 ほとんどの機能と大量のデータが手に入ります。 
 * Microsoft Azure に登録するには、クレジット カード データを登録する必要がありますが、他の有料の Azure のサービスを使用するか、明示的に有料レベルにアップグレードしない限り、料金は発生しません。
 * アプリが Free レベルの月間クォータより多くのデータを送信すると、ログの記録を停止します。 このような場合は、料金の支払いを開始するか、月末にクォータがリセットされるまでお待ちください。
 * 基本的な使用とセッション データは、クォータの対象になりません。
@@ -39,13 +38,13 @@
 
 ## SDK の追加
 
-#### <a name="q01"></a>Visual Studio でプロジェクトに Application Insights を追加するオプションが表示されません。
+#### <a name="q01"></a>Visual Studio で Application Insights をプロジェクトに追加するオプションがありません
 
 + した確認 [Visual Studio 2013 Update 3 以降](http://go.microsoft.com/fwlink/?LinkId=397827)します。 Application Insights Tools がプレインストールされています。
-+ このツールは、あらゆる種類のアプリケーションをサポートしているわけではありませんが、Application Insights SDK をプロジェクトに手動で追加することはできます。 使用 [この手順の ][windows]します。
++ このツールは、あらゆる種類のアプリケーションをサポートしているわけではありませんが、Application Insights SDK をプロジェクトに手動で追加することはできます。 使用 [ここ][windows]します。 
 
 
-#### <a name="q02"></a>新しい web プロジェクトが作成されましたが Application Insights を追加できませんでした。
+#### <a name="q02"></a>新しい Web プロジェクトが作成されましたが Application Insights が追加されませんでした
 
 これは、次の場合に発生することがあります。
 
@@ -57,35 +56,36 @@
 
 + 適切な Azure アカウントのログイン資格情報を指定していることを確認してください。 新しいバージョンのツールでは、[新しいプロジェクト] ダイアログに表示される Microsoft Azure の資格情報と、Visual Studio の右上に表示される資格情報が異なる場合があります。
 + アクセスがあることを確認して、ブラウザーで、 [Azure ポータル](https://portal.azure.com)します。 設定を開き、制限がないかどうか確認してください。
-+ [[Start] 既存のプロジェクトに Application Insights の追加][start]: ソリューション エクスプ ローラーで、プロジェクトを右クリックし、"Application Insights の追加] を選択
-+ 機能しない場合は、次の [手動プロシージャ](app-insights-start-monitoring-app-health-usage.md) 、ポータルにリソースを追加し、SDK をプロジェクトに追加します。
++ [既存のプロジェクトに Application Insights を追加する][start]: ソリューション エクスプ ローラーで、プロジェクトを右クリックし、"Application Insights の追加] を選択
++ 機能しない場合は、次の [手動プロシージャ](app-insights-start-monitoring-app-health-usage.md) 、ポータルにリソースを追加し、SDK をプロジェクトに追加します。 
 
-#### <a name="emptykey"></a>「インストルメンテーション キーを空にすることはできません」というエラーが表示されます。
+#### <a name="emptykey"></a>エラー「インストルメンテーション キーは空にできません」が発生しました
 
 Application Insights をインストールしているとき、またはログ アダプターをインストールしているときに、何かの問題が発生した可能性があります。
 
 ソリューション エクスプ ローラーで右クリック `ApplicationInsights.config` 選択 **Application Insights の更新**します。 Azure へのサインインを促すダイアログが表示されます。または、Application Insights のリソースを作成するか、既存のリソースを再利用します。
 
 
-#### <a name="q14"></a>プロジェクトに Application Insights が変更します。
+#### <a name="q14"></a>Application Insights によってどのような変更がプロジェクトに加えられますか?
 
-詳細は、プロジェクトの種類によって異なります。 Web アプリケーションの場合:
+詳細は、プロジェクトの種類によって異なります。 Web アプリケーションの場合: 
 
 
 + 次のファイルがプロジェクトに追加されます。
 
- + ApplicationInsights.config
+ + ApplicationInsights.config 
  + ai.js
 
-+ 次の NuGet パッケージがインストールされます。
 
- -  *Application Insights API* - コア API
++ Installs these NuGet packages:
 
- -  *Application Insights API for Web Applications* - サーバーからテレメトリを送信するために使用されます
+ -  *Application Insights API* -コア API
 
- -  *Application Insights API for JavaScript Applications* - クライアントからテレメトリを送信するために使用されます
+ -  *Application Insights API for Web Applications* - サーバーからテレメトリを送信に使用されます
 
-    これらのパッケージには次のアセンブリが含まれています。
+ -  *Application Insights API for JavaScript Applications* - クライアントからテレメトリを送信に使用されます
+
+    The packages include these assemblies:
 
  - Microsoft.ApplicationInsights
 
@@ -97,44 +97,44 @@ Application Insights をインストールしているとき、またはログ �
 
  - packages.config
 
-+ (新しいプロジェクトのみを [[start] 既存のプロジェクトに Application Insights を追加する][start], 、手動で設定する必要がある)。 これらを Application Insights リソース ID で初期化するためのスニペットを、クライアントとサーバーのコードに挿入します。 たとえば、MVC アプリでは、Views/Shared/_Layout.cshtml マスター ページにコードが挿入されます。
++ (新しいプロジェクトのみを [Application Insights を既存のプロジェクトに追加する][start], 、手動で設定する必要がある)。これらを Application Insights リソース ID で初期化するためのスニペットを、クライアントとサーバーのコードに挿入します。 たとえば、MVC アプリでは、Views/Shared/_Layout.cshtml マスター ページにコードが挿入されます。
 
-#### <a name="NuGetBuild"></a> 表示される「NuGet パッケージが存在しない」、ビルド サーバーでは、開発用コンピューターで [ok] にビルドすべて
+####<a name="NuGetBuild"></a> 表示される「NuGet パッケージが存在しない」、ビルド サーバーでは、開発用コンピューターで [ok] にビルドすべて
 
-を参照してください [NuGet パッケージの復元](http://docs.nuget.org/Consume/Package-Restore)
-[自動パッケージの復元](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore)します。
+参照してください [NuGet パッケージの復元](http://docs.nuget.org/Consume/Package-Restore)
+ [自動パッケージの復元](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore)します。
 
-#### <a name="FailUpdate"></a> 表示される「プロジェクト参照は、コンピューターにない NuGet パッケージ」と NuGet パッケージを 0.17 以降に更新した後にビルドしようとしています。
+####<a name="FailUpdate"></a> 表示される「プロジェクト参照は、コンピューターにない NuGet パッケージ」と NuGet パッケージを 0.17 以降に更新した後にビルドしようとしています。
 
 NuGet パッケージを 0.17 以降に更新した後に上記のエラーが発生した場合は、proj ファイルを編集し、残っている BCL ターゲットを削除する必要があります。
 
 これを行うには、次の手順を実行します。
 
 1. ソリューション エクスプローラーでプロジェクトを右クリックし、[プロジェクトのアンロード] を選択します。
-2. もう一度プロジェクトを右クリックし、[編集 *yourProject.csproj*] を選択します。
-3. プロジェクト ファイルの一番下に移動しのような BCL ターゲットを削除します。
+2. Right-click on project again and choose Edit *yourProject.csproj* 
+3. プロジェクト ファイルの一番下に移動しのような BCL ターゲットを削除します。 
     ```
     <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
-
+      
       <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
-
+      
         <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
-
+        
         <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
-
+        
       </Target>
-    ```
+      ```
 4. ファイルを保存します。
-5. プロジェクトを右クリックし、[再読み込み *yourProject.csproj*] を選択します。
+5. Right-click on the project and choose Reload *yourProject.csproj*
 
 ## 以前のバージョンの SDK からアップグレードする方法。
 
-参照してください、 [リリース ノート](app-insights-release-notes.md) アプリケーションの種類に適切な SDK のです。
+参照してください、 [リリース ノート](app-insights-release-notes.md) アプリケーションの種類に適切な SDK のです。 
 
 
 ## データが表示されない
 
-#### <a name="q03"></a>Application Insights が正常に追加して、このアプリを実行しましたが、ポータルでデータ見たことがありません。
+#### <a name="q03"></a>Application Insights が正常に追加された後でアプリケーションを実行したところ、ポータルにデータが表示されません
 
 + 概要ページで、検索タイルをクリックして診断検索を開いてください。 データはまずここに表示されます。
 + [更新] ボタンをクリックします。 ブレードは周期的に自動で更新されますが、手動でも更新できます。 時間範囲が広いと、更新間隔は長くなります。
@@ -152,7 +152,7 @@ NuGet パッケージを 0.17 以降に更新した後に上記のエラーが�
 
 #### <a name="q04"></a>自分の web サイトの [利用状況分析] にデータが表示されません。
 
-+ データは、Web ページのスクリプトによって取得されます。 既存の web プロジェクトに Application Insights を追加する場合 [[start] を手動でスクリプトを追加する必要がある][start]します。
++ データは、Web ページのスクリプトによって取得されます。 既存の web プロジェクトに Application Insights を追加する場合 [を手動でスクリプトを追加する必要がある][start]です。
 + Internet Explorer がサイトを互換モードで表示していないかご確認ください。
 + ブラウザーのデバッグ機能 (一部のブラウザーでは F12 を押した後に [ネットワーク] を選択) を使用して、dc.services.visualstudio.com にデータが送信されていることをご確認ください。
 
@@ -164,10 +164,10 @@ NuGet パッケージを 0.17 以降に更新した後に上記のエラーが�
 
 #### 予期しているデータがすべて表示されません
 
-* **サンプリング。**アプリケーションが送信するデータ量が多く、Application Insights SDK for ASP.NET バージョン 2.0.0-beta3 以降を使用している場合は、アダプティブ サンプリング機能が動作して、テレメトリの一定の割合のみが送信される可能性があります。 これを無効にすることができます。 [サンプリングについて説明します。](app-insights-sampling.md)
+* **サンプリングできます。**アプリケーションが送信するデータ量が多く、Application Insights SDK for ASP.NET バージョン 2.0.0-beta3 以降を使用している場合は、アダプティブ サンプリング機能が動作して、テレメトリの一定の割合のみが送信される可能性があります。 これを無効にすることができます。 [サンプリングについて説明します。](app-insights-sampling.md)
 
 
-#### <a name="q08"></a>Application Insights を使用して、イントラネット web サーバーを監視できますか。
+#### <a name="q08"></a>Application Insights を使ってイントラネット Web サーバーを監視できますか?
 
 はい。サーバーがデータをパブリック インターネットに送信できる場合は健全性と利用状況を監視できます。 ファイアウォールで、dc.services.visualstudio.com と f5.services.visualstudio.com にトラフィックを送るために TCP ポート 80 と 443 を開く必要があります。
 
@@ -175,7 +175,7 @@ NuGet パッケージを 0.17 以降に更新した後に上記のエラーが�
 
 #### パブリック インターネットへのアクセスがないイントラネット Web サーバーを監視できますか?
 
-dc.services.visualstudio.com への https POST 呼び出しを中継できるプロキシを用意する必要があります。
+dc.services.visualstudio.com への https POST 呼び出しを中継できるプロキシを用意する必要があります。 
 
 ## Status Monitor が機能しない
 
@@ -183,50 +183,50 @@ dc.services.visualstudio.com への https POST 呼び出しを中継できるプ
 
 ## ポータル
 
-#### <a name="q05"></a>Microsoft Azure プレビューのスタート ボードを表示しています。Application Insights でデータを見つけるにはどうすればいいですか?
+#### <a name="q05"></a>Microsoft Azure プレビューのスタート ボードを表示しています。 Application Insights でデータを見つけるにはどうすればいいですか?
 
 次のどちらかの操作を行います。
 
-* [参照]、[Application Insights]、目的のプロジェクトの順に選択します。 いない場合、プロジェクトが、する必要があります [Visual Studio の ][start]します。
+* [参照]、[Application Insights]、目的のプロジェクトの順に選択します。 いない場合、プロジェクトが、する必要があります [を Visual Studio で web プロジェクトに Application Insights を追加する][start]です。
 
 * Visual Studio のソリューション エクスプローラーで、Web プロジェクトを右クリックし、[Application Insights ポータルを開く] を選択します。
 
 
-#### <a name="update"></a>自分のプロジェクトがデータを送信する Azure リソースを変更する方法はありますか
+#### <a name="update"></a>自分のプロジェクトがデータを送信する Azure のリソースを変更するにはどうすればいいですか?
 
 ソリューション エクスプ ローラーで右クリック `ApplicationInsights.config` 選択 **Application Insights の更新**します。 Azure の既存または新規のリソースにデータを送信できます。 更新ウィザードでは、サーバー SDK のデータの送信先を決定する、ApplicationInsights.config のインストルメンテーション キーを変更します。 [すべて更新] を選択解除している場合を除き、Web ページ内のキーが表示される場所でもキーが変更されます。
 
 
-#### <a name="q06"></a>そのマップが表示しているアプリケーションの状態は、Microsoft Azure プレビューのホーム画面ですか。
+#### <a name="q06"></a>Microsoft Azure プレビューのホーム画面のマップに表示されているのはアプリケーションの状態ですか?
 
-いいえ。 このマップには Azure サービスの状態が示されています。 Web テストの結果を確認するには、[参照]、[Application Insights]、対象のアプリケーションの順に選択し、Web テストの結果を表示します。
+いいえ。 このマップには Azure サービスの状態が示されています。 Web テストの結果を確認するには、[参照]、[Application Insights]、対象のアプリケーションの順に選択し、Web テストの結果を表示します。 
 
 
 
-#### <a name="data"></a>ポータルでのデータの保持する期間セキュリティで保護されていますか?
+#### <a name="data"></a>ポータルでのデータ保持期間はどのくらいですか? セキュリティで保護されていますか?
 
-見て [データの保持とプライバシー ][data]します。
+見て [データの保持とプライバシー][data]します。
 
 ## ログの記録
 
 #### <a name="post"></a>診断検索で POST データを表示する方法
 
-POST データは自動ではログに記録されませんが、TrackTrace 呼び出しを使用してメッセージ パラメーターにデータを格納できます。 文字列プロパティの制限よりもサイズ制限は大きいですが、フィルター処理には使用できません。
+POST データは自動ではログに記録されませんが、TrackTrace 呼び出しを使用してメッセージ パラメーターにデータを格納できます。 文字列プロパティの制限よりもサイズ制限は大きいですが、フィルター処理には使用できません。 
 
 ## セキュリティ
 
-#### ポータルのデータはセキュリティで保護されていますか?保持期間はどれくらいですか?
+#### ポータルのデータはセキュリティで保護されていますか? 保持期間はどれくらいですか?
 
-参照してください [データの保持とプライバシー ][data]します。
+参照してください [データの保持とプライバシー][data]します。
 
 
-## <a name="q17"></a> 有効に Application Insights 内のすべてのでしょうか。
+## <a name="q17"></a> Application Insights の機能をすべて有効にしているでしょうか?
 
 <table border="1">
 <tr><th>表示内容</th><th>表示方法</th><th>用途</th></tr>
 <tr><td>Availability charts</td><td><a href="../app-insights-monitor-web-app-availability/">Web tests</a></td><td>Web アプリが稼働しているか確認する</td></tr>
 <tr><td>サーバー アプリ パフォーマンス: 応答時間、...
-</td><td><a href="../app-insights-asp-net/">アプリケーションの正常性と利用状況の監視</a><br />または <br /><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a> (コードを記述または <a href="../app-insights-api-custom-events-metrics/#track-dependency">track dependencies</a>)</td><td>Detect perf issues</td></tr>
+</td><td><a href="../app-insights-asp-net/">アプリケーションの正常性と利用状況の監視</a><br/>または <br/><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a> (コードを記述または <a href="../app-insights-api-custom-events-metrics/#track-dependency">track dependencies</a>)</td><td>パフォーマンスの問題を検出する</td></tr>
 <tr><td>Dependency telemetry</td><td><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a></td><td>Diagnose issues with databases or other external components</td></tr>
 <tr><td>Get stack traces from exceptions</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">Insert TrackException calls in your code</a> (ただし、いくつかが自動的に報告されます)</td><td>例外を検出して診断する</td></tr>
 <tr><td>Search log traces</td><td><a href="../app-insights-search-diagnostic-logs/">Add a logging adapter</a></td><td>Diagnose exceptions, perf issues</td></tr>
@@ -235,7 +235,7 @@ POST データは自動ではログに記録されませんが、TrackTrace 呼�
 <tr><td>サーバーのカスタム メトリック</td><td><a href="../app-insights-api-custom-events-metrics/">Tracking calls in server code</a></td><td>ビジネス インテリジェンス</td></tr>
 </table>
 
-Web サービスが Azure VM で実行されている場合 [診断 ][azurediagnostic] があります。
+Web サービスが Azure VM で実行されている場合 [診断を取得][azurediagnostic] があります。
 
 ## Automation
 
@@ -243,15 +243,15 @@ Web サービスが Azure VM で実行されている場合 [診断 ][azurediagn
 
 ## その他の回答
 
-* [Application Insights のフォーラム](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+* [Application Insights フォーラム](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
 
 
+<!--Link references-->
 
+[azurediagnostic]: ../insights-how-to-use-diagnostics.md
+[data]: app-insights-data-retention-privacy.md
+[platforms]: app-insights-platforms.md
+[start]: app-insights-overview.md
+[windows]: app-insights-windows-get-started.md
 
-
-[azurediagnostic]: ../insights-how-to-use-diagnostics.md 
-[data]: app-insights-data-retention-privacy.md 
-[platforms]: app-insights-platforms.md 
-[start]: app-insights-overview.md 
-[windows]: app-insights-windows-get-started.md 
-
+ 

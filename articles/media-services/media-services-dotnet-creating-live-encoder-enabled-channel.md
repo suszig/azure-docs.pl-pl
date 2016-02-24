@@ -17,25 +17,25 @@
     ms.author="juliako"/>
 
 
-
-# .NET SDK を使用して、シングル ビットレートからマルチ ビットレート ストリーミングへの Live Encoding を実行するチャネルを作成する
+#.NET SDK を使用して、シングル ビットレートからマルチ ビットレート ストリーミングへの Live Encoding を実行するチャネルを作成する
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [ポータル](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
+##概要
 
-## 概要
+このチュートリアルを作成する手順、 **チャネル** シングル ビットレートのライブ ストリームを受信して、マルチビット レート ストリームにエンコードします。
 
-このチュートリアルでは、シングル ビットレートのライブ ストリームを受信してマルチ ビットレート ストリームにエンコードする**チャネル**を作成する手順について説明します。
 >[AZURE.NOTE]ライブ エンコードが有効になっているチャネルに関連する詳細概念について、次を参照してください。 [チャンネルの操作方法、ライブ エンコードを実行するにはシングル ビットレートからマルチ ビットレート ストリーム](media-services-manage-live-encoder-enabled-channels.md)します。
 
 
-## 一般的なライブ ストリーミング シナリオ
+##一般的なライブ ストリーミング シナリオ
 
 次の手順では、一般的なライブ ストリーミング アプリケーションの作成に関連するタスクを示します。
->[AZURE.NOTE] 現在、ライブ イベントの最大推奨時間は 8 時間です。 チャネルを長時間実行する必要がある場合は、amslived@microsoft.com にお問い合わせください。
+
+>[AZURE.NOTE] 現在、ライブ イベントの最大の推奨される実行時間は 8 時間です。 チャネルを長時間実行する必要がある場合は、amslived@microsoft.com にお問い合わせください。
 
 1. ビデオ カメラをコンピューターに接続します。 オンプレミスのライブ エンコーダーを起動して構成します。このエンコーダーはシングル ビットレート ストリームを RTMP、スムーズ ストリーミング、RTP (MPEG-TS) のいずれかで出力できます。 詳細については、次を参照してください。 [Azure Media Services RTMP サポートおよびライブ エンコーダー](http://go.microsoft.com/fwlink/?LinkId=532824)します。
 
@@ -66,7 +66,7 @@
 1. イベントのストリーミングとアーカイブを停止するときにプログラムを停止します。
 1. プログラムを削除し、資産を削除 (オプション) します。
 
-## このトピックの内容
+##このトピックの内容
 
 このトピックでは Media Services .NET SDK を使用したチャネルとプログラムでさまざまな操作を実行する方法を示します。 多くの操作は実行時間が長いため、長時間の操作を管理する .NET API が使用されます。
 
@@ -82,35 +82,34 @@
 1. チャネルと関連付けられているすべてのリソースをクリーンアップします。
 
 
-## 考慮事項
+##考慮事項
 
 - 現在、ライブ イベントの最大推奨時間は 8 時間です。 チャネルを長時間実行する必要がある場合は、amslived@microsoft.com にお問い合わせください。
 - コンテンツをストリームするストリーミング エンドポイントに少なくとも 1 つのストリーミング予約ユニットがあることを確認します。
 
-## サンプルのダウンロード
+##サンプルのダウンロード
 
 取得してからサンプルを実行 [ここ](http://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/)します。
 
-## 前提条件
-
+##前提条件
 チュートリアルを完了するには次のものが必要です。
 
-- このチュートリアルを完了するには、Azure アカウントが必要です。 アカウントがない場合は、無料試用版アカウントを数分で作成することができます。
-詳細については、「 [Azure 無料試用版](azure.microsoft.com)します。
+- このチュートリアルを完了するには、Azure アカウントが必要です。 アカウントがない場合は、無料試用版のアカウントを数分で作成することができます。
+詳細については、[Azure の無料試用版サイト](azure.microsoft.com)をご覧ください。
 - Media Services アカウント。 Media Services アカウントを作成するを参照してください。 [アカウントの作成](media-services-create-account.md)します。
 - Visual Studio 2010 SP1 以降。
 - Media Services .NET SDK バージョン 3.2.0.0 以降を使用する必要があります。
 - シングル ビットレートのライブ ストリームを送信できる Web カメラとエンコーダー。
 
-## With Media Services SDK for .NET を使用して開発を行うためにセットアップします。
+##With Media Services SDK for .NET を使用して開発を行うためにセットアップします。
 
 1. Visual Studio を使用して、コンソール アプリケーションを作成します。
 1. Media Services NuGet パッケージを使用して、コンソール アプリケーションに .NET 用 Media Services SDK を追加します。
 
-## Media Services への接続
-
+##Media Services への接続
 ベスト プラクティスとして、Media Services 名とアカウント キーを格納するために app.config ファイルを使用する必要があります。
->[AZURE.NOTE]名前とキーの値を確認するには、Azure クラシック ポータルに移動して、Media Services アカウントを選択し、ポータル ウィンドウの下にある [キーの管理] アイコンをクリックします。 各テキスト ボックスの横にあるアイコンをクリックすると、値がシステム クリップボードにコピーされます。
+
+>[AZURE.NOTE]名およびキーの値を検索するは、[Azure クラシック ポータルに移動、Media Service アカウントを選択して、ポータル ウィンドウの下部にあるキーの管理] アイコンをクリックします。 各テキスト ボックスの横にあるアイコンをクリックすると、値がシステム クリップボードにコピーされます。
 
 app.config ファイルに appSettings セクションを追加し、Media Services のアカウント名とアカウント キーに値を設定します。
 
@@ -122,9 +121,9 @@ app.config ファイルに appSettings セクションを追加し、Media Servi
           <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
       </appSettings>
     </configuration>
-
-
-## コード例
+     
+    
+##コード例
 
     using System;
     using System.Collections.Generic;
@@ -511,19 +510,16 @@ app.config ファイルに appSettings セクションを追加し、Media Servi
         }
     }   
 
-## 次のステップ: Media Services のラーニング パス
+
+##次のステップ: Media Services のラーニング パス
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## フィードバックの提供
+##フィードバックの提供
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ### 他の情報をお探しですか。
 
 このトピックに必要な情報が含まれていないか、不足しているか、あるいはニーズを満たしていない場合は、以下の Disqus スレッドを使用してフィードバックをお送りください。
-
-
-
-
 

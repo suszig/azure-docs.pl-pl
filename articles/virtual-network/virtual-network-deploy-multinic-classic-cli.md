@@ -17,8 +17,7 @@
    ms.date="11/12/2015"
    ms.author="telmos" />
 
-
-# Azure CLI を使用した複数の NIC VM (クラシック) のデプロイ
+#Azure CLI を使用した複数の NIC VM (クラシック) のデプロイ
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
@@ -28,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-この時点では、単一の NIC を含む VM と複数の NIC を含む VM を同じクラウド サービス内で保持できないため、バックエンド サーバーを特定のクラウド サービスに実装したら、シナリオ内の他のすべてのコンポーネントは別のクラウド サービスに実装します。 以下の手順では、メイン リソースに *IaaSStory* という名前のクラウド サービスを使用し、バックエンド サーバーに *IaaSStory-BackEnd* を使用します。
+この時点では、単一の NIC を含む VM と複数の NIC を含む VM を同じクラウド サービス内で保持できないため、バックエンド サーバーを特定のクラウド サービスに実装したら、シナリオ内の他のすべてのコンポーネントは別のクラウド サービスに実装します。 次の手順がという名前のクラウド サービスを使用して *IaaSStory* の主要なリソースと *IaaSStory バックエンド* バック エンド サーバーのです。
 
 ## 前提条件
 
@@ -40,9 +39,9 @@
 
 バックエンド VM は、以下にリストしたリソースの作成に依存します。
 
-- **データ ディスクのストレージ アカウント**。 パフォーマンスを高めるために、データベース サーバー上のデータ ディスクはソリッド ステート ドライブ (SSD) テクノロジーを使用します。これには、Premium Storage アカウントが必要です。 デプロイする Azure の場所が Premium Storage をサポートすることを確認してください。
-- **NIC**。 各 VM には 2 つの NIC があり、1 つはデータベース アクセス用で、もう 1 つは管理用です。
-- **可用性セット**。 メンテナンス中に少なくとも 1 つの VM が稼働し、実行されているようにするためには、すべてのデータベース サーバーを単一の可用性セットに追加します。
+- **データ ディスクのストレージ アカウント**します。 パフォーマンスを高めるために、データベース サーバー上のデータ ディスクはソリッド ステート ドライブ (SSD) テクノロジーを使用します。これには、Premium Storage アカウントが必要です。 デプロイする Azure の場所が Premium Storage をサポートすることを確認してください。
+- **Nic**します。 各 VM には 2 つの NIC があり、1 つはデータベース アクセス用で、もう 1 つは管理用です。
+- **可用性セット**します。 メンテナンス中に少なくとも 1 つの VM が稼働し、実行されているようにするためには、すべてのデータベース サーバーを単一の可用性セットに追加します。 
 
 ### 手順 1 - スクリプトの開始
 
@@ -71,10 +70,9 @@
         password='adminP@ssw0rd'
         numberOfVMs=2
 
-
 ### 手順 2 - VM 用に必要なリソースの作成
 
-1. すべてのバックエンド VM 向けに新しいクラウド サービスを作成します。 使用して、 `$backendCSName` 、リソース グループ名の変数と `$location` Azure リージョンにします。
+1. すべてのバックエンド VM 向けに新しいクラウド サービスを作成します。 リソース グループ名のための `$backendCSName` 変数と Azure リージョンのための `$location` を使用していることに注意してください。
 
         azure service create --serviceName $backendCSName \
             --location $location
@@ -85,25 +83,24 @@
             --location $location \
             --type PLRS 
 
-
 ### 手順 3 - 複数 NIC を持つ VM の作成
 
-1. 基づく複数の Vm を作成するループを開始、 `numberOfVMs` 変数です。
+1. `numberOfVMs` 変数に基づいて、複数の VM を作成するループを開始します。
 
         for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
         do
 
 2. 各 VM について、2 つの NIC それぞれの名前と IP アドレスを指定します。
 
-         nic1Name=$vmNamePrefix$suffixNumber-DA
-         x=$((suffixNumber+3))
-         ipAddress1=$ipAddressPrefix$x
-    
-         nic2Name=$vmNamePrefix$suffixNumber-RA
-         x=$((suffixNumber+53))
-         ipAddress2=$ipAddressPrefix$x
+            nic1Name=$vmNamePrefix$suffixNumber-DA
+            x=$((suffixNumber+3))
+            ipAddress1=$ipAddressPrefix$x
+        
+            nic2Name=$vmNamePrefix$suffixNumber-RA
+            x=$((suffixNumber+53))
+            ipAddress2=$ipAddressPrefix$x
 
-4. VM を作成します。 使用方法に注意してください、 `--nic config` 名、サブネット、IP アドレスとすべての Nic のリストが含まれるパラメーター。
+4. VM を作成します。 名前、サブネット、IP アドレスを持つすべての NIC の一覧を含む `--nic-config` パラメーターを使用していることに注目します。
 
             azure vm create $backendCSName $image $username $password \
                 --connect $backendCSName \
@@ -117,21 +114,20 @@
 
 5. 各 VM あたり 2 つのデータ ディスクを作成します。
 
-         azure vm disk attach-new $vmNamePrefix$suffixNumber \
-             $diskSize \
-             vhds/$dataDiskPrefix$suffixNumber$dataDiskName-1.vhd
-    
-         azure vm disk attach-new $vmNamePrefix$suffixNumber \
-             $diskSize \
-             vhds/$dataDiskPrefix$suffixNumber$dataDiskName-2.vhd
-     done
-
+            azure vm disk attach-new $vmNamePrefix$suffixNumber \
+                $diskSize \
+                vhds/$dataDiskPrefix$suffixNumber$dataDiskName-1.vhd
+        
+            azure vm disk attach-new $vmNamePrefix$suffixNumber \
+                $diskSize \
+                vhds/$dataDiskPrefix$suffixNumber$dataDiskName-2.vhd
+        done
 
 ### 手順 4 - スクリプトの実行
 
 ニーズに合わせてスクリプトをダウンロードおよび変更したら、スクリプトを実行して複数の NIC を持つバックエンド データベース VM を作成してください。
 
-1. スクリプトを保存し、**Bash** ターミナルから実行します。 次のように、最初の出力が表示されます。
+1. スクリプトを保存してから実行、 **Bash** ターミナル。 次のように、最初の出力が表示されます。
 
         info:    Executing command service create
         info:    Creating cloud service
@@ -177,9 +173,4 @@
         info:    Getting virtual machines
         info:    Adding Data-Disk
         info:    vm disk attach-new command OK
-
-
-
-
-
 

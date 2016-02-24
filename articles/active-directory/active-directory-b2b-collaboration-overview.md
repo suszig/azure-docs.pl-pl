@@ -16,7 +16,6 @@
    ms.date="10/27/2015"
    ms.author="curtand"/>
 
-
 # Azure Active Directory (Azure AD) B2B コラボレーション
 
 Azure AD の B2B コラボレーションは、パートナーによって管理されるユーザーが会社のアプリケーションにアクセスできるようにします。 パートナー企業のユーザーを招待し、リソースにアクセスできるように認証することで、会社間の関係を作成できます。 いったん各企業と Azure Active Directory をフェデレーションすると各ユーザーが 1 つの Azure AD アカウントで表されるようになるため、複雑さが軽減されます。 パートナーのユーザーが組織を離れるとアクセス権が取り消されるほか、内部ディレクトリ内のメンバーシップを使用した意図しないアクセスが防止されるため、高いレベルのセキュリティが確保されます。 B2B コラボレーションには、Azure AD をまだ保有していないビジネス パートナー向けに、Azure AD のアカウントをビジネス パートナーに提供するための合理化されたサインアップ エクスペリエンスが用意されています。
@@ -35,7 +34,7 @@ Azure Active Directory B2B コラボレーションは、構成が簡単で、�
 
 1. Azure AD B2B コラボレーションを利用する会社の管理者が、外部ユーザーを招待および承認するために、2,000 行以下のコンマ区切り値 (CSV) ファイルを B2B コラボレーション ポータルにアップロードします。
 
-  ![CSV ](./media/active-directory-b2b-collaboration-overview/upload-csv.png)
+  ![CSV [ファイルのアップロード] ダイアログ](./media/active-directory-b2b-collaboration-overview/upload-csv.png)
 
 2. ポータルを介して、これらの外部ユーザーに電子メール招待状が送信されます。
 
@@ -43,7 +42,7 @@ Azure Active Directory B2B コラボレーションは、構成が簡単で、�
 
 4. サインインすると、ユーザーは、共有されているアプリにリダイレクトされます。
 
-コンシューマーへの招待の電子メール アドレス (Gmail などまたは [*comcast.net*](http://comcast.net/)) は現在サポートされていません。
+コンシューマーへの招待の電子メール アドレス (Gmail などまたは [*comcast.net*](http://comcast.net/)) は現在サポートされていません。
 
 B2B コラボレーションの機能の詳細は、チェック アウト [このビデオ](http://aka.ms/aadshowb2b)します。
 
@@ -53,15 +52,14 @@ CSV ファイルの形式は次のとおりです。 1 つまたは複数のオ�
 
 **電子メール:** 招待されたユーザーのアドレスを電子メールで送信します。<br/>
 **DisplayName:** 招待されたユーザー (通常は、姓と名) の表示名。<br/>
-**InviteAppID:**  の電子メールへの招待と同意のページのブランドを使用するアプリケーションの ID。<br/>
-**InviteReplyURL:** への招待の承認後に招待されたユーザーに指示する URL。会社固有の URL があります (たとえば [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/))します。招待の会社のアクセス パネルの URL が生成されたこの省略可能なフィールドが指定されていない場合 (この URL は、フォームの  `https://account.activedirectory.windowsazure.com/applications/default.aspx?tenantId=&lt;TenantID&gt;`)。<br/>
-**InviteAppResources:** Appid アプリケーションがユーザーを割り当てることができます。 Appid を呼び出すことによって取得することは `Get-msolserviceprincipal | fl DisplayName、AppPrincipalId`<br/>
-**InviteGroupResources:** にユーザーを追加するグループの Objectid。 Objectid を呼び出すことによって取得することは `Get-msolgroup | fl DisplayName、ObjectId`<br/>
-**InviteContactUsUrl:** 、招待されたユーザーが組織にお問い合わせする場合に、電子メールの招待に含める URL 問い合わせ先]。<br/>
+**InviteAppID:**  の電子メールへの招待と同意のページのブランドを使用するアプリケーションの ID。<br/>
+**InviteReplyURL:** への招待の承認後に招待されたユーザーに指示する URL。 会社固有の URL があります (たとえば [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/))。 招待の会社のアクセス パネルの URL が生成されたこの省略可能なフィールドが指定されていない場合 (この URL は、フォームの  `https://account.activedirectory.windowsazure.com/applications/default.aspx?tenantId=<TenantID>`)。<br/>
+**InviteAppResources:** Appid アプリケーションがユーザーを割り当てることができます。 Appid を呼び出すことによって取得することは `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`<br/>
+**InviteGroupResources:** にユーザーを追加するグループの Objectid。 Objectid を呼び出すことによって取得することは `Get-MsolGroup | fl DisplayName, ObjectId`<br/>
+**InviteContactUsUrl:** 、招待されたユーザーが組織にお問い合わせする場合に、電子メールの招待に含める URL 問い合わせ先]。<br/>
 
 ## サンプル CSV ファイル
-
-ここでは、サンプルの CSV は用途に合わせて変更することができます。 任意の名前を付けてファイルに保存します。このとき、ファイル名拡張子には、必ず ".csv" を使用してください。
+サンプル CSV ファイルを次に示します。このサンプル CSV は、用途に合わせて変更できます。 任意の名前を付けてファイルに保存します。このとき、ファイル名拡張子には、必ず ".csv" を使用してください。
 
 ```
 Email,DisplayName,InviteAppID,InviteReplyUrl,InviteAppResources,InviteGroupResources,InviteContactUsUrl
@@ -70,18 +68,13 @@ jsmith@contoso.com,Jeff Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.
 bsmith@contoso.com,Ben Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 ```
 ## 次のステップ
-
 Azure B2B コラボレーションに関する他の記事を参照してください。
 
-- [Azure AD B2B コラボレーションとは何ですか。](active-directory-b2b-what-is-azure-ad-b2b.md)
-- [そのしくみ](active-directory-b2b-how-it-works.md)
+- [Azure AD B2B コラボレーションとは](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [動作のしくみ](active-directory-b2b-how-it-works.md)
 - [詳細なチュートリアル](active-directory-b2b-detailed-walkthrough.md)
-- [CSV ファイル形式のリファレンス](active-directory-b2b-references-csv-file-format.md)
+- [CSV ファイル形式リファレンス](active-directory-b2b-references-csv-file-format.md)
 - [外部ユーザー トークンの形式](active-directory-b2b-references-external-user-token-format.md)
 - [外部ユーザー オブジェクト属性の変更](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [現在のプレビューの制限事項](active-directory-b2b-current-preview-limitations.md)
-
-
-
-
 

@@ -1,4 +1,5 @@
-## <a id="add-push"></a>アプリにプッシュ通知を追加します。
+
+## <a id="add-push"></a>プッシュ通知をアプリに追加する
 
 * QSAppDelegate.m で、iOS SDK および QSTodoService.h をインポートします。
 
@@ -7,7 +8,7 @@
         #import "QSTodoService.h"
 ```
 
-* `DidFinishLaunchingWithOptions` QSAppDelegate.m で、挿入する前に次の行の右側 `YES; を返す`:
+* QSAppDelegate.m の `didFinishLaunchingWithOptions` で、`return YES;` の直前に、次の行を挿入します。
 
 ```
         UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
@@ -55,8 +56,4 @@
             [alert show];
         }
 ```
-
-
-
-
 

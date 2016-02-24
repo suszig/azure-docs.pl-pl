@@ -1,47 +1,49 @@
+
 次に、メモリ内コレクションではなく Azure Mobile Services に項目を格納するようにアプリケーションを更新します。
 
-* **TodoService.h** で、次の行を見つけます。
+*  **TodoService.h**, 、次の行を見つけます。
 
 ```
 // TODO - create an MSClient property
 ```
 
-このコメントを次の行に置き換えます。 これを表すプロパティを作成、 `MSClient` 、サービスに接続します。
+このコメントを次の行に置き換えます。 これで、サービスに接続される `MSClient` を表すプロパティが作成されます。
 
 ```
 @property (nonatomic, strong)   MSClient *client;
 ```
 
 
-* **TodoService.m** で、次の行を見つけます。
+*  **TodoService.m**, 、次の行を見つけます。
 
 ```
 // TODO - create an MSTable property for your items
 ```
 
-このコメント内の次の行に置き換えます、 `@interface` 宣言します。 これで、モバイル サービス テーブルのプロパティ表現が作成されます。
+このコメントを、`@interface` 宣言内の次の行に置き換えます。 これで、モバイル サービス テーブルのプロパティ表現が作成されます。
 
 ```
 @property (nonatomic, strong)   MSTable *table;
 ```
 
 
-* [Azure クラシック ポータル](https://manage.windowsazure.com/), 、] をクリックして **Mobile Services**, をモバイル サービスをクリックします。 **[ダッシュボード]** タブをクリックし、**[サイトの URL]** の値をメモしておきます。 **[キーの管理]** をクリックし、**[アプリケーション キー]** の値をメモしておきます。 これらの値は、アプリケーション コードからモバイル サービスにアクセスするときに必要になります。
+*  [Azure クラシック ポータル](https://manage.windowsazure.com/), 、] をクリックして **Mobile Services**, をモバイル サービスをクリックします。 クリックして、 **ダッシュ ボード** タブし、メモ、 **サイトの URL**します。 クリックし、 **キーの管理** し、メモ、 **アプリケーション キー**します。 これらの値は、アプリケーション コードからモバイル サービスにアクセスするときに必要になります。
 
-* **TodoService.m** で、次の行を見つけます。
+
+*  **TodoService.m**, 、次の行を見つけます。
 
 ```
 // Initialize the Mobile Service client with your URL and key.
 ```
 
-このコメントの後ろに、次のコード行を追加します。 置換 `APPURL` と `APPKEY` サイト URL とアプリケーションを前の手順で取得したキーします。
+このコメントの後ろに、次のコード行を追加します。 `APPURL` と `APPKEY` を、前の手順で取得したサイト URL とアプリケーション キーに置き換えます。
 
 ```
 self.client = [MSClient clientWithApplicationURLString:@"APPURL" applicationKey:@"APPKEY"];
 ```
 
 
-* **TodoService.m** で、次の行を見つけます。
+*  **TodoService.m**, 、次の行を見つけます。
 
 ```
 // Create an MSTable instance to allow us to work with the TodoItem table.
@@ -54,7 +56,7 @@ self.table = [self.client tableWithName:@"TodoItem"];
 ```
 
 
-* **TodoService.m** で、次の行を見つけます。
+*  **TodoService.m**, 、次の行を見つけます。
 
 ```
 // Create a predicate that finds items where complete is false
@@ -73,7 +75,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 // Query the TodoItem table and update the items property with the results from the service
 ```
 
-コメントとそれに続く **completion** ブロックの呼び出しを、次のコードに置き換えます。
+コメントとそれに続くを置き換える **完了** ブロックの呼び出しを次のコード。
 
 ```
 [self.table readWhere:predicate completion:^(NSArray *results, NSInteger totalCount, NSError *error)
@@ -84,7 +86,7 @@ self.items = [results mutableCopy];
 ```
 
 
-* **addItem** メソッドを見つけ、その本体を次のコードに置き換えます。 このコードにより、挿入要求がモバイル サービスに送信されます。
+* 検索、 **addItem** メソッドの本体を次のコードに置き換えます。 このコードにより、挿入要求がモバイル サービスに送信されます。
 
 ```
 // Insert the item into the TodoItem table and add to the items array on completion
@@ -98,7 +100,7 @@ self.items = [results mutableCopy];
 ```
 
 
-* **completeItem** メソッドを探し、次のコメントがあるコード行を見つけます。
+* 検索、 **completeItem** メソッド、コードの次のコメントがある行を見つけます。
 
 ```
 // Update the item in the TodoItem table and remove from the items array on completion
@@ -121,7 +123,7 @@ self.items = [results mutableCopy];
 ```
 
 
-* TodoListController.m で、**onAdd** メソッドを見つけ、次のコードで上書きします。
+* Todolistcontroller.m で、 **onAdd** メソッドと、次のコードで上書きします。
 
 ```
 - (IBAction)onAdd:(id)sender
@@ -143,8 +145,4 @@ self.items = [results mutableCopy];
     itemText.text = @"";
 }
 ```
-
-
-
-
 

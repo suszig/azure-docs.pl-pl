@@ -16,7 +16,6 @@
    ms.date="10/12/2015"
    ms.author="v-jeana; hascipio"/>
 
-
 # Seller Insights レポートの概要
 
 **Seller Insights とは**
@@ -25,7 +24,7 @@
 
 **受け取るレポート**
 
-- **ウェルカム メール:** 新しい公開元は、Seller Insights マンスリー レポートの提供が始まることを通知するウェルカム メールを受け取ります。
+- **ようこそ電子メール:** 新しいパブリッシャーとして販売者 insights 月々 のレポートの提供が開始されることを通知するように、ウェルカム メールを受け取ります。
 
 - **月間の売上レポート:**  使用率があれば、パスワードにアクセスする方法については、レポートを含む 2 つ目の電子メールを受け取ります。
 
@@ -34,6 +33,7 @@
     - 該当月にどの提供品にも使用実績がない場合、レポートは送られません。
 
 ## Seller Insights レポートの概要
+
 
 **SKU とライセンス タイプごとに注文: Marketplace Orders] タブ**
 
@@ -97,32 +97,30 @@ Https://publish.windowsazure.com/に移動し、Microsoft アカウントの資�
 発行者 ID を URL にあります。
 - パスワードとしてこの ID を使用して、販売者 insights Excel ファイルを開きます。
 これは、さらに通知があるまで、パスワードです。
-- 選択した、ブックの閲覧者として、Windows と Microsoft Office 2013 を使用することをお勧めします。 Microsoft Office for Mac を使うと問題があることが報告されています。
+- 選択した、ブックの閲覧者として、Windows と Microsoft Office 2013 を使用することをお勧めします。  Microsoft Office for Mac を使うと問題があることが報告されています。
 
 ![publisherid][9]
 
 
-## 次のステップ
-
+## 次のステップ  
 レポートおよび Insights に関して質問がある場合は、サポート チームにお問い合わせください。
 
 1. Https://publish.windowsazure.com/にあるサポート ページに移動します。
-2. **[問題の種類]** ボックスで、**[レポートおよびインサイト]** を選択します。
-3. **[カテゴリ]** ボックスで、**[レポートに関する質問]** を選択します
-4. **[要求の開始]** をクリックします。
+2.  **問題の種類** ボックスで、 **レポート、分析**します。
+3.  **カテゴリ** ボックスで、 **レポートに関連する質問**します。
+4. クリックして **開始要求**します。
   ![sellerinsightsquestions][10]
 
 
 
-
-[1]: ./media/marketplace-publishing-report-seller-insights/legal.png 
-[2]: ./media/marketplace-publishing-report-seller-insights/readingreportbyorders.png 
-[3]: ./media/marketplace-publishing-report-seller-insights/readingreportbyusage.png 
-[4]: ./media/marketplace-publishing-report-seller-insights/orderdata.png 
-[5]: ./media/marketplace-publishing-report-seller-insights/usagedata.png 
-[6]: ./media/marketplace-publishing-report-seller-insights/customerstab.png 
-[7]: ./media/marketplace-publishing-report-seller-insights/passwordreminder.png 
-[8]: ./media/marketplace-publishing-report-seller-insights/selectpublisherstab.png 
-[9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png 
-[10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png 
+[1]: ./media/marketplace-publishing-report-seller-insights/legal.png
+[2]: ./media/marketplace-publishing-report-seller-insights/readingreportbyorders.png
+[3]: ./media/marketplace-publishing-report-seller-insights/readingreportbyusage.png
+[4]: ./media/marketplace-publishing-report-seller-insights/orderdata.png
+[5]: ./media/marketplace-publishing-report-seller-insights/usagedata.png
+[6]: ./media/marketplace-publishing-report-seller-insights/customerstab.png
+[7]: ./media/marketplace-publishing-report-seller-insights/passwordreminder.png
+[8]: ./media/marketplace-publishing-report-seller-insights/selectpublisherstab.png
+[9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
+[10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
 

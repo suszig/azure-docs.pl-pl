@@ -18,8 +18,7 @@
 
 
 
-
-# Azure Automation を使用した Azure Storage の管理
+#Azure Automation を使用した Azure Storage の管理
 
 このガイドでは、Azure Automation サービスと、このサービスを使用して Azure Storage BLOB、テーブル、およびキューの管理を簡略化する方法について紹介します。
 
@@ -37,11 +36,11 @@ Azure Automation でクラウド管理タスクを自動実行すれば、運用
 
 使用できる PowerShell コマンドレットを使用して Azure Automation で azure Storage を管理できる、 [Azure PowerShell ツール](https://msdn.microsoft.com/library/azure/jj156055.aspx)します。 Azure Automation には、このような Storage PowerShell コマンドレットがあらかじめ用意されており、サービス内ですべての BLOB、テーブル、およびキュー管理タスクを実行することができます。 Azure Automation 内のこれらのコマンドレットと別の Azure サービスのコマンドレットを組み合わせて、Azure サービスおよびサード パーティ システム全体の複雑なタスクを自動化することもできます。
 
-[Azure Automation runbook ギャラリー](http://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) 製品チームおよびコミュニティの runbook を Azure Storage、その他の Azure サービスおよびサード パーティ製システムの管理を自動化するためのさまざまなが含まれています。 ギャラリーに含まれている Runbook の例を示します。
+ [Azure Automation runbook ギャラリー](http://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) 製品チームおよびコミュニティの runbook を Azure Storage、その他の Azure サービスおよびサード パーティ製システムの管理を自動化するためのさまざまなが含まれています。 ギャラリーに含まれている Runbook の例を示します。
 
- * [X 日よりも古い Azure ストレージ blob を削除します。](https://gallery.technet.microsoft.com/scriptcenter/Remove-Storage-Blobs-that-aae4b761)
- * [Azure ストレージから Azure Automation に blob をダウンロードします。](https://gallery.technet.microsoft.com/scriptcenter/a-Blob-from-Azure-Storage-6bc13745)
- * [Azure クラウド サービスの Azure VM データ ディスクのコピーを作成します。](https://gallery.technet.microsoft.com/scriptcenter/Make-copies-of-Azure-VM-065a6394)
+ * [X 日以上経過している Azure Storage BLOB を削除する](https://gallery.technet.microsoft.com/scriptcenter/Remove-Storage-Blobs-that-aae4b761)
+ * [Azure Storage から Azure Automation に BLOB をダウンロードする](https://gallery.technet.microsoft.com/scriptcenter/a-Blob-from-Azure-Storage-6bc13745)
+ * [Azure VM データ ディスクのコピーを Azure クラウド サービスに作成する](https://gallery.technet.microsoft.com/scriptcenter/Make-copies-of-Azure-VM-065a6394)
 
 
 ## 次のステップ
@@ -49,9 +48,5 @@ Azure Automation でクラウド管理タスクを自動実行すれば、運用
 ここまで、Azure Automation の基本と Azure Automation を使用して Azure Storage BLOB、テーブル、およびキューを管理する方法について説明しました。Azure Automation の詳細については、これらのリンクを参照してください。
 
 Azure automation の [チュートリアル入門](../automation-create-runbook-from-samples.md)
-
-
-
-
-
+ 
 

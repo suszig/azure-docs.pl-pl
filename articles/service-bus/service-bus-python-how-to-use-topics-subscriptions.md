@@ -16,26 +16,25 @@
     ms.date="10/08/2015" 
     ms.author="sethm"/>
 
-
 # Service Bus のトピックとサブスクリプションの使用方法
 
 [AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-この記事では、Service Bus のトピックとサブスクリプションの使用方法について説明します。 サンプルは Python で記述され使用する、 [Python Azure パッケージの][]します。 ここでは、**トピックとサブスクリプションの作成**、**サブスクリプション フィルターの作成**、**トピックへのメッセージの送信**、**サブスクリプションからのメッセージの受信**、**トピックとサブスクリプションの削除**などのシナリオについて説明します。 トピックとサブスクリプションの詳細については、次を参照してください。、 [次のステップ](#next-steps) セクションです。
+この記事では、Service Bus のトピックとサブスクリプションの使用方法について説明します。 サンプルは Python で記述され使用する、 [Python Azure パッケージ][]します。 紹介するシナリオ **トピックとサブスクリプションの作成**, 、**サブスクリプション フィルターの作成**, 、**トピックにメッセージを送信する**, 、**サブスクリプションからメッセージを受信**, 、および **トピックとサブスクリプションの削除**します。 トピックとサブスクリプションの詳細については、次を参照してください。、 [次のステップ](#next-steps) セクションです。
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
-**注:** Python をインストールする必要がある場合、または [Python Azure パッケージの][], を参照してください、 [Python インストール ガイド](../python-how-to-install.md)します。
+**注:** Python をインストールする必要がある場合、または [Python Azure パッケージ][], を参照してください、 [Python インストール ガイド](../python-how-to-install.md)します。
 
 ## トピックを作成する
 
-**ServiceBusService** オブジェクトを使用すると、トピックを操作できます。 プログラムを使用して Service Bus にアクセスするすべての Python ファイルの先頭付近に、次のコードを追加します。
+ **ServiceBusService** オブジェクトでは、トピックを操作することができます。 プログラムを使用して Service Bus にアクセスするすべての Python ファイルの先頭付近に、次のコードを追加します。
 
 ```
 from azure.servicebus import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 ```
 
-次のコードでは、**ServiceBusService** オブジェクトを作成します。 置換 `mynamespace`, 、`sharedaccesskeyname`, 、および `sharedaccesskey` 、実際の名前空間、共有アクセス署名 (SAS) キーの名前とキーの値。
+次のコード作成、 **ServiceBusService** オブジェクトです。 `mynamespace`、`sharedaccesskeyname`、`sharedaccesskey` の部分は、実際の名前空間、Shared Access Signature (SAS) キー名、キー値に置き換えます。
 
 ```
 bus_service = ServiceBusService(
@@ -44,135 +43,143 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-SAS キー名の値を取得し、値を [Azure クラシック ポータルの [][] **接続情報** ウィンドウです。
+SAS キー名の値を取得し、値を [Azure クラシック ポータル][] **接続情報** ウィンドウです。
 
 ```
 bus_service.create_topic('mytopic')
 ```
 
-**create\_topic** also supports additional options, which enable you to override default topic settings such as message time to live or maximum topic size. The following example sets the maximum topic size to 5 GB, and a time to live (TTL) value of 1 minute:
+**create \_topic** もメッセージの有効期間や最大トピック サイズなどの既定のトピックの設定を上書きすることを有効にする追加のオプションをサポートしています。 次の例では、最大トピック サイズを 5 GB に、有効期間 (TTL) を 1 分に設定します。
+
 ```
-topic_options Topic() =
+topic_options = Topic()
 topic_options.max_size_in_megabytes = '5120'
 topic_options.default_message_time_to_live = 'PT1M'
 
-bus_service.create_topic (mytopic、topic_options)
+bus_service.create_topic('mytopic', topic_options)
 ```
 
-## Create subscriptions
+## サブスクリプションを作成する
 
-Subscriptions to topics are also created with the **ServiceBusService** object. Subscriptions are named and can have an optional filter that restricts the set of messages delivered to the subscription's virtual queue.
+トピックへのサブスクリプションもで作成、 **ServiceBusService** オブジェクトです。 サブスクリプションを指定し、サブスクリプションの仮想キューに配信するメッセージを制限するフィルターを設定することができます。
 
-> [AZURE.NOTE] Subscriptions are persistent and will continue to exist until either they, or the topic to which they are subscribed, are deleted.
+> [AZURE.NOTE] サブスクリプションは、永続的なまたは先の [購読している、削除は、トピックのいずれかのされるまで存在し続けます。
 
-### Create a subscription with the default (MatchAll) filter
+### 既定の (MatchAll) フィルターを適用したサブスクリプションの作成
 
-The **MatchAll** filter is the default filter that is used if no filter is specified when a new subscription is created. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named 'AllMessages' and uses the default **MatchAll**
-filter.
+ **MatchAll** フィルターは、新しいサブスクリプションが作成されるときにフィルターが指定されていない場合に使用される既定のフィルターです。 ときに、 **MatchAll** フィルターを使用して、トピックに発行されたすべてのメッセージがサブスクリプションの仮想キューに置かれます。 次の例は、"allmessages"という名前のサブスクリプションを作成し、既定値を使用して **MatchAll**
+フィルターを使用します。
+
 ```
-bus_service.create_subscription (mytopic"、"allmessages")
+bus_service.create_subscription('mytopic', 'AllMessages')
 ```
 
-### Create subscriptions with filters
+### フィルターを適用したサブスクリプションの作成
 
-You can also define filters that enable you to specify which messages sent to a topic should show up within a specific topic subscription.
+トピックに送信されたメッセージのうち、特定のトピック サブスクリプション内に表示されるメッセージを指定するフィルターを定義することもできます。
 
-The most flexible type of filter supported by subscriptions is a **SqlFilter**, which implements a subset of SQL92. SQL filters operate on the properties of the messages that are published to the topic. For more information about the expressions that can be used with a SQL filter, see the [SqlFilter.SqlExpression][] syntax.
+サブスクリプションでサポートされるフィルターの最も柔軟性の高い型は、 **SqlFilter**, 、SQL92 のサブセットを実装します。 SQL フィルターは、トピックに発行されるメッセージのプロパティに対して適用されます。 SQL フィルターで使用できる式の詳細については、次を参照してください。、 [SqlFilter.SqlExpression][] 構文です。
 
-You can add filters to a subscription by using the **create\_rule** method of the **ServiceBusService** object. This method allows you to add new filters to an existing subscription.
+フィルターをサブスクリプションに追加するにを使用して、 **create \_rule** のメソッド、 **ServiceBusService** オブジェクトです。 このメソッドによって、新しいフィルターを既存のサブスクリプションに追加できます。
 
-> [AZURE.NOTE] Because the default filter is applied automatically to all new subscriptions, you must first remove the default filter or the **MatchAll** will override any other filters you may specify. You can remove the default rule by using the **delete\_rule** method of the **ServiceBusService** object.
+> [AZURE.NOTE] 既定のフィルターはすべての新しいサブスクリプションに自動的に適用されるため、既定のフィルターをまず削除する必要がありますか **MatchAll** その他のフィルターを指定することよりも優先されます。 既定のルールを削除するを使用して、 **delete \_rule** のメソッド、 **ServiceBusService** オブジェクトです。
 
-The following example creates a subscription named `HighMessages` with a **SqlFilter** that only selects messages that have a custom **messagenumber** property greater than 3:
+という名前のサブスクリプションを作成する例を次 `HighMessages` で、 **SqlFilter** のみに、カスタム メッセージを選択する **messagenumber** 3 を超えるプロパティ。
+
 ```
-bus_service.create_subscription (mytopic"、"HighMessages")
+bus_service.create_subscription('mytopic', 'HighMessages')
 
-ルール Rule() =
+rule = Rule()
 rule.filter_type = 'SqlFilter'
-rule.filter_expression = ' messagenumber > 3'
+rule.filter_expression = 'messagenumber > 3'
 
-bus_service.create_rule (mytopic"、"HighMessages"'HighMessageFilter' ルール)
-bus_service.delete_rule (mytopic"、"HighMessages"DEFAULT_RULE_NAME)
+bus_service.create_rule('mytopic', 'HighMessages', 'HighMessageFilter', rule)
+bus_service.delete_rule('mytopic', 'HighMessages', DEFAULT_RULE_NAME)
 ```
 
-Similarly, the following example creates a subscription named `LowMessages` with a **SqlFilter** that only selects messages that have a **messagenumber** property less than or equal to 3:
-```
-bus_service.create_subscription (mytopic"、"LowMessages")
+同様に、次の例がという名前のサブスクリプションを作成 `LowMessages` で、 **SqlFilter** のみを持つメッセージを選択する、 **messagenumber** 3 のプロパティが。
 
-ルール Rule() =
+```
+bus_service.create_subscription('mytopic', 'LowMessages')
+
+rule = Rule()
 rule.filter_type = 'SqlFilter'
-rule.filter_expression = ' messagenumber < = 3'
+rule.filter_expression = 'messagenumber <= 3'
 
-bus_service.create_rule (mytopic 'LowMessages'、'LowMessageFilter' ルール)
-bus_service.delete_rule (mytopic"、"LowMessages"DEFAULT_RULE_NAME)
+bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
+bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
 ```
 
-Now, when a message is sent to `mytopic` it is always delivered to receivers subscribed to the **AllMessages** topic subscription, and selectively delivered to receivers subscribed to the **HighMessages** and **LowMessages** topic subscriptions (depending on the message content).
+ここで、メッセージが送信される場合に `mytopic` をサブスクライブした受信者に必ず配信、 **AllMessages** トピック サブスクリプションにサブスクライブされた受信者に対して選択的に配信されると、 **HighMessages** と **LowMessages** (メッセージの内容に応じてトピックのサブスクリプション。
 
-## Send messages to a topic
+## メッセージをトピックに送信する
 
-To send a message to a Service Bus topic, your application must use the **send\_topic\_message** method of the **ServiceBusService** object.
+Service Bus トピックにメッセージを送信するアプリケーションを使用する必要があります、 **send \_topic\_message** のメソッド、 **ServiceBusService** オブジェクトです。
 
-The following example demonstrates how to send five test messages to `mytopic`. Note that the **messagenumber** property value of each message varies on the iteration of the loop (this determines which subscriptions receive it):
+次の例では、`mytopic` トピックに 5 件のテスト メッセージを送信する方法を示しています。 なお、 **messagenumber** 、ループの反復処理で各メッセージのプロパティの値が変化 ([受信するサブスクリプションが決定されます)。
+
 ```
-range(5) で i:
-    msg = メッセージ ('Msg {0}'.format(i).encode('utf-8')、custom_properties = {messagenumber: は})
-    bus_service.send_topic_message mytopic (msg)
+for i in range(5):
+    msg = Message('Msg {0}'.format(i).encode('utf-8'), custom_properties={'messagenumber':i})
+    bus_service.send_topic_message('mytopic', msg)
 ```
 
-Service Bus topics support a maximum message size of 256 MB (the header, which includes the standard and custom application properties, can have a maximum size of 64 MB). There is no limit on the number of messages held in a topic but there is a cap on the total size of the messages held by a topic. This topic size is defined at creation time, with an upper limit of 5 GB. For more information about quotas, see [Azure Queues and Service Bus queues][].
+Service Bus トピックでは、最大 256 MB までのメッセージをサポートしています (標準とカスタムのアプリケーション プロパティが含まれるヘッダーの最大サイズは 64 MB です)。 トピックで保持されるメッセージ数には上限がありませんが、1 つのトピックで保持できるメッセージの合計サイズには上限があります。 このトピックのサイズはトピックの作成時に定義します。上限は 5 GB です。 クォータの詳細については、次を参照してください。 [Azure キューと Service Bus キュー][]します。
 
-## Receive messages from a subscription
+## サブスクリプションからメッセージを受信する
 
-Messages are received from a subscription using the **receive\_subscription\_message** method on the **ServiceBusService** object:
+使用してサブスクリプションからメッセージを受信、 **\_subscription\_message** メソッドを **ServiceBusService** オブジェクト。
+
 ```
-msg = bus_service.receive_subscription_message (mytopic"、"LowMessages":peek_lock = False)
+msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
 print(msg.body)
 ```
 
-Messages are deleted from the subscription as they are read when the parameter **peek\_lock** is set to **False**. You can read (peek) and lock the message without deleting it from the queue by setting the parameter **peek\_lock** to **True**.
+読み取られるときに、メッセージがサブスクリプションから削除されますパラメーター **\_lock** に設定されている **False**します。 (ピークして) を参照し、パラメーターを設定して、キューから削除することがなく、メッセージをロックできます **\_lock** に **True**します。
 
-The behavior of reading and deleting the message as part of the receive operation is the simplest model, and works best for scenarios in which an application can tolerate not processing a message in the event of a failure. To understand this, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus will have marked the message as being consumed, then when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.
+受信操作の中で行われるメッセージの読み取りと削除の動作は、最もシンプルなモデルであり、障害発生時にアプリケーション側でメッセージを処理しないことを許容できるシナリオに最適です。 このことを理解するために、コンシューマーが受信要求を発行した後で、メッセージを処理する前にクラッシュしたというシナリオを考えてみましょう。 Service Bus はメッセージを読み取り済みとしてマークするため、アプリケーションが再起動してメッセージの読み取りを再開すると、クラッシュ前に読み取られていたメッセージは見落とされることになります。
 
-If the **peek\_lock** parameter is set to **True**, the receive becomes a two stage operation, which makes it possible to support applications that cannot tolerate missing messages. When Service Bus receives a request, it finds the next message to be consumed, locks it to prevent other consumers receiving it, and then returns it to the application. After the application finishes processing the message (or stores it reliably for future processing), it completes the second stage of the receive process by calling **delete** method on the **Message** object. The **delete** method marks the message as being consumed and removes it from the subscription.
+場合、 **\_lock** にパラメーターが設定されている **True**, 、受信メッセージが失われることが許容できないアプリケーションをサポートすることが 2 段階の操作になります。 Service Bus は要求を受け取ると、次に読み取られるメッセージを検索して、他のコンシューマーが受信できないようロックしてから、アプリケーションにメッセージを返します。 呼び出して受信処理の第 2 段階を完了したら、アプリケーションがメッセージの処理 (または後で処理するために確実に保存) **削除** メソッドを **メッセージ** オブジェクトです。  **削除** メソッドに、メッセージを読み取り中としてマークし、サブスクリプションから削除します。
+
 ```
-msg = bus_service.receive_subscription_message (mytopic"、"LowMessages":peek_lock = True)
+msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
 print(msg.body)
 
 msg.delete()
 ```
 
-## How to handle application crashes and unreadable messages
+## アプリケーションのクラッシュと読み取り不能のメッセージを処理する方法
 
-Service Bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message. If a receiver application is unable to process the message for some reason, then it can call the **unlock** method on the **Message** object. This will cause Service Bus to unlock the message within the subscription and make it available to be received again, either by the same consuming application or by another consuming application.
+Service Bus には、アプリケーションにエラーが発生した場合や、メッセージの処理に問題がある場合に復旧を支援する機能が備わっています。 受信側アプリケーションが何らかの理由でのメッセージを処理できないかどうかは、呼び出すことができます、 **のロックを解除** メソッドを **メッセージ** オブジェクトです。 このメソッドが呼び出されると、Service Bus によってサブスクリプション内のメッセージのロックが解除され、メッセージが再度受信できる状態に変わります。このメッセージは、同じコンシューマー側アプリケーションまたは他のコンシューマー側アプリケーションで受信されます。
 
-There is also a timeout associated with a message locked within the subscription, and if the application fails to process the message before the lock timeout expires (for example, if the application crashes), then Service Bus unlocks the message automatically and makes it available to be received again.
+サブスクリプション内でロックされているメッセージにはタイムアウトも設定されています。アプリケーションがクラッシュした場合など、ロックがタイムアウトになる前にアプリケーションがメッセージの処理に失敗した場合には、Service Bus によりメッセージのロックが自動的に解除され、再度受信できる状態に変わります。
 
-In the event that the application crashes after processing the message but before the **delete** method is called, then the message will be redelivered to the application when it restarts. This is often called **At Least Once Processing**, that is, each message will be processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This is often achieved using the **MessageId** property of the message, which will remain constant across delivery attempts.
+前に、メッセージを処理した後、アプリケーションがクラッシュすること、 **削除** メソッドが呼び出されると、再起動する際にそのメッセージがアプリケーションに再配信されます。 一般的に、 **1 回の処理には、少なくとも**, 、つまり、各メッセージが 1 回以上処理されますが、特定の状況で、同じメッセージが再配信されます。 重複処理が許されないシナリオの場合、重複メッセージの配信を扱うロジックをアプリケーションに追加する必要があります。 これは、多くの場合を使用して、 **MessageId** は一定に保たれる配信が試行されると、メッセージのプロパティです。
 
-## Delete topics and subscriptions
+## トピックとサブスクリプションを削除する
 
-Topics and subscriptions are persistent, and must be explicitly deleted either through the [Azure classic portal][] or programmatically. The following example shows how to delete the topic named `mytopic`:
+トピックおよびサブスクリプションは永続的であり、明示的にする必要がありますから削除された、 [Azure クラシック ポータル][] またはプログラムを使用しています。 次の例では、`mytopic` という名前のトピックを削除する方法を示しています。
+
 ```
 bus_service.delete_topic('mytopic')
 ```
 
-Deleting a topic also deletes any subscriptions that are registered with the topic. Subscriptions can also be deleted independently. The following code shows how to delete a subscription named `HighMessages` from the `mytopic` topic:
+トピックを削除すると、そのトピックに登録されたサブスクリプションもすべて削除されます。 サブスクリプションは、個別に削除することもできます。 次のコードでは、`HighMessages` という名前のサブスクリプションを `mytopic` トピックから削除する方法を示しています。
+
 ```
-bus_service.delete_subscription (mytopic"、"HighMessages")
+bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
 ## 次のステップ
 
 これで、Service Bus トピックの基本を学習できました。さらに詳細な情報が必要な場合は、次のリンク先を参照してください。
 
--   参照してください [キュー、トピック、およびサブスクリプションの][]します。
--   参照を [SqlFilter.SqlExpression:operator[]][]します。
+-   参照してください [キュー、トピック、およびサブスクリプション][]します。
+-   参照を [SqlFilter.SqlExpression][]します。
 
-
-[azure classic portal]: http://manage.windowsazure.com 
-[python azure package]: https://pypi.python.org/pypi/azure 
-[queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md 
-[sqlfilter.sqlexpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx 
-[azure queues and service bus queues]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas 
+[Azure classic portal]: http://manage.windowsazure.com
+[Python Azure package]: https://pypi.python.org/pypi/azure  
+[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
+[SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+[Azure Queues and Service Bus queues]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas 
 

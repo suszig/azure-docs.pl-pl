@@ -17,7 +17,6 @@
     ms.date="10/20/2015" 
     ms.author="josephd"/>
 
-
 # 基幹業務アプリケーションのワークロード フェーズ 4: Web サーバーを構成する
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 従来のデプロイ モデルです。
@@ -30,10 +29,11 @@
 
 ASP.NET アプリケーション、または Windows Server 2012 R2 のインターネット インフォメーション サービス (IIS) 8 でホストできる古いアプリケーションをデプロイできる、2 つの Web サーバー仮想マシンがあります。
 
-最初に、基幹業務アプリケーションへのクライアント トラフィックが、Azure によって 2 つの Web サーバーに均等に配分されるように、内部ロード バランサーを構成します。 この場合、名前とサブネットのアドレス空間 (Azure 仮想ネットワークに割り当てたアドレス空間) から割り当てられた独自の IP アドレスで構成される内部負荷分散インスタンスを指定する必要があります。
-> [AZURE.NOTE] 次のコマンド セットは、Azure PowerShell 1.0 以降を使用します。 詳細については、次を参照してください。 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)します。
+最初に、基幹業務アプリケーションへのクライアント トラフィックが、Azure によって 2 つの Web サーバーに均等に配分されるように、内部ロード バランサーを構成します。 この場合、名前とサブネットのアドレス空間 (Azure 仮想ネットワークに割り当てたアドレス空間) から割り当てられた独自の IP アドレスで構成される内部負荷分散インスタンスを指定する必要があります。 
 
-削除して、変数の値を指定します < と > 文字です。次の Azure PowerShell コマンド セットでは、以下の表の値を使用します。
+> [AZURE.NOTE] 次のコマンドは、1.0 以降、Azure PowerShell を使用を設定します。 詳細については、次を参照してください。 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)します。
+
+削除して、変数の値を指定します < と > 文字です。 次の Azure PowerShell コマンド セットでは、以下の表の値を使用します。
 
 - 表 M (仮想マシン)
 - 表 V (仮想ネットワーク設定)
@@ -51,10 +51,10 @@ ASP.NET アプリケーション、または Windows Server 2012 R2 のインタ
     $vnetName="<Table V – Item 1 – Value column>"
     $privIP="<available IP address on the subnet>"
     $vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
-    
+
     $frontendIP=New-AzureRMLoadBalancerFrontendIpConfig -Name WebServers-LBFE -PrivateIPAddress $privIP -SubnetId $vnet.Subnets[1].Id
     $beAddressPool=New-AzureRMLoadBalancerBackendAddressPoolConfig -Name WebServers-LBBE
-    
+
     # This example assumes unsecured (HTTP-based) web traffic to the web servers.
     $healthProbe=New-AzureRMLoadBalancerProbeConfig -Name WebServersProbe -Protocol "TCP" -Port 80 -IntervalInSeconds 15 -ProbeCount 2
     $lbrule=New-AzureRMLoadBalancerRuleConfig -Name "WebTraffic" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "TCP" -FrontendPort 80 -BackendPort 80
@@ -62,7 +62,7 @@ ASP.NET アプリケーション、または Windows Server 2012 R2 のインタ
 
 次に、基幹業務アプリケーションの完全修飾ドメイン名 (lobapp.corp.contoso.com など) を、内部ロード バランサーに割り当てられている IP アドレス (前の Azure PowerShell コマンド ブロックの $privIP の値) に解決する DNS アドレス レコードを、組織の内部 DNS インフラストラクチャに追加します。
 
-次に、PowerShell コマンドの次のブロックを使用して、2 つの Web サーバーの仮想マシンを作成します。
+次に、PowerShell コマンドの次のブロックを使用して、2 つの Web サーバーの仮想マシンを作成します。 
 
 適切な値をすべて指定したら、Azure PowerShell プロンプトでそのブロックを実行します。
 
@@ -73,7 +73,7 @@ ASP.NET アプリケーション、または Windows Server 2012 R2 のインタ
     
     # Use the standard storage account
     $saName="<Table ST – Item 2 – Storage account name column>"
-    
+
     $vnetName="<Table V – Item 1 – Value column>"
     $beSubnetName="<Table S - Item 2 - Name column>"
     $avName="<Table A – Item 3 – Availability set name column>"
@@ -109,7 +109,7 @@ ASP.NET アプリケーション、または Windows Server 2012 R2 のインタ
     $vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
     New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE] これらの仮想マシンはイントラネット アプリケーション用であるため、パブリック IP アドレスや DNS ドメイン名ラベルは割り当てられず、インターネットに公開されません。 ただし、これは Azure ポータルから接続できないことを意味します。 仮想マシンのプロパティを表示する際に、**[接続]** ボタンは使用できません。
+> [AZURE.NOTE] これらの仮想マシンでは、イントラネット アプリケーションであるために、いない、割り当てられているパブリック IP アドレスまたは DNS ドメイン名のラベル、インターネットに公開します。 ただし、これは Azure ポータルから接続できないことを意味します。  **接続** ] ボタンは使用できません、仮想マシンのプロパティを表示するとします。
 
 好みのリモート デスクトップ クライアントを使用し、Web サーバー仮想マシンのそれぞれへのリモート デスクトップ接続を作成します。 仮想マシンのイントラネット DNS 名またはコンピューター名と、ローカル管理者アカウントの資格情報を使用します。
 
@@ -119,22 +119,22 @@ ASP.NET アプリケーション、または Windows Server 2012 R2 のインタ
     Add-Computer -DomainName $domName
     Restart-Computer
 
-**Add-Computer** コマンドを入力した後、ドメイン アカウントの資格情報を指定する必要があることに注意してください。
+メモを入力した後のドメイン アカウントの資格情報を指定する必要があります、 **Add-computer** コマンドです。
 
 仮想マシンの再起動後、ローカル管理者特権を持つアカウントを使用して再接続します。
 
 次に、各 Web サーバーに IIS をインストールして構成します。
 
-1. サーバー マネージャーを実行し、**[役割と機能の追加]** をクリックします。
-2. [開始する前に] ページで **[次へ]** をクリックします。
-3. [インストールの種類の選択] ページで **[次へ]** をクリックします。
-4. [対象サーバーの選択] ページで **[次へ]** をクリックします。
-5. [サーバーの役割] ページの **[役割]** の一覧で、**[Web サーバー (IIS)]** をクリックします。
-6. メッセージが表示されたら、**[機能の追加]** をクリックし、**[次へ]** をクリックします。
-7. [機能の選択] ページで **[次へ]** をクリックします。
-8. [Web サーバー (IIS)] ページで **[次へ]** をクリックします。
-9. [役割サービスの選択] ページで、LOB アプリケーションでの必要性に応じて、サービスのチェック ボックスをオンまたはオフにし、**[次へ]** をクリックします。
-10.[インストール オプションの確認] ページで、**[インストール]** をクリックします。
+1. サーバー マネージャーを実行し、 **の役割と機能の追加**します。
+2. 前に開始] ページでクリックして **次**します。
+3. [インストールの種類] ページで、をクリックして **次**します。
+4. [インポート先のサーバー] ページで、をクリックして **次**します。
+5. [サーバーの役割] ページをクリックして **Web サーバー (IIS)** の一覧で **ロール**します。
+6. メッセージが表示されたら、] をクリックして **機能の追加**, 、] をクリックし、 **次**します。
+7. 機能の選択] ページで、クリックして **次**します。
+8. Web サーバー (IIS)] ページで、クリックして **次**します。
+9. [選択] の役割サービス] ページをオンまたはオフと、LOB アプリケーションに必要とする] をクリックし、サービスのチェック ボックスを **次**します。
+10. [インストールの選択の確認] ページで、次のようにクリックします。 **インストール**します。
 
 ## Web サーバー仮想マシンへの基幹業務アプリケーションのデプロイ
 
@@ -151,8 +151,4 @@ ASP.NET アプリケーション、または Windows Server 2012 R2 のインタ
 ## 次のステップ
 
 - 使用 [フェーズ 5](virtual-machines-workload-high-availability-LOB-application-phase5.md) このワークロードの構成を完了します。
-
-
-
-
 

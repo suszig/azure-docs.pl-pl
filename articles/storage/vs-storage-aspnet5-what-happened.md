@@ -16,7 +16,6 @@
     ms.date="12/16/2015"
     ms.author="tarcher"/>
 
-
 # ASP.NET 5 プロジェクトの変更点 (Visual Studio Azure Storage 接続済みサービス)
 
 ## リファレンスの追加
@@ -36,12 +35,7 @@ Visual Studio プロジェクトに Azure Storage の NuGet パッケージが�
 また、NuGet パッケージ **Microsoft.Framework.Configuration.Json** が追加されました。
 
 ## Azure Storage の接続文字列の追加
-
 選択されたストレージ アカウントの接続文字列とキーを使用して、プロジェクトの config.json ファイル内に要素が作成されました。
 
 詳細については、次を参照してください。 [ASP.NET 5](http://www.asp.net/vnext)します。
-
-
-
-
 

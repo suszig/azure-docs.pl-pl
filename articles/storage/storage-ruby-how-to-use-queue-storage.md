@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Ruby から Queue ストレージを使用する方法 | Microsoft Azure" 
-    description="Azure Queue サービスを使用して、キューの作成と削除のほか、メッセージの挿入、取得、および削除を行う方法を説明します。コード サンプルは Ruby で記述されています。" 
+    description="Azure Queue サービスを使用して、キューの作成と削除のほか、メッセージの挿入、取得、および削除を行う方法を説明します。 コード サンプルは Ruby で記述されています。" 
     services="storage" 
     documentationCenter="ruby" 
     authors="tfitzmac" 
@@ -17,7 +17,6 @@
     ms.author="tomfitz"/>
 
 
-
 # Ruby から Queue ストレージを使用する方法
 
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
@@ -27,8 +26,8 @@
 このガイドは、Microsoft を使用して一般的なシナリオを実行する方法を示します
 一般的なシナリオを実行する方法について説明します。 サンプルは Ruby Azure API を使用して記述されています。
 紹介するシナリオ **挿入**, 、**ピーク**, 、**取得**,、
-**削除** キュー メッセージだけでなく * * の作成と削除
-* * キュー。
+ **削除** キュー メッセージだけでなく **の作成と削除
+キュー**します。
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -37,7 +36,7 @@
 ## Ruby アプリケーションの作成
 
 Ruby アプリケーションを作成します。 手順については、 
-参照してください [Azure Ruby アプリケーションを作成する](/develop/ruby/tutorials/web-app-with-linux-vm/)します。
+参照してください [Azure Ruby アプリケーションを作成する](/develop/ruby/tutorials/web-app-with-linux-vm/)です。
 
 ## アプリケーションのストレージへのアクセスの構成
 
@@ -45,7 +44,7 @@ Azure ストレージを使用するには、Ruby azure パッケージをダウ
 
 ### RubyGems を使用してパッケージを取得する
 
-1. **PowerShell** (Windows)、**ターミナル** (Mac)、**Bash** (Unix) などのコマンド ライン インターフェイスを使用します。
+1. コマンド ライン インターフェイスを使用して **PowerShell** (Windows)、 **ターミナル** (Mac)、または **Bash** (Unix)。
 
 2. コマンド ウィンドウに「gem install azure」と入力して、gem と依存関係をインストールします。
 
@@ -57,7 +56,7 @@ Azure ストレージを使用するには、Ruby azure パッケージをダウ
 
 ## Azure のストレージ接続文字列の設定
 
-Azure モジュールでは、環境変数を読み取ります **\_storage\_account** と **azure \_storage\_access_key** 
+Azure モジュールでは、環境変数を読み取ります **azure \_storage\_account** と **azure \_storage\_access_key** 
 を読み取ります。 これらの環境変数が設定されていない場合は、 
 使用する前にアカウント情報を指定する必要があります **azure::queueservice** を次のコード。
 
@@ -68,16 +67,16 @@ Azure モジュールでは、環境変数を読み取ります **\_storage\_acc
 
 1. ログイン、 [Azure ポータル](portal.azure.com)します。
 2. 使用するストレージ アカウントを表示します。
-3. ナビゲーション ウィンドウの下部にある **[キーの管理]** をクリックします。
+3. クリックして **キーの管理** ナビゲーション ウィンドウの下部にあります。
 4. ポップアップ ダイアログに、ストレージ アカウント名、プライマリ アクセス キー、およびセカンダリ アクセス キーが表示されます。 アクセス キーには、プライマリとセカンダリのどちらでも選択できます。
 
 ## 方法: キューを作成する
 
-次のコードは、**Azure::QueueService** オブジェクトを作成し、これによってキューを操作できるようにします。
+次のコード作成、 **azure::queueservice** オブジェクト、キューを操作することができます。
 
     azure_queue_service = Azure::QueueService.new
 
-**create_queue()** メソッドを使用して、指定した名前のキューを作成します。
+使用して、 **create_queue()** メソッドを指定した名前のキューを作成します。
 
     begin
       azure_queue_service.create_queue("test-queue")
@@ -87,7 +86,7 @@ Azure モジュールでは、環境変数を読み取ります **\_storage\_acc
 
 ## 方法: メッセージをキューに挿入する
 
-キューにメッセージを挿入するには、**create_message()** メソッドを使用し、新しいメッセージを作成してキューに追加します。
+キューにメッセージを挿入するには、使用、 **create_message()** 新しいメッセージを作成し、キューに追加します。
 
     azure_queue_service.create_message("test-queue", "test message")
 
@@ -104,7 +103,7 @@ Azure モジュールでは、環境変数を読み取ります **\_storage\_acc
 
 1. 呼び出すと **list \_messages ()**, 、既定では、キュー内の次のメッセージを取得します。 取得するメッセージ数を指定することもできます。 返されるメッセージ **list \_messages ()** このキューからメッセージを読み取る他のコードで参照できなくなります。 パラメーターとして、表示タイムアウトを秒単位で指定します。
 
-2. また、キューからのメッセージの削除を完了するには、**delete_message()** を呼び出す必要があります。
+2. キューからのメッセージの削除を完了するにも呼び出す必要があります **delete_message()**します。
 
 2 段階の手順でメッセージを削除するこの方法では、ハードウェアまたはソフトウェアの問題が原因でコードによるメッセージの処理が失敗した場合に、コードの別のインスタンスで同じメッセージを取得し、もう一度処理することができます。 コードの呼び出し **delete \_message** メッセージが処理された直後します。
 
@@ -114,7 +113,7 @@ Azure モジュールでは、環境変数を読み取ります **\_storage\_acc
 
 ## 方法: キューに配置されたメッセージの内容を変更する
 
-キュー内のメッセージの内容をインプレースで変更できます。 次のコードでは、**update_message()** メソッドを使用してメッセージを更新します。 このメソッドは、キュー メッセージの PopReceipt と、メッセージがキューに配置される日時を表す UTC 日付/時刻値を含むタプルを返します。
+キュー内のメッセージの内容をインプレースで変更できます。 使用して次のコード、 **update_message()** メソッドはメッセージを更新します。 このメソッドは、キュー メッセージの PopReceipt と、メッセージがキューに配置される日時を表す UTC 日付/時刻値を含むタプルを返します。
 
     message = azure_queue_service.list_messages("test-queue", 30)
     pop_receipt, time_next_visible = azure_queue_service.update_message(
@@ -154,13 +153,9 @@ Azure モジュールでは、環境変数を読み取ります **\_storage\_acc
 
 これで、Queue ストレージの基本を学習できました。さらに複雑なストレージ タスクを実行するには、次のリンク先を参照してください。
 
-- アクセス、 [Azure ストレージ チーム ブログ](http://blogs.msdn.com/b/windowsazurestorage/)
+- 参照してください、 [Azure ストレージ チーム ブログ](http://blogs.msdn.com/b/windowsazurestorage/)
 - 参照してください、 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) GitHub のリポジトリ
 
 この記事で説明されている Azure キュー サービスとで説明した Azure Service Bus キューの比較、 [サービス バス キューの使用方法](/develop/ruby/how-to-guides/service-bus-queues/) 記事を参照してください [Azure キューと Azure Service Bus キューの比較](http://msdn.microsoft.com/library/azure/hh767287.aspx)
-
-
-
-
-
+ 
 

@@ -17,8 +17,7 @@
    ms.date="12/11/2015"
    ms.author="telmos" />
 
-
-# PowerShell を使用してルーティングを制御し仮想アプライアンス (クラシック) を使用する
+#PowerShell を使用してルーティングを制御し仮想アプライアンス (クラシック) を使用する
 
 [AZURE.INCLUDE [virtual-network-create-udr-classic-selectors-include.md](../../includes/virtual-network-create-udr-classic-selectors-include.md)]
 
@@ -28,15 +27,14 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
-以下の Azure PowerShell のサンプル コマンドでは、上記シナリオに基づいて単純な環境が既に作成されていると想定します。 このドキュメントに表示されているように、コマンドを実行する場合に示すように環境を作成 [PowerShell を使用して VNet (クラシック) を作成する](virtual-networks-create-vnet-classic-ps.md)します。
+以下の Azure PowerShell のサンプル コマンドでは、上記シナリオに基づいて単純な環境が既に作成されていると想定します。 このドキュメントに表示されているように、コマンドを実行する場合に示すように環境を作成 [PowerShell を使用して VNet (クラシック) を作成する](virtual-networks-create-vnet-classic-ps.md)です。
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 ## フロントエンドのサブネットの UDR を作成する
-
 上記のシナリオに基づいて、フロントエンドのサブネットに必要なルート テーブルとルートを作成するには、次の手順に従います。
 
-3. 実行します * *`新規 AzureRouteTable`* * コマンドレットをフロント エンド サブネットのルート テーブルを作成します。
+3. 実行、 **`New-AzureRouteTable`** コマンドレットをフロント エンド サブネットのルート テーブルを作成します。
 
         ```powershell
         New-AzureRouteTable -Name UDR-FrontEnd `
@@ -50,8 +48,8 @@
         ----         --------   -----                          
         UDR-FrontEnd West US    Route table for front end subnet
 
-4. 実行します * *`セット AzureRoute`* * をバック エンドのサブネット (192.168.2.0/24) に向かうすべてのトラフィックを送信する上記で作成したルート テーブル内のルートを作成するコマンドレット、 **FW1** VM (192.168.0.4)。
-
+4. 実行、 **`Set-AzureRoute`** をバック エンドのサブネット (192.168.2.0/24) に向かうすべてのトラフィックを送信する上記で作成したルート テーブル内のルートを作成するコマンドレット、 **FW1** VM (192.168.0.4)。
+    
         ```powershell
         Get-AzureRouteTable UDR-FrontEnd `
             |Set-AzureRoute -RouteName RouteToBackEnd -AddressPrefix 192.168.2.0/24 `
@@ -69,20 +67,18 @@
                    ----                 --------------    -------------        -------------------
                    RouteToBackEnd       192.168.2.0/24    VirtualAppliance     192.168.0.4  
 
-5. 実行、* *`セット AzureSubnetRouteTable`* * を上記で作成したルート テーブルを関連付けるコマンドレット、 **フロント エンド** サブネットです。
+5. 実行、 **`Set-AzureSubnetRouteTable`** に上記で作成したルート テーブルを関連付けるコマンドレット、 **フロント エンド** サブネットです。
 
         ```powershell
         Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
             -SubnetName FrontEnd `
             -RouteTableName UDR-FrontEnd
         ```
-
-
+ 
 ## バックエンドのサブネットの UDR を作成する
-
 上記のシナリオに基づいて、バックエンドのサブネットに必要なルート テーブルとルートを作成するには、次の手順に従います。
 
-3. 実行します * *`新規 AzureRouteTable`* * コマンドレットをバック エンドのサブネットにルート テーブルを作成します。
+3. 実行、 **`New-AzureRouteTable`** コマンドレットをバック エンドのサブネットにルート テーブルを作成します。
 
         ```powershell
         New-AzureRouteTable -Name UDR-BackEnd `
@@ -90,7 +86,7 @@
             -Label "Route table for back end subnet"
         ```
 
-4. 実行、* *`セット AzureRoute`* * をフロント エンド サブネット (192.168.1.0/24) に向かうすべてのトラフィックを送信する上記で作成したルート テーブル内のルートを作成するコマンドレット、 **FW1** VM (192.168.0.4)。
+4. 実行、 **`Set-AzureRoute`** にフロント エンド サブネット (192.168.1.0/24) に向かうすべてのトラフィックを送信する上記で作成したルート テーブル内のルートを作成するコマンドレット、 **FW1** VM (192.168.0.4)。
 
         ```powershell
         Get-AzureRouteTable UDR-BackEnd `
@@ -99,19 +95,17 @@
             -NextHopIpAddress 192.168.0.4
         ```
 
-5. 実行、* *`セット AzureSubnetRouteTable`* * を上記で作成したルート テーブルを関連付けるコマンドレット、 **バックエンド** サブネットです。
+5. 実行、 **`Set-AzureSubnetRouteTable`** に上記で作成したルート テーブルを関連付けるコマンドレット、 **バックエンド** サブネットです。
 
         ```powershell
         Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
             -SubnetName FrontEnd `
             -RouteTableName UDR-FrontEnd
         ```
-
 ## FW1 VM で IP 転送を有効にする
-
 FW1 VM で IP 転送を有効にするには、次の手順に従います。
 
-1. 実行します * *`Get AzureIPForwarding`* * IP 転送の状態をチェックするコマンドレット
+1. 実行、 **`Get-AzureIPForwarding`** IP 転送の状態をチェックするコマンドレット
 
         Get-AzureVM -Name FW1 -ServiceName TestRGFW `
             | Get-AzureIPForwarding
@@ -120,12 +114,7 @@ FW1 VM で IP 転送を有効にするには、次の手順に従います。
 
         Disabled
 
-2. 実行します * *`セット AzureIPForwarding`** IP の転送を有効にするコマンド、* FW1* VM です。
+2. 実行、 **`Set-AzureIPForwarding`** IP の転送を有効にするコマンド、 *FW1* VM です。
 
         Get-AzureVM -Name FW1 -ServiceName TestRGFW `
             | Set-AzureIPForwarding -Enable
-
-
-
-
-

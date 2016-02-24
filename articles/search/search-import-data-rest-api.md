@@ -17,22 +17,19 @@
     ms.date="11/17/2015"
     ms.author="heidist"/>
 
-
 # REST API を使用した Azure Search へのデータのインポート
-
 > [AZURE.SELECTOR]
-- [Overview](search-what-is-data-import.md)
-- [Portal](search-import-data-portal.md)
+- [概要](search-what-is-data-import.md)
+- [ポータル](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
-- [REST](search-import-data-rest-api.md)
-- [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
-
+- [REST ()](search-import-data-rest-api.md)
+- [インデクサー](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
 ここで説明を使用して、インデックスを設定する方法について、 [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)します。 次の内容の一部は [追加、更新、または delete ドキュメント (Azure Search REST API)](https://msdn.microsoft.com/library/azure/dn798930.aspx)します。 詳しいコンテキストについては、元の記事を参照してください。
 
 REST API を使用してインデックスにドキュメントをプッシュするには、POST HTTP 要求をサービスの URL エンドポイントに発行します。
 
-**要求と要求ヘッダー**:
+**要求ヘッダーを要求して**: 
 
 URL では、サービスの名前と適切な API バージョン (このドキュメントが書かれた時点で最新の API バージョンは "2015-02-28") を指定する必要があります。
 
@@ -41,6 +38,7 @@ URL では、サービスの名前と適切な API バージョン (このドキ
     POST https://[servicename].search.windows.net/indexes/[indexname]/docs/index?api-version=2015-02-28
     Content-Type: application/JSON
     api-key:[primary admin key]
+
 
 **要求本文**:
 
@@ -85,8 +83,4 @@ URL では、サービスの名前と適切な API バージョン (このドキ
 インデックスの更新が成功すると、状態コード "200 OK" を受け取ります。 要求内の少なくとも 1 つの項目のインデックスが正常に作成されなかった場合は、"207" 状態コードを受け取ります。
 
 ドキュメント アクションと応答の成功とエラーの詳細については、次を参照してください [このページ](https://msdn.microsoft.com/library/azure/dn798930.aspx)します。
-
-
-
-
 

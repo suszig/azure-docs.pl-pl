@@ -1,6 +1,6 @@
 <properties 
     pageTitle="SQL Server 仮想マシンに接続する | Microsoft Azure"
-    description="このトピックでは、クラシック デプロイ モデルで作成されたリソースを使用し、Azure の仮想マシンで実行している SQL Server に接続する方法について説明します。シナリオは、ネットワーク構成とクライアントの場所によって異なります。"
+    description="このトピックでは、クラシック デプロイ モデルで作成されたリソースを使用し、Azure の仮想マシンで実行している SQL Server に接続する方法について説明します。 シナリオは、ネットワーク構成とクライアントの場所によって異なります。"
     services="virtual-machines"
     documentationCenter="na"
     authors="rothja"
@@ -15,7 +15,6 @@
     ms.workload="infrastructure-services"
     ms.date="11/12/2015"
     ms.author="jroth" />
-
 
 # Azure での SQL Server 仮想マシンへの接続
 
@@ -33,17 +32,17 @@ Azure の仮想マシンで実行されている SQL Server への接続の構�
 
 クライアントから仮想マシンで実行されている SQL Server に接続する方法は、クライアントの場所と、マシンやネットワークの構成によって異なります。 これらのシナリオは、次のとおりです。
 
-- [同じクラウド サービス内の SQL Server に接続します。](#connect-to-sql-server-in-the-same-cloud-service)
-- [インターネット経由で SQL Server に接続します。](#connect-to-sql-server-over-the-internet)
-- [同じ仮想ネットワーク内の SQL Server に接続します。](#connect-to-sql-server-in-the-same-virtual-network)
+- [同一クラウド サービス内の SQL Server に接続する方法](#connect-to-sql-server-in-the-same-cloud-service)
+- [インターネット経由で SQL Server に接続する方法](#connect-to-sql-server-over-the-internet)
+- [同一仮想ネットワーク内で SQL Server に接続する方法](#connect-to-sql-server-in-the-same-virtual-network)
 
 ### 同一クラウド サービス内の SQL Server に接続する方法
 
 同じクラウド サービス内で複数の仮想マシンを作成できます。 この仮想マシンのシナリオを理解するのを参照してください。 [仮想ネットワークまたはクラウド サービスと仮想マシンを接続する方法](cloud-services-connect-virtual-machine.md)します。
 
-まず、に従って、 [接続を構成するには、この記事の手順を](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)します。 同じクラウド サービス内のマシン間で接続する場合は、パブリック エンドポイントをセットアップする必要はありません。
+まず、に従って、 [接続を構成するには、この記事の手順を](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)します。 同じクラウド サービス内のマシン間で接続する場合は、パブリック エンドポイントをセットアップする必要はありません。 
 
-クライアントの接続文字列で VM の**ホスト名**を使用できます。 このホスト名は、作成時に VM に付けた名前です。 たとえば、SQL VM の名前が **mysqlvm** で、クラウド サービスの DNS 名が **mycloudservice.cloudapp.net** の場合、同じクラウド サービス内のクライアント VM では、次の接続文字列を使用して接続できます。
+VM を使用する **ホスト名** クライアントの接続文字列にします。 このホスト名は、作成時に VM に付けた名前です。 たとえば、という名前を付けた SQL VM **mysqlvm** のクラウド サービス DNS 名を持つ **mycloudservice.cloudapp.net**, 、同じクラウド サービス内のクライアント VM は、次の接続文字列を使用して接続する可能性があります。
 
     "Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
@@ -51,12 +50,13 @@ Azure の仮想マシンで実行されている SQL Server への接続の構�
 
 インターネットから、SQL Server データベース エンジンに接続する場合は、着信 TCP 通信用の仮想マシンのエンドポイントを作成する必要があります。 この Azure 構成手順により、仮想マシンからアクセスできる TCP ポートに、着信する TCP ポート トラフィックが送信されます。
 
-まず、に従って、 [接続を構成するには、この記事の手順を](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)します。 クラウド サービスの DNS 名 (**mycloudservice.cloudapp.net** など) と VM のエンドポイント (**57500** など) を指定することによって、インターネットにアクセスできるクライアントから SQL Server インスタンスに接続できます。
+まず、に従って、 [接続を構成するには、この記事の手順を](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)します。 クラウド サービス DNS 名を指定することで、インターネットにアクセスできる任意のクライアントは、SQL Server インスタンスに接続し、でした (よう **mycloudservice.cloudapp.net**) と VM エンドポイント (よう **57500**)。
 
     "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-これでクライアントからインターネット経由での接続は有効になりますが、すべてのユーザーが SQL Server に接続できるわけではありません。 外部のクライアントは、ユーザー名とパスワードを修正する必要があります。 セキュリティを強化するために、既知のポート 1433 を仮想マシンのパブリック エンドポイントに使用しないでください。 また可能であれば、エンドポイントに ACL を追加して、許可されたクライアントのみにトラフィックを制限することを検討してください。 エンドポイントと Acl を使用する方法の詳細については、次を参照してください。 [エンドポイントの ACL の管理](virtual-machines-set-up-endpoints.md#manage-the-acl-on-an-endpoint)します。
->[AZURE.NOTE] この手法を使用して SQL Server と通信する場合は、返されるすべてのデータがデータセンターからの送信トラフィックと見なされることに注意してください。 標準の影響を受けます [送信データ転送の料金](http://azure.microsoft.com/pricing/details/data-transfers)します。 同じ Azure データ センター内の別のマシンまたはクラウド サービスからこの手法を使用する場合でも、やはりトラフィックが Azure のパブリック ロード バランサーを経由するため、同様の価格が適用されます。
+これでクライアントからインターネット経由での接続は有効になりますが、すべてのユーザーが SQL Server に接続できるわけではありません。 外部のクライアントは、ユーザー名とパスワードを修正する必要があります。 セキュリティを強化するために、既知のポート 1433 を仮想マシンのパブリック エンドポイントに使用しないでください。 また可能であれば、エンドポイントに ACL を追加して、許可されたクライアントのみにトラフィックを制限することを検討してください。 エンドポイントと Acl を使用する方法の詳細については、次を参照してください。 [エンドポイントの ACL の管理](virtual-machines-set-up-endpoints.md#manage-the-acl-on-an-endpoint)します。 
+
+>[AZURE.NOTE] この手法を使用して SQL Server と通信するときに返されるすべてのデータが反映されるデータ センターからの発信トラフィックに注意してください。 重要です。 標準の影響を受けます [送信データ転送の料金](http://azure.microsoft.com/pricing/details/data-transfers)します。 同じ Azure データ センター内の別のマシンまたはクラウド サービスからこの手法を使用する場合でも、やはりトラフィックが Azure のパブリック ロード バランサーを経由するため、同様の価格が適用されます。
 
 ### 同一仮想ネットワーク内で SQL Server に接続する方法
 
@@ -80,13 +80,9 @@ DNS が構成済みであることを前提として、接続文字列で SQL Se
 
 プロビジョニング接続手順と指示を表示するには、次を参照してください。 [Azure で SQL Server 仮想マシンをプロビジョニング](virtual-machines-provision-sql-server.md)します。
 
-高可用性と障害復旧のために AlwaysOn 可用性グループを使用する予定もある場合、リスナーの実装を検討してください。 データベース クライアントは、SQL Server インスタンスの 1 つに直接接続せずに、リスナーに接続します。 その上でリスナーがクライアントを可用性グループのプライマリ レプリカにルーティングします。 詳細については、次を参照してください。 [Azure で AlwaysOn 可用性グループ用の ILB リスナーを構成する](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)します。
+高可用性と障害復旧のために AlwaysOn 可用性グループを使用する予定もある場合、リスナーの実装を検討してください。 データベース クライアントは、SQL Server インスタンスの 1 つに直接接続せずに、リスナーに接続します。 その上でリスナーがクライアントを可用性グループのプライマリ レプリカにルーティングします。 詳細については、次を参照してください。 [Azure で AlwaysOn 可用性グループ用の ILB リスナーを構成する](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)です。
 
 Azure の仮想マシンで実行されている SQL Server のセキュリティに関するベスト プラクティスをすべて確認することが重要です。 詳細については、次を参照してください。 [Azure 仮想マシンにおける SQL Server のセキュリティの考慮事項](virtual-machines-sql-server-security-considerations.md)します。
 
-Azure Vm での SQL Server の実行に関連するその他のトピックを参照してください。 [Azure 仮想マシン上の SQL Server](virtual-machines-sql-server-infrastructure-services.md)します。
-
-
-
-
+Azure Vm での SQL Server の実行に関連するその他のトピックを参照してください。 [Azure 仮想マシン上の SQL Server](virtual-machines-sql-server-infrastructure-services.md)します。 
 

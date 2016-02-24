@@ -16,7 +16,6 @@
    ms.date="11/20/2015"
    ms.author="maroche"/>
 
-
 # Azure Data Catalog の用語集
 
 ## カタログ
@@ -60,7 +59,8 @@ Azure Data Catalog のプレビューは、最大 20 レコードのスナップ
 ## データ プロファイル
 
 Azure Data Catalog のデータ プロファイルとは、登録済みのデータ資産のテーブル レベルおよび列レベルのメタデータのスナップショットです。登録時にデータ ソースから抽出し、データ資産メタデータと共にカタログに格納できます。 データ プロファイルを使用すると、データ資産の機能と目的を理解しやすくなります。 データ プロファイルは、プレビューのように、登録時にユーザーから明示的に選択される必要があります。
-> [AZURE.NOTE] 大規模なテーブルおよびビューでデータ プロファイルを抽出する場合、リソースは大量に消費され、データ ソースの登録に必要な時間が大幅に増加する可能性があります。
+
+> [AZURE.NOTE] データ プロファイルを展開して、大規模なテーブルおよびビューのためのコストのかかる操作にできる、データ ソースを登録に必要な時間が大幅に増加します。
 
 ## ユーザーの観点
 
@@ -75,7 +75,7 @@ Azure Data Catalog では、登録されているデータ資産を説明する�
 ## 所有者
 
 所有者は、Azure Data Catalog のデータ資産を管理する追加の特権を持つユーザーです。 ユーザーは、登録したデータ資産の所有権を得ることができます。また、所有者は他のユーザーを共同所有者として追加することができます。
-> [AZURE.NOTE] 所有権と管理は、Azure Data Catalog の Standard Edition でのみ使用できます。
+> [AZURE.NOTE] 所有権と管理は、標準的な Azure Data Catalog の Edition でのみ使用できます。
 
 ## 登録
 
@@ -83,11 +83,7 @@ Azure Data Catalog では、登録されているデータ資産を説明する�
 
 ## 関連項目
 
-- [Azure Data Catalog は何ですか?](data-catalog-what-is-data-catalog.md) -この記事は、Azure Data Catalog サービス、もたらされる価値、サポートしているシナリオの概要を説明します。
+- [Azure Data Catalog は何ですか?](data-catalog-what-is-data-catalog.md) -この記事では、Azure Data Catalog サービス、もたらされる価値、サポートしているシナリオの概要を示します。
 
-- [Azure Data Catalog を使ってみる](data-catalog-get-started.md) -この記事は、データ ソースの検出に Azure Data Catalog を使用する方法を説明するエンド ツー エンド チュートリアルを紹介します。
-
-
-
-
+- [Azure Data Catalog を使ってみる](data-catalog-get-started.md) -この記事は、データ ソースの検出に Azure Data Catalog を使用する方法を説明するエンド ツー エンド チュートリアルを紹介します。  
 

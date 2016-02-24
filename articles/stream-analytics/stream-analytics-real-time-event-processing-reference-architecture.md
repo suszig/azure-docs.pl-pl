@@ -17,14 +17,13 @@
     ms.date="12/04/2015" 
     ms.author="jeffstok"/>
 
-
 # 参照アーキテクチャ: Microsoft Azure Stream Analytics によるリアルタイム イベント処理
 
 Azure Stream Analytics を使用したリアルタイム イベント処理のための参照アーキテクチャの目的は、リアルタイムのサービスとしてのプラットフォーム (PaaS) のストリーム処理ソリューションを、 Microsoft Azure でデプロイするための一般的な青写真を提供することです。
 
 ## 概要
 
-これまで分析ソリューションは、ETL (抽出、変換、読み込み) やデータ ウェアハウジングなどの機能を基盤としており、分析前のデータが格納されていました。 データ受信速度の向上を含む要件の変化によって、この既存モデルが限界に達しました。 データを、格納される前のストリームで流れている間に分析する機能は 1 つのソリューションとなります。これは新しい機能でないですが、このようなアプローチはすべての業種で広く採用されることはありませんでした。
+これまで分析ソリューションは、ETL (抽出、変換、読み込み) やデータ ウェアハウジングなどの機能を基盤としており、分析前のデータが格納されていました。 データ受信速度の向上を含む要件の変化によって、この既存モデルが限界に達しました。 データを、格納される前のストリームで流れている間に分析する機能は 1 つのソリューションとなります。これは新しい機能でないですが、このようなアプローチはすべての業種で広く採用されることはありませんでした。 
 
 Microsoft Azure は、さまざまなソリューションのシナリオと要件をサポートできる分析テクノロジの幅広い選択肢を提供します。 エンド ツー エンド ソリューション導入のためにデプロイする Azure サービスを選択するのは、サービスの幅広さを考えると困難な作業です。 このドキュメントの目的は、イベント ストリーミング ソリューションをサポートするさまざまな Azure サービスの機能および相互運用性について説明することです。 また、このようなアプローチによってユーザーがメリットを得られるシナリオもいくつか説明します。
 
@@ -42,9 +41,9 @@ Microsoft Azure は、さまざまなソリューションのシナリオと要�
     - プレゼンテーション層 / 消費層
 - まとめ
 
-**執筆者:** Charles Feddersen、Microsoft Corporation のData Insights Center of Excellence チームに所属するソリューション設計者
+**執筆者:** 卓越した、米国 Microsoft corporation の Data Insights Center の Charles Feddersen、ソリューション アーキテクト
 
-**公開:** 2015 年 1 月
+**公開日:** 2015 年 1 月
 
 **リビジョン:** 1.0
 
@@ -52,19 +51,14 @@ Microsoft Azure は、さまざまなソリューションのシナリオと要�
 
 
 ## 問い合わせ
-
-詳細については、当社を参照してください [Azure Stream Analytics フォーラム](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+詳細については、参照してください、 [Azure Stream Analytics フォーラム](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## 次のステップ
 
 - [Azure Stream Analytics の概要](stream-analytics-introduction.md)
-- [Azure Stream Analytics の使用を開始します。](stream-analytics-get-started.md)
-- [Azure Stream Analytics ジョブをスケーリングします。](stream-analytics-scale-jobs.md)
-- [Azure Stream Analytics クエリ言語リファレンス](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Azure Stream Analytics Management REST API リファレンス](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [Azure Stream Analytics の使用](stream-analytics-get-started.md)
+- [Azure Stream Analytics ジョブのスケーリング](stream-analytics-scale-jobs.md)
+- [Stream Analytics Query Language Reference (Stream Analytics クエリ言語リファレンス)](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics management REST API reference (Azure ストリーム分析の管理 REST API リファレンス)](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-
-
-
-
-
+ 

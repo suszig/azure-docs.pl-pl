@@ -17,15 +17,14 @@
     ms.author="sethm"/>
 
 
-
 # Service Bus のトピックとサブスクリプションの使用方法
 
 [AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 Service Bus のトピックとサブスクリプションを使用する方法を説明します。
-Node.js アプリケーションです。 ここでは * * を作成します。
-トピックとサブスクリプション**, 、* * サブスクリプション フィルターの作成**, 、* * を送信します。
-トピックにメッセージ * **サブスクリプションからメッセージを受信**, と
+Node.js アプリケーションです。 紹介するシナリオ **を作成します。
+トピックとサブスクリプション**, 、**サブスクリプション フィルターの作成**, 、**を送信します。
+メッセージ** トピックに **サブスクリプションからメッセージを受信**, と
 **トピックとサブスクリプションの削除**します。 詳細についてはに関するトピック
 サブスクリプションを参照し、 [次のステップ](#next-steps) セクションです。
 
@@ -33,7 +32,7 @@ Node.js アプリケーションです。 ここでは * * を作成します。
 
 ## Node.js アプリケーションの作成
 
-空の Node.js アプリケーションを作成します。 Node.js アプリケーションを作成する方法の詳細については、次を参照してください。 [作成および Node.js アプリケーションを Azure Web サイトの展開]、 [Node.js クラウド Service][node.js cloud service] (Windows PowerShell を使用)、または WebMatrix による Web サイトです。
+空の Node.js アプリケーションを作成します。 Node.js アプリケーションを作成する方法の詳細については、次を参照してください。 [Create and deploy a Node.js application to an Azure Web Site], 、[Node.js クラウド サービス][Node.js Cloud Service] (Windows PowerShell を使用)、または WebMatrix による Web サイトです。
 
 ## Service Bus を使用するようにアプリケーションを構成する
 
@@ -42,7 +41,7 @@ Service Bus REST サービスと通信するための便利なライブラリの
 
 ### ノード パッケージ マネージャー (NPM) を使用してパッケージを取得する
 
-1.  **PowerShell** (Windows)、**Terminal** (Mac)、**Bash** (Unix) などのコマンド ライン インターフェイスを使用して、サンプル アプリケーションを作成したフォルダーに移動します。
+1.  コマンド ライン インターフェイスを使用して **PowerShell** (Windows)、 **ターミナル** (Mac)、または **Bash** (Unix)、サンプル アプリケーションを作成したフォルダーに移動します。
 
 2.  型 **npm のインストール azure** コマンド ウィンドウにする必要があります
     次のような出力が生成されます。
@@ -69,7 +68,7 @@ Service Bus REST サービスと通信するための便利なライブラリの
 ### モジュールのインポート
 
 メモ帳などのテキスト エディターを使用して、アプリケーションの
-**server.js** 、アプリケーションのファイル。
+ **server.js** 、アプリケーションのファイル。
 
 ```
 var azure = require('azure');
@@ -77,15 +76,15 @@ var azure = require('azure');
 
 ### Service Bus 接続の設定
 
-Azure モジュールは、Service Bus への接続に必要な情報を環境変数 azure \_servicebus\_namespace と azure \_servicebus\_access\_key を読み取ります。 これらの環境変数が設定されていない場合、**createServiceBusService** を呼び出すときにアカウント情報を指定する必要があります。
+Azure モジュールは、Service Bus への接続に必要な情報を環境変数 azure \_servicebus\_namespace と azure \_servicebus\_access\_key を読み取ります。 これらの環境変数が設定されていない場合を呼び出すときにアカウント情報を指定する必要があります **createServiceBusService**します。
 
-Azure クラウド サービスの構成ファイルで環境変数を設定の例は、次を参照してください。 [Node.js クラウド サービス ストレージを [] に関する][]します。
+Azure クラウド サービスの構成ファイルで環境変数を設定の例は、次を参照してください。 [Node.js クラウド サービス ストレージに関する][]します。
 
-環境変数を設定の例については、 [Azure クラシック ポータルの [][] Azure の web サイトを参照してください。 [ストレージ [] を使用する Node.js Web アプリケーション][]します。
+環境変数を設定の例については、 [Azure クラシック ポータル][] Azure の web サイトを参照してください。 [使用する Node.js Web アプリケーション][]します。
 
 ## トピックを作成する
 
-**ServiceBusService** オブジェクトを使用すると、トピックを操作できます。 この
+ **ServiceBusService** オブジェクトでは、トピックを操作することができます。 この
 次のコードを作成、 **ServiceBusService** オブジェクトです。 付近に追加します
 一番上、 **server.js** 、azure にインポートするステートメントの後のファイル
 。
@@ -128,13 +127,13 @@ serviceBusService.createTopicIfNotExists('MyTopic', topicOptions, function(error
 
 ### フィルター
 
-オプションのフィルター操作は、**ServiceBusService** を使用して行われる操作に適用できます。 フィルター操作には、ログや自動的な再試行などが含まれる場合があります。フィルターは、次のシグネチャを持つメソッドを実装するオブジェクトです。
+オプションのフィルター操作を使用して行われる操作に適用できます **ServiceBusService**します。 フィルター操作には、ログや自動的な再試行などが含まれる場合があります。フィルターは、次のシグネチャを持つメソッドを実装するオブジェクトです。
 
 ```
 function handle (requestOptions, next)
 ```
 
-メソッドを呼び出して要求オプションに対するプリプロセスを実行すると、 `次` 次のシグネチャのコールバックを渡すこと。
+要求オプションに対するプリプロセスを実行した後で、このメソッドは `next` を呼び出して、次のシグネチャのコールバックを渡します。
 
 ```
 function (returnObject, finalCallback, next)
@@ -142,7 +141,7 @@ function (returnObject, finalCallback, next)
 
 このコールバックで、returnObject (サーバーへの要求からの応答) の処理の後に、コールバックは next を呼び出すか (他のフィルターの処理を続けるために next が存在する場合)、単に finalCallback を呼び出す必要があります (サービス呼び出しを終了する場合)。
 
-再試行のロジックを実装する 2 つのフィルター (**ExponentialRetryPolicyFilter** と **LinearRetryPolicyFilter**) が、Azure SDK for Node.js に含まれています。 次のコードは、**ExponentialRetryPolicyFilter** を使う **ServiceBusService** オブジェクトを作成します。
+再試行ロジックを実装する 2 つのフィルターが Azure SDK for Node.js に含まれて **ExponentialRetryPolicyFilter** と **LinearRetryPolicyFilter**します。 次の作成、 **ServiceBusService** を使用するオブジェクト、 **ExponentialRetryPolicyFilter**:
 
     var retryOperations = new azure.ExponentialRetryPolicyFilter();
     var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
@@ -153,6 +152,7 @@ function (returnObject, finalCallback, next)
 できます。 サブスクリプションを指定し、
 配信されたメッセージのセットを制限、サブスクリプションの仮想
 。
+
 > [AZURE.NOTE] サブスクリプションは永続的でありされるまで存在し続けます
 または、関連付けられているトピックが削除されます。 アプリケーションが
 アプリケーションが、サブスクリプションを作成するためのロジックを含む、最初にすべき
@@ -161,7 +161,7 @@ function (returnObject, finalCallback, next)
 
 ### 既定の (MatchAll) フィルターを適用したサブスクリプションの作成
 
-**MatchAll** フィルターはフィルターなしの場合に使用される既定のフィルター
+ **MatchAll** フィルターはフィルターなしの場合に使用される既定のフィルター
 に使用される既定のフィルターです。 ときに、 **MatchAll**
 フィルターを使用すると、トピックに発行されたすべてのメッセージが
 サブスクリプションの仮想キューに置かれます。 次の例では、
@@ -185,11 +185,12 @@ serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
 **SqlFilter**, 、SQL92 のサブセットを実装します。 SQL フィルターは
 トピックに発行されるメッセージのプロパティに対して適用されます。 次に
 SQL フィルターで使用できる式の詳細については、
-確認、 [SqlFilter.SqlExpression][sqlfilter.sqlexpression] 構文です。
+確認、 [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 構文です。
 
 使用して、サブスクリプションにフィルターを追加することができます、 **createRule**
 メソッド、 **ServiceBusService** オブジェクトです。 このメソッドを使用すると、
 新しいフィルターを既存のサブスクリプションに追加します。
+
 > [AZURE.NOTE] 既定のフィルターが適用されるため自動的にすべてに新しい
 サブスクリプションの場合、既定のフィルター最初に削除する必要がありますか
 **MatchAll** その他のフィルターを指定することよりも優先されます。 Visual Studio Online アカウントは
@@ -233,8 +234,8 @@ var rule={
 ```
 
 同様に、次の例では
-`LowMessages` で、 **SqlFilter** のみを持つメッセージを選択します。
-**messagenumber** 3 のプロパティが。
+`LowMessages`  **SqlFilter** のみを持つメッセージを選択します。
+ **messagenumber** 3 のプロパティが。
 
 ```
 serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
@@ -272,18 +273,18 @@ var rule={
 メッセージを今すぐ送信と `MyTopic`, に必ず配信されます
 サブスクライブした受信者、 `AllMessages` トピック サブスクリプションと
 サブスクライブされた受信者に対して選択的に配信される、 `HighMessages` と
-`LowMessages` トピック サブスクリプション (メッセージの内容によっては)。
+`LowMessages` トピック サブスクリプションは (メッセージの内容によっては)。
 
 ## メッセージをトピックに送信する方法
 
 アプリケーションでサービス バス トピックにメッセージを送信するには、
 **sendTopicMessage** のメソッド、 **ServiceBusService** オブジェクトです。
-Service Bus トピックに送信されたメッセージは **BrokeredMessage** オブジェクトです。
+サービス バス トピックに送信されたメッセージは **BrokeredMessage** オブジェクトです。
 **BrokeredMessage** オブジェクト (次のように標準的なプロパティ セットがあります。
-**ラベル** と **TimeToLive**)、カスタムの保持に使用するディクショナリ
+**ラベルを付ける** と **TimeToLive**)、カスタムの保持に使用するディクショナリ
 アプリケーション固有のプロパティ、および文字列データの本体。 この
 アプリケーションは、文字列値を渡すことによってメッセージの本文を設定することができます。
-**sendTopicMessage** 必要なすべての標準的なプロパティがあります
+ **sendTopicMessage** 必要なすべての標準的なプロパティがあります
 既定値に設定します。
 
 次の例では、
@@ -392,19 +393,19 @@ Service Bus はメッセージを自動的に解除され、使用できるよ�
 メッセージが処理された後、
 前に、 **deleteMessage** メソッドが呼び出されると、メッセージは
 アプリケーションが再起動する際にメッセージが再配信されます。 一般的に、
-**には、少なくとも 1 回処理**, でのすべてのメッセージの処理は、
+**1 回以上処理**, でのすべてのメッセージの処理は、
 特定の状況では、同じメッセージが再配信される可能性があります。
 再配信されます。 重複処理が許されないシナリオの場合、
 重複メッセージの配信を扱うロジックを
 アプリケーションに追加する必要があります。 通常、この問題はメッセージの
-**MessageId** にわたって一定に保たれますメッセージのプロパティ
+**MessageId** 間で一定に保たれますメッセージのプロパティ
 。
 
 ## トピックとサブスクリプションを削除する
 
 トピックおよびサブスクリプションは永続的であり、
-使用するか、 [Azure クラシック ポータルの [][] またはプログラムを使用しています。
-次の例では、という名前のトピックを削除する方法 `MyTopic`:
+使用するか、 [Azure クラシック ポータル][] またはプログラムを使用しています。
+次の例では、`MyTopic` という名前のトピックを削除する方法を示します。
 
     serviceBusService.deleteTopic('MyTopic', function (error) {
         if (error) {
@@ -415,7 +416,7 @@ Service Bus はメッセージを自動的に解除され、使用できるよ�
 トピックを削除すると、そのトピックに登録されたサブスクリプションもすべて
 削除されます。 サブスクリプションは、個別に削除することもできます。 この
 次の例は、という名前のサブスクリプションを削除する方法を示しています。
-`HighMessages` から、 `MyTopic` トピック。
+`HighMessages`  `MyTopic` トピック。
 
     serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error) {
         if(error) {
@@ -427,18 +428,18 @@ Service Bus はメッセージを自動的に解除され、使用できるよ�
 
 これで、Service Bus トピックの基本を学習できました。さらに詳細な情報が必要な場合は、次のリンク先を参照してください。
 
--   参照してください [キュー、トピック、およびサブスクリプションの][]します。
--   API リファレンス [SqlFilter:operator[]][]します。
--   参照してください、 [ノードの Azure SDK][] GitHub のリポジトリです。
+-   参照してください [キュー、トピック、およびサブスクリプション][]します。
+-   API リファレンス [SqlFilter][]します。
+-   参照してください、 [Azure SDK for Node][] GitHub のリポジトリです。
 
-
-[azure sdk for node]: https://github.com/WindowsAzure/azure-sdk-for-node 
-[azure classic portal]: http://manage.windowsazure.com 
-[sqlfilter.sqlexpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx 
-[queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md 
-[sqlfilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx 
-[node.js cloud service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md 
-[create and deploy a node.js application to an azure web site]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md 
-[node.js cloud service with storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md 
-[node.js web application with storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md 
+  [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
+  [Azure classic portal]: http://manage.windowsazure.com
+  [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+  [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
+  [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
+  [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+  [Create and deploy a Node.js application to an Azure Web Site]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+  [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+  [Node.js Web Application with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+ 
 

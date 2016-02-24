@@ -17,16 +17,15 @@
    ms.author="dobett"/>
 
 
-
 # デバイスを IoT Suite リモート監視構成済みソリューションに接続する
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## node.js サンプル ソリューションのビルドと実行
 
-1. クローンを作成する、 *Microsoft Azure の IoT Sdk* GitHub リポジトリをインストールし、 *Node.js 用の Microsoft Azure の IoT デバイスの SDK* 、デスクトップ環境で次の [[lnk-github の準備] 開発環境を準備する][lnk-github-prepare] 指示します。
+1. クローンを作成する、 *Microsoft Azure の IoT Sdk* GitHub リポジトリをインストールし、 *Node.js 用の Microsoft Azure の IoT デバイスの SDK* 、デスクトップ環境で次の [開発環境を準備][lnk-github-prepare] 指示します。
 
-2. ローカル コピーから、 [azure iot sdk ][lnk-github-repo] リポジトリ、デバイス上のフォルダーのノード/デバイス/samples フォルダーからのファイルの次の 2 つのコピー。
+2. ローカル コピーから、 [azure iot-sdk][lnk-github-repo] リポジトリ、デバイス上のフォルダーのノード/デバイス/samples フォルダーからのファイルの次の 2 つのコピー。
 
   - packages.json
   - remote_monitoring.js
@@ -37,13 +36,13 @@
     var connectionString = "[IoT Hub device connection string]";
     ```
 
-4. **[IoT Hub device connection string]** を、デバイスの接続文字列に置き換えます。 IoT Hub のホスト名、デバイス ID およびデバイス キーの値は、リモート監視ソリューション ダッシュボードにあります。 デバイスの接続文字列は、次の形式にする必要があります。
+4. 置換 **[IoT Hub デバイスの接続文字列]** 、デバイスの接続文字列を使用します。 IoT Hub のホスト名、デバイス ID およびデバイス キーの値は、リモート監視ソリューション ダッシュボードにあります。 デバイスの接続文字列は、次の形式にする必要があります。
 
     ```
     HostName={your IoT Hub hostname};DeviceId={your device id};SharedAccessKey={your device key}
     ```
 
-5. IoT Hub のホスト名が **contoso** でデバイス ID が **mydevice** の場合、接続文字列は以下のようになります。
+5. IoT Hub のホスト名の場合 **contoso** 、デバイス id が **mydevice**, 、接続文字列は次のようになります。
 
     ```
     var connectionString = "HostName=contoso.azure-devices.net;DeviceId=mydevice;SharedAccessKey=2s ... =="
@@ -58,8 +57,6 @@
 
 [AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
-
-[lnk-github-repo]: https://github.com/azure/azure-iot-sdks 
-[lnk-node-installers]: https://nodejs.org/download/ 
-[lnk-github-prepare]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/doc/devbox_setup.md 
-
+[lnk-github-repo]: https://github.com/azure/azure-iot-sdks
+[lnk-node-installers]: https://nodejs.org/download/
+[lnk-github-prepare]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/doc/devbox_setup.md

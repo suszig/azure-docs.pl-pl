@@ -16,7 +16,6 @@
    ms.date="12/01/2015"
    ms.author="curtand;kenhoff"/>
 
-
 # Azure Active Directory レポートの使用の開始
 
 ## 説明
@@ -55,6 +54,7 @@ Azure Active Directory (Azure AD) には、ディレクトリに関するセキ�
 
 ## 動作のしくみ
 
+
 ### レポート パイプライン
 
 レポート パイプラインは、次の 3 つの主要な手順で構成されます。 ユーザーがサインインするたびに、または認証が行われるたびに、次の処理が実行されます。
@@ -70,11 +70,13 @@ Azure AD プラットフォームによって処理される認証およびサ�
 各レポートの最上部のヘルプ テキストを調べることで、最新の処理済みサインインを確認できます。
 
 ![各レポートの上部のヘルプ テキスト](./media/active-directory-reporting-getting-started/reportingWatermark.PNG)
+
 > [AZURE.TIP] Azure AD レポートの詳細については、チェック アウト [アクセスおよび使用状況レポートの表示](active-directory-view-access-usage-reports.md)します。
 
 
 
 ## 使用の開始
+
 
 ### Azure クラシック ポータルにサインインする
 
@@ -101,6 +103,7 @@ Azure AD プラットフォームによって処理される認証およびサ�
 任意のレポートを CSV としてダウンロードするには、レポートに移動し、下部にある [ダウンロード] をクリックします。
 
 ![[ダウンロード] ボタン](./media/active-directory-reporting-getting-started/downloadButton.png)
+
 > [AZURE.TIP] Azure AD レポートの詳細については、チェック アウト [アクセスおよび使用状況レポートの表示](active-directory-view-access-usage-reports.md)します。
 
 
@@ -129,7 +132,8 @@ Azure AD プラットフォームによって処理される認証およびサ�
 
 画面の下部の [MFA を有効にする] をクリックします。
 
-![画面下部の](./media/active-directory-reporting-getting-started/mfaButton.png)
+![画面下部の[多要素認証] ボタン](./media/active-directory-reporting-getting-started/mfaButton.png)
+
 > [AZURE.TIP] Azure AD レポートの詳細については、チェック アウト [アクセスおよび使用状況レポートの表示](active-directory-view-access-usage-reports.md)します。
 
 
@@ -137,9 +141,10 @@ Azure AD プラットフォームによって処理される認証およびサ�
 
 ## 詳細情報
 
+
 ### イベントを監査する
 
-どのようなイベントについては、ディレクトリで監査対象の学習 [Azure Active Directory レポートの監査イベント](active-directory-reporting-audit-events.md)します。
+どのようなイベントについては、ディレクトリで監査対象の学習 [Azure Active Directory レポートの監査イベント](active-directory-reporting-audit-events.md)です。
 
 ### API の統合
 
@@ -148,9 +153,6 @@ Azure AD プラットフォームによって処理される認証およびサ�
 ### お問い合わせ
 
 電子メール [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com) フィードバック、サポート、またはご質問がある可能性があります。
+
 > [AZURE.TIP] Azure AD レポートの詳細については、チェック アウト [アクセスおよび使用状況レポートの表示](active-directory-view-access-usage-reports.md)します。
-
-
-
-
 

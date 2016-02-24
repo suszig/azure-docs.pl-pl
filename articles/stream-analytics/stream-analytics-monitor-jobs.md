@@ -18,15 +18,12 @@
     ms.author="jeffstok"/>
 
 
-
 # Stream Analytics ジョブ モニターをプログラムで作成する
+ この記事では、Stream Analytics ジョブの監視を有効にする方法を示します。 REST API、Azure SDK、または Powershell を介して作成された Stream Analytics ジョブは、既定では監視は有効になっていません。  Azure ポータルで、ジョブの [監視] ページに移動し、[有効にする] ボタンをクリックして、手動で監視を有効にできます。または、この記事にある手順に従って、有効にするプロセスを自動化することもできます。 監視データは、Stream Analytics ジョブ用の Azure ポータルの [監視] タブに表示されます。
 
- この記事では、Stream Analytics ジョブの監視を有効にする方法を示します。 REST API、Azure SDK、または Powershell を介して作成された Stream Analytics ジョブは、既定では監視は有効になっていません。 Azure ポータルで、ジョブの [監視] ページに移動し、[有効にする] ボタンをクリックして、手動で監視を有効にできます。または、この記事にある手順に従って、有効にするプロセスを自動化することもできます。 監視データは、Stream Analytics ジョブ用の Azure ポータルの [監視] タブに表示されます。
-
-![ジョブ モニター、](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
+![ジョブ モニター、[ジョブ] タブ](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
 
 ## 前提条件
-
 この記事を読み始める前に、次の項目を用意する必要があります。
 
 - Visual Studio 2012 または 2013。
@@ -48,7 +45,7 @@
 
     ```
     <appSettings>
-        
+        <!--CSM Prod related values-->
         <add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
         <add key="JobName" value="YOUR JOB NAME" />
         <add key="StorageAccountName" value="YOUR STORAGE ACCOUNT"/>
@@ -61,12 +58,12 @@
         <add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
     </appSettings>
     ```
-*SubscriptionId* および *ActiveDirectoryTenantId* の値を Azure サブスクリプションとテナント ID に置き換えます。 次の PowerShell コマンドレットを実行すると、これらの値を取得できます。
+値を置き換える *SubscriptionId* と *ActiveDirectoryTenantId* を Azure サブスクリプションとテナント Id です。 次の PowerShell コマンドレットを実行すると、これらの値を取得できます。
 
     ```
     Get-AzureAccount
     ```
-4.  次の using ステートメントをプロジェクト内のソース ファイル (Program.cs) に追加します。
+4.  次の using ステートメントをプロジェクト内のソース ファイル (Program.cs) に追加します。 
 
     ```
         using System;
@@ -81,59 +78,57 @@
     ```
 5.  認証ヘルパー メソッドを追加します。
 
-    public static string GetAuthorizationHeader()
-        {
-            AuthenticationResult result = null;
-            var thread = new Thread(() =>
+        public static string GetAuthorizationHeader()
             {
-                try
+                AuthenticationResult result = null;
+                var thread = new Thread(() =>
                 {
-                    var context = new AuthenticationContext(
-                        ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
-                        ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
-    
-                    result = context.AcquireToken(
-                        resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
-                        clientId: ConfigurationManager.AppSettings["AsaClientId"],
-                        redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
-                        promptBehavior: PromptBehavior.Always);
-                }
-                catch (Exception threadEx)
-                {
-                    Console.WriteLine(threadEx.Message);
-                }
-            });
-    
-            thread.SetApartmentState(ApartmentState.STA);
-            thread.Name = "AcquireTokenThread";
-            thread.Start();
-            thread.Join();
-    
-            if (result != null)
-            {
-                return result.AccessToken;
-            }
-    
-            throw new InvalidOperationException("Failed to acquire token");
-    }
+                    try
+                    {
+                        var context = new AuthenticationContext(
+                            ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
+                            ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
 
+                        result = context.AcquireToken(
+                            resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+                            clientId: ConfigurationManager.AppSettings["AsaClientId"],
+                            redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
+                            promptBehavior: PromptBehavior.Always);
+                    }
+                    catch (Exception threadEx)
+                    {
+                        Console.WriteLine(threadEx.Message);
+                    }
+                });
+
+                thread.SetApartmentState(ApartmentState.STA);
+                thread.Name = "AcquireTokenThread";
+                thread.Start();
+                thread.Join();
+
+                if (result != null)
+                {
+                    return result.AccessToken;
+                }
+
+                throw new InvalidOperationException("Failed to acquire token");
+        }
 
 ## 管理クライアントの作成
-
 次のコードは、必要な変数と管理クライアントをセットアップします。
 
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
     string streamAnalyticsJobName = "<YOUR STREAM ANALYTICS JOB NAME>";
-    
+
     // Get authentication token
     TokenCloudCredentials aadTokenCredentials =
         new TokenCloudCredentials(
             ConfigurationManager.AppSettings["SubscriptionId"],
             GetAuthorizationHeader());
-    
+
     Uri resourceManagerUri = new
     Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
-    
+
     // Create Stream Analytics and Insights management client
     StreamAnalyticsManagementClient streamAnalyticsClient = new
     StreamAnalyticsManagementClient(aadTokenCredentials, resourceManagerUri);
@@ -142,15 +137,16 @@
 
 ## 既存の Stream Analytics ジョブに対する監視の有効化
 
-次のコードは、**既存の** Stream Analytics ジョブに対して監視を有効にします。 コードの最初の部分では、Stream Analytics サービスに対して GET 要求を実行して、特定の Stream Analytics ジョブに関する情報を取得します。 コードの後半部分では、GET 要求で取得した "Id" プロパティをパラメーターとして Put メソッドが Insights サービスに送信され、Stream Analytics ジョブの監視を有効にします。
+次のコードでは、監視を有効には、 **既存** Stream Analytics ジョブ。 コードの最初の部分では、Stream Analytics サービスに対して GET 要求を実行して、特定の Stream Analytics ジョブに関する情報を取得します。 コードの後半部分では、GET 要求で取得した "Id" プロパティをパラメーターとして Put メソッドが Insights サービスに送信され、Stream Analytics ジョブの監視を有効にします。
+
 > [AZURE.WARNING]
-> Azure Portal から、または次のコードを使用してプログラムにより、別の Stream Analytics ジョブの監視を有効にしている場合、**前に監視を有効にしたときと同じストレージ アカウント名を指定することをお勧めします。**
+> Azure ポータルを通じて、またはを使用してプログラムでさまざまな Stream Analytics ジョブの監視を既に有効にした場合、次のコード、 **の監視を有効になっていたときと同じストレージ アカウント名を指定することをお勧めします。**
 > 
 > ストレージ アカウントは、特定のジョブ自体ではなく、Stream Analytics ジョブを作成したリージョンに関連付けられます。 
 > 
 > 同じリージョン内のすべての Stream Analytics ジョブ (その他のすべての Azure リソースを含む) で、このストレージ アカウントを共有して監視データを格納します。 別のストレージ アカウントを指定すると、他の Stream Analytics ジョブやその他の Azure リソースの監視に意図しない副作用が発生することがあります。
 > 
-> 置換するために使用するストレージ アカウント名 `「< ストレージ アカウント名 >」` 以下する必要がある Stream Analytics ジョブと同じサブスクリプションにあるストレージ アカウントは、監視を有効にします。
+> 次の ```“<YOUR STORAGE ACCOUNT NAME>”``` の置き換えに使用するストレージ アカウント名は、監視を有効にする Stream Analytics ジョブと同じサブスクリプション内にあるストレージ アカウントにする必要があります。
 
     // Get an existing Stream Analytics job
     JobGetParameters jobGetParameters = new JobGetParameters()
@@ -158,7 +154,7 @@
         PropertiesToExpand = "inputs,transformation,outputs"
     };
     JobGetResponse jobGetResponse = streamAnalyticsClient.StreamingJobs.Get(resourceGroupName, streamAnalyticsJobName, jobGetParameters);
-    
+
     // Enable monitoring
     ServiceDiagnosticSettingsPutParameters insightPutParameters = new ServiceDiagnosticSettingsPutParameters()
     {
@@ -169,20 +165,17 @@
     };
     insightsClient.ServiceDiagnosticSettingsOperations.Put(jobGetResponse.Job.Id, insightPutParameters);
 
-## サポートを受ける
 
-詳細については、参照してください、 [Azure Stream Analytics フォーラム](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)します。
+
+## サポートを受ける
+詳細については、参照してください、 [Azure Stream Analytics フォーラム](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)します。 
 
 
 ## 次のステップ
 
 - [Azure Stream Analytics の概要](stream-analytics-introduction.md)
-- [Azure Stream Analytics の使用を開始します。](stream-analytics-get-started.md)
-- [Azure Stream Analytics ジョブをスケーリングします。](stream-analytics-scale-jobs.md)
-- [Azure Stream Analytics クエリ言語リファレンス](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Azure Stream Analytics Management REST API リファレンス](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-
-
-
-
+- [Azure Stream Analytics の使用](stream-analytics-get-started.md)
+- [Azure Stream Analytics ジョブのスケーリング](stream-analytics-scale-jobs.md)
+- [Stream Analytics Query Language Reference (Stream Analytics クエリ言語リファレンス)](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics management REST API reference (Azure ストリーム分析の管理 REST API リファレンス)](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+ 

@@ -17,7 +17,6 @@
    ms.date="12/11/2015"
    ms.author="telmos" />
 
-
 # PowerShell での静的プライベート IP アドレス (クラシック) の設定方法
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
@@ -28,11 +27,10 @@
 
 [AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-以下のサンプル PowerShell コマンドでは、単純な環境が既に作成されていると想定します。 このドキュメントに表示されているように、コマンドを実行する場合は、最初に説明されているテスト環境にビルド [vnet を作成する](virtual-networks-create-vnet-classic-netcfg-ps.md)します。
+以下のサンプル PowerShell コマンドでは、単純な環境が既に作成されていると想定します。 このドキュメントに表示されているように、コマンドを実行する場合は、最初に説明されているテスト環境にビルド [vnet を作成する](virtual-networks-create-vnet-classic-netcfg-ps.md)です。
 
 ## 特定の IP アドレスが使用可能であるかを確認する方法
-
-IP アドレス *192.168.1.101* が *TestVnet* という VNet で使用可能かどうかを確認するには、次の PowerShell コマンドを実行して、*IsAvailable* の値を確認します。
+場合を確認する IP アドレス *192.168.1.101* という vnet で使用できるは *TestVnet*, 次の PowerShell コマンドを実行しの値を確認して、 *IsAvailable*:
 
     Test-AzureStaticVNetIP –VNetName TestVNet –IPAddress 192.168.1.101 
 
@@ -45,8 +43,7 @@ IP アドレス *192.168.1.101* が *TestVnet* という VNet で使用可能か
     OperationStatus      : Succeeded
 
 ## VM 作成時に静的プライベート IP アドレスを指定する方法
-
-以下の PowerShell スクリプトによって *TestService* という新しいクラウド サービスが作成され、Azure からイメージが取得されます。次に、その取得されたイメージを使用して *DNS01* という VM が新しいクラウド サービス内に作成され、その VM は *FrontEnd* というサブネットに含まれるように設定され、VM の静的プライベート IP アドレスとして *192.168.1.7* が設定されます。
+次の PowerShell スクリプトをという名前の新しいクラウド サービスを作成 *TestService*, 、Azure からのイメージを取得し、という名前の VM を作成 *DNS01* 、新しいクラウド サービスではという名前のサブネットに存在する VM を設定、取得したイメージを使用して *フロント エンド*, 、設定と *192.168.1.7 から* 1 は、VM の静的なプライベート IP アドレス。
 
     New-AzureService -ServiceName TestService -Location "Central US"
     $image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
@@ -65,8 +62,7 @@ IP アドレス *192.168.1.101* が *TestVnet* という VNet で使用可能か
     New-AzureVM          3b99a86d-84f8-04e5-888e-b6fc3c73c4b9 Succeeded  
 
 ## VM 用の静的プライベート IP アドレス情報を取得する方法
-
-上記のスクリプトで作成した VM の静的プライベート IP アドレス情報を表示するには、次の PowerShell コマンドを実行し、*IpAddress* の値を確認します。
+前述のスクリプトで作成した VM の静的なプライベート IP アドレス情報を表示する次の PowerShell コマンドを実行しの値を確認します *IpAddress*:
 
     Get-AzureVM -Name DNS01 -ServiceName TestService
 
@@ -100,9 +96,8 @@ IP アドレス *192.168.1.101* が *TestVnet* という VNet で使用可能か
     OperationStatus             : OK
 
 ## VM から静的プライベート IP アドレスを削除する方法
-
 上記のスクリプトで VM に追加された静的プライベート IP アドレスを削除するには、次の PowerShell コマンドを実行します。
-
+    
     Get-AzureVM -ServiceName TestService -Name DNS01 `
     | Remove-AzureStaticVNetIP `
     | Update-AzureVM
@@ -114,7 +109,6 @@ IP アドレス *192.168.1.101* が *TestVnet* という VNet で使用可能か
     Update-AzureVM       052fa6f6-1483-0ede-a7bf-14f91f805483 Succeeded
 
 ## 既存の VM に静的プライベート IP アドレスを追加する方法
-
 上記のスクリプトを使用して作成した VM に静的プライベート IP アドレスを追加するには、次のコマンドを実行します。
 
     Get-AzureVM -ServiceName TestService -Name DNS01 `
@@ -132,7 +126,3 @@ IP アドレス *192.168.1.101* が *TestVnet* という VNet で使用可能か
 - について学習 [予約済みパブリック IP](../virtual-networks-reserved-public-ip) アドレス。
 - について学習 [インスタンス レベル パブリック IP (ILPIP)](../virtual-networks-instance-level-public-ip) アドレス。
 - 参照してください、 [予約済み IP REST Api](https://msdn.microsoft.com/library/azure/dn722420.aspx)します。
-
-
-
-

@@ -16,18 +16,17 @@
    ms.date="12/04/2015"
    ms.author="larryfr"/>
 
-
 # HDInsight で Storm を使用して Azure Event Hubs のイベントを処理する (＃C)
 
 Azure Event Hubs では、Web サイト、アプリ、デバイスで発生する大量のデータを処理できます。 Event Hubs スパウトでは、HDInsight で Apache Storm を使用してこのデータをリアルタイムで簡単に分析できます。 また、Event Hubs のボルトを使用して Storm から Event Hub にデータを書き込むこともできます。
 
 このチュートリアルでは、HDInsight Tools for Visual Studio と Event Hubs スパウトおよびボルトを使用して、次の 2 つのハイブリッド C#/Java トポロジを作成する方法について説明します。
 
-* **EventHubWriter**: データをランダムに生成して Event Hubs に書き込む
+* **EventHubWriter**: ランダムにデータを生成し、Event Hubs に書き込む
 
-* **EventHubReader**: Event Hubs からデータを読み取って Azure テーブル ストレージに格納する
+* **EventHubReader**: Event Hubs からデータを読み取って Azure テーブル ストレージに格納
 
-[AZURE です。[メモ] このドキュメントの手順では、Windows ベースの HDInsight クラスターでのみ機能します。 Linux または Windows ベースのクラスターで動作するが、このプロジェクトの Java バージョンを参照してください。 [(Java) で Storm の使用の Azure Event Hubs からイベントを処理する](hdinsight-storm-develop-java-event-hub-topology.md)します。
+[AZURE.NOTE] このドキュメントの手順では、Windows ベースの HDInsight クラスターでのみ機能します。 Linux または Windows ベースのクラスターで動作するが、このプロジェクトの Java バージョンを参照してください。 [(Java) で Storm の使用の Azure Event Hubs からイベントを処理する](hdinsight-storm-develop-java-event-hub-topology.md)です。
 
 ## 前提条件
 
@@ -37,78 +36,81 @@ Azure Event Hubs では、Web サイト、アプリ、デバイスで発生す�
 
 * [Azure .NET SDK](http://azure.microsoft.com/downloads/)
 
-* [HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
+*  [HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
 ## 完成したプロジェクト
 
 GitHub からは、このチュートリアルで作成したプロジェクトの完全なバージョンをダウンロードできます: [eventhub storm-ハイブリッド](https://github.com/Blackmist/eventhub-storm-hybrid)します。 ただし、このチュートリアルの手順に従って構成設定を指定する必要があります。
-> [AZURE.NOTE] 完成したプロジェクトを使用する場合は、**NuGet パッケージ マネージャー**を使用して、このソリューションに必要なパッケージを復元する必要があります。
+
+> [AZURE.NOTE] 使用する必要があります、完成したプロジェクトを使用すると、 **NuGet パッケージ マネージャー** このソリューションが必要とするパッケージを復元します。
 
 ## Event Hubs スパウトとボルト
 
 Event Hubs スパウトとボルトは Java コンポーネントで、これらのコンポーネントを使用して Apache Storm から Event Hubs を簡単に操作できます。 これらのコンポーネントは Java で記述されていますが、HDInsight Tools for Visual Studio を使用して、C# と Java のコンポーネントが混在するハイブリッド トポロジを作成できます。
 
-スパウトとボルトは、**eventhubs-storm-spout-0.9-jar-with-dependencies.jar** という名前の 1 つの Java アーカイブ (.jar) ファイルとして配布されます。
+スパウトとボルトはという名前の 1 つ Java アーカイブ (.jar) ファイルとして配布 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**します。
 
 ### jar ファイルのダウンロード
 
 最新バージョン、 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar** でファイルが含まれている、 <a href="https://github.com/hdinsight/hdinsight-storm-examples" target="_blank">HDInsight Storm examples</a> プロジェクトの下、 **lib** フォルダーです。 ファイルをダウンロードするには、次のいずれかの方法を実行してください。
-> [AZURE.NOTE] スパウトとボルトは Apache Storm プロジェクトに組み込むために送信されています。 詳細については、次を参照してください。 <a href="https://github.com/apache/storm/pull/336/files">STORM 583: storm event hubs のチェックインの初期</a> GitHub にします。
+
+> [AZURE.NOTE] Apache Storm プロジェクトに組み込むのため、スパウトとボルトが送信されました。 詳細については、GitHub の「<a href="https://github.com/apache/storm/pull/336/files">STORM-583: Initial check-in for storm-event hubs (STORM-583: Storm-event hub の初期チェックイン)</a>」をご覧ください。
 
 * **ZIP ファイルをダウンロード**: から、 <a href="https://github.com/hdinsight/hdinsight-storm-examples" target="_blank">HDInsight Storm examples</a> のサイトで、 **ZIP のダウンロード** プロジェクトを含む .zip ファイルをダウンロードするには、右側のペインにします。
 
     ![ZIP のダウンロード ボタン](./media/hdinsight-storm-develop-csharp-event-hub-topology/download.png)
 
-    ファイルをダウンロードした後に、アーカイブを抽出できます。ファイルは **lib** ディレクトリに保存されます。
+    ファイルのダウンロード、アーカイブを抽出すると、ファイルがあります、 **lib** ディレクトリ。
 
-* **プロジェクトを複製**: があれば <a href="http://git-scm.com/" target="_blank">Git</a> リポジトリをローカルを複製し、ファイルを見つけます次のコマンドを使用して、インストールされている、 **lib** ディレクトリ。
+* **プロジェクトを複製します**: があれば <a href="http://git-scm.com/" target="_blank">Git</a> リポジトリをローカルを複製し、ファイルを見つけます次のコマンドを使用して、インストールされている、 **lib** ディレクトリ。
 
         git clone https://github.com/hdinsight/hdinsight-storm-examples
-
 
 ## Event Hub の構成
 
 Event Hubs は、この例のデータ ソースです。 新しい Event Hub を作成するには、次の手順に従います。
 
-1. [Azure Classic Portal](https://manage.windowsazure.com), [ **新規** > **Service Bus** > **Event Hub** > **カスタム作成**します。
+1.  [Azure Classic Portal](https://manage.windowsazure.com), [ **新規** > **Service Bus** > **Event Hub** > **カスタム作成**します。
 
-2. **[新しい Event Hub の追加]** 画面で **Event Hub 名**を入力し、ハブを作成する **[リージョン]** を選択して、新しい名前空間を作成するか、既存の名前空間を選択します。 **矢印**をクリックして続行します。
+2.  **新しいイベント ハブの追加** 画面で、入力、 **イベント ハブ名**, を選択、 **地域** 、ハブを作成し、新しい名前空間を作成するか既存のものを選択します。 クリックして、 **矢印** を続行します。
 
     ![ウィザード ページ 1](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz1.png)
-    > [AZURE.NOTE] 待機時間とコストを削減するために、HDInsight サーバーで使用する Storm と同じ **[場所]** を選択する必要があります。
 
-2. **[Event Hub の構成]** 画面で、**パーティション カウント**と**メッセージ保持**の値を入力します。 この例では、パーティション カウントに 10 を、メッセージ保持に 1 を使用します。 パーティション数を書き留めておきます。この値は後で必要になります。
+    > [AZURE.NOTE] 同じ操作を選択する必要があります **場所** を待機時間とコストを減らすために HDInsight サーバーで使用する Storm とします。
+
+2.  **Event Hub の構成** 画面で、入力、 **カウントをパーティション分割** と **メッセージ保有** 値。 この例では、パーティション カウントに 10 を、メッセージ保持に 1 を使用します。 パーティション数を書き留めておきます。この値は後で必要になります。
 
     ![ウィザード ページ 2](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz2.png)
 
-3. Event Hub が作成されたら、名前空間を選択し、**[Event Hubs]** を選択して、先ほど作成した Event Hub を選択します。
+3. Event hub が作成された後、名前空間をクリックし、 **Event Hubs**, 、先ほど作成した event hub を選択します。
 
-4. **[構成]** を選択し、次の情報を使用して新しいアクセス ポリシーを 2 つ作成します。
+4. 選択 **構成**, 、次の情報を使用して 2 つの新しいアクセス ポリシーを作成します。
 
-   <table>
+    <table>
     <tr><th>名前</th><th>アクセス許可</th></tr>
     <tr><td>ライター</td><td>送信</td></tr>
     <tr><td>閲覧者</td><td>リッスン</td></tr>
     </table>
 
-    アクセス許可の作成後、ページの下部にある **[保存]** アイコンをクリックします。 これにより、この Event Hub に対する送信 (ライター) とリッスン (リーダー) に使用する共有アクセス ポリシーが作成されます。
+    アクセス許可の作成後、選択、 **保存** ページの下部にあるアイコン。 これにより、この Event Hub に対する送信 (ライター) とリッスン (リーダー) に使用する共有アクセス ポリシーが作成されます。
 
     ![ポリシー](./media/hdinsight-storm-develop-csharp-event-hub-topology/policy.png)
 
-5. ポリシーの保存後、ページの下部にある **[共有アクセス キー生成コンポーネント]** を使用して、**ライター**と**リーダー**のポリシーのキーを取得します。 後で使用できるように、これらを保存します。
+5. 使用してポリシーを保存した後、 **共有アクセス キー生成コンポーネント** のキーを取得するページの下部で、 **ライター** と **リーダー** ポリシーです。 後で使用できるように、これらを保存します。
 
 ## テーブル ストレージの構成
 
-テーブル ストレージは、Event Hubs から読み取った値を格納するために使用されます。テーブル ストレージは、Visual Studio から**サーバー エクスプローラー**を使用して簡単に表示できます。 新しいテーブル ストレージを作成するには、次の手順に従います。
+テーブル ストレージはからテーブル ストレージを簡単に確認できるので、Event Hub から読み取られる値を保持するために使用する Visual studio から **サーバー エクスプ ローラー**します。 新しいテーブル ストレージを作成するには、次の手順に従います。
 
-1. [Azure Classic Portal](https://manage.windowsazure.com), [ **新規** > **Data Services** > **ストレージ** > **簡易作成**します。
+1.  [Azure Classic Portal](https://manage.windowsazure.com), [ **新規** > **Data Services** > **ストレージ** > **簡易作成**します。
 
     ![ストレージの簡易作成](./media/hdinsight-storm-develop-csharp-event-hub-topology/storagecreate.png)
 
-2. ストレージ アカウントの **[名前]** を入力し、**[場所]** を選択したら、**チェックマーク**をクリックにしてストレージ アカウントを作成します。
-    > [AZURE.NOTE] 待機時間とコストを削減するために、Event Hubs および HDInsight で使用する Storm と同じ **[場所]** を選択する必要があります。
+2. 入力、 **名前** ストレージ アカウントの選択、 **場所**, 、順にクリック、 **チェック マーク** ストレージ アカウントを作成します。
 
-3. 新しいストレージ アカウントがプロビジョニングされたら、アカウントを選択し、ページの下部にある **[アクセス キーの管理]** のリンクを使用して、**[ストレージ アカウント名]** と **[プライマリ アクセス キー]** を取得します。 後で使用するため、この情報を保存します。
+    > [AZURE.NOTE] 同じ操作を選択する必要があります **場所** 待機時間とコストを削減するには、Event Hubs と HDInsight サーバーでの Storm とします。
+
+3. 新しいストレージ アカウントをプロビジョニングするときは、アカウントを選択し、使用、 **アクセス キーの管理** を取得するページの下部にあるリンク、 **ストレージ アカウント名** と **プライマリ アクセス キー**します。 後で使用するため、この情報を保存します。
 
     ![アクセス キー](./media/hdinsight-storm-develop-csharp-event-hub-topology/managekeys.png)
 
@@ -116,11 +118,11 @@ Event Hubs は、この例のデータ ソースです。 新しい Event Hub �
 
 このセクションでは、Event Hubs のボルトを使用して Event Hubs にデータを書き込むトポロジを作成します。
 
-1. Visual Studio の HDInsight ツールの最新バージョンをまだインストールがいない場合は、次を参照してください。 <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">HDInsight Tools for Visual Studio を使用開始</a>します。
+1. 最新バージョンの HDInsight Tools for Visual Studio をまだインストールしていない場合は、 <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">「Get started using HDInsight Tools for Visual Studio (HDInsight Tools for Visual Studio を使用する)」</a>.
 
-2. Visual Studio を開いて、**[ファイル]**、**[新規]**、**[プロジェクト]** の順に選択します。
+2. Visual Studio を開き、選択 **ファイル** > **新規** し **プロジェクト**します。
 
-3. **[新しいプロジェクト]** 画面で、**[インストール済]**、**[テンプレート]**の順に展開して **[HDInsight]** を選択します。 テンプレートの一覧から、**[Storm Application]** を選択します。 画面の下部に、アプリケーションの名前として「**EventHubWriter**」と入力します。
+3.  **新しいプロジェクト** 画面で、展開 **インストールされている** > **テンプレート**, を選択して **HDInsight**します。 テンプレートの一覧から選択 **Storm アプリケーション**します。 画面の下部には、次のように入力します。 **EventHubWriter** として、アプリケーションの名前。
 
     ![image](./media/hdinsight-storm-develop-csharp-event-hub-topology/newproject.png)
 
@@ -128,19 +130,19 @@ Event Hubs は、この例のデータ ソースです。 新しい Event Hub �
 
     * **Program.cs**: プロジェクトのトポロジを定義します。 既定では、スパウトとボルト 1 つずつで構成される既定のトポロジが作成されます。
 
-    * **Spout.cs**: スパウトの例
+    * **Spout.cs**: スパウトの例です。
 
-    * **Bolt.cs**: ボルトの例。 Event Hubs のボルトを使用して Event Hub に書き込むため、これは後で削除します。
+    * **Bolt.cs**: ボルトの例です。 Event Hubs のボルトを使用して Event Hub に書き込むため、これは後で削除します。
 
 ### 構成
 
-1. **ソリューション エクスプローラー**で **EventHubWriter** を右クリックし、**[プロパティ]** を選択します。
+1.  **ソリューション エクスプ ローラー**, を右クリックして **EventHubWriter**, 、し、[ **プロパティ**します。
 
-2. プロジェクトのプロパティで選択 **設定**, 、し、[* * このプロジェクトに既定の設定ファイルが含まれていません。 ここをクリックして、one.* * を作成するには
+2. プロジェクトのプロパティで選択 **設定**, 、し、[ **このプロジェクトに既定の設定ファイルが含まれていません。ファイルを作成するには、ここをクリックしてください。]** を選択します。
 
-3. 次の設定を入力します。 **[値]** 列では、前の手順で作成した Event Hub の情報を使用します。
+3. 次の設定を入力します。 前の手順で作成した Event Hub の情報を使用して、 **値** 列です。
 
-   <table>
+    <table>
     <tr><th style="text-align:left">名前</th><th style="text-align:left">型</th><th style="text-align:left">Scope</th></tr>
     <tr><td style="text-align:left">EventHubPolicyName</td><td style="text-align:left">string</td><td style="text-align:left">アプリケーション</td></tr>
     <tr><td style="text-align:left">EventHubPolicyKey</td><td style="text-align:left">文字列</td><td style="text-align:left">アプリケーション</td></tr>
@@ -149,19 +151,19 @@ Event Hubs は、この例のデータ ソースです。 新しい Event Hub �
     <tr><td style="text-align:left">EventHubPartitionCount</td><td style="text-align:left">int</td><td style="text-align:left">アプリケーション</td></tr>
     </table>
 
-4. **[プロパティ]** ページを保存して閉じます。
+4. 保存して閉じる、 **プロパティ** ページです。
 
 ### トポロジの定義
 
-1. **ソリューション エクスプローラー**で **[Bolt.cs]** を右クリックし、**[削除]** を選択します。 Java Event Hubs のボルトを使用するので、このファイルは不要です。
+1.  **ソリューション エクスプ ローラー**, を右クリックして **Bolt.cs**, を選択して **削除**します。 Java Event Hubs のボルトを使用するので、このファイルは不要です。
 
-2. 開いている、 **Program.cs** ファイルし、次の追加後すぐにコード、 `TopologyBuilder topologyBuilder = 新しい TopologyBuilder("EventHubWriter");` 行です。
+2. 開いている、 **Program.cs** ファイルし、次の追加後すぐにコード、 `TopologyBuilder topologyBuilder = new TopologyBuilder("EventHubWriter");` 行です。
 
         int partitionCount = Properties.Settings.Default.EventHubPartitionCount;
         List<string> javaDeserializerInfo =
             new List<string>() { "microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer", "java.lang.String" };
 
-    最初の行は、先ほど定義したプロパティのパーティション数です。 2 行目に、スパウトによって生成される JSON データをシリアル化解除するデシリアライザーを定義する、 `java.lang.String` を Java コンポーネントは、データを使用できるようにします。
+    最初の行は、先ほど定義したプロパティのパーティション数です。 2 行目は、スパウトによって生成される JSON データを Java コンポーネントで使用できるように、`java.lang.String` にシリアル化解除するデシリアライザーを定義します。
 
 4. 次のコードを見つけます。
 
@@ -203,10 +205,10 @@ Event Hubs は、この例のデータ ソースです。 新しい Event Hub �
             Properties.Settings.Default.EventHubName,
             "true"));
 
-    このコードは、Java ボルトの新しいコンストラクターを作成します。このコンストラクターは、ボルトの新しいインスタンスを構成するために実行時に使用されます。 この場合は、使用している、 <a href="http://storm.apache.org/documentation/Clojure-DSL.html" target="_blank">Apache Storm Clojure DSL</a> 前に追加した Event Hubs 構成情報をスパウトに構成します。 具体的には、このコードは、次のことを行うために HDInsight によって実行時に使用されます。
+    このコードは、Java ボルトの新しいコンストラクターを作成します。このコンストラクターは、ボルトの新しいインスタンスを構成するために実行時に使用されます。 この場合は、使用している、 <a href="http://storm.apache.org/documentation/Clojure-DSL.html" target="_blank">Apache Storm Clojure DSL</a> Event Hubs 構成情報をスパウトに構成する前に追加しました。 具体的には、このコードは、次のことを行うために HDInsight によって実行時に使用されます。
 
-    * 指定した Event Hubs 情報を使用して **com.microsoft.eventhubs.bolt.EventHubBoltConfig** の新しいインスタンスを作成します。
-    * **EventHubBoltConfig** インスタンスを渡すことで、**com.microsoft.eventhubs.bolt.EventHubBolt** の新しいインスタンスを作成します。
+    * 新しいインスタンスを作成 **com.microsoft.eventhubs.bolt.EventHubBoltConfig** 指定した Event Hubs 情報を使用します。
+    * 新しいインスタンスを作成 **com.microsoft.eventhubs.bolt.EventHubBolt**, を渡すことで、 **EventHubBoltConfig** インスタンス。
 
 6. 次のコードを見つけます。
 
@@ -224,26 +226,29 @@ Event Hubs は、この例のデータ ソースです。 新しい Event Hub �
             partitionCount).
             shuffleGrouping("Spout");
 
-    このコードは、前の手順で作成した **JavaComponentConstructor** をボルトとしてトポロジで使用するように指示します。 このトポロジのコンポーネントは、"EventHubBolt" というわかりやすい名前で参照できます。 並行処理のヒントには Event Hub のパーティション数が設定され、スパウトによって生成されるデータ ("Spout") にサブスクライブします。
+    これは、トポロジで使用するよう指示、 **JavaComponentConstructor** をボルトとして前の手順です。 このトポロジのコンポーネントは、"EventHubBolt" というわかりやすい名前で参照できます。 並行処理のヒントには Event Hub のパーティション数が設定され、スパウトによって生成されるデータ ("Spout") にサブスクライブします。
 
-これで **Program.cs** が完了しました。 トポロジの定義は完了しましたが、次は、Event Hubs のボルトが使用できる形式でデータを生成するように **Spout.cs** を変更します。
-> [AZURE.NOTE] このトポロジは、既定で、例として十分な 1 つのワーカー プロセスを作成します。 これを運用環境のクラスターに適用する場合、次を追加して、ワーカーの数を変更する必要があります。
+この時点では、が完了したら、 **Program.cs**します。 トポロジを定義するが、ここで変更する必要があります **Spout.cs** Event Hubs のボルトが使用できる形式でデータを生成できるようにします。
+
+> [AZURE.NOTE] このトポロジは既定の例として十分な 1 つのワーカー プロセスを作成します。 これを運用環境のクラスターに適用する場合、次を追加して、ワーカーの数を変更する必要があります。
 
     StormConfig config = new StormConfig();
     config.setNumWorkers(1);
     topologyBuilder.SetTopologyConfig(config);
 
+
 ### スパウトを変更する
 
-Event Hubs のボルトは、Event Hub にルーティングされる単一の文字列値を予期しています。 次の例では、JSON 文字列を生成するように既定の **Spout.cs** ファイルを変更します。
+Event Hubs のボルトは、Event Hub にルーティングされる単一の文字列値を予期しています。 次の例では、既定値を変更して **Spout.cs** JSON 文字列を生成するファイルです。
 
-1. **ソリューション エクスプローラー**で **Spout.cs** を開き、ファイルの先頭に次の行を追加します。
+1.  **ソリューション エクスプ ローラー**, 、開かれている **Spout.cs** 、ファイルの先頭に次のコードを追加します。
 
         using Newtonsoft.Json;
         using Newtonsoft.Json.Linq;
 
     これにより、JSON データをより簡単に処理できます。
-    > [AZURE.NOTE] JSON.NET パッケージが既にインストールされています。これは、C# Storm トポロジーに使用される SCP.NET フレームワークで必要です。
+    
+    > [AZURE.NOTE] JSON.NET パッケージが既にインストールされている、c# Storm トポロジに使用される SCP.NET フレームワークが必要です。
 
 3. 次のコードを見つけます。
 
@@ -258,9 +263,9 @@ Event Hubs のボルトは、Event Hub にルーティングされる単一の�
         this.ctx.DeclareComponentSchema(new ComponentStreamSchema(null, outputSchema));
         this.ctx.DeclareCustomizedSerializer(new CustomizedInteropJSONSerializer());
 
-    これにより、スパウトによって作成されるデータの定義を変更し、**string** データと先ほどトポロジ (program.cs 内) で宣言された **CustomizedInteropJSONSerializer** を使用するようにします。
+    これを使用するスパウトによって作成されるデータの定義が変更 **文字列** データ、および **CustomizedInteropJSONSerializer** トポロジ (program.cs) 内で宣言されました。
 
-2. **NextTuple** メソッドを次の内容に置き換えます。
+2. 置き換える、 **NextTuple** を次のメソッド。
 
         public void NextTuple(Dictionary<string, Object> parms)
         {
@@ -272,7 +277,7 @@ Event Hubs のボルトは、Event Hub にルーティングされる単一の�
 
     このコードは、デバイス ID である値をランダムに生成し、Json.NET を使って、これらの値を使用する JSON オブジェクトを出力します。
 
-3. **Spout.cs** ファイルを保存します。
+3. 保存、 **Spout.cs** ファイルです。
 
 ここまでで、ランダムなデータを生成し、生成したデータを、Event Hubs のボルトを使用して Event Hubs に格納する基本的なトポロジを作成しました。 次にリーダーを作成します。
 
@@ -280,19 +285,19 @@ Event Hubs のボルトは、Event Hub にルーティングされる単一の�
 
 このセクションでは、Event Hubs スパウトを使用して Event Hubs からデータを読み取るトポロジを作成します。
 
-2. Visual Studio で、**[ファイル]**、**[新規]**、**[プロジェクト]** を選択します。
+2. Visual Studio を開き、選択 **ファイル** > **新規** > **プロジェクト**します。
 
-3. **[新しいプロジェクト]** 画面で、**[インストール済]**、**[テンプレート]**の順に展開して **[HDInsight]** を選択します。 テンプレートの一覧から、**[Storm Application]** を選択します。 画面の下部に、アプリケーションの名前として「**EventHubReader**」と入力します。
+3.  **新しいプロジェクト** 画面で、展開 **インストールされている** > **テンプレート**, を選択して **HDInsight**します。 テンプレートの一覧から選択 **Storm アプリケーション**します。 画面の下部には、次のように入力します。 **EventHubReader** として、アプリケーションの名前。
 
 ### 構成
 
-1. **ソリューション エクスプローラー**で **EventHubReader** を右クリックし、**[プロパティ]** を選択します。
+1.  **ソリューション エクスプ ローラー**, を右クリックして **EventHubReader** し、[ **プロパティ**します。
 
-2. プロジェクトのプロパティで選択 **設定**, 、し、[* * このプロジェクトに既定の設定ファイルが含まれていません。 ここをクリックして、one.* * を作成するには
+2. プロジェクトのプロパティで選択 **設定**, 、し、[ **このプロジェクトに既定の設定ファイルが含まれていません。ファイルを作成するには、ここをクリックしてください。]** を選択します。
 
-3. 次の設定を入力します。 **[値]** 列では、前の手順で作成した Event Hub とストレージ アカウントの情報を使用します。
+3. 次の設定を入力します。 作成した Event Hub とストレージ アカウントの情報を使用、 **値** 列です。
 
-   <table>
+    <table>
     <tr><th style="text-align:left">名前</th><th style="text-align:left">型</th><th style="text-align:left">Scope</th></tr>
     <tr><th style="text-align:left">EventHubPolicyName</th><th style="text-align:left">string</th><th style="text-align:left">アプリケーション</th></tr>
     <tr><th style="text-align:left">EventHubPolicyKey</th><th style="text-align:left">文字列</th><th style="text-align:left">アプリケーション</th></tr>
@@ -303,19 +308,19 @@ Event Hubs のボルトは、Event Hub にルーティングされる単一の�
     <tr><th style="text-align:left">TableName</th><th style="text-align:left">string</th><th style="text-align:left">アプリケーション</th></tr>
     </table>
 
-    **TableName** には、イベントを格納するテーブルの名前を入力します。
+     **TableName**, 、イベントを格納するテーブルの名前を入力します。
 
-    **StorageConnection**, 、の値を入力 `DefaultEndpointsProtocol = https;AccountName = myAccount です。AccountKey = myKey;`します。 **myAccount** と **myKey** を先ほど取得したストレージ アカウント名とキーに置き換えます。
+     **StorageConnection**, の値を入力 `DefaultEndpointsProtocol=https;AccountName=myAccount;AccountKey=myKey;`します。 置換 **myAccount** と **myKey** ストレージ アカウント名と先に取得したキーを使用します。
 
     これらの値は、Event Hubs と Table Storage と通信するために、トポロジによって使用されます。
 
-4. **[プロパティ]** ページを保存して閉じます。
+4. 保存して閉じる、 **プロパティ** ページです。
 
 ### トポロジの定義
 
-1. **ソリューション エクスプローラー**で **[Spout.cs]** を右クリックし、**[削除]** を選択します。 Java Event Hubs スパウトを使用するので、このファイルは不要です。
+1.  **ソリューション エクスプ ローラー**, を右クリックして **Spout.cs** 選択 **削除**します。 Java Event Hubs スパウトを使用するので、このファイルは不要です。
 
-2. 開いている、 **Program.cs** ファイルし、次の追加後すぐにコード、 `TopologyBuilder topologyBuilder = 新しい TopologyBuilder("EventHubReader");` 行。
+2. 開いている、 **Program.cs** ファイルし、次の追加後すぐにコード、 `TopologyBuilder topologyBuilder = new TopologyBuilder("EventHubReader");` 行。
 
         int partitionCount = Properties.Settings.Default.EventHubPartitionCount;
         EventHubSpoutConfig ehConfig = new EventHubSpoutConfig(
@@ -327,7 +332,7 @@ Event Hubs のボルトは、Event Hub にルーティングされる単一の�
 
     パーティション数が読み込まれ、ローカル変数に割り当てられます。 これは複数回使用されます。
 
-    `EventHubSpoutConfig` Event Hub スパウトの構成を定義します。 この場合の Event Hubs の構成は、以前に追加しました。 バックグラウンドでは、Java Event Hub スパウトを使用します。Event Hubs 情報を使用して、**com.microsoft.eventhubs.spout.EventHubSpoutConfig** の新しいインスタンスを作成します。
+    `EventHubSpoutConfig` は、Event Hub スパウトの構成を定義します。 この場合の Event Hubs の構成は、以前に追加しました。 バック グラウンドで Java Event Hub スパウトを使用するとこの新しいインスタンスを作成 **com.microsoft.eventhubs.spout.EventHubSpoutConfig** Event Hubs 情報を使用します。
 
 5. 次のコードを見つけます。
 
@@ -347,7 +352,7 @@ Event Hubs のボルトは、Event Hub にルーティングされる単一の�
             ehConfig, 
             partitionCount); 
 
-    これにより、新しい Event Hub スパウトを作成および使用するトポロジ、 `EventHubSpoutConfig` 、前の手順として、構成します。 "EventHubSpout"は、スパウトの表示名を設定し、 `partitionCount` を並列処理のヒントを設定するために使用します。 バックグラウンドで、指定した構成情報を使用して、**com.microsoft.eventhubs.spout.EventHubSpout** Java コンポーネントの新しいインスタンスを作成します。
+    これにより、トポロジに新しい Event Hub スパウトを作成し、前の手順から構成として `EventHubSpoutConfig` を使用するよう指示します。 "EventHubSpout" は、スパウトの表示名を設定し、`partitionCount` は、並列処理のヒントを設定するために使用します。 バック グラウンドでの新しいインスタンスを作成 **com.microsoft.eventhubs.spout.EventHubSpout** 指定した構成情報を使用して、Java コンポーネントです。
 
 2. 前のコードの直後に、次のコードを追加します。
 
@@ -375,50 +380,53 @@ Event Hubs のボルトは、Event Hub にルーティングされる単一の�
             shuffleGrouping("EventHubSpout");
 
     このコードは、トポロジでのボルト (Bolt.cs で定義) の使用を指示します。 先ほど定義したカスタムのシリアライザーをここで使用し、このボルトがアップストリームの Java コンポーネントで生成されたデータを使用できるようにします。 この場合、EventHubSpout です。
+
     > [AZURE.IMPORTANT] SetBolt の最後のパラメーター (値は `true`,、) このボルトの ACK 機能を有効にします。 これは、EventHubSpout コンポーネントでは、出力されるデータの ACK を想定するために必要です。 ダウンストリームのコンポーネントで ACK が返されない場合、スパウトは約 1000 件のメッセージを処理した後に受信を停止します。
 
-これで **Program.cs** が完了しました。 ここまでで、トポロジを定義しました。次に、データをテーブル ストレージに書き込むためにヘルパー クラスを作成する必要があります。さらに、スパウトによって生成されたデータを認識できるように **Bolt.cs** を変更する必要があります。
-> [AZURE.NOTE] このトポロジは、既定で、例として十分な 1 つのワーカー プロセスを作成します。 これを運用環境のクラスターに適用する場合、次を追加して、ワーカーの数を変更する必要があります。
+この時点が完了した **Program.cs**します。 トポロジを定義し、テーブル ストレージにデータを書き込むヘルパー クラスを作成する必要がありますが、変更する必要があります **Bolt.cs** 、スパウトによって生成されたデータを認識できるようにします。
+
+> [AZURE.NOTE] このトポロジは既定の例として十分な 1 つのワーカー プロセスを作成します。 これを運用環境のクラスターに適用する場合、次を追加して、ワーカーの数を変更する必要があります。
 
     StormConfig config = new StormConfig();
     config.setNumWorkers(1);
     topologyBuilder.SetTopologyConfig(config);
 
+
 ### ヘルパー クラスの作成
 
 テーブル ストレージにデータを書き込む場合、書き込まれるデータを記述したクラスを作成する必要があります。
 
-1. **ソリューション エクスプローラー**で **EventHubReader** プロジェクトを右クリックし、**[追加]**、**[新しいクラス]** の順に選択します。 新しいクラスに **Devices.cs** という名前を付けます。
+1.  **ソリューション エクスプ ローラー**, を右クリックし、 **EventHubReader** プロジェクト、および選択 **追加**, 、し **クラスの新しい**します。 新しいクラスの名前を **Devices.cs**します。
 
-2. **Devices.cs** を開き、既定のコードを次のコードに置き換えます。
+2. 開いている **Devices.cs** 既定のコードを次に置き換えます。
 
-     using System;
-     using System.Collections.Generic;
-     using System.Linq;
-     using System.Text;
-     using System.Threading.Tasks;
-     using Microsoft.WindowsAzure.Storage.Table;
-    
-     namespace EventHubReader
-     {
-         class Device : TableEntity
-         {
-             public int value { get; set; }
-    
-             public Device() { }
-             public Device(int id)
-             {
-                 this.PartitionKey = id.ToString();
-                 this.RowKey = System.Guid.NewGuid().ToString();
-             }
-         }
-     }
+        using System;
+        using System.Collections.Generic;
+        using System.Linq;
+        using System.Text;
+        using System.Threading.Tasks;
+        using Microsoft.WindowsAzure.Storage.Table;
 
- このコードは、テーブル ストレージに、パーティション キー (Event Hub から読み取られたデバイス ID に設定される)、一意の行キー、Event Hub から読み取られた値で構成されるエンティティを作成します。 また、各エンティティがテーブルに挿入された時点で、エンティティのタイムスタンプが自動的に作成されます。
+        namespace EventHubReader
+        {
+            class Device : TableEntity
+            {
+                public int value { get; set; }
+
+                public Device() { }
+                public Device(int id)
+                {
+                    this.PartitionKey = id.ToString();
+                    this.RowKey = System.Guid.NewGuid().ToString();
+                }
+            }
+        }
+
+    このコードは、テーブル ストレージに、パーティション キー (Event Hub から読み取られたデバイス ID に設定される)、一意の行キー、Event Hub から読み取られた値で構成されるエンティティを作成します。 また、各エンティティがテーブルに挿入された時点で、エンティティのタイムスタンプが自動的に作成されます。
 
 ### ボルトの変更
 
-1. **ソリューション エクスプローラー**で **EventHubReader** プロジェクトを展開し、**Bolt.cs** ファイルを開きます。 ファイルの先頭に次のコードを追加します。
+1.  **ソリューション エクスプ ローラー**, 、展開、 **EventHubReader** 開き、プロジェクト、 **Bolt.cs** ファイルです。 ファイルの先頭に次のコードを追加します。
 
         using Newtonsoft.Json.Linq;
         using Microsoft.WindowsAzure.Storage;
@@ -426,7 +434,7 @@ Event Hubs のボルトは、Event Hub にルーティングされる単一の�
 
     これにより、ボルトからの JSON データの操作がより簡単になり、テーブル ストレージにデータを書き込めるようになります。
 
-2. 検索、 `プライベート int カウント` ステートメント、次に置き換えます。
+2. `private int count;` ステートメントを見つけて次の内容に置き換えます。
 
         private CloudTable table;
 
@@ -445,7 +453,7 @@ Event Hubs のボルトは、Event Hub にルーティングされる単一の�
         this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, null));
         this.ctx.DeclareCustomizedDeserializer(new CustomizedInteropJSONDeserializer());
 
-    このコードは、ボルトに対して、**int** ではなく **string** 値を受け取り、先ほどのトポロジ (program.cs ファイル内) で宣言された **CustomizedInteropJSONDeserialzer** を使用してデータをシリアル化解除する必要があることを指示します。
+    受信するボルトこれにより、 **文字列** 値の代わりに、 **int**, を使用してデータを逆シリアル化して、 **CustomizedInteropJSONDeserialzer** トポロジ前 (program.cs ファイル) 内で宣言されています。
 
 3. 前のコードの直後に、次のコードを追加します。
 
@@ -454,64 +462,65 @@ Event Hubs のボルトは、Event Hub にルーティングされる単一の�
         table = tableClient.GetTableReference(Properties.Settings.Default.TableName);
         table.CreateIfNotExists();
 
-    このコードは、前の手順で構成した接続文字列を使用して **events** テーブルに接続します。 テーブルが存在しない場合は、作成されます。
+    これに接続、 **イベント** テーブルで構成した接続文字列を使用しています。 テーブルが存在しない場合は、作成されます。
 
-2. **Execute** メソッドを見つけて次の内容に置き換えます。
+2. 検索、 **Execute** メソッドを次に置き換えます。
 
-     public void Execute(SCPTuple tuple)
-     {
-         Context.Logger.Info("Processing events");
-         string eventValue = (string)tuple.GetValue(0);
-         if (eventValue != null)
-         {
-             JObject eventData = JObject.Parse(eventValue);
-    
-             Device device = new Device((int)eventData["deviceId"]);
-             device.value = (int)eventData["deviceValue"];
-    
-             TableOperation insertOperation = TableOperation.Insert(device);
-    
-             table.Execute(insertOperation);
-             this.ctx.Ack(tuple);
-         }
-     }
+        public void Execute(SCPTuple tuple)
+        {
+            Context.Logger.Info("Processing events");
+            string eventValue = (string)tuple.GetValue(0);
+            if (eventValue != null)
+            {
+                JObject eventData = JObject.Parse(eventValue);
 
- これは、スパウトからの JSON データを Json.NET を使用して解析し、**deviceId** および **deviceValue** フィールドを選択します。 初期化時に、**deviceId** を使用して新しい **Device** オブジェクトが作成され、テーブルのパーティション キーが設定されます。 値が **deviceValue** に設定されて、最後にエンティティがテーブルに挿入されます。
+                Device device = new Device((int)eventData["deviceId"]);
+                device.value = (int)eventData["deviceValue"];
 
- エンティティをテーブルに挿入した後 `Ack()` にデータが正常に処理されたことをスパウトに通知する、タプルに呼び出されます。
- > [AZURE.IMPORTANT] EventHubSpout コンポーネントは、このボトルなどのダウンストリームのコンポーネントから各タプルに ACK を想定します。 ACK を受信しない場合、EventHubSpout はタプルの処理が失敗したものと見なします。
+                TableOperation insertOperation = TableOperation.Insert(device);
 
-これで、Event Hub からデータを読み取り、読み取ったデータを、**events** という名前のテーブルにある Table Storage に格納するトポロジが完成しました。
+                table.Execute(insertOperation);
+                this.ctx.Ack(tuple);
+            }
+        }
+
+    これは、Json.NET を使用して、スパウトからの JSON データの解析し、し、 **deviceId** と **deviceValue** フィールドです。 新しい **デバイス** を使用してオブジェクトが作成され、 **deviceId** 初期化時に、テーブルのパーティション キーを設定します。 値に設定し、 **deviceValue**, 、し、最後にエンティティをテーブルに挿入します。
+
+    エンティティがテーブルに挿入された後、タプルに `Ack()` が呼び出され、データが正常に処理されたことをスパウトに通知します。
+
+    > [AZURE.IMPORTANT] EventHubSpout コンポーネントは、このボトルなどのダウン ストリーム コンポーネントから各タプルに ACK を想定しています。 ACK を受信しない場合、EventHubSpout はタプルの処理が失敗したものと見なします。
+
+この時点では、Event Hub からデータを読み取り、という名前のテーブルのテーブル ストレージに保存する完全なトポロジがある **イベント**です。
 
 ## トポロジのデプロイ
 
-1. **ソリューション エクスプローラー**で **EventHubReader** プロジェクトを右クリックし、**[HDInsight での Storm に送信]** を選択します。
+1.  **ソリューション エクスプ ローラー**, を右クリックし、 **EventHubReader** プロジェクトし、選択 **HDInsight での Storm に送信**します。
 
     ![Storm に送信](./media/hdinsight-storm-develop-csharp-event-hub-topology/submittostorm.png)
 
-2. **[トポロジの送信]** 画面で該当する **[Storm クラスター]** を選択します。 **[追加の構成]** を展開し、**[Java ファイル パス]**、**[...]** の順に選択し、前の手順でダウンロードした **eventhubs-storm-spout-0.9-jar-with-dependencies.jar** ファイルがあるディレクトリを選択します。 最後に、**[送信]** をクリックします。
+2.  **トポロジの送信** 画面で、[、 **Storm クラスター**します。 展開 **追加の構成**, を選択 **Java ファイル パス**, 、[ **...** を含むディレクトリを選択し、 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar** 先ほどダウンロードしたファイルです。 最後に、クリックして **送信**します。
 
     ![送信ダイアログの画像](./media/hdinsight-storm-develop-csharp-event-hub-topology/submit.png)
 
-3. トポロジが送信されると、**[Storm トポロジ ビューアー]** が表示されます。 ダイアログの左側にある **EventHubReader** トポロジを選択し、トポロジの統計情報を表示します。 Event Hubs に書き込まれたイベントはまだないため、現時点では、何も発生していません。
+3. トポロジが送信されると、 **Storm トポロジ ビューアー** が表示されます。 選択、 **EventHubReader** 、トポロジの統計を表示するのには、左側のウィンドウ内のトポロジです。 Event Hubs に書き込まれたイベントはまだないため、現時点では、何も発生していません。
 
     ![ストレージ ビューの例](./media/hdinsight-storm-develop-csharp-event-hub-topology/topologyviewer.png)
 
-4. **ソリューション エクスプローラー**で **EventHubWriter** プロジェクトを右クリックし、**[HDInsight での Storm に送信]** を選択します。
+4.  **ソリューション エクスプ ローラー**, を右クリックし、 **EventHubWriter** プロジェクトし、選択 **HDInsight での Storm に送信**します。
 
-2. **[トポロジの送信]** 画面で該当する **[Storm クラスター]** を選択します。 **[追加の構成]** を展開し、**[Java ファイル パス]**、**[...]** の順に選択し、前の手順でダウンロードした **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**ファイルがあるディレクトリを選択します。 最後に、**[送信]** をクリックします。
+2.  **トポロジの送信** 画面で、[、 **Storm クラスター**します。 展開 **追加の構成**, を選択 **Java ファイル パス**, [ **...** を含むディレクトリを選択し、 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar** 既にダウンロードしたファイルです。 最後に、クリックして **送信**します。
 
-5. トポロジが送信されたら、**[Storm トポロジ ビューアー]** でトポロジ一覧を最新情報に更新し、両方のトポロジがクラスターで実行中であることを確認します。
+5. トポロジが送信されると、更新でトポロジ一覧、 **Storm トポロジ ビューアー** 両方のトポロジがクラスターで実行されていることを確認します。
 
-6. 両方のトポロジが実行中である場合は、**[サーバー エクスプローラー]** を選択し、**[Azure]**、**[ストレージ]** の順に展開し、最後に前の手順で作成したストレージ アカウントを選択します。 そのストレージ アカウントで、**[テーブル]** を展開します。 最後に、**events** テーブルをダブルクリックしてテーブルを開きます。 **EventHubReader** トポロジに従ってテーブルに格納されたデータが表示されます。
+6. 両方のトポロジが実行されている選択 **サーバー エクスプ ローラー**, 、順に展開 **Azure** > **ストレージ**, 、先ほど作成したストレージ アカウントを選択します。 ストレージ アカウントでは、展開 **テーブル**します。 最後をダブルクリックして、 **イベント** テーブルをテーブルを開きます。 テーブルに格納されているデータが表示される、 **EventHubReader** トポロジです。
 
-    * **EventHubWriter** トポロジによってイベントが生成されています。生成されたイベントは Event Hub に書き込まれます。
+    * によって、イベントが生成された、 **EventHubWriter** トポロジでは、Event Hub に書き込まれます。
 
-    * **EventHubReader** が Event Hubs からイベントを読み取り、**events** テーブルのテーブル ストレージに格納します。
+    *  **EventHubReader** し、Event Hubs からイベントを読み取りでテーブル ストレージに格納、 **イベント** テーブルです。
 
 ## トポロジの停止
 
-トポロジを停止するには、**[Storm トポロジ ビューアー]** で各トポロジを選択し、**[強制終了]** をクリックします。
+トポロジを停止するで各トポロジを選択、 **Storm トポロジ ビューアー**, 、] をクリックし、 **Kill**します。
 
 ![トポロジの強制終了の画像](./media/hdinsight-storm-develop-csharp-event-hub-topology/killtopology.png)
 
@@ -525,10 +534,11 @@ EventHubSpout は Zookeeper ノードに対する状態へのチェックポイ�
 
 * ノードを追加または削除して、クラスターを拡張または圧縮します。
 
-* トポロジが強制終了され、**同じ名前で**再起動されます。
+* トポロジが強制終了され、再起動 **同名**します。
 
-また、保存されたチェックポイントを WASB (HDInsight クラスターで使用される Azure のストレージ) にエクスポート、インポートできます。 これを実行するスクリプトは、**c:\apps\dist\storm-0.9.3.2.2.1.0-2340\zkdatatool-1.0\bin** の HDInsight クラスター上の Storm に配置されています。
->[AZURE.NOTE] クラスターにインストールされた Storm のバージョンは今後変更される可能性があるため、パスのバージョン番号は異なる場合があります。
+また、保存されたチェックポイントを WASB (HDInsight クラスターで使用される Azure のストレージ) にエクスポート、インポートできます。これを行うスクリプトは、HDInsight クラスターの Storm でにある、 **c:\apps\dist\storm-0.9.3.2.2.1.0-2340\zkdatatool-1.0\bin**します。
+
+>[AZURE.NOTE] パスのバージョン番号は、Storm クラスターへのインストールのバージョンが、今後変わる可能性が異なる、可能性があります。
 
 このディレクトリのスクリプトは次のとおりです。
 
@@ -536,21 +546,18 @@ EventHubSpout は Zookeeper ノードに対する状態へのチェックポイ�
 
 * **stormmeta_export.cmd**: Zookeeper からクラスターの既定のストレージ コンテナーにすべての Storm メタデータをエクスポートします。
 
-* **stormmeta_delete.cmd**: Zookeeper からのすべての Storm メタデータを削除します。
+* **stormmeta_delete.cmd**: Zookeeper からすべての Storm メタデータを削除します。
 
 インポートのエクスポートにより、クラスターを削除する必要がある一方で、新しいクラスターを再びオンラインにする際にハブの現在のオフセットから処理を再開する場合、チェックポイントのデータを保持できます。
-> [AZURE.NOTE] データは既定のストレージ コンテナーに保存されるため、新しいクラスターで以前のクラスターと同じストレージ アカウントとコンテナーを使用する**必要があります**。
+
+> [AZURE.NOTE] 既定のストレージ コンテナーは、新しいクラスターにデータが保存されるため **必要があります** 以前のクラスターと同じストレージ アカウントとコンテナーを使用します。
 
 ## 概要
 
 このドキュメントでは、C# トポロジから Java Event Hubs スパウトおよびボルトを使用して、Azure Event Hub のデータを操作する方法について説明しました。 C# トポロジの作成の詳細については、次の記事を参照してください。
 
-* [Visual Studio を使用した HDInsight で Apache Storm の c# トポロジを開発します。](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [Visual Studio を使用して HDInsight で Apache Storm の C# トポロジを開発する](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
-* [HDInsight での Storm に関するトポロジ例](hdinsight-storm-example-topology.md)
-
-
-
-
-
+* [HDInsight 上の Storm に関するトポロジ例](hdinsight-storm-example-topology.md)
+ 
 

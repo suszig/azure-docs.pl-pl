@@ -17,8 +17,7 @@
     ms.date="02/23/2015"
     ms.author="guybo"/>
 
-
-# Linux 向けに Azure カスタム スクリプト拡張機能を使って LAMP アプリをデプロイする
+#Linux 向けに Azure カスタム スクリプト拡張機能を使って LAMP アプリをデプロイする#
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーのモデルです。
 
@@ -31,15 +30,15 @@ Linux 向け Microsoft Azure カスタム スクリプト拡張機能では、Py
 
 ## 前提条件
 
-この例では、まず、Ubuntu 14.04 以降を実行している 2 つの Azure VM を作成します。 VM の名前は *script-vm* と *lamp-vm* です。 自分で VM を作成するときは、固有の名前を付けてください。 1 つは CLI コマンドの実行に使用し、もう 1 つは LAMP アプリのデプロイに使用します。
+この例では、まず、Ubuntu 14.04 以降を実行している 2 つの Azure VM を作成します。 Vm と呼ばれる *スクリプト vm* と *lamp vm*します。 自分で VM を作成するときは、固有の名前を付けてください。 1 つは CLI コマンドの実行に使用し、もう 1 つは LAMP アプリのデプロイに使用します。
 
 また、Azure ストレージ アカウントとアカウントにアクセスするキーが必要になります (Azure クラシック ポータルで取得できます)。
 
-Azure で Linux Vm を作成する必要がある場合を参照してください。 [を実行している Linux の仮想マシンを作成する](virtual-machines-linux-tutorial.md)します。
+Azure で Linux Vm を作成する必要がある場合を参照してください [を実行している Linux の仮想マシンを作成する](virtual-machines-linux-tutorial.md)です。
 
 インストール コマンドでは Ubuntu が想定されますが、サポートされる Linux ディストリビューションに応じてインストールを調整できます。
 
-仮想マシン script-vm では、Azure に接続できる Azure CLI がインストールされていることが必要です。 このヘルプを参照してください [インストールして、Azure コマンド ライン インターフェイスを構成する](../xplat-cli-install.md)します。
+仮想マシン script-vm では、Azure に接続できる Azure CLI がインストールされていることが必要です。 このヘルプを参照してください [インストールして、Azure コマンド ライン インターフェイスを構成する](../xplat-cli-install.md)です。
 
 ## スクリプトのアップロード
 
@@ -52,30 +51,31 @@ Azure で Linux Vm を作成する必要がある場合を参照してくださ�
     #!/bin/bash
     # set up a silent install of MySQL
     dbpass="mySQLPassw0rd"
-    
+
     export DEBIAN_FRONTEND=noninteractive
     echo mysql-server-5.6 mysql-server/root_password password $dbpass | debconf-set-selections
     echo mysql-server-5.6 mysql-server/root_password_again password $dbpass | debconf-set-selections
-    
+
     # install the LAMP stack
     apt-get -y install apache2 mysql-server php5 php5-mysql  
-    
+
     # write some PHP
     echo \<center\>\<h1\>My Demo App\</h1\>\<br/\>\</center\> > /var/www/html/phpinfo.php
     echo \<\?php phpinfo\(\)\; \?\> >> /var/www/html/phpinfo.php
-    
+
     # restart Apache
     apachectl restart
 
 ### スクリプトのアップロード
 
-スクリプトを *lamp_install.sh* などとしてテキスト ファイルに保存し、Azure Storage にアップロードします。 Azure CLI を使えば簡単にできます。 次の例では、ファイルを「scripts」という名前のストレージ コンテナーにアップロードします。 コンテナーが存在しない場合は、まずコンテナーを作成する必要があります。
+スクリプトを次に例をテキスト ファイルとして保存 *lamp_install.sh*, 、Azure ストレージにアップロードします。 Azure CLI を使えば簡単にできます。 次の例では、ファイルを「scripts」という名前のストレージ コンテナーにアップロードします。 コンテナーが存在しない場合は、まずコンテナーを作成する必要があります。
 
     azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
-また、Azure Storage からスクリプトをダウンロードする方法を記述した JSON ファイルも作成します。 *public_config.json* という名前でこのファイルを保存します (「mystorage」をご利用のストレージ アカウントの名前に置き換えてください)。
+また、Azure Storage からスクリプトをダウンロードする方法を記述した JSON ファイルも作成します。 これは、として保存 *public_config.json* (「mystorage」を、ストレージ アカウント名前に置き換えます)。
 
     {"fileUris":["https://mystorage.blob.core.windows.net/scripts/install_lamp.sh"], "commandToExecute":"sh install_lamp.sh" }
+
 
 ## 拡張機能のデプロイ
 
@@ -83,7 +83,7 @@ Azure で Linux Vm を作成する必要がある場合を参照してくださ�
 
     azure vm extension set -c "./public_config.json" lamp-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
 
-前のコマンドによって、*lamp_install.sh* スクリプトが *lamp-vm* という名前の VM にダウンロードされて実行されます。
+前のコマンドをダウンロードして実行、 *lamp_install.sh* という VM 上のスクリプト *lamp vm*します。
 
 アプリに Web サーバーが含まれる場合は、次のコマンドを使用して、リモート VM で HTTP リスニング ポートが開かれていることを確認してください。
 
@@ -91,7 +91,7 @@ Azure で Linux Vm を作成する必要がある場合を参照してくださ�
 
 ## 監視とトラブルシューティング
 
-リモート VM 上のログ ファイルを確認し、カスタム スクリプトの実行状況を確認できます。 次のコマンドを使用して、*lamp-vm* に SSH で通信し、ログ ファイルの内容を確認します。
+リモート VM 上のログ ファイルを確認し、カスタム スクリプトの実行状況を確認できます。 SSH を *lamp vm* し、次のコマンドを使用してログ ファイルです。
 
     cd /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.3.0.0/
     tail -f extension.log
@@ -104,13 +104,9 @@ CustomScript 拡張機能を実行すると、参照用に作成した PHP ペ�
 
 次に、Azure CLI、Linux、およびカスタム スクリプト拡張機能のその他のリソースをリストします。
 
-[カスタム スクリプト拡張機能を使用して Linux VM カスタム タスクを自動化します。](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
+[Linux VM カスタム タスクをカスタム スクリプト拡張機能を使って自動化する (ブログ記事)](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
 
-[Azure Linux 拡張機能 (GitHub)](https://github.com/Azure/azure-linux-extensions)
+[Azure Linux Extensions (Azure Linux 拡張機能、GitHub)](https://github.com/Azure/azure-linux-extensions)
 
-[Linux とオープン ソース Azure でのコンピューティング](virtual-machines-linux-opensource.md)
-
-
-
-
+[Azure での Linux とオープン ソース コンピューティング](virtual-machines-linux-opensource.md)
 

@@ -1,4 +1,4 @@
-Azure は、**次の両方の条件に当てはまる場合**、アプリケーションで Python を使用していると判断します。
+Azure のアプリケーションで Python を使用することが決定されます **2 つの条件に当てはまる場合**:
 
 - requirements.txt ファイルがルート フォルダーにある
 - ルート フォルダー内の .py ファイル、または runtime.txt で、python を指定している
@@ -25,12 +25,11 @@ Django アプリケーションで静的なファイルの収集をスキップ�
     \.deployment
     \deploy.cmd
 
-使用することができます、 [Azure コマンド ライン インターフェイスの][] ファイルを作成します。 プロジェクト フォルダーからこのコマンドを使用します。
+使用することができます、 [Azure コマンド ライン インターフェイス][] ファイルを作成します。  プロジェクト フォルダーからこのコマンドを使用します。
 
     azure site deploymentscript --python
 
-これらのファイルが存在しない場合、Azure によって一時的なデプロイメント スクリプトが作成され、それが実行されます。 スクリプトは上記のコマンドで作成したのと同じです。
+これらのファイルが存在しない場合、Azure によって一時的なデプロイメント スクリプトが作成され、それが実行されます。  スクリプトは上記のコマンドで作成したのと同じです。
 
-
-[azure command-line interface]: http://azure.microsoft.com/downloads/ 
+[Azure command-line interface]: http://azure.microsoft.com/downloads/
 

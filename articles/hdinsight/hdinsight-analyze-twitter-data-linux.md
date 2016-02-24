@@ -17,71 +17,72 @@
     ms.date="12/04/2015"
     ms.author="larryfr"/>
 
-
 # HDInsight での Hive を使用した Twitter データの分析
 
 このドキュメントでは、Twitter streaming API を使用してツイートを取得し、Linux ベースの HDInsight クラスターで Apache Hive を使用して、JSON 形式のデータを処理します。 結果として、特定の単語が含まれた最も多くのツイートを送信した Twitter ユーザーのリストが返されます。
-> [AZURE.NOTE] このドキュメントの各部分は Windows ベースの HDInsight クラスター (Python と Hive など) で使用できますが、多くの手順は Linux ベースの HDInsight クラスターの使用に基づいています。 固有の手順について、Windows ベースのクラスターに、次を参照してください。 [Twitter データの分析 HDInsight で Hive を使用して](hdinsight-analyze-twitter-data.md)します。
 
-### 前提条件
+> [AZURE.NOTE] このドキュメントの各部分を使用できますが、Windows ベースの HDInsight クラスター (Python と Hive など)、多くの手順は Linux ベースの HDInsight クラスターの使用に基づいています。 固有の手順について、Windows ベースのクラスターに、次を参照してください。 [Twitter データの分析 HDInsight で Hive を使用して](hdinsight-analyze-twitter-data.md)します。
+
+###前提条件
 
 このチュートリアルを読み始める前に、次の項目を用意する必要があります。
 
-- __Linux ベースの Azure HDInsight クラスター__。 クラスターを作成する方法の詳細については、次を参照してください。 [Linux ベースの HDInsight の概要](hdinsight-hadoop-linux-tutorial-get-started.md) クラスターを作成する手順についてです。
+- A __Azure HDInsight の Linux ベースのクラスター__します。 クラスターを作成する方法の詳細については、次を参照してください。 [Linux ベースの HDInsight の概要](hdinsight-hadoop-linux-tutorial-get-started.md) クラスターを作成する手順についてです。
 
-- __SSH クライアント__。 Linux ベースの HDInsight での SSH の使用方法の詳細については、次の記事をご覧ください。
+-  __SSH クライアント__です。 Linux ベースの HDInsight での SSH の使用方法の詳細については、次の記事をご覧ください。
 
-    * [Linux、Unix、OS X から HDInsight 上の Linux ベースの Hadoop で SSH を使用します。](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Linux、Unix、または OS X から HDInsight 上の Linux ベースの Hadoop で SSH キーを使用する](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * [Windows から Linux ベースの Hadoop で SSH を使用します。](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [HDInsight の Linux ベースの Hadoop で Windows から SSH を使用する](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-- __Python__ and [pip](https://pypi.python.org/pypi/pip)
+- __Python__ と [pip](https://pypi.python.org/pypi/pip)
 
-- __Azure CLI__。 詳細については、を参照してください [をインストールし、Azure cli の](../xplat-cli-install.md)。
+-  __Azure CLI__します。 詳細については、次を参照してください [をインストールし、Azure CLI の構成。](../xplat-cli-install.md)
 
-## Twitter Feed の取得
+##Twitter Feed の取得
 
-Twitter では、取得することができます、 [それぞれのツイートのデータ](https://dev.twitter.com/docs/platform-objects/tweets) REST API を通じて JavaScript Object Notation (JSON) ドキュメントとして。 [OAuth](http://oauth.net) の API に認証が必要です。 _Twitter API にアクセスするために使用する設定を含む Application_ を作成することも必要があります。
+Twitter では、取得することができます、 [それぞれのツイートのデータ](https://dev.twitter.com/docs/platform-objects/tweets) REST API を通じて JavaScript Object Notation (JSON) ドキュメントとして。 [OAuth](http://oauth.net) の API に認証が必要です。 作成することも必要があります、 _Twitter アプリケーション_ API にアクセスするために使用する設定値を格納します。
 
-### Twitter アプリケーションを作成する
+###Twitter アプリケーションを作成する
 
-1. Web ブラウザーからへのサインイン [https://apps.twitter.com/](https://apps.twitter.com/)します。 Twitter アカウントを持っていない場合は、**[今すぐ登録]** リンクをクリックします。
-2. **[Create New App]** をクリックします。
-3. **名前**、**説明**、**Web サイト**を入力します。 **[Website]** フィールドの URL を構成することができます。 次のテーブルは使用する値のサンプルを示しています。
+1. Web ブラウザーからへのサインイン [https://apps.twitter.com/](https://apps.twitter.com/)します。 クリックして、 **今すぐサインアップ** Twitter アカウントを持っていない場合は、リンクします。
+2. クリックして **新しいアプリを作成する**です。
+3. 入力 **名前**, 、**説明**, 、**web サイト**します。 URL を行うことができます、 **web サイト** フィールドです。 次のテーブルは使用する値のサンプルを示しています。
 
-   | フィールド| 値|
-   |:----- |:----- |
-   | 名前| MyHDInsightApp|
-   | 説明| MyHDInsightApp|
-   | Web サイト| http://www.myhdinsightapp.com|
+    | フィールド | 値 |
+    |:----- |:----- |
+    | 名前  | MyHDInsightApp |
+    | 説明 | MyHDInsightApp |
+    | Web サイト | http://www.myhdinsightapp.com |
+    
+4. 確認 **Yes, I agree**, 、] をクリックし、 **Twitter アプリケーションを作成する**です。
+5. クリックして、 **権限** ] タブをクリックします。 既定のアクセス許可は **読み取り専用**します。 このチュートリアルにはこれで十分です。
+6. クリックして、 **Keys and Access Tokens** ] タブをクリックします。
+7. クリックして **、アクセス トークンを作成**します。
+8. クリックして **Test OAuth** ページの右上隅にします。
+9. 書き留めて **コンシューマー キー**, 、**コンシューマー シークレット**, 、**アクセス トークン**, 、および **アクセス トークン シークレット**します。 これらの値は後で必要になります。
 
-4. **[Yes, I agree]** をオンにして、**[Create your Twitter application]** をクリックします。
-5. **[Permissions]** タブをクリックします。 既定のアクセス許可は**読み取り専用**です。 このチュートリアルにはこれで十分です。
-6. **[Keys and Access Tokens]** タブをクリックします。
-7. **[Create my access token]** をクリックします。
-8. ページの右上隅にある **[Test OAuth]** をクリックします。
-9. **コンシューマー キー**、**コンシューマー シークレット**、**アクセス トークン**、**アクセス トークン シークレット**を書き留めます。 これらの値は後で必要になります。
+>[AZURE.NOTE] Windows で curl コマンドを使用する場合は、オプションの値の単一引用符の代わりに二重引用符を使用します。
 
->[AZURE.NOTE] Windows で curl コマンドを使用する場合、オプション値には一重引用符の代わりに二重引用符を使用します。
+###ツイートをダウンロードする
 
-### ツイートをダウンロードする
+次の Python コードが Twitter から 10,000 のツイートをダウンロードしてという名前のファイルに保存 __tweets.txt__します。
 
-次の Python コードは、Twitter から 10,000 個のツイートをダウンロードし、__tweets.txt__ という名前のファイルに保存します。
-> [AZURE.NOTE] Python が既にインストールされているので、次の手順は HDInsight クラスターで実行します。
+> [AZURE.NOTE] 次の手順は、Python が既にインストールされているために、HDInsight クラスターで実行されます。
 
 1. SSH を使用して HDInsight クラスターに接続します。
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-
-    SSH ユーザー アカウントを保護するためにパスワードを使用している場合は、パスワードの入力を求められます。 公開キーを使用している場合は、使用する必要があります、 `-i` パラメーターを対応する秘密キーを指定します。 たとえば、 `ssh-i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`します。
-
+        
+    SSH ユーザー アカウントを保護するためにパスワードを使用している場合は、パスワードの入力を求められます。 公開キーを使用している場合、`-i` パラメーターを使用して、対応する秘密キーを指定することが必要な場合があります。 たとえば、「`ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`」のように入力します。
+        
     Linux ベースの HDInsight での SSH の使用方法の詳細については、次の記事をご覧ください。
+    
+    * [Linux、Unix、または OS X から HDInsight 上の Linux ベースの Hadoop で SSH キーを使用する](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * [Linux、Unix、OS X から HDInsight 上の Linux ベースの Hadoop で SSH を使用します。](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Windows から Linux ベースの Hadoop で SSH を使用します。](hdinsight-hadoop-linux-use-ssh-windows)
-
-2. 既定では、__pip__ ユーティリティは HDInsight ヘッド ノードにインストールされません。 次のコマンドを使用して、このユーティリティをインストールし、更新します。
+    * [HDInsight の Linux ベースの Hadoop で Windows から SSH を使用する](hdinsight-hadoop-linux-use-ssh-windows)
+    
+2. 既定では、 __pip__ ユーティリティは、HDInsight ヘッド ノードにインストールされていません。 次のコマンドを使用して、このユーティリティをインストールし、更新します。
 
         sudo apt-get install python-pip
         sudo pip install --upgrade pip
@@ -91,70 +92,70 @@ Twitter では、取得することができます、 [それぞれのツイー�
         sudo apt-get install python-dev libffi-dev libssl-dev
         sudo apt-get remove python-openssl
         sudo pip install tweepy==3.2.0 progressbar pyOpenSSL requests[security]
-
-    > [AZURE.NOTE] python-openssl の削除、python-dev、libffi-dev、libssl-dev、および pyOpenSSL のインストール、requests[security] に関する注意事項は、Python から SSL 経由で Twitter に接続するときに InsecurePlatform 警告を回避することです。
+        
+    > [AZURE.NOTE] Python openssl、python デベロッパー、libffi デベロッパー、libssl デベロッパー、に関する注意事項、および要求 [セキュリティ] のインストールの削除について bits では、Python から SSL 経由で Twitter に接続するときに InsecurePlatform 警告を回避します。
     >
     > 回避する Tweepy v3.2.0 が使用 [エラー](https://github.com/tweepy/tweepy/issues/576) ツイートを処理するときに発生することができます。
 
-4. 次のコマンドを使用して、__gettweets.py__ という名前の新しいファイルを作成します。
+4. という名前の新しいファイルを作成する次のコマンドを使用して __gettweets.py__:
 
         nano gettweets.py
 
-5. __gettweets.py__ ファイルの内容として、次のコードを使用します。 __consumer/_secret__、__consumer/_key__、__access/_token__、__access/_token/_secret__ のプレースホルダー情報を、Twitter アプリケーションの情報に置き換えます。
+5. 内容として次を使用して、 __gettweets.py__ ファイルです。 _ のプレース ホルダー情報を置き換える_コンシューマー/_シークレット__, 、__コンシューマー/_キー__, 、__アクセス/_トークン__, 、および __access/_トークン/_シークレット__ Twitter アプリケーションの情報を使用します。
 
-     #!/usr/bin/python
-    
-     from tweepy import Stream, OAuthHandler
-     from tweepy.streaming import StreamListener
-     from progressbar import ProgressBar, Percentage, Bar
-     import json
-     import sys
-    
-     #Twitter app information
-     consumer_secret='Your consumer secret'
-     consumer_key='Your consumer key'
-     access_token='Your access token'
-     access_token_secret='Your access token secret'
-    
-     #The number of tweets we want to get
-     max_tweets=10000
-    
-     #Create the listener class that will receive and save tweets
-     class listener(StreamListener):
-         #On init, set the counter to zero and create a progress bar
-         def __init__(self, api=None):
-             self.num_tweets = 0
-             self.pbar = ProgressBar(widgets=[Percentage(), Bar()], maxval=max_tweets).start()
-    
-         #When data is received, do this
-         def on_data(self, data):
-             #Append the tweet to the 'tweets.txt' file
-             with open('tweets.txt', 'a') as tweet_file:
-                 tweet_file.write(data)
-                 #Increment the number of tweets
-                 self.num_tweets += 1
-                 #Check to see if we have hit max_tweets and exit if so
-                 if self.num_tweets >= max_tweets:
-                     self.pbar.finish()
-                     sys.exit(0)
-                 else:
-                     #increment the progress bar
-                     self.pbar.update(self.num_tweets)
-             return True
-    
-         #Handle any errors that may occur
-         def on_error(self, status):
-             print status
-    
-     #Get the OAuth token
-     auth = OAuthHandler(consumer_key, consumer_secret)
-     auth.set_access_token(access_token, access_token_secret)
-     #Use the listener class for stream processing
-     twitterStream = Stream(auth, listener())
-     #Filter for these topics
-     twitterStream.filter(track=["azure","cloud","hdinsight"])
+        #!/usr/bin/python
+        
+        from tweepy import Stream, OAuthHandler
+        from tweepy.streaming import StreamListener
+        from progressbar import ProgressBar, Percentage, Bar
+        import json
+        import sys
+        
+        #Twitter app information
+        consumer_secret='Your consumer secret'
+        consumer_key='Your consumer key'
+        access_token='Your access token'
+        access_token_secret='Your access token secret'
+        
+        #The number of tweets we want to get
+        max_tweets=10000
+        
+        #Create the listener class that will receive and save tweets
+        class listener(StreamListener):
+            #On init, set the counter to zero and create a progress bar
+            def __init__(self, api=None):
+                self.num_tweets = 0
+                self.pbar = ProgressBar(widgets=[Percentage(), Bar()], maxval=max_tweets).start()
+        
+            #When data is received, do this
+            def on_data(self, data):
+                #Append the tweet to the 'tweets.txt' file
+                with open('tweets.txt', 'a') as tweet_file:
+                    tweet_file.write(data)
+                    #Increment the number of tweets
+                    self.num_tweets += 1
+                    #Check to see if we have hit max_tweets and exit if so
+                    if self.num_tweets >= max_tweets:
+                        self.pbar.finish()
+                        sys.exit(0)
+                    else:
+                        #increment the progress bar
+                        self.pbar.update(self.num_tweets)
+                return True
+        
+            #Handle any errors that may occur
+            def on_error(self, status):
+                print status
+        
+        #Get the OAuth token
+        auth = OAuthHandler(consumer_key, consumer_secret)
+        auth.set_access_token(access_token, access_token_secret)
+        #Use the listener class for stream processing
+        twitterStream = Stream(auth, listener())
+        #Filter for these topics
+        twitterStream.filter(track=["azure","cloud","hdinsight"])
 
-6. __Ctrl + X__ キーを押した後、__Y__ キーを押してファイルを保存します。
+6. 使用 __ctrl キーを押しながら X__, 、し __Y__ ファイルを保存します。
 
 7. 次のコマンドを使用してファイルを実行し、ツイートをダウンロードします。
 
@@ -162,7 +163,7 @@ Twitter では、取得することができます、 [それぞれのツイー�
 
     進行状況のインジケーターが表示され、ツイートのダウンロードとファイルへの保存の進行状況が 100% までカウントされます。
 
-### データをアップロードする
+###データをアップロードする
 
 WASB (HDInsight で使用される分散ファイル システム) にデータをアップロードするには、次のコマンドを使用します。
 
@@ -171,12 +172,13 @@ WASB (HDInsight で使用される分散ファイル システム) にデータ�
 
 クラスター内のすべてのノードがアクセスできる場所にデータが保存されます。
 
-## HiveQL ジョブの実行
+##HiveQL ジョブの実行
+
 
 1. 次のコマンドを使用して、HiveQL ステートメントを含むファイルを作成します。
 
         nano twitter.hql
-
+    
     このファイルの内容として、次のコードを使用します。
 
         set hive.exec.dynamic.partition = true;
@@ -282,36 +284,38 @@ WASB (HDInsight で使用される分散ファイル システム) にデータ�
             get_json_object(json_response, '$.user.profile_image_url'),
             json_response
         WHERE (length(json_response) > 500);
-
-3. __Ctrl + X__ キーを押した後、__Y__ キーを押してファイルを保存します。
+        
+        
+3. キーを押して __ctrl キーを押しながら X__, 、キーを押します __Y__ ファイルを保存します。
 
 4. 次のコマンドを使用して、ファイルに含まれている HiveQL を実行します。
 
         hive -i twitter.hql     
-
+        
     Hive シェルを読み込む () で HiveQL を実行するが、 __twitter.hql__ ファイルを開き、最後に返す、 `hive >` プロンプトです。
-
-5. `Hive >` プロンプトで、次の使用からのデータを選択できることを確認して、 __ツイート__ 内の HiveQL によって作成されたテーブル、 __twitter.hql__ ファイル。
-
+    
+5.  `hive >` プロンプトで、次の使用からのデータを選択できることを確認して、 __ツイート__ 内の HiveQL によって作成されたテーブル、 __twitter.hql__ ファイル。
+        
         SELECT name, screen_name, count(1) as cc
             FROM tweets
             WHERE text like "%Azure%"
             GROUP BY name,screen_name
             ORDER BY cc DESC LIMIT 10;
 
-    メッセージ テキストに __Azure__ という単語が含まれた最大 10 個のツイートが返されます。
+    語を含む 10 個のツイートの最大値が返されます __Azure__ メッセージ テキストにします。
 
-## 次のステップ
+##次のステップ
 
 このチュートリアルでは、Azure 上で HDInsight を使用し、Twitter から収集したデータを照会、探索、分析するため、構造化されていない JSON データセットを構造化された Hive テーブルへ変換する方法を学習しました。 詳細については、次を参照してください。
 
-- [HDInsight を概要します。](hdinsight-hadoop-linux-tutorial-get-started.md)
-- [HDInsight を使用したフライト遅延データを分析します。](hdinsight-analyze-flight-delay-data-linux.md)
+- [HDInsight の使用](hdinsight-hadoop-linux-tutorial-get-started.md)
+- [HDInsight を使用したフライトの遅延データの分析](hdinsight-analyze-flight-delay-data-linux.md)
 
+[curl]: http://curl.haxx.se
+[curl-download]: http://curl.haxx.se/download.html
 
-[curl]: http://curl.haxx.se 
-[curl-download]: http://curl.haxx.se/download.html 
-[apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial 
-[twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis 
-[twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter 
+[apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial
+
+[twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
+[twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 

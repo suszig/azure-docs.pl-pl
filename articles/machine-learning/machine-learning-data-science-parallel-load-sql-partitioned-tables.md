@@ -16,10 +16,9 @@
     ms.date="12/11/2015" 
     ms.author="bradsev" /> 
 
-
 # SQL パーティション テーブルを使用した並列の一括データ インポート
 
-SQL データベースへのビッグ データの読み込み/転送の場合、パーティション テーブルとビューを使用することによって、SQL DB と後続のクエリへのデータのインポートを向上させることができます。 このドキュメントでは、データを SQL Server データベースに高速に並列一括インポートするためのパーティション分割されたテーブルを作成する方法について説明します。
+ビッグ データの読み込み/転送 SQL データベースに、SQL DB と後続のクエリへのデータのインポートが向上するを使用して _パーティション テーブルとビュー_します。 このドキュメントでは、データを SQL Server データベースに高速に並列一括インポートするためのパーティション分割されたテーブルを作成する方法について説明します。
 
 
 ## 新しいデータベースとファイル グループのセットの作成
@@ -29,8 +28,9 @@ SQL データベースへのビッグ データの読み込み/転送の場合�
 - 注: これが備える [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) 新しい場合または [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) データベースが既に存在する場合
 
 - 1 つまたは複数のファイル (必要に応じて) を各データベース ファイル グループに追加する
- > [AZURE.NOTE] このパーティションのデータを格納するターゲットのファイル グループと、ファイル グループのデータが格納される物理データベース ファイル名を指定します。
 
+ > [AZURE.NOTE] このパーティションのデータを格納するターゲットのファイル グループとファイル グループのデータが格納される物理データベース ファイル名を指定します。
+ 
 次の例では、それぞれに 1 つの物理ファイルが含まれている、プライマリとログ グループ以外に 3 つのファイル グループを持つ新しいデータベースを作成します。 データベース ファイルは、SQL Server インスタンスで構成されているとおりに、既定の SQL Server データ フォルダーに作成されます。 既定のファイルの場所に関する詳細については、次を参照してください。 [既定インスタンスおよび SQL Server のインスタンスをという名前のファイルの場所](https://msdn.microsoft.com/library/ms143547.aspx)します。
 
     DECLARE @data_path nvarchar(256);
@@ -51,7 +51,7 @@ SQL データベースへのビッグ データの読み込み/転送の場合�
         LOG ON 
         ( NAME = ''LogFileGroup'', FILENAME = ''' + @data_path + '<log_file_name>.ldf'' , SIZE = 1024KB , FILEGROWTH = 10%)
     ')
-
+    
 ## パーティション テーブルを作成する
 
 データ スキーマに従って、前の手順で作成されたデータベースのファイル グループにマップされる、パーティション分割されたテーブルを作成します。 パーティション分割されたテーブルにデータが一括インポートされると、以下に説明されているように、パーティション構成に従ってレコードがファイル グループ間で配布されます。
@@ -84,7 +84,7 @@ SQL データベースへのビッグ データの読み込み/転送の場合�
         INNER JOIN sys.partition_range_values prng ON prng.function_id=pfun.function_id
         WHERE pfun.name = <DatetimeFieldPFN>
 
-- [パーティション分割されたテーブルを作成する](https://msdn.microsoft.com/library/ms174979.aspx)(s) と、データ スキーマに従ってなど、テーブルのパーティション分割に使用されるパーティション スキーマと制約フィールドを指定します。
+- [パーティション テーブルを作成](https://msdn.microsoft.com/library/ms174979.aspx)(s) と、データ スキーマに従ってなど、テーブルのパーティション分割に使用されるパーティション スキーマと制約フィールドを指定します。
 
         CREATE TABLE <table_name> ( [include schema definition here] )
         ON <TablePScheme>(<partition_field>)
@@ -99,7 +99,7 @@ SQL データベースへのビッグ データの読み込み/転送の場合�
 
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
 
-- データの読み込み時間を短縮するには、一括インポート操作を並列に起動します。 一括を高速化のヒントについては SQL Server データベースへのビッグ データのインポート「 [1 時間未満で 1 TB を読み込む](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx)します。
+- データの読み込み時間を短縮するには、一括インポート操作を並列に起動します。 一括を高速化のヒントについては SQL Server データベースへのビッグ データのインポートを参照してください [1 時間未満で 1 TB を読み込む](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx)です。
 
 次の PowerShell スクリプトは、BCP を使用した並行データ読み込みの例を示しています。
 
@@ -107,11 +107,11 @@ SQL データベースへのビッグ データの読み込み/転送の場合�
     # This example loads comma-separated input data files
     # The example assumes the partitioned data files are named as <base_file_name>_<partition_number>.csv
     # Assumes the input data files include a header line. Loading starts at line number 2.
-    
+
     $dbname = "<database_name>"
     $indir  = "<path_to_data_files>"
     $logdir = "<path_to_log_directory>"
-    
+
     # Select authentication mode
     $sqlauth = 0
     
@@ -119,18 +119,18 @@ SQL データベースへのビッグ データの読み込み/転送の場合�
     $sqlusr = "<user@server>"
     $server = "<tcp:serverdns>"
     $pass   = "<password>"
-    
+
     # Set number of partitions per table - Should match the number of input data files per table
     $numofparts = <number_of_partitions>
-    
+       
     # Set table name to be loaded, basename of input data files, input format file, and number of partitions
     $tbname = "<table_name>"
     $basename = "<base_input_data_filename_no_extension>"
     $fmtfile = "<full_path_to_format_file>"
-    
+   
     # Create log directory if it does not exist
     New-Item -ErrorAction Ignore -ItemType directory -Path $logdir
-    
+      
     # BCP example using Windows authentication
     $ScriptBlock1 = {
        param($dbname, $tbname, $basename, $fmtfile, $indir, $logdir, $num)
@@ -172,19 +172,14 @@ SQL データベースへのビッグ データの読み込み/転送の場合�
 
         CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )
         ON <TablePScheme>(<partition)field>)
-
 または、
 
         CREATE INDEX <table_idx> ON <table_name>( [include index columns here] )
         ON <TablePScheme>(<partition)field>)
 
- > [AZURE.NOTE] データを一括インポートする前に、インデックスを作成することもできます。 一括インポートする前にインデックスを作成すると、データの読み込みが低下します。
+ > [AZURE.NOTE] データを一括インポートする前にインデックスを作成することができます。 一括インポートする前にインデックスを作成すると、データの読み込みが低下します。
 
 ## 実行中の Advanced Analytics Process and Technology の例
 
 例については、エンド ツー エンドのチュートリアルとパブリック データセット Cortana Analytics プロセスを使用して、次を参照してください。 [Cortana Analytics プロセスの操作: SQL Server を使用して](machine-learning-data-science-process-sql-walkthrough.md)します。
-
-
-
-
-
+ 

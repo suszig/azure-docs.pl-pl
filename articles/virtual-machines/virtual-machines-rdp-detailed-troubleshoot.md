@@ -17,12 +17,12 @@
     ms.date="09/16/2015"
     ms.author="dkshir"/>
 
-
 # Windows ベースの Azure Virtual Machines へのリモート デスクトップ接続に関する詳細なトラブルシューティング
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 この記事では、リモート デスクトップの複雑なエラーの詳細なトラブルシューティング手順を示します。
+
 > [AZURE.IMPORTANT] リモート デスクトップの一般的なエラーをなくすため、必ずお読み [リモート デスクトップの基本的なトラブルシューティング](virtual-machines-troubleshoot-remote-desktop-connections.md) 続行する前にします。
 
 ## Azure カスタマー サポートへの問い合わせ
@@ -34,7 +34,7 @@
 
 ## 一般的なリモート デスクトップのエラー メッセージ
 
-リモート デスクトップ接続のメッセージ ウィンドウには、このエラー メッセージが表示される場合があります: _Remote 次のいずれかの理由により... _、デスクトップがリモート コンピューターに接続できません
+リモート デスクトップ接続のメッセージ ウィンドウには、このエラー メッセージが表示される場合があります: _リモート デスクトップは、次のいずれかのリモート コンピューターに接続できません._
 
 このエラーは、リモート デスクトップ クライアントが、仮想マシンのリモート デスクトップ サービスに接続できない場合に発生します。 このエラーにはさまざまな理由が考えられます。
 
@@ -44,7 +44,7 @@
 
 段階的なトラブルシューティング プロセスを開始する前に、正常にリモート デスクトップ接続を作成できた当初から何が変更されたのかを振り返り、その変更を、問題解決のための出発点にすることをお勧めします。 次に例を示します。
 
-- リモート デスクトップ接続を作成できていたときに、ご利用の仮想マシンを含む仮想マシンまたはクラウド サービスのパブリック IP アドレス (仮想 IP アドレス (VIP) とも呼ばれる) を変更したのであれば、DNS クライアント キャッシュに、DNS 名のエントリおよび*古い IP アドレス*が含まれている可能性があります。 DNS クライアント キャッシュをフラッシュして、もう一度やり直してください または、新しい VIP を使用して接続を試してみてください。
+- リモート デスクトップ接続を作成できたと仮想マシンのパブリック IP アドレスを変更する、または仮想マシン (とも呼ばれる、仮想 IP アドレス [VIP]) を含むクラウド サービス、DNS クライアント キャッシュには、DNS 名のエントリがある可能性があるとき、 *古い IP アドレス*です。 DNS クライアント キャッシュをフラッシュして、もう一度やり直してください または、新しい VIP を使用して接続を試してみてください。
 - Azure クラシック ポータルまたはAzure ポータルの使用から、リモート デスクトップ接続の管理用アプリケーションの使用に切り替えたのであれば、ランダムに決定されるリモート デスクトップのトラフィック向け TCP ポートがアプリケーションの構成に含まれていることを確認します。
 
 次のセクションでは、この問題のさまざまな根本的原因を特定して判断する手順を説明しながら、解決策と回避策を紹介します。
@@ -92,7 +92,7 @@
 
 ![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_2.png)
 
-インターネットに直接接続されているコンピューターがない場合は、新しい Azure 仮想マシンを独自のリソース グループまたはクラウド サービス内に簡単に作成して使用できます。 詳細については、次を参照してください。 [Azure で Windows を実行する仮想マシンを作成する](virtual-machines-windows-tutorial.md)します。 テストの完了後に、そのリソース グループまたは仮想マシンと、クラウド サービスを削除します。
+インターネットに直接接続されているコンピューターがない場合は、新しい Azure 仮想マシンを独自のリソース グループまたはクラウド サービス内に簡単に作成して使用できます。 詳細については、次を参照してください。 [Azure で Windows を実行する仮想マシンを作成する](virtual-machines-windows-tutorial.md)です。 テストの完了後に、そのリソース グループまたは仮想マシンと、クラウド サービスを削除します。
 
 インターネットに直接接続されているコンピューターとのリモート デスクトップ接続を作成できるのなら、組織のイントラネットのエッジ デバイスで以下を確認してください。
 
@@ -107,14 +107,15 @@
 サービス管理 API を使用して作成された仮想マシンで問題や構成ミスの原因になっているクラウド サービス エンドポイントと ACL を排除する場合、同じクラウド サービスまたは仮想ネットワーク内にある別の Azure 仮想マシンから自身の Azure 仮想マシンにリモート デスクトップ接続できることを確認します。
 
 ![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_3.png)
+
 > [AZURE.NOTE] リソース マネージャーで作成された仮想マシンに進みます [ソース 4: ネットワーク セキュリティ グループ](#nsgs)します。
 
-同じクラウド サービスまたは仮想ネットワーク内に別の仮想マシンがない場合、新しい仮想マシンを簡単に作成することができます。 詳細については、次を参照してください。 [Azure で Windows を実行する仮想マシンを作成する](virtual-machines-windows-tutorial.md)します。 テストの完了後に、追加した仮想マシンを削除してください。
+同じクラウド サービスまたは仮想ネットワーク内に別の仮想マシンがない場合、新しい仮想マシンを簡単に作成することができます。 詳細については、次を参照してください。 [Azure で Windows を実行する仮想マシンを作成する](virtual-machines-windows-tutorial.md)です。 テストの完了後に、追加した仮想マシンを削除してください。
 
 同じクラウド サービスまたは仮想ネットワーク内の仮想マシンへのリモート デスクトップ接続を作成できる場合は、以下を確認してください。
 
 - ターゲットの仮想マシンでの、リモート デスクトップのトラフィック向けエンドポイントの構成。 エンドポイントのプライベート TCP ポートは、仮想マシン上のリモート デスクトップ サービスのサービスがリッスンする TCP ポートと一致する必要があります。この TCP ポートの既定設定は 3389 です。
-- ターゲットの仮想マシンでの、リモート デスクトップのトラフィック向けエンドポイントの ACL。 ACL を使用すると、発信元 IP アドレスに基づいて、インターネットからの受信トラフィックを許可または拒否するかを指定できます。 ACL が正しく構成されていないと、そのエンドポイントへのリモート デスクトップの受信トラフィックを受け取れない場合があります。 ご利用になっているプロキシのパブリック IP アドレスからの受信トラフィック、または他のエッジ サーバーからの受信トラフィックが許可されているかを ACL で確認してください。 詳細については、を参照してください [ネットワーク アクセス制御リスト (ACL) は何ですか?](../virtual-network/virtual-networks-acl.md)。.
+- ターゲットの仮想マシンでの、リモート デスクトップのトラフィック向けエンドポイントの ACL。 ACL を使用すると、発信元 IP アドレスに基づいて、インターネットからの受信トラフィックを許可または拒否するかを指定できます。 ACL が正しく構成されていないと、そのエンドポイントへのリモート デスクトップの受信トラフィックを受け取れない場合があります。 ご利用になっているプロキシのパブリック IP アドレスからの受信トラフィック、または他のエッジ サーバーからの受信トラフィックが許可されているかを ACL で確認してください。 詳細については、次を参照してください。 [ネットワーク アクセス制御リスト (ACL) は何ですか?](../virtual-network/virtual-networks-acl.md)します。
 
 問題の原因としてをエンドポイントを排除する場合、現在使用されているエンドポイントを削除してから新しいエンドポイントを作成します。このとき、外部ポート番号の範囲 49152 ～ 65535 からランダムなポート番号を選択します。 詳細については、次を参照してください。 [仮想マシンに対してエンドポイントを設定する方法](virtual-machines-set-up-endpoints.md)します。
 
@@ -122,7 +123,7 @@
 
 ネットワーク セキュリティ グループでは、許可された受信トラフィックと送信トラフィックをより細かく制御できます。 Azure 仮想ネットワーク内のサブネットまたはクラウド サービスの全体に適用されるルールを作成することができます。 ネットワークのセキュリティ グループのルールによって、インターネットからのリモート デスクトップ トラフィックが許可されていることを確認してください。
 
-詳細については、を参照してください [ネットワーク セキュリティ グループ (NSG) は何ですか?](../virtual-network/virtual-networks-nsg.md)。.
+詳細については、次を参照してください。 [ネットワーク セキュリティ グループ (NSG) は何ですか?](../virtual-network/virtual-networks-nsg.md)します。
 
 ### ソース 5: Windows ベースの Azure 仮想マシン
 
@@ -130,7 +131,7 @@
 
 ![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_5.png)
 
-[基本的なリモート デスクトップのトラブルシューティング記事](virtual-machines-troubleshoot-remote-desktop-connections.md) を使用する方法について説明します [Azure IaaS (Windows) 診断パッケージ](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)します。 この診断パッケージで解決できなかった場合、 **Azure VM (再起動が必要) の RDP 接続** 特集での指示に従って、 [今回](virtual-machines-windows-reset-password.md) 仮想マシンにリモート デスクトップ サービスのサービスをリセットします。 リセットすると、以下のようになります。
+ [基本的なリモート デスクトップのトラブルシューティング記事](virtual-machines-troubleshoot-remote-desktop-connections.md) を使用する方法について説明します [Azure IaaS (Windows) 診断パッケージ](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)します。 この診断パッケージで解決できなかった場合、 **Azure VM (再起動が必要) の RDP 接続** 特集での指示に従って、 [今回](virtual-machines-windows-reset-password.md) 仮想マシンにリモート デスクトップ サービスのサービスをリセットします。 リセットすると、以下のようになります。
 
 - 「リモート デスクトップ」 の Windows ファイアウォールの既定ルール (TCP ポート 3389) が有効になる。
 - HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections レジストリ値が 0 に設定されるため、リモート デスクトップ接続が有効になる。
@@ -140,13 +141,13 @@
 - ターゲット仮想マシン上で、リモート デスクトップ サービスのサービスが実行されていない。
 - リモート デスクトップ サービスのサービスが、TCP ポート 3389 でリッスンしていない。
 - Windows ファイアウォールまたは他のローカルのファイアウォールで、リモート デスクトップのトラフィックを妨げている送信ルールが設定されている。
-- Azure 仮想マシンで実行されている侵入検出ソフトウェアまたは監視ソフトウェアが、リモート デスクトップ接続を妨げている。
+-  Azure 仮想マシンで実行されている侵入検出ソフトウェアまたは監視ソフトウェアが、リモート デスクトップ接続を妨げている。
 
 サービス管理 API を使用して作成された仮想マシンについて考えられるこれらの問題を修正するには、リモート Azure PowerShell セッションを Azure 仮想マシンに使用します。 最初に、仮想マシンをホストするクラウド サービスの証明書をインストールする必要があります。 移動して [セキュリティで保護されたリモート PowerShell アクセスを構成を Azure Virtual Machines](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) をダウンロードし、 **InstallWinRMCertAzureVM.ps1** 、ローカル コンピューター上のフォルダーにスクリプト ファイル。
 
 次に、まだ Azure PowerShell がインストールされていなければ、インストールします。 参照してください [をインストールして、Azure PowerShell を構成する方法](../install-configure-powershell.md)します。
 
-次に、Azure PowerShell のコマンド プロンプトを開き、現在のフォルダーを、**InstallWinRMCertAzureVM.ps1** スクリプト ファイルのある場所に変更します。 Azure PowerShell スクリプトを実行するには、適切な実行ポリシーを設定する必要があります。 **Get-executionpolicy** コマンドを実行して、現在のポリシー レベルを決定します。 適切なレベルの設定については、次を参照してください。 [Set-executionpolicy](https://technet.microsoft.com/library/hh849812.aspx)します。
+次に、Azure PowerShell コマンド プロンプトを開きの場所に、現在のフォルダーを変更、 **InstallWinRMCertAzureVM.ps1** スクリプト ファイル。 Azure PowerShell スクリプトを実行するには、適切な実行ポリシーを設定する必要があります。 実行、 **Get-executionpolicy** コマンドを現在のポリシー レベルを決定します。 適切なレベルの設定については、次を参照してください。 [Set-executionpolicy](https://technet.microsoft.com/library/hh849812.aspx)します。
 
 次に、Azure サブスクリプション名、クラウド サービス名、および仮想マシン名を入力 (を削除する、< と > 文字)、およびこれらのコマンドを実行します。
 
@@ -155,9 +156,9 @@
     $vmName="<Name of the target virtual machine>"
     .\InstallWinRMCertAzureVM.ps1 -SubscriptionName $subscr -ServiceName $serviceName -Name $vmName
 
-正しいサブスクリプション名は、**Get-AzureSubscription** コマンドで表示される _SubscriptionName_ プロパティから取得できます。 仮想マシンのクラウド サービス名は、**Get-AzureVM** コマンドに表示される _ServiceName_ 列から取得できます。
+正しいサブスクリプション名を取得することができます、 _SubscriptionName_ プロパティの表示、 **Get-azuresubscription** コマンドです。 バーチャル マシンのクラウド サービス名を取得できます、 _ServiceName_ の表示の列、 **Get-azurevm** コマンドです。
 
-この新しい証明書があることを確かめるには、現在のユーザー用の証明書スナップインを開き、**[信頼されたルート証明機関] > [証明書]** フォルダーを調べます。 クラウド サービスの DNS 名が付けられた証明書が、[発行先] 列に表示されます (例: cloudservice4testing.cloudapp.net)、、
+この新しい証明書があることを証明するために、現在のユーザー証明書スナップインを開くし、ファイルの場所、 **信頼されたルート証明 Authorities\Certificates** フォルダーです。 クラウド サービスの DNS 名が付けられた証明書が、[発行先] 列に表示されます (例: cloudservice4testing.cloudapp.net)、、
 
 次に以下のコマンドを使用して、リモート Azure PowerShell セッションを開始します。
 
@@ -198,15 +199,11 @@ Azure 仮想マシンのリモート デスクトップのエンドポイント�
 
 [Azure IaaS (Windows) 診断パッケージ](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
 
-[パスワードまたはリモート デスクトップ サービスを Windows 仮想マシンをリセットする方法](virtual-machines-windows-reset-password.md)
+[Windows 仮想マシンのパスワードまたはリモート デスクトップ サービスをリセットする方法](virtual-machines-windows-reset-password.md)
 
-[インストールして、Azure PowerShell を構成する方法](../install-configure-powershell.md)
+[Azure PowerShell のインストールおよび構成方法](../install-configure-powershell.md)
 
-[Linux ベースの Azure 仮想マシンに Secure Shell (SSH) 接続をトラブルシューティングします。](virtual-machines-troubleshoot-ssh-connections.md)
+[Linux ベースの Azure 仮想マシンに対する Secure Shell (SSH) 接続のトラブルシューティング](virtual-machines-troubleshoot-ssh-connections.md)
 
-[Azure の仮想マシンで実行されているアプリケーションへのアクセスのトラブルシューティングを行う](virtual-machines-troubleshoot-access-application.md)
-
-
-
-
+[Azure 仮想マシンで実行されているアプリケーションへのアクセスに関するトラブルシューティング](virtual-machines-troubleshoot-access-application.md)
 

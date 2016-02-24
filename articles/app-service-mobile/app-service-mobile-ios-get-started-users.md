@@ -16,33 +16,33 @@
     ms.date="11/30/2015"
     ms.author="krisragh"/>
 
-
 # iOS アプリに認証を追加する
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 &nbsp;  
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-このチュートリアルでは、サポートされている id プロバイダーを使用して、[iOS のクイック スタート] プロジェクトに認証を追加します。 このチュートリアルは、先に完了する必要があります [iOS のクイック スタート] のチュートリアルに基づきます。
+このチュートリアルでは、認証を追加、 [iOS quick start] プロジェクトのサポートされている id プロバイダーを使用します。 このチュートリアルに基づいて、 [iOS quick start] チュートリアルで、先に完了する必要があります。 
 
-## <a name="register"></a>アプリケーションを認証に登録し、App Service を構成します。
+##<a name="register"></a>アプリを認証に登録し、App Service を構成する
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="permissions"></a>認証されたユーザーへのアクセス許可を制限します。
+##<a name="permissions"></a>アクセス許可を、認証されたユーザーだけに制限する
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Xcode で、キーを押して **実行** 、アプリケーションを開始します。 認証されないユーザーとしてアプリがバックエンドにアクセスしようとしても、_TodoItem_ テーブルで認証が要求されるために例外が発生します。
+Xcode で、キーを押して **実行** 、アプリケーションを開始します。 アプリケーションが、認証されないユーザーとしてバックエンドにアクセスしようとしているため、例外が発生するが、 _TodoItem_ テーブルには、今すぐ認証が必要です。
 
-## <a name="add-authentication"></a>アプリに認証を追加します。
+##<a name="add-authentication"></a>アプリケーションに認証を追加する
 
 [AZURE.INCLUDE [app-service-mobile-ios-authenticate-app](../../includes/app-service-mobile-ios-authenticate-app.md)]
 
 
+<!-- URLs. -->
 
+[iOS quick start]: app-service-mobile-ios-get-started.md
 
-
-[ios quick start]: app-service-mobile-ios-get-started.md 
-[azure portal]: https://portal.azure.com 
+[Azure portal]: https://portal.azure.com
+ 
 

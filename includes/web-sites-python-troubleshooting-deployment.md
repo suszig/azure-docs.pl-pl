@@ -4,11 +4,7 @@
 
 ![](./media/web-sites-python-troubleshoot-deployment/portal-deployment-history.png)
 
-**[ログの表示]** をクリックすると、カスタム デプロイメント スクリプトの出力が表示されます。
+をクリックして **ログの表示** カスタム デプロイメント スクリプトの出力を表示します。
 
 ![](./media/web-sites-python-troubleshoot-deployment/portal-deployment-log.png)
-
-
-
-
 

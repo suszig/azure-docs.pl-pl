@@ -17,13 +17,11 @@
     ms.date="08/26/2015"
     ms.author="jroth" />
 
-
 # Azure での SQL Server 仮想マシンの作成 (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](virtual-machines-provision-sql-server.md)
+- [Azure クラシック ポータル](virtual-machines-provision-sql-server.md)
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
-
 
 ## 概要
 
@@ -34,11 +32,11 @@
 
 ## PowerShell のインストールと構成
 
-1. Azure アカウントがないを参照してください。 [Azure 無料評価版](https://azure.microsoft.com/pricing/free-trial/)します。
-
+1. Azure アカウントがないを参照してください。 [Azure 無料評価版](https://azure.microsoft.com/pricing/free-trial/)します。 
+ 
 2. [最新の Azure PowerShell コマンドレット インストール](../powershell-install-configure.md/#how-to-install-azure-powershell)します。
 
-3. [Connect PowerShell、Azure サブスクリプションに](../powershell-install-configure.md/#how-to-connect-to-your-subscription)します。
+3. [PowerShell を Azure サブスクリプションに接続](../powershell-install-configure.md/#how-to-connect-to-your-subscription)します。
 
 ## ターゲット Azure リージョンの決定
 
@@ -49,10 +47,9 @@ SQL Server の仮想マシンは、特定の Azure リージョンに存在す�
         Get-AzureLocation
         (Get-AzureLocation).Name
 
-2.  希望する場所を特定したら、**$dcLocation** という名前の変数をそのリージョンに設定します。
+2.  任意の場所を特定した、という名前の変数を設定 **$dcLocation** 領域にします。
 
         $dcLocation = "<region name>"
-
 
 ## サブスクリプションとストレージ アカウントの設定
 
@@ -60,7 +57,7 @@ SQL Server の仮想マシンは、特定の Azure リージョンに存在す�
 
         (Get-AzureSubscription).SubscriptionName
 
-1. ターゲットの Azure サブスクリプションを **$subscr** 変数に割り当てます。 次に、これを現在の Azure のサブスクリプションとして設定します。
+1. ターゲットの Azure サブスクリプションを割り当てるには **$subscr** 変数です。 次に、これを現在の Azure のサブスクリプションとして設定します。 
 
         $subscr="<subscription name>"
         Select-AzureSubscription -SubscriptionName $subscr –Current
@@ -69,34 +66,32 @@ SQL Server の仮想マシンは、特定の Azure リージョンに存在す�
 
         (Get-AzureStorageAccount | where { $_.GeoPrimaryLocation -eq $dcLocation }).StorageAccountName
 
-    >[AZURE.NOTE] 次の例のように New-azurestorageaccount コマンドを使用して、すべて小文字のストレージ アカウント名がまず作成するには、新しいストレージ アカウントが必要がある場合: * * New-azurestorageaccount StorageAccountName"<storage account name>"-場所 $dcLocation * *
+    >[AZURE.NOTE] 次の例のように New-azurestorageaccount コマンドを使用して、すべて小文字のストレージ アカウント名がまず作成するには、新しいストレージ アカウントが必要がある場合: **New-azurestorageaccount StorageAccountName"<storage account name>"-$dcLocation の場所**
 
-1. 対象のストレージ アカウント名を **$staccount** に割り当てます。 次に、**Set-AzureSubscription** を使用してサブスクリプションと現在のストレージ アカウントを設定します。
+1. 対象のストレージ アカウント名を割り当てる、 **$staccount**します。 使用して **Set-azuresubscription** 現在のストレージ アカウントとサブスクリプションを設定します。
 
         $staccount="<storage account name>"
         Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-
 ## SQL Server 仮想マシン イメージの選択
 
-1. ギャラリーから使用可能な SQL Server 仮想マシン イメージのリストを見つけます。 これらのイメージにはすべて、"SQL" で始まる **ImageFamily** プロパティが含まれています。 次のクエリでは、SQL Server が事前にインストールされている、使用可能なイメージ ファミリが表示されます。
+1. ギャラリーから使用可能な SQL Server 仮想マシン イメージのリストを見つけます。 これらのイメージがすべて、 **ImageFamily** "SQL"で始まるプロパティです。 次のクエリでは、SQL Server が事前にインストールされている、使用可能なイメージ ファミリが表示されます。
 
         Get-AzureVMImage | where { $_.ImageFamily -like "SQL*" } | select ImageFamily -Unique | Sort-Object -Property ImageFamily
 
-1. 仮想マシン イメージ ファミリが見つかったら、可能性がありますパブリッシュされた複数のイメージこのファミリ。 次のスクリプトを使用して、選択したイメージ ファミリについて発行された最新の仮想マシン イメージ名を見つけます (**SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2** など)。
+1. 仮想マシン イメージ ファミリが見つかったら、可能性がありますパブリッシュされた複数のイメージこのファミリ。 選択したイメージ ファミリの最新の公開済みの仮想マシン イメージ名を検索する次のスクリプトを使用して (よう **Windows Server 2012 R2 の SQL Server 2014 SP1 Enterprise**)。
 
-     $family="<ImageFamily value>"
-     $image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-    
-     echo "Selected SQL Server image name:"
-     echo "   $image"
+        $family="<ImageFamily value>"
+        $image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
+        echo "Selected SQL Server image name:"
+        echo "   $image"
 
 ## 仮想マシンの作成
 
 最後に、PowerShell を使用して仮想マシンを作成します。
 
-1. 新しい VM をホストするクラウド サービスを作成します。 既存のクラウド サービスを代わりに使用することもできます。 クラウド サービスの短縮名を使用して、新しい **$svcname** 変数を作成します。
+1. 新しい VM をホストするクラウド サービスを作成します。 既存のクラウド サービスを代わりに使用することもできます。 新しい変数を作成 **$svcname** クラウド サービスの短い名前に置き換えます。
 
         $svcname = "<cloud service name>"
         New-AzureService -ServiceName $svcname -Label $svcname -Location $dcLocation
@@ -116,12 +111,11 @@ SQL Server の仮想マシンは、特定の Azure リージョンに存在す�
 
         New-AzureVM –ServiceName $svcname -VMs $vm1
 
-
->[AZURE.NOTE] 追加の説明と構成オプションでは、「、 **コマンド セットを構築** セクション [を作成し、、Windows ベースの仮想マシンを事前構成する Azure PowerShell を使用して](virtual-machines-ps-create-preconfigure-windows-vms.md)します。
+>[AZURE.NOTE] 追加の説明と構成オプションでは、「、 **コマンド セットを構築** セクション [を作成し、Windows ベースの仮想マシンを事前構成する Azure PowerShell を使用して](virtual-machines-ps-create-preconfigure-windows-vms.md)います。
 
 ## PowerShell サンプル スクリプト
 
-次のスクリプトは、**SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2** 仮想マシンを作成する完全なスクリプトの例です。 このスクリプトを使用する場合、このトピックの前のステップに基づいて、初期変数をカスタマイズする必要があります。
+次のスクリプトを作成する完全なスクリプトの例は、 **Windows Server 2012 R2 の SQL Server 2014 SP1 Enterprise** 仮想マシン。 このスクリプトを使用する場合、このトピックの前のステップに基づいて、初期変数をカスタマイズする必要があります。
 
     # Customize these variables based on your settings and requirements:
     $dcLocation = "East US"
@@ -153,6 +147,7 @@ SQL Server の仮想マシンは、特定の Azure リージョンに存在す�
     
     # Create the SQL Server VM:
     New-AzureVM –ServiceName $svcname -VMs $vm1
+     
 
 ## リモート デスクトップへの接続
 
@@ -165,7 +160,6 @@ SQL Server の仮想マシンは、特定の Azure リージョンに存在す�
 
         .\vm1.rdp
 
-
 ## リモート アクセス用の SQL Server コンピューターの構成を完了する
 
 リモート デスクトップを使用してコンピューターに記録された後の手順に応じた SQL Server を構成する [を Azure VM で SQL Server の接続を構成する手順](virtual-machines-sql-server-connectivity.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)します。
@@ -174,13 +168,9 @@ SQL Server の仮想マシンは、特定の Azure リージョンに存在す�
 
 Powershell での仮想マシンのプロビジョニング用の追加の手順を参照して、 [virtual machines のドキュメント](virtual-machines-ps-create-preconfigure-windows-vms.md)します。 SQL Server と Premium Storage に関連する追加のスクリプトでは、次を参照してください。 [Azure Premium Storage を使用して、仮想マシン上の SQL Server を](virtual-machines-sql-server-use-premium-storage.md)します。
 
-多くの場合、次の手順はこの新しい SQL Server VM にデータベースを移行することです。 データベースの移行のガイドラインを参照してください。 [Azure VM 上の SQL Server にデータベースを移行する](virtual-machines-migrate-onpremises-database.md)します。
+多くの場合、次の手順はこの新しい SQL Server VM にデータベースを移行することです。 データベースの移行のガイドラインを参照してください。 [Azure VM 上の SQL Server にデータベースを移行する](virtual-machines-migrate-onpremises-database.md)です。
 
 Azure クラシック ポータルからこれらの手順を実行する方法を確認することに興味も場合 [Azure で SQL Server 仮想マシンをプロビジョニング](virtual-machines-provision-sql-server.md)します。
 
 これらのリソースだけでなくをお勧め」を参照する [Azure Virtual Machines における SQL Server を実行に関連するその他のトピック](virtual-machines-sql-server-infrastructure-services.md)します。
-
-
-
-
 

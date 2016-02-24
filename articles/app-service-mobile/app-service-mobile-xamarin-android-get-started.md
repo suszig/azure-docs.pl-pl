@@ -16,31 +16,30 @@
     ms.date="11/17/2015"
     ms.author="glenga" />
 
-
-# Xamarin.Android アプリの作成
+#Xamarin.Android アプリの作成
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 &nbsp;  
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+ 
+##概要
 
-## 概要
-
-このチュートリアルでは、Xamarin Android アプリケーションにクラウドベースのバックエンド サービスを追加する方法を示します。 詳細については、次を参照してください。 [モバイル アプリとは](app-service-mobile-value-prop.md)します。
+このチュートリアルでは、Xamarin Android アプリケーションにクラウドベースのバックエンド サービスを追加する方法を示します。 詳細については、次を参照してください。 [モバイル アプリとは](app-service-mobile-value-prop.md)です。 
 
 完成したアプリケーションのスクリーンショットは次のようになります。
 
 ![][0]
 
 Xamarin Android アプリケーションの他のすべての Mobile Apps のチュートリアルを行う前に、このチュートリアルを完了してください。
-
-## 前提条件
+ 
+##前提条件
 
 このチュートリアルを完了するには、以下が必要です。
 
-* アクティブな Azure アカウント。 アカウントがない場合、Azure 試用版にサインアップして、最大 10 件の無料 Mobile Apps を入手できます。このアプリは評価終了後も使用できます。 詳細については、「 [Azure 無料試用版](http://azure.microsoft.com/pricing/free-trial/)します。
-
-* [Visual Studio Community 2013] 以降。 Visual Studio Community 2013 をインストールする場合は、[Xamarin] を個別にインストールします。 Visual Studio 2015 をインストールするときに、Xamarin ツールをインストールできます。
-
+* アクティブな Azure アカウント。 アカウントがない場合、Azure 試用版にサインアップして、最大 10 件の無料 Mobile Apps を入手できます。このアプリは評価終了後も使用できます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/)をご覧ください。
+ 
+* [Visual Studio Community 2013] 以降。  Visual Studio Community 2013 をインストールする場合は、[Xamarin] を個別にインストールします。  Visual Studio 2015 をインストールするときに、Xamarin ツールをインストールできます。
+ 
 >[AZURE.NOTE] 場合は、Azure アカウントがサインアップする前に Azure App Service の使用を開始するには、 [App Service の試用](https://tryappservice.azure.com/?appServiceName=mobile), 、App Service で有効期間の短いスターター モバイル アプリをすぐに作成する場所です。 このサービスの利用にあたり、クレジット カードは必要ありません。契約も必要ありません。
 
 ## 新しい Azure Mobile App バックエンドの作成
@@ -57,36 +56,38 @@ Xamarin Android アプリケーションの他のすべての Mobile Apps のチ
 
 ## Xamarin.Android アプリのダウンロードと実行
 
-1. **[Xamarin.Android プロジェクトをダウンロードして実行する]** の下の **[ダウンロード]** ボタンをクリックします。
+1. [ **Xamarin.Android プロジェクトの実行をダウンロードして**, 、] をクリックして、 **ダウンロード** ] ボタンをクリックします。
 
     これにより、モバイル アプリに接続されているクライアント アプリケーションが含まれているプロジェクトがダウンロードされます。 圧縮されたプロジェクト ファイルをローカル コンピューターに保存し、保存場所を書き留めておいてください。
 
-2. **F5** キーを押してプロジェクトをビルドし、アプリケーションを開始します。
+2. キーを押して、 **f5 キーを押して** キー、プロジェクトをビルドし、アプリケーションを開始します。 
 
-3. アプリケーションで、たとえば、tutorial_ の意味のあるテキストを入力し、クリックして、 **追加** ] ボタンをクリックします。
+3. アプリケーションで、意味のあるテキストをなど入力 _に関するチュートリアルを完了_ ] をクリックし、 **追加** ] ボタンをクリックします。
 
     ![][10]
 
     これで、Azure でホストされている新しいモバイル アプリ バックエンドに POST 要求が送信されます。 要求のデータは TodoItem テーブルに挿入されます。 テーブルに格納された項目がモバイル アプリ バックエンドによって返され、データが一覧に表示されます。
-    > [AZURE.NOTE] モバイル アプリ バックエンドにアクセスしてデータのクエリと挿入を行うコードを確認できます (ToDoActivity.cs C# ファイルにあります)。
 
-## 次のステップ
+    > [AZURE.NOTE] ToDoActivity.cs c# ファイルにあるデータ照会および挿入するようにモバイル アプリ バックエンドにアクセスするコードを確認できます。
+
+##次のステップ
 
 * [アプリへの認証を追加します。 ](app-service-mobile-xamarin-android-get-started-users.md)
   <br/>Id プロバイダーを使用してアプリケーションのユーザーを認証する方法について説明します。
 
 
+<!-- Images. -->
+[0]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-completed-android.png
+[6]: ./media/app-service-mobile-xamarin-android-get-started/mobile-portal-quickstart-xamarin.png
+[8]: ./media/app-service-mobile-xamarin-android-get-started/mobile-xamarin-project-android-vs.png
+[9]: ./media/app-service-mobile-xamarin-android-get-started/mobile-xamarin-project-android-xs.png
+[10]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-startup-android.png
 
-
-
-[0]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-completed-android.png 
-[6]: ./media/app-service-mobile-xamarin-android-get-started/mobile-portal-quickstart-xamarin.png 
-[8]: ./media/app-service-mobile-xamarin-android-get-started/mobile-xamarin-project-android-vs.png 
-[9]: ./media/app-service-mobile-xamarin-android-get-started/mobile-xamarin-project-android-xs.png 
-[10]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-startup-android.png 
-[azure portal]: https://azure.portal.com/ 
-[xamarin]: http://xamarin.com/download 
-[xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409 
-[xamarin for windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409 
-[visual studio community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203 
+<!-- URLs. -->
+[Azure Portal]: https://azure.portal.com/
+[Xamarin]: http://xamarin.com/download
+[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
+[Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
+ 
+[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 

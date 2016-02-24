@@ -17,8 +17,7 @@
    ms.date="11/20/2015"
    ms.author="telmos" />
 
-
-# テンプレートを使用してユーザー定義のルート (UDR) を作成する
+#テンプレートを使用してユーザー定義のルート (UDR) を作成する
 
 [AZURE.INCLUDE [virtual-network-create-udr-arm-selectors-include.md](../../includes/virtual-network-create-udr-arm-selectors-include.md)]
 
@@ -53,6 +52,7 @@
         }
       ]
 
+
 フロントエンドのサブネットに UDR を関連付けるには、テンプレートのサブネットの定義を変更し、UDR の参照 ID を使用する必要があります。
 
     "subnets": [
@@ -70,7 +70,7 @@
 
 同じことがバックエンド NSG およびテンプレートのバックエンドのサブネットに行われていることを確認します。
 
-さらに、パケットの受信および転送に使用される NIC 上で、**FW1** VM の IP 転送プロパティが有効になっていることを確認する必要があります。 以下のセクションは、上記のシナリオに基づいた、azuredeploy-nsg-udr.json ファイル内の FW1 用 NIC の定義を示します。
+いることを確認する必要があります、 **FW1** が VM に IP 転送のプロパティを受信し、パケットを転送に使用される NIC で有効にします。 以下のセクションは、上記のシナリオに基づいた、azuredeploy-nsg-udr.json ファイル内の FW1 用 NIC の定義を示します。
 
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/networkInterfaces",
@@ -118,61 +118,60 @@ PowerShell を使用してダウンロードした ARM テンプレートをデ�
 
 1. Azure PowerShell を初めて使用する場合は、次を参照してください。 [インストールおよび Azure PowerShell の構成方法](powershell-install-configure.md) Azure にサインインし、サブスクリプションを選択最後までの指示に従います。
 
-3. テンプレートを使用してリソース グループを作成するには、**New-AzureRmResourceGroup** コマンドレットを実行します。
+3. 実行、 **新規 AzureRmResourceGroup** コマンドレットをテンプレートを使用してリソース グループを作成します。
 
-     New-AzureRmResourceGroup -Name TestRG -Location westus `
-         -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' `
-         -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json' 
+        New-AzureRmResourceGroup -Name TestRG -Location westus `
+            -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' `
+            -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json' 
 
- 予想される出力:
+    予想される出力:
 
-     ResourceGroupName : TestRG
-     Location          : westus
-     ProvisioningState : Succeeded
-     Tags              : 
-     Permissions       : 
-                         Actions  NotActions
-                         =======  ==========
-                         *                  
-    
-     Resources         : 
-                         Name                Type                                     Location
-                         ==================  =======================================  ========
-                         ASFW                Microsoft.Compute/availabilitySets       westus  
-                         ASSQL               Microsoft.Compute/availabilitySets       westus  
-                         ASWEB               Microsoft.Compute/availabilitySets       westus  
-                         FW1                 Microsoft.Compute/virtualMachines        westus  
-                         SQL1                Microsoft.Compute/virtualMachines        westus  
-                         SQL2                Microsoft.Compute/virtualMachines        westus  
-                         WEB1                Microsoft.Compute/virtualMachines        westus  
-                         WEB2                Microsoft.Compute/virtualMachines        westus  
-                         NICFW1              Microsoft.Network/networkInterfaces      westus  
-                         NICSQL1             Microsoft.Network/networkInterfaces      westus  
-                         NICSQL2             Microsoft.Network/networkInterfaces      westus  
-                         NICWEB1             Microsoft.Network/networkInterfaces      westus  
-                         NICWEB2             Microsoft.Network/networkInterfaces      westus  
-                         NSG-BackEnd         Microsoft.Network/networkSecurityGroups  westus  
-                         NSG-FrontEnd        Microsoft.Network/networkSecurityGroups  westus  
-                         PIPFW1              Microsoft.Network/publicIPAddresses      westus  
-                         PIPSQL1             Microsoft.Network/publicIPAddresses      westus  
-                         PIPSQL2             Microsoft.Network/publicIPAddresses      westus  
-                         PIPWEB1             Microsoft.Network/publicIPAddresses      westus  
-                         PIPWEB2             Microsoft.Network/publicIPAddresses      westus  
-                         UDR-BackEnd         Microsoft.Network/routeTables            westus  
-                         UDR-FrontEnd        Microsoft.Network/routeTables            westus  
-                         TestVNet            Microsoft.Network/virtualNetworks        westus  
-                         testvnetstorageprm  Microsoft.Storage/storageAccounts        westus  
-                         testvnetstoragestd  Microsoft.Storage/storageAccounts        westus  
-    
-     ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
-
+        ResourceGroupName : TestRG
+        Location          : westus
+        ProvisioningState : Succeeded
+        Tags              : 
+        Permissions       : 
+                            Actions  NotActions
+                            =======  ==========
+                            *                  
+                            
+        Resources         : 
+                            Name                Type                                     Location
+                            ==================  =======================================  ========
+                            ASFW                Microsoft.Compute/availabilitySets       westus  
+                            ASSQL               Microsoft.Compute/availabilitySets       westus  
+                            ASWEB               Microsoft.Compute/availabilitySets       westus  
+                            FW1                 Microsoft.Compute/virtualMachines        westus  
+                            SQL1                Microsoft.Compute/virtualMachines        westus  
+                            SQL2                Microsoft.Compute/virtualMachines        westus  
+                            WEB1                Microsoft.Compute/virtualMachines        westus  
+                            WEB2                Microsoft.Compute/virtualMachines        westus  
+                            NICFW1              Microsoft.Network/networkInterfaces      westus  
+                            NICSQL1             Microsoft.Network/networkInterfaces      westus  
+                            NICSQL2             Microsoft.Network/networkInterfaces      westus  
+                            NICWEB1             Microsoft.Network/networkInterfaces      westus  
+                            NICWEB2             Microsoft.Network/networkInterfaces      westus  
+                            NSG-BackEnd         Microsoft.Network/networkSecurityGroups  westus  
+                            NSG-FrontEnd        Microsoft.Network/networkSecurityGroups  westus  
+                            PIPFW1              Microsoft.Network/publicIPAddresses      westus  
+                            PIPSQL1             Microsoft.Network/publicIPAddresses      westus  
+                            PIPSQL2             Microsoft.Network/publicIPAddresses      westus  
+                            PIPWEB1             Microsoft.Network/publicIPAddresses      westus  
+                            PIPWEB2             Microsoft.Network/publicIPAddresses      westus  
+                            UDR-BackEnd         Microsoft.Network/routeTables            westus  
+                            UDR-FrontEnd        Microsoft.Network/routeTables            westus  
+                            TestVNet            Microsoft.Network/virtualNetworks        westus  
+                            testvnetstorageprm  Microsoft.Storage/storageAccounts        westus  
+                            testvnetstoragestd  Microsoft.Storage/storageAccounts        westus  
+                            
+        ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
 
 ## Azure CLI を使用して ARM テンプレートをデプロイする
 
 Azure CLI を使用して ARM テンプレートをデプロイするには、次の手順に従います。
 
 1. Azure CLI を初めて使用する場合は、次を参照してください。 [のインストールと Azure CLI の構成](xplat-cli.md) Azure アカウントとサブスクリプションを選択する時点までの指示に従います。
-2. 次に示すように、**azure config mode** コマンドを実行してリソース マネージャー モードに切り替えます。
+2. 実行、 **azure config モード** コマンドを次に示すように、リソース マネージャー モードに切り替えます。
 
         azure config mode arm
 
@@ -180,7 +179,7 @@ Azure CLI を使用して ARM テンプレートをデプロイするには、�
 
         info:    New mode is arm
 
-3. 移動し、ブラウザーから **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, 、json ファイルの内容をコピーし、コンピューターに新しいファイルに貼り付けます。 このシナリオでは、次の値を **c:\udr\azuredeploy.parameters.json** という名前のファイルにコピーします。
+3. 移動し、ブラウザーから **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, 、json ファイルの内容をコピーし、コンピューターに新しいファイルに貼り付けます。 このシナリオではあるをコピーしてより小さい値という名前のファイル **c:\udr\azuredeploy.parameters.json**します。
 
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -198,7 +197,7 @@ Azure CLI を使用して ARM テンプレートをデプロイするには、�
           }
         }
 
-4. 上記でダウンロードして変更したテンプレート ファイルとパラメーター ファイルを使用して、**azure group create** コマンドレットを実行して新しい VNet をデプロイします。 出力の後に表示される一覧では、使用されたパラメーターについて説明されています。
+4. 実行、 **azure グループを作成** テンプレートとパラメーターを使用して、新しい VNet を展開するコマンドレットではファイルをダウンロードし、上の変更します。 出力の後に表示されるリストは、使用されたパラメーターについての説明です。
 
         azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'
 
@@ -219,12 +218,12 @@ Azure CLI を使用して ARM テンプレートをデプロイするには、�
         data:    
         info:    group create command OK
 
-5. **azure group show** コマンドレットを実行し、新しいリソース グループに作成されたリソースを表示します。
+5. 実行、 **azure グループ ショー** 新しいリソース グループで作成されたリソースを表示するコマンドです。 
 
         azure group show TestRG
 
     予想される結果
-
+        
         info:    Executing command group show
         info:    Listing resource groups
         info:    Listing resources for the group
@@ -391,9 +390,4 @@ Azure CLI を使用して ARM テンプレートをデプロイするには、�
         data:    
         info:    group show command OK
 
-
->[AZURE.TIP] すべてのリソースが表示されない場合は、**azure group deployment show** コマンドを実行して、デプロイのプロビジョニング状態が *Succeeded* になっていることを確認します。
-
-
-
-
+>[AZURE.TIP] すべてのリソースが表示されない場合は、実行、 **azure グループ展開表示** デプロイのプロビジョニングの状態を保証するためのコマンド *成功*します。

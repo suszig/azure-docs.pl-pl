@@ -1,73 +1,82 @@
 1. Azure の [管理ポータル](http://manage.windowsazure.com), 、] をクリックして **仮想マシン** し、先ほど作成した仮想マシンを選択し、(**testlinuxvm**)。
 
-2. コマンド バーで、**[ディスクの接続]**、**[空のディスクの接続]** の順にクリックします。
+2. コマンド バーでをクリックして **アタッチ** ] をクリックし、 **[空のディスク**します。
 
-    **[空のディスクの接続]** ダイアログ ボックスが表示されます。
+     **[空のディスク** ] ダイアログ ボックスが表示されます。
 
-3. **[仮想マシン名]**、**[ストレージの場所]**、**[ファイル名]** の値は既に定義されています。 必要なのは、ディスクのサイズを入力することだけです。 **[サイズ]** ボックスに「**5**」と入力します。
 
-    ![空のディスクの接続][image2]
+3.  **仮想マシン名**, 、**記憶域の場所**, 、および **ファイル名** は既に定義されています。 必要なのは、ディスクのサイズを入力することだけです。 型 **5** で、 **サイズ** フィールドです。
 
-    **注:** ディスクはすべて、.vhd ファイルから Azure ストレージに作成されます。 ストレージに追加する .vhd ファイルの名前は指定できますが、ディスクの名前は Azure によって自動的に生成されます。
+    ![空のディスクの接続][Image2]
+
+    **注:** すべてのディスクは Azure ストレージに .vhd ファイルから作成されます。 ストレージに追加する .vhd ファイルの名前は指定できますが、ディスクの名前は Azure によって自動的に生成されます。
 
 4. チェック マークをクリックして、仮想マシンにデータ ディスクを接続します。
 
-5. 仮想マシンの名前をクリックしてダッシュボードを表示します。こうすることでデータ ディスクが仮想マシンに正しく接続されたか確認することができます。 接続したディスクは、**[ディスク]** テーブルに表示されます。
+5. 仮想マシンの名前をクリックしてダッシュボードを表示します。こうすることでデータ ディスクが仮想マシンに正しく接続されたか確認することができます。 接続したディスクが表示されて、 **ディスク** テーブルです。
 
     データ ディスクは接続しただけでは使用できません。使用するには、ログインしてセットアップを完了する必要があります。
 
-## SSH または PuTTY を使用して仮想マシンに接続し、セットアップを完了する
-
+##SSH または PuTTY を使用して仮想マシンに接続し、セットアップを完了する
 仮想マシンにログオンし、ディスクのセットアップを完了して、ディスクにデータを格納できるようにします。
 
-1. 仮想マシンをプロビジョニングしたら、SSH または PuTTY を使用して接続し、(前の手順に従って) **newuser** としてログインします。
+1. 仮想マシンをプロビジョニングすると、SSH または PuTTY およびログインを使用して接続 **newuser** (ように前の手順で説明します)。 
+
 
 2. SSH または PuTTY のウィンドウで次のコマンドを入力し、アカウントのパスワードを入力します。
 
     `$ sudo grep SCSI /var/log/messages`
 
-    表示されたメッセージで、最後に追加されたデータ ディスクの識別子を確認できます (この例では **sdc**)。
+    表示されたメッセージに追加された最後のデータ ディスクの識別子を見つけることができます (**sdc**, 、この例では)。
 
-    ![GREP][image4]
+    ![GREP][Image4]
 
-3. SSH または PuTTY のウィンドウで次のコマンドを入力し、ディスク **/dev/sdc** をパーティション分割します。
+
+3. SSH または PuTTY のウィンドウで、[ディスクのパーティションを次のコマンドを入力 **/デベロッパー/sdc**:
 
     `$ sudo fdisk /dev/sdc`
 
-4. 「**n**」を入力して、新しいパーティションを作成します。
 
-    ![FDISK][image5]
+4. 入力 **n** 新しいパーティションを作成します。
 
-5. パーティションをプライマリ パーティションにするには「**p**」を、最初のパーティションにするには「**1**」を、シリンダーの既定値 (1) をそのまま使用するには Enter キーを押します。
+    ![FDISK][Image5]
 
-    ![FDISK][image6]
 
-6. 「**p**」を入力すると、パーティション分割されたディスクに関する詳細情報が表示されます。
+5. 型 **p** するには、パーティションをプライマリ パーティションにするには、入力 **1** 最初のパーティションと、シリンダーの既定値 (1) を使用する入力を入力します。
 
-    ![FDISK][image7]
+    ![FDISK][Image6]
 
-7. 「**w**」と入力すると、ディスクの設定が書き込まれます。
 
-    ![FDISK][image8]
+6. 型 **p** がパーティション分割されたディスクに関する詳細が表示されます。
 
-8. **mkfs** コマンドを使用して、新しいディスクをフォーマットします。
+    ![FDISK][Image7]
 
-    `$ sudo mkfs-t ext4/dev/sdc1`
+
+7. 型 **w** 、ディスクの設定を記述します。
+
+    ![FDISK][Image8]
+
+
+8. 新しいディスクを使用して、書式設定、 **mkfs** コマンド。
+
+    `$ sudo mkfs -t ext4 /dev/sdc1`
 
 9. 次に、新しいファイル システムをマウントするために利用可能なディレクトリが必要です。 たとえば、次のコマンドを入力してドライブをマウントする新しいディレクトリを作成し、アカウントのパスワードを入力します。
 
-    `sudo mkdir/datadrive`
+    `sudo mkdir /datadrive`
+
 
 10. 次のコマンドを入力してドライブをマウントします。
 
-    `sudo マウント/sdc1/datadrive`
+    `sudo mount /dev/sdc1 /datadrive`
 
-    これで、データ ディスクを **/datadrive** として使用する準備ができました。
+    データ ディスクとしてを使用する準備ができました **/datadrive**します。
+
 
 11. 新しいドライブを /etc/fstab に追加します。
 
-    再起動後にドライブを自動的に再マウントするために、そのドライブを /etc/fstab ファイルに追加する必要があります。 また、ドライブを参照する際に、デバイス名 (つまり /dev/sdc1) だけではなく、UUID (汎用一意識別子) を /etc/fstab で使用することもお勧めします。 新しいドライブの UUID を確認するには、**blkid** ユーティリティを次のように使用します。
-
+    再起動後にドライブを自動的に再マウントするために、そのドライブを /etc/fstab ファイルに追加する必要があります。 また、ドライブを参照する際に、デバイス名 (つまり /dev/sdc1) だけではなく、UUID (汎用一意識別子) を /etc/fstab で使用することもお勧めします。 使用する新しいドライブの UUID を確認する、 **blkid** ユーティリティ。
+    
         `sudo -i blkid`
 
     次のような出力が表示されます。
@@ -76,32 +85,33 @@
         `/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"`
         `/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"`
 
-    >[AZURE.NOTE] blkid では、すべての場合に sudo アクセスは必要ありませんが、ただし、これを実行しやすくあります `sudo-i` /sbin または/usr/sbin がにない場合、一部のディストリビューションで、 `$PATH`します。
+    >[AZURE.NOTE] blkid では、すべての場合に sudo アクセスは必要ありませんが、ただし、これを実行しやすくあります `sudo -i` /sbin または/usr/sbin がにない場合、一部のディストリビューションで、 `$PATH`です。
 
-    **注意事項:** /etc/fstab ファイルを不適切に編集すると、システムが起動できなくなる可能性があります。 編集方法がはっきりわからない場合は、このファイルを適切に編集する方法について、ディストリビューションのドキュメントを参照してください。 編集する前に、/etc/fstab ファイルのバックアップを作成することもお勧めします。
+    **注意:** /etc/fstab ファイルを不適切に編集システムが起動できなくなる可能性があります。 編集方法がはっきりわからない場合は、このファイルを適切に編集する方法について、ディストリビューションのドキュメントを参照してください。 編集する前に、/etc/fstab ファイルのバックアップを作成することもお勧めします。
 
-    テキスト エディターを使用して、/etc/fstab ファイルの最後の部分に新しいファイル システムに関する情報を入力します。 この例では、前の手順で作成した新しい **/dev/sdc1** デバイスに対して UUID 値を使用し、マウント ポイントとして **/datadrive** を使用します。
+    テキスト エディターを使用して、/etc/fstab ファイルの最後の部分に新しいファイル システムに関する情報を入力します。  新しいに対して UUID 値を使用してこの例では **/dev/sdc1** 前の手順で、マウント ポイントとして作成したデバイス **/datadrive**:
 
         `UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2`
 
     追加のデータ ドライブやパーティションを作成する場合、それらも /etc/fstab に個別に入力する必要があります。
 
-    ファイル システムがマウントされていることをテストして正しく解除してから、ファイル システムを再度マウント、つまり、例を使用してマウント ポイント `/datadrive` 前の手順で作成します。
+    テストするだけのマウントを解除して再マウントし、ファイル システム、つまり、ファイル システムが正しくマウントされるようになりました 例を使用してマウント ポイント `/datadrive` 前の手順で作成します。 
 
         `sudo umount /datadrive`
         `sudo mount /datadrive`
 
     2 番目のコマンドでエラーが発生した場合、/etc/fstab ファイルの構文が正しいかどうかを確認してください。
 
-    >[AZURE.NOTE] この後、fstab を編集せずにデータ ディスクを削除すると VM は起動できません。 これは、頻繁に発生する場合、大部分のディストリビューションを提供するか、 `nofail` や `nobootwait` fstab オプションがシステムをディスクが存在しない場合でも起動を許可します。 これらのパラメーターの詳細については、使用しているディストリビューションのドキュメントを参照してください。
+
+    >[AZURE.NOTE] Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. If this is a common occurrence, then most distributions provide either the `nofail` and/or `nobootwait` fstab options that will allow a system to boot even if the disk is not present. Please consult your distribution's documentation for more information on these parameters.
 
 
+[Image2]: ./media/attach-data-disk-centos-vm-in-portal/AttachDataDiskLinuxVM2.png
+[Image4]: ./media/attach-data-disk-centos-vm-in-portal/GrepScsiMessages.png
+[Image5]: ./media/attach-data-disk-centos-vm-in-portal/fdisk1.png
+[Image6]: ./media/attach-data-disk-centos-vm-in-portal/fdisk2.png
+[Image7]: ./media/attach-data-disk-centos-vm-in-portal/fdisk3.png
+[Image8]: ./media/attach-data-disk-centos-vm-in-portal/fdisk4.png
+[Image9]: ./media/attach-data-disk-centos-vm-in-portal/mkfs.png
 
-[image2]: ./media/attach-data-disk-centos-vm-in-portal/AttachDataDiskLinuxVM2.png 
-[image4]: ./media/attach-data-disk-centos-vm-in-portal/GrepScsiMessages.png 
-[image5]: ./media/attach-data-disk-centos-vm-in-portal/fdisk1.png 
-[image6]: ./media/attach-data-disk-centos-vm-in-portal/fdisk2.png 
-[image7]: ./media/attach-data-disk-centos-vm-in-portal/fdisk3.png 
-[image8]: ./media/attach-data-disk-centos-vm-in-portal/fdisk4.png 
-[image9]: ./media/attach-data-disk-centos-vm-in-portal/mkfs.png 
 

@@ -18,8 +18,7 @@
     ms.author="jodebrui"/>
 
 
-
-# XTP メモリ内ストレージの監視
+# XTP インメモリ ストレージの監視
 
 使用する場合 [インメモリ](sql-database-in-memory.md), 、メモリ最適化テーブルとテーブル変数内のデータは、XTP メモリ内ストレージ上に存在します。 各 Premium サービス階層に記載されているメモリ内ストレージの最大サイズが使用されて、 [SQL Database サービス階層の記事](sql-database-service-tiers.md#service-tiers-for-single-databases)します。 この上限を超過すると、挿入操作や更新操作が (エラー 41805 で) 失敗することがあります。 その場合は、データを削除してメモリを解放するか、データベースのパフォーマンス階層をアップグレードする必要があります。
 
@@ -33,7 +32,7 @@
 
 ## 監視とアラート
 
-割合としてのメモリ内の記憶域の使用を監視する、 [パフォーマンス層の記憶域上限](sql-database-service-tiers.md#service-tiers-for-single-databases) azure [ポータル](http://portal.azure.com/):
+割合としてのメモリ内の記憶域の使用を監視する、 [パフォーマンス層の記憶域上限](sql-database-service-tiers.md#service-tiers-for-single-databases) azure [ポータル](http://portal.azure.com/): 
 
 - [データベース] ブレードの [リソース使用率] ボックスで [編集] をクリックします。
 - [XTP インメモリ ストレージの使用率] メトリックを選択します。
@@ -42,6 +41,7 @@
 または、次のクエリを使用して、インメモリ ストレージの使用率を表示します。
 
     select xtp_storage_percent from sys.dm_db_resource_stats
+
 
 ## メモリ不足状況の修正 - エラー 41805
 
@@ -56,10 +56,5 @@
 - メモリ最適化テーブルにデータを残す必要がある場合は、十分なインメモリ ストレージがあるサービス階層にアップグレードします。
 
 ## 次のステップ
-
-詳細については [Azure SQL Database の監視の動的管理ビューを使用して](sql-database-monitoring-with-dmvs.md)
-
-
-
-
+詳細については [Azure SQL Database の監視の動的管理ビューを使用します。](sql-database-monitoring-with-dmvs.md)
 

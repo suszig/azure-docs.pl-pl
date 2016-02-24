@@ -17,7 +17,6 @@
     ms.author="sethm"/>
 
 
-
 # Azure Service Bus Relay サービスの使用方法
 
 この記事では、Service Bus Relay サービスの使用方法について説明します。 サンプルは、C# で記述され、Windows Communication Foundation (WCF) API と、Microsoft Azure .NET SDK の一部である Service Bus アセンブリに含まれている拡張機能を使用しています。 Service Bus リレーの詳細については、次を参照してください。、 [Service Bus リレー型メッセージング](service-bus-relay-overview.md) の概要です。
@@ -26,7 +25,7 @@
 
 ## Service Bus Relay とは
 
-[Service Bus * リレー * サービス](service-bus-relay-overview.md) Azure データ センターと独自の内部設置型エンタープライズ環境の両方で動作するハイブリッド アプリケーションを構築することができます。 Service Bus リレーを使用することをファイアウォール接続を開くか、企業を大幅に変更を必要とすることがなく、パブリック クラウドに企業のエンタープライズ ネットワーク内に存在する Windows Communication Foundation (WCF) サービスを安全に公開することが可能
+ [Service Bus *リレー* サービス](service-bus-relay-overview.md) Azure データ センターと独自の内部設置型エンタープライズ環境の両方で動作するハイブリッド アプリケーションを構築することができます。 Service Bus リレーを使用することをファイアウォール接続を開くか、企業を大幅に変更を必要とすることがなく、パブリック クラウドに企業のエンタープライズ ネットワーク内に存在する Windows Communication Foundation (WCF) サービスを安全に公開することが可能
 安全にアクセスできるようにするユースケース向けに設計されています。
 
 ![リレーの概念](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
@@ -45,16 +44,16 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
 
 サービス名前空間を作成するには:
 
-1.  ログオン、 [Azure クラシック ポータルの [][]します。
+1.  ログオン、 [Azure クラシック ポータル][]します。
 
 2.  ポータルの左側のナビゲーション ウィンドウで次のようにクリックします。
     **Service Bus**します。
 
-3.  ポータルの下のウィンドウで、**[作成]** をクリックします。
+3.  ポータルの下のウィンドウで、クリックして **作成**します。
 
     ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
 
-4.  **[新しい名前空間を追加する]** ダイアログ ボックスで、名前空間の名前を入力します。
+4.   **新しい名前空間を追加** ] ダイアログ ボックスで、名前空間の名前を入力します。
     その名前が使用できるかどうかがすぐに自動で確認されます。
 
     ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png)
@@ -63,17 +62,18 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
     ホストする国または地域を選択します (
     コンピューター リソースをデプロイするのと同じ国/地域を
     使用してください)。
-    > [AZURE.IMPORTANT] アプリケーションをデプロイする予定の国またはリージョンと*同じ国/リージョン*を選択してください。 そうすることで、パフォーマンスが最高になります。
 
-6.  ダイアログ ボックスの他のフィールドは、既定値 (**[メッセージング]** と **[Standard]** レベル) のままにして、チェック マークをクリックします。 これで、システムによってサービス名前空間が作成され、有効になります。 システムがアカウントのリソースを準備し 終わるまでに、数分間かかる場合があります。
+    > [AZURE.IMPORTANT] 選択、 *同じリージョン* アプリケーションをデプロイを選択するようにします。 そうすることで、パフォーマンスが最高になります。
+
+6.  既定値] ダイアログ ボックスで、他のフィールドのままに (**メッセージング** と **標準** 層)、チェック マークをクリックします。 これで、システムによってサービス名前空間が作成され、有効になります。 システムがアカウントのリソースを準備し 終わるまでに、数分間かかる場合があります。
 
     ![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
 
-    作成した名前空間がポータルに表示され、アクティブになります。これには少し時間がかかります。 ステータスが **[アクティブ]** になるのを待ってから、次に進みます。
+    作成した名前空間がポータルに表示され、アクティブになります。これには少し時間がかかります。 待機状態になるまで **Active** 続行する前にします。
 
 ## 名前空間の既定の管理資格情報の取得
 
-新規作成した名前空間に対してリレー接続の作成などの管理操作を実行するには、名前空間の Shared Access Signature (SAS) の承認規則を構成する必要があります。 SAS の詳細については、次を参照してください。 [サービス バスの [] で共有アクセス署名認証][]します。
+新規作成した名前空間に対してリレー接続の作成などの管理操作を実行するには、名前空間の Shared Access Signature (SAS) の承認規則を構成する必要があります。 SAS の詳細については、次を参照してください。 [Service Bus での共有アクセス署名認証][]します。
 
 1.  左側のナビゲーション ウィンドウで、クリックして、 **Service Bus** ノード]
     使用できる名前空間の一覧を表示します。
@@ -82,9 +82,9 @@ Service Bus リソースのアドレス範囲を指定するコンテナーが�
 2.  表示される一覧から先ほど作成した名前空間の名前をダブルクリックします。
     ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png)
 
-3.  ページの上部にある **[構成]** タブをクリックします。
+3.  クリックして、 **構成** 、ページの上部にあるタブをクリックします。
 
-4.  Service Bus 名前空間がプロビジョニングされると、**RootManageSharedAccessKey** に設定された **SharedAccessAuthorizationRule** と **KeyName** が既定で作成されます。 このページには、そのキーと、既定のルールのプライマリ キーとセカンダリ キーが表示されます。
+4.  Service Bus 名前空間をプロビジョニングするときは、 **SharedAccessAuthorizationRule**, と **KeyName** に設定 **RootManageSharedAccessKey**, 、既定で作成されます。 このページには、そのキーと、既定のルールのプライマリ キーとセカンダリ キーが表示されます。
 
 ## Service Bus NuGet パッケージの取得
 
@@ -93,9 +93,9 @@ Service Bus API を取得し、Service Bus 依存関係をすべて備えたア�
 
 アプリケーションに NuGet パッケージをインストールするには、次のステップを行います。
 
-1.  ソリューション エクスプローラーで **[参照]** を右クリックし、 **[NuGet パッケージの管理]** をクリックします。
-2.  "Service Bus"を検索し、選択、* * Microsoft Azure
-    Service bus の項目。 **[インストール]** をクリックし、インストールが完了したら、次のダイアログ ボックスを閉じます。
+1.  ソリューション エクスプ ローラーで右クリック **参照**, 、クリックして **NuGet パッケージの管理**します。
+2.  "Service Bus"を検索し、選択、 **Microsoft Azure
+    Service Bus** 項目。 クリックして **インストール** インストールを完了するには、次のダイアログ ボックスを閉じます。
 
     ![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
 
@@ -121,7 +121,7 @@ Service Bus API を取得し、Service Bus 依存関係をすべて備えたア�
 
 このセクションでは、これらの各コンポーネントを処理するコード例を示します。
 
-1 回の操作を定義するコントラクト `AddNumbers`, を 2 つの数値を加算して結果を返します。  `IProblemSolverChannel` インターフェイスにより、クライアントはプロキシの有効期間を容易に管理します。 このようなインターフェイスを作成することがベスト プラクティスと考えられます。 このコントラクト定義を別のファイルに格納しておき、そのファイルを "Client" プロジェクトと "Service" プロジェクトの両方から参照できようにすることをお勧めしますが、コードを両方のプロジェクトにコピーしてもよいでしょう。
+このコントラクトでは、2 つの数値を足して結果を返す `AddNumbers` という 1 つの処理を定義します。 `IProblemSolverChannel` インターフェイスは、クライアントでプロキシの有効期間を簡単に管理できるようにするインターフェイスです。 このようなインターフェイスを作成することがベスト プラクティスと考えられます。 このコントラクト定義を別のファイルに格納しておき、そのファイルを "Client" プロジェクトと "Service" プロジェクトの両方から参照できようにすることをお勧めしますが、コードを両方のプロジェクトにコピーしてもよいでしょう。
 
 ```
 using System.ServiceModel;
@@ -151,7 +151,7 @@ class ProblemSolver : IProblemSolver
 ### サービス ホストをプログラムで構成する
 
 コントラクトと実装が適切に記述されたので、次にサービスをホストします。 ホスティングは
-[System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/azure/system.servicemodel.servicehost.aspx) オブジェクトでは、サービスのインスタンスを管理し、メッセージをリッスンするエンドポイントをホストします。 次のコードでは、サービスに通常のローカル エンドポイントと Service Bus エンドポイントの両方を構成して、内部エンドポイントと外部エンドポイントの外観を並べて指定しています。 文字列 *namespace* は実際の名前空間の名前に置き換え、*yourKey* は前のセットアップ手順で取得した SAS キーに置き換えてください。
+[System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/azure/system.servicemodel.servicehost.aspx) オブジェクトでは、サービスのインスタンスを管理し、メッセージをリッスンするエンドポイントをホストします。 次のコードでは、サービスに通常のローカル エンドポイントと Service Bus エンドポイントの両方を構成して、内部エンドポイントと外部エンドポイントの外観を並べて指定しています。 文字列に置換 *名前空間* 、名前空間の名前と *yourKey* 前のセットアップ手順で取得した SAS キーにします。
 
 ```
 ServiceHost sh = new ServiceHost(typeof(ProblemSolver));
@@ -174,7 +174,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-この例では、同じコントラクト実装にある 2 つのエンドポイントを作成します。 1 つはローカルで、もう 1 つは Service Bus を経由して提示されます。 大きな違いはバインドのです。 [NetTcpBinding](https://msdn.microsoft.com/library/azure/system.servicemodel.nettcpbinding.aspx) ために、ローカルおよび [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) の Service Bus エンドポイントとアドレスです。 ローカル エンドポイントは、個々のポートを含むローカル ネットワーク アドレスを持ちます。 サービス バス エンドポイントは、文字列の構成されたエンドポイント アドレスを持つ `sb`, 、名前空間の名前、およびパス"solver" これは、結果、URI で `sb://[serviceNamespace].servicebus.windows.net/solver`, 、完全に修飾された外部 DNS 名を持つサービス バス TCP エンドポイントとして、このサービス エンドポイントを識別します。 前述のように、プレース ホルダーを置き換えたコードを配置する場合、 `Main` の関数、 **サービス** アプリケーション、機能のサービスになります。 サービスで Service Bus を排他的にリッスンするには、ローカル エンドポイントの宣言を削除します。
+この例では、同じコントラクト実装にある 2 つのエンドポイントを作成します。 1 つはローカルで、もう 1 つは Service Bus を経由して提示されます。 大きな違いはバインドのです。 [NetTcpBinding](https://msdn.microsoft.com/library/azure/system.servicemodel.nettcpbinding.aspx) ために、ローカルおよび [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) の Service Bus エンドポイントとアドレスです。 ローカル エンドポイントは、個々のポートを含むローカル ネットワーク アドレスを持ちます。 Service Bus エンドポイントは、文字列 `sb`、使用する名前空間の名前、およびパス "solver" で構成されるエンドポイント アドレスを持ちます。 全体としては `sb://[serviceNamespace].servicebus.windows.net/solver` という URI になり、このサービス エンドポイントは完全修飾の外部 DNS 名を持つ Service Bus TCP エンドポイントとして識別されます。 前述のように、プレース ホルダーを置き換えたコードを配置する場合、 `Main` の関数、 **サービス** アプリケーション、機能のサービスになります。 サービスで Service Bus を排他的にリッスンするには、ローカル エンドポイントの宣言を削除します。
 
 ### サービス ホストを App.config ファイルで構成する
 
@@ -188,7 +188,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-エンドポイントの定義は App.config ファイルに移動します。 NuGet パッケージでは定義の範囲がすでに App.config ファイルに追加していることに注意してください。この定義の範囲は Service Bus の必要な構成の拡張機能です。 次の例 (先に示したコードと同じ) は **system.serviceModel** 要素のすぐ下に配置する必要があります。 このコード例では、プロジェクト C# 名前空間の名前が **Service** であると想定しています。
+エンドポイントの定義は App.config ファイルに移動します。 NuGet パッケージでは定義の範囲がすでに App.config ファイルに追加していることに注意してください。この定義の範囲は Service Bus の必要な構成の拡張機能です。 前のコードのと同じでは、次の例では、すぐ下に配置する必要があります、 **system.serviceModel** 要素。 このコード例で、プロジェクト c# 名前空間の名前は **サービス**します。
 プレースホルダーを実際の Service Bus Service の名前空間と SAS キーに置き換えてください。
 
 ```
@@ -225,9 +225,9 @@ sh.Close();
 サービスを使用するには、使用して WCF クライアントを作成できます、 [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx) オブジェクトです。 Service Bus のトークン ベースのセキュリティを使用します。
 SAS を使用して実装されるモデル。  [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) クラスは、いくつかの既知のトークン プロバイダーを返す組み込みファクトリ メソッドを持つセキュリティ トークン プロバイダーを表します。 使用して次の例、 [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) 適切な SAS トークンの取得を処理するメソッドです。 名前とキーは、前のセクションで説明したようにポータルから取得されます。
 
-最初に、参照またはコピー、 `IProblemSolver` クライアント プロジェクトのコードをサービスからのコントラクトします。
+最初に、`IProblemSolver` コントラクト コードをサービスからクライアント プロジェクトに対して参照またはコピーします。
 
-次に、コードで置き換え、 `Main` もう一度プレース ホルダー テキストを実際の Service Bus 名前空間と SAS キーに置き換えて、クライアントのメソッドです。
+次に、クライアントの `Main` メソッドのコードを置き換えます。ここでも、プレースホルダー テキストを実際の Service Bus の名前空間と SAS キーに置き換えてください。
 
 ```
 var cf = new ChannelFactory<IProblemSolverChannel>(
@@ -243,7 +243,7 @@ using (var ch = cf.CreateChannel())
 }
 ```
 
-これで、クライアントとサービスを構築して実行できます (先にサービスを実行します)。クライアントはサービスを呼び出し、**9** を出力します。 クライアントとサーバーを別々のコンピューターで実行しても (ネットワークが異なっても)、通信は維持されます。 クライアント コードは、クラウド上でもローカルでも実行できます。
+クライアントとサービスを実行 (最初に、サービスの実行) に作成でき、クライアントは、サービスの呼び出しを出力 **9**します。 クライアントとサーバーを別々のコンピューターで実行しても (ネットワークが異なっても)、通信は維持されます。 クライアント コードは、クラウド上でもローカルでも実行できます。
 
 #### App.config ファイルでクライアントを構成する
 
@@ -257,7 +257,7 @@ using (var ch = cf.CreateChannel())
 }
 ```
 
-エンドポイントの定義は App.config ファイルに移動します。 次の例 (先に示したコードと同じ) は **system.serviceModel** 要素のすぐ下に配置する必要があります。 ここでは、以前のように
+エンドポイントの定義は App.config ファイルに移動します。 次の例は、前の表に、コードと同じである必要がありますのすぐ下に表示される、 **system.serviceModel** 要素。 ここでは、以前のように
 Service Bus 名前空間と SAS キーのプレース ホルダーを置き換える必要があります。
 
 ```
@@ -284,17 +284,15 @@ Service Bus 名前空間と SAS キーのプレース ホルダーを置き換�
 
 これで、Service Bus Relay サービスの基本を学習できました。さらに詳細な情報が必要な場合は、次のリンク先を参照してください。
 
-- [Azure Service Bus アーキテクチャの概要](fundamentals-service-bus-hybrid-solutions.md)
-- [サービス バス リレー サービスを使用する方法](service-bus-dotnet-how-to-use-relay.md)
-- サービス バス サンプルのダウンロード [Azure サンプル][] または参照してください、 [Service Bus の概要サンプル][]します。
+- [Azure Service Bus Architectural Overview (Azure Service Bus アーキテクチャの概要)](fundamentals-service-bus-hybrid-solutions.md)
+- [サービス バス リレー サービスの使用方法](service-bus-dotnet-how-to-use-relay.md)
+- サービス バス サンプルのダウンロード [Azure サンプル][] または参照してください、 [Service Bus のサンプルの概要][]します。
 
-
-[create a service namespace]: #create_namespace 
-[obtain the default management credentials for the namespace]: #obtain_credentials 
-[get the service bus nuget package]: #get_nuget_package 
-[how to: use service bus to expose and consume a soap web service  with tcp]: #how_soap 
-[azure classic portal]: http://manage.windowsazure.com 
-[shared access signature authentication with service bus]: service-bus-shared-access-signature-authentication.md 
-[azure samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2 
-[overview of service bus samples]: service-bus-samples.md 
-
+  [Create a Service Namespace]: #create_namespace
+  [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
+  [Get the Service Bus NuGet Package]: #get_nuget_package
+  [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
+  [Azure classic portal]: http://manage.windowsazure.com
+  [Shared Access Signature Authentication with Service Bus]: service-bus-shared-access-signature-authentication.md
+  [Azure samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
+  [overview of Service Bus samples]: service-bus-samples.md

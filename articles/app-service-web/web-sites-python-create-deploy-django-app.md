@@ -18,14 +18,14 @@
     ms.author="huvalo"/>
 
 
-
 # Azure での Django を使用した Web アプリの作成
 
 このチュートリアルでの Python の実行を開始する方法を説明します [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)します。 Web Apps では、制限付きの無料のホスティングや迅速なデプロイを実行できます。また、Python も使用できます。 アプリケーションの拡張に合わせて、有料のホスティングに切り替えることができます。また、他のすべての Azure サービスと統合することもできます。
 
-Django web フレームワークを使用してアプリケーションを作成します. (このチュートリアルの代替バージョンを参照してください [Flask](web-sites-python-create-deploy-flask-app.md) と [Bottle](web-sites-python-create-deploy-bottle-app.md))します。 Azure Marketplaceから Web アプリを作成し、Git デプロイを設定して、リポジトリをローカルで複製します。 その後、ローカルでアプリケーションを実行し、変更を行い、それらをコミットして Azure に送信します。 チュートリアルでは、Windows または Mac/Linux での手順を紹介します。
+Django web フレームワークを使用してアプリケーションを作成します. (このチュートリアルの代替バージョンを参照してください [Flask](web-sites-python-create-deploy-flask-app.md) と [Bottle](web-sites-python-create-deploy-bottle-app.md))。 Azure Marketplaceから Web アプリを作成し、Git デプロイを設定して、リポジトリをローカルで複製します。 その後、ローカルでアプリケーションを実行し、変更を行い、それらをコミットして Azure に送信します。 チュートリアルでは、Windows または Mac/Linux での手順を紹介します。
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+
 >[AZURE.NOTE] 場合は、Azure アカウントがサインアップする前に Azure App Service の使用を開始するには、 [App Service の試用](http://go.microsoft.com/fwlink/?LinkId=523751), 、App Service で有効期間の短いスターター web アプリをすぐに作成する場所です。 このサービスの利用にあたり、クレジット カードは必要ありません。契約も必要ありません。
 
 
@@ -35,9 +35,9 @@ Django web フレームワークを使用してアプリケーションを作成
 - Python 2.7 または 3.4
 - setuptools、pip、virtualenv (Python 2.7 のみ)
 - Git
-- [Python Tools for Visual Studio の][] (PTVS) に注意してくださいこれは省略可能。
+- [Python Tools for Visual Studio](PTVS) に注意してくださいこれは省略可能。
 
-**注**: 現在、TFS 発行は Python プロジェクトではサポートされていません。
+**注**: Python プロジェクト現在は TFS 発行はできません。
 
 ### Windows
 
@@ -56,11 +56,11 @@ Python と Git は既にインストールされていると思いますが、Py
 
 アプリを作成する最初の手順がで web アプリを作成するには、 [Azure ポータル](https://portal.azure.com)します。
 
-1. Azure ポータルの画面左下にある **[新規]** ボタンをクリックします。
-2. **[Web + モバイル]** をクリックします。
+1. Azure ポータルにログインし、をクリックして、 **新規** 左下隅のボタンをクリックします。
+2. クリックして **Web + モバイル**します。
 3. 検索ボックスに、「python」と入力します。
-4. 検索結果で **[Django]** を選択し、**[作成]** をクリックします。
-5. 新しい App Service プランやそのリソース グループ名の作成など、新しい Django アプリを構成します。 **[作成]** をクリックします。
+4. 検索結果に次のように選択します。 **Django**, 、クリック **作成**します。
+5. 新しい App Service プランやそのリソース グループ名の作成など、新しい Django アプリを構成します。 クリックして **作成**します。
 6. 新しく作成した web アプリの Git 発行を構成する」の手順に従って、 [Azure App Service での GIT による継続的なデプロイ](web-sites-publish-source-control.md)します。
 
 ## アプリケーションの概要
@@ -155,17 +155,17 @@ Python 仮想環境。 互換性のある仮想環境がまだ Web アプリ上�
 
 ### 仮想環境の作成
 
-次にローカル開発用の仮想環境を作成します。 **[Python 環境]** を右クリックし、**[仮想環境の追加]** を選択します。
+次にローカル開発用の仮想環境を作成します。 右クリックして **Python 環境** 選択 **仮想環境の追加...**します。
 
-- 環境の名前が確認 `env`します。
+- 環境名が、`env` となっていることを確認します。
 
-- ベース インタープリターを選択します。 Web アプリで選択したものと同じバージョンの Python を使用していることを確認します (runtime.txt または Azure ポータルにある Web アプリの **[アプリケーションの設定]** ブレード)。
+- ベース インタープリターを選択します。 Web アプリの同じバージョンの選択されている Python を使用してください (runtime.txt または **アプリケーション設定** Azure ポータルで web アプリのブレード)。
 
 - パッケージのダウンロードとインストールのオプションが選択されていることを確認します。
 
 ![](./media/web-sites-python-create-deploy-django-app/ptvs-add-virtual-env-27.png)
 
-**[作成]** をクリックします。 これにより、仮想環境が作成され、requirements.txt に指定されている依存関係がインストールされます。
+クリックして **作成**します。 これにより、仮想環境が作成され、requirements.txt に指定されている依存関係がインストールされます。
 
 ### スーパーユーザーの作成
 
@@ -197,19 +197,19 @@ F5 キーを押してデバッグを開始します。ローカルに実行さ�
 
 アプリケーションが、Python と Django 以外の依存関係を持つ場合があります。
 
-pip を使用して追加のパッケージをインストールできます。 パッケージをインストールするには、仮想環境を右クリックし、**[Install Python Package]** を選択します。
+pip を使用して追加のパッケージをインストールできます。 パッケージをインストールするには、仮想環境を右クリックして **Install Python Package**します。
 
-たとえば、Azure storage、service bus などその他の Azure サービスへのアクセスを提供、Python 用 Azure SDK をインストールする次のように入力します `azure`:。
+たとえば、Azure Storage、Service Bus などの他の Azure サービスにアクセスできるようになる Azure SDK for Python をインストールするには、`azure` を入力します。
 
 ![](./media/web-sites-python-create-deploy-django-app/ptvs-install-package-dialog.png)
 
-仮想環境を右クリックし、**[Generate requirements.txt]** を選択して requirements.txt を更新します。
+仮想環境を右クリックして **requirements.txt を生成** requirements.txt を更新します。
 
 その後、requirements.txt への変更内容を Git リポジトリにコミットします。
 
 ### Azure へのデプロイ
 
-デプロイを開始するには、**[同期]** または **[プッシュ]** をクリックします。 同期ではプッシュとプルの両方が実行されます。
+デプロイを開始するには、をクリックして **同期** または **プッシュ**します。 同期ではプッシュとプルの両方が実行されます。
 
 ![](./media/web-sites-python-create-deploy-django-app/ptvs-git-push.png)
 
@@ -414,13 +414,13 @@ Azure URL を参照して、変更内容を表示します。
 
 ## トラブルシューティング - 静的ファイル
 
-Django には静的ファイルの収集に関する概念が設定されています。 それにより、すべての静的ファイルを元の場所から取得し、単一のフォルダーにそのファイルをコピーします。 このアプリケーションにコピーされます `静的/`します。
+Django には静的ファイルの収集に関する概念が設定されています。 それにより、すべての静的ファイルを元の場所から取得し、単一のフォルダーにそのファイルをコピーします。 このアプリケーションの場合、`/static` にコピーされます。
 
-これが実行されるのは、静的ファイルがさまざまな Django「アプリ」から取得されるためです。 たとえば、Django 管理インターフェイスの静的ファイルは、仮想環境の Django ライブラリ サブフォルダーにあります。 このアプリケーションで定義された静的ファイルにある `/アプリケーション/静的`します。 複数の Django「アプリ」を使用する場合は、静的ファイルを複数の場所に配置することになります。
+これが実行されるのは、静的ファイルがさまざまな Django「アプリ」から取得されるためです。 たとえば、Django 管理インターフェイスの静的ファイルは、仮想環境の Django ライブラリ サブフォルダーにあります。 このアプリケーションで定義する静的ファイルは `/app/static` にあります。 複数の Django「アプリ」を使用する場合は、静的ファイルを複数の場所に配置することになります。
 
 アプリケーションをデバッグ モードで実行すると、アプリケーションは元の場所にある静的ファイルを使用します。
 
-リリース モードで実行すると、アプリケーションは静的ファイルを使用**しません**。 ファイルを使用するのは、Web サーバーの役割です。 このアプリケーションの IIS は、静的ファイルを提供 `静的/`します。
+リリース モードでアプリケーションを実行すると、アプリケーションは **いない** 静的ファイルを使用します。 ファイルを使用するのは、Web サーバーの役割です。 このアプリケーションの場合は、IIS が `/static` の静的ファイルを使用します。
 
 静的ファイルの収集は、デプロイ スクリプトの一部として自動的に行われます。前に収集されたファイルは消去されます。 つまり、収集はデプロイごとに実行されます。デプロイが少し遅くなりますが、古くなったファイルを使用できないようにすることで、セキュリティの問題を回避できます。
 
@@ -432,12 +432,12 @@ Django アプリケーションで静的なファイルの収集をスキップ�
 
     env\scripts\python manage.py collectstatic
 
-削除して、 `\static` フォルダーから `.gitignore` し、Git リポジトリに追加します。
+`\static` フォルダーを `.gitignore` から削除し、Git リポジトリに追加します。
 
 
 ## トラブルシューティング - 設定
 
-アプリケーションのさまざまな設定を変更できます `DjangoWebProject/settings.py`します。
+`DjangoWebProject/settings.py` ではアプリケーションのさまざまな設定を変更できます。
 
 開発者が便利なように、デバッグ モードが有効になっています。 ローカルで実行すると、静的ファイルを収集しなくても、イメージやその他の静的コンテンツを表示できるというメリットもあります。
 
@@ -445,7 +445,7 @@ Django アプリケーションで静的なファイルの収集をスキップ�
 
     DEBUG = False
 
-デバッグが無効にすると、値を `ALLOWED_HOSTS` Azure のホスト名が含まれるように更新する必要があります。 次に例を示します。
+デバッグを無効にすると、Azure のホスト名を含めるために、`ALLOWED_HOSTS` の値を更新する必要があります。 次に例を示します。
 
     ALLOWED_HOSTS = (
         'pythonapp.azurewebsites.net',
@@ -459,7 +459,7 @@ Django アプリケーションで静的なファイルの収集をスキップ�
 
 実際には、より複雑な設定により、デバッグ モードとリリース モードを切り替え、ホスト名を取得できます。
 
-環境変数は、Azure ポータルの **[構成]** ページの **[アプリケーション設定]** セクションで設定できます。 ソースに表示しない値 (接続文字列やパスワードなど) や、Azure とローカル コンピューターで設定を変える値を設定する場合に便利です。  `Settings.py`, を使用して環境変数を照会できます `os.getenv`します。
+Azure ポータルで環境変数を設定することができます **構成** ] ページで、 **アプリ設定** セクションです。  ソースに表示しない値 (接続文字列やパスワードなど) や、Azure とローカル コンピューターで設定を変える値を設定する場合に便利です。 `settings.py` では、`os.getenv` を使用して環境変数をクエリできます。
 
 
 ## データベースの使用
@@ -477,7 +477,7 @@ Azure には、Django アプリケーションから簡単に使用できるデ�
 
 管理インターフェイスのコードはアプリケーションのソースではコメント アウトされていますが、わかりやすい記号が付けられていますので、簡単に有効にできます (「admin」を検索)。
 
-データベースの同期を有効にした後、アプリケーションを実行しに移動 `/admin`します。
+有効にしたらデータベースを同期し、アプリケーションを実行して `/admin` に移動します。
 
 
 ## 次のステップ
@@ -496,25 +496,24 @@ SQL Database と MySQL の詳細については、次のリンクをご覧くだ
 
 
 ## 変更内容
-
 * Web サイトから App Service への変更のガイドを参照してください: [Azure App Service と既存の Azure サービスへの影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 
+<!--Link references-->
+[Django and MySQL on Azure with Python Tools for Visual Studio]: web-sites-python-ptvs-django-mysql.md
+[Django and SQL Database on Azure with Python Tools for Visual Studio]: web-sites-python-ptvs-django-sql.md
+[SQL Database]: web-sites-python-ptvs-django-sql.md
+[MySQL]: web-sites-python-ptvs-django-mysql.md
 
-
-
-[django and mysql on azure with python tools for visual studio]: web-sites-python-ptvs-django-mysql.md 
-[django and sql database on azure with python tools for visual studio]: web-sites-python-ptvs-django-sql.md 
-[sql database]: web-sites-python-ptvs-django-sql.md 
-[mysql]: web-sites-python-ptvs-django-mysql.md 
-[azure sdk for python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281 
-[azure sdk for python 3.4]: http://go.microsoft.com/fwlink/?linkid=516990 
-[python.org]: http://www.python.org/ 
-[git for windows]: http://msysgit.github.io/ 
-[github for windows]: https://windows.github.com/ 
-[python tools for visual studio]: http://aka.ms/ptvs 
-[python tools 2.2 for visual studio]: http://go.microsoft.com/fwlink/?LinkID=624025 
-[visual studio]: http://www.visualstudio.com/ 
-[python tools for visual studio documentation]: http://aka.ms/ptvsdocs 
-[django documentation]: https://www.djangoproject.com/ 
+<!--External Link references-->
+[Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
+[Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?linkid=516990
+[python.org]: http://www.python.org/
+[Git for Windows]: http://msysgit.github.io/
+[GitHub for Windows]: https://windows.github.com/
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Visual Studio]: http://www.visualstudio.com/
+[Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
+[Django Documentation]: https://www.djangoproject.com/
 

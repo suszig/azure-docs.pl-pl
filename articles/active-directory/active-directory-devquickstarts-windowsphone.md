@@ -18,16 +18,15 @@
 
 
 
-
 # Azure AD と Windows Phone アプリの統合
 
 [AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Windows Phone アプリを開発する場合、Azure AD を使用すると、Active Directory アカウントを使用してユーザーの認証処理を容易に行うことができます。 また、Office 365 API や Azure API などの Azure AD によって保護された任意の Web API をアプリケーションで安全に使用することもできます。
+Windows Phone アプリを開発する場合、Azure AD を使用すると、Active Directory アカウントを使用してユーザーの認証処理を容易に行うことができます。  また、Office 365 API や Azure API などの Azure AD によって保護された任意の Web API をアプリケーションで安全に使用することもできます。
 
-保護されたリソースにアクセスする必要のある .NET ネイティブ クライアントに対しては、Azure AD により、Active Directory 認証ライブラリ (ADAL) が提供されます。 ADAL の唯一の目的は、アプリがアクセス トークンを容易に取得できるようにすることです。 それがどれほど簡単であるかを示すために、ここでは次のような機能を備えた「ディレクトリ検索」 Windows Phone 8.1 アプリを作成します。
+保護されたリソースにアクセスする必要のある .NET ネイティブ クライアントに対しては、Azure AD により、Active Directory 認証ライブラリ (ADAL) が提供されます。  ADAL の唯一の目的は、アプリがアクセス トークンを容易に取得できるようにすることです。  それがどれほど簡単であるかを示すために、ここでは次のような機能を備えた「ディレクトリ検索」 Windows Phone 8.1 アプリを作成します。
 
 -   アクセスを使用して、Azure AD Graph API を呼び出すためのトークンを取得、 [OAuth 2.0 認証プロトコル](https://msdn.microsoft.com/library/azure/dn645545.aspx)します。
 -   指定された UPN を持つユーザーをディレクトリで検索します。
@@ -39,51 +38,49 @@ Windows Phone アプリを開発する場合、Azure AD を使用すると、Act
 3. ADAL をインストールおよび構成する
 5. ADAL を使用して、Azure AD からトークンを取得する
 
-最初に、 [スケルトン プロジェクトをダウンロード](https://github.com/AzureADQuickStarts/NativeClient-WindowsPhone/archive/skeleton.zip) または [、完全なサンプルをダウンロード](https://github.com/AzureADQuickStarts/NativeClient-WindowsPhone/archive/complete.zip)します。 両方とも、Visual Studio 2013 ソリューションです。 また、ユーザーを作成し、アプリケーションを登録することを可能にするための Azure AD テナントも必要です。 場合は、テナントをまだ持っていない [いずれかを取得する方法について](active-directory-howto-tenant.md)します。
+最初に、 [スケルトン プロジェクトをダウンロード](https://github.com/AzureADQuickStarts/NativeClient-WindowsPhone/archive/skeleton.zip) または [、完全なサンプルをダウンロード](https://github.com/AzureADQuickStarts/NativeClient-WindowsPhone/archive/complete.zip)します。  両方とも、Visual Studio 2013 ソリューションです。  また、ユーザーを作成し、アプリケーションを登録することを可能にするための Azure AD テナントも必要です。  場合は、テナントをまだ持っていない [いずれかを取得する方法について](active-directory-howto-tenant.md)します。
 
 ## *1.ディレクトリ検索アプリケーションを登録します。*
-
 アプリでトークンを取得できるようにするには、まず、アプリを Azure AD テナントに登録し、Azure AD Graph API にアクセスするためのアクセス許可を付与する必要があります。
 
--   にサインオン [Azure 管理ポータル](https://manage.windowsazure.com)
--   左側のナビゲーションで **[Active Directory]** をクリックします。
+-   サインイン、 [Azure 管理ポータル](https://manage.windowsazure.com)
+-   左側のナビゲーションで] をクリックして **Active Directory**
 -   アプリケーションの登録先となるテナントを選択します。
--   **[アプリケーション]** タブをクリックし、下部のドロアーで **[追加]** をクリックします。
--   画面の指示に従い、新しい**ネイティブ クライアント アプリケーション**を作成します。
-    -   アプリケーションの **[名前]** には、エンド ユーザーがアプリケーションの機能を把握できるような名前を設定します。
-    -   **[リダイレクト URI]** には、Azure AD がトークン応答を返すために使用するスキームと文字列の組み合わせを設定します。 例: ここでは、プレース ホルダーの値を入力して `http://DirectorySearcher`します。 後でこの値を置き換えます。
--   登録が完了すると、AAD により、アプリに一意のクライアント ID が割り当てられます。 この値は次のセクションで必要になるので、**[構成]** タブからコピーします。
-- また、**[構成]** タブで、[他のアプリケーションに対するアクセス許可] セクションに移動します。 "Azure Active Directory" アプリケーションに対して、**[委任されたアクセス許可]** の下の **[組織のディレクトリにアクセス]** アクセス許可を追加します。 これにより、アプリケーションが Graph API を使用してユーザーをクエリできるようになります。
+-   クリックして、 **アプリケーション** タブをクリックし、クリックして **追加** 下部のドロアーでします。
+-   画面の指示に従ってされ、新しい作成 **ネイティブ クライアント アプリケーション**します。
+    -    **名前** アプリケーションのエンドユーザーに、アプリケーションの説明は
+    -    **リダイレクト Uri** スキームと文字列の組み合わせで、Azure AD がトークン応答を返すために使用されます。  ここでは、プレースホルダーの値を入力します (例: `http://DirectorySearcher`)。  後でこの値を置き換えます。
+-   登録が完了すると、AAD により、アプリに一意のクライアント ID が割り当てられます。  この値が必要する次のセクションでのでコピーから、 **構成** ] タブをクリックします。
+- また、 **構成** ] タブで、"その他のアプリケーションに対するアクセス許可] セクションを探します。  "Azure Active Directory"アプリケーションを追加、 **アクセス組織のディレクトリ** 下 **委任されたアクセス許可**します。  これにより、アプリケーションが Graph API を使用してユーザーをクエリできるようになります。
 
 ## *2.ADAL のインストールと構成*
-
-アプリケーションを Azure AD に登録したので、ADAL をインストールし、ID 関連のコードを記述できます。 ADAL が Azure AD と通信できるようにするためには、アプリケーションの登録に関するいくつかの情報を提供する必要があります。
+アプリケーションを Azure AD に登録したので、ADAL をインストールし、ID 関連のコードを記述できます。  ADAL が Azure AD と通信できるようにするためには、アプリケーションの登録に関するいくつかの情報を提供する必要があります。
 -   まず、パッケージ マネージャー コンソールを使用して DirectorySearcher プロジェクトに ADAL を追加します。
 
 ```
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 
--   DirectorySearcher プロジェクトで開きます `MainPage.xaml.cs`します。 値を置き換える、 `構成値` 領域は、Azure ポータルで入力した値を反映するようにします。 これらの値は、コードで ADAL を使用する際に常に参照されます。
-    -   `テナント` contoso.onmicrosoft.com など、Azure AD のテナントのドメインは、
-    -   `ClientId` はポータルからコピーしたアプリケーションのクライアント id が必要です。
--   ここで、Windows Phone アプリのコールバック URI を調べる必要があります。 次の行にブレークポイントを設定、 `MainPage` メソッド。
+-   DirectorySearcher プロジェクトで、`MainPage.xaml.cs` を開きます。  Azure ポータルで入力した値が反映されるように、`Config Values` 領域の値を置き換えます。  これらの値は、コードで ADAL を使用する際に常に参照されます。
+    -   `tenant` は、Azure AD テナントのドメイン (たとえば、contoso.onmicrosoft.com) です。
+    -   `clientId` は、ポータルからコピーしたアプリケーションのクライアント ID である必要があります。
+-   ここで、Windows Phone アプリのコールバック URI を調べる必要があります。  `MainPage` メソッドの次の行にブレークポイントを設定します。
 
 ```
 redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri();
 ```
-- アプリを実行しの値をコピーしておきます `redirectUri` ブレークポイントにヒットするとします。 次のような内容が表示されます。
+- アプリを実行し、ブレークポイントにヒットしたら `redirectUri` の値をコピーしておきます。  次のような内容が表示されます。
 
 ```
 ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/
 ```
 
-- Back on the **Configure** tab of your application in the Azure Management Portal, replace the value of the **RedirectUri** with this value.  
+- 戻り、 **構成** ] タブ、Azure 管理ポータルでアプリケーションの値に置き換えます、 **RedirectUri** この値を使用します。  
 
-## *3.  Use ADAL to Get Tokens from AAD*
-The basic principle behind ADAL is that whenever your app needs an access token, it simply calls `authContext.AcquireToken(…)`, and ADAL does the rest.  
+## *3.ADAL を使用して、AAD からトークンを取得するには*
+ADAL を使用することの基本的なメリットは、アプリがアクセス トークンを必要とする場合、アプリは `authContext.AcquireToken(…)` を呼び出すだけで、残りの処理は ADAL が実行してくれることです。  
 
--   The first step is to initialize your app’s `AuthenticationContext` - ADAL’s primary class.  This is where you pass ADAL the coordinates it needs to communicate with Azure AD and tell it how to cache tokens.
+-   最初の手順は、アプリの `AuthenticationContext` (ADAL のプライマリ クラス) を初期化することです。  ここでは、ADAL が Azure AD と通信し、トークンをキャッシュする方法を通知するために必要な調整項目を ADAL に渡します。
 
 ```C#
 public MainPage()
@@ -95,7 +92,7 @@ public MainPage()
 }
 ```
 
-- 今すぐ検索、 `Search(...)` アプリの UI でユーザーの [検索] ボタンをクリックしたときに呼び出されるメソッド。 このメソッドは、指定された検索用語で UPN が始まるユーザーをクエリするための、Azure AD Graph API に対する GET 要求を実行します。 Graph API をクエリするためで、access_token を含める必要がありますが、 `承認` ヘッダー、要求のこれは、adal です。
+- 次に、`Search(...)` メソッドを見つけます。このメソッドは、ユーザーがアプリの UI で [検索] ボタンをクリックすると呼び出されます。  このメソッドは、指定された検索用語で UPN が始まるユーザーをクエリするための、Azure AD Graph API に対する GET 要求を実行します。  ただし、Graph API をクエリするためには、要求の `Authorization` ヘッダーに access_token を含める必要があります。この処理を ADAL が実行します。
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)
@@ -118,7 +115,7 @@ private async void Search(object sender, RoutedEventArgs e)
     }
 }
 ```
-- ADAL が Windows Phone の Web 認証ブローカー (WAB) を使用して対話型の認証が必要な場合と [継続のモデルを](http://www.cloudidentity.com/blog/2014/06/16/adal-for-windows-phone-8-1-deep-dive/) ページ内で、Azure AD サインインを表示します。 ユーザーがサインインすると、アプリは ADAL に WAB 対話の結果を渡す必要があります。 これを実装するだけでは、 `ContinueWebAuthentication` インターフェイス。
+- ADAL が Windows Phone の Web 認証ブローカー (WAB) を使用して対話型の認証が必要な場合と [継続のモデルを](http://www.cloudidentity.com/blog/2014/06/16/adal-for-windows-phone-8-1-deep-dive/) ページ内で、Azure AD サインインを表示します。  ユーザーがサインインすると、アプリは ADAL に WAB 対話の結果を渡す必要があります。  これは、`ContinueWebAuthentication` インターフェイスを実装するのと同じくらい簡単です。
 
 ```C#
 // This method is automatically invoked when the application
@@ -131,7 +128,7 @@ public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationE
 }
 ```
 
-- 使用するときはこれで、 `AuthenticationResult` ADAL がアプリに返されることです。  `QueryGraph(...)` コールバックを取得した access_token を承認ヘッダーに GET 要求にアタッチします。
+- 次に、ADAL がアプリに返す `AuthenticationResult` を使用します。  `QueryGraph(...)` コールバックで、取得した access_token を承認ヘッダーの GET 要求にアタッチします。
 
 ```C#
 private async void QueryGraph(AuthenticationResult result)
@@ -148,13 +145,13 @@ private async void QueryGraph(AuthenticationResult result)
     ...
 }
 ```
-- 使用することも、 `AuthenticationResult` をアプリでユーザーの情報を表示するオブジェクト。  `QueryGraph(...)` メソッドをページに、ユーザーの id を表示する結果を使用します。
+- `AuthenticationResult` を使用して、ユーザーに関する情報をアプリで表示することもできます。 `QueryGraph(...)` メソッドで、結果を使用してユーザーの ID をページに表示します。
 
 ```C#
 // Update the Page UI to represent the signed in user
 ActiveUser.Text = result.UserInfo.DisplayableId;
 ```
-- 最後に、ADAL を使用してアプリケーションからユーザーをサインアウトさせることができます。 次に呼び出したことを確認するユーザーには、[サインアウト] ボタンがクリックすると、 `AcquireTokenSilentAsync(...)` は失敗します。 ADAL を使用すると、この操作は、トークン キャッシュをクリアするのと同じぐらい容易に達成できます。
+- 最後に、ADAL を使用してアプリケーションからユーザーをサインアウトさせることができます。  ユーザーが [サインアウト] ボタンをクリックした場合、次の `AcquireTokenSilentAsync(...)` の呼び出しは失敗するようにする必要があります。  ADAL を使用すると、この操作は、トークン キャッシュをクリアするのと同じくらい容易に達成できます。
 
 ```C#
 private void SignOut()
@@ -166,17 +163,13 @@ private void SignOut()
 }
 ```
 
-ご利用ありがとうございます。 これで、ユーザー認証を処理でき、OAuth 2.0 を使用して Web API を安全に呼び出すことができ、ユーザーについての基本情報を取得できる、動作する Windows Phone アプリが完成しました。 テナントに一連のユーザーを設定します (設定していない場合)。 DirectorySearcher アプリを実行し、それらのユーザーの一人としてサインインします。 UPN に基づいて、他のユーザーを検索します。 アプリを閉じて、再び実行します。 ユーザーのセッションがそのままに維持されていることに注意します。 サインアウトし、別のユーザーとしてサインインします。
+ご利用ありがとうございます。 これで、ユーザー認証を処理でき、OAuth 2.0 を使用して Web API を安全に呼び出すことができ、ユーザーについての基本情報を取得できる、動作する Windows Phone アプリが完成しました。  テナントに一連のユーザーを設定します (設定していない場合)。  DirectorySearcher アプリを実行し、それらのユーザーの一人としてサインインします。  UPN に基づいて、他のユーザーを検索します。  アプリを閉じて、再び実行します。  ユーザーのセッションがそのままに維持されていることに注意します。  サインアウトし、別のユーザーとしてサインインします。
 
-ADAL を使用することにより、これらの共通 ID 機能のすべてを容易にアプリケーションに組み込むことができます。 キャッシュ管理、OAuth プロトコル サポート、ログイン UI を使用してのユーザーの提示、有効期限切れとなったトークンの更新など、面倒な操作を容易に実装できます。 本当に知っておきたいは、単一の API 呼び出し、 `authContext.AcquireToken*(...)`します。
+ADAL を使用することにより、これらの共通 ID 機能のすべてを容易にアプリケーションに組み込むことができます。  キャッシュ管理、OAuth プロトコル サポート、ログイン UI を使用してのユーザーの提示、有効期限切れとなったトークンの更新など、煩わしい操作を容易に実装できます。  習得する必要があるのは、単一の API 呼び出し、`authContext.AcquireToken*(…)` のみです。
 
-リファレンスについては、完全なサンプル (構成値) を除くが提供される [ここ](https://github.com/AzureADQuickStarts/NativeClient-WindowsPhone/archive/complete.zip)します。 ここからは、さらに ID シナリオに進むことができます。 次のチュートリアルを試してみてください。
+リファレンスについては、完全なサンプル (構成値) を除くが提供される [ここ](https://github.com/AzureADQuickStarts/NativeClient-WindowsPhone/archive/complete.zip)します。  ここからは、さらに ID シナリオに進むことができます。  次のチュートリアルを試してみてください。
 
-[.NET Web API のセキュリティ保護 >>](active-directory-devquickstarts-webapi-dotnet.md)
+[Protect a Web API using Bearer tokens from Azure AD (Azure AD からのベアラー トークンを使用することによる Web API の保護)](active-directory-devquickstarts-webapi-dotnet.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-
-
+ 

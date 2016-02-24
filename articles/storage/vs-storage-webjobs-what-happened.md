@@ -16,7 +16,6 @@
     ms.date="12/16/2015"
     ms.author="tarcher"/>
 
-
 # Web ジョブ プロジェクトの変更点 (Visual Studio Azure Storage 接続済みサービス)
 
 ## リファレンスの追加
@@ -34,12 +33,7 @@ Visual Studio プロジェクトで Azure Storage の NuGet パッケージが�
 - **System.Spatial**
 
 ## Azure Storage の接続文字列の追加
-
-選択したストレージ アカウントの接続文字列とキーを使用して、プロジェクトの App.config ファイル内の **AzureWebJobsStorage** エントリと **AzureWebJobsDashboard** エントリが更新されました。
+プロジェクトの App.config ファイルで、 **AzureWebJobsStorage** と **AzureWebJobsDashboard** を選択したストレージ アカウントの接続文字列とキーのエントリが更新されました。
 
 詳細については、次を参照してください。 [Azure WebJobs の推奨リソース](http://go.microsoft.com/fwlink/?linkid=390226)します。
-
-
-
-
 

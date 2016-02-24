@@ -14,17 +14,16 @@
     ms.topic="article" 
     ms.date="11/24/2015" 
     ms.author="awills"/>
-
-
+ 
 # Windows デバイス用 Application Insights のトラブルシューティングおよび Q&A
 
-質問または問題 [Windows ][windows]でしょうか。 ここでは、いくつかのヒントを紹介します。
+質問または問題 [Windows での Visual Studio Application Insights][windows]でしょうか。 ここでは、いくつかのヒントを紹介します。
 
 
 
-## データが表示されない
+## データが表示されない 
 
-*Application Insights が正常に追加された後でアプリケーションを実行したところ、ポータルにデータが表示されません。*
+*Application Insights が正常に追加された後でアプリケーションを実行したところ、ポータルにデータが表示されません*
 
 * 少し待ってから、[最新の情報に更新] をクリックします。
 * ApplicationInsights.config ファイル内で、インストルメンテーション キーが定義されていることをご確認ください。また、定義されているインストルメンテーション キーが Application Insights ポータル内のキーと同じであることをご確認ください。 キーを表示するには、概要ブレードで [Essentials] をクリックします。
@@ -41,9 +40,9 @@
 
 ## ユニバーサル アプリに Application Insights を追加する方法は?
 
-Visual Studio 2015 で新しいソリューションを作成する場合は、[新しいプロジェクト] ダイアログで [Application Insights の追加] オプションを選択します。 これは、すべてのターゲットとするアプリの種類から、同じ Application Insights リソースにテレメトリを送信します。
+Visual Studio 2015 で新しいソリューションを作成する場合は、[新しいプロジェクト] ダイアログで [Application Insights の追加] オプションを選択します。  これは、すべてのターゲットとするアプリの種類から、同じ Application Insights リソースにテレメトリを送信します。
 
-ユニバーサル アプリ ソリューションを既に作成している場合は、各プライマリ プロジェクトを右クリックし、**[Application Insights の追加]** を選択します。
+ユニバーサル アプリ ソリューションを既に作成した場合は、各プライマリ プロジェクトを右クリックして **Application Insights の追加**します。 
 
 
 
@@ -62,13 +61,13 @@ Visual Studio 2015 で新しいソリューションを作成する場合は、[
 
 新しい Application Insights の概要ブレードで、[Essentials] を開き、インストルメンテーション キーをコピーします。
 
-キーを ApplicationInsights.config ファイルに貼り付けます、 `< InstrumentationKey >` ノードです。
+`<InstrumentationKey>` ノードの ApplicationInsights.config ファイルにキーを貼り付けます。
 
 あるいは、実行時にターゲットを変更する場合、次を使用します。
 
      var telemetry = new TelemetryClient();
      telemetry.Context.InstrumentationKey = newKey;
-
+    
 ## クライアント サーバー アプリケーションの監視方法は?
 
 これを行うには 2 つの方法があります。
@@ -80,46 +79,47 @@ Visual Studio 2015 で新しいソリューションを作成する場合は、[
 
     telemetry.Context.OperationId = opid;
 
+
 ## Azure のスタート画面
 
-* 表示しています [Azure ポータル](http://portal.azure.com)します。 Does the map tell me something about my app?*
+*表示しています [Azure ポータル](http://portal.azure.com)します。 このマップから、自分のアプリについて何か情報が得られるのでしょうか?*
 
 いいえ、そのマップは世界中の Azure サーバーの正常性を表しています。
 
 *Azure のスタート画面 (ホーム画面) から、アプリに関するデータを見つける方法を教えてください。*
 
-仮定 [Application insights の ][windows], 参照] をクリックして、Application Insights を選択して、アプリ用に作成したリソースを選択します。 次からその場所にすばやくアクセスできるように、スタート画面にリソースをピン留めすることができます。
+仮定 [Application Insights のアプリを既に設定][windows], 参照] をクリックして、Application Insights を選択して、アプリ用に作成したリソースを選択します。 次からその場所にすばやくアクセスできるように、スタート画面にリソースをピン留めすることができます。
 
-## データの保持
+## データの保持 
 
-* ポータルでのデータの保持する期間 Is it secure?*
+*ポータルでのデータ保持期間はどのくらいですか? セキュリティで保護されていますか?*
 
-参照してください [データの保持とプライバシー ][data]します。
+参照してください [データの保持とプライバシー][data]します。
 
 ## 次のステップ
 
-*I set up Application Insights for my Java server app. その他は何ができますか *。
+*Java サーバー アプリ用に Application Insights を設定しました。 ほかには何ができるか教えてください。*
 
-* [[可用性] web ページの可用性を監視します][availability]
-* [[使用状況] ページの使用状況を監視します。][usage]
-* [使用状況を追跡し、デバイス アプリの ][platforms]
-* [アプリの ][track]
-* [診断ログ ][javalogs]
+* [Web ページの可用性の監視][availability]
+* [Web ページの使用状況の監視][usage]
+* [使用状況の追跡およびデバイス アプリでの問題の診断][platforms]
+* [アプリの使用状況を追跡するためのコードを記述する][track]
+* [診断ログのキャプチャ][javalogs]
 
 
 ## 問い合わせ
 
 * [スタック オーバーフロー](http://stackoverflow.com/questions/tagged/ms-application-insights)
 
+<!--Link references-->
 
+[availability]: app-insights-monitor-web-app-availability.md
+[data]: app-insights-data-retention-privacy.md
+[javalogs]: app-insights-java-trace-logs.md
+[platforms]: app-insights-platforms.md
+[track]: app-insights-api-custom-events-metrics.md
+[universal]: app-insights-windows-get-started.md#universal
+[usage]: app-insights-web-track-usage.md
+[windows]: app-insights-windows-get-started.md
 
-
-[availability]: app-insights-monitor-web-app-availability.md 
-[data]: app-insights-data-retention-privacy.md 
-[javalogs]: app-insights-java-trace-logs.md 
-[platforms]: app-insights-platforms.md 
-[track]: app-insights-api-custom-events-metrics.md 
-[universal]: app-insights-windows-get-started.md#universal 
-[usage]: app-insights-web-track-usage.md 
-[windows]: app-insights-windows-get-started.md 
-
+ 

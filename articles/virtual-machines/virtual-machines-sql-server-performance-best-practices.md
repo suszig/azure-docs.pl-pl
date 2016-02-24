@@ -7,7 +7,7 @@
     manager="jeffreyg"
     editor="monicar" 
     tags="azure-service-management" />
-
+    
 <tags 
     ms.service="virtual-machines"
     ms.devlang="na"
@@ -16,7 +16,6 @@
     ms.workload="infrastructure-services"
     ms.date="11/13/2015"
     ms.author="jroth" />
-
 
 # Azure Virtual Machines における SQL Server のパフォーマンスに関するベスト プラクティス
 
@@ -34,13 +33,13 @@ SQL Server イメージを作成するときは、Azure ポータルを使用し
 
 Azure Virtual Machines で SQL Server の最適なパフォーマンスを実現するためのクイック チェック リストを次に示します。
 
-| 領域| 最適化|
+|領域|最適化|
 |---|---|
-| **VM サイズ**| [DS3](virtual-machines-size-specs.md#standard-tier-ds-series) 以上 SQL Enterprise edition 用<br/>。<br/>[DS2](virtual-machines-size-specs.md#standard-tier-ds-series) 以上 SQL Standard、および Web エディションです。|
-| **ストレージ**| Use [Premium Storage](../storage/storage-premium-storage-preview-portal.md).<br/><br/>保持、 [ストレージ アカウント](../storage/storage-create-storage-account.md) と同じリージョンに SQL Server VM<br/>。<br/>を無効にする Azure [geo 冗長ストレージ](../storage/storage-redundancy.md) (geo レプリケーション)、ストレージ アカウントにします。|
-| **ディスク**| 2 を使用して [P30 ディスク](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage) (ログ ファイルの 1; のデータ ファイルと TempDB 1).<br/><br/>データベース ストレージまたはロギングのオペレーティング システムまたは一時ディスクは使用しないでください<br/>。<br/>データ ファイルと TempDB をホストしているディスク上のキャッシュの読み取りを有効にします<br/>。<br/>ログ ファイルをホストしているディスク上のキャッシュを有効にしない<br/>。<br/>IO スループットを向上させるための複数の Azure データ ディスクをストライピングします<br/>。<br/>形式に文書化された割り当てサイズを使用します。|
-| **I/O**| データベース ページの圧縮を有効にします。<br/><br/>データ ファイルのファイルの瞬時初期化を有効にします<br/>。<br/>データベースで自動拡張が制限または無効にします<br/>。<br/>データベースの自動圧縮を無効にします<br/>。<br/>システム データベースを含むすべてのデータベースをデータ ディスクに移動します<br/>。<br/>移動の SQL Server エラー ログとトレース ファイルをデータ ディスクにディレクトリ<br/>。<br/>既定のバックアップおよびデータベース ファイルの場所を設定します<br/>。<br/>ロックされたページを有効にする<br/>。<br/>適用 SQL Server パフォーマンス修正します。|
-| **機能固有**| BLOB ストレージに直接バックアップします。|
+|**VM サイズ**|[DS3](virtual-machines-size-specs.md#standard-tier-ds-series) 以上 SQL Enterprise edition 用<br/><br/>[。DS2](virtual-machines-size-specs.md#standard-tier-ds-series) 以上 SQL Standard、および Web エディションです。|
+|**Storage**|使用 [Premium Storage](../storage/storage-premium-storage-preview-portal.md).<br/><br/>保持、 [ストレージ アカウント](../storage/storage-create-storage-account.md) と同じリージョンに SQL Server VM<br/><br/>。Azure を無効にする [geo 冗長ストレージ](../storage/storage-redundancy.md) (geo レプリケーション)、ストレージ アカウントにします。|
+|**ディスク**|2 を使用して [P30 ディスク](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage) (ログ ファイルの 1; のデータ ファイルと TempDB 1).<br/><br/>データベース ストレージまたはロギングのオペレーティング システムまたは一時ディスクは使用しないでください<br/><br/>。データ ファイルと TempDB をホストしているディスク上のキャッシュの読み取りを有効にします<br/><br/>。ログ ファイルをホストしているディスク上のキャッシュを有効にしない<br/><br/>。IO スループットを向上させるための複数の Azure データ ディスクをストライピングします<br/><br/>。使用して形式は、割り当てサイズを記録します。|
+|**I/O**|データベース ページの圧縮を有効にします。<br/><br/>データ ファイルの瞬時初期化を有効にします。<br/><br/>データベースで自動拡張を制限するか、無効にします。<br/><br/>データベースで自動圧縮を無効にします。<br/><br/>システム データベースも含め、すべてのデータベースをデータ ディスクに移動します。<br/><br/>SQL Server エラー ログとトレース ファイルのディレクトリをデータ ディスクに移動します。<br/><br/>既定のバックアップおよびデータベース ファイルの場所を設定します。<br/><br/>ロックされたページを有効にします。<br/><br/>SQL Server パフォーマンス修正プログラムを適用します。|
+|**機能固有**|BLOB ストレージに直接バックアップします。|
 
 詳細については、以下のサブ セクションで説明するガイドラインに従ってください。
 
@@ -48,13 +47,13 @@ Azure Virtual Machines で SQL Server の最適なパフォーマンスを実現
 
 パフォーマンス重視のアプリケーションでは、次の仮想マシン サイズを使用することをお勧めします。
 
-- **SQL Server Enterprise Edition**: DS3 以上
+- **SQL Server Enterprise Edition**: DS3 またはそれ以降
 
-- **SQL Server Standard Edition または Web Edition**: DS2 以上
+- **SQL Server Standard edition および Web Edition**: DS2 またはそれ以降
 
 最新の状態の詳細については、サポートされている仮想マシンのサイズでは、次を参照してください。 [仮想マシンのサイズ](virtual-machines-size-specs.md)します。
 
-さらに、転送の遅延を削減する、SQL Server 仮想マシンと同じデータ センターで Azure ストレージ アカウントを作成することをお勧めします。 ストレージ アカウントを作成するときに、複数のディスクに一貫性のある書き込み順序が保証されない、geo レプリケーションを無効にします。 代わりに、2 つの Azure データ センター間で SQL Server 障害復旧テクノロジを構成することを検討します。 詳細については、次を参照してください。 [高可用性と災害復旧の Azure 仮想マシンにおける SQL Server](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)します。
+さらに、転送遅延を低減するために、SQL Server 仮想マシンと同じデータ センターで Azure ストレージ アカウントを作成することをお勧めします。 ストレージ アカウントの作成時に、geo レプリケーションを無効にします。複数のディスクでの一貫性のある書き込み順序が保証されないためです。 代わりに、2 つの Azure データ センター間で SQL Server 障害復旧テクノロジを構成することを検討します。 詳細については、次を参照してください。 [高可用性と災害復旧の Azure 仮想マシンにおける SQL Server](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)します。
 
 ## ディスクとパフォーマンスに関する考慮事項
 
@@ -62,30 +61,30 @@ Azure 仮想マシンを作成すると、プラットフォームによって�
 
 ### オペレーティング システム ディスク
 
-オペレーティング システム ディスクは、実行中のバージョンのオペレーティング システムとして起動およびマウントできる VHD であり、**C** ドライブとしてラベル付けされます。
+オペレーティング システム ディスクをブートしてオペレーティング システムの実行中バージョンとしてマウントできる VHD は、ラベルが付いて、 **C** ドライブです。
 
-オペレーティング システム ディスクの既定のキャッシュ ポリシーは、**読み取り/書き込み**です。 パフォーマンス重視のアプリケーションでは、オペレーティング システム ディスクではなく、データ ディスクを使用することをお勧めします。 下記のデータ ディスクに関するセクションをご覧ください。
+キャッシュ ポリシーは、オペレーティング システム ディスクで既定値は **読み取り/書き込み**します。 パフォーマンス重視のアプリケーションでは、オペレーティング システム ディスクではなく、データ ディスクを使用することをお勧めします。 下記のデータ ディスクに関するセクションをご覧ください。
 
 ### 一時ディスク
 
-**D**: ドライブとしてラベル付けされる一時ストレージ ドライブは、Azure BLOB ストレージに保持されません。 **D**: ドライブにデータ ファイルやログ ファイルを保存しないでください。
+一時ストレージ ドライブは、というラベルが付いて、 **D**: ドライブは、Azure blob ストレージには保存されません。 データまたはログ ファイルを保存しない、 **D**: ドライブです。
 
-D シリーズまたは G シリーズの Virtual Machines (VM) を使用している場合、**D** ドライブには TempDB とバッファー プール拡張機能のみを保存します。 他の VM シリーズとは異なり、D シリーズと G シリーズの VM の **D** ドライブは SSD ベースです。 そのため、一時オブジェクトを頻繁に使用するワークロードや、メモリに収まらないワーキング セットを持つワークロードのパフォーマンスを向上させることができます。 詳細については、次を参照してください。 [SQL Server TempDB およびバッファー プール拡張を格納する Azure Vm で Ssd を使用して](http://blogs.technet.com/b/dataplatforminsider/archive/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions.aspx)します。
+のみで TempDB またはバッファー プール拡張を格納、 **D** D シリーズまたは G シリーズ仮想マシン (Vm) を使用する場合のドライブ形です。 その他の VM シリーズとは異なり、 **D** ドライブ D シリーズ、G シリーズの Vm では、SSD ベースです。 そのため、一時オブジェクトを頻繁に使用するワークロードや、メモリに収まらないワーキング セットを持つワークロードのパフォーマンスを向上させることができます。 詳細については、次を参照してください。 [SQL Server TempDB およびバッファー プール拡張を格納する Azure Vm で Ssd を使用して](http://blogs.technet.com/b/dataplatforminsider/archive/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions.aspx)します。
 
 ### データ ディスク
 
 - **データ ディスク数のデータとログ ファイルの**: には、少なくとも 2 を使用して [P30 ディスク](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage) あり、1 つのディスクには、ログ ファイルが含まれている、データ ファイルと TempDB に格納もう一方のです。 スループットを向上させるために、データ ディスクを追加することが必要になる場合もあります。 データ ディスクの数を決定するには、データおよびログ ディスクで使用可能な IOPS の数を分析する必要があります。 その情報を参照してください、テーブルあたりの IOPS [VM サイズ](virtual-machines-size-specs.md) し、次の資料の大きさのディスク: [ディスク向け Premium Storage の使用](../storage/storage-premium-storage-preview-portal.md)します。 さらに多くの帯域幅が必要な場合は、追加のディスクを接続し、ディスク ストライピングを使用できます。 サポートされるデータ ディスクの最大数を追加するという推奨事項は、Premium Storage を使用していない場合、 [VM サイズ](virtual-machines-size-specs.md) ディスク ストライピングを使用します。 ディスク ストライピングの詳細については、下記の関連セクションをご覧ください。
 
-- **キャッシュ ポリシー**: データ ファイルと TempDB のみをホストするデータ ディスクで読み取りキャッシュを有効にします。 Premium Storage を使用していない場合は、どのデータ ディスクでもキャッシュを有効にしないでください。 ディスクのキャッシュを構成する手順については、次のトピックを参照してください: [Set-azureosdisk](https://msdn.microsoft.com/library/azure/jj152847) と [Set-azuredatadisk](https://msdn.microsoft.com/library/azure/jj152851.aspx)します。
+- **キャッシュ ポリシー**: データ ディスクをホストしているデータ ファイルと TempDB のみでのキャッシュの読み取りを有効にします。 Premium Storage を使用していない場合は、どのデータ ディスクでもキャッシュを有効にしないでください。 ディスクのキャッシュを構成する手順については、次のトピックを参照してください: [Set-azureosdisk](https://msdn.microsoft.com/library/azure/jj152847) と [Set-azuredatadisk](https://msdn.microsoft.com/library/azure/jj152851.aspx)します。
 
-- **NTFS アロケーション ユニット サイズ**: データ ディスクをフォーマットするときは、データ ファイルとログ ファイルに加えて TempDB にも 64 KB アロケーション ユニット サイズを使用することをお勧めします。
+- **NTFS アロケーション ユニット サイズ**: データ ディスクをフォーマットするときに、データとログ ファイルと、TempDB、64 KB アロケーション ユニット サイズを使用することをお勧めします。
 
-- **ディスク ストライピング**: 次のガイドラインに従うことをお勧めします。
+- **ディスク ストライピング**: 次のガイドラインに従うことをお勧めします。 
 
     - Windows 8/Windows Server 2012 以降を使用して [記憶域スペース](https://technet.microsoft.com/library/hh831739.aspx)します。 ストライプ サイズを、OLTP ワークロードでは 64 KB、データ ウェアハウス ワークロードでは 256 KB にそれぞれ設定して、パーティションの不適切な配置に起因するパフォーマンスの低下を防ぎます。 また、列数を物理ディスクの数に設定します。 8 個以上のディスクで記憶域スペースを構成するには、(サーバー マネージャーの UI ではなく) PowerShell を使用して、ディスクの数に一致する列数を明示的に設定する必要があります。 構成する方法の詳細についての [記憶域スペース](https://technet.microsoft.com/library/hh831739.aspx), を参照してください [Windows PowerShell で記憶域スペースのコマンドレット](https://technet.microsoft.com/library/jj851254.aspx)
-
-    - Windows 2008 R2 以前では、ダイナミック ディスク (OS ストライプ ボリューム) を使用できます。ストライプ サイズは常に 64 KB です。 Windows 8 および Windows Server 2012 の時点で、このオプションは使用されていません。 詳細については、サポート ポリシーを参照してください。 [仮想ディスク サービスが Windows Storage Management API に遷移する](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx)します。
-
+    
+    - Windows 2008 R2 以前では、ダイナミック ディスク (OS ストライプ ボリューム) を使用できます。ストライプ サイズは常に 64 KB です。 Windows 8 および Windows Server 2012 の時点で、このオプションは使用されていません。 詳細については、サポート ポリシーを参照してください。 [仮想ディスク サービスが Windows Storage Management API に遷移する](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx)です。
+    
     - ワークロードで大量のログが発生するわけではなく、専用の IOPS を必要としない場合は、記憶域プールを 1 つだけ構成します。 それ以外の場合は、記憶域プールを 2 つ作成して、1 つをログ ファイルに使用し、もう 1 つをデータ ファイルと TempDB に使用します。 負荷予測に基づいて、各記憶域プールに関連付けるディスクの数を決定します。 接続できるデータ ディスクの数は VM サイズによって異なることに注意してください。 詳細については、次を参照してください。 [仮想マシンのサイズ](virtual-machines-size-specs.md)します。
 
 ## I/O パフォーマンスに関する考慮事項
@@ -96,22 +95,22 @@ D シリーズまたは G シリーズの Virtual Machines (VM) を使用して�
 
 - Azure との間での転送時にデータ ファイルを圧縮することを検討します。
 
-- 初期ファイル割り当てに必要な時間を短縮するために、ファイルの瞬時初期化を有効にすることを検討します。 ファイルの瞬時初期化を利用するには、SQL Server (MSSQLSERVER) サービス アカウントに SE_MANAGE_VOLUME_NAME を付与し、**[ボリュームの保守タスクを実行]** セキュリティ ポリシーにそのサービス アカウントを追加します。 Azure の SQL Server プラットフォーム イメージを使用している場合、既定のサービス アカウント (NT Service\MSSQLSERVER) は、**[ボリュームの保守タスクを実行]** セキュリティ ポリシーに追加されません。 つまり、SQL Server Azure プラットフォーム イメージでは、ファイルの瞬時初期化は有効になりません。 **[ボリュームの保守タスクを実行]** セキュリティ ポリシーに SQL Server サービス アカウントを追加したら、SQL Server サービスを再起動します。 この機能を使用する場合、セキュリティに関する考慮事項があります。 詳細については、次を参照してください。 [データベース ファイルの初期化](https://msdn.microsoft.com/library/ms175935.aspx)します。
+- 初期ファイル割り当てに必要な時間を短縮するために、ファイルの瞬時初期化を有効にすることを検討します。 ファイルの瞬時初期化を利用する SE_MANAGE_VOLUME_NAME で SQL Server (MSSQLSERVER) サービス アカウントに付与してそれを追加、 **ボリューム メンテナンス タスクを実行する** セキュリティ ポリシー。 既定のサービス アカウント (NT service \mssqlserver) は追加されません Azure で SQL Server プラットフォーム イメージを使用している場合、 **ボリューム メンテナンス タスクを実行する** セキュリティ ポリシー。 つまり、SQL Server Azure プラットフォーム イメージでは、ファイルの瞬時初期化は有効になりません。 SQL Server サービス アカウントを追加した後、 **ボリューム メンテナンス タスクを実行する** セキュリティ ポリシーでは、SQL Server サービスを再起動します。 この機能を使用する場合、セキュリティに関する考慮事項があります。 詳細については、次を参照してください。 [データベース ファイルの初期化](https://msdn.microsoft.com/library/ms175935.aspx)します。
 
-- **自動拡張**は、予想外の増加に付随するものと見なされています。 自動拡張を使用して、データやログの増加に日常的に対処しないでください。 自動拡張を使用する場合は、Size スイッチを使用してファイルを事前に拡張します。
+- **自動拡張** 偶発的な予想外の増加と見なされます。 自動拡張を使用して、データやログの増加に日常的に対処しないでください。 自動拡張を使用する場合は、Size スイッチを使用してファイルを事前に拡張します。
 
-- パフォーマンスに悪影響を及ぼすおそれのある不要なオーバーヘッドを回避するために、**自動圧縮**が無効になっていることを確認します。
+- 確認 **autoshrink** はパフォーマンスに悪影響が不要なオーバーヘッドを避けるために無効になります。
 
 - SQL Server 2012 を実行している場合は、Service Pack 1 Cumulative Update 10 をインストールします。 この更新プログラムには、SQL Server 2012 で一時テーブルに対して SELECT INTO ステートメントを実行したときに I/O のパフォーマンスが低下する問題に対処するための修正プログラムが含まれています。 詳細については、この参照してください。 [サポート技術情報記事](http://support.microsoft.com/kb/2958012)します。
 
-- パフォーマンスを向上させるために、非キャッシュのデータ ディスクにシステム データベース (msdb、および TempDB) など、バックアップおよび SQL Server の既定のデータとログ ディレクトリを移動します。 その後、次の操作を行います。
+- パフォーマンスを向上させるために、システム データベース (msdb や TempDB など)、バックアップ、SQL Server の既定のデータ ディレクトリとログ ディレクトリをキャッシュされないデータ ディスクに移動します。 その後、次の操作を行います。
 
     - XEvent とトレース ファイルのパスを調整する。
-
+    
     - SQL エラー ログのパスを調整する。
-
+    
     - 既定のバックアップ パスを調整する
-
+    
     - 既定のデータベースの場所を調整する。
 
 - ロックされたページを確立して、IO とページング アクティビティを減らします。
@@ -133,8 +132,4 @@ D シリーズまたは G シリーズの Virtual Machines (VM) を使用して�
 セキュリティのベスト プラクティスについては、次を参照してください。 [Azure 仮想マシンにおける SQL Server のセキュリティの考慮事項](virtual-machines-sql-server-security-considerations.md)します。
 
 あるその他の SQL Server 仮想マシンのトピックを確認 [Azure 仮想マシンの概要 [SQL Server](virtual-machines-sql-server-infrastructure-services.md)します。
-
-
-
-
 

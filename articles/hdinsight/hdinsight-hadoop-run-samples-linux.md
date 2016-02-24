@@ -1,6 +1,6 @@
 <properties
     pageTitle="Linux ベースの HDInsight での Hadoop MapReduce サンプルの実行 | Microsoft Azure"
-    description="Linux ベースの HDInsight で MapReduce サンプルの使用を開始します。SSH を使用してクラスターに接続し、Hadoop コマンドを使用してサンプル ジョブを実行します。"
+    description="Linux ベースの HDInsight で MapReduce サンプルの使用を開始します。 SSH を使用してクラスターに接続し、Hadoop コマンドを使用してサンプル ジョブを実行します。"
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
@@ -20,72 +20,72 @@
 
 
 
-
-# HDInsight での Hadoop のサンプルの実行
+#HDInsight での Hadoop のサンプルの実行
 
 [AZURE.INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
 Linux ベースの HDInsight クラスターには、Hadoop MapReduce ジョブの実行について理解するのに使用できる MapReduce のサンプル セットが用意されています。 このドキュメントでは、使用可能なサンプルと一部のサンプルの実行手順について説明します。
 
-## 前提条件
+##前提条件
 
-- **Azure サブスクリプション**:を参照してください [取得 Azure 無料試用版](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
+- **Azure サブスクリプション**: を参照してください [取得 Azure 無料試用版](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
 
-- **Linux ベースの HDInsight クラスター**:を参照してください [Linux での HDInsight で Hive と Hadoop の使用を開始](hdinsight-hadoop-linux-tutorial-get-started.md)
+- **Linux ベースの HDInsight クラスター**: を参照してください [Linux での HDInsight で Hive と Hadoop の使用を開始](hdinsight-hadoop-linux-tutorial-get-started.md)
 
-- **SSH クライアント**: HDInsight での SSH の使用方法の詳細については、次の記事をご覧ください。
+- **SSH クライアント**: HDInsight で SSH の使用方法の詳細については、次の記事を参照してください。
 
-    - [Linux、Unix、OS X から HDInsight 上の Linux ベースの Hadoop で SSH を使用します。](hdinsight-hadoop-linux-use-ssh-unix.md)
+    - [Linux、Unix、または OS X から HDInsight 上の Linux ベースの Hadoop で SSH キーを使用する](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    - [Windows から Linux ベースの Hadoop で SSH を使用します。](hdinsight-hadoop-linux-use-ssh-windows.md)
+    - [HDInsight の Linux ベースの Hadoop で Windows から SSH を使用する](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-## サンプル
+## サンプル ##
 
 **場所**: サンプルは、HDInsight クラスター上にある  **/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar**
 
-**内容**: 次のサンプルがこのアーカイブに含まれています。
+**内容**: 次のサンプルはこのアーカイブに含まれています。
 
-- **aggregatewordcount**: 入力ファイル内の単語をカウントする集計ベースの Map / Reduce プログラム
-- **aggregatewordhist**: 入力ファイル内の単語のヒストグラムを計算する集計ベースの Map / Reduce プログラム
-- **bbp**:  Bailey-Borwein-Plouffe を使用して Pi の正確な数字を計算する Map / Reduce プログラム
-- **dbcount**: データベースから、ページビューの数をカウントするサンプル ジョブ
-- **distbbp**: BBP 公式を使用して Pi の正確なビットを計算する Map / Reduce プログラム
-- **grep**: 入力内の正規表現の一致項目をカウントする Map / Reduce プログラム
-- **join**: 並べ替えられ、均等に分割されたデータセット上の結合に影響を及ぼすジョブ
-- **multifilewc**: 複数のファイルから単語をカウントするジョブ
-- **pentomino**: pentomino 問題のソリューションを見つける Map / Reduce プログラム
-- **pi**: 準モンテカルロ法を使用して Pi を推定する Map / Reduce プログラム
-- **randomtextwriter**: ノードあたり 10 GB のランダムなテキスト データを書き込む Map / Reduce プログラム
-- **randomwriter**: ノードあたり 10 GB のランダムなデータを書き込む Map / Reduce プログラム
-- **secondarysort**:  Reduce プログラムに 2 番目の並べ替えを定義する例
-- **sort**: ランダム ライターによって書き込まれたデータを並べ替える Map / Reduce プログラム
-- **sudoku**: 数独問題を解くプログラム
-- **teragen**: terasort のデータを生成する
-- **terasort**: terasort を実行する
-- **teravalidate**: terasort の結果を確認する
-- **wordcount**: 入力ファイル内の単語をカウントする Map / Reduce プログラム
-- **wordmean**: 入力ファイル内の単語の平均長をカウントする Map / Reduce プログラム
-- **wordmedian**: 入力ファイル内の単語の中央の長さをカウントする Map / Reduce プログラム
-- **wordmedian**: 入力ファイル内の単語の長さの標準偏差をカウントする Map / Reduce プログラム
+- **aggregatewordcount**: する集計ベースの入力ファイル内の単語をカウントする map/reduce プログラム
+- **aggregatewordhist**: する集計ベースの入力ファイル内の単語のヒストグラムを計算する map/reduce プログラム
+- **bbp**: Bailey Borwein-Plouffe を使用して Pi の正確な数字を計算する map/reduce プログラム
+- **dbcount**: データベースから、ページビューをカウントするサンプル ジョブのカウント
+- **distbbp**: bbp 公式数式を使用して Pi の正確なビットを計算する map/reduce プログラム
+- **正規表現**: 入力内の正規表現の一致項目をカウントする map/reduce プログラム
+- **結合**: で並べ替えられ、均等に分割されたデータセットの結合に影響するジョブ
+- **multifilewc**: いくつかのファイルから単語をカウントするジョブ
+- **pentomino**: pentomino 問題の解決策を検索するプログラムを並べて表示する map/reduce
+- **pi**: 準モンテカルロを使用して Pi を推定する map/reduce プログラム Carlo メソッド
+- **randomtextwriter**: 10 GB の 1 つのノードのランダムなテキスト データを書き込む map/reduce プログラム
+- **randomwriter**: 10 GB の 1 つのノードのランダムなデータを書き込む map/reduce プログラム
+- **secondarysort**: reduce に 2 番目の並べ替えを定義する例
+- **並べ替え**: ランダム ライターによって書き込まれたデータを並べ替える map/reduce プログラム
+- **数独**: 数独問題を解く
+- **teragen**: terasort のデータを生成
+- **terasort**: terasort を実行します。
+- **teravalidate**: terasort の結果を確認します。
+- **wordcount**: 入力ファイル内の単語をカウントする map/reduce プログラム
+- **wordmean**: 入力ファイル内の単語の平均の長さをカウントする map/reduce プログラム
+- **wordmedian**: 入力ファイル内の単語の中央の長さをカウントする map/reduce プログラム
+- **wordstandarddeviation**: 入力ファイル内の単語の長さの標準偏差をカウントする map/reduce プログラム
 
-**ソース コード**: これらのサンプルのソース コードは、HDInsight クラスター上の **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples** にあります。
-> [AZURE.NOTE] `2.2.4.9-1` パスには、HDInsight クラスターの Hortonworks Data Platform のバージョンと、HDInsight が更新されると変更することがあります。
+**ソース コード**: HDInsight クラスター上のこれらのサンプルのソース コードが含まれている **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples**
 
-## サンプルの実行方法
+> [AZURE.NOTE]  `2.2.4.9-1` パスには、HDInsight クラスターの Hortonworks Data Platform のバージョンと、HDInsight が更新されると変更することがあります。
+
+## サンプルの実行方法 ##
 
 1. 次の記事の説明に従って、SSH を使用して HDInsight に接続します。
 
-    - [Linux、Unix、OS X から HDInsight 上の Linux ベースの Hadoop で SSH を使用します。](hdinsight-hadoop-linux-use-ssh-unix.md)
+    - [Linux、Unix、または OS X から HDInsight 上の Linux ベースの Hadoop で SSH キーを使用する](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    - [Windows から Linux ベースの Hadoop で SSH を使用します。](hdinsight-hadoop-linux-use-ssh-windows.md)
+    - [HDInsight の Linux ベースの Hadoop で Windows から SSH を使用する](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-2. `Username@###:~$` プロンプトで次のコマンドを使用して、サンプルの一覧を表示します。
+2. `username@#######:~$` プロンプトで、次のコマンドを使用してサンプルの一覧を表示します。
 
         hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
 
     これにより、このドキュメントの前のセクションのサンプル一覧が生成されます。
 
-3. 次のコマンドを使用して、特定のサンプルのヘルプを表示します。 これは、**wordcount** サンプルです。
+3. 次のコマンドを使用して、特定のサンプルのヘルプを表示します。 ここで、 **wordcount** サンプル。
 
         hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount
 
@@ -102,7 +102,8 @@ Linux ベースの HDInsight クラスターには、Hadoop MapReduce ジョブ�
     このジョブはからの入力 **wasb:///example/data/gutenberg/davinci.txt**します。
 
     次の例の出力 **wasb:////例/データ/davinciwordcount**します。
-    > [AZURE.NOTE] wordcount サンプルのヘルプで説明したように、複数の入力ファイルを指定することもできます。 たとえば、 `hadoop jar/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount/example/data/gutenberg/davinci.txt/example/data/gutenberg/ulysses.txt/example/data/twowordcount` は davinci.txt と ulysses.txt の両方の単語をカウントします。
+
+    > [AZURE.NOTE] 前述したワード カウント サンプルのヘルプで、複数の入力ファイルを指定することもできます。 たとえば、`hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` は davinci.txt と ulysses.txt の両方の単語をカウントします。
 
 5. ジョブが完了したら、次のコマンドを使用して出力を表示します。
 
@@ -127,11 +128,11 @@ Linux ベースの HDInsight クラスターには、Hadoop MapReduce ジョブ�
 
 - 9 つの行と 9 つの列
 
-- 各列は、数字を含めることができますか `?` (を空白のセルを示す)
+- 各列には、数字または `?` (空白のセルを示す) を含めることができる
 
 - セルはスペースで区切られる
 
-ここで、1 つの数字を 1 つの列または行で繰り返すことができないという、数独パズルを作成する一定の方法があります。 ありがたいことに、HDInsight クラスターに正しく作成された例があります。 これは、**/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta** にあり、次の内容が含まれています。
+ここで、1 つの数字を 1 つの列または行で繰り返すことができないという、数独パズルを作成する一定の方法があります。 ありがたいことに、HDInsight クラスターに正しく作成された例があります。 場所は **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta** 次が含まれています。
 
     8 5 ? 3 9 ? ? ? ?
     ? ? 2 ? ? ? ? ? ?
@@ -143,7 +144,7 @@ Linux ベースの HDInsight クラスターには、Hadoop MapReduce ジョブ�
     ? ? ? ? ? ? 2 ? ?
     ? ? ? ? 4 5 ? 7 8
 
-> [AZURE.NOTE] `2.2.4.9-1` の HDInsight クラスターへの更新が行われると、パスの部分を変更することがあります。
+> [AZURE.NOTE]  `2.2.4.9-1` の HDInsight クラスターへの更新が行われると、パスの部分を変更することがあります。
 
 数独の例でこれを実行するには、次のコマンドを使用します。
 
@@ -173,9 +174,9 @@ reducer は、mapper が計算した点の数を累計して、4R という公�
 
     hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar pi 16 10000000
 
-これによって返される値は、**3.14159155000000000000** になります。 参考までに、Pi の小数点以下 10 桁までは 3.1415926535 です。
+これによって返される値はようになります **3.14159155000000000000**します。 参考までに、Pi の小数点以下 10 桁までは 3.1415926535 です。
 
-## 10GB Greysort
+##10GB Greysort
 
 GraySort はベンチマーク ソートで、その評価尺度は、非常に大量のデータ、通常は最低でも 100 TB のデータをソートした際のソート速度 (TB/分) です。
 
@@ -183,11 +184,11 @@ GraySort はベンチマーク ソートで、その評価尺度は、非常に�
 
 このサンプルでは 3 組の MapReduce プログラムを使用します。
 
-- **TeraGen**: データ行を生成してソートする MapReduce プログラム
+- **TeraGen**: ソートするデータの行を生成して MapReduce プログラム
 
-- **TeraSort**: 入力データをサンプリングし、MapReduce を使用してデータを合計順にソートする
+- **TeraSort**: 入力データをサンプリングし、MapReduce を合計順に、データの並べ替えを使用して
 
-    TeraSort は MapReduce 関数の標準ソートです。ただし、各 reduce のキー範囲を定義する N-1 個のサンプリングされたキーのソート済みリストを使用するカスタム partitioner を使用します。特に、sample[i-1] <= key < sample[i] となるキーはすべて reduce i に送られます。このため、reduce i の出力がすべて reduce i+1 の出力より小さくなることが保証されます。
+    TeraSort は MapReduce 関数の標準ソートです。ただし、各 reduce のキー範囲を定義する N-1 個のサンプリングされたキーのソート済みリストを使用するカスタム partitioner を使用します。 特に、sample[i-1] <= key < sample[i] となるキーはすべて reduce i に送られます。 このため、reduce i の出力がすべて reduce i+1 の出力より小さくなることが保証されます。
 
 - **TeraValidate**: 出力がグローバルにソートされていることを検証する MapReduce プログラム
 
@@ -199,36 +200,39 @@ GraySort はベンチマーク ソートで、その評価尺度は、非常に�
 
         hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
 
-    `-Dmapred.map.tasks` このジョブに使用するマップ タスクの数を Hadoop に伝えます。 最後の 2 つのパラメーターを 10 GB 分のデータを作成し、それを格納するジョブを指示する **wasb://///データ/10 GB の並べ替えの入力例**します。
+    `-Dmapred.map.tasks` は、このジョブに使用する map タスクの数を Hadoop に伝えます。 最後の 2 つのパラメーターを 10 GB 分のデータを作成し、それを格納するジョブを指示する **wasb://///データ/10 GB の並べ替えの入力例**します。
 
 2. 次のコマンドを使用して、データをソートします。
 
         hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
 
-    `-Dmapred.reduce.tasks` reduce ジョブに使用するタスクの数を Hadoop に伝えます。 最後の 2 つのパラメーターは、単なるデータの入力と出力の場所です。
+    `-Dmapred.reduce.tasks` は、このジョブに使用する reduce タスクの数を Hadoop に伝えます。 最後の 2 つのパラメーターは、単なるデータの入力と出力の場所です。
 
 3. 次のコマンドを使用して、ソートによって生成されたデータを検証します。
 
         hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
 
-
-## 次のステップ
+##次のステップ ##
 
 この記事では、Linux ベースの HDInsight クラスターに付属するサンプルを実行する方法を説明しました。 HDInsight で Pig、Hive、MapReduce を使用する方法のチュートリアルについては、次のトピックをご覧ください。
 
-* [[Hdinsight での pig の使用] を HDInsight での Hadoop での Pig を使用します。][hdinsight-use-pig]
-* [[Hdinsight を使用して hive] HDInsight での Hadoop の Hive を使用します。][hdinsight-use-hive]
-* [[Hdinsight での mapreduce の使用] を HDInsight での Hadoop の MapReduce を使用します。][hdinsight-use-mapreduce]
+* [HDInsight での Pig と Hadoop の使用][hdinsight-use-pig]
+* [HDInsight での Hive と Hadoop の使用][hdinsight-use-hive]
+* [HDInsight での MapReduce と Hadoop の使用] [hdinsight-use-mapreduce]
 
 
 
+[hdinsight-errors]: hdinsight-debug-jobs.md
+[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
+[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
-[hdinsight-errors]: hdinsight-debug-jobs.md 
-[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md 
-[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx 
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md 
-[hdinsight-introduction]: hdinsight-hadoop-introduction.md 
-[hdinsight-samples]: hdinsight-run-samples.md 
-[hdinsight-use-hive]: hdinsight-use-hive.md 
-[hdinsight-use-pig]: hdinsight-use-pig.md 
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-introduction]: hdinsight-hadoop-introduction.md
+
+
+
+[hdinsight-samples]: hdinsight-run-samples.md
+
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
 

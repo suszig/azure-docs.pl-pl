@@ -18,8 +18,8 @@
     ms.author="genemi"/>
 
 
-
 # SQL Database V12 の新機能
+
 
 このトピックでは、Azure SQL Database の新しい V12 バージョンを V11 バージョンと比べたときの多くのメリットについて説明します。
 
@@ -36,20 +36,22 @@ SQL データベースのリソースの制限に関する最新情報につい�
 
 ## SQL Server との強化されたアプリケーションの互換性
 
+
 SQL Database V12 の主要な目的は、Microsoft SQL Server 2014 との互換性を強化することでした。 その他の領域では、V12 はプログラミングの重要な領域で SQL Server との対応を実現しました。 次に例を示します。
 
 
-- [Window functions](http://msdn.microsoft.com/library/bb934097.aspx), with [OVER](http://msdn.microsoft.com/library/ms189461.aspx)
-- [XML indexes](http://msdn.microsoft.com/library/bb934097.aspx) and [selective XML indexes](http://msdn.microsoft.com/library/jj670104.aspx)
+- [ウィンドウ関数](http://msdn.microsoft.com/library/bb934097.aspx), と [経由](http://msdn.microsoft.com/library/ms189461.aspx) 
+- [XML インデックス](http://msdn.microsoft.com/library/bb934097.aspx) と [選択的 XML インデックス](http://msdn.microsoft.com/library/jj670104.aspx)
 - [変更の追跡](http://msdn.microsoft.com/library/bb933875.aspx)
-- [選択してください。に](http://msdn.microsoft.com/library/ms188029.aspx)
-- [フル テキスト検索](http://msdn.microsoft.com/library/ms142571.aspx)
+- [SELECT...INTO](http://msdn.microsoft.com/library/ms188029.aspx)
+- [フルテキスト検索](http://msdn.microsoft.com/library/ms142571.aspx)
 
 
 参照してください [ここ](sql-database-transact-sql-information.md) SQL データベースでサポートされていない機能の小さなセットに対してです。
 
 
 ## Premium のパフォーマンスの向上、新しいパフォーマンス レベル
+
 
 V12 では、すべての Premium パフォーマンス レベルに割り当てられているデータベース スループット ユニット (DTU) を追加料金なしで 25% 引き上げました。 さらに大きなパフォーマンスの向上は、次のような新機能で実現できます。
 
@@ -60,6 +62,7 @@ V12 では、すべての Premium パフォーマンス レベルに割り当て
 
 
 ### 信頼性の高いパフォーマンス
+
 
 クライアントが Azure 仮想マシン (VM) で実行されるとき、クライアント プログラムが SQL Database V12 に接続する場合、VM で次のポート範囲を開く必要があります。
 
@@ -72,8 +75,9 @@ V12 では、すべての Premium パフォーマンス レベルに割り当て
 
 ## クラウド SaaS ベンダーのサポートの充実
 
+
 V12 でのみ、新しい Standard パフォーマンス レベルの S3 と、パブリック プレビューのリリースしました [エラスティック データベース プール](sql-database-elastic-pool.md)します。
-これは、クラウド SaaS ベンダー向けに設計されたソリューションです。 エラスティック データベース プールには次のメリットがあります。
+これは、クラウド SaaS ベンダー向けに設計されたソリューションです。  エラスティック データベース プールには次のメリットがあります。
 
 
 - DTU をデータベース間で共有して、多数のデータベースのコストを削減できます。
@@ -81,6 +85,7 @@ V12 でのみ、新しい Standard パフォーマンス レベルの S3 と、�
 
 
 ## セキュリティの強化
+
 
 セキュリティは、ビジネスをクラウドで遂行しているユーザーにとっての主要な懸案事項です。 V12 でリリースされた最新のセキュリティ機能は、次のとおりです。
 
@@ -90,27 +95,29 @@ V12 でのみ、新しい Standard パフォーマンス レベルの S3 と、�
 - [包含データベース](http://msdn.microsoft.com/library/ff929188.aspx)
 - [アプリケーション ロール](http://msdn.microsoft.com/library/ms190998.aspx) REVOKE GRANT、DENY で管理されます。
 - [透過的なデータ暗号化](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE)
-- [Azure Active Directory 認証を使用して SQL データベースに接続します。](sql-database-aad-authentication.md)
+- [Azure Active Directory 認証を使用して SQL Database に接続する](sql-database-aad-authentication.md)
  - SQL Database は、Azure Active Directory の認証をサポートするようになりました。この認証は、Azure Active Directory (Azure AD) の ID を使用して SQL Database に接続するメカニズムです。 Azure Active Directory 認証を使用すると、データベース ユーザーの ID や他の Microsoft サービスを一元管理できます。
-- [は常に暗号化](https://msdn.microsoft.com/library/mt163865.aspx) (プレビュー) で暗号化透過的にアプリケーション行い、クライアントが SQL データベースの暗号化キーを共有せずにクライアント アプリケーション内の機密データを暗号化できるようにします。
+- [常に暗号化](https://msdn.microsoft.com/library/mt163865.aspx) (プレビュー) で暗号化透過的にアプリケーション行い、クライアントが SQL データベースの暗号化キーを共有せずにクライアント アプリケーション内の機密データを暗号化できるようにします。
 
 
 ## 復旧が必要なときのビジネス継続性の向上
 
+
 V12 では、目標復旧時点 (PRO) と推定復旧時間 (ERT) が大幅に向上しています。
 
 
-| ビジネス継続性に関係する機能| 以前のバージョン| V12|
+| ビジネス継続性に関係する機能 | 以前のバージョン | V12 |
 | :-- | :-- | :-- |
-| geo リストア| • RPO は < 24 時間です。<br/>• ERT < 12 時間です。| • RPO < 1 時間です。<br/>• ERT < 12 時間です。|
-| Standard geo レプリケーション| • RPO は < 30 分です。<br/>• ERT は < 2 時間です。| • RPO < 5 秒です。<br/>• ERT < 30 秒です。|
-| アクティブ geo レプリケーション| • RPO < 5 分。<br/>• ERT は < 1 時間です。| • RPO < 5 秒です。<br/>• ERT < 30 秒です。|
+| geo リストア | • RPO は < 24 時間です。<br/>• ERT < 12 時間です。 | • RPO < 1 時間です。<br/>• ERT < 12 時間です。 |
+| Standard geo レプリケーション | • RPO は < 30 分です。<br/>• ERT は < 2 時間です。 | • RPO < 5 秒です。<br/>• ERT < 30 秒です。 |
+| アクティブ geo レプリケーション | • RPO < 5 分。<br/>• ERT は < 1 時間です。 | • RPO < 5 秒です。<br/>• ERT < 30 秒です。 |
 
 
 参照してください [SQL Database のビジネス継続性](sql-database-business-continuity.md) の詳細。
 
 
 ## 今すぐアップグレードすることをお勧めするその他の理由
+
 
 Azure SQL Database を今すぐ V11 から V12 にアップグレードすることをお勧めする理由は多数あります。
 
@@ -122,22 +129,23 @@ Azure SQL Database を今すぐ V11 から V12 にアップグレードするこ
 
 ## V12 を既に使っている場合
 
+
 以前のバージョンの SQL Database サービスでデータベースまたは論理サーバーが実行されているかどうかは、次の方法で簡単に確認できます。
 
 
 1. 移動して、 [Azure ポータル](http://portal.azure.com/)します。
-2. **[参照]** をクリックします。
-3. **[SQL Server]** をクリックします。
+2. クリックして **参照**します。
+3. クリックして **の SQL Server**します。
 4. サーバーまたはデータベースの隣のアイコンから、現在の状態がわかります。
  - ![V12 サーバーのアイコン](./media/sql-database-v12-whats-new/v12_icon.png) **V12 の論理サーバー**
  - ![以前のバージョンのサーバーのアイコン](./media/sql-database-v12-whats-new/earlier_icon.png) **以前のバージョンの論理サーバー**
 
 
-バージョンを確認することは、実行する、 `SELECT @@version;` 、データベース内のステートメントのような結果を表示します。
+データベースで `SELECT @@version;` ステートメントを実行し、次のような結果を確認することで、バージョンを確認することもできます。
 
 
-- **12**.0.2000.10 &nbsp; *(バージョン V12)*
-- **11**.0.9228.18 &nbsp; *(バージョン V11)*
+- **12**.0.2000.10 & nbsp; *(バージョン V12)*
+- **11**.0.9228.18 & nbsp; *(バージョン V11)*
 
 
 V12 の論理サーバーでのみ、V12 データベースをホストできます。 V12 サーバーは V12 データベースのみをホストできます。
@@ -148,12 +156,9 @@ V12 の論理サーバーでのみ、V12 データベースをホストできま
 
 ## <a name="V12AzureSqlDbPreviewGaTable"></a> 一般的な可用性の領域
 
+
 - 2015 年 7 月 31 日までにすべてのリージョンが完全一般公開 (GA) に昇格しました。
 - V12 は 2014 年 12 月にリリースされましたが、プレビューの段階でした。
 
-[を使用して Microsoft Azure プレビューの補足条項](http://azure.microsoft.com/support/legal/preview-supplemental-terms/)します。
-
-
-
-
+[Microsoft Azure プレビューの使用法の補足条項](http://azure.microsoft.com/support/legal/preview-supplemental-terms/)します。
 

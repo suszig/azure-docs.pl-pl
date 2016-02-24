@@ -1,6 +1,6 @@
 <properties
     pageTitle="Machine Learning Studio にデータをインポートする | Microsoft Azure"
-    description="さまざまなデータ ソースから Azure Machine Learning Studio にデータをインポートする方法サポートされているデータ型とデータ形式に関する説明"
+    description="さまざまなデータ ソースから Azure Machine Learning Studio にデータをインポートする方法 サポートされているデータ型とデータ形式に関する説明"
     keywords="import data,data format,data types,data sources,training data"
     services="machine-learning"
     documentationCenter=""
@@ -18,34 +18,33 @@
     ms.author="garye;bradsev" />
 
 
-
 # さまざまなデータ ソースから Azure Machine Learning Studio にトレーニング データをインポートする
 
 ## はじめに
 
-Machine Learning Studio で独自のデータを使用して予測分析ソリューションを開発し、トレーニングする場合、次の操作を実行できます。
+Machine Learning Studio で独自のデータを使用して予測分析ソリューションを開発し、トレーニングする場合、次の操作を実行できます。 
 
-- ハード ドライブの**ローカル ファイル**を事前にアップロードし、ワークスペースにデータセット モジュールを作成する。
-- いくつかのいずれかのデータにアクセス **オンライン データ ソース** を使用して、実験の実行中に、 [リーダー ][reader] モジュールです。
-- **データセット**として保存された他の Azure Machine Learning 実験のデータを使用する。
+- データをアップロード、 **ローカル ファイル** 前もって、ハード ディスク ドライブから、ワークスペースで、データセット モジュールを作成します。  
+- いくつかのいずれかのデータにアクセス **オンライン データ ソース** [リーダー] [リーダー] モジュールを使用して、実験の実行中です。 
+- Azure Machine learning の実験として保存から別のデータを使用して、 **データセット**します。 
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
-これらの各オプションについては、上にあるメニューの各トピックを参照してください。 各トピックでは、多様なデータ ソースのデータをインポートして Machine Learning Studio で使用する方法が説明されています。
-> [AZURE.NOTE] Machine Learning Studio には、この用途に使用できるさまざまなサンプル データセットが用意されています。 詳細については、これらは、次を参照してください。 [Azure Machine Learning Studio におけるサンプル データセットの使用](machine-learning-use-sample-datasets.md))します。
+これらの各オプションについては、上にあるメニューの各トピックを参照してください。 各トピックでは、多様なデータ ソースのデータをインポートして Machine Learning Studio で使用する方法が説明されています。 
 
-この概要のトピックでは、Machine Learning Studio で使用できるようにデータを準備する方法と、サポートされるデータ形式とデータ型についても説明します。
+> [AZURE.NOTE] この目的で使用できる Machine Learning Studio で利用可能な数多くのサンプル データセットができます。 詳細については、これらは、次を参照してください。 [Azure Machine Learning Studio におけるサンプル データセットの使用](machine-learning-use-sample-datasets.md))。
+
+この概要のトピックでは、Machine Learning Studio で使用できるようにデータを準備する方法と、サポートされるデータ形式とデータ型についても説明します。 
 
 > [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 
 ## Azure Machine Learning Studio で使用できるようにデータを準備する
-
 Machine Learning Studio は、区切られたテキスト データやデータベースからの構造化されたデータなど、四角形のデータや表形式のデータで作業するように設計されています。場合によっては、四角形以外のデータが使用されることもあります。
 
 比較的クリーンなデータが最適です。 具体的には、実験にデータをアップロードする前に、引用符で囲まれていない文字列などを処理しておくことをお勧めします。
 
-ただし、Machine Learning Studio には、実験内でデータを操作できるモジュールが用意されています。 使用する機械学習アルゴリズムに応じて、値の欠落やスパース データなどのデータ構造上の問題を処理する際に、その対処方法を決定する必要があります。そのような場合に、これらのモジュールが役に立ちます。 これらの関数を実行するモジュールは、モジュール パレットの **[Data Transformation]** セクションで確認します。
+ただし、Machine Learning Studio には、実験内でデータを操作できるモジュールが用意されています。 使用する機械学習アルゴリズムに応じて、値の欠落やスパース データなどのデータ構造上の問題を処理する際に、その対処方法を決定する必要があります。そのような場合に、これらのモジュールが役に立ちます。 ファイルの場所、 **データ変換** これらの関数を実行するモジュールについては、モジュール パレットのセクションです。
 
 実験中は、出力ポートを右クリックして、モジュールで生成されたデータをいつでも表示、ダウンロードできます。 モジュールによっては、使用可能なダウンロードのオプションが異なる場合があります。また、Machine Learning Studio 上でデータを Web ブラウザーに表示できる場合もあります。
 
@@ -68,9 +67,9 @@ Machine Learning Studio は、区切られたテキスト データやデータ�
 
 このメタデータが含まれていない TSV や CSV 形式などのデータをインポートする場合、Machine Learning Studio は、データをサンプリングすることによって、各列のデータ型を推論します。 また、データに列見出しがない場合、Machine Learning Studio は既定の名前を提供します。
 
-明示的に指定するかを使用して列の見出しやデータ型を変更する、 [メタデータ エディター ][metadata-editor]します。
+明示的に指定または見出しとエディターを使用して、[メタデータ] [メタデータ エディター] 列のデータ型を変更することができます。
 
-次の**データ型**は、Machine Learning Studio によって認識されます。
+次 **データ型** Machine Learning Studio で認識されます。
 
 - String
 - Integer
@@ -79,18 +78,17 @@ Machine Learning Studio は、区切られたテキスト データやデータ�
 - DateTime
 - TimeSpan
 
-Machine Learning Studio と呼ばれる内部データ型を使用して *** データ テーブル *** モジュール間でデータを渡す。 使用してデータ テーブル形式をデータを明示的に変換できる、 [データセット ][convert-to-dataset] モジュールです。
+Machine Learning Studio と呼ばれる内部データ型を使用して ***データ テーブル*** モジュール間でデータを渡す。 [データセットへの変換] の [変換のデータセット] モジュールを使用してデータ テーブル形式にデータを明示的に変換することができます。
 
 データ テーブル以外の形式を受け取るどのモジュールでも、次のモジュールに渡す前に、サイレント モードでデータをデータ テーブルに変換します。
 
 必要に応じて、その他の変換モジュールを使用して CSV、TSV、ARFF、SVMLight 形式にデータ テーブル形式をもう一度変換できます。
-これらの関数を実行するモジュールについては、モジュール パレットの **[Data Format Conversions]** セクションを確認してください。
+ファイルの場所、 **Data Format Conversions** これらの関数を実行するモジュールについては、モジュール パレットのセクションです。
 
 
 
-
-
-[convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/ 
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/ 
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/ 
+<!-- Module References -->
+[convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
+[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 

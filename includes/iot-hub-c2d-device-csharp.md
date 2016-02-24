@@ -2,42 +2,38 @@
 
 このセクションでは、「IoT Hub の概要」で作成したシミュレーション済みデバイス アプリケーションを変更して、クラウドからデバイスへのメッセージを IoT Hub から受信します。
 
-1. Visual Studio の **SimulatedDevice** プロジェクトで、次のメソッドを **Program** クラスに追加します。
+1. Visual Studio での **SimulatedDevice** プロジェクトで、次のメソッドを追加、 **プログラム** クラスです。
 
-     private static async void ReceiveC2dAsync()
-     {
-         Console.WriteLine("\nReceiving cloud to device messages from service");
-         while (true)
-         {
-             Message receivedMessage = await deviceClient.ReceiveAsync();
-             if (receivedMessage == null) continue;
-    
-             Console.ForegroundColor = ConsoleColor.Yellow;
-             Console.WriteLine("Received message: {0}", Encoding.ASCII.GetString(receivedMessage.GetBytes()));
-             Console.ResetColor();
-    
-             await deviceClient.CompleteAsync(receivedMessage);
-         }
-     }
+        private static async void ReceiveC2dAsync()
+        {
+            Console.WriteLine("\nReceiving cloud to device messages from service");
+            while (true)
+            {
+                Message receivedMessage = await deviceClient.ReceiveAsync();
+                if (receivedMessage == null) continue;
 
- `ReceiveAsync` メソッドは、デバイスで受信した時に、受信したメッセージを非同期的に戻ります。 指定可能なタイムアウト期間が経過したら、*null* が返されます (ここでは、既定の 1 分が使用されます)。 これが生じると、新しいメッセージを待機し続けるためのコードが必要になります。 これは、理由、 `場合 (receivedMessage null = =) 続行` 行です。
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Received message: {0}", Encoding.ASCII.GetString(receivedMessage.GetBytes()));
+                Console.ResetColor();
 
- 呼び出し `CompleteAsync()` 、メッセージが正常に処理されたことと、それを安全に削除デバイス キューからは、IoT Hub を通知します。 デバイスのアプリケーションがメッセージの処理を完了できなくなる何らかの事態が生じると、IoT Hub はそれをもう一度送信します。デバイス アプリケーション内のメッセージ処理ロジックが*べき等*であることが重要です。つまり、複数回受信しても、同じメッセージであれば同じ結果が生成されます。 アプリケーションが一時的にできる `破棄` これには、後で使用します。 キューにメッセージを保持する IoT hub を含め、メッセージまたは `拒否` 、メッセージはキューからメッセージを完全に削除されます。 参照してください [IoT Hub 開発者ガイド ][iot hub developer guide - c2d] クラウドとデバイス間のメッセージのライフ サイクルの詳細についてです。
+                await deviceClient.CompleteAsync(receivedMessage);
+            }
+        }
 
-> [AZURE.NOTE] AMQP ではなく、トランスポートとして HTTP/1 を使用する場合、 `ReceiveAsync` はすぐに復帰します。 HTTP/1 を使用するクラウドからデバイスへのメッセージに関してサポートされているパターンは、メッセージを低頻度でチェックする (25 分ごとなど) デバイスに断続的に接続されます。 HTTP/1 受信の発行が多くなれば、IoT Hub で要求がスロットルされます。 参照してください [IoT Hub 開発者ガイド ][iot hub developer guide - c2d] AMQP と HTTP/1 のサポート、および調整の IoT Hub の違いの詳細についてです。
+    `ReceiveAsync` メソッドは、受信したメッセージを、そのメッセージがデバイスによって受信されたとき非同期で返します。 返す *null* (この場合は、1 分の既定値を使用) を指定できるタイムアウト期間後。 これが生じると、新しいメッセージを待機し続けるためのコードが必要になります。 このため、`if (receivedMessage == null) continue` 行が必要になります。
+
+    `CompleteAsync()` への呼び出しにより、メッセージが正常に処理され、デバイスのキューから安全に削除できることが IoT Hub に伝えられます。 場合出来事が発生する、デバイスのアプリケーションがメッセージの処理を完了するを防ぐ、IoT Hub は配信がもう一度デバイス アプリのメッセージ処理ロジックがすることが重要では、 *アイデムポ テントな*, 、つまり同じ結果をもたらす何度も同じメッセージを受信する必要があります。 アプリケーションはメッセージに対して一時的な `Abandon` 処理を行うこともできます。この場合、IoT Hub は将来の使用に備えてメッセージをキュー内に保持します。または、メッセージに対して `Reject` 処理を行うこともできます。この場合、メッセージはキューから永久に削除されます。 クラウドとデバイス間のメッセージのライフ サイクルの詳細については、[IoT Hub 開発者ガイド] [IoT Hub 開発者ガイド - C2D] を参照してください。
+
+> [AZURE.NOTE] AMQP ではなく、トランスポートとして HTTP/1 を使用する場合、 `ReceiveAsync` はすぐに復帰します。 HTTP/1 を使用するクラウドからデバイスへのメッセージに関してサポートされているパターンは、メッセージを低頻度でチェックする (25 分ごとなど) デバイスに断続的に接続されます。 HTTP/1 受信の発行が多くなれば、IoT Hub で要求がスロットルされます。 AMQP と HTTP/1 のサポート、および調整の IoT Hub の違いの詳細については、[IoT Hub 開発者ガイド] [IoT Hub 開発者ガイド - C2D] を参照してください。
 
 2. 次のメソッドを追加、 **Main** メソッドの直前、 `Console.ReadLine()` 行。
 
         ReceiveC2dAsync();
 
+> [AZURE.NOTE] わかりやすくするために、このチュートリアルは、再試行ポリシーを実装していません。 実稼働のコードでは、MSDN 記事 (一時的な障害処理) で推奨されているように、再試行ポリシー (指数関数的バックオフなど) を実装することをお勧めします。
 
-> [AZURE.NOTE] わかりやすくするために、このチュートリアルでは再試行ポリシーは実装しません。 実稼働のコードでは、MSDN 記事 (一時的な障害処理) で推奨されているように、再試行ポリシー (指数関数的バックオフなど) を実装することをお勧めします。
+<!-- Links -->
+[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 
-
-
-
-
-
-
-[iot hub developer guide - c2d]: iot-hub-devguide.md#c2d 
+<!-- Images -->
 

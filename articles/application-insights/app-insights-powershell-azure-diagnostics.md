@@ -15,14 +15,13 @@
     ms.date="11/17/2015"
     ms.author="awills"/>
 
-
 # PowerShell を使用した Application Insights への Azure 診断の送信
 
 [Microsoft Azure](https://azure.com) できる [Azure 診断を送信するよう構成](app-insights-azure-diagnostics.md) に [Visual Studio Application Insights](app-insights-overview.md)します。 診断は、Azure Cloud Services および Azure VM に関するものです。 このデータは、Application Insights SDK を使用するアプリケーション内から送信されるテレメトリを補完します。 Azure での新規リソース作成プロセスを自動化する一部として、PowerShell を使用して診断を構成できます。
 
 ## Cloud Service のデプロイの一環としての診断拡張機能の有効化
 
-`New-azuredeployment` コマンドレットは、パラメーターを持つ `ExtensionConfiguration`, 、診断構成の配列を受け取る。 これらを使用して作成することができます、 `新規 AzureServiceDiagnosticsExtensionConfig` コマンドレットです。 次に例を示します。
+`New-AzureDeployment` コマンドレットの `ExtensionConfiguration` パラメーターは、診断構成の配列を受け取ります。 この情報は、`New-AzureServiceDiagnosticsExtensionConfig` コマンドレットを使用して作成できます。 次に例を示します。
 
 ```ps
 
@@ -54,14 +53,15 @@
       -Package $service_package `
       -Configuration $service_config `
       -ExtensionConfiguration @($webrole_diagconfig,$workerrole_diagconfig)
-```
+
+``` 
 
 ## 既存の Cloud Service での診断拡張機能の有効化
 
-既存のサービスで使用して `Set-azureservicediagnosticsextension`します。
+既存のサービスでは、`Set-AzureServiceDiagnosticsExtension` を使用します。
 
 ```ps
-
+ 
     $service_name = "MyService"
     $diagnostics_storagename = "myservicediagnostics"
     $webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
@@ -101,7 +101,7 @@
     Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
-いずれかを使用して診断拡張機能を有効にした場合 `Set-azureservicediagnosticsextension` または `新規 AzureServiceDiagnosticsExtensionConfig` ロール パラメーターを指定しないことを削除する拡張機能を使用して、 `Remove-azureservicediagnosticsextension` ロール パラメーターがない場合。 拡張機能を有効にするときに Role パラメーターを使用した場合は、拡張機能を削除するときにもこのパラメーターを使用する必要があります。
+Role パラメーターを指定しないで `Set-AzureServiceDiagnosticsExtension` または `New-AzureServiceDiagnosticsExtensionConfig` を使用して診断拡張機能を有効にした場合、Role パラメーターを指定しないで `Remove-AzureServiceDiagnosticsExtension` を使用して拡張機能を削除できます。 拡張機能を有効にするときに Role パラメーターを使用した場合は、拡張機能を削除するときにもこのパラメーターを使用する必要があります。
 
 個々のロールから診断拡張機能を削除するには、次のコマンドを実行します。
 
@@ -113,11 +113,7 @@
 
 ## 関連トピック
 
-* [Azure 監視クラウド サービスの Application Insights でのアプリ](app-insights-cloudservices.md)
-* [Azure 診断を Application Insights に送信します。](app-insights-azure-diagnostics.md)
-
-
-
-
+* [Application Insights で Azure Cloud Services アプリを監視する](app-insights-cloudservices.md)
+* [Azure 診断を Application Insights に送信する](app-insights-azure-diagnostics.md)
 
 

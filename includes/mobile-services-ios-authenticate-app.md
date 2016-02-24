@@ -1,4 +1,4 @@
-* **QSTodoListViewController.m** を開き、次のメソッドを追加します。 Facebook を ID プロバイダーとして使用しない場合は、_facebook_ を _microsoftaccount_、_twitter_、_google_、_windowsazureactivedirectory_ のいずれかに変更します。
+* 開いている **QSTodoListViewController.m** し、次のメソッドを追加します。 変更 _facebook_ に _microsoftaccount_, 、_twitter_, 、_google_, 、または _windowsazureactivedirectory_ id プロバイダーとして Facebook を使用していない場合。
 
 ```
         - (void) loginAndGetData
@@ -14,15 +14,11 @@
         }
 ```
 
-* 置換 `[自動更新]` で `viewDidLoad` 伴って。
+* `viewDidLoad` の `[self refresh]` を次のコードに置き換えます。
 
 ```
         [self loginAndGetData];
 ```
 
 * キーを押して  **実行** 、アプリケーションを開始し、ログインします。 ログインが成功すると、Todo リストを表示して更新できます。
-
-
-
-
 

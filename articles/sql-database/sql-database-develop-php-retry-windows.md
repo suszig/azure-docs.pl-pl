@@ -18,8 +18,8 @@
     ms.author="meetb"/>
 
 
-
 # 一時的なエラーの処理での Windows 上の PHP を使用した SQL Database への接続
+
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
@@ -31,7 +31,7 @@
 
 ### SQL Database
 
-参照してください、 [開始ページ](sql-database-get-started.md) にサンプル データベースを作成する方法について説明します。 ガイドに従って、**AdventureWorks データベースのテンプレート**を作成することが重要です。 以下に示す例は、**AdventureWorks スキーマ** とのみ動作します。
+参照してください、 [開始ページ](sql-database-get-started.md) にサンプル データベースを作成する方法について説明します。  作成するガイドを実行する重要である、 **AdventureWorks データベースのテンプレート**します。 のみ以下に示す例を使用、 **AdventureWorks スキーマ**します。
 
 
 ## 手順 1. 接続の詳細を取得する
@@ -42,13 +42,13 @@
 
 デモ プログラムは、接続の試行中に一時的なエラーが生じると再試行が行われるように設計されています。 しかし、クエリ コマンドの実行中に一時的なエラーが生じると、プログラムによって接続が破棄され、新しい接続が作成された後、クエリ コマンドが再試行されます。 この設計の選択については、推奨も、非推奨もしません。 デモ プログラムは、使用可能な設計上の柔軟性をいくつか示しています。
 
-<br>このサンプル コードの長さは、例外のキャッチのロジックにほとんどの場合です。この Program.cs ファイルの短いバージョンはこの [ここ](sql-database-develop-php-simple-windows.md)します。
-<br>Main メソッドでは、Program.cs にします。コール スタックで次のとおり実行します。
+<br>このコード サンプルの内容の大部分は、例外キャッチのロジックの記述です。 この Program.cs ファイルの短いバージョンはこの [ここ](sql-database-develop-php-simple-windows.md)します。
+<br>Main メソッドは Program.cs にあります。 コール スタックで次のとおり実行します。
 * Main が ConnectAndQuery を呼び出します。
 * ConnectAndQuery 呼び出し establishconnection を呼び出します。
 * Issuequerycommand を呼び出します。
 
-[Sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) 関数を使用して、結果 SQL Database に対するクエリのセットを取得します。 この関数は本質的には任意のクエリと接続オブジェクトを受け入れるしの使用を反復処理できる結果セットを返します [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php)します。
+ [Sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) 関数を使用して、結果 SQL Database に対するクエリのセットを取得します。 この関数は本質的には任意のクエリと接続オブジェクトを受け入れるしの使用を反復処理できる結果セットを返します [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php)します。
 
     <?php
         // Variables to tune the retry logic.  
@@ -71,7 +71,7 @@
             {
                 echo "Connection was established";
                 echo "<br>";
-    
+
                 $tsql = "SELECT [CompanyName] FROM SalesLT.Customer";
                 $getProducts = sqlsrv_query($conn, $tsql);
                 if ($getProducts == FALSE)
@@ -138,9 +138,5 @@
 
 ## 次のステップ
 
-PHP のインストールと使用に関する詳細については、次を参照してください。 [PHP で SQL Server データベースをアクセスする](http://technet.microsoft.com/library/cc793139.aspx)します。
-
-
-
-
+PHP のインストールと使用に関する詳細については、次を参照してください。 [PHP で SQL Server データベースをアクセスする](http://technet.microsoft.com/library/cc793139.aspx)です。
 

@@ -16,20 +16,19 @@
     ms.date="11/16/2015" 
     ms.author="glenga"/>
 
-
 # Mobile Services を使用した Azure Blob ストレージへのイメージのアップロード
 
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
-## 概要
+##概要 
 
-このトピックでは、Azure モバイル サービスを使用して、ユーザーが生成したイメージをアプリケーションが Azure ストレージにアップロードおよび保存する方法を紹介します。 モバイル サービスでは、SQL データベースを使用してデータを保存します。 ただし、BLOB (Binary Large Object) データは、Azure BLOB ストレージ サービスに、より効率的に保存されます。
+このトピックでは、Azure モバイル サービスを使用して、ユーザーが生成したイメージをアプリケーションが Azure ストレージにアップロードおよび保存する方法を紹介します。 モバイル サービスでは、SQL データベースを使用してデータを保存します。 ただし、BLOB (Binary Large Object) データは、Azure BLOB ストレージ サービスに、より効率的に保存されます。 
 
 BLOB ストレージ サービスにデータを安全にアップロードするために必要な資格情報をクライアント アプリケーションで安全に配信できません。 代わりに、これらの資格情報をモバイル サービスに保存し、それらを使用して、新しいイメージをアップロードするために使用される SAS (Shared Access Signature) を生成する必要があります。 SAS は有効期間が短い資格情報 (この場合は 5 分間) であり、モバイル サービスによりクライアント アプリケーションに安全に返されます。 アプリケーションは、この一時的な資格情報を使用してイメージをアップロードします。 この例では、BLOB サービスからのダウンロードはパブリックです。
 
-このチュートリアルでは、モバイル サービスにより生成された SAS を使用して、写真を撮影してイメージを Azure にアップロードする機能を、モバイル サービス クイック スタート アプリケーションに追加します。
+このチュートリアルでは、モバイル サービスにより生成された SAS を使用して、写真を撮影してイメージを Azure にアップロードする機能を、モバイル サービス クイック スタート アプリケーションに追加します。 
 
-## 前提条件
+##前提条件
 
 このチュートリアルには、次のものが必要です。
 
@@ -37,49 +36,51 @@ BLOB ストレージ サービスにデータを安全にアップロードす�
 + [Azure ストレージ アカウント](../storage-create-storage-account.md)
 + コンピューターに接続された、カメラなどのイメージ キャプチャ デバイス
 
-このチュートリアルは、Mobile Services のクイック スタートに基づいています。 このチュートリアルを開始する前に完了しておく必要 [を使ってみるモバイル サービス] です。
+このチュートリアルは、Mobile Services のクイック スタートに基づいています。 このチュートリアルを開始する前に完了しておく必要 [を使ってみるモバイル サービス] です。 
 
-## Azure クラシック ポータルで登録されている挿入スクリプトを更新する
+##Azure クラシック ポータルで登録されている挿入スクリプトを更新する
 
 [AZURE.INCLUDE [mobile-services-configure-blob-storage](../../includes/mobile-services-configure-blob-storage.md)]
 
 [AZURE.INCLUDE [mobile-services-windows-universal-dotnet-upload-to-blob-storage](../../includes/mobile-services-windows-universal-dotnet-upload-to-blob-storage.md)]
 
-## 次のステップ
+##次のステップ
 
 モバイル サービスを Blob サービスと統合することによりイメージを安全にアップロードできました。他のバックエンド サービスおよび統合のトピックを参照してください。
 
 + [モバイル サービスでのバックエンド ジョブのスケジュール]
 
-    モバイル サービスのジョブ スケジューラ機能を使用して、定義したスケジュールに従って実行されるサーバー スクリプト コードを定義する方法について説明します。
+    Mobile Services のジョブ スケジューラ機能を使用して、定義したスケジュールに従って実行されるサーバー スクリプト コードを定義する方法について説明します。
 
 + [モバイル サービスのサーバー スクリプト リファレンス]
 
     サーバー側のタスクを実行するサーバー スクリプトの使用および他の Azure コンポーネントおよび外部リソースとの統合に関するトピックを参照してください。
-
+ 
 + [モバイル サービス .NET の使用方法の概念リファレンス]
 
     .NET で Mobile Services を使用する方法について説明します
+  
+ 
+<!-- Anchors. -->
+[Install the Storage Client library]: #install-storage-client
+[Update the client app to capture images]: #add-select-images
+[Update the insert script to generate an SAS]: #update-scripts
+[Upload images to test the app]: #test
+[Next Steps]:#next-steps
+
+<!-- Images. -->
+
+[2]: ./media/mobile-services-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
 
 
-
-
-
-
-
-[install the storage client library]: #install-storage-client 
-[update the client app to capture images]: #add-select-images 
-[update the insert script to generate an sas]: #update-scripts 
-[upload images to test the app]: #test 
-[next steps]: #next-steps 
-[2]: ./media/mobile-services-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png 
-[send email from mobile services with sendgrid]: store-sendgrid-mobile-services-send-email-scripts.md 
-[schedule backend jobs in mobile services]: mobile-services-schedule-recurring-tasks.md 
-[send push notifications to windows store apps using service bus from a .net back-end]: http://go.microsoft.com/fwlink/?LinkId=277073&clcid=0x409 
-[mobile services server script reference]: mobile-services-how-to-use-server-scripts.md 
-[get started with mobile services]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md 
-[how to create a storage account]: ../storage-create-storage-account.md 
-[azure storage client library for store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
-[mobile services .net how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md 
-[app settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7 
-
+<!-- URLs. -->
+[Send email from Mobile Services with SendGrid]: store-sendgrid-mobile-services-send-email-scripts.md
+[Schedule backend jobs in Mobile Services]: mobile-services-schedule-recurring-tasks.md
+[Send push notifications to Windows Store apps using Service Bus from a .NET back-end]: http://go.microsoft.com/fwlink/?LinkId=277073&clcid=0x409
+[Mobile Services server script reference]: mobile-services-how-to-use-server-scripts.md
+[Get started with Mobile Services]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
+[How To Create a Storage Account]: ../storage-create-storage-account.md
+[Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
+[Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
+[App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+ 

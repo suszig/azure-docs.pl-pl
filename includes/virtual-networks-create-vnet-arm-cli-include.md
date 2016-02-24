@@ -3,7 +3,7 @@
 Azure CLI を使用すると、Windows、Linux、または OSX を実行している任意のコンピューターのコマンド プロンプトから Azure のリソースを管理することができます。 Azure CLl を使用して VNet を作成するには、次の手順に従います。
 
 1. Azure CLI を初めて使用する場合は、次を参照してください。 [のインストールと Azure CLI の構成](xplat-cli-install.md) Azure アカウントとサブスクリプションを選択する時点までの指示に従います。
-2. 次に示すように、**azure config mode** コマンドを実行してリソース マネージャー モードに切り替えます。
+2. 実行、 **azure config モード** コマンドを次に示すように、リソース マネージャー モードに切り替えます。
 
         azure config mode arm
 
@@ -11,7 +11,7 @@ Azure CLI を使用すると、Windows、Linux、または OSX を実行して�
 
         info:    New mode is arm
 
-3. 必要に応じて、次のように **azure group create** で新しいリソース グループを作成します。 コマンドの出力が表示されます。 出力の後に表示される一覧では、使用されたパラメーターについて説明されています。 リソース グループの詳細については、次を参照してください。 [Azure リソース マネージャーの概要](resource-group-overview.md/#resource-groups)します。
+3. 必要に応じて、実行、 **azure グループを作成** を次に示すように、新しいリソース グループを作成します。 コマンドの出力が表示されます。 出力の後に表示されるリストは、使用されたパラメーターについての説明です。 リソース グループの詳細については、次を参照してください。 [Azure リソース マネージャーの概要](resource-group-overview.md/#resource-groups)します。
 
         azure group create -n TestRG -l centralus
 
@@ -29,10 +29,10 @@ Azure CLI を使用すると、Windows、Linux、または OSX を実行して�
         data:
         info:    group create command OK
 
-    - **-n (または --name)**。 新しいリソース グループの名前です。 ここでは、*TestRG* です。
-    - **-l (または --location)**。 新しいリソース グループが作成される Azure リージョンです。 ここでは、*centralus* です。
+    - **n (または - 名前)**します。 新しいリソース グループの名前です。 このシナリオの *TestRG*します。
+    - **-l (または --location)**します。 新しいリソース グループが作成される Azure リージョンです。 このシナリオの *centralus*します。
 
-4. 次に示すように **azure network vnet create** コマンドを実行し、VNet とサブネットを作成します。
+4. 実行、 **azure ネットワーク vnet 作成** コマンドを次に示すように、VNet とサブネットを作成します。 
 
         azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l centralus
 
@@ -51,12 +51,12 @@ Azure CLI を使用すると、Windows、Linux、または OSX を実行して�
         data:      192.168.0.0/16
         info:    network vnet create command OK
 
-    - **-g (または --resource-group)**. VNet の作成場所となるリソース グループの名前です。 ここでは、*TestRG* です。
-    - **-n (または --name)**。 作成する VNet の名前です。 ここでは、*TestVNet* です。
-    - **-a (または --address-prefixes)**。 VNet のアドレス空間に使用される CIDR ブロックの一覧です。 ここでは、*192.168.0.0/16* です。
-    - **-l (または --location)**。 VNet が作成される Azure リージョンです。 ここでは、*centralus* です。
+    - **-g (または - リソース グループ)**します。 VNet の作成場所となるリソース グループの名前です。 このシナリオの *TestRG*します。
+    - **n (または - 名前)**します。 作成する VNet の名前です。 このシナリオの *TestVNet*
+    - **は、(または - アドレス プレフィックス)**します。 VNet のアドレス空間に使用される CIDR ブロックの一覧です。 このシナリオの *192.168.0.0/16*
+    - **-l (または --location)**します。 VNet が作成される Azure リージョンです。 このシナリオの *centralus*します。
 
-5. 次に示すように、**azure network vnet subnet create** コマンドを実行してサブネットを作成します。 コマンドの出力が表示されます。 出力の後に表示される一覧では、使用されたパラメーターについて説明されています。
+5. 実行、 **azure ネットワーク vnet のサブネットを作成** コマンドを次に示すように、サブネットを作成します。 コマンドの出力が表示されます。 出力の後に表示される一覧では、使用されたパラメーターについて説明されています。
 
         azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
 
@@ -74,15 +74,15 @@ Azure CLI を使用すると、Windows、Linux、または OSX を実行して�
         data:
         info:    network vnet subnet create command OK
 
-    - **-e (または --vnet-name)**。 サブネットの作成先となる VNet の名前です。 ここでは、*TestVNet* です。
-    - **-n (または --name)**。 新しいサブネットの名前です。 ここでは、*FrontEnd* です。
-    - **-a (または --address-prefix)**。 サブネットの CIDR ブロックです。 ここでは、*192.168.1.0/24* です。
+    - **e (または--vnet 名**します。 サブネットの作成先となる VNet の名前です。 このシナリオの *TestVNet*します。
+    - **n (または - 名前)**します。 新しいサブネットの名前です。 このシナリオの *フロント エンド*します。
+    - **は、(または - アドレス プレフィックス)**します。 サブネットの CIDR ブロックです。 次の 4 つのシナリオでは、 *192.168.1.0/24*します。
 
-6. 必要に応じて、上記の手順 5. を繰り返して他のサブネットを作成します。 このシナリオでは、次のコマンドを使用して *BackEnd* サブネットを作成します。
+6. 必要に応じて、上記の手順 5. を繰り返して他のサブネットを作成します。 このシナリオの実行を作成するには、次のコマンド、 *バックエンド* サブネットです。
 
         azure network vnet subnet create -g TestRG -e TestVNet -n BackEnd -a 192.168.2.0/24
 
-4. 次に示すように、**azure network vnet show** コマンドを実行して新しい VNet のプロパティを表示します。
+4. 実行、 **azure ネットワーク vnet ショー** コマンドを次に示すように、新しい vnet のプロパティを表示します。
 
         azure network vnet show -g TestRG -n TestVNet
 
@@ -105,9 +105,4 @@ Azure CLI を使用すると、Windows、Linux、または OSX を実行して�
         data:      Address prefix                : 192.168.2.0/24
         data:
         info:    network vnet show command OK
-
-
-
-
-
 

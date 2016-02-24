@@ -15,7 +15,6 @@
    ms.date="11/06/2015"
    ms.author="bruceper" />
 
-
 # Azure Key Vault 開発者ガイド
 
 > [AZURE.VIDEO azure-key-vault-developer-quick-start]
@@ -28,7 +27,7 @@
 
 - 使用して機密情報を管理 [取得](https://msdn.microsoft.com/library/azure/dn903633.aspx), 、[更新] (https://msdn.microsoft.com/library/azure/dn986818.aspx、 [Delete](https://msdn.microsoft.com/library/azure/dn903613.aspx) およびその他の操作
 
-- Use cryptographic keys with [Sign](https://msdn.microsoft.com/library/azure/dn878096.aspx)/[Verify](https://msdn.microsoft.com/library/azure/dn878082.aspx), [WrapKey](https://msdn.microsoft.com/library/azure/dn878066.aspx)/[UnwrapKey](https://msdn.microsoft.com/library/azure/dn878079.aspx) and [Encrypt](https://msdn.microsoft.com/library/azure/dn878060.aspx)/[Decrypt](https://msdn.microsoft.com/library/azure/dn878097.aspx) operations
+- 暗号キーを使用して [記号](https://msdn.microsoft.com/library/azure/dn878096.aspx)/[を確認してください](https://msdn.microsoft.com/library/azure/dn878082.aspx), 、[WrapKey](https://msdn.microsoft.com/library/azure/dn878066.aspx)/[UnwrapKey](https://msdn.microsoft.com/library/azure/dn878079.aspx) と [暗号化](https://msdn.microsoft.com/library/azure/dn878060.aspx)/[を復号化](https://msdn.microsoft.com/library/azure/dn878097.aspx) 操作
 
 Key Vault に対する操作は、Azure Active Directory によって認証され、許可されます。
 
@@ -37,24 +36,24 @@ Key Vault に対する操作は、Azure Active Directory によって認証さ�
 プログラマー向けの Key Vault 管理システムは、REST を基盤とするさまざまなインターフェイスで構成されます。
 [Key Vault REST API リファレンス](https://msdn.microsoft.com/library/azure/dn903609.aspx)
 
-| [![.NET](./media/key-vault-developers-guide/net.png)] (https://msdn.microsoft.com/library/azure/dn903301.aspx)| [![Node.js](./media/key-vault-developers-guide/nodejs.png)] (http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 |:--:|:--:|
-| [.NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)| [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|[.NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 
 ## Key Vault の管理
 
 Azure Key Vault コンテナー (資格情報コンテナー) は、次の記事の説明に従って、REST、PowerShell または CLI を使用して管理できます。
 
-- [作成し、残りの部分と Key Vault の管理](https://msdn.microsoft.com/library/azure/mt620024.aspx)
-- [作成し、PowerShell を使用した Key Vault の管理](key-vault-get-started.md)
-- [作成し、CLI を使用した Key Vault の管理](key-vault-manage-with-cli.md)
+- [REST を使用した Key Vault の作成と管理](https://msdn.microsoft.com/library/azure/mt620024.aspx)
+- [PowerShell を使用した Key Vault の作成と管理](key-vault-get-started.md)
+- [CLI を使用した Key Vault の管理](key-vault-manage-with-cli.md)
 
 
 ## 方法
 
 次の記事では、タスクの具体的なガイダンスを提供します。
 
-- [生成し、Azure Key Vault の HSM 保護キーを転送する方法](key-vault-hsm-protected-keys.md)
+- [Azure Key Vault の HSM 保護キーを生成し、転送する方法](key-vault-hsm-protected-keys.md)
 
 ## 例
 
@@ -66,9 +65,5 @@ Azure Key Vault コンテナー (資格情報コンテナー) は、次の記事
 - [Microsoft Azure Key Vault のコア ライブラリ](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0) の識別子からキーを検索およびキーを持つ操作の実行を IKey と IKeyResolver のインターフェイスを提供します。
 
 - [Microsoft Azure Key Vault 拡張機能](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) Azure Key Vault の拡張機能を提供します。
-
-
-
-
 
 

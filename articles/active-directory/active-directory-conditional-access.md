@@ -17,7 +17,6 @@
     ms.author="femila"/>
 
 
-
 # 条件付きアクセス ポリシーを使用したリスクの管理
 
 従業員の勤務方法、生産性の高い、される方法と作業を行うための手段に関する最新の傾向はめまぐるしく変化しています。 従業員は個人のデバイスを職場に持ち込んでいます。 このような個人のデバイスには、個人のデジタル ライフで使用しているアプリケーションがインストールされています。 また、従業員はこれらのアプリケーションが提供する自由性と機能に慣れています。 そして、職場でも同じアプリケーションを使い、職場でも個人のデジタル生活と同様の柔軟性があることを希望します。 最近の従業員は、任意の場所で勤務し、好みのデバイスを使ってビジネス アプリケーションにシームレスに接続してアクセスすることを望んでいます。
@@ -36,13 +35,12 @@ Azure Active Directory、Office 365、Microsoft Intune が提供する複数の�
 
 以下のトピックでは、組織で条件付きのアクセス ポリシーを設定するときに利用できる各メカニズムについて説明しています。
 
-- [Azure Active Directory Device Registration の概要](active-directory-conditional-access-device-registration-overview.md)
-- [Azure Active Directory Device Registration を使用して内部設置型の条件付きアクセスを設定します。](active-directory-conditional-access-on-premises-setup.md)
-- [Office 365 サービスの条件付きアクセス デバイス ポリシー](active-directory-conditional-access-device-policies.md)
-- [SaaS アプリの azure Conditional Access プレビュー](active-directory-conditional-access-azuread-connected-apps.md)
+- [Azure Active Directory Device Registration Overview](active-directory-conditional-access-device-registration-overview.md)
+- [Azure Active Directory Device Registration を使用したオンプレミスの条件付きアクセスの設定](active-directory-conditional-access-on-premises-setup.md)
+- [Office 365 サービス用条件付きアクセスのデバイス ポリシー](active-directory-conditional-access-device-policies.md)
+- [Azure Conditional Access Preview for SaaS Apps](active-directory-conditional-access-azuread-connected-apps.md)
 
 
-
-
-[1]: ./media/active-directory-conditional-access/condaccoverviewvsdx1.png 
+<!--Image references-->
+[1]: ./media/active-directory-conditional-access/condaccoverviewvsdx1.png
 

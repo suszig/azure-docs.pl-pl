@@ -18,8 +18,7 @@
 
 
 
-
-# Azure Automation を使用した Azure Virtual Machines の管理
+#Azure Automation を使用した Azure Virtual Machines の管理
 
 このガイドでは、Azure Automation サービスと、このサービスを使用して Azure 仮想マシンの管理を簡略化する方法について紹介します。
 
@@ -42,9 +41,5 @@ Azure Automation によってクラウド管理タスクを自動的に実行す
 
 ここまでは、Azure Automation の基本と Azure Automation を使用して仮想マシンを管理する方法について説明しました。詳細については、次のリンクを参照してください。
 
-[Azure オートメーションを使用します。](../automation-create-runbook-from-samples.md)
-
-
-
-
+[Azure オートメーションの使用](../automation-create-runbook-from-samples.md)
 

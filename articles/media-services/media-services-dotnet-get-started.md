@@ -17,13 +17,13 @@
     ms.author="juliako"/>
 
 
-
 # .NET SDK を使用したオンデマンド コンテンツ配信の概要
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
+
 >[AZURE.NOTE]
-> このチュートリアルを完了するには、Azure アカウントが必要です。 アカウントがない場合は、無料試用版アカウントを数分で作成することができます。 詳細については、「 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 無料試用版</a>します。
+> このチュートリアルを完了するには、Azure アカウントが必要です。 アカウントがない場合は、無料試用版のアカウントを数分で作成することができます。 詳細については、「<a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure の無料試用版サイト</a>」を参照してください。
 
 このチュートリアルでは、Azure Media Services (AMS) SDK for .NET を使用したビデオ オン デマンド (VoD) コンテンツ配信アプリケーションの実装手順について説明します。
 
@@ -31,13 +31,12 @@
 チュートリアルでは Media Services の基本的なワークフローや、Media Services 開発に必要となる一般的なプログラミング オブジェクトやタスクについて紹介します。 このチュートリアルを完了すると、サンプル メディア ファイルをアップロード、エンコード、ダウンロードして、ストリーミングやプログレッシブ ダウンロードを実行できます。
 
 
-## サンプルのダウンロード
+##サンプルのダウンロード
 
 取得してからサンプルを実行 [ここ](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/)します。
 
 
 ## 前提条件
-
 Media Services SDK for .NET で開発を行うには、次の前提条件を満たす必要があります。
 
 - オペレーティング システム: Windows 8 以降、Windows 2008 R2、Windows 7。
@@ -57,33 +56,33 @@ Media Services SDK for .NET で開発を行うには、次の前提条件を満�
 9.  コンテンツの再生
 
 
-## ポータルを使用した Media Services アカウントの作成
+##ポータルを使用した Media Services アカウントの作成
 
-1. Azure クラシック ポータルで、**[新規]**、**[メディア サービス]**、**[簡易作成]** の順にクリックします。
+1. Azure クラシック ポータルで、次のようにクリックします。 **新規**, 、] をクリック **メディア サービス**, 、クリックして **簡易作成**します。
 
 ![Media Services の簡易作成](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
 
-2. **[名前]** ボックスに新しいアカウントの名前を入力します。 Media Services アカウント名は、使用できる文字が小文字または数字だけで、空白を含めることはできず、長さは 3 ～ 24 文字です。
+2.  **名**, 、新しいアカウントの名前を入力します。 Media Services アカウント名は、使用できる文字が小文字または数字だけで、空白を含めることはできず、長さは 3 ～ 24 文字です。
 
-3. **[リージョン]** ボックスで、Media Services アカウントのメタデータ レコードを保存するリージョンを選択します。 ドロップダウン リストには利用可能な Media Services リージョンのみが表示されます。
+3.  **地域**, 、Media Services アカウントのメタデータ レコードを格納するために使用するリージョンを選択します。 ドロップダウン リストには利用可能な Media Services リージョンのみが表示されます。
 
-4. **[ストレージ アカウント]** ボックスで、Media Services アカウントのメディア コンテンツの BLOB ストレージとなるストレージ アカウントを選択します。 Media Services アカウントと同じリージョンにある既存のストレージ アカウントを選択することも、新しいストレージ アカウントを作成することもできます。 新しいストレージ アカウントは同じリージョンに作成されます。
+4.  **ストレージ アカウント**, 、Media Services アカウントのメディア コンテンツの blob ストレージを提供するストレージ アカウントを選択します。 Media Services アカウントと同じリージョンにある既存のストレージ アカウントを選択することも、新しいストレージ アカウントを作成することもできます。 新しいストレージ アカウントは同じリージョンに作成されます。
 
-5. 新しいストレージ アカウントを作成した場合は、**[新しいストレージ アカウント名]** ボックスにストレージ アカウントの名前を入力します。 ストレージ アカウントの命名規則は、Media Services アカウントと同じです。
+5. 新しいストレージ アカウントを作成した場合 **新しいストレージ アカウント名**, 、ストレージ アカウントの名前を入力します。 ストレージ アカウントの命名規則は、Media Services アカウントと同じです。
 
-6. フォームの下部にある **[簡易作成]** をクリックします。
+6. クリックして **簡易作成** フォームの下部にあります。
 
 処理の状態はウィンドウの下部にあるメッセージ領域で監視できます。
 
-アカウントが正常に作成されると、ステータスが **[アクティブ]** に変わります。
+自分のアカウントが正常に作成すると、状態に変わります **Active**します。
 
-ページ下部に **[キーの管理]** ボタンが表示されます。 このボタンをクリックすると、Media Services アカウント名、プライマリ キー、セカンダリ キーがダイアログに表示されます。 Media Services アカウントにプログラムからアクセスするには、アカウント名とプライマリ キーの情報が必要です。
+ページの下部にある、 **キーの管理** ボタンが表示されます。 このボタンをクリックすると、Media Services アカウント名、プライマリ キー、セカンダリ キーがダイアログに表示されます。 Media Services アカウントにプログラムからアクセスするには、アカウント名とプライマリ キーの情報が必要です。
 
 ![[Media Services] ページ](./media/media-services-dotnet-get-started/wams-mediaservices-page.png)
 
-アカウント名をダブルクリックすると、既定で **[クイック スタート]** ページが表示されます。 このページでは、ポータルの別のページでも実行できる管理タスクをいくつか実行できます。 たとえば、ビデオ ファイルのアップロードは、このページから実行することも、[コンテンツ] ページから実行することもできます。
+アカウント名をダブルクリックすると、 **クイック スタート** ページが既定で表示されます。 このページでは、ポータルの別のページでも実行できる管理タスクをいくつか実行できます。 たとえば、ビデオ ファイルのアップロードは、このページから実行することも、[コンテンツ] ページから実行することもできます。
 
-## ポータルを使用したストリーミング エンドポイントの構成
+##ポータルを使用したストリーミング エンドポイントの構成
 
 クライアントに対するアダプティブ ビットレート ストリーミング配信は、Azure Media Services の代表的な用途の 1 つです。 アダプティブ ビットレート ストリーミングでは、現在のネットワーク帯域幅、CPU 使用率などの条件に基づいてビデオが表示されるため、高低のビットレート ストリームの切り替えをクライアント側で行うことができます。 Media Services でサポートされるアダプティブ ビットレート ストリーミング テクノロジは、HTTP ライブ ストリーミング (HLS)、スムーズ ストリーミング、MPEG DASH、HDS (Adobe PrimeTime/Access のライセンスが必要) です。
 
@@ -92,38 +91,39 @@ Media Services には動的パッケージ化機能があり、アダプティ�
 動的パッケージ化機能を利用するには、次の作業が必要となります。
 
 - mezzanine (ソース) ファイルを一連のアダプティブ ビットレート MP4 ファイルまたはアダプティブ ビットレート スムーズ ストリーミング ファイルにエンコードまたはトランスコードします (エンコーディングの手順は後述)。
-- コンテンツ配信元となる**ストリーミング エンドポイント**のストリーミング ユニットを少なくとも 1 つ取得する。
+- 少なくとも 1 つのストリーミング ユニットを取得、 **ストリーミング エンドポイント** 予定の配信コンテンツです。
 
 動的パッケージ化機能を使用した場合、保存と課金の対象となるのは、単一のストレージ形式のファイルのみです。Media Services がクライアントからの要求に応じて適切な応答を構築して返します。
 
-ストリーミング予約ユニットの数を変更するには、以下の手順を実行します。
+ストリーミング占有ユニットの数を変更するには、以下の手順を実行します。
 
-1. [ポータル](https://manage.windowsazure.com/), 、クリックして **Media Services**します。 次に、メディア サービスの名前をクリックします。
+1.  [ポータル](https://manage.windowsazure.com/), 、クリックして **Media Services**します。 次に、メディア サービスの名前をクリックします。
 
 2. [ストリーミング エンドポイント] ページを選択します。 次に、変更するストリーミング エンドポイントをクリックします。
 
-3. ストリーミング ユニットの数を指定するには、[スケール] タブをクリックし、**[占有容量]** スライダーを動かします。
+3. ストリーミング ユニットの数を指定するには、[スケール] タブをクリックし、移動、 **占有容量** スライダーです。
 
 ![[スケール] ページ](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
 
-4. **[OK]** を押して変更を保存します。
+4. キーを押して **保存** して変更を保存します。
 
 新しいユニットの割り当ては完了するまでに約 20 分かかります。
->[AZURE.NOTE] 現在のところ、ストリーミング ユニットの数を正の値からゼロに戻すと、ストリーミングが最大 1 時間無効になります。
+
+>[AZURE.NOTE] 現在のところ、ストリーミング ユニットをゼロに戻すの正の値からの継続は、ストリーミングが最大 1 時間無効にできます。
 >
 > コストの計算時には、24 時間の期間内に指定されたユニットの最大数が使用されます。 料金の詳細については、次を参照してください。 [Media Services の料金詳細](http://go.microsoft.com/fwlink/?LinkId=275107)します。
 
 
 
-## Visual Studio プロジェクトの作成と構成
+##Visual Studio プロジェクトの作成と構成
 
-1. Visual Studio 2013、Visual Studio 2012 か Visual Studio 2010 SP1 で、C# の新しいコンソール アプリケーションを作成します。 **[名前]**、**[場所]**、**[ソリューション名]** を入力し、**[OK]** をクリックします。
+1. Visual Studio 2013、Visual Studio 2012 か Visual Studio 2010 SP1 で、C# の新しいコンソール アプリケーションを作成します。 入力、 **名前**, 、**場所**, 、および **ソリューション名**, 、] をクリックし、 **[ok]**します。
 
-2. 使用して、  [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) をインストールする Nuget パッケージ **Azure Media Services .NET SDK Extensions**します。 Media Services .NET SDK Extensions は、コードを簡素化し、Media Services による開発を容易にする一連の拡張メソッドとヘルパー機能です。 このパッケージをインストールすると、**Media Services .NET SDK** が一緒にインストールされるほか、必要な依存関係がすべて追加されます。
+2. 使用して、  [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) をインストールする Nuget パッケージ **Azure Media Services .NET SDK Extensions**します。  Media Services .NET SDK Extensions は、コードを簡素化し、Media Services による開発を容易にする一連の拡張メソッドとヘルパー機能です。 このパッケージをインストールするとインストールも **Media Services .NET SDK** し、必要な他のすべての依存関係を追加します。
 
-3. System.Configuration アセンブリへの参照を追加します。 このアセンブリには、構成ファイル (App.config など) にアクセスするための **System.Configuration.ConfigurationManager** クラスが含まれています。
+3. System.Configuration アセンブリへの参照を追加します。 このアセンブリに含まれる、 **ための System.Configuration.ConfigurationManager** 構成にアクセスするために使用するクラス ファイル、たとえば、App.config です。
 
-4. App.config ファイルを開き (既定で追加されていない場合はファイルをプロジェクトに追加してください)、ファイルに *appSettings* セクションを追加します。 Azure Media Services のアカウント名とアカウント キーの値を設定します。次の例をご覧ください。 アカウント名とキー情報を取得するには、Azure クラシック ポータルを開いて Media Services のアカウントを選択し、**[キーの管理]** をクリックします。
+4. App.config ファイルを開きます (追加、ファイルをプロジェクトに既定では追加されていない場合) を追加し、 *appSettings* セクションをファイルにします。 Azure Media Services のアカウント名とアカウント キーの値を設定します。次の例をご覧ください。 アカウント名とキー情報を取得する Azure クラシック ポータルを開き、media services アカウントを選択して、をクリックして、 **キーの管理** ] ボタンをクリックします。
 
 <configuration>
         ...
@@ -131,10 +131,10 @@ Media Services には動的パッケージ化機能があり、アダプティ�
             <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
             <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
           </appSettings>
-
+          
         </configuration>
 
-5. Program.cs ファイルの先頭にある既存の **using** ステートメントを次のコードで上書きします。
+5. 既存の上書き **を使用して** 次のコードで Program.cs ファイルの先頭にあるステートメントです。
 
         using System;
         using System.Collections.Generic;
@@ -149,13 +149,13 @@ Media Services には動的パッケージ化機能があり、アダプティ�
 
 6. プロジェクト ディレクトリに新しいフォルダーを作成し、エンコード、ストリーミング、プログレッシブ ダウンロードの対象となる .mp4 ファイルか .wmv ファイルをコピーします。 この例では、"C:\VideoFiles" というパスを使用しています。
 
-## Media Services アカウントへの接続
+##Media Services アカウントへの接続
 
-Media Services を .NET で使用するとき、Media Services に関連したプログラミング タスクの大半、たとえば、各種オブジェクト (資産、資産ファイル、ジョブ、アクセス ポリシー、ロケーターなど) の作成、更新、アクセス、削除の作業で、**CloudMediaContext** クラスが必要となります。
+Media Services を .NET で使用する場合は、使用、 **CloudMediaContext** ほとんどのメディア サービス プログラミング タスクのクラス: Media Services アカウントへの接続は、作成、更新、アクセス、および次のオブジェクトを削除する: アセット、アセット ファイル、ジョブ、アクセス ポリシー、ロケーターなどです。
 
-既定の Program クラスを次のコードで上書きします。 このコードは、App.config ファイルから接続値を読み取り、**CloudMediaContext** オブジェクトを作成して Media Services に接続する方法を示しています。 Media Services への接続に関する詳細については、次を参照してください。 [.NET 用 Media Services SDK による Media Services に接続する](http://msdn.microsoft.com/library/azure/jj129571.aspx)します。
+既定の Program クラスを次のコードで上書きします。 コードは、App.config ファイルから接続値を読み取る方法と作成方法の例、 **CloudMediaContext** Media Services に接続するためにオブジェクトです。 Media Services への接続に関する詳細については、次を参照してください。 [.NET 用 Media Services SDK による Media Services に接続する](http://msdn.microsoft.com/library/azure/jj129571.aspx)です。
 
-**Main** 関数で呼び出すメソッドは、この後、定義していきます。
+ **Main** 関数で呼び出すメソッドが定義されているこのセクションでさらにします。
 
     class Program
     {
@@ -164,11 +164,11 @@ Media Services を .NET で使用するとき、Media Services に関連した�
             ConfigurationManager.AppSettings["MediaServicesAccountName"];
         private static readonly string _mediaServicesAccountKey =
             ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-    
+
         // Field for service context.
         private static CloudMediaContext _context = null;
         private static MediaServicesCredentials _cachedCredentials = null;
-    
+
         static void Main(string[] args)
         {
             try
@@ -179,15 +179,15 @@ Media Services を .NET で使用するとき、Media Services に関連した�
                                 _mediaServicesAccountKey);
                 // Used the chached credentials to create CloudMediaContext.
                 _context = new CloudMediaContext(_cachedCredentials);
-    
+
                 // Add calls to methods defined in this section.
-    
+
                 IAsset inputAsset =
                     UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
-    
+
                 IAsset encodedAsset =
                     EncodeToAdaptiveBitrateMP4s(inputAsset, AssetCreationOptions.None);
-    
+
                 PublishAssetGetURLs(encodedAsset);
             }
             catch (Exception exception)
@@ -195,7 +195,7 @@ Media Services を .NET で使用するとき、Media Services に関連した�
                 // Parse the XML error message in the Media Services response and create a new
                 // exception with its content.
                 exception = MediaServicesExceptionParser.Parse(exception);
-    
+
                 Console.Error.WriteLine(exception.Message);
             }
             finally
@@ -204,23 +204,23 @@ Media Services を .NET で使用するとき、Media Services に関連した�
             }
         }
 
-## 新しい資産の作成とビデオ ファイルのアップロード
+##新しい資産の作成とビデオ ファイルのアップロード
 
-Media Services で、デジタル ファイルを資産にアップロードし (取り込み) ます。 **Asset** エンティティには、ビデオ、オーディオ、画像、縮小表示のコレクション、テキスト トラック、クローズド キャプション ファイル (各ファイルのメタデータを含む) を追加できます。 ファイルをアップロードすると、クラウドにコンテンツが安全に保存され、処理したりストリーミングしたりできるようになります。 資産内のこれらのファイルを**資産ファイル**といいます。
+Media Services で、デジタル ファイルを資産にアップロードし (取り込み) ます。  **資産** エンティティは、ビデオ、オーディオ、画像、サムネイルのコレクション、テキスト トラック、およびクローズド キャプション ファイル (およびこれらのファイルに関するメタデータ) を含めることができます。ファイルをアップロードすると、クラウドにコンテンツが安全に保存され、処理したりストリーミングしたりできるようになります。 資産内のファイルと呼びます **アセット ファイル**します。
 
-以下に定義した **UploadFile** メソッドは、(.NET SDK Extensions で定義されている) **CreateFromFile** を呼び出します。 **CreateFromFile** によって、指定されたソース ファイルのアップロード先となる新しいアセットが作成されます。
+ **UploadFile** メソッドの呼び出しを以下に定義した **CreateFromFile** (.NET SDK Extensions で定義されている)。 **CreateFromFile** 指定されたソース ファイルのアップロード先となる新しいアセットを作成します。
 
-**CreateFromFile** メソッドの **AssetCreationOptions** 引数には、次のいずれかの資産作成オプションを指定できます。
+ **CreateFromFile** メソッドには **AssetCreationOptions** 以下のアセット作成オプションのいずれかを指定できます。
 
-- **None**: 暗号化は使用されません。 これが既定値です。 このオプションを使用した場合、送信経路上とストレージ内のいずれにおいてもコンテンツが保護されないので注意してください。
+- **[なし]** -暗号化は使用されません。 これが既定値です。 このオプションを使用した場合、送信経路上とストレージ内のいずれにおいてもコンテンツが保護されないので注意してください。
 プログレッシブ ダウンロードを使用して MP4 を配信する場合はこのオプションを使用します。
-- **StorageEncrypted** – Advanced Encryption Standard (AES)-256 ビット暗号化を使用してクリア コンテンツをローカルに暗号化し、それを Azure Storage にアップロードすると、コンテンツが保存時に暗号化された状態で格納されます。 StorageEncrypted で保護された資産は、エンコーディングの前に自動的に暗号化が解除され、暗号化されたファイル システムに配置されます。その後、必要に応じて再度暗号化を適用して、新しい出力資産として再びアップロードできます。 StorageEncrypted の主な目的は、高品質の入力メディア ファイルを強力な暗号化によって保護したうえでディスクに保存するというニーズに応えることです。
-- **CommonEncryptionProtected**: 既に Common Encryption や PlayReady DRM で暗号化されて保護されているコンテンツ (PlayReady DRM で保護されたスムーズ ストリーミングなど) をアップロードする場合は、このオプションを使用します。
-- **EnvelopeEncryptionProtected**: AES で暗号化された HLS をアップロードする場合はこのオプションを使用します。 この場合ファイルは、Transform Manager によってあらかじめエンコードされて暗号化されている必要があります。
+- **StorageEncrypted** -このオプションを使用して、rest で暗号化されて保存されている Azure ストレージにアップロードし、高度暗号化標準 (AES)-256 ビットの暗号化を使用してローカルで、平文のコンテンツを暗号化します。 StorageEncrypted で保護された資産は、エンコーディングの前に自動的に暗号化が解除され、暗号化されたファイル システムに配置されます。その後、必要に応じて再度暗号化を適用して、新しい出力資産として再びアップロードできます。 StorageEncrypted の主な目的は、高品質の入力メディア ファイルを強力な暗号化によって保護したうえでディスクに保存するというニーズに応えることです。
+- **CommonEncryptionProtected** -既に暗号化し、Common Encryption や PlayReady DRM (たとえば、保護されたスムーズ ストリーミングに PlayReady DRM) で保護されたコンテンツをアップロードする場合は、このオプションを使用します。
+- **EnvelopeEncryptionProtected** – AES で暗号化された HLS をアップロードする場合は、このオプションを使用します。 この場合ファイルは、Transform Manager によってあらかじめエンコードされて暗号化されている必要があります。
 
-**CreateFromFile** メソッドには、ファイルのアップロードの進行状況をレポートするためのコールバックも指定できます。
+ **CreateFromFile** メソッドでは、ファイルのアップロードの進行状況をレポートするためのコールバックを指定することもできます。
 
-次の例では、資産のオプションに **None** を指定しています。
+次の例では指定 **なし** 、アセットのオプションにします。
 
 次のメソッドを Program クラスに追加します。
 
@@ -233,13 +233,14 @@ Media Services で、デジタル ファイルを資産にアップロードし 
             {
                 Console.WriteLine("Uploading '{0}' - Progress: {1:0.##}%", af.Name, p.Progress);
             });
-    
+
         Console.WriteLine("Asset {0} created.", inputAsset.Id);
-    
+
         return inputAsset;
     }
 
-## 一連のアダプティブ ビットレート MP4 ファイルにソース ファイルをエンコードする
+
+##一連のアダプティブ ビットレート MP4 ファイルにソース ファイルをエンコードする
 
 Media Services に取り込んだ資産には、メディアのエンコード、再パッケージ化、透かしの追加などをクライアントへの配信前に適用できます。 高いパフォーマンスと可用性を確保するために、これらの作業は、複数のバックグラウンド ロール インスタンスに対してスケジューリングされて実行されます。 これらのアクティビティはジョブと呼ばれ、各ジョブは、資産ファイルの実際の作業を実行するアトミック タスクで構成されます。
 
@@ -247,10 +248,10 @@ Media Services に取り込んだ資産には、メディアのエンコード�
 
 動的パッケージ化機能を利用するには、次の作業が必要となります。
 
-- mezzanine (ソース) ファイルを一連のアダプティブ ビットレート MP4 ファイルまたはアダプティブ ビットレート スムーズ ストリーミング ファイルにエンコードまたはトランスコードする。
+- mezzanine (ソース) ファイルを一連のアダプティブ ビットレート MP4 ファイルまたはアダプティブ ビットレート スムーズ ストリーミング ファイルにエンコードまたはトランスコードする。  
 - コンテンツ配信元となるストリーミング エンドポイントのストリーミング ユニットを少なくとも 1 つ取得する。
 
-以下のコードは、エンコーディング ジョブの送信方法を示したものです。 このジョブには、**Azure Media Encoder** を使用して mezzanine ファイルを一連のアダプティブ ビットレート MP4 にトランスコードするよう指定するタスクが 1 つ存在します。 このコードは、ジョブを送信してその完了を待機します。
+以下のコードは、エンコーディング ジョブの送信方法を示したものです。 ジョブには、トランス コードする mezzanine ファイルを一連のアダプティブ ビットレート mp4 を使用して指定する 1 つのタスクが含まれています。 **Azure Media Encoder**します。 このコードは、ジョブを送信してその完了を待機します。
 
 ジョブが完了したら、資産をストリーミングしたり、コード変換によって作成された MP4 ファイルをプログレッシブにダウンロードしたりできます。
 MP4 ファイルをプログレッシブにダウンロードするためにオンデマンド ストリーミング ユニットを取得する必要はありません。
@@ -291,7 +292,7 @@ MP4 ファイルをプログレッシブにダウンロードするためにオ�
         return outputAsset;
     }
 
-## 資産を発行してストリーミング URL とプログレッシブ ダウンロード URL を取得する
+##資産を発行してストリーミング URL とプログレッシブ ダウンロード URL を取得する
 
 資産をストリーミングまたはダウンロードするにはまず、ロケーターを作成して資産を「発行」する必要があります。 資産に含まれているファイルには、ロケーターを通じてアクセスできます。 Media Services では、2 種類のロケーターがサポートされています。OnDemandOrigin ロケーターはメディアのストリーミング (MPEG DASH、HLS、スムーズ ストリーミングなど) に、Access Signature (SAS) ロケーターはメディア ファイルのダウンロードに使用します。
 
@@ -324,55 +325,55 @@ Media Services .NET SDK Extensions には、発行済みの資産の URL を正�
     {
         // Publish the output asset by creating an Origin locator for adaptive streaming,
         // and a SAS locator for progressive download.
-    
+
         _context.Locators.Create(
             LocatorType.OnDemandOrigin,
             asset,
             AccessPermissions.Read,
             TimeSpan.FromDays(30));
-    
+
         _context.Locators.Create(
             LocatorType.Sas,
             asset,
             AccessPermissions.Read,
             TimeSpan.FromDays(30));
-    
-    
+
+
         IEnumerable<IAssetFile> mp4AssetFiles = asset
                 .AssetFiles
                 .ToList()
                 .Where(af => af.Name.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase));
-    
+
         // Get the Smooth Streaming, HLS and MPEG-DASH URLs for adaptive streaming,
         // and the Progressive Download URL.
         Uri smoothStreamingUri = asset.GetSmoothStreamingUri();
         Uri hlsUri = asset.GetHlsUri();
         Uri mpegDashUri = asset.GetMpegDashUri();
-    
+
         // Get the URls for progressive download for each MP4 file that was generated as a result
         // of encoding.
         List<Uri> mp4ProgressiveDownloadUris = mp4AssetFiles.Select(af => af.GetSasUri()).ToList();
-    
-    
+
+
         // Display  the streaming URLs.
         Console.WriteLine("Use the following URLs for adaptive streaming: ");
         Console.WriteLine(smoothStreamingUri);
         Console.WriteLine(hlsUri);
         Console.WriteLine(mpegDashUri);
         Console.WriteLine();
-    
+
         // Display the URLs for progressive download.
         Console.WriteLine("Use the following URLs for progressive download.");
         mp4ProgressiveDownloadUris.ForEach(uri => Console.WriteLine(uri + "\n"));
         Console.WriteLine();
-    
+
         // Download the output asset to a local folder.
         string outputFolder = "job-output";
         if (!Directory.Exists(outputFolder))
         {
             Directory.CreateDirectory(outputFolder);
         }
-    
+
         Console.WriteLine();
         Console.WriteLine("Downloading output asset files to a local folder...");
         asset.DownloadToFolder(
@@ -381,11 +382,11 @@ Media Services .NET SDK Extensions には、発行済みの資産の URL を正�
             {
                 Console.WriteLine("Downloading '{0}' - Progress: {1:0.##}%", af.Name, p.Progress);
             });
-    
+
         Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
     }
 
-## コンテンツの再生
+##コンテンツの再生  
 
 前のセクションで定義したプログラムを実行すると、コンソール ウィンドウに次のような URL が表示されます。
 
@@ -406,31 +407,32 @@ MPEG DASH
 プログレッシブ ダウンロードの URL (オーディオとビデオ):
 
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
-    
+
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
-    
+
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_3400kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
-    
+
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_2250kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
-    
+
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_1500kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
-    
+
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_1000kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
-    
+
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
-    
+
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+
 
 ビデオ、機能を使用するストリーミング [Azure Media Services プレーヤー](http://amsplayer.azurewebsites.net/azuremediaplayer.html)します。
 
 プログレッシブ ダウンロードをテストするには、ブラウザー (Internet Explorer、Chrome、Safari など) に URL を貼り付けます。
 
 
-## 次のステップ: Media Services のラーニング パス
+##次のステップ: Media Services のラーニング パス
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## フィードバックの提供
+##フィードバックの提供
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
@@ -440,11 +442,10 @@ MPEG DASH
 このトピックに必要な情報が含まれていないか、不足しているか、あるいはニーズを満たしていない場合は、以下の Disqus スレッドを使用してフィードバックをお送りください。
 
 
+<!-- Anchors. -->
 
 
-
-
-
-[web platform installer]: http://go.microsoft.com/fwlink/?linkid=255386 
-[portal]: http://manage.windowsazure.com/ 
+<!-- URLs. -->
+  [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
+  [Portal]: http://manage.windowsazure.com/
 

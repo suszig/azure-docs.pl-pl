@@ -1,18 +1,13 @@
-> [AZURE.SELECTOR-LIST (Platform | Topic)]
-- [(.NET | 1. Create, deploy, consume from .NET)](app-service-api-dotnet-get-started.md)
-- [(.NET | 2. Consume from JavaScript, use CORS)](app-service-api-cors-consume-javascript.md)
-- [(.NET | 3. Authentication overview)](app-service-api-authentication.md)
-- [(.NET | 4. User principal auth)](app-service-api-dotnet-user-principal-auth.md)
-- [(.NET | 5. Service principal auth)](app-service-api-dotnet-service-principal-auth.md)
-- [(Node.js | 1. Create and deploy)](app-service-api-nodejs-api-app.md)
-- [(Node.js | 2. Consume from JavaScript, use CORS)](app-service-api-cors-consume-javascript.md#node)
-- [(Node.js | 3. Authentication overview)](app-service-api-authentication.md#node)
-- [(Java | 1. Create and deploy)](app-service-api-java-api-app.md#java)
-- [(Java | 2. Consume from JavaScript, use CORS)](app-service-api-cors-consume-javascript.md#java)
-- [(Java | 3. Authentication overview)](app-service-api-authentication.md#java)
-
-
-
-
-
+> [AZURE です。選択リスト (プラットフォーム |トピック)]
+- [(.NET |1 です。 作成、展開、.NET を使用)](app-service-api-dotnet-get-started.md)
+- [(.NET |2 になります。 JavaScript による消費、CORS を使用する)](app-service-api-cors-consume-javascript.md)
+- [(.NET |3 です。 認証の概要)](app-service-api-authentication.md)
+- [(.NET |4 です。 ユーザー プリンシパルの認証)](app-service-api-dotnet-user-principal-auth.md)
+- [(.NET |5 です。 サービス プリンシパルの認証)](app-service-api-dotnet-service-principal-auth.md)
+- [(Node.js |1 です。 作成および展開する)](app-service-api-nodejs-api-app.md)
+- [(Node.js |2 になります。 JavaScript による消費、CORS を使用する)](app-service-api-cors-consume-javascript.md#node)
+- [(Node.js |3 です。 認証の概要)](app-service-api-authentication.md#node)
+- [(Java |1 です。 作成および展開する)](app-service-api-java-api-app.md#java)
+- [(Java |2 になります。 JavaScript による消費、CORS を使用する)](app-service-api-cors-consume-javascript.md#java)
+- [(Java |3 です。 認証の概要)](app-service-api-authentication.md#java)
 

@@ -16,13 +16,8 @@
     ms.author="awills" />
 
 
-
 # JavaScript アプリと Web ページのための Application Insights
 
 > [AZURE.NOTE] この記事は移動しました。 参照してください: [JavaScript アプリと web ページ向けの Application Insights](../app-insights-web-track-usage.md)
 
-
-
-
-
-
+ 

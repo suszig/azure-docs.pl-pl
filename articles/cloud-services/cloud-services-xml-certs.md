@@ -18,12 +18,11 @@
 
 
 
-
 # 証明書用のサービス定義と構成を構成する
 
-Web または Worker ロールを実行している Virtual Machines は、それらに関連付けられた証明書を持つことができます。 ポータルに証明書をアップロードした後、証明書用のサービス定義 (.csdef) ファイルとサービス構成 (.cscfg) ファイルを構成する必要があります。
+Web または Worker ロールを実行している Virtual Machines は、それらに関連付けられた証明書を持つことができます。 ポータルに証明書をアップロードした後、証明書用のサービス定義 (.csdef) ファイルとサービス構成 (.cscfg) ファイルを構成する必要があります。 
 
-Virtual Machines は、インストール後に証明書の秘密キーにアクセスできます。 このため、引き上げられたアクセス許可でプロセスへのアクセスを制限できます。
+Virtual Machines は、インストール後に証明書の秘密キーにアクセスできます。 このため、引き上げられたアクセス許可でプロセスへのアクセスを制限できます。 
 
 ## サービス定義の例
 
@@ -31,7 +30,7 @@ Virtual Machines は、インストール後に証明書の秘密キーにアク
 
 ```xml
 <ServiceDefinition name="WindowsAzureProject4" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
-  <WorkerRole name="MyWokerRole"> 
+  <WorkerRole name="MyWokerRole"> <!-- or <WebRole name="MyWebRole" vmsize="Small"> -->
     <ConfigurationSettings>
       ...
     </ConfigurationSettings>
@@ -43,13 +42,12 @@ Virtual Machines は、インストール後に証明書の秘密キーにアク
 ```
 
 ### アクセス許可
+アクセス許可 (`permisionLevel`属性) は、次のいずれかに設定できます。
 
-アクセス許可 (`permisionLevel` 属性)、次のいずれかに設定することができます。
-
-| アクセス許可の値| 説明|
+| アクセス許可の値  | 説明 |
 | ----------------  | ----------- |
-| limitedOrElevated| **(既定)** すべてのロール プロセスが秘密キーにアクセスできます。|
-| elevated| 引き上げられたプロセスだけが秘密キーにアクセスできます。|
+| limitedOrElevated | **(既定)** すべてのロール プロセスは、秘密キーにアクセスできます。 |
+| elevated          | 引き上げられたプロセスだけが秘密キーにアクセスできます。|
 
 ## サービス構成の例
 
@@ -67,12 +65,7 @@ Virtual Machines は、インストール後に証明書の秘密キーにアク
 </Role>
 ```
 
-**注** 、対応する `名` 属性です。
+**注** 、対応する `name` 属性です。
 
 ## 次のステップ
-
-レビュー、 [サービス定義 XML](https://msdn.microsoft.com/library/azure/ee758711.aspx) スキーマと [サービス構成 XML](https://msdn.microsoft.com/library/azure/ee758710.aspx) スキーマです。
-
-
-
-
+レビュー、 [サービス定義 XML](https://msdn.microsoft.com/library/azure/ee758711.aspx) スキーマ、および [サービス構成 XML](https://msdn.microsoft.com/library/azure/ee758710.aspx) スキーマです。

@@ -1,15 +1,16 @@
 
-1. [Azure クラシック ポータル](https://manage.windowsazure.com/), 、] をクリックして、 **データ** ] タブでをクリックし、 **登録** テーブルです。
+
+1.  [Azure クラシック ポータル](https://manage.windowsazure.com/), 、] をクリックして、 **データ** ] タブでをクリックし、 **登録** テーブルです。 
 
     ![](./media/mobile-services-update-registrations-script/mobile-portal-data-tables-registrations.png)
 
-2. **[Registrations]** で、**[スクリプト]** タブをクリックし、**[挿入]** をクリックします。
-
+2.  **登録**, をクリックして、 **スクリプト** ] タブを選択 **挿入**します。
+   
     ![](./media/mobile-services-update-registrations-script/mobile-insert-script-registrations.png)
 
-    **Registrations** テーブルで挿入が発生したときに呼び出される関数が表示されます。
+    これで、挿入が発生したときに呼び出される関数が表示されます、 **登録** テーブルです。
 
-3. insert 関数を次のコードに置き換え、**[保存]** をクリックします。
+3. クリックして insert 関数を次のコードに置き換えます **保存**:
 
         function insert(item, user, request) {
             var registrationTable = tables.getTable('Registrations');
@@ -26,9 +27,5 @@
         }
 
    これにより、新しいテーブルに登録情報を格納する新しい挿入スクリプトが登録されます。
-
-
-
-
 
 

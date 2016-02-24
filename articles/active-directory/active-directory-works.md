@@ -1,6 +1,6 @@
 <properties
     pageTitle="Azure Active Directory の機能 | Microsoft Azure"
-    description="Azure Active Directory では、クラウド内に自分の ID ランドスケープが作成されます。これは、オンプレミスの ID システムに接続するか、または単独で使用することができます。"
+    description="Azure Active Directory では、クラウド内に自分の ID ランドスケープが作成されます。 これは、オンプレミスの ID システムに接続するか、または単独で使用することができます。"
     services="active-directory"
     documentationCenter=""
     authors="curtand"
@@ -18,11 +18,9 @@
 
 
 
-
 # Azure Active Directory の機能
 
-### このトピックに関するその他の記事
-
+###このトピックに関するその他の記事
 [Azure AD とは何ですか。](active-directory-whatis.md)<br>
 [作業のでしょうか。](active-directory-works.md)<br>
 [概要します。](active-directory-get-started.md)<br>
@@ -32,32 +30,25 @@
 
 Azure Active Directory (Azure AD) では、クラウド内に自分の ID ランドスケープが作成されます。 これは、オンプレミスの ID システムに接続するか、または単独で使用することができます。
 
-Azure AD のアカウントは、クラウドでの運転免許書と見なすことができます。これは、オンラインでサービスにアクセスするための一意の ID です。 この例で、Azure AD は、運転免許証に対してクラウド内のユーザー専用の登録機関のような役割を果たします。 これは、クラウド内のあらゆる場所で ID を使用可能にし、オンプレミスのリソースにアクセスするユーザーのモビリティを向上させます。
-> [AZURE.NOTE] Azure Active Directory を使用するには、Azure のアカウントが必要です。 アカウントを持っていない場合は、 [無料の Azure アカウントにサインアップ](http://azure.microsoft.com/pricing/free-trial/)します。
+Azure AD のアカウントは、クラウドでの運転免許書と見なすことができます。これは、オンラインでサービスにアクセスするための一意の ID です。 この例で、Azure AD は、運転免許証に対してクラウド内のユーザー専用の登録機関のような役割を果たします。  これは、クラウド内のあらゆる場所で ID を使用可能にし、オンプレミスのリソースにアクセスするユーザーのモビリティを向上させます。
+
+> [AZURE.NOTE] Azure Active Directory を使用するには、Azure アカウントを作成する必要があります。 アカウントを持っていない場合は、 [無料の Azure アカウントにサインアップ](http://azure.microsoft.com/pricing/free-trial/)します。
 
 ## Azure AD では、Office 365、Microsoft Intune、および他の Azure サービスがどのようにサポートされていますか。
-
 Azure ポータル、Office 365 管理センター、Microsoft Intune アカウント ポータル、および Azure AD PowerShell モジュールのコマンドレットはすべて、ディレクトリに関連付けられている Azure AD の単一の共有インスタンスに対して読み書きを実行します。 ポータル (またはコマンドレット) は、ディレクトリ情報を取り込み、または変更するフロント エンド インターフェイスとして機能します。 [詳細については、その他のサービスのサポート](active-directory-administer.md#what-is-an-azure-ad-tenant)
 
 ## Azure AD の、サードパーティ製アプリケーションのサポート
-
 Azure AD は、すぐにコーディングを開始するためのさまざまなプラットフォーム向けのオープン ソース ライブラリとともに、サービスとしての ID を提供することにより、開発者にとっての認証を簡略化します。 [Azure AD の認証シナリオの詳細について](active-directory-authentication-scenarios.md)します。
 
 
 ## Azure AD のオンプレミスのディレクトリ拡張方法
+Azure AD では、最も広く使用されている認証および承認のプロトコルが複数サポートされています。 [Azure Active Directory の認証プロトコルの詳細について](active-directory-authentication-scenarios.md)します。
 
-Azure AD では、最も広く使用されている認証および承認のプロトコルが複数サポートされています。 [の詳細については、Azure Active Directory の認証プロトコル](active-directory-authentication-scenarios.md)します。
-
-## ID 管理のための Azure
-
-Azure AD を管理する方法、 ディレクトリの取得方法、 ディレクトリの削除方法、 ディレクトリ データの管理方法など、 Azure AD ディレクトリの管理の詳細情報をご覧いただけます。 [を Azure AD を管理する方法の詳細について](active-directory-administer.md)します。
+## ID 管理のための Azure 
+Azure AD を管理する方法、 ディレクトリの取得方法、 ディレクトリの削除方法、 ディレクトリ データの管理方法など、 Azure AD ディレクトリの管理の詳細情報をご覧いただけます。 [Azure AD を管理する方法の詳細について](active-directory-administer.md)します。
 
 ## その他のリソース
 
-* [組織として Azure にサインアップします。](sign-up-organization.md)
-* [Azure Id](fundamentals-identity.md)
-
-
-
-
+* [Azure への組織としてのサインアップ](sign-up-organization.md)
+* [Azure ID](fundamentals-identity.md)
 

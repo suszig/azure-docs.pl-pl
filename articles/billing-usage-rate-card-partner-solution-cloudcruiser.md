@@ -1,6 +1,6 @@
 <properties
    pageTitle="Cloud Cruiser と Microsoft Azure Billing API の統合 |Microsoft Azure"
-   description="Microsoft Azure 課金パートナーの Cloud Cruiser が Azure Billing API を製品に統合した独自の事例について説明します。この記事は、Microsoft Azure Pack の使用/試用に関心を持っている Azure と Cloud Cruiser のユーザーには特に役立ちます。"
+   description="Microsoft Azure 課金パートナーの Cloud Cruiser が Azure Billing API を製品に統合した独自の事例について説明します。  この記事は、Microsoft Azure Pack の使用/試用に関心を持っている Azure と Cloud Cruiser のユーザーには特に役立ちます。"
    services="billing"
    documentationCenter=""
    authors="BryanLa"
@@ -16,13 +16,11 @@
    ms.date="11/02/2015"
    ms.author="mobandyo;sirishap;bryanla"/>
 
-
 # Cloud Cruiser と Microsoft Azure Billing API の統合
 
 この記事では、新しい Azure Billing API から収集した情報を Cloud Cruiser で使用して、ワークフローのコスト シミュレーションと分析を行う方法について説明します。
 
 ## Azure RateCard API
-
 RateCard API は、Azure の料金情報を提供します。 適切な資格情報を認証した後は、API を照会し、Azure で使用できるサービスに関するメタデータや、自分のプラン ID に関連付けられた料金を収集できます。
 
 次に、A0 (Windows) インスタンスの料金を表示する API の応答例を示します。
@@ -42,20 +40,19 @@ RateCard API は、Azure の料金情報を提供します。 適切な資格情
     },
 
 ### Azure RateCard API に対する Cloud Cruiser のインターフェイス
-
 Cloud Cruiser は、RateCard API をさまざまな方法で利用できます。 この記事では、IaaS ワークロード コストのシミュレーションと分析に使用する方法を説明します。
 
 この使用事例を読むにあたって、Microsoft Azure Pack (WAP) でいくつかのインスタンスが実行されているワークロードを想定してください。 目標は、この同じワークロードを Azure でシミュレートし、移行した場合のコストを見積もることです。 このシミュレーションを作成するために、主に次の 2 つの作業を実行します。
 
-1. **RateCard API から収集したサービス情報のインポートと処理** - この作業はブックでも実行されます。この場合、RateCard API からの抽出を変換し、新しい料金プランに発行します。 この新しい料金プランは、Azure の料金を見積もるシミュレーションに使用されます。
+1. **インポートし、RateCard API から収集したサービス情報の処理** -このタスクは、ブック、RateCard API からの抽出を変換し、新しい料金プランに発行する場所でも実行できます。 この新しい料金プランは、Azure の料金を見積もるシミュレーションに使用されます。
 
-2. **正規化 WAP サービスや Azure IaaS サービス** -既定では、WAP サービスは、個々 のリソース (CPU、メモリ サイズ、ディスク サイズなど) に基づく、 Azure のサービスは、インスタンスのサイズ (A0、A1、A2 など) に基づいています。 この 1 つ目の作業は、Cloud Cruiser の ETL エンジン (ブックと呼ばれます) で実行できます。これらのリソースは、Azure インスタンス サービスと同様に、インスタンス サイズに基づいてまとめることができます。
+2. **WAP サービスと IaaS の Azure のサービスの正規化** -既定では、WAP サービスは、基づいて Azure 中に個々 のリソース (CPU、メモリ サイズ、ディスク サイズなど) のサービスはインスタンス サイズ (A0、A1、A2 など) に基づいています。 この 1 つ目の作業は、Cloud Cruiser の ETL エンジン (ブックと呼ばれます) で実行できます。これらのリソースは、Azure インスタンス サービスと同様に、インスタンス サイズに基づいてまとめることができます。
 
 ### RateCard API からのデータのインポート
 
-Cloud Cruiser のブックには、RateCard API の情報の収集と処理を自動化する機能があります。 ETL (抽出-変換-読み込み) ブックを使用して、データのコレクション、変換、および Cloud Cruiser データベースへの発行を構成できます。
+Cloud Cruiser のブックには、RateCard API の情報の収集と処理を自動化する機能があります。  ETL (抽出-変換-読み込み) ブックを使用して、データのコレクション、変換、および Cloud Cruiser データベースへの発行を構成できます。
 
-各ブックには、1 つ以上のコレクションを含めることができます。 そのため、複数のソースの情報を関連付けて、使用状況データの補完と拡大を行うことができます。 次の 2 つのスクリーンショットでは、既存のブックに新しい*コレクション*を作成する方法と、RateCard API から情報を*コレクション*にインポートする方法を示しています。
+各ブックには、1 つ以上のコレクションを含めることができます。 そのため、複数のソースの情報を関連付けて、使用状況データの補完と拡大を行うことができます。 2 つのスクリーン ショットで、下新しいを作成する方法を示しています *コレクション* で、既存のブックに情報のインポートと、 *コレクション* RateCard API から。
 
 ![図 1 - 新しいコレクションの作成][1]
 
@@ -81,11 +78,11 @@ Cloud Cruiser には、サービスを定義する方法が複数あります。
 
 ### Azure サービスと料金
 
-サービスと料金を発行したら、Cloud Cruiser の *[Services]* タブでインポートされたサービスの一覧を確認できます。
+サービスと料金を発行した後は、Cloud Cruiser でインポートされたサービスの一覧を確認できます *サービス* ] タブをクリックします。
 
 ![図 5 - 新しいサービスの確認][5]
 
-*[Rate Plans]* タブでは、“AzureSimulation” という新しい料金プランと、RateCard API からインポートされた料金を確認できます。
+ *Rate Plans* ] タブで、"AzureSimulation"速度、RateCard API からのインポートと呼ばれる新しい料金プランをチェックすることができます。
 
 ![図 6 - 新しい料金プランと関連付けられている料金の確認][6]
 
@@ -117,6 +114,7 @@ WAP の既定では、コンピューティング、メモリ、およびネッ�
 
 ## Azure Usage API
 
+
 ### はじめに
 
 最近 Microsoft
@@ -128,8 +126,7 @@ WAP の既定では、コンピューティング、メモリ、およびネッ�
 Cloud Cruiser では、いくつかの方法での Usage API との統合を利用できます。 粒度
 (使用状況情報を 1 時間ごと) とを通じて利用できるリソースのメタデータ情報
 API は柔軟性の高いショウバックをサポートするために必要なデータセットを提供または
-チャージ バック モデルです。
-
+チャージ バック モデルです。 
 
 このチュートリアルでは
 使用状況 API から Cloud Cruiser に役立つ方法の例では 1 つ
@@ -160,11 +157,9 @@ Cloud Cruiser ショウバック/チャージ バック プロセスを自動化
 タグ情報を適切なコンシューマー (部門、使用状況を妨害するには
 部門、プロジェクトなど)。 この自動化は、大きな進歩を提供し、ことができます。
 一貫性のある監査可能な充電プロセスを確認します。
-
-
+ 
 
 ### Microsoft Azure でのタグによるリソース グループの作成
-
 このチュートリアルの最初の手順では、Azure ポータルで新しいリソース グループを作成し、リソースに関連付ける新しいタグを作成します。 この例では、ここでは作成します。
 次のタグ: 部門、環境では、所有者、プロジェクトです。
 
@@ -193,37 +188,38 @@ Cloud Cruiser ショウバック/チャージ バック プロセスを自動化
         "meterId": "e60caf26-9ba0-413d-a422-6141f58081d6",
         "infoFields": {},
         "quantity": 8
-    
+
       },
     },
+
 
 ### Usage API から Cloud Cruiser へのデータのインポート
 
 Cloud Cruiser のブックには、Usage API の情報の収集と処理を自動化する機能があります。 ETL (抽出-変換-読み込み) ブックでは、構成することができます、
 コレクション、変換、および Cloud Cruiser データベースにデータを公開します。
 
-各ブックには、1 つ以上のコレクションを含めることができます。 そのため、複数のソースの情報を関連付けて、使用状況データの補完と拡大を行うことができます。 この例では、Azure テンプレート ブックに新しいシート (_UsageAPI)_ を作成し、新しい_コレクション_を設定して Usage API から情報をインポートします。
+各ブックには、1 つ以上のコレクションを含めることができます。 そのため、複数のソースの情報を関連付けて、使用状況データの補完と拡大を行うことができます。 この例では新しいシート内で作成 Azure テンプレート ブック (_UsageAPI)_ し、新しい設定 _コレクション_ Usage API の情報をインポートします。
 
 ![図 3 - UsageAPI シートにインポートする Usage API データ][12]
 
-既にこのブックには、サービスを Azure からインポートするシート (_ImportServices_) と Billing API の消費量情報を処理するシート (_PublishData_) があることに注意してください。
+このブックは、Azure からサービスをインポートするには、他のシートを既にあります (_ImportServices_)、Billing API の使用量の情報および処理 (_PublishData_)。
 
-_UsageAPI_ シートで Usage API から情報を抽出して処理し、_PublishData_ シートでその情報を Billing API の消費データと関連付けます。
+ここで抽出し、使用状況 API からの情報を処理するのには、 _UsageAPI_ シート、および Billing API の使用量データで情報を関連付ける、 _PublishData_ シートです。
 
 ### Usage API からのタグ情報の処理
 
-ブックにデータをインポートした後は、API からの情報を処理するために、_UsageAPI_ シートで変換の手順を作成します。 まず、「JSON 分割」プロセッサを使用して (ように、API からインポートする)、1 つのフィールドからタグを抽出し、それらの 1 つの新しいフィールドを作成します (プロジェクト、部門の責任者と
+ブックにデータをインポートした後で変換ステップを作成、 _UsageAPI_ API から情報を処理するためにシートです。 まず、「JSON 分割」プロセッサを使用して (ように、API からインポートする)、1 つのフィールドからタグを抽出し、それらの 1 つの新しいフィールドを作成します (プロジェクト、部門の責任者と
 環境の場合)。
 
 ![図 4 - タグ情報に対する新しいフィールドの作成][13]
 
-"Networking" サービスにはタグ情報がありません (黄色のボックス) が、_ResourceGroupName_ フィールドを見れば、このサービスは同じリソース グループの一部であることがわかります。 この同じリソース グループの他のリソースにはタグがあるため、以降のプロセスでは、この情報を使用して、不足しているタグをこのリソースに適用できます。
+「ネットワーク」サービスには、タグ情報 (黄色のボックス) がありませんが、このサービスでは、同じリソース グループの一部をはを見ればわかります、 _ResourceGroupName_ フィールドです。 この同じリソース グループの他のリソースにはタグがあるため、以降のプロセスでは、この情報を使用して、不足しているタグをこのリソースに適用できます。
 
-次の手順では、タグの情報を _ResourceGroupName_ に関連付けるルックアップ テーブルを作成します。 このルックアップ テーブルは、次の手順でタグ情報を使用して、消費データを強化するために使用します。
+次の手順は、タグから情報を関連付けるルックアップ テーブルを作成するのには、 _ResourceGroupName_します。 このルックアップ テーブルは、次の手順でタグ情報を使用して、消費データを強化するために使用します。
 
 ### 消費データへのタグ情報の追加
 
-ここからは、_PublishData_ シートを使用できます。このシートでは、Billing API の消費情報を処理して、タグから抽出されるフィールドを追加します。 このプロセスは、前の手順で作成したルックアップ テーブルを参照して実行を使用して、 _ResourceGroupName_
+ゆくことができますので、 _PublishData_ シート、請求先の API から消費情報を処理し、タグから抽出されるフィールドを追加します。 このプロセスは、前の手順で作成したルックアップ テーブルを参照して実行を使用して、 _ResourceGroupName_
 としてのルックアップ キーです。
 
 ![図 5 - 参照からの情報を使用したアカウント構造の設定][14]
@@ -241,17 +237,16 @@ _UsageAPI_ シートで Usage API から情報を抽出して処理し、_Publis
 
 ### 次のステップ
 
-+ Cloud Cruiser のブックとレポートの作成の詳細な手順についてを参照してください Cloud Cruiser のオンライン [ドキュメント](http://docs.cloudcruiser.com/) (有効なログインが必要です)。 Cloud Cruiser の詳細については、次にお問い合わせください [info@cloudcruiser.com](mailto:info@cloudcruiser.com)します。
++ Cloud Cruiser のブックとレポートの作成の詳細な手順についてを参照してください Cloud Cruiser のオンライン [ドキュメント](http://docs.cloudcruiser.com/) (有効なログインが必要です)。  Cloud Cruiser の詳細については、次にお問い合わせください [info@cloudcruiser.com](mailto:info@cloudcruiser.com)します。
 + 参照してください [Microsoft Azure のリソース消費を把握](billing-usage-rate-card-overview.md) の Azure Resource Usage api と RateCard Api の概要について説明します。
 + チェック アウト、 [Azure Billing REST API リファレンス](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) 両方の Api の詳細については、これは Azure リソース マネージャーによって提供される Api のセットの一部です。
 + すぐサンプル コードにある場合をチェック アウト、Microsoft Azure Billing API コード サンプルに [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?term=billing)します。
 
 ### 詳細情報
-
 + 参照してください、 [Azure リソース マネージャーの概要](resource-group-overview.md) Azure リソース マネージャーについての詳細については、記事です。
 
-
-
+<!--Image references-->
+ 
 [1]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Create-New-Workbook-Collection.png "Figure 1 - Creating a new collection"
 [2]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Import-Data-From-RateCard.png "Figure 2 - Import data from the new collection"
 [3]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transformation-Steps-Process-RateCard-Data.png "Figure 3 - Transformation steps to process collected data from RateCard API"

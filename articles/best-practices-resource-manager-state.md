@@ -16,7 +16,6 @@
     ms.date="09/10/2015"
     ms.author="mmercuri"/>
 
-
 # Azure リソース マネージャーのテンプレートでの状態の共有
 
 このトピックでは、Azure リソース マネージャー テンプレート内およびリンクされたテンプレート間で状態を管理して共有するためのベスト プラクティスを示します。 このトピックで使用するパラメーターと変数は、デプロイ要件を適切に整理するために定義できる種類のオブジェクトの例を示しています。 これらの例から、使用環境で意味のあるプロパティ値を使用する独自のオブジェクトを実装できます。
@@ -86,8 +85,8 @@
 
 テンプレートで、後でこれらの変数を参照できます。 名前付きの変数とそのプロパティを参照することは、テンプレートの構文を簡略化します。 
 コンテキストを理解しやすくなります。 次の例では、上記のオブジェクトを使用して値を設定することで、デプロイするリソースを定義します。 たとえば、VM のサイズが値を取得して設定されていることに注意してください。 
-`variables('tshirtSize').vmSize` から、ディスクのサイズを取得するために、値を while `variables('tshirtSize').diskSize`します。 さらに、リンクされたテンプレートの URI に設定します 
-場合は値 `variables('tshirtSize').vmTemplate`します。
+ `variables('tshirtSize').vmSize` から、ディスクのサイズを取得するために、値を中に `variables('tshirtSize').diskSize`します。 さらに、リンクされたテンプレートの URI に設定します 
+場合は値 `variables('tshirtSize').vmTemplate`です。
 
     "name": "master-node",
     "type": "Microsoft.Resources/deployments",
@@ -155,16 +154,16 @@
 
 **メイン テンプレートに渡される、一般的に使用されるパラメーター**
 
- 名前| 値| 説明
+名前 | 値 | 説明
 ---- | ----- | -----------
- location| Azure リージョンの制約付き一覧の文字列| リソースがデプロイされる場所です。
- storageAccountNamePrefix| String| VM のディスクが配置されるストレージ アカウントの一意の DNS 名
- domainName| String| パブリックにアクセスできる jumpbox VM のドメイン名。形式は次のとおりです。**{domainName}.{location}.cloudapp.com**。例: **mydomainname.westus.cloudapp.azure.com**
- adminUsername| String| VM のユーザー名
- adminPassword| String| VM のパスワード
- tshirtSize| 提供される T シャツ サイズの制約付き一覧の文字列| プロビジョニングする名前付きのスケール ユニットのサイズ。たとえば、"Small"、"Medium"、"Large"
- virtualNetworkName| String| コンシューマーが使用する仮想ネットワークの名前。
- enableJumpbox| 制約付き一覧の文字列 (enabled/disabled)| 環境の jumpbox を有効にするかどうかを識別するパラメーター。値: "enabled"、"disabled"
+location    | Azure リージョンの制約付き一覧の文字列   | リソースがデプロイされる場所です。
+storageAccountNamePrefix    | String    | VM のディスクが配置されるストレージ アカウントの一意の DNS 名
+domainName  | String    | 形式でパブリックにアクセスできる jumpbox VM のドメイン名: **{domainname} {。{location}.cloudapp.com** 例: **mydomainname.westus.cloudapp.azure.com**
+adminUsername   | String    | VM のユーザー名
+adminPassword   | String    | VM のパスワード
+tshirtSize  | 提供される T シャツ サイズの制約付き一覧の文字列   | プロビジョニングする名前付きのスケール ユニットのサイズ。 たとえば、"Small"、"Medium"、"Large"
+virtualNetworkName  | String    | コンシューマーが使用する仮想ネットワークの名前。
+enableJumpbox   | 制約付き一覧の文字列 (enabled/disabled) | 環境の jumpbox を有効にするかどうかを識別するパラメーター。 値: "enabled"、"disabled"
 
 ### リンクされたテンプレートに送信されるパラメーター
 
@@ -174,7 +173,7 @@
 
 静的変数は、URL など、基本の値を指定するためによく使用されます。このような基本の値は、テンプレート全体で、または動的な変数の値を作成するための値として使用されます。
 
-次のテンプレートの抜粋では、*templateBaseUrl* により、GitHub におけるテンプレートのルートの場所を指定します。 次の行では、新しい変数 *sharedTemplateUrl* を連結する、 
+次のテンプレートの抜粋で *templateBaseUrl* GitHub におけるテンプレートのルートの場所を指定します。 次の行では、新しい変数 *sharedTemplateUrl* を連結する、 
 値 *templateBaseUrl* 共有リソース テンプレートの既知の名前に置き換えます。 T シャツのサイズを格納する複合オブジェクト変数を使用するその下に、ここで、 *templateBaseUrl* は 
 格納されている既知の構成テンプレートの場所を指定する連結、 *vmTemplate* プロパティです。
 
@@ -204,9 +203,9 @@
 
 ##### tshirtSize
 
-メイン テンプレートを呼び出す場合、固定された数のオプションから T シャツ サイズを選択できます。通常、これらの値は、*Small*、*Medium*、*Large* などです。
+メイン テンプレートを呼び出す場合は、通常などの値が含まれているオプションの固定された数から t シャツのサイズを選択できる *小さな*, 、*中*, と *大*します。
 
-メイン テンプレートでは、このオプションは次のように *tshirtSize* などのパラメーターとして表されます。
+メイン テンプレートでは、このオプションが表示されます、パラメーターとしてなど *tshirtSize*:
 
     "tshirtSize": {
       "type": "string",
@@ -269,7 +268,7 @@
       }
     }
 
-*tshirtSize* 変数は、セクションの変数のさらに下の部分にあります。 提供する、t シャツの終了サイズ (*小さな*, 、*中*, 、*大*) は、テキストと連結され *tshirtSize* を取得する、 
+ *TshirtSize* 変数のセクションで変数が詳しく表示されます。 提供する、t シャツの終了サイズ (*小さな*, 、*中*, 、*大*) は、テキストと連結され *tshirtSize* を取得する、 
 その t シャツ サイズに関連付けられた複合オブジェクト変数:
 
     "tshirtSize": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
@@ -315,7 +314,7 @@
 
 ##### storageSettings
 
-多くの場合、ストレージの詳細は、リンクされたテンプレートと共有されます。 次の例では、*storageSettings* オブジェクトは、ストレージ アカウント名とコンテナー名の詳細を提供します。
+多くの場合、ストレージの詳細は、リンクされたテンプレートと共有されます。 次の例で、 *storageSettings* オブジェクトはストレージ アカウントとコンテナー名の詳細を提供します。
 
     "storageSettings": {
         "vhdStorageAccountName": "[parameters('storageAccountName')]",
@@ -328,7 +327,7 @@
 リンクされたテンプレートを使用すると、場合によっては、異なる既知の構成の種類における、さまざまなノードの種類に対して、オペレーティング システムの設定を渡す必要があります。 複雑なオブジェクトを格納し、オペレーティング システムの情報を共有する簡単な方法し、も 
 展開に複数のオペレーティング システムの選択をサポートする容易にします。
 
-次の例では、*osSettings* のオブジェクトを示しています。
+次の例では、オブジェクトを *osSettings*:
 
     "osSettings": {
       "imageReference": {
@@ -356,20 +355,20 @@
         }
     },
 
-*osImageReference* が、メイン テンプレートで定義された *osSettings* 変数から値を取得することに注意してください。 つまり、VM のオペレーティング システムを簡単に変更することができます-完全またはベース 
+ *OsImageReference* から値を取得、 *osSettings* メイン テンプレートで定義されている変数。 つまり、VM のオペレーティング システムを簡単に変更することができます-完全またはベース 
 [テンプレートの利用者の優先順位。
 
 ##### vmScripts
 
-*vmScripts* オブジェクトには、VM インスタンスでダウンロードして実行するスクリプトの詳細が含まれています。これには、外部の参照や内部の参照などが含まれています。 外部の参照には、インフラストラクチャが含まれます。 
+ *VmScripts* オブジェクトには、外側と内側の参照を含めて、VM インスタンスでダウンロードして実行するスクリプトの詳細が含まれています。 外部の参照には、インフラストラクチャが含まれます。 
 内部の参照には、インストールされているソフトウェアと構成が含まれます。
 
-*scriptsToDownload* プロパティを使用して、VM にダウンロードするスクリプトを一覧表示します。
+使用する、 *scriptsToDownload* プロパティを VM にダウンロードするスクリプトを一覧表示します。
 
 次の例に示すように、このオブジェクトには、さまざまな種類のアクションで使用するコマンドライン引数への参照も含まれます。 次の操作は、既定のインストールを実行します。 
 個々 のノード、すべてのノードを展開した後に実行されるインストールおよびその他のスクリプトが指定されたテンプレートに固有です。
 
-この例は、MongoDB をデプロイするのに使用するテンプレートの一部です。この MongoDB には、高可用性を実現するためにアービターが必要です。 アービターをインストールするために、*arbiterNodeInstallCommand* が *vmScripts* に追加されています。
+この例は、MongoDB をデプロイするのに使用するテンプレートの一部です。この MongoDB には、高可用性を実現するためにアービターが必要です。  *ArbiterNodeInstallCommand* に追加されている *vmScripts* アービターをインストールします。
 
 変数のセクションには特定のテキストを定義する変数があり、適切な値を指定してスクリプトを実行します。
 
@@ -382,6 +381,7 @@
         "lastNodeInstallCommand": "[concat(variables('installCommand'), ' -l')]",
         "arbiterNodeInstallCommand": "[concat(variables('installCommand'), ' -a')]"
     },
+
 
 ## テンプレートから状態を返す
 
@@ -404,12 +404,7 @@
     }
 
 ## 次のステップ
-
-- [Azure リソース マネージャー テンプレートの作成](resource-group-authoring-templates.md)
-- [Azure リソース マネージャー テンプレートの関数](resource-group-template-functions.md)
-
-
-
-
+- [Azure リソース マネージャーのテンプレートの作成](resource-group-authoring-templates.md)
+- [Azure リソース マネージャーのテンプレートの関数](resource-group-template-functions.md)
 
 

@@ -17,8 +17,7 @@
    ms.date="11/12/2015"
    ms.author="telmos" />
 
-
-# Azure CLI を使用した複数の NIC VM のデプロイ
+#Azure CLI を使用した複数の NIC VM のデプロイ
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-arm-selectors-include.md](../../includes/virtual-network-deploy-multinic-arm-selectors-include.md)]
 
@@ -28,17 +27,17 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-この時点では、単一の NIC を含む VM と複数の NIC を含む VM を同じリソース グループ内で保持できないため、バックエンド サーバーを他のすべてのコンポーネントとは異なるリソース グループに実装します。 以下の手順では、メイン リソース グループとして *IaaSStory* という名前のリソース グループを使用し、バックエンド サーバーとして *IaaSStory-BackEnd* を使用します。
+この時点では、単一の NIC を含む VM と複数の NIC を含む VM を同じリソース グループ内で保持できないため、バックエンド サーバーを他のすべてのコンポーネントとは異なるリソース グループに実装します。 次の手順がという名前のリソース グループを使用して *IaaSStory* メイン リソース グループのおよび *IaaSStory バックエンド* バック エンド サーバーのです。
 
 ## 前提条件
 
 バックエンド サーバーをデプロイするには、このシナリオで必要なすべてのリソースを含むメイン リソース グループをデプロイする必要があります。 これらのリソースをデプロイするには、以下の手順に従います。
 
 1. 移動 [テンプレート ページ](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC)します。
-2. テンプレート ページの **[親リソース グループ]** の右側にある **[Azure へのデプロイ]** をクリックします。
+2. テンプレート] ページで、以下の桁数に **親のリソース グループ**, をクリックして **Deploy to Azure**します。
 3. 必要に応じて、パラメーター値を変更し、Azure プレビュー ポータル内の手順に従ってリソース グループをデプロイします。
 
-> [AZURE.IMPORTANT] ストレージ アカウント名が一意であることを確認してください。 Azure では重複するストレージ アカウント名を使用できません。 
+> [AZURE.IMPORTANT] ストレージのアカウント名が一意であることを確認してください。 Azure では重複するストレージ アカウント名を使用できません。 
 
 [AZURE.INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
@@ -46,9 +45,9 @@
 
 バックエンド VM は、以下にリストしたリソースの作成に依存します。
 
-- **データ ディスクのストレージ アカウント**。 パフォーマンスを高めるために、データベース サーバー上のデータ ディスクはソリッド ステート ドライブ (SSD) テクノロジーを使用します。これには、Premium Storage アカウントが必要です。 デプロイする Azure の場所が Premium Storage をサポートすることを確認してください。
-- **NIC**。 各 VM には 2 つの NIC があり、1 つはデータベース アクセス用で、もう 1 つは管理用です。
-- **可用性セット**。 メンテナンス中に少なくとも 1 つの VM が稼働し、実行されているようにするためには、すべてのデータベース サーバーを単一の可用性セットに追加します。
+- **データ ディスクのストレージ アカウント**します。 パフォーマンスを高めるために、データベース サーバー上のデータ ディスクはソリッド ステート ドライブ (SSD) テクノロジーを使用します。これには、Premium Storage アカウントが必要です。 デプロイする Azure の場所が Premium Storage をサポートすることを確認してください。
+- **Nic**します。 各 VM には 2 つの NIC があり、1 つはデータベース アクセス用で、もう 1 つは管理用です。
+- **可用性セット**します。 メンテナンス中に少なくとも 1 つの VM が稼働し、実行されているようにするためには、すべてのデータベース サーバーを単一の可用性セットに追加します。 
 
 ### 手順 1 - スクリプトの開始
 
@@ -61,7 +60,7 @@
         vnetName="WTestVNet"
         backendSubnetName="BackEnd"
         remoteAccessNSGName="NSG-RemoteAccess"
-
+        
 2. バックエンド デプロイメントに使用する値に基づいて、以下の変数の値を変更します。
 
         backendRGName="IaaSStory-Backend"
@@ -82,26 +81,24 @@
         password='adminP@ssw0rd'
         numberOfVMs=2
 
-3. ID を取得、 `バックエンド` サブネットの Vm が作成されます。 このサブネットに関連付けられる NIC が別のリソース グループ内にあるため、これを行う必要があります。
+3. VM が作成される `BackEnd` サブネットの ID を取得します。 このサブネットに関連付けられる NIC が別のリソース グループ内にあるため、これを行う必要があります。
 
         subnetId="$(azure network vnet subnet show --resource-group $existingRGName \
                         --vnet-name $vnetName \
                         --name $backendSubnetName|grep Id)"
         subnetId=${subnetId#*/}
 
-
 >[AZURE.TIP] 最初のコマンドを使用して上記 [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) と [文字列操作](http://tldp.org/LDP/abs/html/string-manipulation.html) (具体的には、部分文字列の削除) します。 
 
-4. ID を取得、 `NSG RemoteAccess` NSG します。 この NSG に関連付けられる NIC が別のリソース グループ内にあるため、これを行う必要があります。
+4. `NSG-RemoteAccess` NSG のIDを取得します。 この NSG に関連付けられる NIC が別のリソース グループ内にあるため、これを行う必要があります。
 
         nsgId="$(azure network nsg show --resource-group $existingRGName \
                         --name $remoteAccessNSGName|grep Id)"
         nsgId=${nsgId#*/}
 
-
 ### 手順 2 - VM 用に必要なリソースの作成
 
-1. すべてのバックエンド リソース向けに新しいリソース グループを作成します。 使用して、 `$backendRGName` 、リソース グループ名の変数と `$location` Azure リージョンにします。
+1. すべてのバックエンド リソース向けに新しいリソース グループを作成します。 リソース グループ名のための `$backendRGName` 変数と Azure リージョンのための `$location` の使用に注意してください。
 
         azure group create $backendRGName $location
 
@@ -118,10 +115,9 @@
             --location $location \
             --name $avSetName
 
+### 手順 3 - NIC とバックエンド VM の作成
 
-### ステップ 3 - NIC とバックエンド VM の作成
-
-1. 基づく複数の Vm を作成するループを開始、 `numberOfVMs` 変数です。
+1. `numberOfVMs` 変数に基づいて、複数の VM を作成するループを開始します。
 
         for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
         do
@@ -137,7 +133,7 @@
                 --private-ip-address $ipAddress1 \
                 --subnet-id $subnetId
 
-3. 各 VM について、リモート アクセスのための NIC を作成します。 通知、 `-ネットワーク セキュリティ グループ` パラメーター、NIC の NSG を関連付けるために使用します。
+3. 各 VM について、リモート アクセスのための NIC を作成します。 NSG に NIC を関連付けるために使用される `--network-security-group` パラメーターに注意してください。
 
             nic2Name=$nicNamePrefix$suffixNumber-RA
             x=$((suffixNumber+53))
@@ -166,32 +162,31 @@
                 --admin-username $username \
                 --admin-password $password
 
-5. VM ごとに 2 つのデータ ディスクを作成しを使用してループを終了、 `実行` コマンドです。
+5. 各 VM について、次の 2 つのデータ ディスクを作成し、`done` コマンドを使用してループを終了します。
 
-         azure vm disk attach-new --resource-group $backendRGName \
-             --vm-name $vmNamePrefix$suffixNumber \        
-             --storage-account-name $prmStorageAccountName \
-             --storage-account-container-name vhds \
-             --vhd-name $dataDiskName$suffixNumber-1.vhd \
-             --size-in-gb $diskSize \
-             --lun 0
-    
-         azure vm disk attach-new --resource-group $backendRGName \
-             --vm-name $vmNamePrefix$suffixNumber \        
-             --storage-account-name $prmStorageAccountName \
-             --storage-account-container-name vhds \
-             --vhd-name $dataDiskName$suffixNumber-2.vhd \
-             --size-in-gb $diskSize \
-             --lun 1
-     done
-
+            azure vm disk attach-new --resource-group $backendRGName \
+                --vm-name $vmNamePrefix$suffixNumber \        
+                --storage-account-name $prmStorageAccountName \
+                --storage-account-container-name vhds \
+                --vhd-name $dataDiskName$suffixNumber-1.vhd \
+                --size-in-gb $diskSize \
+                --lun 0
+        
+            azure vm disk attach-new --resource-group $backendRGName \
+                --vm-name $vmNamePrefix$suffixNumber \        
+                --storage-account-name $prmStorageAccountName \
+                --storage-account-container-name vhds \
+                --vhd-name $dataDiskName$suffixNumber-2.vhd \
+                --size-in-gb $diskSize \
+                --lun 1
+        done
 
 
 ### 手順 4 - スクリプトの実行
 
 ニーズに合わせてスクリプトをダウンロードおよび変更したら、スクリプトを実行して複数の NIC を持つバックエンド データベース VM を作成してください。
 
-1. スクリプトを保存し、**Bash** ターミナルから実行します。 次のように、最初の出力が表示されます。
+1. スクリプトを保存してから実行、 **Bash** ターミナル。 次のように、最初の出力が表示されます。
 
         info:    Executing command group create
         info:    Getting resource group IaaSStory-Backend
@@ -334,11 +329,6 @@
         info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk2-2.vhd
         info:    Updating VM "DB2"
         info:    vm disk attach-new command OK
-
-
-
-
-
 
 
 

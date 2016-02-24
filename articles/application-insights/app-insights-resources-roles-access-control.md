@@ -14,32 +14,33 @@
     ms.topic="article" 
     ms.date="10/01/2015" 
     ms.author="awills"/>
-
-
+ 
 # Application Insights のリソース、ロール、アクセス制御
 
-ユーザーに読み取りし、Visual Studio で、データに対する更新アクセスを制御できます [Application Insights の ][start], を使用して [Microsoft Azure のロールベースのアクセス制御](../role-based-access-control-configure.md)します。
-> [AZURE.IMPORTANT] リソース自体ではなく、アプリケーション リソースが属する**リソース グループまたはサブスクリプション**でユーザーにアクセスを割り当てます。 **Application Insights コンポーネントの共同作業者**ロールを割り当てます。 これにより、Web テストとアラート、アプリケーション リソースのアクセス制御が統一されます。 [Learn more](#access).
+ユーザーに読み取りし、Visual Studio で、データに対する更新アクセスを制御できます [Application Insights][start], を使用して [Microsoft Azure のロールベースのアクセス制御](../role-based-access-control-configure.md)します。
+
+> [AZURE.IMPORTANT] アクセスのユーザーを割り当てる、 **リソース グループまたはサブスクリプション** に、アプリケーション リソースが属するリソース自体ではありません。 割り当てる、 **Application Insights コンポーネント共同作成者** ロールです。 これにより、Web テストとアラート、アプリケーション リソースのアクセス制御が統一されます。 [詳細については](#access)です。
 
 
 ## リソース、グループ、サブスクリプション
 
 最初に、いくつかの定義を紹介します。
 
-* **リソース** - Microsoft Azure サービスのインスタンス。 Application Insights リソースはアプリケーションから送られてくる利用統計情報データを収集し、分析し、表示します。 その他の種類の Azure リソースには Web アプリ、データベース、VM があります。
+* **Resource** - An instance of a Microsoft Azure service. Application Insights リソースはアプリケーションから送られてくる利用統計情報データを収集し、分析し、表示します。  その他の種類の Azure リソースには Web アプリ、データベース、VM があります。 
 
-    すべてのリソースを表示するには、 [Azure ポータルの ][portal], 、サインインし、[参照] をクリックします。
+    すべてのリソースを表示するには、 [Azure ポータル][portal], 、サインインし、[参照] をクリックします。
 
-    ![[参照] を選択し、](./media/app-insights-resources-roles-access-control/10-browse.png)
+    ![[参照] を選択し、[すべて] と [Application Insights でフィルター処理] のいずれかを選択します。](./media/app-insights-resources-roles-access-control/10-browse.png)
 
 <a name="resource-group"></a>
 
-* [* * リソース グループ] ][group] -すべてのリソースが 1 つのグループに属しています。 関連リソースを管理するとき、特にアクセス制御の場合、グループは便利な方法です。 たとえば、1 つのリソース グループに Web アプリ、そのアプリを監視する Application Insights リソース、エクスポートされたデータを保持する Storage リソースを配置できます。
+* [**リソース グループ**][group] -すべてのリソースが 1 つのグループに属しています。 関連リソースを管理するとき、特にアクセス制御の場合、グループは便利な方法です。 たとえば、1 つのリソース グループに Web アプリ、そのアプリを監視する Application Insights リソース、エクスポートされたデータを保持する Storage リソースを配置できます。
 
-    ![[参照]、](./media/app-insights-resources-roles-access-control/11-group.png)
+    
+    ![Choose Browse, Resource groups, then choose a group](./media/app-insights-resources-roles-access-control/11-group.png)
 
-* [* * * * サブスクリプション](https://manage.windowsazure.com) - Application Insights またはその他の Azure リソースを使用して Azure サブスクリプションにサインインします。 すべてのリソース グループが 1 つの Azure サブスクリプションに属します。そのサブスクリプションで価格パッケージを選択します。会社のサブスクリプションの場合、メンバーとそのアクセス許可を選択します。
-* [* * Microsoft アカウント * * ][account] -ユーザー名とパスワードを使用して、Microsoft Azure サブスクリプション、XBox Live、Outlook.com、およびその他の Microsoft サービスにサインインします。
+* [**サブスクリプション**](https://manage.windowsazure.com) - Application Insights またはその他の Azure リソースを使用して Azure サブスクリプションにサインインします。 すべてのリソース グループが 1 つの Azure サブスクリプションに属します。そのサブスクリプションで価格パッケージを選択します。会社のサブスクリプションの場合、メンバーとそのアクセス許可を選択します。 
+* [**Microsoft アカウント**][account] -ユーザー名とパスワードを使用して、Microsoft Azure サブスクリプション、XBox Live、Outlook.com、およびその他の Microsoft サービスにサインインします。
 
 
 ## <a name="access"></a> リソース グループのアクセスの制御
@@ -50,8 +51,8 @@
 
 これらのリソースのアクセスを制御するには、次の処置が推奨されます。
 
-* **リソース グループまたはサブスクリプション** レベルでアクセスを制御します。
-* **Application Insights コンポーネントの共同作業者**ロールをユーザーに割り当てます。 この処置により、グループのその他のサービスのアクセス権を与えなくても、ユーザーは Web テスト、アラート、Application Insights リソースを編集できます。
+* アクセスを制御、 **リソース グループまたはサブスクリプション** レベルです。
+* 割り当てる、 **Application Insights コンポーネント共同作成者** ロールをユーザーにします。 この処置により、グループのその他のサービスのアクセス権を与えなくても、ユーザーは Web テスト、アラート、Application Insights リソースを編集できます。 
 
 ## 別のユーザーにアクセスを与えるには
 
@@ -63,7 +64,7 @@
 
 そこでユーザーを追加します。
 
-![In your application's resource blade, open Essentials, open the resource group, and there select Settings/Users. Click Add.](./media/app-insights-resources-roles-access-control/01-add-user.png)
+![アプリケーションのリソース ブレードで、Essentials を開き、リソース グループを開き、設定/ユーザーを選択します。 [追加] をクリックします。](./media/app-insights-resources-roles-access-control/01-add-user.png)
 
 あるいは、もう 1 つ上のレベルに進み、ユーザーをサブスクリプションに追加できます。
 
@@ -71,12 +72,12 @@
 
 ![新しいユーザーの役割を選択します。](./media/app-insights-resources-roles-access-control/03-role.png)
 
- ロール| In the resource group
+ロール | In the resource group
 ---|---
- Owner| Can change anything, including user access
- Contributor| Can edit anything, including all resources
- Application Insights Component contributor| Can edit Application Insights resources, web tests and alerts
- Reader| Can view but not change anything
+Owner | Can change anything, including user access
+Contributor | Can edit anything, including all resources
+Application Insights Component contributor | Can edit Application Insights resources, web tests and alerts
+Reader | Can view but not change anything
 
 'Editing' includes creating, deleting and updating:
 
@@ -87,7 +88,8 @@
 
 #### ユーザーを選択する
 
-![新しいユーザーの電子メール アドレスを入力します。 User](./media/app-insights-resources-roles-access-control/04-user.png) を選択します。
+
+![新しいユーザーの電子メール アドレスを入力します。 ユーザーを選択する](./media/app-insights-resources-roles-access-control/04-user.png)
 
 対象のユーザーがディレクトリにない場合、Microsoft アカウントを持つユーザーを招待できます。 
 (Outlook.com、OneDrive、Windows Phone、XBox Live などのサービスを利用している場合、Microsoft アカウントを持っています。)
@@ -96,15 +98,15 @@
 
 ## ユーザーと役割
 
-* [ロール ベースの Azure でのアクセス制御](../role-based-access-control-configure.md)
+* [Azure のロール ベースのアクセス制御](../role-based-access-control-configure.md)
 
 
 
+<!--Link references-->
 
+[account]: https://account.microsoft.com
+[group]: ../azure-preview-portal-using-resource-groups.md
+[portal]: http://portal.azure.com/
+[start]: app-insights-overview.md
 
-
-[account]: https://account.microsoft.com 
-[group]: ../azure-preview-portal-using-resource-groups.md 
-[portal]: http://portal.azure.com/ 
-[start]: app-insights-overview.md 
-
+ 

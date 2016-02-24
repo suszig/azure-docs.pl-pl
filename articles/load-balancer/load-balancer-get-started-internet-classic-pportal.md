@@ -17,7 +17,6 @@
    ms.date="12/07/2015"
    ms.author="joaoma" />
 
-
 # Azure ポータルを使用したインターネットに接続するロード バランサー (クラシック) の作成の開始
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
@@ -26,12 +25,12 @@
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] この記事では、従来のデプロイ モデルについて説明します。 こともできます [インターネットへの Azure リソース マネージャーを使用してロード バランサーを作成する方法について](load-balancer-get-started-internet-arm-ps.md)します。
 
-
+ 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 
 
-## Azure ポータルを使用したロード バランサーのエンドポイントの作成
+## Azure ポータルを使用したロード バランサーのエンドポイントの作成 
 
 Azure ポータルを使用してインターネットに接続するロード バランサー (クラシック) デプロイメント モデルを作成するには、次の手順に従います。
 
@@ -45,7 +44,7 @@ Azure ポータルを使用してインターネットに接続するロード �
 
 5. 新しいロード バランサーを作成するには、負荷の上部にある [参加] アイコンをクリックして、設定ブレードを分散します。
 
-6. インターネットに接続するロード バランサーでは [負荷分散セット タイプ] に [パブリック] を選択します。
+6. インターネットに接続するロード バランサーでは [負荷分散セット タイプ] に [パブリック] を選択します。 
 
 7. [必要な設定の構成] をクリックし、[負荷分散セットの選択] を開き、[負荷分散セットの作成] をクリックします。
 
@@ -58,16 +57,12 @@ Azure ポータルを使用してインターネットに接続するロード �
 11. [OK] をクリックし、[負荷分散セットの結合] ブレードに戻ります。
 
 12. [OK] をクリックし、[ロード バランサー セット] ブレードに新しいロード バランサー リソースが表示されるのを待ちます。
-
+ 
 ## 次のステップ
 
-[内部ロード バランサーの構成の開始します。](load-balancer-internal-getstarted.md)
+[内部ロード バランサーの構成の開始](load-balancer-internal-getstarted.md)
 
-[ロード バランサー分散モードを構成します。](load-balancer-distribution-mode.md)
+[ロード バランサー分散モードの構成](load-balancer-distribution-mode.md)
 
-[ロード バランサーのアイドル TCP タイムアウト設定を構成します。](load-balancer-tcp-idle-timeout.md)
-
-
-
-
+[ロード バランサーのアイドル TCP タイムアウト設定の構成](load-balancer-tcp-idle-timeout.md)
 

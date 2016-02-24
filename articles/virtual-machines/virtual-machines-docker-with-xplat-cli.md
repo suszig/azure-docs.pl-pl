@@ -16,7 +16,6 @@
     ms.date="09/22/2015"
     ms.author="rasquill"/>
 
-
 # Azure コマンド ライン インターフェイス (Azure CLI) での Docker VM 拡張機能の使用
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーのモデルです。
@@ -26,12 +25,11 @@
 このトピックでは、任意のプラットフォーム上のサービス管理 (asm) モードの Azure CLI から Docker VM 拡張機能を使用して VM を作成する方法について説明します。 [Docker](https://www.docker.com/) を使用する最も一般的な仮想化アプローチの 1 つ [Linux コンテナー](http://en.wikipedia.org/wiki/LXC) のデータの分離と共有リソースでのコンピューティングの手段として仮想マシンではなく。 Docker VM 拡張機能を使用することができます、 [Azure Linux エージェント](virtual-machines-linux-agent-user-guide.md) Azure でのアプリケーションのコンテナーの任意の数をホストする Docker VM を作成します。 コンテナーとその利点に関する概要についてを参照してください、 [Docker 高レベルのホワイト ボード](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)します。
 
 + [Azure で Docker VM 拡張機能を使用する方法]
-+ [仮想マシンは Linux と Windows の拡張機能]
-+ [コンテナーと Azure 用のコンテナー管理リソース]
++ [Linux および Windows 向けの仮想マシン拡張機能]
++ [Azure 向けのコンテナーおよびコンテナー管理リソース]
 + [次のステップ]
 
-## Azure で Docker VM 拡張機能を使用する方法
-
+##Azure で Docker VM 拡張機能を使用する方法
 Azure で Docker VM 拡張機能を使用するには、バージョンをインストールする必要があります、 [Azure コマンド ライン インターフェイス](https://github.com/Azure/azure-sdk-tools-xplat) (Azure CLI) 0.8.6 (この記事の執筆は現在のバージョンは 0.8.10 です)。 Azure CLI は Mac、Linux、Windows のいずれにもインストールできます。
 
 
@@ -45,16 +43,16 @@ Azure 上で Docker を使用するためのプロセスはシンプルです。
 
 ### Azure コマンド ライン インターフェイス (Azure CLI) のインストール
 
-インストールして、Azure cli の次を参照してください。 [Azure コマンド ライン インターフェイスのインストール方法](../xplat-cli-install.md)します。 インストールを確認するには、次のように入力します。 `azure` に使用できる基本的なコマンドを一覧表示するコマンド プロンプトで、しばらく Azure CLI の ASCII アートが表示されます。 インストールが正常である場合を入力する必要がありますできる `azure ヘルプ vm` "docker"が表示されているコマンドのいずれかを確認します。
+インストールして、Azure cli の次を参照してください。 [Azure コマンド ライン インターフェイスのインストール方法](../xplat-cli-install.md)します。 インストールを確認するために、コマンド プロンプトで「`azure`」と入力します。しばらくすると、Azure CLI の ASCII アートが表示され、使用可能な基本コマンドが一覧表示されます。 インストールが正常に行われていれば、「`azure help vm`」と入力したときに、一覧表示されたコマンドに "docker" が含まれています。
+
 > [AZURE.NOTE] Docker は、Windows のセットアップ プログラムは [Boot2Docker](https://docs.docker.com/installation/windows/), 、docker ホストとして Azure Vm と操作に使用できる、docker クライアントの作成を自動化するのにも使用することができます。
 
 ### Azure アカウントへの Azure CLI の接続
-
 Azure CLI を使用する前に、プラットフォーム上で Azure アカウントの資格情報を Azure CLI に関連付ける必要があります。 セクションでは、 [、Azure サブスクリプションに接続する方法](../xplat-cli-connect.md) ダウンロードしてインポートする方法について説明して **.publishsettings** ファイルまたは Azure cli コマンドラインを組織 id に関連付けます。
-> [AZURE.NOTE] 使用する認証方法によって動作に若干の違いがあるため、必ず前述のドキュメントをよく読んで、機能の違いを理解してください。
+
+> [AZURE.NOTE] 動作に若干の違いがあるため、さまざまな機能を理解して上記のドキュメントを読み取ることを確認する必要は、認証の他のメソッドを使用します。
 
 ### Docker のインストールと Azure 用 Docker VM 拡張機能の使用
-
 次の [Docker のインストール手順](https://docs.docker.com/installation/#installation) Docker をコンピューターにローカルにインストールします。
 
 Azure 仮想マシンで Docker を使用する、VM に使用する Linux イメージにいること、 [Azure Linux VM エージェント](virtual-machines-linux-agent-user-guide.md) をインストールします。 現在、このエージェントを提供するイメージは次の 2 種類のみです。
@@ -69,7 +67,7 @@ bash またはターミナル セッションから、次の Azure CLI コマン
 
 `azure vm image list | grep Ubuntu-14_04`
 
-など、イメージ名のいずれかを選択して `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-en-us-30GB`, 、そのイメージを使用して新しい VM を作成する次のコマンドを使用します。
+`b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-en-us-30GB` など、イメージ名のいずれかを選び、次のコマンドを入力して、そのイメージを使用した新しい VM を作成します。
 
 ```
 azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-en-us-30GB" <username> <password>
@@ -77,26 +75,27 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 
 各値の説明:
 
-+ *<vm-cloudservice name>* は、Azure で Docker コンテナーのホスト コンピューターになる VM の名前です。
++ *& lt; vm cloudservice 名 & gt;* Azure で Docker コンテナー ホスト コンピューターになる VM の名前を指定します。
 
-+  *&lt;username&gt;* は、VM の既定の root ユーザーのユーザー名です。
++  *& lt; ユーザー名 & gt;* 仮想マシンの既定のルート ユーザーの名です。
 
-+ *&lt;password&gt;* は、Azure の複雑さの基準を満たした *username* アカウントのパスワードです。
++ *& lt; password & gt;* パスワード、 *username* を Azure の複雑さの基準を満たしたアカウント
 
-> [AZURE.NOTE] 現時点では、パスワードが、少なくとも 8 文字以上含める必要があります、1 つの小文字と大文字、数字、および次の文字のいずれかなどの特殊文字が含まれて: `! @# $% ^ & + =`します。) を 1 つずつ含める必要があります。ピリオドは特殊文字ではありません。
+> [AZURE.NOTE] 現時点では、パスワードが、少なくとも 8 文字以上含める必要があります、1 つの小文字と大文字、数字、および次の文字のいずれかなどの特殊文字が含まれて: `!@#$%^&+=`です。 ) を 1 つずつ含める必要があります。ピリオドは特殊文字ではありません。
 
 コマンドが正常に実行されると、使用した引数とオプションに応じて、以下のような応答が表示されます。
 
 ![](./media/virtual-machines-docker-with-xplat-cli/dockercreateresults.png)
+
 > [AZURE.NOTE] バーチャル マシンの作成は、数分かかることができますが、後でプロビジョニングされました (状態の値は `ReadyRole`)、Docker デーモン (Docker サービス) が起動し、Docker コンテナー ホストに接続することができます。
 
 Azure 上に作成した Docker VM をテストするために、次のコマンドを入力します。
 
-`docker--tls-h tcp://< vm の名前にする-使用 >. cloudapp.net:2376 情報`
+`docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:2376 info`
 
-ここで *< vm-名前--使用した >* への呼び出しで使用した仮想マシンの名前を指定 `azure vm の docker 作成`します。 以下のような応答が表示されます。Azure 上で Docker ホスト VM が稼働し、コマンドの入力を待機していることが示されています。
+場所 *& lt、vm の名前にする-を使用 & gt;* への呼び出しで使用した仮想マシンの名前を指定 `azure vm docker create`します。 以下のような応答が表示されます。Azure 上で Docker ホスト VM が稼働し、コマンドの入力を待機していることが示されています。 
 
-これで、情報を取得する docker クライアントを使用して接続しようとすることができます (を mac の場合など、いくつかの Docker クライアント設定では、使用する必要あります `sudo`)。
+これで、Docker クライアントを使用して接続し、情報を取得しようとすることができます (Mac の場合など、一部の Docker クライアントのセットアップでは、`sudo` の使用が必要になる場合があります)。
 
     sudo docker --tls -H tcp://testsshasm.cloudapp.net:2376 info
     Password:
@@ -140,39 +139,44 @@ Azure 上に作成した Docker VM をテストするために、次のコマン
 
 ### Docker ホスト VM の認証
 
-Docker VM を作成するだけでなく、 `azure vm の docker 作成` コマンドは、Docker クライアント コンピューターは、HTTPS を介して Azure コンテナー ホストに接続を許可するように必要な証明書も自動的に作成し、必要に応じて、クライアントとホストの両方のマシンに証明書も格納します。 これ以降に実行しようとすると、既存の証明書が再利用され、新しいホストと共有されます。
+コマンド `azure vm docker create` では、Docker VM の作成に加えて、必要な証明書も自動的に作成されます。Docker クライアント コンピューターは、この証明書を使用することで、HTTPS を介して Azure コンテナー ホストに接続できます。証明書は必要に応じてクライアントとホスト マシンのどちらにも格納されます。 これ以降に実行しようとすると、既存の証明書が再利用され、新しいホストと共有されます。
 
-既定では、証明書に `~/.docker`, 、Docker は、ポート上で実行するように構成されます **2376年**します。 別のポートやディレクトリを使用したいかどうかは、次のいずれかを使用することがあります `azure vm の docker 作成` コマンド ライン オプションを Docker コンテナーを構成するのには、クライアント接続に別のポートや別の証明書を使用する VM をホストします。
+既定では、証明書に `~/.docker`, 、Docker は、ポート上で実行するように構成されます **2376年**します。 別のポートやディレクトリを使用する場合は、以下の `azure vm docker create` コマンド ライン オプションのいずれかを使用して、Docker コンテナー ホスト VM がクライアントとの接続に別のポートや証明書を使用するよう構成できます。
 
 ```
 -dp, --docker-port [port]              Port to use for docker [2376]
 -dc, --docker-cert-dir [dir]           Directory containing docker certs [.docker/]
 ```
 
-リッスンし生成される証明書を使用して指定されたポートでクライアント接続を認証するホストの Docker デーモンが構成されている、 `azure vm の docker 作成` コマンドです。 クライアント コンピューターには、Docker ホストにアクセスできるように、これらの証明書が配置されている必要があります。
-> [AZURE.NOTE] ネットワークに接続されたホストにこれらの証明書がない場合は、コンピューターに接続できる第三者に対して脆弱になります。 既定の構成を変更する前に、コンピューターやアプリケーションに対するリスクについてよく理解してください。
+ホストの Docker デーモンは、`azure vm docker create` コマンドで生成された証明書を使用して、指定されたポートでクライアント接続をリッスンし、認証するよう構成されています。 クライアント コンピューターには、Docker ホストにアクセスできるように、これらの証明書が配置されている必要があります。
+
+> [AZURE.NOTE] これらの証明書がないネットワークに接続されたホストは、コンピューターに接続できる第三者に対して脆弱になります。 既定の構成を変更する前に、コンピューターやアプリケーションに対するリスクについてよく理解してください。
 
 ## 次のステップ
 
-[Docker ユーザー ガイド] に移動し、Docker VM の使用準備ができました。 新しいポータルで Docker 対応 VM を作成するには、[ポータルで Docker VM 拡張機能を使用する方法] を参照してください。
+移動する準備ができたら、 [Docker User Guide] Docker VM を使用します。 新しいポータルで Docker 対応 VM を作成するには、[ポータルで Docker VM 拡張機能を使用する方法] を参照してください。
+
+<!--Anchors-->
+[Subheading 1]: #subheading-1
+[Subheading 2]: #subheading-2
+[Subheading 3]: #subheading-3
+[Next steps]: #next-steps
+
+[How to use the Docker VM Extension with Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
+[Virtual Machine Extensions for Linux and Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
+[Container and Container Management Resources for Azure]: #Container-and-Container-Management-Resources-for-Azure
+
+<!--Image references-->
+[5]: ./media/markdown-template-for-new-articles/octocats.png
+[6]: ./media/markdown-template-for-new-articles/pretty49.png
+[7]: ./media/markdown-template-for-new-articles/channel-9.png
 
 
+<!--Link references-->
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
+[How to use the Docker VM Extension with the Portal]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 
-
-
-[subheading 1]: #subheading-1 
-[subheading 2]: #subheading-2 
-[subheading 3]: #subheading-3 
-[next steps]: #next-steps 
-[how to use the docker vm extension with azure]: #How-to-use-the-Docker-VM-Extension-with-Azure 
-[virtual machine extensions for linux and windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows 
-[container and container management resources for azure]: #Container-and-Container-Management-Resources-for-Azure 
-[5]: ./media/markdown-template-for-new-articles/octocats.png 
-[6]: ./media/markdown-template-for-new-articles/pretty49.png 
-[7]: ./media/markdown-template-for-new-articles/channel-9.png 
-[link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md 
-[link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md 
-[link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md 
-[how to use the docker vm extension with the portal]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/ 
-[docker user guide]: https://docs.docker.com/userguide/ 
-
+[Docker User Guide]: https://docs.docker.com/userguide/
+ 

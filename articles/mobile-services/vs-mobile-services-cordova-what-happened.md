@@ -16,20 +16,19 @@
     ms.date="09/17/2015" 
     ms.author="tarcher"/>
 
-
 # Visual Studio 接続済みサービスを使用して Azure Mobile Services を追加したことによる Azure Cordova プロジェクトへの影響
 
 > [AZURE.SELECTOR]
-> - [作業の開始](vs-mobile-services-cordova-getting-started.md)
+> - [Getting Started (概要)](vs-mobile-services-cordova-getting-started.md)
 > - [変更内容](vs-mobile-services-cordova-what-happened.md)
 
-## リファレンスの追加
+##リファレンスの追加
 
 すべてのマルチデバイス ハイブリッド アプリケーションに含まれる Azure Mobile Service のクライアント プラグインが有効になりました。
+  
+##Mobile Services 用の接続文字列の値
 
-## Mobile Services 用の接続文字列の値
-
-`Services \mobileservices\settings`, 、新しい JavaScript (.js) ファイルが、 **MobileServiceClient** が生成された、選択したモバイル サービスのアプリケーション URL とアプリケーション キーを格納しています。 このファイルには、次のようなモバイル サービス クライアント オブジェクトの初期化コードが含まれています。
+ `services\mobileServices\settings`, 、新しい JavaScript (.js) ファイルが、 **MobileServiceClient** が生成された、選択したモバイル サービスのアプリケーション URL とアプリケーション キーを格納しています。 このファイルには、次のようなモバイル サービス クライアント オブジェクトの初期化コードが含まれています。
 
     var mobileServiceClient;
     document.addEventListener("deviceready", function() {
@@ -38,9 +37,5 @@
             "<insert your key>"
         );
 
-[モバイル サービスの詳細についてください。](http://azure.microsoft.com/documentation/services/mobile-services/)
-
-
-
-
+[モバイル サービスの詳細を確認する](http://azure.microsoft.com/documentation/services/mobile-services/) 
 

@@ -16,7 +16,6 @@ ms.service="virtual-machines"
  ms.date="09/28/2015"
  ms.author="danlep"/>
 
-
 # クラスター ワークロードに合わせ、HPC Pack クラスターで Azure コンピューティング リソースを自動的に拡大縮小します。
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーのモデルです。
@@ -30,20 +29,22 @@ Azure リソースをより効率的に使用し、そのコストを制御し�
 これを行うを使用して、
 **AzureAutoGrowShrink.ps1** と共にインストールされている HPC PowerShell スクリプト
 HPC Pack。
+
 >[AZURE.TIP] HPC Pack 2012 R2 Update 2 以降、HPC Pack には、組み込みが含まれます
 サービスを自動的に拡大および縮小 Azure バースト ノードまたは
-Azure VM はコンピューティング ノードです。 [HPC 内の設定で、サービスを構成します。
-IaaS 展開 script](virtual-machines-hpcpack-cluster-powershell-script.md) をパックまたは手動で設定、 **AutoGrowShrink** クラスター
-プロパティから取得) で呼び出すことで、通知を送信します。 [の新機能 Microsoft HPC Pack 2012 R2 更新プログラムを参照してください。
-2] (https://technet.microsoft.com/library/mt269417.aspx)。
+Azure VM はコンピューティング ノードです。 内の設定で、サービスの構成、 [HPC
+IaaS デプロイ スクリプトをパック](virtual-machines-hpcpack-cluster-powershell-script.md) か、または手動で設定、 **AutoGrowShrink** クラスター
+プロパティから取得) で呼び出すことで、通知を送信します。 参照してください [Microsoft HPC Pack 2012 R2 更新プログラムの新機能
+2](https://technet.microsoft.com/library/mt269417.aspx).
 
 ## 前提条件
 
-* **HPC Pack 2012 R2 更新プログラム 1 以降のクラスター** - **AzureAutoGrowShrink.ps1** スクリプトが %CCP_HOME%bin フォルダーにインストールされています。 クラスターのヘッド ノードはオンプレミスにするか、Azure VM に配置できます。 参照してください [HPC Pack 使用したハイブリッド クラスターをセットアップ](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) の内部設置型ヘッド ノードと Azure「バースト」で開始します。 参照してください、 [HPC Pack IaaS デプロイメント スクリプト](virtual-machines-hpcpack-cluster-powershell-script.md)) をすばやく Azure Vm の HPC Pack クラスターをデプロイします。
+* **HPC Pack 2012 R2 更新プログラム 1 またはそれ以降のクラスター** - **AzureAutoGrowShrink.ps1** スクリプトは、% の %ccp_home%bin フォルダーにインストールします。 クラスターのヘッド ノードはオンプレミスにするか、Azure VM に配置できます。 参照してください [HPC Pack 使用したハイブリッド クラスターをセットアップ](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) の内部設置型ヘッド ノードと Azure「バースト」で開始します。 参照してください、 [HPC Pack IaaS デプロイメント スクリプト](virtual-machines-hpcpack-cluster-powershell-script.md)) をすばやく Azure Vm の HPC Pack クラスターをデプロイします。
 
-* **Azure バースト ノードを含むクラスターの場合** -HPC Pack がインストールされているクライアント コンピューターで、またはヘッド ノードではスクリプトを実行します。 クライアント コンピューターで実行する場合、ヘッド ノードをポイントするように $env:CCP_SCHEDULER 変数を適切に設定します。 Azure の「バースト」ノードをクラスターに追加しておく必要がありますが、「未デプロイ」の状態になっている場合があります。
+* **Azure でクラスターのノードのバースト** -HPC Pack がインストールされているクライアント コンピューターまたはヘッド ノードでスクリプトを実行します。 クライアント コンピューターで実行する場合、ヘッド ノードをポイントするように $env:CCP_SCHEDULER 変数を適切に設定します。 Azure の「バースト」ノードをクラスターに追加しておく必要がありますが、「未デプロイ」の状態になっている場合があります。
 
-* **Azure VM にデプロイされているクラスター** - ヘッド ノード VM でスクリプトを実行します。そこでインストールされている **Start-HpcIaaSNode.ps1** スクリプトと **Stop-HpcIaaSNode.ps1** スクリプトに依存するためです。 これらのスクリプトは、さらに、Azure 管理証明書を要求または、発行設定ファイル (を参照してください [HPC pack コンピューティング ノードの管理は、Azure におけるクラスター](virtual-machines-hpcpack-cluster-node-manage.md))します。 必要なコンピューティング ノード VM がすべてクラスターに追加されていることを確認します。ただし、「停止」状態になっている場合があります。
+
+* **Azure Vm にデプロイされ、クラスターの** -に依存するために、ヘッド ノード VM でスクリプトを実行、 **Start-hpciaasnode.ps1** と **Stop-hpciaasnode.ps1** がインストールされているスクリプトです。 これらのスクリプトは、さらに、Azure 管理証明書を要求または、発行設定ファイル (を参照してください [HPC pack コンピューティング ノードの管理は、Azure におけるクラスター](virtual-machines-hpcpack-cluster-node-manage.md))。 必要なコンピューティング ノード VM がすべてクラスターに追加されていることを確認します。ただし、「停止」状態になっている場合があります。
 
 ## 構文
 
@@ -58,40 +59,41 @@ AzureAutoGrowShrink.ps1
 [[-ShrinkCheckIntervalMins] <Int32>] [[-ShrinkCheckIdleTimes] <Int32>]
 [-UseLastConfigurations] [[-ArgFile] <String>] [[-LogFilePrefix] <String>]
 [<CommonParameters>]
+
 ```
 ## パラメーター
 
- * **NodeTemplates** - ノードを拡大縮小するための範囲を定義するノード テンプレートの名前。 指定されていない場合 (既定値は @() です)、**NodeType** の値が AzureNodes のとき、**AzureNodes** ノード グループのすべてのノードが範囲内となり、**NodeType** の値が ComputeNodes のとき、**ComputeNodes** ノード グループのすべてのノードが範囲内になります。
+ * **NodeTemplates** の拡大および縮小するノードのスコープを定義するノード テンプレートの名前。 指定されていない場合 (既定値は @()) のすべてのノード、 **AzureNodes** ノードのグループがスコープに **NodeType** AzureNodes、およびすべてのノードの値を持つ、 **ComputeNodes** ノードのグループがスコープに **NodeType** が ComputeNodes の値を持ちます。
 
- * **JobTemplates** - ノードを拡大するための範囲を定義するジョブ テンプレートの名前。
+ * **Jobtemplate** -ノードが拡大するのスコープを定義するジョブ テンプレートの名前。
 
  * **NodeType** の拡大および縮小するノードの種類。 サポートされる値は次のとおりです。
 
-     * **AzureNodes** – オンプレミスまたは Azure IaaS クラスターの Azure PaaS (バースト) ノード用。
+     * **AzureNodes** -内部設置型での Azure PaaS (バースト) ノードの場合、または Azure IaaS クラスターです。
 
-     * **ComputeNodes** - Azure IaaS クラスターにのみ存在するコンピューティング ノード VM 用。
+     * **ComputeNodes** : Azure IaaS クラスターにのみコンピューティング ノード Vm のです。
 
-* **NumOfQueuedJobsPerNodeToGrow** - 1 つのノードを拡大するために必要で、キューに登録されたジョブの数。
+* **NumOfQueuedJobsPerNodeToGrow** -1 つのノードを拡張するために必要なキューに置かれたジョブの数。
 
-* **NumOfQueuedJobsToGrowThreshold** - 拡大プロセスを始めるためにキューに登録されたジョブのしきい値数。
+* **NumOfQueuedJobsToGrowThreshold** -拡大プロセスを開始するキューに置かれたジョブの数のしきい値。
 
-* **NumOfActiveQueuedTasksPerNodeToGrow** - 1 つのノードを拡大するために必要で、キューに登録されたアクティブなタスクの数。 **NumOfQueuedJobsPerNodeToGrow** に 0 より大きい値が指定されている場合、このパラメーターは無視されます。
+* **NumOfActiveQueuedTasksPerNodeToGrow** - アクティブの数が、1 つのノードを拡張するために必要なタスクをキューにします。 場合 **NumOfQueuedJobsPerNodeToGrow** 0 より大きい値を指定は、このパラメーターは無視されます。
 
-* **NumOfActiveQueuedTasksToGrowThreshold** - 拡大プロセスを始めるためにキューに登録されたアクティブなタスクのしきい値数。
+* **NumOfActiveQueuedTasksToGrowThreshold**-拡大プロセスを開始するアクティブなキューに置かれたタスクの数のしきい値。
 
-* **NumOfInitialNodesToGrow** - 範囲内の全ノードが「**未デプロイ**」または「**停止 (割り当て解除)**」の場合、拡大するノードの初回最小数。
+* **NumOfInitialNodesToGrow** -ノードがスコープ内のすべてのノードがある場合を拡大する数の初期最小 **未展開** または **停止 (割り当て解除)**します。
 
-* **GrowCheckIntervalMins** - 拡大チェック間の間隔 (分単位)。
+* **GrowCheckIntervalMins** の拡大を確認する間隔を分単位の間隔。
 
-* **ShrinkCheckIntervalMins** - 縮小チェック間の間隔 (分単位)。
+* **ShrinkCheckIntervalMins** ・縮小を確認する間隔を分単位の間隔。
 
-* **ShrinkCheckIdleTimes**- ノードがアイドル状態であることを示す継続的縮小チェックの数 (**ShrinkCheckIntervalMins** で分割)。
+* **ShrinkCheckIdleTimes**-の継続的な縮小のチェック (で区切られた **ShrinkCheckIntervalMins**) をノードがアイドル状態を示します。
 
-* **UseLastConfigurations *** 引数ファイルに保存されている以前の構成。
+* **UseLastConfigurations*** 引数ファイルに保存されている以前の構成。
 
-* **ArgFile** - スクリプトを実行する構成を保存し、更新するための引数ファイルの名前。
+* **ArgFile**-引数ファイルの名前を保存し、スクリプトを実行する構成を更新するために使用します。
 
-* **LogFilePrefix** - ログ ファイルのプレフィックス名。 パスを指定できます。 既定では、ログは現在の作業ディレクトリに書き込まれます。
+* **LogFilePrefix**-ログ ファイルのプレフィックス名。 パスを指定できます。 既定では、ログは現在の作業ディレクトリに書き込まれます。
 
 ### 例 1
 
@@ -124,8 +126,4 @@ AzureAutoGrowShrink.ps1
 ```
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
-
-
-
-
 

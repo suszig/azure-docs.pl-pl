@@ -16,21 +16,18 @@
     ms.date="08/10/2015" 
     ms.author="piyushjo" />
 
-
-# Windows ユニバーサル アプリ SDK のアップグレード手順
+#Windows ユニバーサル アプリ SDK のアップグレード手順
 
 既にアプリケーションに以前のバージョンの Mobile Engagement を統合してある場合は、SDK をアップグレードするときに、次の点を考慮する必要があります。
 
 SDK の一部のバージョンが不足している場合、いくつかの手順に従う必要があることがあります。 たとえば、0.10.1 から 0.11.0 に移行する場合、まず「0.9.0から 0.10.1」への手順を実行してから「0.10.1 から 0.11.0」への手順を実行する必要があります。
 
-## 3.1.0 から 3.2.0 に移行
+##3.1.0 から 3.2.0 に移行
 
 ### リソース
-
 この手順では、カスタマイズされたリソースが問題になります。 SDK 提供のリソース (html、画像、オーバーレイ) をカスタマイズしている場合、アップグレード前にそのリソースをバックアップし、アップグレードしたリソースにカスタマイズを再適用する必要があります。
 
 ### Web ビュー統合 を使用しないでください。
-
 今回のバージョンで、さまざまなデバイス フォーム ファクターに合わせた改善が導入されました。 
 Web ビューの統合が次のようになっていることを確認してください。
 
@@ -47,7 +44,7 @@ XAML の page ():
     using Windows.UI.ViewManagement;
     using Windows.UI.Xaml;
     using Windows.UI.Xaml.Navigation;
-    
+
     namespace My.Namespace.Example
     {
             /// <summary>
@@ -58,25 +55,25 @@ XAML の page ():
               public ExampleEngagementReachPage()
               {
                 this.InitializeComponent();
-    
+            
                 /* Set your webview elements to the correct size. */
                 SetWebView(width, height);
               }
-    
+            
               #region to implement
               /* Attach events when page is navigated. */
               protected override void OnNavigatedTo(NavigationEventArgs e)
               {
                 /* Update the webview when the app window is resized. */
                 Window.Current.SizeChanged += DisplayProperties_OrientationChanged;
-    
+
                 /* Update the webview when the app/status bar is resized. */
     #if WINDOWS_PHONE_APP || WINDOWS_UWP
                 ApplicationView.GetForCurrentView().VisibleBoundsChanged += DisplayProperties_VisibleBoundsChanged; 
     #endif
                 base.OnNavigatedTo(e);
               }
-    
+
               /* When page is left ensure to detach SizeChanged handler. */
               protected override void OnNavigatedFrom(NavigationEventArgs e)
               {
@@ -86,7 +83,7 @@ XAML の page ():
     #endif
                 base.OnNavigatedFrom(e);
               }
-    
+              
               /* "width" and "height" are the current size of your application display. */
     #if WINDOWS_PHONE_APP || WINDOWS_UWP
               double width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
@@ -95,7 +92,7 @@ XAML の page ():
               double width =  Window.Current.Bounds.Width;
               double height =  Window.Current.Bounds.Height;
     #endif
-    
+            
               /// <summary>
               /// Set your webview elements to the correct size.
               /// </summary>
@@ -112,7 +109,7 @@ XAML の page ():
                           this.engagement_announcement_content.Height = height;
                         });
               }
-    
+            
               /// <summary>
               /// Handler that takes the Windows.Current.SizeChanged and indicates that webviews have to be resized.
               /// </summary>
@@ -122,11 +119,11 @@ XAML の page ():
               {
                 double width = e.Size.Width;
                 double height = e.Size.Height;
-    
+            
                 /* Set your webview elements to the correct size. */
                 SetWebView(width, height);
               }
-    
+
     #if WINDOWS_PHONE_APP || WINDOWS_UWP              
               /// <summary>
               /// Handler that takes the ApplicationView.VisibleBoundsChanged and indicates that webviews have to be resized
@@ -137,7 +134,7 @@ XAML の page ():
               {
                 double width = sender.VisibleBounds.Width;
                 double height = sender.VisibleBounds.Height;
-    
+            
                 /* Set your webview elements to the correct size. */
                 SetWebView(width, height);
               }
@@ -146,15 +143,14 @@ XAML の page ():
             }
     }
 
-## 2.0.0 から 3.0.0 に移行
+##2.0.0 から 3.0.0 に移行
 
 ### リソース
-
 この手順では、カスタマイズされたリソースが問題になります。 SDK 提供のリソース (html、画像、オーバーレイ) をカスタマイズしている場合、アップグレード前にそのリソースをバックアップし、アップグレードしたリソースにカスタマイズを再適用する必要があります。
 
-## 1.1.1 から 2.0.0 に移行
+##1.1.1 から 2.0.0 に移行
 
-Azure Mobile Engagement を使用するアプリに Capptain SAS によって提供される Capptain サービスから SDK の統合を移行する方法を次に示します。
+Azure Mobile Engagement を使用するアプリに Capptain SAS によって提供される Capptain サービスから SDK の統合を移行する方法を次に示します。 
 
 > [Azure.IMPORTANT] Capptain とモバイル エンゲージメントは、同じサービスではないと、次の手順では、クライアント アプリケーションを移行する方法についてのみ詳しく説明します。 アプリで SDK を移行しても、データは Capptain サーバーから Mobile Engagement のサーバーに移行されません。
 
@@ -162,11 +158,11 @@ Azure Mobile Engagement を使用するアプリに Capptain SAS によって提
 
 ### NuGet パッケージ
 
-**Capptain.WindowsPhone** を **MicrosoftAzure.MobileEngagement** Nuget パッケージに置き換えます。
+置換 **Capptain.WindowsPhone** によって **MicrosoftAzure.MobileEngagement** Nuget パッケージ。
 
 ### Mobile Engagement の適用
 
-SDK という用語を使用する `エンゲージメント`します。 この変更を一致させるためにプロジェクトをアップグレードする必要があります。
+SDK は `Engagement` という用語を使用します。 この変更を一致させるためにプロジェクトをアップグレードする必要があります。
 
 現在の Capptain NuGet パッケージをアンインストールする必要があります。 [Capptain Resources] フォルダー内のすべての変更が削除されることを検討します。 これらのファイルを保持する場合は、コピーを作成します。
 
@@ -181,18 +177,18 @@ Capptain リソースをカスタマイズした場合、古いファイルの�
 1. すべての Capptain 名前空間の更新が必要です。
 
     移行前:
-
+    
         using Capptain.Agent;
         using Capptain.Reach;
-
+    
     移行後:
-
+    
         using Microsoft.Azure.Engagement;
 
 2. "Capptain" が含まれているすべての Capptain クラスには、"Engagement" が含まれている必要があります。
 
     移行前:
-
+    
         public sealed partial class MainPage : CapptainPage
         {
           protected override string GetCapptainPageName()
@@ -201,9 +197,9 @@ Capptain リソースをカスタマイズした場合、古いファイルの�
           }
           ...
         }
-
+    
     移行後:
-
+    
         public sealed partial class MainPage : EngagementPage
         {
           protected override string GetEngagementPageName()
@@ -216,15 +212,15 @@ Capptain リソースをカスタマイズした場合、古いファイルの�
 3. xaml ファイルの Capptain 名前空間と属性も変更します。
 
     移行前:
-
+    
         <capptain:CapptainPage
         ...
         xmlns:capptain="clr-namespace:Capptain.Agent;assembly=Capptain.Agent.WP"
         ...
         </capptain:CapptainPage>
-
+    
     移行後:
-
+    
         <engagement:EngagementPage
         ...
         xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
@@ -232,17 +228,17 @@ Capptain リソースをカスタマイズした場合、古いファイルの�
         </engagement:EngagementPage>
 
 4. オーバーレイ ページの変更
-    > [AZURE.IMPORTANT] オーバーレイも変更します。 その新しい名前空間は `付けし、Microsoft.Azure.Engagement.Overlay`します。 xaml と cs ファイルの両方で使用する必要があります。 さらに `CapptainGrid` 付けられる名前 `EngagementGrid`, 、`capptain_notification_content` と `capptain_announcement_content` という名前は `engagement_notification_content` と `engagement_announcement_content`します。
-
+    > [AZURE.IMPORTANT] オーバーレイも変更します。 その新しい名前空間は `Microsoft.Azure.Engagement.Overlay` です。 xaml と cs ファイルの両方で使用する必要があります。 さらに、`CapptainGrid` は `EngagementGrid` と名前が付けられ、`capptain_notification_content` と `capptain_announcement_content` は `engagement_notification_content` と `engagement_announcement_content` と名前が付けられます。
+    
     オーバーレイについて:
-
+    
         <capptain:CapptainPageOverlay
           xmlns:capptain="using:Capptain.Overlay"
           ...
         </capptain:CapptainPageOverlay>
-
+    
     次のようになります:
-
+    
         <EngagementPageOverlay
           engagement="using:Microsoft.Azure.Engagement.Overlay"
           ...
@@ -252,7 +248,7 @@ Capptain リソースをカスタマイズした場合、古いファイルの�
 
 ### プロジェクトの宣言
 
-Package.appxmanifest で `ファイルの種類の関連付け` から更新されています。
+Package.appxmanifest で `File Type Associations` が次から更新されています。
 
  -   engagement\_reach\_content に capptain\_reach\_content
  -   engagement\_log\_file に capptain\_log\_file
@@ -261,11 +257,11 @@ Package.appxmanifest で `ファイルの種類の関連付け` から更新さ�
 
 Engagement は、接続文字列を使用します。 Mobile Engagement でアプリケーション ID と SDK キーを指定する必要はありません。指定する必要があるのは接続文字列のみです。 接続文字列は、EngagementConfiguration ファイルで設定できます。
 
-Engagement の構成を設定できる、 `Resources\EngagementConfiguration.xml` 、プロジェクトのファイルです。
+Engagement の構成は、プロジェクトの `Resources\EngagementConfiguration.xml` ファイルで設定できます。
 
 このファイルを編集して、次の内容を指定します。
 
--   タグの間のアプリケーション接続文字列 `< connectionString >` と `< \connectionString >`します。
+-   `<connectionString>` タグと `<\connectionString>` タグの間のアプリケーション接続文字列。
 
 代わりに指定を実行時に行う場合は、 Engagement エージェントを初期化する前に、次のメソッドを呼び出すことができます。
 
@@ -280,7 +276,7 @@ Engagement の構成を設定できる、 `Resources\EngagementConfiguration.xml
 
 ### 項目名の変更
 
-*capptain* という名前の項目はすべて *engagement* という名前に変更されています。 同様に、*Capptain* は *Engagement* に変更されています。
+という名前のすべての項目 *capptain* 名前が付いている *エンゲージメント*します。 同様に、 *Capptain* に *エンゲージメント*します。
 
 一般的に使用される Capptain 項目の例:
 
@@ -292,8 +288,4 @@ Engagement の構成を設定できる、 `Resources\EngagementConfiguration.xml
 
 名前の変更はオーバーライドされたメソッドにも影響することにご注意ください。
 
-
-
-
-
-
+ 

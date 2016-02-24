@@ -16,12 +16,9 @@
     ms.date="08/17/2015"
     ms.author="saah;kenhoff"/>
 
-
 # 異常なサインイン アクティビティがあるユーザー
-
 これは、ある結合疑わしいソースからのサインイン、次のレポート集計レポートです。
-<ul>
-            <li>不明なソースからのサインイン</li>
+<ul><li>不明なソースからのサインイン</li>
 <li>複数のエラー後のサインイン</li>
 <li>複数の地域からのサインイン</li>
 <li>不審なアクティビティのある IP アドレスからのサインイン</li>
@@ -31,8 +28,4 @@
 
 
 ![異常なサインイン アクティビティがあるユーザー](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
-
-
-
-
 

@@ -1,6 +1,6 @@
 <properties 
     pageTitle="チュートリアル: Application Insights を使用して Microsoft Dynamics CRM を監視する" 
-    description="Application Insights を使用して Microsoft Dynamics CRM Online からテレメトリを取得します。設定、データの取得、視覚化、およびエクスポートをしてみましょう。" 
+    description="Application Insights を使用して Microsoft Dynamics CRM Online からテレメトリを取得します。 設定、データの取得、視覚化、およびエクスポートをしてみましょう。" 
     services="application-insights" 
     documentationCenter=""
     authors="mazharmicrosoft" 
@@ -14,23 +14,23 @@
     ms.topic="article" 
     ms.date="11/17/2015" 
     ms.author="awills"/>
-
-
+ 
 # チュートリアル: Application Insights を使用して Microsoft Dynamics CRM Online のテレメトリを有効にする
 
 この記事から製品利用統計情報データを取得する方法を示します [Microsoft Dynamics CRM Online](https://www.dynamics.com/) を使用して [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/)します。 アプリケーションに Application Insights のスクリプトを追加し、データをキャプチャし、データを視覚化するすべてのプロセスを見てみましょう。
+
 >[AZURE.NOTE] [サンプル ソリューションを参照](https://dynamicsandappinsights.codeplex.com/)します。
 
-## 新規または既存の CRM Online インスタンスに Application Insights を追加する
+## 新規または既存の CRM Online インスタンスに Application Insights を追加する 
 
 アプリケーションを監視するには、アプリケーションに Application Insights SDK を追加します。 SDK にテレメトリを送信する、 [Application Insights ポータル](https://portal.azure.com), 、場所や使用できる、強力な分析ツールおよび診断ツールは、ストレージにデータをエクスポートします。
 
 ### Azure で Application Insights のリソースを作成する
 
-1. 取得 [Microsoft Azure のアカウント](http://azure.com/pricing)します。
+1. 取得 [Microsoft Azure のアカウント](http://azure.com/pricing)します。 
 2. サインイン、 [Azure ポータル](https://portal.azure.com) し、新しい Application Insights リソースを追加します。 これは、データを処理し表示する場所になります。
 
-    ![[+]、](./media/app-insights-sample-mscrm/01.png)
+    ![[+]、[開発者向けサービス]、[Application Insights] をクリックします。](./media/app-insights-sample-mscrm/01.png)
 
     アプリケーションの種類として ASP.NET を選択します。
 
@@ -38,7 +38,7 @@
 
     ![](./media/app-insights-sample-mscrm/03.png)
 
-**このコードのページは開いたまま**、別のブラウザー ウィンドウで次の手順を行います。 このコードはすぐに必要になります。
+**コード ページを開いたまま** 別のブラウザー ウィンドウで次の手順を行います。 このコードはすぐに必要になります。 
 
 ### Microsoft Dynamics CRM で JavaScript の Web リソースを作成する
 
@@ -46,8 +46,9 @@
 2. Microsoft Dynamics CRM で、[設定]、[カスタマイズ]、[システムのカスタマイズ] の順に開きます。
 
     ![](./media/app-insights-sample-mscrm/04.png)
-
+    
     ![](./media/app-insights-sample-mscrm/05.png)
+
 
     ![](./media/app-insights-sample-mscrm/06.png)
 
@@ -55,10 +56,10 @@
 
     ![](./media/app-insights-sample-mscrm/07.png)
 
-    名前を付け、[**スクリプト (JScript)**] を選択してテキスト エディターを開きます。
+    Give it a name, select **Script (JScript)** and open the text editor.
 
     ![](./media/app-insights-sample-mscrm/08.png)
-
+    
 4. Application Insights からコードをコピーします。 コピーの際はスクリプト タグを無視します。 次のスクリーン ショットを参照してください。
 
     ![](./media/app-insights-sample-mscrm/09.png)
@@ -154,13 +155,9 @@
 
 ## 詳細情報
 
-* [Application Insights とは何ですか。](app-insights-overview.md)
-* [Web ページ向けの application Insights](app-insights-javascript.md)
+* [Application Insights とは何か?](app-insights-overview.md)
+* [Web ページ向けの Application Insights](app-insights-javascript.md)
 * [その他のサンプルとチュートリアル](app-insights-code-samples.md)
 
-
-
-
-
-
+ 
 

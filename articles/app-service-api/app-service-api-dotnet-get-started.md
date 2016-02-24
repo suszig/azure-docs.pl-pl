@@ -16,7 +16,6 @@
     ms.date="11/25/2015"
     ms.author="tdykstra"/>
 
-
 # Azure App Service で API Apps と ASP.NET を使用する
 
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
@@ -36,7 +35,7 @@ Azure App Service が備えている機能のうち、API の開発とホステ�
 * API メタデータの統合サポート
 * CORS のサポート
 * 認証と承認のサポート
-
+ 
 このトピックは、これらの機能を紹介するシリーズの第 1 回目となるチュートリアルです。 このチュートリアルでは API のメタデータを中心に説明します。2 回目では CORS について、3 回目と 4 回目では認証と承認について取り上げます。
 
 チュートリアルで紹介する内容は次のとおりです。
@@ -66,7 +65,7 @@ Azure App Service が備えている機能のうち、API の開発とホステ�
 このチュートリアルを完了するには、Azure アカウントが必要です。 そのための方法は次のとおりです。
 
 * [Azure アカウントを無料で開く](/pricing/free-trial/?WT.mc_id=A261C142F)します。 Azure の有料サービスを試用できるクレジットが提供されます。 このクレジットを使い切ってもアカウントは維持されるため、Azure App Service の Web Apps 機能など、無料の Azure サービスと機能を利用できます。
-* [Visual Studio のアクティブ化するサブスクライバーの特典](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)します。 MSDN サブスクリプションにより、有料の Azure サービスを利用できるクレジットが毎月与えられます。
+* [Visual Studio のサブスクライバーの特典を有効に](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)します。 MSDN サブスクリプションにより、有料の Azure サービスを利用できるクレジットが毎月与えられます。
 
 場合は、Azure アカウントにサインアップする前に Azure App Service の使用を開始するには、 [App Service の試用](http://go.microsoft.com/fwlink/?LinkId=523751)します。 App Service で有効期間の短いスターター アプリをすぐに作成するが、クレジット_カードは不要、および契約も必要ありません。
 
@@ -78,17 +77,17 @@ Azure App Service が備えている機能のうち、API の開発とホステ�
 
 このチュートリアルでは、API アプリと web アプリにデプロイするコード、 [Azure-Samples/app-service-api-dotnet-contact-list](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list) GitHub リポジトリ。 ContactsList Visual Studio ソリューションには次のプロジェクトが含まれています。
 
-* **ContactsList.API** - 名前と電子メール アドレスの一覧を返す ASP.NET Web API プロジェクト。 Get メソッドの最初の呼び出しでハードコードされた連絡先が 3 つ返されます。後続の Put、Post、Delete メソッドの呼び出しで変更がローカルの JSON ファイルに保存されます。
-* **ContactsList.MVC** - ContactsList API の ASP.NET MVC クライアント。
-* **ContactsList.Angular** - ContactsList API の単純な AngularJS UI クライアント。 保護されていない (認証のない) API アプリを呼び出す方法を示します。
-* **ContactsList.Angular.AAD** - Azure Active Directory を使用してユーザーを認証する方法を示す AngularJS クライアント。
-* **CompanyContacts.API** - Get 要求に対する応答として連絡先のハードコードされた一覧を返す ASP.NET Web API プロジェクト。 **ContactsList.API** Get メソッドにより呼び出され、サービス間 (サービス プリンシパル) 認証で API を呼び出す方法を示します。
-
-## サンプル アプリケーションのダウンロード
+* **ContactsList.API** -ASP.NET Web API プロジェクト名と電子メール アドレスのリストを返します。 Get メソッドの最初の呼び出しでハードコードされた連絡先が 3 つ返されます。後続の Put、Post、Delete メソッドの呼び出しで変更がローカルの JSON ファイルに保存されます。
+* **ContactsList.MVC** -ContactsList API 用の ASP.NET MVC クライアントです。
+* **ContactsList.Angular** -ContactsList API 用の単純 AngularJS UI クライアントです。 保護されていない (認証のない) API アプリを呼び出す方法を示します。
+* **ContactsList.Angular.AAD** -Azure Active Directory を使用してユーザーを認証する方法を示す、AngularJS クライアントです。
+* **CompanyContacts.API** -ASP.NET Web API プロジェクトを連絡先のハードコードされた一覧を返す Get 要求に応答します。 によって呼び出される、 **ContactsList.API** service サービス (サービス プリンシパル) の認証を使用して、API を呼び出す方法を示すためのメソッドを取得します。
+ 
+## サンプル アプリケーションのダウンロード 
 
 1. ダウンロード、 [Azure-Samples/app-service-api-dotnet-contact-list](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list) リポジトリです。
 
-    実行できます [.zip ファイルをダウンロード](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list/archive/master.zip) またはローカル コンピューターでリポジトリを複製します。
+    実行できます [.zip ファイルをダウンロード](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list/archive/master.zip) またはローカル コンピューターでリポジトリを複製します。 
 
 2. Visual Studio 2015 または 2013 で ContactsList ソリューションを開きます。
 
@@ -96,23 +95,23 @@ Azure App Service が備えている機能のうち、API の開発とホステ�
 
 ## Swagger のメタデータと UI の使用
 
-サポート [Swagger](http://swagger.io/) 2.0 API のメタデータが Azure App Service に組み込まれています。 それぞれの API アプリで、API のメタデータを Swagger の JSON 形式で返す URL エンドポイントを定義できます。 そのエンドポイントから返されたメタデータを使うことで、API の使いやすさに寄与するクライアント コードを生成できます。
+サポート [Swagger](http://swagger.io/) 2.0 API のメタデータが Azure App Service に組み込まれています。 それぞれの API アプリで、API のメタデータを Swagger の JSON 形式で返す URL エンドポイントを定義できます。 そのエンドポイントから返されたメタデータを使うことで、API の使いやすさに寄与するクライアント コードを生成できます。 
 
 このセクションでは、ASP.NET Web API プロジェクトのメタデータを自動的に生成する方法のほか、API テスト ツールの実行について説明します。 これらのタスクではまだ、Azure App Service を使用しません。API Apps でメタデータを活用する方法については後ほど説明します。
 
-ASP.NET Web API プロジェクトに Swagger 2.0 のメタデータを指定するのにはインストール、 [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) NuGet パッケージ。 Swashbuckle はリフレクションを使用し、メタデータを動的に生成します。 Swashbuckle NuGet パッケージはダウンロードした ContactsList.API プロジェクトに既にインストールされています。また、**Azure API アプリ** プロジェクト テンプレートを利用して新しいプロジェクトを作成するとき、既にインストールされています (Visual Studio で **[ファイル]、[新規作成]、[プロジェクト]、[ASP.NET Web アプリケーション]、[Azure API アプリ]** の順にクリック)。
+ASP.NET Web API プロジェクトに Swagger 2.0 のメタデータを指定するのにはインストール、 [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) NuGet パッケージ。 Swashbuckle はリフレクションを使用し、メタデータを動的に生成します。 ダウンロードした ContactsList.API プロジェクトで Swashbuckle NuGet パッケージが既にインストールされているしを使用して新しいプロジェクトを作成するときに既にインストールされて、 **Azure API アプリ** プロジェクト テンプレートです。 (Visual Studio で: **ファイル > 新規 > プロジェクト > ASP.NET Web アプリケーション > Azure API アプリ**.)
 
-チュートリアルのこのセクションでは、生成した Swagger 2.0 メタデータを確認し、Swagger メタデータに基づいてテスト UI を試します。
+チュートリアルのこのセクションでは、生成した Swagger 2.0 メタデータを確認し、Swagger メタデータに基づいてテスト UI を試します。 
 
 2. ContactsList.API プロジェクトをスタートアップ プロジェクトとして設定します。 (CompanyContacts.API プロジェクトではありません。このプロジェクトは後続のチュートリアルで使用します。)
-
+ 
 4. F5 キーを押してデバッグ モードでプロジェクトを実行します。
 
     ブラウザーが開き、403 Forbidden ページが表示されます。
 
     ![](./media/app-service-api-dotnet-get-started/403.png)
 
-12. ブラウザーのアドレス バーに追加 `swagger/ドキュメント/v1` の線、および Return キーを押します。 (Url は、 `http://localhost:51864、swagger、ドキュメント/v1`.)
+12. ブラウザーのアドレス バーで、行の末尾に `swagger/docs/v1` を追加し、Return を押します。 (URL は `http://localhost:51864/swagger/docs/v1` です。)
 
     これは API の Swagger 2.0 JSON メタデータを返すために Swashbuckle で使用される既定の URL です。 Internet Explorer を使用している場合、v1.json ファイルをダウンロードするように求められます。
 
@@ -153,7 +152,7 @@ ASP.NET Web API プロジェクトに Swagger 2.0 のメタデータを指定す
 
 1. ブラウザーを閉じます。
 
-3. **ソリューション エクスプローラー**の ContactsList.API プロジェクトで、*App_Start\SwaggerConfig.cs* ファイルを開き、次のコードまで下にスクロールし、そのコメントを解除します。
+3. ContactsList.API プロジェクトで **ソリューション エクスプ ローラー**, を開き、 *\swaggerconfig.cs* ファイル一覧をスクロールして、次のコードし、[コメント解除します。
 
         /*
             })
@@ -167,25 +166,25 @@ ASP.NET Web API プロジェクトに Swagger 2.0 のメタデータを指定す
 
 5. プロジェクトを再度実行します。
 
-3. ブラウザーのアドレス バーに追加 `swagger` の線、および Return キーを押します。 (Url は、 `http://localhost:51864/swagger`.)
+3. ブラウザーのアドレス バーで、行の末尾に `swagger` を追加し、Return を押します。 (URL は `http://localhost:51864/swagger` です。)
 
-4. Swagger UI ページが表示されたら、**[Contacts]** をクリックし、利用できるメソッドを確認します。
+4. Swagger UI ページが表示されたら、クリックして **連絡先** 利用可能なメソッドを参照します。
 
     ![](./media/app-service-api-dotnet-get-started/contactsmethods.png)
 
-5. **[Get] > [実際に使ってみる]** をクリックします。
+5. クリックして **取得 > 試してみる**します。
 
     Swagger UI が ContactsList Get メソッドを呼び出し、JSON 結果を表示します。
 
     ![](./media/app-service-api-dotnet-get-started/gettryitout.png)
 
-6. **[Post]** をクリックし、**[モデル スキーマ]** の下にあるボックスをクリックします。
+6. クリックして **Post**, 、下のテキスト ボックスをクリックして **モデル スキーマ**します。
 
     モデル スキーマをクリックすると、入力ボックスに事前入力されます。このボックスには、Post メソッドのパラメーター値を指定できます。
 
     ![](./media/app-service-api-dotnet-get-started/post.png)
 
-7. JSON を変更する、 `にお問い合わせください` パラメーターは、次の例のように見えるようにをボックスにするか、独自の名前と電子メール アドレスを置き換えるを入力します。
+7. 次の例のように `contact` パラメーター入力ボックスで JSON を変更するか、自分の名前と電子メール アドレスを代わりに指定します。
 
         {
           "CreatedBy": "",
@@ -194,85 +193,85 @@ ASP.NET Web API プロジェクトに Swagger 2.0 のメタデータを指定す
           "Name": "Alexander Carson"
         } 
 
-10. **[試してみる]** をクリックします。
+10. クリックして **試してみる**します。
 
     ContactsList API は HTTP 200 と応答本文を返し、追加内容を確認します。
 
-11. **[Get]、[実際に使ってみる]** を順にクリックします。
+11. クリックして **取得 > 試してみる**します。
 
-    Get メソッドの応答に新しい連絡先が含まれます。
+    Get メソッドの応答に新しい連絡先が含まれます。 
 
 12. Put、Delete、Get by ID メソッドも試し、ブラウザーを閉じます。
 
-Swashbuckle はあらゆる ASP.NET Web API プロジェクトで利用できます。 Swagger メタデータ生成を既存のプロジェクトに追加する場合、Swashbuckle パッケージをインストールします。 App Service API アプリとしてデプロイするプロジェクトを新規作成する場合、ASP.NET **Azure API App** プロジェクト テンプレート (下図) を使用します。
+Swashbuckle はあらゆる ASP.NET Web API プロジェクトで利用できます。 Swagger メタデータ生成を既存のプロジェクトに追加する場合、Swashbuckle パッケージをインストールします。 App Service の API アプリとしてデプロイする新しいプロジェクトを作成する場合は、ASP.NET を使用して **Azure API アプリ** プロジェクト テンプレートを次の図に示すようにします。
 
 ![](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
 そのテンプレートにより、Swashbuckle がインストールされた Web API プロジェクトが作成されます。
 
-**注:** 既定では、コントローラー メソッドに対して重複する Swagger 操作 ID が Swashbuckle によって生成される場合があります。 これは、コント ローラーがオーバー ロードされた HTTP メソッド、たとえば場合: `Get()` と `Get(id)`します。 オーバー ロードを処理する方法については、次を参照してください。 [をカスタマイズする Swashbuckle で生成された API 定義](app-service-api-dotnet-swashbuckle-customize.md)します。 Visual Studio から Azure API アプリ テンプレートを使って Web API プロジェクトを作成した場合、一意の操作 ID を生成するコードが *SwaggerConfig.cs* ファイルに自動的に追加されます。
+**注:** 既定では、Swashbuckle がコント ローラー メソッドの Swagger 操作 Id の重複を生成します。 この現象は、コントローラーに HTTP メソッドのオーバーロード (`Get()` と `Get(id)` など) が存在すると発生します。 オーバー ロードを処理する方法については、次を参照してください。 [をカスタマイズする Swashbuckle で生成された API 定義](app-service-api-dotnet-swashbuckle-customize.md)します。 Visual Studio で Web API プロジェクトを作成するには、Azure API アプリ テンプレートを使用して、一意の操作 Id を生成するコードが自動的に追加する、 *SwaggerConfig.cs* ファイルです。  
 
 ## Azure で API アプリを作成し、それに ContactsList.API プロジェクトをデプロイする
 
-このセクションでは、Visual Studio の **Web の発行**ウィザードに統合されている Azure ツールを使用し、Azure で新しい API アプリを作成します。 次に、ContactsList.API プロジェクトを新しい API アプリにデプロイし、もう一度、今度はクラウドで実行中に Swagger UI を実行して API を呼び出します。
+このセクションでは、Visual Studio に統合されている Azure のツールを使用 **Web の発行** Azure で新しい API アプリを作成するウィザード。 次に、ContactsList.API プロジェクトを新しい API アプリにデプロイし、もう一度、今度はクラウドで実行中に Swagger UI を実行して API を呼び出します。
 
-1. **ソリューション エクスプローラー**で ContactsList.API プロジェクトを右クリックし、**[発行]** をクリックします。
+1.  **ソリューション エクスプ ローラー**, を ContactsList.API プロジェクトを右クリックして、クリックして **発行**します。
 
-3.  **Web の発行**ウィザードの **[プロファイル]** ステップで、**[Microsoft Azure App Service]** をクリックします。
+3.   **プロファイル** のステップ、 **Web の発行** ウィザード] をクリックして **Microsoft Azure App Service**します。
 
     ![](./media/app-service-api-dotnet-get-started/selectappservice.png)
 
 4. まだ行っていない場合は Azure アカウントにサインインし、有効期限が切れている場合は資格情報を更新します。
 
-4. [App Service] ダイアログ ボックスで、使用する Azure **サブスクリプション**を選択して、**[新規]** をクリックします。
+4. App Service] ダイアログ ボックスで、Azure を選択して **サブスクリプション** を使用し、をクリックする **新規**します。
 
     ![](./media/app-service-api-dotnet-get-started/clicknew.png)
 
-3. **[App Service の作成]** ダイアログ ボックスの **[ホスティング]** タブで、**[種類の変更]**、**[API アプリ]** を順にクリックします。
+3.  **ホスティング** のタブ、 **App Service の作成** ダイアログ ボックスで、をクリックして **の種類の変更**, 、順にクリック **API アプリ**します。
 
     ![](./media/app-service-api-dotnet-get-started/apptype.png)
 
-4. *azurewebsites.net* ドメインに固有の **API アプリ名**を入力します。
+4. 入力、 **API アプリの名前** 内で一意である、 *azurewebsites.net* ドメイン。 
 
-    Visual Studio により、プロジェクト名に date-time 文字列が追加された一意の名前が提案されます。 その名前で問題なければ、それを利用して構いません。
+    Visual Studio により、プロジェクト名に date-time 文字列が追加された一意の名前が提案されます。  その名前で問題なければ、それを利用して構いません。 
 
     入力した名前が既に使用されている場合は、右側に緑色のチェック マークではなく赤色の感嘆符が表示されます。この場合、別の名前を入力する必要があります。
 
-    Azure では、この名前がアプリケーションの URL のプレフィックスとして使用されます。 URL 全体は、この名前に *.azurewebsites.net* を追加して構成されます。 たとえば、名前が `ContactsListAPI`, 、url は、 `contactslistapi.azurewebsites.net`します。
+    Azure では、この名前がアプリケーションの URL のプレフィックスとして使用されます。 この名前と完全な URL では *. azurewebsites.net*します。 たとえば、名前が `ContactsListAPI` である場合、URL は `contactslistapi.azurewebsites.net` です。
 
-6. **[リソース グループ]** ドロップダウンに「ContactsListGroup」と入力するか、別の名前を入力します。
+6.  **リソース グループ** ドロップダウン リストで、したい場合は、"ContactsListGroup"または別の名前を入力してください。
 
     このボックスでは、既存を選択できます。 [リソース グループ](../azure-preview-portal-using-resource-groups.md) か、サブスクリプション内の既存のリソース グループとは異なる名前を入力して新しいものを作成します。
 
     このチュートリアルでは、新しいリソース グループを作成すると便利です。チュートリアルのために作成したすべての Azure リソースを 1 回の手順で簡単に削除できるからです。
 
-4. **[App Service プラン]** ドロップダウンの隣にある **[新規]** ボタンをクリックします。
+4. クリックして、 **新規** ボックスの横に、 **App Service プラン** ボックスの一覧です。 
 
     ![](./media/app-service-api-dotnet-get-started/createas.png)
 
     App Service プランについては、次を参照してください。 [App Service プランの概要](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)します。
 
-5. **[App Service プランの構成]** ダイアログに「ContactsListPlan」と入力するか、別の名前を入力します。
+5.  **App Service プランの構成** ダイアログ ボックスで、したい場合は、"ContactsListPlan"または別の名前を入力してください。
 
-5. **[場所]** ドロップダウン リストで、現在の所在地に最も近い場所を選択します。
+5.  **場所** ドロップダウン リストで、地に最も近い場所を選択します。
 
-    この設定によって、アプリが実行される Azure データ センターが指定されます。このチュートリアルでは、任意のリージョンを選択することができます。任意のリージョンを選択しても、大きな違いはありません。最小化するためにアクセスするクライアントにできるだけ近くにサーバーを選択して、運用アプリケーションが、 [遅延](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090)します。
+    この設定によって、アプリが実行される Azure データ センターが指定されます。 このチュートリアルでは、任意のリージョンを選択することができます。任意のリージョンを選択しても、大きな違いはありません。 最小化するためにアクセスするクライアントにできるだけ近くにサーバーを選択して、運用アプリケーションが、 [遅延](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090)します。
 
-5. **[サイズ]** ドロップダウンで、**[Free]** をクリックします。
+5.  **サイズ** ボックスの一覧をクリックして **Free**します。
 
     無料の価格レベルでこのチュートリアルに十分な性能が提供されます。
 
-6. **[App Service プランの構成]** ダイアログで、**[OK]** をクリックします。
+6.  **App Service プランの構成** ダイアログ ボックスで、をクリックして **[ok]**します。
 
     ![](./media/app-service-api-dotnet-get-started/configasp.png)
 
-7. **[App Service の作成]** ダイアログ ボックスで、**[作成]** をクリックします。
+7.  **App Service の作成** ダイアログ ボックスで、をクリックして **作成**します。
 
-    Visual Studio を使うと、API アプリが作成され、新しい API アプリに必要なすべての設定が含まれる発行プロファイルが作成されます。 次の手順では、新しい発行プロファイルを使用し、プロジェクトをデプロイします。
+    Visual Studio を使うと、API アプリが作成され、新しい API アプリに必要なすべての設定が含まれる発行プロファイルが作成されます。 次の手順では、新しい発行プロファイルを使用し、プロジェクトをデプロイします。 
+ 
+    **注:** を Azure App Service で API アプリを作成するには、その他の方法があります。 Visual Studio では、新しいプロジェクトを作成するとき、同じダイアログが利用できます。 Azure ポータルを使用して、API アプリを作成することも [Windows PowerShell 用の Azure コマンドレット](../powershell-install-configure.md), 、または [クロスプラット フォーム コマンド ライン インターフェイス](../xplat-cli.md)します。
 
-    **注:** Azure App Service で API アプリを作成する方法は他にもあります。 Visual Studio では、新しいプロジェクトを作成するとき、同じダイアログが利用できます。 Azure ポータルを使用して、API アプリを作成することも [Windows PowerShell 用の Azure コマンドレット](../powershell-install-configure.md), 、または [クロスプラット フォーム コマンド ライン インターフェイス](../xplat-cli.md)します。
-
-8. **Web の発行**ウィザードの **[接続]** タブで、**[発行]** をクリックします。
+8.  **接続** のタブ、 **Web の発行** ウィザード] をクリックして **発行**します。
 
     ![](./media/app-service-api-dotnet-get-started/clickpublish.png)
 
@@ -280,37 +279,37 @@ Swashbuckle はあらゆる ASP.NET Web API プロジェクトで利用できま
 
     ![](./media/app-service-api-dotnet-get-started/appcreated.png)
 
-11. ブラウザーのアドレス バーの URL に「swagger」を追加し、Enter キーを押します。 (Url は、 `http://{apiappname}.azurewebsites.net/swagger`.)
+11. ブラウザーのアドレス バーの URL に「swagger」を追加し、Enter キーを押します。 (URL は `http://{apiappname}.azurewebsites.net/swagger` です。)
 
     ブラウザーに前に見た Swagger UI が表示されますが、今度はクラウドで実行しています。 Get メソッドを試してみます。既定の 3 件の連絡先に戻ります。先に行った変更がローカル ファイルに保存されたためです。これから行う変更は Azure API アプリのファイル システムに保存されます。
 
 12. 開いている、 [Azure ポータル](https://portal.azure.com/)します。
-
-14. **[参照]、[API Apps]、{新しい API アプリ}** の順にクリックします。
+ 
+14. クリックして **参照 > API Apps > {新しい API アプリ}**します。
 
     ![](./media/app-service-api-dotnet-get-started/choosenewapiappinportal.png)
 
-16. **[設定]** をクリックします。次に、**[設定]** ブレードで API セクションを見つけ、**[API 定義]** をクリックします。
+16. をクリックして **設定**, 、し、次に、 **設定** ブレードは、API のセクションを検索してクリックして **API の定義**します。 
 
     ![](./media/app-service-api-dotnet-get-started/apidefinsettings.png)
 
-    API 定義ブレードでは、JSON 形式で Swagger 2.0 メタデータを返す URL を指定できます。 Visual Studio では、API アプリを作成するときは、API が、既定値に API 定義の URL を設定アプリのベース URL プラス `/swagger/docs/v1`します。
+    API 定義ブレードでは、JSON 形式で Swagger 2.0 メタデータを返す URL を指定できます。 Visual Studio により API アプリが作成されるとき、先に見た既定値 (API アプリの基礎 URL + `/swagger/docs/v1`) に API 定義 URL が設定されます。 
 
     ![](./media/app-service-api-dotnet-get-started/apidefurl.png)
 
-    クライアント コードを生成する API アプリを選択するとき、Visual Studio はこの URL からメタデータを取得します。
+    クライアント コードを生成する API アプリを選択するとき、Visual Studio はこの URL からメタデータを取得します。 
 
 ### Azure リソース マネージャーのツールにおける API 定義 URL
 
-Azure リソース マネージャーの Azure PowerShell、CLI などのツールを使用して、API アプリの API 定義の URL を構成することも、または [リソース エクスプ ローラー](https://resources.azure.com/)します。
+Azure リソース マネージャーの Azure PowerShell、CLI などのツールを使用して、API アプリの API 定義の URL を構成することも、または [リソース エクスプ ローラー](https://resources.azure.com/)します。 
 
-設定、 `apiDefinition` Microsoft.Web/sites/config リソースの種類のプロパティ、 <site name>]、[web リソースです。たとえば、**リソース エクスプローラー**から **[subscriptions]、{該当するサブスクリプション}、[resourceGroups]、{該当するリソース グループ}、[providers]、[Microsoft.Web]、[sites]、{該当サイト}、[config]、[web]** の順に移動すると、cors プロパティが表示されます。
+`apiDefinition` プロパティは、<site name>/web リソースの Microsoft.Web/sites/config リソース タイプで設定します。 たとえば、 **リソース エクスプ ローラー**, には、 **サブスクリプション > {サブスクリプション} > resourceGroups > {リソース グループ} > プロバイダー > Microsoft.Web > サイト > {ƒtƒcƒg} > 構成 > web**, と cors のプロパティが表示されます。
 
         "apiDefinition": {
           "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"
         }
 
-## <a id="codegen"></a> 生成されたクライアント コードを使用して .NET クライアントから使用します。
+## <a id="codegen"></a> 生成されたクライアント コードを使用して .NET クライアントから使用します。 
 
 Azure API アプリと Swagger の統合の利点の 1 つは、自動コード生成です。 生成されたクライアント クラスにより、API アプリを呼び出すコードの記述が容易になります。
 
@@ -322,63 +321,63 @@ API アプリのクライアント コードは、Visual Studio を使用して�
 
 ContactsList.MVC プロジェクトによりクライアント コードが既に生成されていますが、それを削除して再生成し、独自の API アプリの URL を既定のターゲット URL にできます。
 
-1. Visual Studio の**ソリューション エクスプローラー**の ContactsList.MVC プロジェクトで、*ContactsList.API* フォルダーを削除します。
+1. Visual Studio で **ソリューション エクスプ ローラー**, 、ContactsList.MVC プロジェクトで、削除、 *ContactsList.API* フォルダーです。
 
     このフォルダーは、今まさに行おうとしているコード生成プロセスを使って作成されたものです。
 
     ![](./media/app-service-api-dotnet-get-started/deletecodegen.png)
 
-2. ContactsList.MVC プロジェクトを右クリックし、**[追加]、[REST API クライアント]** を順にクリックします。
+2. ContactsList.MVC プロジェクトを右クリックし、 **追加 > REST API クライアント**です。
 
     ![](./media/app-service-api-dotnet-get-started/codegenmenu.png)
 
-3. **[REST API クライアントの追加]** ダイアログ ボックスで、**[Microsoft Azure API アプリからダウンロード]**、**[参照]** を順にクリックします。
+3.  **REST APi のクライアントの追加** ダイアログ ボックスで、をクリックして **Microsoft Azure API アプリからダウンロード**, 、] をクリックし、 **参照**します。
 
     ![](./media/app-service-api-dotnet-get-started/codegenbrowse.png)
 
-8. **[App Service]** ダイアログ ボックスで、**[ContactsListGroup]** リソース グループを展開し、API アプリを選択して、**[OK]** をクリックします。
+8.  **App Service** ] ダイアログ ボックスで、展開、 **ContactsListGroup** リソースをグループ化し、API アプリを選択し、クリックして **OK**します。
 
     このダイアログ ボックスでは、API アプリが多すぎてスクロールできない場合、いくつかの方法で一覧の API アプリを整理できます。 検索文字列を入力し、名前で API アプリを絞り込むこともできます。
 
     ![](./media/app-service-api-dotnet-get-started/codegenselect.png)
 
-    API アプリが一覧に表示されない場合、API アプリを作成するときに、アプリの種類を (Web アプリから API アプリに) 変更する手順を誤って省略した可能性があります。 その場合は、先行する手順をやり直して新しい API アプリを作成してください。 API アプリに別の名前を選択する必要があります。または、ポータルに移動して先に Web アプリを削除しておいてください。
+    API アプリが一覧に表示されない場合、API アプリを作成するときに、アプリの種類を (Web アプリから API アプリに) 変更する手順を誤って省略した可能性があります。 その場合は、先行する手順をやり直して新しい API アプリを作成してください。 API アプリに別の名前を選択する必要があります。または、ポータルに移動して先に Web アプリを削除しておいてください。 
 
-    **[REST API クライアントの追加]** ダイアログに戻ると、ポータルで先に見た API 定義 URL 値がテキスト ボックスに入力されていることに注意してください。
+    戻ると、 **REST API のクライアントの追加** ダイアログ ボックスで、テキスト ボックスのデータが、ポータルの前に紹介した API の定義の URL の値が格納されました。 
 
     ![](./media/app-service-api-dotnet-get-started/codegenurlplugged.png)
 
     代替として、参照ダイアログを利用する代わりに URL を直接入力できます。 たとえば、API を Web アプリにデプロイしたとき、それが参照ダイアログに表示されない場合、Swagger メタデータを返す URL をここに直接入力できます。
 
-    **[既存の Swagger メタデータを選択する]** オプションにも注目してください。 Azure にデプロイする前にコードを生成する場合、ローカルで実行し、Swagger JSON ファイルをダウンロードし、それをここで選択できます。
+    また、 **既存の Swagger メタデータ ファイルを選択** オプション。 Azure にデプロイする前にコードを生成する場合、ローカルで実行し、Swagger JSON ファイルをダウンロードし、それをここで選択できます。 
 
-9. **[REST API クライアントの追加]** ダイアログ ボックスで **[OK]** をクリックします。
+9.  **REST API のクライアントの追加** ダイアログ ボックスで、をクリックして **OK**します。
 
     Visual Studio が API アプリを元に命名したフォルダーを作成し、クライアント クラスを生成します。
 
     ![](./media/app-service-api-dotnet-get-started/codegenfiles.png)
 
-5. *Controllers\ContactsController.cs* を開き、生成したクライアントで API を呼び出すコードを確認します。
+5. 開いている *Controllers\ContactsController.cs* 、生成されたクライアントを使用して、API を呼び出すコードを表示します。 
 
- 次のスニペットは、クライアント オブジェクトをインスタンス化し、Get メソッドを呼び出す方法を示しています。
+    次のスニペットは、クライアント オブジェクトをインスタンス化し、Get メソッドを呼び出す方法を示しています。
 
-     private ContactsListAPI db = new ContactsListAPI(new Uri("http://localhost:51864"));
-    
-     public ActionResult Index()
-     {
-         return View(db.Contacts.Get());
-     }
+        private ContactsListAPI db = new ContactsListAPI(new Uri("http://localhost:51864"));
+        
+        public ActionResult Index()
+        {
+            return View(db.Contacts.Get());
+        }
 
- このコードにより、クライアント クラス コンストラクターへの API プロジェクトのローカル IIS Express URL に渡されるので、MVC Web プロジェクトと API プロジェクトをローカルで実行できます。 コンストラクター パラメーターを省略した場合、既定のエンドポイントはコードの生成元の URL です。
+    このコードにより、クライアント クラス コンストラクターへの API プロジェクトのローカル IIS Express URL に渡されるので、MVC Web プロジェクトと API プロジェクトをローカルで実行できます。 コンストラクター パラメーターを省略した場合、既定のエンドポイントはコードの生成元の URL です。 
 
 6. クライアント クラスは API アプリ名に基づく別の名前で生成されます。型名がプロジェクトで生成されたものに一致するようにこのコードを変更します。 たとえば、API アプリに ContactsListAPIContoso という名前を付けた場合、コードは次のようになります。
 
-     private ContactsListAPIContoso db = new ContactsListAPIContoso(new Uri("http://localhost:51864"));
-    
-     public ActionResult Index()
-     {
-         return View(db.Contacts.Get());
-     }
+        private ContactsListAPIContoso db = new ContactsListAPIContoso(new Uri("http://localhost:51864"));
+        
+        public ActionResult Index()
+        {
+            return View(db.Contacts.Get());
+        }
 
 7. ソリューションをビルドします。
 
@@ -386,13 +385,13 @@ MVC プロジェクトのコントローラーとビューは、Entity Framework
 
 ### ローカルで実行する
 
-1. ContactsList.API の開始時、ContactsList.MVC の前に、ContactsList.API および ContactsList.MVC プロジェクトをスタートアップ プロジェクトとして設定します。 (ソリューションを右クリックし、**[プロパティ]** をクリックし、**[マルチ スタートアップ プロジェクト]** をクリックし、各プロジェクトを **[開始]** に設定します。 上/下矢印アイコンを使用し、ContactsList.API をリストの最初にします。)
+1. ContactsList.API の開始時、ContactsList.MVC の前に、ContactsList.API および ContactsList.MVC プロジェクトをスタートアップ プロジェクトとして設定します。 (ソリューションを右クリックし、クリックして **プロパティ**, 、] をクリックして **マルチ スタートアップ プロジェクト**, 、各プロジェクトに設定し、 **開始**します。 上/下矢印アイコンを使用し、ContactsList.API をリストの最初にします。) 
 
 2. F5 キーを押してプロジェクトを開始します。
 
     1 つのブラウザーに API の 403 ページが表示され、別のブラウザーに MVC アプリのホーム ページが表示されます。
 
-3. MVC アプリのホーム ページを表示するブラウザーのメニュー バーで **[連絡先]** をクリックします。
+3. クリックして **連絡先** MVC アプリのホーム ページを表示するブラウザーのメニュー バーにします。
 
     MVC の UI には、ローカルに格納されている連絡先が表示されます。UI を使用して、連絡先の追加および削除ができます。
 
@@ -402,46 +401,46 @@ MVC プロジェクトのコントローラーとビューは、Entity Framework
 
 このセクションでは、先に Web アプリを作成した同じメソッドで API アプリを作成し、同じメソッドで Web プロジェクトを Azure Web アプリにデプロイします。
 
-#### Azure API アプリを指すように MVC プロジェクトを変更します。
+#### Azure API アプリを指すように MVC プロジェクトを変更します。 
 
 Azure にデプロイする前に、コードがデプロイされると、localhost の代わりに先に作成した Azure API アプリを呼び出すように、MVC プロジェクトで API エンドポイントを変更します。
 
-1. ContactsList.MVC プロジェクトで *Controllers\ContactsController.cs* を開きます。
+1. ContactsList.MVC プロジェクトで開きます *Controllers\ContactsController.cs*します。
 
 2. API ベース URL を localhost URL に設定する行をコメントアウトし、コンストラクター パラメーターのない行をコメント解除します。 コードは、両方の行のクラス名にコード生成元の API アプリの名前が反映されることを除き、次の例のようになります。
 
         private ContactsListAPI db = new ContactsListAPI();
         //private ContactsListAPI db = new ContactsListAPI(new Uri("http://localhost:51864"));
 
-    既定のターゲット URL は Azure API アプリです。これはそこからコードを生成したためです。別のメソッドでコードを生成したのであれば、場合によっては、ローカル URL を指定したときと同じ方法で Azure API アプリ URL を指定する必要があります。
+    既定のターゲット URL は Azure API アプリです。これはそこからコードを生成したためです。別のメソッドでコードを生成したのであれば、場合によっては、ローカル URL を指定したときと同じ方法で Azure API アプリ URL を指定する必要があります。 
 
 #### MVC サイトをホストする Web アプリを作成する
 
-1. **ソリューション エクスプローラー**で ContactsList.MVC プロジェクトを右クリックし、**[発行]** をクリックします。
+1.  **ソリューション エクスプ ローラー**, を ContactsList.MVC プロジェクトを右クリックして、クリックして **発行**します。
 
-2. **Web の発行**ウィザードで、**[プロファイル]** タブをクリックします。
+2.  **Web の発行** ウィザード] をクリックして、 **プロファイル** ] タブをクリックします。
 
-3.  **Web の発行**ウィザードの **[プロファイル]** タブで、**[Microsoft Azure App Service]** をクリックします。
+3.   **プロファイル** のタブ、 **Web の発行** ウィザード] をクリックして **Microsoft Azure App Service**します。
 
-5. **[App Service]** ダイアログ ボックスで、**[新規]** をクリックします。
+5.  **App Service** ] ダイアログ ボックスをクリックして **新規**します。
 
-3. **[App Service の作成]** ダイアログ ボックスの **[ホスティング]** タブで、**[種類の変更]** をクリックし、種類が **[Web アプリ]** になっていることを確認します。
+3.  **ホスティング** のタブ、 **App Service の作成** ダイアログ ボックスで、をクリックして **の種類の変更**, 、型かどうかを確認 **Web アプリ**します。
 
-4. *azurewebsites.net* ドメインに固有の **Web アプリの名前** を入力します。
+4. 入力、 **Web アプリ名** 内で一意である、 *azurewebsites.net* ドメイン。 
 
-5. 使用する Azure **サブスクリプション**を選択します。
+5. Azure を選択して **サブスクリプション** を操作します。
 
-6. **[リソース グループ]** ドロップダウンで、先に作成したものと同じリソース グループを選択します。
+6.  **リソース グループ** ドロップダウン リストで、先ほど作成した同じリソース グループを選択します。
 
-4. **[App Service プラン]** ドロップダウンで、先に作成した同じプランを選択します。
+4.  **App Service プラン** ドロップダウン リストで、先ほど作成した同じプランを選択します。 
 
-7. **[作成]** をクリックします。
+7. クリックして **作成**します。
 
-    Visual Studio では Web アプリが作成され、その発行プロファイルが作成され、**Web の発行**ウィザードの **[接続]** ステップが表示されます。
+    Visual Studio は、web アプリを作成、発行プロファイルを作成し、表示、 **接続** のステップ、 **Web の発行** ウィザード。
 
 ### ContactsList.Web プロジェクトを新しい Web アプリにデプロイする
 
-3.  **Web の発行**ウィザードの **[接続]** ステップで、**[発行]** をクリックします。
+3.   **接続** のステップ、 **Web の発行** ウィザード] をクリックして **発行**します。
 
     Visual Studio を使うと、ContactsList.MVC プロジェクトが新しい Web アプリにデプロイされ、Web アプリの URL がブラウザーで開きます。 ローカルで表示されていたものと同じ MVC UI が現れます。ただし、今回は Azure API アプリのファイル システムに保存されている連絡先が表示されます。
 
@@ -449,8 +448,4 @@ Azure にデプロイする前に、コードがデプロイされると、local
 
 ## 次のステップ
 
-このチュートリアルでは、API アプリを作成、それにコードをデプロイし、.NET クライアントから使用する方法について学習しました。 API アプリの取得中に、次のチュートリアル シリーズの番組をどのように開始する [CORS を使用して、JavaScript クライアントから API アプリを使用する](app-service-api-cors-consume-javascript.md)します。
-
-
-
-
+このチュートリアルでは、API アプリを作成、それにコードをデプロイし、.NET クライアントから使用する方法について学習しました。 API アプリの取得中に、次のチュートリアル シリーズの番組をどのように開始する [CORS を使用して、JavaScript クライアントから API アプリを使用する](app-service-api-cors-consume-javascript.md)です。

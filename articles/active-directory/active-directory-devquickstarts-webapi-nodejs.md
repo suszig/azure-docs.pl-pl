@@ -16,7 +16,6 @@
     ms.date="10/13/2015"
     ms.author="brandwe"/>
 
-
 # ノード用の Web API の概要
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
@@ -29,7 +28,7 @@
 * ベアラー トークンと Azure Active Directory を使用する OAuth2 API 保護を活用する REST API
 
 
-Apache 2.0 ライセンス下で実行されているこのサンプルを GitHub にソース コードの関連するすべてので、自由にクローン (できれば、フォーク!) フィードバックを提供し、プル要求します。
+この実稼働するサンプルに関連するすべてのソース コードが、Apache 2.0 ライセンスの下で、GitHub で提供されています。自由にクローン (できれば、フォーク) 操作を行って、フィードバックおよびプル リクエストを提供してください。
 
 ## Node.js モジュールとは
 
@@ -49,17 +48,16 @@ Azure Active Directory テナントを取得したら、このサンプルをテ
 アプリケーションがユーザー認証を処理できるようにするには、まず、アプリケーションをテナントに登録する必要があります。
 
 - Microsoft Azure の管理ポータルにサインインします。
-- 左側のナビゲーションで **[Active Directory]** をクリックします。
+- 左側のナビゲーションで] をクリックして **Active Directory**します。
 - アプリケーションの登録先となるテナントを選択します。
-- **[アプリケーション]** タブをクリックし、下部のドロアーで [追加] をクリックします。
-- 画面の指示に従い、新しい **Web アプリケーションまたは WebAPI** を作成します。
-    - アプリケーションの **[名前]** には、エンド ユーザーがアプリケーションの機能を把握できるような名前を設定します。
-    -   **[サインオン URL]** は、アプリのベース URL です。 スケルトンの既定値は `https://localhost:8888`します。
-    - **[アプリケーション ID/URI]** は、アプリケーションの一意識別子です。使用するが慣例 `https://<tenant-domain>/<app-name>`, など、 `https://contoso.onmicrosoft.com/my-first-aad-app`
-- 登録が完了すると、AAD により、アプリに一意のクライアント ID が割り当てられます。 この値は次のセクションで必要になるので、[構成] タブからコピーします。
+- クリックして、 **アプリケーション** ] タブ、および、下部のドロアーの追加] をクリックします。
+- 画面の指示に従ってされ、新しい作成 **Web アプリケーションまたは WebAPI**します。
+    -  **名前** アプリケーションのエンドユーザーに、アプリケーションの説明は
+    -    **サインオン URL** はアプリのベース URL です。  スケルトンの既定値は、`https://localhost:8888` です。
+    -  **App ID URI** アプリケーションの一意の識別子を指定します。  形式は、`https://<tenant-domain>/<app-name>` (たとえば、`https://contoso.onmicrosoft.com/my-first-aad-app`) です。
+- 登録が完了すると、AAD により、アプリに一意のクライアント ID が割り当てられます。  この値は次のセクションで必要になるので、[構成] タブからコピーします。
 
 ## 手順 3. プラットフォーム用の Node.js をダウンロードする
-
 このサンプルを正常に使用するには、Node.js の実稼働するインストール環境が必要になります。
 
 Node.js をインストール [http://nodejs.org](http://nodejs.org)します。
@@ -79,13 +77,13 @@ Resitfy を使用して REST API を構築します。 Resitfy は最小で柔�
 
 ### Restify をインストールする
 
-コマンド ラインで、azuread ディレクトリに移動します。 **azuread** ディレクトリが存在しない場合は、作成します。
+コマンド ラインで、azuread ディレクトリに移動します。 場合、 **azuread** ディレクトリが存在しないを作成しません。
 
-`cd の azure ad のまたは mkdir azuread です。azure ad の cd`
+`cd azuread - or- mkdir azuread; cd azuread`
 
 次のコマンドを入力します。
 
-`restify を npm をインストールします。`
+`npm install restify`
 
 このコマンドにより、Restify がインストールされます。
 
@@ -142,6 +140,7 @@ Restify は、DTrace を使用して REST 呼び出しをトレースする強�
     ├── http-signature@0.10.0 (assert-plus@0.1.2, asn1@0.1.11, ctype@0.5.2)
     └── bunyan@0.22.0 (mv@0.0.5)
 
+
 ## 手順 6. Passport.js を Web API にインストールする
 
 [Passport](http://passportjs.org/) は Node.js 用の認証ミドルウェアです。 Passport は、非常に柔軟で高度なモジュール構造をしており、任意の Express ベースまたは Resitify Web アプリケーションに、支障をきたすことなくドロップされます。 包括的な認証手法セットにより、ユーザー名とパスワードを使用する認証、Facebook、Twitter などをサポートします。 Azure Active Directory 用の認証手法を開発しました。 このモジュールをインストールし、Azure Active Directory 認証手法プラグインを追加します。
@@ -150,7 +149,7 @@ Restify は、DTrace を使用して REST 呼び出しをトレースする強�
 
 次のコマンドを入力して、Passport.js をインストールします。
 
-`npm インストール passport`
+`npm install passport`
 
 コマンドの出力は次のように表示されます。
 
@@ -162,15 +161,15 @@ Restify は、DTrace を使用して REST 呼び出しをトレースする強�
 
 次が追加、ベアラー手法のベアラー ハンドラー passport-ベアラー-http 秒を使用して [Passport](http://passportjs.org/)します。 node-jwt を使用することによって、JWT トークン ハンドラー サポートも追加します。
 
-**注:** OAuth2 は、任意の既知のトークン タイプを発行できるフレームワークを提供しますが、一部のトークン タイプのみが広範に使用されています。 エンドポイントを保護するために、ベアラー トークンが広く使用されるようになっています。 ベアラー トークンは、OAuth2 の最も広く発行されるタイプのトークンで、多くの実装では、発行されるトークンのタイプとしてベアラー トークンのみを想定しています。
+**注:** OAuth2 特定トークン タイプのみが広範に使用する任意の既知のトークン タイプを発行できる、フレームワークを提供します。 エンドポイントを保護するために、ベアラー トークンが広く使用されるようになっています。 ベアラー トークンは、OAuth2 の最も広く発行されるタイプのトークンで、多くの実装では、発行されるトークンのタイプとしてベアラー トークンのみを想定しています。
 
-コマンド ラインで、**azuread** ディレクトリに移動します。
+コマンドラインでのディレクトリに移動、 **azuread** ディレクトリ。
 
 次のコマンドを入力して、Passport.js モジュールをインストールします。
 
-- `npm インストール passport oauth`
-- `npm インストール passport-http のベアラー`
-- `npm インストール ノード jwt`
+- `npm install passport-oauth`
+- `npm install passport-http-bearer`
+- `npm install node-jwt`
 
 コマンドの出力は次のように表示されます。
 
@@ -180,56 +179,57 @@ Restify は、DTrace を使用して REST 呼び出しをトレースする強�
     ├── xmldom@0.1.13
     └── xml2js@0.1.14 (sax@0.5.2)
 
+
 ## 手順 8. MongoDB モジュールを Web API に追加する
 
 データ ストアとして MongoDB を使用します。そのため、どちらも広く使用されている、Mongoose と呼ばれるモデルおよびスキーマを管理するためのプラグインと、MongoDB という名前の MongoDB 用のデータベース ドライバーの両方をインストールする必要があります。
 
 
-* `npm インストール mongoose`
-* `npm mongodb をインストールします。`
+* `npm install mongoose`
+* `npm install mongodb`
 
 ## 手順 9: 追加モジュールをインストールします。
 
 次に、その他の必須モジュールをインストールします。
 
 
-コマンド ラインで、**azuread** フォルダーに移動します (現在のディレクトリがこのディレクトリではない場合)。
+コマンドラインでのディレクトリに移動、 **azuread** フォルダーがない場合は既にあります。
 
-`azure ad の cd`
+`cd azuread`
 
 
 次のコマンドを入力して、次のモジュールを node_modules ディレクトリにインストールします。
 
-* `npm インストール crypto`
-* `npm インストールをアサート プラス`
-* `npm インストール posix getopt`
-* `npm インストール ユーティリティ`
-* `npm のインストール パス`
-* `npm インストールを接続します。`
-* `npm インストール xml crypto`
-* `npm インストール xml2js`
-* `npm インストール xmldom`
-* `npm インストール非同期`
-* `npm のインストール要求`
-* `npm のインストールのアンダー スコア`
-* `npm インストール grunt-contrib-jshint@0.1.1`
-* `npm インストール grunt-contrib-nodeunit@0.1.2`
-* `npm インストール grunt-contrib-watch@0.2.0`
-* `npm インストール grunt@0.4.1`
-* `npm インストール xtend@2.0.3`
-* `npm インストール bunyan`
-* `npm の更新プログラム`
+* `npm install crypto`
+* `npm install assert-plus`
+* `npm install posix-getopt`
+* `npm install util`
+* `npm install path`
+* `npm install connect`
+* `npm install xml-crypto`
+* `npm install xml2js`
+* `npm install xmldom`
+* `npm install async`
+* `npm install request`
+* `npm install underscore`
+* `npm install grunt-contrib-jshint@0.1.1`
+* `npm install grunt-contrib-nodeunit@0.1.2`
+* `npm install grunt-contrib-watch@0.2.0`
+* `npm install grunt@0.4.1`
+* `npm install xtend@2.0.3`
+* `npm install bunyan`
+* `npm update`
 
 
 ## 手順 10. 依存関係を定義する server.js を作成する
 
 server.js ファイルは、Web API サーバーの機能の多くを提供します。 このため、ほとんどのコードをこのファイルに追加します。 運用環境では、ルートとコントローラーを分割するなどして、機能をより小さなファイルに分散します。 このデモでは、その目的に沿って、この機能用に server.js を使用します。
 
-コマンド ラインで、**azuread** フォルダーに移動します (現在のディレクトリがこのディレクトリではない場合)。
+コマンドラインでのディレクトリに移動、 **azuread** フォルダーがない場合は既にあります。
 
-`azure ad の cd`
+`cd azuread`
 
-作成、 `server.js` お気に入りのエディターでファイルし、次の情報を追加します。
+お気に入りのエディターを使用して `server.js` ファイルを作成し、次の情報を追加します。
 
 ```Javascript
     'use strict';
@@ -255,11 +255,11 @@ server.js ファイルは、Web API サーバーの機能の多くを提供し�
 このコード ファイルは、構成パラメーターを Azure Active Directory ポータルから Passport.js に渡します。 これらの構成値は、チュートリアルの初期の手順で Web API をポータルに追加したときに作成されています。 ここでは、コードをコピーした後に、これらのパラメーターにどのような値を設定するかについて説明します。
 
 
-コマンド ラインで、**azuread** フォルダーに移動します (現在のディレクトリがこのディレクトリではない場合)。
+コマンドラインでのディレクトリに移動、 **azuread** フォルダーがない場合は既にあります。
 
-`azure ad の cd`
+`cd azuread`
 
-作成、 `config.js` お気に入りのエディターでファイルし、次の情報を追加します。
+お気に入りのエディターを使用して `config.js` ファイルを作成し、次の情報を追加します。
 
 ```Javascript
 // Don't commit this file to your public repos
@@ -268,29 +268,30 @@ server.js ファイルは、Web API サーバーの機能の多くを提供し�
     openid_configuration: 'https://login.microsoftonline.com/common/.well-known/openid-configuration', // For using Microsoft you should never need to change this.
     openid_keys: 'https://login.microsoftonline.com/common/discovery/keys', // For using Microsoft you should never need to change this. If absent will attempt to get from openid_configuration
 }
+
 ```
 
 
 
-**注:** ほとんどの場合、これらの値を変更する必要はありません。
+**注:** おそらく必要はありませんこれらの値を変更します。
 
-**注:** キーは頻繁に展開されます。 "openid_keys" URL からキーを常に取得し、アプリがインターネットにアクセスできるようにします。
+**注:** キーを頻繁には展開します。 "openid_keys" URL からキーを常に取得し、アプリがインターネットにアクセスできるようにします。
 
 
 ## 手順 12: 構成を server.js ファイルに追加する
 
 これらの値は、アプリケーション全体で、作成した構成ファイルから読み込む必要があります。 これを行うには、.config ファイルを必須リソースとしてアプリケーションに追加し、グローバル変数を config.js ドキュメントに設定するだけです。
 
-コマンド ラインで、**azuread** フォルダーに移動します (現在のディレクトリがこのディレクトリではない場合)。
+コマンドラインでのディレクトリに移動、 **azuread** フォルダーがない場合は既にあります。
 
-`azure ad の cd`
+`cd azuread`
 
-開いている、 `server.js` お気に入りのエディターでファイルし、次の情報を追加します。
+お気に入りのエディターを使用して `server.js` ファイルを開き、次の情報を追加します。
 
 ```Javascript
 var config = require('./config');
 ```
-新しいセクションを次に、追加 `server.js` を次のコード。
+次に、`server.js` に新しいセクションを追加して、次のコードを記述します。
 
 ```Javascript
 /**
@@ -299,18 +300,19 @@ var config = require('./config');
 var mongoose = require('mongoose/');
 var serverPort = process.env.PORT || 8888;
 var serverURI = ( process.env.PORT ) ? config.creds.mongoose_auth_mongohq : config.creds.mongoose_auth_local;
+
 ```
 ## 手順 13. メタデータ/トークンの解析を支援する metadata.js ヘルパー ファイルを作成する
 
 目標は、アプリケーション ロジックのみを server.js ファイルに維持することなので、いくつかのヘルパー メソッドを別のファイルに配置します。 これらのメソッドは、OpenID Connect メタデータを解析するのに役立つだけであり、主要なシナリオには関係しません。 これらを別の場所に配置することをお勧めします。 このチュートリアルの手順を進むに従って、より多くの情報をこのファイルに追加します。
 
-*** 注: *** この metadata.js ファイルが、OpenID Connect の JSON だけでなく、SAML および Ws-fed の XML を解析するかがわかります。 これは、設計上、このファイルを他のサンプルでも同様に使用できることを意味します。 ここでは、このことを無視してかまいません。
+***注:*** この metadata.js ファイルが、OpenID Connect の JSON だけでなく、SAML および Ws-fed の XML を解析するかがわかります。 これは、設計上、このファイルを他のサンプルでも同様に使用できることを意味します。 ここでは、このことを無視してかまいません。
 
-コマンド ラインで、**azuread** フォルダーに移動します (現在のディレクトリがこのディレクトリではない場合)。
+コマンドラインでのディレクトリに移動、 **azuread** フォルダーがない場合は既にあります。
 
-`azure ad の cd`
+`cd azuread`
 
-作成、 `metadata.js` お気に入りのエディターでファイルし、次の情報を追加します。
+お気に入りのエディターを使用して `metadata.js` ファイルを作成し、次の情報を追加します。
 
 ```Javascript
 
@@ -512,22 +514,22 @@ Metadata.prototype.fetch = function(callback) {
 
 exports.Metadata = Metadata;
 ```
-渡された openid URL 時間うえ、コードからわかるように `config.js` で使用する情報向けに解析し、 `server.js` ファイルです。 このコードを調査して、必要に応じて拡張することをお勧めします。
+コードからわかるように、`config.js` に渡された openid URL を受け取り、`server.js` ファイルで使用する情報向けに解析するだけです。 このコードを調査して、必要に応じて拡張することをお勧めします。
 
 ### metadata.js ファイルを server.js ファイルに読み込む
 
 記述したメソッドの取得場所をサーバーに通知する必要があります。
 
-コマンド ラインで、**azuread** フォルダーに移動します (現在のディレクトリがこのディレクトリではない場合)。
+コマンドラインでのディレクトリに移動、 **azuread** フォルダーがない場合は既にあります。
 
-`azure ad の cd`
+`cd azuread`
 
-開いている、 `server.js` お気に入りのエディターでファイルし、次の情報を追加します。
+お気に入りのエディターを使用して `server.js` ファイルを開き、次の情報を追加します。
 
 ```Javascript
 var metadata = require('./metadata);
 ```
-末尾に次に、追加、 `構成` セクションで、メタデータ ドキュメントを送信するには、この呼び出し、 `config.js` 記述したばかりのパーサーにします。
+次に、`Configuration` セクションの末尾にこの呼び出しを追加し、`config.js` のメタデータ ドキュメントを、記述したばかりのパーサーに送信します。
 
 ```Javascript
 this.aadutils = new var Metadata = require('./metadata').Metadata;
@@ -537,9 +539,9 @@ this.aadutils = new var Metadata = require('./metadata').Metadata;
 
 これまでの準備が報われるときが来ました。これら 3 つのファイルを一緒に REST API サービスに取り込みます。
 
-このチュートリアルで使用するので MongoDB で説明したようにタスクを格納する *** 手順 4 ***します。
+このチュートリアルで使用するので MongoDB で説明したようにタスクを格納する ***手順 4***します。
 
-説明した場合、 `config.js` ファイルで作成した *** 手順 11 *** 、データベースを呼び出しました `tasklist` 、mogoose_auth_local 接続 URL の末尾に配置するとします。 このデータベースを MongoDB で事前に作成する必要はありません。存在しない場合、サーバー アプリケーションの初回実行時に作成されます。
+説明した場合、 `config.js` ファイルで作成した ***手順 11*** 、データベースを呼び出しました `tasklist` 、mogoose_auth_local 接続 URL の末尾に配置するとします。 このデータベースを MongoDB で事前に作成する必要はありません。存在しない場合、サーバー アプリケーションの初回実行時に作成されます。
 
 これで、使用する MongoDB データベースについて、事前にサーバーに通知したことになります。次に、サーバーのタスク用のモデルとスキーマを作成する追加コードを記述する必要があります。
 
@@ -547,21 +549,22 @@ this.aadutils = new var Metadata = require('./metadata').Metadata;
 
 使用するスキーマ モデルは非常に単純で、必要に応じて拡張できます。
 
-NAME - タスクに割り当てられているモデルの名前。 A *** 文字列 ***
+NAME - タスクに割り当てられているモデルの名前。 A ***文字列***
 
-TASK - タスク自体。 A *** 文字列 ***
+TASK - タスク自体。 A ***文字列***
 
-DATE - タスクの期限日。 A *** DATETIME ***
+DATE - タスクの期限日。 A ***DATETIME***
 
-COMPLETED - タスクが完了したかどうかを示します。 A *** ブール値を ***
+COMPLETED - タスクが完了したかどうかを示します。 A ***ブール***
 
 #### スキーマをコードで作成する
 
-コマンド ラインで、**azuread** フォルダーに移動します (現在のディレクトリがこのディレクトリではない場合)。
 
-`azure ad の cd`
+コマンドラインでのディレクトリに移動、 **azuread** フォルダーがない場合は既にあります。
 
-開いている、 `server.js` お気に入りのエディターでファイルし、構成エントリの下に、次の情報を追加します。
+`cd azuread`
+
+お気に入りのエディターを使用して `server.js` ファイルを開き、次の情報を構成エントリの下に追加します。
 
 ```Javascript
 /**
@@ -595,7 +598,7 @@ var TaskSchema = new Schema({
 mongoose.model('Task', TaskSchema);
 var Task = mongoose.model('Task');
 ```
-スキーマを作成しを使用して定義するときは、コード全体でデータを格納するモデル オブジェクトを作成し、コードからわかる、 *** ルート ***します。
+スキーマを作成しを使用して定義するときは、コード全体でデータを格納するモデル オブジェクトを作成し、コードからわかる、 ***ルート***します。
 
 ## 手順 15. Task REST API サーバー用ルートを追加する
 
@@ -622,6 +625,7 @@ return next(); // keep the server going
 ....
 
 server.post('/service/:add/:object', createObject); // calls createObject on routes that match this.
+
 ```
 
 
@@ -631,11 +635,11 @@ server.post('/service/:add/:object', createObject); // calls createObject on rou
 
 Create、Retrieve、Update、および Delete の基本的な CRUD ルートを追加します。
 
-コマンド ラインで、**azuread** フォルダーに移動します (現在のディレクトリがこのディレクトリではない場合)。
+コマンドラインでのディレクトリに移動、 **azuread** フォルダーがない場合は既にあります。
 
-`azure ad の cd`
+`cd azuread`
 
-開いている、 `server.js` お気に入りのエディターでファイルおよびまでに作成したデータベース エントリの下に、次の情報を追加します。
+お気に入りのエディターを使用して `server.js` ファイルを開き、これまでに作成したデータベース エントリの下に次の情報を追加します。
 
 ```Javascript
 
@@ -950,7 +954,7 @@ var server = restify.createServer({
 
 チュートリアルの OAuth の説明に進む前に、誤りがないことを確認することが推奨されます。
 
-使用してこれを行う最も簡単な方法は、 `curl` コマンド行にします。 これを行うには、出力を JSON として解析することを可能にする単純なユーティリティが必要です。 実行するには、インストール、 [json](https://github.com/trentm/json) 以降のすべてのサンプルで使用するツールです。
+これを行うための最も簡単な方法は、コマンド ラインで `curl` を使用することです。 これを行うには、出力を JSON として解析することを可能にする単純なユーティリティが必要です。 実行するには、インストール、 [json](https://github.com/trentm/json) 以降のすべてのサンプルで使用するツールです。
 
     $npm install -g jsontool
 
@@ -964,14 +968,14 @@ var server = restify.createServer({
 
     $ cd azuread
     $ node server.js
-    
+
     $ curl -isS http://127.0.0.1:8888 | json
     HTTP/1.1 200 OK
     Connection: close
     Content-Type: application/x-www-form-urlencoded
     Content-Length: 145
     Date: Wed, 29 Jan 2014 03:41:24 GMT
-    
+
     [
     "GET     /",
     "POST    /tasks/:owner/:task",
@@ -995,7 +999,7 @@ var server = restify.createServer({
     Content-Type: application/x-www-form-urlencoded
     Content-Length: 5
     Date: Tue, 04 Feb 2014 01:02:26 GMT
-    
+
     Hello
 
 Brandon 用のタスクを次の方法でリストできます。
@@ -1006,15 +1010,15 @@ Brandon 用のタスクを次の方法でリストできます。
 
 ## 手順 18. Passport.js コードを REST API サーバーに追加する
 
-実行中の REST API ができました (芸術家 btw!) Azure AD に対して有効に活用にみましょう。
+実稼働する REST API を作成できたので、次に、Azure AD に対して使用できるようにします。
 
-コマンド ラインで、**azuread** フォルダーに移動します (現在のディレクトリがこのディレクトリではない場合)。
+コマンドラインでのディレクトリに移動、 **azuread** フォルダーがない場合は既にあります。
 
-`azure ad の cd`
+`cd azuread`
 
 ### 手順 1. Passport モジュールを追加する
 
-開いている、 `server.js` お気に入りのエディターでファイルを読み込むモジュールを以前に説明した次の情報以下を追加します。 ファイルの先頭に向かって、直後に入力する必要があります、 `var aadutils = require('./aadutils');` をインポートします。
+お気に入りのエディターを使用して `server.js` ファイルを開き、読み込むモジュールを以前に記述した場所の下に、次の情報を追加します。 これは、ファイルの上部で、`var aadutils = require('./aadutils');` インポートの直下に配置する必要があります。
 
 ```Javascript
 /*
@@ -1031,16 +1035,18 @@ var passport = require('passport')
 開いている、 `server.js` お気に入りのエディターでファイルし、次の情報を追加 **server.get(** 、ルートが定義されている、 **server.listen()** メソッドです。
 
 
-使用を開始する Restify を確認する必要があります、 `authorizationParser()` し、Authorization ヘッダーの内容を確認します。
+Restify に対して、その `authorizationParser()` の使用を開始し、Authorization ヘッダーのコンテンツを確認するように通知する必要があります。
 
 ```Javascript
         server.use(restify.authorizationParser());
+
+
 ```
 
 
-### 3.Passport OAuth2 モジュールをコードに追加する
+### 手順 3.Passport OAuth2 モジュールをコードに追加する
 
-ここでは、config.js ファイルに追加した OAuth2 固有のパラメーターを使用します。 場合、 `aadutils.js` ファイル行ったフェデレーション メタデータ ドキュメントを解析するには、これらすべての値は、設定する空白 config.js ファイルである場合でもです。
+ここでは、config.js ファイルに追加した OAuth2 固有のパラメーターを使用します。 `aadutils.js` ファイルがフェデレーション メタデータ ドキュメントの解析を正常に行った場合、これらのすべての値を (config.js ファイルでブランクであっても)、設定する必要があります。
 
 ```Javascript
 // Now our own handlers for authentication/authorization
@@ -1063,6 +1069,7 @@ passport.use('provider', new OAuth2Strategy({
 // Let's start using Passport.js
 
 server.use(passport.initialize());
+
 ```
 ### 手順 4. ルートを OAuth 認証に追加する
 
@@ -1098,6 +1105,7 @@ var ensureAuthenticated = function(req, res, next) {
   }
   res.redirect('/login');
 };
+
 ```
 
 ### 手順 6. Cookie 用のキャッシング メカニズムを追加する
@@ -1131,7 +1139,7 @@ server.get('/tasks', passport.authenticate('provider', { session: false }), list
 
 ## 手順 19. サーバー アプリケーションを再実行し、自分が拒否されることを確認する
 
-使用してみましょう `curl` 、エンドポイントに対して OAuth2 保護が今すぐ付いてにもう一度です。 この操作は、このエンドポイントに対して、クライアント SDK のいずれかを実行する前に行います。 返されるヘッダーは、正しいパスに沿っていることを確認するのに十分である必要があります。
+再び `curl` を使用して、エンドポイントに対して OAuth2 保護が有効になっていることを確認します。 この操作は、このエンドポイントに対して、クライアント SDK のいずれかを実行する前に行います。 返されるヘッダーは、正しいパスに沿っていることを確認するのに十分である必要があります。
 
 まず、monogoDB インスタンスが動作していることを確認します。
 
@@ -1151,9 +1159,10 @@ server.get('/tasks', passport.authenticate('provider', { session: false }), list
     Content-Length: 0
     Date: Tue, 04 Feb 2014 02:15:14 GMT
 
+
 ここでは、応答として 302 が期待されます。これは、Passport レイヤーが認証エンドポイントへのリダイレクトを試みていることを示しており、期待どおりの応答です。
 
-## ご利用ありがとうございます。OAuth2 を使用する REST API サービスが完成しました。
+## ご利用ありがとうございます。 OAuth2 を使用する REST API サービスが完成しました。
 
 OAuth2 互換のクライアントを使用することなく、このサーバーを使用して最大限のことを実現できました。 別のチュートリアルに進むことが必要になります。
 
@@ -1163,15 +1172,11 @@ ADAL に関連するさらに高度な手順に興味がある場合は、学習
 
 開発マシンに複製するかダウンロードして、チュートリアルで説明されているように構成するだけで動作します。
 
-[IOS 向け ADAL](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios)
+[ADAL for iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios)
 
-[Android 用 ADAL](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)
+[ADAL for Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)
 
 [ADAL for .Net](http://msdn.microsoft.com/library/windowsazure/jj573266.aspx)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-
-
+ 

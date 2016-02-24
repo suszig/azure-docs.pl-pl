@@ -16,14 +16,11 @@
    ms.date="11/17/2015"
    ms.author="bharatn@microsoft.com"/>
 
-
 # Reliable Services の WCF ベースの通信スタック
-
 Reliable Services フレームワークにより、サービスの作成者はサービスに使用する通信スタックを決定できます。 使用して、任意の通信スタックをプラグインできる、 `ICommunicationListener` から返される、 [CreateServiceReplicaListeners または CreateServiceInstanceListeners](service-fabric-reliable-service-communication.md) メソッドです。 フレームワークでは、WCF ベースの通信を使用したいと考えるサービス作成者に、WCF ベースの通信スタックの実装を提供します。
 
 ## WCF 通信リスナー
-
-WCF 固有の実装 `ICommunicationListener` によって提供される、 `Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener` クラスです。
+`ICommunicationListener` の WCF 固有の実装は、`Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener` クラスで提供されています。
 
 ```csharp
 
@@ -46,11 +43,11 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
         }
     )};
 }
+
 ```
 
 ## WCF の通信スタック用のクライアントの作成
-
-WCF を使用するサービスと通信するクライアントを作成するには、フレームワークは、 `WcfClientCommunicationFactory`, の WCF 固有の実装である [`ClientCommunicationFactoryBase`] (サービスの fabric の信頼性の高い-サービス-communication.md)。
+WCF を使用するサービスと通信するクライアントを作成するには、フレームワークは、 `WcfClientCommunicationFactory`, の WCF 固有の実装である [`ClientCommunicationFactoryBase`](service-fabric-reliable-service-communication.md)します。
 
 ```csharp
 
@@ -60,9 +57,10 @@ public WcfCommunicationClientFactory(
     object callback = null,
     IList<IExceptionHandler> exceptionHandlers = null,
     IEnumerable<Type> doNotRetryExceptionTypes = null)
+
 ```
 
-WCF 通信チャネルはからアクセスできる、 `WcfCommunicationClient` によって作成された、 `WcfCommunicationClientFactory`
+WCF 通信チャネルは、`WcfCommunicationClientFactory` によって作成される `WcfCommunicationClient` からアクセスできます。
 
 ```csharp
 
@@ -71,9 +69,10 @@ public class WcfCommunicationClient<TChannel> : ICommunicationClient where TChan
     public TChannel Channel { get; }
     public ResolvedServicePartition ResolvedServicePartition { get; set; }
 }
+
 ```
 
-クライアント コードで使用できる、 `WcfCommunicationClientFactory` と共に、 `ServicePartitionClient` をサービス エンドポイントを特定し、サービスと通信を行います。
+クライアント コードでは、`ServicePartitionClient` と共に `WcfCommunicationClientFactory` を使用して、サービス エンドポイントを特定し、サービスと通信を行うことができます。
 
 ```csharp
 
@@ -107,15 +106,11 @@ var calculatorServicePartitionClient = new ServicePartitionClient<WcfCommunicati
 //
 var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
     client => client.Channel.AddAsync(2, 3)).Result;
+
 ```
-
+ 
 ## 次のステップ
+* [Reliable Services のリモート処理によるリモート プロシージャ コール](service-fabric-reliable-services-communication-remoting.md)
 
-* [信頼性の高いサービスのリモート処理でのリモート プロシージャ コール](service-fabric-reliable-services-communication-remoting.md)
-
-* [Reliable Services で OWIN による web API](service-fabric-reliable-services-communication-webapi.md)
-
-
-
-
+* [Reliable Services の OWIN 対応 Web API](service-fabric-reliable-services-communication-webapi.md)
 

@@ -16,17 +16,16 @@
     ms.date="11/24/2015" 
     ms.author="xueshzha"/> 
 
+#予測 - ETS + STL  
 
-# 予測 - ETS + STL
-
-これは、 [web サービス](https://datamarket.azure.com/dataset/aml_labs/demand_forecast) 、ユーザーが指定した履歴データに基づいて予測を生成、季節的傾向分解 (STL) と指数平滑法 (ETS) のモデルを実装します。 今年、特定の製品の需要が増加するでしょうか。 クリスマス シーズンの製品販売を予測して、効果的な在庫計画を策定できるでしょうか。 予測モデルは、このような質問に答えることができます。 これらのモデルは、過去のデータを指定すると、隠れた傾向や季節性を検証し、将来の傾向を予測します。
+これは、 [web サービス]( https://datamarket.azure.com/dataset/aml_labs/demand_forecast) 、ユーザーが指定した履歴データに基づいて予測を生成、季節的傾向分解 (STL) と指数平滑法 (ETS) のモデルを実装します。 今年、特定の製品の需要が増加するでしょうか。 クリスマス シーズンの製品販売を予測して、効果的な在庫計画を策定できるでしょうか。 予測モデルは、このような質問に答えることができます。 これらのモデルは、過去のデータを指定すると、隠れた傾向や季節性を検証し、将来の傾向を予測します。 
 
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
->この Web サービスは、モバイル アプリ、Web サイト、ローカル コンピューターなどからユーザーが使用できます。 この Web サービスのもう 1 つの目的は、Azure Machine Learning を使用して R コード上に Web サービスを作成する方法の例を示すことです。 数行の R コードを記述し、Azure Machine Learning Studio 内でボタンを何回かクリックするだけで、R コードで実験を作成し、Web サービスとして発行できます。 この Web サービスは Azure Marketplace に発行され、Web サービスの作成者がインフラストラクチャを設定することなく、世界中のユーザーやデバイスで使用されます。
-
-## Web サービスの使用
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)] 
+ 
+>この Web サービスは、モバイル アプリ、Web サイト、ローカル コンピューターなどからユーザーが使用できます。 この Web サービスのもう 1 つの目的は、Azure Machine Learning を使用して R コード上に Web サービスを作成する方法の例を示すことです。 数行の R コードを記述し、Azure Machine Learning Studio 内でボタンを何回かクリックするだけで、R コードで実験を作成し、Web サービスとして発行できます。 この Web サービスは Azure Marketplace に発行され、Web サービスの作成者がインフラストラクチャを設定することなく、世界中のユーザーやデバイスで使用されます。  
+ 
+##Web サービスの使用 
 
 このサービスは、4 つの引数を使用し、予測を計算します。
 入力引数は、次のとおりです。
@@ -37,8 +36,8 @@
 * Value - 新しい時系列データの値を追加します。
 
 このサービスの出力は、計算された予測値です。
-
-入力例は以下のとおりです。
+ 
+入力例は以下のとおりです。 
 
 * Frequency - 12
 * Horizon - 12
@@ -48,11 +47,11 @@
 * 値 - 3.479; 3.68; 3.832; 3.941; 3.797; 3.586; 3.508; 3.731; 3.915; 3.844; 3.634; 3.549; 3.557; 3.785; 3.782; 3.601; 3.544; 3.556; 3.65; 3.709; 3.682; 3.511 です。
 3.429;3.51;3.523;3.525;3.626;3.695;3.711;3.711;3.693;3.571;3.509
 
->Azure Marketplace でホストされているこのサービスは、OData サービスです。これらは、POST や GET メソッドによって呼び出すことができます。
+>Azure Marketplace でホストされているこのサービスは、OData サービスです。これらは、POST や GET メソッドによって呼び出すことができます。 
 
-自動でサービスの利用の複数の方法があります (アプリケーション例が [ここ](http://microsoftazuremachinelearning.azurewebsites.net/StlEtsForecasting.aspx))。
+自動でサービスの利用の複数の方法があります (アプリケーション例が [ここ](http://microsoftazuremachinelearning.azurewebsites.net/StlEtsForecasting.aspx ))。
 
-### Web サービスを使用する C# コードを開始します。
+###Web サービスを使用する C# コードを開始します。
 
     public class Input
     {
@@ -82,23 +81,23 @@
             var scoreResult = result.ReadAsStringAsync().Result;
     }
 
-## Web サービスの作成
+
+##Web サービスの作成 
 
 >この Web サービスは、Azure Machine Learning を使用して作成されました。 無料評価版として入門ビデオ実験を作成し、 [web サービスを公開](machine-learning-publish-a-machine-learning-web-service.md), を参照してください [azure.com/ml](http://azure.com/ml)します。 Web サービスを作成した実験のスクリーン ショット、および実験内の各モジュールに対するコード例を以下に示します。
 
-Azure Machine Learning 内で、新しい空白の実験が作成されました。 入力データのサンプルは、事前定義済みのデータ スキーマにアップロードされました。 データにリンクされているスキーマは、 [R スクリプトの実行 ][execute-r-script] モジュールは、STL と ETS の 'stl' と 'ets' を使用して、予測モデルを生成して、R. から 'forecast' 関数
+Azure Machine Learning 内で、新しい空白の実験が作成されました。 入力データのサンプルは、事前定義済みのデータ スキーマにアップロードされました。 [STL と ETS の 'stl'、'ets' と 'forecast' 関数を R. を使用して予測モデルを生成する [R スクリプトの実行] [- r のスクリプトの実行] モジュールのデータ スキーマにリンク 
 
-### 実験フロー:
+###実験フロー:
 
 ![実験フロー][2]
 
-#### モジュール 1:
-
+####モジュール 1:
+ 
     # Add in the CSV file with the data in the format shown below 
+![サンプル データ][3]   
 
-![サンプル データ][3]
-
-#### モジュール 2:
+####モジュール 2:
 
     # Data input
     data <- maml.mapInputPort(1) # class: data.frame
@@ -126,18 +125,19 @@ Azure Machine Learning 内で、新しい空白の実験が作成されました
     # Data output
     maml.mapOutputPort("data.forecast");
 
-## 制限事項
+##制限事項 
 
 これは、ETS + STL 予測のきわめて簡単な例です。 上のコード例からわかるように、エラーのキャッチは実装されません。このサービスは、すべての変数が連続した正の値で、頻度を 1 より大きい整数とする必要があります。 日付と値のベクターの長さは同じで、時系列の長さは頻度の 2 倍よりも大きい必要があります。 日付変数の形式は、'/mm/dd/yyyy' とします。
 
-## FAQ
-
+##FAQ
 Web サービスまたは Azure Marketplace への発行の使用に関するよく寄せられる質問は、次を参照してください。 [ここ](machine-learning-marketplace-faq.md)します。
 
+[1]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img1.png
+[2]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img2.png
+[3]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img3.png
 
 
-[1]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img1.png 
-[2]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img2.png 
-[3]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img3.png 
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/ 
+<!-- Module References -->
+[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
+ 
 

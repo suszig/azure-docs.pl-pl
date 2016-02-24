@@ -1,6 +1,6 @@
 <properties
     pageTitle="BLOB ストレージを使用する内部設置型アプリケーション (Java) | Microsoft Azure"
-    description="画像を Azure にアップロードしてブラウザーに表示するコンソール アプリケーションを作成する方法について説明します。コード サンプルは Java で記述されています。"
+    description="画像を Azure にアップロードしてブラウザーに表示するコンソール アプリケーションを作成する方法について説明します。 コード サンプルは Java で記述されています。"
     services="storage"
     documentationCenter="java"
     authors="rmcmurray"
@@ -15,7 +15,6 @@
     ms.topic="article"
     ms.date="12/01/2015" 
     ms.author="robmcm"/>
-
 
 # BLOB ストレージを使用するオンプレミスのアプリケーション
 
@@ -33,11 +32,11 @@
 - Azure libraries for Java、および適用されるあらゆる JAR
     依存関係 Jar がインストールされで使用されるビルド パスには
     Java コンパイラです。 Azure Libraries for Java のインストールについては、次を参照してください [をダウンロードします。
-    Azure SDK for Java]。
+   Azure SDK for Java][]します。
 - Azure ストレージ アカウントがセットアップされていること。 アカウント名
     ストレージ アカウントのアカウント キーは、コードによって使用されることは
-    参照してください。 ストレージ アカウントの作成については、[ストレージ アカウントを作成する方法] を参照してください。
-    [アカウントのストレージの管理するのにはどのように][] 取得については、
+    参照してください。 参照してください [How to Create a Storage Account] 、ストレージ アカウントを作成する方法について
+     [ストレージ アカウントの管理方法][] 取得については、
     アカウント キー。
 - ローカル画像ファイルを作成したパスに格納されています。
     c:\\myimages\\image1.jpg します。 代わりに、変更、
@@ -53,7 +52,7 @@
 
 コードの先頭には、Azure コア ストレージ クラス、Azure BLOB クライアント クラス、
 Java IO クラス、および
-**URISyntaxException** クラスです。
+ **URISyntaxException** クラスです。
 
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.blob.*;
@@ -91,27 +90,28 @@ Java IO クラス、および
 -   **CloudStorageAccount**: してアカウント オブジェクトを初期化するために使用
     Azure ストレージ アカウント名とキーを作成して、
     blob クライアント オブジェクトです。
--   **CloudBlobClient**: BLOB サービスにアクセスするために使用します。
+-   **CloudBlobClient**: blob サービスにアクセスするために使用します。
 -   **CloudBlobContainer**: blob コンテナーを作成するために、一覧表示します
     コンテナー、および削除、コンテナー内の blob です。
 -   **CloudBlockBlob**: ローカルの画像ファイルをアップロードするために使用します
     できます。
 
+<!-- -->
 
-    CloudStorageAccount アカウントです。
-    CloudBlobClient serviceClient です。
-    CloudBlobContainer コンテナーです。
-    CloudBlockBlob blob です。
+    CloudStorageAccount account;
+    CloudBlobClient serviceClient;
+    CloudBlobContainer container;
+    CloudBlockBlob blob;
 
-**account** 変数に値を割り当てます。
+値を割り当てる、 **アカウント** 変数です。
 
     account = CloudStorageAccount.parse(storageConnectionString);
 
-**serviceClient** 変数に値を割り当てます。
+値を割り当てる、 **serviceClient** 変数です。
 
     serviceClient = account.createCloudBlobClient();
 
-**container** 変数に値を割り当てます。 参照はやはり後、
+値を割り当てる、 **コンテナー** 変数です。 参照はやはり後、
 という名前のコンテナー **gettingstarted**します。
 
     // Container name must be lower case.
@@ -119,7 +119,7 @@ Java IO クラス、および
 
 コンテナーを作成します。 このメソッドは、インストールされていない場合、コンテナーに作成されます。
 存在 (返す **true**)。 コンテナーが存在する場合は、
-**false**. 代わりに **createIfNotExists** は、 **作成**
+**false**します。 代わりに **createIfNotExists** は、 **の作成**
 メソッド (これは、コンテナーが既に存在する場合はエラーを返します)。
 
     container.createIfNotExists();
@@ -152,7 +152,7 @@ Azure storage にアップロードします。 2 番目のパラメーターは
     blob.upload(new FileInputStream(fileReference), fileReference.length());
 
 という名前のヘルパー関数を呼び出して **MakeHTMLPage**, 、基本的な HTML ページを作成するには
-含む、 **< イメージ >** ソースを持つ要素が、blob に設定します。
+含む、 **& lt; イメージ & gt;** ソースを持つ要素が、blob に設定します。
 Azure ストレージ アカウントにします。 コード
 **MakeHTMLPage** この記事の後半で説明します。
 
@@ -163,7 +163,7 @@ Azure ストレージ アカウントにします。 コード
     System.out.println("Processing complete.");
     System.out.println("Open index.html to see the images stored in your storage account.");
 
-右ブラケット **}** を挿入して **try** ブロックを閉じます。
+閉じる、 **と** 閉じかっこを挿入することによってブロック: **}**
 
 次の例外を処理します。
 
@@ -173,37 +173,38 @@ Azure ストレージ アカウントにします。 コード
     記憶域ライブラリです。
 -   **URISyntaxException**: によってスローされることができます、 **ListBlobItem.getUri**
     メソッドを呼び出します。
--   **Exception**: 汎用的な例外処理です。
+-   **例外**: 汎用的な例外処理します。
 
+<!-- -->
 
     catch (FileNotFoundException fileNotFoundException)
     {
-        System.out.print ("FileNotFoundException が発生しました:") です。
-        System.out.println(fileNotFoundException.getMessage()) です。
+        System.out.print("FileNotFoundException encountered: ");
+        System.out.println(fileNotFoundException.getMessage());
         System.exit(-1);
-    {
+    }
     catch (StorageException storageException)
     {
-        System.out.print ("StorageException が発生しました:") です。
-        System.out.println(storageException.getMessage()) です。
+        System.out.print("StorageException encountered: ");
+        System.out.println(storageException.getMessage());
         System.exit(-1);
-    {
+    }
     catch (URISyntaxException uriSyntaxException)
     {
-        System.out.print ("URISyntaxException が発生しました:") です。
-        System.out.println(uriSyntaxException.getMessage()) です。
+        System.out.print("URISyntaxException encountered: ");
+        System.out.println(uriSyntaxException.getMessage());
         System.exit(-1);
-    {
+    }
     catch (Exception e)
     {
-        System.out.print ("例外が発生しました:") です。
-        System.out.println(e.getMessage()) です。
+        System.out.print("Exception encountered: ");
+        System.out.println(e.getMessage());
         System.exit(-1);
-    {
+    }
 
-右ブラケット **}** を挿入して **main** を閉じます。
+閉じる **メイン** 閉じかっこを挿入して: **}**
 
-基本的な HTML ページを作成する **MakeHTMLPage** という名前のメソッドを作成します。 この
+という名前のメソッドを作成する **MakeHTMLPage** 基本的な HTML ページを作成します。 この
 メソッドは、型のパラメーターを持つ **CloudBlobContainer**, 、となります
 アップロードされた blob のリストを反復処理するために使用します。 このメソッドは
 型の例外をスロー **FileNotFoundException**, 、スローされる可能性の
@@ -214,20 +215,20 @@ Azure ストレージ アカウントにします。 コード
     public static void MakeHTMLPage(CloudBlobContainer container) throws FileNotFoundException, URISyntaxException
     {
 
-**index.html** という名前のローカル ファイルを作成します。
+という名前のローカル ファイルを作成する **index.html**します。
 
     PrintStream stream;
     stream = new PrintStream(new FileOutputStream("index.html"));
 
-追加、ローカル ファイルへの書き込み、 **< html >**, 、**< ヘッダー >**, と
-**< body >** 要素。
+追加、ローカル ファイルへの書き込み、 **& lt; html & gt;**, 、**& lt; ヘッダー & gt;**, と
+**& lt; 本文 & gt;** 要素です。
 
     stream.println("<html>");
     stream.println("<header/>");
     stream.println("<body>");
 
 アップロードされた BLOB のリストに対して反復処理を行います。 HTML の各 blob について
-ページを作成する、 **< img >** を持つ要素の **src** に送信される属性
+ページを作成する、 **& lt; img & gt;** を持つ要素の **src** に送信される属性
 blob の URI は、Azure ストレージ アカウントに存在します。
 詳細は、追加した場合、このサンプルでは 1 つのみのイメージが追加されます。
 このコードではそれらのすべてを反復処理します。
@@ -242,7 +243,7 @@ blob は、必要に応じて、コードを調整します。
     stream.println("<img src='" + blobItem.getUri() + "'/><br/>");
     }
 
-**&lt;body&gt;** 要素および **&lt;html&gt;** 要素を閉じます。
+閉じる、 **& lt; 本文 & gt;** 要素および **& lt; html & gt;** 要素。
 
     stream.println("</body>");
     stream.println("</html>");
@@ -251,9 +252,9 @@ blob は、必要に応じて、コードを調整します。
 
     stream.close();
 
-右ブラケット **}** を挿入して **MakeHTMLPage** を閉じます。
+閉じる **MakeHTMLPage** 閉じかっこを挿入して: **}**
 
-右ブラケット **}** を挿入して **StorageSample** を閉じます。
+閉じる **StorageSample** 閉じかっこを挿入して: **}**
 
 この例の完全なコードを次に示します。 変更に注意してください。
 プレース ホルダー値 **your \_account\_name** と
@@ -264,49 +265,49 @@ blob は、必要に応じて、コードを調整します。
     import com.microsoft.azure.storage.blob.*;
     import java.io.*;
     import java.net.URISyntaxException;
-    
+
     // Create an image, c:\myimages\image1.jpg, prior to running this sample.
     // Alternatively, change the value used by the FileInputStream constructor
     // to use a different image path and file that you have already created.
     public class StorageSample {
-    
+
         public static final String storageConnectionString =
                 "DefaultEndpointsProtocol=http;" +
                        "AccountName=your_account_name;" +
                        "AccountKey=your_account_name";
-    
+
         public static void main(String[] args) {
             try {
                 CloudStorageAccount account;
                 CloudBlobClient serviceClient;
                 CloudBlobContainer container;
                 CloudBlockBlob blob;
-    
+
                 account = CloudStorageAccount.parse(storageConnectionString);
                 serviceClient = account.createCloudBlobClient();
                 // Container name must be lower case.
                 container = serviceClient.getContainerReference("gettingstarted");
                 container.createIfNotExists();
-    
+
                 // Set anonymous access on the container.
                 BlobContainerPermissions containerPermissions;
                 containerPermissions = new BlobContainerPermissions();
                 containerPermissions.setPublicAccess(BlobContainerPublicAccessType.CONTAINER);
                 container.uploadPermissions(containerPermissions);
-    
+
                 // Upload an image file.
                 blob = container.getBlockBlobReference("image1.jpg");
-    
+
                 File fileReference = new File("c:\\myimages\\image1.jpg");
                 blob.upload(new FileInputStream(fileReference), fileReference.length());
-    
+
                 // At this point the image is uploaded.
                 // Next, create an HTML page that lists all of the uploaded images.
                 MakeHTMLPage(container);
-    
+
                 System.out.println("Processing complete.");
                 System.out.println("Open index.html to see the images stored in your storage account.");
-    
+
             } catch (FileNotFoundException fileNotFoundException) {
                 System.out.print("FileNotFoundException encountered: ");
                 System.out.println(fileNotFoundException.getMessage());
@@ -325,27 +326,27 @@ blob は、必要に応じて、コードを調整します。
                 System.exit(-1);
             }
         }
-    
+
         // Create an HTML page that can be used to display the uploaded images.
         // This example assumes all of the blobs are for images.
         public static void MakeHTMLPage(CloudBlobContainer container) throws FileNotFoundException, URISyntaxException
         {
             PrintStream stream;
             stream = new PrintStream(new FileOutputStream("index.html"));
-    
+
             // Create the opening <html>, <header>, and <body> elements.
             stream.println("<html>");
             stream.println("<header/>");
             stream.println("<body>");
-    
+
             // Enumerate the uploaded blobs.
             for (ListBlobItem blobItem : container.listBlobs()) {
                 // List each blob as an <img> element in the HTML body.
                 stream.println("<img src='" + blobItem.getUri() + "'/><br/>");
             }
-    
+
             stream.println("</body>");
-    
+
             // Complete the <html> element and close the file.
             stream.println("</html>");
             stream.close();
@@ -376,14 +377,14 @@ Azure ストレージにローカルの画像ファイルをアップロード�
 
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.blob.*;
-    
+
     public class DeleteContainer {
-    
+
         public static final String storageConnectionString =
                 "DefaultEndpointsProtocol=http;" +
                    "AccountName=your_account_name;" +
                    "AccountKey=your_account_key";
-    
+
         public static void main(String[] args)
         {
             try
@@ -391,15 +392,15 @@ Azure ストレージにローカルの画像ファイルをアップロード�
                 CloudStorageAccount account;
                 CloudBlobClient serviceClient;
                 CloudBlobContainer container;
-    
+
                 account = CloudStorageAccount.parse(storageConnectionString);
                 serviceClient = account.createCloudBlobClient();
                 // Container name must be lower case.
                 container = serviceClient.getContainerReference("gettingstarted");
                 container.delete();
-    
+
                 System.out.println("Container deleted.");
-    
+
             }
             catch (StorageException storageException)
             {
@@ -416,24 +417,23 @@ Azure ストレージにローカルの画像ファイルをアップロード�
         }
     }
 
-その他の blob ストレージ クラスおよびメソッドの概要については「」を参照する方法
-Java から blob ストレージ サービスの使用]。
+その他の blob ストレージ クラスとメソッドの概要については、次を参照してください。 [How to
+Java から blob ストレージ サービスを使用して]します。
 
 ## 次のステップ
 
 さらに複雑なストレージ タスクの詳細については、次のリンク先をご覧ください。
 
-- [Azure Storage SDK for Java の][]
-- [Azure Storage クライアント SDK を参照][]
-- [Azure Storage REST API の][]
-- [Azure ストレージ チーム ブログ][]
+- [Azure Storage SDK for Java][]
+- [Azure ストレージ クライアント SDK リファレンス][]
+- [Azure Storage REST API][]
+- [Azure のストレージ チーム ブログ][]
 
-
-[download the azure sdk for java]: http://go.microsoft.com/fwlink/?LinkID=525671 
-[how to create a storage account]: storage-create-storage-account.md#create-a-storage-account 
-[how to manage storage accounts]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys 
-[how to use the blob storage service from java]: storage-java-how-to-use-blob-storage.md 
-[azure storage sdk for java]: https://github.com/azure/azure-storage-java 
-[azure storage client sdk reference]: http://dl.windowsazure.com/storage/javadoc/ 
-[azure storage team blog]: http://blogs.msdn.com/b/windowsazurestorage/ 
+  [Download the Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
+  [How to Create a Storage Account]: storage-create-storage-account.md#create-a-storage-account
+  [How to Manage Storage Accounts]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
+  [How to Use the Blob Storage Service from Java]: storage-java-how-to-use-blob-storage.md
+  [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
+  [Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/
+  [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 

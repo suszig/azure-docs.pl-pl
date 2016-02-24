@@ -17,10 +17,9 @@
    ms.date="04/29/2015"
    ms.author="mahthi"/>
 
-
 # Azure リソース マネージャーにおける Compute、Network、Strage プロバイダー
 
-Azure リソース マネージャーに Compute、Network、Strage の機能が追加されたことによって、IaaS 上で動作する複雑なアプリケーションのデプロイメントと管理が大幅に単純化されます。多くのアプリケーションは、Virtual Network、ストレージ アカウント、Virtual Machine、ネットワーク インターフェイスなど、リソースの組み合わせを必要とします。Azure リソース マネージャーには、そうしたリソースをすべてひとまとめにして単一のアプリケーションとしてデプロイし、管理する JSON テンプレートを作成する機能が用意されています。
+Azure リソース マネージャーに Compute、Network、Strage の機能が追加されたことによって、IaaS 上で動作する複雑なアプリケーションのデプロイと管理が大幅に単純化されます。 多くのアプリケーションは、仮想ネットワーク、ストレージ アカウント、仮想マシン、ネットワーク インターフェイスなど、リソースの組み合わせを必要とします。 Azure リソース マネージャーには、そうしたリソースをすべてひとまとめにして単一のアプリケーションとしてデプロイし、管理する JSON テンプレートを作成する機能が用意されています。
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -30,8 +29,8 @@ Azure リソース マネージャーに Compute、Network、Strage の機能が
 Azure リソース マネージャーでは、既製のアプリケーション テンプレートを容易に活用できます。また、Azure に Compute、Network、Strage の各リソースをデプロイして管理するためのアプリケーション テンプレートを新たに作成することもできます。 このセクションでは、Azure リソース マネージャーを使用してリソースをデプロイする利点について説明します。
 
 -   複雑な作業を単純化 -- 共有可能なテンプレート ファイルからあらゆる Azure リソース (Websites、SQL Database、Virtual Machines、Virtual Network など) を含んだ複合的なアプリケーションを構築、統合し、共同作業を行うことができます。
--   同じテンプレート ファイルを使用することで、開発、DevOps、システム管理者向けに、柔軟性に優れたデプロイメントを反復的に行うことができます。
--   VM 拡張機能 (カスタム スクリプト、DSC、Chef、Puppet など) の高度な統合 テンプレートで Azure リソース マネージャーでファイルを使用して VM のセットアップの構成の簡単なオーケストレーション
+-   同じテンプレート ファイルを使用することで、開発、DevOps、システム管理者向けに、柔軟性に優れたデプロイを反復的に行うことができます。
+-   VM 拡張機能 (カスタム スクリプト、DSC、Chef、Puppet など) と Azure リソース マネージャーがテンプレート ファイル内で密に統合され、VM 内のセットアップ構成の編成が容易になります。
 -   Compute、Network、Strage リソース用に、タグとその課金の伝達を定義できます。
 -   Azure のロールベースの Access Control (RBAC) を使用して、組織的なリソース アクセス管理を単純かつ厳密に行うことができます。
 -   元のテンプレートに変更を加えて再度デプロイすることでアップグレード/更新を単純化することができます。
@@ -41,7 +40,7 @@ Azure リソース マネージャーでは、既製のアプリケーション 
 
 リリースされている API には、上記の利点に加え、パフォーマンス面で強化された点がいくつかあります。
 
--   大量の Virtual Machines の並列デプロイメントが可能になりました。
+-   大量の Virtual Machines の並列デプロイが可能になりました。
 -   可用性セットで 3 つの障害ドメインがサポートされます。
 -   カスタム スクリプト拡張機能が強化され、パブリックにアクセスできるカスタム URL からのスクリプトの指定が可能になりました。
 - Azure Key Vault の安全性の高いストレージおよびプライベートなデプロイメントから機密情報を持つ仮想マシンの統合 [FIPS 検証済み](http://wikipedia.org/wiki/FIPS_140-2) [ハードウェア セキュリティ モジュール](http://wikipedia.org/wiki/Hardware_security_module)
@@ -54,18 +53,18 @@ Azure リソース マネージャーでは、既製のアプリケーション 
 
 このセクションでは、現在利用できる XML ベースの API とCompute、Network、Storage に関して Azure リソース マネージャーを通じて使用できる JSON ベース API との特に重要な概念上の相違点をいくつか説明します。
 
- 項目| Azure サービス管理 (XML ベース)| Compute、Network、Strage プロバイダー (JSON ベース)
----|---|---
-| Virtual Machines 用クラウド サービス| クラウド サービスは、プラットフォームに基づく可用性と負荷分散を必要とする仮想マシンを保持するためのコンテナーです。| 新しいモデルを使用して Virtual Machine を作成するためのオブジェクトとしてのクラウド サービスは不要となりました。|
-| 可用性セット| プラットフォームに対する可用性は、Virtual Machines に同じ "AvailabilitySetName" を構成することによって示されます。障害ドメインの最大数は 2 です。| 可用性セットは、Microsoft.Compute プロバイダーによって公開されるリソースです。可用性セットには、高可用性を必要とする Virtual Machines を含める必要があります。障害ドメインの最大数は 3 です。|
-| [アフィニティ グループ] をクリックし、| Virtual Network を作成するにはアフィニティ グループが必要です。ただし、Regional Virtual Network の導入により、それは不要となりました。| 単純化するために、Azure リソース マネージャーによって公開される API には、アフィニティ グループの概念が存在しません。|
-| 負荷分散| デプロイされている Virtual Machines には、クラウド サービスの作成によって暗黙的な Load Balancer が提供されます。| Load Balancer は、Microsoft.Network プロバイダーによって公開されるリソースです。負荷分散を必要とする Virtual Machines のプライマリ ネットワーク インターフェイスは、Load Balancer を参照している必要があります。Load Balancer には、内部 Load Balancer と外部 Load Balancer とがあります。[詳細を表示します。](resource-groups-networking.md)|
-| 仮想 IP アドレス| Cloud Services に VM を追加すると、既定の VIP (仮想 IP アドレス) がクラウド サービスに与えられます。仮想 IP アドレスは、暗黙的なロード バランサーに関連付けられるアドレスです。| パブリック IP アドレスは、Microsoft.Network プロバイダーによって公開されるリソースです。パブリック IP アドレスには、静的 (予約済み) アドレスと動的アドレスとがあります。Load Balancer には、動的パブリック IP を割り当てることができます。パブリック IP のセキュリティは、セキュリティ グループを使用して保護できます。|
-| 予約済み IP アドレス| IP アドレスを Azure で予約し、クラウド サービスに関連付けることで、その IP アドレスを固定アドレスとすることができます。| パブリック IP アドレスは "静的" モードで作成でき、"予約済み IP アドレス" と同じ機能を持ちます。現在、Load Balancer に割り当てることができるのは静的パブリック IP だけです。|
-| VM ごとのパブリック IP アドレス (PIP)| Public IP Addresses は、直接 VM に関連付けることもできます。| パブリック IP アドレスは、Microsoft.Network プロバイダーによって公開されるリソースです。パブリック IP アドレスには、静的 (予約済み) アドレスと動的アドレスとがあります。ただし、VM ごとのパブリック IP を取得するためにネットワーク インターフェイスに割り当てることができるのは現在、動的パブリック IP だけです。|
-| エンドポイント| 特定のポートの接続を確立するためには、Virtual Machines に入力エンドポイントを構成する必要があります。入力エンドポイントを設定することによって Virtual Machines に接続する一般的なモードの 1 つ。| VM への接続用に特定のポートのエンドポイントを有効にする機能は、Load Balancer に受信 NAT ルールを構成することで実現できます。|
-| DNS 名| クラウド サービスには、グローバルに一意となる暗黙的な DNS 名が与えられます 例: `mycoffeeshop.cloudapp.net`します。| DNS 名は、パブリック IP アドレス リソースに指定できる省略可能なパラメーターです。FQDN は、の形式になります `< domainlabel >. < 地域 >. cloudapp.azure.com`します。|
-| ネットワーク インターフェイス| プライマリとセカンダリのネットワーク インターフェイスおよびそのプロパティは、仮想マシンのネットワーク構成として定義されます。| ネットワーク インターフェイスは、Microsoft.Network プロバイダーによって公開されるリソースです。ネットワーク インターフェイスのライフサイクルは、Virtual Machines に関連付けられません。|
+ 項目 | Azure サービス管理 (XML ベース)    | Compute、Network、Strage プロバイダー (JSON ベース)
+ ---|---|---
+| Virtual Machines 用クラウド サービス |  クラウド サービスは、プラットフォームに基づく可用性と負荷分散を必要とする仮想マシンを保持するためのコンテナーです。 | 新しいモデルを使用して仮想マシンを作成するためのオブジェクトとしてのクラウド サービスは不要となりました。 |
+| 可用性セット | プラットフォームに対する可用性は、Virtual Machines に同じ "AvailabilitySetName" を構成することによって示されます。 障害ドメインの最大数は 2 です。 | 可用性セットは、Microsoft.Compute プロバイダーによって公開されるリソースです。 可用性セットには、高可用性を必要とする Virtual Machines を含める必要があります。 障害ドメインの最大数は 3 です。 |
+| [アフィニティ グループ] をクリックし、 | Virtual Network を作成するにはアフィニティ グループが必要です。 ただし、Regional Virtual Network の導入により、それは不要となりました。 |単純化するために、Azure リソース マネージャーによって公開される API には、アフィニティ グループの概念が存在しません。 |
+| 負荷分散    | デプロイされている Virtual Machines には、クラウド サービスの作成によって暗黙的な Load Balancer が提供されます。 | Load Balancer は、Microsoft.Network プロバイダーによって公開されるリソースです。 負荷分散を必要とする Virtual Machines のプライマリ ネットワーク インターフェイスは、Load Balancer を参照している必要があります。 Load Balancer には、内部 Load Balancer と外部 Load Balancer とがあります。 [詳細を表示します。](resource-groups-networking.md) |
+|仮想 IP アドレス | Cloud Services に VM を追加すると、既定の VIP (仮想 IP アドレス) がクラウド サービスに与えられます。 仮想 IP アドレスは、暗黙的なロード バランサーに関連付けられるアドレスです。   | パブリック IP アドレスは、Microsoft.Network プロバイダーによって公開されるリソースです。 パブリック IP アドレスには、静的 (予約済み) アドレスと動的アドレスとがあります。 Load Balancer には、動的パブリック IP を割り当てることができます。 パブリック IP のセキュリティは、セキュリティ グループを使用して保護できます。 |
+|予約済み IP アドレス|   IP アドレスを Azure で予約し、クラウド サービスに関連付けることで、その IP アドレスを固定アドレスとすることができます。   | パブリック IP アドレスは "静的" モードで作成でき、"予約済み IP アドレス" と同じ機能を持ちます。 現在、Load Balancer に割り当てることができるのは静的パブリック IP だけです。 |
+|VM ごとのパブリック IP アドレス (PIP) | Public IP Addresses は、直接 VM に関連付けることもできます。 | パブリック IP アドレスは、Microsoft.Network プロバイダーによって公開されるリソースです。 パブリック IP アドレスには、静的 (予約済み) アドレスと動的アドレスとがあります。 ただし、VM ごとのパブリック IP を取得するためにネットワーク インターフェイスに割り当てることができるのは現在、動的パブリック IP だけです。 |
+|エンドポイント| 特定のポートの接続を確立するためには、仮想マシンに入力エンドポイントを構成する必要があります。 入力エンドポイントを設定することによって仮想マシンに接続する一般的なモードの 1 つ。 | VM への接続用に特定のポートのエンドポイントを有効にする機能は、Load Balancer に受信 NAT ルールを構成することで実現できます。 |
+|DNS 名| クラウド サービスには、グローバルに一意となる暗黙的な DNS 名が与えられます  (例: `mycoffeeshop.cloudapp.net`)。 | DNS 名は、パブリック IP アドレス リソースに指定できる省略可能なパラメーターです。 FQDN は、`<domainlabel>.<region>.cloudapp.azure.com` という形式になります。 |
+|ネットワーク インターフェイス | プライマリとセカンダリのネットワーク インターフェイスおよびそのプロパティは、仮想マシンのネットワーク構成として定義されます。 | ネットワーク インターフェイスは、Microsoft.Network プロバイダーによって公開されるリソースです。 ネットワーク インターフェイスのライフサイクルは、仮想マシンに関連付けられません。 |
 
 ## Virtual Machines 用 Azure テンプレートの概要
 
@@ -73,15 +72,15 @@ Azure テンプレートを初めて使用する際は、開発とプラット�
 
 ### Azure ポータル
 
-Azure ポータルには、Virtual Machines のクラシック デプロイ モデルと、Virtual Machines のリソース マネージャー デプロイ モデルのデプロイ オプションが引き続き同時にあります。 Azure ポータルでカスタム テンプレートのデプロイメントを行うこともできます。
+Azure ポータルには、Virtual Machines のクラシック デプロイ モデルと、Virtual Machines のリソース マネージャー デプロイ モデルのデプロイ オプションが引き続き同時にあります。 Azure ポータルでカスタム テンプレートのデプロイを行うこともできます。
 
 ### Azure PowerShell
 
-Azure PowerShell には、**AzureServiceManagement** モードと **AzureResourceManager** モードの 2 つのデプロイメント モードがあります。 AzureResourceManager モードにはさらに、Virtual Machines、Virtual Network、ストレージ アカウントを管理するためのコマンドレットが含まれます。 詳細について [ここ](../powershell-azure-resource-manager.md)します。
+Azure PowerShell が 2 つのデプロイメント モードが **AzureServiceManagement** モードと **AzureResourceManager** モードです。  AzureResourceManager モードにはさらに、Virtual Machines、Virtual Network、ストレージ アカウントを管理するためのコマンドレットが含まれます。 詳細について [ここ](../powershell-azure-resource-manager.md)します。
 
 ### Azure CLI
 
-Azure コマンドライン インターフェイス (Azure CLI) には、**AzureServiceManagement** モードと **AzureResourceManager** モードの 2 つのデプロイメント モードがあります。 AzureResourceManager モードにはさらに、Virtual Machines、Virtual Network、ストレージ アカウントを管理するためのコマンドが含まれます。 詳細について [ここ](xplat-cli-azure-resource-manager.md)します。
+Azure コマンド ライン インターフェイス (Azure CLI) は 2 つのデプロイメント モードが **AzureServiceManagement** モードと **AzureResourceManager** モードです。 AzureResourceManager モードにはさらに、Virtual Machines、Virtual Network、ストレージ アカウントを管理するためのコマンドが含まれます。 詳細について [ここ](xplat-cli-azure-resource-manager.md)します。
 
 ### Visual Studio
 
@@ -93,11 +92,11 @@ Azure コマンドライン インターフェイス (Azure CLI) には、**Azur
 
 ## よく寄せられる質問
 
-**仮想ネットワークまたは Azure サービス管理 Api を使用して作成されたストレージ アカウントにデプロイする新しい Azure リソース マネージャーを使用して仮想マシンを作成することができますか。**
+**Azure サービス管理 API を使用して作成した仮想マシンまたはストレージ アカウントにデプロイする仮想マシンを、新しい Azure リソース マネージャーで作成することはできますか。**
 
-現時点ではサポートされません。 新しい Azure リソース マネージャー API では、サービス管理 API を使用して作成された Virtual Network に Virtual Machine をデプロイすることはできません。
+現時点ではサポートされません。 新しい Azure リソース マネージャー API では、サービス管理 API を使用して作成された仮想ネットワークに仮想マシンをデプロイすることはできません。
 
-**新しい Azure リソース マネージャー API で、Azure サービス管理 API を使用して作成されたユーザー イメージから Virtual Machine を作成することはできますか。**
+**新しい Azure リソース マネージャー API で、Azure サービス管理 API を使用して作成されたユーザー イメージから仮想マシンを作成することはできますか。**
 
 現時点ではサポートされません。 ただし、サービス管理 API で作成したストレージ アカウントから VHD ファイルをコピーし、新しい Azure リソース マネージャー API で作成した新しいアカウントにコピーすることはできます。
 
@@ -116,8 +115,4 @@ Azure コマンドライン インターフェイス (Azure CLI) には、**Azur
 **Azure リソース マネージャーのテンプレートの例はどこで入手できますか。**
 
 包括的な一連のスターター テンプレートを参照して [Azure リソース マネージャーのクイック スタート テンプレート](http://azure.microsoft.com/documentation/templates/)します。
-
-
-
-
 

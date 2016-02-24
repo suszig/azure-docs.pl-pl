@@ -20,7 +20,6 @@
 
 
 
-
 # Azure App Service Web Apps による Python の構成
 
 このチュートリアルで作成して、基本的な Web Server Gateway Interface (WSGI) 準拠した Python アプリケーションを構成する方法については説明 [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)します。
@@ -32,16 +31,16 @@
 
 Azure Marketplace には、Bottle、Django、Flask フレームワーク用のテンプレートが含まれます。 Azure App Service に最初の Web アプリを開発している場合、または Git に習熟していない場合は、これらのチュートリアルのいずれかに従うことをお勧めします。これらのチュートリアルでは、Windows または Mac から Git デプロイメントを使用して、ギャラリーから作業アプリケーションを構築するためのステップ バイ ステップの手順を紹介しています。
 
-- [Bottle を使用した web アプリの作成](web-sites-python-create-deploy-bottle-app.md)
-- [Django を使用した web アプリの作成](web-sites-python-create-deploy-django-app.md)
-- [Flask を使用した web アプリの作成](web-sites-python-create-deploy-flask-app.md)
+- [Bottle を使用した Web アプリの作成](web-sites-python-create-deploy-bottle-app.md)
+- [Django を使用した Web アプリの作成](web-sites-python-create-deploy-django-app.md)
+- [Flask を使用した Web アプリの作成](web-sites-python-create-deploy-flask-app.md)
 
 
 ## Azure ポータルでの Web アプリの作成
 
 このチュートリアルは、Azure サブスクリプションを既に所有しており、Azure ポータルにアクセスできることを前提としています。
 
-既存の web アプリがあるない場合から 1 つを作成、 [Azure ポータル](https://portal.azure.com)します。 画面左下にある [新規] ボタンをクリックし、次に **[Web + モバイル]**、**[Web アプリ]** の順にクリックします。
+既存の web アプリがあるない場合から 1 つを作成、 [Azure ポータル](https://portal.azure.com)します。  左下隅で、新しいボタンをクリックし、[ **Web + モバイル** > **Web アプリ**します。
 
 ## Git 発行
 
@@ -60,11 +59,12 @@ Git 発行の設定が完了すると、Git リポジトリが作成されて We
     web.config
     ptvs_virtualenv_proxy.py
 
+
 ## WSGI ハンドラー
 
 WSGI はで規定された Python の標準 [PEP 3333](http://www.python.org/dev/peps/pep-3333/) web サーバーと Python 間のインターフェイスを定義します。 各種の Web アプリケーションや Web フレームワークを Python を使って記述するためのインターフェイスが標準化されています。 今日普及している Python Web フレームワークには WSGI が使用されています。 Web フレームワークに必要な機能は Azure App Service Web Apps に用意されています。また、カスタム ハンドラーを WSGI 仕様のガイドラインに準拠させれば、経験豊富なユーザーが Web フレームワークを独自に制作することも可能です。
 
-次の例は、 `app.py` カスタム ハンドラーを定義します。
+次は、カスタム ハンドラーを定義する `app.py` の例です。
 
     def wsgi_app(environ, start_response):
         status = '200 OK'
@@ -72,14 +72,14 @@ WSGI はで規定された Python の標準 [PEP 3333](http://www.python.org/dev
         start_response(status, response_headers)
         response_body = 'Hello World'
         yield response_body.encode()
-    
+
     if __name__ == '__main__':
         from wsgiref.simple_server import make_server
-    
+
         httpd = make_server('localhost', 5555, wsgi_app)
         httpd.serve_forever()
 
-このアプリケーションをローカルでを実行する `python app.py`, を選択し、 `http://localhost:5555` web ブラウザーでします。
+`python app.py` を使用してこのアプリケーションをローカルで実行し、その後 Web ブラウザーで `http://localhost:5555` を参照できます。
 
 
 ## 仮想環境
@@ -88,7 +88,7 @@ WSGI はで規定された Python の標準 [PEP 3333](http://www.python.org/dev
 
 外部のパッケージとの依存関係を管理するために、Azure の Git デプロイメントでは、仮想環境の作成がサポートされています。
 
-という名前の仮想環境が自動的に作成して Azure では、リポジトリのルートに requirements.txt を検出、ときに `env`します。 これは、最初のデプロイメント、または選択した Python ランタイムを変更した後のデプロイメント時に発生します。
+Azure がリポジトリのルート ディレクトリに requirements.txt を検出すると、`env` という名前の仮想環境が自動的に作成されます。 これは、最初のデプロイメント、または選択した Python ランタイムを変更した後のデプロイメント時に発生します。
 
 仮想開発環境をローカルで作成する場合、Git リポジトリには含めないでください。
 
@@ -97,17 +97,19 @@ WSGI はで規定された Python の標準 [PEP 3333](http://www.python.org/dev
 
 requirements.txt 内のリストにあるパッケージが、pip を使用して仮想環境に自動的にインストールされます。 これはデプロイメントごとに発生しますが、パッケージが既にインストールされている場合は、インストールがスキップされます。
 
-例 `requirements.txt`:
+例 `requirements.txt`
 
     azure==0.8.4
+
 
 ## Python バージョン
 
 [AZURE.INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
-例 `runtime.txt`:
+例 `runtime.txt`
 
     python-2.7
+
 
 ## web.config
 
@@ -115,9 +117,9 @@ requirements.txt 内のリストにあるパッケージが、pip を使用し�
 
 リポジトリに web.x.y.config ファイルがある場合は (ここでは x.y は選択した Python ランタイム)、Azure が適切なファイルを web.config として自動的にコピーします。
 
-次の例の web.config は、次のセクションで説明する仮想環境プロキシ スクリプトに依存します。 この例で使用した WSGI ハンドラーを扱う `app.py` 上です。
+次の例の web.config は、次のセクションで説明する仮想環境プロキシ スクリプトに依存します。  これらの例は、上記の `app.py` の例で使用した WSGI ハンドラーによって動作します。
 
-例 `web.config` Python 2.7 の場合。
+Python 2.7 用の`web.config` の例:
 
     <?xml version="1.0"?>
     <configuration>
@@ -166,7 +168,8 @@ requirements.txt 内のリストにあるパッケージが、pip を使用し�
       </system.webServer>
     </configuration>
 
-例 `web.config` Python 3.4 の場合。
+
+Python 3.4 用の`web.config` の例:
 
     <?xml version="1.0"?>
     <configuration>
@@ -213,20 +216,21 @@ requirements.txt 内のリストにあるパッケージが、pip を使用し�
       </system.webServer>
     </configuration>
 
+
 パフォーマンスを向上させるために、静的ファイルは、Python コードを介さずに、Web サーバーによって直接処理されます。
 
-上記の例では、静的ファイルのディスク上の場所は URL の場所と一致する必要があります。 つまり、この要求を `http://pythonapp.azurewebsites.net/static/site.css` でディスク上のファイルは、 `\static\site.css`します。
+上記の例では、静的ファイルのディスク上の場所は URL の場所と一致する必要があります。 つまり、`http://pythonapp.azurewebsites.net/static/site.css` への要求は、ディスクの `\static\site.css` にあるファイルを使用します。
 
-`WSGI_ALT_VIRTUALENV_HANDLER` では、WSGI ハンドラーを指定します。 上記の例では `app.wsgi_app` という名前の関数は、ハンドラーがあるため `wsgi_app` で `app.py` ルート フォルダーにします。
+`WSGI_ALT_VIRTUALENV_HANDLER` は WSGI ハンドラーを指定する場所です。 上記の例では、ハンドラーはルート フォルダーの `app.py` の `wsgi_app` という名前の関数であるため、`app.wsgi_app` になります。
 
-`PYTHONPATH` カスタマイズできますが、requirements.txt で指定することで、仮想環境にすべての依存関係をインストールする場合は、変更する必要はありません。
+`PYTHONPATH` はカスタマイズ可能ですが、requirements.txt で指定することで、仮想環境にすべての依存関係をインストールする場合は、変更する必要はありません。
 
 
 ## 仮想環境のプロキシ
 
 次のスクリプトは、WSGI ハンドラーの取得、仮想環境のアクティブ化、エラーの記録に使用されます。 修正することなく、汎用的に使用できます。
 
-内容 `ptvs_virtualenv_proxy.py`:
+`ptvs_virtualenv_proxy.py` の内容:
 
      # ############################################################################
      #
@@ -241,16 +245,16 @@ requirements.txt 内のリストにあるパッケージが、pip を使用し�
      # You must not remove this notice, or any other, from this software.
      #
      # ###########################################################################
-    
+
     import datetime
     import os
     import sys
     import traceback
-    
+
     if sys.version_info[0] == 3:
         def to_str(value):
             return value.decode(sys.getfilesystemencoding())
-    
+
         def execfile(path, global_dict):
             """Execute a file"""
             with open(path, 'r') as f:
@@ -260,7 +264,7 @@ requirements.txt 内のリストにあるパッケージが、pip を使用し�
     else:
         def to_str(value):
             return value.encode(sys.getfilesystemencoding())
-    
+
     def log(txt):
         """Logs fatal errors to a log file if WSGI_LOG env var is defined"""
         log_file = os.environ.get('WSGI_LOG')
@@ -270,7 +274,7 @@ requirements.txt 内のリストにあるパッケージが、pip を使用し�
                 f.write('%s: %s' % (datetime.datetime.now(), txt))
             finally:
                 f.close()
-    
+
     ptvsd_secret = os.getenv('WSGI_PTVSD_SECRET')
     if ptvsd_secret:
         log('Enabling ptvsd ...\n')
@@ -283,7 +287,7 @@ requirements.txt 内のリストにあるパッケージが、pip を使用し�
                 log('ptvsd.enable_attach failed\n')
         except ImportError:
             log('error importing ptvsd.\n');
-    
+
     def get_wsgi_handler(handler_name):
         if not handler_name:
             raise Exception('WSGI_ALT_VIRTUALENV_HANDLER env var must be set')
@@ -297,7 +301,7 @@ requirements.txt 内のリストにあるパッケージが、pip を使用し�
         name_list = [(callable_name, should_call)]
         handler = None
         last_tb = ''
-    
+
         while module_name:
             try:
                 handler = __import__(module_name, fromlist=[name_list[0][0]])
@@ -319,20 +323,20 @@ requirements.txt 内のリストにあるパッケージが、pip を使用し�
             raise ValueError('"%s" could not be imported%s' % (handler_name, last_tb))
     
         return handler
-    
+
     activate_this = os.getenv('WSGI_ALT_VIRTUALENV_ACTIVATE_THIS')
     if not activate_this:
         raise Exception('WSGI_ALT_VIRTUALENV_ACTIVATE_THIS is not set')
-    
+
     def get_virtualenv_handler():
         log('Activating virtualenv with %s\n' % activate_this)
         execfile(activate_this, dict(__file__=activate_this))
-    
+
         log('Getting handler %s\n' % os.getenv('WSGI_ALT_VIRTUALENV_HANDLER'))
         handler = get_wsgi_handler(os.getenv('WSGI_ALT_VIRTUALENV_HANDLER'))
         log('Got handler: %r\n' % handler)
         return handler
-    
+
     def get_venv_handler():
         log('Activating venv with executable at %s\n' % activate_this)
         import site
@@ -345,11 +349,12 @@ requirements.txt 内のリストにあるパッケージが、pip を使用し�
         for item in old_sys_path:
             if item not in sys.path:
                 sys.path.append(item)
-    
+
         log('Getting handler %s\n' % os.getenv('WSGI_ALT_VIRTUALENV_HANDLER'))
         handler = get_wsgi_handler(os.getenv('WSGI_ALT_VIRTUALENV_HANDLER'))
         log('Got handler: %r\n' % handler)
         return handler
+
 
 ## Git デプロイメントのカスタマイズ
 
@@ -368,19 +373,15 @@ requirements.txt 内のリストにあるパッケージが、pip を使用し�
 ## 次のステップ
 
 詳細については、次を参照してください。、 [Python デベロッパー センター](/develop/python/)します。
+
 >[AZURE.NOTE] 場合は、Azure アカウントがサインアップする前に Azure App Service の使用を開始するには、 [App Service の試用](http://go.microsoft.com/fwlink/?LinkId=523751), 、App Service で有効期間の短いスターター web アプリをすぐに作成する場所です。 このサービスの利用にあたり、クレジット カードは必要ありません。契約も必要ありません。
 
 ## 変更内容
-
 * Web サイトから App Service への変更のガイドを参照してください: [Azure App Service と既存の Azure サービスへの影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 
 
 
 
-
-
-
-
-
+ 
 

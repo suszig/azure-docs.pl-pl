@@ -1,5 +1,5 @@
 <properties
-   pageTitle=".NET アプリケーションから Azure Search を使用する方法 |Microsoft Azure |ホスト型クラウド検索サービス"
+   pageTitle=".NET アプリケーションから Azure Search を使用する方法 | Microsoft Azure | ホスト型クラウド検索サービス"
    description=".NET アプリケーションから Azure Search を使用する方法"
    services="search"
    documentationCenter=""
@@ -16,39 +16,38 @@
    ms.date="10/07/2015"
    ms.author="brjohnst"/>
 
-
-# .NET アプリケーションから Azure Search を使用する方法
+# .NET アプリケーションから Azure Search を使用する方法 #
 
 この記事で起動して稼働するためのチュートリアルでは、 [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)します。 .NET SDK を使用すると、Azure Search を使用してアプリケーションにリッチな検索エクスペリエンスを実装できます。
 
-## Azure Search SDK の内容
+## Azure Search SDK の内容 ##
 
-クライアント ライブラリでは、SDK から成る `Microsoft.Azure.Search`します。 SDK を使用すると、インデックス、データ ソース、インデクサーの管理、ドキュメントのアップロードと管理、クエリの実行を行うことができ、HTTP や JSON の細部を処理する必要はありません。
+SDK は、クライアント ライブラリ `Microsoft.Azure.Search` で構成されます。 SDK を使用すると、インデックス、データ ソース、インデクサーの管理、ドキュメントのアップロードと管理、クエリの実行を行うことができ、HTTP や JSON の細部を処理する必要はありません。
 
-クライアント ライブラリのようなクラスを定義する `インデックス`, 、`フィールド`, 、および `ドキュメント`, などの操作や、 `Indexes.Create` と `Documents.Search` 上、 `SearchServiceClient` と `SearchIndexClient` クラスです。 これらのクラスは、次の名前空間にまとめられています。
+クライアント ライブラリでは、`Index`、`Field`、`Document` などのクラス、および `SearchServiceClient` や `SearchIndexClient` クラス上の `Indexes.Create` や `Documents.Search` などの操作が定義されています。 これらのクラスは、次の名前空間にまとめられています。
 
 - [Microsoft.Azure.Search](https://msdn.microsoft.com/library/azure/microsoft.azure.search.aspx)
 - [Microsoft.Azure.Search.Models](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.aspx)
 
 Azure Search .NET SDK の現在のバージョンはプレリリース版です。 最初の安定バージョンに組み込むためのフィードバックを提供する場合をご覧ください、 [フィードバック ページ](http://feedback.azure.com/forums/263029-azure-search)します。
 
-.NET SDK のバージョンをサポートしている `2015年-02-28` に記載されている、Azure Search REST API の [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)します。 このバージョンでは、Microsoft 言語アナライザーがサポートされるようになりました。 新しい機能を *いない* のサポートなど、このバージョンの一部、 `moreLikeThis` 検索パラメーターは、 [プレビュー](search-api-2015-02-28-preview.md) SDK ではまだ使用できないとします。 確認できます [Search サービスのバージョン](https://msdn.microsoft.com/library/azure/dn864560.aspx) または [Azure Search に最新の更新](search-latest-updates.md) のいずれかの機能のステータスが更新されます。
+.NET SDK のバージョンをサポートしている `2015-02-28` に記載されている、Azure Search REST API の [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)します。 このバージョンでは、Microsoft 言語アナライザーがサポートされるようになりました。 新しい機能を *いない* のサポートなど、このバージョンの一部、 `moreLikeThis` 検索パラメーターは、 [プレビュー](search-api-2015-02-28-preview.md) SDK ではまだ使用できないとします。 確認できます [Search サービスのバージョン](https://msdn.microsoft.com/library/azure/dn864560.aspx) または [Azure Search に最新の更新](search-latest-updates.md) のいずれかの機能のステータスが更新されます。
 
 この SDK でサポートされない他の機能は次のとおりです。
 
   - [管理操作](https://msdn.microsoft.com/library/azure/dn832684.aspx)します。 管理操作には、Azure Search サービスのプロビジョニングや API キーの管理が含まれます。 これらは、将来別の Azure Search .NET Management SDK でサポートされます。
 
-## SDK の要件
+## SDK の要件 ##
 
 1. Visual Studio 2013 以降のバージョン。
 
-2. 自分が所有する Azure Search サービス。 SDK を使用するには、サービスの名前および 1 つまたは複数の API キーが必要です。 [、ポータルでサービスを作成](search-create-service-portal.md) 次の手順を支援します。
+2. 自分が所有する Azure Search サービス。 SDK を使用するには、サービスの名前および 1 つまたは複数の API キーが必要です。 [ポータルでサービスを作成](search-create-service-portal.md) 次の手順を支援します。
 
-3. Azure Search .NET SDK をダウンロード [NuGet パッケージ](http://www.nuget.org/packages/Microsoft.Azure.Search) Visual Studio で NuGet パッケージの管理] を使用しています。 パッケージ名を検索 `Microsoft.Azure.Search` NuGet.org にします。 [Include Prerelease] を選択して、プレリリースの SDK が検索結果に表示されるようにします。
+3. Azure Search .NET SDK をダウンロード [NuGet パッケージ](http://www.nuget.org/packages/Microsoft.Azure.Search) Visual Studio で NuGet パッケージの管理] を使用しています。 NuGet.org でパッケージの名前 `Microsoft.Azure.Search` を検索してください。 [プレスリリースを含める] を選択して、プレリリースの SDK が検索結果に表示されるようにします。
 
 Azure Search .NET SDK は、.NET Framework 4.0 以降を対象とするアプリケーション、および Windows 8.1 と Windows Phone 8.1 を対象とする Windows ストア アプリケーションをサポートします。 Silverlight はサポートされません。
 
-## 主要なシナリオ
+## 主要なシナリオ ##
 
 検索アプリケーションではいくつかの処理を実行する必要があります。 このチュートリアルではこれらの主要なシナリオについて説明します。
 
@@ -58,7 +57,7 @@ Azure Search .NET SDK は、.NET Framework 4.0 以降を対象とするアプリ
 
 後のサンプル コードではこれらについて示します。 これらのコード スニペットを独自のアプリケーションに自由に使用してください。
 
-### 概要
+### 概要 ###
 
 これから説明するサンプル アプリケーションは、"hotels" という名前のインデックスを新しく作成し、いくつかのドキュメントをそこに格納してから、検索クエリを実行します。 全体的な流れがわかるメイン プログラムを次に示します。
 
@@ -69,41 +68,41 @@ Azure Search .NET SDK は、.NET Framework 4.0 以降を対象とするアプリ
         // For example, if your service URL is https://myservice.search.windows.net, then your
         // service name is myservice.
         string searchServiceName = "myservice";
-    
+
         string apiKey = "Put your API admin key here."
-    
+
         SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
-    
+
         Console.WriteLine("{0}", "Deleting index...\n");
         DeleteHotelsIndexIfExists(serviceClient);
-    
+
         Console.WriteLine("{0}", "Creating index...\n");
         CreateHotelsIndex(serviceClient);
-    
+
         SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
-    
+
         Console.WriteLine("{0}", "Uploading documents...\n");
         UploadDocuments(indexClient);
-    
+
         Console.WriteLine("{0}", "Searching documents 'fancy wifi'...\n");
         SearchDocuments(indexClient, searchText: "fancy wifi");
-    
+
         Console.WriteLine("\n{0}", "Filter documents with category 'Luxury'...\n");
         SearchDocuments(indexClient, searchText: "*", filter: "category eq 'Luxury'");
-    
+
         Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
         Console.ReadKey();
     }
 
-このプログラムの手順を詳しく見ていきましょう。 新しいを作成する必要があります `SearchServiceClient`します。 このオブジェクトを使用してインデックスを管理できます。 このオブジェクトを作成するには、Azure Search サービス名および管理 API キーを提供する必要があります。
+このプログラムの手順を詳しく見ていきましょう。 最初に、新しい `SearchServiceClient` を作成する必要があります。 このオブジェクトを使用してインデックスを管理できます。 このオブジェクトを作成するには、Azure Search サービス名および管理 API キーを提供する必要があります。
 
         // Put your search service name here. This is the hostname portion of your service URL.
         // For example, if your service URL is https://myservice.search.windows.net, then your
         // service name is myservice.
         string searchServiceName = "myservice";
-    
+
         string apiKey = "Put your API admin key here."
-    
+
         SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
 
 > [AZURE.NOTE] キーが正しくない (たとえば、クエリ キー管理キーが必要である)、指定した場合、 `SearchServiceClient` をスロー、 `CloudException` エラー メッセージ「アクセス不可」初めてなど、操作メソッドを呼び出した場合 `Indexes.Create`します。 このような場合は、API キーを再確認してください。
@@ -112,58 +111,58 @@ Azure Search .NET SDK は、.NET Framework 4.0 以降を対象とするアプリ
 
         Console.WriteLine("{0}", "Deleting index...\n");
         DeleteHotelsIndexIfExists(serviceClient);
-    
+
         Console.WriteLine("{0}", "Creating index...\n");
         CreateHotelsIndex(serviceClient);
 
-次に、インデックスを設定する必要があります。 これを行う必要が、 `SearchIndexClient`します。 いずれかを取得する 2 つの方法があります: またはを呼び出して、構築することによって `Indexes.GetClient` 上、 `SearchServiceClient`します。 ここでは簡単な後者を使用します。
+次に、インデックスを設定する必要があります。 そのためには、`SearchIndexClient` が必要です。 これを取得するには、作成する方法と、`SearchServiceClient` で `Indexes.GetClient` を呼び出す方法があります。 ここでは簡単な後者を使用します。
 
         SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
-> [AZURE.NOTE] 一般的な検索アプリケーションでインデックスの管理とカタログの作成は、検索クエリから別のコンポーネントによって処理されます。 `Indexes.GetClient` が提供する別の問題を保存するため、インデックスの作成に適した `SearchCredentials`します。 これは、作成するために使用する管理者キーを渡すことで、 `SearchServiceClient` を新しい `SearchIndexClient`します。 ただし、クエリを実行するアプリケーションの一部をあるを作成する方がよい、 `SearchIndexClient` 直接管理者キーの代わりにクエリ キーで渡すことができるようにします。 これは、最小権限の原則にも適合しており、アプリケーションのセキュリティ強化に役立ちます。 管理者キーとクエリ キーの詳細については [ここ](https://msdn.microsoft.com/library/azure/dn798935.aspx)します。
+> [AZURE.NOTE] 一般的な検索アプリケーションでインデックスの管理とカタログの作成は、検索クエリから別のコンポーネントによって処理されます。 `Indexes.GetClient` 提供する別の問題を保存するため、インデックスの作成にとって便利な `SearchCredentials`です。 そのためには、`SearchServiceClient` を作成するときに使用した管理者キーを新しい `SearchIndexClient` に渡します。 ただし、アプリケーションのクエリを実行する部分では、管理者キーの代わりにクエリ キーを渡すことができるように、`SearchIndexClient` を直接作成する方が適しています。 これは、最小権限の原則にも適合しており、アプリケーションのセキュリティ強化に役立ちます。 管理者キーとクエリ キーの詳細については [ここ](https://msdn.microsoft.com/library/azure/dn798935.aspx)します。
 
-あるので、 `SearchIndexClient`, 、インデックス データを挿入できます。 これは、後で説明する別のメソッドで行います。
+`SearchIndexClient` を作成したので、インデックスを設定できます。 これは、後で説明する別のメソッドで行います。
 
         Console.WriteLine("{0}", "Uploading documents...\n");
         UploadDocuments(indexClient);
 
-最後に、私たち、いくつかの検索クエリを実行し、もう一度を使用して、結果を表示、 `SearchIndexClient`:
+最後に、再び `SearchIndexClient` を使用して、いくつか検索クエリを実行し、結果を表示します。
 
         Console.WriteLine("{0}", "Searching documents 'fancy wifi'...\n");
         SearchDocuments(indexClient, searchText: "fancy wifi");
-    
+
         Console.WriteLine("\n{0}", "Filter documents with category 'Luxury'...\n");
         SearchDocuments(indexClient, searchText: "*", filter: "category eq 'Luxury'");
-    
+
         Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
         Console.ReadKey();
 
 有効なサービス名と API キーを使用してこのアプリケーションを実行した場合、出力は次のようになります。
 
     Deleting index...
-    
+
     Creating index...
-    
+
     Uploading documents...
-    
+
     Searching documents 'fancy wifi'...
-    
+
     ID: 1058-441    Name: Fancy Stay        Category: Luxury        Tags: [pool, view, concierge]
     ID: 956-532     Name: Express Rooms     Category: Budget        Tags: [wifi, budget]
-    
+
     Filter documents with category 'Luxury'...
-    
+
     ID: 1058-441    Name: Fancy Stay        Category: Luxury        Tags: [pool, view, concierge]
     ID: 566-518     Name: Surprisingly Expensive Suites     Category: Luxury        Tags: []
     Complete.  Press any key to end application...
 
 アプリケーションの完全なソース コードは、この記事の最後で提供します。
 
-次に、私たちは、詳しく見てによって呼び出されるメソッドの各 `Main`します。
+次に、`Main` によって呼び出される各メソッドを詳しく見ていきます。
 
-### インデックスの作成
+### インデックスの作成 ###
 
-作成した後、 `SearchServiceClient`, 、次の作業として `Main` は既に存在する場合に、"hotels"インデックスを削除には。 この処理は次のメソッドで行います。
+`SearchServiceClient` を作成した後、`Main` は次に、"hotels" インデックスが既に存在する場合はそれを削除します。 この処理は次のメソッドで行います。
 
     private static void DeleteHotelsIndexIfExists(SearchServiceClient serviceClient)
     {
@@ -173,10 +172,11 @@ Azure Search .NET SDK は、.NET Framework 4.0 以降を対象とするアプリ
         }
     }
 
-このメソッドを使用して、指定された `SearchServiceClient` 確認するには、インデックスが存在する場合は、そして管理者であればそれを削除します。
-> [AZURE.NOTE] この記事のコード例では、わかりやすくするため、Azure Search .NET SDK の同期メソッドを使用します。 実際のアプリケーションでは、高い拡張性と応答性を維持するため、非同期メソッドを使用することをお勧めします。 たとえば、上記のメソッドでが使用する `ExistsAsync` と `DeleteAsync` の代わりに `Exists` と `削除`します。
+このメソッドは、指定された `SearchServiceClient` を使用してインデックスが存在するかどうかを確認し、存在する場合は、それを削除します。
 
-次に、 `Main` このメソッドを呼び出して新しい"hotels"インデックスを作成します。
+> [AZURE.NOTE] この記事のコード例は、わかりやすくするための Azure Search .NET SDK の同期メソッドを使用します。 実際のアプリケーションでは、高い拡張性と応答性を維持するため、非同期メソッドを使用することをお勧めします。 たとえば、上記のメソッドでは、`Exists` と `Delete` の代わりに、`ExistsAsync` および `DeleteAsync` を使用できます。
+
+次に、 `Main` は次のメソッドを呼び出すことによって、新しい "hotels" インデックスを作成します。
 
     private static void CreateHotelsIndex(SearchServiceClient serviceClient)
     {
@@ -196,13 +196,13 @@ Azure Search .NET SDK は、.NET Framework 4.0 以降を対象とするアプリ
                 new Field("location", DataType.GeographyPoint)              { IsFilterable = true, IsSortable = true }
             }
         };
-    
+
         serviceClient.Indexes.Create(definition);
     }
 
-このメソッドが、新たに作成 `インデックス` オブジェクトのリストで `フィールド` 、新しいインデックスのスキーマを定義するオブジェクト。 各フィールドには、名前、データ型、および検索動作を定義するいくつかの属性があります。 フィールドに加えて、スコアリング プロファイル、サジェスター、または CORS オプションを Index に追加することもできます (簡潔さを優先し、サンプルではこれらは省略されています)。 上の詳細については、Index オブジェクトと、SDK の参照を使用してその構成要素を見つけることができます [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx), などでも、 [Azure Search REST API リファレンス](https://msdn.microsoft.com/library/azure/dn798935.aspx)します。
+このメソッドは、新しいインデックスのスキーマを定義する `Field` オブジェクトのリストで新しい `Index` オブジェクトを作成します。 各フィールドには、名前、データ型、および検索動作を定義するいくつかの属性があります。 フィールドに加えて、スコアリング プロファイル、サジェスター、または CORS オプションを Index に追加することもできます (簡潔さを優先し、サンプルではこれらは省略されています)。 上の詳細については、Index オブジェクトと、SDK の参照を使用してその構成要素を見つけることができます [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx), などでも、 [Azure Search REST API リファレンス](https://msdn.microsoft.com/library/azure/dn798935.aspx)します。
 
-### インデックスの設定
+### インデックスの設定 ###
 
 次の手順で `Main` は新しく作成されたインデックスを設定します。 この処理は次のメソッドで行います。
 
@@ -268,7 +268,7 @@ Azure Search .NET SDK は、.NET Framework 4.0 以降を対象とするアプリ
                     ParkingIncluded = false
                 }
             };
-    
+
         try
         {
             indexClient.Documents.Index(IndexBatch.Create(documents.Select(doc => IndexAction.Create(doc))));
@@ -282,45 +282,46 @@ Azure Search .NET SDK は、.NET Framework 4.0 以降を対象とするアプリ
                 "Failed to index some of the documents: {0}",
                 String.Join(", ", e.IndexResponse.Results.Where(r => !r.Succeeded).Select(r => r.Key)));
         }
-    
+
         // Wait a while for indexing to complete.
         Thread.Sleep(2000);
     }
 
-このメソッドには 4 つの部分があります。 1 つ目の配列を作成する `ホテル` 、インデックスにアップロードする入力データとして使用するオブジェクト。 このデータは、わかりやすくするためハードコーディングされています。 実際のアプリケーションでは、通常、データは SQL Database などの外部データ ソースから取得されます。
+このメソッドには 4 つの部分があります。 最初の部分では、インデックスにアップロードする入力データとして使用される `Hotel` オブジェクトの配列を作成します。 このデータは、わかりやすくするためハードコーディングされています。 実際のアプリケーションでは、通常、データは SQL Database などの外部データ ソースから取得されます。
 
-2 番目の部分を作成、 `IndexAction` 各 `ホテル`, 、し、新しいものをまとめてグループ `IndexBatch`します。 バッチがによって Azure Search インデックスにアップロードし、 `Documents.Index` メソッドです。
-> [AZURE.NOTE] この例では、単にドキュメントをアップロードします。 既存のドキュメントまたはドキュメントの削除に変更をマージする場合は、作成、 `IndexAction` で対応する `IndexActionType`します。 指定する必要はありません `IndexActionType` この例では、既定値はため `アップロード`します。
+2 番目の部分では、各 `Hotel` に対して `IndexAction` を作成した後、それらを新しい `IndexBatch` にグループ化します。 その後、バッチは `Documents.Index` メソッドによって Azure Search インデックスにアップロードされます。
 
-このメソッドの 3 番目の部分は、インデックス作成の重要なエラー ケースを処理する catch ブロックです。 Azure Search サービスをバッチ内のドキュメントの一部にインデックスが失敗した場合、 `IndexBatchException` によってスローされた `Documents.Index`します。 サービスの負荷が高いときにドキュメントのインデックスを作成すると、これが発生する場合があります。 **コードでこのケースを明示的に処理することを強くお勧めします。**しばらく待ってから失敗したドキュメントのインデックス作成を再試行したり、サンプルと同じようにログに記録してから続けることができます。または、アプリケーションのデータ整合性要件に応じて他の処理を行うこともできます。
+> [AZURE.NOTE] この例ではドキュメントのアップロード私たちはだけです。 既存ドキュメントへの変更のマージまたはドキュメントの削除を行う場合は、対応する `IndexActionType` で `IndexAction` を作成できます。 既定の操作が `Upload` なので、この例では `IndexActionType` を指定する必要はありません。
+
+このメソッドの 3 番目の部分は、インデックス作成の重要なエラー ケースを処理する catch ブロックです。 Azure Search がバッチ内の一部のドキュメントのインデックス作成に失敗した場合、`Documents.Index` は `IndexBatchException` をスローします。 サービスの負荷が高いときにドキュメントのインデックスを作成すると、これが発生する場合があります。 **コードでは、このケースを明示的に処理を強くお勧めします。**しばらく待ってから失敗したドキュメントのインデックス作成を再試行したり、サンプルと同じようにログに記録してから続けることができます。または、アプリケーションのデータ整合性要件に応じて他の処理を行うこともできます。
 
 最後に、メソッドは 2 秒間遅延します。 インデックスの作成は Azure Search サービスで非同期的に行われるので、サンプル アプリケーションは短い時間待機して、確実にドキュメントを検索に使用できるようにする必要があります。 通常、このような遅延は、デモ、テスト、およびサンプル アプリケーションでのみ必要です。
 
-#### .NET SDK がドキュメントを処理する方法
+#### .NET SDK がドキュメントを処理する方法 ####
 
-比較を行う方法、Azure Search .NET SDK はのようなユーザー定義クラスのインスタンスをアップロードする `ホテル` インデックスにします。 その質問に答えるために、見て、 `ホテル` クラス。
+Azure Search .NET SDK が `Hotel` のようなユーザー定義クラスのインスタンスをどのようにしてインデックスにアップロードできるのか不思議に思われるかもしれません。 その質問に答えるため、`Hotel` クラスを見ていくことにします。
 
     [SerializePropertyNamesAsCamelCase]
     public class Hotel
     {
         public string HotelId { get; set; }
-    
+
         public string HotelName { get; set; }
-    
+
         public double? BaseRate { get; set; }
-    
+
         public string Category { get; set; }
-    
+
         public string[] Tags { get; set; }
-    
+
         public bool? ParkingIncluded { get; set; }
-    
+
         public DateTimeOffset? LastRenovationDate { get; set; }
-    
+
         public int? Rating { get; set; }
-    
+
         public GeographyPoint Location { get; set; }
-    
+
         public override string ToString()
         {
             return String.Format(
@@ -332,15 +333,17 @@ Azure Search .NET SDK は、.NET Framework 4.0 以降を対象とするアプリ
         }
     }
 
-最初点は、の各パブリック プロパティを提供する `ホテル` 1 つの重要な違いが、インデックス定義内のフィールドに対応: の各パブリック プロパティの名前に、各フィールドの名前が [小文字 ("camel case") で始まって `ホテル` 大文字文字 ("Pascal case") で起動します。 これは、ターゲット スキーマをアプリケーション開発者が制御できない場合にデータ バインドを実行する .NET アプリケーションでの一般的なシナリオです。 .NET のプロパティ名の camel をすることで、命名に関するガイドラインに違反するのではなく camel 形式で自動的にプロパティ名にマップする SDK を確認する、 `[SerializePropertyNamesAsCamelCase]` 属性です。
+最初に気付くのは、`Hotel` の各パブリック プロパティがインデックス定義のフィールドに対応していることですが、1 つ重要な違いがあります。各フィールドの名前が小文字で始まっているのに対し ("camel case")、`Hotel` の各パブリック プロパティの名前は大文字で始まっています ("Pascal case")。 これは、ターゲット スキーマをアプリケーション開発者が制御できない場合にデータ バインドを実行する .NET アプリケーションでの一般的なシナリオです。 プロパティ名を camel-case にして .NET の命名ガイドラインに違反するのではなく、プロパティ名を自動的に camel-case にマップするように `[SerializePropertyNamesAsCamelCase]` 属性で SDK に指示できます。
 
-2 番目の重要な点は、 `ホテル` クラスは、パブリック プロパティのデータ型。 これらのプロパティの .NET 型は、インデックス定義内でそれぞれと同等のフィールド型にマップします。 たとえば、 `カテゴリ` にプロパティのマップの文字列、 `カテゴリ` フィールドがある型の `Edm.String`します。 間のような型のマッピングがある `bool?` と `Edm.Boolean`, 、`DateTimeOffset ですか?` と `Edm.DateTimeOffset`, などです。型のマッピングの具体的なルールを参照して、 `Documents.Get` メソッドを [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx)します。
-> [AZURE.NOTE] Azure Search インデックスにマップする、独自のモデル クラスを設計するときなどのプロパティの値の型を宣言することを確認してください `bool` と `int` null 許容型 (たとえば、 `bool?` の代わりに `bool`)。 Azure Search のすべてのプリミティブ フィールド型は null を許容しているため必要です。 などの既定値のインデックスを作成するときに予期しない結果を取得が null 非許容の型を使用する場合 `0` と `false`します。 特にそのような既定値は、インデックスの作成時に null に変換されます。 今後リリースされる SDK では、この点が改善され、非 null 許容型を使用すると例外がスローされるようになります。
+`Hotel` クラスに関する 2 番目の重要な点は、パブリック プロパティのデータ型です。 これらのプロパティの .NET 型は、インデックス定義内でそれぞれと同等のフィールド型にマップします。 たとえば、`Category` 文字列プロパティは、`Edm.String` 型の `category` フィールドにマップします。 `bool?` と `Edm.Boolean`、`DateTimeOffset?` と `Edm.DateTimeOffset` などの間にも、同じような型のマッピングがあります。型のマッピングの具体的なルールを参照して、 `Documents.Get` メソッドを [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx)します。
+ 
+> [AZURE.NOTE] Azure Search インデックスにマップする、独自のモデル クラスを設計するときなどのプロパティの値の型を宣言することを確認してください `bool` と `int` null 許容型 (たとえば、 `bool?` の代わりに `bool`)。 Azure Search のすべてのプリミティブ フィールド型は null を許容しているため必要です。 null を許容しない型を使用すると、`0` や `false` などの既定値のインデックスを作成するときに予期しない結果が発生します。 特にそのような既定値は、インデックスの作成時に null に変換されます。 今後リリースされる SDK では、この点が改善され、非 null 許容型を使用すると例外がスローされるようになります。
 
 ドキュメントとして独自のクラスを使用するこの機能は、両方向で動作します。また、次のセクションで見るように、検索結果を取得し、SDK で自動的に任意の型に逆シリアル化することもできます。
-> [AZURE.NOTE] Azure Search .NET SDK を使用して動的に型指定されたドキュメントもサポートしています、 `ドキュメント` クラスで、フィールドの値に対するフィールド名のキー/値のマッピングします。 この機能は、設計時にインデックス スキーマがわからない場合、または特定のモデル クラスにバインドすると不都合な場合に便利です。 SDK のドキュメントを処理するすべてのメソッドを使用するオーバー ロードがあります、 `ドキュメント` クラスとジェネリック型パラメーターを使用する、厳密に型指定されたオーバー ロードします。 このチュートリアルのサンプル コードでは、後者のみを使用しています。 に関する詳細情報を調べることができます、 `ドキュメント` クラス [ここ](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.document.aspx)します。
 
-### インデックス内のドキュメントの検索
+> [AZURE.NOTE] Azure Search .NET SDK を使用して動的に型指定されたドキュメントもサポートしています、 `Document` クラスで、フィールドの値に対するフィールド名のキー/値のマッピングします。 この機能は、設計時にインデックス スキーマがわからない場合、または特定のモデル クラスにバインドすると不都合な場合に便利です。 ドキュメントを処理する SDK のすべてのメソッドには、`Document` クラスを使用するオーバーロード、およびジェネリック型パラメーターを使用する厳密な型指定のオーバーロードがあります。 このチュートリアルのサンプル コードでは、後者のみを使用しています。 に関する詳細情報を調べることができます、 `Document` クラス [ここ](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.document.aspx)します。
+
+### インデックス内のドキュメントの検索 ###
 
 サンプル アプリケーションでは最後に、インデックス内のいくつかのドキュメントを検索します。 次のメソッドがこれを行います。
 
@@ -348,12 +351,12 @@ Azure Search .NET SDK は、.NET Framework 4.0 以降を対象とするアプリ
     {
         // Execute search based on search text and optional filter
         var sp = new SearchParameters();
-    
+
         if (!String.IsNullOrEmpty(filter))
         {
             sp.Filter = filter;
         }
-    
+
         DocumentSearchResponse<Hotel> response = indexClient.Documents.Search<Hotel>(searchText, sp);
         foreach (SearchResult<Hotel> result in response)
         {
@@ -361,47 +364,47 @@ Azure Search .NET SDK は、.NET Framework 4.0 以降を対象とするアプリ
         }
     }
 
-最初に、このメソッドは、新しい作成 `SearchParameters` オブジェクトです。 このオブジェクトは、並べ替え、フィルター処理、ページング、ファセットなどの追加オプションをクエリに対して指定するために使用されます。 この例ではのみを設定して、 `フィルター` プロパティです。
+最初に、このメソッドは新しい `SearchParameters` オブジェクトを作成します。 このオブジェクトは、並べ替え、フィルター処理、ページング、ファセットなどの追加オプションをクエリに対して指定するために使用されます。 この例では、`Filter` プロパティのみを設定しています。
 
-次の手順では、検索クエリを実際に実行します。 これを使用して、 `Documents.Search` メソッドです。 この例では、使用する検索テキストを文字列として、また前に作成した検索パラメーターを渡します。 指定 `ホテル` に対する型パラメーターとして `Documents.Search`, 、型のオブジェクトに検索結果のドキュメントを逆シリアル化する SDK に指示する `ホテル`します。
+次の手順では、検索クエリを実際に実行します。 これは `Documents.Search` メソッドを使用して行われます。 この例では、使用する検索テキストを文字列として、また前に作成した検索パラメーターを渡します。 また、`Documents.Search` に対する型パラメーターとして `Hotel` も指定します。これは、検索結果のドキュメントを `Hotel` 型のオブジェクトに逆シリアル化するように SDK に指示します。
 
 最後に、このメソッドは検索結果のすべての一致を反復処理し、各ドキュメントをコンソールに出力します。
 
 このメソッドの呼び出し方法を詳しく見ていきます。
 
     SearchDocuments(indexClient, searchText: "fancy wifi");
-    
+
     SearchDocuments(indexClient, searchText: "*", filter: "category eq 'Luxury'");
 
 最初の呼び出しでは、クエリ語句 "fancy" または "wifi" を含むすべてのドキュメントを検索します。 2 番目の呼び出しでは、検索テキストが "*" に設定されています。これは、「すべてを検索する」ことを意味します。 詳細については、検索クエリ式の構文を検索する [ここ](https://msdn.microsoft.com/library/azure/dn798920.aspx)します。
 
-2 番目の呼び出しは、OData を使用して `$filter` 式、 `カテゴリ eq 'Luxury'`します。 ようこのドキュメントを返すだけに検索を制限する場所、 `カテゴリ` フィールドは、文字列"Luxury"を完全に一致します。 Azure Search がサポートする OData 構文の詳細を確認できる [ここ](https://msdn.microsoft.com/library/azure/dn798921.aspx)します。
+3 番目の呼び出しでは、OData の `$filter` 式 `category eq 'Luxury'` を使用しています。 これは、`category` フィールドが文字列 "Luxury" と厳密に一致するドキュメントだけを返すように検索を制限します。 Azure Search がサポートする OData 構文の詳細を確認できる [ここ](https://msdn.microsoft.com/library/azure/dn798921.aspx)します。
 
 これら 2 つの呼び出しで行われている処理がわかったので、出力が次のようになる理由を理解しやすいでしょう。
 
     Searching documents 'fancy wifi'...
-    
+
     ID: 1058-441    Name: Fancy Stay        Category: Luxury        Tags: [pool, view, concierge]
     ID: 956-532     Name: Express Rooms     Category: Budget        Tags: [wifi, budget]
-    
+
     Filter documents with category 'Luxury'...
-    
+
     ID: 1058-441    Name: Fancy Stay        Category: Luxury        Tags: [pool, view, concierge]
     ID: 566-518     Name: Surprisingly Expensive Suites     Category: Luxury        Tags: []
 
-最初の検索では 2 つのドキュメントが返されます。 最初に、名前に"Fancy"、2 つ目に"wifi"があるときに、 `タグ` フィールドです。 返しますが、インデックス内のみのドキュメントである 2 つのドキュメントの 2 番目の検索、 `カテゴリ` フィールドが"Luxury"に設定します。
+最初の検索では 2 つのドキュメントが返されます。 1 番目のドキュメントは名前に "Fancy" が含まれ、2 番目のドキュメントは `tags` フィールドに "wifi" が含まれます。 2 番目の検索では 2 つのドキュメントが返されます。インデックスの `category` フィールドが "Luxury" に設定されているドキュメントはこの 2 つだけです。
 
-チュートリアルはここまでですが、ここで止めないでください。 **次のステップ** では、Azure Search をさらに学習するための他のリソースを提供します。
+チュートリアルはここまでですが、ここで止めないでください。 **次のステップ** Azure Search について詳しく学習するための他のリソースを提供します。
 
-## 次のステップ
+## 次のステップ ##
 
 - によって、知識を深める [ビデオや他のサンプルとチュートリアル](search-video-demo-tutorial-list.md)します。
-- このバージョンの Azure Search SDK の機能について説明します [Azure Search の概要](https://msdn.microsoft.com/library/azure/dn798933.aspx)。
+- このバージョンの Azure Search SDK の機能について説明します [Azure Search の概要。](https://msdn.microsoft.com/library/azure/dn798933.aspx)
 - レビュー [名前付け規則](https://msdn.microsoft.com/library/azure/dn857353.aspx) をさまざまなオブジェクトの命名規則を参照してください。
 - レビュー [サポートされるデータ型](https://msdn.microsoft.com/library/azure/dn798938.aspx) Azure Search にします。
 
 
-## サンプル アプリケーションのソース コード
+## サンプル アプリケーションのソース コード ##
 
 このチュートリアルで使用したサンプル アプリケーションの完全なソース コードを次に示します。 サンプルをビルドして実行する場合、Program.cs のサービス名と API キーのプレースホルダーを実際の値に置き換える必要があることに注意してください。
 
@@ -414,7 +417,7 @@ Program.cs:
     using Microsoft.Azure.Search;
     using Microsoft.Azure.Search.Models;
     using Microsoft.Spatial;
-    
+
     namespace AzureSearch.NETSDKSample
     {
         class Program
@@ -426,32 +429,32 @@ Program.cs:
                 // For example, if your service URL is https://myservice.search.windows.net, then your
                 // service name is myservice.
                 string searchServiceName = "myservice";
-    
+
                 string apiKey = "Put your API admin key here."
-    
+
                 SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
-    
+
                 Console.WriteLine("{0}", "Deleting index...\n");
                 DeleteHotelsIndexIfExists(serviceClient);
-    
+
                 Console.WriteLine("{0}", "Creating index...\n");
                 CreateHotelsIndex(serviceClient);
-    
+
                 SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
-    
+
                 Console.WriteLine("{0}", "Uploading documents...\n");
                 UploadDocuments(indexClient);
-    
+
                 Console.WriteLine("{0}", "Searching documents 'fancy wifi'...\n");
                 SearchDocuments(indexClient, searchText: "fancy wifi");
-    
+
                 Console.WriteLine("\n{0}", "Filter documents with category 'Luxury'...\n");
                 SearchDocuments(indexClient, searchText: "*", filter: "category eq 'Luxury'");
-    
+
                 Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
                 Console.ReadKey();
             }
-    
+
             private static void DeleteHotelsIndexIfExists(SearchServiceClient serviceClient)
             {
                 if (serviceClient.Indexes.Exists("hotels"))
@@ -459,7 +462,7 @@ Program.cs:
                     serviceClient.Indexes.Delete("hotels");
                 }
             }
-    
+
             private static void CreateHotelsIndex(SearchServiceClient serviceClient)
             {
                 var definition = new Index()
@@ -478,10 +481,10 @@ Program.cs:
                         new Field("location", DataType.GeographyPoint)              { IsFilterable = true, IsSortable = true }
                     }
                 };
-    
+
                 serviceClient.Indexes.Create(definition);
             }
-    
+
             private static void UploadDocuments(SearchIndexClient indexClient)
             {
                 var documents =
@@ -544,7 +547,7 @@ Program.cs:
                             ParkingIncluded = false
                         }
                     };
-    
+
                 try
                 {
                     indexClient.Documents.Index(IndexBatch.Create(documents.Select(doc => IndexAction.Create(doc))));
@@ -558,21 +561,21 @@ Program.cs:
                         "Failed to index some of the documents: {0}",
                         String.Join(", ", e.IndexResponse.Results.Where(r => !r.Succeeded).Select(r => r.Key)));
                 }
-    
+
                 // Wait a while for indexing to complete.
                 Thread.Sleep(2000);
             }
-    
+
             private static void SearchDocuments(SearchIndexClient indexClient, string searchText, string filter = null)
             {
                 // Execute search based on search text and optional filter
                 var sp = new SearchParameters();
-    
+
                 if (!String.IsNullOrEmpty(filter))
                 {
                     sp.Filter = filter;
                 }
-    
+
                 DocumentSearchResponse<Hotel> response = indexClient.Documents.Search<Hotel>(searchText, sp);
                 foreach (SearchResult<Hotel> result in response)
                 {
@@ -587,30 +590,30 @@ Hotel.cs:
     using System;
     using Microsoft.Azure.Search.Models;
     using Microsoft.Spatial;
-    
+
     namespace AzureSearch.NETSDKSample
     {
         [SerializePropertyNamesAsCamelCase]
         public class Hotel
         {
             public string HotelId { get; set; }
-    
+
             public string HotelName { get; set; }
-    
+
             public double? BaseRate { get; set; }
-    
+
             public string Category { get; set; }
-    
+
             public string[] Tags { get; set; }
-    
+
             public bool? ParkingIncluded { get; set; }
-    
+
             public DateTimeOffset? LastRenovationDate { get; set; }
-    
+
             public int? Rating { get; set; }
-    
+
             public GeographyPoint Location { get; set; }
-    
+
             public override string ToString()
             {
                 return String.Format(
@@ -622,6 +625,4 @@ Hotel.cs:
             }
         }
     }
-
-
-
+ 

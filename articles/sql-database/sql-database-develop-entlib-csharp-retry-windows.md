@@ -18,10 +18,10 @@
     ms.author="genemi"/>
 
 
-
 # コード サンプル: Enterprise Library 6 で提供される SQL Database に接続するための C&#x23; の再試行ロジック
 
-このトピックでは、Enterprise Library (EntLib) を使用した完全なサンプル コードについて説明します。 EntLib は、Azure SQL Database などのクラウド サービスとやり取りするクライアント プログラムでの多くのタスクを容易にします。 このサンプルでは、一時的な障害用の再試行ロジックを含める重要なタスクに重点を置いています。
+
+このトピックでは、Enterprise Library (EntLib) を使用した完全なサンプル コードについて説明します。  EntLib は、Azure SQL Database などのクラウド サービスとやり取りするクライアント プログラムでの多くのタスクを容易にします。 このサンプルでは、一時的な障害用の再試行ロジックを含める重要なタスクに重点を置いています。
 
 
 EntLib クラスは、ランタイム エラーの次の 2 つのカテゴリを区別することを目的としています。
@@ -34,63 +34,70 @@ Enterprise Library 6 (EntLib60) は最新のバージョンで、2013 年 4 月�
 
 ## 前提条件
 
+
 #### .NET Framework 4.0 以降
+
 
 Microsoft .NET Framework 4.0 以降がインストールされている必要があります。 この記事の執筆時点ではバージョン 4.6 が利用可能です。最新バージョンを使用することをお勧めします。
 
 
 #### Visual Studio Community エディション (無料)
 
-このサンプルからソース コードをコンパイルするための方法が必要です。 インストールする方法の 1 つは、 [Microsoft Visual Studio の無料 * コミュニティ * edition](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)します。
+
+このサンプルからソース コードをコンパイルするための方法が必要です。 インストールする方法の 1 つは、 [Microsoft Visual Studio の無料 *コミュニティ* edition](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)します。
 
 
 MSDN への電子メール アドレスの登録が必要になる場合があります。 手順は次のようになります。
 
 
-1. [Go to MSDN](http://msdn.microsoft.com/).
-2. 上部近くにある **[MSDN サブスクリプション]** をクリックします。
-3. **[今すぐサインアップ]** をクリックします。
+1. [MSDN に](http://msdn.microsoft.com/)します。
+2. クリックして **MSDN サブスクリプション** 上にあります。
+3. クリックして **今すぐサインアップ**します。
 4. フォームに情報を入力します。
-5. 下部の **[アカウントの作成]** をクリックします。
+5. クリックして **アカウントの作成** 下部にあります。
 
 
 #### Enterprise Library 6 (EntLib60)
 
+
 次の方法で EntLib60 をインストールできます。
 
 
-- Visual Studio で *NuGet* パッケージ マネージャー機能を使用します。
- - NuGet で、**enterpriselibrary** を検索します。
-
-- [EntLib60 のホームのドキュメント トピック](http://msdn.microsoft.com/library/dn169621.aspx), 、というラベルが付いた行を探します。 **ダウンロード**, 、] をクリックし、 [Microsoft Enterprise Library 6](http://go.microsoft.com/fwlink/?linkid=290898) バイナリをダウンロードします。アセンブリの DLL ファイルです。
+- 使用して、 *NuGet* Visual Studio でのパッケージ マネージャーの機能。
+ - NuGet での検索 **enterpriselibrary**します。
 
 
-EntLib60 には同じプレフィックス **Microsoft.Practices.EnterpriseLibrary.&#x2a;.dll** で名前が始まる複数の .DLL アセンブリ ファイルがありますが、このコード サンプルは次の 2 つのアセンブリのみを対象としています。
+-  [EntLib60 のホームのドキュメント トピック](http://msdn.microsoft.com/library/dn169621.aspx), 、というラベルが付いた行を探します。 **ダウンロード**, 、] をクリックし、 [Microsoft Enterprise Library 6](http://go.microsoft.com/fwlink/?linkid=290898) バイナリをダウンロードします。アセンブリの DLL ファイルです。
 
-- Microsoft.Practices.EnterpriseLibrary.**TransientFaultHandling**.dll
-- Microsoft.Practices.EnterpriseLibrary.**TransientFaultHandling.Data**.dll
+
+EntLib60 が複数ある場合。DLL のアセンブリ ファイルを持つ同じプレフィックスで始まる **Microsoft.Practices.EnterpriseLibrary。 %.&#x2a;ls します。dll**, 、このサンプル コードが次の 2 つのアセンブリにのみ関心があるが。
+
+- Microsoft.Practices.EnterpriseLibrary**。TransientFaultHandling**.dll
+- Microsoft.Practices.EnterpriseLibrary**。TransientFaultHandling.Data**.dll
 
 
 ## EntLib クラスの構成方法
 
-EntLib クラスを使用して、他の EntLib クラスを構築します。 このコード サンプルでの構築手順は次のとおりです。
+
+EntLib クラスを使用して、他の EntLib クラスを構築します。 このコード サンプルでの構築手順は次のとおりです。 
 
 
-1. **ExponentialBackoff** オブジェクトを作成します。
-2. **SqlDatabaseTransientErrorDetectionStrategy** オブジェクトを作成します。
-3. **RetryPolicy** オブジェクトを作成します。 入力パラメーター:
- - **ExponentialBackoff** オブジェクト。
- - **SqlDatabaseTransientErrorDetectionStrategy** オブジェクト。
-4. **ReliableSqlConnection** オブジェクトを作成します。 入力パラメーター:
- - **String** オブジェクト - サーバー名とその他の接続情報を使用。
- - **RetryPolicy** オブジェクト
-5. **RetryPolicy .ExecuteAction** メソッド経由で、呼び出して接続します。
-6. **ReliableSqlConnection .CreateCommand** メソッドを呼び出します。
- - **System.SqlClient.Data.DbCommand** オブジェクト (ADO.NET の一部) が返されます。
-7. **RetryPolicy .ExecuteAction** メソッド経由で、呼び出してクエリを実行します。
+1. 構築、 **ExponentialBackoff** オブジェクトです。
+2. 構築、 **SqlDatabaseTransientErrorDetectionStrategy** オブジェクトです。
+3. 構築、 **RetryPolicy** オブジェクトです。 入力パラメーター:
+ - **ExponentialBackoff** オブジェクトです。
+ - **SqlDatabaseTransientErrorDetectionStrategy** オブジェクトです。
+4. 構築、 **ReliableSqlConnection** オブジェクトです。 入力パラメーター:
+ - A **文字列** オブジェクト - サーバー名とその他の接続情報を使用します。
+ - **RetryPolicy** オブジェクトです。
+5. に接続する呼び出しを通じて行われますが、 **RetryPolicy します。ExecuteAction** メソッドです。
+6. 呼び出す、 **ReliableSqlConnection します。CreateCommand** メソッドです。
+ - 返します。、 **System.SqlClient.Data.DbCommand** オブジェクト、ADO.NET の一部です。
+7. を通じて行われますが、クエリへの呼び出し、 **RetryPolicy します。ExecuteAction** メソッドです。
 
 
 ## コード サンプルのコンパイルと実行
+
 
 Program.cs ソース コード サンプルについては、このトピックの後半で説明します。 サンプルをコンパイル、実行する手順は次のとおりです。
 
@@ -121,6 +128,7 @@ filetable_updates_2105058535    2105058535
 
 
 ## Program.cs ソース コード
+
 
 この EntLib サンプルのすべてのソース コードは、次の Program.cs ファイルに含まれています。
 
@@ -293,23 +301,25 @@ SELECT TOP 3
 
 ## 関連リンク
 
+
 - 詳細情報への多数のリンクが提供されます。 
 [エンタープライズ ライブラリ 6 – 2013年 4 月](http://msdn.microsoft.com/library/dn169621.aspx)
  - このトピックを提案する、上部にあるボタンがある [EntLib60 のソース コードのダウンロード](http://go.microsoft.com/fwlink/p/?LinkID=290898), ソース コードを調べる場合は、です。
 
+
 - 無料電子ブックです。Microsoft から PDF 形式: 
 [Microsoft Enterprise Library、第 2 版の開発者向けガイド](http://www.microsoft.com/download/details.aspx?id=41145)します。
 
+
 - [Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling 名前空間](http://msdn.microsoft.com/library/microsoft.practices.enterpriselibrary.transientfaulthandling.aspx)
 
-- [エンタープライズ ライブラリ 6 クラス ライブラリ リファレンス](http://msdn.microsoft.com/library/dn170426.aspx)
 
-- [コード サンプル: ADO.NET を使用した SQL データベースに接続するための c# 再試行ロジック](sql-database-develop-csharp-retry-windows.md)
+- [Enterprise Library 6 クラス ライブラリ リファレンス](http://msdn.microsoft.com/library/dn170426.aspx)
+
+
+- [コード サンプル: ADO.NET を使用して SQL Database に接続するための C# の再試行ロジック](sql-database-develop-csharp-retry-windows.md)
+
 
 - [SQL Database のクライアント クイック スタート コード サンプル](sql-database-develop-quick-start-client-code-samples.md)
-
-
-
-
 
 

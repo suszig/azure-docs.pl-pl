@@ -1,13 +1,14 @@
+
 次に、登録が試行される前にユーザーが認証されていることを確認するために、プッシュ通知が登録される方法を変更する必要があります。 クライアント アプリケーションの更新は、プッシュ通知を実装する方法によって異なります。
 
-### Visual Studio 2013 Update 2 以降のバージョンでプッシュ通知ウィザードを使用する
+###Visual Studio 2013 Update 2 以降のバージョンでプッシュ通知ウィザードを使用する
 
 このメソッドでは、ウィザードによってプロジェクトに新しい push.register.js ファイルと service.js ファイルが作成されています。
 
-1. Visual Studio のソリューション エクスプローラーで、push.register.js プロジェクト ファイルを開き、**addEventListener** の呼び出しをコメント化または削除します。
+1. Visual Studio でソリューション エクスプ ローラーで、push.register.js プロジェクト ファイルをコメント アウトを開くか、呼び出しを削除 **addEventListener**します。 
 
-2. default.js プロジェクト ファイルで、既存の **login** 関数を次のコードに置き換えます。
-
+2. Default.js プロジェクト ファイルで置き換える既存 **ログイン** 関数を次のコード。
+ 
         // Request authentication from Mobile Services using a Facebook login.
         var login = function () {
             return new WinJS.Promise(function (complete) {
@@ -34,12 +35,11 @@
             });
         }  
 
-
-### 手動で有効にされたプッシュ通知
+###手動で有効にされたプッシュ通知      
 
 このメソッドでは、チュートリアルから、直接 default.js プロジェクト ファイルに登録コードを追加しました。
 
-1. Visual Studio のソリューション エクスプローラーで、default.js プロジェクト ファイルを開き、**onActivated** イベント ハンドラー内で、次に示すように **createPushNotificationChannelForApplicationAsync** 関数を呼び出すコード行を特定します。
+1. Visual Studio でソリューション エクスプ ローラーで、default.js プロジェクト ファイルを開くと、 **onActivated** イベント ハンドラーを呼び出すコード行を見つけます、 **createPushNotificationChannelForApplicationAsync** 関数を次のようになります。
 
         // Request a push notification channel.
         Windows.Networking.PushNotifications
@@ -49,9 +49,9 @@
                 // Register for notifications using the new channel
                 client.push.registerNative(channel.uri);
             }); 
-
-2. このコード行を、**refreshTodoItems** の呼び出しの直前にある **login** 関数内に移動します。結果、**login** 関数は次のようになります。
-
+ 
+2. 次のコードに移動、 **ログイン** 関数の呼び出しの前に、 **refreshTodoItems** ように、 **ログイン** 関数は、次のようになります。
+ 
         // Request authentication from Mobile Services using a Facebook login.
         var login = function () {
             return new WinJS.Promise(function (complete) {
@@ -77,9 +77,4 @@
                 });
             });
         }  
-
-
-
-
-
 

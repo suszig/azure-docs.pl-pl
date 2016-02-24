@@ -1,6 +1,6 @@
 <properties 
    pageTitle="DNS ゾーンに対する操作 | Microsoft Azure" 
-   description="Azure Powershell を使用して DNS ゾーンを管理できます。Azure DNS の DNS ゾーンを更新、削除、および作成する方法" 
+   description="Azure Powershell を使用して DNS ゾーンを管理できます。 Azure DNS の DNS ゾーンを更新、削除、および作成する方法" 
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
@@ -16,13 +16,11 @@
    ms.date="11/24/2015"
    ms.author="joaoma"/>
 
-
 # PowerShell を使用して DNS ゾーンを管理する方法
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-operations-dnszones-cli.md)
 - [PowerShell](dns-operations-dnszones.md)
-
 
 
 このガイドでは、DNS ゾーンの管理方法を説明します。 このガイドは、DNS ゾーンを管理するために実行する一連の操作を理解するのに役立ちます。
@@ -34,11 +32,11 @@
 
         PS C:\> $zone = New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [–Tag $tags] 
 
-この操作により、Azure DNS に新しい DNS ゾーンが作成され、そのゾーンに対応するローカル オブジェクトが返されます。 参照先の Azure リソース マネージャーのタグの配列を指定することができます必要に応じて [Etag とタグ](../dns-getstarted-create-dnszone.md#Etags-and-tags)します。
+この操作により、Azure DNS に新しい DNS ゾーンが作成され、そのゾーンに対応するローカル オブジェクトが返されます。  参照先の Azure リソース マネージャーのタグの配列を指定することができます必要に応じて [Etag とタグ](../dns-getstarted-create-dnszone.md#Etags-and-tags)します。
 
 ゾーンの名前がリソース グループ内で一意であること、および作成するゾーンがまだ存在していないことが必要です。そうでない場合、操作は失敗します。
 
-同じゾーン名は、別のリソース グループまたは別の Azure サブスクリプション内で再利用できます。 複数のゾーンで同じ名前を共有できますが、各インスタンスには異なるネーム サーバー アドレスが割り当てられます。また、親ドメインから委任できるインスタンスは 1 つだけです。 参照してください [Azure DNS へのドメインの委任](dns-domain-delegation.md) の詳細。
+同じゾーン名は、別のリソース グループまたは別の Azure サブスクリプション内で再利用できます。  複数のゾーンで同じ名前を共有できますが、各インスタンスには異なるネーム サーバー アドレスが割り当てられます。また、親ドメインから委任できるインスタンスは 1 つだけです。 参照してください [Azure DNS へのドメインの委任](dns-domain-delegation.md) の詳細。
 
 ## DNS ゾーンの取得
 
@@ -46,7 +44,7 @@ DNS ゾーンを取得するには、Get-AzureRmDnsZone コマンドレットを
 
         PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com –ResourceGroupName MyAzureResourceGroup
 
-この操作により、Azure DNS 内の既存のゾーンに対応する DNS ゾーン オブジェクトが返されます。 このオブジェクトには、ゾーンに関するデータ (レコード セットの数など) が含まれますが、レコード セット自体は含まれません。
+この操作により、Azure DNS 内の既存のゾーンに対応する DNS ゾーン オブジェクトが返されます。  このオブジェクトには、ゾーンに関するデータ (レコード セットの数など) が含まれますが、レコード セット自体は含まれません。
 
 ## DNS ゾーンの一覧表示
 
@@ -58,31 +56,30 @@ Get-AzureRmDnsZone からゾーン名を省略することで、リソース グ
 
 ## DNS ゾーンの更新
 
-DNS ゾーンのリソースへの変更は、Set-AzureRmDnsZone を使用して行うことができます。 これは更新するゾーン内で DNS レコード セット (を参照してください [DNS レコードの管理方法](dns-operations-recordsets.md))します。 この操作は、ゾーンのリソース自体のプロパティを更新するためだけに使用します。 現時点では、この操作は、ゾーンのリソースの Azure リソース マネージャーの "タグ" に限定されています。 参照してください [Etag とタグ](dns-getstarted-create-dnszone.md#Etags-and-tags) の詳細。
+DNS ゾーンのリソースへの変更は、Set-AzureRmDnsZone を使用して行うことができます。  これは更新するゾーン内で DNS レコード セット (を参照してください [DNS レコードの管理方法](dns-operations-recordsets.md))。 この操作は、ゾーンのリソース自体のプロパティを更新するためだけに使用します。 現時点では、この操作は、ゾーンのリソースの Azure リソース マネージャーの "タグ" に限定されています。 参照してください [Etag とタグ](dns-getstarted-create-dnszone.md#Etags-and-tags) の詳細。
 
 DNS ゾーンを更新するには、次の 2 つの方法のいずれかを使用します。
 
 ### 方法 1
-
+ 
 ゾーン名とリソース グループを使用してゾーンを指定します。
 
     PS C:\> Set-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Tag $tags]
 
 ### 方法 2
-
 Get-AzureRmDnsZone の $zone オブジェクトを使用してゾーンを指定します。
 
     PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
     PS C:\> <..modify $zone.Tags here...>
     PS C:\> Set-AzureRmDnsZone -Zone $zone [-Overwrite]
 
-$zone オブジェクトで Set-AzureRmDnsZone を使用すると、同時変更が上書きされないように 'Etag' チェックが使用されます。 オプションの "-Overwrite" スイッチを使用して、これらのチェックが実行されないように指定できます。 参照してください [Etag とタグ](dns-getstarted-create-dnszone.md#Etags-and-tags) の詳細。
+$zone オブジェクトで Set-AzureRmDnsZone を使用すると、同時変更が上書きされないように 'Etag' チェックが使用されます。  オプションの "-Overwrite" スイッチを使用して、これらのチェックが実行されないように指定できます。  参照してください [Etag とタグ](dns-getstarted-create-dnszone.md#Etags-and-tags) の詳細。
 
 ## DNS ゾーンの削除
 
 DNS ゾーンは、Remove-AzureRmDnsZone コマンドレットを使用して削除できます。
-
-Azure DNS の DNS ゾーンを削除する前に、ゾーンの作成時に自動的にゾーンのルートに作成された NS レコードと SOA レコードを除くすべてのレコード セットを削除する必要があります。
+ 
+Azure DNS の DNS ゾーンを削除する前に、ゾーンの作成時に自動的にゾーンのルートに作成された NS レコードと SOA レコードを除くすべてのレコード セットを削除する必要があります。  
 
 DNS ゾーンを削除するには、次の 2 つの方法のいずれかを使用します。
 
@@ -103,7 +100,7 @@ Get-AzureRmDnsZone の $zone オブジェクトを使用してゾーンを指定
 
 "-Force" スイッチは方法 1 と同じです。
 
-として ' セット-AzureRmDnsZone' で $zone オブジェクトを使用してゾーンを指定する、同時変更が削除されないようにする 'etag' チェックを実行できます。 <BR>
+"Set-AzureRmDnsZone" と同様に、$zone オブジェクトを使用してゾーンを指定すると、"etag" チェックによって同時変更の削除を防止することができます。 <BR>
 オプションの "-Overwrite" フラグを使用すると、これらのチェックが行われなくなります。 参照してください [Etag とタグ](dns-getstarted-create-dnszone.md#Etags-and-tags) の詳細。
 
 ゾーン オブジェクトは、パラメーターとして渡す代わりに、パイプすることもできます。
@@ -112,10 +109,7 @@ Get-AzureRmDnsZone の $zone オブジェクトを使用してゾーンを指定
 
 ## 次のステップ
 
-[DNS レコードを管理します。](dns-operations-recordsets.md)
 
-[.NET SDK を使用して操作を自動化します。](dns-sdk.md)
+[DNS レコードの管理](dns-operations-recordsets.md)
 
-
-
-
+[.NET SDK を使用した操作の自動化](dns-sdk.md) 

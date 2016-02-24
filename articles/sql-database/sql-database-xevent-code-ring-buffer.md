@@ -19,8 +19,8 @@
     ms.author="genemi"/>
 
 
-
 # SQL Database での拡張イベント向けリング バッファー ターゲット コード
+
 
 テスト中の拡張イベントに関する情報を、最も簡単な方法で取得およびレポートするための完全なコード サンプルが必要です。 拡張イベント データの最も簡単なターゲットが、 [リング バッファー ターゲット](http://msdn.microsoft.com/library/ff878182.aspx)します。
 
@@ -30,8 +30,8 @@
 
 1. 表示させるデータでテーブルを作成する。
 
-2. 既存の拡張イベントのセッション (つまり **sqlserver.sql_statement_starting**) を作成する。
- - イベントは、次の特定の Update 文字列を含む SQL ステートメントに限定される: **statement LIKE ’%UPDATE tabEmployee%’**。
+2. つまり、既存の拡張イベントのセッションが作成され **sqlserver.sql_statement_starting**します。
+ - イベントは、特定の更新プログラムの文字列を含む SQL ステートメントに制限: **'% 更新 tabEmployee %' のようなステートメント**します。
  - つまり、リング バッファーの種類の対象に、イベントの出力を送信する  **package0.ring_buffer**します。
 
 3. イベント セッションを開始する。
@@ -39,7 +39,7 @@
 4. 単純な SQL UPDATE ステートメントをいくつか発行する。
 
 5. リング バッファーからイベント出力を取得する SQL SELECT を発行する。
- - **sys.dm_xe_database_session_targets** と他の動的管理ビュー (DMV) を結合する。
+ - **sys.dm_xe_database_session_targets** 他の動的管理ビュー (Dmv) が参加しているとします。
 
 6. イベント セッションを停止する。
 
@@ -50,19 +50,23 @@
 
 ## 前提条件
 
+
 - Azure アカウントとサブスクリプション。 サインアップできる、 [無料評価版](http://azure.microsoft.com/pricing/free-trial/)します。
 
+
 - テーブルを作成できるデータベース。
- - ことができます必要に応じて [を作成、* * * * AdventureWorksLT デモ データベース](sql-database-get-started.md) (分) です。
+ - ことができます必要に応じて [を作成、 **AdventureWorksLT** デモ データベース](sql-database-get-started.md) (分) です。
+
 
 - SQL Server Management Studio (ssms.exe)、2015 年 8 月のプレビューまたはそれ以降のバージョン。 
 最新の ssms.exe をダウンロードすることができる。
  - [トピック内のリンク。](http://msdn.microsoft.com/library/mt238290.aspx)
- - [ダウンロードへの直接リンクします。](http://go.microsoft.com/fwlink/?linkid=616025)
+ - [ダウンロードへの直接リンク。](http://go.microsoft.com/fwlink/?linkid=616025)
  - マイクロソフトでは、ssms.exe を定期的に更新することをお勧めします。
 
 
 ## サンプル コード
+
 
 わずかな変更を加えると、以下のリング バッファーのコード サンプルを、Azure SQL Database または Microsoft SQL Server のいずれかで実行できます。 異なる点は、手順 5. の FROM 句に含まれるいくつかの動的管理ビュー (DMV) の名前の中に「_database」というノード名があることです。 次に例を示します。
 
@@ -221,15 +225,16 @@ GO
 
 ## リング バッファーの内容
 
+
 ここでは、ssms.exe を使用してコード サンプルを実行しました。
 
 
-結果を表示するために、列ヘッダー **target_data_XML** の下のセルをクリックしました。
+結果を表示するには、列見出しの下のセルをクリックして **target_data_XML**します。
 
-結果ウィンドウで、列ヘッダー **target_data_XML** の下のセルをクリックしました。 これにより、ssms.exe にもう 1 つのファイル タブが作成され、結果のセルの内容が XML として表示されました。
+結果ウィンドウで [列のヘッダー セルをクリックして、 **target_data_XML**します。 これにより、ssms.exe にもう 1 つのファイル タブが作成され、結果のセルの内容が XML として表示されました。
 
 
-出力は、次のブロックに示されています。長い、見た目が 2 つの操作を * *<event>* * 要素。
+出力は、次のブロックに示されています。 長い、見た目が 2 つの操作を **<event>** 要素。
 
 
 &nbsp;
@@ -325,7 +330,8 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 #### リング バッファーが保持するリソースの解放
 
-リング バッファーでの作業が終わったら、リング バッファーを削除して、次のように **ALTER** リソースを発行することでリソースを解放できます。
+
+リング バッファーに完了したときに、それを削除および発行する、リソースを解放する **ALTER** 次のようにします。
 
 
 ```
@@ -352,21 +358,23 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 
 ## 詳細情報
 
+
 Azure SQL Database での拡張イベントに関する主なトピックは次のとおりです。
 
 
 - [SQL データベースにおけるイベントの考慮事項を拡張](sql-database-xevent-db-diff-from-svr.md), 、Microsoft SQL Server と Azure SQL Database の間で異なる拡張イベントの一部の機能を比較します。
 
 
-拡張イベントのその他のコード サンプルのトピックは、次のリンクから参照できます。 ただし、対象が Azure SQL Database または Microsoft SQL Server のどちらかを確認するために、サンプルを定期的にチェックする必要があります。 これにより、変更がサンプル実行に十分であるかを判断できます。
+拡張イベントの他のコード サンプル トピックは次のリンクから入手可能です。 ただし、対象が Azure SQL Database または Microsoft SQL Server のどちらかを確認するために、サンプルを定期的にチェックする必要があります。 それにより、サンプルを実行するのにわずかな変更が必要かどうか判断できます。
 
 
 - Azure SQL Database 用のコード サンプル: [SQL データベースでの拡張イベントのイベント ファイル ターゲット コード](sql-database-xevent-code-event-file.md)
 
 
+<!--
+('lock_acquired' event.)
 
-
-
-
-
+- SQL Server 用のコード サンプル: [を決定するクエリは保持するロック](http://msdn.microsoft.com/library/bb677357.aspx)
+- SQL Server 用のコード サンプル: [上の検索、オブジェクトがある、最もロック取得します。](http://msdn.microsoft.com/library/bb630355.aspx)
+-->
 

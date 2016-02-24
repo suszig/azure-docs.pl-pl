@@ -17,7 +17,6 @@
    ms.date="12/11/2015"
    ms.author="telmos" />
 
-
 # プレビュー ポータルを使用して NSG を管理する方法
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
@@ -37,26 +36,22 @@
 プレビュー ポータルから既存の NSG に規則を作成するには、次の手順に従います。
 
 1. ブラウザーからの [http://portal.azure.com に移動し、必要に応じて、サインイン、Azure アカウントを使用しています。
-2. **[参照]** > **[ネットワーク セキュリティ グループ]** をクリックします。
+2. クリックして **参照 >** > **ネットワーク セキュリティ グループ**します。
 
 ![プレビュー ポータル - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure1.png)
 
-3. NSG の一覧で、**[NSG-FrontEnd]** > **[受信セキュリティ規則]** をクリックします。
+3. Nsg の一覧でクリックして **NSG フロント エンド** > **受信のセキュリティ規則**
 
 ![プレビュー ポータル - NSG-FrontEnd](./media/virtual-networks-create-nsg-arm-pportal/figure2.png)
 
-4. **[受信セキュリティ規則]** の一覧で、**[追加]** をクリックします。
+4. 一覧で **受信のセキュリティ規則**, 、クリックして **追加**します。
 
 ![プレビュー ポータル - 規則の追加](./media/virtual-networks-create-nsg-arm-pportal/figure3.png)
 
-5. **[受信セキュリティ規則の追加]** ブレードで、ポート *80* の *TCP* 経由で任意のソースから任意の VM にアクセスできるようにする *web-rule* という名前の規則を *200* の優先度で作成して、**[OK]** をクリックします。 これらの設定のほとんどは、既定値が設定されています。
+5.  **受信用のセキュリティ ルールの追加** ブレードで、という名前のルールを作成 *web ルール* の優先順位を持つ *200* 経由でアクセスを許可する *TCP* ポートに *80* いずれかから任意の VM にソースで実行され] をクリックして **OK**します。 これらの設定のほとんどは、既定値が設定されています。
 
 ![プレビュー ポータル - 規則の設定](./media/virtual-networks-create-nsg-arm-pportal/figure4.png)
 
 6. 数秒後に、NSG の新しい規則が表示されます。
 
 ![プレビュー ポータル - 新しい規則](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
-
-
-
-
