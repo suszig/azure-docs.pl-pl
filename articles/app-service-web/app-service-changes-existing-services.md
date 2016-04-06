@@ -1,9 +1,9 @@
 <properties 
     pageTitle="Azure App Service と、それが既存の Azure サービスに与える影響" 
     description="新しい Azure App Service とその機能が Azure の既存のサービスにどのように影響するかを説明します。" 
-    authors="yochayk" 
-    writer="yochayk" 
-    editor="yochayk" 
+    authors="sunnydeng" 
+    writer="sunnydeng" 
+    editor="sunnydeng" 
     manager="nirma" 
     services="app-service" 
     documentationCenter=""/>
