@@ -3,8 +3,8 @@
     description="Azure SQL Database を管理するためのツールとオプションを比較します。" 
     services="sql-database" 
     documentationCenter="" 
-    authors="TigerMint" 
-    manager="" 
+    authors="SunnyDeng" 
+    manager="SunnyDeng" 
     editor=""/>
 
 <tags 
