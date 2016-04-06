@@ -38,8 +38,9 @@ Multi-factor authentication (2 要素認証または 2FA とも呼ばれます) 
 ユーザー ID | ユーザー ID は、組織がサブスクライブしている Microsoft のクラウド サービスにアクセスするために、ユーザーがサインイン ページで入力する一意識別子です。
 会社または学校のアカウント | 組織 (企業、学校、非営利) によってその構成員 (従業員、学生、顧客) に割り当てられるユーザー アカウントであり、組織がサブスクライブしている 1 つ以上の Microsoft クラウド サービス (Office 365 や Azure など) にサインインしてアクセスできます。 これらのアカウントは組織の Azure AD のディレクトリに格納され、通常、ユーザーが組織に在籍しなくなると削除されます。 Microsoft アカウントとは異なり、会社または学校のアカウントは、ユーザーではなく組織の管理者によって作成および管理されます。
 
-## 参照トピック
+## 次の手順
 - [Azure への組織としてのサインアップ](sign-up-organization.md)
 - [Azure サブスクリプションを Azure AD に関連付ける方法](active-directory-how-subscriptions-associated-directory.md)
 - [Azure AD サービスの制限と制約](active-directory-service-limits-restrictions.md)
+
 

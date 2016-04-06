@@ -29,7 +29,7 @@
 | **Azure AD Connect のダウンロード** | [Azure AD Connect のダウンロード](http://go.microsoft.com/fwlink/?LinkId=615771) |
 | **ハードウェアと前提条件** | [Azure AD Connect: ハードウェアと前提条件](active-directory-aadconnect-prerequisites.md) |
 | **インストールで使用するアカウント** | [Azure AD Connect アカウントとアクセス許可](active-directory-aadconnect-accounts-permissions.md) |
-| Express 設定を使用したインストール | [Azure AD Connect の高速インストール](active-directory-aadconnect-get-started-express.md) |
+| 簡単設定を使用したインストール | [Azure AD Connect の高速インストール](active-directory-aadconnect-get-started-express.md) |
 | DirSync からのアップグレード | [Azure AD 同期ツール (DirSync) からのアップグレード](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
 | インストール後 | [インストールの確認とライセンスの割り当て ](active-directory-aadconnect-whats-next.md) |
 
@@ -124,7 +124,7 @@ sAMAccountName および MailNickName|このオプションは、ユーザーを
 Exchange ハイブリッドのデプロイメント |Exchange ハイブリッド展開機能により、Exchange メールボックスの共存の両方、内部設置型と特定を同期することによって Azure での設定 [属性](active-directory-aadconnectsync-attributes-synchronzied.md#exchange-hybrid-writeback) 、内部設置型ディレクトリに Azure AD からです。
 Azure AD アプリと属性フィルター|Azure AD アプリと属性フィルターを有効にして、ウィザードの後続のページで、同期する属性のセットを特定のセットに合わせることができます。  このことを行うと、ウィザードで 2 つの追加の構成ページが開きます。  
 パスワードの同期 | サインイン リューションとしてフェデレーションを選択した場合は、このオプションを有効にすることができます。 バックアップ オプションとして、パスワード同期を使用できます。 追加情報を参照してください。 [パスワード同期](active-directory-aadconnectsync-implement-password-synchronization.md)します。
-パスワード ライトバック|パスワード ライトバックを有効にすると、Azure AD で発信されるパスワードの変更が、オンプレミスのディレクトリに書き戻されます。 追加情報を参照してください。 [パスワード管理の概要](active-directory-passwords-getting-started.md)します。
+パスワードの書き戻し|パスワード ライトバックを有効にすると、Azure AD で発信されるパスワードの変更が、オンプレミスのディレクトリに書き戻されます。 追加情報を参照してください。 [パスワード管理の概要](active-directory-passwords-getting-started.md)します。
 グループの書き戻し |使用する場合、 **Office 365 グループ** 機能の配布グループと内部設置型 Active Directory でこれらのグループを持つことができます。 このオプションが使用できるのは、オンプレミスの Active Directory 内に Exchange が置かれている場合に限られます。 追加情報を参照してください。 [グループの書き戻し](active-directory-aadconnect-feature-preview.md#group-writeback)します。
 デバイスの書き戻し | 条件付きアクセスのシナリオの場合は、Azure AD 内のデバイス オブジェクトをオンプレミスの Active Directory に書き戻すことができます。 追加情報を参照してください [Azure AD Connect でデバイスの書き戻しを有効にする。](active-directory-aadconnect-get-started-custom-device-writeback.md)
 ディレクトリ拡張属性の同期|ディレクトリ拡張属性の同期を有効にすると、指定した追加の属性が Azure AD に同期されます。 追加情報を参照してください。 [ディレクトリ拡張](active-directory-aadconnect-feature-preview.md#directory-extensions)します。
@@ -175,9 +175,9 @@ Azure AD Connect との AD FS の構成は、わずか数クリックで簡単�
 
 
 > [AZURE.NOTE]
-- Azure AD Connect のインストールに使用しているアカウントが AD FS サーバーのローカル管理者ではない場合、促されますに十分なアクセス許可を持っているアカウントの資格情報。
-- Azure AD Connect サーバーと、この手順を構成する前に、Web アプリケーション プロキシ サーバーの間の HTTP/HTTPS 接続があることを確認します。
-- さらに、認証要求の通過を許可するためには、Web アプリケーション サーバーと AD FS サーバーの間の HTTP/HTTPS 接続があることを確認します。
+- Azure AD Connect のインストールに使用しているアカウントが AD FS サーバーのローカル管理者ではない場合、十分なアクセス許可を持つアカウントの資格情報を入力するように求められます。
+- この手順を構成する前に、Azure AD Connect サーバーと Web アプリケーション プロキシ サーバーとの間に HTTP/HTTPS 接続があることを確認してください。
+- また、認証要求の通過を許可するために、Web アプリケーション サーバーと AD FS サーバーとの間に HTTP/HTTPS 接続が設定されていることを確認してください。
 
 
 ![Web アプリ](./media/active-directory-aadconnect-get-started-custom/adfs3.png)
@@ -243,7 +243,7 @@ AD FS ログイン ページのイラストとロゴのイメージをカスタ�
 
 - イントラネットからインターネット エクスプ ローラーからドメインに参加しているコンピューターからブラウザー ログインを検証する: https://myapps.microsoft.com に接続し、ログインしたアカウントでログインを確認します。
 - エクストラネットの任意のデバイスからブラウザー ログインを検証する: 自宅にあるマシンまたはモバイル デバイスでは、[https://myapps.microsoft.com に接続し、ログイン ID とパスワード資格情報を指定します。
-- リッチ クライアントのログインを検証する: https://testconnectivity.microsoft.com に接続を Office 365] タブをクリックし、' Office 365 シングル サインオン テスト] を選択します。
+- リッチ クライアントのログインを検証する: https://testconnectivity.microsoft.com に接続を Office 365] タブをクリックし、[Office 365 シングル サインオン テスト] を選択します。
 
 
 ## 次のステップ
@@ -252,4 +252,5 @@ AD FS ログイン ページのイラストとロゴのイメージをカスタ�
 Azure AD Connect がインストールされているがあるわかったできます [のインストールを確認し、ライセンスを割り当てる](active-directory-aadconnect-whats-next.md)します。
 
 詳細について [内部設置型 id と Azure Active Directory の統合](active-directory-aadconnect.md)します。
+
 

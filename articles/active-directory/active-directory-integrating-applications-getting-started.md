@@ -52,7 +52,7 @@
 一部の質問にはあらかじめ回答できないこともありますが、それでもかまいません。  このガイドにより、そのような質問の一部に回答し、一部に情報に基づいて判断できるようになります。
 
 ## 前提条件
-- Azure サブスクリプションと Azure Active Directory のディレクトリ。  Azure サブスクリプションをまだ取得していない場合は、30 日間の無料試用版を試すことができます。 [みてください。](https://azure.microsoft.com/trial/get-started-active-directory/)
+- Azure サブスクリプションと Azure Active Directory のディレクトリ。  Azure サブスクリプションをまだ取得していない場合は、30 日間の無料試用版を試すことができます。 [実際に使ってみてください。](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ## Azure AD とのアプリケーションの統合
 ### 承認されていないクラウド アプリケーションを Cloud App Discovery で検出する
@@ -87,4 +87,5 @@ Microsoft Azure AD アプリケーション プロキシを使用すると、プ
 Azure AD を活用を支援するためには、新しいアプリケーションおよびするを参照してください。 を記述する場合 [Guiding 開発者](active-directory-applications-guiding-developers-for-lob-applications.md)します。
 
 Azure のアプリケーション ギャラリーに、カスタム アプリケーションを追加するを参照して [Azure AD のセルフ サービスの SAML 構成「を自分のアプリ」](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)します。
+
 

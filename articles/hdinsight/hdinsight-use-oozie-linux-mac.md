@@ -26,7 +26,7 @@ Apache Oozie を使用して、Hive と Sqoop を使用するワークフロー�
 
 Apache Oozie は Hadoop ジョブを管理するワークフローおよび調整システムです。 Hadoop スタックと統合されていて、Apache MapReduce、Apache Pig、Apache Hive、Apache Sqoop の Hadoop ジョブをサポートしています。 Java プログラムやシェル スクリプトなど、システムに固有のジョブのスケジュールを設定する際にも使用できます。
 
-> [AZURE.NOTE] HDInsight でワークフローを定義するためのもう 1 つのオプションは、Azure Data Factory です。 Azure Data Factory の詳細については、次を参照してください。 [Pig の使用と Data Factory を使って Hive][azure-data-factory-pig-hive]します。
+> [AZURE.NOTE] HDInsight でワークフローを定義するための別のオプションは、Azure Data Factory です。 Azure Data Factory の詳細については、次を参照してください。 [Pig の使用と Data Factory を使って Hive][azure-data-factory-pig-hive]します。
 
 ##前提条件
 
@@ -720,4 +720,5 @@ Oozie UI では、Oozie ログと、Hive クエリなどの MapReduce タスク�
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+
 

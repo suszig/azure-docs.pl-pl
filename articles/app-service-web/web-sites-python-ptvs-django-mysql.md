@@ -26,19 +26,19 @@
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
-このチュートリアルでは、PTVS サンプル テンプレートのいずれかを使用して簡単な投票 web アプリを作成する [Python Tools for Visual Studio] を使用してします。 このチュートリアルではでもご覧いただけます、 [ビデオ](https://www.youtube.com/watch?v=oKCApIrS0Lo)します。
+このチュートリアルで使用して [Python Tools for Visual Studio] 投票 web アプリのサンプル テンプレートのいずれかを使用して簡単な作成をします。 このチュートリアルではでもご覧いただけます、 [ビデオ](https://www.youtube.com/watch?v=oKCApIrS0Lo)します。
 
 Azure でホストされる MySQL サービスを使用する方法、MySQL を使用する web アプリを構成する方法、および web アプリを発行する方法を学習して [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)します。
 
-Bottle、Flask、Django web フレームワークを MongoDB、Azure テーブル ストレージ、MySQL および SQL Database のサービスを使用した、PTVS では、[Python デベロッパー センター] を Azure App Service Web Apps の開発を取り上げたその他の記事を参照してください。 この記事は、App Service 上では、中に、手順は、[Azure クラウド サービス] を開発する際に似ています。
+参照してください、 [Python Developer Center] Bottle を使用して、PTVS では、Azure App Service Web Apps の開発を取り上げたその他の記事では、Flask および Django web フレームワークと、MongoDB、Azure テーブル ストレージ、MySQL および SQL データベース サービスです。 開発するときにこの記事は、App Service 上では、中に、手順と似ています [Azure Cloud Services]します。
 
 ## 前提条件
 
  - Visual Studio 2013 または 2015
  - [Python Tools 2.2 for Visual Studio]
- - [Python は、Visual Studio サンプル VSIX の 2.2 を Tools]
+ - [Python Tools 2.2 for Visual Studio サンプル VSIX]
  - [Azure SDK Tools for VS 2013] または [Azure SDK Tools for VS 2015]
- - [Python 2.7 32-bit]
+ - [Python 2.7 (32 ビット)]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -72,7 +72,7 @@ Bottle、Flask、Django web フレームワークを MongoDB、Azure テーブ�
 
     ![Django Management Console ウィンドウ](./media/web-sites-python-ptvs-django-mysql/PollsDjangoConsole.png)
 
-1.  キーを押して、アプリケーションが動作することを確認します。 <kbd>F5</kbd>.
+1.  <kbd>F5</kbd> キーを押して、アプリケーションが動作することを確認します。
 
 1.  クリックして **ログイン** 上部にあるナビゲーション バーからです。
 
@@ -186,7 +186,7 @@ Python Tools for Visual Studio、Django および MySQL の詳細については
 - [Python Tools for Visual Studio のドキュメント]
   - [Web プロジェクト]
   - [クラウド サービス プロジェクト]
-  - [リモート Microsoft Azure でデバッグ]
+  - [Microsoft Azure でのリモート デバッグ]
 - [Django のドキュメント]
 - [MySQL]
 
@@ -215,4 +215,5 @@ Python Tools for Visual Studio、Django および MySQL の詳細については
 [Django Documentation]: https://www.djangoproject.com/
 [MySQL]: http://www.mysql.com/
  
+
 

@@ -26,7 +26,7 @@ Azure は、デバッグを容易に組み込みの診断機能を提供する [
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="whatisdiag"></a>Web サーバーの診断とアプリケーションの診断
+## <a name="whatisdiag"></a>Web サーバーの診断とアプリケーション診断
 
 App Service Web Apps は、Web サーバーと Web アプリケーションの両方のログ情報を診断する機能を備えています。 これらは論理的に分けられます **web サーバー診断** と **アプリケーション診断**します。
 
@@ -48,12 +48,12 @@ App Service Web Apps は、Web サーバーと Web アプリケーションの�
 
 App Service Web Apps は、Web アプリにコンテンツをパブリッシュしたときのデプロイ情報もログに記録します。 これは自動的に行われ、デプロイ ログの構成設定はありません。 デプロイ ログでは、デプロイが失敗した理由を特定できます。 たとえば、カスタムのデプロイ スクリプトを使用している場合は、デプロイ ログを使用して、スクリプトでエラーが発生する理由を特定できることがあります。
 
-## <a name="enablediag"></a>方法: 診断を有効にする
+## <a name="enablediag"></a>診断を有効にする方法
 
 診断を有効にする、 [Azure ポータル](https://portal.azure.com), web アプリのブレードに移動し、をクリックして、 **設定 > 診断ログ**します。
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
-![Logs part](./media/web-sites-enable-diagnostic-log/logspart.png)
+![ログ パーツ](./media/web-sites-enable-diagnostic-log/logspart.png)
 
 有効にすると **アプリケーション診断** 選択することも、 **レベル**します。 この設定では、取得された情報をフィルター処理できます。 **情報**, 、**警告** または **エラー** 情報。 これを設定する **詳細** アプリケーションによって生成されたすべての情報がログに記録します。
 
@@ -81,7 +81,7 @@ App Service Web Apps は、Web アプリにコンテンツをパブリッシュ�
 
 > [AZURE.NOTE] Azure PowerShell から診断も有効にするを使用して、 **Set-azurewebsite** コマンドレットです。 Azure PowerShell をインストールしていないか、Azure サブスクリプションを使用するように構成していない場合は、次を参照してください。 [Azure powershell の使用方法](/develop/nodejs/how-to-guides/powershell-cmdlets/)します。
 
-##<a name="download"></a> 方法: ログをダウンロードする
+##<a name="download"></a> ログをダウンロードする方法
 
 Web アプリケーション ファイル システムに保存された診断情報には、FTP を使用して直接アクセスできます。 さらに、Azure PowerShell または Azure コマンド ライン インターフェイスを使用して Zip アーカイブとしてダウンロードすることもできます。
 
@@ -128,15 +128,15 @@ Azure コマンド ライン インターフェイスを使用してログ フ�
 Visual Studio Application Insights には、ログをフィルターおよび検索したり、要求やその他のイベントにログを関連付けたりするためのツールが用意されています。
 
 1. Application Insights SDK を Visual Studio のプロジェクトに追加します。
- * ソリューション エクスプローラーでプロジェクトを右クリックし、[Application Insights の追加] を選択します。 Application Insights リソースの作成などの手順が示されます。 [詳細については](../application-insights/app-insights-start-monitoring-app-health-usage.md)
+ * ソリューション エクスプローラーでプロジェクトを右クリックし、[Application Insights の追加] を選択します。 Application Insights リソースの作成などの手順が示されます。 [詳細情報](../application-insights/app-insights-start-monitoring-app-health-usage.md)
 2. トレース リスナーのパッケージをプロジェクトに追加します。
  * プロジェクトを右クリックし、[NuGet パッケージの管理] を選択します。 選択 `Microsoft.ApplicationInsights.TraceListener` [の詳細](../application-insights/app-insights-asp-net-trace-logs.md)
 3. プロジェクトをアップロードして実行し、ログ データを生成します。
-4.  [Azure ポータル](http://portal.azure.com/), 、新しい Application Insights リソースを参照し、開く **検索**します。 ログ データが、要求、使用状況、およびその他の製品利用統計情報と共に表示されます。 一部の製品利用統計情報については、表示されるまで数分かかる場合があります。[更新] をクリックします。 [詳細については](../application-insights/app-insights-diagnostic-search.md)
+4.  [Azure ポータル](http://portal.azure.com/), 、新しい Application Insights リソースを参照し、開く **検索**します。 ログ データが、要求、使用状況、およびその他の製品利用統計情報と共に表示されます。 一部の製品利用統計情報については、表示されるまで数分かかる場合があります。[更新] をクリックします。 [詳細情報](../application-insights/app-insights-diagnostic-search.md)
 
 [Application Insights でのパフォーマンス追跡についての詳細情報](../insights-perf-analytics.md)
 
-##<a name="streamlogs"></a> 方法: ログをストリーミングする
+##<a name="streamlogs"></a> ログをストリーミングする方法
 
 アプリケーションの開発中に、ログ情報をほぼリアルタイムで参照すると役立つことがよくあります。 これは、Azure PowerShell または Azure コマンド ライン インターフェイスを使用して開発環境にログ情報をストリーミングすることで実現できます。
 
@@ -182,7 +182,7 @@ HTTP などの特定のログの種類のフィルターを使用して、 **--�
 
 > [AZURE.NOTE] Azure コマンド ライン インターフェイスをインストールしていないか、Azure サブスクリプションを使用するように構成していない場合は、次を参照してください。 [Azure コマンド ライン インターフェイスの使用方法](../xplat-cli-install.md)します。
 
-##<a name="understandlogs"></a> 方法: 診断ログを読む
+##<a name="understandlogs"></a> 診断ログを読む方法
 
 ### アプリケーション診断ログ
 
@@ -257,7 +257,7 @@ BLOB に格納されるデータは次のようになります。
 
 > [AZURE.NOTE] Azure web apps によって生成されるログをサポートしていない、 __では、s-computername__, 、__s ip__, 、または __cs-version の__ フィールドです。
 
-##<a name="nextsteps"></a> 次のステップ
+##<a name="nextsteps"></a>次のステップ
 
 - [Web アプリを監視する方法](/manage/services/web-sites/how-to-monitor-websites/)
 - [Visual Studio での Azure の Web Apps のトラブルシューティング](web-sites-dotnet-troubleshoot-visual-studio.md)
@@ -269,4 +269,5 @@ BLOB に格納されるデータは次のようになります。
 * Web サイトから App Service への変更のガイドを参照してください: [Azure App Service と既存の Azure サービスへの影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 古いポータルから新しいポータルへの変更ガイドについては、次を参照してください: [プレビュー ポータル内の移動に関するリファレンス。](http://go.microsoft.com/fwlink/?LinkId=529715)
  
+
 

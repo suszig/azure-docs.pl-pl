@@ -77,7 +77,7 @@ MFA レポート |● |●
 条件付きアクセス |● |● 
 キャッシュ |● |● 
 
-クラウドの多要素認証を使用するか、オンプレミスの MFA Server を使用するかを決定しました。これで、Azure Multi-Factor Authentication の設定と使用を開始できます。   **シナリオに合わせてアイコンを選択してください。**
+クラウドの多要素認証を使用するか、オンプレミスの MFA Server を使用するかを決定しました。これで、Azure Multi-Factor Authentication の設定と使用を開始できます。   **適したシナリオのアイコンを選択してください。**
 
 <center>
 
@@ -86,6 +86,7 @@ MFA レポート |● |●
 
 [![クラウド](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  & nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp; (& a) nbsp;[![上部の [](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) & nbsp; & nbsp; & nbsp; (& a) nbsp; & nbsp;
 </center>
+
 
 
 

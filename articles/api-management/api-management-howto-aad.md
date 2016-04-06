@@ -110,7 +110,7 @@ Azure Active Directory の構成に戻り、をクリックして、 **の期間
 
 必要な構成を指定すると、クリックして **保存**します。
 
-![Save][api-management-client-allowed-tenants-save]
+![保存][api-management-client-allowed-tenants-save]
 
 指定された Azure Active Directory 内のユーザーは、次の手順に従って、開発者ポータルにログインできます、変更が保存さたら [Azure Active Directory アカウントを使用して開発者ポータルにログイン][]します。
 
@@ -122,7 +122,7 @@ Azure Active Directory 内のユーザーのアクセスを有効にした後は
 
 外部の Azure Active Directory グループの追加は、 **可視性** グループへのアクセスを許可する製品のタブをクリックします。 クリックして **製品**, 、目的の成果物の名前をクリックします。
 
-![製品の構成][api-management-configure-product]
+![成果物の構成][api-management-configure-product]
 
 切り替えて、 **可視性** タブをクリックし、クリックして **Azure Active Directory からグループを追加**します。
 
@@ -227,5 +227,6 @@ Azure Active Directory で、ユーザーの 1 つの資格情報を入力し、
 [Next steps]: #next-steps
 
 [Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
+
 
 

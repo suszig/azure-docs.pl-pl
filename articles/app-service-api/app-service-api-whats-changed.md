@@ -121,7 +121,7 @@ App Service のアルファ版 SDK については、次の SDK が廃止にな�
 ### Logic Apps
 Logic Apps デザイナーでは、2016 年の早い時期に新しい API Apps モデルとのシームレスな統合が特別に追加されます。 そのため、Logic Apps に組み込まれた HTTP コネクタは、任意の HTTP エンドポイントを呼び出すことができるほか、サービス プリンシパル認証をサポートします。この認証は、App Service 認証サービスでもネイティブにサポートされています。 App Service でホストされる API でロジック アプリで利用する方法について説明 [ロジック アプリを使用して App Service でホストされている、カスタム API を使用して](../app-service-logic/app-service-logic-custom-hosted-api.md)します。
 
-### <a id="documentation"></a> 以前の API Apps モデルに関するマニュアル
+### <a id="documentation"></a> 以前の API Apps モデルに関するドキュメント
 いくつか [azure.microsoft.com](https://azure.microsoft.com) 以前の API Apps モデル用に作成された記事は、不要になった新しいモデルに適用され、サイトから削除されます。 その Url は、新しいモデルで動作する最も近いにリダイレクトされますが、以前の記事では、引き続き参照できます、 [azure.microsoft.com の GitHub ドキュメント リポジトリ](https://github.com/Azure/azure-content)します。 ほとんどの場合は、記事に記載の [記事/アプリ-サービスの api](https://github.com/Azure/azure-content/tree/master/articles/app-service-api) フォルダーです。 以前の API アプリをサポートしたり、Marketplace から新しいコネクタ API アプリを作成したりする場合に参考となる可能性の高いページを以下に示します。
 
 * [認証の概要](https://github.com/Azure/azure-content/tree/master/articles/app-service/app-service-authentication-overview.md)
@@ -140,4 +140,5 @@ Logic Apps デザイナーでは、2016 年の早い時期に新しい API Apps 
 
 - [MSDN フォーラム](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAPIApps)
 - [スタック オーバーフロー](http://stackoverflow.com/questions/tagged/azure-api-apps)
+
 

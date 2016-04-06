@@ -25,9 +25,9 @@ SharePoint 用 StorSimple アダプターはリモート BLOB ストレージ (R
 
 >[AZURE.NOTE] SharePoint 用 StorSimple アダプターは、SharePoint Server 2010 Remote BLOB ストレージ (RBS) をサポートします。 SharePoint Server 2010 の External BLOB ストレージ (EBS) はサポートしていません。
 
-- SharePoint 用 StorSimple アダプターをダウンロードするには、[SharePoint 用 StorSimple アダプター] [1] で、Microsoft ダウンロード センターです。
+- SharePoint 用 StorSimple アダプターをダウンロードするには [SharePoint 用 StorSimple アダプター][1] Microsoft ダウンロード センターからです。
 
-- RBS の計画と RBS の制限事項については、[SharePoint 2013 で RBS を使用して決定する] を参照してください [2] または [プランの RBS (SharePoint Server 2010)] [3]。
+- RBS の計画と RBS の制限事項についてを参照してください [SharePoint 2013 で RBS を使用するかを決める][2] または [RBS を計画 (SharePoint Server 2010)][3]します。
 
 この概要の残りの部分では、SharePoint 用 StorSimple アダプターのロールのほか、アダプターをインストールおよび構成する前に認識しておく必要がある SharePoint の容量とパフォーマンスの制限事項について簡単に説明します。 この情報を確認した後に移動 [SharePoint インストール用 StorSimple アダプター](#storsimple-adapter-for-sharepoint-installation) アダプター設定を開始します。
 
@@ -51,7 +51,7 @@ RBS の Microsoft Azure StorSimple 実装には、次の利点があります。
 
 - SharePoint 用 StorSimple アダプターは SharePoint サーバーの全体管理ポータルに接続されるため、1 か所で SharePoint ソリューション全体を管理できます。
 
-BLOB コンテンツをファイル システムに移動すると、さらにコストの節約や利点があります。 たとえば、RBS を使用すると、コストの高い層 1 ストレージの必要性が軽減されます。また、コンテンツ データベースのサイズが小さくなるため、RBS により SharePoint サーバー ファームで必要なデータベース数を減らすことができます。 ただし、データベース サイズの制限や RBS 以外のコンテンツの量など、他の要因がストレージの要件に影響する可能性もあります。 コストおよび RBS を使用する利点の詳細については、[プランの RBS (SharePoint Foundation 2010)] [4] を参照してください。 [SharePoint 2013 で RBS を使用して決定する] と [5]。
+BLOB コンテンツをファイル システムに移動すると、さらにコストの節約や利点があります。 たとえば、RBS を使用すると、コストの高い層 1 ストレージの必要性が軽減されます。また、コンテンツ データベースのサイズが小さくなるため、RBS により SharePoint サーバー ファームで必要なデータベース数を減らすことができます。 ただし、データベース サイズの制限や RBS 以外のコンテンツの量など、他の要因がストレージの要件に影響する可能性もあります。 コストおよび RBS を使用する利点の詳細については、次を参照してください。 [RBS を計画 (SharePoint Foundation 2010)][4] と [SharePoint 2013 で RBS を使用するかを決める][5]します。
 
 ### 容量とパフォーマンスに関する制限事項
 
@@ -199,7 +199,7 @@ SharePoint サイトからオブジェクトを削除しても、RBS ストア �
 
 このメンテナンス プログラム (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) は、RBS を有効にするとすべての SharePoint WFE サーバーとアプリケーション サーバーに自動的にインストールされます。 プログラムは、次の場所にインストールされます。 <boot drive>: \Program Files\Microsoft SQL リモート Blob ストレージ 10.50\Maintainer\
 
-構成およびメンテナンス プログラムの使用については、[管理 RBS SharePoint server 2013] [8] を参照してください。
+構成およびメンテナンス プログラムの使用に関する詳細については、次を参照してください。 [SharePoint Server 2013 で RBS の維持][8]します。
 
 >[AZURE.IMPORTANT] RBS メンテナンス ツール プログラムは、負荷の高いリソースです。 この実行をスケジュールするのは、SharePoint ファームでのアクティビティが少ない時間帯のみにしてください。
 
@@ -307,3 +307,4 @@ BLOB を SQL Server コンテンツ データベースに戻したら、次の�
 [4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/en-us/library/ff943565.aspx
+

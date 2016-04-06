@@ -19,10 +19,10 @@
 # Azure Data Factory を使ってみる
 > [AZURE.SELECTOR]
 - [チュートリアルの概要](data-factory-build-your-first-pipeline.md)
-- [Data Factory エディターを使用します。](data-factory-build-your-first-pipeline-using-editor.md)
+- [Data Factory エディターの使用](data-factory-build-your-first-pipeline-using-editor.md)
 - [PowerShell の使用](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Visual Studio を使用](data-factory-build-your-first-pipeline-using-vs.md)
-- [リソース マネージャー テンプレートを使用します。](data-factory-build-your-first-pipeline-using-arm.md)
+- [Visual Studio の使用](data-factory-build-your-first-pipeline-using-vs.md)
+- [Resource Manager テンプレートの使用](data-factory-build-your-first-pipeline-using-arm.md)
 
 この記事では、Azure Data Factory を初めて構築する方法について説明します。 
 
@@ -36,7 +36,7 @@
 ## 前提条件
 このチュートリアルを開始する前に、以下の前提条件を満たしている必要があります。
 
-1.  **Azure サブスクリプション** -Azure サブスクリプションを取得していない場合は、ほんの数分で無料の試用アカウントを作成できます。 参照してください、 [無料評価版](http://azure.microsoft.com/pricing/free-trial/) 無料の試用アカウントを取得する方法に関する記事です。
+1.  **Azure サブスクリプション** -Azure サブスクリプションを取得していない場合は、ほんの数分で無料の試用アカウントを作成することができます。 参照してください、 [無料評価版](http://azure.microsoft.com/pricing/free-trial/) 無料の試用アカウントを取得する方法に関する記事です。
 
 2.  **Azure ストレージ** – このチュートリアルでは、データを格納する Azure ストレージ アカウントを使用します。 Azure ストレージ アカウントを取得していない場合、 [ストレージ アカウントの作成](../storage-create-storage-account/#create-a-storage-account) 記事です。 ストレージ アカウントを作成した後は、ストレージにアクセスするために使用するアカウント キーを取得する必要があります。 参照してください [表示、コピーおよび再生成するストレージ アクセス キー](../storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys)します。
 
@@ -172,5 +172,6 @@ Azure Data Factory では、データ駆動型ワークフローとしてデー�
 - クリックして [Data Factory エディターを使用して](data-factory-build-your-first-pipeline-using-editor.md) Azure Classic Portal の一部である Data Factory エディターを使用して、チュートリアルを実行する上部にあるリンクです。
 - クリックして [PowerShell を使用した](data-factory-build-your-first-pipeline-using-powershell.md) Azure PowerShell を使用して、チュートリアルを実施する上部にあるリンクです。
 - クリックして [Visual Studio を使って](data-factory-build-your-first-pipeline-using-vs.md) Visual Studio を使用して、チュートリアルを実施する上部にあるリンクです。 
+
 
 

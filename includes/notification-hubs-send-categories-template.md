@@ -5,7 +5,7 @@
 
 Java を使用するかを参照してください PHP [JAVA/PHP から Notification Hubs の使用方法](../articles/notification-hubs/notification-hubs-java-backend-how-to.md)します。 使用するどのバックエンドから通知を送信することができます、 [Notification Hub REST インターフェイス](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx)します。
 
-実行したときに通知を送信するコンソール アプリケーションを作成した場合、ステップ 1. ~ 3. はスキップ [を使ってみる Notification Hubs] [入門] です。
+実行したときに通知を送信するコンソール アプリケーションを作成した場合、ステップ 1. ~ 3. はスキップ [Notification Hubs を使ってみる][get-started]します。
 
 1. Visual Studio で、Visual C# の新しいコンソール アプリケーションを作成します。 
 
@@ -15,7 +15,7 @@ Java を使用するかを参照してください PHP [JAVA/PHP から Notifica
 
         Install-Package Microsoft.Azure.NotificationHubs
     
-    使用して、Azure Notification Hubs SDK への参照を追加します <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification ハブ NuGet パッケージ</a>. 
+    これにより <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet パッケージ</a>を利用して Azure Notification Hubs SDK に参照が追加されます。 
 
 3. Program.cs ファイルを開き、次の `using` ステートメントを追加します。
 
@@ -77,4 +77,5 @@ Java を使用するかを参照してください PHP [JAVA/PHP から Notifica
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
+
 

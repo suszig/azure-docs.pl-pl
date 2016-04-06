@@ -21,7 +21,7 @@
 Azure Active Directory には、Free、Basic、Premium という 3 つのエディションがあります。 Free エディションは、Azure または Office 365 のサブスクリプションに含まれます。 Basic および Premium エディションから入手、 [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) または [オープン ボリューム ライセンス](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) プログラムです。 Azure および Office 365 のサブスクリプション会員も、Active Directory Premium をオンラインで購入できます。 [こちらでサインイン](https://portal.office.com/Commerce/Catalog.aspx) 購入します。
 
 > [AZURE.NOTE]
-Azure Active Directory のワールドワイド インスタンスを使用している中国のお客様は、Azure Active Directory Premium および Basic エディションを使用できます。 中国の 21Vianet が運営する Microsoft Azure サービスでは、Azure Active Directory Premium および Basic エディションは現在サポートされていません。 詳細については、下記までお問い合わせください、 [Azure Active Directory フォーラム](http://feedback.azure.com/forums/169401-azure-active-directory)します。
+中国のお客様は、Azure Active Directory の世界中のインスタンスを使用して、Azure Active Directory Premium および Basic エディションを利用できます。 中国の 21Vianet が運営する Microsoft Azure サービスでは、Azure Active Directory Premium および Basic エディションは現在サポートされていません。 詳細については、下記までお問い合わせください、 [Azure Active Directory フォーラム](http://feedback.azure.com/forums/169401-azure-active-directory)します。
 
 Azure Active Directory Premium に記載されても、 **Enterprise Mobility Suite**します。 Enterprise Mobility Suite は、Microsoft Intune、Azure Rights Management、および Active Directory Premium のサービスを 1 つのライセンス プランでまとめて使用できるコスト効果の高い方法です。 詳細については、次を参照してください。、 [Enterprise Mobility Suite](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx) web サイトです。
 
@@ -103,10 +103,10 @@ Microsoft のエンタープライズ ボリューム ライセンス プログ�
 
 Microsoft クラウド サービスで利用できるサービスと機能は、国または地域によって異なります。 Voice over Internet Protocol (VoIP) などのサービスは、ある国または地域では利用できても、他の国または地域では利用できないことがあります。 サービスに含まれる機能は、法的な理由から特定の国や地域では制限される場合があります。 サービスまたは機能を利用するときの制限の有無を確認するには、サービスのライセンス制限サイトで国または地域を検索してください。
 
-## 参照トピック
+## 次の手順
 
 - [サインイン ページとアクセス パネル ページに対する会社のブランドの追加](active-directory-add-company-branding.md)
-- [アクセスおよび使用状況レポートを表示します。](active-directory-view-access-usage-reports.md)
+- [アクセスおよび使用状況レポートの表示](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-get-started-premium/MOLSEmail.png
@@ -121,4 +121,5 @@ Microsoft クラウド サービスで利用できるサービスと機能は、
 [10]: ./media/active-directory-get-started-premium/contosolicenseplan.png
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
+
 

@@ -73,11 +73,11 @@
 
 1.  Azure AD ポータルでの **Lynda.com** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-lynda-tutorial/IC777526.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-lynda-tutorial/IC777526.png "Configure single sign-on")
 
 2.   **どのようなユーザーを Lynda.com へのサインオン** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 
-    ![Configure single sign-on](./media/active-directory-saas-lynda-tutorial/IC777527.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-lynda-tutorial/IC777527.png "Configure single sign-on")
 
 3.   **アプリケーション URL の構成** ] ページの [、 **Lynda.com サインイン URL** ] ボックスに、Lynda.com テナントの URL を入力 (例:: *https://shib.lynda.com/Shibboleth.sso/InCommon?providerId=https://sts.windows-ppe.net/6247032d-9415-403c-b72b-277e3fb6f2c8/&target= https://shib.lynda.com/InCommon*)、順にクリック **次**します。
 
@@ -117,3 +117,4 @@ Lynda.com へのユーザー プロビジョニングの構成にあたって必
     ![あり](./media/active-directory-saas-lynda-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

@@ -74,7 +74,7 @@ Twilio から与えられた番号の他に、自分で管理している番号 
 
 電話番号を確認する方法については、次を参照してください。 [番号の管理] [verify_phone]します。
 
-## <a id="create_app"></a>Ruby アプリケーションの作成
+## <a id="create_app"></a>Ruby アプリケーションを作成します。
 Twilio サービスを使用し、Azure で動作している Ruby アプリケーションと、Twilio サービスを使用するその他の Ruby アプリケーションに違いはありません。 この記事は Twilio サービスを使用する方法について重点的 Twilio サービスは rest ベースであり、いくつかの方法で、Ruby から呼び出すことができる、 [Ruby 用 Twilio ヘルパー ライブラリ][twilio_ruby]します。
 
 まず、 [新しい Azure Linux VM をセットアップ][azure_vm_setup] 、新しい Ruby web アプリケーションのホストとして機能します。 Rails アプリケーションの作成に関する手順は無視し、VM のセットアップだけを行ってください。 作成するエンドポイントは、外部ポートを 80、内部ポートを 5000 としてください。
@@ -194,4 +194,5 @@ Twilio ライブラリを使用するように Web アプリケーションを�
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 [sinatra]: http://www.sinatrarb.com/
 [azure_vm_setup]: http://www.windowsazure.com/develop/ruby/tutorials/web-app-with-linux-vm/
+
 

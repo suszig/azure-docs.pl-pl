@@ -23,7 +23,7 @@ ms.service="virtual-machines"
 この記事では、HTTPS で Azure の HPC Pack クラスターと通信する HPC Pack ジョブ送信ツールを実行するように、Windows を実行するオンプレミス クライアント コンピューターを構成する方法について説明します。 これにより、簡単で柔軟性の高いさまざまなクラスター ユーザーがクラウド ベースの HPC Pack へのジョブをクラスター ヘッド ノード VM に直接接続する必要はありませんを送信するには
 ジョブ送信ツールを実行します。
 
-![Azure でクラスターにジョブを送信する][jobsubmit]
+![Azure のクラスターにジョブを送信する][jobsubmit]
 
 ## 前提条件
 
@@ -209,4 +209,5 @@ HPC Pack クライアントを実行している内部設置型コンピュー�
 
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
+
 

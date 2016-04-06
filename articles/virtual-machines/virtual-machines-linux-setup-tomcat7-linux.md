@@ -178,7 +178,7 @@ Tomcat7 を使用していない場合は、このコマンドの適切なバリ
 
 ####テスト:
 
-Tomcat7 が正常にインストールされているかどうかを確認するには、tomcat サーバーの DNS 名を参照 (http://tomcatexample.cloudapp.net/は、この記事の例の URL です)。 次のようなページが表示された場合は、Tomcat7 が正常にインストールされています。
+Tomcat7 が正常にインストールされているかどうかを確認するには、tomcat サーバーの DNS 名を参照 (http://tomcatexample.cloudapp.net/ は、この記事の例の URL です)。 次のようなページが表示された場合は、Tomcat7 が正常にインストールされています。
 ![][16]
 
 
@@ -232,7 +232,7 @@ Tomcat サービスを再起動するには:
 
 ###Tomcat や Moodle を使用してインターネットから仮想マシンにアクセスできない。
 
--   **症状:**  
+-   **症状**  
 Tomcat は実行されているが、ブラウザーに Tomcat の既定のページが表示されない。
 -   **考えられる根本原因**   
     1.  tomcat のリッスン ポートが、仮想マシンの tomcat トラフィック用のエンドポイントのプライベート ポートと異なっている。  
@@ -280,7 +280,7 @@ Tomcat は実行されているが、ブラウザーに Tomcat の既定のペ�
 
 ###/var/lib/tomcat7/webapps/ にプロジェクト ファイルをアップロードしようとすると、アクセスが拒否される  
 
--   **症状:**  
+-   **症状**  
 SFTP クライアント (FileZilla など) を使用して仮想マシンに接続し、/var/lib/tomcat7/webapps/ に移動してサイトを公開しようとすると、次のようなエラー メッセージが表示される。  
 
         status: Listing directory /var/lib/tomcat7/webapps
@@ -290,7 +290,7 @@ SFTP クライアント (FileZilla など) を使用して仮想マシンに接�
 
 -   **考えられる根本原因**
 /var/lib/tomcat7/webapps フォルダーへのアクセス許可が付与されていない。  
--   **ソリューション**  
+-   **解決策**  
 root アカウントからアクセス許可を取得する必要があります。 フォルダーの所有権を、root からマシンをプロビジョニングしたときに使用したユーザー名に変更できます。 次は、azureuser のアカウント名の例です。  
 
         sudo chown azureuser -R /var/lib/tomcat7/webapps
@@ -327,4 +327,5 @@ root アカウントからアクセス許可を取得する必要があります
 [16]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-16.png
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
+
 

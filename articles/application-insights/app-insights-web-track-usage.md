@@ -109,7 +109,7 @@ Application Insights リソースを開く、 [Azure ポータル](https://porta
 ユーザーがサインインできる Web アプリの場合、Application Insights に一意のユーザー識別子を提供することで、より正確な数値を取得できます。 このユーザー識別子は、ユーザーの名前である必要も、アプリで使用しているのと同じ ID である必要もありません。 アプリでユーザーが識別されたら、次のコードを使用します。
 
 
-*JavaScript at client*
+*クライアント側の JavaScript*
 
       appInsights.setAuthenticatedUserContext(userId);
 
@@ -376,4 +376,5 @@ Application Insights ポータルでは、タグに基づいてデータをフ�
 [windows]: app-insights-windows-get-started.md
 
  
+
 

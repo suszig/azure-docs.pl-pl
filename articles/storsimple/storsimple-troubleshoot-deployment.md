@@ -81,7 +81,7 @@
 | 番号| エラー メッセージ | 考えられる原因 | 推奨される操作 |
 | ---| ------------- | --------------- | ------------------ |
 | 1  | Invoke-HcsSetupWizard: 無効なパラメーター (HRESULT からの例外: 0x80070057) | プロキシ設定に指定されたパラメーターの 1 つが有効ではありません。| URI が正しい形式で指定されていません。 次の形式を使用します http://*<IP address or FQDN of the web proxy server>*:。*<TCP port number>* |
-| 2 | Invoke-HcsSetupWizard: RPC セーバーを利用できません (HRESULT: 0x800706ba からの例外) | 根本原因は、次のいずれか。<ol><li>クラスターが最大されていません。</li><li>パッシブ コント ローラーがアクティブなコント ローラーと通信できないし、パッシブ コント ローラーからコマンドを実行します。</li></ol> | 根本原因に応じて:<ol><li>[Microsoft サポートに問い合わせる](storsimple-contact-microsoft-support.md) クラスターがデータ型であることを確認する</li><li>アクティブなコント ローラーからコマンドを実行します。 パッシブ コントローラーからコマンドを実行する場合、パッシブ コントローラーがアクティブ コントローラーと通信できることが必要となります。 必要があります [Microsoft サポートにお問い合わせ](storsimple-contact-microsoft-support.md) 場合、この接続を確立します。</li></ol> |
+| 2 | Invoke-HcsSetupWizard: RPC セーバーを利用できません (HRESULT: 0x800706ba からの例外) | 根本原因は、次のいずれか。<ol><li>クラスターが最大されていません。</li><li>パッシブ コント ローラーがアクティブなコント ローラーと通信できないし、パッシブ コント ローラーからコマンドを実行します。</li></ol> | 根本的な原因によって異なります。<ol><li>[Microsoft サポートにお問い合わせ](storsimple-contact-microsoft-support.md) 、クラスターが稼働するかどうかを確認します。</li><li>アクティブなコント ローラーからコマンドを実行します。 パッシブ コントローラーからコマンドを実行する場合、パッシブ コントローラーがアクティブ コントローラーと通信できることが必要となります。 必要があります [Microsoft サポートにお問い合わせ](storsimple-contact-microsoft-support.md) 場合、この接続を確立します。</li></ol> |
 | 3 | Invoke-HcsSetupWizard: RPC コールに失敗しました (HRESULT からの例外: 0x800706be) | クラスターはダウンしています。 | [Microsoft サポートにお問い合わせ](storsimple-contact-microsoft-support.md) 、クラスターが稼働するかどうかを確認します。|
 | 4 | Invoke-HcsSetupWizard: クラスター リソースが見つかりません (HRESULT からの例外: 0x8007138f) | クラスター リソースが見つかりません。 これはインストールが適切でなかった場合に発生することがあります。 | デバイスを工場出荷時の既定の設定にリセットすることが必要な場合があります。 [Microsoft サポートにお問い合わせ](storsimple-contact-microsoft-support.md) クラスター リソースを作成します。|
 | 5 | Invoke-HcsSetupWizard: クラスター リソースがオンラインになっていません (HRESULT からの例外: 0x8007138c)| クラスター リソースがオンラインになっていません。 | [Microsoft サポートにお問い合わせ](storsimple-contact-microsoft-support.md) に対処します。|
@@ -164,7 +164,7 @@ StorSimple には、StorSimple ソリューションのトラブルシューテ�
   1. 実行、 **eventvwr** コマンドを Windows クライアント。 イベント ビューアーが起動します。
   2.  **アクション** ] ウィンドウで、] をクリックして **保存されたログを開いている** etvx/etw 形式 (サポート パッケージ) のログ ファイルをポイントします。 これで、ファイルを表示できます。 ファイルを開いた後、ファイルを右クリックし、テキストとして保存できます。
    
-    > [AZURE.IMPORTANT] You can also use the **Get-WinEvent** cmdlet to open these file in Windows PowerShell. For more information, see [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) in the Windows PowerShell cmdlet reference documentation.
+    > [AZURE.IMPORTANT] 使用することも、 **Get-winevent** コマンドレットを Windows PowerShell でこれらのファイルを開きます。 詳細については、次を参照してください。 [Get-winevent](https://technet.microsoft.com/library/hh849682.aspx) Windows PowerShell コマンドレット リファレンス ドキュメント。
 
 5. イベント ビューアーでログを開いたら、デバイスの構成に関連する問題を含む次のログを探します。
 
@@ -578,4 +578,5 @@ StorSimple デバイスで Update 1 を実行している場合は、DATA 0 の�
 
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx 
+
 

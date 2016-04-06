@@ -35,7 +35,7 @@
             
  - 選択した場合に **Openstack** 、クラウド サービス プロバイダーとして提供、 **ホスト名**, 、**アクセス キー**, 、および **シークレット キー**します。
 
-        > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
+        > [AZURE.NOTE] すべてのクラウド サービス プロバイダー、Azure を除くフレンドリ名が許可されています。 別のフレンドリ名を使用し、同じ資格情報セットを 1 つ以上のストレージ アカウントを作成できます。
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 
@@ -46,4 +46,5 @@
 6. チェック マーク アイコンをクリックします。 ![チェック マーク アイコン](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). ストレージ アカウントが正常に作成されると通知が表示されます。
 
 7. 新しく作成されたストレージ アカウントが表示されます、 **構成** ] ページの [ **ストレージ アカウント**します。 クリックして **保存** 新しいストレージ アカウントを保存します。 をクリックして **OK** 確認プロンプトにします。
+
 

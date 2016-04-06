@@ -30,10 +30,10 @@
 ![][15]  
 
 4.  **PowerApps**, [ **管理 Api**:  
-![登録されている api を参照する][5]
+![登録されている api を参照します。][5]
 
 5.  **管理 Api**, [ **追加** 新しい API を追加します。  
-![API の追加][6]
+![[API を追加します。][6]
 
 6. わかりやすい名前を入力 **名前** した API 向けです。   
 7.  **ソース**, [ **利用可能な Api** 構築済みの Api を選択して [ **SharePoint Server**します。 
@@ -80,4 +80,5 @@ SharePoint Server は、ユーザー認証に Active Directory を使用しま�
 [6]: ./media/powerapps-create-api-dropbox/add-api.PNG
 [14]: ./media/powerapps-create-api-office365-outlook/browseall.png
 [15]: ./media/powerapps-create-api-office365-outlook/allresources.png
+
 

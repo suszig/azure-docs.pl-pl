@@ -1,12 +1,12 @@
 <properties
-    pageTitle ="上の Linux 仮想マシンの LAMP スタックのインストール |Microsoft Azure]
-    description =「Azure で Linux 仮想マシン (VM) 上の LAMP スタックをインストールする方法について説明します」。
-    サービス =「仮想マシン」
+    pageTitle="Linux 仮想マシンへの LAMP スタックのインストール | Microsoft Azure"
+    description="Azure 上の Linux 仮想マシン (VM) に LAMP スタックをインストールする方法について説明します。"
+    services="virtual-machines"
     documentationCenter=""
-    authors ="szarkos"
-    manager ="timlt"
-    エディター =""
-    タグ =「azure サービスの管理、azure リソース マネージャー」/>
+    authors="szarkos"
+    manager="timlt"
+    editor=""
+    tags=“azure-service-management,azure-resource-manager"/>
 
 <tags
     ms.service="virtual-machines"
@@ -128,3 +128,4 @@ Ubuntu 上での LAMP スタックの設定については、他にも多くの�
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
  
+

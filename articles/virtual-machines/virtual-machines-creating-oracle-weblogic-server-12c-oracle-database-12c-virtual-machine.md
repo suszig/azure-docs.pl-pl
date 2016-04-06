@@ -61,7 +61,7 @@
 指示に従って、 [Azure で Oracle WebLogic Server 12c 仮想マシンを作成](virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine.md), で始まる、 **Azure で Oracle WebLogic Server 12c 仮想マシンを構成する** セクションです。 WebLogic Server クラスターをセットアップする場合にも表示 [Azure で Oracle WebLogic Server 12c クラスターを作成](virtual-machines-creating-oracle-webLogic-server-12c-cluster.md)します。
 
 ##その他のリソース
-[Oracle 仮想マシン イメージに関する他の考慮事項](miscellaneous-considerations-for-oracle-virtual-machine-images-new-article.md)
+[Oracle 仮想マシンのイメージに関するその他の考慮事項](miscellaneous-considerations-for-oracle-virtual-machine-images-new-article.md)
 
 [Oracle 仮想マシン イメージの一覧](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
@@ -70,4 +70,5 @@
 [Microsoft Azure で Linux を使用する Oracle WebLogic Server 12c](http://www.oracle.com/technetwork/middleware/weblogic/learnmore/oracle-weblogic-on-azure-wp-2020930.pdf)
 
 [Oracle Database 2 日間 DBA 12c リリース 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
+
 

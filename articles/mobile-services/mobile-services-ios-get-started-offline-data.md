@@ -41,7 +41,7 @@
 
 ## <a name="review-sync"></a>Mobile Services 同期コードのレビュー
 
-ネットワークにアクセスできない場合、エンドユーザーは Azure Mobile Services のオフライン同期により、ローカル データベースとやり取りできるようになります。 アプリケーションでこれらの機能を使用するには、`MSClient` の同期コンテキストを初期化して、ローカル ストアを参照します。 その後、`MSSyncTable` インターフェイスを使用してテーブルを参照します。
+ネットワークにアクセスできない場合、エンドユーザーは Azure Mobile Services スのオフライン同期により、ローカル データベースとやり取りできるようになります。 アプリケーションでこれらの機能を使用するには、`MSClient` の同期コンテキストを初期化して、ローカル ストアを参照します。 その後、`MSSyncTable` インターフェイスを使用してテーブルを参照します。
 
 *  **QSTodoService.m**, 、メンバーの種類に注意してください `syncTable` は `MSSyncTable`です。 オフラインの同期では、これを、`MSTable` の代わりに使用します。 同期テーブルが使用されると、すべての操作はローカル ストアを参照し、明示的なプッシュ操作とプル操作を使用したリモート サービスとのみ同期されます。
 
@@ -128,46 +128,46 @@ Core Data オフライン ストアを使用するときは、データ モデ�
 
     #### MS_TableOperations
 
-    | 属性     |    種類     |
-    |-------------- |   ------    |
-    | id (必須) | Integer 64  |
-    | itemId        | String      |
-    | プロパティ    | Binary Data |
-    | テーブル         | String      |
-    | tableKind     | Integer 16  |
+  	| 属性     |    種類     |
+  	|-------------- |   ------    |
+  	| id (必須) | Integer 64  |
+  	| itemId        | String      |
+  	| プロパティ    | Binary Data |
+  	| テーブル         | String      |
+  	| tableKind     | Integer 16  |
 
     #### MS_TableOperationErrors
 
-    | 属性     |    種類     |
-    |-------------- | ----------  |
-    | id (必須) | String      |
-    | operationId   | Integer 64  |
-    | プロパティ    | Binary Data |
-    | tableKind     | Integer 16  |
+  	| 属性     |    種類     |
+  	|-------------- | ----------  |
+  	| id (必須) | String      |
+  	| operationId   | Integer 64  |
+  	| プロパティ    | Binary Data |
+  	| tableKind     | Integer 16  |
 
     #### MS_TableConfig
 
 
-    | Attribute     |    Type     |
-    |-------------- | ----------  |
-    | id (required) | String      |
-    | key           | String      |
-    | keyType       | Integer 64  |
-    | table         | String      |
-    | value         | String      |
+  	| Attribute     |    Type     |
+  	|-------------- | ----------  |
+  	| id (required) | String      |
+  	| key           | String      |
+  	| keyType       | Integer 64  |
+  	| table         | String      |
+  	| value         | String      |
 
     ### Data Table
 
     #### TodoItem
 
-    | Attribute     |  Type   | Note                                                   |
-    |-------------- |  ------ | -------------------------------------------------------|
-    | id (required) | String  | primary key in remote store (required)                 |
-    | complete      | Boolean | todo item field                                        |
-    | text          | String  | todo item field                                        |
-    | ms_createdAt  | Date    | (optional) maps to __createdAt system property         |
-    | ms_updatedAt  | Date    | (optional) maps to __updatedAt system property         |
-    | ms_version    | String  | (optional) used to detect conflicts, maps to __version |
+  	| Attribute     |  Type   | Note                                                   |
+  	|-------------- |  ------ | -------------------------------------------------------|
+  	| id (required) | String  | primary key in remote store (required)                 |
+  	| complete      | Boolean | todo item field                                        |
+  	| text          | String  | todo item field                                        |
+  	| ms_createdAt  | Date    | (optional) maps to __createdAt system property         |
+  	| ms_updatedAt  | Date    | (optional) maps to __updatedAt system property         |
+  	| ms_version    | String  | (optional) used to detect conflicts, maps to __version |
 
 
 
@@ -193,7 +193,7 @@ Core Data オフライン ストアを使用するときは、データ モデ�
         }
 ```
 
-## <a name="test-app"></a>アプリケーションをテストします。
+## <a name="test-app"></a>アプリケーションをテストする
 
 このセクションでは、シミュレーターの Wi-Fi をオフにして、オフライン シナリオを作成します。 データ項目を追加すると、ローカル Core Data ストアに保持されますが、モバイル サービスとは同期されません。
 
@@ -275,4 +275,5 @@ Core Data オフライン ストアを使用するときは、データ モデ�
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
 [Mobile Services Quick Start tutorial]: mobile-services-ios-get-started.md
+
 

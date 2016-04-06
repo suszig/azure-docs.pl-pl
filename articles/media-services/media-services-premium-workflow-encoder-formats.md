@@ -30,7 +30,7 @@
 **メディア エンコーダー プレミアム ワークフロー** サポート クローズド キャプションを記載 [この](#closed_captioning) セクションです。 
 
 
-##<a id="input_formats"></a>Media Encoder Premium Worflow の入力の形式とコーデック
+##<a id="input_formats"></a>メディア エンコーダー プレミアム ワークフローの入力の形式とコーデック
 
 次のセクションに、このメディア プロセッサの入力としてサポートされたコーデックとファイル形式の一覧を示します。
 
@@ -66,7 +66,7 @@
 - Windows Media オーディオ
 - WAV/PCM
  
-##<a id="output_format"></a>Media Encoder Premium Worflow の出力の形式とコーデック
+##<a id="output_format"></a>メディア エンコーダー プレミアム ワークフローの出力の形式とコーデック
 
 次のセクションに、このメディア プロセッサからの出力としてサポートされたコーデックとファイル形式の一覧を示します。
 
@@ -135,4 +135,5 @@
 ##フィードバックの提供
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 

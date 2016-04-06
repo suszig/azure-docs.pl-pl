@@ -79,7 +79,7 @@ Zendesk にシングル サインオンを構成するには、証明書から�
 
 2.   **どのようなユーザーの Zendesk に** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 
-    ![Configure single sign-on](./media/active-directory-saas-zendesk-tutorial/IC773087.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-zendesk-tutorial/IC773087.png "Configure single sign-on")
 
 3.   **アプリケーション URL の構成** ] ページの [、 **Zendesk サインイン URL** ] ボックスに、次のパターンを使用して URL を入力"*https://\<tenant-name\>.zendesk.com*"、] をクリックし、 **次**します。
 
@@ -155,3 +155,4 @@ Azure AD ユーザーにログインを有効にするために **Zendesk**, に
     ![あり](./media/active-directory-saas-zendesk-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

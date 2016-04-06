@@ -67,17 +67,17 @@ A *同期コンテキスト* モバイル クライアント オブジェクト�
 <!-- 
 Client code will interact with the table using the `IMobileServiceSyncTable` interface to support offline buffering. This interface supports all the methods of `IMobileServiceTable` along with additional support for pulling data from a Mobile App backend table and merging it into a local store table. How the local table is synchronized with the backend database is mainly controlled by your logic in the client app.
 
-同期テーブルは、 [システム プロパティ](https://msdn.microsoft.com/library/azure/dn518225.aspx) オフライン同期の変更の追跡を実装するためのテーブルにします。 
+The sync table uses the [System Properties](https://msdn.microsoft.com/library/azure/dn518225.aspx) on the table to implement change tracking for offline synchronization. 
 
 
 
-* クライアント上のデータ オブジェクトは一部のシステム プロパティで、ほとんどが必須ではありません。
-    * 管理者常駐型
-        * 属性を書き込む
+* The data objects on the client should have some system properties, most are not required.
+    * Managed
+        * Write out the attributes
     * iOS
-        * テーブル エンティティの
-* 注: iOS ローカル ストアは、Core Data に基づいているため、開発者は、次の表必要があります定義。
-    * システム テーブルの--> します。
+        *table for the entity
+* Note: because the iOS local store is based on Core Data, the developer must define the following tables:
+    * System tables  -->
 
 
 ## オフライン同期のしくみ
@@ -126,4 +126,5 @@ Client code will interact with the table using the `IMobileServiceSyncTable` int
 [Xamarin iOS: Enable offline sync]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: Enable offline sync]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: Enable offline sync]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
+
 

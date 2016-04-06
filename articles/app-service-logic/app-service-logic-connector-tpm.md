@@ -25,7 +25,7 @@ TPM API アプリは、AS2 コネクタ、X12 API アプリ、または EDIFACT 
 - 空の SQL Azure データベース - 新しい TPM API App を作成する前に、空の SQL Azure データベースを作成する必要があります。
 
 ## パートナー、契約およびプロファイルを理解する
-取引先アグリーメントに関する詳細については、ここをクリックして [] [1] です。
+取引先アグリーメントについては、次のようにクリックします。 [ここ][1]します。
 
 ## コネクタでできること
 コネクタが作成されたため、ロジック アプリを使用してコネクタをビジネス ワークフローに追加できます。 参照してください [Logic Apps とは?](app-service-logic-what-are-logic-apps.md)します。
@@ -38,4 +38,5 @@ TPM API アプリは、AS2 コネクタ、X12 API アプリ、または EDIFACT 
 
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
+
 

@@ -5,7 +5,7 @@
    <th align="left" valign="middle">上限 </th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="../virtual-network/virtual-networks-overview.md">仮想ネットワーク</a><sup>1</sup> アフィニティ グループ数</p></td>
+   <td valign="middle"><p><a href="../virtual-network/virtual-networks-overview.md">仮想ネットワーク</a><sup>1</sup> サブスクリプションごと</p></td>
    <td valign="middle"><p>リージョンあたり 50</td>
    <td valign="middle"><p>リージョンあたり 500<sup>1</sup></p></td>
 
@@ -59,9 +59,10 @@
 <tr>
    <td valign="middle"><p>サブスクリプションあたりのネットワーク インターフェイス数</p></td>
    <td valign="middle"><p>リージョンあたり 300</p></td>
-   <td valign="middle"><p>リージョンあたり 1000<sup>1</sup></p></td>
+   <td valign="middle"><p>リージョンあたり 1000年<sup>1</sup></p></td>
 </tr>
 </table>
 
 <sup>1</sup>サポートに連絡して制限を増やすことができます。
+
 

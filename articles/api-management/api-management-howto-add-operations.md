@@ -86,7 +86,7 @@ API Management 内の API を使用するためには、操作を追加する必
 
 ![要求パラメーター][api-management-request-parameters]
 
-## <a name="request-body"> </a>Request body
+## <a name="request-body"> </a>要求本文
 
 操作 (PUT、POST など) で本文が許可される場合や本文が必要になる場合は、すべてのサポートされている表現形式 (json、XML など) でその例を示すことができます。 
 
@@ -163,3 +163,4 @@ API Management 内の API を使用するためには、操作を追加する必
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to cache operation results in Azure API Management]: api-management-howto-cache.md
+

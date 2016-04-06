@@ -71,7 +71,7 @@ Azure ストレージ エミュレーターを開始する場合、 **開始** �
     // Create the table client.
     azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-## テーブルの作成
+## テーブルを作成する
 A **cloud_table_client** オブジェクトでは、テーブルとエンティティの参照オブジェクトを取得することができます。 次のコード作成、 **cloud_table_client** オブジェクトを使用して、新しいテーブルを作成します。
 
     // Retrieve the storage account from the connection string.
@@ -241,7 +241,7 @@ A **cloud_table_client** オブジェクトでは、テーブルとエンティ�
     }  
 
 ## 単一のエンティティを取得する
-単一の特定のエンティティを取得するクエリを記述することができます。 次のコードでは **table_operation::retrieve_entity** 、顧客 ' Jeff Smith' を指定します。 このメソッドは、コレクションではなく、1 つのエンティティを返し、返される値は **table_result**します。 クエリでパーティション キーと行キーの両方を指定することが、テーブル サービスから単一のエンティティを取得するための最速の方法です。  
+単一の特定のエンティティを取得するクエリを記述することができます。 次のコードでは **table_operation::retrieve_entity** 、顧客 ' Jeff Smith' を指定します。 このメソッドは、コレクションではなく、1 つのエンティティを返し、返される値は **table_result**します。 クエリでパーティション キーと行キーの両方を指定することが、Table サービスから単一のエンティティを取得するための最速の方法です。  
 
     azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
@@ -413,4 +413,5 @@ A **cloud_table_client** オブジェクトでは、テーブルとエンティ�
 -   [C++ での Azure Storage のリソース一覧の取得](storage-c-plus-plus-enumeration.md)
 -   [C++ 用ストレージ クライアント ライブラリ リファレンス](http://azure.github.io/azure-storage-cpp)
 -   [Azure Storage のドキュメント](http://azure.microsoft.com/documentation/services/storage/)
+
 

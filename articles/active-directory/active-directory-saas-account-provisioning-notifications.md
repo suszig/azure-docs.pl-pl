@@ -27,13 +27,13 @@
 
 アカウント プロビジョニング通知は、サードパーティの SaaS アプリケーションのユーザーのプロビジョニング構成の一部として、アクティブまたは非アクティブにします。
 
-![ユーザー プロビジョニングの構成][1] 
+![ユーザーのプロビジョニング][1] 
 
 
 
 アカウント プロビジョニングの通知をアクティブにするに関連するチェック ボックスをオン、 **確認** ] ダイアログ ページで、受信者の電子メール エイリアスを入力します。
 
-![アカウント プロビジョニングの通知][2]
+![アカウント プロビジョニング通知][2]
  
 
 
@@ -48,3 +48,4 @@
 <!--Image references-->
 [1]: ./media/active-directory-saas-account-provisioning-notifications/ic766307.png
 [2]: ./media/active-directory-saas-account-provisioning-notifications/ic766308.png
+

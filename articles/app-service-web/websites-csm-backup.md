@@ -25,7 +25,7 @@
 ## Getting Started (概要)
 REST 要求を送信する web アプリのおく必要があります **名前**, 、**リソース グループ**, 、および **サブスクリプション id**します。 Web アプリをクリックしてこの情報が見つかりません、 **Web Apps** のブレード、 [Azure プレビュー ポータル](https://portal.azure.com)します。 この記事の例では、Web サイト `backuprestoreapiexamples.azurewebsites.net` を構成します。 これは Default-Web-WestUS リソース グループに保存され、ID 00001111-2222-3333-4444-555566667777 のサブスクリプションで実行されます。
 
-![サンプルの web サイトの情報][SampleWebsiteInformation]
+![サンプル Web サイト情報][SampleWebsiteInformation]
 
 <a name="backup-restore-rest-api"></a>
 ## REST API のバックアップと復元
@@ -229,4 +229,5 @@ Azure Web アプリは、バックアップの作成時に提供された SAS UR
 
 <!-- IMAGES -->
 [SampleWebsiteInformation]: ./media/websites-csm-backup/01siteconfig.png
+
 

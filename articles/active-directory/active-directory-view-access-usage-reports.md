@@ -17,7 +17,7 @@
     ms.author="kenhoff;Justinha;curtand"/>
 
 
-# アクセスおよび使用状況レポートを表示します。
+# アクセスおよび使用状況レポートの表示
 
 *このドキュメントの一部である、 [Azure Active Directory のレポート作成ガイド](active-directory-reporting-guide.md)します。*
 
@@ -97,9 +97,9 @@ Azure Active Directory のアクセスおよび使用状況レポートを使用
 
 
 ## 異常アクティビティ レポート
-<p>異常なサインイン アクティビティ レポートには、office 365、Azure 管理ポータル、Azure AD アクセス パネル、Sharepoint Online、Dynamics CRM Online、およびその他の Microsoft オンライン サービスのアクティビティで不審なサインインにフラグを設定します</p>
-<p>。すべての「複数のエラー後サインイン」レポートを除くこれらのレポートもフラグ疑わしい <i>フェデレーション</i> フェデレーション プロバイダーに関係なく、前述のサービスへのサインインします。 </p>
-<p>The following reports are available: </p><ul>
+<p>異常サインイン アクティビティ レポートは、Office365、Microsoft Azure 管理ポータル、Azure AD アクセスパネル、Sharepoint Online、Dynamics CRM Online、その他の Microsoft オンライン サービスに対する不審なサインイン アクティビティにフラグを設定します。</p>
+<p>すべての「複数のエラー後サインイン」レポートを除くこれらのレポートもフラグ疑わしい <i>フェデレーション</i> フェデレーション プロバイダーに関係なく、前述のサービスへのサインインします。 </p>
+<p>次のレポートを使用できます。 </p><ul>
 <li>[Sign ins from unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md).</li>
 <li>[Sign ins after multiple failures](active-directory-reporting-sign-ins-after-multiple-failures.md).</li>
 <li>[Sign ins from multiple geographies](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li>
@@ -107,7 +107,7 @@ Azure Active Directory のアクセスおよび使用状況レポートを使用
 <li>[Irregular sign in activity](active-directory-reporting-irregular-sign-in-activity.md).</li>
 <li>[Sign ins from possibly infected devices](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li>
 <li>[Users with anomalous sign in activity](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li>
-<li>漏洩した資格情報を持つユーザー</li></ul>
+<li>資格情報が漏洩したユーザー</li></ul>
 
 
 
@@ -148,7 +148,7 @@ Azure Active Directory のアクセスおよび使用状況レポートを使用
 
 | 説明        | レポートの場所 |
 | :-------------     | :-------        |
-| ディレクトリ内でセルフ サービスにより管理されるグループのすべてのアクティビティが表示されます。 | ディレクトリ > ユーザー > <i>ユーザー</i> > [デバイス] タブ |
+| ディレクトリ内でセルフ サービスにより管理されるグループのすべてのアクティビティが表示されます。 | [ディレクトリ] > [ユーザー] > <i>[ユーザー]</i> > [デバイス] タブ |
 
 ![セルフ サービス グループ アクティビティ](./media/active-directory-view-access-usage-reports/selfServiceGroupsActivity.PNG)
 
@@ -213,13 +213,13 @@ Azure Active Directory のアクセスおよび使用状況レポートを使用
 
 | 説明        | レポートの場所 |
 | :-------------     | :-------        |
-| 特定のユーザーが Azure Active Directory へのアクセスに使用したデバイスの IP アドレスと地理的な場所を表示する場合は、このレポートを使用します。 | ディレクトリ > ユーザー > <i>ユーザー</i> > [デバイス] タブ |
+| 特定のユーザーが Azure Active Directory へのアクセスに使用したデバイスの IP アドレスと地理的な場所を表示する場合は、このレポートを使用します。 | [ディレクトリ] > [ユーザー] > <i>[ユーザー]</i> > [デバイス] タブ |
 
 ### アクティビティ
 
 | 説明        | レポートの場所 |
 | :-------------     | :-------        |
-| ユーザーのサインイン アクティビティを表示します。 このレポートには、サインインされたアプリケーション、使用されたデバイス、IP アドレス、および場所などの情報が含まれています。 Microsoft アカウントでサインインしたユーザーの履歴は収集されません。 | ディレクトリ > ユーザー > <i>ユーザー</i> > アクティビティ] タブ |
+| ユーザーのサインイン アクティビティを表示します。 このレポートには、サインインされたアプリケーション、使用されたデバイス、IP アドレス、および場所などの情報が含まれています。 Microsoft アカウントでサインインしたユーザーの履歴は収集されません。 | [ディレクトリ] > [ユーザー] > <i>[ユーザー]</i> > [アクティビティ] タブ |
 
 #### ユーザーのアクティビティ レポートに含まれるサインイン イベント
 
@@ -281,8 +281,9 @@ Azure Active Directory のアクセスおよび使用状況レポートを使用
 
 詳細については、Azure AD でのレポート通知、チェック アウト [Azure Active Directory のレポート通知](active-directory-reporting-notifications.md)します。
 
-## 参照トピック
+## 次の手順
 
 - [Azure Active Directory Premium の概要](active-directory-get-started-premium.md)
 - [サインイン ページとアクセス パネル ページに対する会社のブランドの追加](active-directory-add-company-branding.md)
+
 

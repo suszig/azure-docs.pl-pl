@@ -144,7 +144,7 @@ Twitter streaming Api を使用して [OAuth](http://oauth.net/) 要求を承認
 
 
 
-##<a id="streaming"></a> 簡単な Twitter ストリーミング サービスを作成する
+##<a id="streaming"></a>簡単な Twitter ストリーミング サービスを作成する
 
 ツイートを取得し、ツイート センチメント スコアを計算し、処理したツイート ワードを HBase に送信するコンソール アプリケーションを作成する必要があります。
 
@@ -528,7 +528,7 @@ Twitter streaming Api を使用して [OAuth](http://oauth.net/) 要求を承認
 
 
 
-##<a id="web"></a> Twitter のセンチメントを視覚化する Azure Websites を使用して、web サイトを作成します。
+##<a id="web"></a>Twitter センチメントを視覚化する Azure Website で Web サイトを作成する
 
 このセクションでは、リアルタイムのセンチメント データを HBase から読み取り、データを Bing マップにプロットする ASP.NET MVC Web アプリケーションを作成します。
 
@@ -1356,3 +1356,4 @@ Azure Web サイトにこのアプリケーションをデプロイすること�
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
+

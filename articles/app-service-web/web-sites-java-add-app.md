@@ -18,7 +18,7 @@
 
 # Azure App Service Web Apps への Java アプリケーションの追加
 
-」の説明に従って、[Azure App Service] で、Java web アプリを初期設定した後 [Azure App Service で Java web アプリの作成](web-sites-java-get-started.md), 、アプリケーションをアップロードするには、WAR を配置することで、 **webapps** フォルダーです。
+Java web アプリを初期設定した後 [Azure App Service][] 」の説明に従って [Azure App Service で Java web アプリの作成](web-sites-java-get-started.md), 、アプリケーションをアップロードするには、WAR を配置することで、 **webapps** フォルダーです。
 
 ナビゲーション パス、 **webapps** フォルダーは、Web アプリのインスタンスを設定する方法に応じて異なります。
 
@@ -39,4 +39,5 @@ Tomcat web アプリケーションに関する注意: WAR ファイルをアッ
 
 <!-- External Links -->
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
+
 

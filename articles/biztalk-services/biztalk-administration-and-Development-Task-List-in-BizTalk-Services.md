@@ -41,11 +41,12 @@ Microsoft Azure BizTalk Services を使用する場合、考慮する必要が�
 [Azure BizTalk Services SDK のインストール](https://msdn.microsoft.com/library/azure/hh689760.aspx)
 
 ## 概念
-[Visual Studio でプロジェクトを作成します。](https://msdn.microsoft.com/library/azure/hh689811.aspx)
+[Visual Studio でのプロジェクトの作成](https://msdn.microsoft.com/library/azure/hh689811.aspx)
 [EDI、AS2、および EDIFACT メッセージング (企業)](https://msdn.microsoft.com/library/azure/hh689898.aspx)  
 ## その他のリソース  
 [ソース、宛先、およびブリッジ メッセージング エンドポイントを追加します。](https://msdn.microsoft.com/library/azure/hh689877.aspx)
 [学習およびメッセージ マップおよび変換の作成](https://msdn.microsoft.com/library/azure/hh689905.aspx)
 [BizTalk アダプター サービス (BAS) の使用](https://msdn.microsoft.com/library/azure/hh689889.aspx)
-[Azure BizTalk サービス](http://go.microsoft.com/fwlink/p/?LinkID=303664)
+[Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)
+
 

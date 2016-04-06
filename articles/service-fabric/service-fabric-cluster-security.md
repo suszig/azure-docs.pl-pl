@@ -26,11 +26,11 @@ Service Fabric には、次のシナリオのセキュリティが用意され�
 
 1. **ノード間のセキュリティ**  またはクラスターにノード間通信をセキュリティ保護します。クラスター内の仮想マシン/コンピューターの間の通信をセキュリティで保護します。 これにより、クラスターへの参加が許可されているコンピューターのみが、クラスター内でホストされているアプリケーションとサービスに参加できます。
 
-    ![ノード間][ノード間]
+    ![Node-to-Node][Node-to-Node]
 
 2. **クライアントのノードのセキュリティ** セキュリティ、ファブリック クライアントは、クラスター内の特定のノードと通信したりします。 クライアント側の通信を認証して保護するため、権限のあるユーザーのみが、Windows Fabric クラスターにデプロイされたクラスターとアプリケーションにアクセスできます。 クライアントは、Windows セキュリティ資格情報または証明書のセキュリティ資格情報を通じて一意に識別されます。
 
-    ![クライアント Node][クライアント Node]
+    ![Client-to-Node][Client-to-Node]
 
     (ノードをノード)、またはクライアント ノードからの通信シナリオのどちらの種類では、Service Fabric がサポートを提供するかを使用するため [証明書のセキュリティ](https://msdn.microsoft.com/library/ff649801.aspx) または [Windows セキュリティ](https://msdn.microsoft.com/library/ff649396.aspx)します。 ノード間およびノードとクライアントの間のセキュリティの選択は互いに独立しているため、同じセキュリティを選択することも異なるセキュリティを使用することもできます。
 
@@ -241,14 +241,15 @@ Service Fabric クラスター上のすべての管理操作には、サーバ�
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-##次のステップ
-- [Service Fabric Cluster upgrade process and expectations from you](service-fabric-cluster-upgrade.md)
-- [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
-- [Service Fabric Health model introduction](service-fabric-health-introduction.md)
+## 次のステップ
+- [Service Fabric クラスターのアップグレード プロセスと機能](service-fabric-cluster-upgrade.md)
+- [Visual Studio で Service Fabric アプリケーションの管理](service-fabric-manage-application-in-visual-studio.md)します。
+- [Service Fabric の正常性モデルの概要](service-fabric-health-introduction.md)
 
 <!--Image references-->
 [SecurityConfigurations_01]: ./media/service-fabric-cluster-security/SecurityConfigurations_01.png
 [SecurityConfigurations_02]: ./media/service-fabric-cluster-security/SecurityConfigurations_02.png
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
+
 

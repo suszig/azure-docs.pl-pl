@@ -30,11 +30,11 @@
 
 このチュートリアルでは、アプリケーションでの認証を有効にするための、次の基本的な手順について説明します。
 
-1. [認証用アプリの登録し、Mobile Services を構成する]
-2. [認証されたユーザーへのテーブルのアクセス許可を制限する]
-3. [アプリに認証の追加]
+1. [アプリケーションを認証に登録し、モバイル サービスを構成する]
+2. [テーブルのアクセス許可を、認証されたユーザーだけに制限する]
+3. [アプリケーションに認証を追加する]
 
-このチュートリアルは、Mobile Services のクイック スタートに基づいています。 また、最初のチュートリアルを完了する必要があります [Get started with Mobile Services]します。
+このチュートリアルは、モバイル サービスのクイック スタートに基づいています。 また、最初のチュートリアルを完了する必要があります [Get started with Mobile Services]します。
 
 このチュートリアルを完了する必要 [Xamarin.iOS], 、XCode 6.0、および iOS 7.0 またはそれ以降のバージョン。
 
@@ -154,4 +154,5 @@
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
+
 

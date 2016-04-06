@@ -168,5 +168,6 @@ SELECT * FROM sys.databases;
 ## 関連項目
 
 [Azure SQL Database のセキュリティのガイドラインと制限事項](sql-database-security-guidelines.md) 
-[Azure Active Directory 認証を使用して SQL データベースに接続します。](sql-database-aad-authentication.md)
+[Azure Active Directory 認証を使用して SQL Database に接続する](sql-database-aad-authentication.md)
+
 

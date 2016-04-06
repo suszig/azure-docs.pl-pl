@@ -85,11 +85,11 @@
 ### ワンタイム バイパスを作成するには
 
 <ol>
-<li>ログオン [http://azure.microsoft.com](http://azure.microsoft.com)</li>
-<li>左側で、Active Directory を選択します</li>
-<li>。上部にある、多要素認証プロバイダーを選択します。 多要素認証プロバイダーの一覧が表示されます</li>
-<li>。1 つ以上の多要素認証プロバイダーがある場合は、ワンタイム バイ パスを作成し、ページの下部にある管理] をクリックするユーザーのディレクトリに関連付けられている 1 つを選択します。 プロバイダーが 1 つだけある場合は、単に [管理] をクリックします。 Azure Multi-factor Authentication 管理ポータルが開きます</li>
-<li>。[Azure Multi-factor Authentication 管理ポータル、[ユーザーの管理] で、左側の [設定] をクリックします。</li>
+<li>ログオンします。 [http://azure.microsoft.com](http://azure.microsoft.com)</li>
+<li>左側で、[Active Directory] を選択します。</li>
+<li>上部にある [Multi-Factor Authentication プロバイダー] を選択します。 Multi-Factor Authentication プロバイダーの一覧が表示されます。</li>
+<li>複数の Multi-Factor Authentication プロバイダーがある場合は、ワンタイム バイパスを作成するユーザーのディレクトリに関連付けられているプロバイダーを選択し、ページの下部にある [管理] をクリックします。 プロバイダーが 1 つだけある場合は、単に [管理] をクリックします。 Azure Multi-Factor Authentication 管理ポータルが開きます。</li>
+<li>Azure Multi-Factor Authentication 管理ポータルで、左側の [ユーザーの管理] の下の [設定] をクリックします。</li>
 
 <center>![クラウド](./media/multi-factor-authentication-whats-next/create1.png)</center>
 
@@ -126,12 +126,12 @@
 
 ### Azure Multi-factor Authentication でカスタム音声メッセージをセットアップするには
 <ol>
-<li>サポートされているファイル形式のいずれかを使用してカスタム音声メッセージを作成します。 カスタム音声メッセージの推奨事項が以下を参照してください</li>
-<li>。ログオン [http://azure.microsoft.com](http://azure.microsoft.com)</li>
-<li>左側で、Active Directory を選択します</li>
-<li>。上部にある、多要素認証プロバイダーを選択します。 多要素認証プロバイダーの一覧が表示されます</li>
-<li>。1 つ以上の多要素認証プロバイダーがある場合は、カスタム音声メッセージを構成し、ページの下部にある管理] をクリックするかを選択します。 プロバイダーが 1 つだけある場合は、単に [管理] をクリックします。 Azure Multi-factor Authentication 管理ポータルが開きます</li>
-<li>。Azure Multi-factor Authentication 管理ポータルで、左側には、音声メッセージをクリックします。</li>
+<li>サポートされているファイル形式のいずれかを使用してカスタム音声メッセージを作成します。 この後のカスタム音声メッセージの推奨事項を参照してください。</li>
+<li>ログオンします。 [http://azure.microsoft.com](http://azure.microsoft.com)</li>
+<li>左側で、[Active Directory] を選択します。</li>
+<li>上部にある [Multi-Factor Authentication プロバイダー] を選択します。 Multi-Factor Authentication プロバイダーの一覧が表示されます。</li>
+<li>複数の Multi-Factor Authentication プロバイダーがある場合は、カスタム音声メッセージを構成するプロバイダーを選択し、ページの下部にある [管理] をクリックします。 プロバイダーが 1 つだけある場合は、単に [管理] をクリックします。 Azure Multi-Factor Authentication 管理ポータルが開きます。</li>
+<li>Azure Multi-Factor Authentication 管理ポータルで、左側の [音声メッセージ] をクリックします。</li>
 
 <center>![クラウド](./media/multi-factor-authentication-whats-next/custom1.png)</center>
 
@@ -312,7 +312,7 @@ Azure AD は、オンプレミスの Windows Server Active Directory ドメイ�
 
 1. Office 365 ポータルにサインインします
 2. 右上隅の設定ウィジェットを選択します
-3. 左側で、[追加のセキュリティ確認] を選択します
+3. 左側で、[追加のセキュリティ確認] を選択します。
 4. 選択して、右 **アカウントのセキュリティに使用される電話番号を更新**
 5. 確認ページの上部の [アプリ パスワード] を選択します。
 6. クリックして **の作成**
@@ -360,16 +360,17 @@ Azure AD は、オンプレミスの Windows Server Active Directory ドメイ�
 ### 記憶されたデバイスに対する MFA の一時停止を有効化/無効化する方法
 
 <ol>
-<li>Azure 管理ポータルにサインインします</li>
-<li>。左側で、[Active Directory] をクリックします</li>
-<li>。Active Directory での多要素認証による中断を設定するディレクトリをクリック記憶されたデバイスにします</li>
-<li>。選択したディレクトリの構成] をクリックします</li>
-<li>。[多要素認証] セクションで、[サービス設定の管理] をクリックします</li>
-<li>。サービスの設定] ページで、[ユーザーのデバイス設定の管理をオン/オフ、 **を記憶するデバイスを発生させることによって、multi-factor authentication を中断できるように**.</li>
+<li>Azure 管理ポータルにサインインします。</li>
+<li>左側の [Active Directory] をクリックします。</li>
+<li>[Active Directory] の下の記憶されたデバイスに対する MFA の一時停止を設定するディレクトリをクリックします。</li>
+<li>選択したディレクトリで、[構成] をクリックします。</li>
+<li>[多要素認証] セクションで、[サービス設定の管理を] クリックします。</li>
+<li>サービスの設定] ページで、[ユーザーのデバイス設定の管理をオン/オフ、 **を記憶するデバイスを発生させることによって、multi-factor authentication を中断できるように**します。</li>
 ![Suspend devices](./media/multi-factor-authentication-manage-users-and-devices/suspend.png)
-<li>中断を許可する日数を設定します。 既定値は 14 日間</li>
-<li>。保存] をクリックします</li>
-<li>。[閉じる] をクリックします。</li>
+<li>一時停止を許可する日数を設定します。 既定値は 14 日です。</li>
+<li>[保存] をクリックします。</li>
+<li>[閉じる] をクリックします。</li>
+
 
 
 

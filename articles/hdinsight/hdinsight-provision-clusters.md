@@ -125,7 +125,7 @@ HDInsight クラスターを作成する際の基本的な構成オプション�
 
     ノードの VM サイズを選択します。 詳細については、次を参照してください [クラウド サービスのサイズ。](cloud-services-sizes-specs.md)
 
-    VM の選択に基づき、料金が異なる場合があります。 HDInsight は、クラスター ノードにすべて Standard レベルの VM を使用します。 VM のサイズに応じた料金の方法については、次を参照してください。 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight の料金詳細</a>.
+    VM の選択に基づき、料金が異なる場合があります。 HDInsight は、クラスター ノードにすべて Standard レベルの VM を使用します。 VM サイズに応じた料金の詳細については、「<a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 料金</a>」をご覧ください。
 
 
 - **HDInsight ユーザー**
@@ -151,7 +151,7 @@ HDInsight クラスターを作成する際の基本的な構成オプション�
     ![Azure BLOB ストレージ](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
 
 
-    >[AZURE.WARNING] Don't share one Blob storage container for multiple clusters. This is not supported.
+    >[AZURE.WARNING] 1 つの Blob ストレージ コンテナーを複数のクラスターを共有しないでください。 これはサポートされていません。
 
     For more information on using secondary Blob stores, see [Using Azure Blob Storage with HDInsight](hdinsight-use-blob-storage.md).
 
@@ -321,9 +321,9 @@ Hive 構成をカスタマイズする Azure PowerShell スクリプトの例を
 4. クリックして **作成**します。 選択すると **スタート画面にピン** 、ポータルのスタート画面にクラスターは、タイルを追加します。 アイコンはクラスターが作成中であることを示し、作成が完了すると、[HDInsight] アイコンを表示するように変化します。
 
 
-    | While creating | Creationg complete |
-    | ------------------ | --------------------- |
-    | ![Provisioning indicator on startboard](./media/hdinsight-provision-clusters/provisioning.png) | ![Provisioned cluster tile](./media/hdinsight-provision-clusters/provisioned.png) |
+  	| While creating | Creationg complete |
+  	| ------------------ | --------------------- |
+  	| ![Provisioning indicator on startboard](./media/hdinsight-provision-clusters/provisioning.png) | ![Provisioned cluster tile](./media/hdinsight-provision-clusters/provisioned.png) |
 
 
     
@@ -752,4 +752,5 @@ SSIS を Azure Feature Pack について学ぶこと [ここ][ssispack]します
 [ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
+
 

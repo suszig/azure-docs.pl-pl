@@ -21,7 +21,7 @@
 
 >[AZURE.NOTE] 場合は、Azure アカウントがサインアップする前に Azure App Service の使用を開始するには、 [App Service の試用](http://go.microsoft.com/fwlink/?LinkId=523751), 、App Service で有効期間の短いスターター web アプリをすぐに作成する場所です。 このサービスの利用にあたり、クレジット カードは必要ありません。契約も必要ありません。
 
-以下は、App Service Web Apps を使用したマルチ チャンネルのグローバル デジタル マーケティング キャンペーンの例です。 技術的な投資を最小限に抑えて、App Service Web Apps とその他のサービスを構成することにより実現可能なことを図解しています。 **クリックして詳細をご覧トポグラフィ内の要素についてです。** 
+以下は、App Service Web Apps を使用したマルチ チャンネルのグローバル デジタル マーケティング キャンペーンの例です。 技術的な投資を最小限に抑えて、App Service Web Apps とその他のサービスを構成することにより実現可能なことを図解しています。 **トポグラフィ内の要素をクリックして、詳細をご覧ください。** 
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/digital-marketing-notitle.svg" width="100%" height="100%"></object>
 
@@ -138,4 +138,5 @@ Azure やサードパーティー製のツールで Web アプリのパフォー
   
   [gitstaging]:http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites  
  
+
 

@@ -106,7 +106,7 @@ XUF99EW9OIQOMV7Q7 | ファミリー サルーン
 3.  アプリケーションを実行します **CarEventGenerator.exe**します。
 
 ### 参照
-[車両 Telematics シミュレーター Visual Studio のソリューション](http://go.microsoft.com/fwlink/?LinkId=717075) 
+[Vehicle Telematics Simulator Visual Studio ソリューション](http://go.microsoft.com/fwlink/?LinkId=717075) 
 [Azure Event Hub](http://azure.microsoft.com/services/event-hubs/)
 [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
@@ -151,10 +151,10 @@ Stream Analytics ジョブは、イベント ハブからデータを取り込�
 *図 10 - PrepareSampleDataPipeline の出力*
 
 ### 参照
-[ストリームを取り込み、azure の Event Hub SDK](event-hubs-csharp-ephcs-getstarted.md)
+[ストリームの挿入に関する Azure Event Hub SDK](event-hubs-csharp-ephcs-getstarted.md)
 [Azure Data Factory のデータの移動機能](data-factory-data-movement-activities.md)
 [Azure Data Factory DotNet アクティビティ](data-factory-use-custom-activities.md)
-[サンプル データを準備するための azure データ ファクトリ DotNet アクティビティ visual studio ソリューション](http://go.microsoft.com/fwlink/?LinkId=717077) 
+[サンプル データを準備するための Azure Data Factory DotNet アクティビティの Visual Studio ソリューション](http://go.microsoft.com/fwlink/?LinkId=717077) 
 
 
 ## 準備
@@ -703,4 +703,5 @@ PowerBI レポートとダッシュボードを設定するための詳細な手
 ## 概要
 
 このドキュメントには、車両テレメトリ分析ソリューションの詳細な説明が含まれています。 これは、予測と行動によるリアルタイム分析と一括分析用のラムダ アーキテクチャ パターンを示しています。 このパターンは、ホット パス (リアルタイム) 分析およびコールド パス (一括) 分析を必要とする幅広いユース ケースに適用されます。 
+
 

@@ -33,7 +33,7 @@ Hadoop には MapReduce に対するストリーミング API が用意されて
 
 * テキスト エディター
 
-* Windows クライアントとして PuTTY および PSCP これらのユーティリティはから利用可能な <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">PuTTY のダウンロード ページ</a>.
+* Windows クライアントとして PuTTY および PSCP これらのユーティリティは「<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">PuTTY のダウンロード ページ</a>」から入手できます。
 
 ##文字数
 
@@ -204,4 +204,5 @@ Python ではこれらの要件を使用して簡単に処理できる、 **sys*
 * [HDInsight での Hive の使用](hdinsight-use-hive.md)
 * [HDInsight での Pig の使用](hdinsight-use-pig.md)
 * [HDInsight での MapReduce ジョブの使用](hdinsight-use-mapreduce.md)
+
 

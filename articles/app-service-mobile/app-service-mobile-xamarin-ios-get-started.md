@@ -68,7 +68,7 @@
 
 ## Xamarin.iOS アプリのダウンロードと実行
 
-1. Mac では、ブラウザーのウィンドウで [Azure ポータル] を開きます。
+1. Mac で、開く、 [Azure portal] ブラウザー ウィンドウにします。
 
     >[AZURE.NOTE] Mac で Xamarin.iOS アプリを実行する方が簡単 必要であれば Visual Studio を使用して Windows コンピューター上で Xamarin.iOS を実行できますが、ネットワーク化された Mac に接続する必要があるため、少し複雑になります。 これを行うに知りたい場合は、次を参照してください。 [Installing Xamarin.iOS on Windows]します。
 
@@ -94,11 +94,11 @@
 
 ##次のステップ
 
-* [アプリへの認証を追加します。 ](app-service-mobile-xamarin-ios-get-started-users.md)
+* [アプリへの認証の追加 ](app-service-mobile-xamarin-ios-get-started-users.md)
   <br/>Id プロバイダーを使用してアプリのユーザーを認証する方法について説明します。
 
-* [アプリへのプッシュ通知を追加します。](app-service-mobile-xamarin-ios-get-started-push.md)
-  <br/>アプリにごく基本的なプッシュ通知を送信する方法について説明します。
+* [アプリケーションにプッシュ通知を追加する](app-service-mobile-xamarin-ios-get-started-push.md)
+  <br/>アプリケーションにごく基本的なプッシュ通知を送信する方法について説明します。
 
 <!-- Anchors. -->
 [Getting started with mobile app backends]:#getting-started
@@ -122,4 +122,5 @@
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [Installing Xamarin.iOS on Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
+
 

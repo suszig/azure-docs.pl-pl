@@ -46,8 +46,8 @@ Azure リソース マネージャー テンプレートを使用すると、Azu
 
     ```
 {
-        "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/VM.json"
-   "contentVersion":「1.0.0.0」
+        "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/VM.json",
+   "contentVersion": "1.0.0.0",
  "parameters": {
         }
         "variables": {
@@ -606,4 +606,5 @@ Azure で使用されるリソースに対して課金されるため、不要�
 リソース グループを維持する必要がある場合は、スケール セットのみを削除することができます。
 
     Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmss-test1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
+
 

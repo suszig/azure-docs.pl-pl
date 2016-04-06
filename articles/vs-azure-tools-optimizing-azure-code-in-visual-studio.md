@@ -403,7 +403,7 @@ CloudConfigurationManager は、アプリケーション環境に適した構成
 
 使用するようコードをリファクタリング、 [CloudConfigurationManager クラス](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx)します。 この問題のコード修正は、Azure コード分析ツールによって提供されます。
 
-次のコード スニペットは、この問題のコード修正を示しています。 *Views\\Home\\AllDates.cshtml*
+次のコード スニペットは、この問題のコード修正を示しています。 Replace
 
 `var settings = ConfigurationManager.AppSettings["mySettings"];`
 
@@ -531,4 +531,5 @@ public class BlogsController : Controller
 ## 次のステップ
 
 Optimzing と Azure アプリケーションのトラブルシューティングの詳細については、次を参照してください。 [Visual Studio を使用して Azure App Service で web アプリケーションのトラブルシューティング](web-sites-dotnet-troubleshoot-visual-studio.md)します。
+
 

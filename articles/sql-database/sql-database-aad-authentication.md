@@ -65,11 +65,11 @@ Azure SQL Database に包含データベース ユーザーを作成するには
 
 ## Azure AD の機能と制限事項 
 
-Azure Active Directory の次のメンバーは、Azure SQL サーバーをプロビジョニングできます。
-- ネイティブ メンバー: 顧客のドメインまたは管理されたドメインでは、Azure AD で作成したメンバー。 詳細については、次を参照してください。 [を Azure AD ドメイン名を追加](active-directory-add-domain.md)します。
-- フェデレーション ドメインのメンバー: フェデレーション ドメインを使用して Azure AD で作成されたメンバーです。 詳細については、次を参照してください。 [Microsoft Azure では、Windows Server Active Directory とのフェデレーションをサポート](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)します。
-- ネイティブまたはフェデレーション ドメインのメンバーであるその他の Azure Active ディレクトリからインポートされたメンバー。
-- Active Directory グループがセキュリティ グループとして作成します。
+Azure Active Directory の次のメンバーは、Azure SQL サーバーにプロビジョニングできます。
+- ネイティブ メンバー: 管理対象ドメインまたは顧客のドメインの Azure AD で作成したメンバー。 詳細については、次を参照してください。 [を Azure AD ドメイン名を追加](active-directory-add-domain.md)します。
+- フェデレーション ドメインのメンバー: フェデレーション ドメインを使用して Azure AD で作成されたメンバー。 詳細については、次を参照してください。 [Microsoft Azure では、Windows Server Active Directory とのフェデレーションをサポート](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)します。
+- ネイティブ メンバーまたはフェデレーション ドメインのメンバーであるその他の Azure Active ディレクトリからインポートされたメンバー。
+- セキュリティ グループとして作成された Active Directory グループ。
 
 Microsoft アカウント (outlook.com、hotmail.com、live.com など) またはその他のゲスト アカウント (gmail.com、yahoo.com など) はサポートされていません。 ログインする場合は、 [https://login.live.com](https://login.live.com) Azure SQL Database 用 Azure AD 認証のサポートされていない Microsoft アカウントを使用しているアカウントとパスワードを使用します。
 
@@ -204,7 +204,7 @@ Set-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23"
 Get-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
 ```
 
-次の例は、Azure AD 管理者を削除します。
+次の例では、Azure AD 管理者が削除されます。
 ```
 Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
 ```
@@ -219,7 +219,7 @@ Azure AD の ID を使用して Azure SQL Database に接続するアプリケ�
 ### ツール
 
 - いずれかをインストールする [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) または [SQL Server Data Tools for Visual Studio 2015](https://msdn.microsoft.com/library/mt204009.aspx) が .NET Framework 4.6 の要件を満たしています。 
-- X86 のインストールのバージョンの SSMS **ADALSQL します。DLL**します。 (現時点では、SSMS は、インストール後に再起動が必要であることを示すメッセージを表示しません。 これは、将来の CTP で修正される予定です。)
+- SSMS のインストール、x86 バージョンの **ADALSQL します。DLL**します。 (現時点では、SSMS は、インストール後に再起動が必要であることを示すメッセージを表示しません。 これは、将来の CTP で修正される予定です。)
 - SSDT のインストールの amd64 バージョン **ADALSQL します。DLL**します。 SSDT では、Azure AD 認証が部分的にしかサポートされていません。
 - 最新の Visual Studio から [Visual Studio のダウンロード](https://www.visualstudio.com/downloads/download-visual-studio-vs) が .NET Framework 4.6 の要件を満たしているの必要な amd64 バージョンをインストールしない **ADALSQL します。DLL**します。
 
@@ -265,7 +265,7 @@ Azure AD の管理対象ドメインを使用して Azure AD のプリンシパ�
 
 *Azure_AD_principal_name* Azure AD ユーザーのユーザー プリンシパル名または Azure AD グループの表示名を指定することができます。
 
-**例:**
+**次に例を示します。**
 包含データベースを作成するには、Azure AD を表すユーザー フェデレーション ユーザーまたはドメイン ユーザーを管理します。
 
     CREATE USER [bob@contoso.com] FROM EXTERNAL PROVIDER;
@@ -334,5 +334,6 @@ Azure Active Directory 認証では、Azure AD の ID を使用してデータ�
 [8]: ./media/sql-database-aad-authentication/8choose-ad.png
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
+
 
 

@@ -33,7 +33,7 @@ Azure AD B2C を使用するには、ディレクトリ (つまり、テナン�
 
 ## 2.アプリケーションの作成
 
-ここで、B2C ディレクトリにアプリを作成する必要があります。このディレクトリによって、アプリと安全に通信するために必要ないくつかの情報を Azure AD に提供します。  アプリを作成するには
+次に、B2C ディレクトリ内にアプリを作成する必要があります。これによって、 アプリと安全に通信するために必要ないくつかの情報が Azure AD に提供されます。  アプリを作成するには
 次の [手順](active-directory-b2c-app-registration.md)します。  このとき、
 
 - 含める、 **web アプリ]、[web api** アプリケーションにします。
@@ -70,7 +70,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Dot
 `complete` 同じリポジトリの分岐。
 
 サンプル コードをダウンロードしたら、Visual Studio の `.sln` ファイルを開いて作業を開始します。  ソリューションに `TaskWebApp` プロジェクトと `TaskService` プロジェクトの 2 つのプロジェクトがあることがわかります。   `TaskWebApp` 、MVC は、 
-ユーザーと対話する web アプリケーションです。  `TaskService` は、各ユーザーの To-Do リストを格納する、アプリのバックエンド Web API です。 
+ユーザーと対話する web アプリケーションです。   `TaskService` はアプリのバックエンド web API を各ユーザーの to do リストに格納します。 
 
 ## 5.タスク Web アプリの構成
 
@@ -238,19 +238,20 @@ public IEnumerable<Models.Task> Get()
 
 ## 8.ポリシーの編集
 
-Azure AD B2C を使用して API をセキュリティで保護したので、アプリのポリシーでさまざまな設定を試し、その効果 (または不足部分) を API で確認することができます。  実行できます <!--add **identity providers**
+Azure AD B2C を使用して API をセキュリティで保護したので、アプリのポリシーでさまざまな設定を試し、その効果 (または不足部分) を API で確認することができます。  Visual Studio Online アカウントは <!--add **identity providers**
 to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->操作、 **アプリケーション クレーム** ポリシー、および変更
 Web API で提供されるユーザーの情報。  その他のクレームを追加した場合、そのクレームは、前述のように .NET MVC Web API の `ClaimsPrincipal` オブジェクト内で利用できます。
 
 <!--
 
-## 次のステップ
+## Next Steps
 
-さらに高度な B2C のトピックに進むことができます。  次のチュートリアルを試してみてください。
+You can now move onto more advanced B2C topics.  You may want to try:
 
-[Web アプリから Web API を呼び出す >>]()
+[Calling a Web API from a Web App >>]()
 
-[B2C アプリの UX のカスタマイズ]()
+[Customizing the your B2C App's UX >>]()
 
 -->
+
 

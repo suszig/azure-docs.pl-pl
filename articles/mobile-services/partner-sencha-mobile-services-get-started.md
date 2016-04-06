@@ -16,7 +16,7 @@
     ms.date="11/06/2015"
     ms.author="glenga"/>
 
-# <a name="getting-started"> </a>モバイル サービスおよび Sencha Touch の使用
+# <a name="getting-started"></a>Mobile Services と Sencha Touch の使用
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
@@ -115,7 +115,7 @@ Azure 用の拡張機能は、手動または Sencha パッケージとしてイ
 
 ###Sencha パッケージとしてのインストール
 
-> [AZURE.NOTE] 使用して、アプリケーションを生成している場合のみ、このメソッドを使用できます、 <code>sencha 生成アプリ</code> コマンドです。
+> [AZURE.NOTE] 使用して、アプリケーションを生成している場合のみ、このメソッドを使用できます、 <code>sencha generate app</code> コマンドです。
 
 Sencha Cmd によって生成されるすべてのアプリケーションで、ルートに "パッケージ" フォルダーがあります。 このフォルダーの場所は構成可能ですが、その場所にかかわらず packages フォルダーの役割は、アプリケーション (または Sencha ワークスペースを作成している場合は複数のアプリケーション) によって使用されるすべてのパッケージのストレージとして機能することです。
 
@@ -726,3 +726,4 @@ Sencha Touch ストアでは、さまざまな方法でレコードを表示す�
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
 [Azure classic portal]: https://manage.windowsazure.com/
+

@@ -24,14 +24,14 @@ Azure Active Directory (AAD) 上にドメインを作成するユーザーが増
 
 - サインアップ [PowerApps エンタープライズ](powerapps-get-started-azure-portal.md)します。
 - 作成、 [app service 環境](powerapps-get-started-azure-portal.md)します。
-- [Azure PowerShell] のインストール [11] 1.0 プレビュー以降。
+- インストール [Azure PowerShell][11] 1.0 のプレビュー以降。
 - 内の API を登録、 [app service 環境](powerapps-register-api-hosted-in-app-service.md)します。
 
 ## 手順 1: Active Directory アプリケーションを作成し、アクセス許可を付与する
 
 AAD ドメイン上のバックエンド システムにアクセスするには、AAD アプリケーションを作成し、既存のバックエンド (AAD アプリケーションでもある) への適切なアクセス許可を付与します。 手順:
 
-1. [Azure クラシック ポータル] で [13] 移動、Azure Active Directory を開き、テナント (またはディレクトリ) を選択、 **アプリケーション** ] タブをクリックします。  
+1.  [Azure クラシック ポータル][13], には、Azure Active Directory、テナント (またはディレクトリ) を開きを選択、 **アプリケーション** ] タブをクリックします。  
 ![][14]
 2. 選択、 **追加** 下部にあるボタンをクリックします。 次の操作を行います。  
 
@@ -61,7 +61,7 @@ AAD ドメイン上のバックエンド システムにアクセスするには
 
 この時点で、API に必要な構成を初期化することは Azure ポータルでサポートされていません。 Azure ポータルで API を構成するには、次の Auzre PowerShell スクリプトを使用します。 
 
-> [AZURE.TIP] インストール、構成、および Azure PowerShell を実行する方法については、[Azure PowerShell を構成する方法] を参照してください。 [11] です。 次のスクリプトは、Azure PowerShell 1.0 プレビュー以上で機能します。
+> [AZURE.TIP] インストール、構成、および Azure PowerShell を実行する方法については、次を参照してください。 [をインストールして、Azure PowerShell を構成する方法][11]します。 次のスクリプトは、Azure PowerShell 1.0 プレビュー以上で機能します。
 
 ```powershell
 # get the API resource
@@ -94,7 +94,7 @@ New-AzureRmResource -Location $api.Location -ResourceId $api.ResourceId -Propert
 
 **通知** を **トークン** 接続パラメーターの名前は重要です。 Camel ケースである限り、独自の名前を選択できます。 この名前は後で、バックエンド コードまたは API ポリシーの中で使用することになります。
 
-次に、[Azure ポータル] に移動 [19] に移動し、 **全般** API の設定] ブレードです。 追加の構成オプションが表示されます。  
+次に移動 [Azure ポータル][19], に移動し、 **全般** API の設定] ブレードです。 追加の構成オプションが表示されます。  
 ![][21]
 
 
@@ -102,7 +102,7 @@ New-AzureRmResource -Location $api.Location -ResourceId $api.ResourceId -Propert
 
 PowerApps でアプリを開きます。  **利用可能な接続**, 、新しい API が一覧表示します。 選択すると **接続**, 、AAD のサインイン ウィンドウが表示されます。 組織の AAD アカウントの詳細を入力して、接続を作成します。
 
-バックエンドがでユーザーの AAD トークンを受け取ったランタイム呼び出しが行われたときに、アプリケーションから API をこの接続を使用して、これで、 **x ms apim トークン** 次 [base 64 エンコード] [20] の形式で HTTP ヘッダー。  
+バックエンドがでユーザーの AAD トークンを受け取ったランタイム呼び出しが行われたときに、アプリケーションから API をこの接続を使用して、これで、 **x ms apim トークン** 、次の HTTP ヘッダー [Base64 エンコード][20] 形式。  
 
 ```json
 {
@@ -164,4 +164,5 @@ PowerApps でアプリを開きます。  **利用可能な接続**, 、新し�
 [19]: https://portal.azure.com
 [20]: https://tools.ietf.org/html/rfc4648
 [21]: ./media/powerapps-configure-apis-aad/api-settings-aad.png
+
 

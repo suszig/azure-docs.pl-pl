@@ -38,5 +38,6 @@
 Microsoft Azure の認定プログラムからの事前承認が受信した場合に進むことができます [Microsoft 販売者のアカウント: 作成と登録](marketplace-publishing-accounts-creation-registration.md)します。
 
 ## 関連項目
-- [Microsoft Azure Marketplace へのプランの発行方法](marketplace-publishing-getting-started.md)
+- [概要: Azure Marketplace へのプランの発行方法](marketplace-publishing-getting-started.md)
+
 

@@ -54,11 +54,11 @@ SharePoint Online コネクタおよび SharePoint Server コネクタ ギャラ
     名前 |必要な |説明
 --- | --- | ---
 サイトの URL |[はい |SharePoint web サイトの完全な URL を入力します。 たとえば、入力: *https://microsoft.sharepoint.com/teams/wabstest*します。
-認証モード | はい | SharePoint サイトへの接続に使用する認証モードを指定します。 設定できるオプションは次のとおりです。<ul><li>既定</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>[既定] を選択した場合は、SharePoint コネクタを実行している資格情報が使用されます。ユーザー名/パスワードは必要ありません。 ユーザー名とパスワードは、その他の認証の種類に必要な<br/><br/>**。注** 匿名認証がサポートされていません。
+認証モード | はい | SharePoint サイトへの接続に使用する認証モードを指定します。 次のオプションがあります。<ul><li>既定値</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>既定値を選択する場合は、SharePoint コネクタを実行している資格情報が使用されます。ユーザー名とパスワードは必要ありません。 ユーザー名とパスワードは、その他の認証の種類に必要なのです。<br/><br/>**注** 匿名認証がサポートされていません。
 ユーザー名 |いいえ |認証モードが既定ではない場合は、SharePoint サイトに接続する有効なユーザー名を入力します。
 パスワード |いいえ |認証モードが既定ではない場合は、SharePoint サイトに接続する有効なパスワードを入力します。
 ドキュメント ライブラリ / リストの相対 URL | はい | コネクタが変更を加えることが許可されているドキュメント ライブラリまたはリストの URL を、SharePoint サイトの URL からの相対位置で入力します。 たとえば、入力: *Lists/task, Shared Documents*します。
-Service Bus 接続文字列 |いいえ |オンプレミスに接続する場合は、Service Bus relay の接続文字列を入力してください<br/><br/>[。ハイブリッド接続マネージャーを使用して](app-service-logic-hybrid-connection-manager.md)<br/>[サービス バスの料金](http://azure.microsoft.com/pricing/details/service-bus/)
+Service Bus 接続文字列 |いいえ |オンプレミスに接続する場合は、Service Bus relay の接続文字列を入力します。<br/><br/>[ハイブリッド接続マネージャーの使用](app-service-logic-hybrid-connection-manager.md)<br/>[サービス バスの料金](http://azure.microsoft.com/pricing/details/service-bus/)
 
 5. 完了すると、パッケージの設定は、次のようになります。  
 ![][2]
@@ -480,4 +480,5 @@ App Service では、 ハイブリッド構成マネージャーを使用して�
 [5]: ./media/app-service-logic-connector-sharepoint/image_4.jpg
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
+
 

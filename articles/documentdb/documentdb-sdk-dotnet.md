@@ -28,10 +28,10 @@
 
 <table>
 <tr><td>**ダウンロード**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
-<tr><td>**ドキュメント**</td><td>[.NET SDK Reference Documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
+<tr><td>**Documentation**</td><td>[.NET SDK Reference Documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
 <tr><td>**サンプル**</td><td>[.NET Code Samples](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr>
-<tr><td>**開始**</td><td>[Get started with the DocumentDB .NET SDK](documentdb-get-started.md)</td></tr>
-<tr><td>**現在に Framework がサポートされています。**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
+<tr><td>**作業の開始**</td><td>[Get started with the DocumentDB .NET SDK](documentdb-get-started.md)</td></tr>
+<tr><td>**現在のフレームワークのサポート**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
 
 ## リリース ノート
@@ -139,4 +139,5 @@ Azure DocumentDB SDK for .NET のバージョンより前のすべてのバー�
 ## 関連項目
 
 DocumentDB の詳細については、次を参照してください。 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) サービス ページです。 
+
 

@@ -180,7 +180,7 @@ Graph API を呼び出すために必要な、ホワイトリスト プラグイ
                 app.context = new Microsoft.ADAL.AuthenticationContext(authority);
             }
 ```
-メソッドの 2 番目の部分では、適切な tokewn 要求を実行します。
+メソッドの 2 番目の部分では、適切なトークン要求を実行します。
 `acquireTokenSilentAsync` メソッドは、ADAL に、UX を表示せずに指定されたリソースのトークンを返すように要求します。 これが起きる可能性があるのは、キャッシュに既に適切なアクセス トークンが保管されているか、またはプロンプトを表示させずに新しいアクセス トークンを取得するために使用できる更新トークンがある場合です。
 試行に失敗する場合は、`acquireTokenAsync` に戻ります。これはユーザーにはっきりと認証を求めるプロンプトを表示します。
 ```javascript
@@ -194,7 +194,7 @@ Graph API を呼び出すために必要な、ホワイトリスト プラグイ
                 });
             });
 ```
-あるので、トークン、お最後に、Graph API を呼び出しし、必要な検索クエリを実行することができます。 次のスニペットを、`authenticate` 定義のすぐ下に挿入します。
+トークンを取得したので、最後に Graph API を呼び出し、必要な検索クエリを実行することができます。 次のスニペットを、`authenticate` 定義のすぐ下に挿入します。
 
 ```javascript
 // Makes Api call to receive user list.
@@ -269,4 +269,5 @@ Graph API を呼び出すために必要な、ホワイトリスト プラグイ
 [Azure AD による Node.JS Web API のセキュリティ保護 >>](active-directory-devquickstarts-webapi-nodejs.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
+
 

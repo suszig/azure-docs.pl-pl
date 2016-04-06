@@ -44,7 +44,7 @@ Azure BizTalk Services が調整状態になると、次のことが発生しま
 
 - 調整はロール インスタンス単位で行われます。 次に例を示します。<br/>
 RoleInstanceA は調整中です。 RoleInstanceB は調整されていません。 この状況では、RoleInstanceB のメッセージは予期したとおりに処理されます。 RoleInstanceA のメッセージは破棄され、次のエラーで失敗します。<br/><br/>
-**サーバーがビジー状態です。もう一度実行してください。**<br/><br/>
+**サーバーがビジー状態です。 もう一度実行してください。**<br/><br/>
 - どの取り出し元も、メッセージのポーリングやダウンロードを行いません。 次に例を示します。<br/>
 パイプラインは外部の FTP ソースからメッセージを取り出します。 取り出しを実行するロール インスタンスは調整状態になります。 この状況では、パイプラインは、ロール インスタンスが調整を停止するまで追加のメッセージのダウンロードを停止します。
 - 応答がクライアントに送信され、クライアントはメッセージを再送信できるようになります。
@@ -56,19 +56,20 @@ RoleInstanceA は調整中です。 RoleInstanceB は調整されていません
 - 調整はシステム全体で実装されます。
 - Azure SQL Database サーバーには、組み込みの調整もあります。
 
-## Azure BizTalk Services に関するその他のトピック
+## Azure BizTalk サービスに関するその他のトピック
 
 -  [Azure BizTalk サービス SDK のインストール](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
 -  [チュートリアル: Azure BizTalk サービス](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
--  [Azure BizTalk サービス SDK の操作使用開始方法](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+-  [Azure BizTalk サービス SDK の使用開始に関するページ](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 -  [Azure BizTalk サービス](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## 関連項目
-- [BizTalk サービス: Developer、Basic、Standard および Premium エディションのチャート](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [BizTalk サービス: Azure を使用して従来のポータルをプロビジョニングします。](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [BizTalk サービス: プロビジョニング状態チャート](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-- [BizTalk サービス: ダッシュ ボード、モニター、スケール タブ](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-- [BizTalk サービス: バックアップと復元](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-- [BizTalk サービス: 発行者名および発行者キー](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+- [BizTalk サービス: 開発者、基本、標準、およびプレミアム エディションのチャートに関するページ](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+- [BizTalk サービス: Azure クラシック ポータルを使用したプロビジョニング](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [BizTalk サービス: プロビジョニングの状態のチャートに関するページ](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+- [BizTalk サービス: [ダッシュボード]、[監視]、および [スケール] タブに関するページ](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+- [BizTalk サービス: バックアップと復元に関するページ](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+- [BizTalk サービス: 発行者名および発行者キーに関するページ](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
+
 

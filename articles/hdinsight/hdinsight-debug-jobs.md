@@ -108,7 +108,7 @@ Azure PowerShell またはポータルでユーザーが遭遇する可能性の
 
 
 
-## <a id="discription-mitigation-errors"></a>エラーの診断と対応策
+## <a id="discription-mitigation-errors"></a>エラーの説明と対応策
 
 
 ### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
@@ -292,11 +292,12 @@ Azure PowerShell またはポータルでユーザーが遭遇する可能性の
 - **説明**: 無効なクラスター構成です。 必要な WASB アカウント構成が外部アカウントに見つかりません。  
 - **対応策**: 構成で適切に指定、アカウントが存在し、あるを確認し、操作を再試行します。
 
-## <a id="resources"></a>その他のデバッグ リソース
+## <a id="resources"></a>Additional Debugging Resources
 
 * [Azure HDInsight SDK のドキュメント][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
+
 

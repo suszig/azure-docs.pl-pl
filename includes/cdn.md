@@ -95,11 +95,11 @@ Azure サービス管理 API を参照してください、 [ストレージ ア
     場所です。 元のドメインは、ストレージ アカウントまたはクラウド サービスのどちらかになります。この例では、ストレージ アカウントが使用されます。 ストレージ コンテンツは、指定したキャッシュ制御の設定またはキャッシュ ネットワークの既定のヒューリスティックに従って末端サーバーにキャッシュされます。 
 
 
-    > [AZURE.NOTE] The configuration created for the endpoint will not
-    immediately be available; it can take up to 60 minutes for the
-    registration to propagate through the CDN network. Users who try to
-    use the CDN domain name immediately may receive status code 400
-    (Bad Request) until the content is available via the CDN.
+    > [AZURE.NOTE] エンドポイント用に作成された構成は、
+    すぐには使用できません。CDN ネットワークを通じて伝播する
+    登録のために、最大で 60 分かかる場合があります。 CDN ドメイン名を
+    直ちに使用しようとするユーザーは、CDN を経由してコンテンツを取得できるように
+    なるまでは、状態コード 400 (正しくない要求) を受け取ります。
 
 <a id="Step3"> </a>
 <h2>ステップ 3: CDN コンテンツにアクセスする</h2> 
@@ -149,4 +149,5 @@ CDN エンドポイントがまだ有効で、
 
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
+
 

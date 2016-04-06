@@ -29,7 +29,7 @@
 
 このトピックでは、サーバー側ロジックを使用してユーザーを承認する方法を説明します。  このチュートリアルでは、テーブル コントローラーを変更して、ユーザー ID に基づいてクエリをフィルター処理し、ユーザーが自分のデータのみにアクセスできるようにします。 ユーザー ID によるユーザーのクエリ結果のフィルター処理は、承認の最も基本的な形式です。 またシナリオによっては、特定のユーザーのアクセスを許可するエンドポイントなど、より詳細なユーザーの承認情報を確認するために、ユーザーまたはロールのテーブルを作成することもできます。
 
-このチュートリアルでは、Mobile Services クイック スタートに基づいており、[既存の Mobile Services アプリケーションに認証の追加] のチュートリアルに基づいて記述します。 最初に [既存の Mobile Services アプリケーションに認証の追加] を入力してください。
+このチュートリアルは、Mobile Services クイック スタートに基づいており、記事に基づき、 [Add Authentication to Existing Mobile Services App] チュートリアルです。 完了してください [Add Authentication to Existing Mobile Services App] 最初です。
 
 ## <a name="register-scripts"></a>データ アクセス メソッドを変更する
 
@@ -83,4 +83,5 @@
 
 <!-- URLs. -->
 [Add Authentication to Existing Mobile Services App]: mobile-services-dotnet-backend-ios-get-started-users.md
+
 

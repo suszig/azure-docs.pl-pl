@@ -40,7 +40,7 @@ Azure の Web ジョブ SDK は多くの Web ジョブのプログラミング �
 * .js (node を使用)
 * .jar (java を使用)
 
-## <a name="CreateOnDemand"></a>ポータルでのオンデマンドの web ジョブの作成
+## <a name="CreateOnDemand"></a>ポータルでのオンデマンドの Web ジョブの作成
 
 1.  **Web アプリ** のブレード、 [Azure ポータル](http://portal.azure.com), 、] をクリックして **すべての設定 > WebJobs** を表示する、 **web ジョブ** ブレードです。
     
@@ -64,7 +64,7 @@ Azure の Web ジョブ SDK は多くの Web ジョブのプログラミング �
     
     ![Web ジョブの実行](./media/web-sites-create-web-jobs/runondemand.png)
     
-## <a name="CreateContinuous"></a>連続的に実行する Web ジョブを作成する
+## <a name="CreateContinuous"></a>連続的に実行する Web ジョブの作成
 
 1. 継続的に実行中のジョブを作成する手順は同じ 1 回実行する web ジョブを作成する場合でも、 **実行方法** ボックスで、選択 **Continuous**します。
 
@@ -74,7 +74,7 @@ Azure の Web ジョブ SDK は多くの Web ジョブのプログラミング �
     
 > 連続的に実行する Web ジョブをすべてのインスタンス上で確実に実行するには、Web アプリで [常時接続]* 構成設定を有効にします。そうしないと、SCM ホスト サイトが長時間アイドル状態になったときに Web ジョブが実行を停止する可能性があります。
 
-## <a name="CreateScheduledCRON"></a>CRON 式を使用して、スケジュールされた web ジョブを作成します。
+## <a name="CreateScheduledCRON"></a>CRON 式を使用してスケジュール済みの WebJob を作成する
 
 この方法は、標準またはプレミアム モードで実行される Web アプリに使用され、必要があります、 **Always On** アプリで有効にする設定。
 
@@ -100,7 +100,7 @@ CRON 式は 6 つのフィールド: `{second} {minute} {hour} {day} {month} {da
 **注**: Visual Studio から web ジョブを展開するときにマークしてください、 `settings.job` '新しい場合はコピー' としてファイルのプロパティです。
 
 
-## <a name="CreateScheduled"></a>Azure スケジューラを使用して、スケジュールされた web ジョブを作成します。
+## <a name="CreateScheduled"></a>Azure Scheduler を使用してスケジュール済みの WebJob を作成する
 
 次の代替の方法では、Azure Scheduler を使用します。 この場合、WebJob によってスケジュールは直接認識されません。 代わりに、スケジュールに基づいて WebJob をトリガーするように Azure Scheduler を構成します。 
 
@@ -114,7 +114,7 @@ Azure ポータルでは、スケジュールされた web ジョブを作成す
     
 2. 選択、 **スケジューラのリージョン** 、ジョブと、次の画面に続行する] ダイアログの右下の矢印をクリックします。
 
-3.  **ジョブの作成** ] ダイアログ ボックスでの種類を選択する **繰り返し** する: **1 回限りのジョブ** または **定期的なジョブ**します。
+3.  **ジョブの作成** ] ダイアログ ボックスでの種類を選択 **繰り返し** する: **一時的なジョブ** または **定期的なジョブ**します。
     
     ![繰り返しのスケジュール設定][SchdRecurrence]
     
@@ -142,7 +142,7 @@ Azure ポータルでは、スケジュールされた web ジョブを作成す
     
     ![1 か月のうち特定の曜日を指定][SchdMonthsOnPartWeekDays]
     
-10. 最後に、使用することも、 **出現** 、1 か月の何週目を選択するオプション (最初に、2 週目、3 週目など)、ジョブを指定した曜日に実行します。
+10. 最後に、使用することも、 **出現** 月の何週目を選択するオプション (最初に、2 週目、3 週目など)、ジョブを指定した曜日に実行します。
     
     ![1 か月のうち特定の週の特定の曜日を指定][SchdMonthsOnPartWeekDaysOccurences]
     
@@ -150,7 +150,7 @@ Azure ポータルでは、スケジュールされた web ジョブを作成す
     
     ![ジョブの一覧][WebJobsListWithSeveralJobs]
     
-### <a name="Scheduler"></a>スケジュールされたジョブと Azure スケジューラ
+### <a name="Scheduler"></a>スケジュールされたジョブと Azure Scheduler
 
 Azure スケジューラ ページで、スケジュールされたジョブをさらに構成できる、 [旧ポータル](http://manage.windowsazure.com)します。
 
@@ -166,7 +166,7 @@ Azure スケジューラ ページで、スケジュールされたジョブを�
     
     ![Scheduler の [ジョブの操作] ページ][JobActionPageInScheduler]
     
-## <a name="ViewJobHistory"></a>ジョブ履歴を表示する
+## <a name="ViewJobHistory"></a>ジョブ履歴の表示
 
 1. Web ジョブ SDK で作成したジョブを含め、ジョブの実行履歴を表示するには、下にある対応するリンクをクリックして、 **ログ** web ジョブ] ブレードの列です。 (必要に応じて、クリップボード アイコンを使用して、ログ ファイル ページの URL をクリップボードにコピーできます)。
     
@@ -238,4 +238,5 @@ Azure スケジューラ ページで、スケジュールされたジョブを�
 [SchedulerPortal]: ./media/web-sites-create-web-jobs/32SchedulerPortal.png
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
+
 

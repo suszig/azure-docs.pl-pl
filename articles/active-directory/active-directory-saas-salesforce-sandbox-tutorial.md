@@ -66,7 +66,7 @@ Sandbox を使用すると、Salesforce 運用組織内のデータとアプリ�
 
 3.   **アプリケーション URL の構成** ] ページの [、 **サインオン URL** ] ボックスに、次のパターンを使用して URL を入力 `http://company.my.salesforce.com`, 、] をクリックし、 **次**します。
 
-    ![アプリケーション URL の構成](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781022.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781022.png "Configure App URL")
 
 4. した場合、既に別の Salesforce Sandbox インスタンスに対するシングル サインオン、ディレクトリのかどうかは、構成する必要もあります、 **識別子** として同じ値を持つこと、 **サインオン URL**します。  **識別子** チェックでフィールドを検索できる、 **詳細設定の表示** のチェック ボックス、 **アプリケーション URL の構成** 、ダイアログ ボックスのページです。
 
@@ -191,3 +191,4 @@ URL の値を取得するには、前のセクションで作成した SSO プ�
 10 分待ってから、アカウントが Salesforce Sandbox と同期できたことをご確認ください。
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](https://msdn.microsoft.com/library/dn308586)します。
+

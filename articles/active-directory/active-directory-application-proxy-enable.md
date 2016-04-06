@@ -80,7 +80,7 @@ Microsoft Azure Active Directory アプリケーション プロキシを使用�
 - [シングル サインオンを有効にする](active-directory-application-proxy-sso-using-kcd.md)
 - [条件付きアクセスを有効にする](active-directory-application-proxy-conditional-access.md)
 - [要求に対応するアプリケーションを利用する](active-directory-application-proxy-claims-aware-apps.md)
-- [アプリケーション プロキシで発生した問題のトラブルシューティングを行う](active-directory-application-proxy-troubleshoot.md)
+- [アプリケーション プロキシが発生した問題をトラブルシューティングします。](active-directory-application-proxy-troubleshoot.md)
 
 ## アプリケーション プロキシに関するその他の情報
 - [オンライン ヘルプ](active-directory-application-proxy-enable.md)
@@ -91,4 +91,5 @@ Microsoft Azure Active Directory アプリケーション プロキシを使用�
 * [Azure への組織としてのサインアップ](sign-up-organization.md)
 * [Azure ID](fundamentals-identity.md)
 * [アプリケーション プロキシを使用してアプリケーションを発行する](active-directory-application-proxy-publish.md)
+
 

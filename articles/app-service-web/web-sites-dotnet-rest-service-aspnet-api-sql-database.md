@@ -35,7 +35,7 @@ Azure アカウントは無料で開くことができます。また、まだ V
 
 ASP.NET MVC 5 に基づく、データベース アクセスに ADO.NET Entity Framework を使用する、簡単な連絡先リスト Web アプリケーションをビルドします。 次の図に、完成したアプリケーションを示します。
 
-![web サイトのスクリーン ショット][intro001]
+![Web サイトのスクリーンショット][intro001]
 
 <!-- the next line produces the "Set up the development environment" section as see at http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ -->
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -50,7 +50,7 @@ ASP.NET MVC 5 に基づく、データベース アクセスに ADO.NET Entity F
 
 1.  **新しい ASP.NET プロジェクト** ダイアログ ボックスで、 **MVC** テンプレート チェック **Web API** ] をクリックし、 **認証の変更**します。
 
-    ![[新しい ASP.NET プロジェクト] ダイアログ ボックス](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.png)
+    ![New ASP.NET Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.png)
 
 1.  **認証の変更** ダイアログ ボックスで、をクリックして **認証なし**, 、] をクリックし、 **[ok]**します。
 
@@ -60,7 +60,7 @@ ASP.NET MVC 5 に基づく、データベース アクセスに ADO.NET Entity F
 
 1.  **新しい ASP.NET プロジェクト** ] ダイアログ ボックスで確認、 **クラウドでホスト** がチェックされ、をクリックして **OK**します。
 
-    ![[新しい ASP.NET プロジェクト] ダイアログ ボックス](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.png)
+    ![New ASP.NET Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.png)
 
 Azure にまだサインしていない場合は、サインインするように求められます。
 
@@ -78,7 +78,7 @@ Azure にまだサインしていない場合は、サインインするよう�
 
 1.  **ソリューション エクスプ ローラー**, 、展開、 *views \shared* フォルダーとオープン、 *_Layout.cshtml* ファイルです。
 
-    ![ソリューション エクスプ ローラーの _Layout.cshtml][newapp004]
+    ![_Layout.cshtml in Solution Explorer][newapp004]
 
 1. 内容を置き換える、 *\shared_layout.cshtml* を次のコード ファイル。
 
@@ -133,7 +133,7 @@ Azure にまだサインしていない場合は、サインインするよう�
 
 1. Visual Studio でプロジェクトを右クリックして **ソリューション エクスプ ローラー** 選択 **発行** 、コンテキスト メニューからです。
 
-    ![プロジェクトのコンテキスト メニューに公開する][PublishVSSolution]
+    ![プロジェクトのコンテキスト メニューの [発行]][PublishVSSolution]
 
      **Web の発行** ウィザードが開きます。
 
@@ -147,7 +147,7 @@ Azure サーバーにファイルをコピーする処理が開始されます�
 
     これで、作成したアプリケーションはクラウドで実行されています。
     
-    ![To Do List のホーム ページが Azure で実行する][rxz2]
+    ![To Do List home page running in Azure][rxz2]
 
 ## アプリケーションにデータベースを追加する
 
@@ -159,11 +159,11 @@ Azure サーバーにファイルをコピーする処理が開始されます�
 
 1.  **ソリューション エクスプ ローラー**, を Models フォルダーを右クリックして、 **追加**, 、し **クラス**します。
 
-    ![モデル] フォルダーのコンテキスト メニューでクラスの追加][adddb001]
+    ![[モデル] フォルダーのコンテキスト メニューの [クラスの追加]][adddb001]
 
 2.  **新しい項目の追加** ダイアログ ボックスで、新しいクラス ファイルの名前 *Contact.cs*, 、クリックして **追加**します。
 
-    ![新しい項目の追加] ダイアログ ボックスの追加][adddb002]
+    ![[新しい項目の追加] ダイアログ ボックス][adddb002]
 
 3. Contacts.cs ファイルの内容を次のコードに置き換えます。
 
@@ -203,7 +203,7 @@ ASP.NET MVC では、スキャフォールディング機能によって、作�
 
 4. Controllers フォルダーを右クリックし、をクリックして **追加**, 、クリックして **コント ローラー**します。
 
-    ![フォルダーのコンテキスト メニューでコント ローラーの追加][addcode001]
+    ![[コントローラー] フォルダーのコンテキスト メニューの [コントローラーの追加]][addcode001]
 
 1.  **スキャフォールディングの追加** ダイアログ ボックスで、 **Entity Framework を使用するビューと MVC コント ローラー** ] をクリック **追加**します。
 
@@ -223,7 +223,7 @@ ASP.NET MVC では、スキャフォールディング機能によって、作�
 
 1.  **ツール** メニューの [ **ライブラリ パッケージ マネージャー** し **パッケージ マネージャー コンソール**します。
 
-    ![ツール] メニューの [パッケージ マネージャー コンソール][addcode008]
+    ![[ツール] メニューの [パッケージ マネージャー コンソール]][addcode008]
 
 2.  **パッケージ マネージャー コンソール** ウィンドウで、次のコマンドを入力します。
 
@@ -318,7 +318,7 @@ ASP.NET MVC では、スキャフォールディング機能によって、作�
 
 アプリケーションでは、登録されたデータが表示され、編集、詳細、削除のリンクが示されます。
 
-![データの MVC view][rxz3]
+![MVC view of data][rxz3]
 
 ## ビューの編集
 
@@ -417,10 +417,10 @@ ASP.NET MVC では、スキャフォールディング機能によって、作�
 
 3. コンテンツのフォルダーを右クリックし、をクリックして **追加**, 、クリックして **新しい項目]**します。
 
-    ![コンテンツのフォルダーのショートカット メニューのスタイル シートの追加][addcode005]
+    ![Content フォルダーのコンテキスト メニューの [スタイル シートの追加]][addcode005]
 
 4.  **新しい項目の追加** ] ダイアログ ボックスで、「 **スタイル** 右上に検索ボックスを選択し、 **スタイル シート**します。
-    ![新しい項目の追加] ダイアログ ボックスの追加][rxStyle]
+    ![[新しい項目] ダイアログ ボックスを追加します。][rxStyle]
 
 5. ファイルに名前を *Contacts.css* ] をクリック **追加**します。 このファイルの内容を次のコードに置き換えます。
     
@@ -521,17 +521,17 @@ ASP.NET MVC では、スキャフォールディング機能によって、作�
 
 1. Ctrl キーを押しながら F5 キーを押してアプリケーションを実行します。
 
-    ![インデックスのページ][intro001]
+    ![Index ページ][intro001]
 
 2. 連絡先を入力し、クリックして **追加**します。 アプリケーションはホーム ページに戻り、入力した連絡先が表示されます。
 
-    ![タスク一覧の項目のインデックス ページ][addwebapi004]
+    ![Index page with to-do list items][addwebapi004]
 
 3. ブラウザーで、次のように追加します。 **/api/連絡先** URL にします。
 
     追加後の URL は http://localhost:1234/api/contacts のようになります。 追加した REST ベースの Web API によって、保存されている連絡先が返されます。 Firefox と Chrome では、それらのデータが XML 形式で表示されます。
 
-    ![タスク一覧の項目のインデックス ページ][rxFFchrome]
+    ![Index page with to-do list items][rxFFchrome]
     
 
     IE will prompt you to open or save the contacts.
@@ -698,14 +698,14 @@ XSRF 攻撃はフィッシング攻撃とは異なります。 フィッシン�
 
 1.  **ソリューション エクスプ ローラー**, プロジェクトを右クリックして、選択 **発行**します。
 
-    ![発行][rxP]
+    ![Publish][rxP]
 
 5. クリックして、 **設定** ] タブをクリックします。
     
 
 1. [ **Contactsmanagercontext (contactsmanagercontext)**, 、] をクリックして、 **v** を変更するにはアイコン *リモート接続文字列* 連絡先データベースの接続文字列にします。 クリックして **ContactDB**します。
 
-    ![設定](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt5.png)
+    ![[設定]](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt5.png)
 
 7. チェック ボックスをオン **コード First Migrations を実行 (アプリケーションの起動時に実行)**します。
 
@@ -714,7 +714,7 @@ XSRF 攻撃はフィッシング攻撃とは異なります。 フィッシン�
 8. クリックして **発行**します。
 デプロイが完了すると、ブラウザーでアプリケーションのホーム ページが開かれます。
 
-    ![連絡先のインデックス ページ][intro001]
+    ![連絡先が表示されていない Index ページ][intro001]
 
     Visual Studio の発行プロセスに自動的に展開された接続文字列が構成されている *Web.config* SQL データベースを指すファイルです。 また、Code First Migrations は、デプロイ後にアプリケーションが初めてデータベースに接続するときに、データベースを最新バージョンに自動的にアップグレードするよう構成されました。
 
@@ -724,9 +724,9 @@ XSRF 攻撃はフィッシング攻撃とは異なります。 フィッシン�
 
 入力した項目が保存され、Contact Manager のページに表示されることを確認すると、その項目がデータベースに保存されたことがわかります。
 
-![連絡先のインデックス ページ][addwebapi004]
+![連絡先が表示された Index ページ][addwebapi004]
 
-これで、データの保存先に SQL Database を使用して、アプリケーションがクラウドで実行されるようになりました。 Azure 上でアプリケーションのテストを終えたら、そのアプリケーションを削除します。 アプリケーションはパブリックであり、アクセスを制限するメカニズムを備えていません。
+これで、データの保存先に SQL データベースを使用して、アプリケーションがクラウドで実行されるようになりました。 Azure 上でアプリケーションのテストを終えたら、そのアプリケーションを削除します。 アプリケーションはパブリックであり、アクセスを制限するメカニズムを備えていません。
 
 >[AZURE.NOTE] 場合は、Azure アカウントがサインアップする前に Azure App Service の使用を開始するには、 [App Service の試用](http://go.microsoft.com/fwlink/?LinkId=523751), 、App Service で有効期間の短いスターター web アプリをすぐに作成する場所です。 このサービスの利用にあたり、クレジット カードは必要ありません。契約も必要ありません。
 
@@ -737,7 +737,7 @@ XSRF 攻撃はフィッシング攻撃とは異なります。 フィッシン�
 Azure アプリケーションにデータを保存するには、Azure Storage を使用する方法もあります。Azure Storage には、非リレーショナル データを BLOB 形式とテーブル形式で保存できます。 Web API、ASP.NET MVC、および Window Azure の詳細については、次の Web ページを参照してください。
  
 
-* 追加する [getting Started with MVC を使用して Entity Framework][EFCodeFirstMVCTutorial]
+* [MVC を使用した Entity Framework の概要に関するページ][EFCodeFirstMVCTutorial]
 * [ASP.NET MVC 5 の入門ページ](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 * [ASP.NET Web API の入門ページ](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
 * [Debugging WAWS (WAWS のデバッグ)](web-sites-dotnet-troubleshoot-visual-studio.md)
@@ -817,4 +817,5 @@ Azure アプリケーションにデータを保存するには、Azure Storage 
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
+
 

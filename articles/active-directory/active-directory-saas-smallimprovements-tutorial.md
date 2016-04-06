@@ -76,7 +76,7 @@ Azure AD への Small Improvements の統合を構成するには、ギャラリ
 ##  Azure AD シングル サインオンの構成とテスト
 このセクションの目的は、"Britta Simon" というテスト ユーザーに基づいて、Small Improvements で Azure AD のシングル サインオンを構成し、テストする方法について説明することです。
 
-シングル サインオンを機能させるには、Azure AD ユーザーに対応する Small Improvements ユーザーが Azure AD で認識されている必要があります。 言い換えると、Azure AD ユーザーと Small Improvements の関連ユーザーの間で、リンク関係が確立されている必要があります。<br>
+シングル サインオンを機能させるには、Azure AD ユーザーに対応する Small Improvements ユーザーが Azure AD で認識されている必要があります。 つまり、Azure AD のユーザーと小さな機能強化に関連するユーザーの間のリンクの関係を確立する必要があります。<br>
 値を割り当てることでこのリンクの関係が確立される、 **ユーザー名** の値として Azure AD で、 **ユーザー名** で小さなが向上します。
 
 Small Improvements で Azure AD のシングル サインオンを構成してテストするには、次の構成要素を完了する必要があります。
@@ -96,13 +96,13 @@ Small Improvements で Azure AD のシングル サインオンを構成して�
 **Small Improvements で Azure AD シングル サインオンを構成するには、次の手順に従います。**
 
 1. Azure クラシック ポータルでの **小さな改良が** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、 **シングル サインオンを構成する**  ダイアログ。
-<br><br> ![でのシングル サインオンを構成する][6] <br>
+<br><br> ![シングル サインオンを構成します。][6] <br>
 
 2.  **どのようなユーザーへの小さな改良が** ] ページで、[ **Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
-<br><br> ![でのシングル サインオンを構成する](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_03.png) <br>
+<br><br> ![シングル サインオンを構成します。](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_03.png) <br>
 
 3.  **アプリケーション設定の構成** ] ダイアログ ページで、次の手順を実行します。
-<br><br>![シングル サインオンを構成する](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_04.png) <br>
+<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_04.png) <br>
 
     > [AZURE.NOTE] 小さな改良が、サポート チームの連絡先 [Support@small-improvements.com](mailto:support@small-improvements.com) ドメイン名、アカウントを構成します。 これは、シングル サインオンが動作するために必要です。
 
@@ -112,7 +112,7 @@ Small Improvements で Azure AD のシングル サインオンを構成して�
 
 
 4.  **小さな改良がでのシングル サインオンの構成** ] ページで、次の手順を実行します。
-<br><br>![シングル サインオンを構成する](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_05.png) <br>
+<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_05.png) <br>
 
     a. クリックして **証明書のダウンロード**, 、お使いのコンピューター上のファイルを保存します。
 
@@ -122,11 +122,11 @@ Small Improvements で Azure AD のシングル サインオンを構成して�
 1. 別の Web ブラウザー ウィンドウで、管理者として Small Improvements 企業サイトにサインオンします。
 
 1. メイン ダッシュ ボード] ページで、クリックして **管理** 左側のボタンをクリックします。
-<br><br> ![でのシングル サインオンを構成する](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_06.png) <br>
+<br><br> ![シングル サインオンを構成します。](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_06.png) <br>
 
 
 1. クリックして、 **SAML SSO** ボタンから **統合** セクションです。
-<br><br> ![でのシングル サインオンを構成する](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_07.png) <br>
+<br><br> ![シングル サインオンを構成します。](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_07.png) <br>
 
 
 1. SSO のセットアップ] ページで、次の手順に従います。
@@ -154,23 +154,23 @@ Small Improvements で Azure AD のシングル サインオンを構成して�
 
 ### Azure AD のテスト ユーザーの作成
 このセクションの目的は、Azure クラシック ポータルで Britta Simon というテスト ユーザーを作成することです。<br>
-ユーザーの一覧で選択 **Britta Simon**.<br><br>![Azure AD ユーザーを作成します。][20]<br>
+ユーザーの一覧で選択 **Britta Simon**します。<br><br>![Azure AD ユーザーを作成します。][20]<br>
 
 **Azure AD でテスト ユーザーを作成するには、次の手順に従います。**
 
 1.  **Azure クラシック ポータル**, 、左側のナビゲーション ウィンドウで、次のようにクリックします。 **Active Directory**します。
-<br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_09.png) <br>
+<br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_09.png) <br>
 
 2.  **ディレクトリ** 一覧で、ディレクトリ統合を有効にディレクトリを選択します。
 
 3. 上部のメニューで、ユーザーの一覧を表示する] をクリックして **ユーザー**します。
-<br><br> ![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_03.png) <br>
+<br><br> ![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_03.png) <br>
 
 4. 開くには、 **ユーザーの追加** ] ダイアログ ボックスで、下部にあるツールバーをクリックして **ユーザーの追加**します。
-<br><br> ![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_04.png) <br>
+<br><br> ![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_04.png) <br>
 
 5.  **このユーザーについてお聞かせ** ] ダイアログ ページで、次の手順を実行します。
-<br><br> ![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_05.png) <br>
+<br><br> ![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_05.png) <br>
 
     a. [ユーザーの種類] として [組織内の新しいユーザー] を選択します。
 
@@ -179,7 +179,7 @@ Small Improvements で Azure AD のシングル サインオンを構成して�
     c. クリックして **次**します。
 
 6.   **ユーザー プロファイル** ] ダイアログ ページで、次の手順を実行します。
-<br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_06.png) <br>
+<br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_06.png) <br>
 
     a.  **名** ] ボックスに「 **Britta**します。  
 
@@ -191,10 +191,10 @@ Small Improvements で Azure AD のシングル サインオンを構成して�
     e. クリックして **次**します。
 
 7.  **一時パスワードの取得** ダイアログ ページで、をクリックして **作成**します。
-<br><br> ![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_07.png) <br>
+<br><br> ![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_07.png) <br>
 
 8.  **一時パスワードの取得** ] ダイアログ ページで、次の手順を実行します。
-<br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_08.png) <br>
+<br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_08.png) <br>
 
     a. 値を書き留めて、 **新しいパスワード**します。
 
@@ -214,11 +214,11 @@ Small Improvements で Azure AD のシングル サインオンを構成して�
 
 1. ホーム ページから、メニューで、左クリック **管理**します。
 
-1. クリックして、 **ユーザー ディレクトリ** ユーザー管理] セクションからボタンをクリックします。 <br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_10.png) <br>
+1. クリックして、 **ユーザー ディレクトリ** ユーザー管理] セクションからボタンをクリックします。 <br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_10.png) <br>
 
-1. クリックして **チーム メンバーを追加**します。 <br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_11.png) <br>
+1. クリックして **チーム メンバーを追加**します。 <br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_11.png) <br>
 
-1. 型、 **名**, 、**姓** と **電子メール アドレス** 関連テキスト ボックスに、プロビジョニングする有効なユーザーのです。 <br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_12.png) <br>
+1. 型、 **名**, 、**姓** と **電子メール アドレス** 関連テキスト ボックスに、プロビジョニングする有効なユーザーのです。 <br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_12.png) <br>
 
 1. 個人のメッセージを入力して選択することもできます。、 **通知電子メールを送信** ボックス。 通知を送信しない場合は、このチェック ボックスをオフにします。
 
@@ -235,7 +235,7 @@ Small Improvements で Azure AD のシングル サインオンを構成して�
 <br><br>![ユーザーを割り当てる][201] <br>
 
 2. アプリケーションの一覧で選択 **小さな改良が**です。
-<br><br>![シングル サインオンを構成する](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_50.png) <br>
+<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_50.png) <br>
 
 1. 上部にあるメニュー [ **ユーザー**します。
 <br><br>![ユーザーを割り当てる][203] <br>
@@ -276,4 +276,5 @@ Small Improvements で Azure AD のシングル サインオンを構成して�
 [203]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_205.png
+
 

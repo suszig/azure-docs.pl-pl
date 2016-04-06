@@ -30,7 +30,7 @@ Azure AD Connect インストール ウィザードには次の 2 つの別の�
 
 | トピック |  |
 | --------- | --------- |
-| Express 設定を使用したインストール | [Azure AD Connect の高速インストール](active-directory-aadconnect-get-started-express.md) |
+| 簡単設定を使用したインストール | [Azure AD Connect の高速インストール](active-directory-aadconnect-get-started-express.md) |
 | カスタマイズした設定を使用したインストール | [Azure AD Connect のカスタム インストール](active-directory-aadconnect-get-started-custom.md) |
 | DirSync からのアップグレード | [Azure AD 同期ツール (DirSync) からのアップグレード](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
 
@@ -41,8 +41,8 @@ Azure AD Connect インストール ウィザードには次の 2 つの別の�
 ウィザード ページ  | 収集される資格情報 | 必要なアクセス許可| 用途
 ------------- | ------------- |------------- |------------- |
 該当なし|インストール ウィザードを実行するユーザー| ローカル サーバーの管理者| <li>として使用されるローカル アカウントを作成、 [同期エンジンのサービス アカウント](#azure-ad-connect-sync-service-account)します。
-Azure AD に接続| Azure AD ディレクトリの資格情報 | Azure AD でのグローバル管理者ロール | <li>Azure AD ディレクトリの同期を有効にします。</li><li>作成、 [Azure AD アカウント](#azure-ad-service-account) Azure AD で進行中の同期操作に使用されます。</li>
-AD DS に接続 | オンプレミスの Active Directory の資格情報 | Active Directory 内の Enterprise Admins (EA) グループのメンバー| <li>作成、 [アカウント](#active-directory-account) で Active Directory とそれに権限を付与します。 この作成されたアカウントは、同期中にディレクトリ情報を読み取るまたは書き込むために使用されます。</li>
+Azure への接続| Azure AD ディレクトリの資格情報 | Azure AD でのグローバル管理者ロール | <li>Azure AD ディレクトリの同期を有効にします。</li>  <li>作成、 [Azure AD アカウント](#azure-ad-service-account) Azure AD で進行中の同期操作に使用されます。</li>
+AD DS に接続 | オンプレミスの Active Directory の資格情報 | Active Directory 内の Enterprise Admins (EA) グループのメンバー| <li>作成、 [アカウント](#active-directory-account) で Active Directory とそれに権限を付与します。 作成したアカウントは同期中にディレクトリ情報を読み書きするために使用します。</li>
 
 ### エンタープライズ管理者の資格情報
 これらの資格情報はインストール中にのみ使用されます。インストールの完了後には使用されません。 ドメイン管理者ではなく、エンタープライズ管理者が Active Directory のアクセス許可をすべてのドメインで設定できることを確認します。
@@ -57,7 +57,7 @@ AD DS に接続 | オンプレミスの Active Directory の資格情報 | Activ
 ------------- | ------------- |------------- |-------------
 該当なし|インストール ウィザードを実行するユーザー|<li>ローカル サーバーの管理者</li><li>場合は、完全な SQL Server を使用して、ユーザーが SQL でシステム管理者 (SA) をする必要があります。</li>| 既定では、作成、ローカル アカウントとして使用される、 [同期エンジンのサービス アカウント](#azure-ad-connect-sync-service-account)します。 アカウントは、管理者が特定のアカウントを指定しない場合にのみ作成されます。
 同期サービスのインストール、サービス アカウントのオプション | AD またはローカル ユーザー アカウントの資格情報 | ユーザー。アクセス許可は、インストール ウィザードにより付与されます。|管理者がアカウントを指定している場合は、このアカウントは、同期サービスのサービス アカウントとして使用します。
-Azure への接続|Azure AD ディレクトリの資格情報| Azure AD でのグローバル管理者ロール| <li>Azure AD ディレクトリの同期を有効にします。</li><li>作成、 [Azure AD アカウント](#azure-ad-service-account) Azure AD で進行中の同期操作に使用されます。</li>
+Azure への接続|Azure AD ディレクトリの資格情報| Azure AD でのグローバル管理者ロール| <li>Azure AD ディレクトリの同期を有効にします。</li>  <li>作成、 [Azure AD アカウント](#azure-ad-service-account) Azure AD で進行中の同期操作に使用されます。</li>
 ディレクトリの接続|Azure AD に接続する各フォレストのオンプレミスの Active Directory の資格情報 | アクセス許可は、機能を有効にしてご覧に依存している、 [AD DS アカウントを作成します。](#create-the-ad-ds-account) |このアカウントは、同期中にディレクトリ情報を読み取るまたは書き込むために使用されます。
 AD FS サーバー|ウィザードを実行しているユーザーのログオン資格情報では接続できない場合は、リスト内の各サーバーについて、ウィザードが資格情報を収集します。|ドメイン管理者|AD FS サーバー ロールをインストールして構成します。
 Web アプリケーション プロキシ サーバー |ウィザードを実行しているユーザーのログオン資格情報では接続できない場合は、リスト内の各サーバーについて、ウィザードが資格情報を収集します。|ターゲット コンピューターのローカル管理者|WAP サーバー ロールをインストールして構成します。
@@ -73,7 +73,7 @@ Azure AD Connect で指定したアカウントをインストールするとき
 | ------ | ------ |
 | パスワードの同期 | <li>ディレクトリの変更をレプリケートします。</li>  <li>変更をすべてにレプリケート ディレクトリ |
 | Exchange ハイブリッドのデプロイメント | 記載されている属性に対する書き込みアクセス許可 [Exchange ハイブリッドの書き戻し](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) ユーザー、グループ、および連絡先のです。 |
-| パスワード ライトバック | 記載されている属性に対する書き込みアクセス許可 [パスワード管理の概要](active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) ユーザー向けです。 |
+| パスワードの書き戻し | 記載されている属性に対する書き込みアクセス許可 [パスワード管理の概要](active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) ユーザー向けです。 |
 | デバイスの書き戻し | アクセス許可」の説明に従って PowerShell スクリプトを使用して許可 [デバイスの書き戻し](active-directory-aadconnect-get-started-custom-device-writeback.md)します。|
 | グループの書き戻し | 配布グループが配置されている OU 内のグループ オブジェクトの読み取り、作成、更新、および削除。|
 
@@ -121,4 +121,5 @@ Azure AD のアカウントは、同期サービスで使用するために作�
 ## 次のステップ
 
 詳細について [内部設置型 id と Azure Active Directory の統合](active-directory-aadconnect.md)します。
+
 

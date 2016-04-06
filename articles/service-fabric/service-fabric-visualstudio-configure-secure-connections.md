@@ -30,11 +30,11 @@ Visual Studio Service Fabric Tools は、発行のためのクラスターへの
 
 Visual Studio からの Service Fabric プロジェクトを発行する場合、 **発行** ] ダイアログ ボックスでは、Azure Service Fabric クラスターをクリックして選択できます。、 **選択** ボタンをクリック **接続エンドポイント** セクションです。 Azure アカウントにサインインし、サブスクリプションで利用可能な既存のクラスターを選択できます。
 
-![発行] ダイアログ ボックスにより、Service Fabric の接続を構成するユーザー][publishdialog]
+![発行ダイアログ ボックスでは Service Fabric の接続を構成するユーザー][publishdialog]
 
  **Service Fabric クラスターの選択** ] ダイアログ ボックスが自動的にクラスターの接続を検証します。 検証に成功した場合、システムに正しい証明書がインストールされていてクラスターに安全に接続できるか、クラスターがセキュリティ保護されていないことを意味しています。 検証に失敗した場合は、ネットワークに問題が発生しているか、システムが正しく構成されていないためにセキュリティ保護されたクラスターに接続できない可能性があります。
 
-![選択の Service Fabric クラスターのダイアログ ボックスでは、既存の選択やサービス ファブリック クラスター接続を新規作成して接続を構成するユーザー][selectsfcluster]
+![クラスターの Service Fabric の選択ダイアログ ボックスでは、既存の選択やサービス ファブリック クラスター接続を新規作成して接続を構成するユーザー][selectsfcluster]
 
 ### セキュリティ保護されたクラスターに接続するには
 
@@ -75,3 +75,4 @@ Service Fabric クラスターにアクセスする方法の詳細について�
 <!--Image references-->
 [publishdialog]:./media/service-fabric-visualstudio-configure-secure-connections/publishdialog.png
 [selectsfcluster]:./media/service-fabric-visualstudio-configure-secure-connections/selectsfcluster.png
+

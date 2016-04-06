@@ -105,10 +105,10 @@ Web API を使用してメッセージを送信できます。
 >
 >`````
 sendgrid.send({
-    : 'john@contoso.com'
-    : 'anna@contoso.com'
-    件名: [テスト メール]
-    テキスト: 'これは、電子メール メッセージの例です' です。
+    to: 'john@contoso.com',
+    from: 'anna@contoso.com',
+    subject: 'test mail',
+    text: 'This is a sample email message.'
 });
 `````
 
@@ -226,4 +226,5 @@ these links to learn more.
   [SendGrid API documentation]: https://sendgrid.com/docs
   [cloud-based email service]: https://sendgrid.com/email-solutions
   [transactional email delivery]: https://sendgrid.com/transactional-email
+
 

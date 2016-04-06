@@ -21,8 +21,8 @@
 > [AZURE.SELECTOR]
 - [ユニバーサル Windows](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS |Obj C](mobile-engagement-ios-get-started.md)
-- [iOS |Swift](mobile-engagement-ios-swift-get-started.md)
+- [iOS | Obj C](mobile-engagement-ios-get-started.md)
+- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
 - [Android](mobile-engagement-android-get-started.md)
 - [Cordova](mobile-engagement-cordova-get-started.md)
 
@@ -36,11 +36,11 @@
 
 > [AZURE.IMPORTANT] Windows ユニバーサル アプリの他のすべてのモバイル エンゲージメント チュートリアルの前提条件は、このチュートリアルを完了します。 このチュートリアルを完了するには、アクティブな Azure アカウントが必要です。 アカウントがない場合は、無料試用版のアカウントを数分で作成することができます。 詳細については、<a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure の無料試用版サイト</a>をご覧ください。
 
-##<a id="setup-azme"></a>モバイル エンゲージメント Windows ユニバーサル アプリを設定します。
+##<a id="setup-azme"></a>Windows ユニバーサル アプリの Mobile Engagement を設定する
 
 [AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
 
-##<a id="connecting-app"></a>アプリを Mobile Engagement のバックエンドに接続する
+##<a id="connecting-app"></a>アプリを Mobile Engagement のバックエンドに接続します
 
 このチュートリアルでは、データを収集してプッシュ通知を送信するために必要な最小限のセットである「基本的な統合」について説明します。 完全な統合のドキュメントについては記載されて、 [モバイル エンゲージメント Windows ユニバーサル SDK 統合](../mobile-engagement-windows-store-sdk-overview/)します。
 
@@ -60,7 +60,7 @@
 
 ###アプリを Mobile Engagement のバックエンドに接続する
 
-1. プロジェクトで、[MicrosoftAzure.MobileEngagement] nuget パッケージをインストールします。 Windows と Windows Phone の両方のプラットフォームを対象としている場合、両方のプロジェクトにこれを行う必要があります。 Windows 8.x および Windows Phone 8.1 の場合は、同じ Nuget パッケージが各プロジェクトに適切なプラットフォーム固有のバイナリを配置します。
+1. インストール、 [MicrosoftAzure.MobileEngagement] プロジェクトで nuget パッケージ。 Windows と Windows Phone の両方のプラットフォームを対象としている場合、両方のプロジェクトにこれを行う必要があります。 Windows 8.x および Windows Phone 8.1 の場合は、同じ Nuget パッケージが各プロジェクトに適切なプラットフォーム固有のバイナリを配置します。
 
 2. 開いている **Package.appxmanifest** し、次の機能がある追加されたことを確認します。
 
@@ -107,7 +107,7 @@
               //... rest of the code
             }
 
-##<a id="monitor"></a>リアルタイム監視を有効にします。
+##<a id="monitor"></a>リアルタイム監視を有効にする
 
 データを送信してユーザーがアクティブであることを確認するには、少なくとも 1 つの画面 (アクティビティ) を Mobile Engagement のバックエンドに送信する必要があります。
 
@@ -133,7 +133,7 @@
 
 [AZURE.INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-##<a id="integrate-push"></a>プッシュ通知とアプリ内メッセージングを有効にします。
+##<a id="integrate-push"></a>プッシュ通知とアプリ内メッセージングを有効にする
 
 Mobile Engagement を導入すると、キャンペーンとの関連でプッシュ通知とアプリ内メッセージングを利用し、ユーザーに情報を提供できます。 このモジュールは、Mobile Engagement ポータルで REACH として呼び出されます。
 次のセクションでは、それらを受信するようにアプリをセットアップします。
@@ -158,7 +158,7 @@ Mobile Engagement を導入すると、キャンペーンとの関連でプッ�
 
 ###通知を送信するために Mobile Engagement へのアクセスを許可する
 
-1. [Windows ストア デベロッパー センター] を開き、web ブラウザーでログインし必要な場合は、アカウントを作成します。
+1. 開いている [Windows Store Dev Center] 、web ブラウザーでログインし、必要な場合は、アカウントを作成します。
 2. をクリックして **ダッシュ ボード** 右上には、コーナー クリックして **新しいアプリを作成** メニューの左側のパネルです。 
 
     ![][9]
@@ -187,7 +187,7 @@ Mobile Engagement を導入すると、キャンペーンとの関連でプッ�
 
     ![][7]
 
-##<a id="send"></a>アプリへ通知を送信します。
+##<a id="send"></a>アプリへ通知を送信する
 
 [AZURE.INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
@@ -215,6 +215,7 @@ Mobile Engagement を導入すると、キャンペーンとの関連でプッ�
 [11]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push.png
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
+
 
 
 

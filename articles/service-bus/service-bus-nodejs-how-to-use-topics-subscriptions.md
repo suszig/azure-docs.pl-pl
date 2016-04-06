@@ -87,7 +87,7 @@ Azure クラウド サービスの構成ファイルで環境変数を設定の�
  **ServiceBusService** オブジェクトでは、トピックを操作することができます。 この
 次のコードを作成、 **ServiceBusService** オブジェクトです。 付近に追加します
 一番上、 **server.js** 、azure にインポートするステートメントの後のファイル
-。
+このコードを追加します。
 
 ```
 var serviceBusService = azure.createServiceBusService();
@@ -127,7 +127,7 @@ serviceBusService.createTopicIfNotExists('MyTopic', topicOptions, function(error
 
 ### フィルター
 
-オプションのフィルター操作を使用して行われる操作に適用できます **ServiceBusService**します。 フィルター操作には、ログや自動的な再試行などが含まれる場合があります。フィルターは、次のシグネチャを持つメソッドを実装するオブジェクトです。
+オプションのフィルター操作を使用して行われる操作に適用できます **ServiceBusService**します。 フィルター操作には、ログ、自動的な再試行などが含まれる場合があります。フィルターは、次のシグネチャを持つメソッドを実装するオブジェクトです。
 
 ```
 function handle (requestOptions, next)
@@ -442,4 +442,5 @@ Service Bus はメッセージを自動的に解除され、使用できるよ�
   [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Node.js Web Application with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
+
 

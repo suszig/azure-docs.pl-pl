@@ -43,9 +43,10 @@
 - [Azure AD のパスワード管理に関する FAQ](active-directory-passwords-faq.md)
 
 
-## 参照トピック
+## 次の手順
 
 - [Administer your Azure AD directory](active-directory-administer.md)
 - [Azure AD でのユーザーの作成または編集](active-directory-create-users.md)
 - [Azure AD でのグループの管理](active-directory-manage-groups.md)
+
 

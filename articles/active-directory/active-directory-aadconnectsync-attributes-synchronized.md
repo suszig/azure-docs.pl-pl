@@ -19,7 +19,7 @@
 
 # Azure AD Connect Sync: Azure Active Directory に同期される属性
 
-このトピックでは、Azure AD Connect sync によって同期される属性を示します。<br>
+このトピックでは、Azure AD Connect Sync によって同期される属性の一覧を示します。<br>
 属性は、関連する Azure AD アプリによってグループ化されます。
 
 
@@ -435,4 +435,5 @@ Windows 10 のドメイン参加コンピューター (デバイス) は、一�
 詳細について、 [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) 構成します。
 
 詳細について [内部設置型 id と Azure Active Directory の統合](active-directory-aadconnect.md)します。
+
 

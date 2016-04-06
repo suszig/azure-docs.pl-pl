@@ -37,7 +37,7 @@ Microsoft Azure BizTalk Services リリース ノートでは、このリリー�
 ### 8 月 14 日の更新
 * 契約とブリッジの分離 - BizTalk Services ポータルで取引先契約とブリッジが分離されました。 契約とブリッジを個別に作成するようになりました。実行時には EDI メッセージの値に基づいてブリッジが契約に解決されます。 参照してください [Azure BizTalk サービスで契約を作成する](https://msdn.microsoft.com/library/azure/hh689908.aspx), 、[BizTalk サービス ポータルを使用して EDI ブリッジの作成](https://msdn.microsoft.com/library/azure/dn793986.aspx), 、[BizTalk サービス ポータルを使用して AS2 ブリッジの作成](https://msdn.microsoft.com/library/azure/dn793993.aspx), 、および [どのブリッジ実行時にアグリーメントを解決でしょうか。](https://msdn.microsoft.com/library/azure/dn794001.aspx)  
 * 契約のテンプレートを作成するためのオプションが廃止されました。  
-* 送信側契約は、スキーマごとに異なる区切り記号セットを指定できるようになりました。 この構成は、送信側契約のプロトコル設定で指定します。 詳細については、次を参照してください。 [x12 作成 Azure BizTalk サービスで契約](https://msdn.microsoft.com/library/azure/hh689847.aspx) と [Azure BizTalk サービスで EDIFACT アグリーメントを作成](https://msdn.microsoft.com/library/azure/dn606267.aspx)します。 同じ目的のために、TPM OM API にも 2 つの新しいエンティティが追加されました。 参照してください [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) と [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx)します。  
+* 送信側契約は、スキーマごとに異なる区切り記号セットを指定できるようになりました。 この構成は、送信側契約のプロトコル設定で指定します。 詳細については、次を参照してください。 [X12 作成 Azure BizTalk サービスで契約](https://msdn.microsoft.com/library/azure/hh689847.aspx) と [Azure BizTalk サービスで EDIFACT アグリーメントを作成](https://msdn.microsoft.com/library/azure/dn606267.aspx)します。 同じ目的のために、TPM OM API にも 2 つの新しいエンティティが追加されました。 参照してください [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) と [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx)します。  
 * 派生型を含む標準 XSD コンストラクトがサポートされるようになりました。 参照してください [をマップでの使用の標準 XSD コンストラクト](https://msdn.microsoft.com/library/azure/dn793987.aspx) と [マッピングのシナリオと例で使用する派生型](https://msdn.microsoft.com/library/azure/dn793997.aspx)します。  
 * AS2 でメッセージ署名のための新しい MIC アルゴリズムと新しい暗号化アルゴリズムがサポートされるようになりました。 [参照してください Azure BizTalk サービスで AS2 アグリーメントを作成](https://msdn.microsoft.com/library/azure/hh689890.aspx)します。  
 ## 既知の問題
@@ -51,9 +51,9 @@ Microsoft Azure BizTalk Services リリース ノートでは、このリリー�
 この問題を解決するには、Visual Studio 2012 Update 3 RC 1 をインストールします。  
 
 ### カスタム バインド プロジェクトの参照
-BizTalk サービス プロジェクトを Visual Studio ソリューションでは、次の状況を考慮してください。  
-* Visual Studio ソリューションでは、BizTalk サービス プロジェクトおよびカスタム バインド プロジェクトです。 BizTalk サービス プロジェクトには、このカスタム バインド プロジェクト ファイルへの参照があります。 
-* BizTalk サービス プロジェクトには、カスタム バインド/動作 DLL への参照があります。
+Visual Studio ソリューションの BizTalk Services プロジェクトでの次の状況について考えてみます。  
+* 同じ Visual Studio ソリューションに、BizTalk Services プロジェクトとカスタム バインド プロジェクトがある。 BizTalk Services プロジェクトには、このカスタム バインド プロジェクト ファイルへの参照が含まれている。 
+* BizTalk Services プロジェクトには、このカスタム バインド/動作 DLL への参照が含まれている。
 
 Visual Studio では、ソリューションが正常に "ビルド" されます。 その後、ソリューションを "リビルド" または "クリーン" した その後、リビルドまたはクリーンを再度する場合は、次のエラーが発生します。  
   ファイルをコピーできません。 <Path to DLL> "bin\Debug\FileName.dll"です。 ファイル ‘bin\Debug\FileName.dll’ は、別のプロセスで使用されているため、アクセスできません。  
@@ -79,7 +79,7 @@ Visual Studio では、ソリューションが正常に "ビルド" されま�
 IEA セグメントの後に空白文字があると、逆アセンブラーはそこを現在のインターチェンジの終端として処理し、その後の一連の空白文字を次のメッセージと見なします。 後のメッセージは有効なインターチェンジではないため、1 件の成功メッセージがルーティング先に送信され、1 件の空のメッセージが保留エンドポイントに送信される場合があります。  
 ### BizTalk Services ポータルにおける追跡  
 追跡イベントは EDI メッセージ処理と相関関係までキャプチャされます。 プロトコル ステージとは別の要素でメッセージにエラーが発生した場合、追跡は正常と表示されます。 このような状況では、下のセクションでログを参照してください、 **詳細** 内の列 **追跡** エラーの詳細。
-X12 受信および送信の設定 ([x12 作成 Azure BizTalk サービスで契約](https://msdn.microsoft.com/library/azure/hh689847.aspx)) プロトコル段階の情報を提供します。  
+X12 受信および送信の設定 ([X12 作成 Azure BizTalk サービスで契約](https://msdn.microsoft.com/library/azure/hh689847.aspx)) プロトコル段階の情報を提供します。  
 
 ### 契約の更新  
 BizTalk Services ポータルでは、契約の構成時に ID の修飾子を変更できます。 結果として、プロパティに一貫性がなくなる可能性があります。 たとえば、修飾子として ZZ:1234567 および ZZ:7654321 を使用する契約があるとします。 BizTalk Services ポータルのプロファイル設定で、ZZ:1234567 を 01:ChangedValue に変更し、 契約を開くと、ZZ:1234567 ではなく 01:ChangedValue が表示されます。
@@ -91,8 +91,8 @@ AS2 メッセージの添付ファイルは送信と受信のどちらでもサ�
 ### リソース: パスの記憶  
 追加するときに **リソース**, 、リソースを追加する前に使用されるパスがダイアログ ウィンドウに保持されていない可能性があります。 以前使用したパスを注意してくださいには、BizTalk サービス ポータル web サイトを追加してみて **信頼済みサイト** Internet Explorer でします。  
 ### ブリッジのエンティティ名を変更し、変更を保存しないでプロジェクトを閉じると、再度エンティティを開いたときにエラーが発生する
-次の順序でシナリオを考慮してください。  
-* ブリッジ (XML の一方向ブリッジなど) を BizTalk サービス プロジェクトに追加します。  
+次の順序で操作が実行されるシナリオが該当します。  
+* ブリッジ (XML 一方向ブリッジなど) を BizTalk Services プロジェクトに追加する。  
 
 * ブリッジの名前を変更するために [エンティティ名] プロパティの値を指定する。 これによって、関連する .bridgeconfig ファイルの名前が指定した名前に変更される。  
 
@@ -110,7 +110,7 @@ BizTalk サービス プロジェクトでは、プロジェクトに追加さ�
 このリリースでは、XML 要求-応答ブリッジの応答メッセージの文字セットは常に UTF-8 に設定されます。
 ### ユーザー定義のデータ型
 BizTalk アダプター サービス機能に含まれている BizTalk Adapter Pack アダプターでは、アダプター操作でユーザー定義のデータ型を使用できます。
-ユーザー定義のデータ型を使用する際は、ファイル (.dll) をドライブ \Program Files\Microsoft BizTalk Adapter Service\BAServiceRuntime\bin\ か BizTalk アダプター サービスをホストしているサーバーのグローバル アセンブリ キャッシュ (GAC) にコピーします。 それ以外の場合、次のエラーは、クライアントで発生する可能性があります。  
+ユーザー定義のデータ型を使用する際は、ファイル (.dll) をドライブ \Program Files\Microsoft BizTalk Adapter Service\BAServiceRuntime\bin\ か BizTalk アダプター サービスをホストしているサーバーのグローバル アセンブリ キャッシュ (GAC) にコピーします。 コピーしなかった場合、クライアントで次のエラーが発生する可能性があります。  
 ```<s:Fault xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
   <faultcode>s:Client</faultcode>
   <faultstring xml:lang="en-US">The UDT with FullName "File, FileUDT, Version=Value, Culture=Value, PublicKeyToken=Value" could not be loaded. Try placing the assembly containing the UDT definition in the Global Assembly Cache.</faultstring>
@@ -197,6 +197,7 @@ Throughout this document, the term ‘pipelines’ and ‘bridges’ are used in
 ### Concepts  
 
 [BizTalk Services](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
+
 
 
 

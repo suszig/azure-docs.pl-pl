@@ -36,7 +36,7 @@ API アプリのプロパティでは、その API アプリの Swagger 2.0 JSON
 
 Azure リソース マネージャーの Azure PowerShell、CLI などのツールを使用して、API アプリの API 定義の URL を構成することも、または [リソース エクスプ ローラー](https://resources.azure.com/)します。 
 
-`apiDefinition` プロパティは、<site name>/web リソースの Microsoft.Web/sites/config リソース タイプで設定します。 たとえば、 **リソース エクスプ ローラー**, には、 **サブスクリプション > {サブスクリプション} > resourceGroups > {リソース グループ} > プロバイダー > Microsoft.Web > サイト > {ƒtƒcƒg} > 構成 > web**, と cors のプロパティが表示されます。
+設定、 `apiDefinition` Microsoft.Web/sites/config リソースの種類のプロパティ、 <site name>/web リソースです。 たとえば、 **リソース エクスプ ローラー**, には、 **サブスクリプション > {サブスクリプション} > resourceGroups > {リソース グループ} > プロバイダー > Microsoft.Web > サイト > {ƒtƒcƒg} > 構成 > web**, と cors のプロパティが表示されます。
 
         "apiDefinition": {
           "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"
@@ -55,4 +55,5 @@ API アプリのクライアント コードは、Visual Studio を使用して�
 ## 次のステップ
 
 手順に従って作成するステップ バイ ステップ チュートリアル、配置、および API アプリの使用を参照してください [Azure App Service で API アプリを使ってみる](app-service-api-dotnet-get-started.md)します。
+
 

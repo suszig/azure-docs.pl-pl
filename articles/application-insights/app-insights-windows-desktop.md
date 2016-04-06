@@ -28,7 +28,7 @@ Application Insights を使用すると、デプロイしたアプリケーシ�
 (たとえば、パフォーマンス カウンターまたは依存関係の呼出しを監視するために) どの標準データ コレクターを選択するか、単にコア API を使用して、独自のテレメトリを記述できます。
 
 
-## <a name="add"></a> Application Insights リソースの作成
+## <a name="add"></a>Application Insights リソースの作成
 
 
 1.   [Azure ポータル][portal], 、新しい Application Insights リソースを作成します。 アプリケーションの種類には、Windows ストア アプリを選択します。 
@@ -41,7 +41,7 @@ Application Insights を使用すると、デプロイしたアプリケーシ�
 
     ![[プロパティ] をクリックし、キーを選択して、Ctrl キーを押しながら C キーを押す](./media/app-insights-windows-desktop/02-props.png)
 
-## <a name="sdk"></a>アプリケーションに SDK をインストールする
+## <a name="sdk"></a>アプリケーションでの SDK のインストール
 
 
 1. Visual Studio で、デスクトップ アプリ プロジェクトの NuGet パッケージを編集します。
@@ -70,7 +70,7 @@ Application Insights を使用すると、デプロイしたアプリケーシ�
 
     ApplicationInsights.config を使用する場合を確認してくださいソリューション エクスプ ローラーでそのプロパティに設定されます **ビルド アクション = コンテンツ、出力ディレクトリにコピーのコピーを =**です。
 
-## <a name="telemetry"></a>利用統計情報呼び出しを挿入する
+## <a name="telemetry"></a>テレメトリの呼び出しの挿入
 
 作成、 `TelemetryClient` インスタンスし [テレメトリを送信する使用][api]します。
 
@@ -298,4 +298,5 @@ namespace ConsoleApplication1
 [api]: app-insights-api-custom-events-metrics.md
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
+
 

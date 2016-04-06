@@ -35,7 +35,7 @@
 
 ## ビデオ チュートリアル
 
-以下は、このチュートリアルのガイドです。
+次は、このチュートリアルのガイドです。
 
 [AZURE.VIDEO creating-a-windows-vm-on-microsoft-azure-classic-portal]
 
@@ -52,4 +52,5 @@
 - 仮想マシンにログオンします。 手順については、次を参照してください。 [Windows Server を実行する仮想マシンにログオンする方法](virtual-machines-log-on-windows-server.md)します。
 
 - データを格納するディスクを接続します。 空のディスクと、データが含まれているディスクのどちらも接続できます。 手順については、次を参照してください。、 [データ ディスクのチュートリアルをアタッチ](storage-windows-attach-disk.md)します。
+
 

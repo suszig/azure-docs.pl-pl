@@ -77,7 +77,7 @@ Azure AD への Questetra BPM Suite の統合を構成するには、ギャラ�
 ##  Azure AD シングル サインオンの構成とテスト
 このセクションの目的は、"Britta Simon" というテスト ユーザーに基づいて、Questetra BPM Suite で Azure AD のシングル サインオンを構成し、テストする方法について説明することです。
 
-シングル サインオンを機能させるには、Azure AD ユーザーに対応する Questetra BPM Suite ユーザーが Azure AD で認識されている必要があります。 言い換えると、Azure AD ユーザーと Questetra BPM Suite の関連ユーザーの間で、リンクの関係が確立されている必要があります。<br>
+シングル サインオンを機能させるには、Azure AD ユーザーに対応する Questetra BPM Suite ユーザーが Azure AD で認識されている必要があります。 つまり、Azure AD のユーザーと Questetra BPM スイート内の関連ユーザーの間のリンクの関係を確立する必要があります。<br>
 値を割り当てることでこのリンクの関係が確立される、 **ユーザー名** の値として Azure AD で、 **ユーザー名** Questetra BPM スイートです。
  
 Questetra BPM Suite で Azure AD のシングル サインオンを構成し、テストするには、次の要素を完了する必要があります。
@@ -108,7 +108,7 @@ Questetra BPM Suite で Azure AD のシングル サインオンを構成し、�
 5. 開くには、 **SingleSignOnSAML** ] ページで [ **SSO (SAML)**します。 <br><br> ![Azure AD シングル サインオン][11]
 
 
-6. Azure ポータルでの **アプリケーション設定の構成** ] ダイアログ ページで、次の手順を実行します <br><br>![アプリケーション設定の構成。][13]
+6. Azure ポータルでの **アプリケーション設定の構成** ] ダイアログ ページで、次の手順を実行します。 <br><br>![アプリ設定を構成します。][13]
  
     a.  **Questetra BPM スイート** 会社サイトでは、「SP 情報」のコピーで、 **ACS URL**, 、貼り付けると、 **サインオン URL** ] ボックスに貼り付けます。
 
@@ -119,10 +119,10 @@ Questetra BPM Suite で Azure AD のシングル サインオンを構成し、�
     d. クリックして **次**します。
 
  
-7.  **Questetra BPM スイートでのシングル サインオンの構成** ] ページで [ **証明書のダウンロード**, 、お使いのコンピューターにローカルで証明書ファイルを保存します<br><br>![。シングル サインオンを構成します。][14]
+7.  **Questetra BPM スイートでのシングル サインオンの構成** ] ページで [ **証明書のダウンロード**, 、お使いのコンピューターにローカルで証明書ファイルを保存します。<br><br>![シングル サインオンを構成します。][14]
 
 
-8.  **Questetra BPM スイート** 会社のサイトは、次の手順に従います: <br><br>![シングル サインオンを構成します。][15]
+8.  **Questetra BPM スイート** 会社のサイトは、次の手順に従います。 <br><br>![シングル サインオンを構成します。][15]
 
     a. 選択 **でのシングル サインオンを有効にする**です。
      
@@ -132,7 +132,7 @@ Questetra BPM Suite で Azure AD のシングル サインオンを構成し、�
 
     d. Azure のポータルでは、コピー、 **シングル サインアウト サービス URL** 値に設定して、貼り付けます、 **サインアウト ページ URL** ] ボックスに貼り付けます。
 
-    e.  **NameID format** ] ボックスに「 **urn oasis: 名: 対象の形式: emailAddress**します。
+    e.  **NameID format** ] ボックスに「 **urn: oasis: 名: tc: SAML:1.1:nameid の形式: emailAddress**します。
 
 
     f. Create a base-64 encoded file from your downloaded certificate. 
@@ -221,11 +221,11 @@ Questetra BPM Suite で Azure AD のシングル サインオンを構成し、�
 ### Azure AD テスト ユーザーの割り当て
 
 このセクションでは、Britta Simon Questetra BPM スイートにアクセスを付与することによって Azure シングル サインオンの使用を有効にするとします。
-<br><br>![What is Azure AD Connect][200]
+<br><br>![Azure AD Connect の概要][200]
 
 **Questetra BPM Suite に Britta Simon を割り当てるには、次の手順に従います。**
 
-1. Azure ポータルで、ディレクトリ ビューでアプリケーション ビューを開く] をクリックして **アプリケーション** 上部のメニュー<br><br>![。Azure AD Connect とは][201]
+1. Azure ポータルで、ディレクトリ ビューでアプリケーション ビューを開く] をクリックして **アプリケーション** 上部のメニュー。<br><br>![Azure AD Connect とは][201]
 2. アプリケーションの一覧で選択 **Questetra BPM スイート**します。
 <br><br>![Azure AD Connect とは][205]
 1. 上部にあるメニュー [ **ユーザー**します。
@@ -286,3 +286,4 @@ Questetra BPM Suite で Azure AD のシングル サインオンを構成し、�
 [205]: ./media/active-directory-saas-questetra-bpm-suite/questera_bpm_suite_12.png
 
 [300]: ./media/active-directory-saas-questetra-bpm-suite/questera_bpm_suite_11.png 
+

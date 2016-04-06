@@ -162,7 +162,7 @@ A **CloudBlobClient** オブジェクトでは、コンテナーと blob の参�
         e.printStackTrace();
     }
 
-BLOB の名前はパス情報を含めて指定することができることに注意してください。 これで、従来のファイル システムと同じように、整理およびスキャン可能な仮想ディレクトリ構造が作成されます。 ディレクトリ構造は仮想のみであり、BLOB ストレージで使用できるリソースはコンテナーと BLOB のみであることに注意してください。 ただし、クライアント ライブラリが用意されています、 **CloudBlobDirectory** 仮想ディレクトリを参照し、この方法で整理される blob の操作プロセスを簡略化するオブジェクト。
+BLOB の名前はパス情報を含めて指定することができることに注意してください。 これで、従来のファイル システムと同じように、整理およびスキャン可能な仮想ディレクトリ構造が作成されます。 ディレクトリ構造は仮想のみであり、Blob Storage で使用できるリソースはコンテナーと BLOB のみであることに注意してください。 ただし、クライアント ライブラリが用意されています、 **CloudBlobDirectory** 仮想ディレクトリを参照し、この方法で整理される blob の操作プロセスを簡略化するオブジェクト。
 
 たとえば、"photos" という名前のコンテナーを作成して、その中に "rootphoto1"、"2010/photo1"、"2010/photo2"、および "2011/photo1" という名前の BLOB をアップロードすることができます。 このようにすると、"photos" コンテナー内に "2010" および "2011" という仮想ディレクトリが作成されます。 呼び出すと **listBlobs** 返されるコレクションには、"photos"コンテナーに対して **CloudBlobDirectory** と **CloudBlob** ディレクトリおよび blob の最上位レベルに含まれるを表すオブジェクト。 この例の場合は、ディレクトリ "2010" および "2011" と、写真 "rootphoto1" が返されます。 使用することができます、 **instanceof** をこれらのオブジェクトを区別する演算子です。
 
@@ -271,4 +271,5 @@ Blob、blob の参照を取得および呼び出しを削除する **deleteIfExi
 [Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+
 

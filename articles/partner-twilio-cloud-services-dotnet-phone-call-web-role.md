@@ -34,7 +34,7 @@
 
 Azure での基本的な Web ロールの作成について詳しく理解している必要があります。
 
-## <a name="howtocreateform"></a>方法: 通話用の Web フォームを作成する
+## <a name="howtocreateform"></a>方法: 通話用の Web フォームの作成
 
 <a id="use_nuget"></a>Twilio ライブラリを Web ロール プロジェクトに追加するには
 
@@ -69,7 +69,7 @@ Azure での基本的な Web ロールの作成について詳しく理解して
         </div>
     </asp:Content>
 
-## <a id="howtocreatecode"></a>方法: 通話用のコードを作成する
+## <a id="howtocreatecode"></a>方法: 通話用のコードの作成
 次のコードはユーザーがフォームへの入力を完了すると呼び出され、このコードによって通話メッセージが作成され、通話が生成されます。 この例では、コードは、フォームのボタンの onclick イベント ハンドラーで実行されます (に割り当てられたプレース ホルダー値の代わりには、Twilio アカウントと認証トークンを使用して **accountSID** と **authToken** 次のコードにします)。
 
     using System;
@@ -191,4 +191,5 @@ Azure の ASP.NET Web ロールで Twilio を使用した基本機能を示す�
 
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
+
 

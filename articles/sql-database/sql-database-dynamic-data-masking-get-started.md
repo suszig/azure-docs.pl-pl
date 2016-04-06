@@ -49,11 +49,11 @@ SQL Database の構成ブレードまたは設定ブレードの動的データ 
 
 | マスク関数 | マスク ロジック |
 |----------|---------------|
-| **既定値**  |**指定のフィールドの種類をデータに従いフル マスク**<br/><br/>文字列データ型 (nchar、ntext、nvarchar) を • 使用 XXXX またはフィールドのサイズが 4 文字未満の場合より少ない Xs<br/>。• 数値データ型 (bigint、ビット、10 進数、int、money、numeric、smallint、smallmoney、tinyint、float、リアル) に値 0 を使用します<br/>。• 日付/時刻データ型 (date、datetime2、datetime、datetimeoffset、smalldatetime、時刻) の 1900-01-01 を使用します<br/>。• SQL バリアントでは、現在の型の既定値を使用します<br/>。XML ドキュメントの • <masked/> を使用します<br/>。• 特殊なデータ型の空の値を使用して (タイムスタンプ テーブル、hierarchyid、GUID、binary、image、varbinary 空間型)。
-| **クレジット カード** |**指定のフィールドの末尾 4 桁を公開するマスク方法** クレジット_カードのフォームでプレフィックスとして定数文字列を追加およびカード<br/><br/>XXXX XXXX XXXX 1234|
-| **社会保障番号** |**指定のフィールドの末尾 4 桁を公開するマスク方法** し、米国の社会保障番号のフォームでプレフィックスとして定数文字列を追加します<br/><br/>。XXX XX-1234 |
-| **電子メール** | **マスクを最初の文字を公開し、ドメインを xxx.com に交換する方法** 電子メール アドレスのフォームでプレフィックスとして定数文字列を使用します<br/><br/>。aXX@XXXX.com |
-| **ランダムな数値** | **乱数を生成するマスク方法** 選択した境界と実際のデータ型に応じて。 指定された境界が等しいかとしている場合、マスク関数は、一定の数になります<br/><br/>![。ナビゲーション ウィンドウ](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
+| **既定値**  |**指定のフィールドのデータ型に応じたフル マスク**<br/><br/>• 使用 XXXX またはより少ない Xs、フィールドのサイズが 4 未満の文字の文字列データ型 (nchar、ntext、nvarchar) である場合。<br/>• 数値データ型 (bigint、bit、decimal、int、money、numeric、smallint、smallmoney、tinyint、float、real) の場合は、値 0 を使用します。<br/>• 日付/時刻データ型 (date、datetime2、datetime、datetimeoffset、smalldatetime、時刻) の 1900-01-01 を使用します。<br/>• SQL バリアントの場合は、現在の型の既定値が使用されます。<br/>• XML ドキュメント <masked/> 使用されます。<br/>• 特殊なデータ型の空の値を使用して (タイムスタンプ テーブル、hierarchyid、GUID、binary、image、varbinary 空間型)。
+| **クレジット カード** |**指定のフィールドの末尾 4 桁を公開するマスク方法** し、クレジット_カードのフォームでプレフィックスとして定数文字列を追加します。<br/><br/>XXXX XXXX XXXX 1234|
+| **社会保障番号** |**指定のフィールドの末尾 4 桁を公開するマスク方法** し、米国の社会保障番号のフォームでプレフィックスとして定数文字列を追加します。<br/><br/>XXX XX-1234 |
+| **電子メール** | **マスクを最初の文字を公開し、ドメインを xxx.com に交換する方法** 電子メール アドレスのフォームでプレフィックスとして定数文字列を使用します。<br/><br/>aXX@XXXX.com |
+| **ランダムな数値** | **乱数を生成するマスク方法** 選択した境界と実際のデータ型に応じて。 指定された境界が等しい場合、マスク関数は定数になります。<br/><br/>![ナビゲーション ウィンドウ](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
 | **カスタム テキスト** | **最初と最後の文字を公開するマスク方法** し、中央にカスタム埋め込み文字列を追加します。 元の文字列が公開されているプレフィックスとサフィックスよりも短い場合は、埋め込み文字列のみが使用されます。 <br/>プレフィックス [埋め込み] サフィックス<br/><br/>![ナビゲーション ウィンドウ](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
 
 
@@ -72,7 +72,7 @@ DDM の推奨エンジンでは、データベースの特定のフィールド�
 
     * または、下にスクロールすることができます、 **操作** セクションを **動的データ マスク**します。
 
-    ![Navigation pane](./media/sql-database-dynamic-data-masking-get-started/4_ddm_settings_tile.png)<br/><br/>
+    ![ナビゲーション ウィンドウ](./media/sql-database-dynamic-data-masking-get-started/4_ddm_settings_tile.png)<br/><br/>
 
 
 4.  **動的データ マスク** 構成ブレードの推奨エンジンのマスキングのフラグが設定をいくつかのデータベース列が表示されます。 推奨事項をそのまま使用するのにはクリックしてだけ **マスクの追加** の 1 つまたは複数の列と、マスクが方が、この列の既定の型を基に作成されます。 マスク機能を変更できます。その場合、マスク ルールをクリックし、マスク フィールド形式を別の形式に変更します。 オンに **保存** して設定を保存します。
@@ -82,7 +82,7 @@ DDM の推奨エンジンでは、データベースの特定のフィールド�
 
 5. 上部にある、データベース内の任意の列のマスクを追加する、 **動的データ マスク** 構成ブレードをクリックして **マスクの追加** を開くには、 **[マスク ルールの** 構成ブレード
 
-    ![Navigation pane](./media/sql-database-dynamic-data-masking-get-started/6_ddm_add_mask.png)<br/><br/>
+    ![ナビゲーション ウィンドウ](./media/sql-database-dynamic-data-masking-get-started/6_ddm_add_mask.png)<br/><br/>
 
 6. 選択、 **スキーマ**, 、**テーブル** と **列** マスクされる指定したフィールドを定義します。
 
@@ -108,4 +108,5 @@ DDM の推奨エンジンでは、データベースの特定のフィールド�
 ## REST API を使用してデータベース用の動的データ マスクを設定する
 
 参照してください [Azure SQL データベースの操作](https://msdn.microsoft.com/library/dn505719.aspx)します。
+
 

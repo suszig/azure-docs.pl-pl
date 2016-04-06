@@ -33,7 +33,7 @@
 
 > [AZURE.VIDEO mobile-authorize-users-in-scripts-windows-phone]
 
-このチュートリアルは、Mobile Services のクイック スタートに基づいています。 まず Mobile Services の追加、既存のアプリケーションに」チュートリアルを行う必要があります。
+このチュートリアルは、モバイル サービスのクイック スタートに基づいています。 また、最初のチュートリアルを完了する必要があります [Add Mobile Services to an existing app]します。
 
 >[AZURE.NOTE]このチュートリアルでは、さまざまな id プロバイダーを使用したモバイル サービスによって管理される認証フローについて説明します。 この方法は構成が容易で、複数のプロバイダーをサポートしています。 クライアントによって管理される認証を使用することにより、アプリは ID プロバイダーが保持する追加のユーザー データにアクセスできます。 呼び出してをモバイル サービスで同じユーザー データを取得できる、 **user.getIdentities()** サーバー スクリプトで機能します。 詳細については、次を参照してください。 [この投稿](http://go.microsoft.com/fwlink/p/?LinkId=506605)します。
 
@@ -56,7 +56,7 @@
 
 [AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app](../../includes/mobile-services-windows-phone-authenticate-app.md)]
 
-##<a name="tokens"></a>クライアント側で認証トークンを保存する
+##<a name="tokens"></a>クライアントに認証トークンを保存する
 
 [AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../../includes/mobile-services-windows-phone-authenticate-app-with-token.md)]
 
@@ -81,4 +81,5 @@
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Add Mobile Services to an existing app]: mobile-services-windows-phone-get-started-data.md
 [Authorize users with scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
+
 

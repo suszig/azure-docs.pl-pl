@@ -151,7 +151,7 @@ VAST ファイルは、表示する広告を指定します。 次の XML に、
     </Creative>
 
  
- **<NonLinearAds>** 要素は、1 つまたは複数を含めることができます **<NonLinear>** 要素、それぞれ非線形広告を記述することができます。  **<NonLinear>** 要素は、非線形広告のリソースを指定します。 リソースを指定できます、 **<StaticResouce>**, 、 **<IFrameResource>**, 、または **<HTMLResouce>**.**<StaticResource>** HTML 以外のリソースを説明し、リソースの表示方法を指定する creativeType 属性を定義します。
+ **<NonLinearAds>** 要素は、1 つまたは複数を含めることができます **<NonLinear>** 要素、それぞれ非線形広告を記述することができます。  **<NonLinear>** 要素は、非線形広告のリソースを指定します。 リソースを指定できます、 **<StaticResouce>**, 、 **<IFrameResource>**, 、または **<HTMLResouce>**します。**<StaticResource>** HTML 以外のリソースを説明し、リソースの表示方法を指定する creativeType 属性を定義します。
 
 画像/gif、jpeg イメージ/、image/png – リソースが HTML で表示される **<img>** タグ。
 
@@ -161,7 +161,7 @@ Application/x-shockwave-flash – リソースが Flash プレーヤーで表示
 
 **<IFrameResource>** IFrame で表示できる HTML リソースをについて説明します。 **<HTMLResource>** web ページに挿入できる HTML コードを記述します。 **<TrackingEvents>** 追跡イベントとイベントが発生した場合、要求 URI を指定します。 このサンプルでは、acceptinvitation イベントと collapse イベントが追跡されます。 詳細については、 **<NonLinearAds>** 要素とその子は、IAB.NET/VAST を参照してください。 なお、 **<TrackingEvents>** 要素が内にある、* * <NonLinearAds>* * 要素ではなく、 **<NonLinear>** 要素。
 
-コンパニオン広告は、<CompanionAds> 要素内で定義されます。 <CompanionAds> 要素には、1 つ以上の <Companion> 要素を含めることができます。 各 <Companion> 要素は、コンパニオン広告を記述します。また、非線形広告でも同じように指定される <StaticResource>、<IFrameResource>、<HTMLResource> を含めることができます。 VAST ファイルには、複数のコンパニオン広告を含めることができ、プレーヤー アプリケーションは表示する最適な広告を選択できます。 VAST の詳細については、次を参照してください。 [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf)します。
+コンパニオン広告は内で定義します。 <CompanionAds> 要素。 この <CompanionAds> 要素は、1 つまたは複数を含めることができます。 <Companion> 要素です。 各 <Companion> 要素は、コンパニオン広告を記述し、含めることができます、 <StaticResource>。 <IFrameResource>, or <HTMLResource> これは、非線形広告でも同じ方法で指定します。 VAST ファイルには、複数のコンパニオン広告を含めることができ、プレーヤー アプリケーションは表示する最適な広告を選択できます。 VAST の詳細については、次を参照してください。 [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf)します。
 
 ###Digital Video Multiple Ad Playlist (VMAP) ファイルの使用
 
@@ -233,7 +233,7 @@ VMAP ファイルの先頭、 <VMAP> 1 つまたは複数を含む要素 <AdBrea
 - <AdTagURI> 別のシステムからの応答を参照する URI
 - <CustomAdData> 任意を表す文字列。 VAST 以外の応答
 
-この例では、VAST 広告応答が含まれる <VASTAdData> 要素を使用してインライン広告応答が指定されます。 その他の要素の詳細については、次を参照してください。 [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap)します。
+この例では、インライン広告応答が指定されている、 <VASTAdData> -VAST 広告応答を含む要素です。 その他の要素の詳細については、次を参照してください。 [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap)します。
 
 <**AdBreak**> 要素を含めることも 1 つ <**TrackingEvents**> 要素。 <**TrackingEvents**> 要素では、先頭または末尾の広告の中断または広告ブレーク中にエラーが発生したかどうかを追跡することができます。 <**TrackingEvents**> 要素には、1 つまたは複数が含まれています。 <**追跡**> 要素、追跡イベントと追跡 URI をそれぞれ指定します。 指定できる追跡イベントは、次のとおりです。
 
@@ -313,16 +313,16 @@ MAST ファイルを使用すると、広告がいつ表示されるかを定義
 
  
 
-MAST ファイルの先頭、 **<MAST>** を 1 つを含む要素 **<triggers>** 要素。  <triggers> 要素は、1 つまたは複数含まれています。 **<trigger>** 広告をいつ再生するかを定義する要素。 
+MAST ファイルの先頭、 **<MAST>** を 1 つを含む要素 **<triggers>** 要素。 この <triggers> 要素は、1 つまたは複数含まれています。 **<trigger>** 広告をいつ再生するかを定義する要素。 
 
- **<trigger>** 要素を含む、 **<startConditions>** か、広告をいつ再生する開始を指定します。  **<startConditions>** 要素は、1 つまたは複数含まれています。 <condition> 要素。 ときに各 <condition> トリガーを起動するか取り消すかどうかによって、true と評価された、 <condition> 内に含まれる、 **< startConditions**> または **<endConditions>** 要素それぞれします。 複数の <condition> 要素が存在する場合、それらは暗黙的な OR として扱われるため、いずれかの条件が true と評価されるとトリガーが開始されます。 <condition> 要素はネストできます。 子の <condition> 要素がプリセットされている場合、それらは暗黙的な AND として扱われるため、トリガーが開始されるにはすべての条件が true と評価される必要があります。 <condition> 要素には、条件を定義する次の属性が含まれています。 
+ **<trigger>** 要素を含む、 **<startConditions>** か、広告をいつ再生する開始を指定します。  **<startConditions>** 要素は、1 つまたは複数含まれています。 <condition> 要素です。 ときに各 <condition> トリガーを起動するか取り消すかどうかによって、true と評価された、 <condition> 内に含まれる、 **< startConditions**> または **<endConditions>** 要素それぞれします。 ときに複数 <condition> 要素がある場合は、暗黙の型として扱われますか、いずれかの条件が true に評価すると、トリガーが開始します。 <condition> 要素はネストすることができます。 ときに子 <condition> 要素がプリセットされている、暗黙の型として扱われます、条件がすべて必要があります true と評価されるため、トリガーが開始します。 この <condition> 要素には、条件を定義する次の属性が含まれています。 
 
 1. **型** – 条件、イベント、プロパティの種類を指定します
 1. **名前** – 評価時に使用するイベントまたはプロパティの名前
 1. **値** – プロパティの評価される値
 1. **演算子** – 評価時に使用する演算 EQ (等しい)、NEQ (等しくない)、GTR (より大きい)、GEQ (以上)、LT (より小さい)、LEQ (以下)、MOD (モジュロ)。
 
-**<endConditions>** 含めることも <condition> 要素。 条件が true と表示された場合、トリガーがリセットされます。<trigger> 要素には、1 つ以上の <source> 要素が含まれる <sources> 要素を含めることもできます。 <source> 要素は、広告応答への URI と広告応答の種類を定義します。 次の例では、VAST 応答への URI が指定されています。 
+**<endConditions>** 含まれます <condition> 要素です。 条件とトリガーを true に評価される場合はリセットされます。、 <trigger> 要素も含まれています、。 <sources> 1 つまたは複数を含む要素 <source> 要素です。 この <source> 要素は、広告応答と広告応答の種類の URI を定義します。 次の例では、VAST 応答への URI が指定されています。 
 
 
     <trigger id="postroll" description="postroll"  >
@@ -352,7 +352,7 @@ VPAID は、実行可能広告ユニットがビデオ プレーヤーとやり�
     </MediaFiles>
  
 
-実行可能広告は、VAST 応答で <Linear> 要素または <NonLinear> 要素内の <AdParameters> 要素を使用して初期化できます。 詳細については、 <AdParameters> 要素を参照してください [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf)します。 VPAID API の詳細については、次を参照してください。 [VPAID 2.0](http://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf)します。
+実行可能広告を使用して初期化できます、 <AdParameters> 内の要素、 <Linear> または <NonLinear> VAST 応答内の要素。 詳細については、 <AdParameters> 要素を参照してください [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf)します。 VPAID API の詳細については、次を参照してください。 [VPAID 2.0](http://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf)します。
 
 ##広告をサポートする Windows または Windows Phone 8 プレーヤーの実装
 
@@ -821,4 +821,5 @@ Microsoft Media Platform: Player Framework for iOS には、このフレーム�
 ##関連項目
 
 [ビデオ プレーヤー アプリケーションの開発](media-services-develop-video-players.md)
+
 

@@ -172,7 +172,7 @@
             }
         }
 
-##<a id="json"></a>サムネイルの JSON プリセット
+##<a id="json"></a>サムネイル JSON プリセット
 
 スキーマについては、次を参照してください。 [この](https://msdn.microsoft.com/library/mt269962.aspx) トピックです。
 
@@ -275,7 +275,7 @@
     }
 
 
-##<a id="xml"></a>縮小表示の XML プリセット
+##<a id="xml"></a>サムネイル XML プリセット
 
 スキーマについては、次を参照してください。 [この](https://msdn.microsoft.com/library/mt269962.aspx) トピックです。
     
@@ -383,3 +383,4 @@
 ##関連項目 
 
 [Media Services Encoding の概要](media-services-encode-asset.md)
+

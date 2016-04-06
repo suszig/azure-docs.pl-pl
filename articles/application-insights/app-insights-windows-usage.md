@@ -24,7 +24,7 @@
 これは既に完了していない、追加 [アプリ プロジェクトに Application Insights][windows], を再発行します。 
 
 
-## <a name="usage"></a>利用状況を追跡する
+## <a name="usage"></a>使用状況の追跡
 
 概要タイムラインで、ユーザーとセッションのグラフをクリックして、分析の詳細を表示します。
 
@@ -118,7 +118,7 @@ The data will appear in the Custom Events grid. メトリックス エクスプ�
 **New Users** counts the users whose first sessions with the app occurred during this interval. 
 
 
-## <a name="debug"></a>デバッグ モードとリリース モード
+## <a name="debug"></a>デバッグ モードとリリース モードの比較
 
 #### デバッグ
 
@@ -152,3 +152,4 @@ The data will appear in the Custom Events grid. メトリックス エクスプ�
 
 
  
+

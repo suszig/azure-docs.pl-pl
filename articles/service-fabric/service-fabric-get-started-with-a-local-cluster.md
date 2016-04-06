@@ -75,14 +75,14 @@ Service Fabric SDK には、アプリケーションを作成するための豊�
 6. SDK のデプロイメント コマンドを呼び出して新しいアプリケーションを作成し、名前とアプリケーション パッケージへのパスを指定します。
 
     ```powershell  
-  発行 NewServiceFabricApplication-ApplicationPackagePath c:\ServiceFabric\WordCountV1.sfpkg - ApplicationName"fabric:/WordCount"
+  Publish-NewServiceFabricApplication -ApplicationPackagePath c:\ServiceFabric\WordCountV1.sfpkg -ApplicationName "fabric:/WordCount"
     ```
 
-    If all goes well, you should see output like the following:
+    すべて成功すると、出力は次のように表示されます。
 
-    ![Deploy an application to the local cluster][deploy-app-to-local-cluster]
+    ![アプリケーションをローカル クラスターにデプロイする][deploy-app-to-local-cluster]
 
-7. アプリケーションの動作を表示するには、ブラウザーを起動し、 [場所/wordcount/インデックス](http://localhost:8081/wordcount/index)します。 次のような結果が表示されます。
+7. アプリケーションの動作を表示するには、ブラウザーを起動し、 [http://localhost:8081/wordcount/インデックス](http://localhost:8081/wordcount/index)します。 次のような結果が表示されます。
 
     ![デプロイされたアプリケーション UI][deployed-app-ui]
 
@@ -181,4 +181,5 @@ Service Fabric では、クラスター全体にロールアウトされると�
 [ps-getsfsvc-postupgrade]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFSvc-PostUpgrade.png
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
+
 

@@ -80,7 +80,7 @@
 
 3.   **アプリケーション URL の構成** ] ページの [、 **InsideView 応答 URL** ] ボックスに、該当する InsideView SSO の URL (例:: `https://my.insideview.com/iv/<STS Name>/login.iv`)、順にクリック **次**します。
 
-    ![Configure App URL](./media/active-directory-saas-insideview-tutorial/IC794133.png "Configure App URL")
+    ![アプリケーション URL の構成](./media/active-directory-saas-insideview-tutorial/IC794133.png "Configure App URL")
 
 4.   **InsideView でのシングル サインオンの構成** ] ページで、証明書をダウンロードする] をクリックして **証明書のダウンロード**, 、お使いのコンピューターに証明書ファイルを保存します。
 
@@ -138,3 +138,4 @@ InsideView の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-insideview-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

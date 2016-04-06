@@ -34,8 +34,8 @@
 
 |機能|説明と URI アドレス|
 |---|---|
-|**クラウド サービス管理**|クラウド サービスを作成と変更するための GET、PUT、および DELETE のサポート<p>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}`</p>|
-|**ジョブ コレクションの管理**|ジョブ コレクションとジョブ コレクション内のジョブを作成と変更するための GET、PUT、および DELETE のサポート。 ジョブ コレクションはジョブのコンテナーであり、クォータと共有設定にマップされます。 後で説明するクォータの例としては、ジョブの最大数や最小の繰り返し間隔があります。 <p>PUT および DELETE: `https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/jobcollections/{jobCollectionName}`</p><p>GET: `https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}`</p>
+|**クラウド サービス管理**|GET、PUT、および DELETE の作成とクラウド サービスの変更のサポート <p>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}`</p>|
+|**ジョブ コレクションの管理**|ジョブ コレクションとジョブ コレクション内のジョブを作成と変更するための GET、PUT、および DELETE のサポート。 ジョブ コレクションはジョブのコンテナーであり、クォータと共有設定にマップされます。 後で説明するクォータの例としては、ジョブの最大数や最小の繰り返し間隔があります。 <p>PUT と DELETE の場合: `https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/jobcollections/{jobCollectionName}`</p><p>取得します。 `https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}`</p>
 |**ジョブの管理**|ジョブを作成と変更するための GET、PUT、POST、PATCH、および DELETE のサポート。 すべてのジョブは、暗黙的な作成はありませんが既に存在するジョブ コレクションに属する必要があります。 <p>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}/jobs/{jobId}`</p>|
 |**ジョブ履歴の管理**|ジョブの経過時間やジョブの実行結果など、60 日分のジョブの実行履歴を取得するための GET のサポート。 状態およびステータスに基づいてフィルター処理のクエリ文字列パラメーターのサポートを追加します。 <P>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}/jobs/{jobId}/history`</p>|
 
@@ -206,4 +206,5 @@ Scheduler ジョブが失敗した場合、再試行ポリシーを指定して�
  [Azure Scheduler の制限、既定値、エラー コード](scheduler-limits-defaults-errors.md)
 
  [Azure Scheduler 送信認証](scheduler-outbound-authentication.md)
+
 

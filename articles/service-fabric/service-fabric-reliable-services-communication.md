@@ -156,7 +156,7 @@ Task<ResolvedServicePartition> ResolveAsync(ResolvedServicePartition previousRsp
 一般に、クライアント コードでは `ServicePartitionResolver` を直接操作する必要はありません。 それが作成されると、Reliable Service の API の、内部でリゾルバーを使用し、サービスとのクライアント通信に役立つ他のヘルパークラスに渡されます。
 
 ### CommunicationClientFactory
-`ICommunicationClientFactory` は、ServiceFabric サービスと通信できるクライアントを生成する通信クライアント ファクトリによって実装される基本インターフェイスを定義します。 CommunicationClientFactory の実装は、クライアントが通信しようとする Service Fabric で使用される通信スタックによって異なります。 Reliable Service の API は、この `ICommunicationClientFactory` インターフェイスの基本実装を提供し、すべての通信スタックに共通するタスク (`ServicePartitionResolver` を使用して、サービス エンドポイントを特定するなど) を実行する CommunicationClientFactoryBase<TCommunicationClient> を提供します。 クライアントは、通常 CommunicationClientFactoryBase 抽象クラスを実装して、通信スタック固有ロジックを処理します。
+`ICommunicationClientFactory` は、ServiceFabric サービスと通信できるクライアントを生成する通信クライアント ファクトリによって実装される基本インターフェイスを定義します。 CommunicationClientFactory の実装は、クライアントが通信しようとする Service Fabric で使用される通信スタックによって異なります。 Reliable Service の API を提供する CommunicationClientFactoryBase<TCommunicationClient> この基本実装を提供する `ICommunicationClientFactory` インターフェイスし、すべての通信スタックに共通するタスクを実行します (。使用するように、 `ServicePartitionResolver` サービス エンドポイントを指定)。 クライアントは、通常 CommunicationClientFactoryBase 抽象クラスを実装して、通信スタック固有ロジックを処理します。
 
 ```csharp
 
@@ -255,4 +255,5 @@ var result = await myServicePartitionClient.InvokeWithRetryAsync(
 * [Reliable Services との WCF 通信](service-fabric-reliable-services-communication-wcf.md)
 
  
+
 

@@ -8,7 +8,8 @@
       **Azure サブスクリプションの管理** ダイアログ ボックスで、をクリックして、 **証明書** タブをクリックし、をクリックし、 **インポート**します。 ダウンロードして、サブスクリプション ファイルをインポートする手順に従います (とも呼ばれます、 *.publishsettings* ファイル)、Azure アカウント用です。
 
      
-     > [AZURE.NOTE] Download the subscription file to a folder outside your source code directories (for example, in the Downloads folder), and then delete it once the import has completed. A malicious user who gains access to the subscription file can edit, create, and delete your Azure services.
+     > [AZURE.NOTE] フォルダー (たとえば、ダウンロード フォルダーにある) 内のソース コード ディレクトリの外にサブスクリプション ファイルをダウンロードして、インポートが完了したら、削除します。 悪意のあるユーザーがサブスクリプション ファイルへのアクセス許可を取得すると、Azure サービスを編集、作成、削除できるためです。
 
    詳細については、次を参照してください。 [Visual Studio から Azure への接続方法](http://go.microsoft.com/fwlink/?LinkId=324796)します。
+
 

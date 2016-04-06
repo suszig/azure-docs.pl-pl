@@ -26,7 +26,7 @@ Azure PowerShell を使用して、Azure Data Lake Analytics のアカウント�
 
 このチュートリアルを読み始める前に、次の項目を用意する必要があります。
 
-- **Azure サブスクリプション**します。 [Get Azure 無料評価版] https://azure.microsoft.com/en-us/pricing/free-trial/を参照)。
+- **Azure サブスクリプション**します。 [Get Azure 無料評価版] https://azure.microsoft.com/en-us/pricing/free-trial/ を参照)。
 
 
 <!-- ################################ -->
@@ -112,7 +112,7 @@ Data Lake Analytics ジョブを実行するには、Data Lake Analytics アカ�
         -ResourceGroupName $resourceGroupName `
         -Name $dataLakeAnalyticsAccountName  
 
-Azure リソース グループのテンプレートを使用することもできます。 Data Lake 分析アカウントと依存データ湖ストア アカウントを作成するためのテンプレートが、 [付録 A](#appendix-a)します。 .json テンプレートを使用してファイルにテンプレートを保存してから、以下の PowerShell スクリプトを使用してそれを呼び出します。
+Azure リソース グループのテンプレートを使用することもできます。 Data Lake 分析アカウントと依存データ湖ストア アカウントを作成するためのテンプレートが、 [付録 A](#appendix-a)します。.json テンプレートを使用してファイルにテンプレートを保存してから、以下の PowerShell スクリプトを使用してそれを呼び出します。
 
 
     $AzureSubscriptionID = "<Your Azure Subscription ID>"
@@ -381,7 +381,7 @@ Data Lake Analytics アカウントと従属するストレージ アカウン�
 ##関連項目 
 
 - [Microsoft Azure Data Lake Analytics の概要](data-lake-analytics-overview.md)
-- [Azure ポータルで Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-portal.md)
+- [Azure ポータルで Azure Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-portal.md)
 - [Azure ポータルを使用する Azure Data Lake Analytics の管理](data-lake-analytics-use-portal.md)
 - [Azure ポータルを使用する Azure Data Lake Analytics ジョブの監視とトラブルシューティング](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
@@ -442,3 +442,4 @@ Data Lake Analytics アカウントと従属するストレージ アカウン�
             }
         }
     }
+

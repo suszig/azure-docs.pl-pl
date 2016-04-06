@@ -41,7 +41,7 @@ Noam Ben Zeev で、この記事で説明する内容を確認できます。
 > [AZURE.VIDEO export-to-power-bi-from-application-insights]
 
 
-**サンプリングできます。**アプリケーションが送信するデータ量が多く、Application Insights SDK for ASP.NET バージョン 2.0.0-beta3 以降を使用している場合は、アダプティブ サンプリング機能が動作して、テレメトリの一定の割合のみが送信される可能性があります。 [サンプリングについて説明します。](app-insights-sampling.md)
+**サンプリング** アプリケーションが送信するデータ量が多く、Application Insights SDK for ASP.NET バージョン 2.0.0-beta3 以降を使用している場合は、アダプティブ サンプリング機能が動作して、テレメトリの一定の割合のみが送信される可能性があります。 [サンプリングの詳細については、こちらを参照してください。](app-insights-sampling.md)
 
 ## Application Insights によるアプリの監視
 
@@ -65,7 +65,7 @@ Noam Ben Zeev で、この記事で説明する内容を確認できます。
 
     ![ストレージで、[設定]、[キー] の順に開き、プライマリ アクセス キーのコピーを取ります](./media/app-insights-export-power-bi/045.png)
 
-## Azure Storage への連続エクスポートの開始
+## Azure ストレージへの連続エクスポートの開始
 
 [連続エクスポート](app-insights-export-telemetry.md) Azure ストレージに Application Insights からデータを移動します。
 
@@ -268,4 +268,5 @@ Noam Ben Zeev で、Power BI にエクスポートする方法を確認できま
 * [データ モデルについては、プロパティの型と値のリファレンスで詳しく説明されています。](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
 * [その他のサンプルとチュートリアル](app-insights-code-samples.md)
+
 

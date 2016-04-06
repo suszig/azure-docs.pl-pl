@@ -4,7 +4,7 @@
 
 次のコードでは、Windows ストア デバイス、Windows Phone デバイス、iOS デバイス、Android デバイスに通知を送信します。 
 
-完了したときに、コンソール アプリケーションを作成する場合、ステップ 1. ~ 3. はスキップ [を使ってみる Notification Hubs] [入門] です。
+完了したときに、コンソール アプリケーションを作成する場合、ステップ 1. ~ 3. はスキップ [Notification Hubs を使ってみる][get-started]します。
 
 1. Visual Studio で、Visual C# の新しいコンソール アプリケーションを作成します。 
 
@@ -14,7 +14,7 @@
 
         Install-Package Microsoft.Azure.NotificationHubs
     
-    使用して、Azure Notification Hubs SDK への参照を追加します <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification ハブ NuGet パッケージ</a>. 
+    これにより <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet パッケージ</a>を利用して Azure Notification Hubs SDK に参照が追加されます。 
 
 3. Program.cs ファイルを開き、次の `using` ステートメントを追加します。
 
@@ -99,4 +99,5 @@
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
+
 

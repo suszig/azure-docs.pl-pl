@@ -128,7 +128,7 @@ Azure AD Connect は、PowerShell と .Net 4.5.1 に依存しています。 Win
 - 証明書の ID は、フェデレーション サービス名 (fs.contoso.com など) と一致する必要があります。
     - ID は、dNSName タイプのサブジェクト代替名 (SAN) 拡張、または SAN エントリがない場合は共通名として指定されたサブジェクト名のどちらかになります。  
     - 複数の SAN エントリを証明書に表示できますが、そのうちの 1 つはフェデレーション サービス名に一致させます。
-    - ワークプ レース ジョインを使用しようとする場合の SAN が値を持つ必要 **enterpriseregistration** 後に、組織のユーザー プリンシパル名 (UPN) サフィックス **enterpriseregistration.contoso.com**します。
+    - ワークプ レース ジョインを使用しようとする場合の SAN が値を持つ必要 **enterpriseregistration します。** 後に、組織のユーザー プリンシパル名 (UPN) サフィックス **enterpriseregistration.contoso.com**します。
 - CryptoAPI Next Generation (CNG) キーとキー記憶域プロバイダーに基づく証明書はサポートされません。 つまり、KSP (キー記憶域プロバイダー) ではなく CSP (暗号化サービス プロバイダー) に基づく証明書を使用する必要があります。
 - ワイルドカード証明書がサポートされます。
 
@@ -166,4 +166,5 @@ AD FS または Web アプリケーション サーバーを実行するコン�
 
 ## 次のステップ
 詳細について [内部設置型 id と Azure Active Directory の統合](active-directory-aadconnect.md)します。
+
 

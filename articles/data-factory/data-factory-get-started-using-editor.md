@@ -19,9 +19,9 @@
 # チュートリアル: コピー アクティビティがあるパイプラインを Data Factory Editor で作成する
 > [AZURE.SELECTOR]
 - [チュートリアルの概要](data-factory-get-started.md)
-- [Data Factory エディターを使用します。](data-factory-get-started-using-editor.md)
+- [Data Factory エディターの使用](data-factory-get-started-using-editor.md)
 - [PowerShell の使用](data-factory-monitor-manage-using-powershell.md)
-- [Visual Studio を使用](data-factory-get-started-using-vs.md)
+- [Visual Studio の使用](data-factory-get-started-using-vs.md)
 
 
 
@@ -42,7 +42,7 @@
 
 1.  ログインした後、 [Azure ポータル][azure-portal], 、] をクリックして **新規** の左下隅から選択 **データ分析** で、 **作成** ブレードをクリック **Data Factory** で、 **データ分析** ブレードです。 
 
-    ![[新規] -> [DataFactory]][image-data-factory-new-datafactory-menu]    
+    ![New->DataFactory][image-data-factory-new-datafactory-menu]    
 
 6.  **新しいデータ ファクトリ** ブレード。
     1. 入力 **ADFTutorialDataFactory** の **名前**します。 
@@ -69,7 +69,7 @@
 
     ![データ ファクトリのホーム ページ][image-data-factory-get-stated-factory-home-page]
 
-## <a name="CreateLinkedServices"></a>手順 2. リンク サービスを作成する
+## <a name="CreateLinkedServices"></a>手順 2. リンクされたサービスを作成する
 リンクされたサービスは、データ ストアまたはコンピューティング サービスを Azure Data Factory にリンクします。 データ ストアには、Azure Storage、Azure SQL Database、またはオンプレミスの SQL Server データベースを指定できます。
 
 この手順では、2 つのリンクされたサービスを作成します: **StorageLinkedService** と **AzureSqlLinkedService**します。 StorageLinkedService リンクされたサービス、Azure ストレージ アカウントを AzureSqlLinkedService は Azure SQL database を **ADFTutorialDataFactory**します。 このチュートリアルの後半で、StorageLinkedService 内の BLOB コンテナーから AzureSqlLinkedService 内の SQL テーブルにデータをコピーするパイプラインを作成します。
@@ -77,7 +77,7 @@
 ### Azure ストレージ アカウント用にリンクされたサービスを作成する
 1.   **DATA FACTORY** ブレードで、をクリックして **作成者および展開** を起動するタイル、 **エディター** data factory のです。
 
-    ![タイルの作成とデプロイ][image-author-deploy-tile] 
+    ![[作成とデプロイ] タイル][image-author-deploy-tile] 
 
     参照してください [Data Factory エディター][data-factory-editor] Data Factory エディターの詳細についてのトピックです。 
      
@@ -152,7 +152,7 @@
     - **folderPath** に設定されている、 **adftutorial** コンテナーです。 フォルダー内の BLOB の名前を指定することもできます。 BLOB の名前を指定しない場合、コンテナー内のすべての BLOB からのデータが入力データと見なされます。  
     - 形式 **型** に設定されている **TextFormat**
     - テキスト ファイルに 2 つのフィールドが **FirstName** と **LastName** 、コンマで区切られて (**columnDelimiter**) 
-    -  **可用性** に設定されている **1 時間ごと** (**頻度** に設定されている **時間** と **間隔** に設定されている **1** ) であるため、Data Factory サービスは入力データの 1 時間ごと、ルート フォルダー検索 blob コンテナーに、(**adftutorial**) に指定しました。 
+    -  **可用性** に設定されている **時間単位** (**頻度** に設定されている **時間** と **間隔** に設定されている **1** ) よう Data Factory サービスは入力データの毎時 blob コンテナー内のルート フォルダーで、(**adftutorial**) を指定します。 
     
 
     if you don't specify a **fileName** for an **input** **table**, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input. See the sample files in the [tutorial][adf-tutorial] for examples.
@@ -287,10 +287,10 @@
     参照してください [JSON スクリプティング リファレンス](http://go.microsoft.com/fwlink/?LinkId=516971) JSON プロパティの詳細について。
 
 4. クリックして **展開** 、ツールバーの作成および展開する、 **ADFTutorialPipeline**します。 表示されていることを確認、 **パイプラインは正常に作成された** メッセージです。
-5. これで、閉じる、 **エディター** ブレードをクリックして **X**です。 クリックして **X** ツールバーおよびツリー ビューで [ADFTutorialDataFactory] ブレードを閉じます。 表示される場合 **、未保存の編集は破棄されます** メッセージで、をクリックして **OK**します。
+5. これで、閉じる、 **エディター** ブレードをクリックして **X**です。クリックして **X** ツールバーおよびツリー ビューで [ADFTutorialDataFactory] ブレードを閉じます。 表示される場合 **、未保存の編集は破棄されます** メッセージで、をクリックして **OK**します。
 6. する必要があります、 **DATA FACTORY** ブレード、 **ADFTutorialDataFactory**します。
 
-**おめでとうございます!**これで、Azure Data Factory、リンクされたサービス、テーブル、およびパイプラインの作成と、パイプラインのスケジュール設定が完了しました。   
+**ご利用ありがとうございます。** これで、Azure Data Factory、リンクされたサービス、テーブル、およびパイプラインの作成と、パイプラインのスケジュール設定が完了しました。   
  
 ### ダイアグラム ビューでの Data Factory の表示 
 1.  **DATA FACTORY** ブレードで、をクリックして **ダイアグラム**します。
@@ -309,7 +309,7 @@
 4. クリックして **Data factory** ダイアグラム ビューに戻るために左上隅にある階層リンクでします。 ダイアグラム ビューには、すべてのパイプラインが表示されます。 この例では 1 つのパイプラインのみ作成しました。   
  
 
-## <a name="MonitorDataSetsAndPipeline"></a>手順 5. データセットとパイプラインを監視します。
+## <a name="MonitorDataSetsAndPipeline"></a>手順 5. データセットとパイプラインを監視する
 このステップでは、Azure クラシック ポータルを使用して、Azure Data Factory の状況を監視します。 PowerShell コマンドレットを使用して、データセットとパイプラインを監視することもできます。 監視するためのコマンドレットの使用に関する詳細については、「 [モニター Data Factory と管理 PowerShell コマンドレットを使用して][monitor-manage-using-powershell]います。
 
 1. 移動 [Azure Classic Portal (プレビュー)][azure-portal] をまだ開いていない場合。 
@@ -500,3 +500,4 @@ Azure PowerShell を使用してこのチュートリアルには、次を参照
 
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
+

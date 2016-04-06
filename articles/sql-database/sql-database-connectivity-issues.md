@@ -109,19 +109,19 @@ Azure SQL Database との通信にサード パーティのミドルウェアを
 ### ネットワークから切断することによるテスト
 
 
-再試行ロジックをテストする手段として、プログラムの実行中にクライアント コンピューターをネットワークから切断する方法が挙げられます。 エラーになります。
+再試行ロジックをテストする手段として、プログラムの実行中にクライアント コンピューターをネットワークから切断する方法が挙げられます。 次のエラーが発生します。
 - **SqlException.Number** 11001 =
-- メッセージ:「そのようなホストは不明です」
+- メッセージ: "そのようなホストは不明です"
 
 
 最初の再試行のときに、プログラムでスペルミスを修正してから接続を試みてください。
 
 
-具体的には、コンピューターをネットワークから切断した後でプログラムを起動します。 プログラムでは、その結果、プログラムを実行時のパラメーターが認識されます。
+具体的には、コンピューターをネットワークから切断した後でプログラムを起動します。 その後プログラムは、実行時パラメーターを通じて次の処理を行います。
 1. エラーのリストに対して一時的に 11001 を追加し、一過性と見なします。
 2. 通常と同様に初回接続を試みます。
 3. エラーが捕捉された後、11001 をリストから削除します。
-4. コンピューターをネットワークに接続するユーザーを示すメッセージが表示されます。
+4. コンピューターをネットワークに接続するようにユーザーに通知するメッセージが表示されます。
  - いずれかを使用してさらに実行を一時停止、 **Console.ReadLine** メソッドまたは [ok] ボタンを含むダイアログ。 コンピューターをネットワークに接続した後、ユーザーが Enter キーを押します。
 5. 再度接続を試みます。
 
@@ -129,15 +129,15 @@ Azure SQL Database との通信にサード パーティのミドルウェアを
 ### 接続時に間違った綴りのデータベース名を使用することによるテスト
 
 
-意図的に間違ったユーザー名を使って初回接続を試みます。 エラーになります。
+意図的に間違ったユーザー名を使って初回接続を試みます。 次のエラーが発生します。
 - **SqlException.Number** 18456 を =
-- メッセージ:"Login ユーザー 'WRONG_MyUserName' に失敗しました。"
+- メッセージ: "ユーザー WRONG_MyUserName はログインできませんでした"
 
 
 最初の再試行のときに、プログラムでスペルミスを修正してから接続を試みてください。
 
 
-実用的にするには、プログラムがその結果、プログラムを実行時のパラメーターを認識して可能性があります。
+具体的には、プログラムで実行時パラメーターを通じ、次の処理を行います。
 1. エラーのリストに対して一時的に 18456 を追加し、一過性と見なします。
 2. 意図的に 'WRONG_' をユーザー名に追加します。
 3. エラーが捕捉された後、18456 をリストから削除します。
@@ -214,7 +214,7 @@ IP アドレスの構成を怠った場合、必要な IP アドレスを示し�
 
 
 詳細については、次を参照してください。
-[方法: SQL データベースのファイアウォール設定の構成](sql-database-configure-firewall-settings.md)
+[方法: ファイアウォール設定を構成する (SQL Database)](sql-database-configure-firewall-settings.md)
 
 
 <a id="c-connection-ports" name="c-connection-ports"></a>
@@ -237,7 +237,7 @@ IP アドレスの構成を怠った場合、必要な IP アドレスを示し�
 7. &gt; [新しい規則]
 
 
-かどうかは、Azure の仮想マシン (VM) で、クライアント プログラムがホストされている、お読みください:<br/>[1433 for ADO.NET 4.5 と SQL Database V12 における 1433年以外のポート](sql-database-develop-direct-route-ports-adonet-v12.md)します。
+かどうかは、Azure の仮想マシン (VM) で、クライアント プログラムがホストされている、次のようになります。<br/>[ポート 1433 for ADO.NET 4.5 および SQL 以外のデータベースの V12](sql-database-develop-direct-route-ports-adonet-v12.md)します。
 
 
 ポートと IP アドレスの構成に関する背景情報を参照してください。
@@ -260,7 +260,7 @@ ADO.NET 4.5。
 接続プールから取得した接続オブジェクトを使用するとき、すぐに使用しないのであれば、プログラムで一時的に接続を閉じるようお勧めします。 接続を再度開いたとしても、新しい接続の作成に伴う処理負荷はわずかです。
 
 
-最新の ADO.NET にアップグレードする ADO.NET 4.0 を使用しているかを前の手順をお勧めします。
+ADO.NET 4.0 以前のバージョンを使用している場合、最新の ADO.NET. にアップグレードすることをお勧めします。
 - 第 2015 年 7 月時点ですることができます [ADO.NET 4.6 をダウンロード](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx)します。
 
 
@@ -272,8 +272,8 @@ ADO.NET 4.5。
 プログラムから Azure SQL Database に接続できないときの診断方法として 1 つ考えられるのは、ユーティリティ プログラムを使用して接続する方法です。 診断対象のプログラムと同じライブラリを使用して接続するユーティリティがあれば理想的です。
 
 
-任意の Windows コンピューターでは、これらのユーティリティを実行できます。
-- SQL Server Management Studio (ssms.exe) に対して、ADO.NET を使用して接続します。
+任意の Windows コンピューターで、次のユーティリティを試すことができます。
+- SQL Server Management Studio (ssms.exe)。ADO.NET を使用して接続します。
 - 使用して接続する sqlcmd.exe [ODBC](http://msdn.microsoft.com/library/jj730308.aspx)します。
 
 
@@ -288,10 +288,10 @@ ADO.NET 4.5。
 ポートの問題から接続に失敗している可能性があるとします。 ポートの構成に関するレポート作成に対応したユーティリティをご使用のコンピューターから実行してください。
 
 
-Linux で次のユーティリティは便利になります。
+Linux では、次のユーティリティが役に立つ場合があります。
 - `netstat -nap`
 - `nmap -sS -O 127.0.0.1`
- - (IP アドレスを指定する値の例を変更します)。
+ - (例の値を実際の IP アドレスに変更してください)。
 
 
 Windows では、 [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) ユーティリティが役立つ可能性があります。 以下の例では、Azure SQL Database サーバー上のポートの状況と、ノート PC 上で動作しているポートとを照会しています。
@@ -326,8 +326,8 @@ TCP port 1433 (ms-sql-s service): LISTENING
 診断には、クライアントで発生したエラーのログが役立ちます。 Azure SQL Database が内部的に記録するエラー データとそれらのログ エントリを相互に関連付けることも可能です。
 
 
-Enterprise Library 6 (EntLib60) には、ログ記録を支援する .NET マネージ クラスが用意されています。
-- [5-ログ記録と同じくらい簡単: ログ記録アプリケーション ブロックを使用します。](http://msdn.microsoft.com/library/dn440731.aspx)
+Enterprise Library 6 (EntLib60) には、ログ記録をサポートする .NET マネージ クラスがあります。
+- [5 - Logging アプリケーション ブロックの使用に関するページを参照してください。](http://msdn.microsoft.com/library/dn440731.aspx)
 
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
@@ -340,8 +340,8 @@ Enterprise Library 6 (EntLib60) には、ログ記録を支援する .NET マネ
 
 | ログのクエリ | 説明 |
 | :-- | :-- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |  [Sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) ビューが一時的な障害や接続障害が発生するものも含めて、個々 のイベントに関する情報を提供しています<br/><br/>。理想的に関連付けることができます、 **start_time** または **end_time** クライアント プログラムに問題が発生した場合についての情報の値<br/><br/>**。ヒント:** に接続する必要があります、 **マスター** これを実行するデータベースです。 |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |  [Sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) ビューには、追加の診断用のイベントの種類の集計数が提供しています<br/><br/>**。ヒント:** に接続する必要があります、 **マスター** これを実行するデータベースです。 |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>& nbsp; & nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>& nbsp; & nbsp;`e.event_type, e.end_time;` |  [Sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) ビューが一時的な障害や接続障害が発生するものも含めて、個々 のイベントに関する情報を提供します。<br/><br/>理想的に関連付けることができます、 **start_time** または **end_time** クライアント プログラムに問題が発生した場合についての情報の値。<br/><br/>**ヒント:** に接続する必要があります、 **マスター** これを実行するデータベースです。 |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>& nbsp; & nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |  [Sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) ビューには、追加の診断用のイベントの種類の集計数が提供しています。<br/><br/>**ヒント:** に接続する必要があります、 **マスター** これを実行するデータベースです。 |
 
 
 ### 診断: SQL Database のログから問題のイベントを検索する
@@ -394,16 +394,16 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 ## Enterprise Library 6
 
 
-Enterprise Library 6 (EntLib60) は、.NET クラスのフレームワークです。クラウド サービス (Azure SQL Database サービスもその一つ) に対する堅牢なクライアントをこのフレームワークを使って実装することができます。 最初にアクセスして、EntLib60 が利用できる各領域に対する専用のトピックを見つけることができます。
-- [エンタープライズ ライブラリ 6 – 2013年 4 月](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
+Enterprise Library 6 (EntLib60) は、.NET クラスのフレームワークです。クラウド サービス (Azure SQL Database サービスもその一つ) に対する堅牢なクライアントをこのフレームワークを使って実装することができます。 EntLib60 の利便性が発揮される個々の領域の説明については、まず以下のトピックにアクセスしてください。
+- [Enterprise Library 6 – 2013 年 4 月](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
 
 
 一時的な障害を処理するための再試行ロジックは、EntLib60 が利用できる 1 つの領域を示します。
-- [4-忍耐力、すべての成功の秘訣: 一時的な障害処理アプリケーション ブロックを使用します。](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
+- [4 - Perseverance, Secret of All Triumphs: Using the Transient Fault Handling Application Block (忍耐力、すべての勝利の秘訣: 一時的エラー処理アプリケーション ブロックの使用)](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
 
 
-短い c# コードを使用するサンプル EntLib60、再試行ロジック内から入手できます。
-- [コード サンプル: SQL データベースに接続するための c# での Enterprise Library 6 からロジックを再試行してください。](sql-database-develop-entlib-csharp-retry-windows.md)
+再試行ロジックで EntLib60 を使用する簡単な C# コード サンプルは、以下のページにあります。
+- [コード サンプル: Enterprise Library 6 で提供される SQL Database に接続するための C# の再試行ロジック](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
 > [AZURE.NOTE] EntLib60 のソース コードは使用可能なパブリック [ダウンロード](http://go.microsoft.com/fwlink/p/?LinkID=290898)します。 EntLib に対して機能の追加や保守目的での更新を行う予定はありません。
@@ -459,7 +459,7 @@ EntLib60 に関する情報は以下のリンクから入手できます。
 
 
 詳細は、以下を参照してください。
-[5-ログ記録と同じくらい簡単: ログ記録アプリケーション ブロックを使用します。](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
+[5 - Logging アプリケーション ブロックの使用に関するページを参照してください。](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
 
 
 ### EntLib60 IsTransient メソッドのソース コード
@@ -544,4 +544,5 @@ public bool IsTransient(Exception ex)
 
 
 - [*再試行* 汎用の再試行で記述されたライブラリは Apache 2.0 ライセンスは、 **Python**, 、あらゆるものに再試行動作を追加するタスクを簡略化します。](https://pypi.python.org/pypi/retrying)
+
 

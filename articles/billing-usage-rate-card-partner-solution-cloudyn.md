@@ -42,11 +42,11 @@ Usage API と RateCard API で可能になる一般的な Cloudyn ITFM の使用
 
 + **コスト分析** -クラウド コストを任意のネイティブ識別ディメンション (プロバイダー、サービス、アカウント、リージョンなど) に分類できます。 Azure Usage API と RateCard API を使用すると、アカウントあたりの使用状況およびコストのデータをより細かく分類できるので、この作業が簡単になります。分類したデータは、Cloudyn でグループ化およびフィルター処理され、グラフ形式や表形式でユーザーに表示されます。
 
-![分析の円グラフをコスト][3]
+![コスト分析の円グラフ][3]
 
 + **割り当ての 360 度のコスト** -財務管理者と IT 管理者は実際のコストの内訳、推進力、クラウドの展開の傾向です。 また、管理者はデプロイ費用をビジネス ユニット、部門、リージョンなどに簡単に関連付けられるようになり、従来よりもクラウド コストを細かく把握し、企業のチャージバックとショーバックが容易になります。 Azure Usage API と RateCard API は、Cloudyn のコスト割り当てエンジンの入力として機能します。また、タグ付けされていないリソースとタグ付けできないリソースを割り当てる方法とビジネス ロジックを定義することで、これらの API を補完できます。
 
-![コスト配分 360 度グラフ][4]
+![コスト配分 360度グラフ][4]
 
 + **コスト効率の高いサイズ設定** -サイズやプロビジョニングが過剰なコンピューターに費用を削減、使用率が低い仮想マシンのサイズの適正化の推奨事項を示します。 サイズ設定には、仮想マシンの CPU と RAM のメトリック (Performance API 経由)、実行時間 (Usage API 経由)、およびコスト (RateCard API 経由) を確認します。 Cloudyn は、あまり使用されていない CPU または RAM リソース (Performance) に基づいて適切なサイズ設定の推奨を提供し、VM 間の料金の差分 (RateCard) に、あまり使用されていないコンピューターの実際の利用時間 (Usage) をかけて節約の見積額を計算します。 
 
@@ -89,3 +89,4 @@ Azure ユーザーが Cloudyn for Azure と Azure Billing API を使用して Az
 [5]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Cost-Effective-Sizing.png
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
+

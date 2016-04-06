@@ -119,7 +119,7 @@ Registration アプリケーションは、名前と電子メール アドレス
         ?>
 
     > [AZURE.NOTE] 
-    > <code>$user</code> と <code>$pwd</code> の値は、ローカルの MySQL ユーザー名とパスワードに置き換える必要があります。
+    > 値を更新する必要があります <code>$user</code> と <code>$pwd</code> ローカルの MySQL ユーザー名とパスワードを使用します。
 
 4. Web ブラウザーを開きを参照 [http://localhost/registration/createtable.php][localhost-createtable]します。 このコードは、データベースに `registration_tbl` テーブルを作成するために使用します。
 
@@ -173,7 +173,7 @@ Registration アプリケーションは、名前と電子メール アドレス
         }
 
     > [AZURE.NOTE]
-    > ここでも、<code>$user</code> と <code>$pwd</code> の値は、ローカルの MySQL ユーザー名とパスワードに置き換える必要があります。
+    > 値を更新する必要がありますが、もう一度 <code>$user</code> と <code>$pwd</code> ローカルの MySQL ユーザー名とパスワードを使用します。
 
 7. データベース接続コードの次に、登録情報をデータベースに挿入するためのコードを追加します。
 
@@ -238,7 +238,7 @@ Web Apps で実行されている MySQL データベースに接続するには�
 
 3. Web アプリをクリックして、 **発行プロファイルのダウンロード** 、ページの右下隅の下部にあるリンク。
 
-    ![発行プロファイルのダウンロード][download-publish-profile]
+    ![Download publish profile][download-publish-profile]
 
 4. XML エディターで `.publishsettings` ファイルを開きます。 
 
@@ -301,4 +301,5 @@ Web Apps で実行されている MySQL データベースに接続するには�
 [management-portal]: https://portal.azure.com
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
+
 

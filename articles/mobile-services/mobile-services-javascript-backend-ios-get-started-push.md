@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
-このトピックでは、プッシュ通知を追加する方法、 [クイック スタート プロジェクト](mobile-services-ios-get-started.md), 、モバイル サービスでは、記録されるたびにプッシュ通知が挿入されるが送信されるようにします。 行う必要があります」モバイル サービスの最初です。
+このトピックでは、プッシュ通知を追加する方法、 [クイック スタート プロジェクト](mobile-services-ios-get-started.md), 、モバイル サービスでは、記録されるたびにプッシュ通知が挿入されるが送信されるようにします。 完了する必要があります [Get Started with Mobile Services] 最初です。
 
 > [AZURE.NOTE]  [IOS シミュレーターはプッシュ通知をサポートしない](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), ため、物理 iOS デバイスを使用する必要があります。 有料にサインアップする必要も [Apple Developer Program メンバーシップ](https://developer.apple.com/programs/ios/)します。
 
@@ -31,11 +31,11 @@
 
 [AZURE.INCLUDE [Configure Push Notifications in Azure Mobile Services](../../includes/mobile-services-apns-configure-push.md)]
 
-## <a id="update-scripts"></a>プッシュ通知を送信するバックエンド スクリプトを更新します。
+## <a id="update-scripts"></a>プッシュ通知を送信するようにバックエンド スクリプトを更新する
 
-* [Azure クラシック ポータル] をクリックして、 **データ** ] タブをクリックして **TodoItem**します。  **TodoItem**, をクリックして、 **スクリプト** ] タブで選択し、 **挿入**します。 これで、挿入が発生したときに呼び出される関数が表示されます、 **TodoItem** テーブルです。
+*  [Azure classic portal], をクリックして、 **データ** ] タブをクリックして **TodoItem**します。  **TodoItem**, をクリックして、 **スクリプト** ] タブで選択し、 **挿入**します。 これで、挿入が発生したときに呼び出される関数が表示されます、 **TodoItem** テーブルです。
 
-* クリックして insert 関数を次のコードに置き換えます **保存**します。  これにより、オブジェクトを使用して、[apns]、挿入要求で指定されたデバイスにプッシュ通知 (挿入されたテキスト) を送信する新しい挿入スクリプトが登録されます。 このスクリプトでは、プッシュ通知を受け取るためにアプリケーションを閉じる時間を与えるために通知の送信を遅らせています。
+* クリックして insert 関数を次のコードに置き換えます **保存**します。  これを使用してを新しい挿入スクリプトを登録、 [apns object] 、挿入要求で指定されたデバイスにプッシュ通知 (挿入されたテキスト) を送信します。 このスクリプトでは、プッシュ通知を受け取るためにアプリケーションを閉じる時間を与えるために通知の送信を遅らせています。
 
 
 ```
@@ -116,4 +116,5 @@
 [Send broadcast notifications to subscribers]: ../notification-hubs-ios-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
+
 

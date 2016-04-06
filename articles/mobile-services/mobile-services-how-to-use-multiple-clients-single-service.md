@@ -33,21 +33,21 @@
 + Windows ストア、Windows Phone 8.1 ストア、ユニバーサル Windows アプリ向け Windows Notification Service (WNS)
 + Windows Phone Silverlight アプリ向け Microsoft Push Notification Service (MPNS)
 
-詳細については、[Azure Notification Hubs] を参照してください。
+詳細については、次を参照してください。 [Azure Notification Hubs]します。
 
 クライアントの登録は、プラットフォーム固有のモバイル サービス クライアント ライブラリで register 関数か、モバイル サービス REST API を使用して作成されます。 Notification Hubs では次の 2 種類のデバイス登録をサポートします。
 
-+ **ネイティブ登録**<br/>ネイティブ登録はプラットフォーム固有のプッシュ通知サービスに合わせて調整します。 ネイティブ登録を使用して登録したデバイスに通知を送信する場合、モバイル サービスでプラットフォーム固有の API を呼び出す必要があります。 複数のプラットフォーム上のデバイスに通知を送信するには、複数のプラットフォーム固有の呼び出しが必要になります。
++ **ネイティブ登録**<br/>ネイティブ登録はプラットフォーム固有のプッシュ通知サービスに合わせて調整されます。 ネイティブ登録を使用して登録したデバイスに通知を送信する場合、モバイル サービスでプラットフォーム固有の API を呼び出す必要があります。 複数のプラットフォーム上のデバイスに通知を送信するには、複数のプラットフォーム固有の呼び出しが必要になります。
 
-+ **テンプレート登録**<br/>通知ハブには、プラットフォーム固有のテンプレート登録もサポートしています。 テンプレート登録を使用すると、1 回の API 呼び出しを使用して登録したデバイス上で稼働するアプリに通知を送信できます。 詳細については、[ユーザーにクロスプラット フォーム通知の送信] を参照してください。
++ **テンプレート登**<br/>Notification Hubs ではプラットフォーム固有のテンプレート登録もサポートします。 テンプレート登録を使用すると、1 回の API 呼び出しを使用して登録したデバイス上で稼働するアプリに通知を送信できます。 詳細については、次を参照してください。 [Send cross-platform notifications to users]します。
 
 次のセクションのテーブルはクライアント固有のチュートリアルにリンクしており、.NET と JavaScript バックエンド両方のモバイル サービスからプッシュ通知を実装する方法を示しています。
 
 ###.NET バックエンド
 
-[SendAsync] メソッドを呼び出して通知を送信する .NET バックエンド モバイル サービスで、 [PushClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.pushclient.aspx) から取得したオブジェクト、 [ApiServices.Push](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.apiservices.push.aspx) プロパティです。 送信したプッシュ通知 (ネイティブまたはテンプレート) は、特定の依存 [IPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.ipushmessage.aspx)-派生オブジェクトは、次の表に示すように、[SendAsync] メソッドに渡されます。
+呼び出して通知を送信する .NET バックエンド モバイル サービスで、 [SendAsync] メソッドを [PushClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.pushclient.aspx) から取得したオブジェクト、 [ApiServices.Push](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.apiservices.push.aspx) プロパティです。 送信したプッシュ通知 (ネイティブまたはテンプレート) は、特定の依存 [IPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.ipushmessage.aspx)-派生オブジェクトに渡される、 [SendAsync] メソッドを次の表に示すようにします。
 
-|Platform |[APNS](mobile-services-dotnet-backend-ios-get-started-push.md)|[GCM](mobile-services-dotnet-backend-android-get-started-push.md) |[WNS](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) | MPNS
+|プラットフォーム |[APNS](mobile-services-dotnet-backend-ios-get-started-push.md)|[GCM](mobile-services-dotnet-backend-android-get-started-push.md) |[WNS](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) | MPNS
 |-----|-----|----|----|-----|
 |ネイティブ|[ApplePushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.applepushmessage.aspx)   |[GooglePushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.googlepushmessage.aspx)     |[WindowsPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.windowspushmessage.aspx) | [MpnsPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.mpnspushmessage.aspx) |
 
@@ -69,7 +69,7 @@
 
 その他のネイティブ クライアント プラットフォームにプッシュ通知を送信する方法の例は、上記のテーブルのヘッダーにあるプラットフォームのリンクをクリックしてください。
 
-ネイティブ クライアント登録ではなく、テンプレート クライアント登録を使用するときに次のように、[TemplatePushMessage] オブジェクトを指定して、[SendAsync] に 1 回の呼び出しで同じ通知を送信できます。
+ネイティブ クライアント登録ではなく、テンプレート クライアント登録を使用する場合を 1 回の呼び出しで同じ通知を送信できる [SendAsync], を提供、 [TemplatePushMessage] オブジェクトに、次のようにします。
 
     // Create a new template message and add the 'message' parameter.
     var templatePayload = new TemplatePushMessage();
@@ -80,9 +80,9 @@
 
 ###JavaScript バックエンド
 
-JavaScript バックエンド モバイル サービスで呼び出すことで通知を送信する、 **送信** プラットフォームに固有のオブジェクトのメソッドは、グローバルから取得した [push オブジェクト]、次の表に示すように。
+JavaScript バックエンド モバイル サービスで呼び出すことで通知を送信する、 **送信** プラットフォームに固有のオブジェクトのメソッドは、グローバルから取得した [push object], 次の表に示すように。
 
-|Platform |[APNS](mobile-services-javascript-backend-ios-get-started-push.md)|[GCM](mobile-services-javascript-backend-android-get-started-push.md) |[WNS](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) |[MPNS](mobile-services-javascript-backend-windows-phone-get-started-push.md)|
+|プラットフォーム |[APNS](mobile-services-javascript-backend-ios-get-started-push.md)|[GCM](mobile-services-javascript-backend-android-get-started-push.md) |[WNS](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) |[MPNS](mobile-services-javascript-backend-windows-phone-get-started-push.md)|
 |-----|-----|----|----|-----|
 |ネイティブ|[apns オブジェクト](http://msdn.microsoft.com/library/azure/jj839711.aspx)   |[gcm オブジェクト](http://msdn.microsoft.com/library/azure/dn126137.aspx)     |[wns オブジェクトに関するページ](http://msdn.microsoft.com/library/azure/jj860484.aspx) | [mpns オブジェクト](http://msdn.microsoft.com/library/azure/jj871025.aspx) |
 
@@ -118,7 +118,7 @@ JavaScript バックエンド モバイル サービスで呼び出すことで�
 
 その他のネイティブ クライアント プラットフォームにプッシュ通知を送信する方法の例は、上記のテーブルのヘッダーにあるプラットフォームのリンクをクリックしてください。
 
-ネイティブ クライアント登録ではなく、テンプレート クライアント登録を使用する場合は、1 回の呼び出しで同じ通知を送信することができます、 **送信** の関数にグローバル [push オブジェクト] 次のように、テンプレート メッセージ ペイロードを指定します。
+ネイティブ クライアント登録ではなく、テンプレート クライアント登録を使用する場合は、1 回の呼び出しで同じ通知を送信できる、 **送信** 関数、グローバルに [push object], 、次のように、テンプレート メッセージ ペイロードを指定します。
 
     // Create a new template message with the 'message' parameter.
     var templatePayload = { "message": item.text };
@@ -138,15 +138,15 @@ JavaScript バックエンド モバイル サービスで呼び出すことで�
 
 クロスプラットフォーム ツールでは、シングル コード ベース (通常は JavaScript) を共有しながら、モバイル デバイスでより高度なネイティブ操作環境を提供します。 モバイル サービスでは、次の開発プラットフォームにおいてクイックスタート チュートリアルを提供し、クロスプラットフォームのアプリ開発プラットフォームのバックエンド サービスを簡単に作成し、管理できます。
 
-+ [**Appcelerator**](http://go.microsoft.com/fwlink/p/?LinkId=509987)<br/>Appcelerator では、JavaScript を使用して、すべてのモバイル デバイス プラットフォームでネイティブと実行にコンパイルされたシングル アプリを開発することができます。 これにより、UI における高度な操作環境、すべてのネイティブ デバイス リソースへのアクセス、ネイティブ アプリ パフォーマンスが実現します。 詳細については、[Appcelerator チュートリアル][Appcelerator] を参照してください。
++ [**Appcelerator**](http://go.microsoft.com/fwlink/p/?LinkId=509987)<br/>Appcelerator では、JavaScript を使用して、すべてのモバイル デバイス プラットフォームでネイティブと実行にコンパイルされたシングル アプリを開発することができます。 これにより、UI における高度な操作環境、すべてのネイティブ デバイス リソースへのアクセス、ネイティブ アプリ パフォーマンスが実現します。 詳細については、次を参照してください。、 [Appcelerator チュートリアル][Appcelerator]します。
 
-+ [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707)**/**[**Cordova**](http://cordova.apache.org/)<br/>PhoneGap (Apache Cordova プロジェクトのディストリビューション) は無料かつオープン ソース フレームワークで標準化された web Api、Android、iOS および Windows デバイスで実行される 1 つのアプリを開発するには、HTML および JavaScript を使用しています。 PhoneGap では Web 表示ベースの UI を提供しますが、プッシュ通知や加速度計、カメラ、ストレージ、位置情報、アプリ内ブラウザなどデバイスのネイティブ リソースへのアクセスによって操作環境が強化されます。 詳細については、[PhoneGap クイック スタート チュートリアル] を参照してください。 [PhoneGap] です。
++ [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707)**/**[**Cordova**](http://cordova.apache.org/)<br/>PhoneGap (Apache Cordova プロジェクトのディストリビューション) は無料のオープン ソース フレームワークで、標準化された Web API、HTML、JavaScript を使用して Android、iOS、Windows デバイスで実行するシングル アプリを開発できます。 PhoneGap では Web 表示ベースの UI を提供しますが、プッシュ通知や加速度計、カメラ、ストレージ、位置情報、アプリ内ブラウザなどデバイスのネイティブ リソースへのアクセスによって操作環境が強化されます。 詳細については、次を参照してください。、 [PhoneGap クイック スタート チュートリアル][PhoneGap]します。
 
     Visual Studio では Visual Studio の Multi-Device Hybrid アプリ拡張機能 (プレリリース ソフトウェア) を使用してクロスプラットフォームの Cordova アプリを構築できます。 詳細については、次を参照してください。 [マルチ デバイス ハイブリッド アプリを使用して HTML と JavaScript の概要](http://msdn.microsoft.com/library/dn771545.aspx)します。
 
-+ [**Sencha Touch**](http://go.microsoft.com/fwlink/p/?LinkId=509988)<br/>Sencha Touch は、単一 HTML および JavaScript コード ベースからのモバイル デバイスのさまざまなネイティブのようなエクスペリエンスを提供する、タッチ画面用に最適化されたコントロールのセットを提供します。 Sencha Touch は PhoneGap や Cordova ライブラリと併用し、ネイティブ デバイス リソースへのアクセスをユーザーに提供できます。 詳細については、[Sencha Touch クイック スタート チュートリアル] を参照してください。 [Sencha] です。
++ [**Sencha Touch**](http://go.microsoft.com/fwlink/p/?LinkId=509988)<br/>Sencha Touch では、1 つの HTML と JavaScript コード ベースからさまざまなモバイル デバイスにネイティブのような操作環境を提供する、タッチ画面用に最適化された一連のコントロールを提供します。 Sencha Touch は PhoneGap や Cordova ライブラリと併用し、ネイティブ デバイス リソースへのアクセスをユーザーに提供できます。 詳細については、次を参照してください。、 [Sencha Touch クイック スタート チュートリアル][Sencha]します。
 
-+ [**Xamarin**](https://go.microsoft.com/fwLink/p/?LinkID=330242)<br/>Xamarin に完全なネイティブ UI とすべてのデバイス リソースへのアクセスで iOS および Android デバイス向けに完全なネイティブ アプリを作成できます。 Xamarin アプリは Objective-C と Java ではなく、 C# でコード化されています。 これにより、.NET 開発者は iOS と Android にアプリを発行し、Windows プロジェクトからのコードを共有できます。 Xamarin では iOS と Android デバイスの両方に C# コードから完全にネイティブの操作環境を提供します。 これにより、Windows アプリからのモバイル サービス コードを iOS や Android デバイスで再利用できるようになります。 詳細については、次を参照してください。 [Xamarin 開発](#xamarin) 以下です。
++ [**Xamarin**](https://go.microsoft.com/fwLink/p/?LinkID=330242)<br/>Xamarin では、iOS と Android デバイス向けに完全なネイティブ UI とすべてのデバイス リソースへのアクセスを持つ、完全にネイティブなアプリを作成できます。 Xamarin アプリは Objective-C と Java ではなく、 C# でコード化されています。 これにより、.NET 開発者は iOS と Android にアプリを発行し、Windows プロジェクトからのコードを共有できます。 Xamarin では iOS と Android デバイスの両方に C# コードから完全にネイティブの操作環境を提供します。 これにより、Windows アプリからのモバイル サービス コードを iOS や Android デバイスで再利用できるようになります。 詳細については、次を参照してください。 [Xamarin 開発](#xamarin) 以下です。
 
 
 <!-- URLs -->
@@ -172,4 +172,5 @@ JavaScript バックエンド モバイル サービスで呼び出すことで�
 [What's next for Windows Phone 8 developers]: http://msdn.microsoft.com/library/windows/apps/dn655121(v=vs.105).aspx
 [Building universal Windows apps for all Windows devices]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [Universal Windows app project for Azure Mobile Services using MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
+
 

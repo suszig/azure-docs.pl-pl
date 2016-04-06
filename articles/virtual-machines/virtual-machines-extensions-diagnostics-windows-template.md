@@ -154,7 +154,7 @@ MetricAggregation 値 *PT1H* と *PT1M* 1 分以上集計と集計に 1 時間�
 各 WADMetrics テーブルには次の列が含まれます。
 
 - **PartitionKey**: partitionkey は、に基づいて構築された、 *resourceID* VM リソースを一意に識別する値。 例:: 002Fsubscriptions:<subscriptionID>: 002FresourceGroups:002F<ResourceGroupName>: 002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
-- **RowKey** : 形式に準じます <Descending time tick>:<Performance Counter Name>です。 降順の時間ティック計算は、最大時間ティックから集計期間の開始時間を引いたものです。 例:  2015 年 11 月 10 で、サンプリングの期間を開始し、00:00Hrs UTC、計算が立つ: DateTime.MaxValue.Ticks - (新しい DateTime(2015,11,10,0,0,0,DateTimeKind.Utc) します。タイマー刻み)。 メモリで使用可能なバイトのパフォーマンス カウンターの場合、行キーは2519551871999999999__:005CMemory:005CAvailable:0020Bytes のようになります。
+- **RowKey** : 形式に従います <Descending time tick>:<Performance Counter Name>. 降順の時間ティック計算は、最大時間ティックから集計期間の開始時間を引いたものです。 例:  2015 年 11 月-10 - で、サンプリングの期間を開始し、00:00Hrs UTC、計算が立つ: DateTime.MaxValue.Ticks - (新しい DateTime(2015,11,10,0,0,0,DateTimeKind.Utc) します。タイマー刻み)。 メモリで使用可能なバイトのパフォーマンス カウンターの場合、行キーは2519551871999999999__:005CMemory:005CAvailable:0020Bytes のようになります。
 - **CounterName** : パフォーマンス カウンターの名前を指定します。 これに対応、 *counterSpecifier* xml 構成で定義されています。
 - **最大** : 集計の期間にわたってパフォーマンス カウンターの最大値。
 - **最小** : 集計の期間にわたってパフォーマンス カウンターの最小値。
@@ -168,6 +168,7 @@ MetricAggregation 値 *PT1H* と *PT1M* 1 分以上集計と集計に 1 時間�
 - 診断拡張機能で Windows 仮想マシンの完全なサンプル テンプレートを参照してください [201-vm の監視-診断の拡張機能。](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
 - リソース マネージャー テンプレートを使用して、展開 [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md) または [Azure コマンド ライン](virtual-machines-deploy-rmtemplates-powershell.md)
 - 詳細について [Azure リソース マネージャーのテンプレートの作成](resource-group-authoring-templates.md)
+
 
 
 

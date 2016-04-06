@@ -27,7 +27,7 @@ VNet をより詳しく説明するために、次の図に簡略化されたオ
 
 次の図のように、同じネットワークを Azure でホストできます。
 
-![Azure Virtual Network](./media/virtual-networks-overview/figure02.png)
+![Azure 仮想ネットワーク](./media/virtual-networks-overview/figure02.png)
 
 Azure インフラストラクチャが VNet からパブリック インターネットへのアクセスを有効にするルーターのロールを担っていることがわかります。構成を行う必要はありません。 ファイアウォールは、個々のサブネットに適用されたネットワーク セキュリティ グループ (NSG) に置き換えることができます。 すべての物理ロード バランサーは Azure でインターネットに接続する内部ロード バランサーに置き換えられます。
 
@@ -85,7 +85,7 @@ NSG を作成すると、ネットワーク インターフェイス (NIC)、VM�
 ## 制限
 サブスクリプションで許可される仮想ネットワークの数に制限を参照してください [Azure ネットワークを制限](azure-subscription-service-limits.md#networking-limits) の詳細。
 
-## 価格
+## 料金
 Azure では追加のコストの必要なく Virtual Network を使用できます。 Vnet 内に開始された多くのコンピューティング インスタンス課金されることは標準の料金」の説明に従って [Azure VM 料金](https://azure.microsoft.com/pricing/details/virtual-machines/)します。  [VPN ゲートウェイ](https://azure.microsoft.com/pricing/details/vpn-gateway/) および [パブリック IP アドレス] (https://azure.microsoft.com/pricing/details/ip-addresses/)、VNet で使用しても充電された標準の料金はあります。 
 
 ## 次のステップ
@@ -97,5 +97,6 @@ Azure では追加のコストの必要なく Virtual Network を使用できま
 - [静的内部プライベート IP アドレスの設定方法](../virtual-networks-reserved-private-ip.md)
 - [パブリック IP アドレスを予約](../virtual-networks-reserved-public-ip.md)します。
 - について学習 [ユーザー定義のルートと IP 転送](virtual-networks-udr-overview.md)します。
+
 
 

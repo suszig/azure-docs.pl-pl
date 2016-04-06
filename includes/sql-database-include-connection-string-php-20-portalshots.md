@@ -1,9 +1,9 @@
 <!--
 includes/sql-database-include-connection-string-20-portalshots.md
 
-鮮度をチェックする最新: 2015年-09-02、GeneMi です。
+Latest Freshness check:  2015-09-02 , GeneMi.
 
-## 接続文字列
+## Connection string
 -->
 
 
@@ -37,7 +37,7 @@ includes/sql-database-include-connection-string-20-portalshots.md
 <!--
 Could not find a good link for PHP
 
-詳細についてを参照してください:<br/>[接続文字列と構成ファイル](https://msdn.microsoft.com/library/ms378428.aspx)します。
+For more information, see:<br/>[Connection Strings and Configuration Files](https://msdn.microsoft.com/library/ms378428.aspx).
 -->
 
 
@@ -57,4 +57,5 @@ includes/sql-database-include-connection-string-20-portalshots.md
 includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
+
 

@@ -19,7 +19,7 @@
    />
    
 # 仮想ネットワークの管理: ロード バランサー分散モード (ソース IP アフィニティ)
-**ソース IP アフィニティ** (とも呼ばれる **セッション アフィニティ** または **クライアント IP アフィニティ**)、Azure ロード バランサー分散モードでは、1 つのクライアントから動的に異なる Azure ホスト サーバー (既定のロード バランサー動作) には、各クライアント接続を配布するのではなく、1 つの Azure ホスト サーバーへの接続を結びつけます。
+**ソース IP アフィニティ** (とも呼ばれる **セッション アフィニティ** または **クライアント IP アフィニティ**)、Azure ロード バランサー分散モードでは、1 つのクライアントから動的に異なる Azure ホスト サーバー (既定のロード バランサー動作) には、各クライアント接続を配布するのではなく、単一の Azure ホスト サーバーへの接続を結びつけます。
 
 ソース IP アフィニティを使うと、Azure のロード バランサーを、2 組の組み合わせ (ソース IP と接続先の IP) か、3 組の組み合わせ (ソース IP、接続先の IP、プロトコル) で構成し、利用可能な Azure ホスト サーバーのプールにトラフィックをマッピングできます。 ソース IP アフィニティを使うときは、同じクライアント コンピューターで初期化された接続は 1 つの DIP エンドポイント (1 つの Azure ホスト サーバー) で処理されます。
 
@@ -122,7 +122,7 @@ Azure SDK for .NET を使用してクラウド サービスをアップデート
 
 ### デプロイで指定した負荷分散セットの構成をアップデートします。
 
-#### 要求
+#### Request (要求)
 
     POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet 
     
@@ -150,7 +150,7 @@ Azure SDK for .NET を使用してクラウド サービスをアップデート
 
 LoadBalancerDistribution の値のできます 2 組のアフィニティ、3 組のアフィニティの Sourceip、またはなし (アフィニティなし。 つまり 5 組)
 
-#### Response
+#### 応答
 
     HTTP/1.1 202 Accepted 
     Cache-Control: no-cache 
@@ -160,4 +160,5 @@ LoadBalancerDistribution の値のできます 2 組のアフィニティ、3 �
     x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af 
     Date: Thu, 16 Oct 2014 22:49:21 GMT
  
+
 

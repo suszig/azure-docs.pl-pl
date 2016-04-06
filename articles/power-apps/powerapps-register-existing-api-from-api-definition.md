@@ -40,7 +40,7 @@
     - ``host`` プロパティでは、既存の API の実際のエンドポイントを参照する必要があります。 スキームやサブ パスは使用しないでください。 たとえば、「``api.contoso.com``」のように入力します。  <br/><br/>
     - 既存の API エンドポイントがある場合は、そのサブ パスを ``basePath`` プロパティで列記する必要があります。 フォワードスラッシュ ``/`` で始めます。 たとえば、入力 ``/purchaseorderapi``します。
 
-2. 既存の API がしっかりと app service 環境からアクセスできることを確認します。  <br/><br/>
+2. App Service 環境から既存の API に安全にアクセスできることを確認します。  <br/><br/>
     a) 場合は、API をインターネットを使用してアクセスできるようにするのに慣れている場合は、app service 環境と既存の API の HTTP 基本アクセス認証を設定できます。 移動 [ここ](powerapps-configure-apis.md) を表示する方法です。  <br/><br/>
     b) お客様の組織のネットワーク内で、API を保持する場合、組織のネットワークを安全にアクセスするように、app service 環境の仮想ネットワークを設定できます。 移動 [ここ](../app-service-app-service-environment-intro.md) を表示する方法です。
 
@@ -71,4 +71,5 @@
 [11]: ./media/powerapps-register-existing-api-from-api-definition/registered-apis-part.png
 [12]: ./media/powerapps-register-existing-api-from-api-definition/add-api-button.png
 [13]: ./media/powerapps-register-existing-api-from-api-definition/add-api-blade.png
+
 

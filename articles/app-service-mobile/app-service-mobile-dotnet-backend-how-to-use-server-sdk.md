@@ -341,7 +341,7 @@ Azure App Service には、ASP.NET アプリケーションのデバッグとト
         ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
         traceWriter.Info("Hello, World");  
 
-### <a name="local-debug"></a>ローカルの認証を使用したデバッグ
+### <a name="local-debug"></a>認証に関するローカル デバッグ
 
 クラウドに発行する前に変更をテストするために、ローカルでアプリケーションを実行できます。 これだけを押すのとは、多くのアプリケーション、 *f5 キーを押して* Visual Studio の中にします。 ただし、認証を使用している場合は追加の考慮事項がいくつかあります。
 
@@ -368,4 +368,5 @@ App Service Authentication/Authorization を使用してクラウド ベース�
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
+
 

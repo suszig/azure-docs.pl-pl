@@ -37,7 +37,7 @@
   ![2_RequestRefund][2]
 
 5. 連絡先情報を提供する。
-6.  **問題は何ですか?** ボックスで、次の情報を入力してください。
+6.  **問題は何ですか。** ボックスで、次の情報を入力します。
 
     - 影響を受ける顧客のサブスクリプション ID
     - 顧客名
@@ -119,4 +119,5 @@
 [6]: ./media/marketplace-publishing-support-common-issues/protectacct.png
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
+
 

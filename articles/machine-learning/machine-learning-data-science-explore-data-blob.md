@@ -61,7 +61,7 @@
 
 これで、データを探索し、このデータセットでの特徴を生成する準備が整いました。
 
-##<a name="blob-dataexploration"></a>Pandas を使用してデータの探索の例
+##<a name="blob-dataexploration"></a>Pandas を使用したデータ探索の例
 
 次に、Pandas を使用してデータを探索する方法の例をいくつかを示します。
 
@@ -115,4 +115,5 @@
         
         #correlation between column_a and column_b
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
+
 

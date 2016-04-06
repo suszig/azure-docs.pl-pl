@@ -39,7 +39,7 @@ Visual Studio アプリケーションから HDInsight SDK をインストール
 
 ## <a name="YARNTimelineServer"></a>YARN タイムライン サーバー
 
-この <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN タイムライン サーバー</a> は完了したアプリケーションに関する汎用的な情報のほか、2 つの異なるインターフェイスを通じてフレームワーク固有のアプリケーション情報を提供します。 具体的には次の処理が行われます。
+<a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN タイムライン サーバー</a>は完了したアプリケーションに関する汎用的な情報のほか、2 つの異なるインターフェイスを通じてフレームワーク固有のアプリケーション情報を提供します。 具体的には次の処理が行われます。
 
 * HDInsight クラスター上での汎用アプリケーション情報の格納と取得はバージョン 3.1.1.374 以降で有効になります。
 * タイムライン サーバーのフレームワーク固有のアプリケーション情報コンポーネントは、現在 HDInsight クラスターで使用できません。
@@ -77,7 +77,7 @@ YARN はアプリケーションのスケジュール設定/監視からリソ�
 
 次のセクションでは、HDInsight クラスターへの接続に RDP を使用せずに、特定のアプリケーションやコンテナーのログにプログラムを使用してアクセスする方法について説明します。
 
-## <a name="enumerate-and-download"></a>アプリケーションを列挙して、プログラムを使用してログのダウンロード
+## <a name="enumerate-and-download"></a>プログラムによるアプリケーションの列挙とログのダウンロード
 
 次のコード サンプルを使用するには、HDInsight .Net SDK の最新バージョンをダウンロードして上記の前提条件を満たす必要があります。 提示されている手順を参照してください。
 
@@ -173,4 +173,5 @@ YARN はアプリケーションのスケジュール設定/監視からリソ�
 [T-file]:https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]:https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]:http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
+
 

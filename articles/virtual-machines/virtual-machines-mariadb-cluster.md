@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーのモデルです。
 
-> [AZURE.NOTE]  MariaDB エンタープライズ クラスターは、Azure Marketplace では利用できるようになりました。  新しいサービスでは、自動的に ARM 上に MariaDB Galera cluster をデプロイします。 Https://azure.microsoft.com/en-us/marketplace/partners/mariadb/cluster-maxscale/から新しいサービスを使用する必要があります。 
+> [AZURE.NOTE]  MariaDB エンタープライズ クラスターは、Azure Marketplace では利用できるようになりました。  新しいサービスでは、自動的に ARM 上に MariaDB Galera cluster をデプロイします。 Https://azure.microsoft.com/en-us/marketplace/partners/mariadb/cluster-maxscale/ から新しいサービスを使用する必要があります。 
 
 マルチ マスターを作成しています [Galera](http://galeracluster.com/products/) のクラスター [MariaDBs](https://mariadb.org/en/about/), 、高可用性環境を Azure Virtual Machines で動作する MySQL の堅牢でスケーラブル、かつ信頼性の高い一時的に代用します。
 
@@ -37,7 +37,7 @@
 
 ![アーキテクチャ](./media/virtual-machines-mariadb-cluster/Setup.png)
 
-> [AZURE.NOTE]  このトピックは、[Azure CLI] ツールを使用して、ダウンロードして、指示に従って Azure サブスクリプションへの接続を確認します。 Azure CLI で使用できるコマンドへの参照を実行する場合に、[Azure CLI コマンド リファレンス] については、このリンクをご覧ください。 [認証用に SSH キーの作成] する必要がありますもメモして、 **.pem ファイルの場所**します。
+> [AZURE.NOTE]  このトピックでは、 [Azure CLI] ツールになるように表示される指示に従って Azure サブスクリプションに接続してそれらをダウンロードすることを確認します。 Azure CLI で使用できるコマンドへの参照を必要がある場合はこのリンクをご覧、 [Azure CLI command reference]します。 必要がありますも [create an SSH key for authentication] しメモ、 **.pem ファイルの場所**します。
 
 
 ## テンプレートの作成
@@ -203,7 +203,7 @@
     - RSYNC: `firewall-cmd --zone=public --add-port=4444/tcp --permanent`
     - ファイアウォールの再読み: `firewall-cmd --reload`
 
-9.  パフォーマンスにシステムを最適化します。 詳細については、[パフォーマンス チューニング戦略] この記事を参照してください。
+9.  パフォーマンスにシステムを最適化します。 この記事を参照してください [performance tuning strategy] 詳細については
 
     - 再度、MySQL の構成ファイルを編集します。
 
@@ -227,7 +227,7 @@
         chkconfig mysql off
         waagent -deprovision
 
-11. ポータルで VM をキャプチャします。 (現時点では、[Azure CLI での問題 # 1268年] ツールがいると、Azure CLI ツールでキャプチャしたイメージで、接続されたデータ ディスクがキャプチャされていないという事実をについて説明します。)
+11. ポータルで VM をキャプチャします。 (現在のところ、 [issue #1268 in the Azure CLI] ツールについて説明いると、Azure CLI ツールでキャプチャしたイメージで、接続されたデータ ディスクがキャプチャされていないという事実です。)
 
     - ポータルでマシンをシャットダウンします。
     - [キャプチャ] をクリックし、イメージの名前を指定 **mariadb galera イメージ** 「waagent を実行しました」を確認し、説明を指定します。
@@ -343,10 +343,10 @@ Azure CLI を使用して、マシン上で次のコマンドを実行します�
 次のようなテーブルが作成されます。
 
     +----+--------+
-    | id | value  |
+  	| id | value  |
     +----+--------+
-    |  1 | Value1 |
-    |  4 | Value2 |
+  	|  1 | Value1 |
+  	|  4 | Value2 |
     +----+--------+
     2 rows in set (0.00 sec)
 
@@ -355,7 +355,7 @@ Azure CLI を使用して、マシン上で次のコマンドを実行します�
 
 この記事では、CentOS 7 を実行している Azure の仮想マシン上に、3 ノードの MariaDB + Galera の可用性の高いクラスターを作成しました。 VM には、Azure ロード バランサーで、負荷分散が行われます。
 
-[Linux 上で MySQL をクラスターに別の方法] での外観と [を最適化し、Azure Linux Vm で MySQL のパフォーマンスのテスト] の方法にすることがあります。
+確認することも [another way to cluster MySQL on Linux] と方法 [optimize and test MySQL performance on Azure Linux VMs]します。
 
 <!--Anchors-->
 [Architecture overview]: #architecture-overview
@@ -377,4 +377,5 @@ Azure CLI を使用して、マシン上で次のコマンドを実行します�
 [optimize and test MySQL performance on Azure Linux VMs]:http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
 [another way to cluster MySQL on Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
+
 

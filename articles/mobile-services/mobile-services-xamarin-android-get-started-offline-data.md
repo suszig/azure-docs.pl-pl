@@ -34,27 +34,27 @@
 * エンド ユーザーがネットワークにアクセスできなくてもデータを作成および変更できるようにすることで、接続がほとんどまたはまったく得られないような状況をサポートする。
 * 複数のデバイス間でデータを同期させ、同じレコードが 2 つのデバイスによって変更されたときに競合を検出する。
 
->[AZURE.NOTE] このチュートリアルを完了するには、Azure アカウントが必要です。 アカウントがない場合は、Azure 試用版にサインアップして最大 10 の無料モバイル サービスを取得し、試用期間が終わった後でも使用し続けることができます。 詳細については、<a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure の無料試用版サイト</a>をご覧ください。
+>[AZURE.NOTE] このチュートリアルを完了するには、Azure アカウントが必要です。 アカウントがない場合は、Azure 試用版にサインアップして、最大 10 件の無料モバイル サービスを入手できます。このサービスは評価終了後も使用できます。 詳細については、<a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure の無料試用版サイト</a>をご覧ください。
 >
-> 初めてのモバイル サービスを使用する場合は、完了してください [を使ってみるモバイル サービス] です。
+> 初めてのモバイル サービスを使用する場合は、完了してください [Get started with Mobile Services]します。
 
 このチュートリアルでは、次の基本的な手順について説明します。
 
-1. [Mobile Services 同期コードの確認]
+1. [Mobile Services 同期コードのレビュー]
 2. [アプリケーションの同期の動作を更新する]
 3. [モバイル サービスに再接続するようにアプリケーションを更新する]
 
 このチュートリアルには、次のものが必要です。
 
 * Visual Studio と、 [Xamarin extension] **または** [Xamarin Studio]
-* 完了、[モバイル サービスの開始を取得] チュートリアル
+* 完了、 [Get started with Mobile Services] チュートリアル
 
 ## <a name="review-offline"></a>Mobile Services 同期コードのレビュー
 
 ネットワークにアクセスできない場合、エンドユーザーは Azure Mobile Services のオフライン同期により、ローカル データベースとやり取りできるようになります。 アプリケーションでこれらの機能を使用するには、`MobileServiceClient.SyncContext` をローカル ストアに初期化します。 その後、`IMobileServiceSyncTable` インターフェイスを使用してテーブルを参照します。
 このセクションでは、`ToDoActivity.cs` のオフライン同期に関連するコードについて説明します。
 
-1. Visual Studio または Xamarin Studio で完成させたプロジェクトを開き、[モバイル サービスの開始を取得] チュートリアルです。 ファイル `ToDoActivity.cs` を開きます。
+1. Visual Studio または Xamarin Studio で完成させたプロジェクトを開き、 [Get started with Mobile Services] チュートリアルです。 ファイル `ToDoActivity.cs` を開きます。
 
 2. メンバー `toDoTable` の種類が `IMobileServiceSyncTable` であることに注意してください。 オフライン同期では、`IMobileServiceTable` の代わりにこの同期テーブル インターフェイスを使用します。 同期テーブルが使用されると、すべての操作はローカル ストアを参照し、明示的なプッシュ操作とプル操作を使用したリモート サービスとのみ同期されます。
 
@@ -83,7 +83,7 @@
 
     `DefineTable` メソッドを実行すると、提供された型のフィールドに一致するテーブルがローカル ストアに作成されます。この例では、`ToDoItem` になります。 この型に、リモート データベース内のすべての列を含める必要はありません。列のサブセットのみ格納できます。
 
-    この `InitializeAsync` のオーバーロードでは既定の競合ハンドラーを使用しますが、これは競合が発生するたびに失敗します。 カスタム競合ハンドラーを提供するには、[モバイル サービスのオフライン サポートで競合の処理] このチュートリアルを参照してください。
+    この `InitializeAsync` のオーバーロードでは既定の競合ハンドラーを使用しますが、これは競合が発生するたびに失敗します。 カスタム競合ハンドラーを提供するには、このチュートリアルを参照してください。 [Handling conflicts with offline support for Mobile Services]します。
 
 4. メソッド `SyncAsync` は、実際の同期操作を次のようにトリガーします。
 
@@ -99,9 +99,9 @@
 
     この例では、リモートの `TodoItem` テーブルにあるすべてのレコードを取得していますが、クエリを渡すことでレコードをフィルター処理することもできます。 `PullAsync()` の最初のパラメーターは、増分同期に使用されるクエリ ID です。増分同期では `UpdatedAt` タイムスタンプを使用して、前回の同期以降に変更されたレコードのみを取得します。 クエリ ID は、アプリ内の各論理クエリに対して一意の、わかりやすい文字列にする必要があります。 増分同期を解除するには、`null` をクエリ ID として渡します。 これによってプル操作ごとにすべてのレコードを取得することになり、効率が悪くなる可能性があります。
 
-    >[AZURE.NOTE] モバイル サービス データベースで削除されたときに、デバイスのローカル ストアからレコードを削除するに、[論理的な削除] を有効にする必要があります。 有効にしない場合は、アプリで定期的に `IMobileServiceSyncTable.PurgeAsync()` を呼び出して、ローカル ストアを削除する必要があります。
+    >[AZURE.NOTE] モバイル サービス データベースで削除されたときに、デバイスのローカル ストアからレコードを削除するには有効にした [Soft Delete]します。 有効にしない場合は、アプリで定期的に `IMobileServiceSyncTable.PurgeAsync()` を呼び出して、ローカル ストアを削除する必要があります。
 
-    `MobileServicePushFailedException` はプッシュ操作とプル操作の両方で発生する場合があることに注意してください。 次のチュートリアルの [モバイル サービスのオフライン サポートでの競合の処理]、ですこれらの同期関連の例外を処理する方法です。
+    `MobileServicePushFailedException` はプッシュ操作とプル操作の両方で発生する場合があることに注意してください。 次のチュートリアル、 [Handling conflicts with offline support for Mobile Services], 、これらの処理方法を示しています。 同期関連の例外です。
 
 5. クラス `ToDoActivity` では、メソッド `SyncAsync()` はデータ変更操作である `AddItem()` や `CheckItem()` の後に呼び出されます。 呼ばれる `OnRefreshItemsSelected()`, たびに、ユーザーが最新のデータを取得するため、 **更新** ] ボタンをクリックします。 `ToDoActivity.OnCreate()` は `OnRefreshItemsSelected()` を呼び出すため、アプリケーションは起動時に同期も実行します。
 
@@ -154,7 +154,7 @@
 
 * [モバイル サービスのオフライン サポートでの競合を処理する]
 
-* [Azure Mobile Services 向け Xamarin コンポーネント クライアントを使用する方法]
+* [Azure モバイル サービス向け Xamarin コンポーネント クライアントを使用する方法]
 
 <!-- Anchors. -->
 [Review the Mobile Services sync code]: #review-offline
@@ -176,3 +176,4 @@
 [Xamarin extension]: http://xamarin.com/visual-studio
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
 [Azure classic portal]: https://manage.windowsazure.com
+

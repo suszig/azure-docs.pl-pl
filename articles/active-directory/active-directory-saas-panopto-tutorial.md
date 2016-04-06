@@ -73,11 +73,11 @@
 
 1.  Azure AD ポータルでの **Panopto** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-panopto-tutorial/IC777667.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-panopto-tutorial/IC777667.png "Configure single sign-on")
 
 2.   **どのようなユーザーの Panopto へのアクセス** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 
-    ![Configure single sign-on](./media/active-directory-saas-panopto-tutorial/IC777668.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-panopto-tutorial/IC777668.png "Configure single sign-on")
 
 3.   **アプリケーション URL の構成** ] ページで、 **Panopto のサインイン URL** ] ボックスに、次のパターンを使用して URL を入力"*https://\<tenant-name\>。Panopto.com*"、クリックして **次**します。
 
@@ -85,7 +85,7 @@
 
 4.   **Panopto でのシングル サインオンの構成** ] ページで、証明書をダウンロードする] をクリックして **証明書のダウンロード**, 、お使いのコンピューターに証明書ファイルを保存します。
 
-    ![Configure single sign-on](./media/active-directory-saas-panopto-tutorial/IC777669.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-panopto-tutorial/IC777669.png "Configure single sign-on")
 
 5.  別の Web ブラウザーのウィンドウで、Panopto 企業サイトに管理者としてログインします。
 
@@ -116,7 +116,7 @@
 
 9.  Azure AD ポータルでのシングル サインオンの構成情報を選択し、 **完了** を閉じる、 **[シングル サインオン** ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-panopto-tutorial/IC777674.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-panopto-tutorial/IC777674.png "Configure single sign-on")
 ##ユーザー プロビジョニングの構成
   
 Panopto へのユーザー プロビジョニングの構成にあたって必要な操作はありません。  
@@ -142,3 +142,4 @@ Panopto へのユーザー プロビジョニングの構成にあたって必�
     ![あり](./media/active-directory-saas-panopto-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

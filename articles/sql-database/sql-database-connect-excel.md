@@ -57,15 +57,15 @@ Excel にデータをインポートするために Excel を SQL データベ�
 
 7.  **データのインポート** ダイアログで、 **ピボット グラフ** ] をクリック **OK**します。
 
-    ![Excel にデータをインポートしますデータのインポート] ダイアログ ボックスは、ピボット グラフを選択します。]。[2]
+    ![Excel へのデータのインポート: [データのインポート] ダイアログ ボックスで [PivotChart] を選択します。][2]
 
 8.  **ピボット グラフ フィールド** ダイアログ ボックスで、カテゴリごとに製品の数を示すレポートを作成する次の構成を選択します。
 
-    ![データベースのレポートを構成します。][3]
+    ![データベース レポートの構成][3]
 
     成功すると、次のような画面が表示されます。
 
-    ![成功: SQL データベースに接続している Excel です]。[4]
+    ![成功: Excel が SQL データベースに接続されました。][4]
 
 ## 次のステップ
 
@@ -77,4 +77,5 @@ Service (SaaS) 開発者としてのソフトウェアの場合は、につい�
 [3]: ./media/sql-database-connect-excel/power-pivot.png
 [4]: ./media/sql-database-connect-excel/power-pivot-results.png
 [5]: ./media/sql-database-connect-excel/select-database-and-table.png
+
 

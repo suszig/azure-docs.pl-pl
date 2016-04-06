@@ -63,7 +63,7 @@
 
 1.  **新しい ASP.NET プロジェクト** ダイアログ ボックスで、 **MVC** テンプレートです。 確認 **認証** に設定されている **個々 のユーザー アカウント**, 、**クラウドでホスト** がオンになってと **App Service** が選択されています。
 
-    ![[新しい ASP.NET プロジェクト] ダイアログ ボックス](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newproject.png)
+    ![New ASP.NET Project dialog box](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newproject.png)
 
 1. Click **OK**.
 
@@ -238,7 +238,7 @@
 
 1.  **ソリューション エクスプ ローラー**, を Models フォルダーを右クリックして、 **追加**, 、し **クラス**します。
 
-    ![Add Class in Models folder context menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rr5.png)
+    ![[モデル] フォルダーのコンテキスト メニューの [クラスの追加]](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rr5.png)
 
 2.  **新しい項目の追加** ダイアログ ボックスで、新しいクラス ファイルの名前 *Contact.cs*, 、クリックして **追加**します。
 
@@ -272,7 +272,7 @@ ASP.NET MVC のスキャフォールディング機能によって、作成、�
  
 1.  **ソリューション エクスプ ローラー**, Controllers フォルダーを右クリックし、クリックして、 **追加**, 、] をクリックし、 **コント ローラー**します。
 
-    ![Add Controller in Controllers folder context menu][addcode001]
+    ![[コントローラー] フォルダーのコンテキスト メニューの [コントローラーの追加]][addcode001]
 
 5.  **スキャフォールディングの追加** ダイアログ ボックスで、 **MVC 5 コント ローラーとビュー、EF を使用して** ] をクリックし、 **追加**します。
     
@@ -296,7 +296,7 @@ ASP.NET MVC のスキャフォールディング機能によって、作成、�
 
 1.  **ツール** メニューの [ **NuGet パッケージ マネージャー** し **パッケージ マネージャー コンソール**します。
 
-    ![Package Manager Console in Tools menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/SS6.png)
+    ![[ツール] メニューの [パッケージ マネージャー コンソール]](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/SS6.png)
 
 2.  **パッケージ マネージャー コンソール** ウィンドウで、次のコマンドを入力します。
 
@@ -386,7 +386,7 @@ ASP.NET MVC のスキャフォールディング機能によって、作成、�
 
     アプリケーションでは、登録されたデータが表示され、編集、詳細、削除のリンクが示されます。 データの作成、編集、削除、表示を行うことができます。
 
-    ![データの MVC view][rx2]
+    ![MVC view of data][rx2]
 
 ## OAuth2 プロバイダーを追加する
 
@@ -518,7 +518,7 @@ ASP.NET MVC のスキャフォールディング機能によって、作成、�
         
     このコードを追加、 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) フィルターおよび [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) アプリケーションにフィルターします。  [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) フィルターにより、匿名ユーザーがアプリケーションのメソッドに一切アクセスします。 使用する、 [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) を匿名ユーザーがログインできる、ホーム ページを表示できるように、2 つのメソッドの承認要件を免除し属性です。   [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) HTTPS を介して web アプリにアクセスできる必要があります。
 
-    追加する方法の 1 つは、 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 属性および [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 属性を各コント ローラーもありますアプリケーション全体に適用するセキュリティのベスト プラクティスです。 アプリケーション全体に適用すれば、新しいコントローラーやアクション メソッドを追加したとき、それらが自動的に保護されます。ユーザー自身で適用する必要がありません。 詳細については、次を参照してください。 [ASP.NET MVC アプリケーションと新しい AllowAnonymous 属性をセキュリティで保護する](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)です。 
+    追加するという方法、 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 属性および [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 属性を各コント ローラーもありますアプリケーション全体に適用するセキュリティのベスト プラクティスです。 アプリケーション全体に適用すれば、新しいコントローラーやアクション メソッドを追加したとき、それらが自動的に保護されます。ユーザー自身で適用する必要がありません。 詳細については、次を参照してください。 [ASP.NET MVC アプリケーションと新しい AllowAnonymous 属性をセキュリティで保護する](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)です。 
 
 1. 追加、 [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 属性を **インデックス** Home コント ローラーのメソッドです。  [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 属性を使用ホワイト リストを認証方法です。 
 
@@ -658,7 +658,7 @@ ASP.NET MVC のスキャフォールディング機能によって、作成、�
 
 5. クリックして、 **登録** 、ログイン ページにリンクし、ローカル アカウントを作成します。 このローカル アカウントを使用して読み取り専用ページにアクセスすることができますが、データを変更するページにアクセスできないことを確認 (によって保護されている、 *canEdit* ロール)。 ローカル アカウント アクセスは、後でこのチュートリアルの中で削除します。 
 
-    ![登録](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss16.PNG)
+    ![Register](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss16.PNG)
 
 1. 移動できることを確認、 *に関する* と *連絡先* ページです。
 
@@ -796,4 +796,5 @@ Entity Framework を使用する方法についてより高度なチュートリ
 
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
+
 

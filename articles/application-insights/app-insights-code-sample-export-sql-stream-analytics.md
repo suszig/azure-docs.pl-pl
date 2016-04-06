@@ -73,7 +73,7 @@
 
     ![ストレージで、[設定]、[キー] の順に開き、プライマリ アクセス キーのコピーを取ります](./media/app-insights-code-sample-export-sql-stream-analytics/21-storage-key.png)
 
-## Azure Storage への連続エクスポートの開始
+## Azure ストレージへの連続エクスポートの開始
 
 1. Azure ポータルで、アプリケーション用に作成した Application Insights リソースを参照します。
 
@@ -314,3 +314,4 @@ SQL データベースを指定します。
 [start]: app-insights-overview.md
 
  
+

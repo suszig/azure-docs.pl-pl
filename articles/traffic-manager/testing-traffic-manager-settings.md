@@ -70,6 +70,7 @@ Traffic Manager の設定をテストするには、複数のクライアント�
 
 ## 次のステップ
 
-[Traffic Manager のトラフィックのルーティング方法の詳細](../about-traffic-manager-balancing-methods.md)
+[Traffic Manager のトラフィック ルーティング方法について](../about-traffic-manager-balancing-methods.md)
 [Traffic Manager](../traffic-manager.md)
  
+

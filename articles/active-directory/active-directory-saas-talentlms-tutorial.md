@@ -75,7 +75,7 @@ TalentLMS のシングル サインオンを構成するには、証明書から
 
 1.  Azure AD ポータルでの **TalentLMS** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-talentlms-tutorial/IC777292.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-talentlms-tutorial/IC777292.png "Configure single sign-on")
 
 2.   **どのようなユーザーが TalentLMS へのサインオン** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 
@@ -97,7 +97,7 @@ TalentLMS のシングル サインオンを構成するには、証明書から
 
 7.  クリックして **シングル サインオン (SSO)**,、
 
-8.  [Single Sign-On] セクションで、次の手順に従います。
+8.  [シングル サインオン] セクションで、次の手順に従います。
 
     ![シングル サインオン](./media/active-directory-saas-talentlms-tutorial/IC777297.png "Single Sign-On")
 
@@ -156,3 +156,4 @@ TalentLMS の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-talentlms-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

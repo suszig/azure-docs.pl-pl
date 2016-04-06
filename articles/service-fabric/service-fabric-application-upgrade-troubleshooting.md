@@ -212,7 +212,7 @@ Service Fabric は、正常性評価のためのエンティティ (レプリカ
 
 アップグレードの失敗が発生することはできませんよりも高速 *HealthCheckWaitDuration* + *HealthCheckRetryTimeout*します。
 
-アップグレード ドメインのアップグレードの時間によって制限されます *UpgradeDomainTimeout*します。  場合 *HealthCheckRetryTimeout* と *HealthCheckStableDuration* が両方とも 0 以外であり、アプリケーションの正常性をやり取りで、アップグレードにタイムアウトが最終的に *UpgradeDomainTimeout*します。 *UpgradeDomainTimeout* カウント ダウンが始まりますに 1 回、アップグレードの現在のアップグレード ドメインを開始します。
+アップグレード ドメインのアップグレードの時間によって制限されます *UpgradeDomainTimeout*します。  場合 *HealthCheckRetryTimeout* と *HealthCheckStableDuration* が両方とも 0 以外であり、アプリケーションの正常性をやり取りで、アップグレードにタイムアウトが最終的に *UpgradeDomainTimeout*します。 *UpgradeDomainTimeout* カウント ダウン アップグレード ドメインは、現在のアップグレードを開始するを開始します。
 
 ## 次のステップ
 
@@ -226,4 +226,5 @@ Service Fabric は、正常性評価のためのエンティティ (レプリカ
 
 [データのシリアル化](service-fabric-application-upgrade-data-serialization.md)
  
+
 

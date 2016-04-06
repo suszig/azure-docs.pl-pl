@@ -69,7 +69,7 @@ Azure IoT Hub は、何百万もの IoT デバイスとアプリケーション 
 
   ![][50]
 
-> [AZURE.NOTE] 更新される、blob ファイルを表示するのには、削減する必要があります、 `MAX_BLOCK_SIZE` で定数 `StoreEventProcessor` より小さい値に (つまり、 `1024`). これは、シミュレーション対象デバイスによって送信されたデータのブロック サイズの制限に達するまでに時間がかかるためです。 このように編集することで、ストレージ コンテナーで BLOB が作成され、更新されたことを確認できます。
+> [AZURE.NOTE] 更新される、blob ファイルを表示するのには、削減する必要があります、 `MAX_BLOCK_SIZE` で定数 `StoreEventProcessor` より小さい値に (つまり `1024`)。 これは、シミュレーション対象デバイスによって送信されたデータのブロック サイズの制限に達するまでに時間がかかるためです。 このように編集することで、ストレージ コンテナーで BLOB が作成され、更新されたことを確認できます。
 
 ## 次のステップ
 
@@ -117,4 +117,5 @@ IoT Hub に関するその他の情報:
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Azure IoT Developer Center]: http://www.azure.com/develop/iot
+
 

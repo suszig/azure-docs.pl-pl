@@ -26,7 +26,7 @@
 
 このチュートリアルを開始する前に、次の作業を完了している必要があります。
 
-- HDInsight Emulator のインストール。 手順については、次を参照してください。 [HDInsight Emulator の概要][hdinsight-emulator]します。 必要なサービスがすべて実行されていることを確認します。 HDInsight Emulator をインストールしているコンピューターにデスクトップのショートカットから Hadoop コマンドラインを起動してに移動 **C:\hdp**, 、コマンドを実行して **start_local_hdp_services.cmd**します。
+- HDInsight Emulator のインストール 手順については、次を参照してください。 [HDInsight Emulator の概要][hdinsight-emulator]します。 必要なサービスがすべて実行されていることを確認します。 HDInsight Emulator をインストールしているコンピューターにデスクトップのショートカットから Hadoop コマンドラインを起動してに移動 **C:\hdp**, 、コマンドを実行して **start_local_hdp_services.cmd**します。
 - エミュレーター コンピューターへの Azure PowerShell のインストール。 手順については、次を参照してください。 [をインストールし、Azure PowerShell を構成][powershell-install-configure]します。
 - エミュレーター コンピューターへの Java プラットフォーム JDK 7 以降のインストール。 これはエミュレーター コンピューターで既に利用可能です。
 - インストールし、構成 [Apache Maven](http://maven.apache.org/)します。
@@ -205,7 +205,7 @@
     > [AZURE.NOTE]  __Wordcountjava 1.0-SNAPSHOT.jar__ ファイルは uberjar です。
 
 
-##<a name="test"></a>エミュレーターでプログラムをテストする
+##</a><a name="test">エミュレーターでプログラムをテストする
 
 HDInsight Emulator での MapReduce ジョブのテストには次の手順が含まれます。
 
@@ -609,4 +609,5 @@ Azure HDInsight は、データ ストレージとして Azure BLOB ストレー
 
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
+
 

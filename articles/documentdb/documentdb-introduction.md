@@ -23,7 +23,7 @@ DocumentDB とは、簡単に拡大縮小でき、高い可用性を必要とす
 
 この JSON データベースを簡単に理解して動作を確認するには、次の 3 つの手順に従います。 
 
-1. 2 つの分を見る [DocumentDB は?](http://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) ビデオで、DocumentDB を使用する利点について説明します。
+1. 2 つの分を見る [DocumentDB は何ですか。](http://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) ビデオは、DocumentDB を使用する利点について説明します。
 2. 次の 3 つの分を見る [Azure で作成する DocumentDB](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) Azure ポータルを使用して DocumentDB を導入する方法をハイライトするビデオ、します。
 3. 参照してください、 [クエリのプレイ グラウンド](http://www.documentdb.com/sql/demo), 、DocumentDB で使用できる機能のクエリを実行する豊富な詳細については、さまざまなアクティビティを操作することができます。 次に [サンドボックス] タブに移動して、独自のカスタム SQL クエリを実行し、DocumentDB を試してみます。
 
@@ -72,10 +72,10 @@ DocumentDB 内のリソースはいずれも、JSON ドキュメントとして�
 
 データベース アカウントは、一連のデータベースから成ります。それぞれのデータベースには、複数のコレクションが含まれており、それぞれのコレクションに、ストアド プロシージャ、トリガー、UDF のほか、ドキュメントおよび関連する添付ファイルが含まれています。 また、データベースにはユーザーが関連付けられ、それぞれのユーザーには、他のさまざまなコレクション、ストアド プロシージャ、トリガー、UDF、ドキュメント、添付ファイルにアクセスするための一連のアクセス許可が関連付けられます。 データベース、ユーザー、アクセス許可、コレクションが、既知のスキーマを持ったシステム定義のリソースであるのに対し、ドキュメント、ストアド プロシージャ、トリガー、UDF、添付ファイルは、ユーザーが自由に定義できる JSON コンテンツを格納します。  
 
-##<a name="develop"></a> Azure DocumentDB の使用による開発
+##<a name="develop"></a>Azure DocumentDB を使用した開発
 Azure DocumentDB が公開するリソースには、HTTP/HTTPS 要求機能を持つ任意の言語から REST API を呼び出すことでアクセスできます。 さらに、DocumentDB にはいくつかの主要な言語のプログラミング ライブラリも用意されています。 アドレスのキャッシュ、例外管理、自動再試行などに伴う細部の処理がライブラリ側で行われるため、Azure DocumentDB の操作が多くの点で単純化されます。 ライブラリは、次の言語およびプラットフォーム用が現在提供されています。  
 
-ダウンロード | ドキュメント
+ダウンロード | Documentation
 --- | ---
 [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) | [.NET ライブラリ](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 [Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) | [Node.js ライブラリ](http://dl.windowsazure.com/documentDB/nodedocs/)
@@ -104,10 +104,11 @@ DocumentDB における JavaScript は、Transact-SQL の後継として、リ�
 Azure アカウントをお持ちでない場合は、
 
 - サインアップするため、 [Azure 無料評価版](https://azure.microsoft.com/pricing/free-trial/), 、30 日間と 200 ドルにすべての Azure サービスを提供します。 
-- MSDN サブスクリプションがある場合の資格が [12,500 円 1 か月あたりの無料の Azure クレジットの](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) すべての Azure サービスを使用します。 
+- MSDN サブスクリプションがある場合の資格が [で無料の Azure クレジットを 1 か月あたり $150](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) すべての Azure サービスを使用します。 
 
 次に、詳細については準備ができたらを参照してください、 [ラーニング パス](http://azure.microsoft.com/documentation/learning-paths/documentdb/) を使用するすべてのラーニング リソースを移動します。 
 
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
+

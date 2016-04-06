@@ -11,15 +11,15 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload=「記憶域のバックアップ回復」
+   ms.workload="storage-backup-recovery"
    ms.date="12/15/2015"
-   ms.author="jimpark"です。"aashishr"です。"sammehta"/>
+   ms.author="jimpark"; "aashishr"; "sammehta"/>
 
 # Azure Backup を使用してテープのインフラストラクチャを置換する
 Azure Backup と System Center Data Protection Manager のユーザーは以下を実行できます。
-- 組織のニーズに最適なスケジュールでデータをバックアップします。
-- 長期間のバックアップ データを保持します。
-- (テープ) ではなく、長期間保有の一部が必要な Azure を確認します。
+- 組織のニーズに最適なスケジュールでのデータのバックアップ
+- 長期間にわたるバックアップ データの保持
+- 長期間保有する必要があるものを (テープの代わりに) Azure で保持
 
 この記事では、顧客がバックアップと保有ポリシーを有効にする方法について説明します。 その長期間保有のニーズに対処するためにこれまでテープ使用してきた顧客にとっては、この機能を使用するための強力かつ有効な代替方法を活用できるようになりました。 Azure Backup の最新リリースでは、機能が有効になっている (利用できる [ここ](http://aka.ms/azurebackup_agent))。 SCDPM の顧客は、この機能を使用する前に、UR5 に移動する必要があります。
 
@@ -35,7 +35,7 @@ Backup スケジュールは、バックアップ操作の頻度を示します�
 ## 保有ポリシーとは
 保有ポリシーは、バックアップを格納する必要がある期間を指定します。 顧客は、すべてのバックアップ ポイントの「フラット ポリシー」を指定するのでなく、バックアップが作成された時期に基づいて別の保有ポリシーを指定できます。 たとえば、各四半期の最後に実行されるバックアップ ポイントは、監査のために長期間保持する必要がありますが、毎日実行されるバックアップ ポイント (運用上の復旧ポイントとして機能する) は、90 日間保持する必要があります。
 
-![Retention Policy](./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png)
+![保有ポリシー](./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png)
 
 このポリシーで指定された「保有ポイント」の合計数は、90 (1 日のポイント) + 40 (10 年間の四半期ごとに 1 つ) = 130 です。
 
@@ -69,4 +69,5 @@ Azure Backup について詳しくは、以下をご覧ください。
 
 - [Azure Backup の概要](backup-introduction-to-azure-backup.md)
 - [Azure Backup を試す](backup-try-azure-backup-in-10-mins)
+
 

@@ -1,5 +1,5 @@
 <properties
-  pageTitle="Azure ストレージに診断データの保存と表示 |Microsoft Azure"
+  pageTitle="Azure Storage への診断データの保存と表示 | Microsoft Azure"
   description="Azure Storage に Azure 診断データを保存し、それを表示する"
   services="cloud-services"
   documentationCenter=".net"
@@ -15,11 +15,11 @@
   ms.date="10/21/2015"
   ms.author="robb" />
 
-# Azure ストレージに診断データの保存と表示
+# Azure Storage への診断データの保存と表示
 
 診断データは、Microsoft Azure ストレージ エミュレーターまたは Azure ストレージに転送しない限り、永続的に保存されません。 診断データは、いったんストレージに保存されると、用意されているいくつかのツールの 1 つを使用して確認することができます。
 
-## ストレージ アカウントを指定します。
+## ストレージ アカウントの指定
 
 ServiceConfiguration.cscfg ファイル内で使用するストレージ アカウントを指定します。 アカウント情報は、構成設定で接続文字列として定義されます。 次の例は、Visual Studio で新しいクラウド サービス プロジェクト用に作成された既定の接続文字列を示しています。
 
@@ -45,7 +45,7 @@ ServiceConfiguration.cscfg ファイル内で使用するストレージ アカ�
 |クラッシュ ダンプ|BLOB|
 |カスタム エラー ログ|BLOB|
 
-## 診断データを転送します。
+## 診断データの転送
 
 SDK 2.5 以降では、診断データの転送要求は構成ファイルを介して発生します。 構成で指定したスケジュール間隔で、診断データを転送することができます。
 
@@ -54,7 +54,7 @@ SDK 2.4 およびそれ以前のバージョンでは、構成ファイルを介
 
 >[AZURE.IMPORTANT] Azure ストレージ アカウントに診断データを転送する場合は、診断データを使用するストレージ リソースのコストが発生します。
 
-## 診断データを格納します。
+## 診断データの保存
 
 ログ データは、次の名前の BLOB ストレージまたはテーブル ストレージに保存されます。
 
@@ -83,7 +83,7 @@ SDK 2.4 およびそれ以前のバージョンでは、構成ファイルを介
 ## 診断データを表示するツール
 ストレージへの転送後にデータを表示するには、いくつかのツールを利用できます。 次に例を示します。
 
-- **Visual Studio サーバー エクスプ ローラー** の場合は、Azure Tools for Microsoft Visual Studio をインストール済みノードを使用して、Azure ストレージ サーバー エクスプ ローラーで、Azure ストレージ アカウントからの読み取り専用の blob およびテーブル データを表示します。 ローカル ストレージ エミュレーター アカウントからデータを表示することができ、に加えてストレージ アカウントから、作成した Azure のします。 詳細については、次を参照してください。 [サーバー エクスプ ローラーを使用したストレージ リソース](https://msdn.microsoft.com/library/ff683677.aspx)します。
+- **Visual Studio サーバー エクスプ ローラー** の場合は、Azure Tools for Microsoft Visual Studio をインストール済みノードを使用して、Azure ストレージ サーバー エクスプ ローラーで、Azure ストレージ アカウントからの読み取り専用の blob およびテーブル データを表示します。 データは、ローカルのストレージ エミュレーター アカウントから表示できます。また、Azure 用に作成したストレージ アカウントから表示することもできます。 詳細については、次を参照してください。 [サーバー エクスプ ローラーを使用したストレージ リソース](https://msdn.microsoft.com/library/ff683677.aspx)します。
 
 - **Neudesic の azure のストレージ エクスプ ローラー** - [Azure ストレージ エクスプ ローラー](http://azurestorageexplorer.codeplex.com/) 検査およびに Azure アプリケーションのログを含む Azure ストレージ プロジェクト内のデータを変更するための便利なグラフィカル ユーザー インターフェイス ツールです。 このツールをダウンロードするを参照してください。 [Azure ストレージ エクスプ ローラー](http://azurestorageexplorer.codeplex.com/)します。
 
@@ -92,4 +92,5 @@ SDK 2.4 およびそれ以前のバージョンでは、構成ファイルを介
 ## 次のステップ
 
 [Azure 診断で Cloud Services アプリケーションのフローをトレースする](cloud-services-dotnet-diagnostics-trace-flow.md)
+
 

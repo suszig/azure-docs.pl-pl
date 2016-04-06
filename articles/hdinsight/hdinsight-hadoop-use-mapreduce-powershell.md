@@ -31,7 +31,7 @@
 
 - **Azure PowerShell を実行できるワークステーション**します。 参照してください [Azure PowerShell インストールおよび構成](../powershell-install-configure.md)
 
-##<a id="powershell"></a>Azure PowerShell を使用して MapReduce ジョブを実行します。
+##<a id="powershell"></a>Azure PowerShell を使用した MapReduce ジョブの実行
 
 Azure PowerShell には *コマンドレット* HDInsight で MapReduce ジョブをリモートで実行するためのです。 これは、HDInsight クラスター上で実行する [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) への REST 呼び出し (旧称: Templeton) を内部的に使用することで機能します。
 
@@ -181,4 +181,5 @@ HDInsight での Hadoop のその他の使用方法に関する情報
 * [HDInsight での Hive と Hadoop の使用](hdinsight-use-hive.md)
 
 * [HDInsight での Pig と Hadoop の使用](hdinsight-use-pig.md)
+
 

@@ -72,7 +72,7 @@ Spark ストリーミングは、コア Spark API を拡張して、スケーラ
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../../includes/service-bus-event-hubs-get-started-send-csharp.md)]
 
-##<a name="receivezeppelin"></a>Zeppelin を使用した HDInsight での Spark でメッセージを受信します。
+##<a name="receivezeppelin"></a>Zeppelin を使用した HDInsight 上の Spark でのメッセージの取得
 
 このセクションで作成、 [Zeppelin](https://zeppelin.incubator.apache.org) ノートブックを HDInsight の Spark クラスターに、Event Hub からメッセージを受信します。
 
@@ -162,7 +162,7 @@ Spark クラスターのリソースを割り当てる方法については、�
 
     ![Zeppelin インタープリターを再起動します](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Zeppelin.Restart.Interpreter.png "Restart the Zeppelin intepreter")
 
-##<a name="sparkstreamingha"></a>高可用性のストリーミング アプリケーションを実行します。
+##<a name="sparkstreamingha"></a>高可用性のストリーミング アプリケーションの実行
 
 Zeppelin を使用して HDInsight の Spark クラスターでストリーミング データを受け取るのは、アプリケーションのプロトタイプに適した方法です。 ただし、高可用性と復元性を備えた実稼動環境セットアップでストリーミング アプリケーションを実行するには、以下を行う必要があります。
 
@@ -180,7 +180,7 @@ Zeppelin を使用して HDInsight の Spark クラスターでストリーミ�
 * [概要: Azure HDInsight での Apache Spark](hdinsight-apache-spark-overview.md)
 * [クイック スタート: HDInsight の Apache Spark のプロビジョニングと Spark SQL を使用した対話型クエリの実行](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
 * [Machine Learning アプリケーションを作成するための HDInsight での Spark の使用](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [HDInsight と BI ツールで Spark を使用した対話型データ分析の実行](hdinsight-apache-spark-use-bi-tools.md)
+* [BI ツールを使用して HDInsight で Spark を使用して対話型データ分析を実行します。](hdinsight-apache-spark-use-bi-tools.md)
 * [Azure HDInsight での Apache Spark クラスターのリソースの管理](hdinsight-apache-spark-resource-manager.md)
 
 
@@ -193,4 +193,5 @@ Zeppelin を使用して HDInsight の Spark クラスターでストリーミ�
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
+
 

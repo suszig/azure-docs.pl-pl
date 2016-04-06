@@ -98,7 +98,7 @@ Time-to-Live (TTL) は、各レコードが再度照会されるまでクライ�
     info:    network dns record-set show command OK
 
 
-nslookup や他の DNS ツールを使用して、新しいレコード セットをクエリすることもできます。  
+nslookup や他の DNS ツールを使用して、新しいレコード セットを照会することもできます。  
 
 >[AZURE.NOTE] ように、Azure DNS ネーム サーバーにドメインを委任されていないする場合に、ゾーンを作成するときに、ゾーンのネーム サーバー アドレスを明示的に指定する必要があります。
 
@@ -117,8 +117,9 @@ nslookup や他の DNS ツールを使用して、新しいレコード セッ�
 ## 次のステップ
 [DNS ゾーンの管理方法](dns-operations-dnszones-cli.md)
 
-[DNS レコードを管理する方法](dns-operations-recordsets-cli.md)<BR>
+[DNS レコードの管理方法](dns-operations-recordsets-cli.md)<BR>
 
 [.NET SDK を使用した Azure の操作の自動化](dns-sdk.md)
  
+
 

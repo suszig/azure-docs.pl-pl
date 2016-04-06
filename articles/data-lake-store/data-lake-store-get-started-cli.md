@@ -19,7 +19,7 @@
 # Azure コマンド ラインを使用して Azure Data Lake Store の使用を開始する
 
 > [AZURE.SELECTOR]
-- [ポータルを使用してください。](data-lake-store-get-started-portal.md)
+- [ポータルの使用](data-lake-store-get-started-portal.md)
 - [PowerShell の使用](data-lake-store-get-started-powershell.md)
 - [.NET SDK の使用](data-lake-store-get-started-net-sdk.md)
 - [Azure CLI の使用](data-lake-store-get-started-cli.md)
@@ -181,7 +181,7 @@ Data Lake Store アカウントを削除するには、次のコマンドを使�
 
 - [Azure プレビュー ポータルで Azure Data Lake Store の使用を開始する](data-lake-store-get-started-portal.md)
 - [.NET SDK で Azure Data Lake Store の使用を開始する](data-lake-store-get-started-net-sdk.md)
-- [Azure PowerShell で Data Lake Store の使用を開始する](data-lake-store-get-started-powershell.md)
+- [PowerShell で Data Lake Store の使用を開始する](data-lake-store-get-started-powershell.md)
 
 
 ## 次のステップ
@@ -192,4 +192,5 @@ Data Lake Store アカウントを削除するには、次のコマンドを使�
 
 
 [azure-command-line-tools]: ../xplat-cli-install.md
+
 

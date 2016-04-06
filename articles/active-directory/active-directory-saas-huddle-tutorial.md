@@ -79,7 +79,7 @@
 
 3.   **アプリケーション URL の構成** ] ページで、 **Huddle サインオン URL** ] ボックスに、次のパターンを使用して Huddle の URL のテナントの種類"*http://company.huddle.com*"、順にクリック **次**します。
 
-    ![Configure App URL](./media/active-directory-saas-huddle-tutorial/IC787835.png "Configure App URL")
+    ![アプリケーション URL の構成](./media/active-directory-saas-huddle-tutorial/IC787835.png "Configure App URL")
 
 4.   **Huddle でのシングル サインオンの構成** ] ページで、次の手順を実行します。
 
@@ -138,3 +138,4 @@ Huddle の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-huddle-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

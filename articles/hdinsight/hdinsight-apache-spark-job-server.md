@@ -24,7 +24,7 @@ Azure HDInight 上の Apache Spark クラスターでは、クラスター デ�
 
 >[AZURE.NOTE] Spark ジョブ サーバーの完全なドキュメントについては、次を参照してください。 [https://github.com/spark-jobserver/spark-jobserver](https://github.com/spark-jobserver/spark-jobserver)します。 
 
-## <a name="uploadjar"></a>Jar を Spark クラスターにアップロードします。
+## <a name="uploadjar"></a>jar を Spark クラスターにアップロードする
 
     curl.exe -k -u "<hdinsight user>:<user password>" --data-binary @<location of jar on the computer> https://<cluster name>.azurehdinsight.net/sparkjobserver/jars/<application name>
 
@@ -33,7 +33,7 @@ Azure HDInight 上の Apache Spark クラスターでは、クラスター デ�
     curl.exe -k -u "myuser:myPass@word1" --data-binary @C:\mylocation\eventhubs-examples\target\spark-streaming-eventhubs-example-0.1.0-jar-with-dependencies.jar https://mysparkcluster.azurehdinsight.net/sparkjobserver/jars/streamingjar
 
 
-##<a name="createcontext"></a>ジョブ サーバーで新しい永続的コンテキストを作成します。
+##<a name="createcontext"></a>ジョブ サーバーで新しい永続的コンテキストを作成する
 
     curl.exe -k -u "<hdinsight user>:<user password>" -d "" "https://<cluster name>.azurehdinsight.net/sparkjobserver/contexts/<context name>?num-cpu-cores=<value>&memory-per-node=<value>"
 
@@ -42,7 +42,7 @@ Azure HDInight 上の Apache Spark クラスターでは、クラスター デ�
     curl.exe -k -u "myuser:myPass@word1" -d "" "https://mysparkcluster.azurehdinsight.net/sparkjobserver/contexts/mystreaming?num-cpu-cores=4&memory-per-node=1024m"
 
 
-##<a name="submitapp"></a>クラスターへのアプリケーションを送信します。
+##<a name="submitapp"></a>アプリケーションをクラスターに送信する
 
     curl.exe -k -u "<hdinsight user>:<user password>" -d @<input file name> "https://<cluster name>.azurehdinsight.net/sparkjobserver/jobs?appName=<app name>&classPath=<class path>&context=<context>"
 
@@ -66,7 +66,7 @@ mypostdata.txt ではアプリケーションが定義されています。
 
 * [概要: Azure HDInsight での Apache Spark](hdinsight-apache-spark-overview.md)
 * [HDInsight クラスターでの Spark のプロビジョニング](hdinsight-apache-spark-provision-clusters.md)
-* [HDInsight と BI ツールで Spark を使用した対話型データ分析の実行](hdinsight-apache-spark-use-bi-tools.md)
+* [BI ツールを使用して HDInsight で Spark を使用して対話型データ分析を実行します。](hdinsight-apache-spark-use-bi-tools.md)
 * [Machine Learning アプリケーションを作成するための HDInsight での Spark の使用](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [リアルタイム ストリーミング アプリケーションを作成するための HDInsight での Spark の使用](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 * [Azure HDInsight での Apache Spark クラスターのリソースの管理](hdinsight-apache-spark-resource-manager.md)
@@ -81,4 +81,5 @@ mypostdata.txt ではアプリケーションが定義されています。
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
+
 

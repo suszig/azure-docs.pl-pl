@@ -132,7 +132,7 @@ IoT Hub の接続文字列を構成したら、 **管理** ] タブをクリッ�
 static const char* connectionString = "[device connection string]";
 ```
 
-ここにご使用のデバイスの接続文字列を入力し、ソリューションを再コンパイルすると、サンプルを実行することができます。
+ここに使用しているデバイスの接続文字列を入力し、ソリューションを再コンパイルすると、サンプルを実行することができます。
 
 ## IoTHubClient
 
@@ -458,5 +458,6 @@ serializer_deinit();
 
 ## 次のステップ
 
-この記事でライブラリの使用の基本を説明する、 **c Azure IoT デバイス SDK**します。 SDK の内容、そのアーキテクチャ、Windows サンプルの実行を開始する方法を理解するうえで十分な情報を提供しました。 次の記事を説明する、SDK の説明を続行 [IoTHubClient ライブラリに関する詳細](iot-hub-device-sdk-c-iothubclient.md)します。
+この記事でライブラリの使用の基本を説明する、 **c Azure IoT デバイス SDK**します。SDK の内容、そのアーキテクチャ、Windows サンプルの実行を開始する方法を理解するうえで十分な情報を提供しました。 次の記事を説明する、SDK の説明を続行 [IoTHubClient ライブラリに関する詳細](iot-hub-device-sdk-c-iothubclient.md)します。
+
 

@@ -380,7 +380,7 @@ JSON セクションとデータセットの定義に使用できるプロパテ
 | プロパティ | 説明 | 必須 |
 | -------- | ----------- | -------- | 
 | folderPath | BLOB ストレージのコンテナーとフォルダーのパス。 例: myblobcontainer\myblobfolder\ | あり |
-| fileName | <p>Blob の名前です。 ファイル名は省略できます。 </p><p>ファイル名を指定する場合、アクティビティ (コピーを含む) は、特定の Blob で動作します。</p><p>ファイル名が指定されていないとき、コピーは入力データセットの folderPath 内のすべての Blob を含めます。</p><p>生成されたファイルの名前を次にも見られる出力データセットに fileName が指定されていないときに次の形式: データ。<Guid>.txt (例:: 付けられます-93ff-4c6f-b3be-f69616f1df7a.txt</p> | いいえ |
+| fileName | <p>Blob の名前です。 ファイル名は省略できます。 </p><p>ファイル名を指定する場合、アクティビティ (コピーを含む) は、特定の Blob で動作します。</p><p>ファイル名が指定されていないとき、コピーは入力データセットの folderPath 内のすべての Blob を含めます。</p><p>生成されたファイルの名前を次にも見られる出力データセットに fileName が指定されていないときに次の形式: データ。<Guid>.txt (例:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | いいえ |
 | partitionedBy | partitionedBy は任意のプロパティです。 これを使用し、時系列データに動的な folderPath と fileName を指定できます。 たとえば、1 時間ごとのデータに対して folderPath をパラメーター化できます。 参照してください、 [partitionedBy プロパティのセクションを利用する](#Leveraging-partitionedBy-property) の下の詳細と例についてです。 | いいえ
 | BlobSink の format | 2 種類の形式がサポートされている: **TextFormat**, 、**AvroFormat**します。 形式の下にある type プロパティをいずれかの値に設定する必要があります。 形式が TextFormat のとき、形式に追加で任意のプロパティを指定できます。 参照してください、 [TextFormat の指定](#specifying-textformat) 詳細については後述します。 | いいえ
 | compression | データの圧縮の種類とレベルを指定します。 サポートされる種類: GZip、Deflate、および BZip2。サポートされるレベル: Optimal および Fastest。 参照してください [圧縮サポート](#compression-support) 詳細についてです。  | いいえ |
@@ -482,7 +482,7 @@ Hive テーブルで Avro 形式を使用するを参照することができま
 | プロパティ | 説明 | 使用できる値 | 必須 |
 | -------- | ----------- | -------------- | -------- |
 | blobWriterAddHeader | 列定義のヘッダーを追加するかどうかを指定します。 | TRUE<br/>FALSE (既定) | いいえ |
-| copyBehavior | ソースが BlobSource または FileSystem である場合のコピー動作を定義します。 | <p>CopyBehavior プロパティの 3 つの値があります。 </p><ul><li>**PreserveHierarchy:** 保持対象のフォルダー、つまり、ソース フォルダーに対するソース ファイルの相対パスのファイル階層はターゲット フォルダーに対するターゲット ファイルの相対パスと同じです</li><li>**。FlattenHierarchy:** ソース フォルダーからすべてのファイルは、ターゲット フォルダーの最初のレベルになります。 ターゲット ファイルは、自動生成された名前になります。 </li><li>**MergeFiles: (既定値)** ソース フォルダーからすべてのファイルを 1 つのファイルにマージします。 ファイル名/BLOB 名を指定した場合、マージされたファイルの名前は指定した名前になります。それ以外は自動生成されたファイル名になります。</li></ul> | いいえ |
+| copyBehavior | ソースが BlobSource または FileSystem である場合のコピー動作を定義します。 | <p>CopyBehavior プロパティの 3 つの値があります。 </p><ul><li>**PreserveHierarchy:** 保持対象のフォルダー、つまり、ソース フォルダーに対するソース ファイルの相対パスのファイル階層はターゲット フォルダーに対するターゲット ファイルの相対パスと同じです。</li><li>**FlattenHierarchy:** ソース フォルダーからすべてのファイルは、ターゲット フォルダーの最初のレベルになります。 ターゲット ファイルは、自動生成された名前になります。 </li><li>**MergeFiles: (既定値)** ソース フォルダーからすべてのファイルを 1 つのファイルにマージします。 ファイル/Blob の名前を指定した場合、マージされたファイル名は指定した名前になります。それ以外は自動生成されたファイル名になります。</li></ul> | いいえ |
 
 ### recursive と copyBehavior の例
 このセクションでは、recursive 値と copyBhavior 値の組み合わせごとに、Copy 操作で行われる動作について説明します。 
@@ -504,6 +504,7 @@ false | mergeFiles | <p>次の構造のソース フォルダー Folder1:</p> <p
 [AZURE.INCLUDE [data-factory-type-conversion-sample](../../includes/data-factory-type-conversion-sample.md)]
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
+
 
 
 

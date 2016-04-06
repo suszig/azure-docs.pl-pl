@@ -20,7 +20,7 @@
 発行処理のこの手順では、特定のマーケティング コンテンツと Azure Marketplace でのプランと SKU の詳細を指定する必要があります。 たとえば、製品、会社のロゴ、価格プラン、プランの詳細、プランまたは SKU をステージング環境へプッシュするために必要なその他の情報を指定します。 この情報は、Azure ポータルでマーケティング コンテンツとして使用されます。 このプロセスを開始するが、 [公開ポータル][link-pubportal]します。
 
 ## 手順 1: Marketplace のマーケティング コンテンツを指定する
-**英語は既定値し、のみサポートされている言語です。**フィールドに指定するすべての情報が英語であることを確認してください。 ステージングにプッシュするまでは、すべての情報をいつでも編集することができます。
+**英語は、既定で指定され、サポートされる唯一の言語です。** フィールドに指定するすべての情報が英語であることを確認してください。 ステージングにプッシュするまでは、すべての情報をいつでも編集することができます。
 
   1. 公開ポータルに [https://publish.windowsazure.com](https://publish.windowsazure.com)します。
   2. 左側のメニューをクリックして、 **マーケティング** ] タブをクリックします。
@@ -83,7 +83,7 @@
 3.  SKU が BYOL の場合、"外部でライセンスされた (BYOL)" SKU の可用性のチェックボックスをオンにします。
 4.  SKU が時間単位の場合、ソフトウェアの価格を入力します。 価格設定なしの SKU は購入または使用できません。
 
-  > [AZURE.NOTE] BYOL と 1 時間ごとの Sku の両方があれば、し確認は、両方の前提条件の説明: BYOL が 1 時間ごとのボックスと価格の値を確認します。
+  > [AZURE.NOTE] BYOL と時間単位の Sku の両方があれば、し確認については、両方の前提条件: BYOL が 1 時間ごとのボックスと価格の値を確認します。
 
 5.  価格ウィザードが開きます。 これにより、その他の国の価格設定 (指定した市場以外からの購入を許可するように選択した場合) を含む、価格設定を完了できます。
 6.  一部の国は ISV レミット対象です。 ISV レミット対象の国で販売を行うには、SKU に税金を課し、徴収できる必要があります。また、その国の政府に対する税金を計算および支払いできる必要があります。 マイクロソフトでは、法的ガイダンスや税金に関するガイダンスを提供していません。  販売先の国の詳細については、このドキュメントの概要の「プランの販売先の国」に関するセクションを参照してください。
@@ -149,7 +149,7 @@ Marketplace コンテンツが読み込まれたので、プランのステー�
 | **手順 3. ステージング環境にプランをプッシュします。** | [ステージング環境での VM プランのテスト](marketplace-publishing-vm-image-test-in-staging.md) | ステージング環境での開発者サービス プランのテスト | [ステージング環境でのデータ サービス プランのテスト](marketplace-publishing-data-service-test-in-staging.md) | [ステージング環境でのソリューション テンプレートのテスト](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## 関連項目
-- [概要: Azure Marketplace へのプランの発行方法](marketplace-publishing-getting-started.md)
+- [Microsoft Azure Marketplace へのプランの発行方法](marketplace-publishing-getting-started.md)
 
 [img-map-acom]:media/marketplace-publishing-push-to-staging/pubportal-mapping-acom.jpg
 [img-map-portal]:media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg
@@ -159,4 +159,5 @@ Marketplace コンテンツが読み込まれたので、プランのステー�
 
 [link-pubportal]:https://publish.windowsazure.com
 [link-push-to-production]:marketplace-publishing-push-to-production.md
+
 

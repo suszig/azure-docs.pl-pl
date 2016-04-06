@@ -34,7 +34,7 @@
 
 アプリケーション ゲートウェイで SSL オフロードを構成するには、次の手順を順番に実行します。
 
-1. [新しいアプリケーション ゲートウェイの作成](#create-a-new-application-gateway)
+1. [新しい Application Gateway の作成](#create-a-new-application-gateway)
 2. [SSL 証明書のアップロード](#upload-ssl-certificates) 
 3. [ゲートウェイの構成](#configure-the-gateway)
 4. [ゲートウェイ構成の設定](#set-the-gateway-configuration)
@@ -42,7 +42,7 @@
 6. [ゲートウェイの状態の確認](#verify-the-gateway-status)
 
 
-## 新しいアプリケーション ゲートウェイの作成
+## 新しい Application Gateway の作成
 
 **ゲートウェイを作成する**, を使用して、 `New-AzureApplicationGateway` コマンドレットを独自の値に置き換えています。 この時点ではゲートウェイの課金は開始されません。 課金は後の手順でゲートウェイが正しく起動されたときに開始します。
 
@@ -195,7 +195,7 @@ SSL 証明書の構成、プロトコルで **HttpListener** に変更する必�
 
 ## ゲートウェイの起動
 
-ゲートウェイを構成したら、`Start-AzureApplicationGateway` コマンドレットを使用してゲートウェイを起動します。 アプリケーション ゲートウェイの課金は、ゲートウェイが正常に起動された後に開始します。 
+ゲートウェイを構成したら、`Start-AzureApplicationGateway` コマンドレットを使用してゲートウェイを起動します。 Application Gateway の課金は、ゲートウェイが正常に起動された後に開始します。 
 
 
 **注:** 、 `Start-AzureApplicationGateway` コマンドレットは最大 15 ~ 20 分かかる場合があります。 
@@ -236,4 +236,5 @@ SSL 証明書の構成、プロトコルで **HttpListener** に変更する必�
 
 - [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure の Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
+
 

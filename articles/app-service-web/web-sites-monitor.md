@@ -16,7 +16,7 @@
     ms.date="10/14/2015"
     ms.author="byvinyal"/>
 
-#<a name="howtomonitor"></a>Azure App Service の Web Apps の監視
+#<a name="howtomonitor"></a>Azure App Service での Web Apps の監視
 
 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) Standard および Premium の App Service プランで、[監視] 管理ページの監視機能を提供します。 以下に示すように、[監視] 管理ページでは、Web アプリのパフォーマンス統計を確認できます。
 
@@ -26,11 +26,11 @@
 
 >[AZURE.NOTE] アプリのメトリックに対して保持ポリシーは、粒度によって異なります。
 
-- **1 分** 粒度の測定値は保持されます **24 時間**
-- **1 時間** 粒度の測定値は保持されます **7 日間**
-- **1 日** 粒度の測定値は保持されます **30 日間**
+- **分** 粒度の測定値は保持されます **24 時間**
+- **時間** 粒度の測定値は保持されます **7 日間**
+- **日** 粒度の測定値は保持されます **30 日間**
 
-##<a name="websitemetrics"></a>方法: web アプリのメトリックの追加
+##<a name="websitemetrics"></a>方法: Web アプリのメトリックを追加する
 
 1.  [クラシック ポータル](https://manage.windowsazure.com), 、web アプリのページをクリックして、 **モニター** を表示するタブ、 **モニター** の管理] ページ。 既定では、グラフで、 **モニター** ページのグラフと同じメトリックが表示されます、 **ダッシュ ボード** ページです。
 
@@ -46,11 +46,11 @@
 
 
 
-##<a name="howtoreceivealerts"></a>方法: web アプリのメトリックからアラートを受信
+##<a name="howtoreceivealerts"></a>方法: Web アプリのメトリックからアラートを受信する
 
  **標準** web アプリのモードで web アプリの監視メトリックに基づいてアラートを受け取ることができます。 アラート機能では、まず、web エンドポイントの監視用に行うことができます必要があります、 **監視** のセクションで、 **構成** ページです。 また、選択したメトリックが指定した値に達したときに電子メールが送信されるようにすることを選択できます。 詳細については、次を参照してください。 [方法: アラートの通知を受信し、Azure でアラート ルールの管理](http://go.microsoft.com/fwlink/?LinkId=309356)します。  
 
-##<a name="howtoviewusage"></a>方法: web アプリの使用量クォータを表示
+##<a name="howtoviewusage"></a>方法: Web アプリの使用量のクォータの表示
 
 Web アプリは、いずれかで実行するように構成できる **共有** または **標準** から web アプリのモード **スケール** 管理] ページで、 [従来のポータル](https://manage.windowsazure.com)します。 各 Azure サブスクリプションでは、リージョンごとに最大 100 個の web アプリを実行するために提供されるリソース プールにアクセス **Shared** モードです。 この目的で各 web アプリ サブスクリプションに使用できるリソースのプールが、同じ geo リージョンで実行するように構成内の他の web アプリで共有 **共有** モードです。 これらのリソースは他の Web アプリが使用できるように共有されるため、すべてのサブスクリプションで使用が制限されます。 これらのリソースのサブスクリプションの使用に適用される制限は各 web アプリの状況の概要] セクションの下に表示の使用量クォータで表される **ダッシュ ボード** の管理] ページ。
 
@@ -67,14 +67,14 @@ Web アプリがリソースの使用量クォータをどの程度消費して�
 
     クォータは、Web ホスティング プランごとに適用されるものと、サイトごとに適用されるものがあります。 各 Web ホスティング プランの使用量クォータの詳細については、次を参照してください。 [web サイトの制限](azure-subscription-service-limits.md#websiteslimits)します。
 
-##<a name="resourceusage"></a> 方法: クォータ制限の超過の回避
+##<a name="resourceusage"></a>方法: クォータ制限の超過の回避
 
 クォータは、パフォーマンスやコストに関するものではなく、Azure がマルチテナント環境においてリソースの使用量を管理する方法です。クォータを通じて、テナントが共有リソースを過剰に使用しないよう管理されます。 クォータの制限を超過すると、Web アプリのダウンタイムや機能の低下が生じるため、クォータの制限に達しそうになったときにサイトが動作を維持できるようにするには、次の点を考慮してください。
 
 - Web アプリを上位の App Service プランに移行し、より大きいクォータを利用します。 唯一のクォータなど **基本的な** と **標準** プランは、ファイル システム ストレージです。
 - Web アプリのインスタンス数が増加すると、共有リソースのクォータを超過する可能性も高くなります。 共有リソースのクォータを超過しそうな場合は、必要に応じて、Web アプリの追加インスタンスを減らしてください。
 
-##<a name="howtoconfigdiagnostics"></a>方法: 診断の構成し、web アプリのログをダウンロードします。
+##<a name="howtoconfigdiagnostics"></a>方法: Web アプリの診断の構成とログのダウンロード
 
 診断を有効、 **構成** で web アプリのタブ、 [旧ポータル](https://manage.windowsazure.com)します。 診断の 2 種類があります: **アプリケーション診断** と **サイト診断**します。
 
@@ -239,10 +239,10 @@ Web アプリに対するログ記録またはトレース、あるいはその�
 
 - 場所: /LogFiles/http/RawLogs。 使用して、ファイルに格納された情報が書式設定、 [W3C 拡張ログ形式](http://go.microsoft.com/fwlink/?LinkID=90561)します。 Azure の Web アプリでは、s-computername、s-ip、cs-version の各フィールドを使用しません。
 
-- ファイルの閲覧に使用するツール: Log Parser。 このツールは、IIS ログ ファイルの解析と照会に使用されるものです。 Log Parser 2.2 は、Microsoft ダウンロード センター ( <a href="http://go.microsoft.com/fwlink/?LinkId=246619">http://go.microsoft.com/fwlink/?LinkId=246619</a>.
+- ファイルの閲覧に使用するツール: Log Parser。 このツールは、IIS ログ ファイルの解析と照会に使用されるものです。 Log Parser 2.2 は、Microsoft ダウンロード センター (<a href="http://go.microsoft.com/fwlink/?LinkId=246619">http://go.microsoft.com/fwlink/?LinkId=246619</a>) から入手できます。
 
 
-##<a name="webendpointstatus"></a> 方法: Web エンドポイントの状態の監視
+##<a name="webendpointstatus"></a>方法: Web エンドポイントの状態の監視
 
 この機能は、 **標準** モード、最大 3 つの地理的な場所から最大で 2 つのエンドポイントを監視できます。
 
@@ -256,7 +256,7 @@ Web アプリに対するログ記録またはトレース、あるいはその�
 
 1.  開いている **Web アプリの**です。 構成する Web アプリの名前をクリックします。
 2.  クリックして、 **構成** ] タブをクリックします。
-3.     Go to the **Monitoring** section to enter your endpoint settings.
+3.     移動して、 **監視** セクションで、エンドポイント設定を入力します。
 4.  エンドポイントの名前を入力します。
 5.  監視する Web アプリの一部を指す URL を入力します。 たとえば、 [http://contoso.azurewebsites.net/archive](http://contoso.azurewebsites.net/archive)します。
 6.  1 つ以上の場所を一覧から選択します。
@@ -288,4 +288,5 @@ Web アプリのエンドポイントの監視の詳細については、次の�
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169
  
+
 

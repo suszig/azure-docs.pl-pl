@@ -62,7 +62,7 @@ Azure で Django ベースの Web サイトをホストする方法について�
 
 **重要な注意事項:** 以下のすべての手順は、仮想マシンに正しくログインして、想定し、ローカル コンピューターではなく、コマンドが発行します。
 
-## <a id="setup"> </a>Python、Django、WFastCGI をインストールします。
+## <a id="setup"> </a>Python、Django、WFastCGI のインストール
 
 **注:** IE ESC 設定を構成する必要があります、Internet Explorer を使用してダウンロードするのには ([スタート]、[管理ツールとサーバー マネージャー]、[ローカル サーバー] をクリックし、  **IE セキュリティ強化の構成**, 、設定をオフに)。
 
@@ -187,4 +187,5 @@ Azure で Django ベースの Web サイトをホストする方法について�
 [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
+
 

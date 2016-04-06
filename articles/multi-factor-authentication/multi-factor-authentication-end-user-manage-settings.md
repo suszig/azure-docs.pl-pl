@@ -63,7 +63,7 @@
 予備の電話番号を使用してサインインすると、サインインに選択すると、通常であれば、し、単に **別の確認オプションを使用して**します。
 ![別の確認](./media/multi-factor-authentication-end-user-manage/differentverification.png)
 
-それから 2 つ目の電話番号を選択します。  この場合は、選択は **電話 + X XXXXXXXX30**
+それから 2 つ目の電話番号を選択します。  この場合は、選択は **X XXXXXXXX30 + 電話**
 
 ![Alternate phone](./media/multi-factor-authentication-end-user-manage/altphone2.png)
 
@@ -138,7 +138,7 @@ Azure で多要素認証を使用している場合は、Azure ポータルで�
 予備の電話番号を使用してサインインすると、サインインに選択すると、通常であれば、し、単に **別の確認オプションを使用して**します。
 ![別の確認](./media/multi-factor-authentication-end-user-manage/differentverification.png)
 
-それから 2 つ目の電話番号を選択します。  この場合は、選択は **電話 + X XXXXXXXX30**
+それから 2 つ目の電話番号を選択します。  この場合は、選択は **X XXXXXXXX30 + 電話**
 
 ![Alternate phone](./media/multi-factor-authentication-end-user-manage/altphone2.png)
 
@@ -181,3 +181,4 @@ Azure で多要素認証を使用している場合は、Azure ポータルで�
 また、管理者または代わりに多要素認証を設定した人に問い合わせ、サポートを要請できます。
 
 最後に、このページに関する詳しいフィードバックを残してください。それにより、このページを更新し、情報を追加して継続的に改善できます。
+

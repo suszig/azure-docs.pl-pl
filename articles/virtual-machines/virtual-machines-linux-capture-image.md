@@ -59,7 +59,7 @@
 4. 型 **終了** SSH クライアントを閉じます。
 
 
-    >[AZURE.NOTE] The next steps assume you have already [installed the Azure CLI](../xplat-cli-install.md) on your client computer. All the steps below can also be done in the [Azure classic portal] [].
+    >[AZURE.NOTE] 次のステップでは、既にあると仮定 [Azure CLI をインストールして](../xplat-cli-install.md) 、クライアント コンピューターにします。 次の手順行うこともできます、 [Azure クラシック ポータル] []します。
 
 5. クライアント コンピューターから Azure CLI を開き、Azure サブスクリプションにログインします。 詳細については、読み取り [Azure CLI から Azure サブスクリプションへの接続](../xplat-cli-connect.md)します。
 
@@ -99,4 +99,5 @@
 [How to Create a Custom Virtual Machine]: virtual-machines-linux-create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [How to Create a Virtual Machine Running Linux]: virtual-machines-linux-tutorial.md
+
 

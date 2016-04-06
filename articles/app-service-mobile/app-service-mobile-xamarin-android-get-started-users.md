@@ -24,7 +24,7 @@
 
 このトピックでは、クライアント アプリケーションから Mobile App のユーザーを認証する方法について説明します。 このチュートリアルでは、Azure Mobile Apps でサポートされている ID プロバイダーを使用して、クイック スタート プロジェクトに認証を追加します。 Mobile App によって正常に認証され、承認されると、ユーザー ID 値が表示されます。
 
-このチュートリアルは、モバイル アプリのクイック スタートに基づいています。 チュートリアル [Xamarin.Android アプリの作成] を完了することも、まず必要があります。 ダウンロードしたクイック スタートのサーバー プロジェクトを使用しない場合は、認証拡張機能パッケージをプロジェクトに追加する必要があります。 サーバーの拡張機能パッケージの詳細については、次を参照してください。 [Azure モバイル アプリの .NET バックエンド サーバー SDK と連携](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)します。 
+このチュートリアルは、モバイル アプリのクイック スタートに基づいています。 また、最初のチュートリアルを完了する必要があります [Create a Xamarin.Android app]します。 ダウンロードしたクイック スタートのサーバー プロジェクトを使用しない場合は、認証拡張機能パッケージをプロジェクトに追加する必要があります。 サーバーの拡張機能パッケージの詳細については、次を参照してください。 [Azure モバイル アプリの .NET バックエンド サーバー SDK と連携](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)します。 
 
 ##<a name="register"></a>アプリケーションを認証に登録し、App Services を構成する
 
@@ -109,4 +109,5 @@ Visual Studio または Xamarin Studio で、デバイスまたはエミュレ�
 <!-- URLs. -->
 [Create a Xamarin.Android app]: app-service-mobile-xamarin-android-get-started.md
  
+
 

@@ -134,7 +134,7 @@ CORS ルールは、次のように評価されます。
 
 次に、以下の CORS 要求について考えてみましょう。
 
-要求||| Response||
+要求||| 応答||
 ---|---|---|---|---
 **メソッド** |**Origin (配信元)** |**要求ヘッダー** |**ルールの一致** |**結果**
 **PUT** | http://www.contoso.com |x-ms-blob-content-type | 最初のルール |成功
@@ -195,4 +195,5 @@ Request|アカウントの設定とルール evaluation||| の結果Response|||
 
 [W3C のクロス オリジン リソース共有の仕様](http://www.w3.org/TR/cors/)
  
+
 

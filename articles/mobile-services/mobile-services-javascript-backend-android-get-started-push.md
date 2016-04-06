@@ -48,7 +48,7 @@
 
 次の手順は、Google Play サービスをインストールすることです。 開発、およびテストに関する最小 API レベル要件を持つ Google Cloud Messaging、 **minSdkVersion** マニフェスト内のプロパティが準拠する必要があります。
 
-古いデバイスを使用している場合は、Google Play Services SDK のセットアップに関するページを参考に、どれだけ小さな値を設定できるか判断し、適切に設定してください。
+古いデバイスをテストする場合、参照 [Set Up Google Play Services SDK] 方法低値を設定し、適切に設定を決定します。
 
 ###プロジェクトへの Google Play Services の追加
 
@@ -106,28 +106,28 @@ Android フォンを USB ケーブルで直接接続するか、エミュレー�
 <!---This tutorial demonstrated the basics of enabling an Android app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
 + [Send broadcast notifications to subscribers]
-    <br/>ユーザーの登録およびに興味のあるカテゴリに関してプッシュ通知を受信する方法について説明します。
+    <br/>Learn how users can register and receive push notifications for categories they're interested in.
 
 + [Send template-based notifications to subscribers]
-    <br/>テンプレートを使用して、バックエンドでプラットフォームに固有のペイロードを作成することがなく、モバイル サービスからプッシュ通知を送信する方法について説明します。
+    <br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
 -->
 
 Mobile Services と Notification Hubs については次のトピックを参照してください。
 
-* [認証の使用の開始を取得]
+* [Get started with authentication]
   <br/>Mobile Services を使用して別のアカウントの種類のアプリケーションのユーザーを認証する方法について説明します。
 
 * [What are Notification Hubs?]
-  <br/>通知を配信するアプリケーションにすべての主要なクライアントのプラットフォームの通知ハブの動作について説明します。
+  <br/>通知ハブがすべての主要なクライアント プラットフォーム全体のアプリケーションに通知を配信するための動作を説明します。
 
-* [Notification Hubs アプリケーションをデバッグします。](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>ガイドのトラブルシューティングと Notification Hubs ソリューションのデバッグを取得します。
+* [通知ハブのデバッグ](http://go.microsoft.com/fwlink/p/?linkid=386630)
+  </br>Notification Hubs ソリューションのトラブルシューティングとデバッグについて説明します。
 
-* [モバイル サービス向け Android クライアント ライブラリの使用方法]
+* [How to use the Android client library for Mobile Services]
   <br/>Android で Mobile Services を使用する方法について説明します。
 
 * [Mobile Services server script reference]
-  <br/>モバイル サービスにビジネス ロジックを実装する方法について説明します。
+  <br/>Mobile Services にビジネス ロジックを実装する方法について説明します。
 
 
 <!-- Anchors. -->
@@ -160,4 +160,5 @@ Mobile Services と Notification Hubs については次のトピックを参照
 [What are Notification Hubs?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
+
 

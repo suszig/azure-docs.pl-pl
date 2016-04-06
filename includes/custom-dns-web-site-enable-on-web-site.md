@@ -2,7 +2,7 @@
 
 > [AZURE.NOTE] DNS システムを経由して反映されるまで、前の手順で作成された CNAME レコードの時間がかかることができます。 CNAME が反映されるまで、Web アプリに対してドメイン名を追加することはできません。 A レコードを使用している場合は、まで、web アプリに A レコードのドメイン名を追加できません、 **awverify** 前の手順で作成された CNAME レコードが反映されます。
 >
-> など、サービスを使用することができます。 <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> CNAME を利用できることを確認します。
+> <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> などのサービスを使用すると、CNAME を利用できるかどうかを確認できます。
 
 1. ブラウザーで開く、 [Azure 管理ポータル](https://portal.azure.com)します。
 
@@ -23,4 +23,5 @@
     構成が完了したら、カスタム ドメイン名に一覧表示、 **ドメイン名** web アプリのセクションです。
 
 この時点でブラウザーにカスタム ドメイン名を入力して、対象の Web アプリに正常にアクセスできることを確認できます。
+
 

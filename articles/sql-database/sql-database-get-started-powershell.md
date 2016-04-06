@@ -140,4 +140,5 @@ SQL Database は Azure SQL Database サーバーの内部で作成されます�
 
 ## その他のリソース
 
-- [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Azure SQL データベース](https://azure.microsoft.com/documentation/services/sql-database/)
+

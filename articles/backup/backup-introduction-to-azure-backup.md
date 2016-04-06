@@ -10,12 +10,12 @@
 
 <tags
     ms.service="backup"
-    ms.workload=「記憶域のバックアップ回復」
+    ms.workload="storage-backup-recovery"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
     ms.date="11/17/2015"
-    ms.author="aashishr"です。"trinadhk"です。"jimpark"/>
+    ms.author="aashishr"; "trinadhk"; "jimpark"/>
 
 # Azure Backup とは
 Azure Backup は、オンプレミスまたは Azure にデータをバックアップし、復元できるマルチテナントの Azure サービスです。 既存のオンプレミスまたはオフサイトのバックアップ ソリューションを、信頼性の高い、セキュリティで保護された、コスト競争力のあるクラウド バックアップ ソリューションに置き換えます。 クラウドで実行されている資産を保護するための柔軟性も提供します。 Azure Backup は、拡張性、持続性、高可用性に優れた世界クラスのインフラストラクチャの上に構築されます。 このソリューションを使用すると、System Center Data Protection Manager (SCDPM) サーバー、Windows サーバー、Windows クライアント コンピューター、Azure IaaS 仮想マシンからデータやアプリケーションをバックアップできます。 Azure Backup と SCDPM は、Microsoft のクラウド統合バックアップ ソリューションを構成する基本的なテクノロジです。
@@ -51,9 +51,9 @@ Azure Backup は、オンプレミスまたは Azure にデータをバックア
 ## デプロイ シナリオ
 | コンポーネント | Azure にデプロイできる? | オンプレミスにデプロイできる? | サポートされているターゲット ストレージ|
 | --- | --- | --- | --- |
-| Azure Backup エージェント | **[はい]** <br><br>Azure Backup エージェントを Azure で実行されているすべての Windows Server VM に展開できます。 | **[はい]** <br><br>Azure Backup エージェントを Windows Server 仮想マシンまたは物理マシンに展開できます。 | Azure Backup コンテナー |
-| System Center Data Protection Manager (SCDPM) | **[はい]** <br><br>に関する詳細情報 [SCDPM を使用して Azure のワークロードを保護する](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx)です。 | **[はい]** <br><br>に関する詳細情報 [、データ センター内のワークロードと仮想マシンを保護する](https://technet.microsoft.com/en-us/library/hh758173.aspx)です。 | ローカルに接続されたディスク<br>Azure Backup 資格情報コンテナー<br>テープ (内部設置型のみ) |
-| Azure Backup (VM 拡張機能) | **[はい]** <br><br>に特化して [Azure IaaS 仮想マシンのバックアップ](backup-azure-vms-introduction.md)します。 | **いいえ** <br><br>仮想マシンをバックアップ データ センターに SCDPM を使用します。 | Azure Backup コンテナー |
+| Azure Backup エージェント | **あり** <br><br>Azure Backup エージェントは、Azure で実行されているすべての Windows Server VM に展開できます。 | **あり** <br><br>Azure Backup エージェントは、Windows Server 仮想マシンまたは物理マシンに展開できます。 | Azure Backup コンテナー |
+| System Center Data Protection Manager (SCDPM) | **あり** <br><br>詳細について [SCDPM を使用して Azure のワークロードを保護する](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx)です。 | **あり** <br><br>詳細について [、データ センター内のワークロードと仮想マシンを保護する](https://technet.microsoft.com/en-us/library/hh758173.aspx)です。 | ローカルに接続されたディスク<br>Azure Backup 資格情報コンテナー<br>テープ (内部設置型のみ) |
+| Azure Backup (VM 拡張機能) | **あり** <br><br>特殊化した [Azure IaaS 仮想マシンのバックアップ](backup-azure-vms-introduction.md)します。 | **いいえ** <br><br>仮想マシンをバックアップ データ センター内には、SCDPM を使用します。 | Azure Backup コンテナー |
 
 
 ## アプリケーションとワークロード
@@ -75,4 +75,5 @@ Azure Backup は、オンプレミスまたは Azure にデータをバックア
 - [Azure Backup を試す](backup-try-azure-backup-in-10-mins.md)
 - よく寄せられる質問 Azure Backup サービスに関しては [ここ](backup-azure-backup-faq.md)します。
 - 参照してください、 [Azure のバックアップ フォーラム](http://go.microsoft.com/fwlink/p/?LinkId=290933)します。
+
 

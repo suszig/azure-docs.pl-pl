@@ -1,12 +1,12 @@
 <properties 
-    pageTitle ="Azure 上の Linux での Cassandra の実行 |Microsoft Azure] 
-    description =「Node.js アプリから Azure 仮想マシンでの Linux で Cassandra クラスターを実行する方法」 
-    サービス =「仮想マシン」 
-    documentationCenter ="nodejs" 
+    pageTitle="Azure 上の Linux で Cassandra を実行 |Microsoft Azure" 
+    description="Node.js アプリから Azure Virtual Machines の Linux で Cassandra クラスターを実行する方法" 
+    services="virtual-machines" 
+    documentationCenter="nodejs" 
     authors="rmcmurray" 
     manager="wpickett" 
-    エディター =""
-    azure サービス管理"/>
+    editor=""
+    azure-service-management"/>
 
 <tags 
     ms.service="virtual-machines" 
@@ -116,7 +116,7 @@ Cassandra では、"一貫性" と "結果的な一貫性" の 2 種類のデー
 デプロイ時には、次のソフトウェア バージョンが使用されます。
 
 <table>
-<tr><th>ソフトウェア</th><th>ソース</th><th>バージョン</th></tr>
+<tr><th>ソフトウェア</th><th>から</th><th>バージョン</th></tr>
 <tr><td>JRE </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
@@ -468,7 +468,7 @@ VM にログインし、次の処理を行います。
 
 Replication_factor を 3 にして SimpleStrategy が手順 4. で作成したキースペースことに注意してください。 単一データ センター デプロイには SimpleStrategy の使用が、複数データ センター デプロイには NetworkTopologyStrategy の使用が推奨されています。 replication_factor を 3 にすると、ノード障害へのフォールト トレランスを確保できます。 
 
-##<a id="tworegion"> </a>複数リージョン デプロイメント プロセス
+##<a id="tworegion"> </a>複数リージョン デプロイ プロセス
 完了した単一リージョン デプロイを利用して、同じ処理を繰り返し、2 番目のリージョンをインストールします。 単一リージョン デプロイと複数リージョン デプロイの主な違いは、リージョン間通信のための VPN トンネルのセットアップです。ここでは、最初にネットワーク インストールを実行してから、VM をプロビジョニングし、Cassandra を構成します。 
 
 ###手順 1. 2 つ目のリージョンでの Virtual Network の作成
@@ -715,4 +715,5 @@ Microsoft Azure は、この演習でもわかるように、オープン ソー
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
  
+
 

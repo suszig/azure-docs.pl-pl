@@ -607,7 +607,7 @@ _図 6:
 -  [Health Endpoint Monitoring パターン](https://msdn.microsoft.com/library/dn589789.aspx) 機能チェックを定期的に公開されたエンドポイントを通じて外部ツールにアクセスできるアプリケーションを実装する方法について説明します。
 -  [優先順位キュー](https://msdn.microsoft.com/library/dn589794.aspx) パターンは、緊急要求を受信する緊急度の低いメッセージの前に処理できるように、キューに置かれたメッセージを優先順位を設定する方法を示します。
 
-## 詳細情報
+## 詳細
 - 記事 [モニター、診断、および Microsoft Azure Storage のトラブルシューティングを行う](storage-monitoring-diagnosing-troubleshooting.md) 、Microsoft web サイトです。
 - 記事 [Azure: 製品利用統計情報の基本とトラブルシューティング](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx) 、Microsoft web サイトです。
 - ページ [Azure 診断を使用してログ データの収集](https://msdn.microsoft.com/library/azure/gg433048.aspx) 、Microsoft web サイトです。
@@ -617,4 +617,5 @@ _図 6:
 - 記事 [SQL Server Business Intelligence Azure Virtual Machines で](./virtual-machines/virtual-machines-sql-server-business-intelligence.md) 、Microsoft web サイトです。
 - ページ [監視アラートと通知について azure](https://msdn.microsoft.com/library/azure/dn306639.aspx) 、Microsoft web サイトです。
 -  [Application Insights](app-insights-get-started/) 、Microsoft web サイトのページです。
+
 

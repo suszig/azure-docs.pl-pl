@@ -21,7 +21,7 @@
 > [AZURE.NOTE]
 >
 - 会社のブランド化は、Azure Active Directory の Premium または Basic エディションにアップグレードする場合にのみ使用できる機能です。 詳細については、次を参照してください。 [Azure Active Directory のエディション](active-directory-editions.md)します。
-- Azure Active Directory のワールドワイド インスタンスを使用している中国のお客様は、Azure Active Directory Premium および Basic エディションを使用できます。 中国の 21Vianet が運営する Microsoft Azure サービスでは、Azure Active Directory Premium および Basic エディションは現在サポートされていません。 詳細については、下記までお問い合わせください、 [Azure Active Directory フォーラム](http://feedback.azure.com/forums/169401-azure-active-directory)します。
+- 中国のお客様は、Azure Active Directory の世界中のインスタンスを使用して、Azure Active Directory Premium および Basic エディションを利用できます。 中国の 21Vianet が運営する Microsoft Azure サービスでは、Azure Active Directory Premium および Basic エディションは現在サポートされていません。 詳細については、下記までお問い合わせください、 [Azure Active Directory フォーラム](http://feedback.azure.com/forums/169401-azure-active-directory)します。
 
 多くの企業は、管理するすべての Web サイトとサービスに一貫したルック アンド フィールを適用することを希望しています。このようにすると、エンド ユーザーは、その企業のサイトを利用するたびに、混乱することはありません。 Azure Active Directory ではこの機能を提供し、エンド ユーザーに直接表示される次の Web ページの外観をカスタマイズし、ロゴとカラー スキームに会社のロゴを含めることができます。
 
@@ -39,7 +39,7 @@
 
 ### ブランド化されたサインイン ページが表示されるタイミング
 
-ユーザーは、https://outlook.com/などテナント固有 URL を使用してサービスにアクセスすると、ブランド化されたサインイン ページが表示**contoso**.com、または https://mail**。contoso**.com (CNAME を作成した) 場合。
+ユーザーは、https://outlook.com/ などテナント固有 URL を使用してサービスにアクセスすると、ブランド化されたサインイン ページが表示**contoso**.com、または https://mail**。contoso**.com (CNAME を作成した) 場合。
 
 サービス (https://mail.office365.com など) の非テナント固有の Url にアクセスする場合、ブランド化されていないサインイン ページが表示されます。 ユーザーが、ユーザー ID を入力するか、ユーザー タイルを選択しておくと、サインイン ページが更新され、ブランドが表示されます。
 
@@ -172,10 +172,10 @@ Azure AD でカスタマイズ可能な要素には、複数のユース ケー�
 サインイン ページの背景色 | サインイン ページの背景色は、サインイン ページ フォームの左側にある領域で使用されます。 これはサインイン ページの図がない場合も表示されます。 | RGB 色を 16 進数形式で指定 (例: #FFFFFF) | <p>背景色は、低帯域幅接続で大きなイラストの代わりに表示される場合があります。</p><p>バナー ロゴの主要な色を選択することを推奨します。</p>
 
 
-## 参照トピック
+## 次の手順
 
 - [Azure Active Directory Premium の概要](active-directory-get-started-premium.md)
-- [アクセスおよび使用状況レポートを表示します。](active-directory-view-access-usage-reports.md)
+- [アクセスおよび使用状況レポートの表示](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-add-company-branding/SignInPage_beforecustomization.png
@@ -186,4 +186,5 @@ Azure AD でカスタマイズ可能な要素には、複数のユース ケー�
 [6]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
+
 

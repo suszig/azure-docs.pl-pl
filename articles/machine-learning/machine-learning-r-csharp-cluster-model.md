@@ -74,7 +74,7 @@
 ##Web サービスの作成  
 >この Web サービスは、Azure Machine Learning を使用して作成されました。 無料評価版として入門ビデオ実験を作成し、 [web サービスを公開](machine-learning-publish-a-machine-learning-web-service.md), を参照してください [azure.com/ml](http://azure.com/ml)します。 Web サービスを作成した実験のスクリーン ショット、および実験内の各モジュールに対するコード例を以下に示します。
 
-内で Azure Machine Learning では、新しい空白の実験が作成され、[R スクリプトの実行] [- r のスクリプトの実行] の 2 つのモジュールが、ワークスペース上に取得しました。 [R スクリプトの実行] [- r のスクリプトの実行] の単純なデータ スキーマが作成されました。 次に、データのスキーマは、[R スクリプトの実行] [- r のスクリプトの実行] をもう一度作成したクラスター モデル セクションにリンクされていました。 [R スクリプトの実行] [- r のスクリプトの実行] のクラスター モデルに使用する、web サービス、利用「k 平均」関数は、[R スクリプトの実行] [- r のスクリプトの実行] の Azure Machine Learning に事前に組み込まれています。    
+Azure Machine Learning 内で、新しい空白の実験が作成された 2 つと [R スクリプトの実行][execute-r-script] 、ワークスペース上に取得しました。 データ スキーマが簡単に作成された [R スクリプトの実行][execute-r-script]します。 次に、データ スキーマをやり直して作成、クラスター モデル セクションにリンク、 [R スクリプトの実行][execute-r-script]します。  [R スクリプトの実行][execute-r-script] クラスター モデルに使用する、web サービス、利用「k 平均」関数に事前に組み込まれており、 [R スクリプトの実行][execute-r-script] Azure Machine Learning のです。    
    
 
      
@@ -127,4 +127,5 @@ Web サービスまたは Azure Marketplace への発行の使用に関するよ
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
+
 

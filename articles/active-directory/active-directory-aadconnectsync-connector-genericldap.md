@@ -42,7 +42,7 @@ IETF RFC では、特定の操作やスキーマ要素 (たとえば、差分イ
 | 接続先のデータ ソース | コネクタはすべての LDAP v3 サーバー (RFC 4510 準拠) でサポートされています。 これは、次のようにテストされています。 <li>Microsoft Active Directory ライトウェイト ディレクトリ サービス (AD LDS)</li><li>Microsoft Active Directory グローバル カタログ (AD GC)</li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (以前は Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>注目すべきディレクトリがサポートされていません。 <li>Microsoft Active Directory ドメイン サービス (AD DS) [代わりに組み込みの Active Directory コネクタを使用]</li><li>Oracle インターネット ディレクトリ (OID)</li> |
 | シナリオ | <li>オブジェクトのライフサイクル管理</li><li>グループ管理</li><li>パスワード管理</li> |
 | 操作 |すべての LDAP ディレクトリには、次の操作がサポートされています。 <li>フル インポート</li><li>エクスポート</li>次の操作は、指定されたディレクトリに対してのみサポートされます。<li>差分インポート</li><li>パスワードの設定、パスワードの変更</li> |
-| Schema | <li>LDAP スキーマ (RFC3673 と RFC4512/4.2) からスキーマが検出されました</li><li>構造型クラス、aux クラス、および extensibleObject オブジェクト クラス (RFC4512/4.3) をサポートしています</li>
+| スキーマ | <li>LDAP スキーマ (RFC3673 と RFC4512/4.2) からスキーマが検出されました</li><li>構造型クラス、aux クラス、および extensibleObject オブジェクト クラス (RFC4512/4.3) をサポートしています</li>
 
 ### 差分インポートおよびパスワード管理のサポート
 
@@ -280,4 +280,5 @@ Novell eDirectory の場合、差分インポートでオブジェクトの削�
 ## トラブルシューティング
 
 -   コネクタのトラブルシューティングを行うへのログ記録を有効にする方法については、次を参照してください。、 [コネクタの ETW トレースを有効にする方法](http://go.microsoft.com/fwlink/?LinkId=335731)します。
+
 

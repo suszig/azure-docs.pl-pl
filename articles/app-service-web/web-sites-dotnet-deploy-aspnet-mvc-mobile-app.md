@@ -21,23 +21,23 @@
 
 このチュートリアルでは、モバイル対応の ASP.NET MVC 5 Web アプリケーションを作成し、
 web アプリをモバイル対応し、Azure App Service に展開します。 このチュートリアルを実行するには、 
-[Visual Studio Express 2013 for Web][Visual Studio Express 2013]
+[Visual Studio Express for Web が必要です。][Visual Studio Express 2013]
 または、Visual Studio のプロフェッショナル エディションを既にお持ちの場合は
-はそれを使用することもできます。 [Visual Studio 2015] を使用することができますが、スクリーン ショットは、ASP.NET 4.x テンプレートを使用する必要があります。
+はそれを使用することもできます。 使用する [Visual Studio 2015] がスクリーン ショットは、ASP.NET 4.x テンプレートを使用する必要があります。
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## 作成するアプリケーション:
 
 このチュートリアルでは、単純なものにモバイル機能を追加します
-[スタート プロジェクト] で提供されている会議一覧アプリケーション [StarterProject] です。 次のスクリーン ショットは、ASP.NET セッションを完了しました。
+会議一覧アプリケーションで提供されている、 [スタート プロジェクト][StarterProject]します。 次のスクリーン ショットは、ASP.NET セッションを完了しました。
 アプリケーションに Internet Explorer 11 F12 のブラウザー エミュレーターで表示
 開発者ツール。
 
-![FixedSessionsByTag]
+![][FixedSessionsByTag]
 
-Internet Explorer 11 F12 開発者ツールや [Fiddler を使用することができます。
-[ツール] をデバッグする際に、[Fiddler]、
+Internet Explorer 11 F12 開発者ツールを使用して、 [Fiddler
+ツール][Fiddler] をデバッグする際、
 想定しています。 
 
 ## 学習内容
@@ -62,20 +62,20 @@ Azure SDK for .NET 2.5.1 以降をインストールして、開発環境を設�
 モバイル ブラウザー エミュレーターも必要です。 次のいずれでも動作
 します。
 
--   [Internet Explorer 11 F12 開発者ツール] のブラウザー エミュレーター [EmulatorIE11] (すべてのモバイル場合に使用します。
+-   ブラウザー エミュレーター [Internet Explorer 11 F12 開発者ツール][EmulatorIE11] (すべてのモバイル場合に使用します。
     のスクリーン ショットで使用しています)。 Windows Phone 8、Windows Phone 7、Apple iPad のエージェント文字列のプリセットが搭載されています。
--   [Google Chrome DevTools] のブラウザー エミュレーター [EmulatorChrome] です。 多数の Android デバイスに加え、Apple iPhone、Apple iPad、Amazon Kindle Fire 用のプリセットが含まれています。 タッチイベントのエミュレーションにも対応します
+-   ブラウザー エミュレーター [Google Chrome DevTools][EmulatorChrome]します。 多数の Android デバイスに加え、Apple iPhone、Apple iPad、Amazon Kindle Fire 用のプリセットが含まれています。 タッチイベントのエミュレーションにも対応します
 -   [Opera Mobile Emulator][EmulatorOpera]
 
 付属する c# ソース コードを visual Studio プロジェクトがあります。
 用意されています。
 
 -   [スタート プロジェクトのダウンロード][StarterProject]
--   [プロジェクトのダウンロードが完了しました][CompletedProject]
+-   [完成したプロジェクトのダウンロード][CompletedProject]
 
-##<a name="bkmk_DeployStarterProject"></a>Azure Web アプリケーションにスタート プロジェクトを展開する
+##<a name="bkmk_DeployStarterProject"></a>Azure Web アプリにスタート プロジェクトをデプロイする
 
-1.  会議一覧アプリケーションの [スタート プロジェクト] のダウンロード [StarterProject] です。
+1.  会議一覧アプリケーションをダウンロード [スタート プロジェクト][StarterProject]します。
 
 2.  Windows エクスプ ローラーで Mvc5Mobile.zip ファイルを右クリックし、選択 *プロパティ*します。
 
@@ -91,29 +91,29 @@ Azure SDK for .NET 2.5.1 以降をインストールして、開発環境を設�
 
 6.  ソリューション エクスプ ローラーでプロジェクトを右クリックし、クリックして **発行**します。
 
-    ![DeployClickPublish]
+    ![][DeployClickPublish]
 
 7.  Web の発行] をクリックして **Microsoft Azure Web Apps**します。
 
-    ![DeployClickWebSites]
+    ![][DeployClickWebSites]
 
 8.  クリックして **サインイン**します。
 
-    ![DeploySignIn]
+    ![][DeploySignIn]
 
 9.  プロンプトに従って Azure アカウントにログインします。
 
 11. サインインが完了すると、[既存の Web アプリケーションを選択] ダイアログ ボックスが表示されます。 クリックして **新しい**します。
 
-    ![DeployNewWebsite]  
+    ![][DeployNewWebsite]  
 
 12.  **Web アプリ名** フィールドで、一意のアプリ名のプレフィックスを指定します。 完全修飾 web アプリ名になります *& lt; プレフィックス >*. azurewebsites.net します。 また、構成、 **App Service プラン**, 、**リソース グループ**, 、および **地域** フィールドです。 クリックして **作成**します。
 
-    ![DeploySiteSettings]
+    ![][DeploySiteSettings]
 
 13. [Web の発行] ダイアログに、新しい Web アプリケーションの設定が入力されます。 クリックして **発行**します。
 
-    ![DeployPublishSite]
+    ![][DeployPublishSite]
 
     Visual Studio で Azure Web アプリケーションへの発行が完了すると、デスクトップ ブラウザーが開き、ライブ Web アプリケーションが表示されます。
 
@@ -125,7 +125,7 @@ Azure SDK for .NET 2.5.1 以降をインストールして、開発環境を設�
 下の例の画像、 *AllTags* (選択から縦モードのビュー
 **タグによってブラウズ**)。
 
-    ![AllTags]
+    ![][AllTags]
 
 >[AZURE.NOTE] Visual Studio の中からでも MVC 5 アプリケーションをデバッグできますが、Azure に再度、モバイル ブラウザーまたはブラウザー エミュレーターから直接、ライブ web アプリケーションを検証する、web アプリケーションを発行できます。
 
@@ -133,7 +133,7 @@ Azure SDK for .NET 2.5.1 以降をインストールして、開発環境を設�
 ブートス トラップ CSS フレームワークによって適用された視覚効果をいくつかを参照してください。
 クリックして、 **ASP.NET** リンクします。
 
-![SessionsByTagASP.NET]
+![][SessionsByTagASP.NET]
 
 ASP.NET タグ ビューは、ブートス トラップによって、画面に合わせてズーム
 自動的にします。 ただし、このビューを最適な状態を調整することができます。
@@ -172,7 +172,7 @@ MVC 5 の新機能の 1 つに、ブートストラップの標準サポート�
 画面に合わせてズームし、表示するために横方向にスクロールする必要があります。
 テーブルの右側にあります。
 
-![SessionsByTagASP.NETNoBootstrap]
+![][SessionsByTagASP.NETNoBootstrap]
 
 変更内容を元に戻すし、モバイル ブラウザーを更新
 モバイル対応画面が復元されたことを確認します。
@@ -183,7 +183,7 @@ ASP.NET MVC 5 プロジェクト テンプレートを使用、MVC 5 Web アプ�
 ブートス トラップの既定で利用できます。
 
 ブートストラップの詳細については、
-[Bootstrap][BootstrapSite] サイトです。
+[ブートス トラップ][BootstrapSite] サイトです。
 
 次のセクションでは、モバイル ブラウザー専用ビューを作成する方法について
 説明します。
@@ -225,12 +225,12 @@ Microsoft Azure ストレージ エミュレーターが起動されます。 �
 (タイトル *\_Layout.Mobile.cshtml* とタイトル
 *AllTags.Mobile.cshtml*)。
 
-![AllTagsMobile_LayoutMobile]
+![][AllTagsMobile_LayoutMobile]
 
 これに対し、デスクトップでの表示は変わっていません (タイトル *\_Layout.cshtml* と 
 *AllTags.cshtml*)。
 
-![AllTagsMobile_LayoutMobileDesktop]
+![][AllTagsMobile_LayoutMobileDesktop]
 
 ##<a name="bkmk_browserviews"></a> ブラウザー専用のビューを作成する
 
@@ -262,7 +262,7 @@ ASP.NET MVC は 名前に "iPhone" サフィックスを含むビューを
 `System.Web.WebPages` されている名前空間、
 `DisplayModeProvider`  `DefaultDisplayMode` 型が定義されています。
 
-![ResolveDefaultDisplayMode]
+![][ResolveDefaultDisplayMode]
 
 別の方法として、単純にファイルの `using` セクションに、
 `using` ファイルのセクションです。
@@ -291,7 +291,7 @@ Internet Explorer 11 F12 開発者ツールでは、エミュレーターの使�
 次のスクリーン ショット、 *AllTags* でビューがレンダリングされた、
 (これは、iPhone 5c のユーザー エージェント文字列)、カスタム ユーザー エージェント文字列と Internet Explorer 11 F12 開発者ツールのエミュレーターです。
 
-![AllTagsIPhone_LayoutIPhone]
+![][AllTagsIPhone_LayoutIPhone]
 
 モバイル ブラウザーで、選択、 **スピーカー** リンクします。 ないため
 モバイル ビュー (*AllSpeakers.Mobile.cshtml*)、既定のスピーカー ビュー
@@ -299,7 +299,7 @@ Internet Explorer 11 F12 開発者ツールでは、エミュレーターの使�
 (*\_Layout.Mobile.cshtml*)。 タイトルの下に示すように **MVC5 Application
 (Mobile)** 定義された *\_Layout.Mobile.cshtml*します。
 
-![AllSpeakers_LayoutMobile]
+![][AllSpeakers_LayoutMobile]
 
 既定の (非モバイル) ビューの描画をグローバルに無効化にします。
 設定して、モバイル レイアウト内 `RequireConsistentDisplayMode` に
@@ -318,7 +318,7 @@ Internet Explorer 11 F12 開発者ツールでは、エミュレーターの使�
 どのように *スピーカー* ページが表示されるときに `RequireConsistentDisplayMode` は
 設定 `true` (せずに、上部にあるナビゲーション バーに文字列"(Mobile)") です。
 
-![AllSpeakers_LayoutMobileOverridden]
+![][AllSpeakers_LayoutMobileOverridden]
 
 ビュー ファイルで
 `RequireConsistentDisplayMode`  `false` ファイルの表示にします。 この
@@ -348,7 +348,7 @@ Internet Explorer 11 F12 開発者ツールでは、エミュレーターの使�
 大規模な tap 簡単リンクおよびをすばやく検索する検索ボックスが含まれています
 スピーカーです。
 
-スタイルをブートス トラップの [リンクされたリスト グループ] を使用することができます。
+ブートス トラップを使用する [リンクされたリスト グループ][] にスタイル設定
 向上させる、 *スピーカー* 表示します。  *Views\\Home\\AllSpeakers.cshtml*,、
 Razor ファイルの内容を次のコードに置き換えます。
 
@@ -373,13 +373,13 @@ Razor ファイルの内容を次のコードに置き換えます。
 
 モバイル ブラウザーの表示を更新します。 更新されたビューは次のようになります。
 
-![AllSpeakersFixed]
+![][AllSpeakersFixed]
 
-の [リンクされたリスト グループ] のブートス トラップのスタイリングが各ボックス全体をにより、します。
+ブートス トラップ [リンクされたリスト グループ][] スタイリングごとに、全体のボックスを使用するが
 クリック可能になり、これより優れたユーザー エクスペリエンスが大幅にリンクします。 切り替えて、
 デスクトップを表示し、一貫したルック アンド フィールを確認します。
 
-![AllSpeakersFixedDesktop]
+![][AllSpeakersFixedDesktop]
 
 にくくなっていますモバイル ブラウザー ビューは強化されましたが、
 スピーカーの長い一覧を移動します。 ブートス トラップが用意されていません、
@@ -413,7 +413,7 @@ Razor ファイルの内容を次のコードに置き換えます。
 
 注意して、 `<form>` と `<input>` タグの両方にブートス トラップがあります。
 スタイルを適用します。  `<span>` 要素は、ブートス トラップ
-[glyphicon]から、
+[glyphicon][] に、
 と入力します。
 
  *スクリプト* フォルダーと呼ばれる JavaScript ファイルを追加 *filter.js*します。 開く
@@ -462,7 +462,7 @@ Razor ファイルの内容を次のコードに置き換えます。
 検索ボックスに、「sc」と入力します。 スピーカー一覧がフィルターようになりました
 検索文字列に従っています。
 
-![AllSpeakersFixedSearchBySC]
+![][AllSpeakersFixedSearchBySC]
 
 ##<a name="bkmk_improvetags"></a> タグ一覧を強化する
 
@@ -476,11 +476,11 @@ Razor ファイルの内容を次のコードに置き換えます。
 
 デスクトップ ブラウザーを更新すると、次のように表示されます。
 
-![AllTagsFixedDesktop]
+![][AllTagsFixedDesktop]
 
 モバイル ブラウザーを更新すると、次のように表示されます。 
 
-![AllTagsFixed]
+![][AllTagsFixed]
 
 >[AZURE.NOTE] 場合、元の一覧書式設定、モバイル ブラウザーでがまだ存在していないブートス トラップのスタイリングをどのように見えますが、これは先ほどモバイル専用のビューを作成します。 ここではブートストラップ CSS フレームワークを使用してレスポンシブ Web デザインを作成するため、これらのモバイル専用のビューとモバイル専用のレイアウト ビューを削除してください。 その後、モバイル ブラウザーを更新すると、ブートストラップのスタイリングが表示されます。
 
@@ -496,11 +496,11 @@ Razor ファイルの内容を次のコードに置き換えます。
 
 モバイル ブラウザー ビューを更新すると、次のように表示されます。
 
-![AllDatesFixed]
+![][AllDatesFixed]
 
 さらに向上することができます、 *日付* 、日付と時刻を整理することによってビュー
 高めることができます。 これには、ブートストラップの
-[パネル]スタイルを設定します。 *Views\\Home\\AllDates.cshtml*
+[パネル][] スタイルを設定します。 Replace
 内容、 *Views\\Home\\AllDates.cshtml* ファイルと、
 置き換えます。
 
@@ -531,15 +531,15 @@ Razor ファイルの内容を次のコードに置き換えます。
     }
 
 このコードでは、個別 `<div class="panel panel-primary">` のタグ付け
-一覧で、日付ごとの [リンクされたリスト グループ] を使用して、
+内に作成し、一覧の日付ごと、 [リンクされたリスト グループ][] ため、
 を使用します。 このコードを実行すると、モバイル ブラウザーの表示は
 次のようになります。
 
-![AllDatesFixed2]
+![][AllDatesFixed2]
 
 デスクトップ ブラウザーに切り替えます。 モバイル ブラウザーと一貫性を保った画面が表示されます。
 
-![AllDatesFixed2Desktop]
+![][AllDatesFixed2Desktop]
 
 ##<a name="bkmk_improvesessionstable"></a> SessionsTable ビューを強化する
 
@@ -549,11 +549,11 @@ Razor ファイルの内容を次のコードに置き換えます。
 モバイル ブラウザーでは、タップ、 **タグ** ] ボタンをクリックし、入力 `asp` で、
 と入力します。
 
-![AllTagsFixedSearchByASP]
+![][AllTagsFixedSearchByASP]
 
 タップして、 **ASP.NET** リンクします。
 
-![SessionsTableTagASP.NET]
+![][SessionsTableTagASP.NET]
 
 ご覧のとおりは形式で表示されているテーブル
 デスクトップ ブラウザーで表示するには、この設計されています。 ただし、少しは
@@ -594,47 +594,47 @@ Razor ファイルの内容を次のコードに置き換えます。
 
 このコードでは、次の 3 つの処理を行います。
 
--   ブートス トラップの [カスタムのリンクされたリスト グループ] を使用してください。
+-   ブートス トラップを使用して [カスタムのリンクされたリスト グループ][]
     セッション情報を縦方向に書式設定できるようにこの
     情報は、(リスト グループ項目テキストなどのクラスを使用して) モバイル ブラウザーで読み取れる
--   [グリッド システム] からを適用します
+-   適用される、 [グリッド システム][] に、
     レイアウト、セッション項目が、デスクトップで水平方向にフローできるように
     ブラウザーと垂直方向に、モバイル ブラウザーで (クラスを使用して、col-md-4)
--   [レスポンシブ ユーティリティ] からの使用します。
+-   使用して、 [レスポンシブ ユーティリティ][] に
     (hidden-xs クラスを使用して) モバイル ブラウザーで表示すると、セッション タグを非表示にします。
 
 タイトル リンクをタップして、それぞれのセッションに移動することもできます。 イメージ
 次のコードの変更が反映されます。
 
-![FixedSessionsByTag]
+![][FixedSessionsByTag]
 
 ユーザーが自動的に適用したブートス トラップのグリッド システムによって、
 モバイル ブラウザーの縦方向にセッションです。 さらに、タグ
 表示されません。 デスクトップ ブラウザーに切り替えます。
 
-![SessionsTableFixedTagASP.NETDesktop]
+![][SessionsTableFixedTagASP.NETDesktop]
 
 デスクトップ ブラウザーでは、タグが表示されています。 また、適用したブートストラップのグリッド システムによって、
 セッション項目が 2 列に表示されています。 拡大するかどうかは、
 ブラウザー、配置が 3 つの列に変わることが表示されます。
 
-##<a name="bkmk_improvesessionbycode"></a> ISessionByCode ビューを強化する
+##<a name="bkmk_improvesessionbycode"></a> SessionByCode ビューを強化する
 
 最後に、修正、 *SessionByCode* ビューをモバイル対応します。
 
 モバイル ブラウザーでは、タップ、 **タグ** ] ボタンをクリックし、入力 `asp` で、
 と入力します。
 
-![AllTagsFixedSearchByASP]
+![][AllTagsFixedSearchByASP]
 
 タップして、 **ASP.NET** リンクします。 ASP.NET タグのセッションが表示されます。
 
-![FixedSessionsByTag]
+![][FixedSessionsByTag]
 
 選択、 **ASP.NET でのシングル ページ アプリケーションを構築し、
 AngularJS** リンクします。
 
-![SessionByCode3 644]
+![][SessionByCode3-644]
 
 既定のデスクトップ ビューでも問題はありませんが、ブートストラップの GUI コンポーネントを使用して簡単に表示品質を高めることができます。
 
@@ -684,7 +684,7 @@ AngularJS** リンクします。
 モバイル ブラウザーの表示を更新します。 次の図では、行ったコードの変更が
 反映されています。
 
-![SessionByCodeFixed3 644]
+![][SessionByCodeFixed3-644]
 
 ## まとめ
 
@@ -705,12 +705,12 @@ AngularJS** リンクします。
 ## 関連項目
 
 -   [レスポンシブ Web デザインの 9 つの基本原則](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
--   [Bootstrap][BootstrapSite]
--   [ブートス トラップの公式ブログ][]
--   [Tutorial Republic による twitter Bootstrap Tutorial][]
--   [ブートス トラップのプレイ グラウンド][]
--   [W3c 勧告: モバイル Web アプリケーション ベスト プラクティス][]
--   [メディア クエリに関する W3C Candidate Recommendation][]
+-   [ブートストラップ][BootstrapSite]
+-   [ブートストラップの公式ブログ][]
+-   [Tutorial Republic による Twitter Bootstrap Tutorial][]
+-   [The Bootstrap Playground][]
+-   [W3C 勧告: モバイル Web アプリケーションのベスト プラクティス][]
+-   [W3C のメディア クエリに関する勧告候補][]
 
 ## 変更内容
 * Web サイトから App Service への変更のガイドを参照してください: [Azure App Service と既存の Azure サービスへの影響](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -784,4 +784,5 @@ AngularJS** リンクします。
 [SessionByCode3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-3-644.png
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
+
 

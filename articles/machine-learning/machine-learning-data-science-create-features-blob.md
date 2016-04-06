@@ -65,7 +65,7 @@
     
 次の 2 つのセクションでは、Python スクリプトを使用して、インジケーター値を持つカテゴリ特徴を生成し、特徴をビン分割する方法について説明します。
 
-###<a name="blob-countfeature"></a>インジケーター値ベースの特徴の生成
+###<a name="blob-countfeature">インジケーター値ベースの特徴の生成</a>
 
 カテゴリの特徴は、次のように作成できます。
 
@@ -105,7 +105,7 @@
 
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool) 
 
-##<a name="sql-featuregen"></a>Azure blob にデータを書き戻して、Azure Machine Learning で使用する.
+##<a name="sql-featuregen"></a>Azure BLOB にデータを書き戻して Azure Machine Learning で使用する
 
 データを探索すると、必要な機能を作成するには、データをアップロードすることができます (サンプリングまたは特徴を生成)、Azure blob にし、次の手順を使用して Azure Machine Learning で使用します。
 Azure Machine Learning studio にも、その他の機能を作成できることを注意してください。 
@@ -141,3 +141,4 @@ Azure Machine Learning studio にも、その他の機能を作成できるこ�
 
 
  
+

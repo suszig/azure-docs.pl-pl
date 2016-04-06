@@ -155,7 +155,7 @@ Azure Active Directory Device Registration サービスを Azure Active Director
 ### AD FS でデバイス認証を有効にする
 
 1. フェデレーション サーバーで、[AD FS 管理コンソールを開きに移動 **AD FS** > **認証ポリシー**します。
-2. 選択 **グローバル プライマリ認証の編集...** から、 **アクション** ウィンドウです。
+2. 選択 **グローバル プライマリ認証の編集.**  **アクション** ウィンドウです。
 3. 確認 **デバイス認証を有効にする** し、[**OK**します。
 4. 既定では、AD FS は未使用のデバイスを Active Directory から定期的に削除します。 Azure でデバイスを管理できるように Azure Active Directory Device Registration を使用する場合は、この動作を無効にする必要があります。
 
@@ -246,3 +246,4 @@ LDP.exe または ADSI Edit を使用して、デバイス オブジェクトが
 これで、ユーザーが Azure Active Directory Device Registration Service に登録していないデバイスからアプリケーションにアクセスすると、以下のスクリーン ショットのようなページが表示されるようになります。 
 
 ![ユーザーがデバイスを Azure AD に登録していなかった場合に表示されるエラーのスクリーン ショット](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
+

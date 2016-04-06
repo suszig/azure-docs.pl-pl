@@ -31,7 +31,7 @@ Azure ポータルの Web ジョブ ダッシュボードは、Web ジョブ内�
 ##<a name="getstarted"></a>Web ジョブと Web ジョブ SDK の概要
 
 * [Azure Web ジョブの紹介](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
-* [Azure web ジョブはすばらしいと、今すぐ使用を開始する必要があります。](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html)(Troy Hunt によるブログの投稿です。)
+* [Azure の Web ジョブはとても役に立ちます。今すぐすぐ使用を開始してください。](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (Troy Hunt によるブログの投稿です。)
 * [Azure Web ジョブの機能](/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [Azure Web ジョブ SDK とは](websites-dotnet-webjobs-sdk.md)
 * [Microsoft Patterns and Practices によるバック グラウンド ジョブのガイダンス](https://github.com/mspnp/azure-guidance/blob/master/Background-Jobs.md)
@@ -141,4 +141,5 @@ Azure ポータルの Web ジョブ ダッシュボードは、Web ジョブ内�
 * Web サイトから App Service への変更のガイドを参照してください: [Azure App Service と既存の Azure サービスへの影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 古いポータルから新しいポータルへの変更ガイドについては、次を参照してください: [プレビュー ポータル内の移動に関するリファレンス。](http://go.microsoft.com/fwlink/?LinkId=529715)
  
+
 

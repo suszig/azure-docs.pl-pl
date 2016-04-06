@@ -49,7 +49,7 @@ Azure AD B2C を使用するには、ディレクトリ (つまり、テナン�
 
 ## 2.アプリケーションの作成
 
-ここで、B2C ディレクトリにアプリを作成する必要があります。このディレクトリによって、アプリと安全に通信するために必要ないくつかの情報を Azure AD に提供します。  クライアント アプリと web API の両方が、1 つとして表現される **アプリケーション ID** ここでは、1 つの論理アプリケーションを構成からです。  アプリを作成するには
+次に、B2C ディレクトリ内にアプリを作成する必要があります。これによって、 アプリと安全に通信するために必要ないくつかの情報が Azure AD に提供されます。  クライアント アプリと web API の両方が、1 つとして表現される **アプリケーション ID** ここでは、1 つの論理アプリケーションを構成からです。  アプリを作成するには
 次の [手順](active-directory-b2c-app-registration.md)します。  このとき、
 
 - 含める、 **web アプリや web api** アプリケーションで
@@ -428,13 +428,14 @@ exports.list = function(req, res){
 
 <!--
 
-その他のリソースについては、以下を参照してください。
-さらに高度な B2C のトピックに進むことができます。  次のチュートリアルを試してみてください。
+For additional resources, check out:
+You can now move onto more advanced B2C topics.  You may want to try:
 
-[node.js Web アプリからの node.js Web API の呼び出し]()
+[Calling a node.js Web API from a node.js Web App >>]()
 
-[B2C アプリの UX のカスタマイズ]()
+[Customizing the your B2C App's UX >>]()
 
 -->
+
 
 

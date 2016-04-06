@@ -29,11 +29,11 @@ Service Fabric では、変更されたサービスのみをアップグレー�
 
 ![Service Fabric アプリケーションのコンテキスト メニュー][image1]
 
-もう 1 つのポップアップが表示され、設定することができます、 **接続エンドポイント** に **ローカル クラスター**します。 クリックする前に、次のように、ウィンドウがなります **発行**します。
+設定できるし、別のポップアップが表示されます、 **接続エンドポイント** に **ローカル クラスター**します。 クリックする前に、次のように、ウィンドウがなります **発行**します。
 
 ![Service Fabric アプリケーションの発行][image2]
 
-これで、ダイアログ ボックスで [発行] をクリックできるようになりました。 使用する [クラスターおよびアプリケーションを表示する Service Fabric エクスプ ローラー](service-fabric-visualizing-your-cluster.md)します。 ビジュアル オブジェクトのアプリケーションが web サービス」と入力してにブラウザーで移動するを [場所/visualobjects](http://localhost:8081/visualobjects) アドレス バーにします。  画面上を動く 10 個のフローティング ビジュアル オブジェクトが表示されます。 
+これで、ダイアログ ボックスで [発行] をクリックできるようになりました。 使用する [クラスターおよびアプリケーションを表示する Service Fabric エクスプ ローラー](service-fabric-visualizing-your-cluster.md)します。 ビジュアル オブジェクトのアプリケーションが web サービス」と入力してにブラウザーで移動するを [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) アドレス バーにします。  画面上を動く 10 個のフローティング ビジュアル オブジェクトが表示されます。 
 
 ## 手順 2: ビジュアル オブジェクト サンプルの更新
 
@@ -85,4 +85,5 @@ Service Fabric エクスプ ローラーを使用して監視ここで、アプ�
 [image2]: media/service-fabric-application-upgrade-tutorial/upgrade1.png
 [image3]: media/service-fabric-application-upgrade-tutorial/upgrade5.png
 [image4]: media/service-fabric-application-upgrade-tutorial/upgrade6.png
+
 

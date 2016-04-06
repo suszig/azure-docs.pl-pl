@@ -115,7 +115,7 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 東アジアの場所です。 コンピューティング ノードは、3 つのクラウド サービスで作成されます。
 3 つのストレージ アカウント (つまり、MyHPCCN-0001 で MyHPCCN 0005
 MyHPCCNService01 と mycnstorage01 です。Myhpccn-0006 ~ MyHPCCN0010
-Mycnstorage02 です。で MyHPCCN 0012
+MyHPCCNService02 と mycnstorage02 です。で MyHPCCN 0012
 MyHPCCNService03 と mycnstorage03 に作成されます)。 コンピューティング ノードから作成されます。
 コンピューティング ノードからキャプチャされた、既存のプライベート イメージ。 自動拡張します。
 圧縮とサービスが既定で有効になっている拡大および縮小の間隔。
@@ -453,4 +453,5 @@ Windows Server 2008 R2 オペレーティング システム。 すべてのク�
 * クラスターを作成し、HPC ワークロードを実行するスクリプトを使用するチュートリアルについては、次を参照してください。 [Excel と SOA ワークロードを実行する Azure で HPC Pack クラスターを使ってみる](virtual-machines-excel-cluster-hpcpac), 、[Linux での Microsoft HPC Pack での実行の NAMD の計算ノードとして Azure](virtual-machines-linux-cluster-hpcpack-namd.md), 、または [Linux での Microsoft HPC Pack での実行の OpenFOAM の計算ノードとして Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md)します。
 
 * HPC Pack のツールを試し、作成したクラスターからコンピューティング ノードを開始、停止、追加、削除してください。 参照してください [Azure のクラスターの HPC pack コンピューティング ノードの管理](virtual-machines-hpcpack-cluster-node-manage.md)
+
 

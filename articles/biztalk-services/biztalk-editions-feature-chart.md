@@ -28,7 +28,7 @@ Azure BizTalk Services には複数のエディションがあります。 こ�
 
 ハイブリッド接続を作成して管理できます。 ハイブリッド接続は、Azure Web サイトとオンプレミスのシステム (たとえば SQL Server) を簡単に接続する方法です。
 
-**Developer**
+**開発者**
 
 ハイブリッド接続、EAI および EDI メッセージ処理 (使いやすい取引先管理ポータルあり)、一般的な EDI スキーマのサポート、X12 および AS2 でのリッチな EDI 処理などの機能が含まれます。 HTTP/S、REST、FTP、WCF、および SFTP プロトコルを使用してメッセージの読み取りと書き込みを行うクラウド内のサービスを接続する一般的な EAI シナリオを作成できます。  オンプレミスの LOB システムへの接続が可能であり、SAP、Oracle eBusiness、Oracle DB、Siebel、および SQL Server のためのすぐに使えるアダプターが用意されています。 開発とデプロイを容易にする Visual Studio ツールによる開発者中心の環境を使用します。 目的は開発とテストに限定されており、サービス レベル アグリーメント (SLA) はありません。
 
@@ -60,7 +60,7 @@ Standard エディションのすべての機能が含まれており、ハイ�
 
 <tr>
 <td><strong>開始価格</strong></td>
-<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services の価格</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full"> Azure 料金計算ツール</a></td>
+<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk サービスの料金</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full"> Azure 料金計算ツール</a></td>
 </tr>
 <tr>
 <td><strong>既定の最小構成</strong></td>
@@ -150,7 +150,7 @@ TPM 契約の有無</td>
 <tr>
 <td><strong>高可用性</strong>
 <br/><br/>
-サービス レベル アグリーメント (SLA) を参照してください。 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services の価格</a>.
+サービス レベル アグリーメント (SLA) を参照してください <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk サービスの料金</a>します。
 </td>
 <td>なし</td>
 <td>なし</td>
@@ -252,10 +252,11 @@ Azure ポータルで Azure BizTalk サービスを作成するには [BizTalk �
 
 ## その他のリソース
 - [Azure ポータルを使用して BizTalk サービス: サービスのプロビジョニング](biztalk-provision-services.md)<br/>
-- [BizTalk サービス: プロビジョニング状態チャート](biztalk-service-state-chart.md)<br/>
-- [BizTalk サービス: ダッシュ ボード、モニター、スケール タブ](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+- [BizTalk サービス: プロビジョニングの状態のチャートに関するページ](biztalk-service-state-chart.md)<br/>
+- [BizTalk サービス: [ダッシュボード]、[監視]、および [スケール] タブに関するページ](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 - [BizTalk サービス: バックアップと復元](biztalk-backup-restore.md)<br/>
-- [BizTalk サービス: 調整](biztalk-throttling-thresholds.md)<br/>
-- [BizTalk サービス: 発行者名および発行者キー](biztalk-issuer-name-issuer-key.md)<br/>
-- [Azure BizTalk サービス SDK の操作使用開始方法](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+- [BizTalk Services: 調整](biztalk-throttling-thresholds.md)<br/>
+- [BizTalk サービス: 発行者名および発行者キーに関するページ](biztalk-issuer-name-issuer-key.md)<br/>
+- [Azure BizTalk サービス SDK の使用開始に関するページ](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+
 

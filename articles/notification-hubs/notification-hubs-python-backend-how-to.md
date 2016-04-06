@@ -38,7 +38,7 @@ MSDN のトピックで説明したように Notification Hub REST インター�
 ## クライアント インターフェイス
 メイン クライアント インターフェイスが備わっている同じメソッドを提供、 [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx)します。 これでこのサイトで現在利用でき、インターネット上のコミュニティから提供されたすべてのチュートリアルとサンプルを直接訳せるようになります。
 
-[Python REST ラッパー サンプル] で利用可能なすべてのコードを見つけることができます。
+使用できるすべてのコードを検索することができます、 [Python REST wrapper sample]します。
 
 たとえば、クライアントを作成する場合:
 
@@ -51,7 +51,7 @@ Windows トースト通知を送信する場合:
     hub.send_windows_notification(wns_payload)
     
 ## 実装
-まだない場合は、[入門チュートリアル] バック エンドを実装しなければ、最後のセクションまでに従ってください。
+まだない場合に従ってください、 [Get started tutorial] バック エンドを実装しなければセクションを最後までです。
 
 REST ラッパーを実装するすべての詳細を参照して [MSDN](http://msdn.microsoft.com/library/dn530746.aspx)します。 このセクションでは、Notification Hubs REST エンドポイントにアクセスし、通知を送信するために必要な主要手順の Python 実装について説明します。
 
@@ -260,10 +260,10 @@ REST ラッパーを実装するすべての詳細を参照して [MSDN](http://
 
 結果として HTTP URL が取得する通知ハブの送信要求には、"test"クエリ文字列が追加されます。 
 
-##<a name="complete-tutorial"></a>チュートリアルを完了する
+##<a name="complete-tutorial"></a>チュートリアルの完了
 ここで、Python バックエンドから通知を送信して、使用についてのチュートリアルを完了できます。
 
-Notification Hubs クライアント (代替 [入門チュートリアル] の説明に従って接続文字列とハブ名) を初期化します。
+Notification Hubs クライアントを初期化 (」の説明に従って接続文字列とハブ名を置き換えて、 [Get started tutorial])。
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName")
 
@@ -378,9 +378,9 @@ HTTP ヘッダーが変更する形式と、ペイロードの本文が HTTP 要
 ## 次のステップ
 このトピックでは、Notification Hubs 用の単純な Python REST クライアントの作成方法を説明しました。 次は、以下を実行できます。
 
-* 上記のコードをすべて含むフル [Python REST ラッパー サンプル] をダウンロードします。
-* 引き続き、「[ニュース速報チュートリアル]」で Notification Hubs のタグ付け機能について学習してください。
-* 引き続き Notification Hubs のテンプレート機能について学習して「[ニュースのローカライズ チュートリアル]
+* ダウンロード [Python REST wrapper sample], 、上記すべてのコードが含まれています。
+* Notification Hubs のタグ付けの機能について学習を続行します [Breaking News tutorial]
+* 引き続き Notification Hubs のテンプレート機能について学習してください、 [Localizing News tutorial]
 
 <!-- URLs -->
 [Python REST wrapper sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
@@ -395,4 +395,5 @@ HTTP ヘッダーが変更する形式と、ペイロードの本文が HTTP 要
 [4]: ./media/notification-hubs-python-backend-how-to/SendWithMultipleTags.png
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
+
 

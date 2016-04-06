@@ -25,7 +25,7 @@ ms.service="virtual-machines"
 クラウド サービスで実行されている) オンデマンドでコンピューティング リソースとして、
 Azure の HPC Pack ヘッド ノードに既存します。 これにより、事前構成された一連のコンピューティング ノード VMを整備しなくても、Azure の HPC クラスターのコンピューティング能力を拡大できます。
 
-![バースト ノード][バースト]
+![ノードをバーストする][burst]
 
 >[AZURE.TIP] 使用する場合、 [HPC Pack IaaS デプロイメント スクリプト](virtual-machines-hpcpack-cluster-powershell-script.md) Azure では、クラスターを作成するには
 自動化された Azure バースト ノードを含めることができます。
@@ -122,4 +122,5 @@ Microsoft HPC を使用して Azure ノードの展開
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
+
 

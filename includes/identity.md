@@ -25,7 +25,7 @@ Azure Virtual Machines での Windows Server AD の実行は、オンプレミ�
 ![Azure Active Directory in Virtual Machine](./media/identity/identity_01_ADinVM.png)
 
 
-<a name="Fig1"></a>図 1: Windows Server Active Directory は、Azure の仮想ネットワークを使用して、組織の内部設置型のデータ センターに接続されている Azure の仮想マシンで実行できます。
+<a name="Fig1"></a>図 1: Windows Server Active Directory は、Azure Virtual Network を使用する組織のオンプレミス データセンターに接続された Azure Virtual Machines で実行できる
 
 ここに示す例では、Windows Server AD が、Azure Virtual Machines (プラットフォームの IaaS テクノロジ) を使用して作成された VM で実行されています。 これらの VM と他のいくつかの VM は、Azure Virtual Network を使用するオンプレミスのデータセンターに接続された仮想ネットワークにグループ化されています。 仮想ネットワークは、仮想プライベート ネットワーク (VPN) 接続経由でオンプレミスのネットワークとやり取りするクラウド VM のグループを形成します。 こうすることで、これらの Azure Virtual Machines が、オンプレミスのデータセンターにとって別のサブセットと同じように見なされます。 図が示すように、これらの VM のうち 2 つは Windows Server AD ドメイン コントローラーを実行しています。 仮想ネットワーク内の他の VM は、SharePoint などのアプリケーションを実行したり、開発やテストなど、他の何らかの方法で使用されることがあります。 オンプレミスのデータセンターでは、2 つの Windows Server AD ドメイン コントローラーも実行されています。
 
@@ -64,7 +64,7 @@ SaaS アプリケーションが一般的になるにつれて、素朴な疑問
 
 ![Azure Active Directory in Virtual Machine](./media/identity/identity_02_AD.png)
 
-<a name="fig2"></a>図 2: Office 365 を含む、SaaS アプリケーションに、組織のユーザーでシングル サインオンは、Azure Active Directory です。
+<a name="fig2"></a>図 2: Azure Active Directory を使用すると、組織のユーザーが SaaS アプリケーション (Office 365 など) へのシングル サインオンを利用できるようになる
 
 図が示すように、Azure AD はマルチテナント サービスです。 つまり、多くの組織を同時にサポートし、各組織のユーザーに関するディレクトリ情報を格納できます。 この例では、組織 A のユーザーが SaaS アプリケーションにアクセスしようとしています。 このアプリケーションは、Office 365 の一部 (SharePoint Online など) である場合も、それ以外のアプリケーションの場合もあります (マイクロソフト以外のアプリケーションでもこのテクノロジを使用できます)。 Azure AD では SAML 2.0 プロトコルがサポートされるため、アプリケーションに必要なのはこの業界標準を使用してやり取りできることだけです (実際、Azure AD を使用するアプリケーションは、Azure データセンターだけではなくどのデータセンターでも実行できます)。
 
@@ -89,7 +89,7 @@ Azure AD を使用するには、まずユーザーが自身のオンプレミ�
 
 現在のところ、オンプレミスのWindows Server AD を Azure AD に完全に置き換えることはできません。 既に説明したとおり、クラウド ディレクトリのスキーマの方がかなりシンプルであり、グループ ポリシー、マシンに関する情報の格納機能、LDAP のサポートなどもありません (実際、ユーザーが Azure AD 以外を使用してログインできるように Windows マシンを構成することはできません。これは、サポートされるシナリオではありません)。むしろ、Azure AD の当初の目標は、エンタープライズ ユーザーが別個のログインを維持しなくてもクラウドのアプリケーションにアクセスできるようにすることと、オンプレミスのディレクトリ管理者が、オンプレミスのディレクトリと組織が使用する各 SaaS アプリケーションを手動で同期しなくてもよいようにすることです。 しかし、時間の経過と共に、このクラウド ディレクトリ サービスが広範なシナリオに対応することが期待されます。
 
-## <a name="ac"></a>Azure の Active Directory Access Control の使用
+## <a name="ac"></a>Azure Active Directory Access Control の使用
 
 クラウド ベースの ID テクノロジを使用すると、さまざまな問題を解決できます。 たとえば、Azure Active Directory を使用すると、組織のユーザーが複数の SaaS アプリケーションへのシングル サインオンを利用できるようになります。 しかし、クラウドの ID テクノロジは他の方法でも使用できます。
 
@@ -119,4 +119,5 @@ ID の処理は、ほとんどすべてのアプリケーションにとって�
 ##著者について
 
 David Chappell は、プリンシパル Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) San Francisco、カリフォルニア州にします。
+
 

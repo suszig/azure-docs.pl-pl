@@ -27,10 +27,10 @@ Microsoft Azure PowerShell は、Azure のワークロードのデプロイメ�
 この記事を読み始める前に、次の項目を用意する必要があります。
 
 - Azure サブスクリプション。 Azure はサブスクリプション方式のプラットフォームです。 サブスクリプションの
-サブスクリプションを取得する方法については、[購入のオプション] を参照してください。
-[メンバーの提供物]、[無料評価版] またはです。
+をサブスクリプションの入手方法に関する情報を参照してください [Purchase Options],、
+[Member Offers], or [Free Trial].
 
-- Azure PowerShell を搭載するコンピューター 手順については、次を参照してください。 [をインストールし、Azure PowerShell を構成する]。
+- Azure PowerShell を搭載するコンピューター 手順については、次を参照してください。 [Install and configure Azure PowerShell]します。
 
 - PowerShell スクリプト、NuGet パッケージ、.NET Framework の一般的理解。
 
@@ -38,7 +38,7 @@ Microsoft Azure PowerShell は、Azure のワークロードのデプロイメ�
 
 Service Bus の管理で利用できる PowerShell コマンドレットの数は限定されています。 プロビジョニングする
 既存のコマンドレットを通じて公開されていないエンティティ用の .NET クライアントを使用することができます。
-[Service Bus NuGet パッケージ] で Service Bus です。
+サービス バスで、 [Service Bus NuGet package]します。
 
 まず、スクリプトを見つけることができることを確認してください、 **Microsoft.ServiceBus.dll** NuGet パッケージでインストールされたアセンブリ。 柔軟性を持たせるために、スクリプトでは次のステップを実行します。
 
@@ -70,7 +70,7 @@ catch [System.Exception]
 
 ## Service Bus 名前空間のプロビジョニング
 
-次の 2 つの PowerShell コマンドレットは Service Bus 名前空間の操作をサポートします。 .NET SDK Api の代わりに、[Get-azuresbnamespace] および [New-azuresbnamespace] を使用することができます。
+次の 2 つの PowerShell コマンドレットは Service Bus 名前空間の操作をサポートします。 .NET SDK Api の代わりに使用することができます [Get-azuresbnamespace][] と [New-azuresbnamespace][]します。
 
 この例では、スクリプトでローカル変数 `$Namespace` と `$Location` を作成します。
 
@@ -108,8 +108,8 @@ catch [System.Exception]
     }
     ```
 
-その他のサービス バス エンティティをプロビジョニングするには、SDK から [NamespaceManager] クラスのインスタンスを作成します。
-[Get-azuresbauthorizationrule] コマンドレットを使用すると、接続文字列を指定するのにために使用する承認規則を取得します。 `NamespaceManager` インスタンスへの参照は `$NamespaceManager` 変数に保存されます。 `$NamespaceManager` は、別のエンティティをプロビジョニングするために後ほどスクリプトで使用します。
+その他のサービス バス エンティティをプロビジョニングするには、インスタンスを作成、 [NamespaceManager][] SDK からのクラスです。
+使用することができます、 [Get-azuresbauthorizationrule][] コマンドレットを接続文字列を指定するために使用する承認規則を取得します。 `NamespaceManager` インスタンスへの参照は `$NamespaceManager` 変数に保存されます。 `$NamespaceManager` は、別のエンティティをプロビジョニングするために後ほどスクリプトで使用します。
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -121,7 +121,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 
 ## その他の Service Bus エンティティのプロビジョニング
 
-キュー、トピック、Event Hubs などのエンティティをプロビジョニングするためには、[Service bus .NET API] を使用します。 この記事では Event Hubs にのみ注目しますが、他のエンティティの手順も似ています。 さらに、その他のエンティティを含むより詳細な例は、この記事の最後をご覧ください。
+キュー、トピック、Event Hubs などのエンティティをプロビジョニングするために使用して、 [.NET API for Service Bus][]します。 この記事では Event Hubs にのみ注目しますが、他のエンティティの手順も似ています。 さらに、その他のエンティティを含むより詳細な例は、この記事の最後をご覧ください。
 
 スクリプトのこの部分ではさらに 4 つのローカル変数を作成します。 こうした変数は、`EventHubDescription` オブジェクトのインスタンス化に使用されます。 スクリプトでは次を実行します。
 
@@ -184,3 +184,4 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
 [.NET API for Service Bus]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
 [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
+

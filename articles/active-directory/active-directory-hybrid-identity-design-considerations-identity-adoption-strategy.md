@@ -191,15 +191,16 @@
 >[AZURE.NOTE]
 また、選択した多要素認証の設計オプションで、設計に必要な機能がサポートされていることを確認する必要があります。  詳細については、「 [多要素のセキュリティ ソリューションを選択して](../multi-factor-authentication-get-started.md#what-am-i-trying-to-secure)います。
 
-## Multi-Factor Auth Provider
+## 多要素認証プロバイダー
 Azure Active Directory テナントを持つグローバル管理者は、既定で多要素認証を使用できます。 ただし、すべてのユーザーに多要素認証を拡張する場合や、グローバル管理者が管理ポータル、カスタムの案内応答、レポートなどの機能を利用できるようにする場合は、Multi-Factor Authentication Provider を購入して構成する必要があります。
 
 >[AZURE.NOTE]
 また、選択した多要素認証の設計オプションで、設計に必要な機能がサポートされていることを確認する必要があります。 
 
 ##次のステップ
-[データ保護要件を決定します。](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
+[データ保護要件の決定](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
 ## 関連項目
 [設計上の考慮事項の概要](active-directory-hybrid-identity-design-considerations-overview.md)
+
 

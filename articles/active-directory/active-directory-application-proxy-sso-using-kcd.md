@@ -91,7 +91,7 @@ Active Directory の構成は、アプリケーション プロキシ コネク�
 
 1. 説明に従って、アプリケーションを発行 [アプリケーション プロキシを使用してアプリケーションを公開](active-directory-application-proxy-publish.md)します。 選択するように **Azure Active Directory** として、 **事前認証方法**します。
 2. アプリケーションの一覧で、アプリケーションが表示されたら、選択し、クリックして **構成**します。
-3.  **プロパティ**, 、 **内部認証方法** に **統合 Windows 認証**.<br>![高度なアプリケーションの構成](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)
+3.  **プロパティ**, 、 **内部認証方法** に **統合 Windows 認証**します。<br>![高度なアプリケーションの構成](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)
 
 4. 入力、 **内部アプリケーション SPN** アプリケーション サーバーのです。 この例では、公開されたアプリケーションの SPN は、http/lob.contoso.com です。
 
@@ -121,7 +121,7 @@ Azure AD Application Proxy での Kerberos 委任フローは、Azure AD がク�
 この機能により、オンプレミス ID とクラウド ID が異なる多くの組織で、ユーザーに別のユーザー名とパスワードの入力を要求することなく、クラウドからオンプレミスのアプリにシングル サインオンさせることができます。 次のような組織が含まれます。
 
 
-- 内部的に複数のドメインがある (joe@us.contoso.com、joe@eu.contoso.com) とクラウド (joe@contoso.com) 内の 1 つのドメイン。
+- 内部的に複数のドメインがある (joe@us.contoso.com、joe@eu.contoso.com) とクラウド (joe@contoso.com) 内の単一ドメイン。
 
 
 - 内部的にルーティング不可能なドメイン名がある (joe@contoso.usa) と、クラウドで有効な 1 つです。
@@ -171,10 +171,11 @@ SSO のプロセスでエラーがある場合に表示されますコネクタ 
 - [独自のドメイン名でアプリケーションを発行する](active-directory-application-proxy-custom-domains.md)
 - [条件付きアクセスを有効にする](active-directory-application-proxy-conditional-access.md)
 - [要求に対応するアプリケーションを利用する](active-directory-application-proxy-claims-aware-apps.md)
-- [アプリケーション プロキシで発生した問題のトラブルシューティングを行う](active-directory-application-proxy-troubleshoot.md)
+- [アプリケーション プロキシが発生した問題をトラブルシューティングします。](active-directory-application-proxy-troubleshoot.md)
 
 ## アプリケーション プロキシに関するその他の情報
 - [オンライン ヘルプ](active-directory-application-proxy-enable.md)
 - [アプリケーション プロキシに関するブログ](http://blogs.technet.com/b/applicationproxyblog/)
 - [Channel 9 ビデオ](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
+
 

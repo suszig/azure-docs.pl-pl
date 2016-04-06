@@ -21,12 +21,12 @@
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
 ##概要
-このトピックでは、登録されたデバイスの認証されたユーザーにプッシュ通知を送信する方法を説明します。 前のチュートリアル [アプリにプッシュ通知の追加] では、違いは、このチュートリアルは、クライアントがプッシュ通知の通知ハブに登録する前にユーザーの認証が要求するように、モバイル サービスを変更します。 また、登録を変更して、割り当てられたユーザー ID に基づいてタグが追加されるようにします。 最後に、サーバー スクリプトが更新されて、すべての登録に対してではなく、認証されたユーザーにのみ通知が送信されます。
+このトピックでは、登録されたデバイスの認証されたユーザーにプッシュ通知を送信する方法を説明します。 前とは異なり [Add push notifications to your app] チュートリアルでは、このチュートリアルは、クライアントがプッシュ通知の通知ハブに登録する前にユーザーの認証が要求するようにモバイル サービスを変更します。 また、登録を変更して、割り当てられたユーザー ID に基づいてタグが追加されるようにします。 最後に、サーバー スクリプトが更新されて、すべての登録に対してではなく、認証されたユーザーにのみ通知が送信されます。
 
 このチュートリアルでは、次の手順について説明します。
 
-1. [認証の登録を要求するサービスの更新]
-2. [登録の前にログインするアプリケーションを更新する]
+1. [登録に認証が必要となるようにサービスを更新する]
+2. [登録の前にログインするようにアプリケーションを更新する]
 3. [アプリケーションをテストする]
  
 このチュートリアルが対象とするのは、Windows ストアと Windows Phone ストアの両方のアプリケーションです。
@@ -35,9 +35,9 @@
 
 このチュートリアルの前に、次の Mobile Services のチュートリアルを完了している必要があります。
 
-+ [アプリに認証の追加]<br/>TodoList サンプル アプリケーションにログイン要件を追加します。
++ [Add authentication to your app]<br/>TodoList サンプル アプリケーションにログイン要件を追加します。
 
-+ [アプリにプッシュ通知の追加]<br/>Notification Hubs を使用して、TodoList サンプル アプリのプッシュ通知を構成します。 
++ [Add push notifications to your app]<br/>Notification Hubs を使用して、TodoList サンプル アプリのプッシュ通知を構成します。 
 
 両方のチュートリアルを完了すると、モバイル サービスからのプッシュ通知に、認証されていないユーザーが登録できないようにすることができます。
 
@@ -94,3 +94,4 @@
 <!-- URLs. -->
 [Add authentication to your app]: ../mobile-services-windows-store-dotnet-get-started-users.md
 [Add push notifications to your app]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md 
+

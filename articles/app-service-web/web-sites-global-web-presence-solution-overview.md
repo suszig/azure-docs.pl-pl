@@ -23,7 +23,7 @@
 
 >[AZURE.NOTE] 場合は、Azure アカウントがサインアップする前に Azure App Service の使用を開始するには、 [App Service の試用](http://go.microsoft.com/fwlink/?LinkId=523751), 、App Service で有効期間の短いスターター web アプリをすぐに作成する場所です。 このサービスの利用にあたり、クレジット カードは必要ありません。契約も必要ありません。
 
-以下は、App Service Web Apps で実行されている .COM Web サイトの例です。 技術的な投資を最小限に抑えて、Web Apps をその他のサービスを構成することにより実現可能なことを図解しています。 **クリックして詳細をご覧トポグラフィ内の要素についてです。** 
+以下は、App Service Web Apps で実行されている .COM Web サイトの例です。 技術的な投資を最小限に抑えて、Web Apps をその他のサービスを構成することにより実現可能なことを図解しています。 **トポグラフィ内の要素をクリックして、詳細をご覧ください。** 
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/corp-website-visio.svg" width="100%" height="100%"></object>
 
@@ -137,4 +137,5 @@ Azure またはサードパーティ製のツールで Web サイトのパフォ
 [SendGrid service in Azure Marketplace]:sendgrid-dotnet-how-to-send-email.md
 
  
+
 

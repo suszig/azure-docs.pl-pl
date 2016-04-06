@@ -56,7 +56,7 @@ Azure AD では、Salesforce のようなアプリケーションをシングル
 
 あなたは IT 管理者で、Azure AD をまだ使用したことがない場合:
 
- - [試してみる!](https://azure.microsoft.com/trial/get-started-active-directory/) -無料 30 日の試用版にサインアップし、このリンクを使用して、5 分以内に、最初のクラウド ソリューションの配置
+ - [実際に使ってみてください。](https://azure.microsoft.com/trial/get-started-active-directory/) -無料 30 日の試用版にサインアップし、このリンクを使用して、5 分以内に、最初のクラウド ソリューションの配置
 
 アカウントの共有を有効にする Azure AD の機能は、次のとおりです。
 
@@ -70,4 +70,5 @@ Azure AD では、Salesforce のようなアプリケーションをシングル
 
 - [条件付きアクセスを使用したアプリケーションの保護](active-directory-conditional-access.md)
 - [セルフサービス グループの管理/SSAA](active-directory-accessmanagement-self-service-group-management.md)
+
 

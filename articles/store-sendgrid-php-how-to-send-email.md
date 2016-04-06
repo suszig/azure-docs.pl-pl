@@ -248,9 +248,9 @@ Swift Mailer を使用して電子メールを送信するコード行を追加�
      $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName('file_name'));
 
 このコード行では、
-<span class="auto-style2">Swift\_Message</span> オブジェクトに添付メソッドを呼び出し、
-静的メソッド <span class="auto-style2">fromPath</span> を
-<span class="auto-style2">Swift\_Attachment</span> クラスに呼び出すことで、ファイルを取得し、
+<span class="auto-style2">\_Message</span> オブジェクト
+メソッド <span class="auto-style2">fromPath</span> で、
+<span class="auto-style2">Swift\_Attachment</span> クラスを取得し、
 メッセージに添付しています。
 
 ### Web API
@@ -440,4 +440,5 @@ SendGrid では、"フィルター" を使用することで追加の電子メ�
   [transactional email delivery]: https://sendgrid.com/transactional-email
   [sendgrid-php library]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
+
 

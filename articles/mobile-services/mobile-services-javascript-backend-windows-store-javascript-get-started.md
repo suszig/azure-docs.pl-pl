@@ -38,12 +38,12 @@
 
 モバイル サービスを作成したら、Azure クラシック ポータルの簡単なクイック スタートに従って、モバイル サービスに接続する新しい Windows ストア 8.1 JavaScript アプリを作成できます。
 
-1.  クリックして、[Azure クラシック ポータル] で、 **Mobile Services**, 、し、先ほど作成したモバイル サービスをクリックします。
+1.   [Azure classic portal], 、] をクリックして **Mobile Services**, 、作成したモバイル サービスをクリックします。
 
 
 2. クイック スタート] タブをクリックして **Windows** [ **プラットフォームの選択]** 展開 **新しい Windows ストア アプリを作成**します。
 
-3. まだ行っていない、ダウンロードしてローカル コンピューターまたは仮想マシンで [Visual Studio 2013] [Visual Studio 2013 Express for Windows] をインストールします。
+3. ダウンロードしてインストールをまだ行っていない場合、 [Visual Studio 2013][Visual Studio 2013 Express for Windows] 、ローカル コンピューターまたは仮想マシン。
 
 4. クリックして **作成 TodoItem テーブル** アプリケーション データを格納するテーブルを作成します。
 
@@ -65,7 +65,7 @@
 
 4. (オプション) アプリを再実行し、アプリケーションの起動後に前の手順で保存したデータがモバイル サービスから読み込まれる点に注目してください。
  
-4. ポータルに戻り、[Azure クラシック] をクリックして、 **データ** ] タブでをクリックし、 **TodoItems** テーブルです。
+4. 戻り、 [Azure classic portal], をクリックして、 **データ** ] タブでをクリックし、 **TodoItems** テーブルです。
 
     これで、アプリケーションによってテーブルに挿入されたデータを参照できます。
 
@@ -88,4 +88,5 @@
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure classic portal]: https://manage.windowsazure.com/
+
 

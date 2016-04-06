@@ -38,7 +38,7 @@
 
 タスク | サービス管理 | リソース マネージャー
 -------------- | ----------- | -------------------------
-最も基本的な VM の作成 | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(`azure vm image list` コマンドから `image-urn` を取得します。)
+最も基本的な VM の作成 | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(取得、 `image-urn` から、 `azure vm image list` コマンドです)。
 Linux VM の作成 | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Linux"`
 Windows VM の作成 | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Windows"`
 VM の一覧表示 | `azure  vm list [options]` | `azure  vm list [options] <resource_group>`
@@ -60,7 +60,7 @@ VM への Chef 拡張機能の追加 | `azure  vm extension get-chef [options] <
 VM 拡張機能の無効化 | `azure  vm extension set [options] –b <vm-name> <extension-name> <publisher-name> <version>` | 使用できません。
 VM 拡張機能の削除 | `azure  vm extension set [options] –u <vm-name> <extension-name> <publisher-name> <version>` | `azure  vm extension set [options] –u <resource-group> <vm-name> <name> <publisher-name> <version>`
 VM 拡張機能の一覧表示 | `azure vm extension list [options]` | `azure  vm extension get [options] <resource-group> <vm-name>`
-VM イメージの一覧表示 | `azure vm image list [options]` | `azure vm image list [options] <location> <publisher> [offer] [sku]` -または- <br/> `azure vm image list-publishers [options] <location>` -または- <br/> `azure vm image list-offers [options] <location>` -または- <br/> `azure vm image list-skus [options] <location>`
+VM イメージの一覧表示 | `azure vm image list [options]` | `azure vm image list [options] <location> <publisher> [offer] [sku]` OR- <br/> `azure vm image list-publishers [options] <location>` OR- <br/> `azure vm image list-offers [options] <location>` OR- <br/> `azure vm image list-skus [options] <location>`
 VM イメージの表示 | `azure vm image show [options]` | 使用できません。
 VM リソースの使用量の取得 | 使用できません。 | `azure vm list-usage [options] <location>`
 使用可能なすべての VM サイズの取得 | 使用できません。 | `azure vm sizes [options]`
@@ -71,4 +71,5 @@ VM リソースの使用量の取得 | 使用できません。 | `azure vm list
 * Azure CLI を使用して、リソース マネージャーのリソースを使用する方法の詳細を参照してください。 [リソース マネージャーで Azure コマンド ライン インターフェイスを使用して](xplat-cli-azure-resource-manager.md) と [ベース アクセス制御 Azure コマンド ライン インターフェイスによる](../role-based-access-control-xplat-cli-install.md)します。
 * CLI コマンドの他の例を参照してください [Azure サービス管理で Azure コマンド ライン インターフェイスを使用して](../virtual-machines-command-line-tools.md) と。
 [Azure リソース マネージャーで Azure CLI を使用して](azure-cli-arm-commands.md)します。
+
 

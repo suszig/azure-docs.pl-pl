@@ -37,7 +37,7 @@
 
 + Visual Studio 2012 Express for Windows Phone 8、および [Windows Phone 8 SDK] Windows 8 で実行されています。 このチュートリアルを完了して、Windows Phone 8.1 アプリケーションを作成するには、Visual Studio 2013 Update 2 以降が必要です。
 
-+ Azure アカウント。 アカウントがない場合は、無料の試用アカウントを数分で作成することができます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Farticles%2Fdocumentation%2Fmobile-services-windows-phone-get-started-data%2F)を参照してください。
++ Azure アカウント。 アカウントがない場合は、無料の試用アカウントを数分で作成することができます。 詳細については、「[Azure の無料評価版サイト](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Farticles%2Fdocumentation%2Fmobile-services-windows-phone-get-started-data%2F)」をご覧ください。
 
 ##<a name="download-app"></a>GetStartedWithData プロジェクトをダウンロードする
 
@@ -144,7 +144,7 @@
 
     これにより、項目の更新がモバイル サービスに送信されます。
 
-バックエンド ストレージのモバイル サービスを使用するようにアプリケーションを更新した後は、モバイル サービスに対してアプリケーションをテストします。
+バックエンド ストレージの Mobile Services を使用するようにアプリケーションを更新した後は、Mobile Services に対してアプリケーションをテストします。
 
 ##<a name="test-app"></a>新しいモバイル サービスに対するアプリケーションのテスト
 
@@ -168,11 +168,11 @@
 
 このチュートリアルでは、Windows Phone 8 アプリで Mobile Services のデータを操作できるようにするための基本について説明しました。 次に、以下のその他のトピックのいずれかを読むことを検討してください。
 
-* [アプリへの認証を追加します。](mobile-services-windows-phone-get-started-users.md)
-  <br/>アプリのユーザーを認証する方法について説明します。
+* [アプリへの認証の追加](mobile-services-windows-phone-get-started-users.md)
+  <br/>アプリケーションのユーザーを認証する方法について説明します。
 
-* [アプリへのプッシュ通知を追加します。](mobile-services-javascript-backend-windows-phone-get-started-push.md)
-  <br/>モバイル サービスを使用してアプリケーションにごく基本的なプッシュ通知を送信する方法について説明します。
+* [アプリケーションにプッシュ通知を追加する](mobile-services-javascript-backend-windows-phone-get-started-push.md)
+  <br/>Mobile Services を使用してアプリケーションにごく基本的なプッシュ通知を送信する方法について説明します。
 
 * [Mobile Services C# の場合操作方法に関する概念リファレンス](mobile-services-windows-dotnet-how-to-use-client-library.md)
   <br/>.NET で Mobile Services を使用する方法について説明します。
@@ -197,5 +197,6 @@
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
+
 
 

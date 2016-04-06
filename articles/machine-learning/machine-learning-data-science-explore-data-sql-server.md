@@ -31,7 +31,7 @@
 
 
 
-## <a name="sql-dataexploration"></a>SQL スクリプトで SQL データを探索します。
+## <a name="sql-dataexploration"></a>SQL スクリプトを使用して SQL データを探索する
 
 SQL Server のデータ ストアの探索に使用できるいくつかのサンプル SQL スクリプトを次に示します。
 
@@ -53,7 +53,7 @@ SQL Server のデータ ストアの探索に使用できるいくつかのサ�
 
 > [AZURE.NOTE] 使用できる実用的な例、 [NYC タクシー データセット](http://www.andresmh.com/nyctaxitrips/) 」というタイトルの IPNB を参照して [NYC データの処理 IPython Notebook と SQL Server を使用して](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) エンド ツー エンド チュートリアルについては、です。
 
-##<a name="python"></a>Python による SQL データを探索します。
+##<a name="python"></a>Python を使用して SQL データを探索する
 
 説明に従って、Python を使用して Azure blob でデータの処理と似ています Python を使用してデータを探索し、データが SQL Server の特徴を生成する [Azure Blob データを処理するデータ サイエンス環境で](machine-learning-data-science-process-data-blob.md)します。 データは、データベースから pandas データ フレームに読み込む必要があります。その後、さらに処理することができます。 このセクションでは、データベースに接続して、データ フレームにデータを読み込むプロセスについて記載します。
 
@@ -75,3 +75,4 @@ SQL Server のデータ ストアの探索に使用できるいくつかのサ�
 公開されているデータセットを使用して、Cortana Analytics プロセスのチュートリアルの例は、次を参照してください。 [の動作の Cortana Analytics プロセス: SQL Server を使用して](machine-learning-data-science-process-sql-walkthrough.md)します。
 
  
+

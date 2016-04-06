@@ -61,36 +61,36 @@
             </td>
             <td>
               <p>
-                <strong>どのようなエラーが表示されますか</strong>
+                <strong>ユーザーはどのようなエラーを表示でしょうか。</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>解決策</strong>
+                <strong>ソリューション</strong>
               </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>表示されない、 <strong>ユーザー パスワードのリセット ポリシー </strong>セクションの下にある、 <strong>構成</strong> Azure 管理ポータル] タブ</p>
+              <p>表示されない、 <strong>ユーザー パスワードのリセット ポリシー </strong>セクション、 <strong>構成</strong> 、Azure 管理ポータル] タブ</p>
             </td>
             <td>
-              <p>この <strong>ユーザー パスワードのリセット ポリシー </strong>セクションでは認識されない、 <strong>構成</strong> Azure 管理ポータルでタブをクリックします。</p>
+              <p> <strong>ユーザー パスワードのリセット ポリシー </strong>セクションでは認識されない、 <strong>構成</strong> Azure 管理ポータルでタブをクリックします。</p>
             </td>
             <td>
               <p>これは、この操作を実行する管理者に割り当てられる AAD Premium または AAD Basic のライセンスを持っていない場合に発生します。 </p>
-              <p>この問題を解決する AAD Premium または AAD Basic のライセンスを割り当ての対象の管理者アカウントに移動して、 <strong>ライセンス</strong> タブをクリックし、もう一度やり直してください。</p>
+              <p>この問題を解決する AAD Premium または AAD Basic のライセンスを割り当ての対象の管理者アカウントに移動して、 <strong>ライセンス</strong> タブもう一度やり直してください。</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>任意の下にある構成オプションが表示されない、 <strong>ユーザー パスワードのリセット ポリシー</strong> ドキュメントに記載されている参照してください。</p>
+              <p>任意の下にある構成オプションが表示されない、 <strong>ユーザー パスワードのリセット ポリシー</strong> セクション、ドキュメントに記載されています。</p>
             </td>
             <td>
-              <p>この <strong>ユーザー パスワードのリセット ポリシー </strong>セクションは表示が、その下に表示される唯一のフラグは、 <strong>パスワードのリセットが有効なユーザー</strong> フラグです。</p>
+              <p> <strong>ユーザー パスワードのリセット ポリシー </strong>セクションは表示が、その下に表示される唯一のフラグは、 <strong>パスワード リセットの有効なユーザー</strong> フラグ。</p>
             </td>
             <td>
-              <p>切り替えると、残りの UI が表示されます、 <strong>パスワードのリセットが有効なユーザー</strong> フラグ <strong>はい。</strong></p>
+              <p>切り替えると、残りの UI が表示されます、 <strong>パスワード リセットの有効なユーザー</strong> フラグを <strong>[はい] です。</strong></p>
             </td>
           </tr>
           <tr>
@@ -102,19 +102,19 @@
             </td>
             <td>
               <p>UI の多くの要素は、必要になるまで表示されません。 表示する場合は、ページ上のすべてのオプションを有効にしてください。</p>
-              <p>手順については、「 <a href="../active-directory-passwords-customize#password-management-behavior">ユーザー パスワード リセットのカスタマイズ ポリシー</a> コントロールのすべてについて参照してください。</p>
+              <p>参照してください <a href="../active-directory-passwords-customize#password-management-behavior">をカスタマイズするユーザー パスワードのリセット ポリシー</a> の詳細については、すべての可能なコントロールです。</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>表示されない、 <strong>内部設置型へのパスワードの書き戻し</strong> 構成オプション</p>
+              <p>表示されない、 <strong>Write Back Passwords to On-premises</strong> 構成オプション</p>
             </td>
             <td>
-              <p>この <strong>内部設置型へのパスワードの書き戻し</strong> オプションはの下に表示できません、 <strong>構成</strong> Azure 管理ポータル] タブ</p>
+              <p> <strong>Write Back Passwords to On-premises</strong> オプションはの下に表示できません、 <strong>構成</strong> Azure 管理ポータル] タブ</p>
             </td>
             <td>
               <p>このオプションは、Azure AD Connect をダウンロードし、パスワード を構成した場合のみ表示されます。 このオプションは終了時に表示されますが、クラウドからライトバックを有効または無効にできます。</p>
-              <p>手順については、「 <a href="../active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords">パスワード ライトバックを有効または無効にする方法</a> これを行う方法の詳細についてです。</p>
+              <p>参照してください <a href="../active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords">パスワード ライトバックを有効または無効にする方法</a> これを行う方法についての詳細。</p>
             </td>
           </tr>
         </tbody></table>
@@ -131,12 +131,12 @@
             </td>
             <td>
               <p>
-                <strong>どのようなエラーが表示されますか</strong>
+                <strong>ユーザーはどのようなエラーを表示でしょうか。</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>解決策</strong>
+                <strong>ソリューション</strong>
               </p>
             </td>
           </tr>
@@ -145,11 +145,11 @@
               <p>パスワード管理レポートが表示されません</p>
             </td>
             <td>
-              <p>この <strong>パスワード リセット アクティビティ</strong> と <strong>パスワード リセット登録アクティビティ</strong> レポートはの下に表示できません、 <strong>アクティビティ ログ</strong> レポート、 <strong>レポート</strong> ] タブで監視できます。</p>
+              <p> <strong>パスワード リセット アクティビティ</strong> と <strong>パスワード リセット登録アクティビティ</strong> レポートが下に表示されない、 <strong>のアクティビティ ログ</strong> のレポート、 <strong>レポート</strong> ] タブをクリックします。</p>
             </td>
             <td>
               <p>これは、この操作を実行する管理者に割り当てられる AAD Premium または AAD Basic のライセンスを持っていない場合に発生します。 </p>
-              <p>この問題を解決する AAD Premium または AAD Basic のライセンスを割り当ての対象の管理者アカウントに移動して、 <strong>ライセンス</strong> タブをクリックし、もう一度やり直してください。</p>
+              <p>この問題を解決する AAD Premium または AAD Basic のライセンスを割り当ての対象の管理者アカウントに移動して、 <strong>ライセンス</strong> タブもう一度やり直してください。</p>
             </td>
           </tr>
           <tr>
@@ -178,12 +178,12 @@
             </td>
             <td>
               <p>
-                <strong>どのようなエラーが表示されますか</strong>
+                <strong>ユーザーはどのようなエラーを表示でしょうか。</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>解決策</strong>
+                <strong>ソリューション</strong>
               </p>
             </td>
           </tr>
@@ -195,7 +195,7 @@
               <p>管理者はこの機能を使用できるようにしていません。</p>
             </td>
             <td>
-              <p>スイッチ、 <strong>パスワードのリセットが有効なユーザー</strong> フラグ <strong>あり</strong> ヒットと <strong>Save</strong> Azure 管理ポータルのディレクトリの [設定] タブで。 この操作を実行する管理者に割り当てられる Azure AD Premium または Basic のライセンスを持っている必要があります。</p>
+              <p>スイッチ、 <strong>パスワード リセットの有効なユーザー</strong> フラグを <strong>はい</strong> ヒットと <strong>保存</strong> Azure 管理ポータルのディレクトリの構成] タブで。 この操作を実行する管理者に割り当てられる Azure AD Premium または Basic のライセンスを持っている必要があります。</p>
             </td>
           </tr>
           <tr>
@@ -206,7 +206,7 @@
               <p>管理者はこの機能を使用できるようにしていません。</p>
             </td>
             <td>
-              <p>Azure AD Premium または Azure AD Basic のライセンスの下にユーザーを割り当て、 <strong>ライセンス</strong> Azure 管理ポータルでタブをクリックします。 この操作を実行する管理者に割り当てられる Azure AD Premium または Basic のライセンスを持っている必要があります。</p>
+              <p>[ユーザーに、Azure AD Premium または Azure AD Basic ライセンスを割り当てる、 <strong>ライセンス</strong> Azure 管理ポータルでタブをクリックします。 この操作を実行する管理者に割り当てられる Azure AD Premium または Basic のライセンスを持っている必要があります。</p>
             </td>
           </tr>
           <tr>
@@ -240,12 +240,12 @@
             </td>
             <td>
               <p>
-                <strong>どのようなエラーが表示されますか</strong>
+                <strong>ユーザーはどのようなエラーを表示でしょうか。</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>解決策</strong>
+                <strong>ソリューション</strong>
               </p>
             </td>
           </tr>
@@ -428,12 +428,12 @@
             </td>
             <td>
               <p>
-                <strong>どのようなエラーが表示されますか</strong>
+                <strong>ユーザーはどのようなエラーを表示でしょうか。</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>解決策</strong>
+                <strong>ソリューション</strong>
               </p>
             </td>
           </tr>
@@ -656,12 +656,12 @@
             </td>
             <td>
               <p>
-                <strong>名前 / メッセージ</strong>
+                <strong>名前/メッセージ</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>から</strong>
+                <strong>ソース</strong>
               </p>
             </td>
             <td>
@@ -768,7 +768,7 @@
                 <li class="unordered">
                                         The user’s account is in a protected group, such as domain or enterprise admins, which disallows password set operations.<br\><br\></li>
               </ul>
-              <p>手順については、「 <a href="#troubleshoot-password-writeback">パスワード ライトバックのトラブルシューティング</a> 詳細については、どのようなその他の状況は、このエラーを発生できます。</p>
+              <p>参照してください <a href="#troubleshoot-password-writeback">パスワード ライトバックのトラブルシューティング</a> をどのようなその他の状況には、このエラーが原因の詳細を参照してください。</p>
             </td>
           </tr>
           <tr>
@@ -851,7 +851,7 @@
                 <li class="unordered">
                                         The user’s account is in a protected group, such as domain or enterprise admins, which disallows password set operations.<br\><br\></li>
               </ul>
-              <p>手順については、「 <a href="#troubleshoot-password-writeback">パスワード ライトバックのトラブルシューティング</a> 詳細については、どのようなその他の状況は、このエラーを発生できます。</p>
+              <p>参照してください <a href="#troubleshoot-password-writeback">パスワード ライトバックのトラブルシューティング</a> を他の状況には、このエラーが原因の詳細を参照してください。</p>
             </td>
           </tr>
           <tr>
@@ -906,7 +906,7 @@
                 <li class="unordered">
                                         The user’s account is in a protected group, such as domain or enterprise admins, which disallows password set operations.<br\><br\></li>
               </ul>
-              <p>手順については、「 <a href="#troubleshoot-password-writeback">パスワード ライトバックのトラブルシューティング</a> 詳細については、どのようなその他の状況は、このエラーを発生できます。</p>
+              <p>参照してください <a href="#troubleshoot-password-writeback">パスワード ライトバックのトラブルシューティング</a> をどのようなその他の状況には、このエラーが原因の詳細を参照してください。</p>
             </td>
           </tr>
           <tr>
@@ -1046,7 +1046,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>このイベントは、テナントの Service Bus インスタンスへの接続中にエラーが発生したことを示します。 これは、オンプレミスの環境で発信接続をブロックしているために発生する可能性があります。 TCP 443 経由して接続を許可することを確認するようにファイアウォールを確認します。 <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>、もう一度やり直してください。 それでも問題が解決しない場合は、パスワード ライトバックを無効にしてから再び有効にしてみてください。</p>
+              <p>このイベントは、テナントの Service Bus インスタンスへの接続中にエラーが発生したことを示します。 これは、オンプレミスの環境で発信接続をブロックしているために発生する可能性があります。 TCP 443 経由で、接続を許可することを確認するようにファイアウォールを確認して <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, 、もう一度やり直してください。 それでも問題が解決しない場合は、パスワード ライトバックを無効にしてから再び有効にしてみてください。</p>
             </td>
           </tr>
           <tr>
@@ -1172,7 +1172,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>このイベントは、オンプレミスのサービスが、オンボード プロセスを開始するためにパスワード リセット Web サービスと正しく通信できなかったことを示します。 これは、ファイアウォール規則またはテナントの認証トークンを取得している間の問題が原因です。 これを解決するには、ことがブロックされていないの発信接続または TCP 443 と TCP 9350-9354 経由ことを確認します <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>、いる AAD 管理者アカウントとは、オンボード フェデレーションされていないを使用しています。 </p>
+              <p>このイベントは、オンプレミスのサービスが、オンボード プロセスを開始するためにパスワード リセット Web サービスと正しく通信できなかったことを示します。 これは、ファイアウォール規則またはテナントの認証トークンを取得している間の問題が原因です。 これを解決することがブロックされていないの発信接続または TCP 443 と TCP 9350-9354 経由ことを確認します <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, 、いる AAD 管理者アカウントとは、オンボード フェデレーションされていないを使用しています。 </p>
             </td>
           </tr>
           <tr>
@@ -1200,7 +1200,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>このイベントは、オンプレミスのサービスが、オフボード プロセスを開始するためにパスワード リセット Web サービスと正しく通信できなかったことを示します。 これは、ファイアウォール規則またはテナントの認証トークンの取得中の問題が原因です。 これを解決するには、443 経由または発信接続をブロックしていないことを確認します。 <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>、オフボードに使用している AAD 管理者アカウントがフェデレーションされていないこととします。 </p>
+              <p>このイベントは、オンプレミスのサービスが、オフボード プロセスを開始するためにパスワード リセット Web サービスと正しく通信できなかったことを示します。 これは、ファイアウォール規則またはテナントの認証トークンの取得中の問題が原因です。 これを解決するには、443 経由または発信接続をブロックしていないことを確認 <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, 、オフボードに使用している AAD 管理者アカウントがフェデレーションされていないこととします。 </p>
             </td>
           </tr>
           <tr>
@@ -1284,7 +1284,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>このイベントは、管理エージェントのサービス アカウントが新しいパスワードを設定する対象のアカウントで適切な権限を持っていないことを示します。 ユーザーのフォレストの MA アカウントが、フォレスト内のすべてのオブジェクトに対するパスワードのリセットと変更の権限があることを確認します。  方法の詳細については、この操作を参照してください。 <a href="../active-directory-passwords-getting-started#step-4-set-up-the-appropriate-active-directory-permissions">手順 4: Active Directory の適切な権限を設定する</a>.</p>
+              <p>このイベントは、管理エージェントのサービス アカウントが新しいパスワードを設定する対象のアカウントで適切な権限を持っていないことを示します。 ユーザーのフォレストの MA アカウントが、フォレスト内のすべてのオブジェクトに対するパスワードのリセットと変更の権限があることを確認します。  このため、「」を参照する方法の詳細については実行 <a href="../active-directory-passwords-getting-started#step-4-set-up-the-appropriate-active-directory-permissions">手順 4: Active Directory の適切なアクセス許可を設定</a>します。</p>
             </td>
           </tr>
           <tr>
@@ -1500,5 +1500,6 @@ Azure AD のパスワードのリセットに関するすべてのドキュメ�
 [002]: ./media/active-directory-passwords-troubleshoot/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
+
 
 

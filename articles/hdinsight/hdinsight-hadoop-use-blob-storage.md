@@ -31,7 +31,7 @@ BLOB ストレージにデータを格納した場合、計算で使用する HD
 
 > HDInsight では現在、ブロック blob のみがサポートされています。
 
-> ほとんどの HDFS コマンド (たとえば、 <b>ls</b>。 <b>copyFromLocal</b> と <b>mkdir</b>) も期待どおりに動作します。 などでは、HDFS ネイティブ実装 (と呼ばれる DFS) に固有のコマンドのみ <b>fschk</b> と <b>dfsadmin</b>、Azure Blob ストレージで異なる動作が表示されます。
+> ほとんどの HDFS コマンド (<b>ls</b>、<b>copyFromLocal</b>、<b>mkdir</b> など) は通常と同じように機能します。 ただし、<b>fschk</b> や <b>dfsadmin</b> など、HDFS ネイティブ実装 (DFS) に固有のコマンドについては、Azure BLOB ストレージ上で実行した場合に動作が異なります。
 
 HDInsight クラスターを作成する方法の詳細については、次を参照してください。 [HDInsight の概要][hdinsight-get-started] または [作成 HDInsight クラスターの][hdinsight-creation]です。
 
@@ -70,7 +70,7 @@ Hive、MapReduce、Hadoop ストリーミング、Pig など、複数の WebHCat
 
 BLOB ストレージは、構造化データと非構造化データに使用できます。 BLOB ストレージ コンテナーには、"キーと値のペア" としてデータが格納されます。ディレクトリ階層はありません。 ただし、キー名でスラッシュ (/) を使用すれば、ファイルがディレクトリ階層に保存されているように見せかけることができます。 たとえば、blob のキーがあります *input/log1.txt*します。 実際 *入力* ディレクトリが存在するが、キー名でスラッシュが使用の存在するためにファイル パスの見えます。
 
-###<a id="benefits"></a>Blob ストレージの利点
+###<a id="benefits"></a>BLOB ストレージの利点
 コンピューティング クラスターとストレージ リソースを同じ場所で併置しないとなるとパフォーマンスの低下が懸念されますが、これは、Azure データ センター内のストレージ アカウント リソースの近くにコンピューティング クラスターを作成することで軽減されます。高速ネットワークが整備されているので、コンピューティング ノードは Azure BLOB ストレージ内のデータに非常に効率的にアクセスできます。
 
 HDFS ではなく、Azure BLOB ストレージにデータを格納することにはいくつかの利点があります。
@@ -299,4 +299,5 @@ BLOB 関連のコマンドレットを一覧表示するには、次のコマン
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png  
+
 

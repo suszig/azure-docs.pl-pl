@@ -20,7 +20,7 @@
             }
         }
 
-    このメソッドはよく似て、 `SendDeviceToCloudMessagesAsync()` メソッドで作成された、[を使ってみる IoT Hub]、されていることが唯一の違い、 `MessageId` システム プロパティと、ユーザーのプロパティと呼ばれる `messageType` が設定されました。
+    このメソッドはよく似て、 `SendDeviceToCloudMessagesAsync()` メソッドで作成された、 [Get started with IoT Hub], 、されていることが唯一の違い、 `MessageId` システム プロパティと、ユーザーのプロパティと呼ばれる `messageType` が設定されました。
     `MessageId` プロパティはグローバルに一意な ID (guid) に設定されており、これは受信するメッセージの重複除去に使用されます。 `messageType` プロパティは、データ ポイント メッセージから対話式メッセージを識別するために使用されます。 この情報が渡されるメッセージ プロパティでは、代わりに、メッセージの本文、バック エンドのイベント プロセッサが、全メッセージのルーティングを行うためだけを逆シリアル化する必要があるないようにします。
 
 > [AZURE.NOTE] 重要ですが、 `MessageId`, 、対話型のメッセージの重複を除去、断続的なネットワーク通信 (またはその他の障害) を受けたり、デバイスから同じメッセージの複数の retrasmissions に応じて、デバイス内に作成するために使用します。 グリッドとは対照的に、セマンティック メッセージ ID (関連するメッセージ データ フィールドのハッシュ) を使用することもできます。
@@ -42,6 +42,7 @@
 [20]: ./media/iot-hub-getstarted-cloud-csharp/create-storage1.png
 [21]: ./media/iot-hub-getstarted-cloud-csharp/create-storage2.png
 [22]: ./media/iot-hub-getstarted-cloud-csharp/create-storage3.png
+
 
 
 

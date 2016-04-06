@@ -55,19 +55,19 @@ Azure PowerShell スクリプト Deploy-AzureResourceGroup.ps1 の特定のセ�
     )
     ```
 
-    |パラメーター|説明|
-    |---|---|
-    |$ResourceGroupLocation|領域またはデータ センターの場所、リソース グループなど、 **米国西部** または **東アジア**します。|
-    |$ResourceGroupName|Azure リソース グループの名前。|
-    |$UploadArtifacts|アーティファクトをシステムから Azure にアップロードする必要があるかどうかを示すバイナリ値。|
-    |$StorageAccountName|アーティファクトがアップロードされる Azure ストレージ アカウントの名前。|
-    |$StorageAccountResourceGroupName|ストレージ アカウントを含む Azure リソース グループの名前。|
-    |$StorageContainerName|アーティファクトをアップロードするために使用するストレージ コンテナーの名前。|
-    |$TemplateFile|Azure リソース グループ プロジェクト内のデプロイメント ファイル (`<app name>.json`) へのパス。|
-    |$TemplateParametersFile|Azure リソース グループ プロジェクト内のパラメーター ファイル (`<app name>.parameters.json`) へのパス。|
-    |$ArtifactStagingDirectory|PowerShell スクリプトのルート フォルダーを含む、アーティファクトがローカルにアップロードされているシステム上のパス。 このパスには、絶対パス、またはスクリプトの場所に対する相対パスを指定できます。|
-    |$AzCopyPath|PowerShell スクリプトのルート フォルダーを含む、AzCopy.exe ツールがその .zip ファイルをコピーするパス。 このパスには、絶対パス、またはスクリプトの場所に対する相対パスを指定できます。|
-    |$DSCSourceFolder|PowerShell スクリプトのルート フォルダーを含む、DSC (Desired State Configuration) ソース フォルダーへのパス。 このパスには、絶対パス、またはスクリプトの場所に対する相対パスを指定できます。 参照してください [Azure PowerShell DSC (Desired State Configuration) 拡張機能の概要](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx), 詳細については、適用可能な場合です。|
+  	|パラメーター|説明|
+  	|---|---|
+  	|$ResourceGroupLocation|領域またはデータ センターの場所、リソース グループなど、 **米国西部** または **東アジア**します。|
+  	|$ResourceGroupName|Azure リソース グループの名前。|
+  	|$UploadArtifacts|アーティファクトをシステムから Azure にアップロードする必要があるかどうかを示すバイナリ値。|
+  	|$StorageAccountName|アーティファクトがアップロードされる Azure ストレージ アカウントの名前。|
+  	|$StorageAccountResourceGroupName|ストレージ アカウントを含む Azure リソース グループの名前。|
+  	|$StorageContainerName|アーティファクトをアップロードするために使用するストレージ コンテナーの名前。|
+  	|$TemplateFile|Azure リソース グループ プロジェクト内のデプロイメント ファイル (`<app name>.json`) へのパス。|
+  	|$TemplateParametersFile|Azure リソース グループ プロジェクト内のパラメーター ファイル (`<app name>.parameters.json`) へのパス。|
+  	|$ArtifactStagingDirectory|PowerShell スクリプトのルート フォルダーを含む、アーティファクトがローカルにアップロードされているシステム上のパス。 このパスには、絶対パス、またはスクリプトの場所に対する相対パスを指定できます。|
+  	|$AzCopyPath|PowerShell スクリプトのルート フォルダーを含む、AzCopy.exe ツールがその .zip ファイルをコピーするパス。 このパスには、絶対パス、またはスクリプトの場所に対する相対パスを指定できます。|
+  	|$DSCSourceFolder|PowerShell スクリプトのルート フォルダーを含む、DSC (Desired State Configuration) ソース フォルダーへのパス。 このパスには、絶対パス、またはスクリプトの場所に対する相対パスを指定できます。 参照してください [Azure PowerShell DSC (Desired State Configuration) 拡張機能の概要](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx), 詳細については、適用可能な場合です。|
 
 1.  アーティファクトを Azure にアップロードする必要があるかどうかを確認します。 必要ない場合は、手順 11 に進みます。 それ以外の場合は、次の手順を実行します。
 
@@ -75,10 +75,10 @@ Azure PowerShell スクリプト Deploy-AzureResourceGroup.ps1 の特定のセ�
 
     Azure ツールは、パラメーター値を使用して *_artifactsLocation* と *_artifactsLocationSasToken* アイテムを管理するテンプレートです。 PowerShell スクリプトが、これらの名前を持つパラメーターを見つけて、パラメーターの値が指定されていない場合、スクリプトはアーティファクトをアップロードして、これらのパラメーターの適切な値を返します。 その後、`@OptionsParameters` を通じてコマンドレットにそれらの値を渡します。
 
-    |変数|説明|
-    |---|---|
-    |ArtifactsLocationName|Azure アーティファクトが配置されている場所のパス。|
-    |ArtifactsLocationSasTokenName|Service Bus を認証するためにスクリプトによって使用される SAS (Shared Access Signature) トークン名。 参照してください [Service Bus での共有アクセス署名認証](service-bus-shared-access-signature-authentication.md) の詳細。|
+  	|変数|説明|
+  	|---|---|
+  	|ArtifactsLocationName|Azure アーティファクトが配置されている場所のパス。|
+  	|ArtifactsLocationSasTokenName|Service Bus を認証するためにスクリプトによって使用される SAS (Shared Access Signature) トークン名。 参照してください [Service Bus での共有アクセス署名認証](service-bus-shared-access-signature-authentication.md) の詳細。|
 
     ```
     if ($UploadArtifacts) {
@@ -94,7 +94,7 @@ Azure PowerShell スクリプト Deploy-AzureResourceGroup.ps1 の特定のセ�
     $OptionalParameters.Add($ArtifactsLocationSasTokenName, $null)
     ```
 
-1.  このセクションのチェックをするかどうか、 <app name>. parameters.json ファイル (「パラメーター ファイル」と呼ばれる) という名前の親ノードを持つ **パラメーター** (で、 `else` ブロック) します。 それ以外の場合、親ノードはありません。 いずれの形式も受け入れられます。
+1.  このセクションのチェックをするかどうか、 <app name>。 parameters.json ファイル (「パラメーター ファイル」と呼ばれる) という名前の親ノードを持つ **パラメーター** (で、 `else` ブロック) します。 それ以外の場合、親ノードはありません。 いずれの形式も受け入れられます。
     
     ```
     if ($JsonParameters -eq $null) {
@@ -263,3 +263,4 @@ $(Build.StagingDirectory)/AzureResourceGroup1/Scripts/Deploy-AzureResourceGroup.
 [3]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy4bc.png
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
+

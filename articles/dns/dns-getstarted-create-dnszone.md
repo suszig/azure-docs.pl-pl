@@ -62,10 +62,10 @@ Azure DNS サービスは Microsoft.Network リソース プロバイダーに�
 ## Etag とタグ
 
 ### Etag
-たとえば、2 人のユーザーまたは 2 つのプロセスが同時に DNS レコードを変更しようとするとします。  どちらの変更が優先されるでしょうか。  およびが勝者を知っているだれかによって行われた変更を上書きしたことでしょうか。<BR><BR>
+たとえば、2 人のユーザーまたは 2 つのプロセスが同時に DNS レコードを変更しようとするとします。  どちらの変更が優先されるでしょうか。  また、優先された側は、他のユーザーまたはプロセスによって行われた変更を上書きしたことに気付くのでしょうか。<BR><BR>
 Azure DNS は、Etag を使用して同じリソースへの同時変更を安全に処理します。 各 DNS リソース (ゾーンまたはレコード セット) には、関連付けられている Etag があります。  リソースが取得されるときは、常に Etag も取得されます。  リソースを更新する場合は、Azure DNS がサーバー上の Etag の一致を確認できるように Etag を返すこともできます。  リソースを更新するたびに Etag が再生成されるため、Etag の不一致は同時変更が発生していることを示します。  Etag は、既存のリソースがないことを確認するために、新しいリソースの作成時にも使用されます。
 
-Azure DNS PowerShell は、既定で、ゾーンおよびレコード セットへの同時変更のブロックに Etag を使用します。  省略可能な '-上書き' スイッチと Etag チェックを抑制するために使用される、この場合に発生したすべての同時変更が上書きされます。<BR><BR>
+Azure DNS PowerShell は、既定で、ゾーンおよびレコード セットへの同時変更のブロックに Etag を使用します。  オプションの "-Overwrite" スイッチを使用すると、Etag チェックを実行しないように設定できます。この場合、発生したすべての同時変更が上書きされます。<BR><BR>
 Azure DNS REST API のレベルでは、HTTP ヘッダーを使用して Etag を指定します。  次の表に各ヘッダーの動作を示します。
 
 |ヘッダー|動作|
@@ -88,7 +88,7 @@ DNS ゾーンは、New-AzureRmDnsZone コマンドレットを使用して作成
 
     PS C:\> New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 
->[AZURE.NOTE] Azure dns を付けないでゾーン名を指定する '.' です。  たとえば、'contoso.com.' ではなく 'contoso.com' にします。<BR>
+>[AZURE.NOTE] Azure dns を付けないでゾーン名を指定する '.' です。  たとえば、"contoso.com." ではなく "contoso.com" にします。<BR>
 
 
 これで、Azure DNS に DNS ゾーンが作成されました。  DNS ゾーンを作成すると、次の DNS レコードも作成されます。<BR>
@@ -148,9 +148,10 @@ Azure DNS の新しいゾーンを使用するためのドメインの委任を�
 ## 次のステップ
 
 [レコード セットとレコードの作成の概要します。](dns-getstarted-create-recordset.md)<BR>
-[DNS ゾーンを管理する方法](dns-operations-dnszones.md)<BR>
-[DNS レコードを管理する方法](dns-operations-recordsets.md)<BR>
+[DNS ゾーンの管理方法](dns-operations-dnszones.md)<BR>
+[DNS レコードの管理方法](dns-operations-recordsets.md)<BR>
 [.NET SDK を使用した Azure の操作を自動化します。](dns-sdk.md)<BR>
 [Azure DNS REST API リファレンス](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
+
 

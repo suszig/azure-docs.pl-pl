@@ -81,7 +81,7 @@
 
 3.   **アプリケーション URL の構成** ] ページの [、 **Egnyte サインイン URL** ] ボックスに、次のパターンを使用して URL を入力"*https://company.egnyte.com*"、] をクリックし、 **次**します。
 
-    ![アプリケーション URL の構成](./media/active-directory-saas-egnyte-tutorial/IC787817.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-egnyte-tutorial/IC787817.png "Configure App URL")
 
 4.   **Egnyte でのシングル サインオンの構成** ] ページで [ **証明書のダウンロード**, 、お使いのコンピューターに証明書ファイルを保存します。
 
@@ -91,11 +91,11 @@
 
 6.  クリックして **設定**します。
 
-    ![設定](./media/active-directory-saas-egnyte-tutorial/IC787819.png "Settings")
+    ![Settings](./media/active-directory-saas-egnyte-tutorial/IC787819.png "Settings")
 
 7.  メニュー、[ **設定**します。
 
-    ![設定](./media/active-directory-saas-egnyte-tutorial/IC787820.png "Settings")
+    ![Settings](./media/active-directory-saas-egnyte-tutorial/IC787820.png "Settings")
 
 8.  クリックして、 **構成** タブをクリックし、をクリックし、 **セキュリティ**します。
 
@@ -164,3 +164,4 @@ Egnyte の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-egnyte-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

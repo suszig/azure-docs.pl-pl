@@ -201,7 +201,7 @@ ASR のサポート チケットを生成するにアクセスを使用して Az
         -   [Hyper-V で仮想マシンのレプリケーションを有効にできない](http://social.technet.microsoft.com/wiki/contents/articles/25506.a-connection-with-the-server-could-not-be-established-0x00002efd-hyper-v-failed-to-enable-replication-for-virtual-machine-virtual-machine.aspx)
     -   [仮想マシンのフェールオーバーをコミットできない](http://social.technet.microsoft.com/wiki/contents/articles/25508.could-not-commit-failover-for-virtual-machine.aspx)
 -   [計画フェールオーバーの準備ができていない仮想マシンが、復旧計画に含まれている](http://social.technet.microsoft.com/wiki/contents/articles/25509.the-recovery-plan-contains-virtual-machines-which-are-not-ready-for-planned-failover.aspx)
--   [仮想マシンの計画フェールオーバーの準備ができていない](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
+-   [仮想マシンの計画されたフェールオーバーの準備ができていません。](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
 -   [仮想マシンが実行されていなく、電源が入っていない](http://social.technet.microsoft.com/wiki/contents/articles/25510.virtual-machine-is-not-running-and-is-not-powered-off.aspx)
 -   [帯域外操作が仮想マシンで発生し、フェールオーバーのコミットに失敗した](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
 -   テスト フェールオーバー
@@ -212,5 +212,6 @@ ASR のサポート チケットを生成するにアクセスを使用して Az
 -   [PS/CS が VM としてホストされている ESXi ホストが、Purple Screen of Death の画面を表示して失敗する。](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
 
 ### リモート デスクトップのフェールオーバー後のトラブルシューティング
--   多くのお客様が、Azure でフェールオーバー後の VM への接続について、問題に直面しています。 [トラブルシューティングのドキュメントを RDP を使用して VM に](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
+-   多くのお客様が、Azure でフェールオーバー後の VM への接続について、問題に直面しています。 [VM への RDP 接続におけるトラブルシューティングに関するドキュメントを使用してください。](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
+
 

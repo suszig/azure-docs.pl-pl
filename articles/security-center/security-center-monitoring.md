@@ -89,9 +89,10 @@ Azure ワークロードに内に置かれたアプリケーション [リソー
 ## 次のステップ
 このドキュメントでは、Azure セキュリティ センターでの監視機能の使用方法について説明しました。 Azure セキュリティ センターの詳細については、次を参照してください。
 
-- [Azure セキュリティ センターのセキュリティ ポリシーの設定](security-center-policies.md)
+- [Azure セキュリティ センターでのセキュリティ ポリシーの設定](security-center-policies.md)
 -Azure セキュリティ センターのセキュリティ設定を構成する方法を説明します。
 - [管理とセキュリティ上の Azure セキュリティ センターの警告に応答して](security-center-managing-and-responding-alerts.md) -管理およびセキュリティの警告に応答する方法について説明
 - [Azure セキュリティ センター FAQ](security-center-faq.md) : 検索サービスの使用に関してよく寄せられる質問
 - [Azure のセキュリティ ブログ](http://blogs.msdn.com/b/azuresecurity/) – Azure のセキュリティとコンプライアンスについてまとめたブログ記事を検索
+
 

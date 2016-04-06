@@ -19,9 +19,9 @@
 # チュートリアル: Azure PowerShell を使用した Data Factory の作成と監視
 > [AZURE.SELECTOR]
 - [チュートリアルの概要](data-factory-get-started.md)
-- [Data Factory エディターを使用します。](data-factory-get-started-using-editor.md)
+- [Data Factory エディターの使用](data-factory-get-started-using-editor.md)
 - [PowerShell の使用](data-factory-monitor-manage-using-powershell.md)
-- [Visual Studio を使用](data-factory-get-started-using-vs.md)
+- [Visual Studio の使用](data-factory-get-started-using-vs.md)
 
 
  [Azure Data Factory を使ってみる][adf-get-started] チュートリアルで作成および使用して Azure data factory を監視する方法、 [Azure ポータル][azure-portal]します。 
@@ -78,7 +78,7 @@ Azure PowerShell を使用している場合 **バージョン < 1.0**, 、記�
 
     > [AZURE.NOTE] データ ファクトリの名前は、今後しないためにパブリックに表示する DNS 名として登録することがあります。
 
-## <a name="CreateLinkedServices"></a>手順 2. リンク サービスを作成する
+## <a name="CreateLinkedServices"></a>手順 2. リンクされたサービスを作成する
 リンクされたサービスは、データ ストアまたはコンピューティング サービスを Azure Data Factory にリンクします。 データ ストアには、Azure Storage、Azure SQL Database、またはオンプレミスの SQL Server データベースを指定できます。これらのデータ ストアには、Data Factory パイプラインの入力データが含まれているか、出力データが格納されています。 コンピューティング サービスは、入力データを処理し、出力データを生成するサービスです。 
 
 この手順では、2 つのリンクされたサービスを作成します: **StorageLinkedService** と **AzureSqlLinkedService**します。 StorageLinkedService リンク サービスを Azure ストレージ アカウントを AzureSqlLinkedService は Azure SQL データベースをデータ ファクトリにリンク: **ADFTutorialDataFactoryPSH**します。 このチュートリアルの後半で、StorageLinkedService 内の BLOB コンテナーから AzureSqlLinkedService 内の SQL テーブルにデータをコピーするパイプラインを作成します。
@@ -225,11 +225,11 @@ Azure PowerShell を使用している場合 **バージョン < 1.0**, 、記�
     - **ファイル名** に設定されている **emp.txt**します。 BLOB の名前を指定しない場合、コンテナー内のすべての BLOB からのデータが入力データと見なされます。  
     - 形式 **型** に設定されている **TextFormat**
     - テキスト ファイルに 2 つのフィールドが **FirstName** と **LastName** 、コンマで区切られて (**columnDelimiter**) 
-    -  **可用性** に設定されている **1 時間ごと** (**頻度** に設定されている **時間** と **間隔** に設定されている **1** ) であるため、Data Factory サービスは入力データの 1 時間ごと、ルート フォルダー検索 blob コンテナーに、(**adftutorial**) に指定しました。
+    -  **可用性** に設定されている **時間単位** (**頻度** に設定されている **時間** と **間隔** に設定されている **1** ) よう Data Factory サービスは入力データの毎時 blob コンテナー内のルート フォルダーで、(**adftutorial**) を指定します。
 
     指定しない場合、 **fileName** の **入力** **テーブル**, 、入力フォルダーからすべてのファイルまたは blob (**folderPath**) の入力と見なされます。 JSON で fileName を指定した場合は、指定されたファイル/BLOB のみが入力と見なされます。 サンプル ファイルを参照してください、 [チュートリアル][adf-tutorial] 例です。
  
-    指定しない場合、 **ファイル名** の **出力テーブル**, 、生成されるファイルに、 **folderPath** 次の形式で名前が: データ。 < Guid\ > .txt (例: 付けられます-93ff-4c6f-b3be-f69616f1df7a.txt。)。
+    指定しない場合、 **ファイル名** の **出力テーブル**, 、生成されるファイルに、 **folderPath** 次の形式で名前が: データ。 < Guid\ > .txt (例: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt。)。
 
     設定する **folderPath** と **fileName** に基づいて動的に、 **SliceStart** 今度は、使用して、 **partitionedBy** プロパティです。 次の例では、folderPath に SliceStart (処理されるスライスの開始時刻) の年、月、日を使用し、fileName に SliceStart の時間を使用します。 たとえば、スライスが 2014-10-20T08:00:00 に生成されている場合、folderName は wikidatagateway/wikisampledataout/2014/10/20 に設定され、fileName は 08.csv に設定されます。 
 
@@ -356,9 +356,9 @@ Azure PowerShell を使用している場合 **バージョン < 1.0**, 、記�
         
         New-AzureRmDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
 
-**おめでとうございます!**これで、Azure Data Factory、リンクされたサービス、テーブル、およびパイプラインの作成と、パイプラインのスケジュール設定が完了しました。
+**ご利用ありがとうございます。** これで、Azure Data Factory、リンクされたサービス、テーブル、およびパイプラインの作成と、パイプラインのスケジュール設定が完了しました。
 
-## <a name="MonitorDataSetsAndPipeline"></a>手順 5. データセットとパイプラインを監視します。
+## <a name="MonitorDataSetsAndPipeline"></a>手順 5. データセットとパイプラインを監視する
 このステップでは、Azure PowerShell を使用して、Azure Data Factory の状況を監視します。
 
 1.  実行 **Get AzureRmDataFactory** $df 変数に出力を割り当てます。
@@ -444,3 +444,4 @@ Azure PowerShell を使用している場合 **バージョン < 1.0**, 、記�
 
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
+

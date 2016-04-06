@@ -41,7 +41,7 @@ Media Services を更新してセカンダリ ストレージ アクセス キ�
 
 - Media Services Management REST API を使用します。
 
-次のコード例は、指定したストレージ キーを Media Services と同期するために、https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key 要求を作成する方法を示しています。 この例では、セカンダリ ストレージ キーの値が使用されます。 詳細については、次を参照してください。 [方法: Media Services Management REST API](http://msdn.microsoft.com/library/azure/dn167656.aspx)します。
+次のコード例は、https://endpoint/ を構築する方法を示しています。<subscriptionId>/サービス アカウント/<accountName>/Storageaccounts/<storageAccountName>/Media Services で指定したストレージ キーを同期するためにキーを要求します。 この例では、セカンダリ ストレージ キーの値が使用されます。 詳細については、次を参照してください。 [方法: Media Services Management REST API](http://msdn.microsoft.com/library/azure/dn167656.aspx)します。
  
         public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
         {
@@ -158,3 +158,4 @@ SAS ロケーターを更新 (または再作成) するときに、URL は常�
 ###謝辞 
 
 この文書の作成に協力してくれた Cenk Dingiloglu、Milan Gada、 Seva Titov に感謝します。
+

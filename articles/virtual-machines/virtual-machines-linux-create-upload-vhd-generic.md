@@ -111,7 +111,7 @@ Hyper-V および Azure 用の Linux Integration Services (LIS) ドライバー�
 
 Red Hat Enterprise Linux バージョンの変形を実行するかどうかは **6.0-6.3**, 、HYPER-V の最新の LIS ドライバーをインストールする必要があります。 ドライバーが含まれる [この場所で](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)します。 Rhel **6.4 以上** (および派生版)、LIS ドライバーがカーネルに含まれているし、ため追加のインストール パッケージは必要ありません Azure でこれらのシステムを実行します。
 
-カスタム カーネルが必要な場合は、最新のカーネル バージョンを使用して (つまり、勧め **3.8+**). 独自のカーネルを維持するディストリビューションまたはベンダーの場合は、アップストリームのカーネルの LIS ドライバーをカスタム カーネルに定期的にバックポートするために多少の手間がかかります。  比較的最新のカーネル バージョンを既に実行している場合でも、LIS ドライバーのアップストリームの修正を常に追跡し、必要に応じてパックポートすることを強くお勧めします。 LIS ドライバーのソース ファイルの場所は、 [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) Linux カーネルのソース ツリー内のファイル。
+カスタム カーネルが必要な場合は、最新のカーネル バージョンを使用して勧め (つまり **3.8 以上**)。 独自のカーネルを維持するディストリビューションまたはベンダーの場合は、アップストリームのカーネルの LIS ドライバーをカスタム カーネルに定期的にバックポートするために多少の手間がかかります。  比較的最新のカーネル バージョンを既に実行している場合でも、LIS ドライバーのアップストリームの修正を常に追跡し、必要に応じてパックポートすることを強くお勧めします。 LIS ドライバーのソース ファイルの場所は、 [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) Linux カーネルのソース ツリー内のファイル。
 
     F:  arch/x86/include/asm/mshyperv.h
     F:  arch/x86/include/uapi/asm/hyperv.h
@@ -192,4 +192,5 @@ Red Hat Enterprise Linux バージョンの変形を実行するかどうかは 
         # logout
 
 - その後、仮想マシンをシャットダウンし、Azure に VHD をアップロードする必要があります。
+
 

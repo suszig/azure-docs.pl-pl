@@ -89,7 +89,7 @@ MSI のセットアップでは、ゲートウェイ コンピューターに対
 
 1.  ログインした後、 [Azure ポータル](https://portal.azure.com), 、] をクリックして **新規** の左下隅から選択 **データ分析** で、 **作成** ブレードをクリック **Data Factory** 上、 **データ分析** ブレードです。
 
-    ![[新規] -> [DataFactory]](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png) 
+    ![New->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png) 
   
 6.  **新しいデータ ファクトリ** ブレード。
     1. 入力 **ADFTutorialOnPremDF** の **名前**します。
@@ -116,7 +116,7 @@ MSI のセットアップでは、ゲートウェイ コンピューターに対
 ### 手順 2. Data Management Gateway を作成する
 5.  **DATA FACTORY** ブレードで、をクリックして **作成者および展開** を起動するタイル、 **エディター** data factory のです。
 
-    ![タイルの作成とデプロイ](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
+    ![[作成とデプロイ] タイル](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
 6.  Data Factory エディターをクリックして **.(省略記号)** クリックしてツールバー **新しいデータ ゲートウェイ**します。 
 
     ![ツールバーでのデータ ゲートウェイの新規作成](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)
@@ -306,7 +306,7 @@ MSI のセットアップでは、ゲートウェイ コンピューターに対
 
     指定しない場合、 **fileName** の **入力テーブル**, 、入力フォルダーからすべてのファイルまたは blob (**folderPath**) の入力と見なされます。 JSON で fileName を指定した場合は、指定されたファイル/BLOB のみが入力と見なされます。 例については、[チュートリアル][adf-tutorial]のサンプル ファイルを参照してください。
  
-    指定しない場合、 **ファイル名** の **出力テーブル**, 、生成されるファイルに、 **folderPath** 次の形式で名前が: データ。<Guid>します。txt (例:: 付けられます-93ff-4c6f-b3be-f69616f1df7a.txt。)。
+    指定しない場合、 **fileName** の **出力テーブル**, 、生成されるファイルに、 **folderPath** 次の形式で名前が: データ。<Guid>.txt (例:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt。)。
 
     設定する **folderPath** と **fileName** に基づいて動的に、 **SliceStart** 今度は、partitionedBy プロパティを使用します。 次の例では、folderPath に SliceStart (処理されるスライスの開始時刻) の年、月、日を使用し、fileName に SliceStart の時間を使用します。 たとえば、スライスが 2014-10-20T08:00:00 に生成されている場合、folderName は wikidatagateway/wikisampledataout/2014/10/20 に設定され、fileName は 08.csv に設定されます。 
 
@@ -332,7 +332,7 @@ MSI のセットアップでは、ゲートウェイ コンピューターに対
 
 1.   **DATA FACTORY** ブレードで、をクリックして **作成者および展開** を起動するタイル、 **エディター** data factory のです。
 
-    ![タイルの作成とデプロイ](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
+    ![[作成とデプロイ] タイル](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
 2.  クリックして **新しいパイプライン** コマンド バーにします。 ボタンが表示されない場合はクリックして **.(省略記号)** コマンド バーを展開します。
 2.  右側のウィンドウの JSON を次のテキストに置き換えます。   
 
@@ -396,15 +396,15 @@ MSI のセットアップでは、ゲートウェイ コンピューターに対
     In the example above, there will be 24 data slices as each data slice is produced hourly.
     
 2. クリックして **展開** 、データセットをデプロイ コマンド バーで (テーブルは四角形のデータセットです)。 確認を示すタイトル バーにメッセージを参照してください **パイプラインが正常にデプロイされました**します。  
-5. これで、閉じる、 **エディター** ブレードをクリックして **X**です。 クリックして **X** ツールバーおよびツリー ビューで [ADFTutorialDataFactory] ブレードを閉じます。 表示される場合 **、未保存の編集は破棄されます** メッセージで、をクリックして **OK**します。
+5. これで、閉じる、 **エディター** ブレードをクリックして **X**です。クリックして **X** ツールバーおよびツリー ビューで [ADFTutorialDataFactory] ブレードを閉じます。 表示される場合 **、未保存の編集は破棄されます** メッセージで、をクリックして **OK**します。
 6. する必要があります、 **DATA FACTORY** ブレード、 **ADFTutorialOnPremDF**します。
 
-**おめでとうございます!**これで、Azure Data Factory、リンクされたサービス、テーブル、およびパイプラインの作成と、パイプラインのスケジュール設定が完了しました。
+**ご利用ありがとうございます。** これで、Azure Data Factory、リンクされたサービス、テーブル、およびパイプラインの作成と、パイプラインのスケジュール設定が完了しました。
 
 #### ダイアグラム ビューでの Data Factory の表示 
 1.  **Azure ポータル**, 、クリックして **ダイアグラム** のホーム ページでタイル、 **ADFTutorialOnPremDF** データ ファクトリ。 :
 
-    ![Diagram Link](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
+    ![ダイアグラム リンク](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
 
 2. 以下のような図が表示されるはずです。
 
@@ -578,7 +578,7 @@ Data Factory エディターを使用して資格情報を設定するもう 1 �
         PS C:\> $Key = New-AzureRmDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
     
-4. Azure PowerShell で、フォルダーに切り替えます。 **C:\Program files \microsoft Data Management Gateway\1.0\PowerShellScript\** し、実行 **$key** ローカル変数に関連付けられているスクリプト **$Key** 前に作成した論理ゲートウェイ コンピューターにインストールされているクライアント エージェントに登録する次のコマンドに示すようにします。
+4. Azure PowerShell で、フォルダーに切り替えます。 **C:\Program files \microsoft Data Management Gateway\1.0\PowerShellScript\** し、実行 **RegisterGateway.ps1** ローカル変数に関連付けられているスクリプト **$Key** 前に作成した論理ゲートウェイ コンピューターにインストールされているクライアント エージェントに登録する次のコマンドに示すようにします。
 
         PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
         
@@ -617,6 +617,7 @@ Data Factory エディターを使用して資格情報を設定するもう 1 �
     -   ゲートウェイ コンピューターのファイアウォールで TCP 通信の発信を許可する **TCP** ポート **1433年**します。
     -   構成 [Azure SQL ファイアウォール設定](https://msdn.microsoft.com/library/azure/jj553530.aspx) を追加する、 **ゲートウェイの IP アドレス** するマシン、 **使用できる IP アドレス**です。
 5.  データをコピーから内部設置型 SQL Server に任意のコピー先と、ゲートウェイ コンピューターと SQL Server コンピューターが異なるときに、次の操作: [Windows ファイアウォールを構成する](https://msdn.microsoft.com/library/ms175043.aspx) 、SQL Server コンピューターで、ゲートウェイが、SQL Server インスタンスがリッスンするポートを経由してデータベースにアクセスできるようにします。 既定のインスタンスの場合、ポート 1433 です。
+
 
 
 

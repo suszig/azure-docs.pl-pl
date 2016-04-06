@@ -518,8 +518,8 @@ Azure SQL、SQL Server、Sybase との間でデータを移動するとき、SQL
 | SQL Server Databases エンジンの型 | .NET Framework 型 |
 | ------------------------------- | ------------------- |
 | bigint | Int64 |
-| バイナリ | Byte[] |
-| ビット | Boolean |
+| binary | Byte[] |
+| bit | Boolean |
 | char | String、Char |
 | date | DateTime |
 | Datetime | DateTime |
@@ -533,7 +533,7 @@ Azure SQL、SQL Server、Sybase との間でデータを移動するとき、SQL
 | money | Decimal |
 | nchar | String、Char |
 | ntext | String、Char |
-| 数値 | Decimal |
+| numeric | Decimal |
 | nvarchar | String、Char |
 | real | Single |
 | rowversion | Byte[] |
@@ -541,7 +541,7 @@ Azure SQL、SQL Server、Sybase との間でデータを移動するとき、SQL
 | smallint | Int16 |
 | smallmoney | Decimal | 
 | sql_variant | Object * |
-| テキスト | String、Char |
+| text | String、Char |
 | time | TimeSpan |
 | timestamp | Byte[] |
 | tinyint | Byte |
@@ -559,6 +559,7 @@ Azure SQL、SQL Server、Sybase との間でデータを移動するとき、SQL
 
 
      
+
 
 
 

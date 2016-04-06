@@ -22,7 +22,7 @@
 ## Azure リソース グループ プロジェクトで Service Fabric クラスター テンプレートを作成する
 まず、Visual Studio を開き、Azure リソース グループ プロジェクトを作成します ([クラウド] フォルダーの下にあります)。
 
-![新しいプロジェクト] ダイアログ ボックスで Azure リソース グループ プロジェクトを選択][1]
+![[Azure リソース グループ] プロジェクトが選択されている [新しいプロジェクト] ダイアログ][1]
 
 このプロジェクト用の新しい Visual Studio ソリューションを作成することも、既存のソリューションに追加することもできます。
 
@@ -30,7 +30,7 @@
 
 [OK] ボタンをクリックすると、作成する ARM テンプレートの選択を求めるメッセージが表示されます。
 
-![サービス ファブリック クラスター テンプレートの選択を使用して Azure テンプレート] ダイアログ ボックスの選択][2]
+![Service Fabric クラスター テンプレートが選択されている [Azure テンプレートの選択] ダイアログ][2]
 
 [Service Fabric クラスター] テンプレートを選択し、もう一度 [OK] ボタンをクリックします。 これで、プロジェクトと ARM テンプレートが作成されます。
 
@@ -40,7 +40,7 @@
 |パラメーター名           |説明|
 |-----------------------  |--------------------------|
 |clusterLocation          |名前、 **Azure リージョン** Service Fabric クラスターを配置される場所です。 たとえば、"East US" などとします。|
-|clusterName              |テンプレートによって作成される Service Fabric クラスターの DNS 名。 <br /><br />たとえば、このパラメーターを "myBigCluster" に設定し、`clusterLocation` パラメーターを "East US" に設定した場合、クラスターの名前は `myBigCluster.eastus.cloudapp.azure.com` になります。|
+|clusterName              |テンプレートによって作成される Service Fabric クラスターの DNS 名。 <br /><br /> 'MyBigCluster' に、このパラメーターを設定する場合など、 `clusterLocation` パラメーターは、米国東部に設定されて、クラスターの名前になります `myBigCluster.eastus.cloudapp.azure.com`します。|
 |certificateThumbprint    |クラスターをセキュリティで保護する証明書の拇印。|
 |sourceVaultValue         | *リソース ID* キー資格情報コンテナーのクラスターをセキュリティで保護する証明書が格納されているのです。|
 |certificateUrlValue      |クラスターのセキュリティ証明書の URL。|
@@ -98,7 +98,7 @@ Visual Studio Service Fabric ARM テンプレートは、証明書によって�
 ## Visual Studio を使用してテンプレートをデプロイする
 すべての必要なパラメーター値を `ServiceFabricCluster.param.dev.json` ファイルに保存したら、テンプレートのデプロイと Service Fabric クラスターの作成を実行できます。 Visual Studio ソリューション エクスプローラーでリソース グループ プロジェクトを右クリックし、[配置] をクリックします。 必要であれば、Azure に対する認証を求める [リソース グループに配置する] ダイアログ ボックスが表示されます。
 
-![リソース グループ] ダイアログ ボックスに deploy][3]
+![[リソース グループに配置する] ダイアログ ボックス][3]
 
 このダイアログ ボックスでは、クラスターの既存の Azure RM リソース グループを選択したり、新しいグループを作成したりすることができます。 通常は、Service Fabric クラスター用に別のリソース グループを使用することには意味があります。
 
@@ -120,4 +120,5 @@ Visual Studio の出力ウィンドウで、デプロイメント プロセス�
 [1]: ./media/service-fabric-cluster-creation-via-visual-studio/azure-resource-group-project-creation.png
 [2]: ./media/service-fabric-cluster-creation-via-visual-studio/selecting-azure-template.png
 [3]: ./media/service-fabric-cluster-creation-via-visual-studio/deploy-to-azure.png
+
 

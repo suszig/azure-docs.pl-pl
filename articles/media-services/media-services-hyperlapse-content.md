@@ -34,7 +34,7 @@ Azure Media Hyperlapse の最新の更新を参照してください。 [Media S
 
 最初に、必要な入力ファイルを Azure Media Services にアップロードする必要があります。  アップロードして、コンテンツの管理に関連する概念に関する詳細についてを参照してください、 [コンテンツ管理の記事](media-services-manage-content.md#upload)します。
 
-###  <a id="configuration"></a>Hyperlapse の構成のプリセット
+###  <a id="configuration"></a>Hyperlapse の構成プリセット
 
 コンテンツを Media Services アカウントにアップロードしたら、構成プリセットを作成する必要があります。  次の表では、ユーザー指定のフィールドについて説明します。
 
@@ -74,7 +74,7 @@ XML と JSON で準拠する構成ファイルの例を以下に示します。
         }
     }
 
-###  <a id="sample_code"></a> Microsoft Hyperlapse AMS .NET SDK の使用
+###  <a id="sample_code"></a> AMS .NET SDK を使用する Microsoft Hyperlapse
 
 次のメソッドは、資産としてメディア ファイルをアップロードし、Azure Media Hyperlapse メディア プロセッサでジョブを作成します。  
 
@@ -195,7 +195,7 @@ XML と JSON で準拠する構成ファイルの例を以下に示します。
         return processor;
     }
 
-### <a id="file_types"></a>サポートされているファイルの種類
+### <a id="file_types"></a>サポートされるファイルの種類
 
 - MP4
 - MOV
@@ -220,4 +220,5 @@ XML と JSON で準拠する構成ファイルの例を以下に示します。
 <!-- Images. -->
 
 <!-- URLs. -->
+
 

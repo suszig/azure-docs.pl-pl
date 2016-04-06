@@ -30,18 +30,18 @@
 ![][8]  
 
 4.  **PowerApps**, [ **管理 Api**:  
-![登録されている api を参照する][1]
+![登録されている api を参照します。][1]
 
 5.  **管理 Api**, [ **追加** 新しい API を追加します。  
-![API の追加][2]
+![[API を追加します。][2]
 
 6. わかりやすい名前を入力 **名前** した API 向けです。  
     
 7.  **ソース**, [ **利用可能な Api** 構築済みの Api を選択して [ **Microsoft Translator**:  
-![Microsoft Translator api の選択][3]
+![Microsoft Translator api を選択します。][3]
 
 8. 選択 **の設定 - 必要な設定を構成する**:  
-![Microsoft Translator API 設定の構成][4]
+![Microsoft Translator API 設定を構成します。][4]
 
 9. 入力、 *クライアント Id* と *クライアント シークレット* の Microsoft Translator アプリケーションです。 これらがない場合は、このトピックの「PowerApps で使用する Microsoft Translator アプリケーションの登録」を参照して、必要な ID とシークレットの値を作成します。 
 
@@ -55,7 +55,7 @@
 ID とシークレットの値が割り当てられた既存の Microsoft Translator アプリケーションがない場合は、次の手順に従ってアプリケーションを作成し、必要な値を取得します。 
 
 
-1. [Azure データ マーケットの開発者用のページ] に移動して [5]、Microsoft アカウントを使用してサインインします。 
+1. 移動して [Azure データ マーケット開発者ページ][5] し、Microsoft アカウントでサインインします。 
 
 2. 選択 **登録**します。
 
@@ -67,7 +67,7 @@ ID とシークレットの値が割り当てられた既存の Microsoft Transl
     d) を入力、 **説明**します。  
     e) 選択 **作成**します。  
 
-    ![アプリケーションを登録する][6]
+    ![アプリケーションの登録][6]
 
 新しい Microsoft Translator アプリケーションが作成されます。 Azure ポータルの Microsoft Translator API 構成でこのアプリケーションを使用できます。 
 
@@ -87,3 +87,4 @@ ID とシークレットの値が割り当てられた既存の Microsoft Transl
 [6]: ./media/powerapps-create-api-microsofttranslator/register-your-application.PNG
 [7]: ./media/powerapps-create-api-microsofttranslator/browseall.png
 [8]: ./media/powerapps-create-api-microsofttranslator/allresources.png
+

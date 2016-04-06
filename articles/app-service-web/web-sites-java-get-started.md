@@ -27,7 +27,7 @@
 
 このチュートリアルは、Java を作成する方法を示しています。 [Azure App Service で web アプリ](http://go.microsoft.com/fwlink/?LinkId=529714) を使用して、 [Azure ポータル](https://portal.azure.com/)します。 Azure ポータルは、Azure リソースの管理に使用できる Web インターフェイスです。
 
-> [AZURE.NOTE] このチュートリアルを完了するには、Microsoft Azure アカウントが必要です。 Visual Studio サブスクライバーの特典をできる [有効] をアカウントを持っていない場合は、または [サインアップ無料評価版について]。
+> [AZURE.NOTE] このチュートリアルを完了するには、Microsoft Azure アカウントが必要です。 アカウントを持っていない場合は、[Visual Studio サブスクライバーの特典を有効にする][]か、[無料試用版にサインアップ][]してください。
 >
 > 場合は、Azure アカウントにサインアップする前に Azure App Service の使用を開始するには、 [App Service の試用][]します。 有効期間が短いスターター Web アプリを App Service ですぐに作成できます。このサービスの利用にあたり、クレジット カードは必要ありません。契約も必要ありません。
 
@@ -54,7 +54,7 @@
 
     これらの場合は、Azure ポータルを使ってアプリを作成して、適切なランタイム ファイルを手動で指定できます。 このとき、ファイルは App Service プランのストレージ領域クォータに対してカウントされます。 詳細については、次を参照してください。 [カスタム Java web アプリを Azure にアップロード](https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/web-sites-java-custom-upload/)します。
 
-## <a name="marketplace"></a> Java テンプレートを使用して Azure Marketplace から
+## <a name="marketplace"></a> Azure Marketplace にある Java テンプレートの使用
 
 このセクションでは、Azure Marketplace を使用して Java Web アプリを作成する方法について説明します。  Java ベースのモバイル アプリや API アプリを作成する場合にも、同様の一般的なフローを利用できます。  
 
@@ -112,7 +112,7 @@
 
 アプリケーション コンテナーで web アプリを作成したを参照してください、 [次のステップ](#next-steps) web アプリにアプリケーションをアップロードする方法についてのセクションです。
 
-## <a name="portal"></a> 作成し、Java web アプリの構成
+## <a name="portal"></a> Java Web アプリの作成と構成
 
 このセクションでは、web アプリを作成して、Java を使用するように構成する方法を示しています、 **アプリケーション設定** 、ポータルのブレードです。
 
@@ -175,4 +175,5 @@ Azure で Java アプリケーションの開発の詳細については、次�
 [sign up for a free trial]: http://go.microsoft.com/fwlink/?LinkId=623901
 
 [Try App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
+
 

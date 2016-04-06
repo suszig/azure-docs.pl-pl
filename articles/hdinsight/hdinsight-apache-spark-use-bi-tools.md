@@ -34,7 +34,7 @@ Azure HDInsight の Apache Spark を使用して以下のことを行う方法�
 - Microsoft Spark ODBC ドライバー (HDInsight の Spark で Tableau を使用するために必要) がインストールされたコンピューター。 ドライバーをインストールする [ここ](http://go.microsoft.com/fwlink/?LinkId=616229)します。
 - などの BI ツール [Power BI](http://www.powerbi.com/) または [Tableau Desktop](http://www.tableau.com/products/desktop)します。 Power BI の無料プレビュー サブスクリプションを取得する [http://www.powerbi.com/](http://www.powerbi.com/)します。
 
-##<a name="hivetable"></a>生データを Hive テーブルとして保存します。
+##<a name="hivetable"></a>生データを Hive テーブルとして保存する
 
 このセクションでは使用して、 [Jupyter](https://jupyter.org) notebook を生のサンプル データを処理して、Hive テーブルとして保存するジョブを実行する HDInsight での Apache Spark クラスターに関連付けられています。 サンプル データは、すべてのクラスターにおいて既定で使用できる .csv ファイル (hvac.csv) です。
 
@@ -108,7 +108,7 @@ Azure HDInsight の Apache Spark を使用して以下のことを行う方法�
 
     ![Jupyter カーネルを再起動します](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Jupyter.Restart.Kernel.png "Restart the Jupyter Kernel")
 
-##<a name="powerbi"></a>Power BI を使用して Hive テーブル内のデータを分析するには
+##<a name="powerbi"></a>Power BI を使用して Hive テーブル内のデータを分析する
 
 Hive テーブルとしてデータを保存した後は、Power BI を使用してデータに接続し、視覚化してレポートやダッシュボードなどを作成できます。
 
@@ -152,7 +152,7 @@ Hive テーブルとしてデータを保存した後は、Power BI を使用し
 
     同じデータセットの表示をいくつでも追加して、データのスナップショット用にダッシュボードに固定できます。 また、HDInsight の Spark クラスターは Power BI に直接接続されます。 つまり、Power BI には常にクラスターの最新データが提供され、データセットを定期的に更新する必要はありません。
 
-##<a name="tableau"></a>Tableau Desktop を使用して Hive テーブル内のデータを分析するには
+##<a name="tableau"></a>Tableau Desktop を使用して Hive テーブル内のデータを分析する
     
 1. Tableau Desktop を起動します。 接続先サーバーの一覧から、左のウィンドウで **Spark SQL**します。
 
@@ -211,4 +211,5 @@ Hive テーブルとしてデータを保存した後は、Power BI を使用し
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
+
 

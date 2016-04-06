@@ -12,10 +12,11 @@
 
        >[AZURE.IMPORTANT]
        >
-       >- This command applies only to regular hotfixes. You run this command on only one controller, but both controllers will be updated.
-       >- You may notice a controller failover during the update process; however, the failover will not affect system availability or operation.
+       >- このコマンドは、通常の修正プログラムにのみ適用されます。 このコマンドは 1 つのコントローラーでのみ実行しますが、両方のコントローラーが更新されます。
+       >- 更新プロセス中にコントローラーのフェールオーバーが行われても、システムの可用性または処理には影響しません。
 
 4. メッセージが表示されたら、修正プログラムのファイルが含まれているネットワーク共有フォルダーへのパスを入力します。
 
 5. 確認を求められます。 型 **Y** 修正プログラムのインストールを続行します。
+
 

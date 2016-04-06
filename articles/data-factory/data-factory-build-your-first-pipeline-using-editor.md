@@ -19,10 +19,10 @@
 # Data Factory Editor (Azure ポータル) を使用した初めての Azure Data Factory パイプラインの作成
 > [AZURE.SELECTOR]
 - [チュートリアルの概要](data-factory-build-your-first-pipeline.md)
-- [Data Factory エディターを使用します。](data-factory-build-your-first-pipeline-using-editor.md)
+- [Data Factory エディターの使用](data-factory-build-your-first-pipeline-using-editor.md)
 - [PowerShell の使用](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Visual Studio を使用](data-factory-build-your-first-pipeline-using-vs.md)
-- [リソース マネージャー テンプレートを使用します。](data-factory-build-your-first-pipeline-using-arm.md)
+- [Visual Studio の使用](data-factory-build-your-first-pipeline-using-vs.md)
+- [Resource Manager テンプレートの使用](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 この記事では、使用する方法を説明します、 [Azure ポータル](https://portal.azure.com/) 最初のパイプラインを作成します。 このチュートリアルの手順は次のとおりです。
@@ -58,7 +58,7 @@
     3.  入力 **ADF** の **名前** で、 **リソース グループの作成** ブレードです。
     4.  Click **OK**.
     
-        ![リソース グループの作成](./media/data-factory-build-your-first-pipeline-using-editor/create-resource-group.png)
+        ![Create resource group](./media/data-factory-build-your-first-pipeline-using-editor/create-resource-group.png)
 4.  リソース グループを選択した後、データ ファクトリを作成する正しいサブスクリプションを使用していることを確認します。
 5.  をクリックして **作成** 上、 **新しいデータ ファクトリ** ブレードです。
 6.  作成されているデータ ファクトリが表示されます、 **スタート画面** の次のように、Azure ポータル。   
@@ -66,7 +66,7 @@
     ![Data factory を作成中の状態](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 7. ご利用ありがとうございます。 これで、最初のデータ ファクトリが正常に作成されました。 データ ファクトリが正常に作成されると、データ ファクトリの内容を表示するデータ ファクトリ ページが表示されます。  
 
-    ![[Data Factory] ブレード](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
+    ![[データ ファクトリ] ブレード](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
 
 以降の手順では、このチュートリアルで使用するリンクされたサービス、データセット、およびパイプラインを作成する方法を説明します。 
 
@@ -215,7 +215,7 @@
 5. これで、最初のパイプラインが正常に作成されました。
 6. クリックして **X** Data Factory エディターのブレードを閉じ、Data Factory] ブレードに戻ると、をクリックする **ダイアグラム**します。
   
-    ![Diagram tile](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
+    ![[ダイアグラム] タイル](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
 7. ダイアグラム ビューに、パイプラインの概要と、このチュートリアルで使用されるデータセットが表示されます。
     
     ![Diagram View](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png) 
@@ -233,5 +233,6 @@
 ## 次のステップ
 この記事では、オンデマンド HDInsight クラスターで Hive スクリプトを実行する変換アクティビティ (HDInsight アクティビティ) を含むパイプラインを作成しました。 Azure Blob から Azure SQL にデータをコピーするコピー アクティビティを使用する方法を確認するには、次を参照してください。 [チュートリアル: Azure SQL に blob、Azure からのデータをコピー](./data-factory-get-started.md)します。
   
+
 
 

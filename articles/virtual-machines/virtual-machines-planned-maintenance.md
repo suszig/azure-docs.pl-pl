@@ -70,7 +70,7 @@ Sla の詳細については、の「クラウド サービス、仮想マシン
 仮想マシンが復元されると、Windows イベント ビューアーに次のような情報が表示される場合があります。
 
 <!--Image reference-->
-![image2]
+![][image2]
 
 ## 単一インスタンス構成の更新
 
@@ -87,7 +87,7 @@ Sla の詳細については、の「クラウド サービス、仮想マシン
 単一インスタンスとマルチインスタンスの仮想マシンの構成に限り、Azure では計画的なメンテナンスが近づいていることを注意喚起するために電子メールを事前に送信します (単一インスタンスについては 1 週間前、マルチインスタンスについては 48 時間前に)。 この電子メールは、サブスクリプションに設定されているアカウント管理者と共同管理者の電子メール アカウントに送信されます。 この電子メールの例を次に示します。
 
 <!--Image reference-->
-![image1]
+![][image1]
 
 ## リージョンのペア
 
@@ -119,4 +119,5 @@ Azure では、一連のリージョン ペアとしてリージョンがまと�
 <!--Link references-->
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+
 

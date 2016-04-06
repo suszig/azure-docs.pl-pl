@@ -54,7 +54,7 @@ DocumentDB アカウントを作成しましょう。 場合に使用するア�
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupVS"></a> 手順 2: Visual Studio ソリューションをセットアップします。
+##<a id="SetupVS"></a>手順 2: Visual Studio ソリューションをセットアップする
 
 1. 開いている **Visual Studio** コンピューターにします。
 2.  **ファイル** メニューの [ **新規**, 、にして **プロジェクト**します。
@@ -68,7 +68,7 @@ DocumentDB アカウントを作成しましょう。 場合に使用するア�
 
 以上です。 これでセットアップは終了です。いくつかのコードの記述を開始しましょう。
 
-##<a id="Connect"></a> 手順 3: DocumentDB アカウントに接続します。
+##<a id="Connect"></a>手順 3: DocumentDB アカウントに接続する
 
 まず、Program.cs ファイルで、C# アプリケーションの先頭に以下の参照を追加します。
 
@@ -135,7 +135,7 @@ DocumentDB アカウントに接続しのインスタンスを作成する方法
         Console.Clear();
     }
 
-##<a id="CreateColl"></a>手順 5: コレクションを作成します。  
+##<a id="CreateColl"></a>手順 5: コレクションを作成する  
 
 > [AZURE.WARNING] **CreateDocumentCollectionAsync** 価格に影響を持つ新しい S1 コレクションが作成されます。 詳細については、次を参照してください、 [料金のページ](https://azure.microsoft.com/pricing/details/documentdb/)します。
 
@@ -282,7 +282,7 @@ DocumentDB アカウントで、次のデータベース、コレクション、
 
 ![アカウント、データベース、コレクション、およびドキュメントの間の階層関係を示す図](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
-##<a id="Query"></a>手順 7: DocumentDB リソースをクエリします。
+##<a id="Query"></a>手順 7: DocumentDB リソースをクエリする
 
 DocumentDB は、リッチをサポートしている [クエリ](documentdb-sql-query.md) 各コレクションに格納された JSON ドキュメントに対するします。  次のサンプル コードは、前の手順で挿入したドキュメントに対して実行できる、さまざまなクエリを示しています。DocumentDB SQL 構文と LINQ の両方が使用されています。 これらのクエリを追加、 **GetStartedDemo** 非同期メソッドです。
 
@@ -324,7 +324,7 @@ DocumentDB は、リッチをサポートしている [クエリ](documentdb-sql
 
  [FROM](documentdb-sql-query.md#from-clause) キーワードは、単一のコレクションを DocumentDB クエリのスコープは既にあるため、クエリでは省略可能です。 したがって、"FROM Families f" は "FROM root r" または他の任意の変数名に置き換えることができます。 DocumentDB は、Families、root、または任意の変数名が、既定で現在のコレクションを参照しているものと推測します。
 
-##<a id="DeleteDatabase"></a>手順 8: データベースを削除します。
+##<a id="DeleteDatabase"></a>手順 8: データベースを削除する
 
 作成したデータベースを削除すると、データベースとすべての子リソース (コレクション、ドキュメントなど) が削除されます。 末尾に次のコード スニペットを追加することで、データベースとドキュメント クライアントを削除することができます、 **GetStartedDemo** 非同期メソッドです。
 
@@ -332,7 +332,7 @@ DocumentDB は、リッチをサポートしている [クエリ](documentdb-sql
     await client.DeleteDatabaseAsync("dbs/" + database.Id);
     client.Dispose();
 
-##<a id="Run"></a>手順 9: は、c# コンソール アプリケーションを実行します。
+##<a id="Run"></a>手順 9. C# コンソール アプリケーションを実行する
 
 これで、アプリケーションを実行する準備が整いました。 最後に、 **Main** メソッドを読み取り、コンソール アプリケーションの実行が完了する前に出力できるようにするには、コードの次の行を追加します。
 
@@ -459,7 +459,7 @@ Visual Studio で F5 キーを押して、デバッグ モードでアプリケ�
 
 ご利用ありがとうございます。 この NoSQL チュートリアルは完了しました。 
 
-##<a id="GetSolution"></a> 完全なソリューションの取得
+##<a id="GetSolution"></a>完全なソリューションを取得する
 この記事のすべてのサンプルを含む GetStarted ソリューションをビルドするには、以下が必要です。
 
 -   [DocumentDB アカウント][documentdb-create-account]します。
@@ -480,4 +480,5 @@ Visual Studio での DocumentDB .NET SDK への参照を復元するには、右
 
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
  
+
 

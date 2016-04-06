@@ -95,7 +95,7 @@ PerformanceCentre で Azure AD のシングル サインオンを構成し、テ
 **PerformanceCentre で Azure AD シングル サインオンを構成するには、次の手順に従います。**
 
 1. Azure AD ポータルでの **PerformanceCentre** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、 **シングル サインオンを構成する**  ダイアログ。
-<br><br> ![でのシングル サインオンを構成する][6] <br>
+<br><br> ![シングル サインオンを構成します。][6] <br>
 
 2.  **どのような PerformanceCentre にサインオン** ] ページで、[ **Azure AD シングル サインオン**, 、順にクリック **次**します。
 <br><br> ![Azure AD シングル サインオン][7] <br>
@@ -143,23 +143,23 @@ PerformanceCentre で Azure AD のシングル サインオンを構成し、テ
 
 ### Azure AD のテスト ユーザーの作成
 このセクションの目的は、Azure ポータルで Britta Simon というテスト ユーザーを作成することです。<br>
-ユーザーの一覧で選択 **Britta Simon**.<br><br>![Azure AD ユーザーを作成します。][20]<br>
+ユーザーの一覧で選択 **Britta Simon**します。<br><br>![Azure AD ユーザーを作成します。][20]<br>
 
 **Azure AD でテスト ユーザーを作成するには、次の手順に従います。**
 
 1.  **Azure 管理ポータル**, 、左側のナビゲーション ウィンドウで、次のようにクリックします。 **Active Directory**します。
-<br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_09.png) <br> 
+<br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_09.png) <br> 
 
 2.  **ディレクトリ** 一覧で、ディレクトリ統合を有効にディレクトリを選択します。
 
 3. 上部のメニューで、ユーザーの一覧を表示する] をクリックして **ユーザー**します。
-<br><br> ![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_03.png) <br>
+<br><br> ![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_03.png) <br>
  
 4. 開くには、 **ユーザーの追加** ] ダイアログ ボックスで、下部にあるツールバーをクリックして **ユーザーの追加**します。 
-<br><br> ![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_04.png) <br>
+<br><br> ![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_04.png) <br>
 
 5.  **このユーザーについてお聞かせ** ] ダイアログ ページで、次の手順を実行します。 
-<br><br> ![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_05.png) <br> 
+<br><br> ![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_05.png) <br> 
 
     a. [ユーザーの種類] として [組織内の新しいユーザー] を選択します。
 
@@ -168,7 +168,7 @@ PerformanceCentre で Azure AD のシングル サインオンを構成し、テ
     c. クリックして **次**します。
 
 6.   **ユーザー プロファイル** ] ダイアログ ページで、次の手順を実行します。 
-<br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_06.png) <br>
+<br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_06.png) <br>
  
     a.  **名** ] ボックスに「 **Britta**します。  
 
@@ -180,10 +180,10 @@ PerformanceCentre で Azure AD のシングル サインオンを構成し、テ
     e. クリックして **次**します。
 
 7.  **一時パスワードの取得** ダイアログ ページで、をクリックして **作成**します。
-<br><br> ![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_07.png) <br>
+<br><br> ![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_07.png) <br>
  
 8.  **一時パスワードの取得** ] ダイアログ ページで、次の手順を実行します。
-<br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_08.png) <br>
+<br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_08.png) <br>
   
     a. 値を書き留めて、 **新しいパスワード**します。
 
@@ -283,6 +283,7 @@ PerformanceCentre で Azure AD のシングル サインオンを構成し、テ
 [400]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_11.png
 [401]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_12.png
 [402]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_402.png
+
 
 
 

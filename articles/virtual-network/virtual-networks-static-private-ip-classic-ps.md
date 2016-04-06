@@ -43,15 +43,15 @@
     OperationStatus      : Succeeded
 
 ## VM 作成時に静的プライベート IP アドレスを指定する方法
-次の PowerShell スクリプトをという名前の新しいクラウド サービスを作成 *TestService*, 、Azure からのイメージを取得し、という名前の VM を作成 *DNS01* 、新しいクラウド サービスではという名前のサブネットに存在する VM を設定、取得したイメージを使用して *フロント エンド*, 、設定と *192.168.1.7 から* 1 は、VM の静的なプライベート IP アドレス。
+次の PowerShell スクリプトという名前の新しいクラウド サービスを作成する *TestService*, 、Azure からのイメージを取得し、という名前の VM を作成 *DNS01* 、新しいクラウド サービスではという名前のサブネットに存在する VM を設定、取得したイメージを使用して *フロント エンド*, 、設定と *192.168.1.7 から* VM の静的なプライベート IP アドレスとして。
 
     New-AzureService -ServiceName TestService -Location "Central US"
     $image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
     New-AzureVMConfig -Name DNS01 -InstanceSize Small -ImageName $image.ImageName `
-    | Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
-    | Set-AzureSubnet –SubnetNames FrontEnd `
-    | Set-AzureStaticVNetIP -IPAddress 192.168.1.7 `
-    | New-AzureVM -ServiceName "TestService" –VNetName TestVNet
+  	| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
+  	| Set-AzureSubnet –SubnetNames FrontEnd `
+  	| Set-AzureStaticVNetIP -IPAddress 192.168.1.7 `
+  	| New-AzureVM -ServiceName "TestService" –VNetName TestVNet
 
 予想される出力:
 
@@ -99,8 +99,8 @@
 上記のスクリプトで VM に追加された静的プライベート IP アドレスを削除するには、次の PowerShell コマンドを実行します。
     
     Get-AzureVM -ServiceName TestService -Name DNS01 `
-    | Remove-AzureStaticVNetIP `
-    | Update-AzureVM
+  	| Remove-AzureStaticVNetIP `
+  	| Update-AzureVM
 
 予想される出力:
 
@@ -112,8 +112,8 @@
 上記のスクリプトを使用して作成した VM に静的プライベート IP アドレスを追加するには、次のコマンドを実行します。
 
     Get-AzureVM -ServiceName TestService -Name DNS01 `
-    | Set-AzureStaticVNetIP -IPAddress 192.168.1.7 `
-    | Update-AzureVM
+  	| Set-AzureStaticVNetIP -IPAddress 192.168.1.7 `
+  	| Update-AzureVM
 
 予想される出力:
 
@@ -126,3 +126,4 @@
 - について学習 [予約済みパブリック IP](../virtual-networks-reserved-public-ip) アドレス。
 - について学習 [インスタンス レベル パブリック IP (ILPIP)](../virtual-networks-instance-level-public-ip) アドレス。
 - 参照してください、 [予約済み IP REST Api](https://msdn.microsoft.com/library/azure/dn722420.aspx)します。
+

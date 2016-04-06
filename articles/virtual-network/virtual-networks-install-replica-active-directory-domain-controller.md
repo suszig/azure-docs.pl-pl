@@ -51,9 +51,9 @@ DC は、Active Directory レプリケーションを使用して、DC 同士で
     ウィザードのページ  | 指定する値
     ------------- | -------------
     **Virtual Network Details**  | <p>[名前]:「westusvnet」などの仮想ネットワーク名前を入力します。</p><p>リージョン: 最寄りのリージョンを選択します。</p>
-    **DNS と VPN 接続**  | <p>DNS サーバー: 1 つまたは複数の内部設置型 DNS サーバーの IP アドレスと名前を指定します</p><p>。接続: 選択 **サイト対サイト VPN の構成**.</p><p>ローカル ネットワーク: 新しいローカル ネットワークを指定します</p><p>。VPN ではなく ExpressRoute を使用している場合は、次を参照してください。 [Exchange プロバイダーを通じて ExpressRoute 接続の構成](../expressroute/expressroute-configuring-exps.md)します。</p>
+    **DNS と VPN 接続**  | <p>DNS サーバー: は、1 つまたは複数の内部設置型 DNS サーバーの IP アドレスと名前を指定します。</p><p>接続: 選択 **サイト対サイト VPN の構成**します。</p><p>ローカル ネットワーク: 新しいローカル ネットワークを指定します。</p><p>VPN ではなく ExpressRoute を使用している場合は、次を参照してください。 [Exchange プロバイダーを通じて ExpressRoute 接続の構成](../expressroute/expressroute-configuring-exps.md)します。</p>
     **サイト間接続**  | <p>[名前]: は、内部設置型ネットワークの名前を入力します。</p><p>VPN デバイスの IP アドレス: 仮想ネットワークに接続するデバイスのパブリック IP アドレスを指定します。 VPN デバイスは NAT の内側に配置することはできません。</p><p>アドレス: シナリオ図の 192.168.0.0/16) など、内部設置型ネットワークのアドレスの範囲を指定します。</p>
-    **仮想ネットワーク アドレス空間**  | <p>アドレス空間: Azure の仮想ネットワークで実行する VM のIP アドレスの範囲 (例: シナリオ図の 10.1.0.0/16) を指定します。 このアドレスの範囲は、内部設置型ネットワークのアドレス範囲と重ねることはできません</p><p>。サブネット: アプリケーション サーバー用のサブネットのアドレスと名前を指定する (frontend、10.1.1.0/24) と、Dc (backend、10.1.2.0/24).</p><p>クリックして **ゲートウェイ サブネットの追加**します。</p>
+    **仮想ネットワーク アドレス空間**  | <p>アドレス空間: シナリオ図の 10.1.0.0/16) などの Azure 仮想ネットワークで実行する Vm の IP アドレスの範囲を指定します。 このアドレス範囲を、内部設置型ネットワークのアドレスの範囲と重複させることはできません。</p><p>サブネット: アプリケーション サーバー用のサブネットのアドレスと名前を指定する (frontend、10.1.1.0/24) と、Dc (backend、10.1.2.0/24)。</p><p>クリックして **ゲートウェイ サブネットの追加**します。</p>
 
 2. 次に、仮想ネットワーク ゲートウェイを構成して、セキュリティで保護されたサイト間 VPN 接続を作成します。 参照してください [仮想ネットワーク ゲートウェイを構成する](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) 手順については、です。
 3. 新しい仮想ネットワークと内部設置型 VPN デバイスの間に、サイト間 VPN 接続を作成します。 参照してください [仮想ネットワーク ゲートウェイを構成する](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) 手順については、です。
@@ -71,8 +71,8 @@ UI ではなく Windows PowerShell を使用して Vm を作成するを参照�
     ------------- | -------------
     **イメージの選択**  | Windows Server 2012 R2 Datacenter
     **仮想マシンの構成**  | <p>仮想マシン名: 単一ラベルの名前 (azuredc1 など) を入力します。</p><p>新しいユーザー名: ユーザーの名前を入力します。 このユーザーは、VM 上のローカルの Administrators グループのメンバーになります。 最初に VM にサインインするときは、この名前でサインインする必要があります。 Administrator という名前の組み込みのアカウントは機能しません。</p><p>新しいパスワード/確認入力: パスワードを入力します。</p>
-    **仮想マシンの構成**  | <p>クラウド サービス: を選択 <b>[新しいクラウド サービスの作成]</b> を選択し、DC ロールをホストする追加の VM の作成時には 1 台目の VM と同じクラウド サービス名を選択します。</p><p>グローバルに一意の名前を指定するクラウド サービス DNS 名。</p><p>リージョン/アフィニティ グループ/仮想ネットワーク: 仮想ネットワーク名 (例: westusvnet) を指定します。</p><p>ストレージ アカウント: を選択 <b>[自動的に生成されたストレージ アカウントを使用</b> を選択し、DC ロールをホストする追加の VM の作成時には 1 台目の VM と同じストレージ アカウント名を選択します。</p><p>可用性セット: を選択 <b>可用性セットの作成</b>.</p><p>可用性セットの名前: 可用性セット、最初の VM を作成し、選択したときに多くの Vm を作成するときに同じ名前の名前を入力します。</p>
-    **仮想マシンの構成**  | <p>[ <b>[VM エージェントのインストール]</b> と必要なその他の拡張機能をすべて選択します。</p>
+    **仮想マシンの構成**  | <p>クラウド サービス: 選択 <b>新しいクラウド サービスを作成する</b> 多くの Vm を作成するときにその同じクラウド サービス名が DC ロールをホストし、最初の VM にします。</p><p>グローバルに一意の名前を指定するクラウド サービス DNS 名。</p><p>リージョン/アフィニティ グループ/仮想ネットワーク: 仮想ネットワーク名 (例: westusvnet) を指定します。</p><p>ストレージ アカウント: 選択 <b>自動的に生成されたストレージ アカウントを使用して</b> クリックして最初の VM の追加の Vm を作成するときにその同じストレージ アカウント名が DC ロールをホストします。</p><p>可用性セット]: 選択 <b>可用性セットの作成</b>します。</p><p>可用性セットの名前: 可用性セット、最初の VM を作成し、選択したときに多くの Vm を作成するときに同じ名前の名前を入力します。</p>
+    **仮想マシンの構成**  | <p>選択 <b>VM エージェントをインストール</b> とする必要がある他の拡張機能です。</p>
 2. DC サーバーのロールを実行する各 VM にディスクを接続します。 AD データベース、ログ、SYSVOL を格納するには、追加のディスクが必要です。 (10 GB など)、ディスクのサイズを指定して、 **ホスト キャッシュ設定]** 設定 **None**します。 手順については、次を参照してください。 [Windows 仮想マシンへのデータ ディスクを接続する方法](../virtual-machines/storage-windows-attach-disk.md)します。
 3. VM に初めてサインインした後に開く **サーバー マネージャー** > **ファイルおよび記憶域サービス** NTFS を使用してこのディスクにボリュームを作成します。
 4. DC ロールを実行する VM の静的 IP アドレスを予約します。 静的 IP アドレスを予約するには、Microsoft Web Platform Installer をダウンロードし、 [Azure PowerShell のインストール](../powershell-install-configure.md) Set-azurestaticvnetip コマンドレットを実行します。 次に例を示します。
@@ -103,7 +103,7 @@ VM にサインインし、サイト間 VPN 接続または ExpressRoute 接続�
     **Virtual Machine Configuration**  | <p>Cloud Service: Choose **Create a new cloud service** for the first VM and select that same cloud service name when you create more VMs that will host the application.</p><p>Cloud Service DNS Name: Specify a globally unique name</p><p>Region/Affinity Group/Virtual Network: Specify the virtual network name (such as WestUSVNet).</p><p>Storage Account: Choose **Use an automatically generated storage account** for the first VM and then select that same storage account name when you create more VMs that will host the application.</p><p>Availability Set: Choose **Create an availability set**.</p><p>Availability set name: Type a name for the availability set when you create the first VM and then select that same name when you create more VMs.</p>
     **Virtual Machine Configuration**  | <p>Select <b>Install the VM Agent</b> and any other extensions you need.</p>
 
-2. 各 VM がプロビジョニングされたら、サインインし、ドメインに参加させます。  **サーバー マネージャー**, 、] をクリックして **ローカル サーバー** > **ワークグループ** > **変更…]** し、[ **ドメイン** し、内部設置型ドメインの名前を入力します。 ドメイン ユーザーの資格情報を入力し、VM を再起動して、ドメインへの参加を完了します。
+2. 各 VM がプロビジョニングされたら、サインインし、ドメインに参加させます。  **サーバー マネージャー**, 、クリックして **ローカル サーバー** > **ワークグループ** > **変更しています.** クリックして **ドメイン** し、内部設置型ドメインの名前を入力します。 ドメイン ユーザーの資格情報を入力し、VM を再起動して、ドメインへの参加を完了します。
 
 UI ではなく Windows PowerShell を使用して Vm を作成するを参照してください。 [を作成し、Windows ベースの仮想マシンを事前構成する Azure PowerShell を使用して](../virtual-machines/virtual-machines-ps-create-preconfigure-windows-vms.md)します。
 
@@ -122,4 +122,5 @@ UI ではなく Windows PowerShell を使用して Vm を作成するを参照�
 
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
+
 

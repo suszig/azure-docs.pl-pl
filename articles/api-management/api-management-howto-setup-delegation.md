@@ -107,9 +107,9 @@
 
     成果物のサブスクリプション処理のためのクエリ パラメーター:
     - **操作**: 委任要求の種類を識別します。 成果物のサブスクリプション要求の有効なオプションを次に示します。
-        - "Subscribe": ID (下記参照) を指定して、ユーザーと特定の成果物をサブスクライブする要求
-        - サブスクリプションを「解除」: ユーザーの成果物のサブスクリプションを解除する要求
-        - 「更新」: (例: がする有効期限近づいている) サブスクリプションを更新するための要求。
+        - "Subscribe": 提供された ID (以下を参照) を持つ特定の成果物をユーザーがサブスクライブするための要求。
+        - "Unsubscribe": ユーザーの成果物のサブスクリプションを解除するための要求。
+        - "Renew": (たとえば、有効期限が近づいている) サブスクリプションを更新するための要求。
     - **productId**: ユーザーの要求をサブスクライブする成果物の ID
     - **userId**: 要求の対象ユーザーの ID
     - **salt**: セキュリティ ハッシュを計算するために使用される特殊な salt 文字列
@@ -177,3 +177,4 @@
 [example code provided below]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png 
+

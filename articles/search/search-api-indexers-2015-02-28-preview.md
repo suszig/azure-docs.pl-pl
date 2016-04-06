@@ -31,7 +31,7 @@ Azure Search は Microsoft Azure のホスト型クラウド検索サービス�
 
  **インデクサー** はのインデックスを定期的に更新する場合に便利です。 インデクサーの定義の一部としてインライン スケジュールを設定するかを使用してオンデマンドで実行する [インデクサーの実行](#RunIndexer)します。 
 
-A **データソース** インデックスを作成する必要がデータあるをデータ、および (変更または削除されたデータベース テーブルの行など) のデータの変更を効率的に識別するために Azure Search を有効にするポリシーにアクセスする資格情報します。 データ ソースは、複数のインデクサーで使用できるように、独立したリソースとして定義します。
+A **データソース** インデックスを作成する必要がデータあるをデータ、および (変更または削除されたデータベース テーブルの行など) のデータの変更を効率的に識別するために Azure Search を有効にするポリシーにアクセスする資格情報します。 データ ソースは複数のインデクサーで使用できるように独立したリソースとして定義します。
 
 現在、次のデータ ソースがサポートされています。
 
@@ -137,7 +137,7 @@ HTTPS はすべてのサービス要求に必要です。  **データ ソース
 
 **注:** 切り替えるデータ検出ポリシー インデクサーを作成した後に使用して、 [インデクサーのリセット](#ResetIndexer) API です。
 
-***undefined*** 
+***高基準値変更検出ポリシー*** 
 
 このポリシーは、データ ソースに含まれる列またはプロパティが次の条件を満たす場合に使用します。
  
@@ -157,7 +157,7 @@ DocumentDB データ ソースを使用するとき、DocumentDB が与える `_
         "highWaterMarkColumnName" : "[a row version or last_updated column name]" 
     } 
 
-***undefined***
+***SQL 統合変更検出ポリシー***
 
 SQL データベースをサポートする場合 [変更の追跡を](https://msdn.microsoft.com/library/bb933875.aspx), 、SQL 統合変更追跡ポリシーを使用することをお勧めします。 このポリシーは最も効率的な変更追跡を可能にし、スキーマに明示的な「ソフト削除」列がなくても、Azure Search で削除済み行を識別できます。
 
@@ -233,11 +233,11 @@ HTTP PUT 要求を使用して既存のデータ ソースを更新できます�
 **要求**
 要求本文の構文は同じである [データ ソースの作成を要求](#CreateDataSourceRequestSyntax)します。
 
-**応答**
-要求が成功した場合: 新しいデータ ソースがあった場合は 201 Created 作成、および 204 No Content 既存のデータ ソースが更新された場合。
+**Response**
+要求成功の場合: 新しいデータ ソースが作成された場合は「201 作成されました」で、既存のデータ ソースが更新された場合は「204 コンテンツがありません」。
 
-**注:**
-既存のデータ ソースには、いくつかのプロパティを更新できません。 たとえば、既存のデータ ソースの種類は変更できません。  
+**メモ:**
+一部のプロパティは既存のデータ ソースで更新できません。 たとえば、既存のデータ ソースの種類は変更できません。  
 
 <a name="ListDataSource"></a>
 ## データ ソースの一覧表示 ##
@@ -677,8 +677,8 @@ HTTP PUT 要求を使用して既存のインデクサーを更新できます�
 <table style="font-size:12">
 <tr>
 <td>SQL データ型</td>  
-<td>ターゲット インデックス フィールドの型は許可</td>
-<td>ノート</td>
+<td>ターゲット インデックス フィールドに許可される型</td>
+<td>メモ</td>
 </tr>
 <tr>
 <td>ビット</td>
@@ -701,16 +701,16 @@ HTTP PUT 要求を使用して既存のインデクサーを更新できます�
 <td></td>
 </tr>
 <tr>
-<td>smallmoney、money<br>decimal<br>数値
+<td>smallmoney、money<br>小数点<br>数値
 </td>
 <td>Edm.String</td>
-<td>Azure Search は、有効桁数が失われるために、10 進数型を Edm.Double に変換するをサポートしていません。
+<td>Azure Search では、小数点を Edm.Double に変換できません。精度が失われるためです。
 </td>
 </tr>
 <tr>
 <td>char、nchar、varchar、nvarchar</td>
 <td>Edm.String<br/>Collection(Edm.String)</td>
-<td>を参照してください [Field Mapping Functions](#FieldMappingFunctions) 文字列型の列を collection(edm.string に変換する方法の詳細については、このドキュメントで</td>
+<td>参照してください [Field Mapping Functions](#FieldMappingFunctions) 文字列型の列を collection(edm.string に変換する方法の詳細については、このドキュメントで</td>
 </tr>
 <tr>
 <td>smalldatetime、datetime、datetime2、date、datetimeoffset</td>
@@ -723,19 +723,19 @@ HTTP PUT 要求を使用して既存のインデクサーを更新できます�
 <td></td>
 </tr>
 <tr>
-<td>geography</td>
+<td>地理</td>
 <td>Edm.GeographyPoint</td>
-<td>SRID 4326 (既定値) を持つ POINT 型の地理インスタンスのみがサポートされている</td>
+<td>型が POINT で SRID が 4326 (既定) の地理インスタンスのみがサポートされます。</td>
 </tr>
 <tr>
 <td>rowversion</td>
-<td>N/A</td>
-<td>行バージョン列は、検索インデックスに格納できません、変更の追跡に使用できますが、</td>
+<td>該当なし</td>
+<td>行バージョン列は検索インデックスに保存できませんが、変更追跡に利用できます。</td>
 </tr>
 <tr>
-<td>time、timespan<br>binary、varbinary、image、<br>xml、geometry、CLR 型</td>
-<td>N/A</td>
-<td>はサポートされていません</td>
+<td>time、timespan<br>binary、varbinary、image<br>xml、geometry、CLR 型</td>
+<td>該当なし</td>
+<td>サポートされていません</td>
 </tr>
 </table>
 
@@ -788,3 +788,4 @@ HTTP PUT 要求を使用して既存のインデクサーを更新できます�
 <td>サポートされていません。Azure Search では現在のところ、プリミティブ型と文字列の集合のみをサポートしています。</td>
 </tr>
 </table>
+

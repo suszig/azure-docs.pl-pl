@@ -29,9 +29,9 @@
 <table>
 <tr><td>**ダウンロード**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
 <tr><td>**投稿**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
-<tr><td>**ドキュメント**</td><td>[Java SDK Reference Documentation](http://azure.github.io/azure-documentdb-java/)</td></tr>
-<tr><td>**開始**</td><td>[Get started with the Java SDK](documentdb-java-application.md)</td></tr>
-<tr><td>**現在には、ランタイムがサポートされています。**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+<tr><td>**Documentation**</td><td>[Java SDK Reference Documentation](http://azure.github.io/azure-documentdb-java/)</td></tr>
+<tr><td>**作業の開始**</td><td>[Get started with the Java SDK](documentdb-java-application.md)</td></tr>
+<tr><td>**現在のサポートされるランタイム**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
 ## リリース ノート
@@ -91,4 +91,5 @@ Azure DocumentDB SDK for Java のバージョンより前のすべてのバー�
 ## 関連項目
 
 DocumentDB の詳細については、次を参照してください。 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) サービス ページです。 
+
 

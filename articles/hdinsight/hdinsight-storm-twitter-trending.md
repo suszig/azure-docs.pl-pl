@@ -71,13 +71,13 @@ Trident は、結合、集計、グループ化、関数、フィルタリング
 
 > [AZURE.NOTE] スパウトと HashtagExtractor 以外は、ビルトインの Trident 機能を使用します。
 >
-> ビルトイン操作については、次を参照してください。 <a href="https://storm.apache.org/apidocs/storm/trident/operation/builtin/package-summary.html" target="_blank">Package storm.trident.operation.builtin</a>.
+> ビルトイン操作については、「<a href="https://storm.apache.org/apidocs/storm/trident/operation/builtin/package-summary.html" target="_blank">Package storm.trident.operation.builtin</a>」をご覧ください。
 >
 > MemoryMapState 以外の Trident ステートの実装については、以下をご覧ください。
 >
 > * <a href="https://github.com/fhussonnois/storm-trident-elasticsearch" target="_blank">Storm Trident の柔軟な検索</a>
 >
-> * <a href="https://github.com/kstyrc/trident-redis" target="_blank">trident redis</a>
+> * <a href="https://github.com/kstyrc/trident-redis" target="_blank">trident-redis</a>
 
 ###スパウト
 
@@ -85,7 +85,7 @@ Trident は、結合、集計、グループ化、関数、フィルタリング
 
 ###HashtagExtractor
 
-、ハッシュタグを抽出するには <a href="http://twitter4j.org/javadoc/twitter4j/EntitySupport.html#getHashtagEntities--" target="_blank">getHashtagEntities</a> 使用してツイートに含まれているすべてのハッシュタグを取得します。 その後、これらはストリームに出力されます。
+ハッシュタグを抽出するには、<a href="http://twitter4j.org/javadoc/twitter4j/EntitySupport.html#getHashtagEntities--" target="_blank">getHashtagEntities</a> を使用してツイートに含まれるすべてのハッシュタグを取得します。 その後、これらはストリームに出力されます。
 
 ##Twitter を有効にする
 
@@ -139,4 +139,5 @@ Trident は、結合、集計、グループ化、関数、フィルタリング
 HDInsight での Storm のその他の例:
 
 * [HDInsight 上の Storm に関するトポロジ例](hdinsight-storm-example-topology.md)
+
 

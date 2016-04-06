@@ -173,7 +173,7 @@ AD FS を使用してサンプル アプリケーションの認証を実際に�
 
     ![](./media/web-sites-dotnet-lob-application-adfs/4-configure-url.png)
 
-    > [AZURE.NOTE] URL は、認証が成功したら、クライアントに送信する場所を指定します。 デバッグ環境にする必要があります <code>https://localhost: & lt; ポート & gt;/</code>します。 発行した Web アプリに対しては、Web アプリの URL を指定します。
+    > [AZURE.NOTE] URL は、認証が成功したら、クライアントに送信する場所を指定します。 デバッグ環境では、<code>https://localhost:&lt;port&gt;/</code> にする必要があります。 発行した Web アプリに対しては、Web アプリの URL を指定します。
 
 7.   **識別子の構成** ] ページで、プロジェクトの SSL URL が既に表示されていることを確認して、クリックして **次**します。 クリックして **次** は既定の設定を使用して、ウィザードの最後までです。
 
@@ -203,7 +203,7 @@ AD FS を使用してサンプル アプリケーションの認証を実際に�
     c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
         => add(
             store = "_OpaqueIdStore",
-            種類 = ("<mark>http://contoso.com/internal/sessionid</mark>")、
+            種類 = ("<mark>http://contoso.com/internal/sessionid</mark>"),
             クエリ「{0}、\\ 1 \\、\\ {2 \}; \\ 3 \\、\\ {4 \\}」、=
             param = "useEntropy",
             param = c1.Value,
@@ -243,7 +243,7 @@ Web アプリケーションが読み込まれると、クリックして **サ�
 
 ![](./media/web-sites-dotnet-lob-application-adfs/9-test-debugging.png)
 
-AD FS デプロイメントの AD ドメインにユーザーとしてログインするとを使用してホーム ページが表示されます **こんにちは、 <User Name>!** 隅にあります。 例を次に示します。
+AD FS デプロイメントの AD ドメインにユーザーとしてログインするとを使用してホーム ページが表示されます **こんにちは、 <User Name>!** 上隅にあります。 例を次に示します。
 
 ![](./media/web-sites-dotnet-lob-application-adfs/11-test-debugging-success.png)
 
@@ -265,7 +265,7 @@ RP 信頼構成にロール クレームとしてグループ メンバーシッ
 1. Controllers\HomeController.cs を開きます。
 2. 認証されたユーザーが持つセキュリティ グループ メンバーシップを使用して、次のように `About` と `Contact` の操作メソッドを装飾します。  
     <pre class="prettyprint">
-    <mark>[承認 (ロール ="Test Group")]</mark>
+    <mark>[Authorize(Roles="Test Group")]</mark>
     public ActionResult About()
     {
         ViewBag.Message = "Your application description page.";
@@ -291,11 +291,11 @@ RP 信頼構成にロール クレームとしてグループ メンバーシッ
 
     AD FS サーバーのイベント ビューアーでこのエラーを調べると、次の例外メッセージを確認できます。  
     <pre class="prettyprint">
-    Microsoft.identityserver.web.invalidrequestexception:: MSIS7042: <mark>同じクライアントのブラウザー セッション last '11' 秒間に '6' requests にしました。</mark> 詳細については、管理者に問い合わせてください。
-       Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie (WrappedHttpListenerContext コンテキスト) に
-       Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse (WSFederationContext コンテキスト、MSISSignInResponse 応答) に
-       Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest (ProtocolContext protocolContext、PassiveProtocolHandler protocolHandler) に
-       Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext (WrappedHttpListenerContext コンテキスト) に
+    Microsoft.identityserver.web.invalidrequestexception:: MSIS7042: <mark>同じクライアントのブラウザー セッション last '11' 秒間に '6' requests にしました。</mark> 詳しくは、管理者に問い合わせてください。
+       at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
+       at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
+       at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
+       at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)
     </pre>
 
     このエラーの理由は、ユーザーのロールが承認されない場合に MVC が既定で 401 Unauthorized を返すためです。 これが、ID プロバイダー (AD FS) への再認証クレームのトリガーとなります。 ユーザーは既に認証されているため、AD FS によって同じページが表示されることになります。これが原因で別の 401 が発行され、結果的にリダイレクト ループになります。 そこで、リダイレクト ループを続ける代わりに意味のメッセージを表示する単純なロジックで `HandleUnauthorizedRequest` の メソッドをオーバーライドします。
@@ -355,4 +355,5 @@ Azure App Service Web Apps は、2 つの方法で内部設置型データベー
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
  
  
+
 

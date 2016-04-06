@@ -81,7 +81,7 @@ IoT Hub を使用する [デバイス identity レジストリ][lnk-devguide-ide
 
 1. 作成、 [IoT Hub 共有アクセス ポリシー][lnk-devguide-security] と **DeviceConnect** IoT hub のアクセスを許可します。 このポリシーを作成することができます、 [Azure ポータル][lnk-portal] またはプログラムです。 トークン サービスは、このポリシーを使用して、作成されるトークンに署名します。
 2. IoT Hub にアクセスする必要があるデバイスは、トークン サービスに署名付きトークンを要求します。 デバイスは、カスタム デバイス ID レジストリ/認証スキームで認証し、トークン サービスがトークンの作成に使用するデバイス ID を特定できます。
-3. として 1 がトークン、トークンのサービスを返しますが作成された [IoT Hub 開発者ガイド - セキュリティ][lnk-devguide-security], を使用して、 `/devices/{deviceId}` として `resourceURI`, と `deviceId` として認証されるデバイス。 トークン サービスは、共有アクセス ポリシーを使用してトークンを作成します。
+3. に従って作成されたトークン、トークンのサービスを返します [IoT Hub 開発者ガイド - セキュリティ][lnk-devguide-security], を使用して、 `/devices/{deviceId}` として `resourceURI`, と `deviceId` として認証されるデバイス。 トークン サービスは、共有アクセス ポリシーを使用してトークンを作成します。
 4. デバイスは、IoT Hub で直接トークンを使用します。
 
 > [AZURE.NOTE] .NET クラスを使用して [SharedAccessSignatureBuilder][lnk-dotnet-sas] または Java クラス [IotHubServiceSasToken][lnk-java-sas] トークン サービスにトークンを作成します。
@@ -119,3 +119,4 @@ Azure IoT Hub についてさらに学習するには、次のリンクを使用
 [lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
+

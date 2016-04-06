@@ -30,7 +30,7 @@
 
 ##前提条件
 
-このトピックで作成したアプリケーションが基 [を使ってみる Notification Hubs] [入門] です。 このチュートリアルを開始する前にする必要があります既に完了している [を使ってみる Notification Hubs] [入門] です。
+このトピックで作成したアプリケーションが基 [Notification Hubs を使ってみる][get-started]します。 このチュートリアルを開始する前にする必要があります既に完了している [Notification Hubs を使ってみる][get-started]します。
 
 ##アプリケーションにカテゴリ選択を追加する
 
@@ -156,7 +156,7 @@
 
     この時点では行われないことに他のコードに注意してください、 **didRegisterForRemoteNotificationsWithDeviceToken** メソッドです。
 
-10. 次のメソッドに既に存在する AppDelegate.m を完了、[開始通知ハブの使用] [入門] のチュートリアルです。  ない場合は、それらを追加します。
+10. 次のメソッドに既に存在する AppDelegate.m が完了しない、 [Notification Hubs を使ってみる][get-started] チュートリアルです。  ない場合は、それらを追加します。
 
         -(void)MessageBox:(NSString *)title message:(NSString *)messageText
         {
@@ -223,14 +223,14 @@
 
 ##(省略可能) タグ付けされた通知の送信
 
-Visual Studio にアクセスできない場合は、次のセクションをスキップし、アプリ自体から通知を送信できます。 [Azure Classic Portal] から、適切なテンプレート通知を送信することもできます。 通知ハブの [デバッグ] タブを使用します。 
+Visual Studio にアクセスできない場合は、次のセクションをスキップし、アプリ自体から通知を送信できます。 適切なテンプレート通知を送信することも、 [Azure Classic Portal] 通知ハブの [デバッグ] タブを使用します。 
 
 [AZURE.INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 
 ##(省略可能) デバイスから通知を送信する
 
-通常、通知はバックエンド サービスによって送信されますが、アプリからニュース速報通知を直接送信できます。 更新し、これを行うには、 `SendNotificationRESTAPI` で定義したメソッド、[開始通知ハブの使用] [入門] のチュートリアルです。
+通常、通知はバックエンド サービスによって送信されますが、アプリからニュース速報通知を直接送信できます。 更新し、これを行うには、 `SendNotificationRESTAPI` で定義したメソッド、 [Notification Hubs を使ってみる][get-started] チュートリアルです。
 
 
 1. ViewController.m の更新プログラムで、 `SendNotificationRESTAPI` メソッドを次のカテゴリのタグのパラメーターを受け取り、適切な送信ように [テンプレート](notification-hubs-templates.md) 通知します。
@@ -337,7 +337,7 @@ Visual Studio にアクセスできない場合は、次のセクションをス
 
 ## 次のステップ
 
-このチュートリアルでは、ニュース速報をカテゴリごとにブロードキャストする方法について説明しました。 他の高度な Notification Hubs シナリオを取り上げている、次のいずれかのチュートリアルを行うことをお勧めします。
+このチュートリアルでは、ニュース速報をカテゴリごとにブロードキャストする方法について説明しました。 他の高度な通知ハブ シナリオを取り上げている、次のいずれかのチュートリアルを行うことをお勧めします。
 
 + **[通知ハブを使用したローカライズ ニュース速報のブロードキャスト]**
 
@@ -368,4 +368,5 @@ Visual Studio にアクセスできない場合は、次のセクションをス
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 [Azure Classic Portal]: https://manage.windowsazure.com
+
 

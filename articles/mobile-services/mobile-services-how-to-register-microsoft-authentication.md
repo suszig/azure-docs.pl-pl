@@ -75,7 +75,7 @@ Windows ストア アプリを最初に Windows デベロッパー センター�
     ![Microsoft アカウント アプリの設定](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth.png)
 
 
-    > [AZURE.NOTE] The client secret is an important security credential. Do not share the client secret with anyone or distribute it with your app. Only Windows Store app registrations will see a Package SID field.
+    > [AZURE.NOTE] クライアント シークレットは、重要なセキュリティ資格情報です。 クライアント シークレットは、他のユーザーと共有したり、アプリケーションで配信したりしないでください。 Windows ストア アプリの登録でのみ、パッケージ SID フィールドが表示されます。
 
 4.  [Azure classic portal], 、] をクリックして、 **Identity** 、パッケージ SID のタブに移動して、モバイル サービスをクライアント ID、クライアント シークレットを入力、id プロバイダーから取得したをクリックし、 **保存**します。
 
@@ -93,4 +93,5 @@ Windows ストア アプリを最初に Windows デベロッパー センター�
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 
 [Azure classic portal]: https://manage.windowsazure.com/
+
 

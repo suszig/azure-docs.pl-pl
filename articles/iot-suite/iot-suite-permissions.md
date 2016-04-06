@@ -128,7 +128,7 @@ Azure 共同管理者、サービス管理者アカウントの管理者の役�
 
 ![][img-flowchart]
 
-**Azure サブスクリプションがあるときにこのエラーを発生する理由ですか。***「構成済みソリューションを作成するには Azure サブスクリプションが必要です。数分で無料試用版のアカウントを作成することができます。」*
+**Azure サブスクリプションがあるのに次のエラーが表示されるのはなぜですか。** *構成済みのソリューションを作成するには、Azure サブスクリプションが必要です。 数分で無料試用版のアカウントを作成することができます。*
 
 Azure サブスクリプションが確かにある場合は、サブスクリプションのテナント マッピングを調べ、ドロップダウンで正しいテナントが選択されていることを確認してください。 目的のテナントが正しいことを確認できた場合は、上の図に従って、サブスクリプションとこの AAD テナントのマッピングを確認してください。
 
@@ -144,4 +144,5 @@ Azure サブスクリプションが確かにある場合は、サブスクリ�
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-wiki-clouddeployment]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Cloud-deployment
+
 

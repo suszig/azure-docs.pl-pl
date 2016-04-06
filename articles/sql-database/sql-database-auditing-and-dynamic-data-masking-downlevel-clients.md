@@ -1,6 +1,6 @@
 <properties 
     pageTitle="SQL データベース ダウンレベル クライアント サポート Auditing|Microsoft Azure" 
-    description="[監査] SQL データベース ダウンレベル クライアントのサポートについて説明します。" 
+    description="SQL Database での監査のためのダウンレベル クライアントのサポートについて説明します。" 
     services="sql-database" 
     documentationCenter="" 
     authors="nadavhelfman" 
@@ -37,5 +37,6 @@ TDS 7.4 を実装するクライアントもリダイレクトをサポートし
 - Tedious (Node.JS 用)
 
 **示されています:** 上のサーバー FDQN 変更の構成が必要ありません (一時的な軽減) の各データベースで SQL サーバー レベル監査ポリシーの適用にも役に立ちます。
+
 
 

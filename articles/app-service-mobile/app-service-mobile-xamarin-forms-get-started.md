@@ -73,7 +73,7 @@ Xamarin.Forms の他のすべての Azure Mobile Apps のチュートリアル�
 
 これをすべて考慮して、先に進みましょう。
 
- 1. Mac または Windows コンピューターでは、ブラウザーのウィンドウで [Azure ポータル] を開きます。
+ 1. Mac または Windows コンピューターで、開く、 [Azure Portal] ブラウザー ウィンドウにします。
  2. モバイル アプリの [設定] ブレードをクリックして **開始** ([携帯電話) > **Xamarin.Forms**します。 手順 3 では、をクリックして  **新しいアプリを作成する** が選択されていない場合。  次へ] をクリックして、 **ダウンロード** ] ボタンをクリックします。
 
     これにより、モバイル アプリに接続されているクライアント アプリケーションが含まれているプロジェクトがダウンロードされます。 圧縮されたプロジェクト ファイルをローカル コンピューターに保存し、保存場所を書き留めておいてください。
@@ -181,3 +181,4 @@ Xamarin.Forms の他のすべての Azure Mobile Apps のチュートリアル�
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [Installing Xamarin.iOS on Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
  
+

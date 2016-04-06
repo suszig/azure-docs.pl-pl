@@ -143,11 +143,12 @@ $scope.logout = function () {
 
 ご利用ありがとうございます。 Azure AD に統合されたシングル ページ アプリが完成しました。  このアプリは、ユーザーの認証処理を行い、OAuth 2.0 を使用してバックエンドを安全に呼び出し、ユーザーについての基本情報を取得することができます。  テナントに一連のユーザーを設定します (設定していない場合)。  To Do List SPA を実行し、それらのユーザーの一人としてサインインします。  タスクをユーザーの To Do List に追加し、サインアウトして、再びサインインします。
 
-adal.js を使用することにより、これらの共通 ID 機能のすべてを容易にアプリケーションに組み込むことができます。  キャッシュ管理、OAuth プロトコル サポート、ログイン UI を使用してのユーザーの提示、有効期限切れとなったトークンの更新など、煩わしい操作を容易に実装できます。
+adal.js を使用することにより、これらの共通 ID 機能のすべてを容易にアプリケーションに組み込むことができます。  キャッシュ管理、OAuth プロトコル サポート、ログイン UI を使用してのユーザーの提示、有効期限切れとなったトークンの更新など、面倒な操作を容易に実装できます。
 
 リファレンスについては、完全なサンプル (構成値) を除くが提供される [ここ](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip)します。  ここからは、さらなるシナリオに進むことができます。  次のチュートリアルを試してみてください。
 
 [SPA から CORS Web API の呼び出し](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
+
 

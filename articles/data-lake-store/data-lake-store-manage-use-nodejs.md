@@ -19,7 +19,7 @@
 # Azure SDK for Node.js を使用して Azure Data Lake Store を管理する
 
 > [AZURE.SELECTOR]
-- [ポータルを使用してください。](data-lake-store-get-started-portal.md)
+- [ポータルの使用](data-lake-store-get-started-portal.md)
 - [PowerShell の使用](data-lake-store-get-started-powershell.md)
 - [.NET SDK の使用](data-lake-store-get-started-net-sdk.md)
 - [Azure CLI の使用](data-lake-store-get-started-cli.md)
@@ -111,5 +111,6 @@ Azure ADK for Node.js を使用して、Azure Data Lake Store アカウントと
 
 - [Azure SDK for Node.js](http://azure.github.io/azure-sdk-for-node/)
 - [Node.js を使用して Azure Data Lake Analytics を管理する](data-lake-analytics-use-nodejs.md)
+
 
 

@@ -53,7 +53,7 @@ Azure ポータルで [ **+ 新規**, [ **Web + モバイル**, 、し、[ **ロ
 ## HTTP トリガーの追加
 1.  **ロジック アプリ テンプレート**, [ **を最初から作成**します。
 1. 選択 **HTTP リスナー** 新しいリスナーを作成するギャラリーからです。 それを呼び出す **HTTP1**します。
-2. 設定、 **応答を自動的に送信?** を false に設定します。 トリガーの動作を設定して構成 _HTTP メソッド_ に _POST_ と設定 _相対 URL_ に _/OneWayPipeline_:  
+2. 設定、 **応答を自動的に送信するか。** false に設定します。 トリガーの動作を設定して構成 _HTTP メソッド_ に _POST_ と設定 _相対 URL_ に _/OneWayPipeline_:  
     ![HTTP トリガー][2]
 3. 緑色のチェックマークをオンにして、トリガーを完了します。
 
@@ -66,7 +66,7 @@ Azure ポータルで [ **+ 新規**, [ **Web + モバイル**, 、し、[ **ロ
 
 これで、検証アクションは、HTTP リスナー後の最初のアクションになります。 
 
-![BizTalk XML Validator][3]
+![BizTalk XML 検証][3]
 
 同様にして、他のアクションも追加します。 
 
@@ -111,7 +111,7 @@ Azure ポータルで [ **+ 新規**, [ **Web + モバイル**, 、し、[ **ロ
 いくつかの役に立つトピック:
 
 [管理し、API Apps とコネクタの監視](app-service-logic-monitor-your-connectors.md)  <br/>
-[ロジック アプリを監視します。](app-service-logic-monitor-your-logic-apps.md)
+[Logic Apps を監視する](app-service-logic-monitor-your-logic-apps.md)
 
 <!--image references -->
 [1]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BasicVETR.PNG
@@ -119,4 +119,5 @@ Azure ポータルで [ **+ 新規**, [ **Web + モバイル**, 、し、[ **ロ
 [3]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkXMLValidator.PNG
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
+
 

@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure クラシック ポータル](vpn-gateway-site-to-site-create.md)
-- [リソース マネージャーの PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 この記事では、仮想ネットワークと、オンプレミスのネットワークに対するサイト間 VPN 接続を作成する手順について説明します。 この記事は、クラシック デプロイ モデルに適用されます。 この構成に対して別のデプロイ モデルを探す場合は、上のタブで必要な記事を選択してください。 同時に、Vnet を接続するには、内部設置型の場所への接続を作成するのでを参照してください。 [VNet に接続を構成する](virtual-networks-configure-vnet-to-vnet-connection.md)です。
 
@@ -99,4 +99,5 @@
 仮想ネットワークに仮想マシンを追加できます。 参照してください [カスタム仮想マシンを作成する方法](../virtual-machines/virtual-machines-create-custom.md)します。
 
 参照してください、従来の仮想ネットワークと Azure リソース マネージャー モードを使用して作成された仮想ネットワーク間の接続を構成する場合 [従来の Vnet を Azure リソース マネージャーの Vnet に接続する](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)です。
+
 

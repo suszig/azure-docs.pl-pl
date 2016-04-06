@@ -57,7 +57,7 @@
 ## アクセス キーとアカウント設定の管理
 アカウントの作成後は、ポータルでアカウントを見つけて、アクセス キー、正規ユーザーなどの設定を管理できます。
 
-URL は、Batch アカウント **Essentials**します。 `https://<account_name>.<region>.batch.azure.com` という形式の URL です。
+URL は、Batch アカウント **Essentials**します。 形式の URL は `https://<account_name>.<region>.batch.azure.com`です。
 
 アクセス キーの表示と管理には、キー アイコンをクリックします。
 
@@ -83,4 +83,5 @@ URL は、Batch アカウント **Essentials**します。 `https://<account_nam
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace_batch.PNG
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
+
 

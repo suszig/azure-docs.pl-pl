@@ -73,7 +73,7 @@ Bime のシングル サインオンを構成するには、証明書からサ�
 
 1.  Azure AD ポータルでの **Bime** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-bime-tutorial/IC771709.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-bime-tutorial/IC771709.png "Configure single sign-on")
 
 2.   **どのようなユーザー Bime にサインオンする** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 
@@ -151,4 +151,5 @@ Bime の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-bime-tutorial/IC767830.png "Yes")
 
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+
 

@@ -35,7 +35,7 @@
 
 ## docker マシンを取得またはビルドする
 
-開始する最も簡単な方法 **docker マシン** から直接該当のリリースをダウンロードするには、 [リリース共有](https://github.com/docker/machine/releases)します。 このチュートリアルでは、クライアント コンピューターは、x64 で Ubuntu を実行していたコンピューター、ため、 **docker machine_linux-amd64** イメージを使用します。
+開始する最も簡単な方法 **docker マシン** から直接該当のリリースをダウンロードするには、 [リリース共有](https://github.com/docker/machine/releases)します。 このチュートリアルでは、クライアント コンピューターが、x64 で Ubuntu を実行して、コンピューターのため、 **docker machine_linux-amd64** イメージを使用します。
 
 ビルドすることも、 **docker マシン** 次の手順に従って、自分で [マシンに貢献して](https://github.com/docker/machine#contributing)します。 ビルドには 1 GB 以上の空き容量が必要になりますが、これでご希望の環境を自由にビルドできるようになります。
 
@@ -64,13 +64,13 @@ Linux ディストリビューションの使用経験がある場合は、既�
 
 2. 証明書の .cer ファイルを Azure にアップロードします。  [Azure クラシック ポータル](https://manage.windowsazure.com), 、クリックして **設定** 下図のとおりサービス エリアの左下にあります。
 
-    ![portalsettingsitem]
+    ![][portalsettingsitem]
 
     クリックして **管理証明書**:
 
-    ![managementcertificatesitem]
+    ![][managementcertificatesitem]
 
-     **アップロード** (ページの下部)!アップロードするには、[uploaditem]、 **mycert.cer** 前の手順で作成したファイルです。
+     **アップロード** (ページの下部) ![][uploaditem] をアップロードする、 **mycert.cer** 前の手順で作成したファイルです。
 
 3. 同じ **設定** ポータルで、ウィンドウをクリックします **サブスクリプション** し、次の手順で使用するために、VM を作成するときに使用するサブスクリプション ID をキャプチャします。 (サブスクリプション ID はコマンドラインで Azure CLI コマンド `azure account list` を使っても確認できます。アカウントに保持している各サブスクリプションの ID が表示されます)。
 
@@ -197,11 +197,11 @@ Docker でコンテナーのポート 80 が VM のポート 49153 に割り当�
 
 任意のブラウザーを使ってご確認ください。
 
-![nginx]
+![][nginx]
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-##次のステップ
-移動して、 [Docker user guide](https://docs.docker.com/userguide/) し、Microsoft Azure で一部のアプリケーションを作成します。 または、遊んで [**docker** と swarm](https://github.com/docker/swarm) Azure](virtual-machines-docker-swarm) と docker と Azure での swarm の使用方法を参照してください。
+## 次のステップ
+移動して、 [Docker ユーザー ガイド](https://docs.docker.com/userguide/) し、Microsoft Azure で一部のアプリケーションを作成します。 または、遊んで [**docker** と swarm](https://github.com/docker/swarm) Azure](virtual-machines-docker-swarm) と docker と Azure での swarm の使用方法を参照してください。
 
 <!--Image references-->
 [nginx]: ./media/virtual-machines-docker-machine/nginxondocker.png
@@ -213,4 +213,5 @@ Docker でコンテナーのポート 80 が VM のポート 49153 に割り当�
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
+
 

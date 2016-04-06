@@ -83,11 +83,11 @@ Azure サブスクリプションがないをクリックするだけ **無料�
 
 6. 提供、 **リダイレクト URI**します。 実際のエンドポイントである必要はありませんが、有効な URI である必要があります。
 
-    ![アプリケーションの追加][8]
+    ![Add application][8]
 
 7. アプリの作成 [完了] をクリックして **構成**, 、コピー、 **クライアント ID** (クライアント id は、コードでは必要されます)。
 
-    ![クライアント id を取得][9]
+    ![クライアント ID の取得][9]
 
 
 1. ページの下部にあるをクリックして **アプリケーション追加**します。
@@ -108,7 +108,7 @@ Azure サブスクリプションがないをクリックするだけ **無料�
 1. 移動して、 [Azure ポータル](https://portal.azure.com)します。
 2. 右上隅の自分の名前にマウスを合わせ、ポップアップ ウィンドウに表示されるドメインをメモしてください。
 
-    ![特定のドメイン名][3]
+    ![ドメイン名の指定][3]
 
 
 
@@ -798,4 +798,5 @@ SQL Database はサーバーに格納されます。 サーバー名がすでに
 [7]: ./media/sql-database-client-library/add-application.png
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
+
 

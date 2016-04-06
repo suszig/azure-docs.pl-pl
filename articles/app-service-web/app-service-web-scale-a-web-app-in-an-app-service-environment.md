@@ -18,9 +18,9 @@
 
 # App Service 環境内でのアプリのスケーリング #
 
-大まかに言うと、App Service 環境は基本的に Azure App Service の VNET への個人的なデプロイメントであり、サブスクリプションでのみ管理できます。 App Service 環境は VNET 内に配置されるため、新しいネットワーク機能を提供し、さらに Azure App Service 環境で通常提供されるレベル以上の拡張性を提供します。  詳細については、どのようなアプリ サービス Environment(ASE) 周囲必要がある場合は、[App Service 環境は] を参照してください [WhatisASE] です。  App Service 環境を作成または App Service 環境で web アプリの作成に関する詳細な情報は、[App Service 環境を作成する方法] を参照してください [HowtoCreateASE] と [App Service 環境で web アプリを作成する方法] [CreateWebappinASE]
+大まかに言うと、App Service 環境は基本的に Azure App Service の VNET への個人的なデプロイメントであり、サブスクリプションでのみ管理できます。 App Service 環境は VNET 内に配置されるため、新しいネットワーク機能を提供し、さらに Azure App Service 環境で通常提供されるレベル以上の拡張性を提供します。  詳細については、アプリ サービス Environment(ASE) は、ページを参照する必要があるかどうか [App Service 環境は、どのような][WhatisASE]です。  App Service 環境を作成または App Service 環境で web アプリの作成に関する詳細な情報を参照してください [App Service 環境を作成する方法][HowtoCreateASE] と [App Service 環境で web アプリを作成する方法][CreateWebappinASE]
 
-通常、Azure App Service で Web アプリ、モバイル アプリ、または API アプリのスケール属性を変更する場合は、App Service プラン (ASP) のレベルで変更が加えられることに注意してください。  App Service プランのスケーリングや App Service 環境外部の App Service プランの詳細についてのみ詳細は、[Azure App Service で web アプリの拡張] を参照してください [ScaleWebapp] と [App Service プランの詳細] [Appserviceplans] です。
+通常、Azure App Service で Web アプリ、モバイル アプリ、または API アプリのスケール属性を変更する場合は、App Service プラン (ASP) のレベルで変更が加えられることに注意してください。  App Service プランのスケーリングや App Service 環境外部の App Service プランの詳細についてのみ詳細を参照してください [Azure App Service で web アプリのスケール][ScaleWebapp] と [アプリ サービス プランの詳細][Appserviceplans]します。
 
 App Service 環境でアプリをスケーリングする方法は、アプリをスケーリングする通常の方法とよく似ています。  Azure App Service では、通常、次の 3 つの項目をスケーリングできます。
 
@@ -30,12 +30,12 @@ App Service 環境でアプリをスケーリングする方法は、アプリ�
 
 ASE では、料金プランを選択または変更する必要はありません。  機能に関しては、既に Premium 料金機能レベルにあります。  App Service 環境においても、共有ワーカーは存在しません。  すべて専用ワーカーです。  
 
-ワーカー サイズについては、ASE 管理者が各ワーカー プールに使用するコンピューティング リソースのサイズを割り当てることができます。  つまり、必要に応じて、ワーカー プール 1 に P4 コンピューティング リソースを割り当て、ワーカー プール 2 に P1 コンピューティング リソースを割り当てることができます。  サイズの順に従う必要はありません。  サイズとその料金設定の詳細については、[Azure App Service の料金] [AppServicePricing] ここにドキュメントを参照してください。  結果として、App Service 環境内の Web アプリおよび App Service プランに対しては、次のスケーリング オプションが残されます。
+ワーカー サイズについては、ASE 管理者が各ワーカー プールに使用するコンピューティング リソースのサイズを割り当てることができます。  つまり、必要に応じて、ワーカー プール 1 に P4 コンピューティング リソースを割り当て、ワーカー プール 2 に P1 コンピューティング リソースを割り当てることができます。  サイズの順に従う必要はありません。  サイズとその料金設定の詳細については、こちらのドキュメントを参照してください。 [Azure App Service の料金][AppServicePricing]します。  結果として、App Service 環境内の Web アプリおよび App Service プランに対しては、次のスケーリング オプションが残されます。
 
 - ワーカー プールの選択
 - インスタンスの数
 
-どちらの項目も、ASE でホストされる App Service プランに対して表示される適切な UI を使用して変更できます。  ASP が属しているワーカー プールで利用可能なコンピューティング リソースの数を超えて ASP をスケールアップすることはできません。  より多くのコンピューティング リソースが必要な場合は、ASE 管理者に依頼して、必要な量のコンピューティング リソースをワーカー プールに割り当ててもらう必要があります。  ASE を再構成するについては、ここにある情報を参照します。 [App Service 環境を構成する方法] [HowtoConfigureASE] です。  また、ASE の自動スケール機能を利用することで、スケジュールまたはメトリックに基づいて容量を追加することができます。  ASE 用の自動スケールの構成の詳細を表示するは、環境自体は、[App Service 環境の自動スケールを構成する方法] を参照してください。 [ASEAutoscale] です。
+どちらの項目も、ASE でホストされる App Service プランに対して表示される適切な UI を使用して変更できます。  ASP が属しているワーカー プールで利用可能なコンピューティング リソースの数を超えて ASP をスケールアップすることはできません。  より多くのコンピューティング リソースが必要な場合は、ASE 管理者に依頼して、必要な量のコンピューティング リソースをワーカー プールに割り当ててもらう必要があります。  ASE を再構成するについては、ここにある情報を参照: [を App Service 環境を構成する方法][HowtoConfigureASE]します。  また、ASE の自動スケール機能を利用することで、スケジュールまたはメトリックに基づいて容量を追加することができます。  構成の詳細については、ASE 環境自体の自動スケールを参照してください [App Service 環境の自動スケールを構成する方法][ASEAutoscale]します。
 
 ![][1]
 
@@ -47,7 +47,7 @@ ASE に十分な容量がある場合、この操作は非常に単純です。 
 
 ![][2] 
 
-ASE の ASP 用の自動スケール ルールは、通常と同じように機能します。  選択することができます ***CPU 使用率の*** [ ***して拡大縮小*** または CPU の割合に基づく、ASP を使用して複雑な規則を自動スケール ルールを作成および ***スケジュールおよびパフォーマンス ルール***します。  自動スケールを構成のより完全な詳細を表示するには、ガイドをここで [Azure App Service でのアプリをスケール] を使用して [AppScale] です。 
+ASE の ASP 用の自動スケール ルールは、通常と同じように機能します。  選択することができます ***CPU 使用率の*** [ ***して拡大縮小*** または CPU の割合に基づく、ASP を使用して複雑な規則を自動スケール ルールを作成および ***スケジュールおよびパフォーマンス ルール***します。  構成に関するより完全な詳細を表示する自動スケール ガイドを使用して、ここで [Azure App Service でのアプリケーションのスケーリング][AppScale]します。 
 
 
 ### ワーカー プールの選択 ###
@@ -62,9 +62,9 @@ ASE の ASP 用の自動スケール ルールは、通常と同じように機�
 
 ## 使用の開始
 
-App Service 環境の使用開始 [An App Service 環境の作成方法] [HowtoCreateASE] を参照してください。
+App Service 環境で開始するを参照してください [An App Service 環境の作成方法。][HowtoCreateASE]
 
-Azure App Service プラットフォームの詳細については、[Azure App Service] [AzureAppService] を参照してください。
+Azure App Service プラットフォームの詳細については、次を参照してください。 [Azure App Service][AzureAppService]します。
 
 <!--Image references-->
 [1]: ./media/app-service-web-scale-a-web-app-in-an-app-service-environment/aseappscale-aspblade.png
@@ -82,4 +82,5 @@ Azure App Service プラットフォームの詳細については、[Azure App 
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [AppScale]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
+
 

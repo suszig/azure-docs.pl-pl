@@ -16,14 +16,14 @@
     ms.date="09/01/2015" 
     ms.author="fashah;garye" /> 
 
-#<a name="heading"></a>Azure の SQL Server Virtual Machine でデータを処理する
+#<a name="heading">Azure の SQL Server Virtual Machine でデータを処理する</a>
 
 このドキュメントでは、Azure の SQL Server VM に格納されたデータに対するデータの探索と特徴の生成について説明します。 これは、SQL を使用してデータを処理するか、Python などのプログラミング言語を使用して実行できます。
 
 
 > [AZURE.NOTE] このドキュメントのサンプル SQL ステートメントでは、データが SQL Server であると仮定します。 存在しない場合は、クラウド データ サイエンス プロセス マップを参照して、SQL Server へデータを移動する方法を確認してください。
 
-##<a name="SQL"></a>SQL を使用する
+##<a name="SQL"></a>SQL の使用
 
 このセクションでは、SQL を使用した次のデータ処理タスクについて説明します。
 
@@ -118,13 +118,13 @@ SQL Server のデータ ストアの探索に使用できるいくつかのサ�
 
 > [AZURE.TIP] 別の方法としては、データベースを使用して、データを挿入する [BCP ユーティリティ](https://msdn.microsoft.com/library/ms162802.aspx)
 
-###<a name="sql-aml"></a>Azure Machine Learning に接続する
+###<a name="sql-aml"></a>Azure Machine Learning への接続
 
-新しく生成された特徴は、既存のテーブルに列として追加するか、新しいテーブルに格納して機械学習の元のテーブルと結合することができます。 機能を生成または次に示すように、Azure ML で [リーダー] [リーダー] モジュールを使用して、すでに作成した場合にアクセスできます。
+新しく生成された特徴は、既存のテーブルに列として追加するか、新しいテーブルに格納して機械学習の元のテーブルと結合することができます。 機能を生成またはを使用して、すでに作成した場合のアクセス、 [リーダー][reader] 次のように、Azure ml モジュール。
 
 ![Azure ML リーダー][1] 
 
-##<a name="python"></a>Python などのプログラミング言語を使用する
+##<a name="python"></a>Python などのプログラミング言語の使用
 
 説明に従って、Python を使用して Azure blob でデータの処理と似ています Python を使用してデータを探索し、データが SQL Server の特徴を生成する [Azure Blob データを処理するデータ サイエンス環境で](machine-learning-data-science-process-data-blob.md)します。 データは、データベースから pandas データ フレームに読み込む必要があります。その後、さらに処理することができます。 このセクションでは、データベースに接続して、データ フレームにデータを読み込むプロセスについて記載します。
 
@@ -151,3 +151,4 @@ SQL Server のデータ ストアの探索に使用できるいくつかのサ�
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
+

@@ -31,8 +31,8 @@
   ![図][img-pubportal-sol-templ-new]
 
 ### 3.最初にトポロジを作成する
-ソリューション テンプレートは、作成したすべてのトポロジの 「親」 となります。 1 つのプランまたはソリューション テンプレートでは、複数のトポロジを定義できます。 プランをステージングにプッシュすると、すべてのトポロジも一緒にプッシュされます。 プランを定義するのには、次の手順に従います。     
-- トポロジを作成します。"トポロジ識別子"は、通常、トポロジのソリューション テンプレートの名前。 トポロジ識別子は、次に示すように URL で使用されます。
+ソリューション テンプレートは、作成したすべてのトポロジの 「親」 となります。 1 つのプランまたはソリューション テンプレートでは、複数のトポロジを定義できます。 プランをステージングにプッシュすると、すべてのトポロジも一緒にプッシュされます。 次の手順に従ってプランを定義します。     
+- トポロジの作成: 通常、"トポロジ識別子" はソリューション テンプレートのトポロジ名です。 トポロジ識別子は、次に示すように URL で使用されます。
 
   Azure Marketplace。
 http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier} {TopologyIdentifier}
@@ -43,9 +43,9 @@ https://ms.portal.azure.com/#gallery/{PublisherNamespace} します。{OfferIden
 - 新しいバージョンを追加します。
 
 ### 4.トポロジのバージョンの認定を受ける
-トポロジの特定バージョンをプロビジョニングするために必要な、すべてのファイルを含む zip ファイルをアップロードします。 この zip ファイルを次に含める必要があります。
+トポロジの特定バージョンをプロビジョニングするために必要な、すべてのファイルを含む zip ファイルをアップロードします。 この zip ファイルには、次のファイルを含める必要があります。
 - *mainTemplate.json* と *createUiDefinition.json* のルート ディレクトリにあるファイルです。
-- 任意のリンクされたテンプレートおよび必要なすべてのスクリプトを使用して。
+- リンクされたテンプレートと必要なすべてのスクリプト。
 
 Zip ファイルをアップロードすると、次のようにクリックします。 **証明書の要求**します。 Microsoft の認定チームがファイルを確認し、トポロジを認定します。
 
@@ -78,4 +78,5 @@ Zip ファイルをアップロードすると、次のようにクリックし�
 [img-pubportal-sol-templ-new]:media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
 [link-acct-creation]:marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]:https://publish.windowsazure.com
+
 

@@ -40,7 +40,7 @@ Azure Redis Cache は、キャッシュ サイズや機能の選択に柔軟性�
 
 クリックすることも、 **Standard レベル** または **Basic レベル** 部、 **Redis Cache** ブレードです。
 
-![価格レベル][redis キャッシュの料金の層-部]
+![[価格レベル]][redis-cache-pricing-tier-part]
 
 希望の価格レベルを選択して、 **価格レベル** ブレードをクリック **選択**します。
 
@@ -159,6 +159,7 @@ Standard および Premium キャッシュには可用性について 99.9% の 
 [redis-cache-pricing-tier-blade]: ./media/cache-how-to-scale/redis-cache-pricing-tier-blade.png
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
+
 
 
 

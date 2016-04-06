@@ -409,7 +409,7 @@ Web サーバーとクライアント アプリケーションが関与する環
     {"OrderID":2,"ProductID":4,"Quantity":2,"OrderValue":10.00}
     ```
 
-    この例ではキャッシュ制御ヘッダー 600 秒後に期限切れにするデータが返されることを指定しは 1 つのクライアントにのみ適してと他のクライアントが使用する共有キャッシュに格納する必要がありません (これは、 _プライベート_)。 キャッシュ制御ヘッダーを指定できます _パブリック_ なく _プライベート_ 場合、データは、共有キャッシュに格納できるや指定可能性があります _いいえストア_ その場合、データが必要があります **いない** クライアントによってキャッシュされます。 次のコード例は、応答メッセージの Cache-Control ヘッダーを作成する方法を示しています。
+    この例では、Cache-control ヘッダー 600 秒後に期限切れにするデータが返されることを指定は 1 つのクライアントにのみ適してと他のクライアントが使用する共有キャッシュに格納する必要がありません (これは、 _プライベート_)。 キャッシュ制御ヘッダーを指定できます _パブリック_ なく _プライベート_ 場合、データは、共有キャッシュに格納できるや指定可能性があります _いいえストア_ その場合、データが必要があります **いない** クライアントによってキャッシュされます。 次のコード例は、応答メッセージの Cache-Control ヘッダーを作成する方法を示しています。
 
     ```C#
     public class OrdersController : ApiController
@@ -1132,7 +1132,7 @@ API Management サービスを使用して Web API を公開した場合、Micro
 ## 関連するパターン
 -  [ファサード](http://en.wikipedia.org/wiki/Facade_pattern) パターンは、web API にインターフェイスを提供する方法を説明します。
 
-## 詳細情報
+## 詳細
 - ページ [ASP.NET Web API について学習](http://www.asp.net/web-api) 、microsoft web サイトが Web API を使用して RESTful web サービスを構築する詳細な概要を提供します。
 - ページ [ASP.NET Web API におけるルーティング](http://www.asp.net/web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api) 、microsoft web サイトは ASP.NET Web API フレームワークで規約ベースのルーティングのしくみについて説明します。
 - 属性ベースのルーティングの詳細については、ページを参照してください。 [Web API 2 における属性のルーティング](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2) 、Microsoft web サイトです。
@@ -1151,4 +1151,5 @@ API Management サービスを使用して Web API を公開した場合、Micro
 -  [Application Insights - アプリケーションの正常性と利用状況の監視を開始する](app-insights-start-monitoring-app-health-usage.md) 、Microsoft web サイト] ページでは、詳細な情報を提供をインストールすると、ASP.NET Web API プロジェクトで Application Insights を構成します。
 - ページ [単体テストを使用したコードの検証](https://msdn.microsoft.com/library/dd264975.aspx) 、microsoft web サイトを作成して、Visual Studio を使用した単体テストの管理に関する詳細情報を提供します。
 - ページ [リリース前に、のアプリケーションでパフォーマンス テストの実行](https://msdn.microsoft.com/library/dn250793.aspx) 、microsoft web サイトが web パフォーマンスを作成して、ロード テストのプロジェクトを Visual Studio Ultimate を使用する方法を説明します。
+
 

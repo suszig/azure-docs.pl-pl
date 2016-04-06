@@ -135,9 +135,10 @@ VHD は、米国内のリージョンのストレージ アカウントにアッ
 
 ### Mac と Linux 用のコマンドライン ツールを使用した VHD のアップロード
  [Linux コマンド ライン ツール](../virtual-machines/command-line-tools/), 、以下を使用します。
-        azure vm イメージを作成 <image name> -場所 <Location of the data center> --OS Linux <LocationOfLocalVHD>
+        azure vm イメージを作成します。 <image name> -場所 <Location of the data center> -OS Linux <LocationOfLocalVHD>
 
 ## 関連項目
 - [Marketplace 向けの仮想マシン イメージの作成](marketplace-publishing-vm-image-creation.md)
 - [Azure PowerShell の設定](marketplace-publishing-powershell-setup.md)
+
 

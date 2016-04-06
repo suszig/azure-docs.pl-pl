@@ -18,7 +18,7 @@
 # Azure での StorSimple 仮想デバイスのデプロイと管理 (Update 2)
 
 > [AZURE.SELECTOR]
-- [更新プログラム 2](../articles/storsimple/storsimple-virtual-device-u2.md)
+- [Update 2](../articles/storsimple/storsimple-virtual-device-u2.md)
 - [Update 1](../articles/storsimple/storsimple-virtual-device-u1.md)
 - [GA リリース](../articles/storsimple/storsimple-virtual-device.md)
 
@@ -38,7 +38,7 @@ StorSimple 仮想デバイスは、2 つのモデルで利用可能です。1 �
 | **Azure VM**              | Standard_A3 (4 コア、7 GB メモリ)                                                                      | Standard_DS3 (4 コア、14 GB メモリ)                                                                                                                          |
 | **バージョン互換性** | Update 2 より前または Update 2 以降を実行しているバージョン                                             | Update 2 以降を実行しているバージョン                                                                                                  |
 | **利用可能なリージョン**   | すべての Azure リージョン                                                         | Premium Storage をサポートしている azure リージョン<br></br>現在 Premium Storage をサポートしているリージョンの一覧は、次を参照してください [地域別の Azure サービス。](https://azure.microsoft.com/regions/#services) |
-| **ストレージの種類**          | Azure Standard Storage を使用して<br></br> 学習方法 [標準ストレージ アカウントの作成]() | Azure Premium Storage を使用して<br></br>学習方法 [Premium Storage アカウントを作成します。](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)                                                               |
+| **ストレージの種類**          | Azure の標準的なストレージを使用します。<br></br> 学習方法 [標準ストレージ アカウントの作成]() | Azure Premium Storage を使用します。<br></br>学習方法 [Premium Storage アカウントを作成します。](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)                                                               |
 | **ワークロードのガイダンス**     | バックアップからファイルを項目レベルで取得                                              | クラウドの開発およびテスト シナリオ、低待機時間、高パフォーマンス ワークロード <br></br>災害復旧のためのセカンダリ デバイス                                                                                            |
  
 <sup>1</sup> *1100年呼ばれていた*, 、<sup>2</sup> *A Azure フォーム ファクターの略*, 、<sup>3</sup> *AP は Azure Premium フォーム ファクターを表します。*
@@ -259,5 +259,6 @@ StorSimple 物理デバイスとは異なり、StorSimple 仮想デバイスに�
 - 学習方法 [StorSimple Manager サービスを使用して、仮想デバイスを管理する](storsimple-manager-service-administration.md)です。
  
 - 理解する方法 [バックアップ セットから StorSimple ボリュームの復元](storsimple-restore-from-backup-set.md)します。 
+
 
 

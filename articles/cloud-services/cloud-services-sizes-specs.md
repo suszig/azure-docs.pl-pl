@@ -51,16 +51,16 @@ Azure Virtual Machines と Cloud Services は、Azure が提供する数種類�
 |---|---|---|---|
 |ExtraSmall|1|768 MB|OS = ゲスト OS のサイズ<br/>ローカル リソース = 15384 MB<br/>アプリ = 約 1.5 GB|
 |Small|1|1.75 GB|OS = ゲスト OS のサイズ<br/>ローカル リソース = 225304 MB<br/>アプリ = 約 1.5 GB|
-|Medium|2|3.5 GB|OS = ゲスト OS のサイズ<br/>ローカル リソース = 496664 MB<br/>アプリ = 約 1.5 GB|
+|中|2|3.5 GB|OS = ゲスト OS のサイズ<br/>ローカル リソース = 496664 MB<br/>アプリ = 約 1.5 GB|
 |Large|4|7 GB|OS = ゲスト OS のサイズ<br/>ローカル リソース = 1018904 MB<br/>アプリ = 約 1.5 GB|
 |ExtraLarge|8|14 GB|OS = ゲスト OS のサイズ<br/>ローカル リソース = 2083864 MB<br/>アプリ = 約 1.5 GB|
 |A5|2|14 GB|OS = ゲスト OS のサイズ<br/>ローカル リソース = 496664 MB<br/>アプリ = 約 1.5 GB|
 |A6|4|28 GB|OS = ゲスト OS のサイズ<br/>ローカル リソース = 1018904 MB<br/>アプリ = 約 1.5 GB|
 |A7|8|56 GB|OS = ゲスト OS のサイズ<br/>ローカル リソース = 2083864 MB<br/>アプリ = 約 1.5 GB
-|A8|8|56 GB|OS = ゲスト OS のサイズ<br/>ローカル リソース = 1856172 MB<br/>アプリ = 約 1.5 GB<blockquote> 注: このサイズの使用に関する考慮事項とについてを参照してください。 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8、A9、A10、A11 コンピューティング集中型インスタンスについて</a>.</blockquote>|
-|A9|16|112 GB|OS = ゲスト OS のサイズ<br/>ローカル リソース = 1856172 MB<br/>アプリ = 約 1.5 GB<blockquote> 注: このサイズの使用に関する考慮事項とについてを参照してください。 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8、A9、A10、A11 コンピューティング集中型インスタンスについて</a>.</blockquote>|
-|A10|8|56 GB|OS = ゲスト OS のサイズ<br/>ローカル リソース = 1856172 MB<br/>アプリ = 約 1.5 GB<blockquote> 注: このサイズの使用に関する考慮事項とについてを参照してください。 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8、A9、A10、A11 コンピューティング集中型インスタンスについて</a>.</blockquote>|
-|A11|16|112 GB|OS = ゲスト OS のサイズ<br/>ローカル リソース = 1856172 MB<br/>アプリ = 約 1.5 GB<blockquote> 注: このサイズの使用に関する考慮事項とについてを参照してください。 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8、A9、A10、A11 コンピューティング集中型インスタンスについて</a>.</blockquote>|
+|A8|8|56 GB|OS = ゲスト OS のサイズ<br/>ローカル リソース = 1856172 MB<br/>アプリ = 約 1.5 GB<blockquote> 注: このサイズの使用に関する考慮事項とについてを参照してください <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8、A9、A10、A11 コンピューティング集中型インスタンスおよび</a>です。</blockquote>|
+|A9|16|112 GB|OS = ゲスト OS のサイズ<br/>ローカル リソース = 1856172 MB<br/>アプリ = 約 1.5 GB<blockquote> 注: このサイズの使用に関する考慮事項とについてを参照してください <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8、A9、A10、A11 コンピューティング集中型インスタンスおよび</a>です。</blockquote>|
+|A10|8|56 GB|OS = ゲスト OS のサイズ<br/>ローカル リソース = 1856172 MB<br/>アプリ = 約 1.5 GB<blockquote> 注: このサイズの使用に関する考慮事項とについてを参照してください <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8、A9、A10、A11 コンピューティング集中型インスタンスおよび</a>です。</blockquote>|
+|A11|16|112 GB|OS = ゲスト OS のサイズ<br/>ローカル リソース = 1856172 MB<br/>アプリ = 約 1.5 GB<blockquote> 注: このサイズの使用に関する考慮事項とについてを参照してください <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8、A9、A10、A11 コンピューティング集中型インスタンスおよび</a>です。</blockquote>|
 |Standard_D1|1|3.5 GB|OS = ゲスト OS のサイズ<br/>ローカル リソース = 46104 MB<br/>アプリ = 約 1.5 GB|
 |Standard_D2|2|7 GB|OS = ゲスト OS のサイズ<br/>ローカル リソース = 97304 MB<br/>アプリ = 約 1.5 GB|
 |Standard_D3|4|14 GB|OS = ゲスト OS のサイズ<br/>ローカル リソース = 199704 MB<br/>アプリ = 約 1.5 GB|
@@ -93,4 +93,5 @@ Web ロール インスタンスのロール サイズを Small に設定する�
 ## 次のステップ
 
 [Azure のクラウド サービスのセットアップ](https://msdn.microsoft.com/library/hh124108)  
+
 

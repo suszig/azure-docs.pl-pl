@@ -27,7 +27,7 @@
 
 Azure は、物理コンピューター ハードウェアをエミュレートした仮想マシンを利用して、ソフトウェア デプロイメントの移動を迅速化し、物理ハードウェアよりも格段に効率的なリソース統合を可能にするすばらしいクラウド ソリューションです。 過去数年で主に感謝、 [Docker](https://www.docker.com) コンテナー アプローチと docker エコシステムが業界では、Linux コンテナー テクノロジは大幅のあり方を開発および配布されたソフトウェアを管理することができます。 コンテナー内のアプリケーション コードは、ホストの Azure VM からだけでなく、同じ VM 上にあるその他のコンテナーからも分離されるため、Azure VM がもたらす開発やデプロイメントのアジリティをアプリケーション レベルでさらに高めることにつながります。
 
-**これはもはやニュースです。** *新しい* ニュースがメリットを Azure で、さらに多くの Docker 適合度。
+**これはもはやニュースです。**  *新しい* ニュースがメリットを Azure で、さらに多くの Docker 適合度。
 
 - [多く](virtual-machines-docker-with-xplat-cli-install.md) [異なる](virtual-machines-docker-with-portal.md) [方法](virtual-machines-docker-ubuntu-quickstart.md) に [Docker ホストを作成](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) 状況に応じて、コンテナーの
 - [Azure リソース マネージャー](resource-group-overview.md) と [リソース グループ テンプレート](resource-group-authoring-templates.md) を展開して、複雑な分散アプリケーションの更新を簡略化するには
@@ -63,7 +63,7 @@ Windows コンテナーは、Linux コンテナーと同じメリットを Windo
 
 ## コンテナーのメリット
 
-のに多くの点でたいへん役立ちますが、奨励 & mdash; のように [Azure Cloud Services](http://azure.microsoft.com/services/cloud-services/) と [Azure Service Fabric](service-fabric-overview.md)& mdash; 単一サービスの [マイクロ サービス] の作成-指向の分散アプリケーション、アプリケーションの設計は、ベースより大規模で結合された以降はよほどのコンポーネントではなく、小さな、構成可能なその他のパーツです。 
+のに多くの点でたいへん役立ちますが、奨励 & mdash; のように [Azure Cloud Services](http://azure.microsoft.com/services/cloud-services/) と [Azure Service Fabric](service-fabric-overview.md)& mdash; 単一サービスの作成 [microservice]-指向の分散アプリケーション、アプリケーションの設計は、ベースより大規模で結合された以降はよほどのコンポーネントではなく、小さな、構成可能なその他のパーツです。 
 
 これは、必要な場所に必要なタイミングで VM をレンタルできる、Azure のようなパブリック クラウド環境においては特に有効です。 分離性を確保し、デプロイメントを迅速化し、便利なオーケストレーション ツールを活用できるだけでなく、アプリケーション インフラストラクチャをより効率的に管理することができます。 
 
@@ -148,7 +148,7 @@ Docker は、独自の VM 作成ツールのセット ([docker マシン](virtua
 
 [CoreOS](virtual-machines-linux-coreos-how-to.md), 、最適なフット プリントと Docker サポート、および独自のコンテナー システムでの Linux ディストリビューションと呼ばれる [rkt](https://github.com/coreos/rkt), 、というコンテナー グループの管理ツールも備えて [fleet](virtual-machines-linux-coreos-fleet-get-started.md)します。 
 
-Ubuntu、もう 1 つの非常にポピュラーな Linux ディストリビューションが非常にうまく Docker のサポートもサポートされています [Linux (LXC スタイル) クラスター](https://help.ubuntu.com/lts/serverguide/lxc.html)します。 
+Ubuntu の場合他の非常にポピュラーな Linux ディストリビューションが非常にうまく Docker のサポートもサポートされています [Linux (LXC スタイル) クラスター](https://help.ubuntu.com/lts/serverguide/lxc.html)します。 
 
 ## Azure VM とコンテナーを操作するためのツール
 
@@ -239,4 +239,5 @@ Linux ディストリビューションと Azure での導入例:
 [microservices]: http://martinfowler.com/articles/microservices.html
 [microservice]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
+
 

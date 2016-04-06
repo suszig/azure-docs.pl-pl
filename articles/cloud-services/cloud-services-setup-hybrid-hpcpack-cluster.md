@@ -149,7 +149,7 @@ HPC クラスター マネージャーを使用して Azure ノードをデプ�
 
     ![トポロジ 5][config_hpc3]
 
-    >[AZURE.NOTE]これは、ヘッド ノードでは、Active Directory とインターネットに接続するための 1 つのネットワーク アダプターのみが必要であるために、デモンストレーションを目的として、最もシンプルな構成です。 このチュートリアルでは、追加のネットワークを必要とするクラスター シナリオは扱いません。
+    >[AZURE.NOTE]これは、ヘッド ノードには、Active Directory とインターネットに接続するための単一のネットワーク アダプターのみ必要があるために、デモンストレーションを目的として、最もシンプルな構成です。 このチュートリアルでは、追加のネットワークを必要とするクラスター シナリオは扱いません。
 
 4. をクリックして **次** ウィザードの残りのページの既定の設定のままにします。 次に、 **レビュー** ] タブ、[ **構成** ネットワーク構成を完了します。
 
@@ -179,7 +179,7 @@ HPC クラスター マネージャーを使用して Azure ノードをデプ�
 
     b. クリックして **次** を既定のテンプレート名を受け入れるようにします。
 
-    c.  **サブスクリプション情報の入力** ] ページで、Azure サブスクリプション ID を入力してください (azure <a href="[https://account.windowsazure.com/Subscriptions">アカウント情報</a>)。 その後、[ **管理証明書**, 、] をクリックして **参照** 選択 **既定の HPC Azure 管理します。**クリックして **次**します。
+    c.  **サブスクリプション情報の入力** ] ページで、Azure サブスクリプション ID を入力してください (azure <a href="[https://account.windowsazure.com/Subscriptions">アカウント情報</a>)。 その後、[ **管理証明書**, 、] をクリックして **参照** 選択 **既定の HPC Azure 管理します。** クリックして **次**します。
 
     ![ノード テンプレート][config_hpc12]
 
@@ -347,4 +347,5 @@ HPC Pack を使用する **clusrun** コマンドを 1 つまたは複数のク�
 [stop_node2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node2.png
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
+
 

@@ -265,7 +265,7 @@ bigint | int8 | Int64
 bigserial | serial8 | Int64
 bit [ (n) ] |  | Byte[]、文字列
 bit varying [ (n) ] | varbit | Byte[]、文字列
-ブール値 | bool | Boolean
+boolean | bool | Boolean
 box |  | Byte[]、文字列
 bytea |  | Byte[]、文字列
 character [ (n) ] | char [ (n) ] | String
@@ -305,4 +305,5 @@ text | | String
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
+
 

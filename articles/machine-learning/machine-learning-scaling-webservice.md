@@ -27,7 +27,7 @@
 
 同時実行性を向上させるのを参照してください。 [API エンドポイントのスケーリング](machine-learning-scaling-endpoints.md)します。
 
-   ![機械学習、エンドポイントのスケーリングします。][1]
+   ![Machine Learning、エンドポイントの拡大。][1]
 
 ## 同じ Web サービスの新しいエンドポイントを追加する
 
@@ -37,8 +37,9 @@
 
 新しいエンドポイントを追加するを参照してください。 [のエンドポイントの作成](machine-learning-create-endpoint.md)します。
 
-   ![機械学習、新しいエンドポイントを追加します。][2]
+   ![Machine Learning、新しいエンドポイントの追加。][2]
 
 <!--Image references-->
 [1]: ./media/machine-learning-scaling-webservice/machlearn-1.png
 [2]: ./media/machine-learning-scaling-webservice/machlearn-2.png
+

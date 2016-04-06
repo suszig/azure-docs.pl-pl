@@ -67,7 +67,7 @@ Azure リソース マネージャー テンプレートを使用して作成す
 
     New-AzureRmResourceGroup -Name "resource group name" -Location "Azure location"
 
-## <a id="windowsvm"></a>タスク: 仮想マシンを作成します。
+## <a id="windowsvm"></a>タスク: 仮想マシンの作成
 
 このタスクでは、テンプレート ギャラリーのテンプレートを使用します。 テンプレートに関する詳細については、「 [米国西部に単純な Windows VM をデプロイ](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/)します。
 
@@ -126,7 +126,7 @@ Azure リソース マネージャー テンプレートを使用して作成す
 
 [AZURE.VIDEO deploy-a-windows-virtual-machine-with-azure-resource-manager-templates-and-powershell]
 
-## <a id="customvm"></a>タスク: 専用のディスクの仮想マシンを作成します。
+## <a id="customvm"></a>タスク: 専用ディスクを使用した仮想マシンの作成
 
 このタスクでは、テンプレート ギャラリーのテンプレートを使用します。 テンプレートに関する詳細については、「 [特殊な VHD ディスクから VM を作成](https://azure.microsoft.com/documentation/templates/201-vm-from-specialized-vhd/)します。
 
@@ -155,7 +155,7 @@ Azure リソース マネージャー テンプレートを使用して作成す
 
 [AZURE.VIDEO create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell]
 
-## <a id="multivm"></a>タスク: 外部ロード バランサーに仮想ネットワーク内の複数の仮想マシンの作成します。
+## <a id="multivm"></a>タスク: 外部ロード バランサーを使用した仮想ネットワーク内での複数の仮想マシンの作成
 
 このタスクでは、テンプレート ギャラリーのテンプレートを使用します。 テンプレートに関する詳細については、「 [特殊な VHD ディスクから VM を作成](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/)します。
 
@@ -182,7 +182,7 @@ Azure リソース マネージャー テンプレートを使用して作成す
 
 [AZURE.VIDEO deploy-multi-vm-app-with-a-virtual-network-and-load-balancer-in-azure-resource-manager]
 
-## <a id="removerg"></a>タスク: リソース グループを削除します。
+## <a id="removerg"></a>タスク: リソース グループの削除
 
 次のコマンドで *リソース グループ名* を削除して、それを実行するリソース グループの名前に置き換えます。
 
@@ -200,7 +200,7 @@ Azure リソース マネージャー テンプレートを使用して作成す
 
 [AZURE.VIDEO removing-a-resource-group-in-azure]
 
-## <a id="displayvm"></a>タスク: 仮想マシンに関する情報を表示します。
+## <a id="displayvm"></a>タスク: 仮想マシンに関する情報の表示
 
 次のコマンドで置き換えます *リソース グループ名* バーチャル マシンを含むリソース グループの名前にし、 *VM 名* 、マシンの名前にし、実行。
 
@@ -271,7 +271,7 @@ Azure リソース マネージャー テンプレートを使用して作成す
 
 [AZURE.VIDEO displaying-information-about-a-virtual-machine-in-microsoft-azure-with-powershell]
 
-## <a id="start"></a>タスク: 仮想マシンを起動します。
+## <a id="start"></a>タスク: 仮想マシンの起動
 
 次のコマンドで置き換えます *リソース グループ名* バーチャル マシンを含むリソース グループの名前にし、 *VM 名* 、マシンの名前にし、実行。
 
@@ -292,7 +292,7 @@ Azure リソース マネージャー テンプレートを使用して作成す
 
 [AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
 
-## <a id="stop"></a>タスク: 仮想マシンを停止します。
+## <a id="stop"></a>タスク: 仮想マシンの停止
 
 次のコマンドで置き換えます *リソース グループ名* バーチャル マシンを含むリソース グループの名前にし、 *VM 名* 、マシンの名前にし、実行。
 
@@ -319,7 +319,7 @@ Azure リソース マネージャー テンプレートを使用して作成す
 
 [AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
 
-## <a id="restart"></a>タスク: 仮想マシンを再起動します。
+## <a id="restart"></a>タスク: 仮想マシンの再起動
 
 次のコマンドで置き換えます *リソース グループ名* バーチャル マシンを含むリソース グループの名前にし、 *VM 名* 、マシンの名前にし、実行。
 
@@ -340,7 +340,7 @@ Azure リソース マネージャー テンプレートを使用して作成す
 
 [AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
 
-## <a id="delete"></a>タスク: 仮想マシンを削除します。
+## <a id="delete"></a>タスク: 仮想マシンの削除
 
 次のコマンドで置き換えます *リソース グループ名* バーチャル マシンを含むリソース グループの名前にし、 *VM 名* 、マシンの名前にし、実行。  
 
@@ -377,4 +377,5 @@ Azure リソース マネージャー テンプレートを使用して作成す
 [Azure リソース マネージャーの概要](resource-group-overview.md)
 
 [仮想マシンに関するドキュメント](http://azure.microsoft.com/documentation/services/virtual-machines/)
+
 

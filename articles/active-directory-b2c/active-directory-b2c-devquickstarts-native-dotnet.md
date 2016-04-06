@@ -33,7 +33,7 @@ Azure AD B2C を使用するには、ディレクトリ (つまり、テナン�
 
 ## 2.アプリケーションの作成
 
-ここで、B2C ディレクトリにアプリを作成する必要があります。このディレクトリによって、アプリと安全に通信するために必要ないくつかの情報を Azure AD に提供します。  アプリを作成するには
+次に、B2C ディレクトリ内にアプリを作成する必要があります。これによって、 アプリと安全に通信するために必要ないくつかの情報が Azure AD に提供されます。  アプリを作成するには
 次の [手順](active-directory-b2c-app-registration.md)します。  このとき、
 
 - 含める、 **ネイティブ クライアント** アプリケーションで
@@ -70,7 +70,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 `complete` 同じリポジトリの分岐。
 
 サンプル コードをダウンロードしたら、Visual Studio の `.sln` ファイルを開いて作業を開始します。  ソリューションに `TaskClient` プロジェクトと `TaskService` プロジェクトの 2 つのプロジェクトがあることがわかります。   `TaskClient` 、WPF は、 
-ユーザーと対話するデスクトップ アプリケーションです。  `TaskService` は、各ユーザーの To-Do リストを格納する、アプリのバックエンド Web API です。  両方の `TaskClient` と `TaskService` は、1 つで表されます **アプリケーション ID**
+ユーザーと対話するデスクトップ アプリケーションです。   `TaskService` はアプリのバックエンド web API を各ユーザーの to do リストに格納します。  両方の `TaskClient` と `TaskService` は、1 つで表されます **アプリケーション ID**
 この場合は、1 つの論理アプリケーションを構成する、どちらもので、します。 
 
 ## 5.タスク サービスを構成する
@@ -366,13 +366,14 @@ IDP の追加や削除、アプリケーション要求の操作、サインア�
 
 <!--
 
-## 次のステップ
+## Next Steps
 
-さらに高度な B2C のトピックに進むことができます。  次のチュートリアルを試してみてください。
+You can now move onto more advanced B2C topics.  You may want to try:
 
-[Web アプリから Web API を呼び出す >>]()
+[Calling a Web API from a Web App >>]()
 
-[B2C アプリの UX のカスタマイズ]()
+[Customizing the your B2C App's UX >>]()
 
 -->
+
 

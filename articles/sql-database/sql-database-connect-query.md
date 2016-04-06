@@ -65,7 +65,7 @@ Visual Studio のインストールが必要な場合、以下の方法でイン
 ### Azure ポータルから Visual Studio へ
 
 
-1. ログイン、 [Azure ポータル](http://portal.azure.com/), 、http://portal.azure.com/です。
+1. ログイン、 [Azure ポータル](http://portal.azure.com/), 、http://portal.azure.com/ です。
 
 2. クリックして **参照* すべて** > **SQL データベース**します。 データベースを検索するためのブレードが開きます。
 
@@ -324,8 +324,8 @@ C# サンプルのコードは常に短く記述するようにしています�
 
 
 
-詳細については、参照してください。<br/>
-[方法: SQL データベースのファイアウォール設定の構成](sql-database-configure-firewall-settings.md)
+詳細については、次を参照してください。<br/>
+[方法: ファイアウォール設定を構成する (SQL Database)](sql-database-configure-firewall-settings.md)
 
 
 
@@ -345,7 +345,7 @@ C# サンプルのコードは常に短く記述するようにしています�
 
 - [SQL Database のクライアント クイック スタート コード サンプル](sql-database-develop-quick-start-client-code-samples.md)
 
-- クライアント プログラムは、Azure VM で稼働する場合がある 1433年以外の TCP ポートについて説明します。<br/>[1433 for ADO.NET 4.5 と SQL Database V12 における 1433 以外のポート](sql-database-develop-direct-route-ports-adonet-v12.md)します。
+- クライアント プログラムは、Azure VM で稼働する場合は、ある 1433年以外の TCP ポートについて説明します。<br/>[ポート 1433 for ADO.NET 4.5 および SQL 以外のデータベースの V12](sql-database-develop-direct-route-ports-adonet-v12.md)します。
 
 
 
@@ -358,4 +358,5 @@ C# サンプルのコードは常に短く記述するようにしています�
 [40-VSProgramCsOverlay]: ./media/sql-database-connect-query/connqry-vs-program-cs-overlay-g.png
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
+
 

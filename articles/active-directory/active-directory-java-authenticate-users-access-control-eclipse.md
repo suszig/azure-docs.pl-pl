@@ -264,7 +264,7 @@ ACS 管理ポータルのアプリケーション統合] ページ。 次の
 9. [省略可能]保持 **Require HTTPS connections** チェックします。 このオプションを設定する場合は、HTTPS プロトコルを使用してアプリケーションにアクセスすることが必要になります。 HTTPS 接続が不要な場合は、このチェック ボックスをオフにします。
 10. コンピューティング エミュレーターに展開する、 **Azure ACS Filter** 設定は、次のようになります。
 
-    ![コンピューティング エミュレーターに展開する [azure ACS Filter] 設定][add_acs_filter_lib_emulator]
+    ![コンピューティング エミュレーターにデプロイする場合の [Azure ACS Filter] 設定][add_acs_filter_lib_emulator]
 
 11. クリックして **完了**します。
 12. クリックして **はい** web.xml ファイルが作成されることを伝えるダイアログ ボックスを表示します。
@@ -302,9 +302,9 @@ Azure にデプロイするには、ACS 名前空間の証明書利用者領域�
 9. 内で、 **セキュリティ** 既存の証明書を使用して、をクリックする場合、Eclipse ダイアログ ボックスの「 **参照**, 、を使用して、選択し、[] をクリックしてする証明書に移動 **開く**します。 または、新しい証明書を作成する場合は、クリックして **新規** を表示する、 **新しい証明書** ] ダイアログ ボックスで、パスワード、.cer ファイルの名前と新しい証明書の .pfx ファイルの名前を指定します。
 10. 保持 **証明書を WAR ファイルに埋め込む** オンにして、証明書を WAR ファイルに埋め込むものとします。
 11. [省略可能]保持 **Require HTTPS connections** チェックします。 このオプションを設定する場合は、HTTPS プロトコルを使用してアプリケーションにアクセスすることが必要になります。 HTTPS 接続が不要な場合は、このチェック ボックスをオフにします。
-12. Azure にデプロイする場合、[Azure ACS Filter] 設定は次のようになります。
+12. Azure に展開する場合、[Azure ACS Filter] 設定は次のようになります。
 
-    ![Azure ACS Filter の運用展開用の設定][add_acs_filter_lib_production]
+    ![運用デプロイ用の [Azure ACS Filter] 設定][add_acs_filter_lib_production]
 
 13. をクリックして **完了** を閉じる、 **Edit Library** ダイアログ。
 14. をクリックして **OK** を閉じる、 **Properties for MyACSHelloWorld** ダイアログ。
@@ -377,4 +377,5 @@ Web アプリケーションのデプロイ後、開いているブラウザー 
 [create_acs_hello_world]: ./media/active-directory-java-authenticate-users-access-control-eclipse/CreateACSHelloWorld.png
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
+
 

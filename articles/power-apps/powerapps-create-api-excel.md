@@ -30,15 +30,15 @@
 ![][5]  
 
 4.  **PowerApps**, [ **管理 Api**:  
-![登録されている api を参照する][1]
+![登録されている api を参照します。][1]
 
 5.  **管理 Api**, [ **追加** 新しい API を追加します。  
-![API の追加][2]
+![[API を追加します。][2]
 
 6. わかりやすい名前を入力 **名前** した API 向けです。  
     
 7.  **ソース**, [ **利用可能な Api** を事前に構築された Api を選択し、選択 **Excel**:  
-![Excel の api を選択][3]
+![Excel の api を選択します。][3]
 
 8. 選択 **OK** を次の手順を完了します。
 
@@ -57,3 +57,4 @@
 [3]: ./media/powerapps-create-api-excel/select-excel-api.PNG
 [4]: ./media/powerapps-create-api-excel/browseall.png
 [5]: ./media/powerapps-create-api-excel/allresources.png
+

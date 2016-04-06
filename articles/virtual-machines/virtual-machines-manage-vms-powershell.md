@@ -58,7 +58,7 @@ VM に関する情報を取得するには、このコマンドを含む引用�
 
     Stop-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
->[AZURE.IMPORTANT] ある場合に、そのクラウド サービス内の最後の VM クラウド サービスの仮想 IP (VIP) を保持するのにには、このパラメーターを使用します。 <br><br> StayProvisioned パラメーターを使用する場合は、その VM に対して引き続き課金されます。
+>[AZURE.IMPORTANT] ある場合に、そのクラウド サービス内の最後の VM クラウド サービスの仮想 IP (VIP) を保持するのにには、このパラメーターを使用します。 <br><br> StayProvisioned パラメーターを使用する場合、VM のする引き続き課金されます。
 
 ## VM の起動
 
@@ -105,4 +105,5 @@ Azure で新しい Windows ベースのバーチャル マシンを作成する�
 - 追加のディスク。
 - 既存の負荷分散セットのメンバーとしての設定。
 - 静的 IP アドレス。
+
 

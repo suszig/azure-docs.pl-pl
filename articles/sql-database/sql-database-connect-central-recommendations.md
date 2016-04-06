@@ -31,7 +31,7 @@
 
 - [プログラムによる SQL Database を Azure に接続するためのガイドライン](http://msdn.microsoft.com/library/azure/ee336282.aspx) のディスカッションには、次が含まれます。
  - [ポートとファイアウォール](sql-database-configure-firewall-settings.md)
- - 接続文字列
+ - Connection strings
 - [Azure SQL Database のリソース管理](http://msdn.microsoft.com/library/azure/dn338083.aspx) のディスカッションには、次が含まれます。
  - リソース ガバナンス
  - 制限の適用
@@ -103,8 +103,8 @@ SQL Database へのユーザー追加には、以下の選択肢があります�
 ### V12 の 1433 以外のポート
 
 
-Azure SQL Database V12 へのクライアント接続はプロキシを使用せずに、データベースに直接やり取りする場合があります。 1433 以外のポートが重要になります。 詳細情報を参照してください。<br/>
-[ADO.NET 4.5 および SQL Database V12 の 1433年以外のポート](sql-database-develop-direct-route-ports-adonet-v12.md)
+Azure SQL Database V12 へのクライアント接続はプロキシを使用せずに、データベースに直接やり取りする場合があります。 1433 以外のポートが重要になります。 詳細は、以下を参照してください。<br/>
+[Ports beyond 1433 for ADO.NET 4.5, and SQL Database V12 (ADO.NET 4.5、SQL Database V12 における 1433 以外のポート)](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 
 次のセクションでは、再試行のロジックと一時的なエラーの処理についてさらに説明します。
@@ -141,7 +141,7 @@ SQL Database でエラーが発生したときに、 [SqlException](http://msdn.
 
 - [SQL Database クライアント プログラムのエラー メッセージ](sql-database-develop-error-messages.md#bkmk_connection_errors)
  - その **Transient Errors, Connection-loss Errors** セクションは、自動再試行を保証されている一時的なエラーのリストです。
- - たとえば、再試行番号 40613 のエラーが発生した場合、以下のように<br/>*データベース サーバー 'theserver' 上には、' mydatabase' は現在使用できません。*
+ - たとえば、エラー番号 40613 が発生した場合は、再試行してください。その場合、次のようなメッセージが表示されます。<br/>*データベース 'mydatabase' サーバー 'theserver' 上では、現在使用できません。*
 
 
 詳細については、以下を参照してください。
@@ -172,5 +172,6 @@ Windows、Linux、および Mac OS X で実行するクライアントに使用�
 **ドライバー ライブラリ:** 接続ドライバー ライブラリについては、推奨、バージョンを参照してください。
 
 - [SQL Database および SQL Server の接続ライブラリ](sql-database-libraries.md)
+
 
 

@@ -37,7 +37,7 @@ Generic SQL コネクタを使用すると、ODBC 接続を提供するデータ
 | 接続先のデータ ソース | コネクタは、すべての 64 ビット ODBC ドライバーでサポートされています。 これは、次のようにテストされています。 <li>Microsoft SQL Server と SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 および 11 g</li><li>MySQL 5.x</li>
 | シナリオ | <li>オブジェクトのライフサイクル管理</li><li>パスワード管理</li> |
 | 操作 | <li>フル インポートと差分インポート、エクスポート</li><li>エクスポート: の追加、削除、更新、および置換</li><li>パスワードの設定、パスワードの変更</li>
-| Schema | <li>オブジェクトと属性の動的な検出</li>
+| スキーマ | <li>オブジェクトと属性の動的な検出</li>
 
 ### 前提条件
 
@@ -102,7 +102,7 @@ ODBC ドライバーが動作するために必要なポートについては、
 ![schema1b](./media/active-directory-aadconnectsync-connector-genericsql/schema1b.png)
 - **テーブル/ビュー/ストアド プロシージャ**: テーブル/ビュー/ストアド プロシージャの名前と、オブジェクトの種類の一覧を提供する列名を指定します。 ストアド プロシージャを使用してもその指定するパラメーターの形式で **[Name]: [方向]: [値]**します。 各パラメーターを個別の行に指定します (新しい行を取得するには、Ctrl + Enter キーを使用します)。  
 ![schema1c](./media/active-directory-aadconnectsync-connector-genericsql/schema1c.png)
-- **SQL クエリ**: このオプションを許可するなど、オブジェクトの種類を 1 つの列を返す SQL クエリを指定する `SELECT [Column Name] FROM TABLENAME`です。 返される列は、文字列型 (varchar) でなければなりません。
+- **SQL クエリ**: このオプションでは、例: オブジェクトの種類を含む単一の列を返す SQL クエリを指定できます。 `SELECT [Column Name] FROM TABLENAME`します。 返される列は、文字列型 (varchar) でなければなりません。
 
 ### スキーマ 2 (属性の型を検出する)
 
@@ -307,4 +307,5 @@ Generic SQL コネクタでは、次に示す 4 つのサポートされた方�
 ## トラブルシューティング
 
 -   コネクタのトラブルシューティングを行うへのログ記録を有効にする方法については、次を参照してください。、 [コネクタの ETW トレースを有効にする方法](http://go.microsoft.com/fwlink/?LinkId=335731)します。
+
 

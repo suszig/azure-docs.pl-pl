@@ -1,11 +1,11 @@
 <properties
-    pageTitle =「構築し、Azure App Service での Java API アプリのデプロイ」
-    description =「Java API アプリ パッケージを作成し、Azure App Service に展開する方法について説明します」。
-    サービス ="app-service \api"
+    pageTitle="Azure App Service での Java API アプリの構築とデプロイ"
+    description="Java API アプリ パッケージを作成して Azure App Service にデプロイする方法について説明します。"
+    services="app-service\api"
     documentationCenter="java"
-    authors ="bradygaster"
-    manager ="mohisri"
-    エディター ="tdykstra"/>
+    authors="bradygaster"
+    manager="mohisri",
+    editor="tdykstra"/>
 
 <tags
     ms.service="app-service-api"
@@ -294,4 +294,5 @@ swagger.io オンライン エディターを使用して、API の構造を表�
 でこのサンプルを構築する詳細については、 [Storage SDK for Java](../storage/storage-java-how-to-use-blob-storage.md) JSON を保持する blob です。 また、使用することが、 [DB Java SDK のドキュメント](../documentdb/documentdb-java-application.md) Azure Document DB に連絡先データを保存します。 
 
 Azure で Java を使用する方法の詳細については、次を参照してください。、 [Java デベロッパー センター](/develop/java/)します。
+
 

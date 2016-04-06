@@ -75,19 +75,19 @@ Media Services では、キーを要求するユーザーを承認する複数�
 
 エンコードする方法については、次を参照してください。 [メディア エンコーダー スタンダードを使用してアセットをエンコードする方法](media-services-dotnet-encode-with-media-encoder-standard.md)します。
 
-##<a id="create_contentkey"></a>コンテンツ キーを作成し、エンコード済みアセットに関連付けます
+##<a id="create_contentkey"></a>コンテンツ キーを作成し、それをエンコードした資産に関連付ける
 
 Media Services では、コンテンツ キーに、資産を暗号化するときに使用するキーが含まれています。
 
 詳細については、次を参照してください。 [コンテンツ キーセットを作成する](media-services-dotnet-create-contentkey.md)です。
 
-##<a id="configure_key_auth_policy"></a>コンテンツ キー承認ポリシーを構成します。
+##<a id="configure_key_auth_policy"></a>コンテンツ キー承認ポリシーの構成
 
 Media Services では、キーを要求するユーザーを承認する複数の方法がサポートされています。 コンテンツ キー承認ポリシーを構成する必要があります。キーがクライアント (プレーヤー) に配信されるには、クライアントがこのコンテンツ キー承認ポリシーを満たしている必要があります。 コンテンツ キー承認ポリシーには、1 つまたは複数の承認制限 (オープン、トークン制限、IP 制限) を指定できます。
 
 詳細については、次を参照してください。 [コンテンツ キー承認ポリシーを構成する](media-services-dotnet-configure-content-key-auth-policy.md)です。
 
-##<a id="configure_asset_delivery_policy"></a>資産配信ポリシーを構成する 
+##<a id="configure_asset_delivery_policy"></a>資産の配信ポリシーを構成する 
 
 資産の配信ポリシーを構成します。 資産の配信ポリシーの構成には、次の内容が含まれます。
 
@@ -98,7 +98,7 @@ Media Services では、キーを要求するユーザーを承認する複数�
 
 詳細については、次を参照してください。 [アセット配信ポリシーを構成する ](media-services-rest-configure-asset-delivery-policy.md)です。
 
-##<a id="create_locator"></a>オンデマンド ストリーミング URL を取得するためにストリーミング ロケーターを作成します。
+##<a id="create_locator"></a>ストリーミング URL を取得するために OnDemand ロケーターを作成する
 
 Smooth、DASH、HLS のストリーミング URL をユーザーに提供する必要があります。
 
@@ -123,7 +123,7 @@ Smooth、DASH、HLS のストリーミング URL をユーザーに提供する�
 
 使用することができます、 [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) 、ストリームをテストします。
 
-##<a id="client_request"></a>クライアントを要求する方法、キー、キー配信サービスですか。
+##<a id="client_request"></a>クライアントが配信サービスにキーを要求する方法
 
 以前の手順で、マニフェスト ファイルを参照する URL を構成しました。 クライアントは、キー配信サービスへの要求を実行するために、ストリーミング マニフェスト ファイルから必要な情報を抽出する必要があります。
 
@@ -619,4 +619,5 @@ HLS の場合、ルート マニフェストはセグメント ファイルに�
 ##フィードバックの提供
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 

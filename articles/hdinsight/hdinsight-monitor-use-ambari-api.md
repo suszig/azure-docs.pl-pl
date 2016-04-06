@@ -50,7 +50,7 @@ HDInsight クラスター名|$clusterName||HDInsight クラスターの名前で
 クラスター ユーザー名|$clusterUsername||プロビジョニングで指定されたクラスター ユーザー名です。
 クラスター パスワード|$clusterPassword||クラスター ユーザー パスワードです。
 
-    > [AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
+    > [AZURE.NOTE] 入力テーブル内の値。 そうしておくと、このチュートリアルを読み進める際に役に立ちます。
 
 
 
@@ -60,7 +60,7 @@ HDInsight クラスター名|$clusterName||HDInsight クラスターの名前で
 
 **Azure PowerShell の使用**
 
-MapReduce job tracker 情報を取得する Azure PowerShell スクリプトを次に示します *HDInsight 3.1 クラスターにします。*ここで重要な相違点は、(MapReduce ではなく) YARN サービスから詳細をプルする点です。
+MapReduce job tracker 情報を取得する Azure PowerShell スクリプトを次に示します *HDInsight 3.1 クラスターにします。*  ここで重要な相違点は、(MapReduce ではなく) YARN サービスから詳細をプルする点です。
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
@@ -174,4 +174,5 @@ API 呼び出しの監視|URI|説明
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
+
 

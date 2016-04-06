@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Azure PowerShell は、Azure のワークロードのデプロイメントと管理を制御し自動化するために使用できる強力なスクリプティング環境です。 このドキュメントでは、Azure PowerShell を使用して Linux ベースの HDInsight クラスターをプロビジョニングする方法について説明し、スクリプト例を示します。
+Azure PowerShell は、Azure のワークロードのデプロイと管理を制御し自動化するために使用できる強力なスクリプティング環境です。 このドキュメントでは、Azure PowerShell を使用して Linux ベースの HDInsight クラスターをプロビジョニングする方法について説明し、スクリプト例を示します。
 
 > [AZURE.NOTE] Azure PowerShell は、Windows のクライアントにできるだけです。 Linux、Unix、Mac OS X クライアントを使用している場合は、次を参照してください。 [Azure CLI を使用して Linux ベースの HDInsight クラスターを作成する](hdinsight-hadoop-create-linux-cluster-azure-cli.md) については、Azure CLI を使用してクラスターを作成します。
 
@@ -127,3 +127,4 @@ HDInsight クラスターが正常に作成されました。次に、クラス�
 * [HDInsight での Storm の Java トポロジの開発](hdinsight-storm-develop-java-topology.md)
 * [HDInsight の Storm での Python コンポーネントの使用](hdinsight-storm-develop-python.md)
 * [HDInsight の Storm を使用したトポロジのデプロイと監視](hdinsight-storm-deploy-monitor-topology-linux.md)
+

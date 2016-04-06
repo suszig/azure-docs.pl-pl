@@ -34,7 +34,7 @@
 
 * アクティブな Azure アカウント アカウントがない場合、Azure 試用版にサインアップして、最大 10 件の無料モバイル アプリを入手できます。このアプリは評価終了後も使用できます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/)をご覧ください。
 
-* [Visual Studio Community 2013] 以降のバージョン。
+* [Visual Studio Community 2013] またはそれ以降のバージョンを選択します。
 
 >[AZURE.NOTE] 場合は、Azure アカウントにサインアップする前に Azure App Service の使用を開始するには、 [App Service の試用](https://tryappservice.azure.com/?appServiceName=mobile)します。 有効期間が短いスターター モバイル アプリを App Service ですぐに作成できます。このサービスの利用にあたり、クレジット カードは必要ありません。契約も必要ありません。
 
@@ -74,11 +74,11 @@
 
 ##次のステップ
 
-* [アプリへの認証を追加します。 ](app-service-mobile-windows-store-dotnet-get-started-users.md)
-  <br/>Id プロバイダーを使用してアプリケーションのユーザーを認証する方法について説明します。
+* [アプリへの認証の追加 ](app-service-mobile-windows-store-dotnet-get-started-users.md)
+  <br/>ID プロバイダーを使用してアプリケーションのユーザーを認証する方法について説明します。
 
-* [アプリへのプッシュ通知を追加します。](app-service-mobile-windows-store-dotnet-get-started-push.md)
-  <br/>アプリにごく基本的なプッシュ通知を送信する方法について説明します。
+* [アプリケーションにプッシュ通知を追加する](app-service-mobile-windows-store-dotnet-get-started-push.md)
+  <br/>アプリケーションにごく基本的なプッシュ通知を送信する方法について説明します。
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -86,4 +86,5 @@
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+
 

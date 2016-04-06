@@ -40,7 +40,7 @@ Azure AD Basic または Azure AD Premium サブスクリプションに加え�
 ### オンプレミス アプリケーションへのリモート アクセスを可能にするための第一歩
 アプリケーション プロキシの設定は、次の 2 つの手順で行います。
 
-1. [アプリケーション プロキシを有効にして、コネクタを構成します。](active-directory-application-proxy-enable.md)<br>
+1. [アプリケーション プロキシを有効にしてコネクタを構成する。](active-directory-application-proxy-enable.md)<br>
 2. [アプリケーションを公開する](active-directory-application-proxy-publish.md) -迅速かつ簡単なウィザードを使って、内部設置型アプリケーション発行され、アクセス可能なリモートからです。
 
 ## 次の手順
@@ -61,4 +61,5 @@ Azure AD Basic または Azure AD Premium サブスクリプションに加え�
 ## その他のリソース
 * [Azure への組織としてのサインアップ](../sign-up-organization.md)
 * [Azure ID](../fundamentals-identity.md)
+
 

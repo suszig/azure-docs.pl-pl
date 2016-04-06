@@ -26,7 +26,7 @@
 
 ソリューションが Visual Studio で作成されると、アプリケーション マニフェスト、サービス マニフェスト、Settings.xml 構成ファイルが、アクターのサービスのプロジェクトに含まれます。 これを示したものが下記のスクリーンショットです。
 
-![Visual Studio を使って作成されたプロジェクト][1]
+![Visual Studio で作成されたプロジェクト][1]
 
 アクター サービスのプロジェクトに含まれているアプリケーション マニフェストを確認して、アプリケーションの種類およびアクターがパッケージ化されているアプリケーションのバージョンを参照できます。 この例として、アプリケーション マニフェストの次のスニペットが挙げられます。
 
@@ -147,7 +147,7 @@ Visual Studio でアプリケーション パッケージが作成されると�
 
 パーティション ID はパーティションに関するその他の情報を取得するために使用できます。 たとえば、 [Service Fabric エクスプ ローラー](service-fabric-visualizing-your-cluster.md) およびサービスとアプリケーションが所属するパーティションに関する情報を表示するツールを使用できます。 次のスクリーン ショットはパーティション `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a` に関する情報を表示しています。ここには上記の例の ID `-4952641569324299627` のアクターが含まれています。  
 
-![Service Fabric エクスプ ローラーでのパーティションに関する情報][3]
+![Service Fabric エクスプ ローラー内のパーティションに関する情報][3]
 
 アクターは、アクターの型から派生する基本クラスの `Host.ActivationContext` および `Host.StatelessServiceInitialization` または `Host.StatefulServiceInitializationParameters` メンバーから、パーティション ID、サービス名、アプリケーション名、その他の Service Fabric プラットフォーム固有の情報をプログラムによって取得できます。 次のコード スニペットで例を示します。
 
@@ -206,7 +206,7 @@ public void ActorMessage(StatefulActorBase actor, string message, params object[
 
 ことを思い出してください、 [VoiceMailBoxActor の例を前に示した](#service-fabric-partition-concepts-for-actors), 、アクター ID が `-4952641569324299627` パーティション内で作成された `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`します。 その例の EventSource イベントも、アクターがそのパーティションのレプリカ `130745418574851853` に作成されたことを示していました。 アクターが作成された時点で、これはそのパーティションのプライマリ レプリカでした。 次の Service Fabric エクスプ ローラーのスクリーン ショットはこれを表しています。
 
-![Service Fabric エクスプ ローラーでプライマリ レプリカ][4]
+![Service Fabric エクスプ ローラーのプライマリ レプリカ][4]
 
 ## アクターの状態プロバイダーの選択
 既定のアクター状態プロバイダーの一部が、アクター ランタイムに含まれています。 アクターのサービスに適切な状態プロバイダーを選択するには、状態プロバイダーが基になる Service Fabric プラットフォーム機能をどのように使用してアクターの状態の可用性を高めるかを理解する必要があります。
@@ -242,4 +242,5 @@ public class VoicemailBoxActor : StatefulActor<VoicemailBox>, IVoicemailBoxActor
 [2]: ./media/service-fabric-reliable-actors-platform/app-deployment-scripts.png
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
+
 

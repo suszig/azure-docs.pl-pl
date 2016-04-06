@@ -19,9 +19,9 @@
 # 2 つの Azure 仮想ネットワーク間の VPN 接続の構成  
 
 > [AZURE.SELECTOR]
-- [VPN 接続を構成します。](../hdinsight-hbase-geo-replication-configure-VNETs.md)
-- [DNS を構成します。](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [HBase レプリケーションを構成します。](hdinsight-hbase-geo-replication.md) 
+- [VPN 接続の構成](../hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [DNS の構成](hdinsight-hbase-geo-replication-configure-DNS.md)
+- [HBase レプリケーションの構成](hdinsight-hbase-geo-replication.md) 
 
 Azure 仮想ネットワークのサイト間接続では、VPN ゲートウェイを使用して Ipsec/IKE を使用する安全なトンネルが提供されます。 VNet は異なるサブスクリプションおよび異なるリージョンであってもかまいません。 マルチサイト構成と VNet 間通信を組み合わせることもできます。 Vnet 間接続にはいくつかの理由があります。
 
@@ -269,4 +269,5 @@ VNet に VM をデプロイすることなく、Azure クラシック ポータ�
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.diagram.png
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png 
+
 

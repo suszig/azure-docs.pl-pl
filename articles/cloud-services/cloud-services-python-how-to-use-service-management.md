@@ -29,7 +29,7 @@
 サービス管理 API を使用する必要があります [Azure アカウントの作成](http://azure.microsoft.com/pricing/free-trial/)します。
 
 ## <a name="Concepts"> </a>概念
-Azure SDK for Python ラップ、 [Azure サービス管理 API][svc-mgmt-rest-api], 、REST API であります。 すべての API 操作は SSL 上で実行され、X.509 v3 証明書を使用して相互認証されます。 管理サービスへのアクセスは、Azure で実行されているサービス内から行うことも、HTTPS 要求の送信と HTTPS 応答の受信の機能を持つ任意のアプリケーションからインターネット上で直接行うこともできます。
+Azure SDK for Python のラップ、 [Azure サービス管理 API][svc-mgmt-rest-api], 、REST API であります。 すべての API 操作は SSL 上で実行され、X.509 v3 証明書を使用して相互認証されます。 管理サービスへのアクセスは、Azure で実行されているサービス内から行うことも、HTTPS 要求の送信と HTTPS 応答の受信の機能を持つ任意のアプリケーションからインターネット上で直接行うこともできます。
 
 ## <a name="Connect"> </a>方法: サービス管理に接続する
 サービス管理エンドポイントに接続するには、Azure サブスクリプション ID、および有効な管理証明書が必要です。 サブスクリプション ID を取得、 [Azure クラシック ポータル][management-portal]します。
@@ -113,7 +113,7 @@ Azure 証明書の詳細については、次を参照してください。 [Azu
 - オーストラリア東部
 - オーストラリア南東部
 
-## <a name="CreateCloudService"> </a>方法: クラウド サービスの作成
+## <a name="CreateCloudService"> </a>方法: クラウド サービスを作成する
 
 アプリケーションを作成してそれを Azure で実行して、コードと構成をあわせてと呼ばれる Azure [cloud service] (と呼ばれる、 *ホステッド サービス* 以前の Azure リリース)。  **\_Hosted\_service** メソッドを使用して、ホステッド サービス名 (Azure 内で一意である必要があります)、ラベル (base64 に自動的にエンコードされます)、説明、場所を提供し、新しいホステッド サービスを作成できます。
 
@@ -149,7 +149,7 @@ Azure 証明書の詳細については、次を参照してください。 [Azu
 
 使用してサービスに、コードを展開するには、クラウド サービスを作成したら、 **create \_deployment** メソッドです。
 
-## <a name="DeleteCloudService"> </a>方法: クラウド サービスの削除
+## <a name="DeleteCloudService"> </a>方法: クラウド サービスを削除する
 
 クラウド サービスを削除するには、サービス名を渡す、 **delete \_hosted\_service** メソッド。
 
@@ -434,5 +434,6 @@ Windows 仮想マシンをキャプチャする方法の詳細については、
 
 
 [cloud service]:https://azure.microsoft.com/en-us/documentation/services/cloud-services/
+
 
 

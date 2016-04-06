@@ -25,7 +25,7 @@ Data Factory は、オンプレミスとクラウドのデータ ソースおよ
 
 ![概要](./media/data-factory-introduction/data-factory-overview.png)
 
-**図 1 です。**多くのさまざまなオンプレミス データ ソースからデータを収集し、データを取り込んで準備し、広範な変換でデータを整理して分析し、消費用にすぐ使用できるデータを発行します。
+**図 1** 多くのさまざまなオンプレミス データ ソースからデータを収集し、データを取り込んで準備し、広範な変換でデータを整理して分析し、消費用にすぐ使用できるデータを発行します。
 
 必要があればいつでも Data Factory を使用して、異なる形状とサイズのデータを収集し、変換し、発行して深い洞察を抽出することのすべてを、信頼できるスケジュールで実行できます。 Data Factory を使えば、さまざまな業界の分析とパイプラインのニーズに対応し、数多くのシナリオにも対応する、可用性の高いデータ フロー パイプラインを作成できます。  オンライン ショッピング業者の生成に使用個人用に設定された [製品推奨](data-factory-product-reco-usecase.md) 顧客の閲覧行動に基づいています。 ゲーム スタジオで理解して、 [、マーケティングの有効性](data-factory-customer-profiling-usecase.md) キャンペーン。 確認することで、Data Factory を使用している方法と理由、お客様から直接学ぶ [お客様導入事例](data-factory-customer-case-studies.md)します。 
 
@@ -37,7 +37,7 @@ Azure Data Factory には、入力および出力データ、処理イベント�
 
 ![主要な概念](./media/data-factory-introduction/key-concepts.png)
 
-**図 2 になります。**データセット、アクティビティ、パイプライン、リンクされたサービスの間の関係
+**図 2.** データセット、アクティビティ、パイプライン、リンクされたサービスの間の関係
 
 
 ### アクティビティ
@@ -56,6 +56,7 @@ Azure Data Factory には、入力および出力データ、処理イベント�
 - アクティビティの実行をホストできるコンピューティング リソースを表すため。  たとえば、“HDInsightHive Activity” は HDInsight Hadoop クラスターで実行します。
 
 データセット、アクティビティ、パイプライン、およびリンクされたサービスという 4 つの簡単な概念を理解すれば、Azure Data Factory を使用できます。  実行できます [最初のパイプラインの作成](data-factory-build-your-first-pipeline.md)  一から up、または次の手順に従って既成のサンプルを展開、 [Data Factory Samples](data-factory-samples.md) 記事です。 
+
 
 
 

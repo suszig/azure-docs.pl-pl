@@ -20,7 +20,7 @@
 
 API Management の VPN のサポートにより、API Management ゲートウェイを Azure Virtual Network に接続することができます。 これにより、API Management のお客様は、オンプレミスのバックエンド Web サービスまたはパブリック インターネットからアクセスできないバックエンド Web サービスに安全に接続できます。
 
-## <a name="enable-vpn"> </a>VPN 接続を有効にします。
+## <a name="enable-vpn"> </a>VPN 接続を有効にする
 
 >VPN 接続は、 **Premium** 層です。 に切り替えるには、これで API Management サービスを開きます、 [Azure Classic Portal][] クリックして、 **スケール** ] タブをクリックします。 下にある、 **全般** セクションでは、Premium レベルを選択し、[保存] をクリックします。
 
@@ -40,14 +40,14 @@ API Management サービスがプロビジョニングされているすべて�
 
 ゲートウェイの VIP アドレスは VPN を有効または無効にするたびに変化することに注意してください。
 
-## <a name="connect-vpn"> </a>VPN の背後にある web サービスへの接続します。
+## <a name="connect-vpn"> </a>VPN の背後にある Web サービスへの接続
 
 API Management サービスが VPN に接続された後で仮想ネットワーク内の Web サービスにアクセスする方法は、パブリック サービスにアクセスする方法と同じです。 ローカル アドレスまたは web サービスへのホスト名 (DNS サーバーは、Azure の仮想ネットワーク用に構成された) 場合に入力するだけの **Web サービスの URL** 新しい API を作成するときにフィールドまたは既存のものを編集します。
 
 ![VPN からの API の追加][api-management-setup-vpn-add-api]
 
 
-## <a name="related-content"> </a>関連コンテンツ
+## <a name="related-content"></a>関連コンテンツ
 
 
 * [チュートリアル: サイト間接続用のクロスプレミス仮想ネットワークの作成][]
@@ -65,4 +65,5 @@ API Management サービスが VPN に接続された後で仮想ネットワー
 
 [Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
 [How to use the API Inspector to trace calls in Azure API Management]: api-management-howto-api-inspector.md
+
 

@@ -27,7 +27,7 @@ Application Insights は、Java と ASP.NET の Web アプリケーションと�
 クライアント側で、Application Insights は、Web ページと、iOS、Android、Windows ストア アプリを含むさまざまなデバイスからテレメトリを取得できます。
 
 
-## <a name="setup"></a>パフォーマンス モニターを設定する
+## <a name="setup"></a>パフォーマンス モニターの設定
 
 プロジェクトに Application Insights を追加していない場合 (つまり、ApplicationInsights.config がない場合)、以下のいずれかの方法で開始します。
 
@@ -38,7 +38,7 @@ Application Insights は、Java と ASP.NET の Web アプリケーションと�
  * [依存関係の監視を追加する](app-insights-java-agent.md)
 
 
-## <a name="view"></a>パフォーマンス メトリックを確認します。
+## <a name="view"></a>パフォーマンス メトリックの監視
 
  [Azure ポータル](https://portal.azure.com), 、アプリケーションを設定する Application Insights リソースを参照します。 概要ブレードに、基本的なパフォーマンス データが表示されます。
 
@@ -161,11 +161,11 @@ HTTP 要求には、ページ、データ、画像に関するすべての GET �
 
 その他のプロパティの前に、リソースを設定します。 パフォーマンスまたは使用状況のメトリックにアラートを設定する場合、Web テスト リソースは選択しないでください。
 
-Be careful to note the units in which you're asked to enter the threshold value.
+しきい値を入力するように求められたら、単位に注意してください。
 
-*[アラートの追加] ボタンが表示されない* 。-これは、グループ アカウントが読み取り専用アクセスがあるでしょうか。 アカウント管理者にご確認ください。
+*[アラートの追加] ボタンが表示されません。* -これは、グループ アカウントが読み取り専用アクセスがあるでしょうか。 アカウント管理者にご確認ください。
 
-## <a name="diagnosis"></a>問題を診断する
+## <a name="diagnosis"></a>問題の診断
 
 パフォーマンス上の問題を検出して診断するためのいくつかのヒントを以下に記します。
 
@@ -198,4 +198,5 @@ Be careful to note the units in which you're asked to enter the threshold value.
 [usage]: app-insights-web-track-usage.md
 
  
+
 

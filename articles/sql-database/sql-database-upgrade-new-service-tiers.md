@@ -174,7 +174,7 @@ S2 データベース レベルでの DTU 消費情報を使用すると、Web �
 
 DTU の使用率とワークロードに合わせるに必要な最大エディションに基づき、指定できますのデータベース ワークロードに最適なサービス階層とパフォーマンス レベル (DTU の割合とさまざまなの相対 DTU の累乗とおり [パフォーマンス レベル)](sql-database-service-tiers.md)します。 次の表は、Web/Business リソース消費の割合とそれに等しい新しいパフォーマンス レベルのマッピングを表しています。 
 
-![リソースの消費量][4]
+![リソース消費][4]
 
 > **注:**
 > さまざまなパフォーマンス レベル間の相対 DTU 数がに基づいて、 [Azure SQL データベース ベンチマーク](http://msdn.microsoft.com/library/azure/dn741327.aspx) ワークロード。 データベースのワークロードはベンチマークと異なることがあるため、最初に Web/Business データベースに合う新しい階層を求めるときには、上述の計算をガイドラインとして使用する必要があります。 データベースを新しい階層に移動させたら、前のセクションに説明のあった処理を使用して、ワークロードのニーズに最適なサービス階層を検証/調整します。
@@ -265,7 +265,7 @@ Web/Business と Basic、Standard、Premium サービス階層との違いをよ
 
 
 ## 6. 新しいサービス階層/パフォーマンス レベルへのアップグレードを監視する
-Azure SQL Database は、現在のデータベースが存在する論理サーバーの master データベースの sys.dm_operation_status 動的管理ビューでデータベースに対して実行される (CREATE、ALTER、DROP) のような管理操作の進行状況に関する情報を提供 [確認 _operation _status のドキュメントを参照してください。](http://msdn.microsoft.com/library/azure/dn270022.aspx)データベースのアップグレード操作の進行状況を確認するには、操作ステータス DMV を使用します。 このサンプル クエリには、データベース上で実行されるすべての管理操作が表示されます。
+Azure SQL Database は、現在のデータベースが存在する論理サーバーの master データベースの sys.dm_operation_status 動的管理ビューでデータベースに対して実行される (CREATE、ALTER、DROP) のような管理操作の進行状況に関する情報を提供 [確認 _operation _status のドキュメントを参照してください。](http://msdn.microsoft.com/library/azure/dn270022.aspx) データベースのアップグレード操作の進行状況を確認するには、操作ステータス DMV を使用します。 このサンプル クエリには、データベース上で実行されるすべての管理操作が表示されます。
 
     SELECT o.operation, o.state_desc, o.percent_complete
     , o.error_code, o.error_desc, o.error_severity, o.error_state
@@ -319,3 +319,4 @@ Azure SQL Database サービスではテレメトリ データとツールを提
 [4]: ./media/sql-database-upgrade-new-service-tiers/resource_consumption.png
 
  
+

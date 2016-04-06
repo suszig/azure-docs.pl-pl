@@ -64,7 +64,7 @@ Cache のオプションを選択するときの考慮事項を次に示しま�
 | P4                   | 53 GB  | 4000                       | 250000                         |
 
 
-Redis ツールのダウンロードなどについて `redis-benchmark.exe`, を参照してください、 [Redis コマンドを実行する方法ですか?](#cache-commands) セクションです。
+Redis ツールのダウンロードなどについて `redis-benchmark.exe`, を参照してください、 [Redis コマンドを実行する方法ですか?](#cache-commands) 」セクションを参照してください。
 
 <a name="cache-region"></a>
 ## キャッシュを配置するリージョン
@@ -124,7 +124,7 @@ ConnectTimeout|接続操作のタイムアウト (ミリ秒単位)。|
 -   タイムアウト値
     -   ワークロードを考慮したうえで値を適宜設定します。 大きな値を保存する場合は、タイムアウトを大きな値に設定します。
         -   StackExchange.Redis が自動的に再接続するように、ABortOnConnectFail を false に設定します。
--   アプリケーションに対して ConnectionMultiplexer インスタンスを 1 つ使用します。 ように、Connection プロパティから返される 1 つのインスタンスを作成する、LazyConnection を使用する [ConnectionMultiplexer クラスを使用してキャッシュに接続する](https://msdn.microsoft.com/library/azure/dn690521.aspx#Connect)です。
+-   アプリケーションに対して ConnectionMultiplexer インスタンスを 1 つ使用します。 ように、Connection プロパティから返される単一のインスタンスを作成する、LazyConnection を使用する [ConnectionMultiplexer クラスを使用してキャッシュに接続する](https://msdn.microsoft.com/library/azure/dn690521.aspx#Connect)です。
 -   診断用には、`ConnectionMultiplexer.ClientName` プロパティを、アプリ インスタンスの一意な名前に設定します。
 -   カスタム ワークロードに対しては複数の `ConnectionMultiplexer` インスタンスを使用します。
     -   アプリケーションの負荷が変化する場合は、このモデルに従うことができます。 次に例を示します。
@@ -152,7 +152,7 @@ Redis サーバーは既定で SSL をサポートしませんが、Azure Redis 
 
 Redis ツール `redis-cli` SSL ポートを持つことはできませんなどのユーティリティを使用する `stunnel` に安全に接続ツールを SSL ポートで説明された手順に従って、 [プレビュー リリースの ASP.NET セッション状態プロバイダーを発表](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) ブログの投稿です。
 
-Redis ツールのダウンロード方法の詳細については、次を参照してください。、 [Redis コマンドを実行する方法ですか?](#cache-commands) セクションです。
+Redis ツールのダウンロード方法の詳細については、次を参照してください、 [Redis コマンドを実行する方法ですか?。](#cache-commands) 」セクションを参照してください。
 
 <a name="cache-benchmarking"></a>
 ## キャッシュのベンチマークを実行およびテストする方法
@@ -162,7 +162,7 @@ Redis ツールのダウンロード方法の詳細については、次を参�
     -   ロード テスト クライアントと Redis Cache が同じリージョン内にあることを確認します。
 -   redis-cli.exe を使用し、INFO コマンドを使用してキャッシュを監視します。
     -   負荷が高いことが原因でメモリの断片化が発生している場合は、キャッシュのサイズをスケールアップする必要があります。
--   Redis ツールのダウンロード方法の詳細については、次を参照してください。、 [Redis コマンドを実行する方法ですか?](#cache-commands) セクションです。
+-   Redis ツールのダウンロード方法の詳細については、次を参照してください、 [Redis コマンドを実行する方法ですか?。](#cache-commands) 」セクションを参照してください。
 
 <a name="cache-commands"></a>
 ## Redis コマンドの実行方法
@@ -230,4 +230,5 @@ Azure Redis Cache の概要の詳細については、次を参照してくだ�
 
 ### インロール キャッシュ
 In-role Cache を使用してキャッシュを自己ホストしている場合は、自己ホストを継続できます。 In-Role Cache は自己ホスト型コンポーネントであり、Microsoft ホスト型サービスではないので、SLA は用意されていません。 In-Role Cache ユーザーは、Azure Redis Cache に移行することで、豊富な機能を利用し、SLA を受けることができます。
+
 

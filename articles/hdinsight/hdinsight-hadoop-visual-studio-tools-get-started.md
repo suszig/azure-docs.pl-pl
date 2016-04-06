@@ -20,7 +20,7 @@
 
 # HDInsight Tools for Visual Studio を使用して Hive クエリを実行する
 
-HDInsight Tools for Visual Studio を使用して HDInsight クラスターに接続し、Hive クエリを送信する方法について説明します。 HDInsight の使用方法の詳細については、[HDInsight][hdinsight.introduction の概要] を参照してください [始めるや HDInsight][hdinsight.get.started] です。 Storm クラスターへの接続に関する詳細については、[開発の c# トポロジ Visual Studio][hdinsight.storm.visual.studio.tools を使用した HDInsight での Apache Storm] を参照してください。
+HDInsight Tools for Visual Studio を使用して HDInsight クラスターに接続し、Hive クエリを送信する方法について説明します。 HDInsight の使用方法の詳細については、次を参照してください。 [HDInsight 入門][hdinsight.introduction] と [HDInsight の概要][hdinsight.get.started]します。 Storm クラスターへの接続に関する詳細については、次を参照してください。 [Visual Studio を使用した HDInsight での Apache Storm の c# を開発トポロジ][hdinsight.storm.visual.studio.tools]します。
 
 **前提条件**
 
@@ -50,7 +50,7 @@ HDInsight Tools for Visual Studio と Microsoft Hive ODBC ドライバーは、M
 - [Microsoft Azure SDK for .NET (VS 2015)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids) 
 - [Microsoft Azure SDK for .NET (VS 2013)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2013AzurePack.appids) 
 
-![Hadoop ツール: HDinsight Tools for Visual Studio Web Platform installer]。[1]
+![Hadoop ツール: HDinsight Tools for Visual Studio Web Platform installer][1]
 
 ## Azure サブスクリプションに接続する
 HDInsight Tools for Visual Studio を使用して、HDInsight クラスターへの接続、いくつかの基本的な管理操作の実行、Hive クエリの実行が可能です。
@@ -68,9 +68,9 @@ HDInsight Tools for Visual Studio を使用して、HDInsight クラスターへ
 
     >[AZURE.NOTE]通知、 **HDInsight タスク一覧** ウィンドウが開いている必要があります。 表示されない場合はクリックして **その他のウィンドウ** から、 **ビュー** ] メニューの [クリックして **HDInsight タスク一覧ウィンドウ**です。  
 4.  Azure サブスクリプションの資格情報を入力し、クリックして **サイン イン**します。 この操作は、このワークステーションで、まだ一度も Visual Studio から Azure サブスクリプションに接続していない場合にのみ必要です。
-5.  サーバー エクスプローラーに、既存の HDInsight クラスターの一覧が表示されます。 クラスターが 1 つもない場合は、Azure ポータル、Azure PowerShell、または HDInsight SDK を使用してプロビジョニングできます。 詳細については、[HDInsight クラスターのプロビジョニング] を参照してください。 [hdinsight プロビジョニング] です。
+5.  サーバー エクスプローラーに、既存の HDInsight クラスターの一覧が表示されます。 クラスターが 1 つもない場合は、Azure ポータル、Azure PowerShell、または HDInsight SDK を使用してプロビジョニングできます。 詳細については、次を参照してください。 [HDInsight クラスターのプロビジョニング][hdinsight-provision]します。
 
-    ![Hadoop ツール: HDInsight Tools for Visual Studio サーバー エクスプ ローラー クラスターの一覧][5]
+    ![Hadoop ツール: HDInsight Tools for Visual Studio サーバー エクスプローラー クラスターの一覧][5]
 6.  HDInsight クラスターを展開します。 わかります **Hive データベース**, 、既定のストレージ アカウント、リンクされたストレージ アカウント、および **Hadoop サービス ログ**します。 さらに、エンティティを展開できます。
 
 Azure サブスクリプションに接続した後で、次を実行できます。
@@ -87,10 +87,10 @@ Azure サブスクリプションに接続した後で、次を実行できま�
 
 サーバー エクスプローラーで、既定のストレージ アカウント、すべてのリンクされたストレージ アカウントを確認できます。 既定のストレージ アカウントを展開すると、そのストレージ アカウントのコンテナーを表示できます。 既定のストレージ アカウントと既定のコンテナーがマークされます。 コンテナーのいずれかの右クリックしてコンテンツを表示できます。
 
-![HDInsight Tools for Visual Studio サーバー エクスプ ローラー クラスターの一覧][2]
+![HDInsight Tools for Visual Studio サーバー エクスプローラー クラスターの一覧][2]
 
 ## Hive クエリを実行する
-[Apache Hive][apache.hive] データ ウェアハウス インフラストラクチャで Hadoop に構築されるデータの概要、クエリ、および分析を提供することができます。 HDInsight Tools for Visual Studio は Visual Studio からの Hive クエリの実行をサポートします。 Hive の詳細については、[Hive と使用 HDInsight][hdinsight.hive] を参照してください。
+[Apache Hive][apache.hive] データ ウェアハウス インフラストラクチャで Hadoop に構築されるデータの概要、クエリ、および分析を提供することができます。 HDInsight Tools for Visual Studio は Visual Studio からの Hive クエリの実行をサポートします。 Hive の詳細については、次を参照してください。 [HDInsight での Hive の使用][hdinsight.hive]します。
 
 HDInsight クラスターに対して Hive スクリプトをテストするには、 数分以上かかる場合があります。 HDInsight Tools for Visual Studio では、ライブ クラスターに接続しなくても、Hive スクリプトをローカルで検証できます。
 
@@ -110,7 +110,7 @@ HDInsight クラスターに対して Hive スクリプトをテストするに�
 
     行カウントをカスタマイズできます。
 
-    ![Hadoop ツール: HDinsight Hive Visual Studio スキーマ クエリ][6]
+    ![Hadoop ツール:  HDinsight Hive Visual Studio スキーマ クエリ][6]
 
 ### Hive テーブルの作成
 
@@ -122,7 +122,7 @@ GUI を使用して Hive テーブルを作成するか、Hive クエリを使�
 2. テーブルを構成します。
 3. クリックして **Create Table** 、新しい Hive テーブルを作成するジョブを送信します。
 
-    ![Hadoop ツール: hdinsight visual studio のツールは、hive テーブルを作成する][7]
+    ![Hadoop ツール: HDinsight Visual Studio ツールで Hive テーブルを作成する][7]
 
 ### <a name="run.queries"></a>Hive クエリの検証と実行
 Hive クエリを作成して実行するには次の 2 つの方法があります。
@@ -136,22 +136,22 @@ Hive クエリを作成して実行するには次の 2 つの方法がありま
 2. クリックして、クエリを実行するクラスターを右クリックして **Write a Hive Query**します。
 3. Hive クエリを入力します。 Hive エディターは Intellisense をサポートしています。 HDInsight Tools for Visual Studio で、Hive スクリプトの編集時にリモート メタデータの読み込みがサポートされます。 たとえば、"SELECT * FROM" と入力すると、Intellisense には推奨されるテーブル名が一覧表示されます。 テーブル名を指定すると、列名が Intellisense に一覧表示されます。 ツールは、ほとんどすべての Hive の DML ステートメント、サブクエリ、および組み込みの UDF をサポートします。
 
-    ![Hadoop ツール: HDInsight Visual Studio Tools IntelliSense][13]
+    ![Hadoop ツール: HDInsight Visual Studio Tools Intellisense][13]
 
-    ![Hadoop ツール: HDInsight Visual Studio Tools IntelliSense][14]
+    ![Hadoop ツール: HDInsight Visual Studio Tools Intellisense][14]
 
     > [AZURE.NOTE] クラスターの HDInsight のツールバーで選択されているメタデータのみが提案されます。
 4. (省略可能):] をクリックして **検証スクリプト** スクリプトの構文エラーを確認します。
 
-    ![Hadoop ツール: hdinsight tools for Visual Studio ローカル検証][10]
+    ![Hadoop ツール: HDinsight Tools for Visual Studio ローカル検証][10]
 
 4. クリックして **送信** または **(高度な) 送信**します。 高度な送信オプションを使用して構成する **ジョブ名**, 、**引数**, 、**追加の構成**, 、および **ステータス ディレクトリ** スクリプト。
 
-    ![hdinsight の hadoop hive query][9]
+    ![HDinsight Hadoop の Hive クエリ][9]
 
     表示、ジョブを送信した後、 **Hive ジョブの概要** ウィンドウです。
 
-    ![HDInsight の Hadoop Hive クエリの概要][8]
+    ![HDInsight Hadoop の Hive クエリの概要][8]
 5. 使用して、 **更新** にジョブの状態が変更されるまで状態を更新するボタン **完了**します。
 6. 下部には、以下を参照してリンクをクリックして: **ジョブ クエリ**, 、**ジョブの出力**, 、**ジョブ ログ**, 、または **Yarn ログ**します。
 
@@ -162,7 +162,7 @@ Hive クエリを作成して実行するには次の 2 つの方法がありま
 1.  **ファイル** ] メニューのをクリックして **新規**, 、クリックして **プロジェクト**します。
 2. 選択 **HDInsight** 左側のウィンドウから次のように選択します。 **Hive アプリケーション** 中央のペインで、プロパティを入力し、クリック **OK**します。
 
-    ![Hadoop ツール: hdinsight visual studio ツール新しい hive プロジェクト][11]
+    ![Hadoop ツール: HDinsight Visual Studio ツール新しい Hive プロジェクト][11]
 3.  **ソリューション エクスプ ローラー**, をダブルクリックして **Script.hql** を開きます。
 4. Hive スクリプトを検証するには、クリックすることができます、 **検証スクリプト** ] ボタンをクリックしてまたは Hive エディターでスクリプトを右クリックし、クリックして **検証スクリプト** 、コンテキスト メニューからです。
 
@@ -170,7 +170,7 @@ Hive クエリを作成して実行するには次の 2 つの方法がありま
 ### Hive ジョブの表示
 Hive ジョブのジョブ クエリ、ジョブ出力、ジョブのログ、Yarn ログを表示できます。 詳細については、先のスクリーンショットをご覧ください。
 
-ツールの最新のリリースでは、提示の YARN ログを収集して、Hive ジョブの内容を確認できます。 YARN ログは、パフォーマンス問題の検証に役立ちます。 HDInsight での YARN ログを収集する方法の詳細については、[アクセス HDInsight アプリケーション ログ Programmatically][hdinsight.access.application.logs] を参照してください。
+ツールの最新のリリースでは、提示の YARN ログを収集して、Hive ジョブの内容を確認できます。 YARN ログは、パフォーマンス問題の検証に役立ちます。 HDInsight YARN を収集する方法の詳細については、次のログを参照してください。 [HDInsight アプリケーション ログ プログラムでアクセス][hdinsight.access.application.logs]します。
 
 **Hive ジョブの表示**
 
@@ -178,7 +178,7 @@ Hive ジョブのジョブ クエリ、ジョブ出力、ジョブのログ、Ya
 2. HDInsight クラスターを右クリックし、をクリックし、 **ジョブの表示**します。 クラスター上で実行した Hive ジョブの一覧が表示されます。
 3. オンにし、使用するジョブの一覧でジョブをクリックして、 **Hive ジョブの概要** ウィンドウを開きます **ジョブ クエリ**, 、**ジョブの出力**, 、**ジョブ ログ**, 、または **Yarn ログ**します。
 
-    ![Hadoop ツール: HDInsight Visual Studio ツール Hive ジョブの表示][12]
+    ![Hadoop ツール: HDinsight Visual Studio ツールで新しい Hive ジョブを表示する][12]
 
 ### HiveServer2 による Hive 実行の高速化
 
@@ -210,7 +210,7 @@ HiveServer2 を使用してクエリを実行した場合、パフォーマン�
 
 ### Tez Hive ジョブのパフォーマンス グラフ
 
-HDInsight Tools for Visual Studio は Tez 実行エンジンで実行された Hive ジョブのパフォーマンス グラフの表示をサポートしています。 Tez を有効にする方法については、次を参照してください。 [HDInsight][hdinsight.hive での Hive の使用]。 Visual Studio で Hive ジョブを送信した後、ジョブが完了すると、Visual Studio にグラフが表示されます。  をクリックする必要があります、 **更新** を最新のジョブの状態を取得する] ボタンをクリックします。
+HDInsight Tools for Visual Studio は Tez 実行エンジンで実行された Hive ジョブのパフォーマンス グラフの表示をサポートしています。 Tez を有効にする方法については、次を参照してください。 [HDInsight で Hive を使用して][hdinsight.hive]します。 Visual Studio で Hive ジョブを送信した後、ジョブが完了すると、Visual Studio にグラフが表示されます。  をクリックする必要があります、 **更新** を最新のジョブの状態を取得する] ボタンをクリックします。
 
 > [AZURE.NOTE] この機能は、HDInsight クラスター バージョン 3.2.4.593 についてでのみ使用、完了したジョブに対してのみ機能することができます。 これは、Windows ベースと Linux ベースの両方のクラスターで機能します。
 
@@ -234,9 +234,9 @@ HDInsight Tools for Visual Studio は、Pig スクリプトの作成と、HDInsi
 この記事では、Hadoop ツール パッケージを使用して Visual Studio から HDInsight クラスターに接続し、Hive クエリを実行する方法を説明しました。 詳細については、次を参照してください。
 
 - [HDInsight での Hadoop Hive の使用][hdinsight.hive]
-- [HDInsight の Hadoop の使用を開始][hdinsight.get.started]
+- [HDInsight で Hadoop を使用する][hdinsight.get.started]
 - [HDInsight での Hadoop ジョブの送信][hdinsight.submit.jobs]
-- [HDInsight の Hadoop を使用した Twitter データを分析する][hdinsight.analyze.twitter.data]
+- [HDInsight での Hadoop を使用した Twitter データの分析][hdinsight.analyze.twitter.data]
 
 
 <!--Anchors-->
@@ -272,4 +272,5 @@ HDInsight Tools for Visual Studio は、Pig スクリプトの作成と、HDInsi
 [hdinsight.access.application.logs]: ../hdinsight/hdinsight-hadoop-access-yarn-app-logs.md
 
 [apache.hive]: http://hive.apache.org
+
 

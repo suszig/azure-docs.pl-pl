@@ -28,12 +28,12 @@ Keytool を使用するには JDK を圧縮し、Azure プロジェクトに追�
     `keytool -list -keystore cacerts`
 
     ストアのパスワードを入力するように求められます。 既定のパスワードは **changeit**します。 (パスワードを変更する場合にある keytool のドキュメントを参照してください <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>。)。この例では、MD5 フィンガープリントが 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 の証明書が一覧に表示されないため、その証明書をインポートするとします (この証明書は Twilio API サービスに必要)。
-2. 記載されている証明書の一覧から証明書を入手 [GeoTrust Root Certificates](http://www.geotrust.com/resources/root-certificates/)します。 シリアル番号 35: de:f 証明書へのリンクを右クリックし、保存して、 **jdk \jre\lib\security** フォルダーです。 この例の目的で、という名前のファイルに保存された **Equifax\_Secure\_Certificate\_Authority.cer**します。
+2. 記載されている証明書の一覧から証明書を入手 [GeoTrust Root Certificates](http://www.geotrust.com/resources/root-certificates/)します。 シリアル番号: de:f 証明書へのリンクを右クリックし、保存して、 **jdk \jre\lib\security** フォルダーです。 この例の目的で、という名前のファイルに保存された **Equifax\_Secure\_Certificate\_Authority.cer**します。
 3. 次のコマンドを使用して証明書をインポートします。
 
     `keytool -keystore cacerts -importcert -alias equifaxsecureca -file Equifax_Secure_Certificate_Authority.cer`
 
-    証明書の MD5 フィンガー プリント cb:9 D の場合、この証明書を信頼するように求められたら: 1b:ec:d4 であれば、」と入力して返信 **y**します。
+    証明書 67: cb:9 MD5 フィンガー プリント D 場合、この証明書を信頼するように求められたら: C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4」と入力して返信 **y**します。
 4. 次のコマンドを実行して CA 証明書が正常にインポートされたことを確認します。
 
     `keytool -list -keystore cacerts`
@@ -55,4 +55,5 @@ Baltimore CyberTrust Root を追加する必要がある場合、そのシリア
 Azure によって使用されるルート証明書の詳細については、次を参照してください。 [Azure ルート証明書の移行](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx)します。
 
 Java の詳細については、次を参照してください。、 [Java デベロッパー センター](/develop/java/)します。
+
 

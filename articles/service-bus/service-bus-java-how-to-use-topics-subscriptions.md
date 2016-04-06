@@ -27,7 +27,7 @@
 
 ## Service Bus を使用するようにアプリケーションを構成する
 
-インストールされていることを確認、 [Azure SDK for Java][] このサンプルをビルドする前にします。 Eclipse を使用している場合は、インストール、 [Azure Toolkit for Eclipse][] 、Azure SDK for Java が含まれます。 追加することができますし、 **Microsoft Azure Libraries for Java** をプロジェクトに。
+インストールされていることを確認、 [Azure SDK for Java][] このサンプルをビルドする前にします。 Eclipse を使用している場合は、インストール、 [Azure Toolkit for Eclipse][] Azure SDK for Java が含まれます。 追加することができますし、 **Microsoft Azure Libraries for Java** をプロジェクトに。
 
 ![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
@@ -328,3 +328,4 @@ Service Bus には、
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx 
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
+

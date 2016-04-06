@@ -15,7 +15,7 @@
 
     ![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png)
 
-    ストレージ アカウントのアクセス キーは暗号化された状態でアプリケーション設定に保存されます。 このキーには、実行時にどのサーバー スクリプトからでもアクセスできます。 詳細については、[アプリ設定] を参照してください。
+    ストレージ アカウントのアクセス キーは暗号化された状態でアプリケーション設定に保存されます。 このキーには、実行時にどのサーバー スクリプトからでもアクセスできます。 詳細については、次を参照してください。 [App settings]します。
 
 4. [構成] タブのことを確認して [動的スキーマ](http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7) が有効になっています。 TodoItem テーブルに新しい列を追加するには、動的スキーマが有効になっている必要があります。 運用環境のサービスでは、動的スキーマを有効にしないでください。
 
@@ -90,4 +90,5 @@
 
 <!-- URLs. -->
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+
 

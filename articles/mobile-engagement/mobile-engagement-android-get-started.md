@@ -21,8 +21,8 @@
 > [AZURE.SELECTOR]
 - [Windows ユニバーサル](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS |Obj C](mobile-engagement-ios-get-started.md)
-- [iOS |Swift](mobile-engagement-ios-swift-get-started.md)
+- [iOS | Obj C](mobile-engagement-ios-get-started.md)
+- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
 - [Android](mobile-engagement-android-get-started.md)
 - [Cordova](mobile-engagement-cordova-get-started.md)
 
@@ -32,15 +32,15 @@
 このチュートリアルには、次のものが必要です。
 
 + ダウンロードできます (ことを前提と Android Studio を使用して)、Android SDK [ここで](http://go.microsoft.com/fwlink/?LinkId=389797)
-+ [Mobile Engagement Android SDK]
++ 、 [Mobile Engagement Android SDK]
 
-> [AZURE.IMPORTANT] Android アプリ向けの他のすべてのモバイル エンゲージメント チュートリアルの前提条件は、このチュートリアルを完了して、これを完了するには、アクティブな Azure アカウントが必要です。 アカウントがない場合は、無料試用版のアカウントを数分で作成することができます。 詳細については、<a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure の無料試用版サイト</a>をご覧ください。
+> [AZURE.IMPORTANT] Android アプリ向けの他のすべてのモバイル エンゲージメント チュートリアルの前提条件は、このチュートリアルを完了して、これを完了するには、アクティブな Azure アカウントが必要です。 アカウントがない場合は、無料試用版のアカウントを数分で作成することができます。 詳細については、「<a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure の無料試用版サイト</a>」を参照してください。
 
-##<a id="setup-azme"></a>モバイル エンゲージメント Android アプリを設定します。
+##<a id="setup-azme"></a>Android アプリ用のモバイル エンゲージメントの設定
 
 [AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
 
-##<a id="connecting-app"></a>アプリを Mobile Engagement のバックエンドに接続する
+##<a id="connecting-app"></a>アプリを Mobile Engagement のバックエンドに接続します
 
 このチュートリアルでは、データを収集してプッシュ通知を送信するために必要な最小限のセットである「基本的な統合」について説明します。 完全な統合のドキュメントについては記載されて、 [Mobile Engagement Android SDK の統合](../mobile-engagement-android-sdk-overview/)
 
@@ -76,7 +76,7 @@ Mobile Engagement を統合するデモ アプリが Android Studio によって
 
 SDK ライブラリをダウンロードして統合する
 
-1. [Mobile Engagement Android SDK] をダウンロードします。
+1. ダウンロード、 [Mobile Engagement Android SDK]します。
 2. アーカイブ ファイルをコンピューターのフォルダーに抽出します。
 3. SDK の現在のバージョン用の .jar ライブラリを探し、クリップボードにコピーします。
 
@@ -144,13 +144,13 @@ SDK ライブラリをダウンロードして統合する
 
     // setSupportActionBar(toolbar);
 
-このことを保持する場合、お読みください「基本的なレポートを」シナリオでは、[高度な Android 統合]
+これまで残しておきたいかどうかは、「基本的なレポートを」シナリオを確認してください、 [Advanced Android Integration]
 
 ##<a id="monitor"></a>リアルタイム監視を使用してアプリを接続する
 
 [AZURE.INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-##<a id="integrate-push"></a>プッシュ通知とアプリ内メッセージングを有効にします。
+##<a id="integrate-push"></a>プッシュ通知とアプリ内メッセージングを有効にする
 
 Mobile Engagement を導入すると、プッシュ通知とアプリ内メッセージングを利用して、ユーザーにキャンペーン情報を提供できます。 このモジュールは、Mobile Engagement ポータルで REACH として呼び出されます。
 次のセクションでは、それらを受信するようにアプリをセットアップします。
@@ -237,7 +237,7 @@ Mobile Engagement を導入すると、プッシュ通知とアプリ内メッ�
 
         <meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
-2. 次のコードを、Manifest.xml の `<application>` タグと `</application>` タグの間に貼り付けます。 <Your package name> をパッケージ名に置き換えます。
+2. 次のコードを、Manifest.xml の `<application>` タグと `</application>` タグの間に貼り付けます。 パッケージ名に置き換えます <Your package name>.
 
         <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
         android:exported="false">
@@ -282,7 +282,7 @@ Mobile Engagement にプッシュ通知の送信を許可するには、API キ�
 
     ![][18]
 
-##<a id="send"></a>アプリへ通知を送信します。
+##<a id="send"></a>アプリへ通知を送信する
 
 アプリにプッシュ通知を送信する単純なプッシュ通知キャンペーンを作成します。
 
@@ -341,4 +341,5 @@ Mobile Engagement にプッシュ通知の送信を許可するには、API キ�
 [21]: ./media/mobile-engagement-android-get-started/campaign-first-params.png
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
+
 

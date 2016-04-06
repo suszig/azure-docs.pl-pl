@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) は、マイクロソフトのサービスと�
 > [AZURE.NOTE] Azure AD 管理ポータルは、Azure 旧ポータルの一部です。 Azure AD を使用しても、任意の Azure の購入は不要、このポータルにアクセスする必要がありますアクティブな Azure サブスクリプションまたは [Azure 試用版サブスクリプション](http://azure.microsoft.com/pricing/free-trial/)します。
 
 Azure AD サービスの機能の広範な概要については、次を参照してください。 [Azure AD は](active-directory-whatis.md)です。
-[Azure AD サービス レベルの詳細についてください。](http://azure.microsoft.com/support/legal/sla/)
+[Azure AD サービス レベルの詳細](http://azure.microsoft.com/support/legal/sla/)
 
 > [AZURE.NOTE]  Azure 従量課金のサブスクリプションが異なる: ディレクトリで表さ、これらのサブスクリプションは Azure リソースの作成を有効にするし、支払方法にマップします。 この場合、サブスクリプションに関連付けられているライセンス数は 0 です。 ユーザーのサブスクリプションとの関連付け、つまり管理するサブスクリプション リソースへのアクセスは、サブスクリプションにマップされている Azure のリソースを操作するためのアクセス許可が付与されることによって実現されます。
 
@@ -140,4 +140,5 @@ Azure AD Premium の一部の機能を構成し、使用する準備ができま
 - [アプリケーションへのグループの割り当て](active-directory-manage-groups.md)
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [Azure AD Premium ライセンスの直接購入](http://aka.ms/buyaadp)
+
 

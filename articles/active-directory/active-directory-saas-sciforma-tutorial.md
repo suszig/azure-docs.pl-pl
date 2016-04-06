@@ -83,13 +83,13 @@
 
 4.   **Sciforma でのシングル サインオンの構成** ] ページで、メタデータをダウンロードする] をクリックして **メタデータのダウンロード**, 、し、データ ファイルをローカルでとして **c:\\SciformaMetaData.xml**します。
 
-    ![Configure single sign-on](./media/active-directory-saas-sciforma-tutorial/IC777375.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-sciforma-tutorial/IC777375.png "Configure single sign-on")
 
 5.  メタデータ ファイルを Sciforma サポート チームに転送します。 サポート チームは、シングル サインオンを構成する必要があります。
 
 6.  シングル サインオンの構成情報を選択し、 **完了** を閉じる、 **[シングル サインオン** ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-sciforma-tutorial/IC777376.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-sciforma-tutorial/IC777376.png "Configure single sign-on")
 ##ユーザー プロビジョニングの構成
   
 Sciforma へのユーザー プロビジョニングの構成にあたって必要な操作はありません。  
@@ -112,3 +112,4 @@ Sciforma へのユーザー プロビジョニングの構成にあたって必�
     ![あり](./media/active-directory-saas-sciforma-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

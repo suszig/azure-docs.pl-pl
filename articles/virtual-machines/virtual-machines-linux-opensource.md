@@ -100,7 +100,7 @@ CoreOS は、カスタマイズを細かく制御できる純粋なコンピュ�
 11. [方法: Azure での CoreOS の使用](virtual-machines-linux-coreos-how-to.md)
 12. [方法: Azure 上の CoreOS での fleet と Docker の使用](virtual-machines-linux-coreos-fleet-get-started.md)
 13. [ブログ: TechEd Europe -- Windows Docker クライアント と Linux コンテナー](http://azure.microsoft.com/blog/2014/10/28/new-docker-coreos-topics-linux-on-azure/)
-14. [ブログ: ますます大規模化、高速化、オープン化する Azure](http://azure.microsoft.com/blog/2014/10/20/azures-getting-bigger-faster-and-more-open/)
+14. [ブログ: Azure ばかり大きく、速度とよりオープン](http://azure.microsoft.com/blog/2014/10/20/azures-getting-bigger-faster-and-more-open/)
 15. [GitHub: Azure で CoreOS をデプロイするためのクイック スタート](https://github.com/timfpark/coreos-azure)
 16. [GitHub: Spring Boot、MongoDB、CoreOS での Java アプリのデプロイ](https://github.com/chanezon/azure-linux/tree/master/coreos/cloud-init)
 
@@ -311,4 +311,5 @@ CoreOS は、カスタマイズを細かく制御できる純粋なコンピュ�
 <!--Link references--In actual articles, you only need a single period before the slash. -->
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
+
 

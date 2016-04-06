@@ -35,7 +35,7 @@
 - Azure ストレージ アカウント。 手順については、次を参照してください。 [Azure ストレージ アカウントについて](../storage-whatis-account.md)します。
 - Azure PowerShell 0.9.8 を実行できるワークステーション。 手順については、次を参照してください。 [をインストールし、Azure PowerShell を構成](../install-configure-powershell.md)します。 Azure PowerShell 1.0 プレビューについては、このチュートリアルはまだ更新されていません。 
 
-##<a id="CreateDB"></a>手順 1: ダウンロードし、サンプル ファイルの抽出 ##
+##<a id="CreateDB"></a>手順 1: サンプル ファイルのダウンロードと抽出 ##
 このチュートリアルで使用するサンプル ファイルをダウンロードすることから始めましょう。
 
 1. ダウンロード、 [DocumentDB アカウント、Web アプリを作成およびデプロイのデモ アプリケーション サンプル](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip) ローカル フォルダー (C:\DocumentDBTemplates など) にファイルを抽出します。  このサンプルでは、DocumentDB アカウント、App Service Web アプリ、Web アプリケーションをデプロイします。  また、Web アプリケーションをこの DocumentDB アカウントに接続するように自動的に構成します。
@@ -128,7 +128,7 @@
 
     ![Todo アプリケーションのサンプル](./media/documentdb-create-documentdb-website/image2.png)
 
-7. いくつかのタスクを作成して、開いてみましょう、 [Microsoft Azure ポータル](https://portal.azure.com)します。
+7. 前方に移動し、いくつかのタスクを作成しを開いてみましょう、 [Microsoft Azure ポータル](https://portal.azure.com)します。
 
 8. リソース グループを参照するように選択し、デプロイメント時に作成したリソース グループを選択します (上のサンプルでは、myDemoResourceGroup)。
 
@@ -209,4 +209,5 @@
 
 >[AZURE.NOTE] 場合は、Azure アカウントがサインアップする前に Azure App Service の使用を開始するには、 [App Service の試用](http://go.microsoft.com/fwlink/?LinkId=523751), 、App Service で有効期間の短いスターター web アプリをすぐに作成する場所です。 このサービスの利用にあたり、クレジット カードは必要ありません。契約も必要ありません。
  
+
 

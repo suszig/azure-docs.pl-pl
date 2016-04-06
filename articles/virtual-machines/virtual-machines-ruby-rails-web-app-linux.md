@@ -132,13 +132,13 @@ SSH を使用してログインしている状態で、次のコマンドを実�
 
 ##<a id="next"></a>次のステップ
 
-このチュートリアルでは、ほとんどの手順を手作業で行いました。 通常、運用環境では、開発用コンピューターで作成したアプリを Azure VM にデプロイします。 また、運用環境では、Apache や NginX などの別のサーバー プロセスと組み合わせて Rails アプリケーションをホストすることがほとんどです。これらのサーバーは、複数の Rails アプリケーション インスタンスへの要求のルーティングを処理すると共に、静的リソースを提供します。 詳細については、http://rubyonrails.org/deploy/を参照してください。
+このチュートリアルでは、ほとんどの手順を手作業で行いました。 通常、運用環境では、開発用コンピューターで作成したアプリを Azure VM にデプロイします。 また、運用環境では、Apache や NginX などの別のサーバー プロセスと組み合わせて Rails アプリケーションをホストすることがほとんどです。これらのサーバーは、複数の Rails アプリケーション インスタンスへの要求のルーティングを処理すると共に、静的リソースを提供します。 詳細については、http://rubyonrails.org/deploy/ を参照してください。
 
-Ruby on Rails の詳細については、[Ruby on Rails のガイド] を参照してください。 rails のガイドです。
+Ruby on Rails の詳細については、次を参照してください。、 [Ruby on Rails のガイド][rails-guides]します。
 
 Ruby アプリケーションから Azure のサービスを使用する方法については、次のトピックを参照してください。
 
-* [Blob を使用して非構造化データを格納する][blob]
+* [BLOB を使用して非構造化データを保存する][blobs]
 
 * [テーブルを使用してキー/値のペアを保存する][tables]
 
@@ -174,4 +174,5 @@ Ruby アプリケーションから Azure のサービスを使用する方法�
 [new-endpoint]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
 
 [new-endpoint1]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint1.png
+
 

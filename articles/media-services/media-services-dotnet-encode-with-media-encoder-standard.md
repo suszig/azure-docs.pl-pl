@@ -144,4 +144,5 @@
 ##関連項目 
 
 [.NET を使用してメディア エンコーダー スタンダードを使用してサムネイルを生成する方法](media-services-dotnet-generate-thumbnail-with-mes.md)
-[Media Services エンコードの概要](media-services-encode-asset.md)
+[Media Services Encoding の概要](media-services-encode-asset.md)
+

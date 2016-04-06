@@ -132,21 +132,21 @@ StorSimple デバイスの単一のコントローラーを Azure クラシッ�
 
 <!--#### To shut down a StorSimple device in Windows PowerShell for StorSimple
 
-1. 次の手順に従って、StorSimple デバイスのシリアル コンソールに接続 [デバイスのシリアル コンソールに接続するための PuTTY を使用して](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-serial-console)します。
+1. Connect to the serial console of the StorSimple device by following the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-serial-console).
 
-1. シリアル コンソール メニューで、パッシブ コント ローラーに接続しているコント ローラーがあるバナー メッセージを確認します。 アクティブ コント ローラーに接続している場合は、このコント ローラーから切断し、他のコント ローラーに接続します。
+1. In the serial console menu, verify from the banner message that the controller you are connected to is the passive controller. If you are connected to the active controller, disconnect from this controller and connect to the other controller.
 
-1. シリアル コンソール メニューでは、オプション 1 を選択して **フル アクセスでログイン**します。
+1. In the serial console menu, choose option 1, **log in with full access**.
 
-1. プロンプトで、次のように入力します。
+1. At the prompt, type:
 
     `Stop-HCSController`
 
-    これは、現在のコント ローラーをシャット必要があります。 シャット ダウンが完了したかどうかを確認するには、デバイスの背面を確認します。 コント ローラーのステータス LED が赤に点灯をする必要があります。
+    This should shut down the current controller. To verify whether the shutdown has finished, check the back of the device. The controller status LED should be solid red.
 
-1. 手順 1. ~ 4. をアクティブなコント ローラーに接続し、シャット ダウンします。
+1. Repeat steps 1 through 4 to connect to the active controller and then shut it down.
 
-1. 両方のコント ローラーが完全にシャット ダウンした後、両方のステータス Led が赤で点滅します。 電源および off 冷却モジュール (Pcm) の両方の電源スイッチを完全にはこの時点で、デバイスをオフにする必要がある場合の位置。--> します。
+1. After both the controllers are completely shut down, the status LEDs on both should be blinking red. If you need to turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position.-->
 
 ## デバイスを出荷時の設定にリセットする
 
@@ -177,25 +177,25 @@ Microsoft Azure StorSimple デバイスを出荷時の設定にリセットす�
 
 このセクションでは、StorSimple デバイス コントローラーの管理に関して、よく寄せられる質問とその答えを掲載しています。
 
-**Q。**デバイスの両方のコントローラーが正常で電源が投入されているときに、アクティブ コントローラーを再起動またはシャットダウンした場合、どうなりますか。
+**Q.** デバイスの両方のコントローラーが正常で電源が投入されているときに、アクティブ コントローラーを再起動またはシャットダウンした場合、どうなりますか。
 
-**A.**デバイスの両方のコントローラーが正常で電源が投入されている場合、確認のメッセージが表示されます。 次の操作を選択できます。
+**A.** デバイスの両方のコントローラーが正常で電源が投入されている場合、確認のメッセージが表示されます。 次の操作を選択できます。
 
 - **アクティブなコント ローラーを再起動** – いるアクティブなコント ローラーを再起動すると、デバイスがパッシブ コント ローラーにフェールオーバーすると通知されます。 コントローラーが再起動されます。
 
 - **アクティブなコント ローラーをシャット ダウン** – いるアクティブなコント ローラーをシャット ダウン ダウンタイムが発生する通知されます。 この場合、コントローラーの電源を投入するには、デバイスの電源ボタンを押す必要があります。
 
-**Q。**デバイスのパッシブ コントローラーが利用できない、または電源が切れているときに、アクティブ コントローラーを再起動またはシャットダウンした場合はどうなりますか。
+**Q.** デバイスのパッシブ コントローラーが利用できない、または電源が切れているときに、アクティブ コントローラーを再起動またはシャットダウンした場合はどうなりますか。
 
-**A.**デバイスのパッシブ コントローラーが利用できない、または電源が切れている場合、次の操作を選択できます。
+**A.** デバイスのパッシブ コントローラーが利用できない、または電源が切れている場合、次の操作を選択できます。
 
 - **アクティブなコント ローラーを再起動** –、サービスを一時的に中断操作を行うと、その確認を求められますが通知されます。
 
 - **アクティブなコント ローラーをシャット ダウン** – 操作を続行原因になる、ダウンタイムと、デバイスをオンにする 1 つまたは両方のコント ローラーの電源ボタンをプッシュする必要がありますが通知されます。 確認を求められます。
 
-**Q。**コントローラーの再起動またはシャットダウンに失敗するのはどのようなときでしょうか。
+**Q.** コントローラーの再起動またはシャットダウンに失敗するのはどのようなときでしょうか。
 
-**A.**次の場合、コントローラーの再起動またはシャットダウンに失敗します。
+**A.** 次の場合、コントローラーの再起動またはシャットダウンに失敗します。
 
 - デバイスの更新が進行中であるとき。
 
@@ -203,20 +203,21 @@ Microsoft Azure StorSimple デバイスを出荷時の設定にリセットす�
 
 - コントローラーのシャットダウンが既に進行中であるとき。
 
-**Q。**コントローラーが再起動されたかどうかやシャットダウンされたかどうかは、どのようにして確認できるでしょうか。
+**Q.** コントローラーが再起動されたかどうかやシャットダウンされたかどうかは、どのようにして確認できるでしょうか。
 
-**A.**コントローラーのステータスは、[メンテナンス] ページで確認できます。 コントローラーが再起動またはシャットダウンされたことは、コントローラーのステータスで把握できます。 コントローラーが再起動またはシャットダウンされた場合、[アラート] ページにも情報案内アラートが表示されます。 また操作ログにも、コントローラーの再起動操作とシャットダウン操作が記録されます。 操作ログの詳細についてを参照してください [操作ログの表示](storsimple-service-dashboard.md#view-the-operations-logs)します。
+**A.** コントローラーのステータスは、[メンテナンス] ページで確認できます。 コントローラーが再起動またはシャットダウンされたことは、コントローラーのステータスで把握できます。 コントローラーが再起動またはシャットダウンされた場合、[アラート] ページにも情報案内アラートが表示されます。 また操作ログにも、コントローラーの再起動操作とシャットダウン操作が記録されます。 操作ログの詳細についてを参照してください [操作ログの表示](storsimple-service-dashboard.md#view-the-operations-logs)します。
 
-**Q。**コントローラーのフェールオーバーは I/O に影響しますか。
+**Q.** コントローラーのフェールオーバーは I/O に影響しますか。
 
-**A.**コントローラーがフェールオーバーされるとイニシエーターとアクティブ コントローラー間の TCP 接続がリセットされますが、パッシブ コントローラーが操作を引き継ぐときに、接続が再度確立されます。 この操作の過程でイニシエーターとデバイス間の I/O アクティビティが一時的 (30 秒未満) に停止する場合があります。
+**A.** コントローラーがフェールオーバーされるとイニシエーターとアクティブ コントローラー間の TCP 接続がリセットされますが、パッシブ コントローラーが操作を引き継ぐときに、接続が再度確立されます。 この操作の過程でイニシエーターとデバイス間の I/O アクティビティが一時的 (30 秒未満) に停止する場合があります。
 
-**Q。**シャットダウンして運用から除外したコントローラーを再び運用状態に戻すにはどうすればよいでしょうか。
+**Q.** シャットダウンして運用から除外したコントローラーを再び運用状態に戻すにはどうすればよいでしょうか。
 
-**A.**サービスに、コント ローラーを取得する必要がありますに挿入するシャーシ」の説明に従って [StorSimple デバイスのコント ローラー モジュールを交換して](storsimple-controller-replacement.md)します。
+**A.** サービスに、コント ローラーを取得する必要がありますに挿入するシャーシ」の説明に従って [StorSimple デバイスのコント ローラー モジュールを交換して](storsimple-controller-replacement.md)します。
 
 ## 次のステップ
 
 - このチュートリアルで紹介した手順を使用して解決できない StorSimple デバイス コント ローラーで、問題が発生した場合 [Microsoft サポートにお問い合わせ](storsimple-contact-microsoft-support.md)します。
 
 - StorSimple Manager サービスの使用に関する詳細についてをするには [StorSimple Manager サービスを使用して、StorSimple デバイスを管理する](storsimple-manager-service-administration.md)です。
+

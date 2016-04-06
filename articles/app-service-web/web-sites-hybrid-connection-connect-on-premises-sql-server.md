@@ -75,7 +75,7 @@ Port|理由
 
 3.  **インスタンスの構成** ページで、選択 **既定のインスタンス**します。
 
-    ![既定のインスタンスの選択][ChooseDefaultInstance]
+    ![[既定のインスタンス] を選択][ChooseDefaultInstance]
 
     既定では、SQL Server の既定のインスタンスが静的ポート 1433 の SQL Server クライアントから要求をリッスンします。ハイブリッド接続機能には静的ポート 1433 が必要です。 名前付きインスタンスは動的ポートと UDP を使用します。これはハイブリッド接続ではサポートされません。
 
@@ -98,7 +98,7 @@ TCP/IP を有効にするには、SQL Server Express をインストールした
 Visual Studio Web アプリケーションには、Azure がアクセスできるメンバーシップ データベースが必要です。 これには、(既定で MVC テンプレートが使用する LocalDB データベースではなく) SQL Server または SQL Server Express データベースが必要なため、次にメンバーシップ データベースを作成します。
 
 1. SQL Server Management Studio で、インストールした SQL Server に接続します (場合、 **サーバーへの接続** に移動し、ダイアログが自動的に表示されない **オブジェクト エクスプ ローラー** 左のウィンドウで **接続**, 、] をクリックし、 **データベース エンジン**.)
-    ![サーバーへの接続][SSMSConnectToServer]
+    ![サーバーへの接続します。][SSMSConnectToServer]
 
      **サーバーの種類**, 、選択 **データベース エンジン**します。  **サーバー名**, 、使用する **localhost** またはを使用しているコンピューターの名前。 選択 **SQL Server 認証**, 、sa のユーザー名および先ほど作成したパスワードでログインしとします。
 
@@ -108,13 +108,13 @@ Visual Studio Web アプリケーションには、Azure がアクセスでき�
 
 3.  **新しいデータベース** ダイアログ ボックスで、データベース名として「membershipdb」と入力し、、 **OK**します。
 
-    ![データベース名を指定する][SSMSprovideDBname]
+    ![データベース名の入力][SSMSprovideDBname]
 
     この時点では、データベースに変更を加えることはできないことに注意してください。 メンバーシップ情報は、後で Web アプリケーションを実行すると、自動的に追加されます。
 
 4. 展開する場合は、オブジェクト エクスプ ローラーで **データベース**, 、メンバーシップ データベースが作成されたことが表示されます。
 
-    ![作成した [membershipdb][SSMSMembershipDBCreated]
+    ![作成された MembershipDB][SSMSMembershipDBCreated]
 
 <a name="CreateSite"></a>
 ## B. Azure ポータルで Web アプリを作成する ##
@@ -123,7 +123,7 @@ Visual Studio Web アプリケーションには、Azure がアクセスでき�
 
 1.  [Azure ポータル](https://portal.azure.com), 、クリックして **新規** > **Web + モバイル** > **Web アプリ**します。
 
-    ![新しいボタン][新規]
+    ![[新規] ボタン][New]
 
 2. Web アプリを構成し、 **作成**します。
 
@@ -131,7 +131,7 @@ Visual Studio Web アプリケーションには、Azure がアクセスでき�
 
 3. しばらくすると、Web アプリケーションが作成され、Web アプリケーションのブレードが表示されます。 ブレードは縦方向にスクロールできるダッシュボードで、Web アプリを管理できます。
 
-    ![Web サイトを実行している][WebSiteRunningBlade]
+    ![Web サイト実行][WebSiteRunningBlade]
 
     クリックすると、web アプリがライブことを確認する、 **参照** 既定のページを表示するアイコン。
 
@@ -158,12 +158,12 @@ Visual Studio Web アプリケーションには、Azure がアクセスでき�
 
     処理が完了したら、 **通知** 領域が緑色の点滅 **成功** と **ハイブリッド接続** ブレードが新しいハイブリッド接続ステータスが表示されます **接続されていない**します。
 
-    ![作成した 1 つのハイブリッド接続][CreateHCOneConnectionCreated]
+    ![1 つのハイブリッド接続が作成された][CreateHCOneConnectionCreated]
 
 これで、クラウド ハイブリッド接続のインフラストラクチャの重要な部分が完了しました。 次に、対応するオンプレミスの部分を作成します。
 
 <a name="InstallHCM"></a>
-## D. オンプレミス ハイブリッド接続マネージャーをインストールして接続を完了する ##
+## D. オンプレミスのハイブリッド接続マネージャーをインストールして接続を完了する ##
 
 [AZURE.INCLUDE [app-service-hybrid-connections-manager-install](../../includes/app-service-hybrid-connections-manager-install.md)]
 
@@ -175,7 +175,7 @@ Visual Studio Web アプリケーションには、Azure がアクセスでき�
 ### 基本的な ASP.NET プロジェクトを作成する ###
 1. Visual Studio での **ファイル** ] メニューの [新しいプロジェクトを作成します。
 
-    ![新しい Visual Studio project][HCVSNewProject]
+    ![新しい Visual Studio プロジェクト][HCVSNewProject]
 
 2.  **テンプレート** のセクション、 **新しいプロジェクト** ダイアログで、 **Web** 選択 **ASP.NET Web アプリケーション**, 、] をクリックし、 **[ok]**します。
 
@@ -183,11 +183,11 @@ Visual Studio Web アプリケーションには、Azure がアクセスでき�
 
 3.  **新しい ASP.NET プロジェクト** ] ダイアログ ボックスで選択 **MVC**, 、] をクリックし、 **[ok]**します。
 
-    ![MVC を選択][HCVSChooseMVC]
+    ![MVC の選択][HCVSChooseMVC]
 
 4. プロジェクトが作成されると、アプリケーションの readme ページが表示されます。 まだ Web プロジェクトを実行しないでください。
 
-    ![リリース ノート ページ][HCVSReadmePage]
+    ![Readme page][HCVSReadmePage]
 
 ### アプリケーションのデータベース接続文字列を編集する ###
 
@@ -197,7 +197,7 @@ Visual Studio Web アプリケーションには、Azure がアクセスでき�
 
 1. ソリューション エクスプローラーで、Web.config ファイルをダブルクリックします。
 
-    ![Web.config][HCVSChooseWebConfig]
+    ![web.config][HCVSChooseWebConfig]
 
 2. 編集、 **connectionStrings** 構文を次の例では、ローカル コンピューターに SQL Server データベースを指すセクション。
 
@@ -217,7 +217,7 @@ Visual Studio Web アプリケーションには、Azure がアクセスでき�
 
 1. ここで、[デバッグ] の [参照] ボタンをクリックして、新しい Web プロジェクトをローカルで実行します。 この例では、Internet Explorer を使用します。
 
-    ![プロジェクトを実行する][HCVSRunProject]
+    ![オブジェクトの実行][HCVSRunProject]
 
 2. 既定の web ページの右上、順にクリックして **登録** 新しいアカウントを登録します。
 
@@ -225,7 +225,7 @@ Visual Studio Web アプリケーションには、Azure がアクセスでき�
 
 3. ユーザー名とパスワードを入力します。
 
-    ![ユーザー名とパスワードの入力][HCVSCreateNewAccount]
+    ![Enter user name and password][HCVSCreateNewAccount]
 
     これで、アプリケーションのメンバーシップ情報を保持するローカル SQL Server にデータベースが自動的に作成されます。 一方のテーブル (**dbo です。AspNetUsers**) が保持している web アプリ ユーザー資格情報入力したものです。 このテーブルは後でチュートリアルで使用されます。
 
@@ -242,13 +242,13 @@ Visual Studio Web アプリケーションには、Azure がアクセスでき�
 
 1. Azure ポータルの App Service Web アプリに対する発行プロファイルをダウンロードできます。 [Web アプリのブレードで、次のようにクリックします。 **発行プロファイルを取得**, 、お使いのコンピューターに、ファイルを保存します。
 
-    ![発行プロファイルのダウンロード設定][PortalDownloadPublishProfile]
+    ![Download publish profile][PortalDownloadPublishProfile]
 
     次に、このファイルを Visual Studio Web アプリケーションにインポートします。
 
 2. Visual Studio では、ソリューション エクスプ ローラーでプロジェクト名を右クリックして **発行**します。
 
-    ![公開] を選択][HCVSRightClickProjectSelectPublish]
+    ![発行の選択][HCVSRightClickProjectSelectPublish]
 
 3.  **Web の発行** ダイアログで、 **プロファイル** ] タブで、選択 **インポート**します。
 
@@ -256,11 +256,11 @@ Visual Studio Web アプリケーションには、Azure がアクセスでき�
 
 4. ダウンロードした発行プロファイルを参照を選択してクリックして **OK**します。
 
-    ![プロファイルを参照する][HCVSBrowseToImportPubProfile]
+    ![プロファイルを参照][HCVSBrowseToImportPubProfile]
 
 5. 発行情報がインポートされ、上の表示、 **接続** 、ダイアログ ボックスのタブをクリックします。
 
-    ![発行] をクリック][HCVSClickPublish]
+    ![[発行] をクリック][HCVSClickPublish]
 
     クリックして **発行**します。
 
@@ -272,23 +272,23 @@ Visual Studio Web アプリケーションには、Azure がアクセスでき�
 
 1. 上部にある Azure の web ページの右選択 **ログイン**します。
 
-    ![テスト ログ][HCTestLogIn]
+    ![テスト ログイン][HCTestLogIn]
 
 2. App Service Web アプリが、ローカル コンピューターの Web アプリケーションのメンバーシップ データベースに接続されています。 これを確認するには、前にローカル データベースに入力した資格情報でログインします。
 
-    ![こんにちはあいさつ文][HCTestHelloContoso]
+    ![Hello greeting][HCTestHelloContoso]
 
 3. 新しいハイブリッド接続を詳細にテストするには、Azure Web アプリケーションからログオフし、別のユーザーとして登録します。 新しいユーザー名とパスワードを入力し、 **登録**します。
 
-    ![テストは、別のユーザーを登録][HCTestRegisterRelecloud]
+    ![別ユーザーの登録テスト][HCTestRegisterRelecloud]
 
 4. ハイブリッド接続を通じて新しいユーザーの資格情報がローカル データベースに保存されたことを確認するには、ローカル コンピューターで SQL Management Studio を開きます。 オブジェクト エクスプ ローラーで、 **[membershipdb]** データベースを展開し、展開 **テーブル**します。 右クリックし、 **dbo です。AspNetUsers** メンバーシップ テーブルが表示され選択 **[上位 1000年行** 結果を表示します。
 
-    ![結果を表示][HCTestSSMSTree]
+    ![結果の確認][HCTestSSMSTree]
 
-5. ローカル メンバーシップ テーブルには、ローカルで作成したメンバーシップと、Azure クラウドで作成したメンバーシップの両方が表示されています。 クラウドで作成したメンバーシップは、Azure のハイブリッド接続機能でオンプレミスのデータベースに保存されています。
+5. ローカル メンバーシップ テーブルには、ローカルで作成したメンバーシップと、Azure クラウドで作成したメンバーシップの両方が表示されています。 クラウドで作成したメンバーシップは、Azure のハイブリッド接続機能で内部設置型のデータベースに保存されています。
 
-    ![内部設置型データベースの登録済みユーザー][HCTestShowMemberDb]
+    ![オンプレミスのデータベースに保存された登録済みのユーザー][HCTestShowMemberDb]
 
 これで、Azure クラウドの Web アプリとオンプレミスの SQL Server データベース間のハイブリッド接続を使用する ASP.NET Web アプリケーションを作成し、デプロイすることができました。 ご利用ありがとうございます。
 
@@ -363,4 +363,5 @@ Visual Studio Web アプリケーションには、Azure がアクセスでき�
 [HCTestRegisterRelecloud]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F09HCTestRegisterRelecloud.png
 [HCTestSSMSTree]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
+
 

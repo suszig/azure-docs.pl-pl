@@ -1,6 +1,6 @@
 
 
-1. アプリを登録済みでない場合は、移動、[アプリ送信のページ] に Windows ストア アプリのデベロッパー センターでは、Microsoft アカウントでログオンし、をクリックして **アプリ名**します。
+1. アプリを登録済みでない場合に移動、 [Submit an app page] で Windows ストア アプリのデベロッパー センターには、Microsoft アカウントでログオンし、順にクリックして **アプリ名**します。
 
     ![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png)
 
@@ -57,4 +57,5 @@
 <!-- URLs. -->
 [Get started with Mobile Services]: ../articles/mobile-services-windows-store-get-started.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+
 

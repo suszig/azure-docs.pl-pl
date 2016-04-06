@@ -84,7 +84,7 @@ RENAME OBJECT FactInternetSales_new TO FactInternetSales;
 DROP TABLE FactInternetSales_old;
 ```
 
-> [AZURE.NOTE] Azure SQL Data Warehouse では、サポートの自動作成] または [統計の更新を自動まだされていません。  クエリから最高のパフォーマンスを取得するには、最初の読み込み後またはそれ以降のデータの変更後に、すべてのテーブルのすべての列で統計を作成することが重要です。  統計情報の詳細については、トピックの開発グループの [統計] のトピックを参照してください。
+> [AZURE.NOTE] Azure SQL Data Warehouse では、サポートの自動作成] または [統計の更新を自動まだされていません。  クエリから最高のパフォーマンスを取得するには、最初の読み込み後またはそれ以降のデータの変更後に、すべてのテーブルのすべての列で統計を作成することが重要です。  統計情報の詳細については、次を参照してください。、 [統計][] 開発一連のトピックの「します。
 
 ## CTAS を使用したサポートされていない機能の回避
 
@@ -335,10 +335,10 @@ SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 ```
 
 以下の点に注意してください。
-- CAST または CONVERT を使用できた
-- ISNULL は COALESCE ではなく null 値許容を強制的に使用します。
-- ISNULL は最も外側の関数
-- ISNULL の 2 つ目は、定数つまり 0
+- CAST または CONVERT を使用することができます
+- ISNULL は、COALESCE ではなく NULLability を強制するために使用されます
+- ISNULL は最も外側の関数です
+- ISNULL の 2 つ目の部分は定数 (つまり 0) です
 
 > [AZURE.NOTE] Null 値の許容を正しく設定するのには、ISNULL と COALESCE ではなくを使用する重要なのです。 COALESCE は確定的な関数ではないため、式の結果には常に null 値が使用されるからです。 ISNULL の場合は異なります。 ISNULL は確定的な関数です。 そのため、ISNULL 関数の 2 番目の部分が定数またはリテラルの場合、結果の値は NOT NULL になります。 
 
@@ -416,10 +416,10 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 そのため、CTAS では、型の一貫性と null 値の許容プロパティを保持することが、エンジニアリング上のベスト プラクティスだということがわかります。 計算の整合性を維持するのに役立つほか、パーティションの切り替えも確実に実行できるからです。
 
-[CTAS] の使用に関する詳細については、MSDN を参照してください。 これは、Azure SQL Data Warehouse で最も重要なステートメントの 1 つです。 よく理解しておいてください。
+使用方法についての MSDN を参照してください [CTAS][]します。 これは、Azure SQL Data Warehouse で最も重要なステートメントの 1 つです。 よく理解しておいてください。
 
 ## 次のステップ
-他の開発のヒントについては、[開発の概要に関するページを参照してください。
+他の開発のヒントを参照してください。 [開発の概要][]します。
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-develop-ctas/ctas-results.png
@@ -432,4 +432,5 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 [CTAS]: https://msdn.microsoft.com/library/mt204041.aspx
 
 <!--Other Web references-->
+
 

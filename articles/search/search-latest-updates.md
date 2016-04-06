@@ -28,7 +28,7 @@ Azure Search は、Microsoft Azure のホスト型クラウド検索サービス
 
 
 ##API バージョン 2015-02-28-Preview
-**再リリース: 2015 年 9 月**
+**再リリース日: 2015 年 9 月**
 
 このバージョンを新規追加 [Lucene クエリ構文でサポート](https://msdn.microsoft.com/library/azure/mt589323.aspx) に対して使用できる、 [Azure Search サービス REST API のプレビュー バージョン](search-api-2015-02-28-preview.md)です。 新しい構文を使用するには、Search Documents 操作で `queryType`を指定する必要があります。
 
@@ -47,7 +47,7 @@ Azure Search は、Microsoft Azure のホスト型クラウド検索サービス
 - [DataSource クラス](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.datasource.aspx)
 
 ##.NET SDK 0.9.6-Preview
-**リリース日: 2015 年 3 月 5日**
+**リリース日: 2015 年 3 月 5 日**
 
 これは、Azure Search 用 .NET SDK の最初のパブリック リリースです。 これには、以下の 2 つの名前空間を持つ、クライアント ライブラリ Microsoft.Azure.Search.dll が含まれています。
 
@@ -63,7 +63,7 @@ Azure Search は、Microsoft Azure のホスト型クラウド検索サービス
 参照してください [.NET で Azure Search を使用する方法](http://go.microsoft.com/fwlink/p/?LinkId=528088) については、SDK のインストールおよび使用します。
 
 ##API バージョン 2015-02-28-Preview
-**リリース日: 2015 年 4 月 22日**
+**リリース日: 2015 年 4 月 22 日**
 
 - インデクサーは、fieldMapping コンストラクトをサポートするようになりました。これは実際のフィールド名が外部データベースと Azure Search インデックスとの間で異なる場合に、フィールド割り当てを提供します。 参照してください [インデクサー](search-api-indexers-2015-02-28-Preview.md) の `2015-02-28-preview` インデクサーの資料についてのバージョン.
 
@@ -77,7 +77,7 @@ Azure Search は、Microsoft Azure のホスト型クラウド検索サービス
 - [moreLikeThis =](search-api-2015-02-28-Preview.md) 排他の検索パラメーターを相互には `search=`, 、クエリの代替実行パスをトリガーします。 `moreLikeThis=` は、検索用語の入力に基づく `search=` のフルテキスト検索ではなく、指定されたドキュメントに類似のドキュメントを、検索可能フィールドの比較によって検索します。
 
 ##API バージョン 2015-02-28
-**リリース日: 2015 年 3 月 5日**
+**リリース日: 2015 年 3 月 5 日**
 
 - [インデクサー](http://go.microsoft.com/fwlink/p/?LinkID=528210) 新しい機能であり、Azure SQL Database、Azure DocumentDB と Azure Vm 上の SQL Server 上のデータ ソースからのインデックス作成を大幅に簡略化します。
 
@@ -88,14 +88,14 @@ Azure Search は、Microsoft Azure のホスト型クラウド検索サービス
 参照してください [Azure Search は一般公開されました](http://go.microsoft.com/fwlink/p/?LinkId=528211) サービスの発表、Azure ブログのこれらすべての機能について説明しています。
 
 ##API バージョン 2014-10-20-Preview
-**リリース日: 2014 年 11 月、2015 年 1 月**
+**リリース日付: 2014 年 11 月、2015 年 1 月**
 
 - [Lucene 言語アナライザー](search-api-2014-10-20-preview.md) Lucene と共に配布されるカスタム言語アナライザーの多言語のサポートを提供するようになりました。 
 
 - スコアリング プロファイルを含め、インデックス作成のツールのサポートが導入された、 [Azure Classic Portal](https://portal.azure.com)します。
 
 ##API バージョン 2014-07-31-Preview
-**リリース日: 2014 年 8 月 21日**
+**リリース日: 2014 年 8 月 21 日**
 
 このバージョンは、次のコア機能を提供する、Azure Search のパブリック プレビュー リリースでした。
 
@@ -108,7 +108,7 @@ Azure Search は、Microsoft Azure のホスト型クラウド検索サービス
 - プレビュー バージョンでのプロビジョニング、 [Azure Classic Portal](https://portal.azure.com )します。 Azure Search は、新しいポータルでのみ使用できるいくつかのサービスの 1 つでした。
 
 ##管理 API バージョン 2015-08-19
-**リリース日: 2015 年 9 月 11日**
+**リリース日: 2015 年 9 月 11 日**
 
 [管理 REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx) 次の更新プログラムが含まれています。
 
@@ -118,7 +118,7 @@ Azure Search は、Microsoft Azure のホスト型クラウド検索サービス
 - 検索サービスの作成操作の要求本文が更新され、SKU 設定の再配置が追加されました。
 
 ##管理 API バージョン 2015-02-28
-**リリース日: 2015 年 3 月 5日**
+**リリース日: 2015 年 3 月 5 日**
 
 [管理 REST API](search-management-api-2014-02-28.md) Azure Search の一般提供リリースに属している、管理 API の最初のバージョンを示します。 以前のプレビューとこのプレビューでは、機能の相違はありません。
 
@@ -129,3 +129,4 @@ Azure Search は、Microsoft Azure のホスト型クラウド検索サービス
 
 
  
+

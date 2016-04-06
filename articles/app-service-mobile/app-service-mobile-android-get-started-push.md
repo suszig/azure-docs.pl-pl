@@ -23,7 +23,7 @@
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 概要
-このチュートリアルで追加するプッシュ通知 [Android のクイック スタート] プロジェクトをレコードが挿入されるたびにプッシュ通知が送信できるようにします。 このチュートリアルは、先に完了する必要があります [Android のクイック スタート] のチュートリアルに基づきます。 ダウンロードしたクイック スタートのサーバー プロジェクトを使用しない場合は、プッシュ通知拡張機能パッケージをプロジェクトに追加する必要があります。 サーバーの拡張機能パッケージの詳細については、次を参照してください。 [Azure モバイル アプリの .NET バックエンド サーバー SDK と連携](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)します。 
+このチュートリアルへのプッシュ通知を追加、 [Android quick start] プロジェクトのプッシュ通知が送信されるたびに、レコードが挿入されるようにします。 このチュートリアルに基づいて、 [Android quick start] チュートリアルで、先に完了する必要があります。 ダウンロードしたクイック スタートのサーバー プロジェクトを使用しない場合は、プッシュ通知拡張機能パッケージをプロジェクトに追加する必要があります。 サーバーの拡張機能パッケージの詳細については、次を参照してください。 [Azure モバイル アプリの .NET バックエンド サーバー SDK と連携](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)します。 
 
 ##前提条件
 
@@ -33,7 +33,7 @@
 * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)& mdash; Node.js バックエンド プロジェクトでは必要ありません。
 * 完了、 [クイック スタート チュートリアル](../app-service-mobile-android-get-started.md)します。
 
-##<a name="create-hub"></a>通知ハブの作成
+##<a name="create-hub"></a>通知ハブを作成する
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
@@ -45,7 +45,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
-##<a id="update-service"></a>プッシュ通知を送信するようにサーバー プロジェクトを更新する
+##<a id="update-service"></a>サーバー プロジェクトをプッシュ通知を送信するように更新する
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
@@ -81,3 +81,4 @@ Android フォンを USB ケーブルで直接接続するか、エミュレー�
 
 <!-- URLs -->
 [Android quick start]: app-service-mobile-android-get-started.md
+

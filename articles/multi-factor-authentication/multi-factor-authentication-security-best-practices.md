@@ -38,9 +38,9 @@ Multi-Factor Authentication を設定する場合は、次の点を考慮して�
 - Azure AD Connect は、オンプレミスの Active Directory 環境を Azure AD ディレクトリと同期している場合にのみ必要です。 オンプレミスの Active Directory インスタンスと同期されない Azure AD ディレクトリのみを使用する場合、Azure AD Connect は必要ありません。
 
 
-### Multi-Factor Auth Provider
+### 多要素認証プロバイダー
 
-![Multi-Factor Auth Provider](./media/multi-factor-authentication-security-best-practices/authprovider.png)
+![多要素認証プロバイダー](./media/multi-factor-authentication-security-best-practices/authprovider.png)
 
 Azure AD Premium またはEnterprise Mobility Suite がない場合、クラウドに Azure MFA を導入するには、まず、MFA 認証プロバイダーを作成することをお勧めします。 MFA は、Azure Active Directory を使用しているグローバル管理者が既定で使用できますが、組織に MFA をデプロイする際に、多要素認証機能をすべてのユーザーに展開する必要があります。これを行うには、多要素認証プロバイダーが必要です。 
 認証プロバイダーを選択する場合は、ディレクトリを選択して次の点を考慮する必要があります。
@@ -72,7 +72,7 @@ Azure AD Premium またはEnterprise Mobility Suite がない場合、クラウ�
 ## オンプレミスの Azure Multi-Factor Authentication のベスト プラクティス
 企業が独自のインフラストラクチャを利用して MFA を有効にすることを決定した場合は、Azure Multi-Factor Authentication Server をオンプレミスでデプロイする必要があります。 MFA Server のコンポーネントを次の図に示します。
 
-![Multi-Factor Auth Provider](./media/multi-factor-authentication-security-best-practices/server.png)
+![多要素認証プロバイダー](./media/multi-factor-authentication-security-best-practices/server.png)
 * 既定ではインストールされていませんの * * インストールされていますが、既定で有効になっていません
 
 
@@ -125,4 +125,5 @@ Multi-Factor Authentication Server を設定する場合は、次の点を考慮
 - [Azure Multi-Factor Authentication のレポート](multi-factor-authentication-manage-reports.md)
 - [Azure Multi-Factor Authentication のセットアップ エクスペリエンス](multi-factor-authentication-end-user-first-time.md)
 - [Azure Multi-Factor Authentication についてよく寄せられる質問 (FAQ)](multi-factor-authentication-faq.md)
+
 

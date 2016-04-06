@@ -367,7 +367,7 @@ Azure ストレージ blob の使用の詳細については、次を参照し�
     HTTP/1.1 204 No Content 
     ...
 
-##<a id="upload_in_bulk"></a>アセットの一括アップロードします。
+##<a id="upload_in_bulk"></a>資産を一括でアップロードする
 
 ###IngestManifest を作成する
 
@@ -528,3 +528,4 @@ IngestManifest の Statistics プロパティをポーリングすることに�
  
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
+

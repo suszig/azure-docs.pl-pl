@@ -71,7 +71,7 @@
 
 1.  Azure AD ポータルでの **XMatters OnDemand** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![シングル サインオンの構成](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776791.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776791.png "Configure single sign-on")
 
 2.   **どのようなユーザーを XMatters OnDemand へのサインオン** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 
@@ -85,7 +85,7 @@
 
     >[AZURE.IMPORTANT] 証明書は xMatters サポート チームに転送する必要があります。 シングル サインオンの構成を確定するには、その前に、xMatters サポート チームによって証明書がアップロードされる必要があります。
 
-    ![シングル サインオンの有効化](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776794.png "Configure single sign on")
+    ![シングル サインオンの構成](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776794.png "Configure single sign on")
 
 5.  別の Web ブラウザーのウィンドウで、XMatters OnDemand の企業サイトに管理者としてログインします。
 
@@ -106,7 +106,7 @@
 
 8.  Azure AD ポータルでのシングル サインオンの構成情報を選択し、 **完了** を閉じる、 **[シングル サインオン** ダイアログ。
 
-    ![シングル サインオンの有効化](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776798.png "Configure single sign on")
+    ![シングル サインオンの構成](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776798.png "Configure single sign on")
 
 ##ユーザー プロビジョニングの構成
   
@@ -151,3 +151,4 @@ XMatters OnDemand の場合、プロビジョニングは手動で行います�
     ![あり](./media/active-directory-saas-xmatters-ondemand-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

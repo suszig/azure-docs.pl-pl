@@ -61,7 +61,7 @@ Azure Active Directory アプリケーション プロキシは、SharePoint、O
 - **ネイティブ アプリのリダイレクト URI** ご覧、 **構成** ネイティブ アプリケーションのページです。
 
 ![](./media/active-directory-application-proxy-native-client/new_native_app.png)
-</br> </br>ネイティブ アプリケーション フローの詳細については、次を参照してください [。ネイティブ アプリケーション対 web API](active-directory-authentication-scenarios.md#native-application-to-web-api)します。
+</br> </br>ネイティブ アプリケーション フローの詳細については、次を参照してください。 [ネイティブ アプリケーション対 web API](active-directory-authentication-scenarios.md#native-application-to-web-api)します。
 
 
 
@@ -86,4 +86,5 @@ Azure Active Directory アプリケーション プロキシは、SharePoint、O
 ## その他のリソース
 * [Azure への組織としてのサインアップ](sign-up-organization.md)
 * [Azure ID](fundamentals-identity.md)
+
 

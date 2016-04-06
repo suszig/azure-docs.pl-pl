@@ -32,7 +32,7 @@ Apache Ambari には使いやすい Web UI と REST API が用意されている
 
 ##<a id="whatis"></a>Ambari とは
 
-<a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> Hadoop の管理を使いやすい web プロビジョニング、管理、および Hadoop クラスターの監視に使用できる UI を提供することで簡単になります。 開発者がこれらの機能をアプリケーションに統合するには、 <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">Ambari REST API を使用します</a>.
+<a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> は、Hadoop クラスターのプロビジョニング、管理、監視に使用する Web UI を簡単に使用できる方法を提供することで Hadoop の管理を簡略化します。 開発者は、<a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">Ambari REST API</a> を使用して、これらの機能をアプリケーションに統合することができます。
 
 Ambari は既定で Linux ベースの HDInsight クラスターに付属しています。
 
@@ -130,3 +130,4 @@ HDInsight クラスターを作成する場合は、Azure ストレージ アカ
 REST API の完全なリファレンスを参照してください。 [Ambari API リファレンス V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)します。
 
 > [AZURE.NOTE] 一部の Ambari 機能が無効になって、HDInsight クラウド サービスが管理しています。追加するか、クラスターからホストを削除するなど、新しいサービスを追加します。
+

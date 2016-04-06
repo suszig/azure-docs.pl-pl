@@ -79,7 +79,7 @@
 
 3.   **アプリケーション URL の構成** ] ページで、次の手順を実行します。
 
-    ![Configure App URL](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798961.png "Configure App URL")
+    ![アプリケーション URL の構成](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798961.png "Configure App URL")
 
     1.   **サインオン URL** URL は、ユーザーへのサインインに使用] ボックスに、型、 **Brightspace by Desire2Learn** (例:: *https://partnershowcase.desire2learn.com/Shibboleth.sso/Login?entityID=https://sts.windows-ppe.net/5caf9349-fd93-4a74-b064-0070f65bfb49/&target=https%3A%2F%2Fpartnershowcase.desire2learn.com%2Fd2l%2FshibbolethSSO%2Faspinfo.asp*)。
     2.  クリックして **次へ]**
@@ -120,4 +120,5 @@ Brightspace by Desire2Learn の場合、Brightspace by Desire2Learn サポート
     ![あり](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC767830.png "Yes")
 
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+
 

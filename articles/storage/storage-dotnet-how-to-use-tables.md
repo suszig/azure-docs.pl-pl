@@ -52,7 +52,7 @@ Azure .NET 用 ストレージ クライアント ライブラリを利用して
 
 [AZURE.INCLUDE [storage-dotnet-retrieve-conn-string](../../includes/storage-dotnet-retrieve-conn-string.md)]
 
-## テーブルの作成
+## テーブルを作成する
 
 A **CloudTableClient** オブジェクトでは、テーブルの参照オブジェクトを取得できます。
 参照オブジェクトを取得できます。 次のコード作成、 **CloudTableClient** オブジェクト
@@ -503,4 +503,5 @@ Azure アプリケーションのサービス構成に格納されているス�
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
+
 

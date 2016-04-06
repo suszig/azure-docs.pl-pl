@@ -83,7 +83,7 @@ DROP DATABASE SCOPED CREDENTIAL ASBSecret
 ```
 
 ## 手順 2: 外部データ ソースを作成する
-外部データ ソースは、Azure BLOB ストレージのデータとアクセス情報の場所を格納するデータベース オブジェクトです。 [外部データ ソースの作成 (TRANSACT-SQL)] を使用すると、各 Azure ストレージ blob にアクセスするため、外部データ ソースを定義します。
+外部データ ソースは、Azure BLOB ストレージのデータとアクセス情報の場所を格納するデータベース オブジェクトです。 使用 [外部データ ソースの作成 (TRANSACT-SQL)][] にアクセスする各 Azure ストレージ blob の外部データ ソースを定義します。
 
     ```
     -- Create an external data source for an Azure storage blob
@@ -108,7 +108,7 @@ DROP DATABASE SCOPED CREDENTIAL ASBSecret
 ## 手順 3: 外部ファイル形式を作成する
 外部ファイル形式は、外部データの形式を指定するデータベース オブジェクトです。 PolyBase は、区切り文字、Hive RCFILE、および HIVE ORC 形式の圧縮データおよび非圧縮データを処理できます。 
 
-[CREATE EXTERNAL FILE FORMAT (TRANSACT-SQL)] を使用すると、外部ファイル形式を作成できます。 次の例では、ファイル内のデータは圧縮されていないテキストとし、フィールドはパイプ文字 ('|') で区切ることが規定されています。 
+使用 [CREATE の EXTERNAL FILE FORMAT (TRANSACT-SQL)][] を外部ファイル形式を作成します。 次の例では、ファイル内のデータは圧縮されていないテキストとし、フィールドはパイプ文字 ('|') で区切ることが規定されています。 
 
 ```
 -- Create an external file format for a text-delimited file.
@@ -142,7 +142,7 @@ DROP EXTERNAL FILE FORMAT text_file_format
 - 外部テーブルの定義は、メタデータとして SQL Data Warehouse データベースに格納されます。 
 - データは、データ ソースで指定された外部の場所に格納されます。
 
-[CREATE EXTERNAL TABLE (TRANSACT-SQL)] を使用すると、外部テーブルを定義します。
+使用 [CREATE EXTERNAL TABLE (TRANSACT-SQL)][] 外部テーブルを定義します。
 
 LOCATION オプションで、データ ソースのルートからデータまでのパスが指定されます。 この例では、データは 'wasbs://mycontainer@test.blob.core.windows.net/path/Demo/' にあります。 同じテーブルのすべてのファイルは、Azure BLOB ストレージの同じ論理フォルダーの下にある必要があります。
 
@@ -244,7 +244,7 @@ FROM   [ext].[CarSensor_Data]
 
 ## 新しくロードしたデータの統計を作成する
 
-Azure SQL Data Warehouse は、統計の自動作成または自動更新をまだサポートしていません。  クエリから最高のパフォーマンスを取得するには、最初の読み込み後またはそれ以降のデータの変更後に、すべてのテーブルのすべての列で統計を作成することが重要です。  統計情報の詳細については、トピックの開発グループの [統計] のトピックを参照してください。  この例でロードしたテーブルの統計を作成する方法の簡単な例を次に示します。
+Azure SQL Data Warehouse は、統計の自動作成または自動更新をまだサポートしていません。  クエリから最高のパフォーマンスを取得するには、最初の読み込み後またはそれ以降のデータの変更後に、すべてのテーブルのすべての列で統計を作成することが重要です。  統計情報の詳細については、次を参照してください。、 [統計][] 開発一連のトピックの「します。  この例でロードしたテーブルの統計を作成する方法の簡単な例を次に示します。
 
 ```
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -335,7 +335,7 @@ $write.Dispose()
 ```
 
 ## 次のステップ
-他の開発のヒントについては、[開発の概要に関するページを参照してください。
+他の開発のヒントを参照してください。 [開発の概要][]します。
 
 <!--Image references-->
 
@@ -366,6 +366,7 @@ $write.Dispose()
 [CREATE MASTER KEY (Transact-SQL)]:https://msdn.microsoft.com/library/ms174382.aspx
 [CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
+
 
 
 

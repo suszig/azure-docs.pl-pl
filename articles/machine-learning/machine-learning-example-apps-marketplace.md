@@ -39,7 +39,7 @@ Azure Machine Learning を使用して、データ サイエンティストは�
 
 [データ マーケットのリンク](https://datamarket.azure.com/dataset/aml_labs/anomalydetection)
 
-[ドキュメント](machine-learning-apps-anomaly-detection.md)
+[Documentation](machine-learning-apps-anomaly-detection.md)
 
 これらの API を使用することにより、データ サイエンティストの専門家でなくても、自分でアプリを開発するのに多くの時間を費やすことなく、Azure Machine Learning に基づいて構築された強力なマシン学習ベースのさまざまなサービスを使用することができます。 自分の独自データを入力して、使用開始するだけです。
 
@@ -48,7 +48,7 @@ Azure Machine Learning を使用して、データ サイエンティストは�
 
 [データ マーケットのリンク](https://datamarket.azure.com/dataset/aml_labs/anomalydetection)
 
-[ドキュメント](machine-learning-apps-text-analytics.md)
+[Documentation](machine-learning-apps-text-analytics.md)
 
  
  ##顧客離れの予測##
@@ -56,5 +56,6 @@ Azure Machine Learning を使用して、データ サイエンティストは�
 
 [データ マーケットのリンク](https://datamarket.azure.com/dataset/amla/customer-churn-prediction)
 
-[ドキュメント](https://churn.cloudapp.net/documentation)
+[Documentation](https://churn.cloudapp.net/documentation)
+
 

@@ -24,7 +24,7 @@
 
 Microsoft からリリースされているライブラリを次の表に示します。  **ライブラリ** 列を各ライブラリのダウンロードのリンクを提供します。  **バージョン** 列は、Azure SQL Database および Microsoft SQL Server と対話するために推奨される最小バージョンを表示します。
 
-| Platform | オペレーティング システム | ライブラリ<br/>ダウンロード | バージョン<br/>ドライバーの | 説明<br/>ドライバーの | 詳細<br/>情報 |
+| プラットフォーム | オペレーティング システム | ライブラリ<br/>ダウンロード | バージョン<br/>ドライバーの | 説明<br/>ドライバーの | 詳細<br/>情報 |
 | :--- | :--- | :--- | :--- | :--- | :-- |
 | .NET | クロスプラットフォーム (.NET) | [ADO.NET、System.Data.SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4.5 以降 | .NET Framework 用 SQL Server プロバイダー | . |
 | PHP | Windows | [PHP for SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2.0 以降 | SQL Server 用 PHP ドライバー | [リンク](http://msdn.microsoft.com/library/dn865013.aspx) |
@@ -35,7 +35,7 @@ Microsoft からリリースされているライブラリを次の表に示し�
 
 ### ODBC のサポート
 
-データ ソース名 (DSN) ウィザードを使用して、Azure SQL Database のデータ ソースを定義する、次のようをクリックして、 **と SQL Server 認証ログイン ID と、ユーザーが入力したパスワードを使用して** オプションを選択、 **追加の構成オプションの既定の設定を取得する SQL Server への接続**します。 ユーザー名とパスワードとして、Azure SQL Database サーバーに接続する入力 **ログイン ID** と **パスワード**します。 クリア、 **... 既定の設定を取得する SQL Server への接続** チェック ボックスをオンします。 をクリック **する既定のデータベースの変更:** 一覧に表示していない場合でも、Azure SQL データベースの名前を入力します。 ウィザードがいくつかの言語を一覧表示される注意してください、 **に SQL Server システム メッセージの言語を変更:** ] ボックスの一覧です。
+データ ソース名 (DSN) ウィザードを使用して、Azure SQL Database のデータ ソースを定義する、次のようをクリックして、 **と SQL Server 認証ログイン ID と、ユーザーが入力したパスワードを使用して** オプションを選択、 **追加の構成オプションの既定の設定を取得する SQL Server への接続**します。 ユーザー名とパスワードとして、Azure SQL Database サーバーに接続する入力 **ログイン ID** と **パスワード**します。 クリア、 **既定の設定を取得する SQL Server に接続しています.** チェック ボックスをオンにします。 をクリック **する既定のデータベースの変更:** 一覧に表示していない場合でも、Azure SQL データベースの名前を入力します。 ウィザードがいくつかの言語を一覧表示される注意してください、 **に SQL Server システム メッセージの言語を変更:** ] ボックスの一覧です。
 
 このリリースの Microsoft Azure SQL Database では英語のみがサポートされているため、言語には英語を選択してください。 Microsoft Azure SQL Database でサポートされない **ミラー サーバー** または **データベースのアタッチ**, 、ので空のままにそれらの項目。 クリックして **接続をテストする**です。
 
@@ -68,4 +68,5 @@ Microsoft OLE DB Provider for DB2 バージョン 5.0 (Data Provider) では、I
 <!--
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
+
 

@@ -77,11 +77,11 @@
 
 2.   **どのようなユーザーの Kudos に** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 
-    ![Configure single sign-on](./media/active-directory-saas-kudos-tutorial/IC787803.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-kudos-tutorial/IC787803.png "Configure single sign-on")
 
 3.   **アプリケーション URL の構成** ] ページの [、 **Kudos サインオン URL** ] ボックスに、次のパターンを使用して URL を入力"*https://company.kudosnow.com*"、] をクリックし、 **次**します。
 
-    ![アプリケーション URL の構成](./media/active-directory-saas-kudos-tutorial/IC787804.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-kudos-tutorial/IC787804.png "Configure App URL")
 
 4.   **Kudos でのシングル サインオンの構成** ] ページで [ **証明書のダウンロード**, 、お使いのコンピューターに証明書ファイルを保存します。
 
@@ -91,7 +91,7 @@
 
 6.  上部にあるメニュー [ **設定**します。
 
-    ![設定](./media/active-directory-saas-kudos-tutorial/IC787806.png "Settings")
+    ![Settings](./media/active-directory-saas-kudos-tutorial/IC787806.png "Settings")
 
 7.  クリックして **インテグレーション \ > SSO**します。
 
@@ -112,7 +112,7 @@
 
 9.  Azure AD ポータルでのシングル サインオンの構成情報を選択し、 **完了** を閉じる、 **[シングル サインオン** ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-kudos-tutorial/IC787808.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-kudos-tutorial/IC787808.png "Configure single sign-on")
 ##ユーザー プロビジョニングの構成
   
 Azure AD ユーザーが Kudos にログインできるようにするには、そのユーザーを Kudos にプロビジョニングする必要があります。  
@@ -124,7 +124,7 @@ Kudos の場合、プロビジョニングは手動で行います。
 
 2.  上部にあるメニュー [ **設定**します。
 
-    ![設定](./media/active-directory-saas-kudos-tutorial/IC787806.png "Settings")
+    ![[設定]](./media/active-directory-saas-kudos-tutorial/IC787806.png "Settings")
 
 3.  クリックして **ユーザー Admin**します。
 
@@ -158,3 +158,4 @@ Kudos の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-kudos-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

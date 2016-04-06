@@ -112,19 +112,19 @@ Azure リソース マネージャー モードは既定で無効になってい
           }
         }
     ```
-3. azuredeploy.parameters.json ファイルを保存した後、次のコマンドを使用して、テンプレートに基づく新しいリソース グループを作成します。 `-e` オプションにより、前の手順で変更した azuredeploy.parameters.json ファイルが指定されます。 置き換える、 *testRG* を使用するにはグループ名と *testDeploy* 、任意の展開名を使用します。 場所は、テンプレート パラメーター ファイルに指定されている場所と同じ場所にする必要があります。
+3. After saving the azuredeploy.parameters.json file, use the following command to create a new resource group based on the template. The `-e` option specifies the azuredeploy.parameters.json file that you modified in the previous step. Replace the *testRG* with the group name you wish to use, and *testDeploy* with a deployment name of your choice. The location should be same as the one specified in your template parameter file.
 
         azure group create "testRG" "West US" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
 
-    このコマンドでは、デプロイがアップロードされると OK と表示されますが、その時点ではまだグループのリソースにデプロイが適用されていません。
+    This command will return OK after the deployment is uploaded, but before the deployment is applied to resources in the group.
 
-4. デプロイの状態を確認するには、次のコマンドを使用します。
+4. To check the status of the deployment, use the following command.
 
         azure group deployment show "testRG" "testDeploy"
 
-     **ProvisioningState** 展開の状態を表示します。
+    The **ProvisioningState** shows the status of the deployment.
 
-    デプロイが成功した場合は、次のような出力が表示されます。
+    If your deployment is successful, you will see output similar to the following.
 
         azure-cli@0.8.0:/# azure group deployment show testRG testDeploy
         info:    Executing command group deployment show
@@ -144,69 +144,70 @@ Azure リソース マネージャー モードは既定で無効になってい
         data:    ubuntuOSVersion        String        14.04.2-LTS
         info:    group deployment show command OK
 
-    >[AZURE.NOTE] ことを理解して、構成が、正しくないし、実行時間の長いデプロイを停止する必要がある場合は、次のコマンドを使用します。
+    >[AZURE.NOTE] If you realize that your configuration isn't correct, and need to stop a long-running deployment, use the following command.
     >
     > `azure group deployment stop "testRG" "testDeploy"`
     >
-    > デプロイ名を指定しない場合、テンプレート ファイル名に基づいてデプロイ名が自動的に作成されます。 作成されたデプロイ名は、`azure group create` コマンドの出力の一部として返されます。
+    > If you don't provide a deployment name, one is created automatically based on the name of the template file. It is returned as part of the output of the `azure group create` command.
 
-    これで、指定したドメイン名を利用し、VM に SSH 接続できます。 VM に接続するとき、 `MyDomainName.westus.cloudapp.azure.com` のような、`<domainName>.<region>.cloudapp.azure.com` 形式の完全修飾ドメイン名を使用する必要があります。
+    Now you can SSH to the VM, using the domain name you specified. When connnecting to the VM, you need to use a fully qualified domain name of the form `<domainName>.<region>.cloudapp.azure.com`, such as `MyDomainName.westus.cloudapp.azure.com`.
 
-5. グループを表示するには、次のコマンドを使用します。
+5. To view the group, use the following command.
 
         azure group show "testRG"
 
-    このコマンドにより、グループ内のリソースに関する情報が返されます。 複数のグループがある場合は、`azure group list` コマンドでグループ名の一覧を表示した後、`azure group show` コマンドを使用して特定のグループの詳細を表示します。
+    This command returns information about the resources in the group. If you have multiple groups, use the `azure group list` command to retrieve a list of group names, and then use `azure group show` to view details of a specific group.
 
-直接テンプレートを使用することもできます。 [GitHub](https://github.com/Azure/azure-quickstart-templates), 、コンピューターにダウンロードする代わりにします。 これを行うには、URL に渡すコマンドでテンプレートの azuredeploy.json ファイルを使用して、 **--template-url** オプション。 URL を取得するには、github の azuredeploy.json を開きます _生_ モード、およびブラウザーのアドレス バーに表示される URL をコピーします。 次のようにコマンドを使用し、この URL を使用してデプロイを直接作成できます。
+You can also use a template directly from [GitHub](https://github.com/Azure/azure-quickstart-templates), instead of downloading one to your computer. To do this, pass the URL to the azuredeploy.json file for the template in your command by using the **--template-url** option. To get the URL, open azuredeploy.json on GitHub in _raw_ mode, and copy the URL that appears in the browser's address bar. You can then use this URL directly to create a deployment by using a command similar to the following.
 
     azure group deployment create "testDeploy" -g "testResourceGroup" --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json
-必要なテンプレート パラメーターを入力するように求められます。
+You are prompted to enter the necessary template parameters.
 
-> [AZURE.NOTE] 重要では、JSON テンプレートを開く _生_ モードです。 ブラウザーのアドレス バーに表示される URL は、通常モードで表示される URL とは異なります。 ファイルを開く _生_ モードの右上隅で、GitHub でファイルを表示する] をクリックと **Raw**します。
+> [AZURE.NOTE] It is important to open the JSON template in _raw_ mode. The URL that appears in the browser's address bar is different from the one that appears in regular mode. To open the file in _raw_ mode when viewing the file on GitHub, in the upper-right corner click **Raw**.
 
-## リソースの操作
+## Working with resources
 
-テンプレート言語を使用すると、グループ全体の構成の変更を宣言できますが、場合によっては、特定のリソースのみの操作が必要になることがあります。 このような場合には、`azure resource` コマンドを使用します。
+While templates allow you to declare group-wide changes in configuration, sometimes you need to work with just a specific resource. You can do this using the `azure resource` commands.
 
-> [AZURE.NOTE] 使用する場合、 `azure resource` コマンド以外、 `list` コマンドを使用して、操作はリソースの API バージョンを指定する必要があります、 `-o` パラメーター。 使用する API バージョンについて確信できない場合、テンプレート ファイルを見つけて、 **apiVersion** リソースに対応するフィールドです。
+> [AZURE.NOTE] When using the `azure resource` commands other than the `list` command, you must specify the API version of the resource you are working with using the `-o` parameter. If you are unsure about the API version to use, consult the template file and find the **apiVersion** field for the resource.
 
-1. グループ内のすべてのリソースの一覧を表示するには、次のコマンドを使用します。
+1. To list all resources in a group, use the following command.
 
         azure resource list "testRG"
 
-2. グループ内の個別のリソースを表示するには、次のようなコマンドを使用します。
+2. To view an individual resource within the group, use a command like the following.
 
         azure resource show "testRG" "MyUbuntuVM" Microsoft.Compute/virtualMachines -o "2015-06-15"
 
-    通知、 **Microsoft.Compute/virtualMachines** パラメーター。 このパラメーターは、情報を要求するリソースの種類を示します。 前の手順でダウンロードしたテンプレート ファイルを確認すると、テンプレートに記述されている仮想マシンのリソースで、種類の定義にこの同じ値が使用されていることがわかります。
+    Notice the **Microsoft.Compute/virtualMachines** parameter. This indicates the type of the resource you are requesting information on. If you look at the template file downloaded earlier, you will notice that this same value is used to define the type of the virtual machine resource described in the template.
 
-    このコマンドを実行すると、仮想マシンに関する情報が表示されます。
+    This command returns information related to the virtual machine.
 
-3. リソースの詳細を表示するとき、多くの場合、`--json` パラメーターを使用すると便利です。 一部の値が入れ子構造や集合になるので、出力が読みやすくなります。 次の例の結果を返す、 **表示** コマンドを JSON ドキュメントとして。
+3. When viewing details on a resource, it is often useful to use the `--json` parameter. This makes the output more readable as some values are nested structures, or collections. The following example demonstrates returning the results of the **show** command as a JSON document.
 
         azure resource show "testRG" "MyUbuntuVM" Microsoft.Compute/virtualMachines -o "2015-06-15" --json
 
-    >[AZURE.NOTE] JSON データをファイルに保存するにを使用して、& gt;ファイルに出力をパイプする文字。 次に例を示します。
+    >[AZURE.NOTE] You can save the JSON data to file by using the &gt; character to pipe the output to file. For example:
     >
     > `azure resource show "testRG" "MyUbuntuVM" Microsoft.Compute/virtualMachines -o "2015-06-15" --json > myfile.json`
 
-4. 既存のリソースを削除するには、次のようなコマンドを使用します。
+4. To delete an existing resource, use a command like the following.
 
         azure resource delete "testRG" "MyUbuntuVM" Microsoft.Compute/virtualMachines -o "2015-06-15"
 
-## ログの記録
+## Logging
 
-グループに実行された操作に関してログに記録された情報を表示するには、`azure group log show` コマンドを使用します。 既定では、グループに対して実行された直前の操作が表示されます。 すべての操作を表示するには、任意指定の `--all` パラメーターを使用します。 最後のデプロイについて表示するには、`--last-deployment` を使用します。 特定のデプロイについて表示するには、`--deployment` とデプロイ名を指定します。 次の例は、グループで実行されるすべての操作のログを返して *MyGroup*します。
+To view logged information on operations performed on a group, use the `azure group log show` command. By default, this will list the last operation performed on the group. To view all operations, use the optional `--all` parameter. For the last deployment, use `--last-deployment`. For a specific deployment, use `--deployment` and specify the deployment name. The following example returns a log of all operations performed on the group *MyGroup*.
 
     azure group log show MyGroup --all
 
-## 次のステップ
+## Next steps
 
-* Azure リソース マネージャーで Azure PowerShell を使用する方法の詳細については、次を参照してください。 [Azure リソース マネージャーで Azure PowerShell を使用して](../powershell-azure-resource-manager.md)します。
-* Azure ポータルから Azure リソース マネージャーを使用する方法については、次を参照してください。 [リソース グループを使用した Azure リソースの管理に][psrm]します。
+* For information on working with Azure Resource Manager using Azure PowerShell, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+* For information on working with Azure Resource Manager from the Azure portal, see [Using resource groups to manage your Azure resources][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
+
 

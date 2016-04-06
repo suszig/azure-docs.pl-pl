@@ -25,7 +25,7 @@
 
 このトピックでは、認証プロバイダーとして Twitter を使用するように Azure App Services を構成する方法を示します。
 
-このトピックの手順を完了するには、検証済みの電子メール アドレスを持つ Twitter アカウントが必要になります。 新しい Twitter アカウントを作成するには、 <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.
+このトピックの手順を完了するには、検証済みの電子メール アドレスを持つ Twitter アカウントが必要になります。 新しい Twitter アカウントを作成するには、<a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a> にアクセスしてください。
 
 
 > [AZURE.NOTE]
@@ -53,7 +53,7 @@
     > [AZURE.NOTE] コンシューマー シークレットは、重要なセキュリティ資格情報です。 このシークレットは、他のユーザーと共有したり、アプリケーションと共に配布したりしないでください。
 
 
-## <a name="secrets"> </a>アプリケーションに Twitter 情報を追加します。
+## <a name="secrets"> </a>アプリケーションに Twitter 情報を追加する
 
 > [AZURE.NOTE]
 App Service ゲートウェイを使用する場合は、このセクションの内容は無視し、ポータル内で目的のゲートウェイに移動します。 選択 **設定**, 、**Identity**, 、し **Twitter**します。 先に取得した値に貼り付け、クリックして **保存**します。
@@ -91,3 +91,4 @@ App Service ゲートウェイを使用する場合は、このセクション�
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Azure portal]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
+

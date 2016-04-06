@@ -46,10 +46,11 @@
 
     ![仮想マシンへのログオン](./media/virtual-machines-linux-how-to-log-on/sshlogin.png)
 
->[AZURE.NOTE] VMAccess 拡張機能では、これを忘れてしまった場合は、SSH キーやパスワードをリセットできます。 ユーザー名を忘れた場合は、拡張機能を使用して sudo 権限で新しいユーザー名を作成できます。 手順については、次を参照してください。、Linux 仮想マシンのパスワードまたは SSH をリセットする方法]。
+>[AZURE.NOTE] VMAccess 拡張機能では、これを忘れてしまった場合は、SSH キーやパスワードをリセットできます。 ユーザー名を忘れた場合は、拡張機能を使用して sudo 権限で新しいユーザー名を作成できます。 手順については、次を参照してください。、 [How to Reset a Password or SSH for Linux Virtual Machines]します。
 
 これで、仮想マシンを他のサーバーとまったく同様に扱うことができます。
 
 <!-- LINKS -->
 [How to Reset a Password or SSH for Linux Virtual Machines]: http://go.microsoft.com/fwlink/p/?LinkId=512138
+
 

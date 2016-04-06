@@ -51,28 +51,28 @@ Office 365 サブスクリプションには、下の比較表に記載されて
 | 機能の種類| 特徴| Free エディション| Basic エディション| Premium Edition| Office 365 アプリのみ |
 | --- | --- | --- | --- | --- | --- |
 | **共通機能**| ディレクトリ オブジェクト [1]| 最大で 500,000 のオブジェクト| オブジェクトの制限なし| オブジェクトの制限なし| Office 365 ユーザー アカウントにはオブジェクトの制限なし|
-|  | [ユーザーとグループの管理 (追加/更新/削除) のユーザー ベースのプロビジョニング](active-directory-administer.md), 、[デバイスの登録](active-directory-conditional-access-device-registration-overview.md)| ![確認][12]| ![確認][12]| ![確認][12]| ![確認][12]|
+|  | [ユーザーとグループの管理 (追加/更新/削除) のユーザー ベースのプロビジョニング](active-directory-administer.md), 、[デバイスの登録](active-directory-conditional-access-device-registration-overview.md)| ![○][12]| ![○][12]| ![○][12]| ![○][12]|
 |  | [SaaS アプリ、カスタム アプリ、アプリケーション プロキシ アプリへの SSO](active-directory-enable-sso-scenario.md)| 10 個のアプリ (ユーザーあたり) [2]| 10 個のアプリ (ユーザーあたり) [2]| 制限なし| 10 個のアプリ (ユーザーあたり) [2]|
-|  | [クラウド ユーザーに対するセルフ サービスのパスワード変更](active-directory-passwords-update-your-own-password.md)| ![確認][12]| ![確認][12]| ![確認][12]| ![確認][12]|
-|  | [Connect - オンプレミスのディレクトリと Azure Active Directory 間の同期用](active-directory-aadconnect.md)| ![確認][12]| ![確認][12]| ![確認][12]| ![確認][12]|
-|  | **プレビュー**:[ B2B コラボレーション](active-directory-b2b-collaboration-overview.md)| ![確認][12]| ![確認][12]| ![確認][12]| ![確認][12]|
+|  | [クラウド ユーザーに対するセルフ サービスのパスワード変更](active-directory-passwords-update-your-own-password.md)| ![○][12]| ![○][12]| ![○][12]| ![○][12]|
+|  | [Connect - オンプレミスのディレクトリと Azure Active Directory 間の同期用](active-directory-aadconnect.md)| ![○][12]| ![○][12]| ![○][12]| ![○][12]|
+|  | **プレビュー**:[ B2B コラボレーション](active-directory-b2b-collaboration-overview.md)| ![○][12]| ![○][12]| ![○][12]| ![○][12]|
 |  | [セキュリティ/使用状況レポート](active-directory-view-access-usage-reports.md)| 基本レポート| 基本レポート| 詳細レポート| 基本レポート|
-| **Premium および Basic の機能**| [グループ ベースのアプリケーション アクセス管理とプロビジョニング](active-directory-accessmanagement-group-saasapps.md)|  | ![確認][12]| ![確認][12]|  |
-|  | [クラウド ユーザーに対するセルフ サービスのパスワード リセット](active-directory-passwords.md)|  | ![確認][12]| ![確認][12]| ![確認][12]|
-|  | [企業ブランド (ログオン ページとアクセス パネルのカスタマイズ)](active-directory-add-company-branding.md)|  | ![確認][12]| ![確認][12]| ![確認][12]|
-|  | [アプリケーション プロキシ](active-directory-application-proxy-get-started.md)|  | ![確認][12]| ![確認][12]|  |
-|  | [高可用性 SLA アップタイム (99.9%)](https://azure.microsoft.com/support/legal/sla/)|  | ![確認][12]| ![確認][12]| ![確認][12]|
-| **Premium のみの機能**| セルフサービスによるグループ管理/セルフサービスによるアプリケーションの追加/動的なグループ|  |  | ![確認][12]|  |
-|  | [セルフサービスによるパスワードのリセット、変更、ロック解除 (オンプレミスの書き戻しが可能)](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)|  |  | ![確認][12]|  |
-|  | [Multi-Factor Authentication (クラウドおよびオンプレミス )](multi-factor-authentication.md)|  |  | ![確認][12]| Office 365 アプリ用のクラウドのみに限定|
-|  | [Microsoft Identity Manager (MIM) ユーザー ライセンスと MIM サーバー [3]](http://www.microsoft.com/server-cloud/products/microsoft-identity-manager/default.aspx)|  |  | ![確認][12]|  |
-|  | [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)|  |  | ![確認][12]|  |
-|  | [Azure Active Directory Connect Health](active-directory-aadconnect-health.md)|  |  | ![確認][12]|  |
-|  | グループ アカウントの自動パスワード ロールオーバー|  |  | ![確認][12]|  |
-|  | **プレビュー**: 条件付きアクセス|  |  | ![確認][12]|  |
-|  | **プレビュー**: Id 管理特権を持つ|  |  | ![確認][12]|  |
-| **Windows 10 および Azure AD 参加に関連する機能**| Azure AD、デスクトップ SSO、Azure AD 用の Microsoft Passport、管理者による Bitlocker 回復への Windows 10 デバイスの参加| ![確認][12]| ![確認][12]| ![確認][12]| ![確認][12]|
-|  | MDM 自動の登録、セルフ サービスの Bitlocker の回復、Azure AD 参加を使用して Windows 10 デバイスへの追加のローカル管理者|  |  | ![確認][12]|  |
+| **Premium および Basic の機能**| [グループ ベースのアプリケーション アクセス管理とプロビジョニング](active-directory-accessmanagement-group-saasapps.md)|  | ![○][12]| ![○][12]|  |
+|  | [クラウド ユーザーに対するセルフ サービスのパスワード リセット](active-directory-passwords.md)|  | ![○][12]| ![○][12]| ![○][12]|
+|  | [企業ブランド (ログオン ページとアクセス パネルのカスタマイズ)](active-directory-add-company-branding.md)|  | ![○][12]| ![○][12]| ![○][12]|
+|  | [アプリケーション プロキシ](active-directory-application-proxy-get-started.md)|  | ![○][12]| ![○][12]|  |
+|  | [高可用性 SLA アップタイム (99.9%)](https://azure.microsoft.com/support/legal/sla/)|  | ![○][12]| ![○][12]| ![○][12]|
+| **Premium のみの機能**| セルフサービスによるグループ管理/セルフサービスによるアプリケーションの追加/動的なグループ|  |  | ![○][12]|  |
+|  | [セルフサービスによるパスワードのリセット、変更、ロック解除 (オンプレミスの書き戻しが可能)](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)|  |  | ![○][12]|  |
+|  | [Multi-Factor Authentication (クラウドおよびオンプレミス )](multi-factor-authentication.md)|  |  | ![○][12]| Office 365 アプリ用のクラウドのみに限定|
+|  | [Microsoft Identity Manager (MIM) ユーザー ライセンスと MIM サーバー [3]](http://www.microsoft.com/server-cloud/products/microsoft-identity-manager/default.aspx)|  |  | ![○][12]|  |
+|  | [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)|  |  | ![○][12]|  |
+|  | [Azure Active Directory Connect Health](active-directory-aadconnect-health.md)|  |  | ![○][12]|  |
+|  | グループ アカウントの自動パスワード ロールオーバー|  |  | ![○][12]|  |
+|  | **プレビュー**: 条件付きアクセス|  |  | ![○][12]|  |
+|  | **プレビュー**: Id 管理特権を持つ|  |  | ![○][12]|  |
+| **Windows 10 および Azure AD 参加に関連する機能**| Azure AD、デスクトップ SSO、Azure AD 用の Microsoft Passport、管理者による Bitlocker 回復への Windows 10 デバイスの参加| ![○][12]| ![○][12]| ![○][12]| ![○][12]|
+|  | MDM 自動の登録、セルフ サービスの Bitlocker の回復、Azure AD 参加を使用して Windows 10 デバイスへの追加のローカル管理者|  |  | ![○][12]|  |
 
 
 
@@ -86,13 +86,14 @@ Office 365 サブスクリプションには、下の比較表に記載されて
 
 
 
-## 参照トピック
+## 次の手順
 
 - [Azure Active Directory Premium の概要](active-directory-get-started-premium.md)
 - [サインイン ページとアクセス パネル ページに対する会社のブランドの追加](active-directory-add-company-branding.md)
-- [アクセスおよび使用状況レポートを表示します。](active-directory-view-access-usage-reports.md)
+- [アクセスおよび使用状況レポートの表示](active-directory-view-access-usage-reports.md)
 
 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
+
 

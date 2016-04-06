@@ -30,13 +30,13 @@ API アプリをデプロイする方法は他にも多数あります。 API �
 
 API アプリが Web アプリをベースにしているという事実は、ASP.NET 以外のプラットフォーム用に記述されたコードを API アプリにデプロイできることを意味しています。 Git を使用して Node.js コードを API アプリにデプロイする例を参照してください。 [Azure App Service での Node.js API アプリを作成](app-service-api-nodejs-api-app.md)します。
  
-## <a id="provision"></a>Azure での API アプリを作成します。 
+## <a id="provision"></a>Azure での API アプリの作成 
 
 このセクションで、Visual Studio を使用して **Web の発行** Azure で API アプリを作成するウィザード。 手順では、API アプリの名前を入力するように指示、」と入力 *ContactsList*します。
 
 [AZURE.INCLUDE [app-service-api-pub-web-create](../../includes/app-service-api-pub-web-create.md)]
 
-## <a id="deploy"></a>新しい Azure API アプリにコードをデプロイします。
+## <a id="deploy"></a>新しい Azure API アプリへのコードのデプロイ
 
 使用すると、同じ **Web の発行** ウィザード、新しい API アプリにコードをデプロイします。
 
@@ -128,4 +128,5 @@ API アプリが Web アプリをベースにしているという事実は、AS
 API アプリは、API をホストするための特別な機能を持つ Web アプリです。つまり、Web アプリで動作する任意のデプロイ方法を使用することができます。 Web アプリの配置オプションの詳細については、次を参照してください。 [Azure App Service で web アプリのデプロイ](../app-service-web/web-sites-deploy.md)します。
 
 API Apps の機能については、次を参照してください。 [API apps とは?](app-service-api-apps-why-best-platform.md)します。
+
 

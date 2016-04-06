@@ -21,7 +21,7 @@
 
 これらの用語を使用 [エラスティック データベース ツールを使用してシャードを追加する](sql-database-elastic-scale-add-a-shard.md) と [RecoveryManager クラスを使用してシャード マップに関する問題の解決](sql-database-elastic-database-recovery-manager.md)します。
 
-![Elastic Scale 用語][1]
+![Elastic Scale の用語][1]
 
 **データベース**: Azure SQL データベース。 
 
@@ -81,3 +81,4 @@
 [2]: ./media/sql-database-elastic-scale-glossary/mappings.png
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
+

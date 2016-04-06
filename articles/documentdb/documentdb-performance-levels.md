@@ -48,7 +48,7 @@ DocumentDB では、クエリ、ユーザー定義関数 (UDF) を使用した�
 
 コレクションを作成した後、DocumentDB SDK や Azure クラシック ポータルを使用してパフォーマンス レベルを変更することができます。 
 
-> [AZURE.IMPORTANT] DocumentDB Standard のコレクションが 1 時間ごとに課金され、作成した各コレクションは最小 1 時間の使用に対して課金されます。 
+> [AZURE.IMPORTANT] DocumentDB Standard のコレクションは、時間あたりのレートで課金され、作成した各コレクションは最小 1 時間の使用に対して課金されます。 
 
 1 時間の間にパフォーマンス レベルを調整した場合、その時間内に設定された最高のパフォーマンス レベルで課金されます。 たとえば、午前 8 時 53 分にコレクションのパフォーマンス レベルを上げた場合は、午前 8 時からその新しいレベルで課金されます。 同様に、午前 8 時 53 分にパフォーマンス レベルを下げた場合は、新しいレートが午前 9 時から適用されます。
 
@@ -121,4 +121,5 @@ Azure DocumentDB の価格設定とデータ管理の詳細については、以
 DocumentDB の詳細については、Azure DocumentDB を参照してください。 [ドキュメント](http://azure.microsoft.com/documentation/services/documentdb/)します。 
 
 [1]: ./media/documentdb-performance-levels/img1.png 
+
 

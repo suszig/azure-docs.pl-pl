@@ -34,17 +34,17 @@ Flask web フレームワークを使用してアプリケーションを作成�
 - Python 2.7 または 3.4
 - setuptools、pip、virtualenv (Python 2.7 のみ)
 - Git
-- [Python Tools for Visual Studio](PTVS) に注意してくださいこれは省略可能。
+- [Python Tools for Visual Studio][] (PTVS) に注意してくださいこれは省略可能。
 
 **注**: Python プロジェクト現在は TFS 発行はできません。
 
 ### Windows
 
-[Azure SDK for Python 2.7] のインストールをお勧め Python 2.7 または 3.4 (32 ビット) をインストールされていない場合または [Azure SDK for Python 3.4] は、Web Platform Installer を使用します。  いずれかをインストールすると、Python の 32 ビット バージョン、setuptools、pip、virtualenv などがインストールされます (32 ビット Python は Azure ホスト コンピューターにインストールするものです)。  または、[python.org] から Python を入手できます。
+Python 2.7 または 3.4 (32 ビット) をインストールされていない場合、インストールが勧め [Azure SDK for Python 2.7] または [Azure SDK for Python 3.4] Web Platform Installer を使用します。  いずれかをインストールすると、Python の 32 ビット バージョン、setuptools、pip、virtualenv などがインストールされます (32 ビット Python は Azure ホスト コンピューターにインストールするものです)。  またはから Python を入手できます [python.org]します。
 
-[Git のウィンドウ] をお勧めの Git、または [Windows 用の GitHub] です。  Visual Studio を使用する場合は、Git の統合のサポートを使用できます。
+Git、ことをお勧め [Git for Windows] または [GitHub for Windows]します。  Visual Studio を使用する場合は、Git の統合のサポートを使用できます。
 
-また、[Visual Studio の Python ツールの 2.2] のインストールをお勧めします。  これは省略可能ですが [Visual Studio] の場合、Web 後でこの無料の Visual Studio Community 2013 または Visual Studio Express 2013 を含むが示されます優れた Python IDE です。
+インストールをもお勧め [Python Tools 2.2 for Visual Studio]します。  これは省略可能がある場合、 [Visual Studio], 、無料の Visual Studio Community 2013 または Visual Studio Express 2013 for Web を含むし、そうことで、優れた Python IDE です。
 
 ### Mac/Linux
 
@@ -88,7 +88,7 @@ Python と Git は既にインストールされていると思いますが、Py
     \FlaskWebProject.pyproj
     \FlaskWebProject.sln
 
-[Python Tools for Visual Studio] で使用するプロジェクト ファイルです。
+プロジェクトで使用するためのファイル [Python Tools for Visual Studio]します。
 
     \ptvs_virtualenv_proxy.py
 
@@ -160,7 +160,7 @@ F5 キーを押してデバッグを開始します。ローカルに実行さ�
 
 ![](./media/web-sites-python-create-deploy-flask-app/windows-browser-flask.png)
 
-ソースにブレークポイントを設定したり、ウォッチ ウィンドウを使用したりできます。さまざまな機能で、[Python Tools for Visual Studio のドキュメント] の詳細を参照してください。
+ソースにブレークポイントを設定したり、ウォッチ ウィンドウを使用したりできます。参照してください、 [Python Tools for Visual Studio Documentation] 詳細については、さまざまな機能です。
 
 ### 変更を加える
 
@@ -374,10 +374,10 @@ Flask と Python Tools for Visual Studio の詳細については、次のリン
 - [Flask のドキュメント]
 - [Python Tools for Visual Studio のドキュメント]
 
-Azure Table Storage と MongoDB の使用方法については、次のリンクをご覧ください。
+Azure テーブル ストレージと MongoDB の使用方法については、次のリンクをご覧ください。
 
-- [Flask と Python Tools for Visual Studio を使用した Azure 上の MongoDB]
-- [Flask と Python Tools for Visual Studio を使用した Azure 上の Azure テーブル ストレージ]
+- [Python Tools for Visual Studio を使用した Azure 上の Flask と MongoDB]
+- [Python Tools for Visual Studio を使用した Azure 上の Flask と Azure テーブル ストレージ]
 
 詳細については、「関連項目、 [Python デベロッパー センター](/develop/python/)します。
 
@@ -402,4 +402,5 @@ Azure Table Storage と MongoDB の使用方法については、次のリンク
 [Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
 [Flask Documentation]: http://flask.pocoo.org/ 
  
+
 

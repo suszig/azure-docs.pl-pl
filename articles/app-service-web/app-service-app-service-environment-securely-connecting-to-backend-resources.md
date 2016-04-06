@@ -19,13 +19,13 @@
 # App Service 環境からバックエンド リソースへの安全な接続 #
 
 ## 概要 ##
-App Service 環境は常に地域クラシック"v1"のサブネットの [仮想ネットワーク] で作成されるため [仮想ネットワーク]、App Service 環境から他のバックエンド リソースへの発信接続は、仮想ネットワーク経由でのみフローできます。  
+App Service 環境は常に地域クラシック"v1"のサブネットで作成されるため [仮想ネットワーク][virtualnetwork], 、App Service 環境から他のバックエンド リソースへの発信接続できる仮想ネットワーク経由でのみフローします。  
 
 **注:**  "v2"ARM で管理された仮想ネットワークの App Service 環境を作成することはできません。
 
 たとえば、ポート 1433 がロックされている仮想マシンのクラスターで実行されている SQL Server がある場合があります。  このエンドポイントは、同じ仮想ネットワークの他のリソースからのアクセスを許可する目的のみで使用されることがあります。  
 
-別の例として、機密性の高いエンドポイントが内部設置型を実行する場合があり、どちらか [サイト対サイト] [SiteToSite] を使用して Azure に接続されているか、[Azure ExpressRoute] [ExpressRoute] 接続します。  その結果、サイト対サイトまたは ExpressRoute トンネルに接続されている仮想ネットワーク内のリソースのみがオンプレミスのエンドポイントにアクセスできるようになります。
+別の例として、機密性の高いエンドポイントが内部設置型を実行する場合があり、いずれかを使用して Azure に接続する [サイト対サイト][SiteToSite] または [Azure ExpressRoute][ExpressRoute] 接続します。  その結果、サイト対サイトまたは ExpressRoute トンネルに接続されている仮想ネットワーク内のリソースのみがオンプレミスのエンドポイントにアクセスできるようになります。
 
 これらのすべてのシナリオで、App Service 環境で実行中のアプリが、さまざまなサーバーとリソースに安全に接続できます。  App Service 環境で実行されているアプリから同じ仮想ネットワーク内の (または同じ仮想ネットワークに接続されている) プライベート エンドポイントへの送信トラフィックは、仮想ネットワーク経由でのみ行われます。  プライベート エンドポイントへの送信トラフィックがパブリック インターネット経由で送信されることはありません。
 
@@ -46,7 +46,7 @@ SQL Server の構成には一般的に、ポート 1433 でリッスンしてい
 このエンドポイントへのトラフィックを制限する方法は 2 つあります。
 
 
-- [ネットワーク アクセス制御リスト][NetworkAccessControlLists](ネットワーク Acl)
+- [ネットワーク アクセス制御リスト][NetworkAccessControlLists] (ネットワーク Acl)
 
 - [ネットワーク セキュリティ グループ][NetworkSecurityGroups]
 
@@ -82,16 +82,16 @@ VNet 間の内部トラフィックのみにアクセスを制限すると、ネ
     
 最終的に、VNet 内部のアクセスを許可し、外部アクセスをブロックするセキュリティの規則の組み合わせになります。
 
-![既定のネットワーク セキュリティの規則][DefaultNetworkSecurityRules]
+![既定のネットワーク セキュリティ グループ][DefaultNetworkSecurityRules]
 
 
 ## 使用の開始
 
-App Service 環境で開始するには、[App Service 環境の概要] を参照してください [IntroToAppServiceEnvironment]
+App Service 環境で開始するを参照してください [App Service 環境の概要。][IntroToAppServiceEnvironment]
 
-App Service 環境への着信トラフィックの制御に関する詳細については、[App Service 環境へのトラフィックの受信を制御する] を参照してください [ControlInboundASE]。
+App Service 環境への着信トラフィックの制御に関する詳細については、「 [App Service 環境への着信トラフィックを制御します。][ControlInboundASE]
 
-Azure App Service プラットフォームの詳細については、[Azure App Service] [AzureAppService] を参照してください。
+Azure App Service プラットフォームの詳細については、次を参照してください。 [Azure App Service][AzureAppService]します。
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -113,4 +113,5 @@ Azure App Service プラットフォームの詳細については、[Azure App 
 [SqlServerEndpoint]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/SqlServerEndpoint01.png
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png 
+
 

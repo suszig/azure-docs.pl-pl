@@ -156,7 +156,7 @@ HDInsight では、クラスターに複数の BLOB ストレージ アカウン
 
 * [ストレージ REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)
 
-##<a name="scaling"></a>クラスターを拡大/縮小
+##<a name="scaling"></a>クラスターのスケーリング
 
 クラスターのスケール設定機能を使用すると、Azure HDInsight で実行しているクラスターによって使用されるデータ ノードの数を、クラスターを削除して再作成することなく、変更できます。
 
@@ -251,4 +251,5 @@ HDInsight は、管理されたサービスです。つまり、問題が検出�
 * [HDInsight での Hive の使用](hdinsight-use-hive.md)
 * [HDInsight での Pig の使用](hdinsight-use-pig.md)
 * [HDInsight での MapReduce ジョブの使用](hdinsight-use-mapreduce.md)
+
 

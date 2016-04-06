@@ -279,7 +279,7 @@ Char | String
 VarChar | String
 LongVarChar | String
 DB2DynArray | String
-バイナリ | Byte[]
+Binary | Byte[]
 VarBinary | Byte[]
 LongVarBinary | Byte[]
 Graphic | String
@@ -308,6 +308,7 @@ Char | String
 
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
+
 
 
 

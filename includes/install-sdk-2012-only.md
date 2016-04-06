@@ -1,4 +1,4 @@
-<h2><a name="setupdevenv"></a>開発環境を設定する</h2>
+<h2><a name="setupdevenv"></a>開発環境の設定</h2>
 
 最初に、Azure SDK for .NET をインストールして、開発環境を設定します。
 
@@ -18,4 +18,5 @@
 
 [Azure SDK for Visual Studio 2012]: http://go.microsoft.com/fwlink/?LinkID=324323
 [WebPIAzureSdk]: ./media/install-sdk-2012-only/WebPI46-2012.png
+
 

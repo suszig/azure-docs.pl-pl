@@ -80,15 +80,15 @@
 
 12. 仮想マシンを作成したときに MongoDB のエンドポイントを構成しなかった場合は、ここで構成できます。 ファイアウォール ルールとエンドポイントの両方が MongoDB にリモートで接続できる必要があります。 管理ポータルで、クリックして **仮想マシン**, を新しい仮想マシンの名前をクリックして、クリックして **エンドポイント**します。
 
-    ![エンドポイント][Image7]
+    ![Endpoints][Image7]
 
 13. クリックして **追加** ページの下部にあります。 選択 **スタンドアロン エンドポイントの追加** ] をクリック **次**します。
 
-    ![エンドポイント][Image8]
+    ![Endpoints][Image8]
 
 14. 名前を「Mongo」、プロトコル エンドポイントを追加 **TCP**, 、および **パブリック** と **プライベート** ポートは、「27017」に設定します。 これにより、MongoDB へのリモート アクセスが可能になります。
 
-    ![エンドポイント][Image9]
+    ![Endpoints][Image9]
 
 > [AZURE.NOTE] ポート 27017 は MongoDB によって使用される既定のポートです。 これを変更することができます、 _--ポート_ サブコマンド mongod.exe サーバーの起動時にします。 ファイアウォールでは、上記の手順の「Mongo」エンドポイントと同じポート番号を指定してください。
 
@@ -107,4 +107,5 @@
 [Image7]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint.png
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
+
 

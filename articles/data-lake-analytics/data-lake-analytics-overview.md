@@ -52,7 +52,7 @@ Azure Data Lake Analytics は、ビッグ データ分析を容易にするた�
 ## 関連項目
 
 - 作業開始
-    - [Azure ポータルで Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-portal.md)
+    - [Azure ポータルで Azure Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-portal.md)
     - [Azure PowerShell で Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-powershell.md)
     - [Azure .NET SDK で Azure Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-net-sdk.md)
     - [Data Lake Tools for Visual Studio を使用する U-SQL スクリプトの開発](data-lake-analytics-data-lake-tools-get-started.md)
@@ -76,6 +76,7 @@ Azure Data Lake Analytics は、ビッグ データ分析を容易にするた�
     - [ドキュメント バックログへのコメント](data-lake-analytics-documentation-backlog.md)
     - [機能要求の送信](http://aka.ms/adlafeedback)
     - [フォーラムでサポートを受ける](http://aka.ms/adlaforums)
+
 
 
 

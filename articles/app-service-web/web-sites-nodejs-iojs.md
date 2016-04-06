@@ -36,7 +36,7 @@ Node.js アプリケーションをデプロイすると、App Service Web Apps 
 <a id="manualinstallation"></a>
 ## 手動インストールの使用
 
-カスタム io.js バージョンを手動でインストールする手順は 2 つだけです。 最初に、ダウンロード、 **win-x64** バイナリから直接、 [io.js distribution]します。 必要なは 2 つのファイル - **iojs.exe** と **iojs.lib**します。 たとえばを web アプリ内のフォルダーの両方のファイルを保存 **bin/iojs**します。
+カスタム io.js バージョンを手動でインストールする手順は 2 つだけです。 最初に、ダウンロード、 **win x64** バイナリから直接、 [io.js distribution]します。 必要なは 2 つのファイル - **iojs.exe** と **iojs.lib**します。 たとえばを web アプリ内のフォルダーの両方のファイルを保存 **bin/iojs**します。
 
 使用する Web アプリを構成する **iojs.exe** 、プレインストールされたノードのバージョンではなく作成、 **IISNode.yml** 、アプリケーションのルートにあるファイルし、次の行を追加します。
 
@@ -59,3 +59,4 @@ Node.js アプリケーションをデプロイすると、App Service Web Apps 
 [io.js on GitHub]: https://github.com/iojs/io.js
 [io.js Deployment Script]: https://github.com/felixrieseberg/iojs-azure
  
+

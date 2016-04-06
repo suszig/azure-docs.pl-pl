@@ -126,7 +126,7 @@ Azure ストレージ アカウントを作成します。 アプリでは、こ
 
     いくつかの新しいディレクトリやファイルのようになりましたがある、 **tasklist** ディレクトリ。
 
-### 追加モジュールをインストールする
+### 追加モジュールのインストール
 
 ファイルのいずれかを **express** 作成は **package.json**します。 このファイルには、モジュールの依存関係のリストが含まれます。 後でアプリケーションを App Service Web Apps にデプロイするときに、このファイルによって Azure にインストールする必要があるモジュールが特定されます。
 
@@ -347,7 +347,7 @@ A *コント ローラー* HTTP 要求を処理し、HTML 応答を表示しま�
         app.use('/', routes);
         app.use('/users', users);
 
-    これらの行を下のコードに置き換えます。 これにより、ストレージ アカウントへの接続を使って、 <strong>タスク</strong> のインスタンスが初期化されます。 これは <strong>TaskList</strong>に渡され、TaskList ではこれを使用してテーブル サービスを操作します。
+    これらの行を下のコードに置き換えます。 これにより、ストレージ アカウントへの接続を使って、<strong>Task</strong> のインスタンスが初期化されます。 このインスタンスが <strong>TaskList</strong> に渡されます。TaskList はこれを使用して Table サービスとやり取りします。
 
         var TaskList = require('./routes/tasklist');
         var Task = require('./models/task');
@@ -641,4 +641,5 @@ A *コント ローラー* HTTP 要求を処理し、HTML 応答を表示しま�
 
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
+
 

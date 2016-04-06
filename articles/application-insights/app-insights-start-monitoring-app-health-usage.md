@@ -106,7 +106,7 @@ Visual Studio で、送信されたイベント数が表示されます。
 
 ![クリックしてより多くのデータを表示する](./media/app-insights-start-monitoring-app-health-usage/12-first-perf.png)
 
-任意のグラフをクリックして、より詳細なメトリックを表示します。 [メトリックの詳細についてを説明します。][perf]
+任意のグラフをクリックして、より詳細なメトリックを表示します。 [メトリックの詳細についてはこちらをご覧ください。][perf]
 
 #### データが表示されない場合
 
@@ -269,4 +269,5 @@ Visual Studio によって、Application Insights にリソースが作成され
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
+
 

@@ -70,11 +70,11 @@ Twilio アカウントにサインアップすると、アカウント ID と認
 
 ## <a id="create_app"></a>Java アプリケーションの作成
 1. Twilio JAR を入手し、Java のビルド パスと WAR デプロイ アセンブリに追加します。  [Https://github.com/twilio/twilio-java][twilio_java], 、GitHub のソースをダウンロードし、独自の JAR を作成するまたはビルド済み JAR (依存関係のないにかかわらず) をダウンロードします。
-2. JDK のことを確認 **cacerts** キーストアを含む、Equifax セキュリティで保護された証明機関証明書と MD5 フィンガー プリント cb:9 D: 1b:ec:d4 (シリアル番号は 35:DE:F4:CF、SHA1 フィンガー プリントは D D2:32:09:AD:23:D3:14:23:21:74:E4:0: 7F:9 D: 62:13:97:86:63:3A)。 これは、証明機関 (CA) 証明書、 [https://api.twilio.com][twilio_api_service] サービスで、Twilio Api を使用するときに呼び出されます。 JDK を確認する方法について **cacerts** キーストアに正しい CA 証明書が含まれていますを参照してください [を Java CA 証明書ストアに証明書の追加][add_ca_cert]します。
+2. JDK のことを確認 **cacerts** キーストアには、MD5 フィンガー プリント 67:CB:9 D に Equifax Secure 証明書機関の証明書が含まれています: C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (シリアル番号は 35:DE:F4:CF、SHA1 フィンガー プリントは D D2:32:09:AD:23:D3:14:23:21:74:E4:0: 7F:9 D: 62:13:97:86:63:3A)。 これは、証明機関 (CA) 証明書、 [https://api.twilio.com][twilio_api_service] サービスで、Twilio Api を使用するときに呼び出されます。 JDK を確認する方法について **cacerts** キーストアに正しい CA 証明書が含まれていますを参照してください [を Java CA 証明書ストアに証明書の追加][add_ca_cert]します。
 
 Java 用 Twilio クライアント ライブラリの使用に関する詳細な手順については、「 [Azure 上の Java アプリケーションで使用する Twilio 通話を行う方法][howto_phonecall_java]します。
 
-## <a id="configure_app"></a>Twilio ライブラリを使用するようにアプリケーションを構成する
+## <a id="configure_app"></a>Twilio ライブラリを使用するアプリケーションの構成
 コード内に追加する **インポート** の Twilio のパッケージまたはクラスが、アプリケーションで使用するソース ファイルの上部にあるステートメントです。 
 
 Java ソース ファイルの場合:
@@ -154,7 +154,7 @@ Java Server Page (JSP) ソース ファイルの場合:
         
 渡されるパラメーターの詳細については、 **SmsFactory.create** メソッドを参照してください [http://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms]します。
 
-## <a id="howto_provide_twiml_responses"></a>方法: 独自の web サイトから TwiML 応答
+## <a id="howto_provide_twiml_responses"></a>方法: 独自の Web サイトから TwiML 応答を返す
 アプリケーションを開始した場合 Twilio API の呼び出しを次に例を使用して、 **CallFactory.create** メソッドでは、Twilio が要求を送信、TwiML 応答を返すと予想される URL にします。 上記の例は、Twilio から提供される URL を使用して [http://twimlets.com/message][twimlet_message_url]します。 (TwiML は Web サービスで使用するように設計されており、ブラウザーで表示できます。 たとえば、クリックして [http://twimlets.com/message][twimlet_message_url] すると、空 **& lt;応答 & gt;** 要素であります。別の例として次のようにクリックします [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] を表示する、 **& lt;。応答 & gt;** 要素を含む、 **& lt;Say & gt;** 要素です。)
 
 Twilio から提供される URL を使用する代わりに、HTTP 応答を返す独自の URL サイトを作成できます。 HTTP 応答を返すサイトは任意の言語で作成できます。このトピックでは、JSP ページで URL をホストすることを前提としています。
@@ -231,4 +231,5 @@ TwiML で応答するための別の方法は、 **TwiMLResponse** で利用可�
 [twilio_on_github]: https://github.com/twilio
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
+
 

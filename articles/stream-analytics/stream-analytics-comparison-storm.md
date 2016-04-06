@@ -39,7 +39,7 @@
             </td>
             <td width="246" valign="top">
                 <p>
-                    <strong>HDInsight での Apache Storm</strong>
+                    <strong>HDInsight で Apache Storm</strong>
                 </p>
             </td>
         </tr>
@@ -114,7 +114,7 @@
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>料金</strong>
+                    <strong>価格</strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -122,7 +122,7 @@
                     Stream Analytics is priced by volume of data processed and the number of streaming units (per hour the job is running) required.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/en-us/pricing/details/stream-analytics/">価格についての詳細は、こちらをご覧ください。</a>
+                    <a href="http://azure.microsoft.com/en-us/pricing/details/stream-analytics/">料金についての詳細はここで見つかんだことができます。</a>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -130,7 +130,7 @@
                     For Apache Storm on HDInsight, the unit of purchase is cluster-based, and is charged based on the time the cluster is running, independent of jobs deployed.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/en-us/pricing/details/hdinsight/">価格についての詳細は、こちらをご覧ください。</a>
+                    <a href="http://azure.microsoft.com/en-us/pricing/details/hdinsight/">料金についての詳細はここで見つかんだことができます。</a>
                 </p>
             </td>
         </tr>
@@ -152,7 +152,7 @@
             </td>
             <td width="246" valign="top">
                 <p>
-                    <strong>HDInsight での Apache Storm</strong>
+                    <strong>HDInsight で Apache Storm</strong>
                 </p>
             </td>
         </tr>
@@ -193,7 +193,7 @@
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>開発の操作性</strong>
+                    <strong>開発環境</strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -227,7 +227,7 @@
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>UDF のサポート (ユーザー定義の関数)</strong>
+                    <strong>UDF のサポート (ユーザー定義関数)</strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -276,7 +276,7 @@
             </td>
             <td width="246" valign="top">
                 <p>
-                    <strong>HDInsight での Apache Storm</strong>
+                    <strong>HDInsight で Apache Storm</strong>
                 </p>
             </td>
         </tr>
@@ -316,8 +316,7 @@
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>出力
-</strong>
+                    <strong>出力</strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -334,7 +333,7 @@
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>データのエンコード形式</strong>
+                    <strong>データのエンコード形式します。</strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -350,7 +349,7 @@
         </tr>
     </tbody>
 </table>
-## 管理と操作 ##
+## 管理と運用 ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -366,14 +365,14 @@
             </td>
             <td width="246" valign="top">
                 <p>
-                    <strong>HDInsight での Apache Storm</strong>
+                    <strong>HDInsight で Apache Storm</strong>
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>ジョブのデプロイ モデル</strong>
+                    <strong>ジョブのデプロイメント モデル</strong>
                 </p>
                 <p>
                     - <strong>Azure ポータル</strong>
@@ -419,7 +418,7 @@
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>拡張性</strong>
+                    <strong>スケーラビリティ</strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -436,7 +435,7 @@
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>データ処理の制限</strong>
+                    <strong>データ処理を制限します。</strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -490,7 +489,7 @@
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>保証された SLA を備えた高可用性サービスによるビジネス継続性</strong>
+                    <strong>高可用性サービスによる保証された SLA とビジネス継続性</strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -528,14 +527,14 @@
             </td>
             <td width="246" valign="top">
                 <p>
-                    <strong>HDInsight での Apache Storm</strong>
+                    <strong>HDInsight で Apache Storm</strong>
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>遅延着信とと順不同イベントの処理</strong>
+                    <strong>遅延着信と順不同のイベント処理</strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -577,7 +576,7 @@
             </td>
             <td width="204" valign="top">
                 <p>
-                    By configuring published Azure Machine Learning models as functions during ASA job creation <a href="http://blogs.msdn.com/b/streamanalytics/archive/2015/05/24/real-time-scoring-of-streaming-data-using-machine-learning-models.aspx">(プライベート プレビュー版)</a>.
+                    By configuring published Azure Machine Learning models as functions during ASA job creation <a href="http://blogs.msdn.com/b/streamanalytics/archive/2015/05/24/real-time-scoring-of-streaming-data-using-machine-learning-models.aspx">(プライベート プレビュー)</a>します。
                 </p>
             </td>
             <td width="246" valign="top">
@@ -588,4 +587,5 @@
         </tr>
     </tbody>
 </table>
+
 

@@ -83,7 +83,7 @@
 
 3.   **アプリケーション URL の構成** ] ページで、 **Slack サインイン URL** ] ボックスに、Slack テナントの URL を入力 (例::"*https://azuread.slack.com*")、順にクリック **次**します。
 
-    ![アプリケーション URL の構成](./media/active-directory-saas-slack-tutorial/IC794984.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-slack-tutorial/IC794984.png "Configure App URL")
 
 4.   **Slack でのシングル サインオンの構成** ] ページで、証明書をダウンロードする] をクリックして **証明書のダウンロード**, 、お使いのコンピューターにローカルで証明書ファイルを保存します。
 
@@ -143,3 +143,4 @@ Slack へのユーザー プロビジョニングの構成にあたって必要�
     ![あり](./media/active-directory-saas-slack-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

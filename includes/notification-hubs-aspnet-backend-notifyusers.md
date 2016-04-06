@@ -55,7 +55,7 @@
 
     それ以外の場合、要求は拒否されます。 これは正規の認証や認証アプローチではありません。 このチュートリアルでの非常に単純な例です。
 
-    要求メッセージが認証されが承認されている場合、 `AuthenticationTestHandler`, 、基本認証ユーザーは、現在の要求に添付されますが、 [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx)します。 HttpContext のユーザー情報には追加を後でもう 1 つのコント ローラー (RegisterController) で使用する [タグ](https://msdn.microsoft.com/library/azure/dn530749.aspx) 通知登録の要求。
+    要求メッセージが認証されが承認されている場合、 `AuthenticationTestHandler`, 、基本認証ユーザーは、現在の要求に添付されますが、 [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx)します。 HttpContext のユーザー情報には追加を後で別のコント ローラー (RegisterController) で使用する [タグ](https://msdn.microsoft.com/library/azure/dn530749.aspx) 通知登録の要求。
 
         public class AuthenticationTestHandler : DelegatingHandler
         {
@@ -125,7 +125,7 @@
 
 3. 結果一覧でクリックして **Microsoft Azure Notification Hubs**, 、] をクリックし、 **インストール**します。 インストールが完了したら、NuGet パッケージ マネージャーのウィンドウを閉じます。
 
-    使用して、Azure Notification Hubs SDK への参照を追加します <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification ハブ NuGet パッケージ</a>.
+    これにより <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet パッケージ</a>を利用して Azure Notification Hubs SDK に参照が追加されます。
 
 4. 送信される、セキュリティで保護された別の通知を表す新しいクラス ファイルを作成します。 完全な実装では、通知はデータベースに格納されます。 わかりやすくするために、このチュートリアルではメモリに格納します。 ソリューション エクスプ ローラーで右クリックし、 **モデル** フォルダー] をクリックして **追加**, 、] をクリックし、 **クラス**します。 新しいクラスの名前を **Notifications.cs**, 、クリックして **追加** クラスを生成します。 
 
@@ -278,7 +278,7 @@
 このセクションでは、ASP.NET WebAPI バックエンドの Azure Notification Hubs サービス管理ライブラリを使用して、ユーザー名タグに基づく通知を送信する手段をクライアント デバイスに提供する新しいコントローラーを追加します。
 
 
-1. もう 1 つの新しいコント ローラーがという名前を作成 **NotificationsController**します。 作成したときと同じ方法で作成、 **RegisterController** 前のセクションでします。
+1. 別の新しいコント ローラーがという名前を作成 **NotificationsController**します。 作成したときと同じ方法で作成、 **RegisterController** 前のセクションでします。
 
 2. NotificationsController.cs に次の `using` ステートメントを追加します。
 
@@ -366,4 +366,5 @@
 [B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
+
 

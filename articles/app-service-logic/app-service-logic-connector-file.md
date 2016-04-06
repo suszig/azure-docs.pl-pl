@@ -43,12 +43,12 @@ File コネクタを使用するには、まず File コネクタ API アプリ�
 
 ## ハイブリッド接続マネージャーの構成 ##
 API App のインスタンスを作成したら、このダッシュボードに移動します。  [参照]、[API Apps]、[File コネクタの API Apps の選択] の順にクリックします。  ここから、ハイブリッド接続マネージャーを構成する必要があります。
-構成して、Hybrid Connection Manager のトラブルシューティングの詳細については、[Hybrid Connection Manager を使用する] を参照してください。
+詳細については、構成とハイブリッド接続マネージャーのトラブルシューティングを参照してください [Using the Hybrid Connection Manager]します。
 
 ## Logic App で File コネクタを使用する ##
 API アプリが作成されたら、Logic App のアクションとして File コネクタを使用できます。 そのためには、次の手順を実行する必要があります。
 
-1.  新しい Logic App を作成し、File コネクタと同じリソース グループを選択します。 [新しいロジック アプリの作成] の指示に従います。
+1.  新しい Logic App を作成し、File コネクタと同じリソース グループを選択します。 指示に従って、 [Create a new Logic App]します。
 
 2.  作成した Logic App で [トリガーとアクション] を選択して Logic Apps デザイナーを開き、フローを構成します。
 
@@ -68,7 +68,7 @@ API アプリが作成されたら、Logic App のアクションとして File 
 ロジック アプリの外部のコネクタを使用するには、そのコネクタで公開されている REST API を活用できます。 [参照]、[API App]、[File コネクタ] の順に選択して、この API 定義を表示できます。 ここでこのコネクタで公開されているすべての Api を表示する [概要] セクションの下にある [API の定義] レンズをクリックします。  
 ![][7]
 
-Api の詳細については、[File コネクタの API の定義] にあります。
+Api の詳細については掲載されて [File Connector API Definition]します。
 
 ## コネクタでできること
 コネクタが作成されたため、ロジック アプリを使用してコネクタをビジネス ワークフローに追加できます。 参照してください [Logic Apps とは?](app-service-logic-what-are-logic-apps.md)します。
@@ -89,4 +89,5 @@ Api の詳細については、[File コネクタの API の定義] にありま
 [Create a new Logic App]: app-service-logic-create-a-logic-app.md
 [File Connector API Definition]: https://msdn.microsoft.com/library/dn936296.aspx
 [Using the Hybrid Connection Manager]: app-service-logic-hybrid-connection-manager.md
+
 

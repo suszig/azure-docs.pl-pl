@@ -22,7 +22,7 @@
 
 このトピックでは、ユニバーサル Windows 8.1 アプリから Azure モバイル サービスのユーザーを認証する方法を示します。 このチュートリアルでは、モバイル サービスでサポートされている ID プロバイダーを使用して、クイック スタート プロジェクトに認証を追加します。 モバイル サービスによって正常に認証および承認されると、ユーザー ID 値が表示されます。
 
-このチュートリアルは、Mobile Services のクイック スタートに基づいています。 また、最初のチュートリアルを完了する必要があります [Get started with Mobile Services]します。 
+このチュートリアルは、モバイル サービスのクイック スタートに基づいています。 また、最初のチュートリアルを完了する必要があります [Get started with Mobile Services]します。 
 
 >[AZURE.NOTE]このチュートリアルでは、Windows ストア アプリおよび Windows Phone ストア 8.1 アプリでユーザーを認証する方法を示します。 Windows Phone 8.0 または Windows Phone Silverlight 8.1 アプリでは、このバージョンを参照してください。 [モバイル サービスで認証を使ってみる](mobile-services-windows-phone-get-started-users.md)します。
 
@@ -34,7 +34,7 @@
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)] 
  
->[AZURE.NOTE] Visual Studio のツールを使用して、アプリをモバイル サービスに接続する場合、ツールは、2 つのセットを生成 **MobileServiceClient** 定義、クライアント プラットフォームごとに 1 つずつです。 これは、統合することによって生成されたコードを簡略化する絶好のタイミング、 `#if...#endif` ラップ **MobileServiceClient** 定義をアプリの両方のバージョンで使用される 1 つのラップされていない定義にします。 クイック スタート アプリをダウンロードした場合に実行する必要はありません、 [Azure classic portal]します。
+>[AZURE.NOTE] Visual Studio のツールを使用して、アプリをモバイル サービスに接続する場合、ツールは、2 つのセットを生成 **MobileServiceClient** 定義、クライアント プラットフォームごとに 1 つずつです。 これは、統合することによって生成されたコードを簡略化する絶好のタイミング、 `#if...#endif` ラップ **MobileServiceClient** 両方のバージョンのアプリで使用される単一のラップされていない定義を定義します。 クイック スタート アプリをダウンロードした場合に実行する必要はありません、 [Azure classic portal]します。
 
 ##<a name="add-authentication"></a> アプリケーションに認証を追加する
 
@@ -84,3 +84,4 @@
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
+

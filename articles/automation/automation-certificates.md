@@ -98,7 +98,7 @@ Runbook または DSC 構成で証明書にアクセスするために、次の�
 
 次の図は、グラフィカルな Runbook で証明書を使用する例を示したものです。  これは、テキストの Runbook からクラウド サービスに証明書を追加する前述の例と同じです。  
 
-この例では、 **UseConnectionObject** パラメーターは、送信の設定**TwilioSMS アクティビティ** 、サービスに対する認証に接続オブジェクトを使用します。  A [パイプライン リンク](automation-graphical-authoring-intro.md#links-and-workflow) シーケンス リンクは Connection パラメーターが予期しないする 1 つのオブジェクトを含むを含むコレクションを返すためここで使用する必要があります。
+この例では、 **UseConnectionObject** パラメーターは、送信の設定**TwilioSMS アクティビティ** 、サービスに対する認証に接続オブジェクトを使用します。  A [パイプライン リンク](automation-graphical-authoring-intro.md#links-and-workflow) シーケンス リンクは Connection パラメーターが予期しない単一のオブジェクトを含むを含むコレクションを返すためここで使用する必要があります。
 
 ![](media/automation-certificates/add-certificate.png)
 
@@ -106,4 +106,5 @@ Runbook または DSC 構成で証明書にアクセスするために、次の�
 ## 関連項目
 
 - [グラフィカル作成でのリンク](automation-graphical-authoring-intro.md#links-and-workflow) 
+
 

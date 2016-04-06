@@ -39,7 +39,7 @@
 
 このテンプレートでは、診断データ用に既存のストレージ アカウントを使用する Azure Redis Cache をデプロイします。
 
-デプロイメントを自動的に実行するには、次のボタンをクリックします。
+展開を自動的に実行するには、次のボタンをクリックします。
 
 [![DAzure に eploy](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
@@ -139,6 +139,7 @@ Azure Redis Cache を作成します。
 ### Azure CLI
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
+
 
 
 

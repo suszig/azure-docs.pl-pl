@@ -64,7 +64,7 @@ Access Control 発行者名および発行者キーは次のコンポーネン�
 
 左側のナビゲーション ウィンドウで選択することも **Active Directory** Access Control の値を取得します。 
 
-> [AZURE.IMPORTANT] 使用して Access Control 名前空間の作成時に **Active Directory**, 、サービス Id は **いない** 自動的に作成されました。 BizTalk サービスをプロビジョニングすると、Access Control 名前空間、"所有者" (発行者名) という名前のサービス ID、パスワード (発行者キー)、および対称キーが自動的に作成されます。<br /> 
+> [AZURE.IMPORTANT] 使用して Access Control 名前空間の作成時に **Active Directory**, 、サービス Id は **いない** 自動的に作成されました。 BizTalk サービスをプロビジョニングするときに、Access Control 名前空間、"所有者" という名前のサービス ID (発行者名)、パスワード (発行者キー)、および対称キーが自動的に作成されます。<br /> 
 [方法: ACS 管理サービスを使用して、サービス Id を構成する](http://go.microsoft.com/fwlink/p/?LinkID=303942) Access Control サービス Id について詳しく説明します。
 
 
@@ -86,17 +86,18 @@ Azure BizTalk サービスに関するその他のトピック:
 
 -  [Azure BizTalk サービス SDK のインストール](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
 -  [チュートリアル: Azure BizTalk サービス](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
--  [Azure BizTalk サービス SDK の操作使用開始方法](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+-  [Azure BizTalk サービス SDK の使用開始に関するページ](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 -  [Azure BizTalk サービス](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 
 ## 関連項目
--  [方法: ACS 管理サービスを使用してサービス Id を構成するには](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
-- [BizTalk サービス: Developer、Basic、Standard および Premium エディションのチャート](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [BizTalk サービス: Azure を使用して従来のポータルをプロビジョニングします。](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [BizTalk サービス: プロビジョニング状態チャート](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-- [BizTalk サービス: ダッシュ ボード、モニター、スケール タブ](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-- [BizTalk サービス: バックアップと復元](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-- [BizTalk サービス: 調整](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+-  [方法: ACS 管理サービスを使用してサービス ID を構成する](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
+- [BizTalk サービス: 開発者、基本、標準、およびプレミアム エディションのチャートに関するページ](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+- [BizTalk サービス: Azure クラシック ポータルを使用したプロビジョニング](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [BizTalk サービス: プロビジョニングの状態のチャートに関するページ](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+- [BizTalk サービス: [ダッシュボード]、[監視]、および [スケール] タブに関するページ](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+- [BizTalk サービス: バックアップと復元に関するページ](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+- [BizTalk Services: 調整](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
+
 

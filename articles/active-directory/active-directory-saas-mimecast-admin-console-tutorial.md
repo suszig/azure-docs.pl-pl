@@ -152,7 +152,7 @@ Mimecast Admin Console の場合、プロビジョニングは手動で行いま
 
 5.  新しいアドレスのダイアログで、次の手順に従います。
 
-    ![Save](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795006.png "Save")
+    ![保存](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795006.png "Save")
 
     1.  型、 **電子メール アドレス**, 、**グローバル名**, 、**パスワード** と **パスワードの確認** 関連テキスト ボックスに、プロビジョニングする有効な AAD アカウントの属性です。
     2.  クリックして **保存**します。
@@ -176,3 +176,4 @@ Mimecast Admin Console の場合、プロビジョニングは手動で行いま
     ![あり](./media/active-directory-saas-mimecast-admin-console-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

@@ -83,7 +83,7 @@ ASP.NET アプリケーションをオンプレミスでホストする場合、
 
 1. 前の手順に従って、Microsoft Report Viewer 2012 Runtime 再頒布可能パッケージをダウンロードしてインストールします。
 
-1. プロジェクトに <language> フォルダーを作成し、関連付けられたリソース アセンブリ ファイルをそこにコピーします。 コピーするリソース アセンブリ ファイル: **Microsoft.ReportViewer.Webforms.Resources.dll** と **Microsoft.ReportViewer.Common.Resources.dll**します。リソース アセンブリ ファイルを選択し、プロパティ ペインで次のように設定します。 **出力ディレクトリにコピー** に"**常にコピー**"です。
+1. 作成 <language> コピーとプロジェクトに関連付けられたリソース アセンブリ ファイル フォルダーがあります。 コピーするリソース アセンブリ ファイル: **Microsoft.ReportViewer.Webforms.Resources.dll** と **Microsoft.ReportViewer.Common.Resources.dll**します。リソース アセンブリ ファイルを選択し、プロパティ ペインで次のように設定します。 **出力ディレクトリにコピー** に"**常にコピー**"です。
 
 1. Web プロジェクトのカルチャと UI カルチャを設定します。 ASP.NET Web ページのカルチャおよび UI カルチャを設定する方法の詳細については、次を参照してください。 [方法: ASP.NET Web ページのグローバリゼーション用のカルチャおよび UI カルチャの設定](http://go.microsoft.com/fwlink/?LinkId=237461)します。
 
@@ -108,4 +108,5 @@ ASP.NET Web アプリケーションを Azure に発行する方法について�
 [ネイティブ モードのレポート サーバーを実行する Azure VM を PowerShell を使用して作成する](virtual-machines-sql-server-create-native-mode-report-server-powershell.md)
 
 [Reporting Services のレポート ビューアー制御と Microsoft Azure 仮想マシン ベースのレポート サーバー](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
+
 

@@ -79,7 +79,7 @@
 
 3.   **アプリケーション URL の構成** ] ページで、次の手順を実行します。
 
-    ![アプリケーション URL の構成](./media/active-directory-saas-fm-systems-tutorial/IC795902.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-fm-systems-tutorial/IC795902.png "Configure App URL")
 
     1.   **FM:Systems サインオン URL** ] ボックスに、fm:systems **応答 URL** (例:: *https://dpr.fmshosted.com/fminteract/ConsumerService2.aspx*)。  
 
@@ -142,3 +142,4 @@ FM:Systems の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-fm-systems-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

@@ -17,14 +17,14 @@
    ms.author="piyushjo"/>
 
 # ユーザー インターフェイスを操作する方法
-UI フロント エンド ポータル: https://YourApp.portal.mobileengagementwindows.net/には、次のナビゲーション要素が含まれています: ヘッダー、フッター、サイドバー、cookie の階層リンク ナビゲーション、およびアプリケーション固有のリボンです。
+UI フロント エンド ポータル: https://YourApp.portal.mobileengagementwindows.net/ には、次のナビゲーション要素が含まれています: ヘッダー、フッター、サイドバー、cookie の階層リンク ナビゲーション、およびアプリケーション固有のリボンです。
  
 ![Navigation1][1] 
 
 ## ヘッダー
 - **Azure モバイル エンゲージメント (ロゴ)** – Azure モバイル エンゲージメント アプリのホーム ページ
 - **自分の名前** – マイ アカウント プロファイル
-- **ドキュメント** – [Azure モバイル エンゲージメントのドキュメント] [10 をリンク]
+- **ドキュメント** – [Azure モバイル エンゲージメントのドキュメント][Link 10]
 - **サインアウト** – Azure モバイル エンゲージメントのサインアウト
  
 ## フッター
@@ -35,13 +35,13 @@ UI フロント エンド ポータル: https://YourApp.portal.mobileengagementw
 - 現在の場所にリンクしている以前のページにすばやく移動します。
  
 ## リボン
-- [Analytics][15 のリンク]
-- [モニタ][16 のリンク]
-- [リーチ][17 のリンク]
-- [セグメント][リンク 18]
-- [ダッシュ ボード][19 のリンク]
+- [分析][Link 15]
+- [監視][Link 16]
+- [リーチ][Link 17]
+- [セグメント][Link 18]
+- [ダッシュボード][Link 19]
     - + (ダッシュボードを追加する)
-- [設定][20 のリンク]
+- [[設定]][Link 20]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -141,3 +141,4 @@ UI フロント エンド ポータル: https://YourApp.portal.mobileengagementw
 
  
  
+

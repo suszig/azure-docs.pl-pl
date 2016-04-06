@@ -14,7 +14,7 @@
 
     ![][8]
 
-    これをダウンロード、インストール、およびへの参照を追加します <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">Azure Service Bus ライブラリ NuGet パッケージ</a>.
+    これによりパッケージのダウンロードとインストールが実行され、<a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">Azure Service Bus ライブラリ NuGet パッケージ</a>への参照が追加されます。
 
 4. 次の追加 `using` の上部にあるステートメント、 **Program.cs** ファイル。
 
@@ -63,3 +63,4 @@
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
+

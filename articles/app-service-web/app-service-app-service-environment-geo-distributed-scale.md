@@ -25,13 +25,13 @@ App Service 環境は、水平方向のスケールアウトに最適なプラ�
 
 たとえば、App Service 環境構成で実行されるアプリが 20K RPS (1 秒あたりの要求数) を処理することがテストでわかっているとします。  必要なピーク時負荷容量が 100K RPS である場合、5 つの App Service 環境を作成して、予想される最大負荷をアプリケーションが処理できるように構成できます。
 
-顧客は通常、カスタム ドメイン (またはバニティ ドメイン) を使用してアクセスするため、開発者は App Service 環境のすべてのインスタンスにアプリの要求を分散する方法が必要になります。  これを実現する優れた方法は、[Azure Traffic Manager プロファイル] を使用してカスタム ドメインを解決するのには、[します] です。  Traffic Manager プロファイルは、個々の App Service 環境をすべてポイントするように構成できます。  すべての App Service 環境を対象とした顧客の分散は、Traffic Manager が Traffic Manager プロファイルの負荷分散設定に基づいて自動的に処理します。  このアプローチは、すべての App Service 環境が単一の Azure リージョンにデプロイされている場合はもちろん、世界の複数の Azure リージョンに展開されている場合でも、問題なく機能します。
+顧客は通常、カスタム ドメイン (またはバニティ ドメイン) を使用してアクセスするため、開発者は App Service 環境のすべてのインスタンスにアプリの要求を分散する方法が必要になります。  これを実現する優れた方法は、カスタム ドメインを使用して、解決するのには、 [Azure Traffic Manager プロファイル][AzureTrafficManagerProfile]します。  Traffic Manager プロファイルは、個々の App Service 環境をすべてポイントするように構成できます。  すべての App Service 環境を対象とした顧客の分散は、Traffic Manager が Traffic Manager プロファイルの負荷分散設定に基づいて自動的に処理します。  このアプローチは、すべての App Service 環境が単一の Azure リージョンにデプロイされている場合はもちろん、世界の複数の Azure リージョンに展開されている場合でも、問題なく機能します。
 
 さらに、顧客はバニティ ドメインを使用してアプリにアクセスするため、アプリを実行する App Service 環境の数を意識することがありません。  これにより、開発者は、観測されたトラフィック負荷に基づいて、App Service 環境の追加や削除を迅速かつ簡単に実行できます。
 
 次の概念図は、単一リージョン内の 3 つの App Service 環境で水平方向にスケールアウトされたアプリを示しています。
 
-!概念のアーキテクチャ[ConceptualArchitecture] 
+![Conceptual Architecture][ConceptualArchitecture] 
 
 このトピックの残りの部分では、複数の App Service 環境を使用してサンプル アプリの分散トポロジを設定するのに必要な手順について説明します。
 
@@ -39,7 +39,7 @@ App Service 環境は、水平方向のスケールアウトに最適なプラ�
 分散アプリケーションのフットプリントを構築する前に、いくつかの情報を前もって用意しておくと作業がスムーズになります。
 
 - **アプリのカスタム ドメイン:**  お客様は、アプリケーションにアクセスを使用してカスタム ドメイン名は何ですか。  サンプル アプリケーション、カスタム ドメイン名は *www.scalableasedemo.com*
-- **Traffic Manager ドメイン:**  ドメイン名は、[Azure Traffic Manager プロファイル] を作成するときに選択する必要があります [します] です。  この名前を組み合わせる、 *<myapp>.trafficmanager.net* Traffic Manager によって管理されるドメイン エントリを登録するサフィックスです。  選択した証明書の名前は、サンプル アプリケーションの *拡張性の高い ase デモ*します。  トラフィック マネージャーによって管理されている完全なドメイン名は、その結果 *拡張性の高い ase demo.trafficmanager.net*します。
+- **Traffic Manager ドメイン:**  ドメイン名を作成するときに選択する必要があります、 [Azure Traffic Manager プロファイル][AzureTrafficManagerProfile]します。  この名前を組み合わせる、 *<myapp>.trafficmanager.net* Traffic Manager によって管理されるドメイン エントリを登録するサフィックスです。  選択した証明書の名前は、サンプル アプリケーションの *拡張性の高い ase デモ*します。  トラフィック マネージャーによって管理されている完全なドメイン名は、その結果 *拡張性の高い ase demo.trafficmanager.net*します。
 - **アプリケーションのフット プリントを拡張するための戦略:**  アプリケーションのフット プリントを単一のリージョンでの複数の App Service 環境間で分散されますか。  複数のリージョンなのか、  両方のアプローチの最適な組み合わせなのか。  この決定は、顧客のトラフィックが発生する場所に加えて、アプリをサポートするバックエンド インフラストラクチャの他の要素のスケーラビリティに関する期待事項に基づく必要があります。  たとえば、100% のステートレスなアプリケーションでは、アプリ大規模にスケールできます App Service 環境の複数の Azure リージョンにまたがってデプロイで乗算の Azure リージョンごとの複数の App Service 環境の組み合わせを使用しています。  選択できるパブリック Azure リージョンは 15 以上あるため、顧客はスケーラビリティのきわめて高いアプリケーション フットプリントを世界規模で構築できます。  この記事のサンプル アプリでは、単一の Azure リージョン (米国中南部) に 3 つの App Service 環境が作成されています。
 - **App Service 環境の名前付け規則:**  各 App Service 環境には、一意の名前が必要です。  1 つや 2 つではなく数の多い App Service 環境では、各 App Service 環境を識別しやすい命名規則があると便利です。  サンプル アプリでは、シンプルな命名規則が使用されています。  次の 3 つの App Service 環境の名前は *fe1ase*, 、*fe2ase*, 、および *fe3ase*します。
 - **アプリの名前付け規則:**  、配置されたアプリの各インスタンスの名前が必要なため、アプリケーションの複数のインスタンスを展開します。  App Service 環境のあまり知られていない便利な特長の 1 つですが、同じアプリ名を複数の App Service 環境で使用できます。  App Service 環境ごとに一意のドメイン サフィックスがあるため、開発者は各環境でまったく同じアプリ名を再利用できます。  たとえば、開発者は次のようにという名前のアプリケーションがある:  *myapp.foo1.p.azurewebsites.net*, 、*myapp.foo2.p.azurewebsites.net*, 、*myapp.foo3.p.azurewebsites.net*, など.ただし、サンプル アプリでは、各アプリ インスタンスにも一意の名前を設定しています。  使用されるアプリのインスタンスの名前は *webfrontend1*, 、*webfrontend2*, 、および *webfrontend3*します。
@@ -52,7 +52,7 @@ App Service 環境は、水平方向のスケールアウトに最適なプラ�
 - **webfrontend2.fe2ase.p.azurewebsites.net:**  2 つ目の App Service 環境に展開されているサンプル アプリケーションのインスタンス。
 - **webfrontend3.fe3ase.p.azurewebsites.net:**  3 つ目の App Service 環境に展開されているサンプル アプリケーションのインスタンス。
 
-Azure App Service、複数のエンドポイントで実行中のすべてを登録する最も簡単な方法、 **同じ** Azure リージョンがプレビュー Powershell [Traffic Manager の Azure リソース マネージャー (ARM) のサポート] で、[ARMTrafficManager] です。  
+Azure App Service、複数のエンドポイントで実行中のすべてを登録する最も簡単な方法、 **同じ** プレビュー Powershell での Azure リージョンは、 [Azure リソース マネージャー (ARM) のトラフィック マネージャーのサポート][ARMTrafficManager]します。  
 
 最初の手順では、Azure Traffic Manager プロファイルの作成です。  次のコードでは、サンプル アプリ用プロファイルの作成方法を示しています。
 
@@ -81,7 +81,7 @@ Azure App Service、複数のエンドポイントで実行中のすべてを登
 
 利用しているレジストラーのドメイン管理ツールを使用して、カスタム ドメインが Traffic Manager ドメインをポイントする CNAME レコードを作成します。  次の図に、この CNAME の構成の例を示します。
 
-![カスタム ドメインの cname レコードの][CNAMEforCustomDomain] 
+![CNAME for Custom Domain][CNAMEforCustomDomain] 
 
 このトピックでは説明しませんが、アプリ インスタンスごとにカスタム ドメインを登録する必要があることに注意してください。  これを忘れた場合、要求がアプリ インスタンスに到達したときに、アプリケーションにカスタム ドメインが登録されていないと、要求は失敗します。  
 
@@ -89,7 +89,7 @@ Azure App Service、複数のエンドポイントで実行中のすべてを登
 
 ![カスタム ドメイン][CustomDomain] 
 
-Azure App Service アプリでカスタム ドメインの登録のまとめ、次の記事「[カスタム ドメインの登録] を参照してください。 [RegisterCustomDomain] です。
+用の Azure App Service アプリでカスタム ドメインの登録の要約で、次の記事を参照してください。 [カスタム ドメインを登録する][RegisterCustomDomain]です。
 
 ## 分散トポロジを試す ##
 Traffic Manager と DNS の構成の最終的な結果がに対する要求を *www.scalableasedemo.com* は、次のシーケンスを通過します。
@@ -104,10 +104,10 @@ Traffic Manager と DNS の構成の最終的な結果がに対する要求を *
 
 次のコンソールのスクリーンショットは、サンプル アプリのカスタム ドメインの DNS 参照が、3 つあるサンプル App Service 環境の 1 つ (この場合は、3 つの App Service 環境の 2 つ目) で実行されているアプリ インスタンスに正しく解決されたところを示しています。
 
-![DNS の検索][DNSLookup] 
+![DNS Lookup][DNSLookup] 
 
 ## その他のリンクおよび情報 ##
-ドキュメント プレビュー Powershell [Traffic Manager の Azure リソース マネージャー (ARM) のサポート] を [ARMTrafficManager] です。  
+プレビューの Powershell に関するドキュメント [Azure リソース マネージャー (ARM) のトラフィック マネージャーのサポート][ARMTrafficManager]します。  
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -124,4 +124,5 @@ Traffic Manager と DNS の構成の最終的な結果がに対する要求を *
 [CNAMEforCustomDomain]:  ./media/app-service-app-service-environment-geo-distributed-scale/CNAMECustomDomain-1.png
 [DNSLookup]:  ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
 [CustomDomain]:  ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png 
+
 

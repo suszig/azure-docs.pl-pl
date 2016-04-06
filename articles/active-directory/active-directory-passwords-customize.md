@@ -54,7 +54,7 @@
               </td>
               <td>
                 <p>
-                  <strong>影響</strong>
+                  <strong>影響を与えますか。</strong>
                 </p>
               </td>
             </tr>
@@ -69,20 +69,20 @@
               </td>
               <td>
                 <p>
-                  <strong>”管理者に問い合わせてください” メール:</strong>
+                  <strong>「管理者に問い合わせてください」メール:</strong>
                 </p>
                 <ul>
                   <li class="unordered">
-                                                Determines the from address friendly name, e.g. “Microsoft on behalf of <strong>Wingtip Toys</strong>」というハウツー ガイドを参照してください。<br><br></li>
+                                                Determines the from address friendly name, e.g. “Microsoft on behalf of <strong>Wingtip Toys</strong>"<br><br></li>
                   <li class="unordered">
-                                                Determines the subject name of the email, e.g. “<strong>Wingtip Toys</strong> アカウントの電子メール確認コード"<br><br></li>
+                                                Determines the subject name of the email, e.g. “<strong>Wingtip Toys</strong> アカウント メール確認コード"<br><br></li>
                 </ul>
                 <p>
-                  <strong>パスワード リセット メール:</strong>
+                  <strong>パスワード リセット メール。</strong>
                 </p>
                 <ul>
                   <li class="unordered">
-                                                Determines the from address friendly name, e.g. “Microsoft on behalf of <strong>Wingtip Toys</strong>」というハウツー ガイドを参照してください。<br><br></li>
+                                                Determines the from address friendly name, e.g. “Microsoft on behalf of <strong>Wingtip Toys</strong>"<br><br></li>
                 </ul>
               </td>
             </tr>
@@ -130,7 +130,7 @@
 ## Password Management の動作
 次の表は、各コントロールが、パスワード リセットの登録とリセットを行うユーザーのエクスペリエンスに対して、どのように影響するかを説明しています。  これらのオプションを構成することができます、 **ユーザー パスワードのリセット ポリシー** セクションで、ディレクトリの **構成** ] タブで、 [Azure 管理ポータル](https://manage.windowsazure.com)します。
 
-> [AZURE.NOTE] 使用している管理者アカウントに AAD Premium ライセンスがこれらのポリシー コントロールを表示するために割り当てられている必要があります<br><br>。これらのポリシー コントロールは、パスワード、管理者以外をリセットするエンドユーザーにのみ適用されます。  **管理者は、連絡用メールと変更できないマイクロソフトが指定されている携帯電話の既定のポリシーがあります。**
+> [AZURE.NOTE] これらのポリシー コントロールを表示するために割り当てられている AAD Premium ライセンスを使用している管理者アカウントが必要です。<br><br>これらのポリシー コントロールは、パスワード、管理者以外をリセットするエンドユーザーにのみ適用されます。  **管理者には、Microsoft が管理者のために指定した連絡用メールと携帯電話の既定のポリシーがあり、これらは変更できません。**
 
 <table>
             <tbody><tr>
@@ -146,7 +146,7 @@
               </td>
               <td>
                 <p>
-                  <strong>影響</strong>
+                  <strong>影響を与えますか。</strong>
                 </p>
               </td>
             </tr>
@@ -167,20 +167,20 @@
                   <li class="unordered">
                                                 If set to no, no users can register their own challenge data.<br><br></li>
                   <li class="unordered">
-                                                If set to yes, any end user in the directory can register challenge data by going to the registration portal at <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>.<br><br></li>
+                                                If set to yes, any end user in the directory can register challenge data by going to the registration portal at <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>します。<br><br></li>
                   <li class="unordered">
-                    <strong>注:</strong> ユーザーには、Azure AD Premium または Basic ライセンスがパスワードのリセットの登録を行う前に割り当てる必要があります。<br><br></li>
+                    <strong>注:</strong> ユーザーは、Azure AD Premium または Basic ライセンスがパスワードのリセットの登録を行う前に割り当てられている必要があります。<br><br></li>
                 </ul>
                 <p>
-                  <strong>パスワード リセット ポータル:</strong>
+                  <strong>パスワード リセット ポータル。</strong>
                 </p>
                 <ul>
                   <li class="unordered">
                                                 If set to no, users see a message saying the must contact their admin to reset their password.<br><br></li>
                   <li class="unordered">
-                                                If set to yes, users are able to reset their passwords automatically by going to  <a href="http://passwordreset.microsoftonline.com">http://passwordreset.microsoftonline.com</a>、またはをクリックすると、 <strong>アカウントにアクセスできません。</strong> 組織 ID サインイン ページにリンクします。<br><br></li>
+                                                If set to yes, users are able to reset their passwords automatically by going to  <a href="http://passwordreset.microsoftonline.com">http://passwordreset.microsoftonline.com</a>, をクリックすると、または、 <strong>アカウントにアクセスできない</strong> 組織 ID サインイン ページにリンクします。<br><br></li>
                   <li class="unordered">
-                    <strong>注:</strong> ユーザーには、Azure AD Premium または Basic ライセンスが自分のパスワードをリセットする前に割り当てる必要があります。<br><br></li>
+                    <strong>注:</strong> ユーザーは、Azure AD Premium または Basic ライセンスが自分のパスワードをリセットする前に割り当てられている必要があります。<br><br></li>
                 </ul>
               </td>
             </tr>
@@ -191,7 +191,7 @@
                 </div>
               </td>
               <td>
-                <p>特定のユーザー グループのみがパスワードのリセットを使用できるかどうかを決定します  (表示されている場合にのみ <strong>パスワードのリセットが有効なユーザー</strong> 設定されています。 <strong>○</strong>).</p>
+                <p>特定のユーザー グループのみがパスワードのリセットを使用できるかどうかを決定します  (場合にのみ表示 <strong>パスワードのリセットが有効なユーザー</strong> に設定されている <strong>はい</strong>)。</p>
               </td>
               <td>
                 <p>
@@ -201,10 +201,10 @@
                   <li class="unordered">
                                                 If set to no, then all end users in your directory can register for password reset at <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a><br><br></li>
                   <li class="unordered">
-                                                If set to yes, then only end users specified in the <strong>パスワードをリセットできるグループ</strong> コントロールは、パスワードのリセットを登録できます。  <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a><br><br></li>
+                                                If set to yes, then only end users specified in the <strong>パスワードをリセットできるグループ</strong> でパスワード リセットを登録できます  <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a><br><br></li>
                 </ul>
                 <p>
-                  <strong>パスワード リセット ポータル:</strong>
+                  <strong>パスワード リセット ポータル。</strong>
                 </p>
                 <ul>
                   <li class="unordered">
@@ -795,7 +795,7 @@
               </td>
               <td>
                 <p>
-                  <strong>影響</strong>
+                  <strong>影響を与えますか。</strong>
                 </p>
               </td>
             </tr>
@@ -810,7 +810,7 @@
               </td>
               <td>
                 <p>
-                  <strong>パスワード リセット ポータル:</strong>
+                  <strong>パスワード リセット ポータル。</strong>
                 </p>
                 <ul>
                   <li class="unordered">
@@ -840,7 +840,7 @@
               </td>
               <td>
                 <p>
-                  <strong>パスワード リセット ポータル:</strong>
+                  <strong>パスワード リセット ポータル。</strong>
                 </p>
                 <ul>
                   <li class="unordered">
@@ -873,3 +873,4 @@ Azure AD のパスワードのリセットに関するすべてのドキュメ�
 
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
+

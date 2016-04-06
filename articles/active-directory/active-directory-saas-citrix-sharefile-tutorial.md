@@ -71,7 +71,7 @@
 
 1.  Azure AD ポータルでの **Citrix ShareFile** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![Enable single sign-on](./media/active-directory-saas-citrix-sharefile-tutorial/IC773623.png "Enable single sign-on")
+    ![シングル サインオンの有効化](./media/active-directory-saas-citrix-sharefile-tutorial/IC773623.png "Enable single sign-on")
 
 2.   **どのようなユーザーが Citrix ShareFile へのサインオン** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 
@@ -79,7 +79,7 @@
 
 3.   **アプリケーション URL の構成** ] ページの [、 **Citrix ShareFile サインオン URL** ] ボックスに、次のパターンを使用して URL を入力 `https://<tenant-name>.shareFile.com`, 、] をクリックし、 **次**します。
 
-    ![Configure App URL](./media/active-directory-saas-citrix-sharefile-tutorial/IC773625.png "Configure App URL")
+    ![アプリケーション URL の構成](./media/active-directory-saas-citrix-sharefile-tutorial/IC773625.png "Configure App URL")
 
 4.   **Citrix ShareFile でのシングル サインオンの構成** ] ページで、証明書をダウンロードする] をクリックして **証明書のダウンロード**, 、お使いのコンピューターに証明書ファイルを保存します。
 
@@ -108,7 +108,7 @@
 
 10. Azure AD ポータルでのシングル サインオンの構成情報を選択し、 **完了** を閉じる、 **[シングル サインオン** ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-citrix-sharefile-tutorial/IC773630.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-citrix-sharefile-tutorial/IC773630.png "Configure single sign-on")
 ##ユーザー プロビジョニングの構成
 
 Azure AD ユーザーが Citrix ShareFile にログインできるようにするには、ユーザーを Citrix ShareFile にプロビジョニングする必要があります。  
@@ -149,4 +149,5 @@ Citrix ShareFile の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-citrix-sharefile-tutorial/IC767830.png "Yes")
 
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+
 

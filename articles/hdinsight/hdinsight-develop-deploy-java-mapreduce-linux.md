@@ -226,7 +226,7 @@ Java と JDK をインストールするときに、次のような環境変数�
     > [AZURE.NOTE]  __Wordcountjava 1.0-SNAPSHOT.jar__ ファイルは、WordCount ジョブだけでなく、ジョブが実行時に必要な依存関係を含む uberjar です。
 
 
-##<a id="upload"></a>Jar をアップロードします。
+##<a id="upload"></a>jar をアップロードする
 
 次のコマンドを使用して、HDInsight ヘッドノードに jar ファイルをアップロードします。
 
@@ -238,7 +238,7 @@ Java と JDK をインストールするときに、次のような環境変数�
 
 > [AZURE.NOTE] SSH アカウントをセキュリティで保護するパスワードを使用した場合は、パスワードを入力するように求められます。 SSH キーを使用している場合は、`-i` パラメーターと、秘密キーのパスを使用する必要があることがあります。 たとえば、「`scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`」のように入力します。
 
-##<a name="run"></a>MapReduce ジョブの実行
+##<a name="run"></a>MapReduce ジョブを実行する
 
 1. 次の記事の説明に従って、SSH を使用して HDInsight に接続します。
 
@@ -291,5 +291,6 @@ Java と JDK をインストールするときに、次のような環境変数�
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
+
 
 

@@ -34,8 +34,8 @@ Windows のカスタム スクリプト拡張機能を使うと、リモート�
 
 ### カスタム スクリプト拡張機能を実行する前提条件
 
-1. Azure PowerShell コマンドレット バージョン 0.8.0 以降をインストールまたはからそれ以降 <a href="http://azure.microsoft.com/downloads" target="_blank">ここ</a>.
-2. スクリプトは、既存の仮想マシンで実行されて、VM で、VM エージェントが有効になっているかどうかを必ずそうでない場合この後に <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">記事</a> いずれかをインストールします。
+1. <a href="http://azure.microsoft.com/downloads" target="_blank">ここ</a>から Azure PowerShell コマンドレット バージョン 0.8.0 以降をインストールします。
+2. スクリプトが既存の VM で実行されている場合、VM エージェントがその VM 上で有効であることを確認してください。有効になっていない場合は、こちらの<a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">記事</a>の手順に従ってインストールしてください。
 3. VM で実行するスクリプトを Azure Storage にアップロードします。 スクリプトは、1 つのコンテナーまたは複数のストレージ コンテナーから取得できます。
 4. スクリプトは、拡張機能によって起動されるエントリ スクリプトが、他のスクリプトを順に起動するように記述されている必要があります。
 
@@ -75,7 +75,7 @@ Windows のカスタム スクリプト拡張機能を使うと、リモート�
 
 ### Azure ポータルからのカスタム スクリプト拡張機能の追加
 
-内の VM に参照します <a href="https://portal.azure.com/ " target="_blank">Azure ポータル </a> 実行するスクリプト ファイルを指定することによって、拡張機能を追加します。
+<a href="https://portal.azure.com/ " target="_blank">Azure ポータル</a>で VM を参照し、実行するスクリプト ファイルを指定して拡張機能を追加します。
 
   ![][5]
 
@@ -92,4 +92,5 @@ Windows のカスタム スクリプト拡張機能を使うと、リモート�
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
+
 

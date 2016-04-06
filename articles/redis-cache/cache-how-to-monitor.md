@@ -26,7 +26,7 @@ Azure Redis Cache には、キャッシュのインスタンスを監視する�
 
 キャッシュ メトリックを表示する [参照](cache-configure.md) でキャッシュ インスタンスを [Azure ポータル](https://portal.azure.com)します。 Azure Redis Cache インスタンスのメトリックへのアクセスは、 **Redis Cache** ブレードです。
 
-![モニタ][redis のキャッシュのモニターの概要]
+![監視][redis-cache-monitor-overview]
 
 >[AZURE.IMPORTANT] 次のメッセージが Azure ポータルで表示されている場合の手順で、 [キャッシュ診断を有効にする](#enable-cache-diagnostics) キャッシュ診断を有効にする] セクションです。
 >
@@ -258,6 +258,7 @@ Azure でアラートの詳細については、次を参照してください�
 [redis-cache-premium-point-summary]: ./media/cache-how-to-monitor/redis-cache-premium-point-summary.png
 
 [redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
+
 
 
 

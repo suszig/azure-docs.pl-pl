@@ -117,7 +117,7 @@ HDInsight クラスターのプロビジョニングを計画する方法につ�
 
     ノードの VM サイズを選択します。 詳細については、次を参照してください [クラウド サービスのサイズ。](cloud-services-sizes-specs.md)
 
-    VM の選択に基づき、料金が異なる場合があります。 HDInsight は、クラスター ノードにすべて Standard レベルの VM を使用します。 VM のサイズに応じた料金の方法については、次を参照してください。 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight の料金詳細</a>.
+    VM の選択に基づき、料金が異なる場合があります。 HDInsight は、クラスター ノードにすべて Standard レベルの VM を使用します。 VM サイズに応じた料金の詳細については、「<a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 料金</a>」をご覧ください。
 
 
 - **HDInsight ユーザー**
@@ -299,7 +299,7 @@ Hive 構成をカスタマイズする Azure PowerShell スクリプトの例を
 
     - 名前: スクリプト アクションの名前を指定します。
     - スクリプト URI: クラスターをカスタマイズするために呼び出すスクリプトの URI (Uniform Resource Identifier) を指定します。
-    - ノードの種類: カスタマイズ スクリプトが実行されるノードを指定します。 選択することができます。 <b>すべてのノード</b>。 <b>ヘッド ノードのみ]</b>, or <b>ワーカー ノードのみ</b>.
+    - ノードの種類: カスタマイズ スクリプトが実行されるノードを指定します。 <b>[すべてのノード]</b>、<b>[ヘッド ノードのみ]</b>、または <b>[データ ノードのみ]</b> を選択できます。
     - パラメーター: は、スクリプトで必要な場合に、パラメーターを指定します。</td></tr>
 
     複数のスクリプト操作を追加して、クラスターに複数のコンポーネントをインストールすることができます。 スクリプトを追加した後、チェック マークをオンにして、クラスターのプロビジョニングを開始します。
@@ -464,7 +464,7 @@ Azure CLI を使用する方法の一般的なガイドラインを参照して�
 - [Windows 向け Azure CLI の設定](#cliwin)
 - [Azure CLI を使用した HDInsight クラスターのプロビジョニング](#cliprovision)
 
-#### <a id="clilin"></a>Linux 用 Azure CLI を設定します。
+#### <a id="clilin"></a>Linux 向け Azure CLI の設定
 
 次の手順に従って、Azure コマンド ライン インターフェイス (Azure CLI) を使用できるように Linux コンピューターをセットアップします。
 
@@ -510,7 +510,7 @@ Azure CLI を使用する前に、ワークステーションと Azure の間の
         azure account import <path/to/the/file>
 
 
-#### <a id="cliwin"></a>Windows 向け Azure CLI を設定します。
+#### <a id="cliwin"></a>Windows 向け Azure CLI の設定
 
 次の手順に従って、Azure CLI を使用するように Windows ベースのコンピューターを設定します。
 
@@ -568,7 +568,7 @@ Azure CLI を使用する前に、ワークステーションと Azure の間の
 
         azure account import <path/to/the/file>
 
-#### <a id="cliprovision"></a>Azure CLI を使用した HDInsight クラスターをプロビジョニングします。
+#### <a id="cliprovision"></a>Azure CLI を使用した HDInsight クラスターのプロビジョニング
 
 Azure CLI を使用して HDInsight クラスターをプロビジョニングするには、以下の手順を実行する必要があります。
 
@@ -695,10 +695,10 @@ SDK からの公開された最新のビルドをインストールする [NuGet
 
 3.  **新しいプロジェクト**, を入力するか、次の値を選択します。
 
-    |プロパティ|値|
-    |--------|-----|
-    |テンプレート|テンプレート/Visual C#/Windows/コンソール アプリケーション|
-    |名前|CreateHDICluster|
+  	|プロパティ|値|
+  	|--------|-----|
+  	|テンプレート|テンプレート/Visual C#/Windows/コンソール アプリケーション|
+  	|名前|CreateHDICluster|
 
 4. クリックして **OK** プロジェクトを作成します。
 
@@ -808,7 +808,7 @@ SDK からの公開された最新のビルドをインストールする [NuGet
 アプリケーションが Visual Studio で開いている間、以下のキーを押して **f5 キーを押して** アプリケーションを実行します。 コンソール ウィンドウが開き、アプリケーションの状態が表示されます。 HDInsight クラスターの作成は数分かかる場合があります。
 
 
-##<a id="nextsteps"></a> 次のステップ
+##<a id="nextsteps"></a>次のステップ
 この記事では、HDInsight クラスターをプロビジョニングする方法をいくつか説明しました。 詳細については、次の記事を参照してください。
 
 * [Azure HDInsight の概要](hdinsight-get-started.md) -HDInsight クラスターの使用を開始する方法について説明
@@ -820,4 +820,5 @@ SDK からの公開された最新のビルドをインストールする [NuGet
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
+
 

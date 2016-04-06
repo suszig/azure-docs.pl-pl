@@ -30,10 +30,10 @@
 ![][5]  
 
 4.  **PowerApps**, [ **管理 Api**:  
-![登録されている api を参照する][2]
+![登録されている api を参照します。][2]
 
 2.  **管理 Api**, [ **追加** 新しい API を追加します。  
-![API の追加][3]
+![[API を追加します。][3]
 
 3. わかりやすい名前を入力 **名前** した API 向けです。 
 
@@ -41,7 +41,7 @@
 
     a) 選択 **の設定 - 必要な設定を構成する**です。  
     
-    b) を入力 *アカウント キー*します。 Bing 検索キーを取得していない場合は、無料 [Bing Search サービス] を作成します。 キーを取得するには、[1] です。 
+    b) を入力 *アカウント キー*します。 Bing 検索キーを取得していない場合は、無料作成 [Bing Search オファー][1] キーを取得します。 
 
     c) 選択 **OK**します。 
 
@@ -61,3 +61,4 @@
 [3]: ./media/powerapps-create-api-dropbox/add-api.PNG
 [4]: ./media/powerapps-create-api-dropbox/browseall.png
 [5]: ./media/powerapps-create-api-dropbox/allresources.png
+

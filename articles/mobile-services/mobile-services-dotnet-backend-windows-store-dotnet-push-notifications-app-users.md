@@ -27,7 +27,7 @@
 
 ##概要
 
-このトピックでは、登録されたデバイスの認証されたユーザーにプッシュ通知を送信する方法を説明します。 以前の [プッシュ通知では] とは異なり [プッシュ通知の使用の開始を取得] チュートリアルでは、このチュートリアルは、クライアントがプッシュ通知の通知ハブに登録する前にユーザーの認証が要求するようにモバイル サービスを変更します。 また、登録を変更して、割り当てられたユーザー ID に基づいてタグが追加されるようにします。 最後に、サーバー コードを更新して、すべての登録に対してではなく、認証されたユーザーにのみ通知が送信されるようにします。
+このトピックでは、登録されたデバイスの認証されたユーザーにプッシュ通知を送信する方法を説明します。 前とは異なり [プッシュ通知を送信][Get started with push notifications] チュートリアルでは、このチュートリアルは、クライアントがプッシュ通知の通知ハブに登録する前にユーザーの認証が要求するようにモバイル サービスを変更します。 また、登録を変更して、割り当てられたユーザー ID に基づいてタグが追加されるようにします。 最後に、サーバー コードを更新して、すべての登録に対してではなく、認証されたユーザーにのみ通知が送信されるようにします。
 
 このチュートリアルが対象とするのは、Windows ストアと Windows Phone ストアの両方のアプリケーションです。
 
@@ -35,10 +35,10 @@
 
 このチュートリアルの前に、次の Mobile Services のチュートリアルを完了している必要があります。
 
-+ [認証の使用の開始を取得]
++ [Get started with authentication]
 TodoList サンプル アプリケーションにログイン要件を追加します。
 
-+ [開始プッシュ通知の使用]
++ [Get started with push notifications]
 Notification Hubs を使用して、TodoList サンプル アプリのプッシュ通知を構成します。
 
 両方のチュートリアルを完了すると、モバイル サービスからのプッシュ通知に、認証されていないユーザーが登録できないようにすることができます。
@@ -67,5 +67,6 @@ Notification Hubs を使用して、TodoList サンプル アプリのプッシ�
 <!-- URLs. -->
 [Get started with authentication]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [Get started with push notifications]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
+
 
 

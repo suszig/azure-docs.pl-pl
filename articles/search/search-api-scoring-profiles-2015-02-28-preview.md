@@ -164,7 +164,7 @@ Azure Search では、既定のスコアリングを使用して初期スコア�
   <tbody>
     <tr>
       <td>
-        <b>Weights</b>
+        <b>重み</b>
       </td>
       <td>
         Specify name-value pairs that assign a relative weight to a field. In the [Example](#example), the albumTitle, genre, and artistName fields are boosted 1, 5, and null, respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogeneous (as is the case with 'genre' in the `musicstoreindex`), you might need a larger variance in the relative weights. For example, in the `musicstoreindex`, 'rock' appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight.
@@ -269,23 +269,23 @@ Azure Search では、既定のスコアリングを使用して初期スコア�
 <th>説明</th>
 </tr>
 <tr>
-<td>名</td>   <td>が必要です。 これは、スコアリング プロファイルの名前です。 これは、フィールドの場合と同じ名前付け規則に従います。 先頭は英文字にする必要があります。ドット、コロン、または @ 記号を含めることはできません。さらに、'azureSearch' (大文字小文字の区別あり) という句で開始することはできません。 </td>
+<td>名前</td>   <td>必須。 これは、スコアリング プロファイルの名前です。 これは、フィールドの場合と同じ名前付け規則に従います。 先頭は英文字にする必要があります。ドット、コロン、または @ 記号を含めることはできません。さらに、'azureSearch' (大文字小文字の区別あり) という句で開始することはできません。 </td>
 </tr><tr>
-<td>テキスト</td>   <td>重みプロパティが含まれています</td>
+<td>テキスト</td>   <td>重み プロパティが含まれます。</td>
 </tr><tr>
-<td>。重み</td>    <td>省略可能です。 フィールドの名前と相対的な重みを指定する名前と値のペア。 相対的な重みは正の整数にする必要があります。 最大値は int32.MaxValue です。 対応する重みなしでフィールド名を指定することができます。 フィールドの別の相対的な重要度を示すために、重みを使用します</td>
+<td>Weights</td>    <td>省略可能。 フィールドの名前と相対的な重みを指定する名前と値のペア。 相対的な重みは正の整数にする必要があります。 最大値は int32.MaxValue です。 対応する重みなしでフィールド名を指定することができます。 フィールド間の相対的な重要度を示すには、重みを使用します。</td>
 <tr>
-<td>。関数</td>  <td>省略可能です。 スコアリング関数はフィルター フィールドにのみ適用できます</td>
+<td>関数</td>  <td>省略可能。 スコアリング関数はフィルターの適用が可能なフィールドにのみ適用できることに注意してください。</td>
 </tr><tr>
-<td>。型</td>   <td>スコアリング関数の場合に必要です。 使用する関数の型を示します。 有効な値には、magnitude、freshness、distance および tag があります。 各スコアリング プロファイルには複数の関数を含めることができます。 関数名は小文字にする必要があります</td>
+<td>型</td>   <td>スコアリング関数の場合は必須です。 使用する関数の型を示します。 有効な値には、magnitude、freshness、distance および tag があります。 各スコアリング プロファイルには複数の関数を含めることができます。 関数名は小文字にする必要があります。</td>
 </tr><tr>
-<td>。Boost</td>  <td>スコアリング関数の場合に必要です。 生のスコアの乗数として使用される正の数値。 1 に等しいことはできません</td>
+<td>Boost</td>  <td>スコアリング関数の場合は必須です。 生のスコアの乗数として使用される正の数値。 1 にすることはできません。</td>
 </tr><tr>
-<td>。Fieldname</td>  <td>スコアリング関数の場合に必要です。 スコアリング関数は、インデックスのフィールド コレクションに属し、フィルターの適用が可能なフィールドにのみ適用できます。 さらに、各関数型には追加の制限 (freshness は日時フィールドで使用され、magnitude は整数または倍精度浮動小数点フィールドで使用され、distance は場所フィールドで使用され、tag は文字列または文字列コレクションで使用される) が導入されています。 関数の定義ごとに指定できるフィールドは 1 つだけです。 たとえば、2 回同じプロファイルで magnitude を使用する必要になりますフィールドごとに 1 つ、2 つの定義 magnitude を含める</td>
+<td>Fieldname</td>  <td>スコアリング関数の場合は必須です。 スコアリング関数は、インデックスのフィールド コレクションに属し、フィルターの適用が可能なフィールドにのみ適用できます。 さらに、各関数型には追加の制限 (freshness は日時フィールドで使用され、magnitude は整数または倍精度浮動小数点フィールドで使用され、distance は場所フィールドで使用され、tag は文字列または文字列コレクションで使用される) が導入されています。 関数の定義ごとに指定できるフィールドは 1 つだけです。 たとえば、同じプロファイルで magnitude を 2 回使用するには、magnitude の定義を 2 つ含める必要があります (フィールドごとに 1 つ)。</td>
 </tr><tr>
-<td>。補間</td>  <td>スコアリング関数の場合に必要です。 スコア ブースティングが範囲の始点から範囲の終点に向かって高くなる場合の傾斜を定義します。 有効な値には、線形 (既定値)、定数、二次方程式、および対数があります。 参照してください [Set interpolations](#bkmk_interpolation) 詳細</td>
+<td>Interpolation</td>  <td>スコアリング関数の場合は必須です。 スコア ブースティングが範囲の始点から範囲の終点に向かって高くなる場合の傾斜を定義します。 有効な値には、線形 (既定値)、定数、二次方程式、および対数があります。 参照してください [Set interpolations](#bkmk_interpolation) 詳細です。</td>
 </tr><tr>
-<td>。magnitude</td>  <td>、magnitude スコアリング関数は数値フィールドの値の範囲に基づいてランキングを変更するために使用します。 最も一般的な使用例には、次のようなものがあります。
+<td>magnitude</td>  <td>数値フィールドの値の範囲に基づいて順位付けを変更するには、magnitude スコアリング関数を使用します。 最も一般的な使用例には、次のようなものがあります。
 <br>
 - 星評価:"星の評価] フィールドの値に基づいて、スコアリングを変更します。 2 つの項目が該当する場合は、評価の高い方の項目が最初に表示されます。
 <br>
@@ -295,29 +295,29 @@ Azure Search では、既定のスコアリングを使用して初期スコア�
 <br>
 - ダウンロード回数: アプリケーションのダウンロードを追跡、magnitude 関数によりをブーストするアイテムのある最もダウンロードします。
 <tr>
-<td>magnitude |boostingRangeStart</td> <td>magnitude をスコアリングする範囲の開始値を設定します。 値は整数または倍精度浮動小数点にする必要があります。 1 ～ 4 の星評価を対象とする場合、これは 1 になります。 50% 以上の余白を 50 になります</td>
+<td>magnitude | boostingRangeStart</td> <td>magnitude をスコアリングする範囲の開始値を設定します。 値は整数または倍精度浮動小数点にする必要があります。 1 ～ 4 の星評価を対象とする場合、これは 1 になります。 50% を超える利益を対象とする場合、これは 50 になります。</td>
 </tr><tr>
-<td>。magnitude |boostingRangeEnd</td>   <td>magnitude をスコアリングする範囲の終了値を設定します。 値は整数または倍精度浮動小数点にする必要があります。 1 ~ 4 の星評価を 4 になります</td>
+<td>magnitude | boostingRangeEnd</td>   <td>magnitude をスコアリングする範囲の終了値を設定します。 値は整数または倍精度浮動小数点にする必要があります。 1 ～ 4 の星評価を対象とする場合、これは 4 になります。</td>
 </tr><tr>
-<td>。magnitude |constantBoostBeyondRange</td>   <td>有効な値は、true または false (既定)。 true に設定すると、対象フィールドの値が範囲の上限を超えているドキュメントに、フル ブーストが継続的に適用されます。 False の場合、この関数のブーストに対しては適用されません範囲外になる、対象フィールドの値にあるドキュメント</td>
+<td>magnitude | constantBoostBeyondRange</td>   <td>有効な値は、true または false (既定値) です。 true に設定すると、対象フィールドの値が範囲の上限を超えているドキュメントに、フル ブーストが継続的に適用されます。 false に設定すると、対象フィールドの値が範囲外にあるドキュメントに対して、この関数のブーストは適用されません。</td>
 </tr><tr>
-<td>。freshness</td>  <td>DateTimeOffset フィールドの値に基づいて項目の順位付けのスコアを変更する、freshness スコアリング関数を使用します。 たとえば、最近の日付を持つ項目に、より古い日付を持つ項目よりも高い順位を付けることができます。 (将来の日付を使用して、カレンダー イベントなどの項目に順位を付けることもできます。たとえば、現在に近い日付の項目を遠い日付の項目よりも高い順位にすることができます)現在のサービス リリースでは、範囲の一端が現在の時刻に固定されます。 もう一方の端がに基づいて過去の時刻、 `boostingDuration`です。 将来の時刻の範囲をブーストするには、負の数を使用して `boostingDuration`します。 最大および最小の範囲からのブースティングの変化率は、スコアリング プロファイルに適用した補間によって決定されます (下図参照)。 適用されるブースティング係数を反転させるには、1 未満のブースト係数を選択します</td>
+<td>freshness</td>  <td>DateTimeOffset フィールドの値に基づいて項目の順位付けのスコアを変更するには、freshness スコアリング関数を使用します。 たとえば、最近の日付を持つ項目に、より古い日付を持つ項目よりも高い順位を付けることができます。 (将来の日付を使用して、カレンダー イベントなどの項目に順位を付けることもできます。たとえば、現在に近い日付の項目を遠い日付の項目よりも高い順位にすることができます)現在のサービス リリースでは、範囲の一端が現在の時刻に固定されます。 もう一方の端がに基づいて過去の時刻、 `boostingDuration`です。 将来の時刻の範囲をブーストするには、負の数を使用して `boostingDuration`します。 最大および最小の範囲からのブースティングの変化率は、スコアリング プロファイルに適用した補間によって決定されます (下図参照)。 適用されるブースティング係数を反転するには、ブースト係数として 1 未満を選択します。</td>
 </tr><tr>
-<td>。freshness |boostingDuration</td>   <td>設定、特定のドキュメントの期限を過ぎるとブースティングは停止します。 「」を参照 [boostingDuration の設定] [#bkmk_boostdur] 構文と例については、次セクションにします</td>
+<td>freshness | boostingDuration</td>   <td>特定のドキュメントに対して有効期限を設定します。この期限を過ぎるとブースティングは停止します。 構文と例については、次のセクションの [boostingDuration の設定][#bkmk_boostdur] を参照してください。</td>
 </tr><tr>
-<td>。距離</td>   <td>相対参照の地理的な場所には長短までに基づいてドキュメントのスコアに影響するまでの距離スコアリング関数を使用します。 参照の場所は、パラメーターにクエリの一部として指定した (を使用して、 `scoringParameterquery` オプションの文字列) に lon, lat 引数</td>
+<td>distance</td>   <td>地理的な参照場所との間の距離に基づいてドキュメントのスコアに影響を与えるには、distance スコアリング関数を使用します。 参照の場所は、パラメーターにクエリの一部として指定した (を使用して、 `scoringParameterquery` オプションの文字列) に lon, lat 引数。</td>
 </tr><tr>
-<td>。距離 |referencePointParameter</td> <td>参照場所として使用するクエリに渡されるパラメーター。 scoringParameter はクエリ パラメーターです。 参照してください [Search Documents](search-api-2015-02-28-preview/#SearchDocs) のクエリ パラメーターの説明</td>
+<td>distance | referencePointParameter</td> <td>参照場所として使用するクエリに渡されるパラメーター。 scoringParameter はクエリ パラメーターです。 参照してください [Search Documents](search-api-2015-02-28-preview/#SearchDocs) のクエリ パラメーターの説明。</td>
 </tr><tr>
-<td>。距離 |boostingDistance</td>    <td>ブースティング範囲の終了位置からの参照の場所からキロメートル単位で距離を表す数値</td>
+<td>distance | boostingDistance</td>    <td>ブースティング範囲が終了する、参照場所からの距離をキロメートルで示す数値。</td>
 </tr><tr>
-<td>。タグ</td>    <td>ドキュメントと検索クエリ内のタグに基づいてドキュメントのスコアに影響を与える、tag スコアリング関数を使用します。 検索クエリと共通のタグを持つドキュメントがブーストされます。 検索クエリのタグは、各検索要求でスコアリング パラメーターとして提供されます (を使用して、 `scoringParameterquery` 文字列オプション).</td>
+<td>tag</td>    <td>ドキュメントと検索クエリのタグに基づいてドキュメントのスコアに影響を与えるには、tag スコアリング関数を使用します。 検索クエリと共通のタグを持つドキュメントがブーストされます。 検索クエリのタグは、各検索要求でスコアリング パラメーターとして提供されます (を使用して、 `scoringParameterquery` 文字列オプション)。</td>
 </tr><tr>
-<td>タグ |tagsParameter</td>    <td>、特定の要求のタグを指定するためにクエリに渡されるパラメーター。 scoringParameter はクエリ パラメーターです。 参照してください [Search Documents](search-api-2015-02-28-preview/#SearchDocs) のクエリ パラメーターの説明</td>
+<td>tag | tagsParameter</td>    <td>特定の要求のタグを指定するためにクエリに渡されるパラメーター。 scoringParameter はクエリ パラメーターです。 参照してください [Search Documents](search-api-2015-02-28-preview/#SearchDocs) のクエリ パラメーターの説明。</td>
 </tr><tr>
-<td>。functionAggregation</td>    <td>省略可能です。 関数を指定した場合にのみ適用されます。 有効な値には、sum (default)、average、minimum、maximum、および firstMatching があります。 検索スコアは、複数の変数 (複数の関数など) から計算される単一の値です。 この属性は、すべての関数のブーストを、基本ドキュメント スコアに適用される 1 つの集計ブーストに集約する方法を示します。 基本スコアは、ドキュメントと検索クエリから計算された、tf-idf 値に基づきます</td>
+<td>functionAggregation</td>    <td>省略可能。 関数を指定した場合にのみ適用されます。 有効な値には、sum (default)、average、minimum、maximum、および firstMatching があります。 検索スコアは、複数の変数 (複数の関数など) から計算される単一の値です。 この属性は、すべての関数のブーストを、基本ドキュメント スコアに適用される 1 つの集計ブーストに集約する方法を示します。 基本スコアは、ドキュメントと検索クエリから算出される tf-idf 値に基づいています。</td>
 </tr><tr>
-<td>。defaultScoringProfile</td>  <td>スコアリング プロファイルが指定されていない場合は、検索要求を実行する場合、既定のスコアリングで使用される (tf-idf のみ)。
+<td>defaultScoringProfile</td>  <td>検索要求の実行時に、スコアリング プロファイルが指定されていない場合は、既定のスコアリングが使用されます (tf-idf のみ)。
 ここでは既定のスコアリング プロファイル名を設定できます。Azure Search は検索要求に特定のプロファイルが指定されていない場合、そのプロファイルを使用します。 </td>
 </tr>
 </table>
@@ -377,4 +377,5 @@ Azure Search では、既定のスコアリングを使用して初期スコア�
 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
+
 

@@ -81,7 +81,7 @@ Panorama9 のシングル サインオンを構成するには、証明書から
 
 3.   **アプリケーション URL の構成** ] ページの [、 **Panorama9 サインオン URL** ] ボックスに、型に使用する URL、ユーザーが Panorama9 へのサインイン (例::"*https://dashboard.panorama9.com/saml/access/3262*")、順にクリック **次**します。
 
-    ![アプリケーション URL の構成](./media/active-directory-saas-panorama9-tutorial/IC790021.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-panorama9-tutorial/IC790021.png "Configure App URL")
 
 4.   **Panorama9 でのシングル サインオンの構成** ] ページで、証明書をダウンロードする] をクリックして **証明書のダウンロード**, をローカル コンピューターに保存します。
 
@@ -99,7 +99,7 @@ Panorama9 のシングル サインオンを構成するには、証明書から
 
 8.   **設定** セクションで、次の手順に従います。
 
-    ![設定](./media/active-directory-saas-panorama9-tutorial/IC790025.png "Settings")
+    ![[設定]](./media/active-directory-saas-panorama9-tutorial/IC790025.png "Settings")
 
     1.  Azure ポータルで、 **Panorama9 でのシングル サインオンの構成** ] ダイアログ ページでコピー、 **シングル サインオン サービス URL** 値に設定して、貼り付けます、 **Id プロバイダーの URL** ] ボックスに貼り付けます。
     2.  コピー、 **拇印** エクスポートした証明書からの値し、貼り付けます、 **証明書フィンガー プリント** ] ボックスに貼り付けます。  
@@ -152,3 +152,4 @@ Panorama9 の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-panorama9-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

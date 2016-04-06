@@ -26,7 +26,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
-このトピックでは、プッシュ通知を追加する方法、 [クイック スタート プロジェクト](mobile-services-dotnet-backend-ios-get-started.md), 、モバイル サービスでは、記録されるたびにプッシュ通知が挿入されるが送信されるようにします。 行う必要があります」モバイル サービスの最初です。
+このトピックでは、プッシュ通知を追加する方法、 [クイック スタート プロジェクト](mobile-services-dotnet-backend-ios-get-started.md), 、モバイル サービスでは、記録されるたびにプッシュ通知が挿入されるが送信されるようにします。 完了する必要があります [Get Started with Mobile Services] 最初です。
 
 [AZURE.INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
@@ -34,7 +34,7 @@
 
 [AZURE.INCLUDE [Configure Push Notifications in Azure Mobile Services](../../includes/mobile-services-apns-configure-push.md)]
 
-##<a id="update-server"></a>プッシュ通知を送信するバックエンド コードを更新します。
+##<a id="update-server"></a>プッシュ通知を送信するようにバックエンド コードを更新する
 
 * Visual Studio プロジェクトを開く > **コント ローラー** フォルダー > **TodoItemController.cs** > メソッド `PostTodoItem`します。 このメソッドを次のコードで置き換えます。 Todo 項目が挿入されると、このコードはプッシュ通知を項目のテキストと共に送信します。 エラーがある場合、コードによってエラー ログ エントリが追加され、このエントリはポータルの [ログ] セクションに表示されます。
 
@@ -59,7 +59,7 @@
         }
 ```
 
-##<a name="publish-the-service"></a>モバイル サービスを Azure に発行します。
+##<a name="publish-the-service"></a>モバイル サービスを Azure に発行する
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../../includes/mobile-services-dotnet-backend-publish-service.md)]
 
@@ -131,4 +131,5 @@
 [What are Notification Hubs?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-ios-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
+
 

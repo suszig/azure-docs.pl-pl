@@ -62,7 +62,7 @@ HTTP 要求と応答をサポートする任意のプログラミング言語を
 Azure ML API ヘルプ ページは、Web サービスをデプロイするときに作成されます。 参照してください [Azure Machine Learning チュートリアル - Web サービスをデプロイする](machine-learning-walkthrough-5-publish-web-service.md)です。
 
 
-**Azure ML API ヘルプ ページを表示するには**
+**Azure ML API のヘルプ ページを表示するには**
 Microsoft Azure Machine Learning Studio
 
 1. 選択 **WEB サービス**します。
@@ -104,4 +104,5 @@ Azure ML web サービスに接続するには、使用、 **urllib2** ScoreData
 1. Azure ML サンプル コレクションに含まれる「サンプル 1: UCI からデータセットをダウンロード: 成人向け 2 クラス データセット」実験を発行します。
 2. Web サービスからのキーを持つ apiKey を割り当てます。 Azure の ML 承認キーを取得する方法を参照してください。
 3. 要求の URI を含む serviceUri を割り当てます。 要求の URI を取得する方法を参照してください。
+
 

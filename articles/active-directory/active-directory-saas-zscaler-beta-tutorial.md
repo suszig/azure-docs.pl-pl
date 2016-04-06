@@ -84,7 +84,7 @@
 
 3.   **アプリケーション URL の構成** ] ページで、 **ZScaler Beta サインオン URL** ] ボックスに、ユーザーが ZScaler Beta アプリケーションにサインオンする際に使用する URL を入力し、順にクリックして **次**します。
 
-    ![Configure App URL](./media/active-directory-saas-zscaler-beta-tutorial/IC800227.png "Configure App URL")
+    ![アプリケーション URL の構成](./media/active-directory-saas-zscaler-beta-tutorial/IC800227.png "Configure App URL")
 
     >[AZURE.NOTE] 必要がある場合、ZScaler Beta サポート チームから、環境の実際の値を取得できます。
 
@@ -168,7 +168,7 @@ ZScaler Beta の場合、プロビジョニングは手動で行います。
 
 2.  クリックして **管理**します。
 
-    ![Administration](./media/active-directory-saas-zscaler-beta-tutorial/IC781035.png "Administration")
+    ![管理](./media/active-directory-saas-zscaler-beta-tutorial/IC781035.png "Administration")
 
 3.  クリックして **ユーザー管理**します。
 
@@ -204,3 +204,4 @@ ZScaler Beta の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-zscaler-beta-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

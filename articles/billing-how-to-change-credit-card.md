@@ -24,9 +24,9 @@
 
 ## 既存のクレジット カードの支払い情報を編集する
 1. ログオン、 [Azure アカウント センター](https://account.windowsazure.com/Subscriptions) アカウント管理者とします。
-2.  **と使用状況を表示するサブスクリプションをクリックして**, 、クレジットにリンクされているサブスクリプションを選択するカード</br> ![selectsub](./media/billing-how-to-change-credit-card/selectsub.png)
-3. ページの右側にある、次のように選択します **支払方法を変更する**。</br> ![。changesub](./media/billing-how-to-change-credit-card/changesub.png)
-4.  **支払方法を選択する** ] ページで、[ **編集** クレジット_カード番号の横にある</br> ![。changesub](./media/billing-how-to-change-credit-card/editcard.png)
+2.  **と使用状況を表示するサブスクリプションをクリックして**, 、クレジット カードにリンクされているサブスクリプションを選択します。</br> ![selectsub](./media/billing-how-to-change-credit-card/selectsub.png)
+3. ページの右側にある、次のように選択します。 **支払方法を変更する**です。</br> ![changesub](./media/billing-how-to-change-credit-card/changesub.png)
+4.  **支払方法を選択する** ] ページで、[ **編集** クレジット_カード番号の横にあります。</br> ![changesub](./media/billing-how-to-change-credit-card/editcard.png)
 5.  **編集** ] ページで、正しいクレジット_カードの種類とカード番号が選択されていることを確認します。
 6. 変更を加えたら、必要があり、[ **次** に、 **支払方法を選択** ページです。
 
@@ -43,4 +43,5 @@
 2.  **と使用状況を表示するサブスクリプションをクリックして**, 、支払方法を更新するサブスクリプションを選択します。
 3. ページの右側にある、次のように選択します。 **支払方法を変更する**です。
 4.  **支払方法を選択する** ページをクレジット カードの横にあるドロップダウン矢印を選択して、使用して、選択するクレジット カードを選択する ![切り替わるよう](./media/billing-how-to-change-credit-card/checkbutton.png) ウィンドウを閉じます。
+
 

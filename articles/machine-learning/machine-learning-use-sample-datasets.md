@@ -23,7 +23,7 @@
 
 Azure Machine Learning で新しいワークスペースを作成する場合、既定でさまざまなサンプルのデータセットと実験が含まれています。 こうしたサンプル データセットの多くでサンプル モデルによって使用されて、 [Azure Cortana Analytics ギャラリー](http://gallery.azureml.net/), 、および他のユーザーがさまざまな種類の機械学習で通常使用されるデータの例として含まれています。
 
-データセットの一部は、Azure BLOB ストレージで使用できます。 次の表ではこれらのデータセットへの直接のリンクを提供します。 [リーダー] [リーダー] モジュールを使用して、実験でこれらのデータ セットを使用できます。
+データセットの一部は、Azure BLOB ストレージで使用できます。 次の表ではこれらのデータセットへの直接のリンクを提供します。 実験でこれらのデータ セットを使用するにを使用して、 [リーダー][reader] モジュールです。
 
 こうしたサンプル データセットの残りの部分については、「 **保存されたデータセット** 実験左側にあるモジュール パレットでキャンバスを開くか、ML Studio で新しい実験を作成する場合。
 実験キャンバスにこれらのデータセットのいずれかをドラッグすると、独自の実験で使用できます。
@@ -32,7 +32,7 @@ Azure Machine Learning で新しいワークスペースを作成する場合、
 <!--
 For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments][sample-experiments].
 
--->mple-experiments]: machine-learning-sample-experiments.md
+[sample-experiments]: machine-learning-sample-experiments.md
 -->
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -46,7 +46,7 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 </tr>
 
 <tr>
-  <td valign=top>成人収入に関する二項分類の国勢調査データセット</td>
+  <td valign=top>米国国勢調査局提供の、成人収入に関する二項分類データセット</td>
   <td valign=top>
 [AZURE.INCLUDE [machine-learning-sample-dataset-adult-census-income](../../includes/machine-learning-sample-dataset-adult-census-income.md)]
   </td>
@@ -60,7 +60,7 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 </tr>
 
 <tr>
-  <td valign=top>自動車価格データ (未加工)</td>
+  <td valign=top>自動車価格データ (生データ)</td>
   <td valign=top>
 [AZURE.INCLUDE [machine-learning-sample-dataset-automobile-price](../../includes/machine-learning-sample-dataset-automobile-price.md)]
   </td>
@@ -102,8 +102,8 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 </tr>
 
 <tr ID=breast-cancer-features>
-  <td valign=top>乳がんの特徴
- <td valign=top>
+  <td valign=top>乳がん特徴
+  <td valign=top>
 [AZURE.INCLUDE [machine-learning-sample-dataset-breast-cancer-features](../../includes/machine-learning-sample-dataset-breast-cancer-features.md)]
   </td>
 </tr>
@@ -137,7 +137,7 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 </tr>
 
 <tr ID=crm-upselling-labels-shared>
-  <td valign=top>CRM アップセ リング ラベルの共有</td>
+  <td valign=top>CRM アップセリング ラベルの共有</td>
   <td valign=top>
 [AZURE.INCLUDE [machine-learning-sample-dataset-crm-upselling-labels-shared](../../includes/machine-learning-sample-dataset-crm-upselling-labels-shared.md)]
   </td>
@@ -158,7 +158,7 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 </tr>
 
 <tr>
-  <td valign=top>フライト定刻実績 (生データ)</td>
+  <td valign=top>定刻フライト実績 (生データ)</td>
   <td valign=top>
 [AZURE.INCLUDE [machine-learning-sample-dataset-flight-on-time-performance](../../includes/machine-learning-sample-dataset-flight-on-time-performance.md)]
   </td>
@@ -172,7 +172,7 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 </tr>
 
 <tr ID=german-credit-card-uci-dataset>
-  <td valign=top>ドイツのクレジット_カード UCI データセット</td>
+  <td valign=top>ドイツのクレジット カード UCI データセット</td>
   <td valign=top>
 [AZURE.INCLUDE [machine-learning-sample-dataset-german-credit-card-uci-dataset](../../includes/machine-learning-sample-dataset-german-credit-card-uci-dataset.md)]
   </td>
@@ -235,7 +235,7 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 </tr>
 
 <tr>
-  <td valign=top>鉄鋼のアニール処理マルチクラス データセット</td>
+  <td valign=top>鉄鋼のアニール処理に関するマルチクラス データセット</td>
   <td valign=top>
 [AZURE.INCLUDE [machine-learning-sample-dataset-steel-annealing](../../includes/machine-learning-sample-dataset-steel-annealing.md)]
   </td>
@@ -295,7 +295,7 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 </tr>
 
 <tr ID=rcv1-v2-topics-qrels>
-  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1 v2.topics.qrels.csv</a></td>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td valign=top>
 [AZURE.INCLUDE [machine-learning-sample-dataset-rcv1-v2-topics](../../includes/machine-learning-sample-dataset-rcv1-v2-topics.md)]
   </td>
@@ -316,4 +316,5 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+
 

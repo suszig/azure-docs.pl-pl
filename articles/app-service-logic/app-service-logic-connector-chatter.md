@@ -24,13 +24,13 @@ Chatter に接続して、メッセージの投稿またはフィードの検索
 
 ## トリガーとアクション
 
-トリガーは、新しい Chatter メッセージの着信など、特定のイベントに応じて新しいインスタンスを起動します。 アクションは、結果のような新しい Chatter メッセージを受け取った後し、もう 1 つの Chatter グループ、または Facebook や Twitter などの別のソーシャル メディア サイトに、メッセージを投稿します。
+トリガーは、新しい Chatter メッセージの着信など、特定のイベントに応じて新しいインスタンスを起動します。 アクションは、結果のような新しい Chatter メッセージを受け取った後し、別の Chatter グループ、または Facebook や Twitter などの別のソーシャル メディア サイトに、メッセージを投稿します。
 
 Chatter コネクタは、ロジック アプリでトリガーまたはアクションとして使用でき、JSON 形式と XML 形式のデータをサポートします。 Chatter コネクタでは、次のトリガーとアクションを使用できます。
 
 トリガー | アクション
 --- | ---
-新しいメッセージ | <ul><li>Post Message</li><li>検索</li></ul>
+新しいメッセージ | <ul><li>Post Message</li><li>Search</li></ul>
 
 
 ## ロジック アプリ用の Chatter コネクタを作成する
@@ -104,4 +104,5 @@ API アプリが作成されたら、ロジック アプリのトリガーやア
 [9]: ./media/app-service-logic-connector-chatter/img9.PNG
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
+
 

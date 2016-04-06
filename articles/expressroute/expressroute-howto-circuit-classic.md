@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 [PowerShell - クラシック](expressroute-howto-circuit-classic.md)
-[リソース マネージャーの PowerShell](expressroute-howto-circuit-arm.md)
+[PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
 
 この記事では、PowerShell コマンドレットとクラシック デプロイメント モデルを使用して、ExpressRoute 回線を作成する手順について説明します。 以下の手順では、ExpressRoute 回線の状態確認、更新、または削除およびプロビジョニング解除の方法も示します。 
 
@@ -327,5 +327,6 @@ ExpressRoute 回線は、次のコマンドを実行して削除できます。
 ## 次のステップ
 
 - [ルーティングの構成](expressroute-howto-routing-classic.md)
+
 
 

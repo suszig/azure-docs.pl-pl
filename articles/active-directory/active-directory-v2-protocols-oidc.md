@@ -133,18 +133,18 @@ OpenIdConnect `end_session_endpoint` は現在、v2.0 アプリ モデル プレ
 
 <!--
 
-アプリからユーザーをサインアウトしたいときに、アプリの cookie やそれ以外の場合の最後のユーザーとのセッションをオフに不十分です。  また、サインアウトのバージョン 2.0 のエンドポイントにユーザーをリダイレクトする必要があります。  そのためには失敗した場合、ユーザーが有効なシングル サインオン セッション v2.0 エンドポイントを持つ必要があるために、ここでも、自分の資格情報を入力しなくてもアプリを再認証することはできます。
+When you wish to sign the user out of the  app, it is not sufficient to clear your app's cookies or otherwise end the session with the user.  You must also redirect the user to the v2.0 endpoint for sign out.  If you fail to do so, the user will be able to re-authenticate to your app without entering their credentials again, because they will have a valid single sign-on session with the v2.0 endpoint.
 
-ユーザーをリダイレクトできるだけで、 `end_session_endpoint` OpenID Connect メタデータ ドキュメントに示されています。
+You can simply redirect the user to the `end_session_endpoint` listed in the OpenID Connect metadata document:
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
 
-| パラメーター | | 説明 |
+| Parameter | | Description |
 | ----------------------- | ------------------------------- | ------------ |
-| post_logout_redirect_uri | 推奨 | ログアウトの完了後にユーザーをリダイレクトする URL。  含まれていない場合、ユーザーが表示されます、一般的なメッセージ バージョン 2.0 のエンドポイントによって。  |
+| post_logout_redirect_uri | recommended | The URL which the user should be redirected to after successful logout.  If not included, the user will be shown a generic message by the v2.0 endpoint.  |
 
 -->
 
@@ -215,3 +215,4 @@ error=access_denied
 参考として、OpenID Connect によるサインインとトークン取得の完全なフローは次のようになります。
 
 ![OpenId Connect Swimlanes](../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
+

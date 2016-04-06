@@ -21,11 +21,11 @@
 # Azure Active Directory の機能
 
 ###このトピックに関するその他の記事
-[Azure AD とは何ですか。](active-directory-whatis.md)<br>
-[作業のでしょうか。](active-directory-works.md)<br>
-[概要します。](active-directory-get-started.md)<br>
+[Azure AD とは](active-directory-whatis.md)<br>
+[それはどのように機能しますか?](active-directory-works.md)<br>
+[作業開始](active-directory-get-started.md)<br>
 [次のステップ](active-directory-next-steps.md)<br>
-[詳細については](active-directory-learn-map.md)
+[詳細情報](active-directory-learn-map.md)
 
 
 Azure Active Directory (Azure AD) では、クラウド内に自分の ID ランドスケープが作成されます。 これは、オンプレミスの ID システムに接続するか、または単独で使用することができます。
@@ -35,7 +35,7 @@ Azure AD のアカウントは、クラウドでの運転免許書と見なす�
 > [AZURE.NOTE] Azure Active Directory を使用するには、Azure アカウントを作成する必要があります。 アカウントを持っていない場合は、 [無料の Azure アカウントにサインアップ](http://azure.microsoft.com/pricing/free-trial/)します。
 
 ## Azure AD では、Office 365、Microsoft Intune、および他の Azure サービスがどのようにサポートされていますか。
-Azure ポータル、Office 365 管理センター、Microsoft Intune アカウント ポータル、および Azure AD PowerShell モジュールのコマンドレットはすべて、ディレクトリに関連付けられている Azure AD の単一の共有インスタンスに対して読み書きを実行します。 ポータル (またはコマンドレット) は、ディレクトリ情報を取り込み、または変更するフロント エンド インターフェイスとして機能します。 [詳細については、その他のサービスのサポート](active-directory-administer.md#what-is-an-azure-ad-tenant)
+Azure ポータル、Office 365 管理センター、Microsoft Intune アカウント ポータル、および Azure AD PowerShell モジュールのコマンドレットはすべて、ディレクトリに関連付けられている Azure AD の単一の共有インスタンスに対して読み書きを実行します。 ポータル (またはコマンドレット) は、ディレクトリ情報を取り込み、または変更するフロント エンド インターフェイスとして機能します。 [その他のサービスのサポートの詳細情報](active-directory-administer.md#what-is-an-azure-ad-tenant)
 
 ## Azure AD の、サードパーティ製アプリケーションのサポート
 Azure AD は、すぐにコーディングを開始するためのさまざまなプラットフォーム向けのオープン ソース ライブラリとともに、サービスとしての ID を提供することにより、開発者にとっての認証を簡略化します。 [Azure AD の認証シナリオの詳細について](active-directory-authentication-scenarios.md)します。
@@ -51,4 +51,5 @@ Azure AD を管理する方法、 ディレクトリの取得方法、 ディレ
 
 * [Azure への組織としてのサインアップ](sign-up-organization.md)
 * [Azure ID](fundamentals-identity.md)
+
 

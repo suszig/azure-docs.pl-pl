@@ -24,7 +24,7 @@ API Management サービスが最初に作成されるが含まれている 1 �
 
 > [AZURE.IMPORTANT] 複数リージョンのデプロイメントは、 **[Premium][]** 層です。
 
-## <a name="add-region"> </a>新しいリージョンに API Management サービス インスタンスを展開します。
+## <a name="add-region"> </a>新しいリージョンに API Management サービス インスタンスをデプロイする
 
 クリックして、 **管理** 、API Management サービスの Azure クラシック ポータルで。 API Management パブリッシャー ポータルが表示されます。
 
@@ -46,7 +46,7 @@ API Management サービスが最初に作成されるが含まれている 1 �
 
 目的のリージョンとユニット数を構成すると、クリックして **保存**します。
 
-## <a name="remove-region"> </a>リージョンから API Management サービス インスタンスを削除します。
+## <a name="remove-region"> </a>リージョンから API Management サービス インスタンスを削除する
 
 リージョンから API Management サービス インスタンスを削除するに移動、 **スケール** Azure クラシック ポータルで API Management サービス インスタンス] タブをクリックします。 
 
@@ -74,5 +74,6 @@ API Management サービスが最初に作成されるが含まれている 1 �
 
 [unit]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
+
 
 

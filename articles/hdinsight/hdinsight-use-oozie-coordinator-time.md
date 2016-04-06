@@ -189,9 +189,9 @@ Oozie ワークフロー定義は hPDL (XML プロセス定義言語) で書か�
 
     <table border = "1">
     <tr><th>ワークフローの変数</th><th>説明</th></tr>
-    <tr><td>${jobTracker}</td><td>Hadoop ジョブ トラッカーの URL を指定します。 最初の起動時にドメインに参加しているマシンになるように VM をプロビジョニングするには、 <strong>jobtrackerhost:9010</strong> HDInsight でクラスターのバージョン 3.0 および 2.0 を実行します。</td></tr>
-    <tr><td>${nameNode}</td><td>Hadoop 名前ノードの URL を指定します。 既定のファイル システムの wasb を使用します///アドレスなど、。 <i>wasb://& lt; containerName & gt; @& lt; storageAccountName & gt;。>.blob.core.windows.net</i>.</td></tr>
-    <tr><td>${queueName}</td><td>ジョブの送信先になるキュー名を指定します。 最初の起動時にドメインに参加しているマシンになるように VM をプロビジョニングするには、 <strong>default</strong>.</td></tr>
+    <tr><td>${jobTracker}</td><td>Hadoop ジョブ トラッカーの URL を指定します。 使用 <strong>jobtrackerhost:9010</strong> HDInsight クラスター version 3.0 および 2.0 です。</td></tr>
+    <tr><td>${nameNode}</td><td>Hadoop 名前ノードの URL を指定します。 既定のファイル システムの wasb を使用して:///アドレスなど、 <i>wasb://(& a) lt; containerName & gt; @& lt; storageAccountName (& a) gt;。>.blob.core.windows.net</i>します。</td></tr>
+    <tr><td>${queueName}</td><td>ジョブの送信先になるキュー名を指定します。 使用 <strong>既定</strong>します。</td></tr>
     </table>
 
 
@@ -228,13 +228,13 @@ Oozie ワークフロー定義は hPDL (XML プロセス定義言語) で書か�
 
     定義ファイルでは 5 つの変数が使用されています。
 
-    | 変数          | 説明 |
-    | ------------------|------------ |
-    | ${coordFrequency} | ジョブの一時停止時間。 頻度は、常に分単位で表現します。 |
-    | ${coordStart}     | ジョブの開始時刻。 |
-    | ${coordEnd}       | ジョブの終了時刻。 |
-    | ${coordTimezone}  | Oozie は、夏時間なしの固定タイム ゾーン (通常は UTC を使用して表される) でコーディネーター ジョブを処理します。 このタイム ゾーンを、「Oozie 処理のタイムゾーン」と呼びます。 |
-    | ${wfPath}         | workflow.xml のパス。  ワークフローのファイル名が既定のファイル名 (workflow.xml) とは異なる場合は、実際のファイル名を指定する必要があります。 |
+  	| 変数          | 説明 |
+  	| ------------------|------------ |
+  	| ${coordFrequency} | ジョブの一時停止時間。 頻度は、常に分単位で表現します。 |
+  	| ${coordStart}     | ジョブの開始時刻。 |
+  	| ${coordEnd}       | ジョブの終了時刻。 |
+  	| ${coordTimezone}  | Oozie は、夏時間なしの固定タイム ゾーン (通常は UTC を使用して表される) でコーディネーター ジョブを処理します。 このタイム ゾーンを、「Oozie 処理のタイムゾーン」と呼びます。 |
+  	| ${wfPath}         | workflow.xml のパス。  ワークフローのファイル名が既定のファイル名 (workflow.xml) とは異なる場合は、実際のファイル名を指定する必要があります。 |
 
 2. ファイルに保存 **C:\Tutorials\UseOozie\coordinator.xml** ANSI (ASCII) エンコードを使用しています。 (テキスト エディターにこのオプションがない場合はメモ帳を使用します。)
 
@@ -744,4 +744,5 @@ Hive の内部テーブルと外部テーブルについて知っておく必要
 [img-runworkflow-output]: ./media/hdinsight-use-oozie-coordinator-time/HDI.UseOozie.RunCoord.Output.png  
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+
 

@@ -256,10 +256,11 @@
 この記事ではAzure リソース マネージャーテンプレートを使用して Azure 上に新しい Deis プロビジョニングするすべての手順を説明 しました。 このテンプレートは、接続ツールの冗長性とデプロイ アプリケーションの付加バランスをサポートします。 このテンプレートにより、メンバー ノードでのパブリック IP の使用を回避します。これにより貴重なパブリック IP のリソースを保存し、アプリケーションのホストに安全な環境を提供します。 詳細については、次の記事を参照してください。
 
 [Azure リソース マネージャーの概要] [resource-group-overview]  
-[Azure CLI を使用する方法] [azure-command-line-tools]  
-[Azure リソース マネージャーで Azure PowerShell の使用] [powershell-azure-resource-manager]  
+[Azure CLI の使い方] [azure-command-line-tools]  
+[Azure リソース マネージャーでの Azure PowerShell の使用] [powershell-azure-resource-manager]  
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
+
 

@@ -25,7 +25,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
-このチュートリアルでは、サポートされている ID プロバイダーを使用して、クイック スタート プロジェクトに認証を追加します。 このチュートリアルは、[Mobile Services クイック スタート チュートリアル] に基づいて最初に完了する必要があります。
+このチュートリアルでは、サポートされている ID プロバイダーを使用して、クイック スタート プロジェクトに認証を追加します。 このチュートリアルに基づいて、 [Mobile Services Quick Start tutorial], 、最初に完了する必要があります。
 
 ##<a name="register"></a>アプリケーションを認証に登録し、Mobile Services を構成する
 
@@ -49,7 +49,7 @@ Xcode で、プロジェクトを開きます。 キーを押して、 **実行*
 
 ##<a name="next-steps"></a>次のステップ
 
-次のチュートリアルでは、[モバイル サービス ユーザーのサービス側承認] ではユーザー、ユーザー ID 値を返されたデータをフィルター処理します。
+次のチュートリアルでは、 [Service-side authorization of Mobile Services users], 、返されたデータをフィルター処理、ユーザー ID 値をユーザーになります。
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
@@ -66,4 +66,5 @@ Xcode で、プロジェクトを開きます。 キーを押して、 **実行*
 [Authorize users with scripts]: mobile-services-dotnet-backend-service-side-authorization.md
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
+
 

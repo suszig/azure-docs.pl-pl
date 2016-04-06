@@ -34,11 +34,11 @@ DevTest ラボでは、ラボとその VM を使用する方法を制御する�
 
 1. タップ **設定**します。
 
-    ![設定](./media/devtest-lab-set-lab-policy/lab-blade-settings.png)
+    ![[設定]](./media/devtest-lab-set-lab-policy/lab-blade-settings.png)
 
 1.  **設定** ブレードで、ある設定のグループ化と呼びます **ポリシー**します。 
 
-    ![設定](./media/devtest-lab-set-lab-policy/policies.png)
+    ![Settings](./media/devtest-lab-set-lab-policy/policies.png)
 
     一覧で目的のポリシーをタップすると、そのポリシーの設定の詳細を確認できます。
 
@@ -56,7 +56,7 @@ DevTest ラボでは、ラボとその VM を使用する方法を制御する�
 
 1. オン ラボの **設定** ブレードで、 **ポリシー**, 、タップ **VM のサイズを許可**します。
 
-    ![設定](./media/devtest-lab-set-lab-policy/allowed-vm-sizes-policy.png)
+    ![[設定]](./media/devtest-lab-set-lab-policy/allowed-vm-sizes-policy.png)
  
 1. をタップ **に** このポリシーを有効にして **オフ** を無効にします。
 
@@ -70,7 +70,7 @@ VM の最大数のポリシーでは、現在のラボで作成できる VM の�
 
 1. オン ラボの **設定** ブレードで、 **ポリシー**, 、タップ **最大 Vm**します。
 
-    ![設定](./media/devtest-lab-set-lab-policy/max-vms-policies.png)
+    ![[設定]](./media/devtest-lab-set-lab-policy/max-vms-policies.png)
 
 1.  **ユーザーごとのポリシー** セクション。
  
@@ -78,7 +78,7 @@ VM の最大数のポリシーでは、現在のラボで作成できる VM の�
     
     1. このポリシーを有効にした場合、 **ユーザーごとに許可される最大の Vm** テキスト ボックスに、ユーザーが作成できるバーチャル マシンの最大数を示す数値を入力します。 無効な数値を入力すると、このフィールドに入力できる最大数が UI に表示されます。
 
-1.  **ポリシーはラボ 1** セクション。
+1.  **ラボごとにポリシー** セクション。
  
     1. をタップ **に** このポリシーを有効にして **オフ** を無効にします。
     
@@ -92,12 +92,13 @@ VM の最大数のポリシーでは、現在のラボで作成できる VM の�
 
 1. オン ラボの **設定** ブレードで、 **ポリシー**, 、タップ **自動シャット ダウン**します。
 
-    ![設定](./media/devtest-lab-set-lab-policy/auto-shutdown-policy.png)
+    ![[設定]](./media/devtest-lab-set-lab-policy/auto-shutdown-policy.png)
 
 1. をタップ **に** このポリシーを有効にして **オフ** を無効にします。
 
 1. このポリシーを有効にした場合は、現在のラボのすべての VM をシャットダウンする時刻を指定します。
 
 1. タップ **保存**します。
+
 
 

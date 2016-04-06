@@ -113,7 +113,7 @@ Azure に Web アプリケーションを発行する前に、Microsoft アカ�
 2. アプリケーションをプロファイリングするには、選択、 **プロファイリングを有効にする** チェック ボックスをオンにして、 **設定** プロファイリングを表示するリンクのオプションです。 
 
 
-    >[AZURE.NOTE] You must use Visual Studio Ultimate to enable either IntelliTrace or Tier Interaction Profiling (TIP), and you can't enable both at the same time.
+    >[AZURE.NOTE] IntelliTrace または階層相互作用プロファイリング (TIP) を有効にする Visual Studio Ultimate を使用する必要があり、同時に両方を有効にできません。
 
     For more information, see [Debugging a Published Cloud Service with IntelliTrace and Visual Studio](https://msdn.microsoft.com/library/azure/ff683671.aspx) and [Testing the Performance of a Cloud Service](https://msdn.microsoft.com/library/azure/hh369930.aspx).
 
@@ -140,5 +140,6 @@ Azure に Web アプリケーションを発行する前に、Microsoft アカ�
 [IntelliTrace および Visual Studio を使用した発行済みのクラウド サービスのデバッグ](https://msdn.microsoft.com/library/azure/ff683671.aspx)
 
 [クラウド サービスのパフォーマンスのテスト](https://msdn.microsoft.com/library/azure/hh369930.aspx)
+
 
 

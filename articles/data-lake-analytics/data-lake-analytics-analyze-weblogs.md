@@ -37,10 +37,10 @@ Data Lake Analytics を使用して Web サイトのログを分析する方法�
     - [Azure ポータルを使用して Azure Data Lake 分析を使ってみる](data-lake-analytics-get-started-portal.md)します。
     - [Visual Studio の Data Lake ツールを使用して U SQL スクリプトを開発](data-lake-analytics-data-lake-tools-get-started.md)します。
 
-- **Data Lake 分析アカウントです。**参照してください [Azure Data Lake 分析アカウントを作成する](data-lake-analytics-get-started-portal.md#create_adl_analytics_account)です。
+- **Data Lake Analytics アカウント。**  参照してください [Azure Data Lake 分析アカウントを作成する](data-lake-analytics-get-started-portal.md#create_adl_analytics_account)です。
 
     Data Lake Tools では、Data Lake Analytics アカウントの作成はサポートされません。  そのため、Azure ポータル、Azure PowerShell、.NET SDK、または Azure CLI を使用して作成する必要があります。 
-- **Data Lake 分析アカウントにサンプル データをアップロードします。**参照してください [既定データ湖のストレージ アカウントにアップロード SearchLog.tsv](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account)します。
+- **Data Lake Analytics アカウントへのサンプル データのアップロード。** 参照してください [既定データ湖のストレージ アカウントにアップロード SearchLog.tsv](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account)します。
 
     Data Lake Analytics ジョブを実行するには、いくつかのデータが必要です。 Data Lake Tools でデータのアップロードがサポートされていても、このチュートリアルに従いやすくするため、サンプル データのアップロードにはポータルを使用します。 
  
@@ -192,7 +192,7 @@ U SQL アプリケーションの大部分は、U-SQL スクリプトです。 U
 
 さまざまなツールを使用して Data Lake Analytics の使用を開始する方法については、以下をご覧ください。
 
-- [Azure ポータルで Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-portal.md)
+- [Azure ポータルで Azure Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-portal.md)
 - [Azure PowerShell で Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-powershell.md)
 - [.NET SDK で Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-net-sdk.md)
 
@@ -201,4 +201,5 @@ U SQL アプリケーションの大部分は、U-SQL スクリプトです。 U
 - [Data Lake Tools for Visual Studio を使用する U-SQL スクリプトの開発](data-lake-analytics-data-lake-tools-get-started.md)
 - [Azure Data Lake Analytics U-SQL 言語の使用](data-lake-analytics-u-sql-get-started.md)
 - [Data Lake Analytics ジョブの U-SQL ユーザー定義演算子の開発](data-lake-analytics-u-sql-user-defined-operators.md)
+
 

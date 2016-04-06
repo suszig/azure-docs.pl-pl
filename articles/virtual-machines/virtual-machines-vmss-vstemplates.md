@@ -52,7 +52,8 @@ Visual Studio で VM スケール セットをデプロイするには、次の�
 
 4. プロジェクトの作成後、PowerShell デプロイ スクリプト、Azure リソース マネージャー テンプレート、仮想マシン スケール セットのパラメーター ファイルが表示されます。
 
-    ![Solution Explorer][solution_explorer]
+    ![ソリューション エクスプローラー
+][solution_explorer]
 
 ## プロジェクトのカスタマイズ
 
@@ -66,11 +67,11 @@ Visual Studio で VM スケール セットをデプロイするには、次の�
 
 6. ARM テンプレートを Azure にデプロイして VM スケール セット リソースを作成します。 プロジェクト ノードを右クリックしてで、 **展開 |新しい展開**します。
 
-    ![Deploy Template][5deploy_Template]
+    ![テンプレートのデプロイ][5deploy_Template]
 
 7. [リソース グループに配置する] ダイアログで該当するサブスクリプションを選択します。
 
-    ![Deploy Template][6deploy_Template]
+    ![テンプレートのデプロイ][6deploy_Template]
 
 8. ここから、テンプレートのデプロイ先となる新しい Azure リソース グループを作成することもできます。
 
@@ -107,4 +108,5 @@ Visual Studio を使って VM スケール セットを正常にデプロイし�
 [edit_parameters]: ./media/virtual-machines-vmss-vstemplates/8-EditParameter.png
 [output_window]: ./media/virtual-machines-vmss-vstemplates/9-Output.png
 [cloud_explorer]: ./media/virtual-machines-vmss-vstemplates/12-CloudExplorer.png
+
 

@@ -28,7 +28,7 @@
 
 >[AZURE.TIP] Microsoft Azure を使用したモバイル開発に慣れていない場合 [Azure モバイル アプリを使ってみる](app-service-mobile-dotnet-backend-ios-get-started-preview.md) Azure のモバイル サービスではなくMobile Apps は、 [もメリットが](app-service-mobile-value-prop-migration-from-mobile-services-preview.md)です。
 
-このチュートリアルでは、Azure Mobile Services を使用して iOS アプリにクラウドベースのバックエンド サービスを追加する方法を示します。 このチュートリアルでは、新しいモバイル サービスと、新しいモバイル サービスにアプリ データを保存する簡単な _To do list_ アプリの両方を作成します。 Mobile Services はサーバー側ビジネス ロジックの .NET と Visual Studio を使用します。 JavaScript でサーバー側ビジネス ロジックをモバイル サービスを作成するには、[JavaScript バックエンド バージョン] のこのトピックを参照してください。
+このチュートリアルでは、Azure Mobile Services を使用して iOS アプリにクラウドベースのバックエンド サービスを追加する方法を示します。 このチュートリアルでは、新しいモバイル サービスと、新しいモバイル サービスにアプリ データを保存する簡単な _To do list_ アプリの両方を作成します。 Mobile Services はサーバー側ビジネス ロジックの .NET と Visual Studio を使用します。 モバイル サービスを JavaScript でサーバー側ビジネス ロジックを作成するには、「、 [JavaScript backend version] このトピックのです。
 
 > [AZURE.NOTE] このチュートリアルを完了するには、Azure アカウントが必要です。 アカウントを持っていない場合、Azure 評価版にサインアップして取得 [無料の評価終了後も使用することができますが、モバイル サービス](http://azure.microsoft.com/pricing/details/mobile-services/)します。  詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-ios-get-started%2F)をご覧ください。
 
@@ -66,16 +66,16 @@
 
 Mobile Services で重要になるこれ以外の作業については、以下のトピックをご覧ください。
 
-* [オフライン データの同期の開始を取得]
+* [Get started with offline data sync]
   <br/>オフライン データの同期を使用してアプリケーションの反応と信頼性を高める方法について説明します。
 
-* [既存のアプリケーションへの認証の追加]
+* [Add authentication to an existing app]
   <br/>ID プロバイダーを使用してアプリケーションのユーザーを認証する方法について説明します。
 
-* [既存のアプリにプッシュ通知の追加]
+* [Add push notifications to an existing app]
   <br/>アプリケーションにごく基本的なプッシュ通知を送信する方法について説明します。
 
-* [Mobile Services .NET バックエンドのトラブルシューティングを行う]
+* [Troubleshoot Mobile Services .NET backend]
   <br/> Mobile Services の .NET バックエンドで発生する問題を診断して解決する方法について説明します。
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
@@ -107,4 +107,5 @@ Mobile Services で重要になるこれ以外の作業については、以下�
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [JavaScript backend version]: mobile-services-ios-get-started.md
+
 

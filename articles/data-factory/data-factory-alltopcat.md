@@ -140,7 +140,7 @@
 | [Azure Data Factory - よく寄せられる質問](data-factory-faq.md) | Azure データ ファクトリについてよく寄せられる質問です。 |
 | [Azure Data Factory - 名前付け規則](data-factory-naming-rules.md) | Data Factory エンティティの名前付け規則について説明します。 |
 | [Azure Data Factory リリース ノート](data-factory-release-notes.md) | Data Factory - リリース ノート |
-| [Data Factory のトラブルシューティング](data-factory-troubleshoot.md) | Azure Data Factory の使用に関する問題のトラブルシューティングを行う方法について説明します。 |
+| [Data Factory のトラブルシューティング](data-factory-troubleshoot.md) | Azure データ ファクトリの使用に関する問題のトラブルシューティングを行う方法について説明します。 |
 
 
 #### 追加
@@ -150,5 +150,6 @@
 - [Microsoft Azure ドキュメントの以前の検索エクスペリエンス](http://azure.microsoft.com/searchresults/?query=)
 - [Data factory サービスの更新情報](http://azure.microsoft.com/updates/?service=data-factory)
 - [Microsoft Azure サービスのラーニング パス グラフィック](http://azure.microsoft.com/documentation/learning-paths/)
+
 
 

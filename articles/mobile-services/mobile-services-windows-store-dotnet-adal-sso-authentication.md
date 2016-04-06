@@ -32,7 +32,7 @@
 ユーザーを認証できるようにするには、Azure Active Directory (AAD) にアプリケーションを登録する必要があります。 この処理は 2 段階の手順で実行されます。 まず、モバイル サービスを登録し、モバイル サービスに対するアクセス許可を公開する必要があります。 次に、Windows ストア アプリを登録してこれらのアクセス許可へのアクセス権を付与する必要があります。
 
 
->[AZURE.NOTE] このチュートリアルの目的のモバイル サービスを使用してシングル サインオン Azure Active Directory 認証を使用して Windows ストア アプリを実行する方法を理解するのに役立つ、 [クライアント主導型ログイン操作](http://msdn.microsoft.com/library/azure/jj710106.aspx)します。 チュートリアルの完了モバイル サービスの初めての場合は、[モバイル サービスの開始を取得] です。
+>[AZURE.NOTE] このチュートリアルの目的のモバイル サービスを使用してシングル サインオン Azure Active Directory 認証を使用して Windows ストア アプリを実行する方法を理解するのに役立つ、 [クライアント主導型ログイン操作](http://msdn.microsoft.com/library/azure/jj710106.aspx)します。 初めてのモバイル サービスを使用する場合は、チュートリアルを完了 [Get started with Mobile Services]します。
 
 
 ##前提条件
@@ -40,7 +40,7 @@
 このチュートリアルには、次のものが必要です。
 
 * Windows 8.1 で実行されている Visual Studio 2013。
-* 完了、[モバイル サービスの開始を取得] チュートリアルです。
+* 完了、 [Get started with Mobile Services] チュートリアルです。
 * Microsoft Azure Mobile Services SDK の NuGet パッケージ
 * Active Directory 認証ライブラリの NuGet パッケージ
 
@@ -72,7 +72,7 @@
 
 ここで、ネイティブ アプリケーション設定で構成されるパッケージ SID を取得する必要があります。
 
-1. [Windows デベロッパー センター ダッシュ ボード] にログインし、をクリックして **編集** 、アプリケーションにします。
+1. ログインして [Windows Dev Center Dashboard] ] をクリック **編集** アプリでします。
 
     ![][3]
 
@@ -90,7 +90,7 @@
 
 ###ネイティブ アプリケーション登録の作成
 
-1. 移動 **Active Directory** [Azure クラシック ポータル] のディレクトリをクリックします。
+1. 移動 **Active Directory** で、 [Azure classic portal], 、目的のディレクトリをクリックします。
 
     ![][7]
 
@@ -167,9 +167,9 @@
             }
         }
 
-6. コードで、 `AuthenticateAsync` 代わりに、上記のメソッドを **挿入機関ここでは** 、形式をアプリケーションをプロビジョニングしたテナントの名前、https://login.windows.net/tenant-name.onmicrosoft.com でなければなりません。 この値は、[Azure クラシック ポータル] の Azure Active Directory の [ドメイン] タブからコピーできます。
+6. コードで、 `AuthenticateAsync` 代わりに、上記のメソッドを **挿入機関ここでは** 、形式をアプリケーションをプロビジョニングしたテナントの名前、https://login.windows.net/tenant-name.onmicrosoft.com でなければなりません。 この値は、Azure Active Directory の [ドメイン] タブからコピーできます、 [Azure classic portal]します。
 
-7. コードで、 `AuthenticateAsync` 代わりに、上記のメソッドを **挿入リソース URI ここ** で、 **App ID URI** 、モバイル サービスのです。 [Azure Active Directory に登録する方法] を実行している場合のトピック、アプリケーション ID URI が https://todolist.azure-mobile.net/login/aad と同様にあります。
+7. コードで、 `AuthenticateAsync` 代わりに、上記のメソッドを **挿入リソース URI ここ** で、 **App ID URI** 、モバイル サービスのです。 実行している場合、 [How to Register with the Azure Active Directory] トピック、アプリケーション ID URI が https://todolist.azure-mobile.net/login/aad と同様にあります。
 
 8. コードで、 `AuthenticateAsync` 代わりに、上記のメソッドを **INSERT CLIENT ID ここ** をネイティブ クライアント アプリケーションからコピーしたクライアント ID。
 
@@ -219,3 +219,4 @@
 [Azure classic portal]: https://manage.windowsazure.com/
 [Get started with Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Windows Dev Center Dashboard]: http://go.microsoft.com/fwlink/p/?LinkID=266734
+

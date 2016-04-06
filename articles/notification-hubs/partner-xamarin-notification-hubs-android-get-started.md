@@ -411,7 +411,7 @@ Xamarin コンポーネント ストアから入手できる Google Cloud Messag
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-    使用して、Azure Notification Hubs SDK への参照を追加します <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification ハブ NuGet パッケージ</a>.
+    これにより <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet パッケージ</a>を利用して Azure Notification Hubs SDK に参照が追加されます。
 
     ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
@@ -438,7 +438,7 @@ Xamarin コンポーネント ストアから入手できる Google Cloud Messag
 
 ####(省略可能) モバイル サービスを使用して通知を送信する
 
-1. 次の [モバイル サービスの開始を取得] です。
+1. 次の [Get started with Mobile Services]します。
 
 1. サインイン、 [Azure Classic Portal], 、目的のモバイル サービスを選択します。
 
@@ -522,4 +522,5 @@ Xamarin コンポーネント ストアから入手できる Google Cloud Messag
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
 [Azure Messaging Component]: http://components.xamarin.com/view/azure-messaging
+
 

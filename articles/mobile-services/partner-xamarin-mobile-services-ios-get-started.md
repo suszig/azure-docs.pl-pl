@@ -42,7 +42,7 @@
 
 このチュートリアルを完了するには、XCode が必要です。 と [Xamarin Studio] OS X の Xamarin Visual Studio Windows で Visual Studio のプラグインです。 サンプルは iOS 5.0 以降で実行します。
 
-> [AZURE.IMPORTANT] このチュートリアルを完了するには、Azure アカウントが必要です。 アカウントがない場合は、Azure 試用版にサインアップして最大 10 の無料モバイル サービスを取得し、試用期間が終わった後でも使用し続けることができます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/)をご覧ください。
+> [AZURE.IMPORTANT] このチュートリアルを完了するには、Azure アカウントが必要です。 アカウントがない場合は、Azure 試用版にサインアップして、最大 10 件の無料モバイル サービスを入手できます。このサービスは評価終了後も使用できます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/)をご覧ください。
 
 ## <a name="create-new-service"> </a>新しいモバイル サービスを作成する
 
@@ -104,16 +104,16 @@
 ## 次のステップ
 クイック スタートはこれで完了です。Mobile Services で重要になるこれ以外の作業については、以下のトピックを参照してください。
 
-* [オフライン データの同期の開始を取得]
+* [Get started with offline data sync]
   クイック スタートでオフライン データの同期を使用して、アプリケーションの応答性と信頼性を高める方法について説明します。
 
-* [認証の使用の開始を取得]
+* [Get started with authentication]
   ID プロバイダーを使用してアプリケーションのユーザーを認証する方法について説明します。
 
-* [開始プッシュ通知の使用]
+* [Get started with push notifications]
   アプリケーションにごく基本的なプッシュ通知を送信する方法について説明します。
 
-* [Azure Mobile Services 向け Xamarin コンポーネント クライアントを使用する方法](partner-xamarin-mobile-services-how-to-use-client-library.md)
+* [Azure モバイル サービス向け Xamarin コンポーネント クライアントを使用する方法](partner-xamarin-mobile-services-how-to-use-client-library.md)
    モバイル サービスのクエリ、データの処理、およびカスタム Api にアクセスする方法について説明します。
 
 
@@ -145,4 +145,5 @@
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Azure classic portal]: https://manage.windowsazure.com/
+
 

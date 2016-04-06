@@ -16,7 +16,7 @@
    ms.date="12/07/2015"
    ms.author="rajram"/>
 
-# BizTalk XML Validator
+# BizTalk XML 検証
 
 アプリで BizTalk XML Validator コネクタを使用し、定義済みの XML スキーマと照らして XML データを検証します。 既存のスキーマを使用することも、フラット ファイルのインスタンス、JSON のインスタンス、または既存のコネクタに基づいてスキーマを生成することもできます。
 
@@ -46,7 +46,7 @@ API アプリ] ブレードを選択するとしてのスキーマを構成で�
 
 XML 検証アクションは、特定の XML の入力を、構成済みのスキーマに照らして検証します。  
 
-![BizTalk XML Validator の Xml の検証][5]
+![BizTalk XML Validator の XML の検証][5]
 
 パラメーター|型|パラメーターの説明
 ---|---|---
@@ -61,4 +61,5 @@ XML 検証アクションは、特定の XML の入力を、構成済みのス�
 [3]: ./media/app-service-logic-xml-validator/XmlValidator.SchemaUpload.PNG
 [4]: ./media/app-service-logic-xml-validator/XmlValidator.ListOfActions.PNG
 [5]: ./media/app-service-logic-xml-validator/XmlValidator.ValidateXml.PNG
+
 

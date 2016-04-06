@@ -38,7 +38,7 @@
 
 - SQL Data Warehouse データベース
 - 種類が Standard ローカル冗長ストレージ (Standard-LRS)、Standard geo 冗長ストレージ (Standard-GRS)、または Standard 読み取りアクセス geo 冗長ストレージ (Standard-RAGRS) である Azure ストレージ アカウント
-- AzCopy コマンド ライン ユーティリティ ダウンロードして、[最新バージョンの AzCopy] のインストール [Microsoft Azure ストレージ ツールと共にインストールされます。
+- AzCopy コマンド ライン ユーティリティ ダウンロードし、インストール、 [最新バージョンの AzCopy][] Microsoft Azure ストレージ ツールと共にインストールされます。
 
     ![Azure Storage Tools](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
@@ -109,7 +109,7 @@ Azure Blob Storage にデータをコピーするには:
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-[はじめに AzCopy コマンド ライン ユーティリティを使用して] を参照してください。
+関連項目 [AzCopy コマンド ライン ユーティリティの概要][]します。
 
 ### E. Blob Storage コンテナーを調べる
 
@@ -240,11 +240,11 @@ CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
-詳細については、[統計] を参照してください。  
+詳細については、次を参照してください。 [統計][]します。  
 
 
 ## 次のステップ
-PolyBase を使用するソリューションを開発する際に知っておくべきについてさらに [PolyBase guide] を参照してください。
+参照してください、 [PolyBase ガイド][] PolyBase を使用するソリューションを開発する際に知っておくべきについてさらにします。
 
 <!--Image references-->
 [1]:./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png
@@ -281,6 +281,7 @@ PolyBase を使用するソリューションを開発する際に知ってお�
 [CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
+
 
 
 

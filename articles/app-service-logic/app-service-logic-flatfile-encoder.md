@@ -39,24 +39,24 @@ Azure のスタート ページから API アプリを起動するには、API �
 1. 「スキーマ」コンポーネントを選択します。  
 ![BizTalk Flat File Encoder のスキーマ部分][2]  
 2. 表示された [スキーマ] ブレードで [新規追加] を選択します。  
-![BizTalk Flat File Encoder の一覧のアクション][7]  
+![BizTalk Flat File Encoder のアクション一覧][7]  
 3. 3 つのオプションのいずれかを選択し、スキーマを提供します。 オプションは、新しいスキーマのアップロード、生成から JSON およびからフラット ファイルの生成  
-![BizTalk Flat File Encoder の一覧のアクション][8]  
+![BizTalk Flat File Encoder のアクション一覧][8]  
 4. 前の手順での選択に基づいて、スキーマを提供する手順を実行します。 表示されるスキーマがアップロードされています。  
-![BizTalk Flat File Encoder の一覧のアクション][9]
+![BizTalk Flat File Encoder のアクション一覧][9]
 
 ###デザイン画面での BizTalk Flat File Encoder の使用
 これで Biztalk Flat File Encoder の構成が完了したので、それをロジック アプリで使用します。 最初に、作成するか新しいロジック アプリでは、製品発表事前に作成した既存のもの、これらの手順に従います。  
 1. [ロジックの開始] カードで、[このロジックを手動で実行] をクリックします。  
 2. ギャラリーで、以前に作成した BizTalk Flat File Encoder API アプリを選択します (作成した BizTalk Flat File Encoder は画面の右の API Apps リストに表示されます)。  
 3. 黒の右矢印を選択します。 2 つの使用可能な操作 (Xml とフラット ファイルへの Xml をフラット ファイル) が表示されます。  
-![BizTalk Flat File Encoder の一覧のアクション][1] ![BizTalk Flat File Encoder の一覧のアクション][4]
+![BizTalk Flat File Encoder のアクション一覧][1] ![BizTalk Flat File Encoder のアクション一覧][4]
 
 選択したアクションに基づいて、次の手順を実行します。
 
 ####フラット ファイルを XML に
 
-![BizTalk Flat File Encoder の一覧のアクション][5]
+![BizTalk Flat File Encoder のアクション一覧][5]
 
 パラメーター|型|パラメーターの説明
 ---|---|---
@@ -69,7 +69,7 @@ Azure のスタート ページから API アプリを起動するには、API �
 
 ####XML をフラット ファイルに
 
-![BizTalk Flat File Encoder の一覧のアクション][6]
+![BizTalk Flat File Encoder のアクション一覧][6]
 
 パラメーター|型|パラメーターの説明
 ---|---|---
@@ -89,5 +89,6 @@ Azure のスタート ページから API アプリを起動するには、API �
 [9]: ./media/app-service-logic-flatfile-encoder/flatfileencoder.shemauploaded.PNG
 
  
+
 
 

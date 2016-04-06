@@ -1,12 +1,12 @@
 <properties
-    pageTitle ="VM でのコンピューティング処理を要する .NET アプリケーションの実行 |Microsoft Azure]
-    description =「展開し、Azure の仮想マシンでのコンピューティング処理を要する .NET アプリケーションの実行、および Azure Service Bus キューを使用して進捗をリモートで監視する方法について説明します」。
-    サービス =「仮想マシン」
+    pageTitle="VM で多くのコンピューティング処理を要する .NET アプリケーションを実行する | Microsoft Azure"
+    description="Azure 仮想マシンに多くのコンピューティング処理を要する .NET アプリケーションをデプロイして実行する方法と、Azure Service Bus キューを使用して進捗をリモートで監視する方法について説明します。"
+    services="virtual-machines"
     documentationCenter=".net"
-    authors ="wadepickett"
+    authors="wadepickett"
     manager="wpickett"
-    エディター ="mollybos"
-    タグ =「azure サービス管理」/>
+    editor="mollybos"
+    tags=“azure-service-management"/>
 
 <tags
     ms.service="virtual-machines"
@@ -558,4 +558,5 @@ TSPSolver を使用して作成またはキューを削除するの代わりに�
 [click_create]: ./media/virtual-machines-dotnet-run-compute-intensive-task/ClickCreate.png
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
+
 

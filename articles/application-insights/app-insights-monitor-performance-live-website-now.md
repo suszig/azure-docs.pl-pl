@@ -136,7 +136,7 @@ Azure の Web アプリのコントロール パネルで、Application Insights
 
 ## サンプリング
 
-アプリケーションが送信するデータ量が多く、Application Insights SDK for ASP.NET バージョン 2.0.0-beta3 以降を使用している場合は、アダプティブ サンプリング機能が動作して、テレメトリの一定の割合のみが送信される可能性があります。 [サンプリングについて説明します。](app-insights-sampling.md)
+アプリケーションが送信するデータ量が多く、Application Insights SDK for ASP.NET バージョン 2.0.0-beta3 以降を使用している場合は、アダプティブ サンプリング機能が動作して、テレメトリの一定の割合のみが送信される可能性があります。 [サンプリングの詳細についてはこちらを参照してください。](app-insights-sampling.md)
 
 
 ## トラブルシューティング
@@ -220,4 +220,5 @@ IIS のサポート: IIS 7、7.5、8、8.5
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
+
 

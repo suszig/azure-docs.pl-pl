@@ -32,7 +32,7 @@
 ユーザーを認証できるようにするには、Azure Active Directory (AAD) にアプリケーションを登録する必要があります。 この処理は 2 段階の手順で実行されます。 まず、モバイル サービスを登録し、モバイル サービスに対するアクセス許可を公開する必要があります。 次に、iOS アプリケーションを登録してこれらのアクセス許可へのアクセス権を付与する必要があります。
 
 
->[AZURE.NOTE] このチュートリアルは、モバイル サービスを使用してシングル サインオン Azure Active Directory 認証 iOS アプリを実行する方法を理解するのに役立ちます。 チュートリアルの完了モバイル サービスの初めての場合は、[モバイル サービスの開始を取得] です。
+>[AZURE.NOTE] このチュートリアルは、モバイル サービスを使用してシングル サインオン Azure Active Directory 認証 iOS アプリを実行する方法を理解するのに役立ちます。 初めてのモバイル サービスを使用する場合は、チュートリアルを完了 [Get started with Mobile Services]します。
 
 
 ##前提条件
@@ -41,10 +41,10 @@
 このチュートリアルには、次のものが必要です。
 
 * XCode 4.5 および iOS 6.0 (またはそれ以降のバージョン)
-* 完了、[モバイル サービスの開始を取得] チュートリアルです。
-* 完了、[Azure Active Directory アカウント ログインを使用するアプリケーションの登録]
+* 完了、 [Get started with Mobile Services] チュートリアルです。
+* 完了、 [Register your apps to use an Azure Active Directory Account login]
 * Microsoft Azure Mobile Services SDK
-* [Active Directory 認証ライブラリ iOS の場合]
+* 、 [Active Directory Authentication Library for iOS]
 
 [AZURE.INCLUDE [mobile-services-dotnet-adal-register-client](../../includes/mobile-services-dotnet-adal-register-client.md)]
 
@@ -54,7 +54,7 @@
 
 ##クライアント アプリケーションに認証コードを追加する
 
-1. [Active Directory 認証ライブラリ ios] をダウンロードし、プロジェクトに追加します。 また、ADAL ソースからストーリーボードを追加します。
+1. ダウンロード、 [Active Directory Authentication Library for iOS] し、プロジェクトに含めます。 また、ADAL ソースからストーリーボードを追加します。
 
 2. QSTodoListViewController で、ADAL を次に含めます。
 
@@ -96,9 +96,9 @@
         }
 
 
-6. コードで、 `loginAndGetData` 代わりに、上記のメソッドを **挿入機関ここでは** 、形式をアプリケーションをプロビジョニングしたテナントの名前、https://login.windows.net/tenant-name.onmicrosoft.com でなければなりません。 この値は、[Azure クラシック ポータル] の Azure Active Directory の [ドメイン] タブからコピーできます。
+6. コードで、 `loginAndGetData` 代わりに、上記のメソッドを **挿入機関ここでは** 、形式をアプリケーションをプロビジョニングしたテナントの名前、https://login.windows.net/tenant-name.onmicrosoft.com でなければなりません。 この値は、Azure Active Directory の [ドメイン] タブからコピーできます、 [Azure classic portal]します。
 
-7. コードで、 `loginAndGetData` 代わりに、上記のメソッドを **挿入リソース URI ここ** で、 **App ID URI** 、モバイル サービスのです。 [Azure Active Directory に登録する方法] を実行している場合のトピック、アプリケーション ID URI が https://todolist.azure-mobile.net/login/aad と同様にあります。
+7. コードで、 `loginAndGetData` 代わりに、上記のメソッドを **挿入リソース URI ここ** で、 **App ID URI** 、モバイル サービスのです。 実行している場合、 [How to Register with the Azure Active Directory] トピック、アプリケーション ID URI が https://todolist.azure-mobile.net/login/aad と同様にあります。
 
 8. コードで、 `loginAndGetData` 代わりに、上記のメソッドを **INSERT CLIENT ID ここ** をネイティブ クライアント アプリケーションからコピーしたクライアント ID。
 
@@ -125,4 +125,5 @@
 [How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure classic portal]: https://manage.windowsazure.com/
 [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
+
 

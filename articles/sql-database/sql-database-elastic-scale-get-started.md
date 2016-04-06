@@ -32,20 +32,20 @@
 1. Visual Studio を開き、選択 **ファイル]、[新しいプロジェクト]-> [**します。
 2. ダイアログ ボックスで [ **オンライン**します。
 
-    ![新しいプロジェクト > Online][2]
+    ![New Project>Online][2]
 3. クリックし、 **Visual c#** [ **サンプル**します。
 
-    ![クリックしてください (Visual C#)][3]
+    ![Visual C] をクリックします。#][3]
 4. 検索ボックスに入力 **elastic db** サンプルを検索します。タイトル **Elastic DB Tools for Azure SQL - Getting Started** が表示されます。
 
-    ![検索ボックス][1]
+    ![Search Box][1]
  
 5. サンプルを選択して、名前とキーを押して、新しいプロジェクトの場所を選択 **OK** プロジェクトを作成します。
 6. 開いている、 **app.config** サンプル プロジェクトのソリューション内のファイルし、Azure SQL データベース サーバー名とログイン情報 (ユーザー名とパスワード) を追加するファイルの指示に従います。
 7. アプリケーションをビルドし、実行します。 確認を求められたら、ソリューションの NuGet パッケージの復元を Visual Studio に許可してください。 これで Elastic Database クライアント ライブラリの最新版が NuGet からダウンロードされます。
 8. クライアント ライブラリの機能をより深く知るために、さまざまなオプションを試してみてください。 アプリケーションで実行されたステップはコンソールに出力されますので、動作していたコードをじっくりと検討することができます。
 
-    ![進行状況][4]
+    ![進捗状況][4]
 
 これで、最初のシャーディング アプリケーションを Elastic Database ツールを使用して正しく Azure SQL Database にビルドし、実行できました。 Azure DB Server に Visual Studio または SQL Server Management Studio を接続して、サンプルで作成したシャードの内容を簡単に確認してください。 新しいサンプル シャード データベースと、シャード マップ マネージャー データベースがサンプルで作成されていることがわかります。
 
@@ -98,4 +98,5 @@ Elastic Database ツールの詳細については、以下のページを参照
 [3]: ./media/sql-database-elastic-scale-get-started/click-CSharp.png
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
+
 

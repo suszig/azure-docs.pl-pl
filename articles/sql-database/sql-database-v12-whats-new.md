@@ -24,14 +24,14 @@
 このトピックでは、Azure SQL Database の新しい V12 バージョンを V11 バージョンと比べたときの多くのメリットについて説明します。
 
 
-V12 には継続的に機能が追加されます。 したがって、Azure のサービス更新情報に間する Web ページにアクセスし、次のフィルターを使用することをお勧めします。
+V12 には継続的に機能が追加されます。 したがって、Azure のサービス更新情報に関する Web ページにアクセスし、次のフィルターを使用することをお勧めします。
 
 
 - フィルタ リングして、 [SQL Database サービス](http://azure.microsoft.com/updates/?service=sql-database)します。
 - [General availability フィルター [(GA) のアナウンス](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) SQL Database の機能についてです。
 
 
-SQL データベースのリソースの制限に関する最新情報については、:<br/>[Azure SQL Database のリソース制限](sql-database-resource-limits.md)します。
+SQL データベースのリソースの制限に関する最新の情報が記載されています。<br/>[Azure SQL Database のリソース制限](sql-database-resource-limits.md)します。
 
 
 ## SQL Server との強化されたアプリケーションの互換性
@@ -154,11 +154,12 @@ V12 の論理サーバーでのみ、V12 データベースをホストできま
 まだ V12 で実行されていない場合は、次の手順に従って、論理サーバーをアップグレードできます [インプレース SQL Database V12 へアップグレード](sql-database-v12-upgrade.md)します。
 
 
-## <a name="V12AzureSqlDbPreviewGaTable"></a> 一般的な可用性の領域
+## <a name="V12AzureSqlDbPreviewGaTable"></a> 一般公開リージョン
 
 
 - 2015 年 7 月 31 日までにすべてのリージョンが完全一般公開 (GA) に昇格しました。
 - V12 は 2014 年 12 月にリリースされましたが、プレビューの段階でした。
 
 [Microsoft Azure プレビューの使用法の補足条項](http://azure.microsoft.com/support/legal/preview-supplemental-terms/)します。
+
 

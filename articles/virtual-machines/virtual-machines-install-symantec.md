@@ -26,7 +26,7 @@
 
 このクライアントは、VM エージェントを使用することにより、セキュリティ拡張機能としてインストールできます。 新しい仮想マシンの場合は、Endpoint Protection クライアントと同時に VM エージェントをインストールします。 VM エージェントがない既存の仮想マシンの場合には、最初に VM エージェントをダウンロードしてインストールする必要があります。 この記事では、この両方の場合について説明します。
 
-Symantec のオンプレミス ソリューション用サブスクリプションが既にある場合には、それを使用して Azure の仮想マシンを保護できます。 サブスクリプションがない場合には、サインアップして試用サブスクリプションを利用できます。 このソリューションの詳細については、[Symantec Endpoint Protection を Microsoft の Azure platform] を参照してください。 [Symantec] です。 このページでは、既に Symantec の顧客である場合は、クライアントをインストールするためライセンス情報と手順へのリンクもあります。
+Symantec のオンプレミス ソリューション用サブスクリプションが既にある場合には、それを使用して Azure の仮想マシンを保護できます。 サブスクリプションがない場合には、サインアップして試用サブスクリプションを利用できます。 このソリューションの詳細については、次を参照してください。 [Microsoft の Azure platform 上の Symantec Endpoint Protection][Symantec]します。 このページでは、既に Symantec の顧客である場合は、クライアントをインストールするためライセンス情報と手順へのリンクもあります。
 
 ## 新しい仮想マシンに Symantec Endpoint Protection をインストールする
 
@@ -97,4 +97,5 @@ Symantec のセキュリティ拡張機能がインストールされ、最新�
 [Logon]: virtual-machines-log-on-windows-server.md
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
+
 

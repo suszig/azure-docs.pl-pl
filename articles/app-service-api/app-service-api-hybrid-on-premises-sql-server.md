@@ -54,15 +54,15 @@
     </tr>
     <tr>
         <td>80</td>
-        <td><strong>必須</strong> 証明書の検証用およびオプションでデータ接続用の HTTP ポート。</td>
+        <td><strong>必要な</strong> の証明書の検証および必要に応じてデータ接続用の HTTP ポート。</td>
     </tr>
     <tr>
         <td>使用します</td>
-        <td><strong>省略可能</strong> データ接続用。 443 への送信接続ができない場合は、TCP ポート 80 を使用します。</td>
+        <td><strong>省略可能な</strong> データ接続用です。 443 への送信接続ができない場合は、TCP ポート 80 を使用します。</td>
     </tr>
     <tr>
         <td>5671 と 9352</td>
-        <td><strong>推奨</strong> ただし、データ接続の場合は省略可能。 このモードでは通常、スループットが高くなります。 これらのポートへの送信接続ができない場合は、TCP ポート 443 を使用します。</td>
+        <td><strong>推奨</strong> が、データ接続用の省略可能です。 このモードでは通常、スループットが高くなります。 これらのポートへの送信接続ができない場合は、TCP ポート 443 を使用します。</td>
     </tr>
 </table>
 
@@ -306,7 +306,7 @@ Swagger UI を有効にすると、呼び出すクライアント コードを�
 
 4. クリックして **GET/api/スピーカー** セクションを展開します。
 
-5. をクリックして **試してみる!** 以前にデータベースに入力したデータを表示します。
+5. クリックして **試してみてください。** 以前にデータベースに入力したデータを表示します。
 
     ![](./media/app-service-api-hybrid-on-premises-sql-server/try-it-out.png) 
 
@@ -390,7 +390,7 @@ Swagger UI を有効にすると、呼び出すクライアント コードを�
 これで、クラウド ハイブリッド接続のインフラストラクチャの重要な部分が完了しました。 次に、対応する内部設置型の部分を作成します。
 
 <a name="InstallHCM"></a>
-## オンプレミス ハイブリッド接続マネージャーをインストールして接続を完了する
+## オンプレミスのハイブリッド接続マネージャーをインストールして接続を完了する
 
 [AZURE.INCLUDE [app-service-hybrid-connections-manager-install](../../includes/app-service-hybrid-connections-manager-install.md)]
 
@@ -407,11 +407,11 @@ Swagger UI を有効にすると、呼び出すクライアント コードを�
 
 4. クリックして **GET/api/スピーカー** セクションを展開します。
 
-5. をクリックして **試してみる!** 以前にデータベースに入力したデータを表示します。
+5. クリックして **試してみてください。** 以前にデータベースに入力したデータを表示します。
 
     ![](./media/app-service-api-hybrid-on-premises-sql-server/try-it-out-azure.png) 
     
-**おめでとうございます!**Azure で実行され、ハイブリッド接続を使用してローカルのオンプレミスの SQL Server データベースに接続する、API アプリを作成しました。 
+**ご利用ありがとうございます。** Azure で実行され、ハイブリッド接続を使用してローカルのオンプレミスの SQL Server データベースに接続する、API アプリを作成しました。 
 
 ## 関連項目
 [ハイブリッド接続の概要](http://go.microsoft.com/fwlink/p/?LinkID=397274)
@@ -431,4 +431,5 @@ Swagger UI を有効にすると、呼び出すクライアント コードを�
 [ASP.NET の Id の概要](http://www.asp.net/identity)
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
+
 

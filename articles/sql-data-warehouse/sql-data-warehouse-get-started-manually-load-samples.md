@@ -18,11 +18,11 @@
 
 #SQL Data Warehouse へのサンプル データのロード
 
-[作成した SQL Data Warehouse データベース インスタンス] した後 [SQL Data Warehouse データベース インスタンスの作成]、次の手順を作成し、いくつかのテーブルを読み込みます。  SQL Data Warehouse 用に作成されている Adventure Works サンプル スクリプトを使用して、架空の会社 Adventure Works のテーブルを作成してロードできます。  これらのスクリプトは、sqlcmd を使用して SQL を実行し、bcp を使用してデータをロードします。  これらのツールがインストールされていない場合は、次のリンク [install bcp] をと [sqlcmd のインストール] を。
+一度 [SQL Data Warehouse データベース インスタンスを作成して][create a SQL Data Warehouse database instance] 次の手順を作成し、いくつかのテーブルを読み込むには。  SQL Data Warehouse 用に作成されている Adventure Works サンプル スクリプトを使用して、架空の会社 Adventure Works のテーブルを作成してロードできます。  これらのスクリプトは、sqlcmd を使用して SQL を実行し、bcp を使用してデータをロードします。  これらのツールがインストールされていない場合は、以下のリンクをに従って [bcp がインストール][] にされ、 [sqlcmd のインストール][]します。
 
 次の簡単な手順で Adventure Works サンプル データベースを SQL DW にロードします。
 
-1. [SQL Data Warehouse の Adventure Works サンプル スクリプト] をダウンロードします。
+1. ダウンロード [SQL Data Warehouse のサンプル スクリプトを Adventure-works][]します。
 
 2. ダウンロードした zip からローカル コンピューターのディレクトリにファイルを抽出します。
 
@@ -44,7 +44,7 @@
 
 ##サンプル データのクエリ
 
-SQL Data Warehouse にサンプル データをロードしたら、いくつかのクエリをすぐに実行できます。  クエリを実行するには、データベースへの接続、新しく作成された Adventure Works Visual Studio と SSDT を使用して Azure SQL DW の」の説明に従って、[connect] ドキュメントです。
+SQL Data Warehouse にサンプル データをロードしたら、いくつかのクエリをすぐに実行できます。  クエリを実行するには、データベースへの接続、新しく作成された Adventure Works Visual Studio と SSDT を使用して Azure SQL DW の」の説明に従って、 [接続][] ドキュメントです。
 
 従業員のすべての情報を取得する簡単な SELECT ステートメントの例:
 
@@ -65,10 +65,10 @@ SELECT と WHERE 句を使用して、ある日付以前の注文をフィルタ
     GROUP BY OrderDateKey
     ORDER BY OrderDateKey;
 
-SQL Data Warehouse は、SQL Server がサポートするほぼすべての T-SQL 構造をサポートします。  違いが記載されている、[コードの移行] ドキュメントです。
+SQL Data Warehouse は、SQL Server がサポートするほぼすべての T-SQL 構造をサポートします。  相違点については、「、 [コード移行][] ドキュメントです。
 
 ## 次のステップ
-これでサンプル データを含むいくつかのクエリを試用する機会がある得られたら、[読み込み] を [] を開発する方法を確認するか SQL Data Warehouse への [移行]。
+これでサンプル データを含むいくつかのクエリを試用する機会がある得られたらをチェック アウトする方法 [開発][], 、[ロード][], 、または [移行][] SQL Data Warehouse にします。
 
 <!--Image references-->
 
@@ -84,4 +84,5 @@ SQL Data Warehouse は、SQL Server がサポートするほぼすべての T-SQ
 
 <!--Other Web references-->
 [Adventure Works Sample Scripts for SQL Data Warehouse]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
+
 

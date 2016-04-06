@@ -58,8 +58,8 @@ UI の Reach (リーチ) セクションは、プッシュ キャンペーン管
 
 ## 関連項目
 
-- [概念][6 のリンク]
-- [番組ガイド サービスのトラブルシューティング][24 のリンク]
+- [概念][Link 6]
+- [トラブルシューティング ガイド - サービス][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -152,3 +152,4 @@ UI の Reach (リーチ) セクションは、プッシュ キャンペーン管
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
+

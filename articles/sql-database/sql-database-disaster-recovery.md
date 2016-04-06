@@ -94,7 +94,7 @@ REST を使用して、プログラムでデータベースの復旧を実行し
     
 4.  使用して、回復の状態を追跡、 [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx) 操作します。
  
-## 回復後に、データベースを構成します。<a name="postrecovery"></a>
+## 復旧後のデータベースの構成<a name="postrecovery"></a>
 
 復旧されたデータベースを運用できる状態にするためのタスクのチェックリストを以下に示します。
 
@@ -130,4 +130,5 @@ REST を使用して、プログラムでデータベースの復旧を実行し
 ### 監査を有効にする
 
 データベースにアクセスするために監査が必要な場合は、データベースの復旧後に監査を有効にする必要があります。 クライアント アプリケーションで *.database.secure.windows.net パターンのセキュリティで保護された接続文字列を使用している場合は、監査が必要であることを表しています。 詳細については、次を参照してください。 [SQL database の監査を使ってみる](sql-database-auditing-get-started.md)します。 
+
 

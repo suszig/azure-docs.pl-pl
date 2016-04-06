@@ -37,7 +37,7 @@
 B2C 機能ブレードに移動して直接アクセスすることもできます [https://portal.azure.com/{tenant}.onmicrosoft.com/?Microsoft_AAD_B2CAdmin=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/{tenant}.onmicrosoft.com](https://portal.azure.com/{tenant}.onmicrosoft.com/?Microsoft_AAD_B2CAdmin=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/{tenant}.onmicrosoft.com) 、 **{tenant}** はテナントの作成時 (たとえば、contosob2c) に使用して、B2C テナントのグローバル管理者としてサインイン名で置き換えられます。 後で参照できるように、このリンクをブックマークできます (下記の注をご覧ください)。
 
     > [AZURE.IMPORTANT]
-    You need to be a Global Administrator of the B2C tenant to be able to access the B2C features blade. A Global Administrator from any other tenant or a User from any tenant cannot access it.
+    B2C 機能ブレードにアクセスするには、B2Cテナントのグローバル管理者である必要があります。 他のテナントのグローバル管理者やテナントのユーザーはアクセスできません。
 
 ### 2.Azure ポータルからアクセスする
 
@@ -64,4 +64,5 @@ B2C 機能ブレードに移動して直接アクセスすることもできま�
 アプリケーションを Azure AD B2C に登録したので、いずれかのクイック スタート チュートリアルを実行して使い始めることができます。 以下に、推奨事項をいくつか示します。
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
+
 

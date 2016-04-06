@@ -21,7 +21,7 @@
 
 <p> Microsoft Azure Government イメージ ギャラリーの使い心地は Azure ポータルと似ています。  Microsoft や Microsoft のパートナーが事前に構築したイメージのデプロイを選択し、自身の VHD にアップロードできます。  これによって、必要に応じて自身のニーズに応じて標準化したイメージを自由にデプロイできるようになります。
 
-下の図は Azure Government イメージ ギャラリーで利用できるイメージのリストを示しています。  事前に構成されたイメージの内いくつかでは、特定のソフトウェアのライセンスに対する支払いも生じます。  参照してください。 <a href="http://azure.microsoft.com/pricing/details/virtual-machines/">仮想マシンの料金</a> ガイダンスと Microsoft アカウント チームや Azure Government 特有の料金について再販業者に関する作業の詳細のページです。
+下の図は Azure Government イメージ ギャラリーで利用できるイメージのリストを示しています。  事前に構成されたイメージの内いくつかでは、特定のソフトウェアのライセンスに対する支払いも生じます。  詳細は「<a href="http://azure.microsoft.com/pricing/details/virtual-machines/">Virtual Machines 料金</a>」をご確認いただき、Azure Government 特有の料金について Microsoft アカウント チームや販売店にご確認ください。
 
 
 ## Azure Government イメージ ギャラリー
@@ -89,7 +89,7 @@ SUSE|SUSE Linux Enterprise Server 12|Microsoft Azure 上の SUSE Linux Enterpris
 
 ## <a name="next"></a>次のステップ
 
-イメージ ギャラリーからのデプロイについて、また VHD の作成についての詳細は、次をご覧ください。  参照してください、 <a href="../azure-government-developer-guide">Azure Government Developer Guide (Azure Government 開発者向けガイド)</a> Azure Government 使用時は、エンドポイントを持つプログラムでの相違点を明らかになります。
+イメージ ギャラリーからのデプロイについて、また VHD の作成についての詳細は、次をご覧ください。  Azure Government 使用時におけるエンドポイントのプログラム的な相違点の詳細について、<a href="../azure-government-developer-guide">Azure Government 開発者向けガイド</a>を参照してください。
 
 ###その他のリソース: 
 
@@ -117,4 +117,5 @@ SUSE|SUSE Linux Enterprise Server 12|Microsoft Azure 上の SUSE Linux Enterpris
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
+
 

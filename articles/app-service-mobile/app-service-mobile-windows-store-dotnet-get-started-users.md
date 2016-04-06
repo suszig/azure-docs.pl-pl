@@ -26,7 +26,7 @@
 
 このチュートリアルは、Mobile Apps のクイック スタートに基づいています。 最初のチュートリアルを完了する必要があります [モバイル アプリを使ってみる](app-service-mobile-windows-store-dotnet-get-started.md)します。 
 
-##<a name="register"></a>アプリを認証に登録し、App Service を構成する
+##<a name="register"></a>アプリケーションを認証に登録し、App Service を構成する
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
@@ -58,11 +58,12 @@
 + [Windows アプリにプッシュ通知を追加します。](app-service-mobile-windows-store-dotnet-get-started-push.md)   
   追加のプッシュ通知がアプリへのサポートし、プッシュ通知を送信する Azure Notification Hubs を使用して、Mobile App バックエンドを構成する方法について説明します。
 
-+ [Windows アプリのオフライン同期を有効にします。](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
++ [Windows アプリのオフライン同期を有効にする](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
   モバイル アプリ バックエンドを使用して、アプリのオフライン サポートを追加する方法について説明します。 オフライン同期を使用すると、エンド ユーザーはネットワークにアクセスできなくても、データの表示、追加、変更など、モバイル アプリとやり取りできます。 
 
 
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
  
+
 

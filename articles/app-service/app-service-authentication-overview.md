@@ -96,7 +96,7 @@ App Service ゲートウェイには、クライアントを認証する 2 つ�
 
 ソフトウェアとしてのサービス (SaaS) プラットフォームにログインしたユーザーの代理呼び出しを送信するコードを記述するか、使用することができます、 [コネクタ API アプリ](../app-service-mobile/app-service-logic-what-are-biztalk-api-apps.md)します。 例については、使用できるユーザーの Twitter アカウントからツイートを投稿する [Twitter の SDK](https://dev.twitter.com/overview/api/twitter-libraries), 、またはプロビジョニング、 [Twitter コネクタ](../app-service-mobile/app-service-logic-connector-twitter.md) 、Azure サブスクリプションにそれを呼び出したりできます。 このセクションでは、API アプリ か モバイル アプリで実行されているコードから SaaS プラットフォームにアクセスする方法について説明します。   
 
-### <a id="obotoidprovider"></a> ID プロバイダーの使用 
+### <a id="obotoidprovider"></a> ID プロバイダー トークンの使用 
 
 ゲートウェイを維持、 *トークン ストア* どの it を id プロバイダー アクセス トークンと更新トークンの 1 つまたは複数 Zumo トークンを関連付けます。 有効な Zumo トークンを持った HTTP要求を受信した場合、ゲートウェイはどの ID プロバイダー トークンがそのユーザーに関連しているのかを認識します。
   
@@ -156,7 +156,7 @@ Mobile Apps の場合は、SDK は次のプラットフォームで利用でき�
 
 ゲートウェイの認証サービスが、アプリのニーズを満たしていない場合は、自分で認証を処理するか、Azure API Management サービスを使用できます。
 
-### <a id="doityourself"></a>お客様ご自身による認証
+### <a id="doityourself"></a> 手動による認証
 
 などの認証フレームワークを実行できる [ASP.NET Identity](http://www.asp.net/identity) または [Thinktecture](http://www.thinktecture.com/identityAndAccessControl) Azure 上です。 これにより、すべての処理を制御できますが、認証機能の開発とテストに少し時間がかかります。 また、複数のリダイレクト URL で保護する複数のアプリがある場合、Facebook、Google、Twitter などのサード パーティの認証プロバイダーで、複数のクライアント ID とクライアント シークレットを構成する必要があります。
 
@@ -186,12 +186,12 @@ Mobile Apps の場合は、SDK は次のプラットフォームで利用でき�
 * [OAuth2、OpenID Connect と JSON Web トークン (JWT) の概要 - PluralSight コース](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction) 
 * [ASP.NET での複数のクライアント用 RESTful API の構築とセキュリティ保護 - PluralSight コース](http://www.pluralsight.com/courses/building-securing-restful-api-aspdotnet)
 
-### <a id="apiaclient"></a>API Apps のクライアント フロー
+### <a id="apiaclient"></a>API Apps のクライアントのフロー
 
 * [API アプリの保護](../app-service-api/app-service-api-dotnet-add-authentication.md) -API アプリの構成パーツは、クライアントとサーバーの両方のフローがブラウザーでテストに適用されます部分は、サーバー フローを示しています。
 * [Azure App Service で .NET クライアントから API アプリの使用](../app-service-api/app-service-api-dotnet-consume.md) - 認証された呼び出しのサンプル アプリケーションは、サーバー フローを示していますが、その後は、 [クライアント フロー](../app-service-api/app-service-api-dotnet-consume.md#client-flow) セクションのサンプル コードです。
 
-### <a id="apiaserver"></a>API Apps のサーバー フロー
+### <a id="apiaserver"></a>API Apps サーバー フロー
 
 * [API アプリの保護](../app-service-api/app-service-api-dotnet-add-authentication.md) -API アプリの構成パーツは、クライアントとサーバー フローとブラウザーでテストの両方に適用部分は、サーバー フローを示しています。
 * [Azure App Service で .NET クライアントから API アプリの使用](../app-service-api/app-service-api-dotnet-consume.md) -認証された呼び出しのサンプル コードは、サーバー フローを示しています。 
@@ -205,14 +205,15 @@ Mobile Apps の場合は、SDK は次のプラットフォームで利用でき�
 
 * [iOS アプリに Azure Active Directory シングル サインオンを追加する](../app-service-mobile/app-service-mobile-dotnet-backend-ios-aad-sso-preview.md)
 
-### <a id="maserver"></a>Mobile Apps のサーバー フロー
+### <a id="maserver"></a>Mobile Apps のサーバーのフロー
 
 * [iOS アプリに認証を追加する](../app-service-mobile/app-service-mobile-dotnet-backend-ios-get-started-users-preview.md)
 * [Xamarin.iOS アプリに認証を追加する](../app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md)
 * [Xamarin.Android アプリに認証を追加する](../app-service-mobile/app-service-mobile-dotnet-backend-xamarin-android-get-started-users-preview.md)
 * [Windows アプリに認証を追加する](../app-service-mobile/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md)
 
-### <a id="maobo"></a>セキュリティで保護されたリソースへの Mobile Apps の代理としての呼び出し
+### <a id="maobo"></a>セキュリティで保護されたリソースへの Mobile Apps の代理呼び出し
 
 * [アクセス トークンを取得し、Mobile Apps の SharePoint API を呼び出す](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
+
 

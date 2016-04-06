@@ -26,13 +26,13 @@ Azure では、すべての API アプリは、Azure でホストされる独立
 
 これらの組み込み機能を表示するには、[API アプリを開き、 [Azure ポータル](http://go.microsoft.com/fwlink/p/?LinkID=525040)します。 API アプリがスタート画面に表示されている場合は、それを選択するとプロパティが表示されます。 選択することも **参照**, を選択 **API Apps**, 、API アプリを選択します。
 
-![参照] を
+![][browse]
 
 ## 入力済みのプロパティを表示する
 
 API アプリを開くと、使用できるさまざまな機能とタスクが表示されます。
 
-![設定]
+![][settings]
 
 そのための方法は次のとおりです。 
 
@@ -51,18 +51,18 @@ API アプリを開くと、使用できるさまざまな機能とタスクが�
 1. コネクタまたは API アプリを開きます。 この操作を実行すると、API アプリ ブレードが開きます。
 2.  **Essentials**, 、ホスト プロパティの下のハイパーリンクをクリックします。 ハイパーリンクの名前は *slackconnector* または *microsoftsqlconnector123*:
 
-    ![apiapphost]
+    ![][apiapphost]
 
 3. API アプリ ホスト] ブレードで、次のように選択します。 **設定**します。 [設定] ブレードで、選択 **アプリケーション設定**します。 構成値については、「 **アプリ設定**: 
     
-    ![hostsettings]
+    ![][hostsettings]
 
 4. 設定を変更するには、新しい値を入力する] をクリックし、 **保存** 変更します。 
 
 
 ## Hybrid Connection Manager をインストールする (省略可能)
 
-![hcsetup]
+![][hcsetup]
 
 ハイブリッド接続マネージャーを使用すると、SQL Server、SAP などのオンプレミスのシステムに接続できます。 このハイブリッド接続は、Azure Service Bus を使用して接続し、Azure リソースとオンプレミスのリソースの間のセキュリティを制御します。
 
@@ -73,11 +73,11 @@ API アプリを開くと、使用できるさまざまな機能とタスクが�
 ## パフォーマンスを監視する
 パフォーマンス メトリックは組み込み機能であり、作成するすべての API アプリに含まれます。 これらのメトリックは、Azure でホストされる API アプリに固有です。 メトリックの例:
 
-![監視]
+![][monitoring]
 
 そのための方法は次のとおりです。 
 
-- 選択 **要求とエラー** よく知られている HTTP エラー コードを含むさまざまなパフォーマンス メトリックを追加するなどの 200 400、400、500 HTTP ステータス コード。 応答時間、要求の数は、API アプリに対して実行された、データの量が有効になり、データの量がなくなる確認をもできます。 パフォーマンス メトリックに基づいて、メトリックが選択したしきい値を超えた場合に送信される電子メールアラートを作成できます。 
+- 選択 **要求とエラー** よく知られている HTTP エラー コードを含むさまざまなパフォーマンス メトリックを追加するなどの 200 400、500 の HTTP ステータス コード。 応答時間、要求の数は、API アプリに対して実行された、データの量が有効になり、データの量がなくなる確認をもできます。 パフォーマンス メトリックに基づいて、メトリックが選択したしきい値を超えた場合に送信される電子メールアラートを作成できます。 
 -  **使用状況**, 、どの程度わかり **CPU** は現在、API アプリによって使用される確認 **使用量クォータ** MB、およびコスト レベルに基づく最大データ使用します。 **推定費やす**  、API アプリの実行の潜在的なコストを判断できます。
 - 選択 **プロセス** プロセス エクスプ ローラーを開きます。 プロセス エクスプローラーには、Web インスタンスとそのプロパティ (スレッド数、メモリ使用量など) が表示されます。
 
@@ -98,7 +98,7 @@ API Apps では、ロールベースのセキュリティを使用します。 �
 
 API アプリへのユーザーの追加と特定のロールの割り当ては簡単に実行できます。 アクセス権があるユーザーと、各自に割り当てられたロールがポータルに表示されます。
 
-![アクセス] を  
+![][access]  
 
 - 選択 **ユーザー** ユーザーを追加、役割を割り当てるユーザーを削除します。
 - 選択 **ロール** 表示する特定のロール内のすべてのユーザー、ロールにユーザーを追加し、ロールからユーザーを削除します。 
@@ -110,7 +110,7 @@ API アプリへのユーザーの追加と特定のロールの割り当ては�
 
 > [AZURE.IMPORTANT] API アプリのプロパティを開くし、下を見て **Essentials**, 、ある **ホスト** と **ゲートウェイ** 新しいブレードを開くリンク。
 > 
-> ![ホスト]
+> ![][host]
 > 
 > これらのプロパティは、API アプリをホストする Web サイトに固有です。 これらのプロパティを更新しないことをお勧めするには、これらのプロパティのほとんどが適用されない実際に、組み込みの API アプリまたはコネクタを使用する場合。 Visual Studio で独自の API アプリを作成し、Azure サブスクリプションにデプロイした場合は、[ホスト] ブレードと [ゲートウェイ] ブレードを使用できます。 [API アプリを管理](../app-service-api/app-service-api-manage-in-portal.md) 何ができるこれらのブレードで、[カスタム作成した API アプリについて詳しく説明します。 
 
@@ -119,10 +119,10 @@ API アプリへのユーザーの追加と特定のロールの割り当ては�
 
 ## 詳細
 
-[ロジック アプリを監視します。](app-service-logic-monitor-your-logic-apps.md)<br/>
+[Logic Apps を監視する](app-service-logic-monitor-your-logic-apps.md)<br/>
 [コネクタと App Service で API Apps の一覧](app-service-logic-connectors-list.md)<br/>
 [Microsoft Azure ポータルでのロールベースのアクセス制御](role-based-access-control-configure.md)<br/>
-[Azure App Service での Hybrid Connection Manager を使用します。](app-service-logic-hybrid-connection-manager.md)
+[Azure App Service での Hybrid Connection Manager の使用](app-service-logic-hybrid-connection-manager.md)
 
 
 <!--Image references-->
@@ -134,3 +134,4 @@ API アプリへのユーザーの追加と特定のロールの割り当ては�
 [host]: ./media/app-service-logic-monitor-your-connectors/host.png
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
+

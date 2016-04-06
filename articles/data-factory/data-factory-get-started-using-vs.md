@@ -19,15 +19,15 @@
 # チュートリアル: Visual Studio を使用したデータ ファクトリの作成と監視
 > [AZURE.SELECTOR]
 - [チュートリアルの概要](data-factory-get-started.md)
-- [Data Factory エディターを使用します。](data-factory-get-started-using-editor.md)
+- [Data Factory エディターの使用](data-factory-get-started-using-editor.md)
 - [PowerShell の使用](data-factory-monitor-manage-using-powershell.md)
-- [Visual Studio を使用](data-factory-get-started-using-vs.md)
+- [Visual Studio の使用](data-factory-get-started-using-vs.md)
 
 
 ##このチュートリアルの内容
 このチュートリアルでは、Visual Studio 2013 で次の作業を行います。
 
-1. 2 つのリンクされたサービスを作成します。 **AzureStorageLinkedService1** と **AzureSqlinkedService1**します。 AzureStorageLinkedService1 は Azure のストレージをリンクし、AzureSqlLinkedService1 は、Azure SQL データベースをデータ ファクトリにリンク: **ADFTutorialDataFactoryVS**します。 パイプラインの入力データは、Azure Blob Storage の BLOB コンテナーにあります。また出力データは、Azure SQL Database のテーブルに格納されます。 そのため、これら 2 つのデータ ストアをリンクされたサービスとしてデータ ファクトリに追加します。
+1. 2 つのリンクされたサービスを作成します。 **AzureStorageLinkedService1** と **AzureSqlinkedService1**します。 AzureStorageLinkedService1 は Azure のストレージをリンクし、AzureSqlLinkedService1 は、Azure SQL データベースをデータ ファクトリにリンク: **ADFTutorialDataFactoryVS**します。 パイプラインの入力データは、Azure BLOB ストレージの BLOB コンテナーにあります。また出力データは、Azure SQL Database のテーブルに格納されます。 そのため、これら 2 つのデータ ストアをリンクされたサービスとしてデータ ファクトリに追加します。
 2. 2 つのデータ ファクトリ テーブルを作成します。 **EmpTableFromBlob** と **EmpSQLTable**, 、データ ストアに格納されている入力/出力データを表します。 EmpTableFromBlob の場合、ソース データを持つ BLOB を含む BLOB コンテナーを指定します。EmpSQLTable の場合は、出力データを格納する SQL テーブルを指定します。 また、データの構造や可用性など、他のプロパティも指定します。
 3. という名前のパイプラインを作成する **ADFTutorialPipeline** ADFTutorialDataFactoryVS にします。 パイプラインには、 **コピー アクティビティ** いる入力のコピー、Azure から blob にデータを Azure SQL 出力テーブルです。
 4. Data Factory を作成し、リンクされたサービス、テーブル、パイプラインをデプロイする。    
@@ -50,7 +50,8 @@
 
 3. 入力、 **名前** 、プロジェクトの **場所**, との名前、 **ソリューション**, 、] をクリック **[ok]**します。
 
-    ![Solution Explorer](./media/data-factory-get-started-using-vs/solution-explorer.png)   
+    ![ソリューション エクスプローラー
+](./media/data-factory-get-started-using-vs/solution-explorer.png)   
 
 #### リンクされたサービスの作成
 リンクされたサービスは、データ ストアまたはコンピューティング サービスを Azure Data Factory にリンクします。 データ ストアには、Azure Storage、Azure SQL Database、またはオンプレミスの SQL Server データベースを指定できます。
@@ -241,6 +242,7 @@ Visual Studio の Azure Data Factory ツールを更新するには、次のよ�
 4. 選択 **Visual Studio の Azure Data Factory ツール** ] をクリック **更新**します。 このエントリが表示されない場合は、ツールは既に最新バージョンです。 
 
 参照してください [データセットとパイプラインを監視](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) このチュートリアルで作成した、Azure ポータルを使用して、パイプラインとデータセットを監視する方法についてです。
+
 
 
 

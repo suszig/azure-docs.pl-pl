@@ -83,10 +83,10 @@ Onit アプリケーションでは、SAML アサーションをでカスタム�
 2.  必要な属性のマッピングを追加するには、次の手順を実行します。
 
     
-    |Attribute Name|Attribute Value|
-    |---|---|
-    |name|User.userprincipalname|
-    |email|User.mail|
+  	|Attribute Name|Attribute Value|
+  	|---|---|
+  	|name|User.userprincipalname|
+  	|email|User.mail|
 
     1.  For each data row in the table above, click **add user attribute**.
     2.  In the **Attribute Name** textbox, type the attribute name shown for that row.
@@ -107,7 +107,7 @@ Onit アプリケーションでは、SAML アサーションをでカスタム�
 
 7.   **アプリケーション URL の構成** ] ページの [、 **Onit サインオン URL** URL は、ユーザーが Onit アプリケーションにサインオンする使用] ボックスに、型 (例::"*https://ms-sso-test.onit.com*")、順にクリック **次**します。
 
-    ![Configure App URL](./media/active-directory-saas-onit-tutorial/IC791172.png "Configure App URL")
+    ![アプリケーション URL の構成](./media/active-directory-saas-onit-tutorial/IC791172.png "Configure App URL")
 
 8.   **Onit でのシングル サインオンの構成** ] ページで、証明書をダウンロードする] をクリックして **証明書のダウンロード**, 、お使いのコンピューターにローカルで証明書ファイルを保存します。
 
@@ -187,3 +187,4 @@ Onit の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-onit-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

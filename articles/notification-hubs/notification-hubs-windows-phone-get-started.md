@@ -33,7 +33,7 @@
 
 このチュートリアルには、次のものが必要です。
 
-+ [Visual Studio 2012 Express for Windows Phone]、またはそれ以降のバージョン。
++ [Visual Studio 2012 Express for Windows Phone], 、またはそれ以降のバージョン。
 
 このチュートリアルを完了することは、Windows Phone 8 アプリケーションの他のすべての Notification Hubs チュートリアルの前提条件です。
 
@@ -44,7 +44,7 @@
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 <ol start="7">
-<li><p>[ <b>構成</b> タブをクリックし、をクリックします <b>非認証プッシュ通知を有効にする</b> チェック ボックスをオンにします <b>Windows Phone 通知設定</b> 」セクションを参照してください。</p>
+<li><p>クリックして、 <b>構成</b> タブをクリックし、をクリックして、 <b>非認証プッシュ通知を有効にする</b> ] チェック ボックス、 <b>Windows Phone 通知設定</b> セクションです。</p>
 </li>
 </ol>
 
@@ -72,7 +72,7 @@
 
     ![][20]
 
-    これをダウンロード、インストール、および使用して、Windows 用 Azure メッセージング ライブラリへの参照を追加します <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">WindowsAzure.Messaging.Managed NuGet パッケージ</a>.
+    <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">WindowsAzure.Messaging.Managed NuGet パッケージ</a>を使用して、Windows の Azure メッセージング ライブラリに参照がダウンロードされ、インストールされ、追加されます。
 
 4. App.xaml.cs ファイルを開き、次の `using` ステートメントを追加します。
 
@@ -136,7 +136,7 @@
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-    使用して、Azure Notification Hubs SDK への参照を追加します <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification ハブ NuGet パッケージ</a>.
+    これにより <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet パッケージ</a>を利用して Azure Notification Hubs SDK に参照が追加されます。
 
 6. Program.cs ファイルを開き、次の `using` ステートメントを追加します。
 
@@ -170,11 +170,11 @@
 
     トースト通知を受信します。 トースト バナーをタップすると、アプリが読み込まれます。
 
-[トースト カタログ] で、使用できるすべてのペイロードを見つけることができ、[タイル カタログ] MSDN のトピックにします。
+使用できるすべてのペイロードを見つけることができます、 [toast catalog] と [tile catalog] MSDN のトピックにします。
 
 ##次のステップ
 
-この簡単な例では、すべての Windows Phone 8 デバイスに通知をブロードキャストしました。 特定のユーザーをターゲットとするには、[ユーザーにプッシュ通知を Notification Hubs を使用する] このチュートリアルを参照してください。 対象グループごとにユーザーを区分するには、[通知ハブを使用したニュース速報の送信] を読み取ることができます。 [通知ハブの概要] で、通知ハブを使用する方法について説明します。
+この簡単な例では、すべての Windows Phone 8 デバイスに通知をブロードキャストしました。 特定のユーザーをターゲットとするには、このチュートリアルを参照してください [Use Notification Hubs to push notifications to users]します。 対象グループごとにユーザーをセグメント化するかどうか、確認できる [Use Notification Hubs to send breaking news]します。 通知ハブを使用する方法の詳細について [Notification Hubs Guidance]します。
 
 
 
@@ -206,4 +206,5 @@
 [toast catalog]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [tile catalog]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
+
 

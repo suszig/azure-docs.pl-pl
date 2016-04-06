@@ -9,12 +9,12 @@
 
 <tags
     ms.service="backup"
-    ms.workload=「記憶域のバックアップ回復」
+    ms.workload="storage-backup-recovery"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic=「ヒーロー記事」
+    ms.topic="hero-article"
     ms.date="11/26/2015"
-    ms.author="jimpark"です。"aashishr"/>
+    ms.author="jimpark"; "aashishr"/>
 
 # Windows コンピューターをバックアップする環境の準備
 
@@ -40,4 +40,5 @@
 - [Azure からの Windows Server または Windows クライアントの復元](backup-azure-restore-windows-server.md)
 - [Azure Backup FAQ](backup-azure-backup-faq.md)
 - [Azure Backup フォーラム](http://go.microsoft.com/fwlink/p/?LinkId=290933)
+
 

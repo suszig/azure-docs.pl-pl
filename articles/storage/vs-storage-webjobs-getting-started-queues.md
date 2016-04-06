@@ -83,7 +83,7 @@ Async 関数がかかる場合があります、 [キャンセル トークン](
 
 使用する **QueueTrigger** 、次の種類。
 
-* **文字列**
+* **string**
 * JSON としてシリアル化された POCO の型
 * **byte[]**
 * **CloudQueueMessage**
@@ -545,4 +545,5 @@ Azure テーブルで、 **Console.Out** と **Console.Error** ログは次の�
 ##次のステップ
 
 この記事では、Azure キューを操作するための一般的なシナリオの処理方法を示すコードのサンプルを提供しました。 Azure web ジョブおよび web ジョブ SDK を使用する方法の詳細については、次を参照してください。 [Azure WebJobs の推奨リソース](http://go.microsoft.com/fwlink/?linkid=390226)します。
+
 

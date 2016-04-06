@@ -169,7 +169,7 @@ Main 関数に次のコードを追加します。
 
 次のスクリーン ショットは、 [Azure Classic Portal](manage.windowsazure.com) Key Vault に格納されたキーをクライアント側の暗号化を使用して暗号化されている blob のです。  **KeyId** プロパティは、KEK として機能する Key Vault にキーの URI。  **EncryptedKey** プロパティには、CEK の暗号化されたバージョンが含まれています。
 
-![暗号化メタデータを含む Blob メタデータを示すスクリーン ショット][1]
+![暗号化メタデータが含まれている BLOB メタデータを示すスクリーンショット][1]
 
 > [AZURE.NOTE] BlobEncryptionPolicy コンス トラクターを見ると、キーおよびリゾルバーを受け付けられることがわかります。 現在リゾルバーは既定のキーをサポートしていないため、暗号化にリゾルバーを使用できないことに注意してください。
 
@@ -234,4 +234,5 @@ Microsoft Azure Storage の最新の情報を参照してください、 [Micros
 
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
+
 

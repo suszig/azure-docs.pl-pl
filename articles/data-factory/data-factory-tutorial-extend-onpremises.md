@@ -43,7 +43,7 @@
 4. [手順 4: パイプラインを監視して結果を確認](#OnPremStep4)します。 この手順では、Azure ポータルを使用して、パイプライン、テーブル、およびデータ スライスを監視します。
 
 
-## <a name="OnPremStep1"></a> 手順 1: Data Management Gateway を作成します。
+## <a name="OnPremStep1"></a>手順 1: Data Management Gateway を作成する
 
 Data Management Gateway は、所属する組織内のオンプレミスのデータ ソースに、クラウドからのアクセスを提供するクライアント エージェントです。 このゲートウェイによって、オンプレミスの SQL Server と Azure データ ストアの間でデータ転送が可能になります。
   
@@ -64,7 +64,7 @@ Data Management Gateway は、所属する組織内のオンプレミスのデ�
 
 9. をクリックして **[ok]** を閉じる、 **構成** ブレードと **[ok]** を閉じる、 **作成** ブレードです。 状態まで **MyGateway** で、 **リンクされたサービス** ブレードに変更 **良い**です。 起動することも **Data Management Gateway 構成マネージャー (プレビュー)** ゲートウェイの名前がポータル上の名前と一致していることを確認するツールと **ステータス** は **登録されている**します。 最新の状態を確認するため、場合によっては [リンクされたサービス] ブレードをいったん閉じて再度開く必要があります。 画面が最新の状態に更新されるまで、数分かかる場合があります。 
 
-## <a name="OnPremStep2"></a> 手順 2: 内部設置型 SQL Server 用のリンクされたサービスを作成します。
+## <a name="OnPremStep2"></a>手順 2: オンプレミスの SQL Server 用にリンクされたサービスを作成する。
 
 この手順では、まずオンプレミスの SQL Server コンピューター上にデータベースとテーブルを作成し、その後リンクされたサービスを作成します。
 
@@ -73,14 +73,14 @@ Data Management Gateway は、所属する組織内のオンプレミスのデ�
 最初に、SQL Server データベース、テーブル、ユーザー定義型、およびストアド プロシージャを作成する必要があります。 これらの移動に使用する、 **MarketingCampaignEffectiveness** 結果 blob Azure から SQL Server データベースにします。
 
 1.   **Windows エクスプ ローラー**, に移動し、 **OnPremises** サブフォルダー **C:\ADFWalkthrough** (またはサンプルを展開した場所)。
-2.  開いている **します (& a) 二重** 、好みのエディターで、強調表示部分を SQL Server 情報に置き換え、ファイルを保存 (を指定してください **SQL 認証** 詳細)。 このチュートリアルのために、データベースの SQL 認証を有効にします。 
+2.  開いている **します (& a) Table.ps1** 、好みのエディターで、強調表示部分を SQL Server 情報に置き換え、ファイルを保存 (を指定してください **SQL 認証** 詳細)。 このチュートリアルのために、データベースの SQL 認証を有効にします。 
             
         $dbServerName = "<servername>"
         $dbUserName = "<username>"
         $dbPassword = "<password>"
 
 3.  **Azure PowerShell**, に移動 **C:\ADFWalkthrough\OnPremises** フォルダーです。
-4.  実行 **します (& a) 二重** **(いずれかと二重引用符で囲まれた、または次のように)**します。
+4.  実行 **します (& a) Table.ps1** **(いずれかと二重引用符で囲まれた、または次のように)**します。
             
         & '.\prepareOnPremDatabase&Table.ps1'
 
@@ -114,7 +114,7 @@ Data Management Gateway は、所属する組織内のオンプレミスのデ�
     4. ゲートウェイの名前を指定 (**MyGateway**) gatewayName プロパティにします。             
 3.  をクリックして **展開** 、ツールバーのリンク サービスをデプロイします。 
 
-## <a name="OnPremStep3"></a> 手順 3: テーブルとパイプラインを作成します。
+## <a name="OnPremStep3"></a>手順 3: テーブルとパイプラインを作成する
 
 ### オンプレミスの論理テーブルを作成する
 
@@ -133,11 +133,11 @@ Data Management Gateway は、所属する組織内のオンプレミスのデ�
         "end": "2014-05-05T00:00:00Z",
         "isPaused": false
 
-    注意してください、 **開始** と **エンド** このチュートリアルのサンプル データが 2014 年 5 月 05/05/01/2014年からあるために、時刻が 2014 年 5 月 01 および 2014 年 5/05/に設定されます。 
+    注意してください、 **開始** と **エンド** ため、このチュートリアルのサンプル データが 2014 01/05/から 05/05/05/01/2014年と 05/05/2014年に時間が設定されます。 
  
 3. クリックして **展開** 、ツールバーのパイプラインを作成してデプロイします。 表示されていることを確認、 **パイプラインは正常に作成された** エディターのタイトル バーにメッセージです。
     
-## <a name="OnPremStep4"></a> 手順 4: パイプラインを監視して結果を確認
+## <a name="OnPremStep4"></a>手順 4: パイプラインを監視して結果を確認する
 
 導入された同じ手順を使用できます、 **パイプラインとデータ スライスを監視する** のセクションで、 [メインのチュートリアル][datafactorytutorial] 新しいパイプラインと、新しい内部設置型の ADF テーブル用のデータ スライスを監視します。
  
@@ -171,3 +171,4 @@ Data Management Gateway は、所属する組織内のオンプレミスのデ�
 [image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises/DataManagementGatewayConfigurationManager.png
 
  
+

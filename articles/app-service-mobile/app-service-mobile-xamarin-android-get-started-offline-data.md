@@ -26,19 +26,19 @@
 
 このチュートリアルでは、Xamarin.Android 向けのAzure Mobile Apps のオフライン同期機能について説明します。 オフライン同期を使用すると、エンド ユーザーはネットワークにアクセスできなくても、データの表示、追加、変更など、モバイル アプリケーションとやり取りできます。 変更は、ローカル データベースに格納されます。デバイスがオンラインに戻ると、これらの変更は、リモート サービスと同期されます。
 
-このチュートリアルでは、Azure Mobile Apps のオフライン機能をサポートするために [作成 Xamarin Android アプリケーション] に関するチュートリアルからクライアント プロジェクトを更新します。 ダウンロードしたクイック スタートのサーバー プロジェクトを使用しない場合は、データ アクセス拡張機能パッケージをプロジェクトに追加する必要があります。 サーバーの拡張機能パッケージの詳細については、次を参照してください。 [Azure モバイル アプリの .NET バックエンド サーバー SDK と連携](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)します。 
+このチュートリアルでは、チュートリアルからクライアント プロジェクトを更新します [Create a Xamarin Android app] Azure Mobile Apps のオフライン機能をサポートします。 ダウンロードしたクイック スタートのサーバー プロジェクトを使用しない場合は、データ アクセス拡張機能パッケージをプロジェクトに追加する必要があります。 サーバーの拡張機能パッケージの詳細については、次を参照してください。 [Azure モバイル アプリの .NET バックエンド サーバー SDK と連携](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)します。 
 
-オフライン同期機能の詳細については、「[Azure Mobile Apps でのオフライン データ同期]」を参照してください。
+オフライン同期機能の詳細については、トピックを参照してください。 [Offline Data Sync in Azure Mobile Apps]します。
 
 ## 必要条件
 
 * Visual Studio 2013
 * Visual Studio [Xamarin extension] **または** [Xamarin Studio]
-* [Xamarin Android アプリを作成する] このチュートリアルを完了します。 このチュートリアルはそのチュートリアルでカバーされている完成したアプリを使用します。
+* このチュートリアルを完了 [Create a Xamarin Android app]します。 このチュートリアルはそのチュートリアルでカバーされている完成したアプリを使用します。
 
 ## クライアント同期コードの確認
 
-チュートリアル [Xamarin Android アプリを作成する] が既に完了したときに、ダウンロードした Xamarin クライアント プロジェクトには、ローカル SQLite データベースを使用してオフラインの同期をサポートするコードが含まれています。 チュートリアルのコードにすでに含まれているものの概要を示します。 機能の概念的な概要については、[Azure Mobile Apps のオフライン データ同期] を参照してください。
+チュートリアルを完了したときにダウンロードした Xamarin クライアント プロジェクト [Create a Xamarin Android app] ローカル SQLite データベースを使用してオフラインの同期をサポートするコードが既に含まれています。 チュートリアルのコードにすでに含まれているものの概要を示します。 この機能の概念的な概要を参照してください。 [Offline Data Sync in Azure Mobile Apps]します。
 
 * テーブル操作を実行する前に、ローカル ストアを初期化する必要があります。 `ToDoActivity.OnCreate()` が `ToDoActivity.InitLocalStoreAsync()` を実行すると、ローカル ストアのデータベースが初期化されます。 これにより、Azure Mobile Apps クライアント SDK で提供される `MobileServiceSQLiteStore` クラスを使用して、新しいローカルの SQLite データベースが作成されます。 
  
@@ -72,7 +72,7 @@
 
     todoitem リストの更新、または todoitem の追加や完了があれば、提供されているコードは `ToDoActivity.SyncAsync()` を呼び出して同期します。 同期コンテキストへのプッシュや同期テーブルへのプルを実行するようなローカルの変更があれば毎回同期が行われます。 ただし、コンテキストによって追跡された保留中のローカル更新のあるテーブルに対してプルが実行される場合、そのプルの処理は自動的にコンテキストのプッシュを最初にトリガーします。 これら (項目の更新、追加、完了) のケースでは、明示的な `PushAsync` の呼び出しを省略できます。 冗長となるからです。
 
-    提供されたコードでは、リモートの `TodoItem` テーブルのすべてのレコードはクエリされますが、クエリ ID やクエリを `PushAsync` に渡すことでレコードをフィルター処理することも可能です。 詳細については、セクションを参照してください。 *増分同期* [Azure Mobile Apps のオフライン データ同期] にします。
+    提供されたコードでは、リモートの `TodoItem` テーブルのすべてのレコードはクエリされますが、クエリ ID やクエリを `PushAsync` に渡すことでレコードをフィルター処理することも可能です。 詳細については、セクションを参照してください。 *増分同期* で [Offline Data Sync in Azure Mobile Apps]します。
 
     <!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
     -->
@@ -150,7 +150,7 @@
 
 ## その他のリソース
 
-* [Azure のモバイル アプリでのオフライン データの同期]
+* [Azure モバイル アプリでのオフライン データ同期]
 
 * [Cloud Cover: Offline Sync in Azure Mobile Services] \ (注: ビデオは、モバイル サービスには、Azure モバイル アプリで同様の方法でのオフライン同期機能)
 
@@ -158,9 +158,9 @@
 
 [AZURE.INCLUDE [mobile-services-offline-summary-csharp](../../includes/mobile-services-offline-summary-csharp.md)]
 
-## 次のステップ
+## Next steps
 
-* [モバイル サービスのオフライン サポートでの競合を処理する]
+* [Handling conflicts with offline support for Mobile Services]
 
 * [How to use the Xamarin Component client for Azure Mobile Services]
  -->
@@ -177,4 +177,5 @@
 [Xamarin extension]: http://xamarin.com/visual-studio
 
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+
 

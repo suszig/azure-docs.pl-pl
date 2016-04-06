@@ -45,8 +45,9 @@
 
 はい、オフに異常なに関連する通知、Azure 管理ポータル内でのサインイン] をクリックして **構成**, 、し、[ **無効になっている** 下にある、 **通知** セクションです。
 
-## 参照トピック
+## 次の手順
 - 使用可能なセキュリティ、監査、およびアクティビティ レポートに興味がある場合は、 チェック アウト [Azure AD のセキュリティ、監査、およびアクティビティ レポート](active-directory-view-access-usage-reports.md)
 - [Azure Active Directory Premium の概要](active-directory-get-started-premium.md)
 - [サインイン ページとアクセス パネル ページに対する会社のブランドの追加](active-directory-add-company-branding.md)
+
 

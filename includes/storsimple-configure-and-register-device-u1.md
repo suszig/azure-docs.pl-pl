@@ -3,7 +3,7 @@
 
 ### デバイスを構成して登録するには
 
-1. StorSimple デバイスのシリアル コンソールで Windows PowerShell インターフェイス にアクセスします。 参照してください [デバイスのシリアル コンソールに接続するための PuTTY を使用して](#use-putty-to-connect-to-the-device-serial-console) についてです。 **手順に厳密に従うことを確認するまたはコンソールにアクセスすることはできません。**
+1. StorSimple デバイスのシリアル コンソールで Windows PowerShell インターフェイス にアクセスします。 参照してください [デバイスのシリアル コンソールに接続するための PuTTY を使用して](#use-putty-to-connect-to-the-device-serial-console) についてです。 **必ず手順を正確に実行してください。そうしないと、コンソールにアクセスできません。**
 
 2. 開いたセッションで、Enter キーを 1 回押して、コマンド プロンプトを開きます。 
 
@@ -15,7 +15,7 @@
 
     ![StorSimple によるデバイスの登録 2](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice2_U1-include.png)
   
-     手順 5. ～ 12. に従って、デバイスで必要な最小のネットワーク設定を構成します。 **これらの構成手順は、デバイスのアクティブなコント ローラーで実行する必要があります。**シリアル コンソール メニューでは、バナー メッセージにコントローラーの状態が示されます。 アクティブ コントローラーに接続されていない場合は、切断してアクティブ コントローラーに接続します。
+     手順 5. ～ 12. に従って、デバイスで必要な最小のネットワーク設定を構成します。 **これらの構成手順は、デバイスのアクティブ コントローラーで実行する必要があります。** シリアル コンソール メニューでは、バナー メッセージにコントローラーの状態が示されます。 アクティブ コントローラーに接続されていない場合は、切断してアクティブ コントローラーに接続します。
 
 5. コマンド プロンプトにパスワードを入力します。 デバイスの既定のパスワードは **Password1**します。
 
@@ -45,9 +45,9 @@
 
     ![StorSimple によるデバイスの登録 6](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice6_U1-include.png)
 
-12. デバイスが登録されると、サービス データ暗号化キーが表示されます。 このキーをコピーし、安全な場所に保存しておきます。 **このキーは、StorSimple Manager サービスに追加のデバイスを登録するサービス登録キーと共に必要になります。**参照してください [StorSimple のセキュリティ](../articles/storsimple/storsimple-security.md) このキーの詳細についてです。
+12. デバイスが登録されると、サービス データ暗号化キーが表示されます。 このキーをコピーし、安全な場所に保存しておきます。 **このキーは、StorSimple Manager サービスに追加のデバイスを登録するために、サービス登録キーと共に必要になります。** 参照してください [StorSimple のセキュリティ](../articles/storsimple/storsimple-security.md) このキーの詳細についてです。
     
-    ![StorSimple register device 7](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice7_U1-include.png)    
+    ![StorSimple によるデバイスの登録 7](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice7_U1-include.png)    
 
       > [AZURE.NOTE] シリアル コンソール ウィンドウからテキストをコピーするには、テキストを選択します。 その状態で、クリップボードまたは任意のテキスト エディターに貼り付けることができます。 サービス データ暗号化キーをコピーするときには、Ctrl キーを押しながら C キーを押さないでください。 Ctrl キーを押しながら C キーを押すと、セットアップ ウィザードが終了します。 その場合、デバイスの管理者パスワードは変更されず、デバイスは既定のパスワードに戻ります。
 
@@ -67,3 +67,4 @@
         HTTP 1.1 がサポートされていない場合は、ポート 9354 が発信方向の通信のために開かれていることを確認してください。 このポートは、StorSimple Manager サービスと StorSimple デバイスの間の通信に使用されます。
      
        
+

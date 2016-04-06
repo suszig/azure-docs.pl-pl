@@ -74,7 +74,7 @@ Azure SDK 2.7 に含まれているサインインの機能強化は、Visual St
 Web アプリ デプロイメント スロットのノードがサーバー エクスプローラーのスロット ノードに表示されません。また、Web アプリ デプロイ スロットの子ノードがクラウド エクスプローラーに読み込まれません。 この問題は解決され、次の SDK リリースに向けて準備されています。 
 
 
-###<a id="cloud_explorer"></a>Visual Studio 2015 のクラウド エクスプ ローラー
+###<a id="cloud_explorer"></a>Cloud Explorer for Visual Studio 2015
 
 Azure SDK 2.7 には、Azure リソースを表示し、そのプロパティを調べ、Visual Studio 内から開発者が重要な操作を実行できる、Visual Studio 2015 のクラウド エクスプローラーが含まれています。 
 
@@ -153,9 +153,10 @@ Visual Studio Community 2013 用のAzure SDK 2.6 または 2.7.1 を英語版以
 LightSwitch プロジェクトはこのリリースと互換性がありません。 この問題は、次の SDK のリリースで解決されます。
 
 ##関連トピック
-[Azure SDK 2.7.1 アナウンスの投稿](http://go.microsoft.com/fwlink/?LinkId=623850)
+[Azure SDK 2.7.1 の発表に関する投稿](http://go.microsoft.com/fwlink/?LinkId=623850)
 
 [Azure SDK 2.7 アナウンスの投稿](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)
 
 [Azure SDK for .NET および API のサポートと提供終了に関する情報](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
+
 

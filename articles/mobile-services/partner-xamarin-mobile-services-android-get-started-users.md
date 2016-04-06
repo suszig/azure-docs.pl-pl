@@ -29,11 +29,11 @@
 
 このチュートリアルでは、アプリケーションでの認証を有効にするための、次の基本的な手順について説明します。
 
-1. [認証用アプリの登録し、Mobile Services を構成する]
-2. [認証されたユーザーへのテーブルのアクセス許可を制限する]
-3. [アプリに認証の追加]
+1. [アプリケーションを認証に登録し、モバイル サービスを構成する]
+2. [テーブルのアクセス許可を、認証されたユーザーだけに制限する]
+3. [アプリケーションに認証を追加する]
 
-このチュートリアルは、Mobile Services のクイック スタートに基づいています。 先にチュートリアル「Mobile Services の使用」を完了している必要があります。
+このチュートリアルは、モバイル サービスのクイック スタートに基づいています。 また、最初のチュートリアルを完了する必要があります [Get started with Mobile Services]します。
 
 このチュートリアルを完了するには、Xamarin.Android および Android SDK 4.2 以降のバージョンが必要です。
 
@@ -47,7 +47,7 @@
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-3. Xamarin Studio で、チュートリアルを完了したときに作成したプロジェクトを開く [を使ってみるモバイル サービス] です。
+3. Xamarin Studio で、チュートリアルを完了したときに作成したプロジェクトを開く [Get started with Mobile Services]します。
 
 4.  **実行** ] メニューのをクリックして **デバッグを開始** にアプリを起動します。 アプリケーションの開始後に、状態コード 401 (許可されていません) のハンドルされない例外が発生することを確認します。
 
@@ -117,11 +117,11 @@
     ログインに成功すると、アプリケーションはエラーなしで実行されます。また、Mobile Services を照会してデータを更新できるようになります。
 
 ## 完成したサンプルの入手
-[完成したサンプル プロジェクト] をダウンロードします。 必ず更新して、 **applicationURL** と **applicationKey** 変数を独自の Azure 設定でします。
+ダウンロード、 [completed example project]します。 必ず更新して、 **applicationURL** と **applicationKey** 変数を独自の Azure 設定でします。
 
 ## <a name="next-steps"></a>次のステップ
 
-次は、チュートリアルでは、[ユーザーの認証のスクリプト] で、ユーザー ID 値になりますが、認証されたユーザーに基づいてモバイル サービスによって提供され、モバイル サービスから返されたデータをフィルター処理に使用します。
+次のチュートリアルでは、 [Authorize users with scripts], 、認証されたユーザーに基づいてモバイル サービスによって提供されるユーザー ID 値を受け取り、モバイル サービスから返されたデータをフィルター処理に使用します。
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
@@ -141,4 +141,5 @@
 [Get started with Mobile Services]: partner-xamarin-mobile-services-android-get-started.md
 [Authorize users with scripts]: mobile-services-javascript-backend-service-side-authorization.md
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331328
+
 

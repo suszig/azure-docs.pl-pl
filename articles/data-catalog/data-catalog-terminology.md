@@ -83,7 +83,8 @@ Azure Data Catalog では、登録されているデータ資産を説明する�
 
 ## 関連項目
 
-- [Azure Data Catalog は何ですか?](data-catalog-what-is-data-catalog.md) -この記事では、Azure Data Catalog サービス、もたらされる価値、サポートしているシナリオの概要を示します。
+- [Azure Data Catalog とは何ですか](data-catalog-what-is-data-catalog.md) -この記事では、Azure Data Catalog サービス、もたらされる価値、サポートしているシナリオの概要を示します。
 
 - [Azure Data Catalog を使ってみる](data-catalog-get-started.md) -この記事は、データ ソースの検出に Azure Data Catalog を使用する方法を説明するエンド ツー エンド チュートリアルを紹介します。  
+
 

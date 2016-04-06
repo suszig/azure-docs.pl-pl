@@ -16,7 +16,7 @@
     ms.date="10/20/2015" 
     ms.author="sunliangms;fashah;garye;bradsev" /> 
 
-#<a name="heading"></a>Azure でサンプル データを blob ストレージ
+#<a name="heading"></a>Azure BLOB ストレージのデータをサンプリングする
 
 これは、 **メニュー** 記憶域のさまざまな環境からのデータをサンプリングする方法を説明するトピックへのリンク。 このタスクは、Cortana Analytics Process (CAP) の 1 ステップです。
 
@@ -62,7 +62,7 @@
 
     これで、上記の 1 パーセントのサンプルのデータ フレームを操作して、さらなる探索および特徴の生成を行えるようになりました。
 
-##<a name="heading"></a>データをアップロードし、Azure Machine Learning に読み込む
+##<a name="heading"></a>データをアップロードし、Azure Machine Learning で読み取る
 
 次のサンプル コードを使用すると、次のようにデータをダウンサンプリングして、 Azure ML で直接使用することができます。
 
@@ -102,3 +102,4 @@
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
+

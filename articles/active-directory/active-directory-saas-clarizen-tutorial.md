@@ -85,7 +85,7 @@
 
 5.  ユーザー名をクリックし、 **設定**します。
 
-    ![設定](./media/active-directory-saas-clarizen-tutorial/IC784685.png "Settings")
+    ![[設定]](./media/active-directory-saas-clarizen-tutorial/IC784685.png "Settings")
 
 6.  をクリックして、 **グローバル設定** ] タブで、し、 **Federated Authentication**, 、] をクリックして **編集**します。
 
@@ -147,4 +147,5 @@ Clarizen の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-clarizen-tutorial/IC767830.png "Yes")
 
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+
 

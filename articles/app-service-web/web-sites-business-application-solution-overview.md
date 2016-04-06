@@ -28,7 +28,7 @@
 -  インフラストラクチャの購入と管理よりもアプリケーションの開発に集中できます。
 -  従業員やパートナーが任意の場所からアプリケーションを使用する際のサポートが強化されます。 アプリケーションを使用する際、ユーザーは社内ネットワークに接続する必要がありません。IT スタッフは複雑なリバース プロキシの設定から解放されます。 社内アプリケーションへのアクセスを保護する手段として、いくつかの認証方式があります。
 
-以下は、App Service Web Apps で実行されている、基幹業務アプリケーションの例です。 技術的な投資を最小限に抑えて、Web Apps をその他のサービスを構成することにより実現可能なことを図解しています。 **クリックして詳細をご覧トポグラフィ内の要素についてです。** 
+以下は、App Service Web Apps で実行されている、基幹業務アプリケーションの例です。 技術的な投資を最小限に抑えて、Web Apps をその他のサービスを構成することにより実現可能なことを図解しています。 **トポグラフィ内の要素をクリックして、詳細をご覧ください。** 
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/web-app-notitle.svg" width="100%" height="100%"></object>
 
@@ -124,4 +124,5 @@ Azure やサードパーティー製のツールで Web アプリのパフォー
 [How to: Receive Alert Notifications and Manage Alert Rules in Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 
  
+
 

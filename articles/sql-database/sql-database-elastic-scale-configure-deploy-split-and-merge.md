@@ -134,7 +134,7 @@ Web ロール:
 6. というラベルが付いたチェック ボックスを必ず **1 つまたは複数のロールに単一のインスタンスが含まれる場合でもデプロイ** がオンになっています。
 7. 右下のチェック マークをクリックしてデプロイを開始します。 完了には数分かかります。
 
-![Upload][4]
+![アップロード][4]
 
 
 ## デプロイのトラブルシューティング
@@ -335,4 +335,5 @@ Split-Merge サービスはターゲット データベース (またはデー�
 [4]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/upload.png
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
+
 

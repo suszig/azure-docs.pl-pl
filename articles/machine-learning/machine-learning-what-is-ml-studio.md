@@ -92,10 +92,10 @@ Machine Learning Studio に含まれるサンプル データセットの一覧�
 
 モジュールとは、データに対して実行できるアルゴリズムのことです。 Machine Learning Studio には、データの受信機能や、データのトレーニング、スコア付け、検証などに対応したさまざまなモジュールが用意されています。 提供されるモジュールには以下のようなものがあります。
 
-- [ARFF への変換][変換-を-arff] - は、.NET でシリアル化されたデータセットを属性関係ファイル フォーマット (ARFF) を変換します。
-- [基本的な統計][基本の統計] には、平均、標準偏差などの基本的な統計を計算します。
-- [線形回帰][回帰直線] - オンライン傾斜降下に基づく線形回帰モデルを作成します。
-- [モデルのスコア付け]スコアのモデルでは、トレーニングされた分類または回帰モデルをスコアです。
+- [ARFF への変換][convert-to-arff] -.NET でシリアル化されたデータセットを属性関係ファイル フォーマット (ARFF) に変換します。
+- [基本的な統計][elementary-statistics] -平均や標準偏差などの基本的な統計を計算します。
+- [線形回帰][linear-regression] -オンライン傾斜降下に基づく線形回帰モデルを作成します。
+- [モデルのスコア付け][score-model] -トレーニングされた分類または回帰モデルをスコア付けします。
 
 利用可能なモジュールは、実験を作成するときにキャンバスの左側の一覧から選択できます。  
 
@@ -114,4 +114,5 @@ Machine Learning Studio に含まれるサンプル データセットの一覧�
 [elementary-statistics]: https://msdn.microsoft.com/library/azure/3086b8d4-c895-45ba-8aa9-34f0c944d4d3/
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
+
 

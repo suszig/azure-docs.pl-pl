@@ -29,7 +29,7 @@ Identity Management As A Service (IDMaaS) プラットフォームとして Azur
 
 1. [アプリケーションを Azure Active Directory と統合する](active-directory-integrating-applications.md): 追加、更新、および Azure Active Directory、および統合されたアプリケーションのブランド化ガイドラインについては、アプリケーションを削除する方法について説明します。
 
-1. [Azure の Active Directory Graph API](active-directory-graph-api.md): プログラムで使用する REST API エンドポイントを介して Azure Active Directory にアクセスする Azure Active Directory Graph API を使用します。 Azure AD Graph API は、を通じてアクセスも [Graph](https://graph.microsoft.io/), 、統合する複数の Microsoft クラウド サービスの Api と 1 つのアクセス トークンを使用して、1 つの REST API エンドポイントを介してアクセスできるようにする API。
+1. [Azure の Active Directory Graph API](active-directory-graph-api.md): プログラムで使用する REST API エンドポイントを介して Azure Active Directory にアクセスする Azure Active Directory Graph API を使用します。 Azure AD Graph API は、を通じてアクセスも [Graph](https://graph.microsoft.io/), 、複数の Microsoft クラウド サービスに Api と単一のアクセス トークンを使用して、1 つの REST API エンドポイントを介してアクセスできるようにする API を統合します。
 
 1. [Azure Active Directory 認証ライブラリ](active-directory-authentication-libraries.md): 簡単に Azure 認証ライブラリを使用してアクセス トークンを取得するユーザーを認証します。
 
@@ -137,4 +137,5 @@ Azure Active Directory を使用したアプリケーションの開発に関す
 - [Cloud Identity](http://www.cloudidentity.net): からプリンシパル Azure Active Directory PM、サービスとしての id 管理に関する考察します。  
 
 - [Twitter での azure Active Directory](https://twitter.com/azuread): 140 文字以下の Azure Active Directory のお知らせします。
+
 

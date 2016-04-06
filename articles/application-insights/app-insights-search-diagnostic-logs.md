@@ -21,7 +21,7 @@
 
 カスタム イベント、例外レポート、およびトレースを送信するコードを記述することもできます。 log4J、log4net、NLog、System.Diagnostics.Trace などのログ記録フレームワークを既に使用している場合は、これらのログをキャプチャして検索に含めることができます。 このようにすると、ユーザーの操作、例外、その他のイベントをログ トレースと簡単に関連付けられるようになります。
 
-## <a name="send"></a>カスタム テレメトリを記述する前に
+## <a name="send"></a>カスタム テレメトリを作成する前に
 
 まだインストールしていない場合 [Application Insights をプロジェクトの設定][start], はすぐに実行します。
 
@@ -37,7 +37,7 @@
 
 ## サンプリング 
 
-アプリケーションが送信するデータ量が多く、Application Insights SDK for ASP.NET バージョン 2.0.0-beta3 以降を使用している場合は、アダプティブ サンプリング機能が動作して、テレメトリの一定の割合のみが送信される可能性があります。 [サンプリングについて説明します。](app-insights-sampling.md)
+アプリケーションが送信するデータ量が多く、Application Insights SDK for ASP.NET バージョン 2.0.0-beta3 以降を使用している場合は、アダプティブ サンプリング機能が動作して、テレメトリの一定の割合のみが送信される可能性があります。 [サンプリングの詳細については、こちらを参照してください。](app-insights-sampling.md)
 
 
 ##<a name="events"></a>カスタム イベント
@@ -137,7 +137,7 @@ log4Net、NLog、System.Diagnostics.Trace といった、ログ記録フレー�
   + Microsoft.ApplicationInsights.NLogTarget
   + Microsoft.ApplicationInsights.Log4NetAppender
 
-NuGet パッケージは、必要なアセンブリをインストールし、web.config または app.config も変更します。
+NuGet パッケージは、必要なアセンブリをインストールし、web.config や app.config も変更します。
 
 #### <a name="pepper"></a>診断ログの呼び出しを挿入する
 
@@ -258,7 +258,7 @@ Application Insights のレポート未処理の例外をどこから入手で�
         .Add(new MyTelemetryInitializer());
     }
 
-###<a name="requests"></a> サーバーの Web 要求
+###<a name="requests"></a> サーバー Web 要求
 
 製品利用統計情報が自動的に送信を要求する [、web サーバーに Status Monitor をインストール][redfield], 、またはする [Application Insights を web プロジェクトに追加][greenbrown]します。 また、このテレメトリは、メトリック エクスプローラーの要求と応答のタイムチャートや概要ページにもフィードされます。
 
@@ -278,7 +278,7 @@ Application Insights をインストールしないでログ アダプターの 
 
 ### マイ イベントまたはトレースの一部が表示されません
 
-アプリケーションが送信するデータ量が多く、Application Insights SDK for ASP.NET バージョン 2.0.0-beta3 以降を使用している場合は、アダプティブ サンプリング機能が動作して、テレメトリの一定の割合のみが送信される可能性があります。 [サンプリングについて説明します。](app-insights-sampling.md)
+アプリケーションが送信するデータ量が多く、Application Insights SDK for ASP.NET バージョン 2.0.0-beta3 以降を使用している場合は、アダプティブ サンプリング機能が動作して、テレメトリの一定の割合のみが送信される可能性があります。 [サンプリングの詳細については、こちらを参照してください。](app-insights-sampling.md)
 
 
 ## <a name="add"></a>次のステップ
@@ -304,3 +304,4 @@ Application Insights をインストールしないでログ アダプターの 
 [usage]: app-insights-web-track-usage.md
 
  
+

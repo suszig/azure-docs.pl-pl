@@ -59,12 +59,12 @@ Microsoft のビッグ データ ソリューションでは、Microsoft ビジ�
 ---|---
 データ ソース名|データ ソースに名前を付けます。
 ホスト|次に、 <HDInsightClusterName>。 >.azurehdinsight.net です。 たとえば、「myHDICluster.azurehdinsight.net」と入力します。
-Port|最初の起動時にドメインに参加しているマシンになるように VM をプロビジョニングするには、 <strong>使用します</strong>. (このポートは 563 から 443 に変更されました)。
-データベース|最初の起動時にドメインに参加しているマシンになるように VM をプロビジョニングするには、 <strong>既定値</strong>.
-Hive サーバーの種類|[ <strong>選択します。</strong>
-メカニズム|[ <strong>Azure HDInsight サービス</strong>
+ポート|<strong>443</strong> を使用します。 (このポートは 563 から 443 に変更されました)。
+データベース|<strong>既定値</strong>を使用します。
+Hive サーバーの種類|<strong>Hive Server 2</strong> を選択します。
+メカニズム|<strong>Azure HDInsight サービス</strong>を選択します。
 HTTP パス|空白のままにします。
-ユーザー名|HDInsight クラスター ユーザーのユーザー名を入力します。 これは、クラスターのプロビジョニング処理中に作成されるユーザー名です。 簡易作成オプションを使用する場合、既定のユーザー名は <strong>admin</strong>.
+ユーザー名|HDInsight クラスター ユーザーのユーザー名を入力します。 これは、クラスターのプロビジョニング処理中に作成されるユーザー名です。 簡易作成オプションを使用する場合、既定のユーザー名は <strong>admin</strong> です。
 パスワード|HDInsight クラスター ユーザーのパスワードを入力します。
 </table>
 
@@ -130,4 +130,5 @@ HTTP パス|空白のままにします。
 [img-HiveOdbc-DataSource-AdvancedOptions]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
+
 

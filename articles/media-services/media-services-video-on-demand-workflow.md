@@ -28,7 +28,7 @@ Media Services は既存のツールとプロセスに統合できます。 た�
 次の図は、ビデオ オンデマンド ワークフローに関連する Media Services プラットフォームの主要な部分を示しています。
 ![VoD ワークフロー][vod-overview]
 
-##<a id="vod_scenarios"></a>一般的なシナリオ: メディア オンデマンドの配信
+##<a id="vod_scenarios"></a>一般的なシナリオ: メディアのオンデマンド配信
 
 ###ストレージのコンテンツを保護し、ストリーミング メディアを平文 (暗号化されていない) で配信する
 
@@ -102,4 +102,5 @@ players.md)。
 
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
+
 

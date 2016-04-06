@@ -75,7 +75,7 @@
 
 | 言語 | 短いサンプル | 再試行のサンプル | オブジェクトにリレーショナル |
 | :-- | :-- | :-- | :-- |
-| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [カスタムの ADO.NET](sql-database-develop-csharp-retry-windows.md)<br/><br/>[Enterprise Library](sql-database-develop-entlib-csharp-retry-windows.md) | (Entity Framework) |
+| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [カスタムの ADO.NET](sql-database-develop-csharp-retry-windows.md)<br/><br/>[エンタープライズ ライブラリ](sql-database-develop-entlib-csharp-retry-windows.md) | (Entity Framework) |
 | C++ | [ODBC ドライバー](http://msdn.microsoft.com/library/azure/hh974312.aspx) | . | . |
 | Java | [されています。 JDK、JDBC。 Insert、Transaction を選択します。](sql-database-develop-java-simple-windows.md) | . | . |
 | Node.js | [msnodesql](sql-database-develop-nodejs-simple-windows.md) | . | . |
@@ -88,10 +88,11 @@
 
 - [多数の言語とプラットフォーム向けの SDK とツールのダウンロード](http://azure.microsoft.com/downloads/#cmd-line-tools)
 - [SQL Database および SQL Server の接続ライブラリ](sql-database-libraries.md)
-- [一時的なエラーの数値コードの一覧](sql-database-develop-error-messages.md#bkmk_connection_errors)<br/>& nbsp;
+- [一時的なエラーの数値コードの一覧](sql-database-develop-error-messages.md#bkmk_connection_errors)<br/>&nbsp;
 - [Azure SQL Database 開発作業の方法に関するトピック](http://msdn.microsoft.com/library/azure/ee621787.aspx)
 - [SQL Database への接続: リンク、ベスト プラクティスと設計のガイドライン](sql-database-connect-central-recommendations.md)
 - [最初の Azure SQL データベースを作成する](sql-database-get-started.md)
 - [Entity Framework 6 here, EF 7 on GitHub (Entity Framework 6、GitHub における EF7)](http://entityframework.codeplex.com/)
+
 
 

@@ -5,10 +5,11 @@
  
     ![サインインして SQL Database を管理する](./media/mobile-services-dotnet-backend-view-sql-data/manage-sql-azure-database.png)
 
-2. ポータルで、クエリを実行して Windows ストア アプリによって加えられた変更を表示します。 クエリは次のクエリのようになりますの代わりに、データベース名を使用 <code>todolist</code>.</p>
+2. ポータルで、クエリを実行して Windows ストア アプリによって加えられた変更を表示します。 クエリは次のクエリのようになりますの代わりにデータベースの名前を使用して <code>todolist</code>します。</p>
 
         SELECT * FROM [todolist].[todoitems]
 
     ![SQL Database に格納された項目をクエリする](./media/mobile-services-dotnet-backend-view-sql-data/sql-azure-query.png)
 
     テーブルに Id、__createdAt、__updatedAt、__version の各列があることに注意してください。 これらの列をサポートしてオフラインのデータを同期させで実装された、 [EntityData](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx) 基本クラスです。 詳細については「オフライン データ同期の使用」を参照してください。
+

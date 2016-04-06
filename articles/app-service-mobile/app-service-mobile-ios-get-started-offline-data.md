@@ -117,49 +117,49 @@ Core Data オフライン ストアを使用するときは、データ モデ�
 
     ![][defining-core-data-tableoperations-entity]
 
-    | 属性  |    型     |
-    |----------- |   ------    |
-    | id         | Integer 64  |
-    | itemId     | String      |
-    | プロパティ | Binary Data |
-    | テーブル      | String      |
-    | tableKind  | Integer 16  |
+  	| 属性  |    型     |
+  	|----------- |   ------    |
+  	| id         | Integer 64  |
+  	| itemId     | String      |
+  	| プロパティ | Binary Data |
+  	| テーブル      | String      |
+  	| tableKind  | Integer 16  |
 
     <br>**MS_TableOperationErrors**
 
     ![][defining-core-data-tableoperationerrors-entity]
 
-    | 属性  |    型     |
-    |----------- |   ------    |
-    | id         | String      |
-    | operationId | Integer 64 |
-    | プロパティ | Binary Data |
-    | tableKind  | Integer 16  |
+  	| 属性  |    型     |
+  	|----------- |   ------    |
+  	| id         | String      |
+  	| operationId | Integer 64 |
+  	| プロパティ | Binary Data |
+  	| tableKind  | Integer 16  |
 
     <br>**MS_TableConfig**
 
     ![][defining-core-data-tableconfig-entity]
 
-    | 属性  |    型     |
-    |----------- |   ------    |
-    | id         | String      |
-    | key        | String      |
-    | keyType    | Integer 64  |
-    | テーブル      | String      |
-    | 値      | String      |
+  	| 属性  |    型     |
+  	|----------- |   ------    |
+  	| id         | String      |
+  	| key        | String      |
+  	| keyType    | Integer 64  |
+  	| テーブル      | String      |
+  	| 値      | String      |
 
     ### データ テーブル
 
     **TodoItem**
 
-    | 属性    |  型   | 注                                                   |
-    |-----------   |  ------ | -------------------------------------------------------|
-    | id           | 文字列、必須のマーク  | リモート ストア内のプライマリ キー                            |
-    | 完了     | Boolean | Todo 項目フィールド                                        |
-    | テキスト         | String  | Todo 項目フィールド                                        |
-    | createdAt | 日付    | (省略可能) createdAt システム プロパティにマップします。         |
-    | updatedAt | 日付    | (省略可能) updatedAt システム プロパティにマップします。         |
-    | version   | String  | (省略可能) 競合の検出に使用され、バージョンにマップします。 |
+  	| 属性    |  型   | 注                                                   |
+  	|-----------   |  ------ | -------------------------------------------------------|
+  	| id           | 文字列、必須のマーク  | リモート ストア内のプライマリ キー                            |
+  	| 完了     | Boolean | Todo 項目フィールド                                        |
+  	| テキスト         | String  | Todo 項目フィールド                                        |
+  	| createdAt | 日付    | (省略可能) createdAt システム プロパティにマップします。         |
+  	| updatedAt | 日付    | (省略可能) updatedAt システム プロパティにマップします。         |
+  	| version   | String  | (省略可能) 競合の検出に使用され、バージョンにマップします |
 
 
 ## <a name="setup-sync"></a>アプリケーションの同期動作を変更する
@@ -248,4 +248,5 @@ Azure Mobile Apps に対する通常の CRUD 操作は、アプリケーショ�
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
+
 

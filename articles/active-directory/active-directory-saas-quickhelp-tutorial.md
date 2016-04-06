@@ -93,13 +93,13 @@ QuickHelp で Azure AD のシングル サインオンを構成してテスト�
 **QuickHelp で Azure AD シングル サインオンを構成するには、次の手順に従います。**
 
 1. Azure AD ポータルでの **クイック ヘルプ** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、 **シングル サインオンを構成する**  ダイアログ。
-<br><br> ![でのシングル サインオンを構成する][6] <br>
+<br><br> ![シングル サインオンを構成します。][6] <br>
 
 2.  **どのようなユーザーへのクイック ヘルプにアクセス** ] ページで、[ **Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 <br><br> ![Azure AD シングル サインオン][7] <br>
 
 3.  **アプリケーション設定の構成** ] ダイアログ ページで、次の手順を実行します。
-<br><br>![アプリ設定の構成][8] <br>
+<br><br>![アプリ設定を構成します。][8] <br>
  
      a.  **サインオン URL** ユーザーがクイック ヘルプ サイト (e.g.:* https://quickhelp.com/bsiazure/*) にサインオンする URL を使用] ボックスに、型です。
 
@@ -109,7 +109,7 @@ QuickHelp で Azure AD のシングル サインオンを構成してテスト�
 
  
 4.  **クイック ヘルプでのシングル サインオンの構成** ] ページで、次の手順:「実行 **メタデータのダウンロード**, しコンピューター ローカルにメタデータ ファイルを保存します。
-<br><br>![Azure AD Connect は、どのような][9] <br>
+<br><br>![Azure AD Connect とは][9] <br>
 
 
 
@@ -156,7 +156,7 @@ QuickHelp で Azure AD のシングル サインオンを構成してテスト�
 
 ### Azure AD のテスト ユーザーの作成
 このセクションの目的は、Azure ポータルで Britta Simon というテスト ユーザーを作成することです。<br>
-ユーザーの一覧で選択 **Britta Simon**.<br><br>![Azure AD ユーザーを作成します。][20]<br>
+ユーザーの一覧で選択 **Britta Simon**します。<br><br>![Azure AD ユーザーを作成します。][20]<br>
 
 **Azure AD でテスト ユーザーを作成するには、次の手順に従います。**
 
@@ -165,11 +165,11 @@ QuickHelp で Azure AD のシングル サインオンを構成してテスト�
 
 2.  **ディレクトリ** 一覧で、ディレクトリ統合を有効にディレクトリを選択します。
 
-3. 上部のメニューで、ユーザーの一覧を表示する] をクリックして **ユーザー**.<br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_03.png) <br>
+3. 上部のメニューで、ユーザーの一覧を表示する] をクリックして **ユーザー**します。<br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_03.png) <br>
  
 4. 開くには、 **ユーザーの追加** ] ダイアログ ボックスで、下部にあるツールバーをクリックして **ユーザーの追加**します。 <br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_04.png)<br> 
 
-5.  **このユーザーについてお聞かせ** ] ダイアログ ページで、次の手順を実行します <br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_05.png) 。<br>
+5.  **このユーザーについてお聞かせ** ] ダイアログ ページで、次の手順を実行します。 <br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_05.png) <br>
 
     a. [ユーザーの種類] として [組織内の新しいユーザー] を選択します。
 
@@ -178,7 +178,7 @@ QuickHelp で Azure AD のシングル サインオンを構成してテスト�
     c. クリックして **次**します。
 
 6.   **ユーザー プロファイル** ] ダイアログ ページで、次の手順を実行します。 
-<br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_06.png) <br>
+<br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_06.png) <br>
  
     a.  **名** ] ボックスに「 **Britta**します。  
 
@@ -190,10 +190,10 @@ QuickHelp で Azure AD のシングル サインオンを構成してテスト�
     e. クリックして **次**します。
 
 7.  **一時パスワードの取得** ダイアログ ページで、をクリックして **作成**します。
-<br><br> ![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_07.png) <br>
+<br><br> ![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_07.png) <br>
  
 8.  **一時パスワードの取得** ] ダイアログ ページで、次の手順を実行します。
-<br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_08.png) <br>
+<br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_08.png) <br>
   
     a. 値を書き留めて、 **新しいパスワード**します。
 
@@ -283,6 +283,7 @@ QuickHelp では、ジャストインタイム プロビジョニングがサポ
 [400]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_400.png
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
+
 
 
 

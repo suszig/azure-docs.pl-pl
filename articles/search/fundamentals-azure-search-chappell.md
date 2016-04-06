@@ -39,6 +39,7 @@
 
 **ダウンロード:** 
 
-* <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">「Introducing 概要 Azure Search"(PDF)</a>
-* <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">「Introducing 概要 Azure Search"(Microsoft Word)</a> 
+* <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">「Introducing Azure Search (Azure Search の概要)」 (PDF)</a>
+* <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">Azure Search の概要に関するドキュメント (Microsoft Word)</a> 
+
 

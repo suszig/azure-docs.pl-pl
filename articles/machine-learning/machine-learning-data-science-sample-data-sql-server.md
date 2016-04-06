@@ -16,7 +16,7 @@
     ms.date="10/20/2015" 
     ms.author="fashah;garye;bradsev" /> 
 
-#<a name="heading"></a>Azure 上の SQL Server のサンプル データ
+#<a name="heading"></a>Azure の SQL Server 内のデータのサンプリング
 
 これは、 **メニュー** 記憶域のさまざまな環境からのデータをサンプリングする方法を説明するトピックへのリンク。 このタスクは、Cortana Analytics Process (CAP) の 1 ステップです。
 
@@ -30,7 +30,7 @@ Python のサンプリングは、 [pyodbc](https://code.google.com/p/pyodbc/) A
 
 >[AZURE.NOTE] このドキュメントでサンプルの SQL コードでは、データが Azure 上の SQL Server であると仮定します。 いない場合を参照してください [Azure に SQL Server にデータを移動する](machine-learning-data-science-move-sql-server-virtual-machine.md) 手順については、Azure で SQL Server にデータを移行する方法に関するトピック。
 
-##<a name="SQL"></a>SQL を使用する
+##<a name="SQL"></a>SQL の使用
 
 このセクションでは、SQL を使用して、データベース内のデータに対して簡単なランダム サンプリングを実行するいくつかの方法について説明します。 データのサイズとその分布に基づいて方法を選択してください。
 
@@ -55,7 +55,7 @@ Python のサンプリングは、 [pyodbc](https://code.google.com/p/pyodbc/) A
 >[AZURE.NOTE] 調査して、新しいテーブルに格納することによってこのサンプリングされたデータから特徴を生成したことができます。
 
 
-###<a name="sql-aml"></a>Azure Machine Learning に接続する
+###<a name="sql-aml"></a>Azure Machine Learning への接続
 
 実行時にデータをダウン サンプリングし、Azure ML の実験に取り込みます、Azure ML リーダー モジュールで上記のサンプル クエリを直接使用することができます。 リーダー モジュールを使用してサンプリングされたデータを読み取るスクリーン ショットを次に示します。
    
@@ -78,7 +78,7 @@ Python のサンプリングは、 [pyodbc](https://code.google.com/p/pyodbc/) A
 
 これで、Pandas データ フレームでサンプリングされたデータを操作できるようになりました。 
 
-###<a name="python-aml"></a>Azure Machine Learning に接続する
+###<a name="python-aml"></a>Azure Machine Learning への接続
 
 次のサンプル コードを使用すると、ダウンサンプリングされたデータをファイルに保存し、Azure BLOB にアップロードすることができます。 Blob 内のデータを Azure ML Experiment に直接読み込むことができますを使用して、 *リーダー モジュール*します。 手順は次のとおりです。 
 
@@ -120,3 +120,4 @@ Cortana Analytics プロセスのエンド ツー エンドのチュートリア
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
 
  
+

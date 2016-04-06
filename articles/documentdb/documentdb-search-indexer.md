@@ -34,7 +34,7 @@ A **データソース** インデックスを作成する必要がデータあ�
 - スケジュールに従ってデータ ソースの変更とインデックスを同期する。 スケジュールは、インデクサーの定義の一部です。
 - 必要に応じてインデックスのオンデマンド更新を呼び出す。 
 
-##<a id="CreateDataSource"></a>手順 1: データ ソースを作成します。
+##<a id="CreateDataSource"></a>手順 1: データ ソースを作成する
 
 HTTP POST 要求を発行して、次の要求ヘッダーを含む新しいデータ ソースを Azure Search サービスに作成します。
     
@@ -119,7 +119,7 @@ HTTP POST 要求を発行して、次の要求ヘッダーを含む新しいデ�
 
 データ ソースが正常に作成された場合は、HTTP 201 Created 応答を受け取ります。
 
-##<a id="CreateIndex"></a>手順 2: インデックスを作成します。
+##<a id="CreateIndex"></a>手順 2: インデックスを作成する
 
 ターゲットの Azure Search インデックスがまだない場合は、インデックスを作成します。 これを行うことができます、 [Azure クラシック ポータル UI](../search-get-started.md#test-service-operations) またはを使用して、 [インデックス作成 API](https://msdn.microsoft.com/library/azure/dn798941.aspx)します。
 
@@ -168,7 +168,7 @@ HTTP POST 要求を発行して、次の要求ヘッダーを含む新しいデ�
 
 インデックスが正常に作成された場合、HTTP 201 Created 応答を受け取ります。
 
-##<a id="CreateIndexer"></a>手順 3: インデクサーを作成します。
+##<a id="CreateIndexer"></a>手順 3: インデクサーを作成する
 
 HTTP POST 要求を次のヘッダーと共に使用して、Azure Search サービス内に新しいインデクサーを作成できます。
     
@@ -209,7 +209,7 @@ HTTP POST 要求を次のヘッダーと共に使用して、Azure Search サー
 
 インデクサーが正常に作成された場合、HTTP 201 Created 応答を受け取ります。
 
-##<a id="RunIndexer"></a>手順 4: インデクサーを実行します。
+##<a id="RunIndexer"></a>手順 4: インデクサーを実行する
 
 スケジュールに従って定期的に実行されるだけでなく、次の HTTP POST 要求を発行して、オンデマンドでインデクサーを呼び出すこともできます。 
 
@@ -220,7 +220,7 @@ HTTP POST 要求を次のヘッダーと共に使用して、Azure Search サー
 
 インデクサーが正常に呼び出された場合、HTTP 202 Accepted 応答を受け取ります。
 
-##<a name="GetIndexerStatus"></a>手順 5: インデクサー状態を取得します。
+##<a name="GetIndexerStatus"></a>手順 5: インデクサーの状態を取得する
 
 HTTP GET 要求を発行して、インデクサーの現在の状態と実行の履歴を取得することができます。 
 
@@ -269,4 +269,5 @@ HTTP GET 要求を発行して、インデクサーの現在の状態と実行�
 
  - Azure Search についての詳細については、次のようにクリックします。 [ここ](/services/search/)します。
  
+
 

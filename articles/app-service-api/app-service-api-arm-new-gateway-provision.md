@@ -35,7 +35,7 @@
 - 新しいゲートウェイ
 - 新しい App Service ホスティング プラン
 
-デプロイメントを自動的に実行するには、次のボタンをクリックします。
+展開を自動的に実行するには、次のボタンをクリックします。
 
 [![DAzure に eploy](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-app-gateway-new%2Fazuredeploy.json)
 
@@ -310,4 +310,5 @@ API アプリを作成します。
 
 
  
+
 

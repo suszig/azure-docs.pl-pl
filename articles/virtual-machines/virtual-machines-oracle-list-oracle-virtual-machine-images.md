@@ -1,12 +1,12 @@
-< プロパティ"
-pageTitle ="title ="リストの Oracle VM イメージ |Microsoft Azure]
-description =「Azure ギャラリーで Oracle イメージの一覧を取得およびいずれかに基づく Oracle 仮想マシンを作成する方法について説明します」。
-サービス =「仮想マシン」
+<properties"
+pageTitle="タイトル ="List of Oracle VM images | Microsoft Azure"
+description="Azure ギャラリーで Oracle イメージの一覧を取得し、いずれかに基づく Oracle 仮想マシンを作成する方法を参照します。"
+services="virtual-machines"
 documentationCenter=""
-authors ="bbenz"
-manager =""
-エディター =""
-タグ =「azure サービスの管理、azure リソース マネージャー」/>
+authors="bbenz"
+manager=""
+editor=""
+tags="azure-service-management, azure-resource-manager"/>
 
 <tags
 ms.service="virtual-machines"
@@ -67,7 +67,8 @@ Azure の Oracle Linux 上で実行される、事前に構成された利用可
 - Oracle Linux 7.0.0.0.0
 
 ##その他のリソース
-[Azure Marketplace での新しい一体型の Oracle イメージ](https://msopentech.com/blog/2015/02/19/new-one-oracle-images-azure-marketplace/)
+[Azure Marketplace の新しい一体型の Oracle イメージ](https://msopentech.com/blog/2015/02/19/new-one-oracle-images-azure-marketplace/)
 
 [Oracle 仮想マシン イメージ - 他の考慮事項](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
+
 

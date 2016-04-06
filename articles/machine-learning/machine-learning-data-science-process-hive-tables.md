@@ -16,7 +16,7 @@
     ms.date="12/11/2015"
     ms.author="hangzh;bradsev" />
 
-#<a name="heading"></a> Advanced Analytics Process and Technology で HDInsight Hadoop クラスターに Hive クエリを送信します。 
+#<a name="heading"></a>Advanced Analytics Process and Technology で HDInsight Hadoop クラスターに Hive クエリを送信する 
 
 このドキュメントでは、Azure の HDInsight サービスが管理する Hadoop クラスターに Hive クエリを送信するさまざまな方法について説明します。 このタスクは、Cortana Analytics Process (CAP) の一部です。 いくつかのデータを処理するタスク (データの探索および特徴の生成) について説明します。 Azure の HDInsight Hadoop クラスターで Hive を使用してデータの探索や特徴の生成を行う方法を示す汎用の Hive クエリを紹介します。 これらの Hive クエリでは、用意されている埋め込みの Hive のユーザー定義関数 (UDF) を使用します。
 
@@ -41,7 +41,7 @@ Hive クエリは、次のアプリケーションを使用して送信できま
 * **Hive エディター**
 * **PowerShell** スクリプト
 
-Hive クエリは SQL に似ています。 SQL を使い慣れているユーザーを見つけることがあります、 <a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">SQL の Hive のチート シート</a> 便利です。
+Hive クエリは SQL に似ています。 SQL を使い慣れているユーザーには、<a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">SQL-to-Hive チート シート</a>が役立つ場合があります。
 
 Hive クエリの送信時、Hive クエリの出力先を、画面上、ヘッド ノード上のローカル ファイル、または Azure BLOB のどれにするか制御できます。
 
@@ -224,7 +224,7 @@ Hive テーブルでデータを探索するために使用する、いくつか
 
 リスクのテーブルが計算されると、リスクの値をリスクのテーブルと結合して、リスクの値をテーブルに割り当てることができます。 Hive 結合クエリは、前のセクションで用意されました。
 
-###<a name="hive-datefeatures"></a>[Datetime] フィールドから特徴を抽出する
+###<a name="hive-datefeatures"></a>[Datetime] フィールドからの特徴の抽出
 
 Hive には、[datetime] フィールドを処理するための UDF のセットが付属します。 Hive では、既定の datetime 形式は 'yyyy-MM-dd 00:00:00' (例: '1970-01-01 12:21:32') です。 このセクションでは、[datetime] フィールドから日と月を抽出する例、および既定の形式以外の datetime 文字列を既定の形式の datetime 文字列に変換する例を示します。
 
@@ -246,14 +246,14 @@ Hive には、[datetime] フィールドを処理するための UDF のセッ�
  *Hivesampletable* このクエリですべての Azure HDInsight Hadoop クラスターに既定ではときに、プレインストール、クラスターをプロビジョニングします。
 
 
-###<a name="hive-textfeatures"></a>[Text] フィールドから特徴を抽出する
+###<a name="hive-textfeatures"></a>[Text] フィールドからの特徴の抽出
 
 Hive テーブルに、スペースで区切られた単語から成る文字列を含む [Text] フィールドがある場合、次のクエリは、文字列の長さと文字列内の単語数を抽出します。
 
         select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num
         from <databasename>.<tablename>;
 
-###<a name="hive-gpsdistance"></a>GPS 座標のセット間の距離を計算する
+###<a name="hive-gpsdistance"></a>GPS 座標のセット間の距離の計算
 
 このセクションで指定されたクエリは、NYC タクシー乗車データに直接適用できます。 このクエリの目的は、特徴を生成する Hive の組み込みの数学関数を適用する方法を示すことです。
 
@@ -281,7 +281,7 @@ Hive テーブルに、スペースで区切られた単語から成る文字列
 
 Hive の組み込み Udf が見つかりませんの完全な一覧、 **組み込み関数** セクションで、 <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>)。  
 
-## <a name="tuning"></a> 高度なトピック: Hive パラメーターを調整してクエリ速度を向上させる
+## <a name="tuning"></a>高度なトピック: Hive パラメーターを調整してクエリ速度を向上させる
 
 Hive クラスターの既定のパラメーター設定は、Hive クエリおよびクエリが処理するデータに適していないことがあります。 このセクションでは、Hive クエリのパフォーマンスを向上させるためにユーザーが調整できるパラメーターのいくつかについて説明します。 ユーザーは、データ処理のクエリの前に、パラメーター調整クエリを追加する必要があります。
 
@@ -318,4 +318,5 @@ Hive クラスターの既定のパラメーター設定は、Hive クエリお�
 
 
  
+
 

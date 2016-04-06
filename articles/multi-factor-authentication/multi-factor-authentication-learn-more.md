@@ -21,7 +21,7 @@
 
 次に、Azure Multi-Factor Authentication で使用できるすべての機能をフルに活用するうえで役立つその他のリソースのコレクションを示します。
 
-## ドキュメント
+## Documentation
 
 [IIS 認証を使用した MFA サーバーの設定](https://msdn.microsoft.com/library/azure/dn394291.aspx)
 
@@ -37,3 +37,4 @@
 
 
  
+

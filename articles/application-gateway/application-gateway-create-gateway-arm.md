@@ -22,9 +22,9 @@ Application Gateway はロード バランサーの第 7 層です。 クラウ�
 
 
 > [AZURE.SELECTOR]
-- [Azure の従来の PowerShell ステップ](application-gateway-create-gateway.md)
-- [Azure リソース マネージャーの PowerShell](application-gateway-create-gateway-arm.md)
-- [Azure リソース マネージャーのテンプレート ](application-gateway-create-gateway-arm-template.md)
+- [Azure クラシックの PowerShell の手順](application-gateway-create-gateway.md)
+- [Azure Resource Manager の PowerShell](application-gateway-create-gateway-arm.md)
+- [Azure Resource Manager テンプレート ](application-gateway-create-gateway-arm-template.md)
 
 
 <BR>
@@ -192,7 +192,7 @@ Application Gateway のインスタンスのサイズを構成します。
 
 ## Application Gateway の起動
 
-ゲートウェイを構成したら、`Start-AzureRmApplicationGateway` コマンドレットを使用してゲートウェイを起動します。 アプリケーション ゲートウェイの課金は、ゲートウェイが正常に起動された後に開始します。 
+ゲートウェイを構成したら、`Start-AzureRmApplicationGateway` コマンドレットを使用してゲートウェイを起動します。 Application Gateway の課金は、ゲートウェイが正常に起動された後に開始します。 
 
 
 **注:** 、 `Start-AzureRmApplicationGateway` コマンドレットは最大 15 ~ 20 分かかる場合があります。 
@@ -416,5 +416,6 @@ ILB とともに使用するアプリケーション ゲートウェイを構成
 
 - [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure の Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
+
 
 

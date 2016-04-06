@@ -26,9 +26,9 @@
 ## 概要
 このトピックでは、独自の Mobile Services 認証トークンを発行して、Azure Mobile Services .NET バックエンドでユーザーを認証する方法について説明します。 このチュートリアルでは、アプリケーションのカスタム ユーザー名とパスワードを使用して、クイック スタート プロジェクトに認証を追加します。
 
->[AZURE.NOTE] このチュートリアルでは、カスタムの資格情報を使用して Mobile Services を認証するための高度な方法を示します。 多くのアプリケーションでは、代わりに組み込みのソーシャル ID プロバイダーを使用する方法が最適であり、ユーザーは Facebook、Twitter、Google、Microsoft アカウント、および Azure Active Directory を介してログインすることができます。 初めてのモバイル サービスでの認証の使用の場合は、[認証アプリを追加する] このチュートリアルを参照してください。
+>[AZURE.NOTE] このチュートリアルでは、カスタムの資格情報を使用して Mobile Services を認証するための高度な方法を示します。 多くのアプリケーションでは、代わりに組み込みのソーシャル ID プロバイダーを使用する方法が最適であり、ユーザーは Facebook、Twitter、Google、Microsoft アカウント、および Azure Active Directory を介してログインすることができます。 初めてのモバイル サービスでの認証の使用の場合を参照してください、 [Add authentication to your app] チュートリアルです。
 
-このチュートリアルは、Mobile Services のクイック スタートに基づいています。 先にチュートリアル「Mobile Services の使用」を完了している必要があります。
+このチュートリアルは、モバイル サービスのクイック スタートに基づいています。 また、最初のチュートリアルを完了する必要があります [Get started with Mobile Services]します。
 
 >[AZURE.IMPORTANT] このチュートリアルの目的では、モバイル サービスの認証トークンを発行する方法を説明します。 このチュートリアルは、セキュリティに関するガイダンスを示すものではありません。 アプリケーションを開発する際には、パスワードの保存がセキュリティに及ぼす影響について認識し、ブルート フォース攻撃に対応する戦略を用意する必要があります。
 
@@ -426,4 +426,5 @@ Visual Studio 2013 を使用している場合、必要に応じて、`WindowsAz
 
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
+
 

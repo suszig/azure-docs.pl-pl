@@ -85,7 +85,7 @@
 --- | ---
 9350 ～ 9354 | これらのポートはデータ転送に使用されます。 Service Bus Relay マネージャーはポート 9350 を調べて、TCP 接続を利用できるかどうかを決定します。 利用できる場合は、ポート 9352 も利用可能であるとみなされます。 データ トラフィックはポート 9352 を経由します。 <br/><br/>これらのポートへの発信接続を許可します。
 5671 | ポート 9352 がデータ トラフィックに使用される場合、ポート 5671 は制御チャンネルとして使用されます。 <br/><br/>このポートへの発信接続を許可します。
-80、443 | これらのポートは Azure へのデータ要求に使用されます。 また、ポート 9352 と 5671 を使用しない場合、 *し* ポート 80 と 443 がデータ転送と制御チャネルに使用される代替のポート<br/><br/>。これらのポートへの発信接続を許可します。 <br/><br/>**注** 他の TCP ポートの代わりに代替のポートとしてこれらを使用することは推奨はされません。 HTTP/WebSocket はデータ チャンネルのネイティブ TCP ではなくプロトコルとして使用されます。 パフォーマンスの低下を招く可能性があります。
+80、443 | これらのポートは Azure へのデータ要求に使用されます。 また、ポート 9352 と 5671 を使用しない場合、 *し* ポート 80 と 443 がデータ転送と制御チャネルに使用される代替のポートです。<br/><br/>これらのポートへの発信接続を許可します。 <br/><br/>**注** 他の TCP ポートの代わりに代替のポートとしてこれらを使用することは推奨はされません。 HTTP/WebSocket はデータ チャンネルのネイティブ TCP ではなくプロトコルとして使用されます。 パフォーマンスの低下を招く可能性があります。
 
 
 
@@ -94,18 +94,19 @@
 [作成し、ハイブリッド接続の管理](integration-hybrid-connection-create-manage.md)<br/>
 [Azure の web サイトを内部設置型リソースに接続します。](../web-sites-hybrid-connection-get-started.md)<br/>
 [Azure の web アプリから内部設置型 SQL Server に接続します。](../web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/>
-[Azure のモバイル サービスとハイブリッド接続](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)
+[Connect to an on-premises SQL Server from Azure mobile services using Hybrid Connections (ハイブリッド接続を使用した Azure モバイル サービスから内部設置型 SQL Server への接続)](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)
 
 
 ## 関連項目
 
-[Microsoft Azure での BizTalk サービスを管理するための REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx)
-[BizTalk サービス: エディションのチャート](biztalk-editions-feature-chart.md)<br/>
+[Microsoft Azure での BizTalk サービス管理の REST API に関するページ](http://msdn.microsoft.com/library/azure/dn232347.aspx)
+[BizTalk サービス: 開発者、基本、標準、およびプレミアム エディションのチャート](biztalk-editions-feature-chart.md)<br/>
 [Azure ポータルを使用して BizTalk サービスを作成します。](biztalk-provision-services.md)<br/>
-[BizTalk サービス: ダッシュ ボード、モニター、スケール タブ](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+[BizTalk サービス: [ダッシュボード]、[監視]、および [スケール] タブに関するページ](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
+
 

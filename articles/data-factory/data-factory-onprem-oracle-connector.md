@@ -293,14 +293,15 @@ XML | String
 1. .NET Provider for Oracle をインストールしていない場合は、次のようにしてください。 [インストール](http://www.oracle.com/technetwork/topics/dotnet/utilsoft-086879.html) シナリオを再試行してください。 
 2. プロバイダーをインストールしてもエラー メッセージが表示される場合は、次の操作を行います。 
     1. フォルダーから .NET 2.0 のマシン構成を開きます。 <system disk>: \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config です。
-    2. 検索 **.NET 用の Oracle データ プロバイダー**, 、下にある次のようなエントリを検索することができ、 **system.data** ]-> [ **DbProviderFactories**:
-            "、カルチャ = neutral, PublicKeyT for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />"
+    2. 検索 **.NET 用の Oracle データ プロバイダー**, 、下にある次のようなエントリを検索することができ、 **system.data** ]-> [ **DbProviderFactories**:**system.data** [elow -> します。 **DbProviderFactories**:
+            “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
 2.  このエントリを次の v4.0 フォルダーに、machine.config ファイルにコピーします。 <system disk>: \Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config、および 4.xxx.x.x するバージョンを変更します。
 3.  実行中"gacutil/i [プロバイダーのパス]"して、グローバル アセンブリ キャッシュ (GAC) に"< インストール パスが ODP.NET > \11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll"をインストールします。
 
 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
+
 
 
 

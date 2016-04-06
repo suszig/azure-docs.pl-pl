@@ -36,7 +36,7 @@
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=iot-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    > [AZURE.NOTE] これは、1 つの長いコマンドです。 コマンド ライン ツールに貼り付ける場合は、完全なコマンドをコピーしてください。
+    > [AZURE.NOTE] これは、単一の長いコマンドです。 コマンド ライン ツールに貼り付ける場合は、完全なコマンドをコピーしてください。
 
     このコマンドは、という名前のプロジェクト フォルダーを作成します。 *iot デバイス* 、標準的な Maven プロジェクトの構造を持ちます。 詳細については、次を参照してください。 [5 分間に Maven][maven-five-minutes] Apache web サイトです。
 
@@ -229,5 +229,6 @@ AMQP フレームをログ記録するには、コマンド環境に環境変数
 [devbox-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/doc/devbox_setup.md
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 [lnk-iothub-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/doc/provision_device.md
+
 
 

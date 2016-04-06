@@ -27,7 +27,7 @@
 
 > [AZURE.NOTE]Azure Marketplace テンプレートで作成された VM は、リモートの docker クライアントによる管理のための Docker リモート API をホストしていません。 この VM に Docker ホストをリモートで管理できるように、表示されること [HTTPS による Docker の実行](https://docs.docker.com/articles/https/) かの手順に従って [Azure クラシック ポータルから Docker VM 拡張機能を使用して](virtual-machines-docker-with-portal.md) または [Azure CLI から Docker VM 拡張機能を使用して](virtual-machines-docker-with-xplat-cli-install.md)します。 
 <!-- -->
-Windows Azure の Docker VM を自動化する場合は、 [install the Docker Toolbox](https://docs.docker.com/installation/windows/) Docker.exe を取得または [from Chocolatey](https://chocolatey.org/packages/docker)します。
+Windows Azure の Docker VM を自動化する場合は、 [Docker ツールボックスをインストール](https://docs.docker.com/installation/windows/) Docker.exe を取得または [Chocolatey から](https://chocolatey.org/packages/docker)します。
 
 ## ポータルへのログオン
 
@@ -79,4 +79,5 @@ Docker コマンドを発行する、この Azure VM で、既定の構成が必
 [Canonical]: http://www.canonical.com/
 [MSOpenTech]: http://msopentech.com/
  
+
 

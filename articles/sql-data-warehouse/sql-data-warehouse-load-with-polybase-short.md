@@ -24,7 +24,7 @@
 - [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
-このチュートリアルでは説明する Azure SQL Data Warehouse にデータを読み込む方法 PolyBase を使用します。  PolyBase に関する詳細については、[SQL データ ウェアハウスのチュートリアル」で PolyBase] を参照してください。
+このチュートリアルでは説明する Azure SQL Data Warehouse にデータを読み込む方法 PolyBase を使用します。  PolyBase に関する詳細についてを参照してください [SQL データ ウェアハウスのチュートリアル」で PolyBase][]します。
 
 
 ## 前提条件
@@ -55,7 +55,7 @@
 
 ## 手順 2: Azure BLOB ストレージにデータを移行する
 
-- [最新のバージョンをダウンロード AzCopy]。
+- ダウンロード、 [最新バージョンの AzCopy][]します。
 - コマンド ウィンドウを開き、AzCopy.exe が格納されている、コンピューターの AzCopy インストール ディレクトリに移動します。 既定では、インストール ディレクトリは 64 ビット Windows コンピューター ProgramFiles(x86) %\Microsoft SDKs\Azure\AzCopy\ % です。
 - 次のコマンドを実行してファイルをアップロードします。 /DestKey には Azure ストレージ アカウント キーを指定します。
 
@@ -63,7 +63,7 @@
 .\AzCopy.exe /Source:C:\Temp\ /Dest:https://pbdemostorage.blob.core.windows.net/datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
 ```
 
-AzCopy に関する詳細については、の [はじめに AzCopy コマンド ライン ユーティリティの] を参照してください。
+AzCopy に関する詳細についてを参照してください [AzCopy コマンド ライン ユーティリティの概要][]します。
 
 
 ## 手順 3: 外部テーブルを作成する
@@ -183,4 +183,5 @@ create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 <!--Article references-->
 
 [Statistics]: ./sql-data-warehouse-develop-statistics.md
+
 

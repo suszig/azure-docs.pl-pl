@@ -75,15 +75,15 @@
 
 1.  Azure AD ポータルでの **Sprinklr** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-sprinklr-tutorial/IC782903.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-sprinklr-tutorial/IC782903.png "Configure single sign-on")
 
 2.   **どのようなユーザーの Sprinklr へのアクセス** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 
-    ![Configure single sign-on](./media/active-directory-saas-sprinklr-tutorial/IC782904.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-sprinklr-tutorial/IC782904.png "Configure single sign-on")
 
 3.   **アプリケーション URL の構成** ] ページの [、 **Sprinklr Sign In URL** ] ボックスに、次のパターンを使用して URL を入力"*https://\<tenant-name\>.sprinklr.com*"、] をクリックし、 **次**します。
 
-    ![Configure App URL](./media/active-directory-saas-sprinklr-tutorial/IC782905.png "Configure App URL")
+    ![アプリケーション URL の構成](./media/active-directory-saas-sprinklr-tutorial/IC782905.png "Configure App URL")
 
 4.   **Sprinklr でのシングル サインオンの構成** ] ページで、証明書をダウンロードする] をクリックして **証明書のダウンロード**, 、お使いのコンピューターに証明書ファイルを保存します。
 
@@ -126,7 +126,7 @@
 
 10. Azure AD ポータルでのシングル サインオンの構成情報を選択し、 **完了** を閉じる、 **[シングル サインオン** ダイアログ。
 
-    ![シングル サインオンの構成](./media/active-directory-saas-sprinklr-tutorial/IC782912.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-sprinklr-tutorial/IC782912.png "Configure single sign-on")
 
 ##ユーザー プロビジョニングの構成
   
@@ -139,15 +139,15 @@ AAD ユーザーがサインインできるようにするには、ユーザー�
 
 2.  移動して **管理 \ > 設定**します。
 
-    ![Administration](./media/active-directory-saas-sprinklr-tutorial/IC782907.png "Administration")
+    ![管理](./media/active-directory-saas-sprinklr-tutorial/IC782907.png "Administration")
 
 3.  移動して **クライアントの管理 \ > ユーザー** 左側のペインからです。
 
-    ![設定](./media/active-directory-saas-sprinklr-tutorial/IC782914.png "Settings")
+    ![[設定]](./media/active-directory-saas-sprinklr-tutorial/IC782914.png "Settings")
 
 4.  クリックして **ユーザーを追加**します。
 
-    ![設定](./media/active-directory-saas-sprinklr-tutorial/IC782915.png "Settings")
+    ![[設定]](./media/active-directory-saas-sprinklr-tutorial/IC782915.png "Settings")
 
 5.   **編集ユーザー** ] ダイアログ ボックスで、次の手順を実行します。
 
@@ -187,3 +187,4 @@ AAD ユーザーがサインインできるようにするには、ユーザー�
     ![あり](./media/active-directory-saas-sprinklr-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

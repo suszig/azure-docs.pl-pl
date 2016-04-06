@@ -77,7 +77,7 @@ Azure AD への Kindling の統合を構成するには、ギャラリーから�
 ##  Azure AD シングル サインオンの構成とテスト
 このセクションの目的は、"Britta Simon" というテスト ユーザーに基づいて、Kindling で Azure AD のシングル サインオンを構成し、テストする方法について説明することです。
 
-シングル サインオンを機能させるには、Azure AD ユーザーに対応する Kindling ユーザーが Azure AD で認識されている必要があります。 言い換えると、Azure AD ユーザーと Kindling の関連ユーザーの間で、リンク関係が確立されている必要があります。<br>
+シングル サインオンを機能させるには、Azure AD ユーザーに対応する Kindling ユーザーが Azure AD で認識されている必要があります。 つまり、Azure AD のユーザーと Kindling に関連するユーザーの間のリンクの関係を確立する必要があります。<br>
 値を割り当てることでこのリンクの関係が確立される、 **ユーザー名** の値として Azure AD で、 **Username** Kindling にします。
  
 Kindling で Azure AD のシングル サインオンを構成してテストするには、次の構成要素を完了する必要があります。
@@ -99,13 +99,13 @@ Kindling のシングル サインオンを構成するには、登録済みの�
 **Kindling で Azure AD シングル サインオンを構成するには、次の手順に従います。**
 
 1. Azure AD ポータルでの **Kindling** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、 **シングル サインオンを構成する**  ダイアログ。
-<br><br> ![でのシングル サインオンを構成する][6] <br>
+<br><br> ![シングル サインオンを構成します。][6] <br>
 
 2.  **どのような Kindling にサインオン** ] ページで、[ **Azure AD シングル サインオン**, 、順にクリック **次**します。
-<br><br> ![でのシングル サインオンを構成する](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_03.png) <br>
+<br><br> ![シングル サインオンを構成します。](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_03.png) <br>
 
 3.  **アプリケーション設定の構成** ] ダイアログ ページで、次の手順を実行します。 します。
-<br><br>![シングル サインオンを構成する](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_04.png) <br>
+<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_04.png) <br>
 
 
     a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Kindling application (e.g.: *https://fabrikam.Kindling.com/*).
@@ -116,7 +116,7 @@ Kindling のシングル サインオンを構成するには、登録済みの�
  
  
 4.  **Kindling でのシングル サインオンの構成** ] ページで、次の手順を実行します。
-<br><br>![シングル サインオンを構成する](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_05.png) <br>
+<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_05.png) <br>
 
     a. クリックして **証明書のダウンロード**, 、お使いのコンピューター上のファイルを保存します。
 
@@ -135,23 +135,23 @@ Kindling のシングル サインオンを構成するには、登録済みの�
 
 ### Azure AD のテスト ユーザーの作成
 このセクションの目的は、Azure ポータルで Britta Simon というテスト ユーザーを作成することです。<br>
-ユーザーの一覧で選択 **Britta Simon**.<br><br>![Azure AD ユーザーを作成します。][20]<br>
+ユーザーの一覧で選択 **Britta Simon**します。<br><br>![Azure AD ユーザーを作成します。][20]<br>
 
 **Azure AD でテスト ユーザーを作成するには、次の手順に従います。**
 
 1.  **Azure 管理ポータル**, 、左側のナビゲーション ウィンドウで、次のようにクリックします。 **Active Directory**します。
-<br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-kindling-tutorial/create_aaduser_09.png) <br> 
+<br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-kindling-tutorial/create_aaduser_09.png) <br> 
 
 2.  **ディレクトリ** 一覧で、ディレクトリ統合を有効にディレクトリを選択します。
 
 3. 上部のメニューで、ユーザーの一覧を表示する] をクリックして **ユーザー**します。
-<br><br> ![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-kindling-tutorial/create_aaduser_03.png) <br>
+<br><br> ![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-kindling-tutorial/create_aaduser_03.png) <br>
  
 4. 開くには、 **ユーザーの追加** ] ダイアログ ボックスで、下部にあるツールバーをクリックして **ユーザーの追加**します。 
-<br><br> ![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-kindling-tutorial/create_aaduser_04.png) <br>
+<br><br> ![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-kindling-tutorial/create_aaduser_04.png) <br>
 
 5.  **このユーザーについてお聞かせ** ] ダイアログ ページで、次の手順を実行します。 
-<br><br> ![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-kindling-tutorial/create_aaduser_05.png) <br> 
+<br><br> ![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-kindling-tutorial/create_aaduser_05.png) <br> 
 
     a. [ユーザーの種類] として [組織内の新しいユーザー] を選択します。
 
@@ -160,7 +160,7 @@ Kindling のシングル サインオンを構成するには、登録済みの�
     c. クリックして **次**します。
 
 6.   **ユーザー プロファイル** ] ダイアログ ページで、次の手順を実行します。 
-<br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-kindling-tutorial/create_aaduser_06.png) <br>
+<br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-kindling-tutorial/create_aaduser_06.png) <br>
  
     a.  **名** ] ボックスに「 **Britta**します。  
 
@@ -172,10 +172,10 @@ Kindling のシングル サインオンを構成するには、登録済みの�
     e. クリックして **次**します。
 
 7.  **一時パスワードの取得** ダイアログ ページで、をクリックして **作成**します。
-<br><br> ![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-kindling-tutorial/create_aaduser_07.png) <br>
+<br><br> ![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-kindling-tutorial/create_aaduser_07.png) <br>
  
 8.  **一時パスワードの取得** ] ダイアログ ページで、次の手順を実行します。
-<br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-kindling-tutorial/create_aaduser_08.png) <br>
+<br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-kindling-tutorial/create_aaduser_08.png) <br>
   
     a. 値を書き留めて、 **新しいパスワード**します。
 
@@ -204,7 +204,7 @@ Kindling では、ジャストインタイム プロビジョニングがサポ�
 <br><br>![ユーザーを割り当てる][201] <br>
 
 2. アプリケーションの一覧で選択 **Kindling**します。
-<br><br>![シングル サインオンを構成する](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_50.png) <br>
+<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_50.png) <br>
 
 1. 上部にあるメニュー [ **ユーザー**します。
 <br><br>![ユーザーを割り当てる][203] <br>
@@ -245,6 +245,7 @@ Kindling では、ジャストインタイム プロビジョニングがサポ�
 [203]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_205.png
+
 
 
 

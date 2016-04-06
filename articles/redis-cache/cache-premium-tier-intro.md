@@ -22,9 +22,9 @@ Azure Redis Cache は、データへの超高速アクセスを提供するこ�
 新しい Premium レベルは、Standard 階層の全機能に加えて、パフォーマンスの向上、ワークロードの増加、障害復旧、セキュリティの強化などを備えたエンタープライズ対応のレベルです。 Premium キャッシュ レベルの追加機能の詳細をお知りになりたい場合は、このドキュメントを引き続きお読みください。
 
 ## Standard/Basic レベルを超えるパフォーマンス
-**高いパフォーマンス標準または基本的な層です。**Premium レベルのキャッシュは、高速プロセッサを備え、Basic/Standard レベルと比較して優れたパフォーマンスを発揮するハードウェア上にデプロイされます。 Premium レベルのキャッシュは、スループットが高く、待機時間が低くなっています。 
+**Standard/Basic レベルを超えるパフォーマンス。** Premium レベルのキャッシュは、高速プロセッサを備え、Basic/Standard レベルと比較して優れたパフォーマンスを発揮するハードウェア上にデプロイされます。 Premium レベルのキャッシュは、スループットが高く、待機時間が低くなっています。 
 
-**同じサイズのキャッシュのスループットは、Standard レベルと比較して Premium では高くなります。**例: 53 GB のキャッシュ P4 のスループットの (Premium) が 150 C6 K と比較して 1 秒あたりの 250 K 要求 (標準)。
+**同じサイズのキャッシュでも Standard レベルと比べて Premium のスループットの方が高い。** 例: 53 GB のキャッシュ P4 のスループットの (Premium) が 150 C6 K と比較して 1 秒あたりの 250 K 要求 (標準)。
 
 参照してください、 [Azure Redis キャッシュに関する FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) サイズ、スループット、およびプレミアム キャッシュの帯域幅の詳細についてです。
 
@@ -36,7 +36,7 @@ Premium レベルでは、Azure Storage アカウント内のキャッシュ デ
 ##Redis クラスター
 53 GB を超えるキャッシュを作成するか、複数の Redis ノード間でデータを共有する場合、Premium レベルで利用可能な Redis クラスタリングを使用することができます。 各ノードは、Azure によって管理される高可用性対応のプライマリ/レプリカ キャッシュのペアで構成されています。 
 
-**最大小数点以下桁数は、redis クラスタ リングおよび全体でします。**クラスター内のシャード (ノード) の数を増やすと、スループットは直線的に増加します。 例: 10 個のシャードの P4 クラスターを作成する場合は、使用可能なスループットの 250 K * 10 = 1 秒あたりの 250万要求します。 参照してください、 [Azure Redis キャッシュに関する FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) サイズ、スループット、およびプレミアム キャッシュの帯域幅の詳細についてです。
+**Redis クラスタリングでは、スケールとスループットを最大限に利用できます。** クラスター内のシャード (ノード) の数を増やすと、スループットは直線的に増加します。 例: 10 個のシャードの P4 クラスターを作成する場合は、使用可能なスループットの 250 K * 10 = 1 秒あたりの 250万要求します。 参照してください、 [Azure Redis キャッシュに関する FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) サイズ、スループット、およびプレミアム キャッシュの帯域幅の詳細についてです。
 
 クラスタ リングで開始するを参照してください。 [Premium Azure Redis Cache のクラスタ リングを構成する方法](cache-how-to-premium-clustering.md)します。
 
@@ -53,5 +53,6 @@ Basic/Standard レベルで作成されたキャッシュは、パブリック �
 -   [Premium Azure Redis Cache の Virtual Network のサポートを構成する方法](cache-how-to-premium-vnet.md)
 -   [How to configure clustering for a Premium Azure Redis Cache (Premium Azure Redis Cache のクラスタリングの構成方法)](cache-how-to-premium-clustering.md)
   
+
 
 

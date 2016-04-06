@@ -43,7 +43,7 @@ DSC は一連の Windows PowerShell 言語拡張機能、新しい Windows Power
 PowerShell DSC の詳細については、次を参照してください: [devops - Windows PowerShell Desired State Configuration の構成。](http://blogs.msdn.com/b/powershell/archive/2013/11/01/configuration-in-a-devops-world-windows-powershell-desired-state-configuration.aspx)
 
 ##Azure Automation DSC とは##
-Azure Automation DSC は、構成管理をより容易にするために PowerShell DSC で導入された基礎をベースとします。 Azure Automation DSC では、同じ管理レイヤーを表示 [PowerShell Desired State Configuration](https://technet.microsoft.com/library/dn249912.aspx) <link> ように Azure Automation には、今日は PowerShell スクリプトです。
+Azure Automation DSC は、構成管理をより容易にするために PowerShell DSC で導入された基礎をベースとします。 Azure Automation DSC では、同じ管理レイヤーを表示 [PowerShell Desired State Configuration](https://technet.microsoft.com/library/dn249912.aspx) <link> Azure Automation は、今日は PowerShell スクリプトを提供します。
 
 Azure Automation DSC を使用する [およびや PowerShell Desired State Configuration を管理する](https://technet.microsoft.com/library/dn249918.aspx), 、インポート [DSC リソース](https://technet.microsoft.com/library/dn282125.aspx), 、しながら、クラウドをすべて DSC ノード構成 (MOF ドキュメント) を生成します。 これらの DSC 項目は、Azure Automation に配置されます [DSC プル サーバー](https://technet.microsoft.com/library/dn249913.aspx) されるためのターゲット ノード (物理および仮想マシン) など、クラウドまたは内部設置型は、それらを選択ことができます、自動的に状態に準拠して、目的を指定し、Azure Automation に目的の状態の準拠に関するレポートを返します。
 
@@ -145,4 +145,5 @@ Azure Automation DSC には現在では、以下のコマンドレットが提�
 - [Azure Automation DSC コマンドレット](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Azure Automation DSC の価格設定](http://azure.microsoft.com/pricing/details/automation/)
 - [Azure Automation DSC を使用した IaaS Vm に継続的なデプロイし、Chocolatey](オートメーション-dsc-cd-chocolatey.md)
+
 

@@ -33,7 +33,7 @@
 ##Engagement SDK を iOS プロジェクトに埋め込む
 
 IOS SDK をダウンロードから [ここ](http://aka.ms/qk2rnj)します。
-エンゲージメント SDK を iOS プロジェクトに追加: Xcode で、プロジェクトと選択] を右クリックして **"Add files to..."** を選択し、 `EngagementSDK` フォルダーです。
+エンゲージメント SDK を iOS プロジェクトに追加: Xcode で、プロジェクトと選択] を右クリックして **"Add files to...]** 選択し、 `EngagementSDK` フォルダーです。
 
 Engagement では追加のフレームワークを動作させる必要がある: プロジェクト エクスプローラーでプロジェクト ペインを開き、適切なターゲットを選択します。 実行して [、 **"Build phases"** ] タブをクリックし、[、 **"Link Binary With Libraries"** ] メニューの [これらのフレームワークを追加します。
 
@@ -105,13 +105,13 @@ Engagement では追加のフレームワークを動作させる必要がある
 
 Apple の規約では、統計の目的に限定されたアプリケーションでの場所の追跡の使用は認められていません。 このため、アプリケーションが他の目的でも場所の追跡機能を使用する場合にのみ、場所レポートを有効にすることをお勧めします。
 
-IOS 8 以降では、アプリケーションの Info.plist ファイルにキー [NSLocationWhenInUseUsageDescription] または [NSLocationAlwaysUsageDescription] の文字列を設定して、アプリがロケーション サービスを使用する方法の説明を提供する必要があります。 Engagement を使って背景で場所をレポートするには、キー NSLocationAlwaysUsageDescription を追加します。 それ以外の場合は、キー NSLocationWhenInUseUsageDescription を追加します。
+IOS 8 以降では、キーの文字列を設定して、アプリがロケーション サービスを使用する方法の説明を指定する必要があります [NSLocationWhenInUseUsageDescription] または [NSLocationAlwaysUsageDescription] アプリケーションの Info.plist ファイルにします。 Engagement を使って背景で場所をレポートするには、キー NSLocationAlwaysUsageDescription を追加します。 それ以外の場合は、キー NSLocationWhenInUseUsageDescription を追加します。
 
 ### 大まかなエリアの位置報告
 
 大まかなエリアの位置報告では、デバイスに関連付けられた国、リージョン、地域をレポートできます。 このタイプの場所レポートでは、セル ID または WIFI に基づいたネットワークの場所のみを使用します。 デバイス エリアがセッションごとに最大 1 回レポートされます。 GPS を使用しないため、このタイプの場所レポートでは、まったくとは言わないまでも、電力消費量にほとんど影響がありません。
 
-報告されたエリアを基に、ユーザー、セッション、イベント、エラーに関する地理的な統計をコンピューティングします。 また、リーチ キャンペーンの条件としても使用されます。 [デバイス API] に協力してくれた、デバイスで報告された最後の既知のエリアを取得できます。
+報告されたエリアを基に、ユーザー、セッション、イベント、エラーに関する地理的な統計をコンピューティングします。 また、リーチ キャンペーンの条件としても使用されます。 最後の既知のエリアに感謝します。 デバイスを取得できる報告、 [Device API]します。
 
 大まかなエリアの位置報告を有効にするには、Engagement エージェントを初期化した後、次の行を追加します。
 
@@ -147,7 +147,7 @@ IOS 8 以降では、アプリケーションの Info.plist ファイルにキ�
 
 > [AZURE.NOTE] ネットワーク ベースの場所にのみ、バック グラウンドで、アプリケーションが実行するときに、報告された、GPS を有効になっている場合でもです。
 
-この関数の実装は、アプリケーションが背景になったときに [startMonitoringSignificantLocationChanges] を呼び出します。 これにより、新しい場所イベントが発生すると、アプリケーションが背景に自動的に再起動されることに注意してください。
+この関数の実装を呼び出す [startMonitoringSignificantLocationChanges] 、アプリケーションが背景になったとします。 これにより、新しい場所イベントが発生すると、アプリケーションが背景に自動的に再起動されることに注意してください。
 
 ##詳細な報告
 
@@ -158,7 +158,7 @@ IOS でエンゲージメント API (およびの技術文書で、 `EngagementA
 
 ##IDFA コレクションの無効化
 
-既定では、エンゲージメントは、ユーザーを一意に識別するために、[IDFA] を使用します。 ただし、アプリの他の場所で広告を使用していない場合、App Store のレビュー プロセスで拒否される場合があります。 IDFA コレクションは、プリプロセッサのマクロ `ENGAGEMENT_DISABLE_IDFA` を pch ファイル (またはアプリケーションの `Build Settings`) に追加することによって無効にできます。 これにより、アプリケーション ビルドの `ASIdentifierManager`、`advertisingIdentifier`、`isAdvertisingTrackingEnabled` への参照がないことを確認できます。
+エンゲージメントを使用する既定では、 [IDFA] ユーザーを一意に識別します。 ただし、アプリの他の場所で広告を使用していない場合、App Store のレビュー プロセスで拒否される場合があります。 IDFA コレクションは、プリプロセッサのマクロ `ENGAGEMENT_DISABLE_IDFA` を pch ファイル (またはアプリケーションの `Build Settings`) に追加することによって無効にできます。 これにより、アプリケーション ビルドの `ASIdentifierManager`、`advertisingIdentifier`、`isAdvertisingTrackingEnabled` への参照がないことを確認できます。
 
 統合、 **prefix.pch** ファイル。
 
@@ -209,4 +209,5 @@ Engagement でログの送信を停止したい場合は、以下を呼び出し
 [NSLocationAlwaysUsageDescription]:https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW18
 [startMonitoringSignificantLocationChanges]:http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]:https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
+
 

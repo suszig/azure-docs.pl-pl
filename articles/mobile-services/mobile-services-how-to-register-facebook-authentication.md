@@ -27,7 +27,7 @@
 
 このトピックでは、Facebook を使用して Azure Mobile Services で認証できるようにアプリケーションを登録する方法について説明します。
 
->[AZURE.NOTE] このチュートリアルでは、[Azure Mobile Services], はあらゆるプラットフォームの拡張性の高いモバイル アプリケーションを構築するためのソリューションです。 Mobile Services によって簡単にデータの同期化を行い、ユーザーを認証して、プッシュ通知を送信できます。 このページはアプリケーションへユーザーをログインさせる方法を説明する「[認証の使用](mobile-services-ios-get-started-users.md)」チュートリアルをサポートしています。 Mobile Services を初めて使用する場合は、チュートリアル「[Mobile Services の使用](mobile-services-ios-get-started.md)」を完了することをお勧めします。
+>[AZURE.NOTE] このチュートリアルはについて [Azure Mobile Services], 、任意のプラットフォームの拡張性の高いモバイル アプリケーションを構築するためのソリューションです。 Mobile Services によって簡単にデータの同期化を行い、ユーザーを認証して、プッシュ通知を送信できます。 このページはアプリケーションへユーザーをログインさせる方法を説明する「[認証の使用](mobile-services-ios-get-started-users.md)」チュートリアルをサポートしています。 Mobile Services を初めて使用する場合は、チュートリアル「[Mobile Services の使用](mobile-services-ios-get-started.md)」を完了することをお勧めします。
 
 このトピックの手順を完了するには、検証済みの電子メール アドレスを持つ Facebook アカウントおよび携帯電話番号が必要になります。 新しい Facebook アカウントを作成するには、[facebook.com](http://go.microsoft.com/fwlink/p/?LinkId=268285) にアクセスしてください。
 
@@ -80,4 +80,5 @@
 [Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure Mobile Services]: http://azure.microsoft.com/services/mobile-services/
+
 

@@ -44,7 +44,7 @@ Azure Automation は、90 日を超えるジョブを自動的に削除した後
 
 Microsoft Azure でオートメーション アカウントを削除すると、Runbook、モジュール、構成、設定、ジョブ、資産など、アカウント内のすべてのオブジェクトが削除されます。 アカウントを削除した後にオブジェクトを修復することはできません。  削除する前に、以下の情報を使用してオートメーション アカウントの内容をバックアップできます。 
 
-### Runbook
+### Runbooks
 
 ご使用の runbook を Azure 管理ポータルを使用してスクリプト ファイルにエクスポートすること、または [Get-azureautomationrunbookdefinition](https://msdn.microsoft.com/library/dn690269.aspx) Windows PowerShell コマンドレット。  説明したように、これらのスクリプト ファイルが別のオートメーション アカウントにインポートする [を作成するか、Runbook をインポートする](https://msdn.microsoft.com/library/dn643637.aspx)です。
 
@@ -84,5 +84,6 @@ Azure Automation アカウントでの標準である geo レプリケーショ�
 |東日本         |西日本
 
 万一、プライマリ リージョンのデータが失われた場合、Microsoft はその復旧を試みます。 プライマリ リージョンを復元できない場合は、geo フェールオーバーが実行されます。影響を受けた顧客には、サブスクリプションを通じてこのことが通知されます。
+
 
 

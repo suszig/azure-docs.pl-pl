@@ -28,7 +28,7 @@ Baidu クラウド プッシュは、プッシュ通知をモバイル デバイ
 
 このチュートリアルには、次のものが必要です。
 
-+ Android SDK (とみなし Eclipse を使用) からダウンロードできますが、 <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android サイト</a>
++ Android SDK (Eclipse を使用することが前提)。<a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android サイト</a>からダウンロードできます。
 + [モバイル サービス Android SDK]
 + [Baidu Push Android SDK]
 
@@ -37,9 +37,9 @@ Baidu クラウド プッシュは、プッシュ通知をモバイル デバイ
 
 ##Baidu アカウントを作成する
 
-Baidu を使用するには、Baidu アカウントが必要です。 既にいずれかがある場合は、[Baidu ポータル] にログインし、次の手順に進みます。 アカウントを持っていない場合は、Baidu アカウントの作成方法に関する次の手順を参照してください。  
+Baidu を使用するには、Baidu アカウントが必要です。 既に 1 つがある場合にログイン、 [Baidu portal] し、次の手順に進みます。 アカウントを持っていない場合は、Baidu アカウントの作成方法に関する次の手順を参照してください。  
 
-1. [Baidu ポータル] に移動し、をクリックして、 **[登录** (**ログイン**) リンクします。 クリックして **立即注册** アカウント登録プロセスを開始します。
+1. 移動して、 [Baidu portal] ] をクリックし、 **[登录** (**ログイン**) リンクします。 クリックして **立即注册** アカウント登録プロセスを開始します。
 
     ![][1]
 
@@ -55,11 +55,11 @@ Baidu を使用するには、Baidu アカウントが必要です。 既にい�
 
     ![][4]
 
-アクティブな Baidu アカウントを作成したら、[Baidu ポータル] にログインします。
+アクティブな Baidu アカウントを作成したら、ログインに、 [Baidu portal]します。
 
 ##Baidu 開発者として登録する
 
-1. [Baidu ポータル] にログインしたら、クリックして **更多 >>** (**詳細**)。
+1. ログインした後、 [Baidu portal], 、クリックして **更多 >>** (**詳細**)。
 
     ![][5]
 
@@ -93,7 +93,7 @@ Baidu を使用するには、Baidu アカウントが必要です。 既にい�
 
 Baidu クラウド プッシュ プロジェクトを作成すると、アプリケーション ID、API キー、およびシークレット キーが届きます。
 
-1. [Baidu ポータル] にログインしたら、クリックして **更多 >>** (**詳細**)。
+1. ログインした後、 [Baidu portal], 、クリックして **更多 >>** (**詳細**)。
 
     ![][5]
 
@@ -141,7 +141,7 @@ Baidu クラウド プッシュ プロジェクトを作成すると、アプリ
 
 ##通知ハブを構成する
 
-1. [Azure クラシック ポータル、] にサインインし、をクリックし、 **+ 新規** 、画面の下部にあります。
+1. サインイン、 [Azure Classic Portal], 、クリックして **+ 新規** 、画面の下部にあります。
 
 2. クリックして **App Services**, 、] をクリックして **Service Bus**, 、] をクリックして **通知ハブ**, 、] をクリックし、 **簡易作成**します。
 
@@ -189,7 +189,7 @@ Baidu クラウド プッシュ プロジェクトを作成すると、アプリ
 
 5. 通知ハブ-0.4.jar ファイルをダウンロード、 **ファイル** のタブ、 [通知ハブ-Android-SDK Bintray に](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4)します。 ファイルを追加、 **libs** Eclipse のプロジェクト、および更新のフォルダー、 *libs* フォルダーです。
 
-6. ダウンロードして解凍 [Baidu Push Android SDK] を開く、 **libs** フォルダー、および [コピー、 **pushservice x.y.z** jar ファイルと **armeabi** & **mips** 内のフォルダー、 **libs** 、Android アプリケーションのフォルダーです。
+6. ダウンロードして解凍、 [Baidu Push Android SDK], 、開かれている、 **libs** フォルダー、および [コピー、 **pushservice x.y.z** jar ファイルと **armeabi** & **mips** 内のフォルダー、 **libs** 、Android アプリケーションのフォルダーです。
 
 7. 開いている、 **AndroidManifest.xml** ファイル、Android のプロジェクトを Baidu SDK に必要なアクセス許可を追加します。
 
@@ -429,7 +429,7 @@ Baidu クラウド プッシュ プロジェクトを作成すると、アプリ
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-    使用して、Azure Notification Hubs SDK への参照を追加します <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification ハブ NuGet パッケージ</a>.
+    これにより <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet パッケージ</a>を利用して Azure Notification Hubs SDK に参照が追加されます。
 
     ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
@@ -502,4 +502,5 @@ Baidu クラウド プッシュ プロジェクトを作成すると、アプリ
 [Baidu Push Android SDK]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
 [Azure Classic Portal]: https://manage.windowsazure.com/
 [Baidu portal]: http://www.baidu.com/
+
 

@@ -9,12 +9,12 @@
 
 <tags
     ms.service="backup"
-    ms.workload=「記憶域のバックアップ回復」
+    ms.workload="storage-backup-recovery"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
     ms.date="10/01/2015"
-    ms.author="aashishr";"trinadhk"/>
+    ms.author="aashishr";"trinadhk" />
 
 
 # PowerShell を使用した Azure VM のバックアップのデプロイおよび管理
@@ -333,4 +333,5 @@ $DAILYBACKUPSTATS | Out-GridView
 ```
 
 このレポートの出力にグラフ作成機能を追加する場合から学ぶ TechNet ブログで [PowerShell を使用したグラフ作成](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
+
 

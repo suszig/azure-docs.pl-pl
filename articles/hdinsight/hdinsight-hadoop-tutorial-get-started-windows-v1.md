@@ -46,7 +46,7 @@ HDInsight での Hadoop の説明については、このチュートリアル�
 
 Azure HDInsight の一般に利用可能にすると共に、Microsoft もは HDInsight Emulator for Azure、旧称 *Microsoft HDInsight 開発者プレビュー*します。 このエミュレーターは開発者シナリオを対象としており、単一ノード デプロイのみをサポートします。 HDInsight Emulator の使用については、次を参照してください。 [HDInsight Emulator の概要][hdinsight-emulator]します。
 
-> [AZURE.NOTE] HBase クラスターをプロビジョニングする方法については、次を参照してください。 [HDInsight のプロビジョニングの HBase クラスター][hdinsight-hbase-custom-provision]します。 2 つのデータベースのどちらかを選ぶ理由については、「<a href="http://go.microsoft.com/fwlink/?LinkId=510237">What Is The Difference Between HBase and Hadoop/HDFS? (HBase と Hadoop/HDFS の違い)</a>」をご覧ください。
+> [AZURE.NOTE] HBase クラスターをプロビジョニングする方法については、次を参照してください。 [HDInsight のプロビジョニングの HBase クラスター][hdinsight-hbase-custom-provision]します。 参照してください <a href="http://go.microsoft.com/fwlink/?LinkId=510237">Hadoop と HBase 間で違いは何ですか。</a> 理解する理由をもう 1 つのデータベースを選択する場合があります。
 
 ## 前提条件
 
@@ -98,7 +98,7 @@ HDInsight で Hadoop クラスターをプロビジョニングするときに�
 
 <!-- COMMENTED OUT TEXT BEGINS --
 
-4. 次の値を入力または選択します。
+4. Enter or select the following values:
 
 
     <table border="1">
@@ -117,14 +117,14 @@ HDInsight で Hadoop クラスターをプロビジョニングするときに�
     Keep a copy of the cluster name. You will need it later in the tutorial.
 
 
-5. クリックして **HDInsight クラスターの作成**します。 プロビジョニングが完了したとき、[状態] 列を示しています **を実行している**します。
+5. Click **Create HDInsight Cluster**. When the provisioning completes, the  status column shows **Running**.
 
--テキストをコメント終了-->
+-- COMMENTED OUT TEXT ENDS -->
 
 >[AZURE.NOTE] 次の手順では、version 3.1 で HDInsight クラスターをプロビジョニングします。 他のバージョンとクラスターを作成するには、使用、 **カスタム作成** メソッドから、ポータルまたは Azure PowerShell を使用します。 各バージョンの相違については、次を参照してください。 [HDInsight で提供されるクラスター バージョンの新機能ですか?][hdinsight-versions]します。 使用方法について、 **カスタム作成** オプションを参照してください [HDInsight クラスターのプロビジョニングのカスタム オプションを使用して][hdinsight-provision]します。
 
 
-##<a name="sample"></a>ポータルからサンプル データを実行します。
+##<a name="sample"></a>ポータルからサンプル データを実行する
 
 正常にプロビジョニングされた HDInsight クラスターは、ポータルからサンプルを直接実行する概要ギャラリーを含むクエリ コンソールを提供します。 サンプルを使っていくつかの基本的なシナリオを検証することで、HDInsight の操作方法を学ぶことができます。 これらのサンプルには、分析対象のデータ、データに対して実行するクエリなど、必要なものがすべて用意されています。 概要ギャラリーのサンプルの詳細については、次を参照してください。 [Learn hadoop in HDInsight Getting Started ギャラリーを使用した HDInsight Hadoop](hdinsight-learn-hadoop-use-sample-gallery.md)します。
 
@@ -280,3 +280,4 @@ Microsoft Excel 用 Power Query アドインを使用すると、HDInsight か�
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
+

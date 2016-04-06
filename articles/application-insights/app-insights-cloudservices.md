@@ -51,7 +51,7 @@ Application Insights リソースでは、利用統計情報データが分析�
 
 代わりに、すべてのロールから 1 つのリソースにデータを送信が設定する可能性があります、 [既定プロパティ][apidefaults] をフィルター処理または各ロールからの結果をグループ化できるようにします。
 
-## <a name="sdk"></a>各プロジェクトに SDK をインストールします。
+## <a name="sdk"></a>各プロジェクトに SDK をインストールする
 
 
 1. Visual Studio で、クラウド アプリ プロジェクトの NuGet パッケージを編集します。
@@ -205,7 +205,7 @@ Application Insights ポータルに表示される内容の例を次に示し�
 woker ロールの場合、例外を追跡する方法は 2 つあります。
 
 * TrackException(ex)
-* Application Insights トレース リスナー NuGet パッケージを追加した場合は、System.Diagnostics.Trace を使用して例外を記録できます。 [コード例です。](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L107)
+* Application Insights トレース リスナー NuGet パッケージを追加した場合は、System.Diagnostics.Trace を使用して例外を記録できます。 [コード例はこちらです。](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L107)
 
 ## パフォーマンス カウンター
 
@@ -280,3 +280,4 @@ worker ロールの場合は、カスタムのテレメトリ初期化子を使�
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md 
+

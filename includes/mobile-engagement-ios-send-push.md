@@ -14,7 +14,7 @@ Mobile Engagement がユーザーに代わりプッシュ通知を送信でき�
 
     ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-##<a id="send"></a>アプリへ通知を送信します。
+##<a id="send"></a>アプリへ通知を送信する
 
 プッシュ通知をアプリに送る簡単なプッシュ通知キャンペーンを作成してみましょう。
 
@@ -55,3 +55,4 @@ Mobile Engagement がユーザーに代わりプッシュ通知を送信でき�
  
 
  
+

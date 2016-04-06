@@ -252,8 +252,8 @@ dn511655.aspx is for SQL 2014,
 [Extensions to AdventureWorks to Demonstrate In-Memory OLTP]
 (http://msdn.microsoft.com/library/dn511655&#x28;v=sql.120&#x29;.aspx)
 
-一方の SQL 2016 +
-[メモリ内 oltp サンプル データベース]
+whereas for SQL 2016+
+[Sample Database for In-Memory OLTP]
 (http://msdn.microsoft.com/library/mt465764.aspx)
 -->
 
@@ -350,7 +350,7 @@ OLTP ワークロードのリアルタイム分析では、多くの場合、ク
 3. T-SQL スクリプトを SSMS に貼り付け、スクリプトを実行します。
  - 重要なは、 **COLUMNSTORE** キーワード、 **CREATE INDEX** に示すように、ステートメント。<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 
-4. AdventureWorksLT を互換性レベル 130 に設定します。<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
+4. AdventureWorksLT を 130 の互換性レベルに設定します。<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
  - レベル 130 はインメモリ機能に直接、関係ありません。 しかし、レベル 130 は一般に、120 の場合よりも高いクエリ パフォーマンスを提供します。
 
 
@@ -526,5 +526,6 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 - [SQL Server の Replay Markup Language (RML) ユーティリティの説明](http://support.microsoft.com/en-us/kb/944837)
 
 - [メモリ内の記憶域の監視](sql-database-in-memory-oltp-monitoring.md) 、インメモリ OLTP のです。
+
 
 

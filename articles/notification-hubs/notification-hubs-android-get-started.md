@@ -38,8 +38,8 @@ Google Cloud Messaging (GCM) を使用してプッシュ通知を受信する空
 
 このチュートリアルには、次のものが必要です。
 
-+ Android Studio からダウンロードできます。 <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android のサイト</a>.
-+ アクティブな Azure アカウント アカウントがない場合は、無料試用版のアカウントを数分で作成することができます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F)をご覧ください。
++ Android Studio。<a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android サイト</a>からダウンロードできます。
++ アクティブな Azure アカウント。 アカウントがない場合は、無料試用版のアカウントを数分で作成することができます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F)をご覧ください。
 
 
 このチュートリアルを完了することは、Android アプリケーションの他のすべての Notification Hubs チュートリアルの前提条件です。
@@ -62,7 +62,7 @@ Google Cloud Messaging (GCM) を使用してプッシュ通知を受信する空
 
 これで、通知ハブが GCM と連動するように構成されました。接続文字列により、アプリが通知を受信すると共に、プッシュ通知を送信するように登録されます。
 
-##<a id="connecting-app"></a>通知ハブにアプリケーションを接続する
+##<a id="connecting-app"></a>通知ハブにアプリを接続する
 
 ###新しい Android プロジェクトを作成する
 
@@ -130,9 +130,9 @@ Google Cloud Messaging (GCM) を使用してプッシュ通知を受信する空
         private static Boolean isVisible = false;
 
 
-    次の 3 つのプレース ホルダーを更新することを確認してください。
+    次の 3 つのプレースホルダーを以下のとおりに置き換えてください。
     * **SENDER_ID**: 設定 `SENDER_ID` で作成したプロジェクトから取得したプロジェクト番号に、 [Google Cloud Console](http://cloud.google.com/console)します。
-    * **HubListenConnectionString**: 設定 `HubListenConnectionString` に、 **DefaultListenAccessSignature** 、ハブへの接続文字列。 クリックして、その接続文字列をコピーできます **[接続文字列の** 上、 **ダッシュ ボード** [Azure クラシック ポータル] で、ハブのタブをクリックします。
+    * **HubListenConnectionString**: 設定 `HubListenConnectionString` に、 **DefaultListenAccessSignature** 、ハブへの接続文字列。 クリックして、その接続文字列をコピーできます **接続文字列の表示** 上、 **ダッシュ ボード** にハブのタブ、 [Azure Classic Portal]します。
     * **HubName**: Azure でのページの上部に表示される通知ハブの名前を使用してハブの (**いない** の完全な URL)。 たとえば、`"myhub"` を使用します。
 
 
@@ -284,7 +284,7 @@ Google Cloud Messaging (GCM) を使用してプッシュ通知を受信する空
 
 
 
-次の画面に示すように、[Azure クラシック ポータル] で、通知ハブを [デバッグ] タブを使用して、通知を送信することによって、アプリケーションで通知を受信をテストすることができます。
+通知を送信することによって、アプリで通知の受信をテストする、 [Azure Classic Portal] 通知ハブで、次の画面に示すように、[デバッグ] タブを使用しています。
 
 ![][30]
 
@@ -343,7 +343,7 @@ Google Cloud Messaging (GCM) を使用してプッシュ通知を受信する空
 
 5.  **MainActivity.java** ファイルの先頭に次のメンバーを追加の `MainActivity` クラスです。
 
-    更新プログラム `HubFullAccess` で、 **DefaultFullSharedAccessSignature** 、ハブへの接続文字列。 クリックして [Azure Classic Portal] からこの接続文字列をコピーできます **[接続文字列の** 上、 **ダッシュ ボード** 通知ハブのタブをクリックします。
+    更新プログラム `HubFullAccess` で、 **DefaultFullSharedAccessSignature** 、ハブへの接続文字列。 この接続文字列をコピーすることができます、 [Azure Classic Portal] をクリックして **[接続文字列の** 上、 **ダッシュ ボード** 通知ハブのタブをクリックします。
 
         private String HubEndpoint = null;
         private String HubSasKeyName = null;
@@ -508,11 +508,11 @@ Google Cloud Messaging (GCM) を使用してプッシュ通知を受信する空
 
 ##次のステップ
 
-この簡単な例では、すべての Windows デバイスにブロードキャスト通知を送信します。 [ユーザーにプッシュ通知を Notification Hubs を使用する] このチュートリアルは、次の手順としてお勧めします。 このチュートリアルでは、特定のユーザーに対してタグを使用して ASP.NET バックエンドから通知を送信する方法について説明しています。
+この簡単な例では、すべての Windows デバイスにブロードキャスト通知を送信します。 お勧めします [Use Notification Hubs to push notifications to users] 」チュートリアルでは、次の手順です。 このチュートリアルでは、特定のユーザーに対してタグを使用して ASP.NET バックエンドから通知を送信する方法について説明しています。
 
-対象グループごとにユーザーをセグメント化する場合は、[通知ハブを使用したニュース速報の送信] を参照してください。 
+対象グループごとにユーザーをセグメント化する場合は、「 [Use Notification Hubs to send breaking news]します。 
 
-Notification Hubs に関する一般的な情報については、[通知ハブの概要] を参照してください。
+Notification Hubs に関する一般的な情報については、次を参照してください。 [Notification Hubs Guidance]します。
 
 
 
@@ -550,4 +550,5 @@ Notification Hubs に関する一般的な情報については、[通知ハブ�
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-android-notify-users.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-breaking-news.md
+
 

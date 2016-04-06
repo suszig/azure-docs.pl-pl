@@ -146,7 +146,7 @@ Stream Analytics では Blob ストレージのイベントの既定のタイム
 <tr>
 <td>パス プレフィックスのパターン [省略可能]</td>
 <td>指定されたコンテナー内に BLOB を配置するために使用されるファイル パス。
-このパス内に、次の 3 つの変数のいずれかまたはすべてのインスタンスを指定できます。<BR>{date}, {time},<BR>{partition}<BR>例 1: cluster1/logs/{date}/{time}/{partition}<BR>例 2: cluster1/logs/{date}<P>"*" は Pathprefix の許容値ではありません。 唯一の有効です <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob 文字</a> 許可されます。</td>
+このパス内に、次の 3 つの変数のいずれかまたはすべてのインスタンスを指定できます。<BR>{date}, {time},<BR>{partition}<BR>例 1: cluster1/logs/{date}/{time}/{partition}<BR>例 2: cluster1/logs/{date}<P>"*" は Pathprefix の許容値ではありません。 唯一の有効な <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob 文字</a> は許可されます。</td>
 </tr>
 <tr>
 <td>日付形式 [省略可能]</td>
@@ -209,4 +209,5 @@ FROM Input
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+
 

@@ -118,7 +118,7 @@ V11 Azure SQL Database が Web または Business データベースのいずれ
 クリックして [ここ](sql-database-develop-direct-route-ports-adonet-v12.md) SQL Database V12 用のポートの詳細について。 これらのポートは、SQL Database V12 のパフォーマンスの強化に必要です。
 
 
-##<a id="limitations"></a>中および V12 へのアップグレード後の制限事項
+##<a id="limitations"></a>V12 へのアップグレード中とアップグレード後の制限事項
 
 
 ### V12 用ポータル
@@ -127,12 +127,12 @@ V11 Azure SQL Database が Web または Business データベースのいずれ
 Azure には 3 つのポータルがありますが、それぞれ SQL Database V12 に関する機能が異なります
 
 
-- [http://portal.azure.com/](http://portal.azure.com/)<br/>この Azure ポータルは新しいものが、まだプレビュー状態です。 このポータルは、現段階では完全に一般公開 (GA) されていません。 このポータルでは、次のことを実行できます。
+- [http://portal.azure.com/](http://portal.azure.com/)<br/>この Azure ポータルは新しいものはプレビュー状態のままであります。 このポータルは、現段階では完全に一般公開 (GA) されていません。 このポータルでは、次のことを実行できます。
  - V12 サーバーとデータベースを管理できます。
  - V11 データベースを V12 にアップグレードできます。
 
 
-- [http://manage.windowsazure.com/](http://manage.windowsazure.com/)<br/>この Azure クラシック ポータルは最終的に廃止されます。 このポータルでは、次のことを実行できます。
+- [http://manage.windowsazure.com/](http://manage.windowsazure.com/)<br/>この Azure Classic Portal 最終的に廃止される可能性があります。 このポータルでは、次のことを実行できます。
  - V12 サーバーとデータベースを管理できます。
  - できます *いない* V11 データベースを V12 にアップグレードします。
 
@@ -156,7 +156,7 @@ Visual Studio 2013 (VS2013) で Azure SQL Database に接続することをお�
 古い Azure 旧ポータルで、[データベース] ページでクリックして **Visual Studio で開く** Azure SQL データベースへの接続には、コンピューターで VS2013 を起動します。
 
 
-SQL Server Management Studio (SSMS) 2014年を使用する代わりに、 [CU6](http://support.microsoft.com/kb/3031047/) Azure SQL データベースに接続します。 詳細についてはこのブログの投稿:<br/>[ツールの更新プログラムを Azure SQL Database のクライアント](http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/)です。
+SQL Server Management Studio (SSMS) 2014年を使用する代わりに、 [CU6](http://support.microsoft.com/kb/3031047/) Azure SQL データベースに接続します。 詳細についてはこのブログの投稿をご覧ください。<br/>[Azure SQL Database のツールの更新プログラム クライアント](http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/)です。
 
 
 ### 制限 *中に* V12 へのアップグレード
@@ -254,4 +254,5 @@ Stop- コマンドレットは、一時停止ではなく取り消しを意味�
 <!--Anchors-->
 [Subheading 1]: #subheading-1
  
+
 

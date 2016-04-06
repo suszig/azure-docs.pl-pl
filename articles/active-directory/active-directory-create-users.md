@@ -103,7 +103,7 @@ A **ゲスト** がユーザーの種類が「ゲスト」に設定されたデ�
 
 ユーザーやグループの詳細情報の一部をゲストが表示できる機能を利用すると、他者を招待したり、連携者の詳細を表示したりできます。  
 
-## 参照トピック
+## 次の手順
 
 - [Administer your Azure AD directory](active-directory-administer.md)
 - [Azure AD でのパスワードの管理](active-directory-manage-passwords.md)
@@ -112,4 +112,5 @@ A **ゲスト** がユーザーの種類が「ゲスト」に設定されたデ�
 <!--Image references-->
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
+
 

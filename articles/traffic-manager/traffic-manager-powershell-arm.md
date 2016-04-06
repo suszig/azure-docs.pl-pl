@@ -142,7 +142,7 @@ Traffic Manager プロファイルを変更して、エンドポイントを追�
     PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
 ## Traffic Manager エンドポイントを追加します。 [](#adding-traffic-manager-endpoints)
-Traffic Manager エンドポイントの次の 3 つの種類があります。
+Traffic Manager エンドポイントには、次の 3 種類があります。
 1. Azure エンドポイント: Azure でホストされるサービスを表します。
 2. 外部エンドポイント: Azure の外部でホストされるサービスを表します。
 3. 入れ子になったエンドポイント: Traffic Manager プロファイルの入れ子構造の階層を作成するために使用され、より複雑なアプリケーションの高度なトラフィック ルーティング構成を可能にします。  これらは ARM API ではまだサポートされていません。
@@ -282,4 +282,5 @@ Traffic Manager プロファイルを削除するには、プロファイル名�
 
 [Traffic Manager のパフォーマンスに関する考慮事項](traffic-manager-performance-considerations.md)
  
+
 

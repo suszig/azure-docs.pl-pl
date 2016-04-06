@@ -19,10 +19,10 @@
 # Visual Studio を使用した初めての Azure Data Factory パイプラインの作成
 > [AZURE.SELECTOR]
 - [チュートリアルの概要](data-factory-build-your-first-pipeline.md)
-- [Data Factory エディターを使用します。](data-factory-build-your-first-pipeline-using-editor.md)
+- [Data Factory エディターの使用](data-factory-build-your-first-pipeline-using-editor.md)
 - [PowerShell の使用](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Visual Studio を使用](data-factory-build-your-first-pipeline-using-vs.md)
-- [リソース マネージャー テンプレートを使用します。](data-factory-build-your-first-pipeline-using-arm.md)
+- [Visual Studio の使用](data-factory-build-your-first-pipeline-using-vs.md)
+- [Resource Manager テンプレートの使用](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 この記事では、Visual Studio を使用して最初のパイプラインを作成する方法を学習します。 このチュートリアルの手順は次のとおりです。
@@ -57,7 +57,8 @@
 
 3. 入力、 **名前** 、プロジェクトの **場所**, との名前、 **ソリューション**, 、] をクリック **[ok]**します。
 
-    ![Solution Explorer](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
+    ![ソリューション エクスプローラー
+](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
 ### リンクされたサービスの作成
 この手順では、Azure ストレージ アカウントとオンデマンド Azure HDInsight クラスターをデータ ファクトリにリンクした後、Hive 処理からの出力データを表すデータセットを作成します。
@@ -244,4 +245,5 @@ Visual Studio の Azure Data Factory ツールを更新するには、次のよ�
 ## 次のステップ
 この記事では、オンデマンド HDInsight クラスターで Hive スクリプトを実行する変換アクティビティ (HDInsight アクティビティ) を含むパイプラインを作成しました。 Azure Blob から Azure SQL にデータをコピーするコピー アクティビティを使用する方法を確認するには、次を参照してください。 [チュートリアル: Azure SQL に blob、Azure からのデータをコピー](data-factory-get-started.md)します。
   
+
 

@@ -5,7 +5,7 @@
 1. ブラウザーから、http://manage.windowsazure.com に移動し、必要に応じて、サインイン、Azure アカウントを使用しています。
 2. クリックして **新規** > **ネットワーク サービス** > **仮想ネットワーク** > **カスタム作成** 次の図に示すようにします。
 
-    ![ポータルでの VNet の作成](./media/virtual-networks-create-vnet-classic-portal-include/vnet-create-portal-figure1.gif)
+    ![ポータルで VNet を作成](./media/virtual-networks-create-vnet-classic-portal-include/vnet-create-portal-figure1.gif)
 
 3.  **仮想ネットワークの詳細** ] ページで、入力、 **名前** 、VNet の選択、 **場所**, 、手順 2. に進みますページの右下隅にある矢印をクリックします。 次の図は、このシナリオの設定を示しています。
 
@@ -33,3 +33,4 @@
 14. ページの右下隅にあるチェック マーク ボタンをクリックすると、VNet が作成されます。 数秒後、次の図に示すように、作成した VNet が利用可能な VNet の一覧に表示されます。
 
     ![新しい仮想ネットワーク](./media/virtual-networks-create-vnet-classic-portal-include/vnet-create-portal-figure5.png)
+

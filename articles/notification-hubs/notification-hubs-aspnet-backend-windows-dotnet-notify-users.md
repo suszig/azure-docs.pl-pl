@@ -23,9 +23,9 @@
 
 ##概要
 
-Azure でプッシュ通知がサポートされたことで、マルチプラットフォームに対応し、簡単に使用できる、スケールアウトされたプッシュ通知インフラストラクチャを利用できるようになりました。これにより、モバイル プラットフォーム向けアプリケーション (コンシューマー用途およびエンタープライズ用途) にプッシュ通知機能を実装する作業が大幅に簡略化されます。 このチュートリアルでは、Azure Notification Hubs を使用して特定のデバイスで特定のアプリケーション ユーザーにプッシュ通知を送信する方法について説明します。 クライアントを認証するために ASP.NET WebAPI バックエンドが使用されます。 認証されたクライアント ユーザーを使用して、タグがバックエンドによって通知登録に自動的に追加されます。 このタグは、バックエンドが特定のユーザーに対する通知を生成するための送信で使用されます。 アプリのバックエンドを使用して通知に登録する方法の詳細については、ガイダンスのトピックを参照してください。 [アプリ バックエンドから登録](http://msdn.microsoft.com/library/dn743807.aspx)します。 このチュートリアルでは、通知ハブをで作成したプロジェクトに基づいて、[開始通知ハブの使用] のチュートリアルです。
+Azure でプッシュ通知がサポートされたことで、マルチプラットフォームに対応し、簡単に使用できる、スケールアウトされたプッシュ通知インフラストラクチャを利用できるようになりました。これにより、モバイル プラットフォーム向けアプリケーション (コンシューマー用途およびエンタープライズ用途) にプッシュ通知機能を実装する作業が大幅に簡略化されます。 このチュートリアルでは、Azure Notification Hubs を使用して特定のデバイスで特定のアプリケーション ユーザーにプッシュ通知を送信する方法について説明します。 クライアントを認証するために ASP.NET WebAPI バックエンドが使用されます。 認証されたクライアント ユーザーを使用して、タグがバックエンドによって通知登録に自動的に追加されます。 このタグは、バックエンドが特定のユーザーに対する通知を生成するための送信で使用されます。 アプリのバックエンドを使用して通知に登録する方法の詳細については、ガイダンスのトピックを参照してください。 [アプリ バックエンドから登録](http://msdn.microsoft.com/library/dn743807.aspx)します。 このチュートリアルでは、通知ハブをで作成したプロジェクトに基づいて、 [Get started with Notification Hubs] チュートリアルです。
 
-また、このチュートリアルは、[安全なプッシュ] このチュートリアルの前提条件です。 このチュートリアルでの手順を完了した後は、[安全なプッシュ] のチュートリアルでは、プッシュ通知を安全に送信するには、このチュートリアルのコードを変更する方法について説明に進むことができます。
+このチュートリアルは、前提条件ではまた、 [Secure Push] チュートリアルです。 このチュートリアルでの手順を完了した後に進むことができます、 [Secure Push] チュートリアルでは、プッシュ通知を安全に送信するには、このチュートリアルのコードを変更する方法を示します。
 
 
 
@@ -43,7 +43,7 @@ Azure でプッシュ通知がサポートされたことで、マルチプラ�
 
 このチュートリアルの前に、次の Mobile Services のチュートリアルを完了している必要があります。
 
-+ [開始通知ハブの使用]<br/>アプリ名の予約、通知ハブを作成し、このチュートリアルで通知を受信するように登録します。 このチュートリアルでは、これらの手順を既に完了することを前提としています。 ない場合は、」の手順に従ってください [Notification Hubs (Windows ストア) の概要](notification-hubs-windows-store-dotnet-get-started.md)。 具体的には、セクションでは、 [アプリを Windows ストア登録](notification-hubs-windows-store-dotnet-get-started.md#register-your-app-for-the-windows-store) と [通知ハブを構成する](notification-hubs-windows-store-dotnet-get-started.md#configure-your-notification-hub)です。 具体的には、入力したことを確認、 **パッケージ SID** と **クライアント シークレット** のポータルで、値、 **構成** 通知ハブのタブをクリックします。 この構成手順で説明した [通知ハブを構成する](notification-hubs-windows-store-dotnet-get-started.md#configure-your-notification-hub)です。 これは重要な手順です。ポータルの資格情報が、選択したアプリケーション名に指定した資格情報と一致しない場合、プッシュ通知は成功しません。
++ [Get started with Notification Hubs]<br/>通知ハブを作成し、アプリ名を予約して、このチュートリアルの通知を受け取るための登録をします。 このチュートリアルでは、これらの手順を既に完了することを前提としています。 ない場合は、」の手順に従ってください [Notification Hubs (Windows ストア) の概要](notification-hubs-windows-store-dotnet-get-started.md)。 具体的には、セクションでは、 [アプリを Windows ストア登録](notification-hubs-windows-store-dotnet-get-started.md#register-your-app-for-the-windows-store) と [通知ハブを構成する](notification-hubs-windows-store-dotnet-get-started.md#configure-your-notification-hub)です。 具体的には、入力したことを確認、 **パッケージ SID** と **クライアント シークレット** のポータルで、値、 **構成** 通知ハブのタブをクリックします。 この構成手順で説明した [通知ハブを構成する](notification-hubs-windows-store-dotnet-get-started.md#configure-your-notification-hub)です。 これは重要な手順です。ポータルの資格情報が、選択したアプリケーション名に指定した資格情報と一致しない場合、プッシュ通知は成功しません。
 
 
 
@@ -57,9 +57,9 @@ Azure でプッシュ通知がサポートされたことで、マルチプラ�
 
 ## クライアント プロジェクトのコードを更新する
 
-完了したプロジェクトでコードを更新するこのセクションで、[開始通知ハブの使用] のチュートリアルです。 コードは、既にストアに関連付けられ、通知ハブ用に構成されているはずです。 このセクションでは、新しい WebAPI バックエンドを呼び出すコードを追加し、それを使用して通知の登録と送信を行います。
+このセクションでは、完了したプロジェクト内のコードを更新、 [Get started with Notification Hubs] チュートリアルです。 コードは、既にストアに関連付けられ、通知ハブ用に構成されているはずです。 このセクションでは、新しい WebAPI バックエンドを呼び出すコードを追加し、それを使用して通知の登録と送信を行います。
 
-1. Visual Studio で開き、用に作成したソリューション、[開始通知ハブの使用] チュートリアルです。
+1. Visual Studio で開き、作成したソリューション、 [Get started with Notification Hubs] チュートリアルです。
 
 2. ソリューション エクスプ ローラーで右クリックし、 **(Windows 8.1)** クリックしてプロジェクト **NuGet パッケージの管理**します。
 
@@ -365,8 +365,8 @@ Azure でプッシュ通知がサポートされたことで、マルチプラ�
 
 ## 次のステップ
 
-* 対象グループごとにユーザーをセグメント化する場合は、[通知ハブを使用したニュース速報の送信] を参照してください。
-* Notification Hubs を使用する方法の詳細については、[通知ハブの概要] を参照してください。
+* 対象グループごとにユーザーをセグメント化する場合は、「 [Use Notification Hubs to send breaking news]します。
+* Notification Hubs を使用する方法の詳細については、次を参照してください。 [Notification Hubs Guidance]します。
 
 
 
@@ -386,4 +386,5 @@ Azure でプッシュ通知がサポートされたことで、マルチプラ�
 [Secure Push]: notification-hubs-aspnet-backend-windows-dotnet-secure-push.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+
 

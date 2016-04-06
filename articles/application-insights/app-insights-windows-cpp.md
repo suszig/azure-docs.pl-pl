@@ -1,10 +1,10 @@
 <properties 
-    pageTitle ="C アプリの Application Insights" 
-    description =「使用量の分析と Application Insights を使って、C++ アプリのパフォーマンス」。 
-    サービス"application insights"を = 
-    documentationCenter ="cpp"になります。
-    authors ="crystk" 
-    manager ="douge""/>
+    pageTitle="Application Insights for C++ apps" 
+    description="使用状況と Application Insights を使って、C++ アプリのパフォーマンスを分析します。" 
+    services="application-insights" 
+    documentationCenter="cpp"
+    authors="crystk" 
+    manager="douge""/>
 
 <tags 
     ms.service="application-insights" 
@@ -41,7 +41,7 @@ Visual Studio Application Insights を使用すると、使用状況、イベン
 
 ![[プロパティ] をクリックし、キーを選択して、Ctrl キーを押しながら C キーを押す](./media/app-insights-windows-cpp/02-props-asp.png)
 
-## <a name="sdk"></a> アプリケーションに SDK をインストールする
+## <a name="sdk"></a>アプリケーションに SDK をインストールする
 
 
 1. Visual Studio で、デスクトップ アプリ プロジェクトの NuGet パッケージを編集します。
@@ -148,4 +148,5 @@ Return to http://portal.azure.com and browse to your Application Insights resour
 [track]: app-insights-api-custom-events-metrics.md
 
  
+
 

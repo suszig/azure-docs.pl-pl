@@ -330,7 +330,7 @@ AzCopy を試す簡単な方法は、ローカル ファイル システムか�
   </tr>
   <tr>
     <td><b>/SourceType:Blob|Table</b></td>
-    <td>ストレージ エミュレーターで実行されている、ローカル開発環境で利用可能な BLOB を <code>source セクション</code> リソースに指定します。</td>
+    <td>ストレージ エミュレーターで実行されている、ローカル開発環境で利用可能な BLOB を <code>source</code> リソースに指定します。</td>
     <td>Y</td>
     <td>N</td>
     <td>Y<br /></td>
@@ -409,7 +409,7 @@ AzCopy を試す簡単な方法は、ローカル ファイル システムか�
   <tr>
     <td><b>/SetContentType: & lt; コンテンツ タイプ & gt;</b></td>
     <td>コピー先の BLOB またはファイルの MIME コンテンツの種類を指定します。 <br /><br />
-        AzCopy sets the content type for a blob or file to <code>アプリケーションまたはオクテット ストリーム</code> 既定では。 このオプションで値を明示的に指定することで、すべての BLOB またはファイルのコンテンツの種類を設定できます。 
+        AzCopy sets the content type for a blob or file to <code>application/octet-stream</code> 既定では。 このオプションで値を明示的に指定することで、すべての BLOB またはファイルのコンテンツの種類を設定できます。 
         <br /><br />
         If you specify this option without a value, then AzCopy will set each blob or file's content type according to its file extension.</td>
     <td>Y</td>
@@ -877,7 +877,7 @@ AzCopy は、次の名前付け規則を使用して JSON データ ファイル
 
 生成される JSON データ ファイルは、最小のメタデータ用のペイロード形式に準じます。 このペイロード形式の詳細については、「 [テーブル サービス操作のペイロード形式](http://msdn.microsoft.com/library/azure/dn535600.aspx)します。
 
-注意してくださいストレージ Blob をストレージ テーブル エンティティをエクスポートするときに AzCopy はまずテーブル エンティティをローカルの一時データ ファイルにエクスポートされ、Blob にアップロードし、これらの一時データ ファイルは既定のパスにジャーナル ファイル フォルダーに格納"<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>"、/z: [ジャーナル ファイル フォルダー] ジャーナル ファイル フォルダーの場所を変更し、一時データ ファイルの場所を変更するためのオプションを指定することができます。 一時データ ファイルのサイズは、テーブル エンティティのサイズと、オプション /SplitSize で指定したサイズによって決まります。ローカル ディスクの一時データ ファイルは BLOB にアップロードされた後すぐに削除されますが、そのような一時データ ファイルを格納するのに十分なローカル ディスク領域が存在することを事前に確認しておく必要があります。 
+ストレージ Blob をストレージ テーブル エンティティをエクスポートするときに AzCopy はまずテーブル エンティティをローカルの一時データ ファイルにエクスポートし、Blob にアップロードは、これらの一時データ ファイルは既定のパスにジャーナル ファイル フォルダーに格納"<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>"オプションを指定して、/、ジャーナルを変更するには、[ジャーナル ファイル フォルダー] z: ファイルの場所のフォルダーとそのため、一時データ ファイルの場所を変更します。 一時データ ファイルのサイズは、テーブル エンティティのサイズと、オプション /SplitSize で指定したサイズによって決まります。ローカル ディスクの一時データ ファイルは BLOB にアップロードされた後すぐに削除されますが、そのような一時データ ファイルを格納するのに十分なローカル ディスク領域が存在することを事前に確認しておく必要があります。 
 
 ### エクスポート ファイルを分割する
 
@@ -985,4 +985,5 @@ Azure Storage および AzCopy の詳細については、以下のリソース�
 - [AzCopy - Transfer data with re-startable mode and SAS token (AzCopy - 再起動可能モードまたは SAS トークンを使用したデータの転送)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 - [AzCopy - Using cross-account Copy Blob (AzCopy - アカウント間での BLOB のコピー)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy - Uploading/downloading files for Azure Blobs (AzCopy - Azure BLOB に対するファイルのアップロードおよびダウンロード)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+
 

@@ -26,7 +26,7 @@
 ## セットアップ ##
 このドキュメントでは、複数の負荷分散されたBarracuda WAF インスタンスの背後に App Service 環境を構成して、WAF からのトラフィックのみが App Service 環境に到着でき、DMZ からアクセスできないようにします。 さらに、Azure Traffic Manager を Barracuda WAF インスタンスの前に配置して、Azure のデータセンターとリージョン全体で負荷が分散されるようにします。 このセットアップの高レベルの図は次のようになります。
 
-![アーキテクチャ][アーキテクチャ] 
+![アーキテクチャ][Architecture] 
 
 ## App Service 環境の構成 ##
 App Service 環境を構成するのを参照してください [ドキュメント](app-service-web-how-to-create-an-app-service-environment.md) サブジェクトにします。 App Service 環境を作成したらを作成できます [Web Apps](app-service-web-overview.md), 、[API Apps](app-service-api-apps-why-best-platform.md) と [Mobile Apps](app-service-mobile-value-prop-preview.md) が確実に保護する次のセクションで構成する WAF の背後にあるこの環境にします。
@@ -49,30 +49,30 @@ Barracuda WAF は、管理ポータルによる構成で TCP ポート 8000 を�
 
 次の図に示すように、管理エンドポイントを追加して、Barracuda WAF を構成します。
 
-![管理エンドポイントの追加][AddManagementEndpoint]
+![管理エンドポイントを追加する][AddManagementEndpoint]
  
 ブラウザーを使用して、クラウド サービスの管理エンドポイントを参照します。 クラウド サービスは test.cloudapp.net、http://test.cloudapp.net:8000 を参照してそのエンドポイントにアクセスします。 次のようなログイン ページが表示されます。WAF VM のセットアップ フェーズで指定した資格情報を使用してログインできます。
 
-![ログイン ページの管理][ManagementLoginPage]
+![管理ログイン ページ][ManagementLoginPage]
 
 ログインすると、次の図のような、WAF 保護に関する基本的な統計情報を示すダッシュボードが表示されます。
 
-![管理ダッシュ ボード][ManagementDashboard]
+![管理ダッシュボード][ManagementDashboard]
 
 [サービス] タブをクリックして、保護対象のサービスの WAF を構成できます。 Barracuda WAF の構成の詳細については役に立ちます [ドキュメント](https://techlib.barracuda.com/waf/getstarted1)します。 次の例では、HTTP と HTTPS でトラフィックを提供する Azure Web アプリが構成されています。
 
-![管理サービスの追加][ManagementAddServices]
+![管理ダッシュボードでサービスを追加する][ManagementAddServices]
 
 > 注: App Service 環境内でアプリケーションがどのように構成され、どのような機能が使用されているかに応じて、トラフィックを 80 と 443 以外の TCP ポートに転送する必要があります (例: Web アプリの IP SSL を設定している場合)。 App Service 環境で使用されるネットワーク ポートの一覧を参照してください [着信トラフィックの制御ドキュメント](app-service-app-service-environment-control-inbound-traffic.md) ネットワーク ポートのセクションです。
 
 ## Microsoft Azure Traffic Manager の構成 (省略可能) ##
 ロードする、アプリケーションが複数の地域で使用できる場合は背後でそれらバランスを取る [Azure Traffic Manager](traffic-manager.md)します。 操作を追加できるようにしたうえでエンドポイント、 [Azure クラシック ポータル](https://manage.azure.com) 次の図に示すように、Traffic Manager プロファイルで、WAF のクラウド サービス名を使用します。 
 
-![Traffic Manager エンドポイント][TrafficManagerEndpoint]
+![Traffic Manager のエンドポイント][TrafficManagerEndpoint]
 
 アプリケーションが認証を必要とする場合は、Traffic Manager がアプリケーションの使用可能性をチェックする ping を実行するための、認証を必要としないリソースがあることを確認します。 構成] セクションの下の URL を構成する、 [Azure クラシック ポータル](https://manage.azure.com) 次のようにします。
 
-![トラフィック マネージャーの構成][ConfigureTrafficManager]
+![Traffic Manager を構成する][ConfigureTrafficManager]
 
 Traffic Manager の ping を WAF からアプリケーションに転送するには、次の例に示すように、Barracuda WAF に Web サイト変換を設定して、トラフィックをアプリケーションに転送します。
 
@@ -98,3 +98,4 @@ SourceAddressPrefix を、WAF のクラウド サービスの仮想 IP アドレ
 [TrafficManagerEndpoint]: ./media/app-service-app-service-environment-web-application-firewall/TrafficManagerEndpoint.png
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
+

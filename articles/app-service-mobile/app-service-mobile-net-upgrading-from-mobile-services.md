@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Mobile Services から Azure App Service にアップグレードする" 
-    description="簡単に Mobile Services アプリケーションを App Service モバイル アプリにアップグレードする方法について説明します。" 
+    description="簡単に Mobile Services アプリケーションを App Service Mobile App にアップグレードする方法について説明します。" 
     services="app-service\mobile" 
     documentationCenter="" 
     authors="mattchenderson" 
@@ -277,3 +277,4 @@ AAD、Facebook、Google などの一部のプロバイダーでは、コピー �
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [App Service pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+

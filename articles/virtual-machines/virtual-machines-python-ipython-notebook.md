@@ -1,12 +1,12 @@
 <properties
-    pageTitle ="Jupyter/IPython Notebook を作成します |Microsoft Azure]
-    description =「で、Azure リソース マネージャーの配置モデルで作成した Linux 仮想マシン上に Jupyter/IPython Notebook を展開する方法について説明します」。
-    サービス =「仮想マシン」
-    documentationCenter ="python"
-    authors ="crwilcox"
+    pageTitle="Jupyter/IPython Notebook を作成する | Microsoft Azure"
+    description="Azure でクラシック デプロイ モデルを使用して作成した Linux 仮想マシンに Jupyter/IPython Notebook をデプロイする方法について説明します。"
+    services="virtual-machines"
+    documentationCenter="python"
+    authors="crwilcox"
     manager="wpickett"
-    エディター =""
-    タグ =「azure サービスの管理、azure リソース マネージャー」/>
+    editor=""
+    tags=“azure-service-management,azure-resource-manager"/>
 
 <tags
     ms.service="virtual-machines"
@@ -254,4 +254,5 @@ Jupyter の主要機能が Visual Studio を使用して内部で使用ではま
 [portal-vm-linux]: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
 [repository]: https://github.com/ipython/ipython
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
+
 

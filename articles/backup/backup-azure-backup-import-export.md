@@ -11,9 +11,9 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload=「記憶域のバックアップ回復」
+   ms.workload="storage-backup-recovery"
    ms.date="11/25/2015"
-   ms.author="aashishr"です。"jimpark"/>
+   ms.author="aashishr"; "jimpark"/>
 
 # Azure Backup でのオフライン バックアップのワークフロー
 
@@ -115,4 +115,5 @@ Azure Backup と Azure Import/Export を使用すると、オフラインでデ�
 ## 次のステップ
 - Azure Import/export ワークフローに関するご質問は、これを参照してください [記事](../storage-import-export-service.md)します。
 - Azure Backup のオフライン バックアップのセクションを参照してください [FAQ](backup-azure-backup-faq.md) ワークフローに関するご質問
+
 

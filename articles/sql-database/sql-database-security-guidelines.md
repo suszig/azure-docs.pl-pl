@@ -88,7 +88,7 @@ GO
 - サーバー レベル プリンシパル ログインのみとのメンバー、 **dbmanager** データベース ロール、 **マスター** データベースを実行する権限がある、 ``CREATE DATABASE`` と ``DROP DATABASE`` ステートメントです。
 - サーバー レベル プリンシパル ログインのみとのメンバー、 **loginmanager** データベース ロール、 **マスター** データベースを実行する権限がある、 ``CREATE LOGIN``, 、``ALTER LOGIN``, 、および ``DROP LOGIN`` ステートメントです。
 - ユーザーに対して ``CREATE/ALTER/DROP`` を実行するには、データベースに対する ``ALTER ANY USER`` 権限が必要です。
-- データベース ロールの所有者は、追加または他のデータベース ユーザーに、またはそのデータベース ロールを削除するときに、次のエラーが発生する可能性があります: **ユーザーまたはロール 'Name' がこのデータベースに存在しません。**このエラーは、所有者からはユーザーが見えないために発生します。 この問題を解決するには、そのユーザーに対する ``VIEW DEFINITION`` 権限をロールの所有者に許可します。 
+- データベース ロールの所有者は、追加または他のデータベース ユーザーに、またはそのデータベース ロールを削除するときに、次のエラーが発生する可能性があります: **ユーザーまたはロール 'Name' がこのデータベースに存在しません。** このエラーは、所有者からはユーザーが見えないために発生します。 この問題を解決するには、そのユーザーに対する ``VIEW DEFINITION`` 権限をロールの所有者に許可します。 
 
 ログインとユーザーの詳細については、次を参照してください。 [Azure SQL Database におけるデータベースとログインを管理する](sql-database-manage-logins.md)です。
 
@@ -109,5 +109,6 @@ Azure SQL Database アプリケーションのセキュリティの脅威に対�
 
 [Azure SQL Database におけるデータベースとログインの管理](sql-database-manage-logins.md)
 
-[SQL Server Database エンジンと Azure SQL Database のセキュリティ センター](https://msdn.microsoft.com/library/bb510589)
+[SQL Server データベース エンジンと Azure SQL Database のセキュリティ センター](https://msdn.microsoft.com/library/bb510589)
+
 

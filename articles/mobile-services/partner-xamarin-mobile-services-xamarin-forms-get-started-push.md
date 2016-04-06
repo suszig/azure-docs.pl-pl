@@ -41,14 +41,14 @@
 
 このトピックの内容:
 
-1. [新しいモバイル サービスを作成します。](#create-service)
+1. [新しいモバイル サービスを作成する](#create-service)
 2. [スタート サンプルをダウンロードおよび構成する](#download-starter-sample)
 4. [Xamarin.Forms.iOS アプリにプッシュ通知を追加する](#iOS)
 5. [Xamarin.Forms.Android アプリにプッシュ通知を追加する](#Android)
 6. [Xamarin.Forms.Windows アプリにプッシュ通知を追加する](#Windows)
 7. [すべてのアプリにプッシュ通知を送信する Azure テーブルの挿入スクリプトを更新する](#all-apps)
 
-## <a name="create-service"></a>新しいモバイル サービスを作成する
+## <a name="create-service"> </a>新しいモバイル サービスを作成する
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../../includes/mobile-services-create-new-service-data.md)]
 
@@ -167,7 +167,7 @@ APNS では、証明書を使用してモバイル サービスを認証しま�
 
     ![][9]
 
-    メモ: 既定では、ダウンロードしたファイルは開発証明書の名前は <strong>aps_development.cer</strong>.
+    メモ: 既定では、ダウンロードした開発証明書ファイルの名前は <strong>aps_development.cer</strong> になっています。
 
 7. ダウンロードしたプッシュ証明書をダブルクリック **aps_development.cer**します。
 
@@ -175,7 +175,7 @@ APNS では、証明書を使用してモバイル サービスを認証しま�
 
     ![][10]
 
-    メモ: 証明書の名前が異なる、可能性がありますが、それが付けられます <strong>Apple Development iOS Push Notification Services:</strong>.
+    メモ: 証明書の名前は異なることがありますが、名前の前に <strong>Apple Development iOS Push Notification Services:</strong> が付きます。
 
 後で、この証明書を使用して .p12 ファイルを生成し、それを Mobile Service にアップロードして APNS による認証を有効にします。
 
@@ -209,7 +209,7 @@ APNS では、証明書を使用してモバイル サービスを認証しま�
 
 7. Xcode で開いて、オーガナイザー [Devices ビューを選択 **Provisioning Profiles** で、 **ライブラリ** セクションの左側のウィンドウで、クリックして、 **更新** 中央のウィンドウの下部にあるボタンをクリックします。
 
-### <a name="configure-mobileServices"></a>プッシュ要求を送信するようにモバイル サービスを構成する
+### <a name="configure-mobileServices"></a>プッシュ要求を送信するように Mobile Services を構成する
 
 アプリケーションを APNS に登録し、プロジェクトを構成した後で、モバイル サービスを APNS と統合するように構成する必要があります。
 
@@ -390,7 +390,7 @@ Google Cloud Messaging (GCM) サービスを使用して、Android アプリに�
 
 [AZURE.INCLUDE [mobile-services-android-configure-push](../../includes/mobile-services-android-configure-push.md)]
 
-###<a id="update-scripts"></a>登録の更新通知を送信するスクリプトを挿入します。
+###<a id="update-scripts"></a>通知を送信するように登録済み挿入スクリプトを更新する
 
 >[AZURE.NOTE] 次の手順では、Azure 旧ポータルで、TodoItem テーブルに対する挿入操作に登録されているスクリプトを更新する方法を説明します。 このモバイル サービス スクリプトは、Visual Studio のサーバー エクスプローラーの Azure ノードで、直接アクセスして編集することもできます。
 
@@ -437,7 +437,7 @@ Google Cloud Messaging (GCM) サービスを使用して、Android アプリに�
    >[AZURE.NOTE] このスクリプトを提供する通知の送信を遅らせて時間、トースト通知を受信するアプリケーションを閉じます。
 
 
-###<a id="configure-app"></a>プッシュ通知の既存のプロジェクトを構成します。
+###<a id="configure-app"></a>プッシュ通知の既存のプロジェクトを構成する
 
 1. ソリューション ビューで、展開、 **コンポーネント** Xamarin.Android アプリケーションのフォルダーを Azure Mobile Services パッケージがインストールされているかどうかを確認します。
 
@@ -649,11 +649,11 @@ Android フォンを USB ケーブルで直接接続するか、エミュレー�
 
     ![][127]
 
-## <a name="Windows"></a>Xamarin.Forms.Windows アプリにプッシュ通知を追加します。
+## <a name="Windows"></a>Xamarin.Forms.Windows アプリにプッシュ通知を追加する
 
 このチュートリアルでは、Azure Mobile Services を使用して、Xamarin.Forms ソリューションに含まれる Windows Phone Silverlight アプリにプッシュ通知を送信する方法を紹介します。
 
-###<a id="update-app"></a> アプリケーションを更新して通知に登録する
+###<a id="update-app"></a>アプリケーションを更新して通知に登録する
 
 アプリケーションがプッシュ通知を受信するには、通知チャネルを登録する必要があります。
 
@@ -708,7 +708,7 @@ Android フォンを USB ケーブルで直接接続するか、エミュレー�
 
     これにより、アプリケーションでトースト通知の使用が有効になります。
 
-###<a id="update-scripts"></a> サーバー スクリプトを更新してプッシュ通知を送信する
+###<a id="update-scripts"></a>サーバー スクリプトを更新してプッシュ通知を送信する
 
 最後に、通知を送信するためには、TodoItem テーブルの挿入操作に登録されているスクリプトを更新する必要があります。
 
@@ -758,7 +758,7 @@ Android フォンを USB ケーブルで直接接続するか、エミュレー�
 
     >[AZURE.NOTE]このチュートリアルでは、非認証モードで MPNS を使用します。 このモードでは、MPNS はデバイス チャネルに送信できる通知の数を制限します。 この制限を削除するには、**[アップロード]** をクリックして証明書を生成してアップロードし、その証明書を選択する必要があります。 証明書を生成する方法の詳細については、「Setting up an authenticated web service to send push notifications for Windows Phone (認証済み Web サービスを、Windows Phone のプッシュ通知を送信するように設定する)」を参照してください。
 
-###<a id="test"></a> アプリケーションでプッシュ通知をテストする
+###<a id="test"></a>アプリケーションでプッシュ通知をテストする
 
 1. Visual Studio で、F5 キーを押してアプリケーションを実行します。
 
@@ -849,4 +849,5 @@ Android フォンを USB ケーブルで直接接続するか、エミュレー�
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Forms Azure Push Notification Starter Sample]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
 [Completed Xamarin.Forms Azure Push Notification Sample]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
+
 

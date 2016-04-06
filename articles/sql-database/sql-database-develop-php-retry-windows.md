@@ -42,8 +42,8 @@
 
 デモ プログラムは、接続の試行中に一時的なエラーが生じると再試行が行われるように設計されています。 しかし、クエリ コマンドの実行中に一時的なエラーが生じると、プログラムによって接続が破棄され、新しい接続が作成された後、クエリ コマンドが再試行されます。 この設計の選択については、推奨も、非推奨もしません。 デモ プログラムは、使用可能な設計上の柔軟性をいくつか示しています。
 
-<br>このコード サンプルの内容の大部分は、例外キャッチのロジックの記述です。 この Program.cs ファイルの短いバージョンはこの [ここ](sql-database-develop-php-simple-windows.md)します。
-<br>Main メソッドは Program.cs にあります。 コール スタックで次のとおり実行します。
+<br>このサンプル コードの長さは、例外のキャッチのロジックにほとんどの場合です。 この Program.cs ファイルの短いバージョンはこの [ここ](sql-database-develop-php-simple-windows.md)します。
+<br>Main メソッドでは、Program.cs にします。 コール スタックで次のとおり実行します。
 * Main が ConnectAndQuery を呼び出します。
 * ConnectAndQuery 呼び出し establishconnection を呼び出します。
 * Issuequerycommand を呼び出します。
@@ -139,4 +139,5 @@
 ## 次のステップ
 
 PHP のインストールと使用に関する詳細については、次を参照してください。 [PHP で SQL Server データベースをアクセスする](http://technet.microsoft.com/library/cc793139.aspx)です。
+
 

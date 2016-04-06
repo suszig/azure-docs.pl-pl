@@ -107,12 +107,12 @@ Azure リソース マネージャーであるの詳細については、ロー�
 
 次の例では、以下の項目が作成されます。
 
-- ポート 3441 のすべての受信トラフィックをポート 3389 に転送する NAT 規則。<sup>1</sup>
+- ポート 3441 ～ 3389 のすべての受信トラフィックを変換する NAT 規則。<sup>1</sup>
 - ポート 3442 ～ 3389 のすべての受信トラフィックを変換する NAT 規則。
 - バックエンド プールのアドレスでポート 80 ～ 80 に入ってくるすべてのトラフィックを分散するロード バランサー規則。
 - という名前のページ上のヘルス状態を確認するプローブ ルール *HealthProbe.aspx*します。
 
-<sup>1</sup> NAT 規則は、ロード バランサーの背後にある特定の仮想マシン インスタンスに関連付けられます。 ポート 3341 への着信ネットワーク トラフィックは、以下の例の NAT 規則に関連付けられている特定の仮想マシンのポート 3389 に送信されます。 NAT 規則、UDP または TCP のプロトコルを選択する必要があります。 両方のプロトコルを、同じポートに割り当てることはできません。
+<sup>1</sup> NAT 規則は、ロード バランサーの背後にある特定の仮想マシン インスタンスに関連付られます。 ポート 3341 への着信ネットワーク トラフィックは、以下の例の NAT 規則に関連付けられている特定の仮想マシンのポート 3389 に送信されます。 NAT 規則、UDP または TCP のプロトコルを選択する必要があります。 両方のプロトコルを、同じポートに割り当てることはできません。
 
 ### 手順 1
 
@@ -234,8 +234,8 @@ NIC を作成し (あるいは、既存の NIC を変更し)、それを NAT 規
 - **-n** - NIC のリソースの名前
 - **-サブネット名** - サブネットの名前 
 - **-サブネット vnet 名** - 仮想ネットワークの名前
-- **-d** /subscription/{subscriptionID/resourcegroups/< リソース グループ名 >/providers/Microsoft.Network/loadbalancers/< ロード バランサー名 >/backendaddresspools/< 名前の-、-バックエンド-プール > 始まり - バック エンド プールのリソースの ID - 
-- **-e** - NIC のリソースに関連付けられる、NAT ルールの ID - から始まります/subscriptions/###/resourcegroups/< リソース グループ名 >/providers/Microsoft.Network/loadBalancers/< ロード バランサー名 >/inboundNatRules/< nat 規則名 >
+- **-d** /subscription/{subscriptionID/resourcegroups/< リソース グループ名 >/providers/Microsoft.Network/loadbalancers/ < ロード バランサー名 >/backendaddresspools/< 名前の-、-バックエンド-プール > 始まり - バック エンド プールのリソースの ID - 
+- **-e** - NIC のリソースに関連付けられる、NAT ルールの ID - から始まります/subscriptions/###/resourcegroups/< リソース グループ名 >/providers/Microsoft.Network/loadBalancers/ < ロード バランサー名 >/inboundNatRules/< nat 規則名 >
 
 
 予想される出力:
@@ -340,4 +340,5 @@ NIC を作成し (あるいは、既存の NIC を変更し)、それを NAT 規
 [ロード バランサー分散モードの構成](load-balancer-distribution-mode.md)
 
 [ロード バランサーのアイドル TCP タイムアウト設定の構成](load-balancer-tcp-idle-timeout.md)
+
 

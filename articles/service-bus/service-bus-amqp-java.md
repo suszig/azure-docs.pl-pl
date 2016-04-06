@@ -320,9 +320,9 @@ if (message.Properties.Keys.Count > 0)
 | Float             | float              |
 | Double            | double             |
 | Boolean           | bool               |
-| String            | 文字列             |
+| String            | string             |
 
- [BrokeredMessage][] 型は、次の種類のアプリケーションのプロパティをサポートしています: **バイト**, 、**sbyte**, 、**char**, 、**短い**, 、**ushort**, 、**int**, 、**uint**, 、**長い**, 、**ulong**, 、**float**, 、**二重**, 、**10 進**, 、**bool**, 、**Guid**, 、**文字列**, 、**Uri**, 、**DateTime**, 、**DateTimeOffset**, 、および **TimeSpan**します。 次の .NET コードのプロパティを設定する方法を示しています、 [BrokeredMessage][] オブジェクトの各種類のプロパティを使用しています。
+ [BrokeredMessage][] 型は、次の種類のアプリケーションのプロパティをサポートしています: **バイト**, 、**sbyte**, 、**char**, 、**短い**, 、**ushort**, 、**int**, 、**uint**, 、**長い**, 、**ulong**, 、**float**, 、**二重**, 、**decimal**, 、**bool**, 、**Guid**, 、**文字列**, 、**Uri**, 、**DateTime**, 、**DateTimeOffset**, と **TimeSpan**します。 次の .NET コードのプロパティを設定する方法を示しています、 [BrokeredMessage][] オブジェクトの各種類のプロパティを使用しています。
 
 ```
 message.Properties["TestByte"] = (byte)128;
@@ -367,16 +367,16 @@ while (propertyNames.hasMoreElements())
 | char               | 文字         | -                                                                                                                                                                     |
 | short              | ショート             | -                                                                                                                                                                     |
 | ushort             | UnsignedShort     | -                                                                                                                                                                     |
-| int                | Integer           | -                                                                                                                                                                     |
+| int                | 整数           | -                                                                                                                                                                     |
 | uint               | UnsignedInteger   | -                                                                                                                                                                     |
 | long               | Long              | -                                                                                                                                                                     |
 | ulong              | UnsignedLong      | -                                                                                                                                                                     |
 | float              | Float             | -                                                                                                                                                                     |
 | double             | Double            | -                                                                                                                                                                     |
-| 小数点            | BigDecimal        | -                                                                                                                                                                     |
+| decimal            | BigDecimal        | -                                                                                                                                                                     |
 | bool               | Boolean           | -                                                                                                                                                                     |
 | Guid               | UUID              | -                                                                                                                                                                     |
-| 文字列             | String            | -                                                                                                                                                                     |
+| string             | String            | -                                                                                                                                                                     |
 | DateTime           | Date              | -                                                                                                                                                                     |
 | DateTimeOffset     | DescribedType     | AMQP 型にマップされる DateTimeOffset.UtcTicks:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> |
 | TimeSpan           | DescribedType     | AMQP 型にマップされる Timespan.Ticks:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type>                        |
@@ -393,12 +393,12 @@ while (propertyNames.hasMoreElements())
 | JMSCorrelationID | Message.CorrelationID          | -                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | JMSDeliveryMode  | 現在使用できません。        | Service Bus は持続性のあるメッセージ; のみをサポートします。たとえば、DeliveryMode.PERSISTENT、指定されている内容に関係なく。                                                                                                                                                                                                                                                                                                                                                         |
 | JMSDestination   | Message.To                     | -                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| JMSExpiration    | メッセージです。 TimeToLive            | 変換                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| JMSExpiration    | メッセージです。 TimeToLive            | Conversion                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | JMSMessageID     | Message.MessageID              | 既定では、JMSMessageID は AMQP メッセージにバイナリ形式でエンコードされます。 バイナリ message-id を受信すると、.NET クライアント ライブラリはバイトの Unicode 値に基づいて文字列表現に変換します。 文字列メッセージ ID を使用するように JMS ライブラリを切り替えるには、"binary-messageid=false" 文字列を JNDI ConnectionURL のクエリ パラメーターに追加します。 例:"amqps://[username]:[password]@[namespace].servicebus.windows.net でしょうか。 .servicebus.windows.net? binary-messageid = false"です。 |
 | JMSPriority      | 現在使用できません。        | Service Bus はメッセージの優先度をサポートしていません。                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | JMSRedelivered   | 現在使用できません。        | -                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | JMSReplyTo       | メッセージです。 ReplyTo               | -                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| JMSTimestamp     | Message.EnqueuedTimeUtc        | 変換                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| JMSTimestamp     | Message.EnqueuedTimeUtc        | Conversion                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | JMSType          | Message.Properties ["jms type"] | -                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 #### Service Bus .NET API から JMS へ
@@ -407,14 +407,14 @@ while (propertyNames.hasMoreElements())
 |-------------------------|------------------|-------------------------|
 | ContentType             | -                  | 現在使用できません。 |
 | CorrelationId           | JMSCorrelationID | -                         |
-| EnqueuedTimeUtc         | JMSTimestamp     | 変換              |
+| EnqueuedTimeUtc         | JMSTimestamp     | Conversion              |
 | ラベル                   | 該当なし              | 現在使用できません。 |
 | MessageId               | JMSMessageID     | -                         |
 | ReplyTo                 | JMSReplyTo       | -                         |
 | ReplyToSessionId        | 該当なし              | 現在使用できません。 |
 | ScheduledEnqueueTimeUtc | 該当なし              | 現在使用できません。 |
 | SessionId               | 該当なし              | 現在使用できません。 |
-| TimeToLive              | JMSExpiration    | 変換              |
+| TimeToLive              | JMSExpiration    | Conversion              |
 | To                      | JMSDestination   | -                         |
 
 ## サポートされていない機能および制限
@@ -445,4 +445,5 @@ Service Bus で AMQP 1.0 を介して JMS を使用する場合は、次の制�
 
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
 [Azure classic portal]: http://manage.windowsazure.com
+
 

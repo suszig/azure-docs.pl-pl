@@ -29,12 +29,12 @@ Amazon Device Messaging (ADM) を使用してプッシュ通知を受信する�
 
 このチュートリアルには、次のものが必要です。
 
-+ (とみなし Eclipse を使用)、Android SDK を取得します <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android サイト</a>.
-+ 手順に従います <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">開発環境をセットアップします。</a> Kindle の開発環境を設定します。
++ <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android サイト</a>から Android SDK を入手します (Eclipse の使用を想定)。
++ 「<a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">開発環境を設定する</a>」の手順に従い、Kindle の開発環境を設定します。
 
 ##開発者ポータルへの新しいアプリの追加
 
-1. 最初に、[Amazon 開発者ポータル] で、アプリを作成します。
+1. アプリを最初に、作成、 [Amazon developer portal]します。
 
     ![][0]
 
@@ -79,7 +79,7 @@ Amazon Device Messaging (ADM) を使用してプッシュ通知を受信する�
 
 ADM ライブラリを Eclipse プロジェクトに追加します。
 
-1. ADM ライブラリを取得するには、[SDK のダウンロード] です。 SDK zip ファイルを解凍します。
+1. ADM ライブラリを取得する [download the SDK]します。 SDK zip ファイルを解凍します。
 2. Eclipse で、プロジェクトを右クリックし、順にクリックして **プロパティ**します。 選択 **Java Build Path** 左側で、クリックして、* * ライブラリ * * 上部にあるタブです。 クリックして **外部 Jar の追加**, 、ファイルを選択して `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` 、Amazon SDK を解凍したディレクトリからです。
 3. NotificationHubs Android SDK (リンク) をダウンロードします。
 4. パッケージを解凍し、`notification-hubs-sdk.jar` ファイルを Eclipse の `libs` フォルダーにドラッグします。
@@ -281,4 +281,5 @@ ADM ライブラリを Eclipse プロジェクトに追加します。
 [5]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-cmd-window.png
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
+
 

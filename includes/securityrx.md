@@ -128,7 +128,7 @@ ID およびアクセス制御の実装における潜在的な脆弱性を発�
 (独自に実装せずに) プラットフォームによって提供される ID やアクセスのメカニズムを
 使用することです。 広く利用されている、次の ID およびアクセス テクノロジの導入を検討してください。
 
-**Windows Identity Foundation (WIF)。**WIF は
+**Windows Identity Foundation (WIF)。** WIF は
 .NET Framework 4.5 に含まれている .NET ランタイム ライブラリです
 (.NET 3.5/4.0 用に単独でダウンロードすることもできます)。 WIF は、WS-Federation や WS-Trust などのプロトコルの処理や、
 Security Assertion Markup Language (SAML) などのトークンの処理など、
@@ -169,7 +169,7 @@ Windows Server に関連する識別情報ソリューション [概要] タブ 
 -   [Web SSO の設計][Web SSO Design]
 -   [フェデレーション Web SSO の設計][Federated Web SSO Design]
 
-**Azure Shared Access Signature。**Shared Access Signature
+**Azure Shared Access Signature。** Shared Access Signature
 を使用すると、BLOB またはコンテナー リソースへのアクセスを調整できます。 この
 詳しい情報については、次のリソースを
 参照してください。
@@ -182,35 +182,35 @@ Windows Server に関連する識別情報ソリューション [概要] タブ 
 
 このセクションでは、このトピックで扱う主なシナリオの概要を説明します。
 個々のアプリケーションに最適な ID ソリューションを決定する際の案内図として
-想定しています。
+使用してください。
 
--   **フェデレーション認証を ASP.NET Web フォーム アプリケーションです。**イン
+-   **フェデレーション認証を使用する ASP.NET Web フォーム アプリケーション。** イン
     このシナリオでは、Windows Server Active Directory で管理される
     Live ID や Microsoft アカウントなどのインターネット ID、または企業 ID
     を使用して、ASP.NET Web フォームへのアクセスを制御します。
 -   **フェデレーション認証を使用する WCF (SOAP) サービス**。この
     Azure AD Access Control によって管理されるサービス ID を使用して、WCF (SOAP)
     サービスへのアクセスを制御します。
--   **フェデレーション認証、Id を使用する WCF (SOAP) サービス
-    Active Directory。**このシナリオでは、
+-   **Active Directory のフェデレーション認証や ID を使用する WCF (SOAP)
+    サービス。** このシナリオでは、
     企業の Windows Server Active Directory によって管理される ID を使用して、WCF (SOAP) Web
     サービスへのアクセスを制御します。
 -   **フェデレーション認証を使用する WCF (REST) サービス**。この
     シナリオでは、Azure AD Access Control によって管理されるサービス ID を使用して、WCF (REST)
     サービスへのアクセスを制御します。
--   **Live ID を使用する WCF (REST) サービスと Microsoft アカウント、Facebook、
-    Google、yahoo!、Open id。**このシナリオでは、Live ID や Microsoft アカウントなどの
+-   **Live ID/Microsoft アカウント、Facebook、
+    Google、Yahoo!、 Open ID を使用する WCF (REST) サービス。** このシナリオでは、Live ID や Microsoft アカウントなどの
     インターネット ID を使用して、WCF (REST) サービスへの
     アクセスを制御します。
--   **使用する REST WCF サービスへの ASP.NET Web アプリケーションは共有 SWT トークンです。**イン
+-   **共有 SWT トークンを使用する REST WCF サービスへの ASP.NET Web アプリケーション。** イン
     このシナリオでは、フロントエンド
     ASP.NET Web アプリケーションとダウンストリーム REST サービスを含む
     分散型アプリケーションがあり、エンド ユーザーのコンテキストを物理層でフローさせます。
--   **要求対応でのロールベースのアクセス制御 (RBAC) 承認
-    アプリケーションおよびサービスです。**このシナリオでは、ロールに基づいて
+-   **要求対応アプリケーションとサービスにおけるロールベースのアクセス制御 (RBAC)
+    承認。** このシナリオでは、ロールに基づいて
     アプリケーションに承認ロジックを実装します。
--   **クレーム対応アプリケーションでクレーム ベースの承認と
-    サービスです。**このシナリオでは、複雑な承認ルールに基づいて
+-   **要求対応アプリケーションとサービスにおける要求ベースの
+    承認。** このシナリオでは、複雑な承認ルールに基づいて
     アプリケーションに承認ロジックを実装します。
 -   **Azure ストレージ サービスの Id とアクセスのシナリオ**。で
     このシナリオでは、Azure のストレージ BLOB およびコンテナーへの
@@ -340,7 +340,7 @@ Simple Web Token (SWT) トークンを発行するように Azure AD Access Cont
 このシナリオを実装するには、以下のリソースを参照してください。
 
 -   [ACS と対称を使用して WCF サービス間の信頼を構成する方法
-    キー](http://msdn.microsoft.com/library/gg185958.aspx)
+    構成する](http://msdn.microsoft.com/library/gg185958.aspx)
 -   [方法: Azure にデプロイした REST WCF サービスへの認証
     認証する](http://msdn.microsoft.com/library/hh289317.aspx)
 -   [Code Sample: ASP.NET Web Service (サンプル コード: ASP.NET Web サービス)](http://msdn.microsoft.com/library/gg983271.aspx)
@@ -467,7 +467,7 @@ samlSecurityTokenRequirement 構成を web.config で使用して、
 
 ![][11]
 
-**カスタム RoleManager。**この実装では、カスタム
+**カスタム RoleManager。** この実装では、カスタム
 RoleManger を実装します。 GetAllRoles() などのカスタム RoleManger インターフェイス メソッドを実装すると、
 WIF を使用して入力方向の要求が検査されます。
 
@@ -546,7 +546,7 @@ SQL Database。 情報漏えいを防ぐため、
 
 
 このシナリオを解決するには、次のヘルプ トピックを参照してください。<br/>
-[Azure SQL Database 開発: 操作方法に関するトピック](http://msdn.microsoft.com/library/azure/ee621787.aspx)
+[Azure SQL Database 開発作業の方法に関するトピック](http://msdn.microsoft.com/library/azure/ee621787.aspx)
 
 
 または、数多くある子トピックのいずれかを参照してください。次に一部のトピックを示します。
@@ -815,4 +815,5 @@ Azure Virtual Machines でアプリケーションをホストする場合に有
 
 [Web SSO Design]: http://technet.microsoft.com/library/dd807033(WS.10).aspx
 [Federated Web SSO Design]: http://technet.microsoft.com/library/dd807050(WS.10).aspx
+
 

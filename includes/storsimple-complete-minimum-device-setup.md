@@ -26,8 +26,8 @@
 
     > [AZURE.NOTE] 
     > 
-    > - The controller fixed IP addresses need to be free IPs within the subnet accessible by the device IP address.
-    > - The fixed IP addresses for the controller are used for servicing the updates to the device, and therefore the fixed IPs must be routable and able to connect to the Internet.
+    > - コントローラーの固定 IP アドレスは、デバイス の IP アドレスによってアクセス可能なサブネット内で空き IP となっている必要があります。
+    > - コントローラーの固定 IP アドレスはデバイスに更新プログラムを提供するために使用されるため、ルーティング可能でインターネットに接続可能である必要があります。
 
     ![StorSimple minimum device setup network interfaces](./media/storsimple-complete-minimum-device-setup/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
 
@@ -39,3 +39,4 @@
 ![使用可能なビデオ](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **ビデオ**
 
 デバイスの最小セットアップを完了する方法を示すビデオを見るには、次のようにクリックします。 [ここ](http://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/)します。
+

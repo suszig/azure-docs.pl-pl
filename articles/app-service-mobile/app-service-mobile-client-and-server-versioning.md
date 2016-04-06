@@ -63,7 +63,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 <!-- NOTE: the fwlink to this document is http://go.microsoft.com/fwlink/?LinkID=690568 -->
 
-## <a name="1.0.0"></a>モバイル サービス クライアントとサーバー
+## <a name="1.0.0"></a>Mobile Services のクライアントとサーバー
 
 次の表に、クライアント Sdk と互換性のある **Mobile Services**します。
 
@@ -95,7 +95,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 | 任意の値        | True                         | 200 - OK |
 | 任意の値        | 偽/指定なし          | 400 - 正しくない要求 | 
 
-## <a name="2.0.0"></a>Azure のモバイル アプリのクライアントとサーバー
+## <a name="2.0.0"></a>Azure Mobile Apps クライアントとサーバー
 
 ### <a name="MobileAppsClients"></a> モバイル *アプリ* クライアント Sdk
 
@@ -140,5 +140,6 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Migrate a Mobile Service to Azure App Service]: app-service-mobile-migrating-from-mobile-services.md
+
 
 

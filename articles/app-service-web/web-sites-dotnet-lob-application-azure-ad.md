@@ -285,7 +285,7 @@
         }
         
 14. Views\WorkItems\Create.cshtml (自動的にスキャフォールディングされた項目) で、`Html.BeginForm` ヘルパー メソッドを探し、以下のように変更します。  
-    <pre class="prettyprint">@ を使用して (Html.BeginForm (<mark>「作成」、「作業項目」、FormMethod.Post、新しい {id =「メイン フォーム」}</mark>))
+    <pre class="prettyprint">@ (Html.BeginForm (を使用します。<mark>「作成」、「作業項目」FormMethod.Post、新しい {id =「メイン フォーム」}</mark>))
     {
         @Html.AntiForgeryToken()
         
@@ -389,4 +389,5 @@
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
+
 

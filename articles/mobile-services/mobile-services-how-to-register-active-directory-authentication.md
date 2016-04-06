@@ -33,11 +33,11 @@
 
 >[AZURE.NOTE] 使用するこのトピックで説明する手順は、 [Mobile Services アプリへの認証の追加](../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md) を使用する場合にチュートリアル「 [サービス主導型ログイン操作](http://msdn.microsoft.com/library/azure/dn283952.aspx) アプリの使用。 また、アプリの要件がある場合 [クライアント主導型ログイン操作](http://msdn.microsoft.com/library/azure/jj710106.aspx) Azure Active Directory と .NET バックエンド モバイル サービスを開始する必要があります、 [Active Directory 認証ライブラリ シングル サインオンによるアプリケーションの認証](mobile-services-windows-store-dotnet-adal-sso-authentication.md) チュートリアルです。
 
-1. [Azure クラシック ポータル] にログオンをクリックして、モバイル サービスに移動、 **Identity** ] タブの [下へスクロールして、 **Azure active directory** id プロバイダーのセクションとコピー、 **アプリケーション URL の** 表示されます。
+1. ログオン、 [Azure classic portal], 、モバイル サービスに移動し、をクリックして、 **Identity** ] タブの [下へスクロールして、 **Azure active directory** id プロバイダーのセクションとコピー、 **アプリケーション URL の** 表示されます。
 
     ![AAD 用のモバイル サービス アプリ URL](./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-copy-app-url-waad-auth.png)
 
-2. 移動 **Active Directory** [Azure クラシック ポータル] のディレクトリをクリックし、 **ドメイン** ディレクトリの既定のドメインのメモに記録します。
+2. 移動 **Active Directory** で、 [Azure classic portal], 、ディレクトリをクリックし、 **ドメイン** ディレクトリの既定のドメインのメモに記録します。
 
 3. クリックして **アプリケーション** > **追加** > **[組織が開発中のアプリケーションを追加**します。
 
@@ -68,6 +68,7 @@
 
 <!-- URLs. -->
 [Azure classic portal]: https://manage.windowsazure.com/
+
 
 
 

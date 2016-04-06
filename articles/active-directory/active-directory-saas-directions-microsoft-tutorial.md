@@ -81,7 +81,7 @@
 
 3.   **アプリケーション URL の構成** サインオン URL] ボックスで、型のページ **https://www.directionsonmicrosoft.com/user/login**, 、] をクリックし、 **次**します。
 
-    ![Configure App URL](./media/active-directory-saas-directions-microsoft-tutorial/IC786881.png "Configure App URL")
+    ![アプリケーション URL の構成](./media/active-directory-saas-directions-microsoft-tutorial/IC786881.png "Configure App URL")
 
 4.   **Directions on Microsoft でのシングル サインオンの構成** ] ページで [ **メタデータのダウンロード**, 、コンピューターのローカルにメタデータ ファイルを保存します。
 
@@ -114,4 +114,5 @@ Directions on Microsoft へのユーザー プロビジョニングの構成に�
 3.  テスト ユーザーを選択して [ **割り当てる**, 、順にクリック **はい** して割り当てを確認します。
 
     ![あり](./media/active-directory-saas-directions-microsoft-tutorial/IC767830.png "Yes")
+
 

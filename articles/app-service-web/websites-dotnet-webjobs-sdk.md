@@ -22,7 +22,7 @@
 
 この記事では、Web ジョブ SDK の特徴を紹介すると共に、一般的な用途を確認し、コードでの使い方の概要を示します。
 
-[Web ジョブ](websites-webjobs-resources.md) 機能での Azure App Service web アプリ、API アプリ、モバイル アプリと同じコンテキストでプログラムまたはスクリプトを実行することができます。 目的、 [web ジョブ SDK](websites-webjobs-resources.md) は、画像処理、キュー処理、rss 情報集約ファイル メンテナンスなど、web ジョブが実行できる一般的なタスク用に記述するコードを簡略化して、電子メールを送信します。 WebJobs SDK には、Azure Storage や Service Bus の操作、タスクのスケジューリング、エラー処理など、一般的な用途に対応した各種の機能が組み込まれています。 さらに、拡張できる設計となっておりは、 [拡張機能のオープン ソース リポジトリ](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)します。
+[Web ジョブ](websites-webjobs-resources.md) 機能での Azure App Service web アプリ、API アプリ、モバイル アプリと同じコンテキストでプログラムまたはスクリプトを実行することができます。 目的、 [web ジョブ SDK](websites-webjobs-resources.md) は、画像処理、キュー処理、rss 情報集約ファイル メンテナンスなど、web ジョブが実行できる一般的なタスク用に記述するコードを簡略化して、電子メールを送信します。 Web ジョブ SDK には、Azure Storage や Service Bus の操作、タスクのスケジューリング、エラー処理など、一般的な用途に対応した各種の機能が組み込まれています。 さらに、拡張できる設計となっておりは、 [拡張機能のオープン ソース リポジトリ](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)します。
 
 Web ジョブ SDK には次のコンポーネントが含まれています。
 
@@ -157,13 +157,13 @@ public class Functions
 
 Web ジョブ SDK を使用すると、組み込みの機能に制限されずに、カスタムのトリガーやバインダーを記述できるようになります。  たとえば、キャッシュ イベントや定期的なスケジュール向けのトリガーを記述できます。  [オープン ソース リポジトリ](https://github.com/Azure/azure-webjobs-sdk-extensions) が含まれています、 [web ジョブ SDK の拡張機能の詳細なガイド](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) とするために役立つサンプル コードは、独自のトリガーおよびバインダーを記述を開始します。
 
-## <a id="workerrole"></a>Web ジョブ以外での Web ジョブ SDK の使用
+## <a id="workerrole"></a>Web ジョブ以外での WebJobs SDK の使用
 
 Web ジョブ SDK を使用するプログラムは標準的なコンソール アプリケーションであるため、場所を問わず実行できます。Web ジョブとして実行する必要はありません。 ローカルの開発用コンピューターでプログラムをテストし、運用段階では、好みに応じてクラウド サービスの worker ロールまたは Windows サービスで実行することができます。 
 
-ただし、ダッシュボードは Azure App Service Web アプリの拡張機能としてのみ使用可能です。 Web ジョブ以外で実行する際にもダッシュボードを使いたい場合は、Web ジョブ SDK ダッシュボードの接続文字列が参照するストレージ アカウントを使用するように Web アプリを構成できます。そうすれば、その Web アプリの Web ジョブ ダッシュボードに、別の場所で実行されているプログラムから関数の実行に関するデータが表示されます。 URL https://を使用して、ダッシュ ボードに接続できます*{webappname}*.scm.azurewebsites.net/azurejobs/#/functions します。 詳細については、次を参照してください。 [web ジョブ SDK を使用したローカル開発用ダッシュ ボードの取得](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx), 、ブログの投稿にいない接続文字列名が示されているに注意してください。 
+ただし、ダッシュボードは Azure App Service Web アプリの拡張機能としてのみ使用可能です。 Web ジョブ以外で実行する際にもダッシュボードを使いたい場合は、Web ジョブ SDK ダッシュボードの接続文字列が参照するストレージ アカウントを使用するように Web アプリを構成できます。そうすれば、その Web アプリの Web ジョブ ダッシュボードに、別の場所で実行されているプログラムから関数の実行に関するデータが表示されます。 URL https:// を使用して、ダッシュ ボードに接続できます*{webappname}*.scm.azurewebsites.net/azurejobs/#/functions します。 詳細については、次を参照してください。 [web ジョブ SDK を使用したローカル開発用ダッシュ ボードの取得](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx), 、ブログの投稿にいない接続文字列名が示されているに注意してください。 
 
-## <a id="nostorage"></a>ダッシュ ボードの機能
+## <a id="nostorage"></a>ダッシュボードの機能
 
 Web ジョブ SDK には、トリガーやバインダーを使用しない場合でも、次のようないくつかの利点があります。
 
@@ -179,4 +179,5 @@ Web ジョブ SDK の詳細については、次を参照してください。 [
 
 Web ジョブ SDK の最新の機能強化については、次を参照してください。、 [リリース ノート](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes)します。
  
+
 

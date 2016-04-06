@@ -3,7 +3,7 @@
 
 #### デバイスを構成して登録するには
 
-1. StorSimple デバイスのシリアル コンソールで Windows PowerShell インターフェイス にアクセスします。 参照してください [デバイスのシリアル コンソールに接続するための PuTTY を使用して](#use-putty-to-connect-to-the-device-serial-console) についてです。 **手順に厳密に従うことを確認するまたはコンソールにアクセスすることはできません。**
+1. StorSimple デバイスのシリアル コンソールで Windows PowerShell インターフェイス にアクセスします。 参照してください [デバイスのシリアル コンソールに接続するための PuTTY を使用して](#use-putty-to-connect-to-the-device-serial-console) についてです。 **必ず手順を正確に実行してください。そうしないと、コンソールにアクセスできません。**
 
 2. 開いたセッションで、Enter キーを 1 回押して、コマンド プロンプトを開きます。 
 
@@ -15,7 +15,7 @@
 
     ![StorSimple によるデバイスの登録 2](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice2-include.png)
   
-     手順 5. ～ 12. に従って、デバイスで必要な最小のネットワーク設定を構成します。 **これらの構成手順は、デバイスのアクティブなコント ローラーで実行する必要があります。**シリアル コンソール メニューでは、バナー メッセージにコントローラーの状態が示されます。 アクティブ コントローラーに接続されていない場合は、切断してアクティブ コントローラーに接続します。
+     手順 5. ～ 12. に従って、デバイスで必要な最小のネットワーク設定を構成します。 **これらの構成手順は、デバイスのアクティブ コントローラーで実行する必要があります。** シリアル コンソール メニューでは、バナー メッセージにコントローラーの状態が示されます。 アクティブ コントローラーに接続されていない場合は、切断してアクティブ コントローラーに接続します。
 
 5. コマンド プロンプトにパスワードを入力します。 デバイスの既定のパスワードは **Password1**します。
 
@@ -35,7 +35,7 @@
 8. (省略可能) Web プロキシ サーバーを構成します。 Web プロキシ構成は省略可能、 **web プロキシを使用する場合、のみ、構成できることは、ここに注意してください**します。 詳細についてを参照してください [デバイスの web プロキシの構成](storsimple-configure-web-proxy.md)します。 この手順では、問題を実行する場合のトラブルシューティングの指針を参照してください。 [web プロキシ構成中にエラー](storsimple-troubleshoot-deployment.md#errors-during-the-optional-web-proxy-settings)します。
  
 
-      > [AZURE.NOTE] You can press Ctrl + C at any time to exit the setup wizard. Any settings that you applied before you issued this command will be retained.
+      > [AZURE.NOTE] セットアップ ウィザードを終了するには、いつでも、ctrl キーを押しながら C キーを押してことができます。 このコマンドを発行する前に適用されたすべての設定は保持されます。
 
 9. セキュリティ上の理由で、デバイス管理者のパスワードは最初のセッション後に期限が切れるため、以降のセッションでは変更する必要があります。 画面の指示に従って、デバイスの管理者パスワードを入力します。 デバイス管理者の有効なパスワードの長さは、8 ～ 15 文字です。 大文字、小文字、数字、および特殊文字を組み合わせたパスワードを使用してください。
 
@@ -75,3 +75,4 @@
 ![使用可能なビデオ](./media/storsimple-configure-and-register-device/Video_icon.png) **ビデオ**
 
 クリックして構成し、StorSimple 用 Windows PowerShell を使用してデバイスを登録する方法を示すビデオを見る、 [ここ](http://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/)します。
+

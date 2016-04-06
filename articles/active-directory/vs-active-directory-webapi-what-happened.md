@@ -1,11 +1,11 @@
 <properties
-    pageTitle ="web Api プロジェクトに変更内容 (Visual Studio の Azure Active Directory には、サービスが接続されている) |Microsoft Azure]
-    description ="、MVC プロジェクトの Visual Studio のサービスを使用して Azure AD に接続する web Api の動作について説明 ="active directory"
-    サービス ="active directory"
+    pageTitle="Web Api プロジェクトに変更内容 (Visual Studio の Azure Active Directory には、サービスが接続されている) |Microsoft Azure "
+    description="MVC プロジェクト Visual Studio のサービスを使用して Azure AD に接続する web Api の動作について説明 ="active-directory"
+    services="active-directory"
     documentationCenter=""
-    authors ="TomArcher"
-    manager ="douge"
-    エディター ="tglee"/>
+    authors="TomArcher"
+    manager="douge"
+    editor="tglee"/>
 
 <tags
     ms.service="active-directory"
@@ -116,4 +116,5 @@ NuGet パッケージのリファレンスが削除されるほか、ファイ�
 Azure Active Directory アプリが追加されましたが、 *ディレクトリ データを読み取る* アクセス許可と追加のキーとして使用されたを作成した、 *Ida:password:* で、 `web.config` ファイルです。
 
 [Azure Active Directory の詳細を確認する](http://azure.microsoft.com/services/active-directory/)
+
 

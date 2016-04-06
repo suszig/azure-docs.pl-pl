@@ -43,7 +43,7 @@
 
 次に、ツイートを格納するための新しいテーブルを作成する必要があります。
 
-2. [Azure クラシック ポータル]、をクリックして、 **データ** タブに移動して、モバイル サービスの [ **[作成**します。
+2.  [Azure classic portal], をクリックして、 **データ** タブに移動して、モバイル サービスの [ **[作成**します。
 
 3.  **テーブル名** 型 _更新_, 、チェック ボタンをクリックします。
 
@@ -151,9 +151,9 @@
 
 これで、スケジュールされた新しいジョブがモバイル サービスに作成されました。 このジョブは、無効化または変更するまで、スケジュールに従って実行されます。
 
-## <a name="nextsteps"> </a>関連項目
+## <a name="nextsteps"></a>関連項目
 
-* [モバイル サービスのサーバー スクリプト リファレンス]
+* [Mobile Services server script reference]
   <br/>サーバー スクリプトの登録および使用について説明します。
 
 <!-- Anchors. -->
@@ -171,4 +171,5 @@
 [Register your apps for Twitter login with Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+
 

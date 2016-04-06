@@ -22,7 +22,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure ポータル](documentdb-create-account.md)
-- [Azure CLI および ARM](documentdb-automation-resource-manager-cli.md)
+- [Azure CLI と ARM](documentdb-automation-resource-manager-cli.md)
 
 この記事では、Azure リソース マネージャーのテンプレートと Azure CLI (コマンドライン インターフェイス) を利用し、DocumentDB データベース アカウントを自動作成する方法について説明します。 Azure ポータルを使用して DocumentDB アカウントを作成するを参照してください。 [Azure ポータルを使用して DocumentDB データベース アカウントの作成](documentdb-create-account.md)します。
 
@@ -55,7 +55,7 @@ Azure リソース管理テンプレートを使用するには、職場のア�
 次の出力が生成されます。 
 
     info:    Executing command login
-    |info:    To sign in, use a web browser to open the page https://aka.ms/devicelogin. 
+  	|info:    To sign in, use a web browser to open the page https://aka.ms/devicelogin. 
     Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
     AD application, use the --username and --password parameters.
 
@@ -93,7 +93,7 @@ Azure リソース管理テンプレートを使用するには、職場のア�
 
 `azure config mode asm` と入力することで、既定のコマンド セットに戻すことができます。
 
-## <a id="quick-create-documentdb-account"></a>タスク: Azure CLI を使用して DocumentDB アカウントを作成します。
+## <a id="quick-create-documentdb-account"></a>作業: Azure CLI を利用して DocumentDB アカウントを作成する
 
 このセクションの指示に従い、Azure CLI で DocumentDB アカウントを作成します。 
 
@@ -132,7 +132,7 @@ DocumentDB アカウントを作成するには、最初にリソース グル�
 
 エラーが発生した場合は、次を参照してください。 [トラブルシューティング](#troubleshooting)します。 
 
-### <a id="create-documentdb-account-cli"></a> 手順 2: CLI を使用して DocumentDB アカウントを作成します。
+### <a id="create-documentdb-account-cli"></a> 手順 2: CLI を利用して DocumentDB アカウントを作成する
 
 コマンド プロンプトで次のコマンドを入力し、新規または既存のリソース グループで DocumentDB アカウントを作成します。
 
@@ -168,7 +168,7 @@ DocumentDB アカウントを作成するには、最初にリソース グル�
 
 アカウントになりますコマンドが返された後に、 **作成** に変更する前に、数分間は、状態、 **オンライン** の状態では使用可能な状態です。 内のアカウントの状態を確認することができます、 [Azure ポータル](https://portal.azure.com), の **DocumentDB アカウント** ブレードです。
 
-## <a id="deploy-documentdb-from-a-template"></a>タスク: ARM テンプレートを使用して DocumentDB アカウントを作成します。
+## <a id="deploy-documentdb-from-a-template"></a>作業: ARM テンプレートを利用して DocumentDB アカウントを作成する
 
 このセクションの指示に従い、Azure リソース マネージャー (ARM) のテンプレートとオプションのパラメーター ファイル (いずれも JSON ファイル) で DocumentDB アカウントを作成します。 テンプレートを利用すると、誤りなく必要なものを正確に表現し、それを繰り返すことができます。 
 
@@ -260,7 +260,7 @@ DocumentDB アカウントを作成するには、最初にリソース グル�
 
 エラーが発生した場合は、次を参照してください。 [トラブルシューティング](#troubleshooting)します。 
 
-### <a id="create-account-from-template"></a>手順 3: ARM テンプレートを使用して DocumentDB アカウントを作成します。
+### <a id="create-account-from-template"></a>手順 3: ARM テンプレートを利用して DocumentDB アカウントを作成する
 
 リソース グループで DocumentDB アカウントを作成するには、次のコマンドを実行し、テンプレート ファイルのパス、パラメーター ファイルまたはパラメーター値のパス、デプロイメントするリソース グループの名前、デプロイメント名を指定します (-n は任意です)。 
 
@@ -350,3 +350,4 @@ DocumentDB の詳細については、以下の資料を参照してください
 -   [DocumentDB のリソース モデルと概念](documentdb-resources.md)
 
 他のテンプレートを使用する、次を参照してください。 [Azure クイック スタート テンプレート](http://azure.microsoft.com/documentation/templates/)します。
+

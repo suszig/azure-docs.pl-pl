@@ -3,7 +3,7 @@
 
 このセクションでは、Azure Active Directory にモバイル サービスを登録し、シングル サインオン権限の借用を許可するアクセス許可を構成します。
 
-1. Azure Active Directory と Azure Active Directory に登録する方法] の後にアプリケーションを登録トピックです。
+1. 次に、Azure Active Directory でアプリケーションを登録、 [How to Register with the Azure Active Directory] トピックです。
 
 2.  [Azure clasic ポータル](https://manage.windowsazure.com/), し、Azure Active Directory 拡張機能に戻り、active directory をクリックして
 
@@ -37,4 +37,5 @@
 
 <!-- URLs. -->
 [How to Register with the Azure Active Directory]: ../articles/mobile-services/mobile-services-how-to-register-active-directory-authentication.md
+
 

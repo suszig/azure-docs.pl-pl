@@ -237,7 +237,7 @@ StorSimple ソリューションに保存されるデータとソリューショ
 
 - [StorSimple Manager サービスを使用した StorSimple のパスワードの変更](storsimple-change-passwords.md)
 - [サービス データ暗号化キーの変更](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
-- [StorSimple デバイスの CHAP を構成する](storsimple-configure-chap.md)
+- [StorSimple デバイスの CHAP の構成](storsimple-configure-chap.md)
 
 **Q:** は StorSimple デバイスに接続しているホストに StorSimple Snapshot Manager のパスワードを提供しますが、パスワードは使用できません。 どうすればよいですか。
 
@@ -268,4 +268,5 @@ StorSimple ソリューションに保存されるデータとソリューショ
 
 [StorSimple デバイスのデプロイ](storsimple-deployment-walkthrough.md)します。
  
+
 

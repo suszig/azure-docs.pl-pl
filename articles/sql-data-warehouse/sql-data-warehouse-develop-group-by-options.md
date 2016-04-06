@@ -18,12 +18,12 @@
 
 # SQL Data Warehouse の Group By オプション
 
-[グループ化] 句は、データ行のサマリー セットを集計する使用されます。 また、機能を拡張するオプションもありますが、Azure SQL Data Warehouse で直接サポートされていないので、対処する必要があります。
+ [GROUP BY] データ行のサマリー セットを集計する句を使用します。 また、機能を拡張するオプションもありますが、Azure SQL Data Warehouse で直接サポートされていないので、対処する必要があります。
 
-これらのオプションします。
+オプションは次のとおりです。
 - GROUP BY with ROLLUP
 - GROUPING SETS
-- キューブには、[グループ化
+- GROUP BY with CUBE
 
 ## Rollup および Grouping Sets オプション
 ここで最も簡単なオプションは、`UNION ALL` を使用して、明示的な構文に頼る代わりに、ロールアップを実行します。 結果はまったく同じです。
@@ -43,9 +43,9 @@ GROUP BY ROLLUP (
 ;
 ```
 
-ロールアップを使用して、次の集計を要求しています。
-- 国/地域
-- Country (国)
+ROLLUP を使用して、次の集計を要求しました。
+- 国とリージョン
+- 国
 - 総計
 
 これを置き換えるには、`UNION ALL` を使用して、同じ結果を返すために明示的に必要な集計を指定します。
@@ -177,7 +177,7 @@ ORDER BY 1,2,3
 
 
 ## 次のステップ
-他の開発のヒントについては、[開発の概要に関するページを参照してください。
+他の開発のヒントを参照してください。 [開発の概要][]します。
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
@@ -190,5 +190,6 @@ ORDER BY 1,2,3
 
 
 <!--Other Web references-->
+
 
 

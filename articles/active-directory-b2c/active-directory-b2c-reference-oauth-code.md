@@ -18,7 +18,7 @@
 
 # Azure AD B2C プレビュー: OAuth 2.0 認証コード フロー
 
-デバイスにインストールされているアプリに、Web API など、保護されているリソースにアクセスする権利を与えるために OAuth 2.0 認証コード付与を利用できます。  OAuth 2.0 の Azure AD B2C の実装を使用して、追加できますサインアップ、サインイン、
+デバイスにインストールされているアプリに、Web API など、保護されているリソースにアクセスする権利を与えるために OAuth 2.0 承認コード付与を利用できます。  OAuth 2.0 の Azure AD B2C の実装を使用して、追加できますサインアップ、サインイン、
 モバイルおよびデスクトップ アプリケーションにその他の id 管理タスクを選択します。  本ガイドでは、オープンソース ライブラリを利用せず、HTTP メッセージを送受信する方法について説明します。本ガイドは言語非依存です。
 
 <!-- TODO: Need link to libraries -->   
@@ -29,7 +29,7 @@ OAuth 2.0 承認コード フローが内に記載されている [4.1 OAuth 2.0
 特定の特徴の OAuth 2.0 承認コード フロー - **パブリック クライアント**です。  パブリック クライアントとは、秘密のパスワードの整合性を守る目的で信頼できないクライアント アプリケーションのことです。  モバイル アプリ、デスクトップ アプリ、および任意のはかなり多くのアプリケーションを
 デバイスで実行し、access_tokens を取得する必要があります。  使用する必要があります id 管理を Azure AD B2C を使用して web アプリに追加する場合は、 [OpenID Connect](active-directory-b2c-reference-oidc.md) OAuth 2.0 ではなく。
 
-Azure AD B2C は、単純な認証と権限付与以上のことができるように標準の OAuth 2.0 プロトコルを拡張したものです。  それが導入されています、 [**ポリシー パラメータ**](active-directory-b2c-reference-poliices.md),、 
+Azure AD B2C は、単純な認証と承認以上のことができるように標準の OAuth 2.0 プロトコルを拡張したものです。  それが導入されています、 [**ポリシー パラメータ**](active-directory-b2c-reference-poliices.md),、 
 アプリになどが発生したユーザーを追加する OAuth 2.0 を使用できるサインアップ、サインイン、およびプロファイルの管理。  OAuth 2.0 とポリシーを使用して、これらのエクスペリエンスを実装する方法を紹介は、ここ 
 ネイティブ アプリケーションを取得にアクセスするための access_tokens web Api を使用します。
 
@@ -269,7 +269,7 @@ Content-Type: application/json
 
 <!-- 
 
-ネイティブなアプリの全体の流れを次に示します各要求は、以下のセクションで詳細を示します。
+Here is the entire flow for a native  app; each request is detailed in the sections below:
 
 ![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png) 
 
@@ -282,3 +282,4 @@ Content-Type: application/json
 - [B2C ディレクトリを作成する](active-directory-b2c-get-started.md), 、し、要求で、ディレクトリの名前を使用します。
 - [アプリケーションを作成する](active-directory-b2c-app-registration.md) アプリケーション Id と、redirect_uri を取得します。  追加する、 **ネイティブ クライアント** アプリです。
 - [ポリシーを作成](active-directory-b2c-reference-policies.md) ポリシー名を取得します。
+

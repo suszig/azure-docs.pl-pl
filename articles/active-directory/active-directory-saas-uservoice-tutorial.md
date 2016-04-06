@@ -75,11 +75,11 @@ UserVoice のシングル サインオンを構成するには、証明書から
 
 1.  Azure AD ポータルでの **UserVoice** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-uservoice-tutorial/IC777515.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-uservoice-tutorial/IC777515.png "Configure single sign-on")
 
 2.   **どのようなユーザーの UserVoice に** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、順にクリック **次**します。
 
-    ![Configure single sign-on](./media/active-directory-saas-uservoice-tutorial/IC777516.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-uservoice-tutorial/IC777516.png "Configure single sign-on")
 
 3.   **アプリケーション URL の構成** ] ページで、 **UserVoice サインイン URL** ] ボックスに、次のパターンを使用して URL を入力"*https://\<tenant-name\>。UserVoice.com*"、クリックして **次**します。
 
@@ -87,13 +87,13 @@ UserVoice のシングル サインオンを構成するには、証明書から
 
 4.   **UserVoice でのシングル サインオンの構成** ] ページで、証明書をダウンロードする] をクリックして **証明書のダウンロード**, 、としては、証明書ファイルをローカルに保存および **c:\\UserVoice.cer**します。
 
-    ![Configure single sign-on](./media/active-directory-saas-uservoice-tutorial/IC777518.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-uservoice-tutorial/IC777518.png "Configure single sign-on")
 
 5.  別の Web ブラウザーのウィンドウで、UserVoice 企業サイトに管理者としてログインします。
 
 6.  上部のツール バーの [設定] をクリックし、[Web ポータル] を選択します。
 
-    ![設定](./media/active-directory-saas-uservoice-tutorial/IC777519.png "Settings")
+    ![Settings](./media/active-directory-saas-uservoice-tutorial/IC777519.png "Settings")
 
 7.   **Web ポータル** ] タブで、 **ユーザー認証** ] をクリックして **編集** を開くには、 **ユーザー認証の編集** ] ダイアログ ページ
 
@@ -114,7 +114,7 @@ UserVoice のシングル サインオンを構成するには、証明書から
 
 9.  Azure AD ポータルでのシングル サインオンの構成情報を選択し、 **完了** を閉じる、 **[シングル サインオン** ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-uservoice-tutorial/IC777522.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-uservoice-tutorial/IC777522.png "Configure single sign-on")
 
 ##ユーザー プロビジョニングの構成
   
@@ -127,7 +127,7 @@ UserVoice の場合、プロビジョニングは手動で行います。
 
 2.  移動して **設定**します。
 
-    ![設定](./media/active-directory-saas-uservoice-tutorial/IC777811.png "Settings")
+    ![Settings](./media/active-directory-saas-uservoice-tutorial/IC777811.png "Settings")
 
 3.  クリックして **全般**します。
 
@@ -165,3 +165,4 @@ UserVoice の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-uservoice-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

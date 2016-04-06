@@ -25,7 +25,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
-このガイドでは、Azure Mobile Services [iOS SDK] を使用して一般的なシナリオを実行する方法について説明します。 モバイル サービスに慣れていない場合は最初完了 [Mobile Services クイック スタート] を自分のアカウントを構成するテーブルを作成し、モバイル サービスを作成します。
+このガイドでは、Azure Mobile Services を使用して一般的なシナリオを実行する方法について説明 [iOS SDK]します。 モバイル サービスに慣れていない場合は完了して [Mobile Services Quick Start] 使用アカウントを構成するには、テーブルを作成し、モバイル サービスを作成します。
 
 > [AZURE.NOTE] このガイドでは、最新 [iOS 用 Mobile Services SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409)します。 プロジェクトで古いバージョンの SDK が使用されている場合は、まず Xcode のフレームワークをアップグレードします。
 
@@ -33,9 +33,9 @@
 
 ##<a name="Setup"></a>セットアップと前提条件
 
-このガイドでは、前提条件として、モバイル サービスとテーブルを作成してあるとします。 詳細については、次を参照してください。 [Create a table], 、または再利用、 `TodoItem` [Mobile Services クイック スタート] で作成されたテーブル。 このガイドでは、テーブルのスキーマが、これらのチュートリアルのテーブルの場合と同じであることを前提とします。 このガイドではまた、Xcode が `WindowsAzureMobileServices.framework` を参照し、`WindowsAzureMobileServices/WindowsAzureMobileServices.h` をインポートすることを前提とします。
+このガイドでは、前提条件として、モバイル サービスとテーブルを作成してあるとします。 詳細については、次を参照してください。 [Create a table], 、または再利用、 `TodoItem` で作成されたテーブル [Mobile Services Quick Start]します。 このガイドでは、テーブルのスキーマが、これらのチュートリアルのテーブルの場合と同じであることを前提とします。 このガイドではまた、Xcode が `WindowsAzureMobileServices.framework` を参照し、`WindowsAzureMobileServices/WindowsAzureMobileServices.h` をインポートすることを前提とします。
 
-##<a name="create-client"></a>方法: モバイル サービス クライアントを作成します。
+##<a name="create-client"></a>方法: Mobile Services クライアントを作成する
 
 プロジェクトで Azure Mobile Service にアクセスするには、`MSClient` クライアント オブジェクトを作成します。 `AppUrl` をモバイル サービスの URL に置き換え、`AppKey` をアプリケーション キー ダッシュ ボード値に置き換えます。
 
@@ -43,7 +43,7 @@
 MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" applicationKey:@"AppKey"];
 ```
 
-##<a name="table-reference"></a>方法: テーブル参照を作成します。
+##<a name="table-reference"></a>方法: テーブル参照を作成する
 
 Azure Mobile Service のデータへのアクセスまたはデータの更新を行うには、テーブルへの参照を作成します。 `TodoItem` をテーブルの名前に置き換えます。
 
@@ -51,7 +51,7 @@ Azure Mobile Service のデータへのアクセスまたはデータの更新�
     MSTable *table = [client tableWithName:@"TodoItem"];
 ```
 
-##<a name="querying"></a>方法: データのクエリ
+##<a name="querying"></a>方法: データをクエリする
 
 データベース クエリを作成するには、`MSTable` オブジェクトのクエリを実行します。 次のクエリは、`TodoItem` 内のすべての項目を取得し、各項目のテキストをログに記録します。
 
@@ -67,7 +67,7 @@ Azure Mobile Service のデータへのアクセスまたはデータの更新�
 }];
 ```
 
-##<a name="filtering"></a>方法: 返されるデータをフィルター処理
+##<a name="filtering"></a>方法: 返されるデータをフィルター処理する
 
 結果をフィルター処理するには、多くのオプションを使用できます。
 
@@ -88,7 +88,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 }];
 ```
 
-##<a name="query-object"></a>方法: MSQuery を使用
+##<a name="query-object"></a>方法: MSQuery を使用する
 
 複雑なクエリ (並べ替えとページングを含む) を実行するには、`MSQuery` オブジェクトを直接作成するか、述語を使用して作成します。
 
@@ -98,12 +98,12 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 ```
 
 `MSQuery` を使用すれば、次のような複数のクエリ動作を制御できます。 実行、 `MSQuery` を呼び出してクエリ `readWithCompletion` で、次の例に示すようにします。
-* 結果の順序を指定します。
-* 取得するには、どのフィールドを制限します。
-* 返されるレコードの数を制限します。
-* 応答の合計数を指定します。
-* 要求にカスタム クエリ文字列パラメーターを指定します。
-* その他の関数を適用します。
+* 結果の順序を指定する
+* 返すフィールドを制限する
+* 返すレコード数を制限する
+* 応答の合計数を指定する
+* 要求内にカスタム クエリ文字列パラメーターを指定する
+* 追加の関数を適用する
 
 
 ## <a name="sorting"></a>方法: MSQuery でデータを並べ替える
@@ -165,7 +165,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 ```
 
-## <a name="selecting"></a><a name="parameters"></a>方法: フィールドを制限し、MSQuery でクエリ文字列パラメーターを展開
+## <a name="selecting"></a><a name="parameters"></a>方法: MSQuery でフィールドを制限し、クエリ文字列パラメーターを展開する
 
 クエリで返されるフィールドを制限するためのフィールドの名前を指定します、 **selectFields** プロパティです。 次の例では、text フィールドと completed フィールドのみが返されます。
 
@@ -182,7 +182,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
     };
 ```
 
-##<a name="inserting"></a>方法: データの挿入
+##<a name="inserting"></a>方法: データを挿入する
 
 新しいテーブル行を挿入するには、新しい `NSDictionary` を作成して、`table insert` を呼び出します。 モバイル サービスに基づく新しい列を自動的に生成する、 `NSDictionary` 場合 [Dynamic Schema] は無効にします。
 
@@ -202,7 +202,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
     }];
 ```
 
-##<a name="modifying"></a>方法: データの変更
+##<a name="modifying"></a>方法: データを変更する
 
 既存の行を更新するには、次のように項目を変更して `update` を呼び出します。
 
@@ -224,7 +224,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 更新操作を行う場合は、少なくとも `id` 属性を設定する必要があります。
 
-##<a name="deleting"></a>方法: データを削除します。
+##<a name="deleting"></a>方法: データを削除する
 
 項目を削除するには、次のように、該当する項目を指定して `delete` を呼び出します。
 
@@ -244,16 +244,16 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 削除操作を行う場合は、少なくとも `id` 属性を設定する必要があります。
 
-##<a name="#custom-api"></a>方法: カスタム API 呼び出し
+##<a name="#custom-api"></a>方法: カスタム API の呼び出し
 
 カスタム API を使用してカスタム エンドポイントを定義することにより、insert、update、delete、read のいずれの操作にも関連しないサーバー機能を公開することができます。 カスタム API を使用することによって、HTTP メッセージ ヘッダーの読み取りや設定、JSON 以外のメッセージ本文形式の定義など、メッセージングをより柔軟に制御することができます。 モバイル サービスでカスタム API を作成する方法の例は、次を参照してください。 [方法: カスタム API エンドポイントを定義する](mobile-services-dotnet-backend-define-custom-api.md)です。
 
 [AZURE.INCLUDE [mobile-services-ios-call-custom-api](../../includes/mobile-services-ios-call-custom-api.md)]
 
 
-##<a name="authentication"></a>方法: ユーザーを認証します。
+##<a name="authentication"></a>方法: ユーザーを認証する
 
-Azure Mobile Services は、さまざまな ID プロバイダーをサポートします。 基本的なチュートリアルでは、[認証] を参照してください。
+Azure Mobile Services は、さまざまな ID プロバイダーをサポートします。 基本的なチュートリアルについては、次を参照してください。 [Authentication]します。
 
 Azure Mobile Services は、次の 2 つの認証ワークフローをサポートします。
 
@@ -265,7 +265,7 @@ Azure Mobile Services は、次の 2 つの認証ワークフローをサポー�
 
 ### サーバーによって管理されるログイン
 
-ここでは、[Mobile Services クイック スタート] プロジェクトをサーバーによって管理されるログインを追加する方法似たようなコードは、他のプロジェクトを使用できます。 詳細については、およびエンド ツー エンド例の動作を確認するには、[認証] を参照してください。
+サーバーによって管理されるログインを追加する方法を次に示します、 [Mobile Services Quick Start] プロジェクトに、似たようなコードを他のプロジェクトに使用することができます。 詳細については、およびエンド ツー エンド例の動作を確認するには、「 [Authentication]します。
 
 [AZURE.INCLUDE [mobile-services-ios-authenticate-app](../../includes/mobile-services-ios-authenticate-app.md)]
 
@@ -283,11 +283,11 @@ Azure Mobile Services は、次の 2 つの認証ワークフローをサポー�
     }];
 ```
 
-##<a name="caching-tokens"></a>方法: 認証トークンをキャッシュします。
+##<a name="caching-tokens"></a>方法: 認証トークンをキャッシュする
 
-[Mobile Services クイック スタート] プロジェクト内のトークンをキャッシュする方法を見てみましょう任意のプロジェクトに同様の手順を適用することもできます。 [AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
+内のトークンをキャッシュする方法を見て、 [Mobile Services Quick Start] プロジェクトに、任意のプロジェクトに同様の手順を適用することもできます。 [AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
 
-##<a name="errors"></a>方法: エラーを処理します。
+##<a name="errors"></a>方法: エラーを処理する
 
 モバイル サービスを呼び出したとき、完了ブロックには `NSError *error` パラメーターが含まれます。 エラーが発生すると、このパラメーターは null 以外の値になります。 コードでは、このパラメーターを確認し、必要に応じてエラーを処理する必要があります。
 
@@ -339,4 +339,5 @@ mobile-services-javascript-backend-service-side-authorization.md
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
+
 

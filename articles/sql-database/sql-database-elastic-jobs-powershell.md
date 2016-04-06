@@ -69,7 +69,7 @@ PowerShell Api **弾力性データベース ジョブ** (プレビュー) で�
 
   <tr>
     <td>DACPAC</td>
-    <td><a href="https://msdn.microsoft.com/library/ee210546.aspx">データ層アプリケーション </a> データベース全体に適用できるパッケージです。
+    <td><a href="https://msdn.microsoft.com/library/ee210546.aspx">データ層アプリケーション </a> データベース間で適用されるパッケージ。
 
     </td>
     <td>
@@ -551,7 +551,7 @@ Elastic Database ジョブは、ジョブの開始時に適用できるカスタ
 
 ### カスタム データベース コレクション ターゲット全体に対してスクリプトを実行するジョブを作成する
 
-使用して、 [**新規 AzureSqlJob**](https://msdn.microsoft.com/library/mt346078.aspx) コマンドレットをデータベースのカスタム コレクションの対象が定義されているデータベースのグループに対してジョブを作成します。 エラスティック データベース ジョブによって、カスタム データベース コレクション ターゲットに関連付けられているデータベースに対応する複数の子ジョブにまでジョブの対象が拡張されるので、各データベースに対して確実にスクリプトが実行されます。 ここでも、スクリプトをべき等にして、再試行に対して回復力を持たせるようにすることが重要です。
+使用して、 [**新規 AzureSqlJob**](https://msdn.microsoft.com/library/mt346078.aspx) コマンドレットをデータベースのカスタム コレクションの対象が定義されているデータベースのグループに対してジョブを作成します。 Elastic Database ジョブによって、カスタム データベース コレクション ターゲットに関連付けられているデータベースに対応する複数の子ジョブにまでジョブの対象が拡張されるので、各データベースに対して確実にスクリプトが実行されます。 ここでも、スクリプトをべき等にして、再試行に対して回復力を持たせるようにすることが重要です。
 
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
@@ -694,4 +694,5 @@ DACPAC を作成するを参照してください。 [データ層アプリケ�
 [1]: ./media/sql-database-elastic-jobs-powershell/cmd-prompt.png
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
+
 

@@ -21,7 +21,7 @@
 > [AZURE.SELECTOR]
 - [PowerShell - クラシック](expressroute-howto-linkvnet-classic.md)
 - [PowerShell のリソース マネージャー](expressroute-howto-linkvnet-arm.md)
-- [テンプレートのリソース マネージャー](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
+- [テンプレート - リソース マネージャー](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
 
 この記事では、ExpressRoute 回線に仮想ネットワーク (VNet) をリンクする方法の概要を示します。 仮想ネットワークは、同じサブスクリプションにあっても、別のサブスクリプションの一部であってもかいまいません。 この記事は、クラシック デプロイ モデルを使用してデプロイされた VNet に適用されます。 Azure リソース マネージャーのデプロイメント方法を使用してデプロイされた仮想ネットワークをリンクする場合は、テンプレートを使用して行うことができます。 テンプレートに移動する場合は、上のタブを参照してください。
 
@@ -136,4 +136,5 @@ ExpressRoute 回線を仮想ネットワークにリンクしている接続を�
 ## 次のステップ
 
 ExpressRoute の詳細については、次を参照してください。、 [ExpressRoute の FAQ](expressroute-faqs.md)します。
+
 

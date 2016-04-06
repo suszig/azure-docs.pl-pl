@@ -55,8 +55,8 @@ Apple Push Notification サービス (APNs) を使用してプッシュ通知を
 
 <ol start="7">
 <li>
-<p>クリックして、 <b>構成</b> 上部にあるタブをクリックして、 <b>アップロード</b> 証明書の拇印をアップロード、Apple 通知設定] ボタンをクリックします。 選択し、 <b>.p12</b> 前にエクスポートした証明書と証明書のパスワード</p>
-<p>。選択するように <b>サンド ボックス</b> これは開発のためのモードです。 のみを使用して、 <b>運用</b> ストアからアプリケーションを購入したユーザーにプッシュ通知を送信する場合。</p>
+<p>クリックして、 <b>構成</b> 上部にあるタブをクリックして、 <b>アップロード</b> 証明書の拇印をアップロード、Apple 通知設定] ボタンをクリックします。 選択し、 <b>.p12</b> 前にエクスポートした証明書と証明書のパスワード。</p>
+<p>選択するように <b>サンド ボックス</b> これは開発のためのモードです。 のみを使用して、 <b>運用</b> ストアからアプリケーションを購入したユーザーにプッシュ通知を送信する場合。</p>
 </li>
 </ol>
 &emsp;&emsp;![](./media/notification-hubs-ios-get-started/notification-hubs-upload-cert.png)
@@ -222,7 +222,7 @@ Apple Push Notification サービス (APNs) を使用してプッシュ通知を
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-    使用して、Azure Notification Hubs SDK への参照を追加します <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification ハブ NuGet パッケージ</a>.
+    これにより <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet パッケージ</a>を利用して Azure Notification Hubs SDK に参照が追加されます。
 
     ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
@@ -331,4 +331,5 @@ Apple で使用できるすべてのペイロードが見つかります [Local 
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
+
 

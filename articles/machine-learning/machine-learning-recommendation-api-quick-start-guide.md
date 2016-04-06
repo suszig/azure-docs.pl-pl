@@ -146,7 +146,7 @@ OData XML
 | filename | カタログを表すテキスト形式の識別子。<br>唯一英字 (A ~ Z、a ~ z)、数字 (0 ~ 9)、ハイフン (-) とアンダー スコア (_) が許可されます。<br>最大長: 50 |
 |   apiVersion      | 1.0 |
 |||
-| 要求本文 | カタログ データ。 形式:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>名</th><th>必須</th><th>型</th><th>説明</th></tr><tr><td>項目 Id</td><td>はい</td><td>英数字、最大長は 50</td><td>項目の一意の識別子</td></tr><tr><td>項目名</td><td>[はい]</td><td>英数字、最大長 255</td><td>項目名</td></tr><tr><td>項目カテゴリ</td><td>[はい]</td><td>英数字、最大長 255</td><td>この項目が (例: 料理本、ドラマ...) に属しているカテゴリ</td></tr><tr><td>説明</td><td>いいえ</td><td>英数字、最大長が 4000</td><td>このアイテムの説明</td></tr></table><br>ファイルの最大サイズは 200 MB です<br><br>。例:<br><pre>2406e770-769 c-4189-89de-1c9283f93a96、クララ Callan 帳<br>21bf8088-b6c0-4509-870 c-e1c7ac78304a、忘れるルーム: Fiction (この書籍) の予約<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23、Spadework、書籍<br>552a1940-21e4-4399-82bb-594b46d7ed54、怪物、用紙の予約</pre> |
+| 要求本文 | カタログ データ。 形式:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>名前</th><th>必須</th><th>型</th><th>説明</th></tr><tr><td>項目 ID</td><td>あり</td><td>英数字、最大長は 50</td><td>項目の一意の識別子</td></tr><tr><td>Item Name</td><td>あり</td><td>英数字、最大長は 255</td><td>項目名</td></tr><tr><td>Item Category</td><td>あり</td><td>英数字、最大長は 255</td><td>この項目が (例: 料理本、ドラマ...) に属しているカテゴリ</td></tr><tr><td>説明</td><td>いいえ</td><td>英数字、最大長は 4000</td><td>このアイテムの説明</td></tr></table><br>ファイルの最大サイズは、200 MB です。<br><br>例:<br><pre>2406e770-769 c-4189-89de-1c9283f93a96、クララ Callan 書籍<br>21bf8088-b6c0-4509-870 c-e1c7ac78304a、忘れるルーム: Fiction (この書籍) の予約<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23、Spadework、書籍<br>552a1940-21e4-4399-82bb-594b46d7ed54、怪物、書籍の分別をもって</pre> |
 
 
 **応答**:
@@ -195,7 +195,7 @@ OData XML
 | filename | カタログを表すテキスト形式の識別子。<br>唯一英字 (A ~ Z、a ~ z)、数字 (0 ~ 9)、ハイフン (-) とアンダー スコア (_) が許可されます。<br>最大長: 50 |
 |   apiVersion      | 1.0 |
 |||
-| 要求本文 | 使用状況データ。 Format:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>User Id</td><td>Yes</td><td>Alphanumeric</td><td>Unique identifier of a user</td></tr><tr><td>Item Id</td><td>Yes</td><td>Alphanumeric, max length 50</td><td>Unique identifier of an item</td></tr><tr><td>Time</td><td>No</td><td>Date in format: YYYY/MM/DDTHH:MM:SS (e.g. 2013/06/20T10:00:00)</td><td>Time of data</td></tr><tr><td>Event</td><td>No, if supplied then must also put date</td><td>One of the following:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Maximum file size is 200MB.<br><br>例:<br><pre>149452 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>6360 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>50321 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>71285 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>224450 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>236645 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>107951 1b3d95e2-84e4-414 c-bb38-be9cf461c347</pre> |
+| 要求本文 | 使用状況データ。 形式:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>名前</th><th>必須</th><th>型</th><th>説明</th></tr><tr><td>ユーザー ID</td><td>あり</td><td>英数字</td><td>ユーザーの一意の識別子</td></tr><tr><td>項目 ID</td><td>あり</td><td>英数字、最大長は 50</td><td>項目の一意の識別子</td></tr><tr><td>Time</td><td>いいえ</td><td>形式の日付: YYYY と MM/DDTHH:MM:SS (例:. 2013年/06/20T10:00:00)</td><td>データの時間</td></tr><tr><td>イベント</td><td>いいえ、指定した場合は日付も指定すること</td><td>次のいずれか:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>ファイルの最大サイズは、200 MB です。<br><br>例:<br><pre>149452 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951 1b3d95e2-84e4-414 c-bb38-be9cf461c347</pre> |
 
 **応答**:
 
@@ -447,17 +447,17 @@ HTTP 状態コード: 200
 - `feed/entry/content/properties/ProgressStep` - 進行中のビルドの現在のステージの詳細。
 
 有効なビルド状態:
-- 作成 – ビルド要求のエントリが作成されました。
-- Queued – ビルド要求がトリガーされはキューに配置します。
-- Building – ビルドが処理中です。
+- Created – ビルド要求エントリが作成されました。
+- Queued – ビルド要求がトリガーされ、キューされます。
+- Building - ビルドが処理中です。
 - Success - ビルドが正常に終了しました。
 - Error – ビルドでエラーが発生して終了しました。
 - Cancelled – ビルドが取り消されました。
 - Cancelling – ビルドが取り消されます。
 
-ビルドの種類の有効な値:
-- Rank - 順位付けのビルドします。 (順番付けのビルドの詳細、「Machine Learning Recommendation API ドキュメント」ドキュメントを参照してください)。
-- 推奨事項 - 推奨事項のビルドします。
+ビルドの種類における有効な値:
+- Rank - 順番付けのビルド。 (順番付けのビルドの詳細、「Machine Learning Recommendation API ドキュメント」ドキュメントを参照してください)。
+- Recommendation - 推奨事項のビルド。
 - Fbt - bought together ビルドします。
 
 OData XML
@@ -715,4 +715,5 @@ OData XML
 このドキュメントは、Microsoft 製品に含まれる知的財産に対するいかなる法的権利も提供するものではありません。 お客様の社内での参照目的に限り、このドキュメントをコピーし使用することができます。 
 © 2014 Microsoft. All rights reserved. 
  
+
 

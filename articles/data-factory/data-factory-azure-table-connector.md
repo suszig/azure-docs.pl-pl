@@ -369,7 +369,7 @@ typeProperties セクションはデータセット型ごとに異なり、デ�
 
 プロパティ | 説明 | 使用できる値 | 必須
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | カスタム クエリを使用してデータを読み取ります。 | <p>Azure テーブルのクエリ文字列</p>**。例:**<br/> "azureTableSourceQuery":"PartitionKey eq 'DefaultPartitionKey'" <br/><br/>"azureTableSourceQuery":"$$text.format('partitionkey ('PartitionKey ge \\'{0:yyyyMMddHH00_0000}\\ 'と PartitionKey le \\'{0:yyyyMMddHH00_9999}\\')', SliceStart)" | いいえ
+azureTableSourceQuery | カスタム クエリを使用してデータを読み取ります。 | <p>Azure テーブルのクエリ文字列。</p>**次に例を示します。**<br/> "azureTableSourceQuery":"PartitionKey eq 'DefaultPartitionKey'" <br/><br/>"azureTableSourceQuery":"$$text.format('partitionkey ('PartitionKey ge \\'{0:yyyyMMddHH00_0000}\\ 'と PartitionKey le \\'{0:yyyyMMddHH00_9999}\\')', SliceStart)" | いいえ
 azureTableSourceIgnoreTableNotFound | テーブルが存在しないという例外を受け入れるかどうかを示します。 | TRUE<br/>FALSE | いいえ |
 
 **AzureTableSink** typeProperties セクションで、次のプロパティをサポートしています。
@@ -503,6 +503,7 @@ lastlogindate | Edm.DateTime
 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
+
 
 
 

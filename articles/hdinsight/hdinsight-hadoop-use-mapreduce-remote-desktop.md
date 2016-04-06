@@ -31,7 +31,7 @@
 
 * Windows 10、Windows 8、Windows 7 を実行するクライアント コンピューター
 
-##<a id="connect"></a>リモート デスクトップへの接続します。
+##<a id="connect"></a>リモート デスクトップへの接続
 
 「[RDP を使用した HDInsight クラスターへの接続](hdinsight-administer-use-management-portal.md#rdp)」の手順に従って、HDInsight クラスターのリモート デスクトップを有効にしてからデスクトップに接続します。
 
@@ -95,4 +95,5 @@ HDInsight での Hadoop のその他の使用方法に関する情報
 * [HDInsight での Hive と Hadoop の使用](hdinsight-use-hive.md)
 
 * [HDInsight での Pig と Hadoop の使用](hdinsight-use-pig.md)
+
 

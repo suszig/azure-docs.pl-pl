@@ -33,7 +33,7 @@ Application Gateway は、インターネットに接続する VIP のほか、�
 
 新しいアプリケーション ゲートウェイを作成するには、次の手順を順番に実行します。 
 
-1. [新しいアプリケーション ゲートウェイの作成](#create-a-new-application-gateway)
+1. [新しい Application Gateway の作成](#create-a-new-application-gateway)
 2. [ゲートウェイの構成](#configure-the-gateway)
 3. [ゲートウェイ構成の設定](#set-the-gateway-configuration)
 4. [ゲートウェイの起動](#start-the-gateway)
@@ -172,7 +172,7 @@ Application Gateway は、インターネットに接続する VIP のほか、�
 
 ## ゲートウェイの起動
 
-ゲートウェイを構成したら、`Start-AzureApplicationGateway` コマンドレットを使用してゲートウェイを起動します。 アプリケーション ゲートウェイの課金は、ゲートウェイが正常に起動された後に開始します。 
+ゲートウェイを構成したら、`Start-AzureApplicationGateway` コマンドレットを使用してゲートウェイを起動します。 Application Gateway の課金は、ゲートウェイが正常に起動された後に開始します。 
 
 
 **注:** 、 `Start-AzureApplicationGateway` コマンドレットは最大 15 ~ 20 分かかる場合があります。 
@@ -212,4 +212,5 @@ Application Gateway は、インターネットに接続する VIP のほか、�
 
 - [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure の Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
+
 

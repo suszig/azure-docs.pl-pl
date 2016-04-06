@@ -50,7 +50,7 @@ SSL 証明書の構成、プロトコルで **HttpListener** に変更する必�
 **Cookie ベースのアフィニティを有効にする**: アプリケーション ゲートウェイを構成して、その要求をクライアントからセッションが常に、web ファーム内の同じ VM に送らします。 これはセッション cookie の挿入によって行われ、ゲートウェイがトラフィックを適切に送信できるようにします。 Cookie ベースのアフィニティを有効にするには設定 **CookieBasedAffinity** に *有効* で、 **BackendHttpSettings** 要素。 
 
  
-## 新しいアプリケーション ゲートウェイの作成
+## 新しい Application Gateway の作成
 
 Azure クラシック デプロイ モデルと Azure リソース マネージャーの使用方法の違いは、構成が必要な Application Gateway と項目を作成する順番にあります。
 
@@ -197,7 +197,7 @@ Application Gateway のインスタンスのサイズを構成します。
 
 ## アプリケーション ゲートウェイの起動
 
-ゲートウェイを構成したら、`Start-AzureRmApplicationGateway` コマンドレットを使用してゲートウェイを起動します。 アプリケーション ゲートウェイの課金は、ゲートウェイが正常に起動された後に開始します。 
+ゲートウェイを構成したら、`Start-AzureRmApplicationGateway` コマンドレットを使用してゲートウェイを起動します。 Application Gateway の課金は、ゲートウェイが正常に起動された後に開始します。 
 
 
 **注:** 、 `Start-AzureRmApplicationGateway` コマンドレットは最大 15 ~ 20 分かかる場合があります。 
@@ -377,6 +377,7 @@ ILB とともに使用するアプリケーション ゲートウェイを構成
 
 - [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure の Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
+
 
 
 

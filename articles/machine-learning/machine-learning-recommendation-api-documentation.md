@@ -33,7 +33,7 @@ Azure Machine Learning の Recommendations API は、次の論理グループに
 - <ins>基本モデル</ins> – モデルに関する基本的な操作を実行できるようにする Api (例: 作成、更新およびモデルの削除) します。
 - <ins>高度なモデル</ins> – モデルのデータ分析の高度な取得できるようにする Api。
 - <ins>ビジネス ルールのモデル</ins> – モデルの推奨結果に関するビジネス ルールを管理できるようにする Api。
-- <ins>カタログ</ins> – モデルのカタログに関する基本操作を実行できるようにする Api。 カタログには、使用状況データ項目に関するメタデータ情報が含まれています。
+- <ins>カタログ</ins> – モデルのカタログに関する基本操作を実行できるようにする Api。 カタログには、使用状況データ項目に関するメタ データ情報が含まれています。
 - <ins>機能</ins> -にこの情報を使用して、良い推奨事項をビルドする方法と、カタログ項目のインサイトを有効にする Api。
 - <ins>使用状況データ</ins> – モデルの使用状況データに関する基本操作を実行できるようにする Api。 基本フォームの使用状況データは、&#60;userId&#62;,&#60;itemId&#62; のペアを含む行で構成されます。
 - <ins>構築</ins> – モデルのビルドをトリガーし、このビルドに関連する基本的な操作を実行するための Api。 モデルのビルドは、有効な使用状況データが存在する場合に起動できます。
@@ -574,7 +574,7 @@ OData XML
 
 | HTTP メソッド | URI |
 |:--------|:--------|
-|GET     |アクティブなビルド ID の場合:<br>`<rootURI>/GetModelInsight?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/GetModelInsight?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`<br><br>特定のビルド ID の場合:<br>`<rootURI>/GetModelInsight?modelId=%27<model_id>%27&buildId=%27<build_id>%27&apiVersion=%271.0%27`|
+|GET     |アクティブなビルド ID。<br>`<rootURI>/GetModelInsight?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>例:<br>`<rootURI>/GetModelInsight?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`<br><br>特定のビルド ID。<br>`<rootURI>/GetModelInsight?modelId=%27<model_id>%27&buildId=%27<build_id>%27&apiVersion=%271.0%27`|
 
 |   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
@@ -655,7 +655,7 @@ OData XML
 
 | HTTP メソッド | URI |
 |:--------|:--------|
-|GET     |`<rootURI>/GetModelSample?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br>例:<br>`<rootURI>/GetModelSample?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`<br><br>特定のビルド IDの場合:<br>`<rootURI>/GetModelSample?modelId=%27<model_id>%27&buildId=%27<build_id>%27&apiVersion=%271.0%27`<br>例:<br>`<rootURI>/GetModelSample?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&buildId=%271500068%27&apiVersion=%271.0%27`|
+|GET     |`<rootURI>/GetModelSample?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br>例:<br>`<rootURI>/GetModelSample?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`<br><br>特定のビルド ID。<br>`<rootURI>/GetModelSample?modelId=%27<model_id>%27&buildId=%27<build_id>%27&apiVersion=%271.0%27`<br>例:<br>`<rootURI>/GetModelSample?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&buildId=%271500068%27&apiVersion=%271.0%27`|
 
 |   パラメーター名  |   有効な値                        |
 |:--------          |:--------                              |
@@ -805,13 +805,13 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 
 
 ##7. ビジネス ルールのモデル
-サポートされているルールの種類を次に示します。
-- <strong>ブロック リスト</strong> -BlockList では、推奨事項の結果を返すしたくない項目の一覧を指定します。
-- <strong>FeatureBlockList</strong> -特徴 BlockList では、特徴の値に基づいて項目をブロックします。
-- <strong>Upsale</strong> -Upsale では、推奨事項の結果で返されるアイテムを強制することができます。
-- <strong>ホワイト リスト</strong> ホワイト リストを使用すると、項目の一覧からの推奨事項を提案することができます。
-- <strong>FeatureWhiteList</strong> -特徴のホワイト リストでは、特定の機能の値を持つ項目のみが推奨することができます。
-- <strong>PerSeedBlockList</strong> -あたり-perseedblocklist では、推奨事項の結果として返すことができない項目の一覧の項目ごとに指定します。
+サポートされるルールの種類は次のとおりです。
+- <strong>BlockList</strong> -BlockList では、推奨事項の結果を返すしたくない項目の一覧を指定します。
+- <strong>FeatureBlockList</strong> -機能 BlockList では、その機能の値に基づいて項目をブロックすることができます。
+- <strong>Upsale</strong> - Upsale では項目を強制的に推奨事項の結果の一部として返すことができます。
+- <strong>ホワイト リスト</strong> -ホワイト リストは、項目の一覧からの推奨事項を提案することができます。
+- <strong>FeatureWhiteList</strong> -ホワイト リストの機能では、特定の機能の値を持つ項目のみが推奨することができます。
+- <strong>PerSeedBlockList</strong> -PerSeedBlockList では、推奨事項の結果として返すことができない項目の一覧を項目ごとに指定できます。
 
 
 ###7.1. モデルのルールの取得
@@ -895,7 +895,7 @@ Upsale ルールを追加します。</ins><br>`<ApiFilter xmlns:xsd="http://www
 <ins>FeatureWhiteList ルールを追加します。</ins><br>
 <br>
 `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>
-PerSeedBlockList ルールを追加する:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+PerSeedBlockList ルールを追加します。</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 
 **応答**:
@@ -1010,7 +1010,7 @@ HTTP 状態コード: 200
 
 HTTP 状態コード: 200
 
-この API には、インポートのレポートが返されます。
+この API では、インポートのレポートが返されます。
 - `feed\entry\content\properties\LineCount` – 受け入れられる行数。
 - `feed\entry\content\properties\ErrorCount` – エラーのために挿入されなかった行数。
 
@@ -1209,7 +1209,7 @@ OData XML
 | filename | カタログを表すテキスト形式の識別子。<br>唯一英字 (A ~ Z、a ~ z)、数字 (0 ~ 9)、ハイフン (-) とアンダー スコア (_) が許可されます。<br>最大長: 50 |
 |   apiVersion      | 1.0 |
 |||
-| 要求本文 | 使用状況データ。 形式:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>名</th><th>必須</th><th>型</th><th>説明</th></tr><tr><td>ユーザー Id</td><td>はい</td><td>A ~ z、[a ~ z]、[0-9] [_] (& a) #40 です。#41 (&)、アンダー スコアは、[-] & #40; ダッシュ & #41;<br> 最大長: 255 </td><td>ユーザーの一意の識別子</td></tr><tr><td>。項目の Id</td><td>はい</td><td>A ~ z、[a ~ z]、[0-9] [& #95;] (& a) #40 です。#41 (&)、アンダー スコアは、[-] & #40; ダッシュ & #41;<br> 最大長: 50</td><td>項目の一意の識別子</td></tr><tr><td>。時間</td><td>いいえ</td><td>形式の日付: YYYY と MM/DDTHH:MM:SS (例:. 2013年/06/20T10:00:00)</td><td>データの時間</td></tr><tr><td>。イベント</td><td>ノーです指定した場合も、日付を記述する必要があります</td><td>、次のいずれか:<br>•] をクリック<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• 購入</td><td></td></tr></table><br>ファイルの最大サイズ: 200 MB<br><br>例:<br><pre>149452 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>6360 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>50321 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>71285 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>224450 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>236645 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>107951 1b3d95e2-84e4-414 c-bb38-be9cf461c347。</pre> |
+| 要求本文 | 使用状況データ。 形式:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>名前</th><th>必須</th><th>型</th><th>説明</th></tr><tr><td>ユーザー ID</td><td>あり</td><td>[A-z]、[a ~ z]、[0-9] [_] & #40 です。#41 (&)、アンダー スコアは、[-] & #40; ダッシュ & #41 です。<br> 最大長: 255 </td><td>ユーザーの一意の識別子。</td></tr><tr><td>項目 ID</td><td>あり</td><td>[A-z]、[a ~ z]、[0-9] [& #95;] & #40 です。#41 (&)、アンダー スコアは、[-] & #40; ダッシュ & #41 です。<br> 最大長: 50</td><td>項目の一意識別子</td></tr><tr><td>Time</td><td>いいえ</td><td>形式の日付: YYYY と MM/DDTHH:MM:SS (例:. 2013年/06/20T10:00:00)</td><td>データの時間です。</td></tr><tr><td>イベント</td><td>使用できません。指定した場合も、日付を記述する必要があります。</td><td>次のいずれか:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>ファイルの最大サイズ: 200 MB<br><br>例:<br><pre>149452 1b3d95e2-84e4-414 c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951 1b3d95e2-84e4-414 c-bb38-be9cf461c347</pre> |
 
 **応答**:
 
@@ -1530,21 +1530,21 @@ HTTP 状態コード: 200
 
 応答は未加工のテキスト形式で返されます。
 <pre>
-85526 2406E770-769 C-4189-89DE-1C9283F93A96、2014年/11/02T13:40:15、True、1
-210926 2406E770-769 C-4189-89DE-1C9283F93A96、2014年/11/02T13:40:15、True、1
-116866 2406E770-769 C-4189-89DE-1C9283F93A96、2014年/11/02T13:40:15、True、1
-177458 2406E770-769 C-4189-89DE-1C9283F93A96、2014年/11/02T13:40:15、True、1
-274004 21BF8088-B6C0-4509-870 C-E1C7AC78304A、2014年/11/02T13:40:15、True、1
-123883 21BF8088-B6C0-4509-870 C-E1C7AC78304A、2014年/11/02T13:40:15、True、1
-37712 21BF8088-B6C0-4509-870 C-E1C7AC78304A、2014年/11/02T13:40:15、True、1
-152249 21BF8088-B6C0-4509-870 C-E1C7AC78304A、2014年/11/02T13:40:15、True、1
-250948 21BF8088-B6C0-4509-870 C-E1C7AC78304A、2014年/11/02T13:40:15、True、1
-235588 21BF8088-B6C0-4509-870 C-E1C7AC78304A、2014年/11/02T13:40:15、True、1
-158254 21BF8088-B6C0-4509-870 C-E1C7AC78304A、2014年/11/02T13:40:15、True、1
-271195 21BF8088-B6C0-4509-870 C-E1C7AC78304A、2014年/11/02T13:40:15、True、1
-141157 21BF8088-B6C0-4509-870 C-E1C7AC78304A、2014年/11/02T13:40:15、True、1
-171118 3BB5CB44-D143-4BDD-A55C-443964BF4B23、2014年/11/02T13:40:15、True、1
-225087 3BB5CB44-D143-4BDD-A55C-443964BF4B23、2014年/11/02T13:40:15、True、1
+85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
 </pre>
 
 
@@ -1570,39 +1570,39 @@ HTTP 状態コード: 200
 
 応答は未加工のテキスト形式で返されます。
 <pre>
-85526 2406E770-769 C-4189-89DE-1C9283F93A96、2014年/11/02T13:40:15、True、1
-210926 2406E770-769 C-4189-89DE-1C9283F93A96、2014年/11/02T13:40:15、True、1
-116866 2406E770-769 C-4189-89DE-1C9283F93A96、2014年/11/02T13:40:15、True、1
-177458 2406E770-769 C-4189-89DE-1C9283F93A96、2014年/11/02T13:40:15、True、1
-274004 21BF8088-B6C0-4509-870 C-E1C7AC78304A、2014年/11/02T13:40:15、True、1
-123883 21BF8088-B6C0-4509-870 C-E1C7AC78304A、2014年/11/02T13:40:15、True、1
-37712 21BF8088-B6C0-4509-870 C-E1C7AC78304A、2014年/11/02T13:40:15、True、1
-152249 21BF8088-B6C0-4509-870 C-E1C7AC78304A、2014年/11/02T13:40:15、True、1
-250948 21BF8088-B6C0-4509-870 C-E1C7AC78304A、2014年/11/02T13:40:15、True、1
-235588 21BF8088-B6C0-4509-870 C-E1C7AC78304A、2014年/11/02T13:40:15、True、1
-158254 21BF8088-B6C0-4509-870 C-E1C7AC78304A、2014年/11/02T13:40:15、True、1
-271195 21BF8088-B6C0-4509-870 C-E1C7AC78304A、2014年/11/02T13:40:15、True、1
-141157 21BF8088-B6C0-4509-870 C-E1C7AC78304A、2014年/11/02T13:40:15、True、1
-171118 3BB5CB44-D143-4BDD-A55C-443964BF4B23、2014年/11/02T13:40:15、True、1
-225087 3BB5CB44-D143-4BDD-A55C-443964BF4B23、2014年/11/02T13:40:15、True、1
-244881 3BB5CB44-D143-4BDD-A55C-443964BF4B23、2014年/11/02T13:40:15、True、1
-50547 3BB5CB44-D143-4BDD-A55C-443964BF4B23、2014年/11/02T13:40:15、True、1
-213090 3BB5CB44-D143-4BDD-A55C-443964BF4B23、2014年/11/02T13:40:15、True、1
-260655 3BB5CB44-D143-4BDD-A55C-443964BF4B23、2014年/11/02T13:40:15、True、1
-72214 3BB5CB44-D143-4BDD-A55C-443964BF4B23、2014年/11/02T13:40:15、True、1
-189334 3BB5CB44-D143-4BDD-A55C-443964BF4B23、2014年/11/02T13:40:15、True、1
-36326 3BB5CB44-D143-4BDD-A55C-443964BF4B23、2014年/11/02T13:40:15、True、1
-189336 3BB5CB44-D143-4BDD-A55C-443964BF4B23、2014年/11/02T13:40:15、True、1
-189334 552A1940-21E4-4399-82BB-594B46D7ED54、2014年/11/02T13:40:15、True、1
-260655 552A1940-21E4-4399-82BB-594B46D7ED54、2014年/11/02T13:40:15、True、1
-162100 552A1940-21E4-4399-82BB-594B46D7ED54、2014年/11/02T13:40:15、True、1
-54946 552A1940-21E4-4399-82BB-594B46D7ED54、2014年/11/02T13:40:15、True、1
-260965 552A1940-21E4-4399-82BB-594B46D7ED54、2014年/11/02T13:40:15、True、1
-102758 552A1940-21E4-4399-82BB-594B46D7ED54、2014年/11/02T13:40:15、True、1
-112602 552A1940-21E4-4399-82BB-594B46D7ED54、2014年/11/02T13:40:15、True、1
-163925 552A1940-21E4-4399-82BB-594B46D7ED54、2014年/11/02T13:40:15、True、1
-262998 552A1940-21E4-4399-82BB-594B46D7ED54、2014年/11/02T13:40:15、True、1
-144717 552A1940-21E4-4399-82BB-594B46D7ED54、2014年/11/02T13:40:15、True、1
+85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
 </pre>
 
 ###9.6. 使用状況ファイルの削除
@@ -1816,19 +1816,19 @@ OData
 
   このセクションでは、ビルドに関連する様々な API について説明します。 ビルドには、推奨事項のビルド、順位付けのビルド、FBT (Frequently Bought Together) ビルドの 3 種類があります。
 
-推奨事項のビルドは、予測のために使用される推奨モデルの生成に使用されます。 (この種類のビルドでは) の予測は次の 2 種類があります。
-* I2I - 別名 項目の推奨事項 - 項目または一連の項目は、このオプションは大きな関心事であると思われる項目の一覧を予測します。
+推奨事項のビルドは、予測のために使用される推奨モデルの生成に使用されます。 予測 (この種類のビルド用) には、次の 2 種類があります。
+* I2I - 別名 項目から項目の推奨事項 - 項目や項目の一覧を前提に、このオプションでは関心が高いと思われる項目の一覧を予測します。
 * U2I - 別名 ユーザーから項目の推奨事項 - ユーザー ID (と任意で項目の一覧) を前提に、このオプションでは、そのユーザー (とその項目におけるその他の選択肢) にとって関心が高いと思われる項目を予測します。 U2I の推奨事項は、モデルが構築された時間までユーザーが関心があった項目の履歴に基づいています。
 
-順位付けのビルドは、特徴の有用性について知るための技術的なビルドです。 通常、機能に関連する推奨モデルの最適な結果を取得するためには、以下の手順を実行する必要があります。
-- (お使いの機能のスコアが安定していない場合)、順位付けのビルドをトリガーし、特徴スコアを取得するまでお待ちください。
+順位付けのビルドは、特徴の有用性について知るための技術的なビルドです。 通常、特徴に関連する推奨モデルについて最適な結果を得るには、次の手順を実行する必要があります。
+- 順位付けのビルドをトリガーして (特徴のスコアが安定している場合を除く)、特徴のスコアが取得されるまで待ちます。
 - 呼び出して、特徴の順位を取得、 [機能情報を見る](#101-get-features-info-for-last-rank-build) API です。
-- 次のパラメーターを使用して推奨事項のビルドを構成します。
+- 次のパラメーターを指定して推奨事項のビルドを構成します。
     - `useFeatureInModel` -True に設定します。
     - `ModelingFeatureList` -2.0 より (前の手順で取得したランク) に従ってのスコアの機能のコンマ区切りの一覧に設定します。
     - `AllowColdItemPlacement` -True に設定します。
     - 必要に応じて設定 `EnableFeatureCorrelation` を True におよび `ReasoningFeatureList` に (通常、同じ機能の一覧をモデル化またはサブリストで使用) の説明を使用する機能の一覧にします。
-- 構成済みのパラメーターを使用して推奨事項のビルドをトリガーします。
+- 構成したパラメーターを使用して推奨事項のビルドをトリガーします。
 
 注: パラメーターを構成しない場合 (パラメーターなしで推奨事項のビルドを呼び出す場合など) や、特徴の使用状況を明示的に無効にしない場合 (`UseFeatureInModel` を False に設定する場合など)、順位付けのビルドが存在しているなら、システムは特徴に関連するパラメーターを前述の値に設定します。
 
@@ -1906,7 +1906,7 @@ FBT (よく一緒に購入されている品目) のビルドは「控えめな�
 | userDescription | カタログを表すテキスト形式の識別子。 空白を使用する場合は、%20 にエンコードする必要があることに注意してください (上記の例を参照)。<br>最大長: 50 |
 | apiVersion | 1.0 |
 |||
-| 要求本文 | 場合、既定で、ビルドが実行される空のままビルド パラメーター<br><br>。ビルド パラメーターを設定する場合は、次の例の本文に XML としてパラメーターを送信します。 (詳細については、パラメーターのパラメーターのビルド」セクションを参照してください)。`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
+| 要求本文 | 空の場合、既定のビルド パラメーターを使用して、ビルドが実行されます。<br><br>ビルド パラメーターを設定する場合は、次の例の本文に XML としてパラメーターを送信します。 (詳細については、パラメーターのパラメーターのビルド」セクションを参照してください)。`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **応答**:
 
@@ -1982,7 +1982,7 @@ OData XML
 | buildType | 呼び出すビルドの種類。 <br/> -推奨事項のビルドには、' recommendation' <br> -'順位付けのビルドの場合はランク付け <br/> -ビルドは ' Fbt'
 | apiVersion | 1.0 |
 |||
-| 要求本文 | 場合、既定で、ビルドが実行される空のままビルド パラメーター<br><br>。ビルド パラメーターを設定する場合は、ように、次の例の本文に XML として送信します。 (説明とパラメーターの完全な一覧について、パラメーターのビルド」セクションを参照してください)。`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
+| 要求本文 | 空の場合、既定のビルド パラメーターを使用して、ビルドが実行されます。<br><br>ビルド パラメーターを設定する場合は、ように、次の例の本文に XML として送信します。 (説明とパラメーターの完全な一覧について、パラメーターのビルド」セクションを参照してください)。`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **応答**:
 
@@ -2082,17 +2082,17 @@ HTTP 状態コード: 200
 - `feed/entry/content/properties/ProgressStep` - 進行中のビルドの現在のステージの詳細。
 
 有効なビルド状態:
-- 作成 – ビルド要求のエントリが作成されました。
-- Queued – ビルド要求がトリガーされはキューに配置します。
-- Building – ビルドが処理中です。
+- Created – ビルド要求エントリが作成されました。
+- Queued – ビルド要求がトリガーされ、キューされます。
+- Building - ビルドが処理中です。
 - Success - ビルドが正常に終了しました。
 - Error – ビルドでエラーが発生して終了しました。
 - Cancelled – ビルドが取り消されました。
 - Cancelling – ビルドが取り消されます。
 
-ビルドの種類の有効な値:
-- Rank - 順位付けのビルドします。
-- 推奨事項 - 推奨事項のビルドします。
+ビルドの種類における有効な値:
+- Rank - 順番付けのビルド。
+- Recommendation - 推奨事項のビルド。
 
 
 OData XML
@@ -2166,18 +2166,18 @@ HTTP 状態コード: 200
 - `feed/entry/content/properties/ProgressStep` - 進行中のビルドの現在のステージの詳細。
 
 有効なビルド状態:
-- 作成 – ビルド要求のエントリが作成されました。
-- Queued – ビルド要求がトリガーされはキューに配置します。
-- Building – ビルドが処理中です。
+- Created – ビルド要求エントリが作成されました。
+- Queued – ビルド要求がトリガーされ、キューされます。
+- Building - ビルドが処理中です。
 - Success - ビルドが正常に終了しました。
 - Error – ビルドでエラーが発生して終了しました。
 - Cancelled – ビルドが取り消されました。
 - Cancelling – ビルドが取り消されます。
 
 
-ビルドの種類の有効な値:
-- Rank - 順位付けのビルドします。
-- 推奨事項 - 推奨事項のビルドします。
+ビルドの種類における有効な値:
+- Rank - 順番付けのビルド。
+- Recommendation - 推奨事項のビルド。
 
 
 OData XML
@@ -2219,7 +2219,7 @@ OData XML
 ###11.6. ビルドの削除
 ビルドを削除します。
 
-メモ: <br>アクティブなビルドを削除することはできません。 削除する前に、別のアクティブなビルドで、モデルを変更する必要があります。<br>進行中のビルドを削除することはできません。 呼び出して最初にビルドを取り消す必要があります。 <strong>ビルドのキャンセル</strong>.
+メモ: <br>アクティブなビルドを削除することはできません。 削除する前に、別のアクティブなビルドで、モデルを変更する必要があります。<br>進行中のビルドを削除することはできません。 まず、「<strong>ビルドのキャンセル</strong>」を呼び出してビルドを取り消す必要があります。
 
 | HTTP メソッド | URI |
 |:--------|:--------|
@@ -2266,7 +2266,7 @@ HTTP 状態コード: 200
 
 HTTP 状態コード: 200
 
-この API は、キーと値の要素のコレクションを返します。 各要素は、パラメーターとその値を表します。
+この API は、キーと値の要素のコレクションを返します。 各要素は、パラメーターとその値を表します:
 - `feed/entry/content/properties/Key` – ビルドのパラメーターの名前。
 - `feed/entry/content/properties/Value` – ビルドのパラメーターの値。
 
@@ -2789,7 +2789,7 @@ HTTP 状態コード: 200
 - `Feed\entry\content\properties\Rating` –; 推奨事項の評価大きい数値では、高い信頼度を意味します。
 - `Feed\entry\content\properties\Reasoning` – 推奨の理由 (例: 推奨事項の説明)。
 
-12.3 の応答の例をご覧ください。
+12.3 の応答の例を参照してください。
 
 ###12.5. ユーザーの推奨事項の取得（アクティブなビルド）
 
@@ -2947,7 +2947,7 @@ HTTP 状態コード: 200
 
 | HTTP メソッド | URI |
 |:--------|:--------|
-|GET     | アクティブなビルドのユーザー履歴を取得します。<br/>`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&apiVersion=%271.0%27`<br/><br/>指定したビルドのユーザー履歴を取得します。`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&buildId=<int>&apiVersion=%271.0%27`<br/><br/>例:`<rootURI>/GetUserHistory?modelId=%2727967136e8-f868-4258-9331-10d567f87fae%27&&userId=%27u_1013%27&apiVersion=%271.0%277`|
+|GET     | アクティブなビルドのユーザー履歴を取得します。<br/>`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&apiVersion=%271.0%27`<br/><br/>指定したビルドのユーザー履歴を取得します。 `<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&buildId=<int>&apiVersion=%271.0%27`<br/><br/>例:`<rootURI>/GetUserHistory?modelId=%2727967136e8-f868-4258-9331-10d567f87fae%27&&userId=%27u_1013%27&apiVersion=%271.0%277`|
 
 
 |   パラメーター名  |   有効な値                        |
@@ -2996,7 +2996,7 @@ OData XML
 </feed>
 
 ##14. 通知
-Azure Machine Learning Recommendations は、システムで永続的なエラーが発生した際に、通知を作成します。 通知の 3 種類があります。
+Azure Machine Learning Recommendations は、システムで永続的なエラーが発生した際に、通知を作成します。 通知には次の 3 種類があります。
 1.  ビルドの失敗 - この通知は、すべてのビルドの失敗により生成されます。
 2.  データ取得プロセスの失敗 - この通知は、1 つのモデルの使用状況イベント処理で、最後の 5 分間に 100 を超えるエラーが発生した場合に生成されます。
 3.  推奨の使用の失敗 - この通知は、1 つのモデルの推奨要求処理で、最後の 5 分間に 100 を超えるエラーが発生した場合に生成されます。
@@ -3007,7 +3007,7 @@ Azure Machine Learning Recommendations は、システムで永続的なエラ�
 
 | HTTP メソッド | URI |
 |:--------|:--------|
-|GET     |`<rootURI>/GetNotifications?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>すべてのモデルのすべての通知を取得する場合:<br>`<rootURI>/GetNotifications?apiVersion=%271.0%27`<br><br>特定のモデルの通知を取得する例:<br>`<rootURI>/GetNotifications?modelId=%27967136e8-f868-4258-9331-10d567f87fae%27&apiVersion=%271.0%277`|
+|GET     |`<rootURI>/GetNotifications?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>すべてのモデルのすべての通知を取得する例:<br>`<rootURI>/GetNotifications?apiVersion=%271.0%27`<br><br>特定のモデルの通知を取得する例:<br>`<rootURI>/GetNotifications?modelId=%27967136e8-f868-4258-9331-10d567f87fae%27&apiVersion=%271.0%277`|
 
 
 |   パラメーター名  |   有効な値                        |
@@ -3100,4 +3100,5 @@ HTTP 状態コード: 200
 このドキュメントは、Microsoft 製品に含まれる知的財産に対するいかなる法的権利も提供するものではありません。 お客様の社内での参照目的に限り、このドキュメントをコピーし使用することができます。<br><br>
 © 2015 Microsoft です。 All rights reserved.
  
+
 

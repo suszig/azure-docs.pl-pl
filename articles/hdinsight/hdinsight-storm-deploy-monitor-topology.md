@@ -35,9 +35,9 @@ Storm ダッシュボードと HDInsight Tools の Storm 機能は、共に Stor
 
     下記いずれかのバージョンの Visual Studio
 
-    * Visual Studio 2012 <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">(アップデート 4)</a>
+    * Visual Studio 2012 (<a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">Update 4</a>)
 
-    * Visual Studio 2013 <a href="http://www.microsoft.com/download/details.aspx?id=44921" target="_blank">(アップデート 4)</a> または <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
+    * Visual Studio 2013 (<a href="http://www.microsoft.com/download/details.aspx?id=44921" target="_blank">Update 4</a>) または <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
 
     * <a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
 
@@ -85,7 +85,7 @@ Storm UI のメイン ページには、次の情報が表示されます。
 
     * **再調整**: トポロジの並列処理を調整します。 クラスターのノード数を変更した場合は、実行中のトポロジを再調整する必要があります。 この操作で、クラスター内のノード数の増減に合わせて、トポロジの並列処理を調整できます。
 
-        詳細については、次をご覧ください。 <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Storm トポロジの並列処理を理解します。</a>.
+        詳細については、「<a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of a Storm topology (Storm トポロジの並列処理)</a>」をご覧ください。
 
     * **強制終了**: 指定したタイムアウト後に Storm トポロジを停止します。
 
@@ -119,7 +119,7 @@ HDInsight Tools は、C# またはハイブリッド トポロジを Storm ク�
 
 次の手順を使用して、サンプルをお使いの HDInsight クラスターにデプロイし、トポロジを表示、管理します。
 
-1. 最新バージョンの HDInsight Tools for Visual Studio をまだインストールしていない場合は、 <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">「Get started using HDInsight Tools for Visual Studio (HDInsight Tools for Visual Studio を使用する)」</a>.
+1. HDInsight Tools for Visual Studio の最新バージョンをまだインストールしていない場合は、「<a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">HDInsight Tools for Visual Studio の使用開始</a>」をご覧ください。
 
 2. Visual Studio を開き、選択 **ファイル** > **新規** > **プロジェクト**します。
 
@@ -178,4 +178,5 @@ REST API から返される情報は、クラスターと同じ Azure Virtual Ne
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor-topology/dashboard-link.png
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
+
 

@@ -19,10 +19,10 @@
 # Azure PowerShell を使用した初めての Azure Data Factory パイプラインの作成
 > [AZURE.SELECTOR]
 - [チュートリアルの概要](data-factory-build-your-first-pipeline.md)
-- [Data Factory エディターを使用します。](data-factory-build-your-first-pipeline-using-editor.md)
+- [Data Factory エディターの使用](data-factory-build-your-first-pipeline-using-editor.md)
 - [PowerShell の使用](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Visual Studio を使用](data-factory-build-your-first-pipeline-using-vs.md)
-- [リソース マネージャー テンプレートを使用します。](data-factory-build-your-first-pipeline-using-arm.md)
+- [Visual Studio の使用](data-factory-build-your-first-pipeline-using-vs.md)
+- [Resource Manager テンプレートの使用](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 この記事では、Azure PowerShell を使用して最初のパイプラインを作成する方法を学習します。 このチュートリアルの手順は次のとおりです。
@@ -280,3 +280,4 @@ Azure PowerShell を使用している場合 **バージョン < 1.0**, 、記�
 
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
+

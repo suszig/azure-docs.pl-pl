@@ -26,11 +26,11 @@
 
 + [Docker と Linux コンテナー]
 + [Azure で Docker VM 拡張機能を使用する方法]
-+ [仮想マシンは Linux と Windows の拡張機能]
++ [Linux および Windows 向けの仮想マシン拡張機能]
 
 Docker 対応 VM の作成をすぐに開始するには、以下を参照してください。
 
-+ [Docker VM 拡張機能から、Azure コマンド ライン インターフェイス (Azure CLI) を使用する方法]
++ [Azure コマンド ライン インターフェイス (Azure CLI) での Docker VM 拡張機能の使用方法]
 + [Azure クラシック ポータルで Docker VM 拡張機能を使用する方法]
 + [Azure Marketplace で Docker をすばやく開始する方法]
 
@@ -68,7 +68,7 @@ Docker VM 拡張機能は、作成した VM インスタンスにインストー
 
 Docker 対応 VM の作成をすぐに開始するには、以下を参照してください。
 
-+ [Docker VM 拡張機能から、Azure コマンド ライン インターフェイス (Azure CLI) を使用する方法]
++ [Azure コマンド ライン インターフェイス (Azure CLI) での Docker VM 拡張機能の使用方法]
 + [Azure クラシック ポータルで Docker VM 拡張機能を使用する方法]
 
 ## Linux および Windows 向けの仮想マシン拡張機能
@@ -83,4 +83,5 @@ Docker 対応 VM の作成をすぐに開始するには、以下を参照して
 [Docker and Linux Containers]: #Docker-and-Linux-Containers
 [How to use the Docker VM Extension with Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
 [Virtual Machine Extensions for Linux and Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
+
 

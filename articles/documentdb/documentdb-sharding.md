@@ -136,7 +136,7 @@ foreach (UserProfile activeUser in query)
 >[AZURE.NOTE] コレクションの作成はレートが制限を DocumentDB、ため、ここに示したサンプル メソッドの完了に数分をかかる場合があります。
 
 ##FAQ
-**DocumentDB はサーバー側でパーティション分割とクライアント側でパーティション分割をなぜようにサポートするのでしょうか。**
+**DocumentDB がサーバー側のパーティション分割ではなくクライアント側のパーティション分割をサポートしているのはなぜですか。**
 
 DocumentDB では複数の理由からクライアント側のパーティション分割をサポートしています。
 
@@ -168,3 +168,4 @@ Microsoft では、.NET SDK のお客様からいただいたフィードバッ�
 * [DocumentDB の制限](documentdb-limits.md)
 * [パフォーマンスに関するヒントについての DocumentDB ブログ](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
+

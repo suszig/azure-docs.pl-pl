@@ -1,6 +1,6 @@
 <properties
     pageTitle="Mobile Services から Azure App Service (Node.js) へのアップグレード"
-    description="簡単に Mobile Services アプリケーションを App Service モバイル アプリにアップグレードする方法について説明します。"
+    description="簡単に Mobile Services アプリケーションを App Service Mobile App にアップグレードする方法について説明します。"
     services="app-service\mobile"
     documentationCenter=""
     authors="christopheranderson"
@@ -61,7 +61,7 @@ Mobile Services クライアント Sdk は **いない** 、新しいモバイ�
 3. クライアント アプリケーションの新しいバージョンをリリースする
 4. (省略可能) 元の移行されたモバイル サービス アプリを削除する
 
-## <a name="mobile-app-version"></a> アップグレードを開始
+## <a name="mobile-app-version"></a> アップグレードの開始
 アップグレードの最初のステップは、新しいバージョンのアプリケーションをホストするモバイル アプリ リソースを作成することです。 既存のモバイル サービスを既に移行している場合は、同じホスティング プランでこのバージョンを作成します。 開いている、 [Azure portal] 、移行済みのアプリケーションに移動します。 実行されている App Service プランをメモしてをおきます。
 
 ### 2 番目のアプリケーション インスタンスの作成
@@ -86,7 +86,7 @@ Azure App Service Mobile Apps の Node.js バックエンドはすべて Express
 
     npm init コマンドでは、プロジェクトを初期化するための一連の質問が示されます。  以下の出力例を参照してください。
 
-    ![Npm init 出力][0]
+    ![npm init の出力][0]
 
 3. npm リポジトリから express および azure-mobile-apps ライブラリをインストールします。
 
@@ -266,4 +266,5 @@ AAD、Facebook、Google などの一部のプロバイダーでは、コピー �
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
+
 

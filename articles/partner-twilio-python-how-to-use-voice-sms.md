@@ -79,7 +79,7 @@ Twilio サービスを使用する Azure 上の PHP アプリケーションと�
 
 ビルドと Twilio と PHP アプリケーションを Azure に展開する詳細な手順については、「 [Azure 上の PHP アプリケーションで使用する Twilio 通話を行う方法][howto_phonecall_php]します。
 
-## <a id="configure_app"></a>Twilio ライブラリを使用するようにアプリケーションを構成する
+## <a id="configure_app"></a>Twilio ライブラリを使用するアプリケーションの構成
 PHP 用 Twilio ライブラリを使用するようにアプリケーションを構成するには、次の 2 つの方法があります。
 
 1. GitHub から PHP 用 Twilio ライブラリをダウンロード ([https://github.com/twilio/twilio-php][twilio_php]) を追加し、 **サービス** ディレクトリをアプリケーションにします。
@@ -177,7 +177,7 @@ PHP 用 Twilio ライブラリを使用するようにアプリケーション�
         echo 'Error: ' . $e->getMessage();
     }
 
-## <a id="howto_provide_twiml_responses"></a>方法: 独自の web サイトから TwiML 応答
+## <a id="howto_provide_twiml_responses"></a>方法: 独自の Web サイトから TwiML 応答を返す
 アプリケーションで Twilio API の呼び出しを開始すると、Twilio は TwiML 応答を返すことが想定されている URL にユーザーの要求を送信します。 上記の例は、Twilio から提供される URL を使用して [http://twimlets.com/message][twimlet_message_url]します。 (TwiML は Twilio で使用するように設計されており、ブラウザーで表示できます。 たとえば、クリックして [http://twimlets.com/message][twimlet_message_url] すると、空 `<Response>` 要素である別の例として次のようにクリックします [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] を表示する、 `<Response>` を含む要素、 `<Say>` 要素です。)。
 
 Twilio から提供される URL を使用する代わりに、HTTP 応答を返す独自のサイトを作成できます。 XML 応答を返すサイトは任意の言語で作成できます。このトピックでは、PHP を使用して TwiML を作成するとします。
@@ -267,4 +267,5 @@ TwiML の詳細については、次を参照してください。 [https://www.
 [twilio_on_github]: https://github.com/twilio
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
+
 

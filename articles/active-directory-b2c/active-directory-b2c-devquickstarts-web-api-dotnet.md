@@ -36,7 +36,7 @@ Azure AD B2C を使用するには、ディレクトリ (つまり、テナン�
 
 ## 2.アプリケーションの作成
 
-ここで、B2C ディレクトリにアプリを作成する必要があります。このディレクトリによって、アプリと安全に通信するために必要ないくつかの情報を Azure AD に提供します。  Web アプリと
+次に、B2C ディレクトリ内にアプリを作成する必要があります。これによって、 アプリと安全に通信するために必要ないくつかの情報が Azure AD に提供されます。  Web アプリと
 web API は、1 つで表されます **アプリケーション ID** ここでは、1 つの論理アプリケーションを構成からです。  アプリを作成するには
 次の [手順](active-directory-b2c-app-registration.md)します。  このとき、
 
@@ -77,7 +77,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-Web
 `complete` 同じリポジトリの分岐。
 
 サンプル コードをダウンロードしたら、Visual Studio の `.sln` ファイルを開いて作業を開始します。  ソリューションに `TaskWebApp` プロジェクトと `TaskService` プロジェクトの 2 つのプロジェクトがあることがわかります。   `TaskWebApp` 、WPF は、 
-web アプリのユーザーと対話するフロント エンドです。  `TaskService` は、各ユーザーの To-Do リストを格納する、アプリのバックエンド Web API です。 
+web アプリのユーザーと対話するフロント エンドです。   `TaskService` はアプリのバックエンド web API を各ユーザーの to do リストに格納します。 
 
 ## 5.タスク サービスを構成する
 
@@ -368,7 +368,7 @@ public async Task<ActionResult> Index()
 #### Web API でのタスクの作成および削除
 
 POST 要求と DELETE 要求を `TaskService` に送信するときにも、まったく同じパターンを使用できます。  呼び出すだけで `AuthenticationContext.AcquireTokenSilentAsync(...)`,、
-結果として得られるトークンで要求を追加し、 `Authorization` ヘッダー。  ここでは、`Create` アクションが既に実装されています。  Try 仕上げ、 `Delete` 内のアクション
+結果として得られるトークンで要求を追加し、 `Authorization` ヘッダー。  実装しています、 `Create` の動作です。  Try 仕上げ、 `Delete` 内のアクション
 `TasksController.cs` 自分でします。
 
 ## 8.ユーザーのサインアウト
@@ -410,12 +410,13 @@ API でタスクがユーザーごとに保存されたことを確認します�
 
 <!--
 
-## 次のステップ
+## Next Steps
 
-さらに高度な B2C のトピックに進むことができます。  次のチュートリアルを試してみてください。
+You can now move onto more advanced B2C topics.  You may want to try:
 
-[Web アプリから Web API を呼び出す >>]()
+[Calling a Web API from a Web App >>]()
 
-[B2C アプリの UX のカスタマイズ]()
+[Customizing the your B2C App's UX >>]()
 
 -->
+

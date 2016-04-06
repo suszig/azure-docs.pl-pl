@@ -26,7 +26,8 @@ Azure アカウント管理者の場合、Azure アカウント センターで�
 2. 請求書と使用状況を確認するサブスクリプションを選択します。
 3. 選択 **請求履歴**します。 </br>![billinghistory](./media/billing-download-azure-invoice-daily-usage-date/Billinghisotry.png)
 4. 現在の未請求期間と同様に、最後の 6 つの請求期間の明細書を確認できます。 </br>![billingsum](./media/billing-download-azure-invoice-daily-usage-date/billingSum.png)</br>
-5. 選択 **[現在の明細** 見積もりを作成した時間の料金の見積もりを確認するためです。 この情報は毎日更新されますがの使用状況が含まれない場合します。 この推定値から、毎月請求書が異なる場合があります</br>![。billingsum2](./media/billing-download-azure-invoice-daily-usage-date/billingSum2.png)</br>![billingsum3](./media/billing-download-azure-invoice-daily-usage-date/billingSum3.png)</br>
+5. 選択 **[現在の明細** 見積もりを作成した時間の料金の見積もりを確認するためです。 この情報は毎日更新されますがの使用状況が含まれない場合します。 その月に実際に支払う料金は、この見積もりとは異なる場合があります。</br>![billingsum2](./media/billing-download-azure-invoice-daily-usage-date/billingSum2.png)</br>![billingsum3](./media/billing-download-azure-invoice-daily-usage-date/billingSum3.png)</br>
 6. 選択 **請求書のダウンロード** 、前回の請求のコピーを表示します。 </br>![DLInvoice](./media/billing-download-azure-invoice-daily-usage-date/DLInvoice1.png)
-7. 選択 **使用量のダウンロード** を CSV ファイルとして、毎日の使用状況データをダウンロードします</br>![。DLusage](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
+7. 選択 **使用量のダウンロード** を CSV ファイルとして、毎日の使用状況データをダウンロードします。</br>![DLusage](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
+
 

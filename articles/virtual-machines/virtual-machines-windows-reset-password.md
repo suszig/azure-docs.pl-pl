@@ -99,7 +99,7 @@ VMAccess 拡張機能によって仮想マシンで次の 2 つのコマンド�
 リモート デスクトップ アクセスの問題が解決しなかった場合は、実行、 [Azure IaaS (Windows) 診断パッケージ](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)します。
 
 1.  診断パッケージをクリックして **Microsoft Azure IaaS (Windows) 診断パッケージ** 新しい診断セッションを作成します。
-2.   **、次の問題の発生するいると、Azure VM で?** ] ページで、[、 **Azure VM (再起動が必要) の RDP 接続** 問題です。
+2.   **で Azure VM を次の問題が発生していますか。** ページで、[、 **Azure VM (再起動が必要) の RDP 接続** 問題です。
 
 詳細については、次を参照してください。、 [Microsoft Azure IaaS (Windows) 診断パッケージ](http://support.microsoft.com/kb/2976864) サポート技術情報の記事です。
 
@@ -113,4 +113,5 @@ VMAccess 拡張機能によって仮想マシンで次の 2 つのコマンド�
 [RDP または SSH を使用した Azure 仮想マシンへの接続](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
 [Windows ベースの Azure 仮想マシンへのリモート デスクトップ接続に関するトラブルシューティング](virtual-machines-troubleshoot-remote-desktop-connections.md)
+
 

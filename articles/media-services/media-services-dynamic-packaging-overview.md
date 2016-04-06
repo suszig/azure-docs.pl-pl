@@ -90,7 +90,7 @@ Media Services Encoder でエンコードされていないアダプティブ �
 [AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
 
 
-##<a id="unsupported_formats"></a>動的パッケージングでサポートされていない形式
+##<a id="unsupported_formats"></a>動的パッケージでサポートされない形式
 
 動的パッケージでは、次のソース ファイルの形式はサポートされません。
 
@@ -104,4 +104,5 @@ Media Services Encoder でエンコードされていないアダプティブ �
 ##フィードバックの提供
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 

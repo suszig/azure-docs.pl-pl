@@ -86,7 +86,7 @@ API Management の成果物を指定できます **開く** または **Protecte
 
 成果物に含まれる API を呼び出すには、あらかじめ成果物を発行しておく必要があります。  **概要** 製品のタブをクリックして **発行**, 、順にクリック **はい、その発行** を確認します。 以前に発行された成果物をプライベートにする] をクリックして **発行の取り消し**します。
 
-![製品の発行][api-management-publish-product]
+![成果物の発行][api-management-publish-product]
 
 ## <a name="make-visible"> </a>開発者への成果物の公開
 
@@ -147,3 +147,4 @@ API Management の成果物を指定できます **開く** または **Protecte
 [Next steps]: #next-steps
 [How to create and use groups to manage developer accounts in Azure API Management]: api-management-howto-create-groups.md
 [How create and configure advanced product settings in Azure API Management]: api-management-howto-product-with-rules.md 
+

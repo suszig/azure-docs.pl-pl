@@ -61,13 +61,13 @@ Query Performance Insight は簡単に使用できます。
 
 1. SQL データベースを参照してクリックして **Query Performance Insight**します。 
 
-    ![クエリのパフォーマンスに関する考察][1]
+    ![Query Performance Insight][1]
 
     上位クエリ ビューが開き、CPU 消費量上位クエリの一覧が表示されます。
 
 1. 詳細については、グラフの周囲をクリックします。<br>バーは、選択したクエリから呼び出される CPU % を示して、一番上の行は、データベースの全体的な DTU 割合を示します。 グラフに表示する個別のクエリを選別するには、選択または選択解除します。
 
-    ![上位のクエリ][2]
+    ![上位クエリ][2]
 
 1. 必要に応じてクリックして **によるグラフの編集** CPU 消費量のデータの表示方法をカスタマイズするか、別の期間を表示します。
 
@@ -103,6 +103,7 @@ Query Performance Insight を使うと、クエリ ワークロードの影響�
 [1]: ./media/sql-database-query-performance/tile.png
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
+
 
 
 

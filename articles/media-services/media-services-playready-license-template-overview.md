@@ -53,7 +53,7 @@ Media Services は、XML へのシリアル化および XML からの逆シリ�
 
 .NET クラスを使用して、PlayReady ライセンス テンプレートを構成するエンド ツー エンド例では、次を参照してください。 [PlayReady 動的暗号化とライセンス提供サービス](https://msdn.microsoft.com/library/azure/dn783467.aspx)します。
 
-##<a id="classes"></a>ライセンス テンプレートの構成に使用される Media Services の .NET クラス
+##<a id="classes"></a>ライセンス テンプレートの構成に使用する Media Services の .NET クラス
 
 Media Services PlayReady ライセンス テンプレートの設定に使用する主な .NET クラスを以下に示します。 これらのクラスで定義された型にマップ [PlayReady ライセンス テンプレート XML スキーマ](media-services-playready-license-template-overview.md#schema)します。
 
@@ -311,4 +311,5 @@ Media Services PlayReady ライセンス テンプレートの設定に使用す
 ##フィードバックの提供
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 

@@ -123,9 +123,9 @@ RunHiveScript には、変数がいくつかあります。 その値は、Azure
 
 <table border = "1">
 <tr><th>ワークフローの変数</th><th>説明</th></tr>
-<tr><td>${jobTracker}</td><td>Hadoop ジョブ トラッカーの URL を指定します。 最初の起動時にドメインに参加しているマシンになるように VM をプロビジョニングするには、 <strong>jobtrackerhost:9010</strong> hdinsight バージョン 3.0 と 2.1 です。</td></tr>
-<tr><td>${nameNode}</td><td>Hadoop 名前ノードの URL を指定します。 たとえば、既定のファイル システムのアドレスを使用します。 <i>wasb://& lt; containerName & gt; @& lt; storageAccountName & gt;。>.blob.core.windows.net</i>.</td></tr>
-<tr><td>${queueName}</td><td>ジョブの送信先になるキュー名を指定します。 別の <strong>default</strong>.</td></tr>
+<tr><td>${jobTracker}</td><td>Hadoop ジョブ トラッカーの URL を指定します。 使用 <strong>jobtrackerhost:9010</strong> HDInsight バージョン 3.0 と 2.1 でします。</td></tr>
+<tr><td>${nameNode}</td><td>Hadoop 名前ノードの URL を指定します。 などの既定のファイル システムのアドレスを使用して <i>wasb://(& a) lt; containerName & gt; @& lt; storageAccountName (& a) gt;。>.blob.core.windows.net</i>します。</td></tr>
+<tr><td>${queueName}</td><td>ジョブの送信先になるキュー名を指定します。 使用して、 <strong>既定</strong>します。</td></tr>
 </table>
 
 <table border = "1">
@@ -679,4 +679,5 @@ Oozie ワークフローとワークフロー アクションの使用に関す�
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+
 

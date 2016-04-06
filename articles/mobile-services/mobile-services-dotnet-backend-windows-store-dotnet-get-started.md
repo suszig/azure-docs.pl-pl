@@ -41,8 +41,8 @@
 
 このチュートリアルを完了するには、以下が必要です。
 
-* アクティブな Azure アカウント。 アカウントがない場合は、Azure 試用版にサインアップして最大 10 の無料モバイル サービスを取得し、試用期間が終わった後でも使用し続けることができます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started%2F)をご覧ください。
-* [Visual Studio 2013]。
+* アクティブな Azure アカウント。 アカウントがない場合は、Azure 試用版にサインアップして、最大 10 件の無料モバイル サービスを入手できます。このサービスは評価終了後も使用できます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started%2F)をご覧ください。
+* [Visual Studio 2013].
 
 ## 新しいモバイル サービスを作成する
 
@@ -54,7 +54,7 @@
 
 ここでは、モバイル サービスに接続された新しいユニバーサル Windows アプリを作成します。
 
-1. クリックして、[Azure クラシック ポータル] で、 **Mobile Services**, 、し、先ほど作成したモバイル サービスをクリックします。
+1.  [Azure classic portal], 、] をクリックして **Mobile Services**, 、作成したモバイル サービスをクリックします。
 
 2. クイック スタート] タブをクリックして **Windows** [ **プラットフォームの選択]** 展開 **新しい Windows ストア アプリを作成**します。
 
@@ -62,7 +62,7 @@
 
     ![Mobile Services クイック スタートの手順](./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png)
 
-3. まだ行っていない、ダウンロードしてローカル コンピューターまたは仮想マシンで [Visual Studio 2013] をインストールします。
+3. ダウンロードしてインストールをまだ行っていない場合、 [Visual Studio 2013] 、ローカル コンピューターまたは仮想マシン。
 
 4.  **をダウンロードし、アプリを実行し、サービスをローカル**, を Windows ストア アプリの言語を選択してクリックして **ダウンロード**します。
 
@@ -81,7 +81,7 @@
 
 
 <ol start="4">
-<li><p>共通のコード プロジェクトで App.xaml.cs ファイルを開き、作成するコードを見つけて、 <a href="http://msdn.microsoft.com/library/Windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx" target="_blank">MobileServiceClient</a> インスタンスを使用してこのクライアントを作成するコードをコメント アウト <em>localhost</em> 次のようにリモート モバイル サービスの URL を使用してクライアントを作成するコードをコメント解除します。</p>
+<li><p>共通のコード プロジェクトで App.xaml.cs ファイルを開きを作成するコードを見つけて、 <a href="http://msdn.microsoft.com/library/Windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx" target="_blank">MobileServiceClient</a> インスタンスを使用してこのクライアントを作成するコードをコメント アウト <em>localhost</em> をリモート モバイル サービス URL は、次のように、次を使用してクライアントを作成するコードをコメント解除します。</p>
 
         <pre><code>public static MobileServiceClient MobileService = new MobileServiceClient(
             "https://todolist.azure-mobile.net/",
@@ -100,19 +100,19 @@
 ## 次のステップ
 クイック スタートはこれで完了です。Mobile Services で重要になるこれ以外の作業については、以下のトピックを参照してください。
 
-* [既存のアプリケーションへの Mobile Services の追加][を使ってみるデータ]
+* [既存のアプリケーションへの Mobile Services の追加][Get started with data]
   <br/>Mobile Services を使用してデータの格納およびクエリを実行する方法について説明します。
 
-* [オフライン データの同期の開始を取得]
+* [Get started with offline data sync]
   <br/>オフライン データの同期を使用してアプリケーションの反応と信頼性を高める方法について説明します。
 
-* [Mobile Services アプリへの認証の追加][認証の使用の開始を取得]
+* [Mobile Services アプリへの認証の追加 ][Get started with authentication]
   <br/>ID プロバイダーを使用してアプリケーションのユーザーを認証する方法について説明します。
 
-* [アプリにプッシュ通知の追加][開始プッシュ通知の使用]
+* [アプリケーションにプッシュ通知を追加する][Get started with push notifications]
   <br/>アプリケーションにごく基本的なプッシュ通知を送信する方法について説明します。
 
-* [Mobile Services .NET バックエンドのトラブルシューティングを行う]
+* [Troubleshoot a Mobile Services .NET backend]
   <br/> Mobile Services の .NET バックエンドで発生する問題を診断して解決する方法について説明します。
 
 ユニバーサル Windows アプリについての詳細については、次を参照してください。 [シングル モバイル サービスから複数のデバイス プラットフォームをサポートする](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs)です。
@@ -137,4 +137,5 @@
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [Azure classic portal]: https://manage.windowsazure.com/
 [Troubleshoot a Mobile Services .NET backend]: mobile-services-dotnet-backend-how-to-troubleshoot.md
+
 

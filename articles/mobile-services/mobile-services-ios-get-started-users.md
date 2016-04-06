@@ -25,23 +25,23 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
-[Mobile Services クイック スタート チュートリアル] に認証を追加するこのチュートリアルではサポートされている id プロバイダーを使用します。
+このチュートリアルでは、認証を追加、 [Mobile Services Quick Start tutorial] サポートされている id プロバイダーを使用します。
 
-まず、[Mobile Services クイック スタート チュートリアル]」を完了することをお勧めします。 または、だけから iOS のクイック スタート プロジェクトをダウンロード、 [Azure classic portal] ] をクリックして  **Mobile Services** >、モバイル サービス > クラウドの左上隅にサインイン > **iOS** > **新しい iOS アプリを作成** > **ダウンロード アプリの実行と** > **Objective C** > **ダウンロード**します。 クリックする **TodoItem テーブルの作成** をクリックする前に **ダウンロード**, テーブルをまだ作成していない場合は、です。
+完了することをお勧めします [Mobile Services Quick Start tutorial] 最初です。 または、だけから iOS のクイック スタート プロジェクトをダウンロード、 [Azure classic portal] ] をクリックして  **Mobile Services** >、モバイル サービス > クラウドの左上隅にサインイン > **iOS** > **新しい iOS アプリを作成** > **ダウンロード アプリの実行と** > **Objective C** > **ダウンロード**します。 クリックする **TodoItem テーブルの作成** をクリックする前に **ダウンロード**, テーブルをまだ作成していない場合は、です。
 
-##<a name="register"></a>認証用のアプリを登録します。
+##<a name="register"></a>認証用のアプリを登録する
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-##<a name="permissions"></a>認証されたユーザーへのデータのアクセス許可を制限します。
+##<a name="permissions"></a>データへのアクセス許可を、認証されたユーザーだけに制限する
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-##<a name="add-authentication"></a>アプリに認証を追加します。
+##<a name="add-authentication"></a>アプリに認証を追加する
 
 [AZURE.INCLUDE [mobile-services-ios-authenticate-app](../../includes/mobile-services-ios-authenticate-app.md)]
 
-##<a name="store-authentication"></a>アプリケーションに認証トークンを保存します。
+##<a name="store-authentication"></a>アプリに認証トークンを保存する
 
 [AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
 
@@ -88,4 +88,5 @@
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 
 [Azure classic portal]: https://manage.windowsazure.com/
+
 

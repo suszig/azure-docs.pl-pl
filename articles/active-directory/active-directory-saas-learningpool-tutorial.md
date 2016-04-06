@@ -82,14 +82,14 @@ Learningpool アプリケーションにはカスタム属性マッピングを�
 
     ###  
 
-    |属性名                |属性値            |
-    |------------------------------|---------------------------|
+  	|属性名                |属性値            |
+  	|------------------------------|---------------------------|
 
      urn:oid:1.2.840.113556.1.4.221 | User.userprincipalname
-    |-------------------------------|--------------------------|  
+  	|-------------------------------|--------------------------|  
      urn:oid:2.5.4.42|User.givenname   
-    |urn:oid:0.9.2342.19200300.100.1.3|User.mail
-    |urn:oid:2.5.4.4|User.surname
+  	|urn:oid:0.9.2342.19200300.100.1.3|User.mail
+  	|urn:oid:2.5.4.4|User.surname
 
     1.  上記の表の各データ行をクリックして **ユーザー属性の追加**します。
     2.   **属性名** ] ボックスに、その行に対して表示される属性名を入力します。
@@ -111,7 +111,7 @@ Learningpool アプリケーションにはカスタム属性マッピングを�
 7.   **アプリケーション URL の構成** ] ページで、 **Learningpool サインオン URL** URL は、ユーザーが Learningpool アプリケーションにサインオンする使用] ボックスに、種類 (例:。 
 https://parliament.preview.learningpool.com/auth/shibboleth/index.php) を順にクリック **次**します。
 
-    ![Configure App URL](./media/active-directory-saas-learningpool-tutorial/IC795078.png "Configure App URL")
+    ![アプリケーション URL の構成](./media/active-directory-saas-learningpool-tutorial/IC795078.png "Configure App URL")
 
 8.   **Learningpool でのシングル サインオンの構成** ] ページで、メタデータをダウンロードする] をクリックして **メタデータのダウンロード**, 、お使いのコンピューターにローカルで証明書ファイルを保存します。
 
@@ -150,3 +150,4 @@ Learningpool へのユーザー プロビジョニングの構成にあたって
     ![あり](./media/active-directory-saas-learningpool-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

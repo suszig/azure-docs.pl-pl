@@ -50,7 +50,7 @@ Web アプリをデプロイする最善の方法を設定し、 [継続的な�
 * [Visual Studio から直接デプロイ](#vs)
 * [WebMatrix から直接デプロイ](#webmatrix)
 
-もう 1 つの展開オプションでは、クラウド ベースのサービスを使用して [Octopus 展開](http://en.wikipedia.org/wiki/Octopus_Deploy)します。 詳細については、次を参照してください。 [デプロイ ASP.NET アプリケーションを Azure の Web サイト](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites)します。
+別の展開オプションでは、クラウド ベースのサービスを使用して [Octopus 展開](http://en.wikipedia.org/wiki/Octopus_Deploy)します。 詳細については、次を参照してください。 [デプロイ ASP.NET アプリケーションを Azure の Web サイト](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites)します。
 
 ##<a name="vsts"></a>Visual Studio Team Services を使用した継続的な配信
 
@@ -140,7 +140,7 @@ MSBuild を使用したコマンドライン デプロイの詳細について�
 * [Visual Studio を使用して ASP.NET Web デプロイ: コマンドラインのデプロイ](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment)します。 Visual Studio を使用して Azure のデプロイを行うチュートリアル シリーズの第 10 部。 Visual Studio でプロファイルの発行を設定した後に、コマンド ラインを使用してデプロイを行う方法を示します。
 * [『 Inside the Microsoft Build Engine: Using MSBuild and Team Foundation ビルド](http://msbuildbook.com/)します。 MSBuild を使用してデプロイを実行する方法に関する章が掲載されている書籍。
 
-##<a name="ftp"></a>FTP ツールとスクリプトを使用してファイルをコピー
+##<a name="ftp"></a>FTP ツールおよびスクリプトを使用したファイルのコピー
 
 使用してコンテンツをアプリにデプロイできます [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) ファイルをコピーします。 これを簡単に web アプリの FTP の資格情報を作成し、スクリプトやなど、Internet Explorer を無料のユーティリティを備えたなどのブラウザーを含め、FTP を使用するアプリケーションで使用することができます [FileZilla](https://filezilla-project.org/)します。 Web Apps では、より安全な FTPS プロトコルもサポートしています。
 
@@ -170,7 +170,7 @@ C# のコードを作成し、デプロイの目的で MSBuild や FTP の機能
 
 * [Azure 管理ライブラリと .NET を使用してすべてを自動化](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx)します。 .NET 管理 API の紹介とその他のドキュメントへのリンク。
 
-##<a name="cli"></a>Azure コマンド ライン インターフェイス (Azure CLI) からデプロイ
+##<a name="cli"></a>Azure コマンド ライン インターフェイス (Azure CLI) からのデプロイ
 
 Windows、Mac、Linux マシンでコマンド ラインを使用し、FTP を使用してデプロイを実行することもできます。 この作業を実行する場合は、Azure CLI を使用して Azure REST 管理 API にアクセスすることもできます。
 
@@ -178,7 +178,7 @@ Windows、Mac、Linux マシンでコマンド ラインを使用し、FTP を�
 
 * [Azure コマンド ライン ツール](/downloads/#cmd-line-tools)します。 コマンド ライン ツールに関する情報を掲載している Azure.com のポータル ページです。
 
-##<a name="webdeploy"></a>Web デプロイ コマンド ラインからデプロイ
+##<a name="webdeploy"></a>Web デプロイ コマンド ラインからのデプロイ
 
 [Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) は Microsoft ソフトウェアだけでなくインテリジェントなファイルの同期は、IIS に配置するための機能もことができますを実行または他の多くの展開に関連するタスクを FTP を使用する場合は自動化できを調整します。 たとえば、Web Deploy を使用して Web アプリと共に新しいデータベースをデプロイ、またはデータベースの更新をデプロイすることができます。 また、Web Deploy は、変更されたファイルのみをインテリジェントにコピーするため、既存のサイトを更新するのに要する時間を最小化することもできます。 Microsoft WebMatrix、Visual Studio、Visual Studio Online、および Team Foundation Server は Web Deploy のビルトイン機能をサポートしていますが、コマンド ラインから Web Deploy を直接使用してデプロイを自動化することもできます。 Web Deploy の各コマンドは非常に強力ですが、学習曲線を急上昇させることもできます。
 
@@ -203,4 +203,5 @@ Azure のロールベースのアクセス制御を使用して Web アプリの
 ## 変更内容
 * Web サイトから App Service への変更のガイドを参照してください: [Azure App Service と既存の Azure サービスへの影響](http://go.microsoft.com/fwlink/?LinkId=529714)
  
+
 

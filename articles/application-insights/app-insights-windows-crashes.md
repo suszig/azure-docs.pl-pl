@@ -66,7 +66,7 @@
 
 問題の診断を支援するには [トレース呼び出しを挿入して、Application Insights でログの検索][diagnostic]します。
 
-## <a name="debug"></a>デバッグ モードとリリース モード
+## <a name="debug"></a>デバッグ モードとリリース モードの比較
 
 #### デバッグ
 
@@ -101,3 +101,4 @@
 [windows]: app-insights-windows-get-started.md
 
  
+

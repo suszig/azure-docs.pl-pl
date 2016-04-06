@@ -97,10 +97,11 @@
  
      BLOB とコンテンツ データベースを StorSimple デバイス上の別々のボリュームに保存する場合は、それらのボリュームを同じボリューム コンテナー内に構成することをお勧めします。 これにより、これらのボリュームは同時にバックアップされるようになります。
 
-       >[AZURE.WARNING] If you have not enabled RBS, we do not recommend moving the content database to the StorSimple device. This is an untested configuration.
+       >[AZURE.WARNING] RBS を有効にしない場合は、コンテンツ データベースを StorSimple デバイスに移動して避けてください。 このような構成はテストされていません。
  
 9. 次の手順に進みます。 [ガベージ コレクションを構成する](#configure-garbage-collection)です。
 
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx
+
 

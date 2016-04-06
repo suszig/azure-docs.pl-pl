@@ -1,5 +1,5 @@
 <properties
-    pageTitle=".NET を使用して Azure Search インデックスの作成 |Microsoft Azure |ホスト型クラウド検索サービス"
+    pageTitle=".NET を使用した Azure Search インデックスの作成 | Microsoft Azure | ホスト型クラウド検索サービス"
     description="Azure Search .NET SDK またはライブラリを使用して、コードでインデックスを作成します。"
     services="search"
     documentationCenter=""
@@ -28,7 +28,7 @@
 
 インデックスを作成するうえでの前提条件には、(通常は `SearchServiceClient` を介して) 検索サービスへの接続が既に確立されていることが挙げられます。 スムーズに再デプロイできるように、同じ名前のインデックスが既に存在する場合はそれを削除することをお勧めします。 
 
-"Hotels"という名前のインデックスにある場合を構築できますメソッドの次のようになります。
+"hotels" という名前のインデックスがあると仮定すると、そのためのメソッドを次のように作成できます。
 
     private static void DeleteHotelsIndexIfExists(SearchServiceClient serviceClient)
     {
@@ -65,3 +65,4 @@
     }
 
 このメソッドは、新しいインデックスのスキーマを定義する `Field` オブジェクトのリストで新しい `Index` オブジェクトを作成します。 各フィールドには、名前、データ型、および検索動作を定義するいくつかの属性があります。 フィールドに加えて、スコアリング プロファイル、サジェスター、または CORS オプションを Index に追加することもできます (簡潔さを優先し、サンプルではこれらは省略されています)。 上の詳細については、Index オブジェクトと、SDK の参照を使用してその構成要素を見つけることができます [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx), などでも、 [Azure Search REST API リファレンス](https://msdn.microsoft.com/library/azure/dn798935.aspx)します。
+

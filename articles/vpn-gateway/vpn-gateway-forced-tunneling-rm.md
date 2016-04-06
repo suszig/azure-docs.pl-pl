@@ -1,12 +1,12 @@
 <properties 
-   pageTitle ="リソース マネージャーを使用する VPN ゲートウェイの強制トンネリングを構成する |Microsoft Azure]
-   description ="仮想ネットワーク間のクロスプレミス VPN ゲートウェイがあれば、リダイレクトしたり、内部設置型の場所にすべてのインターネットにバインドされたトラフィックを「強制」できます。 この記事は、リソース マネージャーの配置モデルに適用されます。 "
-   サービス"vpn gateway"=
-   documentationCenter ="na"
-   作成者"cherylmc"=
-   manager ="carolz"
-   エディター =""
-   タグ =「azure リソース マネージャー」/>
+   pageTitle="リソース マネージャーを使用する VPN ゲートウェイの強制トンネリングを構成する |Microsoft Azure"
+   description="仮想ネットワーク間のクロスプレミス VPN ゲートウェイがある場合は、リダイレクトまたは "force" all Internet-bound traffic back to your on-premises location. This article applies to the Resource Manager deployment model. "
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor=""
+   tags="azure-resource-manager"/>
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
@@ -19,8 +19,8 @@
 # PowerShell および Azure リソース マネージャーを使用した強制トンネリングの構成
 
 > [AZURE.SELECTOR]
-- [PowerShell - サービスの管理](vpn-gateway-about-forced-tunneling.md)
-- [リソース マネージャーの PowerShell](vpn-gateway-forced-tunneling-rm.md)
+- [PowerShell - サービス管理](vpn-gateway-about-forced-tunneling.md)
+- [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
 
 この記事は、Azure リソース マネージャー デプロイメント モデルを使用して作成された VNet および VPN ゲートウェイを対象としています。 構成する場合は、強制トンネリングをサービス管理 (従来のデプロイ モデルとも呼ばれます) を使用して作成された Vnet を参照して [強制トンネリングの構成](vpn-gateway-about-forced-tunneling.md)します。
 
@@ -143,6 +143,7 @@ Azure では、強制トンネリングは仮想ネットワークのユーザ�
 
         Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
         
+
 
 
 

@@ -42,7 +42,7 @@
 次のトピックでは、Mobile Services に保存されているアプリ データにアクセスし、変更する方法に関する情報を提供します。
 
 - [データの処理](https://msdn.microsoft.com/library/azure/jj631634.aspx)
-- [テーブルの作成](https://msdn.microsoft.com/library/azure/jj193162.aspx)
+- [テーブルを作成する](https://msdn.microsoft.com/library/azure/jj193162.aspx)
 - [アクセス許可](https://msdn.microsoft.com/library/azure/jj193161.aspx)
 - [動的スキーマ](https://msdn.microsoft.com/library/azure/jj193175.aspx)
 - [レコードの参照](https://msdn.microsoft.com/library/azure/jj193171.aspx)
@@ -85,6 +85,7 @@
 - [アクセスを管理者に制限する](https://msdn.microsoft.com/library/azure/jj712649.aspx)
 - [エラー処理](https://msdn.microsoft.com/library/azure/jj631632.aspx)
 - [ショートカット キー](https://msdn.microsoft.com/library/azure/jj552469.aspx)
+
 
 
 

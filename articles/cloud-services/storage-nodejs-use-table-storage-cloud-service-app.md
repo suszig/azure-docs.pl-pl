@@ -90,7 +90,7 @@ web.config 設定に追加します。
 
 6.  ファイルを保存して、メモ帳を閉じます。
 
-### 追加モジュールをインストールする
+### 追加モジュールのインストール
 
 2. 次のコマンドを使用して、[azure] をインストールする [node-uuid]、[nconf] および [async] モジュールにもローカルにエントリを保存する、 **package.json** ファイル。
 
@@ -276,7 +276,7 @@ web.config 設定に追加します。
         app.use('/', routes);
         app.use('/users', users);
 
-    これらの行を下のコードに置き換えます。 これにより、ストレージ アカウントへの接続を使って、 <strong>タスク</strong> のインスタンスが初期化されます。 これは <strong>TaskList</strong>に渡され、TaskList ではこれを使用してテーブル サービスを操作します。
+    これらの行を下のコードに置き換えます。 これにより、ストレージ アカウントへの接続を使って、<strong>Task</strong> のインスタンスが初期化されます。 このインスタンスが <strong>TaskList</strong> に渡されます。TaskList はこれを使用して Table サービスとやり取りします。
 
         var TaskList = require('./routes/tasklist');
         var Task = require('./models/task');
@@ -428,4 +428,5 @@ Azure では、消費されたサーバー時間の 1 時間単位の料金が W
   [Node.js Web Application]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
  
  
+
 

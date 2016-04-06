@@ -348,7 +348,7 @@ API アプリから Dropbox API を呼び出すことができるようにする
 
         private const string GATEWAY_URL = @"https://sd1aeb4ae60b7cb4f3d966dfa43b660.azurewebsites.net";
 
-    > **重要な**: URL で始まっていることを確認 `https://`, ではなく、 `http://`です。 **ポータルから http://をコピーする場合は、コードに貼り付けるときに、https://を変更する必要があります。**
+    > **重要な**: URL で始まっていることを確認 `https://`, ではなく、 `http://`です。 **ポータルから http:// をコピーする場合は、コードに貼り付けるときに https:// に変更する必要があります。**
 
 ### コードの説明
 
@@ -429,7 +429,7 @@ API アプリから Dropbox API を呼び出すことができるようにする
 
 エラーを許可されていない 405 メソッドが表示される、クライアントが SSL 以外の HTTP POST 要求を作成しようとした場合、ゲートウェイにリダイレクト *https://*, 、させ、GET 要求をリダイレクトします。 同意のリンクを取得するための URL で受け取ることができるのは、POST 要求のみです。
 
-### <a id="400"></a>Dropbox のログイン ページの代わりに表示される HTTP エラー 400
+### <a id="400"></a>Dropbox ログイン ページの代わりに表示される HTTP エラー 400
 
 適切であるかどうかを確認 **クライアント ID** で API アプリの **認証** ブレードで、先頭または末尾にスペースがないかどうかを確認します。 
 
@@ -453,4 +453,5 @@ SaaS プラットフォームに接続する API アプリのコード記述と�
 
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
+
 

@@ -27,7 +27,7 @@
 
 この構成手順では、グループを作成し、そのグループにテナント内の 1 人以上のユーザーを追加します。 Azure AD ドメイン サービスの管理グループを作成するには、次の手順を実行します。
 
-1. 移動し、 **Azure 管理ポータル** (つまり、 [https://manage.windowsazure.com](https://manage.windowsazure.com))
+1. 移動し、 **Azure 管理ポータル** (つまり [https://manage.windowsazure.com](https://manage.windowsazure.com))
 2. 選択、 **Active Directory** 左側のウィンドウでノードです。
 3. Azure AD Domain Services を有効にする Azure AD テナント (ディレクトリ) を選択します。 Azure AD ディレクトリごとに作成できるドメインは 1 つです。
 
@@ -49,4 +49,5 @@
 
 ---
 [**次の手順では、作成または Azure の仮想ネットワークを選択します。**](active-directory-ds-getting-started-vnet.md)
+
 

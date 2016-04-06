@@ -66,7 +66,7 @@
 -   [エラーを処理する方法とタイムアウトを構成する方法](#errors)
 -   [次のステップ](#nextsteps)
 
-## <a id="trigger"></a> キュー メッセージを受信したときに関数をトリガーする方法
+## <a id="trigger"></a>キュー メッセージを受信したときに関数をトリガーする方法
 
 キュー メッセージを受信したときに WebJobs SDK が呼び出す関数を記述するには、`QueueTrigger` 属性を使用します。 属性コンストラクターは、ポーリングのためにキューの名前を指定する文字列パラメーター受け取ります。 こともできます [キューの名前を動的に設定](#config)します。
 
@@ -117,7 +117,7 @@ Async 関数がかかる場合があります、 [キャンセル トークン](
             await blobInput.CopyToAsync(blobOutput, 4096, token);
         }
 
-### <a id="qtattributetypes"></a> QueueTrigger 属性が連携する種類
+### <a id="qtattributetypes"></a>QueueTrigger 属性が連携する種類
 
 次の種類の `QueueTrigger` を使用できます。
 
@@ -279,7 +279,7 @@ SDK はオブジェクトを JSON に自動的にシリアル化します。 オ
 * `IAsyncCollector`
 * `CloudQueue` (Azure Storage API を直接使用して、手動でメッセージを作成します)
 
-### <a id="ibinder"></a>関数本体での Web ジョブ SDK 属性の使用
+### <a id="ibinder"></a>関数本体での WebJobs SDK 属性の使用
 
 `Queue`、`Blob`、`Table` などの WebJobs SDK 属性を使用する前に関数で何らかの処理を行う必要がある場合は、`IBinder` インターフェイスを使用できます。
 
@@ -467,7 +467,7 @@ SDKでは、キュー メッセージを処理する関数を最大 5 回呼び�
             host.RunAndBlock();
         }
 
-### <a id="setnamesincode"></a>コードの Web ジョブ SDK コンストラクター パラメーター値の設定
+### <a id="setnamesincode"></a>コードの WebJobs SDK コンストラクター パラメーター値の設定
 
 キュー名、BLOB 名、コンテナー、テーブル名をハード コーディングではなく、コードに指定する場合もあります。 たとえば、`QueueTrigger` のキュー名を構成ファイルか環境変数に指定します。 
 
@@ -609,8 +609,9 @@ public static void ErrorMonitor(
 
 また、アプリ設定または環境変数名である構成スイッチを使用して、トリガーできるかどうかを制御する関数を動的に無効または有効にすることもできます。 サンプル コードについては、 `Disable` 属性 [web ジョブ SDK のサンプル リポジトリ](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Functions.cs)します。
 
-## <a id="nextsteps"></a> 次のステップ
+## <a id="nextsteps"></a>次のステップ
 
 このガイドでは、Azure キューを操作するための一般的なシナリオの処理方法を示すコードのサンプルを提供しました。 Azure web ジョブおよび web ジョブ SDK を使用する方法の詳細については、次を参照してください。 [Azure WebJobs の推奨リソース](http://go.microsoft.com/fwlink/?linkid=390226)します。
  
+
 

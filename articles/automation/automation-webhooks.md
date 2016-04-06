@@ -91,7 +91,7 @@ Webhook のセキュリティは、呼び出しを許可するセキュリティ
 ![Webhook ボタン](media/automation-webhooks/webhooks-button.png)
 4. クリックして **新しい webhook を作成** を開くには、 **webhook の作成] ブレード**します。
 5. 指定、 **名前**, 、**有効期限の日付** webhook と有効かどうか。 参照してください [webhook の詳細](#details-of-a-webhook) 詳細についてはこれらのプロパティです。
-6. コピー アイコンをクリックし、Ctrl + C キーを押して Webhook の URL をコピーします。  次に、それを安全な場所に記録します。  **Webhook を作成した後に、URL を再度取得することはできません** 。<br>
+6. コピー アイコンをクリックし、Ctrl + C キーを押して Webhook の URL をコピーします。  次に、それを安全な場所に記録します。  **Webhook を作成した後は、URL を再度取得することはできません。** <br>
 ![Webhook の URL](media/automation-webhooks/copy-webhook-url.png)
 3. クリックして **パラメーター** runbook パラメーターの値を指定します。  Runbook に必須のパラメーターがある場合、値を指定しない限り Webhook を作成できません。
 1. クリックして **作成** webhook を作成します。
@@ -273,4 +273,5 @@ Azure の仮想マシンを作成すると、サブスクリプションと関�
 - [Runbook の開始](automation-starting-a-runbook.md)
 - [Runbook ジョブの状態の表示](automation-viewing-the-status-of-a-runbook-job.md)
 - [Using Azure Automation to take actions on Azure Alerts (Azure Automation を使用した Azure アラートに対するアクションの実行)](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
+
 

@@ -36,9 +36,9 @@
 
 [AZURE.VIDEO get-started-with-azure-automation]
 
-## <a name="automationaccount"></a>Automation アカウントの作成
+## <a name="automationaccount"></a>オートメーション アカウントの作成
 
-Automation アカウントは、Azure Automation リソースのコンテナーで、 環境の分離や、ワークフローの詳細な整理のための方法を提供します。 詳細については、次を参照してください。 [オートメーション アカウント](http://aka.ms/runbookauthor/azure/automationaccounts) 自動化ライブラリにします。  Automation アカウントを既に作成している場合は、次の手順を省略できます。
+オートメーション アカウントは、Azure Automation リソースのコンテナーで、 環境の分離や、ワークフローの詳細な整理のための方法を提供します。 詳細については、次を参照してください。 [オートメーション アカウント](http://aka.ms/runbookauthor/azure/automationaccounts) 自動化ライブラリにします。  Automation アカウントを既に作成している場合は、次の手順を省略できます。
 
 1.  ログイン、 [Azure ポータル](http://manage.windowsazure.com)します。
 
@@ -50,7 +50,7 @@ Automation アカウントは、Azure Automation リソースのコンテナー�
 
     ![新しいアカウントの追加](./media/automation-create-runbook-from-samples/automation_02_addnewautoacct.png)
 
-## <a name="importrunbook"></a>Runbook ギャラリーから runbook をインポートします。
+## <a name="importrunbook"></a>Runbook ギャラリーからの Runbook のインポート
 
  [Runbook ギャラリー](http://aka.ms/runbookgallery) 、Azure Automation アカウントに直接インポートできるサンプルの runbook を含むその他の Azure Automation および PowerShell ユーザーの作業を活用することができます。 この手順では、ギャラリーを使用して「Hello World」サンプル Runbook をインポートします。
 
@@ -78,7 +78,7 @@ Automation アカウントは、Azure Automation リソースのコンテナー�
 
     ![Runboon の詳細](./media/automation-create-runbook-from-samples/automation_08_RunbookDetails.png)
 
-## <a name="publishrunbook"></a>Runbook を発行します。
+## <a name="publishrunbook"></a>Runbook の発行
 
 Runbook は、まずドラフト モードでインポートされます。 つまりこれは、承認前に実行可能な新しいバージョンとして Runbook で作業を継続できることを意味します。 このサンプルの Runbook は追加の構成を必要としないため、そのまますぐに発行できます。  詳細については、次を参照してください。 [Runbook を公開する](http://aka.ms/runbookauthor/azure/publishrunbook)です。
 
@@ -144,5 +144,6 @@ Runbook をインポートし、発行したら、それを実行して、出力
 
 ## フィードバック
 
-**フィードバックの送信**Azure Automation の Runbook ソリューションや統合モジュールを探索している場合は、スクリプト センターにスクリプトの要求を投稿することができます。 Azure Automation に関するフィードバックや機能の要求がある場合に投稿して [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback)します。 よろしくお願いいたします。
+**フィードバックの送信**  Azure Automation の Runbook ソリューションや統合モジュールを探索している場合は、スクリプト センターにスクリプトの要求を投稿することができます。 Azure Automation に関するフィードバックや機能の要求がある場合に投稿して [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback)します。 よろしくお願いいたします。
+
 

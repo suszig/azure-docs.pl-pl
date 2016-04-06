@@ -52,7 +52,7 @@ DocumentDB は現在 HIPAA に準拠していませんが、Azure サービス�
 参照してください、 [DocumentDB の料金詳細](http://go.microsoft.com/fwlink/p/?LinkID=402317) 詳細ページです。 DocumentDB の利用料金は、コレクションがオンラインであった時間数、使用中のコレクションの数によって決まりますと [パフォーマンス レベル](documentdb-performance-levels.md) 各コレクションのです。 
 
 ### 無料試用版は使用できますか?
-サインアップすることを Azure に慣れていない場合、 [Azure 無料評価版](https://azure.microsoft.com/pricing/free-trial/), 、30 日間と 200 ドルにすべての Azure サービスを提供します。 または、Visual Studio サブスクリプションがある場合の資格が [12,500 円 1 か月あたりの無料の Azure クレジットの](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) すべての Azure サービスを使用します。  
+サインアップすることを Azure に慣れていない場合、 [Azure 無料評価版](https://azure.microsoft.com/pricing/free-trial/), 、30 日間と 200 ドルにすべての Azure サービスを提供します。 または、Visual Studio サブスクリプションがある場合の資格が [で無料の Azure クレジットを 1 か月あたり $150](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) すべての Azure サービスを使用します。  
 
 ### DocumentDB に関するその他のヘルプはどのようにして得られますか?
 ヘルプを必要がある場合くださいに通知私たちに [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), 、 [Azure DocumentDB MSDN デベロッパー フォーラム](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB), 、またはスケジュール設定、 [DocumentDB エンジニア リング チームと 1 対 1 のチャット](http://www.askdocdb.com/)します。 DocumentDB の最新のニュースと機能の最新の状態を維持するでフォロー [Twitter](https://twitter.com/DocumentDB)します。
@@ -114,3 +114,4 @@ DocumentDB にドキュメントを一括挿入するには 3 つの方法があ
 [azure-portal]: https://portal.azure.com
 [query]: documentdb-sql-query.md
  
+

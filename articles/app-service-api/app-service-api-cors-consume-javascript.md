@@ -127,7 +127,7 @@ AngularJS プロジェクトをデプロイする新しい Web アプリも作�
 
     ![](./media/app-service-api-cors-consume-javascript/corserror.png)
 
-## <a id="corsconfig"></a> Azure のターゲット API アプリに対して CORS を構成する
+## <a id="corsconfig"></a>Azure のターゲット API アプリに対して CORS を構成する
 
 8. 別のブラウザー ウィンドウで、 [Azure ポータル](https://portal.azure.com/)します。
 
@@ -155,7 +155,7 @@ AngularJS プロジェクトをデプロイする新しい Web アプリも作�
 
 Azure リソース マネージャーの Azure PowerShell、CLI などのツールを使用して、API アプリに対して CORS を構成することも、または [リソース エクスプ ローラー](https://resources.azure.com/)します。 
 
-`cors` プロパティは、<site name>/web リソースの Microsoft.Web/sites/config リソース タイプで設定します。 たとえば、 **リソース エクスプ ローラー**, には、 **サブスクリプション > {サブスクリプション} > resourceGroups > {リソース グループ} > プロバイダー > Microsoft.Web > サイト > {ƒtƒcƒg} > 構成 > web**, と cors のプロパティが表示されます。
+設定、 `cors` Microsoft.Web/sites/config リソースの種類のプロパティ、 <site name>/web リソースです。 たとえば、 **リソース エクスプ ローラー**, には、 **サブスクリプション > {サブスクリプション} > resourceGroups > {リソース グループ} > プロバイダー > Microsoft.Web > サイト > {ƒtƒcƒg} > 構成 > web**, と cors のプロパティが表示されます。
 
         "cors": {
             "allowedOrigins": [
@@ -207,4 +207,5 @@ Web API プロジェクトでインストールすることができます、 [M
 ## 次のステップ 
 
 このチュートリアルでは、クライアントの JavaScript コードが、別のドメイン内の API を呼び出すための App Service の CORS サポートを有効にする方法を説明しました。 開始された系列を取得する API アプリで次の記事でについても説明 [App Service の API アプリの認証の](app-service-api-authentication.md)です。
+
 

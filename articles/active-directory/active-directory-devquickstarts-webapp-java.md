@@ -23,8 +23,8 @@
 
 Azure AD を使用すると、数行のコードを追加するだけで、Web アプリの ID 管理を外部委託し、シングル サインインおよびサインアウトを提供することが、簡単に実現できます。  Java Web アプリでは、コミュニティ主導型の ADAL4J の Microsoft 実装を使用することで、これを実現できます。
 
-  ここでに ADAL4J を使用します。
-- Id プロバイダーとして Azure AD を使用してアプリケーションにユーザーをサインインします。
+  ここでは、ADAL4J を使用して次のことを行います。
+- ID プロバイダーとして Azure AD を使用して、ユーザーをアプリにサインインします。
 - ユーザーについての情報を表示します。
 - ユーザーをアプリからサインアウトします。
 
@@ -46,11 +46,11 @@ Azure AD を使用すると、数行のコードを追加するだけで、Web �
 - クリックして、 **アプリケーション** ] タブ、および、下部のドロアーの追加] をクリックします。
 - 画面の指示に従ってされ、新しい作成 **Web アプリケーションまたは WebAPI**します。
     -  **名前** アプリケーションのエンドユーザーに、アプリケーションの説明は
-    -  **サインオン URL** はアプリのベース URL です。  スケルトンの既定値は、`http://localhost:8080/adal4jsample/` です。
+    -  **サインオン URL** はアプリのベース URL です。  スケルトンの既定値は `http://localhost:8080/adal4jsample/`です。
     -  **App ID URI** アプリケーションの一意の識別子を指定します。  形式は、`https://<tenant-domain>/<app-name>` (たとえば、`http://localhost:8080/adal4jsample/`) です。
 - 登録が完了すると、AAD により、アプリケーションに一意のクライアント ID が割り当てられます。  この値は次のセクションで必要になるので、[構成] タブからコピーします。
 
-1 回、アプリのポータルで次のように作成します。、 **アプリケーション シークレット** 、アプリケーションをコピーします。  このプロジェクトはすぐに必要になります。
+1 回、アプリのポータルで次のように作成します。、 **アプリケーション シークレット** 、アプリケーションのをコピーします。  このプロジェクトはすぐに必要になります。
 
 
 ## 2.Maven を使用して、ADAL4J ライブラリと前提条件を使用するようにアプリを設定する
@@ -361,7 +361,7 @@ Azure AD を使用すると、数行のコードを追加するだけで、Web �
 
 1. ルート ディレクトリに adal4jsample フォルダーを作成し、すべての Java ファイルを保存します。 
 
-Java ファイルでは、`com.microsoft.aad.adal4jsample` 名前空間を使用します。 ほとんどの IDE では、このために入れ子のフォルダー構造が作成されます (たとえば、`/com/microsoft/aad/adal4jsample`)。 これを行うには自由ですが、必要はありません。
+Java ファイルでは、`com.microsoft.aad.adal4jsample` 名前空間を使用します。 ほとんどの IDE では、このために入れ子のフォルダー構造が作成されます (たとえば、`/com/microsoft/aad/adal4jsample`)。 フォルダー構造の作成は自由ですが、必ずしも必要ではありません。
 
 2. このフォルダー内に、`JSONHelper.java` という名前のファイルを作成します。このファイルは、トークンからの JSON データを解析するために使用します。 次のコードをコピーして貼り付けることができます。
 
@@ -1749,5 +1749,6 @@ public class BasicFilter implements Filter {
 リファレンスについては、完全なサンプル (構成値) を除く [.zip をここでは現状](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip), 、または GitHub から複製することができます。
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
+
 
 

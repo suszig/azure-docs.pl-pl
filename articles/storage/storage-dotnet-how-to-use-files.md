@@ -500,7 +500,7 @@ Azure ストレージ分析で File Storage のメトリックがサポートさ
 
     現在これはサポートされていません。
  
-7. **現在 File Storage のレプリケーションは、LRS または GRS を介してのみ実行できるのですか。**  
+7. **現在 File ストレージのレプリケーションは、LRS または GRS を介してのみ実行できるのですか。**  
 
     RA-GRS もサポート予定ですが、まだ予定は公表できません。
 
@@ -551,4 +551,5 @@ Azure File Storage の詳細については、次のリンクを参照してく�
 - [Azure File ストレージの詳細情報](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
 - [Introducing Microsoft Azure File Service (Microsoft Azure File サービスの概要)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files (Microsoft Azure Files への接続の維持)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+
 

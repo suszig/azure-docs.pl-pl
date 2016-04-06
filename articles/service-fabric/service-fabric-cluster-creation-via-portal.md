@@ -62,7 +62,7 @@
 
   ほとんどのサンプル アプリケーションはポート 80 と 8081 を使用するので、このクラスターにサンプルをデプロイする場合はそれらを追加します。
 
-  ![ポート][ポート]
+  ![ポート][Ports]
 
 
 
@@ -99,7 +99,7 @@
 
 [通知] で進行状況を確認できます (画面右側のステータス バーの近くにある「ベル」アイコンをクリック)。 クラスターの作成中に [スタート画面にピン留めする] をクリックした場合、[Service Fabric クラスターのデプロイ] がスタート画面にピン留めされます。
 
-![通知][通知]
+![通知][Notifications]
 
 ## クラスターの状態の表示
 
@@ -196,10 +196,10 @@ http://sfcluster4doc.westus.cloudapp.azure.com:31000
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-##次のステップ
-- [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
-- [Service Fabric Cluster security](service-fabric-cluster-security.md)
-- [Service Fabric Health model introduction](service-fabric-health-introduction.md)
+## 次のステップ
+- [Visual Studio で Service Fabric アプリケーションの管理](service-fabric-manage-application-in-visual-studio.md)します。
+- [Service Fabric クラスターのセキュリティ](service-fabric-cluster-security.md)
+- [Service Fabric の正常性モデルの概要](service-fabric-health-introduction.md)
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png
@@ -212,5 +212,6 @@ http://sfcluster4doc.westus.cloudapp.azure.com:31000
 [BrowseCluster]: ./media/service-fabric-cluster-creation-via-portal/browse.png
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
+
 
 

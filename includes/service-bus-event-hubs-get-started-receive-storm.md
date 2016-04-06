@@ -2,9 +2,9 @@
 
 [**Apache Storm**](https://storm.incubator.apache.org) は境界のないストリームのデータの信頼性の高い処理を簡略化する分散型リアルタイム計算システムです。 このセクションでは、Event Hub Storm スパウトを使用して、Event Hub からイベントを受信する方法を示します。 Apache Storm を使用して、別々のノードにホストされている複数のプロセスでイベントを分割することができます。 Storm と Event Hub の統合は、Storm の Zookeeper のインストールを使用して、進行状況への透過的なチェックポイントの設定、永続的なチェックポイントの管理、並行した Event Hub からの受信によって、イベントの利用を簡略化します。
 
-受信パターンの Event Hubs の詳細については、[Event Hubs の概要] を参照してください。
+受信パターンの Event Hubs の詳細についてを参照してください、 [Event Hubs の概要][]します。
 
-このチュートリアルでは、これは既に使用可能な Event Hubs スパウトと共に、[HDInsight Storm] インストールを使用します。
+このチュートリアルでは、 [HDInsight Storm][] はまだ利用可能で、Event Hubs スパウトと共にインストールします。
 
 1. 次の [HDInsight Storm の使用開始](../hdinsight/hdinsight-storm-overview.md) 手順を新しい HDInsight クラスターを作成し、リモート デスクトップを介して接続します。
 
@@ -112,7 +112,7 @@
 
         }
 
-    この Storm ボルトは、受信したイベントの内容を記録します。 これを容易に拡張して、ストレージ サービスにタプルを格納できます。 [HDInsight センサー分析チュートリアル] では、これと同じアプローチを使用して、HBase にデータを格納します。
+    この Storm ボルトは、受信したイベントの内容を記録します。 これを容易に拡張して、ストレージ サービスにタプルを格納できます。  [HDInsight sensor analysis tutorial] これと同じアプローチを使用してデータを HBase に格納します。
 
 11. というクラスを作成 **LogTopology** を次のコード。
 
@@ -229,4 +229,5 @@
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+
 

@@ -174,7 +174,8 @@ Azure Storage Client Library for Xamarin で開発するとき、自分のアカ
 BLOB、テーブル、キューの詳細は次のリンクで確認できます。
 
 [Microsoft Azure Storage の概要](storage-introduction.md)  
-[.NET から Blob ストレージを使用する方法](storage-dotnet-how-to-use-blobs.md)  
-[.NET からテーブル ストレージを使用する方法](storage-dotnet-how-to-use-tables.md)  
-[.NET からキュー ストレージを使用する方法](storage-dotnet-how-to-use-queues.md)
-[AzCopy コマンド ライン ユーティリティを使用してデータを転送します。](storage-use-azcopy) 
+[How to use Blob Storage from .NET (.NET から BLOB ストレージを使用する方法)](storage-dotnet-how-to-use-blobs.md)  
+[How to use Table Storage from .NET (.NET からテーブル ストレージを使用する方法)](storage-dotnet-how-to-use-tables.md)  
+[How to use Queue Storage from .NET (.NET からキュー ストレージを使用する方法)](storage-dotnet-how-to-use-queues.md)
+[AzCopy コマンド ライン ユーティリティを使ったデータの転送](storage-use-azcopy) 
+

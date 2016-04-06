@@ -29,17 +29,17 @@
 
 ロール ベースのアクセス制御 (RBAC) は、ユーザーが保持できるロールに権限を割り当てる方法です。 特定のクラスのユーザーができることとできないことの境界を適切に定義します。 このチュートリアルでは、Azure Mobile Services に基本的な RBAC を追加する方法について説明します。
 
-このチュートリアルでは、ロール ベースのアクセス制御について示しながら、Azure Active Directory (AAD) で定義された Sales グループに対する各ユーザーのメンバーシップを確認します。 Azure Active Directory の [Graph REST API] を使用して .NET Mobile Service バックエンドでは、アクセス チェックが行われます。 Sales グループに属するユーザーのみが、データの照会を許可されます。
+このチュートリアルでは、ロール ベースのアクセス制御について示しながら、Azure Active Directory (AAD) で定義された Sales グループに対する各ユーザーのメンバーシップを確認します。 .NET モバイル サービス バックエンドを使用するとアクセスの確認を行いますが、 [Graph REST API] Azure Active Directory 用です。 Sales グループに属するユーザーのみが、データの照会を許可されます。
 
 
->[AZURE.NOTE] このチュートリアルの目的は、認証方法を含めた認証の知識を拡張することです。 Azure Active Directory 認証プロバイダーを使用して、[アプリに認証の追加] のチュートリアルを完了して必要です。 このチュートリアルを引き続き [アプリに認証の追加] このチュートリアルで使用した TodoItem アプリケーションを更新します。
+>[AZURE.NOTE] このチュートリアルの目的は、認証方法を含めた認証の知識を拡張することです。 最初に完了する必要が、 [Add Authentication to your app] Azure Active Directory 認証プロバイダーを使用したチュートリアルです。 使用した TodoItem アプリケーションを更新するこのチュートリアルでは引き続き、 [Add Authentication to your app] チュートリアルです。
 
 ##前提条件
 
 このチュートリアルには、次のものが必要です。
 
 * Windows 8.1 で実行されている Visual Studio 2013。
-* Azure Active Directory 認証プロバイダーを使用して [アプリに認証の追加] このチュートリアルを完了します。
+* 完了、 [Add Authentication to your app] Azure Active Directory 認証プロバイダーを使用したチュートリアルです。
 
 
 
@@ -47,7 +47,7 @@
 ##統合アプリケーションのキーを生成する
 
 
-[アプリに認証の追加] チュートリアル中に作成した、統合アプリケーションに対する登録を [Azure Active Directory アカウント ログインを使用するサービスに登録] を実行したときに手順です。 このセクションでは、その統合アプリケーションのクライアント ID でディレクトリ情報を読み取るときに使用するキーを生成します。
+中に、 [Add Authentication to your app] チュートリアルでは、統合アプリケーションに対する登録を作成するには、実行したときに、 [Register to use an Azure Active Directory Login] 手順です。 このセクションでは、その統合アプリケーションのクライアント ID でディレクトリ情報を読み取るときに使用するキーを生成します。
 
 [AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
@@ -179,7 +179,7 @@
 
 9. AuthorizeAadRole.cs で、`AuthorizeAadRole` クラスの `GetAADToken` メソッドを更新します。 このメソッドは、Mobile Service に格納されているアプリの設定を使用して、ADAL から AAD へのアクセス トークンを取得します。
 
-    >[AZURE.NOTE] ADAL for .NET には、既定では、Active Directory に対して余分なネットワーク トラフィックを軽減するために、メモリ内キャッシュが含まれています。 ただし、独自のキャッシュ実装を作成したり、完全にキャッシュを無効にしたりできます。 詳細については、[ADAL for .NET] を参照してください。
+    >[AZURE.NOTE] ADAL for .NET には、既定では、Active Directory に対して余分なネットワーク トラフィックを軽減するために、メモリ内キャッシュが含まれています。 ただし、独自のキャッシュ実装を作成したり、完全にキャッシュを無効にしたりできます。 詳細については、次を参照してください。 [ADAL for .NET]します。
 
         // Use ADAL and the authentication app settings from the Mobile Service to get an AAD access token
         private async Task<string> GetAADToken()
@@ -392,4 +392,5 @@
 [Graph REST API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [ADAL for .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
+
 

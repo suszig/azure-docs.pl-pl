@@ -10,12 +10,12 @@
 
 <tags
    ms.service="backup"
-   ms.workload=「記憶域のバックアップ回復」
+   ms.workload="storage-backup-recovery"
      ms.tgt_pltfrm="na"
      ms.devlang="na"
      ms.topic="article"
      ms.date="11/17/2015"
-     ms.author="jimpark"です。"aashishr"/>
+     ms.author="jimpark"; "aashishr"/>
 
 # Windows Server または Windows クライアントのファイルとフォルダーを Azure にバックアップする 
 この簡単な手順で Windows のファイルとフォルダーを Azure にバックアップできます。 まだ行っていない場合、は、完了、 [の前提条件](backup-configure-vault.md#before-you-start) 続行する前に、Windows マシンをバックアップする環境を準備します。
@@ -51,4 +51,5 @@
 - [Windows Server または Windows クライアントの管理](backup-azure-manage-windows-server.md)
 - [Azure からの Windows Server または Windows クライアントの復元](backup-azure-restore-windows-server.md)
 - [Azure Backup FAQ](backup-azure-backup-faq.md)
+
 

@@ -1,12 +1,12 @@
 <properties 
-    pageTitle ="Python web アプリケーション Linux 上の Django を使用した |Microsoft Azure] 
-    description =「Linux 仮想マシンを使用して Azure で Django ベースの web アプリケーションをホストする方法について説明します」。 
-    サービス =「仮想マシン」 
-    documentationCenter ="python" 
-    authors ="huguesv" 
+    pageTitle="Linux で Django を使用した Python Web アプリケーション | Microsoft Azure" 
+    description="Linux 仮想マシンを使用して Azure で Django ベースの Web アプリケーションをホストする方法について説明します。" 
+    services="virtual-machines" 
+    documentationCenter="python" 
+    authors="huguesv" 
     manager="wpickett" 
-    エディター =""
-    タグ =「azure サービス管理」/>
+    editor=""
+    tags=“azure-service-management"/>
 
 <tags 
     ms.service="virtual-machines" 
@@ -53,7 +53,7 @@ Azure で Django ベースの Web サイトをホストする方法について�
 
 1. 既定では、新しい仮想マシンに完全修飾ドメイン名 (FQDN) は含まれていません。  指示に従って、1 つを作成する [ここ](virtual-machines-create-fqdn-on-portal.md)します。  この手順を省略しても、このチュートリアルを完了できます。
 
-## <a id="setup"> </a>開発環境の設定
+## <a id="setup"></a>開発環境の設定
 
 **注:** する Python をインストールする必要がある、またはクライアント ライブラリを使用するを参照してください、 [Python インストール ガイド](../python-how-to-install.md)します。
 
@@ -130,4 +130,5 @@ Ubuntu Linux VM はプレインストールされている Python 2.7 に付属�
 ## Azure の仮想マシンのシャットダウン
 
 このチュートリアルが終了したら、新しく作成した Azure の仮想マシンをシャットダウンまたは削除して、他のチュートリアル用にリソースを解放し、Azure に対する利用料金の発生を回避します。
+
 

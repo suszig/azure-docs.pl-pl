@@ -158,7 +158,7 @@
 
 ##手順 3. 自動化されたユーザー プロビジョニングを有効にする
 
-> [AZURE.NOTE] Google Apps へのユーザー プロビジョニングを自動化するためのもう 1 つの実行可能なオプションは、使用する [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en) Google Apps に内部設置型 Active Directory id。 このチュートリアルでは Azure Active Directory (クラウド) のユーザーとメールが有効なグループを Google Apps にプロビジョニングします。
+> [AZURE.NOTE] Google Apps へのユーザー プロビジョニングを自動化するための別の実行可能なオプションは、使用する [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en) Google Apps に内部設置型 Active Directory id。 このチュートリアルでは Azure Active Directory (クラウド) のユーザーとメールが有効なグループを Google Apps にプロビジョニングします。
 
 1. サインイン、 [Google Apps の管理コンソール](http://admin.google.com/) 、管理者アカウントを使用し、クリックして **セキュリティ**します。 リンクが表示されない場合は、下にある隠れることがあります、 **コントロール** 画面の下部にあるメニュー。
 
@@ -291,4 +291,5 @@
 [28]: ./media/active-directory-saas-google-apps-tutorial/gapps-auth.png
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
+
 

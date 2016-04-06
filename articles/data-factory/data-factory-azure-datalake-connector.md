@@ -415,7 +415,7 @@ JSON セクションとデータセットの定義に使用できるプロパテ
 | プロパティ | 説明 | 必須 |
 | :-------- | :----------- | :-------- |
 | folderPath | Azure Data Lake Store のコンテナーとフォルダーのパス。 | はい |
-| fileName | <p>Azure Data Lake ストア内のファイルの名前です。 ファイル名は省略できます。 </p><p>ファイル名を指定する場合、アクティビティ (コピーを含む) は、特定のファイルで動作します。</p><p>ファイル名が指定されていないとき、コピーは入力データセットの folderPath 内のすべてのファイルを含めます。</p><p>生成されたファイルの名前を次にも見られる出力データセットに fileName が指定されていないときに次の形式: データ。<Guid>.txt (例:: 付けられます-93ff-4c6f-b3be-f69616f1df7a.txt</p> | いいえ |
+| fileName | <p>Azure Data Lake ストア内のファイルの名前です。 ファイル名は省略できます。 </p><p>ファイル名を指定する場合、アクティビティ (コピーを含む) は、特定のファイルで動作します。</p><p>ファイル名が指定されていないとき、コピーは入力データセットの folderPath 内のすべてのファイルを含めます。</p><p>生成されたファイルの名前を次にも見られる出力データセットに fileName が指定されていないときに次の形式: データ。<Guid>.txt (例:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | いいえ |
 | partitionedBy | partitionedBy は任意のプロパティです。 これを使用し、時系列データに動的な folderPath と fileName を指定できます。 たとえば、1 時間ごとのデータに対して folderPath をパラメーター化できます。 詳細と例については、「partitionedBy プロパティの活用」セクションを参照してください。 | いいえ |
 | BlobSink の format | 2 種類の形式がサポートされている: **TextFormat**, 、**AvroFormat**します。 形式の下にある type プロパティをいずれかの値に設定する必要があります。 形式が TextFormat のとき、形式に追加で任意のプロパティを指定できます。 参照してください、 [TextFormat の指定](#specifying-textformat) 詳細については後述します。 | いいえ |
 | compression | データの圧縮の種類とレベルを指定します。 サポートされる種類: GZip、Deflate、および BZip2。サポートされるレベル: Optimal および Fastest。 参照してください [圧縮サポート](#compression-support) 詳細についてです。  | いいえ |
@@ -554,7 +554,7 @@ Hive テーブルで Avro 形式を使用するを参照することができま
 
 | プロパティ | 説明 | 使用できる値 | 必須 |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | コピー動作を指定します。 | <p>**PreserveHierarchy:** 保持対象のフォルダー、つまり、ソース フォルダーに対するソース ファイルの相対パスのファイル階層はターゲット フォルダーに対するターゲット ファイルの相対パスと同じです</p><p>**。FlattenHierarchy:** ソース フォルダーからすべてのファイルは、ターゲット フォルダーの最初のレベルになります。 ターゲット ファイルは自動的に生成された名前になります</p><p>**。MergeFiles:** (この機能は間もなく公開される予定) を 1 つのファイルにソース フォルダーからすべてのファイルをマージします。 マージされたファイル名が指定した名前になりますファイル/blob の名前が指定されている場合自動生成されたファイル名がそれ以外の場合、でしょう。</p> | いいえ |
+| copyBehavior | コピー動作を指定します。 | <p>**PreserveHierarchy:** 保持対象のフォルダー、つまり、ソース フォルダーに対するソース ファイルの相対パスのファイル階層はターゲット フォルダーに対するターゲット ファイルの相対パスと同じです。</p><p>**FlattenHierarchy:** ソース フォルダーからすべてのファイルは、ターゲット フォルダーの最初のレベルになります。 ターゲット ファイルは、自動生成された名前になります。</p><p>**MergeFiles:** (この機能は間もなく公開される予定) を 1 つのファイルにソース フォルダーからすべてのファイルをマージします。 ファイル/Blob の名前を指定した場合、マージされたファイル名は指定した名前になります。それ以外は自動生成されたファイル名になります。</p> | いいえ |
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -562,4 +562,5 @@ Hive テーブルで Avro 形式を使用するを参照することができま
 [AZURE.INCLUDE [data-factory-type-conversion-sample](../../includes/data-factory-type-conversion-sample.md)]
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
+
 

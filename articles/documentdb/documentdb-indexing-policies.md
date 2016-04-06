@@ -33,7 +33,7 @@
 - コレクションのインデックス作成ポリシーに変更を加えるにはどうすればよいか。
 - さまざまなインデックス作成ポリシーのストレージとパフォーマンスを比較するにはどうすればよいか。
 
-##<a id="CustomizingIndexingPolicy"></a> コレクションのインデックス作成ポリシーをカスタマイズします。
+##<a id="CustomizingIndexingPolicy"></a>コレクションのインデックス作成ポリシーのカスタマイズ
 
 開発者は、DocumentDB コレクションで既定のインデックス作成ポリシーをオーバーライドし、次の機能を設定することによって、ストレージ、書き込みやクエリのパフォーマンス、クエリの一貫性の間のトレードオフをカスタマイズできます。
 
@@ -88,19 +88,19 @@ DocumentDB は、DocumentDB コレクションのインデックス作成ポリ�
             </td>
             <td valign="top">
                 <p>
-                    <strong>一貫性</strong>
+                    <strong>一貫性のあります。</strong>
                 </p>
             </td>
             <td valign="top">
                 <p>
-                    <strong>遅延</strong>
+                    <strong>最短一致</strong>
                 </p>
             </td>            
         </tr>
         <tr>
             <td valign="top">
                 <p>
-                    <strong>Strong</strong>
+                    <strong>厳密な</strong>
                 </p>
             </td>
             <td valign="top">
@@ -134,7 +134,7 @@ DocumentDB は、DocumentDB コレクションのインデックス作成ポリ�
         <tr>
             <td valign="top">
                 <p>
-                    <strong>Session</strong>
+                    <strong>セッション</strong>
                 </p>
             </td>
             <td valign="top">
@@ -151,7 +151,7 @@ DocumentDB は、DocumentDB コレクションのインデックス作成ポリ�
         <tr>
             <td valign="top">
                 <p>
-                    <strong>Eventual</strong>
+                    <strong>最終的です</strong>
                 </p>
             </td>
             <td valign="top">
@@ -181,24 +181,24 @@ DocumentDB は、DocumentDB コレクションのインデックス作成ポリ�
             </td>
             <td valign="top">
                 <p>
-                    <strong>一貫性</strong>
+                    <strong>一貫性のあります。</strong>
                 </p>
             </td>
             <td valign="top">
                 <p>
-                    <strong>遅延</strong>
+                    <strong>最短一致</strong>
                 </p>
             </td>       
             <td valign="top">
                 <p>
-                    <strong>なし</strong>
+                    <strong>[なし]</strong>
                 </p>
             </td>             
         </tr>
         <tr>
             <td valign="top">
                 <p>
-                    <strong>Strong</strong>
+                    <strong>厳密な</strong>
                 </p>
             </td>
             <td valign="top">
@@ -242,7 +242,7 @@ DocumentDB は、DocumentDB コレクションのインデックス作成ポリ�
         <tr>
             <td valign="top">
                 <p>
-                    <strong>Session</strong>
+                    <strong>セッション</strong>
                 </p>
             </td>
             <td valign="top">
@@ -264,7 +264,7 @@ DocumentDB は、DocumentDB コレクションのインデックス作成ポリ�
         <tr>
             <td valign="top">
                 <p>
-                    <strong>Eventual</strong>
+                    <strong>最終的です</strong>
                 </p>
             </td>
             <td valign="top">
@@ -778,5 +778,6 @@ JSON 仕様に次の変更が実装されました。
 3.  [DocumentDB SQL を使用したクエリ](documentdb-sql-query.md)
 
  
+
 
 

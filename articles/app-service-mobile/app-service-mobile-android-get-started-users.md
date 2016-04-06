@@ -24,9 +24,9 @@
 
 ## 概要
 
-このチュートリアルでは、サポートされている ID プロバイダーを使用して、Android で todolist クイック スタート プロジェクトに認証を追加します。 このチュートリアルに基づいて、[を使ってみるモバイル アプリ] チュートリアルで、先に完了する必要があります。
+このチュートリアルでは、サポートされている ID プロバイダーを使用して、Android で todolist クイック スタート プロジェクトに認証を追加します。 このチュートリアルに基づいて、 [Get started with Mobile Apps] チュートリアルで、先に完了する必要があります。
 
-##<a name="register"></a>アプリを認証に登録し、App Service を構成する
+##<a name="register"></a>アプリケーションを認証に登録し、App Service を構成する
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
@@ -34,7 +34,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-+ Android Studio で、チュートリアルを完了したときに作成したプロジェクトを開く [Mobile Apps] を開始から、 **実行** ボタンをクリックし **アプリケーションを実行する** し、アプリケーションの開始後に、状態コード 401 (許可されていません) のハンドルされない例外が発生することを確認します。
++ Android Studio で、チュートリアルを完了したときに作成したプロジェクトを開く [Get started with Mobile Apps], から、 **実行** ボタンをクリックし **アプリケーションを実行する** し、アプリケーションの開始後に、状態コード 401 (許可されていません) のハンドルされない例外が発生することを確認します。
 
      これは、問題は、アプリケーションは、認証されないユーザーとしてバックエンドにアクセスしようとしていますが、 _TodoItem_ テーブルには、今すぐ認証が必要です。
 
@@ -71,4 +71,5 @@
 
 <!-- URLs. -->
 [Get started with Mobile Apps]: app-service-mobile-android-get-started.md
+
 

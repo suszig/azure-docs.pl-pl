@@ -151,7 +151,7 @@ Microsoft.Diagnostic.Listeners ライブラリは、Party Cluster サンプル F
 
 4. サービス プロジェクトから 2 つの追加したプロジェクトに対して、プロジェクト参照を追加します (ElasticSearch にデータを送信する予定の各サービスは、Microsoft.Diagnostics.EventListeners と Microsoft.Diagnostics.EventListeners.Fabric を参照する必要があります)。
 
-    ![Microsoft.Diagnostics.EventListeners および Microsoft.Diagnostics.EventListeners.Fabric ライブラリをプロジェクト refererences][1]
+    ![Microsoft.Diagnostics.EventListeners および Microsoft.Diagnostics.EventListeners.Fabric ライブラリのプロジェクト参照][1]
 
 ### Service Fabric と Microsoft.Diagnostics.Tracing NuGet パッケージの 2015 年 11 月プレビュー
 Service Fabric のターゲットの 2015 年 11 月プレビューで構築されたアプリケーション **.NET Framework 4.5.1** これはプレビュー リリースの時点で、Azure でサポートされている .NET Framework の最新のバージョンであるためです。 残念ながら、このバージョンの .NET Framework には、Microsoft.Diagnostics.Listeners ライブラリに必要な EventListener API の一部が含まれていません。 Microsoft.Diagnostics.Listeners ライブラリを使用するすべてのプロジェクトがいずれかのによって提供される EventSource の代替実装を使用する必要があります EventSource (Fabric アプリケーションで Api のログ記録の基になるコンポーネント) と EventListener 密結合であるため **Microsoft.Diagnostics.Tracing NuGet パッケージ**, 、Microsoft によって作成されます。 このパッケージは、この .NET Framework に含まれる EventSource と完全に下位互換性があります。そのため、参照する名前空間を変更する以外にコードの変更は必要ありません。
@@ -166,7 +166,7 @@ EventSource クラスの Microsoft.Diagnostics.Tracing 実装を使用する場�
 
 4. サービス プロジェクトで ServiceEventSource.cs または ActorEventSource.cs ファイルを開き、ファイルの先頭にある `using System.Diagnostics.Tracing` ディレクティブを `using Microsoft.Diagnostics.Tracing` ディレクティブに置き換えます。
 
-次の手順は必要ありません 1 回 **.NET Framework 4.6** は Microsoft Azure でサポートされています。
+次の手順は必要ありません回 **.NET Framework 4.6** は Microsoft Azure でサポートされています。
 
 ### ElasticSearch リスナーのインストールと構成
 診断データを ElasticSearch に送信するために必要な最後の手順は、`ElasticSearchListener` のインスタンスを作成し、ElasticSearch 接続データで構成することです。 リスナーは、サービス プロジェクトに定義されている EventSource クラスで発生したすべてのイベントを自動的にキャプチャします。 サービスの有効期間中はリスナーが有効である必要があるので、サービス初期化コードで作成することをお勧めします。 ステートレス サービスの初期化コードに必要な変更を加えた後の例を次に示します (追加部分のコメントには、先頭に `****` が付いています)。
@@ -241,7 +241,7 @@ ElasticSearch 接続データは、サービス構成ファイル (PackageRoot\C
 ### 確認
 以上で完了です。 これで、サービスを実行するたびに、構成に指定した ElasticSearch サービスにトレースが送信されるようになります。 これを確認するには開始 Kibana UI (この例では、ページのアドレスになり、http://myBigCluster.westus.cloudapp.azure.com/) でターゲット ElasticSearch インスタンスに関連付けられているチェック、そのインデックス用の選択した名前のプレフィックスを持つ、 `ElasticSearchListener` インスタンスが、実際に作成され、データに指定されています。
 
-![Kibana PartyCluster アプリケーション イベントの表示][2]
+![PartyCluster アプリケーション イベントを表示する Kibana][2]
 
 ## 次のステップ
 - [Service Fabric サービスの診断と監視](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -249,4 +249,5 @@ ElasticSearch 接続データは、サービス構成ファイル (PackageRoot\C
 <!--Image references-->
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
+
 

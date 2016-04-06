@@ -50,7 +50,7 @@ BizTalk サービスのエディションによっては、ここに示したオ
 
 <tr>
         <td><strong>BizTalk サービスの詳細</strong></td>
-        <td>移動します <a HREF="http://azure.microsoft.com/documentation/services/biztalk-services/">ラーニング センター</a> Azure BizTalk サービスの詳細を表示します。</td>
+        <td>移動して、 <a HREF="http://azure.microsoft.com/documentation/services/biztalk-services/">学習センター</a> を Azure BizTalk サービスの詳細を参照してください。</td>
 </tr>
 </table>
 
@@ -60,31 +60,31 @@ BizTalk サービスのエディションによっては、ここに示したオ
 <table border="1">
 
 <tr>
-<td><strong>管理</strong> アプリケーションのデプロイ</td>
+<td><strong>管理</strong> 、アプリケーションの配置</td>
 <td>Azure BizTalk サービス ポータルが開きます。 BizTalk サービス ポータルは、パートナーの追加や X12 契約、AS2 契約および EDIFACT 契約の作成などの EDI 構成を行うためのスタート地点です。
 <br/><br/>
-これと同じです。 <strong>パートナー契約の作成</strong> を <strong>クイック スタート</strong> ] タブで監視できます。
+これは、同じ <strong>パートナー アグリーメントを作成</strong> 上、 <strong>クイック スタート</strong> ] タブをクリックします。
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">BizTalk サービス ポータルにおける EDI メッセージングのコンポーネントの構成</a> BizTalk サービス ポータルでの詳細を提供します。</td>
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">BizTalk サービス ポータルにおける EDI メッセージングのコンポーネントを構成する</a> BizTalk サービス ポータルについて詳しく説明します。</td>
 </tr>
 
 <tr>
-<td><strong>接続情報</strong> Access Control 名前空間の</td>
+<td><strong>接続情報</strong> の Access Control 名前空間</td>
 <td>[接続情報] を選択すると、[Access Control 名前空間]、[既定の発行者]、および [既定のキー] が表示されます。 この値はコピーできます。
 <br/><br/>
-Access Control ポータルを開くこともできます。 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Access control 名前空間を作成します。</a> アクセスの管理ポータルの詳細を提供します。</td>
+Access Control ポータルを開くこともできます。 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">アクセス制御名前空間を作成</a> Access Control ポータルについて詳しく説明します。</td>
 </tr>
 
 <tr>
-<td><strong>キーの同期</strong> ストレージ アカウントに</td>
+<td><strong>キーの同期</strong> 、ストレージ アカウントに</td>
 <td>ストレージ アカウントを作成すると、プライマリ キーおよびセカンダリ キーが自動的に作成されます。 これらの暗号キーは、ストレージ アカウントへのアクセスを制御します。 BizTalk サービスは自動的にプライマリ キーを使用します。 <strong>キーの同期</strong> BizTalk サービスを中断せず、主キーとセカンダリ キー間を切り替えるユーザーを有効にします。
 <br/><br/>
 たとえば、BizTalk サービスでストレージ アカウント用に新しいプライマリ キーを使用することができます。 これを行うには、次の手順を実行します。
 <br/><br/>
 <ol>
-<li>BizTalk サービスを選択し、選択 <strong>キーの同期</strong>. セカンダリ キーを選択します。 これを行うと、BizTalk サービスはセカンダリ キーの使用を開始します。</li>
+<li>BizTalk サービスを選択し、選択 <strong>キーの同期</strong>します。 セカンダリ キーを選択します。 これを行うと、BizTalk サービスはセカンダリ キーの使用を開始します。</li>
 <li>Azure クラシック ポータルで、ストレージ アカウントを選択してプライマリ キーを再生成します。 BizTalk サービスはセカンダリ キーを使用していることに注意してください。</li>
-<li>BizTalk サービスを選択し、選択 <strong>キーの同期</strong>. プライマリ キーを選択します。 これは、再生成した新しいプライマリ キーです。</li>
+<li>BizTalk サービスを選択し、選択 <strong>キーの同期</strong>します。 プライマリ キーを選択します。 これは、再生成した新しいプライマリ キーです。</li>
 <li>Azure クラシック ポータルで、ストレージ アカウントを選択してセカンダリ キーを再生成します。</li>
 </ol>
 <br/>
@@ -122,7 +122,7 @@ BizTalk サービス名を選択すると、[ダッシュボード] タブが表
 </tr>
 <tr>
 <td><strong>SSL 証明書の更新</strong></td>
-<td>BizTalk サービスで使用される SSL 証明書を別のものに更新できます。 自己署名 SSL 証明書が自動的に作成します。 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">BizTalk サービスを作成します。</a>.</td>
+<td>BizTalk サービスで使用される SSL 証明書を別のものに更新できます。 自己署名 SSL 証明書が自動的に作成した <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">BizTalk サービスを作成する</a>です。</td>
 </tr>
 <tr>
 <td><strong>証明書のダウンロード</strong></td>
@@ -130,11 +130,11 @@ BizTalk サービス名を選択すると、[ダッシュボード] タブが表
 </tr>
 <tr>
 <td><strong>ステータス</strong></td>
-<td>BizTalk サービスの現在の状態が表示されます。 手順については、「 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=329870">BizTalk Services: サービスの状態のグラフ</a>. </td>
+<td>BizTalk サービスの現在の状態が表示されます。 参照してください <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=329870">BizTalk サービス: サービスの状態のチャート</a>します。 </td>
 </tr>
 <tr>
 <td><strong>サービス URL</strong></td>
-<td>この BizTalk サービスの URL です。 これと同じには、 <strong>ドメイン URL</strong> BizTalk サービスの作成時に入力します。</td>
+<td>この BizTalk サービスの URL です。 これと同じ、 <strong>ドメイン URL</strong> 、BizTalk サービスの作成時に入力します。</td>
 </tr>
 <tr>
 <td><strong>パブリック仮想 IP (VIP) アドレス</strong></td>
@@ -160,13 +160,13 @@ BizTalk サービス名を選択すると、[ダッシュボード] タブが表
 <td><strong>トラッキング データベース</strong></td>
 <td>BizTalk サービスで使用される追跡テーブルを格納する Azure SQL データベース名です。 
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">要件の説明</a>  トラッキング データベースの詳細を説明します。</td>
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">要件の説明の項</a>  、トラッキング データベースの詳細情報を提供します。</td>
 </tr>
 <tr>
 <td><strong>ストレージの監視/アーカイブ</strong></td>
 <td>BizTalk サービスの監視出力を格納する Azure ストレージ アカウント名です。
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">要件の説明</a>  ストレージ アカウントの詳細を説明します。</td>
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">要件の説明の項</a>  ストレージ アカウントについて詳しく説明します。</td>
 </tr>
 <tr>
 <td><strong>サブスクリプション名</strong></td>
@@ -186,31 +186,31 @@ BizTalk サービス名を選択すると、[ダッシュボード] タブが表
 <table border="1">
 
 <tr>
-<td><strong>管理</strong> アプリケーションのデプロイ</td>
+<td><strong>管理</strong> 、アプリケーションの配置</td>
 <td>Azure BizTalk サービス ポータルが開きます。 BizTalk サービス ポータルは、パートナーの追加や X12 契約、AS2 契約および EDIFACT 契約の作成などの EDI 構成を行うためのスタート地点です。
 <br/><br/>
-これと同じです。 <strong>パートナー契約の作成</strong> を <strong>クイック スタート</strong> ] タブで監視できます。
+これは、同じ <strong>パートナー アグリーメントを作成</strong> 上、 <strong>クイック スタート</strong> ] タブをクリックします。
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">BizTalk サービス ポータルにおける EDI メッセージングのコンポーネントの構成</a> BizTalk サービス ポータルでの詳細を提供します。</td>
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">BizTalk サービス ポータルにおける EDI メッセージングのコンポーネントを構成する</a> BizTalk サービス ポータルについて詳しく説明します。</td>
 </tr>
 <tr>
-<td><strong>接続情報</strong> Access Control 名前空間の</td>
+<td><strong>接続情報</strong> の Access Control 名前空間</td>
 <td>[Access Control 名前空間]、[既定の発行者]、[既定のキー] が表示されます。これらの値はコピー可能です。
 <br/><br/>
 Access Control ポータルを開くこともできます。 Access Control ポータルは、左のナビゲーション ウィンドウで [Active Directory] オプションを使用するのと同じです。
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">ACS 名前空間の管理</a> アクセスの管理ポータルの詳細を提供します。</td>
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">ACS 名前空間の管理</a> Access Control ポータルについて詳しく説明します。</td>
 </tr>
 <tr>
-<td><strong>キーの同期</strong> ストレージ アカウントに</td>
+<td><strong>キーの同期</strong> 、ストレージ アカウントに</td>
 <td>ストレージ アカウントを作成すると、プライマリ キーおよびセカンダリ キーが自動的に作成されます。 これらの暗号キーは、ストレージ アカウントへのアクセスを制御します。 BizTalk サービスは自動的にプライマリ キーを使用します。 <strong>キーの同期</strong> BizTalk サービスを中断せず、主キーとセカンダリ キー間を切り替えるユーザーを有効にします。
 <br/><br/>
 たとえば、BizTalk サービスでストレージ アカウント用に新しいプライマリ キーを使用することができます。 これを行うには、次の手順を実行します。
 <br/><br/>
 <ol>
-<li>BizTalk サービスを選択し、選択 <strong>キーの同期</strong>. セカンダリ キーを選択します。 これを行うと、BizTalk サービスはセカンダリ キーの使用を開始します。</li>
+<li>BizTalk サービスを選択し、選択 <strong>キーの同期</strong>します。 セカンダリ キーを選択します。 これを行うと、BizTalk サービスはセカンダリ キーの使用を開始します。</li>
 <li>Azure クラシック ポータルで、ストレージ アカウントを選択してプライマリ キーを再生成します。 BizTalk サービスはセカンダリ キーを使用していることに注意してください。</li>
-<li>BizTalk サービスを選択し、選択 <strong>キーの同期</strong>. プライマリ キーを選択します。 これは、再生成した新しいプライマリ キーです。</li>
+<li>BizTalk サービスを選択し、選択 <strong>キーの同期</strong>します。 プライマリ キーを選択します。 これは、再生成した新しいプライマリ キーです。</li>
 <li>Azure クラシック ポータルで、ストレージ アカウントを選択してセカンダリ キーを再生成します。</li>
 </ol>
 <br/>
@@ -334,7 +334,7 @@ BizTalk サービス名を選択すると、[監視] タブが選択可能にな
 [BizTalk サービス: バックアップし、復元](biztalk-backup-restore.md) 詳細を提供します。 
 
 
-## <a name="HybridConnections"></a>ハイブリッド接続と
+## <a name="HybridConnections"></a>ハイブリッド接続
 "ハイブリッド接続" を使用すると、Azure のアプリケーション (たとえば Web サイトや Mobile Services) と、静的 TCP ポートを使用する内部設置型リソース (たとえば SQL Server、MySQL、HTTP Web API、ほとんどのカスタム Web サービス) とを接続できます。 ハイブリッド接続は、Azure クラシック ポータルで BizTalk サービスで管理されます。
 
 Azure Websites でハイブリッド接続を作成するを参照してください。 [ハイブリッド接続: Azure の Web サイトを内部設置型リソースに接続](http://go.microsoft.com/fwlink/p/?LinkId=397538)します。
@@ -355,7 +355,7 @@ Azure Mobile Services でハイブリッド接続を使用する、次を参照�
 ## 関連項目
 - [ハイブリッド接続と](integration-hybrid-connection-overview.md)  
 - [BizTalk サービス: 開発者、基本、標準、およびプレミアム エディションのチャートに関するページ](biztalk-editions-feature-chart.md)  
-- [BizTalk Services: Azure クラシック ポータルを使用したプロビジョニング](biztalk-provision-services.md)  
+- [BizTalk サービス: Azure クラシック ポータルを使用したプロビジョニング](biztalk-provision-services.md)  
 - [BizTalk サービス: BizTalk サービスの状態のグラフに関するページ](biztalk-service-state-chart.md)  
 - [Azure BizTalk サービス SDK の使用開始に関するページ](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
@@ -364,4 +364,5 @@ Azure Mobile Services でハイブリッド接続を使用する、次を参照�
 [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
+
 

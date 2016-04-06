@@ -72,39 +72,39 @@ Microsoft HPC Pack は、Microsoft Azure 仮想マシンのクラスター上で
 ```
 
 
-* **NAMD software and tutorial files** - Download NAMD software for Linux from the [NAMD](http://www.ks.uiuc.edu/Research/namd/) site. This article is based on NAMD version 2.10, and uses the [Linux-x86_64 (64-bit Intel/AMD with Ethernet)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310) archive, which you'll use to run NAMD on multiple Linux compute nodes in a cluster network. Also download the [NAMD tutorial files](http://www.ks.uiuc.edu/Training/Tutorials/#namd). Follow the instructions later in this article to extract the archive and the tutorial samples on the cluster head node.
+* **NAMD ソフトウェアおよびチュートリアル ファイル** -から Linux 用のソフトウェアのダウンロード NAMD、 [NAMD](http://www.ks.uiuc.edu/Research/namd/) サイトです。 この記事は、バージョン 2.10、NAMD に基づいておりを使用して、 [Linux x86_64 (64 ビット Intel と AMD イーサネット)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310) NAMD を複数の Linux で実行に使用する、アーカイブがクラスタ ネットワーク内のノードを計算します。 ダウンロードも、 [NAMD チュートリアル ファイル](http://www.ks.uiuc.edu/Training/Tutorials/#namd)します。 クラスター ヘッド ノードにアーカイブとチュートリアル サンプルを抽出する手順は、この記事の後の方に説明しています。
 
-* **VMD** (optional) - To see the results of your NAMD job, download and install the molecular visualization program [VMD](http://www.ks.uiuc.edu/Research/vmd/) on a computer of your choice. The current version is 1.9.2. See the VMD download site to get started.  
+* **VMD** (省略可能) - NAMD ジョブの結果を表示し、ダウンロードし、分子の視覚エフェクトのプログラムをインストールする [VMD](http://www.ks.uiuc.edu/Research/vmd/) 、任意のコンピューターにします。 現行バージョンは 1.9.2 です。 作業を開始するには、VMD ダウンロード サイトを参照してください。  
 
 
-## Set up mutual trust between compute nodes
-Running a cross-node job on multiple Linux nodes requires the nodes to trust each other (by **rsh** or **ssh**). When you create the HPC Pack cluster with the Microsoft HPC Pack IaaS deployment script, the script automatically sets up permanent mutual trust for the administrator account you specify. For non-administrator users you create in the cluster's domain, you have to set up temporary mutual trust among the nodes when a job is allocated to them, and destroy the relationship after the job is complete. To do this for each user, provide an RSA key pair to the cluster which HPC Pack uses to establish the trust relationship.
+## コンピューティング ノードの相互の信頼関係をセットアップする
+複数の Linux ノードにノード間のジョブを実行しているノードが相互に信頼関係が必要です (によって **rsh** または **ssh**)。 Microsoft HPC Pack IaaS デプロイ スクリプトを使用して HPC Pack クラスターを作成する場合は、指定した管理者アカウントに対して永続的な相互の信頼関係がスクリプトによって自動的にセットアップされます。 管理者以外のユーザーをクラスター ドメインに作成した場合は、それらのユーザーにジョブを割り当てるときに、ノード間に一時的な相互の信頼関係をセットアップする必要があります。ジョブ終了後、この関係は破棄します。 これをユーザーごと行うには、HPC Pack で使用するクラスターに RSA キー ペアを指定して、信頼関係を確立します。
 
-### Generate an RSA key pair
-It's easy to generate an RSA key pair, which contains a public key and a private key, by running the Linux **ssh-keygen** command.
+### RSA キー ペアの生成
+Linux を実行して、公開キーと秘密キーが含まれている RSA キー ペアを生成する簡単 **で問題** コマンドです。
 
-1.  Log on to a Linux computer.
+1.  Linux コンピューターにログオンします。
 
-2.  Run the following command.
+2.  次のコマンドを実行します。
 
     ```
     ssh-keygen -t rsa
     ```
 
-    >[AZURE.NOTE] Press **Enter** to use the default settings until the command is completed. Do not enter a passphrase here; when prompted for a password, just press **Enter**.
+    >[AZURE.NOTE] キーを押して **Enter** コマンドが完了するまで、既定の設定を使用します。 ここでは、パスフレーズを入力しないでください。パスワードが表示されたら、キーを押して **Enter**します。
 
-    ![Generate an RSA key pair][keygen]
+    ![RSA キー ペアの生成][keygen]
 
-3.  Change directory to the ~/.ssh directory. The private key is stored in id_rsa and the public key in id_rsa.pub.
+3.  ディレクトリを ~/.ssh ディレクトリに変更します。 秘密キーは id_rsa に格納され、公開キーは id_rsa.pub に格納されます。
 
-    ![Private and public keys][keys]
+    ![公開キーと秘密キー][keys]
 
-### Add the key pair to the HPC Pack cluster
-1.  Make a Remote Desktop connnection to your head node with your HPC Pack administrator account (the administrator account you set up when you ran the deployment script).
+### HPC Pack クラスターにキー ペアを追加する
+1.  HPC Pack の管理者アカウント (デプロイ スクリプトを実行したときにセットアップした管理者アカウント) を使用してヘッド ノードへのリモート デスクトップ接続を行います。
 
-2. Use standard Windows Server procedures to create a domain user account in the cluster's Active Directory domain. For example, use the Active Directory User and Computers tool on the head node. The examples in this article assume you create a domain user named hpclab\hpcuser.
+2. 標準的な Windows Server 手順を使用して、クラスターの Active Directory ドメインにドメイン ユーザー アカウントを作成します。 たとえば、ヘッド ノードで Active Directory ユーザーとコンピューター ツールを使用します。 この記事の例では、hpclab\hpcuser という名前のドメイン ユーザーを作成することを前提とします。
 
-2.  Create a file named C:\cred.xml and copy the RSA key data into it. You can find an example in the sample files at the end of this article.
+2.  C:\cred.xml という名前のファイルを作成し、そこに RSA キーのデータをコピーします。 例については、この記事の最後にあるサンプル ファイルを参照してください。
 
     ```
     <ExtendedData>
@@ -113,27 +113,27 @@ It's easy to generate an RSA key pair, which contains a public key and a private
     </ExtendedData>
     ```
 
-3.  Open a Command Prompt and enter the following command to set the credentials data for the hpclab\hpcuser account. You use the **extendeddata** parameter to pass the name of C:\cred.xml file you created for the key data.
+3.  コマンド プロンプトを開き、次のコマンドを入力して、hpclab\hpcuser アカウントの資格情報データを設定します。 使用する、 **extendeddata** キーのデータ用に作成した C:\cred.xml ファイルの名前を渡すためのパラメーターです。
 
     ```
     hpccred setcreds /extendeddata:c:\cred.xml /user:hpclab\hpcuser /password:<UserPassword>
     ```
 
-    This command completes successfully without output. After setting the credentials for the user accounts you need to run jobs, store the cred.xml file in a secure location, or delete it.
+    このコマンドは、出力なしで正常に終了します。 ジョブを実行するために必要なユーザー アカウントの資格情報を設定したら、cred.xml ファイルを安全な場所に保存するか、または削除します。
 
-5.  If you generated the RSA key pair on one of your Linux nodes, remember to delete the keys after you finish using them. HPC Pack does not set up mutual trust if it finds an existing id_rsa file or id_rsa.pub file.
+5.  Linux ノードの 1 つに対して RSA キー ペアを生成した場合は、キーの使用が終わった後に、それらを削除することを忘れないでください。 既存の id_rsa ファイルまたは id_rsa.pub ファイルが見つかった場合、HPC Pack は相互の信頼関係をセットアップしません。
 
->[AZURE.IMPORTANT] We don’t recommend running a Linux job as a cluster administrator on a shared cluster, because a job submitted by an administrator runs under the root account on the Linux nodes. A job submitted by a non-administrator user runs under a local Linux user account with the same name as the job user, and HPC Pack sets up mutual trust for this Linux user across all the nodes allocated to the job. You can set up the Linux user manually on the Linux nodes before running the job, or HPC Pack creates the user automatically when the job is submitted. If HPC Pack creates the user, HPC Pack deletes it after the job completes. The keys are removed after job completion on the nodes to reduce security threats.
+>[AZURE.IMPORTANT] Linux ノードにルート アカウントで、管理者によって実行されるジョブが実行されるので、クラスター管理者として共有クラスターで Linux ジョブを実行する推奨されません。 管理者以外のユーザーによって送信されたジョブは、ジョブ ユーザーと同じ名前を持つローカルの Linux ユーザー アカウントで実行されます。HPC Pack は、ジョブに割り当てられたすべてのノード間に、この Linux ユーザー用の相互の信頼関係をセットアップします。 ジョブを実行する前に Linux ノードに対して手動で Linux ユーザーをセットアップすることも、ジョブの送信時に HPC Pack がユーザーを自動的に作成するようにすることもできます。 HPC Pack でユーザーを作成した場合、ジョブの完了後にユーザーは HPC Pack によって削除されます。 ノード上でジョブが完了すると、セキュリティ上の脅威を軽減するためにキーは削除されます。
 
-## Set up a file share for Linux nodes
+## Linux ノード用にファイル共有をセットアップする
 
-Now set up a standard SMB share on a folder on the head node, and mount the shared folder on all Linux nodes to allow the Linux nodes to access NAMD files with a common path. See the file sharing options and steps in [Get started with Linux compute nodes in an HPC Pack Cluster in Azure](virtual-machines-linux-cluster-hpcpack.md). (We recommend mounting a shared folder on the head node in this article because CentOS 6.6 Linux nodes don’t currently support the Azure File service, which provides similar features. For more about mounting an Azure File share, see [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).)
+ヘッド ノード上のフォルダーに対して標準の SMB 共有をセットアップし、すべての Linux ノード上に共有フォルダーをマウントすることで、すべての Linux ノードが共通のパスを使用して NAMD ファイルにアクセスできるようにしました。 ファイル共有オプションし、手順を参照してください [Azure で HPC Pack クラスターで Linux 計算ノードを使ってみる](virtual-machines-linux-cluster-hpcpack.md)します。 (CentOS 6.6 Linux ノードでは現在時点で、同様の機能を提供する Azure File Service がサポートされていないので、この記事ではヘッド ノードに共有フォルダーをマウントすることをお勧めしています。 Azure File 共有をマウントする方法の詳細を参照してください [Microsoft Azure Files への接続の維持](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)。)。
 
-1.  Create a folder on the head node, and share it to everyone by setting Read/Write privileges. In this example, \\\\CentOS66HN\Namd is the name of the folder, where CentOS66HN is the host name of the head node.
+1.  ヘッド ノードにフォルダーを作成します。読み書き権限を設定して、フォルダーを全員で共有します。 この例では、\\\CentOS66HN\Namd は、ヘッド ノードのホスト名を CentOS66HN がここでは、フォルダーの名前です。
 
-2. Extract the NAMD files in the folder by using a Windows version of **tar** or another Windows utility that operates on .tar archives. Extract the NAMD tar archive to \\\\CentOS66HN\Namd\namd2, and extract the tutorial files under \\\\CentOS66HN\Namd\namd2\namdsample.
+2. Windows バージョンを使用して、フォルダー内の NAMD ファイルを抽出 **tar** または .tar アーカイブで動作する他の Windows ユーティリティです。 \\\CentOS66HN\Namd\namd2、NAMD tar アーカイブを抽出し、[\\\CentOS66HN\Namd\namd2\namdsample チュートリアル ファイルを抽出します。
 
-2.  Open a Windows PowerShell window and run the following commands to mount the shared folder.
+2.  Windows PowerShell ウィンドウを開き、次のコマンドを実行し、共有フォルダーをマウントします。
 
     ```
     clusrun /nodegroup:LinuxNodes mkdir -p /namd2
@@ -141,52 +141,52 @@ Now set up a standard SMB share on a folder on the head node, and mount the shar
     clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS66HN/Namd/namd2 /namd2 -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
     ```
 
-The first command creates a folder named /namd2 on all nodes in the LinuxNodes group. The second command mounts the shared folder //CentOS66HN/Namd/namd2 onto the folder with dir_mode and file_mode bits set to 777. The *username* and *password* in the command should be the credentials of a user on the head node.
+最初のコマンドで、LinuxNodes グループに属するすべてのノードに /namd2 という名前のフォルダーが作成されます。 2 番目のコマンドにより、そのフォルダーに共有フォルダー //CentOS66HN/Namd/namd2 がマウントされ、dir_mode および file_mode ビットが 777 に設定されます。  *Username* と *パスワード* コマンドでヘッド ノード上のユーザーの資格情報である必要があります。
 
->[AZURE.NOTE]The “\`” symbol in the second command is an escape symbol for PowerShell. “\`,” means the “,” (comma character) is a part of the command.
+>[AZURE.NOTE]"\'"2 番目のコマンドで記号は PowerShell のエスケープ記号です。 "\'、"、「,」(コンマ) ことを意味のコマンドの一部であります。
 
 
-## Prepare to run a NAMD job
+## NAMD ジョブを実行する準備
 
- Your  NAMD job needs a *nodelist* file for **charmrun** to know the number of nodes to use when starting NAMD processes. You'll write a Bash script that generates the nodelist file and runs **charmrun** with this nodelist file. You can then submit a NAMD job in HPC Cluster Manager that calls this script.
+ NAMD ジョブ必要のある、 *nodelist* 用ファイル **charmrun** NAMD プロセスの開始時に使用するノードの数を知る。 Nodelist ファイルを生成し、実行される、Bash スクリプトを作成できる **charmrun** この nodelist ファイルを使用します。 NAMD HPC クラスター マネージャーでこのスクリプトを呼び出すジョブを送信できます。
 
-### Environment variables and nodelist file
-Information about nodes and cores is in the $CCP_NODES_CORES environment variable, which is automatically set by the HPC Pack head node when the job is activated. The format for the $CCP_NODES_CORES variable is as follows:
+### 環境変数と nodelist ファイル
+ノードとコアに関する情報は $CCP_NODES_CORES 環境変数内にあります。この環境変数は、ジョブのアクティブ化の際に、HPC Pack ヘッド ノードにより自動的に設定されます。 $CCP_NODES_CORES 変数の形式は次のとおりです。
 
 ```
 <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>…
 ```
 
-This lists the total number of nodes, node names, and number of cores on each node that are allocated to the job. For example, if the job needs 10 cores to run, the value of $CCP_NODES_CORES will be similar to:
+これには、ノードの総数、ノード名、およびジョブに割り当てられた各ノード上のコア数が一覧表示されます。 たとえば、ジョブを実行する上で 10 個のコアが必要である場合、$CCP_NODES_CORES の値は次のようになります。
 
 ```
-3 CENTOS66LN 00 4 CENTOS66LN 01 4 CENTOS66LN 03 2
+3 CENTOS66LN-00 4 CENTOS66LN-01 4 CENTOS66LN-03 2
 ```
 
-Following is the information in the nodelist file, which the script will generate:
+スクリプトによって生成される nodelist ファイル内の情報を次に示します。
 
 ```
-メインのグループ
-host <Name of node1> + + の cpu <Cores of node1>
-host <Name of node2> + + の cpu <Cores of node2>
+group main
+host <Name of node1> ++cpus <Cores of node1>
+host <Name of node2> ++cpus <Cores of node2>
 …
 ```
 
-For example:
+次に例を示します。
 
 ```
-メインのグループ
-CENTOS66LN 00 のホストでは cpu 4
-ホスト CENTOS66LN-01 では cpu 4
-CENTOS66LN 03 のホストでは cpu 2
+group main
+host CENTOS66LN-00 ++cpus 4
+host CENTOS66LN-01 ++cpus 4
+host CENTOS66LN-03 ++cpus 2
 ```
-### Bash script to create a nodelist file
+### nodelist ファイルを作成する Bash スクリプト
 
-Using a text editor of your choice, create the following Bash script in the folder containing the NAMD program files and name it hpccharmrun.sh. A complete example is in the sample files at the end of this article. This bash script does the following things.
+任意のテキスト エディターを使用して、NAMD プログラム ファイルが格納されているフォルダーに次の Bash スクリプトを作成し、hpccharmrun.sh という名前を付けます。 完全な例がこの記事の最後にあるサンプル ファイルにあります。 この Bash スクリプトは次のことを行います。
 
->[AZURE.TIP] Save your script as a text file with Linux line endings (LF only, not CR LF). This ensures that it runs properly on the Linux nodes.
+>[AZURE.TIP] スクリプトを Linux でのテキスト ファイルとして保存改行 (LF のみ、CR LF されません)。 これにより、スクリプトは Linux ノード上で適切に動作します。
 
-1.  Define some variables.
+1.  いくつかの変数を定義します。
 
     ```
     #!/bin/bash
@@ -201,7 +201,7 @@ Using a text editor of your choice, create the following Bash script in the fold
     NUMPROCESS="+p"
     ```
 
-2.  Get node information from the environment variables. $NODESCORES stores a list of split words from $CCP_NODES_CORES. $COUNT is the size of $NODESCORES.
+2.  環境変数からノード情報を取得します。 $NODESCORES では、$CCP_NODES_CORES から単語の分割のリストを保存します。 $COUNT は、$NODESCORES のサイズです。
 
     ```
     # Get node information from the environment variables
@@ -210,7 +210,7 @@ Using a text editor of your choice, create the following Bash script in the fold
     COUNT=${#NODESCORES[@]}
     ```
 
-3.  If the $CCP_NODES_CORES variable is not set, just start **charmrun** directly. (This should only occur when you run this script directly on your Linux nodes.)
+3.  $CCP_NODES_CORES 変数が設定されていない場合だけ開始 **charmrun** 直接します。 (Linux ノードでこのスクリプトを直接実行する場合に限ります)。
 
     ```
     if [ ${COUNT} -eq 0 ]
@@ -220,7 +220,7 @@ Using a text editor of your choice, create the following Bash script in the fold
         ${CHARMRUN} $*
     ```
 
-4.  Or create a nodelist file for **charmrun**.
+4.  Nodelist ファイルを作成または **charmrun**します。
 
     ```
     else
@@ -274,7 +274,7 @@ Using a text editor of your choice, create the following Bash script in the fold
 
 4.   **ジョブの詳細** ] ページで、[ **ジョブ リソース**, 、としてリソースの種類を選択 **ノード** し、設定、 **最小** 3 にします。 この例では、3 つの Linux ノードでジョブを実行します。各ノードには 4 つのコアがあります。
 
-    ![ジョブのリソース][job_resources]
+    ![ジョブ リソース][job_resources]
 
 5.   **タスクの詳細と I/O リダイレクト** ] ページで、ジョブに新しいタスクを追加して、次の値を設定します。
 
@@ -294,7 +294,7 @@ Using a text editor of your choice, create the following Bash script in the fold
 
     既定では、HPC Pack は、ログオンした現在のユーザー アカウントとしてジョブを送信します。 ダイアログ ボックスをクリックした後に、ユーザー名とパスワードを入力するように求める **送信**します。
 
-    ![ジョブの資格情報][資格情報]
+    ![ジョブの資格情報][creds]
 
     条件によっては、HPC Pack は前に入力されたユーザー情報を記憶していて、このダイアログ ボックスを表示しません。 このダイアログ ボックスが HPC Pack によって再び表示されるようにするには、コマンド ウィンドウに次のコマンドを入力し、ジョブを送信します。
 
@@ -409,4 +409,5 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
 [creds]: ./media/virtual-machines-linux-cluster-hpcpack-namd/creds.png
 [task_details]: ./media/virtual-machines-linux-cluster-hpcpack-namd/task_details.png
 [vmd_view]: ./media/virtual-machines-linux-cluster-hpcpack-namd/vmd_view.png
+
 

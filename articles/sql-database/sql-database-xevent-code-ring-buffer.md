@@ -365,7 +365,7 @@ Azure SQL Database での拡張イベントに関する主なトピックは次�
 - [SQL データベースにおけるイベントの考慮事項を拡張](sql-database-xevent-db-diff-from-svr.md), 、Microsoft SQL Server と Azure SQL Database の間で異なる拡張イベントの一部の機能を比較します。
 
 
-拡張イベントの他のコード サンプル トピックは次のリンクから入手可能です。 ただし、対象が Azure SQL Database または Microsoft SQL Server のどちらかを確認するために、サンプルを定期的にチェックする必要があります。 それにより、サンプルを実行するのにわずかな変更が必要かどうか判断できます。
+拡張イベントのその他のコード サンプルのトピックは、次のリンクから参照できます。 ただし、対象が Azure SQL Database または Microsoft SQL Server のどちらかを確認するために、サンプルを定期的にチェックする必要があります。 これにより、変更がサンプル実行に十分であるかを判断できます。
 
 
 - Azure SQL Database 用のコード サンプル: [SQL データベースでの拡張イベントのイベント ファイル ターゲット コード](sql-database-xevent-code-event-file.md)
@@ -374,7 +374,8 @@ Azure SQL Database での拡張イベントに関する主なトピックは次�
 <!--
 ('lock_acquired' event.)
 
-- SQL Server 用のコード サンプル: [を決定するクエリは保持するロック](http://msdn.microsoft.com/library/bb677357.aspx)
-- SQL Server 用のコード サンプル: [上の検索、オブジェクトがある、最もロック取得します。](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
+
 

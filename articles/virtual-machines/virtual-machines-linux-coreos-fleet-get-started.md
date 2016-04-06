@@ -22,16 +22,16 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [リソース マネージャー モデル](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/)します。
 
 
-この記事で使用する 2 つ簡単な例については、 [fleet](https://github.com/coreos/fleet) と [Docker](https://www.docker.com/) [CoreOS] 仮想マシンのクラスターでアプリケーションを実行します。
+この記事で使用する 2 つ簡単な例については、 [fleet](https://github.com/coreos/fleet) と [Docker](https://www.docker.com/) のクラスターでアプリケーションを実行する [CoreOS] 仮想マシン。
 
-[Azure で CoreOS を使用するのに方法] の手順に従って、これらの例として、3 つのノードの CoreOS クラスターを最初のセットを使用します。 設定が終わったら、CoreOS デプロイの極めて基本的な要素について理解し、動作中のクラスターとクライアント コンピューターが準備できたことになります。 これらの例では、同じクラスター名を使用します。 また、これらの例を実行するローカルの Linux ホストを使用している、 **fleetctl** コマンドです。 参照してください [クライアントを使用して](https://coreos.com/fleet/docs/latest/using-the-client.html) 詳細については、 **fleetctl** クライアントです。
+これらの例を使用するクラスターを設定する 3 つのノードの CoreOS」の説明に従って [How to Use CoreOS on Azure]します。 設定が終わったら、CoreOS デプロイの極めて基本的な要素について理解し、動作中のクラスターとクライアント コンピューターが準備できたことになります。 これらの例では、同じクラスター名を使用します。 また、これらの例を実行するローカルの Linux ホストを使用している、 **fleetctl** コマンドです。 参照してください [クライアントを使用して](https://coreos.com/fleet/docs/latest/using-the-client.html) 詳細については、 **fleetctl** クライアントです。
 
 
-## <a id='simple'>Docker を使用した Hello World の例 1:</a>
+## <a id='simple'>例 1: Docker を使用した Hello World</a>
 
-これは、1 つの Docker コンテナーで実行されている単純な「Hello World」アプリケーションです。 [Busybox Docker Hub image] を使用します。
+これは、1 つの Docker コンテナーで実行されている単純な「Hello World」アプリケーションです。 これを使用して、 [busybox Docker Hub image]します。
 
-Linux クライアント コンピューターでは、次を作成する任意のテキスト エディターを使用 **systemd** 単位ファイルし、名付けます `helloworld.service`します。 (構文の詳細については、[ユニット ファイル] を参照してください)。
+Linux クライアント コンピューターでは、次を作成する任意のテキスト エディターを使用 **systemd** 単位ファイルし、名付けます `helloworld.service`します。 (構文の詳細については、「 [Unit Files])。
 
 ```
 [Unit]
@@ -88,11 +88,11 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload helloworld.service
 ```
 
 
-## <a id='highavail'>例 2: 高可用性 nginx サーバー</a>
+## <a id='highavail'>例 2: 高可用性の nginx サーバー</a>
 
-CoreOS、Docker を使用する利点の 1 つと **fleet** は簡単に可用性の高い方法でサービスを実行します。 この例では、3 つの同じコンテナーで構成される、nginx Web サーバーを実行するサービスをデプロイします。 これらのコンテナーは、クラスター内にある 3 つの VM 上で実行されます。 この例では、[fleet とコンテナーを起動する] のいずれかのような [nginx Docker Hub image] を使用しています。
+CoreOS、Docker を使用する利点の 1 つと **fleet** は簡単に可用性の高い方法でサービスを実行します。 この例では、3 つの同じコンテナーで構成される、nginx Web サーバーを実行するサービスをデプロイします。 これらのコンテナーは、クラスター内にある 3 つの VM 上で実行されます。 この例は、のいずれかのような [Launching containers with fleet] を使用して、 [nginx Docker Hub image]します。
 
->[AZURE.IMPORTANT] 高可用性 web サーバーを実行するには、仮想マシン (パブリック ポート 80、プライベート ポート 80) で負荷分散された HTTP エンドポイントを構成する必要があります。 これを行う、CoreOS クラスターを作成した後、Azure クラシック ポータルを使用または **azure vm endpoint** コマンドです。 詳細については、[負荷分散セットの構成] を参照してください。
+>[AZURE.IMPORTANT] 高可用性 web サーバーを実行するには、仮想マシン (パブリック ポート 80、プライベート ポート 80) で負荷分散された HTTP エンドポイントを構成する必要があります。 これを行う、CoreOS クラスターを作成した後、Azure クラシック ポータルを使用または **azure vm endpoint** コマンドです。 参照してください [Configure a load-balanced set] の詳細。
 
 クライアント コンピューターに作成する任意のテキスト エディターを使用して、 **systemd** nginx@.service をという名前のテンプレート ユニット ファイルです。 この単純なテンプレートを使用して nginx@1.service、nginx@2.service、および nginx@3.service という 3 つのインスタンスを起動します。
 
@@ -112,7 +112,7 @@ ExecStop=/usr/bin/docker stop nginx1
 X-Conflicts=nginx@*.service
 ```
 
->[AZURE.NOTE]  `X-Conflicts` 属性は含まれる唯一の 1 つであり、このコンテナーのインスタンスは、特定の CoreOS ホストで実行できます。 詳細については、[ユニット ファイル] を参照してください。
+>[AZURE.NOTE]  `X-Conflicts` 属性は含まれる唯一の 1 つであり、このコンテナーのインスタンスは、特定の CoreOS ホストで実行できます。 詳細をご覧ください [Unit Files]します。
 
 次に、CoreOS クラスター上で、これらのユニット インスタンスを開始します。 3 つの異なるマシン上でユニット インスタンスが実行されていることを確認してください。
 
@@ -169,11 +169,11 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload nginx@{1,2,3}.service
 
 ## 次のステップ
 
-* Azure 上の 3 ノード構成 CoreOS クラスターでは、この他さまざまな操作を試すことができます。 複雑なクラスターを作成し、Docker を使用して [Tim Park CoreOS のチュートリアル] を読み取ることによってより興味深いアプリケーションを作成する方法について [Patrick Chanezon の CoreOS のチュートリアル] [Docker] ドキュメント、および [CoreOS Overview] です。
+* Azure 上の 3 ノード構成 CoreOS クラスターでは、この他さまざまな操作を試すことができます。 さらに複雑なクラスターを作成し、Docker を使用してを読み取ってより興味深いアプリケーションを作成する方法を調べる [Tim Park's CoreOS Tutorial], 、[Patrick Chanezon's CoreOS Tutorial], 、[Docker] ドキュメントについては、および [CoreOS Overview]します。
 
 * 最初に Fleet と CoreOS Azure リソース マネージャーで、実際に使ってみる [クイック スタート テンプレート](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/)します。
 
-* Azure Linux Vm のオープン ソース環境の使用に関する詳細については、[Linux とオープン ソースが azure コンピューティング] を参照してください。
+* 参照してください [Linux and Open-Source Computing on Azure] Azure Linux Vm でのオープン ソース環境の使用に関する詳細。
 
 <!--Link references-->
 [Azure Command-Line Interface (Azure)]: ../xplat-cli-install.md
@@ -191,4 +191,5 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload nginx@{1,2,3}.service
 [busybox Docker Hub image]: https://registry.hub.docker.com/_/busybox/
 [nginx Docker Hub image]: https://hub.docker.com/_/nginx/
 [Linux and Open-Source Computing on Azure]: virtual-machines-linux-opensource.md
+
 

@@ -62,7 +62,7 @@
 
 コマンド プロンプトが開き、"インデックスを作成しています..." というメッセージが表示されます。
 
-しばらくすると、次のメッセージが表示されて完了します。"完了しました。  F6 <enter> 続行する"。
+しばらくすると、次のメッセージが表示されて完了します。"完了しました。  押すキー <enter> 続行する"。
 
    ![][8]
 
@@ -208,3 +208,4 @@ AdventureWorksWeb をビルドするときに、「ファイルまたはアセ�
 [10]: ./media/search-create-first-solution/AzureSearch_Create1_WebAppEmpty.PNG
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
+

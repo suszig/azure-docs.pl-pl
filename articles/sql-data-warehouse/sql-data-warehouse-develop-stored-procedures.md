@@ -41,7 +41,7 @@ SQL Data Warehouse では、最大 8 レベルの入れ子をサポートしま�
 ```
 EXEC prc_nesting
 ``` 
-いる場合、ストアド プロシージャを呼び出す別の EXEC もにより、これは増やします 2 に入れ子のレベル
+ストアド プロシージャから別の EXEC の呼び出しも行う場合、入れ子レベルは 2 に増えます。
 ```
 CREATE PROCEDURE prc_nesting
 AS
@@ -49,7 +49,7 @@ EXEC prc_nesting_2  -- This call is nest level 2
 GO
 EXEC prc_nesting
 ```
-2 番目の手順は、3、入れ子レベルが増加し、動的 sql を実行する場合
+次に 2 つ目の手順で何らかの動的 SQL を実行すると、入れ子レベルは 3 に増えます。
 ```
 CREATE PROCEDURE prc_nesting_2
 AS
@@ -63,7 +63,7 @@ SQL Data Warehouse では、@@NESTLEVEL を現在サポートしていません�
 ## INSERT..EXECUTE
 SQL Data Warehouse では、INSERT ステートメントでストアド プロシージャの結果セットを使用することはできません。 ただし、別の方法を使用できます。
 
-これを行う方法の例については、[一時テーブル] で、次の記事を参照してください。
+次の記事を参照してください [temporary tables] これを行う方法の例です。
 
 ## 制限事項
 
@@ -84,7 +84,7 @@ SQL Data Warehouse で実装されていない Transact-SQL ストアド プロ�
 - return ステートメント
 
 ## 次のステップ
-他の開発のヒントについては、[開発の概要に関するページを参照してください。
+他の開発のヒントを参照してください。 [開発の概要][]します。
 
 <!--Image references-->
 
@@ -96,5 +96,6 @@ SQL Data Warehouse で実装されていない Transact-SQL ストアド プロ�
 [nest level]: https://msdn.microsoft.com/library/ms187371.aspx
 
 <!--Other Web references-->
+
 
 

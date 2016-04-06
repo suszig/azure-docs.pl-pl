@@ -166,7 +166,7 @@ $table_prefix  = getenv('DB_PREFIX');
 ```
 
 #### 相対パスの使用
-最後に、WordPress アプリが相対パスを使用できるようにします。 WordPress では、データベースに URL 情報を格納します。 この方法だと、1 つの環境から別の環境にコンテンツを移動するのがより難しくなります。ローカルからステージまたはステージから運用環境に移動するたびにデータベースを更新する必要があるためです。 1 つの環境から別の使用法をデプロイするたびに、データベースを展開すると発生することが問題のリスクを軽減する、 [相対ルート プラグインをリンクする](https://wordpress.org/plugins/root-relative-urls/) WordPress 管理者のダッシュ ボードを使用してインストールすることができますかから手動でダウンロードする [ここ](https://downloads.wordpress.org/plugin/root-relative-urls.zip)します。
+最後に、WordPress アプリが相対パスを使用できるようにします。 WordPress では、データベースに URL 情報を格納します。 この方法だと、1 つの環境から別の環境にコンテンツを移動するのがより難しくなります。ローカルからステージまたはステージから運用環境に移動するたびにデータベースを更新する必要があるためです。 1 つの環境から別の使用法をデプロイするたびに、データベースを展開すると発生することが問題のリスクを軽減する、 [相対ルート プラグインをリンクする](https://wordpress.org/plugins/root-relative-urls/) WordPress 管理者のダッシュ ボードを使用してインストールするかから手動でダウンロードを [ここ](https://downloads.wordpress.org/plugin/root-relative-urls.zip)します。
 
 `wp-config.php` ファイルに、`That's all, stop editing!` コメントの前に次のエントリを追加します。
 
@@ -368,9 +368,9 @@ Courier2 パッケージをダウンロード [ここ](https://our.umbraco.org/p
   </repositories>
  ```
 
- `<repositories>`, 、運用サイトの URL とユーザー情報を入力します。 既定の Umbraco メンバーシップ プロバイダーを使用している場合は、その管理ユーザーの ID を追加し <user> セクションです。 カスタム Umbraco メンバーシップ プロバイダーを使用している場合は使用 `<login>`,、`<password>` Courier2 モジュールに運用サイトに接続する方法を理解します。 詳細については、確認、 [ドキュメント](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) の媒体使用モジュールです。
+ `<repositories>`, 、運用サイトの URL とユーザー情報を入力します。 既定の Umbraco メンバーシップ プロバイダーを使用している場合は、その管理ユーザーの ID を追加し <user> 参照してください。 カスタム Umbraco メンバーシップ プロバイダーを使用している場合は使用 `<login>`,、`<password>` Courier2 モジュールに運用サイトに接続する方法を理解します。 詳細については、確認、 [ドキュメント](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) の媒体使用モジュールです。
 
-同様に、運用サイトで媒体使用モジュールをインストールし、ステージの web アプリ] をポイントに構成のそれぞれの courier.config ファイル次のように
+同様に、運用サイトで Courier モジュールをインストールし、ここで示すように、それぞれの courier.config ファイルでステージ Web アプリをポイントするように構成します。
 
 ```xml
   <!-- Repository connection settings -->
@@ -424,7 +424,7 @@ Courier では、Umbraco CMS のバージョン間のアップグレードに関
 
 ![Umbraco CMS をデプロイするためのスワップ プレビュー](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
-Web アプリとデータベースの両方を交換するだけの利点:
+Web アプリとデータベースの両方をスワップすることのメリット:  
 1. 別の web アプリの以前のバージョンにロールバックすることができます **スワップ** アプリケーション問題がある場合。
 2. アップグレードでは、ステージング Web アプリから運用 Web アプリおよびデータベースに、ファイルおよびデータベースをデプロイする必要があります。 ファイルとデータベースをデプロイする場合は、問題となる可能性のある事柄が多数あります。 使用して **スワップ** 機能のアップグレード時にダウンタイムを低減して、スロットの変更を配置するときに発生する障害のリスクを軽減しています。
 3. 行うことができます **A と B のテストを実施** を使用して [実稼働環境でテスト](http://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/) 機能
@@ -437,4 +437,5 @@ Web アプリとデータベースの両方を交換するだけの利点:
 [Azure App Service の Web アプリのステージング環境を設定する](web-sites-staged-publishing)
 
 [運用環境以外のデプロイメント スロットへの Web アクセスを禁止する方法](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
+
 

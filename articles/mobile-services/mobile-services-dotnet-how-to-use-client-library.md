@@ -53,7 +53,7 @@
 
 JavaScript バックエンド モバイル サービスで動的スキーマを有効にすると、挿入または更新の要求に含まれるオブジェクトに基づいて、Azure Mobile Services で自動的に新しい列が生成されます。 詳細については、次を参照してください。 [動的スキーマ](http://go.microsoft.com/fwlink/?LinkId=296271)します。 .NET バックエンド モバイル サービスでは、テーブルは、プロジェクトのデータ モデルで定義されます。
 
-##<a name="create-client"></a>方法: モバイル サービス クライアントを作成する
+##<a name="create-client"></a>方法: Mobile Services クライアントを作成する
 
 次のコードは、モバイル サービスにアクセスするために使用される `MobileServiceClient` オブジェクトを生成します。
 
@@ -80,13 +80,13 @@ Mobile Services のテーブル データにアクセスするコードとその
 
 このセクションでは、モバイル サービスにクエリを発行する方法について説明します。これには次の機能が含まれます。
 
-- [返されるデータをフィルター処理]
+- [返されるデータをフィルター処理する]
 - [返されるデータを並べ替える]
 - [ページにデータを返す]
-- [特定の列を選択]
-- [ID でデータを検索]
+- [特定の列を選択する]
+- [ID でデータを検索する]
 
->[AZURE.NOTE] すべての行が返されるようにするのには、サーバー駆動型ページ サイズが適用されます。 これにより、大きなデータ セットの既定の要求がサービスに悪影響を与えないようにします。 50 を超える行を返すには使用、 `Take` メソッドを [ページに戻り値のデータ] で説明します。
+>[AZURE.NOTE] すべての行が返されるようにするのには、サーバー駆動型ページ サイズが適用されます。 これにより、大きなデータ セットの既定の要求がサービスに悪影響を与えないようにします。 50 を超える行を返すを使用して、 `Take` メソッド、」の説明に従って [Return data in pages]します。
 
 ### <a name="filtering"></a>方法: 返されるデータをフィルター処理する
 
@@ -281,7 +281,7 @@ Mobile Services のテーブル データにアクセスするコードとその
 
 "ID" フィールドを設定せずに項目を削除しようとすると、サービスが削除対象のインスタンスを識別できないため、サービスから `MobileServiceInvalidOperationException` が返されます。 同様に、"ID" フィールドを設定せずに型指定されていない項目を削除しようとした場合も、サービスから `MobileServiceInvalidOperationException` が返されます。
 
-##<a name="#custom-api"></a>方法: カスタム API 呼び出し
+##<a name="#custom-api"></a>方法: カスタム API の呼び出し
 
 カスタム API を使用してカスタム エンドポイントを定義することにより、insert、update、delete、read のいずれの操作にも関連しないサーバー機能を公開することができます。 カスタム API を使用することによって、HTTP メッセージ ヘッダーの読み取りや設定、JSON 以外のメッセージ本文形式の定義など、メッセージングをより柔軟に制御することができます。 モバイル サービスでカスタム API を作成する方法の例は、次を参照してください。 [方法: カスタム API エンドポイントを定義する](mobile-services-dotnet-backend-define-custom-api.md)です。
 
@@ -315,7 +315,7 @@ Xamarin アプリではいくつかの追加コードが必要になります。
 
 >[AZURE.NOTE]特定の登録済みユーザーに通知を送信する必要がある場合が、登録前に認証を要求して、特定のタグを登録するユーザーが承認されていることを確認する重要です。 たとえば、ユーザーが他のユーザーの ID であるタグに登録していないことを確認する必要があります。 詳細については、次を参照してください。 [認証されたユーザーにプッシュ通知の送信](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md)します。
 
-##<a name="pull-notifications"></a>方法: Windows アプリで定期的な通知の使用
+##<a name="pull-notifications"></a>方法: Windows アプリで定期的な通知を使用する
 
 Windows は、ライブ タイルを更新する定期的な通知 (プル通知) をサポートします。 定期的な通知を有効にすると、Windows は [スタート] メニューのアプリケーション タイルを更新するカスタム API エンドポイントに定期的にアクセスします。 定期的な通知を使用する必要があります [カスタム API を定義する](mobile-services-javascript-backend-define-custom-api.md) タイル固有の形式で XML データを返します。 詳細については、次を参照してください。 [定期的な通知](https://msdn.microsoft.com/library/windows/apps/hh761461.aspx)します。
 
@@ -328,7 +328,7 @@ Windows は、ライブ タイルを更新する定期的な通知 (プル通知
 
 選択、 [PeriodicUpdateRecurrance](https://msdn.microsoft.com/library/windows/apps/windows.ui.notifications.periodicupdaterecurrence.aspx) 、データの更新の頻度に最も一致する値。
 
-##<a name="optimisticconcurrency"></a>方法: オプティミスティック同時実行制御
+##<a name="optimisticconcurrency"></a>方法: オプティミスティック同時実行制御を使用する
 
 シナリオによっては、複数のクライアントが同じ項目に対して同時に変更を書き込む場合があります。 競合を検知しない場合、それを意図していなくても、最後に行われた書き込みによってそれ以前の更新がすべて上書きされます。 オプティミスティック同時実行制御では、それぞれのトランザクションがコミットでき、そのためリソース ロックが一切使用されないことを前提としています。 オプティミスティック同時実行制御ではトランザクションをコミットする前に、他のトランザクションがそのデータを変更していないことを確認します。 データが変更されている場合、トランザクションのコミットはロール バックされます。
 
@@ -416,10 +416,10 @@ Mobile Services はオプティミスティック同時実行制御をサポー�
     }
 
 
-オプティミスティック同時実行制御を使用して、モバイル サービス向けのより完全な例は、[オプティミスティック同時実行制御のチュートリアル] を参照してください。
+オプティミスティック同時実行制御を使用して、モバイル サービス向けのより完全な例については、 [Optimistic Concurrency Tutorial]します。
 
 
-##<a name="binding"></a>方法: モバイル サービスのデータを Windows ユーザー インターフェイスにバインドします。
+##<a name="binding"></a>方法: モバイル サービス データを Windows ユーザー インターフェイスにバインドする
 
 このセクションでは、Windows アプリで UI 要素を使用して、返されたデータ オブジェクトを表示する方法について説明します。 `todoTable` で未完了の項目を照会し、ごくシンプルな一覧で表示するには、次のコード例を実行して、クエリで一覧のソースをバインドします。 `MobileServiceCollection` を使用すると、モバイル サービス対応のバインディング コレクションが作成されます。
 
@@ -456,15 +456,15 @@ Windows Phone 8 と "Silverlight" アプリで新しいコレクションを使�
 
 ##<a name="authentication"></a>方法: ユーザーを認証する
 
-Mobile Services は、Facebook、Google、Microsoft アカウント、Twitter、Azure Active Directory などのさまざまな外部 ID プロバイダーを使用したアプリケーション ユーザーの認証と承認をサポートします。 テーブルのアクセス許可を設定することにより、特定の操作へのアクセスを認証されたユーザーのみに制限できます。 さらに、認証されたユーザーの ID を使用することにより、サーバー スクリプトで承認ルールを実装することもできます。 詳細については、[認証アプリを追加する] このチュートリアルを参照してください。
+Mobile Services は、Facebook、Google、Microsoft アカウント、Twitter、Azure Active Directory などのさまざまな外部 ID プロバイダーを使用したアプリケーション ユーザーの認証と承認をサポートします。 テーブルのアクセス許可を設定することにより、特定の操作へのアクセスを認証されたユーザーのみに制限できます。 さらに、認証されたユーザーの ID を使用することにより、サーバー スクリプトで承認ルールを実装することもできます。 詳細については、このチュートリアルを参照してください。 [Add authentication to your app]します。
 
 2 つの認証フローがサポート: _サーバー フロー_ と _クライアント フロー_します。 サーバー フローには、プロバイダーの Web 認証のインターフェイスを利用する、最も簡単な認証方法が用意されています。 クライアント フローでは、プロバイダー固有とデバイス固有の SDK を利用することから、デバイス固有の機能との統合がさらに進みます。
 
 ###サーバー フロー
 モバイル サービス Windows アプリの認証プロセスを管理するには
-アプリケーションを ID プロバイダーに登録する必要があります。 その後、モバイル サービス内で、プロバイダーから提供されたアプリケーション ID とシークレットを構成する必要があります。 詳細については、[認証アプリを追加する] このチュートリアルを参照してください。
+アプリケーションを ID プロバイダーに登録する必要があります。 その後、モバイル サービス内で、プロバイダーから提供されたアプリケーション ID とシークレットを構成する必要があります。 詳細については、このチュートリアルを参照してください。 [Add authentication to your app]します。
 
-ID プロバイダーを登録した後は、単純にプロバイダーの [MobileServiceAuthenticationProvider] 値で [LoginAsync メソッド] を呼び出すだけです。 たとえば、次のコードは、Facebook を使用してサーバー フローのサインインを開始します。
+Id プロバイダーが登録されると、単に呼び出す、 [LoginAsync method] で、 [MobileServiceAuthenticationProvider] プロバイダーの値。 たとえば、次のコードは、Facebook を使用してサーバー フローのサインインを開始します。
 
     private MobileServiceUser user;
     private async System.Threading.Tasks.Task Authenticate()
@@ -490,9 +490,9 @@ ID プロバイダーを登録した後は、単純にプロバイダーの [Mob
         }
     }
 
-Facebook 以外の id プロバイダーを使用している場合は、プロバイダーの値に上の [MobileServiceAuthenticationProvider] 値を変更します。
+Facebook 以外の id プロバイダーを使用している場合の値を変更 [MobileServiceAuthenticationProvider] 上、プロバイダーの値にします。
 
-この場合、Mobile Services は、選択されたプロバイダーのサインイン ページを表示し、ID プロバイダーでのサインインが成功した後で Mobile Services 認証トークンを生成することで、OAuth 2.0 認証フローを管理します。 JSON web トークン (JWT) として [userId] の認証されたユーザーと [MobileServiceAuthenticationToken] を提供する [LoginAsync メソッド] 返します [MobileServiceUser]。 このトークンはキャッシュして、期限が切れるまで再利用することができます。 詳細については、「認証トークンをキャッシュする」を参照してください。
+この場合、Mobile Services は、選択されたプロバイダーのサインイン ページを表示し、ID プロバイダーでのサインインが成功した後で Mobile Services 認証トークンを生成することで、OAuth 2.0 認証フローを管理します。  [LoginAsync method] 返します、 [MobileServiceUser], 、両方を提供する、 [userId] 認証されたユーザーの [MobileServiceAuthenticationToken], 、JSON web トークン (JWT) として。 このトークンはキャッシュして、期限が切れるまで再利用することができます。 詳細については、次を参照してください。 [Caching the authentication token]します。
 
 ###クライアント フロー
 
@@ -589,7 +589,7 @@ Facebook 以外の id プロバイダーを使用している場合は、プロ�
 
 
 ###<a name="caching"></a>認証トークンをキャッシュする
-場合によっては、最初のユーザー認証の後の login メソッドの呼び出しを避けることができます。 Windows ストア アプリの [PasswordVault] を使用するには初めてログインする現在のユーザー id をキャッシュして、キャッシュにユーザー id が既にあるかどうかをチェックするたびにその後にします。 キャッシュが空の場合は、ユーザーにログイン プロセスを実行してもらう必要があります。
+場合によっては、最初のユーザー認証の後の login メソッドの呼び出しを避けることができます。 使用する [PasswordVault] を最初に現在のユーザー id をキャッシュする Windows ストア アプリのログインにし、それ以降、キャッシュにユーザー id がされているかどうかをチェックします。 キャッシュが空の場合は、ユーザーにログイン プロセスを実行してもらう必要があります。
 
     // After logging in
     PasswordVault vault = new PasswordVault();
@@ -617,7 +617,7 @@ Facebook 以外の id プロバイダーを使用している場合は、プロ�
     vault.Remove(vault.Retrieve("Facebook", user.UserId));
 
 
-Windows Phone アプリについてする可能性がありますを暗号化 [ProtectedData] クラスを使用してデータをキャッシュおよび分離ストレージに機密情報を保存します。
+Windows Phone アプリの場合に、暗号化して使用してデータをキャッシュすることが、、 [ProtectedData] クラスし、分離ストレージに機密情報を保存します。
 
 ##<a name="errors"></a>方法: エラーを処理する
 
@@ -769,4 +769,5 @@ Mobile Services クライアント ライブラリは、Json.NET を使用して
 [Fiddler]: http://www.telerik.com/fiddler
 [Custom API in Azure Mobile Services Client SDKs]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
+
 

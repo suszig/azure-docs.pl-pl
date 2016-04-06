@@ -238,7 +238,7 @@ Microsoft Azure Backup サーバーの記憶域プールに仮想ディスク (V
 <br>A: はい。
 
 Q: Microsoft Azure Backup サーバーの記憶域プールで重複除去することはできますか。
-<br>A: はい。重複除去は、Microsoft Azure Backup サーバーの記憶域プールで利用できます。 ユーザー エクスペリエンスのとまったく同じサーバーの Microsoft Azure のバックアップは、詳細なこの [DPM ブログの投稿](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx)します。
+<br>A: はい、重複除去は、Microsoft Azure Backup のサーバー記憶域プールで使用できます。 ユーザー エクスペリエンスのとまったく同じサーバーの Microsoft Azure のバックアップは、詳細なこの [DPM ブログの投稿](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx)します。
 
 Q: USB やリムーバブル ドライブを Microsoft Azure Backup サーバーの記憶域プールに使用できますか。
 <br>A: いいえ。
@@ -287,10 +287,10 @@ Q: 自分のサブスクリプションの状態は *Active*でしょうか。 �
 ### 課金
 
 Q: Microsoft Azure Backup サーバーの課金モデルについて教えてください。
-<br>A: ユーザーは保護するインスタンス モデルを介して課金されます。 詳細についてを参照してください、このページで、 [料金](http://azure.microsoft.com/pricing/details/backup/) ページです。
+<br>A: ユーザーは保護されたインスタンス モデルを使用して課金されます。 詳細についてを参照してください、このページで、 [料金](http://azure.microsoft.com/pricing/details/backup/) ページです。
 
 Q: ディスク上のデータのみを保護している場合、どのような課金モデルになりますか。
-<br>A: 課金モデルは保護するインスタンス モデルと同じです。 このデータはオンプレミスの記憶域に保護されているため、ディスク ベースのバックアップのみでは Azure Storage の料金は発生しません。 この場合、お客様は保護するインスタンスの手数料のみを請求されます。 内容の詳細については、インスタンス、インスタンスごとに課金はどの程度を定義を参照してください、このページで、 [料金 ](http://azure.microsoft.com/pricing/details/backup/) ページです。
+<br>A: 課金モデルは、保護されたインスタンス モデルと同じです。 このデータはオンプレミスの記憶域に保護されているため、ディスク ベースのバックアップのみでは Azure Storage の料金は発生しません。 この場合、お客様は保護するインスタンスの手数料のみを請求されます。 内容の詳細については、インスタンス、インスタンスごとに課金はどの程度を定義を参照してください、このページで、 [料金 ](http://azure.microsoft.com/pricing/details/backup/) ページです。
 
 Q: 保護するインスタンスごとの料金について教えてください。
 <br>A: を参照してください、 [料金 ](http://azure.microsoft.com/pricing/details/backup/) ページです。
@@ -308,4 +308,5 @@ Q: Microsoft Azure Backup サーバーでは、ディスクとクラウドの両
 - [SQL Server のバックアップ](backup-azure-backup-sql.md)
 - [SharePoint サーバーのバックアップ](backup-azure-backup-sharepoint.md)
 - [代替サーバーのバックアップ](backup-azure-alternate-dpm-server.md)
+
 

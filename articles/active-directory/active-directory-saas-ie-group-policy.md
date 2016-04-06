@@ -19,14 +19,14 @@
 
 このチュートリアルでは、グループ ポリシーを使用して Internet Explorer 用のアクセス パネル拡張機能をユーザーのコンピューターにリモートでインストールする方法を示します。 この拡張機能を使用して構成されているアプリにサインインする必要がある Internet Explorer のユーザーに必要な [シングル サインオンをパスワードに基づく](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)します。
 
-管理者にはこの拡張機能のデプロイメントを自動化することをお勧めします。 自動化しないと、ユーザーは自分で拡張機能をダウンロードしてインストールする必要があるので、ユーザー エラーが発生しやすく、管理者のアクセス許可が必要になります。 このチュートリアルでは、グループ ポリシーを使用してソフトウェアのデプロイメントを自動化する方法について説明します。 [グループ ポリシーについて説明します。](https://technet.microsoft.com/windowsserver/bb310732.aspx)
+管理者にはこの拡張機能のデプロイメントを自動化することをお勧めします。 自動化しないと、ユーザーは自分で拡張機能をダウンロードしてインストールする必要があるので、ユーザー エラーが発生しやすく、管理者のアクセス許可が必要になります。 このチュートリアルでは、グループ ポリシーを使用してソフトウェアのデプロイメントを自動化する方法について説明します。 [グループ ポリシーの詳細についてはこちらを参照してください。](https://technet.microsoft.com/windowsserver/bb310732.aspx)
 
 アクセス パネルの拡張機能が可能な [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) と [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998), 、インストールする管理者のアクセス許可が必要なのです。
 
 ##前提条件
 
 - 設定している [Active Directory ドメイン サービス](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), 、ユーザーのコンピューターをドメインに参加しているとします。
-- グループ ポリシー オブジェクト (GPO) を編集するには、"設定の編集" アクセス許可が必要です。 既定では、Domain Administrators、Enterprise Administrators、Group Policy Creator Owners の各セキュリティ グループ メンバーにはこのアクセス許可があります。 [詳細について説明します。](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
+- グループ ポリシー オブジェクト (GPO) を編集するには、"設定の編集" アクセス許可が必要です。 既定では、Domain Administrators、Enterprise Administrators、Group Policy Creator Owners の各セキュリティ グループ メンバーにはこのアクセス許可があります。 [詳細情報。](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
 ##手順 1: 配布ポイントを作成する
 
@@ -42,7 +42,7 @@
 
     ![[ファイル サービスおよびストレージ サービス] を開く](./media/active-directory-saas-ie-group-policy/shares.png)
 
-4. 完了、 **新しい共有ウィザード** し、ユーザーのマシンからアクセスできることを確認するアクセス許可を設定します。 [共有について説明します。](https://technet.microsoft.com/library/cc753175.aspx)
+4. 完了、 **新しい共有ウィザード** し、ユーザーのマシンからアクセスできることを確認するアクセス許可を設定します。 [共有の詳細についてはこちらを参照してください。](https://technet.microsoft.com/library/cc753175.aspx)
 
 5. 次の Microsoft Windows インストーラー パッケージ (.msi ファイル) をダウンロードします [アクセス パネル Extension.msi] (https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access パネル Extension.msi)。
 
@@ -98,7 +98,7 @@
 
     ![[割り当て] を選択し、[OK] をクリックする](./media/active-directory-saas-ie-group-policy/deployment-method.png)
 
-選択した OU に拡張機能がデプロイされます。 [グループ ポリシー ソフトウェア インストールの詳細を表示します。](https://technet.microsoft.com/library/cc738858%28v=ws.10%29.aspx)
+選択した OU に拡張機能がデプロイされます。 [グループ ポリシー ソフトウェアのインストールの詳細についてはこちらを参照してください。](https://technet.microsoft.com/library/cc738858%28v=ws.10%29.aspx)
 
 ##手順 4: Internet Explorer の拡張機能を自動的に有効にする 
 
@@ -127,7 +127,7 @@ Internet Explorer のすべての拡張機能は、インストーラーを実�
 
 5. をクリックして **OK** 、変更を適用し、閉じる、 **アドオンの一覧** ウィンドウです。
 
-選択した OU のコンピューターで拡張機能が有効になります。 [グループ ポリシーを使用して有効にするか、Internet Explorer のアドオンを無効にする方法の詳細について説明します。](https://technet.microsoft.com/library/dn454941.aspx)
+選択した OU のコンピューターで拡張機能が有効になります。 [グループ ポリシーを使用して Internet Explorer のアドオンを有効または無効にする方法の詳細については、こちらを参照してください。](https://technet.microsoft.com/library/dn454941.aspx)
 
 ##手順 5 (省略可能): パスワードを保存するかどうかを確認するプロンプトを無効にする
 
@@ -177,3 +177,4 @@ Internet Explorer のすべての拡張機能は、インストーラーを実�
     ![Access Panel Extension がインストールされ、有効になっていることを確認する](./media/active-directory-saas-ie-group-policy/verify-install.png)
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+

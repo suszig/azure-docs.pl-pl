@@ -81,7 +81,7 @@
 
 3.   **アプリケーション URL の構成** ] ページの [、 **RunMyProcess サインオン URL** ] ボックスに、次のパターンを使用して URL を入力"*http://company.runmyprocess.com*"、] をクリックし、 **次**します。
 
-    ![アプリケーション URL の構成](./media/active-directory-saas-runmyprocess-tutorial/IC789623.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-runmyprocess-tutorial/IC789623.png "Configure App URL")
 
 4.   **RunMyProcess でのシングル サインオンの構成** ] ページで [ **証明書のダウンロード**, 、お使いのコンピューターに証明書ファイルを保存します。
 
@@ -102,7 +102,7 @@
     1.  として **メソッド**, [ **SSO with Samlv2**します。
     2.  Azure ポータルで、 **RunMyProcess でのシングル サインオンの構成** ] ダイアログ ページでコピー、 **SAML SSO URL** 値に設定して、貼り付けます、 **SSO リダイレクト** ] ボックスに貼り付けます。
     3.  Azure ポータルで、 **RunMyProcess でのシングル サインオンの構成** ] ダイアログ ページでコピー、 **シングル サインアウト サービス URL** 値に設定して、貼り付けます、 **ログアウト リダイレクト** ] ボックスに貼り付けます。
-    4.   **名前 id 形式** ] ボックスに「 **urn oasis: 名: 対象の形式: emailAddress**します。
+    4.   **名前 id 形式** ] ボックスに「 **urn: oasis: 名: tc: SAML:1.1:nameid の形式: emailAddress**します。
     5.  作成、 **base-64 でエンコードされた** からダウンロードした証明書ファイル。  
 
         >[AZURE.TIP] 詳細については、次を参照してください [バイナリ証明書をテキスト ファイルに変換する方法。](http://youtu.be/PlgrzUZ-Y1o)
@@ -154,3 +154,4 @@ RunMyProcess の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-runmyprocess-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

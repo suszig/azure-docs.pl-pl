@@ -194,7 +194,7 @@ ADO.NET でのトランザクションの詳細については、次を参照し
 テーブル値パラメーターの詳細については、次を参照してください。 [テーブル値パラメーター](https://msdn.microsoft.com/library/bb510489.aspx)します。
 
 ### SQL 一括コピー
-SQL 一括コピーは、ターゲット データベースに大量のデータを挿入するもう 1 つの方法です。 .NET アプリケーションを使用して、 **SqlBulkCopy** 一括を行うにはクラスの挿入操作。 **SqlBulkCopy** 関数で、コマンド ライン ツールのような **Bcp.exe**, 、または TRANSACT-SQL ステートメント **BULK INSERT**します。 次のコード例は、ソースで一括コピーする方法、行を表示 **DataTable**, 、SQL Server のレプリケーション先テーブルに mytable という名前のテーブルです。
+SQL 一括コピーは、ターゲット データベースに大量のデータを挿入する別の方法です。 .NET アプリケーションを使用して、 **SqlBulkCopy** 一括を行うにはクラスの挿入操作。 **SqlBulkCopy** 関数で、コマンド ライン ツールのような **Bcp.exe**, 、または TRANSACT-SQL ステートメント **BULK INSERT**します。 次のコード例は、ソースで一括コピーする方法、行を表示 **DataTable**, 、SQL Server のレプリケーション先テーブルに mytable という名前のテーブルです。
 
     using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
     {
@@ -603,4 +603,5 @@ PurchaseOrderDetail テーブルの OrderID 列は、PurchaseOrder テーブル�
 ## 次のステップ
 
 この記事では、バッチ処理に関連したデータベースの設計とコーディングの手法によってアプリケーションのパフォーマンスとスケーラビリティを高める方法を重点的に取り上げました。 しかしこれは、全体的な戦略の中の一要素にすぎません。 パフォーマンスとスケーラビリティを向上させるために他の方法について、次を参照してください。 [single database の Azure SQL データベース パフォーマンス ガイダンス](sql-database-performance-guidance.md) と [弾力性データベース プールの価格およびパフォーマンスに関する考慮事項](sql-database-elastic-pool-guidance.md)します。
+
 

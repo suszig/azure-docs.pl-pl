@@ -33,7 +33,7 @@ Azure HDInsight のクラスター (Hadoop、Storm、HBase、Spark) の任意の
 
 ## R とは
 
-この <a href="http://www.r-project.org/" target="_blank">統計計算用 R プロジェクト</a> 統計計算用のオープン ソースの言語および環境です。 R は、数百の組み込み統計関数と、関数型プログラミングとオブジェクト指向のプログラミングの特徴を結合した独自のプログラミング言語を提供します。 また、広範なグラフィカル機能も提供します。 R は、さまざまな分野におけるほぼすべての統計学専門家や科学者に推奨されるプログラミング環境です。
+<a href="http://www.r-project.org/" target="_blank">統計計算用 R プロジェクト</a>は、統計計算用のオープン ソースの言語と環境です。 R は、数百の組み込み統計関数と、関数型プログラミングとオブジェクト指向のプログラミングの特徴を結合した独自のプログラミング言語を提供します。 また、広範なグラフィカル機能も提供します。 R は、さまざまな分野におけるほぼすべての統計学専門家や科学者に推奨されるプログラミング環境です。
 
 R は Azure BLOB Storage (WASB) と互換性があるので、そこに格納されているデータは HDInsight 上の R を使用して処理できます。  
 
@@ -51,11 +51,11 @@ A [サンプル スクリプト](https://hdiconfigactions.blob.core.windows.net/
     <table border='1'>
         <tr><th>プロパティ</th><th>値</th></tr>
         <tr><td>名前</td>
-            <td>たとえば、スクリプト アクションの名前を指定します。 <b>R のインストール</b>.</td></tr>
+            <td>たとえば、スクリプト アクションの名前を指定 <b>R のインストール</b>します。</td></tr>
         <tr><td>スクリプト URI</td>
-            <td>たとえば、クラスターをカスタマイズするために呼び出されるスクリプトへの URI を指定します。 <i>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</i></td></tr>
+            <td>たとえば、クラスターをカスタマイズするために呼び出されるスクリプトへの URI を指定 <i>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</i></td></tr>
         <tr><td>ノードの種類</td>
-            <td>カスタマイズ スクリプトが実行されるノードを指定します。 選択することができます。 <b>すべてのノード</b>。 <b>ヘッド ノードのみ]</b>, or <b>ワーカー ノード</b> のみです。
+            <td>カスタマイズ スクリプトが実行されるノードを指定します。 選択する <b>のすべてのノード</b>, 、<b>ヘッド ノードのみ</b>, 、または <b>ワーカー ノード</b> のみです。
         <tr><td>パラメーター</td>
             <td>スクリプトで必要な場合は、パラメーターを指定します。 ただし、R をインストールするスクリプトではパラメーターが必要ないため、空白のままにすることができます。</td></tr>
     </table>
@@ -114,4 +114,5 @@ Azure PowerShell や HDInsight .NET SDK を使用して、HDInsight に R をイ
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
+
 

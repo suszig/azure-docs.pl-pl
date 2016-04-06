@@ -56,10 +56,10 @@ http://<example>.com/registeruser?deviceid=xxxxxxxxxxxxxxxx&otherparam=myparamda
 >(IDFA が iOS で無効になっている場合、アプリをアンインストールして再インストールすると、デバイス ID が経時変化する可能性があります)。
 
 ##トラブルシューティング ガイド
--  [トラブルシューティング ガイド - サービス][24 のリンク]
+-  [トラブルシューティング ガイド - サービス][Link 24]
 
 ## 関連項目
--  [UI ドキュメント - ホーム][リンク 13]
+-  [「UI ドキュメント - ホーム」][Link 13]
 
 
 <!--Image references-->
@@ -160,3 +160,4 @@ http://<example>.com/registeruser?deviceid=xxxxxxxxxxxxxxxx&otherparam=myparamda
 
  
  
+

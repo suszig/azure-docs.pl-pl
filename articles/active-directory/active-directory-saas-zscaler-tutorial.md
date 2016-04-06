@@ -72,11 +72,11 @@
 
 1.  Azure AD ポータルでの **Zscaler** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![Enable single sign-on](./media/active-directory-saas-zscaler-tutorial/IC769229.png "Enable single sign-on")
+    ![シングル サインオンの有効化](./media/active-directory-saas-zscaler-tutorial/IC769229.png "Enable single sign-on")
 
 2.   **どのようなユーザーが Zscaler へのアクセスを** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 
-    ![シングル サインオンの有効化](./media/active-directory-saas-zscaler-tutorial/IC769230.png "Configure single sign on")
+    ![シングル サインオンの構成](./media/active-directory-saas-zscaler-tutorial/IC769230.png "Configure single sign on")
 
 3.   **アプリケーション URL の構成** ] ページで、 **Zscaler サインイン URL** ] ボックスは、Zscaler から取得した URL に、記号を入力し、順にクリックして **次**: 
 
@@ -86,7 +86,7 @@
 
 4.   **Zscaler でのシングル サインオンの構成** ] ページで、次の手順を実行します。
 
-    ![Configure single sign-on](./media/active-directory-saas-zscaler-tutorial/IC769232.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-zscaler-tutorial/IC769232.png "Configure single sign-on")
 
     1.  クリックして **証明書のダウンロード**, 、としては、証明書ファイルをローカルに保存および **c:\\Zscaler.cer**します。
     2.  コピー、 **認証要求 URL** をクリップボードにします。
@@ -203,4 +203,5 @@ Zscaler の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-zscaler-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+
 

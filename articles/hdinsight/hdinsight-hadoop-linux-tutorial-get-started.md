@@ -78,7 +78,7 @@ Linux でこの Hadoop チュートリアルを開始する前に、以下の条
 
     - **ストレージ アカウントを選択]、[新規作成**: クリックして **ストレージ アカウントを選択** を参照して、クラスターに関連付ける既存のストレージ アカウントを選択します。 または、[ **新規作成** 新しいストレージ アカウントを作成します。 表示されたフィールドに、ストレージ アカウントの名前を入力します。 名前を使用できる場合は、緑色のチェック マークが表示されます。
 
-    - **既定のコンテナーを選択して**: これを使用して、クラスターで使用する既定のコンテナーの名前を入力します。 任意の名前を入力できますが、コンテナーが特定のクラスターで使用されていることを簡単に認識できるように、クラスターと同じ名前を使用することをお勧めします。
+    - **既定のコンテナーを選択して**: これを使用して、クラスターで使用する既定のコンテナーの名前を入力します。 任意の名前を入力できますが、特定のクラスターで使用されていることを簡単に認識できるように、クラスターと同じ名前を使用することをお勧めします。
 
     - **場所**: リージョン、ストレージ アカウントには、やで作成されます。
 
@@ -110,7 +110,7 @@ Linux でこの Hadoop チュートリアルを開始する前に、以下の条
 
 Ambari のビューでは、1 つの Web ページを介して複数のユーティリティを提供しています。 以降のセクションでは、Hive ビューを使用して、HDInsight クラスターに対して Hive クエリを実行します。
 
-> [AZURE.NOTE] Ambari は、管理および監視ユーティリティが Linux ベースの HDInsight クラスターに付属しています。 Ambari には多数の機能がありますが、このドキュメントではそれらについて説明しません。 詳細については、次を参照してください。 [Ambari Web UI を使用して、クラスターの HDInsight の管理](hdinsight-hadoop-manage-ambari.md)します。
+> [AZURE.NOTE] Ambari は、管理および監視ユーティリティが Linux ベースの HDInsight クラスターに付属しています。 Ambari には数多くの機能がありますが、このドキュメントではそれらについて説明しません。 詳細については、次を参照してください。 [Ambari Web UI を使用して、クラスターの HDInsight の管理](hdinsight-hadoop-manage-ambari.md)します。
 
 Ambari ビューを作成することができます、Azure ポータルから HDInsight クラスターを選択し、[ __Ambari ビュー__ から、 __クイック リンク__ セクションです。
 
@@ -128,7 +128,7 @@ Web ブラウザーで https://CLUSTERNAME.azurehdinsight.net に移動して Am
 
 ##<a name="hivequery"></a>Hive クエリを実行する
 
-クラスターに含まれるデータに対して Hive クエリを実行するには、Hive ビューで次の手順に従います。
+クラスターに格納されているデータに対して Hive クエリを実行するには、Hive ビューで次の手順を実行します。
 
 1.  __クエリ エディター__ セクション、ページの次の HiveQL ステートメントをワークシートに貼り付けます。
 
@@ -157,7 +157,7 @@ Web ブラウザーで https://CLUSTERNAME.azurehdinsight.net に移動して Am
         sev       cnt
         [ERROR]   3
 
-     __ログ__ 、ジョブによって作成されたログ情報を表示] タブを使用できます。 このログ情報は、クエリに問題が発生した場合のトラブルシューティングに使用できます。
+     __ログ__ 、ジョブによって作成されたログ情報を表示] タブを使用できます。 ログ情報は、クエリに問題が発生した場合のトラブルシューティングに使用できます。
     
     > [AZURE.TIP] 注、 __結果を保存__ の上にあるドロップダウン リストの左、 __クエリ プロセスの結果__ セクションです。 これを使用して、結果をダウンロードするか、CSV ファイルとして HDInsight のストレージに保存することができます。
 
@@ -196,7 +196,7 @@ Web ブラウザーで https://CLUSTERNAME.azurehdinsight.net に移動して Am
     
     使用して、 __名前を付けて__ エディターの下部にあるボタンをクリックします。 このクエリに名前 __Errorlogs__ 選択 __OK__します。 ワークシートの名前を変更する __Errorlogs__します。
     
-    保存されたクエリにも表示、 __保存されているクエリ__ 、ページの上部にあるタブをクリックします。 このオプションを選択して表示されます __Errorlogs__ 一覧表示します。 その名前を選択すると、クエリ エディターにクエリが表示されます。
+    保存されたクエリにも表示、 __保存されているクエリ__ 、ページの上部にあるタブをクリックします。 このオプションを選択して表示されます __Errorlogs__ 一覧表示します。 名前を選択すると、クエリ エディターにクエリが表示されます。
 
 4. 実行、 __Errorlogs__ クエリ。 結果は次のようになります。
 
@@ -259,4 +259,5 @@ HDInsight クラスターの作成または管理の詳細については、以�
 [image-hdi-clusterstatus]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.ClusterStatus.png
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
+
 

@@ -54,18 +54,18 @@ Azure Media Services を使用するには、次が必要です。
 3. (省略可能) 開発環境をセットアップします。 開発環境の .NET または REST API を選択します。 詳細については、次を参照してください。 [環境を設定する](media-services-dotnet-how-to-use.md)です。 
 
     プログラムで接続する方法についても、説明 [接続](media-services-dotnet-connect_programmatically.md)します。
-4. (推奨) 1 つまたは複数のスケール単位を割り当てます。 運用環境でのアプリケーションの 1 つ以上のスケール単位を割り当てることをお勧めします。   詳細については、次を参照してください。 [ストリーミング エンドポイントを管理する](media-services-manage-origins.md)です。
+4. (推奨) 1 つまたは複数のスケール単位を割り当てます。 実稼働環境でのアプリケーションの 1 つ以上のスケール単位を割り当てることをお勧めします。   詳細については、次を参照してください。 [ストリーミング エンドポイントを管理する](media-services-manage-origins.md)です。
 
 ##概念
 
 詳細については、次を参照してください。 [概念](media-services-concepts.md)します。
 
 
-##<a id="vod_scenarios"></a>Azure Media Services でオンデマンドでメディアを配信する: 一般的なシナリオとタスク
+##<a id="vod_scenarios"></a>Azure Media Services によるメディアのオンデマンド配信: 共通のシナリオとタスク
 
 このセクションでは、一般的なシナリオと関連するトピックへのリンクを提供します。 次の図は、コンテンツのオンデマンド配信に関連する Media Services プラットフォームの主要な部分を示しています。 
 
-![VoD ワークフロー][vod 概要]
+![VoD ワークフロー][vod-overview]
 
 
 ###ストレージのコンテンツを保護し、ストリーミング メディアを平文 (暗号化されていない) で配信する
@@ -133,7 +133,7 @@ Azure Media Services を使用するには、次が必要です。
 - [公開の保護方法](media-services-manage-content.md#publish)
 - [エンコードの規模の設定方法](media-services-portal-encoding-units.md)
 
-##<a id="live_scenarios"></a>Azure Media Services を使用したライブ ストリーミング イベントの配信
+##<a id="live_scenarios"></a>Azure Media Services を使用してライブ ストリーミング イベントを配信する
 
 ライブ ストリーミングを使用する場合は、通常、次のコンポーネントが関連しています。 
 
@@ -169,7 +169,7 @@ A **チャネル** ライブ ストリーミング コンテンツを処理す�
 
 次の図は、Media Services による Live Encoding の実行が有効なチャネルのライブ ストリーミング ワークフローに関連する AMS プラットフォームの主要な部分を示しています。  
 
-![ライブ ワークフロー][ライブ overview1]
+![ライブ ワークフロー][live-overview1]
 
 詳細については、次を参照してください。 [Azure Media Services によるライブ エンコードの実行を有効になっているチャネルを操作](media-services-manage-live-encoder-enabled-channels.md)します。 
 
@@ -179,7 +179,7 @@ A **チャネル** ライブ ストリーミング コンテンツを処理す�
 
 次の図は、ライブ ストリーミング ワークフローに関連する AMS プラットフォームの主要な部分を示しています。
 
-![ライブ ワークフロー][ライブ overview2]
+![ライブ ワークフロー][live-overview2]
 
 詳細については、次を参照してください [その受信マルチ チャネルを操作の内部設置型のエンコーダーからビットレートのライブ ストリーム。
 ](media-services-manage-channels-overview.md) 
@@ -208,7 +208,7 @@ Media Services では、Azure CDN との統合をサポートしています。 
 
 ##パターンとプラクティスのガイダンス
 
-[パターンとプラクティスのガイダンス](https://wamsg.codeplex.com/)
+[Patterns and practices guidance (パターンとプラクティスのガイダンス)](https://wamsg.codeplex.com/)
 [オンライン ドキュメント](https://msdn.microsoft.com/library/dn735912.aspx)
 [ダウンロード可能な電子ブック](https://www.microsoft.com/download/details.aspx?id=42629)
 
@@ -233,4 +233,5 @@ Media Services では、Azure CDN との統合をサポートしています。 
 [live-overview1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
+
 

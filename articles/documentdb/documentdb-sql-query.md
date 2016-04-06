@@ -342,33 +342,33 @@ WHERE 句 (**`WHERE <filter_condition>`**) は省略可能です。 WHERE 句は
    <tbody>
       <tr>
          <td valign="top">
-            <strong>演算子</strong>
+            <strong>Op</strong>
          </td>
          <td valign="top">
-            <strong>Undefined</strong>
+            <strong>定義されていません</strong>
          </td>
          <td valign="top">
             <strong>Null</strong>
          </td>
          <td valign="top">
-            <strong>Boolean</strong>
+            <strong>ブール値</strong>
          </td>
          <td valign="top">
-            <strong>Number</strong>
+            <strong>数</strong>
          </td>
          <td valign="top">
-            <strong>String</strong>
+            <strong>文字列</strong>
          </td>
          <td valign="top">
             <strong>オブジェクト</strong>
          </td>
          <td valign="top">
-            <strong>Array</strong>
+            <strong>配列</strong>
          </td>
       </tr>
       <tr>
          <td valign="top">
-            <strong>Undefined<strong>
+            <strong>定義されていません<strong>
          </td>
          <td valign="top">
             Undefined
@@ -400,7 +400,7 @@ WHERE 句 (**`WHERE <filter_condition>`**) は省略可能です。 WHERE 句は
             Undefined
          </td>
          <td valign="top">
-            <strong>OK</strong>
+            <strong>[OK]</strong>
          </td>
          <td valign="top">
             Undefined
@@ -420,7 +420,7 @@ WHERE 句 (**`WHERE <filter_condition>`**) は省略可能です。 WHERE 句は
       </tr>
       <tr>
          <td valign="top">
-            <strong>Boolean<strong>
+            <strong>ブール値<strong>
          </td>
          <td valign="top">
             Undefined
@@ -429,7 +429,7 @@ WHERE 句 (**`WHERE <filter_condition>`**) は省略可能です。 WHERE 句は
             Undefined
          </td>
          <td valign="top">
-            <strong>OK</strong>
+            <strong>[OK]</strong>
          </td>
          <td valign="top">
             Undefined
@@ -446,7 +446,7 @@ WHERE 句 (**`WHERE <filter_condition>`**) は省略可能です。 WHERE 句は
       </tr>
       <tr>
          <td valign="top">
-            <strong>Number<strong>
+            <strong>数<strong>
          </td>
          <td valign="top">
             Undefined
@@ -458,7 +458,7 @@ WHERE 句 (**`WHERE <filter_condition>`**) は省略可能です。 WHERE 句は
             Undefined
          </td>
          <td valign="top">
-            <strong>OK</strong>
+            <strong>[OK]</strong>
          </td>
          <td valign="top">
             Undefined
@@ -472,7 +472,7 @@ WHERE 句 (**`WHERE <filter_condition>`**) は省略可能です。 WHERE 句は
       </tr>
       <tr>
          <td valign="top">
-            <strong>String<strong>
+            <strong>文字列<strong>
          </td>
          <td valign="top">
             Undefined
@@ -487,7 +487,7 @@ WHERE 句 (**`WHERE <filter_condition>`**) は省略可能です。 WHERE 句は
             Undefined
          </td>
          <td valign="top">
-            <strong>OK</strong>
+            <strong>[OK]</strong>
          </td>
          <td valign="top">
             Undefined
@@ -516,7 +516,7 @@ WHERE 句 (**`WHERE <filter_condition>`**) は省略可能です。 WHERE 句は
             Undefined
          </td>
          <td valign="top">
-            <strong>OK</strong>
+            <strong>[OK]</strong>
          </td>
          <td valign="top">
             Undefined
@@ -524,7 +524,7 @@ WHERE 句 (**`WHERE <filter_condition>`**) は省略可能です。 WHERE 句は
       </tr>
       <tr>
          <td valign="top">
-            <strong>Array<strong>
+            <strong>配列<strong>
          </td>
          <td valign="top">
             Undefined
@@ -545,7 +545,7 @@ WHERE 句 (**`WHERE <filter_condition>`**) は省略可能です。 WHERE 句は
             Undefined
          </td>
          <td valign="top">
-            <strong>OK</strong>
+            <strong>[OK]</strong>
          </td>
       </tr>
    </tbody>
@@ -610,7 +610,7 @@ IN キーワードを使用すると、指定した値がリスト内の任意�
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-DocumentDB より大きく、できるサービスを提供する 1 つのインデックスを使用するためには複数の OR 句を組み合わせることに相当 [制限](documentdb-limits.md) IN 句で指定された引数の数。  
+DocumentDB より大きく、単一のインデックスを使用して、処理できる、ためには複数の OR 句を組み合わせることに相当 [制限](documentdb-limits.md) IN 句で指定された引数の数。  
 
 ### 3 項 (?) 演算子と合体 (??) 演算子
 3 項演算子と合体演算子は、一般的なプログラミング言語である C# や JavaScript と同様に、条件式の構築に使用することができます。 
@@ -2104,7 +2104,7 @@ DocumentDB は、HTTP を介したオープンな RESTful プログラミング 
 以下の例では、これまでに説明した 2 つのサンプル ドキュメントを含むコレクションに対する、DocumentDB クエリの POST を示しています。 このクエリには、JSON の名前プロパティに対するシンプルなフィルターがあります。 `x-ms-documentdb-isquery` と Content-Type の使用: `application/query+json` ヘッダーは、クエリによる操作であることを示しています。
 
 
-**要求**
+**Request (要求)**
 
     POST https://<REST URI>/docs HTTP/1.1
     ...
@@ -2381,4 +2381,5 @@ DocumentDB が提供するプログラミング モデルでは、ストアド �
 [introduction]: documentdb-introduction.md
 [consistency-levels]: documentdb-consistency-levels.md
  
+
 

@@ -37,7 +37,7 @@
 
 このチュートリアルには、次のものが必要です。
 
-+ [モバイル サービス iOS SDK バージョン 1.2.4]
++ [Mobile Services iOS SDK バージョン 1.2.4]
 + [Xcode 7][Install Xcode]
 + iOS 8 (またはこれ以降のバージョン) に対応したデバイス
 + iOS Developer Program メンバーシップ
@@ -58,8 +58,8 @@
 
 <ol start="7">
 <li>
-<p>クリックして、 <b>構成</b> 上部にあるタブをクリックして、 <b>アップロード</b> 証明書の拇印をアップロード、Apple 通知設定] ボタンをクリックします。 選択し、 <b>.p12</b> 前にエクスポートした証明書と証明書のパスワード</p>
-<p>。選択するように <b>サンド ボックス</b> これは開発のためのモードです。 のみを使用して、 <b>運用</b> ストアからアプリケーションを購入したユーザーにプッシュ通知を送信する場合。</p>
+<p>クリックして、 <b>構成</b> 上部にあるタブをクリックして、 <b>アップロード</b> 証明書の拇印をアップロード、Apple 通知設定] ボタンをクリックします。 選択し、 <b>.p12</b> 前にエクスポートした証明書と証明書のパスワード。</p>
+<p>選択するように <b>サンド ボックス</b> これは開発のためのモードです。 のみを使用して、 <b>運用</b> ストアからアプリケーションを購入したユーザーにプッシュ通知を送信する場合。</p>
 </li>
 </ol>
 &emsp;&emsp;![](./media/notification-hubs-ios-get-started/notification-hubs-upload-cert.png)
@@ -86,7 +86,7 @@
 
     ![][9]
 
-4. [モバイル サービス iOS SDK バージョン 1.2.4] をダウンロードし、ファイルを解凍します。 Xcode で、プロジェクトを右クリックし、をクリックして、 **Add Files to** を追加するオプション、 **WindowsAzureMessaging.framework** 、Xcode プロジェクトにフォルダーです。 選択 **ために必要な場合は、項目をコピー**, 、クリックして **追加**します。
+4. ダウンロード、 [Mobile Services iOS SDK version 1.2.4] ファイルを解凍します。 Xcode で、プロジェクトを右クリックし、をクリックして、 **Add Files to** を追加するオプション、 **WindowsAzureMessaging.framework** 、Xcode プロジェクトにフォルダーです。 選択 **ために必要な場合は、項目をコピー**, 、クリックして **追加**します。
 
     >[AZURE.NOTE] 通知ハブ SDK がサポートされていません bitcode Xcode 7。  設定する必要があります **を有効にする Bitcode** に **いいえ** で、 **ビルド オプション** 、プロジェクトのです。
 
@@ -506,4 +506,5 @@ iOS でプッシュ通知をテストするには、デバイスにアプリケ�
 [Use Notification Hubs to send breaking news]: notification-hubs-ios-send-breaking-news.md
 
 [Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+
 

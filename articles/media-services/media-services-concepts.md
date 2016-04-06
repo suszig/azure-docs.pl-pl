@@ -161,7 +161,7 @@ Media Services で資産を暗号化する場合は、暗号化キー (CommonEnc
 詳細については、次の記事を参照してください。
 
 [コンテンツの概要を保護します。](media-services-content-protection-overview.md)
-[AES 128 を保護する. します。](media-services-protect-with-aes128.md)
+[AES-128 での保護](media-services-protect-with-aes128.md)
 [DRM で保護します。](media-services-protect-with-drm.md)
 
 ##配信
@@ -250,4 +250,5 @@ SSL 経由でのストリーミングを実行できるのは、コンテンツ�
 ##フィードバックの提供
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 

@@ -54,7 +54,7 @@ DocumentDB アカウントを作成しましょう。 場合に使用するア�
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupNode"></a> 手順 2: Node.js アプリケーションをセットアップします。
+##<a id="SetupNode"></a> 手順 2: Node.js アプリケーションをセットアップする
 
 1. お使いのターミナルを開きます。
 2. Node.js アプリケーションを保存するフォルダーまたはディレクトリを見つけます。
@@ -70,7 +70,7 @@ DocumentDB アカウントを作成しましょう。 場合に使用するア�
 
 以上です。 これでセットアップは終了です。いくつかのコードの記述を開始しましょう。
 
-##<a id="Config"></a> 手順 3: アプリの構成を設定します。
+##<a id="Config"></a> 手順 3: アプリの構成を設定する
 
 開いている *config.js* 任意のテキスト エディターにします。 
 
@@ -169,7 +169,7 @@ DocumentDB アカウントを作成しましょう。 場合に使用するア�
 
     module.exports = config;
 
-##<a id="Connect"></a> 手順 4: DocumentDB アカウントに接続します。
+##<a id="Connect"></a>手順 4: DocumentDB アカウントに接続する
 
 空で、開く *app.js* テキスト エディターでファイルです。 インポート、 *documentdb* モジュールと新たに作成した *config* モジュールです。
 
@@ -210,7 +210,7 @@ A [データベース](documentdb-resources.md#databases) を使用して作成�
         });
     };
 
-##<a id="CreateColl"></a>手順 6: コレクションを作成します。  
+##<a id="CreateColl"></a>手順 6: コレクションを作成する  
 
 > [AZURE.WARNING] **CreateDocumentCollectionAsync** 価格に影響を持つ新しい S1 コレクションが作成されます。 詳細については、次を参照してください、 [料金のページ](https://azure.microsoft.com/pricing/details/documentdb/)します。
 
@@ -278,7 +278,7 @@ App.js に保存される JSON データを含むドキュメントを作成す�
 
 ![アカウント、データベース、コレクション、およびドキュメントの間の階層関係を示す図](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
-##<a id="Query"></a>手順 8: DocumentDB のクエリのリソース
+##<a id="Query"></a>手順 8: DocumentDB リソースをクエリする
 
 DocumentDB では [、豊富なクエリ](documentdb-sql-query.md) 各コレクションに格納された JSON ドキュメントに対するします。 次のサンプル コードは、コレクションでドキュメントに対して実行できるクエリを示しています。 次の関数を追加、 *app.js* ファイルです。 以下のとおり、DocumentDB は SQL に似たクエリをサポートしています。 複雑なクエリを構築する方法の詳細については、チェック アウト、 [クエリのプレイ グラウンド](https://www.documentdb.com/sql/demo) と [ドキュメントを照会](documentdb-sql-query.md)します。
 
@@ -306,7 +306,7 @@ DocumentDB では [、豊富なクエリ](documentdb-sql-query.md) 各コレク�
 
  [FROM](documentdb-sql-query.md/#from-clause) キーワードは、単一のコレクションを DocumentDB クエリのスコープは既にあるため、クエリでは省略可能です。 したがって、"FROM Families f" は "FROM root r" または他の任意の変数名に置き換えることができます。 DocumentDB は、Families、root、または任意の変数名が、既定で現在のコレクションを参照しているものと推測します。
 
-##<a id="DeleteDatabase"></a>手順 9: ノードのデータベースを削除します。
+##<a id="DeleteDatabase"></a>手順 9: ノード データベースを削除する
 
 作成したデータベースを削除すると、データベースとすべての子リソース (コレクション、ドキュメントなど) が削除されます。 データベースを削除するには、次のコード スニペットを追加します。
 
@@ -319,7 +319,7 @@ DocumentDB では [、豊富なクエリ](documentdb-sql-query.md) 各コレク�
         });
     }
 
-##<a id="Build"></a>一緒に配置手順 10。
+##<a id="Build"></a>手順 10: 1 つにまとめる
 
 これで、アプリケーションに必要なすべての関数を設定できました。続いては、関数を呼び出しましょう。
 
@@ -363,7 +363,7 @@ DocumentDB では [、豊富なクエリ](documentdb-sql-query.md) 各コレク�
         });
     });
 
-##<a id="Run"></a>手順 11: は、Node.js アプリケーションを実行します。
+##<a id="Run"></a>手順 11: Node.js アプリケーションを実行する
 
 これで、Node.js アプリケーションを実行する準備が整いました。
 
@@ -425,7 +425,7 @@ DocumentDB では [、豊富なクエリ](documentdb-sql-query.md) 各コレク�
 
 ご利用ありがとうございます。 以上で Node.js チュートリアルが完了し、初めての DocumentDB コンソール アプリケーションが完成しました。 
 
-##<a id="GetSolution"></a> 完全なソリューションの取得
+##<a id="GetSolution"></a>完全なソリューションを取得する
 この記事のすべてのサンプルを含む GetStarted ソリューションをビルドするには、以下が必要です。
 
 -   [DocumentDB アカウント][documentdb-create-account]します。
@@ -448,4 +448,5 @@ DocumentDB では [、豊富なクエリ](documentdb-sql-query.md) 各コレク�
 [documentdb-manage]: documentdb-manage.md
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
+
 

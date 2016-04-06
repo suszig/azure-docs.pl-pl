@@ -24,7 +24,7 @@
 
 Event Hubs は、拡張性の高いインジェスト システムで、1 秒あたり何百万ものイベントを取り込むことができます。そのためアプリケーションは、接続されているデバイスやアプリケーションによって生成された大量のデータを処理し、分析できます。 Event Hubs に収集されたデータは、任意のリアルタイム分析プロバイダーやストレージ クラスターを使用して転送と格納できます。
 
-詳細については、[Event Hubs の概要] を参照してください。
+詳細については、次を参照してください。、 [Event Hubs の概要][]します。
 
 このチュートリアルでは、Java のコンソール アプリケーションを使用してイベント ハブにメッセージを収集し、Apache Storm を使用して並列で取得する方法を学習します。
 
@@ -32,11 +32,11 @@ Event Hubs は、拡張性の高いインジェスト システムで、1 秒あ
 
 + Java 開発環境を実行するように構成 [Maven](http://maven.apache.org/)します。 このチュートリアルでは、仮定 [Eclipse](https://www.eclipse.org/)します。
 
-+ アクティブな Azure アカウント <br/>アカウントがない場合は、無料試用版のアカウントを数分で作成することができます。 詳細については、「 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 無料評価版</a>.
++ アクティブな Azure アカウント <br/>アカウントがない場合は、無料試用版のアカウントを数分で作成することができます。 詳細については、<a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure の無料試用版サイト</a>をご覧ください。
 
 ## Event Hub を作成する
 
-1. [Azure クラシック ポータル] にログオンし、クリックして **新規** 、画面の下部にあります。
+1. ログオン、 [Azure クラシック ポータル][], 、] をクリック **新規** 、画面の下部にあります。
 
 2. をクリックして **App Services**, 、し **Service Bus**, 、し **Event Hub**, 、し **簡易作成**します。
 
@@ -60,7 +60,7 @@ Event Hubs は、拡張性の高いインジェスト システムで、1 秒あ
 
 7. 同じページに対して生成されたキーを書き留めます **SendRule** と **ReceiveRule**します。
 
-    ![6 c]
+    ![][6c]
 
 イベント ハブが作成され、イベントの送受信に必要な接続文字列が手元にあります。
 
@@ -109,3 +109,4 @@ Event Hubs と Storm を統合するアプリケーションの開発には、�
 [Analyzing sensor data with Storm and HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 [Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
+

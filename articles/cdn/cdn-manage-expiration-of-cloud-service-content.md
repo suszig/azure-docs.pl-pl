@@ -33,7 +33,7 @@ Web.config を含めることによって、更新頻度を制御する画像や
       </system.webServer> 
     </configuration>
 
-指定する **UseMaxAge** キャッシュ制御を追加します。 最大継続期間 =<nnn> で指定された値に基づいて応答ヘッダー、 **CacheControlMaxAge** 属性です。 期間の形式は、 **cacheControlMaxAge** 属性は <days>.<hours>:<min>:<sec>です。 詳細については、 **clientCache** ] ノードを参照してください [クライアント キャッシュ <clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)します。  
+指定する **UseMaxAge** キャッシュ制御を追加します最大継続期間 =。<nnn> 指定された値に基づいて応答ヘッダー、 **CacheControlMaxAge** 属性です。 期間の形式は、 **cacheControlMaxAge** 属性は、 <days>.<hours>:<min>:<sec>. 詳細については、 **clientCache** ] ノードを参照してください [クライアント キャッシュ <clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)します。  
 
 .Aspx ページなどのアプリケーションから返されるコンテンツを CDN のキャッシュ動作をプログラムで設定を設定することができます、 **HttpResponse.Cache** プロパティです。 詳細については、 **HttpResponse.Cache** プロパティを参照してください [HttpResponse.Cache プロパティ](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) と [HttpCachePolicy クラス](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)します。  
 
@@ -50,3 +50,4 @@ Web.config を含めることによって、更新頻度を制御する画像や
 
 [Azure Content Delivery Network (CDN) で BLOB コンテンツの有効期限を管理する方法](./cdn-manage-expiration-of-blob-content.md
 ) 
+

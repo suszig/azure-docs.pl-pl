@@ -19,14 +19,14 @@
 
 # Azure 上で CoreOS を使用する方法
 
-このトピックでは、[CoreOS] について説明し、このオペレーティング システムを理解するためのクイック スタートとして Azure に 3 台の CoreOS 仮想マシンのクラスターを作成する方法を示します。 CoreOS デプロイメントと [Azure での CoreOS] から例の非常に基本的な要素を使用して [Tim Park CoreOS のチュートリアル] と、CoreOS デプロイメントの基本構造を理解して、正常に実行する 3 つの仮想マシンのクラスターを取得する絶対最小要件を示すために [Patrick Chanezon の CoreOS のチュートリアル] です。
+このトピックについて説明 [CoreOS] このオペレーティング システムを理解するためのクイック スタートとして、Azure で 3 台の CoreOS 仮想マシンのクラスターを作成する方法を示しています。 CoreOS デプロイメントと例からの非常に基本的な要素を使用して [CoreOS with Azure], 、[Tim Park's CoreOS Tutorial], 、および [Patrick Chanezon's CoreOS Tutorial] 、CoreOS デプロイメントの基本構造を理解して、正常に実行する 3 つの仮想マシンのクラスターを取得する絶対最小要件を示します。
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [リソース マネージャーのデプロイ モデル](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/)します。
 
 
 ## CoreOS、クラスター、Linux コンテナー
 
-CoreOS は可能性のある非常に大規模のみと Linux コンテナーを使用する Vm のクラスターの迅速な作成をサポートするために Linux の軽量バージョン [Docker] コンテナーなどのパッケージング機構。 CoreOS は、以下をサポートすることを目的としています。
+CoreOS は可能性のある非常に大規模のみと Linux コンテナーを使用する Vm のクラスターの迅速な作成をサポートするために Linux の軽量バージョンのメカニズムをパッケージ化を含む [Docker] コンテナーです。 CoreOS は、以下をサポートすることを目的としています。
 
 + きわめて高度な自動化
 + より容易で一貫性のあるアプリケーションのデプロイ
@@ -38,18 +38,18 @@ CoreOS は可能性のある非常に大規模のみと Linux コンテナーを
 2. アトミックに実行されるオペレーティング システムの更新。そのため、オペレーティング システムは単一のエンティティとして更新され、容易に既知の状態にロールバックできます。
 3. 組み込み [etcd](https://github.com/coreos/etcd) と [fleet](https://github.com/coreos/fleet) 動的 VM およびクラスター通信と管理用のデーモン (サービス)
 
-以上は、CoreOS とその機能の一般的な説明です。 CoreOS の詳細については、[CoreOS の概要] を参照してください。
+以上は、CoreOS とその機能の一般的な説明です。 CoreOS の詳細については、次を参照してください。、 [CoreOS Overview]します。
 
 ## セキュリティに関する考慮事項
 現在、CoreOS では、SSH でクラスターと通信できるユーザーには、そのクラスターを管理するためのアクセス許可が与えられていることを前提としています。 そのため、CoreOS クラスターは、変更しなくてもテスト環境および開発環境として優れています。ただし、運用環境では、より強力なセキュリティ対策を実施する必要があります。
 
 ## Azure 上で CoreOs を使用する方法
 
-このセクションでは、[Azure コマンド ライン インターフェイス (Azure CLI)] を使用して 3 台の CoreOS 仮想マシンを Azure クラウド サービスを作成する方法について説明します。 基本的な手順は次のとおりです。
+このセクションを使用して 3 台の CoreOS 仮想マシンで、Azure クラウド サービスを作成する方法について説明します [Azure Command-line Interface (Azure CLI)]します。 基本的な手順は次のとおりです。
 
 1. SSH 証明書とキーを作成し、CoreOS 仮想マシンとのコミュニケーションを保護する
 2. 相互に通信するために、使用するクラスターの etcd ID を取得する
-3. [YAML] 形式でのクラウド構成ファイルを作成します。
+3. クラウド構成ファイルを作成 [YAML] 形式
 4. Azure CLI を使用して、新しい Azure クラウド サービスと 3 台の CoreOS VM を作成する
 5. Azure VM で CoreOS クラスターをテストする
 6. localhost で CoreOS クラスターをテストする
@@ -103,7 +103,7 @@ coreos:
 ### Azure CLI を使用して、新しい CoreOS VM を作成する
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-1. まだ行っていないためには、その著作物を使用してログインするか、[Azure コマンド ライン インターフェイス (Azure CLI)] をインストールまたは学校の ID をまたは .publishsettings ファイルをダウンロードし、アカウントにインポートします。
+1. インストール、 [Azure Command-line Interface (Azure CLI)] を行っていないためには、その著作物を使用してログインするかまたは学校の ID をまたは .publishsettings ファイルをダウンロードし、アカウントにインポートします。
 2. CoreOS イメージを探します。 「`azure vm image list | grep CoreOS`」と入力するといつでも使用可能なイメージを探すことができ、次のような結果が一覧表示されます。
 
     データ: 2b171e93f07c4903bcad35bda10acf22__CoreOS 安定性-522.6.0 Public Linux
@@ -113,29 +113,29 @@ coreos:
 
     1 つの注意: 作業をこれまでに確認する場合、 [プレビュー ポータル](https://portal.azure.com), 、クラウド サービスの名前がリソース グループとドメインの両方を次の画像で示すがわかります。
 
-    ![CloudServiceInNewPortal]
+    ![][CloudServiceInNewPortal]
 
 4. クラウド サービスに接続しを使用して、新しい CoreOS VM を作成、 **azure 仮想マシンの作成** コマンドです。 X.509 証明書の場所を渡しますが、 **--ssh-cert** オプション。 次のコマンドを入力して、最初の VM イメージを作成交換を記述する **coreos クラスター** を作成したクラウド サービスの名前。
 
     ```
-azure の仮想マシンの作成 --custom-data = cloud-config.yaml - ssh = 22--ssh-cert=./myCert.pem--なし-ssh-パスワード--vm 名 = ノード 1 - 接続 coreos クラスター--場所の = =「米国西部」2b171e93f07c4903bcad35bda10acf22__CoreOS 安定性-522.6.0 コア
+azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem --no-ssh-password --vm-name=node-1 --connect=coreos-cluster --location="West US" 2b171e93f07c4903bcad35bda10acf22__CoreOS-Stable-522.6.0 core
 ```
 
-5. Create the second node by repeating the command in step 4, replacing the **--vm-name** value with **node-2** and the **--ssh** port value with 2022.
+5. 置き換える手順 4. のコマンドを繰り返し、2 番目のノードを作成、 **--vm 名** 値と **ノード 2** と **--ssh** ポートの値は 2022年に置き換えます。
 
-6. Create the third node by repeating the command in step 4, replacing the **--vm-name** value with **node-3** and the **--ssh** port value with 3022.
+6. 置き換える手順 4. のコマンドを繰り返し、3 番目のノードを作成、 **--vm 名** 値と **ノード 3** と **--ssh** ポートの値は 3022 に置き換えます。
 
-You can see from the shot below how the CoreOS cluster appears in the portal.
+次の画像では、ポータルに CoreOS クラスターが表示されている状態を示します。
 
 ![][EmptyCoreOSCluster]
 
-### Test your CoreOS cluster from an Azure VM
+### Azure VM で CoreOS クラスターをテストする
 
-To test your cluster, make sure you are in your working directory and then connect to **node-1** using **ssh**, passing the private key by typing:
+クラスターをテストすることを確認して、作業ディレクトリし、を接続 **ノード 1** を使用して **ssh**, 、」と入力して、秘密キーを渡します。
 
     ssh core@coreos-cluster.cloudapp.net -p 22 -i ./myPrivateKey.key
 
-Once connected, type `sudo fleetctl list-machines` to see whether the cluster has already identified all VMs in the cluster. You should receive a response similar to the following:
+接続されたら、「`sudo fleetctl list-machines`」と入力して、既にクラスター内のすべての VM がクラスターにより識別されたかどうかを確認します。 次のような応答を受け取ります。
 
 
     core@node-1 ~ $ sudo fleetctl list-machines
@@ -145,35 +145,35 @@ Once connected, type `sudo fleetctl list-machines` to see whether the cluster ha
     f7de6717... 100.71.188.96   -
 
 
-### Test your CoreOS cluster from localhost
+### localhost で CoreOS クラスターをテストする
 
-Finally, let's test your CoreOS cluster from your local Linux client. You might be able to install **fleetctl** by using **npm**, or you might want to install **fleet** and build **fleetctl** yourself on your local client. **fleet** requires **golang**, so you may need to install that first by typing:
+最後に、ローカル Linux クライアントで CoreOS クラスターをテストします。 インストールすることもできます **fleetctl** を使用して **npm**, 、インストールするか **fleet** およびビルド **fleetctl** ローカル クライアントで自分でします。 **fleet** 必要 **golang**, ので、その最初に入力して、インストールする必要があります。
 
 `sudo apt-get install golang`
 
-Then clone the **fleet** repository from github by typing:
+クローンを作成し、 **fleet** 」と入力して github からリポジトリ。
 
 `git clone https://github.com/coreos/fleet.git`
 
-Build **fleet** by changing to the `fleet` directory and type
+ビルド **fleet** を変更することで、 `fleet` ディレクトリと種類
 
 `./build`
 
-And finally place **fleet** for easy use (depending upon your configuration you may or may not need to **sudo**):
+最後に配置し、 **fleet** 使用を容易に (あるかが不要になったり、構成に応じて **sudo**)。
 
 `cp bin/fleetctl /usr/local/bin`
 
-Make sure **fleet** has access to your `myPrivateKey.key` in the working directory by typing:
+確認 **fleet** へのアクセスを持つ、 `myPrivateKey.key` 」と入力して、作業ディレクトリ。
 
 `ssh-add ./myPrivateKey.key`
 
-> [AZURE.NOTE] If you are already using the `~/.ssh/id_rsa` key, then add that with `ssh-add ~/.ssh/id_rsa`.
+> [AZURE.NOTE] 既に使用している場合、 `~/.ssh/id_rsa` キーしている追加 `ssh-add ~/.ssh/id_rsa`します。
 
-Now you are ready to test remotely using the same **fleetctl** command you used from **node-1**, but passing some remote arguments:
+同じを使用して、リモートでテストする準備が整いました **fleetctl** コマンドを **ノード 1**, 、いくつかのリモート引数を渡す以外は。
 
 `fleetctl --tunnel coreos-cluster.cloudapp.net:22 list-machines`
 
-The results should be exactly the same:
+以下とまったく同じ結果が得られます。
 
 
     MACHINE     IP      METADATA
@@ -181,9 +181,9 @@ The results should be exactly the same:
     a05e2d7c... 100.71.168.87   -
     f7de6717... 100.71.188.96   -
 
-## Next steps
+## 次のステップ
 
-You should now have a running three-node CoreOS cluster on Azure. From here, you can explore how to create more complex clusters and use Docker and create more interesting applications. To try a couple of quick examples, see [Get Started with Fleet on CoreOS on Azure].
+これで、3 ノード構成の CoreOS クラスターが Azure 上で実行されています。 ここから、より複雑なクラスターを作成する方法、Docker を使用する方法、さらにより有益なアプリケーションを作成する方法を調べることができます。 いくつかの簡単な例については、次を参照してください。 [Get Started with Fleet on CoreOS on Azure]します。
 
 <!--Anchors-->
 [CoreOS, Clusters, and Linux Containers]: #intro
@@ -209,4 +209,5 @@ You should now have a running three-node CoreOS cluster on Azure. From here, you
 [Docker]: http://docker.io
 [YAML]: http://yaml.org/
 [Get Started with Fleet on CoreOS on Azure]: virtual-machines-linux-coreos-fleet-get-started.md
+
 

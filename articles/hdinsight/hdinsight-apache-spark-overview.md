@@ -19,14 +19,14 @@
 
 # 概要: Azure HDInsight での Apache Spark 
  
-<a href="http://spark.apache.org/" target="_blank">Apache Spark</a> ビッグ データ分析アプリケーションのパフォーマンスを向上するメモリ内をサポートしているオープン ソースの並列処理のフレームワークを処理します。 Spark 処理エンジンは、速度、使いやすさ、高度な分析用に作成されています。 Spark のメモリ内の計算能力により、機械学習とグラフ計算における反復的なアルゴリズムに対して、Spark は適切な選択肢となります。 また、Spark は Azure BLOB ストレージ (WASB) と互換性があるので、Azure に格納されている既存データを Spark で簡単に処理できます。
+<a href="http://spark.apache.org/" target="_blank">Apache Spark</a> はビッグ データ分析アプリケーションのパフォーマンスを向上するメモリ内の処理をサポートする、オープン ソースの並列処理のフレームワークです。 Spark 処理エンジンは、速度、使いやすさ、高度な分析用に作成されています。 Spark のメモリ内の計算能力により、機械学習とグラフ計算における反復的なアルゴリズムに対して、Spark は適切な選択肢となります。 また、Spark は Azure BLOB ストレージ (WASB) と互換性があるので、Azure に格納されている既存データを Spark で簡単に処理できます。
 
 HDInsight で Spark クラスターをプロビジョニングするときは、インストールおよび構成されている Spark で Azure コンピューティング リソースをプロビジョニングします。 HDInsight で Spark クラスターをプロビジョニングするのにかかる時間はわずか約 10 分です。 処理対象のデータは、Azure BLOB ストレージに格納されます。 参照してください [を HDInsight と共に Azure Blob ストレージを使用して][hdinsight-storage]します。
 
 ![Azure HDInsight での Apache Spark](./media/hdinsight-apache-spark-overview/SparkArchitecture.png  "Apache Spark on Azure HDInsight")
 
 
-**Azure HDInsight での Apache Spark を使用するか?**参照してください [クイック スタート: HDInsight で Spark クラスターのプロビジョニングし、Jupyter および Zeppelin を使用するサンプル アプリケーションを実行](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)します。
+**Azure HDInsight での Apache Spark の概要** 参照してください [クイック スタート: HDInsight で Spark クラスターのプロビジョニングし、Jupyter および Zeppelin を使用するサンプル アプリケーションを実行](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)します。
 
 
 
@@ -75,7 +75,7 @@ Apache Spark の付属 [MLlib](http://spark.apache.org/mllib/), 、機械学習�
 
 リアルタイムのデータ分析は、到着したデータの処理によるデータ洞察の時間短縮から、真のストリーミング ソリューションの構築まで、広範囲のシナリオに使用されます。 HDInsight の Spark では、リアルタイム分析ソリューションを構築するためのリッチなサポートが提供されます。 Spark には既に Kafka、Flume、Twitter、ZeroMQ、TCP ソケットなどの多数のソースからデータを取り込むためのコネクタがありますが、HDInsight の Spark では Azure Event Hubs からデータを取り込むためのファーストクラスのサポートが追加されます。 Event Hubs は、Azure で最も広く使用されているキュー サービスです。 すぐに使用できる Event Hubs のサポートにより、HDInsight の Spark はリアルタイム分析パイプラインを構築するための理想的なプラットフォームです。
 
-##<a name="next-steps"></a>どのようなコンポーネントは、Spark クラスターの一部として含めるでしょうか。
+##<a name="next-steps"></a>Spark クラスターに含まれるコンポーネント
 
 HDInsight の Spark には、クラスターで使用できる次のコンポーネントが既定で含まれています。
 
@@ -91,7 +91,7 @@ HDInsight の Spark ではも用意されています、 [ODBC ドライバー](
 
 * [クイックスタート: HDInsight と Zeppelin Notebook で Spark を使用した対話型データ分析の実行](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
 * [HDInsight での Apache Spark クラスターのプロビジョニング](hdinsight-apache-spark-provision-clusters.md)
-* [HDInsight と BI ツールで Spark を使用した対話型データ分析の実行](hdinsight-apache-spark-use-bi-tools.md)
+* [BI ツールを使用して HDInsight で Spark を使用して対話型データ分析を実行します。](hdinsight-apache-spark-use-bi-tools.md)
 * [Machine Learning アプリケーションを作成するための HDInsight での Spark の使用](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [リアルタイム ストリーミング アプリケーションを作成するための HDInsight での Spark の使用](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 * [Azure HDInsight での Apache Spark クラスターのリソースの管理](hdinsight-apache-spark-resource-manager.md)
@@ -99,4 +99,5 @@ HDInsight の Spark ではも用意されています、 [ODBC ドライバー](
 
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
+
 

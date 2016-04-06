@@ -185,7 +185,7 @@ Azure Storage を操作するためのグラフィカル インターフェイ�
 | [Zudio](https://zudio.co/) | ✔ | ✔ | ✔ |
 | [Cyberduck](https://cyberduck.io/) |  | ✔ | ✔ |
 
-###<a id="storageexplorer"></a>Azure ストレージ エクスプローラー
+###<a id="storageexplorer"></a>Azure Storage エクスプローラー
 
 *Azure ストレージ エクスプ ローラー* 調べて blob 内のデータを変更するための便利なツールです。 これはからダウンロードできる無料のオープン ソース ツール [http://storageexplorer.com/](http://storageexplorer.com/)します。 このリンクからソース コードも入手できます。
 
@@ -284,4 +284,5 @@ Azure Sdk のインストールの詳細については、次を参照してく�
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
+
 

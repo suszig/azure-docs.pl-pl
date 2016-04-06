@@ -81,7 +81,7 @@ Azure リソース マネージャーを使用すると、すべての関連す�
     New-AzureRmResourceGroup –Name 'ContosoResourceGroup' –Location 'East Asia'
 
 
-## <a id="vault"></a>Key Vault を作成します ##
+## <a id="vault"></a>Key Vault を作成する ##
 
 使用して、 [新規 AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736.aspx) コマンドレットを key vault を作成します。 このコマンドレットは 3 つの必須パラメーター: **リソース グループ名**, 、 **key vault 名**, 、および **地理的な場所**します。
 
@@ -92,11 +92,11 @@ Azure リソース マネージャーを使用すると、すべての関連す�
 このコマンドレットの出力は、作成されたばかりの Key Vault のプロパティを示します。 最も重要な 2 つのプロパティは、次のとおりです。
 
 - **資格情報コンテナーの名前**: これは、例では、 **ContosoKeyVault**します。 この名前を他の Key Vault コマンドレットに使用できます。
-- **資格情報コンテナーの URI**: 例では、これは、https://contosokeyvault.vault.azure.net/です。 その REST API から資格情報コンテナーを使用するアプリケーションは、この URI を使用する必要があります。
+- **資格情報コンテナーの URI**: 例では、これは、https://contosokeyvault.vault.azure.net/ です。 その REST API から資格情報コンテナーを使用するアプリケーションは、この URI を使用する必要があります。
 
 Azure アカウントは、この Key Vault ですべての操作の実行が許可されるようになりました。 まだ、どのユーザーも許可されていません。
 
-## <a id="add"></a>キーやシークレットを Key Vault に追加します ##
+## <a id="add"></a>キーやシークレットを Key Vault に追加する ##
 
 Azure Key Vault でソフトウェアで保護されたキーを作成する場合を使用して、 [Add-azurekeyvaultkey](https://msdn.microsoft.com/library/azure/dn868048.aspx) コマンドレットと入力します。
 
@@ -138,7 +138,7 @@ Azure Key Vault に追加したパスワードは、その URI を使用する�
 
 Key Vault とキーやシークレットは、アプリケーションを使用できる状態になりました。 これらを使用するには、アプリケーションを承認する必要があります。  
 
-## <a id="register"></a>Azure Active Directory にアプリケーションを登録します ##
+## <a id="register"></a>Azure Active Directory にアプリケーションを登録する ##
 
 この手順は通常、開発者が別のコンピューター上で行います。 これは Azure Key Vault に固有のものではありませんが、完全を期すために説明します。
 
@@ -156,7 +156,7 @@ Azure Active Directory にアプリケーションを登録するには:
 2. 左側で、次のようにクリックします。 **Active Directory**, 、し、アプリケーションを登録するディレクトリを選択します。 <br> <br> **注:** 、key vault を作成すると、Azure サブスクリプションを含む同じディレクトリを選択する必要があります。 不明なディレクトリをこの場合は、クリックして **設定**, 、key vault を使用したサブスクリプションを見つけて、最後の列に表示されているディレクトリの名前に注意してください。
 
 3. クリックして **アプリケーション**します。 このページにのみ表示、ディレクトリにアプリケーションが追加されていない場合、 **アプリを追加** リンクします。 リンクをクリックしてまたはクリックする代わりに、 **追加** コマンド バーでします。
-4.   **アプリケーションの追加** ウィザードの **実行する操作ですか?** ] ページで [ **[組織が開発中のアプリケーションを追加**します。
+4.   **アプリケーションの追加** ウィザードの **を行うにはクリックしてください。** ページで [ **[組織が開発中のアプリケーションを追加**します。
 5.   **アプリケーションについてお聞かせ** ] ページで、アプリケーションの名前を指定して、選択 **WEB アプリケーションや WEB API** (既定値)。 クリックして、 **次** アイコン。
 6.   **アプリのプロパティ** ] ページで、指定、 **サインオン URL** と **APP ID URI** 、web アプリケーションのです。 この手順のため作成できる、アプリケーションがこれらの値を持たない場合 (たとえば、両方のボックス http://test1.contoso.com を指定できます)。 これらのサイトが存在するかどうかは関係ありません。各アプリケーションのアプリケーション ID URI がディレクトリ内のすべてのアプリケーションで異なっていることが重要です。 ディレクトリは、この文字列を使用してアプリを識別します。
 7.  クリックして、 **完了** をウィザードで、変更を保存するアイコン。
@@ -164,12 +164,12 @@ Azure Active Directory にアプリケーションを登録するには:
 9.  スクロールして、 **キー** セクションで、期間を選択し、をクリックし、 **保存**します。 ページが更新され、キーの値が表示されます。 このキーの値を持つアプリケーションを構成する必要があり、 **クライアント ID** 値。 (この構成の手順はアプリケーション固有です)。
 10. このページからクライアント ID 値をコピーします。この値は、資格情報コンテナーに権限を設定するために次の手順で使用します
 
-## <a id="authorize"></a>キーまたはシークレットを使用してアプリケーションを承認します ##
+## <a id="authorize"></a>キーまたはシークレットを使用してアプリケーションを承認する ##
 
 キーやシークレットの資格情報コンテナーにアクセスするアプリケーションを承認するために使用して、
  [セット AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx) コマンドレットです。
 
-たとえば、資格情報コンテナー名は **ContosoKeyVault** を承認するアプリケーションに 8f8c4bbd 485b-45fd-98f7-ことのクライアント ID があり、アプリケーションの暗号化を解除し、次のコマンド実行で、資格情報コンテナーのキーで署名を承認するとします。
+たとえば、資格情報コンテナー名は **ContosoKeyVault** を承認するアプリケーションに 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed のクライアント ID があり、アプリケーションの暗号化を解除し、次のコマンド実行で、資格情報コンテナーのキーで署名を承認するとします。
 
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
@@ -208,7 +208,7 @@ Azure Active Directory にアプリケーションを登録するには:
 
 この BYOK パッケージを生成する方法について詳細を参照してください。 [生成し、Azure Key Vault の HSM 保護キーを転送する方法](key-vault-hsm-protected-keys.md)します。
 
-## <a id="delete"></a>Key Vault と、関連付けられているキーやシークレットを削除する ##
+## <a id="delete"></a>Key Vault と関連付けられているキーやシークレットを削除する ##
 
 使用して key vault を削除するには key vault とキーやシークレットが含まれているを不要な場合、 [削除 AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485.aspx) コマンドレット。
 
@@ -219,7 +219,7 @@ Azure Active Directory にアプリケーションを登録するには:
     Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 
 
-## <a id="other"></a>他の Azure PowerShell コマンドレット ##
+## <a id="other"></a>その他の Azure PowerShell コマンドレット ##
 
 Azure Key Vault の管理に役立つその他のコマンドは次のとおりです。
 
@@ -238,4 +238,5 @@ Azure Key Vault 用の Azure PowerShell 1.0 コマンドレットの一覧は、
  
 
 プログラミング リファレンスを参照してください [Azure Key Vault 開発者ガイド](key-vault-developers-guide.md)します。
+
 

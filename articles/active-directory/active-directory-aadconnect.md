@@ -50,8 +50,8 @@ Azure Active Directory Connect は 3 つの主要な部分で構成されます�
 | 解決策 | シナリオ |
 | ----- | ----- |
 | 開始する前に | <li>[Azure AD Connect: ハードウェアと前提条件](active-directory-aadconnect-prerequisites.md)</li> |
-| [簡単設定](active-directory-aadconnect-get-started-express.md) | <li>AD フォレストが 1 つがある場合、既定オプションお勧めします。</li> <li>パスワード同期を使用して同じパスワードを使用してユーザーのサインインします。</li>
-| [カスタマイズした設定](active-directory-aadconnect-get-started-custom.md) | <li>複数のフォレストがある場合に使用されます。 オンプレミスの多くをサポートしている [トポロジ](active-directory-aadconnect-topologies.md)します。</li><li>フェデレーション用の ADFS などのサインイン オプションをカスタマイズするか、サード パーティの ID プロバイダーを使います。</li><li>フィルター処理やライトバックなどの同期機能をカスタマイズします。</li>
+| [簡単設定](active-directory-aadconnect-get-started-express.md) | <li>単一のフォレスト AD がある場合、既定オプションお勧めします。</li> <li>パスワード同期を使用して同じパスワードを使用してユーザーのサインインします。</li>
+| [カスタマイズした設定](active-directory-aadconnect-get-started-custom.md) | <li>複数のフォレストがあるときに使用されます。 オンプレミスの多くをサポートしている [トポロジ](active-directory-aadconnect-topologies.md)します。</li> <li>Ad FS のフェデレーションまたはを使用して、サード パーティの id プロバイダーなど、サインイン オプションをカスタマイズします。</li> <li>フィルター処理や書き戻しなどの同期機能をカスタマイズします。</li>
 | [DirSync からのアップグレード](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>ある場合は、既存の DirSync サーバーが既に実行されています。</li>
 | Azure AD Sync からのアップグレード | <li>これは、シームレスなインプレース アップグレードです。</li>
 
@@ -63,7 +63,7 @@ Azure Active Directory Connect は 3 つの主要な部分で構成されます�
 | トピック |  |
 | --------- | --------- |
 | Azure AD Connect のダウンロード | [Azure AD Connect のダウンロード](http://go.microsoft.com/fwlink/?LinkId=615771) |
-| Express 設定を使用したインストール | [Azure AD Connect の高速インストール](active-directory-aadconnect-get-started-express.md) |
+| 簡単設定を使用したインストール | [Azure AD Connect の高速インストール](active-directory-aadconnect-get-started-express.md) |
 | カスタマイズした設定を使用したインストール | [Azure AD Connect のカスタム インストール](active-directory-aadconnect-get-started-custom.md) |
 | DirSync からのアップグレード | [Azure AD 同期ツール (DirSync) からのアップグレード](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
 | インストール後 | [インストールの確認とライセンスの割り当て ](active-directory-aadconnect-whats-next.md) |
@@ -99,7 +99,7 @@ Azure AD Connect には、必要に応じて有効にすることができる機
 | --------- | --------- |
 | フィルター処理の構成 | [Azure AD Connect Sync: フィルター処理の構成](active-directory-aadconnectsync-configure-filtering.md) |
 | パスワードの同期 | [Azure AD Connect Sync: パスワード同期の実装](active-directory-aadconnectsync-implement-password-synchronization.md) |
-| パスワード ライトバック | [パスワード管理の概要](active-directory-passwords-getting-started.md) |
+| パスワードの書き戻し | [パスワード管理の概要](active-directory-passwords-getting-started.md) |
 | デバイスの書き戻し | [Azure AD Connect でのデバイスの書き戻しの有効化](active-directory-aadconnect-get-started-custom-device-writeback.md) |
 | 誤って削除されないように保護する | [Azure AD Connect Sync: 誤って削除されないように保護する](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) |
 
@@ -140,4 +140,5 @@ Azure AD Connect Sync には、ほとんどのお客様とトポロジに対応�
 オンプレミスのディレクトリのクラウドへの拡張に関する 2015 年のプレゼンテーションをご覧ください。
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
+
 

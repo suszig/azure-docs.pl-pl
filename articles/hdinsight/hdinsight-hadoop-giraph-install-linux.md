@@ -40,7 +40,7 @@
 * Giraph を `/usr/hdp/current/giraph` にインストールする。
 * `/example/jars/giraph-examples.jar` のように、`giraph-examples.jar` ファイルをクラスターの既定のストレージ (WASB) にコピーする。
 
-## <a name="install"></a>スクリプト アクションを使用して Giraph をインストールします。
+## <a name="install"></a>スクリプト アクションを使用した Giraph のインストール
 
 HDInsight クラスターに Giraph をインストールするサンプル スクリプトは読み取り専用の Azure ストレージ blob から入手 [https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh)します。 このセクションでは、Azure クラシック ポータルを使用してクラスターを作成する際に、サンプル スクリプトを使用する方法について説明します。
 
@@ -63,7 +63,7 @@ HDInsight クラスターに Giraph をインストールするサンプル ス�
 
 ## <a name="usegiraph"></a>HDInsight で Giraph を使用する方法
 
-クラスターの作成が完了したら、次の手順を使用して、Giraph に含まれているサンプル SimpleShortestPathsComputation を実行します。 これは、手順で基本的なを実装します。 <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> の実装を示します。
+クラスターの作成が完了したら、次の手順を使用して、Giraph に含まれているサンプル SimpleShortestPathsComputation を実行します。 これにより、グラフのオブジェクト間の最短パスを見つけるための基本的な <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> が実装されます。
 
 1. SSH を使用して HDInsight クラスターに接続します。
 
@@ -109,17 +109,17 @@ HDInsight クラスターに Giraph をインストールするサンプル ス�
 
     このコマンドで使用されるパラメーターを次の表に示します。
 
-    | パラメーター | 実行内容 |
-    | --------- | ------------ |
-    | `jar /usr/hdp/current/giraph/giraph-examples.jar` | サンプルを含む jar ファイル。 |
-    | `org.apache.giraph.GiraphRunner` | サンプルを開始するために使用するクラス。 |
-    | `org.apache.giraph.examples.SimpleShortestPathsCoputation` | 実行されるサンプル。 この場合は、ID 1 とグラフ内の他のすべての ID の間の最短パスを計算します。 |
-    | `-ca mapred.job.tracker=HEADNODE:9010` | クラスターのヘッド ノード。 |
-    | `-vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFromat` | 入力データに使用する入力形式。 |
-    | `-vip /example/data/tiny_graph.txt` | 入力データ ファイル。 |
-    | `-vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat` | 出力形式。 この場合は、ID と値をプレーンテキストとして出力します。 |
-    | `-op /example/output/shortestpaths` | 出力場所。 |
-    | `-w 2` | 使用する worker の数。 この場合は 2 です。 |
+  	| パラメーター | 実行内容 |
+  	| --------- | ------------ |
+  	| `jar /usr/hdp/current/giraph/giraph-examples.jar` | サンプルを含む jar ファイル。 |
+  	| `org.apache.giraph.GiraphRunner` | サンプルを開始するために使用するクラス。 |
+  	| `org.apache.giraph.examples.SimpleShortestPathsCoputation` | 実行されるサンプル。 この場合は、ID 1 とグラフ内の他のすべての ID の間の最短パスを計算します。 |
+  	| `-ca mapred.job.tracker=HEADNODE:9010` | クラスターのヘッド ノード。 |
+  	| `-vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFromat` | 入力データに使用する入力形式。 |
+  	| `-vip /example/data/tiny_graph.txt` | 入力データ ファイル。 |
+  	| `-vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat` | 出力形式。 この場合は、ID と値をプレーンテキストとして出力します。 |
+  	| `-op /example/output/shortestpaths` | 出力場所。 |
+  	| `-w 2` | 使用する worker の数。 この場合は 2 です。 |
 
     Giraph サンプルで使用されるその他のパラメーターと、これらの詳細については、次を参照してください。、 [Giraph クイック スタート](http://giraph.apache.org/quick_start.html)します。
 
@@ -137,7 +137,7 @@ HDInsight クラスターに Giraph をインストールするサンプル ス�
 
     SimpleShortestPathComputation サンプルは、オブジェクト ID 1 から開始して他のオブジェクトへの最短パスを見つけるようにハードコーディングされています。 したがって、出力は `destination_id distance` として読み取られます。distance はオブジェクト ID 1 とターゲット ID の間を結ぶエッジの値 (重み) です。
 
-    これを視覚化して、ID 1 と他のすべてのオブジェクトの間で最短パスを結ぶことにより、結果を検証できます。 ID 1 と ID 4 の最短パスは 5 です。 これは、 <span style="color:orange">ID 1 と ID 3</span>、 <span style="color:red">ID 3 と 4</span>.
+    これを視覚化して、ID 1 と他のすべてのオブジェクトの間で最短パスを結ぶことにより、結果を検証できます。 ID 1 と ID 4 の最短パスは 5 です。 これは、<span style="color:orange">ID 1 と 3</span>、<span style="color:red">ID 3 と 4</span> を結ぶ距離の合計です。
 
     ![オブジェクトを円で表し、最短パスで結んだ図](./media/hdinsight-hadoop-giraph-install-linux/giraph-graph-out.png)
 
@@ -151,4 +151,5 @@ HDInsight クラスターに Giraph をインストールするサンプル ス�
 - [HDInsight クラスターで R をインストール](hdinsight-hadoop-r-scripts-linux.md): を使用する方法についてはクラスターのカスタマイズをインストールして HDInsight Hadoop クラスターで R を使用します。 R は、統計計算用のオープン ソースの言語および環境です。 R は、数百の組み込み統計関数と、関数型プログラミングとオブジェクト指向のプログラミングの特徴を結合した独自のプログラミング言語を提供します。 また、広範なグラフィカル機能も提供します。
 
 - [HDInsight クラスターに Solr をインストール](hdinsight-hadoop-solr-install-linux.md)します。 クラスターのカスタマイズを使用して、HDInsight Hadoop クラスターに Solr をインストールします。 Solr は、格納されたデータに対して強力な検索操作を実行することができます。
+
 

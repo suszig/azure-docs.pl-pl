@@ -40,7 +40,7 @@ Windows PowerShell コマンドレットを使用するには、最初に Window
 
 2.  次のいずれかを実行します。
 
-    - 1 人のユーザーのパスワードを設定を無期限にすると、ユーザー プリンシパル名 (UPN) (aprilr@contoso.onmicrosoft.com など) またはユーザーのユーザー ID を使用して、次のコマンドレットを実行するには、をチェックします。 `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
+    - 単一のユーザーのパスワードを設定を無期限にすると、ユーザー プリンシパル名 (UPN) (aprilr@contoso.onmicrosoft.com など) またはユーザーのユーザー ID を使用して、次のコマンドレットを実行するには、をチェックします。 `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
 
     - すべてのユーザーについて「パスワードを無期限にする」設定を表示するには、次のコマンドレットを実行します。 `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
 
@@ -63,4 +63,5 @@ Windows PowerShell コマンドレットを使用するには、最初に Window
     - 特定のユーザーのパスワードを無期限に設定するには、ユーザーのユーザー プリンシパル名 (UPN) またはユーザー ID を使用して、次のコマンドレットを実行します。 `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires \$true`
 
     - 組織内のすべてのユーザーのパスワードを無期限に設定するには、次のコマンドレットを実行します。 `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
+
 

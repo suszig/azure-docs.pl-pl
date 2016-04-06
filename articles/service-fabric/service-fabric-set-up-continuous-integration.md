@@ -70,12 +70,12 @@
     ```
 1.  次のパラメーターを使用して PowerShell スクリプト Create-ServicePrincipal.ps1 を実行します。
 
-    |パラメーター|値|
-    |---|---|
-    |ServicePrincipalDisplayName|任意の名前。|
-    |ServicePrincipalHomePage|任意の URI。 実際に存在する必要はありません。|
-    |ServicePrincipalIdentifierUri|任意の一意の URI。 実際に存在する必要はありません。|
-    |ServicePrincipalSecurePassword|$password|
+  	|パラメーター|値|
+  	|---|---|
+  	|ServicePrincipalDisplayName|任意の名前。|
+  	|ServicePrincipalHomePage|任意の URI。 実際に存在する必要はありません。|
+  	|ServicePrincipalIdentifierUri|任意の一意の URI。 実際に存在する必要はありません。|
+  	|ServicePrincipalSecurePassword|$password|
 
     スクリプトが完了すると、次の 3 つの値が出力されます。 これらの値はビルド変数として使用するので、メモしておいてください。
 
@@ -88,14 +88,14 @@
 1.  管理者 PowerShell プロンプトで ServiceFabricCIManualScripts.zip を展開するディレクトリに移動します。
 1.  次のパラメーターを使用して PowerShell スクリプト CreateAndUpload-Certificate.ps1 を実行します。
 
-    |パラメーター|値|
-    |---|---|
-    |ServiceFabricKeyVaultLocation|任意の値。 クラスターを作成する場所と一致する必要があります。|
-    |ServiceFabricCertificateSecretName|任意の値。|
-    |ServiceFabricSecureCertificatePassword|任意の値。 ビルド コンピューターに証明書をインポートするときに使用されます。|
-    |ServiceFabricKeyVaultResourceGroupName|任意の値。 ただし、クラスターに使用するリソース グループ名は使用しないでください。|
-    |ServiceFabricKeyVaultName|任意の値。|
-    |ServiceFabricPfxFileOutputPath|任意の値。 このファイルを使用して、ビルド コンピューターに証明書をインポートします。|
+  	|パラメーター|値|
+  	|---|---|
+  	|ServiceFabricKeyVaultLocation|任意の値。 クラスターを作成する場所と一致する必要があります。|
+  	|ServiceFabricCertificateSecretName|任意の値。|
+  	|ServiceFabricSecureCertificatePassword|任意の値。 ビルド コンピューターに証明書をインポートするときに使用されます。|
+  	|ServiceFabricKeyVaultResourceGroupName|任意の値。 ただし、クラスターに使用するリソース グループ名は使用しないでください。|
+  	|ServiceFabricKeyVaultName|任意の値。|
+  	|ServiceFabricPfxFileOutputPath|任意の値。 このファイルを使用して、ビルド コンピューターに証明書をインポートします。|
 
     スクリプトが完了すると、次の 3 つの値が出力されます。 これらの値はビルド変数として使用するので、メモしておいてください。
 
@@ -203,15 +203,15 @@ Azure PowerShell をインストールする前のセクションの手順に従
 
 1.  管理者 PowerShell コマンド プロンプトで、`C:\agent\ConfigureAgent.ps1` を実行します。 スクリプトは次のパラメーターに対して入力を求めるメッセージを表示します。
 
-    |パラメーター|値|
-    |---|---|
-    |エージェント名|既定値 `Agent-[machine name]` を受け入れます。
-    |TFS URL|チーム プロジェクトに `https://[your-VSTS-account-name].visualstudio.com` のような URL を入力します。
-    |エージェント プール|エージェント プールの名前を入力します (エージェント プールを作成していない場合は、既定値を使用します)。|
-    |作業フォルダー|既定値をそのまま使用します。 これは、ビルド エージェントによってアプリケーションが実際にビルドされるフォルダーです。 注: ASP.NET 5 Web Services の構築を計画している場合は、デプロイ中に PathTooLongExceptions エラーが発生するのを防ぐために、フォルダーに対しては可能な限り短い名前を選択することをお勧めします。|
-    |Windows サービスとしてインストールしますか?|既定値は N です。値を Y に変更します。|
-    |サービスを実行するユーザー アカウント|既定値 `NT AUTHORITY\LocalService)` をそのまま使用します。|
-    |既存のエージェントの構成を解除しますか?|既定値をそのまま **N**します。|
+  	|パラメーター|値|
+  	|---|---|
+  	|エージェント名|既定値 `Agent-[machine name]` を受け入れます。
+  	|TFS URL|チーム プロジェクトに `https://[your-VSTS-account-name].visualstudio.com` のような URL を入力します。
+  	|エージェント プール|エージェント プールの名前を入力します (エージェント プールを作成していない場合は、既定値を使用します)。|
+  	|作業フォルダー|既定値をそのまま使用します。 これは、ビルド エージェントによってアプリケーションが実際にビルドされるフォルダーです。 注: ASP.NET 5 Web Services の構築を計画している場合は、デプロイ中に PathTooLongExceptions エラーが発生するのを防ぐために、フォルダーに対しては可能な限り短い名前を選択することをお勧めします。|
+  	|Windows サービスとしてインストールしますか?|既定値は N です。値を Y に変更します。|
+  	|サービスを実行するユーザー アカウント|既定値 `NT AUTHORITY\LocalService)` をそのまま使用します。|
+  	|既存のエージェントの構成を解除しますか?|既定値をそのまま **N**します。|
 
 1. 資格情報を入力するように求められます。 チーム プロジェクトに対する権限を持つ Microsoft アカウントの資格情報を入力します。
 1. ビルド エージェントが登録されていることを確認します。 これを行うには、次の手順を実行します。
@@ -241,25 +241,25 @@ Azure PowerShell をインストールする前のセクションの手順に従
     1.  ビルド エージェントを登録したエージェントのキューを選択してから、 **継続的インテグレーション** チェック ボックスをオンします。
 1.   **変数** ] タブで、次の値が、次の変数を作成します。
 
-    |変数|値|シークレット|キュー時の使用|
-    |---|---|---|---|
-    |BuildConfiguration|リリース||○|
-    |BuildPlatform|x64|||
-    |ServicePrincipalPassword|CreateServicePrincipal.ps1 に渡したパスワードです。|○||
-    |ServicePrincipalId|CreateServicePrincipal.ps1 の出力から|||
-    |ServicePrincipalTenantId|CreateServicePrincipal.ps1 の出力から|||
-    |ServicePrincipalSubscriptionId|CreateServicePrincipal.ps1 の出力から|||
-    |ServiceFabricCertificateThumbprint|GenerateCertificate.ps1 の出力から|||
-    |ServiceFabricKeyVaultId|GenerateCertificate.ps1 の出力から|||
-    |ServiceFabricCertificateSecretId|GenerateCertificate.ps1 の出力から|||
-    |ServiceFabricClusterResourceGroupName|任意の名前。|||
-    |ServiceFabricClusterName|任意の名前。|||
-    |ServiceFabricClusterLocation|Key Vault の場所と一致する任意の名前。|||
-    |ServiceFabricClusterAdminPassword|任意の名前。|○||
-    |ServiceFabricClusterResourceGroupTemplateFilePath|`<path/to/extracted/automation/scripts/ArmTemplate-Full-3xVM-Secure.json>`|||
-    |ServiceFabricPublishProfilePath|`<path/to/your/publish/profiles/MyPublishProfile.xml>` 注: 発行プロファイル内の接続のエンドポイントは無視されます。 一時クラスター用の接続エンドポイントが使用されます。|||
-    |ServiceFabricDeploymentScriptPath|`<path/to/Deploy-FabricApplication.ps1>`|||
-    |ServiceFabricApplicationProjectPath|`<path/to/your/fabric/application/project/folder>` これは .sfproj ファイルを含むフォルダーとする必要があります。||||
+  	|変数|値|シークレット|キュー時の使用|
+  	|---|---|---|---|
+  	|BuildConfiguration|リリース||○|
+  	|BuildPlatform|x64|||
+  	|ServicePrincipalPassword|CreateServicePrincipal.ps1 に渡したパスワードです。|○||
+  	|ServicePrincipalId|CreateServicePrincipal.ps1 の出力から|||
+  	|ServicePrincipalTenantId|CreateServicePrincipal.ps1 の出力から|||
+  	|ServicePrincipalSubscriptionId|CreateServicePrincipal.ps1 の出力から|||
+  	|ServiceFabricCertificateThumbprint|GenerateCertificate.ps1 の出力から|||
+  	|ServiceFabricKeyVaultId|GenerateCertificate.ps1 の出力から|||
+  	|ServiceFabricCertificateSecretId|GenerateCertificate.ps1 の出力から|||
+  	|ServiceFabricClusterResourceGroupName|任意の名前。|||
+  	|ServiceFabricClusterName|任意の名前。|||
+  	|ServiceFabricClusterLocation|Key Vault の場所と一致する任意の名前。|||
+  	|ServiceFabricClusterAdminPassword|任意の名前。|○||
+  	|ServiceFabricClusterResourceGroupTemplateFilePath|`<path/to/extracted/automation/scripts/ArmTemplate-Full-3xVM-Secure.json>`|||
+  	|ServiceFabricPublishProfilePath|`<path/to/your/publish/profiles/MyPublishProfile.xml>` 注: 発行プロファイル内の接続のエンドポイントは無視されます。 一時クラスター用の接続エンドポイントが使用されます。|||
+  	|ServiceFabricDeploymentScriptPath|`<path/to/Deploy-FabricApplication.ps1>`|||
+  	|ServiceFabricApplicationProjectPath|`<path/to/your/fabric/application/project/folder>` これは .sfproj ファイルを含むフォルダーとする必要があります。||||
 
 1.   **トリガー** ] タブで [、 **継続的インテグレーション** と **変更をバッチ処理** オプション。
 1.   **全般** ] タブで、ビルド エージェントを登録したキューを選択します。
@@ -267,10 +267,10 @@ Azure PowerShell をインストールする前のセクションの手順に従
 
 ### "ビルド" ステップを追加する
 
-1.   **ビルド** ] タブで、選択、 **... ビルド ステップの追加** コマンドです"。
+1.   **ビルド** ] タブで、選択、 **ビルド ステップの追加.** コマンドです。"
 2.  選択 **ビルド** > **MSBuild**します。
 3.  ビルド ステップの名前で、鉛筆のアイコンを選択して変更 **ビルド**します。
-4.  選択、 **...** ボックスの横に、 **ソリューション** フィールドし、.sln ファイルを選択します。
+4.  選択、 **.** ボックスの横に、 **ソリューション** フィールドし、.sln ファイルを選択します。
 5.  入力 `$(BuildPlatform)` の **プラットフォーム**します。
 6.  入力 `$(BuildConfiguration)` の **構成**します。
 7.  選択、 **NuGet パッケージの復元** (既に選択されていない) 場合、チェック ボックスです。
@@ -278,10 +278,10 @@ Azure PowerShell をインストールする前のセクションの手順に従
 
 ### "パッケージ" ステップを追加します。
 
-1.   **ビルド** ] タブで、選択、 **... ビルド ステップの追加** コマンドです。
+1.   **ビルド** ] タブで、選択、 **ビルド ステップの追加.** コマンドを使用して SSH キーを追加する必要が発生する場合もあります。
 2.  選択 **ビルド** > **MSBuild**します。
 3.  ビルド ステップの名前の横にある鉛筆アイコンを選択して変更 **パッケージ**します。
-4.  選択、 **...** ボックスの横に、 **ソリューション** フィールドし、アプリケーション プロジェクトの .sfproj ファイルを選択します。
+4.  選択、 **.** ボックスの横に、 **ソリューション** フィールドし、アプリケーション プロジェクトの .sfproj ファイルを選択します。
 5.  入力 `$(BuildPlatform)` の **プラットフォーム**します。
 6.  入力 `$(BuildConfiguration)` の **構成**します。
 7.  入力 `/t:Package` の **MSBuild 引数**します。
@@ -292,19 +292,19 @@ Azure PowerShell をインストールする前のセクションの手順に従
 
 クリーンアップの後で以前のビルドがクリーンアップされていない場合 (クリーンアップされる前にビルドが取り消された場合など)、既存のリソース グループが新しいものと競合する可能性があります。 競合を避けるためには、残されているリソース グループ (および関連付けられているリソース) をいずれもクリーンアップしてから新しいリソース グループを作成します。
 
-1.   **ビルド** ] タブで、選択、 **... ビルド ステップの追加** コマンドです。
+1.   **ビルド** ] タブで、選択、 **ビルド ステップの追加.** コマンドを使用して SSH キーを追加する必要が発生する場合もあります。
 2.  選択 **ユーティリティ** > **PowerShell**します。
 3.  ビルド ステップの名前の横にある鉛筆アイコンを選択し、名前を変更する **クラスター リソース グループを削除する**です。
-4.  選択、 **...** コマンドの横に **Script filename**します。 自動化スクリプトを展開した場所に移動し、[ **削除 ClusterResourceGroup.ps1**します。
+4.  選択、 **.** コマンドの横に **Script filename**します。 自動化スクリプトを展開した場所に移動し、[ **削除 ClusterResourceGroup.ps1**します。
 5.   **引数**, 、入力 `-ServicePrincipalPassword "$(ServicePrincipalPassword)"`します。
 6.  ビルド定義を保存します。
 
 ### "プロビジョニングして、セキュリティで保護されたクラスターにデプロイする" ステップを追加します。
 
-1.   **ビルド** ] タブで、選択、 **... ビルド ステップの追加** コマンドです。
+1.   **ビルド** ] タブで、選択、 **ビルド ステップの追加.** コマンドを使用して SSH キーを追加する必要が発生する場合もあります。
 2.  選択 **ユーティリティ** > **PowerShell**します。
 3.  ビルド ステップの名前の横にある鉛筆アイコンを選択し、名前を変更する **の準備、およびセキュリティで保護されたクラスターにデプロイ**します。
-4.  選択、 **...** ボックスの横に **Script filename**します。 自動化スクリプトを展開した場所に移動し、[ **ProvisionAndDeploy SecureCluster.ps1**します。
+4.  選択、 **.** ボックスの横に **Script filename**します。 自動化スクリプトを展開した場所に移動し、[ **ProvisionAndDeploy SecureCluster.ps1**します。
 5.  [引数] に対して、「`-ServicePrincipalPassword "$(ServicePrincipalPassword)" -ServiceFabricClusterAdminPassword "$(ServiceFabricClusterAdminPassword)"`」を入力します。
 6.  ビルド定義を保存します。
 
@@ -312,10 +312,10 @@ Azure PowerShell をインストールする前のセクションの手順に従
 
 これで一時クラスターでの作業が終了したので、それをクリーンアップする必要があります。 クリーンアップを行わないと、一時クラスターに対して引き続き料金がかかります。 この手順ではリソース グループを削除します。これによって、クラスターと、グループ内の他のすべてのリソースが削除されます。
 
-1.   **ビルド** ] タブで、選択、 **... ビルド ステップの追加** コマンドです。
+1.   **ビルド** ] タブで、選択、 **ビルド ステップの追加.** コマンドを使用して SSH キーを追加する必要が発生する場合もあります。
 1.  選択 **ユーティリティ** > **PowerShell**します。
 1.  ビルド ステップの名前の横にある鉛筆アイコンを選択し、名前を変更する **クラスター リソース グループを削除する**です。
-1.  選択、 **...** ボックスの横に **Script filename**します。 自動化スクリプトを展開した場所に移動し、[ **RemoveClusterResourceGroup.ps1**します。
+1.  選択、 **.** ボックスの横に **Script filename**します。 自動化スクリプトを展開した場所に移動し、[ **RemoveClusterResourceGroup.ps1**します。
 1.  [引数] に対して、「`-ServicePrincipalPassword "$(ServicePrincipalPassword)`」を入力します。
 1.   **制御オプション**, を選択、 **は常に実行** チェック ボックスをオンします。
 1.  ビルド定義を保存します。
@@ -341,4 +341,5 @@ Service Fabric アプリケーションの継続的インテグレーション�
 - [ビルドに関するドキュメントのホームページ](https://msdn.microsoft.com/Library/vs/alm/Build/overview)
 - [ビルド エージェントのデプロイ](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
 - [ビルド定義の作成と構成](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
+
 

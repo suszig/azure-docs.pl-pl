@@ -41,7 +41,7 @@ Microsoft Azure SQL Database は、Azure およびその他のインターネッ
 
 インターネットおよび Azure からの接続の試行は、次の図に示されるように、Azure SQL Database サーバーまたはデータベースに到達する前にファイアウォールを通過する必要があります。
 
-   ![図の SQL Database ファイアウォールの構成を記述します。][1]
+   ![SQL Database のファイアウォール構成を示す図][1]
 
 ## インターネットからの接続
 
@@ -133,8 +133,9 @@ Microsoft Azure SQL Database サービスへ期待どおりにアクセスでき
 
 [データベース ファイアウォール設定の構成方法 (Azure SQL Database)](sql-database-configure-firewall-settings.md)
 
-[SQL Server Database エンジンと Azure SQL Database のセキュリティ センター](https://msdn.microsoft.com/library/bb510589)
+[SQL Server データベース エンジンと Azure SQL Database のセキュリティ センター](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
+
 

@@ -22,7 +22,7 @@
 
  > [AZURE.IMPORTANT]
  >
- - すべてのユーザー サインイン アクティビティ レポートは、プライベート プレビューで premium レポートです。 レポートへのアクセスを取得する電子メール ドメイン名を持つ aadreportinghelp@microsoft.com (次のように **contoso.onmicrosoft.com**)
+ - すべてのユーザーのサインイン アクティビティ レポートは、プライベート プレビューのプレミアム レポートです。 レポートへのアクセスを取得する電子メール ドメイン名を持つ aadreportinghelp@microsoft.com (次のように **contoso.onmicrosoft.com**)
 
 
 すべてのユーザーのサインイン アクティビティ レポートは、ディレクトリ内のすべてのユーザーのすべてのサインインが、日付時刻、UPN、IP アドレス、およびユーザーがサインインしたアプリケーションを含めて報告します。
@@ -30,5 +30,6 @@
 
  > [AZURE.IMPORTANT]
  >
- - すべてのユーザー サインイン アクティビティ レポートは、現在 Reporting API を通じて使用のみ。 参照してください [Reporting API の概要](active-directory-reporting-api-getting-started.md) の詳細。
+ - すべてのユーザーのサインイン アクティビティ レポートは、現在、Reporting API を介してのみ利用できます。 参照してください [Reporting API の概要](active-directory-reporting-api-getting-started.md) の詳細。
+
 

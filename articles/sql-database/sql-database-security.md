@@ -58,7 +58,7 @@ CREATE USER [Azure_AD_principal_name | Azure_AD_group_display_name] FROM EXTERNA
 SQL Database の認証の詳細については、次を参照してください。 [Azure SQL Database におけるデータベースの管理とログイン](sql-database-manage-logins.md)します。
 
 
-## Authorization
+## 承認
 承認とは、Azure SQL Database で許可される操作を示すものであり、ユーザー アカウントのロールのメンバーシップとアクセス許可によって制御されます。 ベスト プラクティスとして、必要最低限の特権をユーザーに付与することをお勧めします。 Azure SQL Database では、T-SQL のロールを使用して承認を容易に管理できます。
 
 ```
@@ -105,4 +105,5 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ## コンプライアンス
 
 アプリケーションがさまざまなセキュリティ コンプライアンスの要件を満たすのに役立つ上記の機能以外にも、Azure SQL Database は定期的な監査に参加し、さまざまなコンプライアンス基準に認定されています。 詳細については、次を参照してください。、 [Microsoft Azure トラスト センター](http://azure.microsoft.com/support/trust-center/), の最新の一覧を見つけることができますが、 [SQL Database コンプライアンス証明書](http://azure.microsoft.com/support/trust-center/services/)します。
+
 

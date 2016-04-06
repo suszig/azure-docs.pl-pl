@@ -129,7 +129,7 @@ Storm UI のメイン ページには、次の情報が表示されます。
   - **非アクティブ化**: 実行中のトポロジを一時停止します。
   - **再調整**: トポロジの並列処理を調整します。 クラスターのノード数を変更した場合は、実行中のトポロジを再調整する必要があります。 この操作で、クラスター内のノード数の増減に合わせて、トポロジの並列処理を調整できます。
 
-      詳細については、次をご覧ください。 <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Storm トポロジの並列処理を理解します。</a>.
+      詳細については、「<a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of a Storm topology (Storm トポロジの並列処理)</a>」をご覧ください。
 
   - **強制終了**: 指定したタイムアウト後に Storm トポロジを停止します。
 
@@ -182,4 +182,5 @@ REST API から返される情報は、クラスターと同じ Azure Virtual Ne
 展開とトポロジを Storm ダッシュ ボードを使用して監視について説明する方法を学習できました。 これでハウツー [Maven を使用した開発の Java ベース トポロジ](hdinsight-storm-develop-java-topology.md)します。
 
 複数のトポロジの例の一覧は、次を参照してください。 [HDInsight での Storm に関するトポロジ例](hdinsight-storm-example-topology.md)します。
+
 

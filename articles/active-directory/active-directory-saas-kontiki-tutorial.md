@@ -79,7 +79,7 @@
 
 3.   **アプリケーション URL の構成** ] ページの [、 **Kontiki サインオン URL** ] ボックスに、型 URL を使って、ユーザーを Kontiki にサインオン (例::"*https://company.mc.eval.kontiki.com/*")、順にクリック **次**します。
 
-    ![Configure App URL](./media/active-directory-saas-kontiki-tutorial/IC790240.png "Configure App URL")
+    ![アプリケーション URL の構成](./media/active-directory-saas-kontiki-tutorial/IC790240.png "Configure App URL")
 
 4.   **Kontiki でのシングル サインオンの構成** ] ページで [ **メタデータのダウンロード**, 、お使いのコンピューターにメタデータ ファイルを保存します。
 
@@ -114,3 +114,4 @@ Kontiki へのユーザー プロビジョニングの構成にあたって必�
     ![あり](./media/active-directory-saas-kontiki-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

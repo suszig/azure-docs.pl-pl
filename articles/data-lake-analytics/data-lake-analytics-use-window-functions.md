@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Data Lake Analytics ジョブに U-SQL ウインドウ関数を使用する | Azure" 
-   description="U SQL ウィンドウ関数を使用する方法について説明します。 " 
+   description="U SQL ウィンドウ関数の使用方法について説明します。 " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="mumian" 
@@ -738,7 +738,7 @@ PERCENTILE_DISC では値が補間されないため、Web の中央値は 200 �
 ## 関連項目
 
 - [Microsoft Azure Data Lake Analytics の概要](data-lake-analytics-overview.md)
-- [Azure ポータルで Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-portal.md)
+- [Azure ポータルで Azure Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-portal.md)
 - [Azure PowerShell で Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-powershell.md)
 - [Data Lake Tools for Visual Studio を使用する U-SQL スクリプトの開発](data-lake-analytics-data-lake-tools-get-started.md)
 - [Azure Data Lake Analytics の対話型チュートリアルの使用](data-lake-analytics-use-interactive-tutorials.md)
@@ -747,4 +747,5 @@ PERCENTILE_DISC では値が補間されないため、Web の中央値は 200 �
 - [Azure ポータルを使用する Azure Data Lake Analytics の管理](data-lake-analytics-use-portal.md)
 - [Azure PowerShell を使用する Azure Data Lake Analytics の管理](data-lake-analytics-use-powershell.md)
 - [Azure ポータルを使用する Azure Data Lake Analytics ジョブの監視とトラブルシューティング](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+
 

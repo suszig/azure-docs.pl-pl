@@ -85,9 +85,9 @@ Azure リソース マネージャーを使用してリソースに実行する�
 
 `{tenant id}` を、作成した Azure Active Directory アプリケーションのテナント ID に置き換えます。 クリックして、id にアクセスする **エンドポイントを表示**します。
 
-![エンドポイント][api-management-aad-default-directory]
+![Endpoints][api-management-aad-default-directory]
 
-![エンドポイント][api-management-endpoint]
+![Endpoints][api-management-endpoint]
 
 置換 `{application id}` と `{redirect uri}` を使用して、 **クライアント Id** と URL、 **Redirect Uris** セクションから、Azure Active Directory アプリケーションの **構成** ] タブをクリックします。 
 
@@ -188,3 +188,4 @@ API Management サービスをバックアップするには、次の HTTP 要�
 [api-management-arm-token]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-arm-token.png
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
+

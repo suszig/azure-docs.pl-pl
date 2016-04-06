@@ -26,7 +26,7 @@
 - [PowerShell](sql-database-copy-powershell.md)
 - [SQL](sql-database-copy-transact-sql.md)
 
-次の手順は、使用した SQL データベースをコピーする方法を示して、 [Azure ポータル](https://portal.azure.com)します。 データベース コピー操作により新しい SQL データベースが作成されます。 コピーは、同じサーバーか別のサーバーで作成するデータベースのスナップショット バックアップです。
+次の手順は、使用した SQL データベースをコピーする方法を示して、 [Azure ポータル](https://portal.azure.com)します。 データベース コピー操作により新しい SQL データベースが作成されます。 コピーは、同じサーバーまたは別のサーバーに作成したデータベースのスナップショット バックアップです。
 
 > [AZURE.NOTE] Azure SQL データベースは自動的に作成され、すべてのユーザー データベースを復元するバックアップを保持します。 詳細については、「 [ビジネス継続性の概要](sql-database-business-continuity.md)します。
 
@@ -57,7 +57,7 @@ SQL Database をコピーするには、以下が必要です。
 2.  選択、 **ターゲット サーバー**します。 対象サーバーとは、データベース コピーが作成される場所です。 新しいサーバーを作成したり、一覧から既存のサーバーを選択したりできます。
 3.  をクリックして **OK** コピー プロセスを開始します。
 
-    ![データベース名とサーバー][2]
+    ![データベースの名前とサーバー][2]
 
 
 
@@ -100,5 +100,6 @@ SQL Database をコピーするには、以下が必要です。
 [2]: ./media/sql-database-copy/copy-ok.png
 [3]: ./media/sql-database-copy/copy-notification.png
 [4]: ./media/sql-database-copy/monitor-copy.png
+
 
 

@@ -48,7 +48,7 @@ GitHub からは、このチュートリアルで作成したプロジェクト�
 
 Event Hubs スパウトとボルトは Java コンポーネントで、これらのコンポーネントを使用して Apache Storm から Event Hubs を簡単に操作できます。 これらのコンポーネントは Java で記述されていますが、HDInsight Tools for Visual Studio を使用して、C# と Java のコンポーネントが混在するハイブリッド トポロジを作成できます。
 
-スパウトとボルトはという名前の 1 つ Java アーカイブ (.jar) ファイルとして配布 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**します。
+スパウトとボルトはという名前の単一 Java アーカイブ (.jar) ファイルとして配布 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**します。
 
 ### jar ファイルのダウンロード
 
@@ -118,7 +118,7 @@ Event Hubs は、この例のデータ ソースです。 新しい Event Hub �
 
 このセクションでは、Event Hubs のボルトを使用して Event Hubs にデータを書き込むトポロジを作成します。
 
-1. 最新バージョンの HDInsight Tools for Visual Studio をまだインストールしていない場合は、 <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">「Get started using HDInsight Tools for Visual Studio (HDInsight Tools for Visual Studio を使用する)」</a>.
+1. HDInsight Tools for Visual Studio の最新バージョンをまだインストールしていない場合は、「<a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">HDInsight Tools for Visual Studio の使用開始</a>」をご覧ください。
 
 2. Visual Studio を開き、選択 **ファイル** > **新規** し **プロジェクト**します。
 
@@ -205,7 +205,7 @@ Event Hubs は、この例のデータ ソースです。 新しい Event Hub �
             Properties.Settings.Default.EventHubName,
             "true"));
 
-    このコードは、Java ボルトの新しいコンストラクターを作成します。このコンストラクターは、ボルトの新しいインスタンスを構成するために実行時に使用されます。 この場合は、使用している、 <a href="http://storm.apache.org/documentation/Clojure-DSL.html" target="_blank">Apache Storm Clojure DSL</a> Event Hubs 構成情報をスパウトに構成する前に追加しました。 具体的には、このコードは、次のことを行うために HDInsight によって実行時に使用されます。
+    このコードは、Java ボルトの新しいコンストラクターを作成します。このコンストラクターは、ボルトの新しいインスタンスを構成するために実行時に使用されます。 この場合、<a href="http://storm.apache.org/documentation/Clojure-DSL.html" target="_blank">Apache Storm Clojure DSL</a> を使用して、前の手順で追加した Event Hubs 構成情報をスパウトに構成します。 具体的には、このコードは、次のことを行うために HDInsight によって実行時に使用されます。
 
     * 新しいインスタンスを作成 **com.microsoft.eventhubs.bolt.EventHubBoltConfig** 指定した Event Hubs 情報を使用します。
     * 新しいインスタンスを作成 **com.microsoft.eventhubs.bolt.EventHubBolt**, を渡すことで、 **EventHubBoltConfig** インスタンス。
@@ -560,4 +560,5 @@ EventHubSpout は Zookeeper ノードに対する状態へのチェックポイ�
 
 * [HDInsight 上の Storm に関するトポロジ例](hdinsight-storm-example-topology.md)
  
+
 

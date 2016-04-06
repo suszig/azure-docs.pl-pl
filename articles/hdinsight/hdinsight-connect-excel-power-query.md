@@ -39,7 +39,7 @@ Power Query を使うと、各種ソースから Microsoft Excel にデータを
 
 Microsoft Power Query を使用して Excel for ダウンロード、 [Microsoft ダウンロード センター][powerquery-download] し、インストールします。
 
-## <a id="ImportData"></a>HDInsight データを Excel へインポート
+## <a id="ImportData"></a>HDInsight データを Excel にインポート
 
 Power Query for Excel アドインを使うと、HDInsight クラスターから Excel にデータを簡単にインポートして、そこで PowerPivot や Power Map のような BI ツールを使用してデータの調査、分析、表示ができます。
 
@@ -76,7 +76,7 @@ Power Query for Excel アドインを使うと、HDInsight クラスターから
 この記事では、Power Query を使用して HDInsight から Excel にデータを取得する方法を学習しました。 同様に、Azure SQL Database に HDInsight からデータを取得することもできます。 また、HDInsight にデータをアップロードすることもできます。 詳細については、次の記事を参照してください。
 
 * [Microsoft Hive ODBC ドライバーを使用した Excel から HDInsight への接続に関するページ][hdinsight-ODBC]
-* [データを HDInsight へアップロードする方法][hdinsight-upload-data]
+* [HDInsight へのデータのアップロードに関するページ][hdinsight-upload-data]
 
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-get-started]: ../hdinsight-get-started.md
@@ -87,4 +87,5 @@ Power Query for Excel アドインを使うと、HDInsight クラスターから
 [image-hdi-powerquery-imported-table]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportedTable.PNG
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
+
 

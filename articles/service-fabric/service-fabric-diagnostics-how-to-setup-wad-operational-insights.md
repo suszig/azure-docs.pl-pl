@@ -27,7 +27,7 @@ Azure で Service Fabric クラスターを実行するときに、すべての�
 * [Azure リソース マネージャー](https://azure.microsoft.com/documentation/articles/resource-group-overview/)
 
 ## 前提条件
-これらのツールが、このドキュメントの一部の操作の実行に使用されます。
+これらのツールは、このドキュメントの操作の一部を実行するために使用されます。
 * [Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
 * [ARM クライアント](https://github.com/projectkudu/ARMClient)
 
@@ -56,7 +56,7 @@ ARM テンプレートの WAD 設定を確認するには、"WadCfg" を検索�
 New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToARMConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
 ```
 
-### <a name="deploywadarm"></a>WAD を既存のクラスターに展開します。
+### <a name="deploywadarm"></a>WAD を既存のクラスターにデプロイする
 WAD がデプロイされていない既存のクラスターがある場合は、次の手順で WAD を追加できます。
 次の JSON で WadConfigUpdate.json と WadConfigUpdateParams.json という 2 つのファイルを作成します。
 
@@ -311,4 +311,5 @@ WAD ログを収集する新しい EventSource からを更新するだけに展
 
 ## 次のステップ
 チェック アウトの出力される診断イベント [高信頼アクター](service-fabric-reliable-actors-diagnostics.md) と [信頼性の高いサービス](service-fabric-reliable-services-diagnostics.md) の問題をトラブルシューティングするときにどのようなイベントをさらに詳しく理解するを調べてください。
+
 

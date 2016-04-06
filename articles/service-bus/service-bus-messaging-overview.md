@@ -52,7 +52,8 @@ Service Bus メッセージングの詳細については、次のトピック�
 - [Service Bus のキュー、トピック、サブスクリプション](service-bus-queues-topics-subscriptions.md)
 - [Service Bus の基礎](service-bus-fundamentals-hybrid-solutions.md)
 - [Service Bus のアーキテクチャ](service-bus-architecture.md)
-- [サービス バス キューの使用方法](service-bus-dotnet-how-to-use-queues.md)
+- [Service Bus キューの使用方法](service-bus-dotnet-how-to-use-queues.md)
 - [How to use Service Bus Topics (Service Bus トピックの利用方法)](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
+
 

@@ -2,7 +2,7 @@
 
 ### デバイスを構成して登録するには
 
-1. StorSimple デバイスのシリアル コンソールで Windows PowerShell インターフェイス にアクセスします。 参照してください [デバイスのシリアル コンソールに接続するための PuTTY を使用して](#use-putty-to-connect-to-the-device-serial-console) についてです。 **手順に厳密に従うことを確認するまたはコンソールにアクセスすることはできません。**
+1. StorSimple デバイスのシリアル コンソールで Windows PowerShell インターフェイス にアクセスします。 参照してください [デバイスのシリアル コンソールに接続するための PuTTY を使用して](#use-putty-to-connect-to-the-device-serial-console) についてです。 **必ず手順を正確に実行してください。そうしないと、コンソールにアクセスできません。**
 
 2. 開いたセッションで、Enter キーを 1 回押して、コマンド プロンプトを開きます。 
 
@@ -101,9 +101,9 @@
 
     ![StorSimple 登録進行状況](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegistrationProgress-gov-include.png)
 
-15. デバイスが登録されると、サービス データ暗号化キーが表示されます。 このキーをコピーし、安全な場所に保存しておきます。 **このキーは、StorSimple Manager サービスに追加のデバイスを登録するサービス登録キーと共に必要になります。**参照してください [StorSimple のセキュリティ](../articles/storsimple/storsimple-security.md) このキーの詳細についてです。
+15. デバイスが登録されると、サービス データ暗号化キーが表示されます。 このキーをコピーし、安全な場所に保存しておきます。 **このキーは、StorSimple Manager サービスに追加のデバイスを登録するために、サービス登録キーと共に必要になります。** 参照してください [StorSimple のセキュリティ](../articles/storsimple/storsimple-security.md) このキーの詳細についてです。
     
-    ![StorSimple register device 7](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice7_gov-include.png)    
+    ![StorSimple によるデバイスの登録 7](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice7_gov-include.png)    
 
       > [AZURE.IMPORTANT] シリアル コンソール ウィンドウからテキストをコピーするには、テキストを選択します。 その状態で、クリップボードまたは任意のテキスト エディターに貼り付けることができます。 
       > 
@@ -123,4 +123,5 @@
         かどうかは、数分後に、デバイスがオフライン状態のまま、ファイアウォール、ネットワークが」の説明に従って構成されているかどうかを確認する必要があります、 [、StorSimple デバイスのネットワーク要件](https://msdn.microsoft.com/library/dn772371.aspx)します。 HTTP 1.1 がサポートされていない場合は、ポート 9354 が発信方向の通信のために開かれていることを確認してください。 このポートは、StorSimple Manager サービスと StorSimple デバイスの間の通信に使用されます。
      
         
+
 

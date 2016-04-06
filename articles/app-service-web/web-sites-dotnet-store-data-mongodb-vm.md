@@ -415,14 +415,15 @@ MongoDB C# ドライバーをインストールするには、以下を実行し
 
 **ソリューション エクスプ ローラー** 次のようになります。
 
-![Solution Explorer][SolutionExplorerMyTaskListApp]
+![ソリューション エクスプローラー
+][SolutionExplorerMyTaskListApp]
 
 ## MongoDB 接続文字列を設定する ##
  **ソリューション エクスプ ローラー**, を開き、 *DAL/Dal.cs* ファイルです。 次のコード行を見つけます。
 
     private string connectionString = "mongodb://<vm-dns-name>";
 
-置換 `<vm-dns-name>` [仮想マシンの作成と MongoDB のインストール] で作成した MongoDB を実行する仮想マシンの DNS 名を持つこのチュートリアルの手順です。  仮想マシンの DNS 名を検索するには、Azure ポータルの選択] に移動 **仮想マシン**, 、検索と **DNS 名**します。
+置換 `<vm-dns-name>` で作成した MongoDB を実行する仮想マシンの DNS 名を持つ、 [仮想マシンを作成し、MongoDB をインストールする][] このチュートリアルの手順です。  仮想マシンの DNS 名を検索するには、Azure ポータルの選択] に移動 **仮想マシン**, 、検索と **DNS 名**します。
 
 仮想マシンの DNS 名が "testlinuxvm.cloudapp.net" で、MongoDB が既定のポート 27017 をリッスンしている場合、その接続文字列のコード行は次のようになります。
 
@@ -501,3 +502,4 @@ Mongodb c# アプリケーションの開発に関する詳細については、
 [Create an Azure web site]: #createwebsite
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
+

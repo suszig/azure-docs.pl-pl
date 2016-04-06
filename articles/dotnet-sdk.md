@@ -101,7 +101,7 @@ SDK がインストールされている場合は、コンピューターには�
 
 サーバー エクスプローラーの HDInsight ツールを使用すると、Hive データベースと HDInsight クラスターにリンクされたストレージ アカウントを移動したり、テーブルを作成したり、Hive クエリを送信できます。 詳細については、次を参照してください。 [Visual Studio の HDInsight Hadoop Tools を使い始める](hdinsight-hadoop-visual-studio-tools-get-started.md)します。
 
-###<a id="mobile">Microsoft Azure モバイル アプリ SDK
+###<a id="mobile">Microsoft Azure Mobile App SDK
 
 操作するためのツール [Azure App Service Mobile Apps](app-service-mobile-value-prop-preview.md)します。
 
@@ -117,9 +117,9 @@ SDK をインストールしたときに、Azure 向けアプリケーション�
 
     Azure SDK には、Azure のサービスを使用するために必要なクライアント ライブラリが含まれています。ただし、SDK をインストールしたときに、そのすべてがインストールされるわけではありません。 アプリケーションでは、SDK によってインストールされない、クライアント ライブラリを必要とする場合をから入手できます [NuGet.org](http://go.microsoft.com/fwlink/?LinkId=510472)します。 クライアント ライブラリが SDK によってインストールされる場合でも、NuGet.org で現在のバージョンに更新することをお勧めいたします。
 
-    **クライアント ライブラリのローカル コピー。**Azure SDK for .NET は、いくつかの Azure クライアント ライブラリ (ストレージ、サービス バス、キャッシュなど) 用の NuGet パッケージをユーザーのコンピューターにコピーします。 これらのクライアント ライブラリは、新規のクラウド サービス プロジェクトに自動的に含められるため、インターネットに接続していない場合でも、Visual Studio はローカルの NuGet パッケージでプロジェクトを作成できます。 一般に、クライアント ライブラリは SDK よりも頻繁に更新されているため、NuGet.org で入手できるクライアント ライブラリの方が SDK によってインストールされるものよりも新しい場合が多いことに注意してください。 
+    **クライアント ライブラリのローカル コピー。** Azure SDK for .NET は、いくつかの Azure クライアント ライブラリ (ストレージ、サービス バス、キャッシュなど) 用の NuGet パッケージをユーザーのコンピューターにコピーします。 これらのクライアント ライブラリは、新規のクラウド サービス プロジェクトに自動的に含められるため、インターネットに接続していない場合でも、Visual Studio はローカルの NuGet パッケージでプロジェクトを作成できます。 一般に、クライアント ライブラリは SDK よりも頻繁に更新されているため、NuGet.org で入手できるクライアント ライブラリの方が SDK によってインストールされるものよりも新しい場合が多いことに注意してください。 
 
-    **クライアント ライブラリが含まれるプロジェクト テンプレート。**のみ [Azure クラウド サービス](cloud-services-dotnet-get-started.md) と [Azure Mobile Service](mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md) プロジェクト テンプレートは、いくつかのクライアント ライブラリを自動的に含まれています。 その他のライブラリまたはその他のテンプレートは、インストール、 [クライアント ライブラリの NuGet パッケージ](http://go.microsoft.com/fwlink/?LinkId=510472) 必要があります。
+    **クライアント ライブラリが含まれるプロジェクト テンプレート。** のみ [Azure クラウド サービス](cloud-services-dotnet-get-started.md) と [Azure Mobile Service](mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md) プロジェクト テンプレートは、いくつかのクライアント ライブラリを自動的に含まれています。 その他のライブラリまたはその他のテンプレートは、インストール、 [クライアント ライブラリの NuGet パッケージ](http://go.microsoft.com/fwlink/?LinkId=510472) 必要があります。
 
 * [Azure のモバイル サービス プロジェクト テンプレート](mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md)します。
 
@@ -154,7 +154,7 @@ SDK でクライアント ライブラリがインストールされるのは、
 
 参照してください [Microsoft Azure Cloud Services のサポート ライフ サイクル ポリシー](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq)します。
 
-###<a id="guestos"></a>Azure SDK for .NET との互換性があるゲスト OS を教えてください。
+###<a id="guestos"></a>Azure SDK for .NET と互換性があるゲスト OS バージョンを教えてください。
 
 参照してください [Azure ゲスト OS リリースと SDK の互換性対応表](http://msdn.microsoft.com/library/ee924680.aspx)します。
 
@@ -185,4 +185,5 @@ Azure SDK for .NET が既にインストールされている場合に新しい�
 Azure SDK for .NET のソース コード、クライアント ライブラリなどを参照してください。 [GitHub.com/Azure](https://github.com/azure/)します。
 
 Azure クライアント ライブラリのリファレンス ドキュメントを参照してください。 [Azure .NET のリファレンス](/documentation/api/)します。 
+
 

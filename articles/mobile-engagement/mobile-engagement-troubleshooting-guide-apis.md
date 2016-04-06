@@ -35,7 +35,7 @@
 
 ### 関連項目
  
-- [API のドキュメント][リンク 4]
+- [API ドキュメント][Link 4]
 - [XMPP プロトコル情報]( http://xmpp.org/extensions/xep-0199.html)
  
 ## Azure モバイル エンゲージメント UI で使用できるアクションと同じアクションを、API を使用して実行できません
@@ -49,7 +49,7 @@
 
 ### 関連項目
  
-- [UI のドキュメント][1 のリンク]
+- [UI ドキュメント][Link 1]
  
 ## エラー メッセージ
 
@@ -82,7 +82,7 @@
 
 ### 関連項目
 
-- [API ドキュメント - 特定の API に関する詳細なエラー][リンク 4]
+- [API ドキュメント - 特定の API に関する詳細なエラー情報][Link 4]
  
 ## サイレント障害
 
@@ -96,7 +96,7 @@
 
 ### 関連項目
 
-- [トラブルシューティング ガイド - SDK][25 のリンク]
+- [トラブルシューティング ガイド - SDK][Link 25]
  
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
@@ -129,3 +129,4 @@
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
+

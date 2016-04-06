@@ -85,7 +85,7 @@ Tinfoil Security のシングル サインオンを構成するには、証明�
 
     >[AZURE.NOTE] Tinfoil Security Metadata (https://www.tinfoilsecurity.com/saml/metadata) から ACS URL を取得することができます。
 
-    ![アプリケーション URL の構成](./media/active-directory-saas-tinfoil-security-tutorial/IC798969.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-tinfoil-security-tutorial/IC798969.png "Configure App URL")
 
 4.   **Tinfoil Security でのシングル サインオンの構成** ] ページで、証明書をダウンロードする] をクリックして **証明書のダウンロード**, 、としては、証明書ファイルをローカルに保存および **c:\\Tinfoil Security.cer**します。
 
@@ -164,3 +164,4 @@ Tinfoil Security の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-tinfoil-security-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

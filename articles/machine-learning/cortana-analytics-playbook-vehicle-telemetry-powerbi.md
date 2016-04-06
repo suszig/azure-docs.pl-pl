@@ -338,7 +338,7 @@ Power BI では、新しいデータセットが生成されます。 をクリ�
 
 • がローカルに保存します。
 
-**PowerBI レポートを構成します。**
+**PowerBI レポートの構成**
 • 開くデザイナー ファイル 'VehicleTelemetryAnalytics - デスクトップ Report.pbix' PowerBI デスクトップを使用します。 PowerBI デスクトップをインストールしてない場合は既に、 [PowerBI デスクトップ インストール](http://www.microsoft.com/download/details.aspx?id=45331)します。 
 
 • クリック、 **クエリの編集**します。
@@ -440,4 +440,5 @@ Power BI では、新しいデータセットが生成されます。 をクリ�
 ![Vehicle Telemetry - Organize Dashboard 2](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard3.png)
 
 お疲れさまでした。 レポートとダッシュボードが正常に作成され、車両の状態と運転の習慣に関するリアルタイム情報や予測情報を一括して把握できるようになりました。  
+
 

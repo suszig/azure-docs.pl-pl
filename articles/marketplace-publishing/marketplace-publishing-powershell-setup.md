@@ -27,6 +27,7 @@ Azure PowerShell を設定する方法の詳細については、次を参照し
 最初のコマンドは、既定のストレージ アカウントをサブスクリプションに関連付けます (一部の VM プロビジョニング操作に必要)。  2 番目のコマンドは、そのサブスクリプションを現在のサブスクリプションにします (他のコマンドレットによって認識される)。
 
 ## 関連項目
-- [Microsoft Azure Marketplace へのプランの発行方法](marketplace-publishing-getting-started.md)
+- [概要: Azure Marketplace へのプランの発行方法](marketplace-publishing-getting-started.md)
 - [Marketplace 向けの仮想マシン イメージの作成](marketplace-publishing-vm-image-creation.md)
+
 

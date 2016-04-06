@@ -29,7 +29,7 @@
 
 ## Service Bus を使用するようにアプリケーションを構成する
 
-インストールされていることを確認、 [Azure SDK for Java][] このサンプルをビルドする前にします。 Eclipse を使用している場合は、インストール、 [Azure Toolkit for Eclipse][] 、Azure SDK for Java が含まれます。 追加することができますし、 **Microsoft Azure Libraries for Java** をプロジェクトに。
+インストールされていることを確認、 [Azure SDK for Java][] このサンプルをビルドする前にします。 Eclipse を使用している場合は、インストール、 [Azure Toolkit for Eclipse][] Azure SDK for Java が含まれます。 追加することができますし、 **Microsoft Azure Libraries for Java** をプロジェクトに。
 
 ![](media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
@@ -254,4 +254,5 @@ Service Bus には、
   [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
   [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
+
 

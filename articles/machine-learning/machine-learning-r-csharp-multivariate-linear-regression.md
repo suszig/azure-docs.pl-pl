@@ -76,7 +76,7 @@
 >この Web サービスは、Azure Machine Learning を使用して作成されました。 無料評価版として入門ビデオ実験を作成し、 [web サービスを公開](machine-learning-publish-a-machine-learning-web-service.md), を参照してください [azure.com/ml](http://azure.com/ml)します。 Web サービスを作成した実験のスクリーン ショット、および実験内の各モジュールに対するコード例を以下に示します。
 
 
-Azure Machine Learning 内で、新しい空白の実験が作成され [R スクリプトの実行] [- r のスクリプトの実行] の 2 つのモジュールをワークスペースに取得しました。 この Web サービスは、基になる R スクリプトで Azure Machine Learning の実験を実行します。 つまり、この実験には、スキーマ定義とモデルのトレーニング + スコア付けの 2 つの部分があります。 最初のモジュールは、入力されたデータセットに必要な構造を定義します。最初の変数を従属変数、残りを独立変数とします。 2 番目のモジュールは、入力データの汎用線形回帰モデルに適合させます。  
+Azure Machine Learning 内で、新しい空白の実験が作成された 2 つと [R スクリプトの実行][execute-r-script] ワークスペースに取得しました。 この Web サービスは、基になる R スクリプトで Azure Machine Learning の実験を実行します。 つまり、この実験には、スキーマ定義とモデルのトレーニング + スコア付けの 2 つの部分があります。 最初のモジュールは、入力されたデータセットに必要な構造を定義します。最初の変数を従属変数、残りを独立変数とします。 2 番目のモジュールは、入力データの汎用線形回帰モデルに適合させます。  
   
 ![実験フロー][3]
 
@@ -116,4 +116,5 @@ Web サービスまたは Azure Marketplace への発行の使用に関するよ
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
+
 

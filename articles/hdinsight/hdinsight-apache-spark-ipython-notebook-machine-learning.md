@@ -29,7 +29,7 @@ HDInsight の Apache Spark クラスターを使用して Machine Learning ア�
 - Azure サブスクリプション。 参照してください [取得 Azure 無料試用版](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)します。
 - Apache Spark クラスター。 手順については、次を参照してください。 [Azure HDInsight でのクラスターの Apache Spark のプロビジョニング](hdinsight-apache-spark-provision-clusters.md)します。 
 
-##<a name="data"></a>データを表示します。
+##<a name="data"></a>データ
 
 アプリケーションの作成を始める前に、データの構造およびデータに対して実行する分析の種類を説明します。 
 
@@ -41,7 +41,7 @@ HDInsight の Apache Spark クラスターを使用して Machine Learning ア�
 
 このデータを使用し、システム ID とシステム使用年数から得られる目標温度を基にしてビルが暑すぎるか寒すぎるかを予測します。
 
-##<a name="app"></a>Spark MLlib を使用して機械学習アプリケーションを作成します。
+##<a name="app"></a>Spark MLlib を使用した Machine Learning アプリケーションの作成
 
 1.  [Azure ポータル](https://portal.azure.com/), 、スタート ボードで、タイルをクリックして、Spark クラスターの場合、スタート画面に固定表示)。 [クラスターに移動することもできます。 **すべてを参照** > **HDInsight クラスター**します。   
 
@@ -133,7 +133,7 @@ HDInsight の Apache Spark クラスターを使用して Machine Learning ア�
         training = documents.toDF()
 
 
-5. トークナイザー、hashingTF、lr という 3 つのステージで構成される Spark 機械学習パイプラインを構成します。 新機能の詳細については、パイプラインとそのしくみを参照してください。 <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark 機械学習パイプライン</a>.
+5. トークナイザー、hashingTF、lr という 3 つのステージで構成される Spark 機械学習パイプラインを構成します。 パイプラインの概要と機能について詳しくは、<a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark 機械学習に関するページ</a>をご覧ください。
 
     空のセルとキーを押して次のスニペットを貼り付けて **shift キーを押しながら ENTER**します。
 
@@ -218,7 +218,7 @@ HDInsight の Apache Spark クラスターを使用して Machine Learning ア�
     ![Jupyter カーネルを再起動します](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Jupyter.Restart.Kernel.png "Restart the Jupyter Kernel")
            
 
-##<a name="anaconda"></a>Anaconda scikit を使用して、機械学習ライブラリを習得
+##<a name="anaconda"></a> Machine Learning への Anaconda scikit-learn ライブラリの使用
 
 HDInsight の Apache Spark クラスターには、Anaconda ライブラリが含まれます。 これも含まれています、 **scikit-学習** 機械学習ライブラリです。 ライブラリには、Jupyter Notebook からサンプル アプリケーションを直接作成するために使用できるさまざまなデータ セットも含まれます。 例については、scikit を使用する-ライブラリを参照してください [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html)します。
 
@@ -226,7 +226,7 @@ HDInsight の Apache Spark クラスターには、Anaconda ライブラリが�
 
 * [概要: Azure HDInsight での Apache Spark](hdinsight-apache-spark-overview.md)
 * [HDInsight クラスターでの Spark のプロビジョニング](hdinsight-apache-spark-provision-clusters.md)
-* [HDInsight と BI ツールで Spark を使用した対話型データ分析の実行](hdinsight-apache-spark-use-bi-tools.md)
+* [BI ツールを使用して HDInsight で Spark を使用して対話型データ分析を実行します。](hdinsight-apache-spark-use-bi-tools.md)
 * [リアルタイム ストリーミング アプリケーションを作成するための HDInsight での Spark の使用](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 * [Azure HDInsight での Apache Spark クラスターのリソースの管理](hdinsight-apache-spark-resource-manager.md)
 
@@ -246,4 +246,5 @@ HDInsight の Apache Spark クラスターには、Anaconda ライブラリが�
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
+
 

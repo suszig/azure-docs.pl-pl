@@ -99,7 +99,7 @@
 
 8.  [シングル サインオンの有効化 (SSO)] ページで、次の手順に従います。
 
-    ![Enable single sign-on](./media/active-directory-saas-pagerduty-tutorial/IC778537.png "Enable single sign-on")
+    ![シングル サインオンの有効化](./media/active-directory-saas-pagerduty-tutorial/IC778537.png "Enable single sign-on")
 
     1.  作成、 **base-64 でエンコードされた** からダウンロードした証明書ファイル。  
 
@@ -154,3 +154,4 @@ PagerDuty の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-pagerduty-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

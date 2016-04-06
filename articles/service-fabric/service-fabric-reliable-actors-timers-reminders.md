@@ -82,7 +82,7 @@ Task<IActorReminder> reminderRegistration = RegisterReminder(
                                                 ActorReminderAttributes.None);
 ```
 
-上記の例で `"Pay cell phone bill"` はアラーム名であり、アクターがアラームを一意に識別に使用する文字列です。 `BitConverter.GetBytes(amountInDollars)` アラームに関連付けられているコンテキストです。 これはアクターに戻りますアラームのコールバックに渡す引数としてつまり `IRemindable.ReceiveReminderAsync`
+上記の例で `"Pay cell phone bill"` はアラーム名であり、アクターがアラームを一意に識別に使用する文字列です。 `BitConverter.GetBytes(amountInDollars)` アラームに関連付けられているコンテキストです。 これは、アラームのコールバックの引数、つまり `IRemindable.ReceiveReminderAsync` としてアクターに戻ります。
 
 アラームを使用するアクターは、次の例に示すように `IRemindable` インターフェイスを実装する必要があります。
 
@@ -113,4 +113,5 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 ```
 
 上記の例のように、 `UnregisterReminder` メソッドは、`IActorReminder` インターフェイスを受け入れます。 アクターの基本クラスは、アラーム名で渡すことで、`IActorReminder` インターフェイスを取得できる `GetReminder` メソッドをサポートします。 これにより、アクターが `RegisterReminder` メソッドの呼び出しから返された `IActorReminder` インターフェイスを永続化する必要がなくなるため便利です。
+
 

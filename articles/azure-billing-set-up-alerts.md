@@ -20,7 +20,7 @@
 
 Azure サブスクリプションにかかる月額料金に懸念がありますか。 Azure サブスクリプションのアカウント管理者の場合、Azure 課金アラート サービスを使用して、Azure アカウントの課金アクティビティを監視と管理するのに役立つ、カスタマイズされた請求アラートを作成できます。
 
-このサービスは、プレビュー サービスのため、最初にサインアップする必要があります。サインアップするには <a href="https://account.windowsazure.com/PreviewFeatures">Azure アカウント管理ポータルの </a> [プレビュー機能] ページに移動します。
+このサービスはプレビュー版サービスのため、まずはサインアップする必要があります。サインアップするには、Azure アカウント管理ポータルの<a href="https://account.windowsazure.com/PreviewFeatures">プレビュー機能のページ</a>にアクセスします。
 
 ## アラートのしきい値と電子メールの受信者を設定する
 
@@ -45,4 +45,5 @@ Azure は、任意の電子メール アドレスをサポートしています�
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
+
 

@@ -80,7 +80,7 @@ parse_only | ブール値。 true または false | ライセンス要求は解�
 
 名前 | 値 | 説明
 ---|---|---
-content_key_specs します。 track_type | 文字列 | トラックの種類の名前です。 ライセンス要求で content_key_specs が指定されている場合は、すべてのトラックの種類を明示的に指定します。 指定しないと、過去 10 秒間を再生できません。 
+content_key_specs します。 track_type | string | トラックの種類の名前です。 ライセンス要求で content_key_specs が指定されている場合は、すべてのトラックの種類を明示的に指定します。 指定しないと、過去 10 秒間を再生できません。 
 content_key_specs  <br/> security_level | uint32 | 再生に関するクライアントの堅牢性の要件を定義します。 <br/> 1 ベース ホワイト ボックスのソフトウェア ベースの暗号化が必要です。 <br/> 2-ソフトウェアの暗号化と難読化されたデコーダーが必要です。 <br/> 3 - キー マテリアルと暗号化操作は、ハードウェアの信頼できるバックアップの実行環境内で実行する必要があります。 <br/> 4 - crypto およびコンテンツのデコードは、ハードウェアの信頼できるバックアップの実行環境内で実行する必要があります。  <br/> 5-ハードウェア信頼できるバックアップの実行環境内では、暗号化、デコードと (圧縮および圧縮解除) のメディアの処理がすべてを処理する必要があります。  
 content_key_specs <br/> required_output_protection.hdc | 文字列 - 次のいずれか 1 つ: HDCP_NONE、HDCP_V1、HDCP_V2 | HDCP が必須かどうかを示します
 content_key_specs <br/>key | Base64 <br/>エンコードされた文字列|このトラックで使用するコンテンツ キーです。 指定した場合、track_type または key_id が必要です。  このオプションを使用すると、Widevine ライセンス サーバーでキーを生成または検索する代わりに、コンテンツ プロバイダーがこのトラックのコンテンツ キーを挿入できます。
@@ -97,7 +97,7 @@ policy_overrides します。 can_renew | ブール値 true または false |こ
 policy_overrides します。 license_duration_seconds | int64 | この特定のライセンスの期間を示します。 値 0 は、期間に制限がないことを示します。 既定値は 0 です。 
 policy_overrides します。 rental_duration_seconds | int64 | 再生が許可されている期間を示します。 値 0 は、期間に制限がないことを示します。 既定値は 0 です。 
 policy_overrides します。 playback_duration_seconds | int64 | ライセンス期間内の再生開始後の視聴期間です。 値 0 は、期間に制限がないことを示します。 既定値は 0 です。 
-policy_overrides します。 renewal_server_url |文字列 | このライセンスのすべてのハートビート (更新) 要求を、指定した URL に転送します。 このフィールドは、can_renew が true の場合にのみ使用されます。
+policy_overrides します。 renewal_server_url |string | このライセンスのすべてのハートビート (更新) 要求を、指定した URL に転送します。 このフィールドは、can_renew が true の場合にのみ使用されます。
 policy_overrides します。 renewal_delay_seconds |int64 |license_start_time から、最初に更新が試行されるまでの秒数です。 このフィールドは、can_renew が true の場合にのみ使用されます。 既定値は 0 です 
 policy_overrides します。 renewal_retry_interval_seconds | int64 | ライセンスの更新要求が失敗した場合の後続の要求までの遅延 (秒) を指定します。 このフィールドは、can_renew が true の場合にのみ使用されます。 
 policy_overrides します。 renewal_recovery_duration_seconds | int64 | ライセンス サーバーのバックエンドの問題が原因で、更新が試行されているがまだ成功していないときに、再生の継続が許可される期間です。 値 0 は、期間に制限がないことを示します。 このフィールドは、can_renew が true の場合にのみ使用されます。
@@ -209,4 +209,5 @@ Media Services が提供する .NET API を使用して、Widevine ライセン�
 ##関連項目
 
 [PlayReady または Widevine の動的共通暗号化を使用する](media-services-protect-with-drm.md)
+
 

@@ -54,12 +54,12 @@ SQL コネクタでは、次のトリガーとアクションを使用できま�
 パスワード |[はい |ユーザー名とパスワードを入力します。
 データベース名 |[はい |接続しているデータベースを入力します。 たとえば、入力 *顧客* または *dbo/注文*します。
 内部設置型 |[はい |既定値は False です。 Azure SQL データベースに接続する場合は False を入力します。 オンプレミスの SQL Server に接続する場合は True を入力します。
-Service Bus 接続文字列 |いいえ |オンプレミスに接続する場合は、Service Bus relay の接続文字列を入力してください<br/><br/>[。ハイブリッド接続マネージャーを使用して](app-service-logic-hybrid-connection-manager.md)<br/>[サービス バスの料金](http://azure.microsoft.com/pricing/details/service-bus/)
+Service Bus 接続文字列 |いいえ |オンプレミスに接続する場合は、Service Bus relay の接続文字列を入力します。<br/><br/>[ハイブリッド接続マネージャーの使用](app-service-logic-hybrid-connection-manager.md)<br/>[サービス バスの料金](http://azure.microsoft.com/pricing/details/service-bus/)
 パートナー サーバー名 |いいえ |プライマリ サーバーが使用できない場合は、代替またはバックアップ サーバーとしてパートナー サーバーを入力できます。
 テーブル |いいえ |コネクタによって更新可能なデータベース テーブルを一覧表示します。 たとえば、入力 *OrdersTable* または *EmployeeTable*します。 テーブルが入力されない場合はすべてのテーブルを使用できます。 このコネクタをアクションとして使用するには有効なテーブルまたはストアド プロシージャが必要です。
 ストアド プロシージャ |いいえ |コネクタで呼び出すことができる既存のストアド プロシージャを入力します。 たとえば、入力 *sp_IsEmployeeEligible* または *sp_CalculateOrderDiscount*します。 このコネクタをアクションとして使用するには有効なテーブルまたはストアド プロシージャが必要です。
 データの存在確認クエリ |トリガーは、サポート |SQL ステートメントを使用して、すべてのデータが SQL Server データベース テーブルのポーリングに使用できるかどうかを確認します。 これは、存在するデータの行数を表す数値を返します。 例: SELECT COUNT(*) from table_name。
-データ ポーリング クエリ | トリガーのサポート | SQL Server データベース テーブルをポーリングするための SQL ステートメント。任意の数の SQL ステートメントをセミコロンで区切って指定できます。このステートメントはトランザクション的に実行され、データがロジック アプリで安全に保存される場合にのみコミットされます。例: SELECT * FROM table_name;DELETE FROM table_name。<br/><br/>**注**<br/>削除することによって、無限ループを回避するポーリング ステートメントを指定する必要があります、移動、または選択したデータを同じデータの更新が再度ポーリングされません。
+データ ポーリング クエリ | トリガーのサポート | SQL Server データベース テーブルをポーリングするための SQL ステートメント。任意の数の SQL ステートメントをセミコロンで区切って指定できます。このステートメントはトランザクション的に実行され、データがロジック アプリで安全に保存される場合にのみコミットされます。例: SELECT * FROM table_name;DELETE FROM table_name。<br/><br/>**注**<br/>削除、移動、または同じデータが再度ポーリングされないように選択したデータを更新して無限ループを回避するポーリング ステートメントを指定する必要があります。
 
 5. 完了すると、パッケージの設定は、次のようになります。  
 ![][1]  
@@ -160,4 +160,5 @@ App Service では、 ハイブリッド構成マネージャーを使用して�
 [10]: ./media/app-service-logic-connector-sql/LogicApp6.png
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
+
 

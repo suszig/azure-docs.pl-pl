@@ -24,7 +24,7 @@
 
 ##概要
 
-このチュートリアルで追加するプッシュ通知 [Xamarin.Android クイック スタート] プロジェクトをレコードが挿入されるたびにプッシュ通知が送信できるようにします。 このチュートリアルは、先に完了する必要があります [Xamarin.Android クイック スタート] のチュートリアルに基づきます。 ダウンロードしたクイック スタートのサーバー プロジェクトを使用しない場合は、プッシュ通知拡張機能パッケージをプロジェクトに追加する必要があります。 サーバーの拡張機能パッケージの詳細については、次を参照してください。 [Azure モバイル アプリの .NET バックエンド サーバー SDK と連携](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)します。
+このチュートリアルへのプッシュ通知を追加、 [Xamarin.Android quickstart] プロジェクトのプッシュ通知が送信されるたびに、レコードが挿入されるようにします。 このチュートリアルに基づいて、 [Xamarin.Android quickstart] チュートリアルで、先に完了する必要があります。 ダウンロードしたクイック スタートのサーバー プロジェクトを使用しない場合は、プッシュ通知拡張機能パッケージをプロジェクトに追加する必要があります。 サーバーの拡張機能パッケージの詳細については、次を参照してください。 [Azure モバイル アプリの .NET バックエンド サーバー SDK と連携](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)します。
 
 ##前提条件
 
@@ -34,10 +34,10 @@
    
 + [Google Cloud Messaging クライアント コンポーネント](http://components.xamarin.com/view/GCMClient/)します。 このコンポーネントは、チュートリアル中に追加します。
 
-+ 完成した [Xamarin.Android クイック スタート] のチュートリアルです。
++ 完了した [Xamarin.Android quickstart] チュートリアルです。
 
 
-##<a name="create-hub"></a>通知ハブの作成
+##<a name="create-hub"></a>通知ハブを作成する
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
@@ -49,11 +49,11 @@
 
 [AZURE.INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
-##<a id="update-server"></a>プッシュ通知を送信するようにサーバー プロジェクトを更新する
+##<a id="update-server"></a>サーバー プロジェクトをプッシュ通知を送信するように更新する
 
 [AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-##<a id="configure-app"></a>プッシュ通知をクライアント プロジェクトを構成します。
+##<a id="configure-app"></a>プッシュ通知のクライアント プロジェクトを構成する
 
 [AZURE.INCLUDE [mobile-services-xamarin-android-push-configure-project](../../includes/mobile-services-xamarin-android-push-configure-project.md)]
 
@@ -84,4 +84,5 @@
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
+
 

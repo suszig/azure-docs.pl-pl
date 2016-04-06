@@ -121,7 +121,7 @@
 
 13. Azure AD ポータルでのシングル サインオンの構成情報を選択し、 **完了** を閉じる、 **[シングル サインオン** ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-answerhub-tutorial/IC785174.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-answerhub-tutorial/IC785174.png "Configure single sign-on")
 ##ユーザー プロビジョニングの構成
 
 Azure AD ユーザーが AnswerHub にログインできるようにするには、そのユーザーを AnswerHub にプロビジョニングする必要があります。  
@@ -160,4 +160,5 @@ AnswerHub の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-answerhub-tutorial/IC767830.png "Yes")
 
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+
 

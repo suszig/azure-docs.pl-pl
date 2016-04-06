@@ -38,7 +38,7 @@
 ## 単一のフォレスト、単一の Azure AD ディレクトリ
 ![SingleForestSingleDirectory](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
 
-最も一般的なトポロジは、1 つのフォレストの内部設置型、1 つまたは複数のドメインと、1 つと Azure AD ディレクトリ (ルール サブタイプ) テナント)。 Azure AD 認証は、パスワード同期で行われます。 これは、Azure AD Connect の高速インストールでサポートされているトポロジです。
+最も一般的なトポロジは、単一フォレストの内部設置型、1 つまたは複数のドメインと、1 つと Azure AD ディレクトリ (ルール サブタイプ) テナント)。 Azure AD 認証は、パスワード同期で行われます。 これは、Azure AD Connect の高速インストールでサポートされているトポロジです。
 
 ### 単一のフォレスト、1 つの Azure AD ディレクトリに対する複数の同期サーバー
 ![SingleForestFilteredUnsupported](./media/active-directory-aadconnect-topologies/SingleForestFilteredUnsupported.png)
@@ -177,4 +177,5 @@ Azure AD のディレクトリは、分離するように設計されていま�
 詳細について、 [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) 構成します。
 
 詳細について [内部設置型 id と Azure Active Directory の統合](active-directory-aadconnect.md)します。
+
 

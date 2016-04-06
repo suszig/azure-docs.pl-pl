@@ -83,7 +83,7 @@
 
 3.   **アプリケーション URL の構成** ] ページの [、 **Zoom サインイン URL** ] ボックスに、次のパターンを使用して URL を入力"*http://company.zoom.us*"、] をクリックし、 **次**します。
 
-    ![アプリケーション URL の構成](./media/active-directory-saas-zoom-tutorial/IC784698.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-zoom-tutorial/IC784698.png "Configure App URL")
 
 4.   **Zoom でのシングル サインオン構成** ] ページで [ **証明書のダウンロード**, 、コンピューターに証明書ファイルを保存します。
 
@@ -97,7 +97,7 @@
 
 7.  をクリックして、 **セキュリティ制御** タブをクリックしに移動し、 **でのシングル サインオン** 設定します。
 
-8.  [Single Sign-On] セクションで、次の手順に従います。
+8.  [シングル サインオン] セクションで、次の手順に従います。
 
     ![シングル サインオン](./media/active-directory-saas-zoom-tutorial/IC784701.png "Single sign-on")
 
@@ -113,7 +113,7 @@
 
 9.  Azure AD ポータルでのシングル サインオンの構成情報を選択し、 **完了** を閉じる、 **[シングル サインオン** ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-zoom-tutorial/IC784702.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-zoom-tutorial/IC784702.png "Configure single sign-on")
 
 ##ユーザー プロビジョニングの構成
   
@@ -132,7 +132,7 @@ Zoom の場合、プロビジョニングは手動で行います。
 
 4.   **ユーザーを追加する** ] ページで、次の手順を実行します。
 
-    ![Add users](./media/active-directory-saas-zoom-tutorial/IC784704.png "Add users")
+    ![Add users (ユーザーを追加する)](./media/active-directory-saas-zoom-tutorial/IC784704.png "Add users")
 
     1.  として **ユーザー タイプ**, [ **基本的な**です。
     2.   **電子メール** ] ボックスに、プロビジョニングする有効な AAD アカウントの電子メール アドレスを入力します。
@@ -157,3 +157,4 @@ Zoom の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-zoom-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

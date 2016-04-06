@@ -20,9 +20,9 @@
 Application Gateway はロード バランサーの第 7 層です。 クラウドでもオンプレミスでも、異なるサーバー間のフェールオーバーと HTTP 要求のパフォーマンス ルーティングを提供します。 Application Gateway は、HTTP 負荷分散、クッキー ベースのセッション アフィニティ、SSL オフロードなどのアプリケーション配信機能を備えています。 
 
 > [AZURE.SELECTOR]
-- [従来の azure PowerShell](application-gateway-create-gateway.md)
-- [Azure リソース マネージャーの PowerShell](application-gateway-create-gateway-arm.md)
-- [Azure リソース マネージャーのテンプレート](application-gateway-create-gateway-arm-template.md)
+- [Azure Classic PowerShell (Azure クラシック PowerShell)](application-gateway-create-gateway.md)
+- [Azure Resource Manager の PowerShell](application-gateway-create-gateway-arm.md)
+- [Azure Resource Manager テンプレート](application-gateway-create-gateway-arm-template.md)
 
 
 <BR>
@@ -419,4 +419,5 @@ ILB とともに使用して、参照してくださいアプリケーション 
 
 - [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure の Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
+
 

@@ -70,7 +70,7 @@
     ![HomeController.cs コードの更新](./media/app-service-web-connect-web-app-to-saas-api/5-Write-Code-Which-Leverages-Swagger-Generated-Code.png)
 
 1. 連絡先の動的リストを反映するよう、以下のコードで `Contact` ビューを更新します。  
-    <pre>ビュー ファイルの最上部に追加します。
+    <pre>// ビュー ファイルの最上部に追加
     @model IList & lt;MyContactsList.Web.Models.Contact & gt;
     
     // 既定の電子メール アドレスを以下で置換
@@ -94,4 +94,5 @@
 ## 変更内容
 * Web サイトから App Service への変更のガイドを参照してください: [Azure App Service と既存の Azure サービスへの影響](http://go.microsoft.com/fwlink/?LinkId=529714)
  
+
 

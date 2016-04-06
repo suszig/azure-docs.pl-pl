@@ -48,7 +48,7 @@ Azure 内の SQL Server データベースの高可用性ソリューション�
 
 |テクノロジ|サンプル アーキテクチャ|
 |---|---|
-|**AlwaysOn 可用性グループ**|すべての可用性レプリカが、同じリージョン内で、高可用性のために Azure VM で実行されます。 Windows Server フェールオーバー クラスタリング (WSFC) には Active Directory ドメインが必要であるため、SQL Server の仮想マシンの他にドメイン コントローラーを構成する必要があります。<br/>![AlwaysOn 可用性グループ](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_always_on.gif)<br/>詳細については、次を参照してください。 [Azure (GUI) に AlwaysOn 可用性グループを構成する](virtual-machines-sql-server-alwayson-availability-groups-gui.md)です。|
+|**AlwaysOn 可用性グループ**|すべての可用性レプリカが、同じリージョン内で、高可用性のために Azure VM で実行されます。 Windows Server フェールオーバー クラスタ リング (WSFC) は、Active Directory ドメインを必要とするために、SQL Server 仮想マシンに加えてドメイン コント ローラーを構成する必要があります。<br/> ![AlwaysOn 可用性グループ](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_always_on.gif)<br/>詳細については、次を参照してください。 [Azure (GUI) に AlwaysOn 可用性グループを構成する](virtual-machines-sql-server-alwayson-availability-groups-gui.md)です。|
 |**データベース ミラーリング**|高可用性のために、プリンシパル、ミラー、および監視サーバーが同じ Azure データセンターで実行されます。 ドメイン コント ローラーを使用してを展開することができます。<br/>![データベース ミラーリング](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_dbmirroring1.gif)<br/>同じデータベース ミラーリング代わりにサーバー証明書を使用して、ドメイン コント ローラーの構成を展開することもできます。<br/>![データベース ミラーリング](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_dbmirroring2.gif)|
 
 ## Azure のみ: 障害復旧ソリューション
@@ -59,7 +59,7 @@ Azure 内の SQL Server データベースの障害復旧ソリューション�
 |---|---|
 |**AlwaysOn 可用性グループ**|可用性レプリカが、障害復旧のために、Azure VM の複数のデータセンターで実行されます。  この複数のリージョンにわたるソリューションでは、完全なサイトの機能停止の場合にも保護できます。 <br/> ![AlwaysOn 可用性グループ](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_dr_alwayson.png)<br/>領域内ですべてのレプリカは、同じクラウド サービスと同じ VNet 内でする必要があります。 各リージョンは個別の VNet を持つため、これらのソリューションには VNet と VNet 間の接続が必要です。 詳細については、次を参照してください。 [Azure クラシック ポータルでサイト間 VPN の構成](../vpn-gateway/vpn-gateway-site-to-site-create.md)します。|
 |**データベース ミラーリング**|プリンシパルとミラーを災害復旧のためのさまざまなデータ センターで実行しているサーバー。 Active directory ドメインが複数のデータ センターにまたがることはできませんがあるために、サーバー証明書を使用してを展開する必要があります。<br/>![データベース ミラーリング](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_dr_dbmirroring.gif)|
-|**Azure Blob Storage サービスを使用したバックアップと復元**|実稼働データベースが障害復旧のための別のデータ センターの blob ストレージに直接バックアップします<br/>![。バックアップし、復元](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_dr_backup_restore.gif)<br/>詳細については、次を参照してください。 [Azure 仮想マシンにおける SQL Server のバックアップと復元](virtual-machines-sql-server-backup-and-restore.md)します。|
+|**Azure Blob Storage サービスを使用したバックアップと復元**|運用データベースは、災害復旧のための別のデータ センターの blob ストレージに直接バックアップします。<br/>![バックアップと復元](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_dr_backup_restore.gif)<br/>詳細については、次を参照してください。 [Azure 仮想マシンにおける SQL Server のバックアップと復元](virtual-machines-sql-server-backup-and-restore.md)します。|
 
 ## ハイブリッド IT: 障害復旧ソリューション
 
@@ -68,9 +68,9 @@ Azure 内の SQL Server データベースの障害復旧ソリューション�
 |テクノロジ|サンプル アーキテクチャ|
 |---|---|
 |**AlwaysOn 可用性グループ**|クロスサイト障害復旧のために、いくつかの可用性レプリカが Azure VM で実行され、その他のレプリカがオンプレミスで実行されます。 運用サイトは、内部環境にできるか、Azure データ センターにします。<br/>![AlwaysOn 可用性グループ](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/hybrid_dr_alwayson.gif)<br/>すべての可用性レプリカは、同じ WSFC クラスターである必要があるために、両方のネットワーク (マルチ サブネット WSFC クラスター) が、WSFC クラスターにまたがる必要があります。 この構成では、Azure と内部設置型ネットワークの間の VPN 接続が必要です。<br/><br/>障害回復を正常にデータベースの災害復旧サイトにレプリカ ドメイン コント ローラーもインストールする必要があります。<br/><br/>SSMS でのレプリカ追加ウィザードを使用して、既存の AlwaysOn 可用性グループに Azure のレプリカを追加することができます。 詳細については、チュートリアルの「Azure への AlwaysOn 可用性グループの拡張」を参照してください。|
-|**データベース ミラーリング**|サーバー証明書を使用するクロスサイト障害復旧のために、1 つのパートナーが Azure VM で実行され、もう 1 つがオンプレミスで実行されます。 パートナーは同じ Active Directory ドメイン内に置く必要はありませんし、VPN 接続は必要ありません<br/>![。データベース ミラーリングは](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/hybrid_dr_dbmirroring.gif)<br/>sceanario をミラーリングする別のデータベースには、Azure VM と、他の実行中に内部設置型クロスサイトの災害復旧のため、同じ Active Directory ドメイン内で実行されている 1 つのパートナーが含まれます。 A [Azure の仮想ネットワークとオンプレミス ネットワーク間の VPN 接続](../vpn-gateway/vpn-gateway-site-to-site-create.md) が必要です<br/><br/>。障害回復を正常にデータベースの災害復旧サイトにレプリカ ドメイン コント ローラーもインストールする必要があります。|
+|**データベース ミラーリング**|サーバー証明書を使用するクロスサイト障害復旧のために、1 つのパートナーが Azure VM で実行され、もう 1 つがオンプレミスで実行されます。 パートナーは同じ Active Directory ドメイン内に置く必要はありませんし、VPN 接続は必要ありません。<br/>![データベース ミラーリング](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/hybrid_dr_dbmirroring.gif)<br/>Sceanario をミラーリングする別のデータベースには、Azure VM と、他の実行中に内部設置型クロスサイトの災害復旧のため、同じ Active Directory ドメイン内で実行されている 1 つのパートナーが含まれます。 A [Azure の仮想ネットワークとオンプレミス ネットワーク間の VPN 接続](../vpn-gateway/vpn-gateway-site-to-site-create.md) が必要です。<br/><br/>障害回復を正常にデータベースの災害復旧サイトにレプリカ ドメイン コント ローラーもインストールする必要があります。|
 |**ログ配布**|クロスサイト障害復旧のために、1 つのサーバーが Azure VM で実行され、もう 1 つがオンプレミスで実行されます。 ログ配布は、Azure の仮想ネットワークと内部設置型ネットワークの間の VPN 接続が必要なために、Windows ファイル共有に依存します。<br/>![ログ配布](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/hybrid_dr_log_shipping.gif)<br/>障害回復を正常にデータベースの災害復旧サイトにレプリカ ドメイン コント ローラーもインストールする必要があります。|
-|**Azure Blob Storage サービスを使用したバックアップと復元**|内部設置型の実稼働データベースが障害復旧のための Azure blob ストレージに直接バックアップします<br/>![。バックアップし、復元](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/hybrid_dr_backup_restore.gif)<br/>詳細については、次を参照してください。 [Azure 仮想マシンにおける SQL Server のバックアップと復元](virtual-machines-sql-server-backup-and-restore.md)します。|
+|**Azure Blob Storage サービスを使用したバックアップと復元**|内部設置型実稼働データベースの災害復旧のための Azure blob ストレージに直接バックアップします。<br/>![バックアップと復元](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/hybrid_dr_backup_restore.gif)<br/>詳細については、次を参照してください。 [Azure 仮想マシンにおける SQL Server のバックアップと復元](virtual-machines-sql-server-backup-and-restore.md)します。|
 
 ## Azure での SQL Server HADR の重要な考慮事項
 
@@ -151,4 +151,5 @@ Azure Vm での SQL Server の実行に関連するその他のトピックを�
 
 - [Azure での新しい Active Directory フォレストのインストール](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Azure VM での AlwaysOn 可用性グループの WSFC クラスターの作成](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
+
 

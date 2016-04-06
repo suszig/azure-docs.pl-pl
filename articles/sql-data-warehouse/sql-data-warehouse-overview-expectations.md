@@ -67,7 +67,7 @@ Azure SQL Data Warehouse に重要なフィックスをインストールする�
 
 ## 次のステップ
 
-[開始]パブリック プレビューで。 
+[開始][] パブリック プレビューでします。 
 
 <!--Image references-->
 
@@ -77,4 +77,5 @@ Azure SQL Data Warehouse に重要なフィックスをインストールする�
 <!--MSDN references-->
 
 <!--Other Web references-->
+
 

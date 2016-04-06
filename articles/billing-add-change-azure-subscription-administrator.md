@@ -40,7 +40,7 @@ Microsoft Azure には、3 種類の管理者ロールがあります。
  すべてのコンシューマー向け Microsoft 製品へのサインインし、Outlook (Hotmail)、Skype (MSN)、OneDrive、Windows Phone、Xbox LIVE などのサービスをクラウドに Microsoft アカウントを使用することができます。
 * **組織のアカウント**</br>
  組織のアカウントは、Azure Active Directory で作成されるアカウントです。 組織のアカウントのアドレスには、次のようになります。
-    ユーザー @<your domain>. onmicrosoft.com
+    @ ユーザー<your domain>。 onmicrosoft.com
 
 **注**
 
@@ -66,4 +66,5 @@ Microsoft Azure には、3 種類の管理者ロールがあります。
 ## アカウント管理者を変更します。
 
 Azure アカウントの所有権を譲渡する別のアカウントに、次を参照してください。 [Azure サブスクリプションを転送する](../billing-subscription-transfer.md)です。
+
 

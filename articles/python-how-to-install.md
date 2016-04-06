@@ -51,7 +51,7 @@ CPython はいくつかの方法で入手できます。
 
 既に Python をインストールしている場合は、pip を使用して、既存の Python 2.7 または Python 3.3 以降の環境ですべてのクライアント ライブラリのバンドルをインストールできます。 これからパッケージをダウンロード、 [Python Package Index][] (PyPI)。
 
-メモを使用する必要があります、 `sudo` Linux と MacOS で ie コマンドです。 `sudo pip install azure`
+Linux および MacOS で `sudo` コマンドを使用する必要がある場合があります。`sudo pip install azure`
 
     pip install azure
 
@@ -203,4 +203,5 @@ Git のデプロイを使って Python Web アプリケーションを開発で�
 [table storage]: storage-python-how-to-use-table-storage.md
 [queue storage]: storage-python-how-to-use-queue-storage.md
 [blob storage]: storage-python-how-to-use-blob-storage.md
+
 

@@ -21,13 +21,13 @@
 
 監査と規制遵守の維持、データベースの利用状況を理解およびビジネス上の懸念がある可能性やセキュリティ違犯の疑いのある不一致や異常に関する洞察が役立ちます。 
 
-監査ツールは、標準準拠を強化し促進しますが、準拠を保証するものではありません。 標準準拠をサポートする Azure プログラムの詳細については、 <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Azure のトラスト センター</a>.
+監査ツールは、標準準拠を強化し促進しますが、準拠を保証するものではありません。 標準準拠をサポートする Azure プログラムの詳細については、「<a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Microsoft Azure のトラスト センター</a>」を参照してください。
 
 + [データベース監査の基本] 
-+ [データベースの監査を設定する]
++ [データベースに対する監査を設定する]
 + [監査ログとレポートを分析する]
 
-##<a id="subheading-1"></a>Azure SQL データ ウェアハウスのデータベース監査の基本
+##<a id="subheading-1"></a>Azure SQL Data Warehouse データベース監査の基本
 
 
 SQL Data Warehouse データベース監査により、以下のことが可能になります。
@@ -48,7 +48,7 @@ SQL Data Warehouse データベース監査により、以下のことが可能�
 
 各イベント カテゴリの監査 **成功** と **エラー** 操作は個別に構成されます。
 
-活動やイベントの監査に関する詳細については、次を参照してください、。 <a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">監査ログ形式のリファレンス「Azure SQL Database Data Security Audit Logs format (Azure SQL Database データ セキュリティ監査ログの形式)」 (doc ファイルでダウンロード) をご覧ください</a>. 
+監査対象の活動やイベントの詳細については、<a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">監査ログ形式のリファレンス (doc ファイルのダウンロード)</a> を参照してください。 
 
 監査ログは、Azure ストレージ アカウントに格納されます。 監査ログの保有期間を定義することができます。
 
@@ -59,7 +59,7 @@ SQL Data Warehouse データベース監査により、以下のことが可能�
 
 ##<a id="subheading-2"></a>データベースに対する監査を設定する
 
-1. https://portal.azure.com から <a href="https://portal.azure.com" target="_blank">Azure ポータル</a>.
+1. <a href="https://portal.azure.com" target="_blank">Azure ポータル</a>を開きます。
 
 2. 監査する SQL Data Warehouse データベース/SQL Server の構成ブレードに移動します。 クリックして、 **設定** に手前に表示し、[設定] ブレードでボタンをクリックして **監査**します。
 
@@ -92,17 +92,17 @@ SQL Data Warehouse データベース監査により、以下のことが可能�
 
 監査ログがストア テーブルのコレクションに集計された、 **SQLDBAuditLogs** セットアップ中に選択した Azure ストレージ アカウント内のプレフィックス。 <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Azure ストレージ エクスプローラー</a>などのツールを使用してログ ファイルを表示できます。
 
-事前に構成されたダッシュボード レポート テンプレートが <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">ダウンロードできる Excel スプレッドシートとして用意されているので、</a> ログ データをすぐに分析できます。 監査ログでテンプレートを使用するには、Excel 2013 またはそれ以降、Power Query が必要です ( <a href="http://www.microsoft.com/download/details.aspx?id=39379">ここ</a>. 
+事前に構成されたダッシュボード レポート テンプレートが<a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">ダウンロードできる Excel スプレッドシート</a>として用意されているので、ログ データをすぐに分析できます。 監査ログでテンプレートを使用するには、Excel 2013 またはそれ以降、および Power Query が必要です (<a href="http://www.microsoft.com/download/details.aspx?id=39379">ここ</a>でダウンロードできます)。 
 
 テンプレートでは架空のサンプル データを使用しています。Power Query を設定して Azure ストレージ アカウントから監査ログを直接インポートできます。 
 
-レポート テンプレートの使用手順の詳細については、 <a href="http://go.microsoft.com/fwlink/?LinkId=506731">「Azure SQL DB - Auditing How to use the interactive Reports Excel Workbook Template (Azure SQL DB - 監査、対話式レポート Excel ワークブック テンプレートの使用方法)」(doc 形式でダウンロード) をご覧ください</a>.
+レポート テンプレートの使用手順の詳細については、<a href="http://go.microsoft.com/fwlink/?LinkId=506731">方法 (doc のダウンロード)</a> を参照してください。
 
 ![][5]
 
 
 ##<a id="subheading-4">運用環境での使用手法</a>
-このセクションでは、上のスクリーン キャプチャーについて説明します。 使用できるのは <a href="https://portal.azure.com" target="_blank">Azure ポータル</a> または <a href= "https://manage.windowsazure.com/" target="_bank">従来の Azure クラシック ポータル</a> です。
+このセクションでは、上のスクリーン キャプチャーについて説明します。 <a href="https://portal.azure.com" target="_blank">Azure ポータル</a>または<a href= "https://manage.windowsazure.com/" target="_bank">従来の Azure クラシック ポータル</a>を使用できます。
  
 
 ##<a id="subheading-5"></a>ストレージ キーの再生成
@@ -144,4 +144,5 @@ Azure リソース マネージャー モードを実行中に、`Get-Command *A
 
 
  
+
 

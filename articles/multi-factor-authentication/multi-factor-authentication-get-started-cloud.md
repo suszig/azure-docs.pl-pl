@@ -73,11 +73,11 @@ Azure AD Premium または Enterprise Mobility Suite がある場合、Multi-Fac
 --------------------------------------------------------------------------------
 <ol>
 
-<li>管理者として Azure ポータルにサインインします</li>
-<li>。左側で、次のように選択します **Active Directory**。</li>
-<li>。[Active Directory] ページで有効にするユーザーが存在するディレクトリをダブルクリックします</li>
-<li>。ディレクトリ ページの上部にある次のように選択します **ライセンス**。</li>
-<li>。[ライセンス] ページで、[Active Directory Premium または Enterprise Mobility Suite を選択し、クリックして **割り当てる**します。</li>
+<li>Azure ポータルに管理者としてサインインします。</li>
+<li>左側で、次のように選択します。 **Active Directory**します。</li>
+<li>[Active Directory] ページで、有効にするユーザーが存在するディレクトリをダブルクリックします。</li>
+<li>ディレクトリ ページの上部にある次のように選択します。 **ライセンス**します。</li>
+<li>[ライセンス] ページで、[Active Directory Premium または Enterprise Mobility Suite を選択し、クリックして **割り当てる**します。</li>
 
 <center>![クラウド](./media/multi-factor-authentication-get-started-cloud/license.png)</center>
 
@@ -155,5 +155,6 @@ Windows PowerShell を使用してユーザーの状態を変更するには、�
         Your Administrator
 
 ## 次のステップ
-次の手順に移動して移動することができます、クラウド内には、多要素認証のセットアップをした、 [Azure 多要素認証を構成します。](multi-factor-authentication-whats-next.md)そこでは、レポート、不正行為のアラート、音声メッセージのカスタマイズ、および Azure Multi-Factor Authentication が提供するすべての機能について学びます。  
+次の手順に移動して移動することができます、クラウド内には、多要素認証のセットアップをした、 [Azure 多要素認証を構成します。](multi-factor-authentication-whats-next.md)  そこでは、レポート、不正行為のアラート、音声メッセージのカスタマイズ、および Azure Multi-Factor Authentication が提供するすべての機能について学びます。  
+
 

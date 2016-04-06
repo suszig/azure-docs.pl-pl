@@ -44,7 +44,7 @@ ApplicationInsights.config を開きます。 `ActiveProfile` および `Profile
     ![](./media/app-insights-upgrade-vso-azure/csdef.png)
 4. SDK: プロジェクトを右クリックし、 [Application Insights の追加] を選択][greenbrown]します。 これによって SDK がプロジェクトに追加され、さらに Azure で新しい Application Insights リソースが作成されます。
 5. ログ: コードに LogEvent() など、以前の API の呼び出しが含まれている場合、それらはソリューションをビルドしようとしたときに見つかります。 ように更新 [新しい API を使用して][track]します。
-6. Web ページ: プロジェクトに Web ページが含まれている場合、<head> セクション内のスクリプトを置き換えます。 一般に Views\Shared\_Layout.cshtml などのマスター ページが 1 つのコピーがあります。 [Azure で Application Insights リソースの [クイック スタート] ブレードから新しいスクリプトを取得][usage]します。 
+6. Web ページ: プロジェクトには、web ページが含まれている場合は、スクリプトを置き換えます、 <head> セクション。 一般に Views\Shared\_Layout.cshtml などのマスター ページが 1 つのコピーがあります。 [Azure で Application Insights リソースの [クイック スタート] ブレードから新しいスクリプトを取得][usage]します。 
 Web ページが logEvent や logPage などの本文にテレメトリの呼び出しを含める場合 [新しい API を使用するように更新][api]します。
 7. サーバー モニター: アプリが IIS で実行されているサービスの場合は、サーバーから Microsoft Monitoring Agent をアンインストールし、 [Application Insights Status Monitor をインストール][redfield]します。
 8. Web テスト: web 可用性テストを使用していた場合 [新しいポータルで作成し直す][availability], 、そのアラートがあります。
@@ -56,7 +56,7 @@ Web ページが logEvent や logPage などの本文にテレメトリの呼び
 1. サーバー コンピューターで、Web サービスのスタートアップ ファイルから APM エージェントへの参照を削除して以前のエージェントを無効にします。 On a TomCat server, edit Catalina.bat. On a JBoss server, edit Run.bat. 
 2. Web サービスを再起動します。
 3. Microsoft Azure ポータルで [新しい Application Insights リソースを追加][java]します。 開発用コンピューターで追加 [Java SDK][java] 、web プロジェクトにします。
-4. Web ページの <head> セクションのスクリプトを置き換えます  (サーバー側には 1 つのコピーだけが含まれている可能性があります)。[Azure の新しい Application Insights リソースの [クイック スタート] ブレードから新しいスクリプトを取得][usage]します。 
+4. スクリプトを置き換えます、 <head> web ページのセクション。 (サーバー側には 1 つのコピーだけが含まれている可能性があります)。[Azure の新しい Application Insights リソースの [クイック スタート] ブレードから新しいスクリプトを取得][usage]します。 
 Web ページが logEvent や logPage などの本文にテレメトリの呼び出しを含める場合 [新しい API を使用するように更新][track]します。
 8. Web テスト: web 可用性テストを使用していた場合 [新しいポータルで作成し直す][availability], 、そのアラートがあります。
 9. アラート: を設定 [メトリックに対するアラート][alerts] Azure ポータルで。
@@ -75,3 +75,4 @@ Web ページが logEvent や logPage などの本文にテレメトリの呼び
 [usage]: app-insights-web-track-usage.md
 
  
+

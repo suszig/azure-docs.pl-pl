@@ -81,7 +81,7 @@
 
 3.   **アプリケーション URL の構成** ] ページの [、 **Igloo Software サインイン URL** ] ボックスに、次のパターンを使用して URL を入力"*https://company.igloocommunities.com/?signin*"、] をクリックし、 **次**します。
 
-    ![アプリケーション URL の構成](./media/active-directory-saas-igloo-software-tutorial/IC773625.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-igloo-software-tutorial/IC773625.png "Configure App URL")
 
 4.   **Igloo Software でのシングル サインオンの構成** ] ページで、証明書をダウンロードする] をクリックして **証明書のダウンロード**, 、お使いのコンピューターにローカルで証明書ファイルを保存します。
 
@@ -158,3 +158,4 @@ Igloo Software へのユーザー プロビジョニングを構成するとき�
     ![あり](./media/active-directory-saas-igloo-software-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

@@ -26,7 +26,7 @@
 -   Web ブラウザーを使用して DocumentDB ドキュメントのシステム プロパティを簡単に表示するにはどうすればよいか。
 -   Web ブラウザーを使用して DocumentDB へのドキュメントの一括インジェストを簡単に実行するにはどうすればよいか。
 
-##<a id="Launch"></a>Document Explorer を起動します。##
+##<a id="Launch"></a>Document Explorer の起動##
 
 Document Explorer は、DocumentDB アカウント、データベース、およびコレクションのブレードのいずれからも起動することができます。  
 
@@ -86,7 +86,7 @@ Document Explorer では、ドキュメントを簡単に作成、編集、お�
 
     > [AZURE.NOTE] タイムスタンプ (_ts) プロパティが内部的にエポック時間として表されますが、Document Explorer では、人間が読める GMT 形式で値が表示されます。
 
-##<a id="Navigate"></a>ドキュメント エクスプ ローラーのナビゲーション オプションと高度な設定##
+##<a id="Navigate"></a>Document Explorer のナビゲーション オプションと高度な設定##
 
 Document Explorer はさまざまなナビゲーション オプションと高度な設定を備えています。
 
@@ -112,7 +112,7 @@ Document Explorer はさまざまなナビゲーション オプションと高�
     ![フィルターの結果が表示された Document Explorer のスクリーンショット](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
 
 
-    > [AZURE.IMPORTANT] The Document Explorer filter functionality only filters from the ***currently*** loaded set of documents and does not perform a query against the currently selected collection.
+    > [AZURE.IMPORTANT] Document Explorer のフィルター機能のみがフィルター、 ***現在*** ドキュメントのセットをロードされ、現在選択されているコレクションに対してクエリを実行しません。
 
 5. Document Explorer に読み込まれたドキュメントの一覧を更新するだけでクリックして、 **更新** ブレードの上部にあるコマンドです。
 
@@ -144,4 +144,5 @@ Document Explorer では、1 つまたは複数の既存の JSON ドキュメン
 - クリックしてコードで、 [ここ](documentdb-get-started.md)します。
 
  
+
 

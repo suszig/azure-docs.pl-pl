@@ -138,7 +138,7 @@ We'll now add a **Start-AzureVM** activity to start a virtual machine.  Azure �
 5. Select **Start-AzureVM**.  Click **Parameters** and then **Parameter Set** to view the sets for **Start-AzureVM**.  Select  the **ByName** parameter set. 
 Note that **Name** and **ServiceName** have exclamation points next them.  This indicates that they are required parameters.
 7. Select **Name**.  使用 **定数値** の **データソース** および開始する、仮想マシンの名前を入力します。  Click **OK**.
-8. 選択 **ServiceName**します。  使用 **定数値** の **データソース** および開始する、仮想マシンの名前を入力します。  クリックして **OK**します。<br>
+8. 選択 **ServiceName**します。  使用 **定数値** の **データソース** および開始する、仮想マシンの名前を入力します。  Click **OK**.<br>
 ![Start-azurevm のパラメーター](media/automation-first-runbook-graphical/start-azurevm-params.png)
 9. テスト ウィンドウをクリックして、Runbook をテストできるようにします。
 10. Click **Start** to start the test.  完了したら、仮想マシンが開始されたことを確認します。
@@ -203,3 +203,4 @@ Note that **Name** and **ServiceName** have exclamation points next them.  This 
 - [最初の PowerShell Workflow Runbook](automation-first-runbook-textual.md)
 
  
+

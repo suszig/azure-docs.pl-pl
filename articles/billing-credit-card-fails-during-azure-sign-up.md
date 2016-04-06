@@ -31,9 +31,9 @@ Azure の支払いには次のような方法があります。
 - 使用できるクレジット/デビット カード会社は、お住まいの国によって異なります。
 
 ご提案:
-- 仮想または前払い借方クレジット カードを使用しないでください。
-- 支払いまたはアクティブ化が失敗した場合は、代替有効であり、サポートされているクレジット カードを使用してください。
-- 支払方法がアクティブであると、銀行がセキュリティ ポリシーの任意のオンライン トランザクションをブロックしていないことを確認します。
+- バーチャルまたはプリペイドのデビット/クレジット カードは使用しないでください。
+- 支払いやアクティベーションに失敗した場合、他の有効なクレジット カードをお試しください。
+- 支払い方法が選択されていることと、銀行がセキュリティ上の理由からオンライン取引を禁止していないことを確認してください。
 
 ## クレジット カードの情報は正確で完全ですか?
 - クレジット カードの詳細は、正確であると共に、クレジット カードの口座取引情報と一致する必要があります。
@@ -43,7 +43,7 @@ Azure の支払いには次のような方法があります。
 - スペルなどカードに関する情報に問題がある場合は、銀行と協力して修正します。
 
 ご提案:
-- 常に正確な情報を提供プロファイルの詳細も課金明細書の生成に使用されるためにサインアップします。
+- プロファイルの詳細は課金明細書の生成にも使用されるので、サインアップ時には必ず正確な情報を入力してください。
 
 ## アカウント プロファイルの情報は正確で完全ですか?
 - アカウント所有者はサインアップ中に要求されたすべての関連情報を入力する必要があります。そうすることで、アカウントを所有するユーザーであることが確認され、必要に応じて課金明細書を正確に生成できるようになります。
@@ -51,7 +51,7 @@ Azure の支払いには次のような方法があります。
 
 ご提案:
 - サインアップはまたはで自分のプロファイル内の各フィールドを再確認 [プロファイル設定]( https://account.windowsazure.com/Profile/) Azure アカウントを既に作成した場合。
-- プロファイルの詳細も課金明細書の生成に使用されるため、正確な情報を提供します。
+- プロファイルの詳細は課金明細書の生成にも使用されるので正確な情報を入力してください。
 
 ## MSDN、BizSpark、または MPN などの Azure 特典プランをアクティブ化しようとしていますか?  
 プランを選択する資格がある場合は、特典プログラム チャネルを調べます。
@@ -61,7 +61,7 @@ Azure の支払いには次のような方法があります。
 - MPN
   - サインイン、 [MPN ポータル](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx) し、対象となる状態を確認します。 受けることができますその他の特典を使用していれば、適切な [クラウド プラットフォーム コンピテンシー](https://mspartner.microsoft.com/en/us/pages/membership/cloud-platform-competency.aspx)します。
   - 自分の状態を検証できない場合にお問い合わせください。 [MPN サポート](https://mspartner.microsoft.com/en/us/Pages/Support/Premium/contact-support.aspx)します。
-- Bizpark:
+- BizSpark:
   - サインイン、 [BizSpark ポータル](https://www.microsoft.com/bizspark/default.aspx#start-two) BizSpark および BizSpark プラスの適格性の状態を確認します。
   自分の状態を検証できない場合に電子メールを送信する BizSpark サポートに連絡 [BizSpark チームの連絡](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team)
 
@@ -78,4 +78,5 @@ Azure 無料試用版プランでは、無償試用版を 1 回しかアクテ�
 
 ## Azure サポートへのお問い合わせ
 サインアップの問題があるこれらのトラブルシューティング手順を実行した後に続行する場合にご連絡をください [Azure サポート](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409)します。
+
 

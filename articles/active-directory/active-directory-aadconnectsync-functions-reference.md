@@ -24,8 +24,8 @@ Azure Active Directory Sync では、同期時の属性値を操作するため�
 関数の構文では、次の形式を使用して表されます。 <br>
 `<output type> FunctionName(<input type> <position name>, ..)`
 
-関数では、オーバー ロードを複数の構文を受け入れるとすると、すべての有効な構文が一覧表示されます。<br>
-関数が厳密に型指定され、の一致で渡される型が、文書化された型を使用することを確認します。<br>
+関数がオーバーロード状態の場合に複数の構文を受け入れると、すべての有効な構文が一覧表示されます。<br>
+関数は厳密に型指定され、渡された型が文書化された型と一致することを確認します。<br>
 型が一致しない場合は、エラーがスローされます。
 
 型は次の構文で表されます。
@@ -38,7 +38,7 @@ Azure Active Directory Sync では、同期時の属性値を操作するため�
 - **mvbin** – 複数の値を持つバイナリ
 - **mvstr** – 複数値の参照
 - **num** – 数値
-- **ref** – 1 つの値を持つ参照
+- **ref** – 単一値の参照
 - **str** – 単一値の文字列
 - **var** – その他の (ほとんど) 任意の型のバリアント
 - **void** – 値を返しません
@@ -118,7 +118,7 @@ BitOr 関数では、値を指定したビットを設定します。
 
 **解説:** <br>
 この関数は、両方のパラメーターをバイナリ表現に変換し、マスクとフラグに対応するビットの一方または両方が 1 である場合に 1 を 0 に、対応するビットの両方が 0 の場合、少し設定します。 <br>
-つまり、両方のパラメーターの対応するビットが 0 以外のすべての場合 1 を返します。
+つまり、両方のパラメーターの対応するビットが 0 の場合を除くすべてのケースで 1 を返します。
 
 ----------
 ### CBool
@@ -218,10 +218,10 @@ ConvertFromBase64 関数は、指定した base64 でエンコードされた値
 `str ConvertFromBase64(str source)` -エンコードに Unicode を前提としています <br>
 `str ConvertFromBase64(str source, enum Encoding)`
 
-- ソース: Base64 でエンコードされた文字列<br>
+- source: Base64 でエンコードされた文字列<br>
 - Encoding: Unicode、ASCII、UTF8
 
-**使用例**<br>
+**例**<br>
 `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")`<br>
 `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
 
@@ -234,7 +234,7 @@ ConvertFromBase64 関数は、指定した base64 でエンコードされた値
 ### ConvertFromUTF8Hex
 
 **説明:**<br>
-ConvertFromUTF8Hex 関数は、指定した UTF8 の 16 進エンコードされた値を文字列に変換します。
+ConvertFromUTF8Hex 関数は、指定した UTF8 の 16 進エンコード値を文字列に変換します。
 
 **構文:**<br>
 `str ConvertFromUTF8Hex(str source)`
@@ -328,7 +328,7 @@ CNum 関数は、文字列を指定し、数値データ型を返します。
 
 
 ----------
-### Cstr
+### CStr
 
 **説明:** <br>
 CStr 関数は、文字列データ型に変換します。
@@ -475,7 +475,7 @@ FormatDateTime 関数を使用して、書式を指定して、DateTime 文字�
 **構文:** <br>
 `str FormatDateTime(dt value, str format)`
 
-- 値: DateTime 形式の値 <br>
+- value: DateTime 形式の値 <br>
 - format: 変換する形式を表す文字列。
 
 **解説:** <br>
@@ -537,8 +537,8 @@ InStr 関数は、文字列の部分文字列の最初の出現を検索しま�
 `num InStr(str stringcheck, str stringmatch, num start , enum compare)`
 
 - stringcheck: 検索対象の文字列 <br>
-- stringmatch: 検索する文字列 <br>
-- 開始: 部分文字列を検索開始位置 <br>
+- stringmatch: 検出対象の文字列 <br>
+- start: 部分文字列の検索開始位置 <br>
 - compare: vbTextCompare または vbBinaryCompare
 
 **解説:** <br>
@@ -566,8 +566,8 @@ InStrRev 関数は、文字列の最後に見つかった部分文字列を検�
 `num InstrRev(str stringcheck, str stringmatch, num start, enum compare)`
 
 - stringcheck: 検索対象の文字列 <br>
-- stringmatch: 検索する文字列 <br>
-- 開始: 部分文字列を検索開始位置 <br>
+- stringmatch: 検出対象の文字列 <br>
+- start: 部分文字列の検索開始位置 <br>
 - compare: vbTextCompare または vbBinaryCompare
 
 **解説:** <br>
@@ -743,7 +743,7 @@ Item 関数は、複数値の文字列/属性から 1 つの項目を返しま�
 **構文:** <br>
 `var Item(mvstr attribute, num index)`
 
-- 属性: 複数値の属性 <br>
+- attribute: 複数値の属性 <br>
 - index: 複数値の文字列内の項目へのインデックス。
 
 **解説:** <br>
@@ -767,7 +767,7 @@ ItemOrNull 関数は、複数値の文字列/属性から 1 つの項目を返�
 **構文:** <br>
 `var ItemOrNull(mvstr attribute, num index)`
 
-- 属性: 複数値の属性 <br>
+- attribute: 複数値の属性 <br>
 - index: 複数値の文字列内の項目へのインデックス。
 
 **解説:** <br>
@@ -788,10 +788,10 @@ Join 関数では、複数値の文字列の受け取りを指定した区切り
 `str Join(mvstr attribute)` <br>
 `str Join(mvstr attribute, str Delimiter)`
 
-- 属性: 複数値の属性を結合する文字列を格納しています。 <br>
+- attribute: 結合対象の文字列が含まれる複数値の属性。 <br>
 - delimiter: 返される文字列内で部分文字列を区切るために使用する任意の文字列。 省略した場合は、空白文字 (" ") が使用されます。 delimiter が長さ 0 の文字列 ("") または Nothing の場合、リスト内のすべての項目は、区切り記号なしで連結されます。
 
-**「解説」**<br>
+**解説**<br>
 結合と Split 関数の間でパリティがあります。 Join 関数は、文字列の配列を受け取り、区切り文字列を使用してそれらを結合し、単一の文字列を返します。 Split 関数は、文字列を受け取って区切り記号で分割し、文字列の配列を返します。 ただし、Join 関数が任意の区切り文字列を使った文字列を連結できるのに対し、Split 関数で文字列を分割する際には 1 文字の区切り記号しか使用できないという大きな違いがあります。
 
 **例:** <br>
@@ -1030,7 +1030,7 @@ RandomNum 関数は、指定した間隔の間のランダムな数を返しま�
 **構文:** <br>
 `num RandomNum(num start, num end)`
 
-- 開始: 生成するランダムな値の下限を指定する数値 <br>
+- start: 生成するランダムな値の下限を指定する数値 <br>
 - end: 生成するランダムな値の上限を指定する数値
 
 **例:** <br>
@@ -1057,7 +1057,7 @@ RemoveDuplicates 関数は、複数値の文字列を使用し、各値が一意
 
 
 ----------
-### *Views\\Home\\AllDates.cshtml*
+### Replace
 
 **説明:** <br>
 Replace 関数は、別の文字列を文字列のすべての出現を置換します。
@@ -1065,8 +1065,8 @@ Replace 関数は、別の文字列を文字列のすべての出現を置換し
 **構文:** <br>
 `str Replace(str string, str OldValue, str NewValue)`
 
-- 文字列: の値を置換する文字列。 <br>
-- OldValue: 文字列を検索し、置き換えます。 <br>
+- string: 値を置換する文字列。 <br>
+- OldValue: 検索し、置換される文字列。 <br>
 - NewValue: 置換する文字列。
 
 
@@ -1235,9 +1235,9 @@ Switch 関数の引数リストは、式と値のペアで構成されます。 
 
 たとえば、expr1 が True の場合、Switch は value1 を返します。 たとえば、expr1 が False でも expr2 が True の場合、Switch は value2 を返します。
 
-スイッチは、Nothing を返す場合。
-- すべての式は True です。
-- 最初の True 式には、Null である対応する値があります。
+次の場合、Switch は Nothing を返します。
+- すべての式が True でない場合。
+- 最初の True 式に、Null である対応する値がある場合。
 
 Switch は、返される式が 1 つであってもすべての式を評価します。 このため、望ましくない影響が発生しないよう注意する必要があります。 たとえば、式の評価結果が 0 除算のエラーの場合、エラーが発生します。
 
@@ -1324,4 +1324,5 @@ Word の機能では、使用して、単語の番号を返す区切り記号を
 
 
 <!--Image references-->
+
 

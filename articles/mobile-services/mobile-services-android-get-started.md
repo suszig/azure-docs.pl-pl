@@ -80,13 +80,13 @@
 ## <a name="next-steps"> </a>次のステップ
 クイック スタートはこれで完了です。Mobile Services で重要になるこれ以外の作業については、以下のトピックを参照してください。
 
-* [を使ってみるデータ]
+* [Get started with data]
   <br/>Mobile Services を使用してデータの格納およびクエリを実行する方法について説明します。
 
-* [認証の使用の開始を取得]
+* [Get started with authentication]
   <br/>ID プロバイダーを使用してアプリケーションのユーザーを認証する方法について説明します。
 
-* [開始プッシュ通知の使用]
+* [Get started with push notifications]
   <br/>アプリケーションにごく基本的なプッシュ通知を送信する方法について説明します。
 
 
@@ -99,5 +99,6 @@
 [Get started with authentication]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+
 
 

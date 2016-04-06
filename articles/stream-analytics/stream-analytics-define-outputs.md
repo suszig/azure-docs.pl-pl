@@ -157,7 +157,7 @@ Power BI 出力のあるすべてのジョブについて、90 日おきに認�
 
   ![Power BI renew authorization](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
-## テーブル ストレージ
+## Table Storage
 
 [Azure テーブル ストレージ](./articles/storage-introduction.md)  アプリケーションはユーザーの需要に自動的にスケールできるように、高可用性、非常にスケーラブルなストレージを提供しています。 テーブル ストレージは Microsoft の NoSQL キー/属性ストアであり、スキーマに対する制約を抑えながら、構造化されたデータに活用できます。 Azure テーブル ストレージを使用すると、永続化と効率的な取得のためにデータを保持できます。
 
@@ -266,4 +266,5 @@ Service Bus キューの送信者から受信者へ 1 対 1 の通信方法を�
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+
 

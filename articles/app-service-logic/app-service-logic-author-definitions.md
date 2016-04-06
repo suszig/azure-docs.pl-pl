@@ -297,7 +297,7 @@ Logic Apps は、多くの場合、離散されているほど管理が簡単に
 
 複数のアクションを順番に実行するのではなく並列実行するには、2 つのアクションをリンクする `dependsOn` 条件を削除する必要があります。 依存関係が削除されると、アクションは、互いのデータを必要とする場合を除いて、自動的に並列実行されます。 
 
-![分岐](./media/app-service-logic-author-definitions/branches.png)
+![Branches](./media/app-service-logic-author-definitions/branches.png)
 
 ```
 {
@@ -722,4 +722,5 @@ API を呼び出しているときに、特定の応答を待ってから処理�
 ```
 
 参照してください、 [REST API のドキュメント](https://msdn.microsoft.com/library/azure/dn948513.aspx) を作成およびロジック アプリを管理するためのすべてのオプションがある場合。 
+
 

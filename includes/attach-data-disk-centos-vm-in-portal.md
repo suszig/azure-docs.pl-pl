@@ -103,7 +103,7 @@
     2 番目のコマンドでエラーが発生した場合、/etc/fstab ファイルの構文が正しいかどうかを確認してください。
 
 
-    >[AZURE.NOTE] Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. If this is a common occurrence, then most distributions provide either the `nofail` and/or `nobootwait` fstab options that will allow a system to boot even if the disk is not present. Please consult your distribution's documentation for more information on these parameters.
+    >[AZURE.NOTE] 後、fstab を編集することがなく、データ ディスクを削除すると、VM が起動に失敗する可能性があります。 これが頻繁に発生する場合、大部分のディストリビューションでは `nofail` または `nobootwait` fstab オプションが提供されます。これによって、ディスクがなくてもシステムを起動することができます。 これらのパラメーターの詳細については、使用しているディストリビューションのドキュメントを参照してください。
 
 
 [Image2]: ./media/attach-data-disk-centos-vm-in-portal/AttachDataDiskLinuxVM2.png
@@ -113,5 +113,6 @@
 [Image7]: ./media/attach-data-disk-centos-vm-in-portal/fdisk3.png
 [Image8]: ./media/attach-data-disk-centos-vm-in-portal/fdisk4.png
 [Image9]: ./media/attach-data-disk-centos-vm-in-portal/mkfs.png
+
 
 

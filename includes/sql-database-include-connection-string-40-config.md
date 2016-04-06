@@ -2,9 +2,9 @@
 <!--
 includes/sql-database-include-connection-string-40-config.md
 
-鮮度をチェックする最新: 2015年-09-04、GeneMi です。
+Latest Freshness check:  2015-09-04 , GeneMi.
 
-## 接続文字列
+## Connection string
 -->
 
 
@@ -65,4 +65,5 @@ includes/sql-database-include-connection-string-20-portalshots.md
 includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
+
 

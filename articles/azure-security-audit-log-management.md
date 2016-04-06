@@ -76,7 +76,7 @@ ConfigureIISLogging.cmd の内容
     Exit /B 0
 
 
-## <a name="log-collection"></a>ログ コレクション
+## <a name="log-collection"></a>ログの収集
 Azure の Cloud Services または Virtual Machines からのセキュリティ イベントおよびログの収集は、2 つの主要な方法で行われます。
 
 - Azure 診断は、顧客の Azure ストレージ アカウントでのイベントを収集します。
@@ -566,7 +566,7 @@ Azure サブスクリプション リソースに関連する操作は、使用�
 
 表示する、 **操作ログ**, 、開かれている、 [Azure 管理ポータル](https://manage.windowsazure.com/), をクリックして **管理サービス**, 、順にクリック **操作ログ**します。
 
-## <a name="diagnostics"></a> Azure 診断がサポートされるデータ ソース
+## <a name="diagnostics"></a> Azure 診断でサポートされるデータ ソース
 
 | データ ソース | 説明 |
 |----- | ----- |
@@ -624,4 +624,5 @@ Azure サブスクリプション リソースに関連する操作は、使用�
 [18]: ./media/azure-security-audit-log-management/sec-blob-iis-logs.png
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
+
 

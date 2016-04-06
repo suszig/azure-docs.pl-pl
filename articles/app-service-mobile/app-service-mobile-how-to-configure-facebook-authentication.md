@@ -25,7 +25,7 @@
 
 このトピックでは、認証プロバイダーとして Facebook を使用するように Azure App Service を構成する方法を示します。
 
-このトピックの手順を完了するには、検証済みの電子メール アドレスを持つ Facebook アカウントおよび携帯電話番号が必要になります。 新しい Facebook アカウントを作成するには、[facebook.com] に移動します。
+このトピックの手順を完了するには、検証済みの電子メール アドレスを持つ Facebook アカウントおよび携帯電話番号が必要になります。 新しい Facebook アカウントを作成するには [facebook.com]します。
 
 > [AZURE.NOTE]
 このトピックでは、App Service 認証/承認の使用例を示します。 ほとんどのアプリケーションで、これが App Service ゲートウェイに取って代わっています。 ゲートウェイを使用する場合との相違点は、トピック全体を通してメモに記載しています。
@@ -33,9 +33,9 @@
 
 ## <a name="register"> </a>Facebook にアプリケーションを登録する
 
-1. [Azure ポータル] にログオンし、アプリケーションに移動します。 コピー、 **URL**します。 この URL は、Facebook アプリの構成で使用します。
+1. ログオン、 [Azure portal], 、アプリケーションに移動します。 コピー、 **URL**します。 この URL は、Facebook アプリの構成で使用します。
  
-2. 別のブラウザー ウィンドウで [Facebook Developers] web サイトに移動し、Facebook アカウントの資格情報でサインインします。
+2. 別のブラウザー ウィンドウに移動し、 [Facebook Developers] web サイトと、Facebook にログイン アカウントの資格情報。
 
 3. (省略可能)既に登録していない場合、クリックして **アプリ** > **開発者として登録する**, 、ポリシーに同意し、登録手順に従います。
 
@@ -58,19 +58,19 @@
 
 
     > [AZURE.NOTE]
-    If you are using the App Service Gateway instead of the App Service Authentication / Authorization feature, your redirect URL instead uses the gateway URL with the _/signin-facebook_ path.
+    アプリ サービス認証ではなく、App Service ゲートウェイを使用しているかどうかは認証機能は、代わりには使用するとゲートウェイの URL のリダイレクト URL、 _/signin-facebook_ パス。
 
 
 12. アプリケーションの登録に使用した Facebook アカウントがアプリケーションの管理者になります。 この時点では、管理者のみがこのアプリケーションにサインインできます。 その他の Facebook アカウントを認証する] をクリックして **Status & Review** 左側のナビゲーション バーにします。 をクリックし、 **はい** 汎用パブリック アクセスを有効にします。
 
 
-## <a name="secrets"> </a>Facebook の情報をアプリケーションに追加します。
+## <a name="secrets"> </a>Facebook の情報をアプリケーションに追加する
 
 > [AZURE.NOTE]
 App Service ゲートウェイを使用する場合は、このセクションの内容は無視し、ポータル内で目的のゲートウェイに移動します。 選択 **設定**, 、**Identity**, 、し **Facebook**します。 先に取得した値に貼り付け、クリックして **保存**します。
 
 
-13. ポータルに戻り、[Azure] には、アプリケーションに移動します。 をクリックして **設定** > **認証/承認**, 、ことを確認し、 **アプリ サービスの認証** は **に**します。
+13. 戻り、 [Azure portal], 、アプリケーションに移動します。 をクリックして **設定** > **認証/承認**, 、ことを確認し、 **アプリ サービスの認証** は **に**します。
 
 15. クリックして **Facebook**, 、貼り付け以前に入手したアプリ ID と App Secret の値で、必要に応じて、アプリケーションで必要なすべてのスコープを有効にするクリックして **OK**します。
 
@@ -97,3 +97,4 @@ App Service ゲートウェイを使用する場合は、このセクション�
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure portal]: https://portal.azure.com/
+

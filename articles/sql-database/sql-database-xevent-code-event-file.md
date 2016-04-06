@@ -72,7 +72,7 @@ Microsoft SQL Server で、 [イベント ファイル ターゲット](http://m
 
 2. PowerShell ISE を管理者として起動します。
 
-3. プロンプトで、「<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>」と入力し、Enter キーを押します。
+3. プロンプトで、次のように入力します。<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>Enter キーを押します。
 
 4. PowerShell ISE で開く、 **.ps1** ファイルです。 スクリプトを実行します。
 
@@ -597,5 +597,6 @@ Image references.
 -->
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
+
 
 

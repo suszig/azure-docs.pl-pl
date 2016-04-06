@@ -182,7 +182,7 @@ Application Insights SDK には、さまざまな種類のデータをアプリ�
 
 セットアップ手順を Visual Studio で自動実行する場合は、Windows Phone、Windows ストアなどのさまざまな種類のアプリで自動実行できます。
 
-###<a name="new"></a> 新しい Windows アプリ プロジェクトを作成する場合.
+###<a name="new"></a>新しい Windows アプリ プロジェクトを作成する場合
 
 [新しいプロジェクト] ダイアログ ボックスで [Application Insights] を選択します。 
 
@@ -191,7 +191,7 @@ Application Insights SDK には、さまざまな種類のデータをアプリ�
 ![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
 
 
-###<a name="existing"></a> 既存のかどうかは、次のプロジェクト.
+###<a name="existing"></a> 既存のプロジェクトの場合
 
 ソリューション エクスプローラーから Application Insights を追加します。
 
@@ -232,4 +232,5 @@ Application Insights SDK には、さまざまな種類のデータをアプリ�
 [roles]: app-insights-resources-roles-access-control.md
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
+
 

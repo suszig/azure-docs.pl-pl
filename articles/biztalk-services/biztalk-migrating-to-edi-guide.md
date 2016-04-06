@@ -98,7 +98,7 @@ BizTalk Server のマップは、BizTalk Services では変換と呼ばれます
 
 使用できる変換マップ操作の一覧は BizTalk Server マッパーとまったく異なるように見えますが、BizTalk Services の変換には同じタスクを実行する新しい方法があります。 この例では、BizTalk Services の変換がある **リスト操作** 使用できます。 これは、BizTalk マッパーでは使用できなかったものです。   **リスト操作** を使用すると、作成して操作、「リスト」リストは一連の項目 (「行」とも呼ばれます) と、各項目は、複数のメンバー (「列」とも呼ばれます) を持つことができます。  リストの並べ替え、条件に基づく項目の選択などが可能です。
 
-BizTalk Services の変換の新機能のもう 1 つの例は、 **ループ操作**します。  BizTalk Server マッパーでは入れ子になったループを作成するのは困難です。  したがって、ループ マップ操作が BizTalk Services の変換に追加されています。
+BizTalk Services の変換の新機能の別の例は、 **ループ操作**します。  BizTalk Server マッパーでは入れ子になったループを作成するのは困難です。  したがって、ループ マップ操作が BizTalk Services の変換に追加されています。
 
 別の例は、 **If Then Else** 式のマップ操作です。  BizTalk マッパーでも if-then-else 操作を行うことはできましたが、見た目は簡単なタスクでも実行するには複数の functoid が必要でした。
 
@@ -141,3 +141,4 @@ Microsoft Azure BizTalk Services は定期的なマイルストーンで更新�
 [Azure 対応のエンタープライズ アプリケーションの開発](https://msdn.microsoft.com/library/azure/hh674490.aspx)
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
+

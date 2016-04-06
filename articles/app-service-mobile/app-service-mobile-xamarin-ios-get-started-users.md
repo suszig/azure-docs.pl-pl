@@ -24,7 +24,7 @@
 
 このトピックでは、クライアント アプリケーションから App Service モバイル アプリのユーザーを認証する方法について説明します。 このチュートリアルでは、App Service でサポートされている ID プロバイダーを使用して、Xamarin.iOS クイック スタート プロジェクトに認証を追加します。 モバイル アプリによって正常に認証され、承認されるとユーザー ID 値が表示され、制限付きのテーブル データにアクセスできます。
 
-[Xamarin.iOS アプリの作成] に関するチュートリアルを完了する必要があります。 ダウンロードしたクイック スタートのサーバー プロジェクトを使用しない場合は、認証拡張機能パッケージをプロジェクトに追加する必要があります。 サーバーの拡張機能パッケージの詳細については、次を参照してください。 [Azure モバイル アプリの .NET バックエンド サーバー SDK と連携](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)します。 
+最初のチュートリアルを完了する必要があります [Create a Xamarin.iOS app]します。 ダウンロードしたクイック スタートのサーバー プロジェクトを使用しない場合は、認証拡張機能パッケージをプロジェクトに追加する必要があります。 サーバーの拡張機能パッケージの詳細については、次を参照してください。 [Azure モバイル アプリの .NET バックエンド サーバー SDK と連携](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)します。 
 
 ##アプリケーションを認証に登録し、App Services を構成する
 
@@ -111,4 +111,5 @@
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Create a Xamarin.iOS app]: app-service-mobile-xamarin-ios-get-started.md
  
+
 

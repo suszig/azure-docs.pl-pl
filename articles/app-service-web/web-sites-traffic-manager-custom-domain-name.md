@@ -1,6 +1,6 @@
 <properties 
-    pageTitle =「Traffic Manager を使用する Azure App Service で web アプリのカスタム ドメイン名の構成」wpickett"のカスタム ドメイン名を使用して、負荷分散に Traffic Manager を含む Azure App Service で web アプリです"。 
-    description ="のカスタム ドメイン名を使用して、負荷分散に Traffic Manager を含む Azure App Service で web アプリです"。 
+    pageTitle="Traffic Manager を利用する Azure App Service Web アプリのカスタム ドメイン名の構成"wpickett"Use a custom domain name for an a web app in Azure App Service that includes Traffic Manager for load balancing." 
+    description="負荷分散のための Traffic Manager を含む Azure App Service Web アプリのカスタム ドメイン名の使用" 
     services="app-service\web" 
     documentationCenter="" 
     authors="rmcmurray" 
@@ -67,4 +67,5 @@
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
  
+
 

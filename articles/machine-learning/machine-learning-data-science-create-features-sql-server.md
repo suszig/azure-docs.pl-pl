@@ -101,13 +101,13 @@
 
 > [AZURE.TIP] 別の方法としては、データベースを使用して、データを挿入する [BCP ユーティリティ](https://msdn.microsoft.com/library/ms162802.aspx)
 
-###<a name="sql-aml"></a>Azure Machine Learning に接続する
+###<a name="sql-aml"></a>Azure Machine Learning への接続
 
 新しく生成された特徴は、既存のテーブルに列として追加するか、新しいテーブルに格納して機械学習の元のテーブルと結合することができます。 機能を生成またはを使用して、すでに作成した場合のアクセス、 [リーダー](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) 次のように、Azure ml モジュール。
 
 ![Azure ML リーダー](./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png) 
 
-##<a name="python"></a>Python などのプログラミング言語を使用する
+##<a name="python"></a>Python などのプログラミング言語の使用
 
 説明に従って、Python を使用して Azure blob でデータの処理と似ています Python を使用して、データが SQL Server の特徴を生成する [Azure Blob データを処理するデータ サイエンス環境で](machine-learning-data-science-process-data-blob.md)します。 データは、データベースから pandas データ フレームに読み込む必要があります。その後、さらに処理することができます。 このセクションでは、データベースに接続して、データ フレームにデータを読み込むプロセスについて記載します。
 
@@ -125,3 +125,4 @@
 トピックで説明されているように Pandas データ フレームを操作できるようになりました [パンダを使用して Azure blob ストレージ データの特徴を作成](machine-learning-data-science-create-features-blob.md)します。
 
  
+

@@ -33,7 +33,7 @@
 * アクティブな Azure アカウント  
 アカウントがない場合は、Azure 試用版にサインアップして、最大 10 件の無料モバイル アプリ バックエンドを入手してください。 このアプリは、評価終了後も使用できます。 参照してください [Azure 無料評価版](http://azure.microsoft.com/pricing/free-trial/)します。
 
-* Mac を [Xamarin Studio] と [Xcode] v4.4 以降がインストールされています。 必要であれば Visual Studio を使用して Windows コンピューター上で Xamarin.iOS を実行できますが、Xamarin.iOS Build Host を実行するネットワーク接続された Mac にアクセスする必要があるため、少し複雑になります。 これを行うに知りたい場合は、[windows Xamarin.iOS をインストールする] を参照してください。
+* Mac を [Xamarin Studio] と [Xcode] v4.4 以降がインストールされています。 必要であれば Visual Studio を使用して Windows コンピューター上で Xamarin.iOS を実行できますが、Xamarin.iOS Build Host を実行するネットワーク接続された Mac にアクセスする必要があるため、少し複雑になります。 これを行うに知りたい場合は、次を参照してください。 [Installing Xamarin.iOS on Windows]します。
 
 * 物理的な iOS デバイス iOS シミュレーターでは、プッシュ通知はサポートされていません。
 
@@ -176,3 +176,4 @@
 
 
  
+

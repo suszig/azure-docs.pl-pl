@@ -38,7 +38,7 @@
 * セット __solruser__ の所有者として `/usr/hdp/current/solr`
 * 追加、 [新進気鋭](http://upstart.ubuntu.com/) クラスター ノードが再起動した場合に、Solr を起動構成します。 Solr は、インストール後にもクラスター ノード上で自動的に開始されます。
 
-## <a name="install"></a>スクリプト アクションを使用して Solr をインストールします。
+## <a name="install"></a>スクリプト アクションを使用した Solr のインストール
 
 HDInsight クラスターに Solr をインストールするサンプル スクリプトは読み取り専用の Azure ストレージ blob から入手 [https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh)します。 このセクションでは、Azure ポータルを使用してクラスターをプロビジョニングする際に、サンプル スクリプトを使用する方法について説明します。
 
@@ -305,4 +305,5 @@ Solr のバックアップと復元の操作の詳細については、次を参
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
+
 

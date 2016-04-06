@@ -127,7 +127,7 @@ Key Vault の使用方法についての詳細については、暗号化コー�
 ## ベスト プラクティス  
 暗号化のサポートは、Java 用のストレージ クライアント ライブラリでのみ使用できます。
 
->**重要。**  
+>**重要:**  
 >クライアント側の暗号化を使用する場合は、次の重要な点に注意してください。
 >  
 >- 暗号化された BLOB を読み書きするときは、完全 BLOB アップロード コマンドと範囲/完全 BLOB ダウンロード コマンドを使用してください。 Put Block、Put Block List、Write Pages、Clear Pages、または Append Block などのプロトコル操作で暗号化された BLOB に書き込まないでください。暗号化された BLOB が壊れたり、読み取り不可能になったりすることがあります。  
@@ -145,7 +145,7 @@ EncryptionPolicy オブジェクトの作成では、キーのみ (IKey の実�
     - キーを取得するよう指定した場合にキー リゾルバーが起動します。 リゾルバーが指定されていても、キー識別子のマッピングがない場合、エラーがスローされます。  
     - リゾルバーが指定されていない場合にキーが指定されると、そのキーの識別子が必須キー識別子と一致すると、そのキーが使用されます。 識別子が一致しなければ、エラーがスローされます。  
 
-       [暗号化のサンプル](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>Key Vault 統合に blob、キュー、およびテーブルより詳細なエンド ツー エンドのシナリオを示します。
+       [暗号化のサンプル](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>blob、キュー、およびテーブル、Key Vault 統合と共により詳細なエンド ツー エンドのシナリオを示してください。
 
 ### RequireEncryption モード  
 すべてのアップロードとダウンロードを暗号化する必要がある場合、オプションで操作のモードを有効にすることができます。 このモードでは、暗号化ポリシーを設定せずにデータをアップロードしようとしたり、サービスで暗号化されていないデータをダウンロードしようとしたりすると、クライアントで失敗します。  **RequireEncryption** 要求オプション オブジェクトのフラグは、この動作を制御します。 アプリケーションの Azure ストレージに格納されているすべてのオブジェクトによって暗号化されるかどうかは、設定することができます、 **requireEncryption** service クライアント オブジェクトの既定の要求オプションのプロパティです。   
@@ -246,3 +246,4 @@ EncryptionPolicy オブジェクトの作成では、キーのみ (IKey の実�
 ダウンロード、 [GitHub からソース コードを Java 用 Azure ストレージ クライアント ライブラリ](https://github.com/Azure/azure-storage-java)   
 Azure Key Vault Maven ダウンロード [コア](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), 、[クライアント](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), 、および [拡張](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) パッケージ
 参照してください、 [Azure Key Vault のドキュメント](../articles/key-vault-whatis.md)  
+

@@ -22,8 +22,9 @@ Microsoft Azure サービスの制限の完全なセットを探している場�
 
 [AZURE.INCLUDE [AAD-service-limits](../../includes/active-directory-service-limits-include.md)]
 
-## 参照トピック
+## 次の手順
 - [Azure への組織としてのサインアップ](sign-up-organization.md)
 - [Azure サブスクリプションを Azure AD に関連付ける方法](active-directory-how-subscriptions-associated-directory.md)
 - [Azure AD の用語](active-directory-terminology.md)
+
 

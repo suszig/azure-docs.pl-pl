@@ -43,7 +43,7 @@ Azure で構成の更新中に 99.95% の可用性を保証できるのは、各
 
 3. サービス ロールについては (ロールによりグループ分け)、次の設定を更新できます。
     
-    >**設定**  
+    >**[設定]**  
     >指定されているその他の構成設定の値を変更、 *ConfigurationSettings* サービス構成 (.cscfg) ファイルの要素。
     >
     >**証明書**  
@@ -87,4 +87,5 @@ Azure で構成の更新中に 99.95% の可用性を保証できるのは、各
 * [クラウド サービスを管理する](cloud-services-how-to-manage.md)です。
 * [Azure Cloud Services のロールでリモート デスクトップ接続を有効にする](cloud-services-role-enable-remote-desktop.md)
 * 構成 [ssl 証明書](cloud-services-configure-ssl-certificate.md)します。
+
 

@@ -83,7 +83,7 @@
 
     >[AZURE.NOTE] サインオン URL は、リージョンに固有です。
 
-    ![Configure App URL](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794996.png "Configure App URL")
+    ![アプリケーション URL の構成](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794996.png "Configure App URL")
 
 4.   **Mimecast Personal Portal でのシングル サインオンの構成** ] ページで、証明書をダウンロードする] をクリックして **証明書のダウンロード**, 、お使いのコンピューターにローカルで証明書ファイルを保存します。
 
@@ -152,7 +152,7 @@ Mimecast Personal Portal の場合、プロビジョニングは手動で行い�
 
 5.  新しいアドレスのダイアログで、次の手順に従います。
 
-    ![Save](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795006.png "Save")
+    ![保存](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795006.png "Save")
 
     1.  型、 **電子メール アドレス**, 、**グローバル名**, 、**パスワード** と **パスワードの確認** 関連テキスト ボックスに、プロビジョニングする有効な AAD アカウントの属性です。
     2.  クリックして **保存**します。
@@ -176,3 +176,4 @@ Mimecast Personal Portal の場合、プロビジョニングは手動で行い�
     ![あり](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

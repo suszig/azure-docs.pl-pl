@@ -108,7 +108,7 @@ REST ラッパーを実装するすべての詳細を参照して [MSDN](http://
     }
 
 ### 通知を送信する
-最初に、通知を表すクラスを定義してみましょう。
+最初に、通知を表すクラスを定義します。
 
     class Notification {
         public $format;
@@ -194,7 +194,7 @@ REST ラッパーを実装するすべての詳細を参照して [MSDN](http://
 
 上記のメソッドは、HTTP POST 要求、および通知を送信する正しい本体とヘッダーを通知ハブの /messages エンドポイントに送信します。
 
-##<a name="complete-tutorial"></a>チュートリアルを完了する
+##<a name="complete-tutorial"></a>チュートリアルの完了
 ここで、PHP バックエンドから通知を送信して、使用についてのチュートリアルを完了できます。
 
 Notification Hubs クライアントを初期化 (」の説明に従って接続文字列とハブ名を置き換えて、 [Get started tutorial])。
@@ -255,4 +255,5 @@ PHP コードを実行すると、ターゲット デバイスに表示される
 [PHP REST wrapper sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
+
 

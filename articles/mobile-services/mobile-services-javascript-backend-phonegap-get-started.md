@@ -41,7 +41,7 @@
 
     - Windows Phone: インストール [Visual Studio 2012 Express for Windows Phone](https://go.microsoft.com/fwLink/p/?LinkID=268374)
     - iOS: インストール [Xcode] (v4.4 以上が必要)
-    - Android: [Android Developer Tools] のインストール [Android SDK]
+    - Android: インストール、 [Android の開発ツール][Android SDK]
         <br/>(Android 向けのMobile Services SDK は Android 2.2 以降用のアプリケーションをサポートします。 Android 4.2 以降がクイック スタート アプリケーションの実行に必要です。)
 
 ## 新しいモバイル サービスを作成する
@@ -52,7 +52,7 @@
 
 ここでは、モバイル サービスに接続された新しい PhoneGap アプリケーションを作成します。
 
-1.  クリックして、[Azure クラシック ポータル] で、 **Mobile Services**, 、し、先ほど作成したモバイル サービスをクリックします。
+1.   [Azure classic portal], 、] をクリックして **Mobile Services**, 、作成したモバイル サービスをクリックします。
 
 2. クイック スタート] タブをクリックして **PhoneGap** [ **プラットフォームの選択]** 展開 **新しい PhoneGap アプリケーションを作成**します。
 
@@ -113,7 +113,7 @@
 
     > [AZURE.IMPORTANT] メイン プロジェクトが PhoneGap ツールで再ビルドされる場合、このプラットフォーム プロジェクトへの変更が上書きされます。 以下のセクションで説明されているように、代わりの方法として、変更はプロジェクトのルートの www ディレクトリで行います。
 
-4. ポータルに戻り、[Azure クラシック] をクリックして、 **データ** ] タブでをクリックし、 **TodoItem** テーブルです。
+4. 戻り、 [Azure classic portal], をクリックして、 **データ** ] タブでをクリックし、 **TodoItem** テーブルです。
 
     ![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
 
@@ -155,13 +155,13 @@
 ## 次のステップ
 クイック スタートはこれで完了です。Mobile Services で重要になるこれ以外の作業については、以下のトピックを参照してください。
 
-* **[アプリに認証の追加]**  
+* **[Add authentication to your app]**  
   ID プロバイダーを使用してアプリケーションのユーザーを認証する方法について説明します。  
 
-* **[アプリへのプッシュ通知を追加します。](https://msdn.microsoft.com/magazine/dn879353.aspx)**  
+* **[アプリケーションにプッシュ通知を追加する](https://msdn.microsoft.com/magazine/dn879353.aspx)**  
   登録を行い、アプリにプッシュ通知を送信する方法について説明します。
 
-* **[モバイル サービス Html/javascript の使用方法の概念リファレンス](mobile-services-html-how-to-use-client-library.md)**  
+* **[モバイル サービス HTML/JavaScript の使用方法の概念リファレンス](mobile-services-html-how-to-use-client-library.md)**  
   カスタム Api を呼び出して、認証を実行し、データにアクセスする JavaScript クライアント ライブラリを使用する方法について説明します。
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
@@ -180,3 +180,4 @@
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
+

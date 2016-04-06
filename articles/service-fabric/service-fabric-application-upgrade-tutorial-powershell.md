@@ -32,7 +32,7 @@ Service Fabric による監視付きローリング アップグレードを使�
 
 Visual Studio でプロジェクトをビルドしてから、PowerShell コマンドを使用いずれかが **Copy-servicefabricapplicationpackage** を使用して Service Fabric ランタイムにアプリケーションを登録することによって後に、アプリケーション パッケージを ImageStore にコピーする、 **Register-servicefabricapplicationpackage** コマンドレットを使用して、アプリケーションのインスタンスを最後に開始、 **New-servicefabricapplication** コマンドレットです。  これら 3 つの手順は、Visual Studio で [デプロイ] メニュー項目を使用することに似ています。
 
-使用するようになりましたが、 [クラスターおよびアプリケーションを表示する Service Fabric エクスプ ローラー](service-fabric-visualizing-your-cluster.md)します。 アプリケーションにもナビゲートできますに Internet Explorer」と入力して、web サービスの持つ [場所/visualobjects](http://localhost:8081/visualobjects) アドレス バーにします。  画面上を動くフローティング ビジュアル オブジェクトが表示されます。  さらに、使用する **Get-servicefabricapplication** アプリケーション状態を確認します。
+使用するようになりましたが、 [クラスターおよびアプリケーションを表示する Service Fabric エクスプ ローラー](service-fabric-visualizing-your-cluster.md)します。 アプリケーションにもナビゲートできますに Internet Explorer」と入力して、web サービスの持つ [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) アドレス バーにします。  画面上を動くフローティング ビジュアル オブジェクトが表示されます。  さらに、使用する **Get-servicefabricapplication** アプリケーション状態を確認します。
 
 ## 手順 2: ビジュアル オブジェクト サンプルの更新
 
@@ -125,5 +125,6 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 参照することで、アプリケーションをアップグレードするときに高度な機能を使用する方法について [高度なトピック](service-fabric-application-upgrade-advanced.md)します。
 
 」の手順を参照してアプリケーションのアップグレードの一般的な問題が解決 [アプリケーションのアップグレードのトラブルシューティング ](service-fabric-application-upgrade-troubleshooting.md)します。
+
 
 

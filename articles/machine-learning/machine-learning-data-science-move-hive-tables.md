@@ -49,7 +49,7 @@ Hive クエリは、以下のものを使用して送信できます。
 * Hive エディター
 * Azure PowerShell スクリプト
 
-Hive クエリは SQL に似ています。 SQL を使い慣れているユーザーを見つけることがあります、 <a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">SQL の Hive のチート シート</a> 便利です。
+Hive クエリは SQL に似ています。 SQL を使い慣れているユーザーには、<a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">SQL-to-Hive チート シート</a>が役立つ場合があります。
 
 Hive クエリの送信時、Hive クエリの出力先を、画面上、ヘッド ノード上のローカル ファイル、または Azure BLOB のどれにするか制御できます。
 
@@ -133,7 +133,7 @@ Azure ストレージ エクスプローラーの (またはそれと同等の) 
 または、 [Hive クエリの実行 PowerShell を使用して](../hdinsight/hdinsight-hadoop-use-hive-powershell.md)します。
 
 
-## <a name="create-tables"></a>Hive データベースとテーブルの作成
+## <a name="create-tables"></a>Hive データベースとテーブルの作成。
 
 Hive クエリは、[Github リポジトリ](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql)内で共有されており、そこからダウンロードできます。
 
@@ -166,16 +166,16 @@ Hive テーブルにデータを読み込む Hive クエリを次に示します
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-- **& #60; blob データへのパス >**: Hive テーブルにアップロードする blob ファイルが HDInsight Hadoop クラスターの既定のコンテナーの場合、 *& #60; blob データへのパス >* 形式にする必要があります *' wasb:///および #60; このコンテナー内のディレクトリ >/(& a) #60; blob ファイル名 >'*します。 BLOB ファイルは、HDInsight Hadoop クラスターの追加コンテナーに配置することもできます。 この場合、 *& #60; blob データへのパス >* 形式にする必要があります *' wasb://(& a) #60; コンテナー名 > @ (& a) #60; ストレージ アカウント名 >.blob.core.windows.net/と; blob ファイル名 >'*します。
+- **& #60; blob データへのパス >**: Hive テーブルにアップロードする blob ファイルが HDInsight Hadoop クラスターの既定のコンテナーの場合、 *& #60; blob データへのパス >* 形式にする必要があります *' wasb:///および #60; このコンテナー内のディレクトリ >/(& a) #60; blob ファイル名 >'*します。 BLOB ファイルは、HDInsight Hadoop クラスターの追加コンテナーに配置することもできます。 この場合、 *& #60; blob データへのパス >* 形式にする必要があります *' wasb://(& a) #60; コンテナー名 > @ (& a) #60; ストレージ アカウント名 >.blob.core.windows.net/ と; blob ファイル名 >'*します。
 
     >[AZURE.NOTE] Hive テーブルにアップロードする blob データは、既定またはその他の Hadoop クラスターのストレージ アカウントのコンテナーに存在するができます。 それ以外の場合、 *データの読み込み* クエリは、データをアクセスできないために失敗します。 
 
 
-## <a name="partition-orc"></a>拡張トピック: パーティション分割テーブルと ORC 形式での Hive データの格納
+## <a name="partition-orc"></a>高度なトピック: パーティション テーブルと ORC 形式での Hive データの格納
 
 データのサイズが大きい場合、テーブルのいくつかのパーティションのみをスキャンすればよいクエリでは、テーブルをパーティション分割すると効果的です。 たとえば、Web サイトのログ データを日付別にパーティション分割することができます。 
 
-Hive テーブルをパーティション分割することに加え、Optimized Row Columnar (ORC) 形式で Hive データを格納することも効果的です。 ORC 形式の詳細については、次を参照してください。 <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles" target="_blank">Hive を読み取り、書き込み、およびデータの処理時にパフォーマンスが向上 ORC ファイルを使用します。</a>.
+Hive テーブルをパーティション分割することに加え、Optimized Row Columnar (ORC) 形式で Hive データを格納することも効果的です。 詳細については、<a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles" target="_blank">Hive によるデータの読み取り、書き込み、および処理時における ORC ファイルを使用したパフォーマンスの向上</a>に関するページをご覧ください。
 
 ### パーティション テーブル
 パーティション テーブルを作成し、そこにデータを読み込む Hive クエリを次に示します。
@@ -249,3 +249,4 @@ Hive テーブルをパーティション分割することに加え、Optimized
 ##チューニングに関するセクションがここに入ります
 
 最後のセクションでは、Hive クエリのパフォーマンスを向上させるためにユーザーが調整できるパラメーターについて説明します。
+

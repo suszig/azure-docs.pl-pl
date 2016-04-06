@@ -174,7 +174,8 @@ Azure DNS の新しいゾーンを使用するためのドメインの委任を�
 
 
 [レコード セットとレコードの作成の概要します。](dns-getstarted-create-recordset-cli.md)<BR>
-[DNS ゾーンを管理する方法](dns-operations-dnszones-cli.md)<BR>
-[DNS レコードを管理する方法](dns-operations-recordsets-cli.md)<BR>
+[DNS ゾーンの管理方法](dns-operations-dnszones-cli.md)<BR>
+[DNS レコードの管理方法](dns-operations-recordsets-cli.md)<BR>
 [.NET SDK を使用した Azure の操作を自動化します。](dns-sdk.md)<BR>
 [Azure DNS REST API リファレンス](https://msdn.microsoft.com/library/azure/mt163862.aspx)
+

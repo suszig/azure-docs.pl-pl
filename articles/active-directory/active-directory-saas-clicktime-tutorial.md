@@ -75,7 +75,7 @@
 
 1.  Azure AD ポータルでの **ClickTime** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![Enable single sign-on](./media/active-directory-saas-clicktime-tutorial/IC777277.png "Enable single sign-on")
+    ![シングル サインオンの有効化](./media/active-directory-saas-clicktime-tutorial/IC777277.png "Enable single sign-on")
 
 2.   **どのようなユーザーが ClickTime へのサインオン** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 
@@ -104,7 +104,7 @@
 
 7.  Azure AD ポータルでのシングル サインオンの構成情報を選択し、 **完了** を閉じる、 **[シングル サインオン** ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-clicktime-tutorial/IC777281.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-clicktime-tutorial/IC777281.png "Configure single sign-on")
 ##ユーザー プロビジョニングの構成
 
 Azure AD ユーザーが ClickTime にログインできるようにするには、そのユーザーを ClickTime にプロビジョニングする必要があります。  
@@ -152,4 +152,5 @@ ClickTime の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-clicktime-tutorial/IC767830.png "Yes")
 
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+
 

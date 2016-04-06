@@ -70,25 +70,25 @@
 
 1.  Azure AD ポータルでの **15 five** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-15five-tutorial/IC784670.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-15five-tutorial/IC784670.png "Configure single sign-on")
 
 2.   **どのようなユーザーが 15 five へのサインオンを** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、順にクリック **次**します。
 
-    ![Configure single sign-on](./media/active-directory-saas-15five-tutorial/IC784671.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-15five-tutorial/IC784671.png "Configure single sign-on")
 
 3.   **アプリケーション URL の構成** ] ページの [、 **15 five サインイン URL** ] ボックスに、次のパターンを使用して URL を入力"*https://company.15Five.com*"、] をクリックし、 **次**します。
 
-    ![アプリケーション URL の構成](./media/active-directory-saas-15five-tutorial/IC784672.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-15five-tutorial/IC784672.png "Configure App URL")
 
 4.   **15 five でのシングル サインオンの構成** ] ページで [ **メタデータのダウンロード**, 、15 five サポート チームにメタデータ ファイルを転送します。
 
-    ![シングル サインオンの構成](./media/active-directory-saas-15five-tutorial/IC784673.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-15five-tutorial/IC784673.png "Configure single sign-on")
 
     >[AZURE.NOTE] シングル サインオンは、15 five サポート チームを有効にする必要があります。
 
 5.  Azure AD ポータルでのシングル サインオンの構成情報を選択し、 **完了** を閉じる、 **[シングル サインオン** ダイアログ。
 
-    ![シングル サインオンの構成](./media/active-directory-saas-15five-tutorial/IC784674.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-15five-tutorial/IC784674.png "Configure single sign-on")
 ##ユーザー プロビジョニングの構成
 
 Azure AD ユーザーが 15Five にログインできるようにするには、そのユーザーを 15Five にプロビジョニングする必要があります。  
@@ -134,4 +134,5 @@ Azure AD ユーザーが 15Five にログインできるようにするには、
     ![あり](./media/active-directory-saas-15five-tutorial/IC767830.png "Yes")
 
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+
 

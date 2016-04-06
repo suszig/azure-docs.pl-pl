@@ -71,7 +71,7 @@ API Management を使用するにあたって最初に行うことは、サー�
 
 ![新しい API Management サービス][api-management-create-instance-step1]
 
-入力 **Contoso Ltd.** の **組織名**, に電子メール アドレスを入力し、 **管理者の電子メール** フィールドです。
+入力 **Contoso ltd.**  **組織名**, に電子メール アドレスを入力し、 **管理者の電子メール** フィールドです。
 
 >[AZURE.NOTE] この電子メール アドレスは、API Management システムからの通知に使用されます。 詳細については、次を参照してください。 [と Azure API Management でテンプレートを電子メール通知を構成する方法][]します。
 
@@ -114,7 +114,7 @@ API の構成は、Azure クラシック ポータルから発行者ポータル
 
 API がインポートされると、API の概要ページがパブリッシャー ポータルに表示されます。
 
-![API の概要][api-management-imported-api-summary]
+![API summary][api-management-imported-api-summary]
 
 API セクションにはいくつかのタブがあります。  **概要** ] タブには、基本的なメトリックと API に関する情報が表示されます。  [設定](api-management-howto-create-apis.md#configure-api-settings) API の構成を表示および編集] タブを使用します。  [操作](api-management-howto-add-operations.md) タブは、API の操作を管理するために使用します。  **セキュリティ** 基本認証を使用してバックエンド サーバー用のゲートウェイ認証を構成する] タブを使用できますか [相互証明書認証](api-management-howto-mutual-certificates.md), 、し構成する [OAuth 2.0 を使用してユーザーの承認](api-management-howto-oauth2.md)します。   **問題** をご利用の Api を使用して、開発者によって報告された問題を表示] タブを使用します。  **製品** タブは、この API が含まれる製品を構成するために使用します。
 
@@ -127,7 +127,7 @@ API セクションにはいくつかのタブがあります。  **概要** ] �
 
 API を呼び出すためには、その API へのアクセスを提供する成果物を開発者が事前にサブスクライブする必要があります。 開発者は、開発者ポータルで成果物にサブスクライブすることができます。また管理者がパブリッシャー ポータルで、開発者を成果物にサブスクライブすることもできます。 このチュートリアルで先ほど API Management インスタンスを作成したので、管理者になっています。既定で、既にすべての製品にサブスクライブしていることになります。
 
-## <a name="call-operation"> </a>開発者ポータルから操作を呼び出す
+## <a name="call-operation"></a>開発者ポータルから操作を呼び出す
 
 開発者ポータルには、API の操作を見てテストするための便利な環境が用意されており、操作を直接呼び出すことができます。 このチュートリアルの手順では、Basic Calculator API を呼び出します **2 つの整数を追加** 操作します。 クリックして **デベロッパー ポータル** 上にあるメニューから、パブリッシャー ポータルの右です。
 
@@ -149,7 +149,7 @@ API および操作とともにサンプルの説明とパラメーターがイ�
 
 操作が呼び出されると、開発者ポータルに表示されます、 **応答ステータス**, 、 **応答ヘッダー**, 、および **応答内容**します。
 
-![Response][api-management-invoke-get-response]
+![応答][api-management-invoke-get-response]
 
 ## <a name="view-analytics"> </a>分析結果の表示
 
@@ -242,4 +242,5 @@ API および操作とともにサンプルの説明とパラメーターがイ�
 [api-management-analytics-usage]: ./media/api-management-get-started/api-management-analytics-usage.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
+
 

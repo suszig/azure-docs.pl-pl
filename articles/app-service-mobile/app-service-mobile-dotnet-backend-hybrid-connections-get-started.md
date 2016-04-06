@@ -29,7 +29,7 @@
 
 このチュートリアルを完了するには、次のものが必要です。
 
-- **既存の Mobile App バックエンド** <br/>に従って、 [クイック スタート チュートリアル](app-service-mobile-windows-store-dotnet-get-started.md) を作成し、[Azure ポータル] から、新しい .NET バックエンド モバイル アプリをダウンロードします。
+- **既存の Mobile App バックエンド** <br/>次の [クイック スタート チュートリアル](app-service-mobile-windows-store-dotnet-get-started.md) を作成し、新しい .NET バックエンド モバイル アプリをダウンロードから、 [Azure portal]します。
 
 [AZURE.INCLUDE [hybrid-connections-prerequisites](../../includes/hybrid-connections-prerequisites.md)]
 
@@ -41,7 +41,7 @@
 
 モバイル アプリ バックエンドのコード部分 (Web アプリ) 用の新しいハイブリッド接続と BizTalk サービスを作成する必要があります。
 
-1. [Azure ポータル、] で [モバイル アプリを参照してクリックして **ネットワーク** に設定します。
+1.  [Azure portal], 、モバイル アプリを参照してクリックして **ネットワーク** 設定にします。
 
     ![Web アプリに移動する](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started/mobile-app-link-to-web-app-backend.png)
 
@@ -67,7 +67,7 @@
 
 これで、クラウド ハイブリッド接続インフラストラクチャの重要な部分が完了しました。 次に、対応するオンプレミスの部分を作成します。
 
-## オンプレミス ハイブリッド接続マネージャーをインストールして接続を完了する
+## オンプレミスのハイブリッド接続マネージャーをインストールして接続を完了する
 
 [AZURE.INCLUDE [app-service-hybrid-connections-manager-install](../../includes/app-service-hybrid-connections-manager-install.md)]
 
@@ -113,7 +113,7 @@
 
 次に、この新しい接続文字列用のアプリ設定を追加して、Azure から使用できるようにする必要があります。  
 
-1. ポータルに戻り、[Azure] でモバイル アプリの web アプリのバックエンド コード、クリックして **すべての設定**, 、し **アプリケーション設定**します。
+1. 戻り、 [Azure portal] でモバイル アプリの web アプリ バックエンド コード、クリックして **すべての設定**, 、し **アプリケーション設定**します。
 
 3.  **Web アプリ設定** ブレードで、下へスクロールして **接続文字列** し、新しい追加 **SQL Server** という名前の接続文字列 `OnPremisesDBConnection` のような値を持つ `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>`です。
 
@@ -161,4 +161,5 @@
 [Azure portal]: https://portal.azure.com/
 [Azure classic portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md
+
 

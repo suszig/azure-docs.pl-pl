@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure モバイル エンゲージメント関連のトラブルシューティング ガイド - サービス" 
-   description="Azure Mobile Engagement 関連のトラブルシューティング ガイド" 
+   description="Azure モバイル エンゲージメント関連のトラブルシューティング ガイド" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -89,3 +89,4 @@
     - ブール値の「TRUE」と「FALSE」には、すべて小文字を使用します。
     - 最大ファイル サイズの 35 MB よりも小さいファイルを使用します。
  
+

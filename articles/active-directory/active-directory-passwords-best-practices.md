@@ -45,13 +45,13 @@
 4.  かどうか、ユーザーがアカウントを使用して、内部設置型、 [パスワード ライトバック](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) 有効化し、有効にする必要があります
 
 ### 認証データを設定する方法
-組織内のユーザーがパスワード リセットで使用するデータを指定する方法はいくつかあります。
+組織内のユーザーがパスワードのリセットに使用するデータを指定する方法はいくつかあります。
 
 - ユーザーを編集、 [Azure 管理ポータル](https://manage.windowsazure.com) または [Office 365 管理ポータル](https://portal.microsoftonline.com)
 - Azure AD Sync を使用して、ユーザー プロパティをオンプレミスの Active Directory ドメインから Azure AD に同期する
 - Windows PowerShell を使用して、ユーザーのプロパティを編集する [次の手順に従って](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users)します。
 - 登録ポータルで自分のデータを登録できるように [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
-- 設定して、Azure AD のアカウントにサインインしたときにパスワード リセットの登録を必要と、  [**ユーザーにサインインするときに登録する必要がありますか?**](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) 構成オプションを **[はい]**します。
+- 設定して、Azure AD のアカウントにサインインしたときにパスワード リセットの登録が必要、  [**ユーザーにサインインするときに登録する必要がありますか。**](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) 構成オプションを **はい**します。
 
 システムでパスワード リセットを機能させるためにユーザーが登録を行う必要はありません。  たとえば、ローカル ディレクトリに既存の携帯電話または会社の電話番号がある場合は、Azure AD に同期することで、パスワード リセットで自動的に使用できます。
 
@@ -154,4 +154,5 @@ Azure AD のパスワードのリセットに関するすべてのドキュメ�
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
+
 

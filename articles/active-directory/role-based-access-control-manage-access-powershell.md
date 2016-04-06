@@ -18,7 +18,7 @@
 
 # Azure PowerShell を使用したロールベースのアクセス制御 (RBAC) の管理
 <!-- Azure Selector -->
-> [AZURE です。セレクター]
+> [AZURE.SELECTOR]
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
 - [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 
@@ -149,4 +149,5 @@ Azure AD グループのオブジェクト ID を取得するには、次のコ�
 
 ## RBAC のトピック
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+
 

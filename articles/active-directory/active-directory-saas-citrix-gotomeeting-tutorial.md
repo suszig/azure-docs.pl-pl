@@ -73,7 +73,7 @@
 
 1.   **Citrix GoToMeeting** アプリケーション統合ページで、をクリックして **でのシングル サインオンを構成する** を開くには、 **シングル サインオンの構成** ] ダイアログ。
 
-    ![Enable single sign-on](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768997.png "Enable single sign-on")
+    ![シングル サインオンの有効化](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768997.png "Enable single sign-on")
 
 2.   **どのようなユーザーが Citrix GoToMeeting へのサインオン** ] ページで、[ **Microsoft Azure AD シングル サインオン**します。
 
@@ -88,7 +88,7 @@
 
 5.  別のブラウザー ウィンドウで、Citrix 組織センターにログイン ([https://account.citrixonline.com/organization/administration/](https://account.citrixonline.com/organization/administration/))。
 
-6. クリックして、 **Id プロバイダー** タブをクリックし、次の手順を実行します  <br><br> ![SAML のセットアップ。](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC6892321.png "SAML setup")
+6. クリックして、 **Id プロバイダー** タブをクリックし、次の手順を実行します。  <br><br> ![SAML のセットアップ](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC6892321.png "SAML setup")
 
      6.1. 選択 **マニュアル**
 
@@ -104,10 +104,10 @@
 
 6.  Azure AD ポータルでのシングル サインオンの構成情報を選択し、 **次**します。
 
-    ![シングル サインオンの構成](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769000.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769000.png "Configure single sign-on")
 
 
-7.  **シングル サインオンによる確認** ] ページで [ **完了**します。<br><br>![SAML のセットアップ](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689982.png "SAML setup")
+7.  **シングル サインオンによる確認** ] ページで [ **完了**します。<br><br> ![SAML のセットアップ](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689982.png "SAML setup")
 
 
 
@@ -125,7 +125,7 @@
 
 2.   **設定と管理者資格情報** ] ページで、次の手順を実行します。
 
-    ![ユーザー プロビジョニングの構成](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769002.png "Configure user provisioning")
+    ![Configure user provisioning](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769002.png "Configure user provisioning")
 
      2.1.  **Citrix GoToMeeting 管理ユーザー名** ] ボックスに、管理者のユーザー名を入力します。
 
@@ -165,4 +165,5 @@
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。
 
 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](https://msdn.microsoft.com/library/dn308586)します。
+
 

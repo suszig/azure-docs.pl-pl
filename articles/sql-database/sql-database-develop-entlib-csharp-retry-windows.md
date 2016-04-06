@@ -303,7 +303,7 @@ SELECT TOP 3
 
 
 - 詳細情報への多数のリンクが提供されます。 
-[エンタープライズ ライブラリ 6 – 2013年 4 月](http://msdn.microsoft.com/library/dn169621.aspx)
+[Enterprise Library 6 – 2013 年 4 月](http://msdn.microsoft.com/library/dn169621.aspx)
  - このトピックを提案する、上部にあるボタンがある [EntLib60 のソース コードのダウンロード](http://go.microsoft.com/fwlink/p/?LinkID=290898), ソース コードを調べる場合は、です。
 
 
@@ -321,5 +321,6 @@ SELECT TOP 3
 
 
 - [SQL Database のクライアント クイック スタート コード サンプル](sql-database-develop-quick-start-client-code-samples.md)
+
 
 

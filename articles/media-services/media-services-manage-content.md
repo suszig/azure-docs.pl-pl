@@ -49,15 +49,15 @@
 5. [コンテンツのアップロード] ダイアログで、チェック ボタンをクリックして、ファイル名とコンテンツ名をそのまま使用します。
 6. アップロードが開始され、進捗状況はポータルの下部で確認できます。  
 
-    ![JobStatus][状態]
+    ![JobStatus][status]
 
 アップロードが完了すると、コンテンツ一覧に新しい資産が表示されます。 名前が付いて、慣例的に"**-ソース**"エンコード タスクのソース コンテンツとして新しいコンテンツを追跡するために最後に追加します。
 
-![コンテンツ ページ][コンテンツ ページ]
+![ContentPage][contentpage]
 
 ファイル サイズの値がない更新される場合、アップロード処理が終了した後、次のようにキーを押して、 **メタデータの同期** ] ボタンをクリックします。 これにより資産のファイル サイズがストレージの実際のファイル サイズと同期され、[コンテンツ] ページに表示される値が更新されます。  
 
-##<a id="index"></a>方法: コンテンツのインデックス
+##<a id="index"></a>方法: コンテンツのインデックスを作成する
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-index-content.md)
@@ -73,7 +73,7 @@ Azure クラシック ポータルを使用してコンテンツのインデッ�
 2.  **プロセス** ダイアログの選択、 **Azure Media Indexer** プロセッサ。
 3. 詳細なプロセス] ダイアログに入力し、 **タイトル** と **説明** 入力メディア ファイルの情報です。
 
-![プロセス][プロセス]
+![Process][process]
 
 ##<a id="encode"></a>方法: コンテンツをエンコードする
 
@@ -129,7 +129,7 @@ Media Services には動的パッケージ化機能があり、アダプティ�
 
 ファイル サイズの値がない更新される場合エンコードが完了した後、キーを押して、 **メタデータの同期** ] ボタンをクリックします。 これにより出力資産のファイル サイズがストレージの実際のファイル サイズと同期され、[コンテンツ] ページに表示される値が更新されます。
 
-##<a id="encrypt"></a>方法: コンテンツの暗号化
+##<a id="encrypt"></a>方法: コンテンツを暗号化する
 
 
 Media Services で AES キーまたは PlayReady DRM を使用して資産を暗号化するには、次の操作を実行します。
@@ -180,7 +180,7 @@ MPEG DASH ストリーミング URL を作成するには、(format=mpd-time-csf
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
 
-ロケーターには有効期限があります。 ポータルを使用して資産を発行すると、有効期限が 100 年のロケーターが作成されます。 
+ロケーターには有効期限があります。 ポータルを使用してアセットを発行すると、有効期限が 100 年のロケーターが作成されます。 
 
 >[AZURE.NOTE] 2015 年 3 月前にロケーターを作成するポータルを使用して 2 つの年の有効期限日がロケーターは作成されます。  
 
@@ -232,4 +232,5 @@ MPEG DASH ストリーミング URL を作成するには、(format=mpd-time-csf
 [process2]: ./media/media-services-manage-content/media-services-process-video2.png
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png 
+
 

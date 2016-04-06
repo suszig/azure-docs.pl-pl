@@ -29,9 +29,9 @@
 <table>
 <tr><td>**ダウンロード**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
 <tr><td>**投稿**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-<tr><td>**ドキュメント**</td><td>[Node.js SDK Reference Documentation](http://azure.github.io/azure-documentdb-node/)</td></tr>
+<tr><td>**Documentation**</td><td>[Node.js SDK Reference Documentation](http://azure.github.io/azure-documentdb-node/)</td></tr>
 <tr><td>**サンプル**</td><td>[Node.js Code Samples](https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr>
-<tr><td>**開始**</td><td>[Get started with the Node.js SDK](documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**作業の開始**</td><td>[Get started with the Node.js SDK](documentdb-nodejs-get-started.md)</td></tr>
 <tr><td>**現在サポートされているプラットフォーム**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
 </table></br>
 
@@ -120,4 +120,5 @@ Azure DocumentDB SDK for Node.js のバージョンより前のすべてのバ�
 ## 関連項目
 
 DocumentDB の詳細については、次を参照してください。 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) サービス ページです。 
+
 

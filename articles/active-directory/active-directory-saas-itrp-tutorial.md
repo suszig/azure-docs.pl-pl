@@ -73,7 +73,7 @@ ITRP のシングル サインオンを構成するには、証明書から拇�
 
 1.  Azure AD ポータルでの **ITRP** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![シングル サインオンの構成](./media/active-directory-saas-itrp-tutorial/IC771709.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-itrp-tutorial/IC771709.png "Configure single sign-on")
 
 2.   **どのようなユーザー ITRP にサインオンする** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 
@@ -81,7 +81,7 @@ ITRP のシングル サインオンを構成するには、証明書から拇�
 
 3.   **アプリケーション URL の構成** ] ページで、 **ITRP サインイン URL** ] ボックスに、次のパターンを使用して URL を入力"*https://\<tenant-name\>。ITRP.com*"、クリックして **次**します。
 
-    ![アプリケーション URL の構成](./media/active-directory-saas-itrp-tutorial/IC775568.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-itrp-tutorial/IC775568.png "Configure App URL")
 
 4.   **ITRP でのシングル サインオンの構成** ] ページで、証明書をダウンロードする] をクリックして **証明書のダウンロード**, 、としては、証明書ファイルをローカルに保存および **c:\\ITRP.cer**します。
 
@@ -162,3 +162,4 @@ ITRP の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-itrp-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

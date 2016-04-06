@@ -77,7 +77,7 @@ Azure AD への ImageRelay の統合を構成するには、ギャラリーか�
 ##  Azure AD シングル サインオンの構成とテスト
 このセクションの目的は、"Britta Simon" というテスト ユーザーに基づいて、ImageRelay で Azure AD のシングル サインオンを構成し、テストする方法について説明することです。
 
-シングル サインオンを機能させるには、Azure AD で ImageRelay の関連ユーザーを表すユーザー アカウントが必要です。  言い換えると、Azure AD ユーザーと ImageRelay の関連ユーザーの間で、リンク関係が確立されている必要があります。<br>
+シングル サインオンを機能させるには、Azure AD で ImageRelay の関連ユーザーを表すユーザー アカウントが必要です。  つまり、Azure AD のユーザーと ImageRelay に関連するユーザーの間のリンクの関係を確立する必要があります。<br>
 値を割り当てることでこのリンクの関係が確立される、 **ユーザー名** の値として Azure AD で、 **Username** ImageRelay にします。
 
 ImageRelay で Azure AD のシングル サインオンを構成してテストするには、次の構成要素を完了する必要があります。
@@ -121,33 +121,33 @@ ImageRelay で Azure AD のシングル サインオンを構成してテスト�
 
 5. 別のブラウザー ウィンドウで、管理者として ImageRelay 企業サイトにサインインします。
 
-    a. 上部にあるツールバーで、クリックして、 **ユーザーおよびアクセス許可** ワークロード<br><br>![。シングル サインオンを構成する](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_06.png) <br>
+    a. 上部にあるツールバーで、クリックして、 **ユーザーおよびアクセス許可** ワークロード。<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_06.png) <br>
 
-    b. クリックして **新しいアクセス許可を作成**.<br><br>![シングル サインオンを構成する](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_08.png) <br>
+    b. クリックして **新しいアクセス許可を作成**します。<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_08.png) <br>
 
-    c.  **Single Sign On Settings** ワークロードで、 **のみサインインでシングル サインオンを使用してこのグループができる** チェック ボックスをオンにし **保存**.<br><br>![シングル サインオンを構成する](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_09.png) <br>
+    c.  **Single Sign On Settings** ワークロードで、 **のみサインインでシングル サインオンを使用してこのグループができる** チェック ボックスをオンにし **保存**します。<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_09.png) <br>
 
-    d. 移動して **アカウント設定**.<br><br>![シングル サインオンを構成する](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_10.png) <br>
+    d. 移動して **アカウント設定**します。<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_10.png) <br>
 
-    e. 移動して、 **Single Sign On Settings** ワークロード<br><br>![。シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_11.png)<br>
+    e. 移動して、 **Single Sign On Settings** ワークロード。<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_11.png)<br>
 
-    f. 示されるように、フォームに記入し、 **保存**.<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_12.png)<br>
+    f. 示されるように、フォームに記入し、 **保存**します。<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_12.png)<br>
 
-    - **ログイン URL (SSO)**: Azure Active Directory からシングル サインオン サービス url<br><br>![。シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_13.png)<br>
+    - **ログイン URL (SSO)**: Azure Active Directory からシングル サインオン サービス url。<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_13.png)<br>
 
-    - **ログアウト サービス URL**: Azure Active Directory からシングル サインアウト サービスである<br><br>![。シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_14.png)<br>
+    - **ログアウト サービス URL**: Azure Active Directory からシングル サインアウト サービスであります。<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_14.png)<br>
 
-    -  **名前 Id 形式**, [ **urn oasis: 名: 対象の形式: emailAddress**.<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_15.png)<br>
+    -  **名前 Id 形式**, [ **urn: oasis: 名: tc: SAML:1.1:nameid の形式: emailAddress**します。<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_15.png)<br>
 
-    -  **サービス プロバイダー (イメージ リレー) からの要求のオプションのバインド**, [ **POST バインディング**.<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_16.png)<br>  
+    -  **サービス プロバイダー (イメージ リレー) からの要求のオプションのバインド**, [ **POST バインディング**します。<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_16.png)<br>  
 
-    -  **X.509 証明書**, 、クリックして **証明書の更新**.<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_17.png)<br>
+    -  **X.509 証明書**, 、クリックして **証明書の更新**します。<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_17.png)<br>
 
     - メモ帳で、Azure Active Directory から、手順 4. でダウンロードした証明書を開き、コピーして、ここで、証明書の内容を貼り付けます。<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_18.png)<br>
 
-    -  **Just-In-Time ユーザー プロビジョニング**, を選択、 **Just-In-Time ユーザー プロビジョニングを有効にする** チェック ボックスをオンします<br><br>![。シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_19.png)<br>
+    -  **Just-In-Time ユーザー プロビジョニング**, を選択、 **Just-In-Time ユーザー プロビジョニングを有効にする** チェック ボックスをオンします。<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_19.png)<br>
 
-    - アクセス許可グループを選択します (たとえば、 **SSO 基本的な**) でのシングル サインオンを介してのみサインインが許可されます<br><br>![。シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_20.png)<br>
+    - アクセス許可グループを選択します (たとえば、 **SSO 基本的な**) でのシングル サインオンを介してのみサインインが許可されます。<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_20.png)<br>
 
 6. Azure AD ポータルで、シングル サインオンの構成情報を選択し、をクリックし、 **次**します。
 
@@ -160,19 +160,19 @@ ImageRelay で Azure AD のシングル サインオンを構成してテスト�
 
 ### Azure AD のテスト ユーザーの作成
 このセクションの目的は、Azure ポータルで Britta Simon というテスト ユーザーを作成することです。<br>
-ユーザーの一覧で選択 **Britta Simon**.<br><br>![Azure AD ユーザーを作成します。][20]<br>
+ユーザーの一覧で選択 **Britta Simon**します。<br><br>![Azure AD ユーザーを作成します。][20]<br>
 
 **Azure AD でテスト ユーザーを作成するには、次の手順に従います。**
 
-1.  **Azure ポータル**, 、左側のナビゲーション ウィンドウで、次のようにクリックします **Active Directory**。<br><br>![。Azure AD テスト ユーザーを作成する](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_09.png) <br>
+1.  **Azure ポータル**, 、左側のナビゲーション ウィンドウで、次のようにクリックします。 **Active Directory**します。<br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_09.png) <br>
 
 2.  **ディレクトリ** 一覧で、ディレクトリ統合を有効にディレクトリを選択します。
 
-3. 上部のメニューで、ユーザーの一覧を表示する] をクリックして **ユーザー**.<br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_03.png) <br>
+3. 上部のメニューで、ユーザーの一覧を表示する] をクリックして **ユーザー**します。<br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_03.png) <br>
 
-4. 開くには、 **ユーザーの追加** ] ダイアログ ボックスで、下部にあるツールバーをクリックして **ユーザーの追加**.<br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_04.png) <br>
+4. 開くには、 **ユーザーの追加** ] ダイアログ ボックスで、下部にあるツールバーをクリックして **ユーザーの追加**します。<br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_04.png) <br>
 
-5.  **このユーザーについてお聞かせ** ] ダイアログ ページで、次の手順を実行します<br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_05.png) 。<br>
+5.  **このユーザーについてお聞かせ** ] ダイアログ ページで、次の手順を実行します。<br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_05.png) <br>
 
     a. [ユーザーの種類] として [組織内の新しいユーザー] を選択します。
 
@@ -180,7 +180,7 @@ ImageRelay で Azure AD のシングル サインオンを構成してテスト�
 
     c. クリックして **次**します。
 
-6.   **ユーザー プロファイル** ] ダイアログ ページで、次の手順を実行します<br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_06.png) 。<br>
+6.   **ユーザー プロファイル** ] ダイアログ ページで、次の手順を実行します。<br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_06.png) <br>
 
     a.  **名** ] ボックスに「 **Britta**します。  
 
@@ -192,9 +192,9 @@ ImageRelay で Azure AD のシングル サインオンを構成してテスト�
 
     e. クリックして **次**します。
 
-7.  **一時パスワードの取得** ダイアログ ページで、をクリックして **作成**.<br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_07.png) <br>
+7.  **一時パスワードの取得** ダイアログ ページで、をクリックして **作成**します。<br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_07.png) <br>
 
-8.  **一時パスワードの取得** ] ダイアログ ページで、次の手順を実行します<br><br>![Azure AD テスト ユーザーを作成する](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_08.png) 。<br>
+8.  **一時パスワードの取得** ] ダイアログ ページで、次の手順を実行します。<br><br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_08.png) <br>
 
     a. 値を書き留めて、 **新しいパスワード**します。
 
@@ -210,9 +210,9 @@ ImageRelay で Azure AD のシングル サインオンを構成してテスト�
 
 1. ImageRelay 企業サイトに管理者としてログインします。
 
-1. 移動 **ユーザーおよびアクセス許可**    選択 **SSO ユーザーの作成**.<br><br>![シングル サインオンを構成する](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_21.png) <br>
+1. 移動 **ユーザーおよびアクセス許可**    選択 **SSO ユーザーの作成**します。<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_21.png) <br>
 
-1. 入力、 **電子メール**, 、**名**, 、**姓** と **会社** プロビジョニングし、アクセス許可グループ (たとえば、SSO 基本) でのシングル サインオンを介してのみサインインできるグループを選択するユーザー<br><br>![。シングル サインオンを構成する](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_22.png) <br>
+1. 入力、 **電子メール**, 、**名**, 、**姓** と **会社** プロビジョニングし、アクセス許可グループ (たとえば、SSO 基本) でのシングル サインオンを介してのみサインインできるグループを選択するユーザー。<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_22.png) <br>
 
 1. クリックして **作成**します。
 
@@ -223,15 +223,15 @@ ImageRelay で Azure AD のシングル サインオンを構成してテスト�
 
 **ImageRelay に Britta Simon を割り当てるには、次の手順に従います。**
 
-1. Azure ポータルで、ディレクトリ ビューで、[アプリケーション] ビューを開くにはクリックして **アプリケーション** 上部のメニュー<br><br>![。ユーザーを割り当てる][201] <br>
+1. Azure ポータルで、ディレクトリ ビューで、[アプリケーション] ビューを開くにはクリックして **アプリケーション** 上部のメニュー。<br><br>![ユーザーを割り当てる][201] <br>
 
-2. アプリケーションの一覧で選択 **ImageRelay**.<br><br>![シングル サインオンを構成する](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_23.png) <br>
+2. アプリケーションの一覧で選択 **ImageRelay**します。<br><br>![シングル サインオンを構成します。](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_23.png) <br>
 
-1. 上部にあるメニュー [ **ユーザー**.<br><br>![ユーザーを割り当てる][203] <br>
+1. 上部にあるメニュー [ **ユーザー**します。<br><br>![ユーザーを割り当てる][203] <br>
 
 1. ユーザーの一覧で選択 **Britta Simon**します。
 
-2. 下部にあるツールバー [ **割り当てる**.<br><br>![ユーザーを割り当てる][205]
+2. 下部にあるツールバー [ **割り当てる**します。<br><br>![ユーザーを割り当てる][205]
 
 
 ### シングル サインオンのテスト
@@ -263,4 +263,5 @@ ImageRelay で Azure AD のシングル サインオンを構成してテスト�
 [203]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_205.png
+
 

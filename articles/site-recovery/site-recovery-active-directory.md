@@ -119,6 +119,7 @@ DNS がドメイン コントローラーと同じ仮想マシン上にない場
 
 ## 次のステップ
 
-読み取り [どのようなワークロードを保護するには?](../site-recovery/site-recovery-workload.md) を Azure Site Recovery によるエンタープライズ ワークロードの保護の詳細を参照してください。
+読み取り [どのようなワークロードで保護できますか。](../site-recovery/site-recovery-workload.md) Azure Site Recovery によるエンタープライズ ワークロードの保護の詳細を表示します。
+
 
 

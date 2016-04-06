@@ -38,7 +38,7 @@ Xamarin Android アプリケーションの他のすべての Mobile Apps のチ
 
 * アクティブな Azure アカウント。 アカウントがない場合、Azure 試用版にサインアップして、最大 10 件の無料 Mobile Apps を入手できます。このアプリは評価終了後も使用できます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/)をご覧ください。
  
-* [Visual Studio Community 2013] 以降。  Visual Studio Community 2013 をインストールする場合は、[Xamarin] を個別にインストールします。  Visual Studio 2015 をインストールするときに、Xamarin ツールをインストールできます。
+* [Visual Studio Community 2013] 以降。  Visual Studio Community 2013 をインストールする場合は、インストール [Xamarin] とは別にします。  Visual Studio 2015 をインストールするときに、Xamarin ツールをインストールできます。
  
 >[AZURE.NOTE] 場合は、Azure アカウントがサインアップする前に Azure App Service の使用を開始するには、 [App Service の試用](https://tryappservice.azure.com/?appServiceName=mobile), 、App Service で有効期間の短いスターター モバイル アプリをすぐに作成する場所です。 このサービスの利用にあたり、クレジット カードは必要ありません。契約も必要ありません。
 
@@ -72,8 +72,8 @@ Xamarin Android アプリケーションの他のすべての Mobile Apps のチ
 
 ##次のステップ
 
-* [アプリへの認証を追加します。 ](app-service-mobile-xamarin-android-get-started-users.md)
-  <br/>Id プロバイダーを使用してアプリケーションのユーザーを認証する方法について説明します。
+* [アプリへの認証の追加 ](app-service-mobile-xamarin-android-get-started-users.md)
+  <br/>ID プロバイダーを使用してアプリケーションのユーザーを認証する方法について説明します。
 
 
 <!-- Images. -->
@@ -90,4 +90,5 @@ Xamarin Android アプリケーションの他のすべての Mobile Apps のチ
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+
 

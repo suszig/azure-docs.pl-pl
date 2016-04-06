@@ -76,17 +76,17 @@
 
 3.   **アプリケーション URL の構成** ] ページで、次の手順を実行して順にクリックして **次**します。
 
-    ![アプリケーション URL の構成](./media/active-directory-saas-workday-tutorial/IC782957.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-workday-tutorial/IC782957.png "Configure App URL")
 
-    1.   **サインオン URL** Workday へのサインイン URL は、ユーザーが使用] ボックスに、種類 (例:: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*)
-    2.   **Workday 応答 URL** ] ボックスに、Workday 応答 url (例:: *https://impl.workday.com/\<tenant\>/login-saml.htmld*)。
+    1.   **サインオン URL** Workday へのサインイン URL は、ユーザーが使用] ボックスに、種類 (例:: *https://impl.workday.com/ \<tenant\>/login-saml2.htmld*)
+    2.   **Workday 応答 URL** ] ボックスに、Workday 応答 url (例:: *https://impl.workday.com/ \<tenant\>/login-saml.htmld*)。
 
         >[AZURE.NOTE] 応答 URL はサブドメインである必要があります (例:: www wd2、wd3、wd3 impl、wd5、wd5 impl)。 
         >ようなものを使用して"*http://www.myworkday.com*"動作が、"*http://myworkday.com*"しません。 
  
 4.   **Workday でのシングル サインオンの構成** ] ページで、証明書をダウンロードする] をクリックして **証明書のダウンロード**, 、お使いのコンピューターに証明書ファイルを保存します。
 
-    ![Configure single sign-on](./media/active-directory-saas-workday-tutorial/IC782922.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-workday-tutorial/IC782922.png "Configure single sign-on")
 
 5.  別の Web ブラウザー ウィンドウで、Workday 企業サイトに管理者としてログインします。
 
@@ -115,10 +115,10 @@
      9.4.   **環境** ] ボックスに、環境の名前を入力します。  
 
 
-       >[AZURE.NOTE] The value of the Environment attribute is tied to the value of the tenant URL:
+       >[AZURE.NOTE] 環境属性の値は、テナント URL の値に関連付けられます。
         >
-        >-   If the domain name of the Workday tenant URL starts with impl (e.g.: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), the **Environment** attribute must be set to Implementation.
-        >-   If the domain name starts with something else, you need to contact Workday to get the matching **Environment** value.
+        >-   かどうかは、Workday テナントのドメイン名 URL impl で始まる (例:: *https://impl.workday.com/ \<tenant\>/login-saml2.htmld*)、 **環境** 実装に属性を設定する必要があります。
+        >-   ドメイン名は、別のもので起動する場合は、Workday に問い合わせの一致する必要があります。 **環境** 値。
 
 10.  **SAML Setup** セクションで、次の手順に従います。
 
@@ -178,18 +178,18 @@
      12.5 select **SP が開始した認証要求 Do Not Deflate**します。
 
      12.6. として **Authentication Request Signature Method**, [ **SHA256**します。 <br><br>
-        ![Authentication Request Signature Method](./media/active-directory-saas-workday-tutorial/IC782932.png "Authentication Request Signature Method") <br><br>
+        ![認証要求の署名方法](./media/active-directory-saas-workday-tutorial/IC782932.png "Authentication Request Signature Method") <br><br>
  
      12.7 [ **OK**します。 <br><br>
         ![[OK]](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
 
 12. Azure AD ポータルでの **Workday でのシングル サインオンの構成** ] ページで [ **次**します。 <br><br>
 
-    ![Configure single sign-on](./media/active-directory-saas-workday-tutorial/IC782934.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-workday-tutorial/IC782934.png "Configure single sign-on")
 
 13.  **シングル サインオンによる確認** ] ページで [ **完了**します。 <br><br>
 
-    ![Configure single sign-on](./media/active-directory-saas-workday-tutorial/IC782935111.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-workday-tutorial/IC782935111.png "Configure single sign-on")
 
 
 
@@ -215,3 +215,4 @@ Workday のサポート チームにユーザーを作成してもらいます�
     ![あり](./media/active-directory-saas-workday-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

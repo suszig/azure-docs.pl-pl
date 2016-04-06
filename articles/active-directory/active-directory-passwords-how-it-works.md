@@ -61,7 +61,7 @@ Azure Active Directory でのパスワード管理は、以下に説明するい
 詳細については、次を参照してください。 [概要: Azure AD パスワード管理](active-directory-passwords-getting-started.md) と [ベスト プラクティス: Azure AD パスワード管理](active-directory-passwords-best-practices.md)します。 
 
 ##ユーザー パスワードのリセット ポータル
-組織内のユーザーがサインインのための職場または学校のアカウントを使用する任意の web ページから自動的にパスワードをリセットできるセルフ_サービスのパスワードをリセットし、組織のセルフ サービス パスワード リセット ポリシーをセットアップ、ユーザーは、ディレクトリ内の適切な連絡先データであることを確認を有効にすると (たとえば [portal.microsoftonline.com](https://portal.microsoftonline.com))。 ページでユーザーが表示される、 **アカウントにアクセスできない?** リンクします。 
+組織内のユーザーがサインインのための職場または学校のアカウントを使用する任意の web ページから自動的にパスワードをリセットできるセルフ_サービスのパスワードをリセットし、組織のセルフ サービス パスワード リセット ポリシーをセットアップ、ユーザーは、ディレクトリ内の適切な連絡先データであることを確認を有効にすると (たとえば [portal.microsoftonline.com](https://portal.microsoftonline.com))。 ページでユーザーが表示される、 **アカウントにアクセスできないでしょうか。** リンクです。 
 
   ![][002]
 
@@ -122,4 +122,5 @@ Azure AD のパスワードのリセットに関するすべてのドキュメ�
 [005]: ./media/active-directory-passwords-how-it-works/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
+
 

@@ -27,7 +27,7 @@
   ![図](media/marketplace-publishing-vm-image-test-in-staging/vm-image-push-to-staging.png)
 
 2. 発行ポータルでエラーが通知される場合は、それらを修正します。
-3.   **して段階的な製品やサービスにアクセスできるユーザーですか?** ] ダイアログ ボックスで、プレビューで提案に使用する Azure サブスクリプションの一覧を入力、 [Azure プレビュー ポータル](https://portal.azure.com)します。
+3.   **して段階的な製品やサービスにアクセスできるユーザーですか?** ダイアログ ボックスで、プレビューで提案に使用する Azure サブスクリプションの一覧を入力して、 [Azure プレビュー ポータル](https://portal.azure.com)します。
 4. サインイン、 [Azure プレビュー ポータル](http://portal.azure.com) では、Azure サブスクリプションのいずれかを使用して、前の手順で表示します。
 5. プランを検索して、VM イメージについて以下の点を検証します。
   1. マーケティング コンテンツが Marketplace に正しく表示されていることを確認します。
@@ -45,4 +45,5 @@
 
 ## 関連項目
 - [Microsoft Azure Marketplace へのプランの発行方法](marketplace-publishing-getting-started.md)
+
 

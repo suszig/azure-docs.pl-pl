@@ -19,9 +19,9 @@
 # 2 つの Azure 仮想ネットワーク間の DNS の構成
 
 > [AZURE.SELECTOR]
-- [VPN 接続を構成します。](../hdinsight-hbase-geo-replication-configure-VNETs.md)
-- [DNS を構成します。](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [HBase レプリケーションを構成します。](hdinsight-hbase-geo-replication.md) 
+- [VPN 接続の構成](../hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [DNS の構成](hdinsight-hbase-geo-replication-configure-DNS.md)
+- [HBase レプリケーションの構成](hdinsight-hbase-geo-replication.md) 
 
 
 Azure 仮想ネットワークに DNS サーバーを追加して構成し、仮想ネットワーク内および仮想ネットワーク間の名前解決を処理する方法を説明します。
@@ -219,3 +219,4 @@ DNS サーバーには静的 IP アドレスが必要です。  この手順は�
 [powershell-install]: ../install-configure-powershell.md
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png 
+

@@ -57,7 +57,7 @@
 
     azure account import <path-to-settings-file>
 
-account clear コマンドを使用すると、 <code>import</code> コマンドによって保存された <code>すべての情報を</code> コマンド:
+保存された情報のすべてを削除することができます、 <code>import</code> コマンドを使用する、 <code>account clear</code> コマンド。
 
     azure account clear
 
@@ -95,7 +95,7 @@ account clear コマンドを使用すると、 <code>import</code> コマンド
 
 このコマンドでは、`-a` パラメーターと `-q` パラメーターを含めることで、モバイル サービスで使用されている SQL Database やサーバーも、確認メッセージを表示することなく削除されます。
 
-> [AZURE.NOTE] 指定しない場合、 <code>-q</code> またはと共にパラメーター <code>-a</code> または <code>-d</code>, 、実行が一時停止され、SQL Database の削除オプションを選択するように求められます。 <code>-a</code> パラメーターは、他のサービスでデータベースまたはサーバーが使用されていない場合にのみ使用してください。それ以外の場合は、削除する Mobile Services に含まれるデータのみを削除できるように <code>-d</code> パラメーターを使用してください。
+> [AZURE.NOTE] 指定しない場合、 <code>-q</code> またはと共にパラメーター <code>-a</code> または <code>-d</code>, 、実行が一時停止され、SQL Database の削除オプションを選択するように求められます。 のみを使用して、 <code>-a</code> 他のサービスを使用するデータベースまたはサーバーのパラメーター。 それ以外の場合の使用、 <code>-d</code> パラメーターを削除するモバイル サービスに属するデータのみを削除します。
 
 ##Mobile Services にテーブルを作成する方法
 
@@ -152,7 +152,7 @@ account clear コマンドを使用すると、 <code>import</code> コマンド
         ...
     }
 
-スクリプトの登録の詳細については、[モバイル サービスのサーバー スクリプト リファレンス] を参照してください。
+スクリプトの登録の詳細については、次を参照してください。 [Mobile Services server script reference]します。
 
 <!-- Anchors. -->
 [Download and install the command-line tools]: #install
@@ -191,5 +191,6 @@ account clear コマンドを使用すると、 <code>import</code> コマンド
 [windows-installer]: http://go.microsoft.com/fwlink/p?LinkID=275464
 [reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
 [How to install the Azure Command-Line Tools for Mac and Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
+
 
 

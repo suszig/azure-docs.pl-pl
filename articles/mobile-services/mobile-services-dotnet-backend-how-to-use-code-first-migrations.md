@@ -32,13 +32,13 @@
 
 ## データ モデルの更新
 
-.NET バックエンド モバイル サービスに機能を追加するときは、新しいコントローラーを追加して API で新しいエンドポイントを公開します。 カスタム コントローラーまたはテーブル コントローラーとして、新しい API を作成します。 A [TableController<TEntity>] [EntityData] から継承するデータ型を公開します。 データベースに永続化されるデータを有効にするには、このデータ型もに追加されて、新しいデータ モデル [DbSet<T>] [DbContext] にします。 Entity Framework の Code First の詳細については、次を参照してください。 [Code First によるモデルを作成する](https://msdn.microsoft.com/data/ee712907#codefirst)です。
+.NET バックエンド モバイル サービスに機能を追加するときは、新しいコントローラーを追加して API で新しいエンドポイントを公開します。 カスタム コントローラーまたはテーブル コントローラーとして、新しい API を作成します。 A [TableController<TEntity>] から継承するデータ型を公開 [EntityData]します。 データベースに永続化されるデータを有効にするには、このデータ型もに追加されて、新しいデータ モデル [DbSet<T>] で、 [DbContext]します。 Entity Framework の Code First の詳細については、次を参照してください。 [Code First によるモデルを作成する](https://msdn.microsoft.com/data/ee712907#codefirst)です。
 
 Visual Studio を使用すれば、クライアント アプリケーションに新しいデータ型を公開するためのテーブル コント ローラーを容易に作成できます。 詳細については、次を参照してください。 [コント ローラーを使用して、モバイル サービスのデータにアクセスする方法](https://msdn.microsoft.com/library/windows/apps/xaml/dn614132.aspx)します。
 
 ## データ モデル初期化子
 
-Mobile Services では、.NET バックエンド モバイル サービス プロジェクトにおいて 2 つのデータ モデル初期化子ベースのクラスを用意しています。 両方の初期化子は、削除し、Entity Framework では、[DbContext] でデータ モデルの変更が検出した場合は、データベース内のテーブルを再作成します。 初期化子は、モバイル サービスがローカル コンピューターで実行している場合と、Azure でホストされている場合の両方で作動するように作られています。
+Mobile Services では、.NET バックエンド モバイル サービス プロジェクトにおいて 2 つのデータ モデル初期化子ベースのクラスを用意しています。 両方の初期化子は削除し、Entity Framework でのデータ モデルの変更を検出した場合は、データベース内のテーブルを再作成、 [DbContext]します。 初期化子は、モバイル サービスがローカル コンピューターで実行している場合と、Azure でホストされている場合の両方で作動するように作られています。
 
 >[AZURE.NOTE].NET バックエンド モバイル サービスを発行するときに、データ アクセス操作が発生するまで初期化子は実行されません。 つまり、新たに発行されたサービスでは、クエリなどのデータ アクセス操作がクライアントによってリクエストされるまで、ストレージに使用されるデータ テーブルは作成されません。
 >
@@ -46,9 +46,9 @@ Mobile Services では、.NET バックエンド モバイル サービス プ�
 
 初期化子は両方とも、モバイル サービスで使用されるスキーマのすべてのテーブル、ビュー、関数、手順をデータベースから削除します。
 
-+ **ClearDatabaseSchemaIfModelChanges** <br/> Code First データ モデルの変更を検出する場合にのみ、スキーマ オブジェクトは削除されます。 [Azure クラシック ポータル] からダウンロードされた .NET バックエンド プロジェクト デフォルトの初期化子は、この基本クラスから継承します。
++ **ClearDatabaseSchemaIfModelChanges** <br/> Code First がデータ モデルで変更を検出した場合のみスキーマのオブジェクトは削除されます。 ダウンロードした .NET バックエンド プロジェクト デフォルトの初期化子、 [Azure classic portal] この基本クラスから継承します。
 
-+ **ClearDatabaseSchemaAlways**: <br/> スキーマ オブジェクトがデータ モデルがアクセスされるたびに削除されます。 このベース クラスはデータ モデルを変更せずにデータベースをリセットするために使用します。
++ **ClearDatabaseSchemaAlways**: <br/> スキーマ オブジェクトはデータ モデルがアクセスされる度に削除されます。 このベース クラスはデータ モデルを変更せずにデータベースをリセットするために使用します。
 
 ローカル コンピューターで実行する場合は、その他の Code First データ モデル初期化子を使用できます。 ただし、データベースの削除を試みる初期化子は Azure で失敗します。これはユーザーはデータベースの削除が許可されていないためです。
 
@@ -56,7 +56,7 @@ Mobile Services では、.NET バックエンド モバイル サービス プ�
 
 >[AZURE.IMPORTANT]開発し、に対して、モバイル サービス プロジェクトをテストする場合は、Azure ライブ サービス、常に、テストには専用のモバイル サービス インスタンスを使用する必要があります。 現時点で運用されているモバイル サービスや、クライアント アプリケーションによって使用されているモバイル サービスに対して、開発またはテストを決して実施しないでください。
 
-ダウンロードしたクイックスタート プロジェクトでは、Code First 初期化子は WebApiConfig.cs ファイルで定義されます。 オーバーライド、 **シード** を新しいテーブルにデータの最初の行を追加します。 データのシードの例については、[移行データのシード処理] を参照してください。
+ダウンロードしたクイックスタート プロジェクトでは、Code First 初期化子は WebApiConfig.cs ファイルで定義されます。 オーバーライド、 **シード** を新しいテーブルにデータの最初の行を追加します。 データの登録の例については、次を参照してください。 [Seeding data in migrations]します。
 
 ## <a name="migrations"></a>Code First Migrations の有効化
 
@@ -100,7 +100,7 @@ Code First Migrations は、実行されたときにスナップショットの�
 
 7.  F5 キーを押して、ローカル コンピューターでモバイル サービス プロジェクトを開始します。
 
-    この時点で、データベースは、データ モデルと同期した状態にあります。 登録されたデータを指定する場合をクリックして確認できます **試してみる**, 、**GET テーブル/todoitem**, 、し **試すことが** と **送信**します。 詳細については、[時のデータの移行] を参照してください。
+    この時点で、データベースは、データ モデルと同期した状態にあります。 登録されたデータを指定する場合をクリックして確認できます **試してみる**, 、**GET テーブル/todoitem**, 、し **試すことが** と **送信**します。 詳細については、次を参照してください。 [Seeding data in migrations]します。
 
 8.   ここで、TodoItem の種類に対して新しい UserId プロパティを追加するなど、データ モデルに変更を加え、プロジェクトをリビルドし、パッケージ マネージャーで次のコマンドを実行します。
 
@@ -110,11 +110,11 @@ Code First Migrations は、実行されたときにスナップショットの�
 
 9.  F5 キーを押して、ローカル コンピューターでモバイル サービス プロジェクトを再起動します。
 
-    この移行がデータベースに適用され、データベースはもう一度データ モデルに同期されます。 登録されたデータを指定する場合をクリックして確認できます **試してみる**, 、**GET テーブル/todoitem**, 、し **試すことが** と **送信**します。 詳細については、[時のデータの移行] を参照してください。
+    この移行がデータベースに適用され、データベースはもう一度データ モデルに同期されます。 登録されたデータを指定する場合をクリックして確認できます **試してみる**, 、**GET テーブル/todoitem**, 、し **試すことが** と **送信**します。 詳細については、次を参照してください。 [Seeding data in migrations]します。
 
 10. Azure に対してモバイル サービスを再発行してから、クライアント アプリケーションを実行してデータにアクセスし、データが読み込まれて何もエラーが発生していないことを確認します。
 
-13. (省略可能)[Azure クラシック ポータル]、[モバイル サービス] で、をクリックして **構成** > **SQL Database**します。 この結果、モバイル サービスのデータベースに対応する SQL Database ページに移動します。
+13. (省略可能) [Azure classic portal], をモバイル サービスを選択し、クリックして **構成** > **SQL Database**します。 この結果、モバイル サービスのデータベースに対応する SQL Database ページに移動します。
 
 14. (省略可能)クリックして **管理**, 、SQL データベース サーバーにログインし、クリックして **デザイン** し、Azure でスキーマ変更が加えられたことを確認します。
 
@@ -130,7 +130,7 @@ Code First Migrations を .NET バックエンド プロジェクトで使用す
 
 ##<a name="seeding"></a>移行時のデータの登録
 
-移行を実行するときに、Migrations が登録データをデータベースに追加するように設定することもできます。  **構成** クラスには、 **シード** メソッドを挿入またはデータ更新をオーバーライドできます。 Migrations を有効にするときに、Configuration.cs コード ファイルが Migrations フォルダーに追加されます。 これらの例は、[シード] メソッドに登録されたデータをオーバーライドする方法を示して、 **TodoItems** テーブルです。 [シード] メソッドは、最新バージョンに移行した後に呼び出されます。
+移行を実行するときに、Migrations が登録データをデータベースに追加するように設定することもできます。  **構成** クラスには、 **シード** メソッドを挿入またはデータ更新をオーバーライドできます。 Migrations を有効にするときに、Configuration.cs コード ファイルが Migrations フォルダーに追加されます。 これらの例をオーバーライドする方法を示して、 [Seed] メソッドに登録されたデータを **TodoItems** テーブルです。  [Seed] メソッドは、最新バージョンに移行後に呼び出されます。
 
 ###新しいテーブルの登録
 
@@ -160,7 +160,7 @@ Code First Migrations を .NET バックエンド プロジェクトで使用す
             );
         base.Seed(context);
 
-このコードは、登録されたデータを新しい UserId 列に追加するには、[AddOrUpdate] ヘルパー拡張メソッドを呼び出します。 [AddOrUpdate] を使用すると、重複する行は作成されません。
+このコードを呼び出し、 [AddOrUpdate] ヘルパー拡張メソッドを登録データを新しい UserId 列に追加します。 使用して [AddOrUpdate], 、重複する行は作成されません。
 
 <!-- Anchors -->
 [Migrations]: #migrations
@@ -177,7 +177,8 @@ Code First Migrations を .NET バックエンド プロジェクトで使用す
 [Azure classic portal]: https://manage.windowsazure.com/
 [DbContext]: http://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.113).aspx
 [AddOrUpdate]: http://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
-[TableController<TEntity>: https://msdn.microsoft.com/library/azure/dn643359.aspx
+[TableController<TEntity>]: https://msdn.microsoft.com/library/azure/dn643359.aspx
 [EntityData]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.entitydata.aspx
-[DbSet<T>: https://msdn.microsoft.com/library/azure/gg696460.aspx
+[DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
+
 

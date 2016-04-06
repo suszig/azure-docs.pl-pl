@@ -119,7 +119,7 @@ Azure モジュールは、Azure ストレージ アカウントに接続する�
 
 ### フィルター
 
-オプションのフィルター操作を適用するにを使用して行われる操作に **BlobService**します。 フィルター操作には、ログや自動的な再試行などが含まれる場合があります。フィルターは、次のシグネチャを持つメソッドを実装するオブジェクトです。
+オプションのフィルター操作を適用するにを使用して行われる操作に **BlobService**します。 フィルター操作には、ログ、自動的な再試行などが含まれる場合があります。フィルターは、次のシグネチャを持つメソッドを実装するオブジェクトです。
 
         function handle (requestOptions, next)
 
@@ -376,4 +376,5 @@ ACL を設定したら、ポリシーの ID に基づいて共有アクセス署
 [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Storage SDK for Node API Reference]: http://dl.windowsazure.com/nodestoragedocs/index.html
+
 

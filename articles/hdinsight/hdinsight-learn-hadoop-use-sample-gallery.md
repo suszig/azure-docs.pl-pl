@@ -34,30 +34,30 @@ HDInsight 概要ギャラリーでは、HDInsight でサンプル アプリケ�
 
 * [HDInsight の概要ギャラリーを使用して、Hadoop について説明します。](hdinsight-learn-hadoop-use-sample-gallery-v1.md)
 
-![HDInsight の Hadoop、Storm、HBase 概要ギャラリー ソリューションのサンプル データを含むします。][hdinsight.sample.gallery]
+![HDInsight Hadoop、Storm、HBase 概要ギャラリー ソリューション (サンプル データ付き)。][hdinsight.sample.gallery]
 
 次のビデオでは、Twitter の傾向分析サンプルを実行する方法を示しています。
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
-ダッシュ ボードを http://を参照してアクセスできます。<YourHDInsightClusterName>.azurehdinsight.net/または Azure ポータルからです。
+ダッシュ ボードを http:// を参照してアクセスできます。<YourHDInsightClusterName>.azurehdinsight.net/ または Azure ポータルからです。
 
 **Getting Started ギャラリーからサンプルを実行するには**
 
-1. [Azure Portal][azure.portal] にサインインします。
+1. サインイン、 [Azure ポータル][azure.portal]します。
 2. をクリックして **参照** 左側のメニューからをクリックして **HDInsight クラスター**, 、クラスター名をクリックします。
 3. クリックして **ダッシュ ボード** 上部のメニューからです。
 4. HTTP ユーザー (別名: クラスター ユーザー) のユーザー名とパスワードを入力します。
 6. クリックして **Getting Started ギャラリー** 、ページの上部にあります。
 7. サンプルを 1 つクリックします。 各サンプルで、実行するための詳細な手順が表示されます。 次の図は、Twitter の傾向分析のサンプルを示しています。
 
-    ![HDInsight Twitter の傾向分析のサンプル][hdinsight.twitter.sample]
+    ![HDInsight Twitter の傾向分析サンプル][hdinsight.twitter.sample]
 
 ## 次のステップ
 HDInsight に関するその他の資料。
 
-- [HDInsight の学習マップ][hdinsight.learn.map]
-- [HDInsight のインフォ グラフィック][hdinsight.infographic]
+- [HDInsight learning map (HDInsight の学習マップ)][hdinsight.learn.map]
+- [HDInsight infographic (HDInsight の解説画像)][hdinsight.infographic]
 
 <!--Image references-->
 [hdinsight.sample.gallery]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Getting-Started-Gallery.png
@@ -67,4 +67,5 @@ HDInsight に関するその他の資料。
 [hdinsight.learn.map]: hdinsight-learn-map.md
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]:https://portal.azure.com
+
 

@@ -66,7 +66,7 @@ PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory
 ## 3.ADAL を使用してトークンを取得します
 ADAL を使用することの基本的なメリットは、アプリがアクセス トークンを必要とする場合、必要な操作は `authContext.AcquireToken(...)` を呼び出すことだけで、残りの処理は ADAL が実行することです。  
 
--   `TodoListClient` プロジェクトで、`MainWindow.xaml.cs` を開き、`OnInitialized(...)` メソッドを見つけます。  最初の手順は、アプリの `AuthenticationContext` (ADAL のプライマリ クラス) を初期化することです。  ここでは、ADAL が Azure AD と通信し、トークンをキャッシュする方法を通知するために必要な調整項目を ADAL に渡します。
+-   `TodoListClient` プロジェクトで、`MainWindow.xaml.cs` を開き、`OnInitialized(...)` メソッドを見つけます。  アプリケーションの初期化には、まず `AuthenticationContext` -ADAL のプライマリ クラスです。  ここでは、ADAL が Azure AD と通信し、トークンをキャッシュする方法を通知するために必要な調整項目を ADAL に渡します。
 
 ```C#
 protected override async void OnInitialized(EventArgs e)
@@ -166,7 +166,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 }
 ```
 
-- ユーザーが正常にサインインすると、ADAL によりトークンが自動的に受信してキャッシュされ、`GetTodoList()` メソッドの呼び出しを実行できます。  ユーザーのタスクを取得するために必要な操作は、`GetTodoList()` メソッドの実装だけです。
+- ユーザーが正常にサインインすると、ADAL によりトークンが自動的に受信してキャッシュされ、`GetTodoList()` メソッドの呼び出しを実行できます。  実装するのには、ユーザーのタスクを取得するだけの `GetTodoList()` メソッドです。
 
 ```C#
 private async void GetTodoList()
@@ -254,4 +254,5 @@ ADAL では、個人用アカウントと職場アカウントの両方を使用
 その他のリソースについては、以下を参照してください。
 - [アプリ モデル v2.0 プレビュー >>](active-directory-appmodel-v2-overview.md)
 - [StackOverflow"adal"タグ >>](http://stackoverflow.com/questions/tagged/adal)
+
 

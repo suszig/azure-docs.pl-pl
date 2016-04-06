@@ -49,11 +49,11 @@
 
 7. MongoDB をインストールしたら、MongoDB にリモートでアクセスできるように、エンドポイントを構成する必要があります。 管理ポータルで、クリックして **仮想マシン**, を新しい仮想マシンの名前をクリックしてクリックして **エンドポイント**します。
     
-    ![エンドポイント][Image7]
+    ![Endpoints][Image7]
 
 8. クリックして **エンドポイントの追加** ページの下部にあります。
     
-    ![エンドポイント][Image8]
+    ![Endpoints][Image8]
 
 9. 次の設定で、エンドポイントを追加します。
 
@@ -71,4 +71,5 @@
 
 [Image7]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
 [Image8]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png
+
 

@@ -71,7 +71,7 @@
 
 1.  Azure AD ポータルでの **オーバー ドライブ** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![Enable single sign-on](./media/active-directory-saas-overdrive-books-tutorial/IC784465.png "Enable single sign-on")
+    ![シングル サインオンの有効化](./media/active-directory-saas-overdrive-books-tutorial/IC784465.png "Enable single sign-on")
 
 2.   **どのようなユーザーが OverDrive へのサインオン** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、順にクリック **次**します。
 
@@ -79,7 +79,7 @@
 
 3.   **アプリケーション URL の構成** ] ページの [、 **OverDrive サインイン URL** ] ボックスに、次のパターンを使用して URL を入力"*http://mslibrarytest.libraryreserve.com*"、] をクリックし、 **次**します。
 
-    ![Configure App URL](./media/active-directory-saas-overdrive-books-tutorial/IC784467.png "Configure App URL")
+    ![アプリケーション URL の構成](./media/active-directory-saas-overdrive-books-tutorial/IC784467.png "Configure App URL")
 
 4.   **OverDrive でのシングル サインオンの構成** ] ページでメタデータ ファイルをダウンロードし、OverDrive のサポート チームに送信します。
 
@@ -114,3 +114,4 @@ OverDrive へのユーザー プロビジョニングの構成にあたって必
     ![あり](./media/active-directory-saas-overdrive-books-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

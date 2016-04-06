@@ -28,7 +28,7 @@
 
 >[AZURE.TIP] Microsoft Azure を使用したモバイル開発に慣れていない場合 [Azure モバイル アプリを使ってみる](app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md) Azure のモバイル サービスではなくMobile Apps は、 [もメリットが](app-service-mobile-value-prop-migration-from-mobile-services-preview.md)です。
 
-このチュートリアルでは、Azure Mobile Services を使用して Xamarin iOS アプリケーションにクラウドベースのバックエンド サービスを追加する方法を示します。 このチュートリアルでは、新しいモバイル サービスと、新しいモバイル サービスにアプリ データを保存する簡単な _To do list_ アプリの両方を作成します。 作成するモバイル サービスは、サーバー側ビジネス ロジックのために Visual Studio を使用してサポートされる .NET 言語を使用し、モバイル サービスを管理します。 JavaScript でサーバー側ビジネス ロジックを記述できるモバイル サービスを作成するには、[JavaScript バックエンド バージョン] のこのトピックを参照してください。
+このチュートリアルでは、Azure Mobile Services を使用して Xamarin iOS アプリケーションにクラウドベースのバックエンド サービスを追加する方法を示します。 このチュートリアルでは、新しいモバイル サービスと、新しいモバイル サービスにアプリ データを保存する簡単な _To do list_ アプリの両方を作成します。 作成するモバイル サービスは、サーバー側ビジネス ロジックのために Visual Studio を使用してサポートされる .NET 言語を使用し、モバイル サービスを管理します。 JavaScript でサーバー側ビジネス ロジックを記述できるモバイル サービスを作成するには、参照してください、 [JavaScript backend version] このトピックのです。
 
 >[AZURE.NOTE]このトピックでは、Azure クラシック ポータルを使用して、新しいモバイル サービス プロジェクトを作成する方法を示します。 Visual Studio 2013 更新プログラム 2 を使用して、新しいモバイル サービス プロジェクトを既存の Visual Studio ソリューションに追加することもできます。 詳細については、次を参照してください [クイック スタート: モバイル サービス (.NET バックエンド) を追加する。](http://msdn.microsoft.com/library/windows/apps/dn629482.aspx)
 
@@ -39,7 +39,7 @@
 
 このチュートリアルを完了することは、Xamarin iOS アプリケーションの他のすべての Mobile Services チュートリアルの前提条件です。
 
->[AZURE.NOTE]このチュートリアルを完了するには、Azure アカウントが必要です。 アカウントがない場合は、Azure 試用版にサインアップして最大 10 の無料モバイル サービスを取得し、試用期間が終わった後でも使用し続けることができます。 詳細については、<a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started" target="_blank">無料試用版のサイト</a>を参照してください。<br />このチュートリアルには <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> が必要です。 無料試用版が利用できます。
+>[AZURE.NOTE]このチュートリアルを完了するには、Azure アカウントが必要です。 アカウントがない場合は、Azure 試用版にサインアップして、最大 10 件の無料モバイル サービスを入手できます。このサービスは評価終了後も使用できます。 詳細については、<a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started" target="_blank">Azure の無料試用版サイト</a>をご覧ください。<br />このチュートリアルでは <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>します。 無料試用版が利用できます。
 
 ## 新しいモバイル サービスを作成する
 
@@ -51,7 +51,7 @@
 
 ここでは、モバイル サービス用の新しい Xamarin iOS アプリケーションとサービス プロジェクトをダウンロードします。
 
-1. クリックして、[Azure クラシック ポータル] で、 **Mobile Services**, 、し、先ほど作成したモバイル サービスをクリックします。
+1.  [Azure classic portal], 、] をクリックして **Mobile Services**, 、作成したモバイル サービスをクリックします。
 
 2. クイック スタート] タブをクリックして **Xamarin** [ **プラットフォームの選択]** 展開 **新しい Xamarin アプリケーションを作成**します。
 
@@ -61,7 +61,7 @@
 
     ![][7]
 
-3. ダウンロードしてインストールをまだ行っていない場合、 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> をまだインストールしていない場合は、ダウンロードし、ローカル コンピューターまたは仮想マシンにインストールします。
+3. まだインストールしていない場合は、<a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> をダウンロードし、ローカル コンピューターまたは仮想マシンにインストールします。
 
 4. ダウンロードしてインストール [Xcode] v4.4 以降および [Xamarin Studio]します。 また、Xamarin for Visual Studio を使用することもできます。
 
@@ -103,16 +103,16 @@
 ## 次のステップ
 クイック スタートはこれで完了です。Mobile Services で重要になるこれ以外の作業については、以下のトピックを参照してください。
 
-* [オフライン データの同期の開始を取得]
+* [Get started with offline data sync]
   <br/>クイック スタートでオフライン データの同期を使用して、アプリケーションの応答性と信頼性を高める方法について説明します。
 
-* [認証の使用の開始を取得]
+* [Get started with authentication]
   <br/>ID プロバイダーを使用してアプリケーションのユーザーを認証する方法について説明します。
 
-* [開始プッシュ通知の使用]
+* [Get started with push notifications]
   <br/>アプリケーションにごく基本的なプッシュ通知を送信する方法について説明します。
 
-* [Mobile Services .NET バックエンドのトラブルシューティングを行う]
+* [Troubleshoot a Mobile Services .NET backend]
   <br/> Mobile Services の .NET バックエンドで発生する問題を診断して解決する方法について説明します。
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
@@ -147,4 +147,5 @@
 [Xamarin Studio]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
+
 

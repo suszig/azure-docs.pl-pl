@@ -65,7 +65,7 @@ SELECT および UPDATE は変数代入には使用できません。
 
 
 ## 次のステップ
-他の開発のヒントについては、[開発の概要に関するページを参照してください。
+他の開発のヒントを参照してください。 [開発の概要][]します。
 
 <!--Image references-->
 
@@ -75,4 +75,5 @@ SELECT および UPDATE は変数代入には使用できません。
 <!--MSDN references-->
 
 <!--Other Web references-->
+
 

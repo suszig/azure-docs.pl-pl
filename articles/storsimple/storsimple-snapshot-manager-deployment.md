@@ -95,7 +95,7 @@ StorSimple Snapshot Manager をインストールするには、以下の手順�
 
 3.  **[圧縮 (zip 形式) フォルダーの** ] ウィンドウで、 **先を選択し、ファイルを抽出** ボックスで、入力するか、ファイルを抽出するにはパスを参照します。 
 
-       >[AZURE.IMPORTANT] You must install StorSimple Snapshot Manager on the C: drive.
+       >[AZURE.IMPORTANT] C: ドライブには、StorSimple Snapshot Manager をインストールする必要があります。
  
 4. 選択、 **表示が完了すると、ファイルを抽出** チェック ボックスをオンにし **抽出**します。
 
@@ -256,3 +256,4 @@ StorSimple Snapshot Manager を再インストールする」の手順に従い�
 - StorSimple Snapshot Manager ユーザー インターフェイスに関する詳細についてをするには [StorSimple Snapshot Manager ユーザー インターフェイス](storsimple-use-snapshot-manager.md)します。
 
 - StorSimple Snapshot Manager の使用に関する詳細についてをするには [StorSimple Snapshot Manager を使用した StorSimple ソリューションの管理に](storsimple-snapshot-manager-admin.md)します。
+

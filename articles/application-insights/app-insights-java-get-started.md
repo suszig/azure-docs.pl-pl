@@ -80,8 +80,8 @@ Application Insights は、Linux、Unix、Windows で動作する Java アプリ
     </dependencies>
 
 
-* *ビルドまたはチェックサムの検証エラーでしょうか。*特定のバージョンを試してください (例: `<version>1.0.n</version>`)。 最新バージョンがあります、 [SDK リリース ノート](app-insights-release-notes-java.md) または、 [Maven アーティファクト](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)します。
-* *新しい SDK に更新する必要がありますか。*プロジェクトの依存関係を更新します。
+* *ビルド エラーかチェックサムの検証エラーが発生していますか。* 特定のバージョンを試してください (例: `<version>1.0.n</version>`)。 最新バージョンがあります、 [SDK リリース ノート](app-insights-release-notes-java.md) または、 [Maven アーティファクト](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)します。
+* *新しい SDK に更新する必要がありますか?* プロジェクトの依存関係を更新します。
 
 #### Gradle を使用している場合:
 
@@ -397,4 +397,5 @@ Application Insights では、Web サイトを定期的にテストして、Web 
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
+
 

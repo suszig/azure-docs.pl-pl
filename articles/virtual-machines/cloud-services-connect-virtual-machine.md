@@ -56,7 +56,7 @@
 ![仮想マシンを既存のクラウド サービスに追加する](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
 
 ##リソース
-[分散仮想マシンを負荷します。](../articles/load-balance-virtual-machines.md)
+[仮想マシンの負荷分散に関するページ](../articles/load-balance-virtual-machines.md)
 
 [仮想マシンの可用性管理](../articles/manage-availability-virtual-machines.md)
 
@@ -67,4 +67,5 @@
 [データ ディスクを Linux 仮想マシンに接続する方法](../articles/virtual-machines/virtual-machines-linux-how-to-attach-disk.md)
 
 [データ ディスクを Windows 仮想マシンに接続する方法](../articles/virtual-machines/storage-windows-attach-disk.md)
+
 

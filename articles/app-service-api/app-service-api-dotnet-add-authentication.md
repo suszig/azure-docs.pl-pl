@@ -94,7 +94,7 @@ Visual Studio では、リソース グループを作成するため、これ�
 
 これで、認証されていないアクセスから API アプリが保護されます。 次に、ゲートウェイを構成して、使用する認証プロバイダーを指定する必要があります。
 
-### <a id="gateway"></a>認証プロバイダーを使用するゲートウェイを構成します。
+### <a id="gateway"></a>認証プロバイダーを使用するようにゲートウェイを構成する
 
 [AZURE.INCLUDE [app-service-api-gateway-config-auth](../../includes/app-service-api-gateway-config-auth.md)]
 
@@ -274,4 +274,5 @@ Visual Studio では、リソース グループを作成するため、これ�
 
 [Azure portal]: https://manage.windowsazure.com/
 [Azure preview portal]: https://portal.azure.com/
+
 

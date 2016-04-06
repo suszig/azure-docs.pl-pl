@@ -70,7 +70,7 @@ Azure AD はマルチテナント型で地理的に分散した高可用性の�
 
 ## 利用を始めるには?
 -   IT 管理者の方:
- - [試してみる!](https://azure.microsoft.com/trial/get-started-active-directory/) -無料 30 日の試用版にサインアップし、このリンクを使用して、5 分以内に、最初のクラウド ソリューションの配置
+ - [実際に使ってみてください。](https://azure.microsoft.com/trial/get-started-active-directory/) -無料 30 日の試用版にサインアップし、このリンクを使用して、5 分以内に、最初のクラウド ソリューションの配置
  - Azure AD の概要に関するページで、Azure AD テナントをすばやく稼働させるためのヒントとテクニックをお読みください。
 -   開発者の場合:
  - チェック アウト、 [開発者向けガイド](active-directory-developers-guide.md) を Azure Active Directory 
@@ -104,4 +104,5 @@ Azure AD について理解を深めていただけるよう、豊富なオン�
 - [Microsoft Azure Active Directory ライセンスとは](active-directory-licensing-what-is.md)
 
 - [自分の組織内で使用される承認されていないクラウド アプリを検出する方法](active-directory-cloudappdiscovery-whatis.md)
+
 

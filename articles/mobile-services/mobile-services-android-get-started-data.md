@@ -31,25 +31,25 @@
 
 
 <div class="dev-onpage-video-wrapper">
-<a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="label">チュートリアルを見る</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-data-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">ビデオを再生する</span></a><span class="time">15:32</span></div>
+<a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="label">チュートリアルを見る</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-data-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">ビデオを再生する</span></a><span class="time">15時 32分</span></div>
 </div>
 
 
-<p>このチュートリアルでは Azure Mobile Services における Android アプリケーションからのデータの保存と取得方法についての詳細を分かりやすく説明します。 したがって、Mobile Services のクイック スタート チュートリアルで完了している手順の多くについても説明します。 モバイル サービスを初めて使用する場合は、最初にチュートリアル「 <a href="/en-us/develop/mobile/tutorials/get-started-android">Mobile Services の使用</a>.</p>
+<p>このチュートリアルでは Azure Mobile Services における Android アプリケーションからのデータの保存と取得方法についての詳細を分かりやすく説明します。 したがって、Mobile Services のクイック スタート チュートリアルで完了している手順の多くについても説明します。 初めてのモバイル サービスを使用する場合は、最初のチュートリアルを行うことを検討してください <a href="/en-us/develop/mobile/tutorials/get-started-android">モバイル サービスを使ってみる</a>します。</p>
 
 ## 前提条件
 
 このチュートリアルを完了するには、以下が必要です。
 
-- Azure アカウント。 アカウントがない場合は、無料試用版のアカウントを数分で作成することができます。 詳細については、「 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Azure 無料評価版</a>.
+- Azure アカウント。 アカウントがない場合は、無料試用版アカウントを数分で作成することができます。 詳細については、<a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Azure の無料試用版サイト</a>をご覧ください。
 
 
 - the [Azure Mobile Services Android SDK];
-- the <a  href="https://developer.android.com/sdk/index.html" target="_blank">Android SDK を含む Android Studio 統合開発環境</a>、Android 4.2 以降のバージョンが必要です。 ダウンロードした GetStartedWithData プロジェクトを実行するには、Android 4.2 以降のバージョンが必要です。 ただし、Mobile Services SDK は、Android 2.2 以降で動作します。
+- Android SDK を含む <a  href="https://developer.android.com/sdk/index.html" target="_blank">Android Studio 統合開発環境</a>、Android 4.2 以降のバージョン。 ダウンロードした GetStartedWithData プロジェクトを実行するには、Android 4.2 以降のバージョンが必要です。 ただし、Mobile Services SDK は、Android 2.2 以降で動作します。
 
 ## サンプル コード
 
-完成したソース コードを表示するには、次のように移動します。 <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/AndroidStudio">ここ</a>.
+完成したソース コードを表示するには、<a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/AndroidStudio">ここ</a>に移動します。
 
 ## GetStartedWithData プロジェクトをダウンロードする
 
@@ -110,18 +110,18 @@
 
 次は、このチュートリアルで作成した GetStartedWithData アプリケーションに基づく次のいずれかのチュートリアルを行うことをお勧めします。
 
-* [データ検証および変更スクリプトを使用]
+* [Validate and modify data with scripts]
   <br/>モバイル サービスでサーバー スクリプトを使用して、アプリケーションから送信されたデータを検証および変更する方法について説明します。
 
-* [ページングを使用したクエリの改善]
+* [Refine queries with paging]
   <br/>クエリ内でページングを使用して、単一の要求で渡されるデータの量を制御する方法について説明します。
 
 データ シリーズを完了した後は、次に示す、Android に関する他のチュートリアルを行うことをお勧めします。
 
-* [認証の使用の開始を取得]
+* [Get started with authentication]
     <br/>アプリケーションのユーザーを認証する方法について説明します。
 
-* [開始プッシュ通知の使用]
+* [Get started with push notifications]
   <br/>Mobile Services を使用してアプリケーションにごく基本的なプッシュ通知を送信する方法について説明します。
 
 <!-- Anchors. -->
@@ -153,4 +153,5 @@
 [Azure Mobile Services Android SDK]: http://aka.ms/Iajk6q
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+
 

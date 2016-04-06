@@ -120,7 +120,7 @@ B2C テナントに対してユーザーの作成、読み取り、更新、削�
 git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
 ```
 
-`B2CGraphClient\B2CGraphClient.sln` Visual Studio ソリューションを Visual Studio で開きます。  `B2CGraphClient` プロジェクトで、`App.config` ファイルを開きます。  *Views\\Home\\AllDates.cshtml*
+`B2CGraphClient\B2CGraphClient.sln` Visual Studio ソリューションを Visual Studio で開きます。  `B2CGraphClient` プロジェクトで、`App.config` ファイルを開きます。  Replace
 独自の値を次の 3 つのアプリケーション設定のようにします。
 
 ```
@@ -395,4 +395,5 @@ B2C アプリ。
 
 Graph API を使用した B2C テナントに対する操作に関して、ご質問やご要望がある場合は、いつでもご遠慮なくお知らせください。  記事にコメントを記入してください。
 または、コード サンプルの GitHub リポジトリ内、問題を報告します。
+
 

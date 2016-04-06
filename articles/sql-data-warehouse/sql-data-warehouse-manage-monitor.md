@@ -189,12 +189,12 @@ DBCC PDW_SHOWSPACEUSED("dbo.FactInternetSales");
 
 
 このクエリの結果は、データベースの 60 の分散のそれぞれに保存されているテーブル行の数を示します。 パフォーマンスを最適化するには、分散テーブルの行を配布全体で均等に広げる必要があります。
-詳細については、[テーブルのデザイン] を参照してください。
+詳細については、次を参照してください。 [テーブル デザイン][]します。
 
 
 
 ## 次のステップ
-SQL Data Warehouse の管理の詳細については、次を参照してください。 [管理の概要] []。
+SQL Data Warehouse の管理の詳細については、次を参照してください。 [管理の概要][]します。
 
 <!--Image references-->
 
@@ -203,6 +203,7 @@ SQL Data Warehouse の管理の詳細については、次を参照してくだ�
 [table design]: sql-data-warehouse-develop-table-design.md
 
 <!--MSDN references-->
+
 
 
 

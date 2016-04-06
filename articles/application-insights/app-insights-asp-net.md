@@ -61,7 +61,7 @@ Visual Studio に新しいプロジェクトを作成するとき、Application 
 このアプリがより大きなアプリケーションの一部である場合は、使用する場合があります **設定を構成** 、他のコンポーネントと同じリソース グループに配置します。 
 
 
-####<a name="land"></a> Application Insights の追加 ' 何か。
+####<a name="land"></a> [Application Insights の追加] の実行結果
 
 コマンドは、次の手順をでした (する代わりが [を手動で行う](app-insights-start-monitoring-app-health-usage.md) 希望するかどうか)。
 
@@ -90,9 +90,9 @@ Application Insights のリソースを開く、 [Azure ポータル][portal]し
 
 ![クリックしてより多くのデータを表示する](./media/app-insights-asp-net/12-first-perf.png)
 
-任意のグラフをクリックして、より詳細なメトリックを表示します。 [メトリックの詳細についてを説明します。][perf]
+任意のグラフをクリックして、より詳細なメトリックを表示します。 [メトリックの詳細についてはこちらをご覧ください。][perf]
 
-* *ユーザーまたはページのデータはありませんか?* - [ユーザーとページのデータを追加します。](../article/application-insights/app-insights-asp-net-client.md)
+* *ユーザーまたはページ データはありませんか。* - [ユーザーとページのデータを追加します。](../article/application-insights/app-insights-asp-net-client.md)
 
 ### 検索: 個々のイベント
 
@@ -102,7 +102,7 @@ Application Insights のリソースを開く、 [Azure ポータル][portal]し
 
 [検索の詳細についてはこちらを参照してください。](app-insights-diagnostic-search.md)
 
-* *関連付けられているイベントはありませんか。*セットアップ [サーバー例外](../article/application-insights/app-insights-asp-net-exception-mvc.md) と [の依存関係](../article/application-insights/app-insights-asp-net-dependencies.md)します。
+* *関連するイベントがない場合 -* セットアップ [サーバー例外](../article/application-insights/app-insights-asp-net-exception-mvc.md) と [の依存関係](../article/application-insights/app-insights-asp-net-dependencies.md)します。
 
 ### データが表示されない場合
 
@@ -170,3 +170,4 @@ ApplicationInsights.config をカスタマイズしている場合は、アッ�
 [start]: app-insights-overview.md
 
  
+

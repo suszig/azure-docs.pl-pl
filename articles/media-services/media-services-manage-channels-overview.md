@@ -68,9 +68,9 @@ Azure Media Services で、 **チャネル** ライブ ストリーミング コ
 
 ##<a id="channel"></a>チャネルとその関連コンポーネントの説明
 
-###<a id="channel_input"></a>チャネル入力 (インジェスト) の構成
+###<a id="channel_input"></a>チャネル入力 (取り込み) の構成
 
-####<a id="ingest_protocols"></a>インジェスト ストリーミング プロトコル
+####<a id="ingest_protocols"></a>取り込みストリーミング プロトコル
 
 Media Services は、次のストリーミング プロトコルを使用したライブのフィードのインジェストをサポートしています。 
 
@@ -189,7 +189,7 @@ IP アドレスが指定されておらず、規則の定義もない場合は�
 
 アーカイブ済みコンテンツを保持したいが、ストリーミングには使用したくない場合は、ストリーミング ロケーターを削除します。
 
-##<a id="states"></a>チャネルの状態と課金モードの状態をマップする方法 
+##<a id="states"></a>チャネルの状態と課金モードとの対応 
 
 現在のチャネルの状態。 指定できる値は、次のとおりです。
 
@@ -268,4 +268,5 @@ SCTE-35|広告の挿入のキューには、デジタル信号システムが使
 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
+
 

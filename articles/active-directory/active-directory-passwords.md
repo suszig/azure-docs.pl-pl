@@ -136,8 +136,8 @@ Azure AD Premium または基本料金の詳細については、次を参照し
 ##ユーザーのパスワードの管理
 | トピック |  |
 | --------- | --------- |
-| O365 管理ポータルからユーザーのパスワードをリセットする方法 | [Office 365 でのユーザーのパスワードのリセット](https://support.office.com/article/Reset-a-user-s-password-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C) |
-| PowerShell を使用してユーザーのパスワードをリセットする方法 | [Set-MsolUserPassword を使用したユーザーのパスワードのリセット](https://msdn.microsoft.com/library/azure/dn194140.aspx) |
+| O365 管理ポータルからユーザーのパスワードをリセットする方法 | [Office 365 のユーザーのパスワードをリセットします。](https://support.office.com/article/Reset-a-user-s-password-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C) |
+| PowerShell を使用してユーザーのパスワードをリセットする方法 | [Set-msoluserpassword とユーザーのパスワードをリセットします。](https://msdn.microsoft.com/library/azure/dn194140.aspx) |
 
 
 ##パスワード ポリシーの設定
@@ -145,7 +145,7 @@ Azure AD Premium または基本料金の詳細については、次を参照し
 | --------- | --------- |
 | Office 365 から組織のパスワードの有効期限ポリシーを設定する方法 | [パスワードの有効期限のポリシーの設定](https://support.office.com/article/Set-a-user-s-password-expiration-policy-0f54736f-eb22-414c-8273-498a0918678f) |
 | PowerShell で特定のユーザーのパスワードが期限切れにならないように設定する方法 | [特定のユーザーのパスワードが期限切れにならないようにする PowerShell での設定](https://support.office.com/article/Set-an-individual-user-s-password-to-never-expire-f493e3af-e1d8-4668-9211-230c245a0466) |
-| ユーザーのパスワードが期限切れにならないように設定されていることを PowerShell で確認する方法 | [PowerShell を使用した個々のユーザーのパスワード有効期限の状態の確認](https://support.office.com/article/Set-an-individual-user-s-password-to-never-expire-f493e3af-e1d8-4668-9211-230c245a0466#__toc378845827) |
+| ユーザーのパスワードが期限切れにならないように設定されていることを PowerShell で確認する方法 | [PowerShell を使用して個々 のユーザーのパスワード有効期限の状態を確認します。](https://support.office.com/article/Set-an-individual-user-s-password-to-never-expire-f493e3af-e1d8-4668-9211-230c245a0466#__toc378845827) |
 
 
 ##問題をトラブルシューティングする
@@ -251,3 +251,4 @@ Azure AD のパスワードのリセットに関するすべてのドキュメ�
 * [**よく寄せられる質問**](active-directory-passwords-faq.md) -よく寄せられる質問に対する回答を得る
 * [**トラブルシューティング**](active-directory-passwords-troubleshoot.md) -サービスに問題を迅速にトラブルシューティングする方法について説明
 * [**詳細については**](active-directory-passwords-learn-more.md) - 掘り下げますサービスの機能の技術的な詳細
+

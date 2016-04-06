@@ -80,11 +80,11 @@ Azure Active Directory 監査レポートを利用すると、Azure Active Direc
 
 <!---
 
-まだ説明を必要とするイベントの一覧です。
+List of events that still need descriptions:
 
-アプリケーションを復元します。
-文字列の認証ポリシーを設定します。
-パートナー テナントを昇格します。
+Restore Application
+Set String Auth Policy
+Promote tenant to partner
 
 --->
 
@@ -121,4 +121,5 @@ StrongAuthenticationUserDetails | Multi-Factor Authentication およびパスワ
 TelephoneNumber                 | ユーザーの電話番号です。
 
 監査レコードは、多くの法令遵守に必要な管理です。 Azure Active Directory 監査レポートを使用してコンプライアンス規制に対応するお客様の場合、お客様がエクスポートした監査レポートのコピーにこのヘルプ トピックのコピーを添えて提出し、レポートの詳細な説明に役立てることをお勧めします。 場合は、監査人は、Azure 現在を満たしているコンプライアンス規制について理解するには、直接に、監査人、 [コンプライアンス ページ](http://azure.microsoft.com/support/trust-center/compliance/) Microsoft Azure のトラスト センターのです。
+
 

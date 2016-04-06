@@ -46,7 +46,7 @@
 
 &nbsp;&nbsp;8. 余分な呼び出しを削除し、共有 App.xaml.cs ファイルでの Windows Phone ストア アプリ プロジェクトへのプッシュ通知を追加するには、前の手順を繰り返して **Mobile Service のクライアント**, 、**UploadChannel** され、残りの `#if...#endif` 条件付きラッパーです。 両方のプロジェクトでは、1 回の呼び出しを共有できるよう **UploadChannel**します。 
 
-& nbsp; & nbsp;統合することにより、生成されたコードを単純にもことに注意してください、 `#if...#endif` ラップ [MobileServiceClient] アプリの両方のバージョンで使用される 1 つのラップされていない定義を定義します。
+& nbsp; & nbsp;統合することにより、生成されたコードを単純にもことに注意してください、 `#if...#endif` ラップ [MobileServiceClient] 両方のバージョンのアプリで使用される単一のラップされていない定義を定義します。
 
 アプリでプッシュ通知が有効にされたので、プッシュ通知を送信するにはモバイル サービスを更新する必要があります。 
 
@@ -57,7 +57,7 @@
 [AZURE.INCLUDE [mobile-services-javascript-update-script-notification-hubs](../../includes/mobile-services-javascript-update-script-notification-hubs.md)]
 
 
-##<a id="test"></a> アプリケーションでプッシュ通知をテストする
+##<a id="test"></a>アプリケーションでプッシュ通知をテストする
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-windows-universal-test-push](../../includes/mobile-services-javascript-backend-windows-universal-test-push.md)]
 
@@ -65,11 +65,11 @@
 
 このチュートリアルでは、Windows ストア アプリで Mobile Services および Notification Hubs を使用してプッシュ通知を送信できるようにするための基本について説明しました。 次に、次のチュートリアルのいずれかを完了します。
 
-+ [認証されたユーザーにプッシュ通知を送信します。](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md)
++ [認証されたユーザーへのプッシュ通知の送信](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md)
     <br/>タグを使用して、モバイル サービスから認証されたユーザーのみにプッシュ通知を送信する方法について説明します。
 
-+ [登録者へのブロードキャスト通知を送信します。](../notification-hubs-windows-store-dotnet-send-breaking-news.md)
-    <br/>ユーザーの登録およびに興味のあるカテゴリに関してプッシュ通知を受信する方法について説明します。
++ [登録者へのブロードキャスト通知の送信](../notification-hubs-windows-store-dotnet-send-breaking-news.md)
+    <br/>ユーザーが興味のあるカテゴリに関してプッシュ通知を登録して、プッシュ通知を受信できるようにする方法について説明します。
 
 + [登録者へのプラットフォーム固有の通知を送信します。](../notification-hubs-aspnet-cross-platform-notify-users.md)
     <br/>テンプレートを使用して、バックエンドでプラットフォームに固有のペイロードを作成することがなく、モバイル サービスからプッシュ通知を送信する方法について説明します。
@@ -79,14 +79,14 @@ Mobile Services と Notification Hubs については次のトピックを参照
 * [Azure Notification Hubs - 診断ガイドライン](../notification-hubs-diagnosing.md)
     <br/>プッシュ通知の問題のトラブルシューティングを行う方法について説明します。
 
-* [認証の使用の開始を取得]
+* [Get started with authentication]
   <br/>Mobile Services を使用して別のアカウントの種類のアプリケーションのユーザーを認証する方法について説明します。
 
 * [What are Notification Hubs?]
-  <br/>通知を配信するアプリケーションにすべての主要なクライアントのプラットフォームの通知ハブの動作について説明します。
+  <br/>通知ハブがすべての主要なクライアント プラットフォーム全体のアプリケーションに通知を配信するための動作を説明します。
 
 * [How to use a .NET client for Azure Mobile Services]
-  <br/>C# Windows アプリからモバイル サービスを使用する方法について説明します。
+  <br/>Mobile Services を C# Windows アプリから使用する方法について説明します。
 
 <!-- Anchors. -->
 
@@ -106,3 +106,4 @@ Mobile Services と Notification Hubs については次のトピックを参照
 [How to use a .NET client for Azure Mobile Services]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
+

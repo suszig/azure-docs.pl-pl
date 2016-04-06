@@ -115,7 +115,7 @@ ElasticDBQuery データベースでこのクエリを実行します。
 2.  移動し、 **データ** リボンです。
 3.  クリックして **その他のソース** ] をクリック **SQL Server から**します。
 
-    ![Excel の他のソースからのインポート][5]
+    ![他のソースから Excel へのインポート][5]
 4.   **データ接続ウィザード** サーバー名とログインの資格情報を入力します。 クリックして **次**します。
 5.  ダイアログ ボックスで **データを含むデータベースを選択して**, を選択、 **ElasticDBQuery** データベースです。
 6.  選択、 **顧客** リスト ビューでテーブルを **次**します。 クリックして **完了**します。
@@ -141,4 +141,5 @@ Elastic Database クエリ機能を使用する場合に追加の料金は発生
 [4]: ./media/sql-database-elastic-query-getting-started/details.png
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
+
 

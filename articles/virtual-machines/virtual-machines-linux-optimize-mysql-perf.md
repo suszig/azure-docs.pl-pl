@@ -281,7 +281,7 @@ MySQL 低速クエリ ログによって、MySQL の低速のクエリを特定�
 
     mysqlslap -p0ps.123 --concurrency=2 --iterations=1 --number-int-cols=10 --number-char-cols=10 -a --auto-generate-sql-guid-primary --number-of-queries=10000 --auto-generate-sql-load-type=write –engine=innodb
 
-**さまざまな RAID レベルでの MySQL パフォーマンス (OLTP) の比較**  
+**さまざまな RAID レベルでの MySQL のパフォーマンス (OLTP) の比較**  
 ![][12]
 
 **テスト コマンド:**
@@ -304,7 +304,7 @@ MySQL 低速クエリ ログによって、MySQL の低速のクエリを特定�
 
 
 <a name="AppendixD"></a>付録 d:  
-**最適化前後の MySQL パフォーマンス (スループット) の比較**  
+**最適化前後の MySQL のパフォーマンス (スループット) の比較**  
 (XFS ファイル システム)
 
 
@@ -358,4 +358,5 @@ MySQL 低速クエリ ログによって、MySQL の低速のクエリを特定�
 [12]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-12.png
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
+
 

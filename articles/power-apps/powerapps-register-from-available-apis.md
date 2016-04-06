@@ -55,8 +55,8 @@ API | 説明 | 手順のリンク
 ![][33] | **Excel**<br/><br/> 取得、更新、複数のアイテム、および削除できます。 | [**作業の開始**](powerapps-create-api-excel.md)
 ![][34] | **Google ドライブ**<br/><br/> 取得、更新、複数のアイテム、および削除できます。 | [**作業の開始**](powerapps-create-api-googledrive.md)
 ![][35] | **Microsoft Translator**<br/><br/>テキストに変換、言語、および詳細を検出します。 | [**作業の開始**](powerapps-create-api-microsofttranslator.md)
-![][36] | **Office 365 の Outlook**<br/><br/>、電子メールを管理します。 | [**作業の開始**](powerapps-create-api-office365-outlook.md)
-![][37] | **Office 365 ユーザー**<br/><br/>ユーザー プロファイル、その管理職や、直属の部下にアクセスします。 | [**作業の開始**](powerapps-create-api-office365-users.md)
+![][36] | **Office 365 の Outlook**<br/><br/>電子メールを管理します。 | [**作業の開始**](powerapps-create-api-office365-outlook.md)
+![][37] | **Office 365 ユーザー**<br/><br/>アクセスのユーザー プロファイル、そのマネージャー、直属の部下および詳細。 | [**作業の開始**](powerapps-create-api-office365-users.md)
 ![][38] | **OneDrive**<br/><br/> 取得、更新、複数のアイテム、および削除できます。 | [**作業の開始**](powerapps-create-api-onedrive.md)
 ![][39] | **Salesforce**<br/><br/> 取得、更新、複数のアイテム、および削除できます。 | [**作業の開始**](powerapps-create-api-salesforce.md)
 ![][40] | **SharePoint Online**<br/><br/> 取得、更新、複数のアイテム、および削除できます。 | [**作業の開始**](powerapps-create-api-sharepointonline.md)
@@ -79,7 +79,7 @@ API | 説明 | 手順のリンク
 
 API | 説明 | 手順のリンク
 --- | --- | ---
-![][30] | **Bing Search**<br/><br/>Embed 検索結果で、検索機能を追加します。 | [**作業の開始**](powerapps-create-api-bingsearch.md)
+![][30] | **Bing 検索**<br/><br/>検索結果を埋め込む、検索機能を追加します。 | [**作業の開始**](powerapps-create-api-bingsearch.md)
 ![][42] | **SQL Server**<br/><br/>取得、更新、複数のアイテム、および削除できます。 | [**作業の開始**](powerapps-create-api-sqlserver.md)
 ![][41] | **SharePoint Server**<br/><br/>取得、更新、複数のアイテム、および削除できます。 | [**作業の開始**](powerapps-create-api-sharepointserver.md)
 
@@ -154,4 +154,5 @@ API | 説明 | 手順のリンク
 [41]: ./media/powerapps-register-from-available-apis/sharepointserver.png
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
+
 

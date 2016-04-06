@@ -26,7 +26,7 @@
 
 リソース マネージャーは、整数を操作する次の式を提供します。
 
-- [追加](#add)
+- [add](#add)
 - [copyIndex](#copyindex)
 - [div](#div)
 - [int](#int)
@@ -37,7 +37,7 @@
 
 
 <a id="add" />
-### 追加
+### add
 
 **add(operand1, operand2)**
 
@@ -166,7 +166,7 @@
 - [padLeft](#padleft)
 - [replace](#replace)
 - [split](#split)
-- [文字列](#string)
+- [string](#string)
 - [toLower](#tolower)
 - [toUpper](#toupper)
 - [trim](#trim)
@@ -276,7 +276,7 @@
     }
 
 <a id="string" />
-### 文字列
+### string
 
 **string(valueToConvert)**
 
@@ -423,7 +423,7 @@ baseUri と relativeUri の文字列を組み合わせることにより、絶�
 <a id="deployment" />
 ### デプロイ
 
-**デプロイ()**
+**deployment()**
 
 現在のデプロイ操作に関する情報を返します。
 
@@ -747,5 +747,6 @@ baseUri と relativeUri の文字列を組み合わせることにより、絶�
 - 複数のテンプレートをマージするを参照してください [Azure リソース マネージャーでリンクされたテンプレートを使用。](resource-group-linked-templates.md)
 - 指定した回数だけ反復処理するリソースの種類を作成する場合は、次を参照してください [Azure リソース マネージャーでリソースの複数のインスタンスを作成します。。](resource-group-create-multiple.md)
 - 作成したテンプレートをデプロイする方法を確認するには、次を参照してください [Azure リソース マネージャー テンプレートを使用してアプリケーションを配置。](resource-group-template-deploy.md)
+
 
 

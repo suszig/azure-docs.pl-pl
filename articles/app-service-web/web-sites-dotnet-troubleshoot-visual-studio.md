@@ -45,7 +45,7 @@ Visual Studio Ultimate がある場合も行えます [IntelliTrace](http://msdn
 
 ストリーミング ログ機能は、.NET Framework 4 以降を対象とするアプリケーションでのみ動作します。
 
-## <a name="sitemanagement"></a>Web アプリケーションの構成と管理
+## <a name="sitemanagement"></a>Web アプリの構成と管理
 
 Visual Studio で使用できる構成設定、web アプリ管理機能のサブセットへのアクセスには、 [Azure ポータル](http://go.microsoft.com/fwlink/?LinkId=529715)します。 このセクションでは、その対象となる機能や設定について取り上げます。
 
@@ -74,7 +74,7 @@ Visual Studio で使用できる構成設定、web アプリ管理機能のサ�
 
     このウィンドウでは実行できない web アプリの管理タスクを実行する場合は、クリックして **管理ポータルで開く** Azure クラシック ポータルをブラウザー ウィンドウを開きます。 詳細については、次を参照してください。 [Web アプリの構成方法](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig)します。
 
-## <a name="remoteview"></a>サーバー エクスプローラーでの Web アプリケーション ファイルへのアクセス
+## <a name="remoteview"></a>サーバー エクスプローラーでの Web アプリ ファイルへのアクセス
 
 通常は、Web.config ファイルで `customErrors` フラグを `On` または `RemoteOnly` に設定して Web プロジェクトをデプロイします。これは、何か問題が発生したときに、役に立つエラー メッセージを表示しないことを意味します。 表示されるエラーの多くは、次のようなページになります。
 
@@ -116,7 +116,7 @@ Visual Studio で使用できる構成設定、web アプリ管理機能のサ�
 
 Web.config ファイルを編集することは、Azure Web アプリケーションにあるファイルの読み取りと編集を可能にして、トラブルシューティングが容易にする状況における 1 つの例にすぎません。
 
-## <a name="remotedebug"></a>Web アプリケーションのリモート デバッグ
+## <a name="remotedebug"></a>Web アプリのリモート デバッグ
 
 詳細なエラー メッセージで十分な情報が表示されておらず、エラーをローカルで再現できない場合は、トラブルシューティングの別の方法として、リモートでデバッグ モードを実行することができます。 ブレークポイントの設定、メモリの直接操作、コードのステップ実行、さらにコード パスの変更を実行できます。 
 
@@ -155,7 +155,7 @@ Web.config ファイルを編集することは、Azure Web アプリケーシ�
 
     ブラウザーが自動的に起動し、Azure で実行されているホーム ページが表示されます。 デバッグに必要な設定を Azure がサーバーに対して行う間、20 秒ほどの待ち時間が生じることがあります。 この待ち時間が生じるのは、Web アプリケーションでのデバッグ モードの初回実行時に限られます。 以後 48 時間は、デバッグを再度実行しても、待ち時間は生じません。
 
-6. Visual Studio 2012 Update 4 以降。<a id="vs2012"></a>
+6. Visual Studio 2012 Update 4 以降の場合:<a id="vs2012"></a>
 
     * Azure クラシック ポータルに移動 **設定 > アプリケーション設定** web アプリ、および [下へスクロールして、 **デバッグ** セクションです。
 
@@ -568,7 +568,8 @@ Visual Studio で Web サーバーのログを初めて有効にしたとき、�
 
 5. クリックして **作成**します。 
 
-    ![新しいストレージ アカウント ](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)  
+    ![新しいストレージ アカウント 
+](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)  
 
 1. Visual Studio で **Azure Web App** ウィンドウで、をクリックして、 **ログ** タブをクリックし、をクリックして **管理ポータルでログを構成する**です。
 
@@ -725,7 +726,7 @@ ASP.NET トレースに関しては、最新かつ必要な情報をすべて網
   最新とは言えませんが、基本的な事柄がわかりやすくまとめられています。
 * [トレース リスナー](http://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
   トレース リスナーの概要情報が、 [WebPageTraceListener](http://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx)します。
-* [チュートリアル: ASP.NET トレースの System.Diagnostics トレースとの統合](http://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
+* [チュートリアル: ASP.NET トレースと System.Diagnostics トレースの統合](http://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
   古い情報ですが、入門記事では扱っていないような詳しい情報が記載されています。
 * [ASP.NET MVC Razor ビューでのトレース](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   Razor ビューでのトレースに加え、MVC アプリケーションでハンドルされない例外をすべてログに記録するためのエラー フィルターの作成方法についても説明されています。 すべての未処理の例外を Web フォーム アプリケーションにログインする方法についてにされている Global.asax サンプルを参照してください。 [エラー ハンドラーの完全な例](http://msdn.microsoft.com/library/bb397417.aspx) MSDN にします。 MVC または Web フォームで、特定の例外をログに記録すると共に、既定のフレームワークの処理はそのまま活かしておく必要がある場合、例外を捕捉してから再スローする方法を利用できます。その例を次に示します。
@@ -740,7 +741,7 @@ ASP.NET トレースに関しては、最新かつ必要な情報をすべて網
             throw;
         } 
 
-* [診断トレースから Azure コマンド ライン (と glimpse に関する情報!) ログのストリーミング](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
+* [Azure コマンド ラインからの診断トレース ログのストリーミングと Glimpse に関する情報](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   このチュートリアルで Visual Studio を使って行ったことをコマンド ラインで行う方法が解説されています。 [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) ASP.NET アプリケーションをデバッグするためのツールです。 
 * [Web Apps のログと診断] - David ebbo 作成を使用した](/documentation/videos/azure-web-site-logging-and-diagnostics/) と [Web アプリ - David ebbo 作成からストリーミング ログ](/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   Scott Hanselman と David Ebbo によるビデオ。
@@ -753,11 +754,11 @@ Azure からストリーミング ログを取得する必要がある場合、�
 
 Web サーバーのログの分析の詳細については、次のリソースを参照してください。
 
-* [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/>
+* [Log Parser](http://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Web サーバーのログのデータを表示するためのツール (*.log* ファイル)。
-* [IIS のパフォーマンスの問題やアプリケーション エラーを LogParser でトラブルシューティングします。 ](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [Troubleshooting IIS Performance Issues or Application Errors using LogParser (IIS のパフォーマンスの問題やアプリケーション エラーを LogParser でトラブルシューティングする) ](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Web サーバーのログを分析する際に活用できる Log Parser ツールについて基本的な事柄が説明されています。
-* [LogParser の使用に関して Robert McMurray が執筆したブログ記事します。](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
+* [LogParser の使用に関して Robert McMurray が執筆したブログ記事](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [IIS 7.0、IIS 7.5、IIS 8.0 における HTTP ステータス コード](http://support.microsoft.com/kb/943891)
 
 ### 失敗した要求トレース ログの分析
@@ -775,4 +776,5 @@ Web アプリではなく、Azure クラウド サービスをデバッグする
 [GetStarted]: web-sites-dotnet-get-started.md
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
+
 

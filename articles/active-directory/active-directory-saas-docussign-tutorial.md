@@ -96,7 +96,7 @@ URL は次のスキーマが必要: *https://<yourcompanyname>.docusign.net/Memb
 <br><br>![シングル サインオンを構成します。 ][9]<br>
 
 
-    > [AZURE.TIP] If you don’t know what your app URL for your tenant is, try contacting Docusign via SSOSetup@Docusign.com to get the SP Initiated SSO URL for your tenant.
+    > [AZURE.TIP] テナントのアプリの URL がわからない場合は、Docusign テナントの SP Initiated SSO URL を取得する SSOSetup@Docusign.com に連絡してください。
  
 
 4.  **Docusign でのシングル サインオンの構成** ] ページで [ **証明書のダウンロード**, 、お使いのコンピューターにローカルで証明書ファイルを保存します。
@@ -229,3 +229,4 @@ URL は次のスキーマが必要: *https://<yourcompanyname>.docusign.net/Memb
 [41]: ./media/active-directory-saas-docussign-tutorial/tutorial_docusign_16.png
 [42]: ./media/active-directory-saas-docussign-tutorial/tutorial_docusign_17.png
 [43]: ./media/active-directory-saas-docussign-tutorial/tutorial_docusign_18.png
+

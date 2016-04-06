@@ -1,5 +1,5 @@
 
-1. アプリを登録済みでない場合は、移動、[アプリ送信のページ] に Windows ストア アプリのデベロッパー センターでは、Microsoft アカウントでログオンし、をクリックして **アプリ名**します。
+1. アプリを登録済みでない場合に移動、 [Submit an app page] で Windows ストア アプリのデベロッパー センターには、Microsoft アカウントでログオンし、順にクリックして **アプリ名**します。
 
     ![](./media/mobile-services-register-windows-store-app/mobile-services-submit-win8-app.png)
 
@@ -9,7 +9,7 @@
 
     これでアプリケーションの新しい Windows ストア登録が作成されます。
 
-3. Visual Studio で、チュートリアルを完了したときに作成したプロジェクトを開く [を使ってみるモバイル サービス] です。
+3. Visual Studio で、チュートリアルを完了したときに作成したプロジェクトを開く [Get started with Mobile Services]します。
 
 4. ソリューション エクスプ ローラーで、Windows ストア アプリ プロジェクトを右クリックし、をクリックして **ストア**, 、クリックして **アプリケーションを... ストアと関連付ける**します。 
 
@@ -61,4 +61,5 @@
 <!-- URLs. -->
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+
 

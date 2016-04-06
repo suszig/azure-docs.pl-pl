@@ -52,7 +52,7 @@
 
 ## 手順 2. ステージされたプランを DataMarket でテストする
 
-次のテキスト リンクをクリックして **「.. 時期を提供して、サービスを参照してください」** サブスクライバーがプランが実稼働環境がなったときに表示され、DataMarket で表示されます] 画面を表示します。
+次のテキスト リンクをクリックして **"で提供して、サービスを参照してください.."。** サブスクライバーがプランが実稼働環境がなったときに表示され、DataMarket で表示されます] 画面を表示します。
 
   ![図](media/marketplace-publishing-data-service-test-in-staging/step-2.2.png)
 
@@ -85,4 +85,5 @@
 
 ## 関連項目
 - [Getting Started: How to publish an offer to the Azure Marketplace (概要: Azure Marketplace へのプランの発行方法)](marketplace-publishing-getting-started.md)
+
 

@@ -52,7 +52,7 @@ Blob を作成する方法を示すコード サンプルでは、次を参照�
             output = input.ReadToEnd();
         }
 
-このコードは「元-」で始まる名前の BLOB のみをコピーします。 たとえば、 *入力* で、 *入力* にコンテナーをコピー *copy-blob1.txt* で、 *出力* コンテナーです。
+このコードは「元-」で始まる名前の BLOB のみをコピーします。 たとえば、 *元 Blob1.txt* で、 *入力* にコンテナーをコピー *copy-blob1.txt* で、 *出力* コンテナーです。
 
 名前に波括弧がある BLOB 名に新しいパターンを指定する必要がある場合は、波括弧を二重にします。 たとえば、内の blob を検索する場合、 *イメージ* 次のように名前を持つコンテナー。
 
@@ -79,7 +79,7 @@ Blob を作成する方法を示すコード サンプルでは、次を参照�
             output = input.ReadToEnd();
         }
 
-## <a id="types"></a> BLOB にバインドすることができる種類
+## <a id="types"></a>BLOB にバインドすることができる種類
 
 次の種類の `BlobTrigger` 属性を使用できます。
 
@@ -93,7 +93,7 @@ Blob を作成する方法を示すコード サンプルでは、次を参照�
 
 Azure のストレージ アカウントを直接操作する場合は、メソッド シグネチャに `CloudStorageAccount` パラメーターを追加することもできます。
 
-## <a id="string"></a> 文字列にバインドすることによってテキスト BLOB のコンテンツを取得する
+## <a id="string"></a>文字列にバインドすることによってテキスト BLOB のコンテンツを取得する
 
 テキスト BLOB がある場合は、  `BlobTrigger`を `string` パラメーターに適用できます。 次のコード サンプルでは、テキスト BLOB を `logMessage` という名前の `string` パラメーターにバインドします。 関数は、そのパラメーターを使用して Web ジョブ SDK のダッシュボードに、BLOB の内容を記述します。 
  
@@ -106,7 +106,7 @@ Azure のストレージ アカウントを直接操作する場合は、メソ�
              logger.WriteLine(logMessage);
         }
 
-## <a id="icbsb"></a> ICloudBlobStreamBinder を使用してシリアル化した BLOB の内容を取得する
+## <a id="icbsb"></a>ICloudBlobStreamBinder を使用してシリアル化した BLOB の内容を取得する
 
 次のコード サンプルでは、`ICloudBlobStreamBinder` を実装するクラスを使用して `BlobTrigger` 属性を有効化して BLOB を `WebImage` 型にバインドします。
 
@@ -144,7 +144,7 @@ Azure のストレージ アカウントを直接操作する場合は、メソ�
             }
         }
 
-## <a id="poison"></a> 有害な BLOB の処理方法
+## <a id="poison"></a>有害な BLOB の処理方法
 
 `BlobTrigger` 関数が失敗した場合、失敗が一時的なエラーによって発生した場合は、SDK は再度関数を呼び出します。 失敗が BLOB のコンテンツによって発生した場合は、BLOB の処理を試みるたびに関数は失敗します。 既定では、SDK は特定の BLOB に対して最大 5 回、関数を呼び出します。 SDK がという名前のキューにメッセージを追加する場合は 5 回目が失敗して、 *web ジョブ-blobtrigger-有害*します。
 
@@ -189,7 +189,7 @@ SDK は、自動的にJSON メッセージを逆シリアル化します。 こ�
             public string ETag { get; set; }
         }
 
-### <a id="polling"></a> BLOB のポーリング アルゴリズム
+### <a id="polling"></a>BLOB のポーリング アルゴリズム
 
 Web ジョブ SDK は、アプリケーションの起動時に `BlobTrigger` 属性が指定するすべてのコンテナーをスキャンします。 大容量のストレージ アカウントでは、このスキャンに時間がかかるため、新しい BLOB が見つかり、`BlobTrigger` 関数が実行されるまでにしばらく時間がかかります。
 
@@ -197,7 +197,7 @@ Web ジョブ SDK は、アプリケーションの起動時に `BlobTrigger` �
 
 `Blob` 属性を使用して作成する BLOB には例外があります。 Web ジョブ SDK は新しい BLOB を作成すると、一致するすべての`BlobTrigger` 関数に新しい BLOB をすぐに渡します。 そのため、一連の BLOB 入力と BLOB 出力がある場合は、SDK は効率的に処理できます。 ただし、その他の方法で作成または更新された BLOB に対して 低遅延で実行される BLOB 処理関数を使用する場合は、`BlobTrigger` ではなく `QueueTrigger` をお勧めします。
 
-### <a id="receipts"></a> BLOB の配信確認メッセージ
+### <a id="receipts"></a>BLOB の配信確認メッセージ
 
 Web ジョブ SDK では、`BlobTrigger` 関数は同一の新しいまたは更新された BLOB を複数回呼び出しません。 これは維持することにより、 *の配信確認メッセージを blob* 、特定の blob バージョンが処理されているかどうかを判断するためです。
 
@@ -231,4 +231,5 @@ Blob に固有ではないシナリオの「処理、キュー メッセージ�
 
 このガイドでは、Azure BLOB を操作するための一般的なシナリオの処理方法を示すコードのサンプルを提供しました。 Azure web ジョブおよび web ジョブ SDK を使用する方法の詳細については、次を参照してください。 [Azure WebJobs の推奨リソース](http://go.microsoft.com/fwlink/?linkid=390226)します。
  
+
 

@@ -110,7 +110,7 @@ DROP TABLE #Nmbr
 ```
 
 ## 次のステップ
-他の開発のヒントについては、[開発の概要に関するページを参照してください。
+他の開発のヒントを参照してください。 [開発の概要][]します。
 
 <!--Image references-->
 
@@ -120,4 +120,5 @@ DROP TABLE #Nmbr
 <!--MSDN references-->
 
 <!--Other Web references-->
+
 

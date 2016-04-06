@@ -35,11 +35,11 @@
 
 ![](./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png)
 
-[Android Developer Tools] [Android Studio] このチュートリアルを完了する必要を含む、Android Studio 統合開発環境、および最新の Android プラットフォームです。 このほか、Android のバージョン 4.2 以降が必要になります。
+このチュートリアルを完了する必要な [Android Developer Tools][Android Studio], を含む、Android Studio 統合開発環境、および最新の Android プラットフォームです。 このほか、Android のバージョン 4.2 以降が必要になります。
 
 ダウンロードしたクイック スタート プロジェクトには、Android 向けの Mobile Services SDK が含まれています。
 
-> [AZURE.IMPORTANT] このチュートリアルを完了するには、Azure アカウントが必要です。 アカウントがない場合は、Azure 試用版にサインアップして最大 10 の無料モバイル サービスを取得し、試用期間が終わった後でも使用し続けることができます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)をご覧ください。
+> [AZURE.IMPORTANT] このチュートリアルを完了するには、Azure アカウントが必要です。 アカウントがない場合は、Azure 試用版にサインアップして、最大 10 件の無料モバイル サービスを入手できます。このサービスは評価終了後も使用できます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)をご覧ください。
 
 
 ## <a name="create-new-service"> </a>新しいモバイル サービスを作成する
@@ -78,7 +78,7 @@
 
     ![][2]
 
-3. まだ行っていない、ダウンロードしてローカル コンピューターまたは仮想マシンで [Android Developer Tools] [Android SDK] をインストールします。
+3. ダウンロードしてインストールをまだ行っていない場合、 [Android Developer Tools][Android SDK] 、ローカル コンピューターまたは仮想マシン。
 
 4. [ **をダウンロードしてアプリケーションを実行する**, 、] をクリックして **ダウンロード**します。
 
@@ -91,13 +91,13 @@
 ## <a name="next-steps"> </a>次のステップ
 クイック スタートはこれで完了です。Mobile Services で重要になるこれ以外の作業については、以下のトピックを参照してください。
 
-* [アプリにプッシュ通知の追加]
+* [Add push notifications to your app]
   <br/>アプリケーションにごく基本的なプッシュ通知を送信する方法について説明します。
 
-* [アプリに認証の追加]
+* [Add authentication to your app]
   <br/>アプリの登録されている特定のユーザーに、バックエンド データへのアクセスを制限する方法について説明します。
 
-* [Mobile Services .NET バックエンドのトラブルシューティングを行う]
+* [Troubleshoot a Mobile Services .NET backend]
   <br/> Mobile Services の .NET バックエンドで発生する問題を診断して解決する方法について説明します。
 
 <!-- Anchors. -->
@@ -133,4 +133,5 @@
 [Troubleshoot a Mobile Services .NET backend]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 [Azure classic portal]: https://manage.windowsazure.com/
+
 

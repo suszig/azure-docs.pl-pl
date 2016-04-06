@@ -108,11 +108,11 @@ Media Services には動的パッケージ化機能があり、アダプティ�
 5.  **コンテンツのアップロード** ] ダイアログ ボックスを受け入れるように、チェック ボタンをクリックして、 **ファイル** と **コンテンツ名**します。
 6. アップロードが開始され、進捗状況はポータルの下部で確認できます。  
 
-    ![JobStatus][状態]
+    ![JobStatus][status]
 
 アップロードが完了すると、コンテンツ一覧に新しい資産が表示されます。 名前が付いて、慣例的に"**-ソース**"エンコード タスクのソース コンテンツとして新しいコンテンツを追跡するために最後に追加します。
 
-![コンテンツ ページ][コンテンツ ページ]
+![ContentPage][contentpage]
 
 ファイル サイズの値がない更新される場合、アップロード処理が終了した後、選択、 **メタデータの同期** ] ボタンをクリックします。 これにより資産のファイル サイズがストレージの実際のファイル サイズと同期され、[コンテンツ] ページに表示される値が更新されます。
 
@@ -237,8 +237,8 @@ Azure クラシック ポータルには、ビデオのテストに使用でき�
 このトピックに必要な情報が含まれていないか、不足しているか、あるいはニーズを満たしていない場合は、以下の Disqus スレッドを使用してフィードバックをお送りください。
 
 ### その他のリソース
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now! (Azure Media Services 101 - 今すぐビデオをオンラインにしましょう!)</a>
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - Dynamic Packaging and Mobile Devices (Azure Media Services 102 - 動的パッケージ化機能とモバイル デバイス)</a>
+- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - 今すぐビデオをオンラインにしましょう!</a>
+- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - 動的パッケージ化機能とモバイル デバイス</a>
 
 
 <!-- Anchors. -->
@@ -260,4 +260,5 @@ Azure クラシック ポータルには、ビデオのテストに使用でき�
 [process2]: ./media/media-services-portal-get-started/media-services-process-video2.png
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
+
 

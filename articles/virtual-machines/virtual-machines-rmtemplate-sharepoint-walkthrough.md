@@ -370,10 +370,11 @@ JSON コードを次に示します。
 
 ## その他のリソース
 
-[Azure コンピューティング、ネットワーク、および記憶域プロバイダーでは、Azure リソース マネージャー](virtual-machines-azurerm-versus-azuresm.md)
+[Azure リソース マネージャーにおける Azure Compute、ネットワーク、ストレージ プロバイダー](virtual-machines-azurerm-versus-azuresm.md)
 [Azure リソース マネージャーの概要](../resource-group-overview.md)
 
 [Azure リソース マネージャーのテンプレートの作成](../resource-group-authoring-templates.md)
 
 [仮想マシンに関するドキュメント](http://azure.microsoft.com/documentation/services/virtual-machines/)
+
 

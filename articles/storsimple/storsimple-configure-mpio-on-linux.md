@@ -467,21 +467,21 @@ A. ご使用のデバイスがホワイトリストに登録されているか�
 |型|コマンド|説明|
 |---|---|---|
 |**iSCSI**|`service iscsid start`|iSCSI サービスを開始する|
-||`service iscsid stop`|ISCSI サービスを停止します|
-||`service iscsid restart`|ISCSI サービスを再起動します。|
-||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|指定されたアドレスで利用可能なターゲットを検出します。|
-||`iscsiadm -m node --login -T <TARGET_IQN>`|ISCSI ターゲットにログインします。|
-||`iscsiadm -m node --logout -p <Target_IP>`|ISCSI ターゲットからログアウトします。|
-||`cat /etc/iscsi/initiatorname.iscsi`|ISCSI イニシエーターの名前を印刷します。|
-||`iscsiadm –m session –s <sessionid> -P 3`|ISCSI セッションと、ホスト上で検出されたボリュームの状態を確認します。|
-||`iscsi –m session`|ホストと StorSimple デバイスの間で確立されているすべての iSCSI セッションを示しています。|
+||`service iscsid stop`|iSCSI サービスを停止する|
+||`service iscsid restart`|iSCSI サービスを再開する|
+||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|指定されたアドレスで使用できるターゲットを検出する|
+||`iscsiadm -m node --login -T <TARGET_IQN>`|ISCSI ターゲットにログインする|
+||`iscsiadm -m node --logout -p <Target_IP>`|iSCSI ターゲットからログアウトする|
+||`cat /etc/iscsi/initiatorname.iscsi`|iSCSI イニシエーターの名前を出力する|
+||`iscsiadm –m session –s <sessionid> -P 3`|ホストで検出された iSCSI セッションとボリュームの状態を確認する|
+||`iscsi –m session`|ホストと StorSimple デバイス間で確立したすべての iSCSI セッションを表示する|
 | | | |
-|**マルチパス**|`service multipathd start`|マルチパス デーモンを起動します。|
-||`service multipathd stop`|マルチパス デーモンを停止します。|
-||`service multipathd restart`|マルチパス デーモンを再起動します。|
-||`chkconfig multipathd on` </br> OR </br> `mpathconf –with_chkconfig y`|起動時に開始するためのマルチパスのデーモンを有効にします。|
-||`multipathd –k`|トラブルシューティングのための対話型コンソールを起動します。|
-||`multipath –l`|マルチパス接続のリストを表示およびデバイス|
+|**マルチパス**|`service multipathd start`|マルチパス デーモンを開始する|
+||`service multipathd stop`|マルチパス デーモンを停止する|
+||`service multipathd restart`|マルチパス デーモンを再開する|
+||`chkconfig multipathd on` </br> または </br> `mpathconf –with_chkconfig y`|ブート時にマルチパス デーモンを開始するようにする|
+||`multipathd –k`|トラブルシューティングのために対話型コンソールを起動する|
+||`multipath –l`|マルチパス接続とデバイスを一覧表示する|
 ||`mpathconf --enable`|サンプル mulitpath.conf ファイルを作成します。 `/etc/mulitpath.conf`|
 ||||
 
@@ -491,5 +491,6 @@ Linux ホストで MPIO を構成しているため、CentoS 6.6 の次のドキ
 
 - [CentOS での MPIO の設定](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Linux トレーニング ガイド](http://linux-training.be/files/books/LinuxAdm.pdf)
+
 
 

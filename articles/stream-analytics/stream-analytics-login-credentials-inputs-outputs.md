@@ -85,7 +85,7 @@ Azure Stream Analytics では、最後の出力からのジョブの再開がサ
 ![図 18][graphic18]
 6.  [新しいクエリ] をクリックします。  
 ![図 19][graphic19]
-7.  < Login_name > をユーザー名に置き換えると、置換は、次のクエリの種類 <enterStrongPasswordHere> 、新しいパスワードを使用します。  
+7.  < Login_name > をユーザー名に置き換えると、置換は、次のクエリを入力します。 <enterStrongPasswordHere> 新しいパスワード。  
 `CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'`
 8.  [実行] をクリックします。  
 ![図 20][graphic20]
@@ -168,7 +168,7 @@ Azure Stream Analytics では、最後の出力からのジョブの再開がサ
 * BLOB ストレージ
 * Event Hubs
 * SQL Database
-* テーブル ストレージ
+* Table Storage
 
 ###BLOB ストレージとテーブル ストレージ
 ジョブで以前に使用されていたアクセス キーに対してパート 1 を繰り返し、現在未使用のアクセス キーを更新します。
@@ -242,4 +242,5 @@ Azure Stream Analytics では、最後の出力からのジョブの再開がサ
 [graphic42]: ./media/stream-analytics-login-credentials-inputs-outputs/42-stream-analytics-login-credentials-inputs-outputs.png
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
+
 

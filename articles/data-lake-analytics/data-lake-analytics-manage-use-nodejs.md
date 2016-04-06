@@ -101,8 +101,9 @@ Azure ADK for Node.js を使用して、Azure Data Lake Analytics アカウン�
 
 - [Azure SDK for Node.js](http://azure.github.io/azure-sdk-for-node/)
 - [Microsoft Azure Data Lake Analytics の概要](data-lake-analytics-overview.md)
-- [Azure ポータルで Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-portal.md)
+- [Azure ポータルで Azure Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-portal.md)
 - [Azure ポータルを使用する Azure Data Lake Analytics の管理](data-lake-analytics-use-portal.md)
 - [Azure ポータルを使用する Azure Data Lake Analytics ジョブの監視とトラブルシューティング](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+
 
 

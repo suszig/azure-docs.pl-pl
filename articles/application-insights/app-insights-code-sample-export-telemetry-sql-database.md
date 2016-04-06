@@ -62,7 +62,7 @@ Application Insights のデータは、常に JSON 形式で Azure ストレー�
     ![新しいストレージで、[コンテナー] を選択し、[コンテナー] タイルをクリックし、[追加] を選択します](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
 
 
-## Azure Storage への連続エクスポートの開始
+## Azure ストレージへの連続エクスポートの開始
 
 1. Azure ポータルで、アプリケーション用に作成した Application Insights リソースを参照します。
 
@@ -543,4 +543,5 @@ Visual Studio で、ストレージ アカウントの接続文字列で worker 
 [start]: app-insights-overview.md
 
  
+
 

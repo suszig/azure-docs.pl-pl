@@ -21,7 +21,7 @@
 
 このガイドでは、SQL Data Warehouse で PolyBase を使用するための実用的な情報を提供します。 
 
-開始するには、[データの読み込み PolyBase を使用] このチュートリアルを参照してください。
+最初を参照してください、 [PolyBase でデータを読み込む][] チュートリアルです。
 
 
 ## ストレージ キーの交換
@@ -84,7 +84,7 @@ FROM   [ext].[CarSensor_Data]
 
 ## 新しくロードしたデータの統計を作成する
 
-Azure SQL Data Warehouse は、統計の自動作成または自動更新をまだサポートしていません。  クエリから最高のパフォーマンスを取得するには、最初の読み込み後またはそれ以降のデータの変更後に、すべてのテーブルのすべての列で統計を作成することが重要です。  統計情報の詳細については、トピックの開発グループの [統計] のトピックを参照してください。  この例でロードしたテーブルの統計を作成する方法の簡単な例を次に示します。
+Azure SQL Data Warehouse は、統計の自動作成または自動更新をまだサポートしていません。  クエリから最高のパフォーマンスを取得するには、最初の読み込み後またはそれ以降のデータの変更後に、すべてのテーブルのすべての列で統計を作成することが重要です。  統計情報の詳細については、次を参照してください。、 [統計][] 開発一連のトピックの「します。  この例でロードしたテーブルの統計を作成する方法の簡単な例を次に示します。
 
 ```
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -175,7 +175,7 @@ $write.Dispose()
 ```
 
 ## 次のステップ
-SQL Data Warehouse にデータを移動する方法の詳細については、[データの移行の概要] を参照してください。
+SQL Data Warehouse にデータを移動する方法の詳細についてを参照してください、 [データ移行の概要][]します。
 
 <!--Image references-->
 
@@ -195,8 +195,7 @@ SQL Data Warehouse にデータを移動する方法の詳細については、[
 
 
 <!-- External Links -->
-[外部データ ソース (Transact SQL) の作成]: https://msdn.microsoft.com/library/dn935022.aspx
-[外部ファイル形式 (Transact SQL) の作成]: https://msdn.microsoft.com/library/dn935026).aspx
+[外部ファイル形式 (Transact SQL) の作成]: https://msdn.microsoft.com/library/dn935026) .aspx[[CREATE EXTERNAL TABLE (TRANSACT-SQL)]: https://msdn.microsoft.com/library/dn935021.aspx).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021.aspx
 
 [DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/mt146367.aspx
@@ -209,6 +208,7 @@ SQL Data Warehouse にデータを移動する方法の詳細については、[
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189522.aspx
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
+
 
 
 

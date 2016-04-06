@@ -42,7 +42,7 @@
 
 + アクティブな Windows ストア アカウント
 
-+ アクティブな Azure アカウント<br/>アカウントがない場合は、無料試用版のアカウントを数分で作成することができます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F)をご覧ください。
++ アクティブな Azure アカウント <br/>アカウントがない場合は、無料試用版のアカウントを数分で作成することができます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F)をご覧ください。
 
 このチュートリアルを完了することは、Windows ストア アプリケーションの他のすべての Notification Hubs チュートリアルの前提条件です。
 
@@ -95,7 +95,7 @@ Windows ストア アプリにプッシュ通知を送信するには、アプ�
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 <ol start="7">
-<li><p>選択します <b>構成</b> 上部にあるタブを入力します <b>クライアント シークレット</b> と <b>パッケージ SID</b> 値を前のセクションで WNS から取得し、クリックします。 <b>Save</b>.</p>
+<li><p>選択、 <b>構成</b> 上部にあるタブで、入力、 <b>クライアント シークレット</b> と <b>パッケージ SID</b> ] をクリックして、前のセクションで WNS から取得される値 <b>保存</b>します。</p>
 </li>
 </ol>
 
@@ -114,7 +114,7 @@ Windows ストア アプリにプッシュ通知を送信するには、アプ�
 
     ![][20]
 
-    これをダウンロード、インストール、および参照を追加、すべてのプロジェクトで Azure メッセージング ライブラリに windows を使用して、 <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">WindowsAzure.Messaging.Managed NuGet パッケージ</a>.
+    こうすることで、<a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">WindowsAzure.Messaging.Managed NuGet パッケージ</a>を使用して、Windows の Azure メッセージング ライブラリにすべてのプロジェクトの参照がダウンロード、インストール、追加されます。
 
 3. App.xaml.cs プロジェクト ファイルを開き、次の `using` ステートメントを追加します。 ユニバーサル プロジェクトでは、このファイルは `<project_name>.Shared` フォルダーにあります。
 
@@ -145,7 +145,7 @@ Windows ストア アプリにプッシュ通知を送信するには、アプ�
 
     このコードにより、WNS からアプリケーションのチャネル URI が取得され、そのチャネル URI が通知ハブに登録されます。
 
-    >[AZURE.NOTE][Azure クラシック ポータル] に表示される通知ハブの名前に"hub name"プレース ホルダーを置き換えることを確認、 **Notification Hubs** ] タブ (たとえば、 **mynotificationhub2** 前の例では)。 接続文字列プレース ホルダーを置き換えることも、 **DefaultListenSharedAccessSignature** 前のセクションで取得した接続文字列。
+    >[AZURE.NOTE]表示される通知ハブの名前に"hub name"プレース ホルダーを置き換えることを確認、 [Azure Classic Portal] で、 **Notification Hubs** ] タブ (たとえば、 **mynotificationhub2** 前の例で)。 接続文字列プレース ホルダーを置き換えることも、 **DefaultListenSharedAccessSignature** 前のセクションで取得した接続文字列。
 
 5. 上部にある、 **OnLaunched** App.xaml.cs のイベント ハンドラーが、新規作成] を次の呼び出しを追加 **InitNotificationsAsync** メソッド。
 
@@ -173,7 +173,7 @@ Windows ストア アプリにプッシュ通知を送信するには、アプ�
 
 ##通知を送信する 
 
-次の画面に示すように、[Azure クラシック ポータル] で、通知ハブを [デバッグ] タブを使用して、通知を送信することによって、アプリケーションで通知を受信をテストすることができます。
+通知を送信することによって、アプリで通知の受信をテストする、 [Azure Classic Portal] 通知ハブで、次の画面に示すように、[デバッグ] タブを使用しています。
 
 ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-debug.png)
 
@@ -211,7 +211,7 @@ Windows ストア アプリにプッシュ通知を送信するには、アプ�
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-    使用して、Azure Notification Hubs SDK への参照を追加します <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification ハブ NuGet パッケージ</a>.
+    これにより <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet パッケージ</a>を利用して Azure Notification Hubs SDK に参照が追加されます。
 
     ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
@@ -230,7 +230,7 @@ Windows ストア アプリにプッシュ通知を送信するには、アプ�
             await hub.SendWindowsNativeNotificationAsync(toast);
         }
 
-    "Hub name"プレース ホルダーの [Azure クラシック ポータル] に表示される通知ハブの名前を置き換えます確認、 **Notification Hubs** ] タブをクリックします。 また、接続文字列プレース ホルダーを接続文字列に置き換えて **DefaultFullSharedAccessSignature** で取得したセクションでは、「通知ハブを構成します。"
+    表示される通知ハブの名前に"hub name"プレース ホルダーを置き換えることを確認、 [Azure Classic Portal] 上、 **Notification Hubs** ] タブをクリックします。 また、接続文字列プレース ホルダーを接続文字列に置き換えて **DefaultFullSharedAccessSignature** で取得したセクションでは、「通知ハブを構成します。"
 
     >[AZURE.NOTE]持つ接続文字列を使用することを確認 **完全** アクセスではなく **リッスン** アクセスします。 リッスン アクセス文字列には通知を送信するアクセス許可はありません。
 
@@ -253,7 +253,7 @@ Windows ストア アプリにプッシュ通知を送信するには、アプ�
 
 対象グループごとにユーザーをセグメント化する場合は、「 [Use Notification Hubs to send breaking news]します。 
 
-Notification Hubs に関する一般的な情報については、[通知ハブの概要] を参照してください。
+Notification Hubs に関する一般的な情報については、次を参照してください。 [Notification Hubs Guidance]します。
 
 
 
@@ -284,4 +284,5 @@ Notification Hubs に関する一般的な情報については、[通知ハブ�
 [toast catalog]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [tile catalog]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [badge overview]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+
 

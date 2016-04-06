@@ -19,7 +19,7 @@
 # .NET SDK で Data Lake Store の使用を開始する
 
 > [AZURE.SELECTOR]
-- [ポータルを使用してください。](data-lake-store-get-started-portal.md)
+- [ポータルの使用](data-lake-store-get-started-portal.md)
 - [PowerShell の使用](data-lake-store-get-started-powershell.md)
 - [.NET SDK の使用](data-lake-store-get-started-net-sdk.md)
 - [Azure CLI の使用](data-lake-store-get-started-cli.md)
@@ -41,11 +41,11 @@ Azure Data Lake Store .NET SDK を使用して、Azure Data Lake アカウント
 
 3.  **新しいプロジェクト**, を入力するか、次の値を選択します。
 
-    | プロパティ | 値                       |
-    |----------|-----------------------------|
-    | カテゴリ | テンプレート/Visual C#/Windows |
-    | テンプレート | コンソール アプリケーション         |
-    | 名前     | CreateADLApplication        |
+  	| プロパティ | 値                       |
+  	|----------|-----------------------------|
+  	| カテゴリ | テンプレート/Visual C#/Windows |
+  	| テンプレート | コンソール アプリケーション         |
+  	| 名前     | CreateADLApplication        |
 
 4. クリックして **OK** プロジェクトを作成します。
 
@@ -214,7 +214,7 @@ Azure Data Lake Store .NET SDK を使用して、Azure Data Lake アカウント
 ## Data Lake Store アカウントの他の作成方法
 
 - [Azure プレビュー ポータルで Azure Data Lake Store の使用を開始する](data-lake-store-get-started-portal.md)
-- [Azure PowerShell で Data Lake Store の使用を開始する](data-lake-store-get-started-powershell.md)
+- [PowerShell で Data Lake Store の使用を開始する](data-lake-store-get-started-powershell.md)
 - [Azure CLI で Azure Data Lake Store の使用を開始する](data-lake-store-get-started-cli.md)
 
 
@@ -223,5 +223,6 @@ Azure Data Lake Store .NET SDK を使用して、Azure Data Lake アカウント
 - [Data Lake Store のデータをセキュリティで保護する](data-lake-store-secure-data.md)
 - [Data Lake Store で Azure Data Lake Analytics を使用する](data-lake-analytics-get-started-portal.md)
 - [Data Lake Store で Azure HDInsight を使用する](data-lake-store-hdinsight-hadoop-use-portal.md)
+
 
 

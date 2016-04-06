@@ -79,7 +79,7 @@ Windows Server 2012 R2 基本構成テスト環境の Corpnet サブネットを
 
 次に、Azure クラウド サービスを作成します。 クラウド サービスは、仮想ネットワーク内に配置された仮想マシンのセキュリティの境界および論理上のコンテナーとして機能します。 また、クラウド サービスを通じてリモートから Corpnet サブネット上の仮想マシンに接続し、管理することができます。
 
-クラウド サービスには一意の名前を選ぶ必要があります。 *クラウド サービスの名前には、文字、数字、ハイフンのみを含めることができます。フィールドの先頭と末尾の文字は、文字または数字としてください。*
+クラウド サービスには一意の名前を選ぶ必要があります。 *クラウド サービスの名前には、文字、数字、ハイフンのみを含めることができます。 フィールドの先頭と末尾の文字は、文字または数字としてください。*
 
 たとえば、名前、クラウド サービスに testlab-*UniqueSequence*, を *UniqueSequence* 、組織の略称です。 たとえば、社名が Tailspin Toys であれば、クラウド サービスの名前を TestLab-Tailspin とします。
 
@@ -94,7 +94,7 @@ Windows Server 2012 R2 基本構成テスト環境の Corpnet サブネットを
 
 実際のクラウド サービスの名前をメモしておいてください。
 
-次に、仮想マシンのディスクとそれ以外のデータ ディスクの従属先となるストレージ アカウントを構成します。 *小文字と数字のみを含む一意の名前を選択する必要があります。*ストレージ アカウント名の一意性は、次の Azure PowerShell コマンドで確認することができます。
+次に、仮想マシンのディスクとそれ以外のデータ ディスクの従属先となるストレージ アカウントを構成します。 *小文字と数字のみから成る一意の名前を選んでください。* ストレージ アカウント名の一意性は、次の Azure PowerShell コマンドで確認することができます。
 
     Test-AzureName -Storage <Proposed storage account name>
 
@@ -260,7 +260,7 @@ Azure の基本構成の準備ができました各種テスト環境、また�
 
 [Azure リソース マネージャーでの基本構成テスト環境](virtual-machines-base-configuration-test-environment-resource-manager.md)
 
-## <a id="costs"></a>Azure でのテスト環境の仮想マシンのコストを最小限に抑える
+## <a id="costs"></a>Azure のテスト環境の仮想マシンで生じるコストを最小限に抑える方法
 
 テスト環境の仮想マシンを実行する際に発生するコストは、次のいずれかの方法で最小限に抑えることができます。
 
@@ -287,4 +287,5 @@ Azure PowerShell で順に仮想マシンを起動するには、クラウド �
     Start-AzureVM -ServiceName $serviceName -Name "DC1"
     Start-AzureVM -ServiceName $serviceName -Name "APP1"
     Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
+
 

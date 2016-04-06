@@ -1,6 +1,6 @@
 <!---Use the procedure that matches your backend project type&mdash;either [.NET backend](#dotnet) or [Node.js backend](#nodejs).
 
-### <a name="dotnet"></a>.NET バックエンド プロジェクトの--> します。
+### <a name="dotnet"></a>.NET backend project -->
 1. Visual Studio で、`PostTodoItem` メソッド定義を次のコードで更新します。  
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
@@ -50,7 +50,7 @@
 
 <!---### <a name="nodejs"></a>Node.js backend project
 
-1. todoitem.js ファイル内の既存のコードを次のコードに置き換えます。
+1. Replace the existing code in the todoitem.js file with the following:
 
         var azureMobileApps = require('azure-mobile-apps'),
         promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -94,6 +94,7 @@
 
         module.exports = table;  
 
-    これは、現在のユーザーの SID でタグ付けされた登録のみにテンプレート通知を送信します。 SID 値は、認証プロバイダーのトークンから派生するので変更される可能性があります。 
+    This sends a template notification only to registrations tagged with the current user's SID. Note that the SID value can change since it derived from the authentication provider's token. 
 
-2. サーバーを再発行してローカル コンピューターでファイルを編集するときにプロジェクトです。--> します。
+2. When editing the file in your local computer, republish the server project.-->
+

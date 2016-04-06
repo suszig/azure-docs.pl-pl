@@ -21,7 +21,7 @@
 
 Azure Active Directory Connect 同期サービス (Azure AD Connect Sync) は、オンプレミスの環境とクラウドの Azure AD 間で ID データの同期に関連するすべての操作を処理する Azure AD Connect のメイン コンポーネントです。 同期の観点から、Azure AD Connect Sync は、Azure Active Directory Connector で構成された DirSync、Azure AD Sync、Forefront Identity Manager の後継となります。
 
-<center>![Azure AD Connect 同期](./media/active-directory-aadconnectsync-whatis/sync01.png)
+<center>![Azure AD Connect Sync](./media/active-directory-aadconnectsync-whatis/sync01.png)
 </center>
 
 
@@ -45,4 +45,5 @@ Azure Active Directory Connect 同期サービス (Azure AD Connect Sync) は、
 ## その他のリソース
 
 * [オンプレミス ID と Azure Active Directory の統合](active-directory-aadconnect.md)
+
 

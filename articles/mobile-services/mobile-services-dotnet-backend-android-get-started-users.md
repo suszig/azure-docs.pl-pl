@@ -46,7 +46,7 @@
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-3. チュートリアルを完了したときに作成したプロジェクトを開く [を使ってみるモバイル サービス] です。
+3. チュートリアルを完了したときに作成したプロジェクトを開く [Get started with Mobile Services]します。
 
 4.  **実行** ] メニューのをクリックし、 **アプリケーションを実行する** にアプリを起動します。 アプリケーションの開始後に、状態コード 401 (許可されていません) のハンドルされない例外が発生することを確認します。
 
@@ -68,7 +68,7 @@
 
 ##<a name="next-steps"></a>次のステップ
 
-次のチュートリアルでは、[モバイル サービス ユーザーのサービス側の承認] で [スクリプトを持つユーザーを承認する] を認証されたユーザーに基づいてモバイル サービスによって提供されるユーザー ID 値を受け取りしてモバイル サービスから返されたデータをフィルター処理に使用します。
+次のチュートリアルでは、 [モバイル サービス ユーザーのサービス側承認][Authorize users with scripts], 、認証されたユーザーに基づいてモバイル サービスによって提供されるユーザー ID 値を受け取り、モバイル サービスから返されたデータをフィルター処理に使用します。
 
 
 <!-- Anchors. -->
@@ -87,4 +87,5 @@
 
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
+
 

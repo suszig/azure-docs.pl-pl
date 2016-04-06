@@ -99,7 +99,7 @@
 
     これにより、新しいアプリケーションをホストする Web サーバーがローカル コンピューター上で起動します。
 
-2. Web ブラウザーで <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> を開いて、アプリケーションを開始します。
+2. Web ブラウザーで URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> を開いて、アプリケーションを開始します。
 
 3. アプリケーションで、意味のあるテキストをなど入力 _に関するチュートリアルを完了_, で、 **Enter 新しいタスク**, 、] をクリックし、 **追加**します。
 
@@ -120,7 +120,7 @@
 ## <a name="next-steps"> </a>次のステップ
 クイック スタートはこれで完了です。Mobile Services で重要になるこれ以外の作業については、以下のトピックを参照してください。
 
-* **[アプリに認証の追加]**  
+* **[Add authentication to your app]**  
   ID プロバイダーを使用してアプリケーションのユーザーを認証する方法について説明します。
 
 * **[Mobile Services HTML/JavaScript How-to Conceptual Reference]**  
@@ -156,4 +156,5 @@
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
+
 

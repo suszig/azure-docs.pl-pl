@@ -26,11 +26,11 @@ Azure メディア サービスのダッシュボードには、使用状況の�
  
 >[AZURE.NOTE] 追加のコストは、Azure クラシック ポータルでストレージ データの監視に関連付けられます。 詳細については、次を参照してください。 [Storage Analytics と課金](http://go.microsoft.com/fwlink/?LinkId=256667)します。
 
-##<a id="configuremonitoring"></a>方法: メディア サービス アカウントの監視
+##<a id="configuremonitoring"></a>方法: Media Services アカウントの監視
 
 1.  [Azure Classic Portal](http://go.microsoft.com/fwlink/?LinkID=256666), 、] をクリックして **Media Services**, 、ダッシュ ボードを Media Services アカウント名をクリックします。 
 
-    ![MediaServices_Dashboard][ダッシュ ボード]
+    ![MediaServices_Dashboard][dashboard]
 
 2. エンコード ジョブまたはデータを監視するには、Media Services に対するエンコード ジョブの送信を開始するか、Azure メディア オンデマンド ストリーミングを使用して顧客に対するコンテンツのストリーミング配信を開始します。 約 1 時間後に、ダッシュボードに監視データが表示されるようになります。
 
@@ -75,3 +75,4 @@ Media Services のメトリックと同様に、約 1 時間後に、ダッシ�
 [storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
  
+

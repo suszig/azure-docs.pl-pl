@@ -83,7 +83,7 @@
 
 3.   **アプリケーション URL の構成** ] ページの [、 **TimeOffManager 応答 URL** ] ボックスに、TimeOffManager AssertionConsumerService URL を入力 (例::"*例: https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company \_id=IC34216*"、順にクリック **次へ]**します。
 
-    ![アプリケーション URL の構成](./media/active-directory-saas-timeoffmanager-tutorial/IC795914.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-timeoffmanager-tutorial/IC795914.png "Configure App URL")
 
     応答 URL は、設定ページの [TimeOffManager シングル サインオン] から入手できます。
 
@@ -127,10 +127,10 @@
 
     ![SAML トークンの属性](./media/active-directory-saas-timeoffmanager-tutorial/IC795921.png "saml token attributes")
 
-    |属性名|属性値|
-    |---|---|
-    |Firstname|User.givenname|
-    |Lastname|User.surname|
+  	|属性名|属性値|
+  	|---|---|
+  	|Firstname|User.givenname|
+  	|Lastname|User.surname|
 
     1.  上記の表の各データ行をクリックして **ユーザー属性の追加**します。
     2.   **属性名** ] ボックスに、その行に対して表示される属性名を入力します。
@@ -164,4 +164,5 @@ TimeOffManager は、ジャストインタイム ユーザー プロビジョニ
     ![あり](./media/active-directory-saas-timeoffmanager-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+
 

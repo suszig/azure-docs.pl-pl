@@ -247,10 +247,10 @@ Premium Storage 上で Linux VM を設定するときは、次の重要な手順
 </tr>
 <tr>
     <td rowspan="2"><strong>CentOS</strong></td>
-    <td>6.5, 6.6, 6.7, 7.0</td>
+    <td>6.5、6.6、6.7、7.0</td>
     <td></td>
     <td>
-        <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 が必要 </a> </br>
+        <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 (必須) </a> </br>
         *See note below
     </td>
 </tr>
@@ -393,4 +393,5 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
+
 

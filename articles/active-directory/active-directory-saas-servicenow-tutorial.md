@@ -67,17 +67,17 @@
   
 このセクションでは、SAML プロトコルに基づくフェデレーションを使用して、ユーザーが Azure AD のアカウントで ServiceNow に対する認証を行えるようにする方法を説明します。
 
-この手順の途中で、base-64 でエンコードされた証明書を Dropbox for Business テナントにアップロードする必要があります。 この手順に慣れていない場合は、次を参照してください。 [バイナリ証明書をテキスト ファイルに変換する方法](http://youtu.be/PlgrzUZ-Y1o)します。
+この手順の途中で、Base-64 でエンコードされた証明書を Dropbox for Business テナントにアップロードする必要があります。 この手順に慣れていない場合は、次を参照してください。 [バイナリ証明書をテキスト ファイルに変換する方法](http://youtu.be/PlgrzUZ-Y1o)します。
 
 ###シングル サインオンを構成するには、次の手順に従います。
 
 1.  Azure AD ポータルでの **ServiceNow** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC749323.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-servicenow-tutorial/IC749323.png "Configure single sign-on")
 
 2.   **方法を選択して ServiceNow へのサインオン** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、順にクリック **次**します。
 
-    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC749324.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-servicenow-tutorial/IC749324.png "Configure single sign-on")
 
 3.   **アプリケーション設定の構成** ] ページで、次の手順を実行します。
 
@@ -97,7 +97,7 @@
 
 4.   **ServiceNow でのシングル サインオンの構成** ] ページで [ **証明書のダウンロード**, 、コンピューターにローカルで証明書ファイルを保存し、[クリックして **次**します。
 
-    ![シングル サインオンの構成](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Configure single sign-on")
 
 1. ServiceNow アプリケーションに管理者としてサインオンします。
 
@@ -120,19 +120,19 @@
 
 
 
-1. 左側のナビゲーション ウィンドウでをクリックして **の x509 証明書**します。
+1. 左側のナビゲーション ウィンドウでをクリックして **x509 証明書**します。
 
     ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694973.png "Configure single sign-on")
 
 
 1.  **X.509 証明書** ダイアログ ボックスで、をクリックして **新規**します。
 
-    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694974.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-servicenow-tutorial/IC7694974.png "Configure single sign-on")
 
 
 1.  **X.509 証明書** ] ダイアログ ボックスで、次の手順を実行します。
 
-    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "Configure single sign-on")
 
     a. クリックして **新しい**します。
 
@@ -158,12 +158,12 @@
 
 1.  **Id プロバイダー** ダイアログ ボックスで、をクリックして **新規**:
 
-    ![シングル サインオンの構成](./media/active-directory-saas-servicenow-tutorial/IC7694977.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694977.png "Configure single sign-on")
 
 
 1.  **Id プロバイダー** ダイアログ ボックスで、をクリックして **SAML2 更新プログラム 1?**:
 
-    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694978.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-servicenow-tutorial/IC7694978.png "Configure single sign-on")
 
 
 1. [SAML2 Update1 Properties] ダイアログで、次の手順を実行します。
@@ -210,7 +210,7 @@
 
 6. Azure AD ポータルでのシングル サインオンの構成情報を選択し、 **次**します。 
 
-    ![シングル サインオンの構成](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "Configure single sign-on")
 
 7.  **シングル サインオンによる確認** ] ページで [ **完了**します。
  
@@ -278,3 +278,4 @@
 
 * [SaaS アプリと Azure Active Directory を統合する方法に関するチュートリアルの一覧](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory のアプリケーション アクセスとシングル サインオンとは](active-directory-appssoaccess-whatis.md)
+

@@ -37,7 +37,7 @@
 このチュートリアルには、次のものが必要です。
 
 + Microsoft Visual Studio 2013 以降
-+ このチュートリアルは、Mobile Services のクイック スタートに基づいています。 このチュートリアルを開始する前に完了しておく必要 [を使ってみるモバイル サービス] です。
++ このチュートリアルは、モバイル サービスのクイック スタートに基づいています。 このチュートリアルを開始する前に完了しておく必要 [を使ってみるモバイル サービス] です。
 + [Azure アカウント]
 + Azure モバイル サービス NuGet パッケージ 1.1.0 以降。 最新バージョンを入手するには、次の手順に従います。
     1. Visual Studio でプロジェクトを開き、ソリューション エクスプ ローラーでプロジェクトを右クリックし、] をクリックして **Nuget パッケージの管理**します。
@@ -388,4 +388,5 @@ This tutorial demonstrated how to enable a Windows Store app to handle write con
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
 [System Properties]: http://go.microsoft.com/fwlink/?LinkId=331143
+
 

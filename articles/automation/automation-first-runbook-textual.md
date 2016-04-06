@@ -54,7 +54,7 @@ Runbook に直接コードを入力するか、ライブラリ コントロー�
 
 1. この runbook は空にのみ必要です。 *ワークフロー* キーワード、この runbook とワークフロー全体を表す、中かっこの名前。 <br>
 ![Runbook の制御](media/automation-first-runbook-textual/empty-runbook.png)
-2. 型 *Write-output は、「Hello World.」* 中かっこの間です。 <br>
+2. 型 *Write-output は、"Hello World"。* 中かっこです。 <br>
 ![Hello world](media/automation-first-runbook-textual/hello-world.png)
 3.   クリックして、runbook を保存 **保存**します。<br>
 ![Runbook を保存します。](media/automation-first-runbook-textual/runbook-edit-toolbar-save.png)
@@ -110,7 +110,7 @@ Runbook をテストして発行しましたが、これまでのところ役に
 3.  次の行に入力 *Add-azureaccount-資格情報を $Credential*します。 <br>
 ![認証](media/automation-first-runbook-textual/authentication.png) 
 3. クリックして **テスト ペイン** 、runbook をテストできるようにします。
-10. Click **Start** to start the test.  完了すると、次のような出力により、資格情報内のユーザーに関する情報が返されます。  これは、資格情報が有効であることを確認します。<br>
+10. Click **Start** to start the test.  完了すると、次のような出力により、資格情報内のユーザーに関する情報が返されます。  これは、資格情報が有効であることの確認になります。<br>
 ![認証](media/automation-first-runbook-textual/authentication-test.png) 
 
 ## 手順 6 - 仮想マシンを開始するコードを追加する
@@ -143,3 +143,4 @@ Runbook をテストして発行しましたが、これまでのところ役に
 ## 関連記事:
 
 - [初めてのグラフィカルな Runbook](automation-first-runbook-graphical.md)
+

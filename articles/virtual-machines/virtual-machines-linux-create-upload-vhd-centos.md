@@ -43,7 +43,7 @@
 - すべての VHD のサイズは 1 MB の倍数であることが必要です。
 
 
-## <a id="centos6"> </a>CentOS 6.x ##
+## <a id="centos6"></a>CentOS 6.x ##
 
 1. Hyper-V マネージャーで仮想マシンを選択します。
 
@@ -84,7 +84,7 @@
 
 8. **CentOS 6.3 のみ**: Linux Integration Services (LIS) 用のドライバーをインストールします。
 
-    **重要: ステップはのみ CentOS 6.3 以下に有効です。**CentOS 6.4 以上で、Linux Integration Services は *、標準のカーネル内で既に使用可能な*です。
+    **重要: この手順は CentOS 6.3 以下にのみ有効です。**  CentOS 6.4 以上で、Linux Integration Services は *、標準のカーネル内で既に使用可能な*です。
 
     - インストールの指示に従って、 [LIS のダウンロード ページ](https://www.microsoft.com/en-us/download/details.aspx?id=46842) し、イメージに RPM をインストールします。  
 
@@ -205,7 +205,7 @@
 ----------
 
 
-## <a id="centos7"> </a>CentOS 7.0+ ##
+## <a id="centos7"></a>CentOS 7.0 以上 ##
 
 **CentOS 7 (および同様な派生版) への変更**
 
@@ -343,4 +343,5 @@ Azure 用の CentOS 7 仮想マシンを準備する手順は、CentOS 6 の場�
         # logout
 
 16. クリックして **アクションには、シャット ダウン]-> [** Hyper V マネージャーにします。 これで、Linux VHD を Azure にアップロードする準備が整いました。
+
 

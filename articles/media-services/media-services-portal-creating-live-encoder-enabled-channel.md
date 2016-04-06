@@ -99,9 +99,9 @@
     新しいユニットの割り当ては完了するまでに約 20 分かかります。 
 
      
-    >[AZURE.NOTE] Currently, going from any positive value of streaming units back to none, can disable streaming for up to an hour.
+    >[AZURE.NOTE] 現在のところ、ストリーミング ユニットをゼロに戻すの正の値から、無効になりますストリーミングが最大 1 時間です。
     >
-    > The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
+    > コストの計算時には、24 時間の期間内に指定されたユニットの最大数が使用されます。 料金の詳細については、次を参照してください。 [Media Services の料金詳細](http://go.microsoft.com/fwlink/?LinkId=275107)します。
 
  
 ##チャネルの作成
@@ -276,3 +276,4 @@ MPEG DASH ストリーミング URL を構築するには、追加 (形式 = mpd
 [standard3]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard3.png
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png 
+

@@ -24,18 +24,18 @@ App Service プランが含まれているサービスのレベルに基づい�
 
 価格レベルのスケールアップ以外にも、サービスに含まれるインスタンス数を増やすことができます。 呼ばれる *のスケール アウト* または *スケールイン*します。 記事を参照してください [インスタンス数を手動または自動でスケール変更](../insights-how-to-scale.md) について詳しく学習する *スケール アウト* と *スケールイン*します。
 
-App Service プランについては、次を参照してください。 [App Service プランは何ですか?](../web-sites-web-hosting-plan-overview.md) と [Azure App Service プランの詳細な概要](azure-web-sites-web-hosting-plans-in-depth-overview.md)します。 料金情報や App Service プランの 1 つの機能では、次を参照してください。 [App Service の料金詳細](/pricing/details/app-service/)します。
+App Service プランについては、次を参照してください。 [App Service プランは何ですか。](../web-sites-web-hosting-plan-overview.md)  [Azure App Service プランの詳細な概要](azure-web-sites-web-hosting-plans-in-depth-overview.md)します。 料金情報および各 App Service プランの機能では、「 [App Service の料金詳細](/pricing/details/app-service/)します。
 
 最後に、スケーリングの動作が異なる場合は、専用に使用する [App Service 環境](app-service-app-service-environment-intro.md)します。 参照してください [App Service 環境で web アプリのスケーリング](app-service-web-scale-a-web-app-in-an-app-service-environment.md) 詳細です。
 
-> [AZURE.NOTE] 切り替える前に、 **Free** モード **基本的な**, 、**標準**, 、または **Premium** モードでは、Azure App Service サブスクリプションのインプレース支出 cap を削除する必要があります最初です。 Microsoft Azure App Service サブスクリプションのオプションを表示または変更は、[Microsoft Azure サブスクリプション] [azuresubscriptions] を参照してください。
+> [AZURE.NOTE] 切り替える前に、 **Free** モード **基本的な**, 、**標準**, 、または **Premium** モードでは、Azure App Service サブスクリプションのインプレース支出 cap を削除する必要があります最初です。 Microsoft Azure App Service サブスクリプションのオプションを表示または変更、次を参照してください。 [Microsoft Azure サブスクリプションの][azuresubscriptions]です。
 
 <a name="scalingsharedorbasic"></a>
 <a name="scalingstandard"></a>
 
 ## 価格レベルのスケーリング
 
-1. ブラウザーで、[Azure のポータル] [ポータル] を開き規模を設定するアプリに移動します。
+1. ブラウザーで開く、 [Azure ポータル][portal] 規模を設定するアプリを参照します。
     
 2.  **Essentials** 、アプリをクリックして、 **App Service プラン/価格レベル** リンクします。
 
@@ -102,7 +102,7 @@ Azure での計算の別の階層についても習得できます [ここ](http
     
     [SQL データベースの料金詳細](/pricing/details/sql-database/)
     
-    [仮想マシンと Microsoft Azure のクラウド サービスのサイズ][vmsizes]
+    [Virtual Machine and Cloud Service Sizes for Microsoft Azure (Microsoft Azure の仮想マシンおよびクラウド サービスのサイズ)][vmsizes]
     
     [App Service の料金の詳細](/pricing/details/app-service/)
     
@@ -130,3 +130,4 @@ Azure での計算の別の階層についても習得できます [ここ](http
 [ScaleDatabase]: ./media/web-sites-scale/scale11SQLScale.png
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
+

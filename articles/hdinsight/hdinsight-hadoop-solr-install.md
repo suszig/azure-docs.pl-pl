@@ -53,11 +53,11 @@ Script Action を使用して Windows ベースの HDInsight クラスターを 
     <table border='1'>
         <tr><th>プロパティ</th><th>値</th></tr>
         <tr><td>名前</td>
-            <td>スクリプト アクションの名前を指定します。 たとえば、次のように入力します。 <b>Solr のインストール</b>.</td></tr>
+            <td>スクリプト アクションの名前を指定します。 たとえば、 <b>Solr のインストール</b>します。</td></tr>
         <tr><td>スクリプト URI</td>
-            <td>クラスターをカスタマイズするために呼び出すスクリプトの Uniform Resource Identifier (URI) を指定します。 たとえば、次のように入力します。 <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>
+            <td>クラスターをカスタマイズするために呼び出すスクリプトの Uniform Resource Identifier (URI) を指定します。 たとえば、 <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>
         <tr><td>ノードの種類</td>
-            <td>カスタマイズ スクリプトが実行されるノードを指定します。 選択することができます。 <b>すべてのノード</b>。 <b>ヘッド ノードのみ]</b>, or <b>ワーカー ノードのみ</b>.
+            <td>カスタマイズ スクリプトが実行されるノードを指定します。 選択する <b>のすべてのノード</b>, 、<b>ヘッド ノードのみ</b>, 、または <b>ワーカー ノードのみ</b>します。
         <tr><td>パラメーター</td>
             <td>スクリプトで必要な場合は、パラメーターを指定します。 Solr をインストールするスクリプトにパラメーターは必要ないため、この部分は空白のままにすることもできます。</td></tr>
     </table>
@@ -199,4 +199,5 @@ Script Action を使用して Windows ベースの HDInsight クラスターを 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
+
 

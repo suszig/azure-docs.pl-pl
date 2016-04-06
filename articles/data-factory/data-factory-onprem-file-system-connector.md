@@ -376,7 +376,7 @@
       }
     }
 
-**コピー アクティビティのあるパイプラインします。**
+**コピー アクティビティのあるパイプライン:**
 上記の入力データセットと出力データセットを使用するように構成され、1 時間おきに実行するようにスケジュールされているコピー アクティビティがパイプラインに含まれています。 パイプライン JSON 定義で、 **ソース** に設定されている型 **SqlSource** と **シンク** に設定されている型 **FileSystemSink**します。 指定された SQL クエリ、 **SqlReaderQuery** プロパティをコピーするには過去のデータを選択します。
 
     
@@ -435,7 +435,7 @@ type | Type プロパティに設定する必要があります **OnPremisesFile
 host | サーバーのホスト名。 使用する '\' 次の例のようにエスケープ文字として: 共有の場合: \\servername、\\\servername を指定します。<p>ファイル システムがゲートウェイ コンピューターにローカルの場合は、Local または localhost を使用します。 ファイル システムがゲートウェイ コンピューターと異なるサーバー上にある場合は、\\\servername を使用します。</p> | あり
 userid  | サーバーにアクセスするユーザーの ID を指定します | No (encryptedCredential を選択する場合)
 パスワード | ユーザー (userid) のパスワードを指定します | いいえ (encryptedCredential を選択する場合) 
-encryptedCredential | 新規 AzureRmDataFactoryEncryptValue コマンドレットを実行して取得できる暗号化された資格情報を指定<p>**注:** バージョン 0.8.14 の Azure PowerShell を使用する必要があります以上を OnPremisesFileSystemLinkedService に型パラメーターのセットで新規 AzureRmDataFactoryEncryptValue などのコマンドレットを使用するには</p> | いいえ (プレーン テキストでユーザー ID とパスワードを指定する場合)
+encryptedCredential | 新規 AzureRmDataFactoryEncryptValue コマンドレットを実行して取得できる暗号化された資格情報を指定します。<p>**注:** バージョン 0.8.14 の Azure PowerShell を使用する必要があります以上を OnPremisesFileSystemLinkedService に型パラメーターのセットで新規 AzureRmDataFactoryEncryptValue などのコマンドレットを使用するには</p> | いいえ (プレーン テキストでユーザー ID とパスワードを指定する場合)
 gatewayName | Data Factory サービスが、オンプレミスのファイル サーバーへの接続に使用するゲートウェイの名前 | あり
 
 参照してください [資格情報の設定とセキュリティ](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) の詳細については、内部設置型ファイル システム データ ソースの資格情報を設定します。
@@ -477,11 +477,11 @@ typeProperties セクションはデータセット型ごとに異なり、デ�
 
 プロパティ | 説明 | 必須
 -------- | ----------- | --------
-folderPath | フォルダーへのパス。 例: myfolder<p>文字列内の特殊文字にはエスケープ文字 '\' を使用します。 例: 場合は folder \subfolder、folder\\\subfolder を指定し、d:\samplefolder d:\\\samplefolder を指定します</p><p>。これを組み合わせることができます **partitionBy** にフォルダーをパスのスライスに基づく開始/終了時刻の日時にします。</p> | あり
-fileName | 内のファイルの名前を指定、 **folderPath** テーブル フォルダー内の特定のファイルを参照する場合に使用します。 このプロパティの値を指定しない場合、テーブルはフォルダー内のすべてのファイルを指定します。<p>出力データセットに fileName が指定されていない場合、生成されるファイル名は次の形式になります:</p><p>Data.<Guid>.txt (例: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p>) | いいえ
+folderPath | フォルダーへのパス。 例: myfolder<p>エスケープ文字を使用して '\' 文字列内の特殊文字にします。 例: 場合は folder \subfolder、folder\\\subfolder を指定し、d:\samplefolder d:\\\samplefolder を指定します。</p><p>これを組み合わせることができます **partitionBy** にフォルダーをパスのスライスに基づく開始/終了時刻の日時にします。</p> | あり
+fileName | 内のファイルの名前を指定、 **folderPath** テーブル フォルダー内の特定のファイルを参照する場合に使用します。 このプロパティの値を指定しないと、テーブルは、フォルダー内のすべてのファイルを指します。<p>生成されたファイルの名前を次にも見られる出力データセットに fileName が指定されていないときに次の形式。 </p><p>データです。<Guid>.txt (例:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | いいえ
 partitionedBy | partitionedBy を利用して時系列データに動的な folderPath と fileName を指定できます。 たとえば、1 時間ごとのデータに対して folderPath がパラメーター化されます。 | いいえ
 形式 | 2 種類の形式がサポートされている: **TextFormat**, 、**AvroFormat**します。 形式の下にある type プロパティをいずれかの値に設定する必要があります。 AvroFormat が TextFormat のとき、形式に追加で任意のプロパティを指定できます。 詳細については、下にある形式のセクションを参照してください。 | いいえ
-fileFilter | すべてのファイルではなく、folderPath 内のファイルのサブセットを選択するために使用するフィルターを指定します。 <p>使用可能な値: * (複数の文字) とでしょうか。 (単一の文字).</p><p>例 1:"fileFilter":"*.log"</p>例 2:"fileFilter": 2014 - 1 - ですか。txt"</p><p>**注**: fileFilter は入力の FileShare データセットに適用</p> | いいえ
+fileFilter | すべてのファイルではなく、folderPath 内のファイルのサブセットを選択するために使用するフィルターを指定します。 <p>使用可能な値: * (複数の文字) とでしょうか。 (1 文字) です。</p><p>例 1:"fileFilter":"*.log"</p>例 2:"fileFilter": 2014 - 1 - ですか。txt"</p><p>**注**: fileFilter は入力の FileShare データセットに適用</p> | いいえ
 | compression | データの圧縮の種類とレベルを指定します。 サポートされる種類: GZip、Deflate、および BZip2。サポートされるレベル: Optimal および Fastest。 参照してください [圧縮サポート](#compression-support) 詳細についてです。  | いいえ |
 
 > [AZURE.NOTE] filename と fileFilter は、同時に使用することはできません。
@@ -576,7 +576,7 @@ quoteChar ではなく escapeChar を使用するには、quoteChar の行を次
 
 | プロパティ | 説明 | 使用できる値 | 必須 |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | ソースが BlobSource または FileSystem である場合のコピー動作を定義します。 | <p>CopyBehavior プロパティの 3 つの値があります。 </p><ul><li>**PreserveHierarchy:** 保持対象のフォルダー、つまり、ソース フォルダーに対するソース ファイルの相対パスのファイル階層はターゲット フォルダーに対するターゲット ファイルの相対パスと同じです</li><li>**。FlattenHierarchy:** ソース フォルダーからすべてのファイルは、ターゲット フォルダーの最初のレベルになります。 ターゲット ファイルは、自動生成された名前になります。 </li><li>**MergeFiles:** ソース フォルダーからすべてのファイルを 1 つのファイルにマージします。 ファイル名/BLOB 名を指定した場合、マージされたファイルの名前は指定した名前になります。それ以外は自動生成されたファイル名になります。</li></ul> | いいえ |
+| copyBehavior | ソースが BlobSource または FileSystem である場合のコピー動作を定義します。 | <p>CopyBehavior プロパティの 3 つの値があります。 </p><ul><li>**PreserveHierarchy:** 保持対象のフォルダー、つまり、ソース フォルダーに対するソース ファイルの相対パスのファイル階層はターゲット フォルダーに対するターゲット ファイルの相対パスと同じです。</li><li>**FlattenHierarchy:** ソース フォルダーからすべてのファイルは、ターゲット フォルダーの最初のレベルになります。 ターゲット ファイルは、自動生成された名前になります。 </li><li>**MergeFiles:** ソース フォルダーからすべてのファイルを 1 つのファイルにマージします。 ファイル/Blob の名前を指定した場合、マージされたファイル名は指定した名前になります。それ以外は自動生成されたファイル名になります。</li></ul> | いいえ |
 
 ### recursive と copyBehavior の例
 このセクションでは、recursive 値と copyBhavior 値の組み合わせごとに、Copy 操作で行われる動作について説明します。 
@@ -603,4 +603,5 @@ false | mergeFiles | <p>次の構造のソース フォルダー Folder1:</p> <p
 
 
  
+
 

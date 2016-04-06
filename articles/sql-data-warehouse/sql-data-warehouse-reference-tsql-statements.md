@@ -116,7 +116,7 @@
 
 
 ## 次のステップ
-TSQL 例については、[SQL Data Warehouse の開発の概要に関するページを参照してください。
+TSQL 例については、次を参照してください。 [SQL Data Warehouse の開発の概要][]します。
 
 <!--Image references-->
 
@@ -127,4 +127,5 @@ TSQL 例については、[SQL Data Warehouse の開発の概要に関するペ�
 
 
 <!--Other Web references-->
+
 

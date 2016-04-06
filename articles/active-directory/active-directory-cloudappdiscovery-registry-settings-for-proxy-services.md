@@ -31,7 +31,7 @@ Cloud App Discovery を、カスタム ポート (80 でも 443 でもない) �
 
 1. レジストリ エディターを起動します。 <br> ![実行](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy01.png)
 
-2. 移動するか、次のレジストリ キーを作成します <br> **hklm_local_machine \software\microsoft\cloud App discovery \endpoint。** 
+2. 移動または、次のレジストリ キーを作成します。 <br> **Hklm_local_machine \software\microsoft\cloud App discovery \endpoint** 
 
 3. 新しい **複数行文字列** と呼ばれる値 **ポート**します。 ![新しい](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy02.png)
 
@@ -49,7 +49,7 @@ Cloud App Discovery を、カスタム ポート (80 でも 443 でもない) �
 **30606** <br>
 **31595** <br>
 **4080** <br>
-**443** <br>
+**使用します** <br>
 **1110** <br><br>
 ![複数行文字列を編集します。](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy03.png)
 
@@ -61,6 +61,7 @@ Cloud App Discovery を、カスタム ポート (80 でも 443 でもない) �
 
 
 * [自分の組織内で使用される承認されていないクラウド アプリを検出する方法](active-directory-cloudappdiscovery-whatis.md) 
+
 
 
 

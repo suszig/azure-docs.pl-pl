@@ -47,7 +47,7 @@
 - すべての VHD のサイズは 1 MB の倍数であることが必要です。
 
 
-## <a id="oracle6"> </a> Oracle Linux 6.4+ ##
+## <a id="oracle6"> </a> Oracle Linux 6.4 以上 ##
 
 Azure 上で実行する仮想マシンのオペレーティング システムで固有の構成手順を完了する必要があります。
 
@@ -227,4 +227,5 @@ Azure 用の Oracle Linux 7 仮想マシンを準備する手順は、Oracle Lin
         # logout
 
 15. クリックして **アクションには、シャット ダウン]-> [** Hyper V マネージャーにします。 これで、Linux VHD を Azure にアップロードする準備が整いました。
+
 

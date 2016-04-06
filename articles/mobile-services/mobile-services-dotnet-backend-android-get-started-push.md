@@ -27,7 +27,7 @@
 
 このトピックでは、Azure モバイル サービスを使用して Android アプリにプッシュ通知を送信する方法について説明します。 このチュートリアルでは、Google Cloud Messaging (GCM) を使用したプッシュ通知をクイック スタート プロジェクトに追加します。 完了すると、モバイル サービスは、レコードが挿入されるたびにプッシュ通知を送信します。
 
-このチュートリアルは、Mobile Services のクイック スタートに基づいています。 このチュートリアルを開始する前に完了しておく必要 [を使ってみるモバイル サービス]、プロジェクトをモバイル サービスに接続します。 そのため、このチュートリアルには、Visual Studio 2013 も必要です。
+このチュートリアルは、モバイル サービスのクイック スタートに基づいています。 このチュートリアルを開始する前に完了しておく必要 [Get started with Mobile Services] 、プロジェクトをモバイル サービスに接続します。 そのため、このチュートリアルには、Visual Studio 2013 も必要です。
 
 ## サンプル コード
 移動する完全なソース コードを確認する [ここ](https://github.com/RickSaling/mobile-services-samples/tree/push/GettingStartedWithPush)します。
@@ -80,21 +80,21 @@ Android フォンを USB ケーブルで直接接続するか、エミュレー�
 このチュートリアルでは、Android アプリケーションで Mobile Services と Notification Hubs を使用してプッシュ通知を送信できるようにする方法の基本について説明しました。 次は、タグを使用して、プッシュ通知を Mobile Services から認証ユーザーにのみ送信する方法を説明した、次のチュートリアル「プッシュ通知を認証ユーザーに送信する」を行うことをお勧めします。
 
 + [Send broadcast notifications to subscribers]
-    <br/>ユーザーの登録およびに興味のあるカテゴリに関してプッシュ通知を受信する方法について説明します。
+    <br/>ユーザーが興味のあるカテゴリに関してプッシュ通知を登録して、プッシュ通知を受信できるようにする方法について説明します。
 
 + [Send template-based notifications to subscribers]
-    <br/>テンプレートを使用して、バックエンドでプラットフォームに固有のペイロードを作成することがなく、モバイル サービスからプッシュ通知を送信する方法について説明します。
+    <br/>テンプレートを使用して、バックエンドでプラットフォームに固有のペイロードを作成する必要なくモバイル サービスからプッシュ通知を送信する方法について説明します。
 
 Mobile Services と Notification Hubs については次のトピックを参照してください。
 
 * [What are Notification Hubs?]
-  <br/>通知を配信するアプリケーションにすべての主要なクライアントのプラットフォームの通知ハブの動作について説明します。
+  <br/>通知ハブがすべての主要なクライアント プラットフォーム全体のアプリケーションに通知を配信するための動作を説明します。
 
-* [Notification Hubs アプリケーションをデバッグします。](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>ガイドのトラブルシューティングと Notification Hubs ソリューションのデバッグを取得します。
+* [通知ハブのデバッグ](http://go.microsoft.com/fwlink/p/?linkid=386630)
+  </br>Notification Hubs ソリューションのトラブルシューティングとデバッグについて説明します。
 
 * [How to use the Android client library for Mobile Services]
-  <br/>Android と共に Mobile Services を使用する方法について説明します。
+  <br/>Android で Mobile Services を使用する方法について説明します。
 
 <!-- Anchors. -->
 
@@ -121,4 +121,5 @@ Mobile Services と Notification Hubs については次のトピックを参照
 [What are Notification Hubs?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
+
 

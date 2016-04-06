@@ -21,8 +21,8 @@
 > [AZURE.SELECTOR]
 - [Windows ユニバーサル](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS |Obj C](mobile-engagement-ios-get-started.md)
-- [iOS |Swift](mobile-engagement-ios-swift-get-started.md)
+- [iOS | Obj C](mobile-engagement-ios-get-started.md)
+- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
 - [Android](mobile-engagement-android-get-started.md)
 - [Cordova](mobile-engagement-cordova-get-started.md)
 
@@ -42,11 +42,11 @@
 
 > [AZURE.NOTE] ソース コードおよび readme ファイルのあります Cordova プラグインの [Github](https://github.com/Azure/azure-mobile-engagement-cordova)
 
-##<a id="setup-azme"></a>モバイル エンゲージメント Cordova アプリを設定します。
+##<a id="setup-azme"></a>Cordova アプリ用に Mobile Engagement を設定する
 
 [AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
 
-##<a id="connecting-app"></a>アプリをモバイル エンゲージメントのバックエンドに接続する
+##<a id="connecting-app"></a>アプリを Mobile Engagement のバックエンドに接続する
 
 このチュートリアルでは、データを収集してプッシュ通知を送信するために必要な最小限のセットである「基本的な統合」について説明します。 
 
@@ -90,7 +90,7 @@
 
 *iOS 到達アイコン*  : 拡張子が付いたリソースの名前を指定する必要があります (ex: mynotificationicon.png)、および、(ファイルの追加] メニューを使用)、XCode で、アイコン ファイルを iOS プロジェクトに追加する必要があります
 
-##<a id="monitor"></a>リアルタイム監視を有効にします。
+##<a id="monitor"></a>リアルタイム監視の有効化
 
 1. Cordova プロジェクトでの編集 **www/js/index.js** 新しいアクティビティを宣言する Mobile Engagement への呼び出しを追加する、 *deviceReady* イベントを受信します。
 
@@ -126,7 +126,7 @@
 
 [AZURE.INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-##<a id="integrate-push"></a>プッシュ通知とアプリ内メッセージングを有効にします。
+##<a id="integrate-push"></a>プッシュ通知とアプリ内メッセージングを有効にする
 
 Mobile Engagement を導入すると、キャンペーンとの関連でプッシュ通知とアプリ内メッセージングを利用し、ユーザーとのやり取りを行うことができます。 このモジュールは、Mobile Engagement ポータルで REACH として呼び出されます。
 次のセクションでは、それらを受信するためにアプリをセットアップします。
@@ -184,7 +184,7 @@ GCM 通知は Android エミュレーターでサポートされているため�
 
     cordova run android
 
-##<a id="send"></a>アプリへ通知を送信します。
+##<a id="send"></a>アプリへ通知を送信する
 
 デバイスで実行されているアプリにプッシュ通知を送る簡単なプッシュ通知キャンペーンを作成してみましょう。
 
@@ -245,5 +245,6 @@ GCM 通知は Android エミュレーターでサポートされているため�
 
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
+
 
 

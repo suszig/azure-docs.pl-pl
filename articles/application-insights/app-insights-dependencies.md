@@ -53,7 +53,7 @@ Java Web サーバー | [Java Web アプリ](app-insights-java-agent.md)
 
 IIS サーバー用の Status Monitor では、Application Insights SDK を使用してソース プロジェクトをリビルドする必要はありません。 
 
-## <a name="diagnosis"></a> 依存関係のパフォーマンスの問題の診断
+## <a name="diagnosis"></a>依存関係のパフォーマンスの問題の診断
 
 サーバーでの要求のパフォーマンスを評価するには、次のようにします。
 
@@ -72,7 +72,7 @@ IIS サーバー用の Status Monitor では、Application Insights SDK を使�
 
 実行時間の長いインスタンスがあればそれをクリックし、さらに検査します。
 
-> [AZURE.NOTE] 1 ビット、インスタンスの選択が下にスクロールします。 パイプラインでの待機時間は、上部のインスタンスのデータが不完全であることを示す場合があります。
+> [AZURE.NOTE] インスタンスを選択する少し下にスクロールします。 パイプラインでの待機時間は、上部のインスタンスのデータが不完全であることを示す場合があります。
 
 この要求に関連したリモート依存関係呼び出しまで下にスクロールします。
 
@@ -131,3 +131,4 @@ IIS サーバー用の Status Monitor では、Application Insights SDK を使�
 
 
  
+

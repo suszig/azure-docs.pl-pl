@@ -28,13 +28,13 @@
 
 Microsoft Azure Redis Cache には、次のレベルがあります。
 
--   **基本的な** – 1 つのノードです。 複数のサイズ、最大 53 GB
+-   **基本的な** – 単一ノードです。 複数のサイズ、最大 53 GB
 -   **標準的な** – 2 ノード プライマリ/レプリカです。 複数のサイズ、最大 53 GB 99.9% の SLA。
 -   **Premium** – 2 ノード プライマリ/レプリカに最大 10 個のシャードにします。 6 GB から 530 GB までの複数のサイズ (詳細はお問い合わせください)。 Standard レベルのすべての機能と詳細を含むサポート [Redis クラスター](cache-how-to-premium-clustering.md), 、[Redis の永続化](cache-how-to-premium-persistence.md), 、および [Azure Virtual Network](cache-how-to-premium-vnet.md)します。 99.9% の SLA。
 
 各レベルは、機能と価格ごとに異なります。 料金については、次を参照してください。 [キャッシュの料金詳細][]します。
 
-このガイドでは、使用する方法、 [StackExchange.Redis][] \# のコードを使用してクライアントをします。 紹介するシナリオ **を作成して、キャッシュを構成する**, 、**キャッシュ クライアントの構成**, 、および **を追加して、キャッシュからオブジェクトを削除する**です。 Azure Redis Cache の使用に関する詳細については、[次のステップ]」を参照してください。
+このガイドでは、使用する方法、 [StackExchange.Redis][] \# のコードを使用してクライアントをします。 紹介するシナリオ **を作成して、キャッシュを構成する**, 、**キャッシュ クライアントの構成**, 、および **を追加して、キャッシュからオブジェクトを削除する**です。 Azure Redis Cache の使用に関する詳細についてを参照してください、 [次のステップ][] セクションです。
 
 <a name="getting-started-cache-service"></a>
 ## Azure Redis Cache の使用
@@ -106,7 +106,7 @@ StackExchange.Redis NuGet パッケージを使用して Visual Studio でクラ
 このセクションの手順では、キャッシュに対する一般的なタスクを行う方法について説明します。
 
 -   [キャッシュに接続する][]
--   [追加し、キャッシュからオブジェクトを取得][]
+-   [オブジェクトをキャッシュに追加する、キャッシュから削除する][]
 -   [キャッシュ内で .NET オブジェクトを使用する](#work-with-net-objects-in-the-cache)
 
 <a name="connect-to-cache"></a>
@@ -233,8 +233,8 @@ Azure Redis Cache はプリミティブ データ型に加え、.NET オブジ�
     -   [Azure Redis Cache ASP.NET 出力キャッシュ プロバイダー](cache-asp.net-output-cache-provider.md)
 -   [キャッシュ診断を有効にする](cache-how-to-monitor.md#enable-cache-diagnostics) できるように [モニター](cache-how-to-monitor.md) 、キャッシュの正常性。 Azure ポータルでメトリックを表示できるし、することもできます [をダウンロードして確認](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) 好みのツールを使用しています。
 -   チェック アウト、 [StackExchange.Redis キャッシュ クライアントのドキュメント][]します。
-    -   Azure Redis Cache は、さまざまな Redis クライアントや開発言語からアクセスできます。 詳細については、[http://redis.io/clients] と [Azure Redis Cache 用には、その他の言語で開発] を参照してください。
-    -   Azure Redis Cache は、Redsmin などのサービスと共に使用することもできます。 詳細については、「[Azure Redis 接続文字列を取得し、Redsmin と共に使用する方法] [。
+    -   Azure Redis Cache は、さまざまな Redis クライアントや開発言語からアクセスできます。 詳細については、次を参照してください。 [http://redis.io/clients][] と [Azure Redis Cache 用のその他の言語で開発][]します。
+    -   Azure Redis Cache は、Redsmin などのサービスと共に使用することもできます。 詳細については、次を参照してください。  [Azure Redis 接続文字列を取得し、Redsmin と共に使用する方法][]します。
 -   参照してください、 [redis][] ドキュメントおよびについて [redis データ型][] と [Redis データ型の 15 分概要][]します。
 
 
@@ -328,4 +328,5 @@ Azure Redis Cache はプリミティブ データ型に加え、.NET オブジ�
 [How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
 [Azure Free Trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
+
 

@@ -89,20 +89,20 @@ Azure Media Services で Widevine を使用して暗号化するときの制限�
 エンコードする方法については、次を参照してください。 [メディア エンコーダー スタンダードを使用してアセットをエンコードする方法](media-services-dotnet-encode-with-media-encoder-standard.md)します。
     
 
-##<a id="create_contentkey"></a>コンテンツ キーを作成し、エンコード済みアセットに関連付けます
+##<a id="create_contentkey"></a>コンテンツ キーを作成し、それをエンコードした資産に関連付ける
 
 Media Services では、コンテンツ キーに、資産を暗号化するときに使用するキーが含まれています。
 
 詳細については、次を参照してください。 [コンテンツ キーセットを作成する](media-services-dotnet-create-contentkey.md)です。
 
 
-##<a id="configure_key_auth_policy"></a>コンテンツ キー承認ポリシーを構成します。
+##<a id="configure_key_auth_policy"></a>コンテンツ キー承認ポリシーの構成
 
 Media Services では、キーを要求するユーザーを承認する複数の方法がサポートされています。 コンテンツ キー承認ポリシーを構成する必要があります。キーがクライアント (プレーヤー) に配信されるには、クライアントがこのコンテンツ キー承認ポリシーを満たしている必要があります。 コンテンツ キー承認ポリシーには、1 つまたは複数の承認制限 (オープンまたはトークン制限) を指定できます。
 
 詳細については、次を参照してください。 [コンテンツ キー承認ポリシーを構成する](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption)です。
 
-##<a id="configure_asset_delivery_policy"></a>資産配信ポリシーを構成する 
+##<a id="configure_asset_delivery_policy"></a>資産の配信ポリシーを構成する 
 
 資産の配信ポリシーを構成します。 資産の配信ポリシーの構成には、次の内容が含まれます。
 
@@ -112,7 +112,7 @@ Media Services では、キーを要求するユーザーを承認する複数�
 
 詳細については、次を参照してください。 [アセット配信ポリシーを構成する ](media-services-rest-configure-asset-delivery-policy.md)です。
 
-##<a id="create_locator"></a>オンデマンド ストリーミング URL を取得するためにストリーミング ロケーターを作成します。
+##<a id="create_locator"></a>ストリーミング URL を取得するために OnDemand ロケーターを作成する
 
 Smooth、DASH、HLS のストリーミング URL をユーザーに提供する必要があります。
 
@@ -629,4 +629,5 @@ Smooth、DASH、HLS のストリーミング URL をユーザーに提供する�
 [Configure Widevine packaging with AMS (AMS を使用して Widevine パッケージを構成する)](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
 [Announcing Google Widevine license delivery services public preview in Azure Media Services (Azure Media Services での Google Widevine ライセンス配信サービス パブリック プレビューのお知らせ)](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
+
 

@@ -44,7 +44,7 @@ SELECT の新しい動作 | Stream Analytics の SELECT が拡張され、入れ
 Additional query language features (追加のクエリ言語機能) | Stream Analytics が次の機能を含めることによって、クエリ言語を拡張: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), 、[CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), 、[EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), 、[フロア](https://msdn.microsoft.com/library/azure/mt605240.aspx), 、[電源](https://msdn.microsoft.com/library/azure/mt605287.aspx), 、[記号](https://msdn.microsoft.com/library/azure/mt605290.aspx), 、[角](https://msdn.microsoft.com/library/azure/mt605288.aspx), 、および [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx)します。
 Removed aggregate limitations (集計の制限を削除)  | このリリースでは、クエリにおける 15 の集計の制限が削除されます。 クエリごとの集計の数に制限がなくなりました。
 Added GROUP BY System.Timestamp feature (GROUP BY System.Timestamp 機能を追加) |  [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) window_type いずれかの関数ができるようになりましたか [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx)します。
-Added OFFSET for Tumbling and Hopping windows (タンブリング ウィンドウとホッピング ウィンドウのオフセットを追加) | 既定では、 [タンブリング](https://msdn.microsoft.com/library/azure/dn835055.aspx) と [Hopping](https://msdn.microsoft.com/library/azure/dn835041.aspx) 0 時間に対してウィンドウが配置されている (1/1/0001 12時 00分: 00 AM UTC)。 新しい (省略可能) パラメーター 'offsetsize' では、カスタム オフセット (またはアライメント) を指定できます。
+Added OFFSET for Tumbling and Hopping windows (タンブリング ウィンドウとホッピング ウィンドウのオフセットを追加) | 既定では、 [タンブリング](https://msdn.microsoft.com/library/azure/dn835055.aspx) と [Hopping](https://msdn.microsoft.com/library/azure/dn835041.aspx) ゼロに時刻ウィンドウが配置されている (1/1/0001 12時 00分: 00 AM UTC)。 新しい (省略可能) パラメーター 'offsetsize' では、カスタム オフセット (またはアライメント) を指定できます。
 
 
 ## Stream Analytics の 2015 年 9 月 29 日付けリリースに関するノート ##
@@ -132,4 +132,5 @@ PowerBI データセットにはテーブルを 1 つしか含めることがで
 - [Stream Analytics Query Language Reference (Stream Analytics クエリ言語リファレンス)](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure Stream Analytics management REST API reference (Azure ストリーム分析の管理 REST API リファレンス)](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
+
 

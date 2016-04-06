@@ -50,7 +50,7 @@ Azure の旧ポータルで仮想マシンを作成すると、リモート デ�
 2.  クリックして **仮想マシン**, 、し構成する仮想マシンの名前をクリックします。
 3.  クリックして **エンドポイント**します。  **エンドポイント** ページには、仮想マシンの現在のすべてのエンドポイントが一覧表示します。
 
-    ![エンドポイント](./media/virtual-machines-set-up-endpoints/endpointswindows.png)
+    ![Endpoints](./media/virtual-machines-set-up-endpoints/endpointswindows.png)
 
 4.  タスク バーで、[クリックして **追加**します。
 5.   **仮想マシンにエンドポイントを追加** ページで、エンドポイントの種類を選択します。
@@ -99,4 +99,5 @@ Azure PowerShell コマンドレットを使用すると、これを設定して
 ## その他のリソース
 
 [Azure インフラストラクチャ サービスの負荷分散](virtual-machines-load-balance.md)
+
 

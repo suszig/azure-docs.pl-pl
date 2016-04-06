@@ -35,7 +35,7 @@
 
 このチュートリアルでは、ダウンロード [Github から更新済みの Xcode プロジェクト](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS)します。 末尾から、Xcode プロジェクトを使用して [Get Started with Offline Data] からチュートリアル ポイント、および項目の編集を許可するように更新されます。 サポートするクラスとメソッドも追加し、次のセクションに競合ハンドラーを追加できるようにしました。
 
-このチュートリアルの最後に実行する場合、このアプリ 2 つの電話機がローカルで、両方の電話で同じ項目を変更し、サーバーへの変更をプッシュ バック、保持するバージョンを選択するには、各電話のユーザーを許可します。
+このチュートリアルの最後に、2 台の電話でこのアプリを実行し、両方の電話で同じ項目をローカル変更し、変更をサーバーにプッシュする場合、いずれのバージョンを維持するかの選択を各電話の利用者に許可します。
   * クライアント バージョンを保持する (サーバー上のバージョンを上書きする)
   * サーバー バージョンを保持する (クライアントのローカル テーブルを更新する)
   * いずれのバージョンも保持しない (プッシュを取り消し、操作を保留したままにする)
@@ -146,4 +146,5 @@
 [Getting Started Offline iOS Sample]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
 [Get Started with Offline Data]: mobile-services-ios-get-started-offline-data.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
+
 

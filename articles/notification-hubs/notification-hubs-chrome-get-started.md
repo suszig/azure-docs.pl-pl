@@ -24,7 +24,7 @@
 
 Chrome アプリケーション通知を使用する主な利点の 1 つは、通知が Google Chrome ブラウザーのコンテキスト内に表示されることです。 Chrome アプリケーションをブラウザーで実行したり開いたりする必要はありません (ただし、Chrome ブラウザー自体は実行しておく必要があります)。 また、Chrome の通知ウィンドウにはすべての通知がまとめて表示されます。
 
->[AZURE.NOTE] これは一般的なブラウザー内プッシュ通知は、Chrome アプリケーションに固有: 詳細 [Chrome アプリケーションの概要] を参照してください。 Chrome アプリケーションは以前は "パッケージ型アプリケーション" として知られており、単純な "ホスト型アプリケーション" とは異なります。 違いについては、[インストール可能な Web アプリ] を参照してください。 Chrome アプリケーションは、Apache Cordova を使用してモバイル (Android や iOS) で実行することもできます。 詳細については、[モバイルでの Chrome アプリケーション] を参照してください。
+>[AZURE.NOTE] これは一般的なブラウザー内プッシュ通知は、Chrome アプリケーションに固有: を参照してください [Chrome Apps Overview] 詳細です。 Chrome アプリケーションは以前は "パッケージ型アプリケーション" として知られており、単純な "ホスト型アプリケーション" とは異なります。 参照してください [Installable Web Apps] 違いについては、です。 Chrome アプリケーションは、Apache Cordova を使用してモバイル (Android や iOS) で実行することもできます。 参照してください [Chrome Apps on Mobile] の詳細。
 
 このチュートリアルでは、Google Cloud Messaging (GCM) を使用してプッシュ通知を受信する Chrome アプリケーションを作成します。 このチュートリアルを完了すると、その Chrome アプリケーションをインストールしたすべての Chrome ユーザーにプッシュ通知をブロードキャストできるようになります。
 
@@ -36,15 +36,15 @@ Chrome アプリケーション通知を使用する主な利点の 1 つは、�
 * [Chrome アプリケーションに通知を送信する](#send)
 * [次のステップ](#next-steps)
 
-このチュートリアルでは、Notification Hubs を使用した簡単なブロードキャスト シナリオのデモンストレーションを行います。 GCM と Azure Notification Hubs の構成は、[Google Cloud Messaging for Chrome] は廃止されており、同じ GCM で Android デバイスと Chrome インスタンスの両方がサポートようになりましたので、Android、用の構成と同じです。
+このチュートリアルでは、Notification Hubs を使用した簡単なブロードキャスト シナリオのデモンストレーションを行います。 GCM と Azure Notification Hubs の構成は android では、後の構成と同じ [Google Cloud Messaging for Chrome] は推奨されていませんし、同じ GCM で Android デバイスと Chrome インスタンスの両方がサポートようになりました。
 
 Notification Hubs を使用してデバイスの特定のユーザーとグループに対応する方法を理解するために、「次のステップ」セクションに記載されているチュートリアルも一緒に参照してください。
 
->[AZURE.NOTE] このチュートリアルを完了するには、アクティブな Azure アカウントが必要です。 アカウントがない場合は、無料試用版のアカウントを数分で作成することができます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F)をご覧ください。
+>[AZURE.NOTE] このチュートリアルを完了するには、アクティブな Azure アカウントが必要です。 アカウントがない場合は、無料試用版のアカウントを数分で作成することができます。 詳細については、「[Azure の無料評価版サイト](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F)」をご覧ください。
 
 ##<a id="register"></a>Google Cloud Messaging を有効にする
 
-1. [Google Cloud Console] web サイトに移動し、Google アカウント資格情報でサインインし、クリックして、 **プロジェクトの作成** ] ボタンをクリックします。 適切な提供 **プロジェクト名**, 、順にクリックし、 **作成** ] ボタンをクリックします。
+1. 移動し、 [Google Cloud Console] 、web サイトは、Google アカウント資格情報でサインインし、順にクリックして、 **プロジェクトの作成** ] ボタンをクリックします。 適切な提供 **プロジェクト名**, 、順にクリックし、 **作成** ] ボタンをクリックします。
 
     ![][1]
 
@@ -66,7 +66,7 @@ Notification Hubs を使用してデバイスの特定のユーザーとグル�
 
 ##<a id="configure-hub"></a>通知ハブを構成する
 
-1. [Azure クラシック ポータル、] にサインインし、をクリックし、 **+ 新規** 、画面の左下にあります。
+1. サインイン、 [Azure Classic Portal], 、クリックして **+ 新規** 、画面の左下にあります。
 
 2. クリックして **App Services** > **Service Bus** > **通知ハブ** > **簡易作成**します。 通知ハブの名前を入力を目的のリージョンを選択してクリックして **新しい通知ハブの作成**します。
 
@@ -102,7 +102,7 @@ Notification Hubs を使用してデバイスの特定のユーザーとグル�
 
 ###新しい Chrome アプリケーションの作成
 
-次の例では、[Chrome アプリケーションの GCM サンプル] に基づいており、Chrome アプリケーションを作成する推奨方法を使用します。 以降のセクションでは、Azure Notification Hubs に関連する手順を重点的に説明しています。 [Chrome アプリケーション通知ハブのサンプル] からは、この Chrome アプリのソースをダウンロードすることをお勧めします。
+次のサンプルに基づいて [Chrome App GCM Sample] して Chrome アプリケーションを作成することをお勧めします。 以降のセクションでは、Azure Notification Hubs に関連する手順を重点的に説明しています。 この Chrome アプリケーションのソースをダウンロードすることをお勧め [Chrome App Notification Hub Sample]します。
 
 Chrome アプリケーションは JavaScript を使用して作成されます。推奨される任意のワード エディターを使用して作成を行うことができます。 この Chrome アプリケーションの外観は次のようになります。
 
@@ -110,7 +110,7 @@ Chrome アプリケーションは JavaScript を使用して作成されます�
 
 2. フォルダーを作成し、名前を付けます **ChromePushApp** またはするものなどです。
 
-3. ダウンロード **cryto js ライブラリ** [crypto-js ライブラリ] からこのフォルダーにします。 このライブラリのフォルダーが 2 つのサブフォルダーを含める: **コンポーネント** と **プログラムのロールアップ**します。
+3. ダウンロード **cryto js ライブラリ** から [crypto-js library] このフォルダーにします。 このライブラリのフォルダーが 2 つのサブフォルダーを含める: **コンポーネント** と **プログラムのロールアップ**します。
 
 4. 作成、 **manifest.json** ファイルです。 すべての Chrome アプリケーションは、アプリケーションのメタデータ (具体的にはアプリケーションに対するアクセス許可) を記述するマニフェスト ファイルに基づいています。
 
@@ -370,14 +370,14 @@ Chrome アプリケーションは JavaScript を使用して作成されます�
         }
 
     上記のスクリプトの注意事項は以下のとおりです。
-    - *window.onload* UI の 2 つのボタンのボタン クリック イベントを定義します。 GCM、1 つ登録し、Azure Notification Hubs に登録する GCM 登録後に返される登録 ID を使用して、もう一方です。
+    - *window.onload* UI の 2 つのボタンのボタン クリック イベントを定義します。 1 つは GCM への登録を行い、もう 1 つは、GCM への登録後に返される登録 ID を使用して Azure Notification Hubs への登録を行います。
     - *updateLog* 関数では、単純なログ関数を定義します。
     - *registerWithGCM* により、最初のボタン クリック ハンドラーは、 **chrome.gcm.register** Chrome アプリケーション インスタンスを登録する GCM の呼び出しです。
     - *registerCallback* 上記の GCM 登録の呼び出しが戻るときに呼び出されるコールバック関数です。
     - *registerWithNH* は 2 つ目のボタン クリックのハンドラーは Notification Hubs に登録します。 取得 **hubName** と **connectionString** (これは、ユーザーが指定した) Notification Hubs 登録の REST API 呼び出しをしています。
     - *splitConnectionString* と *generateSaSToken* はすべての REST API 呼び出しで送信する必要があります SaS トークン作成の JavaScript 実装です。 詳細については、次を参照してください。 [の一般的な概念](http://msdn.microsoft.com/library/dn495627.aspx)します。
     - *sendNHRegistrationRequest* HTTP REST 呼び出しを行う関数です。
-    - *registrationPayload* 登録 XML ペイロードを定義します。 詳細については、[作成登録] を参照してください。 これで登録 ID は、GCM から受信したを更新します。
+    - *registrationPayload* 登録 XML ペイロードを定義します。 詳細については、次を参照してください。 [Create Registration NH REST API]します。 このペイロードでは、GCM から受信した ID を使用して登録 ID を更新します。
     - *クライアント* のインスタンスは、 **XMLHttpRequest** HTTP POST 要求を行うにを使用します。 マイクロソフト更新を **承認** ヘッダーを **sasToken**します。 この呼び出しが正常に完了すると、Chrome アプリケーション インスタンスが Azure Notification Hubs に登録されます。
 
 
@@ -402,13 +402,13 @@ Chrome アプリケーションは JavaScript を使用して作成されます�
 
     ![][19]
 
-5. 入力、 **通知ハブの名前** と **DefaultListenSharedAccessSignature** 前の手順では、ポータルとをクリックしてから取得した **Azure 通知ハブに登録**します。 メッセージが表示する必要があります **通知ハブの登録が成功した!** と Azure Notification Hubs の登録 ID を含む登録応答の詳細
+5. 入力、 **通知ハブの名前** と **DefaultListenSharedAccessSignature** 前の手順では、ポータルとをクリックしてから取得した **Azure 通知ハブに登録**します。 メッセージが表示する必要があります **通知ハブの登録に成功しました。** Azure Notification Hubs の登録を含む登録応答の詳細の id
 
     ![][20]  
 
 ##<a name="send"></a>Chrome アプリケーションに通知を送信する
 
-このチュートリアルでは、.NET コンソール アプリケーションを使用して通知を送信します。 ただし、経由で任意のバックエンドから Notification Hubs を使用して、通知を送信することができます、 <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">送信できます</a>.
+このチュートリアルでは、.NET コンソール アプリケーションを使用して通知を送信します。 ただし、通知は <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST インターフェイス</a>を介してどのバックエンドからも Notification Hubs を使用して送信できます。
 
 通知ハブと統合されている Azure Mobile Services バックエンドから通知を送信する方法の例は、作業開始 Mobile Services でプッシュ通知の使用」を参照してください ([.NET バックエンド](../mobile-services-javascript-backend-android-get-started-push.md) | [JavaScript バックエンド](../mobile-services-javascript-backend-android-get-started-push.md))。  
 REST Api を使用して通知を送信する方法の例は、「Java、PHP、または Python から Notification Hubs を使用する方法」を参照してください ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md))。
@@ -421,7 +421,7 @@ REST Api を使用して通知を送信する方法の例は、「Java、PHP、�
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-    これで、 <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">Azure Service Bus SDK への参照を追加します</a>.
+    これにより、<a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet パッケージ</a>を使用して Azure Service Bus SDK に参照を追加します。
 
 4. ファイルを開く **Program.cs** し、以下の追加 `using` ステートメント。
 
@@ -456,8 +456,8 @@ REST Api を使用して通知を送信する方法の例は、「Java、PHP、�
 ## <a name="next-steps"> </a>次のステップ
 
 この簡単な例では、Chrome アプリケーションに通知をブロードキャストしました。
-[通知ハブの概要] にある通知ハブについて説明します。
-、特定のユーザーを対象には、[Azure Notification Hubs によるユーザー] このチュートリアルを参照してください。 対象グループごとにユーザーを区分するには、[Azure Notification Hubs ニュース速報] を読み取ることができます。
+Notification Hubs の詳細について学習 [Notification Hubs Overview]します。
+このチュートリアルを参照して、特定のユーザーを対象に [Azure Notification Hubs Notify Users]します。 対象グループごとにユーザーをセグメント化するかどうか、確認できる [Azure Notification Hubs breaking news]します。
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-chrome-get-started/GoogleConsoleCreateProject.PNG
@@ -497,4 +497,5 @@ REST Api を使用して通知を送信する方法の例は、「Java、PHP、�
 [Google Cloud Messaging for Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
 [Azure Notification Hubs Notify Users]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Azure Notification Hubs breaking news]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+
 

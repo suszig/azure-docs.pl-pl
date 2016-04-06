@@ -1,12 +1,12 @@
 <properties
-   pageTitle ="Azure Search"Frequently Bought Together"の推奨事項 |Microsoft Azure |Apache Mahout |Azure Machine Learning"
-   description ="のサンプル コードは頻繁に一緒に購入された、新しいのか、購入に関する推奨事項を Apache Mahout または Azure Machine Learning を使用して Azure Search アプリケーションに追加する"
-   サービス = [検索]
+   pageTitle="Azure Search "Frequently Bought Together" recommendations | Microsoft Azure | Apache Mahout | Azure Machine Learning"
+   description="Frequently Bought Together、新規のか、購入に関する推奨事項を Apache Mahout または Azure Machine Learning を使用して Azure Search アプリケーションに追加するためのサンプル コード"
+   services="search"
    documentationCenter=""
-   authors ="liamca"
-   manager ="pablocas"
-   エディター =""
-   タグ =「機械学習」/>
+   authors="liamca"
+   manager="pablocas"
+   editor=""
+   tags="machine learning"/>
 
 <tags
    ms.service="search"
@@ -43,7 +43,7 @@ Azure Search アプリケーションでは、追加のコードを記述する�
 
 - AzureSearchMovieRecommendations.sln ソリューションを開き、ImportAzureSearchIndexData を既定のプロジェクトとして設定します。  
 - ImportAzureSearchIndexData 内の Program.cs ファイルを開き、お使いの Azure Search サービスを指すように SearchServiceName と SearchApiKey を変更します。
-- Http://grouplens.org/datasets/hetrec-2011/から hetrec2011 movielens-2k.zip をダウンロードし、\ImportAzureSearchIndexData\data にファイル Movies.dat と user_ratedmovies.dat をコピー
+- Http://grouplens.org/datasets/hetrec-2011/ から hetrec2011 movielens-2k.zip をダウンロードし、\ImportAzureSearchIndexData\data にファイル Movies.dat と user_ratedmovies.dat をコピー
 - プロジェクトを実行し、インデックスを作成して映画データを読み込みます。 
 - 最後に、アプリケーションでテスト検索を実行します。
 
@@ -94,5 +94,6 @@ Azure Search インデックスを作成したプログラムによって、`Rec
 GroupLens (http://grouplens.org/datasets/hetrec-2011/) によってデータが提供されました
 
 このデータのライセンスの詳細については、このページを参照してください: http://files.grouplens.org/datasets/hetrec2011/hetrec2011-movielens-readme.txt
+
 
 

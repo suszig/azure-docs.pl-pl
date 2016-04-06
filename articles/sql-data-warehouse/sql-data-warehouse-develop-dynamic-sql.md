@@ -29,11 +29,11 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-文字列が短い場合は、通常どおり [sp_executesql] を使用することができます。
+文字列が短い場合は、使う [sp_executesql][] 通常どおりです。
 
 
 ## 次のステップ
-他の開発のヒントについては、[開発の概要に関するページを参照してください。
+他の開発のヒントを参照してください。 [開発の概要][]します。
 
 <!--Image references-->
 
@@ -44,4 +44,5 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 [sp_executesql]: https://msdn.microsoft.com/library/ms188001.aspx
 
 <!--Other Web references-->
+
 

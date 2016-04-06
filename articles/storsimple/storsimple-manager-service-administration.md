@@ -98,7 +98,7 @@ StorSimple Manager サービスのユーザー インターフェイスの手順
 |デバイス管理者のパスワードを変更します。</br>StorSimple Snapshot Manager のパスワードを変更します。|StorSimple Manager サービス → [デバイス] → [構成]|[StorSimple のパスワードを変更する](storsimple-change-passwords.md)|
 |リモート管理の構成|StorSimple Manager サービス → [デバイス] → [構成]|[StorSimple デバイスにリモート接続する](storsimple-remote-connect.md)|
 |アラート設定を構成する|StorSimple Manager サービス → [デバイス] → [構成]|[StorSimple のアラートを表示および管理する](storsimple-manage-alerts.md)|
-|StorSimple デバイスの CHAP を構成する|StorSimple Manager サービス → [デバイス] → [構成]|[StorSimple デバイスの CHAP を構成する](storsimple-configure-chap.md)|
+|StorSimple デバイスの CHAP の構成|StorSimple Manager サービス → [デバイス] → [構成]|[StorSimple デバイスの CHAP の構成](storsimple-configure-chap.md)|
 |バックアップ ポリシーの追加</br>スケジュールの追加または変更</br>バックアップ ポリシーの削除</br>手動バックアップの取得</br>複数のボリュームとスケジュールによるカスタム バックアップ ポリシーの作成|StorSimple Manager サービス → [デバイス] → [バックアップ ポリシー]|[バックアップ ポリシーを管理する](storsimple-manage-backup-policies.md)|
 |デバイス コント ローラーを停止します。</br>デバイス コント ローラーを再起動します。</br>デバイス コント ローラーをシャット ダウンします。</br>デバイスを出荷時設定にリセットします。</br>(上記は、オンプレミス デバイスのみ)|StorSimple Manager サービス → [デバイス] → [メンテナンス]|[StorSimple デバイス コントローラーを管理する](storsimple-manage-device-controller.md)|
 |StorSimple ハードウェア コンポーネントを詳細します。</br>ハードウェアのステータスの監視</br>(上記は、オンプレミス デバイスのみ)|StorSimple Manager サービス → [デバイス] → [メンテナンス]|[ハードウェア コンポーネントを監視する](storsimple-monitor-hardware-status.md)|
@@ -115,4 +115,5 @@ StorSimple デバイスの日常的な操作または StorSimple デバイスの
 問題を解決できず、サービス要求の作成が必要な場合は、次のトピックを参照してください。
 
 -  [Microsoft サポートに問い合わせる](storsimple-contact-microsoft-support.md)
+
 

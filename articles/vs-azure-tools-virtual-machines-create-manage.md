@@ -61,7 +61,7 @@ Azure への仮想マシンの作成は、Visual Studio のサーバー エク�
 
     リモート デスクトップを使用するマシンにログインするときに、この新しい名前とパスワードを使用するので、忘れた場合に備えて書き留めておくことをお勧めします。 Visual Studio で Azure の仮想マシンを作成した後に、サイズ、およびその他の設定を変更することができます、 [Azure 管理ポータル](http://go.microsoft.com/fwlink/?LinkID=253103)します。
 
-        >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
+        >[AZURE.NOTE] 大きなサイズをバーチャル マシンを選択すると、不要な料金が表示される場合があります。 参照してください [Virtual Machines 料金](http://azure.microsoft.com/pricing/details/virtual-machines/) の詳細。
 
 1. Visual Studio で作成した仮想マシンの場合、クラウド サービスが必要です。  **クラウド サービスの設定** ] ページで、仮想マシンのクラウド サービスを選択するか、[ **< [新規作成] >** 、クラウド サービス、または、新しいものを使用するをまだ持っていない場合は、ドロップダウン リストにします。 ストレージ アカウントが必要でも、ので [ストレージ アカウントを選択 (または [新しいストレージ アカウントの作成) で、 **ストレージ アカウント** ボックスの一覧です。 参照してください [Microsoft Azure Storage の概要](./storage/storage-introduction/) の詳細。
 
@@ -176,4 +176,5 @@ Azure への仮想マシンの作成は、Visual Studio のサーバー エク�
 ## 次のステップ
 
 バーチャル マシンの作成の詳細については、次を参照してください。 [を実行している Linux の仮想マシンを作成する](virtual-machines-linux-tutorial.md) と [Azure プレビュー ポータルで Windows を実行する仮想マシンを作成する](virtual-machines-windows-tutorial.md)です。
+
 

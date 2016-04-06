@@ -78,7 +78,7 @@ Twilio アカウントにサインアップすると、アカウント ID と認
 Twilio 対応のアプリケーションをホストする Azure アプリケーションには、他の Azure アプリケーションとの違いはありません。 Twilio .NET ライブラリを追加し、その Twilio .NET ライブラリを使用するようにロールを構成します。
 最初の Azure プロジェクトの作成方法の詳細については、次を参照してください。 [Visual Studio で Azure プロジェクトを作成する][vs_project]です。
 
-## <a id="configure_app"></a>Twilio ライブラリを使用するようにアプリケーションを構成する
+## <a id="configure_app"></a>Twilio ライブラリを使用するアプリケーションの構成
 Twilio は、一連の .NET ヘルパー ライブラリを提供します。このライブラリは、Twilio のさまざまな側面をラップし、Twilio REST API および Twilio Client と対話して TwiML 応答を生成するためのシンプルで簡単な方法を提供します。
 
 Twilio は、.NET 開発者向けに次の 5 つのライブラリを用意しています。
@@ -100,7 +100,7 @@ Microsoft Visual Studio 2010 では既定で NuGet の Version 1.2 がインス�
 
 > [AZURE.NOTE] NuGet の最新バージョンをインストールするには、Visual Studio 拡張機能マネージャーを使用して読み込むバージョンをアンインストールする必要があります。 そのためには、Visual Studio を管理者として実行する必要があります。 そのようにしない場合、[アンインストール] ボタンは無効です。
 
-### <a id="use_nuget"></a>Twilio ライブラリを Visual Studio プロジェクトに追加するには
+### <a id="use_nuget"></a>Twilio ライブラリを Visual Studio プロジェクトに追加するには、次の手順を実行します。
 
 1.  Visual Studio でソリューションを開きます。
 2.  右クリック **参照**します。
@@ -166,7 +166,7 @@ Microsoft Visual Studio 2010 では既定で NuGet の Version 1.2 がインス�
             string message = result.RestException.Message;
         }
 
-## <a id="howto_provide_twiml_responses"></a>方法: 独自の web サイトから TwiML 応答
+## <a id="howto_provide_twiml_responses"></a>方法: 独自の Web サイトから TwiML 応答を返す
 使用して、アプリケーションが例については、Twilio API の呼び出しを開始した場合、 **クライアントです。InitiateOutboundCall** メソッド - Twilio 要求を送信、TwiML 応答を返すと予想される URL にします。 例では、 [方法: 発信通話を行う](#howto_make_call) Twilio から提供される URL を使用して [http://twimlets.com/message][twimlet_message_url] 、応答を返します。 
 
 > [AZURE.NOTE] TwiML は、web サービスで使用するためにデザインされています、お使いのブラウザーで twiml 応答を表示できます。 たとえば、クリックして [http://twimlets.com/message](twimlet_message_url) 空 & lt; を表示するには応答 & gt;要素であります。別の例として次のようにクリックします [http://twimlets.com/message?Message%5B0%5D=Hello%20World](twimlet_message_url_hello_world) を表示する、& lt;。応答 & gt;要素を含む、& lt;Say & gt;要素。
@@ -286,4 +286,5 @@ TwiML 応答を提供する方法をセットアップした後にその URL を
 [try_twilio]: https://www.twilio.com/try-twilio
 [twilio_account]:  https://www.twilio.com/user/account
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
+
 

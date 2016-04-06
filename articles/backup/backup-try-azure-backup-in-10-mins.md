@@ -9,12 +9,12 @@
 
 <tags
    ms.service="backup"
-   ms.workload=「記憶域のバックアップ回復」
+   ms.workload="storage-backup-recovery"
      ms.tgt_pltfrm="na"
      ms.devlang="na"
-     ms.topic=「get-開始の記事」
+     ms.topic="get-started-article"
      ms.date="11/26/2015"
-     ms.author="aashishr"です。"jimpark"/>
+     ms.author="aashishr"; "jimpark"/>
 
 # Azure Backup の概要
 Azure Backup のセットアップはとても簡単です。次の操作方法のビデオは初めて使用する場合に役立ちます。
@@ -52,4 +52,5 @@ Azure Backup のセットアップはとても簡単です。次の操作方法�
 - Azure Backup の詳細については、次を参照してください [Azure Backup の概要。](backup-introduction-to-azure-backup.md)
 - [Windows Server のバックアップ](backup-azure-backup-windows-server.md)
 - 参照してください、 [Azure のバックアップ フォーラム](http://go.microsoft.com/fwlink/p/?LinkId=290933)します。
+
 

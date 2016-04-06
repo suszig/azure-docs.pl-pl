@@ -40,10 +40,11 @@ Azure にはアプリケーションを実行するための複数のホステ�
 
 Azure には、次のような特殊な目的に合わせるためのコンピューティング ホスティング モデルも用意されています。
 
-* [モバイル サービス](/services/mobile-services/)  
+* [Mobile Services](/services/mobile-services/)  
   モバイル デバイスで実行されるアプリに対するクラウド バックエンドを提供するように最適化されています。
-* [バッチ](/services/batch/)  
-  類似する大量のタスク (理想的には複数のコンピューターで並列タスクとして実行されるワークロード) を処理するように最適化されています。
+* [Batch
+  ](/services/batch/)  
+類似する大量のタスク (理想的には複数のコンピューターで並列タスクとして実行されるワークロード) を処理するように最適化されています。
 * [HDInsight (Hadoop)](/services/hdinsight/)  
   実行するために最適化された [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) Hadoop クラスターでジョブです。 
 
@@ -64,10 +65,10 @@ Azure には、次のような特殊な目的に合わせるためのコンピ�
 <a name="fig4"></a>
 ![07_CombineTechnologies][07_CombineTechnologies] 
  
-**図: 1 つのアプリケーションは、複数のホスティング オプションを使用できます。**
+**Figure: A single application can use multiple hosting options.**
 
-図が示すように、クラウド サービスの VM を仮想マシンの VM とは別のクラウド サービスで実行しています。 2 つのサービスは非常に効率的に通信できるため、この方法でアプリを構築することが最善である場合があります。
-[07_CombineTechnologies]:./media/fundamentals-application-models/ExecModels_07_CombineTechnologies.png
+As the figure illustrates, the Cloud Services VMs run in a separate cloud service from the Virtual Machines VMs. Still, the two can communicate quite efficiently, so building an app this way is sometimes the best choice.
+[07_CombineTechnologies]: ./media/fundamentals-application-models/ExecModels_07_CombineTechnologies.png
 !-->
 
 [App Service]: #tellmeas
@@ -80,4 +81,5 @@ Azure には、次のような特殊な目的に合わせるためのコンピ�
 * 詳細について [App Service](../app-service-web-overview.md)
 * 詳細について [クラウド サービス](services/cloud-services/)
 * 詳細について [仮想マシン](https://msdn.microsoft.com/library/azure/jj156143.aspx) 
+
 

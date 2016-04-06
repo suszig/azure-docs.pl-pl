@@ -79,7 +79,7 @@
 
 3.   **アプリケーション URL の構成** ] ページで、 **Abintegro サインイン URL** ] ボックスに、型、URL を使って、ユーザーを Abintegro への (例:: `https://dev.abintegro.com/Shibboleth.sso/Login?entityID=<Issuer>&target=https://dev.abintegro.com/secure/`)、順にクリック **次**します。
 
-    ![Configure App URL](./media/active-directory-saas-abintegro-tutorial/IC790081.png "Configure App URL")
+    ![アプリケーション URL の構成](./media/active-directory-saas-abintegro-tutorial/IC790081.png "Configure App URL")
 
 4.   **Abintegro でのシングル サインオンの構成** ] ページで [ **メタデータのダウンロード**, 、お使いのコンピューターにメタデータ ファイルを保存します。
 
@@ -114,4 +114,5 @@ Abintegro へのユーザー プロビジョニングの構成にあたって必
     ![あり](./media/active-directory-saas-abintegro-tutorial/IC767830.png "Yes")
 
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+
 

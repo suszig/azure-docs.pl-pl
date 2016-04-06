@@ -40,27 +40,27 @@
     <tr>
     <td><strong>BizTalk サービス名</strong></td>
     <td>どのような名前でも入力できますが、具体的な名前を入力してください。 次に例をいくつか示します。<br/><br/>
-    <em>mycompany</em>.biztalk.windows.net<br/>
-    <em>mycompanymyapplication</em>.biztalk.windows.net<br/>
-    <em>myapplication</em>.biztalk.windows.net<br/><br/>入力した名前には ".biztalk.windows.net" が自動的に追加されます。 これが作成のように、BizTalk サービスにアクセスするための URL <strong>https://<em>myapplication</em>.biztalk.windows.net</strong>.
+    <em>mycompany</em>. biztalk.windows.net<br/>
+    <em>mycompanymyapplication</em>. biztalk.windows.net<br/>
+    <em>myapplication</em>. biztalk.windows.net<br/><br/>入力した名前には ".biztalk.windows.net" が自動的に追加されます。 これと同様に、BizTalk サービスにアクセスするための URL が作成 <strong>https://<em>myapplication</em>. biztalk.windows.net</strong>します。
     </td>
     </tr>
     <tr>
     <td><strong>エディション</strong></td>
-    <td>テスト/開発フェーズを選択します。 <strong>Developer</strong>. 運用フェーズの場合を使用して、 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302279">BizTalk サービス: 開発者、基本、標準、およびプレミアム エディションのチャート</a> かどうかを <strong>Premium</strong>。 <strong>Standard</strong>, or <strong>基本</strong> ビジネス シナリオの適切な選択肢です。
+    <td>テスト/開発フェーズの場合は、選択 <strong>開発者</strong>します。 運用フェーズの場合を使用して、 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302279">BizTalk サービス: エディションのチャート</a> かどうかを <strong>Premium</strong>, 、<strong>標準</strong>, 、または <strong>基本的な</strong> は実際のビジネス シナリオに最適です。
     </td>
     </tr>
     <tr>
-    <td><strong>リージョン</strong></td>
+    <td><strong>地域</strong></td>
     <td>BizTalk サービスをホストするリージョンを選択します。</td>
     </tr>
     <tr>
-    <td><strong>ドメイン URL</strong></td>
-    <td><strong>省略可能</strong>. ドメインの URL は、既定では、します。 <em>YourBizTalkServiceName</em>。 biztalk.windows.net します。 カスタム ドメインを入力することもできます。 たとえば、ドメインが <em>contoso</em>を入力することができます。 <br/><br/>
-    <em>MyCompany</em>。 contoso.com<br/>
-    <em>MyCompanyMyApplication</em>。 contoso.com<br/>
-    <em>MyApplication</em>。 contoso.com<br/>
-    <em>YourBizTalkServiceName</em>。 contoso.com<br/>
+    <td><strong>ドメインの URL</strong></td>
+    <td><strong>省略可能な</strong>です。 既定では、ドメイン URL は <em>YourBizTalkServiceName</em>. biztalk.windows.net します。 カスタム ドメインを入力することもできます。 たとえば、ドメインが <em>contoso</em>, 、入力することができます。 <br/><br/>
+    <em>MyCompany</em>. contoso.com<br/>
+    <em>MyCompanyMyApplication</em>. contoso.com<br/>
+    <em>MyApplication</em>. contoso.com<br/>
+    <em>YourBizTalkServiceName</em>. contoso.com<br/>
     </td>
     </tr>
     </table>
@@ -70,12 +70,12 @@
 
     <table border="1">
     <tr>
-    <td><strong>ストレージ アカウントの監視/アーカイブ</strong></td>
-    <td>既存のストレージ アカウントを選択するか、新しいストレージ アカウントを作成します。 <br/><br/>新しいストレージ アカウントを作成する場合は、入力、 <strong>ストレージ アカウント名</strong>.</td>
+    <td><strong>監視/アーカイブ ストレージ アカウント</strong></td>
+    <td>既存のストレージ アカウントを選択するか、新しいストレージ アカウントを作成します。 <br/><br/>新しいストレージ アカウントを作成する場合は、入力、 <strong>ストレージ アカウント名</strong>します。</td>
     </tr>
     <tr>
-    <td><strong>トラッキング データベース</strong></td>
-    <td>既存の Azure SQL データベースを使用する場合に、そのデータベースを別の BizTalk サービスでも使用することはできません。 Azure SQL データベース サーバーの作成時に入力したログイン名とパスワードが必要です。<br/><br/><strong>ヒント</strong> BizTalk サービスと同じリージョンに、トラッキング データベースと監視/アーカイブ ストレージ アカウントを作成します。</td>
+    <td><strong>追跡データベース</strong></td>
+    <td>既存の Azure SQL データベースを使用する場合に、そのデータベースを別の BizTalk サービスでも使用することはできません。 Azure SQL データベース サーバーの作成時に入力したログイン名とパスワードが必要です。<br/><br/><strong>ヒント:</strong> BizTalk サービスと同じリージョンに、トラッキング データベースと監視/アーカイブ ストレージ アカウントを作成します。</td>
     </tr>
     </table>
 次へ進む矢印を選択します。
@@ -84,14 +84,14 @@
 
     <table border="1">
     <tr>
-    <td><strong>名前</strong></td>
-    <td>場合に使用できます。 <strong>新しい SQL データベース インスタンスを作成します。</strong> 前の画面で選択されます。
+    <td><strong>名</strong></td>
+    <td>使用可能な場合に <strong>新しい SQL データベース インスタンスを作成</strong> が前の画面で選択されています。
     <br/><br/>
     BizTalk サービスで使用される SQL データベース名を入力します。</td>
     </tr>
     <tr>
     <td><strong>サーバー</strong></td>
-    <td>場合に使用できます。 <strong>新しい SQL データベース インスタンスを作成します。</strong> 前の画面で選択されます。
+    <td>使用可能な場合に <strong>新しい SQL データベース インスタンスを作成</strong> が前の画面で選択されています。
     <br/><br/>
     既存の SQL データベース サーバーを選択するか、新しい SQL データベース サーバーを作成します。</td>
     </tr>
@@ -104,8 +104,8 @@
     <td>ログイン パスワードを入力します。</td>
     </tr>
     <tr>
-    <td><strong>リージョン</strong></td>
-    <td>場合に使用できます。 <strong>新しい SQL データベース インスタンスを作成します。</strong> 選択されます。 SQL データベースをホストするリージョンを選択します。</td>
+    <td><strong>地域</strong></td>
+    <td>使用可能な場合に <strong>新しい SQL データベース インスタンスを作成</strong> が選択されています。 SQL データベースをホストするリージョンを選択します。</td>
     </tr>
     </table>
 
@@ -157,7 +157,7 @@ Access Control の値は、どのアプリケーションでも使用できま�
 
 Access Control サービス ID は、アプリケーションまたはクライアントが Access Control で直接認証してトークンを受け取るための一連の資格情報です。
 
-> [AZURE.IMPORTANT] BizTalk サービスを使用して **所有者** の既定のサービス id、および **パスワード** 値。 パスワードの値の代わりに対称キーの値を使用する場合、次のエラーが発生する<br/><br/>*。指定された資格情報を持つ Access Control 管理サービス アカウントに接続できませんでした。*
+> [AZURE.IMPORTANT] BizTalk サービスを使用して **所有者** の既定のサービス id、および **パスワード** 値。 パスワード値の代わりに対称キーの値を使用する場合、次のエラーが表示される場合があります。<br/><br/>*指定された資格情報を使用して Access Control 管理サービス アカウントに接続できませんでした*
 
 [ACS 名前空間の管理](https://msdn.microsoft.com/library/azure/hh674478.aspx) いくつかのガイドラインと推奨事項を一覧表示します。
 
@@ -171,22 +171,22 @@ Access Control サービス ID は、アプリケーションまたはクライ�
 </tr>
 <tr>
 <td>Azure サブスクリプション</td>
-<td>サブスクリプションでは、Azure ポータルにサインインしたことを決定します。 アカウント保有者でサブスクリプションを作成します。 <a HREF="https://account.windowsazure.com/Subscriptions"> Azure サブスクリプション</a>.
+<td>どのユーザーが Azure ポータルにサインインできるかは、サブスクリプションによって決まります。 アカウント保有者がサブスクリプションを <a HREF="https://account.windowsazure.com/Subscriptions">Azure サブスクリプションのページ</a>で作成します。
 <br/><br/>
-Azure のアカウントは、複数のサブスクリプションが含まれると、許可されているすべてのユーザーが管理することができます。 たとえば、Azure アカウント保有者がという名前のサブスクリプションを作成します。 <em>BizTalkServiceSubscription</em> このサブスクリプションへの (たとえば、ContosoBTSAdmins@live.com)、社内の BizTalk 管理者アクセスを提供します。 このシナリオでは、BizTalk 管理者は、Azure ポータルにサインインすると、Azure BizTalk Services を含む、サブスクリプション内のすべてのホステッド サービスに対する完全な管理者権限を持つことになります。 BizTalk 管理者は Azure アカウント保有者ではないため、課金情報へはアクセスできません。
+1 つの Azure アカウントで複数のサブスクリプションを契約することもでき、管理は許可を受けたユーザーであればだれでも行うことができます。 たとえば、Azure アカウント保有者がという名前のサブスクリプションを作成 <em>BizTalkServiceSubscription</em> 、このサブスクリプションへの BizTalk 管理者 (たとえば、ContosoBTSAdmins@live.com) を会社のアクセスを提供します。 このシナリオでは、BizTalk 管理者は、Azure ポータルにサインインすると、Azure BizTalk Services を含む、サブスクリプション内のすべてのホステッド サービスに対する完全な管理者権限を持つことになります。 BizTalk 管理者は Azure アカウント保有者ではないため、課金情報へはアクセスできません。
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> Azure ポータルでサブスクリプションとストレージ アカウントを管理します。</a> 詳しくを説明します。
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> Azure ポータルでサブスクリプションとストレージ アカウントを管理</a> 詳しく説明します。
 </td>
 </tr>
 <tr>
-<td>Azure SQL Database</td>
-<td>テーブル、ビュー、および追跡データを含む BizTalk サービスによって使用されるストアド プロシージャを格納します。
+<td>Azure SQL データベース</td>
+<td>BizTalk サービスで使用されるテーブル、ビュー、およびストアド プロシージャが格納されます。これには、追跡データも含まれます。
 <br/><br/>
-BizTalk サービスを作成する場合は、既存 Azure SQL サーバー、Azure SQL Database を使用するか、新しいサーバーやデータベースを自動的に作成します。
+BizTalk サービスを作成するときは、既存の Azure SQL Server や Azure SQL Database を使用するか、新しいサーバーやデータベースを自動的に作成することができます。
 <br/><br/>
-SQL データベースのスケールは自動的に構成します。 一般的に、BizTalk サービスのスケールは既定の設定で十分です。 スケールを変更すると、料金に影響が及びます。 手順については、「 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=234930"> Azure SQL データベースのアカウントと課金</a>
+SQL Database のスケールは自動的に構成されます。 一般的に、BizTalk サービスのスケールは既定の設定で十分です。 スケールを変更すると、料金に影響が及びます。 参照してください <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=234930"> Azure SQL データベースのアカウントと課金</a>
 <br/><br/>
-<strong>メモ</strong>
+<strong>ノート</strong>
 <br/>
 <ul>
 <li> 新しい Azure SQL サーバーとデータベースを作成すると、Azure サービスが自動的に有効になります。 BizTalk サービスを使用するには、Azure サービスが有効になっている必要があります。</li>
@@ -196,7 +196,7 @@ SQL データベースのスケールは自動的に構成します。 一般的
 </tr>
 <tr>
 <td>Azure の Access Control 名前空間</td>
-<td>Azure BizTalk サービスで認証を行います。 Visual Studio から BizTalk サービス プロジェクトを展開するときは、この Access Control 名前空間を入力します。 BizTalk サービスを作成するときに Access Control 名前空間が自動的に作成します。</td>
+<td>Azure BizTalk サービスで認証を行います。 Visual Studio から BizTalk サービス プロジェクトを展開するときは、この Access Control 名前空間を入力します。 BizTalk サービスを作成すると、Access Control 名前空間が自動的に作成されます。</td>
 </tr>
 
 <tr>
@@ -204,8 +204,8 @@ SQL データベースのスケールは自動的に構成します。 一般的
 <td>次のような BizTalk サービスのデータを保存するためのテーブル、BLOB、およびキューにアクセスできるようになります。
 
 <ul>
-<li>BizTalk サービスを監視するログ ファイル。 監視出力にも表示されます、 **監視** Azure ポータル] タブをクリックします</li>
-<li>。X12 またはパートナー間の AS2 アグリーメントを作成するには、メッセージ プロパティを格納する、アーカイブ機能を有効にできます。 このデータは、ストレージ アカウントに保存されます。</li>
+<li>BizTalk サービスを監視するログ ファイル。 監視出力にも表示されます、 **監視** Azure ポータル] タブをクリックします。</li>
+<li>パートナー間で X12 または AS2 契約を作成するときに、アーカイブ機能を有効にするとメッセージのプロパティを保存できます。 このデータは、このストレージ アカウントに保存されます。</li>
 </ul>
 <br/>
 BizTalk サービスを作成するときに、既存のストレージ アカウントを使用することも、新しいストレージ アカウントを自動的に作成することもできます。
@@ -234,8 +234,8 @@ Azure BizTalk サービスが作成されるときに、BizTalk サービス名�
 <br/>
 
 <ul>
-<li><strong>拡張キー使用法</strong>: 少なくとも、Azure BizTalk サービスには、サーバー認証が必要です。</li>
-<li><strong>共通名</strong>: Azure BizTalk サービス URL の完全修飾ドメイン名 (FQDN) を入力します。 手順については、「 <a HREF="#BizTalk">BizTalk サービスを作成する</a> 参照してください。</li>
+<li><strong>拡張キー使用法</strong>: Azure BizTalk サービスには、少なくともサーバーの認証が必要です。</li>
+<li><strong>共通名</strong>: Azure BizTalk サービス URL の完全修飾ドメイン名 (FQDN) を入力します。 参照してください <a HREF="#BizTalk">BizTalk サービスを作成する</a> この記事の内容。</li>
 </ul>
 <br/>
 BizTalk サービスが作成された後で、新しい、または別の証明書を追加できます。
@@ -261,13 +261,13 @@ Azure BizTalk サービスを作成するときに、 **ハイブリッド接続
 これで BizTalk サービスを作成すると、理解、異なる [BizTalk サービス: ダッシュ ボード、監視、およびスケール] タブ](biztalk-dashboard-monitor-scale-tabs.md)します。 BizTalk サービスをアプリケーションで使用する準備ができました。 アプリケーションの作成を開始するには [Azure BizTalk サービス](http://go.microsoft.com/fwlink/p/?LinkID=235197)します。
 
 ## 関連項目
-- [BizTalk サービス: エディションのチャート](biztalk-editions-feature-chart.md)<br/>
+- [BizTalk サービス: 開発者、基本、標準、およびプレミアム エディションのチャート](biztalk-editions-feature-chart.md)<br/>
 - [BizTalk サービス: サービスの状態のチャート](biztalk-service-state-chart.md)<br/>
-- [BizTalk サービス: バックアップと復元](biztalk-backup-restore.md)<br/>
-- [BizTalk サービス: 調整](biztalk-throttling-thresholds.md)<br/>
-- [BizTalk サービス: 発行者名および発行者キー](biztalk-issuer-name-issuer-key.md)<br/>
-- [Azure BizTalk サービス SDK の操作使用開始方法](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-- [ハイブリッド接続と](integration-hybrid-connection-overview.md)
+- [BizTalk サービス: バックアップと復元に関するページ](biztalk-backup-restore.md)<br/>
+- [BizTalk Services: 調整](biztalk-throttling-thresholds.md)<br/>
+- [BizTalk サービス: 発行者名および発行者キーに関するページ](biztalk-issuer-name-issuer-key.md)<br/>
+- [Azure BizTalk サービス SDK の使用開始に関するページ](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+- [ハイブリッド接続](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
 [NEWButton]: ./media/biztalk-provision-services/WABS_New.png
@@ -276,4 +276,5 @@ Azure BizTalk サービスを作成するときに、 **ハイブリッド接続
 [QuickGlance]: ./media/biztalk-provision-services/WABS_QuickGlance.png
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
+
 

@@ -37,7 +37,7 @@ Curl は、未加工の HTTP 要求を使用して HDInsight を操作し、Hive
 
 * [jq](http://stedolan.github.io/jq/)
 
-##<a id="curl"></a>Curl を使用した Hive クエリを実行します。
+##<a id="curl"></a>Curl を使用した Hive クエリの実行
 
 > [AZURE.NOTE] Curl、またはその他の REST 通信で WebHCat を使用する場合は、HDInsight クラスターの管理者ユーザー名とパスワードを提供することで要求を認証する必要があります。 また、サーバーへの要求の送信に使用する Uniform Resource Identifier (URI) にクラスター名を含める必要があります。
 >
@@ -147,7 +147,7 @@ Curl は、未加工の HTTP 要求を使用して HDInsight を操作し、Hive
 
 このドキュメントを参照して、未加工の HTTP 要求を使用して、HDInsight クラスターで Hive ジョブを実行、監視し、その結果を表示できます。
 
-この記事で使用されている REST インターフェイスの詳細については、「 <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference" target="_blank">WebHCat リファレンス</a>.
+この記事で使用されている REST インターフェイスの詳細については、「<a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference" target="_blank">WebHCat リファレンス</a>」に関するページをご覧ください。
 
 ##<a id="nextsteps"></a>次のステップ
 
@@ -186,6 +186,7 @@ HDInsight での Hadoop のその他の使用方法に関する情報
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+
 
 
 

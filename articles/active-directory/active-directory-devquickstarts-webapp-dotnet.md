@@ -21,7 +21,7 @@
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
 Azure AD を使用すると、数行のコードを追加するだけで、Web アプリの ID 管理を外部委託し、シングル サインインおよびサインアウトを提供することが、簡単に実現できます。  ASP.NET Web アプリでは、.NET Framework 4.5 に含まれるコミュニティ駆動の OWIN ミドルウェアの Microsoft 実装を使用することにより、これを達成できます。  ここでは、OWIN を使用して次のことを行います。
--   Id プロバイダーとして Azure AD を使用してアプリケーションにユーザーをサインインします。
+-   ID プロバイダーとして Azure AD を使用して、ユーザーをアプリにサインインします。
 -   ユーザーについての情報を表示します。
 -   ユーザーをアプリからサインアウトします。
 
@@ -43,7 +43,7 @@ Azure AD を使用すると、数行のコードを追加するだけで、Web �
 - クリックして、 **アプリケーション** ] タブ、および、下部のドロアーの追加] をクリックします。
 - 画面の指示に従ってされ、新しい作成 **Web アプリケーションまたは WebAPI**します。
     -  **名前** アプリケーションのエンドユーザーに、アプリケーションの説明は
-    -    **サインオン URL** はアプリのベース URL です。  スケルトンの既定値は、`https://localhost:44320/` です。
+    -    **サインオン URL** はアプリのベース URL です。  スケルトンの既定値は `https://localhost:44320/`です。
     -  **App ID URI** アプリケーションの一意の識別子を指定します。  形式は、`https://<tenant-domain>/<app-name>` (たとえば、`https://contoso.onmicrosoft.com/my-first-aad-app`) です。
 - 登録が完了すると、AAD により、アプリケーションに一意のクライアント ID が割り当てられます。  この値は次のセクションで必要になるので、[構成] タブからコピーします。
 
@@ -178,3 +178,4 @@ public ActionResult About()
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
+

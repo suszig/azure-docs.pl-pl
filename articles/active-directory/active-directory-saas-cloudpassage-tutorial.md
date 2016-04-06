@@ -78,7 +78,7 @@ Azure AD への CloudPassage の統合を構成するには、ギャラリーか
 ##  Azure AD シングル サインオンの構成とテスト
 このセクションの目的は、"Britta Simon" というテスト ユーザーを使用して、CloudPassage との Azure AD シングル サインオンを構成してテストする方法を示すことです。
 
-シングル サインオンを機能させるには、Azure AD ユーザーに対応する CloudPassage ユーザーが Azure AD で認識される必要があります。 言い換えると、Azure AD ユーザーと CloudPassage の関連ユーザーの間で、リンク関係が確立されている必要があります。<br>
+シングル サインオンを機能させるには、Azure AD ユーザーに対応する CloudPassage ユーザーが Azure AD で認識される必要があります。 つまり、Azure AD のユーザーと CloudPassage に関連するユーザーの間のリンクの関係を確立する必要があります。<br>
 値を割り当てることでこのリンクの関係が確立される、 **ユーザー名** の値として Azure AD で、 **Username** CloudPassage にします。
  
 CloudPassage での Azure AD シングル サインオンを構成してテストするには、次の構成要素を完了する必要があります。
@@ -94,36 +94,36 @@ CloudPassage での Azure AD シングル サインオンを構成してテス�
 このセクションの目的は、Azure AD シングル サインオン Azure AD ポータルで有効にして、CloudPassage アプリケーションでシングル サインオンを構成するには。<br>
 CloudPassage アプリケーションでは、特定の形式の SAML アサーションを使用するため、カスタム属性マッピングを SAML トークン属性の構成に追加する必要があります。 
 次のスクリーンショットはその例です。
-<br><br> ![シングル サインオンを構成する][21]
+<br><br> ![Configure Single Sign-On][21]
 
 **CloudPassage との Azure AD シングル サインオンを構成するには、次の手順を実行します。**
 
 1. Azure AD ポータルでの **CloudPassage** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、 **シングル サインオンを構成する**  ダイアログ。<br><br>
-![シングル サインオンを構成する][7]
+![シングル サインオンを構成します。][7]
 
 2.  **どのような CloudPassage にサインオン** ] ページで、[ **Azure AD シングル サインオン**, 、順にクリック **次**します。<br><br>
-![シングル サインオンを構成する][8]
+![シングル サインオンを構成します。][8]
 
-3.  **アプリケーション設定の構成** ] ダイアログ ページで、次の手順を実行します <br><br>! [。アプリ設定の構成] [9]
+3.  **アプリケーション設定の構成** ] ダイアログ ページで、次の手順を実行します。 <br><br>![アプリ設定を構成します。][9]
  
      3.1.  **サインオン URL** CloudPassage アプリへのサインオンに、ユーザーが URL を使用] ボックスに、種類 (例:: *https://portal.cloudpassage.com/saml/init/accountid*)。 
 
-     3.2. 応答 URL] ボックスで、入力、AssertionConsumerService URL (例:: *https://portal.cloudpassage.com/saml/consume/accountid*)。 <br> クリックしてこの属性の値を取得する **SSO セットアップ ドキュメント** で、 **シングル サインオン設定** CloudPassage ポータルのセクションです。 <br><br>![シングル サインオンを構成する][10]
+     3.2. 応答 URL] ボックスで、入力、AssertionConsumerService URL (例:: *https://portal.cloudpassage.com/saml/consume/accountid*)。 <br> クリックしてこの属性の値を取得する **SSO セットアップ ドキュメント** で、 **シングル サインオン設定** CloudPassage ポータルのセクションです。 <br><br>![シングル サインオンを構成します。][10]
 
      3.3 クリックして **次**します。
 
 
 
-4.  **CloudPassage でのシングル サインオンの構成** ] ページで [ **証明書のダウンロード**, 、お使いのコンピューターにローカルで証明書ファイルを保存します。 <br><br>![シングル サインオンを構成する][11]
+4.  **CloudPassage でのシングル サインオンの構成** ] ページで [ **証明書のダウンロード**, 、お使いのコンピューターにローカルで証明書ファイルを保存します。 <br><br>![シングル サインオンを構成します。][11]
 
 5. 別の Web ブラウザーのウィンドウで、管理者として CloudPassage 企業サイトにサインオンします。
 
-6. 上部にあるメニュー、[ **設定**, 、クリックして **サイトの管理**します。 <br><br> ![シングル サインオンを構成する][12]
+6. 上部にあるメニュー、[ **設定**, 、クリックして **サイトの管理**します。 <br><br> ![シングル サインオンを構成します。][12]
 
-7. クリックして、 **認証設定** ] タブをクリックします。 <br><br> ![シングル サインオンを構成する][13]
+7. クリックして、 **認証設定** ] タブをクリックします。 <br><br> ![シングル サインオンを構成します。][13]
 
 
-8.  **シングル サインオン設定** セクションで、次の手順に従います: <br><br> ! [シングル サインオンの構成] [14]
+8.  **シングル サインオン設定** セクションで、次の手順に従います。 <br><br> ![シングル サインオンを構成します。][14]
 
 
      8.1. In the Azure portal, on the **Configure single sign-on at CloudPassage** dialog page, copy the **Issuer URL** value, and then paste it into the **SAML issuer URL** textbox.
@@ -141,14 +141,14 @@ CloudPassage アプリケーションでは、特定の形式の SAML アサー�
      8.6. Click **Save**.
 
 
-9. Azure AD ポータルでのシングル サインオンの構成情報を選択し、 **次**します。 <br><br> ![シングル サインオンを構成する][15]
+9. Azure AD ポータルでのシングル サインオンの構成情報を選択し、 **次**します。 <br><br> ![シングル サインオンを構成します。][15]
 
 
-10.  **シングル サインオンによる確認** ] ページで [ **完了**します。 <br><br> ![シングル サインオンを構成する][16]
+10.  **シングル サインオンによる確認** ] ページで [ **完了**します。 <br><br> ![シングル サインオンを構成します。][16]
 
 
 
-11. 上部にある nu、クリックして **属性** を開くには、 **SAML トークン属性** ダイアログ。 <br><br> ![シングル サインオンを構成する][17]
+11. 上部にある nu、クリックして **属性** を開くには、 **SAML トークン属性** ダイアログ。 <br><br> ![シングル サインオンを構成します。][17]
 
 12. 次の表の行ごとに、必要なユーザー属性を追加するには、次の手順を実行します。 <br>
 
@@ -165,14 +165,14 @@ CloudPassage アプリケーションでは、特定の形式の SAML アサー�
      12.2.3 Click **Complete**.
 
 
-13. 下部にある tollbar、クリックして **変更を適用**します。 <br><br> ![シングル サインオンを構成する][20]
+13. 下部にある tollbar、クリックして **変更を適用**します。 <br><br> ![シングル サインオンを構成します。][20]
 
 
 
 ### Azure AD のテスト ユーザーの作成
 
 このセクションの目的は、Azure ポータルで Britta Simon というテスト ユーザーを作成することです。<br><br>
-ユーザーの一覧で選択 **Britta Simon**.<br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_01.png)
+ユーザーの一覧で選択 **Britta Simon**します。<br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_01.png)
 
 **Azure AD でテスト ユーザーを作成するには、次の手順に従います。**
 
@@ -181,25 +181,25 @@ CloudPassage アプリケーションでは、特定の形式の SAML アサー�
 
 2.  **ディレクトリ** 一覧で、ディレクトリ統合を有効にディレクトリを選択します。
 
-3. 上部のメニューで、ユーザーの一覧を表示する] をクリックして **ユーザー**.<br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_03.png) 
+3. 上部のメニューで、ユーザーの一覧を表示する] をクリックして **ユーザー**します。<br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_03.png) 
  
 4. 開くには、 **ユーザーの追加** ] ダイアログ ボックスで、下部にあるツールバーをクリックして **ユーザーの追加**します。 <br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_04.png) 
 
-5.  **このユーザーについてお聞かせ** ] ダイアログ ページで、次の手順を実行します <br>![Azure AD テスト ユーザーを作成する。](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_05.png) 
+5.  **このユーザーについてお聞かせ** ] ダイアログ ページで、次の手順を実行します。 <br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_05.png) 
   1. [ユーザーの種類] として [組織内の新しいユーザー] を選択します。
   2. [ユーザー名 **textbox**, 、型 **BrittaSimon**します。
   3. [次へ] をクリックします。
 
-6.   **ユーザー プロファイル** ] ダイアログ ページで、次の手順を実行します <br>![Azure AD テスト ユーザーを作成する。](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_06.png) 
+6.   **ユーザー プロファイル** ] ダイアログ ページで、次の手順を実行します。 <br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_06.png) 
   1.  **名** ] ボックスに「 **Britta**します。  
   2.  **姓** ] ボックスに、型、 **Simon**します。
   3.  **表示名** ] ボックスに「 **Britta Simon**します。
   4.  **ロール** 一覧で、[ **ユーザー**します。
   5. クリックして **次**します。
 
-7.  **一時パスワードの取得** ダイアログ ページで、をクリックして **作成**.<br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_07.png) 
+7.  **一時パスワードの取得** ダイアログ ページで、をクリックして **作成**します。<br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_07.png) 
  
-8.  **一時パスワードの取得** ] ダイアログ ページで、次の手順を実行します<br>![Azure AD テスト ユーザーを作成する。](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_08.png) 
+8.  **一時パスワードの取得** ] ダイアログ ページで、次の手順を実行します。<br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_08.png) 
   1. 値を書き留めて、 **新しいパスワード**します。
   2. クリックして **完了**します。   
 
@@ -214,11 +214,11 @@ CloudPassage アプリケーションでは、特定の形式の SAML アサー�
 
 1.  サインオン、 **CloudPassage** 会社サイトに管理者として。 
 
-2.  上部にあるツールバーで、クリックして **設定**, 、クリックして **サイトの管理**します。 <br>![CloudPassage テスト ユーザーを作成する][22] 
+2.  上部にあるツールバーで、クリックして **設定**, 、クリックして **サイトの管理**します。 <br>![CloudPassage テスト ユーザーの作成][22] 
 
-3.  クリックして、 **ユーザー** タブをクリックし、をクリックして **Add New User**します。 <br>![CloudPassage テスト ユーザーを作成する][23]
+3.  クリックして、 **ユーザー** タブをクリックし、をクリックして **Add New User**します。 <br>![CloudPassage テスト ユーザーの作成][23]
     
-4.   **Add New User** セクションで、次の手順に従います: <br>! [CloudPassage テスト ユーザーの作成] [24]
+4.   **Add New User** セクションで、次の手順に従います。 <br>![CloudPassage テスト ユーザーの作成][24]
 
      4.1.  **名** ] ボックスに、Britta を入力します。
 
@@ -242,7 +242,7 @@ CloudPassage アプリケーションでは、特定の形式の SAML アサー�
 ### Azure AD テスト ユーザーの割り当て
 
 このセクションでは、CloudPassage に自分のアクセスを付与することによって Azure シングル サインオンを使用する Britta Simon を有効にします。
-<br><br>![ユーザーを割り当てる][30]
+<br><br>![ユーザーの割り当て][30]
 
 **Britta Simon を CloudPassage に割り当てるには、次の手順を実行します。**
 
@@ -301,6 +301,7 @@ CloudPassage アプリケーションでは、特定の形式の SAML アサー�
 [28]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_15.png
 [29]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_16.png
 [30]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_17.png
+
 
 
 

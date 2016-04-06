@@ -75,7 +75,7 @@ TOPdesk - Secure のシングル サインオンを構成するには、ロゴ�
 
 2.   **TOPdesk** ] メニューのをクリックして **設定**します。
 
-    ![設定](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "Settings")
+    ![[設定]](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "Settings")
 
 3.  クリックして **ログイン設定**します。
 
@@ -129,7 +129,7 @@ TOPdesk - Secure のシングル サインオンを構成するには、ロゴ�
 
 12. Topdesk - Secure 会社サイトので、 **TOPdesk** ] メニューのをクリックして **設定**します。
 
-    ![設定](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "Settings")
+    ![[設定]](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "Settings")
 
 13. クリックして **ログイン設定**します。
 
@@ -200,3 +200,4 @@ TOPdesk - Secure の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-topdesk-secure-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

@@ -24,7 +24,7 @@
 
 スケジュールされたジョブを、Microsoft 管理対象の Azure Scheduler プランから、ユーザー独自のサブスクリプションおよび制御下の Azure Scheduler プランに移動されることにも注意してください。 App Service への移行の利点と同様に、これにより、Azure Scheduler の全機能を活用できます。
 
-### <a name="why-host"></a>App Service でホストなぜですか。
+### <a name="why-host"></a>App Service でホストする理由
 
 App Service は、アプリケーションのホスト環境として、より充実した機能を備えています。 App Service でホストされたサービスから、ステージング スロット、カスタム ドメイン、Traffic Manager サポートなど、豊富な機能にアクセスできます。 App Service への移行後にモバイル サービスを Mobile App バックエンドにアップグレードできますが、一部の顧客は SDK の更新をすぐに実行せずに、これらの機能をすぐに利用することもできます。  
 
@@ -51,7 +51,7 @@ Mobile Apps に移行しても、既存のすべてのアプリ機能 (ビジネ
 
 モバイル サービスを App Service に移行する最も簡単で推奨される方法は、Azure クラシック ポータルで使用可能な [App Service に移行する] ウィザードを使用することです。 移動、 [Azure classic portal],  、モバイル サービスを参照し、移行するモバイル サービスの選択は、画面の下部にある実際は、 **App Service への移行** 、プロセス、モバイル サービスを移行するための手順を説明するボタンをクリックします。
 
-### <a name="what-gets-migrated"></a>移行内容でしょうか。
+### <a name="what-gets-migrated"></a>移行内容
 
 移行ウィザードでは、モバイル サービスをホストするサーバー ファームを、Mobile Services による管理から App Service による管理に変更します。 また、Mobile Services が管理していた Scheduler プランを、Microsoft 管理対象サブスクリプションからユーザーのサブスクリプションに移動します。 サーバー ファームが App Service の管理制御に転送されると、サーバー ファームに関連付けられていたすべての Mobile Services が同時に移動されます。
 
@@ -96,11 +96,11 @@ Mobile Services では、いくつかのアプリケーション設定を環境�
 マスター_キーとアプリケーション キーの両方をから取得できます、モバイル サービスを移行するときに、 **構成** の Mobile Services] セクションのタブ、 [Azure classic portal]します。 をクリックして **キーの管理** 下部にあるキーをコピーします。
 
 
-### <a name="client-sdk"></a>方法: クライアント SDK の変更
+### <a name="client-sdk"></a>方法: クライアント SDK を変更する
 
 クライアント アプリ プロジェクトで、新しいアプリの URL (例: `https://contoso.azurewebsites.net`) と、前に構成したアプリケーション キーを受け入れるように、Mobile Services クライアント オブジェクトのコンストラクターを変更します。 クライアント SDK のバージョンにする必要があります、 **Mobile Services** バージョンする必要があります **いない** アップグレードします。 iOS クライアントと Android クライアントの場合は 2.x バージョンを使用し、Windows/Xamarin の場合は 1.3.2 を使用します。 Javascript クライアントは 1.2.7 を使用する必要があります。
 
-### <a name="data"></a>方法: データの機能を有効にします。
+### <a name="data"></a>方法: データ機能を有効にする
 
 Mobile Services で既定の Entity Framework クラスを使用するには、さらに 2 つのアプリケーション設定が必要です。
 
@@ -108,7 +108,7 @@ Mobile Services で既定の Entity Framework クラスを使用するには、�
 
 使用するスキーマは、既定では、 **MS_MobileServiceName**, でこれを上書きすることが、 **MS_TableSchema** 設定します。 下に **アプリ設定** 設定 **MS_TableSchema** を使用するスキーマの名前を指定します。 既存の Mobile Services アプリケーションを移動する場合は、スキーマが既に Entity Framework を使用して作成されています。この名前は、現在コードをホストする App Service インスタンスではなく、モバイル サービスになっています。
 
-### <a name="push"></a>方法: プッシュ機能の有効化
+### <a name="push"></a>方法: プッシュ機能を有効にする
 
 プッシュを機能させるには、Web アプリが通知ハブに関する情報を把握する必要もあります。
 
@@ -116,7 +116,7 @@ Mobile Services で既定の Entity Framework クラスを使用するには、�
 
  **MS_NotificationHubName** アプリ設定は、ハブの名前に設定する必要があります。 既存のモバイル サービスを移動するときに、モバイル サービスからこの値を取得できます **プッシュ** ] タブで、 [Azure クラシック ポータル](https://manage.windowsazure.com/)します。 このタブの他のフィールドは、ハブそのものにリンクされているため、他の場所にコピーする必要はありません。
 
-### <a name="auth"></a>方法: 認証機能を有効にします。
+### <a name="auth"></a>方法: 認証機能を有効にする
 
 ID 機能には、プロバイダーごとにアプリケーション設定の要件があります。 各フィールドで既存のモバイル サービスから移動している場合、 **Identity** Azure クラシック ポータルでのタブには、対応するアプリケーションの設定です。
 
@@ -152,7 +152,7 @@ AAD
 
 * **MS_AadTenants** -メモ: **MS_AadTenants** テナントのドメインのコンマ区切りリストとして格納されます (、 **許可されたテナント** Azure クラシック ポータル内のフィールド)。
 
-### <a name="publish"></a>方法: モバイル サービス プロジェクトの発行
+### <a name="publish"></a>方法: モバイル サービス プロジェクトを発行する
 
 1.  [Azure portal], アプリへの移動をクリックして、 **発行プロファイルを取得** コマンド バーで、ローカル コンピューターにダウンロードしたプロファイルを保存します。
 2. Visual Studio では、Mobile Services のサーバー プロジェクトを右クリックし、をクリックして **発行**します。 
@@ -183,4 +183,5 @@ AAD
 [App Service Environment]: app-service-app-service-environment-intro.md
 [Mobile Services vs. App Service]: app-service-mobile-value-prop-migration-from-mobile-services-preview.md
 [migrate a mobile service to a mobile app on App Service]: app-service-mobile-migrating-from-mobile-services.md
+
 

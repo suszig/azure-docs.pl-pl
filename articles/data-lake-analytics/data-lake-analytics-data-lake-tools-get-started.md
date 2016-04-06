@@ -251,13 +251,13 @@ U SQL スクリプトを開発する方法については、次を参照して�
 
 Azure Data Lake Analytics サービスに提出し、登録しなくても C# アセンブリをデバッグできます。 分離コード ファイルと参照 C# プロジェクトの両方にブレークポイントを設定できます。
 
-**ローカルのコードの分離コード ファイルをデバッグするには**
+**分離コード ファイルのローカル コードをデバッグするには**
 1.  分離コード ファイルにブレークポイントを設定します。 
 2.  キーを押して **f5 キーを押して** ローカルでスクリプトをデバッグします。
 
 次の手順は、Visual Studio 2015 でのみ機能します。 以前の Visual Studio では、pdb ファイルを手動で追加する必要があります。 
 
-**参照先の c# プロジェクトのローカルのコードをデバッグするには**
+**参照先の C# プロジェクトのローカル コードをデバッグするには**
 1.  C# アセンブリ プロジェクトを作成してビルドし、出力 dll を生成します。
 2.  U-SQL ステートメントを使用して dll を登録します。
 
@@ -277,7 +277,7 @@ Azure Data Lake Analytics サービスに提出し、登録しなくても C# �
 
 さまざまなツールを使用して Data Lake Analytics の使用を開始する方法については、以下をご覧ください。
 
-- [Azure ポータルで Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-portal.md)
+- [Azure ポータルで Azure Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-portal.md)
 - [Azure PowerShell で Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-powershell.md)
 - [.NET SDK で Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-net-sdk.md)
 
@@ -287,5 +287,6 @@ Azure Data Lake Analytics サービスに提出し、登録しなくても C# �
 - [Data Lake Tools for Visual Studio を使用する U-SQL スクリプトの開発](data-lake-analytics-data-lake-tools-get-started.md)
 - [Azure Data Lake Analytics U-SQL 言語の使用](data-lake-analytics-u-sql-get-started.md)
 - [Data Lake Analytics ジョブの U-SQL ユーザー定義演算子の開発](data-lake-analytics-u-sql-user-defined-operators.md)
+
 
 

@@ -19,7 +19,7 @@
 # Azure PowerShell を使用して、Data Lake Store を使用する HDInsight クラスターをプロビジョニングする
 
 > [AZURE.SELECTOR]
-- [ポータルを使用してください。](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [ポータルの使用](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [PowerShell の使用](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
@@ -324,4 +324,5 @@ Data Lake Store を使用するように HDInsight クラスターを構成し�
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
+
 

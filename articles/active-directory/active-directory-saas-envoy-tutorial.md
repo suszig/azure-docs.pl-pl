@@ -73,7 +73,7 @@ Envoy のシングル サインオンを構成するには、証明書から拇�
 
 1.  Azure AD ポータルでの **Envoy** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![Enable single sign-on](./media/active-directory-saas-envoy-tutorial/IC776778.png "Enable single sign-on")
+    ![シングル サインオンの有効化](./media/active-directory-saas-envoy-tutorial/IC776778.png "Enable single sign-on")
 
 2.   **どのようなユーザーを Envoy へのサインオン** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 
@@ -116,7 +116,7 @@ Envoy のシングル サインオンを構成するには、証明書から拇�
 
 10. Azure AD ポータルでのシングル サインオンの構成情報を選択し、 **完了** を閉じる、 **[シングル サインオン** ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-envoy-tutorial/IC776786.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-envoy-tutorial/IC776786.png "Configure single sign-on")
 ##ユーザー プロビジョニングの構成
   
 Envoy へのユーザー プロビジョニングの構成にあたって必要な操作はありません。  
@@ -139,3 +139,4 @@ Envoy へのユーザー プロビジョニングの構成にあたって必要�
     ![あり](./media/active-directory-saas-envoy-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

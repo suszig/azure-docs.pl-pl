@@ -22,7 +22,7 @@ Azure Data Factory エディターは、Azure ポータルの一部である軽�
 ## Data Factory エディターの起動
 Data Factory エディターを起動するにはクリックして **作成者とデプロイ** タイルを **Data Factory** Azure data factory のブレードです。 
 
-![タイルの作成とデプロイ][author-and-deploy-tile]
+![[作成とデプロイ] タイル][author-and-deploy-tile]
 
 次の画像のように Data Factory エディターが表示されます。
  
@@ -219,3 +219,4 @@ Azure Data Factory エンティティ (リンクされたサービス、テー�
 [delete-datafactory-entity]: ./media/data-factory-editor/delete-datafactory-entity.png
 [clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
 [add-activity-options]: ./media/data-factory-editor/add-activity-options.png 
+

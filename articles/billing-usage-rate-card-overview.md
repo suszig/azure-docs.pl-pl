@@ -68,7 +68,7 @@ Usage API と RateCard API を組み合わせて実現できるシナリオ例�
 
 [Microsoft Azure の使用状況と RateCard Api を有効にする Cloudyn ユーザー向けに ITFM を提供する](billing-usage-rate-card-partner-solution-cloudyn.md) Azure Billing API パートナーが提供した統合エクスペリエンスについて説明 [Cloudyn](https://www.cloudyn.com/microsoft-azure/)します。  この記事では、Azure ユーザーが Cloudyn と Azure Billing API を使用して Azure 消費データを把握する方法に関する短時間のビデオなどで、統合エクスペリエンスについて詳しく説明しています。 
 
-[Cloud Cruiser と Microsoft Azure Billing API の統合](billing-usage-rate-card-partner-solution-cloudcruiser.md) 説明方法 [Cloud Cruiser の Express for Azure Pack](http://www.cloudcruiser.com/partners/microsoft/) 顧客 1 人のユーザー インターフェイスから、Microsoft Azure プライベート クラウドまたはホスト型パブリック クラウドの運用面と料金面の両方をシームレスに管理できるようにする、WAP ポータルから直接利用します。   
+[Cloud Cruiser と Microsoft Azure Billing API の統合](billing-usage-rate-card-partner-solution-cloudcruiser.md) について説明する方法 [Azure パック用 Cloud Cruiser の Express](http://www.cloudcruiser.com/partners/microsoft/) 顧客 1 人のユーザー インターフェイスから、Microsoft Azure プライベート クラウドまたはホスト型パブリック クラウドの運用面と料金面の両方をシームレスに管理できるようにする、WAP ポータルから直接利用します。   
 
 ## 次のステップ
 + チェック アウト、 [Azure Billing REST API リファレンス](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) 両方の Api の詳細については、これは Azure リソース マネージャーによって提供される Api のセットの一部です。
@@ -77,4 +77,5 @@ Usage API と RateCard API を組み合わせて実現できるシナリオ例�
 ## 詳細情報
 + 参照してください、 [Azure リソース マネージャーの概要](resource-group-overview.md) Azure リソース マネージャーについての詳細については、記事です。
 + その他のクラウドの把握に役立てるために必要なツール群については、Gartner の記事を参照してください [IT 財務管理 (ITFM) ツールの市場ガイド](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb)します。
+
 

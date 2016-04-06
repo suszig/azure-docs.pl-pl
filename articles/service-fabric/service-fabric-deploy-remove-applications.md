@@ -18,7 +18,7 @@
 
 # アプリケーションをデプロイする
 
-1 回、[アプリケーションの種類をパッケージ化] [10] は、Azure Service Fabric クラスターへの展開の準備ができています。 デプロイには、次の 3 つの手順が含まれます。
+1 回、 [アプリケーションの種類をパッケージ化された][10], 、準備ができたら、Azure Service Fabric クラスターに展開します。 デプロイには、次の 3 つの手順が含まれます。
 
 1. アプリケーション パッケージのアップロード
 2. アプリケーションの種類の登録
@@ -178,7 +178,7 @@ PS D:\temp>
 <!--
 ## Next steps
 
-TODO [アプリケーションのアップグレード] [11]
+TODO [Upgrade applications][11]
 -->
 
 ## トラブルシューティング
@@ -224,4 +224,5 @@ PS D:\temp>
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
+
 

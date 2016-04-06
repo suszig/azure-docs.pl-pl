@@ -54,7 +54,7 @@ C++ 用ストレージ クライアント ライブラリがの上に構築さ�
 
 セグメント化された一覧取得操作に対する応答は次のとおりです。
 
--   <i>_segment</i>、一覧取得 API を 1 回の呼び出しから返される結果のセットが含まれます。 
+-   <i>_segment</i>: 一覧取得 API に対する 1 回の呼び出しで返された結果のセットが含まれます。 
 -   *continuation_token*, 、結果の次のページを取得するために次の呼び出しに渡されます。 返される結果がそれ以上無い場合、継続トークンは null になります。
 
 たとえば、コンテナー内のすべての BLOB を一覧表示する一般的な呼び出しは、次のコード スニペットのようになります。 コードが含まれている、 [サンプル](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
@@ -183,4 +183,5 @@ Azure Storage および C++ 用クライアント ライブラリの詳細につ
 -   [C++ 用 Azure Storage クライアント ライブラリのドキュメント](http://azure.github.io/azure-storage-cpp/)
 -   [Azure のストレージ チーム ブログ](http://blogs.msdn.com/b/windowsazurestorage/)
 -   [Azure ストレージのドキュメント](http://azure.microsoft.com/documentation/services/storage/)
+
 

@@ -22,14 +22,14 @@
 
 ## 前提条件
 
-- セキュリティで保護されたクラスターを設定する場合は、X 509 をアップロードすることを確認、キー コンテナーに証明書。 ソースの資格情報コンテナーの URL、証明書の URL と証明書の拇印が必要です。
+- セキュリティで保護されたクラスターをセットアップする場合は、必ず、X509 をアップロードした証明書、キーの資格情報コンテナーをします。 ソースの資格情報コンテナーの URL、証明書の URL と証明書の拇印が必要です。
 -  参照してください [サービス ファブリック クラスター セキュリティ](service-fabric-cluster-security.md) する方法の詳細についてです。
 
 ## サンプル ARM テンプレートの入手
 
 1. ARM テンプレートのサンプルについては、「 [github では Azure クイック スタート テンプレート ギャラリー ](https://github.com/Azure/azure-quickstart-templates)します。 Service fabric のすべてのテンプレートが、名前"service fabric.."で開始します。 . 「ファブリック」のリポジトリを検索するか、同様のサンプル テンプレートのセットまで下へスクロールします。
 2. 探しているテンプレートをすばやく見つけることができるように、テンプレートには次のように名前が付けられています。
-    1. [service-fabric-unsecure-cluster-5-node-1-nodetype](http://go.microsoft.com/fwlink/?LinkId=716923) を 5 つのノードの 1 つのノードの安全でないクラスタ テンプレートを示します。 
+    1. [service-fabric-unsecure-cluster-5-node-1-nodetype](http://go.microsoft.com/fwlink/?LinkId=716923) を 5 つのノード 1 つのノードのセキュリティ保護されていないクラスター テンプレートを示します。 
     3. [service-fabric-secure-cluster-5-node-1-nodetype-wad](http://go.microsoft.com/fwlink/?LinkID=716924) を有効になっている WAD は、5 ノード 1 つのノードのセキュリティで保護されたクラスター テンプレートを示します。 
     4. [service-fabric-secure-cluster-10-node-2-nodetype-wad](http://go.microsoft.com/fwlink/?LinkId=716925) を有効になっている WAD は、10 ノードの 2 ノードのセキュリティで保護されたクラスター テンプレートを示します。 
     
@@ -49,12 +49,13 @@
 参照してください [PS を使用して展開する ARM テンプレート ](resource-group-template-deploy.md) PowerShell を使用してテンプレートをデプロイする方法の詳細なガイダンスについてです。
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-##次のステップ
-- [Service Fabric Cluster security](service-fabric-cluster-security.md) 
-- [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
-- [Service Fabric Health model introduction](service-fabric-health-introduction.md)
+## 次のステップ
+- [Service Fabric クラスターのセキュリティ](service-fabric-cluster-security.md) 
+- [Visual Studio で Service Fabric アプリケーションの管理](service-fabric-manage-application-in-visual-studio.md)します。
+- [Service Fabric の正常性モデルの概要](service-fabric-health-introduction.md)
 
 <!--Image references-->
 [DownloadTemplate]: ./media/service-fabric-cluster-creation-via-arm/DownloadTemplate.png
+
 
 

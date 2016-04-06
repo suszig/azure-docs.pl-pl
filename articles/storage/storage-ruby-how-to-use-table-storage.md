@@ -67,7 +67,7 @@ Azure モジュールでは、環境変数を読み取ります **azure \_storag
 
 4. 所望するアクセス キー値をコピーします。
 
-## テーブルの作成
+## テーブルを作成する
 
  **Azure::tableservice** オブジェクトでは、テーブルとエンティティを操作することができます。 テーブルを作成するには、 **create \_table ()** メソッドです。 次の例では、テーブルを作成し、既に存在している場合はエラーを出力します。
 
@@ -157,4 +157,5 @@ Azure モジュールでは、環境変数を読み取ります **azure \_storag
 
 - [Azure のストレージ チーム ブログ](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) GitHub のリポジトリ
+
 

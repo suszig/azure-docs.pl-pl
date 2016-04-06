@@ -29,9 +29,9 @@
 このトピックでは、Google を使用して Azure Mobile Services で認証できるようにアプリケーションを登録する方法について説明します。
 
 >[AZURE.NOTE] このチュートリアルはについて [Azure Mobile Services](http://azure.microsoft.com/services/mobile-services/), 、任意のプラットフォームの拡張性の高いモバイル アプリケーションを構築するためのソリューションです。 Mobile Services によって簡単にデータの同期化を行い、ユーザーを認証して、プッシュ通知を送信できます。 このページをサポートしています、 [認証を使ってみる](mobile-services-ios-get-started-users.md) チュートリアルでは、ユーザーがアプリにサインインする方法を示しています。
-<br/>初めてのモバイル サービスを使用する場合は、このチュートリアルを完了してください [モバイル サービスを使ってみる](mobile-services-ios-get-started.md)します。
+<br/>Mobile Services を初めて使用する場合は、チュートリアル「[Mobile Services の使用](mobile-services-ios-get-started.md)」を完了することをお勧めします。
 
-このトピックの手順を完了するには、検証済みの電子メール アドレスを持つ Google アカウントが必要になります。 新しい Google アカウントを作成するには、 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+このトピックの手順を完了するには、検証済みの電子メール アドレスを持つ Google アカウントが必要になります。 新しい Google アカウントを作成するには、<a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a> にアクセスしてください。
 
 3. 移動、 [Google api](http://go.microsoft.com/fwlink/p/?LinkId=268303) 、Google アカウント資格情報でサインインの web サイト] をクリックして **プロジェクトの作成**, 、提供、 **プロジェクト名**, 、] をクリックし、 **作成**します。
 
@@ -64,4 +64,5 @@
 
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
+
 

@@ -25,11 +25,11 @@ Microsoft Azure StorSimple デバイスを通常のシステム運用の一環�
 
 |シナリオ|参照トピック|
 |:-------|:---------------|
-|新しいデバイスの電源をオンにする|[新しいデバイスをオンに](#turn-on-a-new-device)<ul><li>[主エンクロージャのみを持つ新しいデバイス](#new-device-with-primary-enclosure-only)</li><li>[EBOD エンクロージャを備える新しいデバイス](#new-device-with-ebod-enclosure)</li></ul>|
-|シャットダウン後にデバイスの電源をオンにする|[シャット ダウン後に、デバイスをオンに](#turn-on-a-device-after-shutdown)<ul><li>[主エンクロージャのみを持つデバイス](#device-with-primary-enclosure-only)</li><li>[EBOD エンクロージャを備えるデバイス](#device-with-ebod-enclosure)</li></ul>|
-|電力喪失後にデバイスの電源をオンにする|[電源切れが発生した後、デバイスをオンに](#turn-on-a-device-after-a-power-loss)<ul><li>[主エンクロージャのみを持つデバイス](#8100)</li><li>[EBOD エンクロージャを備えるデバイス](#8600)</li></ul>|
+|新しいデバイスの電源をオンにする|[新しいデバイスの電源をオンにする](#turn-on-a-new-device)<ul><li>[主エンクロージャのみを備える新しいデバイス](#new-device-with-primary-enclosure-only)</li><li>[EBOD エンクロージャを備える新しいデバイス](#new-device-with-ebod-enclosure)</li></ul>|
+|シャットダウン後にデバイスの電源をオンにする|[シャットダウン後にデバイスの電源をオンにする](#turn-on-a-device-after-shutdown)<ul><li>[主エンクロージャのみを備えるデバイス](#device-with-primary-enclosure-only)</li><li>[EBOD エンクロージャを備えるデバイス](#device-with-ebod-enclosure)</li></ul>|
+|電力喪失後にデバイスの電源をオンにする|[電力喪失後にデバイスの電源をオンにする](#turn-on-a-device-after-a-power-loss)<ul><li>[主エンクロージャのみを備えるデバイス](#8100)</li><li>[EBOD エンクロージャを備えるデバイス](#8600)</li></ul>|
 |主エンクロージャと EBOD の接続が失われた後にデバイスの電源をオンにする|[主エンクロージャと EBOD エンクロージャの接続が失われた後にデバイスの電源をオンにする](#turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
-|動作中のデバイスをシャットダウンする|[実行中のデバイスをオフにする](#turn-off-a-running-device)<ul><li>[主エンクロージャのみを持つデバイス](#8100a)</li><li>[EBOD エンクロージャを備えるデバイス](#8600a)</li></ul>|
+|動作中のデバイスをシャットダウンする|[動作中のデバイスの電源をオフにする](#turn-off-a-running-device)<ul><li>[主エンクロージャのみを備えるデバイス](#8100a)</li><li>[EBOD エンクロージャを備えるデバイス](#8600a)</li></ul>|
 
 ## 新しいデバイスの電源をオンにする
 
@@ -240,5 +240,6 @@ Windows PowerShell for StorSimple には、デバイスのシリアル コンソ
 ## 次のステップ
 
 [Microsoft サポートにお問い合わせ](storsimple-contact-microsoft-support.md) をオンにするか、StorSimple デバイスをシャット ダウンするときに問題が発生した場合。
+
 
 

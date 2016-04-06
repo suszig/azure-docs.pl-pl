@@ -9,12 +9,12 @@
 
 <tags
     ms.service="backup"
-    ms.workload=「記憶域のバックアップ回復」
+    ms.workload="storage-backup-recovery"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
     ms.date="11/26/2015"
-    ms.author="aashishr"、"giridham"です。"jimpark"/>
+    ms.author="aashishr", "giridham"; "jimpark"/>
 
 
 # DPM を使用した SQL Server ワークロード用 Azure Backup
@@ -104,7 +104,7 @@ SQL Server データベースの Azure へのバックアップと Azure から�
 
 13. 保有ポリシーのスケジュールを選択します。 保有ポリシーのしくみの詳細が掲載 [テープ インフラストラクチャ記事を交換できる Azure Backup を使用して](backup-azure-backup-cloud-as-tape.md)します。
 
-    ![Retention Policy](./media/backup-azure-backup-sql/pg-retentionschedule.png)
+    ![保有ポリシー](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
     次の点に注意してください。
 
@@ -173,4 +173,5 @@ SQL Server データベースの Azure へのバックアップと Azure から�
 ### 次のステップ:
 
 •   [Azure Backup の FAQ](backup-azure-backup-faq.md)
+
 

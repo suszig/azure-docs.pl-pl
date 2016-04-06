@@ -84,9 +84,9 @@
 
 このチュートリアルを完了したら、以下のトピックで通知ハブとテンプレートの詳細を参照してください。
 
-+ **[Use Notification Hubs to send breaking news]** <br/>テンプレートを使用するもう 1 つのシナリオを示します。
++ **[Use Notification Hubs to send breaking news]** <br/>テンプレートと使用した別のシナリオを例示します。
 
-+  **[Azure Notification Hubs の概要][Templates]**<br/>概要トピックの詳細テンプレートに関する情報を説明します。
++  **[Notification Hubs の概要][Templates]**<br/>この概要トピックでは、テンプレートについて詳細に説明されています。
 
 
 <!-- Anchors. -->
@@ -106,4 +106,5 @@
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Notification Hub How to for Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
+
 

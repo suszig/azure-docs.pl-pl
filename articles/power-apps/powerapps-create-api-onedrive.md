@@ -30,18 +30,18 @@
 ![][15]  
 
 4.  **PowerApps**, [ **管理 Api**:    
-![登録されている api を参照する][1]
+![登録されている api を参照します。][1]
 
 5.  **管理 Api**, [ **追加** 新しい API を追加します。  
-![API の追加][2]
+![[API を追加します。][2]
 
 6. わかりやすい名前を入力 **名前** した API 向けです。  
     
 7.  **ソース**, [ **利用可能な Api** 構築済みの Api を選択して [ **OneDrive**:  
-![OneDrive api の選択][3]
+![OneDrive api を選択します。][3]
 
 8. 選択 **の設定 - 必要な設定を構成する**:  
-![OneDrive API 設定の構成][4]
+![OneDrive API 設定を構成します。][4]
 
 9. 入力、 *アプリ キー* と *App Secret* OneDrive アプリのです。 これらがない場合は、このトピックの「PowerApps で使用する OneDrive アプリケーションの登録」を参照して、必要なキーとシークレットの値を作成します。  
 
@@ -55,10 +55,10 @@
 
 キーとシークレットの値が割り当てられた既存の OneDrive アプリケーションがない場合は、次の手順に従ってアプリケーションを作成し、必要な値を取得します。 
 
-1. [アプリの作成] ページに移動] [5] [ _Microsoft アカウント デベロッパー センター_ を使用してサインインし、 _Microsoft アカウント_します。
+1. 移動して、 [アプリケーション作成ページ][5] で _Microsoft アカウント デベロッパー センター_ を使用してサインインし、 _Microsoft アカウント_します。
 
 2. 入力、 **アプリケーション名**, を選択して **同意**:  
-![OneDrive 新しいアプリ][6]
+![OneDrive の新しいアプリ][6]
 
 3. 設定ページで次の操作を行います。  
 
@@ -66,7 +66,7 @@
     b) (」を参照)、Azure ポータルで新しい OneDrive API を追加したときに受信したリダイレクト URL にリダイレクト URL を設定します。  
     c) 選択 **保存**します。  
 
-    ![OneDrive API のアプリ設定][7]
+    ![OneDrive アプリケーションの API 設定][7]
 
 新しい OneDrive アプリケーションが作成されます。 Azure ポータルの OneDrive API 構成でこのアプリケーションを使用できます。 
 
@@ -85,3 +85,4 @@
 [7]: ./media/powerapps-create-api-onedrive/onedrive-app-api-settings.PNG
 [14]: ./media/powerapps-create-api-onedrive/browseall.png
 [15]: ./media/powerapps-create-api-onedrive/allresources.png
+

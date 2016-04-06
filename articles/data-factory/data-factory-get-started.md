@@ -19,9 +19,9 @@
 # チュートリアル: Azure BLOB から Azure SQL にデータをコピーする
 > [AZURE.SELECTOR]
 - [チュートリアルの概要](data-factory-get-started.md)
-- [Data Factory エディターを使用します。](data-factory-get-started-using-editor.md)
+- [Data Factory エディターの使用](data-factory-get-started-using-editor.md)
 - [PowerShell の使用](data-factory-monitor-manage-using-powershell.md)
-- [Visual Studio を使用](data-factory-get-started-using-vs.md)
+- [Visual Studio の使用](data-factory-get-started-using-vs.md)
 
 この記事のチュートリアルは、Azure Data Factory サービスの使用をスムーズに開始するのに役立ちます。 このチュートリアルでは、Azure Data Factory を作成し、その Data Factory 内にパイプラインを作成して、Azure Blob Storage から Azure SQL Database にデータをコピーする方法について説明します。
 
@@ -30,7 +30,7 @@
 ##このチュートリアルの前提条件
 このチュートリアルを読み始める前に、次の項目を用意する必要があります。
 
-- **Azure サブスクリプション**します。  サブスクリプションがない場合は、無料試用版のアカウントを数分で作成することができます。 詳細については、[無料評価版] [azure の無料評価版] の資料を参照してください。
+- **Azure サブスクリプション**します。  サブスクリプションがない場合は、無料試用版のアカウントを数分で作成することができます。 参照してください、 [無料評価版][azure-free-trial] の詳細については、資料です。
 - **Azure ストレージ アカウント**します。 として blob ストレージを使用する、 **ソース** このチュートリアルではデータを格納します。 Azure ストレージ アカウントを取得していない場合は、次を参照してください。、 [ストレージ アカウントの作成][data-factory-create-storage] 1 つを作成する手順についての記事です。
 - **Azure SQL Database**します。 Azure SQL データベースとして使用する、 **宛先** このチュートリアルではデータを格納します。 チュートリアルでは、「」を参照に使用できる Azure SQL database がない場合 [を作成して、Azure SQL データベースを構成する方法][data-factory-create-sql-database] を作成します。
 - **SQL Server 2012/2014年または Visual Studio 2013**します。 サンプル データベースを作成して、結果データをデータベースに表示するには、SQL Server Management Studio または Visual Studio を使用します。  
@@ -38,7 +38,7 @@
 ### Azure ストレージ アカウントのアカウント名とアカウント キーを収集する
 このチュートリアルの内容を実行するには、Azure ストレージ アカウントのアカウント名とアカウント キーが必要です。 メモしておきます、 **アカウント名** と **アカウント キー** の以下の手順に従って、Azure ストレージ アカウント。
 
-1. [Azure のポータル] [azure ポータル] にログインします。
+1. ログイン、 [Azure ポータル][azure-portal]します。
 2. クリックして **参照** ハブ左側に **ストレージ アカウント**します。
 3.  **ストレージ アカウント** ブレードで、 **Azure ストレージ アカウント** このチュートリアルで使用します。
 4.  **ストレージ** ブレードで、をクリックして **キー** を並べて表示します。
@@ -110,4 +110,5 @@
 [data-factory-introduction]: data-factory-introduction.md
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database-get-started.md 
+
 

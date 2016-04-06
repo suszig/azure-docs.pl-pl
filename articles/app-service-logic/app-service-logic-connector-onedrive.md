@@ -40,7 +40,7 @@ OneDrive コネクタを使用するには、まず OneDrive コネクタ API �
 ## Logic App で OneDrive コネクタを使用する ##
 API アプリを作成すると、Logic App のアクションとして OneDrive コネクタを使用できます。 そのためには、次の手順を実行する必要があります。
 
-1.  新しい Logic App を作成し、OneDrive コネクタと同じリソース グループを選択します。 [新しいロジック アプリの作成] の指示に従います。
+1.  新しい Logic App を作成し、OneDrive コネクタと同じリソース グループを選択します。 指示に従って、 [Create a new Logic App]します。
 
 2.  作成した Logic App で [トリガーとアクション] を選択して Logic Apps デザイナーを開き、フローを構成します。
 
@@ -73,7 +73,7 @@ API アプリを作成すると、Logic App のアクションとして OneDrive
 
     ![][7]
 
-9. Api の詳細については、[OneDrive API の定義] にあります。
+9. Api の詳細については掲載されて [OneDrive API Definition]します。
 
 ## コネクタでできること
 コネクタが作成されたため、ロジック アプリを使用してコネクタをビジネス ワークフローに追加できます。 参照してください [Logic Apps とは?](app-service-logic-what-are-logic-apps.md)します。
@@ -96,4 +96,5 @@ API アプリを作成すると、Logic App のアクションとして OneDrive
 <!-- Links -->
 [Create a new Logic App]: app-service-logic-create-a-logic-app.md
 [OneDrive API Definition]: https://msdn.microsoft.com/library/dn974227.aspx
+
 

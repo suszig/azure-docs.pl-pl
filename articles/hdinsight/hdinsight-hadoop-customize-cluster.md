@@ -84,11 +84,11 @@ HDInsight は、HDInsight クラスターで、次のコンポーネントをイ
 
     <table border='1'>
         <tr><th>プロパティ</th><th>値</th></tr>
-        <tr><td>名</td>
+        <tr><td>名前</td>
             <td>スクリプト アクションの名前を指定します。</td></tr>
         <tr><td>スクリプト URI</td>
-            <td>クラスターをカスタマイズするために呼び出されるスクリプトへの URI を指定します。 s</td></tr>
-        <tr><td>Head/ワーカー</td>
+            <td>クラスターのカスタマイズのために呼び出されるスクリプトへの URI を指定します。 s</td></tr>
+        <tr><td>ヘッド/ワーカー</td>
             <td>ノードを指定 (**ヘッド** または **ワーカー**) カスタマイズ スクリプトが実行されるのです。</b>します。
         <tr><td>パラメーター</td>
             <td>スクリプトで必要な場合は、パラメーターを指定します。</td></tr>
@@ -328,4 +328,5 @@ HDInsight サービスでは、カスタム コンポーネントを使用する
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster creation"
+
 

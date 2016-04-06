@@ -74,7 +74,7 @@ HTTP トラフィックを送信し、調査するために、任意の HTTP デ
 
     ![Configure symbol loading][SymbolLoading]
 
-3. 選択、 **シンボル** 左側のノード、URI を使用して、[SymbolSource] サーバーへの参照を追加および [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public)します。 Mobile Services .NET バックエンドのシンボルが、すべての新しいリリースで使用可能になります。
+3. 選択、 **シンボル** 左側のノードへの参照を追加し、 [SymbolSource] URI を使用してサーバー [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public)します。 Mobile Services .NET バックエンドのシンボルが、すべての新しいリリースで使用可能になります。
 
     ![Configure symbol server][SymbolServer]
 
@@ -163,3 +163,4 @@ SQL Database と共に Mobile Services .NET バックエンドを使用してい
 
 <!-- Links -->
 [SymbolSource]:http://symbolsource.org
+

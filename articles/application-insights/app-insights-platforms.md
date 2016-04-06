@@ -79,8 +79,9 @@
 + [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 + [Stream Analytics](app-insights-export-power-bi.md)
 
-## <a name="projects"></a> 独自の SDK をビルドします。
+## <a name="projects"></a> 独自の SDK をビルドする
 
 使用する言語やプラットフォーム用の SDK がない場合は、自分で作成するという方法があります。 示されている既存の Sdk のコードを見て、 [GitHub の Application Insights SDK プロジェクト](https://github.com/Microsoft/AppInsights-Home)します。
+
 
 

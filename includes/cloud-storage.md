@@ -16,13 +16,13 @@
 
 "BLOB" という単語は "Binary Large OBject" の略語で、BLOB がバイナリ情報のコレクションであることを正確に表しています。 BLOB は単純ではありますが、非常に便利です。 [図 1](#Fig1) Azure Blob ストレージの基本を示します。
 
-<a name="Fig1"></a>![BLOB の図][blobs]
+<a name="Fig1"></a>![Blob の図][blobs]
  
 **図 1: Azure BLOB ストレージは、バイナリ データ (BLOB) をコンテナーに格納する**
 
 Azure の作成先の blob を使用する *ストレージ アカウント*します。 その一環として、このアカウントを使用して作成するオブジェクトを格納する Azure データセンターを指定します。 作成される各 BLOB は、どこにあるとしても、ストレージ アカウント内のいずれかのコンテナーに属します。 BLOB にアクセスするために、アプリケーションは次の形式で URL を用意します。
 
-http://&lt;*StorageAccount*& gt;.blob.core.windows.net/& lt;*コンテナー*& gt;/& lt;*BlobName*& gt;
+http://&lt;*StorageAccount*& gt;.blob.core.windows.net/ & lt;*コンテナー*& gt;/& lt;*BlobName*& gt;
 
 & lt;*StorageAccount*& gt; 新しいストレージ アカウントの作成時に割り当てられている一意の識別子は、中に & lt;*コンテナー*& gt; と & lt;*BlobName*& gt; は、特定のコンテナーとそのコンテナー内の blob の名前です。 
 
@@ -49,7 +49,7 @@ BLOB は単純なので、さまざまな状況に適しています。 ビデ�
 
 今日の多くのアプリケーションは、何らかの種類のデータベース管理システム (DBMS) に依存しています。 SQL Server などのリレーショナル システムでは、最も頻繁に使用される一般的と呼ばれる非リレーショナルのアプローチ *NoSQL* テクノロジ、取得広く普及した毎日です。 クラウド アプリケーションがこれらのデータ管理のオプションを使用できるようにするために、Azure Virtual Machines では VM 上で DBMS (リレーショナルまたは NoSQL) を実行できます。 [図 2](#Fig2) SQL Server のこのしくみを示します。
 
-<a name="Fig2"></a>![仮想マシンでの SQL Server の図][SQLSvr-vm]
+<a name="Fig2"></a>![仮想マシンで SQL Server の図][SQLSvr-vm]
  
 **図 2: Azure Virtual Machines を使用すると、BLOB によって提供される永続性を利用して VM で DBMS を実行できる**
 
@@ -91,7 +91,7 @@ SQL データベースについて考える場合、明らかな (かつ重要�
 
 SQL データベースは 1 つの Azure データセンター内で各データベースの 3 つのコピーを保持しますが、複数の Azure データセンター間でデータを自動的に複製するわけではありません。 代わりにその機能を果たすサービスが、SQL データ同期です。 [図 4](#Fig4) このしくみを示します。
 
-<a name="Fig4"></a>![Diagram of SQL data sync][SQL-datasync]
+<a name="Fig4"></a>![SQL データ同期のダイアグラム][SQL-datasync]
  
 **図 4: SQL データ同期は、SQL Database のデータを他の Azure およびオンプレミスのデータセンターのデータと同期させる**
 
@@ -100,7 +100,7 @@ SQL データベースは 1 つの Azure データセンター内で各データ
 同期は双方向にすることができ、どのデータを同期させるかと、どのくらいの頻度で同期を行うかを指定できます (データベース間の同期はアトミックではありませんが、常に少なくともいくらかの遅延はあります)。また、どのように使用される場合でも、SQL データ同期での同期のセットアップは完全に構成に基づいて行われるので、コードを記述する必要はありません。
 
 
-### <a name="datarpt"></a>仮想マシンを使用した SQL データ レポート
+### <a name="datarpt"></a>Virtual Machines を使用した SQL データ レポート
 
 データベースにデータが記録されていれば、だれかがそのデータを使用してレポートを作成しようとすることが考えられます。 Azure は、SQL Server Reporting Services (SSRS) を Azure の仮想マシンで実行することができます。仮想マシンで実行されている SQL Server Reporting Services は、オンプレミスで実行されている SQL Server Reporting Services と機能上は同じです。 したがって、Azure SQL データベースに保存されたデータに対し、SSRS を使用してレポートを実行することができます。  [図 5](#Fig5) プロセスのしくみを示しています。
 
@@ -130,7 +130,7 @@ Azure テーブル ストレージは、このような種類の NoSQL アプロ
 
 BLOB のように、各テーブルは Azure のストレージ アカウントに関連付けられています。 テーブルは BLOB と同じように、次のような形式の URL を使って名前を指定されます。
 
-http://&lt;*StorageAccount*& gt;.table.core.windows.net/& lt;*TableName*& gt;
+http://&lt;*StorageAccount*& gt;.table.core.windows.net/ & lt;*TableName*& gt;
 
 図で示されているように、各テーブルはいくつかのパーティションに分割され、それぞれを別のコンピューターに格納できます (SQL フェデレーションと同様のシャーディングの形式です)。Azure アプリケーションも、他の場所で実行されるアプリケーションも、REST ベースの OData プロトコルまたは Azure のストレージ クライアント ライブラリを使用してテーブルにアクセスできます。
 
@@ -181,4 +181,5 @@ Big Data 分析は重要なので、Hadoop も重要です。 Microsoft は、Ha
 [SQL-report]: ./media/cloud-storage/Data_05_SQLReporting.png
 [SQL-tblstor]: ./media/cloud-storage/Data_06_TblStorage.png
 [hadoop]: ./media/cloud-storage/Data_07_Hadoop.png
+
 

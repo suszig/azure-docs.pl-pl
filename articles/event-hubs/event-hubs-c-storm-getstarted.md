@@ -24,7 +24,7 @@
 
 Event Hubs は、拡張性の高いインジェスト システムで、1 秒あたり何百万ものイベントを取り込むことができます。そのためアプリケーションは、接続されているデバイスやアプリケーションによって生成された大量のデータを処理し、分析できます。 Event Hubs に収集されたデータは、任意のリアルタイム分析プロバイダーやストレージ クラスターを使用して転送と格納できます。
 
-詳細については、[Event Hubs の概要] を参照してください。
+詳細については、次を参照してください [Event Hubs overview]します。
 
 このチュートリアルでは、C のコンソール アプリケーションを使用して、イベント ハブにメッセージをインジェストし、Apache Storm を使用して並列で取得する方法を学習します。
 
@@ -38,7 +38,7 @@ Event Hubs は、拡張性の高いインジェスト システムで、1 秒あ
 
 ## Event Hub を作成する
 
-1. [Azure クラシック ポータル] に、ログオンし、クリックして **新規** 、画面の下部にあります。
+1. ログオン、 [Azure classic portal], 、] をクリック **新規** 、画面の下部にあります。
 
 2. をクリックして **App Services**, 、し **Service Bus**, 、し **Event Hub**, 、し **簡易作成**します。
 
@@ -62,7 +62,7 @@ Event Hubs は、拡張性の高いインジェスト システムで、1 秒あ
 
 7. 同じページに対して生成されたキーを書き留めます **SendRule** と **ReceiveRule**します。
 
-    ![6 c]
+    ![][6c]
 
 イベント ハブが作成され、イベントの送受信に必要な接続文字列が手元にあります。
 
@@ -110,3 +110,4 @@ Event Hubs と Storm を統合するアプリケーションの開発には、�
 [Analyzing sensor data with Storm and HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 [Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
+

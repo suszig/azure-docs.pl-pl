@@ -37,14 +37,14 @@ Azure Linux エージェントは、Azure ギャラリーのイメージにあ�
 
 ディストリビューション|バージョン|ドライバー|エージェント
 ---|---|---|---
-CentOS by OpenLogic |CentOS 6.3+、7.0+| CentOS 6.3: [LIS ダウンロード](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 以上: カーネル内|: パッケージ <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic リポジトリ"walinuxagent"<p><p>ソース コード: [GitHub](https://github.com/Azure/WALinuxAgent)
+CentOS by OpenLogic |CentOS 6.3+、7.0+| CentOS 6.3: [LIS のダウンロード](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 以上: カーネル内|: パッケージ <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic リポジトリ"walinuxagent"<p><p>ソース コード: [GitHub](https://github.com/Azure/WALinuxAgent)
 [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494.4.0+ |カーネル内|ソース コード: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
 Credativ の Debian |Debian 7.9+、8.2+|カーネル内|パッケージ:"waagent"の下のリポジトリ内 <p><p>ソース コード: [GitHub](https://github.com/Azure/WALinuxAgent)
-Oracle Linux| 6.4+、7.0+|カーネル内|パッケージ:"walinuxagent"リポジトリ内<p><p>ソース コード: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-Red Hat Enterprise Linux |RHEL 6.7+、7.1+|カーネル内|パッケージ:"walinuxagent"リポジトリ内 <p><p>ソース コード: [GitHub](https://github.com/Azure/WALinuxAgent)
+Oracle Linux| 6.4+、7.0+|カーネル内|パッケージ: リポジトリ内の "WALinuxAgent"<p><p>ソース コード: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+Red Hat Enterprise Linux |RHEL 6.7+、7.1+|カーネル内|パッケージ: リポジトリ内の "WALinuxAgent" <p><p>ソース コード: [GitHub](https://github.com/Azure/WALinuxAgent)
 SUSE Linux Enterprise |SLES 11 SP3+、SLES 12+、および  <p><p> SLES for SAP 11.3+ |カーネル内|: パッケージ [Cloud:tools](https://build.opensuse.org/project/show/Cloud:Tools) リポジトリ"walinuxagent"<p><p>ソース コード: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 openSUSE |openSUSE 13.1+|カーネル内|: パッケージ [Cloud:tools](https://build.opensuse.org/project/show/Cloud:Tools) リポジトリ"walinuxagent" <p><p>ソース コード: [GitHub](https://github.com/Azure/WALinuxAgent)
-Ubuntu|Ubuntu 12.04、14.04、15.04、および 15.10|カーネル内|パッケージ:"walinuxagent"リポジトリ内 <p><p>ソース コード: [GitHub](https://github.com/Azure/WALinuxAgent)
+Ubuntu|Ubuntu 12.04、14.04、15.04、および 15.10|カーネル内|パッケージ: リポジトリ内の "walinuxagent" <p><p>ソース コード: [GitHub](https://github.com/Azure/WALinuxAgent)
 ## パートナー
 
 ### OpenLogic
@@ -86,5 +86,6 @@ SUSE Linux Enterprise Server on Azure は、クラウド コンピューティ�
 Canonical のエンジニア リングおよびオープン コミュニティ体制は、クライアント、サーバーおよびクラウド消費者向け個人クラウド サービスなど、コンピューティングにおける Ubuntu の成功を支えています。 Canonical は、Ubuntu に関して、携帯電話、タブレット、テレビ、およびデスクトップで一貫したインターフェイスを備え、携帯電話からクラウドまで統一されたフリー プラットフォームにするというビジョンを持っているため、Ubuntu はパブリック クラウド プロバイダーから家電メーカーに至るまで多様な企業が最初に選択するディストリビューションとなり、個々の技術者のお気に入りとなっています。
 
 世界中に開発者と開発センターが存在しているため、Canonical は独自の地位を確立しており、ハードウェア メーカーやコンテンツ プロバイダー、ソフトウェア開発者と提携して、PC からサーバーや携帯機器まで、さまざまな Ubuntu ソリューションを市場に送り出しています。
+
 
 

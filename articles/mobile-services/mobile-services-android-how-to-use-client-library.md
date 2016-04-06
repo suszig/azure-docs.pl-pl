@@ -17,7 +17,7 @@
     ms.author="ricksal"/>
 
 
-# Mobile Services 向け Android クライアント ライブラリの使用方法
+# モバイル サービス向け Android クライアント ライブラリの使用方法
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
@@ -27,7 +27,7 @@
 
 このガイドでは、AzureMobile Services 向け Android クライアントを使用して一般的なシナリオを実行する方法について説明します。  紹介するシナリオは、データの照会、挿入、更新、および削除、ユーザーの認証、エラー処理、クライアントのカスタマイズなどです。
 
-このクイック スタート チュートリアルを完了してモバイル サービスに慣れていない場合おく必要があります [を使ってみるモバイル サービス] です。 Android Studio; がインストールしたがにより、チュートリアルを完了します。参考にして、アカウントの構成し初めてのモバイル サービスを作成し、Android バージョン 2.2 またはそれ以降をサポートしているモバイル サービス SDK をインストールしますが、Android version 4.2 以降を対象に作成をお勧めします。
+このクイック スタート チュートリアルを完了してくださいをモバイル サービスに慣れていない場合 [Get started with Mobile Services]します。 Android Studio; がインストールしたがにより、チュートリアルを完了します。参考にして、アカウントの構成し初めてのモバイル サービスを作成し、Android バージョン 2.2 またはそれ以降をサポートしているモバイル サービス SDK をインストールしますが、Android version 4.2 以降を対象に作成をお勧めします。
 
 Android クライアント ライブラリの Javadoc API リファレンスを検索できます [ここ](http://go.microsoft.com/fwlink/p/?LinkId=298735)します。
 
@@ -94,7 +94,7 @@ Android クライアント ライブラリの Javadoc API リファレンスを�
 
 ### <a name="showAll"></a>方法: テーブルからすべての項目を返す
 
-次のコード内のすべての項目を取得する、 *ToDoItem* テーブルです。 この項目をアダプターに追加して、UI に表示します。 このコードはのようなこのクイック スタート チュートリアル [を使ってみるモバイル サービス] です。
+次のコード内のすべての項目を取得する、 *ToDoItem* テーブルです。 この項目をアダプターに追加して、UI に表示します。 このコードはのようなこのクイック スタート チュートリアル [Get started with Mobile Services]します。
 
         new AsyncTask<Void, Void, Void>() {
 
@@ -152,7 +152,7 @@ Android クライアント ライブラリの Javadoc API リファレンスを�
 
 数値フィールドと文字列フィールドを特定の値と比較するにはこれだけで十分ですが、 それ以外のさまざまな操作を行うことができます。
 
-たとえば、日付をフィルター処理できます。 全体の日付フィールドを比較することができますが、比較することも、日付の部分メソッドのなど [**年**](http://go.microsoft.com/fwlink/p/?LinkId=298467), 、[**月**](http://go.microsoft.com/fwlink/p/?LinkId=298468), 、[**日**](http://go.microsoft.com/fwlink/p/?LinkId=298469), 、[**時間**](http://go.microsoft.com/fwlink/p/?LinkId=298470), 、[**分**](http://go.microsoft.com/fwlink/p/?LinkId=298471) と [**2 番目**](http://go.microsoft.com/fwlink/p/?LinkId=298472)します。 次の部分的なコードは、項目のフィルターを追加の *期日* が 2013年に等しい。
+たとえば、日付をフィルター処理できます。 日付フィールドを比較することができますが、比較することも、日付の部分メソッドのなど [**年**](http://go.microsoft.com/fwlink/p/?LinkId=298467), 、[**月**](http://go.microsoft.com/fwlink/p/?LinkId=298468), 、[**日**](http://go.microsoft.com/fwlink/p/?LinkId=298469), 、[**時間**](http://go.microsoft.com/fwlink/p/?LinkId=298470), 、[**分**](http://go.microsoft.com/fwlink/p/?LinkId=298471) と [**2 番目**](http://go.microsoft.com/fwlink/p/?LinkId=298472)します。 次の部分的なコードは、項目のフィルターを追加の *期日* が 2013年に等しい。
 
         mToDoTable.where().year("due").eq(2013).execute().get();
 
@@ -302,8 +302,8 @@ Mobile Services では、テーブル ID として一意のカスタム文字列
 
 `id` の値は一意である必要があり、次のセット内の文字を含まないようにする必要があります。
 
-+ 制御文字: [0x0000-0x001F] および [0x007F-0x009F]。 詳細については、[ASCII 制御コード C0 および c1 に関するページ] を参照してください。
-+  印刷可能文字: **"**(0x0022)、 **\ +** (0x002B)、 **/** (0x002F)、 **でしょうか。**(0x003F)、 **\\** (0x005C)、 **'** (0x0060)
++ 制御文字: [0x0000-0x001F] および [0x007F-0x009F]。 詳細については、次を参照してください。 [ASCII control codes C0 and C1]します。
++  印刷可能文字: **"**(0x0022)、 **\ +** (0x002B)、 **/** (0x002F)、 **でしょうか。** (0x003F)、 **\\** (0x005C)、 **'** (0x0060)
 +  ID "." および ".."
 
 また、テーブルに整数 ID を使用することもできます。 整数 ID を使用するには、`mobile table create` コマンドで `--integerId` オプションを使用してテーブルを作成する必要があります。 このコマンドは、Azure のコマンド ライン インターフェイス (CLI) で使用されます。 CLI の使い方の詳細については、「Mobile Services テーブルを管理するための CLI」を参照してください。
@@ -653,7 +653,7 @@ ToDoItemAdapter コンストラクターの 2 つ目のパラメーターはレ�
 
 呼び出す必要があります、アダプターを変更するたび、 *ToDoItem* テーブルの場合は、その結果を表示します。 変更はレコード単位で加えられるため、操作の対象はコレクションではなく行になります。 呼び出す項目を挿入するときに、 *追加* アダプターで、削除すると、呼び出すメソッド、 *削除* メソッドです。
 
-##<a name="custom-api"></a>方法: カスタム API 呼び出し
+##<a name="custom-api"></a>方法: カスタム API の呼び出し
 
 カスタム API を使用してカスタム エンドポイントを定義することにより、insert、update、delete、read のいずれの操作にも関連しないサーバー機能を公開することができます。 カスタム API を使用することによって、HTTP メッセージ ヘッダーの読み取りや設定、JSON 以外のメッセージ本文形式の定義など、メッセージングをより柔軟に制御することができます。 モバイル サービスでカスタム API を作成する方法の例は、次を参照してください。 [方法: カスタム API エンドポイントを定義する](mobile-services-dotnet-backend-define-custom-api.md)です。
 
@@ -860,16 +860,16 @@ Java クライアント コードにおいて標準 Java 形式の名前を使�
 ### <a name="table"></a>方法: クライアントとモバイル サービスの間で異なるテーブル名をマップする
 
 Mapping the クライアント テーブル名を異なるモバイル サービス テーブル名にマップするのは簡単です。単に、
-<a href="http://go.microsoft.com/fwlink/p/?LinkId=296840" target="_blank">getTable()</a> 関数のオーバーライドの 1 つを使用するだけです。次のコードに例を示します。
+<a href="http://go.microsoft.com/fwlink/p/?LinkId=296840" target="_blank">getTable()</a> 次のコードに示すように機能します。
 
     mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
 
 ### <a name="conversions"></a>方法: 列名のマッピングを自動化する
 
-列が数個しかない狭いテーブルの列名のマッピングは、前のセクションに示したように簡単に行うことができます。 ここで、テーブルに多数の列 (たとえば、20 ～ 30) があるとします。 その場合は、 <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> API を呼び出して、すべての列に適用される変換戦略を指定することにより、それぞれの列名に注釈を付けずに済みます。
+列が数個しかない狭いテーブルの列名のマッピングは、前のセクションに示したように簡単に行うことができます。 ここで、テーブルに多数の列 (たとえば、20 ～ 30) があるとします。 その場合は、<a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> API を呼び出して、すべての列に適用される変換戦略を指定することにより、それぞれの列名に注釈を付けずに済みます。
 
-そのためには、 <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> ライブラリを使用します。Android クライアント ライブラリは、このライブラリをバックグラウンドで使用して Java オブジェクトを Azure Mobile Services に送信される JSON データにシリアル化します。
+そのためには、<a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> ライブラリを使用します。Android クライアント ライブラリは、このライブラリをバックグラウンドで使用して Java オブジェクトを Azure Mobile Services に送信される JSON データにシリアル化します。
 
 次のコードでは、 *setFieldNamingStrategy()* が定義されたメソッド、 *FieldNamingStrategy()* メソッドです。 このメソッドでは、すべてのフィールド名について、最初の文字 ("m") を削除し、その次の文字を小文字にすることを指定しています。 さらに、このコードは、出力 JSON の再フォーマットを有効にしています。
 
@@ -893,7 +893,7 @@ Mapping the クライアント テーブル名を異なるモバイル サービ
 
 これまでのシリアル化のすべての例には、JSON およびモバイル サービス テーブルに簡単にシリアル化できるプリミティブ型 (整数、文字列など) が使用されていました。 ここで、JSON やテーブルに自動的にシリアル化されない複合オブジェクトをクライアント型に追加する場合を想定します。 たとえば、文字列の配列をクライアント オブジェクトに追加するとします。 この段階で、シリアル化を行う方法と配列をモバイル サービス テーブルに格納する方法は自由に選ぶことができます。
 
-これを行う方法の例については、 <a href="http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson" target="_blank">「Mobile Services の Android クライアントの <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> ライブラリを使用してシリアル化をカスタマイズする (ブログの投稿)」をご確認ください</a>.
+これを行う方法の例については、<a href="http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson" target="_blank">Mobile Services Android クライアントでの <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> ライブラリを使用したシリアル化のカスタマイズに関するブログ記事を参照してください。</a>
 
 この汎用的な方法は、JSON やモバイル サービス テーブルに自動的にシリアル化されない複合オブジェクトがある場合にいつでも使用できます。
 
@@ -937,4 +937,5 @@ Mapping the クライアント テーブル名を異なるモバイル サービ
 <!-- URLs. -->
 [Get started with Mobile Services]: mobile-services-android-get-started.md
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+
 

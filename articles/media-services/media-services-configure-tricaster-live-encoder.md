@@ -43,7 +43,7 @@
 
 ## チャネルの作成
 
-1.  AMSE ツールに移動し、 **Live** タブをクリックし、チャネルの領域内を右クリックします。 選択 **... チャンネルを作成** ] メニューからです。
+1.  AMSE ツールに移動し、 **Live** タブをクリックし、チャネルの領域内を右クリックします。 選択 **チャンネルを作成しています.** メニュー。
 
 ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
 
@@ -62,7 +62,7 @@
 
 >[AZURE.IMPORTANT] チャネルが準備完了状態になるとすぐに課金が開始することに注意してください。 詳細については、次を参照してください。 [チャネルの状態の](media-services-manage-live-encoder-enabled-channels.md#states)です。
 
-##<a id=configure_tricaster_rtmp></a>NewTek tricaster の各エンコーダーを構成します。
+##<a id=configure_tricaster_rtmp></a>NewTek TriCaster エンコーダーを構成する
 
 このチュートリアルでは、次の出力設定が使用されます。 このセクションの残りの部分では、構成の手順の詳細について説明します。 
 
@@ -164,4 +164,5 @@
 ##フィードバックの提供
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 

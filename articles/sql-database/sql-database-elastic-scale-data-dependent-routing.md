@@ -86,7 +86,7 @@
 
 ### 例 – 一時的な障害処理機能を伴うデータ依存ルーティング 
 
-<pre><code>int customerId = 12345 です。 
+<pre><code>int customerId = 12345; 
 int newPersonId = 4321; 
 
 <span style="background-color:  #FFFF00">Configuration.SqlRetryPolicy.ExecuteAction(() = & gt; </span> 
@@ -120,3 +120,4 @@ int newPersonId = 4321;
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
+

@@ -342,7 +342,7 @@ INIT.ORA パラメーターを使用して、Data Guard 環境を制御できま
 
 ### 1.スタンバイ データベースの初期化パラメーターのファイルを準備
 
-このセクションでは、初期化パラメーターのファイルのスタンバイ データベースを準備する方法を示します。 これには、まず INITTEST.ORA を Machine 1 から Machine2 へ手動でコピーします。 INITTEST を表示することができます。2 台のコンピューターで %ORACLE\_HOME%\\database フォルダーに ORA ファイルです。 次に、スタンバイ ロールを以下のように設定するには、Machine2 で INITTEST.ora ファイルを変更します。
+このセクションでは、初期化パラメーターのファイルのスタンバイ データベースを準備する方法を示します。 これには、まず INITTEST.ORA を Machine 1 から Machine2 へ手動でコピーします。 INITTEST を表示することができます。両方のコンピューターで %ORACLE\_HOME%\\database フォルダーに ORA ファイルです。 次に、スタンバイ ロールを以下のように設定するには、Machine2 で INITTEST.ora ファイルを変更します。
 
     db_name='TEST'
     db_unique_name='TEST_STBY'
@@ -627,5 +627,6 @@ SQL * Plus コマンド プロンプト ウィンドウを開き、プライマ�
 プライマリ データベースと、スタンバイ データベースでフラッシュバックデータベースを有効にすることをお勧めします。 フェールオーバーが発生した場合、プライマリ データベースはフェールオーバーの前にフラッシュバックされ、スタンバイ データベースにすばやく変換されます。
 
 ##その他のリソース
-[Azure の oracle 仮想マシン イメージ](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
+[Azure の Oracle 仮想マシン イメージ](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
+
 

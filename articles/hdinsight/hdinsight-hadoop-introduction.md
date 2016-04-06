@@ -129,18 +129,18 @@ Hadoop 分散ファイル システム (HDFS) は、MapReduce と YARN と共に
 
 <a target="_blank" href="http://hive.apache.org/">Apache Hive</a> は、Hadoop に組み込まれているデータ ウェアハウス ソフトウェアで、HiveQL と呼ばれる SQL に似た言語を使って分散ストレージ内の大量のデータセットに対するクエリと管理を可能にします。 Hive は、Pig と同様、MapReduce 上の抽象化部分です。 Hive を実行すると、クエリを一連の MapReduce ジョブに変換します。 Hive は、概念的には Pig よりもリレーショナル データベース管理システムに近いため、より構造化されたデータでの使用に適しています。 非構造化データを操作する場合は Pig が適しています。 参照してください [HDInsight での Hadoop と Hive を使用して](hdinsight-use-hive.md)します。
 
-<a target="_blank" href="https://cwiki.apache.org/confluence/display/Hive/HCatalog/">Apache HCatalog</a> テーブルおよびストレージ管理層で Hadoop のデータのリレーショナル ビューに表示されます。 HCatalog では、Hive SerDe (シリアライザー - デシリアライザー) を書き込める任意の形式で、ファイルの読み取りおよび書き込みを実行できます。
+<a target="_blank" href="https://cwiki.apache.org/confluence/display/Hive/HCatalog/">Apache HCatalog</a> は、Hadoop のテーブルおよびストレージを管理するレイヤーであり、ユーザーにデータのリレーショナル ビューを提供します。 HCatalog では、Hive SerDe (シリアライザー - デシリアライザー) を書き込める任意の形式で、ファイルの読み取りおよび書き込みを実行できます。
 
 ### <a name="mahout"></a>Mahout
 
 <a target="_blank" href="https://mahout.apache.org/">Apache Mahout</a> は、Hadoop 上で実行される機械学習アルゴリズムのスケーラブルなライブラリです。 統計の原則を使用して、機械学習アプリケーションは、データから学習すること、および過去の結果から将来の動作を決めることをシステムに教えます。 参照してください [Hadoop Mahout を使用した映画のリコメンデーションを生成](hdinsight-mahout.md)します。
 
-### <a name="mapreduce"></a>MapReduce および YARN
+### <a name="mapreduce"></a>MapReduce と YARN
 Hadoop MapReduce は、大規模なデータセットを並列処理するアプリケーションを記述するためのソフトウェア フレームワークです。 MapReduce ジョブは、大規模なデータセットを分割し、データを処理のためにキーと値のペアに整理します。
 
 Apache YARN は、次世代の MapReduce (MapReduce 2.0、または MRv2) で、リソース管理とジョブ スケジューリング/監視という JobTracker の 2 つの主要なタスクを別個のエンティティに分けたものです。
 
-MapReduce の詳細については、Hadoop Wiki の <a target="_blank" href="http://wiki.apache.org/hadoop/MapReduce">MapReduce</a> を参照してください。 YARN の詳細については、 <a target="_blank" href="http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html">Apache Hadoop の次世代 MapReduce (YARN)</a>.
+MapReduce の詳細については、Hadoop Wiki で「<a target="_blank" href="http://wiki.apache.org/hadoop/MapReduce">MapReduce</a>」をご覧ください。 YARN の詳細については、「<a target="_blank" href="http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html">Apache Hadoop NextGen MapReduce (YARN) (Apache Hadoop の次世代の MapReduce (YARN))</a>」をご覧ください。
 
 ### <a name="oozie"></a>Oozie
 <a target="_blank" href="http://oozie.apache.org/">Apache Oozie</a> は Hadoop ジョブを管理するワークフローと調整システムです。 Hadoop スタックと統合されていて、MapReduce、Pig、Hive、Sqoop の Hadoop ジョブをサポートしています。 Java プログラムやシェル スクリプトのような、システム特有のジョブのスケジュールを設定するのに使用することもできます。 参照してください [と Hadoop の時間ベースの Oozie コーディネーターの使用](hdinsight-use-oozie-coordinator-time.md)します。
@@ -183,7 +183,7 @@ HDInsight の Hadoop は、Azure クラウド エコシステムの一部とし�
 
 
 
-## <a id="resources"></a>ビッグ データ分析、Hadoop、HDInsight に関する詳細な学習用リソース
+## <a id="resources"></a>ビッグ データ分析、Hadoop、HDInsight に関する情報の収集に役立つリソース
 
 クラウドおよびビッグ データ分析での Hadoop への入門は、次のリソースを使用して作成されました。
 
@@ -205,11 +205,11 @@ HDInsight の Hadoop は、Azure クラウド エコシステムの一部とし�
 
 ### Apache Hadoop
 
-* <a target="_blank" href="http://hadoop.apache.org/">Apache Hadoop</a>: Apache Hadoop ソフトウェア ライブラリ、フレームワークとなる複数のコンピューターで大規模なデータセットの分散処理するための詳細について説明します。
+* <a target="_blank" href="http://hadoop.apache.org/">Apache Hadoop</a> - 大規模なデータ セットを複数のコンピューター クラスターで分散処理するためのフレームワークとなる Apache Hadoop ソフトウェア ライブラリについて説明します。
 
-* <a target="_blank" href="http://hadoop.apache.org/docs/r1.0.4/hdfs_design.html">HDFS</a>: アーキテクチャと、Hadoop 分散ファイル システム、Hadoop アプリケーションで使用される主要なストレージ システムの設計について説明します。
+* <a target="_blank" href="http://hadoop.apache.org/docs/r1.0.4/hdfs_design.html">HDFS</a> - Hadoop アプリケーションで使用する主要なストレージ システムである Hadoop 分散ファイル システムのアーキテクチャと設計について説明します。
 
-* <a target="_blank" href="http://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html">MapReduce のチュートリアル</a>: 大量データを並列の計算ノードから成る大規模なクラスターを迅速に処理する Hadoop アプリケーションを記述するためのプログラミング フレームワークについてを説明します。
+* <a target="_blank" href="http://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html">MapReduce チュートリアル</a> - 複数の大規模な計算ノード クラスターを使用して大量のデータを高速で並列処理する Hadoop アプリケーションを作成するためのプログラミング フレームワークについて説明します。
 
 ### Azure 上の SQL Database:
 
@@ -231,9 +231,9 @@ Power Query アドインまたは Microsoft Hive ODBC ドライバーを使用�
 
 * [Microsoft クラウド プラットフォーム](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx): Office 365 の Power BI について学習し、SQL Server 評価版をダウンロードし、SharePoint Server 2013 と SQL Server BI をセットアップします。
 
-* <a target="_blank" href="http://msdn.microsoft.com/library/hh231701.aspx">SQL Server Analysis Services の詳細</a>.
+* <a target="_blank" href="http://msdn.microsoft.com/library/hh231701.aspx">SQL Server Analysis Services の詳細</a>。
 
-* <a target="_blank" href="http://msdn.microsoft.com/library/ms159106.aspx">SQL Server Reporting Services の詳細</a>.
+* <a target="_blank" href="http://msdn.microsoft.com/library/ms159106.aspx">SQL Server Reporting Services の詳細</a>。
 
 
 ### Hadoop のビッグ データ分析のソリューションを試してみる (Windows 上の HDInsight 用)
@@ -250,4 +250,5 @@ Power Query アドインまたは Microsoft Hive ODBC ドライバーを使用�
 [marketing-page]: ../services/hdinsight/
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
+
 

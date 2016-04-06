@@ -100,7 +100,7 @@
 
 8.   **アプリケーション URL の構成** ] ページで、 **Work.com サインオン URL** URL は、ユーザーが Work.com アプリケーションにサインオンする使用] ボックスに、型 (例::" *http://company.my.salesforce.com*")、順にクリック **次**: 
 
-    ![アプリケーション URL の構成](./media/active-directory-saas-work-com-tutorial/IC794111.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-work-com-tutorial/IC794111.png "Configure App URL")
 
 9.   **Work.com でのシングル サインオンの構成** ] ページで、証明書をダウンロードする] をクリックして **証明書のダウンロード**, 、お使いのコンピューターにローカルで証明書ファイルを保存します。
 
@@ -209,3 +209,4 @@ Work.com の場合、プロビジョニングは手動で行います。
 ここで 10 分間待機し、アカウントが Work.com に同期されたことを確認します。
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

@@ -65,7 +65,7 @@ Azure Batch プール内のコンピューティング ノードの自動スケ�
         <li><p><b>再キュー</b> – タスクをすぐに終了し、再スケジュールされるようにジョブ キューに再配置します。</p></li>
         <li><p><b>終了</b> – タスクをすぐに終了し、ジョブ キューから削除します。</p></li>
         <li><p><b>taskcompletion</b> – 現在実行中のタスクを完了し、プールからノードを削除するまで待機します。</p></li>
-        <li><p><b>retaineddata</b> - プールからノードを削除する前にクリーンアップするノード上ですべてのローカル タスクで保持されたデータを待機します。</p></li>
+        <li><p><b>retaineddata</b> - をプールからノードを削除する前にクリーンアップするノード上ですべてのローカル タスクで保持されたデータを待機します。</p></li>
       </ul></td>
    </tr>
 </table>
@@ -258,14 +258,14 @@ Azure Batch プール内のコンピューティング ノードの自動スケ�
     <th>説明</th>
   </tr>
   <tr>
-    <td>double <b>avg</b>(doubleVecList)</td>
+    <td>二重 <b>avg</b>(doubleVecList)</td>
     <td>DoubleVecList のすべての値の平均値。</td>
   </tr>
   <tr>
-    <td>double <b>len 関数</b>(doubleVecList)</td>
+    <td>二重 <b>len</b>(doubleVecList)</td>
     <td>DoubleVecList から作成されたベクター長。</td>
   <tr>
-    <td>double <b>lg</b>(double)</td>
+    <td>二重 <b>lg</b>(double)</td>
     <td>対数の底 2。</td>
   </tr>
   <tr>
@@ -273,7 +273,7 @@ Azure Batch プール内のコンピューティング ノードの自動スケ�
     <td>Componentwise の対数の底 2。 vec(double) は 1 つの double パラメーターに明示的に渡される必要があります。それ以外の場合は、double lg(double) バージョンと見なされます。</td>
   </tr>
   <tr>
-    <td>double <b>ln</b>(double)</td>
+    <td>二重 <b>ln</b>(double)</td>
     <td>自然対数。</td>
   </tr>
   <tr>
@@ -281,55 +281,55 @@ Azure Batch プール内のコンピューティング ノードの自動スケ�
     <td>Componentwise の対数の底 2。  vec(double) は 1 つの double パラメーターに明示的に渡される必要があります。それ以外の場合は、double lg(double) バージョンと見なされます。</td>
   </tr>
   <tr>
-    <td>double <b>log</b>(double)</td>
+    <td>二重 <b>ログ</b>(double)</td>
     <td>対数の底 10。</td>
   </tr>
   <tr>
-    <td>doubleVec <b>log</b>(doubleVecList)</td>
+    <td>doubleVec <b>ログ</b>(doubleVecList)</td>
     <td>Componentwise の対数の底 10。 vec(double) は 1 つの double パラメーターに明示的に渡される必要があります。それ以外の場合は、double log(double) バージョンと見なされます。</td>
   </tr>
   <tr>
-    <td>double <b>max</b>(doubleVecList)</td>
+    <td>二重 <b>max</b>(doubleVecList)</td>
     <td>DoubleVecList の最大値。</td>
   </tr>
   <tr>
-    <td>double <b>min</b>(doubleVecList)</td>
+    <td>二重 <b>min</b>(doubleVecList)</td>
     <td>DoubleVecList の最小値。</td>
   </tr>
   <tr>
-    <td>double <b>norm</b>(doubleVecList)</td>
+    <td>二重 <b>norm</b>(doubleVecList)</td>
     <td>DoubleVecList から作成された 2 つの標準ベクター。
   </tr>
   <tr>
-    <td>double <b>百分位数</b>(doubleVec v、二重 p)</td>
+    <td>二重 <b>百分位</b>(doubleVec v、二重 p)</td>
     <td>ベクター v の百分位要素。</td>
   </tr>
   <tr>
-    <td>double <b>rand 関数</b>()</td>
+    <td>二重 <b>rand</b>)</td>
     <td>0.0 ～ 1.0 のランダムな値。</td>
   </tr>
   <tr>
-    <td>double <b>範囲</b>(doubleVecList)</td>
+    <td>二重 <b>範囲</b>(doubleVecList)</td>
     <td>DoubleVecList の最小値と最大値の違い。</td>
   </tr>
   <tr>
-    <td>double <b>std</b>(doubleVecList)</td>
+    <td>二重 <b>std</b>(doubleVecList)</td>
     <td>DoubleVecList の値のサンプルの標準偏差。</td>
   </tr>
   <tr>
-    <td><b>停止します。</b>()</td>
+    <td><b>停止</b>)</td>
     <td>自動スケールの式評価を停止します。</td>
   </tr>
   <tr>
-    <td>double <b>合計</b>(doubleVecList)</td>
+    <td>二重 <b>合計</b>(doubleVecList)</td>
     <td>doubleVecList のすべてのコンポーネントの合計。</td>
   </tr>
   <tr>
-    <td>timestamp <b>time</b>(文字列の dateTime ="")</td>
+    <td>タイムスタンプ <b>時間</b>(文字列の dateTime ="")</td>
     <td>パラメーターが渡されない場合は現在の時刻のタイムスタンプ、渡された場合は dateTime 文字列のタイムスタンプ。 サポートされている dateTime 形式は、W3CDTF と RFC1123 です。</td>
   </tr>
   <tr>
-    <td>double <b>val</b>(doubleVec v、二重 i)</td>
+    <td>二重 <b>val</b>(doubleVec v、二重 i)</td>
     <td>開始インデックス 0 のベクター v の場所 i にある要素の値。</td>
   </tr>
 </table>
@@ -362,14 +362,14 @@ Azure Batch プール内のコンピューティング ノードの自動スケ�
     <td><p>データ サンプルのベクターを返します。
     <p>サンプルは、30 秒相当のメトリック データです。 つまり、サンプルは 30 秒ごとに取得されますが、後述のように、サンプルが収集される時間と数式に使用できるようになる時間には遅延があります。 そのため、特定の期間に取得されたすべてのサンプルを数式の評価に使用できない可能性があります。
         <ul>
-          <li><p><b>doubleVec GetSample (double count)</b> - 収集された、最新のサンプルから取得するサンプルの数を指定します。</p>
-                  <p>GetSample(1) は、使用できる最新のサンプルを返します。 $CPUPercent などのメトリック、ただし、この指定しないで認識することであるため <em>と</em> サンプルの収集 - 最新のものである可能性があります。 または、システムの問題があるためより古い場合があります。 このような場合は、次のように期間を使用することをお勧めします。</p></li>
-          <li><p><b>doubleVec GetSample ((timestamp | timeinterval) startTime [、double samplePercent])</b> – サンプル データを収集するための時間枠を指定し、オプションで要求されたタイム フレームで使用する必要があるサンプルの割合を指定します。</p>
-          <p><em>$CPUPercent.GetSample(TimeInterval_Minute * 10)</em> 直近の 10 分間のすべてのサンプルが CPUPercent 履歴に存在する場合の 20 のサンプルを返します。 ただし、過去 1 分間の履歴を使用できない場合は、18 個のサンプルのみが返されます。この場合、<br/>
+          <li><p><b>doubleVec GetSample (double count)</b> - 収集された、最新のサンプルからを取得するためのサンプルの数を指定します。</p>
+                  <p>GetSample(1) は、使用できる最新のサンプルを返します。 $CPUPercent などのメトリック、ただし、この指定しないで認識することであるため <em>と</em> サンプルの収集 - 最新のものである可能性がありますか、システムの問題があるためより古い場合があります。 このような場合は、次のように期間を使用することをお勧めします。</p></li>
+          <li><p><b>doubleVec GetSample ((timestamp | timeinterval) startTime [、double samplePercent])</b> – サンプル データを収集するための期間を指定し、オプションで要求されたタイム フレームで使用する必要があるサンプルの割合を指定します。</p>
+          <p><em>$CPUPercent.GetSample(TimeInterval_Minute * 10)</em> は過去 10 分間にすべてのサンプルが CPUPercent 履歴に存在する場合の 20 のサンプルを返します。 ただし、過去 1 分間の履歴を使用できない場合は、18 個のサンプルのみが返されます。この場合、<br/>
           &nbsp;&nbsp;&nbsp;&nbsp;<em>$Cpupercent.getsample(timeinterval (TimeInterval_Minute * 10, 95)</em> サンプルの 90% のみが、使用可能なために失敗し、<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;<em>$Cpupercent.getsample(timeinterval (TimeInterval_Minute * 10, 80)</em> 成功するでしょう。</p></li>
-          <li><p><b>doubleVec GetSample ((timestamp | timeinterval) startTime、(timestamp | timeinterval) endTime [、double samplePercent])</b> – 開始時刻と終了時刻の両方でデータを収集するための時間枠を指定します。</p></li></ul>
-          <p>前述のように、サンプルが収集される時間と、数式に使用できるようになる時間には遅延があります。 使用するときにこれを考慮する必要があります、 <em>GetSample</em> メソッドを参照してください <em>GetSamplePercent</em> に必ず従ってください。</td>
+          &nbsp;&nbsp;&nbsp;&nbsp;<em>$Cpupercent.getsample(timeinterval (TimeInterval_Minute * 10, 80)</em> は成功します。</p></li>
+          <li><p><b>doubleVec GetSample ((timestamp | timeinterval) startTime、(timestamp | timeinterval) endTime [、double samplePercent])</b> – 開始時刻と終了時刻の両方でデータを収集するための期間を指定します。</p></li></ul>
+          <p>前述のように、サンプルが収集される時間と、数式に使用できるようになる時間には遅延があります。 使用するときにこれを考慮する必要があります、 <em>GetSample</em> メソッドを参照してください <em>GetSamplePercent</em> 以下です。</td>
   </tr>
   <tr>
     <td>GetSamplePeriod()</td>
@@ -382,7 +382,7 @@ Azure Batch プール内のコンピューティング ノードの自動スケ�
   <tr>
     <td>GetSamplePercent()</td>
     <td><p>現在、履歴に一定期間あるサンプルの割合を返します。 次に例を示します。</p>
-    <p><b>doubleVec GetSamplePercent( (timestamp | timeinterval) startTime [, (timestamp | timeinterval) endTime] )</b>
+    <p><b>doubleVec GetSamplePercent ((timestamp | timeinterval) startTime [、(timestamp | timeinterval) endTime])</b>
     <p>返されたサンプルの割合が指定した samplePercent 未満の場合は、GetSample メソッドが失敗するため、GetSamplePercent メソッドを使用して最初に確認し、十分なサンプルが存在しない場合は、自動スケール評価を停止せずに代替の操作を実行します。</p></td>
   </tr>
 </table>
@@ -398,12 +398,12 @@ Azure Batch プール内のコンピューティング ノードの自動スケ�
   </tr>
   <tr>
     <td>リソース</td>
-    <td><p>リソース メトリックは CPU 使用率、帯域幅使用量、メモリ使用量、および計算ノードの数に基づいています。 これらのシステム定義の変数 (」に記載 **変数** 上)、プール内のコンピューティング ノードを管理する式で使用する:</p>
+    <td><p>リソース メトリックは、CPU 使用量、帯域幅使用量、メモリ使用量、およびコンピューティング ノードの数に基づきます。 これらのシステム定義変数 (」に記載 **変数** 上) の数式で、プール内のコンピューティング ノードを管理するために使用します。</p>
     <p><ul>
       <li>$TargetDedicated</li>
       <li>$NodeDeallocationOption</li>
     </ul></p>
-    <p>ノードのリソースのメトリックに基づいて調整を行うためこれらのシステム定義変数を使用:</p>
+    <p>次のシステム定義の変数は、ノードのリソース メトリックに基づいて調整を行うために使用されます。</p>
     <p><ul>
       <li>$CPUPercent</li>
       <li>$WallClockSeconds</li>
@@ -418,14 +418,14 @@ Azure Batch プール内のコンピューティング ノードの自動スケ�
   </tr>
   <tr>
     <td>タスク</td>
-    <td><p>保留中のアクティブなどのタスクの状態に基づいており、完了します</p>
-    <p>。これらのシステム定義変数はタスク メトリックに基づいて調整を行うために使用します</p>
+    <td><p>タスクの状態 (アクティブ、保留中、完了) に基づきます。</p>
+    <p>次のシステム定義の変数は、タスク メトリックに基づいて調整を行うために使用されます。</p>
     <p><ul>
       <li>$ActiveTasks</li>
       <li>$RunningTasks</li>
       <li>$SucceededTasks</li>
       <li>$FailedTasks</li>
-      <li>$CurrentDedicated。</li></ul></p></td>
+      <li>$CurrentDedicated</li></ul></p></td>
   </tr>
 </table>
 
@@ -465,7 +465,7 @@ Azure Batch プール内のコンピューティング ノードの自動スケ�
 
 > [AZURE.NOTE] 上記の手法の 1 つを使用して、プールの作成時に自動スケーリングを設定した場合、 *targetDedicated* プールのパラメーターはありません (してはいけません) の作成時に指定します。 なお、自動スケールが有効なプールのサイズを手動で変更する場合 (たとえば [BatchClient.PoolOperations.ResizePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.resizepool.aspx))、最初に、プールの自動スケーリングを無効にし、プールのサイズを変更する必要があります。
 
-次のコード スニペットは、自動スケール対応の作成を示しています。 [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx) を使用して、 [バッチ .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) ライブラリが数式の月曜日、に対象のノード数を 5 に設定すると、週の他のすべての曜日に 1 です。 スニペットでは、"myBatchClient"は、適切に初期化されたインスタンスの [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx))。
+次のコード スニペットは、自動スケール対応の作成を示しています。 [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx) を使用して、 [バッチ .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) ライブラリが数式の月曜日、に対象のノード数を 5 に設定すると、週のその他のすべての曜日に 1 です。 スニペットでは、"myBatchClient"は、適切に初期化されたインスタンスの [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx))。
 
         CloudPool pool myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
         pool.AutoScaleEnabled = true;
@@ -590,7 +590,7 @@ $NodeDeallocationOption = taskcompletion;
 
 ### 例 3
 
-タスクの数に基づいてプールのサイズを調整するもう 1 つの例では、次の式も考慮、 [MaxTasksPerComputeNode](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx) がプールに設定されている値。 これは、特にコンピューティング ノードで並列タスクの実行が必要な場合に便利です。
+タスクの数に基づいてプールのサイズを調整する別の例では、次の式も考慮、 [MaxTasksPerComputeNode](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx) がプールに設定されている値。 これは、特にコンピューティング ノードで並列タスクの実行が必要な場合に便利です。
 
 ```
 // Determine whether 70% of the samples have been recorded in the past 15 minutes; if not, use last sample
@@ -645,4 +645,5 @@ string formula = string.Format(@"
         * [ノードのリモート デスクトップ プロトコル ファイルを取得](https://msdn.microsoft.com/library/dn820120.aspx) – この REST API 要求には、プールの名前とコンピューティング ノードの名前が必要です。 応答に RDP ファイルの内容が含まれています。
         * [Get AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) – この PowerShell コマンドレットは、指定した計算ノードから RDP ファイルを取得し、指定したファイルの場所またはストリームに保存されます。
 2.  一部のアプリケーションは、処理するのに困難な大量のデータを生成します。 これは解決するために 1 つの方法で [効率的なリスト クエリ](batch-efficient-list-queries.md)します。
+
 

@@ -46,15 +46,15 @@ SQL Server データベースを Azure SQL Database に移行するワークフ�
 
     ' sqlpackage.exe/Action:Export/ssn: < server_name >/sdn: < database_name >/tf: < target_file >/p:TableData = < schema_name.table_name >>< 出力ファイル > 2 > & 1'
 
-    | 引数  | 説明  |
-    |---|---|
-    | < サーバー名 >  | ソース サーバー名  |
-    | < database_name >  | 移行元データベースの名前  |
-    | < target_file >  | BACPAC ファイルのファイル名と場所  |
-    | < schema_name.table_name >  | ターゲット ファイルに出力するデータのテーブル  |
-    | < 出力ファイル >  | エラーがある場合、エラーのある出力ファイルのファイル名と場所  |
+  	| 引数  | 説明  |
+  	|---|---|
+  	| < サーバー名 >  | ソース サーバー名  |
+  	| < database_name >  | 移行元データベースの名前  |
+  	| < target_file >  | BACPAC ファイルのファイル名と場所  |
+  	| < schema_name.table_name >  | ターゲット ファイルに出力するデータのテーブル  |
+  	| < 出力ファイル >  | エラーがある場合、エラーのある出力ファイルのファイル名と場所  |
 
-    /p:TableName 引数を指定するのは、すべてのテーブルからデータをエクスポートするのではなく、Azure SQL DB V12 にエクスポートするためのデータベースの互換性をテストするだけであるためです。 残念ながら、sqlpackage.exe の export{b> <b}引数ではテーブルを抽出しないように指定することはできないので、小さいテーブルを 1 つ指定する必要があります。 < 出力ファイル > は、エラーのレポートが格納されます。 「> 2>&1」文字列は、標準出力とコマンド実行の結果として生成された標準エラーの両方を指定の出力ファイルにパイプ処理します。
+    /p:TableName 引数を指定するのは、すべてのテーブルからデータをエクスポートするのではなく、Azure SQL DB V12 にエクスポートするためのデータベースの互換性をテストするだけであるためです。 残念ながら、sqlpackage.exe の export 引数ではテーブルを抽出しないように指定することはできないので、小さいテーブルを 1 つ指定する必要があります。 < 出力ファイル > は、エラーのレポートが格納されます。 「> 2>&1」文字列は、標準出力とコマンド実行の結果として生成された標準エラーの両方を指定の出力ファイルにパイプ処理します。
 
     ![[タスク] メニューの [データ層アプリケーションのエクスポート]](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01.png)
 
@@ -199,11 +199,11 @@ Management Studio を使用して、移行をエクスポートするを次の�
 
     ' sqlpackage.exe/Action:Export/ssn: < server_name >/sdn: < database_name >/tf: < target_file >
 
-    | 引数  | 説明  |
-    |---|---|
-    | < サーバー名 >  | ソース サーバー名  |
-    | < database_name >  | 移行元データベースの名前  |
-    | < target_file >  | BACPAC ファイルのファイル名と場所  |
+  	| 引数  | 説明  |
+  	|---|---|
+  	| < サーバー名 >  | ソース サーバー名  |
+  	| < database_name >  | 移行元データベースの名前  |
+  	| < target_file >  | BACPAC ファイルのファイル名と場所  |
 
     ![[タスク] メニューの [データ層アプリケーションのエクスポート]](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
 
@@ -250,13 +250,13 @@ Management Studio を使用して、移行をエクスポートするを次の�
 
     ' sqlpackage.exe/Action:Import/tsn: < server_name >/tdn: < database_name >/tu: < user_name >/tp: < パスワード >/sf: < source_file >
 
-    | 引数  | 説明  |
-    |---|---|
-    | < サーバー名 >  | ターゲット サーバー名  |
-    | < database_name >  | ターゲット データベース名  |
-    | < ユーザー名 >  | ターゲット サーバーのユーザー名 |
-    | < パスワード >  | ユーザーのパスワード  |
-    | < source_file >  | インポートする BACPAC ファイルのファイル名と場所  |
+  	| 引数  | 説明  |
+  	|---|---|
+  	| < サーバー名 >  | ターゲット サーバー名  |
+  	| < database_name >  | ターゲット データベース名  |
+  	| < ユーザー名 >  | ターゲット サーバーのユーザー名 |
+  	| < パスワード >  | ユーザーのパスワード  |
+  	| < source_file >  | インポートする BACPAC ファイルのファイル名と場所  |
 
     ![[タスク] メニューの [データ層アプリケーションのエクスポート]](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01c.png)
 
@@ -278,4 +278,5 @@ Management Studio を使用して、移行をエクスポートするを次の�
  > [AZURE.NOTE] スキーマのみの移行が必要な場合、Azure SQL Database に直接 Visual Studio から直接、スキーマを発行することができます。 この方法は移行ウィザードのみで処理できる変更よりも多数の変更を、データベース スキーマで行う必要がある場合に使用します。
 
 - SQL Server Management Studio。 などのさまざまな TRANSACT-SQL コマンドを使用して Management Studio で、問題を修正することができます **ALTER DATABASE**します。
+
 

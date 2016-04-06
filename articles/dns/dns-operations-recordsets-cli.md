@@ -241,7 +241,8 @@ A レコード セットを作成した後、`azure network dns record-set add-r
 ##関連項目
 
 [Azure DNS へのドメインの委任](dns-domain-delegation.md)<BR>
-[DNS ゾーンを管理します。](dns-operations-dnszones-cli.md)<BR>
-[.NET SDK を使用して操作を自動化します。](dns-sdk.md)
+[DNS ゾーンの管理](dns-operations-dnszones-cli.md)<BR>
+[.NET SDK を使用した操作の自動化](dns-sdk.md)
  
+
 

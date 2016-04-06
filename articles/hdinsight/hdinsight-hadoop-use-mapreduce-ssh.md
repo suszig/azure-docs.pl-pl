@@ -53,7 +53,7 @@ Windows ではビルトイン SSH クライアントは提供されません。 
 
 PuTTY の使用の詳細については、次を参照してください。 [SSH Windows から Linux ベースの Hadoop を使用する ](hdinsight-hadoop-linux-use-ssh-windows.md)です。
 
-##<a id="hadoop"></a>Hadoop コマンドを使用します。
+##<a id="hadoop"></a>Hadoop コマンドの使用
 
 1. HDInsight クラスターに接続した後は、次を使用して **Hadoop** MapReduce ジョブを開始するコマンド。
 
@@ -107,4 +107,5 @@ HDInsight での Hadoop のその他の使用方法に関する情報
 * [HDInsight での Hive と Hadoop の使用](hdinsight-use-hive.md)
 
 * [HDInsight での Pig と Hadoop の使用](hdinsight-use-pig.md)
+
 

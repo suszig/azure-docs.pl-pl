@@ -38,7 +38,7 @@
 - [アダプティブ サンプリング](app-insights-sampling.md)
 
 ## バージョン 2.0.0-beta2
-- ITelemetryProcessor のサポート、コードまたは構成ファイルを使用して構成する機能が追加されました。 [により、SDK のカスタム フィルター処理](app-insights-api-telemetry-processors/#telemetry-processors)
+- ITelemetryProcessor のサポート、コードまたは構成ファイルを使用して構成する機能が追加されました。 [SDK でのカスタム フィルターの有効化](app-insights-api-telemetry-processors/#telemetry-processors)
 - コンテキストの初期化子が削除されました。 使用 [テレメトリの初期化子]( https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers) 代わりにします。
 - Application Insights for .Net framework 4.6 が更新されました。 
 - カスタム イベント名に最大 512 文字まで使用できるようになりました。
@@ -113,4 +113,5 @@
 使用可能な以前のバージョンのリリース ノートはありません。
 
  
+
 

@@ -82,7 +82,7 @@ AAD セキュリティ グループを作成する方法と、グループにユ
 
 7. これで、ユーザーまたはセキュリティ グループは、Azure Data Lake Store アカウントにアクセスできるようになりました。 特定のユーザーにアクセス権を付与する場合は、対象ユーザーをセキュリティ グループに追加します。 同様に、ユーザーのアクセス権を取り消す場合は、セキュリティ グループから対象ユーザーを削除します。 アカウントには複数のセキュリティ グループを割り当てることもできます。 
 
-## <a name="filepermissions"></a>Azure Data Lake ストアのファイル システムに Acl としてユーザーまたはセキュリティ グループを割り当てる
+## <a name="filepermissions"></a>ユーザーまたはセキュリティ グループを ACL として Azure Data Lake Store ファイル システムに割り当てる
 
 Azure Data Lake ファイル システムにユーザーまたはセキュリティ グループを割り当てて、Azure Data Lake Store に格納されたデータに対するアクセス制御を設定します。 現在のリリースでは、ファイル システムのルート ノードに ACL を設定できるだけです。
 
@@ -112,7 +112,7 @@ Azure Data Lake ファイル システムにユーザーまたはセキュリテ
     ![グループにアクセス許可を割り当てる](./media/data-lake-store-secure-data/adl.acl.4.png "Assign permissions to group")
 
 
-    >[AZURE.NOTE] The Execute permission is required for enumeration of directories and is often required when providing a user or group read-only access to data.
+    >[AZURE.NOTE] Execute 権限は、ディレクトリの列挙体に必要なユーザーまたはグループのデータへの読み取り専用アクセスを提供する場合は、必要な多くの場合。
 
 
 6.  **カスタム アクセスの追加** ブレードで、をクリックして **[ok]**します。 関連付けられているアクセス許可を持つ、新しく追加されたグループが表示されるよう、 **アクセス** ブレードです。
@@ -162,6 +162,7 @@ Azure Data Lake Store ファイル システムからセキュリティ グル�
 - [Azure Storage BLOB から Data Lake Store へのデータのコピー](data-lake-store-copy-data-azure-storage-blob.md)
 - [Data Lake Store で Azure Data Lake Analytics を使用する](data-lake-analytics-get-started-portal.md)
 - [Data Lake Store で Azure HDInsight を使用する](data-lake-store-hdinsight-hadoop-use-portal.md)
-- [Azure PowerShell で Data Lake Store の使用を開始する](data-lake-store-get-started-powershell.md)
+- [PowerShell で Data Lake Store の使用を開始する](data-lake-store-get-started-powershell.md)
 - [.NET SDK で Azure Data Lake Store の使用を開始する](data-lake-store-get-started-net-sdk.md)
+
 

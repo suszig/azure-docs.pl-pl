@@ -84,7 +84,7 @@
 
 3.   **アプリケーション URL の構成** ] ページで、 **ZScaler Two サインオン URL** ] ボックスに、ユーザーが ZScaler Two アプリケーションにサインオンする際に使用する URL を入力し、順にクリックして **次**します。
 
-    ![Configure App URL](./media/active-directory-saas-zscaler-two-tutorial/IC800204.png "Configure App URL")
+    ![アプリケーション URL の構成](./media/active-directory-saas-zscaler-two-tutorial/IC800204.png "Configure App URL")
 
     >[AZURE.NOTE] 必要がある場合、ZScaler Two サポート チームから、環境の実際の値を取得できます。
 
@@ -204,3 +204,4 @@ ZScaler Two の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-zscaler-two-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

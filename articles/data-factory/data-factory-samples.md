@@ -42,7 +42,7 @@
 6. 表示されている場合、 **展開に成功しました** 閉じて、サンプルのタイルにメッセージ、 **パイプラインのサンプル** ブレードです。  
 5.  **DATA FACTORY** ブレードで、データ ファクトリにリンクされたサービス、データ セット、およびパイプラインを追加、表示されます。  
 
-    ![[Data Factory] ブレード](./media/data-factory-samples/DataFactoryBladeAfter.png)
+    ![[データ ファクトリ] ブレード](./media/data-factory-samples/DataFactoryBladeAfter.png)
    
 
 次の表で使用できるサンプルの簡単な説明、 **パイプラインのサンプル** を並べて表示します。 
@@ -56,3 +56,4 @@
 
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory 
+

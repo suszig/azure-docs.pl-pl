@@ -16,7 +16,7 @@
     ms.date="10/18/2015" 
     ms.author="hangzh;bradsev" /> 
 
-#<a name="heading"></a> Cortana Analytics プロセスで HDInsight Hadoop クラスターに Hive クエリを送信します。
+#<a name="heading"></a>Cortana Analytics Process で HDInsight Hadoop クラスターに Hive クエリを送信する
 
 このドキュメントでは、Azure の HDInsight サービスが管理する Hadoop クラスターに Hive クエリを送信するさまざまな方法について説明します。 Hive クエリは、以下のものを使用して送信できます。 
 
@@ -46,7 +46,7 @@
 2. [Hive エディターで Hive クエリを送信する](#hive-editor)
 3. [Azure PowerShell コマンドで Hive クエリを送信する](#ps)
  
-###<a name="headnode"></a> 1.Hadoop クラスターのヘッドノードで Hadoop コマンド ラインを使用して Hive クエリを送信する
+###<a name="headnode"></a> 1. Hadoop クラスターのヘッドノードで Hadoop コマンド ラインを使用して Hive クエリを送信する
 
 Hive クエリが複雑な場合、Hadoop クラスターのヘッド ノードに直接クエリを送信することにより、通常、Hive エディターまたは Azure PowerShell スクリプトを使用して送信するよりも速度が上がります。 
 
@@ -112,15 +112,15 @@ Azure ストレージ エクスプローラーなどのツールを使用して 
 
 ![Create workspace][14]
 
-###<a name="hive-editor"></a> 2.Hive エディターで Hive クエリを送信する
+###<a name="hive-editor"></a> 2. Hive エディターで Hive クエリを送信する
 
 ユーザーは Web ブラウザーに URL (`https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor`) を入力することで、クエリ コンソール (Hive エディター) を使用することもできます (ログインするために Hadoop クラスターの資格情報を入力するよう求められます)。
 
-###<a name="ps"></a> 3.Azure PowerShell コマンドで Hive クエリを送信する
+###<a name="ps"></a> 3. Azure PowerShell コマンドで Hive クエリを送信する
 
 ユーザーは PowerShell を使用して Hive クエリを送信することもできます。 手順については、次を参照してください。 [Hive ジョブを送信 PowerShell を使用して](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell)します。 
 
-## <a name="explore"></a>データ探索、エンジニアリング機能、およびハイブ パラメーターの調整
+## <a name="explore"></a>データ探索、特徴エンジニアリング、Hive パラメーターの調整
 
 このセクションでは、Azure HDInsight Hadoop クラスターの Hive を使用した次のデータ処理タスクについて説明します。
 
@@ -228,7 +228,7 @@ Hive テーブルでデータを探索するために使用する、いくつか
 
 リスクのテーブルが計算されると、リスクの値をリスクのテーブルと結合して、リスクの値をテーブルに割り当てることができます。 ハイブ結合クエリについては、前のセクションで扱われました。
 
-####<a name="hive-datefeature"></a> [Datetime] フィールドから特徴を抽出する
+####<a name="hive-datefeature"></a> [Datetime] フィールドからの特徴の抽出
 
 ハイブには、日時フィールドを処理するための一連の UDF があります。 ハイブでは、既定の日時形式は 'yyyy-MM-dd 00:00:00' (例: '1970-01-01 12:21:32') となります。 このセクションでは、日時フィールドから月を抽出し、その月から日を抽出する例を示します。また、既定以外の形式の日時文字列を既定の形式の日時文字列に変換する例も示します。 
 
@@ -250,7 +250,7 @@ Hive テーブルでデータを探索するために使用する、いくつか
 このクエリの `hivesampletable` は、Azure HDInsight Hadoop クラスターをプロビジョニングしたときに、すべてのクラスターに既定で付属しています。 
 
 
-####<a name="hive-textfeature"></a> [Text] フィールドから特徴を抽出する
+####<a name="hive-textfeature"></a> [Text] フィールドからの特徴の抽出
 
 ハイブ テーブルには、スペースで区切られた単語の文字列で成るテキスト フィールドがあることが想定されています。次のクエリでは、文字列の長さ、および文字列内の単語の数の長さを抽出します。
 
@@ -285,7 +285,7 @@ Hive テーブルでデータを探索するために使用する、いくつか
 
 Hive の組み込み Udf が見つかりませんの完全な一覧、 [言語のマニュアルで UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions)します。 
 
-## <a name="tuning"></a> 高度なトピック: Hive パラメーターを調整してクエリ速度を向上させる
+## <a name="tuning"></a>高度なトピック: Hive パラメーターを調整してクエリ速度を向上させる
 
 ハイブ クラスターの既定のパラメーター設定では、ハイブ クエリやクエリが処理するデータに適さない場合があります。 このセクションでは、ハイブ クエリのパフォーマンスが向上するようにユーザーが調整できるいくつかのパラメーターについて説明します。 ユーザーは、データ処理のクエリの前に、パラメーター調整クエリを追加する必要があります。 
 
@@ -329,3 +329,4 @@ Hive の組み込み Udf が見つかりませんの完全な一覧、 [言語�
 
 
  
+

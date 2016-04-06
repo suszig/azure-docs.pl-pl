@@ -117,7 +117,7 @@ Azure クラシック ポータルで両方のディレクトリを管理する�
 7. Microsoft アカウントを使用して、Azure クラシック ポータルに再度サインインします。 両方のディレクトリが Active Directory 拡張機能に表示されます。
 
 
-## 参照トピック
+## 次の手順
 [Azure への組織としてのサインアップ](sign-up-organization.md)
 
 
@@ -125,4 +125,5 @@ Azure クラシック ポータルで両方のディレクトリを管理する�
 [1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
+
 

@@ -43,7 +43,7 @@
 * [**Microsoft アカウント**][account] -ユーザー名とパスワードを使用して、Microsoft Azure サブスクリプション、XBox Live、Outlook.com、およびその他の Microsoft サービスにサインインします。
 
 
-## <a name="access"></a> リソース グループのアクセスの制御
+## <a name="access"></a> リソース グループのコントロール制御
 
 アプリケーションに作成したリソースに加え、アラートと Web テストには非表示の個別リソースもあることを理解することが重要です。 同じアタッチ [リソース グループ](#resource-group) 、アプリケーションとします。 Web サイトやストレージなど、他の Azure サービスをそこに配置することもあります。
 
@@ -72,7 +72,7 @@
 
 ![新しいユーザーの役割を選択します。](./media/app-insights-resources-roles-access-control/03-role.png)
 
-ロール | In the resource group
+役割 | In the resource group
 ---|---
 Owner | Can change anything, including user access
 Contributor | Can edit anything, including all resources
@@ -110,3 +110,4 @@ Reader | Can view but not change anything
 [start]: app-insights-overview.md
 
  
+

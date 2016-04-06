@@ -29,7 +29,7 @@
 
 このトピックでは、.NET バックエンド サービス プロジェクトの格納に Azure のモバイル サービスによって提供される、ソース管理を使用する方法を説明します。 実稼働環境のモバイル サービスに、ローカルの Git リポジトリからアップロードすることで、プロジェクトをパブリッシュできます。
 
-このチュートリアルを完了する必要がありますが既に作成したモバイル サービスいずれかの操作を完了することで、[モバイル サービスの開始を取得] チュートリアルです。
+このチュートリアルを完了する必要がありますが既に作成したモバイル サービスいずれかの操作を完了することで、 [Get started with Mobile Services] チュートリアルです。
 
 ##<a name="enable-source-control"></a>モバイル サービスでソース管理を有効にする
 
@@ -39,7 +39,7 @@
 
 1. ローカル コンピューターに Git をインストールします。
 
-    Git をインストールするために必要な手順は、オペレーティング システムによって異なります。 オペレーティング システム固有の配布とインストールのガイダンスについては、[Git のインストール] を参照してください。
+    Git をインストールするために必要な手順は、オペレーティング システムによって異なります。 参照してください [Installing Git] オペレーティング システム固有の配布およびインストールのガイダンスを提供します。
 
     > [AZURE.NOTE]
     > オペレーティング システムによっては、コマンド ラインと GUI の両方のバージョンの Git を使用できます。 この記事で説明する手順では、コマンド ライン バージョンを使用します。
@@ -91,7 +91,7 @@
 
     ![Mobile Services のスタートアップ ページ](./media/mobile-services-dotnet-backend-store-code-source-control/mobile-service-startup.png)
 
-モバイル サービス プロジェクトは、ソース管理で管理され、ローカル リポジトリから更新をプッシュすることで、サービスの更新を発行することができます。 SQL データベースを使用する .NET バックエンド モバイル サービスでデータ モデルの変更を行う方法の詳細については、[を .NET バックエンド モバイル サービス データ モデルを変更する方法] を参照してください。
+モバイル サービス プロジェクトは、ソース管理で管理され、ローカル リポジトリから更新をプッシュすることで、サービスの更新を発行することができます。 SQL データベースを使用する .NET バックエンド モバイル サービスでデータ モデルの変更を行う方法の詳細については、次を参照してください。 [How to make data model changes to a .NET backend mobile service]します。
 
 <!-- Anchors. -->
 
@@ -103,4 +103,5 @@
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
 [How to make data model changes to a .NET backend mobile service]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
+
 

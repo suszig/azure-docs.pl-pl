@@ -39,7 +39,7 @@
 
 次の図は、アプリケーションとサービス インスタンス、パーティション、レプリカ間のリレーションシップを示しています。
 
-![パーティションと、サービス内のレプリカ][Image2]
+![サービス内のパーティションとレプリカ][Image2]
 
 
 ## サービスを記述する
@@ -94,11 +94,11 @@
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
 
-* TODO: LoadMetrics PlacementConstraints、ServicePlacementPolicies
-* TODO: リソース
-* TODO: [状態] プロパティ
-* TODO: トレースのフィルター
-* TODO: 構成の上書き
+*TODO: LoadMetrics, PlacementConstraints, ServicePlacementPolicies
+*TODO: Resources
+*TODO: Health properties
+*TODO: Trace filters
+*TODO: Configuration overrides
 -->
 
 ## アプリケーションを記述する
@@ -141,9 +141,9 @@ For more information about other features supported by service manifests, refer 
 <!--
 For more information about other features supported by application manifests, refer to the following articles:
 
-* TODO: アプリケーションのパラメーター
-* TODO: セキュリティ プリンシパルは、RunAs、SecurityAccessPolicy
-* TODO: サービス テンプレート
+*TODO: Application parameters
+*TODO: Security, Principals, RunAs, SecurityAccessPolicy
+*TODO: Service Templates
 -->
 
 ## アプリケーションをパッケージ化する
@@ -232,11 +232,11 @@ PS D:\temp>
 
 ## 次のステップ
 
-[展開し、アプリケーションを削除する][10]
+[アプリケーションのデプロイと削除][10]
 
-[アプリケーションのパラメーターを複数の環境を管理する][11]
+[複数の環境のアプリケーション パラメーターを管理する][11]
 
-[RunAs: さまざまなセキュリティ アクセス許可を持つ、Service Fabric アプリケーションを実行する][12]
+[RunAs: 異なるセキュリティ アクセス許可での Service Fabric アプリケーションの実行][12]
 
 <!--Image references-->
 [1]: ./media/service-fabric-application-model/application-model.jpg
@@ -248,4 +248,5 @@ PS D:\temp>
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
+
 

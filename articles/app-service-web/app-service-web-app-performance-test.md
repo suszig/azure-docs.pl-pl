@@ -26,19 +26,19 @@ Web アプリを起動する前または更新プログラムを運用環境に�
 これらのテストでは、一定期間にわたってアプリのユーザー負荷をシミュレートし、アプリの応答を測定します。 たとえば、テスト結果は特定の台数をアプリの応答速度を表示します。 
 ユーザーです。 また、アプリに存在する問題を示す可能性がある失敗した要求の数も示されます。      
 
-![Web アプリのパフォーマンスの問題を検索][TestOverview]
+![Web アプリのパフォーマンスの問題を見つける][TestOverview]
 
 ## 開始する前に
 
-*   [Azure サブスクリプション] する必要があります [AzureSubscription] 
+*   必要な [Azure サブスクリプション][AzureSubscription],、 
 場合は、既に 1 つがあるありません。 学習する方法 
-[無料の Azure アカウントを開く][AzureFreeTrial] です。
+[Azure アカウントを無料で開く][AzureFreeTrial]します。
 
-*   [Visual Studio Team Services (VSTS)] [WhatIsVSTS] する必要があります。 
+*   必要があります、 [Visual Studio Team Services (VSTS)][WhatIsVSTS] 
 パフォーマンス テストの履歴を保持するアカウント。 
 パフォーマンス テストを設定すると、新しいアカウントを作成します。 
 または、アカウント所有者である場合は、既存のアカウントを使用します。 
-[Visual Studio チームのサービス アカウントを使用すれば他に何をでしょうか。](#VSTSAccount)
+[Visual Studio Team Services アカウントでほかにできること](#VSTSAccount)
 
 *   非運用環境にテストするアプリをデプロイします。 
 運用環境で使用するプラン以外の App Service プランをアプリで使用するように設定します。 
@@ -46,24 +46,24 @@ Web アプリを起動する前または更新プログラムを運用環境に�
 
 ## パフォーマンス テストの設定と実行
 
-0.  [Azure ポータル] にサインイン [AzurePortal] です。 
+0.  サインイン、 [Azure ポータル][AzurePortal]します。 
 所有している Visual Studio チームのサービス アカウントを使用するには 
 アカウント所有者としてサインインします。
 
 0.  Web アプリに移動します。
 
-    ![すべての参照、Web アプリ、web アプリに移動][Web アプリケーション]
+    ![[すべてを参照] > [Web アプリ] > アプリを選択][WebApp]
 
 0.  移動して **パフォーマンス テスト**します。
 
-    ![ツール]、[パフォーマンス テストに移動][ExpandedTools]
+    ![[ツール] > [パフォーマンス テスト] を選択][ExpandedTools]
  
-0.  これで、[Visual Studio Team Services (VSTS)] [WhatIsVSTS] をリンクします 
+0.  リンクを掲示するので、 [Visual Studio Team Services (VSTS)][WhatIsVSTS] 
 パフォーマンス テストの履歴を保持するアカウント。
 
     使用できる VSTS アカウントがある場合は、そのアカウントを選択します。 VSO アカウントを持っていない場合は、新しいアカウントを作成します。
 
-    ![既存の VSTS アカウントを選択または新しいアカウントを作成する][ExistingNewVSTSAccount]
+    ![既存の VSTS アカウントを選択するか、新しいアカウントを作成します][ExistingNewVSTSAccount]
 
 0.  パフォーマンス テストを作成します。 詳細を設定し、テストを実行します。 
 テストの実行中、リアルタイムで結果を確認できます。
@@ -78,7 +78,7 @@ Web アプリを起動する前または更新プログラムを運用環境に�
     同時に、web サイトを訪問します。 これが表示されます数 
     要求が失敗したか、応答が低下します。
 
-    ![作成、設定、およびパフォーマンス テストを実行][NewTest]
+    ![パフォーマンス テストの作成、設定、実行][NewTest]
 
      *  Web アプリの既定の URL は自動的に追加されます。 
      URL を変更して他のページ (HTTP GET 要求のみ) をテストすることができます。
@@ -89,13 +89,13 @@ Web アプリを起動する前または更新プログラムを運用環境に�
     テストが実行されているときのようすを次に示します。 最初の 1 分間に 
     速度が遅いため、ページを読み込みます。
 
-    ![パフォーマンスのデータをリアルタイムで進行中のテスト][TestRunning]
+    ![実行中のパフォーマンス テストとリアルタイムのデータ][TestRunning]
 
     ページが非常に高速に読み込むことを学習、テストが完了したら、 
     後は、最初の分です。 これにより、特定する必要のあります。 
     問題のトラブルシューティングを開始します。
 
-    ![完了したパフォーマンス テストでは、結果、失敗した要求を含む][TestDone]
+    ![パフォーマンス テスト完了、失敗したリクエストなどの結果がわかる][TestDone]
     
 ご意見をお待ちしております。 質問や問題、 
 お問い合わせください。 <vsoloadtest@microsoft.com>
@@ -118,16 +118,16 @@ Vum までは、数を掛けます仮想ユーザーの数
 
 A: Azure ポータルでこの時間を確認できます。
 
-![VSTS アカウントに移動][VSTSAccount]
+![自分の VSTS アカウントに進みます][VSTSAccount]
 
-![チェック VUMs の使用][CheckTestTime]
+![使用した VUM の確認][CheckTestTime]
 
 <a name="VSOAccount"></a>
 #### Q: Visual Studio Team Services アカウントでほかにできることは何ですか。
 
 A: 新しいアカウントを見つけるには、```https://{accountname}.visualstudio.com``` にアクセスしてください。 
 コードを共有する、ビルド、テスト、作業、およびクラウドですべて] – ソフトウェアの出荷を追跡 
-任意のツールと言語を使用します。 方法の詳細について [Visual Studio チームのサービス] [WhatIsVSTS] 
+任意のツールと言語を使用します。 方法の詳細について [Visual Studio Team Services][WhatIsVSTS] 
 機能とサービスより簡単に共同作業を行うし、継続的な配置チームに役立ちます。
 
 <!--Image references-->
@@ -146,4 +146,5 @@ A: 新しいアカウントを見つけるには、```https://{accountname}.visu
 [AzureSubscription]: https://account.windowsazure.com/subscriptions
 [AzureFreeTrial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [WhatIsVSTS]: https://www.visualstudio.com/products/what-is-visual-studio-online-vs
+
 

@@ -82,7 +82,7 @@ Azure AD への CS Stars の統合を構成するには、ギャラリーから�
 ##  Azure AD シングル サインオンの構成とテスト
 このセクションの目的は、"Britta Simon" というテスト ユーザーに基づいて、CS Stars で Azure AD のシングル サインオンを構成し、テストする方法について説明することです。
 
-シングル サインオンを機能させるには、Azure AD ユーザーに対応する CS Stars ユーザーが Azure AD で認識されている必要があります。 言い換えると、Azure AD ユーザーと CS Stars の関連ユーザーの間で、リンク関係が確立されている必要があります。<br>
+シングル サインオンを機能させるには、Azure AD ユーザーに対応する CS Stars ユーザーが Azure AD で認識されている必要があります。 つまり、Azure AD のユーザーと関連ユーザー CS 星の間のリンクの関係を確立する必要があります。<br>
 値を割り当てることでこのリンクの関係が確立される、 **ユーザー名** の値として Azure AD で、 **Username** CS 個の星でします。
  
 CS Stars で Azure AD のシングル サインオンを構成してテストするには、次の構成要素を完了する必要があります。
@@ -100,13 +100,13 @@ CS Stars で Azure AD のシングル サインオンを構成してテストす
 **で Azure AD シングル サインオンを構成するには、次の手順に従います。**
 
 1. Azure AD ポータルでの **CS 星** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、 **シングル サインオンを構成する**  ダイアログ。
-<br><br>![シングル サインオンを構成する][6]<br>
+<br><br>![シングル サインオンを構成します。][6]<br>
 
 2.  **どのような CS 星サインオン** ] ページで、[ **Azure AD シングル サインオン**, 、順にクリック **次**します。
 <br><br>![Azure AD シングル サインオン][7]<br>
 
 3.  **アプリケーション設定の構成** ] ダイアログ ページで、次の手順を実行します。 
-<br><br>![アプリ設定の構成][8]<br>
+<br><br>![アプリ設定を構成します。][8]<br>
  
      3.1 で、 **サインオン URL** ] ボックスに、型に使用する URL、ユーザーが CS 星アプリケーションにサインオン (例:: *https://uat.csstars.com/enterprise/default.cmdx?ssoclient=C234UAT2*)。
 
@@ -115,16 +115,16 @@ CS Stars で Azure AD のシングル サインオンを構成してテストす
      3.2. クリックして **次**します。
  
 4.  **CS 個の星でのシングル サインオンの構成** ] ページで [ **メタデータのダウンロード**, 、コンピューターのローカルにメタデータ ファイルを保存します。
-<br><br>![Azure AD Connect は][9]<br>
+<br><br>![Azure AD Connect とは][9]<br>
 
 5. CS Stars に対してシングル サインオンを有効にするには、Marsh ClearSight 担当者に問い合わせて、メタデータ ファイルを渡してください。
 
 
 6. Azure AD ポータルでのシングル サインオンの構成情報を選択し、 **次**します。 
-<br><br>![Azure AD Connect は][10]<br>
+<br><br>![Azure AD Connect とは][10]<br>
 
 7.  **シングル サインオンによる確認** ] ページで [ **完了**します。  
-<br><br>![Azure AD Connect は][11]<br>
+<br><br>![Azure AD Connect とは][11]<br>
 
 
 
@@ -132,7 +132,7 @@ CS Stars で Azure AD のシングル サインオンを構成してテストす
 ### Azure AD のテスト ユーザーの作成
 このセクションの目的は、Azure ポータルで Britta Simon というテスト ユーザーを作成することです。<br>
 ユーザーの一覧で選択 **Britta Simon**します。
-<br><br>![Azure AD ユーザーの作成][20]<br>
+<br><br>![Azure AD ユーザーを作成します。][20]<br>
 
 **Azure AD でテスト ユーザーを作成するには、次の手順に従います。**
 
@@ -233,6 +233,7 @@ CS Stars で Azure AD のシングル サインオンを構成してテストす
 [205]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_205.png
 
 [400]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_403.png
+
 
 
 

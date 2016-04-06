@@ -60,7 +60,7 @@ DocumentDB データ移行ツールはオープン ソース ソリューショ�
 - **Dtui.exe**: ツールのグラフィカル インターフェイス バージョン
 - **Dt.exe**: コマンド ライン バージョンのツール
 
-##<a id="JSON"></a>JSON ファイルをインポートします。 ##
+##<a id="JSON"></a>JSON ファイルのインポート ##
 
 JSON ファイル ソース インポーター オプションを使用して、1 つ以上の単一ドキュメント JSON ファイル、またはそれぞれに JSON ドキュメントの配列が含まれた JSON ファイルをインポートできます。  インポートする JSON ファイルが含まれたフォルダーを追加する際は、サブフォルダー内のファイルを再帰的に検索できます。
 
@@ -105,7 +105,7 @@ MongoDB からインポートするためのコマンド ライン サンプル�
     #Import documents from a MongoDB collection which match the query and exclude the loc field
     dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database> /s.Collection:zips /s.Query:{pop:{$gt:50000}} /s.Projection:{loc:0} /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:BulkZipsTransform /t.IdField:_id/t.CollectionTier:S3
 
-##<a id="MongoDBExport"></a>MongoDB エクスポート ファイルをインポートします。 ##
+##<a id="MongoDBExport"></a>MongoDB エクスポート ファイルのインポート ##
 
 MongoDB エクスポート JSON ファイル ソース インポーター オプションを使用して、mongoexport ユーティリティによって生成された 1 つ以上の JSON ファイルをインポートできます。  
 
@@ -160,7 +160,7 @@ SQL Server からインポートするためのコマンド ライン サンプ�
     #Import records from sql which match a query and create hierarchical relationships
     dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, Name, AddressType as [Address.AddressType], AddressLine1 as [Address.AddressLine1], City as [Address.Location.City], StateProvinceName as [Address.Location.StateProvinceName], PostalCode as [Address.PostalCode], CountryRegionName as [Address.CountryRegionName] from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /s.NestingSeparator:. /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:StoresSub /t.IdField:Id /t.CollectionTier:S3
 
-##<a id="CSV"></a>CSV ファイルをインポートします。 ##
+##<a id="CSV"></a>CSV ファイルのインポート ##
 
 CSV ファイル ソース インポーター オプションを使用して、1 つ以上の CSV ファイルをインポートできます。  インポートする CSV ファイルが含まれたフォルダーを追加する際は、サブフォルダー内のファイルを再帰的に検索できます。
 
@@ -198,7 +198,7 @@ CSV インポート用のコマンド ライン サンプルを以下に示し�
 
     dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Employees /t.IdField:EntityID /t.CollectionTier:S3
 
-##<a id="AzureTableSource"></a>Azure テーブル ストレージからのインポートします。 ##
+##<a id="AzureTableSource"></a>Azure テーブル ストレージからのインポート ##
 
 Azure テーブル ストレージ ソース インポーター オプションを使用して、個々の Azure テーブル ストレージ テーブルからインポートできます。また、必要に応じて、インポートするテーブル エンティティをフィルター処理できます。  
 
@@ -243,7 +243,7 @@ Amazon DynamoDB からインポートするためのコマンド ライン サ�
 
     dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:catalogCollection /t.CollectionTier:S3
 
-##<a id="BlobImport"></a>Azure Blob ストレージからファイルをインポートします。##
+##<a id="BlobImport"></a>Azure BLOB ストレージからのファイルのインポート##
 
 JSON ファイル、MongoDB のエクスポート ファイル、および CSV ファイル ソースのインポーター オプションを使用すると、Azure BLOB ストレージから 1 つ以上のファイルをインポートできます。  BLOB コンテナーの URL とアカウント キーを指定した後に、正規表現を使用してインポートするファイルを選択してください。
 
@@ -310,7 +310,7 @@ HBase からインポートするためのコマンド ライン サンプルを
 
     dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:hbaseimport
 
-##<a id="DocumentDBBulkTarget"></a>DocumentDB (一括インポート) へのインポート ##
+##<a id="DocumentDBBulkTarget"></a>DocumentDB へのインポート (一括インポート) ##
 
 DocumentDB 一括インポーターを使用して、効率向上のために DocumentDB ストアド プロシージャを使用し、使用可能な任意のソース オプションからインポートできます。  ツールは、1 つの DocumentDB コレクションへのインポートと、シャード化されたインポート (データが複数の DocumentDB コレクションにパーティション分割されます) のどちらもサポートします。  DocumentDB でのデータをパーティション分割の詳細について [ここ](documentdb-partition-data.md)します。  このツールでは、ストアド プロシージャの作成と実行、およびターゲット コレクションからの削除が実行されます。  
 
@@ -348,7 +348,7 @@ DocumentDB の接続文字列の形式は次のとおりです。
 -   エポック: エポック番号値として保持します。
 -   両方: 文字列値およびエポック番号値の両方を保持します。  このオプションは、次に例をサブドキュメントが作成されます。
 "date_joined": {
-    "Value":"2013年-10-2013-10-21t21:17:25.2410000z"、
+    "Value":"2013年-10-21T21:17:25.2410000Z"、
     "Epoch": 1382390245
   } 
 
@@ -366,7 +366,7 @@ DocumentDB 一括インポーターには、次の詳細オプションがあり
 
 > [AZURE.TIP] インポート ツールでは、DirectTcp の接続モードが既定値です。  ファイアウォールの問題が発生した場合は、ポート 443 のみを使用する必要があるため、接続モードを [ゲートウェイ] に切り替えてください。
 
-##<a id="DocumentDBSeqTarget"></a>DocumentDB (シーケンシャル レコードのインポート) へのインポート ##
+##<a id="DocumentDBSeqTarget"></a>DocumentDB へのインポート (シーケンシャル レコードのインポート) ##
 
 DocumentDB シーケンシャル レコード インポーターを使用して、レコードで使用可能な任意のソース オプションからレコード単位でインポートできます。  ストアド プロシージャのクォータに達した既存のコレクションにインポートしている場合に、このオプションを選択できます。  ツールは、1 つの DocumentDB コレクションへのインポートと、シャード化されたインポート (データが複数の DocumentDB コレクションにパーティション分割されます) のどちらもサポートします。  DocumentDB でのデータをパーティション分割の詳細について [ここ](documentdb-partition-data.md)します。 
 
@@ -400,7 +400,7 @@ DocumentDB の接続文字列の形式は次のとおりです。
 -   エポック: エポック番号値として保持します。
 -   両方: 文字列値およびエポック番号値の両方を保持します。  このオプションは、次に例をサブドキュメントが作成されます。
 "date_joined": {
-    "Value":"2013年-10-2013-10-21t21:17:25.2410000z"、
+    "Value":"2013年-10-21T21:17:25.2410000Z"、
     "Epoch": 1382390245
   } 
 
@@ -416,7 +416,7 @@ DocumentDB シーケンシャル レコード インポーターには、次の�
 
 > [AZURE.TIP] インポート ツールでは、DirectTcp の接続モードが既定値です。  ファイアウォールの問題が発生した場合は、ポート 443 のみを使用する必要があるため、接続モードを [ゲートウェイ] に切り替えてください。
 
-##<a id="IndexingPolicy"></a>DocumentDB のコレクションを作成するときに、インデックス作成ポリシーを指定します。 ##
+##<a id="IndexingPolicy"></a>DocumentDB コレクションを作成するときにインデックス作成ポリシーを指定する ##
 
 移行ツールを使用してインポート中にコレクションを作成するときに、コレクションのインデックス作成ポリシーを指定できます。  DocumentDB の一括インポートと DocumentDB のシーケンシャル レコード オプションの詳細オプション セクションで、[インデックス作成オプション] セクションに移動します。
 
@@ -508,4 +508,5 @@ DocumentDB JSON エクスポーターを使用して、使用可能な任意の�
 
 
  
+
 

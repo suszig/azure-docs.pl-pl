@@ -20,11 +20,11 @@
 
 
 ### このトピックに関するその他の記事
-[Azure AD とは何ですか。](active-directory-whatis.md)<br>
-[作業のでしょうか。](active-directory-works.md)<br>
-[概要します。](active-directory-get-started.md)<br>
+[Azure AD とは](active-directory-whatis.md)<br>
+[それはどのように機能しますか?](active-directory-works.md)<br>
+[作業開始](active-directory-get-started.md)<br>
 [次のステップ](active-directory-next-steps.md)<br>
-[詳細については](active-directory-learn-map.md)
+[詳細情報](active-directory-learn-map.md)
 
 ## Azure AD でユーザーを管理する
 ユーザー アカウントの管理は、ユーザーを作成または削除したり、アクセス許可を割り当てるだけではありません。 アクセスおよび使用状況に関するレポートの生成、パスワード ポリシーの設定、パスワードのセルフ サービス リセットの有効化、多要素認証の設定、その他を行うことができます。 [ユーザーの管理の詳細について](active-directory-create-users.md)します。
@@ -44,4 +44,5 @@ Azure AD のデバイス登録は、ユーザーのサインイン時にデバ�
 * [Azure への組織としてのサインアップ](sign-up-organization.md)
 * [Azure ID](fundamentals-identity.md)
  
+
 

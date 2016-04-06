@@ -30,18 +30,18 @@
 ![][15]  
 
 4.  **PowerApps**, [ **管理 Api**:    
-![登録されている api を参照する][1]
+![登録されている api を参照します。][1]
 
 5.  **管理 Api**, [ **追加** 新しい API を追加します。  
-![API の追加][2]
+![[API を追加します。][2]
 
 6. わかりやすい名前を入力 **名前** した API 向けです。  
     
 7.  **ソース**, [ **利用可能な Api** 構築済みの Api を選択して [ **Salesforce**:  
-![Salesforce api の選択][3]
+![Salesforce の api を選択します。][3]
 
 8. 選択 **の設定 - 必要な設定を構成する**:  
-![dropbox API の設定を構成する][7]
+![dropbox API 設定を構成します。][7]
 
 9. 入力、 *アプリ キー* と *App Secret* Salesforce アプリケーションのです。 これらがない場合は、このトピックの「PowerApps で使用する Salesforce アプリケーションの登録」を参照して、必要なキーとシークレットの値を作成します。  
 
@@ -56,13 +56,13 @@
 
 キーとシークレットの値が割り当てられた既存の Salesforce アプリケーションがない場合は、次の手順に従ってアプリケーションを作成し、必要な値を取得します。 
 
-1. [Salesforce 開発者のホーム ページ] を開く [5]、および、Salesforce アカウントでサインインします。 
+1. 開いている [Salesforce 開発者ホームページ][5], 、Salesforce アカウントでサインインします。 
 
 2. ホーム ページで、プロファイルを選択し、[ **セットアップ**:  
 ![Salesforce のホーム ページ][6]
 
 3. 選択 **作成** 選択 **アプリ**します。  **アプリ** ] ページで、[ **新規** [ **接続アプリ**:  
-![Salesforce では、アプリを作成する][7]
+![Salesforce アプリケーションを作成します。][7]
 
 4.  **接続されているアプリケーションを新しい**:  
 
@@ -99,3 +99,4 @@
 [8]: ./media/powerapps-create-api-salesforce/salesforce-new-app.PNG
 [14]: ./media/powerapps-create-api-salesforce/browseall.png
 [15]: ./media/powerapps-create-api-salesforce/allresources.png
+

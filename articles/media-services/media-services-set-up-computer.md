@@ -21,7 +21,7 @@
 > [AZURE.SELECTOR]
 - [ポータル](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
-- [残りの部分](https://msdn.microsoft.com/library/azure/dn167014.aspx)
+- [REST ()](https://msdn.microsoft.com/library/azure/dn167014.aspx)
 <a id="create_account"></a>
 
 以下の手順は、Azure Media Services で開発を行うために必要な前提条件を説明したものです。
@@ -52,5 +52,6 @@ Azure Media Services アカウントを作成するには、Azure クラシッ�
 ##フィードバックの提供
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 

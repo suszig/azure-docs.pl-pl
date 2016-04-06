@@ -131,7 +131,7 @@ Registration アプリケーションは、名前と電子メール アドレス
         echo "<h3>Table created.</h3>";
         ?>
 
-    ここで、 <code>$user</code> と <code>$pwd</code> の値は、ローカルの SQL Server ユーザー名とパスワードに置き換える必要があります。
+    値を更新する必要があります <code>$user</code> と <code>$pwd</code> ローカル SQL Server ユーザー名とパスワードを使用します。
 
 4. アプリケーションのルート ディレクトリのターミナルで、次のコマンドを入力します。
 
@@ -188,7 +188,7 @@ Registration アプリケーションは、名前と電子メール アドレス
             die(var_dump($e));
         }
 
-    ここでも、 <code>$user</code> と <code>$pwd</code> の値は、ローカルの MySQL ユーザー名とパスワードに置き換える必要があります。
+    値を更新する必要がありますが、もう一度 <code>$user</code> と <code>$pwd</code> ローカルの MySQL ユーザー名とパスワードを使用します。
 
 7. データベース接続コードの次に、登録情報をデータベースに挿入するためのコードを追加します。
 
@@ -246,7 +246,7 @@ Registration アプリケーションは、名前と電子メール アドレス
     $db = "<value of SQL Database>";
 
 > [AZURE.NOTE]
-> <code>$host</code> では、Server の値を <code>tcp:</code> に付加する必要があります。
+>  <code>$host</code>, 、サーバーの値の先頭にする必要があります <code>tcp:</code>します。
 
 
 これで、Git 発行を設定してアプリケーションを発行する準備ができました。
@@ -297,4 +297,5 @@ Registration アプリケーションは、名前と電子メール アドレス
 [install-git]: http://git-scm.com/
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
+
 

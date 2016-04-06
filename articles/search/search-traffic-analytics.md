@@ -91,7 +91,7 @@ Classic: /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/prov
 名前 |型 |例 |メモ 
 ------|-----|----|-----
 time |datetime |"2015-12-07T00:00:43.6872559Z" |操作のタイムスタンプ
-resourceId |文字列 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/既定/プロバイダー/<br/> MICROSOFT です。検索/SEARCHSERVICES/SEARCHSERVICE" |使用している ResourceId
+resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/既定/プロバイダー/<br/> MICROSOFT です。検索/SEARCHSERVICES/SEARCHSERVICE" |使用している ResourceId
 operationName |string |"Query.Search" |操作の名前
 operationVersion |string |"2015-02-28"|使用されている API バージョン
 カテゴリ |string |"OperationLogs" |定数 
@@ -122,7 +122,7 @@ durationMS |int |50 |操作時間 (ミリ秒)
 
 |名前 |型 |例 |メモ|
 |------|-----|----|-----|
-|resourceId |文字列 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/既定/プロバイダー/<br/>MICROSOFT です。検索/SEARCHSERVICES/SEARCHSERVICE"  |使用しているリソース ID |
+|resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/既定/プロバイダー/<br/>MICROSOFT です。検索/SEARCHSERVICES/SEARCHSERVICE"  |使用しているリソース ID |
 |metricName |string |"Latency" |メトリックの名前 |
 |time|datetime |"2015-12-07T00:00:43.6872559Z" |操作のタイムスタンプ |
 |average |int |64|メトリックの時間間隔内の生のサンプルの平均値 |
@@ -203,4 +203,5 @@ Power BI Desktop で独自のレポートを作成する、次のサンプル �
 [3]: ./media/search-traffic-analytics/GetData.png
 [4]: ./media/search-traffic-analytics/BlobStorage.png
 [5]: ./media/search-traffic-analytics/QueryEditor.png
+
 

@@ -85,7 +85,7 @@ OfficeSpace Software にシングル サインオンを構成するには、証�
 
 4.   **OfficeSpace Software でのシングル サインオンの構成** ] ページで、証明書をダウンロードする] をクリックして **証明書のダウンロード**, 、お使いのコンピューターにローカルで証明書ファイルを保存します。
 
-    ![Configure single sign-on](./media/active-directory-saas-officespace-software-tutorial/IC793769.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-officespace-software-tutorial/IC793769.png "Configure single sign-on")
 
 5.  別の Web ブラウザーのウィンドウで、管理者として OfficeSpace Software 企業サイトにログインします。
 
@@ -112,7 +112,7 @@ OfficeSpace Software にシングル サインオンを構成するには、証�
 
 9.  Azure AD ポータルでのシングル サインオンの構成情報を選択し、 **完了** を閉じる、 **[シングル サインオン** ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-officespace-software-tutorial/IC777772.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-officespace-software-tutorial/IC777772.png "Configure single sign-on")
 ##ユーザー プロビジョニングの構成
   
 Azure AD ユーザーの OfficeSpace Software へのログインを有効にするためには、ユーザーを OfficeSpace Software にプロビジョニングする必要があります。 OfficeSpace Software の場合は、プロビジョニングは自動化されています。  
@@ -138,3 +138,4 @@ Azure AD ユーザーの OfficeSpace Software へのログインを有効にす�
     ![あり](./media/active-directory-saas-officespace-software-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

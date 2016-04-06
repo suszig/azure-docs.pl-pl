@@ -10,7 +10,7 @@ Git をインストールするために必要な手順は、オペレーティ�
 
 > [AZURE.NOTE] 一部のオペレーティング システムをコマンドラインと GUI の両方のバージョンの Git を使用します。 この記事で説明する手順では、コマンド ライン バージョンを使用します。
 
-## <a id="Step2"></a>手順 2: ローカル リポジトリを作成します。
+## <a id="Step2"></a>手順 2: ローカル リポジトリの作成
 
 次のタスクを実行して、新しい Git リポジトリを作成します。
 
@@ -28,7 +28,7 @@ Git をインストールするために必要な手順は、オペレーティ�
 
     これは、など、メッセージを返す必要があります **[path] で、初期化済み空の Git リポジトリ**します。
 
-## <a id="Step3"></a>手順 3: web ページを追加します。
+## <a id="Step3"></a>手順 3: Web ページの追加
 
 Web Apps では、さまざまなプログラミング言語で作成されたアプリケーションをサポートしています。 この例では、静的 .html ファイルを使用します。
 
@@ -68,7 +68,7 @@ Web Apps では、さまざまなプログラミング言語で作成された�
 
     ![](./media/publishing-with-git/azure2-credentials.png)
 
-## <a id="Step5"></a>プロジェクトの展開
+## <a id="Step5"></a>プロジェクトのデプロイ
 
 * [ローカル ファイルの Azure へのプッシュ (ローカル Git)](#Step6)
 * [BitBucket、CodePlex、Dropbox、GitHub、または Mercurial などのリポジトリ web サイトからのファイルをデプロイします。](#Step7)
@@ -296,4 +296,5 @@ Git を使用して Azure の Web アプリに発行する場合に発生する�
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Using Dropbox to Share Git Repositories]: https://gist.github.com/trey/2722927
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
+
 

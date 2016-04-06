@@ -28,7 +28,7 @@
 * Visual Studio で、[ファイル] の [新しいプロジェクト] を選択します。 
 * 新しいプロジェクト] ダイアログ ボックスに移動、 **オンライン サンプル** の **Visual c#** し、右上にある検索ボックスに「elastic db」を入力します。
     
-    ![Entity Framework とサンプル アプリケーションの弾力性データベース][1] 
+    ![Entity Framework と エラスティック データベースのサンプル アプリ][1] 
 
     という名前のサンプルを選択して **Elastic DB Tools for Azure SQL – Entity Framework Integration**します。 ライセンスに同意すると、サンプルが読み込まれます。 
 
@@ -280,3 +280,4 @@ Entity Framework アプリケーションは、Azure SQL Database の Elastic Da
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
+

@@ -79,7 +79,8 @@ Azure 仮想マシンが Ubuntu イメージまたは CoreOS イメージから�
 詳細については、次を参照してください。、 [Ubuntu 用 cloud-init documentation ドキュメント](https://help.ubuntu.com/community/CloudInit)します。
 
 <!--Link references-->
-[Add Role Service Management REST API Reference](http://msdn.microsoft.com/library/azure/jj157186.aspx)
+[ロールの追加](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
 [Azure コマンド ライン インターフェイス](https://github.com/Azure/azure-xplat-cli)
+
 

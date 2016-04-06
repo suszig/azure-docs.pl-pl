@@ -110,7 +110,7 @@ APNS では、証明書を使用してモバイル サービスを認証しま�
 
     ![][9]
 
-    メモ: 既定では、ダウンロードしたファイルは開発証明書の名前は <strong>aps_development.cer</strong>.
+    メモ: 既定では、ダウンロードした開発証明書ファイルの名前は <strong>aps_development.cer</strong> になっています。
 
 7. ダウンロードしたプッシュ証明書をダブルクリック **aps_development.cer**します。
 
@@ -118,7 +118,7 @@ APNS では、証明書を使用してモバイル サービスを認証しま�
 
     ![][10]
 
-    メモ: 証明書の名前が異なる、可能性がありますが、それが付けられます <strong>Apple Development iOS Push Notification Services:</strong>.
+    メモ: 証明書の名前は異なることがありますが、名前の前に <strong>Apple Development iOS Push Notification Services:</strong> が付きます。
 
 後で、この証明書を使用して .p12 ファイルを生成し、それを Mobile Service にアップロードして APNS による認証を有効にします。
 
@@ -150,7 +150,7 @@ APNS では、証明書を使用してモバイル サービスを認証しま�
 
     ![][117]
 
-## <a name="configure-mobileServices"></a>プッシュ要求を送信するようにモバイル サービスを構成する
+## <a name="configure-mobileServices"></a>プッシュ要求を送信するように Mobile Services を構成する
 
 アプリケーションを APNS に登録し、プロジェクトを構成した後で、モバイル サービスを APNS と統合するように構成する必要があります。
 
@@ -402,4 +402,5 @@ APNS と連携するようにモバイル サービスが構成されました�
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
+
 

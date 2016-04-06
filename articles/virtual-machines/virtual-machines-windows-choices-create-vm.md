@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 従来のデプロイ モデルです。
 
-仮想マシンとその各種リソースを 1 つの論理的なデプロイメント単位として作成および管理する手段として、Azure リソース マネージャー テンプレートが最近導入されました。 このアプローチに関する手順が、以下で該当する箇所に記載されています。 Azure リソース マネージャーと 1 つの単位としてリソースを管理する方法に関する詳細については、[概要] を参照してください。
+仮想マシンとその各種リソースを 1 つの論理的なデプロイメント単位として作成および管理する手段として、Azure リソース マネージャー テンプレートが最近導入されました。 このアプローチに関する手順が、以下で該当する箇所に記載されています。 Azure リソース マネージャーと 1 つの単位としてリソースを管理する方法の詳細については、次を参照してください。、 [概要][]します。
 
 ## ツールの選択肢
 
@@ -78,4 +78,5 @@ Azure PowerShell については、以下をご覧ください。
 [Base configuration test environment]: virtual-machines-base-configuration-test-environment.md
 
 [Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
+
 

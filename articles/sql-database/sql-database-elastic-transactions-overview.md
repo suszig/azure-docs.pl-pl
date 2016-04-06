@@ -22,7 +22,7 @@ Azure SQL Database (SQL DB) のエラスティック データベース トラ�
 
 従来、このようなシナリオをオンプレミスで実現するためには通常、Microsoft 分散トランザクション コーディネーター (MSDTC) が必要でした。 Azure における PaaS (Platform-as-a-Service) アプリケーションでは MSDTC が利用できないため、分散トランザクションの調整機能が SQL DB に直接統合されました。 アプリケーションは、任意の SQL Database に接続して分散トランザクションを開始できます。すると、いずれかのデータベースによって分散トランザクションが透過的に調整されます。そのようすを示したのが次の図です。 
 
-  ![弾力性データベースのトランザクションを使用して Azure SQL Database の分散トランザクション][1]
+  ![エラスティック データベース トランザクションを使用した Azure SQL Database での分散トランザクション ][1]
 
 ## 一般的なシナリオ
 
@@ -147,6 +147,7 @@ Azure アプリケーションでエラスティック データベースの機�
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
+
 
 
 

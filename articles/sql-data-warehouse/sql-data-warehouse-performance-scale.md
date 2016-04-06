@@ -73,12 +73,12 @@ PowerShell を使用すれば、サービスの再開も非常に簡単に行う
 Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
-PowerShell を使用する方法の詳細については、[PowerShell コマンドレットの概要] の記事を参照してください。
+PowerShell を使用する方法の詳細についてを参照してください、 [PowerShell コマンドレットの概要を][] 記事です。
 
 > [Azure.Note] ストレージはコンピューティング、ストレージから独立した後は、一時停止による影響はありません。
 
 ## 次のステップ
-パフォーマンスの概要は、[パフォーマンスの概要に関するページを参照してください。
+パフォーマンスの概要を参照してください。 [パフォーマンスの概要][]します。
 
 <!--Image references-->
 
@@ -92,4 +92,5 @@ PowerShell を使用する方法の詳細については、[PowerShell コマン
 <!--Other Web references-->
 
 [Azure Classic Portal]: http://portal.azure.com/
+
 

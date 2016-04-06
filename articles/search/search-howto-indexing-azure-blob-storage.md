@@ -192,7 +192,7 @@ PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_auth
 MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | テキストを抽出します。添付ファイルも対象となります。
 ZIP (application/zip) | `metadata_content_type` | アーカイブ内のすべてのドキュメントからテキストを抽出します。
 XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | XML マークアップを削除し、テキストを抽出します。 </td>
-JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | テキストを抽出<br/>メモ: JSON blob から複数のドキュメント フィールドを抽出する必要がある場合に投票してください [この UserVoice の推奨事項。](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs)
+JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | テキストを抽出します。<br/>メモ: JSON blob から複数のドキュメント フィールドを抽出する場合は、くださいに投票して [この UserVoice の推奨事項](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs)
 プレーン テキスト (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
 <a name="CustomMetadataControl"></a>
@@ -207,4 +207,5 @@ AzureSearch_Skip | "true" | BLOB を完全にスキップするようそのイ�
 ## Azure Search の品質向上にご協力ください
 
 機能要求や改善のためのアイデアがある場合は、くださいに達し、ことで、 [UserVoice サイト](https://feedback.azure.com/forums/263029-azure-search)します。
+
 

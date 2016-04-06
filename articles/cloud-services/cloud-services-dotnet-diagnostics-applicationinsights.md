@@ -26,21 +26,21 @@ Azure 診断データを Application Insights に送信するには、次の手�
 
 1) Visual Studio のソリューション エクスプ ローラーでロールを右クリックし、選択 **プロパティ** ロール デザイナーを開く
     
-![ソリューション エクスプ ローラーのロールのプロパティ][1]
+![Solution Explorer Role Properties][1]
 
 2) セクションで、診断の下でのロール デザイナー内にあるチェック ボックスを選択して **診断データを Application Insights に送信します。**
 
-![ロール デザイナーは、診断データを application insights に送信][2]
+![ロール デザイナーによる Application Insights への診断データの送信][2]
 
 3) ポップアップ表示されるダイアログ ボックスでは、Azure 診断データを送信する Application Insights のリソースを選択します。 このダイアログ ボックスでは、サブスクリプションから既存の Application Insights リソースを選択するか、Application Insights リソースのインストルメンテーション キーを手動で指定することができます。 既存の Application Insights のリソースがないかどうかは] をクリックして作成することができます、 **リソースを新規作成** リンクに Application Insights のリソースを作成する Azure クラシック ポータルをブラウザー ウィンドウを開きます。 Application Insights リソースの作成の詳細については「 [Application Insights リソースを新規作成する](app-insights-create-new-resource.md)
 
-![application insights リソースの選択][3]
+![Application Insights リソースの選択][3]
 
 4) 名前のサービスの構成設定として、そのリソースのインストルメンテーション キーが格納されている Application Insights リソースを追加した後 **APPINSIGHTS_INSTRUMENTATIONKEY**します。 サービス構成ごとまたは環境ごとにこの構成設定を変更するには、[サービス構成] ボックスから別の構成を選択し、その構成の新しいインストルメンテーション キーを指定します。
 
-![サービスの構成][4]
+![サービス構成の選択][4]
     
- **APPINSIGHTS_INSTRUMENTATIONKEY** 構成設定が発行時に適切な Application Insights のリソース情報で診断拡張機能を構成する Visual Studio によって使用されます。 この構成設定は、さまざまなサービス構成に異なるインストルメンテーション キーを定義するときに便利な方法です。 この設定は、発行時に Visual Studio によって変換され、診断の拡張機能のパブリック構成に挿入されます。 PowerShell を使用して診断の拡張機能を構成するプロセスを単純化するために、Visual Studio から出力されたパッケージには、該当する Application Insights インストルメンテーション キーを格納したパブリック構成 XML も含まれます。 このパブリック構成ファイルは、PaaSDiagnostics.<RoleName>.PubConfig.xml という名前で拡張機能フォルダーに作成されます。 このファイルを PowerShell ベースのデプロイで使用し、各構成をロールにマップすることができます。
+ **APPINSIGHTS_INSTRUMENTATIONKEY** 構成設定が発行時に適切な Application Insights のリソース情報で診断拡張機能を構成する Visual Studio によって使用されます。 この構成設定は、さまざまなサービス構成に異なるインストルメンテーション キーを定義するときに便利な方法です。 この設定は、発行時に Visual Studio によって変換され、診断の拡張機能のパブリック構成に挿入されます。 PowerShell を使用して診断の拡張機能を構成するプロセスを単純化するために、Visual Studio から出力されたパッケージには、該当する Application Insights インストルメンテーション キーを格納したパブリック構成 XML も含まれます。 パブリック構成ファイルでは、拡張機能フォルダーに作成され、PaaSDiagnostics パターンに従います。<RoleName>.いずれかのデプロイします。 このファイルを PowerShell ベースのデプロイで使用し、各構成をロールにマップすることができます。
 
 5) 有効にすると、 **診断データを Application Insights に送信** は自動的にすべてのパフォーマンス カウンターと Application Insights に Azure 診断エージェントによって収集されるエラー レベルのログを送信する Azure 診断を構成します。 Application Insights に送信されるデータをさらに構成するかどうかは、手動で編集する必要があります、 *diagnostics.wadcfgx* 各ロール用のファイルです。 参照してください [データを Application Insights に送信するための Azure 診断の構成](azure-diagnostics-configure-applicationinsights.md) を手動で構成を更新する方法の詳細を参照してください。 
 
@@ -59,11 +59,11 @@ Application Insights で Azure 診断データを表示するには:
 
 - 使用 [メトリックス エクスプ ローラー](../application-insights/app-insights-metrics-explorer.md) を任意のカスタム パフォーマンス カウンターまたは異なる種類の windows イベント ログのイベントの数を視覚化します。
 
-![メトリックス エクスプ ローラーでのカスタム メトリック][5]
+![メトリックス エクスプローラーのカスタム メトリックス][5]
 
 - 使用 [検索](../application-insights/app-insights-diagnostic-search.md) Azure Diagnostics によって送信された、さまざまなトレース ログを検索します。 表示、ロールがクラッシュし、その情報を再利用を原因となっているロールのハンドルされない例外がある場合などに、 *アプリケーション* のチャネル *Windows イベント ログ*します。 検索機能を使用して、Windows イベント ログのエラーを確認し、例外のスタック トレース全体を取得することで、問題の根本原因を発見できます。 
 
-![検索のトレース][6]
+![トレースの選択][6]
 
 ## 次のステップ
 
@@ -77,3 +77,4 @@ Application Insights で Azure 診断データを表示するには:
 [4]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/role-designer-appinsights-serviceconfig.png
 [5]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/metrics-explorer-custom-metrics.png
 [6]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/search-windowseventlog-error.png
+

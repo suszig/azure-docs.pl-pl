@@ -40,7 +40,7 @@
 
 3. リソース グループを選択または作成します。
 
-    *リソース グループ* の単位として、関連する Azure リソースを管理することを使用してを確立するときに便利ですが *ロールベースのアクセス制御* のアプリ用 (RBAC) ルール。 詳細については、[Azure リソースの管理] を参照してください [ResourceGroups] です。 
+    *リソース グループ* の単位として、関連する Azure リソースを管理することを使用してを確立するときに便利ですが *ロールベースのアクセス制御* のアプリ用 (RBAC) ルール。 詳細については、次を参照してください。 [Azure リソースを管理する][ResourceGroups]です。 
 
 4. App Service プランを選択または作成します。
 
@@ -64,7 +64,7 @@
 
     [*sitename*]. azurewebsites.net
 
-## <a name="createplan"></a> App Service プランを作成する
+## <a name="createplan"></a>App Service プランを作成する
 
 App Service 環境に App Service プランを作成する場合、ASE には共有ワーカーがないため、ワーカーの選択肢が異なります。  使用する必要があるワーカーは、管理者によって ASE に割り当てられたワーカーです。  つまり、新しいプランを作成するには、ASE ワーカー プールに既に存在しているすべてのプランのインスタンスの総数よりも多くのワーカーを ASE ワーカー プールに割り当てておく必要があります。  プランを作成するのに十分なワーカーが ASE ワーカー プールにない場合は、ASE の管理者に依頼してワーカーを追加してもらう必要があります。
 
@@ -117,4 +117,5 @@ Web アプリと App Service プランを作成した後は、これをスケー
 [HowtoConfigureASE]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
+
 

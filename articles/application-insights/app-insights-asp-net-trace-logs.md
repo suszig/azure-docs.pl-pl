@@ -79,7 +79,7 @@ TrackTrace の利点は、比較的長いデータをメッセージの中に配
 * 同じユーザー要求に関連する (つまり、OperationId が同じ) 他の利用統計情報を探す 
 * このページの構成をお気に入りとして保存する
 
-> [AZURE.NOTE] **をサンプリングします。**アプリケーションが送信するデータ量が多く、Application Insights SDK for ASP.NET バージョン 2.0.0-beta3 以降を使用している場合は、アダプティブ サンプリング機能が動作して、テレメトリの一定の割合のみが送信される可能性があります。 [サンプリングについて説明します。](app-insights-sampling.md)
+> [AZURE.NOTE] **をサンプリングします。** アプリケーションが送信するデータ量が多く、Application Insights SDK for ASP.NET バージョン 2.0.0-beta3 以降を使用している場合は、アダプティブ サンプリング機能が動作して、テレメトリの一定の割合のみが送信される可能性があります。 [サンプリングの詳細については、こちらを参照してください。](app-insights-sampling.md)
 
 ## 次のステップ
 
@@ -107,7 +107,7 @@ Application Insights をインストールしないでログ アダプターの 
 
 ### 予期されるログ エントリの一部が表示されません
 
-アプリケーションが送信するデータ量が多く、Application Insights SDK for ASP.NET バージョン 2.0.0-beta3 以降を使用している場合は、アダプティブ サンプリング機能が動作して、テレメトリの一定の割合のみが送信される可能性があります。 [サンプリングについて説明します。](app-insights-sampling.md)
+アプリケーションが送信するデータ量が多く、Application Insights SDK for ASP.NET バージョン 2.0.0-beta3 以降を使用している場合は、アダプティブ サンプリング機能が動作して、テレメトリの一定の割合のみが送信される可能性があります。 [サンプリングの詳細については、こちらを参照してください。](app-insights-sampling.md)
 
 ## <a name="add"></a>次のステップ
 
@@ -128,3 +128,4 @@ Application Insights をインストールしないでログ アダプターの 
 [start]: app-insights-overview.md
 
  
+

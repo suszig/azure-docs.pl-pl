@@ -60,7 +60,7 @@
 **確認**
 
 1. コマンド プロンプトを起動し、`%Program Files%\Microsoft Azure AD Sync\bin` に移動します。
-2. 実行します。 `csexport "Name of Connector" %temp%\export.xml /f:x`<BR/>
+2. 次のコマンドを実行します: `csexport "Name of Connector" %temp%\export.xml /f:x`<BR/>
 コネクタの名前は、同期サービスではあります。 Azure AD の場合は、"contoso.com - AAD" のような名前が表示されます。
 3. 次のコマンドを実行します: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`
 4. %temp% に export.csv という名前のファイルが生成されます。このファイルは、Microsoft Excel で開くことができます。 このファイルには、エクスポートの対象となるすべての変更が含まれています。
@@ -117,4 +117,5 @@ Azure AD Connect に付属している SQL Server Express を使用しない場�
 詳細について、 [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) 構成します。
 
 詳細について [内部設置型 id と Azure Active Directory の統合](active-directory-aadconnect.md)します。
+
 

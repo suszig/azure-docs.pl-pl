@@ -18,7 +18,7 @@
 
 #プッシュ通知内での絵文字の使用
 
-絵文字を含めることができます、いくつかの簡単なステップでのプッシュ通知に。 
+次の簡単な手順で、プッシュ通知に絵文字を含めることができます。 
 
 1. まず、メッセージで送信する絵文字を検索する必要があります。 デバイス メーカーが、新たに承認された絵文字をデバイス プラットフォームに追加するのに時間がかかるので、選択しようとしている絵文字が対象のデバイスでサポートされることを確認してください。 
 
@@ -49,5 +49,6 @@
 [5]: ./media/mobile-engagement-use-emoji-with-push/WindowsPhone_Emoji.png
 [6]: ./media/mobile-engagement-use-emoji-with-push/Mac_SelectEmoji.png
 [7]: ./media/mobile-engagement-use-emoji-with-push/Windows_SelectEmoji.png
+
 
 

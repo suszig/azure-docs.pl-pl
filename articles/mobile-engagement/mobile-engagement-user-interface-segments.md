@@ -106,8 +106,8 @@ UI の [Segment (セグメント)] セクションでは、異なる動作に基
 
 ## 関連項目
 
-- [概念][6 のリンク]
-- [番組ガイド サービスのトラブルシューティング][24 のリンク]
+- [概念][Link 6]
+- [トラブルシューティング ガイド - サービス][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -204,3 +204,4 @@ UI の [Segment (セグメント)] セクションでは、異なる動作に基
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
+

@@ -74,7 +74,7 @@ azure モジュールは、Azure のストレージ アカウントに接続す�
 
 環境変数を設定の例については、 [Azure ポータル](portal.azure.com) Azure の web サイトを参照してください。 [Node.js web application with Storage]
 
-## テーブルの作成
+## テーブルを作成する
 
 次のコード作成、 **TableService** オブジェクトを使用して、新しいテーブルを作成します。 次のコードの先頭付近にある追加 **server.js**します。
 
@@ -92,7 +92,7 @@ azure モジュールは、Azure のストレージ アカウントに接続す�
 
 ### フィルター
 
-オプションのフィルター操作を使用して行われる操作に適用できます **TableService**します。 フィルター操作には、ログや自動的な再試行などが含まれる場合があります。フィルターは、次のシグネチャを持つメソッドを実装するオブジェクトです。
+オプションのフィルター操作を使用して行われる操作に適用できます **TableService**します。 フィルター操作には、ログ、自動的な再試行などが含まれる場合があります。フィルターは、次のシグネチャを持つメソッドを実装するオブジェクトです。
 
         function handle (requestOptions, next)
 
@@ -450,4 +450,5 @@ ACL を設定した後で、ポリシーの ID に基づいて SAS を作成で�
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
   [Node.js web application with Storage]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
+
 

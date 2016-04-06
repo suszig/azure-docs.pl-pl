@@ -114,13 +114,13 @@ Azure SDK for .NET を使用してクラウド サービスをアップデート
 
 ### デプロイされているすべての仮想マシンで、指定した負荷分散入力エンドポイントの構成をアップデートします。
 
-#### 要求
+#### Request (要求)
 
     POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>
 
 LoadBalancerDistribution の値のできます 2 組のアフィニティ、3 組のアフィニティの Sourceip、またはなし (アフィニティなし。 つまり 5 組)
 
-#### Response
+#### 応答
 
     <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
       <InputEndpoint>
@@ -151,4 +151,5 @@ LoadBalancerDistribution の値のできます 2 組のアフィニティ、3 �
       </InputEndpoint>
     </LoadBalancedEndpointList>
  
+
 

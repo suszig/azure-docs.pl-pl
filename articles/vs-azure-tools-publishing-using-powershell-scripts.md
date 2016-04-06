@@ -331,7 +331,7 @@ Windows PowerShell コマンド プロンプトで使用できる関数のヘル
 |Restore-Subscription|現在のサブスクリプションを元のサブスクリプションにリセットします。|
 |Test-AzureModule|インストールされている Azure モジュールのバージョンが 0.7.4 以降の場合は、`$true` を返します。 モジュールがインストールされていないか以前のバージョンの場合は、`$false` を返します。 この関数にはパラメーターはありません。|
 |Test-AzureModuleVersion|Azure モジュールのバージョンが 0.7.4 以降の場合は、`$true` を返します。 モジュールがインストールされていないか以前のバージョンの場合は、`$false` を返します。 この関数にはパラメーターはありません。|
-|Test-HttpsUrl|入力 URL を System.Uri オブジェクトに変換します。 URL が絶対 URL で、スキームが https の場合は、`$True` を返します。 URL が相対 URL の場合、スキームが https でない場合、または入力文字列を URL に変換できない場合は、`$false` を返します。|
+|Test-HttpsUrl|入力 URL を System.Uri オブジェクトに変換します。 URL が絶対 URL で、スキームが https の場合は、`$True` を返します。 返します。 `$false` URL が相対と、そのスキームが HTTPS、をでないまたは入力文字列は、URL に変換することはできません。|
 |Test-Member|プロパティまたはメソッドがオブジェクトのメンバーである場合は、`$true` を返します。 それ以外の場合は、`$false` を返します。|
 |Write-ErrorWithTime|現在の時刻が先頭に付加されたエラー メッセージを書き込みます。 この関数は、 **Format-devtestmessagewithtime** 前に、メッセージをエラー ストリームに書き込む前に時刻を付加する関数。|
 |Write-HostWithTime|ホスト プログラムにメッセージを書き込みます (**Write-host**) の現在の時刻をプレフィックスします。 ホスト プログラムへの書き込み結果はさまざまです。 Windows PowerShell をホストするほとんどのプログラムが、これらのメッセージを標準出力に書き込みます。|
@@ -350,4 +350,5 @@ Windows PowerShell コマンド プロンプトで使用できる関数のヘル
 ## 次のステップ
 
 PowerShell スクリプトを読み取っての処理の詳細について [Windows PowerShell でのスクリプティング](https://technet.microsoft.com/library/bb978526.aspx) 時に、その他の Azure PowerShell スクリプトを表示し、 [スクリプト センター](https://azure.microsoft.com/documentation/scripts/)します。
+
 

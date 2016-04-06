@@ -205,7 +205,7 @@ NuGet パッケージで提供される Web ロール用と worker ロール用�
 
 ## 診断の取得 
 
-診断には、Visual Studio サーバー エクスプローラーのサーバー エクスプローラー ツリーの Azure の部分から簡単にアクセスできます。 Visual Studio インスタンスを開き、メニュー バーで [ビュー]、[サーバー エクスプローラー] の順にクリックします。 Azure のアイコンをクリックして Azure サブスクリプションに接続します。 次に、Azure、[ストレージ]、[<your storage account>]、[テーブル]、[WADLogsTable] の順に移動します。 詳細については、次を参照してください。 [サーバー エクスプ ローラーを使用したストレージ リソース](http://msdn.microsoft.com/library/azure/ff683677.aspx)します。 
+診断には、Visual Studio サーバー エクスプローラーのサーバー エクスプローラー ツリーの Azure の部分から簡単にアクセスできます。 Visual Studio インスタンスを開き、メニュー バーで [ビュー]、[サーバー エクスプローラー] の順にクリックします。 Azure のアイコンをクリックして Azure サブスクリプションに接続します。 Azure に移動し、記憶域]-> [-> <your storage account> -> [WADLogsTable] メニューの [テーブルです。 詳細については、次を参照してください。 [サーバー エクスプ ローラーを使用したストレージ リソース](http://msdn.microsoft.com/library/azure/ff683677.aspx)します。 
 
 ![WADLogsTable][2]
 
@@ -244,4 +244,5 @@ NuGet パッケージで提供される Web ロール用と worker ロール用�
 [2]:./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics.png
 [3]:./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
+
 

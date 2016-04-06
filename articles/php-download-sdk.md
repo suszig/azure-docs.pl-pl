@@ -46,7 +46,7 @@ Azure 用 PHP クライアント ライブラリを使用する方法につい�
 
 
     > [AZURE.NOTE]
-    > On Windows, you will also need to add the Git executable to your PATH environment variable.
+    > Windows では、Git 実行可能ファイルを PATH 環境変数に追加する必要があります。
 
 2. という名前のファイルを作成する **composer.json** 、プロジェクトのルートにし、次のコードを追加します。
 
@@ -132,4 +132,5 @@ Azure CLI は、Azure Websites や Azure Virtual Machines などの Azure サー
 [powershell-tools]: http://go.microsoft.com/fwlink/?LinkId=252718
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+
 

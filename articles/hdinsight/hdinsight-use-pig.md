@@ -84,7 +84,7 @@ Pig での UDF の使用例については、以下のドキュメントを参�
 
 ![変換のグラフィカル表示][image-hdi-pig-data-transformation]
 
-##<a id="run"></a>Pig Latin ジョブを実行します。
+##<a id="run"></a>Pig Latin ジョブを実行する
 
 HDInsight では、さまざまな方法を使用して Pig Latin ジョブを実行できます。 次の表を使用して、適切な方法を判別してから、該当するチュートリアルのリンクをクリックしてください。
 
@@ -145,4 +145,5 @@ SSIS を Azure Feature Pack について学ぶこと [ここ][ssispack]します
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
+
 

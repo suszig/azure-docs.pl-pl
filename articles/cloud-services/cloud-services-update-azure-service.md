@@ -178,7 +178,8 @@ Azure では、設定された数のアップグレード ドメイン全体に�
 > [AZURE.NOTE] Azure のアップグレード ドメイン間でのインスタンスの割り当て方法が制御されることに注意してください。 どのインスタンスをどのドメインに割り当てるかを指定することはできません。
 
 ## 次のステップ
-[クラウド サービスを管理する方法](cloud-services-how-to-manage.md)<br>
-[クラウド サービスを監視する方法](cloud-services-how-to-monitor.md)<br>
-[クラウド サービスを構成する方法](cloud-services-how-to-cofigure.md)<br>
+[Cloud Services の管理方法](cloud-services-how-to-manage.md)<br>
+[クラウド サービスの監視方法](cloud-services-how-to-monitor.md)<br>
+[Cloud Services の構成方法](cloud-services-how-to-cofigure.md)<br>
+
 

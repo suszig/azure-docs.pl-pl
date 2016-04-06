@@ -19,13 +19,13 @@
 # App Service 環境への受信トラフィックを制御する方法
 
 ## 概要 ##
-App Service 環境は常に地域クラシック"v1"のサブネットの [仮想ネットワーク] の作成 [仮想ネットワーク]。  新しい地域クラシック "v1" の仮想ネットワークと新しいサブネットは、App Service 環境を作成するときに定義できます。  あるいは、既存の地域クラシック "v1" の仮想ネットワークと既存のサブネット内に App Service 環境を作成することもできます。  App Service 環境の作成の詳細については、[App Service 環境を作成する方法] を参照してください [HowToCreateAnAppServiceEnvironment] です。
+App Service 環境は常に地域クラシック"v1"のサブネットに作成 [仮想ネットワーク][virtualnetwork]します。  新しい地域クラシック "v1" の仮想ネットワークと新しいサブネットは、App Service 環境を作成するときに定義できます。  あるいは、既存の地域クラシック "v1" の仮想ネットワークと既存のサブネット内に App Service 環境を作成することもできます。  App Service 環境の作成の詳細を参照してください [App Service 環境を作成する方法][HowToCreateAnAppServiceEnvironment]します。
 
 **注:**  "v2"ARM で管理された仮想ネットワークの App Service 環境を作成することはできません。
 
 App Service 環境は常にサブネット内で作成する必要があります。これは、HTTP トラフィックと HTTPS トラフィックが特定のアップストリーム IP アドレスのみから受け取られるように、アップストリーム デバイスおよびサービスの背後で受信トラフィックをロックダウンするために使用できるネットワーク境界がサブネットによって提供されるためです。
 
-[ネットワーク セキュリティ グループ] を使用するサブネット上の受信および送信ネットワーク トラフィックを制御 [NetworkSecurityGroups] です。  受信トラフィックを制御するには、ネットワーク セキュリティ グループにネットワーク セキュリティ ルールを作成してから、そのネットワーク セキュリティ グループを App Service 環境が含まれるサブネットに割り当てる必要があります。
+使用してサブネット上の受信および送信ネットワーク トラフィックを制御、 [ネットワーク セキュリティ グループ][NetworkSecurityGroups]します。  受信トラフィックを制御するには、ネットワーク セキュリティ グループにネットワーク セキュリティ ルールを作成してから、そのネットワーク セキュリティ グループを App Service 環境が含まれるサブネットに割り当てる必要があります。
 
 ネットワーク セキュリティ グループがサブネットに割り当てられると、App Service 環境におけるアプリへの受信トラフィックは、ネットワーク セキュリティ グループで定義された許可ルールと拒否ルールに基づいて許可またはブロックされます。
 
@@ -49,7 +49,7 @@ App Service 環境で使用されるポートの一覧を次に示します。
 ## 発信接続と DNS の要件 ##
 App Service 環境を適切に機能させるには、世界中の Azure Storage だけでなく、同じ Azure リージョン内の SQL Database への発信アクセスも必要です。  仮想ネットワーク内で発信インターネット アクセスがブロックされている場合、App Service 環境はこれらの Azure エンドポイントにアクセスすることはできません。
 
-App Service 環境では、仮想ネットワーク用に構成された有効な DNS インフラストラクチャも必要です。  何らかの理由で、App Service Environment の作成後に DNS 構成が変わった場合、開発者は強制的に App Service Environment から新しい DNS 構成を選択することができます。  [新しい管理ポータル] で、App Service 環境の管理ブレードの上部にある"Restart"アイコンを使用してローリング環境再起動のトリガー [NewPortal] の新しい DNS の構成を取得するための環境が発生します。
+App Service 環境では、仮想ネットワーク用に構成された有効な DNS インフラストラクチャも必要です。  何らかの理由で、App Service Environment の作成後に DNS 構成が変わった場合、開発者は強制的に App Service Environment から新しい DNS 構成を選択することができます。  [App Service 環境の管理] ブレードの上部にある「再起動」アイコンを使用してローリング環境再起動をトリガーする、 [新しい management portal][NewPortal] 新しい DNS の構成を取得するための環境が発生します。
 
 次の一覧に、App Service Environment の接続性と DNS 要件の詳細を示します。
 
@@ -65,7 +65,7 @@ App Service 環境では、仮想ネットワーク用に構成された有効�
 また、App Service 環境を作成する前に、vnet 上のカスタム DNS サーバーをセットアップしておくことをお勧めします。  App Service 環境の作成中に仮想ネットワークの DNS 構成が変更された場合、App Service 環境の作成プロセスは失敗します。  同様に、VPN ゲートウェイの他端にカスタム DNS サーバーが存在していて、その DNS サーバーが到達不能または使用できない場合、App Service 環境の作成プロセスも失敗します。
 
 ## ネットワーク セキュリティ グループの作成 ##
-ネットワーク セキュリティ グループの機能について詳しくは、次を参照してください [情報] [NetworkSecurityGroups] です。  ネットワーク セキュリティ グループの構成と App Service 環境を含むサブネットへの適用に重点を置いて、ネットワーク セキュリティ グループの特徴を以下で詳しく説明します。
+ネットワーク セキュリティ グループの機能について詳しくは、次を参照してください。 [情報][NetworkSecurityGroups]します。  ネットワーク セキュリティ グループの構成と App Service 環境を含むサブネットへの適用に重点を置いて、ネットワーク セキュリティ グループの特徴を以下で詳しく説明します。
 
 **注:** 以下に示す Powershell コマンドレットを使用してネットワーク セキュリティ グループを構成することができますのみです。  使用してネットワーク セキュリティ グループを構成することはできません、 [Azure ポータル](portal.azure.com) Nsg の構成を"v2"仮想ネットワークに関連付けられている Azure ポータルのみでは、グラフィカルなためです。  ただし、App Service 環境は現在のところ、クラシック "v1" 仮想ネットワークでしか機能しません。  したがって、"v1" 仮想ネットワークに関連付けられたネットワーク セキュリティ グループを構成するには、Powershell コマンドレットを使用する必要があります。
 
@@ -127,11 +127,11 @@ Visual Studio でのリモート デバッグが使用されている場合、�
 
 ## 使用の開始
 
-App Service 環境で開始するには、[App Service 環境の概要] を参照してください [IntroToAppServiceEnvironment]
+App Service 環境で開始するを参照してください [App Service 環境の概要。][IntroToAppServiceEnvironment]
 
-App Service 環境からバックエンド リソースに安全に接続するアプリケーションに関する詳細については、「[App Service 環境から接続するバックエンド リソースへ安全に] [SecurelyConnecttoBackend]
+App Service 環境からバックエンド リソースに安全に接続するアプリケーションに関する詳細については、「 [App Service 環境からバックエンド リソースへ安全に接続します。][SecurelyConnecttoBackend]
 
-Azure App Service プラットフォームの詳細については、[Azure App Service] [AzureAppService] を参照してください。
+Azure App Service プラットフォームの詳細については、次を参照してください。 [Azure App Service][AzureAppService]します。
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -148,4 +148,5 @@ Azure App Service プラットフォームの詳細については、[Azure App 
 
 <!-- IMAGES -->
  
+
 

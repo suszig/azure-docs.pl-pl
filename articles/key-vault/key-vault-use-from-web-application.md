@@ -1,11 +1,11 @@
 <properties 
-    pageTitle ="Web アプリケーションから Azure Key Vault の使用 |Microsoft Azure] 
-    description ="このチュートリアルを使用する web アプリケーションから Azure Key Vault を使用する方法について説明します"。 
-    サービス =「キー コンテナー」 
+    pageTitle="Web アプリケーションから Azure Key Vault の使用 |Microsoft Azure" 
+    description="このチュートリアルを使用すると、Web アプリケーションから Azure Key Vault を使用する方法について学習できます。" 
+    services="key-vault" 
     documentationCenter="" 
-    authors ="adamhurwitz" 
-    manager =""
-    タグ =「azure リソース マネージャー」//>
+    authors="adamhurwitz" 
+    manager=""
+    tags="azure-resource-manager"//>
 
 <tags 
     ms.service="key-vault" 
@@ -42,7 +42,7 @@ Key Vault にアクセスする Web アプリケーションは、Azure Active D
 
 
 
-## <a id="packages"></a>Nuget パッケージを追加します。 ##
+## <a id="packages"></a>NuGet パッケージの追加 ##
 Web アプリケーションをインストールしておく必要のあるパッケージは 3 つあります。 
 
 - Active Directory 認証ライブラリ: Azure Active Directory と対話してユーザー ID を管理するためのメソッドが含まれています。
@@ -57,7 +57,7 @@ Web アプリケーションをインストールしておく必要のあるパ�
     Install-Package Microsoft.Azure.KeyVault 
 
 
-## <a id="webconfig"></a>Web.Config を変更します。 ##
+## <a id="webconfig"></a>web.config の変更 ##
 次のように、web.config ファイルに追加する必要のある 3 つのアプリケーション設定があります。 
 
     <!-- ClientId and ClientSecret refer to the web application registration with Azure Active Directory -->
@@ -71,7 +71,7 @@ Web アプリケーションをインストールしておく必要のあるパ�
 今後 Azure の Web アプリとしてアプリケーションをホストしない場合は、web.config に実際のクライアント ID、クライアント シークレット、およびシークレットの URI の値を追加する必要があります。 追加しない場合は、これらのダミーの値をそのままにしてください。セキュリティ レベルを上げるために、Azure ポータルで実際の値を追加する予定です。 
 
 
-## <a id="gettoken"></a>アクセス トークンを取得するメソッドを追加します。 ##
+## <a id="gettoken"></a>アクセス トークンを取得するメソッドの追加 ##
 Key Vault API を使用するには、アクセス トークンが必要です。 Key Vault クライアントによって Key Vault API の呼び出しが処理されますが、アクセス トークンを取得する関数を指定する必要があります。  
 
 Azure Active Directory からアクセス トークンを取得するコードを次に示します。 このコードはアプリケーション内の任意の場所に配置できます。 Utils クラスまたは EncryptionHelper クラスを追加します。  
@@ -102,7 +102,7 @@ Azure Active Directory からアクセス トークンを取得するコード�
 
 
 
-## <a id="appstart"></a>アプリケーションの起動時のシークレットを取得します。 ##
+## <a id="appstart"></a>アプリケーション起動時のシークレットの取得 ##
 ここで、Key Vault API を呼び出してシークレットを取得するコードが必要になります。 次のコードは、それが必要になる前に呼び出されれば、どこに配置してもかまいません。 ここでは、このコードを Global.asax の Application Start イベントに配置しました。これにより、コードは起動時に 1 回実行され、アプリケーションでシークレットを使用できるようになります。 
 
     //add these using statements
@@ -119,10 +119,10 @@ Azure Active Directory からアクセス トークンを取得するコード�
 
 
 
-## <a id="portalsettings"></a>(省略可能) Azure ポータルでのアプリケーション設定の追加します。 ##
+## <a id="portalsettings"></a>Azure ポータルのアプリ設定の追加 (省略可能) ##
 Azure の Web アプリがある場合は、Azure ポータルでアプリ設定の実際の値を追加できます。 これにより、実際の値は web.config ファイルに存在しなくなりますが、個別のアクセス制御機能があるポータルによって保護されます。 これらの値は、web.config で入力した値の代わりに使用されます。 名前が同じであるかどうかを確認してください。
 
-![Azure ポータルに表示されるアプリケーション設定][1]
+![Azure ポータルに表示されるアプリケーションの設定][1]
 
 
 ## クライアント シークレットではなく、証明書を使用して認証する 
@@ -134,7 +134,7 @@ Azure AD アプリケーションを認証する別の方法は、クライア�
 4. 証明書を Web アプリに追加する
 
 
-**証明書の作成を取得または**
+**証明書を取得または作成する**
 ここで、テスト証明書を行います。 開発者コマンド プロンプトで証明書を作成する場合に使用できる、いくつかのコマンドを次に示します。 証明書ファイルの作成先となるディレクトリを変更します。 
 
     makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2015 -e 07/31/2016 -r
@@ -174,7 +174,7 @@ Azure AD アプリケーションのオブジェクトと ServicePrincipal オ�
 
 
 
-**証明書を使用するよう Web アプリにコードを追加します。**
+**証明書を使用する Web アプリにコードを追加する**
 証明書にアクセスし、認証に使用する Web アプリに、コードを追加します。 
 
 まず、証明書にアクセスするコードがあります。 
@@ -232,10 +232,10 @@ StoreLocation は LocalMachine ではなく CurrentUser であることに注意
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetAccessToken));
 
 
-**Web アプリに証明書の追加します。**
+**証明書を Web アプリに追加する**
 Web アプリに証明書を追加すると、単純な 2 段階のプロセスです。 まず Azure ポータルに移動し、Web アプリに移動します。 Web アプリの [設定] ブレードで、[カスタム ドメインおよび SSL] のエントリをクリックします。 開いたブレードで、先ほど作成した証明書 KVWebApp.pfx をアップロードし、pfx のパスワードを覚えているかどうかを確認できます。 
 
-![Azure ポータルで Web アプリに証明書の追加][2]
+![Azure ポータルでの Web アプリへの証明書の追加][2]
 
 
 最後に実行する必要があるが WEBSITE\_LOAD\_CERTIFICATES の名前と値を持つ Web アプリにアプリケーション設定を追加するには * です。 これにより、すべての証明書が読み込まれます。 アップロードした証明書のみを読み込む場合は、そのサムプリントのコンマ区切りリストを入力できます。 
@@ -254,4 +254,5 @@ Web アプリに証明書を追加する方法の詳細については、次を�
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
  
+
 

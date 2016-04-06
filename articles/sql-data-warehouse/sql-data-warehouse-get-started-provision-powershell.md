@@ -30,7 +30,7 @@ Powershell をまだセットアップしていない場合は、次のように
 
 1. Azure PowerShell モジュールをダウンロードするには、実行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)します。
 2. ウィンドウのスタートアップの種類で、モジュールを実行する **Microsoft Azure PowerShell**します。
-3. コンピューターにアカウントをまだ追加していない場合は、次のコマンドレットを実行します  (詳細については、次を参照してください。 [インストールと Azure PowerShell][]) を構成する方法。
+3. コンピューターにアカウントをまだ追加していない場合は、次のコマンドレットを実行します  (詳細については、次を参照してください [。インストールして、Azure PowerShell を構成する方法][])。
 
             Add-AzureAccount
 
@@ -52,9 +52,9 @@ Powershell をまだセットアップしていない場合は、次のように
  + **エディション**: SQL Data Warehouse を作成するには、"DataWarehouse"へのエディションを設定する必要があります。 
 
 ## 次のステップ
-SQL Data Warehouse では [サンプル データの読み込み] または、[読み込み] の [開発] 方法を確認して、プロビジョニングが完了した後か、[移行]。
+SQL Data Warehouse のプロビジョニングを実行できますが完了した後 [サンプル データの読み込み][] またはチェック アウトする方法 [開発][], 、[ロード][], 、または [移行][]します。
 
-プログラムを使用して SQL Data Warehouse を管理する方法についてさらに知りたい場合、[Powershell] や [REST API] ドキュメントをご覧ください。
+プログラムを使用して SQL Data Warehouse を管理する方法についてさらに知りたい場合はチェック アウト、 [Powershell][] または [REST API][] ドキュメントです。
 
 
 
@@ -70,4 +70,5 @@ SQL Data Warehouse では [サンプル データの読み込み] または、[�
 [MSDN]:https://msdn.microsoft.com/library/azure/dn546722.aspx
 [firewall rules]:https://azure.microsoft.com/en-us/documentation/articles/sql-database-configure-firewall-settings/
 [How to install and configure Azure PowerShell]: powershell-install-configure.md
+
 

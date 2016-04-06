@@ -79,9 +79,9 @@
 
     ![Configure Single Sign-On](./media/active-directory-saas-airwatch-tutorial/IC791917.png "Configure Single Sign-On")
 
-3.   **アプリケーション URL の構成** ] ページで、 **AirWatch サインオン URL** ] ボックスに、型に使用する URL、ユーザーが AirWatch アプリケーションにサインイン (例::"*https://companycode.awmdm.com/AirWatch/Login?gid=companycode*")、順にクリック **次**します。
+3.   **アプリケーション URL の構成** ] ページで、 **AirWatch サインオン URL** ] ボックスに、型に使用する URL、ユーザーが AirWatch アプリケーションにサインイン (例::"*https:// companycode.awmdm.com/AirWatch/Login?gid=companycode*")、順にクリック **次**します。
 
-    ![アプリケーション URL の構成](./media/active-directory-saas-airwatch-tutorial/IC791918.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-airwatch-tutorial/IC791918.png "Configure App URL")
 
 4.   **AirWatch でのシングル サインオンの構成** ] ページで [ **証明書のダウンロード**, 、お使いのコンピューターに証明書ファイルを保存します。
 
@@ -95,7 +95,7 @@
 
 7.  展開、 **設定** ] メニューの [クリックして **ディレクトリ サービス**します。
 
-    ![設定](./media/active-directory-saas-airwatch-tutorial/IC791921.png "Settings")
+    ![Settings](./media/active-directory-saas-airwatch-tutorial/IC791921.png "Settings")
 
 8.  クリックして、 **ユーザー** ] タブの [、 **ベース DN** テキスト フィールドが、ドメイン名を入力し、クリックして **保存**します。
 
@@ -115,7 +115,7 @@
 
 11.  **要求** セクションで、次の手順に従います。
 
-    ![要求](./media/active-directory-saas-airwatch-tutorial/IC791925.png "Request")
+    ![Request (要求)](./media/active-directory-saas-airwatch-tutorial/IC791925.png "Request")
 
     1.  として **Request Binding Type**, [ **POST**します。
     2.  Azure ポータルで、 **Airwatch でのシングル サインオンの構成** ] ダイアログ ページでコピー、 **シングル サインオン サービス URL** 値に設定して、貼り付けます、 **Identity Provider Single Sign On URL** ] ボックスに貼り付けます。
@@ -184,4 +184,5 @@ AirWatch の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-airwatch-tutorial/IC767830.png "Yes")
 
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+
 

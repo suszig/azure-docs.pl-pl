@@ -73,14 +73,14 @@ HDInsight の storm クラスターでは、次の 3 つのノードの種類が
 
 HDInsight の Spark クラスターには、次の 3 つの種類のノードがあります。
 - ヘッド ノード (2 ノード)
-- ワーカー ノード (1 つ以上のノード)
+- ワーカー ノード (少なくとも 1 ノード)
 - Zookeeper ノード (3 ノード) (A1 Zookeeper VM サイズは無料)
 
 ###HDInsight 用 Azure Storage
 
 各クラスターの種類には、クラスターに関連付けられている 1 つ以上の Azure Storage アカウントもあります。 HDInsight は、クラスターのデータ ストアとして、これらのストレージ アカウントの Azure BLOB を使用します。 データをクラスターから分離しておくことで、使用されていないクラスターを削除した場合でもデータを引き続き保持できます。 したがって、さらに分析が必要な場合に、新しいクラスターでも同じストレージ アカウントを使用できます。 詳細については、次を参照してください。 [Azure Blob ストレージの使用 HDInsight](../hdinsight-use-blob-storage.md)します。
 
-## <a id="configuration"></a>基本的な構成オプション
+## <a id="configuration">基本的な構成オプション</a>
 
 次のセクションでは、HDInsight クラスターの作成時に使用できる必要な構成オプションについて説明します。
 
@@ -189,9 +189,9 @@ Azure ポータルを使用して、クラスターを構成、ノードのサ�
 
 * 仮想プライベート ネットワーク (VPN) を使用したローカル データセンター ネットワークへのクラウド リソースの接続 (サイト間またはポイント対サイト)
 
-    | サイト間構成 | ポイント対サイト構成 |
-    | -------------------------- | --------------------------- |
-    | サイト間構成では、ハードウェア VPN を使用するか、ルーティングとリモート アクセス サービスを使用して、データセンターから複数のリソースを Azure 仮想ネットワークに接続できます。<br />![サイト間構成の図](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-site-to-site.png) | ポイント対サイト構成では、ソフトウェア VPN を使用して、特定のリソースを Azure 仮想ネットワークに接続できます。<br />![ポイント対サイト構成の図](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-point-to-site.png) |
+  	| サイト間構成 | ポイント対サイト構成 |
+  	| -------------------------- | --------------------------- |
+  	| サイト間構成では、ハードウェア VPN を使用するか、ルーティングとリモート アクセス サービスを使用して、データセンターから複数のリソースを Azure 仮想ネットワークに接続できます。<br />![サイト間構成の図](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-site-to-site.png) | ポイント対サイト構成では、ソフトウェア VPN を使用して、特定のリソースを Azure 仮想ネットワークに接続できます。<br />![ポイント対サイト構成の図](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-point-to-site.png) |
 
 仮想ネットワーク機能、利点、および機能の詳細については、次を参照してください。、 [Azure 仮想ネットワークの概要](http://msdn.microsoft.com/library/azure/jj156007.aspx)します。
 
@@ -218,7 +218,7 @@ Azure ポータルを使用して、クラスターを構成、ノードのサ�
 
 > [AZURE.NOTE] メタストアの構成では、HBase クラスターの種類を使用できません。
 
-###<a id="scriptaction"></a>スクリプト操作
+###<a id="scriptaction"></a>スクリプト アクション
 
 追加コンポーネントをインストールしたり、クラスターのプロビジョニング中にスクリプトを使用してクラスター構成をカスタマイズしたりできます。 このようなスクリプトを使用して実行します。 **Script Action**します。 詳細については、次を参照してください。 [HDInsight クラスターのカスタマイズ Script Action を使って](hdinsight-hadoop-customize-cluster-linux.md)します。
 
@@ -230,7 +230,7 @@ Azure ポータルを使用して、クラスターを構成、ノードのサ�
 
 セカンダリの blob ストアの使用の詳細については、次を参照してください。 [HDInsight で使用して Azure Blob ストレージ](../hdinsight-use-blob-storage.md)します。
 
-##<a id="nextsteps"></a><a id="options"></a> 作成方法
+##<a id="nextsteps"></a><a id="options"></a>作成方法
 
 この記事では、Linux ベースの HDInsight クラスターの作成に関する基本的な情報を提供しました。 ニーズに最も適した方法を使用してクラスターを作成する方法に関する特定の情報を検索するには、次の表を使用します。
 
@@ -290,4 +290,5 @@ Azure ポータルを使用して、クラスターを構成、ノードのサ�
 [img-hdi-cluster]: ./media/hdinsight-hadoop-provision-linux-clusters/HDI.Cluster.png
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use Sqoop with HDInsight"
+
 

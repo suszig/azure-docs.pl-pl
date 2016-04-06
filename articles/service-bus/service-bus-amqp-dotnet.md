@@ -74,7 +74,7 @@ AMQP を使用する場合は、接続文字列に `;TransportType=Amqp` を付�
 | char                           | char                                      | AMQP 値                                                                                                                                                |
 | DateTime                       | timestamp                                 | AMQP 値                                                                                                                                                |
 | Guid                           | uuid                                      | AMQP 値                                                                                                                                                |
-| byte[]                         | バイナリ                                    | AMQP 値                                                                                                                                                |
+| byte[]                         | binary                                    | AMQP 値                                                                                                                                                |
 | string                         | string                                    | AMQP 値                                                                                                                                                |
 | System.Collections.IList       | list                                      | AMQP 値: コレクションに含まれるアイテムとして指定できるのは、この表で定義されているアイテムのみです。                                                             |
 | System.Array                   | array                                     | AMQP 値: コレクションに含まれるアイテムとして指定できるのは、この表で定義されているアイテムのみです。                                                             |
@@ -203,3 +203,4 @@ AMQP を使用する場合、Service Bus .NET API の次の機能は、現在サ
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
 [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+

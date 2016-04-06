@@ -79,7 +79,7 @@
 
 3.   **アプリケーション URL の構成** ] ページの [、 **サインオン URL** ] ボックスに、次のパターンを使用して URL を入力"*http://company.mindflash.com*"、] をクリックし、 **次**します。
 
-    ![アプリケーション URL の構成](./media/active-directory-saas-mindflash-tutorial/IC787137.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-mindflash-tutorial/IC787137.png "Configure App URL")
 
 4.   **Mindflash でのシングル サインオンの構成** ] ページで [ **メタデータのダウンロード**, 、お使いのコンピューターにメタデータ ファイルを保存します。
 
@@ -133,3 +133,4 @@ Mindflash の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-mindflash-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

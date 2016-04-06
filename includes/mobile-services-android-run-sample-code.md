@@ -13,9 +13,9 @@
 
 
 
-    > [AZURE.NOTE] You can run this project using an Android phone, or using the Android emulator. Running with an Android phone  requires you to download a phone-specific USB driver.
+    > [AZURE.NOTE] このプロジェクトは、Android フォンまたは Android エミュレーターを使用して行うことができます。 Android フォンで実行では、機器に固有の USB ドライバーをダウンロードする必要があります。
     >
-    > To run the project in the Android emulator, you must define a least one Android Virtual Device (AVD). Use the AVD Manager to create and manage these devices.
+    > プロジェクトを Android エミュレーターで実行するには、Android Virtual Device (AVD) を 1 つ以上定義する必要があります。 これらのデバイスを作成および管理するには、AVD Manager を使用します。
 
 4. 接続されたデバイスを選択または *エミュレータの起動*します。
 
@@ -24,3 +24,4 @@
     ![](./media/download-android-sample-code/mobile-quickstart-startup-android.png)
 
     保存したテキストがメモリ内のコレクションに格納され、下のリストに表示されます。
+

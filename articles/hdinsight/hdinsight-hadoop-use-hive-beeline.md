@@ -53,7 +53,7 @@ Windows ではビルトイン SSH クライアントは提供されません。 
 
 PuTTY の使用の詳細については、次を参照してください。 [SSH Windows から Linux ベースの Hadoop を使用する ](hdinsight-hadoop-linux-use-ssh-windows.md)です。
 
-##<a id="beeline"></a>Beeline コマンドを使用してください。
+##<a id="beeline"></a>Beeline コマンドを使用する
 
 1. 接続したら、次を使用して、ヘッド ノードのホスト名を取得します。
 
@@ -153,7 +153,7 @@ PuTTY の使用の詳細については、次を参照してください。 [SSH
 
 4. Beeline を終了するには、`!quit` を使用します。
 
-##<a id="file"></a>HiveQL ファイルを実行します。
+##<a id="file"></a>HiveQL ファイルを実行する
 
 Beeline を使用し、HiveQL ステートメントを含むファイルを実行することもできます。 次の手順でファイルを作成し、Beeline を使用してそれを実行します。
 
@@ -236,5 +236,6 @@ HDInsight での Hadoop のその他の使用方法に関する情報
 
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+
 
 

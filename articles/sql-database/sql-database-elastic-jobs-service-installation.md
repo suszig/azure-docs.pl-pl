@@ -84,13 +84,13 @@
 </tr>
     <tr>
     <td>ServiceVmSize</td>
-    <td>クラウド サービス内の使用率の VM のサイズを提供します。 このパラメーターの既定値は A0 です。 A0/A1/A2/A3 のパラメーター値を指定できます。それぞれ、worker ロールに ExtraSmall/Small/Medium/Large サイズが使用されます。 Fo ワーカー ロールのサイズの詳細についてを参照してください [Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview/#components-and-pricing)します。</td>
+    <td>クラウド サービス内で使用する VM サイズを指定します。 このパラメーターの既定値は A0 です。 A0/A1/A2/A3 のパラメーター値を指定できます。それぞれ、worker ロールに ExtraSmall/Small/Medium/Large サイズが使用されます。 Fo ワーカー ロールのサイズの詳細についてを参照してください [Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview/#components-and-pricing)します。</td>
 </tr>
 
 </tr>
     <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Standard edition サービス レベル目標を提供します。 このパラメーターの既定値は S0 です。 S0/S1/S2/S3 のパラメーター値を指定できます。Azure SQL Database で各 SLO が使用されます。 SQL データベースの Slo の詳細については、次を参照してください。 [Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview/#components-and-pricing)します。</td>
+    <td>Standard エディションのサービス レベル目標を指定します。 このパラメーターの既定値は S0 です。 S0/S1/S2/S3 のパラメーター値を指定できます。Azure SQL Database で各 SLO が使用されます。 SQL データベースの Slo の詳細については、次を参照してください。 [Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview/#components-and-pricing)します。</td>
 </tr>
 
 </tr>
@@ -160,7 +160,7 @@
 3. チェック ボックスをクリックして条項に同意します。
 4. サービスのインストール] ビューで、クリックして **ジョブの資格情報**します。
 
-    ![サービスをインストールする][1]
+    ![サービスのインストール][1]
 
 5. データベース管理者のユーザー名とパスワードを入力します。 インストールの一環として、新しい Azure SQL Database サーバーが作成されます。 この新しいサーバー内に、管理データベースと呼ばれる新しいデータベースが作成され、Elastic Database ジョブのメタデータの格納に使用されます。 ここで作成されるユーザー名とパスワードは、管理データベースにログインするために使用されます。 プール内のデータベースに対するスクリプト実行には、別の資格情報が使用されます。
 
@@ -172,7 +172,7 @@
 
 7. 作成またはエラスティック データベース ジョブが提供するときにインストールするときに、ジョブを管理しようとすると **資格情報** 、次のメッセージが表示されます。 
 
-    ![進行中の展開][4]
+    ![実行中のデプロイメント][4]
 
 アンインストールが必要な場合は、リソース グループを削除します。 参照してください [弾力性データベース ジョブ コンポーネントのアンインストール方法](sql-database-elastic-jobs-uninstall.md)します。
 
@@ -187,3 +187,4 @@
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
  
+

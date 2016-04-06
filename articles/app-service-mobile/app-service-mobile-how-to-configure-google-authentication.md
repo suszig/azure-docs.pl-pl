@@ -47,17 +47,17 @@
 
 
     > [AZURE.NOTE]
-    If you are using the App Service Gateway instead of the App Service Authentication / Authorization feature, your redirect URL instead uses the gateway URL with the _/signin-google_ path.
+    アプリ サービス認証ではなく、App Service ゲートウェイを使用しているかどうかは認証機能は、代わりには使用するとゲートウェイの URL のリダイレクト URL、 _/signin-google_ パス。
 
 
 7. 次の画面で、表示されているクライアント ID とクライアント シークレットの値を書き留めます。
 
 
     > [AZURE.IMPORTANT]
-    The client secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
+    クライアント シークレットは、重要なセキュリティ資格情報です。 このシークレットを他のユーザーと共有したり、クライアント アプリケーション内で配信したりしないでください。
 
 
-## <a name="secrets"> </a>Google の情報をアプリケーションに追加します。
+## <a name="secrets"> </a>Google の情報をアプリケーションに追加する
 
 > [AZURE.NOTE]
 App Service ゲートウェイを使用する場合は、このセクションの内容は無視し、ポータル内で目的のゲートウェイに移動します。 選択 **設定**, 、**Identity**, 、し **Google**します。 先に取得した値に貼り付け、クリックして **保存**します。
@@ -97,4 +97,5 @@ App Service ゲートウェイを使用する場合は、このセクション�
 
 [Azure portal]: https://portal.azure.com/
  
+
 

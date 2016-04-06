@@ -82,7 +82,7 @@ Azure にデプロイした後にリモート アクセスを有効にするに�
 ロール インスタンスの準備ができたら、アプリケーションをホストしている仮想マシンにリモートでログインできます。
 
 * Windows および選択したで Eclipse を使用している場合、 **リモート デスクトップを開始展開** オプションを Azure にデプロイ、時に、展開の開始時に、[リモート デスクトップ接続] ログオン画面が表示されます。 ユーザー名とパスワードの入力が求められたら、リモート ユーザーに指定した値を入力します。それでログインできます。
-* リモート ログインするもう 1 つの方法は、使用、 <a href="http://go.microsoft.com/fwlink/?LinkID=512959">Microsoft Azure 管理ポータル</a>:
+* リモートでログインするもう 1 つの方法は <a href="http://go.microsoft.com/fwlink/?LinkID=512959">Microsoft Azure 管理ポータル</a>を利用することです。
     * 内で、 **Cloud Services** Azure 管理ポータルの表示をクリックして、クラウド サービス] をクリックして **インスタンス**, 、特定のインスタンスをクリックして、クリックして、 **接続** ] ボタンをクリックします。  **接続** コマンド バーに次のようにボタンが表示されます。
     ![][ic659273]  
     >[AZURE.NOTE] Windows 以外のオペレーティング システムの場合は、オペレーティング システムと互換性があるリモート デスクトップ クライアントを使用し、そのクライアントをダウンロードした RDP ファイルの設定を構成する手順に従って必要があります。
@@ -113,3 +113,4 @@ Java で Azure を使用する方法の詳細については、次を参照し�
 [ic719495]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic719495.png
 [ic719494]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic719494.png
 [ic659273]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic659273.png
+

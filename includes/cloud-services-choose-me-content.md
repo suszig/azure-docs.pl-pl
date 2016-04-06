@@ -13,7 +13,7 @@ Cloud Services は、サービスとしてのプラットフォーム (PaaS) の
 
 * **Web ロール**  
   IIS に自動的に配置された web アプリを Windows Server を実行します。
-* **ワーカー ロール**  
+* **Worker ロール**  
   Windows Server IIS 機能なしに実行されます。
 
 たとえば、単純なアプリケーションは Web ロールだけを使用するかもしれませんが、複雑なアプリケーションは Web ロールを使用してユーザーから受け取った要求を処理してから、それらの要求が作成する作業を Worker ロールに渡して処理することがあります  (この通信を使えたら [Service Bus](../articles/service-bus/fundamentals-service-bus-hybrid-solutions.md) または [Azure キュー](../articles/storage/storage-introduction.md).)
@@ -31,4 +31,5 @@ Cloud Services アプリケーションは通常、2 つの手順から成るプ
 Cloud Services は監視も提供します。 Azure Virtual Machines と同様に、故障した物理サーバーを検出し、そのサーバーで実行していた VM を別のマシンで再開します。 さらに、Cloud Services はハードウェアの故障だけではなく、エラーが発生した VM やアプリケーションも検出します。 Virtual Machines と異なり、各 Web ロール内と Worker ロール内にエージェントが含まれているので、エラーが発生したときに、新しい VM とアプリケーションのインスタンスを開始できます。
 
 PaaS という Cloud Services の本質には、他の含意もあります。 最も重要なことの 1 つは、このテクノロジを基盤に構築されるアプリケーションは、Web または Worker ロール インスタンスでエラーが発生したときに正しく実行するように記述することが必要です。 これを実現するには、Cloud Services のアプリケーションがそれ自体の VM のファイル システムで状態を維持してはなりません。 Azure Virtual Machines で作成された VM と異なり、Cloud Services VM への書き込みは永続的ではありません。その点で Virtual Machines のデータ ディスクとは大きく異なります。 Cloud Services アプリケーションはすべての状態を SQL Database、BLOB、テーブルか、その他の外部ストレージに明示的に書き込む必要があります。 この方法でアプリケーションを構築すると、スケーリングしやすく、耐障害性が備わります。この 2 つは Cloud Services の重要なゴールです。
+
 

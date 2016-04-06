@@ -24,7 +24,7 @@
 
 2. キーを押して **f5 キーを押して** ] をクリックしてまたは **デバッグ** > **[デバッグ開始]**
 
-    ![アプリケーションのデバッグを開始する][デバッグ]
+    ![アプリケーションのデバッグを開始する][startdebugging]
 
 3. コマンドをクリックしてアプリケーションをステップ実行、コードにブレークポイントを設定、 **デバッグ** メニュー。
 
@@ -32,7 +32,7 @@
 
 4.  **診断イベント** ウィンドウは自動的に開き、診断イベントをリアルタイムで表示します。
 
-    ![イベント診断をリアルタイムで表示する][diagnosticevents]
+    ![リアルタイムに診断イベントを表示する][diagnosticevents]
 
 5. 開くことも、 **診断イベント** サーバー エクスプ ローラー ウィンドウ。   **Azure**, を右クリックして **サービス ファブリック クラスター** > **診断イベントを表示しています.**
 
@@ -46,11 +46,11 @@
 
 7.  **診断イベント** ウィンドウには、フィルター処理、一時停止、およびリアルタイムのイベント検査がサポートしています。  このフィルターは、イベント メッセージとその内容の単純な文字列検索です。
 
-    ![フィルター処理、一時停止し再開、またはリアルタイムのイベント検査][diagnosticeventsactions]
+    ![フィルター処理、一時停止と再開、またはリアルタイムのイベント検査][diagnosticeventsactions]
 
 8. サービスのデバッグは、その他のアプリケーションのデバッグと似ています。 通常 Visual Studio で簡単なデバッグ用のブレークポイントを設定できます。 信頼性の高いコレクションが複数のノードにレプリケートされている場合でも、IEnumerable は実装されているため、デバッグ中に Visual Studio の結果ビューを使用して内部保存されているものを確認できます。 コードの任意の場所にブレークポイントを設定するだけです。
 
-    ![アプリケーションのデバッグを開始する][ブレークポイント]
+    ![アプリケーションのデバッグを開始する][breakpoint]
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 次のステップ
@@ -64,4 +64,5 @@
 [viewdiagnosticevents]: ./media/service-fabric-debugging-your-application/viewdiagnosticevents.png
 [diagnosticeventsactions]: ./media/service-fabric-debugging-your-application/diagnosticeventsactions.png
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
+
 

@@ -38,7 +38,7 @@ Azure Virtual Network では、Hadoop ソリューションを拡張して、SQL
 
     * **データを直接転送する** 間 HDInsight と Azure SQL データベース、SQL Server 仮想マシンで実行されている他のデータ ストレージ ソリューションです。
 
-    * **複数の HDInsight サーバーを組み合わせて** 1 つのソリューションです。 たとえば、HDInsight Storm サーバーを使用して受信データを処理し、処理したデータを HDInsight HBase サーバーに格納します。 今後 MapReduce を使用して分析するために、生データを HDInsight Hadoop サーバーに格納することもできます。
+    * **複数の HDInsight サーバーを組み合わせて** 単一のソリューションにします。 たとえば、HDInsight Storm サーバーを使用して受信データを処理し、処理したデータを HDInsight HBase サーバーに格納します。 今後 MapReduce を使用して分析するために、生データを HDInsight Hadoop サーバーに格納することもできます。
 
 * 仮想プライベート ネットワーク (VPN) を使用したローカル データセンター ネットワークへのクラウド リソースの接続 (サイト間またはポイント対サイト)。
 
@@ -175,4 +175,5 @@ HDInsight からサービスへのアクセスで問題が発生した場合は�
 * [HDInsight での Hadoop Sqoop の使用](hdinsight-use-sqoop-mac-linux.md) -Sqoop を使用して、仮想ネットワーク経由で SQL Server からデータを転送する情報を提供します。
 
 Azure の仮想ネットワークに関する詳細についてを参照してください、 [Azure 仮想ネットワークの概要](../virtual-network/virtual-networks-overview.md)します。
+
 

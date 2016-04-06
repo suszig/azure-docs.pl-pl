@@ -84,7 +84,7 @@ Limited モードでの Windows PowerShell インターフェイスにアクセ�
     - 修正プログラムをインストールする 
                                                 
 
-    >[AZURE.NOTE] **This is the preferred option if you have forgotten the device administrator password and cannot connect through option 1 or 2.**
+    >[AZURE.NOTE] **デバイス管理者パスワードを忘れて、オプション 1 または 2 を使って接続できない場合に推奨されるオプションです。**
 
 1. **言語の変更**
 このオプションでは、Windows PowerShell インターフェイスでの表示言語を変更することができます。 サポートされている言語は、英語、日本語、ロシア語、フランス語、韓国語、スペイン語、イタリア語、ドイツ語、中国語、およびポルトガル語 (ブラジル) です。
@@ -97,14 +97,14 @@ Limited モードでの Windows PowerShell インターフェイスにアクセ�
 
 1. 次のオプションが選択されていることを確認します (これらは新しいセッションを開始したときの既定の設定です)。 
 
-    |キーボードの項目|[|
-    |---|---|
-    |Backspace key|Control-? (127)|
-    |Home and End keys|Standard|
-    |Function keys and keypad|ESC[n~|
-    |Initial state of cursor keys|Normal|
-    |Initial state of numeric keypad|Normal|
-    |Enable extra keyboard features|Control-Alt is different from AltGr|
+  	|キーボードの項目|[|
+  	|---|---|
+  	|Backspace key|Control-? (127)|
+  	|Home and End keys|Standard|
+  	|Function keys and keypad|ESC[n~|
+  	|Initial state of cursor keys|Normal|
+  	|Initial state of numeric keypad|Normal|
+  	|Enable extra keyboard features|Control-Alt is different from AltGr|
 
     ![サポートされる Putty 設定](./media/storsimple-windows-powershell-administration/IC740877.png)
 
@@ -203,5 +203,6 @@ Windows PowerShell インターフェイスのヘルプは簡単に更新でき�
 
 ## 次のステップ
 上記のワークフローのいずれかを実行するときに、StorSimple デバイスで問題が発生した場合を参照してください [StorSimple デプロイメントのトラブルシューティング用ツール](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments)します。
+
 
 

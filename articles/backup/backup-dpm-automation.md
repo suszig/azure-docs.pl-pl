@@ -9,12 +9,12 @@
 
 <tags
     ms.service="backup"
-    ms.workload=「記憶域のバックアップ回復」
+    ms.workload="storage-backup-recovery"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
     ms.date="11/26/2015"
-    ms.author="jimpark"です。"aashishr"です。"sammehta"です。"anuragm"/>
+    ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
 
 
 # PowerShell を使用して Data Protection Manager (DPM) サーバーに Microsoft Azure Backup をデプロイおよび管理する手順
@@ -333,4 +333,5 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 ## 次のステップ
 
 - DPM の Azure Backup の詳細については「 [DPM Backup の概要](backup-azure-dpm-introduction.md)
+
 

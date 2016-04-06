@@ -65,7 +65,7 @@ Azure VM です。
 
 >[AZURE.NOTE] HPC Pack での Azure にバーストするチュートリアルについては、次を参照してください。 [HPC Pack 使用したハイブリッド クラスターをセットアップ](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)します。 次の手順の考慮事項は、特に A8 および A9 サイズの Azure ノードに適用されます。
 
-![Azure へのバースト][バースト]
+![Burst to Azure][burst]
 
 
 
@@ -125,7 +125,7 @@ Azure VM です。
 ドメイン、ヘッド ノード VM をコンピューティング ノード Vm との他の部分、
 Azure で HPC Pack クラスター インフラストラクチャです。 参照してください [Azure での Microsoft HPC Pack での HPC クラスター オプション](virtual-machines-hpcpack-cluster-options.md)します。
 
-![Azure Vm のクラスター][iaas]
+![Cluster in Azure VMs][iaas]
 
 
 1. **クライアント コンピューターで HPC Pack の IaaS デプロイ スクリプトを実行して、クラスター ヘッド ノードと計算ノード VM を作成する**
@@ -211,7 +211,7 @@ RDMA ネットワークです。
 
     出力には、次のように待機時間の結果が含まれます。
 
-    ![Ping pong の待機時間][pingpong1]
+    ![Ping pong latency][pingpong1]
 
 4. Azure バースト ノード ペア間のスループットを見積もるを実行するジョブを送信する次のコマンドを入力 **mpipingpong** 、大きなパケット サイズと小さな反復数。
 
@@ -231,7 +231,7 @@ RDMA ネットワークです。
     
   出力には、次のようにスループットの結果が含まれます。
 
-  ![Ping pong スループット][pingpong2]
+  ![Ping pong throughput][pingpong2]
 
 
 ### MPI アプリケーションに関する考慮事項
@@ -276,4 +276,5 @@ Azure で MPI アプリケーションを実行するための考慮事項を次
 [iaas]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/iaas.png
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
+
 

@@ -23,7 +23,7 @@
     この情報は、v2.0 アプリ モデルのパブリック プレビューに関するものです。  一般的に使用できる Azure AD と統合する方法については、サービスを参照してください、 [Azure Active Directory 開発者ガイド 』](active-directory-developers-guide.md)します。
 
 
-ここでは、Passport を使用して次の操作を行います。
+ここでは、Passport を使用して次のことを行います。
 
 - Azure AD と v2.0 アプリ モデルを使用するアプリにユーザーをサインインします。
 - ユーザーについての情報を表示します。
@@ -424,4 +424,5 @@ Microsoft の個人または職場/学校アカウントのいずれかでサイ
 その他のリソースについては、以下を参照してください。
 - [アプリ モデル v2.0 プレビュー >>](active-directory-appmodel-v2-overview.md)
 - [StackOverflow"azure active directory"タグ >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+
 

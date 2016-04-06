@@ -155,5 +155,6 @@ HDInsight での Hadoop のその他の使用方法に関する情報
 
 * [HDInsight での Hive と Hadoop の使用](hdinsight-use-hive.md)
 
-* [HDInsight での Hadoop の MapReduce を使用します。](hdinsight-use-mapreduce.md)
+* [HDInsight での MapReduce と Hadoop の使用](hdinsight-use-mapreduce.md)
 [プレビュー ポータル]: https://portal.azure.com/
+

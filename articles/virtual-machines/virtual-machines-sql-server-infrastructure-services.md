@@ -20,7 +20,7 @@
 # Azure Virtual Machines における SQL Server の概要
 
 ## 使用の開始
-ホストできます [Azure 仮想マシン上の SQL Server](http://azure.microsoft.com/services/virtual-machines/sql-server/) さまざまな構成では、1 つのデータベース サーバーから AlwaysOn 可用性グループと Azure の仮想ネットワークを使用して複数コンピューター構成までの範囲内です。
+ホストできます [Azure 仮想マシン上の SQL Server](http://azure.microsoft.com/services/virtual-machines/sql-server/) さまざまな構成では、単一のデータベース サーバーから AlwaysOn 可用性グループと Azure の仮想ネットワークを使用して複数コンピューター構成までの範囲内です。
 
 >[AZURE.NOTE] Azure でリレーショナル データを格納するための 1 つのオプションは、Azure VM に SQL Server を実行します。 Azure SQL Database サービスを使用することもできます。 詳細については、次を参照してください。 [理解する Azure SQL Database と Azure Vm における SQL Server](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)します。
 
@@ -147,4 +147,5 @@ SQL Server 仮想マシンを起動した後、マシンに既存のデータベ
 - [Azure Virtual Machines における SQL Server の高可用性と障害復旧](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)
 - [Azure Virtual Machines における SQL Server のアプリケーション パターンと開発計画](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Azure Virtual Machines](virtual-machines-about.md) 
+
 

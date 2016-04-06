@@ -20,15 +20,15 @@
 
 これらの記事には、SQL Data Warehouse に関する参照情報が含まれています。
 
-[TRANSACT-SQL 言語要素][]
-[Transact SQL ステートメント][]
-[TRANSACT-SQL システム ビュー][]
+[Transact-SQL 言語要素][]
+[Transact-SQL ステートメント][]
+[Transact-SQL システム ビュー][]
 [PowerShell コマンドレット][]
 
 
 
 ## 次のステップ
-詳細については、[開発の概要に関するページを参照してください。
+詳細については、次を参照してください。 [開発の概要][]します。
 
 <!--Image references-->
 
@@ -41,3 +41,4 @@
 
 
 <!--MSDN references-->
+

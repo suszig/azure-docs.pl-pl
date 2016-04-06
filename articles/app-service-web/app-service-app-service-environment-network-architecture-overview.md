@@ -19,11 +19,11 @@
 # App Service 環境のネットワーク アーキテクチャの概要
 
 ## はじめに ##
-App Service 環境は、[仮想ネットワーク] のサブネット内で常に作成される [仮想ネットワーク] - App Service 環境で実行されるアプリは、同じ仮想ネットワーク トポロジ内に配置されたプライベート エンドポイントと通信することができます。  顧客が仮想ネットワーク インフラストラクチャの一部をロックダウンする場合があるため、App Service 環境で発生するネットワーク通信フローの種類を理解しておくことが重要です。
+App Service 環境が必ずのサブネット内に作成、 [仮想ネットワーク][virtualnetwork] -アプリが App Service 環境で実行されている、同じ仮想ネットワーク トポロジ内に配置されたプライベート エンドポイントと通信できます。  顧客が仮想ネットワーク インフラストラクチャの一部をロックダウンする場合があるため、App Service 環境で発生するネットワーク通信フローの種類を理解しておくことが重要です。
 
 ## 一般的なネットワーク フロー ##
  
-App Service 環境は、常にパブリック仮想 IP アドレス (VIP) を持っています。  すべての着信トラフィックは、そのパブリック VIP に到着します。トラフィックには、アプリの HTTP トラフィック、HTTPS トラフィック、その他の FTP のトラフィック、リモート デバッグ機能、および Azure 管理操作が含まれます。  パブリック VIP で使用可能な特定ポート (必須および省略可能) の完全な一覧は、[着信トラフィックを制御する方法] の記事を参照してください [controllinginboundtraffic] App Service 環境にします。 
+App Service 環境は、常にパブリック仮想 IP アドレス (VIP) を持っています。  すべての着信トラフィックは、そのパブリック VIP に到着します。トラフィックには、アプリの HTTP トラフィック、HTTPS トラフィック、その他の FTP のトラフィック、リモート デバッグ機能、および Azure 管理操作が含まれます。  パブリック VIP で使用可能な特定ポート (必須および省略可能) の全一覧についての記事を参照してください。 [着信トラフィックの制御][controllinginboundtraffic] App Service 環境にします。 
 
 次の図は、さまざまな着信および発信ネットワーク フローの概要を示しています。
 
@@ -33,9 +33,9 @@ App Service 環境は、さまざまな顧客のプライベート エンドポ�
 
 App Service 環境は、App Service 環境の管理と運用を行うために必要な SQL DB と Azure Storage リソースとも通信します。  Azure Storage 環境が通信する SQL と Storage リソースの一部は、App Service 環境と同じリージョン内に配置されますが、それ以外のリソースは、リモート Azure リージョンに配置されます。  その結果、App Service 環境が正常に機能するためには、インターネットへの発信接続が常に必要です。 
 
-App Service 環境はサブネットにデプロイされるため、ネットワーク セキュリティ グループを使用してサブネットへの着信トラフィックを制御できます。  App Service 環境の場合への着信トラフィックを制御する方法の詳細については、次を参照してください [アーティクル] [controllinginboundtraffic] です。
+App Service 環境はサブネットにデプロイされるため、ネットワーク セキュリティ グループを使用してサブネットへの着信トラフィックを制御できます。  App Service 環境の場合への着信トラフィックを制御する方法の詳細については、次を参照してください [記事][controllinginboundtraffic]します。
 
-App Service 環境からの発信インターネット接続を許可する方法の詳細については、[Express Route] [ExpressRoute] 操作に関する次の記事を参照してください。  記事で説明されている方法は、サイト間接続を操作する場合と強制トンネリングを使用する場合にも適用されます。
+App Service 環境の場合からの発信インターネット接続を許可する方法の詳細については、操作に関する次の記事を参照してください。 [Express Route][ExpressRoute]します。  記事で説明されている方法は、サイト間接続を操作する場合と強制トンネリングを使用する場合にも適用されます。
 
 ## 発信ネットワーク アドレス ##
 App Service 環境で発信呼び出しを行うと、IP アドレスが常に発信呼び出しに関連付けられます。  使用される IP アドレスは、呼び出し先のエンドポイントが仮想ネットワーク トポロジの内部にあるか外部にあるかによって異なります。
@@ -71,9 +71,9 @@ App Service 環境で発信呼び出しを行うと、IP アドレスが常に�
 異なる App Service 環境間での呼び出しは "インターネット" 呼び出しとして扱われるものの、両方の App Service 環境が同じ Azure リージョンに位置している場合は、ネットワーク トラフィックは同じリージョンの Azure ネットワークにとどまり、物理的にパブリック インターネット上に流出することはありません。  その結果、2 つ目の App Service 環境のサブネット上でネットワーク セキュリティ グループを使用して、1 つ目の App Service 環境 (発信 IP アドレスが 192.23.1.2) からの受信呼び出しのみを許可することができるため、App Service 環境間での安全な通信が確保されます。
 
 ## その他のリンクおよび情報 ##
-詳細については、App Service 環境で使用されるポートを受信し、ネットワーク セキュリティ グループを使用して、着信トラフィックを制御することはここで [controllinginboundtraffic] です。
+詳細については、App Service 環境で使用されるポートを受信し、ネットワーク セキュリティ グループを使用して、着信トラフィックを制御することは [ここ][controllinginboundtraffic]します。
 
-App Service 環境の発信インターネット アクセスを付与するユーザー定義のルートの使用の詳細については、[今回] [ExpressRoute] 利用可能なです。 
+ユーザーの使用の詳細には、この App Service 環境への発信インターネット アクセスを与えるへのルートが定義されている [記事][ExpressRoute]します。 
 
 
 <!-- LINKS -->
@@ -86,5 +86,6 @@ App Service 環境の発信インターネット アクセスを付与するユ�
 [OutboundIPAddress]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundIPAddress-1.png
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
+
 
 

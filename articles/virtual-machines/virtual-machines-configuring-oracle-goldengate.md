@@ -148,7 +148,7 @@ Sql \~server を開いて * Plus を使用して、データベース管理者�
 
 Oracle GoldenGate レプリケーション プロセスを説明するために、このチュートリアルでは以下のコマンドを使用して、サイト A とサイト B の両方でテーブルを作成する方法を示します。
 
-最初に、sql \~server を開きます * Plus コマンド ウィンドウと、サイト A とサイト B のデータベースでインベントリ テーブルを作成するには、次のコマンドを実行します。
+最初に、開放 sql \~server * Plus コマンド ウィンドウと、サイト A とサイト B のデータベースでインベントリ テーブルを作成するには、次のコマンドを実行します。
 
     create table scott.inventory
     (prod_id number,
@@ -618,5 +618,6 @@ Oracle GoldenGate 構成を確認するには、サイト A でデータベー�
     101 DVD 10 22-MAR-13
 
 ##その他のリソース
-[Azure の oracle 仮想マシン イメージ](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
+[Azure の Oracle 仮想マシン イメージ](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
+
 

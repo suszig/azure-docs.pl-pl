@@ -55,7 +55,7 @@ Azure ストレージ アカウントは、Azure Storage のサービスにア�
 - Standard Storage アカウント。Blob、Table、Queue、File Storage が含まれています。
 - Premium Storage アカウント。現在、Azure 仮想マシン ディスクでのみサポートされています。
 
-ストレージ アカウントを作成するには、事前に Azure サブスクリプション (多様な Azure サービスにアクセスするためのプラン) が必要です。 [1 つのサブスクリプションでは、最大 100 個の一意の名前付きのストレージ アカウントを作成できます。](../azure-subscription-service-limits.md)参照してください [ストレージの料金詳細](http://azure.microsoft.com/pricing/details/storage/) について」を参照します。
+ストレージ アカウントを作成するには、事前に Azure サブスクリプション (多様な Azure サービスにアクセスするためのプラン) が必要です。 [1 つのサブスクリプションに対し、最大 100 の一意の名前を持つストレージ アカウントを作成できます。](../azure-subscription-service-limits.md) 参照してください [ストレージの料金詳細](http://azure.microsoft.com/pricing/details/storage/) について」を参照します。
 
 Azure で使用することができます、 [無料評価版](http://azure.microsoft.com/pricing/free-trial/)します。 プランを購入すると、さまざまなから選択できます [購入に関するオプション](http://azure.microsoft.com/pricing/purchase-options/)します。 ユーザーの場合、 [MSDN サブスクリプション会員](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), 、Azure ストレージを含む、Azure のサービスで使用できる無料の月々 のクレジットを取得します。
 
@@ -64,7 +64,7 @@ Azure で使用することができます、 [無料評価版](http://azure.mic
 Standard Storage アカウントでは、Blob Storage、Table Storage、Queue Storage、および File Storage にアクセスできます。
 
 - **Blob ストレージ** ファイル データが格納されます。 ドキュメント、メディア ファイル、アプリケーション インストーラーなど、任意の種類のテキスト データやバイナリ データを BLOB として保存できます。 Blob Storage は、オブジェクト ストレージとも呼ばれます。 
-- **テーブル ストレージ** は構造化データが格納されます。 テーブル ストレージは、NoSQL キー属性データ ストアであるため、開発が迅速化され、大量のデータにすばやくアクセスできます。
+- **テーブル ストレージ** は構造化データが格納されます。 Table Storage は、NoSQL キー属性データ ストアであるため、開発が迅速化され、大量のデータにすばやくアクセスできます。
 - **キュー ストレージ** ワークフロー処理およびクラウド サービスのコンポーネント間の通信は、信頼できるメッセージングを提供します。
 - **ファイル ストレージ** 共有ストレージを標準の SMB プロトコルを使用してレガシ アプリケーションを提供します。 Azure の仮想マシンおよびクラウド サービスでは、マウントされている共有を介して、アプリケーション コンポーネント間でファイル データを共有できます。オンプレミスのアプリケーションでは、ファイル サービス REST API を介して、共有内のファイル データにアクセスできます。 
 
@@ -82,7 +82,7 @@ Azure Premium Storage は現在、Azure 仮想マシン ディスクでのみサ
 
 [AZURE.INCLUDE [storage-versions-include](../../includes/storage-versions-include.md)]
 
-## BLOB ストレージ
+## Blob Storage
 
 大量の非構造化データをクラウドに保存する場合は、Blob Storage を使用するとコスト効率の高いスケーラブルなソリューションが実現します。 Blob Storage には、次のようなコンテンツを格納できます。
 
@@ -149,7 +149,7 @@ File Storage 共有は標準の SMB ファイル共有であるため、Azure �
 
 [AZURE.INCLUDE [storage-replication-options-include](../../includes/storage-replication-options-include.md)]
 
-## 価格
+## 料金
 
 価格は、使用したストレージ容量、選択されているレプリケーション オプション、サービスに対する要求の数、および送信データ転送の 4 つの要素に基づいて課金されます。 
 
@@ -185,7 +185,7 @@ Azure Storage を導入するには、次のリソースを参照してくださ
 
 - [.NET 用 Microsoft Azure Storage ライブラリ](https://github.com/Azure/azure-storage-net)
 
-### ドキュメント
+### Documentation
 
 - [Azure ストレージのドキュメント](http://azure.microsoft.com/documentation/services/storage/)
 - [Azure Storage サービス REST API リファレンス](http://msdn.microsoft.com/library/azure/dd179355.aspx)
@@ -235,4 +235,5 @@ Azure Storage を導入するには、次のリソースを参照してくださ
 - [How to use Table Storage from Python (Python からテーブル ストレージを使用する方法)](storage-python-how-to-use-table-storage.md)
 - [How to use Queue Storage from Python (Python からキュー ストレージを使用する方法)](storage-python-how-to-use-queue-storage.md)
  
+
 

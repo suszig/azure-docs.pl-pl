@@ -75,7 +75,7 @@ API Management には、サービスの管理および使用に関連して送�
 
 表示して、API Management インスタンスの電子メール テンプレートの構成、クリックして **通知** から、 **API Management** 選択し、左側のメニュー、 **電子メール テンプレート** ] タブをクリックします。
 
-![Email templates][api-management-email-templates]
+![電子メール テンプレート][api-management-email-templates]
 
 表示または特定のテンプレートを変更、選択してから、 **テンプレート** ボックスの一覧です。
 
@@ -113,3 +113,4 @@ API Management には、サービスの管理および使用に関連して送�
 
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
+

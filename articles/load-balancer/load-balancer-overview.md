@@ -120,7 +120,7 @@ Azure Load Balancer の構成は、UDP の Full cone NAT をサポートしま�
 仮想マシン セットに割り当てられている負荷分散されたパブリック IP アドレスを 1 つ以上取得できます。 この機能を使用して、複数の SSL Web サイトや複数の SQL AlwaysOn 可用性グループ リスナーを同じ仮想マシン セット上にホストすることができます。 詳細を参照する [クラウド サービスごとの複数の VIP](load-balancer-multivip.md)
 
 * * Azure リソース マネージャーを使用して、テンプレートに基づいた展開 * * 
-Azure リソース マネージャー (ARM) は、Azure 上のサービス向けの新しい管理フレームワークです。 Azure リソース マネージャー ベースの API とツールを使用して Azure Load Balancer を管理できるようになりました。 Azure リソース マネージャーについての詳細については、次を参照してください [なった Iaas Azure リソース マネージャーで簡単に。](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/)
+Azure リソース マネージャー (ARM) は、Azure のサービスの新しい管理フレームワークです。 Azure リソース マネージャー ベースの API とツールを使用して Azure Load Balancer を管理できるようになりました。 Azure リソース マネージャーについての詳細については、次を参照してください [なった Iaas Azure リソース マネージャーで簡単に。](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/)
 
 
 ## 次のステップ
@@ -131,4 +131,5 @@ Azure リソース マネージャー (ARM) は、Azure 上のサービス向け
 
 [インターネットに接続するロード バランサーの開始](load-balancer-internet-getstarted.md)
  
+
 

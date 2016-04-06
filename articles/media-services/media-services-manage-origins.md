@@ -27,7 +27,7 @@
 
 Microsoft Azure Media Services で、 **ストリーミング エンドポイント** ストリーミング サービスや、コンテンツ配信ネットワーク (CDN) に再配布のため、クライアント プレーヤー アプリケーションに直接コンテンツを配信することを表します。 Media Services は、シームレスな Azure CDN 統合もサポートしています。 StreamingEndpoint サービスからの送信ストリームには、ライブ ストリームまたは Media Services アカウントのオンデマンド ビデオ資産を使用します。
 
-さらに、スケール単位 (ストリーミング占有ユニットとも呼ばれます) を調整することによって、帯域幅で増え続けるニーズを処理するストリーミング エンドポイント サービスの容量を制御できます。 運用環境でのアプリケーションの 1 つ以上のスケール単位を割り当てることをお勧めします。 スケール単位とが含まれている機能に 200 Mbps などの追加機能の単位で購入できる、専用の送信容量を提供します。: [動的パッケージング](media-services-dynamic-packaging-overview.md), 、CDN 統合、高度な構成です。
+さらに、スケール単位 (ストリーミング占有ユニットとも呼ばれます) を調整することによって、帯域幅で増え続けるニーズを処理するストリーミング エンドポイント サービスの容量を制御できます。 実稼働環境でのアプリケーションの 1 つ以上のスケール単位を割り当てることをお勧めします。 スケール単位とが含まれている機能に 200 Mbps などの追加機能の単位で購入できる、専用の送信容量を提供します。: [動的パッケージング](media-services-dynamic-packaging-overview.md), 、CDN 統合、高度な構成です。
 
 StreamingEndpoint が実行状態の場合にのみ課金されます。
 
@@ -68,9 +68,9 @@ Azure クラシック ポータルを使用してストリーミング エンド
     新しいストリーミング ユニットの割り当ては完了するまでに約 20 分かかります。 
 
      
-    >[AZURE.NOTE] Currently, going from any positive value of streaming units back to none, can disable on-demand streaming for up to an hour.
+    >[AZURE.NOTE] 現時点では、ストリーミング ユニットをゼロに戻すの正の値から、ことができます、オンデマンド ストリーミングが無効に最大 1 時間です。
 
-    >[AZURE.NOTE] The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
+    >[AZURE.NOTE]コストの計算時には、24 時間の期間内に指定されたユニットの最大数が使用されます。 料金の詳細については、次を参照してください。 [Media Services の料金詳細](http://go.microsoft.com/fwlink/?LinkId=275107)します。
     
 ##<a id="configure_streaming_endpoints"></a>ストリーミング エンドポイントの構成
 
@@ -149,3 +149,4 @@ CDN 統合は、すべての Azure データ センター (米国西部、米国
 [configure-origin]: ./media/media-services-manage-origins/media-services-origins-configure.png
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
+

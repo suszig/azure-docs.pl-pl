@@ -71,7 +71,7 @@
 
 1.  Azure AD ポータルでの **Innotas** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777334.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-innotas-tutorial/IC777334.png "Configure single sign-on")
 
 2.   **どのようなユーザーの Innotas へのアクセス** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 
@@ -83,13 +83,13 @@
 
 4.   **Innotas でのシングル サインオンの構成** ] ページで、メタデータをダウンロードする] をクリックして **メタデータのダウンロード**, 、し、データ ファイルをローカルでとして **c:\\InnotasMetaData.xml**します。
 
-    ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777337.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-innotas-tutorial/IC777337.png "Configure single sign-on")
 
 5.  メタデータ ファイルを Innotas サポート チームに転送します。 サポート チームは、シングル サインオンを構成する必要があります。
 
 6.  シングル サインオンの構成情報を選択し、 **完了** を閉じる、 **[シングル サインオン** ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777338.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-innotas-tutorial/IC777338.png "Configure single sign-on")
 ##ユーザー プロビジョニングの構成
   
 Innotas へのユーザー プロビジョニングの構成にあたって必要な操作はありません。  
@@ -112,3 +112,4 @@ Innotas へのユーザー プロビジョニングの構成にあたって必�
     ![あり](./media/active-directory-saas-innotas-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

@@ -95,7 +95,7 @@ HDInsight クラスターにはサンプル データがいくつか付属して
     >
     > `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
 
-##テーブルの作成
+##テーブルを作成する
 
 > [AZURE.NOTE] テーブルを作成する SQL データベースに接続する方法はたくさんあります。 次の手順を使用して [FreeTDS](http://www.freetds.org/) 、HDInsight クラスターからです。
 
@@ -262,4 +262,5 @@ Sqoop を使用すると、Azure でホストされているデータ センタ�
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
+
 

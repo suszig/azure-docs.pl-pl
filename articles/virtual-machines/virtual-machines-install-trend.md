@@ -78,12 +78,13 @@ VM エージェントがインストールされている場合は、次のコ�
 
 ## その他のリソース
 
-[Windows Server を実行する仮想マシンにログオンする方法]
+[Windows Server が実行されている仮想マシンにログオンする方法]
 
-[Azure VM 拡張機能と機能]
+[Azure VM 拡張機能とその機能]
 
 
 <!--Link references-->
 [How to log on to a virtual machine running Windows Server]: virtual-machines-log-on-windows-server.md
 [Azure VM Extensions and features]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+
 

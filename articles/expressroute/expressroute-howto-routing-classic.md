@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 [PowerShell - クラシック](expressroute-howto-routing-classic.md)
-[リソース マネージャーの PowerShell](expressroute-howto-routing-arm.md)
+[PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
 
 この記事では、PowerShell コマンドレットとクラシック デプロイメント モデルを使用して、ExpressRoute 回線のルーティング構成を作成して管理する手順について説明します。  次の手順も紹介する状態、更新、または削除を確認し、ExpressRoute 回線のピアリングのプロビジョニングを解除する方法です。
 
@@ -317,5 +317,6 @@ ExpressRoute 回線用に 1 つ、2 つ、または 3 つすべてのピアリ�
 
 -  ワークフローの詳細については、次を参照してください。 [ExpressRoute ワークフロー](expressroute-workflows.md)します。
 -  回路のピアリングの詳細については、次を参照してください。 [ExpressRoute 回路とルーティング ドメイン](expressroute-circuit-peerings.md)します。
+
 
 

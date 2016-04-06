@@ -40,7 +40,7 @@ CSDL (Conceptual Schema Definition Language) は、Azure Marketplace に対し�
 Atom の背景情報は、Atom 発行と Azure Marketplace の拡張機能を構築する OData プロトコル参照してください: [http://msdn.microsoft.com/library/ff478141.aspx](http://msdn.microsoft.com/library/ff478141.aspx)
 
 リンクの上からの抜粋します。
-    *"オープン データ プロトコル (OData と呼ぶ) の目的は、REST ベースのプロトコルは、データ サービスとして公開されるリソースに対して CRUD スタイル操作 (作成、読み取り、更新および削除) します。"データ サービス" とは、それぞれにゼロ個以上の "エントリ" がある 1 つ以上の "コレクション" から公開されたデータがあるエンドポイントです。エントリは型指定された名前と値のペアで構成されます。OData は、OASIS (Organization for the Advancement of Structured Information Standards) 標準に従い Microsoft から発行されています。そのため、誰でも、ロイヤリティや制限なしでサーバー、クライアント、またはツールを構築できます。"*
+    *"オープン データ プロトコル (OData と呼ぶ) の目的は、REST ベースのプロトコルは、データ サービスとして公開されるリソースに対して CRUD スタイル操作 (作成、読み取り、更新および削除) します。 "データ サービス" とは、それぞれにゼロ個以上の "エントリ" がある 1 つ以上の "コレクション" から公開されたデータがあるエンドポイントです。エントリは型指定された名前と値のペアで構成されます。 OData は、マイクロソフトによって発行された OASIS (Organization for、進歩の Structured Information Standards) 標準でできるように、サーバー、クライアントまたはロイヤリティまたは制限なしでツールをビルドする必要のあるすべてのユーザーことができます。"*
 
 ### CSDL で定義する必要がある 3 つの重要な項目があります。
 
@@ -92,7 +92,7 @@ ATOM pub の拡張機能です。各エントリで 1 行の結果セットが�
 
 ## CSDL の基本
 
-CSDL (Conceptual Schema Definition Language) は、Azure Marketplace に対して共通の XML 表現で Web サービスまたはデータベース サービスを記述する方法を定義した仕様です。 CSDL は、重要な説明を個々 の **により、データの受け渡し、データ ソースから Azure Marketplace にします。**その主要部分を次に示します。
+CSDL (Conceptual Schema Definition Language) は、Azure Marketplace に対して共通の XML 表現で Web サービスまたはデータベース サービスを記述する方法を定義した仕様です。 CSDL は、重要な説明を個々 の **により、データの受け渡し、データ ソースから Azure Marketplace にします。** その主要部分を次に示します。
 
 - パブリックに使用できる関数について説明したインターフェイス情報 (FunctionImport ノード)
 - メッセージ要求 (入力) とメッセージ応答 (出力) すべてのデータ型情報 (EntityContainer/EntitySet/EntityType ノード)
@@ -316,4 +316,5 @@ CSDL は、Web サービスを記述するための XML 文法です。 仕様�
 - この記事を参照している場合は、学習や、特定のノードとそのパラメーターを理解することに興味のある、 [データ サービスの OData マッピング ノード](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) 定義し、説明、例については、および使用するケースのコンテキストのです。
 - この記事を参照している例を確認したい場合は、 [データ サービスの OData マッピング例](marketplace-publishing-data-service-creation-odata-mapping-examples.md) コードの構文とコンテキストを理解しているサンプル コードを参照してください。
 - この記事を参照データ サービスを Azure Marketplace に発行するための指定されたパスに戻り、 [データ サービスの発行ガイド](marketplace-publishing-data-service-creation.md)します。
+
 

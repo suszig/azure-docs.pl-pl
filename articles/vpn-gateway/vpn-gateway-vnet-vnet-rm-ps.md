@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure クラシック ポータル](virtual-networks-configure-vnet-to-vnet-connection.md)
-- [PowerShell の Azure リソース マネージャー](vpn-gateway-vnet-vnet-rm-ps.md)
+- [PowerShell - Azure リソース マネージャー](vpn-gateway-vnet-vnet-rm-ps.md)
 
 この記事では、リソース マネージャー デプロイメント モデルを使用して、手順を説明します。 この構成に対して別のデプロイ モデルを探す場合は、上のタブで必要な記事を選択してください。 
 
@@ -264,5 +264,6 @@ VNet にゲートウェイ サブネットを追加する必要がある場合�
 ## 次のステップ
 
 接続が完成したら、仮想ネットワークに仮想マシンを追加することができます。 参照してください [仮想マシンを作成する](../virtual-machines/virtual-machines-windows-tutorial.md) の手順を実行します。
+
 
 

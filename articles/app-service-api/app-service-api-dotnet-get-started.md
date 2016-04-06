@@ -303,13 +303,13 @@ Swashbuckle はあらゆる ASP.NET Web API プロジェクトで利用できま
 
 Azure リソース マネージャーの Azure PowerShell、CLI などのツールを使用して、API アプリの API 定義の URL を構成することも、または [リソース エクスプ ローラー](https://resources.azure.com/)します。 
 
-`apiDefinition` プロパティは、<site name>/web リソースの Microsoft.Web/sites/config リソース タイプで設定します。 たとえば、 **リソース エクスプ ローラー**, には、 **サブスクリプション > {サブスクリプション} > resourceGroups > {リソース グループ} > プロバイダー > Microsoft.Web > サイト > {ƒtƒcƒg} > 構成 > web**, と cors のプロパティが表示されます。
+設定、 `apiDefinition` Microsoft.Web/sites/config リソースの種類のプロパティ、 <site name>/web リソースです。 たとえば、 **リソース エクスプ ローラー**, には、 **サブスクリプション > {サブスクリプション} > resourceGroups > {リソース グループ} > プロバイダー > Microsoft.Web > サイト > {ƒtƒcƒg} > 構成 > web**, と cors のプロパティが表示されます。
 
         "apiDefinition": {
           "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"
         }
 
-## <a id="codegen"></a> 生成されたクライアント コードを使用して .NET クライアントから使用します。 
+## <a id="codegen"></a> 生成されたクライアント コードを使用して .NET クライアントから利用する 
 
 Azure API アプリと Swagger の統合の利点の 1 つは、自動コード生成です。 生成されたクライアント クラスにより、API アプリを呼び出すコードの記述が容易になります。
 
@@ -449,3 +449,4 @@ Azure にデプロイする前に、コードがデプロイされると、local
 ## 次のステップ
 
 このチュートリアルでは、API アプリを作成、それにコードをデプロイし、.NET クライアントから使用する方法について学習しました。 API アプリの取得中に、次のチュートリアル シリーズの番組をどのように開始する [CORS を使用して、JavaScript クライアントから API アプリを使用する](app-service-api-cors-consume-javascript.md)です。
+

@@ -30,7 +30,7 @@
 
     ![リソース マネージャーを起動する](./media/hdinsight-apache-spark-resource-manager/HDI.Cluster.Launch.Dashboard.png "Start Resource Manager")   
 
-##<a name="scenariosrm"></a>リソース マネージャーを使用してこれらの問題を修復する方法を教えてください。
+##<a name="scenariosrm"></a>リソース マネージャーを使用して問題を解決する方法
 
 ここでは、Spark クラスターでよく発生することがある状況と、リソース マネージャーを使用してそれに対処する方法を説明します。
 
@@ -66,7 +66,7 @@ Thrift サーバーのコア数と Thrift サーバーの実行プログラム �
 
 * [概要: Azure HDInsight での Apache Spark](hdinsight-apache-spark-overview.md)
 * [HDInsight クラスターでの Spark のプロビジョニング](hdinsight-apache-spark-provision-clusters.md)
-* [HDInsight と BI ツールで Spark を使用した対話型データ分析の実行](hdinsight-apache-spark-use-bi-tools.md)
+* [BI ツールを使用して HDInsight で Spark を使用して対話型データ分析を実行します。](hdinsight-apache-spark-use-bi-tools.md)
 * [Machine Learning アプリケーションを作成するための HDInsight での Spark の使用](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [リアルタイム ストリーミング アプリケーションを作成するための HDInsight での Spark の使用](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 
@@ -81,4 +81,5 @@ Thrift サーバーのコア数と Thrift サーバーの実行プログラム �
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
+
 

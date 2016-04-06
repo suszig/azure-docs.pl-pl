@@ -53,7 +53,7 @@
 
 モバイル アプリ バックエンドで新しいテーブルを作成する方法については、次を参照してください。 [方法: テーブル コント ローラーを定義する](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (.NET バックエンド) または [動的スキーマを使用してテーブルを定義する](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (Node.js バックエンド)。 Node.js バックエンドでは、使用することも、 **簡単テーブル** の設定、 [Azure ポータル](https://portal.azure.com)します。
 
-##<a name="create-client"></a>方法: モバイル アプリ クライアントの作成
+##<a name="create-client"></a>方法: モバイル アプリ クライアントを作成する
 
 次のコードは、モバイル アプリ バックエンドにアクセスするために使用される `MobileServiceClient` オブジェクトを作成します。
 
@@ -75,17 +75,17 @@
 
 型指定されていないクエリでは、基になる OData クエリ文字列を指定する必要があります。
 
-##<a name="querying"></a>方法: モバイル アプリからのデータのクエリ
+##<a name="querying"></a>方法: Mobile App のデータを照会する
 
 このセクションでは、モバイル アプリ バックエンドにクエリを発行する方法について説明します。これには次の機能が含まれます。
 
-- [返されるデータをフィルター処理]
+- [返されるデータをフィルター処理する]
 - [返されるデータを並べ替える]
 - [ページにデータを返す]
-- [特定の列を選択]
-- [ID でデータを検索]
+- [特定の列を選択する]
+- [ID でデータを検索する]
 
->[AZURE.NOTE] すべての行が返されるようにするのには、サーバー駆動型ページ サイズが適用されます。 これにより、大きなデータ セットの既定の要求がサービスに悪影響を与えないようにします。 50 を超える行を返すには使用、 `Take` メソッドを [ページに戻り値のデータ] で説明します。  
+>[AZURE.NOTE] すべての行が返されるようにするのには、サーバー駆動型ページ サイズが適用されます。 これにより、大きなデータ セットの既定の要求がサービスに悪影響を与えないようにします。 50 を超える行を返すを使用して、 `Take` メソッド、」の説明に従って [Return data in pages]します。  
 
 ### <a name="filtering"></a>方法: 返されるデータをフィルター処理する
 
@@ -97,7 +97,7 @@
        .Where(todoItem => todoItem.Complete == false)
        .ToListAsync();
 
-ブラウザー開発者ツールや [Fiddler] などのメッセージ検査ソフトウェアを使用して、バックエンドに送信された要求の URI を表示することができます。 次の要求 URI を確認する場合は、クエリ文字列自体変更を加えていることに注意してください。
+ブラウザー開発者ツールなどのメッセージ検査ソフトウェアを使用して、バックエンドに送信された要求の URI を表示するか、 [Fiddler]します。 次の要求 URI を確認する場合は、クエリ文字列自体変更を加えていることに注意してください。
 
     GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1
 
@@ -151,7 +151,7 @@
 
 ### <a name="paging"></a>方法: ページにデータを返す
 
-既定では、バックエンドは最初の 50 行のみを返します。 [Take] メソッドを呼び出すことによって、返された行の数を増やすことができます。 使用 `Take` と共に [Skip] メソッドを特定の「ページ」データセット全体のクエリによって返されるを要求します。 次のクエリを実行すると、テーブルの最初の上位 3 つの項目が返されます。
+既定では、バックエンドは最初の 50 行のみを返します。 呼び出すことによって返される行の数を増やすことができます、 [Take] メソッドです。 使用 `Take` と共に、 [Skip] メソッドを特定の「ページ」データセット全体のクエリによって返されるを要求します。 次のクエリを実行すると、テーブルの最初の上位 3 つの項目が返されます。
 
     // Define a filtered query that returns the top 3 items.
     MobileServiceTableQuery<TodoItem> query = todoTable
@@ -166,7 +166,7 @@
                     .Take(3);
     List<TodoItem> items = await query.ToListAsync();
 
-クエリの合計数を取得することを確認するのに [IncludeTotalCount] メソッドを使用することもできます。 <i>すべて</i> このレコードは、返された、指定された take paging/limit 句はすべて無視されます。
+使用することも、 [IncludeTotalCount] メソッドがクエリの合計数を取得することを確認する <i>すべて</i> take paging/limit 句が指定されている、返されたレコードを無視して。
 
     query = query.IncludeTotalCount();
 
@@ -209,7 +209,7 @@
     // This query filters out the item with the ID of 37BBF396-11F0-4B39-85C8-B319C729AF6D
     TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
 
-### <a name="lookingup"></a>方法: 型指定されていないクエリを実行します。
+### <a name="lookingup"></a>方法: 型指定されていないクエリを実行する
 
 型指定されていないテーブル オブジェクトを使用してクエリを実行するときは、次の例のように、OData クエリ文字列を明示的に指定する必要があります。
 
@@ -218,7 +218,7 @@
 
 プロパティ バッグのように使用できる JSON 値が返されます。 JToken と Json.NET の詳細については、次を参照してください [Json.NET。](http://json.codeplex.com/)
 
-##<a name="inserting"></a>方法: モバイル アプリ バックエンドにデータを挿入
+##<a name="inserting"></a>方法: モバイル アプリ バックエンドにデータを挿入する
 
 すべてのクライアント タイプがという名前のメンバーを含める必要があります **Id**, 、これは既定では文字列です。 これは、 **Id** CRUD 操作を実行するために必要なオフラインです。 次のコードは、テーブルに新しい行を挿入する方法を示しています。 パラメーターには、挿入するデータが .NET オブジェクトとして含まれます。
 
@@ -254,7 +254,7 @@ Mobile Apps は、テーブルの一意のカスタム文字列値をサポー�
 
 挿入されたレコードで文字列 ID 値が設定されない場合は、モバイル アプリ バックエンドによって ID 用の一意の値が生成されます。 `Guid.NewGuid()` メソッドを使用すれば、クライアント上またはバックエンドで、独自の ID 値を生成することができます。 
 
-##<a name="modifying"></a>方法: モバイル アプリ バックエンドでデータを変更します。
+##<a name="modifying"></a>方法: モバイル アプリ バックエンドのデータを変更する
 
 次のコードは、同じ ID を持つ既存のインスタンスを新しい情報で更新する方法を示しています。 パラメーターには、更新するデータが .NET オブジェクトとして含まれます。
 
@@ -270,7 +270,7 @@ Mobile Apps は、テーブルの一意のカスタム文字列値をサポー�
 更新を行うときは ID を指定する必要があることに注意してください。 バックエンドはそれによって更新するインスタンスを識別します。 ID は、`InsertAsync` の呼び出しの結果から取得できます。 "Id" の値を指定しないで項目を更新しようとすると、`ArgumentException` が発生します。
 
 
-##<a name="deleting"></a>方法: モバイル アプリ バックエンドでデータを削除します。
+##<a name="deleting"></a>方法: モバイル アプリ バックエンドのデータを削除する
 
 次のコードは、既存のインスタンスを削除する方法を示しています。 インスタンスは、`todoItem` に設定した "Id" フィールドで識別されます。
 
@@ -284,17 +284,17 @@ Mobile Apps は、テーブルの一意のカスタム文字列値をサポー�
 
 削除要求を行うときは、ID を指定する必要があります。 それ以外のプロパティは、サービスに渡されないか、またはサービスで無視されます。 通常、`DeleteAsync` の呼び出しの結果は `null` です。 渡す ID は、`InsertAsync` の呼び出しの結果から取得できます。 "Id" フィールドを設定しないで項目を削除しようとすると、`MobileServiceInvalidOperationException` がバックエンドから返されます。 
 
-##<a name="#custom-api"></a>方法: カスタム API 呼び出し
+##<a name="#custom-api"></a>方法: カスタム API の呼び出し
 
 カスタム API を使用してカスタム エンドポイントを定義することにより、insert、update、delete、read のいずれの操作にも関連しないサーバー機能を公開することができます。 カスタム API を使用することによって、HTTP メッセージ ヘッダーの読み取りや設定、JSON 以外のメッセージ本文形式の定義など、メッセージングをより柔軟に制御することができます。 
 
-クライアントで、[InvokeApiAsync] メソッドのオーバー ロードのいずれかには、カスタム API を呼び出します。 たとえば、次のコード行がへの POST 要求を送信、 **completeAll** バックエンドでの API。
+いずれかを呼び出すことによってカスタム API を呼び出し、 [InvokeApiAsync] クライアント上のメソッドのオーバー ロードします。 たとえば、次のコード行がへの POST 要求を送信、 **completeAll** バックエンドでの API。
 
     var result = await App.MobileService
         .InvokeApiAsync<MarkAllResult>("completeAll",
         System.Net.Http.HttpMethod.Post, null);
 
-注この型指定されたメソッドを呼び出すことをする必要があります、 **MarkAllResult** 戻り値の型を定義します。 型指定および型指定のないメソッドの両方がサポートされます。 型指定でペイロードを送信せず、クエリ パラメーターがなく、また要求ヘッダーを変更しないため、これは簡単な例になります。 現実的な例と、複数の詳細については [InvokeApiAsync]、[Azure Mobile Services クライアント Sdk のカスタム API] を参照してください。
+注この型指定されたメソッドを呼び出すことをする必要があります、 **MarkAllResult** 戻り値の型を定義します。 型指定および型指定のないメソッドの両方がサポートされます。 型指定でペイロードを送信せず、クエリ パラメーターがなく、また要求ヘッダーを変更しないため、これは簡単な例になります。 現実的な例と、複数の詳細については [InvokeApiAsync], を参照してください [Custom API in Azure Mobile Services Client SDKs]します。
 
 ##方法: プッシュ通知に登録する
 
@@ -349,7 +349,7 @@ Xamarin アプリではいくつかの追加コードが必要になります。
 
         MobileService.GetPush().RegisterAsync(string channelUri, JObject templates, JObject secondaryTiles);
 
-セキュリティのためにタグはすべて取り除かれるので注意してください。 インストールやインストール内のテンプレートには、タグを追加するには、[Azure モバイル アプリの作業を .NET バックエンド サーバー SDK] を参照してください。
+セキュリティのためにタグはすべて取り除かれるので注意してください。 インストールやインストール内のテンプレートには、タグを追加するを参照してください。 [Work with the .NET backend server SDK for Azure Mobile Apps]します。
 
 これらの登録済みのテンプレートを使用して通知を送信する操作 [通知ハブの Api](https://msdn.microsoft.com/library/azure/dn495101.aspx)します。
 
@@ -443,7 +443,7 @@ Mobile Apps はオプティミスティック同時実行制御をサポート�
 詳細については、次を参照してください。、 [Azure Mobile Apps でのオフライン データ同期](app-service-mobile-offline-data-sync.md)します。
 
 
-##<a name="binding"></a>方法: バインド モバイル アプリにデータを Windows ユーザー インターフェイス
+##<a name="binding"></a>方法: Mobile Apps のデータを Windows ユーザー インターフェイスにバインドする
 
 このセクションでは、Windows アプリで UI 要素を使用して、返されたデータ オブジェクトを表示する方法について説明します。 `todoTable` で未完了の項目を照会し、ごくシンプルな一覧で表示するには、次のコード例を実行して、クエリで一覧のソースをバインドします。 `MobileServiceCollection` を使用すると、Mobile Apps 対応のバインディング コレクションが作成されます。
 
@@ -478,7 +478,7 @@ Windows Phone 8 と "Silverlight" アプリで新しいコレクションを使�
 
 最後に、テーブルには多くのフィールドが存在するものの、コントロールにはその一部のみを表示する必要があるとします。 セクションで、ガイダンスを使用することがあります"[特定の列を選択](#selecting)"上記を UI に表示する特定の列を選択します。
 
-## <a name="package-sid"></a>方法: Windows ストアのパッケージ SID の取得
+## <a name="package-sid"></a>方法: Windows ストアのパッケージ SID を取得する
 
 Windows アプリでは、プッシュ通知と特定の認証モードを有効にするにはパッケージ SID が必要です。 この値を取得するには:
 
@@ -493,15 +493,15 @@ Windows アプリでは、プッシュ通知と特定の認証モードを有効
 <!--- We want to just point to the authentication topic when it's done
 ##<a name="authentication"></a>How to: Authenticate users
 
-Mobile Apps の認証と承認のさまざまな外部 id プロバイダーを使用してアプリケーションのユーザーをサポートしています: Facebook、Google、Microsoft アカウント、Twitter、および Azure Active Directory です。 テーブルのアクセス許可を設定することにより、特定の操作へのアクセスを認証されたユーザーのみに制限できます。 さらに、認証されたユーザーの ID を使用することにより、サーバー スクリプトで承認ルールを実装することもできます。 詳細については、[認証アプリを追加する] このチュートリアルを参照してください。
+Mobile Apps supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the tutorial [Add authentication to your app].
 
-2 つの認証フローがサポート: _サーバー フロー_ と _クライアント フロー_します。 サーバー フローには、プロバイダーの Web 認証のインターフェイスを利用する、最も簡単な認証方法が用意されています。 クライアント フローでは、プロバイダー固有とデバイス固有の SDK を利用することから、デバイス固有の機能との統合がさらに進みます。
+Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.
 
-###サーバー フロー
-アプリケーション サービスを Windows アプリの認証プロセスを管理するには
-アプリケーションを ID プロバイダーに登録する必要があります。 バックアップ、モバイル アプリには、アプリケーション ID と、プロバイダーによって提供されるシークレットを構成する必要があります。 詳細については、[認証アプリを追加する] このチュートリアルを参照してください。
+###Server flow
+To have App Service manage the authentication process in your Windows apps,
+you must register your app with your identity provider. Then in your mobile App backed, you need to configure the application ID and secret provided by your provider. For more information, see the tutorial [Add authentication to your app].
 
-ID プロバイダーを登録した後は、単純にプロバイダーの [MobileServiceAuthenticationProvider] 値で [LoginAsync メソッド] を呼び出すだけです。 たとえば、次のコードは、Facebook を使用してサーバー フローのサインインを開始します。
+Once you have registered your identity provider, simply call the [LoginAsync method] with the [MobileServiceAuthenticationProvider] value of your provider. For example, the following code initiates a server flow sign-in by using Facebook.
 
     private MobileServiceUser user;
     private async System.Threading.Tasks.Task Authenticate()
@@ -527,17 +527,17 @@ ID プロバイダーを登録した後は、単純にプロバイダーの [Mob
         }
     }
 
-Facebook 以外の id プロバイダーを使用している場合は、プロバイダーの値に上の [MobileServiceAuthenticationProvider] 値を変更します。
+If you are using an identity provider other than Facebook, change the value of [MobileServiceAuthenticationProvider] above to the value for your provider.
 
-この場合、App Service は、選択したプロバイダーのサインイン ページを表示し、id プロバイダーに正常にサインオン後、App Service の認証トークンを生成することによって、OAuth 2.0 認証フローを管理します。 JSON web トークン (JWT) として [userId] の認証されたユーザーと [MobileServiceAuthenticationToken] を提供する [LoginAsync メソッド] 返します [MobileServiceUser]。 このトークンはキャッシュして、期限が切れるまで再利用することができます。 詳細については、「認証トークンをキャッシュする」を参照してください。
+In this case, App Service manages the OAuth 2.0 authentication flow by displaying the sign-in page of the selected provider and generating an App Service authentication token after successful sign-on with the identity provider. The [LoginAsync method] returns a [MobileServiceUser], which provides both the [userId] of the authenticated user and the [MobileServiceAuthenticationToken], as a JSON web token (JWT). This token can be cached and re-used until it expires. For more information, see [Caching the authentication token].
 
-###クライアント フロー
+###Client flow
 
-アプリでは、id プロバイダーを個別にも連絡して、App Service への認証、返されたトークンを提供することができます。 このクライアント フローでは、ユーザーにシングル サインイン エクスペリエンスを提供したり、ID プロバイダーから追加のユーザー データを取得したりすることができます。
+Your app can also independently contact the identity provider and then provide the returned token to App Service for authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider.
 
-####Facebook や Google から取得したトークンを利用したシングル サインイン
+####Single sign-in using a token from Facebook or Google
 
-最も単純な形式では、この Facebook や Google のスニペットに示すようにクライアント フローを使用できます。
+In the most simplified form, you can use the client flow as shown in this snippet for Facebook or Google.
 
     var token = new JObject();
     // Replace access_token_value with actual value of your access token obtained
@@ -571,11 +571,11 @@ Facebook 以外の id プロバイダーを使用している場合は、プロ�
     }
 
 
-####Microsoft アカウントと Live SDK を利用したシングル サインイン
+####Single sign-in using Microsoft Account with the Live SDK
 
-ユーザーを認証できるようにするには、Microsoft アカウント デベロッパー センターでアプリケーションを登録する必要があります。 この登録は、モバイル アプリ バックエンドで接続する必要があります。 手順を完了 [Microsoft アカウント ログインを使用するようアプリを登録](mobile-services-how-to-register-microsoft-authentication.md) を Microsoft アカウントの登録を作成し、モバイル アプリ バックエンドに接続します。 Windows ストア と Windows Phone 8/Silverlight の両方のバージョンのアプリがある場合は、Windows ストア バージョンを最初に登録します。
+To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your Mobile App backend. Complete the steps in [Register your app to use a Microsoft account login](mobile-services-how-to-register-microsoft-authentication.md) to create a Microsoft account registration and connect it to your Mobile App backend. If you have both Windows Store and Windows Phone 8/Silverlight versions of your app, register the Windows Store version first.
 
-次のコードでは、Live SDK を使用して認証し、返されたトークンを使用して、モバイル アプリ バックエンドにサイン インします。 
+The following code authenticates using Live SDK and uses the returned token to sign-in to your Mobile App backend. 
 
     private LiveConnectSession session;
     //private static string clientId = "<microsoft-account-client-id>";
@@ -625,8 +625,8 @@ Facebook 以外の id プロバイダーを使用している場合は、プロ�
     }
 
 
-###<a name="caching"></a>認証トークンをキャッシュする
-場合によっては、最初のユーザー認証の後の login メソッドの呼び出しを避けることができます。 Windows ストア アプリの [PasswordVault] を使用するには初めてログインする現在のユーザー id をキャッシュして、キャッシュにユーザー id が既にあるかどうかをチェックするたびにその後にします。 キャッシュが空の場合は、ユーザーにログイン プロセスを実行してもらう必要があります。
+###<a name="caching"></a>Caching the authentication token
+In some cases, the call to the login method can be avoided after the first time the user authenticates. You can use [PasswordVault] for Windows Store apps to cache the current user identity the first time they log in and every subsequent time you check whether you already have the user identity in our cache. When the cache is empty, you still need to send the user through the login process.
 
     // After logging in
     PasswordVault vault = new PasswordVault();
@@ -654,7 +654,7 @@ Facebook 以外の id プロバイダーを使用している場合は、プロ�
     vault.Remove(vault.Retrieve("Facebook", user.UserId));
 
 
-Windows Phone アプリについてする可能性がありますを暗号化 [ProtectedData] クラスを使用してデータをキャッシュおよび分離ストレージに機密情報を保存します。
+For Windows Phone apps, you may encrypt and cache data using the [ProtectedData] class and store sensitive information in isolated storage.
 
 -->
 
@@ -688,7 +688,7 @@ Windows Phone アプリについてする可能性がありますを暗号化 [P
 
 ### <a name="headers"></a>方法: 要求ヘッダーをカスタマイズする
 
-特定のアプリケーション シナリオをサポートするには、モバイル アプリ バックエンドとの通信をカスタマイズすることが必要な場合があります。 たとえば、すべての送信要求にカスタム ヘッダーを追加したり、応答のステータス コードを変更したりすることが必要な場合がります。 ユーザー設定 [DelegatingHandler] を提供することで、次の例に示すように、これを実行できます。
+特定のアプリケーション シナリオをサポートするには、モバイル アプリ バックエンドとの通信をカスタマイズすることが必要な場合があります。 たとえば、すべての送信要求にカスタム ヘッダーを追加したり、応答のステータス コードを変更したりすることが必要な場合がります。 カスタムを提供することによってこれを行う [DelegatingHandler], 次の例のようにします。
 
     public async Task CallClientWithHandler()
     {
@@ -719,7 +719,7 @@ Windows Phone アプリについてする可能性がありますを暗号化 [P
 
 ### <a name="serialization"></a>方法: シリアル化をカスタマイズする
 
-Mobile Apps クライアント ライブラリは、Json.NET を使用して、クライアントで JSON 応答を .NET オブジェクトに変換します。 メッセージでの .NET 型と JSON との間のこのシリアル化の動作を構成することができます。 [MobileServiceClient] クラスの公開、 `SerializerSettings` 型のプロパティ [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm)
+Mobile Apps クライアント ライブラリは、Json.NET を使用して、クライアントで JSON 応答を .NET オブジェクトに変換します。 メッセージでの .NET 型と JSON との間のこのシリアル化の動作を構成することができます。  [MobileServiceClient] クラスが公開、 `SerializerSettings` 型のプロパティ [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm)
 
 このプロパティを使用すれば、次のように、多くの Json.NET プロパティの中からいずれかを設定できます。
 
@@ -761,3 +761,4 @@ Mobile Apps クライアント ライブラリは、Json.NET を使用して、�
 [Custom API in Azure Mobile Services Client SDKs]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
+

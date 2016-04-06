@@ -74,7 +74,7 @@ class HelloActor : Actor, IHello
 
 次の図には、これらの概念を説明するための例が含まれています。
 
-![例のアイドル時間の][1]
+![アイドル時間の例][1]
 
 この例は、アクティブ アクター テーブルに 1 つだけアクティブ アクターがあることを前提としています。 この例では、このアクターの有効期間に対するアクター メソッドの呼び出し、アラームおよびタイマーの影響を示しています。 この例では次の点に注意する必要があります。
 
@@ -89,4 +89,5 @@ class HelloActor : Actor, IHello
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
+
 

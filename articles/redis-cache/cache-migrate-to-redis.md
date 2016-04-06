@@ -54,7 +54,7 @@ Azure Managed Cache Service と Azure Redis Cache は似ていますが、一部
 
 Microsoft Azure Redis Cache には、次のレベルがあります。
 
--   **基本的な** – 1 つのノードです。 複数のサイズ、最大 53 GB
+-   **基本的な** – 単一ノードです。 複数のサイズ、最大 53 GB
 -   **標準的な** – 2 ノード プライマリ/レプリカです。 複数のサイズ、最大 53 GB 99.9% の SLA。
 -   **Premium** – 2 ノード プライマリ/レプリカに最大 10 個のシャードにします。 6 GB から 530 GB までの複数のサイズ (詳細はお問い合わせください)。 Standard レベルのすべての機能と詳細を含むサポート [Redis クラスター](cache-how-to-premium-clustering.md), 、[Redis の永続化](cache-how-to-premium-persistence.md), 、および [Azure Virtual Network](cache-how-to-premium-vnet.md)します。 99.9% の SLA。
 
@@ -119,7 +119,7 @@ Managed Cache Service の構成を削除した後は、次のセクションで�
 
 Visual Studio で開発された .NET アプリケーションは、StackExchange.Redis キャッシュ クライアントを使用してキャッシュにアクセスできます。 StackExchange.Redis NuGet パッケージを使用して Visual Studio でクライアント アプリケーションを構成するで、プロジェクトを右クリックし **ソリューション エクスプ ローラー** 選択 **NuGet パッケージの管理**します。
 
-![Azure Redis Cache 管理 NuGet パッケージ](./media/cache-migrate-to-redis/IC729541.png)
+![Azure Redis Cache Manage NuGet Packages](./media/cache-migrate-to-redis/IC729541.png)
 
 型 **StackExchange.Redis** に、 **オンライン検索** テキスト ボックスに、結果の中から選択し、クリックして **インストール**します。
 
@@ -194,5 +194,6 @@ Azure Redis Cache には、ASP.NET セッション状態とページ出力キャ
 ## 次のステップ
 
 調査、 [Azure Redis Cache のドキュメント](https://azure.microsoft.com/documentation/services/cache/) のチュートリアル、サンプル、ビデオなどです。
+
 
 

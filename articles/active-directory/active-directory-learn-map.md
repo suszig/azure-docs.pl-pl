@@ -19,15 +19,15 @@
 # Azure AD の詳細情報
 
 ### このトピックに関するその他の記事
-[Azure AD とは何ですか。](active-directory-whatis.md)<br>
-[作業のでしょうか。](active-directory-works.md)<br>
-[概要します。](active-directory-get-started.md)<br>
+[Azure AD とは](active-directory-whatis.md)<br>
+[それはどのように機能しますか?](active-directory-works.md)<br>
+[作業開始](active-directory-get-started.md)<br>
 [次のステップ](active-directory-next-steps.md)<br>
-[詳細については](active-directory-learn-map.md)
+[詳細情報](active-directory-learn-map.md)
 
 Azure サブスクリプションは既にあります。 Azure AD はそれとどのように関連しますか。 [サブスクリプションをディレクトリに関連付ける方法](active-directory-how-subscriptions-associated-directory.md)
 
-ユーザー管理、ドメイン管理、シングル サインオンの構成などの Azure AD の管理タスクでは、Windows PowerShell 用の Azure Active Directory モジュールのコマンドレットを使用します。 [Windows PowerShell を使用して Azure AD を管理します。](https://msdn.microsoft.com/library/azure/jj151815.aspx)
+ユーザー管理、ドメイン管理、シングル サインオンの構成などの Azure AD の管理タスクでは、Windows PowerShell 用の Azure Active Directory モジュールのコマンドレットを使用します。 [Windows PowerShell による Azure AD の管理](https://msdn.microsoft.com/library/azure/jj151815.aspx)
 
 REST API エンドポイントから Azure AD にプログラムでアクセスするには、Azure Active Directory Graph API を使用します。 [Azure AD Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx)
 
@@ -40,4 +40,5 @@ REST API エンドポイントから Azure AD にプログラムでアクセス�
 
 * [Azure への組織としてのサインアップ](sign-up-organization.md)
 * [Azure ID](fundamentals-identity.md)
+
 

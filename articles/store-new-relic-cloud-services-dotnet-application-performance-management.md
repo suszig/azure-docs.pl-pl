@@ -140,7 +140,7 @@ New Relic のダッシュボードを表示するには、次の手順を実行�
 | 目的操作 | これを行うには、次の手順を実行します。 |
 | ----------------- | ---------- |
 | 選択したアプリのサーバーまたはブラウザーのダッシュボード情報を表示する。 | クリックして、 **App Server** または **ブラウザー** ] ボタンをクリックします。 |
-| アプリケーションのしきい値レベルを表示 [Apdex](https://newrelic.com/docs/site/apdex) スコアです。 | Apdex スコアをポイント **?** アイコン。 |
+| アプリケーションのしきい値レベルを表示 [Apdex](https://newrelic.com/docs/site/apdex) スコアです。 | Apdex スコアをポイント **でしょうか。** アイコンをポイントします。 |
 | 世界規模の Apdex の詳細を表示する。 | [概要] の **ブラウザー** ビューで、グローバル Apdex マップの任意の場所] をポイントします。 **ヒント:** 選択したアプリケーションに直接移動する [Geography](https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard") ダッシュ ボードで、] をクリックして、 **グローバル Apdex** タイトル、または、グローバル Apdex マップの任意の場所をクリックします。 |
 | ビュー、 [Web トランザクション](https://newrelic.com/docs/applications-dashboards/web-transactions) ダッシュ ボード。 | アプリケーションの [概要] ダッシュボードの [Web トランザクション] テーブルをクリックします。 または、特定の web トランザクションに関する詳細を表示 (を含む [主要トランザクション](https://newrelic.com/docs/site/key-transactions"), 、その名前をクリックします。 |
 | ビュー、 [エラー](https://newrelic.com/docs/site/errors) ダッシュ ボード。 | アプリケーションの [概要] ダッシュボードの [エラー率] グラフのタイトルをクリックします。 **ヒント:** からエラー] ダッシュ ボードを表示することもできます。 **アプリケーション** > (アプリ) > イベント > エラーです。 |
@@ -169,4 +169,5 @@ New Relic UI の概要、ユーザー権限とプロファイルの設定、標�
  * [Real User Monitoring](https://newrelic.com/docs/features/real-user-monitoring): ユーザーにかかる RUM 詳細、時間を確認する方法の概要 
 および使用しているブラウザーに関する詳細を確認する方法の概要
  * [解決に役立つ](https://newrelic.com/docs/site/finding-help): New Relic のオンライン ヘルプ センターで利用できるリソース
+
 

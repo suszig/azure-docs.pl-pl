@@ -35,7 +35,7 @@
 - 選択 *遅延*:  
 ![遅延の入力][2]
 - アクションの入力を指定し、それを構成します。  
-![アクションの構成][3]
+![構成されたアクション][3]
 
 パラメーター|型|パラメーターの説明
 ---|---|---
@@ -55,4 +55,5 @@
 [1]: ./media/app-service-logic-wait/ListOfActions.PNG
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
+
 

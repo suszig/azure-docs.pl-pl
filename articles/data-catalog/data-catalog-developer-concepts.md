@@ -135,7 +135,7 @@ Azure Data Catalog の重要な側面は、システム内のメタデータの�
 
 共通の型は、プロパティの型として使用できますが、項目ではありません。
 
-<table><tr><td><b>共通の型</b></td><td><b>プロパティ</b></td><td><b>データ型</b></td><td><b>説明</b></td></tr><tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr><tr><td></td><td>sourceType</td><td>文字列</td><td>データ ソースの種類について説明します。  例: SQL Server、Oracle データベースなど.  </td></tr><tr><td></td><td>ObjectType</td><td>文字列</td><td>データ ソース内のオブジェクトの種類について説明します。 つまりテーブル、SQL Server のビューです。</td></tr><tr><td></td><td>formatType</td><td>string</td><td>データの構造について説明します。  現在の値は、構造化済みであるか、または構造化されていません。</td></tr><tr><td>SecurityPrincipal</td><td></td><td></td><td></td></tr><tr><td></td><td>upn</td><td>string</td><td>ユーザーの一意の電子メール アドレス。</td></tr><tr><td></td><td>firstName</td><td>string</td><td>ユーザーの名前 (表示用)。</td></tr><tr><td></td><td>lastName</td><td>string</td><td>ユーザーの姓 (表示用)。</td></tr><tr><td>Column</td><td></td><td></td><td></td></tr><tr><td></td><td>name</td><td>string</td><td>列または属性の名前。</td></tr><tr><td></td><td>type</td><td>string</td><td>列または属性のデータ型。 使用可能な型は、資産のデータ ソースの種類によって異なります。  型のサブセットのみがサポートされます。</td></tr><tr><td></td><td>maxLength</td><td>int</td><td>列または属性に使用できる最大長。 データ ソースから派生します。 一部のソースの種類のみに適用されます。</td></tr><tr><td></td><td>Precision</td><td>byte</td><td>列または属性の有効桁数。 データ ソースから派生します。 一部のソースの種類のみに適用されます。</td></tr><tr><td></td><td>isNullable</td><td>Boolean</td><td>列が null 値を含むことができるかどうか。 データ ソースから派生します。 一部のソースの種類のみに適用されます。</td></tr><tr><td></td><td>expression</td><td>string</td><td>値が計算列である場合、このフィールドには値を表す式が含まれています。 データ ソースから派生します。 一部のソースの種類のみに適用されます。</td></tr><tr><td></td><td>defaultValue</td><td>object@</td><td>オブジェクトに対して insert ステートメントで指定されていない場合に挿入される既定値。  データ ソースから派生します。 一部のソースの種類のみに適用されます。</td>
+<table><tr><td><b>共通の型</b></td><td><b>プロパティ</b></td><td><b>データ型</b></td><td><b>説明</b></td></tr><tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr><tr><td></td><td>sourceType</td><td>string</td><td>データ ソースの種類について説明します。  例: SQL Server、Oracle データベースなど.  </td></tr><tr><td></td><td>ObjectType</td><td>string</td><td>データ ソース内のオブジェクトの種類について説明します。 つまりテーブル、SQL Server のビューです。</td></tr><tr><td></td><td>formatType</td><td>string</td><td>データの構造について説明します。  現在の値は、構造化済みであるか、または構造化されていません。</td></tr><tr><td>SecurityPrincipal</td><td></td><td></td><td></td></tr><tr><td></td><td>upn</td><td>string</td><td>ユーザーの一意の電子メール アドレス。</td></tr><tr><td></td><td>firstName</td><td>string</td><td>ユーザーの名前 (表示用)。</td></tr><tr><td></td><td>lastName</td><td>string</td><td>ユーザーの姓 (表示用)。</td></tr><tr><td>Column</td><td></td><td></td><td></td></tr><tr><td></td><td>name</td><td>string</td><td>列または属性の名前。</td></tr><tr><td></td><td>type</td><td>string</td><td>列または属性のデータ型。 使用可能な型は、資産のデータ ソースの種類によって異なります。  型のサブセットのみがサポートされます。</td></tr><tr><td></td><td>maxLength</td><td>int</td><td>列または属性に使用できる最大長。 データ ソースから派生します。 一部のソースの種類のみに適用されます。</td></tr><tr><td></td><td>Precision</td><td>byte</td><td>列または属性の有効桁数。 データ ソースから派生します。 一部のソースの種類のみに適用されます。</td></tr><tr><td></td><td>isNullable</td><td>Boolean</td><td>列が null 値を含むことができるかどうか。 データ ソースから派生します。 一部のソースの種類のみに適用されます。</td></tr><tr><td></td><td>expression</td><td>string</td><td>値が計算列である場合、このフィールドには値を表す式が含まれています。 データ ソースから派生します。 一部のソースの種類のみに適用されます。</td></tr><tr><td></td><td>defaultValue</td><td>object@</td><td>オブジェクトに対して insert ステートメントで指定されていない場合に挿入される既定値。  データ ソースから派生します。 一部のソースの種類のみに適用されます。</td>
 
 </tr><tr><td>ColumnDescription</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>tags</td><td>string[]</td><td>列を説明するタグの配列。</td></tr>
@@ -170,7 +170,7 @@ Azure Data Catalog では、次の 2 つの承認機構が使用されます。
 
 3 つのロールがある: **管理者**, 、**所有者**, 、および **の共同作業者**します。  各ロールは、次の表に示すスコープと権限を持ちます。
 
-<table><tr><td><b>ロール</b></td><td><b>Scope</b></td><td><b>権限</b></td></tr><tr><td>管理者</td><td>カタログ (カタログ内のすべての資産と注釈)</td><td>読み取り
+<table><tr><td><b>役割</b></td><td><b>Scope</b></td><td><b>権限</b></td></tr><tr><td>管理者</td><td>カタログ (カタログ内のすべての資産と注釈)</td><td>読み取り
 削除
 ViewRoles
 
@@ -210,11 +210,11 @@ ViewRoles
 >
 > **所有者** ロールのルート項目のみに適用します。
 >
-> 既定では、カタログで項目が作成されるときにその **の共同作業者** が現在認証されているユーザーに設定します。 項目は、すべてのユーザーによって更新がある場合 **の共同作業者** に設定する必要があります <Everyone> 特別なセキュリティ プリンシパルに、 **_ _roles** プロパティ項目が最初に発行 (次の例を参照してください)。 **共同作成者** を変更できなくなり、項目の有効期間中同じままになります (つまりでも **管理者** または **所有者** を変更する権限がありません、 **の共同作業者**)。 明示的な設定に対してサポートされている唯一の値、 **の共同作業者** は <Everyone>: 例。 **共同作成者** 項目を作成したユーザーのみを指定または <Everyone>です。
+> 既定では、カタログで項目が作成されるときにその **の共同作業者** が現在認証されているユーザーに設定します。 項目は、すべてのユーザーによって更新される必要がある場合 **の共同作業者** に設定する必要があります <Everyone> 特別なセキュリティ プリンシパルに、 **_ _roles** プロパティ項目が最初に発行 (次の例を参照してください)。 **共同作成者** を変更できなくなり、項目の有効期間中同じままになります (つまりでも **管理者** または **所有者** を変更する権限がありません、 **の共同作業者**)。 明示的な設定に対してサポートされている唯一の値、 **の共同作業者** は <Everyone>: つまり **の共同作業者** 項目を作成したユーザーのみを指定または <Everyone>.
 
 ###例
 **共同作業者に設定 <Everyone> 項目を発行するときにします。**
-特別なセキュリティ プリンシパル <Everyone> の objectId は「00000000-0000-0000-0000-000000000201」です。
+特別なセキュリティ プリンシパル <Everyone> objectId「00000000-0000-0000-0000-000000000201」があります。
 **POST** https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/?api-version=2015-07.1.0-Preview
 **本文**
 
@@ -232,7 +232,7 @@ ViewRoles
         … other table properties
     }
 
-**所有者を割り当てるし、既存のルート項目に対する可視性を制限します。**
+**所有者を割り当て、既存のルート項目に対する可視性を制限します。**
 **PUT** https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/042297b0...1be45ecd462a?api-version=2015-07.1.0-Preview
 
     {
@@ -281,4 +281,5 @@ ViewRoles
 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
+
 

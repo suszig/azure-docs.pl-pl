@@ -23,7 +23,7 @@
  
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-このガイドでは、最新版を使用して一般的なシナリオを実行する方法について説明 [Azure モバイル アプリ iOS SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409)します。 Azure モバイル アプリに慣れていない場合は最初完了 [Azure Mobile Apps のクイック スタート] をバックエンドを作成するテーブルを作成し、構築済みの iOS Xcode プロジェクトをダウンロードします。 このガイドでは、クライアント側の iOS SDK に重点を置いています。 バックエンドの .NET サーバー側 SDK の詳細については、次を参照してください [.NET バックエンドを使用。](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
+このガイドでは、最新版を使用して一般的なシナリオを実行する方法について説明 [Azure モバイル アプリ iOS SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409)します。 Azure モバイル アプリに慣れていない場合は完了して [Azure Mobile Apps Quick Start] するバックエンドを作成するには、テーブルを作成し、事前に構築された iOS Xcode プロジェクトをダウンロードします。 このガイドでは、クライアント側の iOS SDK に重点を置いています。 バックエンドの .NET サーバー側 SDK の詳細については、次を参照してください [.NET バックエンドを使用。](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 
 ## リファレンス ドキュメント
 
@@ -33,7 +33,7 @@ IOS クライアント SDK リファレンス ドキュメントは、: [Azure �
 
 このガイドでは、バックエンドとテーブルを作成済みであることを前提としています。 このガイドでは、テーブルのスキーマが、これらのチュートリアルのテーブルの場合と同じであることを前提とします。 また、コードで `WindowsAzureMobileServices.framework` を参照し、`WindowsAzureMobileServices/WindowsAzureMobileServices.h` をインポートしていることも前提となります。
 
-##<a name="create-client"></a>方法: クライアントを作成します。
+##<a name="create-client"></a>方法: クライアントを作成する
 
 プロジェクトで Azure Mobile Apps バックエンドにアクセスするには、`MSClient` を作成します。 `AppUrl` をアプリの URL に置き換えます。 `gatewayURLString` と `applicationKey` は空のままにしておいてかまいません。 認証用のゲートウェイを設定する場合は、ゲートウェイの URL で `gatewayURLString` を設定します。
 
@@ -41,7 +41,7 @@ IOS クライアント SDK リファレンス ドキュメントは、: [Azure �
 MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" gatewayURLString:@"" applicationKey:@""];
 ```
 
-##<a name="table-reference"></a>方法: テーブル参照を作成します。
+##<a name="table-reference"></a>方法: テーブル参照を作成する
 
 データへのアクセスやデータの更新を行うには、バックエンド テーブルへの参照を作成します。 `TodoItem` をテーブルの名前に置き換えます。
 
@@ -49,7 +49,7 @@ MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" gatewayURL
     MSTable *table = [client tableWithName:@"TodoItem"];
 ```
 
-##<a name="querying"></a>方法: データのクエリ
+##<a name="querying"></a>方法: データをクエリする
 
 データベース クエリを作成するには、`MSTable` オブジェクトのクエリを実行します。 次のクエリは、`TodoItem` 内のすべての項目を取得し、各項目のテキストをログに記録します。
 
@@ -65,7 +65,7 @@ MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" gatewayURL
 }];
 ```
 
-##<a name="filtering"></a>方法: 返されるデータをフィルター処理
+##<a name="filtering"></a>方法: 返されるデータをフィルター処理する
 
 結果をフィルター処理するには、多くのオプションを使用できます。
 
@@ -86,7 +86,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 }];
 ```
 
-##<a name="query-object"></a>方法: MSQuery を使用
+##<a name="query-object"></a>方法: MSQuery を使用する
 
 複雑なクエリ (並べ替えとページングを含む) を実行するには、`MSQuery` オブジェクトを直接作成するか、述語を使用して作成します。
 
@@ -96,12 +96,12 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 ```
 
 `MSQuery` を使用すれば、次のような複数のクエリ動作を制御できます。 実行、 `MSQuery` を呼び出してクエリ `readWithCompletion` で、次の例に示すようにします。
-* 結果の順序を指定します。
-* 取得するには、どのフィールドを制限します。
-* 返されるレコードの数を制限します。
-* 応答の合計数を指定します。
-* 要求にカスタム クエリ文字列パラメーターを指定します。
-* その他の関数を適用します。
+* 結果の順序を指定する
+* 返すフィールドを制限する
+* 返すレコード数を制限する
+* 応答の合計数を指定する
+* 要求内にカスタム クエリ文字列パラメーターを指定する
+* 追加の関数を適用する
 
 
 ## <a name="sorting"></a>方法: MSQuery でデータを並べ替える
@@ -123,7 +123,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 ```
 
 
-## <a name="selecting"></a><a name="parameters"></a>方法: フィールドを制限し、MSQuery でクエリ文字列パラメーターを展開
+## <a name="selecting"></a><a name="parameters"></a>方法: MSQuery でフィールドを制限し、クエリ文字列パラメーターを展開する
 
 クエリで返されるフィールドを制限するためのフィールドの名前を指定します、 **selectFields** プロパティです。 次の例では、text フィールドと completed フィールドのみが返されます。
 
@@ -140,7 +140,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
     };
 ```
 
-##<a name="inserting"></a>方法: データの挿入
+##<a name="inserting"></a>方法: データを挿入する
 
 新しいテーブル行を挿入するには、新しい `NSDictionary` を作成して、`table insert` を呼び出します。 モバイル サービスに基づく新しい列を自動的に生成する、 `NSDictionary` 場合 [Dynamic Schema] は無効にします。
 
@@ -160,7 +160,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
     }];
 ```
 
-##<a name="modifying"></a>方法: データの変更
+##<a name="modifying"></a>方法: データを変更する
 
 既存の行を更新するには、次のように項目を変更して `update` を呼び出します。
 
@@ -182,7 +182,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 更新操作を行う場合は、少なくとも `id` 属性を設定する必要があります。
 
-##<a name="deleting"></a>方法: データを削除します。
+##<a name="deleting"></a>方法: データを削除する
 
 項目を削除するには、次のように、該当する項目を指定して `delete` を呼び出します。
 
@@ -218,7 +218,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 これらの登録済みのテンプレートを使用して通知を送信する操作 [通知ハブの Api](https://msdn.microsoft.com/library/azure/dn495101.aspx)
 
-##<a name="errors"></a>方法: エラーを処理します。
+##<a name="errors"></a>方法: エラーを処理する
 
 モバイル サービスを呼び出したとき、完了ブロックには `NSError *error` パラメーターが含まれます。 エラーが発生すると、このパラメーターは null 以外の値になります。 コードでは、このパラメーターを確認し、必要に応じてエラーを処理する必要があります。
 
@@ -274,4 +274,5 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
+
 

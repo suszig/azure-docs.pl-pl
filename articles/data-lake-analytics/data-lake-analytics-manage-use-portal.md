@@ -50,7 +50,7 @@ Data Lake Analytics ジョブを実行するには、Data Lake Analytics アカ�
     - **名前**: Analytics アカウントの名前します。
     - **Data Lake ストア**: 各 Data Lake 分析アカウントが依存する Azure Data Lake ストア アカウントを持っています。 Data Lake Analytics アカウントと従属する Data Lake Store アカウントは、同じ Azure データ センターに配置する必要があります。 以下の指示に従って、新しい Data Lake Store アカウントを作成するか、既存のものを選択します。
     - **サブスクリプション**: Analytics アカウントに使用される Azure サブスクリプションを選択します。
-    - **リソース グループ**します。 既存の Azure リソース グループを選択するか、新しいグループを作成します。 Azure リソース マネージャー (ARM) を使用すると、アプリケーション内のリソースを 1 つのグループと見なして作業できます。 詳細については、次を参照してください。 [Azure リソース マネージャーの概要](resource-group-overview.md)します。 
+    - **リソース グループ**します。 既存の Azure リソース グループを選択するか、新しいものを作成します。 Azure リソース マネージャー (ARM) を使用すると、アプリケーション内のリソースを 1 つのグループと見なして作業できます。 詳細については、次を参照してください。 [Azure リソース マネージャーの概要](resource-group-overview.md)します。 
     - **場所**します。 Data Lake Analytics アカウントの Azure データ センターを選択します。 
 
 8. クリックして **作成**します。 ポータルのホーム画面が表示されます。 新しいタイルはスタート画面に追加され、"Azure Data Lake Analytics のデプロイ" を示すラベルが付けられます。 Data Lake Analytics アカウントの作成にはしばらく時間がかかります。 アカウントが作成されると、ポータルの新しいブレードにアカウントが開きます。
@@ -170,7 +170,7 @@ Data Lake Analytics では、Azure Active Directory でのロール ベースの
 アカウント、「サブスクリプション管理者」ロールが、アカウントに追加します。 その他のユーザーとのセキュリティ グループに追加することができます。 
 次の役割:
 
-|ロール|説明|
+|役割|説明|
 |----|-----------|
 |所有者|リソースへのアクセスを含め、すべてを管理できます。|
 |共同作成者|ポータルにアクセスし、ジョブを送信および監視します。 ジョブを送信するには、共同作成者に Data Lake Store アカウントに対する読み取りまたは書き込みアクセス許可も必要になります。|
@@ -216,12 +216,12 @@ Azure Active Directory ユーザーとセキュリティ グループの作成�
     ジョブごとに、以下を構成することができます。
 
 
-    |Name|Description|
-    |----|-----------|
-    |Job Name|Enter the name of the job.|
-    |Priority|Lower number is higher priority. If two jobs are both queued, the one with lower priority will be run first|
-    |Parallelism |Max number of compute processes that can happen at the same time. Increasing this number can improve performance but can also increase cost.|
-    |Script|Enter the U-SQL script for the job.|
+  	|Name|Description|
+  	|----|-----------|
+  	|Job Name|Enter the name of the job.|
+  	|Priority|Lower number is higher priority. If two jobs are both queued, the one with lower priority will be run first|
+  	|Parallelism |Max number of compute processes that can happen at the same time. Increasing this number can improve performance but can also increase cost.|
+  	|Script|Enter the U-SQL script for the job.|
 
     Using the same interface, you can also explore the link data sources, and add addtional files to the linked data sources. 
 3. クリックして **ジョブの送信** 、ジョブを送信する場合。
@@ -311,8 +311,9 @@ Data Lake Analytics アカウントと従属するストレージ アカウン�
 ##関連項目 
 
 - [Microsoft Azure Data Lake Analytics の概要](data-lake-analytics-overview.md)
-- [Azure ポータルで Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-portal.md)
+- [Azure ポータルで Azure Data Lake Analytics の使用を開始する](data-lake-analytics-get-started-portal.md)
 - [Azure PowerShell を使用する Azure Data Lake Analytics の管理](data-lake-analytics-use-powershell.md)
 - [Azure ポータルを使用する Azure Data Lake Analytics ジョブの監視とトラブルシューティング](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+
 
 

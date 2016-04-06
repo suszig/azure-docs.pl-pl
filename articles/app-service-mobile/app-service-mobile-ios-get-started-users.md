@@ -24,7 +24,7 @@
 
 このチュートリアルでは、認証を追加、 [iOS quick start] プロジェクトのサポートされている id プロバイダーを使用します。 このチュートリアルに基づいて、 [iOS quick start] チュートリアルで、先に完了する必要があります。 
 
-##<a name="register"></a>アプリを認証に登録し、App Service を構成する
+##<a name="register"></a>アプリケーションを認証に登録し、App Service を構成する
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
@@ -45,4 +45,5 @@ Xcode で、キーを押して **実行** 、アプリケーションを開始�
 
 [Azure portal]: https://portal.azure.com
  
+
 

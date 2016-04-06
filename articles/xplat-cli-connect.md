@@ -72,7 +72,7 @@ CLI バージョン 0.9.9 以降は、多要素認証をサポートしていま
     azure login -u ahmet@contoso.onmicrosoft.com
     info:    Executing command login
     Password: *********
-    |info:    Added subscription Visual Studio Ultimate with MSDN
+  	|info:    Added subscription Visual Studio Ultimate with MSDN
     +
     info:    login command OK
 
@@ -96,9 +96,9 @@ CLI バージョン 0.9.9 以降は、多要素認証をサポートしていま
 
 既定のブラウザーが開きにサインインするように求められます、 [Azure クラシック ポータル][portal]します。 サインインした後、`.publishsettings` ファイルがダウンロードされます。 ファイルを保存した場所をメモしておきます。
 
-    > [AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
+    > [AZURE.NOTE] 自分のアカウントは、複数の Azure Active Directory テナントに関連付けられての発行設定ファイルをダウンロードする対象となる Active Directory を選択するように求め可能性があります。
     >
-    > Once selected using the download page, or by visiting the Azure classic portal, the selected Active Directory becomes the default used by the classic portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
+    > ダウンロード ページを使用して選択するか、Azure クラシック ポータルにアクセスして選択すると、選択した Active Directory が、クラシック ポータルおよびダウンロード ページで既定として使用されようになります。 テキストが表示されます、既定値が確立されると、'__の選択] ページに戻るにはここをクリックして__' ダウンロード ページの上部にあります。 選択されたページに戻るには、用意されているリンクを使用します。
 
 * **発行設定ファイルをインポートする**, 、次のコマンドを実行します。
 
@@ -157,4 +157,5 @@ Azure サブスクリプションに接続すると、その Azure CLI コマン
 [signuporg]: http://azure.microsoft.com/en-us/documentation/articles/sign-up-organization/
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: xplat-cli-azure-resource-manager.md
+
 

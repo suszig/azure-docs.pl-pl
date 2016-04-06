@@ -105,7 +105,7 @@ serviceBusService.createQueueIfNotExists('myqueue', queueOptions, function(error
 
 ### フィルター
 
-オプションのフィルター操作を使用して行われる操作に適用できます **ServiceBusService**します。 フィルター操作には、ログや自動的な再試行などが含まれる場合があります。フィルターは、次のシグネチャを持つメソッドを実装するオブジェクトです。
+オプションのフィルター操作を使用して行われる操作に適用できます **ServiceBusService**します。 フィルター操作には、ログ、自動的な再試行などが含まれる場合があります。フィルターは、次のシグネチャを持つメソッドを実装するオブジェクトです。
 
 ```
 function handle (requestOptions, next)
@@ -202,4 +202,5 @@ Service Bus には、アプリケーションにエラーが発生した場合�
   [Node.js Web Application with Storage]: ../storage/storage-nodejs-how-to-use-table-storage.md
   [Azure Queues and Service Bus queues]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
+
 

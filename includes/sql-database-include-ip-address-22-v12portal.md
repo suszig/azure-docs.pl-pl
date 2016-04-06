@@ -2,20 +2,20 @@
 <!--
 includes/sql-database-include-ip-address-22-v12portal.md
 
-鮮度をチェックする最新: 2015年-09-04、GeneMi です。
+Latest Freshness check:  2015-09-04 , GeneMi.
 
-としての 2015年-09-04 およそ次のトピックが含まれます次のとおりには。
+As of circa 2015-09-04, the following topics might include this include:
 articles/sql-database/sql-database-configure-firewall-settings.md
 articles/sql-database/sql-database-connect-query.md
 
 
-## サーバーレベルのファイアウォール規則
+## Server-level firewall rules
 
-### 新しい Azure ポータルからサーバー レベルのファイアウォール ルールを管理します。
+### Manage server-level firewall rules through the new Azure portal
 -->
 
 
-1. ログイン、 [Azure プレビュー ポータル](http://portal.azure.com/), 、http://portal.azure.com/にします。
+1. ログイン、 [Azure プレビュー ポータル](http://portal.azure.com/), 、http://portal.azure.com/ にします。
 
 2. 左のバナーをクリックして **すべて参照**します。  **参照** ブレードが表示されます。
 
@@ -62,4 +62,5 @@ These includes/ files are a sequenced set, but you can pick and choose:
 includes/sql-database-include-ip-address-22-v12portal.md
 ? includes/sql-database-include-ip-address-*.md
 -->
+
 

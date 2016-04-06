@@ -27,9 +27,9 @@ Maven を使用して HDInsight での Apache Storm の Java ベース トポロ
 
 * <a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" target="_blank">Java Developer Kit (JDK) バージョン 7</a>
 
-* <a href="https://maven.apache.org/download.cgi" target="_blank">Maven</a>: Maven は、Java プロジェクトの、プロジェクト ビルド システムです。
+* <a href="https://maven.apache.org/download.cgi" target="_blank">Maven</a>: Maven は Java プロジェクトのプロジェクト ビルド システムです
 
-* メモ帳などのテキスト エディター <a href="http://www.gnu.org/software/emacs/" target="_blank">Emacs<a>。 <a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>。 <a href="https://atom.io/" target="_blank">Atom.io</a>。 <a href="http://brackets.io/" target="_blank">Brackets.io</a>. などの統合開発環境 (IDE) を使用できますか <a href="https://eclipse.org/" target="_blank">Eclipse</a> (バージョン Luna 以降) などの統合開発環境 (IDE)。
+* メモ帳、<a href="http://www.gnu.org/software/emacs/" target="_blank">Emacs<a>、<a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>、<a href="https://atom.io/" target="_blank">Atom.io</a>、<a href="http://brackets.io/" target="_blank">Brackets.io</a> などのテキスト エディター。 また、<a href="https://eclipse.org/" target="_blank">Eclipse</a> (バージョン Luna またはそれ以降) などの統合開発環境 (IDE) を使用することもできます。
 
     > [AZURE.NOTE] エディターまたは IDE には、このドキュメントで扱っていない Maven を操作するための特定の機能がある場合があります。 お使いの編集環境の機能に関する詳細は、製品のマニュアルをご覧ください。
 
@@ -121,7 +121,7 @@ Storm トポロジの場合、<a href="http://mojo.codehaus.org/exec-maven-plugi
       </configuration>
     </plugin>
 
-別の役立つプラグインとして、 <a href="http://maven.apache.org/plugins/maven-compiler-plugin/" target="_blank">Apache Maven Compiler プラグイン</a>Compiler プラグインがあります。 これは主に、Maven がアプリケーションのソースとターゲットに使用する Java バージョンを変更する際に必要になります。 使用するバージョンは、1.7 です。
+別の役立つプラグインとして <a href="http://maven.apache.org/plugins/maven-compiler-plugin/" target="_blank">Apache Maven Compiler プラグイン</a>があり、コンパイル オプションを変更するために使用します。 これは主に、Maven がアプリケーションのソースとターゲットに使用する Java バージョンを変更する際に必要になります。 使用するバージョンは、1.7 です。
 
 次の追加、 `<plugins>` のセクション、 **pom.xml** ファイル Apache Maven Compiler プラグインを追加し、ソースとターゲットのバージョンを 1.7 に設定します。
 
@@ -146,13 +146,13 @@ Java ベースの Storm トポロジは、作成か依存関係として参照�
 
 ###スパウトを作成する
 
-外部データソースの設定に必要な要件を軽減するため、次のスパウトは単純にランダムにセンテンスを出力します。 これは、(提供されているスパウトの変更されたバージョンです。<a href="https://github.com/apache/storm/blob/master/examples/storm-starter/" target="_blank">Storm Starter の例</a>).
+外部データソースの設定に必要な要件を軽減するため、次のスパウトは単純にランダムにセンテンスを出力します。 提供されているスパウトの変更済みバージョンは、(<a href="https://github.com/apache/storm/blob/master/examples/storm-starter/" target="_blank">Storm Starter 例</a>)。
 
 > [AZURE.NOTE] 外部データ ソースから読み取りを行うスパウトの例は、次の例のいずれかを参照してください。
 >
-> * <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java" target="_blank">TwitterSampleSpout</a>Twitter から読み取りを行うスパウトの例:
+> * <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java" target="_blank">TwitterSampleSpout</a>: Twitter から読み取りを行うスパウトの例
 >
-> * <a href="https://github.com/apache/storm/tree/master/external/storm-kafka" target="_blank">Storm Kafka</a>: Kafka から読み取りを行うスパウト
+> * <a href="https://github.com/apache/storm/tree/master/external/storm-kafka" target="_blank">Storm Kafka</a>: Kafka から読み取りを行うスパウトの例
 
 という名前の新しいファイルを作成、スパウトの **RandomSentenceSpout.java** で、 **src \main\java\com\microsoft\example** ディレクトリと次の内容として使用します。
 
@@ -453,7 +453,7 @@ Trident は Storm から提供される大枠の抽象概念です。 ステー�
 
 Trident アプリケーションは Maven プロジェクトを使用して作成できます。 この記事で前述した同じ基本の手順の、コードのみを変更して作成できます。
 
-Trident の詳細については、次を参照してください、。 <a href="http://storm.apache.org/documentation/Trident-API-Overview.html" target="_blank">「Trident API Overview (Trident API の概要)」</a>.
+Trident の詳細については、「<a href="http://storm.apache.org/documentation/Trident-API-Overview.html" target="_blank">Trident API の概要</a>」のページをご覧ください。
 
 Trident アプリケーションの例は、次を参照してください。 [Twitter のトレンディング トピックでの Apache Storm の使用](hdinsight-storm-twitter-trending.md)します。
 
@@ -466,4 +466,5 @@ Trident アプリケーションの例は、次を参照してください。 [T
 * [Visual Studio を使用して HDInsight で Apache Storm の C# トポロジを開発する](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 アクセスして、次の例も Storm トポロジを見つけることができます [HDInsight での Storm に関するトポロジ例](hdinsight-storm-example-topology.md)します。
+
 

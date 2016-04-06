@@ -54,26 +54,26 @@ Service Fabric アプリケーションで使用するために提供される A
 
 ## 次のステップ
 ### アプリケーションへの Web フロント エンドの追加
-Service Fabric は、アプリケーションへの Web ベースのエントリ ポイントを作成するための ASP.NET 5 との統合を提供します。 [Web フロント エンドをアプリケーションに追加する] を参照してください。 [追加の web のフロント エンド] REST インターフェイスを作成する方法については、ASP.NET web Api に基づいています。
+Service Fabric は、アプリケーションへの Web ベースのエントリ ポイントを作成するための ASP.NET 5 との統合を提供します。 参照してください [web フロント エンドをアプリケーションに追加する][add-web-frontend] を ASP.NET web Api に基づく REST インターフェイスを作成する方法を参照してください。
 
 ### Azure クラスターの作成
-Service Fabric SDK には、開発およびテスト用のローカル クラスターが用意されています。 Azure でクラスターを作成する [Azure ポータルから Service Fabric クラスターのセットアップ] を参照してください [作成-クラスターの-ポータルで]。
+Service Fabric SDK には、開発およびテスト用のローカル クラスターが用意されています。 Azure でクラスターを作成するを参照してください [Azure ポータルから Service Fabric クラスターを設定します。。][create-cluster-in-portal]
 
 ### パーティ クラスターを使用した Azure へのデプロイの無料試行
 
 Free を使用することができます、独自のクラスターを設定しないで Azure でアプリケーションの配置と管理を試みる場合は、 [パーティのクラスター サービス](http://aka.ms/tryservicefabric)します。
 
 ### Azure へのアプリケーションの発行
-Visual Studio から Azure クラスターに直接アプリケーションを発行することができます。 については、[Azure へのアプリケーションの発行] を参照する方法は、[- アプリ-する-azure のパブリッシュ] です。
+Visual Studio から Azure クラスターに直接アプリケーションを発行することができます。 については、参照する方法、 [アプリケーションを Azure に発行][publish-app-to-azure]します。
 
 ### Service Fabric Explorer を使用したクラスターの視覚化
-Service Fabric Explorer には、デプロイ済みのアプリケーションや物理的なレイアウトなど、クラスターを視覚化するための簡単な方法が用意されています。 については、[Service Fabric エクスプ ローラーを使用してクラスターの視覚化] を参照してください [視覚化の使用-sfx] です。
+Service Fabric Explorer には、デプロイ済みのアプリケーションや物理的なレイアウトなど、クラスターを視覚化するための簡単な方法が用意されています。 参照してください [Service Fabric エクスプ ローラーを使用してクラスターの視覚化][visualize-with-sfx]します。
 
 ### サービスのアップグレードとバージョン管理
-Service Fabric では、アプリケーションにおいて、独立したサービスの個別のバージョン管理とアップグレードを実行できます。 詳細についてを参照してください [バージョン管理と、サービスのアップグレード] [アプリケーションのアップグレード チュートリアル] です。
+Service Fabric では、アプリケーションにおいて、独立したサービスの個別のバージョン管理とアップグレードを実行できます。 詳細については、次を参照してください。 [バージョン管理と、サービスをアップグレードする][app-upgrade-tutorial]です。
 
 ### Visual Studio Team Services を使用した継続的な統合の構成
-Service Fabric アプリケーションの継続的な統合プロセスを設定する方法については、[構成の継続的インテグレーション Visual Studio チームのサービス] を参照してください。 [ci の vso] です。
+Service Fabric アプリケーションの継続的な統合プロセスを設定する方法については、次を参照してください。 [Visual Studio チームのサービスで継続的な統合を構成する][ci-with-vso]です。
 
 
 <!-- Links -->
@@ -84,4 +84,5 @@ Service Fabric アプリケーションの継続的な統合プロセスを設�
 [ci-with-vso]: ./service-fabric-configure-continuous-integration-with-vso.md
 [reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
+
 

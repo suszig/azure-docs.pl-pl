@@ -44,7 +44,7 @@ Mahout は、 [機械学習][ml] ライブラリの 1 つです。 Mahout には
 - **Azure PowerShell を実行できるワークステーション**します。 参照してください [Azure PowerShell 1.0 をインストールし、大きい](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater)します。
 
 
-##<a name="recommendations"></a>Windows PowerShell を使用してリコメンデーションを生成します。
+##<a name="recommendations"></a>Windows PowerShell を使用してリコメンデーションを生成する
 
 > [AZURE.NOTE] 使用される、ジョブがこのセクションでは、Windows PowerShell を使用して、Mahout で提供されるクラスの多くは現在取り扱っていません Windows PowerShell、および Hadoop コマンドラインを使用して実行する必要があります。 Windows PowerShell で動作しないクラスの一覧は、次を参照してください。、 [トラブルシューティング](#troubleshooting) セクションです。
 >
@@ -197,7 +197,7 @@ Mahout ジョブは出力を STDOUT に返しません。 代わりと指定さ�
     3   [284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
     4   [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
 
-最初の列は `userID` です。 "[" と "]" に含まれる値は `movieId`:`recommendationScore` です。
+最初の列は `userID` です。 含まれる値 ' [' と ']' は `movieId`:`recommendationScore`です。
 
 ###出力を表示する
 
@@ -320,7 +320,7 @@ Mahout ジョブは出力を STDOUT に返しません。 代わりと指定さ�
     Donnie Brasco (1997)                     4.6792455
     Lone Star (1996)                         4.7099237  
 
-##<a name="classify"></a>Hadoop コマンドラインを使用してデータを分類します。
+##<a name="classify"></a>Hadoop コマンド ラインを使用してデータを分類する
 
 Mahout で利用可能は分類方法の 1 つは作成する、 [ランダム フォレスト][forest]します。 これは複数の手順から成るプロセスです。データの分類に使用されるデシジョン ツリーをトレーニング データで生成する手順も含まれます。 これを使用して、 __org.apache.mahout.classifier.df.tools.Describe__ Mahout により提供されるクラスです。 現在は Hadoop コマンド ラインを使用して実行する必要があります。
 
@@ -529,3 +529,4 @@ HDInsight 3.1 クラスターには Mahout が含まれていますが、 パス
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
+

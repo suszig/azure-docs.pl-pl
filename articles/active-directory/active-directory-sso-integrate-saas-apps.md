@@ -29,7 +29,7 @@
 
 HTML フォーム ベースのサインインのみをサポートするアプリケーションの場合、Azure Active Directory では "パスワード保管" を使用して信頼関係を確立します。 これにより、Azure AD は SaaS アプリケーションから取得したユーザー アカウント情報を使用して、組織のユーザーを SaaS アプリケーションに自動的にサインインします。 ユーザー アカウント情報および関連するパスワードは Azure AD によって収集され、安全に格納されます。 詳細については、次を参照してください。 [シングル サインオンをパスワードに基づく](active-directory-appssoaccess-whatis.md\#password-based-single-sign-on)します。
 
-## Authorization
+## 承認
 
 プロビジョニングされたアカウントを使用すると、ユーザーがシングル サインオンを介して認証された後にアプリケーションの使用を許可できます。 ユーザーのプロビジョニングは手動で実行できます。また、Azure Active Directory で行われた変更に基づいて、SaaS アプリケーションに対してユーザー情報の追加や削除を実行できる場合もあります。 既存の Azure AD コネクタを使用して自動プロビジョニングの詳細については、次を参照してください  [自動ユーザー プロビジョニングと SaaS アプリケーションのプロビジョニング解除。](active-directory-saas-app-provisioning.md)
 
@@ -69,4 +69,5 @@ Azure AD の id とアプリケーション id のマッピングの詳細につ
 
 これらの問題、Azure.com ライブラリ内のすべての詳細があります。
 始まる [アプリケーションへのアクセスと Azure Active Directory でのシングル サインオン。](active-directory-appssoaccess-whatis.md)します。
+
 

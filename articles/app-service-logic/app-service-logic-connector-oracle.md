@@ -51,7 +51,7 @@ Oracle Database コネクタでは、次のトリガーとアクションを使�
 データ ソース |[はい |Oracle クライアントがインストールされているコンピューターの tnsnames.ora ファイルで指定されているデータ ソース (ネット サービス) 名です。 データ ソース名と tnsnames.ora については、次を参照してください。 [Oracle クライアントの構成](http://msdn.microsoft.com/library/dd787872.aspx)します。
 ユーザー名 |[はい |Oracle サーバーに接続するユーザー名を入力します。
 パスワード |[はい |ユーザー名とパスワードを入力します。
-Service Bus 接続文字列 |[はい |オンプレミスに接続する場合は、Service Bus relay の接続文字列を入力してください<br/><br/>[。ハイブリッド接続マネージャーを使用して](app-service-logic-hybrid-connection-manager.md)<br/>[サービス バスの料金](http://azure.microsoft.com/pricing/details/service-bus/)
+Service Bus 接続文字列 |[はい |オンプレミスに接続する場合は、Service Bus relay の接続文字列を入力します。<br/><br/>[ハイブリッド接続マネージャーの使用](app-service-logic-hybrid-connection-manager.md)<br/>[サービス バスの料金](http://azure.microsoft.com/pricing/details/service-bus/)
 テーブル |いいえ |コネクタで変更できるは、データベースにテーブルを入力します。 たとえば、入力 *OrdersTable, EmployeeTable*します。
 ストアド プロシージャ |いいえ |コネクタで呼び出すことができるデータベースにストアド プロシージャを入力します。 たとえば、入力 *IsEmployeeEligible, CalculateOrderDiscount*します。
 関数 |いいえ |コネクタで呼び出すことができるデータベース内の関数を入力します。 たとえば、入力 *IsEmployeeEligible, CalculateOrderDiscount*します。
@@ -133,4 +133,5 @@ App Service では、 ハイブリッド構成マネージャーを使用して�
 [10]: ./media/app-service-logic-connector-oracle/LogicApp6.png
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
+
 

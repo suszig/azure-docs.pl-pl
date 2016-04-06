@@ -10,12 +10,12 @@
 
 <tags
     ms.service="backup"
-    ms.workload=「記憶域のバックアップ回復」
+    ms.workload="storage-backup-recovery"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
     ms.date="10/29/2015"
-    ms.author="aashishr"です。"jimpark"です。"trinadhk"/>
+    ms.author="aashishr"; "jimpark"; "trinadhk"/>
 
 # Azure 仮想マシンのバックアップを管理および監視する
 
@@ -160,7 +160,7 @@
 
 ![ダッシュボード](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
 
->[AZURE.NOTE] ダッシュ ボード内の値は 24 時間に 1 回更新されます。
+>[AZURE.NOTE] ダッシュ ボード内の値は 24 時間ごとに更新されます。
 
 ## 監査操作
 Azure Backup では、顧客がトリガーしたバックアップ操作の "操作ログ" を確認できます。この機能を使えば、バックアップ コンテナーで行われた管理操作を正確に把握することができます。 操作ログは、バックアップ操作の事後分析や監査を行うのに役立ちます。
@@ -218,7 +218,7 @@ PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/su
 
 **レベル**: サポートされている値は、- 情報、エラーです。 操作が失敗した場合のアラートには Error を使用し、ジョブが成功した場合のアラートには Informational を使用します。
 
-**OperationName**: これは次の形式で"Microsoft.Backup/backupvault/<EventName>"を前述のとおりです。
+**OperationName**: これは"Microsoft.Backup/backupvault/ 形式になります<EventName>"を前述のとおりです。
 
 **ステータス**: サポートされている値は開始、成功および失敗しました。 Status に Succeeded を指定する場合、Level には Informational を指定することをお勧めします。
 
@@ -255,4 +255,5 @@ PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/su
 ## 次のステップ
 
 - [Azure VM の復元](backup-azure-restore-vms.md)
+
 

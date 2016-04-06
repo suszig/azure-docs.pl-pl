@@ -23,7 +23,7 @@
 
 この記事では、HDInsight クラスターの Hadoop で MapReduce ジョブを実行する方法を説明します。 Java MapReduce ジョブとして実装されている基本的なワード カウントの操作を実行します。
 
-##<a id="whatis"></a>MapReduce とは何ですか。
+##<a id="whatis"></a>MapReduce とは
 
 Hadoop MapReduce は、膨大なデータを処理するジョブを記述するためのソフトウェア フレームワークです。 入力データは独立したチャンクに分割され、クラスター内のノードで並列に処理されます。 MapReduce ジョブは次の 2 つの関数で構成されます。
 
@@ -192,4 +192,5 @@ MapReduce は高度な診断機能を備えていますが、使いこなすの�
 [powershell-install-configure]: ../powershell-install-configure.md
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
+
 

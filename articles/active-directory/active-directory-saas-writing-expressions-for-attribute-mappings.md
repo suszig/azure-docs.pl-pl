@@ -34,7 +34,7 @@ SaaS アプリケーションに対してプロビジョニングを構成する
 *たとえば、FunctionName (<< 引数 1 >> <<argument N>>)*
 
 
-- 各関数内で他の関数を入れ子にすることができます。 例: <br> *FunctionOne (FunctionTwo(<<argument1>>))*
+- 各関数内で他の関数を入れ子にすることができます。 次に例を示します。 <br> *FunctionOne (FunctionTwo(<<argument1>>))*
 
 
 - 関数には、次の 3 つの異なる種類の引数を渡すことができます。
@@ -111,7 +111,7 @@ source 値の 1 つが複数値属性である場合は、その属性のすべ�
 |名前| 必須/繰り返し | 型 | メモ |
 |--- | ---                 | ---  | ---   |
 | **separator** | 必須 | String | source 値を 1 つの文字列に連結するときに、各値を区切るのに使用する文字列。 区切り記号が必要ない場合は、“” とすることができます。 |
-| * * source1. sourceN * * | 必要に応じて、変数の回数 | String | 1 つに結合する値の文字列を指定します。 |
+| * * source1. sourceN * * | 必要に応じて、変数の回数 | String | 結合する値の文字列を指定します。 |
 
 
 
@@ -155,7 +155,7 @@ Not (source)
 
 
 ----------
-### *Views\\Home\\AllDates.cshtml*
+### Replace
 
 **関数:**<br> 
 ObsoleteReplace (ソース、oldValue、regexPattern、regexGroupName、replacementValue、replacementAttributeName, テンプレート)
@@ -241,10 +241,10 @@ Switch (ソース、defaultValue、key1、value1、key2, value2,…)
 たとえば、ドメインが"contoso.com"の場合は、次の式を使用できます。
 
 
-**式:** <br>
+**[式]:** <br>
 `Replace([mail], "@contoso.com", , ,"", ,)`
 
-**サンプル入力/出力:** <br>
+**サンプル入力/出力。** <br>
 
 - **入力** (mail):"john.doe@contoso.com"
 
@@ -258,7 +258,7 @@ Salesforce Sandbox を使用している場合は、ユーザー名を同期す�
 
 
 
-**式:** <br>
+**[式]:** <br>
 `Append([userPrincipalName], ".test"))`
 
 **サンプル入力/出力:** <br>
@@ -277,7 +277,7 @@ Salesforce Sandbox を使用している場合は、ユーザー名を同期す�
 ユーザーの名の最初の 3 文字とユーザーの姓の最初の 5 文字を取得することでユーザー エイリアスを生成する必要があります。
 
 
-**式:** <br>
+**[式]:** <br>
 `Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
 
 **サンプル入力/出力:** <br>
@@ -298,7 +298,7 @@ SaaS アプリケーションに特定の形式で日付を送信します。 <b
 
 
 
-**式:** <br>
+**[式]:** <br>
 
 `FormatDateTime([extensionAttribute1], "yyyyMMddHHmmss.fZ", "yyyy-MM-dd")`
 
@@ -318,7 +318,7 @@ Azure AD に格納されている都道府県コードに基づいて、ユー�
 状態コードと一致していない、定義済みオプションのいずれかの場合は、既定値"australia/sydney"を使用します。
 
 
-**式:** <br>
+**[式]:** <br>
 
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
 
@@ -330,4 +330,5 @@ Azure AD に格納されている都道府県コードに基づいて、ユー�
 
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+
 

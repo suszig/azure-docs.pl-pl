@@ -31,16 +31,16 @@ Data Factory .NET SDK を使用して Azure Data Factory をプログラムに�
 ## チュートリアル
 1. Visual Studio 2012 または 2013 を使用して、C# .NET コンソール アプリケーションを作成します。
     <ol type="a">
-        <li>ここで、 <b>Visual Studio 2012</b> または <b>Visual Studio 2013</b>.</li>
-        <li>[ <b>ファイル</b>をクリックし、 <b>新規</b>] を展開して、[ <b>Project</b>.</li> 
-        <li>[ <b>テンプレート</b>を展開し、 <b>Visual C#</b>. このチュートリアルでは C# を使用しますが、どの .NET 言語でも使用できます。</li> 
-        <li>[ <b>コンソール アプリケーション</b> を選択します。</li>
-        <li>次に、 <b>DataFactoryAPITestApp</b> を指定して <b>名前</b>.</li> 
-        <li>[ <b>C:\ADFGetStarted</b> を指定して <b>Location (場所)</b>.</li>
-        <li>[ <b>OK</b> をクリックしてプロジェクトを作成します。</li>
+        <li>起動 <b>Visual Studio 2012</b> または <b>Visual Studio 2013</b>します。</li>
+        <li>クリックして <b>ファイル</b>, 、] をポイント <b>新規</b>, 、] をクリック <b>プロジェクト</b>します。</li> 
+        <li>展開 <b>テンプレート</b>, を選択して <b>Visual c#</b>します。 このチュートリアルでは C# を使用しますが、どの .NET 言語でも使用できます。</li> 
+        <li>選択 <b>コンソール アプリケーション</b> 右側にプロジェクトの種類の一覧からです。</li>
+        <li>入力 <b>DataFactoryAPITestApp</b> の <b>名前</b>します。</li> 
+        <li>選択 <b>C:\ADFGetStarted</b> の <b>場所</b>します。</li>
+        <li>クリックして <b>OK</b> プロジェクトを作成します。</li>
     </ol>
-2. [ <b>ツール</b>をクリックし、 <b>[NuGet パッケージ マネージャー]</b>] を展開して、[ <b>パッケージ マネージャー コンソール</b>.
-3.  [ <b>パッケージ マネージャー コンソール</b>で、次のコマンドを 1 つずつ実行します</b>. 
+2. <b>[ツール]</b> をクリックし、<b>[NuGet パッケージ マネージャー]</b> をポイントして、<b>[パッケージ マネージャー コンソール]</b> をクリックします。
+3.  <b>[パッケージ マネージャー コンソール]</b> で、次のコマンドを 1 つずつ入力します。</b> 
 
         Install-Package Microsoft.Azure.Management.DataFactories
         Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -391,4 +391,5 @@ Data Factory .NET SDK を使用して Azure Data Factory をプログラムに�
 [adf-class-library-reference]: http://go.microsoft.com/fwlink/?LinkID=521877
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
+
 

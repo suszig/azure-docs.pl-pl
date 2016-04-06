@@ -20,7 +20,7 @@
 
 このガイドでは、Azure API Management における開発者ポータルのルック アンド フィールをお客様のブランドに合わせてカスタマイズする方法について説明します。
 
-## <a name="change-page-headers"> </a>テキストまたはページ ヘッダーにロゴを変更します。
+## <a name="change-page-headers"> </a>ページ ヘッダーのテキストまたはロゴを変更する
 
 ポータルの代表的なカスタマイズとして、すべてのページの一番上に表示されるテキストを貴社の会社名またはロゴに置き換えることが挙げられます。
 
@@ -60,7 +60,8 @@
 
 クリックして、選択した要素のスタイルに変更が終わったら、 **変更のプレビュー** 画面に結果を確認します。 この時点では、管理者にしか表示されません。 これらの変更をすべてのユーザーに表示するには、クリックして、 **発行** 、スタイル エディターでボタンをクリックし、変更を確認します。
 
-![[発行] メニュー][api-management-customization-toolbar-publish-form]
+![[発行] メニュー
+][api-management-customization-toolbar-publish-form]
 
 > ページの他の要素に適用されるスタイル ルールを変更するには、ヘッダーの場合と同じ手順を実行します。 クリックして **要素を選択** 、スタイル エディターから、目的を画面に表示されるスタイル ルールの値に変更を開始する要素を選択します。
 
@@ -98,4 +99,5 @@
 [Get started with advanced API configuration]: api-management-get-started-advanced.md
 [bootstrap]: http://getbootstrap.com/
 [LESS variables]: http://getbootstrap.com/css/
+
 

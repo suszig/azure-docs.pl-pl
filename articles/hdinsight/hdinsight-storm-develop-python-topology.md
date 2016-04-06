@@ -160,7 +160,7 @@ __Uberjar をビルドして HDInsight にデプロイする__, 、次の手順�
     
     * __Windows ベースの HDInsight__
     
-        1. Storm ダッシュ ボードに接続するには、ブラウザーで HTTPS://CLUSTERNAME.azurehdinsight.net/しようとします。 CLUSTERNAME を HDInsight クラスター名に置き換え、プロンプトが表示されたら、管理者の名前とパスワードを入力します。
+        1. Storm ダッシュ ボードに接続するには、ブラウザーで HTTPS://CLUSTERNAME.azurehdinsight.net/ しようとします。 CLUSTERNAME を HDInsight クラスター名に置き換え、プロンプトが表示されたら、管理者の名前とパスワードを入力します。
 
         2. フォームを使用して、以下のアクションを実行します。
 
@@ -291,15 +291,15 @@ Linux ベースの HDInsight クラスターが作成されたら、次の手順
     * __ワーカー__: curl を使用しておいたワーカー ノードのホスト名を持つワーカー エントリを設定します。 次に例を示します。
     
         ```
-「ワーカー」: [
-    "workernode0.1kft5e4nx2tevg5b2pdwxqx1fb.jx.internal.cloudapp.net"
+"workers": [
+    "workernode0.1kft5e4nx2tevg5b2pdwxqx1fb.jx.internal.cloudapp.net",
     "workernode1.1kft5e4nx2tevg5b2pdwxqx1fb.jx.internal.cloudapp.net"
     ]
         ```
     
-    * __virtualenv\_root__: Set this to "/virtualenv"
+    * __virtualenv\_root__: これを設定"/virtualenv"
     
-    This configures the project for your HDInsight cluster, including the `/virtualenv` directory that was created during provisioning by the script action.
+    これで、スクリプト アクションでのプロビジョニング時に作成された `/virtualenv` ディレクトリを含む、HDInsight クラスターのプロジェクトが構成されます。
 
 4. Streamparse の HDInsight へのデプロイにはヘッド ノードを介して worker に認証を転送する必要があるため、`ssh-agent` をワークステーションで開始する必要があります。 ほとんどのオペレーティング システムでは、自動的に開始されます。 実行されていることを確認するには、次のコマンドを使用します。
 
@@ -349,3 +349,4 @@ Linux ベースの HDInsight クラスターが作成されたら、次の手順
 
 * [HDInsight 用 Python ストリーミング プログラムの開発](hdinsight-hadoop-streaming-python.md)
 * [HDInsight における Python と Hive および Pig の使用](hdinsight-python.md)
+

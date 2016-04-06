@@ -29,8 +29,9 @@
 
 9. 確認する必要があります、 **構成** 、VNet を次に示すようにします。 
 
-    ![ポータルで VNet を作成](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure6.png)
+    ![ポータルでの VNet の作成](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure6.png)
 
 10. をクリックして **サブネット** > **追加**, 、入力、 **名** を指定し、 **アドレス範囲 (CIDR ブロック)** サブネット、およびクリックの **[ok]**します。 次の図は、このシナリオの設定を示しています。
 
     ![プレビュー ポータルでの VNet の作成](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
+

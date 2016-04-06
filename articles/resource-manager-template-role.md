@@ -55,7 +55,7 @@
 | ------- | ---- | ---------------- | -------- | ----------- |
 | roleDefinitionId   | string | あり | **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}**  | ロールの割り当てで使用する既存のロール定義識別子。 |
 | principalId   | string | はい | グローバル一意識別子 | 既存のプリンシパルの識別子。 これは、ディレクトリ内の ID にマップされ、ユーザー、サービス プリンシパルまたはセキュリティ グループを指すことができます。 |
-| scope | string | あり | リソース グループの:<br />**/subscriptions/{subscription-id}-/resourcegroups/{リソース グループ名}**<br /><br />リソースの:<br />**subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name/}** | このロールが割り当てられるスコープ。 |
+| scope | string | あり | リソース グループ。<br />**/subscriptions/{subscription-id}-/resourcegroups/{リソース グループ名}**<br /><br />リソース。<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** | このロールが割り当てられるスコープ。 |
 
 
 ## ロック リソースの使用方法
@@ -125,4 +125,5 @@
 
 - テンプレートの構造については、次を参照してください。 [Azure リソース マネージャーの作成テンプレート](resource-group-authoring-templates.md)します。
 - ロールベースのアクセス制御の詳細については、次を参照してください。 [Azure Active Directory のロール ベースのアクセス制御](active-directory/role-based-access-control-configure.md)します。
+
 

@@ -42,7 +42,7 @@ Azure Active Directory のアクセスおよび使用状況レポートを使用
 
 4.  上部にあるメニュー [ **構成**します。 <br><br>![Cloud App Discovery のしくみ](./media/active-directory-known-networks/known-netwoks-02.png)
 
-5.  [構成] タブに移動 **組織パブリック IP アドレス範囲** <br><br>![クラウド アプリケーション検出の動作のしくみ](./media/active-directory-known-networks/known-netwoks-03.png)
+5.  [構成] タブに移動 **組織パブリック IP アドレス範囲** <br><br>![Cloud App Discovery のしくみ](./media/active-directory-known-networks/known-netwoks-03.png)
 
 6.  クリックして **既知の IP アドレス範囲を追加**します。
 
@@ -52,9 +52,10 @@ Azure Active Directory のアクセスおよび使用状況レポートを使用
 **その他のリソース**
 
 
-* [アクセスおよび使用状況レポートを表示します。](active-directory-view-access-usage-reports.md)
+* [アクセスおよび使用状況レポートの表示](active-directory-view-access-usage-reports.md)
 * [不審なアクティビティのある IP アドレスからのサインイン](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
 * [複数の地域からのサインイン](active-directory-reporting-sign-ins-from-multiple-geographies.md)
+
 
 
 

@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Azure Data Factory のトラブルシューティング" 
-    description="Azure Data Factory の使用に関する問題のトラブルシューティングを行う方法について説明します。" 
+    description="Azure データ ファクトリの使用に関する問題のトラブルシューティングを行う方法について説明します。" 
     services="data-factory" 
     documentationCenter="" 
     authors="spelluru" 
@@ -130,7 +130,7 @@ Azure Data Factory が HDInsight クラスターからその出力をキャプ�
 6. 最初のクリックして **ログ ファイル** 一覧と、ログ内の項目が新しいブレード フルテキストに読みやすい表示で開きます。 各ログをクリックして、そのログのテキストを確認します。 テキスト ビューアー ブレードが開きます。 クリックして、 **ダウンロード** オフラインで表示のテキスト ファイルのダウンロード] ボタンをクリックします。  
 
 1 つ **の一般的なエラー** カスタム アクティビティからは、 
-        パッケージの実行が終了コード '1' で失敗しました。 詳細については、"wasb://adfjobs@storageaccount.blob.core.windows.net/PackageJobs/<guid>/<jobid>/Status/stderr" を参照してください。
+        パッケージの実行が終了コード '1' で失敗しました。 参照してください"wasb://adfjobs@storageaccount.blob.core.windows.net/PackageJobs/<guid>/<jobid>/Status/stderr ' 詳細についてです。
 
 この種のエラーの詳細を表示する、 **stderr** ファイルです。 表示される 1 つの一般的なエラーは、次のようにタイムアウト状態を示します。
         Mapreduce の情報です。ジョブ: タスク Id: attempt_1424212573646_0168_m_000000_0, Status: に失敗しました 
@@ -172,7 +172,7 @@ Azure PowerShell SDK の廃止されたバージョンを使用すると、次�
         {"error":{"code":"NoRegisteredProviderFound","message":"No registered resource provider found for location 'west US' and API version '2014-05-01-preview'."}}
 
 
-## <a name="copywalkthrough"></a> チュートリアル: データのコピーでエラーのトラブルシューティング
+## <a name="copywalkthrough"></a>チュートリアル: データのコピーで発生するエラーのトラブルシューティング
 このチュートリアルでは、「Data Factory を使ってみる」の記事にあるチュートリアルでエラーを発生させ、Azure クラシック ポータルを使用してエラーのトラブルシューティングを行う方法について説明します。
 
 ### 前提条件
@@ -190,7 +190,7 @@ Azure PowerShell SDK の廃止されたバージョンを使用すると、次�
 ### Azure ポータルを使用したエラーのトラブルシューティング
 
 1.  ログイン [Azure ポータル][azure-portal]します。 
-2.  クリックして **ADFTutorialDataFactory** から、 **スタート画面**します。 データ ファクトリの上のリンクが表示されない場合、 **スタート画面**, 、] をクリックして **参照** ハブ アンド クリック **すべて**です。 クリックして **データ ファクトリ…** で、 **参照** ブレードをクリック **ADFTutorialDataFactory**します。
+2.  クリックして **ADFTutorialDataFactory** から、 **スタート画面**します。 データ ファクトリの上のリンクが表示されない場合、 **スタート画面**, 、] をクリックして **参照** ハブ アンド クリック **すべて**です。 クリックして **データ ファクトリ.**  **参照** ブレードで、およびクリック **ADFTutorialDataFactory**します。
 3.  表示される通知 **が、エラーが** 上、 **データセット** を並べて表示します。 クリックして **エラーのある**です。 はず **エラーありデータセット** ブレードです。
 
     ![［エラーあり］ リンクがある Data Factory][image-data-factory-troubleshoot-with-error-link]
@@ -266,7 +266,7 @@ Azure PowerShell SDK の廃止されたバージョンを使用すると、次�
 
  
 
-## <a name="pighivewalkthrough"></a> チュートリアル: Hive/pig 処理で発生するエラーのトラブルシューティング
+## <a name="pighivewalkthrough"></a> チュートリアル: Hive/Pig 処理で発生するエラーのトラブルシューティング
 このチュートリアルでは、Azure ポータルと Azure PowerShell の両方を使用して、Hive/Pig 処理で発生するエラーのトラブルシューティングを行う手順を説明します。 
 
 
@@ -376,3 +376,4 @@ Azure PowerShell SDK の廃止されたバージョンを使用すると、次�
 
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
+

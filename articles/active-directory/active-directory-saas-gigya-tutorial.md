@@ -81,7 +81,7 @@
 
 3.   **アプリケーション URL の構成** ] ページの [、 **Gigya サインオン URL** ] ボックスに、次のパターンを使用して URL を入力"*http://company.gigya.com*"、] をクリックし、 **次**します。
 
-    ![アプリケーション URL の構成](./media/active-directory-saas-gigya-tutorial/IC789530.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-gigya-tutorial/IC789530.png "Configure App URL")
 
 4.   **Gigya でのシングル サインオンの構成** ] ページで [ **証明書のダウンロード**, 、お使いのコンピューターに証明書ファイルを保存します。
 
@@ -152,3 +152,4 @@ Gigya の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-gigya-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

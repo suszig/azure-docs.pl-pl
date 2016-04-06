@@ -75,7 +75,7 @@ HDInsight は、HDInsight クラスターで、次のコンポーネントをイ
         <tr><td>スクリプト URI</td>
             <td>クラスターのカスタマイズのために呼び出されるスクリプトへの URI を指定します。 s</td></tr>
         <tr><td>ノードの種類</td>
-            <td>カスタマイズ スクリプトが実行されるノードを指定します。 選択することができます。 <b>すべてのノード</b>。 <b>ヘッド ノードのみ]</b>, or <b>ワーカー ノードのみ</b>.
+            <td>カスタマイズ スクリプトが実行されるノードを指定します。 選択する <b>のすべてのノード</b>, 、<b>ヘッド ノードのみ</b>, 、または <b>ワーカー ノードのみ</b>します。
         <tr><td>パラメーター</td>
             <td>スクリプトで必要な場合は、パラメーターを指定します。</td></tr>
     </table>
@@ -106,7 +106,7 @@ HDInsight の Azure PowerShell コマンドを使用して、1 つまたは複�
 
 **HDInsight .NET SDK から**
 
-HDInsight .NET SDK を使用します。 <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx" target="_blank">カスタム スクリプトを呼び出すための</a> ScriptAction クラスが用意されています。 HDInsight .NET SDK を使用するには:
+HDInsight .NET SDK は、カスタム スクリプトを呼び出す <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx" target="_blank">ScriptAction</a> クラスを提供します。 HDInsight .NET SDK を使用するには:
 
 1. Visual Studio アプリケーションを作成し、NuGet から SDK をインストールします。  **ツール** ] メニューのをクリックして **Nuget パッケージ マネージャー**, 、クリックして **パッケージ マネージャー コンソール**します。 コンソールで次のコマンドを実行して、パッケージをインストールします。
 
@@ -146,7 +146,7 @@ HDInsight サービスで利用できるオープン ソース コンポーネ�
 
 組み込みコンポーネントは全面的にサポートされており、これらのコンポーネントに関連する問題の分離と解決については、Microsoft サポートが支援します。
 
-カスタム コンポーネントについては、問題のトラブルシューティングを進めるための支援として、商業的に妥当な範囲のサポートを受けることができます。 これにより問題が解決する場合もあれば、オープン ソース テクノロジに関して、深い専門知識が入手できる場所への参加をお願いすることになる場合もあります。 たとえば、次のような数多くのコミュニティ サイトが利用できます。 <a href ="https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight" target="_blank">HDInsight についての MSDN フォーラム</a> と <a href="http://stackoverflow.com" target="_blank">スタック オーバーフロー</a>. また、Apache プロジェクトがプロジェクトのサイトがあります。 <a href="http://apache.org" target="_blank">Apache.org</a>;たとえば、 <a href="http://hadoop.apache.org/" target="_blank">Hadoop</a> と <a href="http://spark.apache.org/" target="_blank">Spark</a>.
+カスタム コンポーネントについては、問題のトラブルシューティングを進めるための支援として、商業的に妥当な範囲のサポートを受けることができます。 これにより問題が解決する場合もあれば、オープン ソース テクノロジに関して、深い専門知識が入手できる場所への参加をお願いすることになる場合もあります。 たとえば、<a href ="https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight" target="_blank">HDInsight についての MSDN フォーラム</a>や <a href="http://stackoverflow.com" target="_blank">Stack Overflow</a> などの数多くのコミュニティ サイトが利用できます。 また、Apache プロジェクトにも、<a href="http://apache.org" target="_blank">Apache.org</a> に <a href="http://hadoop.apache.org/" target="_blank">Hadoop</a> や <a href="http://spark.apache.org/" target="_blank">Spark</a> などのプロジェクト サイトがあります。
 
 HDInsight サービスでは、カスタム コンポーネントを使用する方法をいくつか用意しています。 コンポーネントの用途やクラスターへのインストール方法にかかわらず、同じレベルのサポートが適用されます。 以下は、HDInsight クラスターでのカスタム コンポーネントの用途として、最も一般的な方法の一覧です。
 
@@ -177,3 +177,4 @@ HDInsight サービスでは、カスタム コンポーネントを使用する
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-v1/HDI-Cluster-state.png "Stages during cluster provisioning"
  
+

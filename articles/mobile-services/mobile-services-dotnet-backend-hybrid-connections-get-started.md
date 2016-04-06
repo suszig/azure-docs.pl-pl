@@ -32,7 +32,7 @@
 
 このチュートリアルを完了するには、次のものが必要です。
 
-- **既存の .NET バックエンド モバイル サービス** <br/>、チュートリアルに従って、[モバイル サービスの開始を取得] を作成し、[Azure クラシック ポータル] から、新しい .NET バックエンド モバイル サービスをダウンロードします。
+- **既存の .NET バックエンド モバイル サービス** <br/>チュートリアルに従う [Get started with Mobile Services] を作成し、新しい .NET バックエンド モバイル サービスからのダウンロード、 [Azure classic portal]します。
 
 [AZURE.INCLUDE [hybrid-connections-prerequisites](../../includes/hybrid-connections-prerequisites.md)]
 
@@ -44,7 +44,7 @@
 
 [AZURE.INCLUDE [hybrid-connections-create-new](../../includes/hybrid-connections-create-new.md)]
 
-## オンプレミス ハイブリッド接続マネージャーをインストールして接続を完了する
+## オンプレミスのハイブリッド接続マネージャーをインストールして接続を完了する
 
 [AZURE.INCLUDE [hybrid-connections-install-connection-manager](../../includes/hybrid-connections-install-connection-manager.md)]
 
@@ -96,7 +96,7 @@
 
 データベース接続の確認が終わったら、この新しい接続文字列が Azure  から使用できるようにアプリ設定を追加して、モバイル サービスを Azure に発行する必要があります。
 
-1. [Azure クラシック ポータル]、モバイル サービスに移動します。
+1.  [Azure classic portal], 、モバイル サービスを参照します。
 
 1. クリックして、 **構成** タブをクリックし、検索 **接続文字列** セクションです。
 
@@ -138,3 +138,4 @@
 <!-- Links -->
 [Azure classic portal]: http://manage.windowsazure.com
 [Get started with Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
+

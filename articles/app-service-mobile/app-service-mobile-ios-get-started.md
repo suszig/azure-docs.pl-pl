@@ -32,7 +32,7 @@
 
 *  [アクティブな Azure アカウント](http://azure.microsoft.com/pricing/free-trial/)
 
-* [Visual Studio Community 2013] で PC またはそれ以降
+* PC と [Visual Studio Community 2013] 以降
 
 * Xcode v7.0 以降がインストールされた Mac
 
@@ -48,7 +48,7 @@
 
 ## サーバー プロジェクトのダウンロード
 
-1. PC で、[Azure ポータル] を参照してください。 をクリックして **すべてを参照** > **Mobile Apps**, 、先ほど作成したモバイル アプリ バックエンドを順にクリックします。
+1. PC で、次を参照してください。、 [Azure portal]します。 をクリックして **すべてを参照** > **Mobile Apps**, 、先ほど作成したモバイル アプリ バックエンドを順にクリックします。
 
 2. モバイル アプリ] ブレードで [ **設定**, 、し [ **モバイル アプリ**, をクリックして **クイック スタート** > **iOS (Objective C)**します。 Swift 場合は、クリックして **クイック スタート** > **iOS (Swift)** 代わりにします。
 
@@ -68,4 +68,5 @@
 [Azure portal]: https://portal.azure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+
 

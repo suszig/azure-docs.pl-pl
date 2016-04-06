@@ -71,7 +71,7 @@ onmicrosoft.com ドメインを他のサービスで使用できます。 たと
         2. ドメインが Azure AD に正常に追加されたことを示すメッセージが表示されたら、矢印をクリックして次のページに移動し、そのページの指示に従って、追加したドメインをシングル サインオン用に構成します。
 
 > [AZURE.NOTE]
-> ドメイン名を Azure AD に追加したら、新しい電子メール アドレスの既定のドメイン名を変更できます。 詳細については、次を参照してください [ユーザーのプライマリ ドメイン名を変更する方法ですか?。](#how-can-i-change-the-primary-domain-name-for-users?)既存のユーザー アカウントのプロファイルを編集して、(ユーザー ID でもある) 電子メール アドレスを更新し、onmicrosoft.com ドメインの代わりにカスタム ドメイン名を使用することもできます。
+> ドメイン名を Azure AD に追加したら、新しい電子メール アドレスの既定のドメイン名を変更できます。 詳細については、次を参照してください [ユーザーのプライマリ ドメイン名を変更する方法ですか?。](#how-can-i-change-the-primary-domain-name-for-users?) 既存のユーザー アカウントのプロファイルを編集して、(ユーザー ID でもある) 電子メール アドレスを更新し、onmicrosoft.com ドメインの代わりにカスタム ドメイン名を使用することもできます。
 
 ### Cloud Services の DNS レコードの編集
 
@@ -208,10 +208,11 @@ TXT レコードまたは MX レコードを作成し、Web サイトからサ�
 
 ユーザー アカウントを追加した後に、カスタム ドメイン名をクラウド サービスに追加した場合、新しいドメイン名を使用するための更新作業が必要になる場合があります。 たとえば、ユーザーのアカウントを編集して、カスタム ドメインを使用するように電子メール アドレスを設定するする必要があります。
 
-## 参照トピック
+## 次の手順
 
 - [Azure AD フォーラム](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
 - [Stackoverflow](http://stackoverflow.com/questions/tagged/azure)
 - [Azure への組織としてのサインアップ](sign-up-organization.md)
 - [Azure AD でのドメインの管理](https://msdn.microsoft.com/library/azure/dn919677.aspx)
+
 

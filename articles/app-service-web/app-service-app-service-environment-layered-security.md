@@ -22,11 +22,11 @@
  
 App Service Environment は、Virtual Network にデプロイされる分離されたランタイム環境です。開発者は、セキュリティ アーキテクチャを階層化し、物理的なアプリケーションの層ごとにネットワーク アクセスのレベルに違いを設けることができます。
 
-一般に、API バックエンドは通常のインターネット アクセスから隠し、アップストリームの Web アプリにのみ API の呼び出しを許可することが望ましいと考えられています。  [ネットワーク セキュリティ グループ (Nsg)][NetworkSecurityGroups] は、API のアプリケーションへのパブリック アクセスを制限する App Service 環境が含まれるサブネットで使用できます。
+一般に、API バックエンドは通常のインターネット アクセスから隠し、アップストリームの Web アプリにのみ API の呼び出しを許可することが望ましいと考えられています。  [ネットワーク セキュリティ グループ (Nsg)][NetworkSecurityGroups] API アプリケーションへのパブリック アクセスを制限する App Service 環境が含まれるサブネットで使用できます。
 
 以下の図は、WebAPI ベースのアプリを App Service Environment にデプロイしたアーキテクチャの例です。  3 つの Web アプリのインスタンスが、独立した 3 つの App Service Environment に別々にデプロイされ、バックエンドにある同じ WebAPI アプリを呼び出します。
 
-!概念のアーキテクチャ[ConceptualArchitecture] 
+![Conceptual Architecture][ConceptualArchitecture] 
 
 "apiase" を含んだサブネットに対するネットワーク セキュリティ グループは、アップストリームの Web アプリから入ってくる呼び出しと、自分自身からの呼び出しを許可します。これを示したのが緑色の正符号です。  一方、インターネットから入ってくる一般的なトラフィックについてはアクセスを明示的に拒否しています。 
 
@@ -35,19 +35,19 @@ App Service Environment は、Virtual Network にデプロイされる分離さ�
 ## ネットワークの動作の決定 ##
 必要なネットワーク セキュリティ ルールを把握するためには、API アプリを含んだ App Service Environment へのアクセスをどのネットワーク クライアントに許可し、どのクライアントをブロックするかを調べる必要があります。
 
-[ネットワーク セキュリティ グループ (Nsg)] から [NetworkSecurityGroups] は、サブネットに適用し、サブネットに App Service 環境が展開されている、NSG に含まれている規則に適用 **すべて** App Service 環境で実行されるアプリケーション。  この記事のサンプル アーキテクチャを使用して、"apiase" を含んだサブネットに対してネットワーク セキュリティ グループを適用すると、"apiase" App Service Environment 上で動作するすべてのアプリが同じセキュリティ ルール一式で保護されます。 
+ [ネットワーク セキュリティ グループ (Nsg)][NetworkSecurityGroups] のサブネットに適用されるサブネットに App Service 環境が展開されていると、NSG に含まれている規則に適用 **すべて** App Service 環境で実行されるアプリケーション。  この記事のサンプル アーキテクチャを使用して、"apiase" を含んだサブネットに対してネットワーク セキュリティ グループを適用すると、"apiase" App Service Environment 上で動作するすべてのアプリが同じセキュリティ ルール一式で保護されます。 
 
-- **アップ ストリームの呼び出し元の送信の IP アドレスを決定:**  IP アドレスまたはアップ ストリームの呼び出し元のアドレスには何ですか?  これらのアドレスは NSG で明示的にアクセスを許可する必要があります。  App Service Environment 間の呼び出しは "インターネット" を介した呼び出しと見なされます。つまり、3 つのアップストリーム App Service Environment にそれぞれ割り当てられた送信 IP アドレスを、"apiase" サブネットの NSG でアクセスを許可する必要があります。   App Service 環境で実行中のアプリの発信 IP アドレスを特定する方法についての詳細については、[ネットワーク アーキテクチャ] [NetworkArchitecture] の概要記事を参照してください。
-- **バックエンド API アプリがそれ自体を呼び出す必要がありますか。**バックエンド アプリケーションが自己呼び出しを行うかどうかは、見逃しやすいポイントです。  App Service Environment のバックエンド API アプリケーションに自己呼び出しが伴う場合、これも "インターネット" を介した呼び出しと見なされます。  サンプル アーキテクチャのケースでは、"apiase" App Service Environment の送信 IP アドレスについてもアクセスを許可する必要があります。
+- **アップ ストリームの呼び出し元の送信の IP アドレスを決定:**  IP アドレスまたはアップ ストリームの呼び出し元のアドレスには何ですか?  これらのアドレスは NSG で明示的にアクセスを許可する必要があります。  App Service Environment 間の呼び出しは "インターネット" を介した呼び出しと見なされます。つまり、3 つのアップストリーム App Service Environment にそれぞれ割り当てられた送信 IP アドレスを、"apiase" サブネットの NSG でアクセスを許可する必要があります。   App Service 環境で実行されるアプリを参照して、発信 IP アドレスを特定する方法についての詳細については、 [ネットワーク アーキテクチャ][NetworkArchitecture] Overview (英語)。
+- **バックエンド API アプリは自己呼び出しを行うか。**  バックエンド アプリケーションが自己呼び出しを行うかどうかは、見逃しやすいポイントです。  App Service Environment のバックエンド API アプリケーションに自己呼び出しが伴う場合、これも "インターネット" を介した呼び出しと見なされます。  サンプル アーキテクチャのケースでは、"apiase" App Service Environment の送信 IP アドレスについてもアクセスを許可する必要があります。
 
 ## ネットワーク セキュリティ グループの設定 ##
-一連の送信 IP アドレスが確認できたら、今度はネットワーク セキュリティ グループを構築します。  App Service 環境が現在のみでサポートされている"v1"仮想ネットワークを [NSG の構成] から [NetworkSecurityGroupsClassic] は、従来の NSG は Powershell のサポートを使用して実現します。
+一連の送信 IP アドレスが確認できたら、今度はネットワーク セキュリティ グループを構築します。  App Service 環境は現在のみでサポートされている"v1"仮想ネットワーク、ため [NSG 構成][NetworkSecurityGroupsClassic] は標準的な NSG は Powershell のサポートを使用して実現します。
 
 このサンプル アーキテクチャの環境は、米国中南部に置かれているため、そのリージョンに空の NSG を作成します。
 
     New-AzureNetworkSecurityGroup -Name "RestrictBackendApi" -Location "South Central US" -Label "Only allow web frontend and loopback traffic"
 
-明示的な許可規則が [着信トラフィック] の記事で説明したように、Azure の管理インフラストラクチャの追加 [InboundTraffic] App Service 環境のです。
+まず、明示的な許可上の記事で説明したように、Azure の管理インフラストラクチャの規則が追加されます [受信トラフィックを][InboundTraffic] App Service 環境のです。
 
     #Open ports for access by Azure management infrastructure
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET' -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
@@ -78,7 +78,7 @@ App Service Environment は、Virtual Network にデプロイされる分離さ�
 
 以下に示したのは、このネットワーク セキュリティ グループに含まれる全ルールの一覧です。  最後のルール (ハイライト部分) に注目してください。明示的にアクセスが許可されている呼び出し元以外はすべて、このルールによって受信アクセスがブロックされます。
 
-![NSG の構成][NSGConfiguration] 
+![NSG Configuration][NSGConfiguration] 
 
 最後に、"apiase" App Service Environment を含んだサブネットにこの NSG を適用する必要があります。  
 
@@ -89,11 +89,11 @@ App Service Environment は、Virtual Network にデプロイされる分離さ�
 
 
 ## その他のリンクおよび情報 ##
-[ネットワーク セキュリティ グループ] の構成 [NetworkSecurityGroupsClassic] 従来の仮想ネットワークにします。 
+構成 [ネットワーク セキュリティ グループ][NetworkSecurityGroupsClassic] 従来の仮想ネットワークにします。 
 
-[送信の IP アドレス] の理解 [NetworkArchitecture] と App Service 環境です。
+理解 [発信 IP アドレス][NetworkArchitecture] と App Service 環境です。
 
-[ネットワーク ポート][InboundTraffic] は、App Service 環境で使用します。
+[ネットワーク ポート][InboundTraffic] App Service 環境で使用します。
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -108,4 +108,5 @@ App Service Environment は、Virtual Network にデプロイされる分離さ�
 <!-- IMAGES -->
 [ConceptualArchitecture]: ./media/app-service-app-service-environment-layered-security/ConceptualArchitecture-1.png
 [NSGConfiguration]:  ./media/app-service-app-service-environment-layered-security/NSGConfiguration-1.png
+
 

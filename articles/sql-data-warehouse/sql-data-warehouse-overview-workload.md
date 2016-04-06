@@ -59,7 +59,7 @@
 - 分析に関しては、データ ウェアハウスに分析キューブを作成し、データ ウェアハウスに対して分析を実行するか、データを事前処理して、将来の分析用にそれを分析サーバーにエクスポートすることができます。 
 
 ## 次のステップ
-データ ウェアハウスの作成を開始するには、[開発の概要に関するページを参照してください。
+データ ウェアハウスの作成を開始するを参照してください。 [開発の概要][]します。
 
 ## ブック
 [ビッグ データ ウェアハウジング](https://www.manning.com/books/big-data-warehousing) Karthik Ramachandran、Istvan Szededi Richard L. Saltzer (Manning Publications) しています。 [第 1 章](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
@@ -72,5 +72,6 @@
 <!--MSDN references-->
 
 <!--Other web references-->
+
 
 

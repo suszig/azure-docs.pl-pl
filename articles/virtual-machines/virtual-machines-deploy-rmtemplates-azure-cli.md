@@ -106,7 +106,7 @@ Azure サブスクリプションをまだ持っていないが、MSDN サブス
 
 Azure リソース グループとどのような働きをする詳細について学習できます、 [Azure リソース マネージャーの概要](../resource-group-overview.md)します。 テンプレートの作成に知りたい場合は、次を参照してください。 [Azure リソース マネージャーの作成テンプレート](../resource-group-authoring-templates.md)します。
 
-## <a id="quick-create-a-vm-in-azure"></a>タスク: 簡易作成 Azure の VM で
+## <a id="quick-create-a-vm-in-azure"></a>タスク: Azure での VM の簡易作成
 
 どのようなイメージが必要か理解していて、今すぐそのイメージの VM が必要で、しかもインフラストラクチャにはそれほどこだわらないという場合があります。たとえばクリーンな VM で何かをテストする必要があるような場合です。 そのようなときは、`azure vm quick-create` コマンドを使用し、VM とそのインフラストラクチャの作成に必要な引数を渡します。
 
@@ -235,7 +235,7 @@ VM を作成するために、`azure vm quick-create` コマンドを入力し�
 
 これで新しい VM が作成されました。
 
-## <a id="deploy-a-vm-in-azure-from-a-template"></a>タスク: テンプレートから Azure の VM でのデプロイします。
+## <a id="deploy-a-vm-in-azure-from-a-template"></a>タスク: テンプレートから Azure への VM のデプロイ
 
 Azure CLI でテンプレートを使用して新しい Azure VM をデプロイするには、以下のセクションの手順に従います。 このテンプレートは、1 つのサブネットを持つ新しい仮想ネットワークに単一の仮想マシンを作成しますが、`azure vm quick-create` とは異なり、何が必要かを正確に記述し、エラーなしでそれを繰り返すことができます。 このテンプレートによって作成されるものを次に示します。
 
@@ -500,7 +500,7 @@ JSON ファイルの "parameters" セクションのパラメーター値を指�
 
 
 
-## <a id="create-a-custom-vm-image"></a>タスク: カスタム VM イメージを作成します。
+## <a id="create-a-custom-vm-image"></a>タスク: カスタム VM イメージの作成
 
 テンプレートの基本的な使用方法は前述したので、同様の手順に従うことで、Azure CLI でテンプレートを使用して、Azure にある特定の .vhd ファイルからカスタム VM を作成できます。 このテンプレートは、指定した仮想ハード ディスク (VHD) から単一の仮想マシンを作成するという点が異なります。
 
@@ -765,7 +765,7 @@ Linux ベースの仮想マシンでは、次を参照してください。 [の
     info:    group deployment create command OK
 
 
-## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>タスク: 仮想ネットワークと外部ロード バランサーを使用する複数 VM アプリケーションをデプロイします。
+## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>タスク: 仮想ネットワークと外部ロード バランサーを使用する複数 VM アプリケーションのデプロイ
 
 このテンプレートでは、ロード バランサーの下に 2 つの仮想マシンを作成し、ポート 80 の負荷分散ルールを構成することができます。 このテンプレートは、ストレージ アカウント、仮想ネットワーク、パブリック IP アドレス、可用性セット、ネットワーク インターフェイスもデプロイします。
 
@@ -1177,7 +1177,7 @@ Azure PowerShell コマンドで GitHub テンプレート リポジトリのリ
 
 このテンプレートでは Windows Server イメージをデプロイしますが、Linux イメージに簡単に置き換えることができます。 複数の Swarm マネージャーを備えた Docker クラスターを作成する必要がある場合には、 [これを行うことができます](http://azure.microsoft.com/documentation/templates/docker-swarm-cluster/)します。
 
-## <a id="remove-a-resource-group"></a>タスク: リソース グループを削除します。
+## <a id="remove-a-resource-group"></a>タスク: リソース グループの削除
 
 リソース グループへの再デプロイは可能ですが、実行した場合は `azure group delete <group name>` を使用してリソース グループを削除できることに注意してください。
 
@@ -1187,7 +1187,7 @@ Azure PowerShell コマンドで GitHub テンプレート リポジトリのリ
     + Deleting resource group myResourceGroup
     info:    group delete command OK
 
-## <a id="show-the-log-for-a-resource-group-deployment"></a>タスク: リソース グループ デプロイのログを表示します。
+## <a id="show-the-log-for-a-resource-group-deployment"></a>タスク: リソース グループ デプロイのログの表示
 
 これは、テンプレートの作成時や使用時によく行われます。 グループのデプロイ ログを表示するための呼び出しは `azure group log show <groupname>` ですが、これにより、何かが発生した場合、または発生しなかった場合、その理由を把握するのに役立つ大量の情報が表示されます  (問題に関するその他の情報と、デプロイのトラブルシューティングに関する詳細については、次を参照してください [。Azure でのリソース グループ デプロイのトラブルシューティング](resource-group-deploy-debug.md).)
 
@@ -1203,7 +1203,7 @@ Azure PowerShell コマンドで GitHub テンプレート リポジトリのリ
     }
 
 
-## <a id="display-information-about-a-virtual-machine"></a>タスク: 仮想マシンに関する情報を表示します。
+## <a id="display-information-about-a-virtual-machine"></a>タスク: 仮想マシンに関する情報の表示
 
 `azure vm show <groupname> <vmname> command` を使用して、リソース グループ内の特定の VM に関する情報を表示できます。 複数の VM がある場合、まずは `azure vm list <groupname>` を使用してグループ内の VM を一覧表示する必要があります。
 
@@ -1270,25 +1270,25 @@ Azure PowerShell コマンドで GitHub テンプレート リポジトリのリ
 
 > [AZURE.NOTE] プログラムを使用して格納し、コンソール コマンドの出力を操作する場合は、JSON 解析ツールなどを使用する可能性がある場合 **[jq](https://github.com/stedolan/jq)** または **[jsawk](https://github.com/micha/jsawk)**, 、または、タスクに適した言語ライブラリです。
 
-## <a id="log-on-to-a-linux-based-virtual-machine"></a>タスク: Linux ベースの仮想マシンにログオン
+## <a id="log-on-to-a-linux-based-virtual-machine"></a>タスク: Linux ベースの仮想マシンへのログオン
 
 通常、Linux マシンは SSH によって接続されます。 詳細については、次を参照してください。 [Azure 上の Linux で SSH を使用する方法](virtual-machines-linux-use-ssh-key.md)します。
 
-## <a id="stop-a-virtual-machine"></a>タスク: VM を停止します。
+## <a id="stop-a-virtual-machine"></a>タスク: VM の停止
 
 次のコマンドを実行します。
 
     azure vm stop <group name> <virtual machine name>
 
->[AZURE.IMPORTANT] ある場合に、その vnet 内の最後の VM に vnet の仮想 IP (VIP) を保持するのにには、このパラメーターを使用します。 <br><br> `StayProvisioned` パラメーターを使用する場合、その VM に対して引き続き課金されます。
+>[AZURE.IMPORTANT] ある場合に、その vnet 内の最後の VM に vnet の仮想 IP (VIP) を保持するのにには、このパラメーターを使用します。 <br><br> 使用する場合、 `StayProvisioned` パラメーターを VM に対して引き続き課金されます。
 
-## <a id="start-a-virtual-machine"></a>タスク: VM を起動します。
+## <a id="start-a-virtual-machine"></a>タスク: VM の起動
 
 次のコマンドを実行します。
 
     azure vm start <group name> <virtual machine name>
 
-## <a id="attach-a-data-disk"></a>タスク: データ ディスクを接続します。
+## <a id="attach-a-data-disk"></a>タスク: データ ディスクの接続
 
 新しいディスクとデータを含むディスクのどちらを接続するかについても決める必要があります。 新しいディスクの場合、コマンドによって .vhd ファイルが作成され、それが同じコマンドで接続されます。
 
@@ -1308,4 +1308,5 @@ Azure PowerShell コマンドで GitHub テンプレート リポジトリのリ
 Azure CLI の使用状況の例については非常に多く、 **arm** モードを参照してください [Mac、Linux、および Windows Azure リソース マネージャーでの Azure CLI を使用して](xplat-cli-azure-resource-manager.md)します。 Azure リソースとその概念の詳細については、次を参照してください。 [Azure リソース マネージャーの概要](../resource-group-overview.md)します。
 
 他のテンプレートを使用する、次を参照してください。 [Azure クイック スタート テンプレート](http://azure.microsoft.com/documentation/templates/) と [テンプレートを使用したアプリケーション フレームワーク](virtual-machines-app-frameworks.md)します。
+
 

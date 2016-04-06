@@ -60,6 +60,7 @@ Azure PIM ダッシュボードからは次の方法でレビューを開始で�
 レビュー担当者として [自分] オプションを選択した場合は、セキュリティ レビューに進みます。 確認を完了の詳細については、次を参照してください [Azure Privileged Identity Management: セキュリティ確認を実行する方法。](active-directory-privileged-identity-management-how-to-perform-security-review.md)
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## PIM 目次
+## PIM の内容一覧
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
+
 

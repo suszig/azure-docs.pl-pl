@@ -28,7 +28,7 @@
 > [AZURE.NOTE] このトピックの説明、アプリ サービスの認証の使用/認証機能します。 ほとんどのアプリケーションで、これが App Service ゲートウェイに取って代わっています。 ゲートウェイを使用する場合を参照してください、 [alternative method]します。 ゲートウェイを使用する場合との相違点については、そのセクションの注に記載されています。
 
 
-## <a name="express"> </a>簡単設定を使用して Azure Active Directory を構成します。
+## <a name="express"></a>高速設定を使用して Azure Active Directory を構成する
 
 13.  [Azure portal], 、アプリケーションに移動します。 クリックして **設定**, 、し **認証/承認**します。
 
@@ -48,7 +48,7 @@
 
 これで、アプリケーションで認証に Azure Active Directory を使用する準備ができました。
 
-## <a name="advanced"> </a>(代替方法)高度な設定を手動で Azure Active Directory を構成します。
+## <a name="advanced"> </a>(代替方法) 詳細設定を使用して Azure Active Directory を手動で構成する
 構成設定を手動で行うこともできます。 これは、使用する AAD テナントが Azure へのサインインに使用するテナントと異なる場合に推奨されるソリューションです。 構成を完了するには、まず Azure Active Directory で登録を作成し、登録の一部の詳細を App Service に提供する必要があります。
 
 ### <a name="register"> </a>Azure Active Directory にアプリケーションを登録する
@@ -73,7 +73,7 @@
     
     
     > [AZURE.NOTE]
-    If you are using the App Service Gateway instead of the App Service Authentication / Authorization feature, your Reply URL instead uses the gateway URL with the _/signin-aad_ path.
+    アプリ サービス認証ではなく、App Service ゲートウェイを使用しているかどうかは認証機能は、応答 URL は代わりに、ゲートウェイの URL で使用/、 _/signin-aad_ パス。
 
 
 9. クリックして **保存**します。 コピーして、 **クライアント ID** アプリです。 後で、これを使用するようにアプリケーションを構成します。
@@ -82,7 +82,7 @@
 
 11. ルート内 **EntityDescriptor** 要素、必要があります、 **entityID** フォームの属性 `https://sts.windows.net/` ("テナント ID"と呼ばれます)、テナントに書き込み、続けて、GUID を特定します。 この値をコピー - にはなる、 **発行者 URL**します。 後で、これを使用するようにアプリケーションを構成します。
 
-### <a name="secrets"> </a>Azure Active Directory の情報をアプリケーションに追加します。
+### <a name="secrets"> </a>Azure Active Directory の情報をアプリケーションに追加する
 
 > [AZURE.NOTE]
 App Service ゲートウェイを使用する場合は、このセクションの内容は無視し、ポータル内で目的のゲートウェイに移動します。 選択 **設定**, 、**Identity**, 、し **Azure Active Directory**します。 ClientID に貼り付け、テナント ID を追加、 **許可されたテナント** ] ボックスの一覧です。 クリックして **保存**します。
@@ -145,3 +145,4 @@ Azure Active Directory では、ネイティブ クライアントを登録し�
 [Azure classic portal]: https://manage.windowsazure.com/
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
 [alternative method]:#advanced
+

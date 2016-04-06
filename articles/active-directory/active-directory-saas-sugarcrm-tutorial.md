@@ -83,7 +83,7 @@
 
 3.   **アプリケーション URL の構成** ] ページの [、 **Sugar CRM サインオン URL** ユーザーが Sugar CRM アプリケーションにサインオンする URL を使用] ボックスに、型 (例::"*http://company.sugarondemand.com*"、] をクリックし、 **次**します。
 
-    ![アプリケーション URL の構成](./media/active-directory-saas-sugarcrm-tutorial/IC795886.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-sugarcrm-tutorial/IC795886.png "Configure App URL")
 
 4.   **Sugar CRM でのシングル サインオンの構成** ] ページで、証明書をダウンロードする] をクリックして **証明書のダウンロード**, 、お使いのコンピューターに証明書ファイルを保存します。
 
@@ -175,3 +175,4 @@ Sugar CRM の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-sugarcrm-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

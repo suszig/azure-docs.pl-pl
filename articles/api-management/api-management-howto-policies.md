@@ -71,7 +71,7 @@ Azure API Management のポリシーは、発行者がその構成を通じて A
         <address>1.2.3.4</address>
     </ip-filter>
 
-![Save][policies-save]
+![保存][policies-save]
 
 ポリシーのステートメントを構成したら、クリックして **保存** 変更をすぐに、API Management gateway に反映されます。
 
@@ -147,4 +147,5 @@ Azure API Management のポリシーは、発行者がその構成を通じて A
 [policies-edit]: ./media/api-management-howto-policies/api-management-policies-edit.png
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
+
 

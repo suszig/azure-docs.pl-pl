@@ -18,7 +18,7 @@
 
 # Azure コマンド ライン インターフェイス (CLI) を使用したロールベースのアクセス制御 (RBAC) の管理
 <!-- Azure Selector -->
-> [AZURE です。セレクター]
+> [AZURE.SELECTOR]
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
 - [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 
@@ -153,4 +153,5 @@
 
 ## RBAC のトピック
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+
 

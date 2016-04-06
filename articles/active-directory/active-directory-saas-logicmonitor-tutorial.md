@@ -87,7 +87,7 @@
 
 6.  上部にあるメニュー [ **設定**します。
 
-    ![設定](./media/active-directory-saas-logicmonitor-tutorial/IC790052.png "Settings")
+    ![[設定]](./media/active-directory-saas-logicmonitor-tutorial/IC790052.png "Settings")
 
 7.  左側にあるナビゲーション バットで、クリックして **シングル サイン オン**
 
@@ -146,6 +146,7 @@ AAD ユーザーがサインインできるように、Azure Active Directory �
     ![あり](./media/active-directory-saas-logicmonitor-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+
 
 
 

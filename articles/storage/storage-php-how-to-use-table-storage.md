@@ -48,7 +48,7 @@ Azure Table サービス API を使用するには、次の要件があります
 
 次の例では、オートローダー ファイルと参照を含める方法、 **ServicesBuilder** クラスです。
 
-> [AZURE.NOTE] この例 (および、この記事では、その他の例) は、Composer を使用して Azure 向け PHP クライアント ライブラリをインストールしたと仮定します。 ライブラリを手動でまたは PEAR パッケージとしてインストールした場合は、<code>WindowsAzure.php</code> オートローダー ファイルを参照する必要があります。
+> [AZURE.NOTE] この例 (および、この記事では、その他の例) は、Composer を使用して Azure 向け PHP クライアント ライブラリをインストールしたと仮定します。 ライブラリを手動でまたは PEAR パッケージとしてインストールした場合は、参照しなければ、 <code>WindowsAzure.php</code> オートローダー ファイルです。
 
     require_once 'vendor\autoload.php';
     use WindowsAzure\Common\ServicesBuilder;
@@ -85,7 +85,7 @@ Azure Table サービス クライアントをインスタンス化するには�
     $tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 
 
-## テーブルの作成
+## テーブルを作成する
 
 A **TableRestProxy** オブジェクトでは、テーブルを作成することができます、 **createTable** メソッドです。 テーブルの作成時、Table サービスのタイムアウトを設定できます (Table サービスのタイムアウトの詳細については、次を参照してください [。テーブル サービス操作のタイムアウト設定][table-service-timeouts].)
 
@@ -383,7 +383,7 @@ A **TableRestProxy** オブジェクトでは、テーブルを作成するこ�
 
 ## バッチ テーブル処理
 
- **TableRestProxy バッチ]-> [** メソッドでは、1 つの要求で複数の操作を実行することができます。 ここに示すパターンでは、追加の操作を **BatchRequest** オブジェクトと成功して、 **BatchRequest** オブジェクトを **TableRestProxy バッチ]-> [** メソッドです。 するための操作を追加する、 **BatchRequest** オブジェクトは、次の方法のいずれかを複数回呼び出します。
+ **TableRestProxy バッチ]-> [** メソッドでは、単一の要求で複数の操作を実行することができます。 ここに示すパターンでは、追加の操作を **BatchRequest** オブジェクトと成功して、 **BatchRequest** オブジェクトを **TableRestProxy バッチ]-> [** メソッドです。 するための操作を追加する、 **BatchRequest** オブジェクトは、次の方法のいずれかを複数回呼び出します。
 
 * **addInsertEntity** (insertEntity 処理を追加)
 * **addUpdateEntity** (updateEntity 処理を追加)
@@ -392,7 +392,7 @@ A **TableRestProxy** オブジェクトでは、テーブルを作成するこ�
 * **addInsertOrMergeEntity** (insertOrMergeEntity 処理を追加)
 * **addDeleteEntity** (deleteEntity 処理を追加)
 
-次の例を実行する方法を示しています。 **insertEntity** と **deleteEntity** 1 つの要求での操作。
+次の例は、実行する方法を示します **insertEntity** と **deleteEntity** 単一の要求で操作します。
 
     require_once 'vendor\autoload.php';
 
@@ -477,4 +477,5 @@ A **TableRestProxy** オブジェクトでは、テーブルを作成するこ�
 [table-data-model]: http://msdn.microsoft.com/library/azure/dd179338.aspx
 [filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
+
 

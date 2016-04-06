@@ -71,11 +71,11 @@
 
 1.  Azure AD ポータルでの * * Concur * * アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![シングル サインオンの構成](./media/active-directory-saas-concur-tutorial/IC769767.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-concur-tutorial/IC769767.png "Configure single sign-on")
 
 2.   **どのようなユーザーが Concur にサインオン** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 
-    ![シングル サインオンの構成](./media/active-directory-saas-concur-tutorial/IC769768.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-concur-tutorial/IC769768.png "Configure single sign-on")
 
 3.   **アプリケーション URL の構成** ] ページで、 **Concur のサインイン URL** ] ボックスに、URL を入力、concur のテナントにサインインし、順にクリックして **次**: 
 
@@ -155,4 +155,5 @@ Concur コンサルタントまたはクライアント管理者は、Web サー
 ここで 10 分間待機し、アカウントが Concur に同期されたことを確認します。
 
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+
 

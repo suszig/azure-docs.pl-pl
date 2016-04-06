@@ -34,7 +34,7 @@ Application Insights SDK およびエージェントは、アプリケーショ�
 
 #### どれくらいの量のデータをキャプチャできますか。 
 
-**1 秒あたり**: インストルメンテーション キーごとの 1 秒あたり最大 500 データ ポイント (つまり、アプリケーションごと)。 無料の [価格レベル][pricing], 、dp 1 秒あたり 100 の上限は 1 です。
+**1 秒あたり**: インストルメンテーション キーごとの 1 秒あたり最大 500 データ ポイント (つまり、アプリケーションごと)。 無料の [価格レベル][pricing], 、上限は 100 dp/秒です。
 
 次の 3 つのバケットは別々にカウントされます。
 
@@ -42,7 +42,7 @@ Application Insights SDK およびエージェントは、アプリケーショ�
 * [例外](app-insights-api-custom-events-metrics.md#track-exception), 、50/秒の制限を低くして件名です。
 * その他すべてのテレメトリ (ページ ビュー、要求、依存関係、メトリック、カスタム イベント、Web テストの結果)。
 
-**毎月**: 500万 ~ 1500万データに応じてポイントと、毎月、 [料金プラン](http://azure.microsoft.com/pricing/details/application-insights/)します。 を除き、無料 [価格レベル][pricing], 、上限に達した場合は、追加の容量を購入することができます。
+**毎月**: 間 5 1500万データに応じてポイントと、毎月、 [料金プラン](http://azure.microsoft.com/pricing/details/application-insights/)します。 を除き、無料 [価格レベル][pricing], 、上限に達した場合は、追加の容量を購入することができます。
 
 
 A *データ ポイント* アプリについて Azure ポータルに送信されるテレメトリの項目。 次の手段で送信できます。
@@ -183,9 +183,9 @@ SDK はプラットフォームごとに異なり、インストールできる�
 
 操作  | 収集されるデータのクラス (次の表を参照)
 ---|---
-[Application Insights SDK を .NET Web プロジェクトに追加する][greenbrown] | ServerContext<br/>Inferred<br/>パフォーマンス カウンターは、<br/>要求<br/>**例外**<br/>セッション<br/>ユーザー
-[Status Monitor を IIS インストール][redfield]<br/>[AI 拡張機能を Azure VM または Web アプリに追加][azure]|依存関係<br/>ServerContext<br/>Inferred<br/>Perf counters
-[Application Insights SDK を Java Web アプリに追加する][java]|ServerContext<br/>Inferred<br/>要求<br/>Session<br/>users
+[Application Insights SDK を .NET Web プロジェクトに追加する][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**例外**<br/>Session<br/>users
+[Status Monitor を IIS をインストールします。][redfield]<br/>[Azure VM または Web アプリに AI 拡張機能を追加します。][azure]|依存関係<br/>ServerContext<br/>Inferred<br/>Perf counters
+[Application Insights SDK を Java Web アプリに追加する][java]|ServerContext<br/>Inferred<br/>Request (要求)<br/>Session<br/>users
 [JavaScript SDK を Web ページに追加する][client]|ClientContext <br/>Inferred<br/>ページ<br/>ClientPerf
 [SDK を Windows ストア アプリに追加する][windows]|DeviceContext<br/>ユーザー<br/>クラッシュ データ
 [既定のプロパティを定義する][apiproperties]|**プロパティ** のすべての標準とカスタム イベント
@@ -258,3 +258,4 @@ SDK diagnostics | トレース メッセージまたは例外
 [windows]: app-insights-windows-get-started.md
 
  
+

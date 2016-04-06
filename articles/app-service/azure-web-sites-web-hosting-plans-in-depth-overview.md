@@ -52,11 +52,11 @@ App Service プランは 1 つのリソース グループに複数割り当て�
 空の App Service プランを作成することはできません。 ただし、アプリの作成時には新しいプランを明示的に作成できます。
 
 これを行うに、 [Azure ポータル](http://go.microsoft.com/fwlink/?LinkId=529715), 、] をクリックして **新規**, 選択してから、 **Web + モバイル**, 選択してから、 **Web Apps**, 、**Mobile Apps**, 、**Logic Apps** または **API Apps**します。 
-![createWebApp]
+![][createWebApp]
 
 その後、新しいアプリのための App Service プランを選択または作成できます。
   
- ![createASP]
+ ![][createASP]
 
 新しい App Service プランを作成する] をクリックして **+ Create New**, 、種類、 **App Service プラン** 名前を指定し、適切な選択 **場所**します。  クリックして **価格レベル** し、サービスの適切な価格レベルを選択します。 選択 **をすべて表示** より価格オプションをなどのビューに **Free** と **共有**します。  クリックして、価格レベルを選択したら、 **選択** ] ボタンをクリックします。 
  
@@ -68,7 +68,7 @@ App Service プランは 1 つのリソース グループに複数割り当て�
  
 すると、[App Service プラン] ブレードが表示されます。 この時点で、既存のプランを選択するか、新しいプランを作成できます。 地理的に異なる場所に属しているプランは灰色表示され、選択できません。
 
-![変更] を
+![][change]
 
 各プランに価格レベルが割り当てられている点に注目してください。 サイトを移動すると、 **Free** レベルから、 **標準** 層、アプリケーションがすべての機能とリソースを利用できるようにはなります、 **標準** 層です。
 
@@ -82,7 +82,7 @@ App Service プランは 1 つのリソース グループに複数割り当て�
 
 次の図でわかります、 **App Service プラン** ブレードだけでなく **料金レベル** ブレードです。 クリックすると、 **料金レベル** 部、 **App Service プラン** ブレードが展開、 **料金レベル** ブレードで、プランの価格レベルとインスタンス サイズを変更することができます。
  
- ![pricingtier]
+ ![][pricingtier]
 
 ##概要
 
@@ -100,4 +100,5 @@ App Service プランは、アプリ間で共有できる一連の機能と容�
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
+
 

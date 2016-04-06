@@ -31,7 +31,7 @@
 
 このテンプレートを使用して、GitHub 内のプロジェクトのコードを含む Web アプリケーションをデプロイします。
 
-デプロイメントを自動的に実行するには、次のボタンをクリックします。
+展開を自動的に実行するには、次のボタンをクリックします。
 
 [![DAzure に eploy](./media/app-service-web-arm-from-github-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
 
@@ -61,7 +61,7 @@
 
 [AZURE.INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
-### Web Apps
+### Web アプリ
 
 GitHub 内のプロジェクトにリンクされる Web アプリを作成します。 
 
@@ -71,7 +71,7 @@ GitHub 内のプロジェクトにリンクされる Web アプリを作成し�
 計画してください。
 
 Web アプリにも子リソースで定義されている **リソース** 以下のセクションです。 この子リソースは、Web アプリと共にデプロイされるプロジェクトのソース管理を定義します。 このテンプレートでは、ソース管理 
-特定の GitHub リポジトリにリンクされます。 GitHub リポジトリがコードで定義されている **"RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git"** する可能性がありますハード コード リポジトリの URL を繰り返しパラメーターの最小数を必要とするときに 1 つのプロジェクトを展開するテンプレートを作成するときにします。
+特定の GitHub リポジトリにリンクされます。 GitHub リポジトリがコードで定義されている **"RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git"** する可能性がありますハード コード リポジトリの URL パラメーターの最小数を必要とする繰り返しデプロイされる単一のプロジェクト テンプレートを作成する場合。
 リポジトリの URL をハードコーディングする代わりに、リポジトリの URL のパラメーターを追加およびをこの値を使用して、 **RepoUrl** プロパティです。 リポジトリ URL パラメーターの例を見ることができます、 
 [Web ジョブ テンプレートを使用して web アプリ](../app-service-web-deploy-web-app-with-webjobs.md)します。
 
@@ -116,4 +116,5 @@ Web アプリにも子リソースで定義されている **リソース** 以�
 
 
  
+
 

@@ -37,11 +37,11 @@ DocumentDB アカウント。
 
 ### Azure ポータルでアクセス キーを表示およびコピーする
 
-1.      In the [Azure Portal](https://portal.azure.com/), access your DocumentDB account. 
+1.       [Azure ポータル](https://portal.azure.com/), 、DocumentDB アカウントにアクセスします。 
 
-2.      In the **Summary** lens, click **Keys**.
+2.       **概要** レンズで、をクリックして **キー**します。
 
-3.      On the **Keys** blade, click the **Copy** button to the right of the
+3.       **キー** ブレードで、をクリックして、 **コピー** ボタンの右側に、
 コピー対象のキー。
 
   ![Azure ポータルの [キー] ブレードでアクセス キーを表示およびコピーする](./media/documentdb-manage-account/image004.jpg)
@@ -61,23 +61,23 @@ DocumentDB アカウントにアクセスするは、新しいキーを使用し
 接続失われますが、キーを再生成する場合を切り替えない限り、
 キー。 次の手順は、キーの切り替えに含まれるプロセスの概要を示します。
 
-1.      Update the access key in your application code to reference the
+1.      アクセス キーを参照する、アプリケーション コードで更新します
 DocumentDB アカウントのセカンダリ アクセス キーです。
 
-2.      Regenerate the primary access key for your DocumentDB account.
+2.      DocumentDB アカウントのプライマリ アクセス キーを再生成します。
  [Azure ポータル](https://portal.azure.com/),、
 DocumentDB アカウントにアクセスします。
 
-3.      In the Summary lens, click **Keys**.
+3.      [概要] レンズ **キー**します。
 
-4.      On the **Keys** blade, click the **Regenerate Primary** command, then
+4.       **キー** ブレードで、をクリックして、 **プライマリの再生成** コマンドは、その後
 クリックして **Ok** を新しいキーを生成することを確認します。
 
-5.      Once you have verified that the new key is available for use
+5.      新しいキーが使用できることを確認したら
 (約 5 分後の再生成)、[アクセス キーを更新します。
 新しいプライマリ アクセス キーを参照するアプリケーション コードです。
 
-6.      Regenerate the secondary access key.
+6.      セカンダリ アクセス キーを再生成します。
 
 *新しく生成されたキーができるまでに数分かかることができます。
 DocumentDB アカウントにアクセスするために使用します。*
@@ -109,39 +109,39 @@ ordered)、および任意の 1 つの最新の書き込みを読み取る
 
 ### DocumentDB アカウントの既定の整合性を指定するには
 
-1.      In the [Azure Portal](https://portal.azure.com/), access your DocumentDB account. 
+1.       [Azure ポータル](https://portal.azure.com/), 、DocumentDB アカウントにアクセスします。 
 
-2.      In the **Configuration** lens, click **Default Consistency**.
+2.       **構成** レンズで、をクリックして **既定の整合性**します。
 
-3.      On the **Default Consistency** blade, select the default consistency
+3.       **既定の一貫性** ブレードで、既定の一貫性を選択
 DocumentDB アカウントに設定レベル。
 
 ![既定の整合性セッション](./media/documentdb-manage-account/image005.png)
 
 ![制限付きの既定の整合性](./media/documentdb-manage-account/image006.png)
 
-4.      Click **Save**.
+4.      クリックして **保存**します。
 
-5.      The progress of the operation may be monitored via the Azure Portal Notifications hub.
+5.      Azure ポータルの通知ハブで、操作の進行状況を監視できます。
 
 *既定値に変更するまでに数分かかることができます。
 一貫性の設定は、DocumentDB アカウントで有効です。*
 
-## <a id="delete"></a> 方法: Azure ポータルで DocumentDB アカウントを削除します。
+## <a id="delete"></a> Azure ポータルで DocumentDB アカウントを削除する方法
 不要になったを使用して、Azure ポータルから、DocumentDB アカウントを削除するには、使用、
 **削除** コマンドを **DocumentDB アカウント** ブレードです。
 
 ![Azure ポータルで DocumentDB アカウントを削除する方法](./media/documentdb-manage-account/image009.png)
 
-1.      In the [Azure Portal](https://portal.azure.com/), access the DocumentDB Account you
+1.       [Azure ポータル](https://portal.azure.com/), 、した、DocumentDB のアクセス アカウント
 削除しようとしてください。 
 
-2.      On the **DocumentDB Account** blade, click the **Delete** command.
+2.       **DocumentDB アカウント** ブレードで、をクリックして、 **削除** コマンドです。
 
-3.      On the resulting confirmation blade, type the DocumentDB Account
+3.      [結果の [確認] ブレードには、DocumentDB アカウントを入力します。
 アカウントを削除することを確認する名前。
 
-4.      Click the **Delete** button on the confirmation blade.
+4.      クリックして、 **削除** [確認] ブレード] ボタンをクリックします。
 
 ## <a id="next"></a>次のステップ
 
@@ -154,4 +154,5 @@ DocumentDB の詳細については、Azure DocumentDB を参照してくださ�
 
  
  
+
 

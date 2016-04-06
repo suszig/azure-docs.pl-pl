@@ -82,7 +82,7 @@ Azure AD への Alcumus Info Exchange の統合を構成するには、ギャラ
 ##  Azure AD シングル サインオンの構成とテスト
 このセクションの目的は、"Britta Simon" というテスト ユーザーに基づいて、Alcumus Info Exchange で Azure AD のシングル サインオンを構成し、テストする方法について説明することです。
 
-シングル サインオンを機能させるには、Azure AD ユーザーに対応する Alcumus Info Exchange ユーザーが Azure AD で認識される必要があります。 言い換えると、Azure AD ユーザーと Alcumus Info Exchange の関連ユーザーの間で、リンク関係が確立されている必要があります。<br>
+シングル サインオンを機能させるには、Azure AD ユーザーに対応する Alcumus Info Exchange ユーザーが Azure AD で認識される必要があります。 つまり、Azure AD のユーザーと Alcumus 情報交換に関連するユーザーの間のリンクの関係を確立する必要があります。<br>
 値を割り当てることでこのリンクの関係が確立される、 **ユーザー名** の値として Azure AD で、 **Username** Alcumus 情報交換にします。
  
 Alcumus Info Exchange で Azure AD のシングル サインオンを構成してテストするには、次の構成要素を完了する必要があります。
@@ -100,7 +100,7 @@ Alcumus Info Exchange で Azure AD のシングル サインオンを構成し�
 **Alcumus Info Exchange で Azure AD のシングル サインオンを構成するには、次の手順に従います。**
 
 1. Azure AD ポータルでの **Alcumus 情報 Exchange** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、 **シングル サインオンを構成する**  ダイアログ。<br><br>
-![シングル サインオンを構成する][6]
+![シングル サインオンを構成します。][6]
 
 2.  **どのようなユーザー Alcumus 情報 Exchange へのアクセス** ] ページで、[ **Azure AD シングル サインオン**, 、順にクリック **次**します。<br><br>
 ![Azure AD シングル サインオン][7]
@@ -114,21 +114,21 @@ Alcumus Info Exchange で Azure AD のシングル サインオンを構成し�
 
      3.2. クリックして **次**します。
  
-4.  **Alcumus 情報 Exchange でのシングル サインオンの構成** ] ページで [ **メタデータのダウンロード**, 、コンピューターのローカルにメタデータ ファイルを保存します<br><br>!。[Azure AD Connect は][9]
+4.  **Alcumus 情報 Exchange でのシングル サインオンの構成** ] ページで [ **メタデータのダウンロード**, 、コンピューターのローカルにメタデータ ファイルを保存します。<br><br>![Azure AD Connect とは][9]
 
 5. 使用して Alcumus 情報 Exchange サポート チームに連絡 [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com), に連絡し、SSO がするを有効にする必要があること、メタデータ ファイルを使用してそれらを使用します。
 
 
-6. Azure AD ポータルでのシングル サインオンの構成情報を選択し、 **次**します。 <br><br>![Azure AD Connect は][10]
+6. Azure AD ポータルでのシングル サインオンの構成情報を選択し、 **次**します。 <br><br>![Azure AD Connect とは][10]
 
-7.  **シングル サインオンによる確認** ] ページで [ **完了**します。  <br><br>![Azure AD Connect は][11]
+7.  **シングル サインオンによる確認** ] ページで [ **完了**します。  <br><br>![Azure AD Connect とは][11]
 
 
 
 
 ### Azure AD のテスト ユーザーの作成
 このセクションの目的は、Azure ポータルで Britta Simon というテスト ユーザーを作成することです。<br>
-ユーザーの一覧で選択 **Britta Simon**.<br><br>![Azure AD ユーザーの作成][20]<br>
+ユーザーの一覧で選択 **Britta Simon**します。<br><br>![Azure AD ユーザーを作成します。][20]<br>
 
 **Azure AD でテスト ユーザーを作成するには、次の手順に従います。**
 
@@ -137,25 +137,25 @@ Alcumus Info Exchange で Azure AD のシングル サインオンを構成し�
 
 2.  **ディレクトリ** 一覧で、ディレクトリ統合を有効にディレクトリを選択します。
 
-3. 上部のメニューで、ユーザーの一覧を表示する] をクリックして **ユーザー**.<br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_03.png) 
+3. 上部のメニューで、ユーザーの一覧を表示する] をクリックして **ユーザー**します。<br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_03.png) 
  
 4. 開くには、 **ユーザーの追加** ] ダイアログ ボックスで、下部にあるツールバーをクリックして **ユーザーの追加**します。 <br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_04.png) 
 
-5.  **このユーザーについてお聞かせ** ] ダイアログ ページで、次の手順を実行します <br>![Azure AD テスト ユーザーを作成する。](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_05.png) 
+5.  **このユーザーについてお聞かせ** ] ダイアログ ページで、次の手順を実行します。 <br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_05.png) 
   1. [ユーザーの種類] として [組織内の新しいユーザー] を選択します。
   2. [ユーザー名 **textbox**, 、型 **BrittaSimon**します。
   3. [次へ] をクリックします。
 
-6.   **ユーザー プロファイル** ] ダイアログ ページで、次の手順を実行します <br>![Azure AD テスト ユーザーを作成する。](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_06.png) 
+6.   **ユーザー プロファイル** ] ダイアログ ページで、次の手順を実行します。 <br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_06.png) 
   1.  **名** ] ボックスに「 **Britta**します。  
   2.  **姓** ボックス型 **Simon**します。
   3.  **表示名** ] ボックスに「 **Britta Simon**します。
   4.  **ロール** 一覧で、[ **ユーザー**します。
   5. クリックして **次**します。
 
-7.  **一時パスワードの取得** ダイアログ ページで、をクリックして **作成**.<br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_07.png) 
+7.  **一時パスワードの取得** ダイアログ ページで、をクリックして **作成**します。<br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_07.png) 
  
-8.  **一時パスワードの取得** ] ダイアログ ページで、次の手順を実行します<br>![Azure AD テスト ユーザーを作成する。](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_08.png) 
+8.  **一時パスワードの取得** ] ダイアログ ページで、次の手順を実行します。<br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_08.png) 
   1. 値を書き留めて、 **新しいパスワード**します。
   2. クリックして **完了**します。   
 
@@ -222,3 +222,4 @@ Alcumus Info Exchange で Azure AD のシングル サインオンを構成し�
 [204]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_205.png
 [400]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_alcumus_402.png
+

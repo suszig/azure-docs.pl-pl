@@ -26,7 +26,7 @@
 
 ## アップグレードの手順
 
-**1.アプリケーションをアップグレードします。**Visual Studio で、最新のクライアント ライブラリのバージョンをダウンロードして、ライブラリを使用する開発プロジェクトのすべてに参照させます。その後、再構築してデプロイします。 
+**1.アプリケーションをアップグレードします。** Visual Studio で、最新のクライアント ライブラリのバージョンをダウンロードして、ライブラリを使用する開発プロジェクトのすべてに参照させます。その後、再構築してデプロイします。 
 
  * Visual Studio ソリューションで選択 **ツール** --> **NuGet パッケージ マネージャー** -->  **ソリューションの NuGet パッケージの管理**します。 
  * (Visual Studio 2013)左側のパネルの [ **更新**, 、し、[、 **更新** ] ボタンをクリックして、パッケージに **Azure SQL データベース Elastic Scale クライアント ライブラリ** ウィンドウに表示されます。
@@ -35,13 +35,13 @@
  
  * 構築してデプロイします。 
 
-**2.スクリプトをアップグレードします。**使用している場合 **PowerShell** 、シャードを管理するためのスクリプト [新しいライブラリ バージョンをダウンロード](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) しスクリプトを実行するディレクトリにコピーします。 
+**2.スクリプトをアップグレードします。** 使用している場合 **PowerShell** 、シャードを管理するためのスクリプト [新しいライブラリ バージョンをダウンロード](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) しスクリプトを実行するディレクトリにコピーします。 
 
-**3.Split-Merge サービスをアップグレードします。**エラスティック データベース分割/マージ ツールを使用してシャード化されたデータを再編成する場合 [のダウンロードし、ツールの最新バージョンを展開](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)します。 詳しいアップグレード手順については、サービス [ここ](sql-database-elastic-scale-overview-split-and-merge.md)します。 
+**3.分割-結合サービスをアップグレードします。** エラスティック データベース分割/マージ ツールを使用してシャード化されたデータを再編成する場合 [のダウンロードし、ツールの最新バージョンを展開](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)します。 詳しいアップグレード手順については、サービス [ここ](sql-database-elastic-scale-overview-split-and-merge.md)します。 
 
 **4.シャード マップ マネージャーのデータベースをアップグレードします。** Azure SQL Database でシャード マップをサポートするメタデータをアップグレードします。  これは、PowerShell か C# を使用して実行できます。 次に両方の方法について説明します。
 
-***undefined***
+***オプション 1: PowerShell を使用してメタデータをアップグレードします。***
 
 1. NuGet の最新のコマンド ライン ユーティリティをダウンロード [ここ](http://nuget.org/nuget.exe) し、フォルダーに保存します。 
 
@@ -55,7 +55,7 @@
 
 5. そのフォルダーのコマンド プロンプトから"PowerShell.\upgrade.ps1"を実行し、画面の指示に従います。
  
-***undefined***
+***オプション 2: C を使用してメタデータをアップグレードします。#***
 
 または、ShardMapManager を開き、すべてのシャードを反復処理し、メソッドを呼び出して、メタデータのアップグレードを実行する Visual Studio アプリケーションを作成 [UpgradeLocalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore.aspx) と [UpgradeGlobalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore.aspx) この例のようにします。 
 
@@ -98,3 +98,4 @@
 <!--Image references-->
 [1]:./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
+

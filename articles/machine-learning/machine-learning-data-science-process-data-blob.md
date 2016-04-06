@@ -16,7 +16,7 @@
     ms.date="10/20/2015" 
     ms.author="sunliangms;fashah;garye;bradsev" /> 
 
-#<a name="heading"></a>Azure の blob データを高度な分析処理します。
+#<a name="heading"></a>Azure  BLOB データを高度な分析を使用して処理する
 
 このドキュメントでは、データの探索および Azure BLOB ストレージに保存されたデータからの特徴の生成について説明します。 
 
@@ -109,7 +109,7 @@
     
 次のように、Python を使用して特徴を生成できます。
 
-###<a name="blob-countfeature"></a>インジケーター値ベースの特徴の生成
+###<a name="blob-countfeature">インジケーター値ベースの特徴の生成</a>
 
 カテゴリの特徴は、次のように作成できます。
 
@@ -149,7 +149,7 @@
 
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool) 
 
-##<a name="sql-featuregen"></a>Azure blob にデータを書き戻して、Azure Machine Learning で使用する.
+##<a name="sql-featuregen"></a>Azure BLOB にデータを書き戻して Azure Machine Learning で使用する
 
 データを探索すると、必要な機能を作成するには、データをアップロードすることができます (サンプリングまたは特徴を生成)、Azure blob にし、次の手順を使用して Azure Machine Learning で使用します。
 Azure Machine Learning studio にも、その他の機能を作成できることを注意してください。 
@@ -179,7 +179,7 @@ Azure Machine Learning studio にも、その他の機能を作成できるこ�
         except:         
             print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Azure Machine Learning [リーダー] [リーダー] を使用して blob からデータを読み取ることができますのでモジュールの次の画面に示すようにします。
+3. Azure Machine Learning を使用して blob からデータを読み取ることができますので [リーダー][reader] モジュールの次の画面に示すようにします。
  
 ![リーダー BLOB][1]
 
@@ -189,3 +189,4 @@ Azure Machine Learning studio にも、その他の機能を作成できるこ�
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
+

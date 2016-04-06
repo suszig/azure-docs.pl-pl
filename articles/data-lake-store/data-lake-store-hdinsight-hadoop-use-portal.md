@@ -19,7 +19,7 @@
 # Azure ポータルを使用して、Data Lake Store を使用する HDInsight クラスターをプロビジョニングする
 
 > [AZURE.SELECTOR]
-- [ポータルを使用してください。](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [ポータルの使用](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [PowerShell の使用](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
@@ -81,7 +81,7 @@ Azure ポータルを使用して、Azure Data Lake Store を使用するよう�
 
     ![HDInsight クラスターにサービス プリンシパルを追加する](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "Add service principal to HDInsight cluster")
 
-## <a name="acl"></a>湖のデータ ストアのファイル システムにアクセスするサービス プリンシパルを構成します。
+## <a name="acl"></a>Data Lake Store ファイル システムにアクセスするようにサービス プリンシパルを構成する
 
 1. 新しいへのサインオン [Azure ポータル](https://portal.azure.com)します。
 
@@ -206,4 +206,5 @@ HBase クラスターでは、Data Lake Store アカウントを既定のスト�
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
+
 

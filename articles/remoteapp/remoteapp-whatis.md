@@ -28,7 +28,7 @@ Azure の RemoteApp について質問はありますか。 チェック アウ�
 
 Azure RemoteApp の一部である、 [Microsoft Virtual Desktop Infrastructure](http://www.microsoft.com/server-cloud/products/virtual-desktop-infrastructure/explore.aspx)します。
 
-**新しい!**Azure RemoteApp について詳細を知りたいですか。 または、Azure RemoteApp を規模を拡大して検証する準備ができていますか。 週単位に参加 [専門家にたずねるウェビナー](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website)します。
+**新しい情報!** Azure RemoteApp について詳細を知りたいですか。 または、Azure RemoteApp を規模を拡大して検証する準備ができていますか。 週単位に参加 [専門家にたずねるウェビナー](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website)します。
 
 ## Azure RemoteApp コレクション
 2 種類の [Azure RemoteApp コレクション](remoteapp-collections.md):
@@ -79,3 +79,4 @@ Azure RemoteApp は、Windows および Windows RT の RemoteApp クライアン
 
 ### サポートのお願い 
 記事を評価したり、下にコメントを投稿したりするだけでなく、記事自体を変更できることを知っていましたか。 説明不足ですか。 間違いがありますか。 わかりにくいことが書いてありますか。 上にスクロールしてクリックして **GitHub の編集** の変更を加えるについては、私たちに来るし、次に、筆に一度表示されます、変更および強化ここです。
+

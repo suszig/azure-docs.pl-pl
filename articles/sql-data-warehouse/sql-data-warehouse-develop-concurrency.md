@@ -286,7 +286,7 @@ CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 CREATE USER newperson for LOGIN newperson
 ```
 
-[AZURE.NOTE] Azure SQL database と SQL Data Warehouse の両方を使用する場合、マスター データベースでログイン用のユーザーを作成することをお勧めします。 このレベルでは 2 つのサーバー ロールを利用できます。これらのロールは、メンバーシップを許可するためには、ログインがマスターにユーザーを持つ必要があります。 これらのロールは、`Loginmanager` と `dbmanager` です。 これらのロールは、Azure SQL Database と SQL Data Warehouse の両方で、ログインを管理し、データベースを作成する権限を付与します。 この点が SQL Server とは異なります。 詳細については、[データベースの管理と Azure SQL Database 内のログイン] をご覧ください詳細については資料です。
+[AZURE.NOTE] Azure SQL database と SQL Data Warehouse の両方を使用する場合、マスター データベースでログイン用のユーザーを作成することをお勧めします。 このレベルでは 2 つのサーバー ロールを利用できます。これらのロールは、メンバーシップを許可するためには、ログインがマスターにユーザーを持つ必要があります。 これらのロールは、`Loginmanager` と `dbmanager` です。 これらのロールは、Azure SQL Database と SQL Data Warehouse の両方で、ログインを管理し、データベースを作成する権限を付与します。 この点が SQL Server とは異なります。 詳細についてをご覧ください、 [Managing Databases and Logins in Azure SQL Database] 詳細については資料です。
 
 ログインを作成したら、ユーザー アカウントを追加する必要があります。
 
@@ -441,7 +441,7 @@ FROM    sys.dm_pdw_wait_stats w
 ```
 
 ## 次のステップ
-他の開発のヒントについては、[開発の概要に関するページを参照してください。
+他の開発のヒントを参照してください。 [開発の概要][]します。
 
 <!--Image references-->
 
@@ -452,6 +452,7 @@ FROM    sys.dm_pdw_wait_stats w
 [Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
+
 
 
 

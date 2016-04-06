@@ -55,18 +55,18 @@ Azure クラシック ポータルで簡単なクイック スタートに従い
 [AZURE.INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
 
 <ol start="4">
-<li><p>ポータルに戻り、[Azure クラシック] をクリックして、 **データ** ] タブでをクリックし、 **TodoItem** テーブルです。 これにより、アプリケーションによってテーブルに挿入されたデータを参照できます。<p></li></ol></p>
+<li><p>ポータルに戻り、[Azure クラシック] をクリックして、 **データ** ] タブでをクリックし、 **TodoItem** テーブルです。 これで、アプリケーションによってテーブルに挿入されたデータを参照できます。<p></li></ol></p>
 
 ## <a name="next-steps"> </a>次のステップ
 Mobile Services で重要になるこれ以外の作業については、以下のトピックをご覧ください。
 
-* [オフライン データの同期の開始を取得]
+* [Get started with offline data sync]
     <br/>オフライン データの同期を使用してアプリケーションの反応と信頼性を高める方法について説明します。
 
-* [既存のアプリケーションへの認証の追加]
+* [Add authentication to an existing app]
     <br/>ID プロバイダーを使用してアプリケーションのユーザーを認証する方法について説明します。
 
-* [既存のアプリにプッシュ通知の追加]
+* [Add push notifications to an existing app]
     <br/>アプリケーションにごく基本的なプッシュ通知を送信する方法について説明します。
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
@@ -98,4 +98,5 @@ Mobile Services で重要になるこれ以外の作業については、以下�
 [Azure classic portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [.NET backend version]: mobile-services-dotnet-backend-ios-get-started.md
+
 

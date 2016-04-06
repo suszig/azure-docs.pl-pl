@@ -37,11 +37,11 @@
 Visual Studio 用の Service Fabric ツールをインストールした後、新しいプロジェクトの種類を作成できます。 新しいプロジェクトの種類は、[新しいプロジェクト] ダイアログの [クラウド] カテゴリにあります。
 
 
-![VS - 新しいプロジェクトの Service Fabric tools][1]
+![VS 向け Service Fabric ツール - 新しいプロジェクト][1]
 
 次のダイアログで、作成するプロジェクトの種類を選択できます。
 
-![サービス ファブリック プロジェクト テンプレート][5]
+![Service Fabric プロジェクトのテンプレート][5]
 
 HelloWorld プロジェクトで、Service Fabric アクター サービスを使用してみます。
 
@@ -159,4 +159,5 @@ Visual Studio 用の Service Fabric ツールは、ローカル マシンでの�
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
+
 

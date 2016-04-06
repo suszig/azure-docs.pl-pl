@@ -32,7 +32,7 @@
 - Azure Web アプリ
 - Azure Redis Cache。
 
-デプロイメントを自動的に実行するには、次のボタンをクリックします。
+展開を自動的に実行するには、次のボタンをクリックします。
 
 [![DAzure に eploy](./media/cache-web-app-arm-with-redis-cache-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-with-redis-cache%2Fazuredeploy.json)
 
@@ -70,7 +70,7 @@ Web アプリで使用される Azure Redis Cache を作成します。 キャ�
       }
     }
 
-### Web Apps
+### Web アプリ
 
 指定された名前で web アプリを作成、 **siteName** パラメーター。
 
@@ -125,6 +125,7 @@ Redis Cache との連動を可能にするアプリ設定プロパティで Web 
 ### Azure CLI
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
+
 
 
 

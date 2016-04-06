@@ -15,7 +15,7 @@
    ms.date="12/02/2015"
    ms.author="alkohli" />
 
-# StorSimple デバイスの CHAP を構成する
+# StorSimple デバイスの CHAP の構成
 
 このチュートリアルでは、StorSimple デバイスの CHAP を構成する方法について説明します。 CHAP は、チャレンジ ハンドシェイク認証プロトコルを意味します。 これは、サーバーがリモート クライアントの ID を検証する際に使用する認証スキームです。 この検証は、共有パスワードまたはシークレットに基づいて行われます。 
 
@@ -190,4 +190,5 @@ CHAP の構成が正しくないかどうかは、よく見られますが、 **
 
 - 詳細について [StorSimple のセキュリティ](storsimple-security.md)します。
 - 詳細について [StorSimple Manager サービスを使用して、StorSimple デバイスを管理する](storsimple-manager-service-administration.md)です。
+
 

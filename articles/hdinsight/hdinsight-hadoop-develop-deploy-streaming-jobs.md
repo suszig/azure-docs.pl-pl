@@ -38,7 +38,7 @@ Hadoop には MapReduce に対するストリーミング API が用意されて
 
 このチュートリアルを開始する前に、次の作業を完了している必要があります。
 
-- HDInsight Emulator のインストール。 手順については、次を参照してください。 [HDInsight Emulator の概要][hdinsight-get-started-emulator]します。
+- HDInsight Emulator のインストール 手順については、次を参照してください。 [HDInsight Emulator の概要][hdinsight-get-started-emulator]します。
 - エミュレーター コンピューターへの Azure PowerShell のインストール。 手順については、次を参照してください。 [をインストールし、Azure PowerShell を構成][powershell-install]します。
 - Azure サブスクリプションを取得する。 手順については、次を参照してください。 [購入に関するオプション][azure-purchase-options], 、[メンバー プラン][azure-member-offers], 、または [無料評価版][azure-free-trial]します。
 
@@ -554,4 +554,5 @@ Hadoop ストリーミング ジョブを送信する HDInsight .NET SDK サン�
 [powershell-install]: ../powershell-install-configure.md
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "MapReduce wordcount application flow"
+
 

@@ -20,7 +20,7 @@
 
 このチュートリアルでは、単純な多層 ASP.NET MVC 5 アプリケーションを使用するコードを記述する方法、 [web ジョブ SDK](websites-dotnet-webjobs-sdk.md)します。
 
-目的、 [web ジョブ SDK](websites-webjobs-resources.md) は、画像処理、キュー処理、rss 情報集約ファイル メンテナンスなど、web ジョブが実行できる一般的なタスク用に記述するコードを簡略化して、電子メールを送信します。 WebJobs SDK には、Azure Storage や Service Bus の操作、タスクのスケジューリング、エラー処理など、一般的な用途に対応した各種の機能が組み込まれています。 さらに、拡張できる設計となっておりは、 [拡張機能のオープン ソース リポジトリ](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)します。
+目的、 [web ジョブ SDK](websites-webjobs-resources.md) は、画像処理、キュー処理、rss 情報集約ファイル メンテナンスなど、web ジョブが実行できる一般的なタスク用に記述するコードを簡略化して、電子メールを送信します。 Web ジョブ SDK には、Azure Storage や Service Bus の操作、タスクのスケジューリング、エラー処理など、一般的な用途に対応した各種の機能が組み込まれています。 さらに、拡張できる設計となっておりは、 [拡張機能のオープン ソース リポジトリ](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)します。
 
 このサンプル アプリケーションは、広告の掲示板です。 ユーザーは広告の画像をアップロードでき、バックエンド プロセスにより、その画像は縮小表示に変換されます。 広告の一覧ページには縮小表示画像が表示され、広告の詳細ページにはフル サイズの画像が表示されます。 スクリーンショットを次に示します。
 
@@ -47,7 +47,7 @@
 * 開発コンピューター上で Web ジョブ SDK バックエンドをローカルにテストする。
 * Web ジョブ バックエンドと共に Web アプリケーションを App Service に発行する。
 * ファイルを Azure BLOB サービスにアップロードして保存する。
-* Azure Web ジョブ SDK を使用して Azure ストレージ キューと BLOB を操作する。
+* Azure Web ジョブ SDK を使用して Azure Storage キューと BLOB を操作する。
 
 ## <a id="contosoads"></a>アプリケーションのアーキテクチャ
 
@@ -66,7 +66,7 @@ Web アプリによってその画像が画像をアップロードすると、�
 
 このチュートリアルの手順は、Azure SDK for .NET 2.7.1 以降に適用されます。
 
-## <a id="storage"></a>Azure Storage アカウントの作成
+## <a id="storage"></a>Azure ストレージ アカウントの作成
 
 Azure ストレージ アカウントは、キューおよび BLOB データをクラウドに格納するためのリソースを提供します。 また、ダッシュボードのログ データを格納するために Web ジョブ SDK によっても使用されます。
 
@@ -98,9 +98,10 @@ Azure ストレージ アカウントは、キューおよび BLOB データを�
 
 5. クリックして **作成**します。
 
-    ![新しいストレージ アカウント ](./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png)
+    ![新しいストレージ アカウント 
+](./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png)
 
-## <a id="download"></a>アプリケーションのダウンロード
+## <a id="download"></a> アプリケーションのダウンロード
 
 1. ダウンロードして解凍、 [完成したソリューション](http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb)します。
 
@@ -137,7 +138,8 @@ Azure ストレージ アカウントは、キューおよび BLOB データを�
 
 3.  **プロパティ** ウィンドウで、をクリックして **ストレージ アカウント キー**, 、省略記号ボタンをクリックします。
 
-    ![新しいストレージ アカウント ](./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png)
+    ![新しいストレージ アカウント 
+](./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png)
 
 4. コピー、 **接続文字列**します。
 
@@ -150,8 +152,8 @@ Azure ストレージ アカウントは、キューおよび BLOB データを�
     このファイルには、アプリケーション データ用に 1 つとログ用に 1 つの計 2 つのストレージ接続文字列があります。 別のストレージ アカウントを使用するにはアプリケーション データ用とログ記録、および使用することができます [データの複数のストレージ アカウント](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs)します。 このチュートリアルでは、1 つのストレージ アカウントを使用します。 接続文字列には、ストレージ アカウント キーのプレースホルダーがあります。 
     <pre class="prettyprint">& lt; 構成 & gt;
     & lt; connectionStrings & gt;
-        & lt; の名前を追加 ="AzureWebJobsDashboard"connectionString ="DefaultEndpointsProtocol = https;AccountName =<mark>[accountname]</mark>です。AccountKey =<mark>[accesskey]</mark>"/& gt;
-        & lt; の名前を追加 ="AzureWebJobsStorage"connectionString ="DefaultEndpointsProtocol = https;AccountName =<mark>[accountname]</mark>です。AccountKey =<mark>[accesskey]</mark>"/& gt;
+        & lt; の名前を追加 ="AzureWebJobsDashboard"connectionString ="DefaultEndpointsProtocol = https;AccountName =<mark>[accountname]</mark>;AccountKey =<mark>[accesskey]</mark>"/& gt;
+        & lt; の名前を追加 ="AzureWebJobsStorage"connectionString ="DefaultEndpointsProtocol = https;AccountName =<mark>[accountname]</mark>;AccountKey =<mark>[accesskey]</mark>"/& gt;
         & lt; の名前を追加 ="ContosoAdsContext"connectionString ="データ ソース = (localdb) \v11.0;初期カタログ = ContosoAds です。Integrated Security = True;MultipleActiveResultSets = True;"/& gt;
     & lt;/connectionStrings & gt;
         & lt; スタートアップ & gt;
@@ -201,7 +203,7 @@ Azure ストレージ アカウントは、キューおよび BLOB データを�
 
 アプリケーションはローカル コンピューター上で実行されており、同じコンピューター上の SQL Server データベースを使用していますが、クラウド内のキューおよび BLOB と連携動作しています。 次のセクションでは、クラウド データベースおよびクラウドの BLOB とキューを使用して、アプリケーションをクラウド内で実行します。  
 
-## <a id="runincloud"></a>アプリケーションのクラウド内での実行
+## <a id="runincloud"></a>クラウドでアプリケーションを実行する
 
 アプリケーションをクラウドで実行するには、次の手順を実行します。
 
@@ -266,7 +268,8 @@ Azure ストレージ アカウントは、キューおよび BLOB データを�
 
 15.  **設定** ステップ、チェック ボックスをオフ、 **実行時にこの接続文字列を使用して** チェック ボックスをオンにし **次**します。
 
-    ![[設定] 手順](./media/websites-dotnet-webjobs-sdk-get-started/settingsstep.png)
+    ![[設定] 手順
+](./media/websites-dotnet-webjobs-sdk-get-started/settingsstep.png)
 
     SQL 接続文字列を設定するために発行ダイアログを使用する必要はありません。後から Azure 環境で値を設定します。
 
@@ -384,7 +387,8 @@ Azure ストレージ アカウントは、キューおよび BLOB データを�
 
 5. クリックして **認証変更**します。
 
-    ![認証の変更](./media/websites-dotnet-webjobs-sdk-get-started/chgauth.png)
+    ![認証の変更
+](./media/websites-dotnet-webjobs-sdk-get-started/chgauth.png)
 
 7.  **認証の変更** ] ダイアログ ボックスで選択 **認証なし**, 、] をクリックし、 **[ok]**します。
 
@@ -817,4 +821,5 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 ### Web ジョブに関するその他のドキュメント
 
 詳細については、次を参照してください。 [Azure WebJobs のドキュメント リソース](http://go.microsoft.com/fwlink/?LinkId=390226)します。
+
 

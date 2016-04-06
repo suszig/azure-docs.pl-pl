@@ -20,17 +20,18 @@
     これを表示、 **データベース設定の指定** ページです。
 
     
-    > [AZURE.NOTE] As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the new mobile service, you can instead choose **Use existing Database** and then select that database. The use of a database in a different region is not recommended because of additional bandwidth costs and higher latencies.
+    > [AZURE.NOTE] このチュートリアルの一環として、新しい SQL データベース インスタンスとサーバーを作成します。 この新しいデータベースは、再利用したり、その他の SQL Database インスタンスと同様に管理したりすることができます。 既に、新しいモバイル サービスと同じリージョンにデータベースがある場合を選択した **既存のデータベースを使用して** しそのデータベースを選択します。 別のリージョンにあるデータベースを使用することは、帯域幅コストと待機時間が増加するため、お勧めしません。
 
 5.   **名**, 、名前を入力の新しいデータベースを入力し、 **ログイン名**, 、管理者のログインであるという名前を次のように新しい SQL データベース サーバーの種類と、パスワードの確認し、プロセスを完了するチェック ボタンをクリックします。
 
     ![mobile-create-page2](./media/mobile-services-create-new-service-data/mobile-create-page2.png)
 
     
-    > [AZURE.NOTE] When the password that you supply does not meet the minimum requirements or when there is a mismatch, a warning is displayed.  
+    > [AZURE.NOTE] 指定したパスワードが最小要件を満たしていない場合、または不一致がある場合は、警告が表示されます。  
     >
-    > We recommend that you make a note of the administrator login name and password that you specify; you will need this information to reuse the SQL Database instance or the server in the future.
+    > 指定した管理者ログイン名とパスワードを書き留めておくことをお勧めします。この情報は、今後 SQL Database インスタンスまたはサーバーを再利用する際に必要になります。
 
 これで、モバイル アプリケーションで使用できる新しいモバイル サービスが作成されました。 次に、アプリケーション データを格納するための新しいテーブルを追加します。 このテーブルは、アプリケーションがメモリ内のコレクションの代わりに使用します。
+
 
 

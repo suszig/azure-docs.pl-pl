@@ -22,7 +22,7 @@
 
 Azure Active Directory (AD) Graph API を使用すると、OData REST API エンドポイントを介して Azure AD にプログラムによってアクセスできます。 アプリケーションでは、Graph API を使用して、ディレクトリのデータとオブジェクトに対して、作成、読み取り、更新、および削除 (CRUD) の各操作を実行できます。 たとえば、Graph API を使用して、新しいユーザーの作成、ユーザーのプロパティの表示または更新、ユーザーのパスワードの変更、ロールベースでアクセスするためのグループ メンバーシップの確認、ユーザーの無効化または削除を行うことができます。 Graph API の機能とアプリケーション シナリオの詳細については、次を参照してください。 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) と [Azure AD Graph API の前提条件](https://msdn.microsoft.com/library/hh974476(Azure.100).aspx)します。
 
-> [AZURE.IMPORTANT] Azure AD Graph API の機能がを介して利用も [Graph](https://graph.microsoft.io/), 、Outlook、OneDrive、OneNote、プランナー、および 1 つのエンドポイントと 1 つのアクセス トークンを使用してアクセス可能な Office グラフなどの他の Microsoft サービスからの Api を含んだ API の統合します。
+> [AZURE.IMPORTANT] Azure AD Graph API の機能がを介して利用も [Graph](https://graph.microsoft.io/), 、統合など、Outlook、OneDrive、OneNote、プランナー、および Office グラフ、単一のエンドポイントと単一のアクセス トークンを使用してアクセス可能な場合は、他の Microsoft サービスからの Api が含まれる API です。
 
 ## Graph API URL の作成方法
 
@@ -70,8 +70,8 @@ Azure AD Graph API 用の Graph Explorer を使用して、アプリケーショ
 
 **クエリを実行する**: クエリを実行する要求のテキスト ボックスにクエリを入力し、をクリックして **取得** かをクリックして、 **入力** キー。 結果が応答ボックスに表示されます。 たとえば、`https://graph.windows.net/graphdir1.onmicrosoft.com /groups?api-version=1.5` は、デモ ディレクトリ内のすべてのグループ オブジェクトを一覧表示します。
 
-次の機能と、グラフ エクスプ ローラーの制限事項に注意してください。
-- リソースのオートコンプリート機能を設定します。 これを参照するにはクリックして **デモ会社を使用** し (会社の URL が表示されます)、要求のテキスト ボックスをクリックします。 ドロップダウン リストからリソース セットを選択できます。
+Graph Explorer の次の機能と制限事項に注意してください。
+- リソース セットのオートコンプリート機能。 これを参照するにはクリックして **デモ会社を使用** し (会社の URL が表示されます)、要求のテキスト ボックスをクリックします。 ドロップダウン リストからリソース セットを選択できます。
 
 - アドレス指定のエイリアスとして “me” と “myorganization” の使用をサポートします。 たとえば、`https://graph.windows.net/me?api-version=1.5` を使用してサインインしているユーザーのユーザー オブジェクトを返し、`https://graph.windows.net/myorganization/users?api-version=1.5` を使用して現在のディレクトリのすべてのユーザーを返すことができます。 デモ会社に対して “me” エイリアスを使用するとエラーが返ります。これは、要求を行うサインイン ユーザーが存在しないためです。
 
@@ -100,14 +100,14 @@ Azure AD Graph API 用の Graph Explorer を使用して、アプリケーショ
 4. [Post] プルダウンのすぐ下にあるフィールドに、次のように入力します。
 
     ```
-ホスト: graph.windows.net
-認証: ユーザーのアクセス トークン
-コンテンツの種類: アプリケーション/json
+Host: graph.windows.net
+Authorization: your access token
+Content-Type: application/json
 ```
 
-    > [AZURE.NOTE] Substitute your &lt;your access token&gt; with the access token for your Azure AD directory.
+    > [AZURE.NOTE] 代わりに & lt; アクセス トークン & gt;で、Azure AD ディレクトリのアクセス トークンです。
 
-5. In the **Request body** field, type the following:
+5.  **要求本文** フィールドで、次を入力します。
 
     ```
         {
@@ -118,11 +118,12 @@ Azure AD Graph API 用の Graph Explorer を使用して、アプリケーショ
         }
 ```
 
-    For more information about creating groups, see [Create Group](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#CreateGroup).
+    グループの作成の詳細については、次を参照してください。 [グループの作成](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#CreateGroup)します。
 
 詳細については、Azure AD エンティティと Graph によって公開されている型および Graph でそれらに対して実行できる操作については、「 [Azure AD Graph REST API リファレンス](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)します。
 
 ## 次のステップ
 
 詳細について、 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
+
 

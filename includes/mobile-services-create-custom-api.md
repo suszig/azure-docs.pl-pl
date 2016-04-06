@@ -10,7 +10,7 @@
 
 4. をクリックして **completeall** API テーブルでします。
 
-5. クリックして、 **スクリプト** ] タブを既存のコードを次のコードに置き換えますしてクリックして **保存**します。    このコードにアクセスする [mssql オブジェクト] を使用して、 **todoitem** テーブルに直接設定、 `complete` すべての項目のフラグ。  **Exports.post** 関数を使用して、クライアントが操作を実行する POST 要求を送信します。 変更された行数は整数値としてクライアントに返されます。
+5. クリックして、 **スクリプト** ] タブを既存のコードを次のコードに置き換えますしてクリックして **保存**します。    このコードを使用して、 [mssql object] にアクセスする、 **todoitem** テーブルに直接設定、 `complete` すべての項目のフラグ。  **Exports.post** 関数を使用して、クライアントが操作を実行する POST 要求を送信します。 変更された行数は整数値としてクライアントに返されます。
 
 
         exports.post = function(request, response) {
@@ -34,4 +34,5 @@
 
 <!-- URLs. -->
 [mssql object]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
+
 

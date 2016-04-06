@@ -1,6 +1,6 @@
 #Mac および Linux 用 Azure コマンド ライン ツールの使用方法
 
-このガイドでは、Mac および Linux 用 Azure コマンド ライン ツールを使用して Azure のサービスを作成および管理する方法について説明します。 紹介するシナリオ **ツールをインストールする**, 、**、発行の設定をインポートする**, 、**の作成と Azure の web サイトを管理**, 、および **の作成と Azure の仮想マシンを管理**します。 包括的なリファレンス ドキュメントについては、[Mac および Linux 用の Azure コマンド ラインのツール] を参照してください。 [リファレンス ドキュメント] です。 
+このガイドでは、Mac および Linux 用 Azure コマンド ライン ツールを使用して Azure のサービスを作成および管理する方法について説明します。 紹介するシナリオ **ツールをインストールする**, 、**、発行の設定をインポートする**, 、**の作成と Azure の web サイトを管理**, 、および **の作成と Azure の仮想マシンを管理**します。 包括的なリファレンス ドキュメントについては、次を参照してください。 [Mac および Linux 用 Azure コマンド ライン ツール][reference-docs]します。 
 
 ##目次
 * [Mac および Linux 用 Azure コマンド ライン ツールについて](#Overview)
@@ -11,7 +11,7 @@
 * [Azure の仮想マシンを作成および管理する方法](#VMs)
 
 
-<h2><a id="Overview"></a>Mac および Linux 用 Azure コマンド ライン ツールについて</h2>
+<h2><a id="Overview"></a>Mac および Linux 用 Azure コマンド ライン ツールします。</h2>
 
 Mac および Linux 用 Azure コマンド ライン ツールは、Azure サービスをデプロイおよび管理するためのコマンド ライン ツールのセットです。
  
@@ -21,15 +21,15 @@ Mac および Linux 用 Azure コマンド ライン ツールは、Azure サー
 * Azure Websites の作成および管理。
 * Azure Virtual Machines の作成および管理。
 
-サポートされているコマンドの一覧については、入力 `azure -help` 、ツールをインストールした後コマンドラインでについては、[参照] または [リファレンス ドキュメント] です。
+サポートされているコマンドの詳細については、次のように入力します。 `azure -help` 、ツールをインストールした後コマンドラインで参照または、 [ドキュメントを参照して][reference-docs]します。
 
-<h2><a id="Download">Mac と Linux 用 Azure コマンド ライン ツールのインストール方法</a></h2>
+<h2><a id="Download">Mac および Linux 用 Azure コマンド ライン ツールをインストールする方法</a></h2>
 
 次の説明に従って、お使いのオペレーティング システムに対応するコマンド ライン ツールをインストールしてください。
 
-* **Mac**: [Azure SDK インストーラーをダウンロード] [mac インストーラー]。 ダウンロードした .pkg ファイルを開き、指示に従ってインストール手順を実行します。
+* **Mac**: ダウンロード、 [Azure SDK インストーラー][mac-installer]します。 ダウンロードした .pkg ファイルを開き、指示に従ってインストール手順を実行します。
 
-* **Linux**: 最新のバージョン [Node.js] [nodejs 組織] のインストール (を参照してください [パッケージ Manager][install-node-linux]) 経由での Node.js のインストールは、次のコマンドを実行します。
+* **Linux**: 最新バージョンのインストール [Node.js][nodejs-org] (を参照してください [パッケージ マネージャーを使った Node.js のインストール][install-node-linux])、次のコマンドを実行します。
 
         npm install azure-cli -g
 
@@ -37,22 +37,22 @@ Mac および Linux 用 Azure コマンド ライン ツールは、Azure サー
 
         sudo npm install azure-cli -g
 
-* **Windows**: ここでは使用可能な Winows インストーラー (.msi ファイル) を実行します。 [Azure コマンド ライン ツール] [windows インストーラー]。
+* **Windows**: ここでは使用可能な Winows インストーラー (.msi ファイル) を実行します。 [Azure コマンド ライン ツール][windows-installer]します。
 
 
 インストールをテストするには、コマンド プロンプトで「`azure`」と入力します。 インストールが正常に完了している場合は、使用可能なすべての `azure` コマンドの一覧が表示されます。
 
-<h2><a id="CreateAccount"></a>Azure アカウントの作成方法</h2>
+<h2><a id="CreateAccount"></a>Azure アカウントを作成する方法</h2>
 
 Mac および Linux 用 Azure コマンド ライン ツールを使用するには、Azure アカウントが必要です。
 
-Web ブラウザーを開き、[http://www.windowsazure.com] [windowsazuredotcom] を参照してクリックして **無料評価版** 右上隅にします。
+Web ブラウザーを開きを参照 [http://www.windowsazure.com][windowsazuredotcom] ] をクリック **無料評価版** 右上隅にします。
 
-![Azure の Web サイト][Azure の Web サイト]
+![Azure Web サイト][Azure Web Site]
 
 指示に従ってアカウントの作成手順を実行します。
 
-<h2><a id="Account"></a>発行の設定をダウンロードおよびインポートする方法</h2>
+<h2><a id="Account"></a>ダウンロードする方法と、発行設定のインポート</h2>
 
 最初に、発行の設定をダウンロードしてインポートする必要があります。 これにより、Azure サービスを作成および管理するためのツールを使用できるようになります。 発行の設定をダウンロードするには、次のように `account download` コマンドを使用します。
 
@@ -64,7 +64,7 @@ Web ブラウザーを開き、[http://www.windowsazure.com] [windowsazuredotcom
 
     azure account import {path to .publishsettings file}
 
-account clear コマンドを使用すると、 <code>import</code> コマンドによって保存された <code>すべての情報を</code> コマンド:
+保存された情報のすべてを削除することができます、 <code>import</code> コマンドを使用する、 <code>account clear</code> コマンド。
 
     azure account clear
 
@@ -82,7 +82,7 @@ account clear コマンドを使用すると、 <code>import</code> コマンド
 
 これで、Azure Websites および Azure Virtual Machines を作成および管理する準備が整いました。  
 
-<h2><a id="WebSites"></a>Azure の Web サイトを作成および管理する方法</h2>
+<h2><a id="WebSites"></a>作成して、Azure の web サイトを管理する方法</h2>
 
 ###Web サイトの作成
 
@@ -163,7 +163,7 @@ Web サイトの一覧を表示するには、次のコマンドを使用しま�
 
     azure site -help 
 
-<h2><a id="VMs"></a>Azure の仮想マシンを作成および管理する方法</h2>
+<h2><a id="VMs"></a>作成して、Azure の仮想マシンを管理する方法</h2>
 
 Azure の仮想マシンを作成するには、自分で用意した仮想マシン イメージ (.vhd ファイル) やイメージ ギャラリーから入手した仮想マシン イメージを使用します。 利用可能なイメージを表示するには、`vm image list` コマンドを使用します。
 
@@ -219,5 +219,6 @@ Azure の仮想マシンを作成するには、自分で用意した仮想マ�
 [windows-installer]: http://go.microsoft.com/fwlink/?LinkID=275464
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
+
 
 

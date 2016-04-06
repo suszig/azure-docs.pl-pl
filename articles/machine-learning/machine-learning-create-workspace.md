@@ -37,7 +37,7 @@ Azure Machine Learning Studio を使用するには、Machine Learning ワーク
 3. クリックして **+ 新規** ウィンドウの下部にあります。
 4. をクリックして **データ サービス**, 、し **MACHINE LEARNING**, 、し **簡易作成**します。
 
-    ![新しいワークスペースの [簡易作成][3]
+    ![新しいワークスペースの簡易作成][3]
 
 5. 入力、 **ワークスペース名** にワークスペースを指定し、 **ワークスペースの所有者**します。 ワークスペースの所有者は、有効な Microsoft アカウント (name@outlook.com など) である必要があります。
 
@@ -68,4 +68,5 @@ Azure Machine Learning Studio を使用するには、Machine Learning ワーク
 
 <!--Link references-->
  
+
 

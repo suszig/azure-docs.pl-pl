@@ -9,12 +9,12 @@
 
 <tags
     ms.service="backup"
-    ms.workload=「記憶域のバックアップ回復」
+    ms.workload="storage-backup-recovery"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
     ms.date="11/20/2015"
-    ms.author="aashishr"です。"jimpark"/>
+    ms.author="aashishr"; "jimpark"/>
 
 
 # PowerShell を使用して Windows Server/Windows Client に Microsoft Azure Backup をデプロイおよび管理する手順
@@ -599,4 +599,5 @@ Azure Backup for Windows Server/Client の詳細については、以下を参�
 
 - [Azure Backup の概要](backup-configure-vault.md)
 - [Windows Server のバックアップ](backup-azure-backup-windows-server.md)
+
 

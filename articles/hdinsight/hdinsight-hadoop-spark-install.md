@@ -36,7 +36,7 @@
 
 ## Spark とは
 
-<a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a> ビッグ データ分析アプリケーションのパフォーマンスを向上するメモリ内をサポートしているオープン ソースの並列処理のフレームワークを処理します。 Spark のメモリ内の計算能力により、機械学習とグラフ計算における反復的なアルゴリズムに対して、Spark は適切な選択肢となります。
+<a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a> はビッグ データ分析アプリケーションのパフォーマンスを向上するメモリ内の処理をサポートする、オープン ソースの並列処理のフレームワークです。 Spark のメモリ内の計算能力により、機械学習とグラフ計算における反復的なアルゴリズムに対して、Spark は適切な選択肢となります。
 
 Spark を使用して、従来のディスク ベースのデータ処理を実行することもできます。 Spark は、中間段階でのディスクへの書き込みを回避することで、従来の MapReduce フレームワークを向上しています。 また、Spark は Hadoop Distributed File System (HDFS) と Azure BLOB ストレージと互換性があるため、既存のデータは Spark を通じて簡単に処理できます。
 
@@ -66,11 +66,11 @@ HDInsight クラスターで Spark をインストールするサンプル ス�
     <table border='1'>
         <tr><th>プロパティ</th><th>値</th></tr>
         <tr><td>名前</td>
-            <td>スクリプト アクションの名前を指定します。 たとえば、次のように入力します。 <b>Spark のインストール</b>.</td></tr>
+            <td>スクリプト アクションの名前を指定します。 たとえば、 <b>Install Spark</b>します。</td></tr>
         <tr><td>スクリプト URI</td>
-            <td>クラスターをカスタマイズするために呼び出すスクリプトの Uniform Resource Identifier (URI) を指定します。 たとえば、次のように入力します。 <i>https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1</i></td></tr>
+            <td>クラスターをカスタマイズするために呼び出すスクリプトの Uniform Resource Identifier (URI) を指定します。 たとえば、 <i>https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1</i></td></tr>
         <tr><td>ノードの種類</td>
-            <td>カスタマイズ スクリプトが実行されるノードを指定します。 選択することができます。 <b>すべてのノード</b>。 <b>ヘッド ノードのみ]</b>, or <b>ワーカー ノードのみ</b>.
+            <td>カスタマイズ スクリプトが実行されるノードを指定します。 選択する <b>のすべてのノード</b>, 、<b>ヘッド ノードのみ</b>, 、または <b>ワーカー ノードのみ</b>します。
         <tr><td>パラメーター</td>
             <td>スクリプトで必要な場合は、パラメーターを指定します。 Spark をインストールするスクリプトではパラメーターは必要ないため、ここは空白のままにできます。</td></tr>
     </table>
@@ -319,4 +319,5 @@ Spark SQL では、Spark を使用して構造化照会言語 (SQL)、HiveQL、S
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: ../install-configure-powershell.md
+
 

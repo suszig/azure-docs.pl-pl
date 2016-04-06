@@ -54,7 +54,7 @@
 
 ## フェーズ 1: Corpnet サブネット上のコンピューターを構成する
 
-「の Corpnet サブネットの構成手順」セクション手順を使用、 [テスト ラボ ガイド: 基本構成の Windows Server 2012 R2](http://www.microsoft.com/download/details.aspx?id=39638) Corpnet という名前のサブネットに DC1、APP1、および CLIENT1 コンピューターを構成します。 **このサブネットは、RRAS1 コンピューターを通じてインターネットに直接接続するため、社内ネットワークから分離する必要があります。** 
+「の Corpnet サブネットの構成手順」セクション手順を使用、 [テスト ラボ ガイド: 基本構成の Windows Server 2012 R2](http://www.microsoft.com/download/details.aspx?id=39638) Corpnet という名前のサブネットに DC1、APP1、および CLIENT1 コンピューターを構成します。 **このサブネットは、RRAS1 コンピューターを通じてインターネットに直接接続されるため、社内ネットワークから分離する必要があります。** 
 
 次に、CORP\User1 の資格情報を使用して、DC1 にログオンします。 コンピューターとユーザーが認証にローカル ドメイン コントローラーを使用するよう CORP ドメインを構成するために、管理者レベルの Windows PowerShell コマンド プロンプトから次のコマンドを実行します。
 
@@ -328,4 +328,5 @@ Azure VPN Gateway は、2 台 1 組みの Azure の仮想マシンとして実�
 
 次に、ローカル コンピューターで Microsoft Azure 管理ポータルにアクセスし、TestVNET 仮想ネットワークの状態が [接続中] と表示されるまで待ちます。
  
+
 

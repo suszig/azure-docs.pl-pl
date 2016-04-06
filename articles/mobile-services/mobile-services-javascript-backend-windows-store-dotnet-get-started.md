@@ -31,7 +31,7 @@
 
 このチュートリアルを完了するには、以下が必要です。
 
-* アクティブな Azure アカウント。 アカウントがない場合は、Azure 試用版にサインアップして最大 10 の無料モバイル サービスを取得し、試用期間が終わった後でも使用し続けることができます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F)をご覧ください。
+* アクティブな Azure アカウント。 アカウントがない場合は、Azure 試用版にサインアップして、最大 10 件の無料モバイル サービスを入手できます。このサービスは評価終了後も使用できます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F)をご覧ください。
 * [Visual Studio 2013 Express for Windows]
 
 ## 新しいモバイル サービスを作成する
@@ -44,7 +44,7 @@
 
 ここでは、モバイル サービスに接続された新しいユニバーサル Windows アプリを作成します。
 
-1.  クリックして、[Azure クラシック ポータル] で、 **Mobile Services**, 、し、先ほど作成したモバイル サービスをクリックします。
+1.   [Azure classic portal], 、] をクリックして **Mobile Services**, 、作成したモバイル サービスをクリックします。
 
 
 2. クイック スタート] タブをクリックして **Windows** [ **プラットフォームの選択]** 展開 **新しい Windows ストア アプリを作成**します。
@@ -53,7 +53,7 @@
 
     ![Mobile Services クイック スタートの手順](./media/mobile-services-javascript-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png)
 
-3. まだインストールしていない場合は、Visual Studio 2013 Express for Windows をダウンロードし、ローカル コンピューターまたは仮想マシンにインストールします。
+3. ダウンロードしてインストールをまだ行っていない場合、 [Visual Studio 2013 Express for Windows] 、ローカル コンピューターまたは仮想マシン。
 
 4. クリックして **作成 TodoItem テーブル** アプリケーション データを格納するテーブルを作成します。
 
@@ -70,13 +70,13 @@
 ## 次のステップ
 クイック スタートはこれで完了です。Mobile Services で重要になるこれ以外の作業については、以下のトピックを参照してください。
 
-* [オフライン データの同期の開始を取得]  
+* [Get started with offline data sync]
   オフライン データの同期を使用してアプリケーションの反応と信頼性を高める方法について説明します。
 
-* [Mobile Services アプリへの認証の追加][認証の使用の開始を取得]  
+* [Mobile Services アプリへの認証の追加 ][Get started with authentication]  
   ID プロバイダーを使用してアプリケーションのユーザーを認証する方法について説明します。
 
-* [アプリにプッシュ通知の追加][開始プッシュ通知の使用]  
+* [アプリケーションにプッシュ通知を追加する][Get started with push notifications]  
   アプリケーションにごく基本的なプッシュ通知を送信する方法について説明します。
 
 * [.NET クライアント ライブラリを使用する方法](mobile-services-windows-dotnet-how-to-use-client-library.md)  
@@ -102,3 +102,4 @@
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure classic portal]: https://manage.windowsazure.com/
  
+

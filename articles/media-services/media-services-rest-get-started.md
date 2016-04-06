@@ -45,9 +45,9 @@ REST API を使用して Media Services での開発を始めるには、次の�
 1.  コンテンツの再生 
 
 
-## <a id="create_ams"></a>ポータルを使用した Media Services アカウントの作成
+## <a id="create_ams"></a>ポータルを使用して Media Services アカウントを作成する
 
-1. [Azure クラシック ポータル] をクリックして **新規**, をクリックして **メディア サービス**, 、順にクリック **簡易作成**します。
+1.  [Azure Classic Portal][], をクリックして **新規**, 、] をクリックして **メディア サービス**, 、順にクリック **簡易作成**します。
    
     ![Media Services の簡易作成](./media/media-services-rest-get-started/wams-QuickCreate.png)
 
@@ -616,7 +616,7 @@ Media Services には動的パッケージ化機能があり、アダプティ�
     Content-Length: 0
 
     
-### <a id="long_running_op_status"></a> 実行時間の長い操作の状態を確認する
+### <a id="long_running_op_status"></a>実行時間の長い操作の状態を確認する
 
 新しいユニットの割り当ては完了するまでに約 20 分かかります。 操作の使用の状態を確認する、 **操作** メソッドと操作の Id を指定します。 応答で返された Id の操作、 **スケール** 要求します。
 
@@ -665,7 +665,7 @@ Media Services には動的パッケージ化機能があり、アダプティ�
 
 ## <a id="encode"></a>一連のアダプティブ ビットレート MP4 ファイルにソース ファイルをエンコードする
 
-Media Services に取り込んだアセットには、メディアのエンコード、再パッケージ化、透かしの追加などをクライアントへの配信前に適用できます。 高いパフォーマンスと可用性を確保するために、これらの作業は、複数のバックグラウンド ロール インスタンスに対してスケジューリングされて実行されます。 これらのアクティビティはジョブとその各と呼ばれる [ジョブ](http://msdn.microsoft.com/library/azure/hh974289.aspx) のアセット ファイルの実際の作業を実行するアトミック タスクで構成されます。 
+Media Services に取り込んだ資産には、メディアのエンコード、再パッケージ化、透かしの追加などをクライアントへの配信前に適用できます。 高いパフォーマンスと可用性を確保するために、これらの作業は、複数のバックグラウンド ロール インスタンスに対してスケジューリングされて実行されます。 これらのアクティビティはジョブとその各と呼ばれる [ジョブ](http://msdn.microsoft.com/library/azure/hh974289.aspx) のアセット ファイルの実際の作業を実行するアトミック タスクで構成されます。 
 
 冒頭で述べたように、Azure Media Services の代表的な用途の 1 つは、クライアントに対するアダプティブ ビットレート ストリーミング配信です。 Media Services では、HTTP ライブ ストリーミング (HLS)、スムーズ ストリーミング、MPEG DASH、HDS (Adobe PrimeTime/Access のライセンスが必要) のいずれかの形式に一連のアダプティブ ビットレート MP4 ファイルを動的にパッケージ化することができます。 
 
@@ -962,7 +962,7 @@ Media Services では、CancelJob 関数を使用して実行中のジョブを�
 
 
 
-## <a id="publish_get_urls"></a>REST API でアセットを発行してストリーミング URL とプログレッシブ ダウンロード URL を取得します
+## <a id="publish_get_urls"></a>REST API でアセットを発行してストリーミング URL とプログレッシブ ダウンロード URL を取得する
 
 資産をストリーミングまたはダウンロードするにはまず、ロケーターを作成して資産を "発行" する必要があります。 資産に含まれているファイルには、ロケーターを通じてアクセスできます。 Media Services では、2 種類のロケーターがサポートされています。OnDemandOrigin ロケーターはメディアのストリーミング (MPEG DASH、HLS、スムーズ ストリーミングなど) に、Access Signature (SAS) ロケーターはメディア ファイルのダウンロードに使用します。
 
@@ -1203,13 +1203,14 @@ MPEG DASH をストリーミングするには、"/manifest" の後に (format=m
 このトピックに必要な情報が含まれていないか、不足しているか、あるいはニーズを満たしていない場合は、以下の Disqus スレッドを使用してフィードバックをお送りください。
 
 ##その他のリソース
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now! (Azure Media Services 101 - 今すぐビデオをオンラインにしましょう!)</a>
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - Dynamic Packaging and Mobile Devices (Azure Media Services 102 - 動的パッケージ化機能とモバイル デバイス)</a>
+- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - 今すぐビデオをオンラインにしましょう!</a>
+- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - 動的パッケージ化機能とモバイル デバイス</a>
 
 
 
 <!-- URLs. -->
   [Azure Classic Portal]: http://manage.windowsazure.com/
+
 
 
 

@@ -168,7 +168,7 @@ ZScaler ZSCloud の場合、プロビジョニングは手動で行います。
 
 2.  クリックして **管理**します。
 
-    ![Administration](./media/active-directory-saas-zscaler-zscloud-tutorial/IC781035.png "Administration")
+    ![管理](./media/active-directory-saas-zscaler-zscloud-tutorial/IC781035.png "Administration")
 
 3.  クリックして **ユーザー管理**します。
 
@@ -204,3 +204,4 @@ ZScaler ZSCloud の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-zscaler-zscloud-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

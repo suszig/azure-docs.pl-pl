@@ -25,7 +25,7 @@
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
 
-**[bcp]** コマンドライン形式の一括読み込みユーティリティで、SQL Server、データ ファイル、および SQL Data Warehouse の間でデータをコピーすることができます。 bcp を使用して SQL Data Warehouse のテーブルに多数の行をインポートしたり、SQL Server のテーブルからデータ ファイルにデータをエクスポートしたりします。 queryout オプションと併用する場合を除き、bcp を使用するときに Transact-SQL の知識は必要ありません。
+**[bcp][]** コマンドライン形式の一括読み込みユーティリティで、SQL Server、データ ファイル、および SQL Data Warehouse の間でデータをコピーすることができます。 bcp を使用して SQL Data Warehouse のテーブルに多数の行をインポートしたり、SQL Server のテーブルからデータ ファイルにデータをエクスポートしたりします。 queryout オプションと併用する場合を除き、bcp を使用するときに Transact-SQL の知識は必要ありません。
 
 bcp を使用すれば、すばやく、簡単に SQL Data Warehouse データベースとの間で小規模なデータ セットを読み込み/抽出できます。 bcp を使用して読み込み/抽出する場合に推奨される正確なデータ量は、Azure データ センターへのネットワーク接続によって異なります。  一般に、ディメンション テーブルは読み込んで抽出できますが、非常に大容量のファクト テーブルは読み込みや抽出に非常に時間がかかる場合があります。
 
@@ -49,7 +49,7 @@ bcp では次のことができます。
 - インストールされた bcp コマンド ライン ユーティリティ
 - インストールされた SQLCMD コマンド ライン ユーティリティ
 
->[AZURE.NOTE] Bcp および sqlcmd ユーティリティは、[Microsoft ダウンロード センター] からダウンロードできます。
+>[AZURE.NOTE] Bcp および sqlcmd ユーティリティをダウンロードすることができます、 [Microsoft ダウンロード センター][]します。
 
 ## SQL Data Warehouse へのデータのインポート
 
@@ -196,4 +196,5 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
+
 

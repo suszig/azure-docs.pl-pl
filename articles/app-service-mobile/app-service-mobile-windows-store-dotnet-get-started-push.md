@@ -37,7 +37,7 @@
 * 完了、 [クイック スタート チュートリアル](../app-service-mobile-windows-store-dotnet-get-started.md)します。  
 
 
-##<a name="create-hub"></a>通知ハブの作成
+##<a name="create-hub"></a>通知ハブを作成する
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
@@ -53,7 +53,7 @@ Azure から Windows アプリにプッシュ通知を送信するには、Windo
 [AZURE.INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
 
-##<a id="update-service"></a>サーバーを更新してプッシュ通知を送信する
+##<a id="update-service"></a>プッシュ通知を送信するようにサーバーを更新する
 
 アプリでプッシュ通知が有効にされたので、プッシュ通知を送信するようにアプリ バックエンドを更新する必要があります。 その下の手順は、バックエンド プロジェクトの種類 & mdash と一致する使用しているいずれか [.NET バックエンド](#dotnet) または [Node.js バックエンド](#nodejs)します。
 
@@ -213,3 +213,4 @@ Azure から Windows アプリにプッシュ通知を送信するには、Windo
 [Azure Portal]: https://portal.azure.com/
 
 <!-- Images. -->
+

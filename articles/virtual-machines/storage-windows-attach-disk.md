@@ -33,7 +33,7 @@
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-## <a id="initializeinWS"></a>方法: Windows Server で新しいデータ ディスクの初期化
+## <a id="initializeinWS"></a>方法: Windows Server で新しいデータ ディスクを初期化する
 
 1. 仮想マシンへの接続 手順については、次を参照してください。 [Windows Server を実行する仮想マシンにログオンする方法][logon]します。
 
@@ -60,4 +60,5 @@
 [仮想マシン用のディスクと VHD について](virtual-machines-disks-vhds.md)
 
 [logon]: virtual-machines-log-on-windows-server.md
+
 

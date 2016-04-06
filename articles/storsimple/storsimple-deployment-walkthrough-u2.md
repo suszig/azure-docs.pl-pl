@@ -18,7 +18,7 @@
 # オンプレミスの StorSimple デバイス (Update 2) のデプロイ
 
 > [AZURE.SELECTOR]
-- [更新プログラム 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
+- [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
 - [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
 - [GA リリース](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
@@ -50,10 +50,10 @@ StorSimple デバイスを構成し、StorSimple Manager サービスに接続�
 | [手順 1. 新しいサービスを作成する](#step-1-create-a-new-service)                                                         | クラウドの管理と StorSimple デバイスの記憶域を設定します。 *既存のサービスを他の StorSimple デバイスがある場合は、この手順をスキップ*します。                |
 | [手順 2. サービス登録キーを取得する](#step-2-get-the-service-registration-key)                                               | このキーを使用して、StorSimple デバイスを管理サービスに登録し、接続します。                                                                         |
 | [手順 3. StorSimple 用 Windows PowerShell を使用してデバイスを構成し登録する](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)    | デバイスをネットワークに接続し、管理サービスを使用してセットアップを実行する Azure に登録します。                                            |
-| [手順 4: デバイスの最小セットアップを完了する](#step-4-complete-minimum-device-setupd)</br>[省略可能: StorSimple デバイスの更新](#scan-for-and-apply-updates)      | 管理サービスを使用して、デバイスのセットアップを完了し、ストレージを提供できるようにします。                                                                      |
+| [手順 4. デバイスの最小セットアップを完了する](#step-4-complete-minimum-device-setupd)</br>[省略可能: StorSimple デバイスを更新します。](#scan-for-and-apply-updates)      | 管理サービスを使用して、デバイスのセットアップを完了し、ストレージを提供できるようにします。                                                                      |
 | [手順 5. ボリューム コンテナーを作成する](#step-5-create-a-volume-container)                                                      | ボリュームをプロビジョニングするためのコンテナーを作成します。 ボリューム コンテナーではストレージ アカウント、帯域幅、およびそれに含まれているすべてのボリュームの暗号化の設定です。    |
 | [手順 6. ボリュームを作成する](#step-6-create-a-volume)                                                                | サーバーの StorSimple デバイスでストレージ ボリュームをプロビジョニングします。                                                                                        |
-| [手順 7: にマウント、初期化、およびボリュームをフォーマットする](#step-7-mount-initialize-and-format-a-volume)</br>[省略可能: MPIO の構成](storsimple-configure-mpio-windows-server.md)            | デバイスによって提供される iSCSI ストレージにサーバーを接続します。 必要に応じて、サーバーがリンク、ネットワーク、およびインターフェイスの障害を許容できるように MPIO を構成します。                                                                                                                                                              |
+| [手順 7. ボリュームをマウント、初期化、フォーマットする](#step-7-mount-initialize-and-format-a-volume)</br>[MPIO を構成する省略可能。](storsimple-configure-mpio-windows-server.md)            | デバイスによって提供される iSCSI ストレージにサーバーを接続します。 必要に応じて、サーバーがリンク、ネットワーク、およびインターフェイスの障害を許容できるように MPIO を構成します。                                                                                                                                                              |
 | [手順 8. バックアップを取得する](#step-8-take-a-backup)                                                                  | データを保護するためのバックアップ ポリシーを設定します。                                                                                                                 |
 |                                                                                        |                                                                                                                                                               |
 | **その他の手順**                                                                   | ソリューションのデプロイ中に、これらの手順を参照する必要が生じる場合があります。                                                                                        |
@@ -244,4 +244,5 @@ StorSimple デバイスの 1 つのボリュームに対し、オンデマンド
 
 使用して、 [StorSimple Manager サービス](storsimple-manager-service-administration.md) StorSimple デバイスを管理します。
  
+
 

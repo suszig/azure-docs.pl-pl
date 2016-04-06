@@ -35,9 +35,9 @@ Azure Virtual Machines で SQL Server の最適なパフォーマンスを実現
 
 |領域|最適化|
 |---|---|
-|**VM サイズ**|[DS3](virtual-machines-size-specs.md#standard-tier-ds-series) 以上 SQL Enterprise edition 用<br/><br/>[。DS2](virtual-machines-size-specs.md#standard-tier-ds-series) 以上 SQL Standard、および Web エディションです。|
-|**Storage**|使用 [Premium Storage](../storage/storage-premium-storage-preview-portal.md).<br/><br/>保持、 [ストレージ アカウント](../storage/storage-create-storage-account.md) と同じリージョンに SQL Server VM<br/><br/>。Azure を無効にする [geo 冗長ストレージ](../storage/storage-redundancy.md) (geo レプリケーション)、ストレージ アカウントにします。|
-|**ディスク**|2 を使用して [P30 ディスク](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage) (ログ ファイルの 1; のデータ ファイルと TempDB 1).<br/><br/>データベース ストレージまたはロギングのオペレーティング システムまたは一時ディスクは使用しないでください<br/><br/>。データ ファイルと TempDB をホストしているディスク上のキャッシュの読み取りを有効にします<br/><br/>。ログ ファイルをホストしているディスク上のキャッシュを有効にしない<br/><br/>。IO スループットを向上させるための複数の Azure データ ディスクをストライピングします<br/><br/>。使用して形式は、割り当てサイズを記録します。|
+|**VM サイズ**|[DS3](virtual-machines-size-specs.md#standard-tier-ds-series) 以上 SQL Enterprise edition 用です。<br/><br/>[DS2](virtual-machines-size-specs.md#standard-tier-ds-series) 以上 SQL Standard、および Web エディションです。|
+|**Storage**|使用 [Premium Storage](../storage/storage-premium-storage-preview-portal.md)します。<br/><br/>保持、 [ストレージ アカウント](../storage/storage-create-storage-account.md) と同じリージョンに SQL Server VM です。<br/><br/>Azure を無効にする [geo 冗長ストレージ](../storage/storage-redundancy.md) (geo レプリケーション)、ストレージ アカウントにします。|
+|**ディスク**|2 を使用して [P30 ディスク](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage) (ログ ファイルの 1; のデータ ファイルと TempDB 1)。<br/><br/>データベース ストレージまたはログに、オペレーティング システム ディスクまたは一時ディスクを使用することは避けます。<br/><br/>データ ファイルと TempDB をホストするディスクで読み取りキャッシュを有効にします。<br/><br/>ログ ファイルをホストするディスクでは、キャッシュを有効にしないでください。<br/><br/>複数の Azure データ ディスクをストライプして、IO スループットを向上させます。<br/><br/>ドキュメントに記載されている割り当てサイズでフォーマットします。|
 |**I/O**|データベース ページの圧縮を有効にします。<br/><br/>データ ファイルの瞬時初期化を有効にします。<br/><br/>データベースで自動拡張を制限するか、無効にします。<br/><br/>データベースで自動圧縮を無効にします。<br/><br/>システム データベースも含め、すべてのデータベースをデータ ディスクに移動します。<br/><br/>SQL Server エラー ログとトレース ファイルのディレクトリをデータ ディスクに移動します。<br/><br/>既定のバックアップおよびデータベース ファイルの場所を設定します。<br/><br/>ロックされたページを有効にします。<br/><br/>SQL Server パフォーマンス修正プログラムを適用します。|
 |**機能固有**|BLOB ストレージに直接バックアップします。|
 
@@ -132,4 +132,5 @@ Azure 仮想マシンを作成すると、プラットフォームによって�
 セキュリティのベスト プラクティスについては、次を参照してください。 [Azure 仮想マシンにおける SQL Server のセキュリティの考慮事項](virtual-machines-sql-server-security-considerations.md)します。
 
 あるその他の SQL Server 仮想マシンのトピックを確認 [Azure 仮想マシンの概要 [SQL Server](virtual-machines-sql-server-infrastructure-services.md)します。
+
 

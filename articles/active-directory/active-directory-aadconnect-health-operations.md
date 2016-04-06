@@ -86,7 +86,7 @@ Azure AD Connect Health では、次の組み込みのロールをサポート�
 
 | ロール | アクセス許可 |
 | ----------- | ---------- |
-| 所有者 | 所有者ことができます ***のアクセスを管理*** (例: 役割をユーザーまたはグループ) に割り当てる ***すべての情報を表示*** (アラートの表示など)、ポータルからと ***の設定を変更*** (電子メールの通知など) 内での Azure AD Connect Health します。 <br>このロールは、既定で Azure AD のグローバル管理者に割り当てられ、これを変更することはできません。  |
+| 所有者 | 所有者ことができます ***のアクセスを管理*** (例: 役割をユーザーまたはグループ) に割り当てる ***すべての情報を表示*** (アラートの表示など)、ポータルからと ***の設定を変更*** (電子メールの通知など) 内での Azure AD Connect Health します。 <br>既定では、Azure AD グローバル管理者がこのロールを割り当てられているし、これは変更できません。  |
 |共同作成者|  コントリビューターことができます ***すべての情報を表示*** (アラートの表示など)、ポータルからと ***の設定を変更*** (電子メールの通知など) 内での Azure AD Connect Health します。|
 |閲覧者| リーダーが ***すべての情報を表示*** (アラートの表示など) 内での Azure AD Connect Health ポータルからです。|
 
@@ -145,4 +145,5 @@ Azure AD Connect では、2 つのレベルのアクセス管理をサポート�
 * [AD FS での Azure AD Connect Health の使用](active-directory-aadconnect-health-adfs.md)
 * [Azure AD Connect Health for Sync の使用](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health の FAQ](active-directory-aadconnect-health-faq.md)
+
 

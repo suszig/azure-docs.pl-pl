@@ -33,7 +33,7 @@ Runbook ギャラリーから直接インポートするのは、Azure ポータ
 ### Azure ポータルで Runbook ギャラリーから Runbook をインポートするには
 
 1. Azure 管理ポータルでクリックすると、 **新規**, 、**App Services**, 、**オートメーション**, 、**Runbook**, 、**ギャラリーから**します。
-2. カテゴリを選択して関連する Runbook を表示し、Runbook を選択して詳細を表示します。 目的の runbook を選択すると、右矢印ボタンをクリックします。<br>
+2. カテゴリを選択して関連する Runbook を表示し、Runbook を選択して詳細を表示します。 目的の Runbook を選択するときは、右矢印ボタンをクリックします。<br>
 ![Runbook ギャラリー](media/automation-runbook-gallery/runbook-gallery.png)
 3. Runbook の内容を確認し、説明の要件に注意します。 終了したら右矢印ボタンをクリックします。
 4. Runbook の詳細を入力し、チェック マーク ボタンをクリックします。 Runbook の名前は既に設定されています。
@@ -45,7 +45,7 @@ Runbook ギャラリーから直接インポートするのは、Azure ポータ
 2. をクリックして、 **Runbook** タイルを開くには runbook の一覧です。
 3. クリックして **ギャラリーの参照** ] ボタンをクリックします。 <br>
 ![[参照] ボタンのギャラリー](media/automation-runbook-gallery/browse-gallery-button.png)
-4. 選択すると、その詳細を表示して、ギャラリー項目を見つけます。   <br>
+4. 必要なギャラリー項目を探し、選択して詳細を表示します。   <br>
 ![ギャラリーの参照](media/automation-runbook-gallery/browse-gallery.png)
 4. をクリックして **ビュー ソース プロジェクト** で項目を表示する、 [TechNet スクリプト センター](http://gallery.technet.microsoft.com/)します。
 5. アイテムをインポートするには、クリックして、詳細を表示するために] をクリックして、 **インポート** ] ボタンをクリックします。<br>
@@ -115,3 +115,4 @@ PowerShell モジュールには、runbook で使用できるコマンドレッ�
 
 - [Azure Automation での Runbook の作成またはインポート](automation-creating-importing-runbook.md)
 - [Windows PowerShell ワークフローについて](automation-powershell-workflow.md)
+

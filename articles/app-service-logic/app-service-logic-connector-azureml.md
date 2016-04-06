@@ -22,7 +22,7 @@
  ![][1]
  
 ## Azure Machine Learning コネクタの使用開始とロジック アプリへの追加
-まず、Azure ML Studio で実験を作成し、Web サービスをセットアップしてデプロイします。 API の URL を使用することができますし、およびバッチ Exaction ヘルプ ページ BES Post URL のキーが見つかった。 ([詳細](https://github.com/Azure/azure-content/blob/master/articles/machine-learning/machine-learning-walkthrough-5-publish-web-service.md))
+まず、Azure ML Studio で実験を作成し、Web サービスをセットアップしてデプロイします。 これで、API URL と、バッチ実行のヘルプ ページに記載されている BES Post URL のキーを使用できるようになります。 ([詳細](https://github.com/Azure/azure-content/blob/master/articles/machine-learning/machine-learning-walkthrough-5-publish-web-service.md))
 
 コネクタを使用して BES ジョブを実行するには、ロジック アプリに Azure ML コネクタを追加します。 次に、必要な情報を入力します (詳細については後述)。
 Retraining をセットアップする 2 つ目の Azure ML コネクタを追加し、入力パラメーターを指定する (を参照してください [ここ](machine-learning-retrain-models-programmatically.md) 再トレーニングのためのモデルを設定する方法の詳細)。
@@ -89,4 +89,5 @@ Web サービス出力を含めなかった場合は、これを使用できな�
 [5]: ./media/app-service-logic-connector-azureml/img5.png
 [6]: ./media/app-service-logic-connector-azureml/img6.png
 [7]: ./media/app-service-logic-connector-azureml/img7.png
+
 

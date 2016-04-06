@@ -65,14 +65,14 @@ Bing 翻訳 | Bing を使用して、テキストを別の言語に翻訳しま�
 [BizTalk 取引先管理](app-service-logic-connector-tpm.md) | パートナー、契約、契約で使用されるスキーマと証明書を使用して、企業間リレーションシップを定義したり保持したりします。 これらのリレーションシップは、AS2、EDIFACT、および X12 API Apps を使用して適用されます。
 [BizTalk Transform Service](app-service-logic-transform-xml-documents.md) | データをある形式から別の形式に変換します。 また、既存のマップ (.trfm ファイル) をアップロードし、ソース スキーマとターゲット スキーマ間のリンクを表示できるほか、サンプルの入力 XML コンテンツを使用した "テスト" 機能も使用できます。 文字列操作、条件付き割り当てなどの各種組み込み関数も用意されています。
 [BizTalk X12](app-service-logic-connector-x12.md) | 企業間通信で X12 プロトコルを使用して、メッセージを送受信します。
-[BizTalk XML Validator](app-service-logic-xml-validator.md) | 定義済みの XML スキーマを基準として XML データを検証します。 既存のスキーマを使用することも、フラット ファイルのインスタンス、JSON のインスタンス、または既存のコネクタに基づいてスキーマを生成することもできます。
+[BizTalk XML 検証](app-service-logic-xml-validator.md) | 定義済みの XML スキーマを基準として XML データを検証します。 既存のスキーマを使用することも、フラット ファイルのインスタンス、JSON のインスタンス、または既存のコネクタに基づいてスキーマを生成することもできます。
 [BizTalk XPath Extractor](app-service-logic-xpath-extract.md) | 選択した XPath に基づいて XML コンテンツを検索し、データを抽出します。
 [DB2 コネクタ](app-service-logic-connector-db2.md) | Windows オペレーティング システムを実行している Azure 仮想マシン上およびオンプレミスの IBM DB2 データベースに接続します。 Informix Structured Query Language (Informix 構造化クエリ言語) のコマンドに Web API と OData API の操作をマップできます。 <br/><br/>トリガーはありません。 操作には、テーブルの選択、挿入、更新、削除、およびカスタム ステートメントが含まれます。<br/><br/>このコネクタには、TCP/IP ネットワーク経由で Informix サーバーに接続するための Microsoft Client for DRDA も含まれています。
 [ファイル](app-service-logic-connector-file.md) | このコネクタを使用すると、オンプレミスのファイル システムやネットワークに接続して、ファイルのアップロード、削除、一覧の取得などのさまざまなファイル タスクを実行できます。
 [FTP<br/>FTPS](app-service-logic-connector-ftp.md) | FTP/FTPS サーバーに接続して、ファイルのアップロード、取得、削除などのさまざまな FTP タスクを実行できます。
 [Informix](app-service-logic-connector-informix.md) | Windows オペレーティング システムを実行している Azure 仮想マシン上およびオンプレミスの IBM Informix データベースに接続します。 Informix Structured Query Language (Informix 構造化クエリ言語) のコマンドに Web API と OData API の操作をマップできます。<br/><br/>トリガーはありません。 操作には、テーブルの選択、挿入、更新、削除、およびカスタム ステートメントが含まれます。<br/><br/>オンプレミスで使用する場合は、VPN または Azure ExpressRoute を使用できます。 このコネクタには、TCP/IP ネットワーク経由で Informix サーバーに接続するための Microsoft Client for DRDA も含まれています。
 [Microsoft SQL Server](app-service-logic-connector-sql.md) | オンプレミスの SQL Server または Azure SQL Database に接続します。 SQL データベース テーブルのエントリを作成、更新、取得、削除できます。
-MQ | Windows オペレーティング システムを実行している Azure 仮想マシン上およびオンプレミスの IBM WebSphere MQ Server Version 8 に接続します。 オンプレミスで使用する場合は、VPN または Azure ExpressRoute を使用できます。 コネクタには、Microsoft Client for MQ も含まれています。<br/><br/>トリガーはありません。 アクションはありません。<br/><br/>**注** 現在のところ、Logic Apps で使用することはできません。
+MQ | Windows オペレーティング システムを実行している Azure 仮想マシン上およびオンプレミスの IBM WebSphere MQ Server Version 8 に接続します。 オンプレミスで使用する場合は、VPN または Azure ExpressRoute を使用できます。 コネクタには、Microsoft Client for MQ も含まれています。<br/><br/>トリガーはありません。 操作はありません。<br/><br/>**注** 現在 Logic Apps で使用することはできません。
 [Oracle Database](app-service-logic-connector-oracle.md) | 内部設置型 Oracle Database に接続し、ことができます作成、更新、取得、およびデータベース テーブルのエントリを削除します。
 [POP3](app-service-logic-connector-pop3.md) (Post Office Protocol)| POP3 サーバーに接続して、添付ファイルを含むメールを取得します。
 [SAP](app-service-logic-connector-sap.md) | オンプレミスの SAP サーバーに接続し、RFC、BAPI、tRFC を呼び出して、IDOC を送信します。
@@ -90,11 +90,12 @@ MQ | Windows オペレーティング システムを実行している Azure �
 
 ## 独自のコネクタと API Apps の作成
 [コネクタと API Apps のリファレンス](http://aka.ms/appservicesconnectorreference)  
-[Azure App Service の API アプリ トリガー](../app-service-api/app-service-api-dotnet-triggers.md)  
+[Azure App Service API アプリ トリガー](../app-service-api/app-service-api-dotnet-triggers.md)  
 [ロジック アプリ参照の追加](https://msdn.microsoft.com/library/azure/dn948510.aspx)
 
 ## コネクタと API Apps の詳細
 [コネクタと BizTalk API Apps とは](app-service-logic-what-are-biztalk-api-apps.md)  
-[Azure App Service での Hybrid Connection Manager を使用します。](app-service-logic-hybrid-connection-manager.md)  
-[管理、および組み込みの API Apps とコネクタの監視](app-service-logic-monitor-your-connectors.md)
+[Azure App Service での Hybrid Connection Manager の使用](app-service-logic-hybrid-connection-manager.md)  
+[組み込み API Apps とコネクタの管理と監視を実行する](app-service-logic-monitor-your-connectors.md)
+
 

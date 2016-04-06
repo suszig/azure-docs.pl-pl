@@ -105,7 +105,7 @@ if (message.Properties.Keys.Count > 0)
 
 #### Service Bus .NET API から Proton-Python へ
 
- [BrokeredMessage][] 型は、次の種類のアプリケーションのプロパティをサポートしています: **バイト**, 、**sbyte**, 、**char**, 、**短い**, 、**ushort**, 、**int**, 、**uint**, 、**長い**, 、**ulong**, 、**float**, 、**二重**, 、**10 進**, 、**bool**, 、**Guid**, 、**文字列**, 、**Uri**, 、**DateTime**, 、**DateTimeOffset**, 、および **TimeSpan**します。 次の .NET コードのプロパティを設定する方法を示しています、 [BrokeredMessage][] オブジェクトの各種類のプロパティを使用しています。
+ [BrokeredMessage][] 型は、次の種類のアプリケーションのプロパティをサポートしています: **バイト**, 、**sbyte**, 、**char**, 、**短い**, 、**ushort**, 、**int**, 、**uint**, 、**長い**, 、**ulong**, 、**float**, 、**二重**, 、**decimal**, 、**bool**, 、**Guid**, 、**文字列**, 、**Uri**, 、**DateTime**, 、**DateTimeOffset**, と **TimeSpan**します。 次の .NET コードのプロパティを設定する方法を示しています、 [BrokeredMessage][] オブジェクトの各種類のプロパティを使用しています。
 
 ```
 message.Properties["TestByte"] = (byte)128;
@@ -153,10 +153,10 @@ if message.properties != None:
 | ulong              | long                 | Proton-python クラス                                                                                                                                                 |
 | float              | float                | -                                                                                                                                                                     |
 | double             | float                | -                                                                                                                                                                     |
-| 小数点            | String               | 現在、decimal は Proton ではサポートされません。                                                                                                                     |
+| Decimal            | String               | 現在、decimal は Proton ではサポートされません。                                                                                                                     |
 | bool               | bool                 | -                                                                                                                                                                     |
 | Guid               | uuid                 | Proton-python クラス                                                                                                                                                 |
-| 文字列             | 文字列               | -                                                                                                                                                                     |
+| string             | string               | -                                                                                                                                                                     |
 | DateTime           | timestamp            | Proton-python クラス                                                                                                                                                 |
 | DateTimeOffset     | DescribedType        | AMQP 型にマップされる DateTimeOffset.UtcTicks:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> |
 | TimeSpan           | DescribedType        | AMQP 型にマップされる Timespan.Ticks:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type>                        |
@@ -215,4 +215,5 @@ if message.properties != None:
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
+
 

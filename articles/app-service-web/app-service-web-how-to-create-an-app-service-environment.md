@@ -18,7 +18,7 @@
 
 # App Service 環境の作成方法 #
 
-App Service 環境 (ASE) は Azure App Service の Premium サービス オプションであり、マルチテナント スタンプでは使用できない高度な構成機能を提供します。  ASE 機能は、基本的に、Azure App Service を顧客の仮想ネットワークにデプロイします。  大きい値を読み取る App Service 環境が提供する機能を理解する、[App Service 環境は] [WhatisASE] ドキュメントです。
+App Service 環境 (ASE) は Azure App Service の Premium サービス オプションであり、マルチテナント スタンプでは使用できない高度な構成機能を提供します。  ASE 機能は、基本的に、Azure App Service を顧客の仮想ネットワークにデプロイします。  大きい値を読み取る App Service 環境が提供する機能を理解する、 [App Service 環境は、どのような][WhatisASE] ドキュメントです。
 
 ### 概要 ###
 
@@ -30,13 +30,13 @@ ASE を作成するには、次の情報を提供する必要があります。
 - Azure Virtual Network (VNET) とサブネットの選択
 - ASE リソース プールの定義
 
-これらの項目ごとにいくつかの重要な詳細情報があります。
-- その ASE で行われたすべてのアプリのサブドメインに、ASE の名前が使用されます。
-- ASE で行われたすべてのアプリは、ASE 自体と同じサブスクリプションになります
-- ASE を作成するために使用するサブスクリプションへのアクセスがあるない場合は、アプリを作成する、ASE を使用できません。
-- ASE をホストするために使用する Vnet は地域クラシック"v1"Vnet である必要があります。 
-- ASE をホストするために使用するサブネットには他のコンピューティング リソースを含めることはできません。
-- 1 つだけの ASE は、サブネットに存在できます。
+これらの項目ごとに重要な詳細情報があります。
+- ASE の名前は、その ASE で作成されるアプリのサブドメインで使用されます。
+- ASE で作成されるすべてのアプリは、ASE 自体と同じサブスクリプションに含まれます。
+- ASE の作成に使用されたサブスクリプションへのアクセス権がない場合、ASE を使用してアプリを作成することはできません。
+- ASE をホストするために使用されている VNET は、地域クラシック "v1" VNET である必要があります。 
+- ASE をホストするために使用されているサブネットに、他のコンピューティング リソースを含めることはできません。
+- サブネットに存在できる ASE は 1 つに限られます。
 
 それぞれの ASE デプロイメントは、Azure によって管理および保守されるホステッド サービスです。  お客様は、ASE システム ロールをホストするコンピューティング リソースにアクセスすることはできませんが、インスタンスの数量とそのサイズを管理できます。  
 
@@ -75,7 +75,7 @@ VNET の作成用 UI を使用する場合は、次の項目を指定する必�
 
 ASE が VNET にデプロイされているため、VNET の場所は ASE の場所と同じです。
 
-VNET を指定または選択した後で、サブネットを作成するか選択する必要があります。  ここでを指定する必要が詳細。
+VNET を指定または選択した後で、サブネットを作成するか選択する必要があります。  ここで指定する必要がある詳細情報は次のとおりです。
 - サブネット名
 - サブネット範囲 (CIDR 表記)
 
@@ -111,7 +111,7 @@ ASE を作成する際、各リソース プールのリソースの数とサイ
 - X が 21 ～ 40 の場合、ワークロードに使用できるコンピューティング リソースの数は X-2 です。
 - X が 41 ～ 53 の場合、ワークロードに使用できるコンピューティング リソースの数は X-3 です。
 
-任意のプールに割り当てることのできるコンピューティング リソースの数量を管理できるだけでなく、サイズを制御することもできます。  App Service 環境では、P1 ～ P4 のラベルが付けられた 4 種類のサイズから選択することができます。  これらのサイズと、価格設定してください。 に関する詳細な情報を参照してここで [App Service の料金] [AppServicePricing]。  P1 ～ P3 のコンピューティング リソース サイズは、マルチテナント環境で利用できるものと同様です。  P4 コンピューティング リソースでは、8 つのコアと 14 GB の RAM が提供され、App Service 環境でのみ利用できます。  
+任意のプールに割り当てることのできるコンピューティング リソースの数量を管理できるだけでなく、サイズを制御することもできます。  App Service 環境では、P1 ～ P4 のラベルが付けられた 4 種類のサイズから選択することができます。  これらのサイズとその料金設定に関する詳細な情報がここで参照してください。 [App Service の料金][AppServicePricing]します。  P1 ～ P3 のコンピューティング リソース サイズは、マルチテナント環境で利用できるものと同様です。  P4 コンピューティング リソースでは、8 つのコアと 14 GB の RAM が提供され、App Service 環境でのみ利用できます。  
 
 App Service 環境の価格設定は、割り当てられるコンピューティング リソースを対象としています。  ワークロードをホストしているかどうかに関係なく、App Service 環境に割り当てられているコンピューティング リソースに対する料金を支払うことになります。 
 
@@ -134,7 +134,7 @@ ASE を作成した後は、次の項目を調整できます。
 - 使用する VNET
 - 使用するサブネット
 
-手動のスケーリングでは、管理とは、ここの App Service 環境の監視に関する詳細については、: [App Service 環境を構成する方法] [ASEConfig] 
+手動のスケーリングでは、管理とは、ここの App Service 環境の監視に関する詳細については、: [を App Service 環境を構成する方法][ASEConfig] 
 
 自動スケーリングに対する情報については、ここでのガイドがあります。
 [App Service 環境の自動スケールを構成する方法][ASEAutoscale]
@@ -144,9 +144,9 @@ ASE を作成した後は、次の項目を調整できます。
 
 ## 使用の開始
 
-App Service 環境で開始するには、[App Service 環境の概要] を参照してください [WhatisASE]
+App Service 環境で開始するを参照してください [App Service 環境の概要。][WhatisASE]
 
-Azure App Service プラットフォームの詳細については、[Azure App Service] [AzureAppService] を参照してください。
+Azure App Service プラットフォームの詳細については、次を参照してください。 [Azure App Service][AzureAppService]します。
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -164,3 +164,4 @@ Azure App Service プラットフォームの詳細については、[Azure App 
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/ 
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
+

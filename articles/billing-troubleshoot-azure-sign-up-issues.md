@@ -23,9 +23,9 @@
 ## アカウント プロファイルの情報は正確で完全ですか?
 プロファイルの詳細は課金明細書の生成に使用されるため、サインアップに成功するには、自分の情報を正確に、さらに完全に入力することが重要となります。 不正確または不完全なフィールドの例は次のとおりです。
 - 名がありません。 または最後の名前。
-- 無効な電話番号です。
-- 無効なアドレス。
-- 非標準の文字を使用します。
+- 無効な電話番号である、
+- 住所が無効である、
+- 標準的ではない文字が使用されている、などが挙げられます。
 
 検索候補
 - 課金明細と一致する提供情報は、確認してください。
@@ -40,7 +40,7 @@
 ご提案:
 - 電話のテキスト メッセージ (SMS) を受け取りません場合は、[call me] 代替検証メソッドを使用してください。
 - SMS と [Call me] の両方のメソッドを使用して、電話の確認手順が失敗した場合は、別の電話番号を使用します。
-- VOIP 電話番号は、電話の検証プロセスでは使用できません。
+- 電話確認処理に VoIP 電話番号を使用することはできません。
 
 **注:** は後で、希望の電話番号の番号を変更するには更新することによって [プロファイル情報](https://account.windowsazure.com/Profile)します。
 
@@ -49,8 +49,8 @@
 - 使用できるクレジット/デビット カード会社は、アカウントの国によって異なります。
 
 ご提案:
-- 仮想または前払い借方クレジット カードを使用しないでください。
-- 支払いまたはアクティブ化が失敗した場合は、代替有効であり、サポートされているクレジット カードを使用してください。
+- バーチャルまたはプリペイドのデビット/クレジット カードは使用しないでください。
+- 支払いやアクティベーションに失敗した場合、他の有効なクレジット カードをお試しください。
 - クレジット カードがアクティブであると、銀行がセキュリティ ポリシーの任意のオンライン トランザクションをブロックしていないことを確認します。
 
 ## MSDN、BizSpark、BizSparkPlus、または MPN などの Azure 特典プランをアクティブ化しようとしていますか?
@@ -61,7 +61,7 @@
 - MPN
   - サインイン、 [MPN ポータル](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx) し、対象となる状態を確認します。 受けることができますその他の特典を使用していれば、適切な [クラウド プラットフォーム コンピテンシー](https://mspartner.microsoft.com/en/us/pages/membership/cloud-platform-competency.aspx)します。
   - 自分の状態を検証できない場合にお問い合わせください。 [MPN サポート](https://mspartner.microsoft.com/en/us/Pages/Support/Premium/contact-support.aspx)します。
-- Bizpark:
+- BizSpark:
   - サインイン、 [BizSpark ポータル](https://www.microsoft.com/bizspark/default.aspx#start-two) BizSpark および BizSpark プラスの適格性の状態を確認します。
   自分の状態を検証できない場合に電子メールを送信する Bizspark サポートに連絡 [BizSpark チームの連絡](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team)
 
@@ -78,8 +78,9 @@
 Azure 使用条件契約書では、以前に使用経験のないユーザーに限り Azure 無料試用版を 1 回だけアクティブ化できるという制限を設けています。 他の種類の Azure サブスクリプションを持っていた場合でも、無料試用版をアクティブ化することはできません。
 
 ご提案:
-- 以前の Azure サブスクリプションが既にアクティブ化して、無料試用版のライセンス認証が失敗して場合、は、従量課金制サブスクリプション購入検討してください。 特典を受ける資格をお持ちの可能性があります。 詳細情報を [Microsoft Azure のオファー詳細ページ](http://azure.microsoft.com/support/legal/offer-details/) Azure 無料試用版のプランではなく。 福利厚生制度には特定の前提条件が必要となりますので注意してください。
+- 過去に Azure サブスクリプションをアクティブ化しているために無料試用版をアクティブ化できない場合は、従量課金サブスクリプションの購入をご検討ください。 特典を受ける資格をお持ちの可能性があります。 詳細情報を [Microsoft Azure のオファー詳細ページ](http://azure.microsoft.com/support/legal/offer-details/) Azure 無料試用版のプランではなく。 福利厚生制度には特定の前提条件が必要となりますので注意してください。
 
 ## まだサインアップできませんか?
 ください [Azure サポートに問い合わせる](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) のサポート、問題がない場合またはサインアップの問題が引き続き発生する場合は、この記事で説明します。
+
 

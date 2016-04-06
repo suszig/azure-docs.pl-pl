@@ -44,7 +44,7 @@ Azure サポートに問い合わせて調整できる DocumentDB クォータ�
 |1 分あたりのコレクション作成の最大数    |5
 |1 分あたりのスケール操作の最大数    |5
 
-##<a id="RequestQuotaIncrease"></a> クォータ調整を要求します。
+##<a id="RequestQuotaIncrease"></a> クォータ調整の要求
 クォータ調整を要求するには、次の手順を実行します。
 
 1.  [Azure ポータル](https://portal.azure.com), 、クリックして **参照**, 、順にクリック **ヘルプとサポート**します。
@@ -72,6 +72,7 @@ Azure サポートに問い合わせて調整できる DocumentDB クォータ�
 ![サポート リクエスト ブレードのスクリーンショット](media/documentdb-increase-limits/supportrequest4.png)
 
 
-##<a name="NextSteps"></a> 次のステップ
+##<a name="NextSteps"></a>次のステップ
 - DocumentDB の詳細については、次のようにクリックします。 [ここ](http://azure.com/docdb)します。
+
 

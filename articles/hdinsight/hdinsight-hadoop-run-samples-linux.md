@@ -54,8 +54,8 @@ Linux ベースの HDInsight クラスターには、Hadoop MapReduce ジョブ�
 - **multifilewc**: いくつかのファイルから単語をカウントするジョブ
 - **pentomino**: pentomino 問題の解決策を検索するプログラムを並べて表示する map/reduce
 - **pi**: 準モンテカルロを使用して Pi を推定する map/reduce プログラム Carlo メソッド
-- **randomtextwriter**: 10 GB の 1 つのノードのランダムなテキスト データを書き込む map/reduce プログラム
-- **randomwriter**: 10 GB の 1 つのノードのランダムなデータを書き込む map/reduce プログラム
+- **randomtextwriter**: 10 GB のノードごとのランダムなテキスト データを書き込む map/reduce プログラム
+- **randomwriter**: 10 GB のノードごとのランダムなデータを書き込む map/reduce プログラム
 - **secondarysort**: reduce に 2 番目の並べ替えを定義する例
 - **並べ替え**: ランダム ライターによって書き込まれたデータを並べ替える map/reduce プログラム
 - **数独**: 数独問題を解く
@@ -235,4 +235,5 @@ GraySort はベンチマーク ソートで、その評価尺度は、非常に�
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+
 

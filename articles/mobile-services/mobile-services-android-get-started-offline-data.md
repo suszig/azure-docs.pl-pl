@@ -174,7 +174,7 @@
 
 <!-- Now if you run the app and tap the refresh button, you should see all the items from the server. At that point you should be able to turn off the networking from the device by placing it in *Airplane Mode*, and continue making changes – the app will work just fine. When it’s time to sync the changes to the server, turn the network back on, and tap the **Refresh** button again.
 
-指摘する重要なの。 場合は、ローカル ストアに保留中の変更がありますが、プル操作の最初をプッシュするそれらの変更サーバーに (ようにするため、同じ行に変更がある場合は、プッシュ操作は失敗し、アプリケーションが適切に競合を処理する機会を持つ)。 つまり、上記のコードの push 呼び出しは必ずしも必要ではありませんが、これは常に、コードが何に関しても明確にすることをお勧めします。
+One thing which is important to point out: if there are pending changes in the local store, a pull operation will first push those changes to the server (so that if there are changes in the same row, the push operation will fail and the application has an opportunity to handle the conflicts appropriately). That means that the push call in the code above isn’t necessarily required, but I think it’s always a good practice to be explicit about what the code is doing.
 -->
 
 1. デバイスまたはシミュレーターを [ *機内モード*します。 これでオフラインのシナリオが準備できます。
@@ -222,4 +222,5 @@
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
 [Mobile Services Quick Start tutorial]: mobile-services-android-get-started.md
+
 

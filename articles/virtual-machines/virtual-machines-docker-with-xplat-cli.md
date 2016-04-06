@@ -154,7 +154,7 @@ Azure 上に作成した Docker VM をテストするために、次のコマン
 
 ## 次のステップ
 
-移動する準備ができたら、 [Docker User Guide] Docker VM を使用します。 新しいポータルで Docker 対応 VM を作成するには、[ポータルで Docker VM 拡張機能を使用する方法] を参照してください。
+移動する準備ができたら、 [Docker User Guide] Docker VM を使用します。 新しいポータルで Docker 対応 VM を作成するを参照してください。 [How to use the Docker VM Extension with the Portal]します。
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
@@ -180,3 +180,4 @@ Azure 上に作成した Docker VM をテストするために、次のコマン
 
 [Docker User Guide]: https://docs.docker.com/userguide/
  
+

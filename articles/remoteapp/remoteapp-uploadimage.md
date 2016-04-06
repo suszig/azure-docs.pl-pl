@@ -25,19 +25,19 @@
 
 ## 開始する前に
 
-1.      Verify your custom image meets the [image requirements](remoteapp-imagereqs.md) and [application requirements](remoteapp-appreqs.md).
-2.      Install the [Azure PowerShell module](../install-configure-powershell.md).
+1.      カスタム イメージを満たしていることを確認、 [画像の要件](remoteapp-imagereqs.md) と [アプリケーション要件](remoteapp-appreqs.md)します。
+2.      インストール、 [Azure PowerShell モジュール](../install-configure-powershell.md)します。
 
 ## カスタム イメージのアップロード方法のステップ バイ ステップ ガイド
 
-1.      Open Azure Management Portal and navigate to the RemoteApp page.
-2.      On the **Template images** tab, click **Upload** at the bottom of the page.
-4.      Enter a friendly name for your image and specify the storage account location. Ensure the location is the same location as your RemoteApp collection or a location where you want to create one.
-5.      When prompted, download the script to your local PC.
-6.      Copy the command parameters in the text box to your clipboard.
-7.      Open an elevated Windows PowerShell window.
-8.      From the elevated Windows PowerShell window, navigate to the same directory where you downloaded the script.
-9.      Paste the copied command and press **Enter**.
+1.      Azure 管理ポータルを開いて、[RemoteApp] ページに移動します。
+2.       **テンプレート イメージ** ] タブ、[ **アップロード** ページの下部にあります。
+4.      イメージのフレンドリ名を入力し、ストレージ アカウントの場所を指定します。 この場所が、RemoteApp コレクションの場所、またはコレクションを作成しようとしている場所と同じであることを確認します。
+5.      メッセージが表示されたら、ローカル PC にスクリプトをダウンロードします。
+6.      テキスト ボックスのコマンド パラメーターをクリップボードにコピーします。
+7.      管理者特権の Windows PowerShell ウィンドウを開きます。
+8.      管理者特権での Windows PowerShell ウィンドウから、スクリプトをダウンロードしたディレクトリに移動します。
+9.      コピーしたコマンドを貼り付け **Enter**します。
 
     アップロード プロセスが開始されます。所要時間は、ネットワークの速度やイメージのサイズなど、さまざまな要因によって異なります。
 
@@ -50,4 +50,5 @@
 - Azure PowerShell ではなく、Windows PowerShell を使用してください。 Azure PowerShell モジュールをインストールする必要があります。アップロード プロセス中に特定のモジュールが必要になるためです。
 - スクリプトを変更しないでください。スクリプトには検証が含まれています。
 - アップロード中に vhd ファイルがロックアウトされる場合は、ファイルを新しい場所にコピーまたは移動して、再度アップロードを実行してください。 一部の Windows プロセスがアップロードを阻んでいる可能性があります。  
+
 

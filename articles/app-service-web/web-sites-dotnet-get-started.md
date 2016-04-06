@@ -46,7 +46,7 @@
 > 
 > ご協力スコープ] 図形と--このチュートリアルのアプローチを参照してください対象は、ここでは、入門チュートリアルのままにしてフィードバックしたいその他のトピックがある場合、 [Disqus コメント](#comments) チュートリアルの最後にします。
 
-##<a name="video"></a>Microsoft Azure へのサインアップします。
+##<a name="video"></a>Microsoft Azure にサインアップする
 
 このチュートリアルを完了するには、Azure アカウントが必要です。 そのための方法は次のとおりです。
 
@@ -93,7 +93,7 @@
 
 7. クリックして **認証変更**します。
 
-    ![[新しい ASP.NET プロジェクト] ダイアログ ボックス](./media/web-sites-dotnet-get-started/GS13changeauth.png)
+    ![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started/GS13changeauth.png)
 
 6.  **認証の変更** ダイアログ ボックスで、をクリックして **認証なし**, 、] をクリックし、 **[ok]**します。
 
@@ -103,7 +103,7 @@
 
 5.  **新しい ASP.NET プロジェクト** ] ダイアログ ボックスで、下にある設定のままに **Microsoft Azure** 変更せずに、クリックして **OK**します。
 
-    ![[新しい ASP.NET プロジェクト] ダイアログ ボックス](./media/web-sites-dotnet-get-started/GS13newaspnetprojdb.png)
+    ![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started/GS13newaspnetprojdb.png)
 
     既定の設定は、Visual Studio が Web プロジェクトのための Azure Web アプリを作成することを指定します チュートリアルの次のセクションでは、Web プロジェクトを新しく作成した Web アプリにデプロイします。
 
@@ -147,7 +147,8 @@
 
      **ソリューション エクスプ ローラー** ] ウィンドウでは、新しいプロジェクトでファイルとフォルダーが表示されます。
 
-    ![Solution Explorer](./media/web-sites-dotnet-get-started/solutionexplorer.png)
+    ![ソリューション エクスプローラー
+](./media/web-sites-dotnet-get-started/solutionexplorer.png)
 
      **Azure App Service アクティビティ** ウィンドウは、web アプリが作成されたことを示しています。
 
@@ -300,4 +301,5 @@
 
 ## 変更内容
 * Web サイトから App Service への変更ガイド 』 を参照してください。 [Azure App Service と既存の Azure サービス](http://go.microsoft.com/fwlink/?LinkId=529714)します。
+
 

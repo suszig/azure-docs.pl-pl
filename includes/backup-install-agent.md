@@ -20,7 +20,7 @@ Azure Backup コンテナーを作成したら、エージェントを各 Window
 
 7.  エージェントをインストールしたら、 **登録に進みます** 、ワークフローを続行する] ボタンをクリックします。
 
-    ![登録](./media/backup-install-agent/register.png)
+    ![Register](./media/backup-install-agent/register.png)
 
 8. [資格情報コンテナーの資格情報] 画面で、以前にダウンロードされた資格情報コンテナーの資格情報ファイルを参照して選択します。
 
@@ -47,4 +47,5 @@ Azure Backup コンテナーを作成したら、エージェントを各 Window
     また、Data Protection Manager を使用する場合をクリックして、登録ワークフロー時に指定されている設定を変更できます、 **構成** オプションを選択して **オンライン** 下にある、 **管理** ] タブをクリックします。
 
     ![Azure Backup を構成する](./media/backup-install-agent/configure.png)
+
 

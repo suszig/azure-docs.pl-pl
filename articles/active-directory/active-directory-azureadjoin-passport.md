@@ -79,7 +79,8 @@ Microsoft Passport を有効にすると、次の操作によって会社のリ�
 * [Azure Active Directory 参加を使用したクラウド機能の Windows 10 デバイスへの拡張](active-directory-azureadjoin-user-upgrade.md)
 * [Azure AD 参加の使用シナリオについて](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Windows 10 エクスペリエンスのためにドメイン参加済みデバイスを Azure AD に接続する](active-directory-azureadjoin-devices-group-policy.md)
-* [Azure AD Join の設定](active-directory-azureadjoin-setup.md)
+* [Azure AD 参加の設定](active-directory-azureadjoin-setup.md)
+
 
 
 

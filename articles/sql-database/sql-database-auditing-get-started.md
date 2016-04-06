@@ -23,13 +23,13 @@ Azure SQL Database 監査は、データベース イベントを追跡し、監
 
 監査ツールは、標準準拠を強化し促進しますが、準拠を保証するものではありません。 標準準拠をサポートする Azure プログラムの詳細については、「[Microsoft Azure のトラスト センター](http://azure.microsoft.com/support/trust-center/compliance)」を参照してください。
 
-+ [Azure SQL Database 監査の基本]
-+ [データベースの監査を設定する]
++ [Azure SQL Database の監査の基本]
++ [データベースに対する監査を設定する]
 + [監査ログとレポートを分析する]
 
 ##<a id="subheading-1"></a>Azure SQL Database の監査の基本
 
-以下のセクションでは、Azure ポータルを使用した監査の構成について説明します。 必要な場合も [従来の Azure クラシック ポータルを使用して、データベースの監査を設定する]。
+以下のセクションでは、Azure ポータルを使用した監査の構成について説明します。 必要な場合も [set up auditing for your database using the Classic Azure Classic Portal]します。
 
 SQL Database 監査により、以下のことが可能になります。
 
@@ -62,7 +62,7 @@ SQL Database 監査により、以下のことが可能になります。
 
 ##<a id="subheading-2"></a>データベースに対する監査を設定する
 
-1. 起動、 [Azure ポータル](https://portal.azure.com) https://portal.azure.com にします。 また、起動することも、 [従来の Azure クラシック ポータル](https://manage.windowsazure.com/) https://manage.windowsazure.com/でします。 詳しい手順は次のようになります。
+1. 起動、 [Azure ポータル](https://portal.azure.com) https://portal.azure.com にします。 また、起動することも、 [従来の Azure クラシック ポータル](https://manage.windowsazure.com/) https://manage.windowsazure.com/ でします。 詳しい手順は次のようになります。
 
 2. 監査する SQL Database または SQL Server の [設定] ブレードに移動します。 [設定] ブレードで、選択 **監査と脅威の検出**します。
 
@@ -96,12 +96,12 @@ SQL Database 監査により、以下のことが可能になります。
 Power Query を使用すると、Azure ストレージ アカウントから直接 Excel テンプレートに、監査ログをインポートできます。 その後監査レコードを確認し、ログ データを使用しダッシュ ボードとレポートを作成できます。
 
 
-![ナビゲーション ウィンドウ][4]
+![Navigation Pane][4]
 
 
-##<a id="subheading-4"></a>従来の Azure クラシック ポータルを使用して、データベースに対する監査を設定します。
+##<a id="subheading-4"></a>従来の Azure クラシック ポータルを使用してデータベースの監査を設定する
 
-1. 起動、 [従来の Azure クラシック ポータル](https://manage.windowsazure.com/) https://manage.windowsazure.com/でします。
+1. 起動、 [従来の Azure クラシック ポータル](https://manage.windowsazure.com/) https://manage.windowsazure.com/ でします。
 
 2. SQL データベース] をクリックして]、[クリックして、監査する SQL Server、 **監査とセキュリティ** ] タブをクリックします。
 
@@ -177,4 +177,5 @@ Azure SQL Database で監査を構成する際、使用できる PowerShell コ�
 
 
  
+
 

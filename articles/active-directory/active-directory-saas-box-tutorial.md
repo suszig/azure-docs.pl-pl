@@ -83,19 +83,19 @@
 
 1.  Azure AD ポータルでの **ボックス** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-box-tutorial/IC769538.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-box-tutorial/IC769538.png "Configure single sign-on")
 
 2.   **どのようなボックスにサインオン** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 
-    ![Configure single sign-on](./media/active-directory-saas-box-tutorial/IC769539.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-box-tutorial/IC769539.png "Configure single sign-on")
 
-3.   **アプリケーション URL の構成** ] ページの [、 **Box テナント URL** ] ボックスに、ボックス テナント URL を入力 (例:: https://<mydomainname>. box.com)、順にクリック **次へ]**します。
+3.   **アプリケーション URL の構成** ] ページで、 **Box テナント URL** ] ボックスに、ボックス テナントの url (例:: https://<mydomainname>。 box.com) を順にクリック **次**します。
 
     ![アプリケーション URL の構成](./media/active-directory-saas-box-tutorial/IC669826.png "Configure app URL")
 
 4.   **Box でのシングル サインオン構成** ] ページで、メタデータをダウンロードする] をクリックして **メタデータのダウンロード**, 、データ ファイルをコンピューターのローカルにします。
 
-    ![Configure single sign-on](./media/active-directory-saas-box-tutorial/IC669824.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-box-tutorial/IC669824.png "Configure single sign-on")
 
 5.  メタデータ ファイルを Box サポート チームに転送します。 サポート チームは、シングル サインオンを構成する必要があります。
 
@@ -129,7 +129,7 @@
 
 1. Azure AD ポータルで、テスト アカウントを作成します。
 
-2. * * ボックス * * アプリケーション統合ページで、をクリックして **ユーザーの割り当て**します。 <br><br> ![ユーザーの割り当て](./media/active-directory-saas-box-tutorial/IC769552.png "Assign users")
+2. * * ボックス * * アプリケーション統合ページで、をクリックして **ユーザーの割り当て**します。 <br><br> ![ユーザーを割り当てください。](./media/active-directory-saas-box-tutorial/IC769552.png "Assign users")
 
 3.  テスト ユーザーを選択して [ **割り当てる**, 、順にクリック **はい** して割り当てを確認します。 <br><br> ![[はい]](./media/active-directory-saas-box-tutorial/IC767830.png "Yes")
   
@@ -154,3 +154,4 @@ Box テナントでは同期済みユーザーは、「 **マネージ ユーザ
 
 * [SaaS アプリと Azure Active Directory を統合する方法に関するチュートリアルの一覧](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory のアプリケーション アクセスとシングル サインオンとは](active-directory-appssoaccess-whatis.md)
+

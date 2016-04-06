@@ -19,7 +19,7 @@
 # Azure ポータルで Azure Data Lake Store の使用を開始する
 
 > [AZURE.SELECTOR]
-- [ポータルを使用してください。](data-lake-store-get-started-portal.md)
+- [ポータルの使用](data-lake-store-get-started-portal.md)
 - [PowerShell の使用](data-lake-store-get-started-powershell.md)
 - [.NET SDK の使用](data-lake-store-get-started-net-sdk.md)
 - [Azure CLI の使用](data-lake-store-get-started-cli.md)
@@ -33,7 +33,7 @@ Azure ポータルを使用して、Azure Data Lake Store アカウントを作�
 
 - **Azure サブスクリプション**します。 参照してください [取得 Azure 無料試用版](https://azure.microsoft.com/pricing/free-trial/)します。
 
-## <a name="signup"></a>Data Lake ストアのパブリック プレビューの Azure サブスクリプションを有効にします。
+## <a name="signup"></a>Azure サブスクリプションを Data Lake Store パブリック プレビューに対して有効にする
 
 まず、Azure サブスクリプションを Data Lake Store パブリック プレビューに対して有効にする必要があります。 以下の手順に従ってください。
 
@@ -65,7 +65,7 @@ Azure ポータルを使用して、Azure Data Lake Store アカウントを作�
 
     ![自分の Azure Data Lake Store アカウント](./media/data-lake-store-get-started-portal/ADL.Account.QuickStart.png "Your Azure Data Lake account")
 
-## <a name="createfolder"></a>Azure Data Lake ストア アカウントにフォルダーを作成します。
+## <a name="createfolder"></a>Azure Data Lake Store アカウントにフォルダーを作成する
 
 Data Lake Store アカウントにフォルダーを作成し、データの管理と保存を行うことができます。
 
@@ -84,7 +84,7 @@ Data Lake Store アカウントにフォルダーを作成し、データの管�
     ![Data Lake アカウントにフォルダーを作成](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Create folders in Data Lake account")
 
 
-## <a name="uploaddata"></a>Azure Data Lake ストア アカウントにデータをアップロードします。
+## <a name="uploaddata"></a>Azure Data Lake Store アカウントにデータをアップロードする
 
 データは、Azure Data Lake Store アカウントのルート レベルに直接をアップロードすることも、アカウント内に作成したフォルダーにアップロードすることもできます。 次の画面キャプチャでからのサブ フォルダーにファイルをアップロードする手順に従います、 **データ エクスプ ローラー** ブレードです。 この画面キャプチャの場合、ファイルは、階層リンクで示されているサブフォルダー (赤色の四角形で示されています) にアップロードされます。
 
@@ -93,7 +93,7 @@ Data Lake Store アカウントにフォルダーを作成し、データの管�
 ![データのアップロード](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Upload data")
 
 
-## <a name="properties"></a>プロパティと、格納されたデータで使用できる操作
+## <a name="properties"></a>保存データに対して使用できるプロパティと操作
 
 新しく追加されたファイルを開く] をクリックして、 **プロパティ** ブレードです。 このブレードでは、そのファイルに関連付けられたプロパティと、そのファイルに対して実行できる操作を利用できます。 また、次の画面キャプチャで赤い四角形で強調表示されている、Azure Data Lake Store アカウント内のファイルへの完全なパスをコピーすることもできます。
 
@@ -123,7 +123,7 @@ Azure Data Lake Store アカウントに保存したデータは、Azure Active 
 
 ## Data Lake Store アカウントの他の作成方法
 
-- [Azure PowerShell で Data Lake Store の使用を開始する](data-lake-store-get-started-powershell.md)
+- [PowerShell で Data Lake Store の使用を開始する](data-lake-store-get-started-powershell.md)
 - [.NET SDK で Azure Data Lake Store の使用を開始する](data-lake-store-get-started-net-sdk.md)
 - [Azure CLI で Azure Data Lake Store の使用を開始する](data-lake-store-get-started-cli.md)
 
@@ -133,4 +133,5 @@ Azure Data Lake Store アカウントに保存したデータは、Azure Active 
 - [Data Lake Store のデータをセキュリティで保護する](data-lake-store-secure-data.md)
 - [Data Lake Store で Azure Data Lake Analytics を使用する](data-lake-analytics-get-started-portal.md)
 - [Data Lake Store で Azure HDInsight を使用する](data-lake-store-hdinsight-hadoop-use-portal.md)
+
 

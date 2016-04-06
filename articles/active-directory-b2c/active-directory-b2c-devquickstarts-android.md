@@ -1,10 +1,10 @@
 <properties
-    pageTitle ="Azure AD B2C プレビュー: Android アプリケーションから Web API を呼び出す |Microsoft Azure]
-    description ="この記事では説明を OAuth 2.0 ベアラー トークンを使用する node.js web API を呼び出す Android「to do リスト」アプリケーションを作成する方法です。 両方、Android アプリケーションと web api を使用して Azure AD B2C ユーザー id を管理し、ユーザーを認証する。"
-    サービス ="active directory b2c"
-    documentationCenter ="android"
-    authors ="brandwe"
-    manager ="msmbaldwin"
+    pageTitle="Azure AD B2C プレビュー: Android アプリケーションからの Web API の呼び出し |Microsoft Azure"
+    description="この記事が、アプリを作成する方法を示します "To-Do List" app that calls a node.js web API using OAuth 2.0 bearer tokens. Both the Android app and web api use Azure AD B2C to manage user identities and authenticate users."
+    services="active-directory-b2c"
+    documentationCenter="android"
+    authors="brandwe"
+    manager="msmbaldwin"
     editor=""/>
 
 <tags
@@ -49,7 +49,7 @@ Azure AD B2C を使用するには、ディレクトリ (つまり、テナン�
 
 ### 手順 2: アプリケーションの作成
 
-ここで、B2C ディレクトリにアプリを作成する必要があります。このディレクトリによって、アプリと安全に通信するために必要ないくつかの情報を Azure AD に提供します。  アプリと web の両方の API は、1 つで表されます **アプリケーション ID** ここでは、1 つの論理アプリケーションを構成からです。  アプリを作成するには
+次に、B2C ディレクトリ内にアプリを作成する必要があります。これによって、 アプリと安全に通信するために必要ないくつかの情報が Azure AD に提供されます。  アプリと web の両方の API は、1 つで表されます **アプリケーション ID** ここでは、1 つの論理アプリケーションを構成からです。  アプリを作成するには
 次の [手順](active-directory-b2c-app-registration.md)します。  このとき、
 
 - 含める、 **web アプリや web api** アプリケーションで
@@ -87,7 +87,7 @@ identity エクスペリエンス - サインアップ、サインイン、お�
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-Android.git
 ```
 
-> [AZURE.NOTE] **スケルトンをダウンロードするはこのチュートリアルを完了するために必要です。**Android では、完全に機能しているアプリケーションの実装が複雑なのため、 **スケルトン** が UX 実行するコードを以下のチュートリアルが完了するとします。 これは、開発者の時間を短縮するための手段です。 UX コードは B2C を Android アプリケーションに追加するトピックと深い関わりはありません。
+> [AZURE.NOTE] **スケルトンをダウンロードするはこのチュートリアルを完了するために必要です。** Android では、完全に機能しているアプリケーションの実装が複雑なのため、 **スケルトン** が UX 実行するコードを以下のチュートリアルが完了するとします。 これは、開発者の時間を短縮するための手段です。 UX コードは B2C を Android アプリケーションに追加するトピックと深い関わりはありません。
 
 完成したアプリケーションも [.zip として利用可能な](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip) または、
 `complete` 同じリポジトリの分岐。
@@ -1021,3 +1021,4 @@ CookieSyncManager.getInstance().sync();
 ```
 Cookie の詳細: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
+

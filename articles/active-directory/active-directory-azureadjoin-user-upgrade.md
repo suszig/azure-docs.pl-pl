@@ -42,10 +42,11 @@ Windows 7 または 8 を使用しているコンピューターを既に Window
 ## 追加情報
 * [Azure AD 参加の使用シナリオについて](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Windows 10 エクスペリエンスのためにドメイン参加済みデバイスを Azure AD に接続する](active-directory-azureadjoin-devices-group-policy.md)
-* [Azure AD Join の設定](active-directory-azureadjoin-setup.md)
+* [Azure AD 参加の設定](active-directory-azureadjoin-setup.md)
 * [Microsoft Passport 経由でのパスワードを使用しない ID の認証](active-directory-azureadjoin-passport.md)
 * [Azure AD 参加の使用シナリオについて](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Windows 10 エクスペリエンスのためにドメイン参加済みデバイスを Azure AD に接続する](active-directory-azureadjoin-devices-group-policy.md)
-* [Azure AD Join の設定](active-directory-azureadjoin-setup.md)
+* [Azure AD 参加の設定](active-directory-azureadjoin-setup.md)
+
 
 

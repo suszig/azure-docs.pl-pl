@@ -112,7 +112,7 @@ New Relic のダッシュボードを表示するには、次の手順を実行�
 
 [アプリケーション] メニューの一覧からアプリケーションを選択すると、[概要] ダッシュボードに、現在のアプリ サーバーとブラウザーの情報が表示されます。 2 つのビューを切り替える、 **アプリ サーバー** または **ブラウザー** ] ボタンをクリックします。
 
-標準の <a href="https://newrelic.com/docs/site/the-new-relic-ui#functions">New Relic UI</a> と <a href="https://newrelic.com/docs/site/the-new-relic-ui#drilldown">ダッシュ ボードのドリルダウン</a> 機能の他に、アプリケーションの [概要] ダッシュボードには追加の機能が備わっています。
+<a href="https://newrelic.com/docs/site/the-new-relic-ui#functions">標準の New Relic UI</a> と<a href="https://newrelic.com/docs/site/the-new-relic-ui#drilldown">ダッシュボードのドリルダウン</a>機能のほかにも、アプリケーションの [概要] ダッシュボードにはさまざまな機能があります。
 
 <table border="1">
   <thead>
@@ -124,23 +124,23 @@ New Relic のダッシュボードを表示するには、次の手順を実行�
   <tbody>
     <tr>
        <td>選択したアプリケーションのサーバーまたはブラウザーのダッシュボード情報を表示する</td>
-       <td>[ <b>ボタン</b> または <b>[ブラウザー] ボタンを</b> をクリックしてください。</td>
+       <td>クリックして、 <b>App Server</b> または <b>ブラウザー</b> ] ボタンをクリックします。</td>
     </tr>
      <tr>
-       <td>アプリケーションのしきい値レベルを表示する <a href="https://newrelic.com/docs/site/apdex" target="_blank">Apdex</a> スコア</td>
-       <td>[Apdex スコア] の <b>?<b> アイコンをポイントします。</b></b></td>
+       <td>しきい値レベルを表示、アプリ & #39; s <a href="https://newrelic.com/docs/site/apdex" target="_blank">Apdex</a> スコア</td>
+       <td>Apdex スコアをポイント <b>でしょうか。<b> アイコンをポイントします。</b></b></td>
     </tr>
     <tr>
        <td>世界規模の Apdex の詳細を表示する</td>
-       <td>[概要] の <b>[ブラウザー] ボタンを</b> 任意の場所に、グローバル Apdex マップのポイントに表示します。<br /><b>ヒント:</b> 選択したアプリケーションの <a href="https://newrelic.com/docs/site/geography" target="_blank">地理的な場所</a>ダッシュボードに直接移動するには、 <b>グローバル Apdex の</b> タイトルをクリックするか、グローバル Apdex マップの任意の場所をクリックします。</td>
+       <td>この概要 & #39; から s <b>ブラウザー</b> ビューで、グローバル Apdex マップの任意の場所] をポイントします。<br /><b>ヒント:</b> #39 の範囲内 (&)、選択したアプリケーションに直接移動する s <a href="https://newrelic.com/docs/site/geography" target="_blank">Geography</a>ダッシュ ボードで、] をクリックして、 <b>グローバル Apdex</b> タイトル、または、グローバル Apdex マップの任意の場所をクリックします。</td>
     </tr>
     <tr>
-       <td>[Web トランザクション] <a href="https://docs.newrelic.com/docs/applications-menu/transactions-dashboard" target="_blank">ダッシュボードを</a> dashboard</td>
-       <td>アプリケーションの [概要] ダッシュボードの [Web トランザクション] テーブルをクリックします。 または、特定の Web トランザクションに関する詳細 ( <a href="https://newrelic.com/docs/site/key-transactions" target="_blank">主要トランザクションなど) を表示するには、</a>その名前をクリックします。</td>
+       <td>ビュー、 <a href="https://docs.newrelic.com/docs/applications-menu/transactions-dashboard" target="_blank">Web トランザクション</a> ダッシュ ボード</td>
+       <td>アプリケーションの [概要] ダッシュボードの [Web トランザクション] テーブルをクリックします。 または、特定の web トランザクションに関する詳細を表示 (を含む <a href="https://newrelic.com/docs/site/key-transactions" target="_blank">主要トランザクション</a>)、その名前をクリックします。</td>
     </tr>
     <tr>
-       <td>[Web トランザクション] <a href="https://newrelic.com/docs/site/errors" target="_blank">エラー</a> dashboard</td>
-       <td>[エラー率] グラフと #39; アプリケーションの概要ダッシュ ボードのタイトル。<br /><b>ヒント:</b> [アプリケーション]、(アプリケーション)、[イベント]、[エラー] <b>アプリケーション</b> & gt;(アプリ) & gt;イベント & gt;エラー。</td>
+       <td>ビュー、 <a href="https://newrelic.com/docs/site/errors" target="_blank">エラー</a> ダッシュ ボード</td>
+       <td>[エラー率] グラフと #39; アプリケーションの概要ダッシュ ボードのタイトル。<br /><b>ヒント:</b> からエラー] ダッシュ ボードを表示することもできます <b>アプリケーション</b> & gt;。(アプリ) & gt;イベント & gt;エラー。</td>
     </tr>
     <tr>
        <td>アプリケーションのサーバーの詳細を表示する</td>
@@ -189,3 +189,4 @@ New Relic UI の概要、ユーザー権限とプロファイルの設定、標�
 [add-on]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nraddon.png
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
+

@@ -120,12 +120,12 @@ Mobile Engagement 戦略を構築するには、最初にアプリの目標と�
 
 ### 次のステップ
 
-- Mobile Engagement の基本概念に関する詳細については、[モバイル エンゲージメントの概念] をご覧ください。
+- 参照してください [Mobile Engagement Concepts] を Mobile Engagement の基本概念に関する詳細を参照してください。
 - [Azure モバイル エンゲージメント アカウントを作成する](mobile-engagement-create-account.md)です。
 - 参照してください [ベスト プラクティス](mobile-engagement-getting-started-best-practices.md) 詳細に移動します。
 - 参照してください [ゲーム アプリ シナリオ](mobile-engagement-gaming-scenario.md) サンプル ゲーム アプリでモバイル エンゲージメントを実装する方法についてです。 
 - 参照してください [メディア アプリ シナリオ](mobile-engagement-media-scenario.md) サンプル メディア アプリをモバイル エンゲージメントを実装する方法についてです。 
-- 実装の詳細については、[チュートリアル] を参照してください。
+- 参照してください [Tutorials] を実装の詳細について参照してください。
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-define-your-mobile-engagement-strategy/use-case1.png
@@ -134,5 +134,6 @@ Mobile Engagement 戦略を構築するには、最初にアプリの目標と�
 <!-- URLs. -->
 [Mobile Engagement Concepts]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Tutorials]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
+
 
 

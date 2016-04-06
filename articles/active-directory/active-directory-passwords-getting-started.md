@@ -87,7 +87,7 @@
   ![][006]
 
 ### 手順 2: テスト ユーザー用の連絡先データを追加する
-組織内のユーザーがパスワード リセットで使用するデータを指定する方法はいくつかあります。
+組織内のユーザーがパスワードのリセットに使用するデータを指定する方法はいくつかあります。
 
 -   ユーザーを編集、 [Azure 管理ポータル](https://manage.windowsazure.com) または [Office 365 管理ポータル](https://portal.microsoftonline.com)
 -   AAD Connect を使用して、ユーザー プロパティをオンプレミスの Active Directory ドメインから Azure AD に同期する
@@ -118,7 +118,7 @@
 これでユーザーのリセット ポリシーが構成され、ユーザーの連絡先の詳細が指定できたので、このユーザーは、セルフサービスのパスワード リセットを実行できます。
 
 #### セルフサービスのパスワード リセットを実行するには
-1.  サイトにアクセスする場合と同様に [**portal.microsoftonline.com**](http://portal.microsoftonline.com), のようなログイン画面が表示されます、下です。  をクリックして、 **アカウントにアクセスできないでしょうか。** パスワードをテストへのリンクは、UI をリセットします。
+1.  サイトにアクセスする場合と同様に [**portal.microsoftonline.com**](http://portal.microsoftonline.com), のようなログイン画面が表示されます、下です。  クリックして、 **アカウントにアクセスできないでしょうか。** パスワードのテストへのリンクは、UI をリセットします。
 
     ![][011]
 
@@ -246,7 +246,7 @@ Azure AD Connect ツールでパスワード ライトバックを有効にし�
 
 1.  インストールの完了後、ご使用の環境で不明な送信接続をブロックしている場合は、次の規則をファイアウォールに追加する必要があります。 これらの変更を行った後に、AAD Connect のコンピューターを必ず再起動してください。
    - TCP ポート 443 経由の送信接続を許可する
-   - Https://ssprsbprodncu-sb.accesscontrol.windows.net/への発信接続を許可します。 
+   - Https://ssprsbprodncu-sb.accesscontrol.windows.net/ への発信接続を許可します。 
    - プロキシを使用している場合や、一般的な接続問題が発生した場合は、TCP ポート 9350-9354 の送信接続を許可する
 
 ### 手順 4: Active Directory の適切な権限を設定する
@@ -290,7 +290,7 @@ Azure AD Connect ツールでパスワード ライトバックを有効にし�
 これでパスワード ライトバックが有効になったので、その動作をテストできます。テストするには、アカウントがクラウド テナントと同期されているユーザーのパスワードをリセットします。
  
 #### パスワード ライトバックの正常な動作を確認するには
-1.  移動 [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com) または組織の ID ログイン画面に移動し、クリックして、 **アカウントにアクセスできない?** リンクします。
+1.  移動 [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com) または組織の ID ログイン画面に移動し、クリックして、 **アカウントにアクセスできないでしょうか。** リンクです。
 
     ![][029]
 
@@ -354,4 +354,5 @@ Azure AD のパスワードのリセットに関するすべてのドキュメ�
 [030]: ./media/active-directory-passwords-getting-started/030.jpg "Image_030.jpg"
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
+
 

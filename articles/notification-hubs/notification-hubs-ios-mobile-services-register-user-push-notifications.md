@@ -22,9 +22,9 @@
 [Windows ストア C#](notification-hubs-windows-store-mobile-services-register-user-push-notifications.md)
 [iOS](notification-hubs-ios-mobile-services-register-user-push-notifications.md)
 
-このトピックでは、Azure Mobile Services により登録が行われる場合、Azure Notification Hubs でプッシュ通知登録を要求する方法について説明します。 このトピックでは、[通知ハブによるユーザーに通知する] このチュートリアルを拡張します。 認証されたモバイル サービスを作成するには、このチュートリアルの必要な手順を既に完了している必要があります。 ユーザー通知シナリオの詳細については、[通知ハブによるユーザーに通知する] を参照してください。  
+このトピックでは、Azure Mobile Services により登録が行われる場合、Azure Notification Hubs でプッシュ通知登録を要求する方法について説明します。 このトピックは、このチュートリアルを拡張 [Notify users with Notification Hubs]します。 認証されたモバイル サービスを作成するには、このチュートリアルの必要な手順を既に完了している必要があります。 ユーザー通知シナリオの詳細については、次を参照してください。 [Notify users with Notification Hubs]します。  
 
-1. Xcode で、前提条件のチュートリアルを完了したときに作成したプロジェクトの QSTodoService.h ファイルを開く [認証] を使用し、以下の追加 **deviceToken** プロパティ。
+1. Xcode で、前提条件のチュートリアルを完了したときに作成したプロジェクトの QSTodoService.h ファイルを開く [Get started with authentication], 、次の追加と **deviceToken** プロパティ。
 
         @property (nonatomic) NSData* deviceToken;
 
@@ -87,7 +87,7 @@
                 }];
             }
 
-    このメソッドは、デバイス トークンを含む json ペイロードを作成します。 その後、モバイル サービスでカスタム API を呼び出して通知に登録します。 このメソッドは、プッシュ通知のデバイス トークンを作成し、Notification Hubs で登録を作成するカスタム API メソッドに、デバイスの種類と共に送信します。 [通知ハブによるユーザーに通知する] は、このカスタム API を定義しました。
+    このメソッドは、デバイス トークンを含む json ペイロードを作成します。 その後、モバイル サービスでカスタム API を呼び出して通知に登録します。 このメソッドは、プッシュ通知のデバイス トークンを作成し、Notification Hubs で登録を作成するカスタム API メソッドに、デバイスの種類と共に送信します。 このカスタム API が定義された [Notify users with Notification Hubs]します。
 
 7.  最後に、 **viewDidAppear** メソッド呼び出しを追加してこの新しい **registerForNotificationsWithBackEnd** メソッド、ユーザーが正常に認証されると、次の例に示すように。
 
@@ -107,7 +107,7 @@
 
     > [AZURE.NOTE] これにより、登録が要求されるたびに、ページが読み込まれることを確認します。 アプリケーションでは、この登録が常に最新の状態となるように、定期的な登録のみ行うことができます。
     
-これで、クライアント アプリケーションが更新されて、[通知ハブによるユーザーへの通知] を返し、通知ハブを使用して通知を送信するモバイル サービスを更新します。
+これで、クライアント アプリケーションが更新されてに戻り、 [Notify users with Notification Hubs] Notification Hubs を使用して通知を送信するモバイル サービスを更新します。
 
 <!-- Anchors. -->
 
@@ -120,4 +120,5 @@
 
 [Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  
+
 

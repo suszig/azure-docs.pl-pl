@@ -71,7 +71,7 @@ Azure のサブスクリプション情報は、ツールがアカウントに�
     info:   Account publish settings imported successfully
 
 > [AZURE.NOTE] Publishsettings ファイルには、複数のサブスクリプションに関する詳細 (サブスクリプション名と ID) を含めることができます。 publishsettings ファイルをインポートすると、最初のサブスクリプションが既定の説明として使用されます。 別のサブスクリプションを使用するには、次のコマンドを実行します。
-<code>~ $ azure config サブスクリプション & lt; その他のサブスクリプション id、& gt; の設定</code>
+<code>~$ azure config set subscription &lt;other-subscription-id&gt;</code>
 
 **account clear [options]**
 
@@ -212,7 +212,7 @@ Windows 仮想マシンでは、エンドポイントとしてポート 3389 を
 
 このコマンドでは、次のオプション パラメーターがサポートされています。
 
-**-c,-接続** ホスティング サービスで作成済みの展開内の仮想マシンを作成します。 -Vmname はこのオプションを使用しない、新しいバーチャル マシンの名前が自動的に生成されます。<br />
+**-c,-接続** ホスティング サービスで作成済みの展開内の仮想マシンを作成します。 -vmname をこのオプションと使用しない場合、新しい仮想マシンの名前が自動的に生成されます。<br />
 **-n, --vm-name** 仮想マシンの名前を指定します。 このパラメーターは既定でホスティング サービス名を参照します。 として、新しいバーチャル マシンの名前が生成される-vmname を指定しない場合 & lt; サービス名 > & lt; id > ここで、& lt; id > 例については、1 を足した数、サービス内の既存の仮想マシンの数は、このコマンドを使用して、ホスティング サービス MyService を持つ 1 つの既存のバーチャル マシンに新しいバーチャル マシンを追加する場合、、新しいバーチャル マシンは、MyService2 という名前にします。<br />
 **-u, --blob-url** 仮想マシン システム ディスクを作成するターゲット blob ストレージの URL を指定します。 <br />
 **-z, --vm-size** 仮想マシンのサイズを指定します。 有効な値は次のとおりです。
@@ -1554,7 +1554,7 @@ Azure Mobile Services は、アプリケーションのバックエンド機能�
 
 + **-i `<number>`** または **--間隔 `<number>`**: ジョブの実行間隔を示す整数既定値は `15`です。
 + **-u `<unit>`** または **--intervalUnit `<unit>`**: 単位で、 _間隔_, 、次の値のいずれかを指定することができます。
-    + **1 分** (既定値)
+    + **分** (既定値)
     + **hour**
     + **day**
     + **month**
@@ -1575,7 +1575,7 @@ Azure Mobile Services は、アプリケーションのバックエンド機能�
 
 + **-i `<number>`** または **--間隔 `<number>`**: ジョブの実行間隔を示す整数既定値は `15`です。
 + **-u `<unit>`** または **--intervalUnit `<unit>`**: 単位で、 _間隔_, 、次の値のいずれかを指定することができます。
-    + **1 分** (既定値)
+    + **分** (既定値)
     + **hour**
     + **day**
     + **month**
@@ -1593,7 +1593,7 @@ Azure Mobile Services は、アプリケーションのバックエンド機能�
 
 > [AZURE.NOTE] ジョブを削除すると、アップロードされたスクリプトも削除されます。
 
-### <a name="Mobile_Scale"></a>モバイル サービスの規模設定用コマンド
+### <a name="Mobile_Scale"></a>モバイル サービスのスケール用コマンド
 
 このセクションのコマンドは、モバイル サービスの規模を設定するために使用されます。 詳細については、次を参照してください。 [モバイル サービスの拡張](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx)します。
 
@@ -2368,4 +2368,5 @@ Virtual Network の詳細を表示します。
     Delete the DNS server entry dns-4 ( 77.88.99.11 ) %s ? (y/n) y
     + Deleting the DNS server entry dns-4 ( 77.88.99.11 )
     info:    network dnsserver unregister command OK
+
 

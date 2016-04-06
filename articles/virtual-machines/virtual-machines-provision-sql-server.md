@@ -40,7 +40,7 @@ Azure の仮想マシン イメージ ギャラリーには、Microsoft SQL Serv
 
 >[AZURE.NOTE] この記事では、既存のポータルでの SQL Server VM をプロビジョニングする方法について説明します。 ただし、作成し、SQL Server Vm を管理することはまた、 [新しいポータル](https://manage.windowsazure.com)します。 Premium Storage の使用が既定に設定されることや、自動修正、自動バックアップ、AlwaysOn 構成といったその他のオプションなど、新しいポータルにはいくつかの利点があります。 今後のコンテンツで、詳細な手順を説明します。
 
-##<a id="Provision">ギャラリーからの SQL Server 仮想マシンのプロビジョニングします。</a>
+##<a id="Provision">ギャラリーからの SQL Server 仮想マシンのプロビジョニング</a>
 
 1. ログイン、 [Azure クラシック ポータル](http://manage.windowsazure.com) 、アカウントを使用します。 Azure アカウントがないを参照してください。 [Azure 無料評価版](http://azure.microsoft.com/pricing/free-trial/)します。
 
@@ -98,7 +98,7 @@ Azure でサポートされている SQL Server イメージの最新情報に�
     - **実行中**
     
 
-##<a id="RemoteDesktop">セットアップを完了して、リモート デスクトップを使用して、VM を開く</a>
+##<a id="RemoteDesktop">リモート デスクトップを使用して VM を開き、設定を完了します。</a>
 
 1. プロビジョニングが完了したら、仮想マシンの名前をクリックして [ダッシュボード] ページに移動します。 ページの下部にあるをクリックして **接続**します。
 
@@ -120,7 +120,7 @@ Windows リモート デスクトップで仮想マシンに接続したら、�
 
 [AZURE.INCLUDE [Connect to SQL Server in a VM](../../includes/virtual-machines-sql-server-connection-steps.md)]
 
-## <a id="cdea">アプリケーションからデータベース エンジンへの接続します。</a>
+## <a id="cdea">アプリケーションからデータベース エンジンに接続する</a>
 
 Azure の仮想マシンで実行されている SQL Server のインスタンスに Management Studio から接続できる場合は、次のような接続文字列を使用して接続できます。
 
@@ -155,4 +155,5 @@ Azure の仮想マシンで実行されている SQL Server のインスタン�
 - [Understand Azure SQL Database and SQL Server in Azure Virtual Machines (Azure Virtual Machines における Azure SQL Database と SQL Server について)](sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
 - [Azure Virtual Machines における SQL Server のアプリケーション パターンと開発計画](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
+
 

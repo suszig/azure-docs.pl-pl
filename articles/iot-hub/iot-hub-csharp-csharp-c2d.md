@@ -22,7 +22,7 @@
 
 Azure IoT Hub は、何百万もの IoT デバイスとアプリケーション バックエンドの間に信頼性のある保護された双方向通信を確立できる、完全に管理されたサービスです。  [Get started with IoT Hub] IoT hub を作成、内のデバイス id をプロビジョニング、およびデバイスからクラウドへのメッセージを送信するシミュレートされたデバイスをコーディングする方法について説明します。
 
-このチュートリアルは [Get started with IoT Hub] し、1 つのデバイスをクラウドとデバイス間のメッセージを送信する方法を示しています。 配信の受信確認を要求する方法 (*フィードバック*) IoT Hub からし、アプリケーションのクラウド バック エンドから受信します。
+このチュートリアルは [Get started with IoT Hub] クラウドとデバイスのメッセージを 1 つのデバイスに送信する方法を示しています配信の受信確認を要求する方法 (*フィードバック*) IoT Hub からし、アプリケーションのクラウド バック エンドから受信します。
 
 内のクラウドとデバイス間のメッセージに関する詳細情報を記載した、 [IoT Hub 開発者ガイド][IoT Hub Developer Guide - C2D]します。
 
@@ -80,4 +80,5 @@ IoT Hub に関するその他の情報:
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Azure IoT Developer Center]: http://www.azure.com/develop/iot
+
 

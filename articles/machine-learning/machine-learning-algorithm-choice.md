@@ -243,7 +243,7 @@ Azure Machine Learning でアルゴリズム モジュールです。 強化学�
 
 ![線形傾向のデータ][3]
 
-***undefined***
+***線形傾向のデータ***
 
 ### ロジスティック回帰
 
@@ -286,9 +286,8 @@ Azure Machine Learning でアルゴリズム モジュールです。 強化学�
 
 ![デシジョン ツリーで特徴空間を細分化する][5]
 
-***undefined
-は
-val、統一されました。***
+***デシジョン ツリーに細分化特徴空間の領域にほぼ
+同じ値***
 
 機能領域に分割できますので小さい
 領域を簡単に 1 つのデータを十分に細かく分割することを想像してください。
@@ -309,7 +308,7 @@ val、統一されました。***
 
 [高速フォレスト分位点
 回帰](https://msdn.microsoft.com/library/azure/dn913093.aspx)
-特殊なケースのデシジョン ツリーのバリエーションの 1 つは、します。
+特殊なケースのデシジョン ツリーのバリエーションであります。
 地域内のデータの通常の (中間) 値だけでなくを知る
 分位点の形式で配布もします。
 
@@ -341,9 +340,8 @@ learning"ほど技術報告を促進するかをサイエンス フィクショ�
 ![ニューラル ネットワークによって学習された境界][6]
 ---------------------------
 
-***undefined
-nd
-irregu***
+***ニューラル ネットワークで学習する境界を複雑になることができ、
+不規則な***
 
  [2 クラスの平均
 パーセプトロン](https://msdn.microsoft.com/library/azure/dn906036.aspx)
@@ -368,9 +366,8 @@ SVM](https://msdn.microsoft.com/library/azure/dn905835.aspx) は
 
 ![サポート ベクター マシンのクラス境界][7]
 
-***undefined
-という名前で、
-2 つの付記を分離します。***
+***通常のサポート ベクター マシン クラスの境界は、余白を最大化します。
+2 つのクラスを分離します。***
 
 Microsoft Research の別の製品、 [2 クラスのローカル詳細
 SVM](https://msdn.microsoft.com/library/azure/dn913070.aspx) は、
@@ -431,7 +428,7 @@ Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-
 
 ![K-means を使用してグループ化されたデータ セット][9]
 
-***undefined***
+***データ セットが k-means を使用する 5 つのクラスターにグループ化します。***
 
 アンサンブルもあります [一 v 全多クラス
 分類子](https://msdn.microsoft.com/library/azure/dn905887.aspx),、
@@ -441,9 +438,8 @@ N クラス分類の問題を分割 N-1 2 クラス
 
 ![3 クラス分類子を形成するために組み合わされた 2 クラス分類子][10]
 
-***undefined
-ss
-classif***
+***2 クラス分類子のペアを組み合わせて、3 つのクラスを形成
+分類器***
 
 Azure Machine Learning も強力なマシン ラーニング フレームワークへのアクセスが含まれています
 タイトルの下 [Vowpal
@@ -474,4 +470,5 @@ VW に収まる場合、上昇する価値がある可能性がありますが�
 [8]: ./media/machine-learning-algorithm-choice/image8.png
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
+
 

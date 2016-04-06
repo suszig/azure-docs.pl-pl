@@ -35,7 +35,7 @@ Microsoft Azure StorSimple へようこそ。 この記事では、StorSimple �
 
 | サポートされているオペレーティング システム | 必須のバージョン | その他の要件/注意事項 |
 | --------------------------- | ---------------- | ------------- |
-| Windows Server              | 2008R2 SP1、2012、2012R2 |StorSimple iSCSI ボリュームは、次の Windows ディスク タイプで使用する場合にのみサポートされます。<ul><li>ベーシック ディスク上のシンプル ボリューム</li><li>ダイナミック ディスク上のミラー化されたシンプル ボリューム</li></ul>Windows Server 2012 の仮想プロビジョニング機能および ODX 機能は、StorSimple iSCSI ボリュームを使用する場合にサポートされます。<br><br>StorSimple で作成できるのは、仮想プロビジョニングされたボリュームのみです。 完全にプロビジョニングされたボリュームまたは部分的にプロビジョニングされたボリュームについては作成できません。<br><br>仮想プロビジョニングされたボリュームを再フォーマットと時間がかかる場合があります。 再フォーマットするのではなく、ボリュームを削除して、新しいボリュームを作成することをお勧めします。 ただし、ボリュームの再フォーマットにまだ存在する場合好ましい:<ul><li>領域回復の遅延を避けるために、再フォーマットする前に、次のコマンドを実行: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>、書式設定が完了した後は、次のコマンドを使用して、領域の解放を再度有効にする:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>」の説明に従って、Windows Server 2012 の修正プログラムを適用 [KB 2878635](https://support.microsoft.com/kb/2870270) Windows Server コンピューターにします。</li></ul></li></ul></ul>For SharePoint StorSimple Snapshot Manager または StorSimple アダプターを構成する場合は、「 [オプション コンポーネントのソフトウェア要件](#software-requirements-for-optional-components)します。|
+| Windows Server              | 2008R2 SP1、2012、2012R2 |StorSimple iSCSI ボリュームは、以下の Windows ディスク タイプのみで使用するためサポートされます。<ul><li>ベーシック ディスク上のシンプル ボリューム</li><li>シンプル ボリュームおよびミラー化されたボリュームのダイナミック ディスク上</li></ul>Windows Server 2012 シンプロビジョニングおよび ODX 機能は、StorSimple iSCSI ボリュームを使用している場合にサポートされます。<br><br>StorSimple は、シンプロビジョニングされたボリュームのみを作成できます。 完全にプロビジョニングされた、または部分的にプロビジョニングされたを作成できないボリュームです。<br><br>仮想プロビジョニングされたボリュームの再フォーマットすると、長い時間がかかる場合があります。 再フォーマットするのではなく、ボリュームを削除して、新しいボリュームを作成することをお勧めします。 ただし、まだ存在する場合は、ボリュームを再フォーマットを選択します。<ul><li>領域回復の遅延を避けるために、再フォーマットする前に、次のコマンドを実行します。 <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>書式設定が完了した後は、領域の解放を再度有効にするのに、次のコマンドを使用します。<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>説明に従って、Windows Server 2012 の修正プログラムを適用 [KB 2878635](https://support.microsoft.com/kb/2870270) Windows Server コンピューターにします。</li></ul></li></ul></ul> For SharePoint StorSimple Snapshot Manager または StorSimple アダプターを構成する場合は、「 [オプション コンポーネントのソフトウェア要件](#software-requirements-for-optional-components)します。|
 | VMWare ESX | 5.1 | iSCSI クライアントとして VMWare vSphere 5.1 でサポートされます。 VAAI ブロック機能は、StorSimple デバイス上の VMware vSphere v.5.1 でサポートされます。 
 | Linux RHEL/CentOS | 5 および 6 | Open-iSCSI イニシエーター バージョン 5 および 6 での Linux iSCSI クライアントのサポート。 |
 | Linux | SUSE Linux 11 | |
@@ -65,11 +65,11 @@ StorSimple デバイスはロックされたデバイスです。 ただし、iS
 | 5985 | イン | LAN | いいえ | 受信ポートでは、StorSimple Snapshot Manager によってを StorSimple デバイスとの通信に使用します。<br>このポートは、リモート接続する Windows PowerShell for StorSimple HTTP 経由でときにも使用されます。 |
 | 5986 | イン | LAN | いいえ | このポートは、HTTPS 経由で Windows PowerShell for StorSimple にリモート接続する場合にも使用されます。 |
 
-<sup>1</sup> 受信ポートをパブリック インターネットで開かれている必要はありません。
+<sup>1</sup> 受信ポートがパブリック インターネットで開かれている必要はありません。
 
 <sup>2</sup> で説明するポート ルーティング順序に基づいて、送信トラフィックの順序を決定は複数のポートでゲートウェイの構成が運ばれる場合 [ポート ルーティング](#port-routing), ください。
 
-<sup>3</sup> 固定の ip アドレス、StorSimple デバイス コント ローラーには、ルーティング可能で、インターネットに接続することがあります。 固定の IP アドレスは、デバイスに更新プログラムを提供するために使用されます。 デバイスのコントローラーが固定の IP アドレスを使用してインターネットに接続できない場合は、StorSimple デバイスを更新できません。
+<sup>3</sup> StorSimple デバイスのコントローラーの固定の IP アドレスがルーティング可能でインターネットに接続可能である必要があります。 固定の IP アドレスは、デバイスに更新プログラムを提供するために使用されます。 デバイスのコントローラーが固定の IP アドレスを使用してインターネットに接続できない場合は、StorSimple デバイスを更新できません。
 
 > [AZURE.IMPORTANT] ファイアウォールの変更または StorSimple デバイスと Azure 間の SSL トラフィックを復号化がないことを確認します。
 
@@ -106,14 +106,14 @@ Update 2 にはいくつかのネットワーク関連の機能強化があり�
 - 以下に示す表の例で考えてみましょう。この表では、さまざまなネットワーク インターフェイスがクラウド対応の場合とクラウド非対応 (ただしゲートウェイが構成済み) の場合に、割り当てられる値 (例) を示しています。
 
         
-    | Network interface | Cloud-enabled | Cloud-disabled with gateway |
-    |-----|---------------|---------------------------|
-    | Data 0  | 1            | -                        |
-    | Data 1  | 2            | 20                       |
-    | Data 2  | 3            | 30                       |
-    | Data 3  | 4            | 40                       |
-    | Data 4  | 5            | 50                       |
-    | Data 5  | 6            | 60                       |
+  	| Network interface | Cloud-enabled | Cloud-disabled with gateway |
+  	|-----|---------------|---------------------------|
+  	| Data 0  | 1            | -                        |
+  	| Data 1  | 2            | 20                       |
+  	| Data 2  | 3            | 30                       |
+  	| Data 3  | 4            | 40                       |
+  	| Data 4  | 5            | 50                       |
+  	| Data 5  | 6            | 60                       |
 
 
 - クラウド トラフィックがネットワーク インターフェイスを介してルーティングされる順序は、次のとおりです。
@@ -251,7 +251,7 @@ StorSimple デバイス モデル 8600 には、主エンクロージャに加�
 
 StorSimple デバイスに接続されているホストの高可用性を確保するには、以下のベスト プラクティスを慎重に確認してください。
 
-- StorSimple を構成する [2 つのノード ファイル サーバー クラスターの構成] で [1] です。 単一障害点を削除し、ホスト側の冗長性を構築することにより、ソリューション全体の可用性が向上します。
+- StorSimple を構成します [2 つのノード ファイル サーバー クラスター構成][1]します。 単一障害点を削除し、ホスト側の冗長性を構築することにより、ソリューション全体の可用性が向上します。
 
 - ストレージ コントローラーのフェールオーバー中の高可用性を目的として、Windows Server 2012 (SMB 3.0) で利用できる継続的可用性 (CA) 共有を使用します。 Windows Server 2012 ファイル サーバー クラスターと継続的に使用可能な共有を構成するための詳細については、これを参照してください [ビデオ デモ](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares)します。
 
@@ -262,4 +262,5 @@ StorSimple デバイスに接続されているホストの高可用性を確保
  
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
+
 

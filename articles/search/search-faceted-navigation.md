@@ -186,7 +186,7 @@ Azure Search では、検索コーパスはインデックスを生成するド�
 
 ベスト プラクティスを次にまとめます。
 
-- **有効桁数**<br/>
+- **Precision**<br/>
 フィルターを使用します。 検索式にのみ依存すると、どのフィールドにも正確なファセット値が含まれないドキュメントが語幹検索で返される可能性があります。 
 
 - **対象のフィールド**<br/>
@@ -385,3 +385,4 @@ Azure Search で 2 つの地理空間関数がある **geo.distance** と **geo.
 [Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
 
  
+

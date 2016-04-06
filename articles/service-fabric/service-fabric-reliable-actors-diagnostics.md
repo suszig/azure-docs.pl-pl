@@ -44,7 +44,7 @@ Reliable Actors ランタイムは、次のパフォーマンス カウンター
 
 上記の各カテゴリには、1 つまたは複数のカウンターがあります。
 
- [Windows パフォーマンス モニター](https://technet.microsoft.com/library/cc749249.aspx) 既定では、Windows オペレーティング システムで利用可能なアプリケーションを使用して、収集し、パフォーマンス カウンター データを表示できます。 [Azure 診断](../cloud-services-dotnet-diagnostics.md) もう 1 つのオプションのパフォーマンス カウンター データを収集し、Azure テーブルにアップロードします。
+ [Windows パフォーマンス モニター](https://technet.microsoft.com/library/cc749249.aspx) 既定では、Windows オペレーティング システムで利用可能なアプリケーションを使用して、収集し、パフォーマンス カウンター データを表示できます。 [Azure 診断](../cloud-services-dotnet-diagnostics.md) 別の選択肢のパフォーマンス カウンター データを収集し、Azure テーブルにアップロードします。
 
 ### パフォーマンス カウンター インスタンス名
 多数のアクター サービスまたはアクター サービス パーティションを使用するクラスターには、多数のアクター パフォーマンス カウンター インスタンスが含まれます。 パフォーマンス カウンター インスタンス名、固有の仕様を識別するのに役立ちます [パーティション](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) とアクター メソッド (該当する場合)、パフォーマンス カウンター インスタンスが関連付けられています。
@@ -152,4 +152,5 @@ Reliable Actors ランタイムは、同時実行に関連する次のパフォ�
 |---|---|---|---|---|
 |ActorActivated|5|情報|0x1|アクターがアクティブ化されました。|
 |ActorDeactivated|6|情報|0x1|アクターが非アクティブ化されました。|
+
 

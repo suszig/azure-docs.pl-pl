@@ -33,8 +33,8 @@ Azure Active Directory (Azure AD) の各ディレクトリは、完全に独立�
 
 ##同期の独立
 
-各 Azure AD ディレクトリのいずれか 1 つのインスタンスから同期されているデータを取得するには、個別に構成できます。
-  - ディレクトリ同期 (DirSync) ツールを 1 つの AD フォレストとデータを同期します。
+いずれかの単一のインスタンスから同期されているデータを取得するには、個別には、各 Azure AD ディレクトリを構成することができます。
+  - ディレクトリ同期 (DirSync) ツール、データを単一の AD フォレストと同期します。
   - Azure Active Directory コネクタの Forefront Identity Manager、1 つまたは複数の内部設置型フォレスト、および非 Azure AD のデータ ソースとデータを同期します。
 
 ##Azure AD ディレクトリを追加する
@@ -44,4 +44,5 @@ Azure クラシック ポータルで Azure AD ディレクトリを追加する
 > [AZURE.NOTE]   他の Azure リソースとは異なりのディレクトリは Azure サブスクリプションの子リソースではありません。 Azure サブスクリプションを取り消した場合や、期限切れを許可した場合でも、Azure PowerShell、Azure Graph API、Office 365 管理センターなどの他のインターフェイスを使用して、ディレクトリ データに引き続きアクセスできます。 また、ディレクトリに別のサブスクリプションを関連付けることもできます。
 
 Azure AD のライセンスに関する問題とベスト プラクティスの広範な概要については、次を参照してください。 [内容は、Azure Active Directory ライセンス?](active-directory-licensing-what-is.md)します。
+
 

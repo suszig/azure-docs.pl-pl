@@ -81,7 +81,7 @@ IdeaScale のシングル サインオンを構成するには、証明書から
 
 3.   **アプリケーション URL の構成** ] ページの [、 **IdeaScale サインオン URL** URL は、ユーザーが IdeaScale アプリケーションにサインオンする使用] ボックスに、型 (例::"*https://company.IdeaScale.com*")、順にクリック **次**します。
 
-    ![アプリケーション URL の構成](./media/active-directory-saas-ideascale-tutorial/IC790845.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-ideascale-tutorial/IC790845.png "Configure App URL")
 
 4.   **IdeaScale でのシングル サインオンの構成** ] ページで、メタデータをダウンロードする] をクリックして **メタデータのダウンロード**, 、コンピューターのローカルにメタデータ ファイルを保存します。
 
@@ -160,3 +160,4 @@ IdeaScale の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-ideascale-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

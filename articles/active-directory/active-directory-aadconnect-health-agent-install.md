@@ -79,7 +79,7 @@ Windows Server 2008 R2 サーバーの場合、次の手順に従います。
 1. をクリックして **開始**, 、] をポイント **プログラム**, 、] をポイント **管理ツール**, 、] をクリックし、 **ローカル セキュリティ ポリシー**します。
 2. 移動し、 **セキュリティ設定 \ ローカル ポリシー \ ユーザーの Rights Management** フォルダーし、[セキュリティ監査の生成] をダブルクリックします。
 3.  **ローカル セキュリティ設定** タブで、AD FS 2.0 サービス アカウントが表示されていることを確認します。 存在しない場合はクリックして **[ユーザーまたはグループ** 、一覧に追加し、[クリックして **OK**します。
-4. 昇格した特権でコマンド プロンプトを開き、監査を有効にするには、次のコマンドを実行します。<code>auditpol.exe/set/subcategory:"Application Generated"/failure:enable/success:enable</code>
+4. 昇格した特権でコマンド プロンプトを開き、監査を有効にするには、次のコマンドを実行します。<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
 5. ローカル セキュリティ ポリシーを閉じて、管理スナップインを開きます。  管理スナップインを開く] をクリックして **開始**, 、] をポイント **プログラム**, 、] をポイント **管理ツール**, 、広告をクリックして FS 2.0 管理します。
 6. 操作ウィンドウで、[フェデレーション サービス プロパティの編集] をクリックします。
 7.  **フェデレーション サービス プロパティ** ダイアログ ボックスで、をクリックして、 **イベント** ] タブをクリックします。
@@ -91,7 +91,7 @@ Windows Server 2008 R2 サーバーの場合、次の手順に従います。
 1. 開いている **ローカル セキュリティ ポリシー** を開いて **サーバー マネージャー** スタート画面で、または、デスクトップのタスク バーにはサーバー マネージャーをクリックし、 **ツール]、[ローカル セキュリティ ポリシー**します。
 2. 移動し、 **セキュリティ設定 \ ローカル ポリシー \ ユーザー権利の割り当て** フォルダー、およびダブルクリック **セキュリティ監査の生成**します。
 3.  **ローカル セキュリティ設定** タブで、AD FS サービス アカウントが表示されていることを確認します。 存在しない場合はクリックして **[ユーザーまたはグループ** 、一覧に追加し、[クリックして **OK**します。
-4. 昇格した特権でコマンド プロンプトを開き、監査を有効にするには、次のコマンドを実行します。 <code>auditpol.exe/set/subcategory:"Application Generated"/failure:enable/success:enable します。</code>
+4. 昇格した特権でコマンド プロンプトを開き、監査を有効にするには、次のコマンドを実行します。 <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
 5. 閉じる **ローカル セキュリティ ポリシー**, 、クリックして、 **AD FS 管理** スナップイン (サーバー マネージャーでは、ツール] をクリックし、[AD FS 管理)。
 6. [操作] ウィンドウをクリックして **フェデレーション サービス プロパティの編集**します。
 7. フェデレーション サービスのプロパティ] ダイアログ ボックスで、[、 **イベント** ] タブをクリックします。
@@ -135,9 +135,9 @@ Azure AD Connect Health エージェント for Sync は、最新ビルドの Azu
 HTTP プロキシを使用するように Azure AD Connect Health エージェントを構成できます。
 
 >[AZURE.NOTE]
-- "Netsh WinHttp set ProxyServerAddress"を使用しても、エージェントが System.Net を使用して、Microsoft Windows HTTP サービスではなく web 要求を行うには機能しません。
-- 構成済み Http プロキシのアドレスは、パススルーの暗号化された Https メッセージに使用されます。
-- (HTTPBasic を使用)、認証されたプロキシがサポートされていません。
+- エージェントが Microsoft Windows HTTP サービスではなく System.Net を使用して Web 要求を行うので、"Netsh WinHttp set ProxyServerAddress" は使用できません。
+- 構成済みの Http プロキシ アドレスを使用して、暗号化された Https メッセージがパススルーされます。
+- 認証されたプロキシ (HTTPBasic を使用) はサポートされていません。
 
 ### Health エージェントのプロキシ構成の変更
 HTTP プロキシを使用するように Azure AD Connect Health エージェントを構成する場合、以下のオプションがあります。
@@ -189,4 +189,5 @@ WinHTTP プロキシ設定をインポートするには、Health エージェ�
 * [AD FS での Azure AD Connect Health の使用](active-directory-aadconnect-health-adfs.md)
 * [Azure AD Connect Health for Sync の使用](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health の FAQ](active-directory-aadconnect-health-faq.md)
+
 

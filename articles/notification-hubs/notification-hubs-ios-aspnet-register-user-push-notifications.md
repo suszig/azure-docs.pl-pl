@@ -26,7 +26,7 @@
 
 ##概要
 
-このトピックでは、ASP.NET Web API により登録が実行されるときに Azure Notification Hubs を使用してプッシュ通知登録を要求する方法について説明します。 このトピックでは、[通知ハブによるユーザーに通知する] このチュートリアルを拡張します。 認証されたモバイル サービスを作成するには、このチュートリアルの必要な手順を既に完了している必要があります。 ユーザー通知シナリオの詳細については、[通知ハブによるユーザーに通知する] を参照してください。
+このトピックでは、ASP.NET Web API により登録が実行されるときに Azure Notification Hubs を使用してプッシュ通知登録を要求する方法について説明します。 このトピックは、このチュートリアルを拡張 [Notify users with Notification Hubs]します。 認証されたモバイル サービスを作成するには、このチュートリアルの必要な手順を既に完了している必要があります。 ユーザー通知シナリオの詳細については、次を参照してください。 [Notify users with Notification Hubs]します。
 
 ##アプリケーションを更新する  
 
@@ -222,9 +222,9 @@
                 }
             }];
 
-    このメソッドは、プッシュ通知のインストール ID とチャネルの両方を取得します。これらの ID とチャネルは、デバイスの種類と共に、Notification Hubs で登録を作成する認証済みの Web API メソッドに送信されます。 [通知ハブによるユーザーに通知する] は、この Web API を定義しました。
+    このメソッドは、プッシュ通知のインストール ID とチャネルの両方を取得します。これらの ID とチャネルは、デバイスの種類と共に、Notification Hubs で登録を作成する認証済みの Web API メソッドに送信されます。 この Web API が定義された [Notify users with Notification Hubs]します。
 
-これで、クライアント アプリケーションが更新されて、[通知ハブによるユーザーへの通知] を返し、通知ハブを使用して通知を送信するモバイル サービスを更新します。
+これで、クライアント アプリケーションが更新されてに戻り、 [Notify users with Notification Hubs] Notification Hubs を使用して通知を送信するモバイル サービスを更新します。
 
 <!-- Anchors. -->
 
@@ -236,4 +236,5 @@
 [Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users-aspnet
 
 [Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+
 

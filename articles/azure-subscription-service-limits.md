@@ -32,7 +32,7 @@
 
 > [AZURE.NOTE] サービス管理クォータもとしての Azure リソース グループ内のリソースのクォータが、サブスクリプションによってアクセス可能な地域ごとであり、サブスクリプションごとではないことを強調するために重要です。 コア クォータを例に説明します。 コア対応のクォータの増量をリクエストする場合、どのリージョンでいくつのコアを使用するかを決めてから、Azure リソース グループのコア クォータの数量と目的のリージョンをリクエストする必要があります。 したがって、西ヨーロッパで 30 のコアを使用してアプリケーションを実行する必要がある場合、具体的に、西ヨーロッパで 30 のコアをリクエストしてください。 この場合、他のリージョンのコア クォータは増量されません -- 西ヨーロッパでのみ 30 コア クォータが増量されます。
 <!-- -->
-その結果、方が、1 つのリージョンのワークロードに対して必要がある Azure リソース グループのクォータの決定を考慮する便利なを先には、展開を検討している各リージョンでは、その量を依頼することがあります。 参照してください [troubleshooting deployment issues](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues) 特定のリージョンの現在のクォータを判断するのに役立つ情報。
+結果として、1 つのリージョンのワークロードに対して Azure リソース グループのクォータがどれくらい必要かを判断し、デプロイメントを検討している各リージョンでその量を要求するのが便利です。 参照してください [の展開に関する問題のトラブルシューティング](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues) 特定のリージョンの現在のクォータを判断するのに役立つ情報。
 
 
 ## サービス固有の制限
@@ -63,7 +63,7 @@
 - [Operational Insights](#operational-insights-limits)
 - [リソース グループ](#resource-group-limits)
 - [Scheduler](#scheduler-limits)
-- [検索](#search-limits)
+- [Search](#search-limits)
 - [Service Bus](#service-bus-limits)
 - [Site Recovery](#site-recovery-limits)
 - [SQL Database](#sql-database-limits)
@@ -281,4 +281,5 @@ SQL Database の制限を参照してください。 [SQL Database のリソー�
 [Understanding Azure Limits and Increases (Azure の制限と増設について)](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
 [Azure の仮想マシンおよびクラウド サービスのサイズ](http://msdn.microsoft.com/library/azure/dn197896.aspx)
+
 

@@ -79,7 +79,7 @@
 
 3.   **アプリケーション URL の構成** ] ページで、 **サインオン URL** URL は、次のパターンを使用して、SCC LifeCycle のアプリケーションにサインオンする、ユーザーが使用] ボックスに、型"*https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx*"、順にクリック **次**します。
 
-    ![Configure App URL](./media/active-directory-saas-scc-lifecycle-tutorial/IC794124.png "Configure App URL")
+    ![アプリケーション URL の構成](./media/active-directory-saas-scc-lifecycle-tutorial/IC794124.png "Configure App URL")
 
 4.   **SCC LifeCycle でのシングル サインオンの構成** ] ページで [ **メタデータのダウンロード**, 、コンピューターのローカルにメタデータ ファイルを保存します。
 
@@ -118,3 +118,4 @@ SCC LifeCycle へのユーザー プロビジョニングの構成にあたっ�
     ![あり](./media/active-directory-saas-scc-lifecycle-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

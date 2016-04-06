@@ -29,7 +29,7 @@ Apache Ambari には使いやすい Web UI と REST API が用意されている
 
 ##<a id="whatis"></a>Ambari とは
 
-<a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> Hadoop の管理を使いやすい web プロビジョニング、管理、および Hadoop クラスターの監視に使用できる UI を提供することで簡単になります。 開発者がこれらの機能をアプリケーションに統合するには、 <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">Ambari REST API を使用します</a>.
+<a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> は、Hadoop クラスターのプロビジョニング、管理、監視に使用する Web UI を簡単に使用できる方法を提供することで Hadoop の管理を簡略化します。 開発者は、<a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">Ambari REST API</a> を使用して、これらの機能をアプリケーションに統合することができます。
 
 Ambari Web UI は既定で Linux ベースの HDInsight クラスターに付属しています。 
 
@@ -223,3 +223,4 @@ Ambari ビューを使用して、Ambari Web UI に UI 要素を接続できる�
 * Yarn Queue Manager: このキュー マネージャーでは、シンプルな UI により YARN キューを表示、変更できます。
 * Hive ビュー: Hive ビューを使用すると、Web ブラウザーから直接 Hive クエリを実行できます。 クエリの保存、結果の表示、結果のクラスター ストレージへの保存、または結果のローカル システムへのダウンロードを行えます。 ビューの Hive の使用に関する詳細については、次を参照してください。 [HDInsight での Hive のビューを使用](hdinsight-hadoop-use-hive-ambari-view.md)します。
 * Tez ビュー: このビューでは、Tez ジョブの実行方法や、ジョブで使用するリソース関する情報を表示することで、ジョブをより良く理解、最適化できます。
+

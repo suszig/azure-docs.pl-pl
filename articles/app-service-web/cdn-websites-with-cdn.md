@@ -521,12 +521,12 @@ ASP.NET のバンドルおよび縮小を CDN エンドポイントと統合す�
                         var value = window.getComputedStyle(meta).getPropertyValue('width');
                         document.head.removeChild(meta);
                         if (value !== '1px') {
-                            document.write ('<link href="/Content/css" rel="stylesheet" type="text/css" />');
+                            document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />');
                         }
-                    {
+                    }
                 }
                 return true;
-            }())||document.write ('< スクリプトの src =「/content/css」>< \/script >');</script>
+            }())||document.write('<script src="/Content/css"><\/script>');</script>
 
     <script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
     <script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
@@ -539,11 +539,11 @@ ASP.NET のバンドルおよび縮小を CDN エンドポイントと統合す�
     ...
     ```
 
-    Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
+    CSS バンドルに対して挿入されたスクリプトには、次の行に `CdnFallbackExpression` プロパティのエラーの残りがまだ含まれている点に注意してください。
 
         }())||document.write('<script src="/Content/css"><\/script>');</script>
 
-    But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
+    ただし、(すぐ上の行の) || 式の最初の部分は常に true を返すため、document.write() 関数が実行されることはありません。
 
 6. フォールバック スクリプトが動作しているかどうかをテストするに戻り、CDN エンドポイントのダッシュ ボード] をクリック **を無効にするエンドポイント**します。
 
@@ -562,5 +562,6 @@ ASP.NET のバンドルおよび縮小を CDN エンドポイントと統合す�
 * Web サイトから App Service への変更のガイドを参照してください: [Azure App Service と既存の Azure サービスへの影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 古いポータルから新しいポータルへの変更ガイドについては、次を参照してください: [プレビュー ポータル内の移動に関するリファレンス。](http://go.microsoft.com/fwlink/?LinkId=529715)
  
+
 
 

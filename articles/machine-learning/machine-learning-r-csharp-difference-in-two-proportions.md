@@ -83,7 +83,7 @@
 
 >この Web サービスは、Azure Machine Learning を使用して作成されました。 無料評価版として入門ビデオ実験を作成し、 [web サービスを公開](machine-learning-publish-a-machine-learning-web-service.md), を参照してください [azure.com/ml](http://azure.com/ml)します。 Web サービスを作成した実験のスクリーン ショット、および実験内の各モジュールに対するコード例を以下に示します。
 
-Azure Machine Learning 内で、新しい空白の実験で作成されました [R スクリプトの実行] [- r のスクリプトの実行] の 2 つのモジュール。 1 番目のモジュールではデータ スキーマを定義し、2 番目のモジュールでは R 内で prop.test コマンドを使用して、2 つの比率に対して仮説検定を実行します。 
+Azure Machine Learning 内で、新しい空白の実験作成に使用した 2 つの [R スクリプトの実行][execute-r-script] モジュールです。 1 番目のモジュールではデータ スキーマを定義し、2 番目のモジュールでは R 内で prop.test コマンドを使用して、2 つの比率に対して仮説検定を実行します。 
 
 
 ###実験フロー:
@@ -129,4 +129,5 @@ Web サービスまたは Azure Marketplace への発行の使用に関するよ
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
+
 

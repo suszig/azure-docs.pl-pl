@@ -31,7 +31,7 @@
 このチュートリアルを完了するには、以下が必要です。
 
 * アクティブな [Microsoft ストア アカウント](http://go.microsoft.com/fwlink/p/?LinkId=280045)します。
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>.
+* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>。
 
 ##<a id="register"></a>アプリケーションをプッシュ通知に登録する
 
@@ -43,7 +43,7 @@
 
 &nbsp;&nbsp;8. 余分な呼び出しを削除し、共有 App.xaml.cs ファイルでの Windows Phone ストア アプリ プロジェクトへのプッシュ通知を追加するには、前の手順を繰り返して **UploadChannel** され、残りの `#if...#endif` 条件付きラッパーです。 両方のプロジェクトでは、1 回の呼び出しを共有できるよう **UploadChannel**します。
 
-> [AZURE.NOTE] 統合することによって生成されたコードを単純化することもできます、 `#if...#endif` ラップ [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) アプリの両方のバージョンで使用される 1 つのラップされていない定義を定義します。
+> [AZURE.NOTE] 統合することによって生成されたコードを単純化することもできます、 `#if...#endif` ラップ [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) 両方のバージョンのアプリで使用される単一のラップされていない定義を定義します。
 
 アプリでプッシュ通知が有効にされたので、プッシュ通知を送信するにはモバイル サービスを更新する必要があります。
 
@@ -53,7 +53,7 @@
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-update-server-push](../../includes/mobile-services-dotnet-backend-update-server-push.md)]
 
-##<a id="local-testing"></a> ローカル テストのためにプッシュ通知を有効にする
+##<a id="local-testing"></a>ローカル テストのためにプッシュ通知を有効にする
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push-vs2013](../../includes/mobile-services-dotnet-backend-configure-local-push-vs2013.md)]
 
@@ -73,7 +73,7 @@
 
 & nbsp; & nbsp;これを使用して [MobileServiceClient], 、アプリは Azure でホストされているバージョンではなくローカルのサービスに接続します。 Azure でホストされているモバイル サービスに対してアプリを実行する場合は、元に戻す変更 [MobileServiceClient] 定義します。
 
-##<a id="test"></a> アプリケーションでプッシュ通知をテストする
+##<a id="test"></a>アプリケーションでプッシュ通知をテストする
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-windows-universal-test-push](../../includes/mobile-services-dotnet-backend-windows-universal-test-push.md)]
 
@@ -83,20 +83,20 @@
 
 Mobile Services と Notification Hubs については次のトピックを参照してください。
 
-* [既存のアプリケーションへの Mobile Services の追加][を使ってみるデータ]
+* [既存のアプリケーションへの Mobile Services の追加][Get started with data]
   <br/>Mobile Services を使用してデータの格納およびクエリを実行する方法について説明します。
 
-* [アプリに認証の追加][認証の使用の開始を取得]
+* [アプリへの認証の追加][Get started with authentication]
   <br/>Mobile Services を使用して別のアカウントの種類のアプリケーションのユーザーを認証する方法について説明します。
 
 * [What are Notification Hubs?]
-  <br/>通知を配信するアプリケーションにすべての主要なクライアントのプラットフォームの通知ハブの動作について説明します。
+  <br/>通知ハブがすべての主要なクライアント プラットフォーム全体のアプリケーションに通知を配信するための動作を説明します。
 
-* [Notification Hubs アプリケーションをデバッグします。](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>ガイドのトラブルシューティングと Notification Hubs ソリューションのデバッグを取得します。
+* [通知ハブのデバッグ](http://go.microsoft.com/fwlink/p/?linkid=386630)
+  </br>Notification Hubs ソリューションのトラブルシューティングとデバッグについて説明します。
 
 * [How to use a .NET client for Azure Mobile Services]
-  <br/>C# Windows アプリからモバイル サービスを使用する方法について説明します。
+  <br/>Mobile Services を C# Windows アプリから使用する方法について説明します。
 
 <!-- Anchors. -->
 
@@ -116,3 +116,4 @@ Mobile Services と Notification Hubs については次のトピックを参照
 
 [How to use a .NET client for Azure Mobile Services]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
+

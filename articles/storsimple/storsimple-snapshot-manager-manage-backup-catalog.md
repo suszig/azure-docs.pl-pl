@@ -117,7 +117,7 @@ StorSimple Snapshot Manager で予防措置のバックアップを作成して�
 
 バックアップ カタログからスナップショットを削除するには、以下の手順を実行します。 
 
->[AZURE.NOTE] スナップショットを削除すると、スナップショットに関連付けられているバックアップ データが削除されます。 ただし、クラウドからデータをクリーンアップする処理には、時間がかかる場合があります。<br>
+>[AZURE.NOTE] スナップショットを削除すると、スナップショットに関連付けられているバックアップ データが削除されます。 ただし、クラウドからデータをクリーンアップする処理時間がかかる場合があります。<br>
  
 #### バックアップを削除するには
 
@@ -207,4 +207,5 @@ StorSimple Snapshot Manager で予防措置のバックアップを作成して�
 
 - 詳細について [StorSimple Snapshot Manager を使用して、StorSimple ソリューションの管理に](storsimple-snapshot-manager-admin.md)します。
 - 詳細について [StorSimple Snapshot Manager のタスクとワークフロー](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows)します。
+
 

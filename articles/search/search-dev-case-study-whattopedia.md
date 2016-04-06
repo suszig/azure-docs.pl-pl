@@ -19,7 +19,7 @@
 
 ## どのように [WhatToPedia.com](http://whattopedia.com/) 情報ポータルを Microsoft Azure で構築
 
- ![6] & nbsp; & nbsp; nbsp;  <font size="9">大きな構想</font> 
+ ![][6]  & nbsp; & nbsp; & nbsp;  <font size="9">大きな構想</font> 
 
 
 私たちの構想は、関連性の高い範囲指定検索エクスペリエンスを通して、買い物客と小売業者との接続をサポートする情報ポータルを構築することにあります。これは、旅行ポータルによって旅行者を見知らぬ土地でホテル、レストラン、エンターテイメントと結び付ける方法に似ています。 
@@ -65,7 +65,7 @@ Azure Search はプロジェクトに大きな変革をもたらしました。 
 - [Azure Search](http://azure.microsoft.com/services/search/)
 - [MVC 4 を使用する Azure Websites](http://azure.microsoft.com/services/websites/)
 - [スケジュールされたタスク用の Azure Web ジョブ](../websites-webjobs-resources.md)
-- [Azure SQL Database](http://azure.microsoft.com/services/sql-database/)
+- [Azure SQL データベース](http://azure.microsoft.com/services/sql-database/)
 - [Azure BLOB ストレージ](http://azure.microsoft.com/services/storage/)
 - [SendGrid 電子メール配信](http://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
 
@@ -421,4 +421,5 @@ Azure SQL Database 内のサブスクライバー データは、最も重要な
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
+
 

@@ -32,7 +32,7 @@ Azure の大規模なコンピューティング オプションについて説�
 
 [バッチ](http://azure.microsoft.com/services/batch/) プラットフォーム サービス、アプリケーションをクラウド対応にして、セットアップして、クラスターやジョブ スケジューラーを管理しなくてもジョブを実行するが簡単です。 SDK を使用して、さまざまな言語を介してクライアント アプリケーションを Azure Batch と統合し、Azure にデータをステージングし、ジョブの実行パイプラインをビルドします。
 
-* [ドキュメント](http://azure.microsoft.com/documentation/services/batch/)
+* [Documentation](http://azure.microsoft.com/documentation/services/batch/)
 
 * [API リファレンス](https://msdn.microsoft.com/library/azure/dn820177.aspx)
 
@@ -52,7 +52,7 @@ HPC Pack は、Microsoft Azure と Windows Server テクノロジに基づいて
 
 * [HPC Pack 2012 R2 Update 3 をダウンロードする](https://www.microsoft.com/en-us/download/details.aspx?id=49922)
 
-* [ドキュメント](https://technet.microsoft.com/library/jj899572.aspx)
+* [Documentation](https://technet.microsoft.com/library/jj899572.aspx)
 
 
 * [Azure での Microsoft HPC Pack を使用した HPC クラスター オプション](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
@@ -123,4 +123,5 @@ Azure キャンペーン、 [さまざまなサイズ](../virtual-machines/virtu
 
 * 最新情報については、次を参照してください。、 [Microsoft HPC と Batch のチームのブログ](http://blogs.technet.com/b/windowshpc/) と [Azure ブログ](http://azure.microsoft.com/blog/tag/hpc/)します。
 * 参照してください [バッチの新機能](http://azure.microsoft.com/updates/?service=batch) やサブスクライブを実行、 [RSS フィード](http://azure.microsoft.com/updates/feed/?service=batch)します。
+
 

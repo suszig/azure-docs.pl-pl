@@ -23,10 +23,11 @@ This include file is probably used in the following topics:
 sql-database-develop-php-simple-windows.md
 sql-database-develop-php-retry-windows.md
 
-MightyPen genemi =
-満たす bhagdev
-DateOfLatestFreshnessVerification = 2015年-07-10
-DateOfLatestContentUpdate = 2015年-07-10
+MightyPen = genemi
+meet-bhagdev
+DateOfLatestFreshnessVerification = 2015-07-10
+DateOfLatestContentUpdate = 2015-07-10
 -->
+
 
 

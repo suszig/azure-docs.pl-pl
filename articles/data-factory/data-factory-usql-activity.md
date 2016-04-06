@@ -50,7 +50,7 @@ Azure Data Factory のパイプラインは、リンクされたコンピュー�
 プロパティ | 説明 | 必須
 -------- | ----------- | --------
 型 | Type プロパティに設定する必要があります: **AzureDataLakeAnalytics**します。 | あり
-accountName | Azure Data Lake Analytics アカウント名。 | はい
+accountName | Azure Data Lake Analytics アカウント名。 | あり
 dataLakeAnalyticsUri | Azure Data Lake Analytics URI。 |  いいえ 
 authorization | 認証コードがクリックすると自動的に取得される **Authorize** Data Factory エディターでのボタンをクリックし、OAuth のログインを完了します。 | あり 
 subscriptionId | Azure サブスクリプション ID | いいえ (指定されていない場合は Data Factory のサブスクリプションが使用されます)。 
@@ -187,4 +187,5 @@ parameters | U-SQL スクリプトのパラメーター | いいえ
     }
 
 参照してください [Azure Data Lake ストアからデータを移動](data-factory-azure-datalake-connector.md) 上の Azure データ湖のストアに JSON プロパティの説明については、サービス、およびデータ セットの JSON スニペットをリンクします。 
+
 

@@ -16,7 +16,7 @@ Web サイトを作成するときに Azure は、ユーザーが http://&lt;mys
 -   [カスタム ドメインの CNAME レコードの追加](#bkmk_configurecname)
 -   [カスタム ドメインの A レコードの追加](#bkmk_configurearecord)
 
-<h2><a name="understanding-records"></a>CNAME レコードと A レコードについて</h2>
+<h2><a name="understanding-records"></a>Cname レコードと A レコードのレコードをについてください。</h2>
 
 CNAME レコード (またはエイリアス レコード) および A レコードはどちらもドメイン名を Web サイトに関連付けることができますが、それぞれ機能は異なります。
 
@@ -41,16 +41,16 @@ Web サイトのカスタム ドメイン名は、Azure Websites の Shared モ�
 1. ブラウザーで開く、 [管理ポータル][portal]します。
 2.  **Websites** ] タブで、サイトの名前をクリックします。
 
-    ![standardmode1]
+    ![][standardmode1]
 
 3. クリックして、 **スケール** ] タブをクリックします。
 
-    ![standardmode2]
+    ![][standardmode2]
 
 
 4.  **全般** 」をクリックして web サイトのモードを設定 **SHARED**します。
 
-    ![standardmode3]
+    ![][standardmode3]
 
     > [AZURE.NOTE] この web サイトで Traffic Manager を使用する場合は、共有ではなく Standard モードを使わなければなりません。
 
@@ -318,4 +318,5 @@ A レコードを作成するには、まず、Website の IP アドレスを見
 
 [setcname2]: ./media/custom-dns-web-site/dncmntask-cname-6.png
 [setcname3]: ./media/custom-dns-web-site/dncmntask-cname-7.png
+
 

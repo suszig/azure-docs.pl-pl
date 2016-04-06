@@ -27,14 +27,14 @@
 
 ##概要
 
-このトピックでは、Azure Mobile Services を使用して Xamarin Android アプリにプッシュ通知を送信する方法について説明します。 このチュートリアルでは、Google Cloud Messaging (GCM) サービスを使用してプッシュ通知を追加、[を使ってみるモバイル サービス] プロジェクトです。 完了すると、モバイル サービスは、レコードが挿入されるたびにプッシュ通知を送信します。
+このトピックでは、Azure Mobile Services を使用して Xamarin Android アプリにプッシュ通知を送信する方法について説明します。 このチュートリアルでは、Google Cloud Messaging (GCM) サービスを使用してプッシュ通知を追加、 [Get started with Mobile Services] プロジェクトです。 完了すると、モバイル サービスは、レコードが挿入されるたびにプッシュ通知を送信します。
 
 このチュートリアルには、次のものが必要です。
 
 + アクティブな Google アカウント。
 + [Google Cloud Messaging Client Component]. このコンポーネントは、チュートリアル中に追加します。
 
-いれば、 [Xamarin.Android] と [Azure Mobile Services][Azure Mobile Services Component] から完了すると、プロジェクトにインストールされているコンポーネント [を使ってみるモバイル サービス] です。
+いれば、 [Xamarin.Android] と [Azure Mobile Services][Azure Mobile Services Component] から完了すると、プロジェクトにコンポーネントをインストール [Get started with Mobile Services]します。
 
 ##<a id="register"></a>Google Cloud Messaging を有効にする
 
@@ -48,7 +48,7 @@
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-android-push-update-service](../../includes/mobile-services-dotnet-backend-android-push-update-service.md)]
 
-##<a id="configure-app"></a>プッシュ通知の既存のプロジェクトを構成します。
+##<a id="configure-app"></a>プッシュ通知の既存のプロジェクトを構成する
 
 [AZURE.INCLUDE [mobile-services-xamarin-android-push-configure-project](../../includes/mobile-services-xamarin-android-push-configure-project.md)]
 
@@ -60,7 +60,7 @@
 
 Android フォンを USB ケーブルで直接接続するか、エミュレーターで仮想デバイスを使用する方法により、アプリケーションをテストできます。
 
-###<a id="local-testing"></a> ローカル テストのためにプッシュ通知を有効にする
+###<a id="local-testing"></a>ローカル テストのためにプッシュ通知を有効にする
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
@@ -73,4 +73,5 @@ Android フォンを USB ケーブルで直接接続するか、エミュレー�
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
+
 

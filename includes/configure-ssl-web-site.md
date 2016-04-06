@@ -20,7 +20,7 @@
 <a name="bkmk_getcert"></a>
 ## 1.SSL 証明書を取得する
 
-SSL 証明書を要求する前に、その証明書により、どのドメイン名をセキュリティで保護するかを最初に決定する必要があります。 この結果、どのような種類の証明書を取得する必要があるかが決まります。 だけなど、1 つのドメイン名をセキュリティで保護する必要がある場合 **contoso.com** または **www.contoso.com** 基本的な証明書で十分です。 などの複数のドメイン名をセキュリティで保護する必要があるかどうかは **contoso.com**, 、**www.contoso.com**, 、および **mail.contoso.com**, を入手できる、 [ワイルドカード証明書](http://en.wikipedia.org/wiki/Wildcard_certificate), 、または証明書を [サブジェクト代替名](http://en.wikipedia.org/wiki/SubjectAltName) (subjectAltName)。
+SSL 証明書を要求する前に、その証明書により、どのドメイン名をセキュリティで保護するかを最初に決定する必要があります。 この結果、どのような種類の証明書を取得する必要があるかが決まります。 だけなどの単一のドメイン名をセキュリティで保護する必要がある場合 **contoso.com** または **www.contoso.com** 基本的な証明書で十分です。 などの複数のドメイン名をセキュリティで保護する必要があるかどうかは **contoso.com**, 、**www.contoso.com**, 、および **mail.contoso.com**, を入手できる、 [ワイルドカード証明書](http://en.wikipedia.org/wiki/Wildcard_certificate), 、または証明書を [サブジェクト代替名](http://en.wikipedia.org/wiki/SubjectAltName) (subjectAltName)。
 
 によって App Service で使用される SSL 証明書を署名する必要があります、 [証明機関](http://en.wikipedia.org/wiki/Certificate_authority) (CA)。 まだ SSL 証明書がない場合は、SSL 証明書を発行する会社から取得する必要があります。 証明機関の一覧は、次を参照してください。 [Windows および Windows Phone 8 SSL ルート証明書プログラム (メンバー Ca)][cas] 、Microsoft TechNet Wiki にします。
 
@@ -445,7 +445,7 @@ Visual Studio がインストールされている Windows システムからテ
 <a name="bkmk_enforce"></a>
 ## 4.アプリに HTTPS を適用する
 
-Azure App Service は *いない* HTTPS を適用します。 訪問者は引き続き HTTP を使用してアプリにアクセスできるため、アプリのセキュリティが損なわれる可能性があります。 アプリの HTTPS を適用する場合は、使用、 **URL 書き換え** モジュールです。 URL 書き換えモジュールは Azure App Service に組み込まれており、それを使用して、受信した要求をアプリケーションに渡す前に要求に適用されるルールを定義できます。 **Azure でサポートされている任意のプログラミング言語で記述されたアプリケーションは使用できます。**
+Azure App Service は *いない* HTTPS を適用します。 訪問者は引き続き HTTP を使用してアプリにアクセスできるため、アプリのセキュリティが損なわれる可能性があります。 アプリの HTTPS を適用する場合は、使用、 **URL 書き換え** モジュールです。 URL 書き換えモジュールは Azure App Service に組み込まれており、それを使用して、受信した要求をアプリケーションに渡す前に要求に適用されるルールを定義できます。 **このモジュールは、Azure がサポートするプログラミング言語で記述されたアプリケーションで使用できます。**
 
 > [AZURE.NOTE] .NET MVC アプリケーションを使用する必要があります、 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) URL 書き換えの代わりにフィルターします。 RequireHttps の使用方法の詳細については、次を参照してください。 [web アプリにセキュリティで保護された ASP.NET MVC 5 アプリケーションをデプロイ](../articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)します。
 >
@@ -548,4 +548,5 @@ IIS URL 書き換えモジュールの詳細については、次を参照して
 [certwiz2]: ./media/configure-ssl-web-site/waws-certwiz2.png
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
+
 

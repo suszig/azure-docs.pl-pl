@@ -77,7 +77,7 @@
 * 
      テレメトリ項目の名前。  この名前はインスタンス間で一意ではありません。テレメトリ タイプのグループ化を表します。  ビューの場合、既定で URLData.base に設定されます。  イベントの場合は、開発者が指定したラベルです。  要求の場合は、controller\action などの判読可能な要求形式になります。 
 
-    *例*<br/> 名の表示:<br/>70 486 試験質問 1<br/>- マイ ASP.NET アプリケーションの概要<br/><br/>要求の名前の例:<br/>POST/Components/WebHandlers/ItemCompare.ashx<br/>GET/signalr/ポーリング<br/>GET/signalr/ネゴシエート 
+    *例*<br/> ビューの名前。<br/>70 486 試験質問 1<br/>-マイ ASP.NET アプリケーションの概要<br/><br/>要求の名前の例:<br/>POST/Components/WebHandlers/ItemCompare.ashx<br/>/Signalr/poll を取得します。<br/>/Signalr/negotiate を取得します。 
 
 **severity**
 
@@ -91,7 +91,7 @@
 * 
      印刷ページ、イベント、要求、RDD の URL。  完全な URL です。フルテキスト検索とエクスポートでサポートされます。 このフィールドには高基数を指定できます。これは属性です。  メトリック エクスプローラーで集計に使用できる urlData データ項目のセットに解析されます。 
 
-    *既定値:* R2: remotedepencyType の場合は dependencyType = HTTP このフィールドは必須<br/>        clientperformanceType にこのフィールドは必須です 
+    *既定値:* R2: remotedepencyType の場合は dependencyType = HTTP このフィールドは必須です<br/>        clientperformanceType にこのフィールドは必須です。 
 
     *例*<br/> https://icecream.contoso.com/main.aspx?etc=3&extraqs=%3fetc%3d3%26formid%3dc40d07a7-1cf1-4e1d-b00e-e61876d1284e&pagemode=iframe&pagetype=entityrecord<br/>http://fabrikam-oats.azurewebsites.net/index.htm 
 
@@ -103,7 +103,7 @@
 
     *派生:* URL 変換については、「」を参照付録 
 
-    *例*<br/> /main.aspx?etc=3 & extraqs 3fetc %3 %d を = 3% 26formid %3dc40d07a7-1cf1-4e1d-b00e-e61876d1284e & pagemode = iframe & pagetype = entityrecord<br/>/default.aspx<br/>/Patients/検索/<br/> 
+    *例*<br/> /main.aspx?etc=3 & extraqs 3fetc %3 %d を = 3% 26formid %3dc40d07a7-1cf1-4e1d-b00e-e61876d1284e & pagemode = iframe & pagetype entityrecord =<br/>/default.aspx<br/>/Patients/検索/<br/> 
 
 **urldata.hashTag**
 
@@ -343,7 +343,7 @@
 * 
      UTC で記録されたテレメトリ イベントの時刻。  通常、クライアント側で設定されます。  このフィールドがない場合は、データ コレクションのエンドポイントで設定されます。  フィールドの形式は、YYYY-MM-DDTHH:MM:SS.sssZ です。    
 
-    *例*<br/> 2015年-05-20T04:00:46.8338283Z 
+    *例*<br/> 2015-05-20T04:00:46.8338283Z 
 
 **samplingRate**
 
@@ -359,7 +359,7 @@
 
     *既定値:* かどうか null、これは、に基づいて設定ユーザー エージェントの処理です。  ユーザー エージェントの解析については、付録をご覧ください。 
 
-    *例*<br/> Opera<br/>モバイル Safari<br/>Ovi ブラウザー<br/>Chrome<br/>Firefox<br/>Internet Explorer 
+    *例*<br/> 元の opera<br/>モバイル Safari<br/>Ovi ブラウザー<br/>Chrome<br/>Firefox<br/>Internet Explorer 
 
 **browserVersion**
 
@@ -369,7 +369,7 @@
 
     *既定値:* かどうか null、これは、に基づいて設定ユーザー エージェントの処理です。  ユーザー エージェントの解析については、付録をご覧ください。 
 
-    *例*<br/> Opera 12.17<br/>モバイル Safari 8.0<br/>Ovi ブラウザー 5.5<br/>Chrome の 37.0<br/>Firefox 21.0<br/>Internet Explorer 7.0 
+    *例*<br/> Opera 12.17<br/>モバイル Safari 8.0<br/>Ovi ブラウザー 5.5<br/>Chrome 37.0<br/>Firefox 21.0<br/>Internet Explorer 7.0 
 
 **deploymentId**
 
@@ -390,7 +390,7 @@
 * 
      クライアント側のアプリのロケールです。  テレメトリ項目で明示的に指定しない場合、ユーザー エージェントのフィールドの処理により指定されます。 
 
-    *例*<br/> ru<br/>EN-US<br/>DE-DE<br/>不明 
+    *例*<br/> ru<br/>en-us (英語)<br/>de-de などがあります。<br/>不明な 
 
 **machineName**
 
@@ -407,7 +407,7 @@
 
     *既定値:* かどうか null、これは、に基づいて設定ユーザー エージェントの処理です。  ユーザー エージェントの解析については、付録をご覧ください。 
 
-    *例*<br/> Windows<br/>iOS iPad<br/>Nokia 
+    *例*<br/> Windows<br/>iPad の iOS<br/>Nokia 
 
 **operatingSystemVersion**
 
@@ -439,7 +439,7 @@
 
     *派生:* 存在する場合に、context.device.screenresolution から解析 
 
-    *例*<br/> 360<br/>1280年<br/>1920年 
+    *例*<br/> 360<br/>1280<br/>1920 
 
 **screenResolution**
 
@@ -447,7 +447,7 @@
 * 
      テレメトリ項目がアプリによってキャプチャされた時点での画面の解像度。  セッション中に縦方向と横方向の間で切り替えられます。  この属性をセッション レベルで使用する場合、フル セッションを表すためにキャプチャされる最初の画面の解像度になります。 
 
-    *例*<br/> 画面の解像度の高さ幅<br/>360 640 X<br/>1280 x 800<br/>1920 x 1080 
+    *例*<br/> 画面の解像度の高さの幅<br/>360 640 X<br/>1280 X 800<br/>1920 x 1080 
 
 **screenWidth**
 
@@ -457,7 +457,7 @@
 
     *派生:* 存在する場合に、context.device.screenresolution から解析 
 
-    *例*<br/> 640<br/>800<br/>1080年 
+    *例*<br/> 640<br/>800<br/>1080 
 
 
 **aiAgentVersion**
@@ -490,7 +490,7 @@
 * 
      アプリ セッションの大陸。  テレメトリ項目で直接指定できます。  存在しない場合は、テレメトリ項目の IPv4 に基づいて設定されます。  IPv4 の指定がない場合、フィールドは空白のままです。 
 
-    *例*<br/> ヨーロッパ<br/>北アメリカ 
+    *例*<br/> ヨーロッパ<br/>北米 
 
 **country**
 
@@ -507,7 +507,7 @@
 * 
      アプリのセッションの郡。  テレメトリ項目で直接指定できます。  存在しない場合は、テレメトリ項目の IPv4 に基づいて設定されます。  IPv4 の指定がない場合、フィールドは空白のままです。 
 
-    *例*<br/> ミンスク<br/>Oregon<br/>中央セルビア<br/>Provincia di Oristano 
+    *例*<br/> ミンスク<br/>オレゴン州<br/>中央セルビア<br/>Provincia di Oristano 
 
 **operationId**
 
@@ -541,7 +541,7 @@
 * 
      テレメトリ項目が実際のユーザー アクティビティではなく、代理テストで生成されたこと示すインジケーター。 
 
-    *既定値:* かどうか null の場合、ユーザー エージェントは、検証代理エージェントの既知の一覧と照合します。  一致が見つかると、値は true に設定されます。<br/>ユーザー エージェントが Null の場合は false に設定されます。 
+    *既定値:* かどうか null の場合、ユーザー エージェントは、検証代理エージェントの既知の一覧と照合します。  一致が見つかった場合、値が設定を true にします。<br/>ユーザー エージェントは null を false に設定します。 
 
 **session.Id**
 
@@ -991,6 +991,7 @@
 * [Application Insights](app-insights-overview.md) 
 * [連続エクスポート](app-insights-export-telemetry.md)
 * [コード サンプル](app-insights-export-telemetry.md#code-samples)
+
 
 
 

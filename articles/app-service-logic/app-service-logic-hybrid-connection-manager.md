@@ -82,7 +82,7 @@ TCP ポート | 理由
  | 着信 TCP 受信ポートは必要ありません。
 9350 ～ 9354 | これらのポートはデータ転送に使用されます。 Service Bus Relay マネージャーはポート 9350 を調べて、TCP 接続を利用できるかどうかを決定します。 利用できる場合は、ポート 9352 も利用可能であるとみなされます。 データ トラフィックはポート 9352 を経由します。 <br/><br/>これらのポートへの発信接続を許可します。
 5671 | ポート 9352 がデータ トラフィックに使用される場合、ポート 5671 は制御チャンネルとして使用されます。 <br/><br/>このポートへの発信接続を許可します。 
-80、443 | ポート 9352 と 5671 を使用しない場合、 *、* ポート 80 と 443 がデータ転送と制御チャネルに使用される代替のポート<br/><br/>。これらのポートへの発信接続を許可します。
+80、443 | ポート 9352 と 5671 を使用しない場合、 *、* ポート 80 と 443 がデータ転送と制御チャネルに使用される代替のポートです。<br/><br/>これらのポートへの発信接続を許可します。
 オンプレミス システムのポート | オンプレミス システムでは、システムによって使用されているポートが開きます。 たとえば、SQL Server では、通常はポート 1433 を使用します。 この TCP ポートを開きます。
 
 [Service Bus を使用したファイアウォールの背後でのホスティング](http://msdn.microsoft.com/library/azure/ee706729.aspx)
@@ -120,7 +120,7 @@ TCP ポート | 理由
 
 ## FAQ
 
-**質問**: 2 つのハイブリッド接続マネージャーがあります。 違いは何でしょうか。<br/>
+**質問**: 2 つのハイブリッド接続マネージャーがあります。 違いは何ですか。<br/>
 **応答**: がある、 [ハイブリッド接続](../integration-hybrid-connection-overview.md) Web Apps (以前の web サイト) と Mobile Apps (以前のモバイル サービス) によって、主に内部設置型への接続に使用されるテクノロジです。 この Hybrid Connections Manager には独自 [セットアップ](../integration-hybrid-connection-create-manage.md) し (バック グラウンドで) Azure BizTalk サービスを使用します。 それは、TCP プロトコルと HTTP プロトコルのみをサポートします。
 
 Azure App Service コネクタにも、Hybrid Connection Manager があります。  この Hybrid Connection Manager は *いない* (バック グラウンドで)、Azure BizTalk サービスとサポートをよりも、TCP および HTTP プロトコルを使用します。 参照してください、 [コネクタと API Apps の一覧と](app-service-logic-connectors-list.md)です。
@@ -135,7 +135,7 @@ Azure App Service コネクタにも、Hybrid Connection Manager があります
 
 ## 詳細
 
-[ロジック アプリを監視します。](app-service-logic-monitor-your-logic-apps.md)<br/>
+[Logic Apps を監視する](app-service-logic-monitor-your-logic-apps.md)<br/>
 [サービス バスの料金](http://azure.microsoft.com/pricing/details/service-bus/)
 
 
@@ -149,4 +149,5 @@ Azure App Service コネクタにも、Hybrid Connection Manager があります
 [4]: ./media/app-service-logic-hybrid-connection-manager/BrowseSetupComplete.jpg
 
  
+
 

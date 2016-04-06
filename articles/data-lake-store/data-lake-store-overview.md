@@ -56,7 +56,7 @@ Data Lake Store では、格納されたデータに対してエンタープラ�
 Azure Data Lake Store では、任意のデータをネイティブ形式でそのまま格納することができ、事前の変換は必要ありません。 Data Lake Store では、データを読み込む前にスキーマを定義する必要はなく、分析時にデータを解釈しスキーマを定義するかどうかは個々の分析フレームワークに任されます。 任意のサイズおよび形式のファイルを格納できるようにすると、Data Lake Store は構造化データ、半構造化データ、および非構造化データを処理できるようになります。
 
 
-## <a name="DataLakeStoreSecurity"></a>Azure Data Lake ストアでデータを保護します。
+## <a name="DataLakeStoreSecurity"></a>Azure Data Lake Store でのデータのセキュリティ保護
 
 Azure Data Lake Store では、Azure Active Directory を使用し、認証およびアクセス制御リスト (ACL) によってデータへのアクセスを管理します。
 
@@ -85,4 +85,5 @@ Data Lake Store 内のデータには、`adl://<data_lake_store_name>.azuredatal
 - [Data Lake Store で Azure HDInsight を使用する](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [.NET SDK で Data Lake Store の使用を開始する](data-lake-store-get-started-net-sdk.md)
   
+
 

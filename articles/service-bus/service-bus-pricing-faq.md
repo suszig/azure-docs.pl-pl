@@ -32,7 +32,7 @@
 
 ## Service Bus の課金方法を教えてください
 
-Service Bus の料金の詳細については、次を参照してください。 [Service Bus の料金と課金](https://msdn.microsoft.com/library/dn831889.aspx) と [Service Bus の料金詳細](http://azure.microsoft.com/pricing/details/service-bus/)します。 既に説明した価格に加え、ご利用のアプリケーションがプロビジョニングされているデータ センターから外部に送信される関連データ転送に料金が発生します。 詳細については、以下の「[Service Bus でデータ転送の対象となる用途と対象外の用途を教えてください](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)」を参照してください。
+Service Bus の料金の詳細については、次を参照してください。 [Service Bus の料金と課金](https://msdn.microsoft.com/library/dn831889.aspx) と [Service Bus の料金詳細](http://azure.microsoft.com/pricing/details/service-bus/)します。 既に説明した価格に加え、ご利用のアプリケーションがプロビジョニングされているデータ センターから外部に送信される関連データ転送に料金が発生します。 詳細については、以下の「[Service Bus でデータ転送の対象となる用途と対象外の用途を教えてください](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) 」セクションの説明に従って、アプリケーションを発行します。
 
 ## Service Bus でデータ転送の対象となる用途と 対象外の用途を教えてください
 
@@ -115,3 +115,4 @@ Service Bus メッセージングの詳細については、次のトピック�
 - [Service Bus キューの使用方法](service-bus-dotnet-how-to-use-queues.md)
 
 [Azure classic portal]: http://manage.windowsazure.com
+

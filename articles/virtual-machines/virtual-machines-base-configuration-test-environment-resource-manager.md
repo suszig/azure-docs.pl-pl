@@ -294,7 +294,7 @@ Azure の基本構成の準備が整いました。アプリケーションの�
 - これを構築する基礎として使用、 [シミュレートされたハイブリッド クラウド テスト環境](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)します。
 
 
-## <a id="costs"></a>Azure でのテスト環境の仮想マシンのコストを最小限に抑える
+## <a id="costs"></a>Azure のテスト環境の仮想マシンで生じるコストを最小限に抑える方法
 
 テスト環境の仮想マシンを実行する際に発生するコストは、次のいずれかの方法で最小限に抑えることができます。
 
@@ -320,4 +320,5 @@ Azure PowerShell で仮想マシンを順番に起動するには、リソース
     Start-AzureRMVM -ResourceGroupName $rgName -Name "DC1"
     Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
     Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
+
 

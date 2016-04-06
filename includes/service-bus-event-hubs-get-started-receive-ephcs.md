@@ -1,10 +1,10 @@
 ## EventProcessorHost を使用したメッセージの受信
 
-[EventProcessorHost]は、.NET クラスを永続的なチェックポイントの管理によって Event Hubs からのイベントの受信を簡素化し、並列がそれらの Event Hubs から受け取ります。 [EventProcessorHost] を使用して、イベントを分割できます複数の受信側間でさまざまなノードでホストされている場合にもします。 この例では、受信側が単一の [EventProcessorHost] を使用する方法を示します。 [スケール アウトのイベントの処理] サンプルでは、複数の受信者と [EventProcessorHost] を使用する方法を示します。
+[EventProcessorHost][] 永続的なチェックポイントの管理によって Event Hubs からのイベントの受信を簡素化する .NET クラスは、並列はそれらの Event Hubs から受信します。 使用して [EventProcessorHost][], 、さまざまなノードでホストされている場合でも、複数の受信側間でイベントを分割することができます。 この例は、使用する方法を示しています。 [EventProcessorHost][] の受信者は 1 つです。  [イベントの処理を拡大/縮小][] サンプルを使用する方法を示します [EventProcessorHost][] 複数の受信者とします。
 
-[EventProcessorHost] を使用するのには、[Azure ストレージ アカウント] のが必要です。
+使用するために [EventProcessorHost][], 、する必要があります、 [Azure ストレージ アカウント][]:
 
-1. [Azure クラシック ポータル] にログオンし、クリックして **新規** 、画面の下部にあります。
+1. ログオン、 [Azure クラシック ポータル][], 、] をクリック **新規** 、画面の下部にあります。
 
 2. をクリックして **Data Services**, 、し **ストレージ**, 、し **簡易作成**, 、ストレージ アカウントの名前を入力します。 目的のリージョンを選択し、クリックして **ストレージ アカウントの作成**します。
 
@@ -116,7 +116,7 @@
     }
     ````
 
-> [AZURE.NOTE] このチュートリアルでは、[EventProcessorHost] の 1 つのインスタンスを使用します。 スループットを増加させるのには勧め [EventProcessorHost] の複数のインスタンスを実行する [スケール アウトのイベントの処理] サンプルで示すようにします。 このような場合、受信したイベントの負荷を分散するために、さまざまなインスタンスが自動的に連携します。 各プロセスの複数の受信側の場合 *すべて* 使用する必要があります、イベント、 **ConsumerGroup** 概念です。 さまざまなコンピューターからイベントを受信するときに展開されるコンピューター (またはロール) に基づいて [EventProcessorHost] のインスタンスの名前を指定すると便利ですがあります。 これらのトピックの詳細については、[Event Hubs の概要] と [Event Hub プログラミング ガイド] のトピックを参照してください。
+> [AZURE.NOTE] このチュートリアルの 1 つのインスタンスを使用して [EventProcessorHost][]します。 スループットを増加することをお勧めの複数のインスタンスを実行すること [EventProcessorHost][], のように、 [イベントの処理を拡大/縮小][] サンプルです。 このような場合、受信したイベントの負荷を分散するために、さまざまなインスタンスが自動的に連携します。 各プロセスの複数の受信側の場合 *すべて* 使用する必要があります、イベント、 **ConsumerGroup** 概念です。 さまざまなコンピューターからイベントを受信するときに名を指定すると便利なあります [EventProcessorHost][] インスタンスに基づいてコンピューター (またはロール) で展開されます。 これらのトピックの詳細については、次を参照してください。、 [Event Hubs の概要][] と [Event Hub プログラミング ガイド][] トピックです。
 
 <!-- Links -->
 [Event Hubs Overview]: event-hubs-overview.md
@@ -132,5 +132,6 @@
 [12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+
 
 

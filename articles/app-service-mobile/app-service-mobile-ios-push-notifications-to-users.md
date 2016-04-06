@@ -22,7 +22,7 @@
 &nbsp;  
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-このトピックでは、特定のユーザーのすべての登録済みデバイスにモバイル バックエンドから通知を送信する方法について説明します。 [テンプレート] のクライアント アプリケーションを自由にペイロードの形式と変数プレース ホルダーの登録時に指定するようになる概念が導入されました。 送信すると、これらのプレースホルダーにより、すべてのプラットフォームにヒットし、クロスプラットフォーム通知が有効になります。
+このトピックでは、特定のユーザーのすべての登録済みデバイスにモバイル バックエンドから通知を送信する方法について説明します。 概念が導入された [templates], 、自由にペイロードの形式と変数プレース ホルダーの登録時に指定するクライアント アプリケーションについて説明します。 送信すると、これらのプレースホルダーにより、すべてのプラットフォームにヒットし、クロスプラットフォーム通知が有効になります。
 
 > [AZURE.NOTE] クロスプラット フォーム クライアントでプッシュ操作を取得するには有効にするには、各プラットフォームに対してこのチュートリアルを完了する必要があります。 実行する必要がありますのみ、 [モバイル バックエンドの更新](#backend) 同じモバイル バックエンドを共有しているクライアントに 1 回です。
  
@@ -30,11 +30,11 @@
 
 このチュートリアルを開始する前に、作業する各クライアント プラットフォームで次の App Service チュートリアルが既に完了している必要があります。
 
-+ [認証の使用の開始を取得]<br/>TodoList サンプル アプリケーションにログイン要件を追加します。
++ [Get started with authentication]<br/>TodoList サンプル アプリケーションにログイン要件を追加します。
 
-+ [開始プッシュ通知の使用]<br/>プッシュ通知用に TodoList サンプル アプリを構成します。
++ [Get started with push notifications]<br/>プッシュ通知用に TodoList サンプル アプリを構成します。
 
-##<a name="client"></a>クライアントを更新して、クロスプラットフォームのプッシュを処理するためのテンプレートを登録する
+##<a name="client"></a>クロスプラットフォームのプッシュを処理するためのテンプレートを登録するように、クライアントを更新する
 
 1. APNs 登録スニペットで移動 **QSAppDelegate.m**の **Application:didfinishlaunchingwithoptions:** への呼び出しに **loginWithProvider** で **QSTodoListViewController.m** は、認証の完了後に行われます。
 
@@ -80,3 +80,4 @@
 [Get started with push notifications]: app-service-mobile-ios-get-started-push.md
 [templates]: https://msdn.microsoft.com/library/dn530748.aspx
  
+

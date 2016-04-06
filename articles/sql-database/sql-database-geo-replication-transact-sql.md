@@ -63,7 +63,7 @@ geo レプリケーションを構成するには、次のものが必要です�
 
 2. データベース フォルダーを開き、展開、 **システム データベース** フォルダーを右クリックし **マスター**, 、クリックして **新しいクエリ**します。
 
-3. 次を使用して **ALTER DATABASE** geo レプリケーションをローカル データベースを読み取り不可のセカンダリ データベース上でプライマリにするのにはステートメント <MySecondaryServer1>します。
+3. 次を使用して **ALTER DATABASE** geo レプリケーションをローカル データベースを読み取り不可のセカンダリ データベース上でプライマリにするのにはステートメント <MySecondaryServer1>.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
@@ -160,7 +160,7 @@ geo レプリケートされたセカンダリを geo レプリケーション �
 
 2. データベース フォルダーを開き、展開、 **システム データベース** フォルダーを右クリックし **マスター**, 、クリックして **新しいクエリ**します。
 
-3. 次を使用して **ALTER DATABASE** 主に読み取り可能なセカンダリ データベースで geo レプリケーションに geo レプリケートされたデータベースを作成するステートメント <MySecondaryServer4> で <ElasticPool2>します。
+3. 次を使用して **ALTER DATABASE** 主に読み取り可能なセカンダリ データベースで geo レプリケーションに geo レプリケートされたデータベースを作成するステートメント <MySecondaryServer4> という名前で、 <ElasticPool2>.
 
         ALTER DATABASE <MyDB> FAILOVER;
 
@@ -187,7 +187,7 @@ geo レプリケートされたセカンダリを geo レプリケーション �
 
 2. データベース フォルダーを開き、展開、 **システム データベース** フォルダーを右クリックし **マスター**, 、クリックして **新しいクエリ**します。
 
-3. 次を使用して **ALTER DATABASE** ステートメントを <MyLocalDB> で読み取り可能なセカンダリ データベースで geo レプリケーションのプライマリに <MySecondaryServer4> で <ElasticPool2>します。
+3. 次を使用して **ALTER DATABASE** ステートメントを <MyLocalDB> 読み取り可能なセカンダリ データベースで geo レプリケーションのプライマリに <MySecondaryServer4> という名前で、 <ElasticPool2>.
 
         ALTER DATABASE <MyDB>   FORCE_FAILOVER_ALLOW_DATA_LOSS;
 
@@ -233,4 +233,5 @@ geo レプリケーション パートナーシップを監視するには、次
 - [geo レプリケーションを使用したビジネス継続性を実現するクラウド アプリケーションの設計](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [ビジネス継続性の概要](sql-database-business-continuity.md)
 - [SQL Database のドキュメント](https://azure.microsoft.com/documentation/services/sql-database/)
+
 

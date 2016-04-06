@@ -46,7 +46,7 @@ Hive では拡張も **ユーザー定義関数 (UDF)**します。 UDF では�
 Hive の内部テーブルと外部テーブルについて知っておく必要のある事項がいくつかあります。
 
 -  **CREATE TABLE** コマンドは、内部テーブルを作成します。 データ ファイルは既定のコンテナーに配置する必要があります。
--  **CREATE TABLE** コマンドでは、データ ファイルを移動する、ある/hive/warehouse/<TableName> フォルダーです。
+-  **CREATE TABLE** コマンドでは、データ ファイルを移動する、ある/hive/warehouse/<TableName> をクリックします。
 -  **CREATE EXTERNAL TABLE** コマンドは、外部テーブルを作成します。 データ ファイルは既定のコンテナーの外部に配置することもできます。
 -  **CREATE EXTERNAL TABLE** コマンドは、データ ファイルを移動しません。
 -  **CREATE EXTERNAL TABLE** コマンドの場所にフォルダーは許容されません。 チュートリアルで sample.log ファイルのコピーを作成しているのは、これが理由です。
@@ -72,7 +72,7 @@ Hive の内部テーブルと外部テーブルについて知っておく必要
 
 > [AZURE.NOTE] 構文は **wasb:///**, 、HDInsight クラスターの既定のストレージ コンテナーに格納されているファイルにアクセスするために使用します。 アドレスを指定して、コンテナー名とストレージ アカウント、たとえば、データをアクセスするには、クラスターをプロビジョニングして、これらのアカウントに格納されているファイルにアクセスするときに、追加のストレージ アカウントを指定した場合 **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**します。
 
-##<a id="job"></a>サンプル ジョブ: 区切られたデータに列を投影
+##<a id="job"></a>サンプル ジョブ: 区切られたデータへの列の投影
 
 次の HiveQL ステートメントに格納されている区切りデータに列を投影、 **wasb:////例/データ** ディレクトリ。
 
@@ -110,7 +110,7 @@ Hive の内部テーブルと外部テーブルについて知っておく必要
 
 > [AZURE.NOTE] 外部テーブルとは異なりは基になるデータの削除内部テーブルを削除してもします。
 
-##<a id="usetez"></a>パフォーマンス向上のための Apache Tez を使用します。
+##<a id="usetez"></a>パフォーマンスを改善するための Apache Tez の使用方法
 
 [Apache Tez](http://tez.apache.org) 規模で遥かに効率的に実行する Hive などのデータの処理を要するアプリケーションを可能にするフレームワークです。 HDInsight の最新リリースでは、Hive は Tez 上での実行がサポートされます。 Linux ベースの HDInsight クラスターでは、Tez は既定で有効になっています。
 
@@ -123,7 +123,7 @@ Hive の内部テーブルと外部テーブルについて知っておく必要
  [Hive on tez」設計ドキュメント](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) の詳細については、実装の選択肢の数を含めるし、構成をチューニングします。
 
 
-##<a id="run"></a>HiveQL ジョブを実行する方法を選択します。
+##<a id="run"></a>HiveQL ジョブの実行方法の選択
 
 HDInsight では、さまざまな方法を使用して HiveQL ジョブを実行できます。 次の表を使用して、適切な方法を判別してから、該当するチュートリアルのリンクをクリックしてください。
 
@@ -200,4 +200,5 @@ SSIS を Azure Feature Pack について学ぶこと [ここ][ssispack]します
 
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+
 

@@ -55,7 +55,7 @@ Web ブラウザーで https://CLUSTERNAME.azurehdinsight.net に移動して Am
 
 ##<a name="hivequery"></a>クエリ エディター
 
-クラスターに含まれるデータに対して Hive クエリを実行するには、Hive ビューで次の手順に従います。
+クラスターに格納されているデータに対して Hive クエリを実行するには、Hive ビューで次の手順を実行します。
 
 1.  __クエリ エディター__ セクション、ページの次の HiveQL ステートメントをワークシートに貼り付けます。
 
@@ -84,7 +84,7 @@ Web ブラウザーで https://CLUSTERNAME.azurehdinsight.net に移動して Am
         sev       cnt
         [ERROR]   3
 
-     __ログ__ 、ジョブによって作成されたログ情報を表示] タブを使用できます。 このログ情報は、クエリに問題が発生した場合のトラブルシューティングに使用できます。
+     __ログ__ 、ジョブによって作成されたログ情報を表示] タブを使用できます。 ログ情報は、クエリに問題が発生した場合のトラブルシューティングに使用できます。
     
     > [AZURE.TIP] 注、 __結果を保存__ の上にあるドロップダウン ダイアログの左、 __クエリ プロセスの結果__ セクションです。 これを使用して、結果をダウンロードするか、CSV ファイルとして HDInsight のストレージに保存することができます。
     
@@ -198,3 +198,4 @@ HDInsight での Hadoop のその他の使用方法に関する情報
 * [HDInsight での Pig と Hadoop の使用](hdinsight-use-pig.md)
 
 * [HDInsight での MapReduce と Hadoop の使用](hdinsight-use-mapreduce.md)
+

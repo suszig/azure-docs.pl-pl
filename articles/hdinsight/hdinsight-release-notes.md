@@ -224,7 +224,7 @@
 
 <tr>
 <td>追加で開かれた HTTPS ポート</td>
-<td>クラウド サービスがクラスターなどの 5 つのポート 8001 に 8005 を開くようになりました https://で<clustername>.azurehdinsight.net:8001/します。 これらの URL に対する要求は、ポート 443 と同じ基本認証パスワード メカニズムを使用して認証されます。 これらのポートは、アクティブなヘッドノード上の同じポートにバインドされます。 ヘッド ノードとクラスターの外部へのルートでこれらのポートでリッスンする顧客サービスを作成するスクリプトのアクションを使用できます。</td>
+<td>クラウド サービスがクラスターなどの 5 つのポート 8001 に 8005 を開くようになりました https:// で<clustername>.azurehdinsight.net:8001/ します。 これらの URL に対する要求は、ポート 443 と同じ基本認証パスワード メカニズムを使用して認証されます。 これらのポートは、アクティブなヘッドノード上の同じポートにバインドされます。 ヘッド ノードとクラスターの外部へのルートでこれらのポートでリッスンする顧客サービスを作成するスクリプトのアクションを使用できます。</td>
 <td>クラウド サービス</td>
 <td>すべて</td>
 <td>該当なし</td>
@@ -232,7 +232,7 @@
 
 <tr>
 <td>HDInsight 3.2 の断続的な MapReduce のシャッフルの問題</td>
-<td>たまにタスクの失敗で大規模なクラスターで Mapreduce のシャッフルまれな断続的な競合条件を修正します。 手順については、「 <a href="https://issues.apache.org/jira/browse/MAPREDUCE-6361" target="_blank">MAPREDUCE-6361</a> をご覧ください。</td>
+<td>たまにタスクの失敗で大規模なクラスターで Mapreduce のシャッフルまれな断続的な競合条件を修正します。 参照してください <a href="https://issues.apache.org/jira/browse/MAPREDUCE-6361" target="_blank">mapreduce-6361</a> の詳細。</td>
 <td>Hadoop Core</td>
 <td>すべて</td>
 <td><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6361" target="_blank">MAPREDUCE-6361</a></td>
@@ -248,7 +248,7 @@
 
 <tr>
 <td>HDInsight 3.1 クラスター向けの HDP 2.1.15 への移行</td>
-<td>Hortonworks リリース ノート リリースには <a href="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.15-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.15.html" target="_blank">ここ</a>.</td>
+<td>リリースでは、Hortonworks リリース ノートは <a href="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.15-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.15.html" target="_blank">ここ</a>します。</td>
 <td>HDP</td>
 <td>すべて</td>
 <td>該当なし</td>
@@ -347,7 +347,7 @@
 
 <tr>
 <td>HDP 2.2 の更新</td>
-<td>HDInsight 3.2 のこのリリースには HDP 2.2.6 が含まれ、HDInsight のいくつかの重要なバグが修正されています。 完全なリリース ノートについては、「 <a href="http://dev.hortonworks.com.s3.amazonaws.com/HDPDocuments/HDP2/HDP-2.2.6/HDP_RelNotes_v226/index.html">HDP 2.2.6 のリリース ノートします。</a>.</td>
+<td>HDInsight 3.2 のこのリリースには HDP 2.2.6 が含まれ、HDInsight のいくつかの重要なバグが修正されています。 完全なリリース ノートについては、「 <a href="http://dev.hortonworks.com.s3.amazonaws.com/HDPDocuments/HDP2/HDP-2.2.6/HDP_RelNotes_v226/index.html">HDP 2.2.6 のリリース ノート</a>します。</td>
 <td>HDP</td>
 <td>すべてのクラスターの種類</td>
 <td>該当なし</td>
@@ -517,7 +517,7 @@
 
 <tr>
 <td>Avro Library 1.5.6</td>
-<td>追加されました。 <b>KnownTypeAttribute</b> メソッドの <b>GetAllKnownTypes</b>. GetAllKnownTypes メソッドの型が Null の場合の NullReferenceException を修正しました。</td>
+<td>追加 <b>KnownTypeAttribute</b> メソッドの <b>GetAllKnownTypes</b>します。 GetAllKnownTypes メソッドの型が Null の場合の NullReferenceException を修正しました。</td>
 <td>SDK</td>
 <td>Hadoop は、</td>
 <td>該当なし</td>
@@ -703,7 +703,7 @@ jar です。 これは単にパッケージの変更だけであり、WASB ド�
 
 <tr>
 <td>HDInsight 3.2 クラスター</td>
-<td>Hadoop 2.6/HDP2.2 は HDInsight 3.2 クラスターで使用できます。 これにはすべてのオープン ソース コンポーネントの主要な更新プログラムが含まれます。 詳細については、HDInsight の新機能を参照してください、 <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html" target="_blank">HDP 2.2.0.0 リリース ノートします。</a>.</td>
+<td>Hadoop 2.6/HDP2.2 は HDInsight 3.2 クラスターで使用できます。 これにはすべてのオープン ソース コンポーネントの主要な更新プログラムが含まれます。 詳細については、「HDInsight の新機能と <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html" target="_blank">HDP 2.2.0.0 リリース ノート</a>します。</td>
 <td>オープンソース ソフトウェア</td>
 <td>すべて</td>
 <td>該当なし</td>
@@ -800,7 +800,7 @@ jar です。 これは単にパッケージの変更だけであり、WASB ド�
 
 <tr>
 <td>HDP 2.1 メンテナンスの更新</td>
-<td>HDInsight 3.1 が更新され、HDP 2.1.10.0 がデプロイされます。 詳細については、次をご覧ください。 <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.10/bk_releasenotes_hdp_2.1/content/ch_relnotes-HDP-2.1.10.html" target="_blank">リリース ノート hdp-2.1.10</a>. </td>
+<td>HDInsight 3.1 が更新され、HDP 2.1.10.0 がデプロイされます。 詳細については、次を参照してください。 <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.10/bk_releasenotes_hdp_2.1/content/ch_relnotes-HDP-2.1.10.html" target="_blank">hdp-2.1.10 リリース ノート</a>します。 </td>
 <td>オープンソース ソフトウェア</td>
 <td>すべて</td>
 <td>該当なし</td>
@@ -896,7 +896,7 @@ Apache Mahout は、Apache Hadoop の機械学習ライブラリです。 Mahout
 
 <tr>
 <td>Hive 構成 hive.auto.convert.join.noconditionaltask.size の既定値への変更</td>
-<td><p>このサイズ構成は、自動変換されたマップの結合に適用されます。 この値は、メモリに収まるハッシュ マップに変換できるテーブルのサイズの合計を表します。 以前のリリースで、この値は既定値の 10MB から 128MB に増えました。 ただし、128MB という新しい値がメモリ不足でジョブが失敗する原因になっていました。 このリリースでは、既定値を 10 MB に戻します。 ユーザーは、クエリとテーブル サイズに応じて、クラスターの作成中にこの値を上書きできます。 この設定およびそれを上書きする方法の詳細については、次を参照してください。 <a href="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.0.2/ds_Hive/optimize-joins.html#JoinOptimization-OptimizeAutoJoinConversion" target="_blank">「Optimize Auto Join Conversion (Auto Join Conversion の最適化)」</a> を参照してください。 </p></td>
+<td><p>このサイズ構成は、自動変換されたマップの結合に適用されます。 この値は、メモリに収まるハッシュ マップに変換できるテーブルのサイズの合計を表します。 以前のリリースで、この値は既定値の 10MB から 128MB に増えました。 ただし、128MB という新しい値がメモリ不足でジョブが失敗する原因になっていました。 このリリースでは、既定値を 10 MB に戻します。 ユーザーは、クエリとテーブル サイズに応じて、クラスターの作成中にこの値を上書きできます。 この設定およびそれを上書きする方法の詳細については、次を参照してください。 <a href="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.0.2/ds_Hive/optimize-joins.html#JoinOptimization-OptimizeAutoJoinConversion" target="_blank">Optimize Auto Join Conversion</a> 参照してください。 </p></td>
 <td>Hive</td>
 <td>Hadoop、HBase</td>
 <td>該当なし</td>
@@ -953,7 +953,7 @@ Apache Mahout は、Apache Hadoop の機械学習ライブラリです。 Mahout
 
 <tr>
 <td><a href = "hdinsight-hadoop-customize-cluster.md" target="_blank">クラスターのカスタマイズの一般公開</a></td>
-<td><p>カスタマイズができる Apache Hadoop エコシステムから入手できるプロジェクトで Azure HDInsight クラスターをカスタマイズするための機能を提供します。 この新しい機能により、Hadoop プロジェクトを実験し、Azure HDInsight にデプロイできます。 これを使用して、 **Script Action** 機能で、カスタム スクリプトを使用して任意の方法で Hadoop クラスターを変更できます。 このカスタマイズ機能は、Hadoop、HBase、および Storm などあらゆる種類の HDInsight クラスターで利用できます。 一般的なインストール プロセスを文書化してこの機能の能力を示すためには、 <a href = "hdinsight-hadoop-spark-install.md" target="_blank">Spark</a>, 、<a href = "hdinsight-hadoop-r-scripts.md" target="_blank">R</a>, 、<a href = "hdinsight-hadoop-solr-install.md" target="_blank">Solr</a>, 、および <a href = "hdinsight-hadoop-giraph-install.md" target="_blank">Giraph</a> モジュールです。 またこのリリースでは、ユーザーが Azure ポータルを使用してカスタム スクリプト アクションを指定する機能が追加され、ヘルパー メソッドを使用してカスタム スクリプト アクションを作成するためのガイドラインとベスト プラクティスの提供、さらにスクリプト アクションをテストする方法に関するガイドラインが提供されます。 </p></td>
+<td><p>カスタマイズ機能により、Apache Hadoop エコシステムから利用できるプロジェクトで Azure HDInsight クラスターをカスタマイズできます。 この新しい機能により、Hadoop プロジェクトを実験し、Azure HDInsight にデプロイできます。 これを使用して、 **Script Action** 機能で、カスタム スクリプトを使用して任意の方法で Hadoop クラスターを変更できます。 このカスタマイズ機能は、Hadoop、HBase、および Storm などあらゆる種類の HDInsight クラスターで利用できます。 一般的なインストール プロセスを文書化してこの機能の能力を示すためには、 <a href = "hdinsight-hadoop-spark-install.md" target="_blank">Spark</a>, 、<a href = "hdinsight-hadoop-r-scripts.md" target="_blank">R</a>, 、<a href = "hdinsight-hadoop-solr-install.md" target="_blank">Solr</a>, 、および <a href = "hdinsight-hadoop-giraph-install.md" target="_blank">Giraph</a> モジュールです。 またこのリリースでは、ユーザーが Azure ポータルを使用してカスタム スクリプト アクションを指定する機能が追加され、ヘルパー メソッドを使用してカスタム スクリプト アクションを作成するためのガイドラインとベスト プラクティスの提供、さらにスクリプト アクションをテストする方法に関するガイドラインが提供されます。 </p></td>
 <td>機能の一般公開</td>
 <td>すべて</td>
 <td>該当なし</td>
@@ -1009,7 +1009,7 @@ Apache Mahout は、Apache Hadoop の機械学習ライブラリです。 Mahout
 
 <tr>
 <td>HDP JAR ファイルの名称変更</td>
-<td>HDI クラスター バージョン 3.0 では、HDP によってインストールされた内部 JAR ファイルへの変更のいくつかあります。 jetty-6.1.26.jar は jetty 加えられましたに置き換えられました。 jetty-6.1.26.jar util が加えられました jetty-util に置き換えられました。 これらの変更は、Hadoop、Mahout、WebHCat および Oozie プロジェクトに適用されます。</td>
+<td>HDI クラスター バージョン 3.0 では、HDP によってインストールされた内部 JAR ファイルへの変更のいくつかあります。 jetty-6.1.26.jar が jetty 6.1.26.hwx.jar に置き換えられました。 jetty-6.1.26.jar util は jetty util-6.1.26.hwx.jar に置き換えられました。 これらの変更は、Hadoop、Mahout、WebHCat および Oozie プロジェクトに適用されます。</td>
 <td>Hadoop、Mahout、WebHCat、Oozie</td>
 <td>Hadoop、HBase</td>
 <td>該当なし</td>
@@ -1048,17 +1048,17 @@ Apache Mahout は、Apache Hadoop の機械学習ライブラリです。 Mahout
 </tr>
 
 <tr>
-<td>IHdInsightClient.DeleteCluster で領域名を指定する機能 </td>
-<td>Azure HDInsight SDK を使用する場合は、地域名を指定する機能を提供する **DeleteCluster**します。 これにより、さまざまなリージョンに同じ名前の 2 つのリソースがありそのどちらかを削除することにされていたユーザーのブロックを解除します</td>
-<td>。SDK</td>
+<td>IHdInsightClient.DeleteCluster でのリージョン名の指定 </td>
+<td>Azure HDInsight SDK を使用する場合は、地域名を指定する機能を提供する **DeleteCluster**します。 これまでは、別々のリージョンに同じ名前のリソースが 1 つずつある場合に、どちらかだけを削除することはできませんでした。この更新では、そのような問題が解消します。</td>
+<td>SDK</td>
 <td>すべて</td>
 <td>該当なし</td>
 </tr>
 
 <tr>
 <td>ClusterDetails.DeploymentId</td>
-<td>、 **ClusterDetails** オブジェクトを返します。、 **DeploymentID** 、クラスターの一意の識別子を表すフィールドです。 同じ名前のクラスター作成しようとの間で一意であることが保証されます</td>
-<td>。SDK</td>
+<td> **ClusterDetails** オブジェクトを返します。、 **DeploymentID** 、クラスターの一意の識別子を表すフィールドです。 この情報は、同じ名前のクラスターを作成しようとしても常に一意の状態が確保されます。</td>
+<td>SDK</td>
 <td>すべて</td>
 <td>該当なし</td>
 </tr>
@@ -1093,14 +1093,14 @@ Apache Mahout は、Apache Hadoop の機械学習ライブラリです。 Mahout
 </tr>
 
 <tr>
-<td>Azure websites とストレージ用に既成のジョブのログ分析</td>
-<td>HDInsight クエリ コンソールの [データまたはサンプル データを使用するソリューションをサポートしている Getting Started ギャラリーがあります。
+<td>Azure Websites および Azure Storage のログ分析用に既成のジョブを用意</td>
+<td>HDInsight クエリ コンソールには、既にあるデータまたはサンプルのデータを使用するソリューションで役立つ初心者向けギャラリーが用意されています。
 <p>**データを使用するソリューション**:<br>
-データ分析のなかでも特によくあるもののいくつかについて、ジョブを作成しました。自分でソリューションを作成する際の第一歩として役立ちます。 各ジョブには既にお持ちのデータを使って、どのように動作するかを確認できます。 準備ができたらを作成済みのジョブの完了後、モデル化されてソリューションを作成する学習した内容を使用する、</p>
-<p>**。サンプル データを操作するソリューション**:<br>
-Web ログやセンサー データの分析など、基本的なシナリオをいくつかなぞっていくことによって、HDInsight の使い方を学習できます。 HDInsight を使ってデータを分析する方法だけでなく、その他のアプリケーションやサービスにこのデータを接続する方法も学べます。 Microsoft Excel に接続してデータを視覚化するこのアプローチの電源の例を示します</p></td>
-<td>。クエリ コンソール</td>
-<td>Hadoop</td>
+データ分析のなかでも特によくあるもののいくつかについて、ジョブを作成しました。自分でソリューションを作成する際の第一歩として役立ちます。 各ジョブには既にお持ちのデータを使って、どのように動作するかを確認できます。 その後準備ができたら、これまでに得た知識を使って、既成のジョブを手本にソリューションを作成します。</p>
+<p>**サンプル データを操作するソリューション**:<br>
+Web ログやセンサー データの分析など、基本的なシナリオをいくつかなぞっていくことによって、HDInsight の使い方を学習できます。 HDInsight を使ってデータを分析する方法だけでなく、その他のアプリケーションやサービスにこのデータを接続する方法も学べます。 こちらは、Microsoft Excel に接続してデータを視覚化する場合などに役立ちます。</p></td>
+<td>クエリ コンソール</td>
+<td>Hadoop は、</td>
 <td>該当なし</td>
 </tr>
 
@@ -1144,7 +1144,7 @@ Web ログやセンサー データの分析など、基本的なシナリオを
 
 <tr>
 <td>HDP 2.1.7</td>
-<td>このリリースは、Hortonworks Data Platform (HDP) 2.1.7 に基づくものです。 詳細については、次をご覧ください。 <a href="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.7-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.7.html" target="_blank">HDP 2.1.7 のリリース ノート</a>.</td>
+<td>このリリースは、Hortonworks Data Platform (HDP) 2.1.7 に基づくものです。 詳細については、次を参照してください。 <a href="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.7-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.7.html" target="_blank">hdp-2.1.7 リリース ノート</a>します。</td>
 <td>HDP</td>
 <td>すべて</td>
 <td>該当なし</td>
@@ -1156,9 +1156,9 @@ Web ログやセンサー データの分析など、基本的なシナリオを
 
 このアプリケーション情報は、ヘッド ノードから URI (http://headnodehost:8188) にアクセスするか、YARN コマンド (yarn application –list –appStates ALL) を実行すると取得できます。
 
-この情報も取得できますリモート https://{ClusterDnsName で、REST api} します。 azurehdinsight.net/ws/v1/applicationhistory/します。
+この情報も取得できますリモート https://{ClusterDnsName で、REST api} します。 azurehdinsight.net/ws/v1/applicationhistory/ します。
 
-詳細については、次を参照してください。 <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN タイムライン サーバー</a>.</td>
+詳細についてを参照してください。 <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a>します。</td>
 <td>サービス、YARN</td>
 <td>Hadoop、HBase</td>
 <td>該当なし</td>
@@ -1290,7 +1290,7 @@ HDInsight 3.1 で Hive 0.13 が利用可能になり、Tez を使用してクエ
         set hive.execution.engine=tez;
         select sc_status, count(*), histogram_numeric(sc_bytes,5) from website_logs_orc_local group by sc_status;
 
-Hortonworks では、Tez を使用した Hive クエリのパフォーマンスの向上について、標準ベンチマークによる詳細なブレークダウンを公開しています。 詳細については、「 [Benchmarking Apache Hive 13 13 for Enterprise Hadoop](http://hortonworks.com/blog/benchmarking-apache-hive-13-enterprise-hadoop/)します。
+Hortonworks では、Tez を使用した Hive クエリのパフォーマンスの向上について、標準ベンチマークによる詳細なブレークダウンを公開しています。 詳細については、「 [Enterprise Hadoop 用の Apache Hive 13 のベンチマーク](http://hortonworks.com/blog/benchmarking-apache-hive-13-enterprise-hadoop/)します。
 
 Tez で Hive を使用する方法の詳細については、次を参照してください。 [Hive on Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez)します。
 
@@ -1484,4 +1484,5 @@ SQL Server の Java Database Connnectivity (JDBC) ドライバーは HDInsight �
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
+
 

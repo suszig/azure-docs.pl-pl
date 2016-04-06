@@ -60,11 +60,12 @@ Basic、Standard、Premium の Azure SQL Database は時間単位で課金され
 
 ## 関連項目
 
-[Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
+[Azure SQL データベース](https://azure.microsoft.com/documentation/services/sql-database/)
 
 [Web および Business の価格](https://azure.microsoft.com/pricing/details/sql-database/web-business/)
 
 [サービス階層](sql-database-service-tiers.md)
 
 [SQL データベース Web/Business データベースを新しいサービス階層にアップグレードする](sql-database-upgrade-new-service-tiers.md)
+
 

@@ -58,11 +58,11 @@ Azure リソース マネージャーのアクセス制御では、組み込み�
 
     `GET https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices?api-version=2015-02-28`
 
-- <a name="DeleteService">Search サービスを削除します。</a>
+- <a name="DeleteService">Search サービスの削除</a>
 
     `DELETE https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2015-02-28`
 
-- <a name="UpdateService">Search サービスを更新します。</a>
+- <a name="UpdateService">Search サービスの更新</a>
 
     `PATCH https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2015-02-28`
 
@@ -70,7 +70,7 @@ Azure リソース マネージャーのアクセス制御では、組み込み�
 
     `POST https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/listAdminKeys?api-version=2015-02-28`
 
-- <a name="RegenAdminKey">管理者キーを再生成します。</a>
+- <a name="RegenAdminKey">管理者キーの再生成</a>
 
     `POST https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/regenerateAdminKey/[keyKind]?api-version=2015-02-28`
 
@@ -98,8 +98,8 @@ Azure サブスクリプションに対して HTTP 要求を発行すること�
 - <a name="CreateService">Search サービスの作成</a>
 - <a name="GetService">Search サービスの取得</a>
 - <a name="ListService">Search サービスの一覧表示</a>
-- <a name="DeleteService">Search サービスを削除します。</a>
-- <a name="UpdateService">Search サービスを更新します。</a>
+- <a name="DeleteService">Search サービスの削除</a>
+- <a name="UpdateService">Search サービスの更新</a>
 
 
 <a name="CreateService"></a>
@@ -115,7 +115,7 @@ Azure サブスクリプションに対して HTTP 要求を発行すること�
 
 `resourceGroupName`: 必須。 ユーザーのサブスクリプション内のリソース グループの名前。 この値は、Azure リソース マネージャー API またはポータルから取得できます。
 
-`serviceName`: 必須。 指定されたリソース グループ内の Search サービスの名前。 サービス名には小文字、数字、またはダッシュのみを含むことができ、最初の 2 文字または最後の 1 文字にダッシュを使用することはできません。また、ダッシュは連続して使用できず、長さは 2 文字から 15 文字にする必要があります。 すべての名前が <name>.search.windows.net で終わるため、サービス名はグローバルに一意にする必要があります。 サブスクリプション内、リソース グループ内、またはこれらにまたがって、2 つのサービスに同じ名前を付けることはできません。 サービス名は作成後に変更できません。
+`serviceName`: 必須。 指定されたリソース グループ内の Search サービスの名前。 サービス名には小文字、数字、またはダッシュのみを含むことができ、最初の 2 文字または最後の 1 文字にダッシュを使用することはできません。また、ダッシュは連続して使用できず、長さは 2 文字から 15 文字にする必要があります。 すべての名前が終了されている以降 <name>。 search.windows.net、サービス名はグローバルに一意である必要があります。 サブスクリプション内、リソース グループ内、またはこれらにまたがって、2 つのサービスに同じ名前を付けることはできません。 サービス名は作成後に変更できません。
 
 `api-version`: 必須。 この要求に使用されるプロトコルのバージョンを指定します。 現行バージョンは `2015-02-28` です。
 
@@ -157,7 +157,7 @@ Azure サブスクリプションに対して HTTP 要求を発行すること�
 `partitionCount`: 省略可能。 既定値は 1 です。 有効な値は 1、2、3、4、6、または 12 です。 `sku` が `standard` である場合にのみ有効です。 
 
 
-### Response
+### 応答
 
 サービス定義が更新されると、HTTP 200 (OK) が返されます。 新しいサービスが作成されると、HTTP 201 (Created) が返されます。 
 
@@ -517,7 +517,7 @@ HTTP 200 の場合、応答本文は空になります。 HTTP 200 (OK) は、�
 
 `partitionCount`: 省略可能。 既定値は 1 です。 有効な値は 1、2、3、4、6、または 12 です。 `sku` が `standard` である場合にのみ有効です。 
 
-###Response###
+###応答###
 
 操作が成功した場合、HTTP 200 (OK) が返されます。 使用することができます **検索サービスの取得 API** 更新サービスの状態をポーリングします。 ポーリング間隔は 30 秒から 1 分までの間にすることをお勧めします。
 
@@ -554,7 +554,7 @@ api-key、特に管理者キーは、必ず機密データとして扱ってく�
 キーに関連する操作には、次の API があります。
 
 - <a name="ListAdminKey">管理者キーの一覧表示</a>
-- <a name="RegenAdminKey">管理者キーを再生成します。</a>
+- <a name="RegenAdminKey">管理者キーの再生成</a>
 - <a name="CreateQueryKey">クエリ キーの作成</a>
 - <a name="ListQueryKey">クエリ キーの一覧表示</a>
 - <a name="DeleteQueryKey">クエリ キーの削除</a>
@@ -824,6 +824,7 @@ api-key、特に管理者キーは、必ず機密データとして扱ってく�
 ###応答本文###
 
 ありません。
+
 
 
 

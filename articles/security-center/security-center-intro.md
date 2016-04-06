@@ -58,7 +58,7 @@ Azure Security Center からセキュリティ ポリシーの設定、セキュ
 
 ![][2]
 
-**データの収集** (上記参照) はセキュリティ ポリシーについてのデータ コレクションを有効にします。 有効化を提供します。
+**データの収集** (上記参照) はセキュリティ ポリシーについてのデータ コレクションを有効にします。 有効にすると、次のことが行われます。
 - セキュリティの監視と推奨事項の仮想マシンをサポートするすべての日常的にスキャン
 - 分析と脅威の検出のためのセキュリティ イベントの収集
 
@@ -127,4 +127,5 @@ Azure セキュリティ センターはからアクセス、 [Azure ポータ�
 [4]: ./media/security-center-intro/resources-health.png
 [5]: ./media/security-center-intro/security-alert.png
 [6]: ./media/security-center-intro/security-alert-detail.png
+
 

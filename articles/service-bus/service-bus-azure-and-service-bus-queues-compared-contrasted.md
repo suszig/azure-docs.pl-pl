@@ -87,17 +87,17 @@ Azure キューと Service Bus キューは、どちらも、現在 Microsoft Az
 
 |比較条件|Azure キュー|Service Bus キュー|
 |---|---|---|
-|順序の保証|**いいえ** <br/><br>詳細については、「追加情報」セクションでは、最初メモを参照してください。</br>|**はい - 先入れ最初出し (FIFO)**<br/><br>(メッセージング セッション) を使用|
-|配信保証|**At-Least-Once**|**最低 1 回**<br/><br/>**、ほとんどの 1 回**|
-|トランザクションのサポート|**いいえ**|**[はい]**<br/><br/>(ローカル トランザクション) を使用|
-|受信動作|**非ブロッキング**<br/><br/>(が完了するとすぐに新しいメッセージが存在しない場合)|**タイムアウトあり/なしのブロック**<br/><br/>(長いポーリングの提供、または [「Comet 手法」](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**非ブロッキング**<br/><br/>(.NET マネージ API のみ)|
-|プッシュ型 API|**いいえ**|**[はい]**<br/><br/>[OnMessage](https://msdn.microsoft.com/library/azure/jj908682.aspx) と **OnMessage** セッション .NET API です。|
-|受信モード|**Peek & Lease**|**ピーク/ロック**<br/><br/>**を受信して削除するには.**|
+|順序の保証|**いいえ** <br/><br>詳細については、「追加情報」セクションでは、最初メモを参照してください。</br>|**○ - 先入れ最初出し (FIFO)**<br/><br>(メッセージング セッション) を使用|
+|配信保証|**At-Least-Once**|**At-Least-Once**<br/><br/>**ほとんど 1 回**|
+|トランザクションのサポート|**いいえ**|**あり**<br/><br/>(ローカル トランザクション) を使用|
+|受信動作|**非ブロッキング**<br/><br/>(が完了するとすぐに新しいメッセージが存在しない場合)|**タイムアウトなしのブロック**<br/><br/>(長いポーリングの提供、または [「Comet 手法」](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**非ブロッキング**<br/><br/>(.NET マネージ API のみ)|
+|プッシュ型 API|**いいえ**|**あり**<br/><br/>[OnMessage](https://msdn.microsoft.com/library/azure/jj908682.aspx) と **OnMessage** セッション .NET API です。|
+|受信モード|**Peek & Lease**|**Peek & Lock**<br/><br/>**受信して削除するには.**|
 |排他アクセス モード|**リース ベース**|**ロック ベース**|
-|リース/ロックの期間|**30 秒 (既定)**<br/><br/>**7 日間 (最大)** (更新またはを使用してメッセージ リースを解放できます、 [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) API です)。|**60 秒 (既定)**<br/><br/>を使用してメッセージ ロックを更新する、 [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx) API です。|
+|リース/ロックの期間|**30 秒 (既定)**<br/><br/>**7 日間 (最大)** (更新またはを使用してメッセージ リースを解放できます、 [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) API です)。|**60 秒 (既定)**<br/><br/>使用してメッセージ ロックを更新する、 [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx) API です。|
 |リース/ロックの粒度|**メッセージ レベル**<br/><br/>(各メッセージを使用して、メッセージの処理中で必要に応じて更新できる、別のタイムアウトの値を設定できます、 [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) API)|**キュー レベル**<br/><br/>(各キューのメッセージの一部に適用されるロックの有効桁数を使用してロックを更新することができますが、 [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx) API です)。|
-|一括受信|**[はい]**<br/><br/>(最大 32 個のメッセージのメッセージを取得するときに明示的にメッセージの数を指定する)|**[はい]**<br/><br/>(プレフェッチ プロパティを暗黙的に有効化またはトランザクションを使用して明示的に)|
-|一括送信|**いいえ**|**[はい]**<br/><br/>(トランザクションまたはクライアント側のバッチ処理) を使用|
+|一括受信|**あり**<br/><br/>(最大 32 個のメッセージのメッセージを取得するときに明示的にメッセージの数を指定する)|**あり**<br/><br/>(プレフェッチ プロパティを暗黙的に有効化またはトランザクションを使用して明示的に)|
+|一括送信|**いいえ**|**あり**<br/><br/>(トランザクションまたはクライアント側のバッチ処理) を使用|
 
 ### 追加情報
 
@@ -137,18 +137,18 @@ Azure キューと Service Bus キューは、どちらも、現在 Microsoft Az
 |---|---|---|
 |スケジュールされた配信|**あり**|**あり**|
 |自動的な配信不能レタリング|**いいえ**|**あり**|
-|キューの有効期間の増加|**[はい]**<br/><br/>(表示のタイムアウトのインプレース更新) を使用|**[はい]**<br/><br/>(専用の API 関数を使用して提供されます)|
+|キューの有効期間の増加|**あり**<br/><br/>(表示のタイムアウトのインプレース更新) を使用|**あり**<br/><br/>(専用の API 関数を使用して提供されます)|
 |有害なメッセージのサポート|**あり**|**あり**|
 |インプレース更新|**あり**|**あり**|
 |サーバー側のトランザクション ログ|**あり**|**いいえ**|
-|Storage のメトリック|**[はい]**<br/><br/>**分間隔のメトリック**: 測定値をリアルタイムの可用性、TPS、API の呼び出し数、エラー数、その詳細は、すべて (分単位で集計され、運用環境での発生から数分以内にレポート リアルタイムで提供します。 詳細については、次を参照してください。 [Storage Analytics Metrics について](https://msdn.microsoft.com/library/azure/hh343258.aspx)します。|**[はい]**<br/><br/>(呼び出しによる一括クエリ [GetQueues](https://msdn.microsoft.com/library/azure/hh293128.aspx))|
-|状態管理|**いいえ**|**[はい]**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), 、[Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), 、[Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), 、[Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx)|
+|Storage のメトリック|**あり**<br/><br/>**分単位のメトリック**: 測定値をリアルタイムの可用性、TPS、API の呼び出し数、エラー数、その詳細は、すべて (分単位で集計され、運用環境での発生から数分以内にレポート リアルタイムで提供します。 詳細については、次を参照してください。 [Storage Analytics Metrics について](https://msdn.microsoft.com/library/azure/hh343258.aspx)します。|**あり**<br/><br/>(呼び出しによる一括クエリ [GetQueues](https://msdn.microsoft.com/library/azure/hh293128.aspx))|
+|状態管理|**いいえ**|**あり**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), 、[Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), 、[Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), 、[Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx)|
 |メッセージの自動転送|**いいえ**|**あり**|
 |キューの消去機能|**あり**|**いいえ**|
-|メッセージ グループ|**いいえ**|**[はい]**<br/><br/>(メッセージング セッション) を使用|
+|メッセージ グループ|**いいえ**|**あり**<br/><br/>(メッセージング セッション) を使用|
 |メッセージ グループ単位のアプリケーション状態|**いいえ**|**あり**|
-|重複検出|**いいえ**|**[はい]**<br/><br/>(送信側で構成可能)|
-|WCF の統合|**いいえ**|**[はい]**<br/><br/>(既定の WCF バインドを提供しています)|
+|重複検出|**いいえ**|**あり**<br/><br/>(送信側で構成可能)|
+|WCF の統合|**いいえ**|**あり**<br/><br/>(既定の WCF バインドを提供しています)|
 |WF の統合|**カスタム**<br/><br/>(カスタム WF アクティビティを作成する必要があります)|**ネイティブ**<br/><br/>(既定の WF 活動を提供しています)|
 |メッセージ グループの参照|**いいえ**|**あり**|
 |ID によるメッセージ セッションの取得|**いいえ**|**あり**|
@@ -205,14 +205,14 @@ Azure キューと Service Bus キューは、どちらも、現在 Microsoft Az
 |---|---|---|
 |管理プロトコル|**HTTP/HTTPS 経由の REST**|**HTTPS 経由の REST**|
 |ランタイム プロトコル|**HTTP/HTTPS 経由の REST**|**HTTPS 経由の REST**<br/><br/>**AMQP 1.0 Standard (TCP と TLS)**|
-|.NET マネージ API|**[はい]**<br/><br/>(.NET managed Storage Client API)|**[はい]**<br/><br/>(.NET の仲介型メッセージング API)|
+|.NET マネージ API|**あり**<br/><br/>(.NET managed Storage Client API)|**あり**<br/><br/>(.NET の仲介型メッセージング API)|
 |ネイティブ C++|**あり**|**いいえ**|
 |Java API|**あり**|**あり**|
 |PHP API|**あり**|**あり**|
 |Node.js API|**あり**|**あり**|
 |任意のメタデータのサポート|**あり**|**いいえ**|
-|キューの名前付け規則|**最大 63 文字まで**<br/><br/>(キューの名前に含まれる文字は小文字である必要があります)|**最大 260 文字**<br/><br/>(のキュー名は小文字を区別しない)|
-|キューの長さを取得する機能|**[はい]**<br/><br/>(値を概算する場合は削除されずに、TTL を超えるメッセージの期限を適用)|**[はい]**<br/><br/>(、特定の時点の正確な値)|
+|キューの名前付け規則|**最大 63 文字の長さ**<br/><br/>(キューの名前に含まれる文字は小文字である必要があります)|**上限は 260 文字**<br/><br/>(キュー名は小文字を区別しない)|
+|キューの長さを取得する機能|**あり**<br/><br/>(メッセージは、削除されて、TTL を超える有効期限が切れる場合は概算値)|**あり**<br/><br/>(、特定の時点の正確な値)|
 |Peek 機能|**あり**|**あり**|
 
 ### 追加情報
@@ -233,13 +233,13 @@ Azure キューと Service Bus キューは、どちらも、現在 Microsoft Az
 
 |比較条件|Azure キュー|Service Bus キュー|
 |---|---|---|
-|最大スループット|**1 秒あたり最大 2,000 メッセージ**<br/><br/>(1 KB のメッセージをベンチマークに基づく)|**1 秒あたり最大 2,000 メッセージ**<br/><br/>(1 KB のメッセージをベンチマークに基づく)|
+|最大スループット|**最大 2,000 メッセージ/秒**<br/><br/>(1 KB のメッセージをベンチマークに基づく)|**最大 2,000 メッセージ/秒**<br/><br/>(1 KB のメッセージをベンチマークに基づく)|
 |平均待機時間|**10 ms**<br/><br/>(と [TCP Nagle](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) 無効になっています)|**20 ～ 25 ms**|
-|調整動作|**HTTP 503 コードによる拒否**<br/><br/>(調整された要求は扱われません、課金対象)|**例外/HTTP 503 による拒否**<br/><br/>(調整された要求は扱われません、課金対象)|
+|調整動作|**HTTP 503 コードによる拒否します。**<br/><br/>(調整された要求は扱われません、課金対象)|**例外/HTTP 503 による拒否します。**<br/><br/>(調整された要求は扱われません、課金対象)|
 
 ### 追加情報
 
-- 1 つの Azure キューで 1 秒間に最大 2,000 トランザクションを処理できます。 トランザクションは、いずれか、 **配置**, 、**取得**, 、または **削除** 操作します。 キューに 1 つのメッセージを送信する (**配置**) は 1 つのトランザクションとしてカウントされますが多くの場合、検索に関連する 2 段階のプロセスでは、メッセージの受信 (**取得**)、要求をキューからメッセージを削除すると、その後 (**削除**)。 そのため、成功したデキュー操作には 2 つのトランザクションが含まれるのが一般的です。 できるだけ、この影響を軽減できますバッチ内の複数のメッセージを取得する **取得** 続く 1 つのトランザクションで最大 32 個のメッセージ、 **削除** それぞれのです。 スループットを改善するために、複数のキューを作成することができます (1 つのストレージ アカウントで作成できるキューの数は無制限です)。
+- 1 つの Azure キューで 1 秒間に最大 2,000 トランザクションを処理できます。 トランザクションは、いずれか、 **配置**, 、**取得**, 、または **削除** 操作します。 キューに 1 つのメッセージを送信する (**配置**) は 1 つのトランザクションとしてカウントされますが多くの場合、検索に関連する 2 段階のプロセスでは、メッセージの受信 (**取得**)、要求をキューからメッセージを削除すると、その後 (**削除**)。 そのため、成功したデキュー操作には 2 つのトランザクションが含まれるのが一般的です。 できるだけ、この影響を軽減できますバッチ内の複数のメッセージを取得する **取得** 後に単一のトランザクションで最大 32 個のメッセージ、 **削除** それぞれのです。 スループットを改善するために、複数のキューを作成することができます (1 つのストレージ アカウントで作成できるキューの数は無制限です)。
 
 - アプリケーションが Azure キューの最大スループットに達すると、通常、Queue サービスから HTTP 503 (サーバーがビジー状態) 応答が返されます。 この場合、アプリケーションで、指数関数的なバックオフ遅延を使用する再試行ロジックを開始する必要があります。
 
@@ -277,7 +277,7 @@ Azure キューと Service Bus キューは、どちらも、現在 Microsoft Az
 |課金可能な操作|**すべて**|**送信/受信のみ**<br/><br/>(その他の操作の料金は不要)|
 |アイドル状態のトランザクション|**課金対象**<br/><br/>(課金可能なトランザクションとしてカウントは、空のキューに対するクエリ)|**課金対象**<br/><br/>(空のキューに対する受信と見なされますが課金対象メッセージ)|
 |Storage コスト|**$0.07**<br/><br/>(GB/月あたり)|**$0.00**|
-|送信データ転送のコスト|**$0.12-0.19 $**<br/><br/>(geography) によって異なります|**$0.12-0.19 $**<br/><br/>(geography) によって異なります|
+|送信データ転送のコスト|**$0.12 - $0.19**<br/><br/>(地理的な場所によって異なる)|**$0.12 - $0.19**<br/><br/>(地理的な場所によって異なる)|
 
 ### 追加情報
 
@@ -305,7 +305,7 @@ Service Bus キューには高度な機能が数多く用意されているた�
 - [キュー Storage Service を使用する方法](../storage/storage-dotnet-how-to-use-queues.md)
 - [Service Bus の仲介型メッセージングを使用したパフォーマンス向上のためのベスト プラクティス](service-bus-performance-improvements.md)
 - [Introducing Queues and Topics in Azure Service Bus (Azure Service Bus のキューとトピックの概要)](http://www.code-magazine.com/article.aspx?quickid=1112041)
-- [The Developer's Guide to Service Bus (Service Bus の開発者向けガイド)](http://www.cloudcasts.net/devguide/)
+- [サービス バスの開発者向けガイド](http://www.cloudcasts.net/devguide/)
 - ["Azure Tables and Queues Deep Dive (Azure のテーブルとキューの詳細)"](http://www.microsoftpdc.com/2009/SVC09)
 - [Azure Storage のアーキテクチャ (ブログの投稿)](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 - [Using the Queuing Service in Azure (Azure でのキュー サービスの使用) ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
@@ -314,3 +314,4 @@ Service Bus キューには高度な機能が数多く用意されているた�
 
 [Azure classic portal]: http://manage.windowsazure.com
  
+

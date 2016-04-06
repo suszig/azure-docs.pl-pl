@@ -29,8 +29,8 @@
 <table>
 <tr><td>**ダウンロード**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
 <tr><td>**投稿**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
-<tr><td>**ドキュメント**</td><td>[Python SDK Reference Documentation](http://azure.github.io/azure-documentdb-python/)</td></tr>
-<tr><td>**開始**</td><td>[Get started with the Python SDK](documentdb-python-application.md)</td></tr>
+<tr><td>**Documentation**</td><td>[Python SDK Reference Documentation](http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td>**作業の開始**</td><td>[Get started with the Python SDK](documentdb-python-application.md)</td></tr>
 <tr><td>**現在サポートされているプラットフォーム**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/)</td></tr>
 </table></br>
 
@@ -86,4 +86,5 @@ Azure DocumentDB SDK for Python のバージョンより前のすべてのバー
 ## 関連項目
 
 DocumentDB の詳細については、次を参照してください。 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) サービス ページです。 
+
 

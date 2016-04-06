@@ -75,7 +75,7 @@
 
 1.  Azure AD ポータルでの **SAP HANA Cloud Platform** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "Configure single sign-on")
 
 2.   **どのようなユーザーを SAP HANA Cloud Platform へのサインオン** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 
@@ -198,3 +198,4 @@ Azure AD ユーザーが SAP HANA Cloud Platform にログインできるよう�
     ![あり](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

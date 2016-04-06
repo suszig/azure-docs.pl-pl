@@ -30,13 +30,13 @@ Service Fabric Explorer は、Service Fabric クラスター内のアプリケ�
 
 左側のツリーを使用して、Service Fabric Explorer 内を移動できます。 ツリーのルートでは、クラスター ダッシュボードにクラスターの概要 (アプリケーションとノードの正常性の概要など) が表示されます。
 
-![Service Fabric エクスプ ローラー クラスターのダッシュ ボード][sfx-クラスターのダッシュ ボード]
+![Service Fabric Explorer のクラスター ダッシュボード][sfx-cluster-dashboard]
 
 ### クラスター マップ
 
 Service Fabric クラスターのノードは障害ドメインの 2 次元グリッドにわたり配置され、ハードウェアに障害が発生したり、アプリケーションをアップグレードしたりするとき、アプリケーションの可用性を維持できるようにドメインをアップグレードします。 クラスター マップを利用し、現在のクラスターの配置を表示できます。
 
-![クラスター マップは Service Fabric エクスプ ローラー][sfx クラスター マップ]
+![Service Fabric Explorer のクラスター マップ][sfx-cluster-map]
 
 ### アプリケーションとサービスの表示
 
@@ -46,11 +46,11 @@ Service Fabric クラスターのノードは障害ドメインの 2 次元グ�
 
 アプリケーションの下の例では **MyApp** 2 つのサービスの構成される **MyStatefulService** と **WebService**します。  **MyStatefulService** ステートフルでは、1 つのプライマリとセカンダリ レプリカが 2 つのパーティションが含まれています。 これに対して、WebSvcService はステートレスであり、インスタンスが 1 つだけ含まれています。
 
-![Service Fabric エクスプ ローラー アプリケーション ビュー][sfx アプリケーション ツリー]
+![Service Fabric Explorer のアプリケーション ビュー][sfx-application-tree]
 
 ツリーの各レベルでは、メイン ウィンドウにその項目の関連情報が表示されます。 たとえば、特定のサービスの正常性状態とバージョンを確認できます。
 
-![Service Fabric エクスプ ローラー essentials ウィンドウ][sfx サービス essentials]
+![Service Fabric Explorer のメイン ウィンドウ][sfx-service-essentials]
 
 ### クラスターのノードの表示
 
@@ -62,7 +62,7 @@ Service Fabric Explorer では、クラスター内のノード、アプリケ�
 
 たとえば、アプリケーション インスタンスを削除するには、左側のツリーでアプリケーションを選択し、[操作]、[アプリケーションの削除] の順に選択します。
 
-![Service Fabric エクスプ ローラーでアプリケーションを削除する][sfx-削除-アプリケーション]
+![Service Fabric Explorer でのアプリケーションの削除][sfx-delete-application]
 
 多くの操作は破壊的であるため、操作を実行する前に確認を求められます。
 
@@ -100,4 +100,5 @@ Service Fabric クラスターに接続するために、クライアントに�
 [sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
+
 

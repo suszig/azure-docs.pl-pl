@@ -259,13 +259,14 @@ Azure ストレージ コンテナーを指定する必要がありますを生�
 - [Jonathan Kehayias の Microsoft SQL Server の拡張イベントに関するブログ投稿](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
-拡張イベントの他のコード サンプル トピックは次のリンクから入手可能です。 ただし、対象が Azure SQL Database または Microsoft SQL Server のどちらかを確認するために、サンプルを定期的にチェックする必要があります。 それにより、サンプルを実行するのにわずかな変更が必要かどうか判断できます。
+拡張イベントのその他のコード サンプルのトピックは、次のリンクから参照できます。 ただし、対象が Azure SQL Database または Microsoft SQL Server のどちらかを確認するために、サンプルを定期的にチェックする必要があります。 これにより、変更がサンプル実行に十分であるかを判断できます。
 
 
 <!--
 ('lock_acquired' event.)
 
-- SQL Server 用のコード サンプル: [を決定するクエリは保持するロック](http://msdn.microsoft.com/library/bb677357.aspx)
-- SQL Server 用のコード サンプル: [上の検索、オブジェクトがある、最もロック取得します。](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
+
 

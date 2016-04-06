@@ -182,7 +182,7 @@ X.509 証明書を取得して、コンテンツ キーの暗号化にその公�
 次の例を作成する方法を示しています、 **ContentKey** で、 **ContentKeyType** ストレージの暗号化 (「1」)、および **ProtectionKeyType** 保護キー Id が X.509 証明書のサムプリントであることを示す「0」に設定します。  
 
 
-要求
+Request (要求)
 
     POST https://media.windows.net/api/ContentKeys HTTP/1.1
     Content-Type: application/json
@@ -261,4 +261,5 @@ ContentKey を作成した後、次の例に示すように $links 演算子を�
 ##フィードバックの提供
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 

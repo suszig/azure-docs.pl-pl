@@ -63,7 +63,7 @@ ASP.NET 5 と DNX (.NET Execution Environment) は、OS X、Linux、Windows 上�
 
     ![DNVM の場所](./media/web-sites-create-web-app-using-vscode/00b-dnvm-list.png)
 
-    複数の DNX ランタイムが表示されている場合は、コマンド プロンプトで以下 (またはこれ以降のバージョン) を入力してアクティブな DNX ランタイムを設定することを選択できます。 このチュートリアルの後半で Web アプリを作成するときに、ASP.NET 5 ジェネレーターによって使用される同じバージョンに設定します。 *最新バージョンに設定されている場合、アクティブなランタイムを変更する必要はありません。*
+    複数の DNX ランタイムが表示されている場合は、コマンド プロンプトで以下 (またはこれ以降のバージョン) を入力してアクティブな DNX ランタイムを設定することを選択できます。 このチュートリアルの後半で Web アプリを作成するときに、ASP.NET 5 ジェネレーターによって使用される同じバージョンに設定します。 *最新バージョンに設定されている場合は、アクティブなランタイムを変更する必要はありません。*
 
         dnvm use 1.0.0-update1 –p
 
@@ -256,4 +256,5 @@ Git は、Azure App Service の Web アプリをデプロイするために使�
 ![Azure の Web アプリ](./media/web-sites-create-web-app-using-vscode/21-azurewebapp.png)
 
 ## 概要
-このチュートリアルでは、VS コードで、Web アプリを作成し、Azure にデプロイする方法を学習しました。 VS コードの詳細については、記事を参照してください [Visual Studio コードではなぜですか?。](https://code.visualstudio.com/Docs/)App Service web アプリについては、次を参照してください。 [Web Apps の概要](app-service-web-overview.md)します。 
+このチュートリアルでは、VS コードで、Web アプリを作成し、Azure にデプロイする方法を学習しました。 VS コードの詳細については、記事を参照してください [Visual Studio コードではなぜですか?。](https://code.visualstudio.com/Docs/) App Service web アプリについては、次を参照してください。 [Web Apps の概要](app-service-web-overview.md)します。 
+

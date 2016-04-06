@@ -56,7 +56,7 @@
     ![フィルターの結果が表示されたスクリプト エクスプローラーのスクリーンショット](./media/documentdb-view-scripts/scriptexplorerfilterresults.png)
 
 
-    > [AZURE.IMPORTANT] The Script Explorer filter functionality only filters from the ***currently*** loaded set of scripts and does not automatically refresh the currently selected collection.
+    > [AZURE.IMPORTANT] スクリプト エクスプ ローラーのフィルターの機能のみがフィルター、 ***現在*** スクリプトのセットをロードし、現在選択されているコレクションを自動的に更新されません。
 
 5. スクリプト エクスプ ローラーに読み込まれたスクリプトの一覧を更新するだけでクリックして、 **更新** ブレードの上部にあるコマンドです。
 
@@ -105,4 +105,5 @@
 
 DocumentDB の詳細については、次のようにクリックします。 [ここ](http://azure.com/docdb)します。
  
+
 

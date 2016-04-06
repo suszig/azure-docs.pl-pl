@@ -20,7 +20,7 @@
 この記事では、Service Fabric Reliable Services のパーティション分割に関する基本的な概念について説明します。 アーティクルで使用されるソース コードも [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions)します。
 
 ## パーティション分割とは
-パーティション分割は Service Fabric に固有のものではなく、スケーラブルなサービス構築の中心的なパターンです。 パーティション分割とは、広義では状態 (データ) の分割に関する概念と考えることができます。計算してアクセスしやすい小さな単位に分割することで、スケーラビリティとパフォーマンスを改善できます。 パーティション分割のよく知られているフォームは、[データ パーティション分割] [wikipartition] シャーディングとも呼ばれます。
+パーティション分割は Service Fabric に固有のものではなく、スケーラブルなサービス構築の中心的なパターンです。 パーティション分割とは、広義では状態 (データ) の分割に関する概念と考えることができます。計算してアクセスしやすい小さな単位に分割することで、スケーラビリティとパフォーマンスを改善できます。 パーティション分割のよく知られているフォームが [データのパーティション分割][wikipartition] シャーディングとも呼ばれます。
 
 
 ### Service Fabric ステートレス サービスのパーティション分割
@@ -36,7 +36,7 @@
 Service Fabric には状態 (データ) をパーティション分割する高度な機能があるので、スケーラブルなステートフル サービスを簡単に開発できます。 概念的にを信頼性の高いスケールの単位をされているステートフルなサービスのパーティションについて考えることができます [レプリカ](service-fabric-availability-services.md) 分散およびクラスターのノード間で分散されます。
 Service Fabric のステートフル サービスのコンテキストでのパーティション分割とは、プロセスのことを確認、特定のサービス パーティション (パーティションのセットは、前述のように、 [レプリカ](service-fabric-availability-services.md)) は、サービスのすべての状態の一部を担当します。 Service Fabric のメリットは、複数のノードにパーティションを配置できるので、ノードのリソース上限まで拡張できる点です。 データが増えると、パーティションも拡張され、Service Fabric はハードウェア リソースを継続して効率的に使用できるように、ノード全体のパーティションのバランスを再調整します。
 
-たとえば、5 ノードのクラスターがあり、10 パーティションと 3 つのレプリカのターゲットがあるサービスを構成するとします。 ここで Service Fabric はのバランスをとるクラスター間で複製物を配布しは最終的には主に 2 [レプリカ](service-fabric-availability-services.md) 1 つのノードです。
+たとえば、5 ノードのクラスターがあり、10 パーティションと 3 つのレプリカのターゲットがあるサービスを構成するとします。 され Service Fabric のバランスを取るし、クラスター間で複製物を配布はここでは、主な 2、最終的には [レプリカ](service-fabric-availability-services.md) 1 つのノードです。
 Service Fabric が、プライマリのバランスを再調整は今すぐ 10 個のノードにクラスターを拡張する必要がある場合 [レプリカ](service-fabric-availability-services.md) 10 のすべてのノードでします。 同様に 5 ノードに縮小する場合、Service Fabric は 5 ノードすべてに分散するようにバランスを再調整します。  
 
 図 2 は、クラスターのスケーリング前と後の 10 パーティションの分散を示しています。
@@ -337,20 +337,21 @@ Service Fabric には、3 つのパーティション スキーマが用意さ�
   </Parameters>
   ```
 
-16. Once deployed you can check the service and all of its partitions in the Service Fabric Explorer.
-![Service](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
-17. In a browser you can test the partitioning logic by entering `http://localhost:8090/?lastname=somename`. You will see that each last name that starts with the same letter is being stored in the same partition.
-![Browser](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
+16. デプロイ後に、サービスとすべての Service Fabric エクスプ ローラーでパーティションをチェックすることができます。
+![サービス](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
+17. ブラウザーで `http://localhost:8090/?lastname=somename` を入力してパーティション分割ロジックをテストできます。 同じ文字で始まる各姓が同じパーティションに格納されていることがわかります。
+![ブラウザー](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
-The entire source code of the sample is available on [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions)
+サンプルの完全なソース コードは [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions)
 
-## Next steps
+## 次のステップ
 
-For information on Service Fabric concepts, see the following:
+Service Fabric の概念についての詳細は、次を参照してください。
 
-- [Availability of Service Fabric Services](service-fabric-availability-services.md)
+- [Service Fabric サービスの可用性](service-fabric-availability-services.md)
 
-- [Scalability of Service Fabric Services](service-fabric-concepts-scalability.md)
+- [Service Fabric サービスの拡張性](service-fabric-concepts-scalability.md)
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
+
 

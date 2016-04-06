@@ -26,7 +26,7 @@
 
 > [AZURE.NOTE] これは、ソフトウェアの以前のバージョン、バランス、大規模を Azure で使用に関する最新情報を確認し、Docker コンテナーだけでなく、docker のチェックの制御されたクラスターの swarm のドキュメントは、すべての機能を検出します。
 <!-- -->
-> また、このトピックでは docker を swarm および Azure CLI *せず* を使用して **docker マシン** さまざまなツールがどのように連携を表示するが、独立性を確保するためにします。 **docker マシン** が **--swarm** スイッチを使用するための **docker マシン** 直接 swarm にノードを追加します。 例については、次を参照してください。、 [docker-machine](https://github.com/docker/machine) ドキュメントです。 不足している場合 **docker マシン** Azure Vm に対して実行されているを参照してください [How to use docker-machine with Azure](virtual-machines-docker-machine.md)します。
+> また、このトピックでは docker を swarm および Azure CLI *せず* を使用して **docker マシン** さまざまなツールがどのように連携を表示するが、独立性を確保するためにします。 **docker マシン** が **--swarm** スイッチを使用するための **docker マシン** 直接 swarm にノードを追加します。 例については、次を参照してください。、 [docker マシン](https://github.com/docker/machine) ドキュメントです。 不足している場合 **docker マシン** Azure Vm に対して実行されているを参照してください [Azure で docker マシンを使用する方法](virtual-machines-docker-machine.md)します。
 
 ## Azure 仮想マシンでの Docker ホストの作成
 
@@ -138,3 +138,4 @@ Swarm でお試しください。 インスピレーションを探すように�
 
 [docker-machine-azure]: virtual-machines-docker-machine.md
  
+

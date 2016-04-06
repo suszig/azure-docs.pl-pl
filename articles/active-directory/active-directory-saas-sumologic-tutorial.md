@@ -75,11 +75,11 @@
 
 1.  Azure AD ポータルでの **SumoLogic** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778552.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-sumologic-tutorial/IC778552.png "Configure single sign-on")
 
 2.   **どのようなユーザーの SumoLogic へのアクセス** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 
-    ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778553.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-sumologic-tutorial/IC778553.png "Configure single sign-on")
 
 3.   **アプリケーション URL の構成** ] ページで、 **SumoLogic サインイン URL** ] ボックスに、次のパターンを使用して URL を入力"*https://\<tenant-name\>。SumoLogic.com*"、クリックして **次**します。
 
@@ -87,7 +87,7 @@
 
 4.   **SumoLogic でのシングル サインオンの構成** ] ページで、証明書をダウンロードする] をクリックして **証明書のダウンロード**, 、お使いのコンピューターに証明書ファイルを保存します。
 
-    ![シングル サインオンの構成](./media/active-directory-saas-sumologic-tutorial/IC778555.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778555.png "Configure single sign-on")
 
 5.  別の Web ブラウザーのウィンドウで、SumoLogic 企業サイトに管理者としてログインします。
 
@@ -170,3 +170,4 @@ SumoLogic の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-sumologic-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

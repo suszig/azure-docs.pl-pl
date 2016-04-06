@@ -81,7 +81,7 @@ FreshService にシングル サインオンを構成するには、証明書か
 
 3.   **アプリケーション URL の構成** ] ページで、 **FreshService サインオン URL** ] ボックスに、型に使用する URL、ユーザーが Freshdesk アプリケーションにサインオン (例::"*http://democompany.freshservice.com/*")、順にクリック **次**します。
 
-    ![アプリケーション URL の構成](./media/active-directory-saas-freshservice-tutorial/IC790812.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-freshservice-tutorial/IC790812.png "Configure App URL")
 
 4.   **FreshService でのシングル サインオンの構成** ] ページで、証明書をダウンロードする] をクリックして **証明書のダウンロード**, 、お使いのコンピューターにローカルで証明書ファイルを保存します。
 
@@ -101,7 +101,7 @@ FreshService にシングル サインオンを構成するには、証明書か
 
     ![シングル サインオン](./media/active-directory-saas-freshservice-tutorial/IC790816.png "Single Sign On")
 
-    1.  スイッチ **1 つの符号部族**します。
+    1.  スイッチ **シングル サインオン部族**します。
     2.  選択 **SAML SSO**します。
     3.  Azure ポータルで、 **FreshService でのシングル サインオンの構成** ] ダイアログ ページでコピー、 **リモート ログイン URL** 値に設定して、貼り付けます、 **SAML Login URL** ] ボックスに貼り付けます。
     4.  Azure ポータルで、 **FreshService でのシングル サインオンの構成** ] ダイアログ ページでコピー、 **リモート ログアウト URL** 値に設定して、貼り付けます、 **ログアウト URL** ] ボックスに貼り付けます。
@@ -161,3 +161,4 @@ FreshService の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-freshservice-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

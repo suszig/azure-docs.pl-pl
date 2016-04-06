@@ -41,7 +41,7 @@ Azure App Service の Web アプリケーションは、SQL Server、MySQL、HTT
 
 1. 左上隅にある、 [Azure ポータル](https://portal.azure.com), 、クリックして **新規** > **Web + モバイル** > **Web アプリ**します。
     
-    ![新しい web アプリ][別途]
+    ![新しい Web アプリ][NewWebsite]
     
 2.  **Web アプリ** ブレードでは、URL を指定して、クリックして **作成**します。 
     
@@ -49,13 +49,13 @@ Azure App Service の Web アプリケーションは、SQL Server、MySQL、HTT
     
 3. しばらくすると、Web アプリケーションが作成され、Web アプリケーションのブレードが表示されます。 ブレードは縦方向にスクロールできるダッシュボードで、サイトを管理することができます。
     
-    ![Web サイトを実行している][WebSiteRunningBlade]
+    ![Web サイト実行][WebSiteRunningBlade]
     
 4. クリックすると、ライブ サイトを確認する、 **参照** 既定のページを表示するアイコン。
     
-    ![Web アプリを表示するには、[参照] をクリックしてください][参照]
+    ![[参照] をクリックして Web アプリを確認する][Browse]
     
-    ![既定の web アプリのページ][DefaultWebSitePage]
+    ![既定の Web アプリ ページ][DefaultWebSitePage]
     
 次に、Web アプリケーションに対するハイブリッド接続と BizTalk サービスを作成します。
 
@@ -90,7 +90,7 @@ Azure App Service の Web アプリケーションは、SQL Server、MySQL、HTT
     
 5. ハイブリッド接続を作成] ブレードでクリックして **OK**します。 
     
-    ![Ok] をクリックして][CreateBTScomplete]
+    ![[OK] をクリック][CreateBTScomplete]
     
 6. 処理が完了すると、ポータルの通知領域に接続の作成が完了したことが通知されます。
     <!-TODO
@@ -103,24 +103,24 @@ Azure App Service の Web アプリケーションは、SQL Server、MySQL、HTT
     'Microsoft.BizTaIkServices for api version 2014-06-01'.
     
     このエラーは、インスタンスではなく、タイプが見つからなかったことを示しています。
-    ![成功の通知][CreateHCSuccessNotification]
+    ![Success notification][CreateHCSuccessNotification]
     -->
 7. Web アプリのブレードで、 **ハイブリッド接続** アイコンが 1 のハイブリッド接続が作成されたことを示してしています。
     
-    ![作成した 1 つのハイブリッド接続][CreateHCOneConnectionCreated]
+    ![1 つのハイブリッド接続が作成された][CreateHCOneConnectionCreated]
     
 これで、クラウド ハイブリッド接続のインフラストラクチャの重要な部分が完了しました。 次に、対応する内部設置型の部分を作成します。
 
 <a name="InstallHCM"></a>
-## オンプレミス ハイブリッド接続マネージャーをインストールして接続を完了する ##
+## オンプレミスのハイブリッド接続マネージャーをインストールして接続を完了する ##
 
 1. Web アプリのブレードでクリックして **設定をすべて** > **ネットワーク** > **ハイブリッド接続エンドポイントを構成する**です。 
     
-    ![ハイブリッド接続] アイコン][HCIcon]
+    ![ハイブリッド接続アイコン][HCIcon]
     
 2.  **ハイブリッド接続** ブレードで、 **ステータス** 最近追加されたエンドポイントの表示の列 **接続されていない**します。 接続をクリックして構成します。
     
-    ![未接続][NotConnected]
+    ![Not connected][NotConnected]
     
     ハイブリッド接続ブレードが開きます。
     
@@ -128,31 +128,31 @@ Azure App Service の Web アプリケーションは、SQL Server、MySQL、HTT
     
 3. ブレードでクリックして **リスナーのセットアップ**します。
     
-    ![リスナーのセットアップをクリックしてください][ClickListenerSetup]
+    ![[リスナーのセットアップ] をクリック][ClickListenerSetup]
     
 4.  **ハイブリッド接続のプロパティ** ブレードが開きます。  **内部設置型 Hybrid Connection Manager**, 、選択 **ここをクリックしてインストールする**です。
     
-    ![ここをクリックしてインストールする][ClickToInstallHCM]
+    ![ここをクリックしてインストール][ClickToInstallHCM]
     
 5. アプリケーションの実行のセキュリティ警告ダイアログで選択 **実行** を続行します。
     
-    ![実行を続行する] を選択][ApplicationRunWarning]
+    ![[実行] を選択して続行][ApplicationRunWarning]
     
 6.   **ユーザー アカウント制御** ] ダイアログ ボックスで選択 **はい**します。
     
-    ![はい] をクリックして][UAC]
+    ![[はい] を選択][UAC]
     
 7. Hybrid Connection Manager がダウンロードされ、インストールされます。 
     
-    ![インストール][HCMInstalling]
+    ![インストール中][HCMInstalling]
     
 8. インストールが完了したら、クリックして **閉じる**します。
     
-    ![閉じる] をクリックして][HCMInstallComplete]
+    ![[閉じる] をクリックしてください][HCMInstallComplete]
     
      **ハイブリッド接続** ブレードで、 **ステータス** 列が表示されます **接続**します。 
     
-    ![状態の接続][HCStatusConnected]
+    ![接続されている状態][HCStatusConnected]
 
 これで、ハイブリッド接続のインフラストラクチャが完成しました。この接続を使用するハイブリッド アプリケーションを作成できます。 
 
@@ -207,3 +207,4 @@ Azure App Service の Web アプリケーションは、SQL Server、MySQL、HTT
 [HCMInstallComplete]:./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png
 [HCStatusConnected]:./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
+

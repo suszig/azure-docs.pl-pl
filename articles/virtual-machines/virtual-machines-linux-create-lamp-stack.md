@@ -366,7 +366,7 @@ LAMP スタックを正しく設定したら、既存の Web アプリケーシ�
 
 ###インターネットから、Apache と Moodle を使用している仮想マシンにアクセスできない
 
--   **症状:**  
+-   **症状**  
 Apache は実行されているが、Apache の既定のページがブラウザーに表示されません。
 -   **考えられる根本原因**
     1.  Apache のリッスン ポートが、仮想マシンの Web トラフィック用のエンドポイントのプライベート ポートと異なっている。</br>
@@ -401,7 +401,7 @@ Apache は実行されているが、Apache の既定のページがブラウザ
 
 ###/var/www/html/ にプロジェクト ファイルをアップロードしようとすると、アクセスが拒否される  
 
--   **症状:**  
+-   **症状**  
 SFTP クライアント (FileZilla など) を使用して仮想マシンに接続し、/var/www/html に移動してサイトを公開しようとすると、次のようなエラー メッセージが表示される。  
 
         status: Listing directory /var/www/html
@@ -411,7 +411,7 @@ SFTP クライアント (FileZilla など) を使用して仮想マシンに接�
 
 -   **考えられる根本原因**
 /var/www/html フォルダーへのアクセス許可が付与されていない。  
--   **ソリューション**  
+-   **解決策**  
 root アカウントからアクセス許可を取得する必要があります。 フォルダーの所有権を、root からマシンをプロビジョニングしたときに使用したユーザー名に変更できます。 次は、azureuser のアカウント名の例です。  
 
         sudo chown azureuser -R /var/www/html  
@@ -430,7 +430,7 @@ root アカウントからアクセス許可を取得する必要があります
 
 ###サーバーの完全修飾ドメイン名を確実に判断できない
 
--   **症状:**  
+-   **症状**  
 次のいずれかのコマンドを使用して Apache サーバーを再起動した場合:  
 
         sudo /etc/init.d/apache2 restart  # Debian release  
@@ -449,7 +449,7 @@ root アカウントからアクセス許可を取得する必要があります
 -   **考えられる根本原因**
     Apache のサーバー名が設定されていない。
 
--   **ソリューション**  
+-   **解決策**  
     /etc/apache2 の httpd.conf (Red Hat リリース) または apache2.conf (Debian リリース) に “ServerName localhost” 行を挿入して Apache を再起動します。 通知が表示されなくなります。
 
 
@@ -472,4 +472,5 @@ root アカウントからアクセス許可を取得する必要があります
 [16]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-16.png
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
+
 

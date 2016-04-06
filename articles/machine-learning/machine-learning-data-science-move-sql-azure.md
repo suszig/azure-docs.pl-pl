@@ -1,13 +1,13 @@
 <properties 
-    pageTitle ="Azure Machine Learning for Azure SQL Database にデータを移動 |Azure" 
-    description =「SQL テーブルの作成と読み込みテーブルにデータを SQL」 
-    サービス =「機械学習」 
+    pageTitle="Azure Machine Learning 用にデータを Azure SQL Database に移動する | Azure" 
+    description="SQL テーブルを作成して SQL テーブルにデータを読み込みます" 
+    services="machine-learning" 
     documentationCenter="" 
-    authors ="fashah" 
+    authors="fashah" 
     manager="jacob.spoelstra" 
-    エディター ="" 
-    videoId =""[hee
-    scriptId =""/>
+    editor="" 
+    videoId="" [hee
+    scriptId="" />
 
 <tags 
     ms.service="machine-learning" 
@@ -34,7 +34,7 @@ Machine Learning の内部設置型 SQL Server にデータを移動するオプ
 <b>ソース</b> |<b>移動先: Azure SQL Database</b> |
 -------------- |--------------------------------|
 <b>フラット ファイル (CSV または TSV 形式)</b> |<a href="#bulk-insert-sql-query">一括挿入 SQL クエリ |
-<b>オンプレミスの SQL Server</b> | 1. <a href="#export-flat-file">フラット ファイルへのエクスポート<br> 2. <a href="#insert-tables-bcp">SQL データベースの移行ウィザード<br> 3. <a href="#db-migration">データベースのバックアップと復元<br> 4. <a href="#adf">Azure Data Factory |
+<b>オンプレミスの SQL Server</b> | 1.<a href="#export-flat-file">フラット ファイルへのエクスポート<br> 2.<a href="#insert-tables-bcp">SQL Database 移行ウィザード<br> 3.<a href="#db-migration">データベースのバックアップと復元<br> 4.<a href="#adf">Azure Data Factory |
 
 
 ## <a name="prereqs"></a>前提条件
@@ -49,15 +49,15 @@ Machine Learning の内部設置型 SQL Server にデータを移動するオプ
  
 ここで説明されている手順は、自身のデータに適用することも、NYC タクシー データセットを使用してこの手順に従って行うこともできます。 内部設置型 SQL Server データベースには、NYC タクシー データセットをアップロードするに記載されている手順に従って [SQL Server データベースにデータを一括インポート](machine-learning-data-science-process-sql-walkthrough.md#dbload)します。 これらは Azure Virtual Machine 上の SQL Server にアップロードする手順ですが、オンプレミスの SQL Server へのアップロード手順も同じです。
 
-## <a name="file-to-azure-sql-database"></a> フラット ファイル ソースからデータを Azure SQL データベースを移動
+## <a name="file-to-azure-sql-database"></a>フラット ファイル ソースから Azure SQL Database へのデータの移動
 
 フラット ファイル (CSV 形式または TSV 形式) のデータは、一括挿入 SQL クエリを使用して Azure SQL Database に移動できます。
 
-### <a name="bulk-insert-sql-query"></a> 一括挿入 SQL クエリ
+### <a name="bulk-insert-sql-query">一括挿入 SQL クエリ</a>
 
 一括挿入 SQL クエリを使用する手順は、フラット ファイル ソースから Azure VM 上の SQL Server にデータを移動する手順と似ています。 詳細については、「 [一括挿入 SQL クエリ](machine-learning-data-science-move-sql-server-virtual-machine.md#insert-tables-bulkquery)します。
 
-##<a name="sql-on-prem-to-sazure-sql-database"></a> 内部設置型 SQL Server から Azure SQL データベースへのデータの移動
+##<a name="sql-on-prem-to-sazure-sql-database"></a>オンプレミスの SQL Server から Azure SQL Database へのデータの移動
 
 ソース データがオンプレミスの SQL Server に保存されている場合は、さまざまな方法で Azure SQL Database にデータを移動できます。
 
@@ -72,7 +72,7 @@ Machine Learning の内部設置型 SQL Server にデータを移動するオプ
 
 フラット ファイルにエクスポートするための手順は、管理対象のような [フラット ファイルにエクスポート](machine-learning-data-science-move-sql-server-virtual-machine.md#export-flat-file)します。
 
-###<a name="insert-tables-bcp"></a>SQL データベースの移行ウィザード
+###<a name="insert-tables-bcp">SQL Database 移行ウィザード</a>
 
 SQL Database 移行ウィザードを使用する手順は、管理対象のような [SQL Database 移行ウィザード](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-migration)します。
 
@@ -85,6 +85,7 @@ SQL Database 移行ウィザードを使用する手順は、管理対象のよ�
 Azure SQL database と Azure Data Factory (ADF) にデータを移動する手順は、トピックでは提供 [Azure Data Factory を使って SQL azure、内部設置型 SQL server からデータを移動](machine-learning-data-science-move-sql-azure-adf.md)します。このトピックでは、ADF を使用して Azure Blob ストレージを使用して、Azure SQL データベースを内部設置型 SQL Server データベースからデータを移動する方法を説明します。 
 
 オンプレミスとクラウドの両方のリソースにアクセスするハイブリッド シナリオで、継続的にデータを移行する必要がある場合、および移行の過程で、データを処理する場合や、データに変更を加えたりビジネス ロジックを付加したりする必要がある場合には、ADF の使用を検討してください。 ADF では、定期的にデータの移動を管理するシンプルな JSON スクリプトを使用して、ジョブのスケジュールと監視ができます。 ADF には他にも、複雑な操作のサポートなどの機能があります。
+
 
 
 

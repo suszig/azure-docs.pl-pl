@@ -33,7 +33,7 @@
 [AZURE.NOTE] Python をインストールする必要がある場合、または [Python Azure パッケージ][], を参照してください、 [Python インストール ガイド](../python-how-to-install.md)します。
 
 
-## テーブルの作成
+## テーブルを作成する
 
  **TableService** オブジェクトでは、テーブル サービスを使用することができます。 この
 次のコードを作成、 **TableService** オブジェクトです。 付近のコードを追加します。
@@ -169,4 +169,5 @@ Microsoft Azure ストレージ エミュレーターが起動されます。
 [Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Python Azure package]: https://pypi.python.org/pypi/azure
 [Python Azure Storage package]: https://pypi.python.org/pypi/azure-storage
+
 

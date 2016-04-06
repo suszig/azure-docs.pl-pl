@@ -54,7 +54,7 @@ Web トラフィックに SSH トンネルを使用するには、以下が必�
 
     > [AZURE.WARNING] FoxyProxy などのプラグイン、せず、ブラウザーから作成されたすべての要求は、トンネルを通じてルーティングされます。 その結果、ブラウザーの Web ページの読み込みが低速になる可能性があります。
 
-##<a name="usessh"></a>SSH コマンドを使用してトンネルを作成します。
+##<a name="usessh"></a>SSH コマンドを使用してトンネルを作成する
 
 次のように `ssh` コマンドを使用して、SSH トンネルを作成します。 置換 __USERNAME__ を HDInsight クラスターと置換の SSH ユーザー __CLUSTERNAME__ 、HDInsight クラスターの名前に置き換えます
 
@@ -82,7 +82,7 @@ SSH キーを使用してクラスターを構成した場合は、SSH 秘密キ
 
 コマンドが完了すると、ローカル コンピューター上でポート 9876 に送信されるトラフィックは、クラスターのヘッド ノードに Secure Sockets Layer (SSL) 経由でルーティングされ、そのヘッド ノードで生成されたかのように見えます。
 
-##<a name="useputty"></a>PuTTY を使用したトンネルを作成します。
+##<a name="useputty"></a>PuTTY を使用してトンネルを作成する
 
 次の手順に従ってPuTTY を使用して、SSH トンネルを作成します。
 
@@ -177,7 +177,7 @@ FoxyProxy Standard をインストール済みの場合は、次の手順を使�
     > [AZURE.NOTE] 選択すると、メニューではなく待機インジケーターが取得低速のインターネット接続があったり、ヘッド ノードが非常に高い場合 __クイック リンク__します。 その場合は、サーバーからデータが取得されるまで 1 ～ 2 分待ってから、改めて一覧を表示してみてください。
 
 
-    > [AZURE.TIP] If you have a lower resolution monitor, or your browser window is not maximized, some entries in the __Quick Links__ menu may be cut off by the right side of the screen. If so, expand the menu using your mouse, then use the right arrow key to scroll the screen to the right to see the rest of the menu.
+    > [AZURE.TIP] 低解像度のモニター、またはブラウザー ウィンドウが最大化されていない場合にいくつかのエントリ、 __クイック リンク__ メニューは、画面の右側で切り取ら可能性があります。 その場合は、マウスを使用してメニューを拡大するか、右矢印キーを使用して画面を右にスクロールして、メニューの残りを表示します。
 
 4. 次のようなページが表示されます。
 
@@ -196,4 +196,5 @@ HDInsight での SSH の使用方法の詳細については、以下の記事�
 * [Linux、Unix、または OS X から HDInsight 上の Linux ベースの Hadoop で SSH キーを使用する](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 * [HDInsight の Linux ベースの Hadoop で Windows から SSH を使用する](hdinsight-hadoop-linux-use-ssh-windows.md)
+
 

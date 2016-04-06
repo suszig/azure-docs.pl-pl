@@ -37,7 +37,7 @@
 
 1.  左側のナビゲーション ウィンドウで、Azure 管理ポータルで、クリックして **Active Directory**します。
 
-    ![Enable single sign-on](./media/active-directory-saas-bonus-tutorial/IC773680.png "Enable single sign-on")
+    ![シングル サインオンの有効化](./media/active-directory-saas-bonus-tutorial/IC773680.png "Enable single sign-on")
 
 2.   **ディレクトリ** 一覧で、ディレクトリ統合を有効にディレクトリを選択します。
 
@@ -70,7 +70,7 @@ Bonus.ly のシングル サインオンを構成するには、証明書から�
 
 1.  Azure AD ポータルでの **Bonus.ly** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-bonus-tutorial/IC749323.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-bonus-tutorial/IC749323.png "Configure single sign-on")
 
 2.   **どのようなユーザーを Bonus.ly にサインオンする** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 
@@ -82,7 +82,7 @@ Bonus.ly のシングル サインオンを構成するには、証明書から�
 
 4.   **Bonus.ly でのシングル サインオンの構成** ] ページで [ **証明書のダウンロード**, 、としては、証明書ファイルをローカルに保存および **c:\\Bonusly.cer**します。
 
-    ![Configure single sign-on](./media/active-directory-saas-bonus-tutorial/IC773685.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-bonus-tutorial/IC773685.png "Configure single sign-on")
 
 5.  別のブラウザー ウィンドウ内にログインして **Bonus.ly** テナントです。
 
@@ -107,7 +107,7 @@ Bonus.ly のシングル サインオンを構成するには、証明書から�
 
 10. Microsoft Azure AD ポータルの構成情報を選択し、をクリックして **完了** を閉じる、 **[シングル サインオン** ダイアログ。
 
-    ![シングル サインオンの構成](./media/active-directory-saas-bonus-tutorial/IC773689.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-bonus-tutorial/IC773689.png "Configure single sign-on")
 ##ユーザー プロビジョニングの構成
 
 Azure AD ユーザーが Bonus.ly にログインできるようにするには、ユーザーを Bonus.ly にプロビジョニングする必要があります。  
@@ -119,7 +119,7 @@ Bonus.ly の場合、プロビジョニングは手動で行います。
 
 2.  クリックして **設定**
 
-    ![設定](./media/active-directory-saas-bonus-tutorial/IC781041.png "Settings")
+    ![Settings](./media/active-directory-saas-bonus-tutorial/IC781041.png "Settings")
 
 3.  クリックして、 **ユーザーおよびボーナス** ] タブをクリックします。
 
@@ -161,4 +161,5 @@ Bonus.ly の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-bonus-tutorial/IC767830.png "Yes")
 
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+
 

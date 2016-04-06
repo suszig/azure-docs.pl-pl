@@ -26,18 +26,19 @@ Office 365 で多要素認証を使用しておらず、Azure サブスクリプ
 --------------------------------------------------------------------------------
 <ol>
 <li>サインインする [https://myapps.microsoft.com](https://myapps.microsoft.com)</li>    
-<li>上部にあるプロファイルを選択します。</li>
+<li>上部にある [プロファイル] を選択します。</li>
 
 <center>![クラウド](./media/multi-factor-authentication-end-user-app-passwords-create-myapps/myapp.png)</center>
 
-<li>ユーザー名をクリックし、追加のセキュリティ確認] を選択します</li>
-<li>。プルーフ アップ ページの上部にある、アプリ パスワード] 選択</li>
-<li>クリックして **を作成します。**</li>
+<li>ユーザー名をクリックし、[追加のセキュリティ確認] を選択します。</li>
+<li>確認ページの上部の [アプリ パスワード] を選択します。</li>
+<li>クリックして **の作成**</li>
 
 ![クラウド](./media/multi-factor-authentication-end-user-app-passwords-create-myapps/apppassword.png)
 
-<li>アプリ パスワードの名前を入力し、クリックして **次**</li>
+<li>アプリ パスワードの名前を入力し、クリックして **次へ]**</li>
 <li>アプリ パスワードをクリップボードにコピーし、アプリに貼り付けます。</li>
 
 
  
+

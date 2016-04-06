@@ -91,8 +91,8 @@ Azure AD Connect Health ポータルを使用すると、アラート、パフ�
 
 | 要件 | 説明|
 | ----------- | ---------- |
-|Azure AD Premium| Azure AD Connect Health は Azure AD Premium の機能です。使用するためには Azure AD Premium が必要となります。 </br></br>詳細については、次を参照してください [Azure AD Premium の概要](active-directory-get-started-premium.md)。</br></br>。30 日間無料評価版の参照を開始する [の評価を開始します。](https://azure.microsoft.com/trial/get-started-active-directory/)|.
-|Azure AD Connect Health を有効にする (作成する) には、Azure AD のグローバル管理者であること|既定では、Azure AD Connect Health を有効化 (作成) し、Azure AD Connect Health 内のすべてのすべての情報にアクセスしたり、すべての操作を実行したりできるのは、グローバル管理者のみです。 追加情報を参照してください。 [Azure AD ディレクトリの管理](active-directory-administer.md)します。 <br><br> ロールベースのアクセス制御を使用して、Azure AD Connect Health へのアクセスを組織の他のユーザーに許可できます。 詳細については、次を参照してください。 [Azure AD Connect Health のロール ベース アクセス制御します。](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control)</br></br>**重要:** 、エージェントをインストールするときに使用するアカウントは、職場アカウントまたは組織アカウントにする必要があり、Microsoft アカウントであることはできません。 詳細については、次を参照してください [組織としての Azure へのサインアップ。](sign-up-organization.md)|
+|Azure AD Premium| Azure AD Connect Health は Azure AD Premium の機能です。使用するためには Azure AD Premium が必要となります。 </br></br>詳細については、次を参照してください。 [Azure AD Premium の概要](active-directory-get-started-premium.md)します。</br></br>30 日間無料評価版の参照を開始する [の評価を開始します。](https://azure.microsoft.com/trial/get-started-active-directory/)|.
+|Azure AD Connect Health を有効にする (作成する) には、Azure AD のグローバル管理者であること|既定では、Azure AD Connect Health を有効化 (作成) し、Azure AD Connect Health 内のすべてのすべての情報にアクセスしたり、すべての操作を実行したりできるのは、グローバル管理者のみです。 追加情報を参照してください。 [Azure AD ディレクトリの管理](active-directory-administer.md)します。 <br><br> ロールベースのアクセス制御を使用して、組織内の Azure AD Connect Health を他のユーザーへのアクセスを許可できます。 詳細については、次を参照してください。 [Azure AD Connect Health のロール ベース アクセス制御します。](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) </br></br>**重要:** 、エージェントをインストールするときに使用するアカウントは、職場アカウントまたは組織アカウントにする必要があり、Microsoft アカウントであることはできません。 詳細については、次を参照してください [組織としての Azure へのサインアップ。](sign-up-organization.md)|
 |AD FS で利用状況分析機能を使用する場合、AD FS 監査が有効になっていること| AD FS で利用状況分析機能を使用する予定がある場合は、AD FS の監査を有効にする必要があります。  </br></br>参照してください [AD FS の正常性エージェントを接続する Azure AD をインストールします。](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
 |Azure AD Connect Health エージェントの要件を満たしていること|エージェント固有の要件については、次の表を参照してください。
 
@@ -100,9 +100,9 @@ Azure AD Connect Health ポータルを使用すると、アラート、パフ�
 
 | 要件 | 説明|
 | ----------- | ---------- |
-|Azure AD Connect Health エージェントが個々のサーバーにインストールされていること| ポータルに表示されるデータを Azure AD Connect Health から得るためには、対象となるサーバーにエージェントがインストールされている必要があります。 </br></br>たとえば、AD FS オンプレミス インフラストラクチャに関するデータを入手するには、AD FS サーバーにエージェントがインストールされている必要があります。  これには AD FS プロキシ サーバーや Web アプリケーション プロキシ サーバーが含まれます。   </br></br>エージェントのインストールに関する情報を参照してください、 [Azure AD 接続正常性エージェントのインストール](active-directory-aadconnect-health-agent-install.md).</br></br>**重要:** 、エージェントをインストールするときに使用するアカウントは、職場アカウントまたは組織アカウントにする必要があり、Microsoft アカウントであることはできません。   詳細については、次を参照してください [組織としての Azure へのサインアップ。](sign-up-organization.md)|
-|Azure AD Connect Health for Sync エージェント| このエージェントは、Azure AD Connect の最新バージョンと共に自動的にインストールされます。  </br></br>これから使用を開始する場合は、何も行う必要はありません。  Azure AD Connect のインストール時にエージェントもインストールされます。</br></br>既にインストールされている Azure AD Connect がある場合は、ダウンロードできる最新バージョンにアップグレードする必要があります。 [ここ](http://www.microsoft.com/download/details.aspx?id=47594)します。
-|Azure サービスのエンドポイントに対する送信接続|エージェントをインストールしたり実行したりするためには、以下に示した、Azure AD Connect Health サービスのエンド ポイントへの接続が必要となります。 接続が許可リストに、次の項目が追加されたことを確認する送信をブロックする場合: </br></br><li>**新しい**: https://management.azure.com </li><li>**新しい**: & #42;。>.blob.core.windows.net </li><li>**新しい**: & #42;。queue.core.windows.net</li><li>& #42;。.servicebus.windows.net - ポート: 5671</li><li>https://&#42;.adhybridhealth.azure.com/</li><li>https://&#42;.table.core.windows.net/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
+|Azure AD Connect Health エージェントが個々のサーバーにインストールされていること| ポータルに表示されるデータを Azure AD Connect Health から得るためには、対象となるサーバーにエージェントがインストールされている必要があります。 </br></br>など、AD FS オンプレミス インフラストラクチャにデータを取得するのには、エージェントを AD FS サーバーにインストールする必要があります。  これには AD FS プロキシ サーバーや Web アプリケーション プロキシ サーバーが含まれます。   </br></br>エージェントのインストールに関する情報を参照してください、 [Azure AD 接続正常性エージェントのインストール](active-directory-aadconnect-health-agent-install.md)します。</br></br>**重要:** 、エージェントをインストールするときに使用するアカウントは、職場アカウントまたは組織アカウントにする必要があり、Microsoft アカウントであることはできません。   詳細については、次を参照してください [組織としての Azure へのサインアップ。](sign-up-organization.md)|
+|Azure AD Connect Health for Sync エージェント| このエージェントは、Azure AD Connect の最新バージョンと共に自動的にインストールされます。  </br></br>起動した場合は、その他の作業する必要はありません。  Azure AD Connect をインストールするときに、エージェントをインストールします。</br></br> 既にインストールされている Azure AD Connect がある場合は、ダウンロードできる最新バージョンにアップグレードする必要があります。 [ここ](http://www.microsoft.com/download/details.aspx?id=47594)します。
+|Azure サービスのエンドポイントに対する送信接続|エージェントをインストールしたり実行したりするためには、以下に示した、Azure AD Connect Health サービスのエンド ポイントへの接続が必要となります。 送信接続をブロックしている場合は、以下の項目を許可リストに追加してください。 </br></br><li>**新しい**: https://management.azure.com </li><li>**新しい**: & #42;。>.blob.core.windows.net </li><li>**新しい**: & #42;。queue.core.windows.net</li><li>& #42;。.servicebus.windows.net - ポート: 5671</li><li>https://&#42;.adhybridhealth.azure.com/</li><li>https://&#42;.table.core.windows.net/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
 |エージェントを実行するサーバー上のファイアウォール ポート| このエージェントには、次のファイアウォール ポートをエージェントを Azure AD Health サービス エンドポイントと通信するために開くことが必要です。</br></br><li>TCP または UDP ポート 80</li><li>TCP または UDP ポート 443</li><li>TCP または UDP ポート 5671</li>
 |IE セキュリティ強化が有効になっている場合は以下の Web サイトが許可されていること|エージェントのインストール対象となるサーバーで IE セキュリティ強化が有効になっている場合、次の Web サイトを許可する必要があります。</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Azure Active Directory の使用例によって、組織のフェデレーション サーバーの信頼: https://sts.contoso.com</li>
 
@@ -111,7 +111,7 @@ Azure AD Connect Health ポータルを使用すると、アラート、パフ�
 使用を開始するには、次のいずれかを実行します。
 
 
-- AD FS の Azure AD Connect Health を使用して開始するには、ここで、エージェントの最新バージョンをダウンロードできます:  [ダウンロード Azure AD Connect Health エージェントの AD FS 用です。](http://go.microsoft.com/fwlink/?LinkID=518973)エージェントをインストールする前に、Marketplace からサービスを追加したことを確認します。
+- AD FS の Azure AD Connect Health を使用して開始するには、ここで、エージェントの最新バージョンをダウンロードできます:  [ダウンロード Azure AD Connect Health エージェントの AD FS 用です。](http://go.microsoft.com/fwlink/?LinkID=518973) エージェントをインストールする前に、Marketplace からサービスを追加したことを確認します。
 - Azure AD Connect Health for Sync の使用を開始するには、こちら (Azure AD Connect Health for Sync エージェントのダウンロード) から最新バージョンのエージェントをダウンロードします。  Health エージェントは、Azure AD Connect のインストール時に併せてインストールされます。  Azure AD Connect では、以前のバージョンからのインプレース アップグレードがサポートされています。
 
 
@@ -122,4 +122,5 @@ Azure AD Connect Health ポータルを使用すると、アラート、パフ�
 * [AD FS での Azure AD Connect Health の使用](active-directory-aadconnect-health-adfs.md)
 * [Azure AD Connect Health for Sync の使用](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health の FAQ](active-directory-aadconnect-health-faq.md)
+
 

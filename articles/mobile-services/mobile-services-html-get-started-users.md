@@ -22,7 +22,7 @@
 
 このトピックでは、PhoneGap または Cordova アプリを含む HTML アプリから Azure Mobile Services のユーザーを認証する方法について説明します。  このチュートリアルでは、モバイル サービスでサポートされている ID プロバイダーを使用して、クイック スタート プロジェクトに認証を追加します。 モバイル サービスによって正常に認証および承認されると、ユーザー ID 値が表示されます。  
 
-このチュートリアルは、Mobile Services のクイック スタートに基づいています。 先にチュートリアル「Mobile Services の使用」を完了している必要があります。 
+このチュートリアルは、モバイル サービスのクイック スタートに基づいています。 また、最初のチュートリアルを完了する必要があります [Get started with Mobile Services]します。 
 
 ##<a name="register"></a>アプリケーションを認証に登録し、Mobile Services を構成する
 
@@ -43,7 +43,7 @@
 
     これにより、新しいアプリケーションをホストする Web サーバーがローカル コンピューター上で起動します。
 
-2. Web ブラウザーで <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> を開いて、アプリケーションを開始します。 
+2. Web ブラウザーで URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> を開いて、アプリケーションを開始します。 
 
     データの読み込みに失敗します。 これは、問題は、アプリケーションは、認証されないユーザーとしてモバイル サービスにアクセスしようとしていますが、 _TodoItem_ テーブルには、今すぐ認証が必要です。
 
@@ -104,18 +104,18 @@
     これで、認証プロセスを処理する関数のセットが作成されます。 ユーザーは、Facebook ログインを使用して認証されます。 Facebook 以外の ID プロバイダーを使用している場合は、上の **login** メソッドに渡す値を *microsoftaccount*、*facebook*、*twitter*、*google*、*aad* のいずれかに変更します。
 
     >[AZURE.IMPORTANT]PhoneGap アプリで、次のプラグインをプロジェクトにも追加する必要があります。
-    ><ul><li><code>phonegap プラグインの追加 https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
-    ><li><phonegap プラグインの追加 https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.gitr.git</code></li></ul>
+    ><ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
+    ><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
 9. アプリケーションが実行されているブラウザーに戻り、ページを更新します。 
 
        When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
-    >[AZURE.NOTE]Internet Explorer を使用するときにログインした後にエラーが発生した可能性があります: <code>ウィンドウの呼び出し元に到達できません。 別の Internet Explorer ゾーンにある可能性があります</code>" というエラーが表示される場合があります。 これは、ポップアップが localhost (イントラネット) とは異なるセキュリティ ゾーン (インターネット) で実行されているためです。 このことがアプリケーションに影響するのは、localhost を使用する開発時だけです。 回避策として、**[インターネット オプション]** の **[セキュリティ]** タブを開き、**[ローカル イントラネット]**、**[サイト]** の順にクリックして、**[イントラネットのネットワークを自動的に検出する]** をオフにします。 テストが終了したら、この設定を必ず元に戻します。
+    >[AZURE.NOTE]Internet Explorer を使用するときにログインした後にエラーが発生した可能性があります: <code>Cannot reach window opener. It may be on a different Internet Explorer zone</code>します。 これは、ポップアップが localhost (イントラネット) とは異なるセキュリティ ゾーン (インターネット) で実行されているためです。 このことがアプリケーションに影響するのは、localhost を使用する開発時だけです。 回避策として、**[インターネット オプション]** の **[セキュリティ]** タブを開き、**[ローカル イントラネット]**、**[サイト]** の順にクリックして、**[イントラネットのネットワークを自動的に検出する]** をオフにします。 テストが終了したら、この設定を必ず元に戻します。
 
 ## <a name="next-steps"> </a>次のステップ
 
-次は、チュートリアルでは、[ユーザーの認証のスクリプト] で、ユーザー ID 値になりますが、認証されたユーザーに基づいてモバイル サービスによって提供され、モバイル サービスから返されたデータをフィルター処理に使用します。 [Mobile Services Html/javascript How-to Conceptual reference リファレンス] で、Html/javascript でモバイル サービスを使用する方法の詳細についてください。
+次のチュートリアルでは、 [Authorize users with scripts], 、認証されたユーザーに基づいてモバイル サービスによって提供されるユーザー ID 値を受け取り、モバイル サービスから返されたデータをフィルター処理に使用します。 Html/javascript で Mobile Services を使用する方法の詳細についてください。 [Mobile Services HTML/JavaScript How-to Conceptual Reference]
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
@@ -136,3 +136,4 @@
 [Authorize users with scripts]: mobile-services-javascript-backend-service-side-authorization.md
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
  
+

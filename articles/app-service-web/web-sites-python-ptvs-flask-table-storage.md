@@ -22,19 +22,19 @@
 
 # Python Tools 2.2 for Visual Studio を使用した Azure 上の Flask と Azure テーブル ストレージ 
 
-このチュートリアルでは、PTVS サンプル テンプレートのいずれかを使用して簡単な投票 web アプリを作成する [Python Tools for Visual Studio] を使用してします。 このチュートリアルではでもご覧いただけます、 [ビデオ](https://www.youtube.com/watch?v=qUtZWtPwbTk)します。
+このチュートリアルで使用して [Python Tools for Visual Studio] 投票 web アプリのサンプル テンプレートのいずれかを使用して簡単な作成をします。 このチュートリアルではでもご覧いただけます、 [ビデオ](https://www.youtube.com/watch?v=qUtZWtPwbTk)します。
 
 この投票 Web アプリでは、リポジトリの抽象化を定義します。そのため、異なる種類のリポジトリ (メモリ内、Azure テーブル ストレージ、MongoDB) を簡単に切り替えることができます。
 
 Azure ストレージ アカウントを作成する方法、Azure テーブル ストレージを使用する web アプリを構成する方法、および web アプリを発行する方法を学習して [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)します。
 
-Bottle、Flask、Django web フレームワークを MongoDB、Azure テーブル ストレージ、MySQL および SQL Database のサービスを使用した、PTVS では、[Python デベロッパー センター] を Azure App Service Web Apps の開発を取り上げたその他の記事を参照してください。 この記事は、App Service 上では、中に、手順は、[Azure クラウド サービス] を開発する際に似ています。
+参照してください、 [Python Developer Center] Bottle を使用して、PTVS では、Azure App Service Web Apps の開発を取り上げたその他の記事では、Flask および Django web フレームワークと、MongoDB、Azure テーブル ストレージ、MySQL および SQL データベース サービスです。 開発するときにこの記事は、App Service 上では、中に、手順と似ています [Azure Cloud Services]します。
 
 ## 前提条件
 
  - Visual Studio 2013 または 2015
  - [Python Tools 2.2 for Visual Studio]
- - [Python は、Visual Studio サンプル VSIX の 2.2 を Tools]
+ - [Python Tools 2.2 for Visual Studio サンプル VSIX]
  - [Azure SDK Tools for VS 2013] または [Azure SDK Tools for VS 2015]
  - [Python 2.7 32-bit] または [Python 3.4 32-bit]
 
@@ -100,7 +100,7 @@ Bottle、Flask、Django web フレームワークを MongoDB、Azure テーブ�
 
     Windows コントロール パネルを使用して環境変数を定義してもかまいません。 ソース コードまたはプロジェクト ファイルに資格情報を格納するのを避ける場合には、これがより優れた方法です。 新しい環境変数の値をアプリケーションから利用するためには、Visual Studio を再起動する必要があります。
 
-1.  Azure テーブル ストレージ リポジトリを実装するコードは **models/azuretablestorage.py**します。 Python からテーブル サービスを使用する方法の詳細については、[ドキュメント] を参照してください。
+1.  Azure テーブル ストレージ リポジトリを実装するコードは **models/azuretablestorage.py**します。 参照してください、 [documentation] Python からテーブル サービスを使用する方法についての詳細。
 
 1.  `F5` キーでアプリケーションを実行します。 作成された投票 **[Create Sample Polls** と投票によって送信されたデータは、Azure テーブル ストレージにシリアル化されます。
 
@@ -114,7 +114,7 @@ Bottle、Flask、Django web フレームワークを MongoDB、Azure テーブ�
 
 ストレージ テーブルは、Visual Studio のサーバー エクスプローラーを使用して簡単に表示したり編集したりできます。 このセクションでは、投票アプリケーションに使用されているテーブルの内容をサーバー エクスプローラーを使用して表示します。
 
-> [AZURE.NOTE] Microsoft Azure ツールをインストールする、使用できる必要があります [Azure SDK for .NET] の一部として。
+> [AZURE.NOTE] Microsoft Azure ツールをインストールする、として使用可能である必要がありますの一部では、 [Azure SDK for .NET]します。
 
 1.  開いている **サーバー エクスプ ローラー**します。 展開 **Azure**, 、**ストレージ**, 、ストレージ アカウントを **テーブル**します。
 
@@ -178,9 +178,9 @@ Python Tools for Visual Studio、Flask および Azure テーブル ストレー
 - [Python Tools for Visual Studio のドキュメント]
   - [Web プロジェクト]
   - [クラウド サービス プロジェクト]
-  - [リモート Microsoft Azure でデバッグ]
+  - [Microsoft Azure でのリモート デバッグ]
 - [Flask のドキュメント]
-- [Azure ストレージ]
+- [Azure Storage (Azure Storage)]
 - [Azure SDK for Python]
 - [Python からテーブル ストレージ サービスを使用する方法]
 
@@ -212,4 +212,5 @@ Python Tools for Visual Studio、Flask および Azure テーブル ストレー
 [Azure Storage]: http://azure.microsoft.com/documentation/services/storage/
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python
  
+
 

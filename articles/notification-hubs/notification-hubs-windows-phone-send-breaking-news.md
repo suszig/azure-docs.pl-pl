@@ -29,7 +29,7 @@
 
 ##前提条件
 
-このトピックで作成したアプリケーションが基 [を使ってみる Notification Hubs] です。 このチュートリアルを開始する前にする必要があります既に完了している [を使ってみる Notification Hubs] です。
+このトピックで作成したアプリケーションが基 [Get started with Notification Hubs]します。 このチュートリアルを開始する前にする必要があります既に完了している [Get started with Notification Hubs]します。
 
 ##アプリケーションにカテゴリ選択を追加する
 
@@ -229,7 +229,7 @@
 > [AZURE.NOTE] 割り当てられたチャネル URI Microsoft プッシュ通知サービス (MPNS) によっては、いつでも変更できる、ので、通知エラーを回避するには、頻繁に通知を登録する必要があります。 この例では、アプリケーションが起動するたびに通知を登録します。 頻繁に実行されるアプリケーションの場合 (1 日に複数回など)、帯域幅を節約するため、前回の登録から 1 日経過していない場合は登録をスキップできます。
 
 
-1. App.xaml.cs ファイルを開き、追加、 **async** 修飾子を **Application_Launching** メソッドと置換 Notification Hubs の登録のコードに追加する [開始通知ハブの使用] を次のコード。
+1. App.xaml.cs ファイルを開き、追加、 **async** 修飾子を **Application_Launching** メソッドと Notification Hubs の登録のコードで追加した置換 [Get started with Notification Hubs] を次のコード。
 
         private async void Application_Launching(object sender, LaunchingEventArgs e)
         {
@@ -288,15 +288,15 @@
 
 <!--##Next steps
 
-このチュートリアルでは、ニュース速報をカテゴリごとにブロードキャストする方法について説明しました。 他の高度な Notification Hubs シナリオを取り上げている、次のいずれかのチュートリアルを行うことをお勧めします。
+In this tutorial we learned how to broadcast breaking news by category. Consider completing one of the following tutorials that highlight other advanced Notification Hubs scenarios:
 
-+ [通知ハブを使用したローカライズ ニュース速報のブロードキャスト]
++ [Use Notification Hubs to broadcast localized breaking news]
 
-    ニュース速報アプリケーションを拡張して、ローカライズした通知を送信できるようにする方法について説明します。
+    Learn how to expand the breaking news app to enable sending localized notifications.
 
-+ [通知ハブによるユーザーへの通知]
++ [Notify users with Notification Hubs]
 
-    認証された特定のユーザーにプッシュ通知する方法について説明します。 これは、特定のユーザーにのみ通知を送信する場合に適したソリューションです。
+    Learn how to push notifications to specific authenticated users. This is a good solution for sending notifications only to specific users.
 -->
 
 <!-- Anchors. -->
@@ -320,5 +320,6 @@
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Phone]: ??
+
 
 

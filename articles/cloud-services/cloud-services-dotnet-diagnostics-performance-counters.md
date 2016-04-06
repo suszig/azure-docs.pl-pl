@@ -21,9 +21,9 @@
 
 また、Windows Server、IIS、ASP.NET で使用できるパフォーマンス カウンターでは、Azure の Web ロール、worker ロール、Virtual Machines のパフォーマンス データを収集して状態を把握することもできます。 カスタム パフォーマンス カウンターを作成して使用することもできます。  
 
-パフォーマンス カウンター データを調べることができます。
-1. リモート デスクトップを使用してアクセス パフォーマンス モニタ ツールを使用してアプリケーション ホストで直接
-2. System Center Operations Manager と Azure の管理パックを使用します。
+パフォーマンス カウンターのデータを確認するには、
+1. リモート デスクトップを使用してアクセスするパフォーマンス モニター ツールでアプリケーション ホストを直接調べるか、
+2. System Center Operations Manager の Azure 管理パック、または
 3. Azure Storage に転送された診断データにアクセスするその他の監視ツールを使用します。 参照してください [ストアと Azure Storage で診断データを表示](https://msdn.microsoft.com/library/azure/hh411534.aspx) の詳細。  
 
 アプリケーションのパフォーマンスの監視方法について、 [Azure クラシック ポータル](http://manage.azure.com/), を参照してください [クラウド サービスの監視方法](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/)します。
@@ -71,7 +71,7 @@ Azure は、Windows Server、IIS、および ASP.NET スタックで使用でき
 
 Azure は、Web ロールと worker ロールのカスタム パフォーマンス カウンターの作成と変更をサポートしています。 カスタム パフォーマンス カウンターを使用すると、アプリケーション固有の動作を追跡および監視できます。 管理者特権のアクセス許可を使用して、スタートアップ タスク、Web ロール、または worker ロール用のカスタム パフォーマンス カウンターのカテゴリと指定子を作成または削除できます。
 
->[AZURE.NOTE] カスタム パフォーマンス カウンターを変更するコードを実行するアクセス許可を引き上げる必要があります。 コードが Web ロールまたは worker ロールに含まれる場合、ロールを正しく初期化するために、ロールの ServiceDefinition.csdef ファイルにタグ <Runtime executionContext="elevated" /> を含める必要があります。
+>[AZURE.NOTE] カスタム パフォーマンス カウンターを変更するコードを実行するアクセス許可を引き上げる必要があります。 場合は、コードは、web ロールまたはワーカー ロールでは、ロールは、タグを含める必要があります。 <Runtime executionContext="elevated" /> 正常に初期化するロールの ServiceDefinition.csdef ファイルです。
 
 カスタム パフォーマンス カウンターのデータを診断エージェントを使用して Azure Storage に送信できます。
 
@@ -324,4 +324,5 @@ Azure 診断エージェントは起動の 1 分後に .wadcfg ファイルの�
 [Troubleshooting Best Practices for Developing Azure Applications (Azure アプリケーション開発時のトラブルシューティングのベスト プラクティス)](https://msdn.microsoft.com/library/azure/hh771389.aspx)
 
 [クラウド サービスの監視方法](./how-to-monitor-a-cloud-service.md)
+
 

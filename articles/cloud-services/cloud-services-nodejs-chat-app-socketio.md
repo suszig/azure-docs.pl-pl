@@ -25,7 +25,7 @@
 Socket.IO は、node.js サーバーとクライアントの間の
 リアルタイム通信を提供します。 このチュートリアルでは、
 Azure で socket.IO ベースのチャット アプリケーションをホストする手順を説明します。 BLOB の詳細
-詳細については、 <a href="http://socket.io/">http://socket.io/ を参照してください</a>.
+詳細については、次を参照してください。 <a href="http://socket.io/">http://socket.io/</a>します。
 
 完成したアプリケーションのスクリーンショットは次のようになります。
 
@@ -197,4 +197,5 @@ Socket.IO を使用して異なるクライアント間でチャット メッセ
   [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
   
  
+
 

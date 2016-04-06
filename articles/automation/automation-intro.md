@@ -99,7 +99,8 @@ Azure Automation や独自の Runbook の作成方法の詳細を確認できる
 
 ## フィードバックを提供できますか。 
 
-**私たちのフィードバックを指定してください。**Azure Automation の Runbook ソリューションや統合モジュールを探索している場合は、スクリプト センターにスクリプトの要求を投稿することができます。 Azure Automation に関するフィードバックや機能の要求がある場合に投稿して [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback)します。 よろしくお願いいたします。 
+**フィードバックをお待ちしています。** Azure Automation の Runbook ソリューションや統合モジュールを探索している場合は、スクリプト センターにスクリプトの要求を投稿することができます。 Azure Automation に関するフィードバックや機能の要求がある場合に投稿して [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback)します。 よろしくお願いいたします。 
+
 
 
 

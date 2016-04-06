@@ -41,7 +41,7 @@ BLOB ストレージ サービスにデータを安全にアップロードす�
 + [Azure ストレージ アカウント](../storage-create-storage-account.md)
 + コンピューターに接続された、カメラなどのイメージ キャプチャ デバイス
 
-このチュートリアルは、Mobile Services のクイック スタートに基づいています。 このチュートリアルを開始する前に完了しておく必要 [を使ってみるモバイル サービス] です。
+このチュートリアルは、モバイル サービスのクイック スタートに基づいています。 このチュートリアルを開始する前に完了しておく必要 [Get started with Mobile Services]します。
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../../includes/mobile-services-dotnet-backend-configure-blob-storage.md)]
 
@@ -74,4 +74,5 @@ BLOB ストレージ サービスにデータを安全にアップロードす�
 [Get started with Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md
 [How To Create a Storage Account]: ../storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
+
 

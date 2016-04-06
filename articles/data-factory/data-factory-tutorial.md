@@ -101,7 +101,7 @@ Contoso は、ゲーム機、携帯デバイス、パーソナル コンピュ�
 
 6. [手順 6. パイプラインとデータ スライスを監視する](#MainStep6)です。 この手順では、Azure クラシック ポータルを使用して、パイプライン、テーブル、データ スライスを監視します。
 
-## <a name="MainStep1"></a> 手順 1. サンプル データとスクリプトをアップロードします。
+## <a name="MainStep1"></a> 手順 1. サンプル データとスクリプトをアップロードする
 この手順では、すべてのサンプル データ (すべてのログと参照データを含む) とワークフローによって呼び出される Hive/Pig スクリプトをアップロードします。 また実行するスクリプトと呼ばれる Azure SQL データベースを作成する **MarketingCampaigns**, 、テーブル、ユーザー定義型、およびストアド プロシージャです。 
 
 テーブル、ユーザー定義型、およびストアド プロシージャは、マーケティング キャンペーン有効性の結果を Azure BLOB ストレージから Azure SQL データベースに移動する際に使用されます。
@@ -154,12 +154,12 @@ Contoso は、ゲーム機、携帯デバイス、パーソナル コンピュ�
         6/6/2014 11:54:36 AM 3. Created ‘MarketingCampaigns’ Azure SQL database and tables.
         6/6/2014 11:54:36 AM You are ready to deploy Linked Services, Tables and Pipelines. 
 
-## <a name="MainStep2"></a> 手順 2: Azure data factory を作成します。
+## <a name="MainStep2"></a> 手順 2. Azure Data Factory を作成する
 この手順で、という名前の Azure データ ファクトリを作成する **LogProcessingFactory**します。
 
 1.  ログインした後、 [Azure ポータル][azure-portal], 、] をクリックして **新規** の左下隅から] をクリックして **データ分析** で、 **作成** ブレードをクリック **Data Factory** 上、 **データ分析** ブレードです。 
 
-    ![[新規] -> [DataFactory]][image-data-factory-new-datafactory-menu] 
+    ![New->DataFactory][image-data-factory-new-datafactory-menu] 
 
 5.  **新しいデータ ファクトリ** ブレードで、入力 **LogProcessingFactory** の **名前**します。
 
@@ -191,7 +191,7 @@ Contoso は、ゲーム機、携帯デバイス、パーソナル コンピュ�
  
     The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “LogProcessingFactory” is not available**, change the name (for example, yournameLogProcessingFactory). Use this name in place of LogProcessingFactory while performing steps in this tutorial.
  
-## <a name="MainStep3"></a> 手順 3: リンクされたサービスを作成する
+## <a name="MainStep3"></a>手順 3. リンクされたサービスを作成する
 
 > [AZURE.NOTE] この資料では、Azure 旧ポータルで、具体的には、Data Factory エディターを使用して、リンクされたサービス、テーブル、およびパイプラインを作成します。 参照してください [Azure PowerShell を使用してチュートリアル][adftutorial-using-powershell] Azure PowerShell を使用してこのチュートリアルを実行する場合。 
 
@@ -206,7 +206,7 @@ Contoso は、ゲーム機、携帯デバイス、パーソナル コンピュ�
 
 1.   **DATA FACTORY** ブレードで、をクリックして **作成者および展開** を起動するタイル、 **エディター** data factory のです。
 
-    ![タイルの作成とデプロイ][image-author-deploy-tile] 
+    ![[作成とデプロイ] タイル][image-author-deploy-tile] 
 
     参照してください [Data Factory エディター][data-factory-editor] Data Factory エディターの詳細についてのトピックです。
 
@@ -266,7 +266,7 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
 
 1. クリックして **新しいコンピューティング** し、コマンド バーから **HDInsight クラスター** ] メニューからです。
 2. JSON スクリプトで、以下の手順を実行します。 
-    1.  **ClusterUri** プロパティには、HDInsight の URL を入力します。 たとえば、https://<clustername>.azurehdinsight.net/ などです。     
+    1.  **ClusterUri** プロパティには、HDInsight の URL を入力します。 例: https://<clustername>.azurehdinsight.net/     
     2.  **UserName** プロパティには、HDInsight クラスターへのアクセス権を持つユーザー名を入力します。
     3.  **パスワード** プロパティには、ユーザーのパスワードを入力します。 
     4.  **LinkedServiceName** プロパティには、入力 **StorageLinkedService**します。 これは、入門チュートリアルで作成したリンク サービスです。 
@@ -276,7 +276,7 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
 2. をクリックして **展開** 、コマンド バー、リンクされたサービスをデプロイします。
 
 
-## <a name="MainStep4"></a> 手順 4: テーブルを作成します。
+## <a name="MainStep4"></a>手順 4. テーブルを作成する
  
 この手順では、以下の Data Factory テーブルを作成します。 
 
@@ -307,7 +307,7 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
     1. MarketingCampaignEffectivenessSQLTable.json
     
 
-## <a name="MainStep5"></a> 手順 5 を作成してパイプラインのスケジュール
+## <a name="MainStep5"></a>手順 5. パイプラインを作成してスケジュールを設定する
 この手順では、以下のパイプラインを作成します。 
 
 - PartitionGameLogsPipeline
@@ -337,7 +337,7 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
 
 1.  **DATA FACTORY** ブレード、 **LogProcessingFactory**, 、] をクリックして **ダイアグラム**します。 
 
-    ![Diagram Link][image-data-factory-tutorial-diagram-link]
+    ![ダイアグラム リンク][image-data-factory-tutorial-diagram-link]
 
 2. 表示されているダイアグラムは並べ替えることが可能で、以下のダイアグラムは上部が直接の入力を示し、下部が出力を示しています。 あることがわかりますの出力、 **PartitionGameLogsPipeline** EnrichGameLogsPipeline の出力を入力として渡される、 **EnrichGameLogsPipeline** に渡される、 **AnalyzeMarketingCampaignPipeline**します。 タイトルをダブルクリックして、ブレードが示すアーティファクトについての詳細を表示します。
 
@@ -350,15 +350,15 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
     クリックして **Data factory** 、すべてのパイプラインでダイアグラム ビューに戻るために左上隅にある階層リンクにします。  
 
 
-**おめでとうございます!**Azure Data Factory、リンクされたサービス、パイプライン、テーブルを作成し、ワークフローを開始することに成功しました。 
+**ご利用ありがとうございます。** Azure Data Factory、リンクされたサービス、パイプライン、テーブルを作成し、ワークフローを開始することに成功しました。 
 
 
-## <a name="MainStep6"></a> 手順 6. パイプラインとデータ スライスを監視します。 
+## <a name="MainStep6"></a>手順 6. パイプラインとデータ スライスを監視する 
 
 1.  ない場合、 **DATA FACTORY** ブレード、 **LogProcessingFactory** 開いた状態で行うことができます、次のいずれか。
     1.  クリックして **LogProcessingFactory** 上、 **スタート画面**します。 データ ファクトリを作成するときに、 **スタート画面に追加** オプションは自動的にチェックします。
 
-        ![Monitoring Startboard][image-data-factory-monitoring-startboard]
+        ![監視スタート画面][image-data-factory-monitoring-startboard]
 
     2. をクリックして **参照**, で、 **参照** ブレードで、 **データ ファクトリ** 選択 **LogProcessingFactory** で、 **データ ファクトリ** ブレードです。
 
@@ -372,7 +372,7 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
 
 6. [テーブル] ブレードに **RawGameEventsTable**, 、すべてのスライスを参照してください。 次のスクリーン ショットは、すべてのスライスが **準備ができて** 状態および問題のあるスライスはありません。 これは、そのデータがすぐに処理できることを意味します。 
 
-    ![RawGameEventsTable TABLE blade][image-data-factory-monitoring-raw-game-events-table]
+    ![[RawGameEventsTable] の [テーブル] ブレード][image-data-factory-monitoring-raw-game-events-table]
 
     両方とも **最近更新したスライス** と **最近失敗したスライス** リストは並んで、 **最終更新時刻**します。 次の状況では、スライスの更新時刻が変更されます。    
 
@@ -391,7 +391,7 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
 10. いることを確認、 **ステータス** のすべてのスライスに設定されている **準備**します。 
 11. になっているスライスのいずれかをクリックして **準備** を表示する、 **データ スライス** そのスライスのブレードです。
 
-    ![RawGameEventsTable DATA SLICE blade][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
+    ![[RawGameEventsTable] の [データ スライス] ブレード][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
     エラーが発生していた場合、ここに **[失敗]** という状態が表示されます。  か両方のスライスの状態を表示することもあります **準備**, 、またはその両方の状態 **PendingValidation**, のスライスの処理速度に応じて、します。
 
@@ -408,7 +408,7 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
     
 すべてのパイプラインには、実行が完了した場合に検討することができます、 **MarketingCampaignEffectivenessTable** で、 **MarketingCampaigns** Azure SQL データベースが結果を表示します。 
 
-**おめでとうございます!**これでワークフローの監視とトラブルシューティングができます。 Azure Data Factory を使用してデータを処理し分析結果を得る方法を学びました。
+**ご利用ありがとうございます。** これでワークフローの監視とトラブルシューティングができます。 Azure Data Factory を使用してデータを処理し分析結果を得る方法を学びました。
 
 ## チュートリアルをさらに進めてオンプレミス データを使用する
 この記事のチュートリアルにあるログ処理のシナリオの最後の手順で、マーケティング キャンペーンの有効性の出力が Azure SQL Database にコピーされました。 分析のため、所属する組織内にあるオンプレミスの SQL Server にこのデータを移動することも可能です。
@@ -524,3 +524,4 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png 
+

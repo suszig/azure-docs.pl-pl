@@ -18,7 +18,7 @@
 
 # Azure へのカスタム Java Web アプリのアップロード
 
-このトピックでは、[Azure App Service] Web Apps にカスタム Java web アプリをアップロードする方法について説明します。 Java Web サイトまたは Web アプリに適用される情報や、特定のアプリケーションを有効にする例も取り上げています。
+このトピックへのカスタム Java web アプリをアップロードする方法について説明 [Azure App Service] Web アプリです。 Java Web サイトまたは Web アプリに適用される情報や、特定のアプリケーションを有効にする例も取り上げています。
 
 Azure は」の説明に従って、Azure ポータルの構成 UI や Azure Marketplace を使用して Java web アプリを作成するための手段を [Azure App Service で Java web アプリの作成](web-sites-java-get-started.md)します。 このチュートリアルは、Azure ポータルの構成 UI や Azure Marketplace を使用しないシナリオを対象にしています。  
 
@@ -62,7 +62,7 @@ web.config ファイルで必要に応じて環境変数を設定できます。
                                                                                        
 **rapidFailsPerMinute** (Default = 10)。プロセスが指定されている回数 **processPath** 1 分あたりのクラッシュを許可します。 この制限を超えた場合 **HttpPlatformHandler** は分単位の残りのプロセスを起動しなくなります。
                                     
-**requestTimeout** (Default ="00:02"です)。期間 **HttpPlatformHandler** でリッスン プロセスからの応答を待つ `%HTTP_PLATFORM_PORT%`します。
+**requestTimeout** (Default ="00: 02:00"です)。期間 **HttpPlatformHandler** でリッスン プロセスからの応答を待つ `%HTTP_PLATFORM_PORT%`します。
 
 **startupRetryCount** (Default = 10)。回数 **HttpPlatformHandler** で指定されたプロセスを起動しようとして、 **processPath**します。 参照してください **startupTimeLimit** 詳細です。
 
@@ -238,7 +238,7 @@ Tomcat-7.0.40 フォルダーと同じディレクトリ レベルでという�
       </system.webServer>
     </configuration>
 
-下にある、 **httpPlatform** ブロック、 **requestTimeout** に設定されている"00:00"です。  この時間を短くすることはできますが、Liferay のブートストラップ中に何らかのタイムアウト エラーが表示される可能性があります。  この値が変更された場合、 **connectionTimeout** 、tomcat の server.xml も変更されています。  
+下にある、 **httpPlatform** ブロック、 **requestTimeout** に設定されている"00: 10:00"です。  この時間を短くすることはできますが、Liferay のブートストラップ中に何らかのタイムアウト エラーが表示される可能性があります。  この値が変更された場合、 **connectionTimeout** 、tomcat の server.xml も変更されています。  
 
 注意点としては、前に示している web.config で JRE_HOME 環境変数を、64-bit JDK を参照するように指定しています。 既定では 32-bit ですが、Liferay では高位のメモリが必要になる場合があるため、64-bit JDK を使用することをお勧めします。
 
@@ -257,4 +257,5 @@ Java の詳細については、次を参照してください。、 [Java デ�
  
 <!-- External Links -->
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
+
 

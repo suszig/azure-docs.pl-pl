@@ -68,7 +68,7 @@ PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ## *3.ADAL を使用して、AAD からトークンを取得するには*
 ADAL を使用することの基本的なメリットは、アプリがアクセス トークンを必要とする場合、アプリは `authContext.AcquireToken(...)` を呼び出すだけで、残りの処理は ADAL が実行してくれることです。  
 
--   `DirectorySearcher` プロジェクトで、`MainWindow.xaml.cs` を開き、`MainWindow()` メソッドを見つけます。  最初の手順は、アプリの `AuthenticationContext` (ADAL のプライマリ クラス) を初期化することです。  ここでは、ADAL が Azure AD と通信し、トークンをキャッシュする方法を通知するために必要な調整項目を ADAL に渡します。
+-   `DirectorySearcher` プロジェクトで、`MainWindow.xaml.cs` を開き、`MainWindow()` メソッドを見つけます。  アプリケーションの初期化には、まず `AuthenticationContext` -ADAL のプライマリ クラスです。  ここでは、ADAL が Azure AD と通信し、トークンをキャッシュする方法を通知するために必要な調整項目を ADAL に渡します。
 
 ```C#
 public MainWindow()
@@ -108,7 +108,7 @@ private void Search(object sender, RoutedEventArgs e)
 }
 ```
 - アプリが `AcquireToken(...)` を呼び出すことによってトークンを要求すると、ADAL はユーザーに資格情報を要求することなく、トークンを返そうとします。  ADAL は、トークンを取得するにはユーザーのサインインが必要であると判断した場合、ログイン ダイアログを表示し、ユーザーの資格情報を収集し、認証が成功するとトークンを返します。  また、何らかの理由によりトークンを返せない場合、`AdalException` をスローします。
-- `AuthenticationResult` オブジェクトには、アプリが必要とする可能性のある情報を収集するために使用される `UserInfo` オブジェクトが含まれていることに注意してください。  DirectorySearcher で、`UserInfo` は、ユーザーの ID を使用してアプリの UI をカスタマイズするために使用されます。
+- `AuthenticationResult` オブジェクトには、アプリが必要とする可能性のある情報を収集するために使用される `UserInfo` オブジェクトが含まれていることに注意してください。  DirectorySearcher で、 `UserInfo` ユーザーの id を持つアプリの UI をカスタマイズするために使用します。
 
 - ユーザーが [サインアウト] ボタンをクリックした場合、次の `AcquireToken(...)` への呼び出しでは、ユーザーにサインインするように要求する必要があります。  ADAL を使用すると、この操作は、トークン キャッシュをクリアするのと同じくらい容易に達成できます。
 
@@ -122,7 +122,7 @@ private void SignOut(object sender = null, RoutedEventArgs args = null)
 }
 ```
 
-- ただし、ユーザーが [サインアウト] ボタンをクリックしていない場合、ユーザーが次に DirectorySearcher を実行するときに備えて、ユーザーのセッションを維持する必要があります。  アプリが起動したら、既存のトークン用の ADAL のトークン キャッシュをチェックし、必要に応じて UI を更新できます。  戻り `MainWindow()`, 、もう 1 つの呼び出しを行う `AcquireToken(...)`, 、今回を渡して、 `PromptBehavior.Never` パラメーター。  `PromptBehavior.Never` ADAL に対して通知、ユーザーにサインイン用プロンプトされませんが、トークンを返すことがない場合、ADAL は例外をスロー代わりにする必要があります。
+- ただし、ユーザーが [サインアウト] ボタンをクリックしていない場合、ユーザーが次に DirectorySearcher を実行するときに備えて、ユーザーのセッションを維持する必要があります。  アプリが起動したら、既存のトークン用の ADAL のトークン キャッシュをチェックし、必要に応じて UI を更新できます。  戻り `MainWindow()`, 、別の呼び出しを行う `AcquireToken(...)`, 、今回を渡して、 `PromptBehavior.Never` パラメーター。  `PromptBehavior.Never` ADAL に対して通知、ユーザーにサインイン用プロンプトされませんが、トークンを返すことがない場合、ADAL は例外をスロー代わりにする必要があります。
 
 ```C#
 public MainWindow()
@@ -165,3 +165,4 @@ ADAL を使用することにより、これらの共通 ID 機能のすべて�
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
+

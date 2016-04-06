@@ -32,7 +32,7 @@ SQL Data Warehouse には、意図しないデータの破損または削除の�
 
 Azure PowerShell を使用して、プログラムでデータベースの復元を実行します。 Azure PowerShell モジュールをダウンロードするには、実行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)します。 
 
-データベースを復元するには、[Start-azuresqldatabaserestore] コマンドレットを使用します。 
+データベースを復元するには、 [Start-azuresqldatabaserestore][] コマンドレットです。 
 
 1. Microsoft Azure PowerShell を開きます。
 2. Azure アカウントに接続して、アカウントに関連付けられているすべてのサブスクリプションを一覧表示します。
@@ -72,10 +72,10 @@ Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $R
 プログラムでデータベースの復元を実行するには、REST を使用します。
 
 1. 「データベース復元ポイントの取得」操作を使用して、データベースの復元ポイントの一覧を取得します。
-2. [データベースの復元要求の作成] 操作を使用して、復元を開始します。
-3. [データベースの操作の状態] 操作を使用して、復元の状態を追跡します。
+2. 使用して、復元を開始、 [を作成するデータベースの復元要求][] 操作します。
+3. 使用して、復元の状態を追跡、 [データベース操作の状態][] 操作します。
 
-復元が終了した後は、[Finalize、復元されたデータ] ガイドに従って、復旧されたデータベースを構成できます。
+に従って、復旧されたデータベースを構成することができます、復元が完了した後、 [回復したデータベースの最終処理][] ガイドです。
 
 ## 削除されたデータベースの復旧
 データベースが削除された場合、削除されたデータベースを削除時の状態に復元することができます。 Azure SQL Data Warehouse では、データベースが削除され 7 日間保持される前に、データベースのスナップショットが作成されます。
@@ -83,7 +83,7 @@ Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $R
 ### PowerShell
 Azure PowerShell を使用して、削除済みデータベースの復元をプログラムで実行します。 Azure PowerShell モジュールをダウンロードするには、実行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)します。 
 
-削除済みデータベースを復元するには、[Start-azuresqldatabaserestore] コマンドレットを使用します。
+削除済みデータベースを復元するには、 [Start-azuresqldatabaserestore][] コマンドレットです。
 
 1. Microsoft Azure PowerShell を開きます。
 2. Azure アカウントに接続して、アカウントに関連付けられているすべてのサブスクリプションを一覧表示します。
@@ -109,16 +109,16 @@ Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid 
 ### REST API
 プログラムでデータベースの復元を実行するには、REST を使用します。
 
-1.  [復元可能な削除されたデータベースの一覧表示] 操作を使用して、復元可能な削除済みデータベースのすべてを一覧表示します。
-2.  [Get 復元可能な削除済みデータベース] 操作を使用して復元する削除済みデータベースの詳細を取得します。
-3.  [データベースの復元要求の作成] 操作を使用して、復元を開始します。
-4.  [データベースの操作の状態] 操作を使用して、復元の状態を追跡します。
+1.  使用して、復元可能な削除済みデータベースのすべてを一覧表示、 [復元可能なリストにはデータベースが削除される][] 操作します。
+2.  使用して復元する削除済みデータベースの詳細を取得、 [Get 復元可能なデータベースを削除する][] 操作します。
+3.  使用して、復元を開始、 [を作成するデータベースの復元要求][] 操作します。
+4.  使用して、復元の状態を追跡、 [データベース操作の状態][] 操作します。
 
-復元が終了した後は、[Finalize、復元されたデータ] ガイドに従って、復旧されたデータベースを構成できます。
+に従って、復旧されたデータベースを構成することができます、復元が完了した後、 [回復したデータベースの最終処理][] ガイドです。
 
 
 ## 次のステップ
-他の Azure SQL Database エディションのビジネス継続性機能については、[Azure SQL Database のビジネス継続性の概要] を参照してください。
+他の Azure SQL Database エディションのビジネス継続性機能については、読み取り、 [Azure SQL Database のビジネス継続性の概要][]します。
 
 
 <!--Image references-->
@@ -135,4 +135,5 @@ Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid 
 [Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/library/dn720218.aspx
 
 <!--Other Web references-->
+
 

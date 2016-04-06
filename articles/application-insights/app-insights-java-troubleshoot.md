@@ -24,7 +24,7 @@
 
 *Eclipse で、Maven または Gradle を使用して Application Insights SDK を追加すると、ビルドまたはチェックサムの検証エラーが発生します。*
 
-* 依存 <version> 要素にワイルドカード文字を含むパターン (例: (Maven) `<version>[1.0,)</version>`、または (Gradle) `version:'1.0.+'`) を使用している場合、代わりに特定のバージョン (`1.0.2` など) を指定してみてください。 参照してください、 [リリース ノート](app-insights-release-notes-java.md) の最新バージョンです。
+* 場合、依存関係 <version> 要素がワイルドカード文字を含むパターンを使用して (例: (Maven) `<version>[1.0,)</version>` または (Gradle) `version:'1.0.+'`) のように、代わりに、特定のバージョンを指定してみてください `1.0.2`します。 参照してください、 [リリース ノート](app-insights-release-notes-java.md) の最新バージョンです。
 
 ## データが表示されない 
 
@@ -137,3 +137,4 @@ XML メソッドを使用するうえで、値を変更した場合はアプリ�
 [usage]: app-insights-web-track-usage.md
 
  
+

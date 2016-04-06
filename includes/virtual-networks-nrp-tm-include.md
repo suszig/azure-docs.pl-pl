@@ -9,7 +9,7 @@ Traffic Manager とその子エンドポイントのリソースは、Azure 内�
 | **プロトコル** | 監視プロトコル有効な値は *HTTP* と *HTTPS。*|
 | **Port** | 監視ポート |  
 | **パス** | 監視パス |
-| **エンドポイント** |  エンドポイント リソースのコンテナー | 
+| **Endpoints** |  エンドポイント リソースのコンテナー | 
 
 ### エンドポイント 
 
@@ -83,4 +83,5 @@ Json 形式での Traffic Manager のサンプル:
 ## その他のリソース
 
 読み取り [REST API のドキュメント Traffic Manager の](https://msdn.microsoft.com/library/azure/mt163664.aspx) の詳細。
+
 

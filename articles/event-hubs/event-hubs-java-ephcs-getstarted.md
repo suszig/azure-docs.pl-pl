@@ -24,9 +24,9 @@
 
 Event Hubs は、拡張性の高いインジェスト システムで、1 秒あたり何百万ものイベントを取り込むことができます。そのためアプリケーションは、接続されているデバイスやアプリケーションによって生成された大量のデータを処理し、分析できます。 Event Hubs に収集されたデータは、任意のリアルタイム分析プロバイダーやストレージ クラスターを使用して転送と格納できます。
 
-詳細については、[Event Hubs の概要] を参照してください。
+詳細については、次を参照してください。、 [Event Hubs の概要][]します。
 
-このチュートリアルでは、Java では、コンソール アプリケーションを使用して Event Hub にメッセージをインジェストし、c# の [イベント プロセッサ ホスト] ライブラリを使用して並列で取得する方法を示します。
+このチュートリアルは、Java では、コンソール アプリケーションを使用して Event Hub にメッセージをインジェストし、c# を使用して並列で取得する方法を示しています。 [イベント プロセッサ ホスト][] ライブラリです。
 
 このチュートリアルを完了するには、以下が必要です。
 
@@ -34,11 +34,11 @@ Event Hubs は、拡張性の高いインジェスト システムで、1 秒あ
 
 + Microsoft Visual Studio Express for Windows
 
-+ アクティブな Azure アカウント <br/>アカウントがない場合は、無料試用版のアカウントを数分で作成することができます。 詳細については、「 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 無料評価版</a>.
++ アクティブな Azure アカウント <br/>アカウントがない場合は、無料試用版のアカウントを数分で作成することができます。 詳細については、<a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure の無料試用版サイト</a>をご覧ください。
 
 ## Event Hub を作成する
 
-1. [Azure クラシック ポータル] にログオンし、クリックして **新規** 、画面の下部にあります。
+1. ログオン、 [Azure クラシック ポータル][], 、] をクリック **新規** 、画面の下部にあります。
 
 2. をクリックして **App Services**, 、し **Service Bus**, 、し **Event Hub**, 、し **簡易作成**します。
 
@@ -62,7 +62,7 @@ Event Hubs は、拡張性の高いインジェスト システムで、1 秒あ
 
 7. 同じページに対して生成されたキーを書き留めます **SendRule**します。
 
-    ![6b]
+    ![][6b]
 
 8. クリックして、 **ダッシュ ボード** 、ページの上部にあるタブをクリックして **接続情報**します。 2 つの接続文字列をメモします。
 
@@ -91,9 +91,9 @@ Event Hubs は、拡張性の高いインジェスト システムで、1 秒あ
 
 Event Hub を作成し、データを送受信する実用的なアプリケーションが構築できたので、次のシナリオに移動します。
 
-- A 完了 [Event Hub を使用するサンプル アプリケーション]。
-- [Event Hubs でイベント処理のスケール] サンプルです。
-- [キューに置かれたメッセージング ソリューション] のサービス バス キューを使用します。
+- 完全な [Event Hub を使用するサンプル アプリケーション][]します。
+-  [Event Hubs でイベント処理のスケール][] サンプルです。
+- A [メッセージング ソリューションをキューに置かれた][] Service Bus キューを使用します。
 
 詳細については、次を参照してください。、 [Java デベロッパー センター](/develop/java/)します。
 
@@ -118,3 +118,4 @@ Event Hub を作成し、データを送受信する実用的なアプリケー�
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [queued messaging solution]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
+

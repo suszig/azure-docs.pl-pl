@@ -155,7 +155,7 @@ Azure PowerShell コマンドの次のブロックを使用して、4 つの Sha
 
 使用して再起動した後、 [リモート デスクトップ接続プロシージャを使用して仮想マシンにログオン](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) 4 回、1 回、SharePoint サーバーごとに [Domain] \sp_farm_db アカウントを使用してログオンする資格情報します。 これらの資格情報を作成した [フェーズ 2: ドメイン コント ローラー構成](virtual-machines-workload-intranet-sharepoint-phase2.md)します。
 
-使用して、 [接続プロシージャをテストする](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) 組織のネットワーク上の場所への接続をテストする各 SharePoint サーバーに対して 1 回の 4 回です。
+使用して、 [接続プロシージャをテストする](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) 組織のネットワーク上の場所への接続をテストする各 SharePoint サーバーの 4 回です。
 
 > [AZURE.NOTE] SharePoint サーバーは、SharePoint Server 2013 試用版イメージから作成されます。 インストールを変換して SharePoint Server 2013 の Standard エディションまたは Enterprise エディションの製品版またはボリューム ライセンス キーを使用する必要があります。 
 
@@ -204,4 +204,5 @@ Azure PowerShell コマンドの次のブロックを使用して、4 つの Sha
 ## 次のステップ
 
 - 使用 [フェーズ 5](virtual-machines-workload-intranet-sharepoint-phase5.md) このワークロードの構成を続行します。
+
 

@@ -98,7 +98,7 @@ azure モジュールは、Azure のストレージ アカウントに接続す�
 
 ### フィルター
 
-オプションのフィルター操作を使用して行われる操作に適用できます **QueueService**します。 フィルター操作には、ログや自動的な再試行などが含まれる場合があります。フィルターは、次のシグネチャを持つメソッドを実装するオブジェクトです。
+オプションのフィルター操作を使用して行われる操作に適用できます **QueueService**します。 フィルター操作には、ログ、自動的な再試行などが含まれる場合があります。フィルターは、次のシグネチャを持つメソッドを実装するオブジェクトです。
 
         function handle (requestOptions, next)
 
@@ -349,3 +349,4 @@ ACL を設定した後で、ポリシーの ID に基づいて SAS を作成で�
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Web Site with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
  
+

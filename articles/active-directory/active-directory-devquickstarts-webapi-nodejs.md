@@ -53,7 +53,7 @@ Azure Active Directory テナントを取得したら、このサンプルをテ
 - クリックして、 **アプリケーション** ] タブ、および、下部のドロアーの追加] をクリックします。
 - 画面の指示に従ってされ、新しい作成 **Web アプリケーションまたは WebAPI**します。
     -  **名前** アプリケーションのエンドユーザーに、アプリケーションの説明は
-    -    **サインオン URL** はアプリのベース URL です。  スケルトンの既定値は、`https://localhost:8888` です。
+    -    **サインオン URL** はアプリのベース URL です。  スケルトンの既定値は `https://localhost:8888`です。
     -  **App ID URI** アプリケーションの一意の識別子を指定します。  形式は、`https://<tenant-domain>/<app-name>` (たとえば、`https://contoso.onmicrosoft.com/my-first-aad-app`) です。
 - 登録が完了すると、AAD により、アプリに一意のクライアント ID が割り当てられます。  この値は次のセクションで必要になるので、[構成] タブからコピーします。
 
@@ -1180,3 +1180,4 @@ ADAL に関連するさらに高度な手順に興味がある場合は、学習
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
+

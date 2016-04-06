@@ -72,7 +72,7 @@
 
 1.  Azure AD ポータルでの **Syncplicity** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![Configure single sign-on](./media/active-directory-saas-syncplicity-tutorial/IC769534.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-syncplicity-tutorial/IC769534.png "Configure single sign-on")
 
 2.   **どのようなユーザー Syncplicity にサインオンする** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 
@@ -86,7 +86,7 @@
 
 4.   **Syncplicity でのシングル サインオンの構成** ] ページで、証明書をダウンロードする] をクリックして **証明書のダウンロード**, 、し、コンピューターに証明書ファイルをローカルに保存します。
 
-    ![Configure single sign-on](./media/active-directory-saas-syncplicity-tutorial/IC769543.png "Configure single sign-on")
+    ![シングル サインオンの構成](./media/active-directory-saas-syncplicity-tutorial/IC769543.png "Configure single sign-on")
 
 5.  サインイン、 **Syncplicity** テナントです。
 
@@ -159,5 +159,6 @@ AAD ユーザーがサインインできるようにするには、ユーザー�
     ![あり](./media/active-directory-saas-syncplicity-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+
 
 

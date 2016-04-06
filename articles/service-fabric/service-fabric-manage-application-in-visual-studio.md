@@ -22,7 +22,7 @@ Service Fabric アプリケーションとサービスを Visual Studio で管�
 
 アプリケーションを管理するには、ソリューション エクスプローラーで、アプリケーション プロジェクトを右クリックします。
 
-![アプリケーションのプロジェクトを右クリックして、Service Fabric アプリケーションの管理][manageservicefabric]
+![アプリケーション プロジェクトを右クリックし、Service Fabric アプリケーションを管理する][manageservicefabric]
 
 ## Service Fabric アプリケーションのデプロイ
 
@@ -45,11 +45,11 @@ Visual Studio で、キーを押して **f5 キーを押して** はも、アプ
 1. アプリケーション プロジェクトのショートカット メニューで、 **プロパティ** (かを選択して、 **f4 キーを押して** キー)。
 1.  **プロパティ** ウィンドウで、設定、 **の起動時にデータを保持する** プロパティを **はい**します。
 
-    ![Start プロパティを保持するデータを設定する][preservedata]
+    ![[開始時にデータを保持する] プロパティの設定][preservedata]
 
 アプリケーションを再度実行すると、デプロイメント スクリプトは監視なしの自動モードを使用してそのデプロイメントをアップグレードとして扱い、アプリケーションを日付文字列が追加された新しいバージョンにアップグレードします。 アップグレード プロセスでは、前のデバッグ セッションで入力したすべてのデータが保持されます。
 
-![例の日付が追加された新しいアプリケーション バージョン][preservedate]
+![日付が追加された新しいアプリケーション バージョンの例][preservedate]
 
 データは、Service Fabric プラットフォームのアップグレード機能を活用して保持されます。 アップグレードの詳細については、アプリケーションを参照してください [Service Fabric アプリケーションのアップグレード](service-fabric-application-upgrade.md)
 
@@ -61,11 +61,11 @@ Visual Studio で、キーを押して **f5 キーを押して** はも、アプ
 
 アプリケーションに追加する Service Fabric プロジェクトの種類を選択し、サービスの名前を指定します。  参照してください [、サービスのフレームワークを選択する](service-fabric-choose-framework.md) を使用するサービスの種類を決定する際にします。
 
-![アプリケーションに追加するファブリック サービス プロジェクトの種類を選択][addserviceproject]
+![アプリケーションに追加する Fabric サービス プロジェクトの種類を選択する][addserviceproject]
 
 新しいサービスは、ソリューションおよび既存のアプリケーション パッケージに追加されます。 サービス参照と既定のサービス インスタンスは、アプリケーション マニフェストに追加されます。 サービスが作成され、次回、アプリケーションをデプロイする際に起動します。
 
-![新しいサービスは、アプリケーション マニフェストに追加する][newserviceapplicationmanifest]
+![新しいサービスは、アプリケーション マニフェストに追加されます][newserviceapplicationmanifest]
 
 ## Service Fabric アプリケーションのパッケージ化
 
@@ -96,4 +96,5 @@ Service Fabric Explorer を使用して、ローカル クラスターからア�
 [newserviceapplicationmanifest]:./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 [preservedata]:./media/service-fabric-manage-application-in-visual-studio/preservedata.png
 [preservedate]:./media/service-fabric-manage-application-in-visual-studio/preservedate.png
+
 

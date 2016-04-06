@@ -48,7 +48,7 @@ API を作成および構成するには、パブリッシャー ポータルを
 
 目的の値が構成されると、クリックして **保存**します。 新しい API が作成されると、その API の概要ページがパブリッシャー ポータルに表示されます。
 
-![API の概要][api-management-api-summary]
+![API summary][api-management-api-summary]
 
 ## <a name="configure-api-settings"> </a>API 設定の構成
 
@@ -96,3 +96,4 @@ API を作成し、設定を構成した後は、操作を API に追加しま�
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [How to secure back-end services using client certificate authentication in Azure API Management]: api-management-howto-mutual-certificates.md
 [How to authorize developer accounts using OAuth 2.0 in Azure API Management]: api-management-howto-oauth2.md
+

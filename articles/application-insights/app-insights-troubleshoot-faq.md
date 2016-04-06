@@ -38,7 +38,7 @@
 
 ## SDK の追加
 
-#### <a name="q01"></a>Visual Studio で Application Insights をプロジェクトに追加するオプションがありません
+#### <a name="q01"></a> Visual Studio で Application Insights をプロジェクトに追加するオプションがありません
 
 + した確認 [Visual Studio 2013 Update 3 以降](http://go.microsoft.com/fwlink/?LinkId=397827)します。 Application Insights Tools がプレインストールされています。
 + このツールは、あらゆる種類のアプリケーションをサポートしているわけではありませんが、Application Insights SDK をプロジェクトに手動で追加することはできます。 使用 [ここ][windows]します。 
@@ -66,7 +66,7 @@ Application Insights をインストールしているとき、またはログ �
 ソリューション エクスプ ローラーで右クリック `ApplicationInsights.config` 選択 **Application Insights の更新**します。 Azure へのサインインを促すダイアログが表示されます。または、Application Insights のリソースを作成するか、既存のリソースを再利用します。
 
 
-#### <a name="q14"></a>Application Insights によってどのような変更がプロジェクトに加えられますか?
+#### <a name="q14"></a> Application Insights によってどのような変更がプロジェクトに加えられますか?
 
 詳細は、プロジェクトの種類によって異なります。 Web アプリケーションの場合: 
 
@@ -99,12 +99,12 @@ Application Insights をインストールしているとき、またはログ �
 
 + (新しいプロジェクトのみを [Application Insights を既存のプロジェクトに追加する][start], 、手動で設定する必要がある)。これらを Application Insights リソース ID で初期化するためのスニペットを、クライアントとサーバーのコードに挿入します。 たとえば、MVC アプリでは、Views/Shared/_Layout.cshtml マスター ページにコードが挿入されます。
 
-####<a name="NuGetBuild"></a> 表示される「NuGet パッケージが存在しない」、ビルド サーバーでは、開発用コンピューターで [ok] にビルドすべて
+####<a name="NuGetBuild"></a> 「NuGet パッケージがありません」というエラーがビルド サーバーで出ますが、開発用コンピューターではすべて正常にビルドできます
 
 参照してください [NuGet パッケージの復元](http://docs.nuget.org/Consume/Package-Restore)
  [自動パッケージの復元](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore)します。
 
-####<a name="FailUpdate"></a> 表示される「プロジェクト参照は、コンピューターにない NuGet パッケージ」と NuGet パッケージを 0.17 以降に更新した後にビルドしようとしています。
+####<a name="FailUpdate"></a> NuGet パッケージを 0.17 以降に更新した後にビルドしようとしたら、「プロジェクトが、コンピューターにない NuGet パッケージを参照しています」というエラーが出ました。
 
 NuGet パッケージを 0.17 以降に更新した後に上記のエラーが発生した場合は、proj ファイルを編集し、残っている BCL ターゲットを削除する必要があります。
 
@@ -134,7 +134,7 @@ NuGet パッケージを 0.17 以降に更新した後に上記のエラーが�
 
 ## データが表示されない
 
-#### <a name="q03"></a>Application Insights が正常に追加された後でアプリケーションを実行したところ、ポータルにデータが表示されません
+#### <a name="q03"></a>Application Insights が正常に追加された後でアプリケーションを実行したところ、ポータルにデータが表示されません。
 
 + 概要ページで、検索タイルをクリックして診断検索を開いてください。 データはまずここに表示されます。
 + [更新] ボタンをクリックします。 ブレードは周期的に自動で更新されますが、手動でも更新できます。 時間範囲が広いと、更新間隔は長くなります。
@@ -150,7 +150,7 @@ NuGet パッケージを 0.17 以降に更新した後に上記のエラーが�
 + Windows Server 2008: 次の更新プログラムをインストールしておく: [KB2468871](https://support.microsoft.com/kb/2468871), 、[KB2533523](https://support.microsoft.com/kb/2533523), 、[KB2600217](https://support.microsoft.com/kb/2600217)します。
 
 
-#### <a name="q04"></a>自分の web サイトの [利用状況分析] にデータが表示されません。
+#### <a name="q04"></a>Web サイトの [利用状況分析] にデータが表示されません
 
 + データは、Web ページのスクリプトによって取得されます。 既存の web プロジェクトに Application Insights を追加する場合 [を手動でスクリプトを追加する必要がある][start]です。
 + Internet Explorer がサイトを互換モードで表示していないかご確認ください。
@@ -164,7 +164,7 @@ NuGet パッケージを 0.17 以降に更新した後に上記のエラーが�
 
 #### 予期しているデータがすべて表示されません
 
-* **サンプリングできます。**アプリケーションが送信するデータ量が多く、Application Insights SDK for ASP.NET バージョン 2.0.0-beta3 以降を使用している場合は、アダプティブ サンプリング機能が動作して、テレメトリの一定の割合のみが送信される可能性があります。 これを無効にすることができます。 [サンプリングについて説明します。](app-insights-sampling.md)
+* **サンプリング。** アプリケーションが送信するデータ量が多く、Application Insights SDK for ASP.NET バージョン 2.0.0-beta3 以降を使用している場合は、アダプティブ サンプリング機能が動作して、テレメトリの一定の割合のみが送信される可能性があります。 これを無効にすることができます。 [サンプリングの詳細については、こちらを参照してください。](app-insights-sampling.md)
 
 
 #### <a name="q08"></a>Application Insights を使ってイントラネット Web サーバーを監視できますか?
@@ -183,7 +183,7 @@ dc.services.visualstudio.com への https POST 呼び出しを中継できるプ
 
 ## ポータル
 
-#### <a name="q05"></a>Microsoft Azure プレビューのスタート ボードを表示しています。 Application Insights でデータを見つけるにはどうすればいいですか?
+#### <a name="q05"></a>Microsoft Azure プレビューのスタート画面を表示しています。 Application Insights でデータを見つけるにはどうすればいいですか?
 
 次のどちらかの操作を行います。
 
@@ -209,7 +209,7 @@ dc.services.visualstudio.com への https POST 呼び出しを中継できるプ
 
 ## ログの記録
 
-#### <a name="post"></a>診断検索で POST データを表示する方法
+#### <a name="post"></a>診断検索で POST データを表示する方法を教えてください。
 
 POST データは自動ではログに記録されませんが、TrackTrace 呼び出しを使用してメッセージ パラメーターにデータを格納できます。 文字列プロパティの制限よりもサイズ制限は大きいですが、フィルター処理には使用できません。 
 
@@ -220,15 +220,15 @@ POST データは自動ではログに記録されませんが、TrackTrace 呼�
 参照してください [データの保持とプライバシー][data]します。
 
 
-## <a name="q17"></a> Application Insights の機能をすべて有効にしているでしょうか?
+## <a name="q17"></a>Application Insights の機能をすべて有効にしているでしょうか?
 
 <table border="1">
 <tr><th>表示内容</th><th>表示方法</th><th>用途</th></tr>
 <tr><td>Availability charts</td><td><a href="../app-insights-monitor-web-app-availability/">Web tests</a></td><td>Web アプリが稼働しているか確認する</td></tr>
 <tr><td>サーバー アプリ パフォーマンス: 応答時間、...
-</td><td><a href="../app-insights-asp-net/">アプリケーションの正常性と利用状況の監視</a><br/>または <br/><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a> (コードを記述または <a href="../app-insights-api-custom-events-metrics/#track-dependency">track dependencies</a>)</td><td>パフォーマンスの問題を検出する</td></tr>
+</td><td><a href="../app-insights-asp-net/">アプリケーションの正常性と利用状況の監視</a><br/>または <br/><a href="../app-insights-monitor-performance-live-website-now/">AI Status Monitor をサーバーにインストール</a> (独自のコードを記述したり <a href="../app-insights-api-custom-events-metrics/#track-dependency">依存関係の追跡</a>)</td><td>パフォーマンスの問題を検出する</td></tr>
 <tr><td>Dependency telemetry</td><td><a href="../app-insights-monitor-performance-live-website-now/">Install AI Status Monitor on server</a></td><td>Diagnose issues with databases or other external components</td></tr>
-<tr><td>Get stack traces from exceptions</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">Insert TrackException calls in your code</a> (ただし、いくつかが自動的に報告されます)</td><td>例外を検出して診断する</td></tr>
+<tr><td>例外からスタック トレースを取得する</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">コード内に TrackException 呼び出しを挿入する</a> (ただし、いくつかが自動的に報告されます)</td><td>例外を検出して診断する</td></tr>
 <tr><td>Search log traces</td><td><a href="../app-insights-search-diagnostic-logs/">Add a logging adapter</a></td><td>Diagnose exceptions, perf issues</td></tr>
 <tr><td>クライアントの利用状況の基本情報: ページ ビュー、セッション、...</td><td><a href="../app-insights-javascript/">JavaScript initializer in web pages</a></td><td>Usage analytics</td></tr>
 <tr><td>クライアントのカスタム メトリック</td><td><a href="../app-insights-api-custom-events-metrics/">Tracking calls in web pages</a></td><td>Enhance user experience</td></tr>
@@ -255,3 +255,4 @@ Web サービスが Azure VM で実行されている場合 [診断を取得][az
 [windows]: app-insights-windows-get-started.md
 
  
+

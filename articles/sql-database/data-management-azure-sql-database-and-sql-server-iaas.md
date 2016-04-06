@@ -65,35 +65,35 @@ Azure とオンプレミス SQL Server データベースの話を始める前�
 
 </tr>
 <tr>
-   <td valign="middle"><p><b>最も適した</b></p></td>
+   <td valign="middle"><p><b>最適</b></p></td>
    <td valign="middle">
           <ul>
           <li type=round>開発とマーケティングに時間的制約があるクラウド設計の新しいアプリケーション。
-          <li type=round>必要とする組み込みの高可用性、災害復旧のメカニズムをアップグレードするアプリケーション。
-          <li type=round>基になるオペレーティング システムと構成設定を管理したくないチームです。
-         <li type=round>スケール アウト パターンを使用するアプリケーション。
-         <li type=round>サイズは最大 1 TB のデータベース。
-         <li type=round>ソフトウェアとしてのサービス (SaaS) アプリケーションを構築します。
+          <li type=round>高可用性、障害復旧、アップグレードに関する組み込みのメカニズムを必要とするアプリケーション。
+          <li type=round>基盤のオペレーティング システムと構成設定の管理を回避したいチーム。
+         <li type=round>スケール アウト パターンを使用したアプリケーション。
+         <li type=round>サイズが最大 1 TB のデータベース。
+         <li type=round>サービスとしてのソフトウェア (SaaS) アプリケーションの構築。
   </ul>
 </td>
    <td valign="middle">
       <ul>
-      <li type=round>最小限の変更でクラウドに迅速に移行を必要とする既存のアプリケーションです。
-      <li type=round>セキュリティで保護されたトンネルを使用して内部設置型リソース (Active Directory) などを Azure からのアクセスに必要な SQL Server アプリケーション。
-      <li type=round>完全な管理者権限を持つカスタマイズされた IT 環境をする場合。
-      <li type=round>迅速な開発およびテスト シナリオ、内部設置型の非運用 SQL Server のハードウェアを購入したくない場合。
+      <li type=round>変更を最小限に抑えてクラウドに迅速に移行する必要がある既存のアプリケーション。
+      <li type=round>セキュリティで保護されたトンネル経由で Azure からオンプレミス リソース (Active Directory など) にアクセスする必要がある SQL Server アプリケーション。
+      <li type=round>完全な管理者アクセス権があるカスタマイズされた IT 環境を必要とする場合。
+      <li type=round>運用環境以外のオンプレミス SQL Server のハードウェアを購入しない場合の迅速な開発およびテスト シナリオ。
       <li type=round>使用して内部設置型 SQL Server アプリケーションの災害復旧 [backup to Azure Storage](http://msdn.microsoft.com/library/jj919148.aspx) または [AlwaysOn replicas with Azure VMs](../virtual-machines/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)します。
-      <li type=round>1 TB を超える大きなデータベース。
+      <li type=round>サイズが 1 TB を超える大きなデータベース。
       </ul></td>
 </tr>
 <tr>
    <td valign="middle"><p><b>リソース</b></p></td>
    <td valign="middle">
        <ul>
-       <li type=round>基になるインフラストラクチャのサポートおよび保守のための IT リソースを使用したくないです。
-       <li type=round>アプリケーション層に注目するには。
+       <li type=round>基になるインフラストラクチャのサポートおよび保守のために IT リソースを使用しない。
+       <li type=round>アプリケーション層に的を絞る。
        </ul></td>
-   <td valign="middle"><ul><li type=round>サポートおよび保守のための IT リソースがあります。</ul></td>
+   <td valign="middle"><ul><li type=round>サポートおよび保守ための IT リソースがある。</ul></td>
 
 </tr>
 <tr>
@@ -104,15 +104,15 @@ Azure とオンプレミス SQL Server データベースの話を始める前�
 </tr>
 <tr>
    <td valign="middle"><p><b>ビジネス継続性</b></p></td>
-   <td valign="middle"><ul><li type=round>組み込みのフォールト トレランスのインフラストラクチャ機能以外にも Azure SQL Database は、特定の時点へタイム リストア、Geo リストア、Geo レプリケーションのビジネス継続性を向上させるなどの機能を提供します。 詳細については、次を参照してください [SQL Database business continuity overview](sql-database-business-continuity.md)。</ul></td>
-   <td valign="middle"><ul><li type=round>。Azure Vm 上の SQL Server では、データベースの特定のニーズに応じて高可用性と災害復旧のソリューションを設定することができます。 そのため、アプリケーション向けにシステムを大幅に最適化できます。 必要なときに自分でフェールオーバーをテストして実行できます。 詳細については、[高可用性と災害復旧の Azure 仮想マシン上の SQL Server] を参照してください ((../virtual-machines/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)。</ul></td>
+   <td valign="middle"><ul><li type=round>Azure SQL Database は、組み込みのフォールト トレランスのインフラストラクチャ機能以外にも、ビジネス継続性を向上させるために、ポイントインタイム リストア、geo リストア、geo レプリケーションなどの機能を提供します。 詳細については、次を参照してください。 [SQL Database business continuity overview](sql-database-business-continuity.md)します。</ul></td>
+   <td valign="middle"><ul><li type=round>Azure VM 上の SQL Server では、データベース固有のニーズに合わせて、高可用性と障害復旧のソリューションを設定できます。 そのため、アプリケーション向けにシステムを大幅に最適化できます。 必要なときに自分でフェールオーバーをテストして実行できます。 詳細については、[Azure Virtual Machines 上の SQL Server の高可用性と障害復旧](../virtual-machines/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md) に関するページを参照してください。</ul></td>
 
 </tr>
 <tr>
    <td valign="middle"><p><b>ハイブリッド クラウド</b></p></td>
-   <td valign="middle"><ul><li type=round>、内部設置型アプリケーションが Azure SQL Database のデータにアクセスできます</ul></td>
+   <td valign="middle"><ul><li type=round>オンプレミス アプリケーションから Azure SQL Database 内のデータにアクセスできます。</ul></td>
    <td valign="middle"><ul>
-      <li type=round>。Azure Vm で SQL server、クラウドの一部を実行し、オンプレミスするアプリケーションがあることができます。 内部設置型ネットワークと Active Directory ドメインを使用してクラウドに拡張するなど [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)します。 Azure ストレージを使用して内部設置型のデータ ファイルを格納するさらに、 [SQL Server Data Files in Azure](http://msdn.microsoft.com/library/dn385720.aspx)します。 詳細については、次を参照してください。 [Introduction to SQL Server 2014 Hybrid Cloud](http://msdn.microsoft.com/library/dn606154.aspx)します。
+      <li type=round>Azure VM 上の SQL Server を使用して、アプリケーションの一部をクラウド上で実行し、一部をオンプレミスで実行することができます。 内部設置型ネットワークと Active Directory ドメインを使用してクラウドに拡張するなど [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)します。 Azure ストレージを使用して内部設置型のデータ ファイルを格納するさらに、 [SQL Server Data Files in Azure](http://msdn.microsoft.com/library/dn385720.aspx)します。 詳細については、次を参照してください。 [Introduction to SQL Server 2014 Hybrid Cloud](http://msdn.microsoft.com/library/dn606154.aspx)します。
       <li type=round>使用して内部設置型 SQL Server アプリケーションの災害復旧をサポートしている [SQL Server Backup and Restore with Azure Blob Storage](http://msdn.microsoft.com/library/jj919148.aspx) または [AlwaysOn replicas in Azure VMs](../virtual-machines/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)します。
       </ul></td>
 
@@ -198,3 +198,4 @@ SQL Database と Azure VM 上の SQL Server で実行されるアプリケーシ
 参照してください [Azure で SQL Server 仮想マシンをプロビジョニング](virtual-machines-provision-sql-server.md) 開始します。
 
 > [AZURE.NOTE] SQL Server 2016 CTP2 を試みますか? Microsoft Azure にサインアップし、 [ここ](http://aka.ms/sql2016vm "ここ") で SQL Server 2016 CTP2 が既にインストールされている仮想マシンを作成します。
+

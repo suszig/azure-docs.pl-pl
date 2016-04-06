@@ -9,12 +9,12 @@
 
 <tags
    ms.service="backup"
-   ms.workload=「記憶域のバックアップ回復」
+   ms.workload="storage-backup-recovery"
      ms.tgt_pltfrm="na"
      ms.devlang="na"
      ms.topic="article"
      ms.date="10/21/2015"
-     ms.author="jimpark"です。"aashishr"/>
+     ms.author="jimpark"; "aashishr"/>
 
 # Windows Server または Windows クライアント コンピューターへのファイルの復元
 この記事では、復元操作に必要な 2 種類の手順を説明します。
@@ -91,7 +91,7 @@
 
 7. いずれかを選択、 **ファイルを検索する** または **ファイルの参照** オプション。 使用してこのセクションの目的で、 **ファイルを検索する** オプション。
 
-    ![検索](./media/backup-azure-restore-windows-server/search.png)
+    ![Search](./media/backup-azure-restore-windows-server/search.png)
 
 8. 次の画面で、ボリュームと日付を選択します。 復元するフォルダー名とファイル名を検索します。
 
@@ -115,4 +115,5 @@
 - [Azure Backup の概要](http://go.microsoft.com/fwlink/p/?LinkId=222425)
 - [Azure 仮想マシンのバックアップ](backup-azure-vms-introduction.md)
 - [Microsoft ワークロードのバックアップ](backup-azure-dpm-introduction.md)
+
 

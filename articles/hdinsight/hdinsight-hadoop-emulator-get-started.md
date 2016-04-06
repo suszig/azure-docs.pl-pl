@@ -48,9 +48,9 @@ HDInsight Emulator は、Hadoop サンドボックスによく似たローカル
 
 Microsoft HDInsight Emulator は、Microsoft Web Platform Installer を使用してインストールします。  
 
-> [AZURE.NOTE] HDInsight Emulator には、英語版のオペレーティング システムのみがサポートされています。 インストールされているエミュレーターの以前のバージョンがあれば、エミュレーターの最新バージョンをインストールする前に、コントロール パネルのプログラムと機能] から次の 2 つのコンポーネントをアンインストールする必要があります。
+> [AZURE.NOTE] HDInsight Emulator には、英語版のオペレーティング システムのみがサポートされています。 エミュレーターの以前のバージョンがインストールされている場合は、エミュレーターの最新バージョンをインストールする前に、次の 2 つのコンポーネントをコントロール パネルの [プログラムと機能] からアンインストールする必要があります。
 ><ul>
-<li>Microsoft HDInsight Emulator for Azure または HDInsight 開発者プレビューでは、どちらかがインストールされています。</li>
+<li>Microsoft HDInsight Emulator for Azure または HDInsight 開発者プレビュー (インストールされているどちらかのコンポーネント)</li>
 <li>Hortonworks Data Platform</li>
 </ul>
 
@@ -84,7 +84,7 @@ HDInsight Emulator に関連するサービスは既定で自動的に開始さ�
 
 インストールと HDInsight のエミュレーターの実行に関する既知の問題について、 [HDInsight Emulator リリース ノート](hdinsight-emulator-release-notes.md)します。 インストール ログは **C:\HadoopFeaturePackSetup\HadoopFeaturePackSetupTools\gettingStarted.winpkg.install.log**します。
 
-##<a name="vstools"></a>Visual Studio の HDInsight ツールのエミュレーターを使用します。
+##<a name="vstools"></a>Visual Studio の HDInsight ツールでのエミュレーターの使用
 
 Visual Studio の HDInsight ツールを使用して、HDInsight Emulator に接続できます。 Azure HDInsight クラスターで Visual Studio ツールを使用する方法については、次を参照してください。 [Visual Studio の HDInsight Hadoop Tools を使い始める](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md)します。
 
@@ -183,7 +183,7 @@ MapReduce ジョブは、次の 2 つの引数を受け取ります。
 
 Hadoop コマンドの詳細については、次を参照してください。 [Hadoop コマンド マニュアル][hadoop-commands-manual]します。
 
-##<a name="rungetstartedsamples"></a> サンプル web ログ データを分析します。
+##<a name="rungetstartedsamples"></a> サンプル Web ログ データの分析
 
 HDInsight Emulator をインストールすると、Windows 上の Apache Hadoop ベースのサービスについてユーザーが学習できるサンプルもインストールされます。 これらのサンプルは、通常、ビッグ データ セットを処理する際に必要なタスクを対象としています。 上記 MapReduce のチュートリアルでビルドされたサンプルを試すと、MapReduce プログラミング モデルとそのエコシステムに慣れることができます。
 
@@ -198,13 +198,13 @@ HDInsight Emulator をインストールすると、Windows 上の Apache Hadoop
 - [Pig ジョブの実行](#pig)
 - [サンプルのリビルド](#rebuild)
 
-###<a name="scenarios"></a>IIS W3C ログ データ シナリオ
+###<a name="scenarios"></a>IIS W3C ログ データのシナリオ
 
 W3C シナリオでは、IIS W3C ログ データを、1 MB (小)、500 MB (中)、2 GB (大) の 3 つのサイズで生成し、HDFS または Azure BLOB ストレージにインポートします。 3 種類のジョブがあり、それぞれを C#、Java、Pig、および Hive で実装します。
 
 - **totalhits** -所定のページに対する要求の総数を計算します。
 - **avgtime** -ページあたりの要求の (秒) にかかった平均時間を計算します。
-- **エラー** -状態が 404 または 500 であった要求の 1 時間あたりのページあたりのエラーの数を計算します。
+- **エラー** -状態が 404 または 500 であった要求の時間あたりのページあたりのエラーの数を計算します。
 
 これらのサンプルとそのドキュメントは、主要な Hadoop テクノロジを詳細に調査したり全面的に実装したりするものではありません。 使用するクラスターはノードを 1 つしかもたないため、ノードを増やす効果は、今回のリリースでは確認できません。
 
@@ -243,7 +243,7 @@ Azure PowerShell スクリプトの importdata.ps1 を使用して、データ�
 
 これでデータ ファイルが作成されて HDFS にインポートされました。 別の Hadoop ジョブの実行を開始できます。
 
-###<a name="javamapreduce"></a> Java MapReduce ジョブの実行
+###<a name="javamapreduce"></a>Java MapReduce ジョブの実行
 
 MapReduce は Hadoop の基本的コンピューティング エンジンです。 既定で Java で実装されていますが、C# を使用する .NET および Hadoop Streaming を活用した例もあります。 MapReduce ジョブを実行する構文は次のとおりです。
 
@@ -420,10 +420,10 @@ Pig スクリプトはコンパイルすると MapReduce ジョブになり、�
 The samples currently contain all the required binaries, so building is not required. If you'd like to make changes to the Java or .NET samples, you can rebuild them by using either the Microsoft Build Engine (MSBuild) or the included Azure PowerShell script.
 
 
-**サンプルをリビルドするには**
+**To rebuild the samples**
 
-1. Hadoop コマンド ラインを開きます。
-2. 次のコマンドを実行します。
+1. Open a Hadoop command line.
+2. Run the following command:
 
         powershell -F buildsamples.ps1
 --->
@@ -474,7 +474,7 @@ Azure ストレージ アカウントにアクセスする前に、構成ファ�
     hadoop fs -ls wasb://myContainer@myStorage.blob.core.windows.net/
 
 
-##<a name="powershell"></a> Azure PowerShell を実行します。
+##<a name="powershell"></a>Azure PowerShell の実行
 Azure PowerShell コマンドレットの一部は HDInsight Emulator でもサポートされています。 サポートされているコマンドレットは次のとおりです。
 
 - HDInsight ジョブ定義コマンドレット
@@ -503,7 +503,7 @@ Hadoop ジョブの送信の詳細については、次を参照してくださ�
 Emulator をインストールするには、あるコンピューター、コントロール パネルを開くと [ **プログラム**, 、クリックして **プログラムのアンインストール**します。 右クリックし、インストールされているプログラムの一覧から **Microsoft HDInsight Emulator for Azure**, 、] をクリックし、 **アンインストール**します。
 
 
-##<a name="nextsteps"></a> 次のステップ
+##<a name="nextsteps"></a>次のステップ
 この MapReduce チュートリアルでは、HDInsight Emulator (Hadoop サンド ボックス) をインストールして、Hadoop ジョブをいくつか実行しました。 詳細については、次の記事を参照してください。
 
 - [Azure の HDInsight の概要](../hdinsight-get-started.md)
@@ -537,3 +537,4 @@ Emulator をインストールするには、あるコンピューター、コ�
 
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
+

@@ -41,11 +41,11 @@
 
 ![][0]
 
-このチュートリアルを完了する必要があります [Xamarin.Android]、Xamarin Studio、Visual Studio プラグイン (Windows 上) と最新の Android プラットフォームをインストールします。 このほか、Android SDK のバージョン 4.2 以降が必要になります。
+このチュートリアルを完了する必要 [Xamarin.Android], 、Xamarin Studio、Visual Studio プラグイン (Windows 上) と最新の Android プラットフォームをインストールします。 このほか、Android SDK のバージョン 4.2 以降が必要になります。
 
 ダウンロードしたクイック スタート プロジェクトには、Xamarin.Android 向けの Azure Mobile Services コンポーネントが含まれています。 このプロジェクトではバージョン 4.2 以降の Android をターゲットにしていますが、Mobile Services SDK ではバージョン 2.2 以降があれば問題ありません。
 
-> [AZURE.IMPORTANT] このチュートリアルを完了するには、Azure アカウントが必要です。 アカウントがない場合は、Azure 試用版にサインアップして最大 10 の無料モバイル サービスを取得し、試用期間が終わった後でも使用し続けることができます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5)をご覧ください。
+> [AZURE.IMPORTANT] このチュートリアルを完了するには、Azure アカウントが必要です。 アカウントがない場合は、Azure 試用版にサインアップして、最大 10 件の無料モバイル サービスを入手できます。このサービスは評価終了後も使用できます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5)をご覧ください。
 
 ## <a name="create-new-service"> </a>新しいモバイル サービスを作成する
 
@@ -57,7 +57,7 @@
 
 ここでは、モバイル サービスに接続された新しい Xamarin.Android アプリを作成します。
 
-1.  クリックして、[Azure クラシック ポータル] で、 **Mobile Services**, 、し、先ほど作成したモバイル サービスをクリックします。
+1.   [Azure classic portal], 、] をクリックして **Mobile Services**, 、作成したモバイル サービスをクリックします。
 
 2. クイック スタート] タブをクリックして **Xamarin.Android** [ **プラットフォームの選択]** 展開 **新しい Android アプリを作成**します。
 
@@ -94,7 +94,7 @@
     > [AZURE.NOTE]
     > モバイル サービスにアクセスして ToDoActivity.cs C# ファイルにあるデータをクエリおよび挿入するコードを確認できます。
 
-6. ポータルに戻り、[Azure クラシック] をクリックして、 **データ** ] タブでをクリックし、 **TodoItems** テーブルです。
+6. 戻り、 [Azure classic portal], をクリックして、 **データ** ] タブでをクリックし、 **TodoItems** テーブルです。
 
     ![][11]
 
@@ -105,16 +105,16 @@
 ## <a name="next-steps"> </a>次のステップ
 クイック スタートはこれで完了です。Mobile Services で重要になるこれ以外の作業については、以下のトピックを参照してください。
 
-* [オフライン データの同期の開始を取得]
+* [Get started with offline data sync]
   クイック スタートでオフライン データの同期を使用して、アプリケーションの応答性と信頼性を高める方法について説明します。
 
-* [認証の使用の開始を取得]
+* [Get started with authentication]
   ID プロバイダーを使用してアプリケーションのユーザーを認証する方法について説明します。
 
-* [開始プッシュ通知の使用]
+* [Get started with push notifications]
   アプリケーションにごく基本的なプッシュ通知を送信する方法について説明します。
 
-* [Azure Mobile Services 向け Xamarin コンポーネント クライアントを使用する方法](partner-xamarin-mobile-services-how-to-use-client-library.md)
+* [Azure モバイル サービス向け Xamarin コンポーネント クライアントを使用する方法](partner-xamarin-mobile-services-how-to-use-client-library.md)
    モバイル サービスのクエリ、データの処理、およびカスタム Api にアクセスする方法について説明します。
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
@@ -150,5 +150,6 @@
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Azure]: http://azure.microsoft.com/
 [Azure classic portal]: https://manage.windowsazure.com/
+
 
 

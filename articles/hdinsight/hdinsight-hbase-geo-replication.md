@@ -19,9 +19,9 @@
 # HDInsight での HBase geo レプリケーションの構成
 
 > [AZURE.SELECTOR]
-- [VPN 接続を構成します。](../hdinsight-hbase-geo-replication-configure-VNETs.md)
-- [DNS を構成します。](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [HBase レプリケーションを構成します。](hdinsight-hbase-geo-replication.md) 
+- [VPN 接続の構成](../hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [DNS の構成](hdinsight-hbase-geo-replication-configure-DNS.md)
+- [HBase レプリケーションの構成](hdinsight-hbase-geo-replication.md) 
  
 2 つのデータ センター間に HBase レプリケーションを構成する方法について説明します。 クラスターのレプリケーションには次のような用途があります。
 
@@ -311,3 +311,4 @@ Azure クラシック ポータルでは、カスタム構成オプションで 
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md 
+

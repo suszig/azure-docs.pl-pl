@@ -31,7 +31,7 @@ Mobile Services では、SQL Database を使用してデータを保存します
 
 ## はじめにやるべきこと
 
-このチュートリアルを開始する前に、モバイル サービスのクイック スタートの完了してあります。 [を使ってみるモバイル サービス] です。
+このチュートリアルを開始する前に、モバイル サービスのクイック スタートの完了してあります: [Get started with Mobile Services]します。
 
 このチュートリアルには、次のものも必要です。
 
@@ -384,13 +384,13 @@ Azure Storage サービスにデータをアップロードするために必要
 
 モバイル サービスを Blob サービスと統合することによりイメージを安全にアップロードできました。他のバックエンド サービスおよび統合のトピックを参照してください。
 
-+ [SendGrid を使用したモバイル サービスから電子メールを送信する]
++ [SendGrid を使用したモバイル サービスからの電子メールの送信]
 
   SendGrid 電子メール サービスを使用して、モバイル サービスに電子メール機能を追加する方法について説明します。 このトピックでは、サーバー側スクリプトを追加し、SendGrid を使用して電子メールを送信する方法を示します。
 
-+ [モバイル サービスでのバックエンド ジョブのスケジュール]
++ [モバイル サービスでのバックエンド ジョブの計画]
 
-  Mobile Services のジョブ スケジューラ機能を使用して、定義したスケジュールに従って実行されるサーバー スクリプト コードを定義する方法について説明します。
+  モバイル サービスのジョブ スケジューラ機能を使用して、定義したスケジュールに従って実行されるサーバー スクリプト コードを定義する方法について説明します。
 
 + [モバイル サービスのサーバー スクリプト リファレンス]
 
@@ -425,4 +425,5 @@ Azure Storage サービスにデータをアップロードするために必要
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+
 

@@ -65,7 +65,7 @@ DocumentDB に保存するものとします。
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="_Toc395783178"></a>手順 2: 新しい Node.js アプリケーションを作成する方法を学習します。
+## <a name="_Toc395783178"></a>手順 2: 新しい Node.js アプリケーションを作成する
 
 これで、基本的な Hello World Node.js プロジェクトを使用して作成する方法を学習しましょう、 [Express](http://expressjs.com/) フレームワークです。
 
@@ -88,7 +88,7 @@ DocumentDB に保存するものとします。
 
     ![Node.js について学習する - ブラウザー ウィンドウでの Hello World アプリケーションのスクリーン ショット](./media/documentdb-nodejs-application/image12.png)
 
-## <a name="_Toc395783179"></a>手順 3: 追加モジュールをインストールします。
+## <a name="_Toc395783179"></a>手順 3: 追加モジュールのインストール
 
  **Package.json** ファイルは 1 つのルートに作成されるファイルの
 プロジェクトのルートに作成されるファイルの 1 つです。 このファイルには、Express アプリケーションで必要な追加モジュールのリストが
@@ -110,7 +110,7 @@ DocumentDB に保存するものとします。
 
        This tells Node (and Azure later) that your application depends on these additional modules.
 
-## <a name="_Toc395783180"></a>手順 4: ノード アプリケーションで DocumentDB サービスの使用
+## <a name="_Toc395783180"></a>手順 4: ノード アプリケーションでの DocumentDB サービスの使用
 
 最初の設定と構成を行った後は、いよいよ Azure DocumentDB を使ってコードを作成する作業に入ります。
 
@@ -118,7 +118,7 @@ DocumentDB に保存するものとします。
 
 1. プロジェクト ディレクトリ内には、という名前の新しいディレクトリを作成 **モデル**します。
 2.  **モデル** ディレクトリという名前の新しいファイルを作成する **taskDao.js**します。 このファイルには、アプリケーションで作成されるタスクのモデルが格納されます。
-3. 同じ **モデル** ディレクトリというもう 1 つの新しいファイルを作成 **docdbUtils.js**します。 このファイルには、アプリケーション全体で使用する、いくつかの便利で再利用可能なコードが含まれます。 
+3. 同じ **モデル** ディレクトリという別の新しいファイルを作成する **docdbUtils.js**します。 このファイルには、アプリケーション全体で使用する、いくつかの便利で再利用可能なコードが含まれます。 
 4. 次のコードをコピー **docdbUtils.js**
 
         var DocumentDBClient = require('documentdb').DocumentClient;
@@ -443,7 +443,7 @@ DocumentDB に保存するものとします。
 
 7. 最後に、保存して閉じる、 **app.js** ファイルはほぼ完了です。
  
-## <a name="_Toc395783181"></a>手順 5: ユーザー インターフェイスを構築します。
+## <a name="_Toc395783181"></a>手順 5: ユーザー インターフェイスの構築
 
 次に、ユーザーがアプリケーションとやり取りするためのユーザー インターフェイスを作成します。 使用して作成した Express アプリケーション **Jade** ビュー エンジンとして。 Jade の詳細についてを参照してください [http://jade-lang.com/](http://jade-lang.com/)します。
 
@@ -539,7 +539,7 @@ DocumentDB に保存するものとします。
 
     保存して閉じます **style.css** ファイルです。
 
-## <a name="_Toc395783181"></a>手順 6: アプリケーションをローカルに実行します。
+## <a name="_Toc395783181"></a>手順 6: ローカルでのアプリケーションの実行
 
 1. ローカル コンピューターでアプリケーションをテストするには、ターミナルで `npm start` を実行します。アプリケーションが開始し、ブラウザーが起動して次の画像のようなページが開きます。
 
@@ -557,7 +557,7 @@ DocumentDB に保存するものとします。
 4. タスクを完了するには、[Complete] 列のチェック ボックスをオンにし、
 クリックして **タスクを更新する**です。
 
-## <a name="_Toc395783182"></a>手順 7: Azure の web サイトへのアプリケーション開発プロジェクトをデプロイします。
+## <a name="_Toc395783182"></a>手順 7: Azure Websites へのアプリケーション開発プロジェクトのデプロイ
 
 1. まだデプロイを実施していない場合、Azure Web サイトの Git リポジトリを有効にします。 これを行う方法の手順を参照して [ここ](../web-sites-publish-source-control-git.md#step4)します。
 
@@ -586,4 +586,5 @@ DocumentDB に保存するものとします。
 [Git]: http://git-scm.com/
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
+
 

@@ -40,7 +40,7 @@
 - アラート ルール
 - App Insights
 
-デプロイメントを自動的に実行するには、次のボタンをクリックします。
+展開を自動的に実行するには、次のボタンをクリックします。
 
 [![DAzure に eploy](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
@@ -184,7 +184,7 @@
 [AZURE.INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 
-### Web Apps
+### Web アプリ
 
     {
       "apiVersion": "2015-08-01",
@@ -458,4 +458,5 @@
 
 
  
+
 

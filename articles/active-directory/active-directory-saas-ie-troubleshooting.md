@@ -55,7 +55,7 @@
 
 Internet Explorer でアクセス パネル拡張機能が有効になっていることを確認するには:
 
-1. Internet Explorer で、をクリックして、 **歯車アイコン** ウィンドウの右上隅にします。 選択し、 **インターネット オプション**.<br />(以前のバージョンの Internet Explorer で、この [を検索できます **ツール > [インターネット オプション**します。
+1. Internet Explorer で、をクリックして、 **歯車アイコン** ウィンドウの右上隅にします。 選択し、 **インターネット オプション**します。<br />(以前のバージョンの Internet Explorer で、この [を検索できます **ツール > [インターネット オプション**します。
 
     ![Go to Tools > Internet Options](./media/active-directory-saas-ie-troubleshooting/internetoptions.png)
 
@@ -73,7 +73,7 @@ Internet Explorer でアクセス パネル拡張機能が有効になってい�
 
 InPrivate ブラウズ モードを使用している場合:
 
-1. Internet Explorer で、をクリックして、 **歯車アイコン** ウィンドウの右上隅にします。 選択し、 **インターネット オプション**.<br />(以前のバージョンの Internet Explorer で、この [を検索できます **ツール > [インターネット オプション**します。
+1. Internet Explorer で、をクリックして、 **歯車アイコン** ウィンドウの右上隅にします。 選択し、 **インターネット オプション**します。<br />(以前のバージョンの Internet Explorer で、この [を検索できます **ツール > [インターネット オプション**します。
 
     ![A sample of the diagnostic window](./media/active-directory-saas-ie-troubleshooting/inprivateoptions.png)
 
@@ -104,4 +104,5 @@ InPrivate ブラウズ モードを使用している場合:
 拡張機能のアンインストールの問題が発生する場合は、削除することもを使用して、 [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673) ツールです。
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+
 

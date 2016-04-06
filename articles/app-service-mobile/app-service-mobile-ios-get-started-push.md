@@ -24,15 +24,15 @@
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 概要
-このチュートリアルで追加するプッシュ通知 [iOS のクイック スタート] プロジェクトをレコードが挿入されるたびにプッシュ通知が送信できるようにします。 このチュートリアルは、先に完了する必要があります [iOS のクイック スタート] のチュートリアルに基づきます。 ダウンロードしたクイック スタートのサーバー プロジェクトを使用しない場合は、プッシュ通知拡張機能パッケージをプロジェクトに追加する必要があります。 サーバーの拡張機能パッケージの詳細については、次を参照してください。 [Azure モバイル アプリの .NET バックエンド サーバー SDK と連携](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)します。 
+このチュートリアルへのプッシュ通知を追加、 [iOS quick start] プロジェクトのプッシュ通知が送信されるたびに、レコードが挿入されるようにします。 このチュートリアルに基づいて、 [iOS quick start] チュートリアルで、先に完了する必要があります。 ダウンロードしたクイック スタートのサーバー プロジェクトを使用しない場合は、プッシュ通知拡張機能パッケージをプロジェクトに追加する必要があります。 サーバーの拡張機能パッケージの詳細については、次を参照してください。 [Azure モバイル アプリの .NET バックエンド サーバー SDK と連携](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)します。 
 
  [IOS シミュレーターはプッシュ通知をサポートしない](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), 、ので、このチュートリアルでは、物理 iOS デバイスを必要と [Apple Developer Program メンバーシップ](https://developer.apple.com/programs/ios/)します。 
 
-##<a name="create-hub"></a>通知ハブの作成
+##<a name="create-hub"></a>通知ハブを作成する
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
-## <a id="register"></a>プッシュ通知用アプリケーションを登録します。
+## <a id="register"></a>アプリをプッシュ通知用に登録する
 
 [AZURE.INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
@@ -40,7 +40,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
-##<a id="update-server"></a>プッシュ通知を送信するサーバー プロジェクトの更新
+##<a id="update-server"></a>サーバー プロジェクトを更新してプッシュ通知を送信する
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-apns](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
@@ -48,11 +48,11 @@
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
-## <a id="add-push"></a>アプリにプッシュ通知を追加します。
+## <a id="add-push"></a>プッシュ通知をアプリに追加する
 
 [AZURE.INCLUDE [app-service-mobile-add-push-notifications-to-ios-app.md](../../includes/app-service-mobile-add-push-notifications-to-ios-app.md)]
 
-## <a id="test"></a>アプリでプッシュ通知をテストします。
+## <a id="test"></a>アプリでプッシュ通知をテストする
 
 [AZURE.INCLUDE [Test Push Notifications in App](../../includes/test-push-notifications-in-app.md)]
 
@@ -75,4 +75,5 @@
 
 <!-- URLs. -->
 [iOS quick start]: app-service-mobile-ios-get-started.md
+
 

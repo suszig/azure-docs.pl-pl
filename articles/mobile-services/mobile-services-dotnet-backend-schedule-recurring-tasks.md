@@ -35,7 +35,7 @@
 
 このチュートリアルでは、ジョブ スケジューラを使用してスケジュールされたジョブを作成する手順について説明します。このジョブでは、Twitter にツイート データを要求し、そのツイートを新しい Updates テーブルに格納します。
 
->[AZURE.NOTE]このチュートリアルでは、to Twitter ライブラリ サード パーティの LINQ を使用して、Twitter v1.1 OAuth 2.0 アクセスを単純化します。 API への OAuth 2.0 アクセスを簡単にします。 このチュートリアルを完了するには、LINQ to Twitter の NuGet パッケージをダウンロードしてインストールする必要があります。 詳細については、[LINQ to Twitter の CodePlex プロジェクト] を参照してください。
+>[AZURE.NOTE]このチュートリアルでは、to Twitter ライブラリ サード パーティの LINQ を使用して、Twitter v1.1 OAuth 2.0 アクセスを単純化します。 API への OAuth 2.0 アクセスを簡単にします。 このチュートリアルを完了するには、LINQ to Twitter の NuGet パッケージをダウンロードしてインストールする必要があります。 詳細については、次を参照してください。、 [LINQ to Twitter CodePlex project]します。
 
 ##<a name="get-oauth-credentials"></a>Twitter v1.1 API へのアクセスを登録して資格情報を保存する
 
@@ -250,7 +250,7 @@
 
 3. モバイル サービス プロジェクトを Azure に対して再発行します。
 
-4. [Azure クラシック ポータル]、[モバイル サービスをクリックし、[アプリ] をクリックします。
+4.  [Azure classic portal], をモバイル サービス] をクリックして、アプリをクリックします。
 
 2. クリックして、 **スケジューラ** ] タブの [ **[作成**します。
 
@@ -268,7 +268,7 @@
 
     >[AZURE.NOTE]POST 要求は、スケジュールされたジョブの開始に使用できます。 ただし、認証の既定はユーザーを対象にしており、要求のヘッダーにアプリケーション キーを含める必要があることを意味します。
 
-4. (省略可能)[Azure クラシック ポータル]、モバイル サービスに関連付けられているデータベースの管理] をクリックします。
+4. (省略可能) [Azure classic portal], 、モバイル サービスに関連付けられているデータベースの管理] をクリックします。
 
     ![][6]
 
@@ -304,3 +304,4 @@
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ to Twitter CodePlex project]: http://linqtotwitter.codeplex.com/
+

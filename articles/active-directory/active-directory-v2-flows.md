@@ -47,7 +47,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 7. アプリがセキュリティ トークンを定期的に更新します。
 
 <!-- TODO: Need a page for libraries to link to -->
-これら 7 つの手順は、作成しているアプリの種類に応じて若干異なりますが、細かい処理を代わりに実行してくれるオープン ソースのライブラリが用意されています。  詳細はについては、 [permissions, consent, and scopes](active-directory-v2-scopes.md), 、または具体的な例をいくつかの調査に読み取り。
+これら 7 つの手順は、作成しているアプリの種類に応じて若干異なりますが、細かい処理を代わりに実行してくれるオープン ソースのライブラリが用意されています。  詳細はについては、 [アクセス許可、承認、およびスコープ](active-directory-v2-scopes.md), 、または具体的な例をいくつかの調査に読み取り。
 
 ## Web Apps
 Web アプリ用 (.NET、PHP、Java、Ruby、Python、ノードなど)、ブラウザーを使用してアクセスされる、v2.0 アプリ モデルは、ユーザー サインインを使用して [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow)します。  OpenID Connect では、Web アプリは `id_token` を受け取ります。これは、ユーザーの ID を検証し、要求の形でユーザーに関する情報を提供するセキュリティ トークンです。
@@ -127,4 +127,5 @@ v2.0 アプリ モデルでは、このフローが現在サポートされて�
 v2.0 アプリ モデルによって保護された Web API から、同じように保護された別の下流の Web API を呼び出す手法は、多くのアーキテクチャで使われています。  このシナリオは、バックエンドの Web API から Microsoft Online サービス (Office 365、Graph API など) を呼び出すネイティブ クライアントでよく見られます。
 
 呼ばれる、OAuth 2.0 Jwt ベアラー資格情報付与を使用してこのチェーンの Web API のシナリオをサポートできる、 [On-Behalf-Of フロー](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow)します。  しかし現時点では v2.0 アプリ モデル プレビューに On-Behalf-Of フローが実装されていません。  一般的に使用できる Azure AD でのこのフローの動作を確認するサービス型で、チェック アウト、 [GitHub の代理としてのコード サンプル](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet)します。
+
 

@@ -224,8 +224,8 @@ Microsoft Azure インポート/エクスポート ツールは、生成、 *ド
 
 - いいえ、できません。 すべてのドライブは、BitLocker で準備する必要があります。
  
-**エクスポート ジョブを作成するときに、ディスクの準備作業を実行する必要がありますか。**
-- いいえ、ただしいくつかの事前チェックをお勧めします。 Azure インポート/エクスポート ツールを使用して、必要なディスクの数を確認 [PreviewExport](https://msdn.microsoft.com/library/azure/dn722414.aspx) コマンドです。 使用するドライブのサイズに基づいて、選択した BLOB に対するドライブの使用率をプレビューするのに役立ちます。 また、エクスポート ジョブに対して発送されるハード ドライブを読み書きできることを確認します。
+**エクスポート ジョブを作成するときに、ディスクの準備作業を実行する必要はありますか。**
+- いいえ。ただし、いくつかの事前チェックをお勧めします。 Azure インポート/エクスポート ツールを使用して、必要なディスクの数を確認 [PreviewExport](https://msdn.microsoft.com/library/azure/dn722414.aspx) コマンドです。 使用するドライブのサイズに基づいて、選択した BLOB に対するドライブの使用率をプレビューするのに役立ちます。 また、エクスポート ジョブに対して発送されるハード ドライブを読み書きできることを確認します。
 
 ### 発送
 
@@ -278,4 +278,5 @@ Microsoft Azure インポート/エクスポート ツールは、生成、 *ド
 [export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
  
+
 

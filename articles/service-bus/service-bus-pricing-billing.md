@@ -100,7 +100,7 @@ Basic 階層には Service Bus 名前空間あたり 100 個の仲介型接続�
 
 >[AZURE.NOTE] 1,000 個の仲介型接続では、(基本料金) を使用して標準的なメッセージング層に含まれているし、関連付けられている Azure サブスクリプション内ですべてのキュー、トピック/サブスクリプション、および Event Hubs で共有することができます。
 
->[AZURE.NOTE] 課金は、ピーク時の同時接続数に基づいており、1 時間ごとに 1 か月あたり 744 時間に基づく、比例配分されます。
+>[AZURE.NOTE] 課金は、ピーク時の同時接続数に基づいており、1 か月あたり 744 時間に基づいて時間単位、比例配分されます。
 
 |Premium 階層
 |---|
@@ -148,3 +148,4 @@ Basic 階層には Service Bus 名前空間あたり 100 個の仲介型接続�
 [Service Bus の価格に関する FAQ](service-bus-pricing-faq.md)
 
 [Azure classic portal]: http://manage.windowsazure.com
+

@@ -166,7 +166,7 @@ Application Insights SDK for ASP.NET バージョン 2.0.0-beta3 以降の既定
 
     ```
 
-2. **解決率のサンプリング モジュールを有効にします。**このスニペットを追加 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
+2. **固定レート サンプリング モジュールを有効にします。** このスニペットを追加 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
     ```XML
 
@@ -297,4 +297,5 @@ Application Insights では、精度が問題のあるレベルまで低下す�
 *常に表示する特定のまれなイベントがあります。 取得する方法に過去のサンプリング モジュールでしょうか。*
 
  * (既定のアクティブ インスタンスではなく) 新しい TelemetryConfiguration で TelemetryClient の別のインスタンスを初期化します。 そのインスタンスを使用して、頻度の低いイベントを送信してください。
+
 

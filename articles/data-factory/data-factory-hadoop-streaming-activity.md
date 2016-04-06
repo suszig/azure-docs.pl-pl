@@ -74,7 +74,7 @@ HDInsight クラスターには、サンプル プログラム (wc.exe および
 2. アクティビティの種類を設定 **HDInsightStreaming**します。
 3.  **マッパー** プロパティには、mapper 実行可能ファイルの名前を指定します。 上記の例では、cat.exe が mapper 実行可能ファイルです。
 4.  **Reducer** プロパティには、reducer 実行可能ファイルの名前を指定します。 上記の例では、wc.exe が reducer 実行可能ファイルです。
-5.  **入力** プロパティを入力して、mapper の (場所を含む) 入力ファイルを指定します。 例の "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample は BLOB コンテナー、example/data/Gutenberg はフォルダー、davinci.txt は BLOB です。
+5.  **入力** プロパティを入力して、mapper の (場所を含む) 入力ファイルを指定します。 例:"wasb://adfsample @<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample は blob コンテナー、例/データ/gutenberg が発明はフォルダー、davinci.txt は blob です。
 6.  **出力** プロパティを入力して、reducer の (場所を含む) 出力ファイルを指定します。 Hadoop ストリーミング ジョブの出力は、このプロパティに指定されている場所に書き込まれます。
 7.  **FilePaths** セクションで、mapper と reducer 実行可能ファイルのパスを指定します。 例の "adfsample/example/apps/wc.exe"： adfsample は BLOB コンテナー、example/apps はフォルダー、wc.exe は実行可能ファイルです。
 8.  **FileLinkedService** プロパティには、ファイル パスのセクションで指定されたファイルを含む Azure ストレージを表す Azure ストレージのリンクされたサービスを指定します。
@@ -191,4 +191,5 @@ HDInsight クラスターには、サンプル プログラム (wc.exe および
             "end": "2014-01-05T00:00:00Z"
         }
     }
+
 

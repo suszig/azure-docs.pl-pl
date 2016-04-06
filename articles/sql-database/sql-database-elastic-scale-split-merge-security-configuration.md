@@ -102,21 +102,21 @@ Split/Merge サービスを使用するには、セキュリティが正しく�
 
 ### 新しい自己署名証明書を使用する
 
-1.     [Create a Self-Signed Certificate](Create#a#Self-Signed#Certificate)
-2.     [Create PFX file for Self-Signed Encryption Certificate](Create#PFX#file#for#Self-Signed#Encryption#Certificate)
-3.     [Upload Encryption Certificate to Cloud Service](Upload#Encryption#Certificate#to#Cloud#Service)
-4.     [Update Encryption Certificate in Service Configuration File](Update#Encryption#Certificate#in#Service#Configuration#File)
+1.     [自己署名証明書を新規作成する](Create#a#Self-Signed#Certificate)
+2.     [自己署名の暗号化証明書の PFX ファイルを作成する](Create#PFX#file#for#Self-Signed#Encryption#Certificate)
+3.     [クラウド サービスに暗号化証明書をアップロードする](Upload#Encryption#Certificate#to#Cloud#Service)
+4.     [サービス構成ファイルの暗号化証明書を更新する](Update#Encryption#Certificate#in#Service#Configuration#File)
 
 ### 証明書ストアにある既存の証明書を使用する
 
-1.     [Export Encryption Certificate From Certificate Store](Export#Encryption#Certificate#From#Certificate#Store)
-2.     [Upload Encryption Certificate to Cloud Service](Upload#Encryption#Certificate#to#Cloud#Service)
-3.     [Update Encryption Certificate in Service Configuration File](Update#Encryption#Certificate#in#Service#Configuration#File)
+1.     [証明書ストアから暗号化証明書をエクスポートする](Export#Encryption#Certificate#From#Certificate#Store)
+2.     [クラウド サービスに暗号化証明書をアップロードする](Upload#Encryption#Certificate#to#Cloud#Service)
+3.     [サービス構成ファイルの暗号化証明書を更新する](Update#Encryption#Certificate#in#Service#Configuration#File)
 
 ### PFX ファイル内に既存の証明書を使用する
 
-1.     [Upload Encryption Certificate to Cloud Service](Upload#Encryption#Certificate#to#Cloud#Service)
-2.     [Update Encryption Certificate in Service Configuration File](Update#Encryption#Certificate#in#Service#Configuration#File)
+1.     [クラウド サービスに暗号化証明書をアップロードする](Upload#Encryption#Certificate#to#Cloud#Service)
+2.     [サービス構成ファイルの暗号化証明書を更新する](Update#Encryption#Certificate#in#Service#Configuration#File)
 
 ## 既定の構成
 
@@ -459,15 +459,15 @@ Split/Merge サービスを使用するには、セキュリティが正しく�
 2. クリックして **次**します。
 3. ファイルからインポートしている場合は、ファイルのパスを確認します。
 4. .PFX ファイルをインポートする場合は、次のようにします。
-    1.     Enter the password protecting the private key
-    2.     Select import options
-5.     Select "Place" certificates in the following store
-6.     Click **Browse**.
-7.     Select the desired store.
-8.     Click **Finish**.
+    1.     秘密キーの情報を保護するパスワードを入力する
+    2.     インポート オプションを選択する
+5.     次のストアに証明書の "場所" を選択します。
+6.     クリックして **参照**します。
+7.     目的のストアを選択します。
+8.     クリックして **完了**します。
        
     * 信頼されたルート証明機関のストアは、選択した場合はクリックして **はい**します。
-9.     Click **OK** on all dialog windows.
+9.     をクリックして **OK** すべてのダイアログ ウィンドウにします。
 
 ## 証明書のアップロード
 
@@ -490,3 +490,4 @@ Split/Merge サービスを使用するには、セキュリティが正しく�
 このデータベースに格納されている資格情報が暗号化されます。 ただし、ベスト プラクティスとして、サービス デプロイメントにおける Web ロールとワーカー ロールの両方を最新に保ち、両者がメタデータのデータベースと保存された資格情報の暗号化と解読に使用する証明書へアクセスする際の安全性が保たれるようにします。 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+

@@ -191,7 +191,7 @@ ToDoApp のアプリケーション コードに従って、 **] ボタンをク
 
 このセクションでは、複数のデプロイ スロットを構成し、スロット固有のテレメトリを同じ Application Insights リソースに送信します。 こうすることで、異なるスロット (デプロイ環境) からのトラフィック間でテレメトリ データを比較できるので、アプリに対する変更の効果が見やすくなります。 同時に、運用アプリについては必要に応じて監視を継続できるよう、運用環境のトラフィックを他のトラフィックから分離することができます。
 
-クライアントの動作のデータを収集するため、 [、JavaScript コードにテレメトリ初期化子を追加](app-insights-api-custom-events-metrics.md#js-initializer) index.cshtml にします。 サーバー側のパフォーマンスをテストする場合は、たとえば、行うことも同様に、サーバー コードで (を参照してください [カスタム イベントおよびメトリックを Application Insights API]((app-insights-api-custom-events-metrics.md))します。
+クライアントの動作のデータを収集するため、 [、JavaScript コードにテレメトリ初期化子を追加](app-insights-api-custom-events-metrics.md#js-initializer) index.cshtml にします。 サーバー側のパフォーマンスをテストする場合は、たとえば、行うことも同様に、サーバー コードで (を参照してください [Application Insights API for カスタム イベントおよびメトリック]((app-insights-api-custom-events-metrics.md))します。
 
 1. まず、先ほど `<heading>` タグに追加した JavaScript ブロックに、以下の 2 つの `//` コメントに挟まれたコードを追加します。
 
@@ -320,7 +320,7 @@ ToDoApp のアプリケーション コードに従って、 **] ボタンをク
 
 3. Azure にコミットしてプッシュします。
 
-4. Http://todoapp に移動して、ベータ版のスロットに変更を今すぐ反映されることを確認*& lt; your_suffix >*-beta.azurewebsites.net/です。 まだ変更が反映されていない場合は、ブラウザーを最新の情報に更新して新しい JavaScript コードを取得してください。
+4. Http://todoapp に移動して、ベータ版のスロットに変更を今すぐ反映されることを確認*& lt; your_suffix >*-beta.azurewebsites.net/ です。 まだ変更が反映されていない場合は、ブラウザーを最新の情報に更新して新しい JavaScript コードを取得してください。
 
     ![](./media/app-service-web-test-in-production-controlled-test-flight/08-verify-change-in-beta-site.png)
 
@@ -391,4 +391,5 @@ Azure App Service を使用すると、中小規模の企業が顧客向けの�
 -   [Git のブランチ機能 - 基本的なブランチとマージに関するページ](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 -   [Azure PowerShell](powershell-install-configure.md)
 -   [Project Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
+
 

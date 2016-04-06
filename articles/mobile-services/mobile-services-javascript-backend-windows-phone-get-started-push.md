@@ -25,11 +25,11 @@
 
 このトピックでは、Azure Mobile Services を使用して Windows Phone Silverlight アプリケーションにプッシュ通知を送信する方法について説明します。 このチュートリアルでは、クイック スタート プロジェクトへの Azure Notification Hubs を使用したプッシュ通知を有効にします。 完了すると、モバイル サービスは、レコードが挿入されるたびに Notification Hubs を使用してプッシュ通知を送信します。 作成する通知ハブはモバイル サービスでは無料で、モバイル サービスから独立して管理することができ、他のアプリケーションおよびサービスで使用できます。
 
-このチュートリアルは、TodoList サンプル アプリケーションに基づいています。 このチュートリアルを開始する前に、プロジェクトに接続して、モバイル サービスにトピック [Mobile Services を追加、既存のアプリケーション] を完了する必要があります。 モバイル サービスが接続されていない場合は、プッシュ通知の追加ウィザードによってこの接続を作成できます。 
+このチュートリアルは、TodoList サンプル アプリケーションに基づいています。 トピックを完了してこのチュートリアルを開始する前におく必要があります [Add Mobile Services to an existing app] 、プロジェクトをモバイル サービスに接続します。 モバイル サービスが接続されていない場合は、プッシュ通知の追加ウィザードによってこの接続を作成できます。 
 
 >[AZURE.NOTE]Windows Phone 8.1 ストア アプリにプッシュ通知を送信するには、次の [Windows ストア アプリ](../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) このチュートリアルのバージョン。
 
-##<a id="update-app"></a> アプリケーションを更新して通知に登録する
+##<a id="update-app"></a>アプリケーションを更新して通知に登録する
 
 アプリケーションがプッシュ通知を受信するには、通知チャネルを登録する必要があります。
 
@@ -80,7 +80,7 @@
 
     これにより、アプリケーションでトースト通知の使用が有効になります。 
 
-##<a id="update-scripts"></a> サーバー スクリプトを更新してプッシュ通知を送信する
+##<a id="update-scripts"></a>サーバー スクリプトを更新してプッシュ通知を送信する
 
 最後に、通知を送信するためには、TodoItem テーブルの挿入操作に登録されているスクリプトを更新する必要があります。
 
@@ -120,7 +120,7 @@
 
     >[AZURE.NOTE]このチュートリアルでは、非認証モードで MPNS を使用します。 このモードでは、MPNS はデバイス チャネルに送信できる通知の数を制限します。 この制限を削除するには、**[アップロード]** をクリックして証明書を生成してアップロードし、その証明書を選択する必要があります。 証明書を生成する方法の詳細については、次を参照してください。 [Setting up an authenticated web service to send push notifications for Windows Phone]します。
 
-##<a id="test"></a> アプリケーションでプッシュ通知をテストする
+##<a id="test"></a>アプリケーションでプッシュ通知をテストする
 
 1. Visual Studio で、F5 キーを押してアプリケーションを実行します。
 
@@ -140,8 +140,8 @@
 
 このチュートリアルでは、Windows ストア アプリで Mobile Services および Notification Hubs を使用してプッシュ通知を送信できるようにするための基本について説明しました。 次に、次のチュートリアルのいずれかを完了します。
 
-+ [登録者へのブロードキャスト通知を送信します。](../notification-hubs-windows-phone-send-breaking-news.md)
-    <br/>ユーザーの登録およびに興味のあるカテゴリに関してプッシュ通知を受信する方法について説明します。
++ [登録者へのブロードキャスト通知の送信](../notification-hubs-windows-phone-send-breaking-news.md)
+    <br/>ユーザーが興味のあるカテゴリに関してプッシュ通知を登録して、プッシュ通知を受信できるようにする方法について説明します。
 
 + [登録者へのプラットフォーム固有の通知を送信します。](../notification-hubs-aspnet-cross-platform-notify-users.md)
     <br/>テンプレートを使用して、バックエンドでプラットフォームに固有のペイロードを作成することがなく、モバイル サービスからプッシュ通知を送信する方法について説明します。
@@ -152,17 +152,17 @@ Mobile Services と Notification Hubs については次のトピックを参照
 * [Azure Notification Hubs - 診断ガイドライン](../notification-hubs-diagnosing.md)
     <br/>プッシュ通知の問題のトラブルシューティングを行う方法について説明します。
 
-* [認証の使用の開始を取得]
+* [Get started with authentication]
   <br/>Mobile Services を使用して別のアカウントの種類のアプリケーションのユーザーを認証する方法について説明します。
 
 * [What are Notification Hubs?]
-  <br/>通知を配信するアプリケーションにすべての主要なクライアントのプラットフォームの通知ハブの動作について説明します。
+  <br/>通知ハブがすべての主要なクライアント プラットフォーム全体のアプリケーションに通知を配信するための動作を説明します。
 
 * [Mobile Services .NET How-to Conceptual Reference]
   <br/>.NET で Mobile Services を使用する方法について説明します。
 
 * [Mobile Services server script reference]
-  <br/>モバイル サービスにビジネス ロジックを実装する方法について説明します。
+  <br/>Mobile Services にビジネス ロジックを実装する方法について説明します。
 
 <!-- Anchors. -->
 
@@ -184,3 +184,4 @@ Mobile Services と Notification Hubs については次のトピックを参照
 [What are Notification Hubs?]: ../notification-hubs-overview.md
 
  
+

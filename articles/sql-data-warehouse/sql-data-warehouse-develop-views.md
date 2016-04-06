@@ -54,16 +54,16 @@ RENAME OBJECT DimDate_New TO DimDate;
 ## 制限事項
 SQL Data Warehouse のビューはメタデータ専用です。 
 
-その結果、次のオプションは使用できません。
--   スキーマ バインド オプションはありません。
--   表示を使用してベース テーブルを更新することはできません。
--   一時テーブルに対してビューを作成できません。
--   展開はサポートされていません]、[NOEXPAND ヒント
--   SQL Data Warehouse にはインデックス付きビューがありません。
+そのため、次のオプションは使用できません。
+-   スキーマ バインド オプションはありません
+-   ビューでベース テーブルを更新することはできません
+-   一時テーブルでビューを作成することはできません
+-   EXPAND / NOEXPAND Hints はサポートされていません
+-   SQL Data Warehouse のインデックス付きビューはありません
 
 
 ## 次のステップ
-他の開発のヒントについては、[SQL Data Warehouse の開発の概要に関するページを参照してください。
+他の開発のヒントを参照してください。 [SQL Data Warehouse の開発の概要][]します。
 
 <!--Image references-->
 
@@ -73,6 +73,7 @@ SQL Data Warehouse のビューはメタデータ専用です。
 <!--MSDN references-->
 
 <!--Other Web references-->
+
 
 
 

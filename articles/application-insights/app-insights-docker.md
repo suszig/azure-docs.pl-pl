@@ -34,7 +34,7 @@ Docker で、すべての依存関係を備えた軽量コンテナーにアプ�
 
 1. サインイン [Microsoft Azure ポータル](https://azure.com) ; アプリの Application Insights リソースを開くとまたは [、新しく作成](app-insights-create-new-resource.md)します。 
 
-    *どのリソースを使用する必要がありますか。*ホスト上で実行されているアプリは、だれかによって開発されたかどうかは、する必要があります [Application Insights リソースを新規作成](app-insights-create-new-resource.md)します。 テレメトリの表示と分析はこの場所で行います  (アプリの種類には [その他] を選択します)。
+    *どのリソースを使用する必要があるか。* ホスト上で実行されているアプリは、だれかによって開発されたかどうかは、する必要があります [Application Insights リソースを新規作成](app-insights-create-new-resource.md)します。 テレメトリの表示と分析はこの場所で行います  (アプリの種類には [その他] を選択します)。
 
     お役にする場合、アプリの開発者が、 [Application Insights SDK を追加](app-insights-java-live.md) それぞれにします。 すべてのアプリが 1 つのビジネス アプリケーションのコンポーネントである場合は、テレメトリを 1 つのリソースに送信するように構成することで、同じリソースを使用して Docker のライフサイクルとパフォーマンスのデータを表示できます。 
 
@@ -147,4 +147,5 @@ AI SDK でインストルメント化されたアプリケーションから送�
 
 * Application Insights SDK をアプリにインストールします。 
 学習の方法: [Java web アプリ](app-insights-java-get-started.md), 、[web アプリの Windows](app-insights-asp-net.md)します。
+
 

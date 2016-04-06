@@ -96,7 +96,7 @@ RestorePointCreationDate |バックアップのスナップショット時間 (r
 
 
 ## 次のステップ
-詳細な参照情報については、SQL Data Warehouse リファレンスの概要に関するページを参照してください。
+参照の詳細については、次を参照してください。 [SQL Data Warehouse のリファレンス概要][]します。
 
 <!--Image references-->
 
@@ -111,4 +111,5 @@ RestorePointCreationDate |バックアップのスナップショット時間 (r
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
+
 

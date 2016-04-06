@@ -61,7 +61,7 @@
 - [独自のドメイン名でアプリケーションを発行する](active-directory-application-proxy-custom-domains.md)
 - [シングル サインオンを有効にする](active-directory-application-proxy-sso-using-kcd.md)
 - [要求に対応するアプリケーションを利用する](active-directory-application-proxy-claims-aware-apps.md)
-- [アプリケーション プロキシで発生した問題のトラブルシューティングを行う](active-directory-application-proxy-troubleshoot.md)
+- [アプリケーション プロキシが発生した問題をトラブルシューティングします。](active-directory-application-proxy-troubleshoot.md)
 
 ## アプリケーション プロキシに関するその他の情報
 - [オンライン ヘルプ](active-directory-application-proxy-enable.md)
@@ -72,4 +72,5 @@
 
 * [Azure への組織としてのサインアップ](sign-up-organization.md)
 * [Azure ID](fundamentals-identity.md)
+
 

@@ -25,7 +25,7 @@ ms.service="virtual-machines"
 クラシック (サービス管理) の配置モデルでは、Azure の Windows HPC クラスターのヘッド ノードを作成します。 ヘッド ノードは Azure virtual network の Active Directory ドメインに参加させる必要があります。 このヘッド ノードを Azure の HPC Pack の概念実証デプロイとして利用し、クラスターにコンピューティング リソースを追加して HPC ワークロードを実行できます。
 
 
-![HPC Pack ヘッド ノード][ヘッド ノード]
+![HPC Pack ヘッド ノート][headnode]
 
 >[AZURE.NOTE] HPC Pack では現在
 VM イメージは Windows Server 2012 R2 Datacenter HPC に基づいてください。
@@ -109,4 +109,5 @@ HPC PowerShell コマンドレット。
 
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
+
 

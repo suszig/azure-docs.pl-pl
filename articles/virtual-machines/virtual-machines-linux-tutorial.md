@@ -273,7 +273,7 @@ Linux 仮想マシンに接続すること通常 **ssh**します。
     Calling ioctl() to re-read partition table.
     Syncing disks.
 
-使用して、ファイル システムをパーティションに書き込むと、 **mkfs** コマンド、ファイル システムの種類とデバイス名を指定します。 このトピックでは、前の内容から `ext4` と `/dev/sdc1` を使用しています。
+使用して、ファイル システムをパーティションに書き込むと、 **mkfs** コマンド、ファイル システムの種類とデバイス名を指定します。 このトピックで使用している `ext4` と `/dev/sdc1` 上から。
 
     sudo mkfs -t ext4 /dev/sdc1
     mke2fs 1.42.9 (4-Feb-2014)
@@ -327,4 +327,5 @@ Azure 上の Linux の詳細については、次の内容を参照してくだ�
 - [Linux 向けに Azure カスタム スクリプト拡張機能を使って LAMP アプリをデプロイする](virtual-machines-linux-script-lamp.md)
 
 - [Azure の Linux 用 Docker 仮想マシン拡張機能](virtual-machines-docker-vm-extension.md)
+
 

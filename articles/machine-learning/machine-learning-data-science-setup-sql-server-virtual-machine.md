@@ -28,7 +28,7 @@ Azure の仮想マシン イメージ ギャラリーには、Microsoft SQL Serv
  > [AZURE.NOTE] SQL Server 2012 SP2 Enterprise イメージ **データ ディスクを含まない**します。 データを格納するために 1 つ以上の仮想ハード ディスクを追加またはアタッチする必要があります。 Azure の仮想マシンを作成する場合は、オペレーティング システムをディスクの C ドライブにマップし、一時ディスクを D ドライブにマップします。 データの格納に D ドライブを使用しないでください。 名前が示すとおり、D ドライブは一時的なストレージのみを提供します。 Azure Storage に配置されていないため、冗長性やバックアップは提供しません。
 
 
-##<a name="Provision"></a>Azure クラシック ポータルに接続し、SQL Server 仮想マシンのプロビジョニング
+##<a name="Provision"></a>Azure クラシック ポータルに接続し、SQL Server 仮想マシンをプロビジョニングする
 
 1.  ログイン、 [Azure Classic Portal](http://manage.windowsazure.com/) 、アカウントを使用します。
     Azure アカウントがないを参照してください [Azure の無料。
@@ -200,7 +200,7 @@ SQL Server VM データベースから直接、
     ダイアログ ボックス。  **サーバー名** ボックスに、バーチャル マシンの名前を入力
     オブジェクト エクスプ ローラーでデータベース エンジンに接続するコンピューター。
     (仮想マシン名の代わりに使用することも **(ローカル)** または
-    1 つの期間として、 **サーバー名**します。 選択 **Windows
+    単一のピリオドとして、 **サーバー名**します。 選択 **Windows
     認証**, 、出入り
     ***your \_vm\_name*\\your\_local\_administrator** で、 **ユーザー
     名前** ボックス。 クリックして **接続**します。
@@ -409,3 +409,4 @@ Azure の仮想マシンの料金は **を使用するのには、のみ支払**
 [13]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/amlreader.png
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
+

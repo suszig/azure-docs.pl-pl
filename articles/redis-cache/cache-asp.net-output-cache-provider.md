@@ -25,7 +25,7 @@ Redis 出力キャッシュ プロバイダーを使用するには、まず対�
 
 Redis Output Cache Provider の NuGet パッケージを使用して Visual Studio でクライアント アプリケーションを構成するで、プロジェクトを右クリックし **ソリューション エクスプ ローラー** 選択 **NuGet パッケージの管理**します。
 
-![Azure Redis Cache 管理 NuGet パッケージ](./media/cache-asp.net-output-cache-provider/IC729541.png)
+![Azure Redis Cache Manage NuGet Packages](./media/cache-asp.net-output-cache-provider/IC729541.png)
 
 型 **RedisOutputCacheProvider** に、 **オンライン検索** テキスト ボックスに、結果の中から選択し、クリックして **インストール**します。
 
@@ -65,7 +65,7 @@ NuGet パッケージによって、必要なアセンブリ参照がダウン�
 -   **ssl** – キャッシュ/クライアント間の通信をセキュリティで保護する場合は true。 それ以外の場合は false。 必ず適切なポートを指定してください。
     -   既定では、新しいキャッシュに対して非 SSL ポートは無効になっています。 SSL ポートを使用するには、この設定に true を指定します。 非 SSL ポートを有効にする方法の詳細については、次を参照してください。、 [アクセス ポート](cache-configure.md#access-ports) セクション、 [、キャッシュを構成する](cache-configure.md) トピックです。
 -   **databaseId** – 指定されたキャッシュに使用するデータベースがデータを出力します。 指定されていない場合は、既定値の 0 が使用されます。
--   **applicationName** – としての redis のキーが格納されている <AppName>_<SessionId>_Data します。 これによって、複数のアプリケーションで同じキーを共有できます。 このパラメーターは省略可能です。指定されていない場合は、既定値が使用されます。
+-   **applicationName** – キーとしての redis に格納されます <AppName>_<SessionId>_Data します。 これによって、複数のアプリケーションで同じキーを共有できます。 このパラメーターは省略可能です。指定されていない場合は、既定値が使用されます。
 -   **connectionTimeoutInMilliseconds** – この設定では、StackExchange.Redis クライアントの connectTimeout 設定を上書きすることができます。 指定されていない場合は、connectTimeout 設定の既定値である 5000 が使用されます。 詳細については、次を参照してください。 [StackExchange.Redis 構成モデル](http://go.microsoft.com/fwlink/?LinkId=398705)します。
 -   **operationTimeoutInMilliseconds** – この設定では、StackExchange.Redis クライアントに synctimeout を加算設定は上書きすることができます。 指定されていない場合は、syncTimeout 設定の既定値である 1000 が使用されます。 詳細については、次を参照してください。 [StackExchange.Redis 構成モデル](http://go.microsoft.com/fwlink/?LinkId=398705)します。
 
@@ -80,5 +80,6 @@ NuGet パッケージによって、必要なアセンブリ参照がダウン�
 ## 次のステップ
 
 チェック アウト、 [Azure Redis Cache 用の ASP.NET セッション状態プロバイダー](cache-asp.net-session-state-provider.md)します。
+
 
 

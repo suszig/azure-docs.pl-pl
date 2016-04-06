@@ -99,7 +99,7 @@ STDOUT および STDERR に書き込まれる情報はログに記録され、Am
 
 スクリプトのアクションによって記録された情報を表示する方法の詳細については、次を参照してください [Script Action を使ってクラスターの HDInsight のカスタマイズ。](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
-###<a name="bps8"></a> LF 行の終わりで、ファイルを ASCII として保存する
+###<a name="bps8"></a>LF 行の終わりで、ファイルを ASCII として保存する
 
 Bash スクリプトは、行が LF で終了する ASCII 形式で保存する必要があります。 ファイルが UTF-8 として保存される場合、ファイルの先頭や、Windows エディターでは一般的な CRLF 行の終わりにバイト オーダー マークが含まれる可能性があるため、スクリプトが次のようなエラーで失敗します。
 
@@ -157,7 +157,7 @@ VARIABLENAME は、変数の名前です。 この後に変数にアクセスす
 
 クラスター (既定のストレージ アカウントなど) からアクセスできる Azure のストレージ アカウントにファイルを格納すると、このストレージが Azure ネットワーク内にあるため、アクセスが速くなります。
 
-## <a name="deployScript"></a>Script Action のデプロイ用チェックリスト
+## <a name="deployScript"></a>スクリプト アクションのデプロイ用チェックリスト
 
 スクリプトのデプロイを準備する際に実行した手順を次に示します。
 
@@ -169,7 +169,7 @@ VARIABLENAME は、変数の名前です。 この後に変数にアクセスす
 
 - OS レベル設定や Hadoop サービス構成ファイルが変更された場合、スクリプトに設定された環境変数などの OS レベル設定を有効にするために、HDInsight サービスを再起動することをお勧めします。
 
-## <a name="runScriptAction"></a>スクリプト操作を実行する方法
+## <a name="runScriptAction"></a>Script Action の実行方法
 
 Script Action を使用して、Azure ポータル、Azure PowerShell、HDInsight .NET SDK で HDInsight クラスターをカスタマイズすることができます。 手順については、次を参照してください。 [Script Action を使って方法](hdinsight-hadoop-customize-cluster-linux.md#howto)します。
 
@@ -219,4 +219,5 @@ _解像度_: ファイルを ASCII として、または BOM なしの utf-8 と
 ## <a name="seeAlso"></a>関連項目
 
 [Script Action を使って HDInsight クラスターをカスタマイズする](hdinsight-hadoop-customize-cluster-linux.md)
+
 

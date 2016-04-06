@@ -39,10 +39,10 @@ Windows ベースの Azure 仮想マシンに接続しようとしたときに�
 
     ![RDP 構成のリセットを示すスクリーンショット](./media/virtual-machines-troubleshoot-remote-desktop-connections/Portal-RDP-Reset-Windows.png)
 
-- その他の起動の問題に対処するには仮想マシンを再起動します。<br>
+- その他のスタートアップの問題に対処する仮想マシンを再起動します。<br>
     すべての参照] をクリックして > 仮想マシン (クラシック) > Windows 仮想マシン > **再起動**します。
 
-- ホストの問題を解決するには、VM のサイズを変更します。<br>
+- ホストの問題を修正する VM のサイズを変更します。<br>
     すべての参照] をクリックして > 仮想マシン (クラシック) > Windows 仮想マシン > 設定 > **サイズ**します。 詳細については、次を参照してください。 [仮想マシンのサイズを変更する](https://msdn.microsoft.com/library/dn168976.aspx)です。
 
 - 起動の問題を修正するには、VM のコンソール ログまたはスクリーンショットを確認してください。
@@ -69,10 +69,10 @@ Windows ベースの Azure 仮想マシンに接続しようとしたときに�
     Set-AzureVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccessExtension" -ExtensionType "VMAccessAgent" -Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" -Location Westus
     ```
 
-- その他の起動の問題に対処するには仮想マシンを再起動します。<br>
+- その他のスタートアップの問題に対処する仮想マシンを再起動します。<br>
     すべての参照] をクリックして > 仮想マシン > Windows 仮想マシン > **再起動**します。
 
-- ホストの問題を解決するには、VM のサイズを変更します。<br>
+- ホストの問題を修正する VM のサイズを変更します。<br>
     すべての参照] をクリックして > 仮想マシン > Windows 仮想マシン > 設定 > **サイズ**します。
 
 - 起動の問題を修正するには、VM のコンソール ログまたはスクリーンショットを確認してください。
@@ -177,4 +177,5 @@ Windows ベースのコンピューターでは、ローカル アカウント�
 [Linux ベースの Azure 仮想マシンに対する Secure Shell (SSH) 接続のトラブルシューティング](virtual-machines-troubleshoot-ssh-connections.md)
 
 [Azure 仮想マシンで実行されているアプリケーションへのアクセスに関するトラブルシューティング](virtual-machines-troubleshoot-access-application.md)
+
 

@@ -26,7 +26,7 @@
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
-##<a name="create-client"></a>方法: モバイル サービス クライアントを作成する
+##<a name="create-client"></a>方法: Mobile Services クライアントを作成する
 
 Mobile Services クライアントに参照を追加する方法は、アプリ プラットフォームに依存し、次のものがあります。
 
@@ -245,7 +245,7 @@ select 関数のパラメーターは、取得するテーブルの列の名で�
        alert("Error: " + err);
     })
 
-##<a name="odata-query"></a>OData クエり操作を実行する
+##<a name="odata-query"></a>OData クエリ操作を実行する
 
 Mobile Services では、REST クエリの作成と実行に OData クエリ URI 慣例を使用します。  組み込まれているクエリ関数ですべての OData クエリ (特にプロパティないのサブストリング検索などの複雑なフィルター操作) が作成できるわけではありません。 複雑なクエリには、次のように有効な OData クエリ オプション文字列を `read` 関数に渡すことができます。
 
@@ -365,7 +365,7 @@ Mobile Services では、REST クエリの作成と実行に OData クエリ URI
 
 Windows ストア アプリで、クエリの結果を使用してデータ ソースとしてバインドできる [WinJS.Binding.List] オブジェクトを作成する、 [ListView] オブジェクトです。 詳細については、次を参照してください。 [Data binding (Windows Store apps using JavaScript and HTML)]します。
 
-##<a name="custom-api"></a>方法: カスタム API 呼び出し
+##<a name="custom-api"></a>方法: カスタム API の呼び出し
 
 カスタム API を使用してカスタム エンドポイントを定義することにより、insert、update、delete、read のいずれの操作にも関連しないサーバー機能を公開することができます。 カスタム API を使用することによって、HTTP メッセージ ヘッダーの読み取りや設定、JSON 以外のメッセージ本文形式の定義など、メッセージングをより柔軟に制御することができます。 モバイル サービスでカスタム API を作成する方法の例は、次を参照してください。 [方法: カスタム API エンドポイントを定義する](mobile-services-dotnet-backend-define-custom-api.md)です。
 
@@ -577,7 +577,7 @@ Mobile Services には、エラーの検出、検証、回避のためのさま�
 
 promise は、まだ計算されていない値の操作を完了するスケジュールを設定するためのメカニズムを提供します。 promise は、非同期 API を使用して相互作用を管理するための抽象化です。
 
-`done` promise は、指定された関数が正常に完了した時点またはエラーが発生した時点で、すぐに実行されます。 `then` promise とは異なり、関数内で処理されないエラーをスローすることが保証されます。この関数は、ハンドラーの実行が完了した後、then の場合であれば返されたすべてのエラーをエラー状態の promise としてスローします。 詳細については、[完了] を参照してください。
+`done` promise は、指定された関数が正常に完了した時点またはエラーが発生した時点で、すぐに実行されます。 `then` promise とは異なり、関数内で処理されないエラーをスローすることが保証されます。この関数は、ハンドラーの実行が完了した後、then の場合であれば返されたすべてのエラーをエラー状態の promise としてスローします。 詳細については、次を参照してください。 [done]します。
 
     promise.done(onComplete, onError);
 
@@ -590,7 +590,7 @@ promise は、まだ計算されていない値の操作を完了するスケジ
        alert("Error: " + err);
     });
 
-`then` promise は `done` promise と同じです。ただし、`done` promise では、`then` promise とは異なり、関数内で処理されないエラーがスローされることが保証されます。 `then` にエラー ハンドラーを提供しなかった場合、操作でエラーが発生すると、例外はスローされず、代わりにエラー状態の promise が返されます。 詳細については、[] を参照してください。
+`then` promise は `done` promise と同じです。ただし、`done` promise では、`then` promise とは異なり、関数内で処理されないエラーがスローされることが保証されます。 `then` にエラー ハンドラーを提供しなかった場合、操作でエラーが発生すると、例外はスローされず、代わりにエラー状態の promise が返されます。 詳細については、次を参照してください。 [then]します。
 
     promise.then(onComplete, onError).done( /* Your success and error handlers */ );
 
@@ -603,7 +603,7 @@ promise は、まだ計算されていない値の操作を完了するスケジ
        alert("Error: " + err);
     });
 
-promise はいくつかの異なる方法で使用することができます。 前の `then` 関数から返される promise で `then` または `done` を呼び出すことにより、promise 操作を連結できます。 `then` は操作の中間ステージ (たとえば、`.then().then()`) に使用し、`done` は操作の最終ステージ (たとえば、`.then().then().done()`) に使用します。  `then` は promise を返すため、複数の `then` 関数を連結できます。 `done` メソッドは undefined を返すため、このメソッドを複数個連結することはできません。 [Then と done の違いの詳細について説明します。]
+promise はいくつかの異なる方法で使用することができます。 前の `then` 関数から返される promise で `then` または `done` を呼び出すことにより、promise 操作を連結できます。 `then` は操作の中間ステージ (たとえば、`.then().then()`) に使用し、`done` は操作の最終ステージ (たとえば、`.then().then().done()`) に使用します。  `then` は promise を返すため、複数の `then` 関数を連結できます。 `done` メソッドは undefined を返すため、このメソッドを複数個連結することはできません。 [Learn more about the  differences between then and done].
 
     todoItemTable.insert({
        text: "foo"
@@ -614,7 +614,7 @@ promise はいくつかの異なる方法で使用することができます。
        alert(JSON.stringify(insertedAndUpdated));
     })
 
-##<a name="customizing"></a>方法: クライアント要求ヘッダーをカスタマイズします。
+##<a name="customizing"></a>方法: クライアント要求ヘッダーをカスタマイズする
 
 カスタムの要求ヘッダーを送信できます。そのためには、`withFilter` 関数を使用し、フィルター内で送信される要求の任意のプロパティの読み取りと書き込みを行います。 このようなカスタム HTTP ヘッダーを追加するケースとしては、サーバー側スクリプトで必要とされる場合や、カスタム HTTP ヘッダーによってサーバー側スクリプトを拡張できる場合があります。
 
@@ -668,4 +668,5 @@ promise はいくつかの異なる方法で使用することができます。
 [login]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/Javascript/src/MobileServiceClient.js#L301
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [OData system query options reference]: http://go.microsoft.com/fwlink/p/?LinkId=444502
+
 

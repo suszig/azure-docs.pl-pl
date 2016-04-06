@@ -311,7 +311,7 @@ Content-Type: application/json
 
 <!-- 
 
-ネイティブなアプリの全体の流れを次に示します各要求は、以下のセクションで詳細を示します。
+Here is the entire flow for a native  app; each request is detailed in the sections below:
 
 ![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png) 
 
@@ -349,8 +349,9 @@ p=b2c_1_sign_in
 
 TODO
 
-サインインを実装するための推奨方法は、v2.0 アプリ モデルでの OpenID Connect、 [web アプリ](active-directory-v2-flows.md#web-apps)します。  ごく基本的なサインイン フローは、以下のステップから成ります。
+OpenID Connect for the v2.0 app model is the recommended way to implement sign-in for a [web  app](active-directory-v2-flows.md#web-apps).  The most basic sign-in flow contains the following steps:
 
-イメージをここに挿入します。
+image goes here
 
 -->
+

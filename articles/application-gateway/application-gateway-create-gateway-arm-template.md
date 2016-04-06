@@ -22,9 +22,9 @@
 Application Gateway はロード バランサーの第 7 層です。 クラウドでもオンプレミスでも、異なるサーバー間のフェールオーバーと HTTP 要求のパフォーマンス ルーティングを提供します。 Application Gateway は、HTTP 負荷分散、クッキー ベースのセッション アフィニティ、SSL オフロードなどのアプリケーション配信機能を備えています。 
 
 > [AZURE.SELECTOR]
-- [従来の azure PowerShell](application-gateway-create-gateway.md)
-- [Azure リソース マネージャーの PowerShell](application-gateway-create-gateway-arm.md)
-- [Azure リソース マネージャーのテンプレート](application-gateway-create-gateway-arm-template.md)
+- [Azure Classic PowerShell (Azure クラシック PowerShell)](application-gateway-create-gateway.md)
+- [Azure Resource Manager の PowerShell](application-gateway-create-gateway-arm.md)
+- [Azure Resource Manager テンプレート](application-gateway-create-gateway-arm-template.md)
 
 <BR>
 
@@ -65,17 +65,17 @@ Github から既存の ARM テンプレートをダウンロードして VNet �
 4. ARM テンプレートを使用したことがある場合は、手順 7. に進みます。
 5. 保存したファイルを開き、フォルダー内のコンテンツを見て **パラメーター** 5 行目にします。 ARM テンプレートのパラメーターでは、デプロイ中に入力できる、値のプレース ホルダーが用意されています。
 
-    | パラメーター | 説明 |
-    |---|---|
-    | **location** | Application Gateway を作成する Azure リージョン |
-    | **VirtualNetwork1** | 新しい VNet の名前 |
-    | **addressPrefix** | VNet のアドレス空間 (CIDR 形式) |
-    | **ApplicationGatewaysubnet** | Application Gateway サブネットの名前 |
-    | **subnetPrefix** | Application Gateway サブネットの CIDR ブロック |
-    | **skuname** | SKU インスタンスのサイズ |
-    | **容量** | インスタンスの数 |
-    | **backendaddress1** | 1 番目の Web サーバーの IP アドレス |
-    | **backendaddress2** | 2 番目の Web サーバーの IP アドレス |
+  	| パラメーター | 説明 |
+  	|---|---|
+  	| **location** | Application Gateway を作成する Azure リージョン |
+  	| **VirtualNetwork1** | 新しい VNet の名前 |
+  	| **addressPrefix** | VNet のアドレス空間 (CIDR 形式) |
+  	| **ApplicationGatewaysubnet** | Application Gateway サブネットの名前 |
+  	| **subnetPrefix** | Application Gateway サブネットの CIDR ブロック |
+  	| **skuname** | SKU インスタンスのサイズ |
+  	| **容量** | インスタンスの数 |
+  	| **backendaddress1** | 1 番目の Web サーバーの IP アドレス |
+  	| **backendaddress2** | 2 番目の Web サーバーの IP アドレス |
     
 
 >[AZURE.IMPORTANT] ARM テンプレートを github に保持されますが、時間の経過と共に変更できます。 使用する前に、必ずテンプレートを確認してください。
@@ -272,4 +272,5 @@ ILB とともに使用して、参照してくださいアプリケーション 
 
 - [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure の Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
+
 

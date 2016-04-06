@@ -23,9 +23,9 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] リソース マネージャーのモデルです。
 
 
-[Docker](https://www.docker.com/) を使用する最も一般的な仮想化アプローチの 1 つ [Linux コンテナー](http://en.wikipedia.org/wiki/LXC) のデータの分離と共有リソースでのコンピューティングの手段として仮想マシンではなく。 Azure でのアプリケーションのコンテナーの任意の数をホストする Docker VM を作成する [Azure Linux エージェント] で管理する Docker VM 拡張機能を使用することができます。
+[Docker](https://www.docker.com/) を使用する最も一般的な仮想化アプローチの 1 つ [Linux コンテナー](http://en.wikipedia.org/wiki/LXC) のデータの分離と共有リソースでのコンピューティングの手段として仮想マシンではなく。 管理する Docker VM 拡張機能を使用する [Azure Linux Agent] Azure でのアプリケーションのコンテナーの任意の数をホストする Docker VM を作成します。
 
-> [AZURE.NOTE] このトピックでは、Azure クラシック ポータルから Docker VM を作成する方法について説明します。 コマンドラインで Docker VM を作成する方法については、[Docker VM 拡張機能から、Azure コマンド ライン インターフェイス (Azure CLI) を使用する方法] を参照してください。 コンテナーとその利点に関する概要についてを参照してください、 [Docker 高レベルのホワイト ボード](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)します。
+> [AZURE.NOTE] このトピックでは、Azure クラシック ポータルから Docker VM を作成する方法について説明します。 コマンドラインで Docker VM を作成する方法を確認するには、次を参照してください。 [How to use the Docker VM Extension from the Azure Command-line Interface (Azure CLI)]します。 コンテナーとその利点に関する概要についてを参照してください、 [Docker 高レベルのホワイト ボード](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)します。
 
 ## イメージ ギャラリーからの新しい VM の作成
 最初のステップとして、Docker VM 拡張機能をサポートする Linux イメージから Azure VM を作成する必要があります。イメージ ギャラリーから取得した Ubuntu 14.04 LTS イメージをサンプルのサーバー イメージとして、Ubuntu 14.04 デスクトップをクライアントとして使用します。 ポータルで、次のようにクリックします。 **+ 新規** 、画面左下に新しい VM インスタンスを作成し、次のように選択可能な項目または完全なイメージ ギャラリーから Ubuntu 14.04 LTS イメージを選択します。
@@ -118,7 +118,7 @@ WARNING: No swap limit support
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 次のステップ
 
-移動する準備ができたら、 [Docker User Guide] Docker VM を使用します。 Azure Vm 上でコマンド ライン インターフェイスの Docker ホストの作成を自動化する場合は、[Docker VM 拡張機能から、Azure コマンド ライン インターフェイス (Azure CLI) を使用する方法] を参照してください。
+移動する準備ができたら、 [Docker User Guide] Docker VM を使用します。 Azure Vm 上でコマンド ライン インターフェイスの Docker ホストの作成を自動化する場合は、次を参照してください。 [How to use the Docker VM Extension from the Azure Command-line Interface (Azure CLI)]
 
 <!--Anchors-->
 [Create a new VM from the Image Gallery]: #createvm
@@ -147,4 +147,5 @@ WARNING: No swap limit support
 
 [Running Docker with https]: http://docs.docker.com/articles/https/
 [Docker User Guide]: https://docs.docker.com/userguide/
+
 

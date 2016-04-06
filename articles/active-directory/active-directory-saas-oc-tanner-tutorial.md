@@ -1,6 +1,6 @@
 <properties
-    pageTitle="チュートリアル: O.C. と Azure Active Directory の統合 Tanner - AppreciateHub |Microsoft Azure"
-    description="Azure Active Directory と O.C. の間でのシングル サインオンを構成する方法について説明します。 Tanner - AppreciateHub です。"
+    pageTitle="チュートリアル: Azure Active Directory と O.C.  Tanner - AppreciateHub の統合 | Microsoft Azure"
+    description="Azure Active Directory と O.C.  Tanner - AppreciateHub の間でシングル サインオンを構成する方法について説明します。"
     services="active-directory"
     documentationCenter=""
     authors="markusvi"
@@ -17,12 +17,12 @@
     ms.author="markusvi"/>
 
 
-# チュートリアル: O.C. と Azure Active Directory の統合 Tanner - AppreciateHub
+# チュートリアル: Azure Active Directory と O.C.  Tanner - AppreciateHub
 
 このチュートリアルの目的は O.C. を統合する方法を説明するには Tanner - AppreciateHub Azure で Active Directory (Azure AD)。<br>O.C. を統合します。 Tanner - Azure AD と AppreciateHub は、次の利点があります。 
 
 - Azure AD ユーザー O.C. へのアクセスを制御できます。 Tanner - AppreciateHub 
-- 自動的に署名 - O.C. にユーザーを有効にすることができます。 Tanner - が、Azure AD アカウント (シングル サインオン) AppreciateHub
+- ユーザーが自分の Azure AD アカウントで自動的に O.C.  Tanner にサインオン (シングル サインオン) できるようにします。
 - 1 つの中央サイト (Azure Active Directory ポータル) でアカウントを管理できます。
 
 Azure AD と SaaS アプリの統合に関する詳細を確認するを参照して [アプリケーションへのアクセスと Azure Active Directory でのシングル サインオン](active-directory-appssoaccess-whatis.md)します。
@@ -48,12 +48,12 @@ Azure AD 統合 O.C. を構成するには Tanner - AppreciateHub、次の項目
 このチュートリアルの目的は、テスト環境で Azure AD のシングル サインオンをテストできるようにすることです。 <br>
 このチュートリアルで紹介するシナリオは、次の 3 つの主な構成要素で構成されます。
 
-1. O.C. を追加します。 Tanner - ギャラリーから AppreciateHub 
+1. ギャラリーからの O.C.  Tanner - AppreciateHub の追加 
 2. Azure AD シングル サインオンの構成とテスト
 
 
-## O.C. を追加します。 Tanner - ギャラリーから AppreciateHub
-O.C. の統合を構成するには Tanner - Azure AD に AppreciateHub、O.C. を追加する必要があります Tanner - 管理対象 SaaS アプリの一覧に、ギャラリーから AppreciateHub します。
+## ギャラリーからの O.C.  Tanner - AppreciateHub の追加
+Azure AD への O.C.  Tanner - AppreciateHub の統合を構成するには、ギャラリーから管理対象 SaaS アプリの一覧に O.C.  Tanner - AppreciateHub を追加する必要があります。
 
 **O.C. を追加するには Tanner - AppreciateHub ギャラリーから、[が次の手順を実行します。**
 
@@ -81,22 +81,22 @@ O.C. の統合を構成するには Tanner - Azure AD に AppreciateHub、O.C. �
 
 
 ##  Azure AD シングル サインオンの構成とテスト
-このセクションの目的は構成し、Azure AD シングル サインオン O.C. でテストする方法を説明するには Tanner - AppreciateHub は、"Britta Simon"というテスト ユーザーに基づいています。
+このセクションの目的は、Azure AD と O.C.  Tanner - AppreciateHub のシングル サインオンを構成し、テスト ユーザー "Britta Simon" を使用してテストする方法について説明することです。
 
-どのようなユーザーに対応する O.C. を知る必要がある Azure AD のシングル サインオンが動作する、 Tanner - ユーザーが Azure AD で AppreciateHub です。 つまり、リンクの関係が、Azure AD ユーザーと O.C. に関連するユーザー Tanner - AppreciateHub を確立する必要があります。<br>
-値を割り当てることでこのリンクの関係が確立される、 **ユーザー名** の値として Azure AD で、 **Username** O.C. で Tanner - AppreciateHub です。
+シングル サインオンを機能させるには、Azure AD ユーザーに対応する O.C.  Tanner - AppreciateHub ユーザーが Azure AD で認識されている必要があります。 言い換えると、Azure AD ユーザーと O.C.  Tanner - AppreciateHub を確立する必要があります。<br>
+値を割り当てることでこのリンクの関係が確立される、 **ユーザー名** の値として Azure AD で、 **Username** O.C. で Tanner - AppreciateHub の間でシングル サインオンを構成する方法について説明します。
  
-構成および Azure AD シングル サインオン O.C. でテストするには Tanner - AppreciateHub を次の要素を完了する必要があります。
+O.C.  Tanner - AppreciateHub で Azure AD のシングル サインオンを構成してテストするには、次の構成要素を完了する必要があります。
 
 1. **[Azure AD シングル サインオンを構成する](#configuring-azure-ad-single-single-sign-on)** - この機能を使用するユーザーをできるようにします。
 2. **[Azure AD テスト ユーザーを作成する](#creating-an-azure-ad-test-user)** - を Azure AD シングル サインオン Britta Simon でテストします。
-4. **[O.C. を作成します。Tanner - AppreciateHub テスト ユーザー](#creating-a-halogen-software-test-user)** - O.C. に Britta Simon に対応します。 Tanner - AppreciateHub 自分の Azure AD の表現にリンクされています。
+4. **[O.C. を作成します。Tanner - AppreciateHub テスト ユーザー](#creating-a-halogen-software-test-user)** - O.C. に Britta Simon に対応します。 Tanner - AppreciateHub で Britta Simon に対応するユーザーを作成し、Azure AD の Britta Simon にリンクさせます。
 5. **[Azure AD テスト ユーザーの割り当て](#assigning-the-azure-ad-test-user)** - Azure AD シングル サインオンを使用する Britta Simon をできるようにします。
 5. **[シングル サインオン テスト](#testing-single-sign-on)** - 構成が機能するかどうかを確認します。
 
 ### Azure AD シングル サインオンの構成
 
-このセクションの目的は Azure AD シングル サインオン Azure AD ポータルで有効にして、O.C. でシングル サインオンを構成するには Tanner - AppreciateHub アプリケーションです。<br>
+このセクションの目的は Azure AD シングル サインオン Azure AD ポータルで有効にして、O.C. でシングル サインオンを構成するには Tanner - AppreciateHub  アプリケーションにサインオンします。<br>
 
 **O.C. と Azure AD シングル サインオンを構成するには Tanner - AppreciateHub、次の手順を実行します。**
 
@@ -122,9 +122,9 @@ O.C. の統合を構成するには Tanner - Azure AD に AppreciateHub、O.C. �
 
      e. クリックして **次**します。
  
-4.  **O.C. でのシングル サインオンの構成Tanner - AppreciateHub** ] ページで [ **メタデータのダウンロード**, 、コンピューターのローカルにメタデータ ファイルを保存します<br><br>![。Azure AD Connect とは][9]
+4.  **O.C. でのシングル サインオンの構成Tanner - AppreciateHub** ] ページで [ **メタデータのダウンロード**, 、コンピューターのローカルにメタデータ ファイルを保存します。<br><br>![Azure AD Connect とは][9]
 
-5. 連絡先、O.C. Tanner - xyz, による AppreciateHub サポート チームがそれらをメタデータ ファイルを提供しに連絡し、SSO がするを有効にする必要があります、します。
+5. O.C.  Tanner - AppreciateHub サポート チーム (xyz) に連絡してメタデータ ファイルを提供し、SSO を有効にする必要があることを伝えます。
 
 
 6. Azure AD ポータルでのシングル サインオンの構成情報を選択し、 **次**します。 <br><br>![Azure AD Connect とは][10]
@@ -136,7 +136,7 @@ O.C. の統合を構成するには Tanner - Azure AD に AppreciateHub、O.C. �
 
 ### Azure AD のテスト ユーザーの作成
 このセクションの目的は、Azure ポータルで Britta Simon というテスト ユーザーを作成することです。<br>
-ユーザーの一覧で選択 **Britta Simon**.<br><br>![Azure AD ユーザーを作成します。][20]<br>
+ユーザーの一覧で選択 **Britta Simon**します。<br><br>![Azure AD ユーザーを作成します。][20]<br>
 
 **Azure AD でテスト ユーザーを作成するには、次の手順に従います。**
 
@@ -145,11 +145,11 @@ O.C. の統合を構成するには Tanner - Azure AD に AppreciateHub、O.C. �
 
 2.  **ディレクトリ** 一覧で、ディレクトリ統合を有効にディレクトリを選択します。
 
-3. 上部のメニューで、ユーザーの一覧を表示する] をクリックして **ユーザー**.<br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_03.png) 
+3. 上部のメニューで、ユーザーの一覧を表示する] をクリックして **ユーザー**します。<br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_03.png) 
  
 4. 開くには、 **ユーザーの追加** ] ダイアログ ボックスで、下部にあるツールバーをクリックして **ユーザーの追加**します。 <br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_04.png) 
 
-5.  **このユーザーについてお聞かせ** ] ダイアログ ページで、次の手順を実行します <br>![Azure AD テスト ユーザーを作成する。](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_05.png) 
+5.  **このユーザーについてお聞かせ** ] ダイアログ ページで、次の手順を実行します。 <br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_05.png) 
 
     a. [ユーザーの種類] として [組織内の新しいユーザー] を選択します。
 
@@ -157,7 +157,7 @@ O.C. の統合を構成するには Tanner - Azure AD に AppreciateHub、O.C. �
 
     c. クリックして **次**します。
 
-6.   **ユーザー プロファイル** ] ダイアログ ページで、次の手順を実行します <br>![Azure AD テスト ユーザーを作成する。](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_06.png)
+6.   **ユーザー プロファイル** ] ダイアログ ページで、次の手順を実行します。 <br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_06.png)
  
     a.  **名** ] ボックスに「 **Britta**します。  
 
@@ -168,9 +168,9 @@ O.C. の統合を構成するには Tanner - Azure AD に AppreciateHub、O.C. �
     d.  **ロール** 一覧で、[ **ユーザー**します。
     e. クリックして **次**します。
 
-7.  **一時パスワードの取得** ダイアログ ページで、をクリックして **作成**.<br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_07.png) 
+7.  **一時パスワードの取得** ダイアログ ページで、をクリックして **作成**します。<br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_07.png) 
  
-8.  **一時パスワードの取得** ] ダイアログ ページで、次の手順を実行します<br>![Azure AD テスト ユーザーを作成する。](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_08.png) 
+8.  **一時パスワードの取得** ] ダイアログ ページで、次の手順を実行します。<br>![Azure AD テスト ユーザーを作成します。](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_08.png) 
   
     a. 値を書き留めて、 **新しいパスワード**します。
 
@@ -178,9 +178,9 @@ O.C. の統合を構成するには Tanner - Azure AD に AppreciateHub、O.C. �
 
   
  
-### O.C. を作成します。 Tanner - AppreciateHub テスト ユーザー
+### O.C.  Tanner - AppreciateHub テスト ユーザーの作成
 
-このセクションの目的は、O.C. で Britta Simon をというユーザーを作成するには Tanner - AppreciateHub です。
+このセクションの目的は、O.C.  Tanner - AppreciateHub の間でシングル サインオンを構成する方法について説明します。
 
 **O.C. で Britta Simon をというユーザーを作成するには Tanner - AppreciateHub、次の手順を実行します。**
 
@@ -189,7 +189,7 @@ O.C. の統合を構成するには Tanner - Azure AD に AppreciateHub、O.C. �
 
 ### Azure AD テスト ユーザーの割り当て
 
-このセクションの目的が O.C. に自分のアクセスを付与することによって Azure シングル サインオンを使用する Britta Simon を有効にするのには Tanner - AppreciateHub です。
+このセクションの目的は、Britta Simon に O.C.  Tanner - AppreciateHub の間でシングル サインオンを構成する方法について説明します。
 <br><br>![ユーザーの割り当て][200]
 
 **O.C. に Britta Simon を割り当てる Tanner - AppreciateHub、次の手順を実行します。**
@@ -210,7 +210,7 @@ O.C. の統合を構成するには Tanner - Azure AD に AppreciateHub、O.C. �
 ### シングル サインオンのテスト
 
 このセクションでは、構成のテスト Azure AD シングル サインオン アクセス パネルを使用します。<br>
-O.C. をクリックすると、 Tanner - アクセス パネルに AppreciateHub 並べて表示する必要があります取得自動的にサインオンして O.C. に Tanner - AppreciateHub アプリケーションです。
+アクセス パネルで [O.C.  Tanner - AppreciateHub] タイルをクリックすると、自動的に O.C.  Tanner - AppreciateHub  アプリケーションにサインオンします。
 
 
 ## その他のリソース
@@ -243,6 +243,7 @@ O.C. をクリックすると、 Tanner - アクセス パネルに AppreciateHu
 [203]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_205.png
+
 
 
 

@@ -25,7 +25,7 @@ Azure Redis Cache には、セッション状態プロバイダーが用意さ�
 
 Redis Cache Session State の NuGet パッケージを使用して Visual Studio でクライアント アプリケーションを構成するで、プロジェクトを右クリックし **ソリューション エクスプ ローラー** 選択 **NuGet パッケージの管理**します。
 
-![Azure Redis Cache 管理 NuGet パッケージ](./media/cache-asp.net-session-state-provider/IC729541.png)
+![Azure Redis Cache Manage NuGet Packages](./media/cache-asp.net-session-state-provider/IC729541.png)
 
 型 **RedisSessionStateProvider** オンラインで検索テキスト ボックスに、結果の中から選択し、[インストール] をクリックします。
 
@@ -105,5 +105,6 @@ web.config の標準の InProc セッション状態プロバイダー セクシ
 ## 次のステップ
 
 チェック アウト、 [Azure Redis Cache 用の ASP.NET 出力キャッシュ プロバイダー](cache-asp.net-output-cache-provider.md)します。
+
 
 

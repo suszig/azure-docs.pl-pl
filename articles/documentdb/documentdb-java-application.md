@@ -36,7 +36,7 @@
 
 > [AZURE.TIP] このアプリケーションの開発のチュートリアルでは、Java を使用した経験があることを前提としています。 Java に慣れていない場合、または [前提条件となるツール](#Prerequisites), 、完全なダウンロードをお勧め [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) GitHub およびビルドを使用するプロジェクトを [この記事の最後にある手順](#GetProject)します。 プロジェクトをビルドした後でこの記事を見直すと、プロジェクトのコンテキストのコードについての洞察を得ることができます。  
 
-##<a id="Prerequisites"></a>この Java web アプリケーション チュートリアルの前提条件
+##<a id="Prerequisites"></a>この Java Web アプリケーション チュートリアルの前提条件
 このアプリケーション開発チュートリアルを読み始める前に、次の項目を用意する必要があります。
 
 - アクティブな Azure アカウント。 アカウントがない場合は、無料試用版のアカウントを数分で作成することができます。 詳細については、[Azure の無料試用版サイト](../../pricing/free-trial/)をご覧ください。
@@ -55,7 +55,7 @@ DocumentDB データベース アカウントを Azure でプロビジョニン�
 ![DocumentDB アカウントの作成 - データベース チュートリアル Screen shot of the Azure Portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][1]
 
 
-##<a id="CreateJSP"></a>手順 2: Java JSP アプリケーションを作成します。
+##<a id="CreateJSP"></a>手順 2: Java JSP アプリケーションを作成する
 
 JSP アプリケーションを作成するには: 
 
@@ -71,7 +71,7 @@ JSP アプリケーションを作成するには:
 
 5.  **Select JSP Template** ダイアログ ボックスで、このチュートリアルを選択するために **New JSP File (html)**, 、クリックして **完了**します。
 
-6. Index.jsp ファイルが Eclipse で開いたら、表示するテキストを追加 **Hello World!** 既存 <body> 要素。 更新した <body> の内容は次のようになります。
+6. Index.jsp ファイルが Eclipse で開いたら、表示するテキストを追加 **Hello World!** 既存 <body> 要素。 更新しました。 <body> コンテンツは、次のコードのようになります。
     
         <body>
             <% out.println("Hello World!"); %>
@@ -82,7 +82,7 @@ JSP アプリケーションを作成するには:
 
     ![Hello World – Java アプリケーションのチュートリアル](./media/documentdb-java-application/image12.png)
 
-##<a id="InstallSDK"></a>手順 3: DocumentDB Java SDK をインストールします。 ##
+##<a id="InstallSDK"></a>手順 3: DocumentDB Java SDK をインストールする ##
 
 DocumentDB Java SDK とその依存関係を取得する最も簡単な方法は [Apache Maven](http://maven.apache.org/)します。
 
@@ -110,7 +110,7 @@ DocumentDB Java SDK とその依存関係を取得する最も簡単な方法は
 5. クリックして **Ok** と Maven によって DocumentDB Java SDK がインストールされます。
 6. pom.xml ファイルを保存します。
 
-##<a id="UseService"></a>手順 4: Java アプリケーションで DocumentDB サービスの使用 
+##<a id="UseService"></a>手順 4: Java アプリケーションで DocumentDB サービスを使用する 
 
 1. まず TodoItem オブジェクトを定義します。
 
@@ -364,7 +364,7 @@ DocumentDB Java SDK とその依存関係を取得する最も簡単な方法は
         }
 
 
-##<a id="Wire"></a>手順 5: 接続の残りの部分、Java アプリケーションの開発プロジェクトの
+##<a id="Wire"></a>手順 5: Java アプリケーション開発プロジェクトの残りの部分を接続する
 
 これで、楽しい作業が終わりました。残っているのは簡単なユーザー インターフェイスの作成と DAO への連結です。
 
@@ -741,7 +741,7 @@ DocumentDB Java SDK とその依存関係を取得する最も簡単な方法は
 
 6. チェック ボックスを切り替え] をクリックして完了するかどうかを更新することができます、項目が表示されたら、 **Update Tasks**します。
 
-##<a id="Deploy"></a>手順 6: Azure Websites への Java アプリケーションをデプロイします。
+##<a id="Deploy"></a>手順 6: Azure Websites に Java アプリケーションをデプロイする
 
 Azure Websites での Java アプリケーションのデプロイは簡単です。アプリケーションを WAR ファイルとしてエクスポートし、ソース管理 (例: GIT) または FTP のいずれかを使用してアップロードするだけです。
 
@@ -785,4 +785,5 @@ Azure Websites での Java アプリケーションのデプロイは簡単で�
 
 [1]: media/documentdb-java-application/keys.png
  
+
 

@@ -70,13 +70,13 @@
   
 このセクションでは、SAML プロトコルに基づくフェデレーションを使用して、ユーザーが Azure AD のアカウントで Dropbox for Business に対する認証を行うことができるようにする方法を説明します。
 
-この手順の途中で、base-64 でエンコードされた証明書を Dropbox for Business テナントにアップロードする必要があります。 この手順に慣れていない場合は、次を参照してください。 [バイナリ証明書をテキスト ファイルに変換する方法](http://youtu.be/PlgrzUZ-Y1o)します。
+この手順の途中で、Base-64 でエンコードされた証明書を Dropbox for Business テナントにアップロードする必要があります。 この手順に慣れていない場合は、次を参照してください。 [バイナリ証明書をテキスト ファイルに変換する方法](http://youtu.be/PlgrzUZ-Y1o)します。
 
 ###シングル サインオンを構成するには、次の手順に従います。
 
 1.  Azure AD ポータルでの **Dropbox for Business** アプリケーション統合ページで、] をクリックして **でのシングル サインオンを構成する** を開くには、* * [シングル サインオン * * ダイアログ。
 
-    ![シングル サインオンの構成](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749323.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749323.png "Configure single sign-on")
 
 2.   **どのような Dropbox for Business にサインオン** ] ページで、[ **Microsoft Azure AD シングル サインオン**, 、] をクリックし、 **次**します。
 
@@ -101,7 +101,7 @@
 4.  **Dropbox for Business でのシングル サインオンの構成** ] ページで [ **証明書のダウンロード**, 、お使いのコンピューターに証明書ファイルを保存します。  <br><br>  ![シングル サインオンを構成します。](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769515.png "Configure single sign-on")
 
 
-5. Dropbox for Business テナントに、 **シングル サインオン** のセクション、 **認証** ] ページで、次の手順を実行: <br><br>  ![でのシングル サインオンを構成します。](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769516.png "Configure single sign-on")
+5. Dropbox for Business テナントので、 **シングル サインオン** のセクション、 **認証** ] ページで、次の手順を実行します。 <br><br>  ![シングル サインオンを構成します。](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769516.png "Configure single sign-on")
 
      5.1. クリックして **ために必要な**です。
 
@@ -187,3 +187,4 @@
 
 * [SaaS アプリと Azure Active Directory を統合する方法に関するチュートリアルの一覧](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory のアプリケーション アクセスとシングル サインオンとは](active-directory-appssoaccess-whatis.md)
+

@@ -50,7 +50,7 @@
 
 4.  クリックして **追加** ページの下部にあります。
 
-    ![アプリケーションの追加](./media/active-directory-saas-druva-tutorial/IC749321.png "Add application")
+    ![Add application](./media/active-directory-saas-druva-tutorial/IC749321.png "Add application")
 
 5.   **実行する操作** ダイアログ ボックスで、をクリックして **ギャラリーからアプリケーションを追加**します。
 
@@ -86,7 +86,7 @@ Druva アプリケーションにはカスタム属性マッピングを追加�
 
 3.   **アプリケーション URL の構成** ] ページの [、 **Druva サインオン URL** URL は、ユーザーが Druva アプリケーションにサインオンする使用] ボックスに、型 (例::"*https://cloud.druva.com/home/*")、順にクリック **次**します。
 
-    ![Configure App URL](./media/active-directory-saas-druva-tutorial/IC795089.png "Configure App URL")
+    ![アプリケーション URL の構成](./media/active-directory-saas-druva-tutorial/IC795089.png "Configure App URL")
 
 4.   **Druva でのシングル サインオンの構成** ] ページで、証明書をダウンロードする] をクリックして **証明書のダウンロード**, 、お使いのコンピューターにローカルで証明書ファイルを保存します。
 
@@ -96,7 +96,7 @@ Druva アプリケーションにはカスタム属性マッピングを追加�
 
 6.  移動して **管理 \ > 設定**します。
 
-    ![設定](./media/active-directory-saas-druva-tutorial/IC795091.png "Settings")
+    ![[設定]](./media/active-directory-saas-druva-tutorial/IC795091.png "Settings")
 
 7.  [シングル サインオンの設定] ダイアログで、次の手順を実行します。
 
@@ -113,7 +113,7 @@ Druva アプリケーションにはカスタム属性マッピングを追加�
 
 8.   **設定** ] ページで [ **SSO トークンの生成**します。
 
-    ![設定](./media/active-directory-saas-druva-tutorial/IC795093.png "Settings")
+    ![[設定]](./media/active-directory-saas-druva-tutorial/IC795093.png "Settings")
 
 9.   **シングル サインオン認証トークン** ] ダイアログ ボックスで、次の手順を実行します。
 
@@ -132,9 +132,9 @@ Druva アプリケーションにはカスタム属性マッピングを追加�
 
 12. 必要な属性のマッピングを追加するには、次の手順を実行します。
 
-    |属性名|属性値|
-    |---|---|
-    |insync\_auth\_token|<*クリップボード値*>|
+  	|属性名|属性値|
+  	|---|---|
+  	|insync\_auth\_token|<*クリップボード値*>|
 
     1.  上記の表の各データ行をクリックして **ユーザー属性の追加**します。
     2.   **属性名** ] ボックスに、その行に対して表示される属性名を入力します。
@@ -153,7 +153,7 @@ Druva の場合、プロビジョニングは手動で行います。
 
 2.  移動して **管理 \ > ユーザー**します。
 
-    ![Manage Users](./media/active-directory-saas-druva-tutorial/IC795097.png "Manage Users")
+    ![ユーザーの管理](./media/active-directory-saas-druva-tutorial/IC795097.png "Manage Users")
 
 3.  クリックして **新規作成**します。
 
@@ -185,4 +185,5 @@ Druva の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-druva-tutorial/IC767830.png "Yes")
 
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+
 

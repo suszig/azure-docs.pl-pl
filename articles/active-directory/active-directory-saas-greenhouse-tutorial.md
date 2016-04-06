@@ -79,7 +79,7 @@
 
 3.   **アプリケーション URL の構成** ] ページの [、 **サインオン URL** ] ボックスに、次のパターンを使用して URL を入力"*https://company.greenhouse.io*"、] をクリックし、 **次**します。
 
-    ![Configure App URL](./media/active-directory-saas-greenhouse-tutorial/IC790788.png "Configure App URL")
+    ![アプリケーション URL の構成](./media/active-directory-saas-greenhouse-tutorial/IC790788.png "Configure App URL")
 
 4.   **Greenhouse でのシングル サインオンの構成** ] ページで [ **メタデータのダウンロード**, 、コンピューターのローカルにメタデータ ファイルを保存します。
 
@@ -137,3 +137,4 @@ Greenhouse の場合、プロビジョニングは手動で行います。
     ![あり](./media/active-directory-saas-greenhouse-tutorial/IC767830.png "Yes")
   
 シングル サインオンの設定をテストする場合は、アクセス パネルを開きます。 アクセス パネルの詳細については、次を参照してください。 [アクセス パネルの概要](active-directory-saas-access-panel-introduction.md)します。
+

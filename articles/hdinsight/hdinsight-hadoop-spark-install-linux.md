@@ -24,13 +24,13 @@
 
 ## <a name="whatis"></a>Spark とは
 
-<a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a> ビッグ データ分析アプリケーションのパフォーマンスを向上するメモリ内をサポートしているオープン ソースの並列処理のフレームワークを処理します。 Spark のメモリ内の計算能力により、機械学習とグラフ計算における反復的なアルゴリズムに対して、Spark は適切な選択肢となります。
+<a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a> はビッグ データ分析アプリケーションのパフォーマンスを向上するメモリ内の処理をサポートする、オープン ソースの並列処理のフレームワークです。 Spark のメモリ内の計算能力により、機械学習とグラフ計算における反復的なアルゴリズムに対して、Spark は適切な選択肢となります。
 
 Spark を使用して、従来のディスク ベースのデータ処理を実行することもできます。 Spark は、中間段階でのディスクへの書き込みを回避することで、従来の MapReduce フレームワークを向上しています。 また、Spark は Hadoop Distributed File System (HDFS) と Azure BLOB ストレージと互換性があるため、既存のデータは Spark を通じて簡単に処理できます。 
 
 このトピックでは、HDInsight クラスターをカスタマイズして Spark をインストールする方法について説明します。
 
-## <a name="whatis"></a>Spark のバージョンをインストールできますか。
+## <a name="whatis"></a>インストールできる Spark のバージョン
 
 このトピックでは、Script Action のカスタム スクリプトを使用して、HDInsight クラスターに Spark をインストールします。 このスクリプトでは、Spark 1.5.1 をインストールします。
 
@@ -42,7 +42,7 @@ Spark を使用して、従来のディスク ベースのデータ処理を実�
 
 > [AZURE.WARNING] 既定では、HDInsight クラスターで、いくつかの Spark 1.3.1 バイナリがインストールされていることを検出することがあります。 これらは使用しないでください。今後の更新プログラムで HDInsight クラスターのイメージから削除される予定です。
 
-## <a name="install"></a>スクリプト アクションを使用して Spark をインストールします。
+## <a name="install"></a>スクリプト アクションを使用した Spark のインストール
 
 HDInsight クラスターで Spark をインストールするサンプル スクリプトは読み取り専用の Azure ストレージ blob から入手 [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh)します。 このセクションでは、Azure ポータルを使用してクラスターを作成する際に、サンプル スクリプトを使用する方法について説明します。 
 
@@ -207,7 +207,7 @@ Spark SQL では、Spark を使用して構造化照会言語 (SQL)、HiveQL、S
 
         sbt package
 
-    アプリケーションのコンパイルと表示されます、 **されると** __SimpleScalaApp/target/scala-2.10** ディレクトリに作成されたファイルです。
+    アプリケーションのコンパイルと表示されます、 **\target\scala-2.10 1.0.jar** __SimpleScalaApp/target/scala-2.10** ディレクトリに作成されたファイルです。
 
 6. 次のコマンドを使用して、SimpleApp.scala プログラムを実行します。
 
@@ -235,4 +235,5 @@ Spark SQL では、Spark を使用して構造化照会言語 (SQL)、HiveQL、S
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
  
+
 

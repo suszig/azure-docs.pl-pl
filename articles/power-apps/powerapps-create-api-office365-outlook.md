@@ -30,18 +30,18 @@
 ![][15]  
 
 4. **PowerApps サービス**, [ **管理 Api**:    
-![登録されている api を参照する][1]
+![登録されている api を参照します。][1]
 
 5.  **管理 Api**, [ **追加** 新しい API を追加します。  
-![API の追加][2]
+![[API を追加します。][2]
 
 6. わかりやすい名前を入力 **名前** した API 向けです。  
     
 7.  **ソース**, [ **利用可能な Api** 構築済みの Api を選択して [ **Office 365 の Outlook**:  
-![Office 365 の Outlook の api を選択][3]
+![Office 365 の Outlook の api を選択します。][3]
 
 8. 選択 **の設定 - 必要な設定を構成する**:  
-![Office 365 の Outlook API 設定の構成][4]
+![Office 365 の Outlook API 設定を構成します。][4]
 
 9. 入力、 *アプリ キー* と *App Secret* 、Office 365 Azure Active Directory (AAD) アプリケーションの値。 これらがない場合は、このトピックの「PowerApps Office 365 API で使用する AAD アプリケーションの登録」を参照して、必要なキーとシークレットの値を作成します。 
  
@@ -56,17 +56,17 @@
 
 キーとシークレットの値が割り当てられた既存の AAD アプリケーションがない場合は、次の手順に従ってアプリケーションを作成し、必要な値を取得します。 
 
-1. ポータルを開き、[Azure] [5]。
+1. 開いている、 [Azure ポータル][5]します。
 
 2. 選択 **参照** し、[ **Active Directory**します。  
 
     >[AZURE.NOTE] これは、Azure クラシック ポータルで Active Directory を開きます。  
 
 3. 組織のテナントの名前を選択します。  
-![Azure Active Directory で実行][6]
+![Azure Active Directory の起動][6]
 
 4. 選択、 **アプリケーション** タブをクリックし、選択 **追加**:  
-![AAD テナントのアプリケーション][7]
+![AAD テナント アプリケーション][7]
 
 5.  **アプリケーション追加**:  
 
@@ -74,7 +74,7 @@
     b) のままにして、アプリケーションの入力として **Web**します。  
     c) 選択 **次**します。  
 
-    ![AAD アプリケーション - アプリケーション情報の追加][8]
+    ![AAD アプリケーションの追加 - アプリケーション情報][8]
 
 6.  **アプリケーションのプロパティで**:  
 
@@ -82,13 +82,13 @@
     b) を入力する有効な **APP ID URI** アプリ用です。  
     c) 選択 **OK**します。  
 
-    ![AAD アプリケーション - アプリケーションのプロパティの追加][9]
+    ![AAD アプリケーションの追加 - アプリケーションのプロパティ][9]
 
 7. 操作が正常に完了すると、新しい AAD アプリケーションにリダイレクトされます。 選択 **構成**:  
-![Contoso AAD アプリケーション][10]
+![Contoso の AAD アプリケーション][10]
 
 8. 設定、 **応答 URL** 下にある、 _OAuth 2_ (」を参照)、Azure ポータルで新しい Office 365 の Outlook API を追加したときに受信したリダイレクト URL のセクションです。 クリックして **アプリケーション追加**:  
-![Contoso AAD アプリケーションを構成する][11]
+![Contoso の AAD アプリケーションを構成します。][11]
 
 9.  **他のアプリケーションに対するアクセス許可** ウィンドウで、 **Office 365 Exchange Online**, を選択して **OK**:  
 ![Contoso アプリ デリゲート][12]
@@ -105,7 +105,7 @@
     - ユーザーのメールの読み取りと書き込み
     - ユーザーのメールの読み取り
 
-    ![Contoso アプリ アクセス許可の委任][13]
+    ![Contoso アプリケーションでのアクセス許可のデリゲート][13]
 
 新しい Azure Active Directory アプリケーションが作成されます。 Azure ポータルの Office 365 Outlook API 構成でこのアプリケーションを使用できます。 
 
@@ -130,4 +130,5 @@
 [13]: ./media/powerapps-create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.PNG
 [14]: ./media/powerapps-create-api-office365-outlook/browseall.png
 [15]: ./media/powerapps-create-api-office365-outlook/allresources.png
+
 

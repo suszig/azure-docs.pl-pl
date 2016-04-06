@@ -10,12 +10,12 @@
 
 <tags
     ms.service="backup"
-    ms.workload=「記憶域のバックアップ回復」
+    ms.workload="storage-backup-recovery"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
     ms.date="10/29/2015"
-    ms.author="trinadhk"です。"jimpark"/>
+    ms.author="trinadhk"; "jimpark"/>
 
 # Azure での仮想マシンの復元
 復元操作を使用して、Azure バックアップ資格情報コンテナーに格納されているバックアップから新しい VM に仮想マシンを復元できます。
@@ -139,4 +139,5 @@ PowerShell には仮想マシンを作成する機能はなく、バックアッ
 ## 次のステップ
 - [エラーのトラブルシューティング](backup-azure-vms-troubleshoot.md#restore)
 - [仮想マシンの管理](backup-azure-manage-vms.md)
+
 

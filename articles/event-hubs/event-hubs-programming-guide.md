@@ -81,7 +81,7 @@ var factory = MessagingFactory.CreateFromConnectionString("your_connection_strin
 var client = factory.CreateEventHubClient("MyEventHub");
 ```
 
-さらに注意することが重要 [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) メッセージング ファクトリ インスタンスから作成されたオブジェクトが同じ基になる TCP 接続を再利用します。 そのため、これらのオブジェクトでは、スループットにクライアント側の制限があります。  [作成](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.create.aspx) メソッドは、1 つのメッセージング ファクトリを再利用します。 1 つの送信者から非常に高いスループットが必要なかどうかは、複数のメッセージ ファクトリと 1 つを作成する [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) 各メッセージング ファクトリからのオブジェクト。
+さらに注意することが重要 [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) メッセージング ファクトリ インスタンスから作成されたオブジェクトが同じ基になる TCP 接続を再利用します。 そのため、これらのオブジェクトでは、スループットにクライアント側の制限があります。  [作成](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.create.aspx) メソッドは、単一のメッセージング ファクトリを再利用します。 単一の送信元から非常に高いスループットを必要とするかどうかは、複数のメッセージ ファクトリと 1 つを作成する [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) 各メッセージング ファクトリからのオブジェクト。
 
 ## Event Hub にイベントを送信する
 
@@ -184,4 +184,5 @@ Event Hubs シナリオに関する詳細については、次のリンク先を
 - [Event Hubs の概要](event-hubs-overview.md)
 - [Event Hubs コード サンプル](http://code.msdn.microsoft.com/site/search?query=event hub & f [0]。値 = hub & f [0]。入力 = SearchText & ac = 5)
 - [イベント プロセッサ ホスト API リファレンス](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
+
 

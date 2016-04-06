@@ -22,13 +22,13 @@
 
 ## はじめに
 
-作成し、Azure の IoT hub をプログラムで管理する [IoT Hub リソース プロバイダーの REST API] [lnk rest api] を使用することができます。 このチュートリアルでは、Resource Provider REST API を使用して C# プログラムから IoT Hub を作成する方法を説明します。
+使用することができます、 [IoT Hub リソース プロバイダーの REST API][lnk-rest-api] を作成し、Azure の IoT hub をプログラムで管理します。 このチュートリアルでは、Resource Provider REST API を使用して C# プログラムから IoT Hub を作成する方法を説明します。
 
 このチュートリアルを完了するには、以下が必要になります。
 
 - Microsoft Visual Studio 2015
-- アクティブな Azure アカウント <br/>アカウントがない場合は、無料試用版のアカウントを数分で作成することができます。 詳細については、[Azure 無料評価版] [lnk-無料評価版] を参照してください。
-- [Microsoft Azure PowerShell 1.0][lnk powershell インストール] またはそれ以降。
+- アクティブな Azure アカウント <br/>アカウントがない場合は、無料試用版のアカウントを数分で作成することができます。 詳細については、[Azure の無料試用版サイト][lnk-free-trial]をご覧ください。
+- [Microsoft Azure PowerShell 1.0][lnk-powershell-install] またはそれ以降。
 
 [AZURE.INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -77,7 +77,7 @@
 
 ## REST API を使用して IoT Hub を作成する
 
-IoT Hub Resource Provider REST API を使用して、リソース グループで新しい IoT Hub を作成します。 また、既存 IoT hub を変更するのに [REST API] [lnk rest api] を使用することができます。
+IoT Hub Resource Provider REST API を使用して、リソース グループで新しい IoT Hub を作成します。 使用することも、 [REST API][lnk-rest-api] 既存 IoT hub を変更します。
 
 1. 次のメソッドを Program.cs に追加します。
     
@@ -176,14 +176,14 @@ IoT Hub Resource Provider REST API を使用して、リソース グループ�
 
 3. をクリックして **デバッグ** し **[デバッグ開始]** アプリケーションを実行します。 デプロイメントが実行されるまでに数分かかる場合があります。
 
-4. [ポータル] [lnk azure ポータル] にアクセスし、リソースの一覧を表示するかを使用して、アプリケーションで新しい IoT hub が追加されたことを確認できる、 **Get AzureRmResource** PowerShell コマンドレット。
+4. アクセスして、アプリケーションに新しい IoT hub が追加されたことを確認できる、 [ポータル][lnk-azure-portal] またはを使用して、リソースの一覧を表示して、 **Get AzureRmResource** PowerShell コマンドレット。
 
-> [AZURE.NOTE] このアプリケーションの例では、課金を S1 の標準的な IoT Hub を追加します。 [ポータル] [lnk azure ポータル]、またはを使用して IoT hub を削除する、 **削除 AzureRmResource** が完了したら、PowerShell コマンドレット。
+> [AZURE.NOTE] このアプリケーションの例では、課金を S1 の標準的な IoT Hub を追加します。 を通じて IoT hub を削除する、 [ポータル][lnk-azure-portal] またはを使用して、 **削除 AzureRmResource** が完了したら、PowerShell コマンドレット。
 
 ## 次のステップ
 
-- [IoT Hub リソース プロバイダーの REST API] [lnk rest api] の機能について説明します。
-- [Azure リソース マネージャーの概要] [lnk-azure-rm の概要] を Azure リソース マネージャーの機能の詳細について参照してください。
+- 機能の紹介、 [IoT Hub リソース プロバイダーの REST API][lnk-rest-api]します。
+- 読み取り [Azure リソース マネージャーの概要][lnk-azure-rm-overview] を Azure リソース マネージャーの機能の詳細について参照してください。
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -191,3 +191,4 @@ IoT Hub Resource Provider REST API を使用して、リソース グループ�
 [lnk-powershell-install]: https://azure.microsoft.com/en-us/blog/azps-1-0-pre/
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
+
