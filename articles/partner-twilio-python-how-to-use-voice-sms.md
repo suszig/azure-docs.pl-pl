@@ -42,7 +42,7 @@ Twilio API の主要な側面として、Twilio 動詞と Twilio Markup Language
 ### <a id="Verbs"></a>Twilio 動詞
 API を利用して Twilio の動詞です。たとえば、 **& lt;Say & gt;** 動詞は、呼び出しにメッセージを音声で返すことを Twilio に指示します。
 
-Twilio 動詞の一覧を次に示します。 他の動詞と機能については、[Twilio Markup Language のドキュメント][http://www.twilio.com/docs/api/twiml] を参照してください。
+Twilio 動詞の一覧を次に示します。 他の動詞と機能については、[Twilio Markup Language のドキュメント]  [http://www.twilio.com/docs/api/twiml] を参照してください。
 
 * **& Lt; ダイヤル & gt;**: 呼び出し元を別の電話に接続します。
 * **& lt;ギャザー & gt;**: 電話キーパッドに入力された数字を収集します。
