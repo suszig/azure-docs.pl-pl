@@ -187,7 +187,7 @@
         ![[参照] の [データ ファクトリ](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.   **データ ファクトリ** ブレードで、[データ ファクトリ] をクリックして (**TutorialFactoryARM**) を作成します。   
 2.   **Data Factory** 、データ ファクトリ] ブレードをクリックして **ダイアグラム**します。
-        ![ダイアグラム] タイル](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
+        ![[ダイアグラム] タイル](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4.   **ダイアグラム ビュー**, 、パイプラインの概要が表示されます、およびデータセットでは使用このチュートリアルです。
     
     ![Diagram View](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
