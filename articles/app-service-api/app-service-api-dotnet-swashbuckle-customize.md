@@ -1,0 +1,252 @@
+
+<properties 
+    pageTitle="Swashbuckle が生成する API 定義をカスタマイズする" 
+    description="Azure App Service で API アプリに対して Swashbuckle により生成される Swagger の API 定義をカスタマイズする方法を説明します。" 
+    services="app-service\api" 
+    documentationCenter=".net" 
+    authors="bradygaster" 
+    manager="wpickett" 
+    editor="jimbe"/>
+
+<tags 
+    ms.service="app-service-api" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="dotnet" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/24/2015" 
+    ms.author="bradyg"/>
+
+# Swashbuckle が生成する API 定義をカスタマイズする 
+
+## 概要
+
+この記事では、Swashbuckle をカスタマイズして、既定の動作を変更する必要がある一般的なシナリオを処理する方法について説明します。
+
+* Swashbuckle では、コントローラー メソッドのオーバーロードの重複する操作 ID が生成されます。
+* Swashbuckle は、メソッドからの唯一の有効な応答が HTTP 200 (OK) であることを想定しています。 
+ 
+## 操作 ID の生成をカスタマイズします。
+
+Swashbuckle は、コントローラー名とメソッド名を連結することによって、Swagger 操作の ID を生成します。 このパターンでは、メソッドに複数のオーバーロードがある場合に問題が発生します。Swashbuckle は重複する操作 ID を生成し、これは無効な Swagger JSON です。
+
+たとえば、次のコントローラー コードでは、Swashbuckle は 3 つの Contact_Get 操作 ID を生成します。
+
+![](./media/app-service-api-dotnet-swashbuckle-customize/multiplegetsincode.png)
+
+![](./media/app-service-api-dotnet-swashbuckle-customize/multiplegetsinjson.png)
+
+メソッドに一意の名前を付けることによって、手動で問題を解決できます。この例ではたとえば次のようにします。
+
+* 取得
+* GetById
+* GetPage
+
+あるいは、一意の操作 ID を自動的に生成するように Swashbuckle を拡張します。
+
+次の手順を使用して Swashbuckle をカスタマイズする方法を示して、 *SwaggerConfig.cs* Visual Studio API Apps Preview プロジェクト テンプレートで、プロジェクトに含まれるファイルです。  または、API アプリとしてのデプロイ用に構成する Web API プロジェクトで Swashbuckle をカスタマイズすることもできます。
+
+1. `IOperationFilter` のカスタム実装の作成 
+
+    `IOperationFilter` インターフェイスは、Swagger メタデータ プロセスのさまざまな部分をカスタマイズする Swashbuckle ユーザーに機能拡張ポイントを提供します。 次のコードでは、操作 ID 生成動作を変更する 1 つの方法を示します。 このコードは、操作 ID 名にパラメーター名を追加します。  
+
+        using Swashbuckle.Swagger;
+        using System.Web.Http.Description;
+        
+        namespace ContactsList
+        {
+            public class MultipleOperationsWithSameVerbFilter : IOperationFilter
+            {
+                public void Apply(
+                    Operation operation,
+                    SchemaRegistry schemaRegistry,
+                    ApiDescription apiDescription)
+                {
+                    if (operation.parameters != null)
+                    {
+                        operation.operationId += "By";
+                        foreach (var parm in operation.parameters)
+                        {
+                            operation.operationId += string.Format("{0}",parm.name);
+                        }
+                    }
+                }
+            }
+        }
+
+2.  *\Swaggerconfig.cs* ファイルを呼び出して、 `OperationFilter` メソッドを呼び出すと、新しいを使用するのには Swashbuckle `IOperationFilter` 実装します。
+
+        c.OperationFilter<MultipleOperationsWithSameVerbFilter>();
+
+    ![](./media/app-service-api-dotnet-swashbuckle-customize/usefilter.png)
+
+     *SwaggerConfig.cs* Swashbuckle NuGet パッケージで削除されているファイルには、多くの機能拡張ポイントのコメント アウトされた例が含まれています。 他のコメントはここでは示しません。 
+
+    この変更を行った後は、`IOperationFilter` の実装を使用して一意の操作 ID が生成されます。
+ 
+    ![](./media/app-service-api-dotnet-swashbuckle-customize/uniqueids.png)
+
+<a id="multiple-response-codes" name="multiple-response-codes"></a>
+    
+## 200 以外の応答コードを許可します。
+
+既定では、Swashbuckle HTTP 200 (OK) 対応であると想定しています、 *のみ* Web API メソッドからの応答を正当なです。 ただし、他の応答コードが返された場合でもクライアントで例外が発生しないようにすることが必要な局面も考えられます。  たとえば、次の Web API コードは、クライアントで 200 と 404 のどちらも有効な応答として受け入れる場合のシナリオを示します。
+
+    [ResponseType(typeof(Contact))]
+    public HttpResponseMessage Get(int id)
+    {
+        var contacts = GetContacts();
+
+        var requestedContact = contacts.FirstOrDefault(x => x.Id == id);
+
+        if (requestedContact == null)
+        {
+            return Request.CreateResponse(HttpStatusCode.NotFound);
+        }
+        else
+        {
+            return Request.CreateResponse<Contact>(HttpStatusCode.OK, requestedContact);
+        }
+    }
+
+このシナリオでは、Swashbuckle が生成する Swagger で、既定で有効な HTTP 状態コードとして HTTP 200 のみが指定されています。
+
+![](./media/app-service-api-dotnet-swashbuckle-customize/http-200-output-only.png)
+
+Visual Studio では、Swagger の API 定義を使用してクライアントのコードを生成するため、HTTP 200 以外のすべての応答について例外を生成するクライアント コードが作成されます。 以下のコードは、この Web API メソッドのサンプル用に生成された C# クライアントのものです。
+
+    if (statusCode != HttpStatusCode.OK)
+    {
+        HttpOperationException<object> ex = new HttpOperationException<object>();
+        ex.Request = httpRequest;
+        ex.Response = httpResponse;
+        ex.Body = null;
+        if (shouldTrace)
+        {
+            ServiceClientTracing.Error(invocationId, ex);
+        }
+        throw ex;
+    } 
+
+Swashbuckle には、生成される予定の HTTP 応答コードの一覧をカスタマイズする方法が 2 つあります。XML コメントを使用する方法と `SwaggerResponse` 属性を使用する方法です。 属性の方が簡単ですが、使用できるのは Swashbuckle 5.1.5 以降のみです。 Visual Studio 2013 の API Apps プレビューの新しいプロジェクト テンプレートには、Swashbuckle バージョン 5.0.0 が含まれているため、テンプレートを使用していて Swashbuckle を更新しない場合、唯一のオプションは XML コメントを使用する方法となります。 
+
+### XML コメントを使用して、想定される応答コードをカスタマイズする
+
+Swashbuckle のバージョンが 5.1.5 より前の場合は、このメソッドを使用して応答コードを指定します。
+
+1. まず、HTTP 応答コードを指定するメソッドに、XML ドキュメントのコメントを追加します。 上記のように、サンプルの Web API アクションを実行して XML ドキュメントを適用すると、次の例のようなコードが生成されます。 
+
+        /// <summary>
+        /// Returns the specified contact.
+        /// </summary>
+        /// <param name="id">The ID of the contact.</param>
+        /// <returns>A contact record with an HTTP 200, or null with an HTTP 404.</returns>
+        /// <response code="200">OK</response>
+        /// <response code="404">Not Found</response>
+        [ResponseType(typeof(Contact))]
+        public HttpResponseMessage Get(int id)
+        {
+            var contacts = GetContacts();
+        
+            var requestedContact = contacts.FirstOrDefault(x => x.Id == id);
+        
+            if (requestedContact == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+            else
+            {
+                return Request.CreateResponse<Contact>(HttpStatusCode.OK, requestedContact);
+            }
+        }
+
+1. 説明を追加、 *SwaggerConfig.cs* ファイル、XML を使用するように swashbuckle をドキュメント ファイル。
+
+    * 開いている *SwaggerConfig.cs* 、メソッドを作成し、 *SwaggerConfig* クラスが XML ドキュメント ファイルへのパスを指定します。 
+
+            private static string GetXmlCommentsPath()
+            {
+                return string.Format(@"{0}\XmlComments.xml", 
+                    System.AppDomain.CurrentDomain.BaseDirectory);
+            }
+
+    * スクロール ダウンして、 *SwaggerConfig.cs* 以下のスクリーン ショットのようなコードのコメント アウトされた行が表示されるまでのファイルです。 
+
+        ![](./media/app-service-api-dotnet-swashbuckle-customize/xml-comments-commented-out.png)
+    
+    * この行のコメント化を解除します。これにより、XML コメントで指定した処理が Swagger 生成中に実行されるようになります。 
+    
+        ![](./media/app-service-api-dotnet-swashbuckle-customize/xml-comments-uncommented.png)
+    
+1. XML ドキュメント ファイルを生成するために、次のスクリーン ショットに示すように、プロジェクトのプロパティに移動して XML ドキュメント ファイルを有効にします。 
+
+    ![](./media/app-service-api-dotnet-swashbuckle-customize/enable-xml-documentation-file.png) 
+
+これらの手順を実行すると、Swashbuckle により生成される Swagger JSON に、XML コメントで指定した HTTP 応答コードが反映されます。 次のスクリーン ショットは、この新しい JSON ペイロードを示します。 
+
+![](./media/app-service-api-dotnet-swashbuckle-customize/swagger-multiple-responses.png)
+
+Visual Studio を使用して REST API のクライアント コードを再生成すると、C# コードは HTTP OK と Not Found の両方の状態コードを受け入れ、例外が発生することもないため、コードで null の Contact レコードの戻り値を処理する方法を決定できます。 
+
+        if (statusCode != HttpStatusCode.OK && statusCode != HttpStatusCode.NotFound)
+        {
+            HttpOperationException<object> ex = new HttpOperationException<object>();
+            ex.Request = httpRequest;
+            ex.Response = httpResponse;
+            ex.Body = null;
+            if (shouldTrace)
+            {
+                ServiceClientTracing.Error(invocationId, ex);
+            }
+                throw ex;
+        }
+
+このデモのコードは記載されて [この GitHub リポジトリ](https://github.com/Azure-Samples/API-Apps-DotNet-Swashbuckle-Customization-MultipleResponseCodes)します。 XML ドキュメントのコメントでマークアップされた Web API プロジェクトと共に、この API 用に生成されたクライアントを含むコンソール アプリケーション プロジェクトがあります。 
+
+### SwaggerResponse 属性を使用して、想定される応答コードをカスタマイズする
+
+ [SwaggerResponse](https://github.com/domaindrivendev/Swashbuckle/blob/master/Swashbuckle.Core/Swagger/Annotations/SwaggerResponseAttribute.cs) 属性、swashbuckle 5.1.5 以降使用します。 プロジェクトに以前のバージョンが含まれている場合のために、このセクションでは、まずこの属性を使用できるように、Swashbuckle NuGet パッケージの更新方法について説明します。
+
+1.  **ソリューション エクスプ ローラー**, Web API プロジェクトを右クリックし、クリックして、 **NuGet パッケージの管理**します。 
+
+    ![](./media/app-service-api-dotnet-swashbuckle-customize/manage-nuget-packages.png)
+
+1. クリックして、 *更新* ボックスの横に、 *Swashbuckle* NuGet パッケージ。 
+
+    ![](./media/app-service-api-dotnet-swashbuckle-customize/update-nuget-dialog.png)
+
+1. 追加、 *SwaggerResponse* 有効な HTTP 応答コードを指定する Web API アクション メソッドへの属性です。 
+
+        [SwaggerResponse(HttpStatusCode.OK)]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [ResponseType(typeof(Contact))]
+        public HttpResponseMessage Get(int id)
+        {
+            var contacts = GetContacts();
+
+            var requestedContact = contacts.FirstOrDefault(x => x.Id == id);
+            if (requestedContact == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+            else
+            {
+                return Request.CreateResponse<Contact>(HttpStatusCode.OK, requestedContact);
+            }
+        }
+
+2. 属性の名前空間の `using` ステートメントを追加します。
+
+        using Swashbuckle.Swagger.Annotations;
+        
+1. 参照、 */swagger/docs/v1* の URL、プロジェクトとさまざまな HTTP 応答コードが Swagger JSON に表示されます。 
+
+    ![](./media/app-service-api-dotnet-swashbuckle-customize/multiple-responses-post-attributes.png)
+
+このデモのコードは記載されて [この GitHub リポジトリ](https://github.com/Azure-Samples/API-Apps-DotNet-Swashbuckle-Customization-MultipleResponseCodes-With-Attributes)します。 修飾した Web API プロジェクトと共に、 *SwaggerResponse* 属性は、この API 用に生成されたクライアントを含むコンソール アプリケーション プロジェクト。 
+
+## 次のステップ
+
+この記事では Swashbuckle により操作 ID と有効な応答コードを生成する方法のカスタマイズについて説明しました。 詳細については、次を参照してください。 [GitHub の Swashbuckle](https://github.com/domaindrivendev/Swashbuckle)します。
+ 
+

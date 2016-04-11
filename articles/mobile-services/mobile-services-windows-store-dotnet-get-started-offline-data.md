@@ -1,0 +1,287 @@
+<properties
+    pageTitle="ユニバーサル Windows アプリでのオフライン データの使用 | Microsoft Azure"
+    description="Azure Mobile Services を使用して、ユニバーサル Windows アプリでオフライン データをキャッシュおよび同期する方法について説明します。"
+    documentationCenter="mobile-services"
+    authors="lindydonna"
+    manager="dwrede"
+    editor=""
+    services="mobile-services"/>
+
+<tags
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="11/06/2015"
+    ms.author="donnam"/>
+
+# Mobile Services でのオフライン データの同期の使用
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
+[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+
+このチュートリアルでは、Azure Mobile Services を使用して、Windows ユニバーサル ストアのアプリケーションにオフライン サポートを追加する方法について説明します。 オフライン サポートを使用すると、アプリがオフラインの状況でもローカル データベースと対話できます。 アプリがバックエンドのデータベースとオンラインになったときに、オフライン機能を使用したローカルの変更を同期します。
+
+右側のクリップを見ると、このチュートリアルと同じ手順をビデオで確認できます。
+
+> [AZURE.VIDEO build-offline-apps-with-mobile-services]
+
+このチュートリアルでは、Universal アプリケーション プロジェクトを更新、 [Get started with Mobile Services] Azure Mobile Services のオフライン機能をサポートするチュートリアルです。 切断されたオフラインの状況でデータを追加、それらの項目をオンライン データベースに同期してからにログインし、 [Azure classic portal] データに、アプリケーションの実行中に加えられた変更を表示します。
+
+>[AZURE.NOTE] このチュートリアルは、モバイル サービスを使用して Azure を使用して格納し、Windows ストア アプリでデータを取得する方法を理解するのに役立ちます。 初めてのモバイル サービスを使用する場合は、チュートリアルを完了する必要があります [Get started with Mobile Services] 最初です。
+
+##前提条件
+
+このチュートリアルには、次のものが必要です。
+
+* Windows 8.1 で実行されている Visual Studio 2013。
+* 完了、 [Get started with Mobile Services]します。
+* [Azure Mobile Services SDK バージョン 1.3.0 (またはこれ以降)][Mobile Services SDK Nuget]
+* [Azure Mobile Services SQLite Store バージョン 1.0.0 (またはこれ以降)][SQLite store nuget]
+* [SQLite for Windows 8.1](http://www.sqlite.org/download.html)
+* Azure アカウント。 アカウントがない場合は、Azure 試用版にサインアップして、最大 10 件の無料モバイル サービスを入手できます。このサービスは評価終了後も使用できます。 詳細については、[Azure の無料試用版サイト](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)をご覧ください。
+
+## <a name="enable-offline-app"></a>オフライン機能をサポートするようにアプリケーションを更新する
+
+Azure Mobile Services のオフライン機能を使用すると、モバイル サービスに対してオフラインになっている状況でも、ローカル データベースとやり取りすることができます。 アプリケーションでこれらの機能を使用するには、`MobileServiceClient.SyncContext` をローカル ストアに初期化します。 その後、`IMobileServiceSyncTable` インターフェイスを使用してテーブルを参照します。 このチュートリアルでは、ローカル ストアに SQLite を使用します。
+
+>[AZURE.NOTE] このセクションをスキップし、既にオフラインをサポート GitHub サンプル リポジトリからモバイル サービスのサンプル プロジェクトを取得できます。 オフライン サポートを有効になっているサンプル プロジェクトがここでは、ある [TodoList Offline Sample]します。
+
+1. Windows 8.1 および Windows Phone 8.1 の SQLite ランタイムをインストールします。
+
+    * **Windows 8.1 Runtime:** インストール [SQLite for Windows 8.1]します。
+    * **Windows Phone 8.1:** インストール [SQLite for Windows Phone 8.1]します。
+
+    >[AZURE.NOTE] Internet Explorer を使用している場合を SQLite をインストールするリンクをクリックするとメッセージがあります、.vsix を .zip ファイルとしてダウンロードします。 ファイルに .zip ではなく .vsix 拡張子を付けて、ハード ドライブ上の場所に保存します。 エクスプローラーで .vsix ファイルをダブルクリックすると、インストールが実行されます。
+
+2. Visual Studio で完成させたプロジェクトを開き、 [Get started with Mobile Services] チュートリアルです。 インストール、 **WindowsAzure.MobileServices.SQLiteStore** Windows 8.1 ランタイムおよび Windows Phone 8.1 プロジェクトの NuGet パッケージ。
+
+    * **Windows 8.1:** ソリューション エクスプ ローラーで Windows 8.1 プロジェクトを右クリックし、クリックして **Nuget パッケージの管理** NuGet パッケージ マネージャーを実行します。 検索 **SQLiteStore** をインストールする、 `WindowsAzure.MobileServices.SQLiteStore` パッケージです。
+    * **Windows Phone 8.1:** Windows Phone 8.1 プロジェクトを右クリックし、クリックして **Nuget パッケージの管理** NuGet パッケージ マネージャーを実行します。 検索 **SQLiteStore** をインストールする、 `WindowsAzure.MobileServices.SQLiteStore` パッケージです。
+
+    >[AZURE.NOTE] インストールでは、古いバージョンの SQLite への参照を作成する場合、その重複した参照だけを削除できます。
+
+    ![][2]
+
+2. ソリューション エクスプ ローラーで右クリックして **参照** Windows 8.1 ランタイムおよび Windows Phone 8.1 プラットフォーム プロジェクトおよびにある SQLite への参照があることを確認、 **拡張** セクションです。
+
+    ![][1]
+    </br>
+
+    **Windows 8.1 ランタイム**
+
+    ![][11]
+    </br>
+
+    **Windows Phone 8.1**
+
+3. SQLite ランタイムでは、ビルド対象のプロジェクトのプロセッサ アーキテクチャを変更する必要があります **x86**, 、**x64**, 、または **ARM**します。 **任意の CPU** はサポートされていません。 ソリューション エクスプ ローラーで、上部にある [ソリューション] をクリックし、プロセッサ アーキテクチャのドロップ ダウン ボックスをテストしたいサポート済みの設定の 1 つに変更します。
+
+    ![][13]
+
+5. ソリューション エクスプローラーで共有プロジェクトを使用し、MainPage.cs ファイルを開きます。 ファイルの先頭にある次の using ステートメントをコメント解除します。
+
+        using Microsoft.WindowsAzure.MobileServices.SQLiteStore;  // offline sync
+        using Microsoft.WindowsAzure.MobileServices.Sync;         // offline sync
+
+6. MainPage.cs で、`todoTable` の定義をコメント アウトし、次の `MobileServicesClient.GetSyncTable()` を呼び出す行をコメント解除します。
+
+        //private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
+        private IMobileServiceSyncTable<TodoItem> todoTable = App.MobileService.GetSyncTable<TodoItem>(); // offline sync
+
+
+7. MainPage.cs 内の `Offline sync` とマークされている部分で、`InitLocalStoreAsync` および `SyncAsync` メソッドをコメント解除します。 メソッド `InitLocalStoreAsync` は、SQLite ストアを使用してクライアントの同期コンテキストを初期化します。
+
+        private async Task InitLocalStoreAsync()
+        {
+            if (!App.MobileService.SyncContext.IsInitialized)
+            {
+                var store = new MobileServiceSQLiteStore("localstore.db");
+                store.DefineTable<TodoItem>();
+                await App.MobileService.SyncContext.InitializeAsync(store);
+            }
+
+            await SyncAsync();
+        }
+
+        private async Task SyncAsync()
+        {
+            await App.MobileService.SyncContext.PushAsync();
+            await todoTable.PullAsync("todoItems", todoTable.CreateQuery());
+        }
+
+8. `OnNavigatedTo` イベント ハンドラーで、`InitLocalStoreAsync` の呼び出しをコメント解除します。
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            await InitLocalStoreAsync(); // offline sync
+            await RefreshTodoItems();
+        }
+
+9. メソッド `InsertTodoItem`、`UpdateCheckedTodoItem`、および `ButtonRefresh_Click` にある 3 つの `SyncAsync` の呼び出しをコメント解除します。
+
+        private async Task InsertTodoItem(TodoItem todoItem)
+        {
+            await todoTable.InsertAsync(todoItem);
+            items.Add(todoItem);
+
+            await SyncAsync(); // offline sync
+        }
+
+        private async Task UpdateCheckedTodoItem(TodoItem item)
+        {
+            await todoTable.UpdateAsync(item);
+            items.Remove(item);
+            ListItems.Focus(Windows.UI.Xaml.FocusState.Unfocused);
+
+            await SyncAsync(); // offline sync
+        }
+
+        private async void ButtonRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonRefresh.IsEnabled = false;
+
+            await SyncAsync(); // offline sync
+            await RefreshTodoItems();
+
+            ButtonRefresh.IsEnabled = true;
+        }
+
+10. `SyncAsync` メソッドに例外ハンドラーを追加します。
+
+        private async Task SyncAsync()
+        {
+            String errorString = null;
+
+            try
+            {
+                await App.MobileService.SyncContext.PushAsync();
+                await todoTable.PullAsync("todoItems", todoTable.CreateQuery()); // first param is query ID, used for incremental sync
+            }
+
+            catch (MobileServicePushFailedException ex)
+            {
+                errorString = "Push failed because of sync errors: " +
+                  ex.PushResult.Errors.Count + " errors, message: " + ex.Message;
+            }
+            catch (Exception ex)
+            {
+                errorString = "Pull failed: " + ex.Message +
+                  "\n\nIf you are still in an offline scenario, " +
+                  "you can try your Pull again when connected with your Mobile Serice.";
+            }
+
+            if (errorString != null)
+            {
+                MessageDialog d = new MessageDialog(errorString);
+                await d.ShowAsync();
+            }
+        }
+
+    この例では、リモート `todoTable` ですべてのレコードを取得しますが、クエリを渡すことによりレコードをフィルタリングすることも可能です。 `PullAsync` の最初のパラメーターは増分同期に使用されるクエリ ID ですが、この同期では、`UpdatedAt` タイムスタンプを使用して最後の同期から変更があったレコードのみを取得します。 クエリ ID は、アプリ内の各論理クエリに対して一意の、わかりやすい文字列にする必要があります。 増分同期を解除するには、`null` をクエリ ID として渡します。 これによってプル操作ごとにすべてのレコードを取得することになり、効率が悪くなる可能性があります。
+
+    >[AZURE.NOTE] * モバイル サービス データベースで削除されたときに、デバイスのローカル ストアからレコードを削除して、する必要が有効にする [Soft Delete]します。 有効にしない場合は、アプリで定期的に `IMobileServiceSyncTable.PurgeAsync()` を呼び出して、ローカル ストアを削除する必要があります。
+
+    `MobileServicePushFailedException` はプッシュ操作とプル操作の両方で発生する場合があることに注意してください。 リレーションシップを持つすべてのテーブルに一貫性があることを確認するために、プル操作で内部的にプッシュが実行されることから、この例外はプルで発生する可能性があります。 次のチュートリアル、 [Handling conflicts with offline support for Mobile Services], 、これらの処理方法を示しています。 同期関連の例外です。
+
+11. Visual Studio でキーを押して、 **f5 キーを押して** キー、アプリケーションをリビルドして実行します。 アプリケーションは、前にオフライン同期の変更を実施したときと同様に動作しますが、これは挿入や更新の操作時にアプリケーションが同期の動作をするためです。
+
+## <a name="update-sync"></a>アプリケーションの同期の動作を更新する
+
+このセクションではアプリケーションを変更の場合にのみが、insert および update 操作で同期されないように、 **更新** ] ボタンが押されました。 その後、オフラインの状況をシミュレートするために、モバイル サービスに対するアプリケーションの接続を解除します。 データ項目を追加すると、それらはローカル ストア内に保持されますが、モバイル サービスには同期されません。
+
+1. 共有プロジェクトで MainPage.cs を開きます。 `InsertTodoItem` および `UpdateCheckedTodoItem` メソッドを編集し、`SyncAsync` の呼び出しをコメント アウトします。
+
+2. 共有プロジェクトで App.xaml.cs を編集します。 初期化をコメント アウト、 **MobileServiceClient** し、無効なモバイル サービス URL を使用する次の行を追加します。
+
+         public static MobileServiceClient MobileService = new MobileServiceClient(
+            "https://your-mobile-service.azure-mobile.xxx/",
+            "AppKey"
+        );
+
+3. `InitLocalStoreAsync()` で、`SyncAsync()` の呼び出しをコメント アウトします。これで、アプリケーションは起動時に同期を実行しません。
+
+4. キーを押して **f5 キーを押して** 、アプリケーションをビルドして実行します。 新しい todo 項目を入力し、クリックして **保存** ごとにします。 モバイル サービスにプッシュされるまで、新しい todo 項目はローカル ストア内にのみ存在します。 クライアント アプリケーションは、まるで作成、読み取り、更新、削除 (CRUD) 操作のすべてをサポートするモバイル サービスに接続されているかのように動作します。
+
+5. アプリケーションを終了し、再起動して、作成した新しい項目がローカル ストアに保存されていることを確認します。
+
+## <a name="update-online-app"></a>モバイル サービスに再接続するようにアプリケーションを更新する
+
+ここでは、アプリケーションをモバイル サービスに再接続します。 これは、アプリケーションがオフライン状態から、モバイル サービスとのオンライン状態に移行したことをシミュレートします。 [Refresh] をクリックすると、データがモバイル サービスに同期されます。
+
+1. 共有プロジェクトで App.xaml.cs を開きます。 先の `MobileServiceClient` の初期化をコメント解除し、正しいモバイル サービスの URL とアプリケーション キーを追加し直します。
+
+2. キーを押して、 **f5 キーを押して** キー、アプリケーションをリビルドして実行します。 アプリケーションは現在モバイル サービスに接続されていますが、オフラインの状況と同じ表示になっていることに注意してください。 この原因は、このアプリケーションが常に、ローカル ストアを指している `IMobileServiceSyncTable` との組み合わせで動作していることにあります。
+
+3. ログイン、 [Azure classic portal] し、モバイル サービスのデータベースを確認します。 データを参照できる、サービスは、モバイル サービスの JavaScript バックエンドを使用している場合、 **データ** でモバイル サービス] タブをクリックします。
+
+    場合は、モバイル サービスの .NET バックエンドを使用している Visual Studio に移動 **サーバー エクスプ ローラー** ]-> [ **Azure** ]-> [ **SQL データベース**します。 データベースを右クリックし、選択 **[SQL Server オブジェクト エクスプ ローラーで開く**します。
+
+    データベースとローカル ストアの間でデータがまだ同期されていないことを確認します。
+
+    ![][6]
+
+4. アプリケーションで、キーを押して、 **更新** ] ボタンをクリックします。 これにより、アプリケーションは `PushAsync` および `PullAsync` を呼び出します。 このプッシュ操作により、ローカル ストアの項目が Mobile Services に送信され、Mobile Services から新しいデータが取得されます。
+
+    プッシュ操作は `IMobileServicesSyncTable` の代わりに、`MobileServiceClient.SyncContext` を実行し、同期コンテキストに関連付けられているすべてのテーブルに対して変更をプッシュします。 これは、テーブル間にリレーションシップがある状況に対応することを目的としています。
+
+    ![][7]
+
+5. アプリケーションで、ローカル ストアで完了させる項目の横にあるチェック ボックスをクリックします。
+
+    ![][8]
+
+6. プッシュ、 **更新** 再度] クリックすると `SyncAsync` に呼び出されます。 `SyncAsync` プッシュとプルの両方を呼び出しますが、ここで私たちでした削除呼び出し `PushAsync`します。 これは、 **プル常には、プッシュ最初**します。 これは、ローカル ストアのすべてのテーブルとリレーションシップの一貫性を確実に保つためです。
+
+    ![][10]
+
+
+##概要
+
+[AZURE.INCLUDE [mobile-services-offline-summary-csharp](../../includes/mobile-services-offline-summary-csharp.md)]
+
+## 次のステップ
+
+* [モバイル サービスのオフライン サポートでの競合を処理する]
+
+* [Mobile Services での論理削除の使用方法][Soft Delete]
+
+<!-- Anchors. -->
+[Update the app to support offline features]: #enable-offline-app
+[Update the sync behavior of the app]: #update-sync
+[Update the app to reconnect your mobile service]: #update-online-app
+[Next Steps]:#next-steps
+
+<!-- Images -->
+[1]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
+[2]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-sqlitestore-nuget.png
+[6]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-data-browse.png
+[7]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-data-browse2.png
+[8]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-online-app-run2.png
+[10]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-data-browse3.png
+[11]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-add-wp81-reference-sqlite-dialog.png
+[12]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/new-synchandler-class.png
+[13]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/cpu-architecture.png
+
+
+<!-- URLs. -->
+[Handling conflicts with offline support for Mobile Services]: mobile-services-windows-store-dotnet-handling-conflicts-offline-data.md
+[TodoList Offline Sample]: http://go.microsoft.com/fwlink/?LinkId=394777
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Getting Started]: ../mobile-services-dotnet-backend-windows-phone-get-started.md
+[Get started with Mobile Services]: ../mobile-services-windows-store-get-started.md
+[SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
+[SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=397953
+[Soft Delete]: mobile-services-using-soft-delete.md
+
+
+[Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
+[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
+[Azure classic portal]: https://manage.windowsazure.com
+
+

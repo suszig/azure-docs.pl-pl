@@ -1,0 +1,266 @@
+<properties 
+   pageTitle="CLI を使用して ARM モードで静的プライベート IP を設定する方法 | Microsoft Azure"
+   description="静的 IP (DIP) とそれらを CLI を使用して ARM モードで管理する方法を理解します。"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carmonm"
+   editor="tysonn"
+   tags="azure-resource-manager"
+/>
+<tags 
+   ms.service="virtual-network"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="12/11/2015"
+   ms.author="telmos" />
+
+# Azure CLI での静的プライベート IP アドレスの設定方法
+
+[AZURE.INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
+
+[AZURE.INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
+
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] この記事では、リソース マネージャーの配置モデルについて説明します。 こともできます [従来のデプロイ モデルでの静的なプライベート IP アドレスを管理](virtual-networks-static-private-ip-classic-cli.md)します。
+
+[AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
+
+次のサンプル Azure CLI コマンドでは、単純な環境が既に作成されていると想定します。 このドキュメントに表示されているように、コマンドを実行する場合は、最初に説明されているテスト環境にビルド [vnet を作成する](virtual-networks-create-vnet-arm-cli.md)です。
+
+## VM 作成時に静的プライベート IP アドレスを指定する方法
+という名前の VM を作成する *DNS01* で、 *フロント エンド* という名前の VNet のサブネット *TestVNet* の静的なプライベート ip アドレス *192.168.1.101*, 、次の手順に従います。
+
+1. Azure CLI を初めて使用する場合は、次を参照してください。 [のインストールと Azure CLI の構成](xplat-cli-install.md) Azure アカウントとサブスクリプションを選択する時点までの指示に従います。
+
+2. 実行、 **azure config モード** コマンドを次に示すように、リソース マネージャー モードに切り替えます。
+
+        azure config mode arm
+
+    予想される出力:
+
+        info:    New mode is arm
+
+3. 実行、 **azure ネットワークのパブリック ip を作成** を VM のパブリック IP を作成します。 出力の後に表示されるリストは、使用されたパラメーターについての説明です。
+
+        azure network public-ip create -g TestRG -n TestPIP -l centralus
+    
+    予想される出力:
+
+        info:    Executing command network public-ip create
+        + Looking up the public ip "TestPIP"
+        + Creating public ip address "TestPIP"
+        + Looking up the public ip "TestPIP"
+        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestPIP
+        data:    Name                            : TestPIP
+        data:    Type                            : Microsoft.Network/publicIPAddresses
+        data:    Location                        : centralus
+        data:    Provisioning state              : Succeeded
+        data:    Allocation method               : Dynamic
+        data:    Idle timeout                    : 4
+        info:    network public-ip create command OK
+
+    - **-g (または - リソース グループ)**します。 パブリック IP の作成場所となるリソース グループの名前です。
+    - **n (または - 名前)**します。 パブリック IP の名前です。
+    - **-l (または --location)**します。 パブリック IP が作成される Azure リージョンです。 このシナリオの *centralus*します。
+
+3. 実行、 **azure ネットワークの nic を作成** 静的なプライベート ip アドレスを NIC を作成するコマンドです。 出力の後に表示されるリストは、使用されたパラメーターについての説明です。
+
+        azure network nic create -g TestRG -n TestNIC -l centralus -a 192.168.1.101 -m TestVNet -k FrontEnd
+
+    予想される出力:
+
+        + Looking up the network interface "TestNIC"
+        + Looking up the subnet "FrontEnd"
+        + Creating network interface "TestNIC"
+        + Looking up the network interface "TestNIC"
+        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC
+        data:    Name                            : TestNIC
+        data:    Type                            : Microsoft.Network/networkInterfaces
+        data:    Location                        : centralus
+        data:    Provisioning state              : Succeeded
+        data:    Enable IP forwarding            : false
+        data:    IP configurations:
+        data:      Name                          : NIC-config
+        data:      Provisioning state            : Succeeded
+        data:      Private IP address            : 192.168.1.101
+        data:      Private IP Allocation Method  : Static
+        data:      Subnet                        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
+        data:
+        info:    network nic create command OK
+
+    - **は、(または - プライベート ip アドレス)**します。 NIC の静的プライベート IP アドレスです。
+    - **-m (または - サブネット vnet 名)**します。 NIC の作成先となる VNet の名前です。
+    - **-k (または - サブネット名)**します。 NIC の作成先となるサブネットの名前です。
+
+4. 実行、 **azure 仮想マシンの作成** パブリック IP および上記で作成した NIC を使用して VM を作成するコマンドです。 出力の後に表示されるリストは、使用されたパラメーターについての説明です。
+
+        azure vm create -g TestRG -n DNS01 -l centralus -y Windows -f TestNIC -i TestPIP -F TestVNet -j FrontEnd -o vnetstorage -q bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2 -u adminuser -p AdminP@ssw0rd
+
+    予想される出力:
+
+        info:    Executing command vm create
+        + Looking up the VM "DNS01"
+        info:    Using the VM Size "Standard_A1"
+        warn:    The image "bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2" will be used for VM
+        info:    The [OS, Data] Disk or image configuration requires storage account
+        + Looking up the storage account vnetstorage
+        + Looking up the NIC "TestNIC"
+        info:    Found an existing NIC "TestNIC"
+        info:    Found an IP configuration with virtual network subnet id "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd" in the NIC "TestNIC"
+        info:    Found public ip parameters, trying to setup PublicIP profile
+        + Looking up the public ip "TestPIP"
+        info:    Found an existing PublicIP "TestPIP"
+        info:    Configuring identified NIC IP configuration with PublicIP "TestPIP"
+        + Updating NIC "TestNIC"
+        + Looking up the NIC "TestNIC"
+        + Creating VM "DNS01"
+        info:    vm create command OK
+
+    - **-y (または--os 型)**します。 オペレーティング システムの VM のいずれかの種類 *Windows* または *Linux*です。
+    - **-f (または--nic 名)**します。 VM が使用する NIC の名前です。
+    - **-i (または - パブリック ip 名)**します。 VM が使用するパブリック IP の名前です。
+    - **-F (または--vnet 名)**します。 VM の作成先となる VNet の名前です。
+    - **-j (または--vnet サブネット名)**します。 VM の作成先となるサブネットの名前です。
+
+## VM 用の静的プライベート IP アドレス情報を取得する方法
+
+前述のスクリプトで作成した VM の静的なプライベート IP アドレス情報を表示するには次の Azure CLI コマンドを実行しの値を確認します *プライベート IP alloc メソッド* と *プライベート IP アドレス*:
+
+    azure vm show -g TestRG -n DNS01
+
+予想される出力:
+
+    info:    Executing command vm show
+    + Looking up the VM "DNS01"
+    + Looking up the NIC "TestNIC"
+    + Looking up the public ip "TestPIP
+    data:    Id                              :/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/DNS01
+    data:    ProvisioningState               :Succeeded
+    data:    Name                            :DNS01
+    data:    Location                        :centralus
+    data:    Type                            :Microsoft.Compute/virtualMachines
+    data:
+    data:    Hardware Profile:
+    data:      Size                          :Standard_A1
+    data:
+    data:    Storage Profile:
+    data:      Source image:
+    data:        Id                          :/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/services/images/bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2
+    data:
+    data:      OS Disk:
+    data:        OSType                      :Windows
+    data:        Name                        :cli08d7bd987a0112a8-os-1441774961355
+    data:        Caching                     :ReadWrite
+    data:        CreateOption                :FromImage
+    data:        Vhd:
+    data:          Uri                       :https://vnetstorage2.blob.core.windows.net/vhds/cli08d7bd987a0112a8-os-1441774961355vhd
+    data:
+    data:    OS Profile:
+    data:      Computer Name                 :DNS01
+    data:      User Name                     :adminuser
+    data:      Windows Configuration:
+    data:        Provision VM Agent          :true
+    data:        Enable automatic updates    :true
+    data:
+    data:    Network Profile:
+    data:      Network Interfaces:
+    data:        Network Interface #1:
+    data:          Id                        :/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC
+    data:          Primary                   :true
+    data:          MAC Address               :00-0D-3A-90-1A-A8
+    data:          Provisioning State        :Succeeded
+    data:          Name                      :TestNIC
+    data:          Location                  :centralus
+    data:            Private IP alloc-method :Static
+    data:            Private IP address      :192.168.1.101
+    data:            Public IP address       :40.122.213.159
+    info:    vm show command OK
+
+## VM から静的プライベート IP アドレスを削除する方法
+リソース マネージャーの Azure CLI では、NIC から静的プライベート IP アドレスを削除することはできません。 動的 IP を使用する新しい NIC を作成し、VM から以前の NIC を削除して、VM に新しい NIC を追加する必要があります。 上記のコマンドで使用された VM の NIC を変更するには、次の手順に従います。
+    
+1. 実行、 **azure ネットワークの nic を作成** 動的 IP の割り当てを使用して、新しい NIC を作成するコマンドです。 ここでは IP アドレスを指定する必要がないことに注意してください。
+
+        azure network nic create -g TestRG -n TestNIC2 -l centralus -m TestVNet -k FrontEnd
+
+    予想される出力:
+
+        info:    Executing command network nic create
+        + Looking up the network interface "TestNIC2"
+        + Looking up the subnet "FrontEnd"
+        + Creating network interface "TestNIC2"
+        + Looking up the network interface "TestNIC2"
+        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC2
+        data:    Name                            : TestNIC2
+        data:    Type                            : Microsoft.Network/networkInterfaces
+        data:    Location                        : centralus
+        data:    Provisioning state              : Succeeded
+        data:    Enable IP forwarding            : false
+        data:    IP configurations:
+        data:      Name                          : NIC-config
+        data:      Provisioning state            : Succeeded
+        data:      Private IP address            : 192.168.1.6
+        data:      Private IP Allocation Method  : Dynamic
+        data:      Subnet                        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
+        data:
+        info:    network nic create command OK
+
+2. 実行、 **azure vm セット** VM で使用される NIC を変更するコマンドです。
+
+        azure vm set -g TestRG -n DNS01 -N TestNIC2
+
+    予想される出力:
+
+        info:    Executing command vm set
+        + Looking up the VM "DNS01"
+        + Looking up the NIC "TestNIC2"
+        + Updating VM "DNS01"
+        info:    vm set command OK
+
+3. 場合は、実行、 **azure ネットワーク nic 削除** 古い NIC を削除するコマンド
+
+        azure network nic delete -g TestRG -n TestNIC --quiet
+
+    予想される出力:
+
+        info:    Executing command network nic delete
+        + Looking up the network interface "TestNIC"
+        + Deleting network interface "TestNIC"
+        info:    network nic delete command OK
+
+## 既存の VM に静的プライベート IP アドレスを追加する方法
+上記のスクリプトを使用して作成された VM によって使用される NIC に静的プライベート IP アドレスを追加するには、次のコマンドを実行します。
+
+    azure netwrok nic set -g TestRG -n TestNIC2 -a 192.168.1.101
+
+予想される出力:
+
+    info:    Executing command network nic set
+    + Looking up the network interface "TestNIC2"
+    + Updating network interface "TestNIC2"
+    + Looking up the network interface "TestNIC2"
+    data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC2
+    data:    Name                            : TestNIC2
+    data:    Type                            : Microsoft.Network/networkInterfaces
+    data:    Location                        : centralus
+    data:    Provisioning state              : Succeeded
+    data:    MAC address                     : 00-0D-3A-90-29-25
+    data:    Enable IP forwarding            : false
+    data:    Virtual machine                 : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/DNS01
+    data:    IP configurations:
+    data:      Name                          : NIC-config
+    data:      Provisioning state            : Succeeded
+    data:      Private IP address            : 192.168.1.101
+    data:      Private IP Allocation Method  : Static
+    data:      Subnet                        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
+    data:
+    info:    network nic set command OK
+
+## 次のステップ
+
+- について学習 [予約済みパブリック IP](../virtual-networks-reserved-public-ip) アドレス。
+- について学習 [インスタンス レベル パブリック IP (ILPIP)](../virtual-networks-instance-level-public-ip) アドレス。
+- 参照してください、 [予約済み IP REST Api](https://msdn.microsoft.com/library/azure/dn722420.aspx)します。
+

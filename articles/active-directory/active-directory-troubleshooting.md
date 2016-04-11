@@ -1,0 +1,56 @@
+<properties
+   pageTitle="トラブルシューティング: Active Directory 項目が不足しているか使用できない | Microsoft Azure "
+   description="Microsoft Azure 管理ポータルに Active Directory メニュー項目が表示されないときの対処方法。"
+   services="active-directory"
+   documentationCenter="na"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
+
+<tags
+   ms.service="active-directory"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="12/04/2015"
+   ms.author="mbaldwin"/>
+
+# トラブルシューティング: Active Directory 項目が不足しているか使用できない
+
+始まる Azure Active Directory の機能とサービスを使用するための手順の大部分に"Azure の管理ポータルに移動し、クリックして **Active Directory**." どうすれば、Active Directory 拡張機能またはメニュー項目が表示されない場合、またはマークされている場合、 **不可**でしょうか。 このトピックを役立ててください。 について説明する条件を **Active Directory** が表示されないまたはことはできませんし、続行する方法について説明します。
+
+## Active Directory が見つからない
+
+通常、 **Active Directory** 左ナビゲーション メニューの項目が表示されます。 Azure Active Directory に関する手順は、この項目が表示されていることを前提とします。
+
+![画面ショット: Azure 内の Active Directory](./media/active-directory-troubleshooting/typical-view.png)
+
+Active Directory 項目は、次のいずれかの条件が満たされている場合に左側のナビゲーション メニューの中に表示されます。 条件に該当しない場合、項目は表示されません。
+
+* 現在のユーザーが Microsoft アカウント (旧 Windows Live ID) でサインインした。
+
+    または
+
+* Azure テナントがディレクトリを持っており、現在のアカウントがディレクトリ管理者である。
+
+    または
+
+* Azure テナントが少なくとも 1 つの Azure AD Access Control (ACS) 名前空間を持っている。 詳細については、次を参照してください。 [Access Control 名前空間](https://msdn.microsoft.com/library/azure/gg185908.aspx)します。
+
+    または
+
+* Azure テナントが少なくとも 1 つの Azure Multi-factor Authentication プロバイダーを持っている。 詳細については、次を参照してください。 [Azure 多要素認証プロバイダーの管理](multi-factor-authentication-get-started-cloud.md/creating-an-azure-multi-factor-auth-provider)します。
+
+Access Control の名前空間または多要素認証プロバイダーを作成する] をクリックして **+ 新規** > **App Services** > **Active Directory**します。
+
+ディレクトリに対する管理権限を取得するには、使用中のアカウントに管理者ロールを割り当てるように管理者に依頼してください。 詳細については、「 [管理者ロールの割り当て](active-directory-assign-admin-roles.md)います。
+
+## Active Directory を使用できない
+
+クリックすると、 **+ 新規** > **App Services**, 、 **Active Directory** 項目が表示されます。 具体的に言うと、Active Directory 項目は、現在のユーザーがディレクトリ、Access Control、多要素認証プロバイダーなどの Active Directory の機能のいずれかを利用できる場合に表示されます。
+
+ただし、ページの読み込み中、項目は淡色表示し、マークされて **不可**します。 これは一時的な状態です。 数秒待てば、項目は使用可能になります。 待ち時間が長いときは、Web ページを更新すれば、多くの場合、問題が解決します。
+
+![画面ショット: Active Directory を使用できない](./media/active-directory-troubleshooting/not-available.png)
+

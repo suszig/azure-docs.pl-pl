@@ -1,0 +1,556 @@
+<properties 
+    pageTitle="BLOB サービスによる SAS の作成および使用 | Microsoft Azure" 
+    description="BLOB サービスによる共有アクセス署名の生成と使用について説明します。" 
+    services="storage" 
+    documentationCenter="" 
+    authors="tamram" 
+    manager="adinah" 
+    editor="cgronlun"/>
+
+<tags 
+    ms.service="storage" 
+    ms.workload="storage" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="09/03/2015" 
+    ms.author="tamram"/>
+
+
+# 共有アクセス署名、第 2 部: BLOB サービスによる SAS の作成および使用
+
+## 概要
+
+[第 1 部](storage-dotnet-shared-access-signature-part-1.md) 共有アクセス署名 (SAS) を紹介し、それらを使用するためのベスト プラクティスを説明します。 第 2 部では、Azure BLOB サービスで共有アクセス署名を生成し、使用する方法を説明します。 例は C# で記述され、Azure .NET 用ストレージ クライアント ライブラリを利用しています。 説明しているシナリオには、共有アクセス署名を使用する場合の次の側面が含まれます。
+
+- コンテナーでの共有アクセス署名の生成
+- BLOB での共有アクセス署名の生成
+- 保存されているアクセス ポリシーの作成と、コンテナーのリソースでの署名の管理
+- クライアント アプリケーションからの共有アクセス署名のテスト
+
+## このチュートリアルについて
+このチュートリアルでは、2 種類のコンソール アプリケーションを作成して、コンテナーおよび BLOB の共有アクセス署名を作成する方法について特に説明します。 最初のコンソール アプリケーションで、コンテナーと BLOB に共有アクセス署名が生成されます。 このアプリケーションは、ストレージ アカウント キーを認識しています。 2 番目のコンソール アプリケーションはクライアント アプリケーションとして機能するアプリケーションであり、最初のアプリケーションが作成した共有アクセス署名を使って、コンテナー リソースと BLOB リソースにアクセスします。 このアプリケーションは、コンテナー リソースと BLOB リソースへのアクセスを認証するためにだけ、共有アクセス署名を使用します。アカウント キーは認識していません。
+
+## 第 1 部 : コンソール アプリケーションの作成と共有アクセス署名の生成
+
+まず、Azure .NET 用ストレージ クライアント ライブラリがインストールされていることを確認します。 インストールすることができます、 [NuGet パッケージ](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet パッケージ") クライアント ライブラリの最新アセンブリを含むこれは、最新の修正プログラムがあることを確認する方法をお勧めします。 最新バージョンの一部として、クライアント ライブラリをダウンロードすることも、 [Azure SDK for .NET](http://azure.microsoft.com/downloads/)します。
+
+Visual Studio で、新しい Windows コンソール アプリケーションを作成し、名前を付けます **GenerateSharedAccessSignatures**します。 参照を追加  **Microsoft.WindowsAzure.Configuration.dll** と **Microsoft.WindowsAzure.Storage.dll**, 、次の方法のいずれかを使用します。
+
+-   NuGet パッケージをインストールする場合は、まずインストール、 [Visual Studio 用 NuGet パッケージ マネージャー拡張機能](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)です。 Visual Studio で、次のように選択します **プロジェクト |。NuGet パッケージの管理**, 、オンラインで検索 **Azure Storage**, をインストールする指示に従います。
+-   または、インストールした Azure SDK でアセンブリを探し、そのアセンブリへの参照を追加することもできます。
+ 
+Program.cs ファイルの上部にある次のコードを追加 **を使用して** ステートメント。
+
+    using System.IO;    
+    using Microsoft.WindowsAzure;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.Storage.Blob;
+
+自分のストレージ アカウントを指定する接続文字列を含む構成設定が含まれるように、app.config ファイルを編集します。 編集した app.config ファイルは、次のようになります。
+
+    <configuration>
+      <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+      </startup>
+      <appSettings>
+        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey"/>
+      </appSettings> 
+    </configuration>
+
+### コンテナーの共有アクセス署名 URI の生成
+
+最初に、新しいコンテナーで共有アクセス署名を生成するメソッドを追加します。 この場合、署名は保存されたアクセス ポリシーには関連付けられないため、その有効期限および付与するアクセス許可を示す情報が URI に含まれます。
+
+まず、コードを追加、 **Main()** 、ストレージ アカウントへのアクセスを認証し、新しいコンテナーを作成する方法。
+
+    static void Main(string[] args)
+    {
+        //Parse the connection string and return a reference to the storage account.
+        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+        
+        //Create the blob client object.
+        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+        
+        //Get a reference to a container to use for the sample code, and create it if it does not exist.
+        CloudBlobContainer container = blobClient.GetContainerReference("sascontainer");
+        container.CreateIfNotExists();
+        
+        //Insert calls to the methods created below here...
+        
+        //Require user input before closing the console window.
+        Console.ReadLine();
+    }
+
+次に、コンテナーの共有アクセス署名を生成し、署名 URI を返す新しいメソッドを追加します。
+
+    static string GetContainerSasUri(CloudBlobContainer container)
+    {
+        //Set the expiry time and permissions for the container.
+        //In this case no start time is specified, so the shared access signature becomes valid immediately.
+        SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy();
+        sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
+        sasConstraints.Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.List;
+        
+        //Generate the shared access signature on the container, setting the constraints directly on the signature.
+        string sasContainerToken = container.GetSharedAccessSignature(sasConstraints);
+        
+        //Return the URI string for the container, including the SAS token.
+        return container.Uri + sasContainerToken;
+    }
+
+下部にある次の行を追加、 **Main()** メソッドの呼び出しの前に **Console.ReadLine()**, を呼び出す **GetContainerSasUri()** をコンソール ウィンドウに、署名 URI を書き込みます。
+
+    //Generate a SAS URI for the container, without a stored access policy.
+    Console.WriteLine("Container SAS URI: " + GetContainerSasUri(container));
+    Console.WriteLine();
+
+コンパイルし、実行して、新しいコンテナーの共有アクセス署名 URI を出力します。 URI は、次の URI のようになります。       
+
+    https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D
+
+コードを実行すると、コンテナーで作成した共有アクセス署名が 24 時間だけ有効になります。 署名によってクライアントには、コンテナー内の BLOB の一覧を表示し、新しい BLOB をコンテナーに書き込むアクセス許可が付与されます。
+
+### BLOB の共有アクセス署名 URI の生成
+
+次に、同様のコードを作成して、新しい BLOB をコンテナー内に作成し、その共有アクセス署名を生成します。 この共有アクセス署名は、保存されているアクセス ポリシーに関連付けられておらず、開始時刻、有効期限、およびアクセス許可情報が URI に含まれています。
+
+新しい BLOB を作成してテキストを書き込んだ後に共有アクセス署名を生成し、署名 URI を返す新しいメソッドを追加します。
+
+    static string GetBlobSasUri(CloudBlobContainer container)
+    {
+        //Get a reference to a blob within the container.
+        CloudBlockBlob blob = container.GetBlockBlobReference("sasblob.txt");
+        
+        //Upload text to the blob. If the blob does not yet exist, it will be created. 
+        //If the blob does exist, its existing content will be overwritten.
+        string blobContent = "This blob will be accessible to clients via a Shared Access Signature.";
+        MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(blobContent));
+        ms.Position = 0;
+        using (ms)
+        {
+            blob.UploadFromStream(ms);
+        }
+        
+        //Set the expiry time and permissions for the blob.
+        //In this case the start time is specified as a few minutes in the past, to mitigate clock skew.
+        //The shared access signature will be valid immediately.
+        SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy();
+        sasConstraints.SharedAccessStartTime = DateTime.UtcNow.AddMinutes(-5);
+        sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
+        sasConstraints.Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Write;
+        
+        //Generate the shared access signature on the blob, setting the constraints directly on the signature.
+        string sasBlobToken = blob.GetSharedAccessSignature(sasConstraints);
+        
+        //Return the URI string for the container, including the SAS token.
+        return blob.Uri + sasBlobToken;
+    }
+
+下部にある、 **Main()** メソッドに次の行を追加 **GetBlobSasUri()**, を呼び出す前に **Console.ReadLine()**, 、共有アクセス署名 URI をコンソール ウィンドウに書き込むと。    
+    
+    //Generate a SAS URI for a blob within the container, without a stored access policy.
+    Console.WriteLine("Blob SAS URI: " + GetBlobSasUri(container));
+    Console.WriteLine();
+    
+
+コンパイルし、実行して、新しい BLOB の共有アクセス署名 URI を出力します。 URI は、次の URI のようになります。
+
+    https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
+
+### 保存されているアクセス ポリシーのコンテナーでの作成
+
+今度は、保存されているアクセス ポリシーをコンテナーで作成します。これで、関連付けられているすべての共有アクセス署名の制約が定義されます。
+
+前の例で、共有アクセス署名 URI 自体の開始時刻 (暗黙の、または明示的な)、有効期限、およびアクセス許可を指定しました。 次の例では、これらを、共有アクセス署名ではなく、保存されているアクセス ポリシーで指定します。 こうすると、共有アクセス署名を再発行せずに、これらの制約を変更できます。
+
+共有アクセス署名に 1 つ以上の制約を指定し、保存されているアクセス ポリシーに残りの制約を指定することができます。 ただし、開始時刻、有効期限、およびアクセス許可はどちらか一方にだけ指定できます。たとえば、アクセス許可を共有アクセス署名に指定し、保存されているアクセス ポリシーにも指定することはできません。
+
+アクセス ポリシーをコンテナーに追加するときは、コンテナーの既存のアクセス許可を取得し、新しいアクセス ポリシーを追加した後、コンテナーのアクセス許可を設定する必要があります。
+
+コンテナーに保存される新しいアクセス ポリシーを作成し、そのポリシーの名前を返す新しいメソッドを、次のように追加します。
+
+    static void CreateSharedAccessPolicy(CloudBlobClient blobClient, CloudBlobContainer container, 
+        string policyName)
+    {
+        //Create a new shared access policy and define its constraints.
+        SharedAccessBlobPolicy sharedPolicy = new SharedAccessBlobPolicy()
+        {
+            SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
+            Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.List | SharedAccessBlobPermissions.Read
+        };
+
+        //Get the container's existing permissions.
+        BlobContainerPermissions permissions = container.GetPermissions();
+
+        //Add the new policy to the container's permissions, and set the container's permissions.
+        permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
+        container.SetPermissions(permissions);
+    }
+
+下部にある、 **Main()** メソッドの呼び出しの前に **Console.ReadLine()**, 、既存のアクセス ポリシーを clear を最初に、次の行を追加および物書き、 **CreateSharedAccessPolicy()** メソッド。    
+
+    //Clear any existing access policies on container.
+    BlobContainerPermissions perms = container.GetPermissions();
+    perms.SharedAccessPolicies.Clear();
+    container.SetPermissions(perms);
+
+    //Create a new access policy on the container, which may be optionally used to provide constraints for 
+    //shared access signatures on the container and the blob.
+    string sharedAccessPolicyName = "tutorialpolicy";
+    CreateSharedAccessPolicy(blobClient, container, sharedAccessPolicyName);
+
+コンテナーのアクセス ポリシーを消去するときは、最初にコンテナーの既存のアクセス許可を取得し、アクセス許可を消去した後、もう一度アクセス許可を設定する必要があります。
+
+### アクセス ポリシーを使用するコンテナーでの共有アクセス署名 URI の生成
+
+次に、先に作成したコンテナーで別の共有アクセス署名を作成しますが、今度は、前の例で作成したアクセス ポリシーに署名を関連付けます。
+
+コンテナーで別の共有アクセス署名を生成する新しいメソッドを追加します。
+
+    static string GetContainerSasUriWithPolicy(CloudBlobContainer container, string policyName)
+    {
+        //Generate the shared access signature on the container. In this case, all of the constraints for the 
+        //shared access signature are specified on the stored access policy.
+        string sasContainerToken = container.GetSharedAccessSignature(null, policyName);
+        
+        //Return the URI string for the container, including the SAS token.
+        return container.Uri + sasContainerToken;
+    }
+    
+下部にある、 **Main()** メソッドの呼び出しの前に **Console.ReadLine()**, には、次の行を追加、 **GetContainerSasUriWithPolicy** メソッド。
+
+    //Generate a SAS URI for the container, using a stored access policy to set constraints on the SAS.
+    Console.WriteLine("Container SAS URI using stored access policy: " + GetContainerSasUriWithPolicy(container, sharedAccessPolicyName));
+    Console.WriteLine();
+
+### アクセス ポリシーを使用する BLOB での共有アクセス署名 URI の生成
+
+最後に、同様のメソッドを追加することで、別の BLOB を作成し、アクセス ポリシーに関連付けられた共有アクセス署名を生成します。
+
+BLOB を作成し、共有アクセス署名を生成する新しいメソッドを追加します。
+
+    static string GetBlobSasUriWithPolicy(CloudBlobContainer container, string policyName)
+    {
+        //Get a reference to a blob within the container.
+        CloudBlockBlob blob = container.GetBlockBlobReference("sasblobpolicy.txt");
+        
+        //Upload text to the blob. If the blob does not yet exist, it will be created. 
+        //If the blob does exist, its existing content will be overwritten.
+        string blobContent = "This blob will be accessible to clients via a shared access signature. " + 
+        "A stored access policy defines the constraints for the signature.";
+        MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(blobContent));
+        ms.Position = 0;
+        using (ms)
+        {
+            blob.UploadFromStream(ms);
+        }
+        
+        //Generate the shared access signature on the blob.
+        string sasBlobToken = blob.GetSharedAccessSignature(null, policyName);
+        
+        //Return the URI string for the container, including the SAS token.
+        return blob.Uri + sasBlobToken;
+    }
+
+下部にある、 **Main()** メソッドの呼び出しの前に **Console.ReadLine()**, には、次の行を追加、 **GetBlobSasUriWithPolicy** メソッド。    
+
+    //Generate a SAS URI for a blob within the container, using a stored access policy to set constraints on the SAS.
+    Console.WriteLine("Blob SAS URI using stored access policy: " + GetBlobSasUriWithPolicy(container, sharedAccessPolicyName));
+    Console.WriteLine();
+
+ **Main()** メソッドなります次のようにそのままです。 これを実行して、共有アクセス署名 URI をコンソール ウィンドウに書き込み、それをコピーしてテキスト ファイルに貼り付けます。これは、このチュートリアルの第 2 部で使用します。
+
+    static void Main(string[] args)
+    {
+        //Parse the connection string and return a reference to the storage account.
+        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+        
+        //Create the blob client object.
+        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+        
+        //Get a reference to a container to use for the sample code, and create it if it does not exist.
+        CloudBlobContainer container = blobClient.GetContainerReference("sascontainer");
+        container.CreateIfNotExists();
+        
+        //Generate a SAS URI for the container, without a stored access policy.
+        Console.WriteLine("Container SAS URI: " + GetContainerSasUri(container));
+        Console.WriteLine();
+        
+        //Generate a SAS URI for a blob within the container, without a stored access policy.
+        Console.WriteLine("Blob SAS URI: " + GetBlobSasUri(container));
+        Console.WriteLine();
+        
+        //Clear any existing access policies on container.
+        BlobContainerPermissions perms = container.GetPermissions();
+        perms.SharedAccessPolicies.Clear();
+        container.SetPermissions(perms);
+
+        //Create a new access policy on the container, which may be optionally used to provide constraints for 
+        //shared access signatures on the container and the blob.
+        string sharedAccessPolicyName = "tutorialpolicy";
+        CreateSharedAccessPolicy(blobClient, container, sharedAccessPolicyName);
+        
+        //Generate a SAS URI for the container, using a stored access policy to set constraints on the SAS.
+        Console.WriteLine("Container SAS URI using stored access policy: " + GetContainerSasUriWithPolicy(container, sharedAccessPolicyName));
+        Console.WriteLine();
+        
+        //Generate a SAS URI for a blob within the container, using a stored access policy to set constraints on the SAS.
+        Console.WriteLine("Blob SAS URI using stored access policy: " + GetBlobSasUriWithPolicy(container, sharedAccessPolicyName));
+        Console.WriteLine();
+        
+        Console.ReadLine();
+    }
+
+GenerateSharedAccessSignatures コンソール アプリケーションを実行すると、コンソール ウィンドウに次のような出力が表示されます。 これが、チュートリアルの第 2 部で使用する共有アクセス署名です。
+
+![sas-console-output-1][sas-console-output-1]
+
+## 第 2 部 : コンソール アプリケーションの作成と共有アクセス署名のテスト
+
+前の例で作成した共有アクセス署名をテストするために、署名を使用して、コンテナーと BLOB で操作を実行する、もう 1 つのコンソール アプリケーションを作成します。
+
+> [AZURE.NOTE] 24 時間以上が経過すると、チュートリアルの最初の部分を完了して、生成した署名は有効なできなくなります。 その場合は、最初のコンソール アプリケーションでコードを実行して、チュートリアルの第 2 部で使用するための新しい共有アクセス署名を生成する必要があります。
+
+Visual Studio で、新しい Windows コンソール アプリケーションを作成し、名前を付けます **ConsumeSharedAccessSignatures**します。 参照を追加 **Microsoft.WindowsAzure.Configuration.dll** と **Microsoft.WindowsAzure.Storage.dll**, までと同様、します。
+
+Program.cs ファイルの上部にある次のコードを追加 **を使用して** ステートメント。
+
+    using System.IO;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.Storage.Blob;
+    
+本体で、 **Main()** メソッドを次の定数を追加し、チュートリアルのパート 1 で生成した共有アクセス署名への値を更新します。
+
+    static void Main(string[] args)
+    {
+        string containerSAS = "<your container SAS>";
+        string blobSAS = "<your blob SAS>";
+        string containerSASWithAccessPolicy = "<your container SAS with access policy>";
+        string blobSASWithAccessPolicy = "<your blob SAS with access policy>";
+    }
+    
+### メソッドの追加と、共有アクセス署名を使用するコンテナー操作の実行
+
+次に、コンテナーで共有アクセス署名を使用する代表的なコンテナー操作をいくつかテストするメソッドを追加します。 共有アクセス署名は、署名だけに基づいてコンテナーへのアクセスを認証し、コンテナーに参照を返すために使用されることに注意してください。
+
+次のメソッドを Program.cs に追加します。
+
+    static void UseContainerSAS(string sas)
+    {
+        //Try performing container operations with the SAS provided.
+
+        //Return a reference to the container using the SAS URI.
+        CloudBlobContainer container = new CloudBlobContainer(new Uri(sas));
+
+        //Create a list to store blob URIs returned by a listing operation on the container.
+        List<ICloudBlob> blobList = new List<ICloudBlob>();
+
+        //Write operation: write a new blob to the container. 
+        try
+        {
+            CloudBlockBlob blob = container.GetBlockBlobReference("blobCreatedViaSAS.txt");
+            string blobContent = "This blob was created with a shared access signature granting write permissions to the container. ";
+            MemoryStream msWrite = new MemoryStream(Encoding.UTF8.GetBytes(blobContent));
+            msWrite.Position = 0;
+            using (msWrite)
+            {
+                blob.UploadFromStream(msWrite);
+            }
+            Console.WriteLine("Write operation succeeded for SAS " + sas);
+            Console.WriteLine();
+        }
+        catch (StorageException e)
+        {
+            Console.WriteLine("Write operation failed for SAS " + sas);
+            Console.WriteLine("Additional error information: " + e.Message);
+            Console.WriteLine();
+        }
+
+        //List operation: List the blobs in the container.
+        try
+        {
+            foreach (ICloudBlob blob in container.ListBlobs())
+            {
+                blobList.Add(blob);
+            }
+            Console.WriteLine("List operation succeeded for SAS " + sas);
+            Console.WriteLine();
+        }
+        catch (StorageException e)
+        {
+            Console.WriteLine("List operation failed for SAS " + sas);
+            Console.WriteLine("Additional error information: " + e.Message);
+            Console.WriteLine();
+        }
+
+        //Read operation: Get a reference to one of the blobs in the container and read it. 
+        try
+        {
+            CloudBlockBlob blob = container.GetBlockBlobReference(blobList[0].Name);
+            MemoryStream msRead = new MemoryStream();
+            msRead.Position = 0;
+            using (msRead)
+            {
+                blob.DownloadToStream(msRead);
+                Console.WriteLine(msRead.Length);
+            }
+            Console.WriteLine("Read operation succeeded for SAS " + sas);
+            Console.WriteLine();
+        }
+        catch (StorageException e)
+        {
+            Console.WriteLine("Read operation failed for SAS " + sas);
+            Console.WriteLine("Additional error information: " + e.Message);
+            Console.WriteLine();
+        }
+        Console.WriteLine();
+
+        //Delete operation: Delete a blob in the container.
+        try
+        {
+            CloudBlockBlob blob = container.GetBlockBlobReference(blobList[0].Name);
+            blob.Delete();
+            Console.WriteLine("Delete operation succeeded for SAS " + sas);
+            Console.WriteLine();
+        }
+        catch (StorageException e)
+        {
+            Console.WriteLine("Delete operation failed for SAS " + sas);
+            Console.WriteLine("Additional error information: " + e.Message);
+            Console.WriteLine();
+        }        
+    }
+
+
+更新プログラム、 **Main()** メソッドを呼び出す **UseContainerSAS()** 両方のコンテナーで作成した共有アクセス署名で。
+
+    static void Main(string[] args)
+    {
+        string containerSAS = "<your container SAS>";
+        string blobSAS = "<your blob SAS>";
+        string containerSASWithAccessPolicy = "<your container SAS with access policy>";
+        string blobSASWithAccessPolicy = "<your blob SAS with access policy>";
+    
+        //Call the test methods with the shared access signatures created on the container, with and without the access policy.
+        UseContainerSAS(containerSAS);
+        UseContainerSAS(containerSASWithAccessPolicy); 
+        
+        Console.ReadLine();
+    }
+
+
+### メソッドの追加と、共有アクセス署名を使用する BLOB 操作の実行
+
+最後に、BLOB で共有アクセス署名を使用する代表的な BLOB 操作をいくつかテストするメソッドを追加します。 コンス トラクターは、ここで使用して **cloudblockblob (string)**, を渡すことで、共有アクセス署名、blob への参照を取得します。 他の認証は不要で、署名だけに基づいて認証されます。
+
+次のメソッドを Program.cs に追加します。
+
+    static void UseBlobSAS(string sas)
+    {
+        //Try performing blob operations using the SAS provided.
+
+        //Return a reference to the blob using the SAS URI.
+        CloudBlockBlob blob = new CloudBlockBlob(new Uri(sas));
+
+        //Write operation: Write a new blob to the container. 
+        try
+        {
+            string blobContent = "This blob was created with a shared access signature granting write permissions to the blob. ";
+            MemoryStream msWrite = new MemoryStream(Encoding.UTF8.GetBytes(blobContent));
+            msWrite.Position = 0;
+            using (msWrite)
+            {
+                blob.UploadFromStream(msWrite);
+            }
+            Console.WriteLine("Write operation succeeded for SAS " + sas);
+            Console.WriteLine();
+        }
+        catch (StorageException e)
+        {
+            Console.WriteLine("Write operation failed for SAS " + sas);
+            Console.WriteLine("Additional error information: " + e.Message);
+            Console.WriteLine();
+        }
+
+        //Read operation: Read the contents of the blob.
+        try
+        {
+            MemoryStream msRead = new MemoryStream();
+            using (msRead)
+            {
+                blob.DownloadToStream(msRead);
+                msRead.Position = 0;
+                using (StreamReader reader = new StreamReader(msRead, true))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        Console.WriteLine(line);
+                    }
+                }
+            }
+            Console.WriteLine("Read operation succeeded for SAS " + sas);
+            Console.WriteLine();
+        }
+        catch (StorageException e)
+        {
+            Console.WriteLine("Read operation failed for SAS " + sas);
+            Console.WriteLine("Additional error information: " + e.Message);
+            Console.WriteLine();
+        }
+
+        //Delete operation: Delete the blob.
+        try
+        {
+            blob.Delete();
+            Console.WriteLine("Delete operation succeeded for SAS " + sas);
+            Console.WriteLine();
+        }
+        catch (StorageException e)
+        {
+            Console.WriteLine("Delete operation failed for SAS " + sas);
+            Console.WriteLine("Additional error information: " + e.Message);
+            Console.WriteLine();
+        }        
+    }
+
+
+更新プログラム、 **Main()** メソッドを呼び出す **UseBlobSAS()** 、blob で作成した共有アクセス署名の両方で。
+
+    static void Main(string[] args)
+    {
+        string containerSAS = "<your container SAS>";
+        string blobSAS = "<your blob SAS>";
+        string containerSASWithAccessPolicy = "<your container SAS with access policy>";
+        string blobSASWithAccessPolicy = "<your blob SAS with access policy>";
+    
+        //Call the test methods with the shared access signatures created on the container, with and without the access policy.
+        UseContainerSAS(containerSAS);
+        UseContainerSAS(containerSASWithAccessPolicy); 
+        
+        //Call the test methods with the shared access signatures created on the blob, with and without the access policy.
+        UseBlobSAS(blobSAS);
+        UseBlobSAS(blobSASWithAccessPolicy);
+    
+        Console.ReadLine();
+    }
+
+コンソール アプリケーションを実行し、出力で、どの署名に対してどの操作が許可されているかを確認します。 コンソール ウィンドウでの出力は、次のようになります。
+
+![sas-console-output-2][sas-console-output-2]
+
+## 次のステップ
+
+[Shared Access Signature、第 1 部 : SAS モデルについて](../storage-dotnet-shared-access-signature-part-1/)
+
+[Microsoft Azure ストレージ リソースへのアクセスの管理](http://msdn.microsoft.com/library/azure/ee393343.aspx)
+
+[共有アクセス署名によるアクセスの委任 (REST API) に関するページ](http://msdn.microsoft.com/library/azure/ee395415.aspx)
+
+[テーブルおよびキュー SAS についての MSDN ブログ](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+
+[sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
+[sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
+
+ 
