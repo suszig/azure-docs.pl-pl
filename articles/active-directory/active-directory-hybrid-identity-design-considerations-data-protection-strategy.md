@@ -94,8 +94,8 @@ Azure Active Directory では、何千もの SaaS アプリケーションやオ
 
 
 >[AZURE.NOTE]
-読み取り [Azure Active Directory の認証プロトコル](https://msdn.microsoft.com/library/azure/dn151124.aspx) の詳細については、各プロトコルと Azure では、その機能を知る。
-Azure AD のサポートを使用すると、モバイル ビジネス アプリケーションでも簡単な Mobile Services の認証エクスペリエンスを使用できるため、従業員は会社の Active Directory 資格情報を使用してモバイル アプリケーションにサインインできます。 この機能により、既にサポートしている ID プロバイダー (Microsoft アカウント、Facebook ID、Google ID、Twitter ID など) と共に、Azure AD が Mobile Services の ID プロバイダーとしてサポートされます。 オンプレミスのアプリケーションで、会社の AD DS にあるユーザーの資格情報が使用されている場合、クラウドのユーザーやパートナーからのアクセスを透過的にする必要があります。 (クラウドベースの) Web アプリケーション、Web API、Microsoft Cloud Services、サードパーティの SaaS アプリケーション、およびネイティブの (モバイル) クライアント アプリケーションに対するユーザーの条件付きアクセス制御を管理できます。また、セキュリティ、監査、レポートを 1 か所で実行できる利点があります。 ただし、非運用環境で、またはユーザー数を限定してこれを検証することをお勧めします。 
+>読み取り [Azure Active Directory の認証プロトコル](https://msdn.microsoft.com/library/azure/dn151124.aspx) の詳細については、各プロトコルと Azure では、その機能を知る。
+>Azure AD のサポートを使用すると、モバイル ビジネス アプリケーションでも簡単な Mobile Services の認証エクスペリエンスを使用できるため、従業員は会社の Active Directory 資格情報を使用してモバイル アプリケーションにサインインできます。 この機能により、既にサポートしている ID プロバイダー (Microsoft アカウント、Facebook ID、Google ID、Twitter ID など) と共に、Azure AD が Mobile Services の ID プロバイダーとしてサポートされます。 オンプレミスのアプリケーションで、会社の AD DS にあるユーザーの資格情報が使用されている場合、クラウドのユーザーやパートナーからのアクセスを透過的にする必要があります。 (クラウドベースの) Web アプリケーション、Web API、Microsoft Cloud Services、サードパーティの SaaS アプリケーション、およびネイティブの (モバイル) クライアント アプリケーションに対するユーザーの条件付きアクセス制御を管理できます。また、セキュリティ、監査、レポートを 1 か所で実行できる利点があります。 ただし、非運用環境で、またはユーザー数を限定してこれを検証することをお勧めします。 
 
 >[AZURE.TIP]
 AD DS にあるようなグループ ポリシーが Azure AD にはないことを断っておくことが重要です。 デバイスのポリシーを適用するために必要があります、モバイル デバイス管理ソリューションなど [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx)します。
