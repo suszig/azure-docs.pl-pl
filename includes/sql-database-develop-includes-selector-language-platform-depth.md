@@ -1,4 +1,4 @@
-> [AZURE です。選択リスト (言語 |プラットフォームと深度)]
+> [AZURE.SELECTOR-LIST (言語 |プラットフォームと深度)]
 - [(CSharp です。 ADO.NET |Windows となります。 スタート)](sql-database-develop-dotnet-simple.md)
 - [(CSharp です。 カスタム ロジック |Windows となります。 再試行ロジック)](sql-database-develop-csharp-retry-windows.md)
 - [(CSharp です。 エンタープライズ ライブラリ |Windows となります。 再試行ロジック)](sql-database-develop-entlib-csharp-retry-windows.md)
@@ -16,4 +16,3 @@
 - [(Ruby |Linux であります。 スタート)](sql-database-develop-ruby-simple-linux.md)
 - [(Ruby |ファルダ スタート)](sql-database-develop-ruby-simple-mac-osx.md)
 - [(Ruby |Windows となります。 スタート)](sql-database-develop-ruby-simple-windows.md)
-

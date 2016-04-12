@@ -32,7 +32,7 @@ BizTalk XPath Extract コネクタは、指定された XPath に基づいて XM
 5. [XPath を使用して抽出] を選択します。 「XPath を使用して抽出」には、指定された入力 XML で入力 xpath 式が評価されます。  
     ![BizTalk XPath Extractor の入力][2]
 
-    Parameter|種類の種類パラメーターの説明
+    Parameter|種類の|種類パラメーターの説明
 ---|---|---
 XPath|string|Xml 内部のクエリ パスです。
 入力 Xml|string|Xml コンテンツを入力します。

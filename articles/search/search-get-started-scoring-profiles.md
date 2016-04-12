@@ -31,7 +31,7 @@
 
 このチュートリアルを完了するには、Azure サブスクリプションと Azure Search サービスが必要になります。 参照してください [ポータルで Search サービスの作成](search-create-service-portal.md) については、サービスを設定します。
 
-[AZURE です。含める [このチュートリアルを完了する Azure のアカウントを作成する必要があります:](../../includes/free-trial-note.md)]
+[AZURE.INCLUDE [このチュートリアルを完了する Azure のアカウントを作成する必要があります:](../../includes/free-trial-note.md)]
 
 <a id="sub-2"></a>
 ## サンプル アプリケーションのダウンロード

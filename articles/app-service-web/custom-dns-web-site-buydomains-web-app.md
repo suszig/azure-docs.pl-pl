@@ -20,9 +20,9 @@
 # Azure App Service でのカスタム ドメイン名の購入と構成
 
 > [AZURE.SELECTOR]
-- [Web アプリのドメインを購入します。](custom-dns-web-site-buydomains-web-app.md)
-- [外部ドメインで web アプリ](web-sites-custom-domain-name.md)
-- [Traffic Manager 付きの Web アプリ](web-sites-traffic-manager-custom-domain-name.md)
+- [Buy Domain for Web Apps](custom-dns-web-site-buydomains-web-app.md)
+- [Web Apps with External Domains](web-sites-custom-domain-name.md)
+- [Web Apps with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
 - [GoDaddy](web-sites-godaddy-custom-domain-name.md)
 
 
