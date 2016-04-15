@@ -1,4 +1,4 @@
-> [AZURE です。選択リスト (プラットフォーム |トピック)]
+> [AZURE.NOTE (プラットフォーム |トピック)]
 - [(.NET |1 です。 作成、展開、.NET を使用)](app-service-api-dotnet-get-started.md)
 - [(.NET |2 になります。 JavaScript による消費、CORS を使用する)](app-service-api-cors-consume-javascript.md)
 - [(.NET |3 です。 認証の概要)](app-service-api-authentication.md)
@@ -10,4 +10,3 @@
 - [(Java |1 です。 作成および展開する)](app-service-api-java-api-app.md#java)
 - [(Java |2 になります。 JavaScript による消費、CORS を使用する)](app-service-api-cors-consume-javascript.md#java)
 - [(Java |3 です。 認証の概要)](app-service-api-authentication.md#java)
-
