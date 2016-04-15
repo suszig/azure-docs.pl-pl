@@ -184,7 +184,7 @@
 ## パイプラインの監視
  
 1.  ログインした後、 [Azure ポータル](http://portal.azure.com/), 、] をクリックして **参照** 選択 **データ ファクトリ**します。
-        ![[参照] の [データ ファクトリ](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+        ![[参照] の [データ ファクト]](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.   **データ ファクトリ** ブレードで、[データ ファクトリ] をクリックして (**TutorialFactoryARM**) を作成します。   
 2.   **Data Factory** 、データ ファクトリ] ブレードをクリックして **ダイアグラム**します。
         ![[ダイアグラム] タイル](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
