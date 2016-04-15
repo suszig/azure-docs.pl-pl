@@ -1,4 +1,4 @@
-> [AZURE です。選択リスト (言語 |バックエンド)]
+> [AZURE.SELECTOR-LIST (言語 |バックエンド)]
 - [(C# | EventProcessorHost C#)](../articles/service-bus-event-hubs-csharp-ephcs-getstarted.md)
 - [(C# | Apache Storm)](../articles/service-bus-event-hubs-csharp-storm-getstarted.md)
 - [(Java | EventProcessorHost C#)](../articles/service-bus-event-hubs-java-ephcs-getstarted.md)

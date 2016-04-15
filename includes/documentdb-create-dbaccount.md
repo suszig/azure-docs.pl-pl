@@ -1,7 +1,7 @@
 1.  オンラインへのサインイン [Microsoft Azure プレビュー ポータル](https://portal.azure.com/)します。
 2.  ジャンプバーで、次のようにクリックします。 **新規**, 、順にクリック **データ + ストレージ**, 、クリックして **Azure DocumentDB**します。 
   
-    ![新規作成] ボタン、データ + 作成 ブレード内のストレージとデータの Azure DocumentDB を強調表示、データベースを作成する Azure プレビュー ポータルのスクリーン ショット + ストレージ ブレード](media/documentdb-create-dbaccount/ca1.png)  
+    ![[新規作成] ボタン、データ + 作成 ブレード内のストレージとデータの Azure DocumentDB を強調表示、データベースを作成する Azure プレビュー ポータルのスクリーン ショット + ストレージ ブレード](media/documentdb-create-dbaccount/ca1.png)  
 
 3.  **新しい DocumentDB アカウント** ブレードで、DocumentDB アカウントに対して必要な構成を指定します。 
  
