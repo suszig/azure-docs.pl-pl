@@ -18,6 +18,7 @@
 
 # CORS を使用して JavaScript から API アプリを使用する
 
+Test
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 ## 概要

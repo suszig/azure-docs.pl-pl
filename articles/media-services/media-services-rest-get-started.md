@@ -17,7 +17,7 @@
     ms.author="juliako"/>
 
 #REST API を使用したオンデマンド コンテンツ配信の概要
-
+Test
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
