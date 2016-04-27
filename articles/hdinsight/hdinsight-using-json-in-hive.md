@@ -100,7 +100,7 @@ Hive は、JSON ドキュメントに対してクエリを実行するための�
 - GET\_JSON\_OBJECT UDF (ユーザー定義関数) を使用します。
 - JSON_TUPLE UDF を使用する
 - カスタム SerDe を使用する
-- Python またはその他の言語を使用して独自の UDF を作成する 参照してください [今回][hdinsight-python] Hive で独自の Python コードを実行する方法です。 
+- Python またはその他の言語を使用して独自の UDF を作成する 参照してください [今回][hdinsight python] Hive で独自の Python コードを実行する方法です。 
 
 ### GET\_JSON_OBJECT UDF を使用します。
 Hive でという組み込み UDF [json オブジェクトを取得する](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) JSON は、実行時にクエリを実行することができます。 このメソッドは 2 つの引数を取ります。テーブル名とメソッド名で、解析することが必要なフラット化された JSON ドキュメントと JSON フィールドが含まれます。 この UDF の動作を確認する例を見てみましょう。
@@ -250,17 +250,18 @@ Hive コンソールの出力を次に示します。
 - [HDInsight での Hive を使用した Twitter データの分析](hdinsight-analyze-twitter-data.md)
 - [DocumentDB と HDInsight を使用した Hadoop ジョブの実行](documentdb-run-hadoop-with-hdinsight.md)
 
-[hdinsight-python]: hdinsight-python.md
+[hdinsight python]: hdinsight-python.md
 
-[image-hdi-hivejson-flatten]: ./media/hdinsight-using-json-in-hive/flatten.png
-[image-hdi-hivejson-getjsonobject]: ./media/hdinsight-using-json-in-hive/getjsonobject.png
-[image-hdi-hivejson-jsontuple]: ./media/hdinsight-using-json-in-hive/jsontuple.png
-[image-hdi-hivejson-jdk]: ./media/hdinsight-using-json-in-hive/jdk.png
-[image-hdi-hivejson-maven]: ./media/hdinsight-using-json-in-hive/maven.png
-[image-hdi-hivejson-serde]: ./media/hdinsight-using-json-in-hive/serde.png
-[image-hdi-hivejson-addjar]: ./media/hdinsight-using-json-in-hive/addjar.png
-[image-hdi-hivejson-serde_query1]: ./media/hdinsight-using-json-in-hive/serde_query1.png
-[image-hdi-hivejson-serde_query2]: ./media/hdinsight-using-json-in-hive/serde_query2.png
-[image-hdi-hivejson-serde_query3]: ./media/hdinsight-using-json-in-hive/serde_query3.png
-[image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
+[イメージの hdi-hivejson-統合]: ./media/hdinsight-using-json-in-hive/flatten.png
+[イメージ hdi hivejson getjsonobject]: ./media/hdinsight-using-json-in-hive/getjsonobject.png
+[イメージ hdi hivejson jsontuple]: ./media/hdinsight-using-json-in-hive/jsontuple.png
+[イメージ hdi hivejson jdk]: ./media/hdinsight-using-json-in-hive/jdk.png
+[イメージ hdi hivejson maven]: ./media/hdinsight-using-json-in-hive/maven.png
+[イメージ hdi hivejson serde]: ./media/hdinsight-using-json-in-hive/serde.png
+[イメージ hdi hivejson addjar]: ./media/hdinsight-using-json-in-hive/addjar.png
+[イメージ hdi hivejson serde_query1]: ./media/hdinsight-using-json-in-hive/serde_query1.png
+[イメージ hdi hivejson serde_query2]: ./media/hdinsight-using-json-in-hive/serde_query2.png
+[イメージ hdi hivejson serde_query3]: ./media/hdinsight-using-json-in-hive/serde_query3.png
+[イメージ hdi hivejson serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
  
+<!--HONumber=Apr16_HO2-->

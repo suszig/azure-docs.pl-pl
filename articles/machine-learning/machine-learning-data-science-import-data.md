@@ -25,7 +25,7 @@
 Machine Learning Studio で独自のデータを使用して予測分析ソリューションを開発し、トレーニングする場合、次の操作を実行できます。 
 
 - データをアップロード、 **ローカル ファイル** 前もって、ハード ディスク ドライブから、ワークスペースで、データセット モジュールを作成します。  
-- いくつかのいずれかのデータにアクセス **オンライン データ ソース** を使用して、実験の実行中に、 [リーダー][reader] モジュールです。 
+- いくつかのいずれかのデータにアクセス **オンライン データ ソース** を使用して、実験の実行中に、 [リーダー][リーダー] モジュールです。 
 - Azure Machine learning の実験として保存から別のデータを使用して、 **データセット**します。 
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
@@ -67,7 +67,7 @@ Machine Learning Studio は、区切られたテキスト データやデータ�
 
 このメタデータが含まれていない TSV や CSV 形式などのデータをインポートする場合、Machine Learning Studio は、データをサンプリングすることによって、各列のデータ型を推論します。 また、データに列見出しがない場合、Machine Learning Studio は既定の名前を提供します。
 
-明示的に指定するかを使用して列の見出しやデータ型を変更する、 [メタデータ エディター][metadata-editor]します。
+明示的に指定するかを使用して列の見出しやデータ型を変更する、 [メタデータ エディター][メタデータ エディター]します。
 
 次 **データ型** Machine Learning Studio で認識されます。
 
@@ -78,7 +78,7 @@ Machine Learning Studio は、区切られたテキスト データやデータ�
 - DateTime
 - TimeSpan
 
-Machine Learning Studio と呼ばれる内部データ型を使用して ***データ テーブル*** モジュール間でデータを渡す。 使用してデータ テーブル形式をデータを明示的に変換できる、 [データセットへの変換][convert-to-dataset] モジュールです。
+Machine Learning Studio と呼ばれる内部データ型を使用して ***データ テーブル*** モジュール間でデータを渡す。 使用してデータ テーブル形式をデータを明示的に変換できる、 [データセットへの変換][変換-データセット] モジュールです。
 
 データ テーブル以外の形式を受け取るどのモジュールでも、次のモジュールに渡す前に、サイレント モードでデータをデータ テーブルに変換します。
 
@@ -88,8 +88,8 @@ Machine Learning Studio と呼ばれる内部データ型を使用して ***デ�
 
 
 <!-- Module References -->
-[convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[変換-データセット]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
+[メタデータ エディター]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[リーダー]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-
+<!--HONumber=Apr16_HO2-->

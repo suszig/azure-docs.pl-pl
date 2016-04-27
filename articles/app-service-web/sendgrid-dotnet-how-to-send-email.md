@@ -34,8 +34,8 @@
 
 ## SendGrid 電子メール サービスとは
 
-SendGrid は、 [cloud-based email service] 信頼性を提供します。
-[transactional email delivery], 、スケーラビリティ、およびリアルタイム分析の柔軟な Api 機能
+SendGrid は、 [クラウド ベース電子メール サービス] 信頼性を提供します。
+[トランザクション電子メール配信], 、スケーラビリティ、およびリアルタイム分析の柔軟な Api 機能
 を備えているためカスタム統合も容易です。 SendGrid の一般的な使用シナリオを以下に
 示します。
 
@@ -48,7 +48,7 @@ SendGrid は、 [cloud-based email service] 信頼性を提供します。
 -   顧客の問い合わせを転送する。
 -   受信電子メールを処理する。
 
-詳細については、次を参照してください [https://sendgrid.com](https://sendgrid.com) または [c# ライブラリ。][sendgrid-csharp]
+詳細については、次を参照してください [https://sendgrid.com](https://sendgrid.com) または [c# ライブラリ][sendgrid-csharp に関するページ]
 
 ## SendGrid アカウントを作成する
 
@@ -280,28 +280,29 @@ Sendgrid の web ベース Api とその他を使用して webhook
 *   SendGrid API に関するドキュメント: <https://sendgrid.com/docs>
 *   Azure ユーザー向けの SendGrid 特別プラン: [https://sendgrid.com](https://sendgrid.com)
 
-  [Next steps]: #next-steps
-  [What is the SendGrid Email Service?]: #whatis
-  [Create a SendGrid Account]: #createaccount
-  [Reference the SendGrid .NET Class Library]: #reference
-  [How to: Create an Email]: #createemail
-  [How to: Send an Email]: #sendemail
-  [How to: Add an Attachment]: #addattachment
-  [How to: Use Filters to Enable Footers, Tracking, and Analytics]: #usefilters
-  [How to: Use Additional SendGrid Services]: #useservices
+  [次のステップ]: #next-steps
+  [SendGrid 電子メール サービスとは何ですか。]: #whatis
+  [SendGrid アカウントを作成します。]: #createaccount
+  [SendGrid .NET クラス ライブラリを参照します。]: #reference
+  [方法: 電子メールを作成します。]: #createemail
+  [方法: 電子メールを送信します。]: #sendemail
+  [方法: 添付ファイルを追加]: #addattachment
+  [方法: フィルターを使用してフッター、追跡、および分析を有効にします。]: #usefilters
+  [方法: その他の SendGrid サービスを使用します。]: #useservices
   
-  [special offer]: https://www.sendgrid.com/windowsazure.html
+  [特別プラン]: https://www.sendgrid.com/windowsazure.html
   
-  [create-new-project]: ./media/sendgrid-dotnet-how-to-send-email/create_new_project.png
-  [select-a-template]: ./media/sendgrid-dotnet-how-to-send-email/select_a_template.png
-  [SendGrid-NuGet-package]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid_nuget.png
+  [--プロジェクトの新規作成]: ./media/sendgrid-dotnet-how-to-send-email/create_new_project.png
+  [テンプレートの選択]: ./media/sendgrid-dotnet-how-to-send-email/select_a_template.png
+  [SendGrid NuGet パッケージ]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid_nuget.png
   [azure_app_settings]: ./media/sendgrid-dotnet-how-to-send-email/app_settings.png
-  [sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp
-  [SMTP vs. Web API]: https://sendgrid.com/docs/Integrate/index.html
-  [App Settings]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
-  [SendGrid API documentation]: https://sendgrid.com/docs
+  [sendgrid-csharp に関するページ]: https://github.com/sendgrid/sendgrid-csharp
+  [SMTP vs します。Web API]: https://sendgrid.com/docs/Integrate/index.html
+  [アプリケーション設定]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
+  [SendGrid API に関するドキュメント]: https://sendgrid.com/docs
   
-  [cloud-based email service]: https://sendgrid.com/email-solutions
-  [transactional email delivery]: https://sendgrid.com/transactional-email
+  [クラウド ベース電子メール サービス]: https://sendgrid.com/email-solutions
+  [トランザクション電子メール配信]: https://sendgrid.com/transactional-email
  
 
+<!--HONumber=Apr16_HO2-->

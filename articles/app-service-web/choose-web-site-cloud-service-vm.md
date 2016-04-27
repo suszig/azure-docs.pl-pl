@@ -93,7 +93,7 @@ Web 開発者とデザイナーのために、Azure App Service は、Git や FT
 - コマンド ライン ツールを使用して [自動化タスク][scripting]します。
 - などの一般的な言語で作業 [.Net][dotnet], 、[PHP][], 、[Node.js][nodejs], 、および [Python][]します。
 - 非常に高い容量に拡張するための 3 つの異なる拡張レベルを選択できます。
-- などの他の Azure サービスと統合 [SQL データベース][sqldatabase], 、[Service Bus][servicebus] と [ストレージ][], 、パートナーの製品から、または、 [Azure ストア][azurestore], 、MySQL、MongoDB などです。
+- などの他の Azure サービスと統合 [SQL データベース][sql database], 、[Service Bus][servicebus] と [ストレージ][], 、パートナーの製品から、または、 [Azure ストア][見つかりません], 、MySQL、MongoDB などです。
 - Visual Studio、Git、WebMatrix、WebDeploy、TFS、FTP などのツールと統合できます。
 
 ### <a id="multitier"></a>Web フロント エンドを含む多層アプリケーションをクラウドに移行しています。
@@ -188,21 +188,7 @@ ETW イベントのリッスン||○|○|
 * [Azure Virtual Machines](/documentation/services/virtual-machines/)
 
   [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
-  [Azure App Service]: /services/app-service/
-  [Cloud Services]: http://go.microsoft.com/fwlink/?LinkId=306052
-  [Virtual Machines]: http://go.microsoft.com/fwlink/?LinkID=306053
-  [ClearDB]: http://www.cleardb.com/
-  [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-  [Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
-  [azurestore]: http://www.windowsazure.com/gallery/store/
-  [scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
-  [dotnet]: http://www.windowsazure.com/develop/net/
-  [nodejs]: http://www.windowsazure.com/develop/nodejs/
-  [PHP]: http://www.windowsazure.com/develop/php/
-  [Python]: http://www.windowsazure.com/develop/python/
-  [servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
-  [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
-  [Storage]: http://www.windowsazure.com/documentation/services/storage/
+[Azure App Service]: /services/app-service/e[クラウド サービス]: http://go.microsoft.com/fwlink/?LinkId=3060526[仮想マシン]: http://go.microsoft.com/fwlink/?LinkID=3060533[ClearDB]: http://www.cleardb.com/r[WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409l[Azure の web サイトの SSL 証明書を構成します。]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/s[見つかりません]: http://www.windowsazure.com/gallery/store/g[scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sitesr[dotnet]: http://www.windowsazure.com/develop/net/e[nodejs]: http://www.windowsazure.com/develop/nodejs/.[PHP]: http://www.windowsazure.com/develop/php/a[Python]: http://www.windowsazure.com/develop/python/z[servicebus]: http://www.windowsazure.com/documentation/services/service-bus/t[sql database]: http://www.windowsazure.com/documentation/services/sql-database/a[ストレージ]: http://www.windowsazure.com/documentation/services/storage/ocumentation/services/storage/
  
 
-
+<!--HONumber=Apr16_HO2-->

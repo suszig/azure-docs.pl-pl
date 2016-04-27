@@ -173,7 +173,7 @@ Azure とオンプレミス ネットワークの間に境界が必要な場合�
 
 ## Azure 仮想ネットワークでセキュリティ境界を構築する
 ### 例 1 - NSG を使用して単純な DMZ を構築する
-[簡単に戻る](#fast-start) | [この例のビルドの詳細な手順][Example1]
+[簡単に戻る](#fast-start) | [この例のビルド手順の詳細な][Example1]
 
 ![Inbound DMZ with NSG][7]
 
@@ -215,10 +215,10 @@ Azure とオンプレミス ネットワークの間に境界が必要な場合�
 - 各 NSG コマンドの詳細な説明
 - トラフィック フローの詳細なシナリオ (各層でトラフィックを許可または拒否する方法を示します)
 
-ある、 [ビルド手順の詳細な][Example1] ページです。
+ご覧、 [ビルド手順の詳細な][Example1] ページです。
 
 ### 例 2 - ファイアウォールと NSG から成る DMZ を構築してアプリケーションを保護する
-[簡単に戻る](#fast-start) | [この例のビルドの詳細な手順][Example2]
+[簡単に戻る](#fast-start) | [この例のビルド手順の詳細な][Example2]
 
 ![Inbound DMZ with NVA and NSG][8]
 
@@ -269,7 +269,7 @@ Azure とオンプレミス ネットワークの間に境界が必要な場合�
 ある、 [ビルド手順の詳細な][Example2] ページです。
 
 ### 例 3 - ファイアウォール、UDR、NSG から成る DMZ を構築してネットワークを保護する
-[簡単に戻る](#fast-start) | [この例のビルドの詳細な手順][Example3]
+[簡単に戻る](#fast-start) | [この例のビルド手順の詳細な][Example3]
 
 ![Bi-directional DMZ with NVA, NSG, and UDR][9]
 
@@ -478,24 +478,24 @@ ExpressRoute プライベート ピアリング ネットワーク接続を追�
 - (必ず"Getting Started"と"操作方法"のセクションをご覧ください) ExpressRoute に関するドキュメント: [https://azure.microsoft.com/documentation/services/expressroute/](https://azure.microsoft.com/documentation/services/expressroute/)
 
 <!--Image References-->
-[0]: ./media/best-practices-network-security/flowchart.png "Security Options Flowchart"
-[1]: ./media/best-practices-network-security/compliancebadges.png "Azure Compliance Badges"
-[2]: ./media/best-practices-network-security/azuresecurityfeatures.png "Azure Security Features"
-[3]: ./media/best-practices-network-security/dmzcorporate.png "A DMZ in a Corporate network"
-[4]: ./media/best-practices-network-security/azuresecurityarchitecture.png "Azure Security Architecture"
-[5]: ./media/best-practices-network-security/dmzazure.png "A DMZ in an Azure Virtual Network"
-[6]: ./media/best-practices-network-security/dmzhybrid.png "Hybrid Network with Three Security Boundaries"
-[7]: ./media/best-practices-network-security/example1design.png "Inbound DMZ with NSG"
-[8]: ./media/best-practices-network-security/example2design.png "Inbound DMZ with NVA and NSG"
-[9]: ./media/best-practices-network-security/example3design.png "Bi-directional DMZ with NVA, NSG, and UDR"
-[10]: ./media/best-practices-network-security/example3firewalllogical.png "Logical View of the Firewall Rules"
-[11]: ./media/best-practices-network-security/example4designoptions.png "DMZ with NVA Connected Hybrid Network"
-[12]: ./media/best-practices-network-security/example4designs2s.png "DMZ with NVA Connected Using a Site-to-Site VPN"
-[13]: ./media/best-practices-network-security/example4networklogical.png "Logical Network from NVA Perspective"
-[14]: ./media/best-practices-network-security/example5designoptions.png "DMZ with Azure Gateway Connected Site-to-Site Hybrid Network"
-[15]: ./media/best-practices-network-security/example5designs2s.png "DMZ with Azure Gateway Using Site-to-Site VPN"
-[16]: ./media/best-practices-network-security/example6designoptions.png "DMZ with Azure Gateway Connected ExpressRoute Hybrid Network"
-[17]: ./media/best-practices-network-security/example6designexpressroute.png "DMZ with Azure Gateway Using an ExpressRoute Connection"
+[0]: ./media/best-practices-network-security/flowchart.png "セキュリティ オプションのフローチャート"
+[1]: ./media/best-practices-network-security/compliancebadges.png "azure 対応のバッジ"
+[2]: ./media/best-practices-network-security/azuresecurityfeatures.png "azure のセキュリティ機能"
+[3]: ./media/best-practices-network-security/dmzcorporate.png "企業ネットワークで、境界ネットワーク"
+[4]: ./media/best-practices-network-security/azuresecurityarchitecture.png "azure のセキュリティ アーキテクチャ"
+[5]: ./media/best-practices-network-security/dmzazure.png "Azure の仮想ネットワークの境界ネットワーク"
+[6]: ./media/best-practices-network-security/dmzhybrid.png "3 つのセキュリティ境界を持つハイブリッド ネットワーク"
+[7]: ./media/best-practices-network-security/example1design.png "NSG と境界ネットワークの受信"
+[8]: ./media/best-practices-network-security/example2design.png "NVA と NSG の境界ネットワークの受信"
+[9]: ./media/best-practices-network-security/example3design.png "NVA、NSG、UDR との双方向の境界ネットワーク"
+[10]: ./media/best-practices-network-security/example3firewalllogical.png "ファイアウォール ルールの論理的なビュー"
+[11]: ./media/best-practices-network-security/example4designoptions.png "NVA と境界ネットワークに接続されたハイブリッド ネットワーク"
+[12]: ./media/best-practices-network-security/example4designs2s.png "NVA サイト対サイト VPN を使用して接続を境界ネットワーク"
+[13]: ./media/best-practices-network-security/example4networklogical.png "NVA の観点から論理ネットワーク"
+[14]: ./media/best-practices-network-security/example5designoptions.png "Azure ゲートウェイと境界ネットワークに接続されたサイト間のハイブリッド ネットワーク"
+[15]: ./media/best-practices-network-security/example5designs2s.png "サイト対サイト VPN を使用して Azure のゲートウェイと境界ネットワーク"
+[16]: ./media/best-practices-network-security/example6designoptions.png "Azure ゲートウェイと境界ネットワーク接続が ExpressRoute ハイブリッド ネットワーク"
+[17]: ./media/best-practices-network-security/example6designexpressroute.png "ExpressRoute 接続を使用して Azure のゲートウェイと境界ネットワーク"
 
 <!--Link References-->
 [Example1]: ./virtual-network/virtual-networks-dmz-nsg-asm.md
@@ -508,4 +508,4 @@ ExpressRoute プライベート ピアリング ネットワーク接続を追�
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
 
-
+<!--HONumber=Apr16_HO2-->

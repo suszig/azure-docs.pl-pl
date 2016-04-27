@@ -104,3 +104,4 @@ Azure マネージ ライブラリには、ロール インスタンスで実行
 
 - [Azure のクラウド サービスのセットアップ](https://msdn.microsoft.com/library/azure/hh124108.aspx)
 
+<!--HONumber=Apr16_HO2-->

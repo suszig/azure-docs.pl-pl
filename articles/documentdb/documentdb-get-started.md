@@ -45,7 +45,7 @@ DocumentDB .NET SDK の NoSQL チュートリアルへようこそ。 このチ�
 
 以下のものがそろっていることを確認してください。
 
-- アクティブな Azure アカウント サインアップすることがあるない場合、 [無料評価版](http://azure.microsoft.com/pricing/free-trial/)します。
+- アクティブな Azure アカウント。 サインアップすることがあるない場合、 [無料評価版](http://azure.microsoft.com/pricing/free-trial/)します。
 - [Visual Studio 2013 または Visual Studio 2015](http://www.visualstudio.com/)します。
 
 ## 手順 1: DocumentDB アカウントを作成する
@@ -462,7 +462,7 @@ Visual Studio で F5 キーを押して、デバッグ モードでアプリケ�
 ##<a id="GetSolution"></a>完全なソリューションを取得する
 この記事のすべてのサンプルを含む GetStarted ソリューションをビルドするには、以下が必要です。
 
--   [DocumentDB アカウント][documentdb-create-account]します。
+-   [DocumentDB アカウント][documentdb 作成アカウント]します。
 -    [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) ソリューション GitHub で入手できます。
 
 Visual Studio での DocumentDB .NET SDK への参照を復元するには、右クリックし、 **GetStarted** をクリックして、ソリューション エクスプ ローラーでソリューション **NuGet パッケージの復元を有効にする**です。 次に、App.config ファイルで更新 EndpointUrl と AuthorizationKey の値」の説明に従って [DocumentDB アカウントへの接続](#Connect)します。
@@ -474,11 +474,11 @@ Visual Studio での DocumentDB .NET SDK への参照を復元するには、右
 -   サンプル データセットに対してクエリを実行、 [クエリのプレイ グラウンド](https://www.documentdb.com/sql/demo)します。
 -   開発のセクションのプログラミング モデルについての詳細については、 [DocumentDB ドキュメント ページ](../../services/documentdb/)します。
 
-[doc-landing-page]: ../../services/documentdb/
-[documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
+[doc ランディング ページ]: ../../services/documentdb/
+[documentdb 作成アカウント]: documentdb-create-account.md
+[documentdb の管理]: documentdb-manage.md
 
-[keys]: media/documentdb-get-started/nosql-tutorial-keys.png
+[キー]: media/documentdb-get-started/nosql-tutorial-keys.png
  
 
-
+<!--HONumber=Apr16_HO2-->

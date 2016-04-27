@@ -48,7 +48,7 @@ Application Insights でデータを集めるとき、この API を使用すれ
  * [ASP.NET プロジェクト][greenbrown]
  * [Windows プロジェクト][windows]
  * [Java プロジェクト][java] 
- * [各 Web ページの JavaScript][client]   
+ * [各 web ページの JavaScript][クライアント]   
 
 * デバイスまたは Web サーバー コードに次を追加します。
 
@@ -81,7 +81,7 @@ TelemetryClient はスレッド セーフです。
 
 ## イベントを追跡する
 
-Application Insights で、 *カスタム イベント* データ ポイントを表示するための両方では、 [メトリックス エクスプ ローラー][metrics] に総数および個別出現回数としても [診断検索][diagnostic]します。 (これは MVC にも他のフレームワークの "イベント" にも関連していません)。 
+Application Insights で、 *カスタム イベント* データ ポイントを表示するための両方では、 [メトリックス エクスプ ローラー][メトリック] に総数および個別出現回数としても [診断検索][診断]します。 (これは MVC にも他のフレームワークの "イベント" にも関連していません)。 
 
 ユーザーが特定の機能を使用する頻度、特定の目標を達成する頻度、または特定の種類の間違いを起こす頻度を数えるには、TrackEvent をコードに挿入します。 
 
@@ -226,7 +226,7 @@ Web サービス モジュールが実行されていない状況で要求をシ
 
 ## 例外を追跡する
 
-例外を Application Insights に送信: に [数え][metrics], 、問題の発生頻度を示す値として [個々 の問題を調べます][diagnostic]します。 レポートにはスタック トレースが含まれます。
+例外を Application Insights に送信: に [数え][メトリック], 、問題の発生頻度を示す値として [個々 の問題を調べます][診断]します。 レポートにはスタック トレースが含まれます。
 
 *C#*
 
@@ -267,11 +267,11 @@ SDK が多数の例外を自動的にキャッチするため、常に TrackExce
 
 ## トレースを追跡する 
 
-Application Insights に「階層リンクの軌跡」を送信して問題を診断するときに役立ちます。 診断データの塊を送信したり、それらを調べたりできます [診断検索][diagnostic]します。 
+Application Insights に「階層リンクの軌跡」を送信して問題を診断するときに役立ちます。 診断データの塊を送信したり、それらを調べたりできます [診断検索][診断]します。 
 
  
 
-[ログ アダプター][trace] この API を使用して、ポータルにサード パーティのログを送信します。
+[ログ アダプター][トレース] この API を使用して、ポータルにサード パーティのログを送信します。
 
 
 *C#*
@@ -359,7 +359,7 @@ ASP.NET Web MVC アプリケーションでの例:
 
  [メトリックス エクスプ ローラー](app-insights-metrics-explorer.md), 、カウントするグラフを作成する **ユーザー、認証** と **ユーザー アカウント**します。 
 
-こともできます [検索][diagnostic] の特定のユーザー名とアカウントを持つデータ ポイントをクライアントにします。
+こともできます [検索][診断] の特定のユーザー名とアカウントを持つデータ ポイントをクライアントにします。
 
 ## <a name="properties"></a>プロパティを使用してデータをフィルター処理、検索、分割する
 
@@ -462,7 +462,7 @@ ASP.NET Web MVC アプリケーションでの例:
 
 ![検索用語を入力する](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-5.png)
 
-[検索式の詳細について][diagnostic]します。
+[検索式の詳細について][診断]します。
 
 #### プロパティとメトリックを設定する別の方法
 
@@ -572,7 +572,7 @@ SDK からテレメトリを送信する前に、テレメトリを処理する�
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
- **選択されている標準のコレクターを無効にする** - たとえば、パフォーマンス カウンター、HTTP 要求や依存関係 - 削除するかに関連する行をコメント アウト [ApplicationInsights.config][config]します。 たとえば、独自の TrackRequest データを送信する場合にこれを行います。
+ **選択されている標準のコレクターを無効にする** - パフォーマンス カウンター、HTTP 要求や依存関係 - などに関連する行をコメント アウトまたは削除 [ApplicationInsights.config][config]します。 たとえば、独自の TrackRequest データを送信する場合にこれを行います。
 
 ## <a name="debug"></a>開発者モード
 
@@ -599,7 +599,7 @@ SDK からテレメトリを送信する前に、テレメトリを処理する�
 
 ## <a name="dynamic-ikey"></a> 動的なインストルメンテーション キー
 
-開発、テスト、運用環境からのテレメトリの混同を避けるためをするには [別の Application Insights リソースを作成する][create] し、環境に応じてそれぞれのキーを変更します。
+開発、テスト、運用環境からのテレメトリの混同を避けるためをするには [別の Application Insights リソースを作成する][作成] し、環境に応じてそれぞれのキーを変更します。
 
 インストルメンテーション キーは構成ファイルから取得する代わりにコードで設定できます。 ASP.NET サービスの global.aspx.cs など、初期化メソッドでキーを設定します。
 
@@ -675,7 +675,7 @@ TelemetryClient には、すべてのテレメトリ データとともに送信
 
 *データが保持される期間*
 
-* 参照してください [データの保持とプライバシー][data]します。
+* 参照してください [データの保持とプライバシー][データ]します。
 
 
 ## リファレンス ドキュメント
@@ -701,7 +701,7 @@ TelemetryClient には、すべてのテレメトリ データとともに送信
 
 * *Track_() の呼び出しでは、どのような例外がスローされることがありますか。*
     
-    ありません。 try catch 句で例外をラップする必要はありません。 SDK で問題が発生すると、デバッグ コンソール出力に表示されるメッセージが記録されます。メッセージがスルーされる場合は、診断検索にも記録されます。
+    なし。 try catch 句で例外をラップする必要はありません。 SDK で問題が発生すると、デバッグ コンソール出力に表示されるメッセージが記録されます。メッセージがスルーされる場合は、診断検索にも記録されます。
 
 
 
@@ -712,7 +712,7 @@ TelemetryClient には、すべてのテレメトリ データとともに送信
 ## <a name="next"></a>次のステップ
 
 
-[イベントおよびログを検索する][diagnostic]
+[イベントおよびログを検索][診断]
 
 [サンプルとチュートリアル](app-insights-code-samples.md)
 
@@ -721,18 +721,18 @@ TelemetryClient には、すべてのテレメトリ データとともに送信
 
 <!--Link references-->
 
-[client]: app-insights-javascript.md
+[クライアント]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
-[create]: app-insights-create-new-resource.md
-[data]: app-insights-data-retention-privacy.md
-[diagnostic]: app-insights-diagnostic-search.md
-[exceptions]: app-insights-asp-net-exceptions.md
+[作成]: app-insights-create-new-resource.md
+[データ]: app-insights-data-retention-privacy.md
+[診断]: app-insights-diagnostic-search.md
+[例外]: app-insights-asp-net-exceptions.md
 [greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
-[metrics]: app-insights-metrics-explorer.md
+[メトリック]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
-[trace]: app-insights-search-diagnostic-logs.md
+[トレース]: app-insights-search-diagnostic-logs.md
 [windows]: app-insights-windows-get-started.md
 
  
-
+<!--HONumber=Apr16_HO2-->

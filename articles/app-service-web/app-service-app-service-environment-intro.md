@@ -62,13 +62,13 @@ App Service 環境は、既存の地域のクラシック"v1"仮想ネットワ�
 
 また、アプリは、内部データベースや Web サービスなどの企業リソースに頻繁にアクセスする必要があります。  一般的な方法では、これらのエンドポイントを、Azure 仮想ネットワーク内を通過する内部ネットワーク トラフィックのみが使用できるようにします。  App Service 環境を内部のサービスと同じ仮想ネットワークに参加すると、環境内で実行されるアプリは、アクセス可能で到達可能なエンドポイントを含む [サイト対サイト][SiteToSite] と [Azure ExpressRoute][ExpressRoute] 接続します。
 
-仮想ネットワークと内部設置型ネットワークの App Service 環境のしくみの詳細については、上、次の記事を参照してください [ネットワーク アーキテクチャ][NetworkArchitectureOverview], 、[受信トラフィックの制御][ControllingInboundTraffic], 、および [バックエンドを安全に接続する][SecurelyConnectingToBackends]です。 
+仮想ネットワークと内部設置型ネットワークの App Service 環境のしくみの詳細については、上、次の記事を参照してください [ネットワーク アーキテクチャ][NetworkArchitectureOverview], 、[受信トラフィックの制御][ControllingInboundTraffic], 、および [バックエンドを安全に接続する][SecurelyConnectingToBackends]します。 
 
 **注:**  "v2"仮想ネットワークの App Service 環境を作成することはできません。
 
 ## 使用の開始
 
-App Service 環境で開始するを参照してください [An App Service 環境の作成方法。][HowToCreateAnAppServiceEnvironment]
+App Service 環境で開始するを参照してください [An App Service 環境の作成方法][HowToCreateAnAppServiceEnvironment。]
 
 Azure App Service プラットフォームの詳細については、次を参照してください。 [Azure App Service][AzureAppService]します。
 
@@ -84,7 +84,7 @@ Expressroute では、App Service 環境の使用の詳細については、次�
 [PremiumTier]: http://azure.microsoft.com/pricing/details/app-service/
 [MoreInfoOnVirtualNetworks]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [AppServicePlan]: http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
-[HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
+[HowToCreateAnAppServiceEnvironment。]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [WebApps]: http://azure.microsoft.com/documentation/articles/app-service-web-overview/
 [MobileApps]: http://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop-preview/
@@ -106,4 +106,4 @@ Expressroute では、App Service 環境の使用の詳細については、次�
 
  
 
-
+<!--HONumber=Apr16_HO2-->

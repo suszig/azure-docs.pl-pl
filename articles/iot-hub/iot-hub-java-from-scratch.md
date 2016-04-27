@@ -18,15 +18,15 @@
      
 # Java を使用した Azure IoT Hub クライアント アプリケーションの作成
 
-使用するクライアント アプリケーションを作成する方法を説明、 [Microsoft Azure の IoT デバイス SDK for Java][lnk-java-sdk] Azure IoT Hub と通信します。 方法について説明するビルドを使用してプロジェクトを作成し、 [Maven][apache-maven] ツールです。 Windows または Linux コンピューターのいずれかで以下の手順を実行します。
+使用するクライアント アプリケーションを作成する方法を説明、 [Microsoft Azure の IoT デバイス SDK for Java][lnk java sdk] Azure IoT Hub と通信します。 方法について説明するビルドを使用してプロジェクトを作成し、 [Maven][apache maven] ツールです。 Windows または Linux コンピューターのいずれかで以下の手順を実行します。
 
-表示することができます、 [Java API ドキュメント][lnk-java-api-docs] 参照用です。
+表示することができます、 [Java API ドキュメント][lnk java api ドキュメント] 参照用です。
 
 ## インストール
 
-参照してください [開発環境を準備][devbox-setup] については、前提条件と Windows または Linux では、開発環境を設定します。
+参照してください [開発環境を準備][devbox セットアップ] については、前提条件と Windows または Linux では、開発環境を設定します。
 
-> [AZURE.NOTE] 」の手順を完了することが重要である [開発環境を準備][devbox-setup] 、前提条件をインストールして、ローカルの Maven リポジトリに必要な JAR ファイルを追加するこのチュートリアルを開始する前にします。
+> [AZURE.NOTE] 」の手順を完了することが重要である [開発環境を準備][devbox セットアップ] 、前提条件をインストールして、ローカルの Maven リポジトリに必要な JAR ファイルを追加するこのチュートリアルを開始する前にします。
 
 ## プロジェクトを作成する
 
@@ -38,7 +38,7 @@
 
     > [AZURE.NOTE] これは、単一の長いコマンドです。 コマンド ライン ツールに貼り付ける場合は、完全なコマンドをコピーしてください。
 
-    このコマンドは、という名前のプロジェクト フォルダーを作成します。 *iot デバイス* 、標準的な Maven プロジェクトの構造を持ちます。 詳細については、次を参照してください。 [5 分間に Maven][maven-five-minutes] Apache web サイトです。
+    このコマンドは、という名前のプロジェクト フォルダーを作成します。 *iot デバイス* 、標準的な Maven プロジェクトの構造を持ちます。 詳細については、次を参照してください。 [5 分間に Maven][maven 5 分] Apache web サイトです。
 
 2. 開いている、 **pom.xml** テキスト エディターで iot デバイス フォルダー内のファイルです。
 
@@ -152,7 +152,7 @@
   - 開き、 **DeviceClient** をデバイスからクラウドへのメッセージを送信し、クラウドとデバイス間のメッセージを受信できるようにします。
   - サンプル メッセージを IoT Hub に送信する。
 
-    `<your device connection string>` を有効なデバイスの接続文字列に置き換えます。 デバイスをプロビジョニングし、いずれかを使用して、接続文字列を取得することができます、 [DeviceExplorer][lnk-device-explorer] ツールまたは [IoT Hub Explorer][lnk-iothub-explorer] ツールです。
+    `<your device connection string>` を有効なデバイスの接続文字列に置き換えます。 デバイスをプロビジョニングし、いずれかを使用して、接続文字列を取得することができます、 [DeviceExplorer][lnk デバイス エクスプ ローラー形式] ツールまたは [IoT Hub Explorer][lnk iothub エクスプ ローラー形式] ツールです。
 
     ```
     public static void main( String[] args ) throws IOException, URISyntaxException
@@ -204,7 +204,7 @@
     java -jar target/iot-device-1.0-SNAPSHOT-with-deps.jar
     ```
 
-8. 使用することができます、 [DeviceExplorer][lnk-device-explorer] IoT hub を受信するデバイスからクラウドへのメッセージを監視し、IoT hub からデバイスにクラウドとデバイス間のメッセージを送信するツールです。
+8. 使用することができます、 [DeviceExplorer][lnk デバイス エクスプ ローラー形式] IoT hub を受信するデバイスからクラウドへのメッセージを監視し、IoT hub からデバイスにクラウドとデバイス間のメッセージを送信するツールです。
 
 ## ログの粒度を変更する
 
@@ -222,13 +222,13 @@
 AMQP フレームをログ記録するには、コマンド環境に環境変数 `PN_TRACE_FRM=1` を設定します。
 
 
-[lnk-java-sdk]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/readme.md
-[lnk-java-api-docs]: http://azure.github.io/azure-iot-sdks/java/device/api_reference/index.html
-[apache-maven]: https://maven.apache.org/index.html
-[maven-five-minutes]: https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
-[devbox-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/doc/devbox_setup.md
-[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
-[lnk-iothub-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/doc/provision_device.md
+[lnk java sdk]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/readme.md
+[lnk java api ドキュメント]: http://azure.github.io/azure-iot-sdks/java/device/api_reference/index.html
+[apache maven]: https://maven.apache.org/index.html
+[maven 5 分]: https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
+[devbox セットアップ]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/doc/devbox_setup.md
+[lnk デバイス エクスプ ローラー形式]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
+[lnk iothub エクスプ ローラー形式]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/doc/provision_device.md
 
 
-
+<!--HONumber=Apr16_HO2-->

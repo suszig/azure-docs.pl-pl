@@ -42,18 +42,18 @@ Azure IoT Hub はマルチテナント サービスで、さまざまなアク�
 
 エンドポイントの説明を次に示します。
 
-* **リソース プロバイダー**:、IoT Hub リソース プロバイダーを公開、 [Azure リソース マネージャー][lnk-arm] IoT hub を作成、IoT hub のプロパティを更新および IoT hub を削除する Azure サブスクリプションの所有者ができるインターフェイス。 IoT Hub のプロパティは、デバイス レベルのアクセス制御ではなくハブ レベルのセキュリティ ポリシー ( 参照してください [アクセス制御](#accesscontrol)) とクラウドとデバイスとクラウドへのデバイスのメッセージングの機能のオプションです。 リソース プロバイダーすることもできます [デバイスの id をエクスポート](#importexport)します。
-* **デバイスの id 管理**: 各 IoT hub は、一連のデバイス id を管理する HTTP REST エンドポイントを公開 (作成、取得、更新、および削除) します。 デバイス ID は、デバイスの認証とアクセス制御に使用されます。 参照してください [デバイス identity レジストリ](#device-identity-registry) の詳細。
-* **デバイス エンドポイント**: IoT Hub がそのデバイスとの間の通信に使用されるエンドポイントのセットを公開する各デバイス用にデバイスの id のレジストリで準備します。 これらのエンドポイントは両方の HTTP で公開されていると [AMQP][lnk-amqp]:
+* **リソース プロバイダー**:、IoT Hub リソース プロバイダーを公開、 [Azure リソース マネージャー][lnk arm] IoT hub を作成、IoT hub のプロパティを更新および IoT hub を削除する Azure サブスクリプションの所有者ができるインターフェイス。 IoT Hub のプロパティは、デバイス レベルのアクセス制御ではなくハブ レベルのセキュリティ ポリシー ( 参照してください [アクセス制御](#accesscontrol)) とクラウドとデバイスとクラウドへのデバイスのメッセージングの機能のオプションです。 リソース プロバイダーすることもできます [デバイスの id をエクスポート](#importexport)します。
+* **デバイスの id 管理**: 各 IoT hub は、一連のデバイス id を管理する HTTP REST エンドポイントを公開 (作成、取得、更新、および削除) します。 デバイス ID は、デバイスの認証とアクセス制御に使用されます。 参照してください [デバイスの id のレジストリ](#device-identity-registry) の詳細。
+* **デバイス エンドポイント**: IoT Hub がそのデバイスとの間の通信に使用されるエンドポイントのセットを公開する各デバイス用にデバイスの id のレジストリで準備します。 これらのエンドポイントは両方の HTTP で公開されていると [AMQP][lnk amqp]:
     - *デバイスからクラウドへのメッセージを送信*します。 このエンドポイントを使用して、D2C メッセージを送信します。 詳細については、次を参照してください。 [メッセージングをクラウドへのデバイス](#d2c)します。
     - *クラウドとデバイス間のメッセージが表示される*します。 デバイスは、このエンドポイントを使用して、そのデバイスが宛先となっている C2D メッセージを受信します。 詳細については、次を参照してください。 [デバイス メッセージングにクラウド](#c2d)します。
-* **サービスのエンドポイントを**: 各 IoT hub は、一連のアプリケーションのバックエンドで使用されるエンドポイントも公開 (*サービス*)、デバイスと通信します。 このエンドポイントは現在のみ公開されているを使用して、 [AMQP][lnk-amqp] プロトコルです。
-    - *デバイスからクラウドへのメッセージが表示される*します。 このエンドポイントは、互換性 [Azure Event Hubs][lnk-event-hubs] と、デバイスによって送信されるすべてのデバイスからクラウドへのメッセージの読み取りに使用することができます。 詳細については、次を参照してください。 [メッセージングをクラウドへのデバイス](#d2c)します。
+* **サービスのエンドポイントを**: 各 IoT hub は、一連のアプリケーションのバックエンドで使用されるエンドポイントも公開 (*サービス*)、デバイスと通信します。 このエンドポイントは現在のみ公開されているを使用して、 [AMQP][lnk amqp] プロトコルです。
+    - *デバイスからクラウドへのメッセージが表示される*します。 このエンドポイントは、互換性 [Azure Event Hubs][lnk event hub] と、デバイスによって送信されるすべてのデバイスからクラウドへのメッセージの読み取りに使用することができます。 詳細については、次を参照してください。 [メッセージングをクラウドへのデバイス](#d2c)します。
     - *クラウドとデバイス間のメッセージを送信し、配信の受信確認を受け取る*します。 これらのエンドポイントにより、アプリケーション バックエンドは、信頼性の高い C2D メッセージを送信し、対応する配信または有効期限の確認メッセージを受信できます。 詳細については、次を参照してください。 [デバイス メッセージングにクラウド](#c2d)します。
 
- [IoT Hub Api と Sdk][lnk-apis-sdks] これらのエンドポイントにアクセスできるさまざまな方法について説明します。
+ [IoT Hub Api と Sdk][lnk の sdk の api] これらのエンドポイントにアクセスできるさまざまな方法について説明します。
 
-最後に、を介してすべての IoT Hub エンドポイントが公開されることに注意する必要は [TLS][lnk-tls], 、暗号化されていない、セキュリティ チャネルでこれまで公開されているエンドポイントがないとします。
+最後に、を介してすべての IoT Hub エンドポイントが公開されることに注意する必要は [TLS][lnk tls], 、暗号化されていない、セキュリティ チャネルでこれまで公開されているエンドポイントがないとします。
 
 ### Event Hubs と互換性のあるエンドポイントから読み取る方法<a id="eventhubcompatible"></a>
 
@@ -87,7 +87,7 @@ IoT Hub に使用できる SDK と統合の一覧を次に示します。
 
 大まかに言うと、デバイス ID レジストリは、デバイス ID リソースの REST 対応のコレクションです。 次のセクションでは、デバイス ID リソースのプロパティと、レジストリで ID に対して許可されている操作について詳しく説明します。
 
-> [AZURE.NOTE] 参照してください [IoT Hub Api と Sdk][lnk-apis-sdks] HTTP プロトコルとデバイスの id のレジストリとの対話に使用可能な Sdk の詳細についてです。
+> [AZURE.NOTE] 参照してください [IoT Hub Api と Sdk][lnk の sdk の api] HTTP プロトコルとデバイスの id のレジストリとの対話に使用可能な Sdk の詳細についてです。
 
 ### デバイス ID プロパティ<a id="deviceproperties"></a>
 
@@ -97,7 +97,7 @@ IoT Hub に使用できる SDK と統合の一覧を次に示します。
 | -------- | ------- | ----------- |
 | deviceId | 必須、読み取り専用 (更新時) | ASCII 7 ビット英数字の大文字と小文字が区別される文字列 (最大 128 文字) + `{'-', ':', '.', '+', '&percnt;', '_', '&num;', '&ast;', '?', '!', '(', ')', ',', '=', '&commat;', ';', '&dollar;', '''}`。 |
 | generationId | 必須、読み取り専用 | ハブによって生成された大文字と小文字が区別される文字列。最大 128 文字。 これは、同じデバイスを区別するために使用 **deviceId** ときに、削除し、再作成します。 |
-| etag | 必須、読み取り専用 | に従って、デバイス id の弱い etag を表す文字列 [RFC7232][lnk-rfc7232]します。|
+| etag | 必須、読み取り専用 | に従って、デバイス id の弱い etag を表す文字列 [RFC7232][lnk rfc7232]します。|
 | auth | 省略可能 | 認証情報とセキュリティのマテリアルを含む複合オブジェクト。 |
 | auth.symkey | 省略可能 | base64 形式でプライマリ キーとセカンダリ キーを格納する複合オブジェクト。 |
 | status | 必須 | できる **有効** または **無効になっている**します。 場合 **有効**, 、デバイスが接続を許可します。 場合 **無効になっている**, 、このデバイスが任意のデバイスに接続するエンドポイントにアクセスできません。 |
@@ -119,7 +119,7 @@ IoT Hub のデバイス ID レジストリでは、次の操作が公開され�
 * デバイス ID の削除
 * 最大 1000 個の ID の一覧表示
 
-これらすべての操作で指定されているオプティミスティック同時実行制御の使用を許可する [RFC7232][lnk-rfc7232]します。
+これらすべての操作で指定されているオプティミスティック同時実行制御の使用を許可する [RFC7232][lnk rfc7232]します。
 
 > [AZURE.IMPORTANT] ハブの identity レジストリ内のすべての id を取得する唯一の方法が使用するには、 [エクスポート](#importexport) 機能します。
 
@@ -129,7 +129,7 @@ IoT Hub のデバイス ID レジストリでは、次の操作が公開され�
 
 更新することでデバイスを無効にすることができます、 **ステータス** レジストリ内で id のプロパティです。 通常これは、次の 2 つのシナリオで使用されます。
 
-1. オーケストレーション プロセスのプロビジョニング中。 詳細については、次を参照してください。 [Azure IoT Hub ガイダンス - プロビジョニング][lnk-guidance-provisioning]します。
+1. オーケストレーション プロセスのプロビジョニング中。 詳細については、次を参照してください。 [Azure IoT Hub ガイダンス - プロビジョニング][lnk ガイダンス プロビジョニング]します。
 2. 何らかの理由でデバイスが侵害された、または一時的に許可されていないと考えられる場合。
 
 ### デバイス ID のエクスポート<a id="importexport"></a>
@@ -146,7 +146,7 @@ IoT Hub リソース プロバイダーのエンドポイントで、非同期�
 
 > [AZURE.NOTE] 各ハブには、任意の時点で実行されている 1 つのジョブのみことができます。
 
-インポートとエクスポートの Api の詳細については、次を参照してください。 [Azure IoT Hub - リソース プロバイダー Api][lnk-resource-provider-apis]します。
+インポートとエクスポートの Api の詳細については、次を参照してください。 [Azure IoT Hub - リソース プロバイダー Api][lnk リソース プロバイダー api]します。
 
 #### ジョブ
 
@@ -160,7 +160,7 @@ IoT Hub リソース プロバイダーのエンドポイントで、非同期�
 | type | 読み取り専用 | **エクスポート** |
 | status | システムにより生成、作成時は無視 | **キューに登録される**, 、**開始**, 、**完了**, 、**に失敗しました** |
 | 進捗状況 | システムにより生成、作成時は無視 | 完了の割合を示す整数値。 |
-| outputBlobContainerURI | すべてのジョブで必須 | Blob コンテナーに対する書き込みアクセスで共有アクセス署名 URI を blob (を参照してください [を作成し、Blob サービスによる SAS を使用して][lnk-createuse-sas] と [Java で共有アクセス署名を作成する][lnk-sas-java])。 これは、ジョブの状態と結果の出力に使用されます。 |
+| outputBlobContainerURI | すべてのジョブで必須 | Blob コンテナーに対する書き込みアクセスで共有アクセス署名 URI を blob (を参照してください [を作成し、Blob サービスによる SAS を使用して][lnk createuse-sas] と [Java で共有アクセス署名を作成する][lnk sas java])。 これは、ジョブの状態と結果の出力に使用されます。 |
 | includeKeysInExport | 省略可能 | 場合 **true**, 、キーがエクスポート出力に含まれます。 としてキーをエクスポートするそれ以外の場合 **null**します。 既定値は **false**します。 |
 | failureReason | システムにより生成、作成時は無視 | 状態が [場合 **失敗**, 、理由を含む文字列。 |
 
@@ -186,14 +186,14 @@ IoT Hub リソース プロバイダーのエンドポイントで、非同期�
 
 IoT Hub は、次のセットを使用して *権限* 各 IoT hub のエンドポイントへのアクセスを付与します。 次のアクセス許可により、機能に応じて IoT Hub へのアクセスを制限します。
 
-* **RegistryRead**します。 このアクセス許可により、デバイス ID レジストリへの読み取りアクセスを許可します。 詳細については、次を参照してください。 [デバイス identity レジストリ](#device-identity-registry)します。
-* **RegistryReadWrite**します。 デバイス ID レジストリへの読み取りと書き込みのアクセスを許可します。 詳細については、次を参照してください。 [デバイス identity レジストリ](#device-identity-registry)します。
+* **RegistryRead**します。 このアクセス許可により、デバイス ID レジストリへの読み取りアクセスを許可します。 詳細については、次を参照してください。 [デバイスの id のレジストリ](#device-identity-registry)します。
+* **RegistryReadWrite**します。 デバイス ID レジストリへの読み取りと書き込みのアクセスを許可します。 詳細については、次を参照してください。 [デバイスの id のレジストリ](#device-identity-registry)します。
 * **接続**します。 クラウド サービス向けの通信エンドポイントと監視エンドポイントへのアクセスを許可します。 たとえば、D2C メッセージの受信、C2D メッセージの送信、対応する配信確認メッセージの取得のアクセス許可をクラウド サービスに付与します。
 * **DeviceConnect**します。 デバイス向けの通信エンドポイントへのアクセスを許可します。 たとえば、D2C メッセージの送信と、C2D メッセージの受信のアクセス許可を付与します。 ほとんどの場合、このアクセス許可はデバイスによって使用されます。
 
 アクセス許可は次の方法で付与されます。
 
-* **共有アクセス ポリシー] ハブ レベル**します。 *共有アクセス ポリシー* 前のセクションに示される権限の任意の組み合わせを与えることができます。 内のポリシーを定義する、 [Azure ポータル][lnk-management-portal] プログラムを使用するか、 [Azure IoT Hub リソース プロバイダー Api][lnk-resource-provider-apis]します。 新しく作成された IoT Hub には、次の既定のポリシーがあります。
+* **共有アクセス ポリシー] ハブ レベル**します。 *共有アクセス ポリシー* 前のセクションに示される権限の任意の組み合わせを与えることができます。 内のポリシーを定義する、 [Azure ポータル][lnk の管理ポータル] プログラムを使用するか、 [Azure IoT Hub リソース プロバイダー Api][lnk リソース プロバイダー api]します。 新しく作成された IoT Hub には、次の既定のポリシーがあります。
 
     - *iothubowner*: すべてのアクセス許可を持つポリシー
     - *サービス*: を使用してポリシー **接続** アクセス許可
@@ -205,7 +205,7 @@ IoT Hub は、次のセットを使用して *権限* 各 IoT hub のエンド�
 
 **例**します。 IoT ソリューションでは通常デバイス管理のコンポーネントを使用する、 *registryReadWrite* ポリシー、およびイベント プロセッサ コンポーネント、およびランタイム デバイスのビジネス ロジック コンポーネント両方使用している、 *サービス* ポリシーです。 個々のデバイスは、IoT Hub の ID レジストリに格納されている資格情報を使用して接続します。
 
-IoT Hub セキュリティ トピックに関するガイダンスについては、セキュリティ」セクションを参照してください。 [Azure IoT Hub ガイダンス][lnk-guidance-security]します。
+IoT Hub セキュリティ トピックに関するガイダンスについては、セキュリティ」セクションを参照してください。 [Azure IoT Hub ガイダンス][lnk ガイダンス セキュリティ]します。
 
 ### 認証
 
@@ -213,7 +213,7 @@ Azure IoT Hub では、共有アクセス ポリシーとデバイス ID レジ�
 
 対称キーなどのセキュリティの資格情報がネットワーク上で送信されることはありません。
 
-> [AZURE.NOTE] Azure サブスクリプションを通じて Azure IoT Hub リソース プロバイダーはセキュリティで保護のすべてのプロバイダーにも、 [Azure リソース マネージャー][lnk-azure-resource-manager]します。
+> [AZURE.NOTE] Azure サブスクリプションを通じて Azure IoT Hub リソース プロバイダーはセキュリティで保護のすべてのプロバイダーにも、 [Azure リソース マネージャー][lnk azure リソース マネージャー]します。
 
 #### セキュリティ トークンの形式<a id="tokenformat"></a>
 
@@ -239,7 +239,7 @@ Azure IoT Hub では、共有アクセス ポリシーとデバイス ID レジ�
 
 HTTP 認証の実装で有効なトークンを含めることによって、 **承認** 要求ヘッダー。 クエリ パラメーターと呼ばれる **承認** トークンを転送できます。
 
-使用する場合 [AMQP][lnk-amqp], 、IoT Hub をサポートしています [SASL プレーン][lnk-sasl-plain] と [AMQP クレーム ベースのセキュリティ][lnk-cbs]します。
+使用する場合 [AMQP][lnk amqp], 、IoT Hub をサポートしています [SASL プレーン][lnk sasl 平文] と [AMQP クレーム ベースのセキュリティ][lnk cbs]します。
 
 AMQP Claims-Based-Security の場合、標準でこれらのトークンの送信方法が指定されます。
 
@@ -250,7 +250,7 @@ SASL 形式の **username** を指定できます。
 
 どちらの場合も、パスワード フィールドに含まれる、トークン」の説明に従って、 [トークン形式](#tokenformat) セクションです。
 
-> [AZURE.NOTE]  [Azure IoT Hub Sdk][lnk-apis-sdks] サービスに接続するときに自動的にトークンを生成します。 場合によっては、サポートするプロトコル、または使用可能な認証方法で SDK が制限されます。 詳細については、次を参照してください。、 [Azure IoT Hub Sdk][lnk-apis-sdks] ドキュメントです。
+> [AZURE.NOTE]  [Azure IoT Hub Sdk][lnk の sdk の api] サービスに接続するときに自動的にトークンを生成します。 場合によっては、サポートするプロトコル、または使用可能な認証方法で SDK が制限されます。 詳細については、次を参照してください。、 [Azure IoT Hub Sdk][lnk の sdk の api] ドキュメントです。
 
 #### SASL PLAIN と CBS の比較
 
@@ -263,7 +263,7 @@ SASL PLAIN を使用する場合、IoT Hub に接続するクライアントは�
 
 制限付きのリソース URI を持つトークンを作成することにより、ハブレベルのセキュリティ ポリシーのスコープを指定できます。 たとえば、デバイスからの D2C メッセージを送信するエンドポイントは `/devices/{deviceId}/events` になります。 使用してハブ レベルで共有アクセス ポリシーを使用することもできます **DeviceConnect** が resourceURI はトークンに署名するアクセス許可 `/devices/{deviceId}`, 、デバイスを送信するデバイスの代わりに使用可能なトークンを作成するは **deviceId**します。
 
-このメカニズムに似ています、 [Event Hubs の発行者ポリシー][lnk-event-hubs-publisher-policy] でき、独自の認証方式の実装のセキュリティのセクションで説明したよう [Azure IoT Hub ガイダンス][lnk-guidance-security]します。
+このメカニズムに似ています、 [Event Hubs の発行者ポリシー][lnk-イベント-ハブ-発行者ポリシー] でき、独自の認証方式の実装のセキュリティのセクションで説明したよう [Azure IoT Hub ガイダンス][lnk ガイダンス セキュリティ]します。
 
 ## メッセージング
 
@@ -281,7 +281,7 @@ IoT Hub のメッセージは、次の要素で構成されています。
 * 一連の *アプリケーション プロパティ*します。 これは、本文を逆シリアル化しなくてもアプリケーションが定義してアクセスできる、文字列プロパティのディクショナリです。 IoT Hub でこれらのプロパティが変更されることはありません。
 * 非透過的なバイナリ本文。
 
-参照してください [IoT Hub Api と Sdk][lnk-apis-sdks] さまざまなプロトコルでメッセージをエンコードする方法の詳細についてです。
+参照してください [IoT Hub Api と Sdk][lnk の sdk の api] さまざまなプロトコルでメッセージをエンコードする方法の詳細についてです。
 
 これは、IoT Hub メッセージ内の一連のシステム プロパティです。
 
@@ -301,29 +301,29 @@ IoT Hub のメッセージは、次の要素で構成されています。
 
 ### 通信プロトコルの選択<a id="amqpvshttp"></a>
 
-Iot Hub は、両方をサポート、 [AMQP][lnk-amqp] とデバイス側の通信に HTTP/1 プロトコルです。 その使用方法に関する考慮事項の一覧を次に示します。
+Iot Hub は、両方をサポート、 [AMQP][lnk amqp] とデバイス側の通信に HTTP/1 プロトコルです。 その使用方法に関する考慮事項の一覧を次に示します。
 
 * **クラウドとデバイス パターン**します。 HTTP/1 には、サーバー プッシュを実装する効率的な方法がありません。 そのため、HTTP/1 を使用する場合、デバイスは、C2D メッセージの IoT Hub をポーリングします。 これは、デバイスと IoT Hub の両方できわめて非効率的です。 現在のガイドラインでは、HTTP/1 を使用する場合、各デバイスで 25 分に 1 回未満のポーリング間隔を設定するようになっています。 一方 AMQP では、C2D メッセージを受信する場合のサーバー プッシュがサポートされていて、IoT Hub からデバイスへのメッセージも即座にプッシュできます。 配信の待機時間が問題となる場合は、AMQP が使用に最適なプロトコルです。 一方、頻繁に接続されないデバイスの場合は、HTTP/1 でも機能します。
-* **フィールド ゲートウェイ**します。 サーバー プッシュに関する HTTP/1 の制限を指定するには、これは適していませんで使用される [フィールド ゲートウェイ シナリオ][lnk-azure-gateway-guidance]します。
+* **フィールド ゲートウェイ**します。 サーバー プッシュに関する HTTP/1 の制限を指定するには、これは適していませんで使用される [フィールド ゲートウェイ シナリオ][lnk azure ゲートウェイ ガイダンス]します。
 * **リソースのデバイスを低**です。 HTTP/1 のライブラリは、AMQP のライブラリよりもはるかに小規模です。 そのため、リソースが少ないデバイス (RAM が 1 MB 未満など) の場合、HTTP/1 が実装可能な唯一のプロトコルとなります。
 * **ネットワークのトラバーサル**します。 AMQP Standard は、ポート 5672 でリッスンします。 これにより、HTTP 以外のプロトコルに限定されているネットワークの場合は、問題が発生する可能性があります。
 * **ペイロードのサイズ**します。 AMQP は、HTTP/1 よりもはるかに簡潔なバイナリ プロトコルです。
 
 大まかに言うと、可能な限り AMQP の使用をお勧めします。また、デバイスのリソースやネットワーク構成の関係上、AMQP が許可されない場合は HTTP/1 の使用をお勧めします。 さらに、HTTP/1 を使用する場合は、各デバイスでポーリングの頻度が 25 分に 1 回未満になるように設定してください。 当然のことですが、開発段階では、より高いポーリングの頻度を指定できます。
 
-最後の考慮事項とすることが重要を参照してください、 [Azure IoT プロトコル ゲートウェイ][lnk-azure-protocol-gateway], 、IoT Hub と直接やり取りするパフォーマンスの高い MQTT ゲートウェイを展開できます。 MQTT では、サーバー プッシュがサポートされています (したがって、デバイスに C2D メッセージを即座に配信できます)。また、リソースが非常に少ないデバイスでも使用できます。 このアプローチの主な短所は、プロトコル ゲートウェイの自己ホストと管理が必要な点です。
+最後の考慮事項とすることが重要を参照してください、 [Azure IoT プロトコル ゲートウェイ][lnk azure プロトコル ゲートウェイ], 、IoT Hub と直接やり取りするパフォーマンスの高い MQTT ゲートウェイを展開できます。 MQTT では、サーバー プッシュがサポートされています (したがって、デバイスに C2D メッセージを即座に配信できます)。また、リソースが非常に少ないデバイスでも使用できます。 このアプローチの主な短所は、プロトコル ゲートウェイの自己ホストと管理が必要な点です。
 
 ### D2C (デバイスからクラウド)<a id="d2c"></a>
 
-詳しく説明したよう、 [エンドポイント](#endpoints) ] セクションで、デバイスに接続するエンドポイントを通じて、デバイスからクラウドへのメッセージが送信されます (具体的には `/devices/{deviceId}/messages/events`)、およびサービスに接続するエンドポイントを介して受信した (`/messages/events`)、つまりと互換性のある [Event Hubs][lnk-event-hubs]します。 Standard Event Hubs の統合と SDK を使用してメッセージを受信できます。
+詳しく説明したよう、 [エンドポイント](#endpoints) ] セクションで、デバイスに接続するエンドポイントを通じて、デバイスからクラウドへのメッセージが送信されます (具体的には `/devices/{deviceId}/messages/events`)、およびサービスに接続するエンドポイントを介して受信した (`/messages/events`)、つまりと互換性のある [Event Hubs][lnk event hub]します。 Standard Event Hubs の統合と SDK を使用してメッセージを受信できます。
 
-IoT Hub は、クラウドへのデバイスは、次のような方法でメッセージングを実装する [Event Hubs][lnk-event-hubs], 、Event Hubs のようにする IoT Hub のデバイスからクラウド メッセージ *イベント* より [Service Bus][lnk-servicebus] *メッセージ*します。
+IoT Hub は、クラウドへのデバイスは、次のような方法でメッセージングを実装する [Event Hubs][lnk event hub], 、Event Hubs のようにする IoT Hub のデバイスからクラウド メッセージ *イベント* より [Service Bus][lnk servicebus] *メッセージ*します。
 
 この実装には、次のような意味があります。
 
 * Event Hubs と同様に *イベント*, 、デバイスからクラウド メッセージは、永続的な IoT hub で保持されている最大 7 日間 (を参照してください [クラウドへのデバイスの構成オプション](#d2cconfiguration))。
 * デバイスからクラウドへのメッセージが作成時に設定されているパーティションの固定セットでパーティション分割 (を参照してください [クラウドへのデバイスの構成オプション](#d2cconfiguration))。
-* Event Hubs と同様に、D2C メッセージを読み取るクライアントでは、パーティションと、チェックポイントを処理する必要があります。 参照してください [Event Hubs のイベントの消費][lnk-event-hubs-consuming-events]します。
+* Event Hubs と同様に、D2C メッセージを読み取るクライアントでは、パーティションと、チェックポイントを処理する必要があります。 参照してください [Event Hubs のイベントの消費][lnk-イベント-ハブ--イベントの利用]します。
 * Event Hubs のイベントと同様、D2C メッセージのサイズは最大 256 KB で、バッチとしてグループ化して送信を最適化できます。 バッチでも最大 256 KB、メッセージ数にして最大 500 個です。
 
 ただし、IoT Hub の D2C と Event Hubs には、いくつかの重要な違いがあります。
@@ -331,17 +331,17 @@ IoT Hub は、クラウドへのデバイスは、次のような方法でメッ
 * 説明に従って、 [セキュリティ](#security) ] セクションで、IoT Hub は、デバイスごとの認証とアクセス制御
 * IoT Hub は、何百万もの同時に接続されているデバイス (を参照してください [クォータおよび調整](#throttling)) イベント ハブの名前空間ごとに 5000 の AMQP 接続に制限されますが、します。
 * IoT Hub を使用してパーティション分割を任意にすることはできません、 **PartitionKey**します。 デバイスからクラウドへのメッセージがその作成元に関してパーティション分割されて **deviceId**します。
-* IoT Hub のスケーリングは Event Hubs と若干異なります。 詳細については、次を参照してください。 [IoT Hub の拡大/縮小][lnk-guidance-scale]します。
+* IoT Hub のスケーリングは Event Hubs と若干異なります。 詳細については、次を参照してください。 [IoT Hub の拡大/縮小][lnk ガイダンス規模]します。
 
 上記の説明は、IoT Hub がすべてのシナリオで Event Hubs に代わるという意味ではないので、ご注意ください。 たとえば、一部のイベントの計算処理では、データ ストリームを分析する前に、別のプロパティまたはフィールドを基準にイベントを再パーティション分割する必要があります。 その場合、Event Hub を使用して、ストリーム処理パイプラインの 2 つの部分を分離できます。
 
-デバイスとクラウド メッセージングを使用する方法の詳細については、次を参照してください。 [IoT Hub Api と Sdk][lnk-apis-sdks]します。
+デバイスとクラウド メッセージングを使用する方法の詳細については、次を参照してください。 [IoT Hub Api と Sdk][lnk の sdk の api]します。
 
 #### 非テレメトリ トラフィック
 
 多くの場合、デバイスだけでなくテレメトリ データ ポイントを送信アプリケーションのバック エンドも *インタラクティブ* メッセージおよび要求を実行し、アプリケーションのビジネス ロジック層からの処理を必要とします。 バックエンドで特定のアクションをトリガーする必要がある重大なアラートや、コマンドに対するデバイスの応答などがその良い例です。
 
-参照してください、 [デバイスからクラウド処理][lnk-guidance-d2c-processing] このようなメッセージを処理する最善の方法の詳細については、"IoT Hub Guidance"のセクションです。
+参照してください、 [デバイスからクラウド処理][lnk ガイダンス d2c 処理] このようなメッセージを処理する最善の方法の詳細については、"IoT Hub Guidance"のセクションです。
 
 #### D2C の構成オプション<a id="d2cconfiguration"></a>
 
@@ -352,7 +352,7 @@ IoT Hub では、D2C メッセージングを制御する次のプロパティ�
 
 また Event Hubs と同様、IoT Hub でも、D2C の受信エンドポイントでコンシューマー グループを管理できます。
 
-いずれかを使用してこれらすべてのプロパティを変更することができます、 [Azure ポータル][lnk-management-portal], 、または使用してプログラムによって、 [Azure IoT Hub - リソース プロバイダー Api][lnk-resource-provider-apis]します。
+いずれかを使用してこれらすべてのプロパティを変更することができます、 [Azure ポータル][lnk の管理ポータル], 、または使用してプログラムによって、 [Azure IoT Hub - リソース プロバイダー Api][lnk リソース プロバイダー api]します。
 
 #### なりすまし対策のプロパティ<a id="antispoofing"></a>
 
@@ -392,7 +392,7 @@ D2C メッセージでのデバイスのなりすましを回避するために�
 
 メッセージが自動的に遷移させるため、スレッドは IoT Hub を通知することがなく、メッセージの処理に失敗する可能性 **不可視** に **エンキュー** 後、 *可視性 (またはロック) のタイムアウト* (既定: 1 分) です。 メッセージが遷移する **エンキュー** と **非表示** で指定した時刻の数が指定された最大の状態、 *最大配信数* IoT Hub のプロパティです。 上記の移行回数に達すると、メッセージは自動的に配信不能となります。 同様に、メッセージが自動的にされます配信不能な期限後に (を参照してください [有効期限](#ttl))。
 
-クラウドとデバイス間のメッセージのチュートリアルについては、次を参照してください。 [Azure IoT Hub クラウドとデバイス間のメッセージを使ってみる][lnk-getstarted-c2d-tutorial]します。 さまざまな Api と Sdk の参照トピックでは、クラウドとデバイスの機能を公開を参照してください [IoT Hub Api と Sdk][lnk-apis-sdks]します。
+クラウドとデバイス間のメッセージのチュートリアルについては、次を参照してください。 [Azure IoT Hub クラウドとデバイス間のメッセージを使ってみる][lnk getstarted c2d チュートリアル]します。 さまざまな Api と Sdk の参照トピックでは、クラウドとデバイスの機能を公開を参照してください [IoT Hub Api と Sdk][lnk の sdk の api]します。
 
 > [AZURE.NOTE] 通常、たびに、メッセージの損失、アプリケーション ロジックには影響しませんは、クラウドとデバイス間のメッセージを完了する必要があります。 これに該当するシナリオはさまざまです。たとえば、メッセージの内容が正常にローカル ストレージに格納された場合、操作が正常に実行された場合、メッセージの損失がアプリケーションの機能に影響しないことを示す一時的な情報がメッセージに含まれている場合などがあります。 長時間実行されるタスクの場合、タスクの説明をローカル ストレージ上に保持した後で C2D メッセージを完了し、その後、タスクの進行状況のさまざまな段階で、1 つ以上の D2C メッセージによってアプリケーション バックエンドに通知するのが一般的です。
 
@@ -457,7 +457,7 @@ C2D メッセージを送信するときに、サービスは、そのメッセ�
 
 各 Azure サブスクリプションに最大 10 個の IoT Hub を割り当てることができます。
 
-各 IoT hub がプロビジョニングされて特定の SKU の単位数 (詳細については、次を参照してください。 [IoT Hub の料金][lnk-pricing])。 SKU とユニット数により、送信できるメッセージの 1 日あたりの最大クォータと、ID レジストリ内のデバイス ID の最大数が決まります。 同時に接続されるデバイスの数は、レジストリ内の ID の数によって制限されます。
+各 IoT hub がプロビジョニングされて特定の SKU の単位数 (詳細については、次を参照してください。 [IoT Hub の料金][lnk 料金])。 SKU とユニット数により、送信できるメッセージの 1 日あたりの最大クォータと、ID レジストリ内のデバイス ID の最大数が決まります。 同時に接続されるデバイスの数は、レジストリ内の ID の数によって制限されます。
 
 また、IoT Hub によって操作に適用されるスロットルの制限も決まります。
 
@@ -484,52 +484,52 @@ IoT Hub で許可される、1 日のユニットあたりの (SKU に関係な�
 
 IoT Hub の開発の概要については以上です。詳細については、以下のリンク先にアクセスしてください。
 
-- [IoT Hubs の使用 (チュートリアル)][lnk-get-started]
-- [OS プラットフォームとハードウェアの互換性][lnk-compatibility]
-- [Azure IoT デベロッパー センター][lnk-iotdev]
-- [IoT の実装計画][lnk-guidance]
+- [IoT Hub (チュートリアル) を使ってみる][lnk 取得開始]
+- [OS プラットフォームとハードウェアの互換性][lnk 互換性]
+- [Azure の IoT デベロッパー センター][lnk iotdev]
+- [IoT 実装の計画][lnk ガイダンス]
 
-[Event Hubs - Event Processor Host]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
+[Event Hubs のイベント プロセッサ ホスト]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
 
-[Azure portal]: https://portal.azure.com
+[Azure ポータル]: https://portal.azure.com
 
-[img-summary]: ./media/iot-hub-devguide/summary.png
-[img-endpoints]: ./media/iot-hub-devguide/endpoints.png
-[img-lifecycle]: ./media/iot-hub-devguide/lifecycle.png
-[img-eventhubcompatible]: ./media/iot-hub-devguide/eventhubcompatible.png
+[img-概要]: ./media/iot-hub-devguide/summary.png
+[img エンドポイント]: ./media/iot-hub-devguide/endpoints.png
+[img ライフ サイクル]: ./media/iot-hub-devguide/lifecycle.png
+[img eventhubcompatible]: ./media/iot-hub-devguide/eventhubcompatible.png
 
-[lnk-compatibility]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[lnk-apis-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
-[lnk-azure-hub-sdks]: https://msdn.microsoft.com/library/mt488521.aspx
-[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
-[lnk-reference-architecture]: iot-hub-what-is-azure-iot.md
+[lnk 互換性]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
+[lnk の sdk の api]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
+[lnk azure ハブ sdk]: https://msdn.microsoft.com/library/mt488521.aspx
+[lnk 料金]: https://azure.microsoft.com/pricing/details/iot-hub
+[lnk リソース プロバイダー api]: https://msdn.microsoft.com/library/mt548492.aspx
+[lnk 参照アーキテクチャ]: iot-hub-what-is-azure-iot.md
 
-[lnk-azure-gateway-guidance]: iot-hub-guidance.md#fieldgateways
-[lnk-guidance-provisioning]: iot-hub-guidance.md#provisioning
-[lnk-guidance-scale]: iot-hub-scaling.md
-[lnk-guidance-security]: iot-hub-guidance.md#customauth
+[lnk azure ゲートウェイ ガイダンス]: iot-hub-guidance.md#fieldgateways
+[lnk ガイダンス プロビジョニング]: iot-hub-guidance.md#provisioning
+[lnk ガイダンス規模]: iot-hub-scaling.md
+[lnk ガイダンス セキュリティ]: iot-hub-guidance.md#customauth
 
-[lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[lnk-guidance]: iot-hub-guidance.md
-[lnk-getstarted-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
+[lnk azure プロトコル ゲートウェイ]: iot-hub-protocol-gateway.md
+[lnk 取得開始]: iot-hub-csharp-csharp-getstarted.md
+[lnk ガイダンス]: iot-hub-guidance.md
+[lnk getstarted c2d チュートリアル]: iot-hub-csharp-csharp-c2d.md
 
-[lnk-amqp]: https://www.amqp.org/
-[lnk-arm]: ../resource-group-overview.md
-[lnk-azure-resource-manager]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
-[lnk-cbs]: https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc
-[lnk-createuse-sas]: ../storage/storage-dotnet-shared-access-signature-part-2/
-[lnk-event-hubs-publisher-policy]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab
-[lnk-event-hubs]: http://azure.microsoft.com/services/event-hubs/
-[lnk-event-hubs-consuming-events]: ../event-hubs/event-hubs-programming-guide.md#event-consumers
-[lnk-guidance-d2c-processing]: iot-hub-csharp-csharp-process-d2c.md
-[lnk-management-portal]: https://portal.azure.com
-[lnk-rfc7232]: https://tools.ietf.org/html/rfc7232
-[lnk-sas-java]: https://msdn.microsoft.com/library/azure/Hh875756.aspx
-[lnk-sasl-plain]: http://tools.ietf.org/html/rfc4616
-[lnk-servicebus]: http://azure.microsoft.com/services/service-bus/
-[lnk-tls]: https://tools.ietf.org/html/rfc5246
-[lnk-iotdev]: https://azure.microsoft.com/develop/iot/
+[lnk amqp]: https://www.amqp.org/
+[lnk arm]: ../resource-group-overview.md
+[lnk azure リソース マネージャー]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
+[lnk cbs]: https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc
+[lnk createuse-sas]: ../storage/storage-dotnet-shared-access-signature-part-2/
+[lnk-イベント-ハブ-発行者ポリシー]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab
+[lnk event hub]: http://azure.microsoft.com/services/event-hubs/
+[lnk-イベント-ハブ--イベントの利用]: ../event-hubs/event-hubs-programming-guide.md#event-consumers
+[lnk ガイダンス d2c 処理]: iot-hub-csharp-csharp-process-d2c.md
+[lnk の管理ポータル]: https://portal.azure.com
+[lnk rfc7232]: https://tools.ietf.org/html/rfc7232
+[lnk sas java]: https://msdn.microsoft.com/library/azure/Hh875756.aspx
+[lnk sasl 平文]: http://tools.ietf.org/html/rfc4616
+[lnk servicebus]: http://azure.microsoft.com/services/service-bus/
+[lnk tls]: https://tools.ietf.org/html/rfc5246
+[lnk iotdev]: https://azure.microsoft.com/develop/iot/
 
-
+<!--HONumber=Apr16_HO2-->

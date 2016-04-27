@@ -2104,7 +2104,7 @@ DocumentDB は、HTTP を介したオープンな RESTful プログラミング 
 以下の例では、これまでに説明した 2 つのサンプル ドキュメントを含むコレクションに対する、DocumentDB クエリの POST を示しています。 このクエリには、JSON の名前プロパティに対するシンプルなフィルターがあります。 `x-ms-documentdb-isquery` と Content-Type の使用: `application/query+json` ヘッダーは、クエリによる操作であることを示しています。
 
 
-**Request (要求)**
+**要求**
 
     POST https://<REST URI>/docs HTTP/1.1
     ...
@@ -2226,7 +2226,7 @@ DocumentDB は、HTTP を介したオープンな RESTful プログラミング 
 
 クエリ結果を 1 つの結果ページに収めることができない場合、REST API は `x-ms-continuation-token` 応答ヘッダーを使って継続トークンを返します。 クライアントは、このヘッダーを後続の結果に含めることで、結果を改ページすることができます。 ページあたりの結果の数も、`x-ms-max-item-count` 番号ヘッダーで制御できます。
 
-クエリのデータ一貫性ポリシーを管理するには、すべての REST API 要求と同様に `x-ms-consistency-level` ヘッダーを使用します。 セッションの一貫性を維持するには、すべてのクエリ要求で最新の `x-ms-session-token` Cookie ヘッダーもエコーする必要があります。 クエリされたコレクションのインデックス作成ポリシーは、クエリ結果の一貫性にも影響を与える点に注意してください。 既定のインデックス作成ポリシーの設定では、インデックスはドキュメントの内容に関して常に最新の状態になり、クエリ結果はデータ用に選択された一貫性と一致します。 インデックス作成ポリシーが "遅延" に緩和されている場合、返されるクエリ結果も古いものになる可能性があります。 詳細についてを参照してください [DocumentDB の一貫性レベル] [consistency-levels]します。
+クエリのデータ一貫性ポリシーを管理するには、すべての REST API 要求と同様に `x-ms-consistency-level` ヘッダーを使用します。 セッションの一貫性を維持するには、すべてのクエリ要求で最新の `x-ms-session-token` Cookie ヘッダーもエコーする必要があります。 クエリされたコレクションのインデックス作成ポリシーは、クエリ結果の一貫性にも影響を与える点に注意してください。 既定のインデックス作成ポリシーの設定では、インデックスはドキュメントの内容に関して常に最新の状態になり、クエリ結果はデータ用に選択された一貫性と一致します。 インデックス作成ポリシーが "遅延" に緩和されている場合、返されるクエリ結果も古いものになる可能性があります。 詳細についてを参照してください [DocumentDB の一貫性レベル] [一貫性レベル]します。
 
 指定されたクエリを、コレクションで構成されたインデックス作成ポリシーがサポートできない場合、DocumentDB サーバーは 400 "Bad Request" を返します。 これは、ハッシュ (等値) 検索用に構成されたパスに対する範囲クエリと、インデックス作成から明示的に除外されたパスのために返されます。 `x-ms-documentdb-query-enable-scan` ヘッダーを指定することで、インデックスを利用できない場合のクエリによるスキャン実行を許可することができます。
 
@@ -2362,10 +2362,10 @@ DocumentDB が提供するプログラミング モデルでは、ストアド �
 
 
 ##参照
-1.  [Azure DocumentDB の概要][introduction]
+1.  [Azure DocumentDB の概要][の概要]
 2.  [DocumentDB SQL の仕様](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3.  [DocumentDB の .NET サンプル](https://github.com/Azure/azure-documentdb-net)
-4.  [DocumentDB の一貫性レベル][consistency-levels]
+4.  [DocumentDB の一貫性レベル][一貫性レベル]
 5.  ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6.  JSON [http://json.org/](http://json.org/)
 7.  Javascript 仕様 [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
@@ -2378,8 +2378,8 @@ DocumentDB が提供するプログラミング モデルでは、ストアド �
 
 
 [1]: ./media/documentdb-sql-query/sql-query1.png
-[introduction]: documentdb-introduction.md
-[consistency-levels]: documentdb-consistency-levels.md
+[概要]: documentdb-introduction.md
+[一貫性レベル]: documentdb-consistency-levels.md
  
 
-
+<!--HONumber=Apr16_HO2-->

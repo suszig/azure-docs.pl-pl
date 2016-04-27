@@ -26,7 +26,7 @@ Apache Oozie を使用して、Hive と Sqoop を使用するワークフロー�
 
 Apache Oozie は Hadoop ジョブを管理するワークフローおよび調整システムです。 Hadoop スタックと統合されていて、Apache MapReduce、Apache Pig、Apache Hive、Apache Sqoop の Hadoop ジョブをサポートしています。 Java プログラムやシェル スクリプトなど、システムに固有のジョブのスケジュールを設定する際にも使用できます。
 
-> [AZURE.NOTE] HDInsight でワークフローを定義するための別のオプションは、Azure Data Factory です。 Azure Data Factory の詳細については、次を参照してください。 [Pig の使用と Data Factory を使って Hive][azure-data-factory-pig-hive]します。
+> [AZURE.NOTE] HDInsight でワークフローを定義するための別のオプションは、Azure Data Factory です。 Azure Data Factory の詳細については、次を参照してください。 [Pig の使用と Data Factory を使って Hive][azure のデータの工場出荷時の pig-hive]します。
 
 ##前提条件
 
@@ -54,11 +54,11 @@ Apache Oozie は Hadoop ジョブを管理するワークフローおよび調�
 
     このドキュメントで使用する Hive スクリプトは、プラットフォームごと (Android や iPhone など) の合計アクセス数をカウントし、カウントしたアクセス数を新しい Hive テーブルに保存します。
 
-    Hive の詳細については、次を参照してください。 [HDInsight での Hive の使用][hdinsight-use-hive]します。
+    Hive の詳細については、次を参照してください。 [Hive を HDInsight と共に使用して][hdinsight を使用して hive]します。
 
-2.  Sqoop アクションでは、新しい Hive テーブルの内容を Azure SQL Database のテーブルにエクスポートします。 Sqoop の詳細については、次を参照してください。 [HDInsight の Hadoop Sqoop の使用][hdinsight-use-sqoop]します。
+2.  Sqoop アクションでは、新しい Hive テーブルの内容を Azure SQL Database のテーブルにエクスポートします。 Sqoop の詳細については、次を参照してください。 [HDInsight での Hadoop Sqoop の使用][hdinsight を使用して sqoop]します。
 
-> [AZURE.NOTE] HDInsight クラスターでサポートされている Oozie のバージョンを参照してください。 [HDInsight で提供される Hadoop クラスター バージョンの新機能ですか?][hdinsight-versions]します。
+> [AZURE.NOTE] HDInsight クラスターでサポートされている Oozie のバージョンを参照してください [HDInsight で提供される Hadoop クラスター バージョンの新機能ですか?][。hdinsight バージョン]です。
 
 ##作業ディレクトリの作成
 
@@ -185,7 +185,7 @@ Oozie ワークフロー定義は hPDL (XML プロセス定義言語) で書か�
 
     - **RunSqoopExport**: Sqoop を使用して SQL データベースに Hive スクリプトから作成されたデータをエクスポートします。 このは場合にのみ実行、 **RunHiveScript** アクションが正常に完了します。
 
-        > [AZURE.NOTE] Oozie ワークフローとワークフロー アクションの使用に関する詳細については、次を参照してください。 [Apache Oozie 4.0 のドキュメント][apache-oozie-400] (の hdinsight クラスター バージョン 3.0) または [Apache Oozie 3.3.2 のドキュメント][apache-oozie-332] (HDInsight バージョン 2.1) 用です。
+        > [AZURE.NOTE] Oozie ワークフローとワークフロー アクションの使用に関する詳細については、次を参照してください。 [Apache Oozie 4.0 のドキュメント][apache oozie-400] (の hdinsight クラスター バージョン 3.0) または [Apache Oozie 3.3.2 のドキュメント][apache oozie-332] (HDInsight バージョン 2.1) 用です。
 
     このワークフローには、このドキュメントで後述するジョブ定義で使用する値に置き換えられる複数のエントリ (`${jobTracker}` など) が含まれています。
 
@@ -667,58 +667,58 @@ Oozie UI では、Oozie ログと、Hive クエリなどの MapReduce タスク�
 ##次のステップ
 このチュートリアルでは、Oozie ワークフローを定義する方法と Oozie ジョブを実行する方法について説明しました。 HDInsight の使用方法の詳細については、次の記事をご覧ください。
 
-- [HDInsight での時間ベースの Oozie コーディネーターの使用][hdinsight-oozie-coordinator-time]
-- [HDInsight での Hadoop ジョブ用データのアップロード][hdinsight-upload-data]
-- [HDInsight の Hadoop での Sqoop の使用][hdinsight-use-sqoop]
-- [HDInsight での Hive と Hadoop の使用][hdinsight-use-hive]
-- [HDInsight での Pig と Hadoop の使用][hdinsight-use-pig]
-- [HDInsight 用 Java MapReduce プログラムの開発に関するページ][hdinsight-develop-mapreduce]
+- [HDInsight での時間ベースの Oozie コーディネーターの使用][hdinsight oozie コーディネーター時]
+- [HDInsight での Hadoop ジョブ用データのアップロード][hdinsight でのデータのアップロード]
+- [HDInsight での Hadoop Sqoop の使用][hdinsight での sqoop の使用]
+- [HDInsight での Hadoop の Hive の使用][hdinsight での hive の使用]
+- [HDInsight での Hadoop での Pig の使用][hdinsight での pig の使用]
+- [HDInsight 用 Java MapReduce プログラムの開発][hdinsight 開発 mapreduce]
 
 
-[hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
+[hdinsight コマンドレットのダウンロード]: http://go.microsoft.com/fwlink/?LinkID=325563
 
 
 
-[azure-data-factory-pig-hive]: data-factory-pig-hive-activities.md
-[hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
-[hdinsight-versions]:  hdinsight-component-versioning.md
-[hdinsight-storage]: hdinsight-use-blob-storage.md
-[hdinsight-get-started]: hdinsight-get-started.md
+[azure のデータの工場出荷時の pig-hive]: data-factory-pig-hive-activities.md
+[hdinsight oozie コーディネーター時]: hdinsight-use-oozie-coordinator-time.md
+[。hdinsight バージョン]:  hdinsight-component-versioning.md
+[hdinsight ストレージ]: hdinsight-use-blob-storage.md
+[hdinsight の入門]: hdinsight-get-started.md
 
 
-[hdinsight-use-sqoop]: hdinsight-use-sqoop-mac-linux.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-storage]: hdinsight-use-blob-storage.md
-[hdinsight-get-started-emulator]: hdinsight-get-started-emulator.md
+[hdinsight を使用して sqoop]: hdinsight-use-sqoop-mac-linux.md
+[hdinsight のプロビジョニング]: hdinsight-provision-clusters.md
+[hdinsight でのデータのアップロード]: hdinsight-upload-data.md
+[hdinsight での mapreduce の使用]: hdinsight-use-mapreduce.md
+[hdinsight を使用して hive]: hdinsight-use-hive.md
+[hdinsight での pig の使用]: hdinsight-use-pig.md
+[hdinsight ストレージ]: hdinsight-use-blob-storage.md
+[hdinsight get-emulator の概要]: hdinsight-get-started-emulator.md
 
-[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-開発-ストリーミングのジョブ]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
+[hdinsight 開発 mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
-[sqldatabase-create-configue]: sql-database-create-configure.md
-[sqldatabase-get-started]: sql-database-get-started.md
+[sql database を作成構成]: sql-database-create-configure.md
+[sql database 取得開始]: sql-database-get-started.md
 
-[azure-create-storageaccount]: storage-create-storage-account.md
+[azure 作成 storageaccount]: storage-create-storage-account.md
 
-[apache-hadoop]: http://hadoop.apache.org/
-[apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
-[apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
+[apache hadoop]: http://hadoop.apache.org/
+[apache oozie-400]: http://oozie.apache.org/docs/4.0.0/
+[apache oozie-332]: http://oozie.apache.org/docs/3.3.2/
 
-[powershell-download]: http://azure.microsoft.com/downloads/
-[powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
-[powershell-install-configure]: powershell-install-configure.md
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/en-us/library/ee176961.aspx
+[powershell のダウンロード]: http://azure.microsoft.com/downloads/
+[powershell のプロファイルについて]: http://go.microsoft.com/fwlink/?LinkID=113729
+[powershell のインストール構成]: powershell-install-configure.md
+[powershell 開始]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell スクリプト]: https://technet.microsoft.com/en-us/library/ee176961.aspx
 
-[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+[cindygross hive テーブル]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-[img-workflow-diagram]: ./media/hdinsight-use-oozie/HDI.UseOozie.Workflow.Diagram.png
-[img-preparation-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.Preparation.Output1.png
-[img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
+[img ワークフロー図]: ./media/hdinsight-use-oozie/HDI.UseOozie.Workflow.Diagram.png
+[img 準備出力]: ./media/hdinsight-use-oozie/HDI.UseOozie.Preparation.Output1.png
+[img runworkflow 出力]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki hive エラー]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-
+<!--HONumber=Apr16_HO2-->
