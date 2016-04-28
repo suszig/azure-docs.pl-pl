@@ -81,7 +81,7 @@ HTTP 要求データが概要ブレードに表示されます  (表示されな
 ![名前別の要求数](./media/app-insights-java-eclipse/6-barchart.png)
 
 
-[メトリックの詳細について説明します][。メトリック]
+[メトリックの詳細についてはこちらをご覧ください。][metrics]
 
  
 
@@ -255,7 +255,7 @@ Java Web アプリケーションに数行のコードを挿入して、ユー�
 [診断]: app-insights-diagnostic-search.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
-[メトリック]: app-insights-metrics-explorer.md
+[metrics]: app-insights-metrics-explorer.md
 [追跡]: app-insights-api-custom-events-metrics.md
 [使用]: app-insights-web-track-usage.md
 
