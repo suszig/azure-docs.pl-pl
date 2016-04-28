@@ -106,7 +106,7 @@ HTML ファイルの先頭にコード スニペットを挿入します。
 
 ![セッション、ユーザー、ページ ビュー](./media/app-insights-java-eclipse/appinsights-47usage-2.png)
 
-[クライアント側のテレメトリの設定について説明します][。使用状況]
+[クライアント側のテレメトリの設定について説明します][usage]
 
 ## アプリケーションの発行
 
@@ -216,7 +216,7 @@ Application Insights では、Web サイトを定期的にテストして、Web 
 
 ![Web テストの例](./media/app-insights-java-eclipse/appinsights-10webtestresult.png)
 
-[可用性 web テストについて説明します][。可用性] 
+[可用性 web テストについて説明します][availability] 
 
 ## 診断ログ
 
@@ -251,7 +251,7 @@ Java Web アプリケーションに数行のコードを挿入して、ユー�
 
 <!--Link references-->
 
-[可用性]: app-insights-monitor-web-app-availability.md
+[availability]: app-insights-monitor-web-app-availability.md
 [診断]: app-insights-diagnostic-search.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
