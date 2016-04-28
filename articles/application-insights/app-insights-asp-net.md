@@ -90,7 +90,7 @@ Application Insights のリソースを開く、 [Azure ポータル][ポータ�
 
 ![クリックしてより多くのデータを表示する](./media/app-insights-asp-net/12-first-perf.png)
 
-任意のグラフをクリックして、より詳細なメトリックを表示します。 [メトリックの詳細について説明します][。パフォーマンス]
+任意のグラフをクリックして、より詳細なメトリックを表示します。 [メトリックの詳細についてはこちらをご覧ください。][perf]
 
 * *ユーザーまたはページ データはありませんか。* - [ユーザーとページのデータを追加します。](../article/application-insights/app-insights-asp-net-client.md)
 
@@ -162,7 +162,7 @@ ApplicationInsights.config をカスタマイズしている場合は、アッ�
 [knowUsers]: app-insights-overview-usage.md
 [メトリック]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[パフォーマンス]: app-insights-web-monitor-performance.md
+[perf]: app-insights-web-monitor-performance.md
 [ポータル]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
