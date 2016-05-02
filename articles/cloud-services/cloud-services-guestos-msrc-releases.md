@@ -352,6 +352,5 @@
 
 [アーカイブ]: https://msdn.microsoft.com/library/azure/dn391773.aspx
 [ファミリについて説明する]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
- 
 
 <!--HONumber=Apr16_HO2-->

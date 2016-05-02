@@ -26,12 +26,12 @@ Contoso は、ゲーム機、携帯デバイス、パーソナル コンピュ�
 
 ## チュートリアルの準備をする
 1.  読み取り [Azure Data Factory の概要][adfintroduction] に最上位レベルの概念を理解し、Azure Data Factory の概要について説明します。
-2.  このチュートリアルを実施するには Azure サブスクリプションが必要です。 サブスクリプションの入手方法の詳細については、次を参照してください。 [購入に関するオプション] [azure-purchase-options], 、[メンバー プラン][azure-member-offers], 、または [無料評価版][azure-free-trial]します。
-3.  ダウンロードしてインストールする必要があります [Azure PowerShell][download-azure-powershell] コンピューターにします。
+2.  このチュートリアルを実施するには Azure サブスクリプションが必要です。 サブスクリプションの入手方法の詳細については、次を参照してください。 [購入オプション] [azure 購入オプション], 、[メンバー プラン][azure のオファー メンバー], 、または [無料評価版][azure 無料トライアル]します。
+3.  ダウンロードしてインストールする必要があります [Azure PowerShell][ダウンロード azure powershell] コンピューターにします。
 
     この記事では、すべての Data Factory コマンドレットを取り上げているわけではありません。 参照してください [Data Factory コマンドレット リファレンス](https://msdn.microsoft.com/library/dn820234.aspx) Data Factory コマンドレットに関する包括的なドキュメントについてです。
     
-    Azure PowerShell を使用している場合 **バージョン < 1.0**, 、記載されているコマンドレットを使用する必要があります [ここ][old-cmdlet-reference]します。 また、Data Factory コマンドレットを使用する前に、次のコマンドを実行する必要があります。 
+    Azure PowerShell を使用している場合 **バージョン < 1.0**, 、記載されているコマンドレットを使用する必要があります [ここ][古いコマンドレット リファレンス]します。 また、Data Factory コマンドレットを使用する前に、次のコマンドを実行する必要があります。 
 
     1. 実行 **Add-azureaccount** ユーザー名と、Azure ポータルにサインインするために使用するパスワードを入力します。
     2. 実行 **Get-azuresubscription** このアカウントのすべてのサブスクリプションを表示します。
@@ -43,7 +43,7 @@ Contoso は、ゲーム機、携帯デバイス、パーソナル コンピュ�
  
 2.  **(推奨)** 確認し、練習をチュートリアルで、 [Azure Data Factory を使ってみる][adfgetstarted] ポータルとコマンドレットに慣れるための簡単なチュートリアルについての記事です。
 3.  **(推奨)** 確認し、実際に、 [の Pig の使用と Azure Data Factory を使って Hive][usepigandhive] 内部設置型のデータ ソースからデータを Azure blob ストアに移動するパイプラインの作成のチュートリアルについての記事です。
-4.  ダウンロード [ADFWalkthrough][adfwalkthrough-download] ファイルを **C:\ADFWalkthrough** フォルダー **フォルダー構造は維持**:
+4.  ダウンロード [ADFWalkthrough][adfwalkthrough ダウンロード] ファイルを **C:\ADFWalkthrough** フォルダー **フォルダー構造は維持**:
     - **パイプライン:** パイプラインの定義を含む JSON ファイルが含まれています。
     - **テーブル:** テーブルの定義を含む JSON ファイルが含まれています。
     - **LinkedServices:** ストレージおよびコンピューティング (HDInsight) の定義を含む JSON ファイルを含むクラスター 
@@ -132,7 +132,7 @@ Contoso は、ゲーム機、携帯デバイス、パーソナル コンピュ�
     
     Alternatively, you can use the files in the folder: C:\ADFWalkthrough\Scripts to upload pig/hive scripts and sample files to the adfwalkthrough container in the blob storage, and create MarketingCampaignEffectiveness table in the MarketingCamapaigns Azure SQL database.
    
-2. ローカル コンピューターに Azure SQL Database へのアクセス権があることを確認してください。 アクセスを有効にするには、 [Azure Classic Portal](http://manage.windowsazure.com) または **sp_set_firewall_rule** 、コンピューターの IP アドレスに対するファイアウォール規則を作成する master データベースにします。 この変更が有効になるまで最大で 5 分かかる場合があります。 参照してください [Azure SQL のファイアウォール ルールを設定する][azure-sql-firewall]です。
+2. ローカル コンピューターに Azure SQL Database へのアクセス権があることを確認してください。 アクセスを有効にするには、 [Azure Classic Portal](http://manage.windowsazure.com) または **sp_set_firewall_rule** 、コンピューターの IP アドレスに対するファイアウォール規則を作成する master データベースにします。 この変更が有効になるまで最大で 5 分かかる場合があります。 参照してください [Azure SQL のファイアウォール ルールを設定する][azure sql ファイアウォール]します。
 4. Azure PowerShell で、サンプルを展開した場所に移動します (例: **C:\ADFWalkthrough**)
 5. 実行 **uploadSampleDataAndScripts.ps1** 
 6. スクリプトが正常に実行されると、以下が表示されます。
@@ -191,7 +191,7 @@ Contoso は、ゲーム機、携帯デバイス、パーソナル コンピュ�
  
 ## <a name="MainStep3"></a>手順 3. リンクされたサービスを作成する
 
-> [AZURE.NOTE] この記事では、Azure PowerShell を使用して、リンクされたサービス、テーブル、およびパイプラインを作成します。 参照してください [Data Factory エディターを使用してチュートリアル][adftutorial-using-editor] Azure ポータル、具体的には Data Factory エディターを使用してこのチュートリアルを実行するかどうか。 
+> [AZURE.NOTE] この記事では、Azure PowerShell を使用して、リンクされたサービス、テーブル、およびパイプラインを作成します。 参照してください [Data Factory エディターを使用してチュートリアル][adftutorial を使用してエディター] Azure ポータル、具体的には Data Factory エディターを使用してこのチュートリアルを実行するかどうか。 
 
 この手順では、StorageLinkedService、AzureSqlLinkedService、HDInsightStorageLinkedService、HDInsightLinkedService というリンクされたサービスを作成します。
 
@@ -353,7 +353,7 @@ Azure クラシック ポータルはデータ セットとテーブルの作成
 
 12.  **DATA FACTORY** ブレード、 **LogProcessingFactory**, 、] をクリックして **ダイアグラム**します。
 
-    ![ダイアグラム リンク][image-data-factory-tutorial-diagram-link]
+    ![Diagram Link][image-data-factory-tutorial-diagram-link]
 
 13. 表示されているダイアグラムは並べ替えることが可能で、以下のダイアグラムは上部が直接の入力を示し、下部が出力を示しています。 あることがわかりますの出力、 **PartitionGameLogsPipeline** EnrichGameLogsPipeline の出力を入力として渡される、 **EnrichGameLogsPipeline** に渡される、 **AnalyzeMarketingCampaignPipeline**します。 タイトルをダブルクリックして、ブレードが示すアーティファクトについての詳細を表示します。
 
@@ -367,7 +367,7 @@ Azure クラシック ポータルはデータ セットとテーブルの作成
 1.  [LogProcessingFactory] の [データ ファクトリ] ブレードを開いていない場合、以下のいずれかを実施できます。
     1.  クリックして **LogProcessingFactory** 上、 **スタート画面**します。 データ ファクトリを作成するときに、 **スタート画面に追加** オプションは自動的にチェックします。
 
-        ![監視スタート画面][image-data-factory-monitoring-startboard]
+        ![Monitoring Startboard][image-data-factory-monitoring-startboard]
 
     2. をクリックして **参照** ハブ、およびクリック **すべて**です。
         
@@ -385,7 +385,7 @@ Azure クラシック ポータルはデータ セットとテーブルの作成
 
 6. [テーブル] ブレードに **RawGameEventsTable**, 、すべてのスライスを参照してください。 次のスクリーン ショットは、すべてのスライスが **準備ができて** 状態および問題のあるスライスはありません。 これは、そのデータがすぐに処理できることを意味します。 
 
-    ![[RawGameEventsTable] の [テーブル] ブレード][image-data-factory-monitoring-raw-game-events-table]
+    ![RawGameEventsTable TABLE blade][image-data-factory-monitoring-raw-game-events-table]
  
 7. 、 **パイプライン** ブレード **PartiionGameLogsPipeline**, 、クリックして **Produced**します。 
 8. このパイプラインが生成するデータ セットの一覧が表示されるはずです。 
@@ -393,11 +393,11 @@ Azure クラシック ポータルはデータ セットとテーブルの作成
 10. いることを確認、 **ステータス** のすべてのスライスに設定されている **準備**します。 
 11. になっているスライスのいずれかをクリックして **準備** を表示する、 **データ スライス** そのスライスのブレードです。
 
-    ![[RawGameEventsTable] の [データ スライス] ブレード][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
+    ![RawGameEventsTable DATA SLICE blade][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
     エラーが発生していた場合、ここに **[失敗]** という状態が表示されます。  か両方のスライスの状態を表示することもあります **準備**, 、またはその両方の状態 **PendingValidation**, のスライスの処理速度に応じて、します。
  
-    参照してください、 [Azure Data Factory 開発者向けリファレンス][developer-reference] すべての可能なスライスの状態を把握します。
+    参照してください、 [Azure Data Factory 開発者向けリファレンス][開発者向けリファレンス] すべての可能なスライスの状態を把握します。
 
 12.  **データ スライス** ブレードから実行] をクリックして、 **アクティビティの実行** ] ボックスの一覧です。 そのスライスの [アクティビティの実行] ブレードが表示されるはずです。 次を参照する必要があります **アクティビティの実行の詳細** ブレードです。
 
@@ -415,35 +415,35 @@ Azure クラシック ポータルはデータ セットとテーブルの作成
  
 マーケティング キャンペーンの有効性データを Azure BLOB からオンプレミスの SQL Server にコピーするには、この記事のチュートリアルで導入したオンプレミスのリンクされたサービス、テーブル、パイプラインを追加で作成する必要があります。
 
-実習、 [チュートリアル: を使用して内部設置型データ ソース][tutorial-onpremises-using-powershell] を内部設置型 SQL Server データベースにマーケティング キャンペーン有効性データをコピーするパイプラインを作成する方法を参照してください。
+実習、 [チュートリアル: を使用して内部設置型データ ソース][チュートリアル onpremises-powershell] を内部設置型 SQL Server データベースにマーケティング キャンペーン有効性データをコピーするパイプラインを作成する方法を参照してください。
  
 
-[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
-[use-custom-activities]: data-factory-use-custom-activities.md
-[troubleshoot]: data-factory-troubleshoot.md
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
+[モニターを使用して-powershell]: data-factory-monitor-manage-using-powershell.md
+[カスタム アクティビティを使用します。]: data-factory-use-custom-activities.md
+[トラブルシューティングを行う]: data-factory-troubleshoot.md
+[コマンドレット リファレンス]: http://go.microsoft.com/fwlink/?LinkId=517456
 
-[adftutorial-using-editor]: data-factory-tutorial.md
+[adftutorial を使用してエディター]: data-factory-tutorial.md
 
 [adfgetstarted]: data-factory-get-started.md
 [adfintroduction]: data-factory-introduction.md
 [usepigandhive]: data-factory-data-transformation-activities.md
-[tutorial-onpremises-using-powershell]: data-factory-tutorial-extend-onpremises-using-powershell.md
-[download-azure-powershell]: ../powershell-install-configure.md
+[チュートリアル onpremises-powershell]: data-factory-tutorial-extend-onpremises-using-powershell.md
+[ダウンロード azure powershell]: ../powershell-install-configure.md
 
-[azure-portal]: http://portal.azure.com
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure ポータル]: http://portal.azure.com
+[azure 購入オプション]: http://azure.microsoft.com/pricing/purchase-options/
+[azure のオファー メンバー]: http://azure.microsoft.com/pricing/member-offers/
+[azure 無料トライアル]: http://azure.microsoft.com/pricing/free-trial/
 
 [sqlcmd-install]: http://www.microsoft.com/download/details.aspx?id=35580
-[azure-sql-firewall]: http://msdn.microsoft.com/library/azure/jj553530.aspx
+[azure sql ファイアウォール]: http://msdn.microsoft.com/library/azure/jj553530.aspx
 
 
-[adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[adfwalkthrough ダウンロード]: http://go.microsoft.com/fwlink/?LinkId=517495
+[開発者向けリファレンス]: http://go.microsoft.com/fwlink/?LinkId=516908
 
-[old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
+[古いコマンドレット リファレンス]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
 
 [image-data-factory-tutorial-end-to-end-flow]: ./media/data-factory-tutorial-using-powershell/EndToEndWorkflow.png
@@ -501,7 +501,7 @@ Azure クラシック ポータルはデータ セットとテーブルの作成
 
 [image-data-factory-tutorial-diagram-view]: ./media/data-factory-tutorial-using-powershell/DiagramView.png
 
-[image-data-factory-monitoring-startboard]: ./media/data-factory-tutorial-using-powershell/MonitoringStartBoard.png
+[イメージのデータの工場出荷時の監視-スタート画面]: ./media/data-factory-tutorial-using-powershell/MonitoringStartBoard.png
 
 [image-data-factory-monitoring-hub-everything]: ./media/data-factory-tutorial-using-powershell/MonitoringHubEverything.png
 
@@ -520,4 +520,4 @@ Azure クラシック ポータルはデータ セットとテーブルの作成
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial-using-powershell/NewDataFactoryMenu.png
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png 
-
+<!--HONumber=Apr16_HO2-->

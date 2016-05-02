@@ -65,7 +65,7 @@ Visual Studio に新しいプロジェクトを作成するとき、Application 
 
 コマンドは、次の手順をでした (する代わりが [を手動で行う](app-insights-start-monitoring-app-health-usage.md) 希望するかどうか)。
 
-* Application Insights リソースが作成 [Azure ポータル][ポータル]します。 ここにデータが表示されます。 取得、 *インストルメンテーション キー* リソースを識別します。
+* Application Insights リソースが作成 [Azure ポータル][portal]します。 ここにデータが表示されます。 取得、 *インストルメンテーション キー* リソースを識別します。
 * プロジェクトに Application Insights Web SDK NuGet パッケージが追加されます。 Visual Studio で表示するには、プロジェクトを右クリックし、[NuGet パッケージの管理] を選択します。
 * インストルメンテーション キーが `ApplicationInsights.config` に配置されます。
 
@@ -80,7 +80,7 @@ Visual Studio で、送信されたイベント数が表示されます。
 
 ## <a name="monitor"></a> Application Insights を開く
 
-Application Insights のリソースを開く、 [Azure ポータル][ポータル]します。
+Application Insights のリソースを開く、 [Azure ポータル][portal]します。
 
 ![プロジェクトを右クリックして Azure ポータルを開く](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
@@ -90,7 +90,7 @@ Application Insights のリソースを開く、 [Azure ポータル][ポータ�
 
 ![クリックしてより多くのデータを表示する](./media/app-insights-asp-net/12-first-perf.png)
 
-任意のグラフをクリックして、より詳細なメトリックを表示します。 [メトリックの詳細についてはこちらをご覧ください。][perf]
+任意のグラフをクリックして、より詳細なメトリックを表示します。 [メトリックの詳細について説明します][perf]
 
 * *ユーザーまたはページ データはありませんか。* - [ユーザーとページのデータを追加します。](../article/application-insights/app-insights-asp-net-client.md)
 
@@ -108,7 +108,7 @@ Application Insights のリソースを開く、 [Azure ポータル][ポータ�
 
 * 対象が正しいことを確認します。 サインイン、 [Azure ポータル](https://portal.azure.com), 、] をクリックして"を参照 >"、"Application Insights"し、アプリケーションを選択します。
 * アプリケーションを使用して、テレメトリがいくつか生成されるようにさまざまなページを開きます。
-* 開いている、 [検索][診断] ブレードで、個々 のイベントを表示します。 メトリック パイプラインを経由すると、イベントの表示に少し時間がかかる場合があります。
+* 開いている、 [検索][diagnostic] ブレードで、個々 のイベントを表示します。 メトリック パイプラインを経由すると、イベントの表示に少し時間がかかる場合があります。
 * 数秒待機してから [最新の情報に更新] をクリックします。
 * 参照してください [トラブルシューティング][qna]します。
 
@@ -158,12 +158,12 @@ ApplicationInsights.config をカスタマイズしている場合は、アッ�
 [azure]: ../insights-perf-analytics.md
 [クライアント]: app-insights-javascript.md
 [検出]: app-insights-detect-triage-diagnose.md
-[診断]: app-insights-diagnostic-search.md
+[diagnostic]: app-insights-diagnostic-search.md
 [knowUsers]: app-insights-overview-usage.md
 [メトリック]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [perf]: app-insights-web-monitor-performance.md
-[ポータル]: http://portal.azure.com/
+[portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [ロール]: app-insights-resources-roles-access-control.md

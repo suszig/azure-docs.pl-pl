@@ -34,8 +34,8 @@ Azure Active Directory (AD) と統合するアプリケーションは、Azure A
 その結果、書式設定とアプリケーション マニフェストのプロパティを理解するために必要があります、Graph API を参照する [アプリケーション エンティティ][アプリケーション エンティティ] ドキュメントです。 ただしアプリケーション マニフェストのアップロードに実行されることができる更新プログラムの例
 示します。
 
-- Web API によって公開されているアクセス許可のスコープ (oauth2Permissions) を宣言する。 "を公開する Web Api を他のアプリケーション] を参照してください 「[Azure Active Directory とアプリケーションの統合][INTEGRATING-APPLICATIONS-AAD]」 ユーザーの権限借用の実装の詳細について、oauth2Permissions を使用してアクセス許可スコープを委任します。 前述のように、すべてのアプリケーションのエンティティ プロパティは、「、Graph API [エンティティおよび複合型リファレンス][アプリケーション エンティティ] oauth2Permissions メンバー型のコレクションであるなどの関連記事 [OAuth2Permission][アプリケーション エンティティ OAUTH2 権限]します。
-- アプリによって公開されるアプリケーション ロール (appRoles) を宣言する。 アプリケーション エンティティのアプリケーション ロールのメンバーは、型のコレクションを [AppRole][アプリケーション エンティティ アプリ ロール]します。 参照してください、 [ロール ベースの Azure AD を使用してクラウド アプリケーションのアクセス制御][RBAC クラウド アプリ AZUREAD] 実装例については、資料です。
+- Web API によって公開されているアクセス許可のスコープ (oauth2Permissions) を宣言する。 "を公開する Web Api を他のアプリケーション] を参照してください [と Azure Active Directory アプリケーションを統合する][INTEGRATING-APPLICATIONS-AAD] ユーザーの権限借用の実装の詳細について、oauth2Permissions を使用してアクセス許可スコープを委任します。 前述のように、すべてのアプリケーションのエンティティ プロパティは、「、Graph API [エンティティおよび複合型リファレンス][アプリケーション エンティティ] oauth2Permissions メンバー型のコレクションであるなどの関連記事 [OAuth2Permission][アプリケーション エンティティ OAUTH2 権限]します。
+- アプリによって公開されるアプリケーション ロール (appRoles) を宣言する。 アプリケーション エンティティのアプリケーション ロールのメンバーは、型のコレクションを [AppRole][APPLICATION-ENTITY-APP-ROLE]します。 参照してください、 [ロール ベースの Azure AD を使用してクラウド アプリケーションのアクセス制御][RBAC クラウド アプリ AZUREAD] 実装例については、資料です。
 - 既知のクライアント アプリケーションを宣言する。
 - サインインしているユーザーのグループ メンバーシップ要求を発行するように Azure AD にリクエストする。  注: さらに、ユーザーのディレクトリ ロール メンバーシップに関する要求を発行するように構成することもできます。 参照してください、 [AD グループを使用するクラウド アプリケーションでの承認][AAD グループの承認] 実装例については、資料です。
 - アプリケーションが (埋め込み JavaScript Web ページまたは Single Page Application (SPA) 用に) OAuth 2.0 の暗黙的な許可フローをサポートするように設定する。
@@ -87,19 +87,19 @@ Azure Active Directory (AD) と統合するアプリケーションは、Azure A
 <!--Image references-->
 [管理のマニフェストのダウンロード]: ./media/active-directory-application-manifest/manage-manifest-download.png
 [管理-マニフェストのアップロード]: ./media/active-directory-application-manifest/manage-manifest-upload.png
-[マニフェストのダウンロード]: ./media/active-directory-application-manifest/download-manifest.png
-[[AZURE AD アプリ]: ./media/active-directory-application-manifest/select-azure-ad-application.png
-[[AZURE AD テナント]: ./media/active-directory-application-manifest/select-azure-ad-tenant.png
-[マニフェストの更新]: ./media/active-directory-application-manifest/update-manifest.png
-[マニフェストのアップロード]: ./media/active-directory-application-manifest/upload-manifest.png
-[アップロード マニフェスト確認]: ./media/active-directory-application-manifest/upload-manifest-confirm.png
+[MANAGE-MANIFEST-UPLOAD]: ./media/active-directory-application-manifest/manage-manifest-upload.png
+[SELECT-AZURE-AD-APP]: ./media/active-directory-application-manifest/select-azure-ad-application.png
+[SELECT-AZURE-AD-TENANT]: ./media/active-directory-application-manifest/select-azure-ad-tenant.png
+[UPDATE-MANIFEST]: ./media/active-directory-application-manifest/update-manifest.png
+[UPLOAD-MANIFEST]: ./media/active-directory-application-manifest/upload-manifest.png
+[UPLOAD-MANIFEST-CONFIRM]: ./media/active-directory-application-manifest/upload-manifest-confirm.png
 
 <!--article references -->
 [AAD グループの承認]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [追加 UPD RMV アプリ]: active-directory-integrating-applications.md
 [アプリケーション エンティティ]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
-[アプリケーション エンティティ アプリ ロール]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#AppRoleType
-[アプリケーション エンティティ OAUTH2 権限]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType
+[APPLICATION-ENTITY-APP-ROLE]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#AppRoleType
+[アプリケーション エンティティ]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType
 [AZURE クラシック ポータル]: https://manage.windowsazure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH API]: active-directory-graph-api.md

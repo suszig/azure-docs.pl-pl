@@ -68,7 +68,7 @@ App Service 環境は、既存の地域のクラシック"v1"仮想ネットワ�
 
 ## 使用の開始
 
-App Service 環境で開始するを参照してください [An App Service 環境の作成方法][HowToCreateAnAppServiceEnvironment。]
+App Service 環境で開始するを参照してください [An App Service 環境の作成方法][HowToCreateAnAppServiceEnvironment]
 
 Azure App Service プラットフォームの詳細については、次を参照してください。 [Azure App Service][AzureAppService]します。
 
@@ -84,7 +84,7 @@ Expressroute では、App Service 環境の使用の詳細については、次�
 [PremiumTier]: http://azure.microsoft.com/pricing/details/app-service/
 [MoreInfoOnVirtualNetworks]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [AppServicePlan]: http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
-[HowToCreateAnAppServiceEnvironment。]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
+[HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [WebApps]: http://azure.microsoft.com/documentation/articles/app-service-web-overview/
 [MobileApps]: http://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop-preview/

@@ -19,7 +19,7 @@
 # App Service 環境への受信トラフィックを制御する方法
 
 ## 概要 ##
-App Service 環境は常に地域クラシック"v1"のサブネットに作成 [仮想ネットワーク][virtualnetwork]します。  新しい地域クラシック "v1" の仮想ネットワークと新しいサブネットは、App Service 環境を作成するときに定義できます。  あるいは、既存の地域クラシック "v1" の仮想ネットワークと既存のサブネット内に App Service 環境を作成することもできます。  App Service 環境の作成の詳細を参照してください [App Service 環境を作成する方法][HowToCreateAnAppServiceEnvironment]します。
+App Service 環境は常に地域クラシック"v1"のサブネットに作成 "v1" [仮想ネットワーク][virtualnetwork]のサブネット内に作成されます。  新しい地域クラシック "v1" の仮想ネットワークと新しいサブネットは、App Service 環境を作成するときに定義できます。  あるいは、既存の地域クラシック "v1" の仮想ネットワークと既存のサブネット内に App Service 環境を作成することもできます。  App Service 環境の作成の詳細を参照してください [App Service 環境を作成する方法][HowToCreateAnAppServiceEnvironment]します。
 
 **注:**  "v2"ARM で管理された仮想ネットワークの App Service 環境を作成することはできません。
 
@@ -127,7 +127,7 @@ Visual Studio でのリモート デバッグが使用されている場合、�
 
 ## 使用の開始
 
-App Service 環境で開始するを参照してください [App Service 環境の概要][IntroToAppServiceEnvironment。]
+App Service 環境で開始するを参照してください [App Service 環境の概要][IntroToAppServiceEnvironment]
 
 App Service 環境からバックエンド リソースに安全に接続するアプリケーションに関する詳細については、「 [App Service 環境からバックエンド リソースへ安全に接続する][SecurelyConnecttoBackend]
 
@@ -142,7 +142,7 @@ Azure App Service プラットフォームの詳細については、次を参�
 [HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
-[IntroToAppServiceEnvironment。]:  http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
+[IntroToAppServiceEnvironment]:  http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [SecurelyConnecttoBackend]:  http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-securely-connecting-to-backend-resources/
 [NewPortal]:  https://portal.azure.com  
 

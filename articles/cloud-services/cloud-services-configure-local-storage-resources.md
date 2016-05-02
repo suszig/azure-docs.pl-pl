@@ -1,6 +1,6 @@
 <properties
 pageTitle="Azure Cloud Services でローカル ストレージ リソースを構成する"
-description=""
+description="test"
 services="cloud-services"
 documentationCenter=""
 authors="cristy"

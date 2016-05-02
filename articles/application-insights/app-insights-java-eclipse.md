@@ -81,7 +81,7 @@ HTTP 要求データが概要ブレードに表示されます  (表示されな
 ![名前別の要求数](./media/app-insights-java-eclipse/6-barchart.png)
 
 
-[メトリックの詳細についてはこちらをご覧ください。][metrics]
+[メトリックの詳細について説明します][metrics]
 
  
 
@@ -106,7 +106,7 @@ HTML ファイルの先頭にコード スニペットを挿入します。
 
 ![セッション、ユーザー、ページ ビュー](./media/app-insights-java-eclipse/appinsights-47usage-2.png)
 
-[クライアント側のテレメトリの設定について説明します][usage]
+[クライアント側のテレメトリの設定について説明します][使用]
 
 ## アプリケーションの発行
 
@@ -197,7 +197,7 @@ HTML ファイルの先頭にコード スニペットを挿入します。
 *   counterName - パフォーマンス カウンターの名前。
 *   instanceName - パフォーマンス カウンター カテゴリ インスタンスの名前、または空の文字列 ("") (カテゴリにインスタンスが 1 つ含まれている場合)。 categoryName が Process であり、アプリが実行されている現在の JVM プロセスからパフォーマンス カウンターを収集する場合は、`"__SELF__"` を指定します。
 
-パフォーマンス カウンターはでカスタム メトリックとして表示 [メトリックス エクスプ ローラー][メトリック]します。
+パフォーマンス カウンターはでカスタム メトリックとして表示 [メトリックス エクスプ ローラー][metrics]します。
 
 ![](./media/app-insights-java-eclipse/12-custom-perfs.png)
 
@@ -216,7 +216,7 @@ Application Insights では、Web サイトを定期的にテストして、Web 
 
 ![Web テストの例](./media/app-insights-java-eclipse/appinsights-10webtestresult.png)
 
-[可用性 web テストについて説明します][availability] 
+[可用性 web テストについて説明します][可用性] 
 
 ## 診断ログ
 
@@ -251,7 +251,7 @@ Java Web アプリケーションに数行のコードを挿入して、ユー�
 
 <!--Link references-->
 
-[availability]: app-insights-monitor-web-app-availability.md
+[可用性]: app-insights-monitor-web-app-availability.md
 [診断]: app-insights-diagnostic-search.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md

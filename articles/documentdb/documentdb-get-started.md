@@ -477,7 +477,7 @@ Visual Studio での DocumentDB .NET SDK への参照を復元するには、右
 [doc ランディング ページ]: ../../services/documentdb/
 [documentdb 作成アカウント]: documentdb-create-account.md
 [documentdb の管理]: documentdb-manage.md
-
+[documentdb-create-account]: documentdb-create-account.md
 [キー]: media/documentdb-get-started/nosql-tutorial-keys.png
  
 

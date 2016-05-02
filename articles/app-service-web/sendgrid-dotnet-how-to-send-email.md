@@ -292,9 +292,9 @@ Sendgrid の web ベース Api とその他を使用して webhook
   
   [特別プラン]: https://www.sendgrid.com/windowsazure.html
   
-  [--プロジェクトの新規作成]: ./media/sendgrid-dotnet-how-to-send-email/create_new_project.png
-  [テンプレートの選択]: ./media/sendgrid-dotnet-how-to-send-email/select_a_template.png
-  [SendGrid NuGet パッケージ]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid_nuget.png
+  [create-new-project]: ./media/sendgrid-dotnet-how-to-send-email/create_new_project.png
+  [select-a-template]: ./media/sendgrid-dotnet-how-to-send-email/select_a_template.png
+  [SendGrid-NuGet-package]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid_nuget.png
   [azure_app_settings]: ./media/sendgrid-dotnet-how-to-send-email/app_settings.png
   [sendgrid-csharp に関するページ]: https://github.com/sendgrid/sendgrid-csharp
   [SMTP vs します。Web API]: https://sendgrid.com/docs/Integrate/index.html

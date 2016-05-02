@@ -18,7 +18,7 @@
     
 # Logic Apps の機能を使用する
 
- [前のトピックについて][新しいロジック アプリを作成], 、初めてのロジック アプリを作成します。 ここでは、App Services Logic Apps を使用してさらに詳細なプロセスを構築する方法を説明します。 このトピックでは、新しい Logic Apps の概念について説明します。
+ [前のトピックについて][test], 、初めてのロジック アプリを作成します。 ここでは、App Services Logic Apps を使用してさらに詳細なプロセスを構築する方法を説明します。 このトピックでは、新しい Logic Apps の概念について説明します。
 
 - 条件付きロジック。特定の条件が満たされる場合にのみアクションを実行します。
 - アクションの繰り返し。
@@ -140,6 +140,6 @@ Logic Apps の一部の機能はコード ビューのみで使用できます�
 ロジック アプリをオンデマンドで開始する場合、 **を今すぐ実行** コマンド バーのボタンをクリックします。 
 
 <!-- Shared links -->
-[新しいロジック アプリを作成します。]: app-service-logic-create-a-logic-app.md
+[test]: app-service-logic-create-a-logic-app.md
 [Azure ポータル]: https://portal.azure.com 
 <!--HONumber=Apr16_HO2-->

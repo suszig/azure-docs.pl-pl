@@ -21,7 +21,7 @@
 
 ## 概要
 
-この記事で収集したデータに関する質問に回答  [Visual Studio Application Insights][開始] 処理方法と格納されているとします。
+この記事で収集したデータに関する質問に回答  [Visual Studio Application Insights][start] 処理方法と格納されているとします。
 
 Application Insights は、プレビュー段階の Azure サービスです。 プレビューで」に記載されているポリシー、データの保護を目指しておりますが中に、 [Azure のセキュリティ、プライバシー、およびコンプライアンスのホワイト ペーパー](http://go.microsoft.com/fwlink/?linkid=392408)します。
 
@@ -34,7 +34,7 @@ Application Insights SDK およびエージェントは、アプリケーショ�
 
 #### どれくらいの量のデータをキャプチャできますか。 
 
-**1 秒あたり**: インストルメンテーション キーごとの 1 秒あたり最大 500 データ ポイント (つまり、アプリケーションごと)。 無料の [価格レベル][料金], 、上限は 100 dp/秒です。
+**1 秒あたり**: インストルメンテーション キーごとの 1 秒あたり最大 500 データ ポイント (つまり、アプリケーションごと)。 無料の [価格レベル][test], 、上限は 100 dp/秒です。
 
 次の 3 つのバケットは別々にカウントされます。
 
@@ -42,7 +42,7 @@ Application Insights SDK およびエージェントは、アプリケーショ�
 * [例外](app-insights-api-custom-events-metrics.md#track-exception), 、50/秒の制限を低くして件名です。
 * その他すべてのテレメトリ (ページ ビュー、要求、依存関係、メトリック、カスタム イベント、Web テストの結果)。
 
-**毎月**: 間 5 1500万データに応じてポイントと、毎月、 [料金プラン](http://azure.microsoft.com/pricing/details/application-insights/)します。 を除き、無料 [価格レベル][料金], 、上限に達した場合は、追加の容量を購入することができます。
+**毎月**: 間 5 1500万データに応じてポイントと、毎月、 [料金プラン](http://azure.microsoft.com/pricing/details/application-insights/)します。 を除き、無料 [価格レベル][test], 、上限に達した場合は、追加の容量を購入することができます。
 
 
 A *データ ポイント* アプリについて Azure ポータルに送信されるテレメトリの項目。 次の手段で送信できます。
@@ -177,7 +177,7 @@ Application Insights がデータをフィルター処理したり、削除し�
 
 ## Application Insights によって送信されるデータ
 
-SDK はプラットフォームごとに異なり、インストールできるコンポーネントも複数あります  (を参照してください [Application Insights - 開始][開始].)各コンポーネントは、それぞれ異なるデータを送信します。
+SDK はプラットフォームごとに異なり、インストールできるコンポーネントも複数あります  (を参照してください [Application Insights - 開始][start].)各コンポーネントは、それぞれ異なるデータを送信します。
 
 #### さまざまなシナリオで送信されるデータのクラス
 
@@ -186,7 +186,7 @@ SDK はプラットフォームごとに異なり、インストールできる�
 [Application Insights SDK を .NET web プロジェクトに追加][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>要求数<br/>**例外**<br/>Session<br/>users
 [Status Monitor を IIS インストール][redfield]<br/>[Azure 仮想マシンまたは Web アプリに AI 拡張機能を追加][azure]|依存関係<br/>ServerContext<br/>Inferred<br/>Perf counters
 [Application Insights SDK を Java web アプリに追加][java]|ServerContext<br/>Inferred<br/>要求<br/>Session<br/>users
-[Web ページに JavaScript SDK を追加][クライアント]|ClientContext <br/>Inferred<br/>ページ<br/>ClientPerf
+[Web ページに JavaScript SDK を追加][client]|ClientContext <br/>Inferred<br/>ページ<br/>ClientPerf
 [SDK を Windows ストア アプリに追加する][windows]|DeviceContext<br/>ユーザー<br/>クラッシュ データ
 [既定のプロパティを定義する][apiproperties]|**プロパティ** のすべての標準とカスタム イベント
 [TrackMetric を呼び出す][api]|数値<br/>**プロパティ**
@@ -195,7 +195,7 @@ SDK はプラットフォームごとに異なり、インストールできる�
 SDK はデータを収集できません。 次に例を示します。 <br/> -パフォーマンス カウンターにアクセスできません<br/> -テレメトリ初期化子での例外 | SDK diagnostics
  
 
- [の他のプラットフォームの Sdk][プラットフォーム], 、自分のドキュメントを参照してください。
+ [の他のプラットフォームの Sdk][platforms], 、自分のドキュメントを参照してください。
 
 
 
@@ -222,7 +222,7 @@ Perf counters | プロセッサ時間、使用可能なメモリ、要求レー�
 可用性 | Web テストの応答コード、各テスト ステップの期間、テスト名、タイムスタンプ、成功、応答時間、テストの場所
 SDK diagnostics | トレース メッセージまたは例外 
 
-実行できます [ApplicationInsights.config を編集して、データの一部を無効に切り替える][構成]
+実行できます [ApplicationInsights.config を編集して、データの一部を無効に切り替える][config]
 
 
 ## クレジット
@@ -247,14 +247,14 @@ SDK diagnostics | トレース メッセージまたは例外
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [azure]: ../insights-perf-analytics.md
-[クライアント]: app-insights-javascript.md
-[構成]: app-insights-configuration-with-applicationinsights-config.md
+[client]: app-insights-javascript.md
+[config]: app-insights-configuration-with-applicationinsights-config.md
 [greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
-[プラットフォーム]: app-insights-platforms.md
-[料金]: http://azure.microsoft.com/pricing/details/application-insights/
+[platforms]: app-insights-platforms.md
+[test: http://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[開始]: app-insights-overview.md
+[start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
 
  

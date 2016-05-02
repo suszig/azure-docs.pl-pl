@@ -1,6 +1,6 @@
 <properties 
  pageTitle="Azure Content Delivery Network (CDN) で BLOB コンテンツの有効期限を管理する方法" 
- description="" 
+ description="dfadsgsdfsdgfsdf" 
  services="cdn" 
  documentationCenter=".NET" 
  authors="camsoper" 
