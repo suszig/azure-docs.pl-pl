@@ -686,11 +686,11 @@ Oozie UI では、Oozie ログと、Hive クエリなどの MapReduce タスク�
 [hdinsight の入門]: hdinsight-get-started.md
 
 
-[hdinsight を使用して sqoop]: hdinsight-use-sqoop-mac-linux.md
+[hdinsight での sqoop の使用]: hdinsight-use-sqoop-mac-linux.md
 [hdinsight のプロビジョニング]: hdinsight-provision-clusters.md
 [hdinsight でのデータのアップロード]: hdinsight-upload-data.md
 [hdinsight での mapreduce の使用]: hdinsight-use-mapreduce.md
-[hdinsight を使用して hive]: hdinsight-use-hive.md
+[hdinsight での hive の使用]: hdinsight-use-hive.md
 [hdinsight での pig の使用]: hdinsight-use-pig.md
 [hdinsight ストレージ]: hdinsight-use-blob-storage.md
 [hdinsight get-emulator の概要]: hdinsight-get-started-emulator.md
