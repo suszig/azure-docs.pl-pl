@@ -1,6 +1,6 @@
-<properties 
+﻿<properties 
     pageTitle="サポートされているブラウザーとデバイス" 
-    description="" 
+    description="ddddd" 
     services="" 
     documentationCenter="" 
     authors="flanakin" 

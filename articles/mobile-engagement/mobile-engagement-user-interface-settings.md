@@ -71,7 +71,7 @@ Android v1.12.0 以上では、SDK との統合が必要です。
 
 詳細については、次を参照してください。 
 
-- [SDK ドキュメント Android GCM を統合する方法][5 のリンク]
+- [SDK ドキュメント Android GCM を統合する方法][リンク 5]
 - [Google 開発者 GCM ガイド](http://developer.android.com/guide/google/gcm/gs.html)
  
 ### 「Amazon Device Messaging for Android (ADM)
@@ -80,7 +80,7 @@ ADM を使ってネイティブ プッシュ通知を有効にするには、Ama
 
 詳細については、次を参照してください。 
 
-- [SDK ドキュメント Android ADM を統合する方法][5 のリンク]
+- [SDK ドキュメント Android ADM を統合する方法][リンク 5]
 - [Amazon 開発者 ADM ドキュメント](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
  
 ![settings6][51]
@@ -103,7 +103,7 @@ ADM を使ってネイティブ プッシュ通知を有効にするには、Ama
 
 ## 関連項目
 
-- [概念][6 のリンク]
+- [概念][リンク 6]
 - [サービスのトラブルシューティング ガイド][24 のリンク]
 
  

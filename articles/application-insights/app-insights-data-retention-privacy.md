@@ -34,7 +34,7 @@ Application Insights SDK およびエージェントは、アプリケーショ�
 
 #### どれくらいの量のデータをキャプチャできますか。 
 
-**1 秒あたり**: インストルメンテーション キーごとの 1 秒あたり最大 500 データ ポイント (つまり、アプリケーションごと)。 無料の [価格レベル][test], 、上限は 100 dp/秒です。
+**1 秒あたり**: インストルメンテーション キーごとの 1 秒あたり最大 500 データ ポイント (つまり、アプリケーションごと)。 無料の [価格レベル][test]、上限は 100 dp/秒です。
 
 次の 3 つのバケットは別々にカウントされます。
 
@@ -42,7 +42,7 @@ Application Insights SDK およびエージェントは、アプリケーショ�
 * [例外](app-insights-api-custom-events-metrics.md#track-exception), 、50/秒の制限を低くして件名です。
 * その他すべてのテレメトリ (ページ ビュー、要求、依存関係、メトリック、カスタム イベント、Web テストの結果)。
 
-**毎月**: 間 5 1500万データに応じてポイントと、毎月、 [料金プラン](http://azure.microsoft.com/pricing/details/application-insights/)します。 を除き、無料 [価格レベル][test], 、上限に達した場合は、追加の容量を購入することができます。
+**毎月**: 間 5 1500万データに応じてポイントと、毎月、 [料金プラン](http://azure.microsoft.com/pricing/details/application-insights/)します。 を除き、無料 [価格レベル][test]、上限に達した場合は、追加の容量を購入することができます。
 
 
 A *データ ポイント* アプリについて Azure ポータルに送信されるテレメトリの項目。 次の手段で送信できます。
@@ -252,7 +252,7 @@ SDK diagnostics | トレース メッセージまたは例外
 [greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md
-[test: http://azure.microsoft.com/pricing/details/application-insights/
+[test]: http://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md

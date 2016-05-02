@@ -729,7 +729,7 @@ TelemetryClient には、すべてのテレメトリ データとともに送信
 [exceptions]: app-insights-asp-net-exceptions.md
 [greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
-[メトリック]: app-insights-metrics-explorer.md
+[metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
 [trace]: app-insights-search-diagnostic-logs.md
 [windows]: app-insights-windows-get-started.md

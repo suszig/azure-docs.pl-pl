@@ -99,7 +99,7 @@ Azure Active Directory (AD) と統合するアプリケーションは、Azure A
 [追加 UPD RMV アプリ]: active-directory-integrating-applications.md
 [アプリケーション エンティティ]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
 [APPLICATION-ENTITY-APP-ROLE]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#AppRoleType
-[アプリケーション エンティティ]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType
+[アプリケーション エンティティ OAUTH2 権限]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType
 [AZURE クラシック ポータル]: https://manage.windowsazure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH API]: active-directory-graph-api.md
