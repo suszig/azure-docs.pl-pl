@@ -20,9 +20,9 @@
 
 ## 概要
 
-Azure web サイトをホストするいくつかの方法を提供しています: [Azure App Service][], 、[クラウド サービス][], 、および [仮想マシン][]します。 それぞれの選択肢についてこの記事で理解を深め、実際の Web アプリケーションに適した方法をお選びください。
+Azure web サイトをホストするいくつかの方法を提供しています: [Azure App Service][]、[クラウド サービス][]、および [仮想マシン][]します。 それぞれの選択肢についてこの記事で理解を深め、実際の Web アプリケーションに適した方法をお選びください。
 
-Azure App Service は、ほとんどの Web アプリに適しています。 デプロイと管理機能がそのプラットフォームに統合され、トラフィックの負荷に応じてサイトのスケールを機敏に調整できるほか、組み込みの負荷分散機能と Traffic Manager によって高い可用性が得られます。 既存のサイトを使用して簡単に Azure App Service に移動する、 [オンライン移行ツール](https://www.migratetoazure.net/), で Web アプリケーション ギャラリーからオープン ソース アプリケーションを使用するかフレームワークと好みのツールを使用して新しいサイトを作成します。  [WebJobs][] 機能により、簡単に App Service web アプリにバック グラウンド ジョブ処理を追加します。
+Azure App Service は、ほとんどの Web アプリに適しています。 デプロイと管理機能がそのプラットフォームに統合され、トラフィックの負荷に応じてサイトのスケールを機敏に調整できるほか、組み込みの負荷分散機能と Traffic Manager によって高い可用性が得られます。 既存のサイトを使用して簡単に Azure App Service に移動する、 [オンライン移行ツール](https://www.migratetoazure.net/), で Web アプリケーション ギャラリーからオープン ソース アプリケーションを使用するかフレームワークと好みのツールを使用して新しいサイトを作成します。  [[Web ジョブ]][] 機能により、簡単に App Service web アプリにバック グラウンド ジョブ処理を追加します。
 
 サーバーへのリモート アクセス、サーバーのスタートアップ タスクの構成など、Web サーバー環境をもっと細かく制御する必要がある場合は、Azure Cloud Services が通常、最善の選択肢となります。
 
@@ -90,10 +90,10 @@ Azure App Service は、過去の IIS6 アプリケーションの移行に伴�
 
 Web 開発者とデザイナーのために、Azure App Service は、Git や FTP でのデプロイに対応するなど、さまざまなフレームワークおよびツールと容易に連係できるようになっているほか、Visual Studio や SQL Database などのツールやサービスと緊密に統合されています。 App Service を使用すると、次のことができます。
 
-- コマンド ライン ツールを使用して [自動化タスク][scripting]します。
-- などの一般的な言語で作業 [.Net][dotnet], 、[PHP][], 、[Node.js][nodejs], 、および [Python][]します。
+- コマンド ライン ツールを使用して[自動化タスク][scripting]します。
+- などの一般的な言語で作業[.Net][dotnet]、[PHP][]、[Node.js][nodejs]、および [Python][]します。
 - 非常に高い容量に拡張するための 3 つの異なる拡張レベルを選択できます。
-- などの他の Azure サービスと統合 [SQL データベース][sqldatabase], 、[Service Bus][servicebus] と [ストレージ][], 、パートナーの製品から、または、 [Azure ストア][azurestore], 、MySQL、MongoDB などです。
+- などの他の Azure サービスと統合 [SQL データベース][sql database]、[Service Bus][servicebus] と [ストレージ][]、パートナーの製品から、または、 [Microsoft Azure ストア][azurestore]、MySQL、MongoDB などです。
 - Visual Studio、Git、WebMatrix、WebDeploy、TFS、FTP などのツールと統合できます。
 
 ### <a id="multitier"></a>Web フロント エンドを含む多層アプリケーションをクラウドに移行しています。
@@ -115,7 +115,7 @@ Web 開発者とデザイナーのために、Azure App Service は、Git や FT
 
 そのオープン ソース フレームワークが App Service でサポートされている場合、ご利用のアプリケーションに必要な言語とフレームワークが自動的に構成されます。 App Service を使用すると、次のことができます。
 
-- 一般的なオープン ソース言語を多くを使用して [.NET][dotnet], 、[PHP][], 、[Node.js][nodejs], 、および [Python][]します。
+- 一般的なオープン ソース言語を多くを使用して [.NET][dotnet]、[PHP][]、[Node.js][nodejs], 、および [Python][]します。
 - WordPress、Drupal、Umbraco、DNN、および多くのサード パーティ製 Web アプリケーションをセットアップできます。
 - 既存のアプリケーションを移行することも、アプリケーション ギャラリーから新規アプリケーションを作成することもできます。
 
@@ -188,21 +188,22 @@ ETW イベントのリッスン||○|○|
 * [Azure Virtual Machines](/documentation/services/virtual-machines/)
 
   [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
-  [Azure App Service]: /services/app-service/
-  [Cloud Services]: http://go.microsoft.com/fwlink/?LinkId=306052
-  [Virtual Machines]: http://go.microsoft.com/fwlink/?LinkID=306053
-  [ClearDB]: http://www.cleardb.com/
-  [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-  [Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
-  [azurestore]: http://www.windowsazure.com/gallery/store/
-  [scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
-  [dotnet]: http://www.windowsazure.com/develop/net/
-  [nodejs]: http://www.windowsazure.com/develop/nodejs/
-  [PHP]: http://www.windowsazure.com/develop/php/
-  [Python]: http://www.windowsazure.com/develop/python/
-  [servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
-  [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
-  [Storage]: http://www.windowsazure.com/documentation/services/storage/
- 
+[Azure App Service]: /services/app-service/
+[クラウド サービス]: http://go.microsoft.com/fwlink/?LinkId=3060526
+[仮想マシン]: http://go.microsoft.com/fwlink/?LinkID=3060533
+[ClearDB]: http://www.cleardb.com/
+[[Web ジョブ]]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409l
+[Azure の web サイトの SSL 証明書を構成します。]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/s
+[azurestore]: http://www.windowsazure.com/gallery/store/
+[scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
+[dotnet]: http://www.windowsazure.com/develop/net/
+[nodejs]: http://www.windowsazure.com/develop/nodejs/
+[PHP]: http://www.windowsazure.com/develop/php/
+[Python]: http://www.windowsazure.com/develop/python/
+[servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
+[sql database]: http://www.windowsazure.com/documentation/services/sql-database/
+[ストレージ]: http://www.windowsazure.com/documentation/services/storage/ocumentation/services/storage/
 
 
+
+<!--HONumber=Apr16_HO2-->

@@ -37,7 +37,7 @@
 
 また、プロジェクトを検索したり、アプリケーションが包括されているプロジェクトの名前、説明、所有者、ユーザーの権限を表示したりすることもできます。
 
-詳細についてを参照してください: [UI ドキュメント-ホーム][Link 13]
+詳細についてを参照してください: [UI ドキュメント – ホーム][リンク 13]
  
   ![settings3][48]
 
@@ -53,7 +53,7 @@
 
 Apple プッシュ通知サービスを使用してネイティブのプッシュを有効にするには、証明書の登録が必要です。 証明書の種類を、開発 (DEV) または実稼働 (PROD) のいずれかに指定する必要があります。 その後、証明書とパスワードをアップロードします。
 
-詳細についてを参照してください: [SDK ドキュメント - iOS - Apple プッシュ通知用にアプリケーションを準備する方法][Link 5]
+詳細についてを参照してください: [SDK ドキュメント - iOS - Apple プッシュ通知用にアプリケーションを準備する方法][リンク 5]
  
 ![settings4][49]
  
@@ -71,7 +71,7 @@ Android v1.12.0 以上では、SDK との統合が必要です。
 
 詳細については、次を参照してください。 
 
-- [SDK ドキュメント - Android - GCM の統合方法][Link 5]
+- [SDK ドキュメント Android GCM を統合する方法][リンク 5]
 - [Google 開発者 GCM ガイド](http://developer.android.com/guide/google/gcm/gs.html)
  
 ### 「Amazon Device Messaging for Android (ADM)
@@ -80,7 +80,7 @@ ADM を使ってネイティブ プッシュ通知を有効にするには、Ama
 
 詳細については、次を参照してください。 
 
-- [SDK ドキュメント - Android - ADM の統合方法][Link 5]
+- [SDK ドキュメント Android ADM を統合する方法][リンク 5]
 - [Amazon 開発者 ADM ドキュメント](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
  
 ![settings6][51]
@@ -103,8 +103,8 @@ ADM を使ってネイティブ プッシュ通知を有効にするには、Ama
 
 ## 関連項目
 
-- [概念][Link 6]
-- [トラブルシューティング ガイド - サービス][Link 24]
+- [概念][リンク 6]
+- [サービスのトラブルシューティング ガイド][24 のリンク]
 
  
 
@@ -169,38 +169,38 @@ ADM を使ってネイティブ プッシュ通知を有効にするには、Ama
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: ../mobile-engagement-how-tos-first-push.md
-[Link 28]: ../mobile-engagement-how-tos-test-campaign.md
-[Link 29]: ../mobile-engagement-how-tos-personalize-push.md
-[Link 30]: ../mobile-engagement-how-tos-differentiate-push.md
-[Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
-[Link 32]: ../mobile-engagement-how-tos-text-view.md
-[Link 33]: ../mobile-engagement-how-tos-web-view.md
+[リンク 1]: mobile-engagement-user-interface.md
+[リンク 2]: mobile-engagement-troubleshooting-guide.md
+[リンク 3]: mobile-engagement-how-tos.md
+[リンク 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[リンク 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[リンク 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[リンク 7]: https://account.windowsazure.com/PreviewFeatures
+[リンク 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[9 のリンク]: http://azure.microsoft.com/services/mobile-engagement/
+[10 のリンク]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[11 のリンク]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[12 のリンク]: mobile-engagement-user-interface-navigation.md
+[リンク 13]: mobile-engagement-user-interface-home.md
+[14 のリンク]: mobile-engagement-user-interface-my-account.md
+[15 のリンク]: mobile-engagement-user-interface-analytics.md
+[16 のリンク]: mobile-engagement-user-interface-monitor.md
+[17 のリンク]: mobile-engagement-user-interface-reach.md
+[18 のリンク]: mobile-engagement-user-interface-segments.md
+[19 のリンク]: mobile-engagement-user-interface-dashboard.md
+[20 のリンク]: mobile-engagement-user-interface-settings.md
+[21 のリンク]: mobile-engagement-troubleshooting-guide-analytics.md
+[リンク 22]: mobile-engagement-troubleshooting-guide-apis.md
+[23 のリンク]: mobile-engagement-troubleshooting-guide-push-reach.md
+[24 のリンク]: mobile-engagement-troubleshooting-guide-service.md
+[25 のリンク]: mobile-engagement-troubleshooting-guide-sdk.md
+[26 のリンク]: mobile-engagement-troubleshooting-guide-sr-info.md
+[27 のリンク]: ../mobile-engagement-how-tos-first-push.md
+[28 のリンク]: ../mobile-engagement-how-tos-test-campaign.md
+[リンク 29]: ../mobile-engagement-how-tos-personalize-push.md
+[30 のリンク]: ../mobile-engagement-how-tos-differentiate-push.md
+[31 のリンク]: ../mobile-engagement-how-tos-schedule-campaign.md
+[32 のリンク]: ../mobile-engagement-how-tos-text-view.md
+[33 のリンク]: ../mobile-engagement-how-tos-web-view.md
  
-
+<!--HONumber=Apr16_HO2-->

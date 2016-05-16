@@ -18,7 +18,7 @@
 
 # Azure ゲスト OS 
 
-次の表に、Azure ゲスト OS に適用される Microsoft セキュリティ レスポンス センター (MSRC) の更新プログラムを示します。 この記事を検索して、使用しているゲスト OS に特定の更新プログラムが適用されるかどうかを確認できます。 更新プログラムが常に特定の繰越 [ファミリ][family-explain] で導入されました。 
+次の表に、Azure ゲスト OS に適用される Microsoft セキュリティ レスポンス センター (MSRC) の更新プログラムを示します。 この記事を検索して、使用しているゲスト OS に特定の更新プログラムが適用されるかどうかを確認できます。 更新プログラムが常に特定の繰越 [ファミリ][ファミリについて説明する] で導入されました。 
 
 ## 12 月のゲスト OS
 
@@ -272,7 +272,7 @@
 [3077657]: http://support.microsoft.com/kb/3077657
 [3057154]: http://support.microsoft.com/kb/3057154
 
-[MS15-034]: https://technet.microsoft.com/library/security/MS15-034
+[MS15 034]: https://technet.microsoft.com/library/security/MS15-034
 
 [3042553]: https://support.microsoft.com/en-us/kb/3042553/
 
@@ -350,8 +350,7 @@
 
 
 
-[archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx
-[family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
- 
+[アーカイブ]: https://msdn.microsoft.com/library/azure/dn391773.aspx
+[ファミリについて説明する]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
 
-
+<!--HONumber=Apr16_HO2-->

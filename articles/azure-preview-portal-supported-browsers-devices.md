@@ -1,6 +1,6 @@
-<properties 
+﻿<properties 
     pageTitle="サポートされているブラウザーとデバイス" 
-    description="" 
+    description="ddddd" 
     services="" 
     documentationCenter="" 
     authors="flanakin" 
@@ -32,3 +32,4 @@ Microsoft Azure ポータルは、最新の主要なデスクトップ デバイ
 - Chrome (最新バージョン)
 - Firefox (最新バージョン)
 
+<!--HONumber=Apr16_HO2-->

@@ -34,14 +34,14 @@ Machine Learning アルゴリズム チート シートをダウンロードし�
 
 ![Machine Learning Algorithm Cheat Sheet : Machine Learning アルゴリズムの選択方法][cheat-sheet]
 
-[cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
+[チート シート]: ./media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
 
 
 ## アルゴリズムに関するその他のヘルプ
 
 * さまざまな種類の機械学習アルゴリズム、その使用方法、および適切なアルゴリズムを選択するためにこのチート シートを使用する方法の詳細については、次を参照してください。 [Microsoft Azure Machine Learning のアルゴリズムを選択する方法](machine-learning-algorithm-choice.md)します。
-* すべての機械学習アルゴリズムの Machine Learning Studio で利用可能なカテゴリ別一覧は、次を参照してください。 [モデルの初期化][initialize-model] Machine Learning Studio アルゴリズムとモジュールのヘルプでできます。
-* アルゴリズムと Machine Learning Studio でのモジュールの一覧については、次を参照してください。 [Machine Learning Studio モジュールの一覧を A ~ Z][a-z-list] Machine Learning Studio アルゴリズムとモジュールのヘルプでできます。
+* すべての機械学習アルゴリズムの Machine Learning Studio で利用可能なカテゴリ別一覧は、次を参照してください。 [モデルの初期化][initialize モデル] Machine Learning Studio アルゴリズムとモジュールのヘルプでできます。
+* アルゴリズムと Machine Learning Studio でのモジュールの一覧については、次を参照してください。 [Machine Learning Studio モジュールの一覧を A ~ Z][z の一覧を] Machine Learning Studio アルゴリズムとモジュールのヘルプでできます。
 * ダウンロードして、Machine Learning Studio の機能の概要を示すダイアグラムを印刷する、次を参照してください。 [Azure Machine Learning Studio の機能の概要図](machine-learning-studio-overview-diagram.md)します。
 
 
@@ -82,9 +82,9 @@ Machine Learning アルゴリズム チート シートをダウンロードし�
 -->
 
 <!-- Module References -->
-[a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
-[initialize-model]: https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/
+[z の一覧を]: https://msdn.microsoft.com/library/azure/dn906033.aspx
+[initialize モデル]: https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-
+<!--HONumber=Apr16_HO2-->

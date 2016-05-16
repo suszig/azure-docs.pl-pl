@@ -34,7 +34,7 @@ Application Insights SDK およびエージェントは、アプリケーショ�
 
 #### どれくらいの量のデータをキャプチャできますか。 
 
-**1 秒あたり**: インストルメンテーション キーごとの 1 秒あたり最大 500 データ ポイント (つまり、アプリケーションごと)。 無料の [価格レベル][pricing], 、上限は 100 dp/秒です。
+**1 秒あたり**: インストルメンテーション キーごとの 1 秒あたり最大 500 データ ポイント (つまり、アプリケーションごと)。 無料の [価格レベル][test]、上限は 100 dp/秒です。
 
 次の 3 つのバケットは別々にカウントされます。
 
@@ -42,7 +42,7 @@ Application Insights SDK およびエージェントは、アプリケーショ�
 * [例外](app-insights-api-custom-events-metrics.md#track-exception), 、50/秒の制限を低くして件名です。
 * その他すべてのテレメトリ (ページ ビュー、要求、依存関係、メトリック、カスタム イベント、Web テストの結果)。
 
-**毎月**: 間 5 1500万データに応じてポイントと、毎月、 [料金プラン](http://azure.microsoft.com/pricing/details/application-insights/)します。 を除き、無料 [価格レベル][pricing], 、上限に達した場合は、追加の容量を購入することができます。
+**毎月**: 間 5 1500万データに応じてポイントと、毎月、 [料金プラン](http://azure.microsoft.com/pricing/details/application-insights/)します。 を除き、無料 [価格レベル][test]、上限に達した場合は、追加の容量を購入することができます。
 
 
 A *データ ポイント* アプリについて Azure ポータルに送信されるテレメトリの項目。 次の手段で送信できます。
@@ -183,15 +183,15 @@ SDK はプラットフォームごとに異なり、インストールできる�
 
 操作  | 収集されるデータのクラス (次の表を参照)
 ---|---
-[Application Insights SDK を .NET Web プロジェクトに追加する][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**例外**<br/>Session<br/>users
-[Status Monitor を IIS をインストールします。][redfield]<br/>[Azure VM または Web アプリに AI 拡張機能を追加します。][azure]|依存関係<br/>ServerContext<br/>Inferred<br/>Perf counters
-[Application Insights SDK を Java Web アプリに追加する][java]|ServerContext<br/>Inferred<br/>Request (要求)<br/>Session<br/>users
-[JavaScript SDK を Web ページに追加する][client]|ClientContext <br/>Inferred<br/>ページ<br/>ClientPerf
+[Application Insights SDK を .NET web プロジェクトに追加][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>要求数<br/>**例外**<br/>Session<br/>users
+[Status Monitor を IIS インストール][redfield]<br/>[Azure 仮想マシンまたは Web アプリに AI 拡張機能を追加][azure]|依存関係<br/>ServerContext<br/>Inferred<br/>Perf counters
+[Application Insights SDK を Java web アプリに追加][java]|ServerContext<br/>Inferred<br/>要求<br/>Session<br/>users
+[Web ページに JavaScript SDK を追加][client]|ClientContext <br/>Inferred<br/>ページ<br/>ClientPerf
 [SDK を Windows ストア アプリに追加する][windows]|DeviceContext<br/>ユーザー<br/>クラッシュ データ
 [既定のプロパティを定義する][apiproperties]|**プロパティ** のすべての標準とカスタム イベント
-[Call TrackMetric][api]|数値<br/>**プロパティ**
-[Call Track*][api]|イベント名<br/>**プロパティ**
-[Call TrackException][api]|**例外**<br/>スタック ダンプ<br/>**プロパティ**
+[TrackMetric を呼び出す][api]|数値<br/>**プロパティ**
+[Track * 呼び出し][api]|イベント名<br/>**プロパティ**
+[TrackException を呼び出す][api]|**例外**<br/>スタック ダンプ<br/>**プロパティ**
 SDK はデータを収集できません。 次に例を示します。 <br/> -パフォーマンス カウンターにアクセスできません<br/> -テレメトリ初期化子での例外 | SDK diagnostics
  
 
@@ -252,10 +252,10 @@ SDK diagnostics | トレース メッセージまたは例外
 [greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md
-[pricing]: http://azure.microsoft.com/pricing/details/application-insights/
+[test]: http://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
 
  
-
+<!--HONumber=Apr16_HO2-->

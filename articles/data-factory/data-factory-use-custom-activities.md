@@ -30,7 +30,7 @@ Azure Data Factory などの組み込みアクティビティをサポート **�
 
 - 」のチュートリアル [Azure Data Factory を使ってみる][adfgetstarted]します。 本チュートリアルを実行する前に、この記事のチュートリアルを完了しておく必要があります。
 - Visual Studio 2012 または 2013
-- ダウンロードしてインストール [Azure .NET SDK][azure-developer-center]
+- ダウンロードしてインストール [Azure .NET SDK][azure デベロッパー センター]
 - 最新版をダウンロード [Azure Data Factory の NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories/) し、インストールします。 手順はこのチュートリアルにあります。
 - Azure Storage の NuGet パッケージをダウンロードしてインストールします。 チュートリアルで方法を説明しているため、この手順は省略できます。
 
@@ -388,7 +388,7 @@ mycontainer\output フォルダーには、1 行または複数行 (入力フォ
     1.  クリックして **新規** 左側のメニュー。
     2.  クリックして **データ + 分析** で、 **新規** ブレードです。
     3.  クリックして **Data Factory** 上、 **データ分析** ブレードです。
-2.   **新しいデータ ファクトリ** ブレードで、入力 **CustomActivityFactory** 名前にします。 Azure Data Factor の名前はグローバルに一意にする必要があります。 エラーが発生する場合: **データ ファクトリ名"CustomActivityFactory"は使用できません**, 、データ ファクトリの名前を変更 (たとえば、 **yournameCustomActivityFactory**) もう一度作成し、直してください。
+2.   **新しいデータ ファクトリ** ブレードで、入力 **CustomActivityFactory** 名前にします。 Azure Data Factory の名前はグローバルに一意にする必要があります。 エラーが発生する場合: **データ ファクトリ名"CustomActivityFactory"は使用できません**, 、データ ファクトリの名前を変更 (たとえば、 **yournameCustomActivityFactory**) もう一度作成し、直してください。
 3.  クリックして **リソース グループ名**, 、既存のリソース グループを選択するか、新しいリソース グループを作成します。 
 4.  使用している正しいことを確認 **サブスクリプション** と **地域** データ ファクトリを作成する場合します。 
 5.  をクリックして **作成** 上、 **新しいデータ ファクトリ** ブレードです。
@@ -520,7 +520,7 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
             }
         }
 
-    出力場所は **adftutorial/customactivityoutput/YYYYMMDDHH/** YYYYMMDDHH は年、月、日、およびスライスが生成された時間。 参照してください [開発者向けリファレンス][adf-developer-reference] 詳細です。
+    出力場所は **adftutorial/customactivityoutput/YYYYMMDDHH/** YYYYMMDDHH は年、月、日、およびスライスが生成された時間。 参照してください [開発者向けリファレンス][adf 開発者向けリファレンス] 詳細です。
 
     各入力スライスの出力 BLOB/ファイルが生成されます。 次に、各スライスの出力ファイルの命名方法を示します。 すべての出力ファイルが 1 つの出力フォルダーに生成します。 **adftutorial\customactivityoutput**します。
 
@@ -609,7 +609,7 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
  
 8. Azure ポータルで [Data Factory] ブレードで [ **ダイアグラム**します。
     
-    ![[ダイアグラム] タイル](./media/data-factory-use-custom-activities/DataFactoryBlade.png)
+    ![Diagram tile](./media/data-factory-use-custom-activities/DataFactoryBlade.png)
  
 9. [ダイアグラム] ビューで、OutputDataset をクリックします。
  
@@ -627,7 +627,7 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
 
     ファイル inputfolder/2015-11-16-00/file.txt には、検索語句 "Microsoft" が 2 回出現しました。
 
-10. 使用して、 [Azure ポータル][azure-preview-portal] または Azure PowerShell コマンドレットをデータ ファクトリ、パイプライン、およびデータ セットを監視します。 メッセージが表示、 **ActivityLogger** 、ポータルまたはコマンドレットを使用してからダウンロードできるログ (具体的にはユーザーの 0.log) 内でカスタム アクティビティ用のコードにします。
+10. 使用して、 [Azure ポータル][azure プレビュー ポータル] または Azure PowerShell コマンドレットをデータ ファクトリ、パイプライン、およびデータ セットを監視します。 メッセージが表示、 **ActivityLogger** 、ポータルまたはコマンドレットを使用してからダウンロードできるログ (具体的にはユーザーの 0.log) 内でカスタム アクティビティ用のコードにします。
 
     ![カスタム アクティビティのダウンロード ログ][image-data-factory-download-logs-from-custom-activity]
 
@@ -658,7 +658,7 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
 カスタム アクティビティのコードを更新する場合は、カスタム アクティビティを構築し、新しいバイナリを含む zip ファイルを BLOB ストレージにアップロードします。
 
 ## <a name="AzureBatch"></a>Azure Batch のリンクされたサービスの使用
-> [AZURE.NOTE] 参照してください [Azure Batch の基本][batch-technical-overview] サービスの Azure Batch の概要についてを参照してください [.NET 向け Azure Batch ライブラリの概要][batch-get-started] 簡単に Azure Batch サービスを開始します。
+> [AZURE.NOTE] 参照してください [Azure Batch の基本][batch の技術概要] サービスの Azure Batch の概要についてを参照してください [.NET 向け Azure Batch ライブラリの概要][バッチ取得開始] 簡単に Azure Batch サービスを開始します。
 
 コンピューティング リソースとして Azure Batch を使用するカスタム .NET アクティビティを実行できます。 独自の Azure Batch のプールを作成し、他の構成と併せて VM の数を指定する必要があります。 Azure Batch のプールは、顧客に以下の機能を提供します。
 
@@ -671,10 +671,10 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
 
 ここでは、前のセクションのチュートリアルで説明した、Azure Batch リンク サービスを使用するための手順の概要を示します。
 
-1. 使用して Azure Batch アカウントを作成、 [Azure ポータル](http://manage.windowsazure.com)します。 参照してください [を作成して、Azure Batch アカウントを管理][batch-create-account] 手順については資料です。 Azure Batch のアカウント名とアカウント キーをメモしておきます。
+1. 使用して Azure Batch アカウントを作成、 [Azure ポータル](http://manage.windowsazure.com)します。 参照してください [を作成して、Azure Batch アカウントを管理][バッチ作成アカウント] 方法についてです。 Azure Batch のアカウント名とアカウント キーをメモしておきます。
 
-    使用することも [New-azurebatchaccount][new-azure-batch-account] コマンドレットを Azure Batch アカウントを作成します。 参照してください [Azure Batch アカウントの管理に Azure PowerShell を使用して][azure-batch-blog] についてこのコマンドレットを使用します。
-2. Azure Batch プールの作成 ソース コードをダウンロードすることができます、 [Azure Batch Explorer ツール][batch-explorer], 、コンパイル、およびそれを使用して (または) を使用して [.NET 向け Azure Batch ライブラリ][batch-net-library] Azure Batch プールを作成します。 参照してください [Azure Batch Explorer サンプル チュートリアル][batch-explorer-walkthrough] Azure Batch Explorer の使用手順の詳細について。
+    使用することも [New-azurebatchaccount][新しいから azure batch のアカウント] コマンドレットを Azure Batch アカウントを作成します。 参照してください [Azure Batch アカウントの管理に Azure PowerShell を使用して][azure batch ブログ] このコマンドレットの使用に関する詳細な手順についてです。
+2. Azure Batch プールの作成 ソース コードをダウンロードすることができます、 [Azure Batch Explorer ツール][バッチ エクスプ ローラー], 、コンパイル、およびそれを使用して (または) を使用して [.NET 向け Azure Batch ライブラリ][バッチ net-library] Azure Batch プールを作成します。 参照してください [Azure Batch Explorer サンプル チュートリアル][バッチ explorer チュートリアル] Azure Batch Explorer の使用手順の詳細について。
 
     使用することも [新規 AzureRmBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) コマンドレットを Azure Batch プールを作成します。
 
@@ -725,31 +725,31 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
 
 [Azure Data Factory の更新: Azure Batch を使用した ADF カスタム .NET アクティビティを実行する](http://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/)です。
 
-[batch-net-library]: ../batch/batch-dotnet-get-started.md
-[batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
-[batch-create-account]: ../batch/batch-account-create-portal.md
-[batch-technical-overview]: ../batch/batch-technical-overview.md
-[batch-get-started]: ../batch/batch-dotnet-get-started.md
-[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
-[adf-tutorial]: data-factory-tutorial.md
-[use-custom-activities]: data-factory-use-custom-activities.md
-[troubleshoot]: data-factory-troubleshoot.md
-[data-factory-introduction]: data-factory-introduction.md
-[azure-powershell-install]: https://github.com/Azure/azure-sdk-tools/releases
+[バッチ net-library]: ../batch/batch-dotnet-get-started.md
+[バッチ エクスプ ローラー]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[バッチ explorer チュートリアル]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+[バッチ作成アカウント]: ../batch/batch-account-create-portal.md
+[batch の技術概要]: ../batch/batch-technical-overview.md
+[バッチ取得開始]: ../batch/batch-dotnet-get-started.md
+[モニターを使用して-powershell]: data-factory-monitor-manage-using-powershell.md
+[adf チュートリアル]: data-factory-tutorial.md
+[カスタム アクティビティを使用します。]: data-factory-use-custom-activities.md
+[トラブルシューティングを行う]: data-factory-troubleshoot.md
+[データ ファクトリの概要]: data-factory-introduction.md
+[azure powershell のインストール]: https://github.com/Azure/azure-sdk-tools/releases
 
 
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
+[開発者向けリファレンス]: http://go.microsoft.com/fwlink/?LinkId=516908
+[コマンドレット リファレンス]: http://go.microsoft.com/fwlink/?LinkId=517456
 
-[new-azure-batch-account]: https://msdn.microsoft.com/library/mt125880.aspx
-[new-azure-batch-pool]: https://msdn.microsoft.com/library/mt125936.aspx
-[azure-batch-blog]: http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx
+[新しいから azure batch のアカウント]: https://msdn.microsoft.com/library/mt125880.aspx
+[新しい azure のバッチのプール]: https://msdn.microsoft.com/library/mt125936.aspx
+[azure batch ブログ]: http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx
 
-[nuget-package]: http://go.microsoft.com/fwlink/?LinkId=517478
-[azure-developer-center]: http://azure.microsoft.com/develop/net/
-[adf-developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[azure-preview-portal]: https://portal.azure.com/
+[nuget パッケージ]: http://go.microsoft.com/fwlink/?LinkId=517478
+[azure デベロッパー センター]: http://azure.microsoft.com/develop/net/
+[adf 開発者向けリファレンス]: http://go.microsoft.com/fwlink/?LinkId=516908
+[azure プレビュー ポータル]: https://portal.azure.com/
 
 [adfgetstarted]: data-factory-get-started.md
 [hivewalkthrough]: data-factory-data-transformation-activities.md
@@ -760,4 +760,4 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-
+<!--HONumber=Apr16_HO2-->

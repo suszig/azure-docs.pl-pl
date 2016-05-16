@@ -90,7 +90,7 @@ Application Insights のリソースを開く、 [Azure ポータル][portal]し
 
 ![クリックしてより多くのデータを表示する](./media/app-insights-asp-net/12-first-perf.png)
 
-任意のグラフをクリックして、より詳細なメトリックを表示します。 [メトリックの詳細についてはこちらをご覧ください。][perf]
+任意のグラフをクリックして、より詳細なメトリックを表示します。 [メトリックの詳細について説明します][perf]
 
 * *ユーザーまたはページ データはありませんか。* - [ユーザーとページのデータを追加します。](../article/application-insights/app-insights-asp-net-client.md)
 
@@ -154,20 +154,20 @@ ApplicationInsights.config をカスタマイズしている場合は、アッ�
 
 [api]: app-insights-api-custom-events-metrics.md
 [apikey]: app-insights-api-custom-events-metrics.md#ikey
-[availability]: app-insights-monitor-web-app-availability.md
+[可用性]: app-insights-monitor-web-app-availability.md
 [azure]: ../insights-perf-analytics.md
-[client]: app-insights-javascript.md
-[detect]: app-insights-detect-triage-diagnose.md
+[クライアント]: app-insights-javascript.md
+[検出]: app-insights-detect-triage-diagnose.md
 [diagnostic]: app-insights-diagnostic-search.md
 [knowUsers]: app-insights-overview-usage.md
-[metrics]: app-insights-metrics-explorer.md
+[メトリック]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-overview.md
+[ロール]: app-insights-resources-roles-access-control.md
+[開始]: app-insights-overview.md
 
  
-
+<!--HONumber=Apr16_HO2-->

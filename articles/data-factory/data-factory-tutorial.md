@@ -28,10 +28,10 @@ Contoso は、ゲーム機、携帯デバイス、パーソナル コンピュ�
 ## チュートリアルの準備をする
 1.  読み取り [Azure Data Factory の概要][adfintroduction] に最上位レベルの概念を理解し、Azure Data Factory の概要について説明します。
 2.  このチュートリアルを実施するには Azure サブスクリプションが必要です。 サブスクリプションの入手方法の詳細については、次を参照してください。 [購入に関するオプション](http://azure.microsoft.com/pricing/purchase-options/), 、[メンバー プラン](http://azure.microsoft.com/pricing/member-offers/), 、または [無料評価版](http://azure.microsoft.com/pricing/free-trial/)します。
-3.  ダウンロードしてインストールする必要があります [Azure PowerShell][download-azure-powershell] コンピューターにします。 Data Factory コマンドレットを実行し、サンプル データと pig/hive スクリプトを BLOB ストレージにアップロードします。 
+3.  ダウンロードしてインストールする必要があります [Azure PowerShell][ダウンロード azure powershell] コンピューターにします。 Data Factory コマンドレットを実行し、サンプル データと pig/hive スクリプトを BLOB ストレージにアップロードします。 
 2.  **(推奨)** 確認し、練習をチュートリアルで、 [Azure Data Factory を使ってみる][adfgetstarted] ポータルとコマンドレットに慣れるための簡単なチュートリアルについての記事です。
 3.  **(推奨)** 確認し、実際に、 [の Pig の使用と Azure Data Factory を使って Hive][usepigandhive] 内部設置型のデータ ソースからデータを Azure blob ストアに移動するパイプラインの作成のチュートリアルについての記事です。
-4.  ダウンロード [ADFWalkthrough][adfwalkthrough-download] ファイルを **C:\ADFWalkthrough** フォルダー **フォルダー構造は維持**:
+4.  ダウンロード [ADFWalkthrough][adfwalkthrough ダウンロード] ファイルを **C:\ADFWalkthrough** フォルダー **フォルダー構造は維持**:
     - **パイプライン:** パイプラインの定義を含む JSON ファイルが含まれています。
     - **テーブル:** テーブルの定義を含む JSON ファイルが含まれています。
     - **LinkedServices:** ストレージおよびコンピューティング (HDInsight) の定義を含む JSON ファイルを含むクラスター 
@@ -120,7 +120,7 @@ Contoso は、ゲーム機、携帯デバイス、パーソナル コンピュ�
     
     Alternatively, you can use the files in the folder: C:\ADFWalkthrough\Scripts to upload pig/hive scripts and sample files to the adfwalkthrough container in the blob storage, and create MarketingCampaignEffectiveness table in the MarketingCamapaigns Azure SQL database.
    
-2. ローカル コンピューターに Azure SQL Database へのアクセス権があることを確認してください。 アクセスを有効にするには、 [Azure Classic Portal](http://manage.windowsazure.com) または **sp_set_firewall_rule** 、コンピューターの IP アドレスに対するファイアウォール規則を作成する master データベースにします。 この変更が有効になるまで最大で 5 分かかる場合があります。 参照してください [Azure SQL のファイアウォール ルールを設定する][azure-sql-firewall]です。
+2. ローカル コンピューターに Azure SQL Database へのアクセス権があることを確認してください。 アクセスを有効にするには、 [Azure Classic Portal](http://manage.windowsazure.com) または **sp_set_firewall_rule** 、コンピューターの IP アドレスに対するファイアウォール規則を作成する master データベースにします。 この変更が有効になるまで最大で 5 分かかる場合があります。 参照してください [Azure SQL のファイアウォール ルールを設定する][azure sql ファイアウォール]します。
 4. Azure PowerShell で、サンプルを展開した場所に移動します (例: **C:\ADFWalkthrough**)
 5. 実行 **uploadSampleDataAndScripts.ps1** 
 6. スクリプトが正常に実行されると、以下が表示されます。
@@ -157,7 +157,7 @@ Contoso は、ゲーム機、携帯デバイス、パーソナル コンピュ�
 ## <a name="MainStep2"></a> 手順 2. Azure Data Factory を作成する
 この手順で、という名前の Azure データ ファクトリを作成する **LogProcessingFactory**します。
 
-1.  ログインした後、 [Azure ポータル][azure-portal], 、] をクリックして **新規** の左下隅から] をクリックして **データ分析** で、 **作成** ブレードをクリック **Data Factory** 上、 **データ分析** ブレードです。 
+1.  ログインした後、 [Azure ポータル][azure ポータル], 、] をクリックして **新規** の左下隅から] をクリックして **データ分析** で、 **作成** ブレードをクリック **Data Factory** 上、 **データ分析** ブレードです。 
 
     ![New->DataFactory][image-data-factory-new-datafactory-menu] 
 
@@ -193,7 +193,7 @@ Contoso は、ゲーム機、携帯デバイス、パーソナル コンピュ�
  
 ## <a name="MainStep3"></a>手順 3. リンクされたサービスを作成する
 
-> [AZURE.NOTE] この資料では、Azure 旧ポータルで、具体的には、Data Factory エディターを使用して、リンクされたサービス、テーブル、およびパイプラインを作成します。 参照してください [Azure PowerShell を使用してチュートリアル][adftutorial-using-powershell] Azure PowerShell を使用してこのチュートリアルを実行する場合。 
+> [AZURE.NOTE] この資料では、Azure 旧ポータルで、具体的には、Data Factory エディターを使用して、リンクされたサービス、テーブル、およびパイプラインを作成します。 参照してください [Azure PowerShell を使用してチュートリアル][adftutorial を使用して powershell] Azure PowerShell を使用してこのチュートリアルを実行する場合。 
 
 この手順では、以下のリンクされたサービスを作成します:
 
@@ -208,7 +208,7 @@ Contoso は、ゲーム機、携帯デバイス、パーソナル コンピュ�
 
     ![[作成とデプロイ] タイル][image-author-deploy-tile] 
 
-    参照してください [Data Factory エディター][data-factory-editor] Data Factory エディターの詳細についてのトピックです。
+    参照してください [Data Factory エディター][data factory エディター] Data Factory エディターの詳細についてのトピックです。
 
 2.   **エディター**, 、クリックして **新しいデータ ストア** ] ボタンをクリックして [ **Azure ストレージ** 、ドロップ ダウン メニューからです。 Azure Storage のリンクされたサービスを作成するための JSON テンプレートが右側のウィンドウに表示されます。    
     
@@ -337,7 +337,7 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
 
 1.  **DATA FACTORY** ブレード、 **LogProcessingFactory**, 、] をクリックして **ダイアグラム**します。 
 
-    ![ダイアグラム リンク][image-data-factory-tutorial-diagram-link]
+    ![Diagram Link][image-data-factory-tutorial-diagram-link]
 
 2. 表示されているダイアグラムは並べ替えることが可能で、以下のダイアグラムは上部が直接の入力を示し、下部が出力を示しています。 あることがわかりますの出力、 **PartitionGameLogsPipeline** EnrichGameLogsPipeline の出力を入力として渡される、 **EnrichGameLogsPipeline** に渡される、 **AnalyzeMarketingCampaignPipeline**します。 タイトルをダブルクリックして、ブレードが示すアーティファクトについての詳細を表示します。
 
@@ -358,7 +358,7 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
 1.  ない場合、 **DATA FACTORY** ブレード、 **LogProcessingFactory** 開いた状態で行うことができます、次のいずれか。
     1.  クリックして **LogProcessingFactory** 上、 **スタート画面**します。 データ ファクトリを作成するときに、 **スタート画面に追加** オプションは自動的にチェックします。
 
-        ![監視スタート画面][image-data-factory-monitoring-startboard]
+        ![Monitoring Startboard][image-data-factory-monitoring-startboard]
 
     2. をクリックして **参照**, で、 **参照** ブレードで、 **データ ファクトリ** 選択 **LogProcessingFactory** で、 **データ ファクトリ** ブレードです。
 
@@ -372,7 +372,7 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
 
 6. [テーブル] ブレードに **RawGameEventsTable**, 、すべてのスライスを参照してください。 次のスクリーン ショットは、すべてのスライスが **準備ができて** 状態および問題のあるスライスはありません。 これは、そのデータがすぐに処理できることを意味します。 
 
-    ![[RawGameEventsTable] の [テーブル] ブレード][image-data-factory-monitoring-raw-game-events-table]
+    ![RawGameEventsTable TABLE blade][image-data-factory-monitoring-raw-game-events-table]
 
     両方とも **最近更新したスライス** と **最近失敗したスライス** リストは並んで、 **最終更新時刻**します。 次の状況では、スライスの更新時刻が変更されます。    
 
@@ -391,13 +391,13 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
 10. いることを確認、 **ステータス** のすべてのスライスに設定されている **準備**します。 
 11. になっているスライスのいずれかをクリックして **準備** を表示する、 **データ スライス** そのスライスのブレードです。
 
-    ![[RawGameEventsTable] の [データ スライス] ブレード][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
+    ![RawGameEventsTable DATA SLICE blade][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
     エラーが発生していた場合、ここに **[失敗]** という状態が表示されます。  か両方のスライスの状態を表示することもあります **準備**, 、またはその両方の状態 **PendingValidation**, のスライスの処理速度に応じて、します。
 
     スライスのではない場合、 **準備ができて** 状態、準備ができていないし、現在のスライスの実行をブロックするアップ ストリームのスライスを確認することができます、 **準備ができていないアップ ストリーム スライス** ] ボックスの一覧です。
  
-    参照してください、 [Azure Data Factory 開発者向けリファレンス][developer-reference] すべての可能なスライスの状態を把握します。
+    参照してください、 [Azure Data Factory 開発者向けリファレンス][開発者向けリファレンス] すべての可能なスライスの状態を把握します。
 
 12.  **データ スライス** ブレードから実行] をクリックして、 **アクティビティの実行** ] ボックスの一覧です。 そのスライスの [アクティビティの実行] ブレードが表示されるはずです。 次を参照する必要があります **アクティビティの実行の詳細** ブレードです。
 
@@ -415,40 +415,40 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
  
 マーケティング キャンペーンの有効性データを Azure BLOB からオンプレミスの SQL Server にコピーするには、この記事のチュートリアルで導入したオンプレミスのリンクされたサービス、テーブル、パイプラインを追加で作成する必要があります。
 
-実習、 [チュートリアル: を使用して内部設置型データ ソース][tutorial-onpremises] を内部設置型 SQL Server データベースにマーケティング キャンペーン有効性データをコピーするパイプラインを作成する方法を参照してください。
+実習、 [チュートリアル: を使用して内部設置型データ ソース][チュートリアル onpremises] を内部設置型 SQL Server データベースにマーケティング キャンペーン有効性データをコピーするパイプラインを作成する方法を参照してください。
 
 
-[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
-[use-custom-activities]: data-factory-use-custom-activities.md
-[troubleshoot]: data-factory-troubleshoot.md
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[data-factory-editor]: data-factory-editor.md
+[モニターを使用して-powershell]: data-factory-monitor-manage-using-powershell.md
+[カスタム アクティビティを使用します。]: data-factory-use-custom-activities.md
+[トラブルシューティングを行う]: data-factory-troubleshoot.md
+[コマンドレット リファレンス]: http://go.microsoft.com/fwlink/?LinkId=517456
+[data factory エディター]: data-factory-editor.md
 
 [adfsamples]: data-factory-samples.md
 [adfgetstarted]: data-factory-get-started.md
-[adftutorial-using-powershell]: data-factory-tutorial-using-powershell.md
+[adftutorial を使用して powershell]: data-factory-tutorial-using-powershell.md
 [adfintroduction]: data-factory-introduction.md
 [usepigandhive]: data-factory-data-transformation-activities.md
-[tutorial-onpremises]: data-factory-tutorial-extend-onpremises.md
-[download-azure-powershell]: ../powershell-install-configure.md
+[チュートリアル onpremises]: data-factory-tutorial-extend-onpremises.md
+[ダウンロード azure powershell]: ../powershell-install-configure.md
 
-[azure-portal]: http://portal.azure.com
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure ポータル]: http://portal.azure.com
+[azure 購入オプション]: http://azure.microsoft.com/pricing/purchase-options/
+[azure のオファー メンバー]: http://azure.microsoft.com/pricing/member-offers/
+[azure の無料評価版]: http://azure.microsoft.com/pricing/free-trial/
 
-[sqlcmd-install]: http://www.microsoft.com/download/details.aspx?id=35580
-[azure-sql-firewall]: https://azure.microsoft.com/documentation/articles/sql-database-configure-firewall-settings/
+[sqlcmd インストール]: http://www.microsoft.com/download/details.aspx?id=35580
+[azure sql ファイアウォール]: https://azure.microsoft.com/documentation/articles/sql-database-configure-firewall-settings/
 
 
-[adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[adfwalkthrough ダウンロード]: http://go.microsoft.com/fwlink/?LinkId=517495
+[開発者向けリファレンス]: http://go.microsoft.com/fwlink/?LinkId=516908
 
 [DataSlicesBySliceTime]: ./media/data-factory-tutorial/DataSlicesBySliceTime.png
-[image-author-deploy-tile]: ./media/data-factory-tutorial/author-deploy-tile.png
-[image-editor-newdatastore-button]: ./media/data-factory-tutorial/editor-newdatastore-button.png
-[image-editor-blob-storage-json]: ./media/data-factory-tutorial/editor-blob-storage-json.png
-[image-editor-blob-storage-deploy]: ./media/data-factory-tutorial/editor-blob-storage-deploy.png
+[イメージの作成者の展開-タイル]: ./media/data-factory-tutorial/author-deploy-tile.png
+[イメージ エディター newdatastore ボタン]: ./media/data-factory-tutorial/editor-newdatastore-button.png
+[イメージ エディター-blob のストレージ--json]: ./media/data-factory-tutorial/editor-blob-storage-json.png
+[イメージ-エディター-blob の記憶域に展開します。]: ./media/data-factory-tutorial/editor-blob-storage-deploy.png
 
 [image-data-factory-tutorial-end-to-end-flow]: ./media/data-factory-tutorial/EndToEndWorkflow.png
 
@@ -505,7 +505,7 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
 
 [image-data-factory-tutorial-diagram-view]: ./media/data-factory-tutorial/DiagramView.png
 
-[image-data-factory-monitoring-startboard]: ./media/data-factory-tutorial/MonitoringStartBoard.png
+[イメージのデータの工場出荷時の監視-スタート画面]: ./media/data-factory-tutorial/MonitoringStartBoard.png
 
 [image-data-factory-monitoring-hub-everything]: ./media/data-factory-tutorial/MonitoringHubEverything.png
 
@@ -524,4 +524,4 @@ Azure Data Factory サービスはオンデマンド クラスターの作成を
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png 
-
+<!--HONumber=Apr16_HO2-->

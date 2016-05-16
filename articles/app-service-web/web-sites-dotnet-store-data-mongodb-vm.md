@@ -29,7 +29,7 @@ Git を使用すると、ASP.NET アプリケーションを Azure App Service W
 
 このチュートリアルでは次の事項に関する知識があると楽ですが、必須ではありません。
 
-* MongoDB の C# ドライバー。 Mongodb c# アプリケーションの開発に関する詳細については、MongoDB を参照してください。 [CSharp Language Center][MongoC#LangCenter]します。 
+* MongoDB の C# ドライバー。 Mongodb c# アプリケーションの開発に関する詳細については、MongoDB を参照してください。 [CSharp Language Center][MongoC #LangCenter]します。 
 * ASP .NET Web アプリケーション フレームワーク。 すべてについては、 [ASP.net web サイト][ASP.NET]します。
 * ASP .NET MVC Web アプリケーション フレームワーク。 すべてについては、 [ASP.NET MVC web サイト][MVCWebSite]します。
 * Azure。 初めての詳細については参照 [Azure][WindowsAzure]します。
@@ -415,8 +415,7 @@ MongoDB C# ドライバーをインストールするには、以下を実行し
 
 **ソリューション エクスプ ローラー** 次のようになります。
 
-![ソリューション エクスプローラー
-][SolutionExplorerMyTaskListApp]
+![ソリューション エクスプローラー][SolutionExplorerMyTaskListApp]
 
 ## MongoDB 接続文字列を設定する ##
  **ソリューション エクスプ ローラー**, を開き、 *DAL/Dal.cs* ファイルです。 次のコード行を見つけます。
@@ -458,7 +457,7 @@ MongoDB の接続文字列の詳細については、次を参照してくださ
 2. クリックして **Web アプリの**です。 
 3. Web アプリを選択して、 **Web Apps** ] ボックスの一覧です。
 
-Mongodb c# アプリケーションの開発に関する詳細については、次を参照してください。 [CSharp Language Center][MongoC#LangCenter]します。 
+Mongodb c# アプリケーションの開発に関する詳細については、次を参照してください。 [CSharp Language Center][MongoC #LangCenter]します。 
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
  
@@ -467,7 +466,7 @@ Mongodb c# アプリケーションの開発に関する詳細については、
 
 [AzurePortal]: http://manage.windowsazure.com
 [WindowsAzure]: http://www.windowsazure.com
-[MongoC#LangCenter]: http://docs.mongodb.org/ecosystem/drivers/csharp/
+[MongoC #LangCenter]: http://docs.mongodb.org/ecosystem/drivers/csharp/
 [MVCWebSite]: http://www.asp.net/mvc
 [ASP.NET]: http://www.asp.net/
 [MongoConnectionStrings]: http://www.mongodb.org/display/DOCS/Connections
@@ -497,9 +496,9 @@ Mongodb c# アプリケーションの開発に関する詳細については、
 [Image11]: ./media/web-sites-dotnet-store-data-mongodb-vm/GitDeploymentComplete.png
 
 <!-- TOC BOOKMARKS -->
-[Create a virtual machine and install MongoDB]: #virtualmachine
-[Create and run the My Task List ASP.NET application on your development computer]: #createapp
-[Create an Azure web site]: #createwebsite
-[Deploy the ASP.NET application to the web site using Git]: #deployapp
+[仮想マシンを作成し、MongoDB をインストールする]: #virtualmachine
+[作成し、開発用コンピューターで My Task List ASP.NET アプリケーションを実行]: #createapp
+[Azure の web サイトを作成します。]: #createwebsite
+[Git を使用して web サイトに ASP.NET アプリケーションを展開します。]: #deployapp
  
-
+<!--HONumber=Apr16_HO2-->

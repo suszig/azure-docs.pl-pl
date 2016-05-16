@@ -48,7 +48,7 @@ Application Insights でデータを集めるとき、この API を使用すれ
  * [ASP.NET プロジェクト][greenbrown]
  * [Windows プロジェクト][windows]
  * [Java プロジェクト][java] 
- * [各 Web ページの JavaScript][client]   
+ * [各 web ページの JavaScript][client]   
 
 * デバイスまたは Web サーバー コードに次を追加します。
 
@@ -572,7 +572,7 @@ SDK からテレメトリを送信する前に、テレメトリを処理する�
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
- **選択されている標準のコレクターを無効にする** - たとえば、パフォーマンス カウンター、HTTP 要求や依存関係 - 削除するかに関連する行をコメント アウト [ApplicationInsights.config][config]します。 たとえば、独自の TrackRequest データを送信する場合にこれを行います。
+ **選択されている標準のコレクターを無効にする** - パフォーマンス カウンター、HTTP 要求や依存関係 - などに関連する行をコメント アウトまたは削除、[ApplicationInsights.config][config] します。 たとえば、独自の TrackRequest データを送信する場合にこれを行います。
 
 ## <a name="debug"></a>開発者モード
 
@@ -599,7 +599,7 @@ SDK からテレメトリを送信する前に、テレメトリを処理する�
 
 ## <a name="dynamic-ikey"></a> 動的なインストルメンテーション キー
 
-開発、テスト、運用環境からのテレメトリの混同を避けるためをするには [別の Application Insights リソースを作成する][create] し、環境に応じてそれぞれのキーを変更します。
+開発、テスト、運用環境からのテレメトリの混同を避けるためをするには [別の Application Insights リソースを作成][create] し、環境に応じてそれぞれのキーを変更します。
 
 インストルメンテーション キーは構成ファイルから取得する代わりにコードで設定できます。 ASP.NET サービスの global.aspx.cs など、初期化メソッドでキーを設定します。
 
@@ -701,7 +701,7 @@ TelemetryClient には、すべてのテレメトリ データとともに送信
 
 * *Track_() の呼び出しでは、どのような例外がスローされることがありますか。*
     
-    ありません。 try catch 句で例外をラップする必要はありません。 SDK で問題が発生すると、デバッグ コンソール出力に表示されるメッセージが記録されます。メッセージがスルーされる場合は、診断検索にも記録されます。
+    なし。 try catch 句で例外をラップする必要はありません。 SDK で問題が発生すると、デバッグ コンソール出力に表示されるメッセージが記録されます。メッセージがスルーされる場合は、診断検索にも記録されます。
 
 
 
@@ -712,7 +712,7 @@ TelemetryClient には、すべてのテレメトリ データとともに送信
 ## <a name="next"></a>次のステップ
 
 
-[イベントおよびログを検索する][diagnostic]
+[イベントおよびログを検索][diagnostic]
 
 [サンプルとチュートリアル](app-insights-code-samples.md)
 
@@ -735,4 +735,4 @@ TelemetryClient には、すべてのテレメトリ データとともに送信
 [windows]: app-insights-windows-get-started.md
 
  
-
+<!--HONumber=Apr16_HO2-->

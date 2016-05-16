@@ -1,6 +1,6 @@
 <properties
 pageTitle="Azure Cloud Services でローカル ストレージ リソースを構成する"
-description=""
+description="test"
 services="cloud-services"
 documentationCenter=""
 authors="cristy"
@@ -104,3 +104,4 @@ Azure マネージ ライブラリには、ロール インスタンスで実行
 
 - [Azure のクラウド サービスのセットアップ](https://msdn.microsoft.com/library/azure/hh124108.aspx)
 
+<!--HONumber=Apr16_HO2-->

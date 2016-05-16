@@ -81,7 +81,7 @@ HTTP 要求データが概要ブレードに表示されます  (表示されな
 ![名前別の要求数](./media/app-insights-java-eclipse/6-barchart.png)
 
 
-[メトリックの詳細についてはこちらをご覧ください。][metrics]
+[メトリックの詳細について説明します][metrics]
 
  
 
@@ -106,7 +106,7 @@ HTML ファイルの先頭にコード スニペットを挿入します。
 
 ![セッション、ユーザー、ページ ビュー](./media/app-insights-java-eclipse/appinsights-47usage-2.png)
 
-[クライアント側のテレメトリの設定方法の詳細についてはこちら。][usage]
+[クライアント側のテレメトリの設定について説明します][使用]
 
 ## アプリケーションの発行
 
@@ -208,7 +208,7 @@ HTML ファイルの先頭にコード スニペットを挿入します。
 
 ## 可用性 Web テスト
 
-Application Insights では、Web サイトを定期的にテストして、Web サイトが正常に動作および応答していることを確認できます。 [設定する][availability], 、下にスクロールして [可用性] をクリックします。
+Application Insights では、Web サイトを定期的にテストして、Web サイトが正常に動作および応答していることを確認できます。 [設定する][可用性], 、下にスクロールして [可用性] をクリックします。
 
 ![下にスクロール、[可用性] をクリック、[Web テストを追加]](./media/app-insights-java-eclipse/31-config-web-test.png)
 
@@ -216,13 +216,13 @@ Application Insights では、Web サイトを定期的にテストして、Web 
 
 ![Web テストの例](./media/app-insights-java-eclipse/appinsights-10webtestresult.png)
 
-[可用性 Web テストの詳細についてはこちら。][availability] 
+[可用性 web テストについて説明します][可用性] 
 
 ## 診断ログ
 
 トレース用に Logback または Log4J (v1.2 または v2.0) を使用している場合は、トレース ログを自動的に Application Insights に送信して、Application Insights でトレース ログを探索および検索できます。
 
-[診断ログの詳細についてはこちら][javalogs]
+[診断ログの詳細について][javalogs]
 
 ## カスタムのテレメトリ 
 
@@ -230,7 +230,7 @@ Java Web アプリケーションに数行のコードを挿入して、ユー�
 
 コードは、Web ページの JavaScript とサーバー側 Java のどちらにも挿入できます。
 
-[カスタムのテレメトリの詳細についてはこちら][track]
+[カスタム テレメトリについて][追跡]
 
 
 
@@ -238,25 +238,26 @@ Java Web アプリケーションに数行のコードを挿入して、ユー�
 
 #### 問題の検出と診断
 
-* [Web クライアント テレメトリを追加][usage] web クライアントからパフォーマンス テレメトリを取得します。
-* [Web テストを設定][availability] を確認する、アプリケーションが動作していて応答します。
-* [イベントおよびログを検索][diagnostic] 問題の診断に役立ちます。
-* [Log4J または Logback トレースをキャプチャします。][javalogs]
+* [Web クライアント テレメトリを追加][使用] web クライアントからパフォーマンス テレメトリを取得します。
+* [Web テストを設定][可用性] を確認する、アプリケーションが動作していて応答します。
+* [イベントおよびログを検索][診断] 問題の診断に役立ちます。
+* [Log4J または Logback トレースをキャプチャ][javalogs]
 
 #### 利用状況を追跡する
 
-* [Web クライアント テレメトリを追加][usage] モニター ページ ビューや基本的なユーザー メトリックをします。
-* [カスタム イベントおよびメトリックスの追跡][track] 、アプリケーションの使用状況、クライアントとサーバーの両方について説明します。
+* [Web クライアント テレメトリを追加][使用] モニター ページ ビューや基本的なユーザー メトリックをします。
+* [カスタム イベントおよびメトリックスの追跡][追跡] 、アプリケーションの使用状況、クライアントとサーバーの両方について説明します。
 
 
 <!--Link references-->
 
-[availability]: app-insights-monitor-web-app-availability.md
-[diagnostic]: app-insights-diagnostic-search.md
+[可用性]: app-insights-monitor-web-app-availability.md
+[診断]: app-insights-diagnostic-search.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[track]: app-insights-api-custom-events-metrics.md
-[usage]: app-insights-web-track-usage.md
+[追跡]: app-insights-api-custom-events-metrics.md
+[使用]: app-insights-web-track-usage.md
 
  
+<!--HONumber=Apr16_HO2-->
