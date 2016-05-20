@@ -1,1 +1,0 @@
->[AZURE.NOTE] おこのコンテンツは準備を今すぐありませんが、それについてお伝えしてたいようです。 このトピックでは、特に関心がある場合は、皆様からツイート [@AzureMobile](https://twitter.com/AzureMobile), で投稿も、 [フォーラム](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuremobile), 、[フィードバック](http://feedback.azure.com/forums/216254-mobile-services), 、またはこのトピックの disqus」スレッドにします。
