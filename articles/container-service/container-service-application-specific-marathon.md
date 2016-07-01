@@ -1,0 +1,60 @@
+<properties
+   pageTitle="Usługa Marathon specyficzna dla aplikacji lub użytkownika | Microsoft Azure"
+   description="Tworzenie usługi Marathon specyficznej dla aplikacji lub użytkownika"
+   services="container-service"
+   documentationCenter=""
+   authors="rgardler"
+   manager="timlt"
+   editor=""
+   tags="acs, azure-container-service"
+   keywords="Containers, Marathon, Micro-services, DC/OS, Azure"/>
+
+<tags
+   ms.service="container-service"
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="04/12/2016"
+   ms.author="rogardle"/>
+
+# Tworzenie usługi Marathon specyficznej dla aplikacji lub użytkownika
+
+Usługa kontenera platformy Azure oferuje zestaw serwerów głównych, na których wstępnie konfigurujemy usługi Apache Mesos i Marathon. Mogą one być używane do organizowania aplikacji w klastrze, ale stosowanie w tym celu serwerów głównych nie jest zalecane. Na przykład dostosowywanie konfiguracji usługi Marathon wymaga logowania do serwerów głównych i wprowadzania zmian. Oznacza to, że należy używać unikatowych serwerów głównych, które są nieco inne niż standardowe, i wymagają niezależnej obsługi oraz zarządzania. Ponadto konfiguracja wymagana przez jeden zespół może nie być konfiguracją optymalną dla innego zespołu. W tym artykule wyjaśnimy, jak dodać usługę Marathon specyficzną dla użytkownika lub aplikacji.
+
+Ponieważ usługa ta będzie należeć do pojedynczego użytkownika lub zespołu, będzie można w dowolny sposób skonfigurować jej działanie. Ponadto dzięki usłudze kontenera platformy Azure można mieć pewność, że usługa będzie działać. W przypadku błędu usługi usługa kontenera platformy Azure uruchomi ją ponownie. W większości przypadków taki przestój będzie niezauważalny.
+
+## Wymagania wstępne
+
+[Wdróż wystąpienie usługi kontenera platformy Azure](container-service-deployment.md) z typem aranżacji DCOS, [upewnij się, że klient może połączyć się z klastrem](container-service-connect.md) i [AZURE.INCLUDE [install the DC/OS CLI](../../includes/container-service-install-dcos-cli-include.md)].
+
+## Tworzenie usługi Marathon specyficznej dla aplikacji lub użytkownika.
+
+Rozpocznij od utworzenia pliku konfiguracji JSON definiującego nazwę usługi aplikacji, którą chcesz utworzyć. W tym miejscu użyjemy ciągu `marathon-alice` jako nazwy szablonu. Zapisz plik z nazwą typu `marathon-alice.json`:
+
+```json
+{"marathon": {"framework-name": "marathon-alice" }}
+```
+
+Następnie użyj interfejsu wiersza polecenia DC/OS, aby zainstalować wystąpienie usługi Marathon z opcjami ustawionymi w pliku konfiguracji:
+
+```bash
+dcos package install --options=marathon-alice.json marathon
+```
+
+Usługa `marathon-alice` powinna teraz zostać wyświetlona jako działająca na karcie usług interfejsu użytkownika DC/OS. Jeśli chcesz bezpośrednio uzyskiwać dostęp do interfejsu użytkownika, zostanie użyta wartość `http://<hostname>/service/marathon-alice/`.
+
+## Ustawianie interfejsu wiersza polecenia DC/OS w celu uzyskiwania dostępu do usługi
+
+Opcjonalnie możesz skonfigurować interfejs wiersza polecenia DC/OS do uzyskiwania dostępu do nowej usługi, ustawiając właściwość `marathon.url`, aby wskazywała wystąpienie `marathon-alice` w następujący sposób:
+
+```bash
+dcos config set marathon.url http://<hostname>/service/marathon-alice/
+```
+
+Aby sprawdzić, względem którego wystąpienia usługi Marathon uruchomiono interfejs wiersza polecenia, użyj polecenia `dcos config show`. Aby wrócić do korzystania z głównej usługi Marathon, użyj polecenia `dcos config unset marathon.url`.
+
+
+<!--HONumber=Jun16_HO2-->
+
+
