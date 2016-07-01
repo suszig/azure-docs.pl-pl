@@ -1,0 +1,59 @@
+<properties
+    pageTitle="Tworzenie aplikacji systemu iOS przy użyciu funkcji Mobile Apps w usłudze Azure App Service | Microsoft Azure"
+    description="Postępuj zgodnie z tym samouczkiem, aby rozpocząć korzystanie z zapleczy usług mobilnych Azure na potrzeby opracowywania aplikacji systemu iOS w środowisku Objective-C lub Swift."
+    services="app-service\mobile"
+    documentationCenter="ios"
+    authors="krisragh"
+    manager="dwrede"
+    editor=""/>
+
+<tags
+    ms.service="app-service-mobile"
+    ms.workload="na"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="objective-c"
+    ms.topic="hero-article"
+    ms.date="04/19/2016"
+    ms.author="krisragh"/>
+
+#Tworzenie aplikacji systemu iOS
+
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+
+## Omówienie
+
+W tym samouczku przedstawiono sposób dodawania [Azure Mobile Apps](app-service-mobile-value-prop.md), usługi zaplecza w chmurze, do aplikacji systemu iOS. Najpierw utworzymy nowe zaplecze aplikacji mobilnej. Następnie użyjemy prostej aplikacji systemu iOS typu _Lista czynności do wykonania_ do przechowywania danych na platformie Azure.
+
+## Wymagania wstępne
+
+Do wykonania kroków tego samouczka niezbędne są następujące elementy:
+
+* [Aktywne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/)
+* Komputer z programem [Visual Studio Community 2013] lub nowszym 
+* Komputer Mac ze środowiskiem Xcode 7.3 lub nowszym
+
+## Krok I. Tworzenie nowego zaplecza aplikacji mobilnej Azure
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+
+## Krok II. Konfigurowanie projektu zaplecza
+
+[AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
+
+## Krok III. Pobieranie i uruchamianie aplikacji systemu iOS
+
+[AZURE.INCLUDE [app-service-mobile-ios-run-app](../../includes/app-service-mobile-ios-run-app.md)]
+
+
+<!-- Images. -->
+
+<!-- URLs -->
+[Portal Azure]: https://portal.azure.com/
+[Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+
