@@ -23,8 +23,9 @@ Aby zmienić schemat istniejących aplikacji logiki na nowy, wykonaj następują
 1. Otwórz aplikację logiki w portalu Azure.  
 2. Kliknij pozycję Aktualizuj schemat:
 
- ![Ikona interfejsu API][step1]   
-Zostanie wyświetlona strona Aktualizacja schematu z linkiem do dokumentu zawierającego szczegółowe informacje dotyczące ulepszeń w nowym schemacie: ![Ikona interfejsu API][step2]
+ ![API Icon][step1]   
+Zostanie wyświetlona strona Aktualizacja schematu z linkiem do dokumentu zawierającego szczegółowe informacje dotyczące ulepszeń w nowym schemacie:
+ ![API Icon][step2]
 
 >[AZURE.NOTE] Po wybraniu pozycji **Aktualizuj schemat** firma Microsoft automatycznie wykonuje kroki migracji i przekazuje użytkownikowi kod wyjściowy. Korzystając z tych informacji, możesz zaktualizować definicję, jednak należy przestrzegać dobrych praktyk kodowania, takich jak te opisane w sekcji **Najlepsze rozwiązania** poniżej.
 
@@ -40,8 +41,8 @@ Zostanie wyświetlona strona Aktualizacja schematu z linkiem do dokumentu zawier
 
 
 <!--Icon references-->
-[krok 1]: ./media/connectors-schema-migration/migrateschema1.png
-[krok 2]: ./media/connectors-schema-migration/migrateschema2.png
+[step1]: ./media/connectors-schema-migration/migrateschema1.png
+[step2]: ./media/connectors-schema-migration/migrateschema2.png
 
 
 
@@ -51,6 +52,6 @@ Zostanie wyświetlona strona Aktualizacja schematu z linkiem do dokumentu zawier
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

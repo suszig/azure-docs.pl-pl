@@ -188,17 +188,17 @@ Aby uzyskać więcej informacji, odwiedź stronę [Centrum deweloperów środowi
 
 <!-- IMG List -->
 
-[Wynik użycia polecenia New-AzureService helloworld]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
-[Dane wyjściowe polecenia Add-AzureNodeWebRole]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
-[Przeglądarka wyświetlająca stronę sieci Web „Hello World”]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
-[Dane wyjściowe polecenia Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-[Pełne dane wyjściowe stanu polecenia Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
-[Okno przeglądarki ze stroną „hello world”; adres URL wskazuje, że strona jest obsługiwana na platformie Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
-[Stan polecenia Stop-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
-[Stan polecenia Remove-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+[The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
+[The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
+[A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
+[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
+[The full status output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
+[A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
+[The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
+[The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

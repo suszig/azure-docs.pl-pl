@@ -166,7 +166,7 @@ Aby odczytać dzienniki programu iisnode, wykonaj następujące czynności.
 
         https://{appname}.scm.azurewebsites.net/DebugConsole 
 
-    Zauważ, że ten adres URL różni się od adresu URL aplikacji ciągiem „*.scm.*” dodanym do nazwy DNS. W przypadku pominięcia tego ciągu w adresie URL wystąpi błąd 404.
+    Zauważ, że ten adres URL różni się od adresu URL aplikacji ciągiem „ *.scm.* ” dodanym do nazwy DNS. W przypadku pominięcia tego ciągu w adresie URL wystąpi błąd 404.
 
 5. Przejdź do katalogu D:\home\site\wwwroot\iisnode.
 
@@ -244,6 +244,6 @@ Aby włączyć narzędzie Node-Inspector, wykonaj następujące czynności:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

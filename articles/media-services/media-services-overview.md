@@ -216,12 +216,12 @@ Aby uzyskać więcej informacji, zobacz temat [Umowy dotyczące poziomu usług p
 <!-- Images -->
 [omówienie]: ./media/media-services-overview/media-services-overview.png
 [vod — przegląd]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
-[na żywo — przegląd1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png
-[na żywo — przegląd2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
+[live-overview1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png
+[live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 
