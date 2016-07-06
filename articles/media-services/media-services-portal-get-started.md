@@ -245,17 +245,17 @@ Jeśli ten temat nie zawiera oczekiwanych treści, brakuje w nim informacji lub 
 [portaloverview]: ./media/media-services-portal-get-started/media-services-content-page.png
 [publishedcontent]: ./media/media-services-portal-get-started/media-services-upload-content-published.png
 [uploadcontent]: ./media/media-services-portal-get-started/UploadContent.png
-[stan]: ./media/media-services-portal-get-started/Status.png
-[koder]: ./media/media-services-manage-content/EncoderDialog2.png
-[znakowanie]: ./media/branding-reporting.png
+[status]: ./media/media-services-portal-get-started/Status.png
+[encoder]: ./media/media-services-manage-content/EncoderDialog2.png
+[branding]: ./media/branding-reporting.png
 [contentpage]: ./media/media-services-portal-get-started/media-services-content-page.png
 [process]: ./media/media-services-manage-content/media-services-process-video.png
 [process2]: ./media/media-services-portal-get-started/media-services-process-video2.png
-[szyfrowanie]: ./media/media-services-manage-content/media-services-encrypt-content.png
+[encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

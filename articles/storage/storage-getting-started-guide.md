@@ -62,7 +62,8 @@ Uruchom przykładową aplikację:
 
     `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
 
-2.  Usuń znaczniki komentarza z parametrów połączenia dla usługi Azure Storage i podaj nazwę oraz klucz dostępu konta magazynu w pliku App.config: `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
+2.  Usuń znaczniki komentarza z parametrów połączenia dla usługi Azure Storage i podaj nazwę oraz klucz dostępu konta magazynu w pliku App.config: 
+	`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
 
     Aby pobrać klucz dostępu do konta magazynu, zobacz [Zarządzanie kluczami dostępu do magazynu](storage-create-storage-account.md#manage-your-storage-access-keys).
 
@@ -112,11 +113,11 @@ Zobacz następujące zasoby, aby dowiedzieć się więcej na temat usługi Azure
 * [Biblioteka klienta usługi Microsoft Azure Storage dla programu .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [Interfejs API REST usług Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
-[Obraz1]: ./media/storage-getting-started-guide/QuickStart.png
+[Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 
