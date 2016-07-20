@@ -1,45 +1,51 @@
 <!--author=SharS last changed: 02/29/2016-->
 
-#### To create a volume
+#### Aby utworzyć wolumin
 
-1. On the device **Quick Start** page, click **Add a volume**. This starts the Add a volume wizard.
+1. Na stronie **Szybki start** urządzenia kliknij pozycję **Dodaj wolumin**. Spowoduje to uruchomienie Kreatora dodawania woluminu.
 
-2. In the Add a volume wizard, under **Basic Settings**:
+2. W Kreatorze dodawania woluminu w obszarze **Ustawienia podstawowe**:
 
-	4. Type a **Name** for your volume.
-	5. On the drop-down list, select the **Usage Type** for your volume. For workloads that require local guarantees, low latencies, and higher performance, select a **Locally pinned** volume. For all other data, select a **Tiered** volume. If you are using this volume for archival data, check **Use this volume for less frequently accessed archival data**. 
-	
-		A locally pinned volume is thickly provisioned and ensures that the primary data on the volume stays local to the device and does not spill to the cloud.  If you create a locally pinned volume, the device will check for available space on the local tiers to provision the volume of the requested size. The operation of creating a locally pinned volume may involve spilling existing data from the device to the cloud and the time taken to create the volume may be long. The total time depends on the size of the provisioned volume, available network bandwidth, and the data on your device. 
+    4. Wpisz wartość pola **Nazwa** dla woluminu.
+    5. Z listy rozwijanej wybierz wartość **Typ użycia** dla woluminu. W przypadku obciążeń, które wymagają lokalnych gwarancji, małych opóźnień i większej wydajności, wybierz wolumin typu **Przypięty lokalnie**. W przypadku wszystkich innych danych wybierz wolumin typu **Warstwowy**. Jeśli używasz tego woluminu na potrzeby danych archiwalnych, wybierz opcję **Użyj tego woluminu w przypadku rzadziej używanych danych archiwalnych**. 
+    
+        Wolumin przypięty lokalnie jest alokowany nieelastycznie i gwarantuje, że główne dane na woluminie pozostaną na urządzeniu lokalnym i nie zostaną przeniesione do chmury.  W przypadku tworzenia woluminu przypiętego lokalnie urządzenie będzie sprawdzać dostępne miejsce w warstwach lokalnych, aby zaalokować żądaną ilość miejsca na woluminie. Operacja tworzenia woluminów przypiętych lokalnie może obejmować przenoszenie istniejących danych z urządzenia do chmury i czas tworzenia woluminu może być długi. Łączny czas zależy od rozmiaru alokowanego woluminu, dostępnej przepustowości sieci i danych na urządzeniu. 
 
-		A tiered volume is thinly provisioned and can be created very quickly. If you are using the tiered volume for archival data, selecting **Use this volume for less frequently accessed archival data** changes the deduplication chunk size for your volume to 512 KB. If this field is not checked, the corresponding tiered volume will use a chunk size of 64 KB. A larger deduplication chunk size allows the device to expedite the transfer of large archival data to the cloud.
+        Wolumin warstwowy jest alokowany elastycznie i można go utworzyć bardzo szybko. Jeśli używasz woluminu warstwowego na potrzeby danych archiwalnych, wybranie opcji **Użyj tego woluminu w przypadku rzadziej używanych danych archiwalnych** spowoduje zmianę rozmiaru fragmentu deduplikacji dla woluminu na 512 KB. Jeśli to pole nie zostanie zaznaczone, odpowiedni wolumin warstwowy użyje rozmiaru fragmentu wynoszącego 64 KB. Większy rozmiar fragmentu deduplikacji umożliwia urządzeniu usprawnienie transferu dużej ilości danych archiwalnych w chmurze.
 
-	3. Specify the **Provisioned Capacity** for your volume. Make a note of the capacity that is available based on the volume type selected. The specified volume size must not exceed the available space.
+    3. Określ **alokowaną pojemność** woluminu. Zanotuj wielkość pojemności dostępnej w oparciu o wybrany typ woluminu. Wybrany rozmiar woluminu nie może przekraczać wielkości dostępnego miejsca.
 
-		You can provision locally pinned volumes up to 8 TB or tiered volumes up to 200 TB on the 8100 device. On the larger 8600 device, you can provision locally pinned volumes up to 20 TB or tiered volumes up to 500 TB. As local space on the device is required to host the working set of tiered volumes, creation of locally pinned volumes will impact the space available for provisioning tiered volumes. Therefore, if you create a locally pinned volume, space available for creation of tiered volumes will be reduced. Similarly, if a tiered volume is created, the available space for creation of  locally pinned volumes will be reduced. 
+        Na urządzeniu 8100 można alokować woluminy przypięte lokalnie do 8 TB lub woluminy warstwowe do 200 TB. Na większym urządzeniu 8600 można alokować woluminy przypięte lokalnie do 20 TB lub woluminy warstwowe do 500 TB. Ponieważ lokalne miejsce na urządzeniu jest wymagane do obsługi zestawu roboczego woluminów warstwowych, tworzenie woluminów przypiętych lokalnie będzie mieć wpływ na miejsce dostępne do alokowania na woluminach warstwowych. Jeśli zatem tworzysz wolumin przypięty lokalnie, miejsce dostępne na potrzeby tworzenia woluminów warstwowych zmniejszy się. Podobnie jeśli tworzysz wolumin warstwowy, miejsce dostępne na potrzeby tworzenia woluminów przypiętych lokalnie zmniejszy się. 
 
-		If you provision a locally pinned volume of 8 TB (maximum allowable size) on your 8100 device, then you will have exhausted all the local space available on the device. You will not be able to create any tiered volume from that point onwards as there is no local space on the device to host the working set of the tiered volume. Existing tiered volumes also affect the space available. For example, if you have an 8100 device that already has tiered volumes of 100 TB, only 4 TB of space will be available for locally pinned volumes.
+        W przypadku alokowania woluminu przypiętego lokalnie o rozmiarze 8 TB (maksymalny dozwolony rozmiar) na urządzeniu 8100 całe lokalne miejsce dostępne na urządzeniu zostanie wyczerpane. Od tego momentu nie będzie można tworzyć woluminów warstwowych, ponieważ na urządzeniu nie ma już miejsca lokalnego do hostowania roboczego zestawu woluminu warstwowego. Istniejące woluminy warstwowe również wpływają na dostępne miejsce. Jeśli na przykład masz urządzenie 8100 z woluminami warstwowymi o wielkości 100 TB, tylko 4 TB będzie dostępne dla woluminów przypiętych lokalnie.
 
-        The following image shows the **Basic Settings** dialog box for a locally pinned volume.
+        Poniższy obraz przedstawia okno dialogowe **Ustawienia podstawowe** woluminu przypiętego lokalnie.
 
-         ![Add local volume](./media/storsimple-create-volume-u2/add-local-volume-include.png)
+         ![Dodawanie woluminu lokalnego](./media/storsimple-create-volume-u2/add-local-volume-include.png)
 
-        The following image shows the **Basic Settings** dialog box for a tiered volume.
+        Poniższy obraz przedstawia okno dialogowe **Ustawienia podstawowe** woluminu warstwowego.
 
-         ![Add local volume](./media/storsimple-create-volume-u2/add-tiered-volume-include.png)
+         ![Dodawanie woluminu lokalnego](./media/storsimple-create-volume-u2/add-tiered-volume-include.png)
 
-   4. Click the arrow icon ![arrow-icon](./media/storsimple-create-volume-u2/HCS_ArrowIcon-include.png) to go to the next page.
+   4. Kliknij ikonę strzałki, ![ikona strzałki](./media/storsimple-create-volume-u2/HCS_ArrowIcon-include.png) aby przejść do następnej strony.
 
 
-3. In the **Additional Settings** dialog box, add a new access control record (ACR):
+3. W oknie dialogowym **Ustawienia dodatkowe** dodaj nowy rekord kontroli dostępu (ACR):
 
-	1. Supply a **Name** for your ACR.
-	2. Under **iSCSI Initiator Name**, provide the iSCSI Qualified Name (IQN) of your Windows host. If you don't have the IQN, go to [Get the IQN of a Windows Server host](#get-the-iqn-of-a-windows-server-host).
-	3. Under **Default backup for this volume?**, select the **Enable** check box. The default backup will create a policy that executes at 22:30 each day (device time) and creates a cloud snapshot of this volume.
-	 
-     > [AZURE.NOTE] After the backup is enabled here, it cannot be reverted. You will need to edit the volume to modify this setting.
+    1. Wypełnij pole **Nazwa** dla rekordu ACR.
+    2. W obszarze **Nazwa inicjatora iSCSI** podaj kwalifikowaną nazwę iSCSI (IQN) hosta z systemem Windows. Jeśli nie masz nazwy IQN, przejdź do tematu [Pobieranie nazwy IQN hosta z systemem Windows Server](#get-the-iqn-of-a-windows-server-host).
+    3. W obszarze **Domyślna kopia zapasowa dla tego woluminu?** zaznacz pole wyboru **Włącz**. Włączenie domyślnego tworzenia kopii zapasowej spowoduje utworzenie zasad wykonywanych codziennie o godz. 22:30 (czas urządzenia) i tworzących migawkę chmury dla danego woluminu.
+     
+     > [AZURE.NOTE] Włączenia tworzenia kopii zapasowej na tym etapie nie można cofnąć. W celu zmodyfikowania tego ustawienia trzeba edytować wolumin.
 
-     ![Add volume](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
+     ![Dodawanie woluminu](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 
-4. Click the check icon ![check icon](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). A volume will be created with the specified settings.
+4. Kliknij ikonę znacznika wyboru ![ikona znacznika wyboru](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Wolumin zostanie utworzony przy użyciu wybranych ustawień.
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

@@ -1,31 +1,36 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### To connect through the serial console
+#### Aby nawiązać połączenie za pośrednictwem konsoli szeregowej
 
-1. Connect your serial cable to the device (directly or through a USB-serial adapter).
+1. Podłącz kabel szeregowy do urządzenia (bezpośrednio lub za pośrednictwem adaptera szeregowego USB).
 
-2. Open the **Control Panel**, and then open the **Device Manager**.
+2. Otwórz **Panel sterowania**, a następnie otwórz okno **Menedżer urządzeń**.
 
-3. Identify the COM port as shown in the following illustration.
+3. Zidentyfikuj port COM w sposób pokazany na poniższym rysunku.
 
-     ![Connecting through serial console](./media/storsimple-use-putty/HCS_ConnectingDeviceS-include.png)
+     ![Łączenie za pośrednictwem konsoli szeregowej](./media/storsimple-use-putty/HCS_ConnectingDeviceS-include.png)
 
-4. Start PuTTY. 
+4. Uruchom program PuTTY. 
 
-5. In the right pane, change the **Connection type** to **Serial**.
+5. W okienku po prawej stronie zmień wartość pola **Typ połączenia** na **Szeregowe**.
 
-6. In the right pane, type the appropriate COM port. Make sure that the serial configuration parameters are set as follows:
-  - Speed: 115,200
-  - Data bits: 8
-  - Stop bits: 1
-  - Parity: None
-  - Flow control: None
+6. W okienku po prawej stronie wpisz odpowiedni port COM. Upewnij się, że parametry konfiguracji portu zostały ustawione w następujący sposób:
+  - Szybkość: 115 200
+  - Bity danych: 8
+  - Bity stopu: 1
+  - Parzystość: Brak
+  - Sterowanie przepływem: Brak
 
-    These settings are shown in the following illustration.
+    Te ustawienia zostały pokazane na poniższej ilustracji.
 
-     ![PuTTY settings](./media/storsimple-use-putty/HCS_PuttyConfig-include.png) 
+     ![Ustawienia programu PuTTY](./media/storsimple-use-putty/HCS_PuttyConfig-include.png) 
 
-    > [AZURE.NOTE] If the default flow control setting does not work, try setting the flow control to XON/XOFF.
+    > [AZURE.NOTE] Jeśli domyślne ustawienie sterowania przepływem nie działa, spróbuj ustawić je na XON/XOFF.
 
-7. Click **Open** to start a serial session.
+7. Kliknij pozycję **Otwórz**, aby rozpocząć sesję szeregową.
  
+
+
+<!--HONumber=Jun16_HO2-->
+
+

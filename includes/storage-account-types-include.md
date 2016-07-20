@@ -1,27 +1,33 @@
-There are two types of storage accounts:
+Istnieją dwa typy kont magazynu:
 
-### General-purpose Storage Accounts
+### Konta magazynu ogólnego przeznaczenia
 
-A general-purpose storage account gives you access to Azure Storage services such as Tables, Queues, Files, Blobs and Azure virtual machine disks under a single account. This type of storage account has two performance tiers:
+Konto magazynu ogólnego przeznaczenia zapewnia dostęp do usług Azure Storage, takich jak tabele, kolejki, pliki, obiekty blob i dyski maszyny wirtualnej Azure, w ramach jednego konta. Ten typ konta magazynu ma dwie warstwy wydajności:
 
-- A standard storage performance tier which allows you to store Tables, Queues, Files, Blobs and Azure virtual machine disks.
-- A premium storage performance tier which currently only supports Azure virtual machine disks. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../articles/storage/storage-premium-storage.md) for an in-depth overview of Premium storage.
+- Warstwę wydajności magazynu standardowego umożliwiającą przechowywanie tabel, kolejek, plików, obiektów blob i dysków maszyny wirtualnej Azure.
+- Warstwę wydajności magazynu w warstwie Premium, która obecnie obsługuje tylko dyski maszyny wirtualnej Azure. Zobacz temat [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../articles/storage/storage-premium-storage.md) (Usługa Premium Storage: wysoce wydajny magazyn do obciążeń maszyn wirtualnych platformy Azure), aby uzyskać szczegółowe informacje o magazynie Premium.
 
-### Blob Storage Accounts
+### Konta usługi Blob Storage
 
-A Blob storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
+Konto usługi Blob Storage to specjalne konto magazynu służące do przechowywania danych niestrukturalnych w formie obiektów blob w usłudze Azure Storage. Konta Magazynu obiektów Blob są podobne do istniejących kont magazynu ogólnego przeznaczenia i udostępniają wszystkie używane obecnie funkcje doskonałej trwałości, dostępności, skalowalności i wydajności, łącznie z pełną spójnością interfejsu API na potrzeby blokowych i uzupełnialnych obiektów blob. W przypadku aplikacji wymagających tylko magazynu obiektów blokowych i Magazynu obiektów Blob zalecamy używanie kont Magazynu obiektów Blob.
 
-> [AZURE.NOTE] Blob storage accounts support only block and append blobs, and not page blobs.
+> [AZURE.NOTE] Konta Magazynu obiektów blob obsługują tylko blokowe obiekty blob i uzupełnialne obiekty blob — stronicowe obiekty blob nie są obsługiwane.
 
-Blob storage accounts expose the **Access Tier** attribute which can be specified during account creation and modified later as needed. There are two types of access tiers that can be specified based on your data access pattern:
+Konta Magazynu obiektów Blob udostępniają atrybut **Warstwa dostępu**, który można określić podczas tworzenia konta, a później zmodyfikować w zależności od potrzeb. Istnieją dwa typy warstw dostępu, które można określić na podstawie wzorca dostępu do danych:
 
-- A **Hot** access tier which indicates that the objects in the storage account will be more frequently accessed. This allows you to store data at a lower access cost.
-- A **Cool** access tier which indicates that the objects in the storage account will be less frequently accessed. This allows you to store data at a lower data storage cost.
+- **Gorąca** warstwa dostępu, oznaczająca, że dostęp do obiektów na koncie magazynu będzie uzyskiwany częściej. Dzięki temu można przechowywać dane, do których jest tańszy dostęp.
+- **Chłodna** warstwa dostępu, oznaczająca, że dostęp do obiektów na koncie magazynu będzie uzyskiwany rzadziej. Dzięki temu można przechowywać dane, których przechowywanie jest tańsze.
 
-If there is a change in the usage pattern of your data, you can also switch between these access tiers at any time. Changing the access tier may result in additional charges. Please see [Pricing and billing for Blob storage accounts](../articles/storage/storage-blob-storage-tiers.md#pricing-and-billing) for more details.
+W przypadku zmiany wzorca użycia danych można także w dowolnym momencie przełączyć się między tymi warstwami dostępu. Zmiana warstwy dostępu może spowodować naliczenie dodatkowych opłat. Więcej szczegółowych informacji znajduje się w temacie [Pricing and billing for Blob storage accounts](../articles/storage/storage-blob-storage-tiers.md#pricing-and-billing) (Cennik i rozliczenia — konta Magazynu obiektów Blob).
 
-For more details on Blob storage accounts, see [Azure Blob Storage: Cool and Hot tiers](../articles/storage/storage-blob-storage-tiers.md).
+Więcej szczegółowych informacji na temat kont usługi Blob Storage znajduje się w temacie [Azure Blob Storage: Cool and Hot tiers](../articles/storage/storage-blob-storage-tiers.md) (Usługa Azure Blob Storage: warstwa chłodna i gorąca).
 
-Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services. You can get started with Azure with a [free account](https://azure.microsoft.com/pricing/free-trial/). Once you decide to purchase a subscription plan, you can choose from a variety of [purchase options](https://azure.microsoft.com/pricing/purchase-options/). If you’re an [MSDN subscriber](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), you get free monthly credits that you can use with Azure services, including Azure Storage. See [Azure Storage Pricing ](https://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
+Przed utworzeniem konta magazynu musisz mieć subskrypcję platformy Azure, która umożliwia dostęp do jej różnych usług. Możesz rozpocząć pracę z platformą Azure od [utworzenia bezpłatnego konta](https://azure.microsoft.com/pricing/free-trial/). Jeśli zdecydujesz się na wykupienie planu subskrypcji, możesz wybrać spośród różnych [opcji zakupu](https://azure.microsoft.com/pricing/purchase-options/). Jeśli jesteś [subskrybentem portalu MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), możesz uzyskać bezpłatne miesięczne środki na korzystanie z usług Azure, m.in. Azure Storage. Informacje dotyczące cennika woluminów znajdują się w temacie [Azure Storage Pricing ](https://azure.microsoft.com/pricing/details/storage/) (Cennik usługi Azure Storage).
 
-To learn how to create a storage account, see [Create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account) for more details. You can create up to 100 uniquely named storage accounts with a single subscription. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account limits.
+Więcej szczegółowych informacji na temat tworzenia konta magazynu znajduje się w temacie [Create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account) (Tworzenie konta magazynu). Można utworzyć maksymalnie 100 kont magazynu o unikatowej nazwie w ramach jednej subskrypcji. Aby uzyskać szczegółowe informacje na temat limitów konta magazynu, zobacz temat [Cele dotyczące skalowalności i wydajności usługi Azure Storage](../articles/storage/storage-scalability-targets.md).
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

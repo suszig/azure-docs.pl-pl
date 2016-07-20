@@ -1,8 +1,13 @@
-|    | **VPN Gateway throughput (1)** | **VPN Gateway max IPsec tunnels (2)** | **ExpressRoute Gateway throughput** | **VPN Gateway and ExpressRoute coexist**|
+|    | **Przepływność bramy sieci VPN (1)** | **Maksymalna liczba tuneli protokołu IPsec bramy sieci VPN (2)** | **Przepływność bramy ExpressRoute** | **Brama sieci VPN i ExpressRoute współistnieją**|
 |--- |----------------------------|-----------------------------------|-------------------------------------|-----------------------------------------|
-| **Basic SKU**              |  100 Mbps | 10                         |  500 Mbps                           | No   |
-| **Standard SKU**           |  100 Mbps | 10                         | 1000 Mbps                           | Yes  |
-| **High Performance SKU**   | 200 Mbps  | 30                         | 2000 Mbps                           | Yes  |
+| **Podstawowy SKU**              |  100 Mb/s | 10                         |  500 Mb/s                           | Nie   |
+| **Standardowy SKU**           |  100 Mb/s | 10                         | 1000 Mb/s                           | Yes  |
+| **SKU wysokiej wydajności**   | 200 Mb/s  | 30                         | 2000 Mb/s                           | Yes  |
 
-- (1) The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region. It is not a guarantee of what you can get for cross-premises connections across the Internet, but should be used as a maximum possible measure.
-- (2) The number of tunnels refer to route-based VPN below. A policy-based VPN can only support one Site-to-Site VPN tunnel
+- (1) Przepływność sieci VPN została wstępnie oszacowana na podstawie pomiarów między sieciami wirtualnymi w ramach tego samego regionu systemu Azure. Nie ma gwarancji, że ta wartość może zostać uzyskana w połączeniach przez Internet między różnymi lokalizacjami, ale powinna ona być używana jako najwyższa możliwa wielkość.
+- (2) Liczba tuneli dotyczy poniższej sieci VPN opartej na trasie. Sieć VPN oparta na zasadach może obsługiwać tylko jeden tunel VPN typu „lokacja do lokacji”
+
+
+<!--HONumber=Jun16_HO2-->
+
+

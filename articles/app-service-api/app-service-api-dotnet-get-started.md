@@ -76,7 +76,7 @@ Następny samouczek z tej serii dotyczy wdrożenia frontonu aplikacji jednostron
 
 2. Skompiluj rozwiązanie w celu przywrócenia pakietów NuGet.
 
-    Możesz uruchomić aplikację lokalnie, jeśli chcesz sprawdzić jej działanie przed wdrożeniem. Wystarczy ustawić wszystkie trzy projekty jako projekty startowe. Musisz użyć przeglądarki Internet Explorer lub Edge, ponieważ akceptują one wywołania języka JavaScript między źródłami do adresów URL `http://localhost`. 
+    Możesz uruchomić aplikację lokalnie, jeśli chcesz sprawdzić jej działanie przed wdrożeniem. Wystarczy ustawić wszystkie trzy projekty jako projekty startowe. Musisz użyć przeglądarki Internet Explorer lub Microsoft Edge, ponieważ akceptują one wywołania języka JavaScript między źródłami do adresów URL `http://localhost`. 
 
 ## Korzystanie z interfejsu użytkownika oraz metadanych interfejsu API programu Swagger
 
@@ -100,7 +100,7 @@ W tej części samouczka przyjrzymy się wygenerowanym metadanym programu Swagge
 
     ![Pobieranie metadanych JSON w programie Internet Explorer](./media/app-service-api-dotnet-get-started/iev1json.png)
 
-    Jeśli używasz programu Chrome, Firefox lub Edge, metadane JSON zostaną wyświetlone w oknie przeglądarki. Obsługa danych JSON wygląda inaczej w różnych przeglądarkach, dlatego zawartość okna widocznego w Twojej przeglądarce może różnić się nieco od przykładowej ilustracji.
+    Jeśli używasz programu Chrome, Firefox lub Microsoft Edge, metadane JSON zostaną wyświetlone w oknie przeglądarki. Obsługa danych JSON wygląda inaczej w różnych przeglądarkach, dlatego zawartość okna widocznego w Twojej przeglądarce może różnić się nieco od przykładowej ilustracji.
 
     ![Metadane JSON w programie Chrome](./media/app-service-api-dotnet-get-started/chromev1json.png)
 

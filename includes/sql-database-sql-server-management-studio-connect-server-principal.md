@@ -1,42 +1,48 @@
 
 
-## Connect to Azure SQL Database using a server-level principal login
+## Nawiązywanie połączenia z bazą danych SQL Azure przy użyciu głównego identyfikatora logowania poziomu serwera
 
-Use the following steps to connect to Azure SQL Database with SSMS using a server-level principal login.
+Wykonaj następujące kroki, aby nawiązać połączenie z bazą danych SQL Azure za pomocą narzędzia SSMS przy użyciu głównego identyfikatora logowania poziomu serwera.
 
-1. Type "Microsoft SQL Server Management Studio" in the Windows search box, and then click the desktop app to start SSMS.
+1. W polu wyszukiwania systemu Windows wpisz „Microsoft SQL Server Management Studio”, a następnie kliknij aplikację klasyczną, aby uruchomić program SSMS.
 
-2. In the Connect to Server window, enter the following information:
+2. W oknie połączenia z serwerem wprowadź następujące informacje:
 
- - **Server type**: The default is database engine; do not change this value.
- - **Server name**: Enter the name of the server that hosts your SQL database in the followinbg format: *&lt;servername>*.**database.windows.net**
- - **Authentication type**: If you are just getting started, select SQL Authentication. If you have enabled Active Directory for your SQL Database logical server, you can select either Active Directory Password Authentication or Active Directory Integrated Authentication.
- - **User name**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the name of a user with access to a database on the server.
- - **Password**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the password for the specified user.
+ - **Typ serwera**: domyślnie jest to aparat bazy danych; tej wartości nie należy zmieniać.
+ - **Nazwa serwera**: wprowadź nazwę serwera hostującego bazę danych SQL w następującym formacie: *&lt;nazwa_serwera >*.**database.windows.net**
+ - **Typ uwierzytelniania**: jeśli dopiero rozpoczynasz pracę, wybierz opcję Uwierzytelnianie SQL. Jeśli dla serwera logicznego bazy danych SQL została włączona usługa Active Directory, możesz wybrać opcję Uwierzytelnianie za pomocą hasła w usłudze Active Directory lub Zintegrowane uwierzytelnianie usługi Active Directory.
+ - **Nazwa użytkownika**: w przypadku wybrania uwierzytelniania SQL lub uwierzytelniania za pomocą hasła w usłudze Active Directory wprowadź nazwę użytkownika z dostępem do bazy danych na serwerze.
+ - **Hasło**: w przypadku wybrania uwierzytelniania SQL lub uwierzytelniania za pomocą hasła w usłudze Active Directory wprowadź hasło dla określonego użytkownika.
    
        ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-1.png)
 
-3. Click **Connect**.
+3. Kliknij przycisk **Połącz**.
  
-4. If your client's IP address does not have access to the SQL Database logical server, you will be prompted to sign in to an Azure account and create a server-level firewall rule. If you are an Azure subscription administrator, click **Sign in** to create a server-level firewall rule. If not, have an Azure administrator create a server-level firewall rule.
+4. Jeśli adres IP klienta nie ma dostępu do serwera logicznego bazy danych SQL, zostanie wyświetlony monit o zalogowanie się na koncie platformy Azure i utworzenie reguły zapory poziomu serwera. Jeśli jesteś administratorem subskrypcji platformy Azure, kliknij przycisk **Zaloguj**, aby utworzyć regułę zapory poziomu serwera. Jeśli nie, poproś administratora platformy Azure o utworzenie reguły zapory poziomu serwera.
  
-      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-2.png)
+      ![SQL Server Management Studio: łączenie z serwerem bazy danych SQL](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-2.png)
  
-1. If you are an Azure subscription administrator and need to sign in, when the sign in page appears, provide the credentials for your subscription and sign in.
+1. Jeśli jesteś administratorem subskrypcji platformy Azure i musisz się zalogować, po wyświetleniu strony logowania podaj poświadczenia dla subskrypcji i zaloguj się.
 
-      ![sign in](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-3.png)
+      ![logowanie](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-3.png)
  
-1. After your sign in to Azure is successful, review the proposed server-level firewall rule (you can modify it to allow a range of IP addresses) and then click **OK** to create the firewall rule and complete the connection to SQL Database.
+1. Po pomyślnym zalogowaniu się do konta platformy Azure sprawdź proponowaną regułę zapory poziomu serwera (możesz ją zmodyfikować, aby zezwolić na dostęp do zakresu adresów IP). Następnie kliknij przycisk **OK**, aby utworzyć regułę zapory i zakończyć połączenie z bazą danych SQL.
  
-      ![new server-level firewall](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-4.png)
+      ![nowa zapora poziomu serwera](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-4.png)
  
-5. If your credentials grant you access, Object Explorer opens and you can now perform administrative tasks or query data. 
+5. Jeśli poświadczenia umożliwiają dostęp, zostanie otwarty Eksplorator obiektów i będzie można wykonywać zadania administracyjne lub wysyłać zapytania dotyczące danych. 
  
-     ![new server-level firewall](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-5.png)
+     ![nowa zapora poziomu serwera](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-5.png)
  
      
-## Troubleshoot connection failures
+## Rozwiązywanie problemów z błędami połączeń
 
-The most common reason for connection failures are mistakes in the server name (remember, <*servername*> is the name of the logical server, not the database), the user name, or the password, as well as the server not allowing connections for security reasons. 
+Najczęstszą przyczyną błędów połączeń są błędy w nazwie serwera (należy pamiętać, że <*nazwa_serwera*> jest nazwą serwera logicznego, a nie bazy danych), nazwie użytkownika lub haśle, jak również brak zezwolenia serwera na połączenie ze względów bezpieczeństwa. 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

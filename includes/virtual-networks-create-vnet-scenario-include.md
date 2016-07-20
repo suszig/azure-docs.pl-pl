@@ -1,12 +1,17 @@
-## Scenario
+## Scenariusz
 
-To better illustrate how to create a VNet and subnets, this document will use the scenario below.
+Aby lepiej zilustrować tworzenie sieci wirtualnej i jej podsieci, w niniejszym dokumencie zawarto odwołania do poniższego scenariusza.
 
-![VNet scenario](./media/virtual-networks-create-vnet-scenario-include/vnet-scenario.png)
+![Scenariusz sieci wirtualnych](./media/virtual-networks-create-vnet-scenario-include/vnet-scenario.png)
 
-In this scenario you will create a VNet named **TestVNet** with a reserved CIDR block of **192.168.0.0./16**. Your VNet will contain the following subnets: 
+W tym scenariuszu utworzysz sieć wirtualną o nazwie **TestVNet** z zarezerwowanym blokiem CIDR **192.168.0.0./16**. Twoja sieć wirtualna będzie zawierać następujące podsieci: 
 
-- **FrontEnd**, using **192.168.1.0/24** as its CIDR block.
-- **BackEnd**, using **192.168.2.0/24** as its CIDR block.
+- **FrontEnd**, używająca bloku CIDR **192.168.1.0/24**.
+- **BackEnd**, używająca bloku CIDR **192.168.2.0/24**.
 
  
+
+
+<!--HONumber=Jun16_HO2-->
+
+

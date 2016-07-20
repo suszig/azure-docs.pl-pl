@@ -1,36 +1,42 @@
 
-###Create a Google Cloud Messaging project with API key
+###Tworzenie projektu usługi Google Cloud Messaging przy użyciu klucza interfejsu API
 
->[AZURE.NOTE] To complete this procedure, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+>[AZURE.NOTE] Aby wykonać tę procedurę, musisz mieć konto Google ze zweryfikowanym adresem e-mail. Aby utworzyć nowe konto Google, przejdź do strony <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
-1. Navigate to the [Google Cloud Console](https://console.developers.google.com/project) and sign-in with your Google account credentials.
+1. Przejdź do konsoli [Google Cloud Console](https://console.developers.google.com/project) i zaloguj się przy użyciu poświadczeń konta Google.
 
-2. Click **Go to project**, and then click **Create Project**.
+2. Kliknij pozycję **Go to project** (Przejdź do projektu), a następnie kliknij opcję **Create Project** (Utwórz projekt).
 <!--
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/new-project.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/new-project.png)
 
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/new-project-2.png)   
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/new-project-2.png)   
 -->
-3. Enter a project name.
+3. Wprowadź nazwę projektu.
 
-4. Make a note of the project number which appears under the **Project name** text box. You will need it later in the tutorial to populate in the Android Manifest file.
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)   
-5. Click **Create**.
+4. Zanotuj numer projektu, który jest widoczny poniżej pola tekstowego **Project name** (Nazwa projektu). Będzie on potrzebny później podczas wykonywania kroków samouczka w celu uzupełnienia pliku manifestu systemu Android.
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)   
+5. Kliknij przycisk **Utwórz**.
 
-6. In the left column, make sure **Overview** is selected, and under Mobile APIs click **Google Cloud Messaging**. Then on the next page click **Enable**.
+6. Upewnij się, że w lewej kolumnie została wybrana opcja **Overview** (Przegląd), a następnie w obszarze dotyczącym mobilnych interfejsów API kliknij pozycję **Google Cloud Messaging**. Następnie na kolejnej stronie kliknij opcję **Enable** (Włącz).
 
-	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-GCM.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/enable-GCM.png)
 <!--
-	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-gcm-2.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/enable-gcm-2.png)
 -->
-7. On the next page, click **Go to Credentials**, and on the following page, select **Google Cloud Messaging** from the first dropdown box and **Web server** from the second one, and then click **What credentials do I need?**
+7. Na następnej stronie kliknij opcję **Go to Credentials** (Przejdź do poświadczeń). Na kolejnej stronie wybierz pozycję **Google Cloud Messaging** w pierwszym polu listy rozwijanej oraz pozycję **Web server** (Serwer sieci Web) w drugim polu listy rozwijanej, po czym kliknij pozycję **What credentials do I need?** (Wymagane poświadczenia).
 
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key.png)
 
-8. In **Add credentials to your project** page, click **Create API key**.
+8. Na stronie **Add credentials to your project** (Dodawanie poświadczeń do projektu) kliknij pozycję **Create API key** (Utwórz klucz interfejsu API).
 
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key5.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key5.png)
 <!--
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key6.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key6.png)
 -->
-9. Make a note of the **API KEY** value. You will use this API key value later to configure in the "Native Push" section. Now click **Done**.
+9. Zanotuj wartość w polu **API KEY** (KLUCZ INTERFEJSU API). Ta wartość klucza interfejsu API zostanie później użyta do konfiguracji w sekcji dotyczącej natywnych powiadomień wypychanych. Kliknij przycisk **Done** (Gotowe).
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

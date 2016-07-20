@@ -1,36 +1,42 @@
-1.	Sign in to the online [Microsoft Azure portal](https://portal.azure.com/).
-2.	In the Jumpbar, click **New**, then click **Data + Storage**, and then click **Azure DocumentDB**.
+1.  Zaloguj się w trybie online do [portalu Microsoft Azure](https://portal.azure.com/).
+2.  Na pasku dostępu kliknij przycisk **Nowe**, kliknij opcję **Dane i magazyn**, a następnie kliknij opcję **Azure DocumentDB**.
 
-	![Screen shot of the Azure portal  to create a database, highlighting the New button, Data + storage in the Create blade, and Azure DocumentDB in the Data + Storage blade](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
+    ![Zrzut ekranu przedstawiający portal Azure podczas tworzenia bazy danych z wyróżnieniem przycisku Nowe, opcji Dane i magazyn w bloku Utwórz oraz opcji Azure DocumentDB w bloku Dane i magazyn](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
 
-3. In the **New DocumentDB account** blade, specify the desired configuration for the DocumentDB account.
+3. W bloku **Nowe konto usługi DocumentDB** określ odpowiednią konfigurację dla konta usługi DocumentDB.
 
-	![Screen shot of the New DocumentDB blade](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+    ![Zrzut ekranu bloku Nowe konto usługi DocumentDB](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
 
-	- In the **ID** box, enter a name to identify the DocumentDB account.  When the **ID** is validated, a green check mark appears in the **ID** box. The **ID** value becomes the host name within the URI. The **ID** may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters. Note that *documents.azure.com* is appended to the endpoint name you choose, the result of which will become your DocumentDB account endpoint.
+    - W polu **Identyfikator** wprowadź nazwę, aby zidentyfikować konto usługi DocumentDB.  Po zweryfikowaniu wartości pola **Identyfikator** w polu tym zostanie wyświetlony zielony znacznik wyboru.**** Wartość pola **Identyfikator** jest używana jako nazwa hosta w identyfikatorze URI. Pole **Identyfikator** może zawierać tylko małe litery, cyfry i znak „-” w liczbie od 3 do 50 znaków. Pamiętaj, że ciąg *documents.azure.com* jest dołączany do wybranej nazwy punktu końcowego, tworząc razem punkt końcowy konta usługi DocumentDB.
 
-	- For **Subscription**, select the Azure subscription that you want to use for the DocumentDB account. If your account has only one subscription, that account is selected by default.
+    - W polu **Subskrypcja** wybierz subskrypcję platformy Azure, która ma być używana dla konta usługi DocumentDB. Jeśli konto ma tylko jedną subskrypcję, jest wybierane jako domyślne.
 
-	- In **Resource Group**, select or create a resource group for your DocumentDB account.  By default, an existing Resource group under the Azure subscription will be chosen.  You may, however, choose to select to create a new resource group to which you would like to add your DocumentDB account. For more information, see [Using the Azure portal to manage your Azure resources](resource-group-portal.md).
+    - W polu **Grupa zasobów** wybierz lub utwórz grupę zasobów dla konta usługi DocumentDB.  Domyślnie zostanie wybrana istniejąca grupa zasobów w ramach subskrypcji Azure.  Możesz jednak zdecydować się na utworzenie nowej grupy zasobów, do której ma być dodane konto usługi DocumentDB. Więcej informacji znajduje się w temacie [Zarządzania zasobami platformy Azure przy użyciu portalu Azure](resource-group-portal.md).
 
-	- Use **Location** to specify the geographic location in which to host your DocumentDB account.   
+    - Użyj opcji **Lokalizacja**, aby określić lokalizację geograficzną, w której będzie hostowane konto usługi DocumentDB.   
 
-4.	Once the new DocumentDB account options are configured, click **Create**.  It can take a few minutes to create the DocumentDB account.  To check the status, you can monitor the progress on the Startboard.  
-	![Screen shot of the Creating tile on the Startboard - Online database creator](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)  
+4.  Po skonfigurowaniu opcji nowego konta usługi DocumentDB kliknij przycisk **Utwórz**.  Utworzenie konta usługi DocumentDB może potrwać kilka minut.  Stan operacji można sprawdzić, monitorując postęp na tablicy startowej.  
+    ![Zrzut ekranu przedstawiający kafelek tworzenia na tablicy startowej — kreator bazy danych w trybie online](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)  
 
-	Or, you can monitor your progress from the Notifications hub.  
+    Możesz też monitorować postęp w centrum powiadomień.  
 
-	![Create databases quickly - Screen shot of the Notifications hub, showing that the DocumentDB account is being created](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)  
+    ![Szybkie tworzenie baz danych — zrzut ekranu przedstawiający centrum powiadomień z informacją o trwającym tworzeniu konta usługi DocumentDB](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)  
 
-	![Screen shot of the Notifications hub, showing that the DocumentDB account was created successfully and deployed to a resource group - Online database creator notification](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
+    ![Zrzut ekranu przedstawiający centrum powiadomień z informacją o pomyślnym utworzeniu i wdrożeniu w grupie zasobów konta usługi DocumentDB — powiadomienie kreatora bazy danych w trybie online](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
 
-5.	After the DocumentDB account is created, it is ready for use with the default settings in the online portal. Note that the default consistency of the DocumentDB account is set to **Session**.  You can adjust the default consistency setting by clicking the **Settings** icon on the top command bar, then clicking the **Default Consistency** entry under **Feature** on the **All Settings** blade.
+5.  Po utworzeniu konta usługi DocumentDB jest ono gotowe do użycia z ustawieniami domyślnymi w portalu online. Należy pamiętać, że domyślna spójność konta usługi DocumentDB jest ustawiona na wartość **Sesja**.  Możesz dostosować domyślne ustawienie spójności, klikając ikonę **Ustawienia** na górnym pasku poleceń, a następnie klikając pozycję **Domyślna spójność** w obszarze **Funkcja**, w bloku **Wszystkie ustawienia**.
 
-    ![Screen shot of the Resource Group blade - begin application development](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
+    ![Zrzut ekranu przedstawiający blok Grupa zasobów — rozpoczęcie tworzenia aplikacji](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
 
-    ![Screen shot of the Consistency Level blade - Session Consistency](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-7.png)  
+    ![Zrzut ekranu przedstawiający blok poziomu spójności — spójność sesji](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-7.png)  
 
-[How to: Create a DocumentDB account]: #Howto
-[Next steps]: #NextSteps
+[Porady: tworzenie konta usługi DocumentDB]: #Howto
+[Następne kroki]: #NextSteps
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

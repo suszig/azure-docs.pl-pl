@@ -1,21 +1,27 @@
-#### To stop and start a virtual device
-To stop a virtual device, click its name, and then click **Shutdown**. While the virtual device is shutting down, its status is **Stopping**. After the virtual device is stopped, its status is **Stopped**.
+#### Aby zatrzymać i ponownie uruchomić urządzenie wirtualne
+Aby zatrzymać urządzenie wirtualne, kliknij jego nazwę, a następnie kliknij pozycję **Zamknij**. Stan zamykanego urządzenia wirtualnego to **Zatrzymywanie**. Stan zamkniętego urządzenia wirtualnego to **Zatrzymane**.
 
-Use the following cmdlets to stop and start a virtual device.
+Użyj poniższych poleceń cmdlet do zatrzymywania i uruchamiania urządzenia wirtualnego.
 
 `Stop-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
 
 `Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
     
-#### To restart a virtual device
+#### Aby ponownie uruchomić urządzenia wirtualne
 
-When a virtual device is running and you want to restart it, click its name, and then click **Restart**. While the virtual device is restarting, its status is **Restarting**. When the virtual device is ready for you to use, its status is **Running**.
+Jeśli urządzenie wirtualne działa i chcesz uruchomić je ponownie, kliknij nazwę urządzenia, a następnie kliknij pozycję **Uruchom ponownie**. Stan ponownie uruchamianego urządzenia wirtualnego to **Ponowne uruchamianie**. Gdy urządzenie wirtualne jest gotowe do użycia, jego stan to **Uruchomione**.
 
-Use the following cmdlet to restart a virtual device.
+Użyj poniższego polecenia cmdlet, aby ponownie uruchomić urządzenie wirtualne.
 
 `Restart-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

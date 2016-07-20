@@ -1,28 +1,34 @@
-## What is Queue Storage?
+## Co to jest Magazyn kolejek?
 
-Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account.
+Magazyn kolejek platformy Azure to usługa do przechowywania dużej liczby komunikatów, do której można uzyskać dostęp z dowolnego miejsca na świecie za pośrednictwem uwierzytelnionego połączenia za pomocą protokołu HTTP lub HTTPS. Pojedynczy komunikat z kolejki nie może przekraczać 64 KB, a kolejka może zawierać miliony komunikatów — maksymalnie liczbę nieprzekraczającą całkowitego limitu pojemności konta magazynu.
 
-Common uses of Queue storage include:
+Najczęstsze zastosowania magazynu kolejek obejmują:
 
--   Creating a backlog of work to process asynchronously
--   Passing messages from an Azure web role to an Azure worker role
+-   Tworzenie zaległości pracy do przetwarzania asynchronicznego
+-   Przekazywanie komunikatów z roli sieci Web platformy Azure do roli procesu roboczego platformy Azure
 
-## Queue Service Concepts
+## Pojęcia dotyczące usługi kolejki
 
-The Queue service contains the following components:
+Usługa kolejki zawiera następujące składniki:
 
 ![Queue1](./media/storage-queue-concepts-include/queue1.png)
 
 
-- **URL format:** Queues are addressable using the following URL format:   
-	http://`<storage account>`.queue.core.windows.net/`<queue>` 
+- **Format adresu URL:** adresy URL kolejek mają następujący format:   
+    http://`<storage account>`.queue.core.windows.net/`<queue>` 
       
-	The following URL addresses a queue in the diagram:  
-		
-		http://myaccount.queue.core.windows.net/images-to-download
+    Następujący adres URL dotyczy kolejki w schemacie:  
+        
+        http://myaccount.queue.core.windows.net/images-to-download
 
-- **Storage Account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account capacity.
+- **Konto magazynu:** cały dostęp do usługi Azure Storage odbywa się przez konto magazynu. Aby uzyskać szczegółowe informacje na temat pojemności konta magazynu, zobacz temat [Cele dotyczące skalowalności i wydajności usługi Azure Storage](../articles/storage/storage-scalability-targets.md).
 
-- **Queue:** A queue contains a set of messages. All messages must be in a queue. Note that the queue name must be all lowercase. For information on naming queues, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+- **Kolejka:** kolejka zawiera zestaw komunikatów. Wszystkie komunikaty muszą być w kolejce. Pamiętaj, że nazwa kolejki może zawierać tylko małe litery. Informacje dotyczące nazewnictwa kolejek można znaleźć w temacie [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx) (Nazewnictwo kolejek i metadanych).
 
-- **Message:** A message, in any format, of up to 64 KB. The maximum time that a message can remain in the queue is 7 days.
+- **Komunikat**: komunikat w dowolnym formacie, o maksymalnym rozmiarze 64 KB. Maksymalny czas pozostawania komunikatu w kolejce wynosi 7 dni.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

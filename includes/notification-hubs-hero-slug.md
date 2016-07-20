@@ -1,6 +1,12 @@
 
-The goal of this topic is to help you get started using Notification Hubs quickly as possible. This topic presents a very simple broadcast scenario example in order to concentrate on the basic concepts for Notification Hubs.
+Instrukcje opisane w tym temacie mają na celu ułatwienie jak najszybszego rozpoczęcia korzystania z usługi Notification Hubs. W tym temacie przedstawiono bardzo prosty przykład scenariusza emisji pozwalający skupić się na podstawowych pojęciach dotyczących usługi Notification Hubs.
 
-If you are already familiar with Notification Hubs, you may want to select another topic from the left-navigation or see the relevant links in [Next steps](#next-steps).
+Jeśli znasz się już na usłudze Notification Hubs, być może lepszym rozwiązaniem będzie wybranie innego tematu z lewego okienka nawigacji lub użycie odpowiednich linków w temacie [Następne kroki](#next-steps).
 
-We do take your feedback seriously. If you have any difficulties completing this topic, or recommendations for improving this content, we would appreciate your feedback at the bottom of the page.
+Traktujemy opinie naszych użytkowników bardzo poważnie. Jeśli masz trudności z wykonaniem instrukcji w tym temacie lub uważasz, że zawartość należy poprawić, prosimy o wyrażenie opinii na dole strony.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

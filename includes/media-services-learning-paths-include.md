@@ -1,4 +1,9 @@
-You can view AMS learning paths here:
+Ścieżki szkoleniowe dotyczące usługi AMS można zobaczyć tutaj:
 
-- [AMS Live Streaming Workflow](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+- [Przepływ pracy transmisji strumieniowej na żywo usług AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Przepływ pracy transmisji strumieniowej na żądanie usług AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

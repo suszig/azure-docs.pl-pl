@@ -1,70 +1,76 @@
-## Set up your development environment
+## Konfigurowanie środowiska projektowego
 
-Next, set up your development environment in Visual Studio so that you are ready to try the code examples provided in this guide.
+Następnie skonfiguruj środowisko projektowe w programie Visual Studio, aby przygotować się do wypróbowania przykładowych kodów podanych w tym przewodniku.
 
-### Create a Windows console application project
+### Utwórz projekt aplikacji konsolowej dla systemu Windows
 
-In Visual Studio, create a new Windows console application, as shown:
+W programie Visual Studio utwórz nową aplikację konsolową dla systemu Windows:
 
-![Create Windows console application](./media/storage-development-environment-include/storage-development-environment-include-1.png)
+![Tworzenie aplikacji konsolowej dla systemu Windows](./media/storage-development-environment-include/storage-development-environment-include-1.png)
 
-All of the code examples in this tutorial can be added to the **Main()** method in `program.cs` in your console application.
+Wszystkie przykładowe kody w tym samouczku można dodać do metody **Main()** w `program.cs` w aplikacji konsolowej.
 
-Note that you can use the Azure Storage Client Library from any type of .NET application, including an Azure cloud service, an Azure web app, a desktop application, or a mobile application. In this guide, we use a console application for simplicity.
+Pamiętaj, że Biblioteki klienta usługi Storage platformy Azure można używać z dowolnego typu aplikacji w środowisku .NET, m.in. usługi w chmurze Azure, aplikacji sieci Web platformy Azure, aplikacji pulpitu lub aplikacji mobilnej. W tym przewodniku dla uproszczenia przedstawiono aplikację konsolową.
 
-### Use NuGet to install the required packages
+### Użycie pakietu NuGet w celu zainstalowania wymaganych pakietów
 
-There are two packages that you'll need to install to your project to complete this tutorial:
+Istnieją dwa pakiety, które trzeba zainstalować w projekcie, aby wykonać instrukcje z tego samouczka:
 
-- [Microsoft Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): This package provides programmatic access to data resources in your storage account.
-- [Microsoft Azure Configuration Manager library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): This package provides a class for parsing a connection string from a configuration file, regardless of where your application is running.
+- [Biblioteka klienta usługi Storage platformy Microsoft Azure dla środowiska .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): ten pakiet zapewnia dostęp programowy do zasobów danych na koncie magazynu.
+- [Biblioteka programu Microsoft Azure Configuration Manager dla środowiska .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): ten pakiet zawiera klasę do analizowania parametrów połączenia w pliku konfiguracji, niezależnie od tego, gdzie została uruchomiona aplikacja.
 
-You can use NuGet to obtain both packages. Follow these steps:
+Pakiet NuGet służy do pobrania obu pakietów. Wykonaj następujące kroki:
 
-1. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.
-2. Search online for "WindowsAzure.Storage" and click **Install** to install the Storage Client Library and its dependencies.
-3. Search online for "ConfigurationManager" and click **Install** to install the Azure Configuration Manager.
+1. Kliknij projekt prawym przyciskiem myszy w **Eksploratorze rozwiązań** i wybierz polecenie **Zarządzaj pakietami NuGet**.
+2. Wyszukaj w trybie online ciąg „WindowsAzure.Storage”, a następnie kliknij przycisk **Zainstaluj**, aby zainstalować Bibliotekę klienta usługi Storage oraz jej zależności.
+3. Wyszukaj w trybie online ciąg „ConfigurationManager” i kliknij przycisk **Zainstaluj**, aby zainstalować program Azure Configuration Manager.
 
->[AZURE.NOTE] The Storage Client Library package is also included in the [Azure SDK for .NET](https://azure.microsoft.com/downloads/). However, we recommend that you also install the Storage Client Library from NuGet to ensure that you always have the latest version of the client library.
+>[AZURE.NOTE] Pakiet Biblioteki klienta usługi Storage znajduje się również w [zestawie SDK Azure dla środowiska .NET](https://azure.microsoft.com/downloads/). Firma Microsoft zaleca jednak również zainstalowanie Biblioteki klienta usługi Storage z pakietu NuGet, aby zagwarantować posiadanie najnowszej wersji biblioteki klienta.
 >
->The ODataLib dependencies in the Storage Client Library for .NET are resolved through the ODataLib (version 5.0.2 and greater) packages available through NuGet, and not through WCF Data Services. The ODataLib libraries can be downloaded directly or referenced by your code project through NuGet. The specific ODataLib packages used by the Storage Client Library are [OData](http://nuget.org/packages/Microsoft.Data.OData/5.0.2), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/5.0.2), and [Spatial](http://nuget.org/packages/System.Spatial/5.0.2). While these libraries are used by the Azure Table storage classes, they are required dependencies for programming with the Storage Client Library.
+>Zależności ODataLib w Bibliotece klienta usługi Storage dla środowiska .NET są rozwiązywane za pośrednictwem pakietów ODataLib (w wersji 5.0.2 i nowszych) dostępnych przez pakiet NuGet, a nie za pośrednictwem Usług danych WCF. Biblioteki ODataLib można pobrać bezpośrednio lub użyć odwołań w projekcie kodu za pośrednictwem pakietu NuGet. Określone pakiety ODataLib używane przez Bibliotekę klienta usługi Storage to [OData](http://nuget.org/packages/Microsoft.Data.OData/5.0.2), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/5.0.2) i [Spatial](http://nuget.org/packages/System.Spatial/5.0.2). Ze względu na to, że biblioteki te są używane przez klasy Magazynu tabel Azure, są one wymaganymi zależnościami do programowania za pomocą Biblioteki klienta usługi Storage.
 
 
-### Determine your target environment
+### Określanie środowiska docelowego
 
-You have two environment options for running the examples in this guide:
+W przypadku uruchamiania przykładów w tym przewodniku istnieją dwie opcje środowiska:
 
-- You can run your code against an Azure Storage account in the cloud. 
-- You can run your code against the Azure storage emulator. The storage emulator is a local environment that emulates an Azure Storage account in the cloud. The emulator is a free option for testing and debugging your code while your application is under development. The emulator uses a well-known account and key. For more details, see [Use the Azure Storage Emulator for Development and Testing](../articles/storage/storage-use-emulator.md)
+- Można uruchomić kod dla konta usługi Azure Storage w chmurze. 
+- Można uruchomić kod dla emulatora magazynu Azure. Emulator magazynu jest lokalnym środowiskiem, które emuluje konto usługi Azure Storage w chmurze. Emulator jest bezpłatną opcją do testowania i debugowania kodu, gdy aplikacja jest w fazie projektowania. Emulator używa dobrze znanego konta i klucza. Więcej szczegółowych informacji można znaleźć w temacie [Use the Azure Storage Emulator for Development and Testing](../articles/storage/storage-use-emulator.md) (Używanie emulatora usługi Azure Storage do programowania i testowania).
 
-If you are targeting a storage account in the cloud, copy the primary access key for your storage account from the Azure Portal. For more information, see [View and copy storage access keys](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Jeśli obiektem docelowym jest konto magazynu w chmurze, skopiuj podstawowy klucz dostępu dla konta magazynu z portalu Azure. Aby uzyskać więcej informacji, zobacz temat [View and copy storage access keys](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys) (Wyświetlanie i kopiowanie kluczy dostępu kopiowania).
 
-> [AZURE.NOTE] You can target the storage emulator to avoid incurring any costs associated with Azure Storage. However, if you do choose to target an Azure storage account in the cloud, costs for performing this tutorial will be negligible.
+> [AZURE.NOTE] Na obiekt docelowy można wybrać emulator magazynu, aby uniknąć ponoszenia kosztów związanych z usługą Azure Storage. Jednak jeśli wybranym obiektem docelowym będzie konto magazynu Azure w chmurze, koszty związane z wykonaniem instrukcji w tym samouczku będą niewielkie.
 
-### Configure your storage connection string
+### Konfigurowanie parametrów połączenia magazynu
 
-The Azure Storage Client Library for .NET supports using a storage connection string to configure endpoints and credentials for accessing storage services. The best way to maintain your storage connection string is in a configuration file. 
+Biblioteka klienta usługi Storage platformy Azure dla środowiska .NET obsługuje korzystanie z parametrów połączenia magazynu w celu konfiguracji punktów końcowych i poświadczeń w celu uzyskania dostępu do usług magazynu. Najlepiej przechowywać parametry połączenia magazynu w pliku konfiguracji. 
 
-For more information about connection strings, see [Configure a Connection String to Azure Storage](../articles/storage/storage-configure-connection-string.md).
+Aby uzyskać więcej informacji dotyczących parametrów połączenia, zobacz temat [Configure a Connection String to Azure Storage](../articles/storage/storage-configure-connection-string.md) (Konfigurowania parametrów połączenia z usługą Azure Storage).
 
-> [AZURE.NOTE] Your storage account key is similar to the root password for your storage account. Always be careful to protect your storage account key. Avoid distributing it to other users, hard-coding it, or saving it in a plain-text file that is accessible to others. Regenerate your key using the Azure Portal if you believe it may have been compromised.
+> [AZURE.NOTE] Klucz konta magazynu jest podobny do hasła głównego konta magazynu. Zawsze chroń klucz konta magazynu. Nie udostępniaj go innym użytkownikom, nie koduj go trwale ani nie zapisuj w zwykłym pliku tekstowym, do którego mają dostęp inne osoby. Wygeneruj ponownie klucz za pośrednictwem portalu Azure, jeśli uważasz, że jego zabezpieczenia mogły zostać naruszone.
 
-To configure your connection string, open the `app.config` file from Solution Explorer in Visual Studio. Add the contents of the `<appSettings>` element shown below. Replace `account-name` with the name of your storage account, and `account-key` with your account access key:
+Aby skonfigurować parametry połączenia, otwórz plik `app.config` z Eksploratora rozwiązań w programie Visual Studio. Dodaj zawartość elementu `<appSettings>` widocznego poniżej. Zastąp ciąg `account-name` nazwą konta magazynu, a ciąg `account-key` kluczem dostępu do konta:
 
-	<configuration>
-	    <startup> 
-	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
-	    </startup>
-  		<appSettings>
-    		<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
-  		</appSettings>
-	</configuration>
+    <configuration>
+        <startup> 
+            <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+        </startup>
+        <appSettings>
+            <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
+        </appSettings>
+    </configuration>
 
-For example, your configuration setting will be similar to:
+Na przykład ustawienie konfiguracji powinno wyglądać mniej więcej tak:
 
-	<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln6fT7mvY+rxu2iWAEyzPKITGkhM88J8HUoyofvK7C6fHcZc2kRZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln6fT7mvY+rxu2iWAEyzPKITGkhM88J8HUoyofvK7C6fHcZc2kRZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
 
-To target the storage emulator, you can use a shortcut that maps to the well-known account name and key. In that case, your connection string setting will be:
+Jeśli obiektem docelowym ma być emulator magazynu, możesz użyć skrótu klawiaturowego, który mapuje dobrze znaną nazwę konta i klucz. W takim przypadku ustawienie parametrów połączenia będzie wyglądać następująco:
 
-	<add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
+    <add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

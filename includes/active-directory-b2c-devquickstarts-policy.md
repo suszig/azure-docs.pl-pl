@@ -1,1 +1,6 @@
-> [AZURE.NOTE] In Azure AD B2C, your policy's name will be prefixed with `b2c_1_`, like `b2c_1_sign_up`.  You are free to use your policies across all of your apps, both client and server.  If you've previously created policies in another B2C walk-through, there is no need to do so again. You may reuse the policies you've previously created in the portal if they match the requirements of the application.
+> [AZURE.NOTE] W usłudze Azure AD B2C nazwa zasad będzie zaczynała się od `b2c_1_`, np. `b2c_1_sign_up`.  Zasad można używać we wszystkich aplikacjach, zarówno klienta jak i serwera.  Jeśli wcześniej utworzono zasady w innym przewodniku usługi B2C, nie trzeba tego robić ponownie. Można ponownie użyć zasad utworzonych wcześniej w portalu, jeśli spełniają wymagania aplikacji.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

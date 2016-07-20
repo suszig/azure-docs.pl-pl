@@ -1,7 +1,13 @@
-#### To shut down a virtual device
+#### Aby wyłączyć urządzenie wirtualne
 
-1. Sign in to the Management Portal.
+1. Zaloguj się do portalu zarządzania.
 
-2. Click **Virtual Machines**, and then select the virtual device.
+2. Kliknij pozycję **Maszyny wirtualne**, a następnie wybierz urządzenie wirtualne.
 
-3. Click **Shutdown**.
+3. Kliknij pozycję **Zamknij**.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

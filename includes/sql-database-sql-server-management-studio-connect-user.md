@@ -1,40 +1,46 @@
-## Connect to Azure SQL Database as a user
+## Nawiązywanie połączenia z bazą danych SQL Azure jako użytkownik
 
-Use the following steps to connect to Azure SQL Database with SSMS as a user.
+Wykonaj poniższe kroki, aby nawiązać połączenie z bazą danych SQL Azure za pomocą narzędzia SSMS jako użytkownik.
 
-1. Type "Microsoft SQL Server Management Studio" in the Windows search box, and then click the desktop app to start SSMS.
+1. W polu wyszukiwania systemu Windows wpisz „Microsoft SQL Server Management Studio”, a następnie kliknij aplikację klasyczną, aby uruchomić program SSMS.
 
-2. In the Connect to Server window, enter the following information:
+2. W oknie połączenia z serwerem wprowadź następujące informacje:
 
-- **Server type**: The default is database engine; do not change this value.
- - **Server name**: Enter the name of the server that hosts your SQL database in the followinbg format: *&lt;servername>*.**database.windows.net**
- - **Authentication type**: If you are just getting started, select SQL Authentication. If you have enabled Active Directory for your SQL Database logical server, you can select either Active Directory Password Authentication or Active Directory Integrated Authentication.
- - **User name**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the name of a user with access to a database on the server.
- - **Password**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the password for the specified user.
+- **Typ serwera**: domyślnie jest to aparat bazy danych; tej wartości nie należy zmieniać.
+ - **Nazwa serwera**: wprowadź nazwę serwera hostującego bazę danych SQL w następującym formacie: *&lt;nazwa_serwera >*.**database.windows.net**
+ - **Typ uwierzytelniania**: jeśli dopiero rozpoczynasz pracę, wybierz opcję Uwierzytelnianie SQL. Jeśli dla serwera logicznego bazy danych SQL została włączona usługa Active Directory, możesz wybrać opcję Uwierzytelnianie za pomocą hasła w usłudze Active Directory lub Zintegrowane uwierzytelnianie usługi Active Directory.
+ - **Nazwa użytkownika**: w przypadku wybrania uwierzytelniania SQL lub uwierzytelniania za pomocą hasła w usłudze Active Directory wprowadź nazwę użytkownika z dostępem do bazy danych na serwerze.
+ - **Hasło**: w przypadku wybrania uwierzytelniania SQL lub uwierzytelniania za pomocą hasła w usłudze Active Directory wprowadź hasło dla określonego użytkownika.
    
        ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-1.png)
 
-3. Click **Options** to specify the database to which you want to connect.
+3. Kliknij przycisk **Opcje**, aby określić bazę danych, z którą chcesz ustanowić połączenie.
 
-      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-2.png)
+      ![SQL Server Management Studio: łączenie z serwerem bazy danych SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-2.png)
  
-4. In the **Connect to Database**, select the database to which you wish to connect.
+4. W oknie **Nawiązywanie połączenia z bazą danych** wybierz bazę danych, z którą chcesz ustanowić połączenie.
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-3.png)
+     ![SQL Server Management Studio: łączenie z serwerem bazy danych SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-3.png)
 
-5. Click **Connect**.
+5. Kliknij przycisk **Połącz**.
  
-6. If your client's IP address does not have access to the SQL Database logical server, you will be prompted to sign in to an Azure account and create a server-level firewall rule. If you are an Azure subscription administrator, Click **Sign in** to create a server-level firewall rule. If not, have an administrator create either a server-level firewall rule or a database-level firewall rule in the database to which you are trying to connect.
+6. Jeśli adres IP klienta nie ma dostępu do serwera logicznego bazy danych SQL, zostanie wyświetlony monit o zalogowanie się na koncie platformy Azure i utworzenie reguły zapory poziomu serwera. Jeśli jesteś administratorem subskrypcji platformy Azure, kliknij przycisk **Zaloguj**, aby utworzyć regułę zapory poziomu serwera. Jeśli nie, poproś administratora o utworzenie reguły zapory poziomu serwera lub reguły zapory poziomu bazy danych w bazie danych, z którą próbujesz nawiązać połączenie.
  
-      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-4.png)
+      ![SQL Server Management Studio: łączenie z serwerem bazy danych SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-4.png)
  
-7. If your credentials grant you access to the specified database, Object Explorer opens and you can now perform administrative tasks or query data, depending upon the user permissions.
+7. Jeśli poświadczenia umożliwiają dostęp do określonej bazy danych, zostanie otwarty Eksplorator obiektów i będzie można wykonywać zadania administracyjne lub wysyłać zapytania dotyczące danych, w zależności od uprawnień użytkownika.
   
-      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
+      ![SQL Server Management Studio: łączenie z serwerem bazy danych SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
       
  
- ## Troubleshoot connection failures
+ ## Rozwiązywanie problemów z błędami połączeń
 
-The most common reason for connection failures are mistakes in the server name (remember, <*servername*> is the name of the logical server, not the database), the user name, or the password, as well as the server not allowing connections for security reasons. 
+Najczęstszą przyczyną błędów połączeń są błędy w nazwie serwera (należy pamiętać, że <*nazwa_serwera*> jest nazwą serwera logicznego, a nie bazy danych), nazwie użytkownika lub haśle, jak również brak zezwolenia serwera na połączenie ze względów bezpieczeństwa. 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

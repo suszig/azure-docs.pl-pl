@@ -1,30 +1,36 @@
-## About records
+## Informacje o rekordach
 
-Each DNS record has a name and a type. Records are organized into various types according to the data they contain. The most common type is an "A" record, which maps a name to an IPv4 address. Another type is an "MX" record, which maps a name to a mail server.
+Każdy rekord DNS ma nazwę i typ. Rekordy są pogrupowane w różne typy według danych, które zawierają. Najczęściej spotykanym typem jest rekord „A”, który mapuje nazwę na adres IPv4. Innym typem jest rekord „MX”, który mapuje nazwę na serwer poczty e-mail.
 
-Azure DNS supports all common DNS record types, including A, AAAA, CNAME, MX, NS, SOA, SRV, and TXT. SOA record sets  are created automatically with each zone. They cannot be created separately. Note that SPF records should be created by using the TXT record type. For more information, see [this page](http://tools.ietf.org/html/rfc7208#section-3.1).
+Usługa DNS platformy Azure obsługuje wszystkie popularne typy rekordów DNS, takie jak A, AAAA, CNAME, MX, NS, SOA, SRV i TXT. Zestawy rekordów SOA są tworzone automatycznie w każdej strefie. Nie można ich utworzyć oddzielnie. Należy pamiętać, że rekordy SPF powinny być tworzone przy użyciu typu rekordu TXT. Więcej informacji znajduje się na [tej stronie](http://tools.ietf.org/html/rfc7208#section-3.1).
 
-In Azure DNS, records are specified by using relative names. A "fully qualified" domain name (FQDN) includes the zone name, whereas a "relative" name does not. For example, the relative record name "www" in the zone "contoso.com" gives the fully qualified record name www.contoso.com.
+W usłudze DNS platformy Azure rekordy są określane przy użyciu nazw względnych. „W pełni kwalifikowana” nazwa domeny (FQDN) zawiera nazwę strefy, której nie zawiera nazwa „względna”. Na przykład względna nazwa rekordu „www” w strefie „contoso.com” daje w pełni kwalifikowaną nazwę rekordu www.contoso.com.
 
-## About record sets
+## Informacje o zestawach rekordów
 
-Sometimes you need to create more than one DNS record with a given name and type. For example, suppose the "www.contoso.com" web site is hosted on two different IP addresses. The website requires two different A records, one for each IP address. This is an example of a record set:
+Czasami trzeba utworzyć więcej niż jeden rekord DNS określonego typu o danej nazwie. Na przykład załóżmy, że witryna sieci Web „www.contoso.com” jest hostowana pod dwoma różnymi adresami IP. Witryna sieci Web wymaga dwóch różnych rekordów A, po jednym dla każdego adresu IP. Oto przykład zestawu rekordów:
 
-	www.contoso.com.		3600	IN	A	134.170.185.46
-	www.contoso.com.		3600	IN	A	134.170.188.221
+    www.contoso.com.        3600    IN  A   134.170.185.46
+    www.contoso.com.        3600    IN  A   134.170.188.221
 
-Azure DNS manages DNS records by using record sets. A record set is the collection of DNS records in a zone that have the same name and are the same type. Most record sets contain a single record, but examples like this one, in which a record set contains more than one record, are not uncommon.
+Usługa DNS platformy Azure zarządza rekordami DNS za pomocą zestawów rekordów. Zestaw rekordów jest kolekcją rekordów DNS w strefie, które mają taką samą nazwę i są tego samego typu. Większość zestawów rekordów zawiera jeden rekord, ale sytuacje, w których zestaw rekordów zawiera więcej niż jeden rekord, również często mają miejsce.
 
-SOA and CNAME record sets are exceptions. The DNS standards don't permit multiple records with the same name for these types.
+Zestawy rekordów SOA i CNAME stanowią wyjątki. Standardy usługi DNS nie zezwalają na występowanie wielu rekordów tych typów o takiej samej nazwie.
 
-The time to live, or TTL, specifies how long each record is cached by clients before being re-queried. In this example, the TTL is 3600 seconds or 1 hour. The TTL is specified for the record set, not for each record, so the same value is used for all records within that record set.
+Czas wygaśnięcia (TTL) określa, jak długo każdy rekord jest buforowany przez klientów przed ponownym uruchomieniem zapytania. W tym przykładzie czas wygaśnięcia wynosi 3600 sekund lub 1 godzinę. Czas wygaśnięcia jest określany dla zestawu rekordów, a nie dla każdego rekordu, więc dla wszystkich rekordów w danym zestawie rekordów jest używana taka sama wartość.
 
-#### Wildcard record sets
+#### Zestawy rekordów z użyciem symboli wieloznacznych
 
-Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record). These are returned for any query with a matching name (unless there is a closer match from a non-wildcard record set). Wildcard record sets are supported for all record types except NS and SOA.  
+Usługa DNS platformy Azure obsługuje [rekordy z użyciem symboli wieloznacznych](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Są one zwracane dla dowolnego zapytania o zgodnej nazwie (chyba że istnieje lepsze dopasowanie pochodzące z zestawu rekordów bez symboli wieloznacznych). Zestawy rekordów z użyciem symboli wieloznacznych są obsługiwane dla wszystkich typów rekordów z wyjątkiem NS i SOA.  
 
-To create a wildcard record set, use the record set name "\*". Or, use a name with the label "\*", for example, "\*.foo".
+Aby utworzyć zestaw rekordów z użyciem symboli wieloznacznych, użyj nazwy zestawu rekordów „\*”. Można też użyć nazwy z etykietą „\*”, np. „\*.foo”.
 
-#### CNAME record sets
+#### Zestawy rekordów CNAME
 
-CNAME record sets cannot coexist with other record sets with the same name. For example, you cannot create a CNAME record set with the relative name "www" and an A record with the relative name "www" at the same time. Because the zone apex (name = ‘@’) always contains the NS and SOA record sets that were created when the zone was created, you can't create a CNAME record set at the zone apex. These constraints arise from the DNS standards and aren't limitations of Azure DNS.
+Zestawy rekordów CNAME nie mogą współistnieć z innymi zestawami rekordów o tej samej nazwie. Na przykład nie można utworzyć jednocześnie zestawu rekordów CNAME o nazwie względnej „www” oraz rekordu A o nazwie względnej „www”. Ponieważ wierzchołek strefy (nazwa = „@”) zawsze zawiera zestawy rekordów NS i SOA, które zostały utworzone podczas tworzenia strefy, nie można utworzyć zestawu rekordów CNAME w wierzchołku strefy. Te ograniczenia wynikają ze standardów dotyczących serwerów DNS i nie stanowią ograniczeń usługi DNS platformy Azure.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

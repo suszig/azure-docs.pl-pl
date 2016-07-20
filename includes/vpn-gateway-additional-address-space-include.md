@@ -1,16 +1,22 @@
-### To add address space
+### Aby dodać przestrzeń adresów
 
-1. To add additional address space, click **All settings** to open the **Settings** blade. 
+1. Aby dodać dodatkową przestrzeń adresów, kliknij przycisk **Wszystkie ustawienia** w celu otwarcia bloku **Ustawienia**. 
 
-2. On the **Settings** blade, click **Address space** to open the Address space blade. Add the additional address space in this blade, and then click **Save** at the top of the blade.
+2. W bloku **Ustawienia** kliknij przycisk **Przestrzeń adresów**, aby otworzyć blok Przestrzeń adresów. Dodaj dodatkową przestrzeń adresów w tym bloku, a następnie kliknij przycisk **Zapisz** znajdujący się na górze bloku.
 
-	![Add address space](./media/vpn-gateway-additional-address-space-include/address400.png)
+    ![Dodawanie przestrzeni adresów](./media/vpn-gateway-additional-address-space-include/address400.png)
 
-### To add subnets 
+### Aby dodać podsieci 
 
-1. To add additional subnets to your address spaces, in the **Settings** blade, click **Subnets** to open the **Subnets** blade. 
+1. Aby dodać dodatkowe podsieci do przestrzeni adresów, w bloku **Ustawienia** kliknij przycisk **Podsieci** w celu otwarcia bloku **Podsieci**. 
 
-2. In the Subnets blade, click **Add** to open the **Add subnet** blade. Name your new subnet and specify the address range, and then click **OK** at the bottom of the blade. Once a subnet has been created, you can use the subnets blade to view all of your subnets for a VNet.
+2. W bloku Podsieci kliknij przycisk **Dodaj**, aby otworzyć blok **Dodaj podsieć**. Nadaj nazwę nowej podsieci i określ zakres adresów, a następnie kliknij przycisk **OK** znajdujący się na dole bloku. Po utworzeniu podsieci blok podsieci umożliwia wyświetlenie wszystkich podsieci użytkownika dla sieci wirtualnej.
 
 
-	![Subnet settings](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)		
+    ![Ustawienia podsieci](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)       
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

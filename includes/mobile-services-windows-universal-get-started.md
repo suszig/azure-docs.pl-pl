@@ -1,10 +1,15 @@
 
-The following are screen captures from the completed app:
+Poniżej przedstawiono ekrany przechwycone z ukończonej aplikacji:
 
 ![](./media/mobile-services-windows-universal-get-started/mobile-quickstart-completed.png)
-<br/>Windows Store app
+<br/>Aplikacja ze Sklepu Windows
 
 ![](./media/mobile-services-windows-universal-get-started/mobile-quickstart-completed-wp8.png)
-<br/>Windows Phone Store app
+<br/>Aplikacja ze Sklepu Windows Phone
 
-Completing this tutorial is a prerequisite for all other Mobile Services tutorials for Windows Store and Windows Phone Store apps. 
+Ukończenie tego samouczka jest wymaganiem wstępnym dla wszystkich pozostałych samouczków usługi Mobile Services dotyczących aplikacji ze Sklepu Windows i Sklepu Windows Phone. 
+
+
+<!--HONumber=Jun16_HO2-->
+
+

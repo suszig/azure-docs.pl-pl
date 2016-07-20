@@ -1,24 +1,30 @@
-1. Locate your virtual network gateway and click **All settings** to open the **Settings** blade.
+1. Znajdź bramę sieci wirtualnej i kliknij przycisk **Wszystkie ustawienia**, aby otworzyć blok **Ustawienia**.
 
-2. On the **Settings** blade, click **Connections**, and then click **Add** at the top of the blade to open the **Add connection** blade.
+2. W bloku **Ustawienia** kliknij przycisk **Połączenia**, a następnie kliknij przycisk **Dodaj** znajdujący się na górze bloku, aby otworzyć blok **Dodaj połączenie**.
 
-	![Create Site-to-Site connection](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/addconnection250.png)
+    ![Utwórz połączenie lokacja-lokacja](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/addconnection250.png)
 
-3. On the **Add connection** blade, **Name** your connection. 
+3. W bloku **Dodaj połączenie** określ **nazwę** połączenia. 
 
-4. For **Connection type**, select **Site-to-site(IPSec)**.
+4. W polu **Typ połączenia** wybierz opcję **Lokacja-lokacja (IPsec)**.
 
-5. For **Virtual network gateway**, the value is fixed because you are connecting from this gateway.
+5. W polu **Brama sieci wirtualnej** wartość jest ustalona, ponieważ połączenie jest nawiązywane z tej bramy.
 
-6. For **Local network gateway**, click **Choose a local network gateway** and select the local network gateway that you want to use. 
+6. W polu **Brama sieci lokalnej** kliknij przycisk **Wybierz bramę sieci lokalnej** i wybierz bramę sieci lokalnej, która ma być używana. 
 
-7. For **Shared Key**, the value here must match the value that you are using for your local VPN device. If your VPN device on your local network doesn't provide a shared key, you can make one up and input it here and on your local device. The important thing is that they both match.
+7. W polu **Klucz współdzielony** wartość musi być zgodna z wartością używaną do lokalnego urządzenia sieci VPN. Jeśli urządzenie sieci VPN w sieci lokalnej nie dostarcza klucza współdzielonego, można go utworzyć i wprowadzić w tym miejscu i na urządzeniu lokalnym. Ważne jest, aby klucze były ze sobą zgodne.
 
-8. The remaining values for **Subscription**, **Resource Group**, and **Location** are fixed.
+8. Pozostałe wartości w polach **Subskrypcja**, **Grupa zasobów** i **Lokalizacja** są ustalone.
 
-9. Click **OK** to create your connection. You'll see *Creating Connection* flash on the screen.
+9. Kliknij przycisk **OK**, aby utworzyć połączenie. Na ekranie zostanie wyświetlony napis *Tworzenie połączenia*.
 
-10. When the connection is complete, you'll see it appear in the **Connections** blade for your Gateway.
+10. Po nawiązaniu połączenia będzie ono widoczne w bloku **Połączenia** dla bramy.
 
-	![Create Site-to-Site connection](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/connectionstatus450.png)
+    ![Utwórz połączenie lokacja-lokacja](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/connectionstatus450.png)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

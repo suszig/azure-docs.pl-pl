@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Install the DC/OS CLI | Microsoft Azure"
-   description="Install the DC/OS CLI."
+   pageTitle="Instalowanie interfejsu wiersza polecenia DC/OS | Microsoft Azure"
+   description="Instalowanie interfejsu wiersza polecenia DC/OS."
    services="container-service"
    documentationCenter=""
    authors="rgardler"
@@ -18,9 +18,9 @@
    ms.date="05/10/2016"
    ms.author="rogardle"/>
 
->[AZURE.NOTE] This is for working with DC/OS-based ACS clusters. There is no need to do this for Swarm-based ACS clusters.
+>[AZURE.NOTE] Te informacje dotyczą pracy z klastrami usługi ACS opartymi na kontrolerach domeny/systemach operacyjnych. Nie trzeba wykonywać tych czynności w przypadku klastrów usługi ACS opartych na aplikacji Swarm.
 
-First, [connect to your DC/OS-based ACS cluster](../articles/container-service/container-service-connect.md). Once you have done this, you can install the DC/OS CLI on your client machine with the commands below:
+Najpierw [nawiąż połączenie z klastrem usługi ACS opartym na kontrolerze domeny/systemie operacyjnym](../articles/container-service/container-service-connect.md). Następnie możesz zainstalować interfejs wiersza polecenia DC/OS na komputerze klienckim przy użyciu poniższych poleceń:
 
 ```bash
 sudo pip install virtualenv
@@ -30,18 +30,23 @@ chmod +x install-optout-dcos-cli.sh
 ./install-optout-dcos-cli.sh . http://localhost --add-path yes
 ```
 
-If you are using an old version of Python, you may notice some "InsecurePlatformWarnings". You can safely ignore these.
+Jeśli używasz starszej wersji środowiska Python, mogą zostać wyświetlone ostrzeżenia „InsecurePlatformWarnings”. Możesz je bezpiecznie zignorować.
 
-In order to get started without restarting your shell, run:
+Aby rozpocząć pracę bez ponownego uruchamiania powłoki, uruchom polecenie:
 
 ```bash
 source ~/.bashrc
 ```
 
-This step will not be necessary when you start new shells.
+Ta czynność nie będzie konieczna w przypadku uruchomienia nowych powłok.
 
-Now you can confirm that the CLI is installed:
+Teraz można potwierdzić, że interfejs wiersza polecenia został zainstalowany:
 
 ```bash
 dcos --help
 ```
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,5 +1,11 @@
-|  | **Classic Deployment**  | **Resource Manager Deployment**|
+|  | **Wdrożenie klasyczne**  | **Wdrożenie przy użyciu usługi Resource Manager**|
 |-----------------------------|-------------|---------------------|
-| **Classic Portal**          | Not Supported          | Not Supported                  |
-| **Azure Portal**            | Not Supported         | Not Supported                  |
-| **PowerShell** | [Article](../articles/expressroute/expressroute-howto-coexist-classic.md) | Not Supported |
+| **Klasyczny portal**          | Nieobsługiwane          | Nieobsługiwane                  |
+| **Azure Portal**            | Nieobsługiwane         | Nieobsługiwane                  |
+| **PowerShell** | [Artykuł](../articles/expressroute/expressroute-howto-coexist-classic.md) | Nieobsługiwane |
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

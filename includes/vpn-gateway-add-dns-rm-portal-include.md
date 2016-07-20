@@ -1,8 +1,13 @@
-This setting allows you to specify the DNS server that you want to use for name resolution for this virtual network. It does not create a DNS server.
+To ustawienie umożliwia określenie serwera DNS, który ma być używany do rozpoznawania nazw dla tej sieci wirtualnej. Nie powoduje ono jednak utworzenia serwera DNS.
 
-1. On the **Settings** page for your virtual network, navigate to **DNS Servers** and click to open the DNS servers blade.
-2. On the **DNS Servers** page, under **DNS servers**, select **Custom DNS**.
-3. In the **Primary DNS server** field, enter the IP address of the DNS server that you want to use for name resolution.
-4. Click **Save** at the top of the blade to save your configuration.
+1. Na stronie **Ustawienia** sieci wirtualnej przejdź do opcji **Serwery DNS** i kliknij, aby otworzyć blok serwerów DNS.
+2. Na stronie **Serwery DNS** w obszarze **Serwery DNS** wybierz opcję **Niestandardowe DNS**.
+3. W polu **Podstawowy serwer DNS** wprowadź adres IP serwera DNS, który ma być używany do rozpoznawania nazw.
+4. Kliknij przycisk **Zapisz** znajdujący się na górze bloku, aby zapisać konfigurację.
 
-	![Custom DNS](./media/vpn-gateway-add-dns-rm-portal/customdns400.png)
+    ![Niestandardowe DNS](./media/vpn-gateway-add-dns-rm-portal/customdns400.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

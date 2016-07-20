@@ -1,22 +1,27 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### To create a volume container
+#### Aby utworzyć kontener woluminów
 
-1. In the device **Quick Start** page, click **Add a volume container**. The **Create Volume Container** dialog box appears.
+1. Na stronie **Szybki start** urządzenia kliknij pozycję **Dodaj kontener woluminów**. Zostanie wyświetlone okno dialogowe **Tworzenie kontenera woluminów**.
 
-    ![Create Volume Container](./media/storsimple-create-volume-container/HCS_CreateVolumeContainerM-include.png)
+    ![Tworzenie kontenera woluminów](./media/storsimple-create-volume-container/HCS_CreateVolumeContainerM-include.png)
 
-2. In the **Create Volume container** dialog box:
-  1. Supply a **Name** for your volume container. The name must be 3 to 32 characters long.
-  2. Select a **Storage Account** to associate with this volume container. You can choose the default account that is generated at the time of service creation. You can also use the **Add new** option to specify a storage account that is not linked to this service subscription.
-  3. Select **Enable Cloud Storage Encryption** to enable encryption of the data sent from the device to the cloud.
-  4. Provide and confirm a **Cloud Storage Encryption Key** that is 8 to 32 characters long. This key is used by the device to access encrypted data.
-  5. Select **Unlimited** in the **Specify bandwidth** drop-down list if you wish to consume all the available bandwidth. You can also set this option to **Custom** to employ bandwidth controls, and specify a value between 1 and 1,000 Mbps. 
-  If you have your bandwidth usage information available, you may be able to allocate bandwidth based on a schedule by specifying **Select a bandwidth template**. For a step-by-step procedure, go to [Add a bandwidth template](storsimple-manage-bandwidth-templates.md#add-a-bandwidth-template).
-  6. Click the check icon ![check-icon](./media/storsimple-create-volume-container/HCS_CheckIcon-include.png) to save this volume container and exit the wizard. 
+2. W oknie dialogowym **Tworzenie kontenera woluminów**:
+  1. Wprowadź wartość **Nazwa** kontenera woluminów. Nazwa musi składać się z 3–32 znaków.
+  2. Wybierz wartość **Konto magazynu** do skojarzenia z tym kontenerem woluminów. Możesz wybrać domyślne konto generowane podczas tworzenia usługi. Możesz również użyć opcji **Dodaj nowe**, aby wybrać konto magazynu, które nie zostało połączone z tą subskrypcją usługi.
+  3. Wybierz pozycję **Włącz szyfrowanie magazynu w chmurze**, aby włączyć szyfrowanie danych wysyłanych z urządzenia do chmury.
+  4. Wprowadź i potwierdź **klucz szyfrowania magazynu w chmurze** o długości od 8 do 32 znaków. Ten klucz jest używany przez urządzenie do uzyskiwania dostępu do zaszyfrowanych danych.
+  5. Wybierz pozycję **Nieograniczona** z listy rozwijanej **Określ przepustowość**, jeśli chcesz wykorzystać całą dostępną przepustowość. Możesz również ustawić tę opcję na wartość **Niestandardowa**, aby stosować kontrolę przepustowości, i wybrać wartość z przedziału od 1 do 1000 Mb/s. 
+  Jeśli masz informacje o użyciu przepustowości, możesz przydzielić przepustowość zgodnie z harmonogramem, określając wartość **Wybierz szablon przepustowości**. Aby zapoznać się z procedurą krok po kroku, przejdź do tematu dotyczącego [dodawania szablonu przepustowości](storsimple-manage-bandwidth-templates.md#add-a-bandwidth-template).
+  6. Kliknij ikonę znacznika wyboru, ![ikona znacznika wyboru](./media/storsimple-create-volume-container/HCS_CheckIcon-include.png) aby zapisać ten kontener woluminów i zamknąć kreatora. 
 
-  The newly created volume container will be listed on the **Volume containers** page.
+  Nowo utworzony wolumin kontenerów zostanie wymieniony na stronie **Kontenery woluminów**.
 
-![Video available](./media/storsimple-create-volume-container/Video_icon.png) **Video available**
+![Zobacz film](./media/storsimple-create-volume-container/Video_icon.png) **Zobacz film**
 
-To watch a video that demonstrates how to create a volume container in your StorSimple solution, click [here](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
+Aby obejrzeć film wideo przedstawiający sposób tworzenia kontenera woluminów w rozwiązaniu StorSimple, kliknij [tutaj](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
+
+
+<!--HONumber=Jun16_HO2-->
+
+
