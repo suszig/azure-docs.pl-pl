@@ -1,56 +1,40 @@
-## What is the Table Service
+## Co to jest usługa tabel
 
-The Azure Table storage service stores large amounts of
-structured data. The service is a NoSQL datastore which accepts
-authenticated calls from inside and outside the Azure cloud. Azure
-tables are ideal for storing structured, non-relational data. Common
-uses of the Table service include:
+Usługa Azure Table Storage służy do przechowywania dużych ilości danych strukturalnych. Usługa jest magazynem danych NoSQL, który przyjmuje uwierzytelnione wywołania z chmury Azure i spoza niej. Tabele Azure idealnie nadają się do przechowywania strukturalnych danych nierelacyjnych. Najczęstsze zastosowania usługi tabel obejmują:
 
--   Storing TBs of structured data capable of serving web scale
-    applications
--   Storing datasets that don't require complex joins, foreign keys, or
-    stored procedures and can be denormalized for fast access
--   Quickly querying data using a clustered index
--   Accessing data using the OData protocol and LINQ queries with WCF
-    Data Service .NET Libraries
+-   Przechowywanie tabel danych strukturalnych umożliwiających obsługę aplikacji w skali sieci Web
+-   Zapisywanie zestawów danych, które nie wymagają złożonych sprzężeń, kluczy obcych lub przechowywanych procedur i mogą być nieznormalizowane w celu zapewniania szybkiego dostępu
+-   Szybkie wykonywanie zapytań o dane przy użyciu indeksu klastrowanego
+-   Uzyskiwanie dostępu do danych przy użyciu protokołu OData i zapytań LINQ z bibliotekami .NET usługi danych WCF
 
-You can use the Table service to store and query huge sets of
-structured, non-relational data, and your tables will scale as demand
-increases.
+Usługa tabel służy do przechowywania i wykonywania zapytań dotyczących dużych zestawów strukturalnych danych nierelacyjnych. Tabele mogą być skalowane wraz ze wzrostem wymagań.
 
-## Table Service Concepts
+## Pojęcia dotyczące usługi tabel
 
-The Table service contains the following components:
+Usługa tabel zawiera następujące składniki:
 
 ![Table1][Table1]
 
--   **URL format:** Code addresses tables in an account using this
-    address format:   
+-   **Format adresu URL:** kod odwołuje się do tabel na koncie przy użyciu następującego formatu adresu:   
     http://`<storage account>`.table.core.windows.net/`<table>`  
       
-    You can address Azure tables directly using this address with the
-    OData protocol. For more information, see [OData.org][]
+    Możesz odwołać się do tabel platformy Azure bezpośrednio przy użyciu tego adresu i protokołu OData. Więcej informacji znajduje się na stronie [OData.org][]
 
--   **Storage Account:** All access to Azure Storage is done
-    through a storage account. See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details about storage account capacity.
+-   **Konto magazynu:** cały dostęp do usługi Azure Storage odbywa się przez konto magazynu. Aby uzyskać szczegółowe informacje na temat pojemności konta magazynu, zobacz temat [Cele dotyczące skalowalności i wydajności usługi Azure Storage](storage-scalability-targets.md).
 
--   **Table**: A table is a collection of entities. Tables don't enforce
-    a schema on entities, which means a single table can contain
-    entities that have different sets of properties. The number of tables that a 
-	storage account can contain is limited only by the 
-    storage account capacity limit.
+-   **Tabela**: tabela jest kolekcją obiektów. Tabele nie wymuszają schematu na obiektach, co oznacza, że jedna tabela może zawierać obiekty o różnych zestawach właściwości. Liczba tabel, którą może zawierać konto magazynu, jest ograniczona tylko limitem pojemności konta magazynu.
 
--   **Entity**: An entity is a set of properties, similar to a database
-    row. An entity can be up to 1MB in size.
+-   **Obiekt**: obiekt jest zestawem właściwości podobnym do wiersza bazy danych. Maksymalny rozmiar obiektu wynosi 1 MB.
 
--   **Properties**: A property is a name-value pair. Each entity can
-    include up to 252 properties to store data. Each entity also has 3
-    system properties that specify a partition key, a row key, and a
-    timestamp. Entities with the same partition key can be queried more
-    quickly, and inserted/updated in atomic operations. An entity's row
-    key is its unique identifier within a partition.
+-   **Właściwości**: właściwość to połączenie nazwy i wartości. Każdy obiekt może zawierać maksymalnie 252 właściwości do przechowywania danych. Każdy obiekt ma również 3 właściwości systemowe, które określają klucz partycji, klucz wiersza i znacznik czasu. Obiekty o tym samym kluczu partycji mogą być szybciej badane oraz wstawiane/aktualizowane w operacjach niepodzielnych. Klucz wiersza obiektu jest jego unikatowym identyfikatorem w partycji.
 
-For details about naming tables and properties, see [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+Szczegółowe informacje na temat nazewnictwa tabel i właściwości można znaleźć w temacie [Omówienie modelu danych usługi tabel](https://msdn.microsoft.com/library/azure/dd179338.aspx).
   
   [Table1]: ./media/storage-table-concepts-include/table1.png
   [OData.org]: http://www.odata.org/
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

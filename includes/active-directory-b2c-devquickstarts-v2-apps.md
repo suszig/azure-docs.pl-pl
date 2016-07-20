@@ -1,2 +1,7 @@
 > [AZURE.IMPORTANT]
-You cannot use applications registered in the **Applications** tab on the classic [Azure Management Portal](https://manage.windowsazure.com/) for this.
+Do tego celu nie można używać aplikacji zarejestrowanych na karcie **Aplikacje** w klasycznym [portalu zarządzania Azure](https://manage.windowsazure.com/).
+
+
+<!--HONumber=Jun16_HO2-->
+
+

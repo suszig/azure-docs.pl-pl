@@ -1,7 +1,13 @@
 
 
-The mobile app project lets you to run your new mobile app backend locally. This makes it easy to debug your service code before you even publish it to Azure.
+Projekt aplikacji mobilnej pozwala uruchomić nową wewnętrzną bazę danych aplikacji mobilnej lokalnie. Ułatwia to debugowanie kodu usługi przed opublikowaniem go na platformie Azure.
 
-1. On your Windows PC, extract project you downloaded earlier, and then open it in Visual Studio.
+1. Na komputerze z systemem Windows wyodrębnij pobrany wcześniej projekt, a następnie otwórz go w programie Visual Studio.
 
-2. Select the bottom project which should be your Mobile App name with Service at the end of it. Press **CTRL-F5** to download the nuget packages, build the project and start the mobile app backend locally. When you run your mobile app client, pointed at localhost, it will talk to your local backend. 
+2. Wybierz nazwę projektu u dołu, która powinna być nazwą aplikacji mobilnej zakończoną nazwą usługi. Naciśnij klawisze **CTRL-F5**, aby pobrać pakiety nuget, skompilować projekt i uruchomić wewnętrzną bazę danych aplikacji mobilnej lokalnie. Po uruchomieni klient aplikacji mobilnej wskazany w localhost będzie się komunikował z lokalną wewnętrzną bazą danych. 
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

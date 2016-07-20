@@ -1,23 +1,29 @@
-1. In the Azure Portal, navigate to **New** **>** **Networking** **>** **Local network gateway**.
+1. W portalu Azure przejdź do opcji **Nowy** **>** **Sieci** **>** **Brama sieci lokalnej**.
 
-	![create local network gateway](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
+    ![utwórz bramę sieci lokalnej](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
 
-2. On the **Create local network gateway blade**, specify a **Name** for your local network gateway object.
+2. W **bloku Utwórz bramę sieci lokalnej** określ **nazwę** obiektu bramy sieci lokalnej.
  
-3. Specify an **IP address** for your gateway. This is the IP address of the external VPN device that you want to connect to. It cannot be behind NAT and has to be reachable by Azure.
+3. Określ **adres IP** bramy. Jest to adres IP zewnętrznego urządzenia sieci VPN, z którym chcesz nawiązać połączenie. Nie może ono znajdować się za translatorem adresów sieciowych i musi być dostępne za pomocą usługi Azure.
 
-4. **Address Space** refers to the address ranges on your local (typically on-premises) network. You can add multiple address space ranges. The ranges that you enter here cannot overlap any of the address space ranges that you are using for any of the virtual networks that will communicate through the gateway.  You will need to coordinate with your on-premises configuration as well as with your Azure virtual network address spaces.
+4. **Przestrzeń adresów** odnosi się do zakresów adresów w sieci lokalnej (zwykle w siedzibie firmy). Można dodać wiele zakresów przestrzeni adresów. Wprowadzone zakresy nie mogą się nakładać na żaden z zakresów przestrzeni adresów używanych w jakichkolwiek sieciach wirtualnych, które będą komunikować się za pośrednictwem bramy.  Zakresy należy skoordynować z lokalną konfiguracją, a także przestrzeniami adresów sieci wirtualnej platformy Azure.
  
-5. For **Subscription**, verify that the correct subscription is showing.
+5. W polu **Subskrypcja** sprawdź, czy wyświetlana jest prawidłowa subskrypcja.
 
-6. For **Resource Group**, select the resource group that you want to use. You can either create a new resource group, or select one that you have already created. To create a new resource group, type the name in the box. To select a resource group that you've already created, click **Resource Group** to open the **Resource group** blade, and then select the resource group that you want to use.
+6. W polu **Grupa zasobów** wybierz grupę zasobów, która ma być używana. Możesz utworzyć nową grupę zasobów lub wybrać już utworzoną. Aby utworzyć nową grupę zasobów, wpisz nazwę w polu. Aby wybrać grupę zasobów, która została już utworzona, kliknij przycisk **Grupa zasobów**, aby otworzyć blok **Grupa zasobów**, a następnie wybierz grupę zasobów, która ma być używana.
 
-7. For **Location**, if you are creating a new local network gateway, you can use the same location as the virtual network gateway. But, this is not required. The local network gateway can be in a different location. 
+7. Jeśli tworzysz nową bramę sieci lokalnej, w polu **Lokalizacja** możesz użyć lokalizacji bramy sieci wirtualnej. Nie jest to jednak wymagane. Brama sieci lokalnej może być w innej lokalizacji. 
 
-8. Leave "Pin to dashboard" selected if you want to find this local network gateway easily from the dashboard.
+8. Pozostaw zaznaczoną opcję „Przypnij do pulpitu nawigacyjnego”, jeśli chcesz w prosty sposób znajdować tę bramę sieci lokalnej z poziomu pulpitu nawigacyjnego.
 
-9. Click **Create** to create the local network gateway. You'll see "Deploying Local network gateway" on your dashboard.
+9. Kliknij przycisk **Utwórz**, aby utworzyć bramę sieci lokalnej. Na pulpicie nawigacyjnym zostanie wyświetlony komunikat „Wdrażanie bramy sieci lokalnej”.
 
-10. When the local network gateway has been created, it will open in the portal for you to view.
+10. Po utworzeniu bramy sieci lokalnej będzie ona widoczna w portalu.
 
-	
+    
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

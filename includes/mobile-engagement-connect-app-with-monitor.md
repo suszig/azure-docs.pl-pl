@@ -1,14 +1,20 @@
-This section shows you how to connect your app to the Mobile Engagement backend by using the Mobile Engagement's real-time monitoring feature. 
+W tej sekcji opisano sposób łączenia aplikacji z zapleczem usługi Mobile Engagement przy użyciu funkcji monitorowania w czasie rzeczywistym usługi Mobile Engagement. 
 
-1. In your **Azure Mobile Engagement** account, make sure you select the app you wish to monitor and manage in the **Mobile Engagement** portal. Navigate to your Mobile Engagement portal by clicking the **Engage** button at the bottom. 
+1. Na koncie usługi **Azure Mobile Engagement** wybierz aplikację, którą chcesz monitorować i zarządzać w portalu usługi **Mobile Engagement**. Przejdź do portalu usługi Mobile Engagement, klikając przycisk **Engage** (Włącz) u dołu. 
 
-	 ![](./media/mobile-engagement-connect-app-with-monitor/engage-button.png)
+     ![](./media/mobile-engagement-connect-app-with-monitor/engage-button.png)
 
-2. You will land in the Mobile Engagement portal. If the Monitor tab is not selected, click on the **Monitor**.
+2. Nastąpi przejście do portalu usługi Mobile Engagement. Jeśli karta Monitor (Monitorowanie) nie jest wybrana, kliknij opcję **Monitor** (Monitorowanie).
 
-3. The monitor is ready to show you any device in real time, which will start your app.
-	 
-4. Start your app either in the emulator/simulator or on a connected device. You should see one session in the monitor if your integration is correct which means that your app is now connected to the Mobile Engagement backend and is sending data to it.  
-	
-	 ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
+3. Na karcie Monitor (Monitorowanie) zostanie w czasie rzeczywistym wyświetlone dowolne urządzenie, na którym zostanie uruchomiona aplikacja.
+     
+4. Uruchom aplikację w emulatorze/symulatorze lub na połączonym urządzeniu. Jeśli integracja jest prawidłowa, widoczna będzie jedna sesja. Oznacza to, że aplikacja jest teraz połączona z zapleczem usługi Mobile Engagement i wysyła do niej dane.  
+    
+     ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

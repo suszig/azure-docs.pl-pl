@@ -1,8 +1,14 @@
-| Mobile & Native Apps | Web Apps & Web APIs | Integrate Directly with Protocols |
+| Aplikacje mobilne i natywne | Aplikacje sieci Web i interfejsy API sieci Web | Integracja bezpośrednia z protokołami |
 | ----------------------- | ------------------------------- | --------------------- |
-| [Add Sign Up & Sign In to an iOS App](active-directory-b2c-devquickstarts-ios.md) | Add Sign Up & Sign In to an AngularJS SPA (Coming Soon) | [Register an Application](active-directory-b2c-app-registration.md) |
-| [Add Sign Up & Sign In to an Android App](active-directory-b2c-devquickstarts-android.md) | [Add Sign Up & Sign In to a .NET MVC App](active-directory-b2c-devquickstarts-web-dotnet.md)  | [Mobile Apps with OAuth 2.0](active-directory-b2c-reference-oauth-code.md) |
-| Add Sign Up & Sign In to a Windows Universal App (Coming Soon) | [Add Sign Up & Sign In to a Node JS Web App](active-directory-b2c-devquickstarts-web-node.md) | [Web Apps with OpenID Connect](active-directory-b2c-reference-oidc.md) |
-| Add Sign Up & Sign In to a Windows Desktop App (Coming Soon) | [Secure a .NET Web API](active-directory-b2c-devquickstarts-api-dotnet.md) | Single Page Apps with OpenID Connect (Coming Soon)
-|  | [Secure a NodeJS Web API](active-directory-b2c-devquickstarts-api-node.md) | Server Side Daemons (Coming Soon) |
-|  | [Call a Web API from a .NET Web App](active-directory-b2c-devquickstarts-web-api-dotnet.md) | Server Side Daemons (Coming Soon) |
+| [Dodawanie funkcji rejestracji i logowania do aplikacji systemu iOS](active-directory-b2c-devquickstarts-ios.md) | Dodawanie funkcji rejestracji i logowania do AngularJS SPA (wkrótce) | [Rejestracja aplikacji](active-directory-b2c-app-registration.md) |
+| [Dodawanie funkcji rejestracji i logowania do aplikacji systemu Android](active-directory-b2c-devquickstarts-android.md) | [Dodawanie funkcji rejestracji i logowania do aplikacji .NET MVC](active-directory-b2c-devquickstarts-web-dotnet.md)  | [Aplikacje mobilne z protokołem OAuth 2.0](active-directory-b2c-reference-oauth-code.md) |
+| Dodawanie funkcji rejestracji i logowania do aplikacji Windows Universal App (wkrótce) | [Dodawanie funkcji rejestracji i logowania do aplikacji sieci Web Node JS](active-directory-b2c-devquickstarts-web-node.md) | [Aplikacje sieci Web z OpenID Connect](active-directory-b2c-reference-oidc.md) |
+| Dodawanie funkcji rejestracji i logowania do aplikacji klasycznej systemu Windows (wkrótce) | [Zabezpieczanie interfejsu API sieci Web .NET](active-directory-b2c-devquickstarts-api-dotnet.md) | Aplikacje jednej strony z OpenID Connect (wkrótce)
+|  | [Zabezpieczanie interfejsu API sieci Web NodeJS](active-directory-b2c-devquickstarts-api-node.md) | Demony po stronie serwera (wkrótce) |
+|  | [Wywoływanie interfejsu API sieci Web z aplikacji sieci Web .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md) | Demony po stronie serwera (wkrótce) |
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

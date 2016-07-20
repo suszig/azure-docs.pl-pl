@@ -1,29 +1,35 @@
-To create a cache, first sign in to the [Azure Portal](https://portal.azure.com), and click **New**, **Data + Storage**, **Redis Cache**.
+Aby utworzyć pamięć podręczną, najpierw zaloguj się do [portalu Azure](https://portal.azure.com) i kliknij kolejno opcje **Nowe**, **Dane + Magazyn**, **Pamięć podręczna Redis**.
 
->[AZURE.NOTE] If you don't have an Azure account, you can [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) in just a couple of minutes.
+>[AZURE.NOTE] Jeśli nie masz konta Azure, możesz w ciągu kliku minut [utworzyć je bezpłatnie](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
 
-![New cache](media/redis-cache-create/redis-cache-new-cache-menu.png)
+![Nowa pamięć podręczna](media/redis-cache-create/redis-cache-new-cache-menu.png)
 
->[AZURE.NOTE] In addition to creating caches in the Azure Portal, you can also create them using ARM templates, PowerShell, or Azure CLI.
+>[AZURE.NOTE] Oprócz tworzenia pamięci podręcznych w portalu Azure możesz również utworzyć je przy użyciu szablonów ARM, programu PowerShell lub interfejsu wiersza polecenia Azure.
 >
->-	To create a cache using ARM templates, see [Create a Redis cache using a template](../articles/redis-cache/cache-redis-cache-arm-provision.md).
->-	To create a cache using Azure PowerShell, see [Manage Azure Redis Cache with Azure PowerShell](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md).
->-	To create a cache using Azure CLI, see [How to create and manage Azure Redis Cache using the Azure Command-Line Interface (Azure CLI)](../articles/redis-cache/cache-manage-cli.md).
+>-  Informacje na temat tworzenia pamięci podręcznej za pomocą szablonów ARM można znaleźć w temacie [Tworzenie pamięci podręcznej Redis przy użyciu szablonu](../articles/redis-cache/cache-redis-cache-arm-provision.md).
+>-  Informacje na temat tworzenia pamięci podręcznej przy użyciu programu Azure PowerShell można znaleźć w temacie [Zarządzanie pamięcią podręczną Redis Azure za pomocą programu Azure PowerShell](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md).
+>-  Informacje na temat tworzenia pamięci podręcznej za pomocą interfejsu wiersza polecenia platformy Azure można znaleźć w temacie [Tworzenie pamięci podręcznej Redis Azure oraz zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure (Azure CLI)](../articles/redis-cache/cache-manage-cli.md).
 
-In the **New Redis Cache** blade, specify the desired configuration for the cache.
+W bloku **Nowa pamięć podręczna Redis** określ odpowiednią konfigurację pamięci podręcznej.
 
-![Create cache](media/redis-cache-create/redis-cache-cache-create.png) 
+![Tworzenie pamięci podręcznej](media/redis-cache-create/redis-cache-cache-create.png) 
 
--	In **Dns name**, enter a cache name to use for the cache endpoint. The cache name must be a string between 1 and 63 characters and contain only numbers, letters, and the `-` character. The cache name cannot start or end with the `-` character, and consecutive `-` characters are not valid.
--	For **Subscription**, select the Azure subscription that you want to use for the cache. If your account has only one subscription, it will be automatically selected and the **Subscription** drop-down will not be displayed.
--	In **Resource group**, select or create a resource group for your cache. For more information, see [Using Resource groups to manage your Azure resources](../articles/resource-group-overview.md). 
--	Use **Location** to specify the geographic location in which your cache is hosted. For the best performance, Microsoft strongly recommends that you create the cache in the same region as the cache client application.
--	Use **Pricing Tier** to select the desired cache size and features.
--	**Redis cluster** allows you to create caches larger than 53 GB and to shard data across multiple Redis nodes. For more information, see [How to configure clustering for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-clustering.md).
--	**Redis persistence** offers the ability to persist your cache to an Azure Storage account. For instructions on configuring persistence, see [How to configure persistence for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-persistence.md).
--	**Virtual Network** provides enhanced security and isolation by restricting access to your cache to only those clients within the specified Azure Virtual Network. You can use all the features of VNet such as subnets, access control policies, and other features to further restrict access to Redis. For more information, see [How to configure Virtual Network support for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-vnet.md).
+-   W polu **Nazwa DNS** wprowadź nazwę pamięci podręcznej, która zostanie użyta dla punktu końcowego pamięci podręcznej. Nazwa pamięci podręcznej musi być ciągiem od 1 do 63 znaków i może zawierać tylko cyfry, litery i znak `-`. Na początku ani na końcu nazwy pamięci podręcznej nie może występować znak `-`, a następujące po sobie znaki `-` nie są prawidłowe.
+-   W polu **Subskrypcja** wybierz subskrypcję platformy Azure, która ma być używana dla pamięci podręcznej. Jeśli konto ma tylko jedną subskrypcję, zostanie ona automatycznie wybrana i lista rozwijana **Subskrypcja** nie będzie wyświetlana.
+-   W polu **Grupa zasobów** wybierz lub utwórz grupę zasobów dla pamięci podręcznej. Więcej informacji można znaleźć w temacie [Używanie grup zasobów do zarządzania zasobami platformy Azure](../articles/resource-group-overview.md). 
+-   Użyj opcji **Lokalizacja**, aby określić lokalizację geograficzną, w której będzie hostowana pamięć podręczna. Firma Microsoft zdecydowanie zaleca tworzenie pamięci podręcznej w tym samym regionie, w którym występuje aplikacja klienta pamięci podręcznej, w celu uzyskania możliwie najlepszej wydajności.
+-   W polu **Warstwa cenowa** wybierz odpowiedni rozmiar i funkcje pamięci podręcznej.
+-   **Klaster Redis** umożliwia tworzenie pamięci podręcznych większych niż 53 GB i współdzielenie danych między wieloma węzłami Redis. Aby uzyskać więcej informacji, zobacz temat [Konfigurowanie usługi klastrowania dla usługi Pamięć podręczna Redis Azure Premium](../articles/redis-cache/cache-how-to-premium-clustering.md).
+-   **Trwałość Redis** oferuje możliwość utrzymania pamięci podręcznej na koncie usługi Azure Storage. Instrukcje na temat konfigurowania trwałości można znaleźć w temacie [Konfigurowanie trwałości dla usługi Pamięć podręczna Redis Azure Premium](../articles/redis-cache/cache-how-to-premium-persistence.md).
+-   **Sieć wirtualna** zapewnia większe bezpieczeństwo i izolację przez zezwolenie na dostęp do pamięci podręcznej tylko klientom w określonej sieci wirtualnej Azure. Aby jeszcze bardziej ograniczyć dostęp do serwera Redis, można użyć wszystkich funkcji VNet, np. podsieci, zasad kontroli dostępu oraz innych funkcji. Więcej informacji można znaleźć w temacie [Konfigurowanie obsługi sieci wirtualnej dla usługi Pamięć podręczna Redis Azure Premium](../articles/redis-cache/cache-how-to-premium-vnet.md).
 
-Once the new cache options are configured, click **Create**. It can take a few minutes for the cache to be created. To check the status, you can monitor the progress on the startboard. After the cache has been created, your new cache has a **Running** status and is ready for use with default settings.
+Po skonfigurowaniu opcji nowej pamięci podręcznej kliknij przycisk **Utwórz**. Tworzenie pamięci podręcznej może zająć kilka minut. Stan operacji można sprawdzić, monitorując postęp na tablicy startowej. Po utworzeniu pamięci podręcznej nowa pamięć podręczna ma stan **Uruchomiona** i jest gotowa do użycia z ustawieniami domyślnymi.
 
-![Cache created](media/redis-cache-create/redis-cache-cache-created.png)
+![Utworzono pamięć podręczną](media/redis-cache-create/redis-cache-cache-created.png)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

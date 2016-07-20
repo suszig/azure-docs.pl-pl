@@ -1,12 +1,17 @@
-A DNS zone is used to host the DNS records for a particular domain. In order to start hosting your domain, you need to create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain. 
+Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Aby uruchomić hosting domeny, trzeba utworzyć strefę DNS. Każdy rekord DNS utworzony dla określonej domeny będzie znajdować się w strefie DNS danej domeny. 
 
-For example, the domain "contoso.com" may contain a number of DNS records, such as "mail.contoso.com" (for a mail server) and "www.contoso.com" (for a web site). 
+Na przykład domena „contoso.com” może zawierać wiele rekordów DNS, takich jak „mail.contoso.com” (dla serwera poczty) i „www.contoso.com” (dla witryny sieci Web). 
 
 
-## <a name="names"></a>About DNS zone names
+## <a name="names"></a>Informacje o nazwach strefy DNS
  
-- The name of the zone must be unique within the resource group, and the zone must not exist already. Otherwise, the operation will fail.
+- Nazwa strefy musi być unikatowa w obrębie grupy zasobów, a strefa nie może wcześniej istnieć. W przeciwnym razie operacja zakończy się niepowodzeniem.
 
-- The same zone name can be re-used in a different resource group or a different Azure subscription. 
+- Daną nazwę strefy można użyć ponownie w innej grupie zasobów lub w ramach innej subskrypcji platformy Azure. 
 
-- Where multiple zones share the same name, each instance will be assigned different name server addresses, and only one instance can be delegated from the parent domain. For more information, see [Delegate a domain to Azure DNS](../articles/dns/dns-domain-delegation.md).
+- Jeśli wiele stref ma taką samą nazwę, do każdego wystąpienia zostaną przypisane adresy serwera o innej nazwie i tylko jedno wystąpienie może być delegowane z domeny nadrzędnej. Więcej informacji można znaleźć w temacie [Delegowanie domeny do usługi DNS platformy Azure](../articles/dns/dns-domain-delegation.md).
+
+
+<!--HONumber=Jun16_HO2-->
+
+

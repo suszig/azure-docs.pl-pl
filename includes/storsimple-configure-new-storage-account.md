@@ -1,19 +1,25 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### To add a new storage account in StorSimple Release version (GA)
+#### Aby dodać nowe konto magazynu w wersji StorSimple (GA)
 
-1. On the StorSimple Manager service landing page, select your service and double-click it. This will take you to the **Quick Start** page. Select the **Configure** page.
+1. Na stronie początkowej usługi Menedżer StorSimple zaznacz usługę i kliknij ją dwukrotnie. Nastąpi przekierowanie do strony **Szybki start**. Wybierz stronę **Konfigurowanie**.
 
-2. Click **Add/edit storage account**.
+2. Kliknij przycisk **Dodaj/edytuj konto magazynu**.
 
-3. In the **Add/Edit Storage Account** dialog box, do the following:
+3. W oknie dialogowym **Dodawanie/edytowanie konta magazynu** wykonaj następujące czynności:
 
-  1. Click **Add new**.
-  2. Provide a name for your storage account.
-  3. Supply the primary **Access Key** for your Microsoft Azure storage account.
-  4. Select **Enable SSL Mode** to create a secure channel for network communication between your device and the cloud. Clear the **Enable SSL Mode** check box only if you are operating within a private cloud.
-  5. Click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). You will be notified after the storage account is successfully created.
+  1. Kliknij opcję **Dodaj nowe**.
+  2. Wprowadź nazwę konta magazynu.
+  3. Podaj podstawowy **klucz dostępu** do konta magazynu Microsoft Azure.
+  4. Wybierz opcję **Włącz tryb SSL**, aby utworzyć bezpieczny kanał komunikacji sieciowej między urządzeniem i chmurą. Pole wyboru **Włącz tryb SSL** należy odznaczyć tylko wówczas, gdy pracujesz w chmurze prywatnej.
+  5. Kliknij ikonę znacznika wyboru ![ikona znacznika wyboru](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). Po pomyślnym utworzeniu konta magazynu otrzymasz powiadomienie.
 
-    ![Add storage account](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
+    ![Dodaj konto magazynu](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
 
-4. The newly created storage account will be displayed on the **Configure** page under **Storage accounts**. Click **Save** to save the newly created storage account. Click **OK** when prompted for confirmation.
+4. Nowo utworzone konto magazynu zostanie wyświetlone na stronie **Konfigurowanie** w obszarze **Konto magazynu**. Kliknij przycisk **Zapisz**, aby zapisać nowo utworzone konto magazynu. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **OK**.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

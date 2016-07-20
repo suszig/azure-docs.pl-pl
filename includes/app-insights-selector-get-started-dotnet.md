@@ -1,16 +1,22 @@
 
-*Application Insights is in preview.*
+*Usługa Application Insights jest w wersji zapoznawczej.*
 
 <a name="selector1"></a>
 
-[Visual Studio Application Insights](../articles/application-insights/app-insights-overview.md) monitors your live application to help you [detect and diagnose performance issues and exceptions](../articles/application-insights/app-insights-detect-triage-diagnose.md), and [discover how your app is used](../articles/application-insights/app-insights-overview-usage.md). 
+Usługa [Visual Studio Application Insights](../articles/application-insights/app-insights-overview.md) służy do monitorowania aktywnej aplikacji, co ułatwia [wykrywanie i diagnozowanie problemów z wydajnością oraz wyjątków](../articles/application-insights/app-insights-detect-triage-diagnose.md) i [uzyskiwanie informacji na temat sposobu użycia aplikacji](../articles/application-insights/app-insights-overview-usage.md). 
 
-Install the SDK and then add monitoring for other data:
+Zainstaluj zestaw SDK, a następnie dodaj monitorowanie innych danych:
 
 > [AZURE.SELECTOR]
-- [Install the SDK](../articles/application-insights/app-insights-asp-net.md#selector1)
-- [User & page data](../articles/application-insights/app-insights-javascript.md#selector1)
-- [Exceptions](../articles/application-insights/app-insights-asp-net-exceptions.md#selector1)
-- [Dependencies](../articles/application-insights/app-insights-asp-net-dependencies.md#selector1)
-- [Availability](../articles/application-insights/app-insights-monitor-web-app-availability.md#selector1)
+- [Instalacja zestawu SDK](../articles/application-insights/app-insights-asp-net.md#selector1)
+- [Dane użytkownika i strony](../articles/application-insights/app-insights-javascript.md#selector1)
+- [Wyjątki](../articles/application-insights/app-insights-asp-net-exceptions.md#selector1)
+- [Zależności](../articles/application-insights/app-insights-asp-net-dependencies.md#selector1)
+- [Dostępność](../articles/application-insights/app-insights-monitor-web-app-availability.md#selector1)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

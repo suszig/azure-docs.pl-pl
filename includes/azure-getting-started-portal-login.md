@@ -8,26 +8,32 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Connecting to the Microsoft Azure portal with a subscription
+## Łączenie z portalem Microsoft Azure w przypadku posiadania subskrypcji
 
-To connect to the Microsoft Azure portal, you must have a subscription. 
+Aby połączyć się z portalem Microsoft Azure, trzeba mieć subskrypcję. 
 
-### Get a new account
+### Zakładanie nowego konta
 
-If you do not have an existing Microsoft Azure account, follow one of the links below to obtain an account:
+Jeśli nie masz jeszcze konta na portalu Microsoft Azure, użyj jednego z poniższych linków, by je założyć:
 
-- Get a [free account](https://azure.microsoft.com/get-started/)
-- Use an [MSDN subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/)
+- Załóż [bezpłatne konto](https://azure.microsoft.com/get-started/)
+- Użyj [subskrypcji MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/)
 
-###Sign in using your existing account
+###Logowanie przy użyciu istniejącego konta
 
-Using your [existing subscription]( https://account.windowsazure.com/Home/Index), follow the steps below to connect to the Azure portal. 
+Za pomocą [istniejącej subskrypcji]( https://account.windowsazure.com/Home/Index) wykonaj poniższe kroki, aby połączyć się z portalem Azure. 
 
-1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.com/).
+1. Otwórz wybraną przeglądarkę i połącz się z [portalem Azure](https://portal.azure.com/).
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Zaloguj się w [portalu Azure](https://portal.azure.com/).
 
-1. When the sign in page appears, provide the credentials for your subscription
+1. Kiedy zostanie wyświetlona strona logowania, podaj poświadczenia do subskrypcji
 
-   ![sign in](./media/azure-getting-started-portal-login/login.png)
+   ![logowanie](./media/azure-getting-started-portal-login/login.png)
    
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

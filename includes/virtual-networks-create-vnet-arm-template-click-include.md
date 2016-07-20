@@ -1,28 +1,33 @@
-## Deploy the ARM template by using click to deploy
+## Wdrażanie szablonu ARM przy użyciu metody „kliknij, aby wdrożyć”
 
-You can reuse pre-defined ARM templates upload to a github repository maintained by Microsoft and open to the community. THese templates can be deployed straight out of github, or downloaded and modified to fit your needs. To deploy a template that creates a VNet with two subnets, follow the steps below.
+Można ponownie użyć wstępnie zdefiniowanych szablonów ARM przesłanych do obsługiwanego przez firmę Microsoft repozytorium github dostępnego dla społeczności. Szablony te można wdrożyć bezpośrednio z poziomu repozytorium github lub pobrać i zmodyfikować odpowiednio do potrzeb. Aby wdrożyć szablon, który pozwala utworzyć sieć wirtualną z dwiema podsieciami, wykonaj poniższe kroki.
 
-1. From a browser, navigate to [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
-2. Scroll down the list of templates, and click **101-vnet-two-subnets**. Check the **README.md** file, as shown below.
+1. W przeglądarce przejdź do strony [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
+2. Przewiń w dół listę szablonów, a następnie kliknij opcję **101-vnet-two-subnets**. Zapoznaj się z plikiem **README.md**, jak pokazano poniżej.
 
-	![READEME.md file in github](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
+    ![Plik READEME.md w witrynie github](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
 
-3. Click **Deploy to Azure**. If necessary, enter your Azure login credentials. 
-4. In the **Parameters** blade, enter the values you want to use to create your new VNet, and then click **OK**. The figure below shows the values for our scenario.
+3. Kliknij przycisk **Wdrażaj na platformie Azure**. W razie potrzeby wprowadź poświadczenia logowania do platformy Azure. 
+4. W bloku **Parametry** wprowadź wartości, których chcesz użyć w celu utworzenia nowej sieci wirtualnej, a następnie kliknij opcję **OK**. Na poniższym rysunku przedstawiono wartości mające zastosowanie do naszego scenariusza.
 
-	![ARM template parameters](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
+    ![Parametry szablonu ARM](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
 
-4. Click **Resource group** and select a resource group to add the VNet to, or click **Create new** to add the VNet to a new resource group. The figure below shows the resource group settings for a new resource group called **TestRG**.
+4. Kliknij opcję **Grupa zasobów** i wybierz grupę zasobów, aby dodać do niej sieć wirtualną, lub kliknij opcję **Utwórz nową**, aby dodać sieć wirtualną do nowej grupy zasobów. Na poniższej ilustracji przedstawiono ustawienia nowej grupy zasobów o nazwie **TestRG**.
 
-	![Resource group](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
+    ![Grupa zasobów](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
 
-5. If necessary, change the **Subscription** and **Location** settings for your VNet.
-6. If you do not want to see the VNet as a tile in the **Startboard**, disable **Pin to Startboard**.
-5. Click **Leagl terms**, read the terms, and click **Buy** to agree. 
-6. Click **Create** to create the VNet.
+5. W razie potrzeby zmień wartości ustawień **Subskrypcja** i **Lokalizacja** sieci wirtualnej.
+6. Jeśli nie chcesz, aby sieć wirtualna była wyświetlana jako kafelek na **tablicy startowej**, wyłącz opcję **Przypnij do tablicy startowej**.
+5. Kliknij opcję **Postanowienia prawne**, przeczytaj warunki i kliknij przycisk **Kup**, aby je zaakceptować. 
+6. Kliknij pozycję **Utwórz**, aby utworzyć sieć wirtualną.
 
-	![Submitting deployment tile in preview portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
+    ![Przesyłanie kafelka wdrażania w portalu w wersji zapoznawczej](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-7. Once the deployment is done, click **TestVNet** > **All settings** > **Subnets** to see the subnet properties, as shown below.
+7. Po przeprowadzeniu wdrożenia kliknij kolejno opcje **TestVNet** > **Wszystkie ustawienia** > **Podsieci**, aby wyświetlić właściwości podsieci, jak pokazano poniżej.
 
-	![Create VNet in preview portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
+    ![Tworzenie sieci wirtualnej w portalu w wersji zapoznawczej](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

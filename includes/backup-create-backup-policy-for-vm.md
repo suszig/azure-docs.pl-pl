@@ -1,29 +1,35 @@
-## Defining a backup policy
+## Określanie zasad tworzenia kopii zapasowych
 
-A backup policy defines a matrix of when the data snapshots are taken, and how long those snapshots are retained. When defining a policy for backing up a VM, you can trigger a backup job *once a day*. When you create a new policy, it is applied to the vault. The backup policy interface looks like this:
+Zasady tworzenia kopii zapasowych określają macierz z informacjami, kiedy są pobierane migawki danych i jak długo są przechowywane. W przypadku określania zasad tworzenia kopii zapasowych maszyny wirtualnej można wyzwolić zadanie tworzenia kopii zapasowej *raz dziennie*. W przypadku tworzenia nowych zasad zostają one zastosowane do magazynu. Interfejs zasad tworzenia kopii zapasowych wygląda następująco:
 
-![Backup policy](./media/backup-create-policy-for-vms/backup-policy.png)
+![Zasady tworzenia kopii zapasowych](./media/backup-create-policy-for-vms/backup-policy.png)
 
-To create a policy:
+Aby utworzyć zasady:
 
-1. Enter a name for the **Policy name**.
+1. Wprowadź nazwę w polu **Nazwa zasad**.
 
-2. Snapshots of your data can be taken at Daily or Weekly intervals. Use the **Backup Frequency** drop-down menu to choose whether data snapshots are taken Daily or Weekly.
+2. Migawki danych mogą być pobierane raz dziennie lub co tydzień. Użyj menu rozwijanego **Częstotliwość tworzenia kopii zapasowych** i wybierz, czy migawki mają być pobierane raz dziennie czy co tydzień.
 
-    - If you choose a Daily interval, use the highlighted control to select the time of the day for the snapshot. To change the hour, de-select the hour, and select the new hour.
+    - Jeśli wybierzesz pobieranie raz dziennie, użyj wyróżnionej kontrolki, aby wybrać godzinę pobierania migawki. Aby zmienić godzinę, usuń jej zaznaczenie, a następnie wybierz nową.
 
-    ![Daily backup policy](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
+    ![Zasady tworzenia kopii zapasowych raz dziennie](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
 
-    - If you choose a Weekly interval, use the highlighted controls to select the day(s) of the week, and the time of day to take the snapshot. In the day menu, select one or multiple days. In the hour menu, select one hour. To change the hour, de-select the selected hour, and select the new hour.
+    - Jeśli wybierzesz pobieranie co tydzień, użyj wyróżnionych kontrolek, aby wybrać dzień lub dni tygodnia oraz godzinę pobierania migawki. W menu dzień wybierz jeden lub kilka dni. W menu godzina wybierz jedną godzinę. Aby zmienić godzinę, usuń jej zaznaczenie, a następnie wybierz nową.
 
-    ![Weekly backup policy](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
+    ![Zasady tworzenia kopii zapasowych co tydzień](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
 
-3. By default, all **Retention Range** options are selected. Uncheck any retention range limit you do not want to use. Then, specify the interval(s) to use.
+3. Domyślnie wszystkie opcje **Zakres przechowywania** są zaznaczone. Usuń zaznaczenia pola wyboru limitu zakresu przechowywania, których nie chcesz używać. Następnie określ odstępy czasu.
 
-    Monthly and Yearly retention ranges allow you to specify the snapshots based on a weekly or daily increment.
+    Miesięczne i roczne zakresy przechowywania umożliwiają określenie migawek na podstawie przyrostu tygodniowego lub dziennego.
 
-    >[AZURE.NOTE] When protecting a VM, a backup job runs once a day. The time when the backup runs is the same for each retention range.
+    >[AZURE.NOTE] W przypadku ochrony maszyn wirtualnych zadanie tworzenia kopii zapasowej jest uruchamiane raz dziennie. Godzina uruchamiania tworzenia kopii zapasowej jest taka sama dla każdego zakresu przechowywania.
 
-4. After setting all options for the policy, at the top of the blade click **Save**.
+4. Po ustawieniu wszystkich opcji zasad kliknij opcję **Zapisz** w górnej części bloku.
 
-    The new policy is immediately applied to the vault.
+    Nowe zasady zostaną natychmiast zastosowane do magazynu.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,57 +1,62 @@
-###Grant access to your Push Certificate to Mobile Engagement
+###Przyznawanie dostępu do certyfikatu wypychania do usługi Mobile Engagement
 
-To allow Mobile Engagement to send Push Notifications on your behalf, you need to grant it access to your certificate. This is done by configuring and entering your certificate into the Mobile Engagement portal. Make sure you obtain your .p12 certificate as explained in [Apple's documentation](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
+Aby zezwolić usłudze Mobile Engagement na wysyłanie powiadomień wypychanych w swoim imieniu, musisz przyznać jej dostęp do swojego certyfikatu. W tym celu należy skonfigurować i wprowadzić certyfikat w portalu usługi Mobile Engagement. Upewnij się, że dysponujesz certyfikatem p12, zgodnie z objaśnieniem w [dokumentacji firmy Apple](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6).
 
-1. Navigate to your Mobile Engagement portal. Ensure you're in the correct and then click on the **Engage** button at the bottom:
+1. Przejdź do portalu Mobile Engagement. Upewnij się, że znajdujesz się na poziomie właściwej aplikacji, a następnie kliknij przycisk **Engage** (Włącz) widoczny u dołu:
 
-	![](./media/mobile-engagement-ios-send-push/engage-button.png)
+    ![](./media/mobile-engagement-ios-send-push/engage-button.png)
 
-2. Click on the **Settings** page in your Engagement Portal. From there click on the **Native Push** section to upload your p12 certificate:
+2. Kliknij stronę **Settings** (Ustawienia) w portalu usługi Engagement. Następnie kliknij pozycję **Native Push** (Natywne powiadomienia wypychane), aby przesłać certyfikat p12:
 
-	![](./media/mobile-engagement-ios-send-push/engagement-portal.png)
+    ![](./media/mobile-engagement-ios-send-push/engagement-portal.png)
 
-3. Select your p12, upload it and type your password:
+3. Wybierz certyfikat p12, prześlij go i wpisz hasło:
 
-	![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
+    ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-##<a id="send"></a>Send a notification to your app
+##<a id="send"></a>Wysyłanie powiadomienia do aplikacji
 
-We will now create a simple Push Notification campaign that will send a push to our app:
+Teraz utworzymy prostą kampanię z użyciem powiadomień wypychanych, która wyśle powiadomienie wypychane do aplikacji:
 
-1. Navigate to the **Reach** tab in your Mobile Engagement portal.
+1. Przejdź do karty **Reach** (Zasięg) w portalu usługi Mobile Engagement.
 
-2. Click **New Announcement** to create your push campaign
+2. Kliknij przycisk **New Announcement** (Nowy anons), aby utworzyć kampanię powiadomień wypychanych.
 
-	![](./media/mobile-engagement-ios-send-push/new-announcement.png)
+    ![](./media/mobile-engagement-ios-send-push/new-announcement.png)
 
-3. Setup the first fields of your campaign:
+3. Skonfiguruj pierwsze pola kampanii:
 
-	![](./media/mobile-engagement-ios-send-push/campaign-first-params.png)
+    ![](./media/mobile-engagement-ios-send-push/campaign-first-params.png)
 
-	- 	Provide a **Name** for your campaign 
-	- 	Select the **Delivery time** as **Out of app only**: this is the simple Apple push notification type that features some text.
-	- 	In the notification text, type first the **Title** which will be the first line in the push.
-	- 	Then type your **Message** which will be the second line
+    -   Podaj nazwę kampanii w polu **Name** (Nazwa). 
+    -   W obszarze **Delivery time** (Godzina dostarczenia) wybierz opcję **Out of app only** (Tylko poza aplikacją) — jest to prosty typ powiadomienia wypychanego firmy Apple, które zawiera krótki tekst.
+    -   W tekście powiadomienia w polu **Title** (Tytuł) wpisz tytuł, który będzie stanowić pierwszy wiersz powiadomienia wypychanego.
+    -   Następnie w polu **Message** (Komunikat) wpisz komunikat, który będzie stanowić drugi wiersz.
 
-4. Scroll down, and in the content section select **Notification only**
+4. Przewiń w dół i w sekcji zawartości wybierz opcję **Notification only** (Tylko powiadomienie).
 
-	![](./media/mobile-engagement-ios-send-push/campaign-content.png)
+    ![](./media/mobile-engagement-ios-send-push/campaign-content.png)
 
-5. You're done setting the most basic campaign. Now scroll down and click on **Create** button to save your push notification campaign. 
+5. Najbardziej podstawowa kompania została skonfigurowana. Teraz przewiń w dół i kliknij przycisk **Create** (Utwórz), aby zapisać kampanię z użyciem powiadomień wypychanych. 
 
-6. Finally - click on **Activate** to send push notification. 
+6. Na koniec kliknij opcję **Activate** (Aktywuj), aby wysłać powiadomienie wypychane. 
 
-	![](./media/mobile-engagement-ios-send-push/campaign-activate.png)
+    ![](./media/mobile-engagement-ios-send-push/campaign-activate.png)
 
-7. You will be able receive the notification on your iOS device in the notification center like the following:
+7. Powiadomienie będzie można odebrać na urządzeniu z systemem iOS w centrum powiadomień w następujący sposób:
 
-	![](./media/mobile-engagement-ios-send-push/iphone-notification.png)
+    ![](./media/mobile-engagement-ios-send-push/iphone-notification.png)
 
-8. If you have an Apple Watch paired with this iOS device then you will see the notification on your Apple Watch:
+8. Jeśli masz urządzenie Apple Watch sparowane z danym urządzeniem z systemem iOS, powiadomienie zostanie wyświetlone na urządzeniu Apple Watch:
 
-	![](./media/mobile-engagement-ios-send-push/apple-watch.png)
+    ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
 
+
+ 
 
  
 
- 
+
+<!--HONumber=Jun16_HO2-->
+
+

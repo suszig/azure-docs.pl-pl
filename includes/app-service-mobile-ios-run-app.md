@@ -1,10 +1,16 @@
 
-1. On your Mac, visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. In the mobile app settings, click **Quickstart** > **iOS (Objective-C)**. If you prefer Swift, click **Quickstart** > **iOS (Swift)** instead. Under **Download and run your iOS project**, click **Download**. This downloads a complete Xcode project for an app pre-configured to connect to your backend. Open the project using Xcode.
+1. Odwiedź [portal Azure] przy użyciu komputera Mac. Kliknij kolejno opcje **Przeglądaj wszystkie** > **Aplikacje mobilne** > nowo utworzoną wewnętrzną bazę danych. W ustawieniach aplikacji mobilnej kliknij kolejno opcje **Szybki start** > **iOS (Objective-C)**. Jeśli preferujesz język Swift, zamiast tego kliknij kolejno opcje **Szybki start** > **iOS (Swift)**. W obszarze **Pobierz i uruchom projekt w systemie iOS** kliknij opcję **Pobierz**. Spowoduje to pobranie kompletnego projektu systemu Xcode dla aplikacji wstępnie skonfigurowanej do połączenia z wewnętrzną bazą danych. Otwórz projekt za pomocą środowiska Xcode.
 
-2. Press the **Run** button to build the project and start the app in the iOS simulator.
+2. Naciśnij przycisk **Uruchom**, aby skompilować projekt i uruchomić aplikację w symulatorze systemu iOS.
 
-3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the plus (**+**) icon. This sends a POST request to the Azure backend you deployed earlier. The backend inserts data from the request is into the TodoItem SQL table, and returns information about the newly stored items back to the mobile app. The mobile app displays this data in the list. 
+3. W aplikacji wpisz łatwy do rozpoznania tekst (np. _Ukończenie samouczka_), a następnie kliknij ikonę plusa (**+**). To spowoduje wysłanie żądania POST do wdrożonej wcześniej wewnętrznej bazy danych Azure. Wewnętrzna baza danych wstawia dane z żądania do tabeli SQL TodoItem i zwraca informacje na temat przechowywanych od niedawna elementów do aplikacji mobilnej. W aplikacji mobilnej dane te są wyświetlane na liście. 
 
-   	![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
+    ![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
 
-[Azure Portal]: https://portal.azure.com/
+[portal Azure]: https://portal.azure.com/
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

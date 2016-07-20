@@ -1,1 +1,6 @@
-> [AZURE.IMPORTANT] Before you work with Azure resources, get familiar with the deployment models: [Resource Manager, and classic](../articles/resource-manager-deployment-model.md).
+> [AZURE.IMPORTANT] Przed rozpoczęciem pracy z zasobami platformy Azure należy zapoznać się z modelami wdrażania: [modelem wdrażania przy użyciu usługi Azure Resource Manager i modelem klasycznym](../articles/resource-manager-deployment-model.md).
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,10 +1,15 @@
 
-| Compute Options             | Audience   |
+| Opcje obliczania             | Grupy odbiorców   |
 | --------------------------- | --------   |
-| [App Service][lnk_app]      | Scalable Web Apps, Mobile Apps, API Apps, and Logic Apps for any device |
-| [Cloud Services][lnk_cloud] | Highly available, scalable n-tier cloud apps with more control of the OS |
-| [Virtual Machines][lnk_vm]  | Customized Windows and Linux VMs with complete control of the OS |
+| [App Service][lnk_app]      | Skalowalne aplikacje sieci Web, aplikacje mobilne, aplikacje interfejsu API i aplikacje logiki dla dowolnych urządzeń |
+| [Cloud Services][lnk_cloud] | Skalowalne, wysoko dostępne warstwowe aplikacje w chmurze z większą kontrolą systemu operacyjnego |
+| [Virtual Machines][lnk_vm]  | Dostosowane maszyny wirtualne z systemem Windows i Linux z pełną kontrolą systemu operacyjnego |
 
 [lnk_app]: ../articles/app-service-web/app-service-web-overview.md
 [lnk_vm]: ../articles/virtual-machines/virtual-machines-windows-about.md
 [lnk_cloud]: ../articles/cloud-services/cloud-services-choose-me.md
+
+
+<!--HONumber=Jun16_HO2-->
+
+

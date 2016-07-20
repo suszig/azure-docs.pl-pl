@@ -1,9 +1,15 @@
-|  | **Classic Deployment**  | **Resource Manager Deployment** |
+|  | **Wdrożenie klasyczne**  | **Wdrożenie przy użyciu usługi Resource Manager** |
 |----------------------------------------|--------------|----------------------|
-| **Classic Portal**                     |[Article*](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) |  Not Supported |
-| **Azure Portal**                       | Supported               | [Article](vpn-gateway-howto-site-to-site-resource-manager-portal.md)|
-| **PowerShell**               |[Article+](..articles/vpn-gateway/vpn-gateway-multi-site.md)          | [Article](..articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)| 
+| **Klasyczny portal**                     |[Artykuł*](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) |  Nieobsługiwane |
+| **Azure Portal**                       | Obsługiwane               | [Artykuł](vpn-gateway-howto-site-to-site-resource-manager-portal.md)|
+| **PowerShell**               |[Artykuł+](..articles/vpn-gateway/vpn-gateway-multi-site.md)          | [Artykuł](..articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)| 
 
-(*) denotes that the classic portal can only support creating one S2S VPN connection.
+(*) oznacza, że klasyczny portal może obsługiwać tylko utworzenie jednego połączenia sieci VPN S2S.
 
-(+) denotes that this article is written for multi-site connections.
+(+) oznacza, że ten artykuł dotyczy połączeń obejmujących wiele lokalizacji.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

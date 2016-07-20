@@ -1,13 +1,18 @@
-Every blob in Azure storage must reside in a container. The container forms part of the blob name. For example, `mycontainer` is the name of the container in these sample blob URIs:
+Każdy obiekt blob w magazynie Azure musi znajdować się w kontenerze. Kontener jest częścią nazwy obiektu blob. Na przykład `mycontainer` to nazwa kontenera w następujących przykładowych identyfikatorach URI obiektów blob:
 
-	https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
-	https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
+    https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
+    https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
 
-A container name must be a valid DNS name, conforming to the following naming rules:
+Nazwa kontenera musi być prawidłową nazwą DNS zgodną z następującymi zasadami nazewnictwa:
 
-1. Container names must start with a letter or number, and can contain only letters, numbers, and the dash (-) character.
-1. Every dash (-) character must be immediately preceded and followed by a letter or number; consecutive dashes are not permitted in container names.
-1. All letters in a container name must be lowercase.
-1. Container names must be from 3 through 63 characters long.
+1. Nazwa kontenera musi zaczynać się literą lub cyfrą i może zawierać tylko litery, cyfry i znak kreski (-).
+1. Bezpośrednio przed każdym znakiem kreski (-) i bezpośrednio po nim musi występować litera lub cyfra. W nazwach kontenerów następujące po sobie kreski są niedozwolone.
+1. Wszystkie litery w nazwie kontenera muszą być małymi literami.
+1. Nazwy kontenerów muszą zawierać od 3 do 63 znaków.
 
-> [AZURE.IMPORTANT] Note that the name of a container must always be lowercase. If you include an upper-case letter in a container name, or otherwise violate the container naming rules, you may receive a 400 error (Bad Request). 
+> [AZURE.IMPORTANT] Należy pamiętać, że nazwa kontenera może zawierać tylko małe litery. Jeśli w nazwie kontenera wystąpi wielka litera lub reguły nazewnictwa dotyczące kontenerów zostaną naruszone w inny sposób, może zostać wyświetlony błąd 400 (Nieprawidłowe żądanie). 
+
+
+<!--HONumber=Jun16_HO2-->
+
+

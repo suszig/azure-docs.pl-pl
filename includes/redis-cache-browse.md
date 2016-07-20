@@ -1,13 +1,18 @@
-Caches can be accessed in the [Azure Portal](https://portal.azure.com) using the **Browse** blade.
+Dostęp do pamięci podręcznych w [portalu Azure](https://portal.azure.com) można uzyskać w bloku **przeglądania**.
 
-![Azure Redis Cache Browse Blade](media/redis-cache-browse/redis-cache-browse.png)
+![Blok przeglądania pamięci podręcznej Redis Azure](media/redis-cache-browse/redis-cache-browse.png)
 
-Click **Browse > Redis Caches** to view your caches. If you have recently browsed to a Redis Cache, you can click **Redis Caches** directly from the list without clicking **Browse**.
+Kliknij kolejno opcje **Przeglądaj > Pamięci podręczne Redis**, aby wyświetlić pamięci podręczne. Jeśli ostatnio nastąpiło przeglądanie do pamięci podręcznej Redis, możesz kliknąć opcję **Pamięci podręczne Redis** bezpośrednio z listy, nie klikając opcji **Przeglądaj**.
 
-Select the desired cache to view the properties for that cache.
+Wybierz odpowiednią pamięć podręczną, aby wyświetlić jej właściwości.
 
-![Azure Redis Cache Browse Cache List](media/redis-cache-browse/redis-caches.png)
+![Lista pamięci podręcznej przeglądania pamięci podręcznej Redis Azure](media/redis-cache-browse/redis-caches.png)
 
-Click **Settings** or **All settings** to view and configure your cache.
+Kliknij opcję **Ustawienia** lub **Wszystkie ustawienia**, aby wyświetlić i skonfigurować pamięć podręczną.
 
-![Redis Cache All Settings](media/redis-cache-browse/redis-cache-blade.png)
+![Wszystkie ustawienia pamięci podręcznej Redis](media/redis-cache-browse/redis-cache-blade.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

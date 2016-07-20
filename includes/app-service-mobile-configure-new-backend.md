@@ -1,16 +1,22 @@
 
-1. Back in the Mobile App backend, click **Settings** > **Quick start** > your client platform. 
+1. Po powrocie do wewnętrznej bazy danych aplikacji mobilnej kliknij kolejno opcje **Ustawienia** > **Szybki start** > platforma klienta. 
 
-2. Under **Create a table API**, select your **Backend language**, either C# or Node.js:
+2. W obszarze **Utwórz tabelę interfejsu API** wybierz opcję **Język wewnętrznej bazy danych**, C# lub Node.js:
 
-	+ **Node.js backend**:  
-	Accept the acknowledgment and click **Create TodoItem table**. This creates a new *TodoItem* table in your database. Remember that switching an existing backend to Node.js will overwrite all contents!
+    + **Wewnętrzna baza danych Node.js**:  
+    Zaakceptuj potwierdzenie i kliknij opcję **Utwórz tabelę TodoItem**. Spowoduje to utworzenie nowej tabeli *TodoItem* w bazie danych. Pamiętaj, że przełączenie istniejącej wewnętrznej bazy danych na Node.js spowoduje zastąpienie całej zawartości!
 
-	+ **C# (.NET Backend)**:  
-		1. Click **Download**,
-		2. Open the extracted solution in Visual Studio,
-		3. Build the project to restore the NuGet packages, and 
-		4. Deploy the project to Azure. 
-	
-		For detailed, step-by-step instructions on deploying the C# project to Azure, see [How to: Publish Backend Project with Visual Studio](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#publish-server-project). 
+    + **C# (wewnętrzna baza danych .NET)**:  
+        1. Kliknij przycisk **Pobierz**.
+        2. Otwórz wyodrębnione rozwiązanie w środowisku Visual Studio.
+        3. Skompiluj projekt do przywrócenia pakietów NuGet. 
+        4. Wdróż projekt na platformie Azure. 
+    
+        Szczegółowe instrukcje krok po kroku dotyczące wdrażania projektu C# na platformie Azure znajdują się w temacie [Porady: Publikowanie projektu wewnętrznej bazy danych przy użyciu środowiska Visual Studio](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#publish-server-project). 
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

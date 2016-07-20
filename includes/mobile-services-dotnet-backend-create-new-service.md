@@ -1,21 +1,27 @@
 
-Follow these steps to create a new mobile service.
+Wykonaj te kroki, aby utworzyć nową usługę mobilną.
 
-1.	Log into the [Azure classic portal](https://manage.windowsazure.com/). At the bottom of the navigation pane, click **+NEW**. Expand **Compute** and **Mobile Service**, then click **Create**.
-	
-	![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create.png)
+1.  Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com/). W dolnej części okienka nawigacji kliknij opcję **+NOWE**. Rozwiń pozycje **Obliczenia** i **Usługa mobilna**, a następnie kliknij przycisk **Utwórz**.
+    
+    ![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create.png)
 
-	This displays the **Create a Mobile Service** dialog.
+    Spowoduje to wyświetlenie okna dialogowego **Create a Mobile Service** (Tworzenie usługi mobilnej).
 
-2.	In the **Create a Mobile Service** page, select **Create a free 20 MB SQL Database**, select **.NET** runtime, then type a subdomain name for the new mobile service in the **URL** textbox. Click the right arrow button to go to the next page.
-	
-	![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page1.png)
+2.  W oknie dialogowym **Create a Mobile Service** (Tworzenie usługi mobilnej) wybierz opcję **Create a free 20 MB SQL Database** (Utwórz bezpłatną bazę danych SQL 20 MB), wybierz środowisko uruchomieniowe **.NET**, a następnie wpisz nazwę poddomeny dla nowej usługi mobilnej w polu tekstowym **URL** (Adres URL). Kliknij przycisk strzałki w prawo, aby przejść do następnej strony.
+    
+    ![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page1.png)
 
-	This displays the **Specify database settings** page.
+    Spowoduje to wyświetlenie strony **Specify database settings** (Określanie ustawień bazy danych).
 
-	> [AZURE.NOTE] As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the new mobile service, you can instead choose **Use existing Database** and then select that database. The use of a database in a different region is not recommended because of additional bandwidth costs and higher latencies.
+    > [AZURE.NOTE] W ramach tego samouczka utworzone zostaną nowe wystąpienie i serwer bazy danych SQL. Można ponownie użyć tej nowej bazy danych i zarządzać nią w taki sam sposób, jak w przypadku dowolnego innego wystąpienia bazy danych SQL. Jeśli masz już bazę danych w tym samym regionie, co nowa usługa mobilna, możesz wybrać opcję **Use existing Database** (Użyj istniejącej bazy danych), a następnie wybrać tę bazę danych. Korzystanie z bazy danych w innym regionie nie jest zalecane z powodu dodatkowych kosztów przepustowości i większych opóźnień.
 
-3.	In **Name**, type the name of the new database, then type **Login name**, which is the administrator login name for the new SQL Database server, type and confirm the password, and click the check button to complete the process.
-	![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page2.png)
+3.  W polu **Name** (Nazwa) wpisz nazwę nowej bazy danych, wypełnij pole **Login name** (Nazwa logowania) przeznaczone na nazwę logowania administratora dla nowego serwera bazy danych SQL, wpisz i potwierdź hasło oraz kliknij przycisk wyboru, aby ukończyć proces.
+    ![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page2.png)
 
-You have now created a new mobile service that can be used by your mobile apps.
+Utworzona została nowa usługa mobilna, która może być używana przez aplikacje mobilne.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

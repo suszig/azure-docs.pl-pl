@@ -1,31 +1,36 @@
-We will now create a simple push notification campaign that sends a push notification to our app.
+Teraz utworzymy prostą kampanię z użyciem powiadomień wypychanych, która wyśle powiadomienie wypychane do aplikacji.
 
-1. Navigate to the **REACH** tab in your Mobile Engagement portal.
+1. Przejdź do karty **REACH** (Zasięg) w portalu usługi Mobile Engagement.
 
-2. Click **New announcement** to create your push notification campaign.
+2. Kliknij przycisk **New Announcement** (Nowy anons), aby utworzyć kampanię z użyciem powiadomień wypychanych.
 
-	![](./media/mobile-engagement-windows-push-campaign/new-announcement.png)
+    ![](./media/mobile-engagement-windows-push-campaign/new-announcement.png)
 
-3. Set up the first field of your campaign through the following steps:
+3. Skonfiguruj pierwsze pole kampanii w następujący sposób:
 
-	![](./media/mobile-engagement-windows-push-campaign/campaign-first-params.png)
+    ![](./media/mobile-engagement-windows-push-campaign/campaign-first-params.png)
 
-	a. Provide a **Name** for your campaign.
+    a. Podaj **nazwę** kampanii.
 
-	b. Select **Delivery time** as *Any time*.
+    b. W obszarze **Delivery time** (Godzina dostarczenia) wybierz opcję *Any Time* (W dowolnym momencie).
 
-	d. In the notification text - type the **Title** which will be in bold in the push.
+    d. W tekście powiadomienia w polu **Title** (Tytuł) wpisz tytuł, który w powiadomieniu wypychanym będzie wyróżniony pogrubioną czcionką.
 
-	e. Then type your **Message**
+    e. Następnie wpisz komunikat w polu **Message** (Komunikat).
 
-4. Scroll down, and in the **Content** section, select **Notification only**.
+4. Przewiń w dół i w sekcji **Content** (Zawartość) wybierz opcję **Notification only** (Tylko powiadomienie).
 
-	![](./media/mobile-engagement-windows-push-campaign/campaign-content.png)
+    ![](./media/mobile-engagement-windows-push-campaign/campaign-content.png)
 
-5. You're done setting the most basic campaign possible. Now scroll down again and click the **Create** button to save your campaign.
+5. Na tym kończy się konfigurowanie najbardziej podstawowej kampanii. Teraz przewiń ponownie w dół i kliknij przycisk **Create** (Utwórz), aby zapisać kampanię.
 
-6. Last step: Click **Activate** to activate your campaign and to send push notifications.
+6. Ostatni krok: kliknij opcję **Activate** (Aktywuj), aby aktywować kampanię w celu wysyłania powiadomień wypychanych.
 
-	![](./media/mobile-engagement-windows-push-campaign/campaign-activate.png)
+    ![](./media/mobile-engagement-windows-push-campaign/campaign-activate.png)
 
  
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,15 +1,20 @@
-To connect to the cache, your cache clients need the host name, ports, and keys. Some clients may refer to these items by slightly different names. To retrieve these items, [browse](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) to your cache in the [Azure portal](https://portal.azure.com) and click **Settings** or **All settings**.
+Do połączenia się z pamięcią podręczną klienci pamięci podręcznej potrzebują nazwy hosta, portów i kluczy. Niektórzy klienci mogą odwoływać się do tych elementów przy użyciu nieco innych nazw. Aby pobrać te elementy, [przewiń](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) do pamięci podręcznej w [portalu Azure](https://portal.azure.com) i kliknij opcję **Ustawienia** lub **Wszystkie ustawienia**.
 
-![Redis cache settings](media/redis-cache-access-keys/redis-cache-settings.png)
+![Ustawienia pamięci podręcznej Redis](media/redis-cache-access-keys/redis-cache-settings.png)
 
-### Host name and ports
+### Nazwa hosta i porty
 
-To access the host name and ports click **Properties**.
+Aby uzyskać dostęp do nazwy hosta i portów, kliknij opcję **Właściwości**.
 
-![Redis cache properties](media/redis-cache-access-keys/redis-cache-properties.png)
+![Właściwości pamięci podręcznej Redis](media/redis-cache-access-keys/redis-cache-properties.png)
 
-### Access keys
+### Klawisze dostępu
 
-To retrieve the access keys, click **Access keys**.
+Aby pobrać klucze dostępu, kliknij opcję **Klucze dostępu**.
 
-![Redis cache access keys](media/redis-cache-access-keys/redis-cache-access-keys.png)
+![Klucze dostępu pamięci podręcznej Redis](media/redis-cache-access-keys/redis-cache-access-keys.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

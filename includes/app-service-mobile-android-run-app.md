@@ -1,12 +1,18 @@
 
-1. Visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. In the mobile app settings, click **Quickstart** > **Android)**. Under **Configure your client application**, click **Download**. This downloads a complete Android project for an app pre-configured to connect to your backend. 
+1. Odwiedź [portal Azure]. Kliknij kolejno opcje **Przeglądaj wszystkie** > **Aplikacje mobilne** > nowo utworzoną wewnętrzną bazę danych. W ustawieniach aplikacji mobilnej kliknij kolejno opcje **Szybki start** > **Android**. W obszarze **Konfiguruj aplikację klienta** kliknij przycisk **Pobierz**. To spowoduje pobranie kompletnego projektu systemu Android dla aplikacji wstępnie skonfigurowanej do połączenia z wewnętrzną bazą danych. 
 
-2. Open the project using **Android Studio**, using **Import project (Eclipse ADT, Gradle, etc.)**. Make sure you make this import selection to avoid any JDK errors.
+2. Otwórz projekt za pomocą środowiska **Android Studio** przy użyciu opcji **Importuj projekt (Eclipse ADT, Gradle itp.)**. Pamiętaj, aby zaznaczyć tę opcję importu, aby uniknąć błędów JDK.
 
-3. Press the **Run 'app'** button to build the project and start the app in the Android simulator.
+3. Naciśnij przycisk **Uruchom „aplikację”**, aby skompilować projekt i uruchomić aplikację w symulatorze systemu Android.
 
-4. In the app, type meaningful text, such as _Complete the tutorial_ and then click the 'Add' button. This sends a POST request to the Azure backend you deployed earlier. The backend inserts data from the request is into the TodoItem SQL table, and returns information about the newly stored items back to the mobile app. The mobile app displays this data in the list. 
+4. W aplikacji wpisz łatwy do rozpoznania tekst, np. _Ukończ samouczek_, a następnie kliknij przycisk Dodaj. To spowoduje wysłanie żądania POST do wdrożonej wcześniej wewnętrznej bazy danych Azure. Wewnętrzna baza danych wstawia dane z żądania do tabeli SQL TodoItem i zwraca informacje na temat przechowywanych od niedawna elementów do aplikacji mobilnej. W aplikacji mobilnej dane te są wyświetlane na liście. 
 
     ![](./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png)
 
-[Azure Portal]: https://portal.azure.com/
+[portal Azure]: https://portal.azure.com/
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

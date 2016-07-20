@@ -1,3 +1,9 @@
-> [AZURE.IMPORTANT] Azure PowerShell support for managing HDInsight resources using Azure Service Manager (ASM) is __deprecated__, and will be removed by January 1, 2017. The steps in this document use the new HDInsight cmdlets that work with Azure Resource Manager (ARM).
+> [AZURE.IMPORTANT] Obsługa środowiska Azure PowerShell do celów zarządzania zasobami usługi HDInsight przy użyciu usługi Azure Service Manager (ASM) jest __przestarzała__ i zostanie usunięta z dniem 1 stycznia 2017 r. W czynnościach opisanych w niniejszym dokumencie są używane nowe polecenia cmdlet usługi HDInsight współpracujące z usługą Azure Resource Manager (ARM).
 >
-> Please follow the steps in [Install and configure Azure PowerShell](../articles/powershell-install-configure.md) to install the latest version of Azure PowerShell. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](../articles/hdinsight/hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.
+> Wykonaj kroki opisane w temacie [Instalowanie i konfigurowanie środowiska Azure PowerShell](../articles/powershell-install-configure.md), aby zainstalować najnowszą wersję środowiska Azure PowerShell. Jeśli masz skrypty wymagające modyfikacji w celu użycia nowych poleceń cmdlet współpracujących z usługą Azure Resource Manager, zobacz temat [Migrowanie do narzędzi programistycznych opartych na usłudze Azure Resource Manager w celu obsługi klastrów usługi HDInsight](../articles/hdinsight/hdinsight-hadoop-development-using-azure-resource-manager.md), aby uzyskać więcej informacji.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

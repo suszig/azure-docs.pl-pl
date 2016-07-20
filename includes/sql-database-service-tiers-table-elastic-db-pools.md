@@ -1,1 +1,6 @@
-![Service tiers for elastic pools](./media/sql-database-service-tiers-table-elastic-db-pools/sql-database-service-tiers-table-elastic-db-pools.png) 
+![Warstwy usługi dla pul elastycznych](./media/sql-database-service-tiers-table-elastic-db-pools/sql-database-service-tiers-table-elastic-db-pools.png) 
+
+
+<!--HONumber=Jun16_HO2-->
+
+

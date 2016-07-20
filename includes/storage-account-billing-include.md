@@ -1,10 +1,16 @@
-You are billed for Azure Storage usage based on your storage account. Storage costs are based on the following factors: region/location, account type, storage capacity, replication scheme, storage transactions, and data egress.
+Rozliczenie jest przeprowadzane na podstawie wykorzystania usługi Azure Storage w oparciu o Twoje konto magazynu. Koszty przechowywania są uzależnione od następujących czynników: regionu/lokalizacji, typu konta, pojemności magazynu, schematu replikacji, transakcji magazynu i wyjścia danych.
 
-- Region refers to the geographical region in which your account is based.
-- Account type refers to whether you are using a general-purpose storage account or a Blob storage account. With a Blob storage account, the access tier also determines the billing model for the account.
-- Storage capacity refers to how much of your storage account allotment you are using to store data.
-- Replication determines how many copies of your data are maintained at one time, and in what locations.
-- Transactions refer to all read and write operations to Azure Storage.
-- Data egress refers to data transferred out of an Azure region. When the data in your storage account is accessed by an application that is not running in the same region, you are charged for data egress. (For Azure services, you can take steps to group your data and services in the same data centers to reduce or eliminate data egress charges.)
+- Region odnosi się do regionu geograficznego konta.
+- Typ konta dotyczy tego, czy używane jest konto magazynu ogólnego przeznaczenia czy konto Magazynu obiektów Blob. W przypadku konta Magazynu obiektów Blob warstwa dostępu decyduje również o modelu rozliczenia konta.
+- Pojemność usługi Storage dotyczy stopnia wykorzystania przydziału konta magazynu do przechowywania danych.
+- Replikacja określa liczbę kopii danych, które są obsługiwane jednocześnie, oraz ich lokalizacje.
+- Transakcje dotyczą wszystkich operacji odczytu i zapisu w usłudze Azure Storage.
+- Wyjście danych dotyczy danych przekazywanych poza region świadczenia usługi Azure. Jeśli do danych na koncie magazynu uzyskuje się dostęp za pośrednictwem aplikacji, która nie działa w tym samym regionie, naliczane są opłaty za wyjście danych. (W przypadku usług Azure możesz wykonać czynności związane z grupowaniem danych i usług w tych samych centrach danych, aby zredukować lub całkowicie wyeliminować opłaty za wyjście danych).
 
-The [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page provides detailed pricing information based on account type, storage capacity, replication, and transactions. The [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) provides detailed pricing information for data egress. You can use the [Azure Storage Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) to help estimate your costs.
+Strona [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/) zawiera szczegółowe informacje o cenach w zależności od typu konta, pojemności magazynu, replikacji i transakcji. Artykuł [Szczegóły cennika transferów danych](https://azure.microsoft.com/pricing/details/data-transfers/) zawiera szczegółowe informacje o cenach za wyjście danych. Artykuł [Kalkulator cen usługi Azure Storage](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) zawiera informacje, które ułatwią szacowanie kosztów.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

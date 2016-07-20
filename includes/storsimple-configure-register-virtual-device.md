@@ -1,21 +1,26 @@
 <!---author: alkohli, last updated: 11/05/2015 --->
 
-#### To configure and register the virtual device
+#### Aby skonfigurować i zarejestrować urządzenie wirtualne
 
-1. Select the StorSimple virtual device you just created in the **Devices** page. 
+1. Wybierz urządzenie wirtualne StorSimple nowo utworzone na stronie **Urządzenia**. 
 
-2. Click **complete device setup**. This starts the Configure device wizard.
+2. Kliknij opcję **Zakończ konfigurowanie urządzenia**. Spowoduje to uruchomienie Kreatora konfiguracji urządzenia.
 
-    ![StorSimple complete device setup in Devices page](./media/storsimple-configure-register-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
+    ![Ukończenie konfiguracji urządzenia StorSimple na stronie Urządzenia](./media/storsimple-configure-register-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
 
-3. Enter the **Service Data Encryption Key** in the space provided.
+3. W odpowiednim miejscu wprowadź **Klucz szyfrowania danych usługi**.
 
-4. Enter the Snapshot Manager and Device Administrator passwords of the length and settings specified.
+4. Wprowadź hasła programu Snapshot Manager i administratora urządzenia o określonej długości i z określonymi ustawieniami.
 
-5. Click the check mark to finish the initial configuration and registration of the virtual device. 
+5. Kliknij znacznik wyboru, aby zakończyć wstępną konfigurację i rejestrację urządzenia wirtualnego. 
 
-    ![StorSimple virtual device settings](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceSettings1.png)
+    ![Ustawienia urządzenia wirtualnego StorSimple](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceSettings1.png)
 
-After the configuration and registration is complete, the device will come online. (It may take several minutes for the device to come online.)
+Po ukończeniu konfiguracji i rejestracji urządzenie zostanie przełączone do trybu online. (Przejście urządzenia do trybu online może zająć kilka minut).
 
-![StorSimple virtual device online stage](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
+![Etap trybu online urządzenia wirtualnego StorSimple](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

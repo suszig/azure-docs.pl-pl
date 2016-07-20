@@ -1,31 +1,36 @@
-To create a VNet by using the Azure portal, follow the steps below. Note that the screenshots are provided as examples. Be sure to replace the values with your own. For more information about working with virtual networks, see the [Virtual Network Overview](../articles/virtual-network/virtual-networks-overview.md).
+Aby utworzyć sieć wirtualną przy użyciu portalu Azure, wykonaj poniższe kroki. Należy zauważyć, że zamieszczone zrzuty ekranu są przykładowe. Przedstawione na nich wartości należy zastąpić własnymi. Aby uzyskać więcej informacji dotyczących pracy z sieciami wirtualnymi, zobacz temat [Omówienie sieci wirtualnych](../articles/virtual-network/virtual-networks-overview.md).
 
-1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
+1. W przeglądarce przejdź do [portalu Azure](http://portal.azure.com) i, jeśli to konieczne, zaloguj się przy użyciu konta platformy Azure.
 
-2. Click **New** **>** **Networking** **>** **Virtual Network**.
+2. Kliknij opcję **Nowe** **>** **Sieć** **>** **Sieć wirtualna**.
 
-	![VNetBlade](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal650.png)
+    ![VNetBlade](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal650.png)
 
-3. Near the bottom of the Virtual Network blade, from the **Select a deployment model** list, select **Resource Manager**, and then click **Create**.
-
-
-	![Select Resource Manager](./media/vpn-gateway-basic-vnet-rm-portal-include/resourcemanager250.png)
-
-4. On the **Create virtual network** blade, configure the VNet settings. In this blade, you'll add your first address space and a single subnet address range. After you finish creating the VNet, you can go back and add additional subnets and address spaces. This is a current limitation of the portal. You can always come back to update these values by editing the VNet properties in the portal, or by using PowerShell. The values that you use will depend on the configuration you want to create. Be sure to refer to your planned configuration values. 
-
-	![Create virtual network blade](./media/vpn-gateway-basic-vnet-rm-portal-include/createavnet250.png)
-
-5. Verify that the **Subscription** is the correct one. You can change subscriptions by using the dropdown.
-
-6. Click **Resource group** and either select an existing resource group, or create a new one by typing a name for your new resource group. If you are creating a new group, name the resource group according to your planned configuration values. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md#resource-groups).
-
-7. Next, select the **Location** settings for your VNet. Note that the location will determine where the resources that you deploy to this VNet will reside. You can't change this later without redeploying your resources.
-
-8. Select **Pin to dashboard** if you want to be able to find your VNet easily on the dashboard, and then click **Create**.
-	
-	![Pin to dashboard](./media/vpn-gateway-basic-vnet-rm-portal-include/pintodashboard150.png)
+3. Z listy **Wybierz model wdrożenia** znajdującej się w dolnej części bloku Sieć wirtualna wybierz opcję **Menedżer zasobów**, a następnie kliknij przycisk **Utwórz**.
 
 
-9. After clicking Create, you will see a tile on your dashboard that will reflect the progress of your VNet. The tile will change as the VNet is being created.
+    ![Wybór opcji Menedżer zasobów](./media/vpn-gateway-basic-vnet-rm-portal-include/resourcemanager250.png)
 
-	![Creating virtual network tile](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png)
+4. W bloku **Utwórz sieć wirtualną** skonfiguruj ustawienia sieci wirtualnej. W tym bloku należy dodać pierwszą przestrzeń adresową i zakres adresów pojedynczej podsieci. Po zakończeniu tworzenia sieci wirtualnej możesz wrócić i dodać dodatkowe podsieci oraz przestrzenie adresowe. Jest to aktualne ograniczenie portalu. Zawsze możesz wrócić i zaktualizować te wartości, edytując właściwości sieci wirtualnej w portalu lub przy użyciu programu PowerShell. Wartości, których można użyć, zależą od konfiguracji, jaką chcesz utworzyć. Pamiętaj, aby odwoływać się do wartości planowanej konfiguracji. 
+
+    ![Tworzenie bloku sieci wirtualnej](./media/vpn-gateway-basic-vnet-rm-portal-include/createavnet250.png)
+
+5. Sprawdź, czy pole **Subskrypcja** zawiera prawidłową wartość. Subskrypcje można zmieniać, korzystając z listy rozwijanej.
+
+6. Kliknij przycisk **Grupy zasobów** i wybierz istniejącą grupę zasobów lub utwórz nową, wpisując nazwę nowej grupy zasobów. Jeśli tworzysz nową grupę, nadaj jej nazwę odpowiadającą wartościom planowanej konfiguracji. Aby uzyskać więcej informacji na temat grup zasobów, zobacz temat [Omówienie usługi Azure Resource Manager](resource-group-overview.md#resource-groups).
+
+7. Następnie w polu **Lokalizacja** wybierz ustawienia sieci wirtualnej. Należy zauważyć, że lokalizacja określi miejsce, w którym zostaną umieszczone zasoby wdrażane w tej sieci wirtualnej. Tego ustawienia nie można później zmienić bez ponownego wdrożenia zasobów.
+
+8. Wybierz opcję **Przypnij do pulpitu nawigacyjnego**, jeśli chcesz, aby Twoją sieć wirtualną można było łatwo znaleźć na pulpicie nawigacyjnym, a następnie kliknij przycisk **Utwórz**.
+    
+    ![Przypnij do pulpitu nawigacyjnego](./media/vpn-gateway-basic-vnet-rm-portal-include/pintodashboard150.png)
+
+
+9. Po kliknięciu przycisku Utwórz na pulpicie nawigacyjnym zostanie umieszczony kafelek, który będzie odzwierciedlać postęp Twojej sieci wirtualnej. Wygląd kafelka zmienia się w trakcie tworzenia sieci wirtualnej.
+
+    ![Kafelek tworzenia sieci wirtualnej](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,63 +1,69 @@
-## What are Service Bus queues?
+## Czym są kolejki usługi Service Bus?
 
-Service Bus queues support a **brokered messaging** communication model. When using queues, components of a distributed application do not communicate directly with each other; instead they exchange messages via a queue, which acts as an intermediary (broker). A message producer (sender) hands off a message to the queue and then continues its processing. Asynchronously, a message consumer (receiver) pulls the message from the queue and processes it. The producer does not have to wait for a reply from the consumer in order to continue to process and send further messages. Queues offer **First In, First Out (FIFO)** message delivery to one or more competing consumers. That is, messages are typically received and processed by the receivers in the order in which they were added to the queue, and each message is received and processed by only one message consumer.
+Kolejki usługi Service Bus obsługują model komunikacji z użyciem **komunikatów obsługiwanych przez blokera**. Podczas korzystania z kolejek składniki aplikacji rozproszonej nie komunikują się bezpośrednio ze sobą, lecz wymieniają komunikaty za pośrednictwem kolejki, która działa jako pośrednik (broker). Producent komunikatu (nadawca) przekazuje komunikat do kolejki i kontynuuje jego przetwarzanie. Konsument komunikatu (odbiorca) asynchronicznie pobiera komunikat z kolejki i go przetwarza. Producent nie musi czekać na odpowiedź od konsumenta, aby kontynuować przetwarzanie i wysyłanie dalszych komunikatów. Kolejki umożliwiają dostarczanie komunikatów metodą **pierwszy na wejściu — pierwszy na wyjściu (FIFO)** do jednego lub większej liczby konkurencyjnych konsumentów. To oznacza, że komunikaty są zwykle odbierane i przetwarzane przez odbiorców w kolejności, w której zostały dodane do kolejki, a każdy komunikat jest odbierany i przetwarzany przez tylko jednego konsumenta.
 
 ![QueueConcepts](./media/howto-service-bus-queues/sb-queues-08.png)
 
-Service Bus queues are a general-purpose technology that can be used for a wide variety of scenarios:
+Kolejki usługi Service Bus to technologia ogólnego przeznaczenia, która może być używana w wielu różnych scenariuszach:
 
--   Communication between web and worker roles in a multi-tier Azure application.
--   Communication between on-premises apps and Azure-hosted apps in a hybrid solution.
--   Communication between components of a distributed application running on-premises in different organizations or departments of an organization.
+-   Komunikacja między rolami sieci Web i procesów roboczych w wielowarstwowej aplikacji Azure.
+-   Komunikacja między aplikacjami lokalnymi i hostowanymi na platformie Azure w rozwiązaniu hybrydowym.
+-   Komunikacja między składnikami aplikacji rozproszonej działającej lokalnie w różnych organizacjach lub działach organizacji.
 
-Using queues enables you to scale your applications more easily, and enable more resiliency to your architecture.
+Korzystanie z kolejek umożliwia łatwiejsze skalowanie aplikacji i pozwala na większą elastyczność architektury.
 
-## Create a service namespace
+## Tworzenie przestrzeni nazw usługi
 
-To begin using Service Bus queues in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Service Bus resources within your application.
+Aby rozpocząć korzystanie z kolejek usługi Service Bus na platformie Azure, należy najpierw utworzyć przestrzeń nazw usługi. Przestrzeń nazw zapewnia kontener zakresu na potrzeby adresowania zasobów usługi Service Bus w aplikacji.
 
-To create a namespace:
+Aby utworzyć przestrzeń nazw:
 
-1.  Log on to the [Azure classic portal][].
+1.  Zaloguj się do [klasycznego portalu Azure][].
 
-2.  In the left navigation pane of the portal, click **Service Bus**.
+2.  W lewym okienku nawigacji portalu kliknij pozycję **Service Bus**.
 
-3.  In the lower pane of the portal, click **Create**.
-	![](./media/howto-service-bus-queues/sb-queues-03.png)
+3.  W dolnym okienku portalu kliknij pozycję **Utwórz**.
+    ![](./media/howto-service-bus-queues/sb-queues-03.png)
 
-4.  In the **Add a new namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.   
-	![](./media/howto-service-bus-queues/sb-queues-04.png)
+4.  W oknie dialogowym **Add a new namespace** (Dodawanie nowej przestrzeni nazw) wprowadź nazwę przestrzeni nazw. System od razu sprawdza, czy nazwa jest dostępna.   
+    ![](./media/howto-service-bus-queues/sb-queues-04.png)
 
-5.  After making sure the namespace name is available, choose the country or region in which your namespace should be hosted (make sure you use the same country/region in which you are deploying your compute resources).
+5.  Po upewnieniu się, że nazwa przestrzeni nazw jest dostępna, wybierz kraj lub region, w którym przestrzeń nazw ma być hostowana (upewnij się, że używasz tego samego kraju/regionu, w którym są wdrażane zasoby obliczeniowe).
 
-	 > [AZURE.IMPORTANT] Pick the **same region** that you intend to choose for deploying your application. This will give you the best performance.
+     > [AZURE.IMPORTANT] Wybierz **ten sam region**, który zamierzasz wybrać do wdrożenia aplikacji. Zapewni to najlepszą wydajność.
 
-6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the OK check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+6.  W pozostałych polach okna dialogowego pozostaw wartości domyślne (**Obsługa komunikatów** i **Warstwa Standardowa**), a następnie kliknij znacznik wyboru OK. W systemie zostanie utworzona i włączona przestrzeń nazw. Proces inicjowania obsługi administracyjnej zasobów dla konta w systemie może potrwać kilka minut.
 
-	![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
+    ![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
 
-The namespace you created takes a moment to activate, and will then appear in the portal. Wait until the namespace status is **Active** before continuing.
+Utworzona przestrzeń nazw zostanie za moment aktywowana, a następnie wyświetlona w portalu. Przed wykonaniem dalszych czynności poczekaj, aż stan przestrzeni nazw będzie mieć wartość **Aktywna**.
 
-## Obtain the default management credentials for the namespace
+## Uzyskiwanie domyślnych poświadczeń zarządzania dla przestrzeni nazw
 
-In order to perform management operations, such as creating a queue on the new namespace, you must obtain the management credentials for the namespace. You can obtain these credentials from the [Azure classic portal][].
+W celu wykonywania operacji zarządzania, takich jak tworzenie kolejki w nowej przestrzeni nazw, należy uzyskać poświadczenia zarządzania dla przestrzeni nazw. Możesz uzyskać te poświadczenia w [klasycznego portalu Azure][].
 
-###To obtain management credentials from the portal
+###Aby uzyskać poświadczenia zarządzania w portalu
 
-1.  In the left navigation pane, click the **Service Bus** node, to display the list of available namespaces:   
-	![](./media/howto-service-bus-queues/sb-queues-13.png)
+1.  W lewym okienku nawigacji kliknij węzeł **Service Bus**, aby wyświetlić listę dostępnych przestrzeni nazw:   
+    ![](./media/howto-service-bus-queues/sb-queues-13.png)
 
-2.  Select the namespace you just created from the list shown:   
-	![](./media/howto-service-bus-queues/sb-queues-09.png)
+2.  Wybierz nowo utworzoną przestrzeń nazw z wyświetlonej listy:   
+    ![](./media/howto-service-bus-queues/sb-queues-09.png)
 
-3.  Click **Connection Information**.   
-	![](./media/howto-service-bus-queues/sb-queues-06.png)
+3.  Kliknij pozycję **Informacje o połączeniu**.   
+    ![](./media/howto-service-bus-queues/sb-queues-06.png)
 
-4.  In the **Access connection information** pane, find the connection string that contains the SAS key and key name.   
+4.  W okienku zapewniającym **dostęp do informacji o połączeniu** znajdź parametry połączenia, które zawierają klucz SAS i nazwę klucza.   
 
-	![](./media/howto-service-bus-queues/multi-web-45.png)
+    ![](./media/howto-service-bus-queues/multi-web-45.png)
     
-5.  Make a note of the key, or copy it to the clipboard.
+5.  Zanotuj klucz lub skopiuj go do schowka.
 
-  [Azure classic portal]: http://manage.windowsazure.com
+  [klasycznego portalu Azure]: http://manage.windowsazure.com
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

@@ -1,107 +1,113 @@
-## How to create a VNet using the Azure CLI
+## Tworzenie sieci wirtualnej za pomocą interfejsu wiersza polecenia platformy Azure
 
-You can use the Azure CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or OSX. To create a VNet by using the Azure CLI, follow the steps below.
+Interfejsu wiersza polecenia platformy Azure można użyć do zarządzania zasobami Azure z poziomu wiersza polecenia dowolnego komputera z systemem Windows, Linux lub OS X. Aby utworzyć sieć wirtualną przy użyciu interfejsu wiersza polecenia platformy Azure, wykonaj poniższe kroki.
 
-1. If you have never used the Azure CLI, see [Install and Configure the Azure CLI](../articles/xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
+1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz temat [Install and Configure the Azure CLI](../articles/xplat-cli-install.md) (Instalacja i konfiguracja interfejsu wiersza polecenia platformy Azure) i postępuj zgodnie z instrukcjami aż do punktu, w którym należy wybrać konto platformy Azure i subskrypcję.
+2. Uruchom polecenie **azure config mode**, aby włączyć tryb Resource Manager, jak pokazano poniżej.
 
-		azure config mode arm
+        azure config mode arm
 
-	Here is the expected output for the command above:
+    Oto oczekiwane dane wyjściowe po wprowadzeniu powyższego polecenia:
 
-		info:    New mode is arm
+        info:    New mode is arm
 
-3. If necessary, run the **azure group create** to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager Overview](../articles/virtual-network/resource-group-overview.md/#resource-groups).
+3. W razie potrzeby uruchom polecenie **azure group create**, aby utworzyć nową grupę zasobów, jak pokazano poniżej. Zwróć uwagę na dane wyjściowe polecenia. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów. Aby uzyskać więcej informacji na temat grup zasobów, zobacz temat [Omówienie usługi Azure Resource Manager](../articles/virtual-network/resource-group-overview.md/#resource-groups).
 
-		azure group create -n TestRG -l centralus
+        azure group create -n TestRG -l centralus
 
-	Here is the expected output for the command above:
+    Oto oczekiwane dane wyjściowe po wprowadzeniu powyższego polecenia:
 
-		info:    Executing command group create
-		+ Getting resource group TestRG
-		+ Creating resource group TestRG
-		info:    Created resource group TestRG
-		data:    Id:                  /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
-		data:    Name:                TestRG
-		data:    Location:            centralus
-		data:    Provisioning State:  Succeeded
-		data:    Tags: null
-		data:
-		info:    group create command OK
+        info:    Executing command group create
+        + Getting resource group TestRG
+        + Creating resource group TestRG
+        info:    Created resource group TestRG
+        data:    Id:                  /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+        data:    Name:                TestRG
+        data:    Location:            centralus
+        data:    Provisioning State:  Succeeded
+        data:    Tags: null
+        data:
+        info:    group create command OK
 
-	- **-n (or --name)**. Name for the new resource group. For our scenario, *TestRG*.
-	- **-l (or --location)**. Azure region where the new resource group will be created. For our scenario, *centralus*.
+    - **-n (lub --name)**. Nazwa nowej grupy zasobów. W naszym scenariuszu jest to *TestRG*.
+    - **-l (lub --location)**. Region platformy Azure, w którym zostanie utworzona nowa grupa zasobów. W naszym scenariuszu jest to *centralus*.
 
-4. Run the **azure network vnet create** command to create a VNet and a subnet, as shown below. 
+4. Uruchom polecenie **azure network vnet create**, aby utworzyć sieć wirtualną i podsieć, jak pokazano poniżej. 
 
-		azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l centralus
+        azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l centralus
 
-	Here is the expected output for the command above:
+    Oto oczekiwane dane wyjściowe po wprowadzeniu powyższego polecenia:
 
-		info:    Executing command network vnet create
-		+ Looking up virtual network "TestVNet"
-		+ Creating virtual network "TestVNet"
-		+ Loading virtual network state
-		data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet2
-		data:    Name                            : TestVNet
-		data:    Type                            : Microsoft.Network/virtualNetworks
-		data:    Location                        : centralus
-		data:    ProvisioningState               : Succeeded
-		data:    Address prefixes:
-		data:      192.168.0.0/16
-		info:    network vnet create command OK
+        info:    Executing command network vnet create
+        + Looking up virtual network "TestVNet"
+        + Creating virtual network "TestVNet"
+        + Loading virtual network state
+        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet2
+        data:    Name                            : TestVNet
+        data:    Type                            : Microsoft.Network/virtualNetworks
+        data:    Location                        : centralus
+        data:    ProvisioningState               : Succeeded
+        data:    Address prefixes:
+        data:      192.168.0.0/16
+        info:    network vnet create command OK
 
-	- **-g (or --resource-group)**. Name of the resource group where the VNet will be created. For our scenario, *TestRG*.
-	- **-n (or --name)**. Name of the VNet to be created. For our scenario, *TestVNet*
-	- **-a (or --address-prefixes)**. List of CIDR blocks used for the VNet address space. For our scenario, *192.168.0.0/16*
-	- **-l (or --location)**. Azure region where the VNet will be created. For our scenario, *centralus*.
+    - **-g (lub --resource-group)**. Nazwa grupy zasobów, w której zostanie utworzona sieć wirtualna. W naszym scenariuszu jest to *TestRG*.
+    - **-n (lub --name)**. Nazwa sieci wirtualnej, która zostanie utworzona. W naszym scenariuszu jest to *TestVNet*
+    - **-a (lub --address-prefixes)**. Lista bloków CIDR wykorzystanych w celu zapewnienia przestrzeni adresowej dla sieci wirtualnej. W naszym scenariuszu jest to *192.168.0.0/16*
+    - **-l (lub --location)**. Region platformy Azure, w którym zostanie utworzona sieć wirtualna. W naszym scenariuszu jest to *centralus*.
 
-5. Run the **azure network vnet subnet create** command to create a subnet as shown below. Notice the output of the command. The list shown after the output explains the parameters used.
+5. Uruchom polecenie **azure network vnet subnet create**, aby utworzyć podsieć, jak pokazano poniżej. Zwróć uwagę na dane wyjściowe polecenia. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów.
 
-		azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
+        azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
 
-	Here is the expected output for the command above:
+    Oto oczekiwane dane wyjściowe po wprowadzeniu powyższego polecenia:
 
-		info:    Executing command network vnet subnet create
-		+ Looking up the subnet "FrontEnd"
-		+ Creating subnet "FrontEnd"
-		+ Looking up the subnet "FrontEnd"
-		data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
-		data:    Type                            : Microsoft.Network/virtualNetworks/subnets
-		data:    ProvisioningState               : Succeeded
-		data:    Name                            : FrontEnd
-		data:    Address prefix                  : 192.168.1.0/24
-		data:
-		info:    network vnet subnet create command OK
+        info:    Executing command network vnet subnet create
+        + Looking up the subnet "FrontEnd"
+        + Creating subnet "FrontEnd"
+        + Looking up the subnet "FrontEnd"
+        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
+        data:    Type                            : Microsoft.Network/virtualNetworks/subnets
+        data:    ProvisioningState               : Succeeded
+        data:    Name                            : FrontEnd
+        data:    Address prefix                  : 192.168.1.0/24
+        data:
+        info:    network vnet subnet create command OK
 
-	- **-e (or --vnet-name**. Name of the VNet where the subnet will be created. For our scenario, *TestVNet*.
-	- **-n (or --name)**. Name of the new subnet. For our scenario, *FrontEnd*.
-	- **-a (or --address-prefix)**. Subnet CIDR block. Four our scenario, *192.168.1.0/24*.
+    - **-e (lub --vnet-name)**. Nazwa sieci wirtualnej, w której zostanie utworzona podsieć. W naszym scenariuszu jest to *TestVNet*.
+    - **-n (lub --name)**. Nazwa nowej podsieci. W naszym scenariuszu jest to *FrontEnd*.
+    - **-a (lub --address-prefix)**. Blok CIDR podsieci. W naszym scenariuszu jest to *192.168.1.0/24*.
 
-6. Repeat step 5 above to create other subnets, if necessary. For our scenario, run the command below to create the *BackEnd* subnet.
+6. W razie potrzeby powtórz krok 5 powyżej, aby utworzyć kolejne podsieci. W naszym scenariuszu należy uruchomić poniższe polecenie, aby utworzyć podsieć o nazwie *BackEnd*.
 
-		azure network vnet subnet create -g TestRG -e TestVNet -n BackEnd -a 192.168.2.0/24
+        azure network vnet subnet create -g TestRG -e TestVNet -n BackEnd -a 192.168.2.0/24
 
-4. Run the **azure network vnet show** command to view the properties of the new vnet, as shown below.
+4. Uruchom polecenie **azure network vnet show**, aby wyświetlić właściwości nowej sieci wirtualnej, jak pokazano poniżej.
 
-		azure network vnet show -g TestRG -n TestVNet
+        azure network vnet show -g TestRG -n TestVNet
 
-	Here is the expected output for the command above:
+    Oto oczekiwane dane wyjściowe po wprowadzeniu powyższego polecenia:
 
-		info:    Executing command network vnet show
-		+ Looking up virtual network "TestVNet"
-		data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-		data:    Name                            : TestVNet
-		data:    Type                            : Microsoft.Network/virtualNetworks
-		data:    Location                        : centralus
-		data:    ProvisioningState               : Succeeded
-		data:    Address prefixes:
-		data:      192.168.0.0/16
-		data:    Subnets:
-		data:      Name                          : FrontEnd
-		data:      Address prefix                : 192.168.1.0/24
-		data:
-		data:      Name                          : BackEnd
-		data:      Address prefix                : 192.168.2.0/24
-		data:
-		info:    network vnet show command OK
+        info:    Executing command network vnet show
+        + Looking up virtual network "TestVNet"
+        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+        data:    Name                            : TestVNet
+        data:    Type                            : Microsoft.Network/virtualNetworks
+        data:    Location                        : centralus
+        data:    ProvisioningState               : Succeeded
+        data:    Address prefixes:
+        data:      192.168.0.0/16
+        data:    Subnets:
+        data:      Name                          : FrontEnd
+        data:      Address prefix                : 192.168.1.0/24
+        data:
+        data:      Name                          : BackEnd
+        data:      Address prefix                : 192.168.2.0/24
+        data:
+        info:    network vnet show command OK
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

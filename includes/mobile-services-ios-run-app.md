@@ -1,16 +1,22 @@
 
 
 
-The final stage of this tutorial is to build and run your new app.
+Ostatnim krokiem tego samouczka jest skompilowanie i uruchomienie nowej aplikacji.
 
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the project file using Xcode.
+1. Przejdź do lokalizacji, w której zapisano skompresowane pliki projektu, rozwiń pliki na komputerze, a następnie otwórz plik projektu w programie Xcode.
 
-2. Press the **Run** button to build the project and start the app in the iPhone emulator.
+2. Kliknij przycisk **Run** (Uruchom), aby skompilować projekt i uruchomić aplikację w emulatorze urządzenia iPhone.
 
-3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the plus (**+**) icon.
+3. W aplikacji wpisz łatwy do rozpoznania tekst (np. _Ukończenie samouczka_), a następnie kliknij ikonę plusa (**+**).
 
-   	![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
+    ![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
 
-   	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
+    Spowoduje to wysłanie żądania POST do nowej usługi mobilnej, która jest hostowana na platformie Azure. Dane z żądania zostaną wstawione do tabeli TodoItem. Elementy przechowywane w tabeli są zwracane przez usługę mobilną, a dane są wyświetlane na liście.
 
- 	</div>
+    </div>
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

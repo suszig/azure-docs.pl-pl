@@ -1,31 +1,37 @@
 <!--author=SharS last changed: 02/04/2016-->
 
-#### To create a volume
+#### Aby utworzyć wolumin
 
-1. On the device **Quick Start** page, click **Add a volume**. This starts the Add a volume wizard.
+1. Na stronie **Szybki start** urządzenia kliknij pozycję **Dodaj wolumin**. Spowoduje to uruchomienie Kreatora dodawania woluminu.
 
-2. In the Add a volume wizard, under **Basic Settings**, do the following:
-   1. Supply a **Name** for your volume.
-   2. Specify the **Provisioned Capacity** for your volume in GB or TB. The volume capacity must be between 1 GB and 64 TB for a physical device.
-   3. On the drop-down list, select the **Usage Type** for your volume. 
-   4. If you are using this volume for archival data, select the **Use this volume for less frequently accessed archival data** check box. For all other use cases, simply select **Tiered Volume**. (Tiered volumes were formerly called primary volumes).
+2. W Kreatorze dodawania woluminu w obszarze **Ustawienia podstawowe** wykonaj następujące czynności:
+   1. Wypełnij pole **Nazwa** dla woluminu.
+   2. Określ wartość w GB lub TB w polu **Alokowana pojemność**. Pojemność woluminu musi wynosić od 1 GB do 64 TB dla urządzenia fizycznego.
+   3. Z listy rozwijanej wybierz wartość **Typ użycia** dla woluminu. 
+   4. Jeśli używasz tego woluminu na potrzeby danych archiwalnych, zaznacz pole wyboru **Użyj tego woluminu w przypadku rzadziej używanych danych archiwalnych**. W pozostałych przypadkach zaznacz opcję **Wolumin warstwowy**. (Woluminy warstwowe były dawniej nazywane woluminami głównymi).
 
-        ![Add volume](./media/storsimple-create-volume/ScreenshotUpdate1VolumeFlow.png)
+        ![Dodawanie woluminu](./media/storsimple-create-volume/ScreenshotUpdate1VolumeFlow.png)
 
-    4. Click the arrow icon ![arrow-icon](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) to go to the next page.
+    4. Kliknij ikonę strzałki, ![ikona strzałki](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) aby przejść do następnej strony.
 
-3. In the **Additional Settings** dialog box, add a new access control record (ACR):
-   1. Supply a **Name** for your ACR.
-   2. Under **iSCSI Initiator Name**, provide the iSCSI Qualified Name (IQN) of your Windows host. If you don't have the IQN, go to [Get the IQN of a Windows Server host](#get-the-iqn-of-a-windows-server-host).
-   3. We recommend that you enable a default backup by selecting the **Enable a default backup for this volume** check box. The default backup will create a policy that executes at 22:30 each day (device time) and creates a cloud snapshot of this volume.
+3. W oknie dialogowym **Ustawienia dodatkowe** dodaj nowy rekord kontroli dostępu (ACR):
+   1. Wypełnij pole **Nazwa** dla rekordu ACR.
+   2. W obszarze **Nazwa inicjatora iSCSI** podaj kwalifikowaną nazwę iSCSI (IQN) hosta z systemem Windows. Jeśli nie masz nazwy IQN, przejdź do tematu [Pobieranie nazwy IQN hosta z systemem Windows Server](#get-the-iqn-of-a-windows-server-host).
+   3. Zaleca się włączenie domyślnego tworzenia kopii zapasowej przez zaznaczenie pola wyboru **Włącz domyślne tworzenie kopii zapasowej dla tego woluminu**. Włączenie domyślnego tworzenia kopii zapasowej spowoduje utworzenie zasad wykonywanych codziennie o godz. 22:30 (czas urządzenia) i tworzących migawkę chmury dla danego woluminu.
 
-        > [AZURE.NOTE] After the backup is enabled here, it cannot be reverted. You will need to edit the volume to modify this setting.
+        > [AZURE.NOTE] Włączenia tworzenia kopii zapasowej na tym etapie nie można cofnąć. W celu zmodyfikowania tego ustawienia trzeba edytować wolumin.
 
-        ![Add volume](./media/storsimple-create-volume/AddVolume2-include.png)
+        ![Dodawanie woluminu](./media/storsimple-create-volume/AddVolume2-include.png)
 
-4. Click the check icon ![check icon](./media/storsimple-create-volume/HCS_CheckIcon-include.png). A volume will be created with the specified settings.
+4. Kliknij ikonę znacznika wyboru ![ikona znacznika wyboru](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Wolumin zostanie utworzony przy użyciu wybranych ustawień.
 
-![Video available](./media/storsimple-create-volume/Video_icon.png) **Video available**
+![Zobacz film](./media/storsimple-create-volume/Video_icon.png) **Zobacz film**
 
-To watch a video that demonstrates how to create a StorSimple volume, click [here](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
+Aby obejrzeć film wideo, na którym przestawiono tworzenie woluminu StorSimple, kliknij [tutaj](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 
