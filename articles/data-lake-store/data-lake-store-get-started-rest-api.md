@@ -1,0 +1,283 @@
+<properties 
+   pageTitle="Rozpoczynanie pracy z usługą Data Lake Store z użyciem interfejsu API REST | Microsoft Azure" 
+   description="Korzystanie z interfejsów API REST WebHDFS w celu wykonywania operacji w usłudze Data Lake Store" 
+   services="data-lake-store" 
+   documentationCenter="" 
+   authors="nitinme" 
+   manager="paulettm" 
+   editor="cgronlun"/>
+ 
+<tags
+   ms.service="data-lake-store"
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data" 
+   ms.date="04/29/2016"
+   ms.author="nitinme"/>
+
+# Rozpoczynanie pracy z usługą Azure Data Lake Store z użyciem interfejsów API REST
+
+> [AZURE.SELECTOR]
+- [Portal](data-lake-store-get-started-portal.md)
+- [PowerShell](data-lake-store-get-started-powershell.md)
+- [Zestaw SDK .NET](data-lake-store-get-started-net-sdk.md)
+- [Zestaw SDK Java](data-lake-store-get-started-java-sdk.md)
+- [Interfejs API REST](data-lake-store-get-started-rest-api.md)
+- [Interfejs wiersza polecenia platformy Azure](data-lake-store-get-started-cli.md)
+- [Node.js](data-lake-store-manage-use-nodejs.md)
+
+Z tego artykułu dowiesz się, jak używać interfejsów API REST WebHDFS i interfejsów API REST usługi Data Lake Store w celu zarządzania kontem oraz wykonywania operacji systemu plików w usłudze Azure Data Lake Store. Usługa Azure Data Lake Store ujawnia swoje interfejsy API REST w celu wykonywania operacji zarządzania kontem. Jednak usługa Data Lake Store jest zgodna z systemem plików HDFS i ekosystemem Hadoop, dlatego umożliwia korzystanie z interfejsów API REST WebHDFS w celu wykonywania operacji systemu plików.
+
+>[AZURE.NOTE] Aby uzyskać szczegółowe informacje na temat obsługi interfejsu API REST przez usługę Data Lake Store, zobacz [Azure Data Lake Store REST API Reference](https://msdn.microsoft.com/library/mt693424.aspx) (Dokumentacja interfejsu API REST usługi Azure Data Lake Store).
+
+## Wymagania wstępne
+
+- **Subskrypcja platformy Azure**. Zobacz [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
+- **Włączenie subskrypcji platformy Azure** w celu uzyskania publicznej wersji zapoznawczej usługi Data Lake Store. Zobacz [instrukcje](data-lake-store-get-started-portal.md#signup).
+- **Utworzenie aplikacji usługi Azure Active Directory**. Istnieją dwa sposoby uwierzytelniania z użyciem usługi Azure Active Directory — **interakcyjne** i **nieinterakcyjne**. W zależności od sposobu uwierzytelniania należy spełnić różne wymagania wstępne.
+    * **Uwierzytelnianie interakcyjne** (używane w tym artykule) — w usłudze Azure Active Directory należy utworzyć **aplikację Native Client**. Po utworzeniu aplikacji pobierz następujące wartości związane z tą aplikacją.
+        - Uzyskaj **identyfikator klienta** i **identyfikator URI przekierowania** dla aplikacji.
+        - Ustaw uprawnienia delegowane.
+
+    * **Uwierzytelnianie nieinterakcyjne** — w usłudze Azure Active Directory należy utworzyć **aplikację sieci Web**. Po utworzeniu aplikacji pobierz następujące wartości związane z tą aplikacją.
+        - Pobierz **identyfikator klienta**, **klucz tajny klienta** oraz **identyfikator URI przekierowania** dla tej aplikacji.
+        - Ustaw uprawnienia delegowane.
+        - Przypisz aplikację usługi Azure Active Directory do roli. Rola może być na poziomie zakresu, na którym chcesz nadać uprawnienie do aplikacji usługi Azure Active Directory. Na przykład możesz przypisać aplikację na poziomie subskrypcji lub na poziomie grupy zasobów. Aby uzyskać instrukcje, zobacz [Assign application to a role](../resource-group-create-service-principal-portal.md#assign-application-to-role) (Przypisywanie aplikacji do roli). 
+
+    Instrukcje dotyczące pobierania tych wartości, ustawiania uprawnień i przypisywania ról zawiera temat [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md) (Tworzenie aplikacji i głównej nazwy usługi Active Directory przy użyciu portalu).
+
+- [cURL](http://curl.haxx.se/). W tym artykule jest używane narzędzie cURL w celu zademonstrowania sposobu wykonywania wywołań interfejsu API REST względem konta usługi Data Lake Store.
+
+## W jaki sposób uwierzytelniać za pomocą usługi Azure Active Directory?
+
+Dostępne są dwa podejścia do uwierzytelniania za pomocą usługi Azure Active Directory.
+
+### Interakcyjne (uwierzytelnianie użytkowników)
+
+W tym scenariuszu aplikacja wyświetla monit o zalogowanie się i wówczas wszystkie operacje są wykonywane w kontekście zalogowanego użytkownika. Wykonaj następujące kroki, aby przeprowadzić uwierzytelnianie interakcyjne.
+
+1. Za pomocą aplikacji przekieruj użytkownika pod następujący adres URL:
+
+        https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
+
+    >[AZURE.NOTE] \<Identyfikator <REDIRECT-URI> musi być zakodowany na potrzeby adresu URL. Dlatego w celu zapisania adresu https://localhost użyj ciągu `https%3A%2F%2Flocalhost`
+
+    Na potrzeby tego samouczka możesz zastąpić symbole zastępcze w powyższym adresie URL i wkleić go w pasku adresu przeglądarki sieci web. Nastąpi przekierowanie w celu uwierzytelniania przy użyciu identyfikatora logowania do platformy Azure. Gdy pomyślnie się zalogujesz, odpowiedź zostanie wyświetlona na pasku adresu przeglądarki. Odpowiedź będzie miała następujący format:
+        
+        http://localhost/?code=<AUTHORIZATION-CODE>&session_state=<GUID>
+
+2. Przechwyć kod autoryzacji z odpowiedzi. W ramach niniejszego samouczka możesz skopiować kod autoryzacji z paska adresu przeglądarki sieci web i przekazać go w żądaniu POST do punktu końcowego tokenu w sposób przedstawiony poniżej:
+
+        curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token \
+        -F redirect_uri=<REDIRECT-URI> \
+        -F grant_type=authorization_code \
+        -F resource=https://management.core.windows.net/ \
+        -F client_id=<CLIENT-ID> \
+        -F code=<AUTHORIZATION-CODE>
+
+    >[AZURE.NOTE] W takim przypadku identyfikatora \<REDIRECT-URI> nie trzeba kodować.
+
+3. Odpowiedzią jest obiekt JSON, który zawiera token dostępu (np. `"access_token": "<ACCESS_TOKEN>"`) oraz token odświeżania (np. `"refresh_token": "<REFRESH_TOKEN>"`). Aplikacja używa tokenu dostępu podczas uzyskiwania dostępu do usługi Azure Data Lake Store i tokenu odświeżania, aby uzyskać inny token dostępu w przypadku wygaśnięcia tokenu dostępu.
+
+        {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before": "1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
+
+4.  Po wygaśnięciu tokenu dostępu możesz zażądać nowego tokenu dostępu, używając tokenu odświeżania w sposób przedstawiony poniżej:
+
+         curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
+            -F grant_type=refresh_token \
+            -F resource=https://management.core.windows.net/ \
+            -F client_id=<CLIENT-ID> \
+            -F refresh_token=<REFRESH-TOKEN>
+ 
+Więcej informacji na temat interakcyjnego uwierzytelniania użytkownika zawiera temat [Authorization code grant flow](https://msdn.microsoft.com/library/azure/dn645542.aspx) (Przepływ udzielania kodu autoryzacji).
+
+### Nieinterakcyjne
+
+W tym scenariuszu aplikacja udostępnia własne poświadczenia, aby wykonywać operacje. W tym celu należy wygenerować żądanie POST, tak jak pokazano poniżej. 
+
+    curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
+      -F grant_type=client_credentials \
+      -F resource=https://management.core.windows.net/ \
+      -F client_id=<CLIENT-ID> \
+      -F client_secret=<AUTH-KEY>
+
+Dane wyjściowe tego żądania będą zawierać token autoryzacji (oznaczony jako `access-token` w danych wyjściowych poniżej), który następnie będzie przekazywany w wywołaniach interfejsu API REST. Zapisz ten token uwierzytelniania w pliku tekstowym. Będzie on potrzebny w dalszej części tego artykułu.
+
+    {"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
+
+W tym artykule wykorzystano podejście **nieinterakcyjne**. Więcej informacji na temat podejścia nieinterakcyjnego (wywołań między usługami) zawiera temat [Service to service calls using credentials](https://msdn.microsoft.com/library/azure/dn645543.aspx) (Wywołania między usługami przy użyciu poświadczeń).
+
+## Tworzenie konta usługi Data Lake Store
+
+Ta operacja jest oparta na wywołaniu interfejsu API REST zdefiniowanym [tutaj](https://msdn.microsoft.com/library/mt694078.aspx).
+
+Użyj następującego polecenia cURL. Zastąp ciąg **\<yourstorename>** nazwą Twojej usługi Data Lake Store.
+
+    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview -d@"C:\temp\input.json"
+
+W poleceniu powyżej zastąp ciąg \<`REDACTED`\> tokenem autoryzacji pobranym wcześniej. Ładunek żądania dla tego polecenia jest zawarty w pliku **input.json**, który jest udostępniany dla parametru `-d` powyżej. Zawartość pliku input.json powinna wyglądać w następujący sposób:
+
+    {
+    "location": "eastus2",
+    "tags": {
+        "department": "finance"
+        },
+    "properties": {}
+    }   
+
+## Tworzenie folderów w ramach konta usługi Data Lake Store
+
+Ta operacja jest oparta na wywołaniu interfejsu API REST WebHDFS zdefiniowanym [tutaj](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory).
+
+Użyj następującego polecenia cURL. Zastąp ciąg **\<yourstorename>** nazwą Twojej usługi Data Lake Store.
+
+    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=MKDIRS
+
+W poleceniu powyżej zastąp ciąg \<`REDACTED`\> tokenem autoryzacji pobranym wcześniej. To polecenie tworzy katalog o nazwie **mytempdir** w folderze głównym Twojego konta usługi Data Lake Store.
+
+Jeśli operacja zakończy się pomyślnie, powinna pojawić się odpowiedź podobna do poniższej:
+
+    {"boolean":true}
+
+## Wyświetlanie listy folderów w ramach konta usługi Data Lake Store
+
+Ta operacja jest oparta na wywołaniu interfejsu API REST WebHDFS zdefiniowanym [tutaj](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory).
+
+Użyj następującego polecenia cURL. Zastąp ciąg **\<yourstorename>** nazwą Twojej usługi Data Lake Store.
+
+    curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS
+
+W poleceniu powyżej zastąp ciąg \<`REDACTED`\> tokenem autoryzacji pobranym wcześniej.
+
+Jeśli operacja zakończy się pomyślnie, powinna pojawić się odpowiedź podobna do poniższej:
+
+    {
+    "FileStatuses": {
+        "FileStatus": [{
+            "length": 0,
+            "pathSuffix": "mytempdir",
+            "type": "DIRECTORY",
+            "blockSize": 268435456,
+            "accessTime": 1458324719512,
+            "modificationTime": 1458324719512,
+            "replication": 0,
+            "permission": "777",
+            "owner": "NotSupportYet",
+            "group": "NotSupportYet"
+        }]
+    }
+    }
+
+## Przekazywanie danych do konta usługi Data Lake Store
+
+Ta operacja jest oparta na wywołaniu interfejsu API REST WebHDFS zdefiniowanym [tutaj](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File).
+
+Przekazywanie danych za pomocą interfejsu API REST WebHDFS jest procesem dwuetapowym, jak wyjaśniono poniżej.
+
+1. Prześlij żądanie HTTP PUT bez wysyłania danych pliku do przekazania. W poniższym poleceniu zastąp ciąg **\<yourstorename>** nazwą Twojej usługi Data Lake Store.
+
+        curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=CREATE
+
+    Dane wyjściowe tego polecenia będą zawierać adres URL przekierowania tymczasowego podobny do przedstawionego poniżej.
+
+        HTTP/1.1 100 Continue
+
+        HTTP/1.1 307 Temporary Redirect
+        ...
+        ...
+        Location: https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/somerandomfile.txt?op=CREATE&write=true
+        ...
+        ...
+
+2. Teraz należy przesłać kolejne żądanie HTTP PUT względem adresu URL podanego dla właściwości **Location** w odpowiedzi. Zastąp ciąg **\<yourstorename>** nazwą Twojej usługi Data Lake Store.
+
+        curl -i -X PUT -T myinputfile.txt -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=CREATE&write=true
+
+    Dane wyjściowe będą mieć postać podobną do następującej:
+
+        HTTP/1.1 100 Continue
+
+        HTTP/1.1 201 Created
+        ...
+        ...
+
+## Odczytywanie danych z konta usługi Data Lake Store
+
+Ta operacja jest oparta na wywołaniu interfejsu API REST WebHDFS zdefiniowanym [tutaj](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File).
+
+Odczytywanie danych z konta usługi Data Lake Store jest procesem dwuetapowym.
+
+* Najpierw prześlij żądanie GET względem punktu końcowego `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN`. To spowoduje zwrócenie lokalizacji, do której należy przesłać kolejne żądanie GET.
+* Następnie prześlij żądanie GET względem punktu końcowego `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN&read=true`. Zostanie wyświetlona zawartość pliku.
+
+Jednak ponieważ nie ma żadnej różnicy w parametrach wejściowych kroku pierwszego i drugiego, możesz użyć parametru `-L` w celu przesłania pierwszego żądania. `-L` — ta opcja w praktyce łączy dwa żądania w jedno i powoduje, że narzędzie cURL ponowi żądanie dla nowej lokalizacji. Na koniec zostaną wyświetlone dane wyjściowe z wszystkich wywołań żądań, tak jak pokazano poniżej. Zastąp ciąg **\<yourstorename>** nazwą Twojej usługi Data Lake Store.
+
+    curl -i -L GET -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN
+
+Powinny pojawić się dane wyjściowe podobne do następujących:
+
+    HTTP/1.1 307 Temporary Redirect
+    ...
+    Location: https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/somerandomfile.txt?op=OPEN&read=true
+    ...
+    
+    HTTP/1.1 200 OK
+    ...
+    
+    Hello, Data Lake Store user!
+
+## Zmiana nazwy pliku w ramach konta usługi Data Lake Store
+
+Ta operacja jest oparta na wywołaniu interfejsu API REST WebHDFS zdefiniowanym [tutaj](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory).
+
+Użyj następującego polecenia cURL, aby zmienić nazwę pliku. Zastąp ciąg **\<yourstorename>** nazwą Twojej usługi Data Lake Store.
+
+    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=RENAME&destination=/mytempdir/myinputfile1.txt
+
+Powinny pojawić się dane wyjściowe podobne do następujących:
+
+    HTTP/1.1 200 OK
+    ...
+    
+    {"boolean":true}
+
+## Usuwanie pliku z konta usługi Data Lake Store
+
+Ta operacja jest oparta na wywołaniu interfejsu API REST WebHDFS zdefiniowanym [tutaj](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory).
+
+Użyj następującego polecenia cURL, aby usunąć plik. Zastąp ciąg **\<yourstorename>** nazwą Twojej usługi Data Lake Store.
+
+    curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile1.txt?op=DELETE
+
+Powinny pojawić się dane wyjściowe podobne do następujących:
+
+    HTTP/1.1 200 OK
+    ...
+    
+    {"boolean":true}
+
+## Usuwanie konta usługi Data Lake Store
+
+Ta operacja jest oparta na wywołaniu interfejsu API REST zdefiniowanym [tutaj](https://msdn.microsoft.com/library/mt694075.aspx).
+
+Użyj poniższego polecenia cURL, aby usunąć konto usługi Data Lake Store. Zastąp ciąg **\<yourstorename>** nazwą Twojej usługi Data Lake Store.
+
+    curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview
+
+Powinny pojawić się dane wyjściowe podobne do następujących:
+
+    HTTP/1.1 200 OK
+    ...
+    ...
+
+## Zobacz też
+
+- [Open Source Big Data applications compatible with Azure Data Lake Store (Aplikacje danych big data typu open source zgodne z usługą Azure Data Lake Store)](data-lake-store-compatible-oss-other-applications.md)
+ 
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+
