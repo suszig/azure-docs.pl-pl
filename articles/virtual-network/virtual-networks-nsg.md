@@ -278,12 +278,12 @@ Ponieważ niektóre z grup NSG powyżej muszą być powiązane z poszczególnymi
 - [Deploy NSGs in Resource Manager](virtual-networks-create-nsg-arm-pportal.md) (Wdrażanie grup NSGs we wdrożeniu za pomocą usługi Resource Manager).
 - [Manage NSG logs](virtual-network-nsg-manage-log.md) (Zarządzanie dziennikami grupy NSG).
 
-[zielony]: ./media/virtual-network-nsg-overview/green.png
+[green]: ./media/virtual-network-nsg-overview/green.png
 [żółty]: ./media/virtual-network-nsg-overview/yellow.png
-[czerwony]: ./media/virtual-network-nsg-overview/red.png
+[red]: ./media/virtual-network-nsg-overview/red.png
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

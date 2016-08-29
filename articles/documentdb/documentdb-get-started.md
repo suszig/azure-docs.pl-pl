@@ -616,10 +616,10 @@ Aby przywrócić odwołania do zestawu SDK dla platformy .NET usługi DocumentDB
 
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
-[klucze]: media/documentdb-get-started/nosql-tutorial-keys.png
+[keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

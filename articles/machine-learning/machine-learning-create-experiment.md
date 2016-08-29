@@ -23,7 +23,7 @@ W tym pierwszym samouczku dotyczącym uczenia maszynowego utworzymy model regres
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Przeprowadzenie eksperymentu w usłudze Machine Learning Studio polega na przeciągnięciu składników do obszaru roboczego i połączeniu ich w celu *utworzenia*, *nauczenia* * i przetestowania modelu po wygenerowaniu wyników*. W tym eksperymencie są używane techniki modelowania predykcyjnego dostępne w formie modułów usługi Machine Learning Studio, które umożliwiają pobieranie danych, uczenie modelu przy użyciu tych danych oraz zastosowanie tego modelu do nowych danych. Można również dodawać moduły w celu wstępnego przetworzenia danych i wybrania cech, podzielenia danych na zestaw szkoleniowy i testowy oraz ocenienia lub sprawdzenia krzyżowego jakości modelu.  
+Przeprowadzenie eksperymentu w usłudze Machine Learning Studio polega na przeciągnięciu składników do obszaru roboczego i połączeniu ich w celu *utworzenia*, *nauczenia* *i przetestowania modelu po wygenerowaniu wyników*. W tym eksperymencie są używane techniki modelowania predykcyjnego dostępne w formie modułów usługi Machine Learning Studio, które umożliwiają pobieranie danych, uczenie modelu przy użyciu tych danych oraz zastosowanie tego modelu do nowych danych. Można również dodawać moduły w celu wstępnego przetworzenia danych i wybrania cech, podzielenia danych na zestaw szkoleniowy i testowy oraz ocenienia lub sprawdzenia krzyżowego jakości modelu.  
 
 Otwórz usługę Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net) i kliknij przycisk **Get started** (Rozpoczęcie pracy). Możesz wybrać opcję dostępu dla gości lub zalogować się za pomocą konta Microsoft.
 
@@ -237,6 +237,6 @@ Aby zapoznać się z bardziej rozbudowanym i szczegółowym przewodnikiem po tec
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

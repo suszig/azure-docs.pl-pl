@@ -162,8 +162,8 @@ Po zdobyciu podstawowej wiedzy o usłudze SQL Data Warehouse możesz zapoznać s
 <!--Article references-->
 [Tworzenie biletu pomocy technicznej]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [obciążeniu magazynu danych]: ./sql-data-warehouse-overview-workload.md
-[jak załadować przykładowe dane]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[jak aprowizować]: ./sql-data-warehouse-get-started-provision.md
+[instrukcjami ładowania przykładowych danych]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[instrukcjami aprowizacji]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
@@ -178,6 +178,6 @@ Po zdobyciu podstawowej wiedzy o usłudze SQL Data Warehouse możesz zapoznać s
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

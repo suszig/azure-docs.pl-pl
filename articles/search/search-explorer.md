@@ -39,16 +39,16 @@ Przed rozpoczęciem pracy z tym przewodnikiem należy [utworzyć indeks usługi 
 ![](./media/search-explorer/search-explorer-tile.png)
 
 ## III. Rozpocznij wyszukiwanie
-1. Aby przeszukać indeks usługi Azure Search, zacznij pisać w polu „*Ciąg zapytania*”, a następnie naciśnij przycisk „**Wyszukaj**”.
+1. Aby przeszukać indeks usługi Azure Search, zacznij pisać w polu „ *Ciąg zapytania* ”, a następnie naciśnij przycisk „ **Wyszukaj** ”.
  * Podczas używania Eksploratora wyszukiwania możesz określić dowolne [parametry zapytania](https://msdn.microsoft.com/library/dn798927.aspx)
 
-2. Wyniki zapytania będą wyświetlane w sekcji „*Wyniki*” jako nieprzetworzone dane JSON, które będą odbierane w treści odpowiedzi HTTP podczas generowania żądań wyszukiwania do interfejsu API REST usługi Azure Search.
+2. Wyniki zapytania będą wyświetlane w sekcji „ *Wyniki* ” jako nieprzetworzone dane JSON, które będą odbierane w treści odpowiedzi HTTP podczas generowania żądań wyszukiwania do interfejsu API REST usługi Azure Search.
 3. Ciąg zapytania jest automatycznie przekształcany do odpowiedniego adresu URL żądania w celu przesłania żądania HTTP do interfejsu API REST usługi Azure Search
 
 ![](./media/search-explorer/search-bar.png)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 
