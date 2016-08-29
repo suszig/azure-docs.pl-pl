@@ -87,11 +87,11 @@ Ponadto można połączyć się ze społecznością usługi SQL Data Warehouse w
 [Pomoc techniczna platformy Azure — często zadawane pytania]: https://azure.microsoft.com/support/faq/
 [Microsoft Premier Online]: https://premier.microsoft.com/
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
-[Forum MSDN dotyczące Azure SQL Data Warehouse]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
+[forum MSDN dotyczącym usługi Azure SQL Data Warehouse]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

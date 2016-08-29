@@ -186,13 +186,13 @@ Więcej porad programistycznych znajdziesz w artykule [Omówienie programowania 
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[Składnia polecenia CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+[składni polecenia CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
 [Centrum pobierania Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

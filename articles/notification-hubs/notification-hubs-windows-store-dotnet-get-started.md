@@ -282,11 +282,11 @@ Więcej ogólnych informacji o usłudze Notification Hubs zawiera temat [Wskazó
 [Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
 [wykazu powiadomień wyskakujących]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
-[Wykaz kafelków]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[Omówienie znaczków]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[wykazu kafelków]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
+[omówienia znaczków]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

@@ -105,7 +105,7 @@ Po przećwiczeniu podstawowych zadań z użyciem przykładowych danych zapoznaj 
 [12]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
 
 <!--Article references-->
-[migracja]: ./sql-data-warehouse-overview-migrate.md
+[migrowanie]: ./sql-data-warehouse-overview-migrate.md
 [opracowywanie]: ./sql-data-warehouse-overview-develop.md
 [ładowanie]: ./sql-data-warehouse-overview-load.md
 [ręcznie załadować przykładowe dane]: ./sql-data-warehouse-get-started-manually-load-samples.md
@@ -120,6 +120,6 @@ Po przećwiczeniu podstawowych zadań z użyciem przykładowych danych zapoznaj 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 
