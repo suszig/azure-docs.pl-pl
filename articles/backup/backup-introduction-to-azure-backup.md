@@ -225,9 +225,9 @@ Ponieważ te samouczki pomagają w szybkim utworzeniu kopii zapasowej, pokazują
 
 
 
-[zielony]: ./media/backup-introduction-to-azure-backup/green.png
-[żółty]: ./media/backup-introduction-to-azure-backup/yellow.png
-[czerwony]: ./media/backup-introduction-to-azure-backup/red.png
+[green]: ./media/backup-introduction-to-azure-backup/green.png
+[yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
+[red]: ./media/backup-introduction-to-azure-backup/red.png
 
 
 

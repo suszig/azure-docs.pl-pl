@@ -1,4 +1,4 @@
-Można sprawdzić połączenie sieci VPN w portalu Azure, przechodząc do opcji **Bramy sieci wirtualnych** **>** *** i klikając nazwę swojej bramy*** **>** **Ustawienia** **>** **Połączenia**. Po wybraniu nazwy połączenia można wyświetlić więcej informacji o połączeniu. W poniższym przykładzie połączenie nie jest aktywne i żadne dane nie przepływają.
+Można sprawdzić połączenie sieci VPN w portalu Azure, przechodząc do opcji **Bramy sieci wirtualnych** **>** ***i klikając nazwę swojej bramy*** **>** **Ustawienia** **>** **Połączenia**. Po wybraniu nazwy połączenia można wyświetlić więcej informacji o połączeniu. W poniższym przykładzie połączenie nie jest aktywne i żadne dane nie przepływają.
 
 
 ![Sprawdź połączenie](./media/vpn-gateway-verify-connection-rm-include/connectionverify450.png)
@@ -40,6 +40,6 @@ Istnieje również możliwość sprawdzenia, czy połączenie powiodło się, pr
       }
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 
