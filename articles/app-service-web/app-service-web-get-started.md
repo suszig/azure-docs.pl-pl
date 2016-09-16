@@ -1,145 +1,153 @@
 <properties 
-    pageTitle="Wdrażanie pierwszej aplikacji sieci Web na platformie Azure w ciągu 5 minut" 
-    description="Dowiedz się, jak łatwo można uruchamiać aplikacje sieci Web w usłudze App Service, wdrażając przykładową aplikację w zaledwie kilku krokach. Rozpocznij rzeczywiste tworzenie aplikacji w ciągu 5 minut i od razu zobacz wyniki." 
+    pageTitle="Wdrożenie pierwszej aplikacji sieci Web na platformie Azure w ciągu pięciu minut | Microsoft Azure" 
+    description="Dowiedz się, jak łatwo można uruchamiać aplikacje sieci Web w usłudze App Service, wdrażając przykładową aplikację. Szybko rozpocznij rzeczywiste tworzenie aplikacji i od razu zobacz wyniki." 
     services="app-service\web"
     documentationCenter=""
-    authors="cephalin" 
-    manager="wpickett" 
-    editor="" 
+    authors="cephalin"
+    manager="wpickett"
+    editor=""
 />
 
-<tags 
-    ms.service="app-service-web" 
-    ms.workload="web" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
+<tags
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/12/2016" 
+    ms.date="09/09/2016" 
     ms.author="cephalin"
 />
     
-# Wdrażanie pierwszej aplikacji sieci Web na platformie Azure w ciągu 5 minut
+# Wdrażanie pierwszej aplikacji sieci Web na platformie Azure w ciągu pięciu minut
 
-[AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
+Ten samouczek ułatwia wdrażanie pierwszej aplikacji sieci Web w [usłudze Azure App Service](../app-service/app-service-value-prop-what-is.md).
+Za pomocą usługi App Service można tworzyć aplikacje sieci Web, [zaplecza aplikacji mobilnych](/documentation/learning-paths/appservice-mobileapps/) oraz [aplikacje interfejsu API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
-Ten samouczek ułatwia wdrażanie pierwszej aplikacji sieci Web w [usłudze Azure App Service](../app-service/app-service-value-prop-what-is.md). Usługa App Service umożliwia tworzenie aplikacji sieci Web, [zapleczy aplikacji mobilnych](/documentation/learning-paths/appservice-mobileapps/) oraz [aplikacji interfejsu API](../app-service-api/app-service-api-apps-why-best-platform.md).
+Wykonasz następujące zadania: 
 
-Po wykonaniu zaledwie kilku czynności: 
-
-- wdrożysz przykładową aplikację sieci Web (z możliwością wyboru technologii ASP.NET, PHP, Node.js, Java lub Python);
-- wyświetlisz działającą aplikację w ciągu kilku sekund;
+- utworzysz aplikację sieci Web w usłudze Azure App Service;
+- wdrożysz przykładowy kod (z możliwością wyboru technologii ASP.NET, PHP, Node.js, Java lub Python);
+- sprawdzisz działanie kodu w środowisku produkcyjnym;
 - zaktualizujesz aplikację sieci Web w taki sam sposób, w jaki [wypycha się zatwierdzenia Git](https://git-scm.com/docs/git-push).
-
-Zapoznasz się również z [Portalem Azure](https://portal.azure.com) i poznasz dostępne w nim funkcje. 
 
 ## Wymagania wstępne
 
-- [Zainstaluj oprogramowanie Git](http://www.git-scm.com/downloads). 
-- [Zainstaluj interfejs wiersza polecenia platformy Azure](../xplat-cli-install.md). 
+- [Zainstaluj oprogramowanie Git](http://www.git-scm.com/downloads). Sprawdź, czy instalacja powiodła się, uruchamiając polecenie `git --version` z nowego wiersza polecenia systemu Windows, okna programu PowerShell, powłoki systemu Linux lub terminalu systemu OS X.
 - Utwórz konto platformy Microsoft Azure. Jeśli nie masz konta, możesz [utworzyć konto bezpłatnej wersji próbnej](/pricing/free-trial/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
->[AZURE.NOTE] Zobacz działającą aplikację sieci Web. Od razu [wypróbuj usługę App Service](http://go.microsoft.com/fwlink/?LinkId=523751) i utwórz początkową aplikację o krótkim okresie istnienia — bez karty kredytowej i bez zobowiązań.
+>[AZURE.NOTE] Usługę [App Service](http://go.microsoft.com/fwlink/?LinkId=523751) możesz wypróbować, nie mając konta platformy Azure. Utwórz aplikację startową i testuj ją nawet przez godzinę — bez kart kredytowych i bez zobowiązań.
 
-## Wdrażanie aplikacji sieci Web
+<a name="create"></a>
+## Tworzenie aplikacji sieci Web
 
-Wdróżmy aplikację sieci Web w usłudze Azure App Service. 
+1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com) przy użyciu danych konta Azure.
 
-1. Otwórz nowy wiersz polecenia systemu Windows, okno programu PowerShell, powłokę systemu Linux lub terminal systemu OS X. Uruchom polecenia `git --version` i `azure --version`, aby upewnić się, że oprogramowanie Git i interfejs wiersza polecenia platformy Azure są zainstalowane na komputerze. 
+2. W lewym menu kliknij kolejno pozycje **Nowy** > **Sieci Web i mobilność** > **Aplikacja sieci Web**.
 
-    ![Testowanie instalacji narzędzi interfejsu wiersza polecenia dla pierwszej aplikacji sieci Web na platformie Azure](./media/app-service-web-get-started/1-test-tools.png)
+    ![](./media/app-service-web-get-started/create-web-app-portal.png)
 
-    Jeśli narzędzia nie zostały zainstalowane, zobacz [Wymagania wstępne](#Prerequisites), aby uzyskać linki do pobierania.
+3. W bloku tworzenia aplikacji użyj następujących ustawień dotyczących nowej aplikacji:
 
-1. `CD` — za pomocą tej komendy przejdź do katalogu roboczego i sklonuj przykładową aplikację w następujący sposób:
+    - **Nazwa aplikacji**: wpisz unikatową nazwę.
+    - **Grupa zasobów**: wybierz pozycję **Utwórz nową** i nadaj nazwę grupie zasobów.
+    - **Plan/lokalizacja usługi App Service**: kliknij tę pozycję, aby skonfigurować, a następnie kliknij pozycję **Utwórz nowe**, aby ustawić nową nazwę, lokalizację i warstwę cenową planu usługi App Service. Możesz skorzystać z warstwy cenowej **Bezpłatna**.
+
+    Po wprowadzeniu ustawień blok tworzenia aplikacji powinien wyglądać następująco:
+
+    ![](./media/app-service-web-get-started/create-web-app-settings.png)
+
+3. Kliknij pozycję **Utwórz** na dole. Po kliknięciu ikony **Powiadomienie** u góry można zobaczyć postęp.
+
+    ![](./media/app-service-web-get-started/create-web-app-started.png)
+
+4. Po zakończeniu wdrożenia powinien pojawić się taki komunikat powiadomienia. Kliknij ten komunikat, aby otworzyć blok wdrożenia.
+
+    ![](./media/app-service-web-get-started/create-web-app-finished.png)
+
+5. W bloku **Wdrożenie powiodło się** kliknij link **Zasób**, aby otworzyć blok nowej aplikacji sieci Web.
+
+    ![](./media/app-service-web-get-started/create-web-app-resource.png)
+
+## Wdrażanie kodu w aplikacji sieci Web
+
+Teraz zajmijmy się wdrożeniem kodu na platformie Azure przy użyciu narzędzia Git.
+
+5. W bloku aplikacji sieci Web przewiń w dół do obszaru **Opcje wdrażania** lub wyszukaj, a następnie kliknij tę pozycję. 
+
+    ![](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)
+
+6. Kliknij kolejno pozycje **Wybierz źródło** > **Lokalne repozytorium Git** > **OK**.
+
+7. Wróć do bloku aplikacji sieci Web i kliknij pozycję **Poświadczenia wdrożenia**.
+
+8. Ustaw poświadczenia wdrożenia i kliknij przycisk **Zapisz**.
+
+7. Wróć do bloku aplikacji sieci Web, przewiń w dół do pozycji **Właściwości** lub wyszukaj, a następnie kliknij tę pozycję. Kliknij przycisk **Kopiuj** obok pozycji **Adres URL Git**.
+
+    ![](./media/app-service-web-get-started/deploy-web-app-properties.png)
+
+    Teraz można przystąpić do wdrażania kodu przy użyciu narzędzia Git.
+
+1. W terminalu wiersza polecenia przejdź do katalogu roboczego (`CD`) i sklonuj przykładową aplikację w następujący sposób:
 
         git clone <github_sample_url>
 
-    ![Klonowanie kodu przykładowej aplikacji dla pierwszej aplikacji sieci Web na platformie Azure](./media/app-service-web-get-started/2-clone-sample.png)
+    ![Klonowanie kodu przykładowej aplikacji dla pierwszej aplikacji sieci Web na platformie Azure](./media/app-service-web-get-started/html-git-clone.png)
 
-    Dla parametru *&lt;github_sample_url>* użyj jednego z następujących adresów URL, zależnie od preferowanego środowiska: 
+    Dla parametru *&lt;github_sample_url>* użyj jednego z następujących adresów URL, zależnie od preferowanego środowiska:
 
     - HTML+CSS+JS: [https://github.com/Azure-Samples/app-service-web-html-get-started.git](https://github.com/Azure-Samples/app-service-web-html-get-started.git)
     - ASP.NET: [https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git](https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git)
     - PHP (CodeIgniter): [https://github.com/Azure-Samples/app-service-web-php-get-started.git](https://github.com/Azure-Samples/app-service-web-php-get-started.git)
-    - Node.js (Express): [https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git](https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git) 
+    - Node.js (Express): [https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git](https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git)
     - Java: [https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git)
     - Python (Django): [https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git)
 
-2. `CD` — za pomocą tej komendy przejdź do repozytorium przykładowej aplikacji. Na przykład: 
+2. Przejdź do repozytorium przykładowej aplikacji. Na przykład: 
 
         cd app-service-web-html-get-started
 
-3. Zaloguj się do platformy Azure w następujący sposób:
+3. skonfiguruj zdalny adres usługi dla aplikacji Azure, czyli adres URL Git, który skopiowano z witryny Azure Portal kilka kroków temu.
 
-        azure login
-    
-    Postępuj zgodnie z instrukcjami w komunikacie pomocy, aby kontynuować proces logowania.
-    
-    ![Logowanie do platformy Azure w celu utworzenia pierwszej aplikacji sieci Web](./media/app-service-web-get-started/3-azure-login.png)
+        git remote add azure <giturlfromportal>
 
-4. Utwórz zasób aplikacji App Service na platformie Azure, używając unikatowej nazwy aplikacji, za pomocą poniższego polecenia. Po wyświetleniu monitu podaj numer odpowiedniego regionu.
+4. Wdróż przykładowy kod do nowej aplikacji Azure, tak jak wypycha się dowolny kod przy użyciu narzędzia Git:
 
-        azure site create --git <app_name>
-    
-    ![Tworzenie zasobu platformy Azure dla pierwszej aplikacji sieci Web na platformie Azure](./media/app-service-web-get-started/4-create-site.png)
-    
-    >[AZURE.NOTE] Jeśli nigdy nie skonfigurowano poświadczeń wdrożenia dla subskrypcji platformy Azure, zostanie wyświetlony monit z prośbą o ich utworzenie. Te poświadczenia, a nie poświadczenia konta Azure, są używane przez usługę App Service tylko do wdrażania przy użyciu usługi Git i logowania za pomocą protokołu FTP. 
-    
-    Aplikacja na platformie Azure została utworzona. Ponadto dla bieżącego katalogu zainicjowano obsługę narzędzia Git i podłączono go do nowej aplikacji usługi App Service jako zdalny katalog Git.
-    Możesz przejść do adresu URL aplikacji (http://&lt;nazwa_aplikacji>.azurewebsites.net), aby wyświetlić atrakcyjną domyślną stronę HTML, ale teraz umieśćmy tam Twój kod.
+        git push azure master
 
-4. Teraz wdróż przykładowy kod do nowej aplikacji usługi App Service, tak jak wypycha się dowolny kod przy użyciu narzędzia Git:
+    ![Wypychanie kodu do pierwszej aplikacji sieci Web na platformie Azure](./media/app-service-web-get-started/html-git-push.png)    
 
-        git push azure master 
+    Jeśli użyto jednego ze środowisk języka, wyświetlone dane wyjściowe będą się różnić. Dzieje się tak, ponieważ polecenie `git push` nie tylko umieszcza kod na platformie Azure, ale wyzwala również zadania wdrażania w aparacie wdrażania. Jeśli w katalogu głównym (repozytorium) projektu znajduje się plik package.json (Node.js) lub requirements.txt (Python) albo w projekcie ASP.NET znajduje się plik packages.config, wymagane pakiety zostaną przywrócone przez skrypty wdrażania. Możesz również [włączyć rozszerzenie Composer](web-sites-php-mysql-deploy-use-git.md#composer), aby automatycznie przetwarzać pliki composer.json w aplikacji w języku PHP.
 
-    ![Wypychanie kodu do pierwszej aplikacji sieci Web na platformie Azure](./media/app-service-web-get-started/5-push-code.png)    
-    
-    Jeśli użyto jednego ze środowisk języka, wyświetlone dane wyjściowe będą różnić się od przedstawionych powyżej. Dzieje się tak, ponieważ polecenie `git push` nie tylko umieszcza kod na platformie Azure, ale wyzwala również zadania wdrażania w aparacie wdrażania. Jeśli w katalogu głównym (repozytorium) projektu znajduje się plik package.json (Node.js) lub requirements.txt (Python) albo w projekcie ASP.NET znajduje się plik packages.config, wymagane pakiety zostaną przywrócone przez skrypty wdrażania. Możesz również [włączyć rozszerzenie Composer](web-sites-php-mysql-deploy-use-git.md#composer), aby automatycznie przetwarzać pliki composer.json w aplikacji w języku PHP.
-
-Gratulacje, wdrożono aplikację w usłudze Azure App Service. 
-
-## Wyświetlanie działającej aplikacji
-
-Aby wyświetlić aplikację działającą na platformie Azure, uruchom to polecenie w dowolnym katalogu repozytorium:
-
-    azure site browse
+Gotowe. Od teraz kod działa w środowisku Azure. Aby sprawdzić jego działanie, w przeglądarce przejdź do adresu http://*&lt;nazwa_aplikacji>*.azurewebsites.net. 
 
 ## Aktualizowanie aplikacji
 
-Teraz możesz wypychać zmiany z katalogu głównego projektu (repozytorium) przy użyciu narzędzia Git, aby w dowolnej chwili aktualizować działającą witrynę. Procedura jest taka sama, jak podczas wdrażania aplikacji na platformie Azure po raz pierwszy. Na przykład za każdym razem, gdy chcesz wypchnąć nową zmianę przetestowaną lokalnie, uruchom następujące polecenia w katalogu głównym (repozytorium) projektu:
-    
+Teraz możesz wypychać zmiany z katalogu głównego projektu (repozytorium) przy użyciu narzędzia Git, aby w dowolnej chwili aktualizować działającą witrynę. Procedura jest taka sama, jak podczas wdrażania kodu po raz pierwszy. Na przykład za każdym razem, gdy chcesz wypchnąć nową zmianę przetestowaną lokalnie, uruchom następujące polecenia w katalogu głównym (repozytorium) projektu:
+
     git add .
     git commit -m "<your_message>"
     git push azure master
 
-## Wyświetlanie aplikacji w Portalu Azure
-
-Teraz przejdź do Portalu Azure, aby wyświetlić utworzoną aplikację:
-
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com) przy użyciu poświadczeń konta Microsoft zawierającego subskrypcję platformy Azure.
-
-2. Na pasku po lewej stronie kliknij pozycję **Usługi App Services**.
-
-3. Kliknij utworzoną aplikację, aby otworzyć jej stronę w portalu (nazywaną [blokiem](../azure-portal-overview.md)). Domyślnie, dla Twojej wygody, otwierany jest również blok **Ustawienia**.
-
-    ![Widok pierwszej aplikacji sieci Web w Portalu Azure](./media/app-service-web-get-started/portal-view.png) 
-
-W bloku aplikacji usługi App Service w portalu jest dostępny bogaty zestaw ustawień i narzędzi do konfigurowania, monitorowania i zabezpieczania aplikacji oraz rozwiązywania problemów z aplikacją. Poświęć chwilę, aby zapoznać się z tym interfejsem, wykonując kilka prostych zadań (numer zadania odpowiada numerowi na zrzucie ekranu):
-
-1. Zatrzymaj aplikację.
-2. Ponownie uruchom aplikację.
-3. Kliknij link **Grupa zasobów**, aby wyświetlić zasoby wdrożone w grupie zasobów.
-4. Kliknij pozycję **Ustawienia** > **Właściwości**, aby wyświetlić pozostałe informacje dotyczące aplikacji.
-5. Kliknij pozycję **Narzędzia**, aby uzyskać dostęp do przydatnych narzędzi do monitorowania i rozwiązywania problemów.  
-
 ## Następne kroki
 
-- Przenieś swoją aplikację Azure na wyższy poziom. Zabezpiecz ją przy użyciu uwierzytelniania. Skaluj ją zależnie od potrzeb. Skonfiguruj alerty dotyczące wydajności. Wszystkie te czynności możesz wykonać za pomocą kilku kliknięć. Zobacz [Dodawanie funkcji do pierwszej aplikacji sieci Web](app-service-web-get-started-2.md).
-- Oprócz narzędzia Git i interfejsu wiersza polecenia platformy Azure istnieją inne sposoby wdrażania aplikacji sieci Web na platformie Azure. Zobacz [Deploy your app to Azure App Service](../app-service-web/web-sites-deploy.md) (Wdrażanie aplikacji w usłudze Azure App Service).
-Znajdź odpowiednie kroki tworzenia i wdrażania aplikacji dla używanego środowiska języka, wybierając środowisko u góry tego artykułu.
+Znajdź czynności tworzenia i wdrażania aplikacji w preferowanym środowisku języka:
+
+> [AZURE.SELECTOR]
+- [.NET](web-sites-dotnet-get-started.md)
+- [PHP](app-service-web-php-get-started.md)
+- [Node.js](app-service-web-nodejs-get-started.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
+- [Java](web-sites-java-get-started.md)
+
+Możesz także wykonać inne zadania związane ze swoją pierwszą aplikacją sieci Web . Na przykład:
+
+- Wypróbuj [inne sposoby wdrożenia kodu na platformie Azure](../app-service-web/web-sites-deploy.md). Na przykład w celu wdrożenia jednego z naszych repozytoriów GitHub wystarczy wybrać pozycję **GitHub** zamiast **Lokalne repozytorium Git** w obszarze **Opcje wdrażania**.
+- Przenieś swoją aplikację Azure na wyższy poziom. Uwierzytelniaj użytkowników. Skaluj ją zależnie od potrzeb. Skonfiguruj alerty dotyczące wydajności. Wszystkie te czynności możesz wykonać za pomocą kilku kliknięć. Zobacz [Dodawanie funkcji do pierwszej aplikacji sieci Web](app-service-web-get-started-2.md).
 
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep12_HO2-->
 
 
