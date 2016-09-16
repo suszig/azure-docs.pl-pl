@@ -8,32 +8,31 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Łączenie z portalem Microsoft Azure w przypadku posiadania subskrypcji
+## Łączenie z witryną Azure Portal w przypadku posiadania subskrypcji
 
-Aby połączyć się z portalem Microsoft Azure, trzeba mieć subskrypcję. 
+Aby połączyć się z witryną Azure Portal, trzeba mieć subskrypcję.
 
 ### Zakładanie nowego konta
 
-Jeśli nie masz jeszcze konta na portalu Microsoft Azure, użyj jednego z poniższych linków, by je założyć:
+Jeśli nie masz jeszcze konta Azure, skorzystaj z jednej z poniższych opcji, by je założyć:
 
-- Załóż [bezpłatne konto](https://azure.microsoft.com/get-started/)
-- Użyj [subskrypcji MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/)
+- Załóż [bezpłatne konto](https://azure.microsoft.com/get-started/).
+- Użyj [subskrypcji MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/).
 
-###Logowanie przy użyciu istniejącego konta
+### Logowanie przy użyciu istniejącego konta
 
-Za pomocą [istniejącej subskrypcji]( https://account.windowsazure.com/Home/Index) wykonaj poniższe kroki, aby połączyć się z portalem Azure. 
+Za pomocą [istniejącej subskrypcji]( https://account.windowsazure.com/Home/Index) wykonaj poniższe kroki, aby połączyć się z witryną Azure Portal.
 
-1. Otwórz wybraną przeglądarkę i połącz się z [portalem Azure](https://portal.azure.com/).
+1. Otwórz wybraną przeglądarkę i połącz się z witryną [Azure Portal](https://portal.azure.com/).
 
-1. Zaloguj się w [portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-1. Kiedy zostanie wyświetlona strona logowania, podaj poświadczenia do subskrypcji
+1. Kiedy zostanie wyświetlona strona **logowania**, podaj poświadczenia subskrypcji.
 
-   ![logowanie](./media/azure-getting-started-portal-login/login.png)
-   
-
+   ![Logowanie](./media/azure-getting-started-portal-login/login.png)
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep12_HO2-->
 
 

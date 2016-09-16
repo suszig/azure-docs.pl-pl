@@ -5,6 +5,6 @@ Zadaj pytania na forach platformy Azure. — [Odwiedź witrynę MSDN](http://go.
 Oznacz pytania za pomocą słowa kluczowego `azure-functions`. — [Odwiedź witrynę Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep12_HO2-->
 
 
