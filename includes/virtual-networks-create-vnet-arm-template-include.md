@@ -59,6 +59,6 @@ Z witryny github można pobrać istniejący szablon ARM służący do utworzenia
   
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 
