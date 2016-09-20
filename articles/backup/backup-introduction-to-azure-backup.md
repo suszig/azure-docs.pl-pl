@@ -3,10 +3,10 @@
     description="Za pomocą usług Azure Backup oraz Recovery Services można tworzyć kopie zapasowe oraz przywracać dane i aplikacje z serwerów systemu Windows, komputerów klienckich systemu Windows, serwerów System Center DPM i maszyn wirtualnych platformy Azure."
     services="backup"
     documentationCenter=""
-    authors="Jim-Parker"
-    manager="jwhit"
+    authors="markgalioto"
+    manager="cfreeman"
     editor="tysonn"
-    keywords="backup and restore; recovery services; backup solutions"/>
+    keywords="tworzenie i przywracanie kopii zapasowej; recovery services; rozwiązania kopii zapasowych"/>
 
 <tags
     ms.service="backup"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="07/21/2016"
     ms.author="jimpark; trinadhk"/>
 
 # Co to jest Azure Backup?
@@ -80,7 +80,7 @@ Ponieważ usługa Backup jest hybrydowym rozwiązaniem tworzenia kopii zapasowyc
 | Agent usługi Azure Backup (MARS) | Tak | Nie (tylko agent oparty na systemie Windows) |
 | System Center Data Protection Manager | Tak (agent gość) | Tylko funkcja Hyper-V (nie maszyna wirtualna Azure), możliwa jest tylko kopia zapasowa spójna z plikami |
 | Azure Backup Server (MABS) | Tak (agent gość) | Tylko funkcja Hyper-V (nie maszyna wirtualna Azure), możliwa jest tylko kopia zapasowa spójna z plikami (tak samo jak dla programu DPM) |
-| Usługa Backup dla maszyn wirtualnych IaaS platformy Azure | W publicznej wersji zapoznawczej | W publicznej wersji zapoznawczej — maszyny wirtualne systemu Linux w modelu wdrażania przy użyciu usługi Resource Manager <br>(Spójność na poziomie systemu plików)<br><br>Tak dla maszyn wirtualnych systemu Linux w klasycznym modelu wdrażania |
+| Usługa Backup dla maszyn wirtualnych IaaS platformy Azure | Tak | Tak |
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
@@ -99,7 +99,7 @@ Po zakończeniu zadania tworzenia kopii zapasowej lokalizacja tymczasowa zostani
 
 ### Przywracanie maszyn wirtualnych usługi Premium Storage
 
-Przywracanie punktu odzyskiwania maszyny wirtualnej usługi Premium Storage do magazynu w warstwie Premium to typowy proces przywracania. Jednak opłacalne może się okazać przywrócenie punktu odzyskiwania maszyny wirtualnej usługi Premium Storage do standardowego magazynu. Z tego typu przywracania można skorzystać, gdy potrzebny jest podzbiór plików z maszyny wirtualnej.
+Maszyny wirtualne usługi Premium Storage można przywrócić do usługi Premium Storage lub normalnego magazynu. Przywracanie punktu odzyskiwania maszyny wirtualnej usługi Premium Storage do magazynu w warstwie Premium to typowy proces przywracania. Jednak opłacalne może się okazać przywrócenie punktu odzyskiwania maszyny wirtualnej usługi Premium Storage do standardowego magazynu. Z tego typu przywracania można skorzystać, gdy potrzebny jest podzbiór plików z maszyny wirtualnej.
 
 ## Funkcjonalność
 Poniżej znajduje się pięć tabel zawierających podsumowanie sposobów obsługi funkcji tworzenia kopii zapasowych w poszczególnych składnikach.
@@ -231,6 +231,6 @@ Ponieważ te samouczki pomagają w szybkim utworzeniu kopii zapasowej, pokazują
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

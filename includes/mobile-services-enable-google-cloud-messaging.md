@@ -14,9 +14,9 @@
 
 4. Na pulpicie nawigacyjnym projektu w obszarze **Mobile APIs** (Mobilne interfejsy API) kliknij pozycję **Google Cloud Messaging**, po czym na następnej stronie kliknij pozycję **Enable API** (Włącz interfejs API) i zaakceptuj warunki świadczenia usługi. 
 
-    ![](./media/mobile-services-enable-google-cloud-messaging/enable-GCM.png)
+    ![Włączanie usługi GCM](./media/mobile-services-enable-google-cloud-messaging/enable-GCM.png)
 
-    ![](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-2.png) 
+    ![Włączanie usługi GCM](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-2.png) 
 
 5. Na pulpicie nawigacyjnym projektu kliknij kolejno opcje **Credentials** (Poświadczenia) > **Create Credential** (Utwórz poświadczenia) > **API Key** (Klucz interfejsu API). 
 
@@ -31,6 +31,6 @@
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

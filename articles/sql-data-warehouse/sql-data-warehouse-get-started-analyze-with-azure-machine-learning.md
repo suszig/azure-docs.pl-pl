@@ -1,6 +1,6 @@
 <properties
    pageTitle="Analizowanie danych przy użyciu usługi Azure Machine Learning | Microsoft Azure"
-   description="Samouczek korzystania z usługi Azure Machine Learning z usługą Azure SQL Data Warehouse w celu opracowywania rozwiązań."
+   description="Używając usługi Azure Machine Learning, można utworzyć predykcyjny model uczenia maszynowego korzystający z danych przechowywanych w usłudze Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="shivaniguptamsft"
@@ -13,29 +13,29 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
+   ms.date="06/16/2016"
    ms.author="shigu;barbkess;sonyama"/>
 
 # Analizowanie danych przy użyciu usługi Azure Machine Learning
 
 > [AZURE.SELECTOR]
-- [Power BI][]
-- [Azure Machine Learning][]
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-Ten samouczek przedstawia sposób tworzenia predykcyjnego modelu uczenia maszynowego przy użyciu usługi Azure Machine Learning korzystającej z danych usługi Azure SQL Data Warehouse. W tym samouczku utworzymy ukierunkowaną kampanię marketingową dla sklepu rowerowego Adventure Works, prognozując prawdopodobieństwo zakupu roweru przez klienta.
+Ten samouczek przedstawia sposób tworzenia predykcyjnego modelu uczenia maszynowego przy użyciu usługi Azure Machine Learning korzystającej z danych przechowywanych w usłudze Azure SQL Data Warehouse. W szczególności ten samouczek omawia tworzenie ukierunkowanej kampanii marketingowej dla sklepu rowerowego Adventure Works przez prognozowanie prawdopodobieństwa zakupu roweru przez klienta.
 
 > [AZURE.VIDEO integrating-azure-machine-learning-with-azure-sql-data-warehouse]
+
 
 ## Wymagania wstępne
 Do wykonania kroków opisanych w tym samouczku potrzebne są:
 
-- Usługa SQL Data Warehouse z przykładową bazą danych AdventureWorksDW.
+- Baza danych usługi SQL Data Warehouse. ze wstępnie załadowanymi danymi z bazy danych AdventureWorksDW. Aby dowiedzieć się, jak załadować dane przykładowe, zobacz artykuł [Tworzenie bazy danych w usłudze SQL Data Warehouse][]. Jeśli masz już magazyn danych, ale bez przykładowych danych, możesz [ręcznie załadować przykładowe dane][].
 
-Aprowizację bazy danych z przykładowymi danymi opisano w artykule [Tworzenie bazy danych w usłudze SQL Data Warehouse][]. Jeśli masz już bazę danych usługi SQL Data Warehouse, ale bez przykładowych danych, możesz [ręcznie załadować przykładowe dane][].
-
-
-## Krok 1: pobieranie danych
-Dane zostaną odczytane w widoku dbo.vTargetMail w bazie danych AdventureWorksDW.
+## 1. Pobieranie danych
+Dane znajdują się w widoku dbo.vTargetMail w bazie danych AdventureWorksDW. Aby odczytać te dane:
 
 1. Zaloguj się do programu [Studio uczenia maszynowego Azure][] i kliknij eksperymenty.
 2. Kliknij przycisk **+ NOWE** i wybierz pozycję **Blank Experiment** (Pusty eksperyment).
@@ -72,8 +72,8 @@ Po pomyślnym wykonaniu eksperymentu kliknij port wyjściowy na dole modułu Rea
 ![Wyświetlanie zaimportowanych danych][3]
 
 
-## Krok 2: czyszczenie danych
-Usuniemy kilka kolumn, które nie są istotne dla modelu.
+## 2. Czyszczenie danych
+Aby wyczyścić dane, usuń kilka kolumn, które nie są istotne dla modelu. W tym celu:
 
 1. Przeciągnij moduł **Project Columns** (Kolumny projektu) na kanwę.
 2. Kliknij pozycję **Launch column selector** (Uruchom selektor kolumn) w okienku Properties (Właściwości), aby wskazać kolumny do usunięcia.
@@ -83,7 +83,7 @@ Usuniemy kilka kolumn, które nie są istotne dla modelu.
 ![Usuń zbędne kolumny][5]
 
 
-## Krok 3: budowanie modelu
+## 3. Tworzenie modelu
 Podzielimy dane w proporcji 80–20: 80% do trenowania tworzenia modelu uczenia maszynowego i 20% do testowania modelu. Użyjemy algorytmów „dwuklasowych” do rozwiązania tego problemu klasyfikacji binarnej.
 
 1. Przeciągnij moduł **Split** (Podział) na kanwę.
@@ -98,7 +98,7 @@ Podzielimy dane w proporcji 80–20: 80% do trenowania tworzenia modelu uczenia 
 ![Wybór kolumny do prognozowania][8]
 
 
-## Krok 4: klasyfikacja modelu
+## 4. Ocena modelu
 Teraz przetestujemy działanie modelu na danych testowych. Porównamy wybrany algorytm z innym algorytmem, aby zobaczyć, który działa lepiej.
 
 1. Przeciągnij moduł **Score model** (Model klasyfikacyjny) na kanwę.
@@ -126,30 +126,28 @@ Porównując wartości w kolumnach BikeBuyer (Nabywca roweru) (rzeczywiste) oraz
 Aby dowiedzieć się więcej o tworzeniu predykcyjnych modeli uczenia maszynowego, zapoznaj się z artykułem [Wprowadzenie do usługi Machine Learning na platformie Azure][].
 
 <!--Image references-->
-[1]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
-[2]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
-[3]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
-[4]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
-[5]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector.png
-[6]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split.png
-[7]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train.png
-[8]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector.png
-[9]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score.png
-[10]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate.png
-[11]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
-[12]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
+[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
+[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
+[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
+[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
+[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector.png
+[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split.png
+[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train.png
+[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector.png
+[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score.png
+[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate.png
+[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
+[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
 
 
 <!--Article references-->
 [Studio uczenia maszynowego Azure]:https://studio.azureml.net/
 [Wprowadzenie do usługi Machine Learning na platformie Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[ręcznie załadować przykładowe dane]: sql-data-warehouse-get-started-manually-load-samples.md
+[ręcznie załadować przykładowe dane]: sql-data-warehouse-load-sample-databases.md
 [Tworzenie bazy danych w usłudze SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Azure Machine Learning]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

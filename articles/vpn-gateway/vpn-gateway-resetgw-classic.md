@@ -14,13 +14,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/26/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Resetowanie bramy sieci VPN Azure przy użyciu programu PowerShell
 
 
-W tym artykule opisano procedurę resetowania bramy sieci VPN Azure przy użyciu poleceń cmdlet programu PowerShell. Instrukcje te mają zastosowanie do klasycznego modelu wdrażania.  Nie jest dostępne polecenie cmdlet ani interfejs API REST do resetowania bramy sieci VPN dla sieci wirtualnych utworzonych z wykorzystaniem modelu wdrażania przy użyciu usługi Resource Manager. Prace nad nimi trwają. Można określić, czy brama sieci VPN została utworzona przy użyciu klasycznego modelu wdrażania, wyświetlając sieć wirtualną w portalu Azure. Sieci wirtualne, które zostały utworzone przy użyciu klasycznego modelu wdrażania, są wyświetlane w sekcji Sieć wirtualna (klasyczna) portalu Azure.
+W tym artykule opisano procedurę resetowania bramy sieci VPN platformy Azure przy użyciu poleceń cmdlet programu PowerShell. Instrukcje te mają zastosowanie do klasycznego modelu wdrażania. Obecnie nie można zresetować bram sieci wirtualnej, które są tworzone w modelu wdrażania usługi Resource Manager.
 
 Resetowanie bramy sieci VPN Azure przydaje się w przypadku utraty połączenia sieci VPN obejmującego wiele lokalizacji w jednym lub wielu tunelach VPN S2S. W takiej sytuacji urządzenia lokalnej sieci VPN działają prawidłowo, ale nie mogą nawiązać połączenia w ramach tuneli używających protokołu IPsec z bramami sieci VPN Azure. W przypadku użycia polecenia cmdlet *Reset-AzureVNetGateway* nastąpi ponowne uruchomienie bramy i ponowne zastosowanie do niej konfiguracji obejmujących wiele lokalizacji. Brama zachowa publiczny adres IP, który został z nią wcześniej powiązany. Oznacza to, że nie będzie konieczne aktualizowanie konfiguracji routera sieci VPN pod kątem nowego publicznego adresu IP bramy sieci VPN Azure.  
 
@@ -31,14 +31,14 @@ Przed zresetowaniem bramy sprawdź następujące elementy.
 
 - Wirtualne adresy IP (VIP) bramy sieci VPN Azure i bramy lokalnej sieci VPN powinny być prawidłowo skonfigurowane zarówno w zasadach platformy Azure, jak i zasadach lokalnej sieci VPN.
 - Klucz wstępny musi być taki sam w przypadku bramy sieci VPN Azure oraz bramy lokalnej sieci VPN.
-- W przypadku zastosowania konkretnej konfiguracji uwzględniającej protokół IPsec/IKE, takiej jak szyfrowanie, algorytmy wyznaczania wartości skrótu i doskonałego utajnienia przekazywania (Perfect Forward Secrecy), należy się upewnić, że zarówno brama sieci VPN Azure, jak i brama lokalnej sieci VPN mają takie same konfiguracje.
+- W przypadku zastosowania konkretnej konfiguracji uwzględniającej protokół IPsec/IKE, takiej jak szyfrowanie, algorytmy wyznaczania wartości skrótu i doskonałe utajnienie przekazywania (Perfect Forward Secrecy, PFS), należy się upewnić, że zarówno brama sieci VPN Azure, jak i brama lokalnej sieci VPN mają takie same konfiguracje.
 
 
 ## Resetowanie bramy sieci VPN przy użyciu programu PowerShell
 
 Polecenie cmdlet programu PowerShell do resetowania bramy sieci VPN Azure to *Reset-AzureVNetGateway*. Każda brama sieci VPN Azure składa się z dwóch wystąpień maszyny wirtualnej działających w konfiguracji aktywne-w gotowości. Po wydaniu polecenia bieżące aktywne wystąpienie bramy sieci VPN Azure zostanie natychmiast uruchomione ponownie. Podczas pracy w trybie failover następuje krótka przerwa w działaniu aktywnego wystąpienia (które jest ponownie uruchamiane) na rzecz wystąpienia w konfiguracji gotowości. Przerwa powinna trwać niż dłużej niż minutę. 
 
-Poniższy przykład pozwala zresetować bramę sieci VPN Azure sieci wirtualnej o nazwie „ContosoVNet”.
+Poniższy przykład pozwala zresetować bramę sieci VPN platformy Azure sieci wirtualnej o nazwie „ContosoVNet”.
  
         Reset-AzureVNetGateway –VnetName “ContosoVNet” 
 
@@ -50,7 +50,7 @@ Poniższy przykład pozwala zresetować bramę sieci VPN Azure sieci wirtualnej 
         StatusCode     : OK
 
 
-Jeśli połączenie nie zostanie przywrócone po pierwszym ponownym rozruchu komputera, należy wydać to polecenie ponownie, aby uruchomić ponownie drugie wystąpienie maszyny wirtualnej (nową aktywną bramę). Jeśli wymagane jest jednoczesne ponowne uruchomienie obu wystąpień, to ponowne uruchomienie obu wystąpień maszyn wirtualnych (aktywnego i w gotowości) będzie trwać nieco dłużej. Spowoduje to dłuższą przerwę w łączności sieci VPN, trwającą maksymalnie 2 do 4 minut, podczas której nastąpi ponowny rozruch maszyn wirtualnych.
+Jeśli połączenie nie zostanie przywrócone po pierwszym ponownym rozruchu komputera, należy wydać to polecenie ponownie, aby uruchomić ponownie drugie wystąpienie maszyny wirtualnej (nową aktywną bramę). Jeśli wymagane jest przeprowadzenie dwóch rozruchów jednocześnie, to ponowne uruchomienie obu wystąpień maszyn wirtualnych (aktywnego i w gotowości) będzie trwać nieco dłużej. Spowoduje to dłuższą przerwę w łączności przez sieć VPN, trwającą maksymalnie od 2 do 4 minut, podczas której nastąpi ponowny rozruch maszyn wirtualnych.
 
 Jeśli po dwóch ponownych uruchomieniach nadal występują problemy z łącznością obejmującą wiele lokalizacji, należy otworzyć bilet pomocy technicznej z poziomu klasycznego portalu Azure w celu nawiązania kontaktu z działem pomocy technicznej Microsoft Azure.
 
@@ -66,6 +66,6 @@ Więcej informacji na temat tego polecenia cmdlet można znaleźć w artykule [P
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

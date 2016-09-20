@@ -2,7 +2,7 @@
     pageTitle="Łączenie programu Excel z bazą danych SQL Database | Microsoft Azure"
     description="Dowiedz się, jak połączyć program Microsoft Excel z bazą danych Azure SQL w chmurze. Importowanie danych do programu Excel, raportowanie i eksploracja danych."
     services="sql-database"
-    keywords="connect excel to sql, import data to excel"
+    keywords="łączenie programu excel z sql, importowanie danych do programu excel"
     documentationCenter=""
     authors="joseidz"
     manager="jhubbard"
@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/25/2016"
+    ms.date="07/05/2016"
     ms.author="joseidz"/>
 
 
@@ -48,7 +48,7 @@ Potrzebna będzie również kopia programu Excel. W tym artykule wykorzystano pr
 
     ![Wpisywanie nazwy serwera i poświadczeń logowania](./media/sql-database-connect-excel/connect-to-server.png)
 
-    > [AZURE.TIP] W zależności od środowiska sieciowego może nie być możliwe nawiązanie połączenia lub można utracić połączenie, jeśli serwer usługi SQL Database nie zezwala na ruch z adresu IP klienta. Przejdź do [portalu Azure](https://portal.azure.com/), kliknij serwery SQL, kliknij serwer, którego używasz, kliknij zaporę systemu w ustawieniach i dodaj swój adres IP klienta. Aby uzyskać szczegółowe informacje, zobacz artykuł [How to configure firewall settings](sql-database-configure-firewall-settings.md) (Jak skonfigurować ustawienia zapory).
+    > [AZURE.TIP] W zależności od środowiska sieciowego może nie być możliwe nawiązanie połączenia lub można utracić połączenie, jeśli serwer usługi SQL Database nie zezwala na ruch z adresu IP klienta. Przejdź do witryny [Azure Portal](https://portal.azure.com/), kliknij serwery SQL, kliknij serwer, którego używasz, kliknij zaporę systemu w ustawieniach i dodaj swój adres IP klienta. Aby uzyskać szczegółowe informacje, zobacz artykuł [How to configure firewall settings](sql-database-configure-firewall-settings.md) (Jak skonfigurować ustawienia zapory).
 
 5. W oknie dialogowym **Wybór bazy danych i tabeli** wybierz z listy bazę danych, której chcesz używać, kliknij tabele lub widoki, których chcesz używać (wybrano **vGetAllCategories**), a następnie kliknij przycisk **Dalej**.
 
@@ -86,6 +86,6 @@ Po nawiązaniu połączenia i utworzeniu pliku zawierającego dane oraz informac
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

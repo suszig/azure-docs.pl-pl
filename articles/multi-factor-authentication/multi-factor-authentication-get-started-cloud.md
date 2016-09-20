@@ -4,7 +4,7 @@
     services="multi-factor-authentication" 
     documentationCenter="" 
     authors="billmath" 
-    manager="stevenpo" 
+    manager="femila" 
     editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="billmath"/>
 
 # Wprowadzenie do usługi Azure Multi-Factor Authentication w chmurze
@@ -63,7 +63,7 @@ Aby włączyć usługę MFA dla użytkowników, postępuj zgodnie z poniższą p
 
 ## Automatyzowanie włączania uwierzytelniania wieloskładnikowego przy użyciu programu PowerShell
 
-Aby zmienić [stan](multi-factor-authentication-whats-next.md) przy użyciu [programu PowerShell usługi Azure AD](powershell-install-configuremd), skorzystaj z następującej metody.  Możesz zmienić właściwość `$st.State`, przypisując jej jeden z następujących stanów:
+Aby zmienić [stan](multi-factor-authentication-whats-next.md) przy użyciu [programu PowerShell usługi Azure AD](../powershell-install-configure.md), skorzystaj z następującej metody.  Możesz zmienić właściwość `$st.State`, przypisując jej jeden z następujących stanów:
 
 
 - Enabled (Włączony)
@@ -98,6 +98,6 @@ Po skonfigurowaniu uwierzytelniania wieloskładnikowego w chmurze można przyst�
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Rozpoczynanie pracy z Magazynem kolejek Azure przy użyciu platformy .NET | Microsoft Azure"
-    description="Wysyłaj i odbieraj wiadomości asynchronicznie między składnikami aplikacji za pomocą Magazynu kolejek Azure. Rozpocznij pracę z prostymi operacjami Magazynu kolejek, np. tworzeniem i usuwaniem kolejek oraz dodawaniem, odczytywaniem i usuwaniem komunikatów kolejek."
+    pageTitle="Rozpoczynanie pracy z usługą Azure Queue Storage przy użyciu platformy .NET | Microsoft Azure"
+    description="Usługa Azure Queues zapewnia niezawodne, asynchroniczne przesyłanie komunikatów między składnikami aplikacji. Przesyłanie komunikatów za pomocą chmury umożliwia składnikom aplikacji niezależne skalowanie."
     services="storage"
     documentationCenter=".net"
     authors="robinsh"
@@ -13,20 +13,22 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="04/07/2016"
+    ms.date="07/26/2016"
     ms.author="gusapost"/>
 
-# Rozpoczynanie pracy z Magazynem kolejek platformy Azure przy użyciu platformy .NET
+# Rozpoczynanie pracy z usługą Azure Queue Storage przy użyciu platformy .NET
 
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Omówienie
 
-Magazyn kolejek Azure to usługa, która zapewnia kolejki komunikatów w chmurze. W przypadku projektowania aplikacji pod kątem skalowania składniki aplikacji są często rozłączane, dzięki czemu mogą być skalowane niezależnie.  Magazyn kolejek zapewnia niezawodne rozwiązanie do obsługi komunikatów na potrzeby komunikacji asynchronicznej między składnikami aplikacji niezależnie od tego, czy działają w chmurze, na komputerze, serwerze lokalnym lub urządzeniu przenośnym. Magazyn kolejek obsługuje również zarządzanie asynchronicznymi zadaniami oraz przepływy pracy procesu kompilacji.
+Usługa Azure Queue Storage umożliwia przesyłanie komunikatów za pomocą chmury między składnikami aplikacji. W przypadku projektowania aplikacji pod kątem skalowania składniki aplikacji są często rozłączane, dzięki czemu mogą być skalowane niezależnie. Usługa Queue Storage zapewnia asynchroniczne przesyłanie komunikatów na potrzeby komunikacji między składnikami aplikacji niezależnie od tego, czy działają w chmurze, na komputerze, serwerze lokalnym czy urządzeniu przenośnym. Usługa Queue Storage obsługuje również zarządzanie asynchronicznymi zadaniami oraz przepływy pracy procesu kompilacji.
 
 ### Informacje o tym samouczku
 
-W tym samouczku pokazano, jak napisać kod .NET dla niektórych typowych scenariuszy przy użyciu Magazynu kolejek Azure. Omówione scenariusze obejmują tworzenie i usuwanie kolejek oraz dodawanie, odczytywanie i usuwanie komunikatów kolejek.
+W tym samouczku pokazano, jak napisać kod .NET dla niektórych typowych scenariuszy przy użyciu usługi Azure Queue Storage. Omówione scenariusze obejmują tworzenie i usuwanie kolejek oraz dodawanie, odczytywanie i usuwanie komunikatów kolejek.
 
 **Szacowany czas trwania:** 45 minut
 
@@ -35,7 +37,7 @@ W tym samouczku pokazano, jak napisać kod .NET dla niektórych typowych scenari
 - [Program Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
 - [Biblioteka klienta usługi Azure Storage dla programu .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [Menedżer konfiguracji Azure dla programu .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-- [Konto magazynu Azure](storage-create-storage-account.md#create-a-storage-account)
+- [Konto usługi Azure Storage](storage-create-storage-account.md#create-a-storage-account)
 
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
@@ -60,11 +62,11 @@ Dodaj następujące instrukcje `using` na początku pliku `program.cs`:
 
 ### Tworzenie klienta usługi kolejki
 
-Klasa **CloudQueueClient** umożliwia pobieranie kolejek przechowywanych w Magazynie kolejek. Oto jeden ze sposobów tworzenia klienta usługi:
+Klasa **CloudQueueClient** umożliwia pobieranie kolejek przechowywanych w usłudze Queue Storage. Oto jeden ze sposobów tworzenia klienta usługi:
 
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-Teraz możesz przystąpić do pisania kodu, który będzie odczytywać dane z Magazynu kolejek i zapisywać je w nim.
+Teraz możesz przystąpić do pisania kodu, który będzie odczytywać dane z usługi Queue Storage i zapisywać je w nim.
 
 ## Tworzenie kolejki
 
@@ -165,9 +167,9 @@ Twój kod usuwa komunikat z kolejki w dwóch etapach. Jeśli wywołasz funkcję 
     //Process the message in less than 30 seconds, and then delete the message
     queue.DeleteMessage(retrievedMessage);
 
-## Używanie wzorca Async-Await z wspólnymi interfejsami API Magazynu kolejek
+## Używanie wzorca Async-Await z wspólnymi interfejsami API usługi Queue Storage
 
-Ten przykład przedstawia sposób użycia wzorca Async-Await z wykorzystaniem wspólnych interfejsów API Magazynu kolejek. Przykład wywołuje asynchroniczną wersję każdej z danych metod, co jest wskazane przez sufiks *Async* każdej metody. Jeśli zostanie użyta metoda asynchroniczna, wzorzec Async-Await zawiesi lokalne wykonanie do momentu ukończenia wywołania. Takie zachowanie umożliwia wykonywanie innych zadań przez bieżący wątek, co pomaga unikać wąskich gardeł zmniejszających wydajność i poprawia ogólną szybkość reakcji aplikacji. Aby uzyskać szczegółowe informacje o wykorzystaniu wzorca Async-Await w programie .NET, zobacz [Async and Await (C# and Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx) (Async i Await [C# i Visual Basic]).
+Ten przykład przedstawia sposób użycia wzorca Async-Await z wykorzystaniem wspólnych interfejsów API usługi Queue Storage. Przykład wywołuje asynchroniczną wersję każdej z danych metod, co jest wskazane przez sufiks *Async* każdej metody. Jeśli zostanie użyta metoda asynchroniczna, wzorzec Async-Await zawiesi lokalne wykonanie do momentu ukończenia wywołania. Takie zachowanie umożliwia wykonywanie innych zadań przez bieżący wątek, co pomaga unikać wąskich gardeł zmniejszających wydajność i poprawia ogólną szybkość reakcji aplikacji. Aby uzyskać szczegółowe informacje o wykorzystaniu wzorca Async-Await w programie .NET, zobacz [Async and Await (C# and Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx) (Async i Await [C# i Visual Basic]).
 
     // Create the queue if it doesn't already exist
     if(await queue.CreateIfNotExistsAsync())
@@ -257,15 +259,15 @@ Aby usunąć kolejkę i wszystkie zawarte w niej komunikaty, wywołaj metodę **
 
 ## Następne kroki
 
-Teraz, kiedy znasz już podstawy Magazynu kolejek, skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu.
+Teraz, kiedy znasz już podstawy usługi Queue Storage, skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu.
 
 - Przejrzyj dokumentację referencyjną usługi kolejki, aby uzyskać szczegółowe informacje o dostępnych interfejsach API:
     - [Dokumentacja biblioteki klienta usługi Storage dla programu .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [Informacje o interfejsie API REST](http://msdn.microsoft.com/library/azure/dd179355)
 - Dowiedz się, jak uprościć zapisywany kod, aby pracować z usługą Azure Storage za pomocą zestawu [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md).
 - Wyświetl więcej poradników dotyczących funkcji, aby dowiedzieć się więcej o dodatkowych opcjach przechowywania danych na platformie Azure.
-    - Zapoznaj się z tematem [Rozpoczynanie pracy z Magazynem tabel Azure przy użyciu platformy .NET](storage-dotnet-how-to-use-tables.md), aby przechowywać dane strukturalne.
-    - Zapoznaj się z tematem [Rozpoczynanie pracy z Magazynem obiektów blob platformy Azure przy użyciu platformy .NET](storage-dotnet-how-to-use-blobs.md), aby przechowywać dane bez struktury.
+    - Zapoznaj się z tematem [Rozpoczynanie pracy z usługą Azure Table Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-tables.md), aby przechowywać dane strukturalne.
+    - Zapoznaj się z tematem [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-blobs.md), aby przechowywać dane bez struktury.
     - Zapoznaj się z tematem [Jak używać bazy danych Azure SQL Database w aplikacjach .NET](sql-database-dotnet-how-to-use.md), aby przechowywać dane relacyjne.
 
   [Pobieranie i instalowanie zestawu Azure SDK dla programu .NET]: /develop/net/
@@ -278,6 +280,6 @@ Teraz, kiedy znasz już podstawy Magazynu kolejek, skorzystaj z poniższych link
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -10,11 +10,18 @@ Nie, protokół BGP jest obsługiwany tylko przez bramy sieci VPN opartych na tr
 
 Tak, można użyć własnych publicznych lub prywatnych numerów ASN dla sieci lokalnych i sieci wirtualnych platformy Azure.
 
+#### Czy istnieją numery ASN zarezerwowane przez platformę Azure?
+
+Tak, następujące numery ASN są zarezerwowane przez platformę Azure zarówno dla wewnętrznej, jak i zewnętrznej komunikacji równorzędnej:
+
+- Publiczne numery ASN: 8075, 8076, 12076
+- Prywatne numery ASN: 65515, 65517, 65518, 65519, 65520
+
+Tych numerów ASN nie można określać dla lokalnych urządzeń sieci VPN podczas nawiązywania połączenia z bramami sieci VPN platformy Azure.
+
 ### Czy można użyć tego samego numeru ASN zarówno dla lokalnych sieci VPN, jak sieci wirtualnych platformy Azure?
 
 Nie, należy przypisać różne numery ASN sieciom lokalnym i sieciom wirtualnym platformy Azure, jeśli są łączone za pomocą protokołu BGP. Bramy sieci VPN platformy Azure mają przypisany domyślny numer ASN 65515, niezależnie od tego, czy protokół BGP jest włączony dla łączności między różnymi lokalizacjami firmy. Można zastąpić to ustawienie domyślne, przypisując inny numer ASN podczas tworzenia bramy sieci VPN, lub zmienić numer ASN po utworzeniu bramy. Konieczne będzie przypisanie lokalnych numerów ASN do odpowiednich bram sieci lokalnej platformy Azure.
-
-
 
 ### Jakie prefiksy adresów będą anonsowane do użytkownika przez bramy sieci VPN platformy Azure?
 
@@ -23,6 +30,14 @@ Brama sieci VPN będzie anonsować następujące trasy na urządzeniach lokalnyc
 - Prefiksy adresów sieci wirtualnej użytkownika
 - Prefiksy adresów dla każdej bramy sieci lokalnej podłączonej do bramy sieci VPN platformy Azure
 - Trasy zostały uzyskane na podstawie innych sesji równorzędnych protokołu BGP podłączonych do bramy sieci VPN platformy Azure **z wyjątkiem trasy domyślnej lub tras nakładających się dla dowolnego prefiksu sieci wirtualnej**.
+
+#### Czy można anonsować trasę domyślną (0.0.0.0/0) do bram sieci VPN platformy Azure?
+
+Nie w tej chwili.
+
+#### Czy można anonsować takie same prefiksy jak prefiksy mojej sieci wirtualnej?
+
+Nie, anonsowanie takich samych prefiksów jak prefiksy adresów Twojej sieci wirtualnej zostanie zablokowane lub odfiltrowane przez platformę Azure.
 
 ### Czy można użyć protokołu BGP do połączeń między sieciami wirtualnymi użytkownika?
 
@@ -50,7 +65,7 @@ Nie w tej chwili.
 
 ### Jakiego adresu używa brama sieci VPN platformy Azure dla adresu IP elementu równorzędnego protokołu BGP?
 
-Brama sieci VPN platformy Azure przydziela pojedynczy adres IP z zakresu podsieci bramy zdefiniowanego dla sieci wirtualnej. Domyślnie jest to przedostatni adres zakresu. Na przykład jeśli podsiecią bramy jest 10.12.255.0.0/27 z zakresu od 10.42.255.0.0 do 10.42.255.31, adresem IP elementu równorzędnego protokołu BGP dla bramy sieci VPN platformy Azure będzie 10.12.255.30. Te informacje można znaleźć wśród informacji dotyczących bramy sieci VPN platformy Azure.
+Brama sieci VPN platformy Azure przydziela pojedynczy adres IP z zakresu podsieci bramy zdefiniowanego dla sieci wirtualnej. Domyślnie jest to przedostatni adres zakresu. Na przykład jeśli podsieć bramy to 10.12.255.0/27, w zakresie od 10.12.255.0 do 10.12.255.31, wtedy adresem IP elementu równorzędnego protokołu BGP dla bramy sieci VPN platformy Azure jest 10.12.255.30. Te informacje można znaleźć wśród informacji dotyczących bramy sieci VPN platformy Azure.
 
 ### Jakie są wymagania dotyczące adresów IP elementów równorzędnych protokołu BGP na urządzeniu sieci VPN użytkownika?
 
@@ -65,6 +80,7 @@ Brama sieci lokalnej platformy Azure określa początkowe prefiksy adresów dla 
 Na urządzeniu sieci VPN należy dodać trasę hosta dla adresu IP elementu równorzędnego protokołu BGP platformy Azure wskazującego tunel sieci VPN S2S protokołu IPsec. Na przykład jeśli adresem IP elementu równorzędnego sieci VPN platformy Azure jest „10.12.255.30”, należy dodać trasę hosta dla adresu „10.12.255.30” z interfejsem następnego skoku pasującym do interfejsu tunelu protokołu IPsec urządzenia sieci VPN użytkownika.
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

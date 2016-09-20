@@ -13,11 +13,11 @@
     ms.tgt_pltfrm="mobile-html5"
     ms.devlang="javascript"
     ms.topic="get-started-article" 
-    ms.date="11/30/2015"
+    ms.date="07/21/2016"
     ms.author="glenga"/>
 
 
-# <a name="getting-started"> </a>Wprowadzenie do usługi Mobile Services
+# <a name="getting-started"> </a>Wprowadzenie do usług Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 &nbsp;
@@ -49,7 +49,7 @@ Do wykonania kroków tego samouczka niezbędne są następujące elementy:
     Do hostowania aplikacji można użyć dowolnego serwera sieci Web, ale wymienione serwery sieci Web są obsługiwane przez pobierane skrypty.  
 
 + Przeglądarka sieci Web, która obsługuje protokół HTML5.
-+ Konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz temat [Bezpłatna wersja próbna systemu Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
++ Konto platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz temat [Bezpłatna wersja próbna systemu Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
 
 
 ## <a name="create-new-service"> </a>Tworzenie nowej usługi mobilnej
@@ -159,6 +159,6 @@ Po zakończeniu procedury szybkiego startu dowiedz się, jak wykonać dodatkowe 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

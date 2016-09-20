@@ -1,10 +1,10 @@
 <properties 
     pageTitle="Samouczek platformy ASP.NET MVC dla usługi DocumentDB: opracowywanie aplikacji sieci Web | Microsoft Azure" 
     description="Samouczek platformy ASP.NET MVC, który umożliwia utworzenie aplikacji sieci Web MVC za pomocą usługi DocumentDB. Zapiszesz dane w postaci kodu JSON i uzyskasz do nich dostęp za pomocą aplikacji listy rzeczy do zrobienia hostowanej w usłudze Azure Websites — szczegółowy samouczek dla platformy ASP.NET MVC." 
-    keywords="asp.net mvc tutorial, web application development, mvc web application, asp net mvc tutorial step by step"
+    keywords="samouczek asp.net mvc, programowanie aplikacji sieci web, aplikacja sieci web mvc, samouczek krok po kroku asp.net mvc"
     services="documentdb" 
     documentationCenter=".net" 
-    authors="aliuy" 
+    authors="AndrewHoh" 
     manager="jhubbard" 
     editor="cgronlun"/>
 
@@ -15,10 +15,10 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="dotnet" 
     ms.topic="hero-article" 
-    ms.date="05/18/2016" 
-    ms.author="andrl"/>
+    ms.date="08/25/2016" 
+    ms.author="anhoh"/>
 
-#<a name="_Toc395809351"></a>Samouczek platformy ASP.NET MVC: opracowywanie aplikacji sieci Web za pomocą usługi DocumentDB
+# <a name="_Toc395809351"></a>Samouczek platformy ASP.NET MVC: opracowywanie aplikacji sieci Web za pomocą usługi DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -38,8 +38,8 @@ Ten przewodnik przedstawia, w jaki sposób należy korzystać z usługi Document
 
 Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz następujące elementy:
 
-- Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-- Program [Visual Studio 2013](http://www.visualstudio.com/) Update 4 lub nowszy.
+- Aktywne konto platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
+- [Visual Studio 2015](http://www.visualstudio.com/) albo Visual Studio 2013 Update 4 lub nowszy. W przypadku korzystania z pakietu Visual Studio 2013 należy zainstalować [pakiet NuGet Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/), aby zapewnić obsługę języka C# 6.0. 
 - Zestaw Azure SDK dla platformy .NET w wersji 2.5.1 lub nowszej, który jest dostępny za pośrednictwem [Instalatora platformy Microsoft Web][].
 
 Wszystkie zrzuty ekranu w tym artykule wykonano za pomocą programu Visual Studio 2013 z aktualizacją Update 4 i zestawu Azure SDK dla platformy .NET w wersji 2.5.1. Jeśli w Twoim systemie są skonfigurowane inne wersje, możliwe, że Twoje ekrany i opcje nie będą całkiem zgodne, lecz jeśli spełniasz powyższe wymagania wstępne, to rozwiązanie powinno działać.
@@ -546,7 +546,7 @@ Aby przetestować aplikację na lokalnej maszynie, wykonaj następujące czynno�
 
     ![Zrzut ekranu przedstawiający aplikację sieci Web listy rzeczy do zrobienia utworzoną za pomocą tego samouczka bazy danych](./media/documentdb-dotnet-application/image24.png)
 
-    Jeśli na tym etapie wystąpią błędy, możesz porównać Twój kod z przykładowym projektem w usłudze [GitHub][].
+    Jeśli używasz programu Visual Studio 2013 i wystąpi błąd „Nie można oczekiwać w treści klauzuli catch”, należy zainstalować [pakiet NuGet Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/). Można również porównać kod z przykładowym projektem w serwisie [GitHub][]. 
 
 2. Kliknij link **Create new** (Utwórz nowy) i dodaj wartości w polach **Name** (Nazwa) i **Description** (Opis). Pozostaw pole wyboru **Completed** (Zakończono) niezaznaczone — w przeciwnym przypadku nowy **element** zostanie dodany jako zakończony i nie zostanie wyświetlony na początkowej liście.
 
@@ -564,7 +564,7 @@ Aby przetestować aplikację na lokalnej maszynie, wykonaj następujące czynno�
 
 4. Po przetestowaniu aplikacji naciśnij klawisze Ctrl+F5, aby zatrzymać jej debugowanie. Wszystko jest gotowe do wdrożenia.
 
-##<a name="_Toc395637774"></a>Krok 7. Wdrażanie aplikacji w usłudze Azure Websites
+## <a name="_Toc395637774"></a>Krok 7. Wdrażanie aplikacji w usłudze Azure Websites
 
 Teraz, gdy kompletna aplikacja działa poprawnie z usługą DocumentDB, wdrożymy tę aplikację sieci Web w usłudze Azure Websites. Jeśli wybrano pozycję **Hostuj w chmurze** podczas tworzenia pustego projektu platformy ASP.NET MVC, program Visual Studio zdecydowanie ułatwi pracę i wykona większość zadań za Ciebie. 
 
@@ -578,7 +578,7 @@ Teraz, gdy kompletna aplikacja działa poprawnie z usługą DocumentDB, wdrożym
 
 W ciągu kilku sekund program Visual Studio zakończy publikowanie aplikacji sieci Web i uruchomi przeglądarkę, w której będzie można zobaczyć swoje dzieło działające na platformie Azure.
 
-##<a name="_Toc395637775"></a>Następne kroki
+## <a name="_Toc395637775"></a>Następne kroki
 
 Gratulacje! Udało Ci się utworzyć Twoją pierwszą aplikację sieci Web dla platformy ASP.NET MVC używającą usługi Azure DocumentDB i opublikować ją w usłudze Azure Websites. Kod źródłowy kompletnej aplikacji, w tym funkcji szczegółów i usuwania, które nie zostały uwzględnione w tym samouczku, można pobrać lub sklonować z usługi [GitHub][]. Jeśli chcesz dodać go do swojej aplikacji, wystarczy pobrać kod i to zrobić.
 
@@ -594,6 +594,6 @@ Aby dodać kolejne funkcje do aplikacji, zapoznaj się z interfejsami API dostę
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

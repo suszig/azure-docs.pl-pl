@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Uwierzytelnianie systemu Windows i serwer usługi Azure Multi-Factor Authentication
@@ -51,6 +51,7 @@ W sekcji Uwierzytelnianie systemu Windows administrator może włączyć i skonf
 11. Kliknij przycisk OK.
 
 
-<!--HONumber=jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

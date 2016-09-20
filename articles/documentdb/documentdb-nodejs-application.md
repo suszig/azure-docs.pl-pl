@@ -1,10 +1,10 @@
 <properties 
     pageTitle="Poznaj środowisko Node.js — samouczek środowiska Node.js dla usługi DocumentDB | Microsoft Azure" 
     description="Poznaj środowisko Node.js! W tym samouczku przedstawiono, jak przy użyciu usługi Microsoft Azure DocumentDB przechowywać dane i uzyskiwać do nich dostęp z poziomu aplikacji sieci Web Node.js Express hostowanej przez usługę Azure Websites." 
-    keywords="Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure"
+    keywords="Programowanie aplikacji, samouczek bazy danych, nauka node.js, samouczek node.js, DocumentDB, Azure, Microsoft Azure"
     services="documentdb" 
     documentationCenter="nodejs" 
-    authors="aliuy" 
+    authors="AndrewHoh" 
     manager="jhubbard" 
     editor="cgronlun"/>
 
@@ -14,8 +14,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="nodejs" 
     ms.topic="hero-article" 
-    ms.date="04/18/2016" 
-    ms.author="andrl"/>
+    ms.date="08/25/2016" 
+    ms.author="anhoh"/>
 
 # <a name="_Toc395783175"></a>Tworzenie aplikacji sieci Web Node.js za pomocą usługi DocumentDB
 
@@ -48,7 +48,7 @@ Nie masz czasu na ukończenie tego samouczka i po prostu chcesz uzyskać komplet
 
 Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz następujące elementy:
 
-- Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
+- Aktywne konto platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 - [Node.js][] w wersji 0.10.29 lub nowszej.
 - [Generator Express](http://www.expressjs.com/starter/generator.html) (można go zainstalować za pomocą polecenia `npm install express-generator -g`)
 - [Git][].
@@ -165,11 +165,7 @@ To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do teg
                                 id: collectionId
                             };
                             
-                            var requestOptions = {
-                                offerType: 'S1'
-                            };
-                            
-                            client.createCollection(databaseLink, collectionSpec, requestOptions, function (err, created) {
+                            client.createCollection(databaseLink, collectionSpec, function (err, created) {
                                 callback(null, created);
                             });
         
@@ -183,8 +179,9 @@ To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do teg
                 
         module.exports = DocDBUtils;
 
-> [AZURE.TIP] Funkcja createCollection przyjmuje opcjonalny parametr requestOptions, który może służyć do określania typu oferty dla kolekcji. Jeśli nie podano żadnej wartości requestOptions.offerType, kolekcja zostanie utworzona przy użyciu domyślnego typu oferty.
-> Więcej informacji na temat typów oferty usługi DocumentDB można znaleźć w artykule [Performance levels in DocumentDB](documentdb-performance-levels.md)(Poziomy wydajności w usługi DocumentDB). 
+    > [AZURE.TIP] Funkcja createCollection przyjmuje opcjonalny parametr requestOptions, który może służyć do określania typu oferty dla kolekcji. Jeśli nie podano żadnej wartości requestOptions.offerType, kolekcja zostanie utworzona przy użyciu domyślnego typu oferty.
+    >
+    > Więcej informacji na temat typów oferty usługi DocumentDB można znaleźć w artykule [Performance levels in DocumentDB](documentdb-performance-levels.md)(Poziomy wydajności w usługi DocumentDB). 
         
 3. Zapisz i zamknij plik **docdbUtils.js**.
 
@@ -549,7 +546,7 @@ Teraz skupimy się na tworzeniu interfejsu użytkownika, aby użytkownik mógł 
 
 ## <a name="_Toc395783182"></a>Krok 7. Wdrażanie projektu tworzenia aplikacji w usłudze Azure Websites
 
-1. Jeśli jeszcze tego nie zrobiono, włącz repozytorium Git dla usługi Azure Websites. Instrukcje, jak to zrobić, można znaleźć w temacie [Continuous deployment using GIT in Azure App Service](../app-service-web/web-sites-publish-source-control.md) (Ciągłe wdrażanie przy użyciu narzędzia Git w usłudze Azure App Service).
+1. Jeśli jeszcze tego nie zrobiono, włącz repozytorium Git dla usługi Azure Websites. Instrukcje, jak to zrobić, można znaleźć w temacie [Local Git Deployment to Azure App Service](../app-service-web/app-service-deploy-local-git.md) (Lokalne wdrażanie przy użyciu systemu Git w usłudze Azure App Service).
 
 2. Dodaj witrynę sieci Web platformy Azure jako element zdalny narzędzia Git.
 
@@ -576,6 +573,6 @@ Aby uzyskać więcej informacji, odwiedź stronę [Centrum deweloperów środowi
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

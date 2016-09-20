@@ -13,19 +13,19 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Tworzenie strefy DNS na platformie Azure przy użyciu interfejsu wiersza polecenia
 
 
 > [AZURE.SELECTOR]
-- [Portal Azure](dns-getstarted-create-dnszone-portal.md)
+- [Azure Portal](dns-getstarted-create-dnszone-portal.md)
 - [PowerShell](dns-getstarted-create-dnszone.md)
 - [Interfejs wiersza polecenia platformy Azure](dns-getstarted-create-dnszone-cli.md)
 
 
-W tym artykule opisano kroki tworzenia strefy DNS przy użyciu interfejsu wiersza polecenia. Można również utworzyć strefę DNS za pomocą programu PowerShell lub portalu Azure. 
+W tym artykule opisano kroki tworzenia strefy DNS przy użyciu interfejsu wiersza polecenia. Można również utworzyć strefę DNS za pomocą programu PowerShell lub witryny Azure Portal. 
 
 [AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)] 
 
@@ -153,7 +153,7 @@ Aby wyświetlić rekordy NS utworzone dla strefy, użyj następującego poleceni
 
 >[AZURE.NOTE] Zestawy rekordów w katalogu głównym (*wierzchołku*) strefy DNS używają **@** jako nazwy zestawu rekordów.
 
-## Testowanie
+## Test
 
 Strefę DNS można przetestować przy użyciu narzędzi DNS, takich jak nslookup, DIG lub polecenie cmdlet `Resolve-DnsName` programu PowerShell.
 
@@ -189,6 +189,6 @@ Po utworzeniu strefy DNS utwórz [zestawy rekordów i rekordy](dns-getstarted-cr
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

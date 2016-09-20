@@ -13,13 +13,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Tworzenie zestawów rekordów i rekordów DNS przy użyciu interfejsu wiersza polecenia
 
 > [AZURE.SELECTOR]
-- [Portal Azure](dns-getstarted-create-recordset-portal.md)
+- [Azure Portal](dns-getstarted-create-recordset-portal.md)
 - [PowerShell](dns-getstarted-create-recordset.md)
 - [Interfejs wiersza polecenia platformy Azure](dns-getstarted-create-recordset-cli.md)
 
@@ -68,6 +68,6 @@ Aby uzyskać więcej informacji o usłudze Azure DNS, zobacz [Omówienie usługi
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

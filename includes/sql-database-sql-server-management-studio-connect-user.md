@@ -16,24 +16,24 @@ Wykonaj poniższe kroki, aby nawiązać połączenie z bazą danych SQL Azure za
 
 3. Kliknij przycisk **Opcje**, aby określić bazę danych, z którą chcesz ustanowić połączenie.
 
-      ![SQL Server Management Studio: łączenie z serwerem bazy danych SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-2.png)
+      ![SQL Server Management Studio: łączenie z serwerem usługi SQL Database](./media/sql-database-sql-server-management-studio-connect-user/connect-user-2.png)
  
 4. W oknie **Nawiązywanie połączenia z bazą danych** wybierz bazę danych, z którą chcesz ustanowić połączenie.
 
-     ![SQL Server Management Studio: łączenie z serwerem bazy danych SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-3.png)
+     ![SQL Server Management Studio: łączenie z serwerem usługi SQL Database](./media/sql-database-sql-server-management-studio-connect-user/connect-user-3.png)
 
 5. Kliknij przycisk **Połącz**.
  
 6. Jeśli adres IP klienta nie ma dostępu do serwera logicznego bazy danych SQL, zostanie wyświetlony monit o zalogowanie się na koncie platformy Azure i utworzenie reguły zapory poziomu serwera. Jeśli jesteś administratorem subskrypcji platformy Azure, kliknij przycisk **Zaloguj**, aby utworzyć regułę zapory poziomu serwera. Jeśli nie, poproś administratora o utworzenie reguły zapory poziomu serwera lub reguły zapory poziomu bazy danych w bazie danych, z którą próbujesz nawiązać połączenie.
  
-      ![SQL Server Management Studio: łączenie z serwerem bazy danych SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-4.png)
+      ![SQL Server Management Studio: łączenie z serwerem usługi SQL Database](./media/sql-database-sql-server-management-studio-connect-user/connect-user-4.png)
  
 7. Jeśli poświadczenia umożliwiają dostęp do określonej bazy danych, zostanie otwarty Eksplorator obiektów i będzie można wykonywać zadania administracyjne lub wysyłać zapytania dotyczące danych, w zależności od uprawnień użytkownika.
   
-      ![SQL Server Management Studio: łączenie z serwerem bazy danych SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
+      ![SQL Server Management Studio: łączenie z serwerem usługi SQL Database](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
       
  
- ## Rozwiązywanie problemów z błędami połączeń
+## Rozwiązywanie problemów z błędami połączeń
 
 Najczęstszą przyczyną błędów połączeń są błędy w nazwie serwera (należy pamiętać, że <*nazwa_serwera*> jest nazwą serwera logicznego, a nie bazy danych), nazwie użytkownika lub haśle, jak również brak zezwolenia serwera na połączenie ze względów bezpieczeństwa. 
 
@@ -41,6 +41,6 @@ Najczęstszą przyczyną błędów połączeń są błędy w nazwie serwera (nal
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

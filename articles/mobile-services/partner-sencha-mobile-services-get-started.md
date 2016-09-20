@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-sencha"
     ms.devlang="multiple"
     ms.topic="get-started-article"
-    ms.date="02/10/2016"
+    ms.date="07/21/2016"
     ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Wprowadzenie do usługi Mobile Services i platformy Sencha Touch
@@ -726,6 +726,6 @@ Więcej informacji na temat rozpoczynania pracy z platformą Sencha Touch można
 [klasyczny portal Azure]: https://manage.windowsazure.com/
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

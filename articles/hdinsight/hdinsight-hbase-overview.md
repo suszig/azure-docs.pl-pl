@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/05/2016"
+    ms.date="06/28/2016"
     ms.author="jgao"/>
 
 
@@ -28,7 +28,7 @@ Dane są przechowywane w wierszach tabeli, a dane w obrębie wiersza są zgrupow
 
 ## W jaki sposób baza danych HBase jest zaimplementowana w systemie Azure HDInsight?
 
-Baza danych HBase w usłudze HDInsight jest oferowana jako zarządzany klaster zintegrowany ze środowiskiem Azure. Klastry są skonfigurowane do przechowywania danych bezpośrednio w Magazynie obiektów Blob platformy Azure, co zapewnia małe opóźnienia i zwiększoną elastyczność w zakresie wydajności i kosztów. Pozwala to klientom tworzyć interaktywne witryny sieci Web pracujące z dużymi zestawami danych, opracowywać usługi przechowywania danych czujników i danych telemetrycznych z milionów punktów końcowych oraz analizować te dane przy użyciu zadań platformy Hadoop. HBase i Hadoop są dobrymi punktami startowymi dla projektów obejmujących dane big data w środowisku Azure. W szczególności mogą one umożliwiać pracę w czasie rzeczywistym aplikacji obsługujących duże zestawy danych.
+Baza danych HBase w usłudze HDInsight jest oferowana jako zarządzany klaster zintegrowany ze środowiskiem Azure. Klastry są skonfigurowane do przechowywania danych bezpośrednio w usłudze Azure Blob Storage, co zapewnia małe opóźnienia i zwiększoną elastyczność w zakresie wydajności i kosztów. Pozwala to klientom tworzyć interaktywne witryny sieci Web pracujące z dużymi zestawami danych, opracowywać usługi przechowywania danych czujników i danych telemetrycznych z milionów punktów końcowych oraz analizować te dane przy użyciu zadań platformy Hadoop. HBase i Hadoop są dobrymi punktami startowymi dla projektów obejmujących dane big data w środowisku Azure. W szczególności mogą one umożliwiać pracę w czasie rzeczywistym aplikacji obsługujących duże zestawy danych.
 
 Implementacja usługi HDInsight wykorzystuje skalowalność architektury HBase, aby zapewnić automatyczne dzielenie tabel na fragmenty, wysoki poziom spójności operacji odczytu i zapisu oraz automatyzację pracy awaryjnej. Wydajność jest zwiększona dzięki buforowaniu w pamięci operacji odczytu i przesyłaniu strumieniowemu o wysokiej przepustowości obejmującemu operacje zapisu. Baza danych HBase w usłudze HDInsight umożliwia również inicjowanie obsługi sieci wirtualnych. Aby uzyskać szczegółowe informacje, zobacz temat [Obsługa administracyjna klastrów HDInsight w sieci Azure Virtual Network] [hbase-provision-vnet].
 
@@ -96,6 +96,6 @@ Klasycznym przypadkiem użycia, dla którego opracowano bazę danych BigTable (a
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

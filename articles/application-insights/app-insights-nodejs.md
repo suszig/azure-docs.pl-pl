@@ -54,7 +54,7 @@ Klucz identyfikuje zasób. Wkrótce zainstalujesz go w zestawie SDK w celu kiero
 ## <a name="sdk"></a> Instalowanie zestawu SDK w aplikacji
 
 ```
-npm install applicationinsights
+npm install applicationinsights --save
 ```
 
 ## Sposób użycia
@@ -63,7 +63,7 @@ Umożliwi to monitorowanie żądań, śledzenie nieobsługiwanych wyjątków ora
 
 ```javascript
 
-import appInsights = require("applicationinsights");
+var appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>").start();
 ```
 
@@ -226,6 +226,6 @@ server.on("listening", () => {
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

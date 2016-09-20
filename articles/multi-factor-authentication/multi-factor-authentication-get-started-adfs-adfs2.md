@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 # Zabezpieczanie zasobów w chmurze i zasobów lokalnych przy użyciu serwera usługi Azure Multi-Factor Authentication i usług AD FS 2.0
 
@@ -29,12 +29,11 @@ Aby zabezpieczyć usługi AD FS 2.0 za pomocą serwera proxy, zainstaluj serwer 
 
 1. Na serwerze usługi Azure Multi-Factor Authentication kliknij ikonę uwierzytelniania usług IIS w menu po lewej stronie.
 2. Kliknij kartę Oparte na formularzach.
-3. Kliknij przycisk   Dodaj...
-<center>![Konfigurowanie
-](./media/multi-factor-authentication-get-started-adfs-adfs2/setup1.png)</center>
+3. Kliknij przycisk Edytuj...
+<center>![Konfigurowanie](./media/multi-factor-authentication-get-started-adfs-adfs2/setup1.png)</center>
 4. Aby automatycznie wykryć zmienne nazwy użytkownika, hasła i domeny, wprowadź adres URL logowania (np. https://sso.contoso.com/adfs/ls) w oknie dialogowym Konfigurowana automatycznie witryna sieci Web oparta na formularzach i kliknij przycisk OK.
 5. Zaznacz pole Wymagaj dopasowania użytkownika usługi Azure Multi-Factor Authentication, jeśli wszyscy użytkownicy zostali lub zostaną zaimportowani na serwer i będą podlegać uwierzytelnianiu wieloskładnikowemu. Jeśli znaczna liczba użytkowników nie została jeszcze zaimportowana na serwer i/lub będzie wykluczona z uwierzytelniania wieloskładnikowego, nie zaznaczaj tego pola. Zapoznaj się z plikiem pomocy, aby uzyskać dodatkowe informacje na temat tej funkcji.
-6. Jeśli nie można automatycznie wykryć zmiennych na stronie, kliknij przycisk Określ ręcznie... w oknie dialogowym Konfigurowana automatycznie witryna sieci Web oparta na formularzach.
+6. Jeśli nie można automatycznie wykryć zmiennych strony, kliknij przycisk Określ ręcznie w oknie dialogowym Automatyczna konfiguracja witryny sieci Web opartej na formularzach.
 7. W oknie dialogowym Dodawanie witryny sieci Web opartej na formularzach wprowadź adres URL strony logowania usług AD FS (np. https://sso.contoso.com/adfs/ls) w polu Adres URL przesyłania, a następnie wprowadź nazwę aplikacji (opcjonalnie). Nazwa aplikacji jest widoczna w raportach usługi Azure Multi-Factor Authentication i może być wyświetlana w uwierzytelniających wiadomościach SMS lub wiadomościach aplikacji mobilnej. Więcej informacji dotyczących adresu URL przesyłania można znaleźć w pliku pomocy.
 8. Ustaw format żądania na wartość „POST” lub „GET”.
 9. Wprowadź wartość zmiennej nazwy użytkownika (ctl00$ContentPlaceHolder1$UsernameTextBox) i wartość zmiennej hasła (ctl00$ContentPlaceHolder1$PasswordTextBox). Jeśli na stronie logowania opartej na formularzach jest wyświetlane pole tekstowe domeny, wprowadź również wartość zmiennej domeny. W celu znalezienia nazw pól wejściowych na stronie logowania może być konieczne przejście na tę stronę w przeglądarce sieci Web, kliknięcie prawym przyciskiem myszy i wybranie polecenia „Wyświetl źródło”.
@@ -46,7 +45,7 @@ Aby zabezpieczyć usługi AD FS 2.0 za pomocą serwera proxy, zainstaluj serwer 
 13. Po wykonaniu tej czynności kliknij przycisk OK, aby wrócić do okna dialogowego Dodawanie witryny sieci Web opartej na formularzach. Więcej informacji dotyczących ustawień zaawansowanych można znaleźć w pliku pomocy.
 14. Kliknij przycisk OK, aby zamknąć okno dialogowe.
 15. Po wykryciu lub wprowadzeniu adresu URL i zmiennych na stronie dane witryny sieci Web pojawią się w panelu Oparte na formularzach.
-16. Aby skonfigurować odpowiedni poziom wtyczki IIS, kliknij kartę Moduł macierzysty i wybierz serwer, witrynę sieci Web, w ramach której działa serwer proxy usług AD FS (np. „Domyślna witryna sieci Web”), lub aplikację serwera proxy usług AD FS (np. „ls” w obszarze „adfs”).
+16. Kliknij kartę Moduł macierzysty i wybierz serwer, witrynę sieci Web, w której działa serwer proxy usług ADFS (np. „Domyślna witryna sieci Web”), lub aplikację serwera proxy usług ADFS (np. „ls” w obszarze „adfs”), aby włączyć wtyczkę programu IIS na żądanym poziomie.
 17. Kliknij pole Włącz uwierzytelnianie usług IIS w górnej części ekranu.
 18. Uwierzytelnianie usług IIS zostało włączone. Jednak aby przeprowadzić uwierzytelnianie wstępne w usłudze Active Directory (AD) za pośrednictwem protokołu LDAP, musisz skonfigurować połączenie protokołu LDAP z kontrolerem domeny. Aby to zrobić, kliknij ikonę Integracja katalogu.
 19. Na karcie Ustawienia wybierz przycisk radiowy Użyj określonej konfiguracji LDAP.
@@ -81,7 +80,7 @@ Aby zabezpieczyć usługi AD FS bez używania serwera proxy, zainstaluj serwer u
 <center>![Konfigurowanie
 ](./media/multi-factor-authentication-get-started-adfs-adfs2/noproxy.png)</center>
 8. Kliknij przycisk OK.
-9. Aby skonfigurować odpowiedni poziom wtyczki IIS, kliknij kartę Moduł macierzysty i wybierz serwer, witrynę sieci Web, w ramach której działają usługi AD FS (np. „Domyślna witryna sieci Web”), lub aplikację usług AD FS (np. „ls” w obszarze „adfs”).
+9. Kliknij kartę Moduł macierzysty i wybierz serwer, witrynę sieci Web, w której działają usługi ADFS (np. „Domyślna witryna sieci Web”), lub aplikację usług ADFS (np. „ls” w obszarze „adfs”), aby włączyć wtyczkę programu IIS na żądanym poziomie.
 10. Kliknij pole Włącz uwierzytelnianie usług IIS w górnej części ekranu. Po wykonaniu tych czynności usługi AD FS są chronione przez usługę Azure Multi-Factor Authentication. Upewnij się, że zaimportowano użytkowników z usługi Active Directory na serwer. Jeśli chcesz umieścić wewnętrzne adresy IP na liście dozwolonych adresów, tak aby uwierzytelnianie dwuskładnikowe nie było wymagane w przypadku logowania się do witryny sieci Web z tych lokalizacji, zobacz sekcję Zaufane adresy IP w dalszej części tego artykułu.
 
 
@@ -103,6 +102,7 @@ Zaufane adresy IP pozwalają użytkownikom pominąć uwierzytelnianie za pomocą
  
 
 
-<!--HONumber=jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

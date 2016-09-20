@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="03/09/2016"
+ ms.date="08/10/2016"
  ms.author="krisragh"/>
 
 # Rozpoczynanie pracy z usługą Azure Scheduler w portalu Azure
@@ -25,7 +25,7 @@ Azure Scheduler umożliwia łatwe tworzenie zaplanowanych zadań. Niniejszy samo
 
 2.  Kliknij przycisk **+ Nowy** > wpisz w polu wyszukiwania _Harmonogram_ > wybierz z wyników **Harmonogram** > kliknij **Utwórz**.
 
-   ![][marketplace-create]
+     ![][marketplace-create]
 
 3.  Utwórzmy zadanie, które spowoduje przesłanie żądania GET do witryny http://www.microsoft.com/. Na ekranie **Zadanie usługi Scheduler** wprowadź następujące informacje:
 
@@ -43,7 +43,7 @@ Azure Scheduler umożliwia łatwe tworzenie zaplanowanych zadań. Niniejszy samo
 
     3.  **Adres URL:** ` http://www.microsoft.com`  
 
-   ![][action-settings]
+      ![][action-settings]
 
 5.  Ostatnią czynnością jest zdefiniowanie harmonogramu. To zadanie można ustawić jako jednorazowe, my skorzystamy jednak z możliwości wybrania harmonogramu cyklu:
 
@@ -55,7 +55,7 @@ Azure Scheduler umożliwia łatwe tworzenie zaplanowanych zadań. Niniejszy samo
 
     4. **Zakończ**: dwa dni od dnia dzisiejszego  
 
-   ![][recurrence-schedule]
+      ![][recurrence-schedule]
 
 6.  Kliknij przycisk **Utwórz**
 
@@ -73,7 +73,7 @@ Utworzone zadanie zostaje wyświetlone na głównym pulpicie nawigacyjnym Azure.
 
 5.  Użytkownicy
 
-   ![][job-overview]
+    ![][job-overview]
 
 ### Właściwości
 
@@ -184,6 +184,6 @@ Kontrola dostępu oparta na rolach (Role-Based Access Control, RBAC) na platform
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

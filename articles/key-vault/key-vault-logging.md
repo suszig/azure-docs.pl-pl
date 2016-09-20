@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/06/2016"
+    ms.date="07/15/2016"
     ms.author="cabailey"/>
 
 # Funkcja rejestrowania usługi Azure Key Vault #
@@ -33,6 +33,8 @@ Ten samouczek ułatwi rozpoczęcie pracy z funkcją rejestrowania usługi Azure 
 >[AZURE.NOTE]  Ten samouczek nie zawiera instrukcji dotyczących sposobu tworzenia magazynów kluczy, kluczy ani kluczy tajnych. Te informacje można znaleźć w temacie [Rozpoczynanie pracy z usługą Azure Key Vault](key-vault-get-started.md). Instrukcje dotyczące wieloplatformowego interfejsu wiersza polecenia znajdują się w [tym równoważnym samouczku](key-vault-manage-with-cli.md).
 >
 >Obecnie nie można skonfigurować usługi Azure Key Vault w portalu Azure. Zamiast tego użyj tych instrukcji usługi Azure PowerShell.
+
+Zbierane dzienniki można zwizualizować za pomocą usługi analizy dzienników z pakietu Operations Management Suite. Aby uzyskać więcej informacji, zobacz [Rozwiązanie Azure Key Vault (Preview) w usłudze analizy dzienników](../log-analytics/log-analytics-azure-key-vault.md).
 
 Aby uzyskać ogólne informacje na temat usługi Azure Key Vault, zobacz [Co to jest usługa Azure Key Vault?](key-vault-whatis.md)
 
@@ -269,12 +271,10 @@ Aby zapoznać się z samouczkiem, w którym użyto usługi Azure Key Vault w apl
 Odwołania dotyczące programowania znajdują się w [przewodniku dewelopera usługi Azure Key Vault](key-vault-developers-guide.md).
 
 Aby zapoznać się z listą poleceń cmdlet usługi Azure PowerShell 1.0 dla usługi Azure Key Vault, zobacz artykuł [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx) (Polecenia cmdlet w usłudze Azure Key Vault). 
- 
+
+Aby znaleźć samouczek dotyczący rotacji kluczy i inspekcji dzienników w usłudze Azure Key Vault, zobacz [Jak skonfigurować usługę Key Vault na potrzeby rotacji i inspekcji typu end-to-end](key-vault-key-rotation-log-monitoring.md).
 
 
-
-
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

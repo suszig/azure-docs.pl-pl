@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Wprowadzenie do usługi Azure Mobile Engagement"
+    pageTitle="Wprowadzenie do usługi Azure Mobile Engagement dla aplikacji systemu Android"
     description="Dowiedz się, jak używać usługi Azure Mobile Engagement z funkcją analizy i powiadomieniami wypychanymi na potrzeby aplikacji systemu Android."
     services="mobile-engagement"
     documentationCenter="android"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="Java"
     ms.topic="hero-article"
-    ms.date="05/12/2016"
+    ms.date="08/10/2016"
     ms.author="piyushjo;ricksal" />
 
 # Wprowadzenie do usługi Azure Mobile Engagement dla aplikacji systemu Android
@@ -29,7 +29,7 @@ Wykonanie kroków tego samouczka wymaga [narzędzi dla deweloperów systemu Andr
 
 Wymagany jest również [zestaw Mobile Engagement Android SDK](https://aka.ms/vq9mfn).
 
-> [AZURE.IMPORTANT] Do wykonania kroków tego samouczka jest potrzebne aktywne konto platformy Azure. Jeśli nie masz konta, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started).
+> [AZURE.IMPORTANT] Do wykonania kroków tego samouczka jest potrzebne aktywne konto platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started).
 
 ## Konfigurowanie usługi Mobile Engagement dla aplikacji systemu Android
 
@@ -37,17 +37,17 @@ Wymagany jest również [zestaw Mobile Engagement Android SDK](https://aka.ms/vq
 
 ## Łączenie aplikacji z zapleczem usługi Mobile Engagement
 
-Ten samouczek przedstawia „podstawową integrację”, tj. minimalny zestaw wymagany do zbierania danych i wysyłania powiadomień wypychanych. Kompletna dokumentacja integracji znajduje się w sekcji [Mobile Engagement Android SDK integration](mobile-engagement-android-sdk-overview.md) (Integracja z zestawem Mobile Engagement Android SDK).
+Ten samouczek przedstawia „podstawową integrację”, tj. minimalny zestaw wymagany do zbierania danych i wysyłania powiadomień wypychanych. Aby zademonstrować integrację, utworzysz podstawową aplikację za pomocą programu Android Studio.
 
-Aby zademonstrować integrację, zostanie utworzona podstawowa aplikacja za pomocą programu Android Studio.
+Kompletna dokumentacja integracji znajduje się w sekcji [Mobile Engagement Android SDK integration](mobile-engagement-android-sdk-overview.md) (Integracja z zestawem Mobile Engagement Android SDK).
 
-### Tworzenie nowej aplikacji systemu Android
+### Tworzenie projektu systemu Android
 
 1. Uruchom program **Android Studio** i w oknie podręcznym wybierz pozycję **Start a new Android Studio project** (Utwórz nowy projekt programu Android Studio).
 
     ![][1]
 
-2. Podaj nazwę aplikacji i domenę firmy. Zanotuj te informacje, ponieważ będą one używane później. Kliknij przycisk **Next** (Dalej).
+2. Podaj nazwę aplikacji i domenę firmy. Zanotuj te informacje, ponieważ będą one potrzebne później. Kliknij przycisk **Dalej**.
 
     ![][2]
 
@@ -57,7 +57,7 @@ Aby zademonstrować integrację, zostanie utworzona podstawowa aplikacja za pomo
 
     ![][3]
 
-4. Wybierz tutaj pozycję **Blank Activity** (Puste działanie), które będzie jedynym ekranem dla tej aplikacji, a następnie kliknij przycisk **Next** (Dalej).
+4. Wybierz tutaj pozycję **Blank Activity** (Puste działanie), które jest jedynym ekranem dla tej aplikacji, a następnie kliknij przycisk **Next** (Dalej).
 
     ![][4]
 
@@ -69,7 +69,7 @@ W programie Android Studio zostanie utworzona aplikacja demonstracyjna, z któr�
 
 ### Dołączanie biblioteki SDK do projektu
 
-1. Pobierz zestaw [Mobile Engagement Android SDK].
+1. Pobierz zestaw [Mobile Engagement Android SDK](https://aka.ms/vq9mfn).
 2. Wypakuj plik archiwum do folderu na swoim komputerze.
 3. Ustal bibliotekę jar dla bieżącej wersji tego zestawu SDK, a następnie skopiuj ją do Schowka.
 
@@ -79,7 +79,7 @@ W programie Android Studio zostanie utworzona aplikacja demonstracyjna, z któr�
 
       ![][7]
 
-5. Zsynchronizuj projekt w celu załadowania biblioteki.
+5. Aby załadować bibliotekę, zsynchronizuj projekt.
 
       ![][8]
 
@@ -100,7 +100,7 @@ W programie Android Studio zostanie utworzona aplikacja demonstracyjna, z któr�
 
       ![][9]
 
-4. Wklej ją w parametrze `setConnectionString`, aby zastąpić podany przykład, jak pokazano poniżej:
+4. Wklej ją do parametru `setConnectionString`, zastępując cały ciąg pokazany w poniższym kodzie:
 
         engagementConfiguration.setConnectionString("Endpoint=my-company-name.device.mobileengagement.windows.net;SdkKey=********************;AppId=*********");
 
@@ -115,7 +115,7 @@ W programie Android Studio zostanie utworzona aplikacja demonstracyjna, z któr�
         <uses-permission android:name="android.permission.VIBRATE" />
         <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 
-2. Dodaj następujący kod między tagami `<application>` i `</application>`, aby zadeklarować usługę agenta:
+2. Aby zadeklarować usługę agenta, dodaj ten kod między tagami `<application>` i `</application>`:
 
         <service
             android:name="com.microsoft.azure.engagement.service.EngagementService"
@@ -123,7 +123,7 @@ W programie Android Studio zostanie utworzona aplikacja demonstracyjna, z któr�
             android:label="<Your application name>"
             android:process=":Engagement"/>
 
-3. We wklejonym właśnie kodzie zamień element `"<Your application name>"` w etykiecie. Ta wartość jest wyświetlana w menu **Ustawienia**, w którym użytkownicy mogą zobaczyć usługi uruchomione na urządzeniu. Możesz na przykład dodać wyraz „Usługa” w tej etykiecie.
+3. We wklejonym kodzie zastąp tag `"<Your application name>"` w etykiecie wyświetlanej w menu **Ustawienia**, w którym można zobaczyć usługi uruchomione na urządzeniu. Możesz na przykład dodać wyraz „Usługa” w tej etykiecie.
 
 ### Wysyłanie ekranu do usługi Mobile Engagement
 
@@ -136,11 +136,11 @@ Przejdź do pliku **MainActivity.java** i dodaj następujący kod, aby zastąpi�
 > [AZURE.NOTE] Jeśli klasą podstawową nie jest *Activity*, zapoznaj się z artykułem [Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes) (Zaawansowane raportowanie w systemie Android), aby poznać sposób dziedziczenia z różnych klas.
 
 
-Należy oznaczyć jako komentarz (wykluczyć) następujący wiersz w tym prostym scenariuszu przykładowym:
+Oznacz jako komentarz następujący wiersz w tym prostym scenariuszu przykładowym:
 
     // setSupportActionBar(toolbar);
 
-Jeśli chcesz go zachować, zapoznaj się z artykułem [Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes) (Zaawansowane raportowanie w systemie Android).
+Jeśli chcesz zachować `ActionBar` w aplikacji, zobacz [Zaawansowane raportowanie w systemie Android](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes).
 
 ## Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
 
@@ -148,8 +148,8 @@ Jeśli chcesz go zachować, zapoznaj się z artykułem [Advanced Android Reporti
 
 ## Włączanie powiadomień wypychanych i funkcji komunikatów w aplikacji
 
-Usługa Mobile Engagement umożliwia interakcję z użytkownikami przy użyciu powiadomień wypychanych i komunikatów w aplikacji w kontekście kampanii. Ten moduł w portalu Mobile Engagement ma nazwę REACH.
-W poniższych sekcjach aplikacja zostanie skonfigurowana do ich odbierania.
+W czasie kampanii usługa Mobile Engagement umożliwia interakcję z użytkownikami przy użyciu powiadomień wypychanych i komunikatów w aplikacji. Ten moduł w portalu Mobile Engagement ma nazwę REACH.
+W poniższej sekcji aplikacja zostanie skonfigurowana do ich odbierania.
 
 ### Kopiowanie zasobów zestawu SDK w projekcie
 
@@ -186,6 +186,6 @@ Przejdź do sekcji [Android SDK](mobile-engagement-android-sdk-overview.md) (Zes
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

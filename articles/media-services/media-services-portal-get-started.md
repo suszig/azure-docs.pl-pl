@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/25/2016"
+    ms.date="06/22/2016"
     ms.author="juliako"/>
 
 
@@ -25,7 +25,7 @@
 
 W tym samouczku przedstawiono kroki wdrażania podstawowej aplikacji do dostarczania zawartości wideo na żądanie (VoD) przy użyciu klasycznego portalu Azure.
 
-> [AZURE.NOTE] Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz temat [Bezpłatna wersja próbna systemu Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
+> [AZURE.NOTE] Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
 
 
 W tym samouczku opisano następujące zadania:
@@ -42,7 +42,7 @@ W tym samouczku opisano następujące zadania:
 
 1. W [klasycznym portalu Azure](https://manage.windowsazure.com/) kliknij opcję **Nowe**, kliknij pozycję **Media Service**, a następnie kliknij pozycję **Szybkie tworzenie**.
 
-    ![Szybkie tworzenie w usłudze Media Services](./media/media-services-portal-get-started/wams-QuickCreate.png)
+    ![Szybkie tworzenie konta w usłudze Media Services](./media/media-services-portal-get-started/wams-QuickCreate.png)
 
 2. W polu **NAZWA** wpisz nazwę nowego konta. Nazwa konta usługi Media Services składa się z małych liter i cyfr (bez spacji) i może zawierać od 3 do 24 znaków.
 
@@ -238,7 +238,7 @@ Jeśli ten temat nie zawiera oczekiwanych treści, brakuje w nim informacji lub 
 
 
 <!-- URLs. -->
-[Klasyczny portal Azure]: http://manage.windowsazure.com/
+[klasyczny portal Azure]: http://manage.windowsazure.com/
 
 
 <!-- Images -->
@@ -256,6 +256,6 @@ Jeśli ten temat nie zawiera oczekiwanych treści, brakuje w nim informacji lub 
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

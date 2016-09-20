@@ -1,5 +1,5 @@
 <properties
-     pageTitle="Korzystanie z usługi Azure CDN"
+     pageTitle="Korzystanie z usługi Azure CDN | Microsoft Azure"
      description="W tym temacie przedstawiono sposób włączania usługi Content Delivery Network (CDN) dla platformy Azure. Samouczek przeprowadza przez tworzenie nowego profilu i punktu końcowego usługi CDN."
      services="cdn"
      documentationCenter=""
@@ -12,7 +12,7 @@
      ms.tgt_pltfrm="na"
      ms.devlang="na"
      ms.topic="get-started-article"
-     ms.date="05/24/2016" 
+     ms.date="07/28/2016" 
      ms.author="casoper"/>
 
 # Korzystanie z usługi Azure CDN  
@@ -35,7 +35,7 @@ Profil CDN jest kolekcją punktów końcowych usługi CDN.  Każdy profil zawier
 
 **Aby utworzyć nowy punkt końcowy usługi CDN**
 
-1. W [portalu Azure](https://portal.azure.com) przejdź do swojego profilu CDN.  Być może został on przypięty do pulpitu nawigacyjnego w poprzednim kroku.  Jeśli nie, możesz go znaleźć, klikając pozycję **Przeglądaj**, następnie pozycję **Profile CDN** i klikając profil, do którego planujesz dodać punkt końcowy.
+1. W witrynie [Azure Portal](https://portal.azure.com) przejdź do swojego profilu CDN.  Być może został on przypięty do pulpitu nawigacyjnego w poprzednim kroku.  Jeśli nie, możesz go znaleźć, klikając pozycję **Przeglądaj**, następnie pozycję **Profile CDN** i klikając profil, do którego planujesz dodać punkt końcowy.
 
     Zostanie wyświetlony blok profilu CDN.
 
@@ -51,7 +51,7 @@ Profil CDN jest kolekcją punktów końcowych usługi CDN.  Każdy profil zawier
 
 3. Wprowadź **nazwę** dla tego punktu końcowego usługi CDN.  Ta nazwa będzie używana do uzyskiwania dostępu do buforowanych zasobów w domenie `<endpointname>.azureedge.net`.
 
-4. Na liście rozwijanej **Typ źródła** wybierz typ źródła.  Wybierz typ **Magazyn** dla konta usługi Azure Storage, **Usługa w chmurze** dla usługi Azure Cloud Service, **Aplikacja sieci Web** dla usługi Azure Web App lub **Źródło niestandardowe** dla każdego innego publicznie dostępnego źródła serwera sieci Web (hostowanego na platformie Azure lub gdziekolwiek indziej).
+4. Na liście rozwijanej **Typ źródła** wybierz typ źródła.  Wybierz typ **Storage** dla konta usługi Azure Storage, **Usługa w chmurze** dla usługi Azure Cloud Service, **Web App** dla usługi Azure Web App lub **Źródło niestandardowe** dla każdego innego publicznie dostępnego źródła serwera sieci Web (hostowanego na platformie Azure lub gdziekolwiek indziej).
 
     ![Typ źródła usługi CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
         
@@ -67,7 +67,7 @@ Profil CDN jest kolekcją punktów końcowych usługi CDN.  Każdy profil zawier
     
     > [AZURE.NOTE] Ustawienie **Port źródła** określa tylko port używany przez punkt końcowy do pobierania informacji ze źródła.  Sam punkt końcowy będzie dostępny dla klientów końcowych tylko na domyślnych portach HTTP i HTTPS (80 i 443), niezależnie od wartości **Port źródła**.  
     >
-    > Punkty końcowe usługi **Azure CDN from Akamai** nie zezwalają na pełny zakres portów TCP dla źródeł.  Lista niedozwolonych portów źródeł znajduje się w artykule [Usługa Azure CDN from Akamai — szczegóły zachowania](cdn-akamai-behavior-details.md).  
+    > Punkty końcowe usługi **Azure CDN from Akamai** nie zezwalają na pełny zakres portów TCP dla źródeł.  Lista niedozwolonych portów źródłowych znajduje się w artykule [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx) (Azure CDN from Akamai — dozwolone porty źródłowe).  
     >
     > Uzyskiwanie dostępu do zawartości usługi CDN przy użyciu protokołu HTTPS podlega następującym ograniczeniom:
     > 
@@ -99,6 +99,6 @@ Profil CDN jest kolekcją punktów końcowych usługi CDN.  Każdy profil zawier
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -6,14 +6,14 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-    keywords="runbook, runbook template, runbook automation, azure runbook"/>
+    keywords="runbook, szablon runbook, automatyzacja runbook, azure runbook"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/31/2016"
+    ms.date="07/06/2016"
     ms.author="magoedte;bwren"/>
 
 # Mój pierwszy graficzny element Runbook
@@ -61,18 +61,18 @@ Kontrolka Biblioteka po lewej stronie edytora umożliwia wybranie działań do d
 
 ## Krok 3. Testowanie elementu Runbook
 
-Przed opublikowaniem elementu Runbook w celu udostępnienia go w środowisku produkcyjnym chcemy przetestować ten element, aby upewnić się, że działa on prawidłowo.  Testowanie elementu Runbook polega na uruchomieniu jego **wersji roboczej** i interaktywnym przejrzeniu danych wyjściowych.
+Przed opublikowaniem elementu Runbook w celu udostępnienia go w środowisku produkcyjnym chcemy go przetestować, aby upewnić się, że działa prawidłowo.  Testowanie elementu Runbook polega na uruchomieniu jego **wersji roboczej** i interaktywnym przejrzeniu danych wyjściowych.
 
 1.  Kliknij pozycję **Okienko testowania**, aby otworzyć blok testowania.<br> ![Okienko testowania](media/automation-first-runbook-graphical/runbook-toolbar-test-revised20165.png)
 2.  Kliknij opcję **Uruchom**, aby rozpocząć test.  Powinna to być jedyna włączona opcja.
 3.  Zostanie utworzone [zadanie elementu Runbook](automation-runbook-execution.md) i w okienku pojawi się jego stan.  
-    Zadanie będzie miało początkowy stan *W kolejce*, wskazujący, że trwa oczekiwanie na udostępnienie procesu roboczego elementu Runbook w chmurze.  Następnym stanem będzie *Uruchamianie*, gdy proces roboczy wywołuje zadanie, a następnie *Uruchomiono*, gdy element Runbook faktycznie zacznie działać.  
+    Zadanie będzie miało początkowy stan *W kolejce*, wskazujący, że trwa oczekiwanie na udostępnienie procesu roboczego elementu Runbook w chmurze.  Następnym stanem będzie *Uruchamianie*, gdy proces roboczy wywołuje zadanie, a kolejnym *Uruchomiono*, gdy element Runbook faktycznie zacznie działać.  
 4.  Po zakończeniu zadania elementu Runbook zostaną wyświetlone jego dane wyjściowe. W naszym przypadku powinien być widoczny ciąg *Witaj, świecie*.<br> ![Witaj, świecie](media/automation-first-runbook-graphical/runbook-test-results.png)
 5.  Zamknij blok testowania, aby wrócić do kanwy.
 
 ## Krok 4. Publikowanie i uruchamianie elementu Runbook
 
-Nowo utworzony element Runbook nadal działa w trybie roboczym. Przed uruchomieniem elementu w środowisku produkcyjnym musimy go opublikować.  Podczas publikowania elementu Runbook można zastąpić istniejącą wersję opublikowaną wersją roboczą.  W naszym przypadku nie mamy jeszcze wersji opublikowanej, ponieważ właśnie utworzyliśmy element Runbook.
+Nowo utworzony element Runbook nadal działa w trybie roboczym. Przed uruchomieniem elementu w środowisku produkcyjnym musimy go opublikować.  Podczas publikowania elementu Runbook można zastąpić istniejącą wersję opublikowaną wersją roboczą.  W naszym przypadku nie mamy jeszcze wersji opublikowanej, ponieważ element Runbook został dopiero utworzony.
 
 1.  Kliknij pozycję **Opublikuj**, aby opublikować element Runbook, a następnie kliknij pozycję **Tak** po wyświetleniu monitu.<br> ![Publikowanie](media/automation-first-runbook-graphical/runbook-toolbar-publish-revised20166.png)
 2.  Jeśli przewiniesz w lewo, aby wyświetlić element Runbook w bloku **Elementy Runbook**, element **Stan tworzenia** będzie mieć wartość **Opublikowano**.
@@ -115,7 +115,7 @@ Teraz mamy zmienną służącą do przechowywania identyfikatora subskrypcji i m
 10.  Polecenie **Add-AzureRmAccount** ma wiele zestawów parametrów, dlatego musimy wybrać jeden przed podaniem wartości parametrów.  Kliknij pozycję **Zestaw parametrów**, a następnie wybierz zestaw parametrów **ServicePrincipalCertificate**. 
 11.  Po wybraniu zestawu parametrów parametry zostaną wyświetlone w bloku Działanie parametru konfiguracji.  Kliknij pozycję **APPLICATIONID**.<br> ![Dodawanie parametrów konta usługi Azure RM](media/automation-first-runbook-graphical/add-azurermaccount-parameterset.png)
 12.  W bloku Wartość parametru wybierz pozycję **Wyjście działania** jako **źródła danych** i wybierz pozycję **Uzyskaj połączenie Uruchom jako** z listy, w polu tekstowym **Ścieżka pola** wpisz ciąg **ApplicationId**, a następnie kliknij przycisk **OK**.  Określamy nazwę właściwości ścieżki pola, ponieważ wyjściem działania jest obiekt z wieloma właściwościami.
-13.  Kliknij pozycję **CERTIFICATETHUMBPRINT** i w bloku Wartość parametru wybierz **Wyjście działania** jako **źródło danych**.  Wybierz pozycję **Uzyskaj połączenie Uruchom jako** z listy, w polu tekstowym **Ścieżka pola** wpisz ciąg **CertificateThumbrprint**, a następnie kliknij przycisk **OK**. 
+13.  Kliknij pozycję **CERTIFICATETHUMBPRINT** i w bloku Wartość parametru wybierz **Wyjście działania** jako **źródło danych**.  Wybierz z listy pozycję **Uzyskaj połączenie Uruchom jako**, w polu tekstowym **Ścieżka pola** wpisz ciąg **CertificateThumbprint**, a następnie kliknij przycisk **OK**. 
 14.  Kliknij pozycję **SERVICEPRINCIPAL** i w bloku Wartość parametru wybierz **ConstantValue** jako **źródło danych**, kliknij opcję **True**, a następnie kliknij przycisk **OK**.
 15.  Kliknij pozycję **TENANTID** i w bloku Wartość parametru wybierz **Wyjście działania** jako **źródło danych**.  Wybierz pozycję **Uzyskaj połączenie Uruchom jako** z listy, w polu tekstowym **Ścieżka pola** wpisz ciąg **TenantId**, a następnie dwukrotnie kliknij przycisk **OK**.  
 16.  W kontrolce Biblioteka wpisz ciąg **Set-AzureRmContext** w polu tekstowym wyszukiwania.
@@ -135,7 +135,7 @@ Element Runbook powinien na tym etapie wyglądać następująco: <br>![Konfigura
 Teraz dodamy działanie **Start-AzureRmVM** w celu uruchomienia maszyny wirtualnej.  Możesz wybrać dowolną maszynę wirtualną w ramach subskrypcji Azure. Wybrana nazwa zostanie teraz trwale zakodowana w poleceniu cmdlet.
 
 1. W kontrolce Biblioteka wpisz ciąg **Start-AzureRm** w polu tekstowym wyszukiwania.
-2. Dodaj polecenie **Start-AzureRmVM** do kanwy, a następnie kliknij i przeciągnij go poniżej obszaru **Określ identyfikator subskrypcji**.
+2. Dodaj polecenie **Start-AzureRmVM** do kanwy, a następnie kliknij i przeciągnij ją poniżej obszaru **Połącz z platformą Azure**.
 3. Umieść kursor nad pozycją **Określ identyfikator subskrypcji** i zaczekaj, aż w dolnej części kształtu pojawi się okrąg.  Kliknij okrąg i przeciągnij strzałkę do pozycji **Start-AzureRmVM**. 
 4.  Wybierz pozycję **Start-AzureRmVM**.  Kliknij pozycję **Parametry**, a następnie pozycję **Zestaw parametrów**, aby wyświetlić zestawy dla pozycji **Start-AzureRmVM**.  Wybierz zestaw parametrów **ResourceGroupNameParameterSetName**. Zwróć uwagę, że obok parametrów **ResourceGroupName** i **Name** znajdują się wykrzykniki.  Oznacza to, że te parametry są wymagane.  Oczekiwane wartości obu parametrów to ciągi.
 5.  Wybierz pozycję **Nazwa**.  Wybierz pozycję **Wyrażenie programu PowerShell** jako **źródło danych** i wpisz ujętą w podwójne cudzysłowy nazwę maszyny wirtualnej, którą chcemy uruchomić przy użyciu tego elementu Runbook.  Kliknij przycisk **OK**.<br>![Wartość parametru Name pozycji Start-AzureRmVM](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
@@ -156,7 +156,7 @@ Nasz element Runbook aktualnie umożliwia uruchamianie maszyny wirtualnej w grup
 5. Wybierz działanie **Start-AzureRmVM**, a następnie kliknij pozycję **Parametry**.
 6. Zmień **źródło danych** dla pozycji **Name** na **Wejście elementu Runbook**, a następnie wybierz pozycję **VMName**.<br>
 7. Zmień **źródło danych** dla pozycji **ResourceGroupName** na **Wejście elementu Runbook**, a następnie wybierz pozycję **ResourceGroupName**.<br> ![Parametry polecenia Start-AzureVM](media/automation-first-runbook-graphical/start-azurermvm-params-runbookinput.png)
-8. Zapisz element Runbook, a następnie otwórz okienko testowania.  Teraz możesz podać wartości dwóch zmiennych wejściowych, które będą używane w teście.
+8. Zapisz element Runbook, a następnie otwórz okienko testowania.  Teraz możesz podać wartości dwóch zmiennych wejściowych, które zostaną użyte w teście.
 9. Zamknij okienko testowania.
 10. Kliknij pozycję **Opublikuj**, aby opublikować nową wersję elementu Runbook.
 11. Zatrzymaj maszynę wirtualną uruchomioną w poprzednim kroku.
@@ -198,15 +198,15 @@ Teraz zmodyfikujemy element Runbook tak, aby podejmował próbę uruchomienia ma
 17. Dla **warunku wyrażenia** wpisz *$ActivityOutput [’Pobieranie stanu’] - eq "Zatrzymano"*.  Polecenie **Start-AzureRmVM** zostanie teraz uruchomione tylko po zatrzymaniu maszyny wirtualnej.
 18. W kontrolce Biblioteka rozwiń pozycję **Polecenia cmdlet**, a następnie pozycję **Microsoft.PowerShell.Utility**.
 19. Dwukrotnie dodaj pozycję **Write-Output** do kanwy.<br> ![Element Runbook z pozycją Write-Output](media/automation-first-runbook-graphical/runbook-startazurermvm-complete.png)
-20. W pierwszej kontrolce **Write-Output** zmień wartość pola **Etykieta** na *Powiadamianie o uruchomieniu maszyny wirtualnej*.
+20. W pierwszej kontrolce **Write-Output** kliknij pozycję **Parametry** i zmień wartość pola **Etykieta** na *Powiadamianie o uruchomieniu maszyny wirtualnej*.
 21. Dla pozycji **InputObject** zmień **źródło danych** na **Wyrażenie programu PowerShell** i wpisz wyrażenie *„Maszyna wirtualna $VMName została pomyślnie uruchomiona”*.
-22. W drugiej kontrolce **Write-Output** zmień wartość pola **Etykieta** na *Powiadamianie o nieudanym uruchomieniu maszyny wirtualnej*.
+22. W drugiej kontrolce **Write-Output** kliknij pozycję **Parametry** i zmień wartość pola **Etykieta** na *Powiadamianie o błędzie uruchomienia maszyny wirtualnej*.
 23. Dla pozycji **InputObject** zmień **źródło danych** na **Wyrażenie programu PowerShell** i wpisz wyrażenie *„Nie można uruchomić maszyny wirtualnej $VMName”*.
 24. Utwórz połączenie między poleceniem **Start-AzureRmVM** z wartościami **Powiadamianie o uruchomieniu maszyny wirtualnej** i **Powiadamianie o nieudanym uruchomieniu maszyny wirtualnej**.
 25. Wybierz połączenie z wartością **Powiadamianie o uruchomieniu maszyny wirtualnej** i zmień ustawienie pozycji **Zastosuj warunek** na **True**.
 26. W polu **Warunek wyrażenia** wpisz ciąg *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -eq $true*.  Ta kontrolka Write-Output teraz zostanie uruchomiona tylko w sytuacji, gdy maszyna wirtualna zostanie pomyślnie uruchomiona.
 27. Wybierz połączenie z wartością **Powiadamianie o nieudanym uruchomieniu maszyny wirtualnej** i zmień ustawienie pozycji **Zastosuj warunek** na **True**.
-28. W polu **Warunek wyrażenia** wpisz ciąg *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true*.  Ta kontrolka Write-Output teraz zostanie uruchomiona tylko w sytuacji, gdy maszyna wirtualna nie zostanie pomyślnie uruchomiona. 
+28. W polu **Warunek wyrażenia** wpisz ciąg *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true*.  Ta kontrolka Write-Output teraz zostanie uruchomiona tylko w sytuacji, gdy maszyna wirtualna nie zostanie pomyślnie uruchomiona.
 29. Zapisz element Runbook, a następnie otwórz okienko testowania.
 30. Uruchom element Runbook przy zatrzymanej maszynie wirtualnej. Powinno to spowodować jej uruchomienie.
 
@@ -218,6 +218,6 @@ Teraz zmodyfikujemy element Runbook tak, aby podejmował próbę uruchomienia ma
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

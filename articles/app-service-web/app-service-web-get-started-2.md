@@ -72,7 +72,7 @@ Usługa App Service zawiera gotowe rozwiązanie używane w niektórych typowych 
 
 ## Automatyczne skalowanie aplikacji na podstawie zapotrzebowania
 
-W kolejnym kroku będziemy automatycznie skalować aplikację, aby automatycznie dostosowywała swoją wydajność w odpowiedzi na zapotrzebowanie użytkowników (dalsze informacje podano w tematach [Scale pricing tier in Azure App Service](app-service-scale) (Skalowanie warstwy cenowej w usłudze Azure App Service) oraz [Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md) (Ręczne lub automatyczne skalowanie liczby wystąpień)). 
+W kolejnym kroku będziemy automatycznie skalować aplikację, aby samoczynnie dostosowywała swoją wydajność w odpowiedzi na zapotrzebowanie użytkowników (dalsze informacje podano w tematach [Scale up your app in Azure](web-sites-scale.md) [Skalowanie aplikacji w górę na platformie Azure] oraz [Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md) [Ręczne lub automatyczne skalowanie liczby wystąpień]). 
 
 Krótko mówiąc, skalowanie aplikacji sieci Web można przeprowadzić na dwa sposoby:
 
@@ -112,7 +112,7 @@ W bloku **Ustawienia skalowania** można zauważyć wiele innych opcji. Możesz 
 - Skalować automatycznie zgodnie z harmonogramem
 - Określać zachowanie funkcji skalowania automatycznego wobec przyszłych zdarzeń
 
-Aby uzyskać więcej informacji na temat skalowania aplikacji w górę, zobacz [Scale pricing tier in Azure App Service](../app-service/app-service-scale.md) (Skalowanie warstwy cenowej w usłudze Azure App Service). Aby uzyskać więcej informacji na temat skalowania w poziomie, zobacz [Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md) (Ręczne lub automatyczne skalowanie liczby wystąpień).
+Aby uzyskać więcej informacji na temat skalowania aplikacji w górę, zobacz temat [Scale up your app in Azure](../app-service-web/web-sites-scale.md) (Skalowanie aplikacji w górę na platformie Azure). Aby uzyskać więcej informacji na temat skalowania w poziomie, zobacz [Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md) (Ręczne lub automatyczne skalowanie liczby wystąpień).
 
 ## Otrzymywanie alertów dotyczących aplikacji
 
@@ -147,7 +147,7 @@ Dowiedz się, jak wykonać jeszcze więcej czynności związanych z wdrożoną a
 
 - [Kupowanie i konfigurowanie niestandardowej nazwy domeny](custom-dns-web-site-buydomains-web-app.md) — kup atrakcyjną domenę dla aplikacji sieci Web i użyj jej zamiast domeny *.azurewebsites.net. Lub użyj domeny, która już istnieje.
 - [Konfigurowanie środowisk przejściowych](web-sites-staged-publishing.md) — wdróż aplikację w przejściowym adresie URL przed wprowadzeniem jej do środowiska produkcyjnego. Aktualizuj aplikację sieci Web bez obaw. Skonfiguruj złożone rozwiązanie związane z metodyką DevOps z wieloma miejscami wdrożenia. 
-- [Konfigurowanie wdrażania ciągłego](web-sites-publish-source-control.md) — zintegruj wdrożenie aplikacji z systemem kontroli źródła. Wdrażaj na platformie Azure z każdym zatwierdzeniem.
+- [Konfigurowanie wdrażania ciągłego](app-service-continuous-deployment.md) — zintegruj wdrażanie aplikacji z systemem kontroli źródła. Wdrażaj na platformie Azure z każdym zatwierdzeniem.
 - [Dostęp do zasobów lokalnych](web-sites-hybrid-connection-get-started.md) — uzyskaj dostęp do istniejącej, lokalnej bazy danych lub systemu CRM.
 - [Tworzenie kopii zapasowej aplikacji](web-sites-backup.md) — skonfiguruj tworzenie i przywracanie kopii zapasowych dla aplikacji sieci Web. Przygotuj się na nieoczekiwane awarie i odzyskaj po nich swoje dane.
 - [Włączanie dzienników diagnostycznych](web-sites-enable-diagnostic-log.md) — odczytuj dzienniki IIS z platformy Azure lub funkcji śledzenia aplikacji. Odczytaj dzienniki strumieniowo, pobierz je lub przekaż je do usługi [Application Insights](../application-insights/app-insights-overview.md), aby otrzymać kompleksową analizę.
@@ -157,6 +157,6 @@ skanuj aplikację sieci Web pod kątem współczesnych zagrożeń przy użyciu u
 - [Dowiedz się, jak działa usługa App Service](../app-service/app-service-how-works-readme.md) 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

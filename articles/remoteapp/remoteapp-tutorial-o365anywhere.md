@@ -13,11 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="04/05/2016"
+   ms.date="08/15/2016"
    ms.author="guscatal;elizapo"/>
 
 
 # Praca w tym samym środowisku usługi Office 365 na dowolnym urządzeniu z usługą Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
 
 W tym artykule opisano sposób wdrażania usługi Office 365 na dowolnym urządzeniu w firmie. Użytkownicy mogą korzystać z tych samych możliwości i środowiska interfejsu użytkownika na urządzeniach Apple oraz z systemami Android i Windows.
 
@@ -26,7 +29,7 @@ Osiągniemy ten cel dzięki usłudze Azure RemoteApp, obsługując usługę Offi
 ## Tworzenie kolekcji w chmurze
 
 Najpierw, po utworzeniu konta platformy Azure, przejdź do usługi **RemoteApp**, klikając link po lewej stronie.
-![Wyświetlanie usługi Azure RemoteApp w portalu Azure](./media/remoteapp-tutorial-o365anywhere/1-menu.png)
+![Wyświetlanie usługi Azure RemoteApp w witrynie Azure Portal](./media/remoteapp-tutorial-o365anywhere/1-menu.png)
 
 Następnie kontynuuj, klikając pozycję **nowe** w dolnej części ekranu i „szybko tworząc” kolekcję. Podaj nazwę, region, subskrypcję, plan i obraz „Office Proffesional 2013” udostępniony przez firmę Microsoft.
 ![Okno dialogowe tworzenia](./media/remoteapp-tutorial-o365anywhere/2-quickcreate.png)
@@ -69,6 +72,6 @@ Kliknięcie dowolnej aplikacji powinno spowodować jej uruchomienie na maszynie 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

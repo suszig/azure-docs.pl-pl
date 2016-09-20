@@ -13,18 +13,16 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/18/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc" />
 
-# Topologie połączenia usługi Azure VPN Gateway
+# Połączenia usługi Azure VPN Gateway
 
 W tym artykule przedstawiono podstawowe topologie połączenia bramy sieci VPN. Przedstawione grafiki i opisy mogą ułatwić wybór topologii konfiguracji dostosowanej do potrzeb użytkownika. Choć artykuł ten jest poświęcony podstawowym topologiom, możliwe jest utworzenie bardziej złożonych topologii z użyciem tych diagramów jako wskazówek.
 
 Dla każdej topologii dostępna jest tabela zawierająca informacje o modelu wdrażania, do którego ma zastosowanie dana topologia, oraz o narzędziach wdrażania, których można użyć do skonfigurowania danej topologii. Tabela ta zawiera także bezpośredni link do odpowiedniego artykułu (jeśli jest dostępny). Tabele są często aktualizowane wraz z pojawianiem się nowych artykułów i narzędzi wdrażania.
 
-Więcej informacji o bramach sieci VPN można znaleźć w artykule [VPN Gateway — informacje](vpn-gateway-about-vpngateways.md)
-
-
+Jeśli wybrano już rodzaj połączenia, instrukcje używane podczas tworzenia bramy sieci VPN będą zależeć od modelu wdrażania użytego podczas tworzenia sieci wirtualnej. Jeśli na przykład sieć wirtualna została utworzona przy użyciu klasycznego modelu wdrożenia, do tworzenia i konfigurowania bramy sieci VPN należy użyć wskazówek i instrukcji dotyczących klasycznego modelu wdrażania. Nie można utworzyć bramy sieci VPN usługi Resource Manager dla sieci wirtualnej z klasycznym modelem wdrażania. Aby uzyskać więcej informacji na temat modeli wdrażania, zobacz [Understanding Resource Manager and classic deployment models](../resource-manager-deployment-model.md) (Omówienie modelu wdrażania przy użyciu usługi Resource Manager oraz wdrażania klasycznego).
 
 ## Połączenia typu lokacja-lokacja i połączenia obejmujące wiele lokacji
 
@@ -64,6 +62,28 @@ W ramach platformy Azure są obecnie obsługiwane dwa modele wdrażania: model w
 [AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)] 
 
 
+## Punkt-lokacja
+
+Konfiguracja typu punkt-lokacja pozwala utworzyć indywidualne bezpieczne połączenie z siecią wirtualną z poziomu komputera klienckiego. Połączenie sieci VPN jest nawiązywane poprzez zainicjowanie połączenia z komputera klienckiego. Przedstawione rozwiązanie przydaje się w przypadku, gdy celem użytkownika jest połączenie się z siecią wirtualną z lokalizacji zdalnej, np. z domu lub z konferencji, lub gdy konieczne jest połączenie z siecią wirtualną jedynie niewielkiej liczby klientów. 
+
+Połączenie sieci VPN typu punkt-lokacja jest nawiązywane za pośrednictwem protokołu SSTP (Secure Socket Tunneling Protocol). Połączenia typu punkt-lokacja nie wymagają do prawidłowego działania urządzenia sieci VPN ani publicznego adresu IP. 
+
+**Diagram połączenia typu punkt-lokacja**
+
+![Połączenie typu punkt-lokacja](./media/vpn-gateway-topology/point2site.png "point-to-site")
+
+**Dostępne metody i modele wdrażania**
+
+[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
+
+
+##ExpressRoute
+
+[AZURE.INCLUDE [expressroute-intro](../../includes/expressroute-intro-include.md)]
+
+Więcej informacji na temat usługi ExpressRoute zawiera artykuł [ExpressRoute technical overview](../expressroute/expressroute-introduction.md) (Opis techniczny usługi ExpressRoute).
+
+
 
 ## Współistniejące połączenia typu lokacja-lokacja i ExpressRoute
 
@@ -80,23 +100,11 @@ ExpressRoute to bezpośrednie, specjalne połączenie z usługami firmy Microsof
 [AZURE.INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)] 
 
 
-## Punkt-lokacja
 
-Konfiguracja typu punkt-lokacja pozwala utworzyć indywidualne bezpieczne połączenie z siecią wirtualną z poziomu komputera klienckiego. Połączenie sieci VPN jest nawiązywane poprzez zainicjowanie połączenia z komputera klienckiego. Przedstawione rozwiązanie przydaje się w przypadku, gdy celem użytkownika jest połączenie się z siecią wirtualną z lokalizacji zdalnej, np. z domu lub z konferencji, lub gdy konieczne jest połączenie z siecią wirtualną jedynie niewielkiej liczby klientów. 
-
-Połączenie sieci VPN typu punkt-lokacja jest nawiązywane za pośrednictwem protokołu SSTP (Secure Socket Tunneling Protocol). Połączenia typu punkt-lokacja nie wymagają do prawidłowego działania urządzenia sieci VPN ani publicznego adresu IP. 
-
-**Diagram połączenia typu punkt-lokacja**
-
-![Połączenie typu punkt-lokacja](./media/vpn-gateway-topology/point2site.png "point-to-site")
-
-**Dostępne metody i modele wdrażania**
-
-[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
 
 ## Następne kroki
 
-Aby lepiej zrozumieć problematykę bram sieci VPN przed przejściem do planowania i projektowania połączenia, warto zapoznać się z informacjami zawartymi w artykułach [Bramy sieci VPN — informacje](vpn-gateway-about-vpngateways.md) i [Brama sieci VPN — często zadawane pytania](vpn-gateway-vpn-faq.md).
+Aby lepiej zrozumieć problematykę ustawień bramy sieci VPN, warto zapoznać się z informacjami zawartymi w artykułach [About VPN Gateways](vpn-gateway-about-vpngateways.md) (Informacje o bramach VPN Gateway) i [Brama VPN Gateway— często zadawane pytania](vpn-gateway-vpn-faq.md).
 
 
 
@@ -106,6 +114,6 @@ Aby lepiej zrozumieć problematykę bram sieci VPN przed przejściem do planowan
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

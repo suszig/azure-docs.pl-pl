@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/23/2016"
+    ms.date="08/29/2016"
     ms.author="brjohnst"/>
 
 # Przekazywanie danych do usługi Azure Search przy użyciu zestawu .NET SDK
@@ -207,6 +207,6 @@ Po wypełnieniu indeksu usługi Azure Search możesz rozpocząć wykonywanie zap
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

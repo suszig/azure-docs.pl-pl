@@ -22,9 +22,9 @@
 
 Szablon usługi [Azure Resource Manager](../resource-group-authoring-templates.md) to deklaracyjny szablon używany do definiowania wdrożenia. Można zdefiniować zasoby w celu wdrożenia rozwiązania oraz określić parametry i zmienne, które umożliwią wprowadzanie wartości dla różnych środowisk. Szablon składa się z kodu JSON i wyrażeń, których można używać do tworzenia wartości na potrzeby wdrożenia.
 
-Aby umożliwić użytkownikom tworzenie i wdrażanie szablonów prywatnych oraz zarządzanie nimi z poziomu biblioteki osobistej, można użyć nowej funkcji **Szablony** w [portalu Azure](https://portal.azure.com) razem z dostawcą zasobów **Microsoft.Gallery** jako rozszerzenia portalu [Azure Marketplace](https://azure.microsoft.com/marketplace/).
+Aby umożliwić użytkownikom tworzenie i wdrażanie szablonów prywatnych oraz zarządzanie nimi z poziomu biblioteki osobistej, można użyć nowej funkcji **Szablony** w witrynie [Azure Portal](https://portal.azure.com) razem z dostawcą zasobów **Microsoft.Gallery** jako rozszerzenia portalu [Azure Marketplace](https://azure.microsoft.com/marketplace/).
 
-Ten dokument przeprowadzi Cię przez proces dodawania i udostępniania **szablonu** prywatnego oraz zarządzania nim za pośrednictwem portalu Azure.
+Ten dokument przeprowadzi Cię przez proces dodawania i udostępniania **szablonu** prywatnego oraz zarządzania nim za pośrednictwem witryny Azure Portal.
 
 ## Wskazówki
 
@@ -33,18 +33,18 @@ Poniższe sugestie pomogą Ci w pełni wykorzystać możliwości **szablonów** 
 - **Szablon** to hermetyzowany zasób, który zawiera szablon usługi Resource Manager i dodatkowe metadane. Jego zachowanie jest bardzo podobne do zachowania elementu w witrynie Marketplace. Najważniejsza różnica polega na tym, że jest to element prywatny, a witryna Marketplace zawiera elementy publiczne.
 - Biblioteka **Szablony** jest dobrym rozwiązaniem, jeśli użytkownicy muszą dostosować swoje wdrożenia.
 - **Szablony** są dobrym rozwiązaniem dla użytkowników, którzy potrzebują prostego repozytorium na platformie Azure.
-- Rozpocznij pracę z istniejącym szablonem usługi Resource Manager. Wyszukaj szablony w witrynie [github](https://github.com/Azure/azure-quickstart-templates) lub [wyeksportuj szablon](https://azure.microsoft.com/blog/export-template/) z istniejącej grupy zasobów.
+- Rozpocznij pracę z istniejącym szablonem usługi Resource Manager. Wyszukaj szablony w witrynie [github](https://github.com/Azure/azure-quickstart-templates) lub [wyeksportuj szablon](../resource-manager-export-template.md) z istniejącej grupy zasobów.
 - **Szablony** są powiązane z użytkownikiem, który je opublikował. Nazwa wydawcy jest widoczna dla każdej osoby, która ma uprawnienia do odczytu szablonu.
 - **Szablony** to zasoby usługi Resource Manager. Po opublikowaniu nie można zmienić ich nazwy.
 
 ## Dodawanie zasobu Szablon
 
-Istnieją dwa sposoby tworzenia zasobu **Szablon** w portalu Azure.
+Istnieją dwa sposoby tworzenia zasobu **Szablon** w witrynie Azure Portal.
 
 ### Metoda 1. Tworzenie nowego zasobu Szablon z poziomu uruchomionej grupy zasobów
 
 1. Przejdź do istniejącej grupy zasobów w portalu Azure. Wybierz pozycję **Eksportuj szablon** w obszarze **Ustawienia**.
-2. Po wyeksportowaniu szablonu usługi Resource Manager użyj przycisku **Zapisz szablon** w celu zapisania go w repozytorium **Szablony**. Wszystkie szczegóły eksportowania szablonu możesz znaleźć [tutaj](https://azure.microsoft.com/blog/export-template/).
+2. Po wyeksportowaniu szablonu usługi Resource Manager użyj przycisku **Zapisz szablon** w celu zapisania go w repozytorium **Szablony**. Wszystkie szczegóły eksportowania szablonu możesz znaleźć [tutaj](../resource-manager-export-template.md).
 <br /><br />
 ![Eksportowanie grupy zasobów](media/rg-export-portal1.PNG)  <br />
 
@@ -116,7 +116,7 @@ Wybierz pozycję **Udostępnij** w przeglądanym elemencie, klikając go prawym 
 
 ![Udostępnianie szablonu](media/share-template-portal1a.png)  <br />
 
- Teraz możesz wybrać rolę i użytkownika lub grupę, aby udzielić im praw dostępu do określonego **szablonu**. Dostępne role to Właściciel, Czytelnik i Współautor. Więcej szczegółów znajduje się w poniższej sekcji dotyczącej [kontroli dostępu](#access-control-for-a-tenant-resource-provider).
+ Teraz możesz wybrać rolę i użytkownika lub grupę, aby udzielić im praw dostępu do określonego **szablonu**. Dostępne role to Właściciel, Czytelnik i Współautor. Więcej szczegółów znajduje się w powyższej sekcji dotyczącej [kontroli dostępu](#access-control-for-a-tenant-resource-provider).
 
 ![Udostępnianie szablonu](media/share-template-portal2b.png)  <br />
 
@@ -136,6 +136,6 @@ Kliknij pozycję **Wybierz**, a następnie przycisk **OK**. Możesz teraz przegl
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

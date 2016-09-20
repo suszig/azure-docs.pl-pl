@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/25/2016"
    ms.author="terrylan"/>
 
 # Zarządzanie zabezpieczeniami na platformie Azure
 
-Subskrybenci platformy Azure mogą zarządzać środowiskami chmury przy użyciu wielu urządzeń, łącznie ze stacjami roboczymi do zarządzania, komputerami deweloperów, a nawet urządzeniami uprzywilejowanych użytkowników końcowych, którzy mają uprawnienia specyficzne dla zadania. W niektórych przypadkach funkcje administracyjne są wykonywane za pośrednictwem konsol sieci Web takich jak [portal Azure](https://azure.microsoft.com/features/azure-portal/). W innych przypadkach mogą istnieć bezpośrednie połączenia z platformą Azure z systemów lokalnych za pośrednictwem wirtualnych sieci prywatnych (VPN), usług terminalowych, protokołów aplikacji klienckich lub (programowo) interfejsu API zarządzania usługami Azure (SMAPI, Service Management API). Ponadto punkty końcowe klienta mogą być przyłączone do domeny lub odizolowane i niezarządzane (np. tablety lub smartfony).
+Subskrybenci platformy Azure mogą zarządzać środowiskami chmury przy użyciu wielu urządzeń, łącznie ze stacjami roboczymi do zarządzania, komputerami deweloperów, a nawet urządzeniami uprzywilejowanych użytkowników końcowych, którzy mają uprawnienia specyficzne dla zadania. W niektórych przypadkach funkcje administracyjne są wykonywane za pośrednictwem konsol sieci Web, takich jak [Azure Portal](https://azure.microsoft.com/features/azure-portal/). W innych przypadkach mogą istnieć bezpośrednie połączenia z platformą Azure z systemów lokalnych za pośrednictwem wirtualnych sieci prywatnych (VPN), usług terminalowych, protokołów aplikacji klienckich lub (programowo) interfejsu API zarządzania usługami Azure (SMAPI, Service Management API). Ponadto punkty końcowe klienta mogą być przyłączone do domeny lub odizolowane i niezarządzane (np. tablety lub smartfony).
 
-Te liczne możliwości uzyskania dostępu i zarządzania zapewniają bogaty zestaw opcji, jednak mogą spowodować podwyższenie ryzyka związanego z wdrożeniem w chmurze, utrudniając śledzenie i inspekcję czynności administracyjnych oraz zarządzanie nimi. To zróżnicowanie może również wprowadzać zagrożenia bezpieczeństwa związane z nieuregulowanym dostępem do punktów końcowych klienta używanych do zarządzania usługami w chmurze. Użycie ogólnych lub osobistych stacji roboczych do opracowywania infrastruktury i zarządzania nią powoduje, że zagrożenia mogą nadchodzić z nieprzewidywalnych kierunków, np. podczas przeglądania sieci Web (ataki za pośrednictwem używanych witryn) lub korzystania z poczty e-mail (techniki socjotechniczne i wyłudzanie informacji).
+Liczne możliwości uzyskania dostępu i zarządzania zapewniają bogaty zestaw opcji, jednak mogą spowodować podwyższenie ryzyka związanego z wdrożeniem w chmurze. Może to utrudniać śledzenie i inspekcję czynności administracyjnych oraz zarządzanie nimi. To zróżnicowanie może również wprowadzać zagrożenia bezpieczeństwa związane z nieuregulowanym dostępem do punktów końcowych klienta używanych do zarządzania usługami w chmurze. Użycie ogólnych lub osobistych stacji roboczych do opracowywania infrastruktury i zarządzania nią powoduje, że zagrożenia mogą nadchodzić z nieprzewidywalnych kierunków, na przykład podczas przeglądania sieci Web (na przykład ataki za pośrednictwem używanych witryn) lub korzystania z poczty e-mail (na przykład techniki socjotechniczne i wyłudzanie informacji).
 
 ![][1]
 
@@ -91,21 +91,21 @@ Wzmocnienie zabezpieczeń stacji roboczej gwarantuje, że administrator korzysta
 - Ograniczenie wykonywania. Zezwalanie na uruchamianie tylko wstępnie zdefiniowanych plików wykonywalnych wymaganych do zarządzania (zwane „odmową domyślną”). Należy domyślnie odmawiać użytkownikom uprawnienia do uruchamiania programów, które nie zostały uwzględnione na liście dozwolonych programów.
 - Stosowanie najniższych uprawnień. Użytkownicy stacji roboczej używanej do zarządzania nie powinni mieć żadnych uprawnień administracyjnych na tym komputerze. Dzięki temu nie mogą oni zmieniać konfiguracji systemu ani plików systemowych, celowo lub przypadkowo.
 
-Wszystkie te zasady można wymusić przy użyciu [obiektów zasad grupy](https://www.microsoft.com/download/details.aspx?id=2612) w usługach domenowych Active Directory (AD DS, Active Directory Domain Services), stosując je za pośrednictwem (lokalnej) domeny zarządzania do wszystkich kont związanych z zarządzaniem.
+Wszystkie te zasady można wymusić przy użyciu [obiektów zasad grupy](https://www.microsoft.com/download/details.aspx?id=2612) w usłudze Active Directory Domain Services (AD DS), stosując je za pośrednictwem (lokalnej) domeny zarządzania do wszystkich kont związanych z zarządzaniem.
 
 ### Zarządzanie usługami, aplikacjami i danymi
 
-Usługi w chmurze Azure są konfigurowane przy użyciu Portalu Azure, interfejsu SMAPI, interfejsu wiersza polecenia programu Windows PowerShell lub aplikacji niestandardowej, która korzysta z tych interfejsów RESTful. Z tych mechanizmów korzystają usługi takie jak Azure Active Directory (Azure AD), Azure Storage, Witryny sieci Web Azure, Azure Virtual Network i inne.
+Usługi w chmurze Azure są konfigurowane przy użyciu witryny Azure Portal, interfejsu SMAPI, interfejsu wiersza polecenia programu Windows PowerShell lub aplikacji niestandardowej, która korzysta z tych interfejsów RESTful. Z tych mechanizmów korzystają usługi takie jak Azure Active Directory (Azure AD), Azure Storage, Azure Websites, Azure Virtual Network i inne.
 
 Aplikacje wdrożone na maszynie wirtualnej zapewniają własne narzędzia i interfejsy klienckie zgodnie z potrzebami, takie jak program Microsoft Management Console (MMC), konsolę zarządzania przedsiębiorstwem (na przykład Microsoft System Center lub Windows Intune) albo inne aplikacje do zarządzania (na przykład Microsoft SQL Server Management Studio). Te narzędzia zazwyczaj znajdują się w środowisku przedsiębiorstwa lub sieci klienta. Mogą być one zależne od określonych protokołów sieciowych, takich jak protokół Remote Desktop Protocol (RDP), wymagających stanowych połączeń bezpośrednich. Niektóre mogą mieć interfejsy sieci Web, które nie powinny być jawnie publikowane ani dostępne za pośrednictwem Internetu.
 
-Dostęp do infrastruktury i zarządzania usługami platformy Azure można ograniczyć, korzystając z [uwierzytelniania wieloskładnikowego](../multi-factor-authentication/multi-factor-authentication.md), [certyfikatów zarządzania X.509](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) i reguł zapory. Portal Azure i interfejs SMAPI wymagają protokołu Transport Layer Security (TLS). Usługi i aplikacje wdrażane na platformie Azure wymagają jednak stosowania zabezpieczeń odpowiednich dla aplikacji. Te mechanizmy często można zapewnić łatwiej przy użyciu standardowej konfiguracji stacji roboczej ze wzmocnionymi zabezpieczeniami.
+Dostęp do infrastruktury i zarządzania usługami platformy Azure można ograniczyć, korzystając z [uwierzytelniania wieloskładnikowego](../multi-factor-authentication/multi-factor-authentication.md), [certyfikatów zarządzania X.509](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) i reguł zapory. Witryna Azure Portal i interfejs SMAPI wymagają protokołu Transport Layer Security (TLS). Usługi i aplikacje wdrażane na platformie Azure wymagają jednak stosowania zabezpieczeń odpowiednich dla aplikacji. Te mechanizmy często można zapewnić łatwiej przy użyciu standardowej konfiguracji stacji roboczej ze wzmocnionymi zabezpieczeniami.
 
 ### Brama zarządzania
 
 Aby scentralizować cały dostęp administracyjny oraz uprościć monitorowanie i rejestrowanie, w sieci lokalnej można wdrożyć dedykowany serwer [bramy usług pulpitu zdalnego](https://technet.microsoft.com/library/dd560672) połączony ze środowiskiem platformy Azure.
 
-Brama usług pulpitu zdalnego jest opartą na zasadach usługą serwera proxy RDP wymuszającą wymagania dotyczące zabezpieczeń. Zaimplementowanie bramy usług pulpitu zdalnego wraz z ochroną dostępu do sieci (NAP, Network Access Protection) systemu Windows Server gwarantuje, że połączenia mogą ustanawiać tylko klienci spełniający określone kryteria kondycji zabezpieczeń określone przez obiekty zasad grupy w usługach domenowych Active Directory. Ponadto:
+Brama usług pulpitu zdalnego jest opartą na zasadach usługą serwera proxy RDP wymuszającą wymagania dotyczące zabezpieczeń. Zaimplementowanie bramy usług pulpitu zdalnego wraz z ochroną dostępu do sieci (NAP, Network Access Protection) systemu Windows Server gwarantuje, że połączenia mogą ustanawiać tylko klienci spełniający określone kryteria kondycji zabezpieczeń określone przez obiekty zasad grupy w usłudze Active Directory Domain Services. Ponadto:
 
 - Dla bramy usług pulpitu zdalnego aprowizuj [certyfikat zarządzania Azure](http://msdn.microsoft.com/library/azure/gg551722.aspx), aby był to jedyny host uprawniony do dostępu do portalu zarządzania Azure.
 - Bramę usług pulpitu zdalnego przyłącz do tej samej [domeny zarządzania](http://technet.microsoft.com/library/bb727085.aspx), do której są przyłączone stacje robocze administratorów. Jest to konieczne, gdy jest używana sieć VPN między lokacjami z zabezpieczeniami IPsec lub usługa ExpressRoute w domenie z jednokierunkową relacją zaufania do usługi Azure AD, albo w przypadku federacji poświadczeń między lokalnym wystąpieniem usług AD DS a usługą Azure AD.
@@ -118,7 +118,7 @@ Brama usług pulpitu zdalnego jest opartą na zasadach usługą serwera proxy RD
 
 Ogólnie rzecz biorąc, ulepszanie zabezpieczeń stacji roboczych administratorów używanych do pracy z chmurą jest bardzo podobne do rozwiązań stosowanych w przypadku dowolnych lokalnych stacji roboczych (na przykład minimalizacja funkcjonalności i ograniczanie uprawnień). Niektóre unikatowe aspekty zarządzania chmurą są bardziej zbliżone do zdalnego zarządzania lub zarządzania poza pasmem w przedsiębiorstwach. Przykładem może być użycie i inspekcja poświadczeń, rozszerzone zabezpieczenia dostępu zdalnego oraz wykrywanie zagrożeń i podejmowanie działań zaradczych.
 
-### Uwierzytelnianie
+### Authentication
 
 Korzystając z ograniczeń logowania platformy Azure, można zmniejszyć liczbę źródłowych adresów IP używanych do uzyskiwania dostępu do narzędzi administracyjnych i prowadzić inspekcję żądań dostępu. W celu ułatwienia platformie Azure identyfikowania klientów (stacji roboczych i/lub aplikacji) używanych do zarządzania, można skonfigurować zarówno interfejs SMAPI (przy użyciu narzędzi opracowanych przez klienta takich jak polecenia cmdlet programu Windows PowerShell), jak i portal zarządzania Azure tak, aby oprócz certyfikatów SSL było wymagane instalowanie certyfikatów zarządzania po stronie klienta. Zalecamy również stosowanie uwierzytelniania wieloskładnikowego w przypadku dostępu administratorów.
 
@@ -197,7 +197,7 @@ Nie wolno zakładać, że zabezpieczenie stacji roboczej zwalnia z obowiązku sp
 
 | Zakazy | Zalecenia |
 | ----- | ----- |
-| Nie wysyłaj pocztą e-mail poświadczeń umożliwiających dostęp z uprawnieniami administratora ani innych informacji poufnych (np. certyfikatów SSL lub certyfikatów zarządzania). | Zachowaj poufność, przekazując nazwy kont i hasła werbalnie (ale nie nagrywaj ich na poczcie głosowej), wykonując zdalną instalację certyfikatów klienta/serwera (za pośrednictwem sesji zaszyfrowanej), pobierając je z chronionego udziału sieciowego lub przekazując osobiście na nośniku wymiennym. |
+| Nie wysyłaj pocztą e-mail poświadczeń umożliwiających dostęp z uprawnieniami administratora ani innych informacji poufnych (na przykład certyfikatów SSL lub certyfikatów zarządzania) | Zachowaj poufność, przekazując nazwy kont i hasła werbalnie (ale nie nagrywaj ich na poczcie głosowej), wykonując zdalną instalację certyfikatów klienta/serwera (za pośrednictwem sesji zaszyfrowanej), pobierając je z chronionego udziału sieciowego lub przekazując osobiście na nośniku wymiennym. |
 | | Aktywnie zarządzaj cyklami życia certyfikatów zarządzania. |
 | Nie przechowuj haseł nieszyfrowanych lub nieprzetworzonych za pomocą funkcji skrótu w magazynie aplikacji (takim jak arkusze kalkulacyjne, witryny programu SharePoint lub udziały plików). | Ustanów zasady zarządzania zabezpieczeniami i zwiększania bezpieczeństwa systemu oraz stosuj je w środowisku deweloperskim. |
 | | Używaj reguł przypinania certyfikatów z zestawu narzędzi [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751), aby zapewnić prawidłowy dostęp do witryn Azure z obsługą protokołów SSL/TLS. |
@@ -249,6 +249,6 @@ Dostępne są następujące zasoby zawierające bardziej ogólne informacje doty
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

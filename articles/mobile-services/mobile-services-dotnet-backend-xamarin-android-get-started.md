@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="01/14/2016"
+    ms.date="07/21/2016"
     ms.author="donnam"/>
 
-# <a name="getting-started"> </a>Wprowadzenie do usługi Mobile Services
+# <a name="getting-started"> </a>Wprowadzenie do usług Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 &nbsp;
@@ -89,7 +89,8 @@ Ostatnim krokiem tego samouczka jest skompilowanie i uruchomienie nowej aplikacj
 
     Spowoduje to wysłanie żądania POST do nowej usługi mobilnej, która jest hostowana na platformie Azure. Dane z żądania zostaną wstawione do tabeli TodoItem. Elementy przechowywane w tabeli są zwracane przez usługę mobilną, a dane są wyświetlane na liście.
 
-    > [AZURE.NOTE] Możesz przejrzeć kod uzyskujący dostęp do usługi mobilnej w celu wykonywania zapytań i wstawiania danych. Znajduje się on w pliku C# o nazwie ToDoActivity.cs.
+    > [AZURE.NOTE]
+    > Możesz przejrzeć kod uzyskujący dostęp do usługi mobilnej w celu wykonywania zapytań i wstawiania danych. Znajduje się on w pliku C# o nazwie ToDoActivity.cs.
 
 ## Następne kroki
 Po zakończeniu procedury szybkiego startu dowiedz się, jak wykonać dodatkowe ważne zadania w usłudze Mobile Services:
@@ -130,12 +131,12 @@ Po zakończeniu procedury szybkiego startu dowiedz się, jak wykonać dodatkowe 
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Zestaw SDK usług Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript i HTML]: mobile-services-win8-javascript/
-[Klasyczny portal Azure]: https://manage.windowsazure.com/
+[klasycznego portalu Azure]: https://manage.windowsazure.com/
 [klasycznym portalu Azure]: https://manage.windowsazure.com/
 [Wersja zaplecza JavaScript]: mobile-services-android-get-started.md
 [Rozwiązywanie problemów z zapleczem usługi Mobile Services na platformie .NET]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

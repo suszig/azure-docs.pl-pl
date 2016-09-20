@@ -1,6 +1,6 @@
 <properties 
    pageTitle="VPN Gateway — informacje | Microsoft Azure"
-   description="Informacje na temat bramy VPN Gateway dla usługi Azure Virtual Network."
+   description="Informacje na temat połączeń bramy sieci VPN dla sieci wirtualnych platformy Azure."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -13,127 +13,125 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/16/2016"
+   ms.date="08/22/2016"
    ms.author="cherylmc" />
 
 # VPN Gateway — informacje
 
-Usługa VPN Gateway jest używana do wysyłania ruchu sieciowego między sieciami wirtualnymi i lokalizacjami lokalnymi. Umożliwia ona również wysyłanie ruchu między wieloma sieciami wirtualnymi na platformie Azure (sieć wirtualna-sieć wirtualna). W poniższych sekcjach omówiono zagadnienia dotyczące usługi VPN Gateway.
 
-Instrukcje używane podczas tworzenia bramy sieci VPN będą zależeć od modelu wdrażania użytego w celu utworzenia sieci wirtualnej. Jeśli na przykład sieć wirtualna została utworzona przy użyciu klasycznego modelu wdrożenia, do tworzenia i konfigurowania bramy sieci VPN należy użyć wskazówek i instrukcji dotyczących klasycznego modelu wdrażania. Nie można utworzyć bramy sieci VPN usługi Resource Manager dla sieci wirtualnej z klasycznym modelem wdrażania. 
+Usługa VPN Gateway jest kolekcją zasobów służącą do wysyłania ruchu sieciowego między sieciami wirtualnymi i lokalizacjami lokalnymi. Bramy służą do obsługi połączeń lokacja-lokacja, punkt-lokacja oraz połączeń ExpressRoute. Brama VPN umożliwia również wysyłanie ruchu między wieloma sieciami wirtualnymi na platformie Azure (sieć wirtualna-sieć wirtualna). 
 
-Aby uzyskać więcej informacji na temat modeli wdrażania, zobacz [Understanding Resource Manager and classic deployment models](../resource-manager-deployment-model.md) (Omówienie modelu wdrażania przy użyciu usługi Resource Manager oraz wdrażania klasycznego).
+Aby utworzyć połączenie, należy dodać bramę sieci wirtualnej do sieci wirtualnej i skonfigurować dodatkowe zasoby bramy sieci VPN i ich ustawienia. Każda sieć wirtualna może mieć tylko jedną bramę sieci wirtualnej na typ bramy. Na przykład można mieć jedną bramę sieci wirtualnej, która używa klasy -GatewayType Vpn, oraz jednej, która używa klasy -GatewayType ExpressRoute.
 
+Aby uzyskać informacje o wymaganiach dotyczących bramy, zobacz [Wymagania dotyczące bramy](vpn-gateway-about-vpn-gateway-settings.md#requirements). Aby uzyskać informacje o szacowanej zagregowanej przepływności, zobacz [Informacje o ustawieniach bramy sieci VPN](vpn-gateway-about-vpn-gateway-settings.md#aggthroughput). Aby poznać ceny, zobacz [Cennik bramy sieci VPN](https://azure.microsoft.com/pricing/details/vpn-gateway). Aby uzyskać informacje o subskrypcjach i limitach dotyczących usługi, zobacz [Limity dotyczące sieci](../articles/azure-subscription-service-limits.md#networking-limits).
 
-## <a name="gwsub"></a>Podsieć bramy
+Instrukcje używane podczas konfigurowania bramy sieci VPN będą zależeć od modelu wdrażania użytego w celu utworzenia sieci wirtualnej. Jeśli na przykład sieć wirtualna została utworzona przy użyciu klasycznego modelu wdrożenia, do tworzenia i konfigurowania ustawień bramy sieci VPN należy użyć wskazówek i instrukcji dotyczących klasycznego modelu wdrażania. Aby uzyskać więcej informacji, zobacz [Omówienie wdrażania przy użyciu usługi Resource Manager i wdrażania klasycznego](../resource-manager-deployment-model.md).
 
-Aby skonfigurować bramę sieci VPN, najpierw musisz utworzyć podsieć bramy dla sieci wirtualnej. Aby podsieć bramy działała prawidłowo, musi nosić nazwę *GatewaySubnet*. Dzięki tej nazwie wiadomo, że dana podsieć powinna być używana na potrzeby bramy na platformie Azure.<BR>Jeśli używasz portalu klasycznego, podsieć bramy ma automatycznie nadawaną nazwę *Gateway* w interfejsie portalu. Taka sytuacja dotyczy tylko wyświetlania podsieci bramy w portalu klasycznym. W tym przypadku podsieć jest faktycznie tworzona na platformie Azure jako *GatewaySubnet* i może być wyświetlana w ten sposób w witrynie Azure Portal i w programie PowerShell.
+W poniższych sekcjach znajdują się tabele, w których przedstawiono następujące informacje dotyczące konfiguracji:
 
-Minimalny rozmiar podsieci bramy zależy tylko od konfiguracji, którą chcesz utworzyć. Chociaż w przypadku niektórych konfiguracji możesz utworzyć małą podsieć bramy o rozmiarze /29, zaleca się tworzenie podsieci bramy /28 i większych (/28, /27, /26 itp.). 
-
-Tworzenie bramy o większym rozmiarze zapobiega przekraczaniu limitów rozmiaru bramy. Jeśli na przykład masz utworzoną bramę o rozmiarze podsieci bramy /29 i chcesz określić konfigurację współistnienia lokacja-lokacja/ExpressRoute, musisz usunąć bramę, usunąć podsieć bramy, utworzyć podsieć bramy o rozmiarze /28 lub większym i ponownie utworzyć bramę. 
-
-Tworząc od początku większą podsieć bramy, możesz zaoszczędzić czas później, podczas dodawania nowych funkcji konfiguracji do środowiska sieci. 
-
-W poniższym przykładzie przedstawiono podsieć bramy o nazwie GatewaySubnet. Zauważ, że notacja CIDR określa rozmiar /27, który umożliwia użycie wystarczającej liczby adresów IP dla większości istniejących obecnie konfiguracji.
-
-    Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
-
->[AZURE.IMPORTANT] Upewnij się, że dla podsieci GatewaySubnet nie zastosowano grupy zabezpieczeń sieci (NSG), ponieważ może to spowodować błędy połączeń.
-
-## <a name="gwtype"></a>Typy bram
-
-Typ bramy określa sposób nawiązywania przez nią połączenia i jest wymaganym ustawieniem konfiguracji w przypadku modelu wdrażania przy użyciu usługi Resource Manager. Nie należy mylić typu bramy z typem sieci VPN, który określa typ routingu dla sieci VPN. Dostępne wartości parametru `-GatewayType` to: 
-
-- Vpn
-- ExpressRoute
+- dostępny model wdrożenia;
+- dostępne narzędzia do konfiguracji;
+- linki prowadzące bezpośrednio do artykułu, jeśli jest dostępny.
 
 
-W tym przykładzie w modelu wdrażania przy użyciu usługi Resource Manager określono opcję -GatewayType jako *Vpn*. Podczas tworzenia bramy musisz upewnić się, że typ bramy jest prawidłowy dla danej konfiguracji. 
+Przedstawione diagramy i opisy mogą ułatwić wybór topologii konfiguracji dostosowanej do potrzeb użytkownika. Choć te diagramy przedstawiają podstawowe topologie, możliwe jest utworzenie bardziej złożonych konfiguracji z użyciem tych diagramów jako wskazówek. Każda konfiguracja zależy od wybranych ustawień bramy sieci VPN.
 
-    New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
+### Konfigurowanie ustawień bramy sieci VPN
 
-## <a name="gwsku"></a>Jednostki SKU bramy
-
-Podczas tworzenia bramy sieci VPN musisz wybrać jednostkę SKU bramy do użycia. Istnieją 3 jednostki SKU bramy sieci VPN:
-
-- Podstawowa (Basic)
-- Standardowa (Standard)
-- Wysoka wydajność (HighPerformance)
-
-W poniższym przykładzie opcja `-GatewaySku` ma wartość *Standard*.
-
-    New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard -GatewayType Vpn -VpnType RouteBased
-
-###  <a name="aggthroughput"></a>Szacowana agregowana przepływność według jednostki SKU i typu bramy
-
-
-W poniższej tabeli przedstawiono typy bram i szacowaną agregowaną przepływność. Ceny różnych jednostek SKU bramy są różne. Aby uzyskać informacje o cenach, zobacz stronę [Brama VPN — cennik](https://azure.microsoft.com/pricing/details/vpn-gateway/) Ta tabela ma zastosowanie w obu modelach wdrażania — przy użyciu usługi Resource Manager i klasycznym.
-
-[AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
-
-## <a name="vpntype"></a>Typy sieci VPN
-
-Każda konfiguracja do działania wymaga określonego typu sieci VPN. W przypadku łączenia dwóch konfiguracji, na przykład tworzenia połączenia lokacja-lokacja i połączenia punkt-lokacja w tej samej sieci wirtualnej, należy użyć typu sieci VPN, który spełnia wymagania obu połączeń. 
-
-W przypadku współistniejących połączeń punkt-lokacja i lokacja-lokacja podczas pracy z modelem wdrażania przy użyciu usługi Resource Manager należy użyć typu sieci VPN opartego na trasie, a podczas pracy z klasycznym trybem wdrażania — bramy dynamicznej.
-
-Tworząc konfigurację, należy wybrać typ sieci VPN wymagany przez połączenie. 
-
-Istnieją dwa typy sieci VPN:
-
-[AZURE.INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
-
-W tym przykładzie w modelu wdrażania przy użyciu usługi Resource Manager określono opcję `-VpnType` jako *RouteBased*. Podczas tworzenia bramy musisz upewnić się, że typ -VpnType jest prawidłowy dla danej konfiguracji. 
-
-    New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
-
-## <a name="connectiontype"></a>Typy połączeń
-
-Każda konfiguracja wymaga określonego typu połączenia. Dostępne wartości opcji `-ConnectionType` w programie PowerShell w usłudze Resource Manager to:
-
-- IPsec
-- Vnet2Vnet
-- ExpressRoute
-- VPNClient
-
-W poniższym przykładzie tworzymy połączenie lokacja-lokacja, które wymaga typu połączenia „IPsec”.
-
-    New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-
-
-## <a name="lng"></a>Bramy sieci lokalnej
-
-Brama sieci lokalnej zazwyczaj odwołuje się do lokalizacji lokalnej. W klasycznym modelu wdrażania brama sieci była określana jako lokacja lokalna. Użytkownik przydziela bramie sieci lokalnej nazwę i publiczny adres IP lokalnego urządzenia sieci VPN, a także określa prefiksy adresów, które znajdują się w lokalizacji lokalnej. Na platformie Azure prefiksy adresów docelowych zostaną przeanalizowane pod kątem ruchu sieciowego, nastąpi porównanie z konfiguracją wybraną dla bramy sieci lokalnej i pakiety zostaną odpowiednio przekierowane. W razie potrzeby te prefiksy adresów można zmodyfikować.
+Ponieważ brama sieci VPN jest kolekcją zasobów, można skonfigurować niektóre zasoby przy użyciu jednego narzędzia, a następnie skonfigurować ustawienia innych zasobów za pomocą innego narzędzia. Obecnie nie można skonfigurować wszystkich ustawień zasobów bramy sieci VPN w portalu Azure. W tych artykułach w instrukcjach dla poszczególnych konfiguracji wskazano, czy jest określone narzędzie. W przypadku pracy przy użyciu klasycznego modelu wdrażania warto skorzystać z klasycznego portalu lub programu PowerShell. Aby uzyskać informacje na temat poszczególnych dostępnych ustawień, zobacz [Ustawienia bramy sieci VPN — informacje](vpn-gateway-about-vpn-gateway-settings.md).
 
 
 
-### Modyfikowanie prefiksów adresów — Resource Manager
+## Połączenia typu lokacja-lokacja i połączenia obejmujące wiele lokacji
 
-Procedura modyfikowania prefiksów adresów różni się w zależności od tego, czy brama sieci VPN została już utworzona. Zobacz temat [Modyfikowanie prefiksów adresów dla bramy sieci lokalnej](vpn-gateway-create-site-to-site-rm-powershell.md#modify).
+### Lokacja-lokacja
 
-W poniższym przykładzie definiujemy bramę sieci lokalnej o nazwie MyOnPremiseWest, która będzie mieć dwa prefiksy adresów IP.
+Połączenie typu lokacja-lokacja (S2S) to połączenie nawiązywane za pośrednictwem tunelu sieci VPN wykorzystującego protokół IPsec/IKE (IKEv1 lub IKEv2). Ten typ połączenia wymaga, aby urządzenie sieci VPN znajdowało się lokalnie, miało przypisany publiczny adres IP i nie znajdowało się za translatorem adresów sieciowych. Z połączeń typu lokacja-lokacja (S2S) można korzystać w ramach konfiguracji hybrydowych i obejmujących wiele lokalizacji.   
 
-    New-AzureRmLocalNetworkGateway -Name MyOnPremisesWest -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24') 
-
-### Modyfikowanie prefiksów adresów — wdrożenie klasyczne
-
-Jeśli musisz zmodyfikować lokacje lokalne w przypadku korzystania z klasycznego modelu wdrażania, możesz użyć strony konfiguracji Sieci lokalne w portalu klasycznym lub bezpośrednio zmodyfikować plik konfiguracji sieci o nazwie NETCFG.XML.
+![Połączenie typu lokacja-lokacja](./media/vpn-gateway-about-vpngateways/demos2s.png "site-to-site")
 
 
-##  <a name="devices"></a> Urządzenia sieci VPN
+### Obejmujące wiele lokacji
 
-Musisz się upewnić, że urządzenie sieci VPN, którego chcesz użyć, obsługuje typ sieci VPN wymagany dla danej konfiguracji. Aby uzyskać więcej informacji o zgodnych urządzeniach sieci VPN, zobacz artykuł [Informacje o urządzeniach sieci VPN](vpn-gateway-about-vpn-devices.md)
+Można utworzyć i skonfigurować połączenie sieci VPN między siecią wirtualną i wieloma sieciami lokalnymi. Podczas pracy z wieloma połączeniami należy użyć typu sieci VPN opartego na trasach (dynamiczna brama dla klasycznych sieci wirtualnych). Ze względu na to, że sieć wirtualna może mieć tylko jedną bramę sieci wirtualnej, wszystkie połączenia za pośrednictwem bramy współużytkują dostępną przepustowość. Ten typ konfiguracji jest często określany mianem połączenia „obejmującego wiele lokacji”.
+ 
 
-##  <a name="requirements"></a>Wymagania dotyczące bramy
+![Połączenie obejmujące wiele lokacji](./media/vpn-gateway-about-vpngateways/demomulti.png "multi-site")
+
+### Modele i metody wdrażania
+
+[AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)] 
+
+## Połączenia między sieciami wirtualnymi
+
+Proces nawiązywania połączenia między dwiema sieciami wirtualnymi przebiega podobnie do procesu łączenia sieci wirtualnej z lokacją lokalną. Oba typy połączeń wykorzystują bramę sieci VPN na platformie Azure, aby zapewnić bezpieczny tunel z użyciem protokołu IPsec/IKE. Można także łączyć połączenia między sieciami wirtualnymi z konfiguracjami obejmującymi wiele lokacji. Pozwala to tworzyć topologie sieci, które łączą wdrożenia obejmujące wiele lokalizacji z połączeniami między sieciami wirtualnymi.
+
+Sieci wirtualne, między którymi tworzone jest połączenie, mogą:
+
+- znajdować się w tym samym lub różnych regionach,
+- należeć do tej samej lub różnych subskrypcji, 
+- korzystać z tego samego lub różnych modeli wdrażania.
 
 
-[AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)] 
+
+![Połączenie między sieciami wirtualnymi](./media/vpn-gateway-about-vpngateways/demov2v.png "vnet-to-vnet")
+
+
+
+### Połączenia między modelami wdrażania
+
+Platforma Azure ma obecnie dwa modele wdrażania: klasyczny model wdrażania oraz model wdrażania przy użyciu usługi Resource Manager. Jeśli korzystasz z platformy Azure od pewnego czasu, prawdopodobnie masz maszyny wirtualne i wystąpienia roli platformy Azure działające w klasycznej sieci wirtualnej. Nowsze maszyny wirtualne i wystąpienia roli mogą działać w sieci wirtualnej utworzonej w usłudze Resource Manager. Możesz utworzyć połączenie między tymi sieciami wirtualnymi, aby umożliwić zasobom w jednej sieci wirtualnej bezpośrednie komunikowanie się z zasobami w innej sieci.
+
+
+### Modele i metody wdrażania
+
+[AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)] 
+
+### Komunikacja równorzędna sieci wirtualnych
+
+Można utworzyć połączenie przy użyciu komunikacji równorzędnej sieci wirtualnych pod warunkiem, że konfiguracja sieci wirtualnej spełnia określone wymagania. W przypadku komunikacji równorzędnej sieci wirtualnych nie jest używana brama sieci wirtualnej. [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md) jest obecnie dostępna w wersji zapoznawczej.
+
+
+
+## Punkt-lokacja
+
+Konfiguracja typu punkt-lokacja (P2S, Point-to-Site) pozwala utworzyć indywidualne bezpieczne połączenie z siecią wirtualną z poziomu komputera klienckiego. Połączenie punkt-lokacja (P2S) to połączenie sieci VPN nawiązywane za pośrednictwem protokołu SSTP (Secure Socket Tunneling Protocol). Połączenia typu punkt-lokacja nie wymagają do prawidłowego działania urządzenia sieci VPN ani publicznego adresu IP. Połączenie z siecią VPN jest nawiązywane przez jego uruchomienie z komputera klienckiego. Przedstawione rozwiązanie przydaje się w przypadku, gdy celem użytkownika jest połączenie się z siecią wirtualną z lokalizacji zdalnej, np. z domu lub z konferencji, lub gdy konieczne jest połączenie z siecią wirtualną jedynie niewielkiej liczby klientów. 
+
+
+![Połączenie typu punkt-lokacja](./media/vpn-gateway-about-vpngateways/demop2s.png "point-to-site")
+
+### Modele i metody wdrażania
+
+[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
+
+
+## ExpressRoute
+
+[AZURE.INCLUDE [expressroute-intro](../../includes/expressroute-intro-include.md)]
+
+Więcej informacji na temat usługi ExpressRoute zawiera artykuł [ExpressRoute technical overview](../expressroute/expressroute-introduction.md) (Opis techniczny usługi ExpressRoute).
+
+
+## Współistniejące połączenia typu lokacja-lokacja i ExpressRoute
+
+ExpressRoute to bezpośrednie, specjalne połączenie z usługami firmy Microsoft, w tym z platformą Azure, nawiązane z poziomu sieci WAN użytkownika, a nie z publicznego Internetu. Zaszyfrowany ruch połączenia sieci VPN typu lokacja-lokacja jest przesyłany za pośrednictwem publicznej sieci Internet. Możliwość konfiguracji połączenia sieci VPN typu lokacja-lokacja oraz połączenia ExpressRoute dla tej samej sieci wirtualnej niesie ze sobą pewne korzyści.
+
+Sieć VPN typu lokacja-lokacja może zostać skonfigurowana jako bezpieczna ścieżka trybu failover dla połączenia ExpressRoute. Połączenia sieci VPN typu lokacja-lokacja mogą także zostać użyte w celu połączenia się z lokacjami, które nie są częścią sieci, ale które są połączone metodą ExpressRoute. Ta konfiguracja wymaga dwóch bram sieci wirtualnej dla tej samej sieci wirtualnej, z których jedna używa klasy -GatewayType Vpn, a druga klasy -GatewayType ExpressRoute.
+
+
+![Współistniejące połączenia](./media/vpn-gateway-about-vpngateways/demoer.png "expressroute-site2site")
+
+
+### Modele i metody wdrażania
+
+[AZURE.INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)] 
 
 
 ## Następne kroki
 
-Aby uzyskać dalsze informacje przed kontynuowaniem planowania i projektowania konfiguracji, zobacz artykuł [Usługa VPN Gateway — często zadawane pytania](vpn-gateway-vpn-faq.md).
+Więcej informacji na temat bram sieci VPN zawiera temat [Brama sieci VPN — często zadawane pytania](vpn-gateway-vpn-faq.md).
+
+Połącz lokalizację lokalną z siecią wirtualną. Zobacz [Tworzenie połączenia typu lokacja-lokacja](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
 
 
@@ -143,6 +141,6 @@ Aby uzyskać dalsze informacje przed kontynuowaniem planowania i projektowania k
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

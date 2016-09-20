@@ -1,7 +1,7 @@
 <properties
-    pageTitle="Tworzenie nowej puli elastycznej za pomocą portalu Azure | Microsoft Azure"
+    pageTitle="Tworzenie nowej puli elastycznej za pomocą witryny Azure Portal | Microsoft Azure"
     description="Dodawanie do konfiguracji bazy danych SQL skalowalnej elastycznej puli baz danych ułatwiającej administrowanie zasobami i ich udostępnianie między bazami danych."
-    keywords="scalable database,database configuration"
+    keywords="skalowalna baza danych, konfiguracja bazy danych"
     services="sql-database"
     documentationCenter=""
     authors="ninarn"
@@ -11,21 +11,21 @@
 <tags
     ms.service="sql-database"
     ms.devlang="NA"
-    ms.date="05/06/2016"
+    ms.date="07/20/2016"
     ms.author="ninarn"
     ms.workload="data-management"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="NA"/>
 
 
-# Tworzenie nowej elastycznej puli baz danych za pomocą portalu Azure
+# Tworzenie nowej elastycznej puli baz danych za pomocą witryny Azure Portal
 
 > [AZURE.SELECTOR]
-- [Portal Azure](sql-database-elastic-pool-create-portal.md)
+- [Azure Portal](sql-database-elastic-pool-create-portal.md)
 - [PowerShell](sql-database-elastic-pool-create-powershell.md)
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
-W tym artykule opisano sposób tworzenia skalowalnej [elastycznej puli baz danych](sql-database-elastic-pool.md) za pomocą [portalu Azure](https://portal.azure.com/). Pulę można utworzyć na dwa sposoby. Można utworzyć ją od podstaw, znając wymagane ustawienia puli, lub uruchomić zgodnie z zaleceniami usługi. Usługa SQL Database ma wbudowane narzędzie analizy, które po zbadaniu ostatnich danych telemetrii użycia baz danych zaleca utworzenie puli, jeśli może ono zapewnić użytkownikowi oszczędności.
+W tym artykule opisano sposób tworzenia skalowalnej [elastycznej puli baz danych](sql-database-elastic-pool.md) za pomocą witryny [Azure Portal](https://portal.azure.com/). Pulę można utworzyć na dwa sposoby. Można utworzyć ją od podstaw, znając wymagane ustawienia puli, lub uruchomić zgodnie z zaleceniami usługi. Usługa SQL Database ma wbudowane narzędzie analizy, które po zbadaniu ostatnich danych telemetrii użycia baz danych zaleca utworzenie puli, jeśli może ono zapewnić użytkownikowi oszczędności.
 
 Można dodać wiele pul na serwerze, ale nie można dodać baz danych z różnych serwerów do tej samej puli. Do utworzenia puli konieczna jest co najmniej jedna baza danych na serwerze V12. Jeśli nie masz bazy danych, zobacz artykuł [Create your first Azure SQL database](sql-database-get-started.md) (Tworzenie pierwszej bazy danych Azure SQL). Można utworzyć pulę zawierającą tylko jedną bazę danych, ale wydajne są jedynie pule z wieloma bazami danych. Zobacz artykuł [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md) (Zagadnienia dotyczące cen i wydajności puli elastycznej).
 
@@ -33,9 +33,11 @@ Można dodać wiele pul na serwerze, ale nie można dodać baz danych z różnyc
 
 ## Krok 1. Tworzenie nowej puli
 
-Elastyczną pulę baz danych można utworzyć, dodając nową pulę na serwerze. Można dodać wiele pul na serwerze, ale nie można dodać baz danych z różnych serwerów do tej samej puli.
+W tym artykule przedstawiono, jak utworzyć nową pulę z bloku istniejącego **serwera** w portalu, co jest najprostszym sposobem przenoszenia istniejących baz danych do puli. 
 
-1. W [portalu Azure](http://portal.azure.com/) kliknij opcję **Serwery SQL**, a następnie kliknij serwer, który zawiera bazy danych, które chcesz dodać do puli.
+> [AZURE.NOTE] Niezależnie od tego, czy masz już serwer, czy nie, możesz również utworzyć nową pulę z bloku **Pule elastyczne SQL** (pod listą z lewej strony portalu kliknij kolejno pozycje **Przeglądaj** **>** **Pule elastyczne SQL**). Po kliknięciu pozycji **+Dodaj** w bloku **Pule elastyczne SQL** zostaną wyświetlone kroki tworzenia nowego serwera podczas przepływu pracy aprowizacji puli.
+
+1. W witrynie [Azure Portal](http://portal.azure.com/) pod listą z lewej strony kliknij kolejno pozycje **Przeglądaj** **>** **Serwery SQL**, a następnie kliknij serwer zawierający bazy danych, które chcesz dodać do puli.
 2. Kliknij przycisk **Nowa pula**.
 
     ![Dodawanie puli na serwerze](./media/sql-database-elastic-pool-create-portal/new-pool.png)
@@ -115,6 +117,6 @@ Po dodaniu bazy danych do puli zalecenia są generowane dynamicznie na podstawie
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

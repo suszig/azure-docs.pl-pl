@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Tworzenie umowy z partnerem handlowym w usłudze Azure App Service | Microsoft Azure" 
    description="Tworzenie umów z partnerami handlowymi" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="erikre" 
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
     ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/20/2016"
+   ms.date="08/23/2016"
    ms.author="rajram"/>
 
 # Tworzenie umowy z partnerem handlowym   
@@ -27,7 +27,7 @@ Partnerzy handlowi to jednostki biorące udział w komunikacji B2B (Business-to-
 - X12 (ASC X12)
 
 ### Aplikacje API Apps w BizTalk, które obsługują scenariusze B2B
-Poniższe aplikacje API Apps oferują wymienione możliwości w zaawansowanym i intuicyjnym środowisku pracy w portalu Azure:
+Poniższe aplikacje API Apps oferują wymienione możliwości w zaawansowanym i intuicyjnym środowisku pracy w witrynie Azure Portal:
 
 
 ## Zarządzanie partnerami handlowymi BizTalk (TPM, Trading Partner Management)
@@ -81,6 +81,6 @@ Aby tworzyć umowy z partnerami handlowymi:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

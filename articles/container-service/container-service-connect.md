@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, DC/OS, Azure"/>
+   keywords="Docker, kontenery, mikrousługi, DC/OS, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -21,7 +21,7 @@
 
 # Łączenie z klastrem usługi kontenera platformy Azure
 
-Klastry DC/OS i Swarm wdrażane przez usługę kontenera platformy Azure uwidaczniają punkty końcowe REST. Te punkty końcowe nie są jednak otwarte dla użytkowników zewnętrznych. Aby zarządzać tymi punktami końcowymi, należy utworzyć tunel Secure Shell (SSH). Po ustanowieniu tunelu SSH możesz uruchamiać polecenia względem punktów końcowych klastra i wyświetlać interfejs użytkownika klastra za pośrednictwem przeglądarki we własnym systemie. Ten dokument zawiera opis kroków tworzenia tunelu SSH w systemach Linux, OS X i Windows.
+Klastry DC/OS i Docker Swarm wdrażane przez usługę Azure Container Service uwidaczniają punkty końcowe REST. Te punkty końcowe nie są jednak otwarte dla użytkowników zewnętrznych. Aby zarządzać tymi punktami końcowymi, należy utworzyć tunel Secure Shell (SSH). Po ustanowieniu tunelu SSH możesz uruchamiać polecenia względem punktów końcowych klastra i wyświetlać interfejs użytkownika klastra za pośrednictwem przeglądarki we własnym systemie. Ten dokument zawiera opis kroków tworzenia tunelu SSH w systemach Linux, OS X i Windows.
 
 >[AZURE.NOTE] Sesję SSH możesz utworzyć przy użyciu systemu zarządzania klastrem. Nie jest to jednak zalecane. Praca bezpośrednio w systemie zarządzania niesie ze sobą ryzyko przypadkowego wprowadzenia zmian konfiguracji.   
 
@@ -38,7 +38,7 @@ Teraz otwórz powłokę i uruchom poniższe polecenie, gdzie:
 **USERNAME** (nazwa_użytkownika) to nazwa użytkownika podana podczas wdrażania klastra.  
 **DNSPREFIX** (prefiks_DNS) to prefiks DNS podany podczas wdrażania klastra.  
 **REGION** to region, w którym znajduje się grupa zasobów.  
-**PATH_TO_PRIVATE_KEY** (ścieżka_do_klucza_prywatnego) [OPCJONALNIE] to ścieżka do klucza prywatnego odpowiadająca kluczowi prywatnemu podanemu podczas tworzenia usługi kontenera. Użyj tej opcji z flagą -i.
+**PATH_TO_PRIVATE_KEY** [OPCJONALNIE] to ścieżka do klucza prywatnego odpowiadającego kluczowi publicznemu podanemu podczas tworzenia klastra usługi Container Service. Użyj tej opcji z flagą -i.
 
 ```bash
 # ssh sample
@@ -75,7 +75,7 @@ Aby otworzyć tunel do punktu końcowego Swarm, wykonaj polecenie podobne do nas
 ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
-Teraz możesz ustawić w poniższy sposób zmienną środowiskową DOCKER_HOST i nadal w zwykły sposób używać interfejsu wiersza polecenia Docker.
+Teraz możesz ustawić zmienną środowiskową DOCKER_HOST w następujący sposób. Możesz kontynuować korzystanie z interfejsu wiersza polecenia (CLI) Docker w normalny sposób.
 
 ```bash
 export DOCKER_HOST=:2375
@@ -91,11 +91,11 @@ Wprowadź nazwę hosta złożoną z nazwy użytkownika administratora klastra i 
 
 ![Konfiguracja programu PuTTY 1](media/putty1.png)
 
-Wybierz pozycje `SSH` i `Authentication`. Dodaj plik klucza prywatnego na potrzeby uwierzytelniania.
+Wybierz opcje **SSH** i **Uwierzytelnianie**. Dodaj plik klucza prywatnego na potrzeby uwierzytelniania.
 
 ![Konfiguracja programu PuTTY 2](media/putty2.png)
 
-Wybierz pozycję `Tunnels` i skonfiguruj następujące przekazane porty:
+Wybierz pozycję **Tunele** i skonfiguruj następujące przekazane porty:
 - **Port źródłowy:** — zgodnie z własnymi preferencjami: użyj portu 80 w przypadku opcji DC/OS lub portu 2375 w przypadku opcji Swarm.
 - **Miejsce docelowe:** — użyj wartości localhost:80 w przypadku opcji DC/OS lub wartości localhost:2375 w przypadku opcji Swarm.
 
@@ -109,7 +109,7 @@ Po zakończeniu zapisz konfigurację połączenia, a następnie nawiąż połąc
 
 ![Dziennik zdarzeń programu PuTTY](media/putty4.png)
 
-Po skonfigurowaniu tunelu dla opcji DC/OS można uzyskiwać dostęp do powiązanego punktu końcowego w następujących lokalizacjach:
+Po skonfigurowaniu tunelu dla platformy DC/OS można uzyskiwać dostęp do powiązanego punktu końcowego w następujących lokalizacjach:
 
 - DC/OS: `http://localhost/`
 - Marathon: `http://localhost/marathon`
@@ -119,13 +119,13 @@ Po skonfigurowaniu tunelu dla rozwiązania Docker Swarm można uzyskiwać dostę
 
 ## Następne kroki
 
-Wdrażanie kontenerów i zarządzanie nimi przy użyciu rozwiązania DC/OS lub Swarm.
+Wdrażanie kontenerów i zarządzanie nimi przy użyciu rozwiązania DC/OS lub Swarm:
 
-[Praca z usługą kontenera Azure i klastrem DC/OS](container-service-mesos-marathon-rest.md)
-[Praca z usługą kontenera Azure i klastrem Docker Swarm](container-service-docker-swarm.md)
+- [Współpraca z usługą Azure Container Service i rozwiązaniem DC/OS](container-service-mesos-marathon-rest.md)
+- [Współpraca z usługą Azure Container Service i rozwiązaniem Docker Swarm](container-service-docker-swarm.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

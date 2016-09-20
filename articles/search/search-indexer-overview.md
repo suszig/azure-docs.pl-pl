@@ -4,7 +4,7 @@
     services="search"
     documentationCenter=""
     authors="HeidiSteen"
-    manager="mblythe"
+    manager="paulettm"
     editor=""
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="04/14/2016"
+    ms.date="08/08/2016"
     ms.author="heidist"/>
 
 # Indeksatory w usłudze Azure Search
@@ -32,24 +32,53 @@ Dane można wprowadzać tylko za pomocą indeksatora lub kombinacji metod obejmu
 
 Indeksatory można uruchamiać na żądanie lub według cyklicznego harmonogramu odświeżania danych uruchamianego co 15 minut. Częstsze aktualizacje wymagają modelu wypychania, który pozwala jednocześnie aktualizować dane w usłudze Azure Search i zewnętrznym źródle danych.
 
+## Podejścia do tworzenia indeksatorów i zarządzania nimi
+
+Tworzenie ogólnie dostępnych indeksatorów, takich jak Azure SQL czy DocumentDB, i zarządzanie nimi może odbywać się przy użyciu następujących podejść:
+
+- [Portal > Kreator importowania danych ](search-get-started-portal.md)
+- [Interfejs API REST usługi](https://msdn.microsoft.com/library/azure/dn946891.aspx)
+- [Zestaw SDK .NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx)
+
+Indeksatory w wersji zapoznawczej, takie jak Azure Blob Storage czy Table Storage, wymagają interfejsów API kodu i interfejsów API w wersji zapoznawczej, na przykład [Interfejsu API REST usługi Azure Search (wersja zapoznawcza) dla indeksatorów](search-api-indexers-2015-02-28-preview.md). Narzędzia portalu są zwykle niedostępne dla funkcji w wersji zapoznawczej.
+
+## Podstawowe kroki konfiguracji
+
+Indeksatory oferują funkcje, które są unikatowe dla źródła danych. W związku z tym niektóre aspekty konfiguracji indeksatora lub źródła danych różnią się w zależności od typu indeksatora. Wszystkie indeksatory korzystają jednak z takich samych kompozycji i wymagań. Kroki, które są wspólne dla wszystkich indeksatorów, znajdują się poniżej.
+
+### Krok 1. Tworzenie indeksu
+
+Indeksator będzie automatyzować niektóre zadania związane z wprowadzaniem danych, ale nie dotyczy to tworzenia indeksu. Jako warunek wstępny należy posiadać wstępnie zdefiniowany indeks z polami, które odpowiadają polom w zewnętrznym źródle danych. Aby uzyskać więcej informacji dotyczących tworzenia struktury indeksu, zobacz [Create an Index (Azure Search REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx) (Tworzenie indeksu — interfejs API REST usługi Azure Search).
+
+### Krok 2. Tworzenie źródła danych
+
 Indeksator pobiera dane ze **źródła danych**, które zawiera na przykład parametry połączenia. Obecnie są obsługiwane następujące źródła danych:
 
-- [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) (lub program SQL Server na maszynie wirtualnej platformy Azure).
+- [Usługa Azure SQL Database lub program SQL Server na maszynie wirtualnej platformy Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 - [DocumentDB](../documentdb/documentdb-search-indexer.md)
-- [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) (Obecnie dostępna w wersji zapoznawczej. Umożliwia wyodrębnianie tekstu z plików PDF, dokumentów pakietu Office oraz plików HTML i XML).
-- [Azure Table Storage](search-howto-indexing-azure-tables.md) (Obecnie dostępna w wersji zapoznawczej).
+- [Azure Blob Storage (wersja zapoznawcza)](search-howto-indexing-azure-blob-storage.md) używany do wyodrębniania tekstu z plików PDF, dokumentów pakietu Office oraz plików HTML i XML
+- [Azure Table Storage (wersja zapoznawcza)](search-howto-indexing-azure-tables.md)
 
 Źródła danych są konfigurowane i zarządzane niezależnie od indeksatorów, które z nich korzystają. Oznacza to, że jedno źródło może być używane przez wiele indeksatorów w celu jednoczesnego ładowania kilku indeksów. 
 
-Zarówno [zestaw .NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx), jak i [interfejs API REST usługi](https://msdn.microsoft.com/library/azure/dn946891.aspx) obsługują zarządzanie indeksatorami i źródłami danych. 
+### Krok 3. Tworzenie indeksatora i ustawianie jego harmonogramu
 
-Można również skonfigurować indeksator w portalu podczas używania kreatora **importu danych**. Aby utworzyć i załadować indeks za pomocą kreatora, przejdź do artykułu [Get started with Azure Search in the portal](search-get-started-portal) (Wprowadzenie do usługi Azure Search w portalu), który zawiera krótki samouczek oraz informacje dotyczące używania przykładowych danych i indeksatora usługi DocumentDB.
+Definicja indeksatora to konstrukcja określająca indeks, źródło danych i harmonogram. Indeksator może odwoływać się do źródła danych z innej usługi pod warunkiem, że źródło danych jest z tej samej subskrypcji. Aby uzyskać więcej informacji dotyczących tworzenia struktury indeksatora, zobacz [Create Indexer (Azure Search REST API)](https://msdn.microsoft.com/library/azure/dn946899.aspx) (Tworzenie indeksatora — interfejs API REST usługi Azure Search).
+
+## Następne kroki
+
+Teraz, gdy masz już podstawowe informacje, następnym krokiem jest przegląd wymagań i zadań specyficznych dla poszczególnych typów źródeł danych.
+
+- [Usługa Azure SQL Database lub program SQL Server na maszynie wirtualnej platformy Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+- [DocumentDB](../documentdb/documentdb-search-indexer.md)
+- [Azure Blob Storage (wersja zapoznawcza)](search-howto-indexing-azure-blob-storage.md) używany do wyodrębniania tekstu z plików PDF, dokumentów pakietu Office oraz plików HTML i XML
+- [Azure Table Storage (wersja zapoznawcza)](search-howto-indexing-azure-tables.md)
+- [Indeksowanie obiektów blob plików CSV za pomocą indeksatora obiektów blob usługi Azure Search (wersja zapoznawcza)](search-howto-index-csv-blobs.md)
+- [Indeksowanie obiektów blob plików JSON za pomocą indeksatora obiektów blob usługi Azure Search (wersja zapoznawcza)](search-howto-index-json-blobs.md)
 
 
 
 
-
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

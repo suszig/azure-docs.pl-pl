@@ -13,16 +13,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/12/2016"
-    ms.author="sethm;nberdy"/>
+    ms.date="08/17/2016"
+    ms.author="sethm"/>
 
 # Co to jest usługa Azure Event Hubs?
 
-Azure Event Hubs to wysoce skalowalna usługa transferu danych przychodzących, która może obsługiwać miliony zdarzeń na sekundę, dzięki czemu możliwe jest przetwarzanie i analizowanie olbrzymich ilości danych wytworzonych przez podłączone urządzenia i aplikacje. Usługa Event Hubs działa jako „drzwi wejściowe” dla potoku zdarzeń, a po pobraniu danych do Centrum zdarzeń można je przekształcać i przechowywać za pomocą dowolnego dostawcy analiz w czasie rzeczywistym lub za pomocą adapterów przetwarzania wsadowego i magazynowania. Usługa Event Hubs oddziela wytwarzanie strumienia zdarzeń od użycia tych zdarzeń, dzięki czemu odbiorcy zdarzeń mogą uzyskiwać dostęp do zdarzeń zgodnie z własnym harmonogramem.
+Azure Event Hubs to wysoce skalowalna usługa transferu danych przychodzących, która może obsługiwać miliony zdarzeń na sekundę, dzięki czemu możliwe jest przetwarzanie i analizowanie olbrzymich ilości danych wytworzonych przez podłączone urządzenia i aplikacje. Usługa Event Hubs działa jako „drzwi wejściowe” dla potoku zdarzeń, a po pobraniu danych do Centrum zdarzeń można je przekształcać i przechowywać za pomocą dowolnego dostawcy analiz w czasie rzeczywistym lub za pomocą adapterów przetwarzania wsadowego i magazynowania. Usługa Event Hubs oddziela wytwarzanie strumienia zdarzeń od użycia tych zdarzeń, dzięki czemu odbiorcy zdarzeń mogą uzyskiwać dostęp do zdarzeń zgodnie z własnym harmonogramem. Aby uzyskać więcej informacji i danych technicznych, zobacz [Przegląd usługi Event Hubs](event-hubs-overview.md).
 
 ## Możliwości usługi Event Hubs
 
-Event Hubs to usługa służąca do przetwarzania zdarzeń, która dostarcza zdarzenia i dane telemetryczne do chmury w bardzo dużej skali, z małymi opóźnieniami i wysoką niezawodnością. Ta usługa jest szczególnie przydatna w przypadku:
+Event Hubs to usługa służąca do przetwarzania zdarzeń, która zapewnia funkcje przetwarzania zdarzeń i danych telemetrycznych w bardzo dużej skali, z małymi opóźnieniami i wysoką niezawodnością. Ta usługa jest szczególnie przydatna w przypadku:
 
 - instrumentacji aplikacji
 - przetwarzania czynności użytkownika lub przepływów pracy
@@ -30,7 +30,7 @@ Event Hubs to usługa służąca do przetwarzania zdarzeń, która dostarcza zda
 
 Niektóre inne kluczowe możliwości usługi Event Hubs obejmują śledzenie zachowania w aplikacjach mobilnych, informacje o ruchu z farmy serwerów sieci Web, przechwytywanie zdarzeń w grach na konsole lub dane telemetryczne zbierane z maszyn przemysłowych bądź podłączonych pojazdów.
 
-W przeciwieństwie do [kolejek i tematów usługi Service Bus](../service-bus/service-bus-messaging-overview.md), usługa Event Hubs koncentruje się na dostarczaniu obsługi strumienia komunikatów na dużą skalę. W związku z tym możliwości usługi Event Hubs różnią się od funkcji tematów usługi Service Bus na przykład tym, że są one silnie ukierunkowane pod kątem scenariuszy wysokiej wydajności i przetwarzania zdarzeń. W takiej sytuacji usługa Event Hubs nie implementuje niektórych możliwości obsługi komunikatów, które są dostępne w przypadku funkcji [tematy](../service-bus/service-bus-fundamentals-hybrid-solutions.md#topics). Jeśli takie możliwości są wymagane, tematy pozostają optymalnym wyborem.
+W przeciwieństwie do [kolejek i tematów usługi Service Bus](../service-bus/service-bus-messaging-overview.md), usługa Event Hubs koncentruje się na dostarczaniu obsługi strumienia komunikatów na dużą skalę. W związku z tym możliwości usługi Event Hubs różnią się od funkcji tematów usługi Service Bus na przykład tym, że są one silnie ukierunkowane pod kątem scenariuszy wysokiej przepływności i wydajności przetwarzania zdarzeń. W takiej sytuacji usługa Event Hubs nie implementuje niektórych możliwości obsługi komunikatów, które są dostępne w przypadku funkcji [tematy](../service-bus/service-bus-fundamentals-hybrid-solutions.md#topics). Jeśli takie możliwości są wymagane, tematy pozostają optymalnym wyborem.
 
 ## Następne kroki
 
@@ -46,6 +46,7 @@ Aby uzyskać szczegółowe informacje o usłudze Event Hubs, zobacz następując
 [przykładowa aplikacja korzystająca z usługi Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

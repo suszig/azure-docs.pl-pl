@@ -14,14 +14,14 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/16/2016"
+ ms.date="08/17/2016"
  ms.author="araguila"/>
 
 # Przewodnik po wstępnie skonfigurowanym rozwiązaniu konserwacji predykcyjnej
 
 ## Wprowadzenie
 
-Wstępnie skonfigurowane, kompleksowe rozwiązanie konserwacji predykcyjnej, dostępne w Pakiecie IoT, dotyczy scenariusza biznesowego, w którym przewidywany jest moment prawdopodobnego wystąpienia awarii. To wstępnie skonfigurowane rozwiązanie można aktywnie wykorzystać w celu zoptymalizowania konserwacji. Rozwiązanie to łączy najważniejsze usługi Pakietu IoT Azure, w tym obszar roboczy usługi [Azure Machine Learning][lnk_machine_learning] obejmujący eksperymenty umożliwiające prognozowanie pozostałego czasu eksploatacji silnika samolotu na podstawie przykładowego, publicznego zestawu danych. Ponadto rozwiązanie to zapewnia pełną implementację scenariusza biznesowego jako punktu wyjściowego planowania i wdrażania tego typu rozwiązań IoT zgodnie z potrzebami firmy.
+Wstępnie skonfigurowane, kompleksowe rozwiązanie konserwacji predykcyjnej, dostępne w Pakiecie IoT, dotyczy scenariusza biznesowego, w którym przewidywany jest moment prawdopodobnego wystąpienia awarii. To wstępnie skonfigurowane rozwiązanie można aktywnie wykorzystać w celu zoptymalizowania konserwacji. Rozwiązanie łączy kluczowe usługi Pakietu IoT Azure, w tym obszar roboczy [Azure Machine Learning][lnk_machine_learning]. Ten obszar roboczy zawiera eksperymenty oparte na publicznym zestawie danych przykładowych, które umożliwiają prognozowanie pozostałego czasu eksploatacji (RUL, Remaining Useful Life) silnika samolotu. Ponadto w rozwiązaniu w pełni zaimplementowano scenariusz biznesowy IoT jako punkt wyjściowy planowania i wdrażania rozwiązania zgodnego z potrzebami firmy.
 
 ## Architektura logiczna
 
@@ -33,7 +33,7 @@ Niebieskie elementy oznaczają usługi platformy Azure aprowizowane w lokalizacj
 
 Niektóre zasoby nie są dostępne w regionach, w których jest aprowizowane to rozwiązanie. Pomarańczowe elementy diagramu oznaczają usługi platformy Azure aprowizowane w najbliższym dostępnym regionie (Południowo-środkowe stany USA, Europa Zachodnia lub Azja Południowo-Wschodnia).
 
-Zielony element oznacza symulowane urządzenie, które odpowiada silnikowi samolotu. Więcej informacji na temat tych symulowanych urządzeń można znaleźć poniżej.
+Zielony element oznacza symulowane urządzenie, które odpowiada silnikowi samolotu. Więcej informacji na temat tych symulowanych urządzeń można znaleźć w poniższej sekcji.
 
 Szare elementy oznaczają składniki z zaimplementowanymi funkcjami *administrowania urządzeniami*. Bieżąca wersja wstępnie skonfigurowanego rozwiązania konserwacji predykcyjnej nie umożliwia aprowizowania tych zasobów. Aby dowiedzieć się więcej o administrowaniu urządzeniami, zapoznaj się z [wstępnie skonfigurowanym rozwiązaniem monitorowania zdalnego][lnk-remote-monitoring].
 
@@ -60,7 +60,7 @@ Usługa IoT Hub udostępnia potwierdzenia poleceń wysyłanych do urządzeń.
 
 ## Procesor zdarzeń
 
-**Procesor zdarzeń** pobiera średnie wartości z czujników z ukończonego cyklu i przekazuje je do interfejsu API, który udostępnia uczony model usługi Machine Learning w celu obliczenia pozostałego czasu eksploatacji silnika.
+**Procesor zdarzeń** przyjmuje średnie wartości z czujników dla ukończonego cyklu. Przekazuje te wartości do interfejsu API, który dostarcza je uczonemu modelowi usługi Machine Learning w celu obliczenia pozostałego czasu eksploatacji silnika.
 
 ## Azure Machine Learning
 
@@ -79,11 +79,11 @@ Na tej stronie aplikacji sieci Web są używane kontrolki JavaScript usługi Pow
 
 ### Monitorowanie działania rozwiązania w chmurze
 
-Aby wyświetlić aprowizowane zasoby, w witrynie Azure Portal przejdź do grupy zasobów z nazwą wybranego rozwiązania.
+W portalu Azure przejdź do grupy zasobów z nazwą wybranego rozwiązania, aby wyświetlić aprowizowane zasoby.
 
 ![][img-resource-group]
 
-Po przeprowadzeniu aprowizacji wstępnie skonfigurowanego rozwiązania otrzymasz wiadomość e-mail z linkiem do obszaru roboczego usługi Machine Learning. Do tego obszaru możesz także przejść ze strony [azureiotsuite.com][lnk-azureiotsuite] swojego aprowizowanego rozwiązania, gdy jego stan zmieni się na **Gotowe**.
+Po przeprowadzeniu aprowizacji wstępnie skonfigurowanego rozwiązania otrzymasz wiadomość e-mail z linkiem do obszaru roboczego usługi Machine Learning. Do obszaru roboczego Machine Learning możesz także przejść ze strony [azureiotsuite.com][lnk-azureiotsuite] swojego aprowizowanego rozwiązania, gdy jego stan zmieni się na **Gotowe**.
 
 ![][img-machine-learning]
 
@@ -95,7 +95,7 @@ Aby rozpocząć symulację, kliknij przycisk **Rozpocznij symulację**. Na pulpi
 
 ![][img-simulation-running]
 
-Jeśli wartość pozostałego czasu eksploatacji jest mniejsza niż 160 (arbitralna wartość progowa dla celów demonstracyjnych), w portalu rozwiązania zostanie wyświetlony symbol ostrzeżenia obok pozostałego czasu eksploatacji, a silnik samolotu na ilustracji zostanie wyświetlony na żółto. Można zauważyć, że pozostały czas eksploatacji ma ogólną tendencję zniżkową ze skokami w górę i w dół. Wynika to z dokładności modelu i różnych czasów trwania cykli.
+Jeśli wartość pozostałego czasu eksploatacji jest mniejsza niż 160 (arbitralna wartość progowa dla celów demonstracyjnych), w portalu rozwiązania zostanie wyświetlony symbol ostrzeżenia obok pozostałego czasu eksploatacji, a silnik samolotu zostanie wyróżniony żółtym kolorem. Zwróć uwagę na to, jak pozostały czas eksploatacji ma ogólną tendencję zniżkową ze skokami w górę i w dół. Takie zachowanie wynika z dokładności modelu i różnych czasów trwania cykli.
 
 ![][img-simulation-warning]
 
@@ -111,7 +111,12 @@ Po uruchomieniu wstępnie skonfigurowanego rozwiązania konserwacji predykcyjnej
 
 Wpis na blogu [IoT Suite - Under The Hood - Predictive Maintenance](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) (Za kulisami pakietu IoT — konserwacja predykcyjna) w witrynie TechNet zawiera więcej szczegółów dotyczących wstępnie skonfigurowanego rozwiązania konserwacji predykcyjnej.
 
-  
+Możesz także wypróbować niektóre inne funkcje i możliwości wstępnie skonfigurowanych rozwiązań Pakietu IoT:
+
+- [Często zadawane pytania dotyczące Pakietu IoT][lnk-faq]
+- [Zabezpieczenia IoT od podstaw][lnk-security-groundup]
+
+
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 [img-resource-group]: media/iot-suite-predictive-walkthrough/resource-group.png
 [img-machine-learning]: media/iot-suite-predictive-walkthrough/machine-learning.png
@@ -125,9 +130,11 @@ Wpis na blogu [IoT Suite - Under The Hood - Predictive Maintenance](http://socia
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-faq]: iot-suite-faq.md
+[lnk-security-groundup]: securing-iot-ground-up.md
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

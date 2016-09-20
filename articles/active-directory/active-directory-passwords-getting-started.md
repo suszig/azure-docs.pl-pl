@@ -2,11 +2,11 @@
     pageTitle="Wprowadzenie: zarządzanie hasłami w usłudze Azure AD | Microsoft Azure"
     description="Przekaż użytkownikom możliwość resetowania haseł, odkryj wymagania wstępne związane z funkcją resetowania haseł i włącz funkcję zapisywania zwrotnego haseł, aby zarządzać hasłami lokalnymi w usłudze Active Directory."
     services="active-directory"
-    keywords="Active directory password management, password management, reset Azure AD password"
+    keywords="Zarządzanie hasłami usługi Active Directory, zarządzanie hasłami, resetowanie hasła usługi Azure AD"
     documentationCenter=""
     authors="asteen"
-    manager="kbrint"
-    editor="billmath"/>
+    manager="femila"
+    editor="curtand"/>
 
 <tags
     ms.service="active-directory"
@@ -14,10 +14,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/16/2016" 
+    ms.date="07/12/2016"
     ms.author="asteen"/>
 
 # Wprowadzenie do zarządzania hasłami
+
+> [AZURE.IMPORTANT] **Jesteś tutaj, ponieważ masz problemy z logowaniem?** Jeśli tak, [w tym miejscu opisano, jak zmienić i zresetować własne hasło](active-directory-passwords-update-your-own-password.md).
+
 Aby umożliwić użytkownikom zarządzanie własnymi hasłami w chmurze Azure Active Directory lub lokalnymi hasłami w usłudze Active Directory, należy wykonać jedynie kilka prostych kroków. Po upewnieniu się, że zostały spełnione wymagania wstępne włączenie funkcji zmiany i resetowania haseł dla całej organizacji zajmie kilka chwil. W tym artykule opisano następujące kwestie:
 
 * [**Jak umożliwić użytkownikom resetowanie swoich haseł w chmurze Azure Active Directory**](#enable-users-to-reset-their-azure-ad-passwords)
@@ -195,7 +198,7 @@ Aby włączyć funkcję zapisywania zwrotnego haseł i z niej korzystać, musisz
 
 
 ### Krok 1. Pobranie najnowszej wersji programu Azure AD Connect
-Zapisywanie zwrotne haseł jest dostępne w wydaniach narzędzi Azure AD Connect lub Azure AD Sync o numerach wersji **1.0.0419.0911** lub wyższych.  Zapisywanie zwrotne haseł z automatycznym odblokowywaniem konta jest dostępne w wydaniach narzędzi Azure AD Connect lub Azure AD Sync o numerach wersji **1.0.0485.0222** lub wyższych. Jeśli używasz starszej wersji narzędzia, przeprowadź uaktualnienie do co najmniej tej wersji przed kontynuowaniem. [Kliknij tutaj, aby pobrać najnowszą wersję programu Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
+Zapisywanie zwrotne haseł jest dostępne w wydaniach narzędzi Azure AD Connect lub Azure AD Sync o numerach wersji **1.0.0419.0911** lub wyższych.  Zapisywanie zwrotne haseł z automatycznym odblokowywaniem konta jest dostępne w wydaniach narzędzi Azure AD Connect lub Azure AD Sync o numerach wersji **1.0.0485.0222** lub wyższych. Jeśli używasz starszej wersji narzędzia, przeprowadź uaktualnienie do co najmniej tej wersji przed kontynuowaniem. [Kliknij tutaj, aby pobrać najnowszą wersję programu Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### Aby sprawdzić wersję narzędzia Azure AD Sync
 1.  Przejdź do katalogu **%ProgramFiles%\Azure Active Directory Sync\**.
@@ -312,7 +315,7 @@ Teraz, po włączeniu funkcji zapisywania zwrotnego haseł, możesz przetestowa�
 ## Linki do dokumentacji związanej z resetowaniem haseł
 Poniżej podano linki do wszystkich stron dokumentacji związanych z resetowaniem haseł w usłudze Azure AD:
 
-* [**Resetowanie własnego hasła**](active-directory-passwords-update-your-own-password.md) — dowiedz się, jak resetować lub zmieniać swoje hasło jako użytkownik systemu
+* **Jesteś tutaj, ponieważ masz problemy z logowaniem?** Jeśli tak, [w tym miejscu opisano, jak zmienić i zresetować własne hasło](active-directory-passwords-update-your-own-password.md).
 * [**Jak to działa**](active-directory-passwords-how-it-works.md) — poznaj informacje o sześciu różnych komponentach usługi i dowiedz się, jak działają
 * [**Dostosowanie**](active-directory-passwords-customize.md) — dowiedz się, jak dostosować wygląd, sposób działania i zachowanie usługi do potrzeb organizacji
 * [**Najlepsze praktyki**](active-directory-passwords-best-practices.md) — dowiedz się, jak szybko wdrożyć i efektywnie zarządzać hasłami w organizacji
@@ -358,6 +361,6 @@ Poniżej podano linki do wszystkich stron dokumentacji związanych z resetowanie
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

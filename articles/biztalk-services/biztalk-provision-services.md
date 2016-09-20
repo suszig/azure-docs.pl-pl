@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/16/2016"
+    ms.date="08/15/2016"
     ms.author="mandia"/>
 
 
@@ -279,6 +279,6 @@ Po utworzeniu usługi BizTalk zapoznaj się z różnymi [usługami BizTalk Servi
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

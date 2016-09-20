@@ -1,6 +1,6 @@
 <properties
    pageTitle="Tworzenie sieci wirtualnej za pomocą połączenia sieci VPN typu lokacja-lokacja przy użyciu usługi Azure Resource Manager i portalu Azure | Microsoft Azure"
-   description="W tym artykule opisano procedurę tworzenia sieci wirtualnej za pomocą modelu usługi Azure Resource Manager i jej łączenia z siecią lokalną przy użyciu połączenia bramy sieci VPN S2S."
+   description="Tworzenie sieci wirtualnej przy użyciu modelu wdrażania usługi Azure Resource Manager i nawiązywanie połączenia z siecią lokalną za pomocą połączenia typu lokacja-lokacja bramy sieci VPN."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,42 +14,38 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2016"
+   ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
-# Tworzenie sieci wirtualnej za pomocą połączenia sieci VPN typu lokacja-lokacja przy użyciu portalu Azure i usługi Azure Resource Manager
+# Tworzenie sieci wirtualnej za pomocą połączenia typu lokacja-lokacja przy użyciu witryny Azure Portal
 
 > [AZURE.SELECTOR]
-- [Portal Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 - [Klasyczny portal Azure](vpn-gateway-site-to-site-create.md)
 - [Program PowerShell — model usługi Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-W tym artykule opisano proces tworzenia wirtualnej sieci i połączenia sieci VPN typu lokacja-lokacja z siecią lokalną z wykorzystaniem modelu wdrażania przy użyciu usługi Azure Resource Manager i portalu Azure. Wykonując poniższe kroki, można utworzyć sieć wirtualną, dodać podsieć bramy, bramę, lokację lokalną i połączenie. Ponadto niezbędne będzie skonfigurowanie urządzenia sieci VPN. 
+W tym artykule opisano proces tworzenia sieci wirtualnej i połączenia sieci VPN typu lokacja-lokacja z siecią lokalną z wykorzystaniem **modelu wdrażania usługi Azure Resource Manager** i witryny Azure Portal. Z połączeń typu lokacja-lokacja można korzystać w ramach konfiguracji hybrydowych i obejmujących wiele lokalizacji.
+
+![Diagram](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)
 
 
 
-**Modele wdrażania Azure — informacje**
+### Modele wdrażania i narzędzia używane w kontekście połączeń typu lokacja-lokacja
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-## Diagram połączenia
-
-![Lokacja-lokacja](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site2site.png)
-
-**Modele wdrażania i narzędzia używane w kontekście połączeń typu lokacja-lokacja**
-
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)] 
 
-Jeśli chcesz połączyć ze sobą sieci wirtualne, nie tworzysz jednak połączenia z lokalizacją lokalną, zapoznaj się z artykułem [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md) (Konfigurowanie połączenia między sieciami wirtualnymi). Jeśli potrzebujesz innego typu konfiguracji połączenia, zobacz artykuł [VPN Gateway connection topologies](vpn-gateway-topology.md) (Topologie połączenia bramy sieci VPN).
+Jeśli chcesz połączyć ze sobą sieci wirtualne, nie tworzysz jednak połączenia z lokalizacją lokalną, zapoznaj się z artykułem [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md) (Konfigurowanie połączenia między sieciami wirtualnymi).
 
 ## Przed rozpoczęciem
 
 Przed rozpoczęciem konfiguracji sprawdź, czy dysponujesz następującymi elementami.
 
-- Zgodne urządzenie sieci VPN i osoba, która umie je skonfigurować. Zobacz artykuł [About VPN Devices](vpn-gateway-about-vpn-devices.md) (Urządzenia sieci VPN — informacje). Jeśli nie dysponujesz wiedzą niezbędną do skonfigurowania urządzenia sieci VPN lub nie znasz zakresu adresów IP ujętego w konfiguracji sieci lokalnej, skontaktuj się z osobą, która dysponuje tymi danymi.
+- Zgodne urządzenie sieci VPN i osoba, która umie je skonfigurować. Zobacz artykuł [About VPN Devices](vpn-gateway-about-vpn-devices.md) (Urządzenia sieci VPN — informacje). Jeśli nie dysponujesz wiedzą niezbędną do skonfigurowania urządzenia sieci VPN lub nie znasz zakresu adresów IP ujętego w konfiguracji sieci lokalnej, skontaktuj się z osobą, która może podać Ci te dane.
 
-- Zewnętrzny publiczny adres IP urządzenia sieci VPN. Ten adres IP nie może się znajdować za translatorem adresów sieciowych.
+- Dostępny zewnętrznie publiczny adres IP urządzenia sieci VPN. Ten adres IP nie może się znajdować za translatorem adresów sieciowych.
     
 - Subskrypcja platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -79,7 +75,7 @@ Korzystając z tych kroków w charakterze ćwiczenia, można użyć przykładowy
 
 ## 1. Tworzenie sieci wirtualnej 
 
-Jeśli utworzono już sieć wirtualną, upewnij się, że ustawienia są zgodne z konstrukcją bramy sieci VPN, zwracając szczególną uwagę na wszelkie podsieci, które mogą nakładać się na inne sieci. Obecność nakładających się podsieci spowoduje, że połączenie nie będzie działać prawidłowo. Jeśli weryfikacja wykazała, że sieć wirtualną skonfigurowano poprawnie, można rozpocząć wykonywanie kroków z sekcji [Określanie serwera DNS](#dns).
+Jeśli masz już sieć wirtualną, sprawdź, czy ustawienia są zgodne z projektem bramy sieci VPN. Zwróć szczególną uwagę na wszelkie podsieci, które mogą pokrywać się z innymi sieciami. Obecność nakładających się podsieci spowoduje, że połączenie nie będzie działać prawidłowo. Jeśli sieć wirtualną skonfigurowano poprawnie, można rozpocząć wykonywanie kroków z sekcji [Określanie serwera DNS](#dns).
 
 ### Aby utworzyć sieć wirtualną
 
@@ -160,6 +156,6 @@ Połączenie sieci VPN można sprawdzić, korzystając z portalu lub z programu 
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

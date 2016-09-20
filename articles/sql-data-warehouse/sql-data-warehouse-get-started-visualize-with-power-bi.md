@@ -13,28 +13,33 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
+   ms.date="06/16/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
 # Wizualizacja danych przy użyciu usługi Power BI
 
 > [AZURE.SELECTOR]
-- [Power BI][]
-- [Azure Machine Learning][]
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
 Ten samouczek przedstawia sposób nawiązania połączenia z usługą SQL Data Warehouse przy użyciu usługi Power BI oraz tworzenia podstawowych wizualizacji.
 
-> [AZURE.NOTE] Do wykonania opisanych w nim kroków jest potrzebna baza danych usługi SQL Data Warehouse, do której wstępnie załadowano przykładową bazę danych AdventureWorksDW. Sposób jej tworzenia pokazano w artykule [Tworzenie bazy danych w usłudze SQL Data Warehouse](sql-data-warehouse-get-started-provision.md).
->
-> Jeśli masz już bazę danych usługi SQL Data Warehouse, ale bez przykładowych danych, możesz [ręcznie załadować przykładowe dane][].
-
 > [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
 
-## Nawiązywanie połączenia z bazą danych AdventureWorksDW
+## Wymagania wstępne
+
+Do wykonania kroków opisanych w tym samouczku potrzebne są:
+
+- Baza danych usługi SQL Data Warehouse ze wstępnie załadowaną bazą danych AdventureWorksDW. Aby dowiedzieć się, jak załadować dane przykładowe, zobacz artykuł [Tworzenie bazy danych w usłudze SQL Data Warehouse][]. Jeśli masz już magazyn danych, ale bez przykładowych danych, możesz [ręcznie załadować przykładowe dane][].
+
+
+## 1. Nawiązywanie połączenia z bazą danych
 
 Aby otworzyć usługę Power BI nawiązać połączenie się z bazą danych AdventureWorksDW:
 
-1. Zaloguj się do [Portalu Azure][].
+1. Zaloguj się do [Azure Portal][].
 2. Kliknij pozycję **Bazy danych SQL** i wybierz bazę danych AdventureWorks usługi SQL Data Warehouse.
 
     ![Znajdowanie bazy danych][1]
@@ -51,17 +56,17 @@ Aby otworzyć usługę Power BI nawiązać połączenie się z bazą danych Adve
 
     ![Logowanie w usłudze Power BI][4]
 
-1. Po zalogowaniu w usłudze Power BI kliknij zestaw danych AdventureWorksDW w lewym bloku. Spowoduje to otwarcie bazy danych.
+7. Po zalogowaniu w usłudze Power BI kliknij zestaw danych AdventureWorksDW w lewym bloku. Spowoduje to otwarcie bazy danych.
 
     ![Otwieranie bazy danych AdventureWorksDW w usłudze Power BI][5]
 
 
 
-## Tworzenie raportu usługi Power BI do analizowania przykładowych danych
+## 2. Tworzenie raportu
 
 Teraz możesz przystąpić do analizowania przykładowych danych bazy AdventureWorksDW przy użyciu usługi Power BI. Do wykonywania analizy służy widok bazy danych AdventureWorksDW o nazwie AggregateSales (Łączna sprzedaż). Ten widok zawiera kilka kluczowych metryk do analizowania sprzedaży firmy.
 
-1. Aby utworzyć mapę kwot sprzedaży na podstawie kodów pocztowych, w okienku pól po prawej stronie kliknij widok AggregateSales (Łączna sprzedaż), aby go rozwinąć. Kliknij kolumny PostalCode (kod pocztowy) and SalesAmount (kwota sprzedaży), aby je zaznaczyć.
+1. Aby utworzyć mapę kwot sprzedaży na podstawie kodów pocztowych, w okienku pól po prawej stronie kliknij widok AggregateSales (Łączna sprzedaż), aby go rozwinąć. Kliknij kolumny PostalCode (Kod pocztowy) and SalesAmount (Kwota sprzedaży), aby je zaznaczyć.
 
     ![Wybór widoku AggregateSales w usłudze Power BI][6]
 
@@ -88,38 +93,36 @@ Teraz możesz przystąpić do analizowania przykładowych danych bazy AdventureW
 W dowolnym momencie możesz kliknąć menu **Plik** i wybrać polecenie **Zapisz**, aby zapisać postęp.
 
 ## Następne kroki
-Po przećwiczeniu podstawowych zadań z użyciem przykładowych danych zapoznaj się ze sposobami wykonywania takich czynności, jak [opracowywanie][], [ładowanie][] lub [migrowanie][] danych. Możesz też przyjrzeć się [witrynie sieci Web usługi Power BI][].
+Po przećwiczeniu podstawowych zadań z użyciem przykładowych danych zapoznaj się ze sposobami wykonywania takich czynności, jak [opracowywanie][], [ładowanie][] lub [migrowanie][] danych. Możesz też zapoznać się z [witryną sieci Web usługi Power BI][].
 
 <!--Image references-->
-[1]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
-[2]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-button.png
-[3]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-connect-to-azure.png
-[4]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-sign-in.png
-[5]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-open-adventureworks.png
-[6]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-aggregatesales.png
-[7]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-map.png
-[8]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-chooseaxis.png
-[9]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-bar.png
-[10]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-prepare-line.png
-[11]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-line.png
-[12]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
+[1]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
+[2]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-button.png
+[3]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-connect-to-azure.png
+[4]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-sign-in.png
+[5]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-open-adventureworks.png
+[6]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-aggregatesales.png
+[7]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-map.png
+[8]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-chooseaxis.png
+[9]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-bar.png
+[10]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-prepare-line.png
+[11]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-line.png
+[12]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
 
 <!--Article references-->
-[migrowanie]: ./sql-data-warehouse-overview-migrate.md
-[opracowywanie]: ./sql-data-warehouse-overview-develop.md
-[ładowanie]: ./sql-data-warehouse-overview-load.md
-[ręcznie załadować przykładowe dane]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[nawiązywanie połączenia z usługą SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
-[Tworzenie bazy danych w usłudze SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
-[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Azure Machine Learning]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
+[migrowanie]: sql-data-warehouse-overview-migrate.md
+[opracowywanie]: sql-data-warehouse-overview-develop.md
+[ładowanie]: sql-data-warehouse-overview-load.md
+[ręcznie załadować przykładowe dane]: sql-data-warehouse-load-sample-databases.md
+[nawiązywanie połączenia z usługą SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
+[Tworzenie bazy danych w usłudze SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
-[Portalu Azure]: https://portal.azure.com/
-[witrynie sieci Web usługi Power BI]: http://www.powerbi.com/
+[Azure Portal]: https://portal.azure.com/
+[witryną sieci Web usługi Power BI]: http://www.powerbi.com/
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -11,7 +11,7 @@ Interfejsu wiersza polecenia platformy Azure można użyć do zarządzania zasob
 
         info:    New mode is arm
 
-3. W razie potrzeby uruchom polecenie **azure group create**, aby utworzyć nową grupę zasobów, jak pokazano poniżej. Zwróć uwagę na dane wyjściowe polecenia. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów. Aby uzyskać więcej informacji na temat grup zasobów, zobacz temat [Omówienie usługi Azure Resource Manager](../articles/virtual-network/resource-group-overview.md/#resource-groups).
+3. W razie potrzeby uruchom polecenie **azure group create**, aby utworzyć nową grupę zasobów, jak pokazano poniżej. Zwróć uwagę na dane wyjściowe polecenia. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../articles/virtual-network/resource-group-overview.md#resource-groups).
 
         azure group create -n TestRG -l centralus
 
@@ -108,6 +108,6 @@ Interfejsu wiersza polecenia platformy Azure można użyć do zarządzania zasob
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

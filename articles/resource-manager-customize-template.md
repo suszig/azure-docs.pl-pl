@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="08/01/2016"
     ms.author="tomfitz"/>
 
 # Dostosowywanie wyeksportowanego szablonu usługi Azure Resource Manager
@@ -236,6 +236,6 @@ W tym artykule przedstawiono obie opcje.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

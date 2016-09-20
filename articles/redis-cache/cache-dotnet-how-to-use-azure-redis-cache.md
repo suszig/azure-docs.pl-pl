@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="cache-redis" 
     ms.devlang="dotnet" 
     ms.topic="hero-article" 
-    ms.date="05/31/2016" 
+    ms.date="08/25/2016" 
     ms.author="sdanie"/>
 
 # Jak używać usługi Azure Redis Cache
@@ -59,21 +59,7 @@ Więcej informacji na temat konfigurowania pamięci podręcznej znajduje się w 
 <a name="NuGet"></a>
 ## Konfigurowanie klientów pamięci podręcznej
 
-Pamięć podręczna utworzona przy użyciu usługi Azure Redis Cache jest dostępna z poziomu dowolnej aplikacji Azure. Aplikacje .NET opracowane w programie Visual Studio mogą używać klienta pamięci podręcznej **StackExchange.Redis**, którego można skonfigurować przy użyciu pakietu NuGet upraszczającego konfigurację aplikacji klienta pamięci podręcznej. 
-
->[AZURE.NOTE] Więcej informacji znajduje się na stronie witryny GitHub [StackExchange.Redis][] oraz w [dokumentacji dotyczącej klienta pamięci podręcznej StackExchange.Redis][].
-
-Aby skonfigurować aplikację klienta w programie Visual Studio przy użyciu pakietu NuGet StackExchange.Redis, kliknij prawym przyciskiem myszy projekt w **Eksploratorze rozwiązań** i wybierz pozycję **Zarządzaj pakietami NuGet**. 
-
-![Zarządzanie pakietami NuGet][NuGetMenu]
-
-Wpisz **StackExchange.Redis** lub **StackExchange.Redis.StrongName** w polu tekstowym wyszukiwania, wybierz z wyników żądaną wersję i kliknij przycisk **Zainstaluj**.
-
->[AZURE.NOTE] Jeśli wolisz użyć wersji biblioteki klienckiej **StackExchange.Redis** o silnej nazwie, wybierz pozycję **StackExchange.Redis.StrongName**; w innym wypadku wybierz pozycję **StackExchange.Redis**.
-
-![Pakiet NuGet StackExchange.Redis][StackExchangeNuget]
-
-Pakiet NuGet pobiera i dodaje wymagane odwołania do zestawu umożliwiające aplikacji klienta uzyskanie dostępu do usługi Azure Redis Cache przy użyciu klienta pamięci podręcznej StackExchange.Redis.
+[AZURE.INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 Po skonfigurowaniu projektu klienta do buforowania będzie można pracować z pamięcią podręczną przy użyciu metod opisanych w poniższych sekcjach.
 
@@ -207,7 +193,9 @@ Teraz, kiedy znasz już podstawy, skorzystaj z poniższych linków i dowiedz si�
 -   [Włącz diagnostykę pamięci podręcznej](cache-how-to-monitor.md#enable-cache-diagnostics), aby móc [monitorować](cache-how-to-monitor.md) jej kondycję. Możesz wyświetlać metryki w witrynie Azure Portal oraz [pobierać i przeglądać](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) je przy użyciu wybranych przez siebie narzędzi.
 -   Zapoznaj się z [dokumentacji dotyczącej klienta pamięci podręcznej StackExchange.Redis][].
     -   Dostęp do usługi Azure Redis Cache można uzyskać z wielu klientów Redis i przy użyciu wielu języków programowania. Więcej informacji znajduje się na stronie [http://redis.io/clients][].
-    -   Usługi Azure Redis Cache można również używać z takimi usługami jak Redsmin. Więcej informacji znajduje się w artykule [How to retrieve an Azure Redis connection string and use it with Redsmin][] (Jak pobrać parametry połączenia usługi Azure Redis Cache i używać ich w usłudze Redsmin).
+-   Usługi Azure Redis Cache można również używać z usługami i narzędziami innych firm, takimi jak Redsmin i Redis Desktop Manager.
+    -   Więcej informacji na temat usługi Redsmin znajduje się w artykule [How to retrieve an Azure Redis connection string and use it with Redsmin][] (Jak pobrać parametry połączenia usługi Azure Redis Cache i używać ich w usłudze Redsmin).
+    -   Dostęp do danych w usłudze Azure Redis Cache oraz możliwość ich inspekcji można uzyskać za pomocą graficznego interfejsu użytkownika, używając usługi [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager).
 -   Zapoznaj się z dokumentacją dotyczącą usługi [redis][], przeczytaj o [typach danych usługi redis][] oraz poznaj [piętnastominutowe wprowadzenie do typów danych usługi Redis][].
 
 
@@ -302,6 +290,6 @@ Teraz, kiedy znasz już podstawy, skorzystaj z poniższych linków i dowiedz si�
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

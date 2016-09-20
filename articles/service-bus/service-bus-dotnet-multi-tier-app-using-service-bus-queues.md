@@ -39,7 +39,7 @@ Poniższy zrzut ekranu przedstawia gotową aplikację.
 
 ## Omówienie scenariusza: komunikacja między rolami
 
-Aby przesłać zamówienie do przetworzenia, składnik interfejsu użytkownika frontonu działającego w roli sieci Web musi współdziałać z logiką warstwy środkowej uruchomionej w roli procesu roboczego. W tym przykładzie do komunikacji między warstwami użyto komunikatów usługi Service Bus obsługiwanych przez brokera.
+Aby przesłać zamówienie do przetworzenia, składnik interfejsu użytkownika frontonu działający w roli sieci Web musi współdziałać z logiką warstwy środkowej uruchomionej w roli procesu roboczego. W tym przykładzie do komunikacji między warstwami użyto komunikatów usługi Service Bus obsługiwanych przez brokera.
 
 Korzystanie z komunikatów obsługiwanych przez brokera między warstwą sieci Web i warstwą środkową oddziela dwa składniki. W przeciwieństwie do komunikatów bezpośrednich (czyli TCP lub HTTP), warstwa sieci Web nie łączy się bezpośrednio z warstwą środkową. Zamiast tego wypycha jednostki pracy jako komunikaty do usługi Service Bus, która w niezawodny sposób je przechowuje do momentu, aż środkowa warstwa będzie gotowa na ich użycie i przetworzenie.
 
@@ -73,45 +73,11 @@ Przed rozpoczęciem tworzenia aplikacji dla platformy Azure pobierz potrzebne na
 
 6.  Po zakończeniu instalacji będziesz mieć do dyspozycji wszystkie narzędzia niezbędne do tworzenia aplikacji. Zestaw SDK zawiera narzędzia, które pozwalają w łatwy sposób tworzyć aplikacje dla platformy Azure w programie Visual Studio. Jeśli nie masz zainstalowanego programu Visual Studio, zestaw SDK zainstaluje również bezpłatny program Visual Studio Express.
 
-## Tworzenie przestrzeni nazw usługi Service Bus
+## Tworzenie przestrzeni nazw
 
-Następnym krokiem jest utworzenie przestrzeni nazw usługi i uzyskanie klucza sygnatury dostępu współdzielonego. Przestrzeń nazw wyznacza granice każdej aplikacji uwidacznianej za pośrednictwem usługi Service Bus. Klucz sygnatury dostępu współdzielonego jest generowany przez system po utworzeniu przestrzeni nazw usługi. Kombinacja przestrzeni nazw i klucza sygnatury dostępu współdzielonego dostarcza poświadczenia dla usługi Service Bus w celu uwierzytelnienia dostępu do aplikacji.
+Następnym krokiem jest utworzenie przestrzeni nazw usługi i uzyskanie klucza sygnatury dostępu współdzielonego. Przestrzeń nazw wyznacza granice każdej aplikacji uwidacznianej za pośrednictwem usługi Service Bus. Klucz sygnatury dostępu współdzielonego jest generowany przez system po utworzeniu przestrzeni nazw. Kombinacja przestrzeni nazw i klucza sygnatury dostępu współdzielonego dostarcza poświadczenia dla usługi Service Bus w celu uwierzytelnienia dostępu do aplikacji.
 
-### Konfigurowanie przestrzeni nazw przy użyciu klasycznego portalu Azure
-
-1.  Zaloguj się do [klasycznego portalu Azure][].
-
-2.  W lewym okienku nawigacji portalu kliknij pozycję **Service Bus**.
-
-3.  W dolnym okienku portalu kliknij pozycję **Utwórz**.
-
-    ![][6]
-
-4.  Na stronie **Dodawanie nowej przestrzeni nazw** wprowadź nazwę przestrzeni nazw. System od razu sprawdza, czy nazwa jest dostępna.
-
-    ![][7]
-
-5.  Po upewnieniu się, że nazwa przestrzeni nazw jest dostępna, wybierz kraj lub region, w którym przestrzeń nazw ma być hostowana (upewnij się, że używasz tego samego kraju/regionu, w którym są wdrażane zasoby obliczeniowe). Ponadto upewnij się, że masz wybraną opcję **Obsługa komunikatów** w polu **Typ** oraz opcję **Standardowa** w polu **Warstwa obsługi komunikatów**.
-
-    > [AZURE.IMPORTANT] Wybierz **ten sam region**, którego zamierzasz użyć do wdrożenia aplikacji. Zapewni to najlepszą wydajność.
-
-6.  Kliknij znacznik wyboru OK. System utworzy przestrzeń nazw usługi i włączy ją. Proces aprowizacji zasobów dla konta w systemie może potrwać kilka minut.
-
-7.  W oknie głównym kliknij nazwę przestrzeni nazw usługi.
-
-8. Kliknij pozycję **Informacje o połączeniu**.
-
-9.  W okienku **Dostęp do informacji o połączeniu** znajdź parametry połączenia, które zawierają klucz sygnatury dostępu współdzielonego i nazwę klucza.
-
-    ![][35]
-
-10.  Zanotuj te poświadczenia lub skopiuj je do schowka.
-
-11. Na tej samej stronie portalu kliknij kartę **Konfiguracja** u góry strony.
-
-12. Skopiuj do schowka klucz podstawowy dla zasad **RootManageSharedAccessKey** lub wklej go do Notatnika. Ta wartość zostanie użyta w dalszej części tego samouczka.
-
-    ![][36]
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Tworzenie roli sieci Web
 
@@ -272,7 +238,7 @@ Teraz dodaj kod przesyłający elementy do kolejki. Najpierw utwórz klasę, kt�
 
 2.  Nadaj klasie nazwę **QueueConnector.cs**. Kliknij pozycję **Dodaj**, aby utworzyć klasę.
 
-3.  Teraz dodaj kod, który zawiera informacje o połączeniu i inicjuje połączenie z kolejką usługi Service Bus. Zamień całą zawartość pliku QueueConnector.cs na następujący kod, a następnie wprowadź wartości dla pozycji `your Service Bus namespace` (nazwa przestrzeni nazw) oraz pozycji `yourKey`, będącą **kluczem podstawowym** uzyskanym wcześniej z [klasycznego portalu Azure][] w kroku 12 sekcji „Tworzenie przestrzeni nazw usługi Service Bus”.
+3.  Teraz dodaj kod, który zawiera informacje o połączeniu i inicjuje połączenie z kolejką usługi Service Bus. Zamień całą zawartość pliku QueueConnector.cs na następujący kod, a następnie wprowadź wartości dla pozycji `your Service Bus namespace` (nazwa przestrzeni nazw) oraz pozycji `yourKey` będącej **kluczem podstawowym** uzyskanym wcześniej z usługi Azure Portal.
 
     ```
     using System;
@@ -473,9 +439,6 @@ Aby dowiedzieć się więcej na temat wielowarstwowych scenariuszy, zobacz:
 
   [EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
 
-  [klasycznego portalu Azure]: http://manage.windowsazure.com
-  [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
-  [7]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
   [10]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
   [11]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
@@ -493,16 +456,14 @@ Aby dowiedzieć się więcej na temat wielowarstwowych scenariuszy, zobacz:
   [25]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRoleProperties.png
   [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
   [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
-  [35]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
-  [36]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/service-bus-policies.png
 
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
   [sbwacom]: /documentation/services/service-bus/  
-  [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md  
+  [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

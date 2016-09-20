@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/25/2016"
+ ms.date="08/09/2016"
  ms.author="dobett"/>
 
 # Co to są wstępnie skonfigurowane rozwiązania Pakietu IoT Azure?
@@ -24,17 +24,17 @@ Wstępnie skonfigurowane rozwiązania Pakietu IoT Azure to implementacje typowyc
 - Jako punktu wyjściowego dla własnych rozwiązań IoT.
 - Jako platformy umożliwiającej zapoznanie się z typowymi wzorcami projektowania i tworzenia rozwiązań IoT.
 
-Każde wstępnie skonfigurowane rozwiązanie stanowi kompletną implementację, korzystającą z symulowanych urządzeń do generowania danych telemetrycznych.
+Każde wstępnie skonfigurowane rozwiązanie stanowi kompletną implementację, która korzysta z symulowanych urządzeń do generowania danych telemetrycznych.
 
 Oprócz wdrażania i uruchamiania rozwiązań na platformie Azure można pobrać pełny kod źródłowy, a następnie dostosować i rozbudować dane rozwiązanie pod kątem własnych wymagań dotyczących urządzeń IoT.
 
-> [AZURE.NOTE] Aby wdrożyć wstępnie skonfigurowane rozwiązanie, odwiedź witrynę [Pakietu IoT Azure firmy Microsoft][lnk-azureiotsuite]. Więcej informacji dotyczących wdrażania i uruchamiania przykładowego rozwiązania można znaleźć w artykule [Wprowadzenie do wstępnie skonfigurowanych rozwiązań IoT][lnk-preconf-get-started].
+> [AZURE.NOTE] Aby wdrożyć wstępnie skonfigurowane rozwiązanie, odwiedź witrynę [Pakietu IoT Azure firmy Microsoft][lnk-azureiotsuite]. Więcej informacji dotyczących wdrażania i uruchamiania przykładowego rozwiązania można znaleźć w artykule [Wprowadzenie do wstępnie skonfigurowanych rozwiązań IoT][lnk-getstarted-preconfigured].
 
 W poniższej tabeli przedstawiono odwzorowanie rozwiązań na określone funkcje IoT:
 
 | Rozwiązanie | Wprowadzanie danych | Tożsamość urządzenia | Sterowanie i kontrola | Reguły i akcje | Analiza predykcyjna |
 |------------------------|-----|-----|-----|-----|-----|
-| [Zdalne monitorowanie][lnk-preconf-get-started] | Tak | Tak | Tak | Tak | -   |
+| [Monitorowanie zdalne][lnk-getstarted-preconfigured] | Tak | Tak | Tak | Tak | -   |
 | [Konserwacja predykcyjna][lnk-predictive-maintenance] | Tak | Tak | Tak | Tak | Tak |
 
 - *Wprowadzanie danych*: transfer danych do chmury na dużą skalę.
@@ -117,10 +117,7 @@ W tym wstępnie skonfigurowanym rozwiązaniu portal rozwiązania stanowi częś�
 
 Aby uzyskać więcej informacji na temat architektury rozwiązań IoT, zobacz dokument [Microsoft Azure IoT services: Reference Architecture][lnk-refarch] (Usługi Microsoft Azure IoT: architektura referencyjna).
 
-Aby dowiedzieć się więcej o wstępnie skonfigurowanych rozwiązaniach IoT, zapoznaj się z poniższymi zasobami:
-
-- [Wprowadzenie do wstępnie skonfigurowanych rozwiązań IoT][lnk-preconf-get-started]
-- [Omówienie wstępnie skonfigurowanego rozwiązania konserwacji predykcyjnej][lnk-predictive-maintenance]
+Teraz, kiedy już wiesz, czym jest wstępnie skonfigurowane rozwiązanie, możesz rozpocząć wdrażanie wstępnie skonfigurowanego rozwiązania *monitorowania zdalnego* : [Wprowadzenie do wstępnie skonfigurowanych rozwiązań][lnk-getstarted-preconfigured].
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
@@ -128,15 +125,13 @@ Aby dowiedzieć się więcej o wstępnie skonfigurowanych rozwiązaniach IoT, za
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
 [lnk-web-job]: ../app-service-web/web-sites-create-web-jobs.md
-[lnk-document-db]: https://azure.microsoft.com/documentation/services/documentdb/
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide.md#device-identity-registry
-[lnk-suite-overview]: iot-suite-overview.md
-[lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
+[lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

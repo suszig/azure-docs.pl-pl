@@ -4,7 +4,7 @@
     services="remoteapp" 
     documentationCenter="" 
     authors="lizap" 
-    manager="mbaldwin" 
+    manager="swadhwa" 
     editor=""/>
 
 <tags 
@@ -13,11 +13,18 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="04/08/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo"/>
 
 # Często zadawane pytania dotyczące usługi Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
+
 Otrzymujemy następujące pytania dotyczące usługi Azure RemoteApp. Masz więcej pytań? Odwiedź [fora usługi RemoteApp](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureRemoteApp) i określ, jakich informacji potrzebujesz, lub dodaj komentarz poniżej.
+
+## Nie możesz znaleźć, czego szukasz? Masz pytanie, na które nie odpowiedzieliśmy?
+Jeśli nie możesz znaleźć potrzebnych informacji lub masz dodatkowe pytanie, na które nie ma odpowiedzi w tym miejscu, przejdź do [forum Azure RemoteApp](http://aka.ms/araforum) i zadaj pytanie. Zawsze możemy dodać więcej odpowiedzi tutaj.
 
 ## Co to jest usługa Azure RemoteApp? ##
 
@@ -33,7 +40,7 @@ Otrzymujemy następujące pytania dotyczące usługi Azure RemoteApp. Masz więc
 - **Jakie są ograniczenia usługi?** Więcej informacji na temat ustawień domyślnych i ograniczeń usługi Azure RemoteApp można znaleźć w temacie [Subskrypcja oraz limity, przydziały i ograniczenia usług platformy Azure](../azure-subscription-service-limits.md). Poinformuj nas, jeśli masz więcej pytań.
 - **Ilu użytkowników muszę mieć?** Minimalna liczba użytkowników wynosi 20. Powtórzmy dla pełnej jasności — MINIMALNA liczba to 20. Opłaty będą naliczane za 20 użytkowników. 
 - **Jaki jest koszt usługi RemoteApp?** Zapoznaj się z tematem [Szczegółowe informacje o cenach usługi Azure RemoteApp](https://azure.microsoft.com/pricing/details/remoteapp/).
-- **Czy kolekcje różnych typów różnią się ceną?** Tak, w zależności od wymagań kolekcji. Kolekcja hybrydowa wymaga połączenia usługi Azure RemoteApp z siecią lokalną. Jeśli używana jest sieć wirtualna lub usługa Express Route, nie ma żadnych dodatkowych kosztów. Jednak w przypadku korzystania z nowej sieci wirtualnej platformy Azure oraz bramy lub usługi Express Route zostanie naliczona opłata za usługę [VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway) lub [Express Route](../../../pricing/details/expressroute/). Ten koszt (szczegóły dostępne w linkach) jest dodawany do miesięcznej opłaty za usługę Azure RemoteApp.
+- **Czy kolekcje różnych typów różnią się ceną?** Tak, w zależności od wymagań kolekcji. Kolekcja hybrydowa wymaga połączenia usługi Azure RemoteApp z siecią lokalną. Jeśli używana jest sieć wirtualna lub usługa Express Route, nie ma żadnych dodatkowych kosztów. Jednak w przypadku korzystania z nowej sieci wirtualnej platformy Azure oraz bramy lub usługi Express Route zostanie naliczona opłata za usługę [VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway) lub [Express Route](https://azure.microsoft.com/pricing/details/expressroute/). Ten koszt (szczegóły dostępne w linkach) jest dodawany do miesięcznej opłaty za usługę Azure RemoteApp.
 
 ## Kolekcje — co jest obsługiwane, czego należy używać i inne informacje
 - **Czy są obsługiwane niestandardowe aplikacje LOB (biznesowe)?** Tak. Aby użyć aplikacji niestandardowej w usłudze Azure RemoteApp, utwórz [obraz niestandardowego szablonu](remoteapp-create-custom-image.md) i przekaż go do kolekcji RemoteApp.
@@ -86,7 +93,7 @@ Po pierwsze, komputery i tablety:
 
 - **Która wersja systemu Windows Server jest obsługiwana przez hosta sesji usług pulpitu zdalnego (RDSH)?** Windows Server 2012 R2.
 
-##Pomoc techniczna i opinie
+## Pomoc techniczna i opinie
 
 
 - **Jaki jest plan pomocy technicznej dla usługi RemoteApp?** Obsługa zarządzania rozliczeniami i subskrypcjami jest bezpłatna. Pomoc techniczna jest dostępna za pośrednictwem [planów usług platformy Azure](https://azure.microsoft.com/support/plans/). Można również uzyskać bezpłatne wsparcie społeczności za pośrednictwem [forum dyskusyjnego platformy Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp). 
@@ -117,6 +124,6 @@ Czy wiesz, że możesz nie tylko ocenić ten artykuł i dodać komentarze poniż
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -8,11 +8,11 @@ W tej sekcji przedstawiono tworzenie aplikacji konsoli systemu Windows, która w
 
 2. W Eksploratorze rozwiązań kliknij rozwiązanie prawym przyciskiem myszy, a następnie kliknij pozycję **Zarządzaj pakietami NuGet dla rozwiązania**. 
 
-3. Kliknij kartę **Przeglądanie**, a następnie wyszukaj ciąg `Microsoft Azure Service Bus`. Pamiętaj, aby określić nazwę projektu (**Nadawca**) w polu **Wersje**. Kliknij przycisk **Zainstaluj** i zaakceptuj warunki użytkowania. 
+3. Kliknij kartę **Przeglądanie**, a następnie wyszukaj ciąg `Microsoft Azure Service Bus`. Pamiętaj, aby określić nazwę projektu (**Nadawca**) w polu **Wersje**. Kliknij pozycję **Zainstaluj** i zaakceptuj warunki użytkowania. 
 
     ![][8]
 
-    Spowoduje to pobranie, zainstalowanie i dodanie odnośnika do opcji <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">Pakiet NuGet biblioteki usługi Azure Service Bus</a>.
+    Program Visual Studio pobierze, zainstaluje i doda odniesienia do [pakietu NuGet biblioteki usługi Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 4. Dodaj następujące instrukcje `using` w górnej części pliku **Program.cs**:
 
@@ -54,7 +54,7 @@ W tej sekcji przedstawiono tworzenie aplikacji konsoli systemu Windows, która w
     }
     ```
 
-    Ta metoda stale wysyła zdarzenia do Centrum zdarzeń z opóźnieniem 200 ms.
+    Ta metoda stale wysyła zdarzenia do centrum zdarzeń z opóźnieniem 200 ms.
 
 7. Na koniec dodaj następujące wiersze do metody **Główne**:
 
@@ -71,6 +71,6 @@ W tej sekcji przedstawiono tworzenie aplikacji konsoli systemu Windows, która w
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

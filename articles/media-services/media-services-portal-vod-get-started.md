@@ -13,17 +13,17 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/05/2016"
+    ms.date="08/30/2016"
     ms.author="juliako"/>
 
 
-# Wprowadzenie do dostarczania zawartości na żądanie przy użyciu portalu Azure (wersja zapoznawcza)
+# Wprowadzenie do dostarczania zawartości na żądanie przy użyciu portalu Azure
+
+[AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 W tym samouczku przedstawiono kolejne kroki wdrażania podstawowej usługi do dostarczania zawartości wideo na żądanie (VoD) za pomocą aplikacji Azure Media Services (AMS) przy użyciu portalu Azure.
 
-Usługa Azure Media Services w portalu Azure jest obecnie dostępna w wersji zapoznawczej. 
-
-> [AZURE.NOTE] Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz temat [Bezpłatna wersja próbna systemu Azure](https://azure.microsoft.com/pricing/free-trial/). 
+> [AZURE.NOTE] Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/). 
 
 W tym samouczku opisano następujące zadania:
 
@@ -37,10 +37,10 @@ W tym samouczku opisano następujące zadania:
 
 ## Tworzenie konta usługi Azure Media Services
 
-W tej sekcji opisano kroki w procesie tworzenia nowego konta usługi AMS.
+W tej sekcji opisano kroki w procesie tworzenia konta usługi AMS.
 
 1. Zaloguj się w [portalu Azure](https://portal.azure.com/).
-2. Kliknij kolejno pozycje **+Nowe** > **Media Service + CDN** > **Media Services**.
+2. Kliknij kolejno pozycje **+Nowe** > **Media + CDN** > **Media Services**.
 
     ![Tworzenie usługi Media Services](./media/media-services-portal-vod-get-started/media-services-new1.png)
 
@@ -52,9 +52,9 @@ W tej sekcji opisano kroki w procesie tworzenia nowego konta usługi AMS.
     2. W subskrypcji wybierz jedną z różnych subskrypcji Azure, do których masz dostęp.
     
     2. W polu **Grupa zasobów** wybierz nowy lub istniejący zasób.  Grupa zasobów jest kolekcją zasobów, które mają ten sam cykl życia, uprawnienia i zasady. Więcej informacji można znaleźć [tutaj](resource-group-overview.md#resource-groups).
-    3. W polu **Lokalizacja** wybierz region geograficzny używany do przechowywania nośników i rekordów metadanych dla konta usługi Media Services. Ten region będzie służyć do przetwarzania i przesyłania strumieniowego multimediów. Na liście rozwijanej są wyświetlane tylko regiony dostępne w usłudze Media Services. 
+    3. W polu **Lokalizacja** wybierz region geograficzny używany do przechowywania nośników i rekordów metadanych dla konta usługi Media Services. Ten region służy do przetwarzania i przesyłania strumieniowego multimediów. Na liście rozwijanej są wyświetlane tylko regiony dostępne w usłudze Media Services. 
     
-    3. W polu **Konto magazynu** wybierz konto magazynu, aby udostępnić magazyn obiektów Blob dla zawartości multimedialnej z konta usługi Media Services. Można wybrać istniejące konto magazynu w tym samym regionie geograficznym co konto usługi Media Services albo utworzyć nowe konto magazynu. Nowe konto magazynu jest tworzone w tym samym regionie. Reguły dotyczące nazw kont magazynów są takie same, jak w przypadku kont usługi Media Services.
+    3. W polu **Konto magazynu** wybierz konto magazynu, aby udostępnić magazyn obiektów Blob dla zawartości multimedialnej z konta usługi Media Services. Można wybrać istniejące konto magazynu w tym samym regionie geograficznym co konto usługi Media Services albo utworzyć konto magazynu. Nowe konto magazynu jest tworzone w tym samym regionie. Reguły dotyczące nazw kont magazynów są takie same, jak w przypadku kont usługi Media Services.
 
         Więcej informacji o magazynie można znaleźć [tutaj](storage-introduction.md).
 
@@ -79,13 +79,13 @@ Do uzyskania programowego dostępu do konta usługi Media Services będą wymaga
 2. W oknie **Ustawienia** wybierz opcję **Klucze**. 
 
     W oknie **Zarządzanie kluczami** widoczna jest nazwa konta oraz wyświetlane są klucze podstawowe i pomocnicze. 
-3. Kliknij przycisk Kopiuj, aby skopiować wartości.
+3. Naciśnij przycisk kopiowania, aby skopiować wartości.
     
     ![Klucze usługi Media Services](./media/media-services-portal-vod-get-started/media-services-keys.png)
 
 ## Konfigurowanie punktów końcowych przesyłania strumieniowego
 
-Podczas pracy w usłudze Azure Media Services jednym z najbardziej typowych scenariuszy jest zapewnianie klientom obrazu wideo za pośrednictwem przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów. W przypadku przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów klient może przełączyć się na przesyłanie strumieniowe o większej lub mniejszej szybkości transmisji bitów, ponieważ zawartość wideo jest wyświetlana w oparciu o bieżącą przepustowość sieci, wykorzystanie procesora CPU i inne czynniki. Usługa Media Services obsługuje następujące technologie przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH i HDS (tylko dla posiadaczy licencji Adobe PrimeTime/Access).
+Podczas pracy w usłudze Azure Media Services jednym z najbardziej typowych scenariuszy jest zapewnianie klientom obrazu wideo za pośrednictwem przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów. Usługa Media Services obsługuje następujące technologie przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH i HDS (tylko dla posiadaczy licencji Adobe PrimeTime/Access).
 
 Usługa Media Services udostępnia funkcję dynamicznego tworzenia pakietów, która pozwala dostarczać kodowaną zawartość plików MP4 z adaptacyjną szybkością transmisji bitów w formatach transmisji strumieniowej obsługiwanych przez usługę Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) w odpowiednim czasie bez konieczności przechowywania wersji wstępnie utworzonych pakietów poszczególnych formatów przesyłania strumieniowego.
 
@@ -115,7 +115,7 @@ Aby utworzyć i zmienić liczbę jednostek zarezerwowanego przesyłania strumien
 
 ## Przekazywanie plików
 
-Aby przesłać strumieniowo pliki wideo przy użyciu usługi Azure Media Services, trzeba będzie przekazać źródłowe pliki wideo, zakodować je do wielokrotnych szybkości transmisji bitów oraz opublikować wynik. Pierwszy krok został omówiony w tej sekcji. 
+Aby przesłać strumieniowo pliki wideo przy użyciu usługi Azure Media Services, musisz przekazać źródłowe pliki wideo, zakodować je do wielokrotnych szybkości transmisji bitów oraz opublikować wynik. Pierwszy krok został omówiony w tej sekcji. 
 
 1. W oknie **Ustawienie** kliknij przycisk **Elementy zawartości**.
 
@@ -132,7 +132,6 @@ Aby przesłać strumieniowo pliki wideo przy użyciu usługi Azure Media Service
     Rozpocznie się przekazywanie, a postęp będzie widoczny pod nazwą pliku.  
 
 Po zakończeniu przekazywania na liście w oknie **Elementy zawartości** pojawi się nowy element zawartości. 
-
 
 ## Kodowanie elementów zawartości
 
@@ -161,7 +160,7 @@ W tej sekcji opisano kroki, które należy wykonać w celu zakodowania zawartoś
 
 ### Monitorowanie postępu zadania kodowania
 
-Aby monitorować postęp zadania kodowania, kliknij polecenie **Ustawienia** (w górnej części strony), a następnie wybierz opcję **Zadania**.
+Aby monitorować postęp zadania kodowania, kliknij pozycję **Ustawienia** (w górnej części strony), a następnie wybierz pozycję **Zadania**.
 
 ![Zadania](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
@@ -192,7 +191,7 @@ Adres URL SAS ma następujący format.
 
 >[AZURE.NOTE] Jeśli użyto portalu do utworzenia lokalizatorów przed marcem 2015 r., zostały utworzone lokalizatory z dwuletnim okresem ważności.  
 
-Do aktualizacji daty wygaśnięcia na lokalizatorze użyj interfejsu API [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) lub [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Należy pamiętać, że po zaktualizowaniu daty wygaśnięcia lokalizatora SAS następuje zmiana adresu URL.
+Do aktualizacji daty wygaśnięcia na lokalizatorze użyj interfejsu API [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) lub [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Po zaktualizowaniu daty wygaśnięcia lokalizatora SAS następuje zmiana adresu URL.
 
 ### Aby opublikować element zawartości za pomocą portalu
 
@@ -206,7 +205,7 @@ Aby opublikować element zawartości za pomocą portalu, wykonaj następujące c
 
     ![Publikowanie](./media/media-services-portal-vod-get-started/media-services-publish1.png)
 
-Adres URL zostanie dodany do listy **Opublikowane adresy URL**.
+Adres URL jest dodawany do listy **Opublikowane adresy URL**.
 
 ## Odtwarzanie zawartości z portalu
 
@@ -219,9 +218,11 @@ Kliknij wybrany plik wideo, a następnie kliknij przycisk **Odtwórz**.
 Zagadnienia do rozważenia:
 
 - Zadbaj o to, aby film wideo został opublikowany.
-- Ten *odtwarzacz multimediów** odtwarza z domyślnego punktu końcowego przesyłania strumieniowego. Aby odtworzyć z punktu końcowego przesyłania strumieniowego innego niż domyślny, kliknij, aby skopiować adres URL i użyć innego odtwarzacza (np. [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)).
+- Ten **odtwarzacz multimediów** odtwarza z domyślnego punktu końcowego przesyłania strumieniowego. Aby odtworzyć z punktu końcowego przesyłania strumieniowego innego niż domyślny, kliknij, aby skopiować adres URL i użyć innego odtwarzacza (np. [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)).
 
-##Następne kroki: ścieżki szkoleniowe dotyczące usługi Media Services
+##Następne kroki
+
+Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -233,6 +234,6 @@ Zagadnienia do rozważenia:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

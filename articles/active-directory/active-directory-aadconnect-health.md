@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/21/2016"
+    ms.date="07/14/2016"
     ms.author="vakarand"/>
 
 # Monitorowanie lokalnej infrastruktury do obsługi tożsamości i usług synchronizacji w chmurze
@@ -47,6 +47,7 @@ Poniższy klip wideo zawiera omówienie programu Azure AD Connect Health dla us�
 >[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
 
 ## [Program Azure AD Connect Health do celów synchronizacji](active-directory-aadconnect-health-sync.md)
+
 Program Azure AD Connect Health do celów synchronizacji monitoruje i udostępnia informacje na temat procesów synchronizacji, które mają miejsce między lokalną usługą Active Directory i usługą Azure Active Directory. Program Azure AD Connect Health do celów synchronizacji oferuje następujący zestaw kluczowych funkcji:
 
 - Monitorowanie z alertami, które informują, kiedy serwery programu Azure AD Connect zwane aparatem synchronizacji nie są w dobrej kondycji
@@ -56,13 +57,25 @@ Program Azure AD Connect Health do celów synchronizacji monitoruje i udostępni
 
 Poniższy klip wideo zawiera omówienie programu Azure AD Connect Health do celów synchronizacji
 
-[Azure Active Directory Connect Health: monitorowanie aparatu synchronizacji](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Health-Monitoring-the-sync-engine)
+>[AZURE.VIDEO azure-active-directory-connect-health-monitoring-the-sync-engine]
 
+## [Program Azure AD Connect Health dla usług AD DS (wersja zapoznawcza)](active-directory-aadconnect-health-adds.md)
+
+Program Azure AD Connect Health dla usług AD DS oferuje funkcje monitorowania kontrolerów domeny zainstalowanych w systemie Windows Server 2008 R2, Windows Server 2012 i Windows Server 2012 R2. Łatwa i ekonomiczna instalacja agenta kondycji umożliwia monitorowanie lokalnego środowiska usług AD DS prosto z chmury. Program Azure AD Connect Health dla usług AD DS oferuje następujący zestaw kluczowych funkcji:
+
+- Monitorowanie alertów w celu wykrywania złej kondycji kontrolerów domeny wraz z powiadomieniami e-mail w przypadku alertów krytycznych.
+- Pulpit nawigacyjny Kontrolery domeny, który zapewnia szybki wgląd w kondycję i stan operacyjny kontrolerów domeny.
+- Pulpit nawigacyjny Stan replikacji zawierający najnowsze informacje o replikacji wraz z linkami do poradników rozwiązywania problemów w przypadku wykrycia błędów.
+- Szybki dostęp z dowolnego miejsca do wykresów danych wydajności utworzonych na podstawie popularnych liczników wydajności, które są niezbędne do celów monitorowania i rozwiązywania problemów.
+
+Poniższy klip wideo zawiera omówienie programu Azure AD Connect Health dla usług AD DS
+
+>[AZURE.VIDEO azure-ad-connect-health-monitors-on-premises-ad-domain-services]
 
 ## Wprowadzenie do programu Azure AD Connect Health
 Rozpoczęcie pracy z programem Azure AD Connect Health jest bardzo proste. Wykonaj poniższe kroki:
 
-1. [Uzyskaj usługę Azure AD w wersji Premium](active-directory-get-started-premium) lub [rozpocznij okres próbny](https://azure.microsoft.com/trial/get-started-active-directory/).
+1. [Uzyskaj usługę Azure AD w wersji Premium](active-directory-get-started-premium.md) lub [rozpocznij okres próbny](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 2. [Pobierz i zainstaluj agentów programu Azure AD Connect Health](#download-and-install-azure-ad-connect-health-agent) na serwerach tożsamości.
 
@@ -79,17 +92,21 @@ Rozpoczęcie pracy z programem Azure AD Connect Health jest bardzo proste. Wykon
 
 - Aby rozpocząć korzystanie z programu Azure AD Connect Health do celów synchronizacji, pobierz i zainstaluj [najnowszą wersję programu Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771).  Agent kondycji zostanie zainstalowany w ramach instalacji programu Azure AD Connect (w wersji 1.0.9125.0 lub nowszej).  Program Azure AD Connect obsługuje uaktualnienie w miejscu z poprzednich wersji.
 
+- Aby rozpocząć korzystanie z programu Azure AD Connect Health dla usług AD DS, możesz pobrać najnowszą wersję agenta tutaj: [Pobieranie agenta programu Azure AD Connect Health dla usług AD DS](http://go.microsoft.com/fwlink/?LinkID=820540).
+[](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
 
 ## Portal programu Azure AD Connect Health
-Portal programu Azure AD Connect Health umożliwia wyświetlanie alertów, wyników monitorowania wydajności i analiz użycia. Otworzenie strony https://aka.ms/aadconnecthealth powoduje wyświetlenie głównego bloku programu Azure AD Connect Health.  Blok możesz traktować jak okno. W głównym bloku znajduje się przycisk Szybki start, usługi dostępne w programie Azure AD Connect Health i dodatkowe opcje konfiguracji. Poniżej zrzutu ekranu znajduje się krótki opis każdego z tych elementów.  Po wdrożeniu agentów usługa identyfikuje usługi monitorowane przez program Azure AD Connect Health.
+Portal programu Azure AD Connect Health umożliwia wyświetlanie alertów, wyników monitorowania wydajności i analiz użycia. Otworzenie strony https://aka.ms/aadconnecthealth powoduje wyświetlenie głównego bloku programu Azure AD Connect Health.  Blok możesz traktować jak okno. W głównym bloku znajduje się przycisk Szybki start, usługi dostępne w programie Azure AD Connect Health i dodatkowe opcje konfiguracji. Poniżej zrzutu ekranu znajduje się krótki opis każdego z tych elementów.  Po wdrożeniu agentów usługa kondycji automatycznie identyfikuje usługi monitorowane przez program Azure AD Connect Health.
 
-![Portal programu Azure AD Connect Health](./media/active-directory-aadconnect-health/portal2.png)
+![Portal programu Azure AD Connect Health](./media/active-directory-aadconnect-health/portal4.png)
 
 - **Szybki start** — wybranie tej pozycji powoduje otwarcie bloku Szybki start. W tym miejscu możesz pobrać agenta programu Azure AD Connect Health, wybierając pozycję Pobierz narzędzia, uzyskać dostęp do dokumentacji i wyrazić swoją opinię.
 
 - **Active Directory Federation Services** — ta pozycja reprezentuje wszystkie usługi AD FS, które są aktualnie monitorowane przez program Azure AD Connect Health. Wybranie jednego z wystąpień powoduje otwarcie bloku z informacjami na temat tego wystąpienia usług.  Informacje te obejmują przegląd, właściwości, alerty, wyniki monitorowania i analizy użycia. Dowiedz się więcej o możliwościach [tutaj](active-directory-aadconnect-health-adfs.md).
 
 - **Azure Active Directory Connect (synchronizacja)** — ta pozycja reprezentuje serwery programu Azure AD Connect, które są aktualnie monitorowane przez program Azure AD Connect Health. Wybranie pozycji powoduje otwarcie bloku z informacjami na temat serwerów programu Azure AD Connect. Dowiedz się więcej o możliwościach [tutaj](active-directory-aadconnect-health-sync.md).
+ 
+- **Usługi domenowe Active Directory** — reprezentuje wszystkie lasy usług AD DS, które są aktualnie monitorowane przez program Azure AD Connect Health. Wybranie jednego z lasów powoduje otwarcie bloku z informacjami na jego temat.  Te informacje obejmują przegląd najważniejszych danych, pulpit nawigacyjny Kontrolery domeny, pulpit nawigacyjny Stan replikacji, alerty i monitorowanie. Dowiedz się więcej o możliwościach [tutaj](active-directory-aadconnect-health-adds.md).
 
 - **Konfiguracja** — ta pozycja umożliwia włączanie i wyłączanie następujących opcji:
 
@@ -104,11 +121,12 @@ Portal programu Azure AD Connect Health umożliwia wyświetlanie alertów, wynik
 * [Operacje w programie Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Używanie programu Azure AD Connect Health z usługami AD FS](active-directory-aadconnect-health-adfs.md)
 * [Używanie programu Azure AD Connect Health w celu synchronizacji](active-directory-aadconnect-health-sync.md)
+* [Używanie programu Azure AD Connect Health z usługami AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health — często zadawane pytania](active-directory-aadconnect-health-faq.md)
 * [Historia wersji programu Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

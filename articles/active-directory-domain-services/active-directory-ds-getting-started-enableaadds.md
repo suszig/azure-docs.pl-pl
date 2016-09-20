@@ -1,6 +1,6 @@
 <properties
     pageTitle="Usługi domenowe Azure AD: włączanie Usług domenowych Azure AD | Microsoft Azure"
-    description="Wprowadzenie do Usług domenowych Azure Active Directory (wersja zapoznawcza)"
+    description="Wprowadzenie do usługi Active Directory Domain Services (wersja zapoznawcza)"
     services="active-directory-ds"
     documentationCenter=""
     authors="mahesh-unnikrishnan"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
+    ms.date="07/06/2016"
     ms.author="maheshu"/>
 
 # Usługi domenowe Azure AD *(wersja zapoznawcza)* — włączanie Usług domenowych Azure AD
@@ -96,6 +96,6 @@ Następne zadanie konfiguracji to [zaktualizowanie ustawień DNS na potrzeby sie
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

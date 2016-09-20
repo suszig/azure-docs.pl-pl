@@ -14,11 +14,11 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="get-started-article"
-    ms.date="03/05/2016"
+    ms.date="07/21/2016"
     ms.author="ricksal"/>
 
 
-# <a name="getting-started"> </a>Wprowadzenie do usługi Mobile Services
+# <a name="getting-started"> </a>Wprowadzenie do usług Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
@@ -37,7 +37,7 @@ Wykonanie kroków tego samouczka wymaga [narzędzi dla deweloperów systemu Andr
 
 Pobrany projekt szybkiego startu zawiera zestaw SDK usługi Mobile Services dla systemu Android.
 
-> [AZURE.IMPORTANT] Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Jeśli nie masz konta, możesz utworzyć konto w wersji próbnej platformy Azure i uzyskać maksymalnie 10 bezpłatnych usług mobilnych, z których możesz korzystać nawet po upływie ważności wersji próbnej. Aby uzyskać szczegółowe informacje, zobacz temat [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28) (Bezpłatna wersja próbna platformy Azure).
+> [AZURE.IMPORTANT] Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Jeśli nie masz takiego konta, możesz je utworzyć w wersji próbnej platformy Azure i uzyskać maksymalnie 10 bezpłatnych usług mobilnych, z których można korzystać nawet po wygaśnięciu wersji próbnej. Aby uzyskać szczegółowe informacje, zobacz temat [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28) (Bezpłatna wersja próbna platformy Azure).
 
 
 ## <a name="create-new-service"> </a>Tworzenie nowej usługi mobilnej
@@ -70,7 +70,7 @@ Po utworzeniu usługi mobilnej pobierz spersonalizowany projekt usługi mobilnej
 
 W tej sekcji utworzysz nową aplikację systemu Android połączoną z usługą mobilną.
 
-1. W [klasycznym portalu Azure] kliknij opcję **Mobile Services**, a następnie kliknij wcześniej utworzoną usługę mobilną.
+1. W [klasyczny portal Azure] kliknij opcję **Mobile Services**, a następnie kliknij wcześniej utworzoną usługę mobilną.
 
 2. Na karcie szybkiego startu kliknij opcję **Android** w obszarze **Wybierz platformę** i rozwiń listę **Create a new Android app** (Utwórz nową aplikację systemu Android).
 
@@ -80,7 +80,7 @@ W tej sekcji utworzysz nową aplikację systemu Android połączoną z usługą 
 
 4. W obszarze **Download and run your app** (Pobierz i uruchom aplikację) kliknij opcję **Pobierz**.
 
-    Spowoduje to pobranie projektu przykładowej aplikacji _Lista zadań do wykonania_, która jest połączona z usługą mobilną. Zapisz skompresowany plik projektu na komputerze lokalnym i zanotuj miejsce, w którym został zapisany.
+    Spowoduje to pobranie projektu przykładowej aplikacji _Lista zadań do wykonania_, która jest połączona z usługą mobilną. Zapisz skompresowany plik projektu na komputerze lokalnym i zapamiętaj, gdzie został on zapisany.
 
 ## Uruchamianie aplikacji systemu Android
 
@@ -130,10 +130,10 @@ Po zakończeniu procedury szybkiego startu dowiedz się, jak wykonać dodatkowe 
 [Zestaw SDK usługi Mobile Services dla systemu Android]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Rozwiązywanie problemów z zapleczem usługi Mobile Services na platformie .NET]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-[klasycznym portalu Azure]: https://manage.windowsazure.com/
+[klasyczny portal Azure]: https://manage.windowsazure.com/
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/06/2016"
+    ms.date="08/11/2016"
     ms.author="glenga"/>
 
 #Tworzenie aplikacji platformy Xamarin.Forms
@@ -30,13 +30,13 @@ Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wsz
 
 Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
-* Aktywne konto platformy Azure. Jeśli nie masz konta, możesz utworzyć konto wersji próbnej platformy Azure i uzyskać maksymalnie 10 bezpłatnych usług Mobile Apps, z których możesz korzystać nawet po zakończeniu okresu ważności wersji próbnej. Aby uzyskać szczegółowe informacje, zobacz temat [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/) (Bezpłatna wersja próbna platformy Azure).
+* Aktywne konto platformy Azure. Jeśli nie masz konta, możesz utworzyć konto wersji próbnej platformy Azure i uzyskać maksymalnie 10 bezpłatnych usług Mobile Apps, z których możesz korzystać nawet po zakończeniu okresu ważności wersji próbnej. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * Visual Studio z programem Xamarin. Instrukcje można znaleźć w temacie [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Konfigurowanie i instalowanie dla programów Visual Studio i Xamarin). 
 
 * Komputer Mac z zainstalowanym środowiskiem Xcode v7.0 lub nowszym i rozwiązaniem Xamarin Studio Community. Zobacz tematy [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Konfigurowanie i instalowanie dla programów Visual Studio i Xamarin) oraz [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx) (Konfigurowanie, instalowanie oraz weryfikacje dla użytkowników komputerów Mac) (MSDN).
  
->[AZURE.NOTE] Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile) (Wypróbuj usługę App Service), w którym wyjaśniono, jak od razu utworzyć początkową Aplikację mobilną o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
+>[AZURE.NOTE] Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile) (Wypróbuj usługę App Service), w którym wyjaśniono, jak od razu utworzyć początkową aplikację mobilną o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
 
 ## Tworzenie zaplecza nowej Aplikacji mobilnej Azure
 
@@ -53,14 +53,6 @@ Wykonaj poniższe kroki, aby skonfigurować projekt serwera do użycia zaplecza 
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-
-## (Opcjonalnie) Testowanie projektu zaplecza lokalnie
-
-Jeśli powyżej wybrano konfigurację zaplecza programu .NET, można opcjonalnie przetestować zaplecze lokalnie.
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service](../../includes/app-service-mobile-dotnet-backend-test-local-service.md)]
-
-
 ##Pobieranie i uruchamianie platformy Xamarin.Forms
 
 W tym miejscu masz kilka możliwości. Możesz pobrać rozwiązanie na komputer Mac i otworzyć je w środowisku Xamarin Studio lub pobrać rozwiązanie na komputer z systemem Windows i otworzyć je w programie Visual Studio przy użyciu podłączonego do sieci komputera Mac w celu skompilowania aplikacji dla systemu iOS. Jeśli potrzebujesz szczegółowych instrukcji dotyczących scenariuszy konfigurowania rozwiązania Xamarin, zobacz [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Konfigurowanie i instalowanie dla programów Visual Studio i Xamarin).
@@ -70,7 +62,7 @@ Kontynuujmy:
  1. Na komputerze Mac lub na komputerze z systemem Windows otwórz [Azure Portal] w oknie przeglądarki.
  2. W bloku ustawień Aplikacji mobilnej kliknij pozycję **Wprowadzenie** (w obszarze Mobilne) > **Xamarin.Forms**. W kroku 3 kliknij pozycję **Utwórz nową aplikację**, jeśli nie została jeszcze wybrana.  Następnie kliknij przycisk **Pobierz**.
 
-    Spowoduje to pobranie projektu zawierającego aplikację klienta połączoną z aplikacją mobilną. Zapisz skompresowany plik projektu na komputerze lokalnym i zanotuj miejsce, w którym został zapisany.
+    Spowoduje to pobranie projektu zawierającego aplikację klienta połączoną z aplikacją mobilną. Zapisz skompresowany plik projektu na komputerze lokalnym i zapamiętaj, gdzie został on zapisany.
 
  3. Wyodrębnij pobrany projekt, a następnie otwórz go w programie Xamarin Studio lub Visual Studio.
 
@@ -100,9 +92,10 @@ W aplikacji wpisz znaczący tekst, na przykład _Poznaj program Xamarin_, a nast
 
 ![][10]
 
-Spowoduje to wysłanie żądania POST do zaplecza nowej aplikacji mobilnej, która jest obsługiwana na platformie Azure. Dane z żądania zostaną wstawione do tabeli czynności do wykonania. Elementy przechowywane w tabeli są zwracane przez zaplecze aplikacji mobilnej, a dane są wyświetlane na liście.
+Spowoduje to wysłanie żądania POST do zaplecza nowej aplikacji mobilnej, która jest obsługiwana na platformie Azure. Dane z żądania zostaną wstawione do tabeli TodoItem. Elementy przechowywane w tabeli są zwracane przez zaplecze aplikacji mobilnej, a dane są wyświetlane na liście.
 
->[AZURE.NOTE] Kod uzyskujący dostęp do zaplecza aplikacji mobilnej można znaleźć w pliku C# TodoItemManager.cs projektu biblioteki klas przenośnych rozwiązania.
+>[AZURE.NOTE]
+> Kod uzyskujący dostęp do zaplecza aplikacji mobilnej można znaleźć w pliku C# TodoItemManager.cs projektu biblioteki klas przenośnych rozwiązania.
 
 ##(Opcjonalnie) Uruchamianie projektu systemu Android
 
@@ -126,9 +119,10 @@ W aplikacji wpisz znaczący tekst, na przykład _Poznaj program Xamarin_, a nast
 
 ![][11]
 
-Spowoduje to wysłanie żądania POST do zaplecza nowej aplikacji mobilnej, która jest obsługiwana na platformie Azure. Dane z żądania zostaną wstawione do tabeli czynności do wykonania. Elementy przechowywane w tabeli są zwracane przez zaplecze aplikacji mobilnej, a dane są wyświetlane na liście.
+Spowoduje to wysłanie żądania POST do zaplecza nowej aplikacji mobilnej, która jest obsługiwana na platformie Azure. Dane z żądania zostaną wstawione do tabeli TodoItem. Elementy przechowywane w tabeli są zwracane przez zaplecze aplikacji mobilnej, a dane są wyświetlane na liście.
 
-> [AZURE.NOTE] Kod uzyskujący dostęp do zaplecza aplikacji mobilnej można znaleźć w pliku C# TodoItemManager.cs projektu biblioteki klas przenośnych rozwiązania.
+> [AZURE.NOTE]
+> Kod uzyskujący dostęp do zaplecza aplikacji mobilnej można znaleźć w pliku C# TodoItemManager.cs projektu biblioteki klas przenośnych rozwiązania.
 
 
 ##(Opcjonalnie) Uruchamianie projektu Windows
@@ -148,18 +142,24 @@ Ta sekcja dotyczy uruchamiania projektu Xamarin WinApp dla urządzeń z systemem
 
 W aplikacji wpisz znaczący tekst, na przykład _Poznaj program Xamarin_, a następnie kliknij przycisk **+**.
 
-Spowoduje to wysłanie żądania POST do zaplecza nowej aplikacji mobilnej, która jest obsługiwana na platformie Azure. Dane z żądania zostaną wstawione do tabeli czynności do wykonania. Elementy przechowywane w tabeli są zwracane przez zaplecze aplikacji mobilnej, a dane są wyświetlane na liście.
+Spowoduje to wysłanie żądania POST do zaplecza nowej aplikacji mobilnej, która jest obsługiwana na platformie Azure. Dane z żądania zostaną wstawione do tabeli TodoItem. Elementy przechowywane w tabeli są zwracane przez zaplecze aplikacji mobilnej, a dane są wyświetlane na liście.
 
 ![][12]
 
-> [AZURE.NOTE] Kod uzyskujący dostęp do zaplecza aplikacji mobilnej można znaleźć w pliku C# TodoItemManager.cs projektu biblioteki klas przenośnych rozwiązania.
+> [AZURE.NOTE]
+> Kod uzyskujący dostęp do zaplecza aplikacji mobilnej można znaleźć w pliku C# TodoItemManager.cs projektu biblioteki klas przenośnych rozwiązania.
 
 ##Następne kroki
 
-* [Dodawanie uwierzytelniania do aplikacji ](app-service-mobile-xamarin-forms-get-started-users.md)  
+* [Dodawanie uwierzytelniania do aplikacji](app-service-mobile-xamarin-forms-get-started-users.md)  
 Dowiedz się, jak uwierzytelniać użytkowników aplikacji przy użyciu dostawcy tożsamości.
-* [Dodawanie powiadomień wypychanych do aplikacji platformy Xamarin.Android](app-service-mobile-xamarin-forms-get-started-push.md)  
-Dowiedz się, jak dodawać powiadomienia wypychane do aplikacji.
+
+* [Dodawanie powiadomień wypychanych do aplikacji](app-service-mobile-xamarin-forms-get-started-push.md)  
+Dowiedz się, jak dodać obsługę powiadomień wypychanych do aplikacji i skonfigurować zaplecze Aplikacji mobilnej na potrzeby wysyłania powiadomień wypychanych przy użyciu usługi Azure Notification Hubs.
+
+* [Włączanie synchronizacji w trybie offline dla aplikacji](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
+  Dowiedz się, jak dodać obsługę aplikacji w trybie offline przy użyciu zaplecza Aplikacji mobilnej. Synchronizacja w trybie offline umożliwia użytkownikom końcowym interakcję z aplikacją mobilną &mdash; przeglądanie, dodawanie lub modyfikowanie danych &mdash; nawet w przypadku braku połączenia sieciowego.
+
 * [Jak używać zarządzanego klienta usługi Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
 Dowiedz się, jak pracować z zestawem SDK zarządzanego klienta w aplikacji platformy Xamarin. 
 
@@ -187,6 +187,6 @@ Dowiedz się, jak pracować z zestawem SDK zarządzanego klienta w aplikacji pla
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

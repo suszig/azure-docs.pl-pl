@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="nodejs"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="07/01/2016"
     ms.author="cephalin"/>
 
 # Rozpoczynanie pracy z aplikacjami sieci Web Node.js w usłudze Azure App Service
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-W tym samouczku przedstawiono sposób tworzenia prostej aplikacji [Node.js][NODEJS] i wdrażania jej w [aplikacji sieci Web] w [usłudze Azure App Service] przy użyciu środowiska wiersza polecenia, takiego jak cmd.exe lub bash. Instrukcje podane w tym samouczku można wykonać w dowolnym systemie operacyjnym, w którym można uruchomić środowisko Node.js.
+W tym samouczku przedstawiono sposób tworzenia prostej aplikacji [Node.js][NODEJS] i wdrażania jej w [aplikacji sieci Web] w [Usługa Azure App Service] przy użyciu środowiska wiersza polecenia, takiego jak cmd.exe lub bash. Instrukcje podane w tym samouczku można wykonać w dowolnym systemie operacyjnym, w którym można uruchomić środowisko Node.js.
 
 <a name="prereq"></a>
 ## Wymagania wstępne
@@ -44,7 +44,7 @@ W tym samouczku przedstawiono sposób tworzenia prostej aplikacji [Node.js][NODE
         
     Po wyświetleniu monitu wybierz następujące opcje:  
 
-    `? Would you like to create a new directory for your project?` **Yes**  
+    `? Would you like to create a new directory for your project?` **Tak**  
     `? Enter directory name` **{nazwa_aplikacji}**  
     `? Select a version to install:` **MVC**  
     `? Select a view engine to use:` **Jade**  
@@ -70,7 +70,7 @@ W tym samouczku przedstawiono sposób tworzenia prostej aplikacji [Node.js][NODE
 
     Postępuj zgodnie z wyświetlanymi instrukcjami, aby wybrać region platformy Azure, w którym aplikacja ma zostać wdrożona. Jeśli nigdy nie skonfigurowano poświadczeń wdrożenia Git/FTP dla subskrypcji platformy Azure, zostanie również wyświetlony monit o ich utworzenie.
 
-3. Otwórz plik ./config/config.js z katalogu głównego aplikacji i zmień port produkcyjny na `process.env.port`. Produkcyjny obiekt JSON powinien wyglądać tak, jak w następującym przykładzie. Jeśli ta ścieżka folderu/pliku nie istnieje w katalogu głównym aplikacji, utwórz folder o nazwie **config** w katalogu głównym aplikacji i skopiuj do niego następujący kod JSON .
+3. Otwórz plik ./config/config.js w katalogu głównym aplikacji i zmień port produkcyjny na `process.env.port`. Właściwość `production` w obiekcie `config` powinna wyglądać tak jak w następującym przykładzie.
 
         production: {
             root: rootPath,
@@ -166,7 +166,7 @@ Aby odczytać dzienniki programu iisnode, wykonaj następujące czynności.
 
         https://{appname}.scm.azurewebsites.net/DebugConsole 
 
-    Zauważ, że ten adres URL różni się od adresu URL aplikacji ciągiem „ *.scm.* ” dodanym do nazwy DNS. W przypadku pominięcia tego ciągu w adresie URL wystąpi błąd 404.
+    Zauważ, że ten adres URL różni się od adresu URL aplikacji ciągiem „*.scm.*” dodanym do nazwy DNS. W przypadku pominięcia tego ciągu w adresie URL wystąpi błąd 404.
 
 5. Przejdź do katalogu D:\home\site\wwwroot\iisnode.
 
@@ -208,6 +208,7 @@ Aby włączyć narzędzie Node-Inspector, wykonaj następujące czynności:
 ## Więcej zasobów
 
 - [Specifying a Node.js version in an Azure application (Określanie wersji środowiska Node.js w aplikacji Azure)](../nodejs-specify-node-version-azure-apps.md)
+- [Best practices and troubleshooting guide for Node.js applications on Azure (Najlepsze praktyki i przewodnik rozwiązywania problemów aplikacji Node.js na platformie Azure)](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
 - [How to debug a Node.js web app in Azure App Service (Jak debugować aplikację sieci Web Node.js w usłudze Azure App Service)](web-sites-nodejs-debug.md)
 - [Using Node.js Modules with Azure applications (Używanie modułów Node.js z aplikacjami platformy Azure)](../nodejs-use-node-modules-azure-apps.md)
 - [Azure App Service Web Apps: Node.js (Aplikacje sieci Web w usłudze Azure App Service: Node.js)](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx)
@@ -219,7 +220,7 @@ Aby włączyć narzędzie Node-Inspector, wykonaj następujące czynności:
 
 [Interfejs wiersza polecenia platformy Azure]: ../xplat-cli-install.md
 [Usługa Azure App Service]: ../app-service/app-service-value-prop-what-is.md
-[Aktywuj swoje korzyści subskrybenta programu Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
+[aktywować korzyści dla subskrybentów programu Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [BOWER]: http://bower.io/
 [Tworzenie aplikacji czatu Node.js przy użyciu biblioteki Socket.IO w usłudze Azure App Service]: ./web-sites-nodejs-chat-app-socketio.md
 [Wdrażanie aplikacji sieci Web Sails.js przy użyciu usługi Azure App Service]: ./app-service-web-nodejs-sails.md
@@ -244,6 +245,6 @@ Aby włączyć narzędzie Node-Inspector, wykonaj następujące czynności:
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,13 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="04/29/2016"
+    ms.date="07/23/2016"
     ms.author="tamram"/>
 
 
-# Rozpoczynanie pracy z Magazynem tabel Azure przy użyciu platformy .NET
+# Rozpoczynanie pracy z usługą Azure Table Storage przy użyciu platformy .NET
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Omówienie
 
@@ -38,9 +40,14 @@ Ten samouczek pokazuje, jak napisać kod .NET dla niektórych typowych scenarius
 - [Program Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
 - [Biblioteka klienta usługi Azure Storage dla programu .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [Menedżer konfiguracji Azure dla programu .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-- [Konto magazynu Azure](storage-create-storage-account.md#create-a-storage-account)
+- [Konto usługi Azure Storage](storage-create-storage-account.md#create-a-storage-account)
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
+
+### Więcej przykładów
+
+Dodatkowe przykłady użycia usługi Table Storage znajdziesz w temacie [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/) (Rozpoczynanie pracy z usługą Azure Table Storage w programie .NET). Możesz pobrać przykładową aplikację i uruchomić ją lub przejrzeć kod w witrynie GitHub. 
+
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -62,7 +69,7 @@ Dodaj następujące instrukcje `using` na początku pliku `program.cs`:
 
 ### Tworzenie klienta usługi tabel
 
-Klasa **CloudTableClient** umożliwia pobieranie tabel i jednostek przechowywanych w Magazynie tabel. Oto jeden ze sposobów tworzenia klienta usługi:
+Klasa **CloudTableClient** umożliwia pobieranie tabel i jednostek przechowywanych w usłudze Table Storage. Oto jeden ze sposobów tworzenia klienta usługi:
 
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -88,7 +95,7 @@ W tym przykładzie pokazano, jak utworzyć tabelę, jeśli jeszcze nie istnieje:
 
 ## Dodawanie jednostki do tabeli
 
-Jednostki są mapowane do obiektów C\# za pomocą niestandardowej klasy pochodzącej od klasy **TableEntity**. Aby dodać jednostkę do tabeli, należy utworzyć klasę, która definiuje właściwości jednostki. Poniższy kod definiuje klasę jednostki, która używa imienia klienta jako klucza wiersza i nazwiska jako klucza partycji. Razem klucz partycji i klucz wiersza jednostki jednoznacznie identyfikują jednostkę w tabeli. Jednostki z tym samym kluczem partycji mogą być przeszukiwane szybciej niż jednostki o różnych kluczach partycji, niemniej użycie różnych kluczy partycji umożliwia zwiększenie skalowalności operacji równoległych.  Dla dowolnej właściwości, która powinna być przechowana w usłudze tabel, właściwość musi być właściwością publiczną obsługiwanego typu, która ujawnia zarówno metodę `get`, jak i `set`.
+Jednostki są mapowane do obiektów C\# za pomocą niestandardowej klasy pochodzącej od klasy **TableEntity**. Aby dodać jednostkę do tabeli, należy utworzyć klasę, która definiuje właściwości jednostki. Poniższy kod definiuje klasę jednostki, która używa imienia klienta jako klucza wiersza i nazwiska jako klucza partycji. Razem klucz partycji i klucz wiersza jednostki jednoznacznie identyfikują jednostkę w tabeli. Jednostki z tym samym kluczem partycji mogą być przeszukiwane szybciej niż jednostki o różnych kluczach partycji, niemniej użycie różnych kluczy partycji umożliwia zwiększenie skalowalności operacji równoległych.  Dla dowolnej właściwości, która powinna być przechowana w usłudze Table service, właściwość musi być właściwością publiczną obsługiwanego typu, która ujawnia zarówno metodę `get`, jak i `set`.
 Ponadto typ jednostki *musi* ujawniać konstruktor bez parametrów.
 
     public class CustomerEntity : TableEntity
@@ -440,14 +447,15 @@ Jeśli odczytujesz dużą liczbę jednostek i chcesz przetworzyć/wyświetlić j
 
 ## Następne kroki
 
-Teraz, kiedy znasz już podstawy Magazynu tabel, skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu:
+Teraz, kiedy znasz już podstawy usługi Table Storage, skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu:
 
-- Przejrzyj dokumentację referencyjną usługi tabel, aby uzyskać szczegółowe informacje o dostępnych interfejsach API:
+- Więcej przykładów użycia usługi Table Storage znajdziesz w temacie [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/) (Rozpoczynanie pracy z usługą Azure Table Storage w programie .NET)
+- Przejrzyj dokumentację referencyjną usługi Table service, aby uzyskać szczegółowe informacje o dostępnych interfejsach API:
     - [Dokumentacja biblioteki klienta usługi Storage dla programu .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [Informacje o interfejsie API REST](http://msdn.microsoft.com/library/azure/dd179355)
-- Dowiedz się, jak uprościć zapisywany kod, aby pracować z usługą Azure Storage za pomocą [zestawu Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
+- Dowiedz się, jak uprościć zapisywany kod, aby pracować z usługą Azure Storage za pomocą zestawu [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
 - Wyświetl więcej poradników dotyczących funkcji, aby dowiedzieć się więcej o dodatkowych opcjach przechowywania danych na platformie Azure.
-    - Zapoznaj się z tematem [Rozpoczynanie pracy z Magazynem obiektów blob platformy Azure przy użyciu platformy .NET](storage-dotnet-how-to-use-blobs.md), aby przechowywać dane bez struktury.
+    - Zapoznaj się z tematem [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-blobs.md), aby przechowywać dane bez struktury.
     - Zapoznaj się z tematem [Jak używać bazy danych Azure SQL Database w aplikacjach .NET](sql-database-dotnet-how-to-use.md), aby przechowywać dane relacyjne.
 
   [Pobieranie i instalowanie zestawu Azure SDK dla programu .NET]: /develop/net/
@@ -470,6 +478,6 @@ Teraz, kiedy znasz już podstawy Magazynu tabel, skorzystaj z poniższych linkó
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

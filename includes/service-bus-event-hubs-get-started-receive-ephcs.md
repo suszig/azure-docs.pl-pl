@@ -2,11 +2,11 @@
 
 [EventProcessorHost][] jest klasą .NET, która upraszcza odbieranie zdarzeń z usługi Event Hubs przez zarządzanie trwałymi punktami kontrolnymi i równoległymi odbiorami z tych usług. Za pomocą klasy [EventProcessorHost][] można podzielić zdarzenia między wieloma odbiornikami, nawet w przypadku hostowania w różnych węzłach. W tym przykładzie przedstawiono instrukcje użycia klasy [EventProcessorHost][] dla jednego odbiornika. W przykładzie [Skalowanie przetwarzania zdarzeń][] przedstawiono instrukcje korzystania z klasy [EventProcessorHost][] z wieloma odbiornikami.
 
-Aby można było korzystać z klasy [EventProcessorHost][], trzeba mieć [konto usługi Azure Storage][]:
+Aby móc korzystać z klasy [EventProcessorHost][], trzeba mieć [Konto usługi Azure Storage][]:
 
-1. Zaloguj się do [klasycznego portalu Azure][] i kliknij opcję **NOWE** u dołu ekranu.
+1. Zaloguj się do [klasyczny portal Azure][] i kliknij opcję **NOWE** u dołu ekranu.
 
-2. Kliknij opcję **Usługi danych**, następnie **Magazyn**, **Szybkie tworzenie**, a następnie wpisz nazwę konta magazynu. Wybierz odpowiedni region, a następnie kliknij opcję **Utwórz konto magazynu**.
+2. Kliknij opcję **Data Services**, następnie **Storage**, **Szybkie tworzenie**, a następnie wpisz nazwę konta magazynu. Wybierz odpowiedni region, a następnie kliknij opcję **Utwórz konto magazynu**.
 
     ![][11]
 
@@ -22,11 +22,11 @@ Aby można było korzystać z klasy [EventProcessorHost][], trzeba mieć [konto 
 
 5. W Eksploratorze rozwiązań kliknij rozwiązanie prawym przyciskiem myszy, a następnie kliknij pozycję **Zarządzaj pakietami NuGet dla rozwiązania**.
 
-6. Kliknij kartę **Przeglądanie**, a następnie wyszukaj ciąg `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Pamiętaj, aby określić nazwę projektu (**Odbiornik**) w polu **Wersje**. Kliknij przycisk **Zainstaluj** i zaakceptuj warunki użytkowania.
+6. Kliknij kartę **Przeglądanie**, a następnie wyszukaj ciąg `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Pamiętaj, aby określić nazwę projektu (**Odbiornik**) w polu **Wersje**. Kliknij pozycję **Zainstaluj** i zaakceptuj warunki użytkowania.
 
     ![][13]
 
-    Spowoduje to pobranie, zainstalowanie i dodanie odniesienia do opcji [Centrum zdarzeń usługi Azure Service Bus — pakiet NuGet EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) ze wszystkimi zależnościami.
+    Program Visual Studio pobierze, zainstaluje i doda odniesienie do [centrum zdarzeń usługi Azure Service Bus — pakiet NuGet EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) wraz ze wszystkimi jego zależnościami.
 
 7. Kliknij prawym przyciskiem myszy projekt **Odbiornik**, kliknij przycisk **Dodaj**, a następnie kliknij opcję **Klasa**. Nadaj nowej klasie nazwę **SimpleEventProcessor**, a następnie kliknij przycisk **Dodaj**, aby utworzyć klasę.
 
@@ -121,9 +121,9 @@ Aby można było korzystać z klasy [EventProcessorHost][], trzeba mieć [konto 
 [Omówienie usługi Event Hubs]: event-hubs-overview.md
 [Przewodnik programowania w usłudze Event Hubs]: event-hubs-programming-guide.md
 [Skalowanie przetwarzania zdarzeń]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Konto usługi Azure Storage]: ../storage/storage-create-storage-account.md
+[Konto usługi Azure Storage]: ../storage/storage-create-storage-account-classic-portal.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[klasycznego portalu Azure]: http://manage.windowsazure.com
+[klasyczny portal Azure]: http://manage.windowsazure.com
 
 <!-- Images -->
 
@@ -136,6 +136,6 @@ Aby można było korzystać z klasy [EventProcessorHost][], trzeba mieć [konto 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

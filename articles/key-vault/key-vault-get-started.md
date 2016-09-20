@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/06/2016"
+    ms.date="07/15/2016"
     ms.author="cabailey"/>
 
 # Rozpoczynanie pracy z usługą Azure Key Vault #
@@ -247,6 +247,6 @@ Odwołania dotyczące programowania znajdują się w [przewodniku dewelopera us�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

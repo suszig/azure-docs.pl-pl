@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="03/09/2016"
+ ms.date="08/18/2016"
  ms.author="krisragh"/>
 
 # Co to jest usługa Azure Scheduler?
@@ -52,6 +52,6 @@ Usługa Scheduler umożliwia programowe tworzenie, aktualizowanie, usuwanie i wy
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

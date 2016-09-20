@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/26/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Wdrażanie lokalnego urządzenia StorSimple
@@ -244,9 +244,9 @@ Kopię zapasową można utworzyć ręcznie w dowolnym momencie. Informacje na te
 
 Jest to krok opcjonalny, który należy wykonać tylko, jeśli nie włączono automatycznego tworzenia konta magazynu przy użyciu usługi. Do utworzenia kontenera woluminów StorSimple wymagane jest konto magazynu platformy Microsoft Azure.
 
-Instrukcje krok po kroku dotyczące tworzenia konta magazynu platformy Azure w innym regionie można znaleźć w temacie [About Azure Storage Accounts](../storage/storage-create-storage-account.md) (Informacje o kontach magazynu Azure).
+Instrukcje krok po kroku dotyczące tworzenia konta usługi Azure Storage w innym regionie można znaleźć w temacie [About Azure Storage Accounts](../storage/storage-create-storage-account.md) (Informacje o kontach usługi Azure Storage).
 
-Wykonaj poniższe kroki w klasycznym portalu Azure na stronie **usługi Menedżer StorSimple**.
+Wykonaj poniższe kroki w klasycznej witrynie Azure Portal na stronie **usługi StorSimple Manager**.
 
 [AZURE.INCLUDE [storsimple-configure-new-storage-account](../../includes/storsimple-configure-new-storage-account.md)]
 
@@ -292,10 +292,10 @@ Wykonaj poniższe kroki w klasycznym portalu Azure, aby na żądanie ręcznie ut
 
 - Skonfiguruj [urządzenie wirtualne](storsimple-virtual-device-u2.md).
 
-- Użyj [usługi Menedżer StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx) do zarządzania urządzeniem StorSimple.
+- Użyj [usługi StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) do zarządzania urządzeniem StorSimple.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

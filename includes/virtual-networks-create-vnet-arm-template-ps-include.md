@@ -93,6 +93,6 @@ Aby wdrożyć pobrany szablon ARM przy użyciu programu PowerShell, wykonaj poni
                             ]
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

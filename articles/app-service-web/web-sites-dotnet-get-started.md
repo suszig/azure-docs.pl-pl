@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="04/22/2016"
-    ms.author="tdykstra"/>
+    ms.date="07/22/2016"
+    ms.author="rachelap"/>
 
 # Wdrażanie aplikacji sieci Web programu ASP.NET w usłudze Azure App Service przy użyciu programu Visual Studio
 
@@ -135,7 +135,7 @@ Teraz przekaż programowi Visual Studio informacje dotyczące zasobów Azure, kt
 
 5. Z listy rozwijanej **Lokalizacja** wybierz lokalizację w najbliższej okolicy.
 
-    To ustawienie służy do określania, w którym centrum danych Azure zostanie uruchomiona aplikacja. W przypadku korzystania z tego samouczka można wybrać dowolny region — nie sprawi to znaczącej różnicy. Ale jeśli korzystasz z aplikacji produkcyjnej, serwer sieci Web powinien znajdować się możliwie najbliżej klientów, którzy uzyskują do niego dostęp. Dzięki temu można zminimalizować [opóźnienie](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
+    To ustawienie służy do określania, w którym centrum danych Azure aplikacja zostanie uruchomiona. W przypadku korzystania z tego samouczka można wybrać dowolny region — nie sprawi to znaczącej różnicy. Ale jeśli korzystasz z aplikacji produkcyjnej, serwer sieci Web powinien znajdować się możliwie najbliżej klientów, którzy uzyskują do niego dostęp. Dzięki temu można zminimalizować [opóźnienie](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
 
 5. Na liście rozwijanej **Rozmiar** kliknij pozycję **Bezpłatna**.
 
@@ -239,9 +239,12 @@ W tym samouczku przedstawiono sposób tworzenia prostej aplikacji sieci Web i wd
 
 * Usuwanie grupy zasobów zawierającej Twoją aplikację sieci Web i wszystkie powiązane zasoby Azure po zakończeniu korzystania z tych zasobów.
 
-    Aby uzyskać informacje na temat sposobu pracy z grupami zasobów w Portalu Azure, zobacz [Korzystanie z Portalu Azure do zarządzania zasobami Azure](../resource-group-portal.md).   
+    Aby uzyskać informacje na temat sposobu pracy z grupami zasobów w witrynie Azure Portal, zobacz [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md) (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i Portalu Azure).   
+
+*   Aby zobaczyć więcej przykładów dotyczących tworzenia aplikacji sieci Web platformy ASP.NET w usłudze App Service, zobacz [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Tworzenie i wdrażanie aplikacji sieci web ASP.NET w usłudze Azure App Service) i [Create and deploy a mobile app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service) (Tworzenie i wdrażanie aplikacji mobilnej w usłudze Azure App Service) w [pokazie](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) 2015 Connect witryny [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz). Aby uzyskać więcej materiałów szybkiego startu z w wersji demonstracyjnej witryny HealthClinic.biz, zobacz [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts) (Materiały szybkiego startu narzędzi deweloperskich platformy Azure).
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

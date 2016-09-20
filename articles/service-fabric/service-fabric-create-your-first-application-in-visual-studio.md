@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/27/2016"
+   ms.date="06/10/2016"
    ms.author="ryanwi"/>
 
 # Tworzenie pierwszej aplikacji usługi Azure Service Fabric w programie Visual Studio
@@ -42,11 +42,11 @@ Aplikacja usługi Service Fabric może zawierać jedną lub więcej usług, a ka
 
     ![Okno dialogowe nowego projektu w programie Visual Studio][1]
 
-4. Na następnej stronie pojawi się prośba o wybranie pierwszego typu usługi, który zostanie dodany do aplikacji. Na potrzeby tego samouczka wybierzemy typ **Stanowy**. Nadaj mu nazwę, a następnie kliknij przycisk **OK**.
+4. Na następnej stronie wybierz pozycję **Stanowy** jako pierwszy typ usługi, który zostanie dodany do aplikacji. Nadaj mu nazwę, a następnie kliknij przycisk **OK**.
 
     ![Okno dialogowe nowej usługi w programie Visual Studio][2]
 
-    >[AZURE.NOTE] Aby uzyskać więcej informacji o tych opcjach, zobacz [Wybieranie platformy](service-fabric-choose-framework.md).
+    >[AZURE.NOTE] Aby uzyskać więcej informacji o opcjach, zobacz [Service Fabric programming model overview](service-fabric-choose-framework.md) (Omówienie modelu programowania usługi Service Fabric).
 
     Program Visual Studio utworzy projekt aplikacji i projekt usługi stanowej, a następnie wyświetli je w Eksploratorze rozwiązań.
 
@@ -56,19 +56,19 @@ Aplikacja usługi Service Fabric może zawierać jedną lub więcej usług, a ka
 
     - **Profile publikowane**: służące do zarządzania preferencjami narzędzi dla różnych środowisk.
 
-    - **Skrypty**: zawiera skrypt programu PowerShell przeznaczony do wdrażania/uaktualniania aplikacji. Ten skrypt jest używany przez program Visual Studio w tle i może być wywoływany bezpośrednio z wiersza polecenia.
+    - **Skrypty**: zawiera skrypt programu PowerShell przeznaczony do wdrażania/uaktualniania aplikacji. Program Visual Studio używa tego skryptu w tle. Skrypt można również wywołać bezpośrednio z poziomu wiersza polecenia.
 
-    - **Definicja aplikacji**: zawiera manifest aplikacji w ramach elementu *ApplicationPackageRoot* i skojarzone pliki parametrów aplikacji w ramach elementu *ApplicationParameters*, które definiują aplikację i umożliwiają jej konfigurowanie dla konkretnego środowiska.
+    - **Definicja aplikacji**: zawiera manifest aplikacji w ramach elementu *ApplicationPackageRoot*. Skojarzone pliki parametrów aplikacji znajdują się w ramach elementu *ApplicationParameters*, które definiują aplikację i umożliwiają jej konfigurowanie dla konkretnego środowiska.
 
     Aby zapoznać się z omówieniem zawartości projektu usługi, zobacz [Pierwsze kroki z usługami Reliable Services](service-fabric-reliable-services-quick-start.md).
 
 ## Wdrażanie i debugowanie aplikacji
 
-Teraz, gdy masz już aplikację, możesz spróbować ją uruchomić.
+Teraz, gdy masz już aplikację, spróbuj ją uruchomić.
 
 1. W programie Visual Studio naciśnij klawisz F5, aby wdrożyć aplikację do debugowania.
 
-    >[AZURE.NOTE] Za pierwszym razem może to trochę potrwać, ponieważ program Visual Studio tworzy lokalny klaster na potrzeby programowania. W klastrze lokalnym działa ten sam kod platformy, który stanowi podstawę do kompilacji w klastrze z wieloma maszynami, tylko że w tym przypadku jest to jedna maszyna. W oknie danych wyjściowych programu Visual Studio pojawi się stan tworzenia klastra.
+    >[AZURE.NOTE] Za pierwszym razem wdrożenie może trochę potrwać, ponieważ program Visual Studio tworzy lokalny klaster na potrzeby programowania. W klastrze lokalnym działa ten sam kod platformy, który stanowi podstawę do kompilacji w klastrze z wieloma maszynami, tylko że w tym przypadku jest to jedna maszyna. Stan tworzenia klastra zostanie wyświetlony w oknie danych wyjściowych programu Visual Studio.
 
     Gdy klaster będzie gotowy, otrzymasz powiadomienie z aplikacji menedżera paska zadań klastra lokalnego, która jest zawarta w zestawie SDK.
 
@@ -84,7 +84,7 @@ Teraz, gdy masz już aplikację, możesz spróbować ją uruchomić.
 
     ![Szczegóły w podglądzie zdarzeń diagnostycznych][6]
 
-    Klaster lokalny zawiera pięć węzłów, które są hostowane na jednej maszynie. Naśladuje klaster z pięcioma węzłami, którego węzły znajdują się na różnych maszynach. Wyłączmy jeden z węzłów w klastrze lokalnym, aby zasymulować utratę maszyny i jednocześnie aktywować debuger programu Visual Studio.
+    Klaster lokalny zawiera pięć węzłów, które są hostowane na jednej maszynie. Naśladuje klaster z pięcioma węzłami, którego węzły znajdują się na różnych maszynach. Wyłączmy jeden z węzłów w klastrze lokalnym, aby zasymulować utratę maszyny przy jednoczesnym działaniu debugera programu Visual Studio.
 
     >[AZURE.NOTE] Zdarzenia diagnostyczne aplikacji, które są emitowane przez szablon projektu, używają dołączonej klasy `ServiceEventSource`. Aby uzyskać więcej informacji, zobacz [Sposób monitorowania i diagnozowania usług lokalnie](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
@@ -96,11 +96,11 @@ Teraz, gdy masz już aplikację, możesz spróbować ją uruchomić.
 
     ![Uruchamianie narzędzia Service Fabric Explorer z menedżera klastra lokalnego][systray-launch-sfx]
 
-    Narzędzie Service Fabric Explorer oferuje wizualną reprezentację klastra — w tym zestaw wdrożonych aplikacji, które są w nim wdrożone, a także zestaw węzłów fizycznych, które go tworzą. Aby uzyskać więcej informacji na temat narzędzia Service Fabric Explorer, zobacz [Wizualizacja klastra](service-fabric-visualizing-your-cluster.md).
+    Narzędzie Service Fabric Explorer oferuje wizualną reprezentację klastra — w tym zestaw wdrożonych w nim aplikacji, a także zestaw węzłów fizycznych, które go tworzą. Aby uzyskać więcej informacji na temat narzędzia Service Fabric Explorer, zobacz [Wizualizacja klastra](service-fabric-visualizing-your-cluster.md).
 
 6. W lewym okienku rozwiń opcje **Klaster > Węzły** i znajdź węzeł, w którym wykonywany jest kod.
 
-7. Kliknij pozycje **Akcje > Dezaktywuj (ponowne uruchomienie)**, aby zasymulować ponowne uruchomienie maszyny. (Można to również zrobić w menu kontekstowym w widoku listy węzłów w lewym okienku, wybierając wielokropek).
+7. Kliknij pozycje **Akcje > Dezaktywuj (ponowne uruchomienie)**, aby zasymulować ponowne uruchomienie maszyny. Zauważ, że dezaktywację można również przeprowadzić z poziomu menu kontekstowego w widoku listy węzłów w okienku po lewej stronie.
 
     ![Zatrzymanie węzła w narzędziu Service Fabric Explorer][sfx-stop-node]
 
@@ -110,31 +110,20 @@ Teraz, gdy masz już aplikację, możesz spróbować ją uruchomić.
 
     ![Szczegóły w podglądzie zdarzeń diagnostycznych po przełączeniu do trybu failover][diagnostic-events-viewer-detail-post-failover]
 
-### Czyszczenie
+## Czyszczenie
 
-  Przed zakończeniem należy zapamiętać, że klaster lokalny jest bardzo prawdziwy. Nawet po zatrzymaniu debugera i zamknięciu programu Visual Studio aplikacje pozostaną uruchomione w tle. W zależności od charakteru aplikacji to działanie w tle może zajmować znaczące ilości zasobów na maszynie. Istnieje kilka możliwości poradzenia sobie z tym:
+  Przed zakończeniem należy zapamiętać, że klaster lokalny jest bardzo prawdziwy. Zatrzymanie debugera powoduje usunięcie wystąpienia aplikacji i wyrejestrowanie typu aplikacji. Klaster będzie jednak nadal uruchomiony w tle. Istnieje kilka możliwości zarządzania klastrem:
 
-  1. Aby usunąć pojedynczą aplikację i wszystkie jej dane, użyj akcji **Usuń aplikację** w narzędziu Service Fabric Explorer z menu **AKCJE** lub menu kontekstowego na liście aplikacji w okienku po lewej stronie.
+  1. Aby zamknąć klaster, zachowując dane i ślady aplikacji, kliknij opcję **Zatrzymaj klaster lokalny** na pasku zadań systemu.
 
-    ![Usuwanie aplikacji w narzędziu Service Fabric Explorer][sfe-delete-application]
-
-  2. Po usunięciu aplikacji z klastra można wybrać dla aplikacji opcję **Cofnij aprowizację typu**, co spowoduje usunięcie pakietu aplikacji razem z jej kodem i konfiguracją z magazynu obrazu klastra.
-  3. Aby zamknąć klaster, zachowując dane i ślady aplikacji, kliknij opcję **Zatrzymaj klaster lokalny** na pasku zadań systemu.
-
-  4. Aby całkowicie usunąć klaster, kliknij opcję **Usuń klaster lokalny** na pasku zadań systemu. Zastosowanie tej opcji spowoduje powolne wdrożenie po następnym naciśnięciu klawisza F5 w programie Visual Studio. Tej opcji należy używać tylko wtedy, gdy nie będziesz używać klastra lokalnego przez pewien czas lub gdy chcesz odzyskać zasoby.
-
-
+  2. Aby całkowicie usunąć klaster, kliknij opcję **Usuń klaster lokalny** na pasku zadań systemu. Zastosowanie tej opcji spowoduje powolne wdrożenie po następnym naciśnięciu klawisza F5 w programie Visual Studio. Klaster lokalny należy usunąć tylko wtedy, gdy nie będziesz go używać przez pewien czas lub gdy chcesz odzyskać zasoby.
 
 ## Następne kroki
 
-<!--
-Temporarily removing this link because we have removed the ASP.NET template.
-
- - [See how you can expose your services to the Internet with a web service front end](service-fabric-add-a-web-frontend.md)
--->
-- [Dowiedz się, jak utworzyć klaster na platformie Azure](service-fabric-cluster-creation-via-portal.md)
-- [Dowiedz się więcej o usługach Reliable Services](service-fabric-reliable-services-quick-start.md)
-- [Spróbuj utworzyć usługę za pomocą modelu programowania Reliable Actors](service-fabric-reliable-actors-get-started.md)
+- Dowiedz się, jak utworzyć [klaster na platformie Azure](service-fabric-cluster-creation-via-portal.md) lub [autonomiczny klaster w systemie Windows](service-fabric-cluster-creation-for-windows-server.md).
+- Spróbuj utworzyć usługę za pomocą usług [Reliable Services](service-fabric-reliable-services-quick-start.md) lub modelu programowania [Reliable Actors](service-fabric-reliable-actors-get-started.md).
+- Dowiedz się, jak można udostępnić swoje usługi w Internecie za pomocą [frontonu usługi sieci Web](service-fabric-add-a-web-frontend.md).
+- Zapoznaj się z [warsztatem](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) i utwórz usługę bezstanową, skonfiguruj raporty dotyczące monitorowania i kondycji oraz wykonaj uaktualnienie aplikacji.
 
 <!-- Image References -->
 
@@ -152,6 +141,6 @@ Temporarily removing this link because we have removed the ASP.NET template.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

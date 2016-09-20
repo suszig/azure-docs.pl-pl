@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/18/2016"
+   ms.date="07/27/2016"
    ms.author="larryfr"/>
 
 #Wprowadzenie do systemu Apache Storm w usłudze HDInsight: analiza w czasie rzeczywistym dla usługi Hadoop
@@ -109,7 +109,7 @@ System Storm w usłudze HDInsight jest dostarczany z pełną całodobową pomoc�
 
 ##Typowe przypadki użycia analityki w czasie rzeczywistym
 
-Poniżej przedstawiono kilka typowych scenariuszy, w których można skorzystać z systemu Apache Storm w usłudze HDInsight. Informacje o praktycznych scenariuszach podano w części [How companies are using Storm](https://storm.incubator.apache.org/documentation/Powered-By.html) (Zastosowania systemu Storm w firmach).
+Poniżej przedstawiono kilka typowych scenariuszy, w których można skorzystać z systemu Apache Storm w usłudze HDInsight. Informacje o praktycznych scenariuszach podano na stronie [How companies are using Storm](https://storm.apache.org/documentation/Powered-By.html) (Zastosowania systemu Storm w firmach).
 
 * Internet rzeczy (IoT)
 * Wykrywanie oszustw
@@ -162,7 +162,7 @@ Aby uzyskać więcej informacji na ten temat, zobacz [Develop C# topologies for 
 
 Większość przykładów w języku Java to zwykły język Java lub Trident. Trident to abstrakcja wysokiego poziomu, która ułatwia wykonywanie czynności takich jak sprzężenia, agregacje, grupowanie i filtrowanie. Jednak Trident działa na partiach krotek, natomiast rozwiązanie w pierwotnym języku Java przetwarza strumień po jednej krotce na raz.
 
-Aby uzyskać więcej informacji na temat języka Trident, zobacz [Trident tutorial](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) (Samouczek Trident) w serwisie apache.org.
+Aby uzyskać więcej informacji na temat języka Trident, zobacz [Trident tutorial](https://storm.apache.org/documentation/Trident-tutorial.html) (Samouczek Trident) w witrynie apache.org.
 
 Aby poznać przykłady topologii Java i Trident, zobacz [listę przykładowych topologii Storm](hdinsight-storm-example-topology.md) lub przykłady z projektu storm-starter w klastrze usługi HDInsight.
 
@@ -206,6 +206,12 @@ Gdy topologia zależy od obliczenia wartości „pierwszych N”, na przykład p
 
 Przykład [RollingTopWords](https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/RollingTopWords.java) przedstawia praktyczne wykonanie.
 
+##Jakiego rodzaju rejestrowania używa system Storm?
+
+System Storm używa mechanizmu Apache Log4j do rejestrowania informacji. Domyślnie rejestrowana jest duża ilość danych i sortowanie informacji może być trudne. W topologii systemu Storm można uwzględnić plik konfiguracji rejestrowania, aby sterować zachowaniem rejestrowania.
+
+Przykładową topologię pokazującą metodę konfigurowania logowania można znaleźć w przykładzie [aplikacji WordCount opartej na języku Java](hdinsight-storm-develop-java-topology.md) dla systemu Storm w usłudze HDInsight.
+
 ##Następne kroki
 
 Dowiedz się więcej na temat rozwiązań analitycznych w czasie rzeczywistym z wykorzystaniem systemu Apache Storm w usłudze HDInsight:
@@ -214,13 +220,13 @@ Dowiedz się więcej na temat rozwiązań analitycznych w czasie rzeczywistym z 
 
 * [Przykładowe topologie dla systemu Storm w usłudze HDInsight](hdinsight-storm-example-topology.md)
 
-[stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html
+[stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
-[apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
+[apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

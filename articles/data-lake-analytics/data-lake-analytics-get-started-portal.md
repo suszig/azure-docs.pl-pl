@@ -13,14 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Samouczek: rozpoczynanie pracy z usługą Azure Data Lake Analytics przy użyciu Portalu Azure
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Poznaj sposoby tworzenia konta usługi Azure Data Lake Analytics przy użyciu Portalu Azure, definiowania zadań usługi Data Lake Analytics w języku [U-SQL](data-lake-analytics-u-sql-get-started.md) oraz przesyłania zadań na konta usługi Data Lake Analytics. Więcej informacji na temat usługi Data Lake Analytics można znaleźć w artykule [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md).
+Poznaj sposoby tworzenia konta usługi Azure Data Lake Analytics przy użyciu witryny Azure Portal, definiowania zadań usługi Data Lake Analytics w języku [U-SQL](data-lake-analytics-u-sql-get-started.md) oraz przesyłania zadań na konta usługi Data Lake Analytics. Więcej informacji na temat usługi Data Lake Analytics można znaleźć w artykule [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 W ramach tego samouczka utworzysz zadanie, które odczytuje zawartość pliku z wartościami rozdzielanymi tabulatorami (TSV) i konwertuje je do pliku z wartościami rozdzielanymi przecinkami (CSV). Aby wykonać kroki opisane w tym samouczku, korzystając z innych obsługiwanych narzędzi, kliknij odpowiednią kartę w górnej części tej sekcji. Po pomyślnym utworzeniu pierwszego zadania możesz zacząć tworzyć bardziej złożone przekształcenia danych w języku U-SQL.
 
@@ -67,7 +67,7 @@ Portal Azure udostępnia interfejs użytkownika umożliwiający skopiowanie przy
 
 **Aby skopiować przykładowe pliki danych**
 
-1. W Portalu Azure kliknij w lewym górnym rogu pozycję **Microsoft Azure**.
+1. W witrynie Azure Portal kliknij w lewym górnym rogu pozycję **Microsoft Azure**.
 2. Kliknij kafelek z nazwą konta usługi Data Lake Analytics.  Został on przypięty w tym miejscu podczas tworzenia konta.
 Jeśli konto nie zostało przypięte, zobacz temat [Otwieranie konta usługi Data Lake Analytics w portalu](data-lake-analytics-manage-use-portal.md#access-adla-account), aby otworzyć konto.
 3. Rozwiń węzeł **Essentials** (Podstawowe elementy), a następnie kliknij pozycję **Explore sample jobs** (Eksploruj przykładowe zadania). Spowoduje to otwarcie kolejnego bloku o nazwie **Sample Jobs** (Przykładowe zadania).
@@ -152,12 +152,12 @@ Po przygotowaniu danych źródłowych możesz rozpocząć tworzenie skryptu U-SQ
 - Aby uzyskać informacje na temat bardziej złożonego zapytania, zobacz temat [Analizowanie dzienników witryn sieci Web przy użyciu usługi Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 - Aby rozpocząć tworzenie aplikacji w języku U-SQL, zobacz artykuł [Tworzenie skryptów U-SQL przy użyciu narzędzi Data Lake Tools dla Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Aby dowiedzieć się więcej o języku U-SQL, zobacz [Wprowadzenie do języka U-SQL w usłudze Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
-- Informacje o zadaniach zarządzania znajdziesz w artykule [Zarządzanie usługą Azure Data Lake Analytics przy użyciu Portalu Azure](data-lake-analytics-manage-use-portal.md).
+- Informacje o zadaniach zarządzania znajdziesz w artykule [Zarządzanie usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal](data-lake-analytics-manage-use-portal.md).
 - Aby zapoznać się z omówieniem usługi Data Lake Analytics, zobacz [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md).
 - Aby wyświetlić ten samouczek przy użyciu innych narzędzi, kliknij odpowiedni selektor karty w górnej części strony.
+- Aby rejestrować informacje diagnostyczne, zobacz [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md) (Dostęp do dzienników diagnostycznych usługi Azure Data Lake Analytics)
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

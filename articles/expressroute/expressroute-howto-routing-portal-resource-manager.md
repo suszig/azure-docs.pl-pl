@@ -13,7 +13,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/08/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute
@@ -240,6 +240,6 @@ Następny krok: [Link a VNet to an ExpressRoute circuit](expressroute-howto-link
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

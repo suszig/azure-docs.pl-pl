@@ -1,35 +1,37 @@
 <properties
-            pageTitle="Rozpoczynanie pracy z Magazynem plików usługi Azure w systemie Windows | Microsoft Azure"
-            description="Usługa Magazyn plików Azure umożliwia przechowywanie plików danych w chmurze oraz instalowanie udziału plików w chmurze z maszyny wirtualnej platformy Azure lub z aplikacji lokalnych działających w systemie Windows."
-            services="storage"
-            documentationCenter=".net"
-            authors="mine-msft"
-            manager="aungoo"
-            editor="tysonn" />
+    pageTitle="Rozpoczynanie pracy z Magazynem plików usługi Azure w systemie Windows | Microsoft Azure"
+    description="Usługa Magazyn plików Azure umożliwia przechowywanie plików danych w chmurze oraz instalowanie udziału plików w chmurze z maszyny wirtualnej platformy Azure lub z aplikacji lokalnych działających w systemie Windows."
+    services="storage"
+    documentationCenter=".net"
+    authors="mine-msft"
+    manager="aungoo"
+    editor="tysonn" />
 
 <tags ms.service="storage"
-      ms.workload="storage"
-      ms.tgt_pltfrm="na"
-      ms.devlang="dotnet"
-      ms.topic="hero-article"
-      ms.date="04/11/2016"
-      ms.author="minet" />
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="07/26/2016"
+    ms.author="minet" />
 
 # Rozpoczynanie pracy z Magazynem plików Azure w systemie Windows
 
 [AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
 
 ## Omówienie
 
-Magazyn plików Azure to usługa, która umożliwia korzystanie z udziałów plików w chmurze przy użyciu standardowego [protokołu bloku komunikatów serwera (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Obsługiwane są wersje 2.1 i 3.0 protokołu SMB. W usłudze Magazyn plików Azure można migrować starsze aplikacje korzystające z udziałów plików na platformę Azure szybko i bez kosztownych modyfikacji oprogramowania. Aplikacje uruchomione na maszynach wirtualnych lub w ramach usług w chmurze platformy Azure, a także na klientach lokalnych mogą instalować udziały plików w chmurze tak samo jak aplikacja na komputerze instalująca typowy udział SMB. Dowolna liczba składników aplikacji może następnie równocześnie zainstalować udział Magazynu plików i uzyskiwać do niego dostęp.
+Azure File Storage to usługa, która umożliwia korzystanie z udziałów plików w chmurze przy użyciu standardowego [protokołu bloku komunikatów serwera (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Obsługiwane są wersje 2.1 i 3.0 protokołu SMB. W usłudze Magazyn plików Azure można migrować starsze aplikacje korzystające z udziałów plików na platformę Azure szybko i bez kosztownych modyfikacji oprogramowania. Aplikacje uruchomione na maszynach wirtualnych lub w ramach usług w chmurze platformy Azure, a także na klientach lokalnych mogą instalować udziały plików w chmurze tak samo jak aplikacja na komputerze instalująca typowy udział SMB. Dowolna liczba składników aplikacji może następnie równocześnie zainstalować udział Magazynu plików i uzyskiwać do niego dostęp.
 
 Ponieważ udział Magazynu plików to standardowy udział plików SMB, aplikacje działające na platformie Azure mają dostęp do danych w udziale za pośrednictwem interfejsów API we/wy systemu plików. Dzięki temu programiści mogą wykorzystać istniejący kod i własne umiejętności, aby zmigrować istniejące aplikacje. Specjaliści IT mogą użyć poleceń cmdlet programu PowerShell do tworzenia i instalowania udziałów magazynu plików oraz do zarządzania nimi w ramach administracji aplikacjami platformy Azure.
 
-Udziały plików platformy Azure można tworzyć przy użyciu [Portalu Azure](https://portal.azure.com), poleceń cmdlet programu PowerShell usługi Azure Storage, bibliotek klienckich usługi Azure Storage lub interfejsu API REST usługi Azure Storage. Ponadto ponieważ te udziały plików są udziałami SMB, można z nich korzystać za pośrednictwem standardowych i znanych interfejsów API systemu plików. 
+Udziały plików platformy Azure można tworzyć przy użyciu witryny [Azure Portal](https://portal.azure.com), poleceń cmdlet programu PowerShell usługi Azure Storage, bibliotek klienckich usługi Azure Storage lub interfejsu API REST usługi Azure Storage. Ponadto ponieważ te udziały plików są udziałami SMB, można z nich korzystać za pośrednictwem standardowych i znanych interfejsów API systemu plików. 
 
-Aby uzyskać informacje na temat używania usługi Magazyn plików w systemie Linux, zobacz [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md) (Jak korzystać z usługi Azure File Storage w systemie Linux).
+Aby uzyskać informacje na temat używania usługi File Storage w systemie Linux, zobacz [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md) (Jak korzystać z usługi Azure File Storage w systemie Linux).
 
-Aby uzyskać szczegółowe informacje o celach dotyczących skalowalności i wydajności usługi Magazyn plików, zobacz [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files) (Cele dotyczące skalowalności i wydajności usługi Azure Storage).
+Aby uzyskać szczegółowe informacje o celach dotyczących skalowalności i wydajności usługi File Storage, zobacz [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files) (Cele dotyczące skalowalności i wydajności usługi Azure Storage).
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -59,7 +61,7 @@ Usługa Magazyn plików jest teraz obsługiwana dla wszystkich kont magazynu, mo
 
 ## Zarządzanie udziałem plików za pomocą Portalu Azure
 
-Udziałami plików można zarządzać z poziomu interfejsu użytkownika [Portalu Azure](https://portal.azure.com). Portal umożliwia wykonywanie następujących czynności:
+Udziałami plików można zarządzać z poziomu interfejsu użytkownika w witrynie [Azure Portal](https://portal.azure.com). Portal umożliwia wykonywanie następujących czynności:
 
 - Tworzenie udziału plików
 - Przekazywanie i pobieranie plików do i z udziału plików
@@ -138,7 +140,7 @@ Otwórz okno programu Azure PowerShell, klikając przycisk **Start** i wpisując
 
 ### Tworzenie kontekstu konta magazynu i klucza
 
-Teraz utworzymy kontekst konta magazynu. W kontekście zawarta jest nazwa konta magazynu oraz klucz konta. Aby uzyskać instrukcje dotyczące kopiowania klucza konta z [Portalu Azure](https://portal.azure.com), zobacz [Wyświetlanie i kopiowanie kluczy dostępu do magazynu](storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Teraz utworzymy kontekst konta magazynu. W kontekście zawarta jest nazwa konta magazynu oraz klucz konta. Aby uzyskać instrukcje dotyczące kopiowania klucza konta z witryny [Azure Portal](https://portal.azure.com), zobacz [Wyświetlanie i kopiowanie kluczy dostępu do magazynu](storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 W poniższym przykładzie zastąp zmienne `storage-account-name` i `storage-account-key` nazwą konta magazynu i kluczem.
 
@@ -213,8 +215,8 @@ Gdy klient uzyskuje dostęp do usługi Magazyn plików, używana wersja protoko�
 Aby zademonstrować sposób instalacji udziału plików na platformie Azure, utworzymy teraz maszynę wirtualną platformy Azure z systemem Windows i połączymy się z nią zdalnie w celu zainstalowania udziału
 
 
-1. Najpierw utwórz nową maszynę wirtualną platformy Azure, postępując zgodnie z instrukcjami w artykule [Tworzenie pierwszej maszyny wirtualnej z systemem Windows w Portalu Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-2. Następnie nawiąż połączenie zdalne z maszyną wirtualną, postępując zgodnie z instrukcjami w artykule [Logowanie na maszynie wirtualnej z systemem Windows za pomocą Portalu Azure](../virtual-machines/virtual-machines-windows-connect-logon.md).
+1. Najpierw utwórz nową maszynę wirtualną platformy Azure, postępując zgodnie z instrukcjami w artykule [Tworzenie pierwszej maszyny wirtualnej z systemem Windows w witrynie Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+2. Następnie nawiąż połączenie zdalne z maszyną wirtualną, postępując zgodnie z instrukcjami w artykule [Logowanie na maszynie wirtualnej z systemem Windows za pomocą witryny Azure Portal](../virtual-machines/virtual-machines-windows-connect-logon.md).
 3. Otwórz okno programu PowerShell na maszynie wirtualnej.
 
 ### Utrwalanie poświadczeń konta magazynu dla maszyny wirtualnej
@@ -229,7 +231,7 @@ Pamiętaj, że poświadczenia są trwałe tylko w kontekście, w którym uruchom
 
 ### Instalowanie udziału plików za pomocą utrwalonych poświadczeń
 
-Po nawiązaniu połączenia zdalnego z maszyną wirtualną można uruchomić polecenie `net use`, aby zainstalować udział plików, używając następującej składni. Zastąp ciąg `<storage-account-name>` nazwą konta magazynu, a ciąg `<share-name>` nazwą udziału usługi Magazyn plików.
+Po nawiązaniu połączenia zdalnego z maszyną wirtualną można uruchomić polecenie `net use`, aby zainstalować udział plików, używając następującej składni. Zastąp ciąg `<storage-account-name>` nazwą konta magazynu, a ciąg `<share-name>` nazwą udziału usługi File Storage.
 
     net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
 
@@ -529,7 +531,7 @@ W ten sam sposób można skopiować obiekt blob do pliku. Jeśli obiekt źródł
 
 Funkcja analizy usługi Azure Storage obsługuje teraz metryki na potrzeby usługi File Storage. Dane metryk umożliwiają śledzenie żądań i diagnozowanie problemów.
 
-Metryki dla usługi Magazyn plików można włączyć w [Portalu Azure](https://portal.azure.com). Można też włączyć je programowo przez wywołanie operacji ustawiania właściwości usługi plików za pomocą interfejsu API REST lub przy użyciu jednej z analogicznych operacji w bibliotece klienta usługi Storage.
+Metryki dla usługi File Storage można włączyć w witrynie [Azure Portal](https://portal.azure.com). Można też włączyć je programowo przez wywołanie operacji ustawiania właściwości usługi plików za pomocą interfejsu API REST lub przy użyciu jednej z analogicznych operacji w bibliotece klienta usługi Storage.
 
 Poniższy przykładowy kod pokazuje, jak włączyć metryki dla usługi File Storage za pomocą biblioteki klienta usługi Storage programu .NET.
 
@@ -538,7 +540,7 @@ Najpierw dodaj następujące instrukcje `using` do pliku program.cs (oprócz tyc
     using Microsoft.WindowsAzure.Storage.File.Protocol;
     using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 
-Zwróć uwagę, że usługi Magazyn obiektów blob, Magazyn tabel i Magazyn kolejek używają wspólnie typu `ServiceProperties` w przestrzeni nazw `Microsoft.WindowsAzure.Storage.Shared.Protocol`, natomiast usługa Magazyn plików ma swój własny typ `FileServiceProperties` w przestrzeni nazw `Microsoft.WindowsAzure.Storage.File.Protocol`. Jednak aby można było skompilować poniższy kod, musi on zawierać odwołania do obu tych przestrzeni nazw. 
+Zwróć uwagę, że usługi Blob Storage, Table Storage i Queue Storage używają wspólnie typu `ServiceProperties` w przestrzeni nazw `Microsoft.WindowsAzure.Storage.Shared.Protocol`, natomiast usługa File Storage ma swój własny typ `FileServiceProperties` w przestrzeni nazw `Microsoft.WindowsAzure.Storage.File.Protocol`. Jednak aby można było skompilować poniższy kod, musi on zawierać odwołania do obu tych przestrzeni nazw. 
 
     // Parse your storage connection string from your application's configuration file.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -669,6 +671,6 @@ Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

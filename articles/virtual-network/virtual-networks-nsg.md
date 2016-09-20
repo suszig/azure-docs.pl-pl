@@ -3,7 +3,7 @@
    description="Informacje na temat rozproszonej zapory w systemie Azure korzystającej z grup zabezpieczeń sieci oraz użycia grup NSG do izolowania przepływu ruchu oraz sterowania nim w sieciach wirtualnych."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/11/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Co to jest grupa zabezpieczeń sieci?
 
@@ -115,7 +115,7 @@ Można skojarzyć różne grupy NSG z maszyną wirtualną (lub kartą sieciową,
        
            If subnet NSG has a matching rule to deny traffic, packet will be dropped here, although VM\NIC NSG has a matching rule to allow traffic.
 
-![Listy ACL grupy NSG](./media/virtual-network-nsg-overview/figure2.png)
+    ![Listy ACL grupy NSG](./media/virtual-network-nsg-overview/figure2.png)
 
 >[AZURE.NOTE] Chociaż z podsiecią można skojarzyć tylko jedną grupę NSG, maszynę wirtualną lub kartę sieciową, tę samą grupę NSG można skojarzyć z dowolną liczbą zasobów.
 
@@ -125,10 +125,10 @@ Grupy NSG można wdrożyć w modelach wdrażania: klasycznym oraz usługi Resour
 |Narzędzie wdrażania|Wdrożenie klasyczne|Resource Manager|
 |---|---|---|
 |Portal klasyczny|![Nie][red]|![Nie][red]|
-|Portal Azure|![Tak][green]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![Tak][green]</a>|
-|PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![Tak][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![Tak][green]</a>|
-|Interfejs wiersza polecenia platformy Azure|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![Tak][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![Tak][green]</a>|
-|Szablon ARM|![Nie][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![Tak][green]</a>|
+|Portal Azure|![Tak][green]|[](virtual-networks-create-nsg-arm-pportal.md)![Tak][green]|
+|PowerShell|[](virtual-networks-create-nsg-classic-ps.md)![Tak][green]|[](virtual-networks-create-nsg-arm-ps.md)![Tak][green]|
+|Interfejs wiersza polecenia platformy Azure|[](virtual-networks-create-nsg-classic-cli.md)![Tak][green]|[](virtual-networks-create-nsg-arm-cli.md)![Tak][green]|
+|Szablon ARM|![Nie][red]|[](virtual-networks-create-nsg-arm-template.md)![Tak][green]|
 
 |**Klucz**|![Tak][green] Obsługiwane. Kliknij, aby przeczytać artykuł.|![Nie][red] Nieobsługiwane.|
 |---|---|---|
@@ -284,6 +284,6 @@ Ponieważ niektóre z grup NSG powyżej muszą być powiązane z poszczególnymi
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

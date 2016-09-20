@@ -14,7 +14,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-data"
-    ms.date="06/01/2016"
+    ms.date="06/29/2016"
     ms.author="jgao"/>
 
 # Publikowanie aplikacji usługi HDInsight w portalu Azure Marketplace
@@ -25,6 +25,7 @@ Aplikacje usługi HDInsight korzystają z modelu *Bring your own license (BYOL)*
 
 Inny artykuł związany z aplikacjami usługi HDInsight:
 
+- [Instalowanie aplikacji usługi HDInsight](hdinsight-apps-install-applications.md): dowiedz się, jak instalować aplikacje usługi HDInsight w klastrach.
 - [Instalowanie niestandardowych aplikacji usługi HDInsight](hdinsight-apps-install-custom-applications.md): dowiedz się, jak instalować i testować niestandardowe aplikacje usługi HDInsight.
 
  
@@ -38,7 +39,7 @@ Należy również mieć zarejestrowanie własne konto dewelopera. Zobacz temat [
 
 ## Definiowanie aplikacji
 
-Publikowanie aplikacji w portalu Azure Marketplace odbywa się w dwóch krokach.  Najpierw należy zdefiniować plik **createUiDef.json**, aby określić, z którymi klastrami dana aplikacja jest zgodna. Następnie należy opublikować szablon z Portalu Azure. Oto przykładowy plik createUiDef.json.
+Publikowanie aplikacji w portalu Azure Marketplace odbywa się w dwóch krokach.  Najpierw należy zdefiniować plik **createUiDef.json**, aby określić, z którymi klastrami dana aplikacja jest zgodna. Następnie należy opublikować szablon z witryny Azure Portal. Oto przykładowy plik createUiDef.json.
 
     {
         "handler": "Microsoft.HDInsight",
@@ -64,7 +65,7 @@ Utwórz plik zip, który zawiera wszystkie wymagane pliki instalacyjne aplikacji
 - [createUiDefinition.json](#define-application).
 - mainTemplate.json. Zobacz przykład w artykule [Instalowanie niestandardowych aplikacji usługi HDInsight](hdinsight-apps-install-custom-applications.md).
 
-    >[AZURE.IMPORTANT] Nazwa skryptu instalacyjnego aplikacji musi być unikatowa dla danego klastra i mieć następujący format. 
+    >[AZURE.IMPORTANT] Nazwa skryptu instalacyjnego aplikacji musi być unikatowa dla danego klastra i mieć następujący format. Ponadto wszystkie akcje instalowania i odinstalowywania skryptów powinny być idempotentne, to znaczy, że można je wywoływać wielokrotnie, uzyskując te same wyniki.
     
     >   nazwa": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
         
@@ -94,11 +95,12 @@ Wykonaj poniższe kroki, aby opublikować aplikację usługi HDInsight:
 
 ## Następne kroki
 
+- [Instalowanie aplikacji usługi HDInsight](hdinsight-apps-install-applications.md): dowiedz się, jak instalować aplikacje usługi HDInsight w klastrach.
 - [Instalowanie niestandardowych aplikacji usługi HDInsight](hdinsight-apps-install-custom-applications.md): dowiedz się, jak wdrożyć nieopublikowaną aplikację usługi HDInsight w usłudze HDInsight.
 - [Dostosowywanie klastrów usługi HDInsight opartych na systemie Linux przy użyciu akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md): dowiedz się, jak instalować dodatkowe aplikacje za pomocą akcji skryptu.
-- [Tworzenie klastrów Hadoop w usłudze HDInsight opartych na systemie Linux przy użyciu szablonów ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md): dowiedz się, jak wywoływać szablony ARM w celu tworzenia klastrów usługi HDInsight.
+- [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) (Tworzenie klastrów Hadoop w usłudze HDInsight opartych na systemie Linux przy użyciu szablonów usługi Resource Manager): dowiedz się, jak wywoływać szablony usługi Resource Manager w celu tworzenia klastrów usługi HDInsight.
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

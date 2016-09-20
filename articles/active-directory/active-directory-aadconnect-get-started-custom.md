@@ -2,7 +2,7 @@
     pageTitle="Azure AD Connect: instalacja niestandardowa | Microsoft Azure"
     description="Ten dokument zawiera szczegółowe informacje dotyczące opcji niestandardowej instalacji programu Azure AD Connect. Korzystając z tych instrukcji, można zainstalować usługę Active Directory za pośrednictwem programu Azure AD Connect."
     services="active-directory"
-    keywords="what is Azure AD Connect, install Active Directory, required components for Azure AD"
+    keywords="co to jest program Azure AD Connect, instalowanie usługi Active Directory, wymagane składniki usługi Azure AD"
     documentationCenter=""
     authors="andkjell"
     manager="stevenpo"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/31/2016"
+    ms.date="06/27/2016"
     ms.author="billmath;andkjell"/>
 
 # Niestandardowa instalacja programu Azure AD Connect
@@ -266,6 +266,6 @@ Konta używane do instalacji | [Więcej informacji na temat kont i uprawnień w 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

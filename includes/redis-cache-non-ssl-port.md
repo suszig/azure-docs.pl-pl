@@ -1,10 +1,10 @@
-Aby włączyć port niebędący portem SSL, [przewiń](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) do pamięci podręcznej w [portalu Azure](https://portal.azure.com) i kliknij kolejno opcje **Ustawienia > Uzyskaj dostęp do portów**. Kliknij przycisk **Nie**, aby włączyć port niebędący portem SSL, i kliknij przycisk **Zapisz**.
+Aby włączyć port niebędący portem SSL, [przejdź](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) do pamięci podręcznej w witrynie [Azure Portal](https://portal.azure.com) i kliknij kolejno pozycje **Ustawienia > Ustawienia zaawansowane**. Kliknij przycisk **Nie** w **bloku ustawień zaawansowanych** przy pozycji **Zezwalaj na dostęp tylko za pośrednictwem protokołu SSL**, a następnie kliknij przycisk **Zapisz**.
 
 ![Ustawienia pamięci podręcznej Redis](media/redis-cache-non-ssl-port/redis-cache-non-ssl-port.png)
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

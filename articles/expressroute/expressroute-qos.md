@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/18/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Wymagania dotyczące technologii QoS w usłudze ExpressRoute
@@ -21,7 +21,7 @@ Program Skype dla firm obejmuje różne obciążenia, które wymagają zróżnic
 
 ![](./media/expressroute-qos/expressroute-qos.png)
 
->[AZURE.NOTE] Wymagania dotyczące technologii QoS dotyczą tylko komunikacji równorzędnej firmy Microsoft.
+>[AZURE.NOTE] Wymagania dotyczące technologii QoS dotyczą tylko komunikacji równorzędnej firmy Microsoft. Wartości DSCP w ruchu sieciowym otrzymane w publicznej komunikacji równorzędnej Azure i prywatnej komunikacji równorzędnej Azure zostaną zresetowane do wartości 0. 
 
 Poniższa tabela zawiera listę oznaczeń DSCP używanych przez program Skype dla firm. Więcej informacji znajduje się w artykule [Managing QoS for Skype for Business](https://technet.microsoft.com/library/gg405409.aspx) (Zarządzanie technologią QoS na potrzeby programu Skype dla firm).
 
@@ -52,6 +52,6 @@ Poniższa tabela zawiera listę oznaczeń DSCP używanych przez program Skype dl
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

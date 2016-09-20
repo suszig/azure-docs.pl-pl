@@ -2,10 +2,10 @@
     pageTitle="Omówienie usługi Rejestracja urządzeń w usłudze Azure Active Directory | Microsoft Azure"
     description="stanowi podstawę dla scenariuszy dostępu warunkowego opartego na urządzeniach. Po zarejestrowaniu urządzenia usługa Rejestracja urządzeń w usłudze Azure Active Directory aprowizuje dla urządzenia tożsamość, która jest używana do uwierzytelniania urządzenia podczas logowania użytkownika."
     services="active-directory"
-    keywords="device registration, enable device registration, device registration and MDM"
+    keywords="rejestracja urządzenia, włączanie rejestracji urządzenia, rejestracja urządzenia i MDM"
     documentationCenter=""
     authors="femila"
-    manager="stevenpo"
+    manager="swadhwa"
     editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/29/2016"
+    ms.date="06/23/2016"
     ms.author="femila"/>
 
 # Wprowadzenie do usługi Rejestracja urządzeń w usłudze Azure Active Directory
@@ -35,12 +35,12 @@ Usługa Rejestracja urządzeń w usłudze Azure Active Directory obejmuje obsłu
 
 ##Konfigurowanie usługi Rejestracja urządzeń w usłudze Azure Active Directory
 
-Usługę Rejestracja urządzeń w usłudze Azure Active Directory należy włączyć w Portalu Azure, aby urządzenia przenośne mogły odnajdywać usługę przez wyszukiwanie dobrze znanych rekordów systemu DNS. System DNS firmy należy skonfigurować tak, aby urządzenia z systemem Windows 10, Windows 8.1, Windows 7, Android i iOS mogły odnajdywać usługę i korzystać z niej.
+Usługę Rejestracja urządzeń w usłudze Azure Active Directory należy włączyć w witrynie Azure Portal, aby urządzenia przenośne mogły odnajdywać usługę przez wyszukiwanie dobrze znanych rekordów systemu DNS. System DNS firmy należy skonfigurować tak, aby urządzenia z systemem Windows 10, Windows 8.1, Windows 7, Android i iOS mogły odnajdywać usługę i korzystać z niej.
 Zarejestrowane urządzenia można wyświetlać i włączać/wyłączać za pomocą Portalu administratora w usłudze Azure Active Directory.
 
 ### Włączanie usługi Rejestracja urządzeń w usłudze Azure Active Directory
 
-1. Zaloguj się do portalu Microsoft Azure jako administrator.
+1. Zaloguj się w witrynie Microsoft Azure Portal jako administrator.
 2. W lewym okienku wybierz pozycję **Active Directory**.
 3. Na karcie **Katalog** wybierz swój katalog.
 4. Wybierz kartę **Konfigurowanie**.
@@ -71,7 +71,7 @@ Na przykład jeśli w organizacji używane są dwa sufiksy nazw UPN, @contoso.co
 
 ## Wyświetlanie obiektów urządzeń i zarządzanie nimi w usłudze Azure Active Directory
 1. Z poziomu Portalu administratora platformy Azure można wyświetlać, blokować i odblokowywać urządzenia. Zablokowane urządzenie nie będzie już miało dostępu do aplikacji, które są skonfigurowane w celu zezwalania na dostęp tylko zarejestrowanym urządzeniom.
-2. Zaloguj się do Portalu Microsoft Azure jako administrator.
+2. Zaloguj się w witrynie Microsoft Azure Portal jako administrator.
 3. W lewym okienku wybierz pozycję **Active Directory**.
 4. Wybierz swój katalog.
 5. Wybierz kartę **Użytkownicy**. Wybierz użytkownika, aby wyświetlić jego urządzenia.
@@ -90,6 +90,6 @@ Za pomocą usługi Rejestracja urządzeń w usłudze Azure Active Directory moż
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

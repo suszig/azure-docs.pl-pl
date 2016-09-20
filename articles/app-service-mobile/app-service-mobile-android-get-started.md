@@ -1,9 +1,9 @@
 <properties
-    pageTitle="Tworzenie aplikacji systemu Android przy użyciu funkcji Mobile Apps w usłudze Azure App Service | Microsoft Azure"
+    pageTitle="Tworzenie aplikacji systemu Android przy użyciu funkcji Azure App Service Mobile Apps | Microsoft Azure"
     description="Postępuj zgodnie z tym samouczkiem, aby rozpocząć korzystanie z zapleczy usług mobilnych Azure na potrzeby opracowywania aplikacji dla systemu Android."
     services="app-service\mobile"
     documentationCenter="android"
-    authors="ysxu"
+    authors="RickSaling"
     manager="erikre"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
-    ms.author="yuaxu;ricksal"/>
+    ms.date="08/17/2016"
+    ms.author="ricksal"/>
 
 #Tworzenie aplikacji systemu Android
 
@@ -32,7 +32,6 @@ Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
 * [Narzędzia dla deweloperów systemu Android](https://developer.android.com/sdk/index.html), w tym zintegrowane środowisko projektowe Android Studio i najnowsza platforma systemu Android.
 * Zestaw Azure Mobile Android SDK, który jest automatycznie używany jako część pobieranego projektu szybkiego startu.
-* Komputer z programem [Visual Studio Community 2013] lub nowszym &mdash; nie jest wymagany w przypadku zaplecza Node.js.
 * [Aktywne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Tworzenie zaplecza nowej aplikacji mobilnej Azure
@@ -51,11 +50,11 @@ Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 <!-- Images. -->
 
 <!-- URLs -->
-[Portal Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

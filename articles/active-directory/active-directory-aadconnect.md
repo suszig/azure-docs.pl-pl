@@ -1,7 +1,7 @@
 <properties
     pageTitle="Azure AD Connect: integrowanie tożsamości lokalnych z usługą Azure Active Directory. | Microsoft Azure"
     description="Program Azure AD Connect umożliwia integrowanie katalogów lokalnych z usługą Azure Active Directory. Dzięki temu można posługiwać się wspólną tożsamością dla usługi Office 365, platformy Azure i aplikacji SaaS zintegrowanych z usługą Azure AD."
-    keywords="introduction to Azure AD Connect, Azure AD Connect overview, what is Azure AD Connect, install active directory"
+    keywords="wprowadzenie do programu Azure AD Connect, omówienie programu Azure AD Connect, co to jest program Azure AD Connect, instalowanie usługi Active Directory"
     services="active-directory"
     documentationCenter=""
     authors="andkjell"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/19/2016"
+    ms.date="07/14/2016"
     ms.author="andkjell;billmath"/>
 
 # Integrowanie tożsamości lokalnych z usługą Azure Active Directory
@@ -56,7 +56,7 @@ Rozwiązanie | Scenariusz
 Przed rozpoczęciem — [Sprzęt i wymagania wstępne](active-directory-aadconnect-prerequisites.md) | <li>Czynności, które należy wykonać przed rozpoczęciem instalacji programu Azure AD Connect.</li>
 [Ustawienia ekspresowe](active-directory-aadconnect-get-started-express.md) | <li>Jeśli masz usługę AD z jednym lasem, jest to zalecana opcja.</li> <li>Użytkownicy logują się przy użyciu tego samego hasła dzięki synchronizacji haseł.</li>
 [Ustawienia dostosowane](active-directory-aadconnect-get-started-custom.md) | <li>Opcja używana, gdy masz większą liczbę lasów. Obsługuje wiele [topologii](active-directory-aadconnect-topologies.md) lokalnych.</li> <li>Możesz dostosować opcje logowania, takie jak usługi federacyjne AD FS lub inny dostawca tożsamości.</li> <li>Możesz dostosować funkcje synchronizacji, na przykład filtrowanie i zapisywanie zwrotne.</li>
-[Uaktualnianie z narzędzia DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Używane, jeśli masz już działający serwer DirSync.</li>
+[Uaktualnianie przy użyciu narzędzia DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Używane, jeśli masz już działający serwer DirSync.</li>
 [Uaktualnienie z narzędzia Azure AD Sync lub Azure AD Connect](active-directory-aadconnect-upgrade-previous-version.md)| <li>Istnieje kilka różnych metod do wyboru w zależności od preferencji.</li>
 
 
@@ -69,7 +69,7 @@ Temat |
 Pobieranie programu Azure AD Connect | [Pobieranie programu Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 Instalowanie przy użyciu ustawień ekspresowych | [Ekspresowa instalacja programu Azure AD Connect](active-directory-aadconnect-get-started-express.md)
 Instalowanie przy użyciu ustawień dostosowanych | [Niestandardowa instalacja programu Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-Uaktualnianie z narzędzia DirSync | [Uaktualnienie z narzędzia Azure AD Sync (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+Uaktualnianie przy użyciu narzędzia DirSync | [Uaktualnienie z narzędzia Azure AD Sync (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 Po instalacji | [Weryfikowanie instalacji i przypisywanie licencji ](active-directory-aadconnect-whats-next.md)
 
 ### Więcej informacji o instalowaniu programu Azure AD Connect
@@ -139,6 +139,7 @@ Jeśli serwer usług AD FS nie został skonfigurowany tak, aby automatycznie akt
 
 Temat |  
 --------- | ---------
+Wszystkie artykuły dotyczące usług AD FS | [Program Azure AD Connect a federacja](active-directory-aadconnectfed-whatis.md)
 Konfigurowanie usług AD FS z poddomenami | [Obsługa wielu domen do federowania w usłudze Azure AD](active-directory-aadconnect-multiple-domains.md)
 Zarządzanie farmą usług AD FS | [Dostosowywanie usług AD FS i zarządzanie nimi za pomocą programu Azure AD Connect](active-directory-aadconnect-federation-management.md)
 Ręczne aktualizowanie certyfikatów federacji | [Odnawianie certyfikatów federacji dla usług Office 365 i Azure AD](active-directory-aadconnect-o365-certs.md)
@@ -164,6 +165,6 @@ Prezentacja z konferencji Ignite 2015 dotycząca rozszerzania katalogów lokalny
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

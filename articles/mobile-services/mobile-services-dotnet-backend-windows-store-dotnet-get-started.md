@@ -13,11 +13,11 @@
     ms.tgt_pltfrm="mobile-windows"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/11/2016"
+    ms.date="07/21/2016"
     ms.author="glenga"/>
 
 
-# <a name="getting-started"> </a>Wprowadzenie do usługi Mobile Services
+# <a name="getting-started"> </a>Wprowadzenie do usług Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
@@ -26,7 +26,7 @@
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 > Aby zapoznać się z wersją tego tematu dotyczącą usługi Mobile Apps, zobacz [Tworzenie aplikacji systemu Windows w usłudze Mobile Apps](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started.md).
 
-W tym samouczku przedstawiono sposób dodawania usługi zaplecza opartej na chmurze do uniwersalnych aplikacji systemu Windows przy użyciu usługi Azure Mobile Services. Rozwiązania uniwersalnych aplikacji systemu Windows zawierają projekty dla aplikacji do Sklepu Windows 8.1 i Sklepu Windows Phone 8.1 oraz wspólnego projektu udostępnianego. Aby uzyskać więcej informacji, zobacz temat [Tworzenie uniwersalnych aplikacji systemu Windows przeznaczonych dla systemu Windows i Windows Phone](http://msdn.microsoft.com/library/windows/apps/xaml/dn609832.aspx).
+W tym samouczku przedstawiono sposób dodawania usługi zaplecza opartej na chmurze do uniwersalnych aplikacji systemu Windows przy użyciu usługi Azure Mobile Services. Rozwiązania uniwersalnych aplikacji systemu Windows obejmują projekty aplikacji do Sklepu Windows 8.1 i Sklepu Windows Phone 8.1 oraz wspólny projekt współdzielony. Aby uzyskać więcej informacji, zobacz temat [Build universal Windows apps that target Windows and Windows Phone](http://msdn.microsoft.com/library/windows/apps/xaml/dn609832.aspx) (Tworzenie uniwersalnych aplikacji systemu Windows przeznaczonych dla systemów Windows i Windows Phone).
 
 Wykonując kroki tego samouczka, utworzysz nową usługę mobilną i prostą aplikację *Lista zadań do wykonania*, która przechowuje dane aplikacji w nowej usłudze mobilnej. Usługa mobilna, która zostanie utworzona, korzysta z obsługiwanych języków .NET przy użyciu programu Visual Studio do obsługi logiki biznesowej po stronie serwera oraz do zarządzania usługami mobilnymi. Aby utworzyć usługę mobilną, która umożliwia zapisanie logiki biznesowej po stronie serwera w języku JavaScript, zobacz część Wersja zaplecza JavaScript w tym temacie.
 
@@ -38,7 +38,7 @@ Wykonując kroki tego samouczka, utworzysz nową usługę mobilną i prostą apl
 
 Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
-* Aktywne konto platformy Azure. Jeśli nie masz konta, możesz utworzyć konto w wersji próbnej platformy Azure i uzyskać maksymalnie 10 bezpłatnych usług mobilnych, z których możesz korzystać nawet po upływie ważności wersji próbnej. Aby uzyskać szczegółowe informacje, zobacz temat [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started%2F) (Bezpłatna wersja próbna platformy Azure).
+* Aktywne konto platformy Azure. Jeśli nie masz takiego konta, możesz je utworzyć w wersji próbnej platformy Azure i uzyskać maksymalnie 10 bezpłatnych usług mobilnych, z których można korzystać nawet po wygaśnięciu wersji próbnej. Aby uzyskać szczegółowe informacje, zobacz temat [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started%2F) (Bezpłatna wersja próbna platformy Azure).
 * [Visual Studio 2013].
 
 ## Tworzenie nowej usługi mobilnej
@@ -51,11 +51,11 @@ Po utworzeniu usługi mobilnej można użyć funkcji szybkiego startu w klasyczn
 
 W tej sekcji utworzysz nową uniwersalną aplikację systemu Windows połączoną z usługą mobilną.
 
-1. W [klasycznym portalu Azure] kliknij opcję **Mobile Services**, a następnie kliknij wcześniej utworzoną usługę mobilną.
+1. W [klasyczny portal Azure] kliknij pozycję **Mobile Services**, a następnie kliknij wcześniej utworzoną usługę mobilną.
 
 2. Na karcie szybkiego startu kliknij opcję **Windows** w obszarze **Wybierz platformę** i rozwiń listę **Create a new Windows Store app** (Utwórz nową aplikację do Sklepu Windows).
 
-    Zostaną wyświetlone trzy łatwe kroki umożliwiające utworzenie aplikacji do Sklepu Windows połączonej z usługą mobilną.
+    Zostaną wyświetlone trzy proste kroki umożliwiające utworzenie aplikacji do Sklepu Windows i połączenie jej z usługą mobilną.
 
     ![Kroki procedury szybkiego startu dla usługi Mobile Services](./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png)
 
@@ -63,7 +63,7 @@ W tej sekcji utworzysz nową uniwersalną aplikację systemu Windows połączon�
 
 4. W obszarze **Download and run your app and service locally** (Pobierz i uruchom lokalnie aplikację i usługę) wybierz język dla aplikacji do Sklepu Windows, a następnie kliknij opcję **Pobierz**.
 
-    Spowoduje to pobranie rozwiązania zawierającego projekty zarówno dla usługi mobilnej, jak i przykładowej aplikacji _Lista zadań do wykonania_, która jest połączona z usługą mobilną. Zapisz skompresowany plik projektu na komputerze lokalnym i zanotuj miejsce, w którym został zapisany.
+    Spowoduje to pobranie rozwiązania zawierającego projekty zarówno dla usługi mobilnej, jak i przykładowej aplikacji _Lista zadań do wykonania_, która jest połączona z usługą mobilną. Zapisz skompresowany plik projektu na komputerze lokalnym i zapamiętaj, gdzie został on zapisany.
 
 ## Testowanie aplikacji z lokalną usługą mobilną
 
@@ -84,7 +84,7 @@ W tej sekcji utworzysz nową uniwersalną aplikację systemu Windows połączon�
             "https://todolist.azure-mobile.net/",
             "XXXX-APPLICATION-KEY-XXXXX");</code></pre>
 
-    <p>The client will now access the mobile service published to Azure.</p></li>
+    <p>Klient będzie miał teraz dostęp do usługi mobilnej opublikowanej na platformie Azure.</p></li>
 </ol>
 
 ## Testowanie aplikacji z usługą mobilną obsługiwaną na platformie Azure
@@ -129,13 +129,13 @@ Aby uzyskać więcej informacji na temat uniwersalnych aplikacji systemu Windows
 [Wprowadzenie do uwierzytelniania]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
 [Wprowadzenie do powiadomień wypychanych]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
-[Zestaw SDK usługi Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=257545
+[Zestaw SDK usług Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript i HTML]: mobile-services-win8-javascript/
-[klasycznym portalu Azure]: https://manage.windowsazure.com/
+[klasyczny portal Azure]: https://manage.windowsazure.com/
 [Rozwiązywanie problemów z zapleczem usługi Mobile Services na platformie .NET]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

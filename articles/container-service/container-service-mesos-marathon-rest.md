@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
+   keywords="Docker, kontenery, mikrousługi, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -172,14 +172,11 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 ## Następne kroki
 
-[Dowiedz się więcej o punktach końcowych HTTP platformy Mesos]( http://mesos.apache.org/documentation/latest/endpoints/).
-[Dowiedz się więcej o interfejsie API REST platformy Marathon]( https://mesosphere.github.io/marathon/docs/rest-api.html).
+- [Dowiedz się więcej o punktach końcowych HTTP platformy Mesos]( http://mesos.apache.org/documentation/latest/endpoints/).
+- [Dowiedz się więcej o interfejsie API REST platformy Marathon]( https://mesosphere.github.io/marathon/docs/rest-api.html).
 
 
 
-
-
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

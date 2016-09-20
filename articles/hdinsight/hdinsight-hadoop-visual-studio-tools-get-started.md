@@ -15,7 +15,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-data"
-    ms.date="05/25/2016"
+    ms.date="08/10/2016"
     ms.author="jgao"/>
 
 # Rozpoczynanie pracy za pomocą narzędzi Visual Studio Hadoop dla usługi HDInsight w celu uruchamiania zapytań programu Hive
@@ -75,7 +75,7 @@ Po nawiązaniu połączenia z subskrypcją platformy Azure można wykonać nast�
 
 **Nawiązywanie połączenia z portalem Azure w programie Visual Studio**
 
-- Z poziomu Eksploratora serwera rozwiń węzeł **Azure** > **HDInsight**, kliknij prawym przyciskiem myszy klaster usługi HDInsight, a następnie kliknij przycisk **Zarządzaj klastrem w portalu Azure**.
+- Z poziomu Eksploratora serwera rozwiń węzeł **Azure** > **HDInsight**, kliknij prawym przyciskiem myszy klaster usługi HDInsight, a następnie kliknij przycisk **Zarządzaj klastrem w witrynie Azure Portal**.
 
 **Aby zadawać pytania i wyrazić swoją opinię w programie Visual Studio**
 
@@ -86,6 +86,11 @@ Po nawiązaniu połączenia z subskrypcją platformy Azure można wykonać nast�
 Z poziomu Eksploratora serwera można zobaczyć domyślne konto magazynu i wszystkie połączone konta magazynu. Po rozwinięciu domyślnego konta magazynu można wyświetlić kontenery konta magazynu. Domyślne konto magazynu i domyślny kontener są oznaczone. Można również kliknąć prawym przyciskiem myszy dowolny kontener, aby wyświetlić jego zawartość.
 
 ![Lista klastrów Eksploratora serwerów narzędzi HDInsight Tools for Visual Studio][2]
+
+Po otwarciu kontenera można używać następujących przycisków do przekazywania, usuwania i pobierania obiektów blob:
+
+![Operacje obiektów blob Eksploratora serwerów narzędzi HDInsight Tools for Visual Studio](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png)
+
 
 ## Uruchomienie zapytania programu Hive
 [Apache Hive][apache.hive] to infrastruktura magazynu danych oparta na usłudze Hadoop umożliwiająca dostarczanie podsumowań, zapytań i analiz danych. Narzędzia HDInsight Tools for Visual Studio obsługują uruchamianie zapytań programu Hive w programie Visual Studio. Aby uzyskać więcej informacji na temat programu Hive, zobacz temat [Use Hive with HDInsight][hdinsight.hive] (Korzystanie z programu Hive z usługą HDInsight).
@@ -281,6 +286,6 @@ Ten artykuł zawiera informacje na temat sposobów łączenia klastrów usługi 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

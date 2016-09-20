@@ -3,7 +3,7 @@
    description="Dowiedz się, jak utworzyć sieć wirtualną przy użyciu szablonu usługi ARM | Resource Manager."
    services="virtual-network"
    documentationCenter=""
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos"/>
+   ms.author="jdial"/>
 
 # Tworzenie sieci wirtualnej przy użyciu szablonu usługi ARM
 
@@ -40,6 +40,6 @@ Jeśli po prostu wdrażasz szablon usługi ARM bezpośrednio z serwisu GitHub, b
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-template-click-include](../../includes/virtual-networks-create-vnet-arm-template-click-include.md)]
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

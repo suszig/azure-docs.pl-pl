@@ -1,6 +1,6 @@
 <properties
     pageTitle="Samouczek — wprowadzenie do biblioteki usługi Azure Batch dla środowiska .NET | Microsoft Azure"
-    description="Podstawowe informacje na temat usługi Azure Batch oraz tworzenia aplikacji dla usługi Batch w prostym scenariuszu"
+    description="Podstawowe informacje na temat usługi Azure Batch oraz tworzenia aplikacji dla usługi Batch w przykładowym scenariuszu."
     services="batch"
     documentationCenter=".net"
     authors="mmacy"
@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-compute"
-    ms.date="05/27/2016"
+    ms.date="08/15/2016"
     ms.author="marsma"/>
 
 # Wprowadzenie do biblioteki usługi Azure Batch dla środowiska .NET
@@ -40,7 +40,7 @@ W tym artykule założono, że masz praktyczną wiedzę na temat języka C# i pr
 
 ### Visual Studio
 
-Do utworzenia przykładowego projektu potrzebny jest program **Visual Studio 2013** lub **Visual Studio 2015**. Bezpłatne i próbne wersje programu Visual Studio można znaleźć w [omówieniu produktów Visual Studio 2015][visual_studio].
+Do utworzenia przykładowego projektu potrzebny jest program **Visual Studio 2015**. Bezpłatne i próbne wersje programu Visual Studio można znaleźć w [omówieniu produktów Visual Studio 2015][visual_studio].
 
 ### Przykład kodu *DotNetTutorial*
 
@@ -54,13 +54,13 @@ Do utworzenia przykładowego projektu potrzebny jest program **Visual Studio 201
 
 ## Omówienie przykładowego projektu DotNetTutorial
 
-Przykładowy kod *DotNetTutorial* jest rozwiązaniem programu Visual Studio 2013, które obejmuje dwa projekty: **DotNetTutorial** i **TaskApplication**.
+Przykładowy kod *DotNetTutorial* jest rozwiązaniem programu Visual Studio 2015, które obejmuje dwa projekty: **DotNetTutorial** i **TaskApplication**.
 
 - **DotNetTutorial** jest aplikacją kliencką, która współdziała z usługami Batch i Storage w celu wykonania równoległego obciążenia w węzłach obliczeniowych (maszyny wirtualne). Aplikacja DotNetTutorial jest uruchamiana na lokalnej stacji roboczej.
 
 - **TaskApplication** to program uruchamiany w węzłach obliczeniowych na platformie Azure, który wykonuje faktyczną pracę. W naszym przykładzie `TaskApplication.exe` analizuje tekst w pliku pobranym z usługi Azure Storage (plik wejściowy). Następnie tworzy plik tekstowy (plik wyjściowy) zawierający listę trzech słów najczęściej występujących w pliku wejściowym. Po utworzeniu pliku wyjściowego program TaskApplication przekazuje plik do usługi Azure Storage. Dzięki temu jest on dostępny do pobrania przez aplikację kliencką. Program TaskApplication jest uruchamiany równolegle w wielu węzłach obliczeniowych w usłudze Batch.
 
-Na poniższym diagramie przedstawiono podstawowe operacje wykonywane przez aplikację kliencką,*DotNetTutorial*, oraz aplikację, która jest wykonywana przez podzadania, *TaskApplication*. Ten podstawowy przepływ pracy jest typowy dla wielu rozwiązań obliczeniowych utworzonych za pomocą usługi Batch. Chociaż nie przedstawiono tu wszystkich funkcji dostępnych w usłudze Batch, prawie każdy scenariusz dotyczący tej usługi będzie obejmował podobne procesy.
+Na poniższym diagramie przedstawiono podstawowe operacje wykonywane przez aplikację kliencką,*DotNetTutorial*, oraz aplikację, która jest wykonywana przez podzadania, *TaskApplication*. Ten podstawowy przepływ pracy jest typowy dla wielu rozwiązań obliczeniowych utworzonych za pomocą usługi Batch. Chociaż nie przedstawiono tu wszystkich funkcji dostępnych w usłudze Batch, prawie każdy scenariusz dotyczący tej usługi obejmuje podobne procesy.
 
 ![Przykładowy przepływ pracy w usłudze Batch][8]<br/>
 
@@ -76,7 +76,7 @@ Na poniższym diagramie przedstawiono podstawowe operacje wykonywane przez aplik
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Gdy zadania zostaną ukończone, przekazują dane wyjściowe do usługi Azure Storage.<br/>
 [**Krok 7.**](#step-7-download-task-output) Pobierz dane wyjściowe podzadań z usługi Storage.
 
-Jak wspomniano wcześniej, nie wszystkie rozwiązania usługi Batch będą obejmować dokładnie te kroki i mogą obejmować wiele innych. Aplikacja przykładowa *DotNetTutorial* pokazuje jednak typowe procesy występujące w rozwiązaniu usługi Batch.
+Jak wspomniano wcześniej, nie wszystkie rozwiązania usługi Batch obejmują dokładnie te kroki i mogą obejmować wiele innych. Aplikacja przykładowa *DotNetTutorial* pokazuje jednak typowe procesy występujące w rozwiązaniu usługi Batch.
 
 ## Kompilowanie przykładowego projektu *DotNetTutorial*
 
@@ -99,7 +99,7 @@ private const string StorageAccountName = "";
 private const string StorageAccountKey  = "";
 ```
 
-> [AZURE.IMPORTANT] Jak wspomniano powyżej, musisz określić poświadczenia dla konta magazynu **ogólnego przeznaczenia** w usłudze Azure Storage. Aplikacje usługi Batch będą korzystać z magazynu obiektów Blob w ramach konta magazynu **ogólnego przeznaczenia**. Nie określaj poświadczeń dla konta usługi Storage, które zostało utworzone przez wybranie typu konta *Magazyn obiektów Blob*.
+> [AZURE.IMPORTANT] Jak wspomniano powyżej, musisz określić poświadczenia dla konta magazynu **ogólnego przeznaczenia** w usłudze Azure Storage. Aplikacje usługi Batch korzystają z magazynu obiektów blob w ramach konta magazynu **ogólnego przeznaczenia**. Nie określaj poświadczeń dla konta usługi Storage, które zostało utworzone przez wybranie typu konta *Magazyn obiektów Blob*.
 
 Poświadczenia konta usług Batch i Storage znajdziesz w blokach konta poszczególnych usług w [portalu Azure][azure_portal]:
 
@@ -119,7 +119,7 @@ Przejdź do góry metody `MainAsync` w pliku `Program.cs` projektu *DotNetTutori
 ![Tworzenie kontenerów w usłudze Azure Storage][1]
 <br/>
 
-Usługa Batch ma wbudowaną obsługę interakcji z usługą Azure Storage. Kontenery na koncie usługi Storage będą udostępniać pliki potrzebne zadaniom, które będą uruchamiane na koncie usługi Batch. Kontenery zapewniają również miejsce do przechowywania danych wyjściowych wytworzonych przez zadania. Najpierw aplikacja kliencka *DotNetTutorial* tworzy trzy kontenery w usłudze [Azure Blob Storage](../storage/storage-introduction.md):
+Usługa Batch ma wbudowaną funkcję obsługi interakcji z usługą Azure Storage. Kontenery na koncie usługi Storage będą udostępniać pliki potrzebne zadaniom, które będą uruchamiane na koncie usługi Batch. Kontenery zapewniają również miejsce do przechowywania danych wyjściowych wytworzonych przez zadania. Najpierw aplikacja kliencka *DotNetTutorial* tworzy trzy kontenery w usłudze [Azure Blob Storage](../storage/storage-introduction.md):
 
 - **aplikacja**: ten kontener będzie przechowywać aplikację uruchomioną przez podzadania oraz wszelkie ich zależności, np. biblioteki dll.
 - **dane wejściowe**: podzadania będą pobierać pliki danych do przetwarzania z kontenera *wejściowego*.
@@ -127,7 +127,7 @@ Usługa Batch ma wbudowaną obsługę interakcji z usługą Azure Storage. Konte
 
 Do interakcji z kontem usługi Storage i tworzenia kontenerów należy użyć [biblioteki Azure Storage Client Library dla platformy .NET][net_api_storage]. Należy utworzyć odwołanie do konta za pomocą elementu [CloudStorageAccount][net_cloudstorageaccount] i przy jego użyciu utworzyć element [CloudBlobClient][net_cloudblobclient]:
 
-```
+```csharp
 // Construct the Storage account connection string
 string storageConnectionString = String.Format(
     "DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
@@ -135,15 +135,17 @@ string storageConnectionString = String.Format(
     StorageAccountKey);
 
 // Retrieve the storage account
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
+CloudStorageAccount storageAccount =
+    CloudStorageAccount.Parse(storageConnectionString);
 
-// Create the blob client, for use in obtaining references to blob storage containers
+// Create the blob client, for use in obtaining references to
+// blob storage containers
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-Należy używać odwołania `blobClient` w całej aplikacji i przekazać go jako parametr do pewnej liczby metod. Przykładem może być blok kodu, który następuje od razu po powyższym, w ramach którego wywołuje się element `CreateContainerIfNotExistAsync` na potrzeby tworzenia kontenerów.
+Należy używać odwołania `blobClient` w całej aplikacji i przekazać go jako parametr do kilku metod. Przykładem może być blok kodu, który następuje od razu po powyższym, w ramach którego wywołuje się element `CreateContainerIfNotExistAsync` na potrzeby tworzenia kontenerów.
 
-```
+```csharp
 // Use the blob client to create the containers in Azure Storage if they don't
 // yet exist
 const string appContainerName    = "application";
@@ -154,12 +156,13 @@ await CreateContainerIfNotExistAsync(blobClient, inputContainerName);
 await CreateContainerIfNotExistAsync(blobClient, outputContainerName);
 ```
 
-```
+```csharp
 private static async Task CreateContainerIfNotExistAsync(
     CloudBlobClient blobClient,
     string containerName)
 {
-        CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+        CloudBlobContainer container =
+            blobClient.GetContainerReference(containerName);
 
         if (await container.CreateIfNotExistsAsync())
         {
@@ -257,7 +260,7 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 
 ### ResourceFiles
 
-Klasa [ResourceFile][net_resourcefile] zawiera podzadania w usłudze Batch z adresem URL do pliku w usłudze Azure Storage, które zostaną pobrane do węzła obliczeniowego przed uruchomieniem tego podzadania. Właściwość [ResourceFile.BlobSource][net_resourcefile_blobsource] określa pełny adres URL pliku przechowywanego w usłudze Azure Storage. Adres URL może także zawierać sygnaturę dostępu współdzielonego (SAS), która zapewnia bezpieczny dostęp do pliku. Większość typów podzadań w usłudze Batch dla platformy .NET obejmuje właściwość *ResourceFiles*, w tym następujące elementy:
+Klasa [ResourceFile][net_resourcefile] zawiera podzadania w usłudze Batch z adresem URL do pliku w usłudze Azure Storage, które są pobierane do węzła obliczeniowego przed uruchomieniem tego podzadania. Właściwość [ResourceFile.BlobSource][net_resourcefile_blobsource] określa pełny adres URL pliku przechowywanego w usłudze Azure Storage. Adres URL może także zawierać sygnaturę dostępu współdzielonego (SAS), która zapewnia bezpieczny dostęp do pliku. Większość typów podzadań w usłudze Batch dla platformy .NET obejmuje właściwość *ResourceFiles*, w tym następujące elementy:
 
 - [CloudTask][net_task]
 - [StartTask][net_pool_starttask]
@@ -268,22 +271,24 @@ Przykładowa aplikacja DotNetTutorial nie używa typów zadań JobPreparationTas
 
 ### Sygnatura dostępu współdzielonego (SAS)
 
-Sygnatury dostępu współdzielonego to ciągi, które — w przypadku dołączenia ich do adresu URL— zapewniają bezpieczny dostęp do kontenerów i obiektów blob w usłudze Azure Storage. Aplikacja DotNetTutorial używa adresów URL sygnatury dostępu współdzielonego kontenera i obiektów blob i służy do pokazania, jak uzyskać te ciągi sygnatur dostępu współdzielonego za pomocą usługi Storage.
+Sygnatury dostępu współdzielonego to ciągi, które — w przypadku dołączenia ich do adresu URL — zapewniają bezpieczny dostęp do kontenerów i obiektów blob w usłudze Azure Storage. Aplikacja DotNetTutorial używa adresów URL sygnatury dostępu współdzielonego kontenera i obiektów blob i służy do pokazania, jak uzyskać te ciągi sygnatur dostępu współdzielonego za pomocą usługi Storage.
 
 - **Sygnatury dostępu współdzielonego obiektów Blob**: funkcja StartTask puli w aplikacji DotNetTutorial używa sygnatur dostępu współdzielonego obiektów blob podczas pobierania danych binarnych aplikacji i plików danych wejściowych za pomocą usługi Storage (zobacz krok 3 poniżej). Metoda `UploadFileToContainerAsync` w elemencie `Program.cs` aplikacji DotNetTutorial obejmuje kod, który uzyskuje dostęp do sygnatur dostępu współdzielonego poszczególnych obiektów blob. Odbywa się to przez wywołanie funkcji [CloudBlob.GetSharedAccessSignature][net_sas_blob].
 
 - **Sygnatury dostępu współdzielonego kontenera**: gdy poszczególne podzadania zakończą pracę w węźle obliczeniowym, przekażą pliki wyjściowe do kontenera *wyjściowego* w usłudze Azure Storage. W tym celu funkcja TaskApplication używa sygnatury dostępu współdzielonego kontenera, która zapewnia prawo do zapisu w kontenerze w ramach ścieżki, gdy przekazuje plik. Uzyskiwanie sygnatury dostępu współdzielonego kontenera odbywa się w podobny sposób, jak w przypadku uzyskiwania sygnatury dostępu współdzielonego obiektów blob. W aplikacji DotNetTutorial będzie widać, że metoda pomocnika `GetContainerSasUrl` wywołuje w tym celu funkcję [CloudBlobContainer.GetSharedAccessSignature][net_sas_container]. Więcej informacji na temat sposobu, w jaki aplikacja TaskApplication korzysta z sygnatury dostępu współdzielonego kontenera znajduje się w sekcji „Krok 6: monitorowanie podzadań.”
 
-> [AZURE.TIP] Aby dowiedzieć się więcej o zapewnieniu bezpiecznego dostępu do danych na koncie usługi Storage, zapoznaj się z dwuczęściową serią dotyczącą sygnatur dostępu współdzielonego: [Part 1: Understanding the shared access signature (SAS) model](../storage/storage-dotnet-shared-access-signature-part-1.md) (Część 1: opis modelu sygnatury dostępu współdzielonego (SAS)) i [Part 2: Create and use a shared access signature (SAS) with the Blob service](../storage/storage-dotnet-shared-access-signature-part-2.md) (Część 2: tworzenie i korzystanie z sygnatury dostępu współdzielonego (SAS) za pomocą usługi Blob).
+> [AZURE.TIP] Aby dowiedzieć się więcej o zapewnieniu bezpiecznego dostępu do danych na koncie usługi Storage, zapoznaj się z dwuczęściową serią dotyczącą sygnatur dostępu współdzielonego: [Part 1: Understanding the shared access signature (SAS) model](../storage/storage-dotnet-shared-access-signature-part-1.md) (Część 1: opis modelu sygnatury dostępu współdzielonego [SAS]) i [Part 2: Create and use a shared access signature (SAS) with the Blob storage](../storage/storage-dotnet-shared-access-signature-part-2.md) (Część 2: tworzenie i korzystanie z sygnatury dostępu współdzielonego [SAS] w magazynie Blob Storage).
 
 ## Krok 3: tworzenie puli usługi Batch
 
 ![Tworzenie puli usługi Batch][3]
 <br/>
 
+**Pula** usługi Batch jest kolekcją węzłów obliczeniowych (maszyn wirtualnych), w których usługa Batch wykonuje podzadania danego zadania.
+
 Po przekazaniu aplikacji i plików danych na konto usługi Storage aplikacja *DotNetTutorial* wchodzi w interakcję z usługą Batch przy użyciu biblioteki usługi Batch dla platformy .NET. W tym celu tworzona jest najpierw funkcja [BatchClient][net_batchclient]:
 
-```
+```csharp
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(
     BatchAccountUrl,
     BatchAccountName,
@@ -296,7 +301,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
 
 Następnie tworzona jest pula węzłów obliczeniowych na koncie usługi Batch z wywołaniem funkcji `CreatePoolAsync`. `CreatePoolAsync` używa metody [BatchClient.PoolOperations.CreatePool][net_pool_create], aby utworzyć pulę w usłudze Batch.
 
-```
+```csharp
 private static async Task CreatePoolAsync(
     BatchClient batchClient,
     string poolId,
@@ -341,25 +346,27 @@ Podczas tworzenia puli za pomocą funkcji [CreatePool][net_pool_create] należy 
 
 > [AZURE.IMPORTANT] W usłudze Batch opłaty są naliczane za zasoby obliczeniowe. Aby zminimalizować koszty przed uruchomieniem próbki, można zmniejszyć parametr `targetDedicated` do 1.
 
-Wraz z fizycznymi właściwościami węzłów można też określić funkcję [StartTask][net_pool_starttask] dla puli. Funkcja StartTask zostanie wykonana w każdym węźle, gdy tylko węzeł ten zostanie dołączony do puli, oraz za każdym razem, gdy węzeł będzie uruchamiany ponownie. Funkcja StartTask jest szczególnie przydatna podczas instalowania aplikacji w węzłach obliczeniowych przed wykonaniem podzadań. Na przykład jeśli podzadania przetwarzają dane za pomocą skryptów języka Python, można użyć funkcji StartTask do zainstalowania języka Python w węzłach obliczeniowych.
+Wraz z fizycznymi właściwościami węzłów można też określić funkcję [StartTask][net_pool_starttask] dla puli. Funkcja StartTask jest wykonywana w każdym węźle, gdy tylko ten węzeł zostanie dołączony do puli, oraz za każdym razem, gdy węzeł będzie uruchamiany ponownie. Funkcja StartTask jest szczególnie przydatna podczas instalowania aplikacji w węzłach obliczeniowych przed wykonaniem podzadań. Na przykład jeśli podzadania przetwarzają dane za pomocą skryptów języka Python, można użyć funkcji StartTask do zainstalowania języka Python w węzłach obliczeniowych.
 
 W tej aplikacji przykładowej funkcja StartTask kopiuje pliki, które pobiera z usługi Storage (są one określone za pomocą właściwości [StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles]) z katalogu roboczego StartTask do katalogu udostępnionego, do którego mają dostęp *wszystkie* podzadania uruchomione w węźle. Powoduje to skopiowanie pliku `TaskApplication.exe` i jego zależności do udostępnionego katalogu w każdym węźle, gdy węzeł dołącza do puli, aby dostęp do niego miały wszystkie podzadania uruchomione w węźle.
 
 > [AZURE.TIP] Funkcja **pakietów aplikacji** w usłudze Azure Batch udostępnia inny sposób pobrania aplikacji do węzła obliczeniowego w puli. Szczegółowe informacje znajdują się w temacie [Application deployment with Azure Batch application packages](batch-application-packages.md) (Wdrażanie aplikacji za pomocą pakietów aplikacji w usłudze Azure Batch).
 
-W powyższym fragmencie kodu warto również zwrócić uwagę na użycie dwóch zmiennych środowiskowych we właściwości *CommandLine* funkcji StartTask: `%AZ_BATCH_TASK_WORKING_DIR%` i `%AZ_BATCH_NODE_SHARED_DIR%`. Każdy węzeł obliczeniowy w puli usługi Batch jest automatycznie konfigurowany za pomocą pewnej liczby zmiennych środowiskowych właściwych dla usługi Batch. Wszystkie procesy wykonywane przez zadanie mają dostęp do tych zmiennych środowiskowych.
+W powyższym fragmencie kodu warto również zwrócić uwagę na użycie dwóch zmiennych środowiskowych we właściwości *CommandLine* funkcji StartTask: `%AZ_BATCH_TASK_WORKING_DIR%` i `%AZ_BATCH_NODE_SHARED_DIR%`. Każdy węzeł obliczeniowy w puli usługi Batch jest automatycznie konfigurowany za pomocą kilku zmiennych środowiskowych właściwych dla usługi Batch. Wszystkie procesy wykonywane przez zadanie mają dostęp do tych zmiennych środowiskowych.
 
-> [AZURE.TIP] Informacje na temat zmiennych środowiskowych dostępnych w węzłach obliczeniowych w puli usługi Batch oraz katalogów roboczych podzadań znajdują się w sekcjach „Ustawienia środowiska dla podzadań” oraz „Pliki i katalogi” w [omówieniu funkcji usługi Azure Batch](batch-api-basics.md).
+> [AZURE.TIP] Informacje na temat zmiennych środowiskowych dostępnych w węzłach obliczeniowych w puli usługi Batch oraz katalogów roboczych podzadań znajdują się w sekcjach [Ustawienia środowiska dla podzadań](batch-api-basics.md#environment-settings-for-tasks) oraz [Pliki i katalogi](batch-api-basics.md#files-and-directories) w artykule [Batch feature overview for developers](batch-api-basics.md) (Omówienie funkcji usługi Batch dla deweloperów).
 
 ## Krok 4: tworzenie zadania w usłudze Batch
 
 ![Tworzenie zadania w usłudze Batch][4]<br/>
 
-Zadanie usługi Batch jest zasadniczo zbiorem podzadań skojarzonych z pulą węzłów obliczeniowych. Można go użyć nie tylko do organizowania i śledzenia podzadań w powiązanych obciążeniach, ale także do nakładania pewnych ograniczeń — takich jak maksymalny czas wykonywania zadania (a co za tym idzie podzadań, które ono obejmuje), a także priorytet zadania w odniesieniu do innych zadań na koncie usługi Batch. Jednak w tym przykładzie zadanie jest skojarzone tylko z pulą, która została utworzona w kroku 3. Żadne dodatkowe właściwości nie są konfigurowane.
+**Zadanie** usługi Batch jest kolekcją podzadań i jest skojarzone z pulą węzłów obliczeniowych. Podzadania tego zadania są wykonywane w węzłach obliczeniowych skojarzonej puli.
 
-Wszystkie zadania usługi Batch są skojarzone z określoną pulą. To skojarzenie wskazuje, w których węzłach będą wykonywane podzadania wchodzące w skład zadania.  Należy to określić za pomocą właściwości [CloudJob.PoolInformation][net_job_poolinfo], jak pokazano we fragmencie kodu poniżej.
+Zadań można użyć nie tylko do organizowania i śledzenia podzadań w powiązanych obciążeniach, ale także do nakładania pewnych ograniczeń — takich jak maksymalny czas wykonywania zadania (a co za tym idzie podzadań, które ono obejmuje), a także priorytet zadania w odniesieniu do innych zadań w ramach konta usługi Batch. Jednak w tym przykładzie zadanie jest skojarzone tylko z pulą, która została utworzona w kroku 3. Żadne dodatkowe właściwości nie są konfigurowane.
 
-```
+Wszystkie zadania usługi Batch są skojarzone z określoną pulą. To skojarzenie wskazuje, w których węzłach będą wykonywane podzadania wchodzące w skład zadania. Należy to określić za pomocą właściwości [CloudJob.PoolInformation][net_job_poolinfo], jak pokazano we fragmencie kodu poniżej.
+
+```csharp
 private static async Task CreateJobAsync(
     BatchClient batchClient,
     string jobId,
@@ -380,11 +387,13 @@ Teraz, kiedy zadanie zostało utworzone, są dodawane podzadania, aby wykonać p
 ## Krok 5: dodawanie podzadań do zadania
 
 ![Dodawanie podzadań do zadania][5]<br/>
-*(1) Podzadania są dodawane do zadania, (2) podzadania zostają zaplanowane do uruchomienia w węzłach i (3) podzadania pobierają pliki danych do przetworzenia*
+*(1) Podzadania są dodawane do zadania, (2) podzadania są planowane do uruchomienia w węzłach i (3) podzadania pobierają pliki danych do przetwarzania*
+
+**Podzadania** usługi Batch to pojedyncze jednostki robocze, które są wykonywane w węzłach obliczeniowych. Podzadanie ma wiersz polecenia i uruchamia skrypty lub pliki wykonywalne określone w tym wierszu polecenia.
 
 Aby praca została rzeczywiście wykonana, należy dodać podzadania do zadania. Każda funkcja [CloudTask][net_task] jest skonfigurowana za pomocą właściwości wiersza polecenia i funkcji [ResourceFiles][net_task_resourcefiles] (tak jak w przypadku funkcji StartTask puli), którą podzadanie pobiera do węzła, zanim zostanie wykonany automatycznie jego wiersz polecenia. W przykładowym projekcie aplikacji *DotNetTutorial* każde podzadanie przetwarza tylko jeden plik. W związku z tym jego kolekcja ResourceFiles zawiera jeden element.
 
-```
+```csharp
 private static async Task<List<CloudTask>> AddTasksAsync(
     BatchClient batchClient,
     string jobId,
@@ -431,7 +440,7 @@ W pętli `foreach` w powyższym fragmencie kodu widać, że wiersz polecenia dla
 
 3. **Trzeci argument** jest sygnaturą dostępu współdzielonego (SAS), która zapewnia prawo do zapisu kontenera **wyjściowego** w usłudze Azure Storage. Plik *TaskApplication.exe* korzysta z tego adresu URL sygnatury dostępu współdzielonego, gdy przekazuje plik wyjściowy do usługi Azure Storage. Kod do tej czynności można znaleźć w metodzie `UploadFileToContainer` w pliku `Program.cs` projektu funkcji TaskApplication:
 
-```
+```csharp
 // NOTE: From project TaskApplication Program.cs
 
 private static void UploadFileToContainer(string filePath, string containerSas)
@@ -483,7 +492,7 @@ W metodzie `MonitorTasks` w parametrze `Program.cs` programu DotNetTutorial istn
 
 Metoda `MonitorTasks` z pliku aplikacji *DotNetTutorial* `Program.cs` jest wyświetlana poniżej:
 
-```
+```csharp
 private static async Task<bool> MonitorTasks(
     BatchClient batchClient,
     string jobId,
@@ -494,75 +503,72 @@ private static async Task<bool> MonitorTasks(
     const string failureMessage = "One or more tasks failed to reach the Completed state within the timeout period.";
 
     // Obtain the collection of tasks currently managed by the job. Note that we use
-    // a detail level to specify that only the "id" property of each task should be
+    // a detail level to  specify that only the "id" property of each task should be
     // populated. Using a detail level for all list operations helps to lower
     // response time from the Batch service.
     ODATADetailLevel detail = new ODATADetailLevel(selectClause: "id");
     List<CloudTask> tasks =
         await batchClient.JobOperations.ListTasks(JobId, detail).ToListAsync();
 
-    Console.WriteLine("Awaiting task completion, timeout in {0}...", timeout.ToString());
+    Console.WriteLine("Awaiting task completion, timeout in {0}...",
+        timeout.ToString());
 
     // We use a TaskStateMonitor to monitor the state of our tasks. In this case, we
     // will wait for all tasks to reach the Completed state.
-    TaskStateMonitor taskStateMonitor = batchClient.Utilities.CreateTaskStateMonitor();
-    bool timedOut = await taskStateMonitor.WaitAllAsync(
-        tasks,
-        TaskState.Completed,
-        timeout);
+    TaskStateMonitor taskStateMonitor
+        = batchClient.Utilities.CreateTaskStateMonitor();
 
-    if (timedOut)
+    try
     {
-        allTasksSuccessful = false;
-
-        await batchClient.JobOperations.TerminateJobAsync(jobId, failureMessage);
-
-        Console.WriteLine(failureMessage);
+        await taskStateMonitor.WhenAll(tasks, TaskState.Completed, timeout);
     }
-    else
+    catch (TimeoutException)
     {
-        await batchClient.JobOperations.TerminateJobAsync(jobId, successMessage);
+        await batchClient.JobOperations.TerminateJobAsync(jobId, failureMessage);
+        Console.WriteLine(failureMessage);
+        return false;
+    }
 
-        // All tasks have reached the "Completed" state. However, this does not
-        // guarantee that all tasks were completed successfully. Here we further
-        // check each task's ExecutionInfo property to ensure that it did not
-        // encounter a scheduling error or return a non-zero exit code.
+    await batchClient.JobOperations.TerminateJobAsync(jobId, successMessage);
 
-        // Update the detail level to populate only the task id and executionInfo
-        // properties. We refresh the tasks below, and need only this information
-        // for each task.
-        detail.SelectClause = "id, executionInfo";
+    // All tasks have reached the "Completed" state, however, this does not
+    // guarantee all tasks completed successfully. Here we further check each task's
+    // ExecutionInfo property to ensure that it did not encounter a scheduling error
+    // or return a non-zero exit code.
 
-        foreach (CloudTask task in tasks)
+    // Update the detail level to populate only the task id and executionInfo
+    // properties. We refresh the tasks below, and need only this information for
+    // each task.
+    detail.SelectClause = "id, executionInfo";
+
+    foreach (CloudTask task in tasks)
+    {
+        // Populate the task's properties with the latest info from the
+        // Batch service
+        await task.RefreshAsync(detail);
+
+        if (task.ExecutionInformation.SchedulingError != null)
         {
-            // Populate the task's properties with the latest info from the Batch service
-            await task.RefreshAsync(detail);
+            // A scheduling error indicates a problem starting the task on the node.
+            // It is important to note that the task's state can be "Completed," yet
+            // still have encountered a scheduling error.
 
-            if (task.ExecutionInformation.SchedulingError != null)
-            {
-                // A scheduling error indicates a problem starting the task on the
-                // node. It is important to note that the task's state can be
-                // "Completed," yet the task still might have encountered a
-                // scheduling error.
+            allTasksSuccessful = false;
 
-                allTasksSuccessful = false;
+            Console.WriteLine("WARNING: Task [{0}] encountered a scheduling error: {1}",
+                task.Id,
+                task.ExecutionInformation.SchedulingError.Message);
+        }
+        else if (task.ExecutionInformation.ExitCode != 0)
+        {
+            // A non-zero exit code may indicate that the application executed by
+            // the task encountered an error during execution. As not every
+            // application returns non-zero on failure by default (e.g. robocopy),
+            // your implementation of error checking may differ from this example.
 
-                Console.WriteLine(
-                    "WARNING: Task [{0}] encountered a scheduling error: {1}",
-                    task.Id,
-                    task.ExecutionInformation.SchedulingError.Message);
-            }
-            else if (task.ExecutionInformation.ExitCode != 0)
-            {
-                // A non-zero exit code may indicate that the application executed by
-                // the task encountered an error during execution. As not every
-                // application returns non-zero on failure by default (e.g. robocopy),
-                // your implementation of error checking may differ from this example.
+            allTasksSuccessful = false;
 
-                allTasksSuccessful = false;
-
-                Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
-            }
+            Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
         }
     }
 
@@ -581,7 +587,7 @@ private static async Task<bool> MonitorTasks(
 
 Po ukończeniu zadania można pobrać dane wyjściowe podzadań przy użyciu usługi Azure Storage. Odbywa się to przy użyciu wywołania do funkcji `DownloadBlobsFromContainerAsync` w pliku `Program.cs` *DotNetTutorial*:
 
-```
+```csharp
 private static async Task DownloadBlobsFromContainerAsync(
     CloudBlobClient blobClient,
     string containerName,
@@ -615,7 +621,7 @@ private static async Task DownloadBlobsFromContainerAsync(
 
 Ponieważ użytkownik jest rozliczany za dane przechowywane w usłudze Azure Storage, zawsze dobrym rozwiązaniem jest usunięcie wszystkich obiektów blob, które nie są już potrzebne do zadań w ramach usługi Batch. W pliku `Program.cs` programu DotNetTutorial odbywa się to przy użyciu trzech wywołań do metody pomocy `DeleteContainerAsync`:
 
-```
+```csharp
 // Clean up Storage resources
 await DeleteContainerAsync(blobClient, appContainerName);
 await DeleteContainerAsync(blobClient, inputContainerName);
@@ -624,7 +630,7 @@ await DeleteContainerAsync(blobClient, outputContainerName);
 
 Sama metoda jedynie uzyskuje dowołanie do kontenera, a następnie wywołuje funkcję [CloudBlobContainer.DeleteIfExistsAsync][net_container_delete]:
 
-```
+```csharp
 private static async Task DeleteContainerAsync(
     CloudBlobClient blobClient,
     string containerName)
@@ -649,7 +655,7 @@ W ostatnim kroku zostaje wyświetlony monit o usunięcie zadania i puli, które 
 
 W przypadku obu funkcji [JobOperations][net_joboperations] i [PoolOperations][net_pooloperations]BatchClient istnieją odpowiednie metody usuwania, które są wywoływane, jeśli użytkownik potwierdzi usunięcie:
 
-```
+```csharp
 // Clean up the resources we've created in the Batch account if the user so chooses
 Console.WriteLine();
 Console.WriteLine("Delete job? [yes] no");
@@ -671,7 +677,7 @@ if (response != "n" && response != "no")
 
 ## Uruchamianie aplikacji przykładowej *DotNetTutorial*
 
-Po uruchomieniu aplikacji przykładowej dane wyjściowe w konsoli będą wyglądać mniej więcej w taki sposób. W czasie wykonywania nastąpi wstrzymanie operacji w momencie wyświetlenia paska zadań `Awaiting task completion, timeout in 00:30:00...` podczas uruchamiania węzłów obliczeniowych puli. Użyj programu [Batch Explorer][github_batchexplorer] do monitorowania puli, węzłów obliczeniowych, zadania i podzadań w trakcie wykonywania i po nim. Użyj [portalu Azure][azure_portal] lub jednego z [dostępnych eksploratorów usługi Azure Storage][storage_explorers] do wyświetlania zasobów usługi Storage (kontenerów i obiektów blob) tworzonych przez aplikację.
+Po uruchomieniu aplikacji przykładowej dane wyjściowe w konsoli będą wyglądać mniej więcej w taki sposób. W czasie wykonywania nastąpi wstrzymanie operacji w momencie wyświetlenia paska zadań `Awaiting task completion, timeout in 00:30:00...` podczas uruchamiania węzłów obliczeniowych puli. Użyj witryny [Azure Portal][azure_portal] do monitorowania puli, węzłów obliczeniowych, zadania i podzadań w trakcie wykonywania i po nim. Użyj witryny [Azure Portal][azure_portal] lub programu [Azure Storage Explorer][storage_explorers] do wyświetlania zasobów usługi Storage (kontenerów i obiektów blob) tworzonych przez aplikację.
 
 Typowy czas wykonywania wynosi **mniej więcej 5 minut** w przypadku uruchomienia aplikacji w konfiguracji domyślnej.
 
@@ -708,20 +714,18 @@ Sample complete, hit ENTER to exit...
 
 ## Następne kroki
 
-Możesz swobodnie wprowadzać zmiany w funkcjach *DotNetTutorial* i *TaskApplication*, aby eksperymentować z różnymi scenariuszami obliczeniowymi. Spróbuj na przykład dodać opóźnienie wykonywania do funkcji *TaskApplication*, tak jak w przypadku funkcji [Thread.Sleep][net_thread_sleep], w celu symulowania podzadań długotrwałych i monitorowania ich za pomocą funkcji *Mapa cieplna* programu Batch Explorer. Spróbuj dodać więcej podzadań lub dostosować liczbę węzłów obliczeniowych. Dodaj logikę, pod kątem której będzie odbywać się sprawdzanie, i zezwól na użycie istniejącej puli, aby przyspieszyć czas wykonywania (*wskazówka*: zobacz plik `ArticleHelpers.cs` w projekcie [Microsoft.Azure.Batch.Samples.Common][github_samples_common] w [azure-batch-samples][github_samples]).
+Możesz swobodnie wprowadzać zmiany w funkcjach *DotNetTutorial* i *TaskApplication*, aby eksperymentować z różnymi scenariuszami obliczeniowymi. Spróbuj na przykład dodać opóźnienie wykonywania do funkcji *TaskApplication*, tak jak w przypadku funkcji [Thread.Sleep][net_thread_sleep], w celu symulowania podzadań długotrwałych i monitorowania ich w portalu. Spróbuj dodać więcej podzadań lub dostosować liczbę węzłów obliczeniowych. Dodaj logikę, pod kątem której będzie odbywać się sprawdzanie, i zezwól na użycie istniejącej puli, aby przyspieszyć czas wykonywania (*wskazówka*: zobacz plik `ArticleHelpers.cs` w projekcie [Microsoft.Azure.Batch.Samples.Common][github_samples_common] w [azure-batch-samples][github_samples]).
 
 Po zapoznaniu się z podstawowym przepływem pracy rozwiązania w usłudze Batch nadszedł czas, aby poszerzyć wiedzę na temat dodatkowych funkcji tej usługi.
 
-- Przejrzyj artykuł [Overview of Azure Batch features](batch-api-basics.md) (Omówienie funkcji w usłudze Azure Batch), który zalecamy użytkownikom rozpoczynającym korzystanie z tej usługi.
+- Przeczytaj artykuł [Batch feature overview for developers](batch-api-basics.md) (Omówienie funkcji usługi Batch dla deweloperów) zalecany dla wszystkich nowych użytkowników usługi Batch.
 - Przeczytaj inne artykuły dotyczące programowania w usłudze Batch w części **Development in-depth** (Szczegółowy opis programowania) w [ścieżce szkoleniowej dotyczącej usługi Batch][batch_learning_path].
 - Zapoznaj się z innym wdrożeniem przetwarzania obciążenia „najważniejsze słowa N” przez użycie usługi Batch w próbce funkcji [TopNWords][github_topnwords].
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
-[batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
-[blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
 [github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [github_dotnettutorial]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/DotNetTutorial
 [github_samples]: https://github.com/Azure/azure-batch-samples
@@ -760,9 +764,9 @@ Po zapoznaniu się z podstawowym przepływem pracy rozwiązania w usłudze Batch
 [net_taskstatemonitor]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskstatemonitor.aspx
 [net_thread_sleep]: https://msdn.microsoft.com/library/274eh01d(v=vs.110).aspx
 [net_virtualmachineconfiguration]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.virtualmachineconfiguration.aspx
-[nuget_packagemgr]: https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
+[nuget_packagemgr]: https://docs.nuget.org/consume/installing-nuget
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
-[storage_explorers]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx
+[storage_explorers]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Tworzenie kontenerów w usłudze Azure Storage"
@@ -779,6 +783,6 @@ Po zapoznaniu się z podstawowym przepływem pracy rozwiązania w usłudze Batch
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

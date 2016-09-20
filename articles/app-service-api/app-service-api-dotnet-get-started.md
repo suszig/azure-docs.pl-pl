@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="dotnet"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/27/2016"
-    ms.author="tdykstra"/>
+    ms.date="08/19/2016"
+    ms.author="rachelap"/>
 
 # Wprowadzenie do usługi API Apps, platformy ASP.NET i programu Swagger w usłudze Azure App Service
 
@@ -233,13 +233,13 @@ W tej sekcji użyjemy narzędzi platformy Azure zintegrowanych z kreatorem **Pub
 
     Jeśli wprowadzona nazwa została już użyta przez inną osobę, z prawej strony będzie widoczny czerwony wykrzyknik.
 
-    Adres URL aplikacji interfejsu API to `{APi app name}.azurewebsites.net`.
+    Adres URL aplikacji interfejsu API to `{API app name}.azurewebsites.net`.
 
 6. Na liście **Grupa zasobów** kliknij pozycję **Nowa**, a następnie wprowadź ciąg „ToDoListGroup” lub inną wybraną nazwę. 
 
     Grupa zasobów to kolekcja zasobów platformy Azure, takich jak aplikacje interfejsu API, bazy danych i maszyny wirtualne. Do celów tego samouczka najlepiej utworzyć nową grupę zasobów, ponieważ ułatwi to usunięcie w jednym kroku wszystkich zasobów platformy Azure utworzonych na potrzeby samouczka.
 
-    To pole pozwala wybrać istniejącą [grupę zasobów](../azure-portal/resource-group-portal.md) lub utworzyć nową przez wpisanie nazwy, która różni się od wszystkich istniejących nazw grup zasobów w subskrypcji użytkownika.
+    To pole pozwala wybrać istniejącą [grupę zasobów](../resource-group-overview.md) lub utworzyć nową przez wpisanie nazwy, która różni się od wszystkich istniejących nazw grup zasobów w subskrypcji użytkownika.
 
 4. Kliknij przycisk **Nowy** obok listy rozwijanej **Plan usługi App Service**.
 
@@ -391,7 +391,7 @@ W projekcie ToDoListAPI kod klienta został już wygenerowany, ale w poniższych
 
     Parametr konstruktora pobiera końcowy adres URL z ustawienia aplikacji `toDoListDataAPIURL`. W pliku Web.config tej wartości przypisano adres URL lokalnego serwera IIS Express projektu interfejsu API, aby umożliwić lokalne uruchamianie aplikacji. W przypadku pominięcia parametru konstruktora domyślny punkt końcowy jest adresem URL użytym do wygenerowania kodu.
 
-6. Wygenerowana klasa klienta będzie mieć inną nazwę, zależną od nazwy aplikacji interfejsu API. Zmień kod w pliku *Controllers\ToDoListController.cs*, tak aby nazwa typu była zgodna z danymi wygenerowanymi w projekcie. Jeśli na przykład aplikacja interfejsu API nosi nazwę ToDoListDataAPI0121, w kodzie:
+6. Wygenerowana klasa klienta będzie mieć inną nazwę, zależną od nazwy aplikacji interfejsu API. Zmień kod w pliku *Controllers\ToDoListController.cs*, tak aby nazwa typu była zgodna z danymi wygenerowanymi w projekcie. Jeśli na przykład aplikacja interfejsu API nosi nazwę ToDoListDataAPI071316, w kodzie:
 
         private static ToDoListDataAPI NewDataAPIClient()
         {
@@ -399,9 +399,9 @@ W projekcie ToDoListAPI kod klienta został już wygenerowany, ale w poniższych
 
 wprowadź następujące zmiany:
 
-        private static ToDoListDataAPI0121 NewDataAPIClient()
+        private static ToDoListDataAPI071316 NewDataAPIClient()
         {
-            var client = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
+            var client = new ToDoListDataAPI071316(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 
 
 ## Tworzenie aplikacji interfejsu API w celu hostowania warstwy środkowej
@@ -445,7 +445,7 @@ Jeśli teraz wywołasz aplikację interfejsu API warstwy środkowej, spróbuje o
   	| **Klucz** | toDoListDataAPIURL |
   	|---|---|
   	| **Wartość** | https://{nazwa aplikacji interfejsu API warstwy danych}.azurewebsites.net |
-  	| **Przykład** | https://todolistdataapi0121.azurewebsites.net |
+  	| **Przykład** | https://todolistdataapi.azurewebsites.net |
 
 4. Kliknij pozycję **Zapisz**.
 
@@ -493,6 +493,6 @@ Użycie szablonu projektu **aplikacji interfejsu API na platformie Azure** jest 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

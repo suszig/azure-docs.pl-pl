@@ -14,7 +14,7 @@
     ms.devlang="node"
     ms.topic="get-started-article"
     ms.date="05/26/2016"
-    ms.author="bradygaster"/>
+    ms.author="rachelap"/>
 
 # Kompilowanie interfejsu API RESTful środowiska Node.js i wdrażanie go w aplikacji interfejsu API na platformie Azure
 
@@ -193,13 +193,13 @@ W tej sekcji opisano sposób tworzenia nowej aplikacji interfejsu API na platfor
 
 6. Na liście **Grupa zasobów** kliknij pozycję **Nowa**, a następnie w polu **Nazwa nowej grupy zasobów** wprowadź ciąg „NodejsAPIAppGroup” lub inną wybraną nazwę. 
 
-    [Grupa zasobów](../azure-portal/resource-group-portal.md) to kolekcja zasobów platformy Azure, takich jak Aplikacje interfejsu API, bazy danych i maszyny wirtualne. Do celów tego samouczka najlepiej utworzyć nową grupę zasobów, ponieważ ułatwi to usunięcie w jednym kroku wszystkich zasobów platformy Azure utworzonych na potrzeby samouczka.
+    [Grupa zasobów](../resource-group-overview.md) to kolekcja zasobów platformy Azure, takich jak Aplikacje interfejsu API, bazy danych i maszyny wirtualne. Do celów tego samouczka najlepiej utworzyć nową grupę zasobów, ponieważ ułatwi to usunięcie w jednym kroku wszystkich zasobów platformy Azure utworzonych na potrzeby samouczka.
 
 4. Kliknij pozycję **Plan/lokalizacja usługi App Service**, a następnie kliknij pozycję **Utwórz nowe**.
 
     ![Tworzenie planu usługi App Service](./media/app-service-api-nodejs-api-app/newappserviceplan.png)
 
-    Poniższe kroki umożliwiają utworzenie planu usługi App Service dla nowej grupy zasobów. Plan usługi App Service określa zasoby obliczeniowe, których używa aplikacja interfejsu API. Jeśli na przykład wybierzesz warstwę Bezpłatna, aplikacja interfejsu API będzie działać na udostępnionych maszynach wirtualnych. W przypadku niektórych warstw płatnych będzie ona działać na dedykowanych maszynach wirtualnych. Aby uzyskać informacje o planach usługi App Service, zobacz temat [Omówienie planów usługi App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+    Poniższe kroki umożliwiają utworzenie planu usługi App Service dla nowej grupy zasobów. Plan usługi App Service określa zasoby obliczeniowe, których używa aplikacja interfejsu API. Jeśli na przykład wybierzesz warstwę Bezpłatna, aplikacja interfejsu API będzie działać na udostępnionych maszynach wirtualnych. W przypadku niektórych warstw płatnych będzie ona działać na specjalnych maszynach wirtualnych. Aby uzyskać informacje o planach usługi App Service, zobacz temat [Omówienie planów usługi App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 5. W bloku **Plan usługi App Service** wprowadź ciąg „NodejsAPIAppPlan” lub inną wybraną nazwę.
 
@@ -314,6 +314,6 @@ Na tym etapie pomyślnie zakończono tworzenie aplikacji interfejsu API i wdraż
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

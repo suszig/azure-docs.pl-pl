@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/26/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Pojęcia dotyczące usługi Azure Mobile Engagement
@@ -87,6 +87,6 @@ Całe drzewo par klucz/wartość jest przechowywane jako obiekt JSON. Jednak tyl
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

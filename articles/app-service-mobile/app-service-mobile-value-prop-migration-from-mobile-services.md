@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-multiple"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/03/2016"
+    ms.date="06/30/2016"
     ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Korzystam z usługi Mobile Services. Jak usługa App Service może mi pomóc?
@@ -31,7 +31,7 @@ Istniejąca Usługa mobilna jest bezpieczna i pozostanie objęta pomocą technic
 - Wbudowane możliwości wdrażania przejściowego, tworzenia kopii zapasowych, wycofywania i testowania w produkcji
 
 ## Nowe funkcje hostingu
-W *usłudze Azure App Service* kod zaplecza *Aplikacji mobilnej* działa w tym samym kontenerze co Aplikacja sieci Web i Aplikacja interfejsu API. W związku z tym możesz korzystać ze wszystkich funkcji w tym kontenerze, w tym z niektórych funkcji, które nie są aktualnie dostępne w usłudze Mobile Services:
+W *usłudze Azure App Service* kod zaplecza *plikacji mobilnej* działa w tym samym kontenerze co aplikacja sieci Web i aplikacja interfejsu API. W związku z tym możesz korzystać ze wszystkich funkcji w tym kontenerze, w tym z niektórych funkcji, które nie są aktualnie dostępne w usłudze Mobile Services:
 
 - Dodawanie działającej w sposób ciągły logiki zaplecza za pośrednictwem zadań Web Job.
 - Sprawdzanie, czy kod zaplecza zawsze działa.
@@ -42,7 +42,7 @@ W *usłudze Azure App Service* kod zaplecza *Aplikacji mobilnej* działa w tym s
 - (Node.js) Korzystanie z dowolnej czystej biblioteki języka JavaScript ekosystemu języka Node, w tym wspólnych bibliotek MVC.
 
 ##Dostęp do danych lokalnych przy użyciu sieci wirtualnej
-Obecnie w usłudze Mobile Services można już uzyskiwać dostęp do zasobów lokalnych za pomocą połączeń hybrydowych. W niektórych sytuacjach preferowane jest jednak użycie rozwiązania VPN. *Usługa Azure App Service* umożliwia korzystanie z sieci wirtualnej platformy Azure na potrzeby kodu zaplecza Aplikacji mobilnej.
+Obecnie w usłudze Mobile Services można już uzyskiwać dostęp do zasobów lokalnych za pomocą połączeń hybrydowych. W niektórych sytuacjach preferowane jest jednak użycie rozwiązania VPN. *Usługa Azure App Service* umożliwia korzystanie z sieci wirtualnej platformy Azure na potrzeby kodu zaplecza aplikacji mobilnej.
 
 ##Korzystanie z ulubionego języka zaplecza
 *Usługa Azure App Service* oferuje bardziej rozbudowaną i zaawansowaną obsługę platform ASP.NET i Node.js, w tym dostęp do najnowszych środowisk uruchomieniowych.
@@ -51,7 +51,7 @@ Obecnie w usłudze Mobile Services można już uzyskiwać dostęp do zasobów lo
 W przypadku usługi Mobile Services wszystkie wystąpienia kodu zaplecza były uruchamiane na małych maszynach wirtualnych. *Usługa Azure App Service* umożliwia wybranie rozmiaru maszyn wirtualnych ze znacznie większego zestawu opcji. Możesz szybko skalować w górę lub w poziomie, co pozwala na obsługę dowolnych przychodzących obciążeń klientów w oparciu o różne metryki wydajności.
 
 ##Trzymaj rękę na pulsie
-Reaguj na problemy w czasie rzeczywistym dzięki możliwościom automatycznego powiadamiania Ciebie i Twojego zespołu za pomocą funkcji monitorowania i alertów. Integruj zaawansowane funkcje monitorowania i analizy aplikacji z usług New Relic i AppInsights w celu uzyskania bardziej szczegółowego wglądu w sposób działania aplikacji mobilnej. W *usłudze Azure App Service* możesz teraz konfigurować alerty oparte na różnych metrykach wydajności — programowo i za pośrednictwem portalu Azure.
+Reaguj na problemy w czasie rzeczywistym dzięki możliwościom automatycznego powiadamiania Ciebie i Twojego zespołu za pomocą funkcji monitorowania i alertów. Integruj zaawansowane funkcje monitorowania i analizy aplikacji z usług New Relic i AppInsights w celu uzyskania bardziej szczegółowego wglądu w sposób działania aplikacji mobilnej. W *usłudze Azure App Service* możesz teraz konfigurować alerty oparte na różnych metrykach wydajności — programowo i za pośrednictwem witryny Azure Portal.
 
 ##Zabezpieczanie zasobów
 Automatycznie twórz kopię zapasową zaplecza i bazy danych. Kod i dane są chronione przed awariami. Można je też łatwo przywrócić, aby zapewnić firmie pewność działania.
@@ -64,6 +64,6 @@ Aby rozpocząć korzystanie z zalet *usługi App Service* dla istniejącej Usłu
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

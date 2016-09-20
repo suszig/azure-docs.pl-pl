@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/31/2016"
+    ms.date="08/15/2016"
     ms.author="mbaldwin" />
 
 
 
 # Jak wypróbować usługę Azure RemoteApp na swoim urządzeniu w nie więcej niż trzy minuty
+
+> [AZURE.IMPORTANT]
+> Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Chcesz przetestować usługę Azure RemoteApp na swoim urządzeniu? Jeśli masz konto Microsoft, możesz uzyskać 10-minutowy dostęp do usługi demonstracyjnej. Udostępniamy w niej pakiet Office i kilka innych aplikacji. To doskonały sposób na wypróbowanie możliwości usługi Azure RemoteApp w nie więcej niż trzy minuty.
 
@@ -37,6 +40,6 @@ Zależy nam na Twojej opinii. Po zakończeniu każdej sesji pojawi się okno dia
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

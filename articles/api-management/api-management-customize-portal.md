@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # Dostosowywanie portalu dla deweloperów w usłudze Azure API Management
@@ -78,7 +78,7 @@ Kliknij stronę **Zapraszamy**, aby edytować zawartość strony głównej porta
 
 ## <a name="next-steps"> </a>Następne kroki
 
--   Poznaj inne tematy w samouczku [Get started with advanced API configuration][] (Wprowadzenie do zaawansowanej konfiguracji interfejsu API).
+-   Dowiedz się, w jaki sposób dostosować zawartość portalu dla deweloperów przy użyciu [szablonów portalu dla deweloperów](api-management-developer-portal-templates.md).
 
 [Zmiana tekstu lub logo w nagłówkach stron]: #change-page-headers
 [Zmiana stylu nagłówków]: #change-headers-styling
@@ -95,12 +95,11 @@ Kliknij stronę **Zapraszamy**, aby edytować zawartość strony głównej porta
 [api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
 
 
-[Get started with advanced API configuration]: api-management-get-started-advanced.md
 [bootstrap]: http://getbootstrap.com/
 [zmiennymi LESS]: http://getbootstrap.com/css/
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

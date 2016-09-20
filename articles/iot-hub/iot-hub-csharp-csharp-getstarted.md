@@ -13,26 +13,12 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/22/2016"
+     ms.date="06/16/2016"
      ms.author="dobett"/>
 
 # Usługa Azure IoT Hub dla środowiska .NET — wprowadzenie
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
-
-## Wprowadzenie
-
-Azure IoT Hub to w pełni zarządzana usługa, która umożliwia bezpieczną i niezawodną komunikację dwukierunkową między milionami urządzeń Internetu rzeczy (IoT) i zapleczem rozwiązania. Jedno z największych wyzwań w projektach IoT polega na tym, jak w sposób niezawodny i bezpieczny połączyć urządzenia z zapleczem rozwiązania. Problem ten można rozwiązać, ponieważ usługa IoT Hub:
-
-- Zapewnia niezawodne przesyłanie komunikatów z urządzeń do chmury i z chmury do urządzeń w hiperskali;
-- Umożliwia bezpieczne komunikowanie się przy użyciu poświadczeń zabezpieczeń i kontroli dostępu dla poszczególnych urządzeń;
-- Zawiera biblioteki urządzeń dla najbardziej popularnych języków i platform.
-
-Ten samouczek przedstawia sposób wykonania następujących czynności:
-
-- Użycie portalu Azure do utworzenia centrum IoT.
-- Utworzenie tożsamości urządzenia w centrum IoT.
-- Utworzenie symulowanego urządzenia, które wysyła telemetrię do zaplecza chmury i odbiera z niego polecenia.
 
 Na końcu tego samouczka zostaną opisane trzy aplikacje konsoli środowiska Windows:
 
@@ -74,7 +60,7 @@ W tej sekcji utworzysz aplikację konsoli środowiska Windows, która tworzy now
 5. Dodaj następujące pola do klasy **Program**: Zastąp wartość symbolu zastępczego parametrami połączenia dla centrum IoT utworzonego w poprzedniej sekcji.
 
         static RegistryManager registryManager;
-        static string connectionString = "{iothub connection string}";
+        static string connectionString = "{iot hub connection string}";
 
 6. Dodaj następującą metodę do klasy **Program**:
 
@@ -243,11 +229,11 @@ Ten samouczek zawiera instrukcje tworzenia klienta urządzenia usługi IoT Hub. 
 
 Teraz można uruchomić aplikacje.
 
-1.  W programie Visual Studio w Eksploratorze rozwiązań kliknij rozwiązanie prawym przyciskiem myszy, a następnie kliknij przycisk **Ustaw projekty startowe**. Wybierz opcję **Wiele projektów startowych**, a następnie wybierz opcję **Start** jako akcję dla projektów **ProcessDeviceToCloudMessages** i **SimulatedDevice**.
+1.  W programie Visual Studio w Eksploratorze rozwiązań kliknij rozwiązanie prawym przyciskiem myszy, a następnie kliknij przycisk **Ustaw projekty startowe**. Wybierz opcję **Wiele projektów startowych**, a następnie wybierz opcję **Uruchom** jako akcję dla projektów **ReadDeviceToCloudMessages** i **SimulatedDevice**.
 
     ![Właściwości projektu startowego][41]
 
-2.  Naciśnij klawisz **F5**, aby uruchomić obie aplikacje. Dane wyjściowe konsoli z aplikacji **SimulatedDevice** zawierają komunikaty, które symulowane urządzenie wysyła do centrum IoT. Dane wyjściowe konsoli z aplikacji **ProcessDeviceToCloudMessages** zawierają komunikaty odbierane w centrum IoT.
+2.  Naciśnij klawisz **F5**, aby uruchomić obie aplikacje. Dane wyjściowe konsoli z aplikacji **SimulatedDevice** zawierają komunikaty, które symulowane urządzenie wysyła do centrum IoT. Dane wyjściowe konsoli z aplikacji **ReadDeviceToCloudMessages** zawierają komunikaty odbierane przez centrum IoT.
 
     ![Dane wyjściowe konsoli z aplikacji][42]
 
@@ -258,11 +244,15 @@ Teraz można uruchomić aplikacje.
 
 ## Następne kroki
 
-W tym samouczku opisano konfigurowanie nowego centrum IoT w portalu, a następnie tworzenie tożsamości urządzenia w rejestrze tożsamości centrum. Tożsamość urządzenia została użyta, aby włączyć w aplikacji symulowanego urządzenia funkcję wysyłania komunikatów z urządzenia do chmury do centrum. Utworzono również aplikację, która wyświetla komunikaty odbierane przez centrum. Dalsze informacje na temat funkcji centrum IoT oraz innych scenariuszy IoT znajdują się w następujących samouczkach:
+W tym samouczku opisano konfigurowanie nowego centrum IoT w portalu, a następnie tworzenie tożsamości urządzenia w rejestrze tożsamości centrum. Tożsamość urządzenia została użyta, aby włączyć w aplikacji symulowanego urządzenia funkcję wysyłania komunikatów z urządzenia do chmury do centrum. Utworzono również aplikację, która wyświetla komunikaty odbierane przez centrum. 
 
-- W artykule [Send Cloud-to-Device messages with IoT Hub] (Wysyłanie komunikatów z chmury do urządzenia przy użyciu usługi IoT Hub)[lnk-c2d-tutorial] przedstawiono, jak wysyłać komunikaty do urządzeń i przetwarzać odebrane informacje zwrotne wygenerowane w usłudze IoT Hub.
-- Artykuł [Process Device-to-Cloud messages] (Przetwarzanie komunikatów z urządzenia do chmury)[lnk-process-d2c-tutorial] przedstawia, jak w sposób niezawodny przetwarzać telemetrię i komunikaty interaktywne pochodzące z urządzeń.
-- W artykule [Uploading files from devices] (Przekazywanie plików z urządzeń)[lnk-upload-tutorial] opisano wzorzec, według którego komunikaty z chmury do urządzenia są używane do usprawnienia przekazywania plików z urządzeń.
+Aby kontynuować wprowadzenie do usługi IoT Hub i eksplorowanie innych scenariuszy IoT, zobacz:
+
+- [Łączenie urządzenia][lnk-connect-device]
+- [Wprowadzenie do zarządzania urządzeniami][lnk-device-management]
+- [Getting started with the Gateway SDK][lnk-gateway-SDK] (Wprowadzenie do korzystania z zestawu SDK bramy)
+
+W samouczku [Process device-to-cloud messages][lnk-process-d2c-tutorial] (Przetwarzanie komunikatów z urządzenia do chmury) przedstawiono, jak rozszerzyć rozwiązanie IoT i przetwarzać komunikaty z urządzenia do chmury na dużą skalę.
 
 <!-- Images. -->
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
@@ -273,9 +263,7 @@ W tym samouczku opisano konfigurowanie nowego centrum IoT w portalu, a następni
 [12]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp3.png
 
 <!-- Links -->
-[lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-[lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
 [lnk-hub-sdks]: iot-hub-sdks-summary.md
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -290,9 +278,12 @@ W tym samouczku opisano konfigurowanie nowego centrum IoT w portalu, a następni
 [lnk-device-nuget]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-connected-service]: https://visualstudiogallery.msdn.microsoft.com/e254a3a5-d72e-488e-9bd3-8fee8e0cd1d6
+[lnk-device-management]: iot-hub-device-management-get-started.md
+[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -1,0 +1,112 @@
+<properties
+    pageTitle="Analizowanie trendów w programie Visual Studio | Microsoft Azure"
+    description="Analizuj, wizualizuj i eksploruj trendy w telemetrii usługi Application Insights w programie Visual Studio."
+    services="application-insights"
+    documentationCenter=".net"
+    authors="numberbycolors"
+    manager="douge"/>
+
+<tags
+    ms.service="application-insights"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="07/14/2016"
+    ms.author="daviste"/>
+
+# Analizowanie trendów w programie Visual Studio
+
+Narzędzie Application Insights Trends wizualizuje sposób, w jaki ważne zdarzenia telemetrii aplikacji zmieniają się z upływem czasu, co ułatwia szybkie identyfikowanie problemów i anomalii. Łącząc Cię z bardziej szczegółowymi informacjami diagnostycznymi, narzędzie Trendy może ułatwić zwiększenie wydajności aplikacji, śledzenie przyczyn wyjątków oraz odkrywanie szczegółowych danych w zdarzeniach niestandardowych.
+
+![Przykładowe okno narzędzia Trendy](./media/app-insights-trends/app-insights-trends-hero-750.png)
+
+> [AZURE.NOTE] Narzędzie Trendy usługi Application Insights jest dostępne w programie Visual Studio 2015 Update 3 i nowszych lub w [rozszerzeniu Developer Analytics Tools](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a) w wersji 5.209 i nowszych.
+
+## Otwieranie narzędzia Trendy usługi Application Insights
+
+Okno narzędzia Trendy usługi Application Insights można otworzyć w jeden z następujących sposobów:
+
+* Na przycisku paska narzędzi Application Insights wybierz pozycję **Eksploruj trendy telemetryczne**.
+* Z menu kontekstowego projektu wybierz pozycję **Application Insights > Eksploruj trendy telemetryczne**.
+* Na pasku menu programu Visual Studio wybierz pozycję **Widok > Inne okna > Trendy usługi Application Insights**.
+
+Może zostać wyświetlony monit o wybranie zasobu. W takim przypadku kliknij pozycję **Wybierz zasób**, zaloguj się przy użyciu subskrypcji platformy Azure, a następnie wybierz zasób usługi Application Insights, dla którego chcesz analizować trendy telemetryczne.
+
+## Wybieranie analizy trendów
+
+![Menu popularnych typów analizy trendów](./media/app-insights-trends/app-insights-trends-1-750.png)
+
+Zacznij od wybrania jednej z pięciu typowych analiz trendów, które analizują dane z ostatnich 24 godzin:
+
+* **Badanie problemów z wydajnością za pomocą żądań serwera**: żądania wysłane do usługi pogrupowane według czasu odpowiedzi
+* **Analizowanie błędów w żądaniach serwera**: żądania wysłane do usługi pogrupowane według kodu odpowiedzi HTTP
+* **Sprawdzanie wyjątków w aplikacji**: wyjątki od usługi pogrupowane według typu wyjątku
+* **Sprawdzanie wydajności zależności aplikacji**: usługi wywołane przez Twoją usługę pogrupowane według czasu odpowiedzi
+* **Inspekcja zdarzeń niestandardowych**: zdarzenia niestandardowe skonfigurowane dla Twojej usługi pogrupowane według typu zdarzenia
+
+Dostęp do tych wstępnie skompilowanych analiz można uzyskać później, naciskając przycisk **Wyświetl popularne typy analizy telemetrii** w lewym górnym rogu okna narzędzia Trendy.
+
+## Wizualizowanie trendów w aplikacji
+
+Narzędzie Trendy usługi Application Insights tworzy wizualizację szeregu czasowego w oparciu o telemetrię aplikacji. W każdej wizualizacji szeregu czasowego jest wyświetlany jeden typ telemetrii, pogrupowany według jednej właściwości tej telemetrii, w określonym zakresie czasu.
+
+Na przykład możesz wyświetlić żądania serwera z ostatnich 24 godzin pogrupowane według kraju, z którego pochodzą. W tym przykładzie każdy bąbelek na wizualizacji reprezentuje liczbę żądań serwera dla określonego kraju w ciągu jednej godziny.
+
+Aby dostosować wyświetlane typy telemetrii, użyj kontrolek w górnej części okna. Najpierw wybierz interesujące Cię typy telemetrii:
+
+* **Typ telemetrii**: żądania serwera, wyjątki, zależności lub zdarzenia niestandardowe
+* **Zakres czasu**: dowolny od ostatnich 30 minut do ostatnich 3 dni
+* **Grupuj według**: typ wyjątku, identyfikator problemu, kraj/region itd.
+
+Następnie kliknij pozycję **Analizuj telemetrię**, aby uruchomić zapytanie.
+
+Aby poruszać się między bąbelkami w wizualizacji:
+
+* Kliknij, aby wybrać bąbelek, który aktualizuje filtry w dolnej części okna, podsumowując zdarzenia, które wystąpiły w określonym czasie.
+* Kliknij dwukrotnie bąbelek, aby przejść do narzędzia Search i wyświetlić wszystkie zdarzenia telemetrii, które wystąpiły w tym czasie.
+* Naciśnij klawisz **Ctrl**, a następnie kliknij bąbelek, aby usunąć jego zaznaczenie w wizualizacji.
+
+> [AZURE.TIP] Narzędzia Trends i Search ułatwiają wykrywanie zdarzeń telemetrycznych, które powodują problemy z usługą. Na przykład jeśli Twoi klienci zauważą, że aplikacja gorzej reaguje pewnego popołudnia, możesz uruchomić proces analizowania problemu za pomocą narzędzia Trends. Przeanalizuj żądania, które zostały wysłane do usługi w ciągu ostatnich kilku godzin, pogrupowane według czasu odpowiedzi. Sprawdź, czy nie ma nietypowo dużej liczby powolnych żądań. Następnie kliknij dwukrotnie ten bąbelek, aby przejść do narzędzia Search z włączonym filtrem tych zdarzeń żądania. W narzędziu Search możesz zbadać zawartość tych żądań i znaleźć odpowiedni kod, aby rozwiązać problem.
+
+## Filtrowanie określonych trendów
+
+Odkryj bardziej szczegółowe trendy, używając kontrolek filtrów w dolnej części okna. Aby zastosować filtr, kliknij jego nazwę. Możliwość szybkiego przełączania się między różnymi filtrami ułatwia odkrywanie trendów, które mogą ukrywać się w konkretnym wymiarze telemetrii. Jeśli zastosujesz filtr w jednym wymiarze, na przykład w wymiarze Typ wyjątku, nadal możesz klikać filtry w innych wymiarach, nawet pomimo tego, że są one wyszarzone. Aby anulować zastosowanie filtru, kliknij go ponownie. Naciśnij klawisz **Ctrl**, a następnie kliknij poszczególne pozycje, aby wybrać wiele filtrów w tym samym wymiarze.
+
+![Filtry trendów](./media/app-insights-trends/TrendsFiltering-750.png)
+
+Co zrobić, jeśli chcesz zastosować wiele filtrów?
+
+1. Zastosuj pierwszy filtr.
+2. Kliknij przycisk **Zastosuj wybrane filtry i ponownie prześlij zapytanie** obok nazwy wymiaru pierwszego filtru. Spowoduje to ponowne odpytanie telemetrii pod kątem zdarzeń pasujących do pierwszego filtru.
+3. Zastosuj drugi filtr.
+4. Powtarzaj ten proces, aby znaleźć trendy w określonych podzestawach telemetrii. Na przykład możesz wysłać zapytanie dotyczące żądań serwera o nazwie „GET Home/Index”, które przyszły z Niemiec i które otrzymały kod stanu 500.
+
+Aby anulować zastosowanie jednego z tych filtrów, kliknij przycisk **Usuń wybrane filtry i ponownie prześlij zapytanie** dla danego wymiaru.
+
+![Wiele filtrów](./media/app-insights-trends/TrendsFiltering2-750.png)
+
+## Znajdowanie anomalii
+
+Narzędzie Trendy umożliwia wyróżnianie bąbelków zdarzeń, które są nieprawidłowe w porównaniu do innych bąbelków w tym samym szeregu czasowym. W menu rozwijanym **Typ widoku** wybierz pozycję **Liczby w przedziale czasowym (wyróżnij anomalie)** lub **Wartości procentowe w przedziale czasowym (wyróżnij anomalie)**. Czerwone bąbelki są nieprawidłowe.
+
+Anomalie są zdefiniowane jako bąbelki zawierające liczby/wartości procentowe przekraczające 2,1 raza standardowe odchylenie od liczb/wartości procentowych, które wystąpiły w ostatnich dwóch okresach (na przykład 48 godzin w przypadku przeglądania ostatnich 24 godzin).
+
+![Kolorowe punkty oznaczają anomalie](./media/app-insights-trends/TrendsAnomalies-750.png)
+
+> [AZURE.TIP] Proces wyróżniania anomalii może być szczególnie przydatny do znajdowania wartości odstających w szeregu czasowym małych bąbelków, które w przeciwnym razie mogłyby mieć podobny rozmiar.  
+
+## <a name="next"></a>Następne kroki
+
+
+[Praca z usługą Application Insights w programie Visual Studio](app-insights-visual-studio.md): wyszukiwanie danych telemetrycznych, wyświetlanie danych CodeLens i konfigurowanie usługi Application Insights w programie Visual Studio.
+
+[Dodawanie większej ilości danych](app-insights-asp-net-more.md): monitorowanie użycia, dostępności, zależności i wyjątków. Integrowanie śladów ze struktur rejestrowania. Zapisywanie niestandardowych danych telemetrycznych.
+
+[Praca z portalem usługi Application Insights](app-insights-dashboards.md): pulpity nawigacyjne, zaawansowane narzędzia diagnostyczne i analityczne, alerty, mapa zależności aplikacji na żywo oraz eksportowanie telemetrii.
+
+
+
+<!--HONumber=sep16_HO1-->
+
+

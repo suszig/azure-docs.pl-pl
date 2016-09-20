@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Usługa Azure App Service dla Aplikacji sieci Web i aplikacji mobilnych | Microsoft Azure" 
+    pageTitle="Usługa Azure App Service dla aplikacji sieci Web i aplikacji mobilnych | Microsoft Azure" 
     description="Dowiedz się, jak usługa Azure App Service ułatwia opracowywanie i wdrażanie Aplikacji sieci Web i aplikacji mobilnych oraz zarządzanie nimi." 
     keywords="app service, azure app service, app service cost, scale, scalable, app deployment, azure app deployment, paas, platform-as-a-service"
     services="app-service" 
@@ -21,7 +21,7 @@
 
 *Usługa App Service* to oferta [platformy jako usługi](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) dostępna w ramach platformy Microsoft Azure. Umożliwia tworzenie aplikacji sieci Web i aplikacji mobilnych dla dowolnej platformy lub urządzenia. Pozwala integrować aplikacje z rozwiązaniami SaaS, nawiązywać połączenia z aplikacjami lokalnymi i automatyzować procesy biznesowe. Na platformie Azure aplikacje są uruchamiane na w pełni zarządzanych maszynach wirtualnych przy użyciu wybranych przez użytkownika udostępnianych zasobów maszyn wirtualnych lub dedykowanych maszyn wirtualnych. 
 
-Usługa App Service oferuje możliwości związane z aplikacjami sieci Web i aplikacjami mobilnymi, które były wcześniej dostępne oddzielnie jako usługi Witryny sieci Web Azure oraz Azure Mobile Services.  Obejmuje ona także nowe funkcje automatyzacji procesów biznesowych i hostowania interfejsów API w chmurze. Usługa App Service jako pojedyncza zintegrowana usługa umożliwia korzystanie z różnych składników — witryn sieci Web, zaplecza aplikacji mobilnych, interfejsów API RESTful i procesów biznesowych — w ramach jednego rozwiązania.
+Usługa App Service oferuje możliwości związane z aplikacjami sieci Web i aplikacjami mobilnymi, które były wcześniej dostępne oddzielnie jako usługi Azure Websites oraz Azure Mobile Services.  Obejmuje ona także nowe funkcje automatyzacji procesów biznesowych i hostowania interfejsów API w chmurze. Usługa App Service jako pojedyncza zintegrowana usługa umożliwia korzystanie z różnych składników — witryn sieci Web, zaplecza aplikacji mobilnych, interfejsów API RESTful i procesów biznesowych — w ramach jednego rozwiązania.
 
 Poniższy 4-minutowy film zawiera krótkie objaśnienie, w jaki sposób usługa App Service jest powiązana z wcześniejszymi ofertami platformy Azure i jakie nowe funkcje udostępnia.
 
@@ -33,9 +33,9 @@ Poniżej przedstawiono niektóre najważniejszych funkcji i możliwości usługi
 
 - **Wiele języków i struktur** — usługa App Service oferuje najwyższej jakości pomoc techniczną w zakresie rozwiązań ASP.NET, Node.js, Java, PHP i Python. Na maszynach wirtualnych usługi App Service można również uruchamiać [program Windows PowerShell oraz inne skrypty lub pliki wykonywalne](../app-service-web/web-sites-create-web-jobs.md).
 
-- **Optymalizacja metodyki DevOps** — konfigurowanie [ciągłej integracji i wdrażania](../app-service-web/app-service-continous-deployment.md) za pomocą usług Visual Studio Team Services, GitHub lub BitBucket. Promowanie aktualizacji za pośrednictwem [środowisk testowych i przejściowych](../app-service-web/web-sites-staged-publishing.md). Wykonywanie [testowania A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Zarządzanie aplikacjami w usłudze App Service za pomocą programu [Azure PowerShell](../powershell-install-configure.md) lub [międzyplatformowego interfejsu wiersza polecenia](../xplat-cli-install.md).
+- **Optymalizacja metodyki DevOps** — konfigurowanie [ciągłej integracji i wdrażania](../app-service-web/app-service-continuous-deployment.md) za pomocą usług Visual Studio Team Services, GitHub lub BitBucket. Promowanie aktualizacji za pośrednictwem [środowisk testowych i przejściowych](../app-service-web/web-sites-staged-publishing.md). Wykonywanie [testowania A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Zarządzaj aplikacjami w usłudze App Service za pomocą programu [Azure PowerShell](../powershell-install-configure.md) lub [międzyplatformowego interfejsu wiersza polecenia](../xplat-cli-install.md).
  
-- **Globalne skalowanie i wysoka dostępność** — ręczne lub automatyczne skalowanie [w pionie](../app-service/app-service-scale.md) lub [w poziomie](../azure-portal/insights-how-to-scale.md). Hostowanie aplikacji w dowolnym miejscu globalnej infrastruktury centrów danych firmy Microsoft i korzystanie z wysokiej dostępności usługi App Service gwarantowanej w umowie [SLA](https://azure.microsoft.com/support/legal/sla/app-service/).
+- **Globalne skalowanie i wysoka dostępność** — ręczne lub automatyczne skalowanie [w pionie](../app-service-web/web-sites-scale.md) lub [w poziomie](../azure-portal/insights-how-to-scale.md). Hostuj aplikacje w dowolnym miejscu globalnej infrastruktury centrum danych firmy Microsoft i korzystaj z wysokiej dostępności usługi App Service zapewnianej w umowie [SLA](https://azure.microsoft.com/support/legal/sla/app-service/).
 
 - **Połączenia z platformami SaaS i danymi lokalnymi** — możliwość wyboru spośród ponad 50 [łączników](../connectors/apis-list.md) obsługujących systemy dla przedsiębiorstw (takie jak SAP, Siebel i Oracle), usługi SaaS (takie jak Salesforce i Office 365) oraz serwisy internetowe (takie jak Facebook i Twitter). Dostęp do danych lokalnych przy użyciu [połączeń hybrydowych](../biztalk-services/integration-hybrid-connection-overview.md) i [sieci wirtualnych platformy Azure](../app-service-web/web-sites-integrate-with-vnet.md).
 
@@ -82,6 +82,6 @@ Możesz też założyć [bezpłatne konto platformy Azure](https://azure.microso
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

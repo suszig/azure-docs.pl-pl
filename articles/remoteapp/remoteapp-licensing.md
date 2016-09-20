@@ -12,12 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/18/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 # Jak działa licencjonowanie w usłudze Azure RemoteApp?
 
+> [AZURE.IMPORTANT]
+> Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Usługa Azure RemoteApp została skonfigurowana, utworzono szablony i wszystko jest gotowe do opublikowania aplikacji dla użytkowników. Pozostała jednak ostatnia rzecz do ustalenia: licencjonowanie. Jak działa licencjonowanie usługi RemoteApp i aplikacji udostępnianych za pośrednictwem usługi RemoteApp?
 
@@ -37,6 +39,6 @@ Należy pamiętać, że w przypadku kolekcji w chmurze nie można użyć umowy l
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

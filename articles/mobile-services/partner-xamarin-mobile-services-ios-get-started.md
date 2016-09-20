@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="03/16/2016"
+    ms.date="07/21/2016"
     ms.author="craig.dunn@xamarin.com"/>
 
-# <a name="getting-started"> </a>Wprowadzenie do usługi Mobile Services
+# <a name="getting-started"> </a>Wprowadzenie do usług Mobile Services
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 &nbsp;
 
@@ -133,12 +133,12 @@ Po zakończeniu procedury szybkiego startu dowiedz się, jak wykonać dodatkowe 
 [Wprowadzenie do powiadomień wypychanych]: partner-xamarin-mobile-services-ios-get-started-push.md
 
 [Xamarin Studio]: http://xamarin.com/download
-[Zestaw SDK usług Mobile Services systemu iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Zestaw SDK usługi Mobile Services systemu iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [klasyczny portal Azure]: https://manage.windowsazure.com/
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

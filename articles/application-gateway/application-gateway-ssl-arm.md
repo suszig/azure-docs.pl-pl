@@ -3,7 +3,7 @@
    description="Ta strona zawiera instrukcje dotyczące tworzenia bramy aplikacji na potrzeby odciążania protokołu SSL za pomocą szablonu usługi Azure Resource Manager"
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
 <tags
@@ -12,14 +12,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
-   ms.author="joaoma"/>
+   ms.date="08/09/2016"
+   ms.author="gwallace"/>
 
 # Konfigurowanie bramy aplikacji na potrzeby odciążania protokołu SSL przy użyciu usługi Azure Resource Manager
 
 > [AZURE.SELECTOR]
--[Klasyczny portal Azure — program PowerShell](application-gateway-ssl.md)
+-[Portal Azure](application-gateway-ssl-portal.md)
 -[Azure Resource Manager — program PowerShell](application-gateway-ssl-arm.md)
+-[Klasyczny Portal Azure — program PowerShell](application-gateway-ssl.md)
 
  Usługę Azure Application Gateway można skonfigurować tak, aby przerywała sesję protokołu SSL (Secure Sockets Layer) na poziomie bramy, co pozwoli na uniknięcie wykonywania kosztownych zadań szyfrowania protokołu SSL w kolektywie serwerów sieci Web. Odciążanie protokołu SSL upraszcza również konfigurowanie serwerów frontonu i zarządzanie aplikacją sieci Web.
 
@@ -27,26 +28,26 @@
 ## Przed rozpoczęciem
 
 1. Zainstaluj najnowszą wersję poleceń cmdlet programu Azure PowerShell za pomocą Instalatora platformy sieci Web. Najnowszą wersję można pobrać i zainstalować z sekcji **Windows PowerShell** strony [Pliki do pobrania](https://azure.microsoft.com/downloads/).
-2. Utworzysz sieć wirtualną i podsieć dla bramy aplikacji. Upewnij się, że z podsieci nie korzystają maszyny wirtualne ani wdrożenia w chmurze. Usługa Application Gateway musi sama znajdować się w podsieci sieci wirtualnej.
-3. Serwery, które będziesz konfigurować do używania bramy aplikacji, muszą istnieć lub mieć punkty końcowe utworzone w sieci wirtualnej lub z przypisanym adresem IP/wirtualnym adresem IP.
+2. Tworzona jest sieć wirtualna i podsieć dla bramy aplikacji. Upewnij się, że z podsieci nie korzystają żadne maszyny wirtualne ani wdrożenia w chmurze. Usługa Application Gateway musi sama znajdować się w podsieci sieci wirtualnej.
+3. Serwery konfigurowane do używania bramy aplikacji muszą być umieszczone w sieci wirtualnej lub z przypisanym adresem IP/VIP lub mieć w niej utworzone punkty końcowe.
 
 ## Co jest wymagane do utworzenia bramy aplikacji?
 
 
 - **Pula serwerów zaplecza:** lista adresów IP serwerów zaplecza. Adresy IP na liście powinny należeć do podsieci sieci wirtualnej lub być publicznymi bądź wirtualnymi adresami IP.
 - **Ustawienia puli serwerów zaplecza:** każda pula ma ustawienia, takie jak port, protokół i koligacja oparta na plikach cookie. Te ustawienia są powiązane z pulą i są stosowane do wszystkich serwerów w tej puli.
-- **Port frontonu:** port publiczny otwierany w obrębie bramy aplikacji. Ruch osiąga ten port, a następnie jest kierowany do jednego z serwerów zaplecza.
+- **Port frontonu:** port publiczny, który jest otwierany w bramie aplikacji. Ruch trafia do tego portu, a następnie jest przekierowywany do jednego z serwerów zaplecza.
 - **Odbiornik:** odbiornik ma port frontonu, protokół (Http lub Https, z uwzględnieniem wielkości liter) oraz nazwę certyfikatu SSL (w przypadku konfigurowania odciążania protokołu SSL).
 - **Reguła:** reguła wiąże odbiornik z pulą serwerów zaplecza i umożliwia zdefiniowanie, do której puli serwerów zaplecza ma być przekierowywany ruch w przypadku trafienia do określonego odbiornika. Obecnie jest obsługiwana tylko reguła *podstawowa*. Reguła *podstawowa* to dystrybucja obciążenia z działaniem okrężnym.
 
 **Dodatkowe uwagi dotyczące konfiguracji**
 
-W przypadku konfiguracji certyfikatów SSL protokół w polu **HttpListener** należy zmienić na *Https* (z uwzględnieniem wielkości liter). Element **SslCertificate** należy dodać do odbiornika **HttpListener** z wartością zmiennej skonfigurowaną dla certyfikatu SSL. Port frontonu należy zaktualizować do 443.
+W przypadku konfiguracji certyfikatów SSL protokół w polu **HttpListener** należy zmienić na *Https* (z uwzględnieniem wielkości liter). Element **SslCertificate** jest dodawany do odbiornika **HttpListener** z wartością zmiennej skonfigurowaną dla certyfikatu SSL. Port frontonu należy zaktualizować do 443.
 
 **Aby włączyć koligację opartą na plikach cookie**: bramę aplikacji można skonfigurować tak, aby żądanie z sesji klienta było zawsze kierowane do tej samej maszyny wirtualnej w kolektywie serwerów sieci Web. W tym celu należy wstrzyknąć plik cookie sesji, który umożliwi bramie prawidłowe przekierowywanie ruchu. Aby włączyć koligację opartą na plikach cookie, ustaw element **CookieBasedAffinity** na wartość *Enabled* w elemencie **BackendHttpSettings**.
 
 
-## Tworzenie nowej bramy aplikacji
+## Tworzenie bramy aplikacji
 
 Różnica między klasycznym modelem wdrożenia platformy Azure i usługą Azure Resource Management polega na kolejności tworzenia bramy aplikacji i elementów, które należy skonfigurować.
 
@@ -67,7 +68,7 @@ Upewnij się, że program PowerShell został przełączony do trybu umożliwiaj�
 
 ### Krok 1
 
-        PS C:\> Login-AzureRmAccount
+    Login-AzureRmAccount
 
 
 
@@ -75,25 +76,25 @@ Upewnij się, że program PowerShell został przełączony do trybu umożliwiaj�
 
 Sprawdź subskrypcje dostępne na koncie.
 
-        PS C:\> get-AzureRmSubscription
+    Get-AzureRmSubscription
 
-Zostanie wyświetlony monit o uwierzytelnienie się przy użyciu poświadczeń.<BR>
+Zostanie wyświetlony monit o uwierzytelnienie przy użyciu własnych poświadczeń.<BR>
 
 ### Krok 3
 
 Wybierz subskrypcję platformy Azure do użycia. <BR>
 
 
-        PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Krok 4
 
-Utwórz nową grupę zasobów (ten krok można pominąć, jeśli używasz istniejącej grupy zasobów).
+Utwórz grupę zasobów (ten krok można pominąć, jeśli używasz istniejącej grupy zasobów).
 
-    New-AzureRmResourceGroup -Name appgw-rg -location "West US"
+    New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 
-Usługa Azure Resource Manager wymaga, żeby wszystkie grupy zasobów miały lokalizację. Będzie ona używana jako domyślna lokalizacja zasobów w danej grupie. Upewnij się, że we wszystkich poleceniach służących do tworzenia bramy aplikacji jest używana ta sama grupa zasobów.
+Usługa Azure Resource Manager wymaga, aby wszystkie grupy zasobów określały lokalizację. To ustawienie jest używane jako domyślna lokalizacja dla zasobów w danej grupie zasobów. Upewnij się, że we wszystkich poleceniach służących do tworzenia bramy aplikacji jest używana ta sama grupa zasobów.
 
 W powyższym przykładzie utworzyliśmy grupę zasobów o nazwie „appgw-RG” i lokalizacji „Zachodnie stany USA”.
 
@@ -114,7 +115,7 @@ Umożliwia utworzenie sieci wirtualnej o nazwie „appgwvnet” w grupie zasobó
 
 ### Krok 3
 
-    $subnet=$vnet.Subnets[0]
+    $subnet = $vnet.Subnets[0]
 
 Umożliwia przypisanie obiektu podsieci do zmiennej $subnet na potrzeby następnych kroków.
 
@@ -131,13 +132,13 @@ Umożliwia utworzenie zasobu publicznego adresu IP „publicIP01” w grupie zas
 
     $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-Umożliwia utworzenie konfiguracji adresu IP bramy aplikacji o nazwie „gatewayIP01”. Uruchomiona usługa Application Gateway wybierze adres IP ze skonfigurowanej podsieci i przekieruje ruch sieciowy do adresów IP w puli adresów IP zaplecza. Pamiętaj, że każde wystąpienie będzie mieć jeden adres IP.
+Umożliwia utworzenie konfiguracji adresu IP bramy aplikacji o nazwie „gatewayIP01”. Uruchomiona usługa Application Gateway wybierze adres IP ze skonfigurowanej podsieci i skieruje ruch sieciowy do adresów IP w puli adresów IP zaplecza. Pamiętaj, że każde wystąpienie będzie mieć jeden adres IP.
 
 ### Krok 2
 
     $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-Umożliwia skonfigurowanie puli adresów IP zaplecza o nazwie „pool01” z adresami IP „134.170.185.46, 134.170.188.221,134.170.185.50”. Będą to adresy IP odbierające ruch sieciowy pochodzący z punktu końcowego adresu IP frontonu. Zastąp adresy IP z powyższego przykładu adresami IP punktów końcowych aplikacji sieci Web.
+Umożliwia skonfigurowanie puli adresów IP zaplecza o nazwie „pool01” z adresami IP „134.170.185.46, 134.170.188.221,134.170.185.50”. Są to adresy IP odbierające ruch sieciowy pochodzący z punktu końcowego adresu IP frontonu. Zastąp adresy IP z powyższego przykładu adresami IP punktów końcowych aplikacji sieci Web.
 
 ### Krok 3
 
@@ -201,6 +202,6 @@ Więcej ogólnych informacji na temat opcji równoważenia obciążenia możesz 
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

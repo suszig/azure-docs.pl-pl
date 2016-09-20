@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/25/2016"
+   ms.date="08/30/2016"
    ms.author="larryfr"/>
 
 #Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemów Linux, Unix lub OS X
@@ -25,7 +25,9 @@
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) pozwala na zdalne wykonywanie operacji na klastrach opartej na systemie Linux usługi HDInsight przy użyciu interfejsu wiersza polecenia. Ten dokument zawiera informacje na temat używania protokołu SSH z usługą HDInsight przy użyciu klientów w systemie Linux, Unix lub OS X.
 
-> [AZURE.NOTE] W krokach podanych tym artykule przyjęto założenie, że używasz klienta z systemem Linux, Unix lub OS X. Chociaż te kroki można wykonać na kliencie z systemem Windows po zainstalowaniu pakietu dostarczającego programy `ssh` i `ssh-keygen` (np. Git dla systemu Windows), zalecamy, aby używając klientów z systemem Windows, korzystać z instrukcji z artykułu [Używanie SSH z opartą na systemie Linux usługą HDInsight (Hadoop) w systemie Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+> [AZURE.NOTE] W krokach podanych tym artykule przyjęto założenie, że używasz klienta z systemem Linux, Unix lub OS X. Te kroki można wykonać na kliencie opartym na systemie Windows, jeśli zainstalowano pakiet zapewniający programy `ssh` i `ssh-keygen`, taki jak [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about).
+>
+> Jeśli na kliencie opartym na systemie Windows nie zainstalowano programu SSH, wykonaj kroki opisane w temacie [Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemu Windows](hdinsight-hadoop-linux-use-ssh-windows.md), zawierające informacje na temat instalacji i korzystania z programu PuTTY.
 
 ##Wymagania wstępne
 
@@ -87,15 +89,15 @@ Jeśli zamierzasz używać kluczy SSH w klastrze, skorzystaj z poniższych infor
 
 Podczas tworzenia klastra usługi HDInsight opartej na systemie Linux należy podać wcześniej utworzony klucz publiczny. Istnieją dwa sposoby tworzenia klastra usługi HDInsight przy użyciu klientów z systemem Linux, Unix lub OS X:
 
-* **Portal Azure** — tworzenie klastra przy użyciu portalu sieci Web.
+* **Azure Portal** — tworzenie klastra przy użyciu portalu sieci Web.
 
 * **Interfejs wiersza polecenia platformy Azure dla komputerów Mac oraz komputerów z systemem Linux i Windows** — tworzenie klastra przy użyciu poleceń wiersza polecenia.
 
 Każda z tych metod wymaga hasła lub klucza publicznego. Aby uzyskać pełne informacje dotyczące tworzenia klastra usługi HDInsight opartej na systemie Linux, zobacz artykuł [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md) (Obsługa administracyjna klastrów usługi HDInsight opartej na systemie Linux).
 
-###Portal Azure
+###Azure Portal
 
-Podczas używania [portalu Azure][preview-portal] do tworzenia klastra usługi HDInsight opartej na systemie Linux należy wprowadzić **NAZWĘ UŻYTKOWNIKA SSH** i wybrać wprowadzenie **HASŁA** lub **PUBLICZNEGO KLUCZA SSH**.
+Podczas używania witryny [Azure Portal][preview-portal] do tworzenia klastra usługi HDInsight opartej na systemie Linux należy wprowadzić **NAZWĘ UŻYTKOWNIKA SSH** i wybrać wprowadzenie **HASŁA** lub **PUBLICZNEGO KLUCZA SSH**.
 
 W przypadku wybrania **PUBLICZNEGO KLUCZA SSH** można albo wkleić klucz publiczny (zawarty w pliku z rozszerzeniem **.pub**) do pola __SSH PublicKey__, albo wybrać opcję __Wybierz plik__, aby przeglądać i wybrać plik klucza publicznego.
 
@@ -247,6 +249,6 @@ Po zapoznaniu się ze sposobem uwierzytelniania przy użyciu klucza SSH dowiedz 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

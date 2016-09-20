@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-unity-android"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="03/25/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Wprowadzenie do usługi Azure Mobile Engagement na potrzeby wdrożenia aplikacji platformy Unity na urządzeniu z systemem Android
@@ -29,7 +29,7 @@ Dla tego samouczka wymagane są następujące elementy:
 + [Zestaw SDK platformy Unity usługi Mobile Engagement](https://aka.ms/azmeunitysdk)
 + Zestaw SDK systemu Google Android
 
-> [AZURE.NOTE] Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli nie masz konta, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-android-get-started).
+> [AZURE.NOTE] Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-android-get-started).
 
 ##<a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji systemu Android
 
@@ -55,7 +55,7 @@ Dla tego samouczka wymagane są następujące elementy:
 
 ###Aktualizowanie pliku skryptu EngagementConfiguration
 
-1. Otwórz pliku skryptu **EngagementConfiguration** z folderu zestawu SDK, a następnie zaktualizuj zmienną **ANDROID\_CONNECTION\_STRING** parametrami połączenia uzyskanymi wcześniej z portalu Azure.  
+1. Otwórz pliku skryptu **EngagementConfiguration** z folderu zestawu SDK, a następnie zaktualizuj zmienną **ANDROID\_CONNECTION\_STRING** parametrami połączenia uzyskanymi wcześniej z witryny Azure Portal.  
 
     ![][73]
 
@@ -153,6 +153,7 @@ Przed próbą wdrożenia tej aplikacji platformy Unity na urządzeniu upewnij si
 [54]: ./media/mobile-engagement-unity-android-get-started/54.png
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

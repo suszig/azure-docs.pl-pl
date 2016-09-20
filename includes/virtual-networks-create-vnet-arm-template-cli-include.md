@@ -91,6 +91,6 @@ Aby wdrożyć pobrany szablon ARM przy użyciu interfejsu wiersza polecenia (CLI
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

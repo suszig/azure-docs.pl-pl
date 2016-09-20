@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
 # Przekazywanie danych do usługi Azure Search przy użyciu interfejsu API REST
@@ -32,7 +32,7 @@ Aby wypchnąć dokumenty do indeksu za pomocą interfejsu API REST, należy wys�
 ## I. Identyfikowanie klucza api-key administratora usługi Azure Search
 *Wszystkie* żądania HTTP wysyłane do usługi przy użyciu interfejsu API REST muszą zawierać klucz api-key wygenerowany dla aprowizowanej usługi wyszukiwania. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
-1. Aby odnaleźć klucze api-key dla usługi, musisz zalogować się w [Portalu Azure](https://portal.azure.com/)
+1. Aby odnaleźć klucze api-key dla usługi, musisz zalogować się w witrynie [Azure Portal](https://portal.azure.com/)
 2. Przejdź do bloku usługi Azure Search
 3. Kliknij ikonę „Klucze”
 
@@ -170,6 +170,6 @@ Po wypełnieniu indeksu usługi Azure Search możesz rozpocząć wykonywanie zap
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

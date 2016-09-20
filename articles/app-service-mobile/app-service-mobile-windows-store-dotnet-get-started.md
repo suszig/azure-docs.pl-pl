@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Tworzenie aplikacji platformy uniwersalnej systemu Windows przy użyciu funkcji Mobile Apps w usłudze Azure App Service | Microsoft Azure"
+    pageTitle="Tworzenie aplikacji platformy uniwersalnej systemu Windows korzystającej z usługi Mobile Apps | Microsoft Azure"
     description="Wykonaj kroki opisane w tym samouczku, aby rozpocząć używanie zapleczy aplikacji mobilnych Azure na potrzeby tworzenia aplikacji platformy uniwersalnej systemu Windows w języku C#, Visual Basic lub JavaScript."
     services="app-service\mobile"
     documentationCenter="windows"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="08/11/2016"
     ms.author="glenga"/>
 
 #Tworzenie aplikacji systemu Windows
@@ -40,7 +40,7 @@ Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
 * Program [Visual Studio Community 2015] lub nowszy.
 
->[AZURE.NOTE] Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile) (Wypróbuj usługę App Service). W tej lokalizacji możesz od razu utworzyć początkową aplikację mobilną o krótkim okresie istnienia w usłudze App Service — bez karty kredytowej i bez zobowiązań.
+>[AZURE.NOTE] Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do strony [Wypróbuj usługę App Service](https://tryappservice.azure.com/?appServiceName=mobile). W tej lokalizacji możesz od razu utworzyć początkową aplikację mobilną o krótkim okresie istnienia w usłudze App Service — bez karty kredytowej i bez zobowiązań.
 
 ##Tworzenie zaplecza nowej Aplikacji mobilnej Azure
 
@@ -80,24 +80,24 @@ Po skonfigurowaniu zaplecza Aplikacji mobilnej można utworzyć nową aplikację
 
 ##Następne kroki
 
-* [Dodawanie uwierzytelniania do aplikacji ](app-service-mobile-windows-store-dotnet-get-started-users.md)  
+* [Dodawanie uwierzytelniania do aplikacji](app-service-mobile-windows-store-dotnet-get-started-users.md)  
   Dowiedz się, jak uwierzytelniać użytkowników aplikacji przy użyciu dostawcy tożsamości.
 
 * [Dodawanie powiadomień wypychanych do aplikacji](app-service-mobile-windows-store-dotnet-get-started-push.md)  
   Dowiedz się, jak dodać obsługę powiadomień wypychanych do aplikacji i skonfigurować zaplecze Aplikacji mobilnej na potrzeby wysyłania powiadomień wypychanych przy użyciu usługi Azure Notification Hubs.
 
-* [Włączanie synchronizacji w trybie offline dla aplikacji systemu Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
+* [Włączanie synchronizacji w trybie offline dla aplikacji](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
   Dowiedz się, jak dodać obsługę aplikacji w trybie offline przy użyciu zaplecza Aplikacji mobilnej. Synchronizacja w trybie offline umożliwia użytkownikom końcowym interakcję z aplikacją mobilną &mdash; przeglądanie, dodawanie lub modyfikowanie danych &mdash; nawet w przypadku braku połączenia sieciowego.
 
 <!-- Anchors. -->
 <!-- Images. -->
 <!-- URLs. -->
 [Zestaw SDK Aplikacji mobilnych]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Portal Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

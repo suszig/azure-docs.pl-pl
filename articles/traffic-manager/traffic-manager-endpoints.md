@@ -3,7 +3,7 @@
    description="W tym artykule omówiono dodawanie, usuwanie, włączanie i wyłączanie punktów końcowych w usłudze Azure Traffic Manager."
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,11 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Dodawanie, usuwanie, włączanie i wyłączanie punktów końcowych
 
-Usługa Web Apps w usłudze Azure App Service udostępnia już funkcje routingu ruchu w trybie failover i działania okrężnego dla witryn sieci Web w centrum danych niezależnie od trybu witryny sieci Web. Korzystając z usługi Azure Traffic Manager, można określić routing ruchu w trybie failover i działania okrężnego dla witryn sieci Web i usług w chmurze w różnych centrach danych. Pierwszym krokiem niezbędnym do obsługi tej funkcjonalności jest dodanie punktu końcowego usługi w chmurze lub witryny sieci Web do usługi Traffic Manager.
+Funkcja Web Apps w usłudze Azure App Service udostępnia już routing ruchu w trybie failover i działania okrężnego dla witryn sieci Web w centrum danych niezależnie od trybu witryny sieci Web. Korzystając z usługi Azure Traffic Manager, można określić routing ruchu w trybie failover i działania okrężnego dla witryn sieci Web i usług w chmurze w różnych centrach danych. Pierwszym krokiem niezbędnym do obsługi tej funkcjonalności jest dodanie punktu końcowego usługi w chmurze lub witryny sieci Web do usługi Traffic Manager.
 
 >[AZURE.NOTE] Lokalizacji zewnętrznych lub profilów usługi Traffic Manager nie można dodać jako punktów końcowych przy użyciu klasycznego portalu Azure. Należy użyć operacji [Create Definition](http://go.microsoft.com/fwlink/p/?LinkId=400772) (Utwórz definicję) interfejsu API REST lub polecenia [Add-AzureTrafficManagerEndpoint](http://go.microsoft.com/fwlink/p/?LinkId=400774) programu Windows PowerShell.
 
@@ -77,6 +77,6 @@ Można również wyłączyć poszczególne punkty końcowe, które są części�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

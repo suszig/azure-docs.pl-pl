@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/06/2016"
+    ms.date="07/25/2016"
     ms.author="nitinme"/>
 
 
@@ -37,6 +37,8 @@ Dowiedz się, jak utworzyć klaster Apache Spark w usłudze HDInsight, a następ
     -  Komputer z systemem Linux — [Używanie SSH z opartą na systemie Linux usługą HDInsight (Hadoop) z systemów Linux, Unix lub OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
     
     -  Komputer z systemem Windows — [Używanie SSH z opartą na systemie Linux usługą HDInsight (Hadoop) z systemu Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+
+>[AZURE.NOTE] W tym artykule użyto szablonu ARM do utworzenia klastra Spark korzystającego z [obiektów blob usługi Azure Storage jako magazynu klastra](hdinsight-hadoop-use-blob-storage.md). Można również utworzyć klaster Spark korzystający z usługi [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) jako magazynu dodatkowego oprócz obiektów blob usługi Azure Storage używanymi jako magazyn domyślny. Aby uzyskać instrukcje, zobacz [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) (Tworzenie klastra HDInsight z usługą Data Lake Store).
 
 
 ## Tworzenie klastra Spark
@@ -121,7 +123,7 @@ W tym artykule będzie używane jądro PySpark. W artykule [Jądra dostępne dla
     W pustej komórce wklej następujący przykładowy kod i naciśnij klawisze **SHIFT + ENTER**. Ten przykład kodu rejestruje dane w tabeli tymczasowej o nazwie **hvac**.
 
         # Load the data
-        hvacText = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+        hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
         
         # Create the schema
         hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
@@ -173,6 +175,8 @@ W tym artykule będzie używane jądro PySpark. W artykule [Jądra dostępne dla
 
 * [Analiza dzienników witryny sieci Web na platformie Spark w usłudze HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
+* [Analiza danych telemetrycznych usługi Application Insight przy użyciu platformy Spark w usłudze HDInsight](hdinsight-spark-analyze-application-insight-logs.md)
+
 ### Tworzenie i uruchamianie aplikacji
 
 * [Tworzenie autonomicznych aplikacji przy użyciu języka Scala](hdinsight-apache-spark-create-standalone-application.md)
@@ -212,6 +216,6 @@ W tym artykule będzie używane jądro PySpark. W artykule [Jądra dostępne dla
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="swift"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Wprowadzenie do usługi Azure Mobile Engagement dla aplikacji systemu iOS w języku Swift
@@ -33,7 +33,7 @@ Dla tego samouczka wymagane są następujące elementy:
 
 Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wszystkich innych samouczków usługi Mobile Engagement dla aplikacji systemu iOS.
 
-> [AZURE.NOTE] Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli nie masz konta, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-swift-get-started).
+> [AZURE.NOTE] Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-swift-get-started).
 
 ##<a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji systemu iOS
 
@@ -49,7 +49,7 @@ Aby zademonstrować integrację, zostanie utworzona podstawowa aplikacja za pomo
 
 [AZURE.INCLUDE [Create a new iOS Project](../../includes/mobile-engagement-create-new-ios-app.md)]
 
-###Łączenie aplikacji z zapleczem usługi Mobile Engagement
+###Łączenie aplikacji z zapleczem usługi Mobile Engagement 
 
 1. Pobierz zestaw [Mobile Engagement iOS SDK].
 2. Wypakuj plik tar.gz do folderu na swoim komputerze.
@@ -86,7 +86,7 @@ Aby zademonstrować integrację, zostanie utworzona podstawowa aplikacja za pomo
 
     ![][6]
 
-10. Wróć do portalu Azure na stronie *Informacje o połączeniu* swojej aplikacji i skopiuj parametry połączenia.
+10. Wróć do witryny Azure Portal na stronie *Informacje o połączeniu* swojej aplikacji i skopiuj parametry połączenia.
 
     ![][5]
 
@@ -207,6 +207,6 @@ Poniższe sekcje umożliwią skonfigurowanie aplikacji do ich odbierania.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

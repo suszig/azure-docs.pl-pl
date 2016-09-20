@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/06/2016"
+    ms.date="07/15/2016"
     ms.author="cabailey"/>
 
 
@@ -53,7 +53,7 @@ Administrator może następnie dostarczyć deweloperom identyfikatory URI w celu
 
    ![Omówienie usługi Azure Key Vault][1]
 
-Deweloperzy mogą również zarządzać kluczami bezpośrednio za pomocą interfejsów API. Aby uzyskać więcej informacji, zobacz artykuł [Przewodnik dewelopera usługi Azure Key Vault](key-vault-developers-guide.md).
+Deweloperzy mogą również zarządzać kluczami bezpośrednio za pomocą interfejsów API. Aby uzyskać więcej informacji, zobacz artykuł [Przewodnik dewelopera usługi Key Vault](key-vault-developers-guide.md).
 
 ## Następne kroki
 
@@ -69,6 +69,6 @@ Aby uzyskać więcej informacji na temat używania kluczy i kluczy tajnych w us�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

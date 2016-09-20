@@ -1,10 +1,10 @@
 <properties
    pageTitle="Wprowadzenie do aplikacji Azure AD Privileged Identity Management | Microsoft Azure"
-   description="Informacje o sposobie zarządzania uprzywilejowanymi tożsamościami przy użyciu aplikacji Azure Active Directory Privileged Identity Management w portalu Azure."
+   description="Informacje o sposobie zarządzania uprzywilejowanymi tożsamościami przy użyciu aplikacji Azure Active Directory Privileged Identity Management w witrynie Azure Portal."
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/19/2016"
+   ms.date="06/29/2016"
    ms.author="kgremban"/>
 
 # Wprowadzenie do aplikacji Azure AD Privileged Identity Management
@@ -21,23 +21,24 @@
 
 Korzystając z aplikacji Azure Active Directory (AD) Privileged Identity Management, można zarządzać tożsamościami uprzywilejowanymi oraz kontrolować i monitorować je, a także uzyskiwać dostęp do zasobów w usłudze Azure AD i innych usługach online firmy Microsoft, takich jak Office 365 lub Microsoft Intune.  
 
-W tym artykule wyjaśniono, jak dodać aplikację Azure AD PIM do pulpitu nawigacyjnego portalu Azure.
+W tym artykule wyjaśniono, jak dodać aplikację Azure AD PIM do pulpitu nawigacyjnego witryny Azure Portal.
 
 ## Dodawanie aplikacji Privileged Identity Management
 
-Przed użyciem aplikacji Azure AD Privileged Identity Management należy dodać ją do pulpitu nawigacyjnego portalu Azure.
+Przed użyciem aplikacji Azure AD Privileged Identity Management należy dodać ją do pulpitu nawigacyjnego witryny Azure Portal.
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/) jako administrator globalny katalogu.
-2. Jeśli organizacja ma więcej niż jeden katalog, kliknij swoją nazwę użytkownika w prawym górnym rogu portalu Azure, a następnie wybierz katalog, w którym będziesz używać aplikacji PIM.
-3. Wybierz ikonę **Nowy** na lewym pasku nawigacyjnym.
-4. Wybierz pozycję **Bezpieczeństwo i obsługa tożsamości**.
-5. Wybierz pozycję **Azure AD Privileged Identity Management**.
-6. Zaznacz opcję **Przypnij do pulpitu nawigacyjnego**, a następnie kliknij przycisk **Utwórz**. Zostanie otwarta aplikacja Privileged Identity Management.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) jako administrator globalny katalogu.
+2. Jeśli organizacja ma więcej niż jeden katalog, kliknij swoją nazwę użytkownika w prawym górnym rogu witryny Azure Portal, a następnie wybierz katalog, w którym będziesz używać aplikacji PIM.
+3. Wybierz pozycję **Nowy** > **Bezpieczeństwo i obsługa tożsamości** > **Azure AD Privileged Identity Management**.
+
+    ![Włącz usługę PIM w portalu][1]
+
+4. Zaznacz opcję **Przypnij do pulpitu nawigacyjnego**, a następnie kliknij pozycję **Utwórz**. Zostanie otwarta aplikacja Privileged Identity Management.
 
 
 Jeśli jesteś pierwszą osobą, która będzie używać aplikacji Azure AD Privileged Identity Management w danym katalogu, [kreator zabezpieczeń](active-directory-privileged-identity-management-security-wizard.md) przeprowadzi Cię przez początkowy etap przypisania. Następnie automatycznie zostaniesz pierwszym **administratorem zabezpieczeń** i **administratorem ról uprzywilejowanych** katalogu. Tylko administrator ról uprzywilejowanych może uzyskać dostęp do tej aplikacji w celu zarządzania dostępem dla innych administratorów.  
 
-W przeciwnym razie, jeśli inny administrator ról uprzywilejowanych przypisał do Ciebie co najmniej jedną rolę, możesz wybrać rolę, która zostanie uaktywniona. Jeśli jesteś administratorem ról uprzywilejowanych, widoczna będzie również opcja **Zarządzaj tożsamościami**.  
+Jeśli masz przypisaną co najmniej jedną rolę, dostępna jest opcja **Uaktywnij moje role**. Jeśli jesteś administratorem ról uprzywilejowanych, widoczna jest także opcja **Zarządzanie uprawnionymi rolami**.  
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
@@ -47,8 +48,12 @@ Temat [Przegląd aplikacji Azure AD Privileged Identity Management](active-direc
 
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
+<!--Image references-->
+
+[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

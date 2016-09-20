@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Uaktualnianie agenta PhoneFactor do serwera Azure Multi-Factor Authentication
@@ -70,6 +70,7 @@ Uaktualnianie z agenta PhoneFactor (v5.x lub starszej wersji) do serwera Azure M
  
 
 
-<!--HONumber=jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

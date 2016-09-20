@@ -1,7 +1,7 @@
 <properties
     pageTitle="Wypróbuj usługę SQL Database: używanie języka C# do tworzenia bazy danych SQL | Microsoft Azure"
     description="Wypróbuj usługę SQL Database SQL do tworzenia aplikacji w językach SQL i C#, a także utwórz bazę danych Azure SQL w języku C# przy użyciu biblioteki SQL Database Library for .NET."
-    keywords="try sql, sql c#"   
+    keywords="wypróbuj usługę sql, sql c#"   
     services="sql-database"
     documentationCenter=""
     authors="stevestein"
@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Portal Azure](sql-database-get-started.md)
+- [Azure Portal](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -43,10 +43,10 @@ Do wykonania kroków opisanych w tym artykule potrzebne są:
 
 ## Instalowanie wymaganych bibliotek
 
-Aby skonfigurować bazę danych SQL w języku C#, pobierz wymagane biblioteki zarządzania. W tym celu zainstaluj następujące pakiety przy użyciu [konsoli Menedżera pakietów](http://docs.nuget.org/Consume/Package-Manager-Console) w programie Visual Studio (**Narzędzia**  >  **Menedżer pakietów NuGet**  >  **Konsola Menedżera pakietów**):
+Aby skonfigurować bazę danych SQL w języku C#, pobierz wymagane biblioteki zarządzania. W tym celu zainstaluj następujące pakiety przy użyciu [konsoli Menedżera pakietów](http://docs.nuget.org/Consume/Package-Manager-Console) w programie Visual Studio (**Narzędzia** > **Menedżer pakietów NuGet** > **Konsola Menedżera pakietów**):
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.ResourceManager –Pre
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 
@@ -458,6 +458,6 @@ Po wypróbowaniu usługi SQL Database i skonfigurowaniu bazy danych przy użyciu
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

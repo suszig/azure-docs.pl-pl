@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/03/2016"
+   ms.date="06/07/2016"
    ms.author="charwen"/>
 
 # Optymalizacja routingu usługi ExpressRoute
@@ -44,6 +44,6 @@ Drugim rozwiązaniem jest dalsze anonsowanie obu prefiksów w obu obwodach usłu
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

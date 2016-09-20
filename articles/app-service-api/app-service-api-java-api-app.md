@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="java"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
-    ms.author="bradygaster"/>
+    ms.date="08/31/2016"
+    ms.author="rachelap"/>
 
 # Tworzenie i wdrażanie aplikacji interfejsu API języka Java w usłudze Azure App Service
 
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
-W tym samouczku pokazano, jak utworzyć aplikację języka Java i wdrożyć ją w usłudze API Apps w usłudze Azure App Service za pomocą systemu [Git]. Instrukcje podane w tym samouczku można wykonać w dowolnym systemie operacyjnym, w którym można uruchomić oprogramowanie Java. Kod w tym samouczku został utworzony za pomocą narzędzia [Maven]. Projekt [Jax-RS], który służy do tworzenia usługi RESTful, jest generowany na podstawie specyfikacji metadanych programu [Swagger] przy użyciu [Edytora programu Swagger].
+W tym samouczku pokazano, jak utworzyć aplikację języka Java i wdrożyć ją w funkcji Azure App Service API Apps za pomocą systemu [Git]. Instrukcje podane w tym samouczku można wykonać w dowolnym systemie operacyjnym, w którym można uruchomić oprogramowanie Java. Kod w tym samouczku został utworzony za pomocą narzędzia [Maven]. Projekt [Jax-RS], który służy do tworzenia usługi RESTful, jest generowany na podstawie specyfikacji metadanych programu [Swagger] przy użyciu [Edytora programu Swagger].
 
 ## Wymagania wstępne
 
@@ -317,7 +317,7 @@ Aby uzyskać więcej informacji o używaniu języka Java na platformie Azure, zo
 [Postman]: https://www.getpostman.com/
 [Storage SDK for Java]: ../storage/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/
-[Edytor programu Swagger]: http://editor.swagger.io/
+[Edytora programu Swagger]: http://editor.swagger.io/
 [Visual Studio Code]: https://code.visualstudio.com
 
 <!-- IMG List -->
@@ -340,6 +340,6 @@ Aby uzyskać więcej informacji o używaniu języka Java na platformie Azure, zo
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,11 +13,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="04/21/2016"
+   ms.date="07/28/2016"
    ms.author="danlep"/>
 
 # Rozpoczęcie pracy z poleceniami cmdlet programu PowerShell w usłudze Azure Batch
-Oto krótkie wprowadzenie do poleceń cmdlet programu Azure PowerShell, których można użyć do zarządzania kontami usługi Batch oraz pracy z zasobami usługi Batch, np. pulami i zadaniami. Za pomocą poleceń cmdlet usługi Batch można wykonać wiele tych samych zadań, które wykonuje się za pomocą interfejsów API usługi Batch, witryny Azure Portal oraz interfejsu wiersza polecenia Azure (CLI). Informacje w tym artykule dotyczą poleceń cmdlet programu Azure PowerShell w wersji 1.3.2 lub nowszej.
+Za pomocą poleceń cmdlet PowerShell usługi Azure Batch można wykonywać oraz tworzyć skrypty dla wielu tych samych zadań, które wykonuje się za pomocą interfejsów API usługi Batch, witryny Azure Portal oraz interfejsu wiersza polecenia Azure (CLI). Oto krótkie wprowadzenie do poleceń cmdlet, których można używać do zarządzania kontami usługi Batch oraz pracy z zasobami usługi Batch, np. pulami i zadaniami. Informacje w tym artykule dotyczą poleceń cmdlet usługi Azure PowerShell w wersji 1.6.0.
 
 Pełna lista poleceń cmdlet w usłudze Batch oraz szczegółowa składnia poleceń cmdlet znajdują się w [dokumentacji dotyczącej poleceń cmdlet w usłudze Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx). 
 
@@ -45,7 +45,7 @@ Polecenie **New-AzureRmBatchAccount** umożliwia utworzenie nowego konta usługi
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
 
-Następnie utwórz nowe konto usługi Batch w grupie zasobów, określając również nazwę konta dla parametru <*account_name*> i lokalizację, w której usługa Batch jest dostępna. Tworzenie konta może potrwać kilka minut. Na przykład:
+Następnie utwórz nowe konto usługi Batch w grupie zasobów, określając nazwę konta w parametrze <*account_name*> i lokalizację oraz nazwę grupy zasobów. Tworzenie konta usługi Batch może zająć nieco czasu. Na przykład:
 
 
     New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -94,14 +94,20 @@ Obiekt BatchAccountContext zostaje przeniesiony do poleceń cmdlet, które używ
 ## Tworzenie i modyfikowanie zasobów usługi Batch
 Do tworzenia zasobów w ramach konta usługi Batch służą takie polecenia cmdlet jak **New-AzureBatchPool**, **New-AzureBatchJob** oraz **New-AzureBatchTask**. Istnieją odpowiednie polecenia cmdlet **Get-** i **Set-** do aktualizacji właściwości istniejących zasobów oraz polecenia cmdlet **Remove-** do usuwania zasobów w ramach konta usługi Batch. 
 
+Podczas korzystania z wielu tych poleceń cmdlet oprócz przekazywania obiektu BatchContext należy utworzyć lub przekazać obiekty, które zawierają szczegółowe ustawienia zasobów, jak pokazano w poniższym przykładzie. Dodatkowe przykłady zamieszczono w szczegółowych plikach pomocy każdego polecenia cmdlet.
+
 ### Tworzenie puli usługi Batch
 
-Np. polecenie cmdlet podane poniżej umożliwia utworzenie nowej puli usługi Batch, skonfigurowanej do korzystania z maszyn wirtualnych o rozmiarze Małe z obrazami najnowszej wersji systemu operacyjnego rodziny 3 (Windows Server 2012), z docelową liczbą węzłów obliczeniowych określoną za pomocą formuły skalowania automatycznego. W takim przypadku formuła wygląda po prostu w taki sposób — **$TargetDedicated=3**, co oznacza, że liczba węzłów obliczeniowych w puli nie przekracza 3. Parametr **BatchContext** określa uprzednio zdefiniowaną zmienną *$context* jako obiekt BatchAccountContext.
+Podczas tworzenia lub aktualizowania puli usługi Batch należy wybrać konfigurację usługi w chmurze lub konfigurację maszyny wirtualnej dla systemu operacyjnego węzłów obliczeniowych — zobacz artykuł [Batch feature overview](batch-api-basics.md#pool) (Omówienie funkcji usługi Batch). Wybór określa, czy na węzłach obliczeniowych są stosowane obrazy jednej z [wersji systemów operacyjnych gościa platformy Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases), czy jeden z obsługiwanych obrazów maszyn wirtualnych Linux lub Windows z portalu Azure Marketplace. 
+
+Po uruchomieniu polecenia **New-AzureBatchPool** należy przekazać ustawienia systemu operacyjnego w obiekcie PSCloudServiceConfiguration lub PSVirtualMachineConfiguration. Na przykład poniższe polecenie cmdlet tworzy nową pulę usługi Batch z małymi węzłami obliczeniowymi w konfiguracji usługi w chmurze i obrazami najnowszej wersji systemu operacyjnego z rodziny 3 (Windows Server 2012). W tym miejscu parametr **CloudServiceConfiguration** określa zmienną *$configuration* jako obiekt PSCloudServiceConfiguration. Parametr **BatchContext** określa uprzednio zdefiniowaną zmienną *$context* jako obiekt BatchAccountContext.
 
 
-    New-AzureBatchPool -Id "MyAutoScalePool" -VirtualMachineSize "Small" -OSFamily "3" -TargetOSVersion "*" -AutoScaleFormula '$TargetDedicated=3;' -BatchContext $Context
+    $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(3,"*")
+    
+    New-AzureBatchPool -Id "AutoScalePool" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
 
->[AZURE.NOTE]Polecenia cmdlet programu PowerShell w usłudze Batch obsługują obecnie tylko konfigurację usług w chmurze dla węzłów obliczeniowych. Dzięki temu można wybrać dla gościa Azure jedną z wersji systemu operacyjnego Windows Server do uruchamiania w węzłach obliczeniowych. Do innych opcji konfiguracji węzłów obliczeniowych dla pul usługi Batch używaj zestawów SDK usługi Batch lub interfejsu wiersza polecenia Azure.
+Docelowa liczba węzłów obliczeniowych w nowej puli jest określana przez formułę skalowania automatycznego. W takim przypadku formuła wygląda po prostu w taki sposób — **$TargetDedicated=4**, co oznacza, że liczba węzłów obliczeniowych w puli nie przekracza 4. 
 
 ## Zapytania dotyczące puli, zadań, podzadań oraz innych szczegółów
 
@@ -159,10 +165,10 @@ Polecenia cmdlet usługi Batch mogą użyć potoku programu PowerShell do przesy
 ## Następne kroki
 * Szczegóły składni poleceń cmdlet oraz przykłady znajdują się w [dokumentacji dotyczącej poleceń cmdlet w usłudze Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
-* Więcej informacji na temat zmniejszenia liczby elementów oraz typu informacji zwracanych dla zapytań w usłudze Batch znajduje się w temacie [Query the Batch service efficiently](batch-efficient-list-queries.md) (Skuteczne przesyłanie zapytań w usłudze Batch). 
+* Więcej informacji na temat zmniejszenia liczby elementów oraz typu informacji zwracanych dla zapytań w usłudze Batch znajduje się w temacie [Query the Batch service efficiently](batch-efficient-list-queries.md) (Skuteczne wykonywanie zapytań w usłudze Batch). 
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

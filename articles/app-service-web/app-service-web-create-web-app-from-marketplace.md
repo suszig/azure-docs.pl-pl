@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="07/11/2016"
     ms.author="robmcm"/>
 
 <!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
@@ -26,13 +26,13 @@ Portal Azure Marketplace udostępnia szeroką gamę popularnych aplikacji sieci 
 
 Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
 
-* Znajdowanie szablonu aplikacji w portalu Azure Marketplace
-* Tworzenie aplikacji sieci Web w usłudze Azure App Service przy użyciu szablonu
-* Konfigurowanie ustawień usługi Azure App Service dla nowej aplikacji sieci Web i bazy danych
+* Znajdowanie i tworzenie aplikacji sieci Web w usłudze Azure App Service przy użyciu szablonu portalu Azure Marketplace.
+* Konfigurowanie ustawień usługi Azure App Service dla nowej aplikacji sieci Web.
+* Uruchamianie aplikacji sieci Web i zarządzanie nią.
 
 W tym samouczku przedstawiono, jak wdrożyć witrynę blogu WordPress z poziomu portalu Azure Marketplace. Po wykonaniu czynności opisanych w tym samouczku będziesz mieć witrynę WordPress działającą w chmurze.
 
-![Przykład pulpitu nawigacyjnego aplikacji sieci Web WordPress][WordPressDashboard]
+![Przykład pulpitu nawigacyjnego aplikacji sieci Web WordPress][WordPressDashboard1]
 
 Witryna WordPress, wdrażana w tym samouczku, korzysta z bazy danych MySQL. Jeśli zamiast tego chcesz użyć usługi SQL Database, zobacz program [Project Nami], który jest również dostępny za pośrednictwem portalu Azure Marketplace.
 
@@ -41,7 +41,7 @@ Witryna WordPress, wdrażana w tym samouczku, korzysta z bazy danych MySQL. Jeś
 >
 > Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do strony [Wypróbuj usługę App Service]. W tym miejscu możesz od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service — bez karty kredytowej i bez zobowiązań.
 
-## Wybieranie platformy WordPress i konfigurowanie dla usługi Azure App Service
+## Znajdowanie i tworzenie aplikacji sieci Web w usłudze Azure App Service
 
 1. Zaloguj się do [Azure Portal].
 
@@ -57,7 +57,9 @@ Witryna WordPress, wdrażana w tym samouczku, korzysta z bazy danych MySQL. Jeś
 
     ![Tworzenie aplikacji sieci Web WordPress][MarketplaceCreate]
 
-1. Zostanie wyświetlony blok ustawień platformy WordPress, w którym należy wykonać następujące czynności:
+## Konfigurowanie ustawień usługi Azure App Service dla nowej aplikacji sieci Web
+
+1. Po utworzeniu nowej aplikacji sieci Web zostanie wyświetlony blok ustawień platformy WordPress, w którym należy wykonać następujące kroki:
 
     ![Konfigurowanie ustawień aplikacji sieci Web WordPress][ConfigStart]
 
@@ -73,7 +75,7 @@ Witryna WordPress, wdrażana w tym samouczku, korzysta z bazy danych MySQL. Jeś
 
 1. Wybierz **grupę zasobów** lub utwórz nową.
 
-    Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Korzystanie z Portalu Azure do zarządzania zasobami Azure][ResourceGroups].
+    Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager][ResourceGroups].
 
     ![Konfigurowanie grupy zasobów dla aplikacji sieci Web][ConfigResourceGroup]
 
@@ -107,7 +109,7 @@ Witryna WordPress, wdrażana w tym samouczku, korzysta z bazy danych MySQL. Jeś
 
 ## Uruchamianie aplikacji sieci Web WordPress i zarządzanie nią
     
-1. Po ukończeniu tworzenia aplikacji sieci Web przejdź w Portalu Azure do grupy zasobów, w której utworzono aplikację, aby wyświetlić aplikację sieci Web i bazę danych.
+1. Po ukończeniu tworzenia aplikacji sieci Web przejdź w witrynie Azure Portal do grupy zasobów, w której utworzono aplikację, aby wyświetlić aplikację sieci Web i bazę danych.
 
     Dodatkowym zasobem z ikoną żarówki jest usługa [Application Insights][ApplicationInsights], która umożliwia monitorowanie aplikacji sieci Web.
 
@@ -131,7 +133,7 @@ Witryna WordPress, wdrażana w tym samouczku, korzysta z bazy danych MySQL. Jeś
 
 1. Zostanie otwarta strona pulpitu nawigacyjnego witryny, na której będą wyświetlone podane informacje.    
 
-    ![Wyświetlanie pulpitu nawigacyjnego WordPress][WordPressDashboard]
+    ![Wyświetlanie pulpitu nawigacyjnego WordPress][WordPressDashboard2]
 
 ## Następne kroki
 
@@ -151,7 +153,7 @@ Aby uzyskać więcej informacji na temat tworzenia aplikacji sieci Web WordPress
 [aktywuj]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [bezpłatna wersja próbna]: https://azure.microsoft.com/pricing/free-trial/
 [Wypróbuj usługę App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
-[ResourceGroups]: ../azure-portal/resource-group-portal.md
+[ResourceGroups]: ../resource-group-overview.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [ApplicationInsights]: https://azure.microsoft.com/services/application-insights/
 [Azure Portal]: https://portal.azure.com/
@@ -174,11 +176,12 @@ Aby uzyskać więcej informacji na temat tworzenia aplikacji sieci Web WordPress
 [WordPressSelect]: ./media/app-service-web-create-web-app-from-marketplace/wpselect.png
 [WordPressBrowse]: ./media/app-service-web-create-web-app-from-marketplace/wpbrowse.png
 [WordPressLanguage]: ./media/app-service-web-create-web-app-from-marketplace/wplanguage.png
-[WordPressDashboard]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard.png
+[WordPressDashboard1]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard1.png
+[WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

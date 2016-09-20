@@ -2,7 +2,7 @@
 
 1. Zaloguj się do [klasycznego portalu Azure][] i kliknij opcję **NOWE** u dołu ekranu.
 
-2. Kliknij kolejno opcje **Usługi aplikacji**, **Service Bus**, **Centrum zdarzeń**, a następnie kliknij opcję **Szybkie tworzenie**.
+2. Kliknij kolejno opcje **App Services**, **Service Bus**, **Centrum zdarzeń**, a następnie kliknij opcję **Szybkie tworzenie**.
 
     ![][1]
 
@@ -25,7 +25,9 @@ Utworzono centrum zdarzeń i uzyskano parametry połączenia potrzebne do wysył
 [3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
 [4]: ./media/event-hubs-create-event-hub/create-conn-str1.png
 
+[klasycznego portalu Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

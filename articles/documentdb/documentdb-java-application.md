@@ -1,10 +1,10 @@
 <properties
     pageTitle="Samouczek tworzenia aplikacji w języku Java za pomocą usługi DocumentDB | Microsoft Azure"
     description="W tym samouczku aplikacji sieci Web w języku Java pokazano, jak przy użyciu usługi Azure DocumentDB przechowywać dane i uzyskiwać do nich dostęp z poziomu aplikacji w języku Java hostowanej przez usługę Azure Websites."
-    keywords="Application development, database tutorial, java application, java web application tutorial, documentdb, azure, Microsoft azure"
+    keywords="Programowanie aplikacji, samouczek bazy danych, aplikacja Java, samouczek aplikacji sieci Web Java, DocumentDB, Azure, Microsoft Azure"
     services="documentdb"
     documentationCenter="java"
-    authors="aliuy"
+    authors="AndrewHoh"
     manager="jhubbard"
     editor="mimig"/>
 
@@ -14,8 +14,8 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
-    ms.date="03/10/2016"
-    ms.author="andrl"/>
+    ms.date="08/24/2016"
+    ms.author="anhoh"/>
 
 # Tworzenie aplikacji sieci Web w języku Java za pomocą usługi DocumentDB
 
@@ -25,7 +25,7 @@
 - [Java](documentdb-java-application.md)
 - [Python](documentdb-python-application.md)
 
-W tym samouczku aplikacji sieci Web w języku Java pokazano, jak przy użyciu usługi [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) przechowywać dane i uzyskiwać do nich dostęp z poziomu aplikacji w języku Java hostowanej przez usługę Witryny sieci Web Azure. W tym artykule przedstawiono:
+W tym samouczku aplikacji sieci Web w języku Java pokazano, jak przy użyciu usługi [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) przechowywać dane i uzyskiwać do nich dostęp z poziomu aplikacji w języku Java hostowanej przez usługę Azure Websites. W tym artykule przedstawiono:
 
 - Jak utworzyć prostą aplikację JSP w środowisku Eclipse.
 - Jak pracować z usługą Azure DocumentDB przy użyciu [zestawu SDK Java usługi DocumentDB](https://github.com/Azure/azure-documentdb-java).
@@ -39,7 +39,7 @@ W tym samouczku aplikacji w języku Java pokazano, jak utworzyć aplikację do z
 ##<a id="Prerequisites"></a>Wymagania wstępne dotyczące tego samouczka aplikacji sieci Web w języku Java
 Przed rozpoczęciem korzystania z tego samouczka tworzenia aplikacji należy dysponować następującymi elementami:
 
-- Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
+- Aktywne konto platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 - [Zestaw Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 - [Środowisko Eclipse IDE for Java EE Developers.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 - [Witryna sieci Web platformy Azure z włączonym środowiskiem uruchomieniowym Java (np. Tomcat lub Jetty).](../app-service-web/web-sites-java-get-started.md)
@@ -216,13 +216,9 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
                             DocumentCollection collectionDefinition = new DocumentCollection();
                             collectionDefinition.setId(COLLECTION_ID);
 
-                            // Configure the new collection performance tier to S1.
-                            RequestOptions requestOptions = new RequestOptions();
-                            requestOptions.setOfferType("S1");
-
                             collectionCache = documentClient.createCollection(
                                     getTodoDatabase().getSelfLink(),
-                                    collectionDefinition, requestOptions).getResource();
+                                    collectionDefinition, null).getResource();
                         } catch (DocumentClientException e) {
                             // TODO: Something has gone terribly wrong - the app wasn't
                             // able to query or create the collection.
@@ -786,6 +782,6 @@ Wszystkie przykłady w tym samouczku są zawarte w projekcie [todo](https://gith
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

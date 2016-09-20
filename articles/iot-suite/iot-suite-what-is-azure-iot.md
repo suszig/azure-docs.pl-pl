@@ -14,14 +14,14 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/25/2016"
+ ms.date="08/09/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Pakiet IoT Azure
 
-Pakiet IoT Azure firmy Microsoft jest rozwiązaniem klasy korporacyjnej, które umożliwia szybkie rozpoczęcie pracy dzięki zestawowi rozszerzalnych, wstępnie skonfigurowanych rozwiązań pozwalających obsługiwać typowe scenariusze IoT, takie jak [zdalne monitorowanie][lnk-preconfigured-solutions] i [konserwacja predykcyjna][lnk-predictive-maintenance]. Rozwiązania te stanowią implementacje opisanej wcześniej architektury IoT.
+Pakiet IoT Azure firmy Microsoft jest rozwiązaniem klasy korporacyjnej, które umożliwia szybkie rozpoczęcie pracy dzięki zestawowi rozszerzalnych, wstępnie skonfigurowanych rozwiązań pozwalających obsługiwać typowe scenariusze IoT, takie jak [zdalne monitorowanie][lnk-preconfigured-solutions] i [konserwacja predykcyjna][lnk-predictive-maintenance]. Rozwiązania te stanowią implementacje opisanej w tym artykule architektury IoT.
 
 Te niezawodne rozwiązania są kompletne i uniwersalne. Obejmują symulowane urządzenia, które ułatwiają rozpoczęcie pracy, oraz wstępnie skonfigurowane usługi platformy Azure, takie jak [Azure IoT Hub][], [Azure Event Hubs][], [Azure Stream Analytics][], [Azure Machine Learning][] i [Azure Storage][], a także konsole zarządzania przeznaczone dla określonych rozwiązań. Wstępnie skonfigurowane rozwiązania obejmują sprawdzony kod, gotowy do wdrożenia produkcyjnego, który można dostosować i rozszerzyć pod kątem implementacji własnych scenariuszy IoT.
 
@@ -29,15 +29,14 @@ Warto również zainteresować się usługą [Azure IoT Hub][], używaną w wiel
 
 ## Następne kroki
 
-Poniższe zasoby zawierają więcej informacji na temat architektury IoT na platformie Azure:
+Przejrzyj te zasoby, aby kontynuować poznawanie Pakietu IoT i wstępnie skonfigurowanych rozwiązań:
 
-- [Omówienie Pakietu IoT Azure][lnk-suite-overview].
-- [Wprowadzenie do wstępnie skonfigurowanych rozwiązań IoT][lnk-preconfigured-solutions].
-- [Connecting your device to the IoT Suite remote monitoring solution][lnk-connecting] (Łączenie urządzenia z rozwiązaniem Pakietu IoT do monitorowania zdalnego).
-- [Azure IoT Hub]
+- [Co to jest Pakiet IoT Azure?][lnk-whatissuite]
+- [Co to są wstępnie skonfigurowane rozwiązania Pakietu IoT Azure?][lnk-whatarepreconfigured]
 
-[lnk-suite-overview]: iot-suite-overview.md
-[lnk-connecting]: iot-suite-connecting-devices.md
+[lnk-whatissuite]: iot-suite-overview.md
+[lnk-whatarepreconfigured]: iot-suite-what-are-preconfigured-solutions.md
+
 [lnk-preconfigured-solutions]: iot-suite-getstarted-preconfigured-solutions.md
 [Azure IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [Azure Event Hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
@@ -47,6 +46,6 @@ Poniższe zasoby zawierają więcej informacji na temat architektury IoT na plat
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

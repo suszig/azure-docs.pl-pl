@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="05/24/2016"
+   ms.date="07/14/2016"
    ms.author="magoedte" />
 
 # Moduły integracji usługi Azure Automation
@@ -27,6 +27,8 @@ Moduł to grupa poleceń cmdlet programu PowerShell, takich jak **Get-Date** lub
 ## Co to jest moduł integracji usługi Azure Automation?
 
 Moduł integracji nie różni się znacząco od modułu programu PowerShell. Jest to po prostu moduł programu PowerShell opcjonalnie zawierający jeden dodatkowy plik — plik metadanych określający typ połączenia usługi Azure Automation do użycia z poleceniami cmdlet modułu w elementach Runbook. Bez względu na to, czy plik opcjonalny jest używany, te moduły programu PowerShell mogą być importowane do usługi Azure Automation w celu udostępnienia ich poleceń cmdlet do użycia w elementach Runbook, a zasobów DSC — do użycia w konfiguracjach DSC. Usługa Azure Automation przechowuje te moduły w tle, a w momencie wykonywania zadania elementu Runbook i zadania kompilacji DSC ładuje je do piaskownic usługi Azure Automation, w których są wykonywane elementy Runbook i kompilowane są konfiguracje DSC.  Wszystkie zasoby DSC w modułach są również automatycznie umieszczane na serwerze ściągania konfiguracji DSC usługi Automation, dzięki czemu mogą być ściągane przez komputery próbujące zastosować konfiguracje DSC.  Niektóre moduły programu Azure PowerShell są dostarczane z usługą Azure Automation jako gotowe do użytku. Dzięki temu można od razu rozpocząć automatyzację zarządzania platformą Azure. Można również łatwo importować moduły programu PowerShell niezależnie od systemu, usługi lub narzędzia do zintegrowania. 
+
+>[AZURE.NOTE] Niektóre moduły w usłudze Automation są dostarczane jako „moduły globalne”. Moduły globalne są dostępne w gotowej postaci podczas tworzenia konta automatyzacji. Czasami możemy je aktualizować, co powoduje ich automatyczne wypychanie do konta automatyzacji. Jeśli nie chcesz, aby były one automatycznie aktualizowane, zawsze możesz zaimportować sam moduł. Będzie on miał pierwszeństwo przed wersją globalną modułu, która jest dostarczana z usługą. 
 
 Format, w którym można zaimportować pakiet modułu integracji, to skompresowany plik o takiej samej nazwie jak moduł, z rozszerzeniem ZIP. Zawiera on moduł programu Windows PowerShell oraz wszelkie pliki pomocnicze, w tym plik manifestu (psd1), jeśli istnieje dla modułu.
 
@@ -179,7 +181,7 @@ Fakt, że moduły integracji są zasadniczo modułami programu PowerShell, nie o
     }
     ```
 <br>
- Elementy zawartości połączenia w elementach Runbook to tabele skrótów typu złożonego. Te tabele skrótów mogą być przekazywane do poleceń cmdlet na potrzeby parametru -Connection idealnie, bez wyjątku dotyczącego rzutowania. Technicznie rzecz biorąc, niektóre typy programu PowerShell można prawidłowo rzutować z postaci serializowanej do postaci zdeserializowanej i dlatego można je przekazywać do poleceń cmdlet jako parametry akceptujące typy niezdeserializowane. Przykładem jest tablica skrótów. Istnieje możliwość zaimplementowania typów zdefiniowanych przez autora w taki sposób, aby mogły być również prawidłowo zdeserializowane, ale wymaga to pewnych kompromisów. Typ musi zawierać konstruktor domyślny i element PSTypeConverter, a wszystkie jego właściwości muszą być publiczne. Jednak typów już zdefiniowanych, które nie należą do autora modułu, nie można naprawić, dlatego zaleca się unikanie typów złożonych jako parametrów. Porada dotycząca tworzenia elementu Runbook: jeśli z dowolnej przyczyny polecenia cmdlet muszą przyjmować parametr typu złożonego lub gdy korzystasz z modułu innej osoby wymagającego parametru typu złożonego, obejściem w elementach Runbook przepływu pracy programu PowerShell i przepływach pracy programu PowerShell w lokalnym programie PowerShell jest opakowanie polecenia cmdlet, które generuje typ złożony, i polecenia cmdlet, który wykorzystuje typ złożony, w ramach tego samego działania InlineScript. Ponieważ skrypt InlineScript wykonuje zawartość jako program PowerShell, a nie przepływ pracy programu PowerShell, wygenerowanie przez polecenie cmdlet typu złożonego spowoduje utworzenie prawidłowego typu, a nie zdeserializowanego typu złożonego.
+ Elementy zawartości połączenia w elementach Runbook to tabele skrótów typu złożonego. Te tabele skrótów mogą być przekazywane do poleceń cmdlet na potrzeby parametru -Connection idealnie, bez wyjątku dotyczącego rzutowania. Technicznie rzecz biorąc, niektóre typy programu PowerShell można prawidłowo rzutować z postaci serializowanej do postaci zdeserializowanej i dlatego można je przekazywać do poleceń cmdlet jako parametry akceptujące typy niezdeserializowane. Przykładem jest tablica skrótów. Istnieje możliwość zaimplementowania typów zdefiniowanych przez autora w taki sposób, aby mogły być również prawidłowo zdeserializowane, ale wymaga to pewnych kompromisów. Typ musi zawierać konstruktor domyślny i element PSTypeConverter, a wszystkie jego właściwości muszą być publiczne. Jednak typów już zdefiniowanych, które nie należą do autora modułu, nie można naprawić, dlatego zaleca się unikanie typów złożonych jako parametrów. Porada dotycząca tworzenia elementu Runbook: jeśli z dowolnej przyczyny polecenia cmdlet muszą przyjmować parametr typu złożonego lub gdy korzystasz z modułu innej osoby wymagającego parametru typu złożonego, obejściem w elementach Runbook przepływu pracy programu PowerShell i przepływach pracy programu PowerShell w lokalnym programie PowerShell jest opakowanie polecenia cmdlet, które generuje typ złożony, i polecenia cmdlet, które wykorzystuje typ złożony, w ramach tego samego działania InlineScript. Ponieważ skrypt InlineScript wykonuje zawartość jako program PowerShell, a nie przepływ pracy programu PowerShell, wygenerowanie przez polecenie cmdlet typu złożonego spowoduje utworzenie prawidłowego typu, a nie zdeserializowanego typu złożonego.
 5. Utwórz wszystkie polecenia cmdlet w module jako bezstanowe. Przepływ pracy programu PowerShell powoduje uruchomienie każdego polecenia cmdlet wywoływanego w przepływie pracy w ramach innej sesji. Oznacza to, że polecenia cmdlet, które zależą od stanu sesji utworzone/zmodyfikowane przez inne polecenia cmdlet w tym samym module, nie będą działać w elementach Runbook przepływu pracy programu PowerShell.  Oto przykład czynności, których nie należy wykonywać.
 
     ```
@@ -203,10 +205,9 @@ Fakt, że moduły integracji są zasadniczo modułami programu PowerShell, nie o
 ## Następne kroki
 
 - Aby rozpocząć pracę z elementami Runbook przepływu pracy programu PowerShell, zobacz artykuł [My first PowerShell workflow runbook](automation-first-runbook-textual.md) (Mój pierwszy element Runbook przepływu pracy programu PowerShell).
-- Aby dowiedzieć się więcej na temat tworzenia modułów programu PowerShell, zobacz artykuł [Writing a Windows PowerShell Module](https://msdn.microsoft.com/library/dd878310(v=vs.85).aspx) (Pisanie modułu programu Windows PowerShell).
+- Aby dowiedzieć się więcej na temat tworzenia modułów programu PowerShell, zobacz artykuł [Writing a Windows PowerShell Module](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx) (Pisanie modułu programu Windows PowerShell).
 
 
-
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -3,9 +3,9 @@
    description="Omówienie pojęć dotyczących dostawców zasobów obliczeniowych, sieci i usługi Storage dla aplikacji systemu Windows w modelu wdrażania przy użyciu usługi Azure Resource Manager"
    services="virtual-machines-windows"
    documentationCenter=""
-   authors="mahthi"
+   authors="tfitzmac"
    manager="timlt"
-   editor=""
+   editor="tysonn"
    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
-   ms.author="mahthi"/>
+   ms.date="08/19/2015"
+   ms.author="tomfitz"/>
 
 # Dostawcy zasobów obliczeniowych, sieci i usługi Storage platformy Azure dla aplikacji systemu Windows w modelu wdrażania przy użyciu usługi Azure Resource Manager
 
@@ -25,6 +25,6 @@ Włączenie możliwości obliczeniowych, sieci i magazynu do modelu wdrażania p
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

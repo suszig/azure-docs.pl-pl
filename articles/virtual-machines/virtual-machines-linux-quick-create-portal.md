@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Tworzenie maszyny wirtualnej z systemem Linux przy użyciu Portalu Azure | Microsoft Azure"
-    description="Tworzenie maszyny wirtualnej z systemem Linux przy użyciu Portalu Azure"
+    pageTitle="Tworzenie maszyny wirtualnej z systemem Linux przy użyciu witryny Azure Portal | Microsoft Azure"
+    description="Tworzenie maszyny wirtualnej z systemem Linux przy użyciu witryny Azure Portal"
     services="virtual-machines-linux"
     documentationCenter=""
     authors="vlivech"
@@ -15,18 +15,20 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="04/29/2016"
+    ms.date="08/18/2016"
     ms.author="v-livech"
 />
 
 # Tworzenie maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu portalu
 
-W tym artykule przedstawiono sposób użycia [Portalu Azure](https://portal.azure.com/) do szybkiego utworzenia maszyny wirtualnej z systemem Linux. Jedynymi wymogami są: [konto Azure](https://azure.microsoft.com/pricing/free-trial/) i [pliki publicznego i prywatnego klucza SSH](virtual-machines-linux-mac-create-ssh-keys.md).
+> [AZURE.NOTE] Jeśli masz chwilę, pomóż nam ulepszyć dokumentację maszyn wirtualnych z systemem Linux na platformie Azure, wypełniając tę [krótką ankietę](https://aka.ms/linuxdocsurvey) dotyczącą Twoich doświadczeń. Każda odpowiedź pomoże nam ułatwić Ci pracę.
+
+W tym artykule przedstawiono sposób użycia [portalu Azure](https://portal.azure.com/) do szybkiego utworzenia maszyny wirtualnej z systemem Linux. Jedynymi wymogami są: [konto Azure](https://azure.microsoft.com/pricing/free-trial/) i [pliki publicznego i prywatnego klucza SSH](virtual-machines-linux-mac-create-ssh-keys.md).
 
 
-1. Po zalogowaniu do Portalu Azure za pomocą tożsamości konta Azure kliknij przycisk **+ Nowy** w lewym górnym rogu:
+1. Po zalogowaniu w portalu Azure za pomocą tożsamości konta Azure kliknij przycisk **+ Nowy** w lewym górnym rogu:
 
-    ![ekran1](../media/virtual-machines-linux-quick-create-portal/screen1.png)
+    ![screen1](../media/virtual-machines-linux-quick-create-portal/screen1.png)
 
 2. Kliknij pozycję **Virtual Machines** w obszarze **Marketplace**, a następnie wybierz pozycję **Ubuntu Server 14.04 LTS** z listy obrazów **Polecane aplikacje**.  Sprawdź u dołu, czy model wdrażania to `Resource Manager`, a następnie kliknij przycisk **Utwórz**.
 
@@ -36,8 +38,8 @@ W tym artykule przedstawiono sposób użycia [Portalu Azure](https://portal.azur
     - nazwę maszyny wirtualnej,
     - nazwę użytkownika dla administratora,
     - typ uwierzytelniania **Klucz publiczny SSH**,
-    - klucz publiczny SSH w formie ciągu (domyślnie z katalogu `~/.ssh/`),
-    - nazwę grupy zasobów (aby utworzyć nową grupę wdrożenia) lub wybierz istniejącą grupę,
+    - klucz publiczny SSH w formie ciągu (z katalogu `~/.ssh/`),
+    - nazwę grupy zasobów lub wybierz istniejącą grupę
 
     Następnie kliknij przycisk **OK**, aby kontynuować i wybierz rozmiar maszyny wirtualnej. Powinno to wyglądać podobnie do poniższego obrazu:
 
@@ -71,16 +73,14 @@ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
 
 ## Następne kroki
 
-Szybko utworzono maszynę wirtualną z systemem Linux na potrzeby testowania lub demonstracji. Aby utworzyć maszynę wirtualną z systemem Linux dostosowaną do Twojej infrastruktury, możesz skorzystać z dowolnego z poniższych artykułów.
+Szybko utworzono maszynę wirtualną z systemem Linux na potrzeby testowania lub demonstracji. Aby utworzyć maszynę wirtualną z systemem Linux dostosowaną do Twojej infrastruktury, możesz skorzystać z dowolnego z tych artykułów.
 
 - [Create a Linux VM on Azure using Templates (Tworzenie maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu szablonów)](virtual-machines-linux-cli-deploy-templates.md)
-- [Create a SSH Secured Linux VM on Azure using Templates (Tworzenie maszyny wirtualnej z systemem Linux zabezpieczonej przez protokół SSH na platformie Azure przy użyciu szablonów)](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+- [Create an SSH Secured Linux VM on Azure using Templates (Tworzenie maszyny wirtualnej z systemem Linux zabezpieczonej przez protokół SSH na platformie Azure przy użyciu szablonów)](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 - [Create a Linux VM using the Azure CLI (Tworzenie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure)](virtual-machines-linux-create-cli-complete.md)
 
-Te artykuły ułatwiają rozpoczęcie pracy związanej z tworzeniem infrastruktury Azure oraz dowolnej liczby narzędzi do wdrażania, konfiguracji i aranżacji infrastruktury (własnej lub typu open-source).
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

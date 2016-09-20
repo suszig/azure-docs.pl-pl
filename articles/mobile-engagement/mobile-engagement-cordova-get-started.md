@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-phonegap"
     ms.devlang="js"
     ms.topic="hero-article" 
-    ms.date="04/04/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Rozpoczynanie pracy z usługą Azure Mobile Engagement dla oprogramowania Cordova/Phonegap
@@ -24,7 +24,7 @@ W tym temacie przedstawiono sposób użycia usługi Azure Mobile Engagement umo�
 
 W tym samouczku utworzymy pustą aplikację Cordova za pomocą komputera Mac, a następnie zintegrujemy zestaw Mobile Engagement SDK. Rozwiązanie będzie zbierać dane analityczne i odbierać powiadomienia wypychane za pomocą systemu Apple Push Notification System (APNS) dla systemów iOS oraz usługi Google Cloud Messaging (GCM) dla systemów Android. Wdrożymy aplikację na urządzeniu z systemem iOS lub Android w celu przetestowania rozwiązania. 
 
-> [AZURE.NOTE] Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli nie masz konta, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started).
+> [AZURE.NOTE] Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started).
 
 Dla tego samouczka wymagane są następujące elementy:
 
@@ -241,6 +241,6 @@ Teraz utworzymy prostą kampanię powiadomień wypychanych, która wyśle powiad
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

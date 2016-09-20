@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="07/07/2016"
    ms.author="nitinme"/>
 
 # Rozpoczynanie pracy z usługą Azure Data Lake Store za pomocą wiersza polecenia platformy Azure
@@ -21,8 +21,8 @@
 > [AZURE.SELECTOR]
 - [Portal](data-lake-store-get-started-portal.md)
 - [PowerShell](data-lake-store-get-started-powershell.md)
-- [Zestaw .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Zestaw Java SDK](data-lake-store-get-started-java-sdk.md)
+- [Zestaw SDK .NET](data-lake-store-get-started-net-sdk.md)
+- [Zestaw SDK Java](data-lake-store-get-started-java-sdk.md)
 - [Interfejs API REST](data-lake-store-get-started-rest-api.md)
 - [Interfejs wiersza polecenia platformy Azure](data-lake-store-get-started-cli.md)
 - [Node.js](data-lake-store-manage-use-nodejs.md)
@@ -191,6 +191,6 @@ Po wyświetleniu monitu wpisz **Y**, aby usunąć konto.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

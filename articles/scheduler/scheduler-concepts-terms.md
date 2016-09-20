@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="03/09/2016"
+ ms.date="08/18/2016"
  ms.author="krisragh"/>
 
 # Pojęcia i terminologia dotyczące usługi Scheduler oraz hierarchia jednostek
@@ -220,6 +220,6 @@ Interwał ponawiania określony z użyciem obiektu **retryInterval** to odstęp 
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

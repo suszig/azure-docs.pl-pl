@@ -13,10 +13,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/11/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
-# Rozpoczynanie pracy z usługą Azure Data Lake Store za pomocą Portalu Azure
+# Rozpoczynanie pracy z usługą Azure Data Lake Store za pomocą witryny Azure Portal
 
 > [AZURE.SELECTOR]
 - [Portal](data-lake-store-get-started-portal.md)
@@ -27,11 +27,11 @@
 - [Interfejs wiersza polecenia platformy Azure](data-lake-store-get-started-cli.md)
 - [Node.js](data-lake-store-manage-use-nodejs.md)
 
-Dowiedz się, jak użyć Portalu Azure, aby utworzyć konto usługi Azure Data Lake Store i wykonywać podstawowe operacje, takie jak tworzenie folderów, przekazywanie i pobieranie plików danych, usuwanie konta itp. Aby uzyskać więcej informacji o usłudze Data Lake Store, zobacz [Omówienie usługi Azure Data Lake Store](data-lake-store-overview.md).
+Dowiedz się, jak użyć witryny Azure Portal, aby utworzyć konto usługi Azure Data Lake Store i wykonywać podstawowe operacje, takie jak tworzenie folderów, przekazywanie i pobieranie plików danych, usuwanie konta itp. Aby uzyskać więcej informacji o usłudze Data Lake Store, zobacz [Omówienie usługi Azure Data Lake Store](data-lake-store-overview.md).
 
 ## Wymagania wstępne
 
-Przed rozpoczęciem korzystania z tego samouczka należy dysponować następującymi elementami:
+Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dysponować następującymi elementami:
 
 - **Subskrypcja platformy Azure**. Zobacz [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -39,7 +39,7 @@ Przed rozpoczęciem korzystania z tego samouczka należy dysponować następują
 
 Najpierw należy zażądać włączenia możliwości korzystania z publicznej wersji zapoznawczej usługi Data Lake Store w ramach subskrypcji platformy Azure. Wykonaj poniższe kroki.
 
-1. Zaloguj się do nowego [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w nowej witrynie [Azure Portal](https://portal.azure.com).
 2. Kliknij pozycję **NOWY**, pozycję **Dane i magazyn**, a następnie pozycję **Azure Data Lake Store**.
 3. W bloku **Nowa usługa Data Lake Store** kliknij pozycję **Zarejestruj się, aby skorzystać z wersji zapoznawczej**. Przeczytaj informacje, a następnie kliknij przycisk **OK**. Po włączeniu możliwości korzystania z publicznej wersji zapoznawczej w ramach subskrypcji otrzymasz wiadomość e-mail.
 
@@ -54,7 +54,7 @@ Obejrzyj następujące filmy wideo, aby rozpocząć pracę z usługą Data Lake 
 
 ## Tworzenie konta usługi Azure Data Lake Store
 
-1. Zaloguj się do nowego [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w nowej witrynie [Azure Portal](https://portal.azure.com).
 
 2. Kliknij pozycję **NOWY**, pozycję **Dane i magazyn**, a następnie pozycję **Azure Data Lake Store**. Przeczytaj informacje w bloku **Azure Data Lake Store**, a następnie kliknij pozycję **Utwórz** w lewym dolnym rogu bloku.
 
@@ -133,12 +133,13 @@ Aby usunąć konto usługi Azure Data Lake Store z bloku Data Lake Store, klikni
 
 ## Następne kroki
 
-- [Secure data in Data Lake Store (Zabezpieczanie danych w usłudze Data Lake Store)](data-lake-store-secure-data.md)
-- [Use Azure Data Lake Analytics with Data Lake Store (Korzystanie z usługi Azure Data Lake Analytics z usługą Data Lake Store)](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+- [Zabezpieczanie danych w usłudze Data Lake Store](data-lake-store-secure-data.md)
+- [Korzystanie z usługi Azure Data Lake Analytics z usługą Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Korzystanie z usługi Azure HDInsight z usługą Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Dostęp do dzienników diagnostycznych usługi Data Lake Store](data-lake-store-diagnostic-logs.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

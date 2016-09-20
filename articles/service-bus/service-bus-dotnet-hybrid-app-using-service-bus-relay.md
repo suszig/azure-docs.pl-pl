@@ -49,7 +49,7 @@ Poniżej przedstawiono zrzut ekranu strony startowej ukończonej aplikacji sieci
 
 ![][1]
 
-## Konfigurowanie środowiska projektowego
+## Konfigurowanie środowiska deweloperskiego
 
 Przed rozpoczęciem tworzenia aplikacji dla platformy Azure pobierz potrzebne narzędzia i skonfiguruj swoje środowisko deweloperskie.
 
@@ -67,45 +67,7 @@ Przed rozpoczęciem tworzenia aplikacji dla platformy Azure pobierz potrzebne na
 
 Aby rozpocząć korzystanie z funkcji usługi Service Bus na platformie Azure, musisz najpierw utworzyć przestrzeń nazw usługi. Przestrzeń nazw zapewnia kontener określania zakresu na potrzeby adresowania zasobów usługi Service Bus w aplikacji.
 
-1.  Zaloguj się do [klasycznego portalu Azure][].
-
-2.  W lewym okienku nawigacji portalu kliknij pozycję **Service Bus**.
-
-3.  W dolnym okienku portalu kliknij pozycję **Utwórz**.
-
-    ![][5]
-
-4.  W oknie dialogowym **Dodawanie nowej przestrzeni nazw** wprowadź nazwę przestrzeni nazw.
-    System od razu sprawdza, czy nazwa jest dostępna.
-    ![][6]
-
-5.  Po upewnieniu się, że nazwa przestrzeni nazw jest dostępna, wybierz kraj lub region, w którym przestrzeń nazw ma być hostowana (upewnij się, że używasz tego samego kraju/regionu, w którym są wdrażane zasoby obliczeniowe).
-
-    > [AZURE.IMPORTANT] Wybierz *ten sam region*, którego zamierzasz użyć do wdrożenia aplikacji. Zapewni to najlepszą wydajność.
-
-6.  W pozostałych polach okna dialogowego pozostaw wartości domyślne, a następnie kliknij znacznik wyboru OK. System utworzy przestrzeń nazw i włączy ją. Proces aprowizacji zasobów dla konta w systemie może potrwać kilka minut.
-
-Utworzona przestrzeń nazw zostanie wyświetlona w portalu, choć jej aktywowanie może chwilę potrwać. Przed kontynuowaniem zaczekaj, aż stan zmieni się na **Aktywna**.
-
-## Uzyskiwanie domyślnych poświadczeń zarządzania dla przestrzeni nazw
-
-W celu wykonywania w nowej przestrzeni nazw operacji zarządzania, takich jak tworzenie jednostek obsługi komunikatów, musisz uzyskać poświadczenia dla przestrzeni nazw.
-
-1.  W oknie głównym kliknij przestrzeń nazw utworzoną w poprzednim kroku.
-
-2.  Na dole strony kliknij pozycję **Informacje o połączeniu**.
-
-3.  W okienku **Dostęp do informacji o połączeniu** znajdź parametry połączenia, które zawierają klucz sygnatury dostępu współdzielonego i nazwę klucza.
-
-    ![][45]
-
-4.  Skopiuj parametry połączenia i wklej je gdzieś, gdzie będą łatwo dostępne, ponieważ będą potrzebne w dalszej części tego samouczka.
-
-5. Na tej samej stronie portalu kliknij kartę **Konfiguracja** u góry strony.
-
-6. Skopiuj do schowka klucz podstawowy dla zasad **RootManageSharedAccessKey** lub wklej go do Notatnika. Ta wartość zostanie użyta w dalszej części tego samouczka.
-
-    ![][46]
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Tworzenie serwera lokalnego
 
@@ -541,11 +503,6 @@ Aby dowiedzieć się więcej na temat usługi Service Bus, zobacz następujące 
   [Pobierz narzędzia i zestaw SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   
-  [klasycznego portalu Azure]: http://manage.windowsazure.com
-  [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
-  [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
-
-
   [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
   [13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png
   [15]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.png
@@ -567,15 +524,14 @@ Aby dowiedzieć się więcej na temat usługi Service Bus, zobacz następujące 
   [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
   [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
-  [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
+
 
   [sbwacom]: /documentation/services/service-bus/  
-  [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
+  [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

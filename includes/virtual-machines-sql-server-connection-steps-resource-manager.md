@@ -14,6 +14,8 @@ Aby utworzyć etykietę DNS, wybierz najpierw **maszyny wirtualne** w portalu. W
 
 3. Wprowadź nazwę etykiety DNS. Ta nazwa to rekord A, którego można użyć do nawiązania połączenia z maszyną wirtualną programu SQL Server przy użyciu nazwy, a nie bezpośrednio adresu IP.
 
+4. Kliknij przycisk **Zapisz**.
+
     ![etykieta DNS](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
 ### Nawiązywanie połączenia z aparatem bazy danych z innego komputera
@@ -34,6 +36,6 @@ Aby utworzyć etykietę DNS, wybierz najpierw **maszyny wirtualne** w portalu. W
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

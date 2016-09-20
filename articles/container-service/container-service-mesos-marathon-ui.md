@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
+   keywords="Docker, kontenery, mikrousługi, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -97,8 +97,12 @@ Po zakończeniu operacji skalowania widocznych będzie wiele wystąpień tego sa
 
 - [Praca z platformą DC/OS i interfejsem API platformy Marathon](container-service-mesos-marathon-rest.md)
 
+Pełne wykorzystanie usługi Azure Container Service dzięki rozwiązaniu Mesos
+
+> [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

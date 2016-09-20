@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/31/2016"
-    ms.author="curtand;viviali"/>
+    ms.date="08/02/2016"
+    ms.author="curtand"/>
 
 # Dodawanie użytkowników z innych katalogów lub firm partnerskich w usłudze Azure Active Directory
 
-Dodaj użytkowników, aby wypełnić katalog. W tym artykule opisano sposób dodawania użytkowników z innych katalogów w usłudze Azure Active Directory lub dodawania użytkowników z firm partnerskich. Aby uzyskać informacje dotyczące dodawania nowych użytkowników w organizacji i użytkowników, którzy mają konta Microsoft, zobacz [Dodawanie nowych użytkowników do usługi Azure Active Directory](active-directory-create-users.md). Dodani użytkownicy domyślnie nie mają uprawnień administratora, ale możesz przypisać im role w dowolnym momencie.
+W tym artykule opisano sposób dodawania użytkowników z innych katalogów w usłudze Azure Active Directory lub dodawania użytkowników z firm partnerskich. Aby uzyskać informacje dotyczące dodawania nowych użytkowników w organizacji i użytkowników, którzy mają konta Microsoft, zobacz [Dodawanie nowych użytkowników do usługi Azure Active Directory](active-directory-create-users.md). Dodani użytkownicy domyślnie nie mają uprawnień administratora, ale możesz przypisać im role w dowolnym momencie.
 
 ## Dodawanie użytkownika
 
@@ -56,7 +56,8 @@ Gdy dodajesz do swojego katalogu użytkownika z innego katalogu, użytkownik ten
 
 Jedyne połączenie dwóch kont polega na tym, że użytkownik zawsze jest uwierzytelniany względem swojego katalogu macierzystego lub przy użyciu konta Microsoft. Dlatego nie jest widoczna opcja resetowania hasła lub włączania uwierzytelniania wieloskładnikowego dla użytkownika zewnętrznego. Obecnie zasada uwierzytelniania katalogu macierzystego lub konta Microsoft polega na tym, że tylko jedno z nich jest oceniane w czasie logowania użytkownika.
 
-> [AZURE.NOTE] Wciąż możesz zablokować użytkownika zewnętrznego w katalogu, co powoduje zablokowanie dostępu do katalogu.
+> [AZURE.NOTE]
+> Wciąż możesz zablokować użytkownika zewnętrznego w katalogu, co powoduje zablokowanie dostępu do katalogu.
 
 Jeśli użytkownik zostanie usunięty z katalogu macierzystego lub anuluje swoje konto Microsoft, użytkownik zewnętrzny będzie nadal istnieć w Twoim katalogu. Jednak użytkownik w Twoim katalogu nie będzie mieć dostępu do zasobów, ponieważ nie będzie mógł uwierzytelnić się przy użyciu katalogu macierzystego ani konta Microsoft.
 
@@ -85,6 +86,6 @@ Jeśli użytkownik zostanie usunięty z katalogu macierzystego lub anuluje swoje
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

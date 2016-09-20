@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Tworzenie aplikacji oprogramowania Cordova przy użyciu funkcji Mobile Apps w usłudze Azure App Service | Microsoft Azure"
+    pageTitle="Tworzenie aplikacji oprogramowania Cordova przy użyciu funkcji Azure App Service Mobile Apps | Microsoft Azure"
     description="Postępuj zgodnie z tym samouczkiem, aby rozpocząć korzystanie z zapleczy usług mobilnych Azure na potrzeby opracowywania aplikacji dla oprogramowania Apache Cordova."
     services="app-service\mobile"
     documentationCenter="javascript"
@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="hero-article"
-    ms.date="05/02/2016"
+    ms.date="08/11/2016"
     ms.author="glenga"/>
 
 #Tworzenie aplikacji oprogramowania Apache Cordova
@@ -42,6 +42,8 @@ Można również pominąć program Visual Studio i używać bezpośrednio wiersz
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
+[Obejrzyj film przedstawiający podobne kroki](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
+
 ## Konfigurowanie projektu serwera
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
@@ -59,7 +61,7 @@ Teraz po ukończeniu tego samouczka szybkiego startu, przejdź do jednego z nast
 
 Dowiedz się więcej na temat najważniejszych pojęć związanych z usługą Azure App Service.
 
-* [Uwierzytelnianie]
+* [Authentication]
 * [Powiadomienia wypychane]
 
 Dowiedz się, jak korzystać z zestawów SDK.
@@ -71,12 +73,12 @@ Dowiedz się, jak korzystać z zestawów SDK.
 <!-- Images. -->
 
 <!-- URLs -->
-[Portal Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Dodawanie uwierzytelniania]: app-service-mobile-cordova-get-started-users.md
 [Dodawanie powiadomień wypychanych]: app-service-mobile-cordova-get-started-push.md
-[Uwierzytelnianie]: app-service-mobile-auth.md
+[Authentication]: app-service-mobile-auth.md
 [Powiadomienia wypychane]: ../notification-hubs/notification-hubs-overview.md
 [Zestaw Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [Zestaw ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
@@ -84,7 +86,6 @@ Dowiedz się, jak korzystać z zestawów SDK.
 
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

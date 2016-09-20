@@ -13,22 +13,20 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="06/05/2016" 
+    ms.date="08/30/2016" 
     ms.author="juliako"/>
 
 
 #Jak wykonać transmisję strumieniową na żywo za pomocą koderów lokalnych przy użyciu portalu Azure
 
-W tym samouczku opisano kolejne kroki w procesie tworzenia **kanału** skonfigurowanego do dostarczania zawartości w formie przekazywania przy użyciu portalu Azure. 
-
-Usługa Azure Media Services w portalu Azure jest obecnie dostępna w wersji zapoznawczej.   
+W tym samouczku opisano kolejne kroki w procesie tworzenia **kanału** skonfigurowanego do dostarczania zawartości w formie przekazywania przy użyciu witryny Azure Portal. 
 
 
 ##Wymagania wstępne
 
 Do wykonania czynności przedstawionych w tym samouczku są niezbędne następujące elementy:
 
-- Konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz temat [Bezpłatna wersja próbna systemu Azure](https://azure.microsoft.com/pricing/free-trial/). 
+- Konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Konto usługi Media Services. Aby utworzyć konto usługi Media Services, zobacz temat [Jak utworzyć konto usługi Media Services](media-services-create-account.md).
 - Kamera internetowa. Na przykład [koder Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
 
@@ -146,7 +144,7 @@ Po utworzeniu kanału można pobrać adresy URL pozyskiwania, które należy udo
 
 ##Oglądanie wydarzenia
 
-Aby oglądać wydarzenie, kliknij przycisk **Oglądaj** w portalu Azure lub skopiuj adres URL przesyłania strumieniowego i użyj wybranego odtwarzacza. 
+Aby oglądać wydarzenie, kliknij przycisk **Oglądaj** w witrynie Azure Portal lub skopiuj adres URL przesyłania strumieniowego i użyj wybranego odtwarzacza. 
  
 ![Utworzone](./media/media-services-portal-passthrough-get-started/media-services-default-event.png)
 
@@ -177,6 +175,6 @@ Aby zarządzać elementami zawartości, wybierz opcję **Ustawienie** i kliknij 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

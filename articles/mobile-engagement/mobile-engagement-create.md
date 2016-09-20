@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows-store"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/17/2016"  
+    ms.date="08/19/2016"  
     ms.author="piyushjo"/>
 
 
@@ -49,6 +49,7 @@ Po przejściu do portalu Mobile Engagement możesz analizować i tworzyć segmen
 [Get started with Azure Mobile Engagement](mobile-engagement-windows-store-dotnet-get-started.md) (Rozpoczynanie pracy z usługą Azure Mobile Engagemenet) (możesz wybrać inne platformy mobilne w górnej części strony).
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

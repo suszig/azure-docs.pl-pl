@@ -13,17 +13,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="08/04/2016"
    ms.author="navale;tomfitz"/>
    
 # Przewodnik po szablonie usługi Resource Manager
 
-Jedno z pierwszym pytań podczas tworzenia szablonu jest następujące: jak rozpocząć? Można rozpocząć od pustego szablonu, utworzyć podstawową strukturę zgodnie z opisem w artykule [Tworzenie szablonu](resource-group-authoring-templates.md#template-format), a następnie dodać zasoby oraz odpowiednie parametry i zmienne. Dobrą alternatywą jest rozpoczęcie od zapoznania się z [galerią Szybki start](https://github.com/Azure/azure-quickstart-templates) i znalezienie scenariuszy, których cel jest podobny do tego, co ma zostać zrobione. Możliwe jest scalenie kilku szablonów lub edytowane istniejącego szablonu w taki sposób, aby odpowiadało to potrzebom własnego konkretnego scenariusza. 
+Jednym z pierwszych pytań podczas tworzenia szablonu jest „jak rozpocząć?”. Można rozpocząć od pustego szablonu, utworzyć podstawową strukturę zgodnie z opisem w artykule [Tworzenie szablonu](resource-group-authoring-templates.md#template-format), a następnie dodać zasoby oraz odpowiednie parametry i zmienne. Dobrą alternatywą jest rozpoczęcie od zapoznania się z [galerią Szybki start](https://github.com/Azure/azure-quickstart-templates) i znalezienie scenariuszy, których cel jest podobny do tego, co ma zostać zrobione. Możliwe jest scalenie kilku szablonów lub edytowane istniejącego szablonu w taki sposób, aby odpowiadało to potrzebom własnego konkretnego scenariusza. 
 
 Spójrzmy na wspólną infrastrukturę:
 
 * Dwie maszyny wirtualne używające tego samego konta magazynu znajdujące się w tym samym zestawie dostępności i w tej samej podsieci sieci wirtualnej.
-* Pojedyncza karta sieciowa i pojedynczy adres IP maszyny wirtualnej dla każdej maszyny wirtualnej.
+* Jedna karta sieciowa i jeden adres IP dla każdej maszyny wirtualnej.
 * Moduł równoważenia obciążenia z regułą równoważenia obciążenia na porcie 80.
 
 ![architektura](./media/resource-group-overview/arm_arch.png)
@@ -117,7 +117,7 @@ Mamy pełny szablon służący do tworzenia nowego konta magazynu. Tak jak pami�
 }
 ```
 
-Istnieje kilka metod wdrażania szablonu, co zostało opisane w artykule [Wdrażanie zasobu](resource-group-template-deploy.md). Aby wdrożyć szablon przy użyciu programu Azure PowerShell, użyj następującego polecenia:
+Istnieje kilka metod wdrażania szablonu, co zostało opisane w artykule dotyczącym [wdrażania zasobów](resource-group-template-deploy.md). Aby wdrożyć szablon przy użyciu programu Azure PowerShell, użyj następującego polecenia:
 
 ```powershell
 # create a new resource group
@@ -140,7 +140,7 @@ Jesteś teraz dumnym właścicielem konta magazynu!
 W następnych krokach zostaną dodane wszystkie zasoby wymagane do wdrożenia architektury opisanej na początku tego samouczka. Te zasoby zostaną dodane w tym samym szablonie, na którym odbywała się wcześniej praca.
 
 ## Zestaw dostępności
-Po definicji konta magazynu należy dodać zestaw dostępności dla maszyn wirtualnych. W tym przypadku nie są wymagane żadne dodatkowe właściwości, więc jego definicja jest dość prosta. Zobacz [Interfejs API REST na potrzeby tworzenia zestawu dostępności](https://msdn.microsoft.com/library/azure/mt163607.aspx), aby wyświetlić pełną sekcję właściwości, jeśli chcesz zdefiniować wartości liczby domen aktualizacji i domen błędów.
+Po definicji konta magazynu należy dodać zestaw dostępności dla maszyn wirtualnych. W tym przypadku nie są wymagane żadne dodatkowe właściwości, więc jego definicja jest dość prosta. Zobacz artykuł z opisem [interfejsu API REST na potrzeby tworzenia zestawu dostępności](https://msdn.microsoft.com/library/azure/mt163607.aspx), aby wyświetlić pełną sekcję właściwości, jeśli chcesz zdefiniować wartości liczby domen aktualizacji i domen błędów.
 
 ```json
 {
@@ -185,7 +185,7 @@ Natomiast w przypadku interfejsu wiersza polecenia platformy Azure następujące
 Powinien zostać wyświetlony typ **availabilitySets** jako jeden z typów w ramach zasobu **Microsoft.Compute**. Pełna nazwa typu to **Microsoft.Compute/availabilitySets**. Możliwe jest określenie nazwy typu zasobu dla każdego z zasobów w szablonie.
 
 ## Publiczny adres IP
-Zdefiniuj publiczny adres IP. Wyświetl sekcję [Interfejs API REST dla publicznych adresów IP](https://msdn.microsoft.com/library/azure/mt163590.aspx), aby uzyskać informacje o właściwościach, które należy ustawić.
+Zdefiniuj publiczny adres IP. Informacje o właściwościach, które należy ustawić, możesz sprawdzić w artykule dotyczącym [interfejsu API REST dla publicznych adresów IP](https://msdn.microsoft.com/library/azure/mt163590.aspx).
 
 ```json
 {
@@ -202,7 +202,7 @@ Zdefiniuj publiczny adres IP. Wyświetl sekcję [Interfejs API REST dla publiczn
 }
 ```
 
-Metoda alokacji została ustawiona na wartość **Dynamiczna**, ale możesz ustawić ją na żądaną wartość lub ustawić ją w taki sposób, aby akceptowała wartość parametru. Użytkownikom szablonu umożliwiono przekazywanie wartości dla etykiety nazwy domeny.
+Metoda alokacji została ustawiona na wartość **Dynamic** (Dynamiczna), ale możesz ustawić ją na żądaną wartość lub zdefiniować w taki sposób, aby akceptowała wartość parametru. Użytkownikom szablonu umożliwiono przekazywanie wartości dla etykiety nazwy domeny.
 
 Zobaczmy teraz, w jaki sposób można określić wartość właściwości **apiVersion**. Określane wartości są po prostu zgodne z wersją interfejsu API REST, którego chcesz używać podczas tworzenia zasobu. W związku z tym typ tego zasobu można określić na podstawie dokumentacji interfejsu API REST. Można również uruchomić następujące polecenie programu PowerShell dla określonego typu.
 
@@ -217,7 +217,7 @@ Polecenie to zwraca następujące wartości:
 
 Aby sprawdzić wersje interfejsu API za pomocą interfejsu wiersza polecenia platformy Azure, uruchom takie same polecenie **azure provider show**, które zostało przedstawione wcześniej.
 
-Podczas tworzenia nowego szablonu, wybierz najnowszą wersję interfejsu API.
+Podczas tworzenia nowego szablonu wybierz najnowszą wersję interfejsu API.
 
 ## Sieć wirtualna i podsieć
 Utwórz sieć wirtualną z jedną podsiecią. Wszystkie właściwości, które należy ustawić, można znaleźć w sekcji [Interfejs API REST dla sieci wirtualnych](https://msdn.microsoft.com/library/azure/mt163661.aspx).
@@ -249,7 +249,7 @@ Utwórz sieć wirtualną z jedną podsiecią. Wszystkie właściwości, które n
 ## Moduł równoważenia obciążenia
 Teraz zostanie utworzony zewnętrzny moduł równoważenia obciążenia. Ponieważ ten moduł równoważenia obciążenia używa publicznego adresu IP, należy zadeklarować zależność w publicznym adresie IP w sekcji **dependsOn**. Oznacza to, że moduł równoważenia obciążenia nie zostanie wdrożony do momentu zakończenia wdrażania publicznego adresu IP. Jeśli ta zależność nie zostanie zdefiniowana, zostanie wyświetlony błąd, ponieważ usługa Resource Manager podejmie próbę równoległego wdrażania zasobów i spróbuje ustawić moduł równoważenia obciążenia na publiczny adres IP, który jeszcze nie istnieje. 
 
-Zostanie również utworzona pula adresów zaplecza, kilka reguł ruchu przychodzącego translatora adresów sieciowych dla protokołu RDP w ramach maszyn wirtualnych, a także reguła równoważenia obciążenia z sondowaniem TCP na porcie 80 w ramach tej definicji zasobu. Wszystkie właściwości można znaleźć w sekcji [REST API for load balancer](https://msdn.microsoft.com/library/azure/mt163574.aspx) (Interfejs API REST dla modułu równoważenia obciążenia).
+Zostanie również utworzona pula adresów zaplecza, kilka reguł ruchu przychodzącego translatora adresów sieciowych dla protokołu RDP w ramach maszyn wirtualnych, a także reguła równoważenia obciążenia z sondowaniem TCP na porcie 80 w ramach tej definicji zasobu. Wszystkie właściwości można znaleźć w artykule dotyczącym [interfejsu API REST dla modułu równoważenia obciążenia](https://msdn.microsoft.com/library/azure/mt163574.aspx).
 
 ```json
 {
@@ -340,7 +340,7 @@ Zostanie również utworzona pula adresów zaplecza, kilka reguł ruchu przychod
 
 ## Interfejs sieciowy
 Zostaną utworzone dwa interfejsy sieciowe — po jednym dla każdej maszyny wirtualnej. Zamiast konieczności dołączania zduplikowanych wpisów dla interfejsów sieciowych można użyć funkcji [copyIndex()](resource-group-create-multiple.md) w celu iteracji przez pętlę kopiowania (nazywaną nicLoop) i utworzenia kilku interfejsów sieciowych zgodnie z definicją w zmiennych `numberOfInstances`. Interfejs sieciowy jest zależny od utworzenia sieci wirtualnej i modułu równoważenia obciążenia. Interfejs sieciowy używa podsieci zdefiniowanej podczas tworzenia sieci wirtualnej i identyfikatora modułu równoważenia obciążenia do skonfigurowania puli adresów modułu równoważenia obciążenia i reguł ruchu przychodzącego translatora adresów sieciowych.
-Wszystkie właściwości można znaleźć w sekcji [REST API for network interfaces](https://msdn.microsoft.com/library/azure/mt163668.aspx) (Interfejs API REST dla interfejsów sieciowych).
+Wszystkie właściwości można znaleźć w artykule dotyczącym [interfejsu API REST dla interfejsów sieciowych](https://msdn.microsoft.com/library/azure/mt163668.aspx).
 
 ```json
 {
@@ -583,6 +583,6 @@ Możesz ponownie wdrożyć szablon przy użyciu tych samych poleceń, które zos
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

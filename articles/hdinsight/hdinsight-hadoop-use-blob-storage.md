@@ -1,6 +1,6 @@
 <properties
     pageTitle="Zapytania na danych z magazynu obiektów blob zgodnego systemem plików HDFS | Microsoft Azure"
-    description="Usługa HDInsight używa magazynu obiektów blob platformy Azure do przechowywania danych big data dla systemu plików HDFS. Dowiedz się, jak wykonywać zapytania na danych z magazynu obiektów blob i przechowywać wyniki analiz."
+    description="Usługa HDInsight używa magazynu obiektów blob platformy Azure do przechowywania danych big data dla systemu plików HDFS. Dowiedz się, jak wykonywać zapytania na danych z usługi Blob Storage i przechowywać wyniki analiz."
     keywords="blob storage,hdfs,structured data,unstructured data"
     services="hdinsight,storage"
     documentationCenter=""
@@ -15,23 +15,19 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/18/2016"
+    ms.date="08/10/2016"
     ms.author="jgao"/>
 
 
-# Użyj magazynu obiektów blob platformy Azure zgodnego z systemem plików HDFS w połączeniu z platformą Hadoop w usłudze HDInsight
+# Użyj usługi Azure Blob Storage zgodnej z systemem plików HDFS w połączeniu z platformą Hadoop w usłudze HDInsight
 
 Dowiedz się, jak używać niedrogiego magazynu obiektów blob platformy Azure z usługą HDInsight, tworzyć konto magazynu Azure i kontener magazynu obiektów blob, a następnie adresować zawarte w nim dane.
 
 Magazyn obiektów blob systemu Azure to niezawodne rozwiązanie ogólnego przeznaczenia, które bezproblemowo integruje się z usługą HDInsight. Korzystając z interfejsu rozproszonego systemu plików Hadoop (HDFS), pełny zestaw składników usługi HDInsight może operować bezpośrednio na danych strukturalnych lub bez struktury w magazynie obiektów blob.
 
-Przechowywanie danych w magazynie obiektów blob pozwala bezpiecznie usuwać klastry usługi HDInsight używane do obliczeń bez utraty danych użytkownika.
+Przechowywanie danych w usłudze Blob Storage pozwala bezpiecznie usuwać klastry usługi HDInsight używane do obliczeń bez utraty danych użytkownika.
 
-> [AZURE.NOTE]  Składnia *asv://* nie jest obsługiwana w klastrach usługi HDInsight w wersji 3.0. Oznacza to, że przesłane do klastra usługi HDInsight w wersji 3.0 zadania, które jawnie używają składni *asv://*, zakończą się niepowodzeniem. Należy zamiast tego używać składni *wasb://*. Ponadto przesłane do dowolnych klastrów usługi HDInsight w wersji 3.0 zadania utworzone na podstawie istniejącego magazynu metadanych zawierającego jawne odwołania do zasobów ze składnią asv:// zakończą się niepowodzeniem. Te magazyny metadanych muszą zostać ponownie utworzone przy użyciu składni wasb:// do adresowania zasobów.
-
-> HDInsight aktualnie obsługuje tylko blokowe obiekty blob.
-
-> Większość poleceń systemu plików HDFS (na przykład <b>ls</b>, <b>copyFromLocal</b> i <b>mkdir</b>) nadal działa zgodnie z oczekiwaniami. Tylko polecenia specyficzne dla natywnych implementacji systemu plików HDFS (określanych jako systemy plików DFS), takie jak <b>fschk</b> i <b>dfsadmin</b>, będą działać inaczej w magazynie obiektów blob platformy Azure.
+> [AZURE.IMPORTANT] Usługa HDInsight obsługuje tylko blokowe obiekty blob. Nie obsługuje stronicowych ani uzupełnialnych obiektów blob.
 
 Informacje dotyczące tworzenia klastra usługi HDInsight można znaleźć w tematach [Get Started with HDInsight][hdinsight-get-started] (Wprowadzenie do usługi HDInsight) lub [Create HDInsight clusters][hdinsight-creation] (Tworzenie klastrów usługi HDInsight).
 
@@ -49,6 +45,7 @@ Ponadto usługa HDInsight zapewnia możliwość dostępu do danych przechowywany
 
     wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
+> [AZURE.NOTE] W wersjach usługi HDInsight starszych niż 3.0 używano ciągu `asv://` zamiast `wasb://`. `asv://` nie należy używać z klastrami HDInsight 3.0 lub nowszymi, ponieważ spowoduje to błąd.
 
 Platforma Hadoop obsługuje pojęcie domyślnego systemu plików. Domyślny system plików wyznacza domyślny schemat i element authority. Może również służyć do rozpoznawania ścieżek względnych. Podczas procesu tworzenia usługi HDInsight konto Azure Storage i określony na podstawie tego konta kontener magazynu obiektów blob platformy Azure wyznaczają domyślny system plików.
 
@@ -83,7 +80,7 @@ Przechowywanie danych w magazynie obiektów blob platformy Azure zamiast w syste
 
 Niektóre zadania i pakiety MapReduce mogą tworzyć wyniki pośrednie, których nie potrzeba przechowywać w magazynie obiektów blob platformy Azure. W takim przypadku można zdecydować się na przechowywanie danych w lokalnym systemie plików HDFS. W rzeczywistości HDInsight używa systemu plików DFS dla wielu wyników pośrednich w zadaniach Hive i innych procesach.
 
-
+> [AZURE.NOTE] Większość poleceń systemu plików HDFS (na przykład <b>ls</b>, <b>copyFromLocal</b> i <b>mkdir</b>) nadal działa zgodnie z oczekiwaniami. Tylko polecenia specyficzne dla natywnych implementacji systemu plików HDFS (określanych jako systemy plików DFS), takie jak <b>fschk</b> i <b>dfsadmin</b>, będą działać inaczej w usłudze Azure Blob Storage.
 
 ## Tworzenie kontenerów obiektów blob
 
@@ -155,10 +152,6 @@ Schemat identyfikatora URI do uzyskiwania dostępu do plików w magazynie obiekt
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
 
-> [AZURE.NOTE] Składnia adresowania plików w emulatorze magazynu (działającym w emulatorze usługi HDInsight) to <i>wasb://&lt;NazwaKontenera&gt;@storageemulator</i>.
-
-
-
 Schemat identyfikatora URI zapewnia nieszyfrowany dostęp (z prefiksem *wasb:*) oraz szyfrowany dostęp SSL (z prefiksem *wasbs*). Zalecamy używanie prefiksu *wasbs* wszędzie tam, gdzie to możliwe, nawet w przypadku uzyskiwania dostępu do danych, które znajdują się wewnątrz tego samego regionu w systemie Azure.
 
 &lt;BlobStorageContainerName&gt; identyfikuje nazwę kontenera w Magazynie obiektów Blob platformy Azure.
@@ -166,8 +159,8 @@ Schemat identyfikatora URI zapewnia nieszyfrowany dostęp (z prefiksem *wasb:*) 
 
 Jeśli żadna z nazw &lt;BlobStorageContainerName&gt; ani &lt;StorageAccountName&gt; nie zostanie określona, używany jest domyślny system plików. W przypadku plików w domyślnym systemie plików można używać ścieżki względnej lub bezwzględnej. Na przykład do pliku *hadoop-mapreduce-examples.jar* dostarczanego z klastrami usługi HDInsight można odwoływać się w jeden z następujących sposobów:
 
-    wasb://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
-    wasb:///example/jars/hadoop-mapreduce-examples.jar
+    wasbs://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
+    wasbs:///example/jars/hadoop-mapreduce-examples.jar
     /example/jars/hadoop-mapreduce-examples.jar
 
 > [AZURE.NOTE] Nazwa pliku to <i>hadoop-examples.jar</i> w klastrach usługi HDInsight w wersji 2.1 i 1.6.
@@ -277,7 +270,7 @@ $clusterName = "<HDInsightClusterName>"
     $defines = @{}
     $defines.Add("fs.azure.account.key.$undefinedStorageAccount.blob.core.windows.net", $undefinedStorageKey)
 
-    Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
+    Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasbs://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
 ## Następne kroki
 
@@ -308,6 +301,6 @@ Aby uzyskać więcej informacji, zobacz:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

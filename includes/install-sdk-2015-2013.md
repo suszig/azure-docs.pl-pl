@@ -8,6 +8,6 @@ Jeśli program Visual Studio nie jest zainstalowany, użyj linku do programu Vis
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

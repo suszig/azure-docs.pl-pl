@@ -12,12 +12,12 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/02/2016"
+    ms.date="08/15/2016"
     ms.author="awills"/>
 
-# Usługa Application Insights: języki, platformy i integracje
+# Rozszerzenie Developer Analytics: języki, platformy i integracje
 
-Oto znane implementacje, w tym niektóre innych firm.
+Poniższe elementy to znane implementacje usługi [Application Insights](app-insights-overview.md), w tym niektóre innych firm.
 
 ## Języki
 
@@ -38,23 +38,22 @@ Oto znane implementacje, w tym niektóre innych firm.
 + [ASP.NET](app-insights-asp-net.md)
 + [ASP.NET — dla aplikacji, które już działają](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-five.md)
-+ [Android](https://github.com/Microsoft/ApplicationInsights-Android)
++ [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
 + [Aplikacje sieci Web i maszyny wirtualne platformy Azure](../azure-portal/insights-perf-analytics.md)
 + Usługi [Azure Cloud Services](app-insights-cloudservices.md) &#151; w tym role sieci Web i procesu roboczego
 + [Usługa Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
 + [Docker](app-insights-docker.md)
 + [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
-+ [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
++ [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (HockeyApp)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE — dla aplikacji, które już działają](app-insights-java-live.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
 + [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
-+ [Sklep Windows C#|VB](app-insights-windows-get-started.md)
-+ [Sklep Windows C++](app-insights-windows-cpp.md)
++ [Sklep Windows C#|VB](app-insights-windows-get-started.md) (HockeyApp)
++ [Sklep Windows C++](app-insights-windows-cpp.md) (HockeyApp)
 + [Aplikacje klasyczne, usługi i role procesów roboczych systemu Windows](app-insights-windows-desktop.md)
-+ [Xamarin](https://github.com/Microsoft/ApplicationInsights-Xamarin)
 + [Inne](#projects)
 
 
@@ -88,6 +87,6 @@ Jeśli brakuje zestawu SDK dla potrzebnego języka lub platformy, może zechcesz
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

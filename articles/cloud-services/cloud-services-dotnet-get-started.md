@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="03/21/2016"
+    ms.date="06/10/2016"
     ms.author="adegeo"/>
 
 # Wprowadzenie do usług Azure Cloud Services i programu ASP.NET
@@ -60,7 +60,7 @@ Instrukcje w samouczku dotyczą pracy z jednym z następujących produktów:
 * Visual Studio 2013
 * Visual Studio 2015
 
-Jeśli nie masz żadnego z tych programów, podczas instalowania zestawu Azure SDK zostanie automatycznie zainstalowany program Visual Studio 2015. 
+Jeśli nie masz żadnego z tych programów, podczas instalowania zestawu Azure SDK zostanie automatycznie zainstalowany program Visual Studio 2015.
 
 ## Architektura aplikacji
 
@@ -185,7 +185,7 @@ Aplikacja uruchomiona w chmurze będzie używać bazy danych opartej na chmurze.
 
 5. Kliknij pozycję **Zapisz**.
 
-### Tworzenie konta magazynu platformy Azure
+### Tworzenie konta usługi Azure Storage
 
 Konto magazynu platformy Azure udostępnia zasoby służące do przechowywania danych kolejek i obiektów blob w chmurze.
 
@@ -229,7 +229,7 @@ Dla roli Sieć Web będziesz używać [przekształcenia pliku Web.config](http:/
         providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)"/>
     </connectionStrings>
     ```
-    
+
     Zostaw plik otwarty do edycji.
 
 2. W [klasycznym portalu Azure](http://manage.windowsazure.com) kliknij pozycję **Bazy danych SQL Database** w lewym okienku, kliknij bazę danych utworzoną w ramach tego samouczka, kliknij kartę **Pulpit nawigacyjny**, a następnie kliknij pozycję **Pokaż parametry połączeń**.
@@ -314,10 +314,10 @@ A plik *ServiceConfiguration.Cloud.cscfg* zawiera wartości wprowadzone dla tych
         <Setting name="StorageConnectionString" value="{yourconnectionstring}" />
         <Setting name="ContosoAdsDbConnectionString" value="{yourconnectionstring}" />
         <!-- other settings not shown -->
-    
+
     </ConfigurationSettings>
     <!-- other settings not shown -->
-    
+
 </Role>
 ```
 
@@ -442,7 +442,7 @@ W tej sekcji będziesz konfigurować parametry połączenia usługi Azure Storag
         <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
-    
+
     Jeśli korzystasz z programu Visual Studio 2015, zastąp element „v11.0” elementem „MSSQLLocalDB”.
 
 2. Zapisz zmiany.
@@ -868,9 +868,10 @@ Więcej informacji zawierają następujące zasoby:
 * [Azure Cloud Services, część 1: wprowadzenie](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Jak zarządzać usługami Cloud Services](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
+* [Jak wybrać dostawcę usług w chmurze](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

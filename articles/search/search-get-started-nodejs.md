@@ -13,7 +13,7 @@
     ms.workload="search"
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/08/2016"
+    ms.date="07/14/2016"
     ms.author="evboyle"/>
 
 # Wprowadzenie do usługi Azure Search w środowisku NodeJS
@@ -25,7 +25,7 @@ Dowiedz się, jak utworzyć niestandardową aplikację wyszukiwania NodeJS, któ
 
 Do napisania i przetestowania tego kodu zostało użyte środowisko [NodeJS](https://nodejs.org) i menedżer pakietów NPM oraz programy [Sublime Text 3](http://www.sublimetext.com/3) i Windows PowerShell w systemie Windows 8.1.
 
-Aby uruchomić ten przykład, będzie potrzebna usługa Azure Search, do której możesz zarejestrować się w [Portalu Azure](https://portal.azure.com). Aby uzyskać szczegółowe instrukcje, zobacz [Create an Azure Search service in the portal](search-create-service-portal.md) (Tworzenie usługi Azure Search w portalu).
+Aby uruchomić ten przykład, będzie potrzebna usługa Azure Search, do której możesz zarejestrować się w witrynie [Azure Portal](https://portal.azure.com). Aby uzyskać szczegółowe instrukcje, zobacz [Create an Azure Search service in the portal](search-create-service-portal.md) (Tworzenie usługi Azure Search w portalu).
 
 ## Informacje o danych
 
@@ -54,14 +54,13 @@ Po utworzeniu usługi wróć do portalu, aby uzyskać adres URL lub klucz `api-k
 
 Pobierz przykład za pomocą jednej z następujących metod.
 
-1. Przejdź do strony [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198).
+1. Przejdź do strony [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo).
 2. Kliknij przycisk **Download ZIP** (Pobierz ZIP), zapisz plik zip, a następnie wyodrębnij wszystkie pliki w nim zawarte.
 
 Wszystkie kolejne modyfikacje plików i instrukcje uruchamiania będą wykonywane względem plików w tym folderze.
 
-Alternatywnie — jeśli masz narzędzie GIT w instrukcji ścieżki — możesz otworzyć okno programu PowerShell i wpisać polecenie `git clone https://github.com/EvanBoyle/AzureSearchNodeJSIndexerDemo.git`
 
-## Aktualizowanie pliku config.js  przy użyciu adresu URL usługi wyszukiwania i klucza api-key
+## Aktualizowanie pliku config.js przy użyciu adresu URL usługi wyszukiwania i klucza api-key
 
 Korzystając ze skopiowanego wcześniej adresu URL i klucza api-key, podaj adres URL, klucz administratora i klucz zapytania w pliku konfiguracyjnym.
 
@@ -123,6 +122,6 @@ Dopiero zaczynasz korzystać z usługi Azure Search? Zalecamy wypróbować inne 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

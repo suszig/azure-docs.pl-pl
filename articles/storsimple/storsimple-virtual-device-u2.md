@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/29/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Wdrażanie urządzenia wirtualnego StorSimple oraz zarządzanie nim na platformie Azure
@@ -38,7 +38,7 @@ Dostępne są dwa modele urządzenia wirtualnego StorSimple: standardowy — 801
  
 <sup>1</sup> *Poprzednia nazwa: 1100*.
 
-<sup>2</sup> *Urządzenia 8010 i 8020 korzystają z usługi Azure Standard Storage dla warstwy chmury. Różnica istnieje tylko w warstwie lokalnej urządzenia*.
+<sup>2</sup>*Urządzenia 8010 i 8020 korzystają z usługi Azure Standard Storage dla warstwy chmury. Różnica istnieje tylko w warstwie lokalnej urządzenia*.
 
 #### Obsługiwane regiony dla urządzenia 8020
 
@@ -80,7 +80,7 @@ Urządzenie wirtualne StorSimple jest wersją urządzenia StorSimple istniejąc�
 
 #### Różnice względem urządzenia fizycznego
 
-W poniższej tabeli przedstawiono niektóre podstawowe różnice między urządzeniem wirtualnym a fizycznym StorSimple.
+W poniższej tabeli przedstawiono niektóre podstawowe różnice między wirtualnym i fizycznym urządzeniem StorSimple.
 
 |                             | Urządzenie fizyczne                                          | Urządzenie wirtualne                                                                            |
 |-----------------------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------|
@@ -202,7 +202,7 @@ Firma Microsoft zaleca nawiązywanie połączenia z innej maszyny wirtualnej zna
 
 ## Praca z urządzeniem wirtualnym StorSimple
 
-Po utworzeniu i skonfigurowaniu urządzenia wirtualnego StorSimple można rozpocząć pracę. Na urządzeniu wirtualnym można pracować z kontenerami woluminów, woluminami i zasadami tworzenia kopii zapasowych tak samo jak na urządzeniu fizycznym StorSimple; jedyna różnica polega na tym, że trzeba koniecznie wybrać urządzenie wirtualne z listy urządzeń. Zapoznaj się z tematem dotyczącym [użycia usługi Menedżer StorSimple do zarządzania urządzeniem wirtualnym](storsimple-manager-service-administration.md), w którym opisano krok po kroku procedury różnych zadań zarządzania dla urządzenia wirtualnego.
+Po utworzeniu i skonfigurowaniu urządzenia wirtualnego StorSimple można rozpocząć pracę. Na urządzeniu wirtualnym można pracować z kontenerami woluminów, woluminami i zasadami tworzenia kopii zapasowych tak samo jak na urządzeniu fizycznym StorSimple; jedyna różnica polega na tym, że trzeba koniecznie wybrać urządzenie wirtualne z listy urządzeń. Zapoznaj się z tematem dotyczącym [użycia usługi StorSimple Manager do zarządzania urządzeniem wirtualnym](storsimple-manager-service-administration.md), w którym opisano krok po kroku procedury różnych zadań zarządzania dla urządzenia wirtualnego.
 
 W poniższych sekcjach omówiono niektóre różnice, które wystąpią podczas pracy z urządzeniem wirtualnym.
 
@@ -235,7 +235,7 @@ Po dezaktywacji urządzenia wirtualnego:
 
 Aby zapoznać się z procedurą krok po kroku, przejdź do tematu [Deactivate and delete your StorSimple device](storsimple-deactivate-and-delete-device.md) (Dezaktywacja i usuwanie urządzenia StorSimple).
 
-Gdy tylko urządzenie wirtualne zostanie wyświetlone jako dezaktywowane na stronie usługi Menedżer StorSimple, możesz je usunąć z listy urządzeń na stronie **Urządzenia**.
+Gdy tylko urządzenie wirtualne zostanie wyświetlone jako dezaktywowane na stronie usługi StorSimple Manager, możesz je usunąć z listy urządzeń na stronie **Urządzenia**.
 
 
 ### Uruchamianie, zatrzymywanie i ponowne uruchamianie urządzenia wirtualnego
@@ -250,7 +250,7 @@ Po wyświetleniu Konsoli zarządzania stanem urządzenia wirtualnego jest **Uruc
 Jeśli zdecydujesz się po prostu zacząć od nowa z urządzeniem wirtualnym, dezaktywuj je i usuń, a następnie utwórz nowe. Podobnie jak podczas resetowania urządzenia fizycznego na nowym urządzeniu wirtualnym nie będą zainstalowane żadne aktualizacje; dlatego przed jego użyciem koniecznie sprawdź dostępność aktualizacji.
 
 
-## Tryb failover urządzeń wirtualnych
+## Awaryjne przełączenie się na urządzenie wirtualne
 
 Odzyskiwanie po awarii jest jednym z kluczowych scenariuszy, do którego zostało przeznaczone urządzenie wirtualne StorSimple. W tym scenariuszu urządzenie fizyczne StorSimple lub całe centrum danych mogą nie być dostępne. Na szczęście operacje można przywrócić w innej lokalizacji za pomocą urządzenia wirtualnego. Podczas odzyskiwania po awarii kontenery woluminów z urządzenia źródłowego zmieniają właściciela i zostają przekazane do urządzenia wirtualnego. Zgodnie z wymaganiami wstępnymi dotyczącymi odzyskiwania po awarii urządzenie wirtualne zostało utworzone i skonfigurowane, wszystkie woluminy w kontenerze woluminów zostały przeniesione w tryb offline, a kontener woluminów ma skojarzoną migawkę w chmurze.
 
@@ -266,7 +266,7 @@ Aby zapoznać się z procedurą krok po kroku, przejdź do tematu dotyczącego [
 
 Jeśli urządzenie wirtualne StorSimple zostało wcześniej skonfigurowane i było używane, ale teraz chcemy wyłączyć naliczanie opłat za obliczenia w ramach jego użycia, możemy wyłączyć urządzenie wirtualne. Wyłączenie urządzenia wirtualnego nie powoduje usunięcia jego systemu operacyjnego ani dysków z danymi z magazynu. Powoduje ono zaprzestanie naliczania opłat w ramach subskrypcji, ale opłaty za magazyn dla systemu operacyjnego i dysków z danymi będą nadal pobierane.
 
-W przypadku usunięcia lub wyłączenia urządzenia wirtualnego będzie ono wyświetlane jako **W trybie offline** na stronie Urządzenia w usłudze Menedżer StorSimple. Jeśli chcesz również usunąć kopie zapasowe utworzone przez urządzenie wirtualne, możesz zdecydować się na dezaktywację lub usunięcie urządzenia. Aby uzyskać więcej informacji, zobacz temat [Deactivate and delete a StorSimple device](storsimple-deactivate-and-delete-device.md) (Dezaktywacja i usuwanie urządzenia StorSimple).
+W przypadku usunięcia lub wyłączenia urządzenia wirtualnego będzie ono wyświetlane jako **W trybie offline** na stronie Urządzenia w usłudze StorSimple Manager. Jeśli chcesz również usunąć kopie zapasowe utworzone przez urządzenie wirtualne, możesz zdecydować się na dezaktywację lub usunięcie urządzenia. Aby uzyskać więcej informacji, zobacz temat [Deactivate and delete a StorSimple device](storsimple-deactivate-and-delete-device.md) (Dezaktywacja i usuwanie urządzenia StorSimple).
 
 [AZURE.INCLUDE [Shut down a virtual device](../../includes/storsimple-shutdown-virtual-device.md)]
 
@@ -276,13 +276,13 @@ W przypadku usunięcia lub wyłączenia urządzenia wirtualnego będzie ono wyś
 
 ## Następne kroki
 
-- Informacje na temat [używania usługi Menedżer StorSimple do zarządzania urządzeniem wirtualnym](storsimple-manager-service-administration.md).
+- Informacje na temat [używania usługi StorSimple Manager do zarządzania urządzeniem wirtualnym](storsimple-manager-service-administration.md).
  
 - Zapoznanie się ze sposobem [przywracania woluminu StorSimple z zestawu kopii zapasowych](storsimple-restore-from-backup-set.md). 
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 
