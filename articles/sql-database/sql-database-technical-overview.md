@@ -1,7 +1,7 @@
 <properties
     pageTitle="Co to jest SQL Database? Wprowadzenie do usługi SQL Database | Microsoft Azure"
     description="Wprowadzenie do usługi SQL Database: szczegóły techniczne i możliwości systemu zarządzania relacyjnymi bazami danych (RDBMS) w chmurze firmy Microsoft."
-    keywords="introduction to sql,intro to sql,what is sql database"
+    keywords="wprowadzenie do usługi sql, co to jest sql database"
     services="sql-database"
     documentationCenter=""
     authors="shontnew"
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/23/2016"
+   ms.date="08/16/2016"
    ms.author="shkurhek"/>
 
 # Co to jest SQL Database? Wprowadzenie do usługi SQL Database
@@ -61,6 +61,6 @@ Po przeczytaniu wprowadzenia do usługi SQL Database i zapoznaniu się z nią mo
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article" 
-    ms.date="05/03/2016" 
+    ms.date="06/22/2016"
     ms.author="juliako"/>
 
 
@@ -29,7 +29,7 @@ Usługa Microsoft Azure Media Services umożliwia dostarczanie strumieni MPEG-DA
 Usługa Media Services udostępnia usługę dostarczania licencji PlayReady i Widevine DRM. Usługa Media Services dostarcza również interfejsy API, które umożliwiają skonfigurowanie uprawnień i ograniczeń, które powinny być wymuszane w uruchomionym środowisku PlayReady lub Widevine DRM, gdy użytkownik odtwarza chronioną zawartość. Gdy użytkownik zażąda zawartości chronionej przy użyciu DRM, aplikacja odtwarzacza zażąda licencji od usługi licencjonowania AMS. Usługa licencjonowania AMS wystawi licencję dla odtwarzacza, jeśli jest on autoryzowany. Licencja PlayReady lub Widevine zawiera klucz odszyfrowujący, który może zostać użyty przez odtwarzacz klienta do odszyfrowania i strumieniowego przesyłania zawartości.
 
 
-Licencje Widevine są dostępne również u następujących partnerów AMS: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) i [castLabs](http://castlabs.com/company/partners/azure/). Aby uzyskać więcej informacji, zobacz: integracja z [Axinom](media-services-axinom-integration.md) i [castLabs](media-services-castlabs-integration.md).
+Licencje Widevine są dostępne również u następujących partnerów usługi AMS: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) i [castLabs](http://castlabs.com/company/partners/azure/). Aby uzyskać więcej informacji, zobacz: integracja z [Axinom](media-services-axinom-integration.md) i [castLabs](media-services-castlabs-integration.md).
 
 Usługa Media Services obsługuje wiele sposobów autoryzacji użytkowników, którzy tworzą żądania klucza. Zasady autoryzacji klucza zawartości mogą mieć jedno lub więcej ograniczeń: ograniczenie otwarte lub ograniczenie tokenu. Zasadzie ograniczenia tokenu musi towarzyszyć token wystawiony przez usługę STS (Secure Token Service). Usługa Media Services obsługuje następujące formaty tokenów: [SWT (Simple Web Token)](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) i [JWT (JSON Web Token)](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3). Aby uzyskać więcej informacji, zobacz Konfigurowanie zasad autoryzacji klucza zawartości.
 
@@ -628,6 +628,6 @@ W poniższym przykładzie pokazano funkcje wprowadzone w programie Azure Media S
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

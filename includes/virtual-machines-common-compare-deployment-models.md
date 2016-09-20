@@ -20,7 +20,7 @@ Poza korzyściami wymienionymi powyżej nowo udostępnione interfejsy API zapewn
 -   Umożliwienie masowych i równoległych wdrożeń maszyn wirtualnych
 -   Obsługa 3 domen błędów w zestawach dostępności
 -   Ulepszone rozszerzenie skryptu niestandardowego umożliwiające określanie skryptów z dowolnego publicznie dostępnego niestandardowego adresu URL
-- Integracja maszyn wirtualnych z Magazynem kluczy Azure zapewniająca niezwykle bezpieczne przechowywanie i prywatne wdrażanie kluczy tajnych ze [zgodnych ze standardem FIPS](http://wikipedia.org/wiki/FIPS_140-2) [sprzętowych modułów zabezpieczeń](http://wikipedia.org/wiki/Hardware_security_module)
+- Integracja maszyn wirtualnych z usługą Azure Key Vault zapewniająca niezwykle bezpieczne przechowywanie i prywatne wdrażanie kluczy tajnych ze [zgodnych ze standardem FIPS](http://wikipedia.org/wiki/FIPS_140-2)[sprzętowych modułów zabezpieczeń](http://wikipedia.org/wiki/Hardware_security_module)
 -   Interfejsy API stanowiące podstawowe bloki konstrukcyjne obsługi sieci, które umożliwiają klientom tworzenie złożonych aplikacji obejmujących interfejsy sieciowe, moduły równoważenia obciążenia oraz sieci wirtualne
 -   Interfejsy sieciowe jako nowy obiekt umożliwiający stosowanie skomplikowanej konfiguracji sieci i jej ponowne użycie w odniesieniu do maszyn wirtualnych
 -   Moduły równoważenia obciążenia jako najwyższej jakości zasób umożliwiający przypisywanie adresów IP
@@ -47,7 +47,7 @@ W tej sekcji opisano niektóre z najważniejszych różnic koncepcyjnych między
 
 Pracę z szablonami platformy Azure można rozpocząć, korzystając z różnych oferowanych przez nas narzędzi do projektowania i wdrażania w ramach platformy.
 
-### Azure portal
+### Azure Portal
 
 W portalu Azure nadal dostępna będzie opcja wdrażania maszyn wirtualnych przy jednoczesnym użyciu klasycznego modelu wdrażania oraz modelu wdrażania maszyn wirtualnych z użyciem usługi Resource Manager. Portal Azure będzie również umożliwiać wdrażanie szablonów niestandardowych.
 
@@ -85,16 +85,12 @@ Przydziały dla maszyn wirtualnych, sieci wirtualnych i kont usługi Storage utw
 
 Wszelkie utworzone elementy do automatyzacji oraz skrypty będą nadal działać w przypadku istniejących maszyn wirtualnych i sieci wirtualnych utworzonych w trybie Azure Service Management. Skrypty należy jednak zaktualizować w celu zastosowania nowego schematu tworzenia tych samych zasobów w nowym trybie Azure Resource Manager.
 
-**Czy sieci wirtualne utworzone przy użyciu nowych interfejsów API usługi Azure Resource Manager można połączyć z obwodem usługi Express Route?**
-
-Takie rozwiązanie nie jest obecnie obsługiwane. Nie można połączyć sieci wirtualnych utworzonych przy użyciu nowych interfejsów API usługi Azure Resource Manager z obwodem usługi Express Route. Będzie to możliwe w przyszłości.
-
 **Gdzie znajdę przykłady szablonów usługi Azure Resource Manager?**
 
 Kompleksowy zestaw szablonów startowych można znaleźć na stronie [Azure Resource Manager QuickStart Templates](https://azure.microsoft.com/documentation/templates/) (Szablony szybkiego startu usługi Azure Resource Manager).
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="05/31/2016"
+    ms.date="08/16/2016"
     ms.author="sdanie"/>
 
 # Jak korzystać z pamięci podręcznej Redis Azure za pomocą języka Python
@@ -70,6 +70,6 @@ Zastąp element `<name>` swoją nazwą pamięci podręcznej i element `key` swoi
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

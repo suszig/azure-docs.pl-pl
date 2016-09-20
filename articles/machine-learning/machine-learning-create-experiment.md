@@ -1,7 +1,7 @@
 <properties
-    pageTitle="Tworzenie prostego eksperymentu w usłudze Machine Learning Studio | Microsoft Azure"
-    description="Pierwszy samouczek dotyczący uczenia maszynowego obejmujący tworzenie prostego eksperymentu w usłudze Azure Machine Learning Studio w celu nauczenia i przetestowania modelu regresji liniowej."
-    keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
+    pageTitle="Prosty eksperyment w usłudze Machine Learning Studio | Microsoft Azure"
+    description="Ten samouczek uczenia maszynowego przeprowadzi Cię przez łatwy eksperyment dotyczący przetwarzania danych. Będziemy prognozować cenę samochodu, używając algorytmu regresji."
+    keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques,data science experiment"
     services="machine-learning"
     documentationCenter=""
     authors="garyericson"
@@ -14,23 +14,24 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="03/09/2016"
+    ms.date="07/14/2016"
     ms.author="garye"/>
 
-# Samouczek dotyczący uczenia maszynowego: tworzenie pierwszego eksperymentu w usłudze Azure Machine Learning Studio
+# Samouczek dotyczący uczenia maszynowego: tworzenie pierwszego eksperymentu związanego z przetwarzaniem danych w usłudze Azure Machine Learning Studio
 
-W tym pierwszym samouczku dotyczącym uczenia maszynowego utworzymy model regresji liniowej, który prognozuje cenę samochodów na podstawie różnych zmiennych, takich jak marka i specyfikacja techniczna. W tym celu użyjemy usługi Azure Machine Learning Studio, aby opracować prosty eksperyment korzystający z analizy predykcyjnej oraz wykonać jego iterację.
+Ten samouczek uczenia maszynowego przeprowadzi Cię przez łatwy eksperyment dotyczący przetwarzania danych. Utworzymy model regresji liniowej, który prognozuje cenę samochodów na podstawie różnych zmiennych, takich jak marka i specyfikacja techniczna. W tym celu użyjemy usługi Azure Machine Learning Studio, aby opracować prosty eksperyment korzystający z analizy predykcyjnej oraz wykonać jego iterację.
+
+*Analiza predykcyjna* to metoda przetwarzania danych używająca bieżących danych do prognozowania przyszłych wyników. Aby uzyskać bardzo prosty przykład analizy predykcyjnej, obejrzyj klip wideo nr 4 z serii Przetwarzanie danych dla początkujących: [Prognozowanie odpowiedzi za pomocą prostego modelu](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) (czas trwania: 7:42).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Przeprowadzenie eksperymentu w usłudze Machine Learning Studio polega na przeciągnięciu składników do obszaru roboczego i połączeniu ich w celu *utworzenia*, *nauczenia* *i przetestowania modelu po wygenerowaniu wyników*. W tym eksperymencie są używane techniki modelowania predykcyjnego dostępne w formie modułów usługi Machine Learning Studio, które umożliwiają pobieranie danych, uczenie modelu przy użyciu tych danych oraz zastosowanie tego modelu do nowych danych. Można również dodawać moduły w celu wstępnego przetworzenia danych i wybrania cech, podzielenia danych na zestaw szkoleniowy i testowy oraz ocenienia lub sprawdzenia krzyżowego jakości modelu.  
+## W czym pomaga usługa Machine Learning Studio?
 
-Otwórz usługę Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net) i kliknij przycisk **Get started** (Rozpoczęcie pracy). Możesz wybrać opcję dostępu dla gości lub zalogować się za pomocą konta Microsoft.
+Usługa Machine Learning Studio ułatwia skonfigurowanie eksperymentu za pomocą modułów typu „przeciągnij i upuść” zaprogramowanych wstępnie metodami modelowania predykcyjnego. Aby uruchomić eksperyment i przewidzieć odpowiedź, za pomocą usługi Machine Learning Studio *utworzysz model*, *nauczysz model* oraz *ocenisz i przetestujesz model*.
 
-Aby uzyskać ogólne informacje o usłudze Machine Learning Studio, zobacz [What is Machine Learning Studio?](machine-learning-what-is-ml-studio.md) (Czym jest Machine Learning Studio?).
+Otwórz usługę Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net). Jeśli logujesz się w usłudze Machine Learning Studio nie po raz pierwszy, kliknij pozycję **Sign in here** (Zaloguj się tutaj). W przeciwnym razie kliknij pozycję **Sign Up** (Zarejestruj się) i wybierz między opcją darmową a płatną.
 
->[AZURE.TIP] Aby pobrać i wydrukować diagram, który zawiera przegląd możliwości usługi Machine Learning Studio, zobacz [Diagram przeglądowy możliwości usługi Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
-
+Aby uzyskać ogólne informacje o usłudze Machine Learning Studio, zobacz [Czym jest Machine Learning Studio?](machine-learning-what-is-ml-studio.md)
 
 ## Tworzenie eksperymentu w pięciu krokach
 
@@ -67,7 +68,11 @@ Ten zestaw zawiera dane szeregu modeli samochodów, na przykład informacje doty
 
     ![Zestaw danych][screen1]
 
-Aby wyświetlić graficzną reprezentację danych, kliknij port wyjściowy w dolnej części zestawu danych dotyczących samochodów, a następnie wybierz pozycję **Visualize** (Wizualizacja). Zmienne w zestawie danych są wyświetlane jako kolumny, a poszczególne wystąpienia modeli samochodów są wyświetlane w postaci wierszy. Skrajna prawa kolumna (kolumna 26 zatytułowana „price” [cena]) zawiera zmienną docelową, którą spróbujemy przewidzieć.
+Aby wyświetlić graficzną reprezentację danych, kliknij port wyjściowy w dolnej części zestawu danych dotyczących samochodów, a następnie wybierz pozycję **Visualize** (Wizualizacja).
+
+![Port wyjściowy modułu][screen1c]
+
+Zmienne w zestawie danych są wyświetlane jako kolumny, a poszczególne wystąpienia modeli samochodów są wyświetlane w postaci wierszy. Skrajna prawa kolumna (kolumna 26 zatytułowana „price” [cena]) zawiera zmienną docelową, którą spróbujemy przewidzieć.
 
 ![Wizualizacja zestawu danych][screen1b]
 
@@ -85,8 +90,9 @@ Najpierw usuniemy kolumnę **normalized-losses** (znormalizowane straty), a nast
 
 2. Wybierz moduł [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych) i kliknij pozycję **Launch column selector** (Uruchom selektora kolumn) w okienku **Properties** (Właściwości).
 
-    - Upewnij się, że na liście rozwijanej filtru **Begin With** (Rozpocznij od) wybrano pozycję **All columns** (Wszystkie kolumny). Spowoduje to przetworzenie wszystkich kolumn (z wyjątkiem tych wykluczonych) przez moduł [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych).
-    - W kolejnym wierszu wybierz z list pozycje **Exclude** (Wyklucz) i **column names** (nazwy kolumn), a następnie kliknij wewnątrz pola tekstowego. Zostanie wyświetlona lista kolumn. Wybierz pozycję **normalized-losses** (znormalizowane straty), aby dodać ją do pola tekstowego.
+    - Po lewej stronie kliknij pozycję **With rules** (Za pomocą reguł).
+    - W obszarze **Begin With** (Rozpocznij od) kliknij pozycję **All columns** (Wszystkie kolumny). Spowoduje to przetworzenie wszystkich kolumn (z wyjątkiem tych wykluczonych) przez moduł [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych).
+    - Z list rozwijanych wybierz pozycje **Exclude** (Wyklucz) i **column names** (nazwy kolumn), a następnie kliknij wewnątrz pola tekstowego. Zostanie wyświetlona lista kolumn. Wybierz pozycję **normalized-losses** (znormalizowane straty), aby dodać ją do pola tekstowego.
     - Kliknij przycisk znacznika wyboru (OK), aby zamknąć selektora kolumn.
 
     ![Wybieranie kolumn][screen3]
@@ -113,21 +119,26 @@ Po oczyszczeniu danych można określić, jakie cechy zostaną użyte w modelu p
 
 ## Krok 3. Definiowanie cech
 
-W uczeniu maszynowym *cechy* to poszczególne mierzalne właściwości określonych informacji. W naszym zestawie danych poszczególne wiersze odpowiadają różnym samochodom, a kolumny — cechom tych samochodów. Znalezienie odpowiedniego zestawu cech, który ma służyć do utworzenia modelu predykcyjnego, wymaga eksperymentowania oraz dysponowania wiedzą na temat bieżącego problemu. Pewne cechy lepiej nadają się do prognozowania danych docelowych. Ponadto niektóre cechy są ściśle powiązane z innymi (na przykład zużycie paliwa w mieście i w trasie), co sprawia, że nie wnoszą one do modelu wielu nowych informacji i dlatego można je usunąć.
+W uczeniu maszynowym *cechy* to poszczególne mierzalne właściwości określonych informacji. W naszym zestawie danych poszczególne wiersze odpowiadają różnym samochodom, a kolumny — cechom tych samochodów.
 
-Utworzymy model, który korzysta z podzbioru cech zawartych w naszym zestawie danych. W poszukiwaniu lepszych wyników można uruchamiać eksperymenty oparte na różnych podzbiorach cech. Za pierwszym razem wybierzemy następujące cechy (kolumny) za pomocą modułu [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych). Pamiętaj o tym, że na potrzeby uczenia modelu musimy dołączyć wartość *price* (cena), którą chcemy przewidzieć.
+Znalezienie odpowiedniego zestawu cech, który ma służyć do utworzenia modelu predykcyjnego, wymaga eksperymentowania oraz dysponowania wiedzą na temat bieżącego problemu. Pewne cechy lepiej nadają się do prognozowania danych docelowych. Ponadto niektóre cechy są ściśle powiązane z innymi (na przykład zużycie paliwa w mieście i w trasie), co sprawia, że nie wnoszą one do modelu wielu nowych informacji i dlatego można je usunąć.
+
+Utworzymy model, który korzysta z podzbioru cech zawartych w naszym zestawie danych. W poszukiwaniu lepszych wyników można uruchamiać eksperymenty oparte na różnych podzbiorach cech. Jednak aby rozpocząć, wypróbujmy następujące funkcje:
 
     make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
+
 
 1. Przeciągnij kolejny moduł [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych) do obszaru roboczego eksperymentu i połącz go z lewym portem wyjściowym modułu [Clean Missing Data][clean-missing-data] (Czyszczenie brakujących danych). Kliknij dwukrotnie moduł i wpisz „Wybieranie cech w celu prognozowania”.
 
 2. Kliknij pozycję **Launch column selector** (Uruchom selektora kolumn) w okienku **Properties** (Właściwości).
 
-3. W selektorze kolumn wybierz pozycję **No columns** (Brak kolumn) na liście **Begin With** (Rozpocznij od), a następnie wybierz pozycje **Include** (Dołącz) i **column names** (nazwy kolumn) w wierszu filtru. Wpisz nazwy kolumn z listy. Dzięki temu moduł będzie przetwarzał tylko określone kolumny.
+3. Kliknij pozycję **With rules** (Za pomocą reguł).
 
-    > [AZURE.TIP] Ponieważ eksperyment został wcześniej uruchomiony, definicje kolumn dla danych zostały przekazane z oryginalnego zestawu danych za pośrednictwem modułu [Clean Missing Data][clean-missing-data] (Czyszczenie brakujących danych). Po połączeniu modułu [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych) z modułem [Clean Missing Data][clean-missing-data] (Czyszczenie brakujących danych) moduł [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych) uzyska informacje o definicjach kolumn. Po kliknięciu pola **column names** (nazwy kolumn) zostanie wyświetlona lista kolumn, z której można wybrać kolumny w celu ich dodania.
+4. W obszarze **Begin With** (Rozpocznij od) kliknij pozycję **No columns** (Brak kolumn), a następnie w wierszu filtrów wybierz pozycję **Include** (Dołącz) i **column names** (nazwy kolumn). Wpisz nazwy kolumn z listy. Dzięki temu moduł będzie przetwarzał tylko określone kolumny.
 
-4. Kliknij przycisk znacznika wyboru (OK).
+    > [AZURE.TIP] Uruchamiając eksperyment, upewniliśmy się, że definicje kolumn dla danych są przekazywane z zestawu danych za pośrednictwem modułu [Clean Missing Data][clean-missing-data] (Czyszczenie brakujących danych). Oznacza to, że inne dołączane moduły także będą miały informacje z tego zestawu danych.
+
+5. Kliknij przycisk znacznika wyboru (OK).
 
 ![Wybieranie kolumn][screen6]
 
@@ -135,13 +146,13 @@ Wykonanie tych czynności spowoduje utworzenie zestawu danych, który będzie u�
 
 ## Krok 4. Wybieranie i stosowanie algorytmu uczenia
 
-Po przygotowaniu danych można przystąpić do konstruowania modelu predykcyjnego, co obejmuje uczenie i testowanie. Użyjemy danych do nauczenia modelu, a następnie przetestujemy go, aby sprawdzić dokładność przewidywanych cen.
+Po przygotowaniu danych można przystąpić do konstruowania modelu predykcyjnego, co obejmuje uczenie i testowanie. Użyjemy danych do nauczenia modelu, a następnie przetestujemy go, aby sprawdzić dokładność przewidywanych cen. Na razie nie zastanawiaj się, dlaczego musimy nauczyć, a następnie przetestować model.
 
-Techniki *klasyfikacji* i *regresji* to dwa typy nadzorowanego uczenia maszynowego. Klasyfikacja umożliwia prognozowanie na podstawie zdefiniowanego zestawu wartości, takich jak kolory (czerwony, niebieski lub zielony). Regresja służy do prognozowania na podstawie ciągłego zestawu wartości, na przykład informacji o wieku osób.
+Techniki *klasyfikacji* i *regresji* to dwa typy nadzorowanego uczenia maszynowego. Klasyfikacja przewiduje odpowiedź na podstawie zdefiniowanego zestawu kategorii, takich jak kolory (czerwony, niebieski lub zielony). Regresja służy do prognozowania liczby.
 
-Chcemy przewidzieć cenę samochodu, która może być dowolną wartością, dlatego użyjemy modelu regresji. W tym przykładzie nauczymy prosty model *regresji liniowej*, a następnie przetestujemy go.
+Ponieważ chcemy przewidzieć cenę, która jest liczbą, użyjemy modelu regresji. W tym przykładzie nauczymy prosty model *regresji liniowej*, a następnie przetestujemy go.
 
-1. Dane możemy podzielić na dwa oddzielne zestawy, aby użyć ich do celów szkoleniowych i do testów. Wybierz moduł [Split Data][split] (Podział danych) i przeciągnij go do obszaru roboczego eksperymentu, a następnie połącz go z wyjściem ostatniego modułu [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych). Ustaw opcję **Fraction of rows in the first output dataset** (Odsetek wierszy w pierwszym zestawie danych wyjściowych) na wartość 0,75. Dzięki temu 75% danych zostanie użytych do nauczenia modelu, a pozostałe 25% do testów.
+1. Dane dzielmy na dwa oddzielne zestawy, aby użyć ich do celów szkoleniowych i do testów. Wybierz moduł [Split Data][split] (Podział danych) i przeciągnij go do obszaru roboczego eksperymentu, a następnie połącz go z wyjściem ostatniego modułu [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych). Ustaw opcję **Fraction of rows in the first output dataset** (Odsetek wierszy w pierwszym zestawie danych wyjściowych) na wartość 0,75. Dzięki temu 75% danych zostanie użytych do nauczenia modelu, a pozostałe 25% do testów.
 
     > [AZURE.TIP] Zmieniając wartość parametru **Random seed** (Inicjator losowy) można uzyskać różne próbki losowe do celów szkoleniowych i testów. Ten parametr umożliwia sterowanie inicjacją pseudolosowego generatora liczb.
 
@@ -213,6 +224,7 @@ Aby zapoznać się z bardziej rozbudowanym i szczegółowym przewodnikiem po tec
 [screen1]:./media/machine-learning-create-experiment/screen1.png
 [screen1a]:./media/machine-learning-create-experiment/screen1a.png
 [screen1b]:./media/machine-learning-create-experiment/screen1b.png
+[screen1c]: ./media/machine-learning-create-experiment/screen1c.png
 [screen2]:./media/machine-learning-create-experiment/screen2.png
 [screen3]:./media/machine-learning-create-experiment/screen3.png
 [screen4]:./media/machine-learning-create-experiment/screen4.png
@@ -237,6 +249,6 @@ Aby zapoznać się z bardziej rozbudowanym i szczegółowym przewodnikiem po tec
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

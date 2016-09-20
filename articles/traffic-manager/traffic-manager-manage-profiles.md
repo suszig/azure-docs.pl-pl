@@ -3,7 +3,7 @@
    description="Ten artykuł ułatwia tworzenie, wyłączanie, włączanie, usuwanie i wyświetlanie historii profilu usługi Azure Traffic Manager."
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Zarządzanie profilem usługi Azure Traffic Manager
 
@@ -25,7 +25,7 @@ Profil usługi Traffic Manager można szybko utworzyć przy użyciu funkcji Szyb
 
 ### Aby utworzyć nowy profil usługi Traffic Manager
 
-1. **Wdróż usługi w chmurze i witryny sieci Web w środowisku produkcyjnym.** Aby uzyskać więcej informacji o usługach w chmurze, zobacz [Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074). Aby uzyskać informacje o usługach w chmurze, zobacz [Najlepsze rozwiązania](https://msdn.microsoft.com/library/azure/5229dd1c-5a91-4869-8522-bed8597d9cf5#bkmk_TrafficManagerBestPracticesProfile). Aby uzyskać więcej informacji o witrynach sieci Web, zobacz [Witryny sieci Web](http://go.microsoft.com/fwlink/p/?LinkId=393327).
+1. **Wdróż usługi w chmurze i witryny sieci Web w środowisku produkcyjnym.** Aby uzyskać więcej informacji o usługach w chmurze, zobacz [Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074). Aby uzyskać informacje o usługach w chmurze, zobacz [Najlepsze rozwiązania](https://msdn.microsoft.com/library/azure/5229dd1c-5a91-4869-8522-bed8597d9cf5#bkmk_TrafficManagerBestPracticesProfile). Aby uzyskać więcej informacji o witrynach sieci Web, zobacz [Websites](http://go.microsoft.com/fwlink/p/?LinkId=393327) (Witryny sieci Web).
 
 2. **Zaloguj się do klasycznego portalu Azure.** Aby utworzyć nowy profil usługi Traffic Manager, kliknij przycisk **Nowy** w lewym dolnym rogu portalu, kliknij pozycje **Usługi sieciowe > Traffic Manager**, a następnie kliknij przycisk **Szybkie tworzenie**, aby rozpocząć konfigurowanie profilu.
 3. **Skonfiguruj prefiks DNS.** Przypisz swojemu profilowi usługi Traffic Manager unikatowy prefiks nazwy DNS. Można określić tylko prefiks nazwy domeny usługi Traffic Manager.
@@ -86,6 +86,6 @@ Historię zmian profilu usługi Traffic Manager można wyświetlić w klasycznym
 [Rozwiązywanie problemów ze stanem obniżonej wydajności usługi Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

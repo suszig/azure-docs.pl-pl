@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/02/2016"
+    ms.date="08/22/2016"
     ms.author="marsma"/>
 
 # Podstawy usługi Azure Batch
 
-Usługa Azure Batch umożliwia wydajne uruchamianie aplikacji równoległych o wielkiej skali oraz aplikacji do obliczeń o wysokiej wydajności (HPC). Jest to usługa platformy, która umożliwia planowanie pracy wymagającej intensywnych obliczeń do wykonania na zarządzanym zestawie maszyn wirtualnych oraz automatyczne skalowanie zasobów obliczeniowych w celu spełnienia wymagań związanych z zadaniami.
+Usługa Azure Batch umożliwia wydajne uruchamianie aplikacji równoległych o wielkiej skali oraz aplikacji do obliczeń o wysokiej wydajności (HPC, High-Performance Computing). Jest to usługa platformy, która umożliwia planowanie pracy wymagającej intensywnych obliczeń do wykonania na zarządzanym zestawie maszyn wirtualnych oraz automatyczne skalowanie zasobów obliczeniowych w celu spełnienia wymagań związanych z zadaniami.
 
 W usłudze Batch definiuje się zasoby obliczeniowe Azure do wykonywania aplikacji równolegle i na dużą skalę. Można uruchamiać zadania zaplanowane i na żądanie oraz nie ma potrzeby ręcznego tworzenia i konfigurowania klastra HPC, poszczególnych maszyn wirtualnych, sieci wirtualnych lub złożonej infrastruktury planowania zadań i podzadań ani zarządzania nimi.
 
@@ -40,15 +40,17 @@ Przykładowe obciążenia, które zwykle są przetwarzane przy użyciu tej metod
 * Analiza naprężeń konstrukcji
 * Testowanie oprogramowania
 
-W usłudze Batch można również wykonywać obliczenia równoległe, kończąc je krokiem redukcji, oraz wykonywać bardziej złożone obciążenia HPC, takie jak aplikacje [interfejsu przekazywania komunikatów (MPI)](batch-mpi.md).
+W usłudze Batch można również wykonywać obliczenia równoległe, kończąc je krokiem redukcji, oraz wykonywać bardziej złożone obciążenia HPC, takie jak aplikacje [MPI (Message Passing Interface)](batch-mpi.md).
 
 Aby porównać usługę Batch oraz inne opcje rozwiązań HPC na platformie Azure, zobacz artykuł [Rozwiązania usługi Batch i HPC](batch-hpc-solutions.md)
 
 ## Programowanie przy użyciu usługi Batch
 
-W przypadku tworzenia rozwiązań, w których usługa Azure Batch jest używana do przetwarzania obciążeń równoległych, odbywa się to w sposób programowy przy użyciu interfejsów API usługi Batch. Za pomocą interfejsów API usługi Batch tworzy się pule węzłów obliczeniowych (maszyn wirtualnych) oraz nimi zarządza i planuje się zadania i podzadania do uruchomienia w tych węzłach. Aplikacja lub usługa kliencka, której autorem jest użytkownik, używa interfejsów API usługi Batch do komunikacji z usługą Batch. Można skutecznie przetwarzać duże obciążenia na potrzeby swojej organizacji lub zapewniać swoim klientom fronton usług, aby umożliwić im uruchamianie zadań i podzadań — na żądanie lub zgodnie z harmonogramem — w jednym węźle albo setkach lub tysiącach węzłów. Można także używać usługi Batch w ramach większego przepływu pracy zarządzanego za pomocą takich narzędzi jak [Fabryka danych Azure][data_factory].
+Przetwarzanie obciążeń równoległych przy użyciu funkcji Batch jest zazwyczaj wykonywane programowo przy użyciu jednego z [interfejsów API usługi Batch](#batch-development-apis). Za pomocą interfejsów API usługi Batch tworzy się pule węzłów obliczeniowych (maszyn wirtualnych) oraz nimi zarządza i planuje się zadania i podzadania do uruchomienia w tych węzłach. Aplikacja lub usługa kliencka, której autorem jest użytkownik, używa interfejsów API usługi Batch do komunikacji z usługą Batch.
 
-> [AZURE.TIP] Jeśli zechcesz dokładniej zapoznać się z interfejsem API usługi Batch i uzyskać bardziej szczegółowe informacje dotyczące funkcji, które on zapewnia, przeczytaj [omówienie funkcji usługi Azure Batch](batch-api-basics.md).
+Można skutecznie przetwarzać duże obciążenia na potrzeby swojej organizacji lub zapewniać swoim klientom fronton usług, aby umożliwić im uruchamianie zadań i podzadań — na żądanie lub zgodnie z harmonogramem — w jednym węźle albo setkach lub nawet tysiącach węzłów. Można także używać usługi Batch w ramach większego przepływu pracy zarządzanego za pomocą takich narzędzi jak usługa [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md).
+
+> [AZURE.TIP] Jeśli zechcesz dokładniej zapoznać się z interfejsem API usługi Batch i uzyskać bardziej szczegółowe informacje dotyczące funkcji, które on zapewnia, przeczytaj artykuł [Batch feature overview for developers](batch-api-basics.md) (Omówienie funkcji usługi Batch dla deweloperów).
 
 ### Potrzebne konta platformy Azure
 
@@ -56,9 +58,9 @@ Podczas opracowywania rozwiązań usługi Batch potrzebne będą następujące k
 
 - **Konto i subskrypcja platformy Azure** — Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN][msdn_benefits] lub utworzyć [bezpłatne konto][free_account]. Podczas tworzenia konta zostanie utworzona domyślna subskrypcja.
 
-- **Konto usługi Batch** — Gdy aplikacje wchodzą w interakcję z usługą Batch, nazwa konta, adres URL konta oraz klucz dostępu są używane jako poświadczenia. Wszystkie zasoby usługi Batch, takie jak pule, węzły obliczeniowe, zadania i podzadania są skojarzone z kontem usługi Batch. [Tworzenie konta usługi Batch oraz zarządzanie nim](batch-account-create-portal.md) można wykonać w witrynie Azure Portal.
+- **Konto usługi Batch** — Gdy aplikacje wchodzą w interakcję z usługą Batch, nazwa konta, adres URL konta oraz klucz dostępu są używane jako poświadczenia. Wszystkie zasoby usługi Batch, takie jak pule, węzły obliczeniowe, zadania i podzadania są skojarzone z kontem usługi Batch. [Tworzenie konta usługi Batch](batch-account-create-portal.md) można wykonać w witrynie Azure Portal.
 
-- **Konto usługi Storage** — Usługa Batch obejmuje wbudowaną obsługę pracy z plikami w usłudze [Azure Storage][azure_storage]. Usługa Azure Storage będzie używana prawie w każdym scenariuszu usługi Batch — do przemieszczania programów uruchamianych przez podzadania oraz danych, które one przetwarzają, i do przechowywania danych wyjściowych, które generują. Aby utworzyć konto usługi Storage, zobacz temat [Informacje o kontach magazynu Azure](./../storage/storage-create-storage-account.md)
+- **Konto usługi Storage** — Usługa Batch obejmuje wbudowaną obsługę pracy z plikami w usłudze [Azure Storage][azure_storage]. Usługa Azure Storage jest używana prawie w każdym scenariuszu usługi Batch — do przemieszczania programów uruchamianych przez podzadania oraz danych, które one przetwarzają, i do przechowywania danych wyjściowych, które generują. Aby utworzyć konto usługi Storage, zobacz temat [Informacje o kontach magazynu Azure](./../storage/storage-create-storage-account.md)
 
 ### Interfejsy API programowania w usłudze Batch
 
@@ -70,7 +72,7 @@ Aplikacje i usługi mogą wydawać bezpośrednie wywołania interfejsów API RES
 | **Batch .NET**    | [MSDN][api_net] | [NuGet ][api_net_nuget] | [GitHub][api_sample_net] |
 | **Batch Python**  | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
 | **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - |
-| **Batch Java** (wersja zapoznawcza) | [github.io][api_java] | [Repozytorium migawek Maven][api_java_jar] | - |
+| **Batch Java** (wersja zapoznawcza) | [github.io][api_java] | [Maven][api_java_jar] | [GitHub][api_sample_java] |
 
 ### Zarządzanie zasobami usługi Batch
 
@@ -84,11 +86,13 @@ Oprócz interfejsów API klienta można również korzystać z następujących m
 
 ### Narzędzia usługi Batch
 
-Chociaż narzędzia te nie są wymagane do tworzenia rozwiązań, które korzystają z usługi Batch, uważa się je za niezbędne podczas tworzenia i debugowania aplikacji i usług w ramach usługi Batch.
+Chociaż narzędzia te nie są wymagane do tworzenia rozwiązań, które korzystają z usługi Batch, są one przydatne podczas tworzenia i debugowania aplikacji i usług w ramach usługi Batch.
 
-- [Azure Batch Explorer][batch_explorer]: program Batch Explorer jest jedną z przykładowych aplikacji usługi Batch dla platformy .NET dostępnych w witrynie [GitHub][github_samples]. Utwórz aplikację Windows Presentation Foundation (WPF) za pomocą programu Visual Studio 2013 lub 2015 i użyj jej do przeglądania zasobów na koncie usługi Batch oraz zarządzania nimi podczas opracowywania i debugowania rozwiązań usługi Batch. Wyświetlaj szczegóły dotyczące zadania, puli i podzadań, pobieraj pliki z węzłów obliczeniowych lub nawet łącz się z węzłami zdalnie przy użyciu plików usług pulpitu zdalnego (RDP), które można pobrać za pomocą kilku kliknięć w interfejsie programu Batch Explorer.
+ - [Witryna Azure Portal][portal]: możesz tworzyć, monitorować i usuwać pule i zadania usługi Batch w blokach usługi Batch witryny Azure Portal. Można wyświetlić informacje o stanie dla tych i innych zasobów podczas uruchamiania zadań, a nawet pobierać pliki z węzłów obliczeniowych w pulach (można na przykład pobrać plik `stderr.txt` zadania zakończonego niepowodzeniem podczas rozwiązywania problemów). Można również pobrać pliki Remote Desktop (RDP) umożliwiające logowanie się do węzłów obliczeniowych.
 
-- [Microsoft Azure Storage Explorer][storage_explorer]: Chociaż program Storage Explorer nie jest właściwie narzędziem usługi Azure Batch, jest to kolejne przydatne narzędzie, które warto mieć podczas opracowywania i debugowania rozwiązań usługi Batch.
+ - [Azure Batch Explorer][batch_explorer]: narzędzie Batch Explorer zapewnia podobne funkcje zarządzania zasobami usługi Batch, co witryna Azure Portal, lecz w samodzielnej aplikacji klienckiej Windows Presentation Foundation (WPF). Jest to jedna z przykładowych aplikacji .NET usługi Batch dostępnych w serwisie [GitHub][github_samples]. Można ją skompilować przy użyciu programu Visual Studio 2015 lub nowszego i użyć jej do przeglądania zasobów konta usługi Batch i zarządzania nimi podczas tworzenia i debugowania rozwiązań usługi Batch. Wyświetlaj szczegóły dotyczące zadania, puli i podzadań, pobieraj pliki z węzłów obliczeniowych lub łącz się z węzłami zdalnie przy użyciu plików usług Remote Desktop (RDP), które można pobrać przy użyciu programu Batch Explorer.
+
+ - [Microsoft Azure Storage Explorer][storage_explorer]: Chociaż program Storage Explorer nie jest właściwie narzędziem usługi Azure Batch, jest to kolejne przydatne narzędzie, które warto mieć podczas opracowywania i debugowania rozwiązań usługi Batch.
 
 ## Scenariusz: skalowanie obciążenia równoległego
 
@@ -120,19 +124,19 @@ Pamiętaj, że jest to tylko jeden sposób korzystania z usługi Batch, a w tym 
 
 ## Następne kroki
 
-Po zapoznaniu się z przykładowym scenariuszem usługi Batch warto uzyskać więcej informacji o tej usłudze i dowiedzieć się, jak można jej używać do przetwarzania obciążeń równoległych wymagających intensywnych obliczeń.
+Po wstępnym zapoznaniu się z usługą Batch warto uzyskać więcej informacji o tej usłudze i dowiedzieć się, jak można jej używać do przetwarzania obciążeń równoległych wymagających intensywnych obliczeń.
 
-- Przeczytaj artykuł [Wprowadzenie do biblioteki usługi Azure Batch dla środowiska .NET](batch-dotnet-get-started.md) i dowiedz się, jak używać języka C# i biblioteki usługi Batch dla środowiska .NET, aby zastosować opisane powyżej metody. Powinien to być jeden z pierwszych etapów podczas nauki korzystania z usługi Batch.
+- Przeczytaj artykuł [Batch feature overview for developers](batch-api-basics.md) (Omówienie funkcji usługi Batch dla deweloperów) zawierający informacje kluczowe dla wszystkich osób przygotowujących się do korzystania z usługi Batch. Ten artykuł zawiera bardziej szczegółowe informacje o zasobach usługi Batch, takich jak pule, węzły i zadania oraz wielu funkcjach API, których można używać podczas kompilowania aplikacji usługi Batch.
 
-- Zapoznaj się z [omówieniem funkcji usługi Batch](batch-api-basics.md), aby uzyskać bardziej szczegółowe informacje dotyczące funkcji interfejsu API oferowanych w usłudze Batch do przetwarzania obciążeń wymagających intensywnych obliczeń.
+- Przeczytaj artykuł [Get started with the Azure Batch library for .NET](batch-dotnet-get-started.md) (Wprowadzenie do biblioteki usługi Azure Batch dla platformy .NET), aby dowiedzieć się, jak używać języka C# i biblioteki usługi Batch dla środowiska .NET w celu wykonania prostego obciążenia przy użyciu popularnego przepływu pracy usługi Batch. Artykuł ten powinien być jednym z pierwszych etapów podczas nauki korzystania z usługi Batch. Istnieje również [wersja samouczka dla języka Python](batch-python-tutorial.md).
 
-- Oprócz programu Batch Explorer dostępne są inne [przykłady kodów w witrynie GitHub][github_samples], które przedstawiają korzystanie z wielu funkcji usługi Batch za pomocą biblioteki usługi Batch dla środowiska .NET.
+- Pobierz [przykłady kodu w serwisie GitHub][github_samples], aby zobaczyć, jak kod C# i Python może współpracować z usługą Batch w celu planowania i przetwarzania przykładowych obciążeń.
 
 - Zapoznaj się ze [ścieżką szkoleniową usługi Batch][learning_path] i uzyskaj informacje na temat dostępnych zasobów pomocnych podczas uczenia się pracy z usługą Batch.
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_java]: http://azure.github.io/azure-sdk-for-java/
-[api_java_jar]: http://adxsnapshots.azurewebsites.net/?dir=com%5cmicrosoft%5cazure%5cazure-batch
+[api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_nuget]: https://www.nuget.org/packages/Azure.Batch/
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -143,21 +147,22 @@ Po zapoznaniu się z przykładowym scenariuszem usługi Batch warto uzyskać wi�
 [api_python_pypi]: https://pypi.python.org/pypi/azure-batch
 [api_sample_net]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp
 [api_sample_python]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
-[batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[api_sample_java]: https://github.com/Azure/azure-batch-samples/tree/master/Java/
 [batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
 [batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
-[data_factory]: https://azure.microsoft.com/documentation/services/data-factory/
 [free_account]: https://azure.microsoft.com/free/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [storage_explorer]: http://storageexplorer.com/
+[portal]: https://portal.azure.com
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

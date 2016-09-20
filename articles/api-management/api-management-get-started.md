@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/25/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # Zarządzanie pierwszym interfejsem API w usłudze Azure API Management
@@ -186,7 +186,7 @@ Sekcja **Analiza** zawiera cztery karty:
 
 ## <a name="next-steps"> </a>Następne kroki
 
--   Poznaj inne tematy w samouczku [Get started with advanced API configuration][] (Wprowadzenie do zaawansowanej konfiguracji interfejsu API).
+- Dowiedz się, w jaki sposób [chronić interfejs API przy użyciu ograniczeń liczby wywołań](api-management-howto-product-with-rules.md).
 
 [Bezpłatna wersja próbna platformy Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
@@ -205,7 +205,6 @@ Sekcja **Analiza** zawiera cztery karty:
 [How to configure notifications and email templates in Azure API Management]: api-management-howto-configure-notifications.md
 [Odpowiedzi]: api-management-howto-add-operations.md#responses
 [Tworzenie i publikowanie produktu]: api-management-howto-add-products.md
-[Get started with advanced API configuration]: api-management-get-started-advanced.md
 [Zarządzanie interfejsami API — cennik]: http://azure.microsoft.com/pricing/details/api-management/
 
 [klasyczny portal Azure]: https://manage.windowsazure.com/
@@ -247,6 +246,6 @@ Sekcja **Analiza** zawiera cztery karty:
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

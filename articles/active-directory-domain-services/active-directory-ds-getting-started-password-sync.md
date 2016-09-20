@@ -1,6 +1,6 @@
 <properties
     pageTitle="Usługi domenowe Azure AD: włączanie synchronizacji haseł | Microsoft Azure"
-    description="Wprowadzenie do Usług domenowych Azure Active Directory"
+    description="Wprowadzenie do usługi Active Directory Domain Services"
     services="active-directory-ds"
     documentationCenter=""
     authors="mahesh-unnikrishnan"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
+    ms.date="07/06/2016"
     ms.author="maheshu"/>
 
 # Usługi domenowe Azure AD *(wersja zapoznawcza)* — włączanie synchronizacji haseł w Usługach domenowych Azure AD
@@ -65,6 +65,6 @@ Nowego hasła w Usługach domenowych Azure AD można używać krótko po jego zm
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

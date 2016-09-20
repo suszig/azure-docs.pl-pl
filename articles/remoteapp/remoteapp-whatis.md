@@ -13,14 +13,17 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/18/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo"/>
 
 # Co to jest usługa Azure RemoteApp?
 
+> [AZURE.IMPORTANT]
+> Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
+
 Usługa Azure RemoteApp dostępna na platformie Azure oferuje funkcje lokalnego programu Microsoft RemoteApp uzupełnione o usługi pulpitu zdalnego. Usługa Azure RemoteApp pomaga zapewnić bezpieczny zdalny dostęp do aplikacji z wielu różnych urządzeń użytkownika. Usługa Azure RemoteApp hostuje nietrwałe sesje serwera terminali w chmurze, z których możesz korzystać i które możesz udostępniać użytkownikom.
 
-Za pomocą usługi Azure RemoteApp można udostępniać aplikacje i zasoby użytkownikom przy użyciu prawie każdego urządzenia. Nasze aplikacje są hostowane w chmurze, co oznacza, że dbamy o to, aby sprzęt i funkcja skalowania spełniały potrzeby użytkowników. Ty musisz tylko przekazać aplikacje, które chcesz udostępnić, a następnie zachęcić użytkowników do ich używania. [Użytkownicy mogą korzystać z własnych urządzeń](remoteapp-clients.md), podczas gdy Ty zarządzasz wszystkim za pośrednictwem portalu Azure. Możesz nawet korzystać z poświadczeń firmowych, dzięki czemu zapewniasz bezpieczeństwo aplikacji i danych.
+Za pomocą usługi Azure RemoteApp można udostępniać aplikacje i zasoby użytkownikom przy użyciu prawie każdego urządzenia. Nasze aplikacje są hostowane w chmurze, co oznacza, że dbamy o to, aby sprzęt i funkcja skalowania spełniały potrzeby użytkowników. Ty musisz tylko przekazać aplikacje, które chcesz udostępnić, a następnie zachęcić użytkowników do ich używania. [Użytkownicy mogą korzystać z własnych urządzeń](remoteapp-clients.md), podczas gdy Ty zarządzasz wszystkim za pośrednictwem witryny Azure Portal. Możesz nawet korzystać z poświadczeń firmowych, dzięki czemu zapewniasz bezpieczeństwo aplikacji i danych.
 
 Dowiedz się więcej na temat usługi Azure RemoteApp lub — jeśli już Cię przekonaliśmy — [od razu ją wypróbuj](https://azure.microsoft.com/services/remoteapp/).
 
@@ -81,6 +84,6 @@ Wszystko gotowe. Czas wypróbować usługę. Następujące artykuły pomogą Ci 
 Czy wiesz, że możesz nie tylko ocenić ten artykuł i dodać komentarze poniżej, ale także wprowadzać zmiany w samym artykule? Brakuje informacji? Coś jest nie tak? Treść artykułu jest niejasna? Przewiń w górę i kliknij pozycję **Edit on GitHub** (Edytuj w serwisie GitHub) lub pozycję **Edit** (Edytuj) w celu wprowadzenia zmian. Te modyfikacje zostaną przesłane do nas do przeglądu, a jeśli zostaną zatwierdzone, Twoje zmiany i udoskonalenia pojawią się w tym miejscu.
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

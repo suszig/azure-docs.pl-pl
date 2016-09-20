@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Importowanie danych do usługi Azure Search przy użyciu indeksatorów w Portalu Azure | Microsoft Azure | Hostowana usługa wyszukiwania w chmurze"
-    description="Jak korzystać z indeksatorów w Portalu Azure."
+    pageTitle="Importowanie danych do usługi Azure Search przy użyciu indeksatorów w witrynie Azure Portal | Microsoft Azure | Hostowana usługa wyszukiwania w chmurze"
+    description="Jak korzystać z indeksatorów w witrynie Azure Portal."
     services="search"
     documentationCenter=""
     authors="HeidiSteen"
@@ -14,14 +14,14 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="06/08/2016"
     ms.author="heidist"/>
 
 # Importowanie danych do usługi Azure Search przy użyciu portalu
 
-W Portalu Azure na pulpicie nawigacyjnym usługi Azure Search znajduje się polecenie **Importuj dane**, które przeprowadzi Cię przez pozyskiwanie danych w usłudze Azure Search. Polecenie jest oparte na wbudowanej funkcji indeksatora, która przeszukuje istniejące źródło danych, tworząc i przekazując dokumenty na podstawie zestawu wierszy w źródle danych.
+W witrynie Azure Portal na pulpicie nawigacyjnym usługi Azure Search znajduje się polecenie **Importuj dane**, które umożliwia ładowanie danych do indeksu. Polecenie jest oparte na wbudowanych funkcjach indeksatora, które przeszukują istniejące źródło danych, tworząc i przekazując dokumenty na podstawie zestawu wierszy pobranego ze źródła danych.
 
-Import danych za pomocą kreatora składa się z 3 części:
+Proces importowania danych za pomocą kreatora składa się z 3 części:
 
 - połączenia ze źródłem danych;
 - indeksu docelowego, do którego dane są przekazywane (kreator często może go wygenerować);
@@ -31,7 +31,7 @@ Aby można było korzystać z indeksatora lub polecenia **Importuj dane**, podst
 
 Importu można dokonać tylko z pojedynczej tabeli, widoku lub równoważnej struktury danych. Aby uzyskać odpowiednie metadane i dane wejściowe dla indeksu wyszukiwania, może być konieczne uprzednie utworzenie tej struktury danych w źródle danych aplikacji.
 
-Ten przepływ pracy można wypróbować przy użyciu przykładowych danych. Na początek warto zobaczyć [Wprowadzenie do usługi Azure Search w Portalu Azure](search-get-started-portal.md).
+Ten przepływ pracy można wypróbować przy użyciu przykładowych danych. Na początek warto zobaczyć [Wprowadzenie do usługi Azure Search w witrynie Azure Portal](search-get-started-portal.md).
 
 ##Konfigurowanie importu danych
 
@@ -68,10 +68,16 @@ Ukończona właśnie operacja importu danych utworzyła w tle indeksator. Teraz 
 
 ##Edytowanie istniejącego indeksatora
 
-Na pulpicie nawigacyjnym usługi kliknij dwukrotnie kafelek Indeksator, aby wysunąć listę wszystkich indeksatorów utworzonych dla subskrypcji. Kliknij dwukrotnie jeden z indeksatorów, aby go uruchomić, edytować lub usunąć.
+Na pulpicie nawigacyjnym usługi kliknij dwukrotnie kafelek Indeksator, aby wysunąć listę wszystkich indeksatorów utworzonych dla subskrypcji. Kliknij dwukrotnie jeden z indeksatorów, aby go uruchomić, edytować lub usunąć. Możesz zastąpić indeks innym istniejącym indeksem, zmienić źródło danych i ustawić opcje progów błędów podczas indeksowania.
+
+##Edytowanie istniejącego indeksu
+
+W usłudze Azure Search aktualizacje strukturalne indeksu wymagają odbudowania tego indeksu, co obejmuje usunięcie indeksu, ponowne utworzenie indeksu i ponowne załadowanie danych. Aktualizacje strukturalne obejmują zmianę typu danych oraz zmianę nazwy lub usunięcie pola.
+
+Do zmian, które nie wymagają odbudowania indeksu, należą: dodanie nowego pola, zmiana profilów oceniania, zmiana funkcji sugestii i zmiana analizatorów języka. Aby uzyskać więcej informacji, zobacz [Aktualizowanie indeksu](https://msdn.microsoft.com/library/azure/dn800964.aspx).
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

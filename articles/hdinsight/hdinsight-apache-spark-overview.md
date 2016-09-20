@@ -14,14 +14,14 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="06/06/2016" 
+    ms.date="08/25/2016" 
     ms.author="nitinme"/>
 
 # Przegląd: platforma Apache Spark w usłudze HDInsight w systemie Linux
  
-<a href="http://spark.apache.org/" target="_blank">Apache Spark</a> to platforma przetwarzania równoległego typu open source, która obsługuje przetwarzanie w pamięci w celu zwiększania wydajności aplikacji do analizy danych big data. Aparat przetwarzania Spark został opracowany po kątem szybkości, łatwości użycia i zaawansowanych możliwości analitycznych. Dzięki oferowanym funkcjom przetwarzania w pamięci platforma Spark stanowi dobry wybór w przypadku algorytmów iteracyjnych używanych w uczeniu maszynowym i obliczeniach na grafach. Platforma Spark jest również zgodna z magazynem obiektów blob Azure (WASB), co pozwala na łatwe przetwarzanie istniejących danych przechowywanych na platformie Azure za pośrednictwem platformy Spark.
+<a href="http://spark.apache.org/" target="_blank">Apache Spark</a> to platforma przetwarzania równoległego typu open source, która obsługuje przetwarzanie w pamięci w celu zwiększania wydajności aplikacji do analizy danych big data. Aparat przetwarzania Spark został opracowany po kątem szybkości, łatwości użycia i zaawansowanych możliwości analitycznych. Dzięki oferowanym funkcjom przetwarzania w pamięci platforma Spark stanowi dobry wybór w przypadku algorytmów iteracyjnych używanych w uczeniu maszynowym i obliczeniach na grafach. Platforma Spark jest również zgodna z usługą Azure Blob Storage (WASB), co pozwala na łatwe przetwarzanie istniejących danych przechowywanych na platformie Azure za pośrednictwem platformy Spark.
 
-Tworząc klaster Spark w usłudze HDInsight, tworzysz zasoby obliczeniowe systemu Azure z zainstalowaną i skonfigurowaną platformą Spark. Utworzenie klastra Spark w usłudze HDInsight trwa tylko około 10 minut. Dane, które mają być przetwarzane, są przechowywane w magazynie obiektów blob Azure. Zobacz temat [Korzystanie z usługi Azure Blob Storage z usługą HDInsight][hdinsight-storage].
+Tworząc klaster Spark w usłudze HDInsight, tworzysz zasoby obliczeniowe systemu Azure z zainstalowaną i skonfigurowaną platformą Spark. Utworzenie klastra Spark w usłudze HDInsight trwa tylko około 10 minut. Dane, które mają być przetwarzane, są przechowywane w usługi Azure Blob Storage. Zobacz temat [Korzystanie z usługi Azure Blob Storage z usługą HDInsight][hdinsight-storage].
 
 ![Platforma Apache Spark w usłudze Azure HDInsight](./media/hdinsight-apache-spark-overview/hdispark.architecture.png  "Apache Spark on Azure HDInsight")
 
@@ -61,7 +61,7 @@ Platforma Apache Spark w usłudze HDInsight umożliwia realizację następujący
 
 [Zobacz samouczek](hdinsight-apache-spark-use-bi-tools.md)
 
-Platforma Apache Spark w usłudze HDInsight przechowuje dane w obiektach blob Azure. Eksperci biznesowi i osoby podejmujące kluczowe decyzje mogą analizować i tworzyć raporty na podstawie danych oraz korzystać z usługi Microsoft Power BI w celu sporządzania interakcyjnych raportów na podstawie analizowanych danych. Analitycy mogą rozpocząć pracę od danych o częściowej strukturze lub bez struktury w magazynie Azure, zdefiniować schemat danych za pomocą notesów, a następnie skompilować modele danych przy użyciu usługi Microsoft Power BI. Platforma Spark w usłudze HDInsight obsługuje również wiele narzędzi do analizy biznesowej innych firm, takich jak Tableau, Qlikview i SAP Lumira, dzięki czemu jest idealną platformą dla analityków danych, ekspertów biznesowych i osób podejmujących kluczowe decyzje.
+Platforma Apache Spark w usłudze HDInsight przechowuje dane w obiektach blob Azure. Eksperci biznesowi i osoby podejmujące kluczowe decyzje mogą analizować i tworzyć raporty na podstawie danych oraz korzystać z usługi Microsoft Power BI w celu sporządzania interakcyjnych raportów na podstawie analizowanych danych. Analitycy mogą rozpocząć pracę od danych o częściowej strukturze lub bez struktury w usłudze Azure Storage, zdefiniować schemat danych za pomocą notesów, a następnie skompilować modele danych przy użyciu usługi Microsoft Power BI. Platforma Spark w usłudze HDInsight obsługuje również wiele narzędzi do analizy biznesowej innych firm, takich jak Tableau, Qlikview i SAP Lumira, dzięki czemu jest idealną platformą dla analityków danych, ekspertów biznesowych i osób podejmujących kluczowe decyzje.
 
 ### Iteracyjna usługa Machine Learning
 
@@ -137,6 +137,6 @@ Rozpocznij od utworzenia klastra Spark w usłudze HDInsight w systemie Linux. Zo
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

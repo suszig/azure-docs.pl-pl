@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Samouczek: tworzenie potoku przy użyciu Kreatora kopiowania" 
-    description="Ten samouczek zawiera instrukcje dotyczące tworzenia potoku usługi Fabryka danych Azure za pomocą działania kopiowania przy użyciu Kreatora kopiowania obsługiwanego w usłudze Fabryka danych." 
+    description="Ten samouczek zawiera instrukcje dotyczące tworzenia potoku usługi Azure Data Factory za pomocą działania kopiowania przy użyciu Kreatora kopiowania obsługiwanego w usłudze Data Factory" 
     services="data-factory" 
     documentationCenter="" 
     authors="spelluru" 
@@ -13,23 +13,24 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/16/2016" 
+    ms.date="08/01/2016" 
     ms.author="spelluru"/>
 
 # Samouczek: tworzenie potoku za pomocą działania kopiowania przy użyciu Kreatora kopiowania usługi Fabryka danych
 > [AZURE.SELECTOR]
-- [Omówienie samouczka](data-factory-get-started.md)
-- [Korzystanie z Edytora fabryki danych](data-factory-get-started-using-editor.md)
-- [Korzystanie z programu PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Korzystanie z programu Visual Studio](data-factory-get-started-using-vs.md)
+- [Omówienie samouczka](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Korzystanie z Edytora fabryki danych](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Korzystanie z programu PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Korzystanie z programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [Korzystanie z interfejsu API REST](data-factory-copy-activity-tutorial-using-rest-api.md) 
 - [Korzystanie z Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md)
 
-W tym samouczku Kreator kopiowania usługi Fabryka danych zostanie użyty do tworzenia potoku za pomocą działania kopiowania w fabryce danych. Najpierw należy utworzyć fabrykę danych za pomocą witryny Azure Portal, a następnie użyć Kreatora kopiowania do utworzenia połączonych usług, zestawów danych i potoku usługi Fabryka danych za pomocą działania kopiowania, które kopiuje dane z magazynu obiektów blob Azure do bazy danych SQL Azure.
+W tym samouczku Kreator kopiowania usługi Data Factory zostanie użyty do tworzenia potoku za pomocą działania kopiowania w fabryce danych. Najpierw należy utworzyć fabrykę danych za pomocą witryny Azure Portal, a następnie użyć Kreatora kopiowania do utworzenia połączonych usług, zestawów danych i potoku usługi Data Factory za pomocą działania kopiowania, które kopiuje dane z magazynu obiektów blob Azure do bazy danych SQL Azure.
 
-> [AZURE.IMPORTANT] Zapoznaj się z artykułem [Omówienie samouczka](data-factory-get-started.md) i wykonaj podane tam kroki wymagań wstępnych przed wykonaniem instrukcji w tym samouczku.
+> [AZURE.IMPORTANT] Zapoznaj się z artykułem [Omówienie samouczka](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) i wykonaj podane tam kroki wymagań wstępnych przed wykonaniem instrukcji w tym samouczku.
 
 ## Tworzenie fabryki danych
-W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFTutorialDataFactory** przy użyciu portalu Azure.
+W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFTutorialDataFactory** przy użyciu witryny Azure Portal.
 
 1.  Po zalogowaniu się do witryny [Azure Portal](https://portal.azure.com) kliknij przycisk **+ NOWY** w lewym górnym rogu, wybierz opcję **Analiza danych** w bloku **Tworzenie** i kliknij opcję **Fabryka danych** w bloku **Analiza danych**. 
 
@@ -114,12 +115,12 @@ W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFTutorialDataFac
 | Temat | Opis |
 | :---- | :---- |
 | [Działania przenoszenia danych](data-factory-data-movement-activities.md) | Ten artykuł zawiera szczegółowe informacje dotyczące działania kopiowania używanego w tym samouczku. |
-| [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) | W tym artykule wyjaśniono aspekty dotyczące planowania i wykonywania modelu aplikacji usługi Fabryka danych Azure. |
-| [Potoki](data-factory-create-pipelines.md) | Ten artykuł ułatwi zapoznanie się z potokami i działaniami w usłudze Fabryka danych Azure oraz ze sposobem ich użycia do konstruowania przepływów pracy typu end-to-end opartych na danych na potrzeby scenariusza lub firmy. |
-| [Zestawy danych](data-factory-create-datasets.md) | Ten artykuł ułatwi zapoznanie się z zestawami danych w usłudze Fabryka danych Azure.
+| [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) | W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Fabryka danych Azure. |
+| [Potoki](data-factory-create-pipelines.md) | Ten artykuł ułatwia zapoznanie się z potokami i działaniami w usłudze Azure Data Factory oraz ze sposobem ich użycia do konstruowania przepływów pracy typu end-to-end opartych na danych na potrzeby scenariusza lub firmy. |
+| [Zestawy danych](data-factory-create-datasets.md) | Ten artykuł ułatwia zapoznanie się z zestawami danych w usłudze Azure Data Factory.
 | [Monitorowanie potoków i zarządzanie nimi za pomocą aplikacji do monitorowania](data-factory-monitor-manage-app.md) | Ten artykuł zawiera instrukcje dotyczące monitorowania i debugowania potoków oraz zarządzania nimi przy użyciu aplikacji do monitorowania i zarządzania. 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

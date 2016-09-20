@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Uwierzytelnianie usług IIS
@@ -33,7 +33,7 @@ Aby zabezpieczyć aplikację sieci Web usług IIS, która korzysta z uwierzyteln
 3. Kliknij przycisk Dodaj...
 4. Aby automatycznie wykryć zmienne nazwy użytkownika, hasła i domeny, wprowadź adres URL logowania (np. https://localhost/contoso/auth/login.aspx) w oknie dialogowym Konfigurowana automatycznie witryna sieci Web oparta na formularzach i kliknij przycisk OK.
 5. Zaznacz pole Wymagaj dopasowania użytkownika usługi Multi-Factor Authentication, jeśli wszyscy użytkownicy zostali lub zostaną zaimportowani na serwer i będą podlegać uwierzytelnianiu wieloskładnikowemu. Jeśli znaczna liczba użytkowników nie została jeszcze zaimportowana na serwer i/lub będzie wykluczona z uwierzytelniania wieloskładnikowego, nie zaznaczaj tego pola.
-6. Jeśli nie można automatycznie wykryć zmiennych na stronie, kliknij przycisk Określ ręcznie... w oknie dialogowym Konfigurowana automatycznie witryna sieci Web oparta na formularzach.
+6. Jeśli nie można automatycznie wykryć zmiennych strony, kliknij przycisk Określ ręcznie w oknie dialogowym Automatyczna konfiguracja witryny sieci Web opartej na formularzach.
 7. W oknie dialogowym Dodawanie witryny sieci Web opartej na formularzach wprowadź adres URL strony logowania w polu Adres URL przesyłania, a następnie wprowadź nazwę aplikacji (opcjonalnie). Nazwa aplikacji jest widoczna w raportach usługi Azure Multi-Factor Authentication i może być wyświetlana w uwierzytelniających wiadomościach SMS lub wiadomościach aplikacji mobilnej. Więcej informacji dotyczących adresu URL przesyłania można znaleźć w pliku pomocy. 
 8. Wybierz poprawny format żądania. W większości przypadków aplikacji sieci Web należy ustawić format na wartość „POST” lub „GET”.
 9. Wprowadź zmienne nazwy użytkownika, hasła i domeny (jeśli jest wyświetlana na stronie logowania). W celu znalezienia nazw pól wejściowych na stronie logowania może być konieczne przejście na tę stronę w przeglądarce sieci Web, kliknięcie prawym przyciskiem myszy i wybranie pozycji „Wyświetl źródło”.
@@ -78,6 +78,6 @@ Zaufane adresy IP pozwalają użytkownikom pominąć uwierzytelnianie za pomocą
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

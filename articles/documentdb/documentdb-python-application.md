@@ -1,10 +1,10 @@
 <properties
     pageTitle="Tworzenie aplikacji sieci Web platformy Python Flask za pomocą usługi DocumentDB | Microsoft Azure"
     description="Przejrzyj samouczek bazy danych na temat korzystania z usługi DocumentDB w celu przechowywania i uzyskiwania dostępu do danych z aplikacji sieci Web platformy Python Flask hostowanej na platformie Azure. Znajdź rozwiązania do tworzenia aplikacji." 
-    keywords="Application development, database tutorial, python flask, python web application, python web development, documentdb, azure, Microsoft azure"
+    keywords="Programowanie aplikacji, samouczek bazy danych, Python Flask, aplikacja sieci Web Python, programowanie aplikacji sieci Web Python, DocumentDB, Azure, Microsoft Azure"
     services="documentdb"
     documentationCenter="python"
-    authors="aliuy"
+    authors="AndrewHoh"
     manager="jhubbard"
     editor="cgronlun"/>
 
@@ -14,8 +14,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="04/18/2016"
-    ms.author="andrl"/>
+    ms.date="08/25/2016"
+    ms.author="anhoh"/>
 
 # Tworzenie aplikacji sieci Web platformy Python Flask za pomocą usługi DocumentDB
 
@@ -43,7 +43,7 @@ Wykonując poszczególne kroki tego samouczka, utworzysz prostą aplikację do g
 
 Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz następujące elementy:
 
-- Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
+- Aktywne konto platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 - Program [Visual Studio 2013](http://www.visualstudio.com/) lub nowszy albo [Visual Studio Express](), który jest bezpłatną wersją. Instrukcje w tym samouczku zostały napisane specjalnie dla programu Visual Studio 2015. 
 - Narzędzia Python Tools for Visual Studio pobrane z witryny [GitHub](http://microsoft.github.io/PTVS/). W tym samouczku są używane narzędzia Python Tools for VS 2015. 
 - Zestaw SDK Python platformy Azure dla programu Visual Studio w wersji 2.4 lub wyższej, dostępny w witrynie [azure.com](https://azure.microsoft.com/downloads/). My używamy zestawu SDK platformy Microsoft Azure dla języka Python w wersji 2.7.
@@ -182,7 +182,7 @@ def create():
     db = client.CreateDatabase({ 'id': config.DOCUMENTDB_DATABASE })
 
     # Create collection
-    collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION }, { 'offerType': 'S1' })
+    collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION })
 
     # Create document
     document = client.CreateDocument(collection['_self'],
@@ -341,8 +341,8 @@ def vote():
     DOCUMENTDB_DOCUMENT = 'voting document'
     ```
 
-3. W [Portalu Azure](https://portal.azure.com/) przejdź do bloku **Klucze**, klikając pozycję **Przeglądaj**, **Konta usługi DocumentDB**, kliknij dwukrotnie nazwę konta, którego chcesz użyć, a następnie kliknij przycisk **Klucze** w obszarze **Podstawy**. W bloku **Klucze** skopiuj wartość **URI** i wklej ją do pliku **config.py** jako wartość właściwości **DOCUMENTDB\_HOST**. 
-4. W Portalu Azure, w bloku **Klucze** skopiuj wartość **Klucz podstawowy** lub **Klucz pomocniczy** i wklej ją do pliku **config.py** jako wartość właściwości **DOCUMENTDB\_KEY**.
+3. W witrynie [Azure Portal](https://portal.azure.com/) przejdź do bloku **Klucze**, klikając pozycję **Przeglądaj**, **Konta usługi DocumentDB**, kliknij dwukrotnie nazwę konta, którego chcesz użyć, a następnie kliknij przycisk **Klucze** w obszarze **Podstawy**. W bloku **Klucze** skopiuj wartość **URI** i wklej ją do pliku **config.py** jako wartość właściwości **DOCUMENTDB\_HOST**. 
+4. W witrynie Azure Portal, w bloku **Klucze** skopiuj wartość **Klucz podstawowy** lub **Klucz pomocniczy** i wklej ją do pliku **config.py** jako wartość właściwości **DOCUMENTDB\_KEY**.
 5. W pliku **\_\_init\_\_.py** dodaj następujący wiersz. 
 
         app.config.from_object('config')
@@ -432,10 +432,10 @@ Dodatkowe samouczki dotyczące platformy Python Flask znajdziesz na stronie [The
   [2]: https://www.python.org/downloads/windows/
   [3]: https://www.microsoft.com/download/details.aspx?id=44266
   [Instalator platformy Microsoft Web]: http://www.microsoft.com/web/downloads/platform.aspx
-  [Portal Azure]: http://portal.azure.com
+  [Azure Portal]: http://portal.azure.com
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

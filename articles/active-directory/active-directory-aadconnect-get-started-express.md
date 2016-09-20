@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/26/2016"
+    ms.date="06/27/2016"
     ms.author="billmath;andkjell"/>
 
 # Rozpoczynanie pracy z programem Azure AD Connect przy użyciu ustawień ekspresowych
 Użyj **ustawień ekspresowych** programu Azure AD Connect, jeśli używasz topologii z jednym lasem oraz [synchronizacji haseł](active-directory-aadconnectsync-implement-password-synchronization.md) na potrzeby uwierzytelniania. **Ustawienia ekspresowe** to opcja domyślna używana w przypadku najbardziej typowych scenariuszy wdrożenia. Wystarczy kilka kliknięć, aby rozszerzyć katalog lokalny do chmury.
 
-Przed rozpoczęciem instalacji pamiętaj o [pobraniu programu Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) i wykonaniu czynności związanych z wymaganiami wstępnymi opisanych w temacie [Azure AD Connect: sprzęt i wymagania wstępne](active-directory-aadconnect-prerequisites.md).
+Przed rozpoczęciem instalacji należy [pobrać program Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) i wykonać czynności związane z wymaganiami wstępnymi opisane w temacie [Azure AD Connect: sprzęt i wymagania wstępne](active-directory-aadconnect-prerequisites.md).
 
 Jeśli ustawienia ekspresowe nie są odpowiednie do Twojej topologii, zobacz [dokumentację pokrewną](#related-documentation), aby zapoznać się z innymi scenariuszami.
 
@@ -66,11 +66,11 @@ Temat |
 --------- | ---------
 Omówienie programu Azure AD Connect | [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md)
 Instalowanie przy użyciu ustawień dostosowanych | [Niestandardowa instalacja programu Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-Uaktualnianie z narzędzia DirSync | [Uaktualnienie z narzędzia Azure AD Sync (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
-Konta używane do instalacji | [Więcej informacji na temat kont i uprawnień dla programu Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
+Uaktualnianie przy użyciu narzędzia DirSync | [Uaktualnienie przy użyciu narzędzia Azure AD Sync (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+Konta używane do instalacji | [Więcej informacji na temat kont i uprawnień w programie Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

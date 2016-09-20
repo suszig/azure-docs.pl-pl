@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
-    ms.author="tdykstra"/>
+    ms.date="08/26/2016"
+    ms.author="rachelap"/>
 
 # Przegląd usługi Web Apps
 
-*Aplikacje Web Apps w usłudze App Service* to w pełni zarządzana platforma obliczeniowa zoptymalizowana pod kątem hostowania witryn i aplikacji sieci Web. Oferta [platforma jako usługa](https://en.wikipedia.org/wiki/Platform_as_a_service) (Platform as a Service, PaaS) platformy Microsoft Azure umożliwia użytkownikowi skupienie się na logice biznesowej, podczas gdy platforma Azure jest odpowiedzialna za infrastrukturę służącą do uruchamiania i skalowania aplikacji.
+*Azure App Service Web Apps* to w pełni zarządzana platforma obliczeniowa zoptymalizowana pod kątem hostowania witryn i aplikacji sieci Web. Oferta [platforma jako usługa](https://en.wikipedia.org/wiki/Platform_as_a_service) (Platform as a Service, PaaS) platformy Microsoft Azure umożliwia użytkownikowi skupienie się na logice biznesowej, podczas gdy platforma Azure jest odpowiedzialna za infrastrukturę służącą do uruchamiania i skalowania aplikacji.
 
-Następujący 5-minutowy film wideo stanowi wprowadzenie do aplikacji Web Apps w usłudze Azure App Service.
+Następujący 5-minutowy film wideo stanowi wprowadzenie do funkcji Azure App Service Web Apps.
 
 [AZURE.VIDEO azure-app-service-web-apps-with-yochay-kiriaty]
 
@@ -32,7 +32,7 @@ Zasoby obliczeniowe mogą znajdować się na współdzielonych lub dedykowanych 
 
 Kod może być tworzony przy użyciu dowolnego języka lub struktury obsługiwanej przez [usługę Azure App Service](../app-service/app-service-value-prop-what-is.md), na przykład ASP.NET, Node.js, Java, PHP lub Python. W aplikacji sieci Web można również uruchamiać skrypty używające [programu PowerShell i innych języków skryptowych](web-sites-create-web-jobs.md#acceptablefiles).
 
-Przykłady typowych scenariuszy aplikacji, których można użyć na potrzeby usługi Web Apps, można znaleźć w artykule [Scenariusze aplikacji sieci Web](https://azure.microsoft.com/documentation/scenarios/web-app/) i w sekcji **Scenarios and recommendations** (Scenariusze i zalecenia) w artykule [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](choose-web-site-cloud-service-vm.md#scenarios) (Porównanie usługi Azure App Service, usługi Virtual Machines, usługi Service Fabric i usług Cloud Services).
+Przykłady typowych scenariuszy aplikacji, których można użyć na potrzeby funkcji Web Apps, można znaleźć w artykule [Scenariusze aplikacji sieci Web](https://azure.microsoft.com/documentation/scenarios/web-app/) i w sekcji **Scenarios and recommendations** (Scenariusze i zalecenia) w artykule [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](choose-web-site-cloud-service-vm.md#scenarios) (Porównanie usług Azure App Service, Virtual Machines, Service Fabric i Cloud Services).
 
 ## Dlaczego warto używać usługi Web Apps?
 
@@ -40,21 +40,21 @@ Poniżej przedstawiono kilka najważniejszych funkcji usługi App Service, któr
 
 - **Wiele języków i struktur** — usługa App Service oferuje najwyższej jakości pomoc techniczną dotyczącą rozwiązań ASP.NET, Node.js, Java, PHP i Python. Na maszynach wirtualnych usługi App Service można również uruchamiać [program PowerShell oraz inne skrypty lub pliki wykonywalne](../app-service-web/web-sites-create-web-jobs.md).
 
-- **Optymalizacja metodyki DevOps** — konfiguruj [ciągłą integrację i wdrażanie](../app-service-web/app-service-continous-deployment.md) za pomocą usługi Visual Studio Team Services, GitHub lub BitBucket. Podwyższaj poziom aktualizacji za pośrednictwem [środowisk testowych i przejściowych](../app-service-web/web-sites-staged-publishing.md). Wykonuj [testowanie A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Zarządzaj aplikacjami w usłudze App Service za pomocą programu [Azure PowerShell](../powershell-install-configure.md) lub [międzyplatformowego interfejsu wiersza polecenia](../xplat-cli-install.md).
+- **Optymalizacja metodyki DevOps** — konfigurowanie [ciągłej integracji i wdrażania](../app-service-web/app-service-continuous-deployment.md) za pomocą usług Visual Studio Team Services, GitHub lub BitBucket. Promowanie aktualizacji za pośrednictwem [środowisk testowych i przejściowych](../app-service-web/web-sites-staged-publishing.md). Wykonywanie [testowania A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Zarządzaj aplikacjami w usłudze App Service za pomocą programu [Azure PowerShell](../powershell-install-configure.md) lub [międzyplatformowego interfejsu wiersza polecenia](../xplat-cli-install.md).
  
-- **Skala globalna i wysoka dostępność** — skaluj [w górę](../app-service/app-service-scale.md) lub [w dół](../azure-portal/insights-how-to-scale.md) ręcznie bądź automatycznie. Hostuj aplikacje w dowolnym miejscu globalnej infrastruktury centrum danych firmy Microsoft i korzystaj z wysokiej dostępności usługi App Service zapewnianej w umowie [SLA](https://azure.microsoft.com/support/legal/sla/app-service/).
+- **Globalne skalowanie i wysoka dostępność** — ręczne lub automatyczne skalowanie [w pionie](../app-service-web/web-sites-scale.md) lub [w poziomie](../azure-portal/insights-how-to-scale.md). Hostuj aplikacje w dowolnym miejscu globalnej infrastruktury centrum danych firmy Microsoft i korzystaj z wysokiej dostępności usługi App Service zapewnianej w umowie [SLA](https://azure.microsoft.com/support/legal/sla/app-service/).
 
-- **Połączenia z platformami SaaS i danymi lokalnymi** — wybieraj spośród ponad 50 [łączników](../connectors/apis-list.md) przeznaczonych dla systemów przedsiębiorstwa (takich jak SAP, Siebel i Oracle), usług SaaS (takich jak Salesforce i Office 365) oraz usług internetowych (takich jak Facebook i Twitter). Uzyskuj dostęp do danych lokalnych przy użyciu [połączeń hybrydowych](../biztalk-services/integration-hybrid-connection-overview.md) i [sieci wirtualnych platformy Azure](../app-service-web/web-sites-integrate-with-vnet.md).
+- **Połączenia z platformami SaaS i danymi lokalnymi** — możliwość wyboru spośród ponad 50 [łączników](../connectors/apis-list.md) obsługujących systemy dla przedsiębiorstw (takie jak SAP, Siebel i Oracle), usługi SaaS (takie jak Salesforce i Office 365) oraz serwisy internetowe (takie jak Facebook i Twitter). Dostęp do danych lokalnych przy użyciu [połączeń hybrydowych](../biztalk-services/integration-hybrid-connection-overview.md) i [sieci wirtualnych platformy Azure](../app-service-web/web-sites-integrate-with-vnet.md).
 
 - **Bezpieczeństwo i zgodność** — usługa App Service jest [zgodna ze standardami ISO, SOC i PCI](https://www.microsoft.com/TrustCenter/).
 
-- **Szablony aplikacji** — wybieraj z obszernej listy szablonów aplikacji dostępnych w portalu [Azure Marketplace](https://azure.microsoft.com/marketplace/), która umożliwi Ci instalowanie popularnych programów typu open source, takich jak WordPress, Joomla i Drupal, za pomocą kreatora.
+- **Szablony aplikacji** — możliwość wyboru z obszernej listy szablonów aplikacji dostępnych w portalu [Azure Marketplace](https://azure.microsoft.com/marketplace/) oraz instalowania popularnego oprogramowania typu open source, takiego jak WordPress, Joomla i Drupal, z użyciem kreatora.
 
 - **Integracja z programem Visual Studio** —dedykowane narzędzia w programie Visual Studio usprawniają procesy tworzenia, wdrażania i debugowania.
 
 Ponadto aplikacja sieci Web może korzystać z funkcji oferowanych przez usługi [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md) (na przykład obsługa mechanizmu CORS) i [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) (na przykład powiadomienia wypychane). Aby uzyskać więcej informacji na temat typów aplikacji w usłudze App Service, zobacz [omówienie usługi Azure App Service](../app-service/app-service-value-prop-what-is.md).
 
-Oprócz usługi Web Apps w usłudze App Service platforma Azure oferuje inne usługi, które mogą służyć do hostowania witryn i aplikacji sieci Web. W przypadku większości scenariuszy najlepszym wyborem jest usługa Web Apps.  W przypadku architektury mikrousługi należy wziąć pod uwagę usługę [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric) i w razie konieczności sprawowania większej kontroli nad maszynami wirtualnymi, na których działa kod, należy wziąć pod uwagę usługę [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). Aby uzyskać więcej informacji o tym, jak dokonać wyboru między usługami Azure, zobacz [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](choose-web-site-cloud-service-vm.md) (Porównanie usługi Azure App Service, usługi Virtual Machines, usługi Service Fabric i usług Cloud Services).
+Oprócz usługi Web Apps w usłudze App Service platforma Azure oferuje inne usługi, które mogą służyć do hostowania witryn i aplikacji sieci Web. W przypadku większości scenariuszy najlepszym wyborem jest usługa Web Apps.  W przypadku architektury mikrousługi należy wziąć pod uwagę usługę [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric) i w razie konieczności sprawowania większej kontroli nad maszynami wirtualnymi, na których działa kod, należy wziąć pod uwagę usługę [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). Aby uzyskać więcej informacji o tym, jak dokonać wyboru między usługami Azure, zobacz [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](choose-web-site-cloud-service-vm.md) (Porównanie usług Azure App Service, Virtual Machines, Service Fabric i Cloud Services).
 
 ## Wprowadzenie
 
@@ -64,6 +64,6 @@ Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

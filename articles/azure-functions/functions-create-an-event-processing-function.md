@@ -1,6 +1,6 @@
 <properties
    pageTitle="Tworzenie funkcji przetwarzania zdarzeń | Microsoft Azure"
-   description="Użyj usługi Azure Functions do zbudowania swojej pierwszej funkcji w niespełna dwie minuty."
+   description="Korzystanie z usługi Azure Functions w celu utworzenia funkcji języka C#, która jest uruchamiana na podstawie czasomierza zdarzeniowego."
    services="azure-functions"
    documentationCenter="na"
    authors="ggailey777"
@@ -15,21 +15,77 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="03/14/2016"
+   ms.date="06/05/2016"
    ms.author="glenga"/>
    
 # Tworzenie funkcji przetwarzania zdarzeń platformy Azure
 
-[AZURE.INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
+Usługa Azure Functions to oparte na zdarzeniach środowisko umożliwiające przeprowadzanie obliczeń na żądanie, które pozwala tworzyć zaplanowane lub wyzwalane jednostki kodu implementowane w różnych językach programowania. Aby dowiedzieć się więcej o usłudze Azure Functions, zobacz [Azure Functions — omówienie](functions-overview.md).
 
-Z tego krótkiego filmu dowiesz się, jak utworzyć w języku C# funkcję platformy Azure, która będzie uruchamiana przez czasomierz zdarzeniowy w celu wyczyszczenia wierszy w tabeli bazy danych.
+W tym temacie opisano tworzenie nowej funkcji w języku C#, która służy do dodawania komunikatów do kolejki magazynu i jest uruchamiana na podstawie czasomierza zdarzeniowego. 
 
-[AZURE.VIDEO create-an-event-processing-azure-function]
-&nbsp;
+## Wymagania wstępne 
+
+Aby utworzyć funkcję, musisz mieć aktywne konto platformy Azure. Jeśli nie masz jeszcze konta platformy Azure, [dostępne są konta bezpłatne](https://azure.microsoft.com/free/).
+
+## Tworzenie funkcji wyzwalanej przez czasomierz przy użyciu szablonu
+
+Aplikacja funkcji obsługuje wykonywanie funkcji na platformie Azure. Aby utworzyć funkcję, musisz mieć aktywne konto platformy Azure. Jeśli nie masz jeszcze konta platformy Azure, [dostępne są konta bezpłatne](https://azure.microsoft.com/free/). 
+
+1. Przejdź do [portalu Azure Functions](https://functions.azure.com/signin) i zaloguj się przy użyciu konta platformy Azure.
+
+2. Jeśli masz aplikację funkcji, której możesz użyć, wybierz ją w obszarze **Twoje aplikacje funkcji** i kliknij pozycję **Otwórz**. Aby utworzyć nową aplikację funkcji, wpisz unikatową **nazwę** nowej aplikacji funkcji lub zaakceptuj wygenerowaną nazwę, wybierz preferowany **region**, a następnie kliknij pozycję **Utwórz i rozpocznij**. 
+
+3. W aplikacji funkcji kliknij kolejno pozycje **+ Nowa funkcja** > **TimerTrigger — C#** > **Utwórz**. Zostanie utworzona funkcja o domyślnej nazwie uruchamiana raz na minutę, zgodnie z domyślnym harmonogramem. 
+
+    ![Tworzenie nowej funkcji wyzwalanej przez czasomierz](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
+
+4. W nowej funkcji kliknij kartę **Integracja**, a następnie kliknij kolejno pozycje **Nowe dane wyjściowe** > **Kolejka usługi Azure Storage** > **Wybierz**.
+
+    ![Tworzenie nowej funkcji wyzwalanej przez czasomierz](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding.png)
+
+5. W obszarze **Dane wyjściowe usługi Azure Storage Queue** kliknij opcję **Wybierz** obok pozycji **Połączenie konta magazynu**, wybierz istniejące konto magazynu lub utwórz nowe, a następnie kliknij przycisk **Zapisz**. 
+
+    ![Tworzenie nowej funkcji wyzwalanej przez czasomierz](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding-2.png)
+
+6. Wróć do karty **Tworzenie** i w oknie **Kod** zastąp istniejący skrypt języka C# następującym kodem:
+
+        using System;
+        
+        public static void Run(TimerInfo myTimer, out string outputQueueItem, TraceWriter log)
+        {
+            // Add a new scheduled message to the queue.
+            outputQueueItem = $"Ping message added to the queue at: {DateTime.Now}.";
+            
+            // Also write the message to the logs.
+            log.Info(outputQueueItem);
+        }
+
+    Kod ten powoduje dodanie do kolejki nowego komunikatu z bieżącą datą i godziną, gdy funkcja zostanie uruchomiona.
+
+7. Kliknij przycisk **Zapisz**. W oknach **Dzienniki**poszukaj informacji o następnym uruchomieniu funkcji.
+
+8. (Opcjonalnie) Przejdź do konta magazynu i sprawdź, czy do kolejki są dodawane komunikaty.
+
+9. Wróć do karty **Integracja** i zmień wartość w polu harmonogramu na `0 0 * * * *`. Funkcja jest teraz uruchamiana co godzinę. 
+
+Jest to bardzo uproszczony przykład powiązania danych wyjściowych wyzwalacza czasomierza i kolejki magazynu. Więcej informacji można znaleźć w tematach [Azure Functions timer trigger](functions-bindings-timer.md) (Wyzwalacz czasomierza usługi Azure Functions) i [Azure Functions triggers and bindings for Azure Storage](functions-bindings-storage.md) (Wyzwalacze i powiązania usługi Azure Functions dla usługi Azure Storage).
+
+##Następne kroki
+
+Poniższe tematy umożliwiają uzyskanie dodatkowych informacji na temat usługi Azure Functions.
+
++ [Dokumentacja usługi Azure Functions dla deweloperów](functions-reference.md)  
+Dokumentacja dla programistów dotycząca kodowania funkcji oraz definiowania wyzwalaczy i powiązań.
++ [Testowanie usługi Azure Functions](functions-test-a-function.md)  
+Opis różnych narzędzi i technik testowania funkcji.
++ [Jak skalować usługę Azure Functions](functions-scale.md)  
+Omówienie planów usług dostępnych w środowisku Azure Functions, w tym dynamicznego planu usług, oraz sposobu wybierania właściwego planu.  
 
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

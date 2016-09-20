@@ -14,10 +14,10 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="02/10/2016"
+    ms.date="07/21/2016"
     ms.author="donnam"/>
 
-# <a name="getting-started"></a>Wprowadzenie do usługi Mobile Services
+# <a name="getting-started"></a>Wprowadzenie do usług Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 &nbsp;
@@ -87,7 +87,8 @@ Ostatnim krokiem tego samouczka jest skompilowanie i uruchomienie nowej aplikacj
 
     Spowoduje to wysłanie żądania POST do nowej usługi mobilnej, która jest hostowana na platformie Azure. Dane z żądania zostaną wstawione do tabeli TodoItem. Elementy przechowywane w tabeli są zwracane przez usługę mobilną, a dane są wyświetlane na liście.
 
-    > [AZURE.NOTE] Możesz przejrzeć kod uzyskujący dostęp do usługi mobilnej w celu wykonywania zapytań i wstawiania danych. Znajduje się on w pliku C# o nazwie ToDoActivity.cs.
+    > [AZURE.NOTE]
+    > Możesz przejrzeć kod uzyskujący dostęp do usługi mobilnej w celu wykonywania zapytań i wstawiania danych. Znajduje się on w pliku C# o nazwie ToDoActivity.cs.
 
 6. W [klasyczny portal Azure] kliknij kartę **Dane**, a następnie kliknij tabelę **TodoItems**.
 
@@ -144,6 +145,6 @@ Po zakończeniu procedury szybkiego startu dowiedz się, jak wykonać dodatkowe 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

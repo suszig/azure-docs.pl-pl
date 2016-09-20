@@ -1,23 +1,23 @@
 <properties 
     pageTitle="Architektura usługi Service Bus | Microsoft Azure"
-    description="Opis architektury przetwarzania komunikatów usługi Azure Service Bus."
+    description="Opis architektury przetwarzania komunikatów i przekaźników usługi Azure Service Bus."
     services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/19/2016"
+    ms.date="07/11/2016"
     ms.author="sethm" />
 
 # Architektura usługi Service Bus
 
-W tym artykule opisano architekturę przetwarzania komunikatów usługi Azure Service Bus.
+Ten artykuł zawiera opis architektury przetwarzania komunikatów i przekaźników usługi Azure Service Bus.
 
 ## Jednostki skalowania usługi Service Bus
 
@@ -53,7 +53,7 @@ Po nawiązaniu połączenia przekaźnika klienci mogą wymieniać komunikaty za 
 
 ## Następne kroki
 
-Teraz, po zapoznaniu się z działaniem usługi Service Bus, skorzystaj z następujących linków, aby rozpocząć pracę z usługą:
+Teraz, po zapoznaniu się z architekturą usługi Service Bus, skorzystaj z następujących linków, aby rozpocząć pracę z usługą:
 
 - [Omówienie obsługi komunikatów w usłudze Service Bus](service-bus-messaging-overview.md)
 - [Podstawy usługi Service Bus](service-bus-fundamentals-hybrid-solutions.md)
@@ -61,6 +61,6 @@ Teraz, po zapoznaniu się z działaniem usługi Service Bus, skorzystaj z nastę
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

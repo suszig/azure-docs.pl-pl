@@ -13,11 +13,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/18/2016"
+   ms.date="06/16/2016"
    ms.author="ryanwi"/>
 
 # Przygotowywanie środowiska projektowego
- Aby tworzyć i uruchamiać [aplikacje platformy Azure Service Fabric][1] na komputerze deweloperskim, należy zainstalować środowisko uruchomieniowe, zestaw SDK oraz narzędzia. Należy również włączyć wykonywanie skryptów programu Windows PowerShell zawartych w zestawie SDK.
+ Aby tworzyć i uruchamiać [aplikacje usługi Azure Service Fabric][1] na maszynie deweloperskiej, należy zainstalować środowisko uruchomieniowe, zestaw SDK oraz narzędzia. Należy również włączyć wykonywanie skryptów programu Windows PowerShell zawartych w zestawie SDK.
 
 ## Wymagania wstępne
 ### Obsługiwane wersje systemu operacyjnego
@@ -28,16 +28,15 @@ Na potrzeby tworzenia aplikacji obsługiwane są następujące wersje systemu op
 - Windows Server 2012 R2
 - Windows 10
 
->[AZURE.NOTE] System Windows 7 domyślnie zawiera program Windows PowerShell wyłącznie w wersji 2.0. Aby móc korzystać z poleceń cmdlet programu PowerShell dla platformy Service Fabric, należy zainstalować program PowerShell w wersji 3.0 lub nowszej. Możesz [pobrać program Windows PowerShell 5.0][powershell5-download] w Centrum pobierania Microsoft.
+>[AZURE.NOTE] System Windows 7 domyślnie zawiera program Windows PowerShell wyłącznie w wersji 2.0. Polecenia cmdlet programu PowerShell usługi Service Fabric wymagają programu PowerShell w wersji 3.0 lub nowszej. Możesz [pobrać program Windows PowerShell 5.0][powershell5-download] w Centrum pobierania Microsoft.
 
 ## Instalowanie środowiska uruchomieniowego, zestawu SDK i narzędzi
 
 Instalator platformy sieci Web oferuje trzy konfiguracje na potrzeby tworzenia aplikacji platformy Service Fabric:
 
-- [Instalowanie środowiska uruchomieniowego platformy Service Fabric, zestawu SDK oraz narzędzi dla programu Visual Studio 2015][full-bundle-vs2015]
+- [Instalowanie środowiska uruchomieniowego platformy Service Fabric, zestawu SDK oraz narzędzi dla programu Visual Studio 2015 Update 2 lub nowszego][full-bundle-vs2015]
 - [Instalowanie środowiska uruchomieniowego platformy Service Fabric, zestawu SDK oraz narzędzi dla programu Visual Studio "15" Preview][full-bundle-dev15]
 - [Instalowanie tylko środowiska uruchomieniowego platformy Service Fabric i zestawu SDK (bez narzędzi dla programu Visual Studio)][core-sdk]
-
 
 ## Włączanie wykonywania skryptów programu PowerShell
 
@@ -48,7 +47,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 
 ## Następne kroki
-Po skonfigurowaniu środowiska projektowego możesz zacząć tworzyć i uruchamiać aplikacji.
+Po skonfigurowaniu środowiska projektowego możesz zacząć kompilować i uruchamiać aplikacje.
 
 - [Tworzenie pierwszej aplikacji platformy Service Fabric w programie Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 - [Informacje o wdrażaniu aplikacji i zarządzaniu nimi w klastrze lokalnym](service-fabric-get-started-with-a-local-cluster.md)
@@ -59,13 +58,13 @@ Po skonfigurowaniu środowiska projektowego możesz zacząć tworzyć i uruchami
 
 [1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Strona kampanii platformy Service Fabric"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[full-bundle-vs2015]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "Link WebPI VS 2015"
-[full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Link WebPI Dev15"
-[core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK "Link WebPI Core SDK"
+[full-bundle-vs2015]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015-2_1 "Link WebPI VS 2015"
+[full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15-2_1 "Link WebPI Dev15"
+[core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK_2_1 "Link WebPI Core SDK"
 [powershell5-download]:https://www.microsoft.com/en-us/download/details.aspx?id=50395
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

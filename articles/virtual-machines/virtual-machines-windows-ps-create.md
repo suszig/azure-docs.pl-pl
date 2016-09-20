@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/02/2016"
+    ms.date="06/07/2016"
     ms.author="davidmu"/>
 
 # Tworzenie maszyny wirtualnej z systemem Windows przy użyciu usługi Resource Manager i programu PowerShell
@@ -33,34 +33,36 @@ Najpierw należy utworzyć grupę zasobów.
 
 1. Pobierz listę dostępnych lokalizacji, w których można utworzyć zasoby.
 
-        Get-AzureLocation | sort Name | Select Name
+        Get-AzureRmLocation | sort Location | Select Location
         
     Powinny zostać wyświetlone informacje podobne do następujących:
     
-        Name
-        ----
-        Australia East
-        Australia Southeast
-        Brazil South
-        Central India
-        Central US
-        East Asia
-        East US
-        East US 2
-        Japan East
-        Japan West
-        North Central US
-        North Europe
-        South Central US
-        South India
-        Southeast Asia
-        West Europe
-        West India
-        West US
+        Location
+        --------
+        australiaeast
+        australiasoutheast
+        brazilsouth
+        canadacentral
+        canadaeast
+        centralindia
+        centralus
+        eastasia
+        eastus
+        eastus2
+        japaneast
+        japanwest
+        northcentralus
+        northeurope
+        southcentralus
+        southeastasia
+        southindia
+        westeurope
+        westindia
+        westus
 
 2. Zastąp wartość **$locName** lokalizacją z listy. Utwórz zmienną.
 
-        $locName = "Central US"
+        $locName = "centralus"
         
 3. Zastąp wartość **$rgName** nazwą nowej grupy zasobów. Utwórz zmienną i grupę zasobów.
 
@@ -74,13 +76,13 @@ Najpierw należy utworzyć grupę zasobów.
 1. Zastąp wartość **$stName** nazwą konta magazynu. Sprawdź unikatowość nazwy.
 
         $stName = "mystorage1"
-        Test-AzureName -Storage $stName
+        Get-AzureRmStorageAccountNameAvailability $stName
 
-    Jeśli to polecenie zwróci wartość **Fałsz**, proponowana nazwa jest unikatowa na platformie Azure. Nazwy kont usługi Magazyn muszą mieć długość od 3 do 24 znaków i mogą zawierać tylko cyfry i małe litery.
+    Jeśli to polecenie zwróci wartość **True**, proponowana nazwa jest unikatowa na platformie Azure. Nazwy kont usługi Storage muszą mieć długość od 3 do 24 znaków i mogą zawierać tylko cyfry i małe litery.
     
 2. Teraz uruchom polecenie w celu utworzenia konta magazynu.
     
-        $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_LRS" -Location $locName
+        $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -SkuName "Standard_LRS" -Kind "Storage" -Location $locName
         
 ## Krok 4. Tworzenie sieci wirtualnej
 
@@ -120,7 +122,7 @@ Teraz, gdy masz wszystkie elementy, możesz utworzyć maszynę wirtualną.
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    Hasło musi mieć długość od 8 do 123 znaków i musi zawierać co najmniej 3 z następujących znaków: mała litera, wielka litera, cyfra i znak specjalny. 
+    Hasło musi mieć długość od 8 do 123 znaków i spełniać trzy z czterech wymagań dotyczących złożoności: mała litera, wielka litera, cyfra i znak specjalny. Więcej informacji na temat [wymagań dotyczących nazwy użytkownika i hasła](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
         
 2. Zastąp wartość **$vmName** nazwą maszyny wirtualnej. Utwórz zmienną i konfigurację maszyny wirtualnej.
 
@@ -158,7 +160,7 @@ Teraz, gdy masz wszystkie elementy, możesz utworzyć maszynę wirtualną.
 
         New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-    W oknie programu PowerShell powinna być widoczna grupa zasobów i wszystkie jej zasoby w Portalu Azure oraz stan oznaczający powodzenie:
+    W oknie programu PowerShell powinna być widoczna grupa zasobów i wszystkie jej zasoby w witrynie Azure Portal oraz stan oznaczający powodzenie:
 
         RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
         ---------  -------------------  ----------  ------------
@@ -166,12 +168,12 @@ Teraz, gdy masz wszystkie elementy, możesz utworzyć maszynę wirtualną.
                                   
 ## Następne kroki
 
-- Jeśli wystąpiły problemy dotyczące wdrożenia, następnym krokiem powinno być zapoznanie się z artykułem [Troubleshooting resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md) (Rozwiązywanie problemów z wdrożeniami grup zasobów za pomocą Portalu Azure).
+- Jeśli wystąpiły problemy dotyczące wdrożenia, następnym krokiem powinno być zapoznanie się z artykułem [Troubleshooting resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md) (Rozwiązywanie problemów z wdrożeniami grup zasobów za pomocą witryny Azure Portal).
 - Aby dowiedzieć się, jak zarządzać utworzoną maszyną wirtualną, zobacz [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md) (Zarządzanie maszynami wirtualnymi przy użyciu usługi Azure Resource Manager i programu PowerShell).
 - Aby utworzyć maszynę wirtualną przy użyciu szablonu, skorzystaj z informacji podanych w artykule [Create a Windows virtual machine with a Resource Manager template](virtual-machines-windows-ps-template.md) (Tworzenie maszyny wirtualnej systemu Windows przy użyciu szablonu usługi Resource Manager).
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

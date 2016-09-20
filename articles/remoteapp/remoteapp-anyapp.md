@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/02/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # Uruchamianie dowolnej aplikacji systemu Windows na dowolnym urządzeniu za pomocą usługi Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Możesz uruchomić aplikację systemu Windows w dowolnym miejscu na dowolnym urządzeniu w tej chwili, korzystając z usługi Azure RemoteApp. Niezależnie od tego, czy chodzi o niestandardową aplikację napisaną 10 lat temu, czy też aplikację pakietu Office, użytkownicy nie są już ograniczeni do określonego systemu operacyjnego (na przykład Windows XP).
 
@@ -28,7 +31,9 @@ W tym artykule udostępnimy bazę danych Access wszystkim naszym użytkownikom. 
 
 Należy pamiętać, że program Access jest bazą danych, która powinna być użyteczna, dlatego wykonamy kilka dodatkowych czynności, aby umożliwić użytkownikom dostęp do udziału danych programu Access. Jeśli używana aplikacja nie jest bazą danych lub nie ma potrzeby, aby użytkownicy mieli dostęp do udziału plików, można pominąć te kroki samouczka.
 
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
+> [AZURE.NOTE] <a name="note"></a>Do ukończenia tego samouczka jest potrzebne konto platformy Azure.
+> - Możesz [otworzyć bezpłatne konto platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) — otrzymasz kredyt, który można wykorzystać do wypróbowania płatnych usług Azure. Nawet po wyczerpaniu kredytu możesz zachować konto i korzystać z bezpłatnych usług platformy Azure, takich jak Websites. Karta kredytowa nie zostanie obciążona, chyba że jawnie zmienisz ustawienia i poprosisz o jej obciążenie.
+> - Możesz [aktywować korzyści subskrybenta MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) — w ramach subskrypcji MSDN co miesiąc otrzymasz kredyt, który można przeznaczyć na płatne usługi platformy Azure.
 
 
 ## Tworzenie kolekcji w usłudze RemoteApp
@@ -80,7 +85,7 @@ Pierwsza część musi zostać wykonana przez Ciebie jako administratora. Nastę
 1. Rozpocznij od opublikowania interfejsu wiersza polecenia (cmd.exe). Na karcie **Publishing** (Publikowanie) wybierz pozycję **cmd**, a następnie kliknij opcje **Publish > Publish program using path** (Publikuj > Publikuj program przy użyciu ścieżki).
 2. Wprowadź nazwę i ścieżkę aplikacji. W tym przypadku należy użyć nazwy „File Explorer” i ścieżki „% SYSTEMDRIVE%\windows\explorer.exe”.
 ![Opublikuj plik cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. Teraz należy utworzyć [konto magazynu](../storage/storage-create-storage-account.md) Azure. Nasze konto nazywa się „accessstorage” (magazyn programu Access) — należy wybrać nazwę znaczącą dla użytkownika. (Parafrazując bohatera filmu „Nieśmiertelny”, może istnieć tylko jedno konto „accessstorage”.) ![Nasze konto magazynu Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
+3. Teraz należy utworzyć [konto usługi Azure Storage](../storage/storage-create-storage-account.md). Nasze konto nazywa się „accessstorage” (magazyn programu Access) — należy wybrać nazwę znaczącą dla użytkownika. (Parafrazując bohatera filmu „Nieśmiertelny”, może istnieć tylko jedno konto „accessstorage”.) ![Nasze konto usługi Azure Storage](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. Teraz wróć do pulpitu nawigacyjnego, aby określić ścieżkę do magazynu (lokalizacji punktu końcowego). Będzie za chwilę potrzebna, dlatego skopiuj ją w poręczne miejsce.
 ![Ścieżka konta magazynu](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. Po utworzeniu konta magazynu należy uzyskać podstawowy klucz dostępu. Kliknij pozycję **Manage access keys** (Zarządzaj kluczami dostępu), a następnie skopiuj podstawowy klucz dostępu.
@@ -120,6 +125,6 @@ Po opanowaniu tworzenia kolekcji spróbuj utworzyć [kolekcję korzystającą z 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

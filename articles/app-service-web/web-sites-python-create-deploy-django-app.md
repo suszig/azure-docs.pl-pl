@@ -39,7 +39,7 @@ Aplikacja zostanie utworzona przy użyciu platformy sieci Web Django (zobacz alt
 
 **Uwaga**: publikowanie TFS nie jest obecnie obsługiwane dla projektów języka Python.
 
-### System Windows
+### Windows
 
 Jeśli środowisko Python 2.7 lub 3.4 (32-bitowe) nie zostało jeszcze zainstalowane, zalecane jest zainstalowanie [Zestaw Azure SDK dla języka Python w wersji 2.7] lub [zestawu Azure SDK dla języka Python 3.4] przy użyciu Instalatora platformy sieci Web. Spowoduje to zainstalowanie 32-bitowej wersji środowiska Python, narzędzi setuptools, pip i virtualenv itp. (32-bitowe środowisko Python jest instalowane na maszynach hostów Azure). Możesz również pobrać środowisko Python z witryny [python.org].
 
@@ -54,13 +54,13 @@ Zalecane jest również zainstalowanie narzędzi [Python Tools 2.2 for Visual St
 
 ## Tworzenie aplikacji sieci Web w portalu
 
-Pierwszym krokiem procedury tworzenia aplikacji jest utworzenie aplikacji sieci Web za pośrednictwem [Portalu Azure](https://portal.azure.com).
+Pierwszym krokiem procedury tworzenia aplikacji jest utworzenie aplikacji sieci Web za pośrednictwem [Azure Portal](https://portal.azure.com).
 
 1. Zaloguj się do Portalu Azure i kliknij przycisk **NOWY** w lewym dolnym rogu.
 3. W polu wyszukiwania wpisz „python”.
-4. W wynikach wyszukiwania wybierz pozycję **Django**, a następnie kliknij pozycję **Utwórz**.
+4. W wynikach wyszukiwania wybierz pozycję **Django** (opublikowane przez rozszerzenie PTVS), a następnie kliknij pozycję **Utwórz**.
 5. Skonfiguruj nową aplikację Django, taką jak tworzenie nowego planu usługi App Service i nowej grupy zasobów dla tego planu. Następnie kliknij pozycję **Utwórz**.
-6. Skonfiguruj publikowanie w systemie Git dla nowo utworzonej aplikacji sieci Web zgodnie z poniższymi instrukcjami w artykule [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md) (Ciągłe wdrażanie przy użyciu systemu GIT w usłudze Azure App Service).
+6. Skonfiguruj publikowanie w systemie Git dla nowo utworzonej aplikacji sieci Web zgodnie z poniższymi instrukcjami w artykule [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokalne wdrażanie przy użyciu systemu Git w usłudze Azure App Service).
 
 ## Omówienie aplikacji
 
@@ -146,7 +146,7 @@ W 3 następnych sekcjach opisano procedury wdrażania aplikacji sieci Web w 3 r�
 
 ### Klonowanie repozytorium
 
-Najpierw sklonuj repozytorium przy użyciu adresu URL podanego w Portalu Azure. Aby uzyskać więcej informacji, zobacz [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md) (Ciagłe wdrażanie przy użyciu systemu GIT w usłudze Azure App Service).
+Najpierw sklonuj repozytorium przy użyciu adresu URL podanego w witrynie Azure Portal. Aby uzyskać więcej informacji, zobacz [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokalne wdrażanie przy użyciu systemu Git w usłudze Azure App Service).
 
 Otwórz plik rozwiązania (SLN), który znajduje się w folderze głównym repozytorium.
 
@@ -223,7 +223,7 @@ Przejdź do adresu URL platformy Azure, aby przejrzeć wprowadzone zmiany.
 
 ### Klonowanie repozytorium
 
-Najpierw sklonuj repozytorium przy użyciu adresu URL podanego w Portalu Azure i dodaj repozytorium Azure jako repozytorium zdalne. Aby uzyskać więcej informacji, zobacz [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md) (Ciagłe wdrażanie przy użyciu systemu GIT w usłudze Azure App Service).
+Najpierw sklonuj repozytorium przy użyciu adresu URL podanego w witrynie Azure Portal i dodaj repozytorium Azure jako repozytorium zdalne. Aby uzyskać więcej informacji, zobacz [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokalne wdrażanie przy użyciu systemu Git w usłudze Azure App Service).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -312,7 +312,7 @@ Przejdź do adresu URL platformy Azure, aby przejrzeć wprowadzone zmiany.
 
 ### Klonowanie repozytorium
 
-Najpierw sklonuj repozytorium przy użyciu adresu URL podanego w Portalu Azure i dodaj repozytorium Azure jako repozytorium zdalne. Aby uzyskać więcej informacji, zobacz [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md) (Ciagłe wdrażanie przy użyciu systemu GIT w usłudze Azure App Service).
+Najpierw sklonuj repozytorium przy użyciu adresu URL podanego w witrynie Azure Portal i dodaj repozytorium Azure jako repozytorium zdalne. Aby uzyskać więcej informacji, zobacz [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokalne wdrażanie przy użyciu systemu Git w usłudze Azure App Service).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -502,14 +502,14 @@ Aby uzyskać więcej informacji, zobacz [Centrum deweloperów Python](/develop/p
 [Obsługa platformy Django i bazy danych MySQL na platformie Azure przy użyciu narzędzi Python Tools for Visual Studio]: web-sites-python-ptvs-django-mysql.md
 [Obsługa platformy Django i bazy danych SQL Database na platformie Azure przy użyciu narzędzi Python Tools for Visual Studio]: web-sites-python-ptvs-django-sql.md
 [SQL Database]: web-sites-python-ptvs-django-sql.md
-[Baza danych MySQL]: web-sites-python-ptvs-django-mysql.md
+[MySQL]: web-sites-python-ptvs-django-mysql.md
 
 <!--External Link references-->
 [Zestaw Azure SDK dla języka Python w wersji 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
-[Zestaw Azure SDK dla języka Python w wersji 3.4:]: http://go.microsoft.com/fwlink/?linkid=516990
+[zestawu Azure SDK dla języka Python 3.4]: http://go.microsoft.com/fwlink/?linkid=516990
 [python.org]: http://www.python.org/
 [Git dla systemu Windows]: http://msysgit.github.io/
-[Usługa GitHub dla systemu Windows]: https://windows.github.com/
+[Github dla systemu Windows]: https://windows.github.com/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Visual Studio]: http://www.visualstudio.com/
@@ -518,6 +518,6 @@ Aby uzyskać więcej informacji, zobacz [Centrum deweloperów Python](/develop/p
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

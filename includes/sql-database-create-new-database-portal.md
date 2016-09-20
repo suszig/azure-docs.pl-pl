@@ -10,9 +10,9 @@ articles/sql-database/sql-database-get-started-tutorial.md
 -->
 ## Tworzenie nowej bazy danych SQL Azure
 
-Wykonaj następujące kroki w portalu Azure, aby utworzyć nową bazę danych SQL Azure na nowym lub istniejącym serwerze logicznym usługi Azure SQL Database.
+Wykonaj następujące kroki w witrynie Azure Portal, aby utworzyć nową bazę danych SQL Azure na nowym lub istniejącym serwerze logicznym usługi Azure SQL Database.
 
-1. Połącz się z [portalem Azure](http://portal.azure.com), jeśli jeszcze nie nawiązano z nim połączenia.
+1. Połącz się z [witryną Azure Portal](http://portal.azure.com), jeśli jeszcze nie nawiązano z nią połączenia.
 2. Kliknij opcję **Nowa**, wpisz **Baza danych SQL**, a następnie kliknij opcję **Baza danych SQL (nowa baza danych)**
 
      ![nowa baza danych](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-1.png)
@@ -30,7 +30,7 @@ Wykonaj następujące kroki w portalu Azure, aby utworzyć nową bazę danych SQ
  - Nazwa bazy danych
  - Subskrypcja (tylko w przypadku posiadania wielu subskrypcji)
  - Grupa zasobów (jeśli rozpoczynasz pracę, użyj grupy zasobów serwera logicznego)
- - Wybierz źródło (możesz wybrać pustą bazę danych, przykładowe dane lub kopię zapasową bazy danych)
+ - Wybierz źródło (można wybrać pustą bazę danych, przykładowe dane lub kopię zapasową bazy danych platformy Azure — zobacz linki na końcu tego artykułu, aby uzyskać informacje na temat migrowania lokalnej bazy danych programu SQL Server lub załadowania danych przy użyciu narzędzia BCP)
  - Serwer (nowy lub istniejący serwer logiczny)
  - Hasło administratora serwera
  - Hasło
@@ -48,6 +48,7 @@ Wykonaj następujące kroki w portalu Azure, aby utworzyć nową bazę danych SQ
      ![nowa baza danych](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

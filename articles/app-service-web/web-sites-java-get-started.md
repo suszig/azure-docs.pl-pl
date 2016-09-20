@@ -13,18 +13,18 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="08/11/2016"
     ms.author="robmcm"/>
 
 # Tworzenie aplikacji sieci Web Java w usłudze Azure App Service
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-Ten samouczek pokazuje, jak utworzyć [Aplikacja sieci Web w usłudze Azure App Service] przy użyciu [Portalu Azure]. Portal Azure jest interfejsem sieci Web, którego można użyć do zarządzania zasobami platformy Azure.
+Ten samouczek pokazuje, jak utworzyć [Aplikacja sieci Web w usłudze Azure App Service] przy użyciu witryny [Azure Portal]. Portal Azure jest interfejsem sieci Web, którego można użyć do zarządzania zasobami platformy Azure.
 
 > [AZURE.NOTE] Do wykonania kroków tego samouczka potrzebne jest konto platformy Microsoft Azure. Jeśli nie masz konta, możesz [Aktywuj swoje korzyści subskrybenta programu Visual Studio] lub [utworzyć konto bezpłatnej wersji próbnej].
 >
-> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do strony [Wypróbuj usługę App Service]. W tej lokalizacji możesz od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service; bez karty kredytowej i bez zobowiązań.
+> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service]. W tej lokalizacji możesz od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service; bez karty kredytowej i bez zobowiązań.
 
 ## Opcje aplikacji Java
 
@@ -32,7 +32,7 @@ Istnieje kilka metod konfigurowania aplikacji Java w aplikacji sieci Web usługa
 
 1. Utwórz aplikację, a następnie skonfiguruj **Ustawienia aplikacji**.
 
-    Usługa App Service zapewnia kilka wersji kontenerów Tomcat i Jetty o domyślnych konfiguracjach. Jeśli aplikacja, którą będziesz hostować, będzie działać z jedną z wbudowanych wersji, ta metoda konfigurowania kontenera sieci Web jest najprostsza. Jest to doskonałe rozwiązanie, jeśli wszystko, co chcesz zrobić, to przesłać plik war do kontenera sieci Web. W przypadku tej metody utwórz aplikację w Portalu Azure, a następnie przejdź do bloku **Ustawienia aplikacji** dla swojej aplikacji, aby wybrać wersję środowiska Java oraz żądany kontener sieci Web Java. Przy użyciu tej metody zarówno program Java, jak i kontener sieci Web są uruchamiane z poziomu plików programu. W przypadku innych metod kontener sieci Web i potencjalnie maszyna JVM są umieszczane w Twojej przestrzeni dyskowej. Jeśli używasz tego modelu, nie masz dostępu do edycji plików w tej części systemu plików. Oznacza to, że nie możesz wykonywać różnych czynności, np. konfigurować pliku *server.xml* ani umieszczać plików biblioteki w folderze */lib*. Aby uzyskać więcej informacji, zobacz sekcję [Tworzenie i konfigurowanie aplikacji sieci Web Java](#appsettings) poniżej w tym samouczku.
+    Usługa App Service zapewnia kilka wersji kontenerów Tomcat i Jetty o domyślnych konfiguracjach. Jeśli aplikacja, którą będziesz hostować, będzie działać z jedną z wbudowanych wersji, ta metoda konfigurowania kontenera sieci Web jest najprostsza. Jest to doskonałe rozwiązanie, jeśli wszystko, co chcesz zrobić, to przesłać plik war do kontenera sieci Web. W przypadku tej metody utwórz aplikację w witrynie Azure Portal, a następnie przejdź do bloku **Ustawienia aplikacji** dla swojej aplikacji, aby wybrać wersję środowiska Java oraz żądany kontener sieci Web Java. Przy użyciu tej metody zarówno program Java, jak i kontener sieci Web są uruchamiane z poziomu plików programu. W przypadku innych metod kontener sieci Web i potencjalnie maszyna JVM są umieszczane w Twojej przestrzeni dyskowej. Jeśli używasz tego modelu, nie masz dostępu do edycji plików w tej części systemu plików. Oznacza to, że nie możesz wykonywać różnych czynności, np. konfigurować pliku *server.xml* ani umieszczać plików biblioteki w folderze */lib*. Aby uzyskać więcej informacji, zobacz sekcję [Tworzenie i konfigurowanie aplikacji sieci Web Java](#appsettings) poniżej w tym samouczku.
     
 2. Użyj szablonu z portalu Azure Marketplace.
 
@@ -71,7 +71,7 @@ W tej sekcji przedstawiono sposób tworzenia aplikacji sieci Web i konfigurowani
 
     Aby uzyskać więcej informacji na temat planów usługi App Service, zobacz [Omówienie planów usługi Azure App Service].
 
-7. Kliknij pozycję **Utwórz**.
+7. Kliknij przycisk **Utwórz**.
 
     ![Tworzenie aplikacji sieci Web][newwebapp2]
  
@@ -105,7 +105,7 @@ W tej sekcji przedstawiono sposób tworzenia aplikacji sieci Web i konfigurowani
 
 W tej sekcji przedstawiono sposób użycia portalu Azure Marketplace do utworzenia aplikacji sieci Web Java. Tego samego ogólnego przepływu pracy można użyć do utworzenia aplikacji mobilnej opartej na języku Java lub aplikacji interfejsu API. 
 
-1. Zaloguj się do [Azure Portal].
+1. Zaloguj się w witrynie [Azure Portal]
 
 2. Kliknij przycisk **Nowe > Marketplace**.
 
@@ -137,7 +137,7 @@ W tej sekcji przedstawiono sposób użycia portalu Azure Marketplace do utworzen
 
     Aby uzyskać więcej informacji na temat planów usługi App Service, zobacz [Omówienie planów usługi Azure App Service].
 
-10. Kliknij pozycję **Utwórz**.
+10. Kliknij przycisk **Utwórz**.
 
     ![Tworzenie serwera Jetty przy użyciu portalu][jettyportalcreate2]
 
@@ -171,7 +171,7 @@ Aby uzyskać więcej informacji o tworzeniu aplikacji Java na platformie Azure, 
 [Omówienie planów usługi Azure App Service]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [Azure Portal]: https://portal.azure.com/
 [Aktywuj swoje korzyści subskrybenta programu Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
-[Utwórz konto bezpłatnej wersji próbnej]: http://go.microsoft.com/fwlink/?LinkId=623901
+[utworzyć konto bezpłatnej wersji próbnej]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Wypróbuj usługę App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
 [Aplikacja sieci Web w usłudze Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Centrum deweloperów języka Java]: /develop/java/
@@ -194,6 +194,6 @@ Aby uzyskać więcej informacji o tworzeniu aplikacji Java na platformie Azure, 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

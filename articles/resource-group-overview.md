@@ -13,12 +13,22 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/27/2016"
+   ms.date="08/18/2016"
    ms.author="tomfitz"/>
 
 # Omówienie usługi Azure Resource Manager
 
 Infrastruktura aplikacji zwykle obejmuje wiele składników — może to być maszyna wirtualna, konto magazynu i sieć wirtualna albo aplikacja sieci Web, baza danych, serwer bazy danych i usługi zewnętrzne. Te składniki nie są widoczne jako osobne jednostki, tylko jako powiązane i zależne od siebie nawzajem części jednej całości. Dlatego najlepiej wdrażać i monitorować je oraz zarządzać nimi grupowo. Usługa Azure Resource Manager umożliwia pracę z zasobami tworzącymi rozwiązanie w formie grupy. Wszystkie zasoby danego rozwiązania można wdrożyć, zaktualizować lub usunąć w ramach jednej skoordynowanej operacji. Wdrażanie wykonuje się przy użyciu szablonu, którego można następnie używać w różnych środowiskach (testowanie, etap przejściowy i produkcja). Usługa Resource Manager zapewnia funkcje zabezpieczeń, inspekcji i tagowania ułatwiające zarządzanie zasobami po wdrożeniu. 
+
+## Terminologia
+
+Jeśli dopiero zaczynasz korzystać z usługi Azure Resource Manager, oto kilka terminów, których możesz nie znać.
+
+- **Zasób** — dostępny za pośrednictwem platformy Azure element, którym można zarządzać. Niektóre typowe zasoby to: maszyna wirtualna, konto magazynu, aplikacja sieci Web czy sieć wirtualna. Istnieje ich jednak wiele więcej.
+- **Grupa zasobów** — kontener, który zawiera powiązane zasoby aplikacji. Grupa zasobów może obejmować wszystkie zasoby danej aplikacji lub tylko te, które pogrupujesz. Zasoby mogą być przydzielane do grup na podstawie priorytetów organizacji. Zobacz [Grupy zasobów](#resource-groups).
+- **Dostawca zasobów** — usługa dostarczająca zasoby, które można wdrażać i którymi można zarządzać za pomocą usługi Resource Manager. Każdy dostawca zasobów udostępnia operacje do pracy z wdrażanymi zasobami. Typowi dostawcy zasobów to: Microsoft.Compute dostarczający zasób maszyny wirtualnej, Microsoft.Storage dostarczający zasób konta magazynu czy Microsoft.Web dostarczający zasoby dotyczące aplikacji sieci Web. Zobacz [Dostawcy zasobów](#resource-providers).
+- **Szablon usługi Resource Manager** — plik w formacie JavaScript Object Notation (JSON) definiujący jeden lub większą liczbę zasobów, które mają zostać wdrożone w grupie zasobów. Definiuje również zależności między wdrożonymi zasobami. Szablon może służyć do spójnego i wielokrotnego wdrażania zasobów. Zobacz [Wdrażanie na podstawie szablonu](#template-deployment).
+- **Składnia deklaratywna** — składnia pozwalająca określić, co zamierzasz utworzyć, bez konieczności pisania w tym celu sekwencji poleceń programistycznych. Przykładem składni deklaratywnej jest szablon usługi Resource Manager. W tym pliku definiuje się właściwości infrastruktury do wdrożenia na platformie Azure. 
 
 ## Zalety korzystania z usługi Resource Manager
 
@@ -26,7 +36,7 @@ Usługa Resource Manager zapewnia kilka korzyści:
 
 - Możliwość grupowego wdrożenia i monitorowania wszystkich zasobów w ramach rozwiązania oraz zarządzania nimi (zamiast obsługiwania zasobów pojedynczo).
 - Możliwość wielokrotnego wdrażania rozwiązania w całym cyklu programistycznym z gwarancją spójnego stanu zasobów po każdym wdrożeniu.
-- Możliwość definiowania wdrożenia za pomocą szablonów deklaratywnych.
+- Możliwość zarządzania infrastrukturą przy użyciu szablonów deklaratywnych zamiast skryptów.
 - Możliwość definiowania zależności między zasobami, aby wdrażać je w odpowiedniej kolejności.
 - Możliwość stosowania kontroli dostępu do wszystkich usług w grupie zasobów dzięki natywnej integracji funkcji kontroli dostępu na podstawie ról z platformą zarządzania.
 - Możliwość dodawania tagów do zasobów w celu logicznego uporządkowania wszystkich zasobów w ramach subskrypcji.
@@ -43,9 +53,9 @@ Poniższe sugestie pomogą Ci w pełni wykorzystać możliwości usługi Resourc
 3. Korzystaj z poleceń imperatywnych do zarządzania zasobami, np. do uruchamiania i zatrzymywania aplikacji lub maszyny.
 4. Rozmieść zasoby z tym samym cyklem życia w grupie zasobów. We wszystkich pozostałych operacjach związanych z organizacją zasobów używaj tagów.
 
-## Grupy zasobów
+Aby uzyskać więcej zaleceń, zobacz [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md) (Najlepsze rozwiązania dotyczące tworzenia szablonów usługi Azure Resource Manager).
 
-Grupa zasobów to kontener, który zawiera powiązane zasoby dla aplikacji. Może ona obejmować wszystkie zasoby danej aplikacji lub tylko te, które są logicznie pogrupowane. Zasoby mogą być przydzielane do grup na podstawie priorytetów organizacji.
+## Grupy zasobów
 
 Definiując grupę zasobów, należy wziąć pod uwagę pewne ważne czynniki:
 
@@ -55,21 +65,19 @@ Definiując grupę zasobów, należy wziąć pod uwagę pewne ważne czynniki:
 4. Zasoby można przenosić między poszczególnymi grupami. Aby uzyskać więcej informacji, zobacz [Move resources to new resource group or subscription](resource-group-move-resources.md) (Przenoszenie zasobów do nowej grupy lub subskrypcji).
 4. Grupa zasobów może zawierać zasoby, które znajdują się w różnych regionach.
 5. Grupa zasobów może służyć do określania zakresu kontroli dostępu na potrzeby działań administracyjnych.
-6. Zasób może być połączony z zasobem w innej grupie zasobów, gdy oba zasoby muszą ze sobą współdziałać, ale nie mają tego samego cyklu życia (np. w przypadku wielu aplikacji łączących się z bazą danych). Aby uzyskać więcej informacji, zobacz [Linking resources in Azure Resource Manager](resource-group-link-resources.md) (Łączenie zasobów w usłudze Azure Resource Manager).
+6. Zasób może współdziałać z zasobem w innej grupie zasobów, gdy oba zasoby są ze sobą powiązane, ale nie mają tego samego cyklu życia (np. w przypadku aplikacji sieci Web łączących się z bazą danych).
 
 ## Dostawcy zasobów
 
-Dostawca zasobów to usługa dostarczająca zasoby, które można wdrażać i którymi można zarządzać za pomocą usługi Resource Manager. Każdy dostawca zasobów udostępnia operacje interfejsu API REST do pracy z zasobami. Na przykład w celu wdrożenia Magazynu kluczy Azure na potrzeby przechowywania kluczy i kluczy tajnych należy użyć dostawcy zasobów **Microsoft.KeyVault**. Ten dostawca zasobów udostępnia typ zasobu o nazwie **magazyny** do utworzenia magazynu kluczy oraz typ **magazyny/klucze tajne** do utworzenia klucza tajnego w magazynie kluczy. Aby dowiedzieć się więcej o danym dostawcy zasobów, możesz zapoznać się z jego opisem w operacjach interfejsu API REST, np.: [Key Vault REST API operations](https://msdn.microsoft.com/library/azure/dn903609.aspx) (Operacje interfejsu API REST Magazynu kluczy).
+Każdy dostawca zasobów udostępnia zestaw zasobów i operacji do pracy w obszarze technicznym. Na przykład w celu przechowywania kluczy i kluczy tajnych należy użyć dostawcy zasobów **Microsoft.KeyVault**. Ten dostawca zasobów udostępnia typ zasobu o nazwie **magazyny** do utworzenia magazynu kluczy oraz typ **magazyny/klucze tajne** do utworzenia klucza tajnego w magazynie kluczy. Ponadto udostępnia operacje w postaci [operacji interfejsu REST API usługi Key Vault](https://msdn.microsoft.com/library/azure/dn903609.aspx). Interfejs REST API można wywoływać bezpośrednio bądź zarządzać magazynem kluczy przy użyciu [poleceń cmdlet programu PowerShell dla usługi Key Vault](https://msdn.microsoft.com/library/dn868052.aspx) oraz [interfejsu wiersza polecenia platformy Azure dla usługi Key Vault](./key-vault/key-vault-manage-with-cli.md). Ponadto do pracy z większością zasobów można używać wielu języków programowania. Aby uzyskać więcej informacji, zobacz [Zestawy SDK i przykłady](#sdks-and-samples). 
 
 Aby móc wdrażać infrastrukturę i zarządzać nią, musisz poznać szczegóły dostawców zasobów, na przykład udostępniane przez nich typy zasobów, numery wersji operacji interfejsu API REST, obsługiwane operacje oraz schemat używany podczas ustawiania wartości typu zasobu do utworzenia. Aby dowiedzieć się więcej na temat obsługiwanych dostawców zasobów, zobacz [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services.md) (Dostawcy, regiony, wersje interfejsów API oraz schematy usługi Resource Manager).
 
 ## Wdrażanie na podstawie szablonu
 
-Usługa Resource Manager umożliwia utworzenie prostego szablonu (w formacie JSON) do definiowania wdrażania i konfiguracji aplikacji. Jest on nazywany szablonem usługi Resource Manager i pozwala na deklaratywne definiowanie wdrożeń. Dzięki szablonowi można wielokrotnie wdrażać aplikację w całym jej cyklu życia z gwarancją spójnego stanu zasobów po każdym wdrożeniu.
+Usługa Resource Manager umożliwia utworzenie prostego szablonu (w formacie JSON) do definiowania wdrażania i konfiguracji aplikacji. Dzięki szablonowi można wielokrotnie wdrażać aplikację w całym jej cyklu życia z gwarancją spójnego stanu zasobów po każdym wdrożeniu. Usługa Azure Resource Manager analizuje zależności i sprawdza, czy zasoby są tworzone we właściwej kolejności. Aby uzyskać więcej informacji, zobacz [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md) (Definiowanie zależności w szablonach usługi Azure Resource Manager).
 
-W szablonie należy zdefiniować infrastrukturę aplikacji, sposób konfigurowania infrastruktury oraz sposób publikowania kodu aplikacji w tej infrastrukturze. Nie trzeba się martwić o kolejność wdrażania, ponieważ usługa Azure Resource Manager analizuje zależności i sprawdza, czy zasoby są tworzone we właściwej kolejności. Aby uzyskać więcej informacji, zobacz [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md) (Definiowanie zależności w szablonach usługi Azure Resource Manager).
-
-W przypadku tworzenia rozwiązania z witryny Marketplace rozwiązanie automatycznie zawiera szablon wdrożenia. Nie trzeba tworzyć szablonu od początku — można zacząć od szablonu istniejącego rozwiązania i dostosować go do konkretnych potrzeb. Aby uzyskać szablon dla istniejącej grupy zasobów, można wyeksportować bieżący stan grupy do szablonu lub skorzystać z szablonu, którego użyto do określonego wdrożenia. Przeglądając wyeksportowany szablon, można poznać jego składnię. Aby dowiedzieć się więcej o pracy z wyeksportowanymi szablonami , zobacz [Eksportowanie szablonu usługi Azure Resource Manager z istniejących zasobów](resource-manager-export-template.md).
+W przypadku tworzenia rozwiązania z portalu rozwiązanie automatycznie zawiera szablon wdrożenia. Nie trzeba tworzyć szablonu od początku — można zacząć od szablonu istniejącego rozwiązania i dostosować go do konkretnych potrzeb. Aby uzyskać szablon dla istniejącej grupy zasobów, można wyeksportować bieżący stan grupy do szablonu lub skorzystać z szablonu, którego użyto do określonego wdrożenia. Przeglądając wyeksportowany szablon, można poznać jego składnię. Aby dowiedzieć się więcej o pracy z wyeksportowanymi szablonami , zobacz [Eksportowanie szablonu usługi Azure Resource Manager z istniejących zasobów](resource-manager-export-template.md).
 
 Nie trzeba definiować całej infrastruktury w jednym szablonie. Często dobrym rozwiązaniem jest podział wymagań dotyczących wdrożenia na szablony przeznaczone do określonego celu. Szablonów tych można bez problemu używać wielokrotnie w różnych rozwiązaniach. Aby wdrożyć dane rozwiązanie, należy utworzyć szablon wzorcowy połączony ze wszystkimi wymaganymi szablonami. Aby uzyskać więcej informacji, zobacz [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md) (Używanie szablonów połączonych w usłudze Azure Resource Manager).
 
@@ -121,16 +129,67 @@ Aby uzyskać informacje dotyczące interfejsu wiersza polecenia platformy Azure,
 
 Aby uzyskać informacje dotyczące interfejsu API REST, zobacz [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/dn790568.aspx) (Dokumentacja interfejsu API REST usługi Azure Resource Manager). Aby wyświetlić operacje REST dla wdrożonych zasobów, zobacz [Use Azure Resource Explorer to view and modify resources](resource-manager-resource-explorer.md) (Wyświetlanie i modyfikowanie zasobów za pomocą Eksploratora zasobów Azure).
 
-Aby uzyskać informacje dotyczące korzystania z portalu, zobacz [Korzystanie z Portalu Azure do zarządzania zasobami Azure](./azure-portal/resource-group-portal.md).
+Aby uzyskać informacje o korzystaniu z portalu, zobacz [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md) (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i witryny Azure Portal).
 
 Usługa Azure Resource Manager obsługuje mechanizm współużytkowania zasobów między źródłami (cross-origin resource sharing — CORS). Mechanizm ten umożliwia wywołanie interfejsu API REST usługi Resource Manager lub interfejsu API REST usługi platformy Azure z poziomu aplikacji sieci Web znajdującej się w innej domenie. Bez obsługi mechanizmu CORS przeglądarki internetowe blokowałyby aplikacji w jednej domenie dostęp do zasobów w innej domenie. Usługa Resource Manager obsługuje mechanizm CORS dla wszystkich żądań z prawidłowymi poświadczeniami uwierzytelniania.
+
+## Zestawy SDK
+
+Zestawy Azure SDK są dostępne dla wielu języków i platform.
+Implementacje dla poszczególnych języków są dostępne za pośrednictwem menedżera pakietów danego ekosystemu oraz w usłudze GitHub.
+
+Kod w każdym z tych zestawów SDK jest generowany na podstawie specyfikacji interfejsu RESTful API platformy Azure.
+To specyfikacje typu open source, oparte na specyfikacji Swagger 2.0.
+Kod zestawu SDK jest generowany za pośrednictwem narzędzia typu open source o nazwie AutoRest.
+Narzędzie AutoRest przekształca te specyfikacje interfejsu RESTful API na biblioteki klienckie w wielu językach.
+Jeśli chcesz ulepszyć jakiekolwiek aspekty kodu generowanego w zestawach SDK, do dyspozycji masz cały zestaw narzędzi służących do tworzenia zestawów SDK. Są one otwarte, dostępne bezpłatnie i bazują na powszechnie przyjętym formacie specyfikacji interfejsu API.
+
+Oto nasze repozytoria zestawów SDK typu open source. Zachęcamy do wysyłania opinii, zgłaszania problemów i przesyłania żądań ściągnięcia.
+
+[.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Node.js](https://github.com/Azure/azure-sdk-for-node) | [PHP](https://github.com/Azure/azure-sdk-for-php) | [Python](https://github.com/Azure/azure-sdk-for-python) | [Ruby](https://github.com/Azure/azure-sdk-ruby)
+
+> [AZURE.NOTE] Jeśli dany zestaw SDK nie udostępnia wymaganych funkcji, możesz również bezpośrednio wywołać [interfejs API REST platformy Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
+
+## Przykłady
+
+### .NET
+
+- [Zarządzanie zasobami i grupami zasobów platformy Azure](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
+- [Wdrażanie maszyny wirtualnej z obsługą protokołu SSH przy użyciu szablonu](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
+
+### Java
+
+- [Zarządzanie zasobami platformy Azure](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource/)
+- [Zarządzanie grupami zasobów platformy Azure](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+- [Wdrażanie maszyny wirtualnej z obsługą protokołu SSH przy użyciu szablonu](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+
+### Node.js
+
+- [Zarządzanie zasobami i grupami zasobów platformy Azure](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Wdrażanie maszyny wirtualnej z obsługą protokołu SSH przy użyciu szablonu](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+
+### Python
+
+- [Zarządzanie zasobami i grupami zasobów platformy Azure](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Wdrażanie maszyny wirtualnej z obsługą protokołu SSH przy użyciu szablonu](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+
+### Ruby
+
+- [Zarządzanie zasobami i grupami zasobów platformy Azure](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+- [Wdrażanie maszyny wirtualnej z obsługą protokołu SSH przy użyciu szablonu](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
+
+
+Dodatkowe przykłady możesz wyszukać w galerii.
+
+[.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) | [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python) | [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
 
 ## Następne kroki
 
 - Artykuł [Eksportowanie szablonu usługi Azure Resource Manager z istniejących zasobów](resource-manager-export-template.md) zawiera proste instrukcje dotyczące pracy z szablonami.
 - Bardziej szczegółowe instrukcje dotyczące tworzenia szablonu zawiera artykuł [Przewodnik po szablonie usługi Resource Manager](resource-manager-template-walkthrough.md).
 - Aby poznać funkcje, których można użyć w szablonie, zobacz [Template functions](resource-group-template-functions.md) (Funkcje szablonu).
-- Aby uzyskać informacje dotyczące korzystania z programu Visual Studio z usługą Resource Manager, zobacz [Tworzenie i wdrażanie grup zasobów platformy Azure za pomocą programu Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+- Aby uzyskać informacje dotyczące korzystania z programu Visual Studio w połączeniu z usługą Resource Manager, zobacz [Tworzenie i wdrażanie grup zasobów platformy Azure za pomocą programu Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+- Aby uzyskać informacje dotyczące korzystania z programu VS Code w połączeniu z usługą Resource Manager, zobacz [Praca z szablonami usługi Azure Resource Manager w programie Visual Studio Code](resource-manager-vs-code.md).
 
 Oto film z omówieniem tego zagadnienia:
 
@@ -138,6 +197,6 @@ Oto film z omówieniem tego zagadnienia:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

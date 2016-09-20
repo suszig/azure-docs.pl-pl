@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="nodejs"
     ms.topic="hero-article"
-    ms.date="04/08/2016"
+    ms.date="08/11/2016"
     ms.author="robmcm"/>
 
 # Tworzenie aplikacji sieci Web Node.js w usłudze Azure App Service
@@ -66,13 +66,13 @@ Wykonaj poniższe czynności, aby utworzyć aplikację sieci Web w usłudze Azur
 
 6. Wybierz **grupę zasobów** lub utwórz nową.
 
-    Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Korzystanie z Portalu Azure do zarządzania zasobami Azure](../resource-group-portal.md).
+    Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../resource-group-overview.md).
 
 7. Wybierz pozycję **Plan usługi App Service/Lokalizacja** lub utwórz nowy plan.
 
     Aby uzyskać więcej informacji na temat planów usługi App Service, zobacz [Omówienie planów usługi Azure App Service](../azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-8. Kliknij pozycję **Utwórz**.
+8. Kliknij przycisk **Utwórz**.
    
     ![][portal-quick-create2]
 
@@ -227,6 +227,6 @@ Informacje dotyczące sposobu tworzenia aplikacji Node.js na platformie Azure mo
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

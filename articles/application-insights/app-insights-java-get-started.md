@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/12/2016"
+    ms.date="08/17/2016"
     ms.author="awills"/>
 
 # Wprowadzenie do usługi Application Insights w projekcie sieci Web w języku Java
@@ -27,7 +27,7 @@
 
 Usługa Application Insights obsługuje aplikacje w języku Java działające w systemach Linux, Unix lub Windows.
 
-Będą potrzebne:
+Potrzebne elementy:
 
 * Środowisko Oracle JRE 1.6 lub nowsze albo Zulu JRE 1.6 lub nowsze
 * Subskrypcja platformy [Microsoft Azure](https://azure.microsoft.com/). (Możesz rozpocząć od [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/)).
@@ -38,13 +38,10 @@ Będą potrzebne:
 ## 1. Uzyskiwanie klucza instrumentacji usługi Application Insights
 
 1. Zaloguj się do [Portalu Microsoft Azure](https://portal.azure.com).
-2. Utwórz nowy zasób usługi Application Insights.
-
-    ![Kliknij + i wybierz opcję Application Insights](./media/app-insights-java-get-started/01-create.png)
-3. Jako typ aplikacji ustaw wartość Aplikacja sieci Web Java.
+2. Utwórz zasób usługi Application Insights. Jako typ aplikacji ustaw wartość Aplikacja sieci Web Java.
 
     ![Wypełnij nazwę, wybierz aplikację sieci Web Java i kliknij przycisk Utwórz](./media/app-insights-java-get-started/02-create.png)
-4. Znajdź klucz instrumentacji nowego zasobu. Wkrótce będzie trzeba wkleić go do projektu kodu.
+4. Znajdź klucz instrumentacji nowego zasobu. Wkrótce będzie trzeba wkleić ten klucz do projektu kodu.
 
     ![W opisie nowego zasobu kliknij opcję Właściwości i skopiuj klucz instrumentacji](./media/app-insights-java-get-started/03-key.png)
 
@@ -106,18 +103,18 @@ Następnie odśwież zależności projektu, aby pliki binarne zostały pobrane.
 
 Ręcznie dodaj zestaw SDK:
 
-1. Pobierz [Zestaw SDK usługi Application Insights dla środowiska Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html).
+1. Pobierz [Zestaw SDK usługi Application Insights dla środowiska Java](https://aka.ms/aijavasdk).
 2. Wyodrębnij pliki binarne z pliku zip i dodaj je do projektu.
 
 ### Pytania...
 
 * *Jaki jest związek między składnikami `-core` i `-web` w pliku zip?*
 
- * `applicationinsights-core` dostarcza podstawowy interfejs API. Jest zawsze potrzebny.
+ * `applicationinsights-core` dostarcza podstawowy interfejs API. Ten składnik jest zawsze potrzebny.
  * `applicationinsights-web` dostarcza metryki do śledzenia liczby żądań HTTP i czasów odpowiedzi. Możesz pominąć ten składnik, jeśli nie chcesz automatycznie zbierać tych danych telemetrycznych. Na przykład jeśli chcesz zaprogramować zbieranie samodzielnie.
 
 * *Aby zaktualizować zestaw SDK po opublikowaniu zmian*
- * Pobierz najnowszy [Zestaw SDK usługi Application Insights dla środowiska Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip) i zastąp nim stary.
+ * Pobierz najnowszy [Zestaw SDK usługi Application Insights dla środowiska Java](https://aka.ms/qqkaq6) i zastąp nim stary.
  * Zmiany są opisane w [informacjach o wersji zestawu SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 
@@ -162,6 +159,20 @@ Zastąp klucz instrumentacji kluczem pobranym z portalu Azure.
 * Klucz instrumentacji jest wysyłany wraz z każdym elementem telemetrii i dzięki temu te elementy mogą być wyświetlane dla odpowiedniego zasobu usługi Application Insights.
 * Składnik żądań HTTP jest opcjonalny. Powoduje automatyczne wysyłanie telemetrii dotyczącej żądań i czasów odpowiedzi do portalu.
 * Korelacja zdarzeń jest dodatkiem do składnika żądań HTTP. Przypisuje identyfikator do każdego żądania odebranego przez serwer i dodaje go do każdego elementu telemetrii jako właściwość „Operation.Id”. Umożliwia korelowanie telemetrii skojarzonej z każdym żądaniem przez ustawienie filtru w [wyszukiwaniu diagnostycznym][diagnostyka].
+* Klucz usługi Application Insights może zostać przekazany dynamicznie z witryny Azure Portal jako właściwość systemu (-DAPPLICATION_INSIGHTS_IKEY=Twój_klucz_ikey). Jeśli nie zdefiniowano żadnej właściwości, sprawdzana jest zmienna środowiskowa (APPLICATION_INSIGHTS_IKEY) w ustawieniach aplikacji platformy Azure. Jeśli obie właściwości nie są zdefiniowane, używana jest domyślna właściwość InstrumentationKey z pliku ApplicationInsights.xml. Ta sekwencja ułatwia dynamiczne zarządzanie elementami InstrumentationKey dla różnych środowisk.
+
+### Alternatywne sposoby ustawienia klucza instrumentacji
+
+Zestaw SDK usługi Application Insights szuka klucza w następującej kolejności:
+
+1. Właściwość systemu: -DAPPLICATION_INSIGHTS_IKEY=Twój_klucz_ikey
+2. Zmienna środowiskowa: APPLICATION_INSIGHTS_IKEY
+3. Plik konfiguracji: ApplicationInsights.xml
+
+Możesz również [ustawić klucz w kodzie](app-insights-api-custom-events-metrics.md#ikey):
+
+    telemetryClient.InstrumentationKey = "...";
+
 
 ## 4. Dodawanie filtru HTTP
 
@@ -182,7 +193,7 @@ Aby uzyskać najbardziej dokładne wyniki, ten filtr powinien być mapowany prze
        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-#### Jeśli używasz środowiska MVC 3.1 lub nowszego
+#### Jeśli używasz środowiska Spring Web MVC 3.1 lub nowszego
 
 Edytuj te elementy, aby załączyć pakiet Application Insights:
 
@@ -215,7 +226,7 @@ Uruchom aplikację w trybie debugowania na komputerze deweloperskim albo opublik
 ## 6. Wyświetlanie telemetrii w usłudze Application Insights
 
 
-Wróć do zasobu usługi Application Insights w [Portalu Microsoft Azure](https://portal.azure.com).
+Wróć do zasobu usługi Application Insights w witrynie [Microsoft Azure Portal](https://portal.azure.com).
 
 W bloku przeglądu zostaną wyświetlone dane żądań HTTP. (Jeśli ich tam nie ma, odczekaj kilka sekund, a następnie kliknij przycisk Odśwież).
 
@@ -227,7 +238,7 @@ Klikaj elementy wykresów, aby wyświetlać bardziej szczegółowe metryki zagre
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
-> Usługa Application Insights zakłada, że format żądania HTTP dla aplikacji MVC to: `VERB controller/action`. Na przykład żądania `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` i `GET Home/Product/sdf96vws` są grupowane w ramach pozycji `GET Home/Product`. Umożliwia to zrozumiałe agregowanie żądań, np. podawanie liczby żądań i średniego czasu wykonania żądań.
+> Usługa Application Insights zakłada, że format żądania HTTP dla aplikacji MVC to: `VERB controller/action`. Na przykład żądania `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` i `GET Home/Product/sdf96vws` są grupowane w ramach pozycji `GET Home/Product`. To grupowanie umożliwia zrozumiałe agregowanie żądań, na przykład podawanie liczby żądań i średniego czasu ich wykonania.
 
 
 ### Dane wystąpienia 
@@ -248,29 +259,27 @@ W miarę zgromadzenia większej ilości danych można uruchamiać zapytania zar�
 ![Przykład analizy](./media/app-insights-java-get-started/025.png)
 
 
-## 5. Instalowanie aplikacji na serwerze
+## 7. Instalowanie aplikacji na serwerze
 
 Teraz opublikuj aplikację na serwerze, pozwól z niej korzystać innym osobom, a następnie obejrzyj telemetrię wyświetlaną w portalu.
 
 * Upewnij się, że zapora pozwala aplikacji na wysłanie telemetrii do tych portów:
 
  * dc.services.visualstudio.com:443
- * dc.services.visualstudio.com:80
  * f5.services.visualstudio.com:443
- * f5.services.visualstudio.com:80
 
 
 * Na serwerach systemu Windows zainstaluj:
 
  * [Pakiety Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
 
-    (Umożliwi to działanie liczników wydajności).
+    Ten składnik umożliwia działanie liczników wydajności.
 
 ## Wyjątki i błędy żądań
 
 Nieobsługiwane wyjątki są zbierane automatycznie:
 
-![Przewiń w dół i kliknij kafelek Błędy](./media/app-insights-java-get-started/21-exceptions.png)
+![Otwórz ustawienia, błędy](./media/app-insights-java-get-started/21-exceptions.png)
 
 Istnieją dwie opcje zbierania danych o innych wyjątkach:
 
@@ -285,7 +294,7 @@ Istnieją dwie opcje zbierania danych o innych wyjątkach:
 
 ## Liczniki wydajności
 
-Kliknij kafelek **Serwery**, a zobaczysz zakres liczników wydajności.
+Otwórz pozycję **Ustawienia**, **Serwery**, aby wyświetlić zakres liczników wydajności.
 
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
@@ -355,7 +364,7 @@ Wysyłasz już telemetrię z serwera sieci Web. Teraz, aby zyskać pełny wgląd
 
 ## Przechwytywanie danych dziennika śledzenia
 
-Usługi Application Insights mogą służyć do analizowania pod różnymi kątami danych z dzienników Log4J, Logback lub innych struktur rejestrowania. Dzienniki można skorelować z żądaniami HTTP i inną telemetrią. [Naucz się][dzienniki_java].
+Usługi Application Insights mogą służyć do analizowania pod różnymi kątami danych z dzienników Log4J, Logback lub innych platform rejestrowania. Dzienniki można skorelować z żądaniami HTTP i inną telemetrią. [Naucz się][dzienniki_java].
 
 ## Wysyłanie własnej telemetrii
 
@@ -367,17 +376,15 @@ Teraz, po zainstalowaniu zestawu SDK, możesz użyć interfejsu API do wysyłani
 
 ## Testy dostępności sieci Web
 
-Usługa Application Insights może służyć do testowania witryny sieci Web w regularnych odstępach czasu, aby sprawdzić, czy witryna działa i odpowiada poprawnie. [W celu skonfigurowania][availability] przewiń w dół i kliknij opcję Dostępność.
+Usługa Application Insights może służyć do testowania witryny sieci Web w regularnych odstępach czasu, aby sprawdzić, czy witryna działa i odpowiada poprawnie. [Aby skonfigurować][availability], kliknij pozycję Testy sieci Web.
 
-![Przewiń w dół, kliknij opcję Dostępność, a następnie opcję Dodaj test sieci Web](./media/app-insights-java-get-started/31-config-web-test.png)
+![Kliknij pozycję Testy sieci Web, a następnie kliknij pozycję Dodaj test sieci Web](./media/app-insights-java-get-started/31-config-web-test.png)
 
 Uzyskasz wykresy czasów odpowiedzi oraz powiadomienia e-mail w razie wyłączenia witryny.
 
 ![Przykład testu sieci Web](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
 [Dowiedz się więcej o testach dostępności sieci Web.][availability] 
-
-
 
 
 
@@ -403,6 +410,6 @@ Więcej informacji możesz znaleźć w [Centrum deweloperów języka Java](/deve
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

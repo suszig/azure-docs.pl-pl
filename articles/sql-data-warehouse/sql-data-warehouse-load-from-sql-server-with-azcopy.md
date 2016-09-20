@@ -1,6 +1,6 @@
 <properties
    pageTitle="Ładowanie danych z programu SQL Server do usługi Azure SQL Data Warehouse (PolyBase) | Microsoft Azure"
-   description="Eksportowanie danych z programu SQL Server do plików prostych przy użyciu programu bcpw, importowanie danych do magazynu obiektów blob platformy Azure przy użyciu programu AZCopy oraz pozyskiwanie danych do usługi Azure SQL Data Warehouse przy użyciu programu PolyBase."
+   description="Eksportowanie danych z programu SQL Server do plików prostych przy użyciu programu bcpw, importowanie danych do usługi Azure Blob Storage przy użyciu programu AZCopy oraz pozyskiwanie danych do usługi Azure SQL Data Warehouse przy użyciu programu PolyBase."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -13,13 +13,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
 # Ładowanie danych z programu SQL Server do usługi Azure SQL Data Warehouse (AZCopy)
 
-Użyj narzędzia bcp i narzędzia wiersza polecenia AZCopy do ładowania danych z programu SQL Server do magazynu obiektów blob Azure. Następnie zastosuj technologię PolyBase lub Fabrykę danych Azure do ładowania danych do usługi Azure SQL Data Warehouse. 
+Użyj narzędzia bcp i narzędzia wiersza polecenia AZCopy do ładowania danych z programu SQL Server do usługi Azure Blob Storage. Następnie zastosuj technologię PolyBase lub usługę Azure Data Factory do ładowania danych do usługi Azure SQL Data Warehouse. 
 
 
 ## Wymagania wstępne
@@ -56,7 +56,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
->[AZURE.NOTE] Zobacz informacje o [projektowaniu tabel][] lub [składni polecenia CREATE TABLE][], aby uzyskać więcej informacji dotyczących tworzenia tabel w usłudze SQL Data Warehouse oraz dostępnych opcji klauzuli WITH.
+>[AZURE.NOTE] Zobacz artykuł [Omówienie tabel][] lub [składni polecenia CREATE TABLE][], aby uzyskać więcej informacji dotyczących tworzenia tabel w usłudze SQL Data Warehouse oraz dostępnych opcji klauzuli WITH.
 
 ### Krok 2: tworzenie źródłowego pliku danych
 
@@ -160,10 +160,10 @@ Więcej porad programistycznych znajdziesz w artykule [Omówienie programowania 
 
 <!--Article references-->
 
-[Ładowanie danych do usługi SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[Omówienie programowania w usłudze SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
-[projektowaniu tabel]: sql-data-warehouse-develop-table-design.md
-[Statystyki]: sql-data-warehouse-develop-statistics.md
+[Ładowanie danych do usługi SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[Omówienie programowania w usłudze SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
+[Omówienie tabel]: ./sql-data-warehouse-tables-overview.md
+[Statystyki]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
@@ -174,6 +174,6 @@ Więcej porad programistycznych znajdziesz w artykule [Omówienie programowania 
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

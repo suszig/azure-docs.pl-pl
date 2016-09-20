@@ -1,6 +1,7 @@
 <properties 
-    pageTitle="Wprowadzenie do usługi Fabryka danych Azure" 
-    description="Informacje na temat używania usługi Fabryka danych Azure do opracowywania usług przetwarzania danych, magazynu danych oraz przenoszenia danych w celu tworzenia potoków generujących zaufane informacje." 
+    pageTitle="Czym jest usługa Data Factory? Usługa integracji danych | Microsoft Azure" 
+    description="Dowiedz się, czym jest usługa Azure Data Factory: usługa integracji danych w chmurze, która służy do aranżacji i automatyzacji przenoszenia i przekształcania danych." 
+    keywords="integracja danych, integracja danych w chmurze, czym jest usługa azure data factory"
     services="data-factory" 
     documentationCenter="" 
     authors="spelluru" 
@@ -13,17 +14,17 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="04/26/2016" 
+    ms.date="07/12/2016" 
     ms.author="spelluru"/>
 
-# Wprowadzenie do usługi Fabryka danych Azure
+# Wprowadzenie do usługi Azure Data Factory, usługa integracji danych w chmurze
 
-## Omówienie
+## Czym jest usługa Azure Data Factory? 
 Fabryka danych jest usługą integracji danych w chmurze, która służy do aranżacji i automatyzacji przenoszenia i przekształcania danych. Podobnie jak w przypadku prawdziwej fabryki wyposażonej w sprzęt, który pobiera surowce i przekształca je w gotowe towary, usługa Fabryka danych aranżuje istniejące usługi, w ramach których zbierane są oryginalne dane, które są następnie przekształcane w gotowe do użycia informacje. 
 
 Usługa Fabryka danych korzysta z lokalnych i dostępnych w chmurze źródeł danych oraz z modelu SaaS w celu pozyskiwania, przygotowywania, przekształcania, analizowania i publikowania danych.  Usługa Fabryka danych służy do łączenia usług w potoki zarządzanego przepływu danych w celu przekształcania danych przy użyciu takich usług, jak [HDInsight Azure (Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) i [Azure Batch](https://azure.microsoft.com/documentation/services/batch/) na potrzeby wykonywania obliczeń na danych big data, oraz przy użyciu usługi [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) do zarządzania rozwiązaniami analitycznymi.  Usługa Fabryka danych wykracza poza jedynie tabelaryczny widok monitorowania, umożliwiając korzystanie z rozbudowanych wizualizacji, aby szybko wyświetlać elementy powiązane oraz zależności między potokami danych. Pozwala na monitorowanie wszystkich potoków przepływu danych z jednego zintegrowanego widoku, który ułatwia wykrywanie problemów i konfigurowanie alertów monitorowania.
 
-![Omówienie](./media/data-factory-introduction/data-factory-overview.png)
+![Diagram: Omówienie usługi Data Factory, usługi integracji danych](./media/data-factory-introduction/what-is-azure-data-factory.png)
 
 **Rysunek 1.** Zbieranie danych z wielu różnych lokalnych źródeł danych, pozyskiwanie ich i przygotowywanie, organizowanie i analizowanie przy użyciu szerokiej oferty przekształceń, a następnie publikowanie danych gotowych do użytku.
 
@@ -35,7 +36,7 @@ Usługi Fabryka danych można używać w dowolnym czasie do zbierania danych w r
 
 Usługa Fabryka danych Azure obejmuje kilka kluczowych jednostek, które współpracują w celu definiowania danych wejściowych i wyjściowych, zdarzeń przetwarzania oraz harmonogramu i zasobów potrzebnych do wykonywania żądanego przepływu danych.
 
-![Kluczowe pojęcia](./media/data-factory-introduction/key-concepts.png)
+![Diagram: Data Factory, usługa integracji danych w chmurze — najważniejsze pojęcia](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 **Rysunek 2.** Relacje między elementami Zestaw danych, Działanie, Potok i Połączona usługa
 
@@ -68,10 +69,16 @@ Załóżmy na przykład, że środowiska obliczeniowe, takie jak klaster usługi
 
 W przyszłości zamierzamy udostępnić usługę Fabryka danych Azure w każdym regionie geograficznym obsługiwanym przez platformę Azure.
   
+## Następne kroki
+Wykonaj instrukcje krok po kroku w następujących samouczkach, aby dowiedzieć się, jak tworzyć fabryki danych z potokami danych. 
+
+Samouczek | Opis
+-------- | -----------
+[Tworzenie potoku danych, który przetwarza dane przy użyciu klastra usługi Hadoop](data-factory-build-your-first-pipeline.md) | W tym samouczku utworzysz pierwszą fabrykę danych Azure przy użyciu potoku danych, który **przetwarza dane**, uruchamiając skrypt Hive w klastrze Azure HDInsight (Hadoop). |
+[Tworzenie potoku danych do przenoszenia danych między dwoma magazynami danych w chmurze](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) | W tym samouczku utworzysz fabrykę danych z potokiem, który **przenosi dane** z magazynu obiektów blob do bazy danych SQL.
+[Tworzenie potoku danych do przenoszenia danych między lokalnym magazynem danych i magazynem danych w chmurze przy użyciu bramy zarządzania danymi](data-factory-move-data-between-onprem-and-cloud.md) |  W tym samouczku utworzysz fabrykę danych z potokiem, który **przenosi dane** z **lokalnej** bazy danych programu SQL Server do obiektu blob Azure. W ramach tego przewodnika zainstalujesz i skonfigurujesz bramę zarządzania danymi na tym komputerze. 
 
 
-
-
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

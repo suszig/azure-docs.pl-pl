@@ -4,7 +4,7 @@
     keywords=""
     services="sql-database"
     documentationCenter=""
-    authors="carlrabeler"
+    authors="CarlRabeler"
     manager="jhubbard"
     editor=""/>
 
@@ -15,17 +15,22 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="08/17/2016"
     ms.author="carlrab"/>
 
-# Samouczek usługi SQL Database: tworzenie kont użytkowników bazy danych służących do uzyskiwania dostępu do bazy danych i zarządzania nią za pomocą portalu Azure
+# Samouczek usługi SQL Database: tworzenie kont użytkowników bazy danych SQL służących do uzyskiwania dostępu do bazy danych i zarządzania nią
 
-Z tego samouczka nauczysz się, jak używać portalu Azure do wykonywania następujących czynności:
 
-- Logowanie do usługi SQL Database za pomocą loginu podmiotu zabezpieczeń na poziomie serwera
-- Tworzenie konta użytkownika usługi SQL Database
-- Przyznawanie uprawnień właściciela bazy danych kontu użytkownika usługi SQL Database wewnątrz bazy danych użytkownika
-- Nawiązywanie połączenia z bazą danych SQL przy użyciu konta użytkownika, które nie jest podmiotem zabezpieczeń na poziomie serwera 
+> [AZURE.SELECTOR]
+- [Wprowadzenie](sql-database-get-started-security.md)
+- [Udzielanie dostępu](sql-database-manage-logins.md)
+
+Z tego samouczka dowiesz się, jak przy użyciu programu SQL Server Management Studio (SSMS) wykonać następujące czynności:
+
+- Logowanie się do usługi SQL Database za pomocą identyfikatora logowania podmiotu zabezpieczeń na poziomie serwera.
+- Tworzenie konta użytkownika usługi SQL Database.
+- Przyznawanie [uprawnień db_owner](https://msdn.microsoft.com/library/ms189121.aspx#Anchor_0) użytkownikowi usługi SQL Database.
+- Nawiązywanie połączenia z bazą danych SQL przy użyciu konta użytkownika, które nie jest podmiotem zabezpieczeń na poziomie serwera.
 
 [AZURE.INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
 
@@ -49,6 +54,6 @@ Po ukończeniu tego samouczka usługi SQL Database, utworzeniu konta użytkownik
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

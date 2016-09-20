@@ -1,30 +1,30 @@
 <properties
     pageTitle="Lista dostępnych łączników i aplikacji API Apps | Usługa Microsoft Azure App Service"
     description="Dowiedz się więcej na temat łączników i aplikacji API Apps w usłudze Azure App Service"
-    services="app-service\logic"
+    services="logic-apps"
     documentationCenter=""
     authors="MandiOhlinger"
     manager="erikre"
     editor="cgronlun"/>
 
 <tags
-    ms.service="app-service-logic"
+    ms.service="logic-apps"
     ms.workload="integration"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/11/2016"
+    ms.date="07/28/2016"
     ms.author="mandia"/>
 
 
 # Lista łączników i aplikacji API Apps do użycia w aplikacjach Logic Apps
->[AZURE.NOTE] Ta wersja artykułu ma zastosowanie do aplikacji logiki w wersji schematu 2014-12-01-preview. Aby uzyskać informacje dotyczące wersji schematu 2015-08-01-preview, kliknij link [Nowa lista łączników](../connectors/apis-list.md).
+>[AZURE.NOTE] Ta wersja artykułu ma zastosowanie do aplikacji logiki w wersji schematu 2014-12-01-preview. Informacje o ogólnie dostępnej wersji usługi Logic Apps zawiera [Nowa lista łączników](../connectors/apis-list.md).
 
 Dowiedz się więcej na temat wszystkich dostępnych łączników i aplikacji API Apps utworzonych przez firmę Microsoft do użycia w usłudze Logic Apps.
 
 Informacje o cenach oraz listę opcji dostępnych w poszczególnych warstwach usług można znaleźć w temacie [Azure App Service — ceny](https://azure.microsoft.com/pricing/details/app-service/).
 
-> [AZURE.NOTE] Jeśli chcesz zacząć korzystać z usługi Azure Logic Apps przed założeniem konta platformy Azure, przejdź do strony umożliwiającej [wypróbowanie aplikacji logiki](https://tryappservice.azure.com/?appservice=logic). Możesz od razu utworzyć krótkotrwałą wersję początkową aplikacji logiki w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
+> [AZURE.NOTE] Aby zacząć korzystać z usługi Logic Apps przed założeniem konta platformy Azure, przejdź do strony umożliwiającej [wypróbowanie aplikacji logiki](https://tryappservice.azure.com/?appservice=logic). Możesz od razu utworzyć krótkotrwałą wersję początkową aplikacji logiki w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
 
 ## Łączniki podstawowe
 W poniższej tabeli wymieniono wszystkie dostępne łączniki i aplikacje API Apps utworzone przez firmę Microsoft, które są dostępne jako łączniki podstawowe:
@@ -32,7 +32,7 @@ W poniższej tabeli wymieniono wszystkie dostępne łączniki i aplikacje API Ap
 Nazwa | Opis
 --- | ---
 [Azure Service Bus](app-service-logic-connector-azureservicebus.md) | Umożliwia wysyłanie wiadomości z tematów i kolejek usługi Service Bus oraz odbieranie wiadomości z subskrypcji i kolejek usługi Service Bus.
-[Translator Bing](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Umożliwia tłumaczenie tekstu na inny język przy użyciu usługi Bing.
+[Translator Bing](https://azure.microsoft.com/marketplace/partners/bing/microsofttranslator/) | Umożliwia tłumaczenie tekstu na inny język przy użyciu usługi Bing.
 [HTTP](app-service-logic-connector-http.md) | Odbiornik HTTP otwiera punkt końcowy, który działa jako serwer HTTP, i nasłuchuje przychodzących żądań HTTP lub HTTPS. Akcja HTTP nie wymaga Aplikacji interfejsu API i jest obsługiwana w sposób natywny w usłudze Logic Apps.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | Łącznik usługi Office 365 umożliwia wysyłanie i odbieranie wiadomości e-mail oraz zarządzanie kalendarzem i kontaktami przy użyciu konta usługi Office 365.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | Program Intuit QuickBooks umożliwia wykonywanie różnych zadań, w tym tworzenie, aktualizowanie i wykonywanie zapytań dotyczących różnych obiektów, takich jak klienci, pozycje, faktury itd.
@@ -86,6 +86,6 @@ Kilka łączników udostępnia wyzwalacze dla usługi Logic Apps. Istnieją dwa 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

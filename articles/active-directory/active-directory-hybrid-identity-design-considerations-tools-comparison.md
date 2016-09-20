@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/12/2016"
+    ms.date="08/08/2016"
     ms.author="billmath"/>
 
 # Tożsamość hybrydowa: porównanie narzędzi do integracji katalogów
@@ -24,7 +24,7 @@ Narzędzia do integracji katalogów były rozbudowywane i rozwijane przez wiele 
 
 >[AZURE.NOTE] Program Azure AD Connect obejmuje składniki i funkcje wcześniej wydane jako narzędzia Dirsync i AAD Sync. Te narzędzia nie są już udostępniane oddzielnie, a wszystkie przyszłe ulepszenia będą dołączane do aktualizacji programu Azure AD Connect, dzięki czemu zawsze będzie wiadomo, gdzie można uzyskać najnowsze funkcje.
 >
->Narzędzia DirSync i Azure AD Sync są przestarzałe. Więcej informacji można znaleźć w artykule [Upgrade Windows Azure Active Directory Sync (“DirSync”) and Azure Active Directory Sync (“Azure AD Sync”)](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM) (Uaktualnianie narzędzia do synchronizacji usługi Microsoft Azure Active Directory „DirSync” i narzędzia do synchronizacji usługi Azure Active Directory „Azure AD Sync”).
+>Narzędzia DirSync i Azure AD Sync są przestarzałe. Więcej informacji można znaleźć [tutaj](active-directory-aadconnect-dirsync-deprecated.md).
 
 
 Poniższy klucz ma zastosowanie do wszystkich tabel.
@@ -98,6 +98,6 @@ Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Az
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

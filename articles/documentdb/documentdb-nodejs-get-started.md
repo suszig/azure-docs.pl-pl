@@ -1,7 +1,7 @@
 <properties
   pageTitle="Samouczek NoSQL środowiska Node.js dla usługi DocumentDB | Microsoft Azure"
   description="Samouczek NoSQL środowiska Node.js, który pokazuje tworzenie bazy danych Node i aplikacji konsolowej przy użyciu zestawu SDK dla środowiska Node.js usługi DocumentDB. Usługa DocumentDB jest bazą danych NoSQL dla formatu JSON."
-    keywords="node.js tutorial, node database"
+    keywords="samouczek node.js, baza danych node"
   services="documentdb"
   documentationCenter="node.js"
   authors="AndrewHoh"
@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="node"
   ms.topic="hero-article"
-  ms.date="04/26/2016"
+  ms.date="08/11/2016"
   ms.author="anhoh"/>
 
 # Samouczek NoSQL środowiska Node.js: aplikacja konsolowa Node.js usługi DocumentDB  
@@ -23,7 +23,7 @@
 - [.NET](documentdb-get-started.md)
 - [Node.js](documentdb-nodejs-get-started.md)
 
-Witamy w samouczku środowiska Node.js dla zestawu SDK dla środowiska Node.js usługi DocumentDB! W ramach tego samouczka zostanie utworzona aplikacja konsolowa, która tworzy zasoby usługi DocumentDB, w tym bazę danych Node i wykonuje względem nich zapytania.
+Witamy w samouczku środowiska Node.js dla zestawu SDK środowiska Node.js usługi Azure DocumentDB! W ramach tego samouczka zostanie utworzona aplikacja konsolowa, która tworzy zasoby usługi DocumentDB, w tym bazę danych Node i wykonuje względem nich zapytania.
 
 Omówione zostaną następujące czynności:
 
@@ -56,7 +56,7 @@ Utwórz konto usługi DocumentDB. Jeśli masz już konto, którego chcesz użyć
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupNode"></a> Krok 2. Instalowanie aplikacji Node.js
+## <a id="SetupNode"></a>Krok 2. Instalowanie aplikacji Node.js
 
 1. Otwórz swój ulubiony terminal.
 2. Zlokalizuj folder lub katalog, w którym chcesz zapisać aplikację Node.js.
@@ -72,7 +72,7 @@ Utwórz konto usługi DocumentDB. Jeśli masz już konto, którego chcesz użyć
 
 Wspaniale! Teraz, po zakończeniu instalacji, zacznijmy pisanie kodu.
 
-##<a id="Config"></a> Krok 3. Ustawianie konfiguracji aplikacji
+## <a id="Config"></a>Krok 3. Ustawianie konfiguracji aplikacji
 
 Otwórz plik ```config.js``` w ulubionym edytorze tekstu.
 
@@ -598,7 +598,7 @@ Powinny zostać wyświetlone dane wyjściowe aplikacji rozpoczynania pracy. Dane
 
 Gratulacje! Udało Ci się ukończyć samouczek środowiska Node.js i utworzyć swoją pierwszą aplikację konsolową usługi DocumentDB!
 
-##<a id="GetSolution"></a> Pobieranie kompletnego rozwiązania samouczka środowiska Node.js
+## <a id="GetSolution"></a>Pobieranie kompletnego rozwiązania samouczka środowiska Node.js
 Do utworzenia rozwiązania GetStarted, które zawiera wszystkie przykłady w tym artykule, będą potrzebne następujące elementy:
 
 -   [Konto usługi DocumentDB][documentdb-create-account].
@@ -623,6 +623,6 @@ Następnie w pliku ```config.js``` zaktualizuj wartości config.endpoint i confi
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Samouczek: tworzenie skryptów U-SQL przy użyciu narzędzi Data Lake Tools dla Visual Studio
@@ -139,7 +139,7 @@ Zadania usługi Data Lake Analytics są napisane w języku U-SQL. Aby dowiedzie�
 
     - **Automatyczne formatowanie**
 
-        Użytkownicy mogą zmieniać wcięcie skryptu zakresu na podstawie struktury kodu w obszarze Edit (Edycja) -> Advanced (Zaawansowane):
+        Użytkownicy mogą zmieniać wcięcie skryptu U-SQL na podstawie struktury kodu w obszarze Edit (Edycja) -> Advanced (Zaawansowane):
 
         - Format Document (Formatuj dokument) (Ctrl+E, D): formatowanie całego dokumentu   
         - Format Selection (Formatuj zaznaczenie) (Ctrl + K, Ctrl + F): formatowanie zaznaczenia. Jeśli nie zaznaczono tekstu, ten skrót formatuje wiersz, w którym znajduje się kursor.  
@@ -176,7 +176,7 @@ Zadania usługi Data Lake Analytics są napisane w języku U-SQL. Aby dowiedzie�
     * Job Summary (Podsumowanie zadania). Informacje podsumowujące bieżące zadanie, np.: stan, postęp, czas wykonywania, nazwa środowiska uruchomieniowego, osoba przesyłająca itp.   
     * Job Details (Szczegóły zadania). Szczegółowe informacje dotyczące danego zadania, m.in. skryptu, zasobów, widoku wykonania wierzchołka.
     * Job Graph (Wykres zadania). Cztery wykresy umożliwiające wizualizację informacji o zadaniu, takich jak: postęp, odczyt danych, zapis danych, czas wykonywania, średni czas wykonywania na węzeł, przepływność wejściowa, przepływność wyjściowa.
-    * MetaData Operations (Operacje na metadanych). Przedstawienie wszystkich operacji na metadanych.
+    * Metadata Operations (Operacje na metadanych). Przedstawienie wszystkich operacji na metadanych.
     * State History (Historia stanu).
     * Diagnostics (Diagnostyka). Narzędzia Data Lake Tools dla programu Visual Studio automatycznie przeprowadzają diagnozę wykonywania zadań. W przypadku wystąpienia błędów lub problemów z wydajnością w zadaniach zostaną wysłane alerty. Aby uzyskać więcej informacji, zobacz część Diagnostyka zadań (link do ustalenia).
 
@@ -236,7 +236,7 @@ Dostępny poniżej film wideo przedstawia funkcję lokalnego uruchamiania skrypt
 
     - W danych wejściowych skryptu (EXTRACT * FROM “/path/abc”) — wyszukiwane będą zarówno ścieżka folderu DataRoot, jak i ścieżka skryptu.
     - W danych wyjściowych skryptu (OUTPUT TO “path/abc”) — ścieżka folderu DataRoot zostanie użyta jako folder wyjściowy.
-    - Podczas rejestracji zestawu (CRREATE ASSEMBLY xyz FROM “/path/abc”) — wyszukiwana będzie ścieżka skryptu, ale nie ścieżka folderu DataRoot.
+    - Podczas rejestracji zestawu (CREATE ASSEMBLY xyz FROM “/path/abc”) — wyszukiwana będzie ścieżka skryptu, ale nie ścieżka folderu DataRoot.
     - W zarejestrowanej funkcji TVF/widoku lub w innych obiektach metadanych — będzie wyszukiwana ścieżka folderu DataRoot, ale nie ścieżka skryptu.
 
     W przypadku skryptów uruchamianych w usłudze Data Lake domyślne konto magazynu będzie używane jako folder główny i będzie odpowiednio przeszukiwane.
@@ -364,6 +364,6 @@ Poniższy skrypt programu PowerShell przygotowuje konto usługi Azure Data Lake 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

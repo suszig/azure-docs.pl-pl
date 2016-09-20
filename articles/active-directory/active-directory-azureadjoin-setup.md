@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="femila"
-    manager="stevenpo"
+    manager="swadhwa"
     editor=""
     tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/26/2016"
+    ms.date="06/23/2016"
     ms.author="femila"/>
 
 # Konfigurowanie funkcji Azure AD Join w organizacji
@@ -27,14 +27,14 @@ Aby uzyskać szczegółowe instrukcje dotyczące synchronizacji lokalnych użytk
 Aby ręcznie tworzyć użytkowników w usłudze Azure AD i zarządzać nimi, zobacz [Zarządzanie użytkownikami w usłudze Azure AD](https://msdn.microsoft.com/library/azure/hh967609.aspx).
 
 ## Konfigurowanie rejestracji urządzeń
-1. Zaloguj się do Portalu Azure jako administrator.
+1. Zaloguj się w witrynie Azure Portal jako administrator.
 2. W lewym okienku wybierz pozycję **Active Directory**.
 3. Na karcie **Katalog** wybierz swój katalog.
 4. Wybierz kartę **Konfigurowanie**.
 5. Przejdź do sekcji **Urządzenia**.
 6. Na karcie **Urządzenia** ustaw wartości poniższych elementów:  
    * **MAKSYMALNA LICZBA URZĄDZEŃ PRZYPADAJĄCYCH NA JEDNEGO UŻYTKOWNIKA**: wybierz maksymalną liczbę urządzeń, jaką użytkownik może mieć w usłudze Azure AD.  Jeśli użytkownik osiągnie ten limit przydziału, nie będzie mógł dodać dodatkowych urządzeń dopóki co najmniej jedno z istniejących urządzeń nie zostanie usunięte.
-   * **WYMAGAJ UWIERZYTELNIANIA WIELOSKŁADNIKOWEGO PODCZAS PRZYŁĄCZANIA URZĄDZEŃ**: ustal, czy użytkownicy muszą zapewnić drugi składnik uwierzytelniania w celu przyłączenia urządzenia do usługi Azure AD. Aby uzyskać więcej informacji o usłudze Azure Multi-Factor Authentication, zobacz [Wprowadzenie do usługi Azure Multi-Factor Authentication w chmurze](multi-factor-authentication-get-started-cloud/).
+   * **WYMAGAJ UWIERZYTELNIANIA WIELOSKŁADNIKOWEGO PODCZAS PRZYŁĄCZANIA URZĄDZEŃ**: ustal, czy użytkownicy muszą zapewnić drugi składnik uwierzytelniania w celu przyłączenia urządzenia do usługi Azure AD. Aby uzyskać więcej informacji o usłudze Azure Multi-Factor Authentication, zobacz [Wprowadzenie do usługi Azure Multi-Factor Authentication w chmurze](..\multi-factor-authentication\multi-factor-authentication-get-started-cloud.md).
    * **UŻYTKOWNICY MOGĄ PRZYŁĄCZAĆ URZĄDZENIA DO USŁUGI AZURE AD**: wybierz użytkowników i grupy, które mogą przyłączać urządzenia do usługi Azure AD.
    * **DODATKOWI ADMINISTRATORZY URZĄDZEŃ PRZYŁĄCZONYCH DO USŁUGI AZURE AD**: korzystając z usługi Azure AD Premium lub pakietu Enterprise Mobility Suite (EMS), możesz wybrać, którzy użytkownicy mają przyznane uprawnienia administratora lokalnego do urządzenia. Administratorom globalnym i właścicielom urządzeń uprawnienia administratora lokalnego są przyznawane domyślnie.
 
@@ -57,6 +57,6 @@ Poniżej przedstawiono trzy możliwe scenariusze postępowania w celu umożliwie
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

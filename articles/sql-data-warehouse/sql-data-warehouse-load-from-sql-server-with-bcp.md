@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
@@ -184,26 +184,26 @@ Możesz użyć funkcji **queryout** programu bcp do wyeksportowania wyników zap
 ## Następne kroki
 Ogólny opis ładowania można znaleźć w artykule [Ładowanie danych do usługi SQL Data Warehouse][].
 Więcej porad programistycznych znajdziesz w artykule [Omówienie programowania w usłudze SQL Data Warehouse][].
-Zobacz informacje o [projektowaniu tabel][] lub [składni polecenia CREATE TABLE][], aby uzyskać więcej informacji dotyczących tworzenia tabel w usłudze SQL Data Warehouse.
+Zobacz artykuł [Omówienie tabel][] lub [składni polecenia CREATE TABLE][], aby uzyskać więcej informacji dotyczących tworzenia tabel w usłudze SQL Data Warehouse.
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Ładowanie danych do usługi SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[Omówienie programowania w usłudze SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
-[projektowaniu tabel]: sql-data-warehouse-develop-table-design.md
-[Statystyki]: sql-data-warehouse-develop-statistics.md
+[Ładowanie danych do usługi SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[Omówienie programowania w usłudze SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
+[Omówienie tabel]: ./sql-data-warehouse-tables-overview.md
+[Statystyki]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[Składnia polecenia CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+[składni polecenia CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
 [Centrum pobierania Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

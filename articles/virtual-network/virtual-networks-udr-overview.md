@@ -3,7 +3,7 @@
    description="Dowiedz się, w jaki sposób można korzystać z tras zdefiniowanych przez użytkownika i przesyłania dalej IP, aby przekazywać ruch w sieci do wirtualnych urządzeń sieciowych na platformie Azure."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Co to są trasy zdefiniowane przez użytkownika i przesyłanie dalej IP?
 Po dodaniu maszyny wirtualnej do sieci wirtualnej na platformie Azure można zauważyć, że maszyny wirtualne mogą automatycznie komunikować się ze sobą za pośrednictwem sieci. Nie ma potrzeby określania bramy, nawet gdy maszyny wirtualne znajdują się w różnych podsieciach. Dotyczy to także komunikacji z maszyn wirtualnych do publicznej sieci Internet, a nawet do sieci lokalnej, gdy obecne jest połączenie hybrydowe z platformy Azure do własnego centrum danych.
@@ -43,9 +43,16 @@ Pakiety są przesyłane za pośrednictwem sieci TCP/IP w oparciu o tabelę tras 
 
 |Właściwość|Opis|Ograniczenia|Zagadnienia do rozważenia|
 |---|---|---|---|
-| Przedrostek adresu | Docelowy adres CIDR, do którego zostanie zastosowana trasa, na przykład 10.1.0.0/16.|Musi to być prawidłowy zakres adresów CIDR reprezentujący adresy w publicznej sieci Internet, sieci wirtualnej platformy Azure lub lokalnym centrum danych.|Upewnij się, że **przedrostek adresu** nie zawiera adresu **wartości następnego skoku**, ponieważ w przeciwnym razie pakiety wpadną w pętlę, przechodząc od źródła do adresu następnego skoku i nigdy nie docierając do miejsca docelowego. |
-| Typ następnego skoku | Typ skoku platformy Azure, dokąd pakiet powinien zostać przesłany. | Musi mieć jedną z następujących wartości: <br/> **Lokalny**. Reprezentuje lokalną sieć wirtualną. Na przykład jeśli dwie podsieci 10.1.0.0/16 i 10.2.0.0/16 znajdują się w tej samej sieci wirtualnej, trasa dla każdej podsieci w tabeli tras będzie miała wartość następnego skoku *Lokalny*. <br/> **VPN Gateway**. Reprezentuje usługę Azure S2S VPN Gateway. <br/> **Internet**. Reprezentuje domyślną bramę sieci Internet dostarczoną przez infrastrukturę platformy Azure. <br/> **Urządzenie wirtualne**. Reprezentuje urządzenie wirtualne dodane do Twojej sieci wirtualnej platformy Azure. <br/> **NULL**. Reprezentuje czarną dziurę. Pakiety przekazywane do czarnej dziury nie zostaną w ogóle przekazane.| Należy rozważyć użycie typu **NULL**, aby zatrzymać pakiety w drodze do zadanego miejsca docelowego. | 
-| Wartość następnego skoku | Wartość następnego skoku zawiera adres IP, do którego powinien zostać przekazany pakiet. Wartości następnego skoku są dozwolone tylko w przypadku tras, dla których typem następnego skoku jest *Urządzenie wirtualne*.| Muszą być dostępnymi adresami IP. | Jeśli adres IP reprezentuje maszynę wirtualną, upewnij się, że funkcja [Przesyłanie dalej IP](#IP-forwarding) platformy Azure dla maszyny wirtualnej jest włączona. |
+| Przedrostek adresu | Docelowy adres CIDR, do którego zostanie zastosowana trasa, na przykład 10.1.0.0/16.|Musi to być prawidłowy zakres adresów CIDR reprezentujący adresy w publicznej sieci Internet, sieci wirtualnej platformy Azure lub lokalnym centrum danych.|Upewnij się, że **przedrostek adresu** nie zawiera **adresu następnego skoku**, ponieważ w przeciwnym razie pakiety wpadną w pętlę, przechodząc od źródła do adresu następnego skoku i nigdy nie docierając do miejsca docelowego. |
+| Typ następnego skoku | Typ skoku platformy Azure, dokąd pakiet powinien zostać przesłany. | Musi mieć jedną z następujących wartości: <br/> **Sieć wirtualna** Reprezentuje lokalną sieć wirtualną. Na przykład jeśli dwie podsieci 10.1.0.0/16 i 10.2.0.0/16 znajdują się w tej samej sieci wirtualnej, trasa dla każdej podsieci w tabeli tras będzie miała wartość następnego skoku *Sieć wirtualna*. <br/> **Brama sieci wirtualnej** Reprezentuje usługę Azure S2S VPN Gateway. <br/> **Internet**. Reprezentuje domyślną bramę sieci Internet dostarczoną przez infrastrukturę platformy Azure. <br/> **Urządzenie wirtualne**. Reprezentuje urządzenie wirtualne dodane do Twojej sieci wirtualnej platformy Azure. <br/> **Brak**. Reprezentuje czarną dziurę. Pakiety przekazywane do czarnej dziury nie zostaną w ogóle przekazane.| Należy rozważyć użycie typu **Brak**, aby zatrzymać pakiety w drodze do zadanego miejsca docelowego. | 
+| Adres następnego skoku | Adres następnego skoku zawiera adres IP, do którego powinien zostać przekazany pakiet. Wartości następnego skoku są dozwolone tylko w przypadku tras, dla których typem następnego skoku jest *Urządzenie wirtualne*.| Muszą być dostępnymi adresami IP. | Jeśli adres IP reprezentuje maszynę wirtualną, upewnij się, że funkcja [Przesyłanie dalej IP](#IP-forwarding) platformy Azure dla maszyny wirtualnej jest włączona. |
+
+W programie Azure PowerShell niektóre wartości „NextHopType” mają inne nazwy:
+- Sieć wirtualna to VnetLocal,
+- Brama sieci wirtualnej to VirtualNetworkGateway,
+- Urządzenie wirtualne to VirtualAppliance,
+- Internet to Internet
+- Brak to None.
 
 ### Trasy systemowe
 Każda podsieć utworzona w sieci wirtualnej jest automatycznie skojarzona z tabelą tras, która zawiera następujące reguły dotyczące tras systemowych:
@@ -68,9 +75,9 @@ Jeśli z podsiecią nie jest skojarzona tabela tras, korzysta ona z tras systemo
 1. Trasa protokołu BGP (jeśli używane są połączenia ExpressRoute)
 1. Trasa systemowa
 
-Informacje na temat tworzenia tras definiowanych przez użytkownika można znaleźć w artykule [Sposób tworzenia tras i włączanie funkcji przesyłania dalej IP na platformie Azure](virtual-networks-udr-how-to.md#How-to-manage-routes).
+Informacje na temat tworzenia tras definiowanych przez użytkownika można znaleźć w artykule [Sposób tworzenia tras i włączanie funkcji przesyłania dalej IP na platformie Azure](virtual-network-create-udr-arm-template.md).
 
->[AZURE.IMPORTANT] Trasy zdefiniowane przez użytkownika są stosowane tylko w odniesieniu do maszyn wirtualnych i usług w chmurze. Na przykład jeśli pomiędzy siecią lokalną a platformą Azure ma zostać wstawione urządzenie wirtualne zapory, konieczne jest utworzenie trasy zdefiniowanej przez użytkownika dla tabel tras platformy Azure, która spowoduje przekazanie całego ruchu kierowanego do lokalnej przestrzeni adresowej do urządzenia wirtualnego. Jednak ruch przychodzący z lokalnej przestrzeni adresowej będzie przechodził przez bramę sieci VPN lub obwód ExpressRoute bezpośrednio do środowiska platformy Azure z pominięciem urządzenia wirtualnego.
+>[AZURE.IMPORTANT] Trasy zdefiniowane przez użytkownika są stosowane tylko w odniesieniu do maszyn wirtualnych i usług w chmurze. Na przykład jeśli pomiędzy siecią lokalną a platformą Azure ma zostać wstawione urządzenie wirtualne zapory, konieczne jest utworzenie trasy zdefiniowanej przez użytkownika dla tabel tras platformy Azure, która spowoduje przekazanie całego ruchu kierowanego do lokalnej przestrzeni adresowej do urządzenia wirtualnego. Można również dodać trasę zdefiniowaną przez użytkownika do podsieci GatewaySubnet, aby przekazywać cały ruch z sieci lokalnej do platformy Azure za pośrednictwem urządzenia wirtualnego. Ta możliwość została ostatnio dodana.
 
 ### Trasy protokołu BGP
 Jeśli między siecią lokalną a platformą Azure istniej połączenie ExpressRoute, można włączyć protokół BGP w celu propagowania tras z sieci lokalnej do platformy Azure. Te trasy protokołu BGP są używane w taki sam sposób, jak trasy systemowe i trasy definiowane przez użytkownika w każdej podsieci platformy Azure. Więcej informacji można znaleźć w artykule [ExpressRoute — wprowadzenie](../expressroute/expressroute-introduction.md).
@@ -89,6 +96,6 @@ Ta maszyna wirtualna musi mieć zdolność odbierania ruchu przychodzącego, kt�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

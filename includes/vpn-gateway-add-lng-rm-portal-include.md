@@ -1,29 +1,23 @@
-1. W portalu Azure przejdź do opcji **Nowy** **>** **Sieci** **>** **Brama sieci lokalnej**.
+1. W portalu przejdź kolejno do poleceń **Nowy** > **Sieci** > **Brama sieci lokalnej**.
 
     ![utwórz bramę sieci lokalnej](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
 
 2. W **bloku Utwórz bramę sieci lokalnej** określ **nazwę** obiektu bramy sieci lokalnej.
  
-3. Określ **adres IP** bramy. Jest to adres IP zewnętrznego urządzenia sieci VPN, z którym chcesz nawiązać połączenie. Nie może ono znajdować się za translatorem adresów sieciowych i musi być dostępne za pomocą usługi Azure.
+3. Określ prawidłowy publiczny **adres IP** dla urządzenia sieci VPN lub bramy sieci wirtualnej, z którą chcesz się połączyć.<br>Jeśli sieć lokalna reprezentuje lokalizację lokalną, oznacza to, że masz do czynienia z publicznym adresem IP urządzenia sieci VPN, z którym chcesz nawiązać połączenie. Nie może ono znajdować się za translatorem adresów sieciowych i musi być dostępne za pomocą usługi Azure.<br>Jeśli sieć lokalna reprezentuje inną sieć wirtualną, należy wskazać publiczny adres IP, który został przypisany do bramy sieci wirtualnej dla tej sieci wirtualnej.<br>
 
-4. **Przestrzeń adresów** odnosi się do zakresów adresów w sieci lokalnej (zwykle w siedzibie firmy). Można dodać wiele zakresów przestrzeni adresów. Wprowadzone zakresy nie mogą się nakładać na żaden z zakresów przestrzeni adresów używanych w jakichkolwiek sieciach wirtualnych, które będą komunikować się za pośrednictwem bramy.  Zakresy należy skoordynować z lokalną konfiguracją, a także przestrzeniami adresów sieci wirtualnej platformy Azure.
+4. **Przestrzeń adresowa** odwołuje się do zakresów adresów sieci, które reprezentuje sieć lokalna. Można dodać wiele zakresów przestrzeni adresów. Upewnij się, że określone w tym miejscu zakresy nie pokrywają się z zakresami innych sieci, z którymi chcesz się łączyć.
  
 5. W polu **Subskrypcja** sprawdź, czy wyświetlana jest prawidłowa subskrypcja.
 
-6. W polu **Grupa zasobów** wybierz grupę zasobów, która ma być używana. Możesz utworzyć nową grupę zasobów lub wybrać już utworzoną. Aby utworzyć nową grupę zasobów, wpisz nazwę w polu. Aby wybrać grupę zasobów, która została już utworzona, kliknij przycisk **Grupa zasobów**, aby otworzyć blok **Grupa zasobów**, a następnie wybierz grupę zasobów, która ma być używana.
+6. W polu **Grupa zasobów** wybierz grupę zasobów, która ma być używana. Możesz utworzyć nową grupę zasobów lub wybrać już utworzoną.
 
-7. Jeśli tworzysz nową bramę sieci lokalnej, w polu **Lokalizacja** możesz użyć lokalizacji bramy sieci wirtualnej. Nie jest to jednak wymagane. Brama sieci lokalnej może być w innej lokalizacji. 
+7. W polu **Lokalizacja** wybierz lokalizację, w której ten obiekt zostanie utworzony. Można wybrać tę samą lokalizację, w której znajduje się sieć wirtualna, ale nie jest to konieczne.
 
-8. Pozostaw zaznaczoną opcję „Przypnij do pulpitu nawigacyjnego”, jeśli chcesz w prosty sposób znajdować tę bramę sieci lokalnej z poziomu pulpitu nawigacyjnego.
-
-9. Kliknij przycisk **Utwórz**, aby utworzyć bramę sieci lokalnej. Na pulpicie nawigacyjnym zostanie wyświetlony komunikat „Wdrażanie bramy sieci lokalnej”.
-
-10. Po utworzeniu bramy sieci lokalnej będzie ona widoczna w portalu.
-
-    
+8. Kliknij przycisk **Utwórz**, aby utworzyć bramę sieci lokalnej.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

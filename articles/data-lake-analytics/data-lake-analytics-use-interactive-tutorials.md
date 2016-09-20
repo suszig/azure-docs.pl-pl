@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Poznawanie usługi Data Lake Analytics i języka U-SQL przy użyciu interaktywnych samouczków Portalu Azure | Azure" 
+   pageTitle="Poznawanie usługi Data Lake Analytics i języka U-SQL przy użyciu interaktywnych samouczków witrynie Azure Portal | Azure" 
    description="Szybki start — poznawanie usługi Data Lake Analytics i języka U-SQL. " 
    services="data-lake-analytics" 
    documentationCenter="" 
@@ -13,13 +13,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/11/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 
 # Korzystanie z interaktywnych samouczków usługi Azure Data Lake Analytics
 
-Portal Azure oferuje interaktywny samouczek ułatwiający rozpoczęcie pracy z usługą Data Lake Analytics. W tym artykule przedstawiono sposób wykonywania kroków samouczka w celu analizowania dzienników witryn sieci Web.
+Witryna Azure Portal oferuje interaktywny samouczek ułatwiający rozpoczęcie pracy z usługą Data Lake Analytics. W tym artykule przedstawiono sposób wykonywania kroków samouczka w celu analizowania dzienników witryn sieci Web.
 
 
 >[AZURE.NOTE] Jeśli chcesz wykonać kroki tego samouczka przy użyciu programu Visual Studio, zobacz temat [Analizowanie dzienników witryn sieci Web przy użyciu usługi Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
@@ -28,7 +28,7 @@ Portal Azure oferuje interaktywny samouczek ułatwiający rozpoczęcie pracy z u
 
 Aby znaleźć więcej samouczków, zobacz tematy:
 
-- [Rozpoczynanie pracy z usługą Data Lake Analytics przy użyciu portalu Azure](data-lake-analytics-get-started-portal.md)
+- [Rozpoczynanie pracy z usługą Data Lake Analytics przy użyciu witryny Azure Portal](data-lake-analytics-get-started-portal.md)
 - [Rozpoczynanie pracy z usługą Data Lake Analytics przy użyciu programu Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Rozpoczynanie pracy z usługą Data Lake Analytics przy użyciu zestawu SDK programu .NET](data-lake-analytics-get-started-net-sdk.md)
 - [Tworzenie skryptów U-SQL przy użyciu narzędzi Data Lake Tools dla Visual Studio](data-lake-analytics-data-lake-tools-get-started.md) 
@@ -37,7 +37,7 @@ Aby znaleźć więcej samouczków, zobacz tematy:
 
 Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dysponować następującymi elementami:
 
-- **Konto usługi Data Lake Analytics**.  Zobacz temat [Rozpoczynanie pracy z usługą Azure Data Lake Analytics przy użyciu portalu Azure](data-lake-analytics-get-started-portal.md).
+- **Konto usługi Data Lake Analytics**.  Zobacz temat [Rozpoczynanie pracy z usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal](data-lake-analytics-get-started-portal.md).
 
 ##Tworzenie konta usługi Data Lake Analytics 
 
@@ -47,7 +47,7 @@ Każde konto usługi Data Lake Analytics jest w relacji zależności z kontem us
 
 **Aby utworzyć konto usługi Data Lake Analytics**
 
-1. Zaloguj się w [Portalu Azure](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
 2. Kliknij pozycję **Microsoft Azure** w lewym górnym rogu, aby otworzyć tablicę startową.
 3. Kliknij kafelek **Marketplace**.  
 3. Wpisz ciąg **Azure Data Lake Analytics** w polu wyszukiwania w bloku **Wszystko**, a następnie naciśnij klawisz **ENTER**. Na liście zostanie wyświetlona pozycja **Azure Data Lake Analytics**.
@@ -84,13 +84,13 @@ Każde konto usługi Data Lake Analytics jest w relacji zależności z kontem us
 ##Zobacz też
 
 - [Omówienie usługi Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-- [Rozpoczynanie pracy z usługą Data Lake Analytics przy użyciu portalu Azure](data-lake-analytics-get-started-portal.md)
+- [Rozpoczynanie pracy z usługą Data Lake Analytics przy użyciu witryny Azure Portal](data-lake-analytics-get-started-portal.md)
 - [Rozpoczynanie pracy z usługą Data Lake Analytics przy użyciu programu Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Tworzenie skryptów U-SQL przy użyciu narzędzi Data Lake Tools dla Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Analizowanie dzienników witryn sieci Web przy użyciu usługi Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

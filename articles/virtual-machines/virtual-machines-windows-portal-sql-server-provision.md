@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="vm-windows-sql-server"
     ms.workload="infrastructure-services"
-    ms.date="05/24/2016"
+    ms.date="06/21/2016"
     ms.author="jroth" />
 
 # Aprowizowanie maszyny wirtualnej programu SQL Server w Portalu Azure
@@ -35,11 +35,11 @@ W tym samouczku zostaną wykonane następujące czynności:
 
 ## Wybieranie obrazu maszyny wirtualnej SQL z galerii
 
-1. Zaloguj się w [Portalu Azure](https://portal.azure.com) przy użyciu swojego konta.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu swojego konta.
 
     >[AZURE.NOTE] Jeśli nie masz konta platformy Azure, odwiedź stronę [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-1. W Portalu Azure kliknij pozycję **Nowe**. Portal otworzy blok **Nowe**. Zasoby maszyn wirtualnych programu SQL znajdują się w grupie **Virtual Machines** witryny Marketplace.
+1. W witrynie Azure Portal kliknij pozycję **Nowe**. Portal otworzy blok **Nowe**. Zasoby maszyn wirtualnych programu SQL znajdują się w grupie **Virtual Machines** witryny Marketplace.
 
 1. W bloku **Nowe** kliknij pozycję **Virtual Machines**.
 
@@ -53,7 +53,9 @@ W tym samouczku zostaną wykonane następujące czynności:
 
 1. Każdy szablon identyfikuje wersję programu SQL Server i system operacyjny. Wybierz z listy jeden z obrazów. Następnie przejrzyj blok szczegółów zawierający opis obrazu maszyny wirtualnej.
 
-1. W obszarze **Wybierz model wdrożenia** sprawdź, czy pozycja **Resource Manager** została zaznaczona, i kliknij pozycję **Utwórz**.
+    >[AZURE.NOTE] W przypadku obrazów maszyn wirtualnych SQL koszty licencji programu SQL Server zostały uwzględnione w cenie za minutę dla tworzonej maszyny wirtualnej. Drugą opcją jest używanie własnej licencji (BYOL, bring your own license) i płatność tylko za maszynę wirtualną. Nazwy tych obrazów mają prefiks {BYOL}. Aby uzyskać więcej informacji na temat tej opcji, zobacz temat [Wprowadzenie do programu SQL Server w usłudze Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+
+1. W obszarze **Wybierz model wdrożenia** sprawdź, czy pozycja **Resource Manager** została zaznaczona. Wdrażanie przy użyciu usługi Resource Manager jest zalecanym modelem wdrożenia dla nowych maszyn wirtualnych. Kliknij przycisk **Utwórz**.
 
     ![Tworzenie maszyny wirtualnej SQL przy użyciu usługi Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
@@ -96,7 +98,7 @@ W przypadku obciążeń produkcyjnych zalecane jest wybranie rozmiaru maszyny wi
 Wybierz rozmiar maszyny wirtualnej, a następnie kliknij pozycję **Wybierz**.
 
 ## 3. Konfigurowanie funkcji opcjonalnych
-W bloku **Ustawienia** skonfiguruj magazyn Azure, sieć i monitorowanie dla maszyny wirtualnej.
+W bloku **Ustawienia** skonfiguruj usługę Azure Storage, sieć i monitorowanie dla maszyny wirtualnej.
 
 - W obszarze **Usługa Storage** określ wartość **Typ dysku** jako standardowy lub Premium (SSD). Magazyn w warstwie Premium jest zalecany w przypadku obciążeń produkcyjnych.
 
@@ -118,7 +120,7 @@ W bloku **Ustawienia programu SQL Server** skonfiguruj określone ustawienia i o
 | Ustawienie               |
 |---------------------|
 | [Łączność](#connectivity)              |
-| [Uwierzytelnianie](#authentication)                |
+| [Authentication](#authentication)                |
 | [Konfiguracja usługi Storage](#storage-configuration)            |
 | [Automatyczne stosowanie poprawek](#automated-patching) |
 | [Automatyczne usługa Backup](#automated-backup)             |
@@ -179,7 +181,7 @@ Opcja **Automatyczne stosowanie poprawek** jest domyślnie włączona. Automatyc
 Aby uzyskać więcej informacji, zobacz [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-patching.md) (Automatyczne stosowanie poprawek programu SQL Server w usłudze Azure Virtual Machines).
 
 ### Automatyczne kopie zapasowe
-Automatyczną obsługę kopii zapasowych baz danych możesz włączyć dla wszystkich baz danych w obszarze **Automatyczne kopie zapasowe**. Opcja Automatyczne kopie zapasowe jest domyślnie wyłączona.
+Automatyczną obsługę kopii zapasowych baz danych możesz włączyć dla wszystkich baz danych w obszarze **Automatyczne tworzenie kopii zapasowych**. Opcja Automatyczne kopie zapasowe jest domyślnie wyłączona.
 
 Po włączeniu automatycznej obsługi kopii zapasowych SQL możesz skonfigurować poniższe ustawienia:
 
@@ -191,10 +193,10 @@ Aby szyfrować kopie zapasowe, kliknij pozycję **Włącz**. Następnie określ 
 
 ![Automatyczna usługa Backup SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
 
- Aby uzyskać więcej informacji, zobacz [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-backup.md) (Automatyczna usługa Backup dla programu SQL Server w usłudze Azure Virtual Machines).
+ Aby uzyskać więcej informacji, zobacz [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-backup.md) (Automatyczne tworzenie kopii zapasowych dla programu SQL Server w usłudze Azure Virtual Machines).
 
 ### Integracja magazynu kluczy Azure
-Aby przechowywać klucze tajne zabezpieczeń do szyfrowania na platformie Azure, kliknij pozycję **Integracja magazynu kluczy Azure**, a następnie kliknij pozycję **Włącz**.
+Aby przechowywać klucze tajne zabezpieczeń do szyfrowania na platformie Azure, kliknij pozycję **Integracja usługi Azure Key Vault**, a następnie kliknij pozycję **Włącz**.
 
 ![Integracja magazynu kluczy Usług SQL Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-akv.png)
 
@@ -205,9 +207,9 @@ Poniższa tabela zawiera listę parametrów wymaganych do skonfigurowania integr
 |**Adres URL magazynu kluczy** |Lokalizacja magazynu kluczy.|https://contosokeyvault.vault.azure.net/ |
 |**Nazwa główna** |Nazwa główna usługi Azure Active Directory. Ta nazwa jest również nazywana identyfikatorem klienta.  |fde2b411-33d5-4e11-af04eb07b669ccf2|
 | **Główny klucz tajny**|Główny klucz tajny usługi Azure Active Directory. Ten klucz tajny jest również nazywany kluczem tajnym klienta. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
-|**Nazwa poświadczenia**|**Nazwa poświadczenia**: integracja magazynu kluczy Azure powoduje utworzenie poświadczenia w programie SQL Server, co umożliwia maszynie wirtualnej dostęp do magazynu kluczy. Wybierz nazwę tego poświadczenia.| moje_poświadczenie_1|
+|**Nazwa poświadczenia**|**Nazwa poświadczenia**: integracja usługi Azure Key Vault powoduje utworzenie poświadczenia w programie SQL Server, co umożliwia maszynie wirtualnej dostęp do magazynu kluczy. Wybierz nazwę tego poświadczenia.| moje_poświadczenie_1|
 
-Aby uzyskać więcej informacji, zobacz [Configure Azure Key Vault Integration for SQL Server on Azure VMs](virtual-machines-windows-classic-ps-sql-keyvault.md) (Konfigurowanie integracji magazynu kluczy Azure dla programu SQL Server na maszynach wirtualnych Azure).
+Aby uzyskać więcej informacji, zobacz [Configure Azure Key Vault Integration for SQL Server on Azure VMs](virtual-machines-windows-classic-ps-sql-keyvault.md) (Konfigurowanie integracji usługi Azure Key Vault dla programu SQL Server na maszynach wirtualnych Azure).
 
 Po zakończeniu konfigurowania tych ustawień programu SQL Server kliknij pozycję **OK**.
 
@@ -251,8 +253,10 @@ Aby uzyskać inne informacje na temat użycia programu SQL Server na platformie 
 
 Obejrzyj film poglądowy dotyczący programu SQL Server w usłudze Azure Virtual Machines: [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (Maszyna wirtualna Azure jest najlepszą platformą dla programu SQL Server 2016).
 
+[Zbadaj ścieżkę szkoleniową](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) dla programu SQL Server na maszynach wirtualnych Azure.
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

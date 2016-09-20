@@ -2,9 +2,9 @@
     pageTitle="Łączenie z bazą danych SQL Database z użyciem zapytania C# | Microsoft Azure"
     description="Napisz program w języku C#, aby wykonywać zapytania i nawiązać połączenie z bazą danych SQL. Informacje na temat adresów IP, parametrów połączenia, bezpiecznego logowania i bezpłatnego programu Visual Studio."
     services="sql-database"
-    keywords="c# database query, c# query, connect to database, SQL C#"
+    keywords="c# zapytanie bazy danych, zapytanie c# , nawiązywanie połączenia z bazą danych, SQL C#"
     documentationCenter=""
-    authors="MightyPen"
+    authors="stevestein"
     manager="jhubbard"
     editor=""/>
 
@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
-    ms.author="annemill"/>
+    ms.date="08/17/2016"
+    ms.author="stevestein"/>
+
 
 
 # Nawiązywanie połączenia z bazą danych SQL Database za pomocą programu Visual Studio
@@ -25,78 +26,62 @@
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-Dowiedz się, jak połączyć się z bazą danych usługi Azure SQL Database w programie Visual Studio. 
+Dowiedz się, jak nawiązać połączenie z bazą danych SQL Azure w programie Visual Studio. 
 
 ## Wymagania wstępne
 
 
-Do nawiązania połączenia z bazą danych SQL Database z użyciem programu Visual Studio potrzebne są: 
+Do nawiązania połączenia z bazą danych SQL za pomocą programu Visual Studio potrzebne są następujące elementy: 
 
 
-- Konto i subskrypcja platformy Azure. Po zarejestrowaniu się możesz skorzystać z [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).
-
-
-- Demonstracyjna baza danych **AdventureWorksLT** w usłudze Azure SQL Database.
- - [Utwórz demonstracyjną bazę danych](sql-database-get-started.md) w ciągu kilku minut.
+- Baza danych SQL, z którą chcesz nawiązać połączenie. W tym artykule użyto przykładowej bazy danych **AdventureWorks**. Aby uzyskać przykładową bazę danych AdventureWorks, zobacz [Tworzenie demonstracyjnej bazy danych](sql-database-get-started.md).
 
 
 - Visual Studio 2013, aktualizacja 4 (lub nowsza). Firma Microsoft udostępnia teraz program Visual Studio Community *bezpłatnie*.
  - [Visual Studio Community, pobierz](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [Więcej opcji bezpłatnego programu Visual Studio](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - Możesz również skorzystać z instrukcji zawartych w [kroku](#InstallVSForFree) znajdującym się w dalszej części tematu, w którym opisano sposób, w jaki [portal Azure](https://portal.azure.com/) pomaga zainstalować program Visual Studio.
 
 
-<a name="InstallVSForFree" id="InstallVSForFree"></a>
-
-&nbsp;
-
-## Krok 1: Zainstaluj bezpłatny program Visual Studio Community
 
 
-Aby w razie potrzeby zainstalować program Visual Studio, możesz:
-
-- Bezpłatnie zainstalować program Visual Studio Community, wyszukując za pomocą wyszukiwarki strony sieci Web produktów Visual Studio, na których udostępniono bezpłatne materiały do pobrania i inne opcje, lub
-- Skorzystać z [portalu Azure](https://portal.azure.com/) i przejść do strony sieci Web z materiałami do pobrania opisanymi w dalszej części tematu.
+## Otwieranie programu Visual Studio z poziomu witryny Azure Portal
 
 
-### Program Visual Studio w portalu Azure
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
+
+2. Kliknij kolejno pozycje **Więcej usług** > **Bazy danych SQL**
+3. Otwórz blok bazy danych **AdventureWorks**, znajdując i klikając bazę danych *AdventureWorks*.
+
+6. Kliknij przycisk **Narzędzia** u góry bloku bazy danych:
+
+    ![Nowe zapytanie. Łączenie z serwerem usługi SQL Database: SQL Server Management Studio](./media/sql-database-connect-query/tools.png)
+
+7. Kliknij pozycję **Otwórz w programie Visual Studio** (jeśli potrzebujesz programu Visual Studio, kliknij link pobierania):
+
+    ![Nowe zapytanie. Łączenie z serwerem usługi SQL Database: SQL Server Management Studio](./media/sql-database-connect-query/open-in-vs.png)
 
 
-1. Zaloguj się w [portalu Azure](https://portal.azure.com/), http://portal.azure.com/.
-
-2. Kliknij przycisk **PRZEGLĄDAJ* WSZYSTKIE**  >  **bazy danych SQL**. Zostanie otwarty blok wyszukiwania baz danych.
-
-3. W polu tekstowym filtru u góry rozpocznij wpisywanie nazwy użytkownika bazy danych **AdventureWorksLT**.
-
-4. Gdy zostanie wyświetlony wiersz bazy danych na serwerze, kliknij go. Zostanie otwarty blok bazy danych.
-
-5. Aby ułatwić sobie pracę, kliknij kontrolkę Minimalizuj we wszystkich pozostałych blokach.
-
-6. Kliknij przycisk **Otwórz w programie Visual Studio** znajdujący się u góry w bloku bazy danych. Zostanie otwarty nowy blok programu Visual Studio, który zawiera linki do zainstalowania lokalizacji dla programu Visual Studio.
-
-    ![Przycisk Otwórz w programie Visual Studio][20-OpenInVisualStudioButton]
-
-7. Kliknij link **Społeczność (bezpłatnie)** lub inny podobny link. Zostanie dodana nowa strona sieci Web.
-
-8. Użyj linków na nowej strony sieci Web, aby zainstalować program Visual Studio.
-
-9. Po zainstalowaniu programu Visual Studio w bloku **Otwórz w programie Visual Studio** kliknij przycisk **Otwórz w programie Visual Studio**. Zostanie otwarty program Visual Studio.
-
-10. Program Visual Studio monituje o wypełnienie pól parametrów połączenia w oknie dialogowym w celu przekazania parametrów do okienka **Eksplorator obiektów SQL Server**.
- - Wybierz **uwierzytelnianie programu SQL Server**, a nie **uwierzytelnianie systemu Windows**.
- - Pamiętaj, aby określić bazę danych **AdventureWorksLT** (**Opcje**  >  **Właściwości połączenia** w oknie dialogowym).
-
-11. W **Eksploratorze obiektów SQL Server** rozwiń węzeł bazy danych.
+8. Program Visual Studio zostanie otwarty z oknem **Łączenie z serwerem** już skonfigurowanym do połączenia z wybranymi w portalu serwerem i bazą danych.  (Kliknij pozycję **Opcje**, aby upewnić się, że jest ustawione połączenie z odpowiednią bazą danych). Wpisz hasło administratora serwera i kliknij pozycję **Połącz**.
 
 
-## Krok 2: Wykonaj przykładowe zapytania
+    ![Nowe zapytanie. Łączenie z serwerem usługi SQL Database: SQL Server Management Studio](./media/sql-database-connect-query/connect.png)
 
-Po nawiązaniu połączenia z serwerem logicznym można połączyć się z bazą danych i uruchomić przykładowe zapytanie. 
 
-1. W **Eksploratorze obiektów** przejdź do bazy danych na serwerze, do którego masz uprawnienia, takiej jak przykładowa baza danych **AdventureWorks**.
+8. Jeśli nie masz skonfigurowanej reguły zapory dla adresu IP komputera, może zostać wyświetlony komunikat *Nie można się połączyć*. Aby utworzyć regułę zapory, zobacz [Configure an Azure SQL Database server-level firewall rule using the Azure Portal](sql-database-configure-firewall-settings.md) (Konfigurowanie reguły zapory poziomu serwera usługi Azure SQL Database).
+
+
+9. Po pomyślnym nawiązaniu połączenia zostanie otwarte okno **Eksplorator obiektów SQL Server** z połączeniem z bazą danych.
+
+    ![Nowe zapytanie. Łączenie z serwerem usługi SQL Database: SQL Server Management Studio](./media/sql-database-connect-query/sql-server-object-explorer.png)
+
+
+## Uruchamianie przykładowego zapytania
+
+Teraz, gdy połączenie z bazą danych jest już nawiązane, poniższe kroki wyjaśnią, jak uruchomić przykładowe zapytanie:
+
 2. Kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz pozycję **Nowe zapytanie**.
 
-    ![Nowe zapytanie. Łączenie z serwerem usługi SQL Database: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
+    ![Nowe zapytanie. Łączenie z serwerem usługi SQL Database: SQL Server Management Studio](./media/sql-database-connect-query/new-query.png)
 
 3. W oknie zapytania skopiuj i wklej następujący kod.
 
@@ -108,22 +93,20 @@ Po nawiązaniu połączenia z serwerem logicznym można połączyć się z bazą
         ,CompanyName
         FROM SalesLT.Customer;
 
-4. Kliknij przycisk **Wykonaj**.  Poniższy zrzut ekranu przedstawia pomyślnie wykonane zapytanie.
+4. Kliknij przycisk **Wykonaj**, aby uruchomić zapytanie:
 
-    ![Powodzenie. Łączenie z serwerem usługi SQL Database: SVisual Studio](./media/sql-database-connect-query-ssms/5-success.png)
+    ![Powodzenie. Łączenie z serwerem usługi SQL Database: SVisual Studio](./media/sql-database-connect-query/run-query.png)
 
 ## Następne kroki
 
-[Connect to SQL Database by using .NET (C#) (Łączenie z bazą danych usługi SQL Database przy użyciu platformy .NET (C#))](sql-database-develop-dotnet-simple.md) 
-
-
-<!-- Image references. -->
-
-[20-OpenInVisualStudioButton]: ./media/sql-database-connect-query/connqry-free-vs-e.png
+- Podczas otwierania baz danych SQL w programie Visual Studio używane są narzędzia SQL Server Data Tools. Aby uzyskać więcej informacji, zobacz [Narzędzia SQL Server Data Tools](https://msdn.microsoft.com/library/hh272686.aspx).
+- Aby połączyć się z bazą danych SQL przy użyciu kodu, zobacz [Connect to SQL Database by using .NET (C#) ](sql-database-develop-dotnet-simple.md)(Łączenie z bazą danych usługi SQL Database przy użyciu platformy .NET [C#]).
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=sep16_HO1-->
 
 

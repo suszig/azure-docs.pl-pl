@@ -1,11 +1,11 @@
 <properties 
-    pageTitle="Stan sesji i usługa Pamięć podręczna Redis Azure w usłudze Azure App Service" 
-    description="Dowiedz się, jak używać usługi Pamięć podręczna Azure do obsługi buforowania informacji o stanie sesji programu ASP.NET." 
+    pageTitle="Stan sesji i usługa Azure Redis Cache w usłudze Azure App Service" 
+    description="Dowiedz się, jak używać usługi Azure Redis Cache do obsługi buforowania informacji o stanie sesji programu ASP.NET." 
     services="app-service\web" 
     documentationCenter=".net" 
     authors="Rick-Anderson" 
     manager="wpickett" 
-    editor="jimbe"/>
+    editor="none"/>
 
 <tags 
     ms.service="app-service-web" 
@@ -13,16 +13,16 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="dotnet" 
     ms.topic="get-started-article" 
-    ms.date="02/27/2016" 
+    ms.date="06/27/2016" 
     ms.author="riande"/>
 
 
-# Stan sesji i usługa Pamięć podręczna Redis Azure w usłudze Azure App Service
+# Stan sesji i usługa Azure Redis Cache w usłudze Azure App Service
 
 
-W tym temacie wyjaśniono, jak używać usługi Pamięć podręczna Redis Azure do buforowania informacji o stanie sesji.
+W tym temacie wyjaśniono, jak używać usługi Azure Redis Cache do buforowania informacji o stanie sesji.
 
-Jeśli aplikacja sieci Web programu ASP.NET używa informacji o stanie sesji, należy skonfigurować zewnętrznego dostawcę stanu sesji (usługę Pamięć podręczna Redis lub dostawcę stanu sesji programu SQL Server). Jeśli korzystasz z informacji o stanie sesji i nie używasz dostawcy zewnętrznego, obowiązuje ograniczenie do pojedynczego wystąpienia aplikacji sieci Web. Użycie usługi Pamięć podręczna Redis Azure jest najszybszym i najprostszym sposobem zapewnienia tej funkcji.
+Jeśli aplikacja sieci Web programu ASP.NET używa informacji o stanie sesji, należy skonfigurować zewnętrznego dostawcę stanu sesji (usługę Azure Redis Cache lub dostawcę stanu sesji programu SQL Server). Jeśli korzystasz z informacji o stanie sesji i nie używasz dostawcy zewnętrznego, obowiązuje ograniczenie do pojedynczego wystąpienia aplikacji sieci Web. Użycie usługi Azure Redis Cache jest najszybszym i najprostszym sposobem zapewnienia tej funkcji.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
@@ -43,7 +43,7 @@ Oprócz tworzenia odwołań do zestawów dla pamięci podręcznej pakiet NuGet d
 
 1. Otwórz plik *web.config* i znajdź element **sessionState**.
 
-1. Wprowadź wartości dla `host`, `accessKey`, `port` (wymagany jest port SSL 6380) i ustaw opcję `SSL` na `true`. Te wartości można uzyskać z bloku [Portalu Azure](http://go.microsoft.com/fwlink/?LinkId=529715) dotyczącego wystąpienia pamięci podręcznej. Aby uzyskać więcej informacji, zobacz sekcję [Connect to the cache](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache) (Nawiązywanie połączenia z pamięcią podręczną). Port bez protokołu SSL jest domyślnie wyłączony w przypadku nowych pamięci podręcznych. Aby uzyskać więcej informacji na temat włączania portu bez protokołu SSL, zobacz sekcję [Access Ports](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) (Porty dostępowe) w temacie [Configure a cache in Azure Redis Cache](https://msdn.microsoft.com/library/azure/dn793612.aspx) (Konfigurowanie pamięci podręcznej w usłudze Pamięć podręczna Redis Azure). Następujący kod przedstawia zmiany w pliku *web.config*, a w szczególności zmiany elementów *port*, *host*, accessKey* i *ssl*.
+1. Wprowadź wartości dla `host`, `accessKey`, `port` (wymagany jest port SSL 6380) i ustaw opcję `SSL` na `true`. Te wartości można uzyskać z bloku witryny [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) dotyczącego wystąpienia pamięci podręcznej. Aby uzyskać więcej informacji, zobacz sekcję [Connect to the cache](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache) (Nawiązywanie połączenia z pamięcią podręczną). Port bez protokołu SSL jest domyślnie wyłączony w przypadku nowych pamięci podręcznych. Aby uzyskać więcej informacji na temat włączania portu bez protokołu SSL, zobacz sekcję [Access Ports](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) (Porty dostępowe) w temacie [Configure a cache in Azure Redis Cache](https://msdn.microsoft.com/library/azure/dn793612.aspx) (Konfigurowanie pamięci podręcznej w usłudze Azure Redis Cache). Następujący kod przedstawia zmiany w pliku *web.config*, a w szczególności zmiany elementów *port*, *host*, accessKey* i *ssl*.
 
           <system.web>;
             <customErrors mode="Off" />;
@@ -86,7 +86,7 @@ Poniższy kod pobiera tę wartość z informacji o stanie sesji.
     if (objValue != null)
        strValue = (string)objValue; 
 
-Możesz również użyć usługi Pamięć podręczna Redis do buforowania obiektów w aplikacji sieci Web. Aby uzyskać więcej informacji, zobacz [MVC movie app with Azure Redis Cache in 15 minutes](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/) (Tworzenie aplikacji filmowej MVC przy użyciu usługi Pamięć podręczna Redis Azure w ciągu 15 minut).
+Możesz również użyć usługi Pamięć podręczna Redis do buforowania obiektów w aplikacji sieci Web. Aby uzyskać więcej informacji, zobacz [MVC movie app with Azure Redis Cache in 15 minutes](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/) (Tworzenie aplikacji filmowej MVC przy użyciu usługi Azure Redis Cache w ciągu 15 minut).
 Aby uzyskać więcej informacji na temat sposobu użycia informacji o stanie sesji programu ASP.NET, zobacz [ASP.NET Session State Overview][] (Omówienie informacji o stanie sesji programu ASP.NET).
 
 >[AZURE.NOTE] Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service](http://go.microsoft.com/fwlink/?LinkId=523751), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
@@ -111,6 +111,6 @@ Aby uzyskać więcej informacji na temat sposobu użycia informacji o stanie ses
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

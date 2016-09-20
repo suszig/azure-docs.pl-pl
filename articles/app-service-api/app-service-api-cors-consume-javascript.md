@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="dotnet"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/31/2016"
-    ms.author="tdykstra"/>
+    ms.date="08/27/2016"
+    ms.author="rachelap"/>
 
 # Korzystanie z aplikacji interfejsu API z poziomu języka JavaScript przy użyciu mechanizmu CORS
 
@@ -28,13 +28,13 @@ Ten artykuł zawiera dwie sekcje:
 
 ## <a id="corsconfig"></a> Konfigurowanie mechanizmu CORS w usłudze Azure App Service
 
-Mechanizm CORS można skonfigurować w portalu Azure lub za pomocą narzędzi usługi [Azure Resource Manager](../resource-group-overview.md).
+Mechanizm CORS można skonfigurować w witrynie Azure Portal lub za pomocą narzędzi usługi [Azure Resource Manager](../resource-group-overview.md).
 
 #### Konfigurowanie mechanizmu CORS w portalu Azure
 
-8. Otwórz [portal Azure](https://portal.azure.com/) w przeglądarce.
+8. Otwórz witrynę [Azure Portal](https://portal.azure.com/) w przeglądarce.
 
-2. Kliknij pozycję **Usługi App Service**, a następnie kliknij nazwę aplikacji interfejsu API.
+2. Kliknij pozycję **App Services**, a następnie kliknij nazwę aplikacji interfejsu API.
 
     ![Wybieranie aplikacji interfejsu API w portalu](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
 
@@ -80,8 +80,7 @@ W [pierwszym samouczku](app-service-api-dotnet-get-started.md) utworzono aplikac
 
         angular.module('todoApp')
         .factory('todoListSvc', ['$http', function ($http) {
-            var apiEndpoint = "http://localhost:46439";
-        
+
             $http.defaults.useXDomain = true;
             delete $http.defaults.headers.common['X-Requested-With']; 
         
@@ -124,7 +123,7 @@ Procedura obejmująca tworzenie nowej aplikacji sieci Web usługi App Service i 
 
 ### Konfigurowanie adresu URL warstwy środkowej w ustawieniach aplikacji sieci Web
 
-1. Otwórz [portal Azure](https://portal.azure.com/) i przejdź do bloku **Aplikacja sieci Web** dla aplikacji sieci Web utworzonej w celu hostowania projektu TodoListAngular (frontonu).
+1. Otwórz witrynę [Azure Portal](https://portal.azure.com/) i przejdź do bloku **Aplikacja sieci Web** dla aplikacji sieci Web utworzonej w celu hostowania projektu TodoListAngular (frontonu).
 
 2. Kliknij kolejno pozycje **Ustawienia > Ustawienia aplikacji**.
 
@@ -190,7 +189,7 @@ Ta sekcja dotyczy konfiguracji ustawienia mechanizmu CORS na platformie Azure na
 
 8. Otwórz [portal Azure](https://portal.azure.com/) w przeglądarce.
 
-2. Kliknij pozycję **Usługi App Service**, a następnie kliknij aplikację interfejsu API (warstwy środkowej) ToDoListAPI.
+2. Kliknij pozycję **App Services**, a następnie kliknij aplikację interfejsu API (warstwy środkowej) ToDoListAPI.
 
     ![Wybieranie aplikacji interfejsu API w portalu](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
 
@@ -287,6 +286,6 @@ W tym artykule pokazano, jak włączyć obsługę mechanizmu CORS usługi App Se
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

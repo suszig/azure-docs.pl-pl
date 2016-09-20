@@ -3,7 +3,7 @@
    description="Ta strona zawiera instrukcje dotyczące tworzenia, konfigurowania, uruchamiania i usuwania bramy aplikacji platformy Azure za pomocą usługi Azure Resource Manager"
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
 <tags
@@ -12,20 +12,21 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
-   ms.author="joaoma"/>
+   ms.date="08/09/2016"
+   ms.author="gwallace"/>
 
 
 # Tworzenie, uruchamianie lub usuwanie bramy aplikacji przy użyciu usługi Azure Resource Manager
 
-Azure Application Gateway to moduł równoważenia obciążenia warstwy 7. Udostępnia on żądania HTTP działające w trybie failover, których routing opiera się na wydajności, między różnymi serwerami — w chmurze i lokalnymi. Usługa Application Gateway oferuje następujące funkcje dostarczania aplikacji: równoważenie obciążenia HTTP, koligacja sesji oparta na plikach cookie oraz odciążanie protokołu SSL (Secure Sockets Layer).
+Azure Application Gateway to moduł równoważenia obciążenia warstwy 7. Udostępnia tryb failover, oparty na wydajności routing żądań HTTP między różnymi serwerami — w chmurze i lokalnymi. Usługa Application Gateway oferuje następujące funkcje dostarczania aplikacji: równoważenie obciążenia HTTP, koligację sesji opartą na plikach cookie oraz odciążanie protokołu SSL (Secure Sockets Layer).
 
 
 > [AZURE.SELECTOR]
-- [Klasyczny portal Azure — kroki programu PowerShell](application-gateway-create-gateway.md)
+- [Azure Portal](application-gateway-create-gateway-portal.md)
 - [Azure Resource Manager — program PowerShell](application-gateway-create-gateway-arm.md)
-- [Szablon usługi Azure Resource Manager ](application-gateway-create-gateway-arm-template.md)
-
+- [Klasyczny portal Azure — program PowerShell](application-gateway-create-gateway.md)
+- [Szablon usługi Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
+- [Interfejs wiersza polecenia platformy Azure](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -40,43 +41,37 @@ W tym artykule przedstawiono kroki umożliwiające tworzenie, konfigurowanie, ur
 ## Przed rozpoczęciem
 
 1. Zainstaluj najnowszą wersję poleceń cmdlet programu Azure PowerShell za pomocą Instalatora platformy sieci Web. Najnowszą wersję można pobrać i zainstalować z sekcji **Windows PowerShell** strony [Pliki do pobrania](https://azure.microsoft.com/downloads/).
-2. Utworzysz sieć wirtualną i podsieć dla usługi Application Gateway. Upewnij się, że z podsieci nie korzystają maszyny wirtualne ani wdrożenia w chmurze. Brama aplikacji musi sama znajdować się w podsieci sieci wirtualnej.
-3. Serwery, które będziesz konfigurować do używania bramy aplikacji, muszą istnieć lub mieć punkty końcowe utworzone w sieci wirtualnej lub z przypisanym adresem IP/wirtualnym adresem IP.
+2. Jeśli masz istniejącą sieć wirtualną, wybierz istniejącą pustą podsieć lub utwórz podsieć w istniejącej sieci wirtualnej wyłącznie do użytku przez tę bramę aplikacji. Nie można wdrożyć bramy aplikacji do innej sieci wirtualnej niż sieć wirtualna zasobów, które zamierzasz wdrożyć za bramą aplikacji. 
+3. Serwery konfigurowane do używania bramy aplikacji muszą być umieszczone w sieci wirtualnej lub z przypisanym adresem IP/VIP lub mieć w niej utworzone punkty końcowe.
 
 ## Co jest wymagane do utworzenia bramy aplikacji?
 
 
 - **Pula serwerów zaplecza:** lista adresów IP serwerów zaplecza. Adresy IP na liście powinny należeć do podsieci sieci wirtualnej lub być publicznymi bądź wirtualnymi adresami IP.
-- **Ustawienia puli serwerów zaplecza:** każda pula ma ustawienia, takie jak port, protokół i koligacja oparta na plikach cookie. Te ustawienia są powiązane z pulą i stosowane do wszystkich serwerów w tej puli.
-- **Port frontonu:** port publiczny otwierany w obrębie bramy aplikacji. Ruch osiąga ten port, a następnie jest kierowany do jednego z serwerów zaplecza.
+- **Ustawienia puli serwerów zaplecza:** każda pula ma ustawienia, takie jak port, protokół i koligacja oparta na plikach cookie. Te ustawienia są powiązane z pulą i są stosowane do wszystkich serwerów w tej puli.
+- **Port frontonu:** port publiczny, który jest otwierany w bramie aplikacji. Ruch trafia do tego portu, a następnie jest przekierowywany do jednego z serwerów zaplecza.
 - **Odbiornik:** odbiornik ma port frontonu, protokół (Http lub Https, z uwzględnieniem wielkości liter) oraz nazwę certyfikatu SSL (w przypadku konfigurowania odciążania protokołu SSL).
 - **Reguła:** reguła wiąże odbiornik z pulą serwerów zaplecza i umożliwia zdefiniowanie, do której puli serwerów zaplecza ma być przekierowywany ruch w przypadku trafienia do określonego odbiornika. 
 
 
 
-## Tworzenie nowej bramy aplikacji
+## Tworzenie bramy aplikacji
 
 Różnica między klasycznym modelem wdrożenia Azure i usługą Azure Resource Manager polega na kolejności tworzenia bramy aplikacji i elementów, które należy skonfigurować.
 
 W usłudze Resource Manager wszystkie elementy składające się na bramę aplikacji są konfigurowane osobno, a następnie składane w celu utworzenia zasobu bramy aplikacji.
 
 
-Oto kroki wymagane do utworzenia bramy aplikacji:
-
-1. Utworzenie grupy zasobów dla usługi Resource Manager.
-2. Utworzenie sieci wirtualnej, podsieci i publicznego adresu IP bramy aplikacji.
-3. Utworzenie obiektu konfiguracji bramy aplikacji.
-4. Utworzenie zasobu bramy aplikacji.
-
+Poniżej znajdują się kroki wymagane do utworzenia bramy aplikacji:
 
 ## Tworzenie grupy zasobów dla usługi Resource Manager
 
 Upewnij się, że używasz najnowszej wersji programu Azure PowerShell. Więcej informacji znajduje się w artykule [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md) (Używanie programu Windows PowerShell z usługą Resource Manager).
 
 ### Krok 1
-Zaloguj się do konta Azure (Login-AzureRmAccount).
+Zaloguj się do konta Azure (Login-AzureRmAccount)
 
-Zostanie wyświetlony monit o uwierzytelnienie się przy użyciu poświadczeń.<BR>
+Zostanie wyświetlony monit o uwierzytelnienie przy użyciu własnych poświadczeń.<BR>
 ### Krok 2
 Sprawdź subskrypcje dostępne na koncie.
 
@@ -92,7 +87,7 @@ Utwórz nową grupę zasobów (ten krok można pominąć, jeśli używasz istnie
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
-Usługa Azure Resource Manager wymaga, żeby wszystkie grupy zasobów miały lokalizację. Będzie ona używana jako domyślna lokalizacja zasobów w danej grupie. Upewnij się, że we wszystkich poleceniach służących do tworzenia bramy aplikacji jest używana ta sama grupa zasobów.
+Usługa Azure Resource Manager wymaga, aby wszystkie grupy zasobów określały lokalizację. Ta lokalizacja będzie używana jako domyślna lokalizacja dla zasobów w danej grupie zasobów. Upewnij się, że we wszystkich poleceniach służących do tworzenia bramy aplikacji jest używana ta sama grupa zasobów.
 
 W powyższym przykładzie utworzyliśmy grupę zasobów o nazwie „appgw-RG” i lokalizacji „Zachodnie stany USA”.
 
@@ -137,7 +132,7 @@ Musisz skonfigurować wszystkie elementy konfiguracji przed utworzeniem bramy ap
 
 ### Krok 1
 
-Utwórz konfigurację adresu IP bramy aplikacji o nazwie „gatewayIP01”. Uruchomiona usługa Application Gateway wybierze adres IP ze skonfigurowanej podsieci i przekieruje ruch sieciowy do adresów IP w puli adresów IP zaplecza. Pamiętaj, że każde wystąpienie będzie mieć jeden adres IP.
+Utwórz konfigurację adresu IP bramy aplikacji o nazwie „gatewayIP01”. Uruchomiona usługa Application Gateway wybierze adres IP ze skonfigurowanej podsieci i skieruje ruch sieciowy do adresów IP w puli adresów IP zaplecza. Pamiętaj, że każde wystąpienie będzie mieć jeden adres IP.
 
 
     $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
@@ -197,14 +192,34 @@ Utwórz bramę aplikacji przy użyciu wszystkich elementów konfiguracji z powy�
 
     $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
+### Krok 9
+Pobierz szczegóły adresów DNS i VIP bramy aplikacji z zasobu publicznego adresu IP zasobu dołączonego do bramy aplikacji.
+
+    Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
+
+    Name                     : publicIP01
+    ResourceGroupName        : appgwtest 
+    Location                 : westus
+    Id                       : /subscriptions/<sub_id>/resourceGroups/appgw-rg/providers/Microsoft.Network/publicIPAddresses/publicIP01
+    Etag                     : W/"12302060-78d6-4a33-942b-a494d6323767"
+    ResourceGuid             : ee9gd76a-3gf6-4236-aca4-gc1f4gf14171
+    ProvisioningState        : Succeeded
+    Tags                     : 
+    PublicIpAllocationMethod : Dynamic
+    IpAddress                : 137.116.26.16
+    IdleTimeoutInMinutes     : 4
+    IpConfiguration          : {
+                                 "Id": "/subscriptions/<sub_id>/resourceGroups/appgw-rg/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIPConfigurations/fipconfig01"
+                               }
+    DnsSettings              : {
+                                 "Fqdn": "ee7aca47-4344-4810-a999-2c631b73e3cd.cloudapp.net"
+                               } 
+
+
 
 ## Usuwanie bramy aplikacji
 
 Aby usunąć bramę aplikacji, wykonaj następujące kroki:
-
-1. Użyj polecenia cmdlet **Stop-AzureRmApplicationGateway**, aby zatrzymać bramę.
-2. Użyj polecenia cmdlet **Remove-AzureRmApplicationGateway**, aby usunąć bramę.
-3. Sprawdź, czy brama została usunięta, przy użyciu polecenia cmdlet **Get-AzureRmApplicationGateway**.
 
 ### Krok 1
 
@@ -248,6 +263,6 @@ Więcej ogólnych informacji na temat opcji równoważenia obciążenia możesz 
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

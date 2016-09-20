@@ -14,11 +14,11 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/12/2016"
+    ms.date="08/08/2016"
     ms.author="billmath"/>
 
 # Używanie programu Azure AD Connect Health w celu synchronizacji
-Poniższa dokumentacja dotyczy monitorowania synchronizacji programu Azure AD Connect z programem Azure AD Connect Health.  Aby uzyskać informacje na temat monitorowania usług AD FS za pomocą programu Azure AD Connect Health, zobacz [Używanie programu Azure AD Connect Health z usługami AD FS](active-directory-aadconnect-health-adfs.md).
+Poniższa dokumentacja dotyczy monitorowania programu Azure AD Connect (synchronizacja) przy użyciu programu Azure AD Connect Health.  Aby uzyskać informacje na temat monitorowania usług AD FS za pomocą programu Azure AD Connect Health, zobacz [Używanie programu Azure AD Connect Health z usługami AD FS](active-directory-aadconnect-health-adfs.md). Ponadto, aby uzyskać informacje na temat monitorowania Usług domenowych Active Directory za pomocą programu Azure AD Connect Health, zobacz [Używanie programu Azure AD Connect Health z usługami AD DS](active-directory-aadconnect-health-adds.md).
 
 ![Program Azure AD Connect Health do celów synchronizacji](./media/active-directory-aadconnect-health-sync/sync.png)
 
@@ -32,7 +32,7 @@ Po wybraniu alertu pojawią się dodatkowe informacje, kroki, jakie można podj�
 ### Ograniczona ocena alertów
 Jeśli program Azure AD Connect NIE KORZYSTA z konfiguracji domyślnej (na przykład jeśli filtrowanie atrybutów zostało zmienione z konfiguracji domyślnej na konfigurację niestandardową), wtedy agent programu Azure AD Connect Health nie przekaże zdarzeń błędów powiązanych z programem Azure AD Connect. 
 
-To ogranicza ocenę alertów przez usługę. Zobaczysz baner, który wskazuje na taki stan w Portalu Azure w ramach usługi.
+To ogranicza ocenę alertów przez usługę. Zobaczysz baner, który wskazuje na taki stan w witrynie Azure Portal w ramach usługi.
 
 ![Program Azure AD Connect Health do celów synchronizacji](./media/active-directory-aadconnect-health-sync/banner.png)
 
@@ -64,12 +64,13 @@ Ta funkcja prezentuje w sposób graficzny trend liczby zmian obliczanych i ekspo
 * [Instalowanie agenta programu Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Operacje w programie Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Używanie programu Azure AD Connect Health z usługami AD FS](active-directory-aadconnect-health-adfs.md)
+* [Używanie programu Azure AD Connect Health z usługami AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health — często zadawane pytania](active-directory-aadconnect-health-faq.md)
 * [Historia wersji programu Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

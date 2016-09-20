@@ -13,24 +13,22 @@
     ms.tgt_pltfrm="mobile-windows-store"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
-    ms.author="piyushjo" />
+    ms.date="08/12/2016"
+    ms.author="piyushjo;ricksal" />
 
 # Wprowadzenie do usługi Azure Mobile Engagement na potrzeby uniwersalnych aplikacji systemu Windows
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 W tym temacie pokazano, jak za pomocą usługi Azure Mobile Engagement można określić sposób użycia aplikacji oraz wysyłać powiadomienia wypychane do segmentowanych użytkowników uniwersalnej aplikacji systemu Windows.
-W tym samouczku został omówiony prosty scenariusz emisji przy użyciu usługi Mobile Engagement. Zostanie utworzona pusta uniwersalna aplikacja systemu Windows, za pomocą której będą zbierane dane dotyczące zużycia i odbierane powiadomienia wypychane przy użyciu Usługi powiadomień systemu Windows.
+W tym samouczku został omówiony prosty scenariusz emisji przy użyciu usługi Mobile Engagement. Utworzysz pustą uniwersalną aplikację systemu Windows, za pomocą której będą zbierane dane dotyczące zużycia i odbierane powiadomienia wypychane przy użyciu Usługi powiadomień systemu Windows.
 
-Dla tego samouczka wymagane są następujące elementy:
+## Wymagania wstępne
 
-+ Program Visual Studio 2013
-+ Pakiet NuGet [MicrosoftAzure.MobileEngagement]
+[AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
-> [AZURE.NOTE] Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli nie masz konta, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-windows-store-dotnet-get-started).
 
-##<a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji uniwersalnej systemu Windows
+## Konfigurowanie usługi Mobile Engagement dla aplikacji uniwersalnej systemu Windows
 
 [AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
 
@@ -38,21 +36,21 @@ Dla tego samouczka wymagane są następujące elementy:
 
 Ten samouczek przedstawia „podstawową integrację”, tj. minimalny zestaw wymagany do zbierania danych i wysyłania powiadomień wypychanych. Kompletna dokumentacja integracji znajduje się w sekcji [Mobile Engagement Windows Universal SDK integration](mobile-engagement-windows-store-sdk-overview.md) (Integracja uniwersalnego zestawu SDK systemu Windows usługi Mobile Engagement).
 
-Aby zademonstrować integrację, utworzona zostanie podstawowa aplikacja za pomocą programu Visual Studio.
+Aby zademonstrować integrację, utworzysz podstawową aplikację za pomocą programu Visual Studio.
 
-###Tworzenie nowego projektu aplikacji uniwersalnej systemu Windows
+###Tworzenie projektu aplikacji uniwersalnej systemu Windows
 
-W następujących krokach założono korzystanie z programu Visual Studio 2015, chociaż kroki są podobne także w przypadku wcześniejszych wersji programu Visual Studio. 
+W następujących krokach założono korzystanie z programu Visual Studio 2015, chociaż kroki są podobne także w przypadku wcześniejszych wersji programu Visual Studio.
 
 1. Uruchom program Visual Studio i na ekranie **Strona główna** wybierz pozycję **Nowy projekt**.
 
-2. W podręcznym oknie wybierz pozycję **Windows 8** -> **Aplikacja uniwersalna** -> **Pusta aplikacja (aplikacja uniwersalna systemu Windows 8.1)**. Wypełnij pola **Nazwa** i **Nazwa rozwiązania**, a następnie kliknij przycisk **OK**.
+2. W oknie podręcznym wybierz pozycję **Windows** -> **Aplikacja uniwersalna** -> **Pusta aplikacja (aplikacja uniwersalna systemu Windows)**. Wypełnij pola **Nazwa** i **Nazwa rozwiązania**, a następnie kliknij przycisk **OK**.
 
     ![][1]
 
-Został utworzony nowy projekt aplikacji uniwersalnej systemu Windows, z którym zostanie zintegrowany zestaw SDK usługi Azure Mobile Engagement.
+Został utworzony projekt aplikacji uniwersalnej systemu Windows, z którym następnie zintegrujesz zestaw SDK usługi Azure Mobile Engagement.
 
-###Łączenie aplikacji z zapleczem usługi Mobile Engagement
+###Łączenie aplikacji z zapleczem usługi Mobile Engagement 
 
 1. Zainstaluj pakiet NuGet [MicrosoftAzure.MobileEngagement] w projekcie. Jeśli aplikacja ma być przeznaczona zarówno dla platformy Windows, jak i Windows Phone, należy to zrobić w obu projektach. W przypadku systemu Windows 8.x i Windows Phone 8.1 ten sam pakiet NuGet umieszcza poprawne pliki binarne specyficzne dla platformy w każdym projekcie.
 
@@ -66,7 +64,7 @@ Został utworzony nowy projekt aplikacji uniwersalnej systemu Windows, z którym
 
     ![][3]
 
-    >[AZURE.TIP] Jeśli aplikacja ma być przeznaczona zarówno dla platformy Windows, jak i Windows Phone, nadal powinny zostać utworzone dwie aplikacje usługi Mobile Engagement — jedna dla każdej z obsługiwanych platform. Ma to na celu zapewnienie, że możliwe będzie tworzenie poprawnej segmentacji odbiorców i wysyłanie odpowiednio skierowanych powiadomień dla każdej platformy.
+    >[AZURE.TIP] Jeśli aplikacja jest przeznaczona zarówno dla platformy Windows, jak i Windows Phone, nadal powinny zostać utworzone dwie aplikacje usługi Mobile Engagement — jedna dla każdej z obsługiwanych platform. Dzięki dwóm aplikacjom możliwe będzie tworzenie poprawnej segmentacji odbiorców i wysyłanie odpowiednio skierowanych powiadomień dla każdej platformy.
 
 4. W pliku `App.xaml.cs`:
 
@@ -74,7 +72,7 @@ Został utworzony nowy projekt aplikacji uniwersalnej systemu Windows, z którym
 
             using Microsoft.Azure.Engagement;
 
-    b. Dodaj metodę dedykowaną do inicjowania i ustawiania usługi Mobile Engagement:
+    b. Dodaj metodę inicjowania usługi Engagement:
 
            private void InitEngagement(IActivatedEventArgs e)
            {
@@ -109,7 +107,7 @@ Aby rozpocząć wysyłanie danych i upewnić się, że użytkownicy są aktywni,
 
         using Microsoft.Azure.Engagement.Overlay;
 
-2. Zastąp klasę podstawową **MainPage**: zmień wartość z **Page** na **EngagementPageOverlay**:
+2. Zmień klasę podstawową **MainPage** z **Page** na **EngagementPageOverlay**:
 
         class MainPage : EngagementPageOverlay
 
@@ -120,8 +118,8 @@ Aby rozpocząć wysyłanie danych i upewnić się, że użytkownicy są aktywni,
         xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
     b. Zastąp wartość **Page** w nazwie tagu XML wartością **engagement:EngagementPageOverlay**
-    
-> [AZURE.IMPORTANT] Jeśli strona zastępuje metodę `OnNavigatedTo`, upewnij się, że zostanie wywołana metoda `base.OnNavigatedTo(e)`. W przeciwnym razie działanie nie zostanie zgłoszone (element `EngagementPage` wywołuje metodę `StartActivity` wewnątrz jego metody `OnNavigatedTo`). Jest to szczególnie ważne w projekcie systemu Windows Phone, w którym szablon domyślny zawiera metodę `OnNavigatedTo`. 
+
+> [AZURE.IMPORTANT] Jeśli strona zastępuje metodę `OnNavigatedTo`, nie zapomnij wywołać metody `base.OnNavigatedTo(e)`. W przeciwnym razie działanie nie zostanie zgłoszone (element `EngagementPage` wywołuje metodę `StartActivity` wewnątrz jego metody `OnNavigatedTo`). Jest to szczególnie ważne w projekcie systemu Windows Phone, w którym szablon domyślny zawiera metodę `OnNavigatedTo`.
 
 ##<a id="monitor"></a>Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
 
@@ -148,16 +146,16 @@ W pliku `App.xaml.cs` wywołaj metodę **EngagementReach.Instance.Init(e);** w f
            EngagementReach.Instance.Init(e);
         }
 
-Wszystko jest gotowe do wyświetlenia wyskakującego powiadomienia. Teraz zostanie zweryfikowane, czy podstawowa integracja została przeprowadzona prawidłowo.
+Wszystko jest gotowe do wysłania wyskakującego powiadomienia. Następnie zweryfikujemy, czy podstawowa integracja została przeprowadzona prawidłowo.
 
 ###Udzielanie dostępu do usługi Mobile Engagement w celu wysyłania powiadomień
 
 1. Otwórz [Centrum deweloperów Sklepu Windows] w przeglądarce internetowej, a następnie zaloguj się i utwórz konto, jeśli to konieczne.
-2. Kliknij pozycję **Pulpit nawigacyjny** w prawym górnym rogu, a następnie kliknij pozycję **Utwórz nową aplikację** z menu lewego panelu. 
+2. Kliknij pozycję **Pulpit nawigacyjny** w prawym górnym rogu, a następnie kliknij pozycję **Utwórz nową aplikację** z menu lewego panelu.
 
     ![][9]
 
-2. Utwórz aplikację przez zarezerwowanie jej nazwy. 
+2. Utwórz aplikację przez zarezerwowanie jej nazwy.
 
     ![][10]
 
@@ -165,7 +163,7 @@ Wszystko jest gotowe do wyświetlenia wyskakującego powiadomienia. Teraz zostan
 
     ![][11]
 
-4. W sekcji Powiadomienia wypychane kliknij link **Witryna usług Live**. 
+4. W sekcji Powiadomienia wypychane kliknij link **Witryna usług Live**.
 
     ![][12]
 
@@ -173,19 +171,19 @@ Wszystko jest gotowe do wyświetlenia wyskakującego powiadomienia. Teraz zostan
 
     ![][13]
 
-6. Przejdź do obszaru **Ustawienia** portalu Mobile Engagement, a następnie kliknij sekcję **Natywne powiadomienia wypychane** po lewej stronie. Następnie kliknij przycisk **Edytuj**, aby wprowadzić swój **identyfikator zabezpieczeń (SID) pakietu** i **klucz tajny** w sposób przedstawiony poniżej:
+6. Przejdź do obszaru **Ustawienia** portalu Mobile Engagement, a następnie kliknij sekcję **Natywne powiadomienia wypychane** po lewej stronie. Następnie kliknij przycisk **Edytuj**, aby wprowadzić swój **identyfikator zabezpieczeń (SID) pakietu** i **klucz tajny** w przedstawiony sposób:
 
     ![][6]
 
-8. Na końcu upewnij się, że aplikacja programu Visual Studio została skojarzona z tą utworzoną aplikacją w sklepie z aplikacjami. Aby to zrobić, należy kliknąć pozycję **Skojarz aplikacje ze sklepem** z poziomu programu Visual Studio.
-
+8. Na końcu upewnij się, że aplikacja programu Visual Studio została skojarzona z tą utworzoną aplikacją w sklepie z aplikacjami. W programie Visual Studio kliknij pozycję **Skojarz aplikację ze sklepem**.
     ![][7]
 
 ##<a id="send"></a>Wysyłanie powiadomienia do aplikacji
 
 [AZURE.INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-Jeśli aplikacja była uruchomiona, zostanie w niej wyświetlone powiadomienie. Jeśli aplikacja została zamknięta, zostanie wyświetlone powiadomienie wyskakujące. Jeśli zostanie wyświetlone powiadomienie w aplikacji, ale nie powiadomienie wyskakujące, a aplikacja jest uruchomiona w trybie debugowania w programie Visual Studio, spróbuj użyć pozycji **Zdarzenia cyklu życia -> Wstrzymaj** na pasku narzędzi, aby upewnić się, że aplikacja została faktycznie wstrzymana. Jeśli właśnie kliknięto przycisk Strona główna podczas debugowania aplikacji w programie Visual Studio, to aplikacja nie zawsze zostanie wstrzymana, a w związku z tym, że powiadomienie zostanie wyświetlone w aplikacji, to nie zostanie wyświetlone powiadomienie wyskakujące.  
+Jeśli aplikacja jest uruchomiona, zobaczysz powiadomienie w aplikacji. W przeciwnym razie (jeśli aplikacja jest zamknięta) zobaczysz powiadomienie wyskakujące.
+Jeśli widzisz powiadomienie w aplikacji, ale nie powiadomienie wyskakujące, a aplikacja jest uruchomiona w trybie debugowania w programie Visual Studio, spróbuj użyć pozycji **Zdarzenia cyklu życia -> Wstrzymaj** na pasku narzędzi, aby upewnić się, że aplikacja została wstrzymana. Jeśli kliknięto przycisk Strona główna podczas debugowania aplikacji w programie Visual Studio, to aplikacja nie zawsze zostanie wstrzymana, a w związku z tym, że powiadomienie jest wyświetlane w aplikacji, to nie jest wyświetlane powiadomienie wyskakujące.  
 
 ![][8]
 
@@ -211,8 +209,6 @@ Jeśli aplikacja była uruchomiona, zostanie w niej wyświetlone powiadomienie. 
 
 
 
-
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

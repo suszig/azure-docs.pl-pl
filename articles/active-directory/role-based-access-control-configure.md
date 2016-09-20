@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Korzystanie z kontroli dostępu opartej na rolach w portalu Azure | Microsoft Azure"
-    description="Rozpocznij zarządzanie dostępem przy użyciu kontroli dostępu opartej na rolach w Portalu Azure. Przypisz uprawnienia w katalogu za pomocą przypisań ról."
+    pageTitle="Korzystanie z kontroli dostępu opartej na rolach w witrynie Azure Portal | Microsoft Azure"
+    description="Rozpocznij zarządzanie dostępem przy użyciu kontroli dostępu opartej na rolach w witrynie Azure Portal. Przypisz uprawnienia do swoich zasobów za pomocą przypisań ról."
     services="active-directory"
     documentationCenter=""
     authors="kgremban"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,15 +13,15 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="05/03/2016"
+    ms.date="07/21/2016"
     ms.author="kgremban"/>
 
-# Zarządzaj dostępem do zasobów usługi Azure Active Directory za pomocą przypisań ról.
+# Zarządzanie dostępem do zasobów subskrypcji platformy Azure za pomocą przypisań ról
 
-Kontrola dostępu oparta na rolach (Role-Based Access Control, RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem dla platformy Azure. Korzystając z modelu RBAC, można udzielić użytkownikom tylko takiego dostępu, jakiego potrzebują do wykonania swoich zadań. Ten artykuł ułatwia rozpoczęcie pracy z kontrolą dostępu opartą na rolach w portalu Azure. Jeśli chcesz uzyskać więcej szczegółowych informacji na temat sposobu, w jaki RBAC ułatwia zarządzanie dostępem, zobacz [Co to jest kontrola dostępu oparta na rolach](role-based-access-control-what-is.md).
+Kontrola dostępu oparta na rolach (Role-Based Access Control, RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem dla platformy Azure. Korzystając z modelu RBAC, można udzielić użytkownikom tylko takiego dostępu, jakiego potrzebują do wykonania swoich zadań. Ten artykuł ułatwia rozpoczęcie pracy z kontrolą dostępu opartą na rolach w witrynie Azure Portal. Jeśli chcesz uzyskać więcej szczegółowych informacji na temat sposobu, w jaki RBAC ułatwia zarządzanie dostępem, zobacz [Co to jest kontrola dostępu oparta na rolach](role-based-access-control-what-is.md).
 
 ## Wyświetlanie dostępu
-Z poziomu głównego bloku zasobu, grupy zasobów lub subskrypcji w [portalu Azure](https://portal.azure.com) można zobaczyć, kto ma dostęp do tego zasobu, grupy zasobów lub subskrypcji. Na przykład jeśli chcesz zobaczyć, kto ma dostęp do jednej z grup zasobów:
+Z poziomu głównego bloku zasobu, grupy zasobów lub subskrypcji w witrynie [Azure Portal](https://portal.azure.com) można zobaczyć, kto ma dostęp do tego zasobu, grupy zasobów lub subskrypcji. Na przykład jeśli chcesz zobaczyć, kto ma dostęp do jednej z grup zasobów:
 
 1. Wybierz pozycję **Grupy zasobów** na pasku nawigacyjnym po lewej stronie.  
     ![Grupy zasobów — ikona](./media/role-based-access-control-configure/resourcegroups_icon.png)
@@ -65,7 +65,7 @@ Przypisań dziedziczonych nie można usunąć. Zauważ, że na obrazie poniżej 
 ![Blok Użytkownicy — dostęp dziedziczony wyłącza przycisk usuwania (zrzut ekranu)](./media/role-based-access-control-configure/remove-access2.png)
 
 ## Inne narzędzia do zarządzania dostępem
-Za pomocą poleceń Azure RBAC można przypisywać role i zarządzać dostępem w narzędziach innych niż portal Azure.  Skorzystaj z linków, aby dowiedzieć się więcej o wymaganiach wstępnych i zacząć korzystać z poleceń Azure RBAC.
+Za pomocą poleceń Azure RBAC można przypisywać role i zarządzać dostępem w narzędziach innych niż witryna Azure Portal.  Skorzystaj z linków, aby dowiedzieć się więcej o wymaganiach wstępnych i zacząć korzystać z poleceń Azure RBAC.
 
 - [Azure PowerShell](role-based-access-control-manage-access-powershell.md)
 - [Interfejs wiersza polecenia platformy Azure](role-based-access-control-manage-access-azure-cli.md)
@@ -78,6 +78,6 @@ Za pomocą poleceń Azure RBAC można przypisywać role i zarządzać dostępem 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

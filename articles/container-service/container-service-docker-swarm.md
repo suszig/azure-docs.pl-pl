@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
+   keywords="Docker, kontenery, mikrousługi, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -30,7 +30,7 @@ Wymagania wstępne dotyczące ćwiczeń opisanych w tym dokumencie:
 
 ## Wdrażanie nowego kontenera
 
-Aby utworzyć nowy kontener w rozwiązaniu Docker Swarm, użyj polecenia `docker run`. W tym przykładzie kontener jest tworzony na podstawie obrazu `yeasy/simple-web`:
+Aby utworzyć nowy kontener w rozwiązaniu Docker Swarm, użyj polecenia `docker run` (co zapewni otwarcie tunelu SSH do serwerów głównych zgodnie z powyższymi wymaganiami wstępnymi). W tym przykładzie kontener jest tworzony na podstawie obrazu `yeasy/simple-web`:
 
 
 ```bash
@@ -49,14 +49,16 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 4298d397b9ab        yeasy/simple-web    "/bin/sh -c 'python i"   31 seconds ago      Up 9 seconds        10.0.0.5:80->80/tcp   swarm-agent-34A73819-1/happy_allen
 ```  
 
-Możesz teraz uzyskiwać dostęp do aplikacji, która działa w tym kontenerze, za pośrednictwem publicznej nazwy DNS modułu równoważenia obciążenia agenta Swarm. Te informacje można znaleźć w portalu Azure:  
+Możesz teraz uzyskiwać dostęp do aplikacji, która działa w tym kontenerze, za pośrednictwem publicznej nazwy DNS modułu równoważenia obciążenia agenta Swarm. Te informacje można znaleźć w witrynie Azure Portal:  
 
 
 ![Rzeczywiste wyniki dotyczące odwiedzin](media/real-visit.jpg)  
 
+Domyślnie moduł równoważenia obciążenia ma otwarte porty 80, 8080 i 443. Jeśli chcesz się połączyć na innym porcie, musisz otworzyć ten port w module Azure Load Balancer dla puli agenta.
+
 ## Wdrażanie wielu kontenerów
 
-Ze względu na to, że w klastrze Docker Swarm uruchamia się wiele kontenerów, możesz użyć polecenia `docker ps`, aby zobaczyć, na których hostach działają kontenery. W tym przykładzie trzy kontenery zostały rozmieszczone równomiernie w obrębie trzech agentów Swarm:  
+Ze względu na to, że uruchamia się wiele kontenerów przez wielokrotne wykonanie polecenia „docker run”, możesz użyć polecenia `docker ps`, aby zobaczyć, na których hostach działają kontenery. W poniższym przykładzie trzy kontenery zostały rozmieszczone równomiernie w obrębie trzech agentów Swarm:  
 
 
 ```bash
@@ -70,7 +72,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 ## Wdrażanie kontenerów przy użyciu rozwiązania Docker Compose
 
-Rozwiązania Docker Compose możesz używać do automatyzowania wdrażania i konfigurowania wielu kontenerów. W tym celu upewnij się, że utworzono tunel Secure Shell (SSH) oraz że ustawiono zmienną DOCKER_HOST.
+Rozwiązania Docker Compose możesz używać do automatyzowania wdrażania i konfigurowania wielu kontenerów. W tym celu upewnij się, że utworzono tunel Secure Shell (SSH) oraz że ustawiono zmienną DOCKER_HOST (patrz wymagania wstępne powyżej).
 
 Utwórz plik docker-compose.yml w systemie lokalnym. W tym celu użyj tego [przykładu](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
 
@@ -115,12 +117,14 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 040efc0ea937        adtd/rest:0.1       "catalina.sh run"      3 minutes ago       Up 2 minutes        10.0.0.4:8080->8080/tcp   swarm-agent-3B7093B8-0/compose_rest_1
 ```
 
+Naturalnie można użyć polecenia `docker-compose ps` do zbadania tylko kontenerów zdefiniowanych w pliku `compose.yml`.
+
 ## Następne kroki
 
 [Dowiedz się więcej na temat rozwiązania Docker Swarm](https://docs.docker.com/swarm/)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

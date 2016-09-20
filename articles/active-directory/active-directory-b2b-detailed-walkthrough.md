@@ -25,13 +25,13 @@ Ten przewodnik przedstawia sposób użycia funkcji współpracy B2B usługi Azur
 - Robert z firmy Medium Partner Org, wymaga dostępu do zestawu aplikacji
 - Karolina z firmy Complex Partner Org, wymaga dostępu do zestawu aplikacji i członkostwa w grupach w firmie Contoso
 
-Po wysłaniu zaproszeń do użytkowników z firm partnerskich można skonfigurować ich w usłudze Azure AD, aby zezwolić na dostęp do aplikacji i członkostwa w grupach poprzez portal Azure. Zacznijmy od dodania Alicji.
+Po wysłaniu zaproszeń do użytkowników z firm partnerskich można skonfigurować ich w usłudze Azure AD, aby zezwolić na dostęp do aplikacji i członkostwa w grupach poprzez witrynę Azure Portal. Zacznijmy od dodania Alicji.
 
 ## Dodawanie Alicji do katalogu Contoso
 1. Utwórz plik csv z nagłówkami pokazanymi na zrzucie ekranu, uzupełniając kolumny **Email** (Adres e-mail), **DisplayName** (Nazwa wyświetlana) i **InviteContactUsUrl** (Adres URL z zaproszeniem do kontaktu). **DisplayName** (Nazwa wyświetlana) jest nazwą, która pojawi się w zaproszeniu oraz w katalogu firmy Contoso w usłudze Azure AD. **InviteContactUsUrl** (Adres URL z zaproszeniem do kontaktu) umożliwia Alicji kontakt z firmą Contoso. W poniższym przykładzie kolumna InviteContactUsUrl określa profil LinkedIn firmy Contoso. Bardzo ważne jest dokładne przepisanie etykiet w pierwszym wierszu pliku CSV zgodnie z [dokumentem referencyjnym dotyczącym formatowania pliku CSV](active-directory-b2b-references-csv-file-format.md).  
 ![Przykładowy plik CSV dla Alicji](./media/active-directory-b2b-detailed-walkthrough/AliceCSV.png)
 
-2. W portalu Azure dodaj użytkownika do katalogu Contoso (Active Directory > Contoso > Użytkownicy > Dodaj użytkownika). W menu rozwijanym „Typ użytkownika” wybierz opcję „Użytkownicy w firmach partnerskich”. Przekaż plik CSV. Upewnij się, że plik CSV jest zamknięty przed przesłaniem.  
+2. W witrynie Azure Portal dodaj użytkownika do katalogu Contoso (Active Directory > Contoso > Użytkownicy > Dodaj użytkownika). W menu rozwijanym „Typ użytkownika” wybierz opcję „Użytkownicy w firmach partnerskich”. Przekaż plik CSV. Upewnij się, że plik CSV jest zamknięty przed przesłaniem.  
 ![Przekazywanie pliku CSV dla Alicji](./media/active-directory-b2b-detailed-walkthrough/AliceUpload.png)
 
 3. Alicja jest teraz reprezentowana jako użytkownik zewnętrzny w katalogu firmy Contoso w usłudze Azure AD.  
@@ -46,7 +46,7 @@ Po wysłaniu zaproszeń do użytkowników z firm partnerskich można skonfigurow
 6. Alicja zostanie przekierowana do panelu dostępu do aplikacji, który będzie pusty, dopóki nie zostanie wygenerowany dostęp do aplikacji.  
 ![Panel dostępu dla Alicji](./media/active-directory-b2b-detailed-walkthrough/AliceAccessPanel.png)
 
-Ta procedura umożliwia wykorzystanie najprostszej formy współpracy B2B. Jako użytkownik w katalogu firmy Contoso w usłudze Azure AD Alicja może otrzymać dostęp do aplikacji i grup za pośrednictwem portalu Azure. Teraz dodajmy Roberta, który wymaga dostępu do aplikacji Moodle i Salesforce.
+Ta procedura umożliwia wykorzystanie najprostszej formy współpracy B2B. Jako użytkownik w katalogu firmy Contoso w usłudze Azure AD Alicja może otrzymać dostęp do aplikacji i grup za pośrednictwem witryny Azure Portal. Teraz dodajmy Roberta, który wymaga dostępu do aplikacji Moodle i Salesforce.
 
 ## Dodawanie Roberta do katalogu firmy Contoso i udzielanie dostępu do aplikacji
 1. Użyj środowiska Windows PowerShell z zainstalowanym modułem Azure AD, aby znaleźć identyfikatory aplikacji Moodle i Salesforce. Identyfikatory można pobrać przy użyciu polecenia cmdlet: `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`. Taka operacja wyświetli listę wszystkich dostępnych aplikacji w firmie Contoso i ich identyfikatorów AppPrincialId.  
@@ -55,7 +55,7 @@ Ta procedura umożliwia wykorzystanie najprostszej formy współpracy B2B. Jako 
 2. Utwórz plik CSV zawierający adres e-mail i nazwę wyświetlaną Roberta, **InviteAppID** (Identyfikator zaproszenia do aplikacji), **InviteAppResources** (Zasoby zaproszenia do aplikacji) oraz adres InviteContactUsUrl (Adres URL z zaproszeniem do kontaktu). Wypełnij kolumnę **InviteAppResources** (Zasoby zaproszenia do aplikacji) identyfikatorami AppPrincipalId aplikacji Moodle i Salesforce znalezionymi w programie PowerShell, oddzielając je spacją. Wypełnij kolumnę **InviteAppId** (Identyfikator zaproszenia do aplikacji) tym samym identyfikatorem AppPrincipalId aplikacji Moodle, aby dodać logo Moodle do adresu e-mail i stron logowania.  
 ![Przykładowy plik CSV dla Roberta](./media/active-directory-b2b-detailed-walkthrough/BobCSV.png)
 
-3. Przekaż plik CSV poprzez Portal Azure tak samo jak w przypadku Alicji. Robert jest teraz zewnętrznym użytkownikiem w katalogu firmy Contoso w usłudze Azure AD.
+3. Przekaż plik CSV poprzez witrynę Azure Portal tak samo jak w przypadku Alicji. Robert jest teraz zewnętrznym użytkownikiem w katalogu firmy Contoso w usłudze Azure AD.
 
 4. Robert otrzymuje następującą wiadomość e-mail.  
 ![Wiadomość e-mail z zaproszeniem dla Roberta](./media/active-directory-b2b-detailed-walkthrough/BobEmail.png)
@@ -69,15 +69,15 @@ Teraz dodamy Karolinę, która wymaga dostępu do aplikacji oraz członkostwa w 
 
 1. Użyj środowiska Windows PowerShell z zainstalowanym modułem Azure AD, aby znaleźć identyfikatory aplikacji i grup w katalogu firmy Contoso.
  - Pobierz identyfikator AppPrincipalId przy użyciu polecenia cmdlet `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId` tak samo jak w przypadku Roberta.
- - Pobierz identyfikatory ObjectId dla grup przy użyciu polecenia cmdlet `Get-MsolGroup | fl DisplayName, ObjectId`. Operacja spowoduje wyświetlenie listy wszystkich grup w firmie Contoso oraz ich identyfikatorów ObjectId. Identyfikatory grup można również pobrać jako identyfikatory obiektów na karcie Właściwości grupy w portalu Azure.  
+ - Pobierz identyfikatory ObjectId dla grup przy użyciu polecenia cmdlet `Get-MsolGroup | fl DisplayName, ObjectId`. Operacja spowoduje wyświetlenie listy wszystkich grup w firmie Contoso oraz ich identyfikatorów ObjectId. Identyfikatory grup można również pobrać jako identyfikatory obiektów na karcie Właściwości grupy w witrynie Azure Portal.  
 ![Pobieranie identyfikatorów i grup dla Karoliny](./media/active-directory-b2b-detailed-walkthrough/CarolPowerShell.png)
 
 2. Utwórz plik CSV i wypełnij kolumny Email (Adres e-mail), DisplayName (Nazwa wyświetlana), InviteAppID (Identyfikator zaproszenia do aplikacji), InviteAppResources (Zasoby zaproszenia do aplikacji), **InviteGroupResources** (Zasoby zaproszenia do grupy) oraz InviteContactUsUrl (Adres URL z zaproszeniem do kontaktu). Kolumnę **InviteGroupResources** (Zasoby zaproszenia do grupy) wypełnia się identyfikatorami ObjectId grup MyGroup1 i Externals, oddzielonymi spacją.  
 ![Przykładowy plik CSV dla Karoliny](./media/active-directory-b2b-detailed-walkthrough/CarolCSV.png)
 
-3. Przekaż plik CSV za pośrednictwem portalu Azure.
+3. Przekaż plik CSV za pośrednictwem witryny Azure Portal.
 
-4. Karolina jest użytkownikiem katalogu firmy Contoso oraz członkiem grup MyGroup1 i Externals, jak widać w portalu Azure.  
+4. Karolina jest użytkownikiem katalogu firmy Contoso oraz członkiem grup MyGroup1 i Externals, jak widać w witrynie Azure Portal.  
 ![Karolina znajduje się na listach w grupie w usłudze Azure AD](./media/active-directory-b2b-detailed-walkthrough/CarolGroup.png)
 
 5. Karolina otrzymuje wiadomość e-mail zawierającą link umożliwiający zaakceptowanie zaproszenia. Po zalogowaniu zostanie przeniesiona do panelu dostępu do aplikacji i uzyska dostęp do aplikacji Moodle i Salesforce.  
@@ -98,6 +98,6 @@ Zobacz nasze inne artykuły dotyczące współpracy B2B w usłudze Azure AD:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

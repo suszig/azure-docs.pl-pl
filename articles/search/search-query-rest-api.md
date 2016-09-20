@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
 # Tworzenie zapytań względem indeksu usługi Azure Search przy użyciu interfejsu API REST
@@ -29,7 +29,7 @@ Przed rozpoczęciem pracy z tym przewodnikiem należy [utworzyć indeks usługi 
 ## I. Identyfikowanie klucza api-key zapytania usługi Azure Search
 Głównym składnikiem każdej operacji wyszukiwania wykonywanej przy użyciu interfejsu API REST usługi Azure Search jest *klucz api-key* wygenerowany dla aprowizowanej usługi. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
-1. Aby odnaleźć klucze api-key dla usługi, musisz zalogować się w [Portalu Azure](https://portal.azure.com/)
+1. Aby odnaleźć klucze api-key dla usługi, musisz zalogować się w witrynie [Azure Portal](https://portal.azure.com/)
 2. Przejdź do bloku usługi Azure Search
 3. Kliknij ikonę „Klucze”
 
@@ -161,6 +161,6 @@ Aby dowiedzieć się więcej, przejdź do sekcji „Response” (Odpowiedź) w a
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

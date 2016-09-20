@@ -1,7 +1,7 @@
 <properties 
     pageTitle="Co to jest usługa Azure Machine Learning Studio? | Microsoft Azure"
     description="Omówienie usługi Azure ML Studio, narzędzia obsługiwanego metodą „przeciągnij i upuść” przeznaczonego do szybkiego budowania modeli z gotowej do użycia biblioteki algorytmów i modułów."
-    keywords="azure machine learning,azure ml, ml studio"
+    keywords="azure machine learning, azure ml, ml studio"
     services="machine-learning"
     documentationCenter=""
     authors="garyericson"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/09/2016"
+    ms.date="06/10/2016"
     ms.author="garye"/>
 
 # Co to jest usługa Azure Machine Learning Studio?
@@ -47,6 +47,7 @@ U góry są dostępne trzy karty: **Home** (Strona główna), która jest otwier
 
 Gdy klikniesz kartę **Studio**, pojawi się prośba o zalogowanie się z użyciem Twojego konta Microsoft albo konta służbowego. Po zalogowaniu po lewej stronie zostaną wyświetlone następujące karty:
 
+- **PROJECTS** (Projekty) — kolekcje eksperymentów, zestawów danych, notesów i innych zasobów reprezentujących pojedynczy projekt
 - **EXPERIMENTS** (Eksperymenty) — eksperymenty, które zostały utworzone, uruchomione i zapisane jako wersje robocze
 - **WEB SERVICES** (Usługi sieci Web) — usługi sieci Web, które zostały wdrożone z eksperymentów
 - **NOTEBOOKS** (Notesy) — utworzone notesy Jupyter
@@ -117,6 +118,6 @@ Gdy model analizy predykcyjnej jest gotowy, można go wdrożyć jako usługę si
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

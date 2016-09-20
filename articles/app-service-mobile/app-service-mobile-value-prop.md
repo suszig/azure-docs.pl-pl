@@ -18,12 +18,12 @@
 
 # <a name="getting-started"> </a>Co to jest usługa Mobile Apps?
 
-Usługa Azure App Service to w pełni zarządzana platforma jako usługa (PaaS) — oferta dla deweloperów z bogatym zestawem funkcji na potrzeby scenariuszy obejmujących sieć Web, pracę mobilną i dotyczących integracji. Usługa *Mobile Apps* w *usłudze Azure App Service* oferuje wysoce skalowalną, globalnie dostępną platformę tworzenia aplikacji mobilnych dla deweloperów w przedsiębiorstwach i integratorów systemów. Platforma ta oferuje bogaty zestaw funkcji dla deweloperów aplikacji mobilnych.
+Usługa Azure App Service to w pełni zarządzana [platforma jako usługa](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) — oferta dla deweloperów z bogatym zestawem funkcji na potrzeby scenariuszy obejmujących sieć Web, pracę mobilną i dotyczących integracji. Usługa *Mobile Apps* w *Usługa aplikacji Azure* oferuje wysoce skalowalną, globalnie dostępną platformę tworzenia aplikacji mobilnych dla deweloperów w przedsiębiorstwach i integratorów systemów. Platforma ta oferuje bogaty zestaw funkcji dla deweloperów aplikacji mobilnych.
 
 ![Mobile Apps](./media/app-service-mobile-value-prop/overview.png)
 
 ##Dlaczego warto korzystać z usługi Mobile Apps?
-Usługa *Mobile Apps* w *usłudze Azure App Service* oferuje wysoce skalowalną, globalnie dostępną platformę tworzenia aplikacji mobilnych dla deweloperów w przedsiębiorstwach i integratorów systemów. Platforma ta oferuje bogaty zestaw funkcji dla deweloperów aplikacji mobilnych. Dzięki usłudze Mobile Apps można:
+Funkcja *Mobile Apps* w *Usługa aplikacji Azure* oferuje wysoce skalowalną, globalnie dostępną platformę tworzenia aplikacji mobilnych dla deweloperów w przedsiębiorstwach i integratorów systemów. Platforma ta oferuje bogaty zestaw funkcji dla deweloperów aplikacji mobilnych. Dzięki usłudze Mobile Apps można:
 
 - **Kompilować aplikacje natywne i międzyplatformowe** — bez względu na to, czy kompilujesz natywne aplikacje dla systemów iOS, Android i Windows, czy też międzyplatformowe aplikacje platform Xamarin lub Cordova (Phonegap), możesz korzystać z usługi App Service za pośrednictwem natywnych zestawów SDK.
 - **Nawiązywać połączenia z systemami przedsiębiorstwa** — dzięki usłudze Mobile Apps można w ciągu kilku minut dodać opcję logowania firmowego oraz nawiązywać połączenia z zasobami przedsiębiorstwa lokalnie lub w chmurze.
@@ -48,7 +48,7 @@ Następujące funkcje są ważnymi elementami tworzenia aplikacji mobilnych z ob
 
 - **Zestawy SDK klientów** — oferujemy kompletny pakiet zestawów SDK klientów, które obsługują tworzenie aplikacji natywnych ([iOS], [Android] i [Windows]), międzyplatformowych ([Xamarin dla systemów iOS i Android], [Xamarin Forms]) i hybrydowych ([Apache Cordova]).  Każdy zestaw SDK klienta jest dostępny z licencją MIT i jest rozwiązaniem typu open source.
 
-## Funkcje usługi App Service
+## Funkcje usługi App Service.
 Poniższe funkcje platformy są zazwyczaj przydatne w przypadku witryn produkcyjnych aplikacji mobilnych.
 
 - **Automatyczne skalowanie** — usługa App Service pozwala szybko skalować w górę lub w poziomie, a co za tym idzie — obsługiwać dowolne przychodzące obciążenia klientów. Ręcznie wybierz liczbę i rozmiar maszyn wirtualnych lub skonfiguruj automatyczne skalowanie, aby skalować zaplecze aplikacji mobilnej w oparciu o obciążenie lub harmonogram.
@@ -65,7 +65,7 @@ Poniższe funkcje platformy są zazwyczaj przydatne w przypadku witryn produkcyj
 
 - **Praca w sieci wirtualnej** — usługa App Service może nawiązywać połączenia z zasobami lokalnymi przy użyciu sieci wirtualnej, programu ExpressRoute lub połączeń hybrydowych.
 
-  Dowiedz się więcej na temat [połączenia hybrydowe], [sieci wirtualnych] i [programu ExpressRoute].
+  Dowiedz się więcej na temat [połączenia hybrydowe], [sieci wirtualnych] i [ExpressRoute].
 
 - **Środowiska izolowane/specjalne** — usługę App Service można uruchamiać w specjalnym, w pełni izolowanym środowisku, aby bezpiecznie pracować z aplikacjami usługi App Service na dużą skalę.  Jest to idealne rozwiązanie w przypadku obciążeń aplikacji wymagających bardzo dużej skali, izolacji lub bezpiecznego dostępu do sieci.
 
@@ -75,13 +75,13 @@ Poniższe funkcje platformy są zazwyczaj przydatne w przypadku witryn produkcyj
 Aby rozpocząć pracę z usługą Mobile Apps, wykonaj kroki samouczka [Wprowadzenie].  Kroki te obejmują podstawy tworzenia wybranego zaplecza aplikacji mobilnych i klienta, a następnie integrowanie uwierzytelniania, synchronizacji w trybie offline i powiadomień wypychanych.  Czynności opisane w samouczku [Wprowadzenie] można wykonać kilka razy — raz dla każdej aplikacji klienta.
 
 Aby uzyskać więcej informacji o usłudze Azure Mobile Apps, zapoznaj się z naszą [mapą nauki].
-Aby uzyskać więcej informacji o platformie usługi Azure App Service, zobacz artykuł [usłudze Azure App Service].
+Aby uzyskać więcej informacji o platformie Azure App Service, zobacz artykuł [Usługa aplikacji Azure].
 
 >[AZURE.NOTE] Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile) (Wypróbuj usługę App Service), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
 
 <!-- URLs. -->
 [Migracja Usługi mobilnej do usługi App Service]: app-service-mobile-migrating-from-mobile-services.md
-[usłudze Azure App Service]: ../app-service/app-service-value-prop-what-is.md
+[Usługa aplikacji Azure]: ../app-service/app-service-value-prop-what-is.md
 [Wprowadzenie]: app-service-mobile-ios-get-started.md
 [Azure Table Storage]: ../storage/storage-getting-started-guide.md
 [DocumentDB]: ../documentdb/documentdb-get-started.md
@@ -98,13 +98,13 @@ Aby uzyskać więcej informacji o platformie usługi Azure App Service, zobacz a
 [środowiska przejściowe]: ../app-service-web/web-sites-staged-publishing.md
 [opcje wdrożenia]: ../app-service-web/web-sites-deploy.md
 [połączenia hybrydowe]: ../app-service-web/web-sites-hybrid-connection-get-started.md
-[sieci wirtualne]: ../app-service-web/web-sites-integrate-with-vnet.md
+[sieci wirtualnych]: ../app-service-web/web-sites-integrate-with-vnet.md
 [ExpressRoute]: ../app-service/app-service-app-service-environment-network-configuration-expressroute.md
 [Środowiska usługi App Service]: ../app-service-web/app-service-app-service-environment-intro.md
 [mapą nauki]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

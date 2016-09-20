@@ -2,10 +2,10 @@
     pageTitle="Wprowadzenie do serwera Azure Multi-Factor Authentication" 
     description="Ta strona dotycząca usługi Azure Multi-Factor Authentication zawiera informacje umożliwiające rozpoczęcie korzystania z serwera Azure MFA." 
     services="multi-factor-authentication"
-    keywords="authentication server, azure multi factor authentication app activation page, authentication server download" 
+    keywords="serwer uwierzytelniania, strona aktywacji aplikacji azure multi factor authentication, pobieranie serwera uwierzytelniania" 
     documentationCenter="" 
     authors="billmath" 
-    manager="stevenpo" 
+    manager="femila" 
     editor="curtand"/>
 
 <tags 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="billmath"/>
 
 # Wprowadzenie do serwera Azure Multi-Factor Authentication
@@ -192,6 +192,6 @@ Metoda|Opis
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="05/03/2016" 
+    ms.date="08/07/2016"
     ms.author="juliako;anilmur"/>
 
 #Przegląd usługi Azure Media Services i typowe scenariusze
@@ -35,7 +35,7 @@ W celu tworzenia rozwiązań Media Services można użyć następujących elemen
     - [Zestaw Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php) 
     - [Azure Media Services dla środowiska Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Jest to wersja zestawu Node.js SDK firmy innej niż Microsoft. Jest ona opracowywana przez społeczność i aktualnie nie obsługuje 100% interfejsów API usług AMS.) 
 - Istniejące narzędzia: 
-    - [Klasyczny portal Azure](http://manage.windowsazure.com/) 
+    - [klasyczny portal Azure](http://manage.windowsazure.com/) 
     - [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) to aplikacja Winforms/C# dla systemu Windows)
 
 ##Ścieżki szkoleniowe dotyczące usługi Media Services
@@ -43,13 +43,13 @@ W celu tworzenia rozwiązań Media Services można użyć następujących elemen
 Ścieżki szkoleniowe dotyczące usługi AMS można zobaczyć tutaj:
 
 - [Przepływ pracy transmisji strumieniowej na żywo usług AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Przepływ pracy transmisji strumieniowej na żądanie usług AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+- [Przepływ pracy transmisji strumieniowej na żądanie usługi AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Wymagania wstępne
 
 Do rozpoczęcia korzystania z usługi Azure Media Services potrzebne są:
  
-3. Konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz temat [Bezpłatna wersja próbna systemu Azure](azure.microsoft.com).
+3. Konto platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com).
 2. Konto usługi Azure Media Services. Aby utworzyć konto usługi Azure Media Services, użyj klasycznego portalu Azure, platformy .NET lub interfejsu API REST. Aby uzyskać więcej informacji, zobacz temat [Tworzenie konta](media-services-create-account.md).
 3. (Opcjonalnie) Konfigurowanie środowiska deweloperskiego. Wybierz platformę .NET lub interfejs API REST dla środowiska deweloperskiego. Aby uzyskać więcej informacji, zobacz temat [Konfigurowanie środowiska](media-services-dotnet-how-to-use.md). 
 
@@ -60,7 +60,7 @@ Do rozpoczęcia korzystania z usługi Azure Media Services potrzebne są:
 
 Pojęcia związane z usługą Azure Media Services zostały przedstawione w temacie [Pojęcia](media-services-concepts.md).
 
-Serię poradników ułatwiających rozpoczęcie pracy z wszystkimi głównymi składnikami usługi Azure Media Services można znaleźć na stronie [Azure Media Services Step-by-Step tutorials](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series) (Usługa Azure Media Services — samouczki krok po kroku). Seria zawiera wszechstronne omówienie pojęć i przedstawia zadania AME przy użyciu narzędzia AMSE. Należy pamiętać, że narzędzie AMSE to narzędzie systemu Windows. To narzędzie obsługuje większość zadań, które można wykonać programowo przy użyciu zestawów [AMS SDK dla platformy .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK dla języka Java](https://github.com/Azure/azure-sdk-for-java) lub [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
+Serię poradników ułatwiających rozpoczęcie pracy z wszystkimi głównymi składnikami usługi Azure Media Services można znaleźć na stronie [Azure Media Services Step-by-Step tutorials](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series) (Usługa Azure Media Services — samouczki krok po kroku). Seria zawiera wszechstronne omówienie pojęć i przedstawia zadania AMS przy użyciu narzędzia AMSE. Należy pamiętać, że narzędzie AMSE to narzędzie systemu Windows. To narzędzie obsługuje większość zadań, które można wykonać programowo przy użyciu zestawów [AMS SDK dla platformy .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK dla języka Java](https://github.com/Azure/azure-sdk-for-java) lub [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
 ##<a id="vod_scenarios"></a>Dostarczanie multimediów na żądanie za pomocą usługi Azure Media Services: typowe scenariusze i zadania
 
@@ -174,7 +174,7 @@ Na poniższym diagramie przedstawiono główne elementy platformy AMS biorące u
 
 ![Przepływ pracy na żywo][live-overview1]
 
-Aby uzyskać więcej informacji, zobacz temat [Praca z kanałami obsługującymi funkcję Live Encoding w usłudze Azure Media Services](media-services-manage-live-encoder-enabled-channels.md) 
+Aby uzyskać więcej informacji, zobacz temat [Praca z kanałami obsługującymi funkcję Live Encoding w usłudze Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 
 ##Korzystanie z zawartości
@@ -214,14 +214,14 @@ Możliwe jest także skalowanie konta usługi Media Services przez dodanie do ni
 Aby uzyskać więcej informacji, zobacz temat [Umowy dotyczące poziomu usług platformy Microsoft Azure](https://azure.microsoft.com/support/legal/sla/).
 
 <!-- Images -->
-[omówienie]: ./media/media-services-overview/media-services-overview.png
-[vod — przegląd]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
+[overview]: ./media/media-services-overview/media-services-overview.png
+[vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 [live-overview1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

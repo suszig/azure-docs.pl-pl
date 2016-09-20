@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Analizy aplikacji Android"
+    pageTitle="Analiza aplikacji systemu Android | Microsoft Azure"
     description="Analizowanie użycia i wydajności aplikacji Android."
     services="application-insights"
     documentationCenter="android"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/17/2016"
+    ms.date="08/26/2016"
     ms.author="awills"/>
 
 # Analizy aplikacji Android
@@ -30,12 +30,21 @@ Przejdź do strony:
 
 Jeśli aplikacja działa po stronie serwera, użyj usługi [Application Insights](app-insights-overview.md) do monitorowania aplikacji w technologii [ASP.NET](app-insights-asp-net.md) lub [J2EE](app-insights-java-get-started.md) po stronie serwera sieci Web. 
 
-> [AZURE.NOTE] W dniu 15 czerwca 2016 r. przestaniemy wyświetlać w usłudze Application Insights dane dotyczące aplikacji systemów iOS, Android i Windows Phone oraz aplikacji Sklepu Windows.
->
-> [Więcej informacji na temat tej zmiany.](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
+
+## Analiza, eksportowanie i dostęp interfejsu API do danych platformy HockeyApp 
+
+[Skonfiguruj mostek platformy HockeyApp](app-insights-hockeyapp-bridge-app.md) w usłudze Application Insights. Umożliwia to:
+
+* Użycie zaawansowanego języka zapytań [analizy](app-insights-analytics.md) w ramach telemetrii. 
+* [Wyeksportowanie telemetrii](app-insights-export-telemetry.md) do magazynu obiektów blob platformy Azure.
+
+## Następne kroki
+
+* [Wprowadzenie do platformy HockeyApp dla systemu Android](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk)
 
 
 
-<!--HONumber=jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

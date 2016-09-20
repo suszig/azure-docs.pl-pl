@@ -6,7 +6,7 @@
    authors="Jim-Parker"
    manager="jwhit"
    editor=""
-   keywords="how to backup; how to back up"/>
+   keywords="jak tworzyć kopie zapasowe; tworzenie kopii zapasowych"/>
 
 <tags
    ms.service="backup"
@@ -14,10 +14,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="05/10/2016"
+   ms.date="06/27/2016"
    ms.author="jimpark;"/>
 
-# Pierwsze spojrzenie: utwórz kopie zapasowe plików i folderów z systemu Windows Server lub klienta systemu Windows na platformie Azure za pomocą usługi Azure Backup przy użyciu modelu wdrażania usługi Resource Manager
+# Pierwsze spojrzenie: tworzenie kopii zapasowych plików i folderów za pomocą usługi Azure Backup przy użyciu modelu wdrażania usługi Resource Manager
 
 W tym artykule opisano sposób wykonywania kopii zapasowej plików i folderów systemu Windows Server (lub klienta systemu Windows) na platformie Azure za pomocą usługi Azure Backup przy użyciu usługi Resource Manager. Ten samouczek zawiera podstawowe informacje. Jeśli chcesz rozpocząć korzystanie z usługi Azure Backup, to jesteś w odpowiednim miejscu.
 
@@ -53,7 +53,7 @@ Aby utworzyć kopię zapasową plików i folderów, należy utworzyć magazyn Us
 
     ![Tworzenie magazynu Usług odzyskiwania — krok 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-    Zostanie otwarty blok Magazyn Usług odzyskiwania i zostanie wyświetlony monit o podanie wartości w polach **Nazwa**, **Subskrypcja**, **Grupa zasobów** i **Lokalizacja**.
+    Zostanie otwarty blok magazynu Usług odzyskiwania i pojawi się monit o podanie wartości w polach **Nazwa**, **Subskrypcja**, **Grupa zasobów** i **Lokalizacja**.
 
     ![Tworzenie magazynu Usług odzyskiwania — krok 5](./media/backup-try-azure-backup-in-10-mins/rs-vault-attributes.png)
 
@@ -65,7 +65,7 @@ Aby utworzyć kopię zapasową plików i folderów, należy utworzyć magazyn Us
 
 7. Kliknij pozycję **Lokalizacja**, aby wybrać region geograficzny magazynu. Ten wybór określa region geograficzny, do którego wysyłane są dane kopii zapasowej.
 
-8. Kliknij pozycję **Utwórz**.
+8. Kliknij przycisk **Utwórz**.
 
     Jeśli nie widzisz swojego magazynu po zakończeniu jego tworzenia, kliknij pozycję **Odśwież**. Po odświeżeniu listy kliknij nazwę magazynu.
 
@@ -209,6 +209,6 @@ Jeśli masz pytania lub jeśli brakuje Ci jakiejś funkcji, [prześlij nam opini
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

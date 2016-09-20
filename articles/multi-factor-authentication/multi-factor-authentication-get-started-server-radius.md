@@ -4,7 +4,7 @@
     services="multi-factor-authentication" 
     documentationCenter="" 
     authors="billmath" 
-    manager="stevenpo" 
+    manager="femila" 
     editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="billmath"/>
 
 
@@ -37,7 +37,7 @@ Aby skonfigurować uwierzytelnianie usługi RADIUS, zainstaluj serwer usługi Az
 1. Na serwerze usługi Azure Multi-Factor Authentication kliknij ikonę uwierzytelniania usługi RADIUS w menu po lewej stronie.
 2. Zaznacz pole wyboru Włącz uwierzytelnianie usługi RADIUS.
 3. Na karcie Klienci zmień porty uwierzytelniania i porty ewidencjonowania aktywności, jeśli usługa Azure Multi-Factor Authentication RADIUS ma być powiązana z niestandardowymi portami w celu nasłuchiwania żądań usługi RADIUS pochodzących od skonfigurowanych klientów.
-4. Kliknij przycisk  Dodaj...
+4. Kliknij przycisk Dodaj Edytuj...
 5. W oknie dialogowym Dodawanie klienta RADIUS wprowadź adres IP urządzenia/serwera, które będą uwierzytelniane na serwerze usługi Azure Multi-Factor Authentication, nazwę aplikacji (opcjonalnie) i wspólny klucz tajny. Wspólny klucz tajny musi być taki sam dla serwera usługi Azure Multi-Factor Authentication i urządzenia/serwera. Nazwa aplikacji jest widoczna w raportach usługi Azure Multi-Factor Authentication i może być wyświetlana w uwierzytelniających wiadomościach SMS lub wiadomościach aplikacji mobilnej.
 6. Zaznacz pole Wymagaj dopasowania użytkownika usługi Multi-Factor Authentication, jeśli wszyscy użytkownicy zostali lub zostaną zaimportowani na serwer i będą podlegać uwierzytelnianiu wieloskładnikowemu. Jeśli znaczna liczba użytkowników nie została jeszcze zaimportowana na serwer i/lub będzie wykluczona z uwierzytelniania wieloskładnikowego, nie zaznaczaj tego pola. Zapoznaj się z plikiem pomocy, aby uzyskać dodatkowe informacje na temat tej funkcji.
 7. Zaznacz pole Włącz rezerwowy token OATH, jeśli użytkownicy będą korzystać z uwierzytelniania aplikacji mobilnej za pomocą usługi Azure Multi-Factor Authentication i chcesz używać kodów dostępu OATH jako rezerwowej metody uwierzytelniania w przypadku uwierzytelniania pozapasmowego z użyciem połączeń telefonicznych, wiadomości SMS lub powiadomień wypychanych.
@@ -47,7 +47,7 @@ Aby skonfigurować uwierzytelnianie usługi RADIUS, zainstaluj serwer usługi Az
 11. Jeśli serwer usługi Azure Multi-Factor Authentication jest zainstalowany na serwerze przyłączonym do domeny w środowisku usługi Active Directory, wybierz domenę systemu Windows.
 12. Jeśli użytkownicy mają być uwierzytelniani względem katalogu LDAP, wybierz powiązanie LDAP. W przypadku używania powiązania LDAP kliknij ikonę Integracja katalogu i zmień konfigurację protokołu LDAP na karcie Ustawienia, tak aby serwer mógł utworzyć powiązanie z katalogiem. Instrukcje dotyczące konfigurowania protokołu LDAP można znaleźć w przewodniku po konfiguracji serwera proxy LDAP. 
 13. Jeśli użytkownicy mają być uwierzytelniani względem innego serwera RADIUS, wybierz co najmniej jeden serwer RADIUS.
-14. Kliknij przycisk Dodaj..., aby skonfigurować serwer jako serwer proxy dla żądań usługi RADIUS.
+14. Kliknij przycisk Dodaj, aby skonfigurować serwer jako serwer proxy dla żądań usługi RADIUS. Edytuj...
 15. W oknie dialogowym Dodawanie serwera RADIUS wprowadź adres IP serwera RADIUS i wspólny klucz tajny. Wspólny klucz tajny musi być taki sam dla serwera usługi Azure Multi-Factor Authentication i serwera RADIUS. Zmień port uwierzytelniania i port ewidencjonowania aktywności, jeśli serwer RADIUS używa innych portów.
 16. Kliknij przycisk OK. 
 17. Serwer usługi Azure Multi-Factor Authentication musisz dodać jako klienta RADIUS na drugim serwerze RADIUS, aby umożliwić mu przetwarzanie żądań dostępu wysyłanych z serwera usługi Azure Multi-Factor Authentication. Musisz użyć tego samego wspólnego klucza tajnego, który został skonfigurowany na serwerze usługi Azure Multi-Factor Authentication.
@@ -65,6 +65,6 @@ Aby skonfigurować klienta RADIUS, skorzystaj z następujących wskazówek:
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

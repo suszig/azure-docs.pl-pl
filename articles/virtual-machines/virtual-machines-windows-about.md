@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="vm-windows"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/10/2016"
+    ms.date="06/15/2016"
     ms.author="cynthn"/>
 
 #Informacje o maszynach wirtualnych z systemem Windows na platformie Azure
@@ -35,13 +35,13 @@ Ta tabela ułatwia porównanie opcji oferowanych na platformie Azure.
 
 ## Następne kroki
 
-Wypróbuj maszynę wirtualną, szybko tworząc prostą maszynę wirtualną. Aby uzyskać instrukcje, zobacz [Create a virtual machine running Windows in the Azure portal](virtual-machines-windows-hero-tutorial.md) (Tworzenie maszyny wirtualnej z systemem Windows w Portalu Azure).
+Wypróbuj maszynę wirtualną, szybko tworząc prostą maszynę wirtualną. Aby uzyskać instrukcje, zobacz [Create a virtual machine running Windows in the Azure portal](virtual-machines-windows-hero-tutorial.md) (Tworzenie maszyny wirtualnej z systemem Windows w witrynie Azure Portal).
 
 Jako że samouczek ma na celu pomoc w szybkim utworzeniu maszyny wirtualnej, przedstawia on tylko jeden sposób przeprowadzenia tej operacji, bez opisywania różnych narzędzi, dzięki którym możesz tworzyć maszyny wirtualne. Podsumowanie tych narzędzi i linki do instrukcji znajdują się w temacie [Different ways to create a Windows virtual machine](virtual-machines-windows-creation-choices.md) (Różne sposoby tworzenia maszyny wirtualnej z systemem Windows).
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -19,7 +19,7 @@
 #  Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do platformy Azure
 
 > [AZURE.SELECTOR]
-- [Portal Azure](site-recovery-vmm-to-azure.md)
+- [Azure Portal](site-recovery-vmm-to-azure.md)
 - [PowerShell — ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 - [Klasyczny portal](site-recovery-vmm-to-azure-classic.md)
 - [PowerShell — Classic](site-recovery-deploy-with-powershell.md)
@@ -51,7 +51,7 @@ Oto, czego będziesz potrzebować na platformie Azure.
 **Wymagania wstępne** | **Szczegóły**
 --- | ---
 **Konto platformy Azure**| Będziesz potrzebować konta platformy [Microsoft Azure](https://azure.microsoft.com/). Możesz rozpocząć od [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/). [Dowiedz się więcej](https://azure.microsoft.com/pricing/details/site-recovery/) o cenach usługi Site Recovery.
-**Azure Storage** | Będziesz potrzebować konta magazynu Azure do przechowywania replikowanych danych. Replikowane dane są przechowywane w magazynie Azure, a w przypadku przejścia w tryb failover uruchamiane są maszyny wirtualne platformy Azure. <br/><br/>Potrzebujesz [standardowego konta magazynu geograficznie nadmiarowego](../storage/storage-redundancy.md#geo-redundant-storage). Konto musi znajdować się w tym samym regionie co magazyn usługi Site Recovery i musi być skojarzone z tą samą subskrypcją. Replikacja do konta magazynu w warstwie Premium obecnie nie jest obsługiwana i nie powinna być używana.<br/><br/>[Przeczytaj o](../storage/storage-introduction.md) usłudze Azure Storage.
+**Azure Storage** | Będziesz potrzebować konta magazynu Azure do przechowywania replikowanych danych. Replikowane dane są przechowywane w usłudze Azure Storage, a w przypadku przejścia w tryb failover uruchamiane są maszyny wirtualne platformy Azure. <br/><br/>Potrzebujesz [standardowego konta magazynu geograficznie nadmiarowego](../storage/storage-redundancy.md#geo-redundant-storage). Konto musi znajdować się w tym samym regionie co magazyn usługi Site Recovery i musi być skojarzone z tą samą subskrypcją. Replikacja do konta magazynu w warstwie Premium obecnie nie jest obsługiwana i nie powinna być używana.<br/><br/>[Przeczytaj o](../storage/storage-introduction.md) usłudze Azure Storage.
 **Sieć platformy Azure** | Potrzebujesz sieci wirtualnej platformy Azure, z którą maszyny wirtualne Azure będą nawiązywać połączenie w przypadku przejścia w tryb failover. Sieć wirtualna platformy Azure musi znajdować się w tym samym regionie co magazyn usługi Site Recovery.
 
 ## Lokalne wymagania wstępne
@@ -89,7 +89,7 @@ Przygotuj się do mapowania sieci w następujący sposób:
 ## Krok 1. Tworzenie magazynu usługi Site Recovery
 
 1. Zaloguj się do [portalu zarządzania](https://portal.azure.com) z serwera programu VMM, który chcesz zarejestrować.
-2. Kliknij pozycje **Usługi danych** > **Usługi odzyskiwania** > **Magazyn usługi Site Recovery**.
+2. Kliknij pozycje **Data Services** > **Usługi odzyskiwania** > **Magazyn usługi Site Recovery**.
 3. Kliknij pozycje **Utwórz nowe** > **Szybkie tworzenie**.
 4. W polu **Nazwa** wprowadź przyjazną nazwę identyfikującą magazyn.
 5. W polu **Region** wybierz region geograficzny dla magazynu. Aby sprawdzić obsługiwane regiony, zobacz sekcję dotyczącą dostępności geograficznej w temacie [Szczegóły cennika usługi Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -134,9 +134,13 @@ Wygeneruj klucz rejestracji magazynu. Po pobraniu dostawcy usługi Azure Site Re
 
     ![InstallComplete](./media/site-recovery-vmm-to-azure-classic/install-complete.png)
 
-7. W obszarze **Połączenie internetowe** określ, jak dostawca uruchomiony na serwerze programu VMM łączy się z Internetem. Wybierz pozycję **Użyj domyślnych ustawień serwera proxy systemu**, aby użyć domyślnych ustawień połączenia internetowego skonfigurowane na serwerze.
+9. Zweryfikuj, że w polu **Nazwa magazynu** jest wpisana nazwa magazynu, w którym serwer zostanie zarejestrowany. Kliknij przycisk *Dalej*.
 
-    ![Ustawienia internetowe](./media/site-recovery-vmm-to-azure-classic/proxy.png)
+    ![Rejestracja serwera](./media/site-recovery-vmm-to-azure-classic/vaultcred.PNG)
+
+7. W obszarze **Połączenie internetowe** określ, jak dostawca uruchomiony na serwerze programu VMM łączy się z Internetem. Wybierz pozycję **Połącz z istniejącymi ustawieniami serwera proxy**, aby użyć domyślnych ustawień połączenia internetowego skonfigurowanych na serwerze.
+
+    ![Ustawienia internetowe](./media/site-recovery-vmm-to-azure-classic/proxydetails.PNG)
 
     - Jeśli chcesz użyć niestandardowego serwera proxy, należy skonfigurować go przed zainstalowaniem dostawcy. Podczas konfigurowania niestandardowych ustawień serwera proxy wykonywany jest test w celu sprawdzenia połączenia serwera proxy.
     - Jeśli używasz niestandardowego serwera proxy lub domyślny serwer proxy wymaga uwierzytelniania, musisz wprowadzić szczegóły serwera proxy, łącznie z adresem i portem.
@@ -146,26 +150,23 @@ Wygeneruj klucz rejestracji magazynu. Po pobraniu dostawcy usługi Azure Site Re
         - *.backup.windowsazure.com
         - *.blob.core.windows.net
         - *.store.core.windows.net
-    - Zezwól na adresy IP, opisane w temacie [Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Zakresy IP centrum danych Azure), i protokół HTTPS (port 443). Należy również umieścić na liście dozwolonych zakresy adresów IP regionu Azure, który będzie używany, i regionu Zachodnie stany USA.
+    - Zezwól na adresy IP, opisane w temacie [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) (Zakresy adresów IP centrum danych Azure), i protokół HTTPS (port 443). Należy również umieścić na liście dozwolonych zakresy adresów IP regionu Azure, który będzie używany, i regionu Zachodnie stany USA.
+    - W przypadku użycia niestandardowego serwera proxy konto Uruchom jako programu VMM (DRAProxyAccount) zostanie automatycznie utworzone przy użyciu określonych poświadczeń serwera proxy. Skonfiguruj serwer proxy tak, aby to konto mogło być pomyślnie uwierzytelnione. Ustawienia konta Uruchom jako programu VMM można zmodyfikować w konsoli programu VMM. Aby to zrobić, otwórz obszar roboczy **Ustawienia**, rozwiń pozycję **Zabezpieczenia**, kliknij pozycję **Konta Uruchom jako**, a następnie zmodyfikuj hasło dla konta DRAProxyAccount. Aby to ustawienie zostało zastosowane, należy ponownie uruchomić usługę programu VMM.
 
-    - W przypadku użycia niestandardowego serwera proxy konto Uruchom jako programu VMM (DRAProxyAccount) zostanie automatycznie utworzone przy użyciu określonych poświadczeń serwera proxy. Skonfiguruj serwer proxy tak, aby to konto mogło być pomyślnie uwierzytelnione. Ustawienia konta Uruchom jako programu VMM można zmodyfikować w konsoli programu VMM. Aby to zrobić, otwórz obszar roboczy Ustawienia, rozwiń pozycję Zabezpieczenia, kliknij pozycję Konta Uruchom jako, a następnie zmodyfikuj hasło dla konta DRAProxyAccount. Aby to ustawienie zostało zastosowane, należy ponownie uruchomić usługę programu VMM.
 
-8. W oknie **Klucz rejestracji** wybierz opcję, aby potwierdzić, że klucz został pobrany z usługi Azure Site Recovery i skopiowany na serwer programu VMM.
-9. Zweryfikuj, że w polu **Nazwa magazynu** jest wpisana nazwa magazynu, w którym serwer zostanie zarejestrowany.
+8. W oknie **Klucz rejestracji** wybierz klucz, aby potwierdzić, że klucz został pobrany z usługi Azure Site Recovery i skopiowany na serwer programu VMM.
 
-    ![Rejestracja serwera](./media/site-recovery-vmm-to-azure-classic/credentials.png)
 
-10. Możesz określić lokalizację do zapisania certyfikatu SSL, który jest automatycznie generowany w związku z szyfrowaniem danych. Ten certyfikat będzie używany, jeśli włączysz szyfrowanie danych dla chmury programu VMM podczas wdrażania usługi Site Recovery. Przechowuj ten certyfikat w bezpiecznym miejscu. Po przejściu w tryb failover na platformie Azure wybierzesz go w celu odszyfrowania zaszyfrowanych danych.
+10.  Ustawienie szyfrowania jest używane tylko w przypadku replikacji maszyn wirtualnych funkcji Hyper-V w chmurach VMM do platformy Azure. Ustawienie nie jest używane w przypadku replikowania do lokacji dodatkowej.
 
-    ![Rejestracja serwera](./media/site-recovery-vmm-to-azure-classic/encryption.png)
+11.  W polu **Nazwa serwera** wprowadź przyjazną nazwę identyfikującą serwer VMM w magazynie. W konfiguracji klastra określ nazwę roli klastra VMM.
+12.  W oknie **Synchronizacja metadanych chmury** określ, czy chcesz synchronizować metadane dla wszystkich chmur na serwerze programu VMM z magazynem. To działanie ma miejsce tylko raz na każdym serwerze. Jeśli nie chcesz synchronizować wszystkich chmur, możesz nie zaznaczać tego ustawienia i synchronizować poszczególne chmury indywidualnie we właściwościach chmury w konsoli programu VMM.
 
-11. W polu **Nazwa serwera** wprowadź przyjazną nazwę identyfikującą serwer VMM w magazynie. W konfiguracji klastra określ nazwę roli klastra VMM.
+13.  Kliknij przycisk **Dalej**, aby ukończyć proces. Po rejestracji metadane z serwera programu VMM są pobierane przez usługę Azure Site Recovery. Serwer jest wyświetlany na karcie **Serwery programu VMM** na stronie **Serwery** w magazynie.
+    
+    ![Lastpage](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
 
-12. W oknie **Wstępna synchronizacja metadanych chmury** określ, czy chcesz synchronizować metadane dla wszystkich chmur na serwerze programu VMM z magazynem. To działanie ma miejsce tylko raz na każdym serwerze. Jeśli nie chcesz synchronizować wszystkich chmur, możesz nie zaznaczać tego ustawienia i synchronizować poszczególne chmury indywidualnie we właściwościach chmury w konsoli programu VMM.
-
-    ![Rejestracja serwera](./media/site-recovery-vmm-to-azure-classic/friendly.png)
-
-13. Kliknij przycisk **Dalej**, aby ukończyć proces. Po rejestracji metadane z serwera programu VMM są pobierane przez usługę Azure Site Recovery. Serwer jest wyświetlany na karcie **Serwery programu VMM** na stronie **Serwery** w magazynie.
+Po rejestracji metadane z serwera programu VMM są pobierane przez usługę Azure Site Recovery. Serwer jest wyświetlany na karcie **Serwery programu VMM** na stronie **Serwery** w magazynie.
 
 ### Instalacja przy użyciu wiersza polecenia
 
@@ -200,10 +201,12 @@ gdzie parametry są następujące:
 
 ## Krok 4. Tworzenie konta magazynu platformy Azure
 
-1. Jeśli nie masz konta magazynu Azure, kliknij pozycję **Dodaj konto magazynu Azure**, aby utworzyć konto.
+1. Jeśli nie masz konta usługi Azure Storage, kliknij pozycję **Dodaj konto usługi Azure Storage**, aby utworzyć konto.
 2. Utwórz konto z włączoną funkcją replikacji geograficznej. Musi ono znajdować się w tym samym regionie co usługa Azure Site Recovery i musi być skojarzone z tą samą subskrypcją.
 
     ![Konto magazynu](./media/site-recovery-vmm-to-azure-classic/storage.png)
+
+> [AZURE.NOTE] [Migracja kont magazynu](../resource-group-move-resources.md) w grupach zasobów w ramach tej samej subskrypcji lub w różnych subskrypcjach nie jest obsługiwana dla kont magazynu używanych do wdrażania usługi Site Recovery.
 
 ## Krok 5. Instalowanie agenta Usług odzyskiwania Azure
 
@@ -238,7 +241,7 @@ Po zarejestrowaniu serwera VMM można skonfigurować ustawienia ochrony chmury. 
 1. Na stronie Szybki start kliknij pozycję **Skonfiguruj ochronę dla chmur programu VMM**.
 2. Na karcie **Chronione elementy** kliknij chmurę, którą chcesz skonfigurować, i przejdź do karty **Konfiguracja**.
 3. W polu **Lokalizacja docelowa** wybierz pozycję **Azure**.
-4. W polu **Konto magazynu** wybierz konto magazynu Azure używanego do replikacji.
+4. W polu **Konto magazynu** wybierz konto usługi Azure Storage używanego do replikacji.
 5. Dla opcji **Szyfruj przechowywane dane** ustaw wartość **Wyłączone**. To ustawienie określa, że dane powinny być replikowane w postaci zaszyfrowanej między lokalną lokacją a platformą Azure.
 6. W polu **Częstotliwość kopiowania** pozostaw ustawienie domyślne. Ta wartość określa, jak często dane mają być synchronizowane między lokalizacjami źródłowymi a docelowymi.
 7. W polu **Zachowaj punkty odzyskiwania dla** pozostaw ustawienie domyślne. Przy wartości domyślnej równej zero tylko najnowszy punkt odzyskiwania dla podstawowej maszyny wirtualnej jest przechowywany na serwerze hosta repliki.
@@ -267,9 +270,11 @@ Po zapisaniu ustawień zadanie zacznie śledzić postęp mapowania i może być 
 
 Jeśli sieć docelowa ma wiele podsieci i jedna z tych podsieci ma taką samą nazwę jak podsieć, w której znajduje się źródłowa maszyna wirtualna, replika maszyny wirtualnej zostanie podłączona do tej docelowej podsieci po przejściu w tryb failover. Jeśli nie istnieje docelowa podsieć o takiej samej nazwie, maszyna wirtualna zostanie podłączona do pierwszej podsieci w sieci.
 
+> [AZURE.NOTE] [Migracja sieci](../resource-group-move-resources.md) w grupach zasobów w ramach tej samej subskrypcji lub w różnych subskrypcjach nie jest obsługiwana dla sieci używanych do wdrażania usługi Site Recovery.
+
 ## Krok 8. Włączanie ochrony dla maszyn wirtualnych
 
-Po poprawnym skonfigurowaniu serwerów, chmur i sieci można włączyć ochronę dla maszyn wirtualnych w chmurze. Należy pamiętać o następujących kwestiach:
+Po poprawnym skonfigurowaniu serwerów, chmur i sieci można włączyć ochronę dla maszyn wirtualnych w chmurze. Pamiętaj o następujących kwestiach:
 
 - Maszyny wirtualne muszą spełniać [wymagania związane z platformą Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 - Aby włączyć ochronę, należy ustawić właściwości systemu operacyjnego i dysku systemu operacyjnego dla maszyny wirtualnej. Podczas tworzenia maszyny wirtualnej w programie VMM przy użyciu szablonu maszyny wirtualnej można ustawić właściwości. Można również ustawić te właściwości dla istniejących maszyn wirtualnych na kartach **Ogólne** i **Konfiguracja sprzętu** właściwości maszyny wirtualnej. Jeśli nie ustawisz tych właściwości w programie VMM, możesz skonfigurować je w portalu Azure Site Recovery.
@@ -279,7 +284,7 @@ Po poprawnym skonfigurowaniu serwerów, chmur i sieci można włączyć ochronę
     ![Modyfikowanie właściwości maszyny wirtualnej](./media/site-recovery-vmm-to-azure-classic/enable-existing.png)
 
 
-1. Aby włączyć ochronę, na karcie **Maszyny wirtualne** w chmurze, w której znajduje się maszyna wirtualna, kliknij pozycje **Włącz ochronę** > **Dodaj maszyny wirtualne**.
+1. Aby włączyć ochronę, na karcie **Virtual Machines** w chmurze, w której znajduje się maszyna wirtualna, kliknij pozycje **Włącz ochronę** > **Dodaj maszyny wirtualne**.
 2. Z listy maszyn wirtualnych w chmurze wybierz maszynę, którą chcesz chronić.
 
     ![Włączanie ochrony maszyny wirtualnej](./media/site-recovery-vmm-to-azure-classic/select-vm.png)
@@ -333,9 +338,8 @@ Próba przejścia w tryb failover symuluje mechanizm pracy awaryjnej i odzyskiwa
 
 2. Na stronie **Wybieranie maszyn wirtualnych** wybierz maszyny wirtualne, które zostaną dodane do planu odzyskiwania. Te maszyny wirtualne są dodawane do planu odzyskiwania grupy domyślnej — Grupa 1. Przetestowano maksymalnie 100 maszyn wirtualnych w pojedynczym planie odzyskiwania.
 
-    - Jeśli chcesz zweryfikować właściwości maszyny wirtualnej przed dodaniem jej do planu, kliknij maszynę wirtualną na stronie właściwości chmury, w której ta maszyna się znajduje. Możesz również skonfigurować właściwości maszyny wirtualnej w konsoli programu VMM.
-    - Dla wszystkich wyświetlanych maszyn wirtualnych włączono ochronę. Na liście uwzględnione są zarówno maszyny wirtualne, dla których włączono ochronę i ukończono replikację początkową, jak i maszyny z włączoną ochroną, które oczekują na replikację początkową. Tylko maszyny wirtualne z ukończoną replikacją początkową mogą przechodzić w tryb failover w ramach planu odzyskiwania.
-
+- Jeśli chcesz zweryfikować właściwości maszyny wirtualnej przed dodaniem jej do planu, kliknij maszynę wirtualną na stronie właściwości chmury, w której ta maszyna się znajduje. Możesz również skonfigurować właściwości maszyny wirtualnej w konsoli programu VMM.
+- Dla wszystkich wyświetlanych maszyn wirtualnych włączono ochronę. Na liście uwzględnione są zarówno maszyny wirtualne, dla których włączono ochronę i ukończono replikację początkową, jak i maszyny z włączoną ochroną, które oczekują na replikację początkową. Tylko maszyny wirtualne z ukończoną replikacją początkową mogą przechodzić w tryb failover w ramach planu odzyskiwania.
 
     ![Tworzenie planu odzyskiwania](./media/site-recovery-vmm-to-azure-classic/select-rp.png)
 
@@ -381,6 +385,6 @@ Dowiedz się więcej na temat [konfigurowania planów odzyskiwania](site-recover
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

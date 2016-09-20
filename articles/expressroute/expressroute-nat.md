@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/18/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Wymagania dotyczące translatora adresów sieciowych w usłudze ExpressRoute
@@ -23,7 +23,7 @@ Przejrzyj stronę [ExpressRoute circuits and routing domains](expressroute-circu
 
 ## Wymagania dotyczące translatora adresów sieciowych dla publicznej komunikacji równorzędnej Azure
 
-Ścieżka publicznej komunikacji równorzędnej Azure umożliwia łączenie ze wszystkimi usługami obsługiwanymi na platformie Azure za pośrednictwem ich publicznych adresów IP. Dotyczy to wszystkich usług wymienionych w temacie [ExpessRoute FAQ](expressroute-faqs.md) (Usługa ExpessRoute — często zadawane pytania) i wszystkich usług obsługiwanych przez niezależnych dostawców oprogramowania (ISV) na platformie Microsoft Azure. Połączenie z usługami Microsoft Azure w publicznej komunikacji równorzędnej jest zawsze inicjowane z sieci użytkownika do sieci Microsoft. Ruch skierowany do platformy Microsoft Azure w publicznej komunikacji równorzędnej musi zostać podłączony do funkcji SNAT i uzyskać prawidłowe publiczne adresy IPv4, zanim wejdzie do sieci firmy Microsoft. Poniższy rysunek przedstawia, w jaki sposób na wysokim poziomie można skonfigurować translatora adresów sieciowych i spełnić powyższe wymaganie.
+Ścieżka publicznej komunikacji równorzędnej Azure umożliwia łączenie ze wszystkimi usługami obsługiwanymi na platformie Azure za pośrednictwem ich publicznych adresów IP. Dotyczy to usług wymienionych w temacie [ExpessRoute FAQ](expressroute-faqs.md) (ExpessRoute — często zadawane pytania) i wszystkich usług obsługiwanych przez niezależnych dostawców oprogramowania na platformie Microsoft Azure. Połączenie z usługami Microsoft Azure w publicznej komunikacji równorzędnej jest zawsze inicjowane z sieci użytkownika do sieci Microsoft. Ruch skierowany do platformy Microsoft Azure w publicznej komunikacji równorzędnej musi zostać podłączony do funkcji SNAT i uzyskać prawidłowe publiczne adresy IPv4, zanim wejdzie do sieci firmy Microsoft. Poniższy rysunek przedstawia, w jaki sposób na wysokim poziomie można skonfigurować translatora adresów sieciowych i spełnić powyższe wymaganie.
 
 ![](./media/expressroute-nat/expressroute-nat-azure-public.png) 
 
@@ -37,7 +37,7 @@ Nie ma żadnych ograniczeń w zakresie długości prefiksu IP translatora adres�
 
 ## Wymagania dotyczące translatora adresów sieciowych dla komunikacji równorzędnej firmy Microsoft
 
-Ścieżka komunikacji równorzędnej firmy Microsoft umożliwia nawiązanie połączenia z usługami w chmurze firmy Microsoft, które nie są obsługiwane przez ścieżkę publicznej komunikacji równorzędnej Azure. Lista usług obejmuje usługi Office 365, np. Exchange Online, SharePoint Online, Skype dla firm i CRM Online. Firma Microsoft planuje obsługę dwukierunkowej łączności w oparciu o komunikację równorzędną firmy Microsoft. Ruch skierowany usług w chmurze firmy Microsoft musi zostać podłączony do funkcji SNAT i uzyskać prawidłowe publiczne adresy IPv4, zanim wejdzie do sieci firmy Microsoft. Ruch skierowany do sieci użytkownika z poziomu usług w chmurze firmy Microsoft należy podłączyć do funkcji SNAT, zanim wejdzie do sieci użytkownika. Poniższy rysunek przedstawia w jaki sposób na wysokim poziomie powinien być skonfigurowany translator adresów sieciowych na potrzeby komunikacji równorzędnej firmy Microsoft.
+Ścieżka komunikacji równorzędnej firmy Microsoft umożliwia nawiązanie połączenia z usługami w chmurze firmy Microsoft, które nie są obsługiwane przez ścieżkę publicznej komunikacji równorzędnej Azure. Lista usług obejmuje usługi Office 365, np. Exchange Online, SharePoint Online, Skype dla firm i CRM Online. Firma Microsoft planuje obsługę dwukierunkowej łączności w oparciu o komunikację równorzędną firmy Microsoft. Ruch skierowany usług w chmurze firmy Microsoft musi zostać podłączony do funkcji SNAT i uzyskać prawidłowe publiczne adresy IPv4, zanim wejdzie do sieci firmy Microsoft. Ruch skierowany do sieci użytkownika z usług w chmurze firmy Microsoft należy przetworzyć za pomocą translatora SNAT, zanim wejdzie do sieci użytkownika. Poniższy rysunek przedstawia w jaki sposób na wysokim poziomie powinien być skonfigurowany translator adresów sieciowych na potrzeby komunikacji równorzędnej firmy Microsoft.
  
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
@@ -69,6 +69,6 @@ Nie ma żadnych ograniczeń w zakresie długości prefiksu IP translatora adres�
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

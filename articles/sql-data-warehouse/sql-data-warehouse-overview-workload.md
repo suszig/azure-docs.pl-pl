@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="07/25/2016"
    ms.author="barbkess;mausher;jrj;sonyama"/>
 
 
@@ -38,7 +38,7 @@ Charakterystyczną cechą magazynów danych są zapytania, które skanują duż�
 
 - Tradycyjnie proces ładowania jest nazywany procesem wyodrębniania (Extract), transformacji (Transform) i ładowania (Load) — w skrócie ETL. Zwykle dane muszą zostać przekształcone, aby były zgodne z innymi danymi w magazynie. Wcześniej w firmach używano dedykowanych serwerów ETL do wykonywania transformacji. Teraz dzięki szybkiemu, równoległemu przetwarzaniu masowemu można najpierw załadować dane do usługi SQL Data Warehouse, a następnie wykonać transformacje. Ten proces — nazywany skrótowo procesem ELT (Extract, Load, Transform) — staje się nowym standardem obsługi obciążeń w magazynie danych.
 
-> [AZURE.NOTE] Za pomocą serwera SQL Server CTP2 można teraz wykonywać analizy w czasie rzeczywistym w tabeli OLTP. To rozwiązanie nie eliminuje potrzeby przechowywania i analizowania danych w magazynie danych, ale udostępnia sposób wykonywania analizy w czasie rzeczywistym.
+> [AZURE.NOTE] Za pomocą serwera SQL Server 2016 można teraz wykonywać analizy w czasie rzeczywistym w tabeli OLTP. To rozwiązanie nie eliminuje potrzeby przechowywania i analizowania danych w magazynie danych, ale udostępnia sposób wykonywania analizy w czasie rzeczywistym.
 
 ### Zapytania raportowe i analityczne
 Zapytania raportowe i analityczne są często dzielone na kategorie (małe, średnie i duże) na podstawie różnych kryteriów, ale najczęściej na podstawie kryterium czasu. W większości magazynów danych obciążenie ma charakter mieszany i zawiera zarówno zapytania krótkie, jak i długotrwałe. W każdym przypadku należy określić proporcje tej mieszanki oraz jej częstotliwość (co godzinę, codziennie, koniec miesiąca, koniec kwartału itp.). Należy pamiętać, że obciążenie mieszanymi zapytaniami w połączeniu z współbieżnością umożliwia właściwe planowanie pojemności magazynu danych.
@@ -50,7 +50,7 @@ Zarządzanie danymi jest istotne — szczególnie wtedy, gdy wiadomo, że w najb
 
 - Indeksy magazynu kolumn obsługują tabele partycjonowane. W indeksach magazynu kolumn partycjonowane tabele są używane na potrzeby zarządzania danymi oraz archiwizacji. W tabelach przechowywanych wiersz po wierszu partycje pełnią ważniejszą rolę w zakresie wydajności zapytania.  
 
-- Technologia PolyBase odgrywa ważną rolę w zarządzaniu danymi. Przy użyciu technologii PolyBase można archiwizować starsze dane, korzystając z usługi Hadoop i magazynu obiektów blob platformy Azure.  W ten sposób udostępnianych jest wiele opcji, ponieważ dane są nadal w trybie online.  Pobieranie danych z usługi Hadoop może trwać dłużej, ale czas pobierania może przeważać nad kosztem magazynowania.
+- Technologia PolyBase odgrywa ważną rolę w zarządzaniu danymi. Przy użyciu technologii PolyBase można archiwizować starsze dane, korzystając z usługi Hadoop i usługi Azure Blob Storage.  W ten sposób udostępnianych jest wiele opcji, ponieważ dane są nadal w trybie online.  Pobieranie danych z usługi Hadoop może trwać dłużej, ale czas pobierania może przeważać nad kosztem magazynowania.
 
 ### Eksportowanie danych
 Jednym ze sposobów udostępniania danych na potrzeby tworzenia raportów i analiz jest wysłanie ich z magazynu na serwery dedykowane do uruchamiania raportów i analiz. Serwery te są nazywane składnicami danych. Można na przykład wstępnie przetworzyć dane raportu i wyeksportować je z magazynu danych na wiele serwerów na całym świecie, aby były szeroko dostępne dla klientów oraz analityków.
@@ -59,15 +59,13 @@ Jednym ze sposobów udostępniania danych na potrzeby tworzenia raportów i anal
 - W celu wykonywania analiz można skonstruować moduł analizy w magazynie danych i przeprowadzać analizy w magazynie danych lub wstępnie przetworzyć dane oraz wyeksportować je na serwer analiz do dalszej analizy.
 
 ## Następne kroki
-Aby rozpocząć tworzenie magazynu danych, zobacz [omówienie tworzenia][].
-
-## Książki
-[Big Data Warehousing](https://www.manning.com/books/big-data-warehousing), autorzy: Karthik Ramachandran, Istvan Szededi i Richard L. Saltzer (Manning Publications). [Rozdział 1](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
+Teraz, gdy masz już podstawową wiedzę na temat usługi SQL Data Warehouse, możesz dowiedzieć się, jak szybko [utworzyć bazę danych w usłudze SQL Data Warehouse][] i [ładowanie danych przykładowych][].
 
 <!--Image references-->
 
 <!--Article references-->
-[omówienie tworzenia]: sql-data-warehouse-overview-develop.md
+[ładowanie danych przykładowych]: ./sql-data-warehouse-load-sample-databases.md
+[utworzyć bazę danych w usłudze SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
@@ -75,6 +73,6 @@ Aby rozpocząć tworzenie magazynu danych, zobacz [omówienie tworzenia][].
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

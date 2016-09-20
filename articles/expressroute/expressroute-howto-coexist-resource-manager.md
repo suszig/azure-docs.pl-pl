@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2016"
+   ms.date="07/19/2016"
    ms.author="charleywen"/>
 
 # Konfigurowanie połączeń usługi ExpressRoute i współistniejących połączeń typu lokacja-lokacja dla modelu wdrażania usługi Resource Manager
@@ -196,6 +196,6 @@ Więcej informacji na temat usługi ExpressRoute znajduje się w artykule [Expre
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

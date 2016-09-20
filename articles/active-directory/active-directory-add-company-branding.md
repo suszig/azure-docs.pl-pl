@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="markusvi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/16/2016" 
+    ms.date="07/13/2016"
     ms.author="MarkVi"/>
 
 # Dodawanie znakowania firmowego do stron logowania i panelu dostępu
@@ -46,9 +46,7 @@ W przypadku odwiedzania usługi za pomocą adresów URL innych niż specyficzne 
 
 > [AZURE.NOTE]
 >
-
 - Nazwa domeny musi być widoczna jako „Aktywna” w sekcji **Active Directory** > **Katalog** > **Domeny** klasycznego portalu Azure, w którym skonfigurowano znakowanie.
-
 - Znakowanie strony logowania nie jest przenoszone na stronę logowania klienta firmy Microsoft. Jeśli logujesz się za pomocą osobistego konta Microsoft, może być wyświetlana lista kafelków użytkowników renderowana przez usługę Azure AD, ale znakowanie organizacji nie ma zastosowania do strony logowania konta Microsoft.
 
 
@@ -107,7 +105,7 @@ Możesz również dostosować wszystkie elementy na tej stronie. Po skonfigurowa
 
 ## Dostosowywanie strony panelu dostępu
 
-Strona panelu dostępu jest zasadniczo stroną portalu umożliwiającą szybki dostęp do aplikacji w chmurze, do których administrator udzielił użytkownikowi dostępu. Na tej stronie aplikacje są wyświetlane jako aktywne kafelki aplikacji do kliknięcia. 
+Strona panelu dostępu jest zasadniczo stroną portalu umożliwiającą szybki dostęp do aplikacji w chmurze, do których administrator udzielił użytkownikowi dostępu. Na tej stronie aplikacje są wyświetlane jako aktywne kafelki aplikacji do kliknięcia.
 
 
 Poniższy zrzut ekranu przedstawia przykład strony panelu dostępu po dostosowaniu.
@@ -118,14 +116,14 @@ Poniższy zrzut ekranu przedstawia przykład strony panelu dostępu po dostosowa
 
 W klasycznym portalu Azure dla każdego katalogu można skonfigurować jeden domyślny zestaw elementów dostosowywalnych. Po zapisaniu ustawień domyślnych administrator może dodać zlokalizowane wersje każdego elementu dla różnych języków/ustawień regionalnych. Wszystkie elementy dostosowywalne są opcjonalne.
 
-Na przykład jeśli skonfigurujesz domyślny baner logo, ale nie skonfigurujesz dużej ilustracji, na stronie logowania w prawym górnym rogu wyświetlane będzie dostosowane logo. Jako duża ilustracja wyświetlana będzie domyślna ilustracja lokacji. 
+Na przykład jeśli skonfigurujesz domyślny baner logo, ale nie skonfigurujesz dużej ilustracji, na stronie logowania w prawym górnym rogu wyświetlane będzie dostosowane logo. Jako duża ilustracja wyświetlana będzie domyślna ilustracja lokacji.
 
 Wyobraź sobie następującą konfigurację:
 
-- domyślny baner logo i tekst strony logowania w języku angielskim 
-- tekst strony logowania specyficzny dla języka skonfigurowany dla języka niemieckiego 
+- domyślny baner logo i tekst strony logowania w języku angielskim
+- tekst strony logowania specyficzny dla języka skonfigurowany dla języka niemieckiego
 
-Jeśli preferowanym językiem jest niemiecki, na stronie logowania wyświetlany będzie domyślny baner logo, ale niemiecki tekst. 
+Jeśli preferowanym językiem jest niemiecki, na stronie logowania wyświetlany będzie domyślny baner logo, ale niemiecki tekst.
 
 Pomimo że technicznie można skonfigurować różne zestawy dla każdego z języków obsługiwanych przez usługę Azure AD, zalecamy utrzymanie małej liczby wersji ze względu na wydajność i konserwację.
 
@@ -180,8 +178,8 @@ Zalecamy wypróbowanie dostosowań za pomocą dzierżawy testowej przed wprowadz
 
 **Aby sprawdzić, czy znakowanie zostało zastosowane:**
 
-1. Otwórz sesję InPrivate lub Incognito przeglądarki. 
-2. Odwiedź stronę https://outlook.com/contoso.com, zastępując contoso.com dostosowaną domeną. 
+1. Otwórz sesję InPrivate lub Incognito przeglądarki.
+2. Odwiedź stronę https://outlook.com/contoso.com, zastępując contoso.com dostosowaną domeną.
 
 Ta metoda działa również z domenami, które mają postać typu contoso.onmicrosoft.com.
 
@@ -224,6 +222,6 @@ Kolor tła strony logowania | Kolor tła strony logowania jest używany w obszar
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

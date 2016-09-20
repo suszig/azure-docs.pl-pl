@@ -6,21 +6,21 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-    keywords="azure powershell, powershell script tutorial, powershell automation"/>
+    keywords="azure powershell, samouczek skryptu programu powershell, automatyzacja programu powershell"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/02/2016"
+    ms.date="07/19/2016"
     ms.author="magoedte;sngun"/>
 
 # Mój pierwszy element Runbook programu PowerShell
 
-> [AZURE.SELECTOR] - [Element graficzny](automation-first-runbook-graphical.md) - [Program PowerShell](automation-first-runbook-textual-PowerShell.md) - [Przepływ pracy programu PowerShell](automation-first-runbook-textual.md)
+> [AZURE.SELECTOR] - [Element graficzny](automation-first-runbook-graphical.md) - [Program PowerShell](automation-first-runbook-textual-PowerShell.md) - [Przepływ pracy programu PowerShell](automation-first-runbook-textual.md)  
 
-W tym samouczku przedstawiono proces tworzenia [elementu Runbook programu PowerShell](automation-runbook-types.md#powershell-runbooks) w usłudze Azure Automation. Rozpoczniemy pracę od prostego elementu Runbook, który przetestujemy i opublikujemy, objaśniając równocześnie, jak śledzić stan zadania elementu Runbook. Następnie zmodyfikujemy element Runbook, aby faktycznie zarządzać zasobami platformy Azure, w tym przypadku uruchomić maszynę wirtualną platformy Azure. Udoskonalimy również element Runbook, dodając parametry, aby działał on bardziej niezawodnie.
+W tym samouczku przedstawiono proces tworzenia [elementu Runbook programu PowerShell](automation-runbook-types.md#powershell-runbooks) w usłudze Azure Automation. Rozpoczniemy pracę od prostego elementu Runbook, który przetestujemy i opublikujemy, objaśniając równocześnie, jak śledzić stan zadania elementu Runbook. Następnie zmodyfikujemy element Runbook, aby faktycznie zarządzać zasobami platformy Azure (w tym przypadku uruchomić maszynę wirtualną platformy Azure). Udoskonalimy również element Runbook, dodając parametry, aby działał on bardziej niezawodnie.
 
 ## Wymagania wstępne
 
@@ -55,7 +55,7 @@ Możesz wpisać kod bezpośrednio w elemencie Runbook lub wybrać polecenia cmdl
 
 ## Krok 3. Testowanie elementu Runbook
 
-Przed opublikowaniem elementu Runbook w celu udostępnienia go w środowisku produkcyjnym chcemy przetestować ten element, aby upewnić się, że działa on prawidłowo. Testowanie elementu Runbook polega na uruchomieniu jego **wersji roboczej** i interaktywnym przejrzeniu danych wyjściowych.
+Przed opublikowaniem elementu Runbook w celu udostępnienia go w środowisku produkcyjnym chcemy go przetestować, aby upewnić się, że działa prawidłowo. Testowanie elementu Runbook polega na uruchomieniu jego **wersji roboczej** i interaktywnym przejrzeniu danych wyjściowych.
 
 1.  Kliknij pozycję **Okienko testowania**, aby otworzyć okienko testowania.  
     ![Okienko testowania](media/automation-first-runbook-textual-powershell/automation-testpane.png)  
@@ -68,7 +68,7 @@ Przed opublikowaniem elementu Runbook w celu udostępnienia go w środowisku pro
 
 ## Krok 4. Publikowanie i uruchamianie elementu Runbook
 
-Nowo utworzony element Runbook nadal działa w trybie roboczym. Przed uruchomieniem elementu w środowisku produkcyjnym musimy go opublikować. Podczas publikowania elementu Runbook można zastąpić istniejącą wersję opublikowaną wersją roboczą. W naszym przypadku nie mamy jeszcze wersji opublikowanej, ponieważ dopiero utworzyliśmy element Runbook.
+Nowo utworzony element Runbook nadal działa w trybie roboczym. Przed uruchomieniem elementu w środowisku produkcyjnym musimy go opublikować. Podczas publikowania elementu Runbook można zastąpić istniejącą wersję opublikowaną wersją roboczą. W naszym przypadku nie mamy jeszcze wersji opublikowanej, ponieważ element Runbook został dopiero utworzony.
 
 1.  Kliknij przycisk **Opublikuj**, aby opublikować element Runbook, a następnie kliknij opcję **Tak** po wyświetleniu monitu.  
     ![Przycisk Opublikuj](media/automation-first-runbook-textual-powershell/automation-publish-button.png)  
@@ -80,7 +80,7 @@ Nowo utworzony element Runbook nadal działa w trybie roboczym. Przed uruchomien
 5.  Zostanie otwarte okienko zadania elementu Runbook, który właśnie utworzyliśmy. Możemy zamknąć to okienko, ale w tym przypadku pozostawimy je otwarte, aby obserwować postęp zadania.
 6.  Stan zadania jest wyświetlany w oknie **Podsumowanie zadania** i odpowiada stanom obserwowanym podczas testowania elementu Runbook.  
     ![Podsumowanie zadania](media/automation-first-runbook-textual-powershell/automation-job-summary.png)  
-7.  Gdy stanem elementu Runbook będzie *Ukończono*, kliknij pozycję **Dane wyjściowe**. Zostanie otwarte okienko danych wyjściowych z naszym ciągiem *Witaj, świecie*.  
+7.  Gdy stan elementu Runbook zmieni się na *Ukończono*, kliknij pozycję **Dane wyjściowe**. Zostanie otwarte okienko danych wyjściowych z naszym ciągiem *Witaj, świecie*.  
     ![Dane wyjściowe zadania](media/automation-first-runbook-textual-powershell/automation-job-output.png)
 8.  Zamknij okienko danych wyjściowych.
 9.  Kliknij pozycję **Wszystkie dzienniki**, aby otworzyć okienko strumieni dla zadania elementu Runbook. W strumieniu danych wyjściowych powinien być widoczny tylko ciąg *Witaj, świecie*, ale mogą zostać wyświetlone inne strumienie zadania elementu Runbook, takie jak Pełne informacje i Błąd, jeśli element Runbook wykonuje w nich operacje zapisywania.  
@@ -92,7 +92,7 @@ Nowo utworzony element Runbook nadal działa w trybie roboczym. Przed uruchomien
 
 ## Krok 5. Dodawanie uwierzytelniania w celu zarządzania zasobami platformy Azure
 
-Nasz element Runbook został przetestowany i opublikowany, ale jak do tej pory nie wykonuje on żadnych użytecznych czynności. Chcemy, aby ten element zarządzał zasobami platformy Azure. Będzie to jednak niemożliwe do momentu uwierzytelnienia go przy użyciu poświadczeń podanych w części dotyczącej [wymagań wstępnych](#prerequisites). Czynność tę możemy wykonać przy użyciu polecenia cmdlet **Add-AzureRmAccount**.
+Element Runbook został przetestowany i opublikowany, ale jak do tej pory nie wykonuje on żadnych użytecznych czynności. Chcemy, aby zarządzał zasobami platformy Azure. Będzie to jednak niemożliwe do momentu uwierzytelnienia go przy użyciu poświadczeń podanych w części dotyczącej [wymagań wstępnych](#prerequisites). Czynność tę możemy wykonać przy użyciu polecenia cmdlet **Add-AzureRmAccount**.
 
 1.  Otwórz edytor tekstów, klikając pozycję **Edytuj** w okienku MyFirstRunbook-PowerShell.  
     ![Edytowanie elementu Runbook](media/automation-first-runbook-textual-powershell/automation-edit-runbook.png)  
@@ -106,18 +106,18 @@ Nasz element Runbook został przetestowany i opublikowany, ale jak do tej pory n
     ``` 
 <br>
 4.  Kliknij pozycję **Okienko testowania**, aby umożliwić przetestowanie elementu Runbook.
-5.  Kliknij opcję **Uruchom**, aby rozpocząć test. Po zakończeniu powinny pojawić się dane wyjściowe zawierające podstawowe informacje powiązane z kontem. Będzie to potwierdzenie, że poświadczenie jest prawidłowe. <br> ![Uwierzytelnianie](media/automation-first-runbook-textual-powershell/runbook-auth-results.png)
+5.  Kliknij opcję **Uruchom**, aby rozpocząć test. Po zakończeniu powinny pojawić się dane wyjściowe podobne do poniższych, zawierające podstawowe informacje powiązane z kontem. Będzie to potwierdzenie, że poświadczenie jest prawidłowe. <br> ![Uwierzytelnianie](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
 
 ## Krok 6. Dodawanie kodu w celu uruchomienia maszyny wirtualnej
 
-Teraz, gdy nasz element Runbook jest uwierzytelniany w subskrypcji platformy Azure, możemy zarządzać zasobami. Dodamy polecenie, aby uruchomić maszynę wirtualną. Możesz wybrać dowolną maszynę wirtualną w ramach subskrypcji Azure. Wybrana nazwa zostanie teraz trwale zakodowana w poleceniu cmdlet.
+Teraz, gdy nasz element Runbook jest uwierzytelniany w subskrypcji platformy Azure, możemy zarządzać zasobami. Dodamy polecenie, aby uruchomić maszynę wirtualną. Możesz wybrać dowolną maszynę wirtualną w ramach subskrypcji Azure. Wybrana nazwa zostanie trwale zakodowana w poleceniu cmdlet.
 
 1.  Po poleceniu *Add-AzureRmAccount* wpisz polecenie *Start-AzureRmVM -Name 'nazwa_maszyny_wirtualnej' -ResourceGroupName 'nazwa_grupy_zasobów'*, podając nazwę maszyny wirtualnej do uruchomienia i nazwę jej grupy zasobów.  
     
     ```
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationID `$Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint 
+     -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint 
      Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
      ```
 <br>
@@ -126,7 +126,7 @@ Teraz, gdy nasz element Runbook jest uwierzytelniany w subskrypcji platformy Azu
 
 ## Krok 7. Dodawanie parametru wejściowego do elementu Runbook
 
-Obecnie nasz element Runbook uruchamia maszynę wirtualną trwale zakodowaną w elemencie Runbook, ale bardziej użyteczna byłaby możliwość wybrania maszyny wirtualnej po uruchomieniu elementu Runbook. Teraz — aby to umożliwić — dodamy parametry wejściowe do elementu Runbook.
+Obecnie nasz element Runbook uruchamia maszynę wirtualną trwale w nim zakodowaną, ale bardziej użyteczna byłaby możliwość wybrania maszyny wirtualnej po uruchomieniu elementu Runbook. Aby to umożliwić, dodamy do elementu Runbook parametry wejściowe.
 
 1.  Dodaj parametry *VMName* i *ResourceGroupName* do elementu Runbook i użyj tych zmiennych z poleceniem cmdlet **Start AzureRmVM**, tak jak w przykładzie poniżej.  
     
@@ -137,11 +137,11 @@ Obecnie nasz element Runbook uruchamia maszynę wirtualną trwale zakodowaną w 
     )
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationID `$Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint 
+     -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint 
      Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
      ```
 <br> 
-2.  Zapisz element Runbook, a następnie otwórz okienko testowania. Teraz możesz podać wartości dwóch zmiennych wejściowych, które będą używane w teście.
+2.  Zapisz element Runbook, a następnie otwórz okienko testowania. Teraz możesz podać wartości dwóch zmiennych wejściowych, które zostaną użyte w teście.
 3.  Zamknij okienko testowania.
 4.  Kliknij pozycję **Opublikuj**, aby opublikować nową wersję elementu Runbook.
 5.  Zatrzymaj maszynę wirtualną uruchomioną w poprzednim kroku.
@@ -167,6 +167,6 @@ Elementy Runbook programu PowerShell mają taki sam cykl życia, możliwości i 
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

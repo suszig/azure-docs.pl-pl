@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Sposoby tworzenia, zarządzania i usuwania konta magazynu w klasycznym Portalu Azure | Microsoft Azure"
+    pageTitle="Sposoby tworzenia i usuwania konta magazynu oraz zarządzania nim w klasycznym Portalu Azure | Microsoft Azure"
     description="Utwórz nowe konto magazynu, zarządzaj kluczami dostępu do konta lub usuń konto magazynu w Portalu Azure. Więcej informacji na temat kont magazynu (warstwy Standardowa i Premium)."
     services="storage"
     documentationCenter=""
@@ -13,13 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/09/2016"
+    ms.date="07/26/2016"
     ms.author="robinsh"/>
 
 
 # Informacje o kontach magazynu Azure
 
 [AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## Omówienie
 
@@ -27,12 +29,12 @@ Konto usługi Azure Storage zapewnia dostęp do usług obiektów Blob, kolejek, 
 
 Istnieją dwa typy kont magazynu:
 
-- Standardowe konto magazynu obejmuje Magazyn obiektów Blob, tabel, kolejek i plików.
-- Konto magazynu w warstwie Premium obecnie obsługuje wyłącznie dyski maszyn wirtualnych Azure. Zobacz temat [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md) (Magazyn Premium: wysoce wydajny magazyn do obciążeń maszyn wirtualnych platformy Azure), aby uzyskać szczegółowe informacje o magazynie Premium.
+- Standardowe konto magazynu obejmuje usługi Blob Storage, Table Storage, Queue Storage i File Storage.
+- Konto magazynu w warstwie Premium obecnie obsługuje wyłącznie dyski maszyn wirtualnych Azure. Zobacz temat [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md) (Premium Storage: usługa Storage o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure), aby uzyskać szczegółowe informacje o usłudze Premium Storage.
 
 ## Rozliczanie konta usługi Storage
 
-Rozliczenie jest przeprowadzane na podstawie wykorzystania usługi Azure Storage w oparciu o Twoje konto magazynu. Koszty usługi Storage są oparte na czterech czynnikach: pojemności magazynu, schematu replikacji, transakcjach magazynu i wyjścia danych.
+Rozliczenie jest przeprowadzane na podstawie wykorzystania usługi Azure Storage w oparciu o Twoje konto magazynu. Koszty usługi Storage są oparte na czterech czynnikach: pojemności magazynu, schemacie replikacji, transakcjach magazynu i wyjściu danych.
 
 - Pojemność usługi Storage dotyczy stopnia wykorzystania przydziału konta magazynu do przechowywania danych. Koszt samego przechowywania danych jest określany na podstawie faktycznej ilości przechowywanych danych oraz sposobu ich replikacji.
 - Replikacja określa liczbę kopii danych, które są obsługiwane jednocześnie, i ich lokalizacje.
@@ -49,13 +51,13 @@ Aby uzyskać szczegółowe informacje o celach dotyczących pojemności i wydajn
 
 1. Zaloguj się do [klasycznego Portalu Azure](https://manage.windowsazure.com).
 
-2. Kliknij przycisk **Nowe** na pasku zadań u dołu strony. Wybierz kolejno pozycje **Usługi danych** | **Usługa Storage**, a następnie kliknij przycisk **Szybkie tworzenie**.
+2. Kliknij przycisk **Nowe** na pasku zadań u dołu strony. Wybierz kolejno pozycje **Data Services** | **Storage**, a następnie kliknij przycisk **Szybkie tworzenie**.
 
     ![Nowe konto magazynu](./media/storage-create-storage-account-classic-portal/storage_NewStorageAccount.png)
 
 3. W polu **Adres URL** wprowadź nazwę konta magazynu.
 
-    > [AZURE.NOTE] Nazwy kont usługi Magazyn muszą mieć długość od 3 do 24 znaków i mogą zawierać tylko cyfry i małe litery.
+    > [AZURE.NOTE] Nazwy kont usługi Storage muszą mieć długość od 3 do 24 znaków i mogą zawierać tylko cyfry i małe litery.
     >  
     > Nazwa konta magazynu musi być unikatowa w obrębie platformy Azure. Klasyczny Portal Azure poinformuje Cię, jeśli wybrana nazwa konta magazynu jest już zajęta.
 
@@ -89,21 +91,21 @@ Jeśli na przykład konto magazynu ma nazwę *mojekontomagazynu*, domyślnymi pu
 
 - Usługa Blob: http://*mojekontomagazynu*.blob.core.windows.net
 
-- Usługa tabel: http://*mojekontomagazynu*.table.core.windows.net
+- Usługa Table service: http://*mojekontomagazynu*.table.core.windows.net
 
 - Usługa kolejki: http://*mojekontomagazynu*.queue.core.windows.net
 
 - Usługa plików http://*mojekontomagazynu*.file.core.windows.net
 
-Po utworzeniu konta możesz zobaczyć punkty końcowe konta magazynu w pulpicie nawigacyjnym magazynu w [klasycznym Portalu Azure](https://manage.windowsazure.com).
+Po utworzeniu konta możesz zobaczyć punkty końcowe konta magazynu w pulpicie nawigacyjnym magazynu w [klasycznej witrynie Azure Portal](https://manage.windowsazure.com).
 
 Adres URL dostępu do obiektu w koncie magazynu jest tworzony przez dodanie lokalizacji obiektu na koncie magazynu do punktu końcowego. Przykładowo adres obiektu Blob może mieć następujący format: http://*mojekontomagazynu*.blob.core.windows.net/*mojkontener*/*mojblob*.
 
-Możesz również skonfigurować niestandardową nazwę domeny do użycia ze swoim kontem magazynu. Zobacz temat [Configure a custom domain name for your blob storage endpoint](storage-custom-domain-name.md) (Konfigurowanie niestandardowej nazwy domeny dla punktu końcowego Magazynu obiektów Blob), aby uzyskać więcej szczegółów.
+Możesz również skonfigurować niestandardową nazwę domeny do użycia ze swoim kontem magazynu. Zobacz temat [Configure a custom domain name for your blob storage endpoint](storage-custom-domain-name.md) (Konfigurowanie niestandardowej nazwy domeny dla punktu końcowego magazynu obiektów Blob), aby uzyskać więcej szczegółów.
 
 ### Wspólna lokalizacja usługi z grupą koligacji
 
-*Grupa koligacji* to sposób geograficznego grupowania usług i maszyn wirtualnych platformy Azure z kontem magazynu Azure. Grupa koligacji może poprawić wydajność usługi poprzez przydzielenie obciążeń komputerowych w tym samym centrum danych lub w pobliżu docelowych odbiorców użytkownika. Ponadto, jeśli do danych na koncie magazynu uzyskuje się dostęp z innej usługi, która jest częścią tej samej grupy koligacji, nie są naliczane opłaty za wyjście danych.
+*Grupa koligacji* to sposób geograficznego grupowania usług i maszyn wirtualnych platformy Azure z kontem usługi Azure Storage. Grupa koligacji może poprawić wydajność usługi poprzez przydzielenie obciążeń komputerowych w tym samym centrum danych lub w pobliżu docelowych odbiorców użytkownika. Ponadto, jeśli do danych na koncie magazynu uzyskuje się dostęp z innej usługi, która jest częścią tej samej grupy koligacji, nie są naliczane opłaty za wyjście danych.
 
 > [AZURE.NOTE]  Aby utworzyć grupę koligacji, otwórz obszar <b>Ustawienia</b> w [klasycznym Portalu Azure](https://manage.windowsazure.com), kliknij pozycję <b>Grupy koligacji</b>, a następnie kliknij pozycję <b>Dodaj grupę koligacji</b> lub przycisk <b>Dodaj</b>. Możesz też utworzyć grupy koligacji i zarządzać nimi za pomocą interfejsu API zarządzania usługami Azure. Aby uzyskać więcej informacji, zobacz temat <a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">Operations on affinity groups</a> (Operacje na grupach koligacji).
 
@@ -113,13 +115,13 @@ Podczas tworzenia konta magazynu platforma Azure generuje dwa 512-bitowe klucze 
 
 > [AZURE.NOTE] Nie zaleca się udostępniania kluczy dostępu do magazynu innym osobom. Aby zezwolić na dostęp do zasobów magazynu bez przekazywania kluczy dostępu, możesz użyć *sygnatury dostępu współdzielonego*. Sygnatura dostępu współdzielonego zapewnia dostęp do zasobów na koncie przez określony czas i z określonymi uprawnieniami. Aby uzyskać więcej informacji, zobacz [Sygnatury dostępu współdzielonego: opis modelu sygnatur dostępu współdzielonego](storage-dotnet-shared-access-signature-part-1.md).
 
-W [klasycznym Portalu Azure](https://manage.windowsazure.com) użyj opcji **Zarządzanie kluczami** na pulpicie nawigacyjnym lub strony **Usługa Storage**, aby wyświetlić, skopiować i ponownie wygenerować klucze dostępu do magazynu, które są wykorzystywane do zapewniania dostępu do usług obiektów Blob, tabel i kolejek.
+W [klasycznej witrynie Azure Portal](https://manage.windowsazure.com) użyj opcji **Zarządzanie kluczami** na pulpicie nawigacyjnym lub strony **Usługa Storage**, aby wyświetlić, skopiować i ponownie wygenerować klucze dostępu do magazynu, które są wykorzystywane do zapewniania dostępu do usług obiektów Blob, tabel i kolejek.
 
 ### Kopiowanie klucza dostępu do magazynu  
 
-Możesz użyć opcji **Zarządzanie kluczami**, aby skopiować klucz dostępu do magazynu w celu wykorzystania go w parametrach połączenia. Parametry połączenia wymagają nazwy konta magazynu oraz klucza do wykorzystania w procesie uwierzytelniania. Aby uzyskać informacje o konfigurowaniu parametrów połączenia w celu uzyskania dostępu do usług magazynu platformy Azure, zobacz temat [Konfiguracja parametrów połączenia usługi Azure Storage](storage-configure-connection-string.md).
+Możesz użyć opcji **Zarządzanie kluczami**, aby skopiować klucz dostępu do magazynu w celu wykorzystania go w parametrach połączenia. Parametry połączenia wymagają nazwy konta magazynu oraz klucza do wykorzystania w procesie uwierzytelniania. Aby uzyskać informacje o konfigurowaniu parametrów połączenia w celu uzyskania dostępu do usług Azure Storage, zobacz temat [Konfiguracja parametrów połączenia usługi Azure Storage](storage-configure-connection-string.md).
 
-1. W [klasycznym Portalu Azure](https://manage.windowsazure.com) kliknij opcję **Usługa Storage**, a następnie kliknij nazwę konta magazynu, aby otworzyć pulpit nawigacyjny.
+1. W [klasycznej witrynie Azure Portal](https://manage.windowsazure.com) kliknij opcję **Usługa Storage**, a następnie kliknij nazwę konta magazynu, aby otworzyć pulpit nawigacyjny.
 
 2. Kliknij przycisk **Zarządzanie kluczami**.
 
@@ -159,7 +161,7 @@ Aby usunąć konto magazynu, którego już nie używasz, użyj polecenia **Usuń
 >
 > Jeśli Twoje konto magazynu zawiera pliki VHD dla maszyny wirtualnej Azure, przed usunięciem konta magazynu musisz usunąć wszystkie obrazy i dyski, które korzystają z tych plików VHD. Najpierw zatrzymaj maszynę wirtualną, jeśli jest uruchomiona, a następnie usuń ją. Aby usunąć dyski, przejdź do karty **Dyski** i usuń wszystkie dyski w tym miejscu. Aby usunąć obrazy, przejdź do karty **Obrazy** i usuń wszelkie obrazy przechowywane na koncie.
 
-1. W [klasycznym Portalu Azure](https://manage.windowsazure.com) kliknij pozycję **Usługa Storage**.
+1. W [klasycznej witrynie Azure Portal](https://manage.windowsazure.com) kliknij pozycję **Usługa Storage**.
 
 2. Kliknij w dowolnym miejscu wpisu konta magazynu (poza nazwą), a następnie kliknij przycisk **Usuń**.
 
@@ -177,6 +179,6 @@ Aby usunąć konto magazynu, którego już nie używasz, użyj polecenia **Usuń
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
 # Przekazywanie danych do usługi Azure Search
@@ -41,12 +41,12 @@ To podejście jest bardziej elastyczne niż model polegający na ściąganiu, po
 
 Model polegający na ściąganiu obejmuje przeszukiwanie obsługiwanego źródła danych i automatyczne przekazywanie danych do indeksu usługi Azure Search. Dzięki śledzeniu zmian i usuwania istniejących dokumentów oraz rozpoznawaniu nowych dokumentów indeksatory eliminują konieczność aktywnego zarządzania danymi w indeksie.
 
-W usłudze Azure Search ta możliwość jest wdrożona za pomocą *indeksatorów*, które obecnie są dostępne dla [magazynu obiektów Blob (wersja zapoznawcza)](search-howto-indexing-azure-blob-storage.md), usługi [DocumentDB](http://aka.ms/documentdb-search-indexer), [usługi Azure SQL Database oraz programu SQL Server na maszynach wirtualnych Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md).
+W usłudze Azure Search ta możliwość jest wdrożona za pomocą *indeksatorów*, które obecnie są dostępne dla [usługi Blob Storage (wersja zapoznawcza)](search-howto-indexing-azure-blob-storage.md), usługi [DocumentDB](http://aka.ms/documentdb-search-indexer), [usługi Azure SQL Database oraz programu SQL Server na maszynach wirtualnych Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md).
 
-Funkcja indeksatora jest widoczna w [Portalu Azure](search-import-data-portal.md) oraz w interfejsie [API REST](https://msdn.microsoft.com/library/azure/dn946891.aspx).
+Funkcja indeksatora jest widoczna w witrynie [Azure Portal](search-import-data-portal.md) oraz w interfejsie [API REST](https://msdn.microsoft.com/library/azure/dn946891.aspx).
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -1,6 +1,6 @@
 <properties
     pageTitle="Usługi domenowe Azure AD: włączanie synchronizacji haseł | Microsoft Azure"
-    description="Wprowadzenie do Usług domenowych Azure Active Directory"
+    description="Wprowadzenie do usługi Active Directory Domain Services"
     services="active-directory-ds"
     documentationCenter=""
     authors="mahesh-unnikrishnan"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
+    ms.date="07/06/2016"
     ms.author="maheshu"/>
 
 # Usługi domenowe Azure AD *(wersja zapoznawcza)* — włączanie synchronizacji haseł w Usługach domenowych Azure AD
@@ -40,7 +40,7 @@ Na komputerze przyłączonym do domeny trzeba zainstalować najnowszą zalecaną
 
 **[Pobieranie programu Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-Zalecana wersja: **1.1.130.0** — opublikowana 12 kwietnia 2016 r.
+Zalecana wersja: **1.1.189.0** — opublikowana 3 czerwca 2016 r.
 
   > [AZURE.WARNING] Aby umożliwić synchronizowanie poświadczeń haseł w starszej wersji (wymaganych podczas uwierzytelniania NTLM i Kerberos) z dzierżawą usługi Azure AD, MUSISZ zainstalować najnowszą zalecaną wersję programu Azure AD Connect. Ta funkcja nie jest dostępna w poprzednich wersjach programu Azure AD Connect ani starszej wersji narzędzia DirSync.
 
@@ -82,6 +82,6 @@ Czas synchronizacji poświadczeń z usługą Azure AD zależy od rozmiaru katalo
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

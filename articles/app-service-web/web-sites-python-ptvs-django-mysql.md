@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="python"
     ms.topic="get-started-article" 
-    ms.date="06/01/2016"
+    ms.date="07/07/2016"
     ms.author="huvalo"/>
 
 # Obsługa platformy Django i bazy danych MySQL na platformie Azure przy użyciu narzędzi Python Tools 2.2 for Visual Studio 
@@ -26,22 +26,22 @@ W ramach tego samouczka użyjesz narzędzi [Python Tools for Visual Studio] (PTV
 > 
 > [PTVS 2.1: Aplikacja Django z obsługą MySQL]([wideo])
 
-Więcej artykułów o programowaniu funkcji Web Apps w usłudze Azure App Service przy użyciu narzędzi PTVS, środowisk sieci Web Bottle, Flask i Django oraz usług baz danych MongoDB, MySQL, SQL Database i Azure Table Storage możesz znaleźć w [Centrum deweloperów języka Python]. Chociaż ten artykuł dotyczy usługi App Service, opisane kroki są podobne do programowania [usług Azure Cloud Services].
+Więcej artykułów o programowaniu aplikacji Web Apps w usłudze Azure App Service przy użyciu narzędzi PTVS, środowisk sieci Web Bottle, Flask i Django oraz usług baz danych Azure Table Storage, MySQL i SQL Database możesz znaleźć w [Centrum deweloperów języka Python]. Chociaż ten artykuł dotyczy usługi App Service, opisane kroki są podobne do programowania [usług Azure Cloud Services].
 
 ## Wymagania wstępne
 
- - Program Visual Studio w wersji 2013 lub 2015
- - [32-bitowe środowisko Python w wersji 2.7]
- - [Narzędzia Python Tools 2.2 for Visual Studio]
+ - Visual Studio 2015
+ - [32-bitowe środowisko Python w wersji 2.7] lub [32-bitowe środowisko Python w wersji 3.4]
+ - [Python Tools 2.2 for Visual Studio]
  - [Zestaw przykładów VSIX dla narzędzi Python Tools 2.2 for Visual Studio]
- - [Azure SDK Tools for VS 2013] lub [Azure SDK Tools for VS 2015]
- - Django w wersji 1.6 lub starszej
+ - [Azure SDK Tools for VS 2015]
+ - Django 1.9 lub nowsze
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 <!-- This note should not render as part of the the previous include. -->
 
-> [AZURE.NOTE] Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) (Wypróbuj usługę App Service), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Karta kredytowa nie jest wymagana i nie musisz się do niczego zobowiązywać.
+> [AZURE.NOTE] Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service](http://go.microsoft.com/fwlink/?LinkId=523751), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Karta kredytowa nie jest wymagana i nie musisz się do niczego zobowiązywać.
 
 ## Tworzenie projektu
 
@@ -49,7 +49,7 @@ W tej sekcji utworzysz projekt programu Visual Studio przy użyciu przykładoweg
 
 1. W programie Visual Studio wybierz pozycje **Plik**, **Nowy projekt**.
 
-1. Szablony projektu z zestawu przykładów VSIX dla narzędzi PTVS są dostępne w menu **Python**, **Przykłady**. Wybierz pozycję **Polls Django Web Project** (Projekt sieci Web Django z ankietą) i kliknij przycisk OK, aby utworzyć projekt.
+1. Szablony projektu z [Zestaw przykładów VSIX dla narzędzi Python Tools 2.2 for Visual Studio] są dostępne w menu **Python**, **Przykłady**. Wybierz pozycję **Polls Django Web Project** (Projekt sieci Web Django z ankietą) i kliknij przycisk OK, aby utworzyć projekt.
 
     ![Okno dialogowe Nowy projekt](./media/web-sites-python-ptvs-django-mysql/PollsDjangoNewProject.png)
 
@@ -57,17 +57,13 @@ W tej sekcji utworzysz projekt programu Visual Studio przy użyciu przykładoweg
 
     ![Okno dialogowe Pakiety zewnętrzne](./media/web-sites-python-ptvs-django-mysql/PollsDjangoExternalPackages.png)
 
-1. Wybierz jako podstawowy interpreter **Python 2.7**.
+1. Wybierz jako podstawowy interpreter **Python 2.7** lub **Python 3.4**.
 
     ![Okno dialogowe Dodawanie środowiska wirtualnego](./media/web-sites-python-ptvs-django-mysql/PollsCommonAddVirtualEnv.png)
 
-1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy węzeł projektu i wybierz polecenie **Python**, a następnie polecenie **Baza danych synchronizacji Django**.
-
-    ![Polecenie Baza danych synchronizacji Django](./media/web-sites-python-ptvs-django-mysql/PollsDjangoSyncDB.png)
+1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy węzeł projektu i wybierz pozycję **Python**, a następnie wybierz pozycję **Migracja platformy Django**.  Następnie wybierz pozycję **Django — tworzenie administratora**.
 
 1. Spowoduje to otwarcie konsoli zarządzania Django i utworzenie bazy danych SQLite w folderze projektu. Postępuj zgodnie z monitami, aby utworzyć użytkownika.
-
-    ![Okno konsoli zarządzania Django](./media/web-sites-python-ptvs-django-mysql/PollsDjangoConsole.png)
 
 1. Sprawdź, czy aplikacja działa, naciskając `F5`.
 
@@ -99,13 +95,7 @@ Wykonując poniższe kroki, możesz utworzyć bazę danych z użyciem planu Free
 
 1. W górnej części okienka nawigacji kliknij kolejno pozycje: **NOWE**, **Dane i przechowywanie**, **Baza danych MySQL**. 
 
-1. Wpisz „**mysql**” w polu wyszukiwania, a następnie kliknij kolejno pozycje: **Baza danych MySQL** i **Utwórz**.
-
-    <!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
-
 1. Skonfiguruj nową bazę danych MySQL, tworząc nową grupę zasobów i wybierając dla niej odpowiednią lokalizację.
-
-    <!-- ![Personalize Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon2.png) -->
 
 1. Po utworzeniu bazy danych MySQL kliknij przycisk **Właściwości** w bloku bazy danych.
 
@@ -135,15 +125,13 @@ W tej sekcji skonfigurujesz swoją aplikację sieci Web tak, aby używała utwor
 
 1. W Eksploratorze rozwiązań w obszarze **Środowiska Python** kliknij prawym przyciskiem myszy środowisko wirtualne i wybierz polecenie **Zainstaluj pakiet języka Python**.
 
-1. Zainstaluj pakiet `mysql-python`, korzystając z opcji **easy_install**.
+1. Zainstaluj pakiet `mysqlclient`, korzystając z polecenia **pip**.
 
     ![Okno dialogowe Instalowanie pakietu](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLInstallPackage.png)
 
-1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy węzeł projektu i wybierz polecenie **Python**, a następnie polecenie **Baza danych synchronizacji Django**.
+1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy węzeł projektu i wybierz pozycję **Python**, a następnie wybierz pozycję **Migracja platformy Django**.  Następnie wybierz pozycję **Django — tworzenie administratora**.
 
     Spowoduje to utworzenie tabel w bazie danych MySQL utworzonej w poprzedniej sekcji. Postępuj zgodnie z monitami, aby utworzyć użytkownika. Nie musi on być taki sam, jak użytkownik w bazie danych SQLite utworzonej w pierwszej sekcji tego artykułu.
-
-    ![Okno konsoli zarządzania Django](./media/web-sites-python-ptvs-django-mysql/PollsDjangoConsole.png)
 
 1. Uruchom aplikację klawiszem `F5`. Ankieta utworzona za pomocą funkcji **Tworzenie przykładowej ankiety** oraz dane przesłane podczas głosowania zostaną zserializowane w bazie danych MySQL.
 
@@ -155,7 +143,7 @@ Zestaw .NET SDK platformy Azure pozwala łatwo wdrożyć aplikację sieci Web w 
 
     ![Okno dialogowe Publikowanie w sieci Web](./media/web-sites-python-ptvs-django-mysql/PollsCommonPublishWebSiteDialog.png)
 
-1. Kliknij pozycję **Microsoft Azure Web Apps**.
+1. Kliknij pozycję **Usługa aplikacji Microsoft Azure**.
 
 1. Kliknij pozycję **Nowa**, aby utworzyć nową aplikację sieci Web.
 
@@ -165,8 +153,6 @@ Zestaw .NET SDK platformy Azure pozwala łatwo wdrożyć aplikację sieci Web w 
     - **Grupa zasobów**
     - **Region**
     - W polu **Serwer bazy danych** pozostaw wartość **Brak bazy danych**
-
-    <!-- ![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-django-mysql/PollsCommonCreateWebSite.png) -->
 
 1. Zaakceptuj wszystkie inne ustawienia domyślne i kliknij przycisk **Opublikuj**.
 
@@ -200,9 +186,9 @@ Więcej informacji możesz znaleźć w [Centrum deweloperów języka Python](/de
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Narzędzia Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Zestaw przykładów VSIX dla narzędzi Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [32-bitowe środowisko Python w wersji 2.7]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[32-bitowe środowisko Python w wersji 3.4]: http://go.microsoft.com/fwlink/?LinkId=517191
 [Dokumentacja narzędzi Python Tools for Visual Studio]: http://aka.ms/ptvsdocs
 [Debugowanie zdalne na platformie Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
 [Projekty sieci Web]: http://go.microsoft.com/fwlink/?LinkId=624027
@@ -213,6 +199,6 @@ Więcej informacji możesz znaleźć w [Centrum deweloperów języka Python](/de
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

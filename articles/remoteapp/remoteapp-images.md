@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/05/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Co zawierają obrazy szablonów usługi Azure RemoteApp?
+
+> [AZURE.IMPORTANT]
+> Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Subskrypcja usługi Azure RemoteApp obejmuje trzy obrazy szablonów:
 
@@ -57,11 +60,11 @@ Usługa Office 365 jest najbardziej pożądaną aplikacją, dlatego utworzyliśm
 Ten obraz jest rozszerzeniem obrazu podstawowego i oprócz składników zawartych w obrazie systemu Windows Server 2012 R2 zawiera następujące zainstalowane składniki usługi Microsoft Office 365 ProPlus:
 
 
-- Access
+- Dostęp
 - Excel
 - Lync
 - OneNote
-- OneDrive dla Firm
+- OneDrive dla Firm (zauważ, że użycie agenta synchronizacji z usługą Azure RemoteApp nie jest obsługiwane)
 - Outlook
 - PowerPoint
 - Word
@@ -94,7 +97,7 @@ Ten obraz jest rozszerzeniem obrazu podstawowego i oprócz składników zawartyc
 - Excel
 - Lync
 - OneNote
-- OneDrive dla Firm
+- OneDrive dla Firm (zauważ, że użycie agenta synchronizacji z usługą Azure RemoteApp nie jest obsługiwane)
 - Outlook
 - PowerPoint
 - Project
@@ -106,6 +109,6 @@ Ten obraz jest rozszerzeniem obrazu podstawowego i oprócz składników zawartyc
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -12,15 +12,12 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/20/2016"
+    ms.date="08/10/2016"
     ms.author="awills"/>
 
 # Monitorowanie dostępności i czasu odpowiedzi dowolnej witryny sieci Web
 
-
-[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
-
-Po wdrożeniu aplikacji sieci Web możesz skonfigurować testy sieci Web, aby monitorować jej dostępność i czas odpowiedzi. Usługa Application Insights będzie wysyłać żądania sieci Web w regularnych odstępach czasu z punktów na całym świecie, a jeśli aplikacja będzie odpowiadać powoli lub wcale, usługa może poinformować Cię o tym za pomocą alertu.
+Po wdrożeniu aplikacji sieci Web na dowolnym hoście można skonfigurować testy sieci Web, aby monitorować jej dostępność i czas odpowiedzi. Usługa [Application Insights w programie Visual Studio](app-insights-overview.md) wysyła żądania sieci Web w regularnych odstępach czasu z punktów na całym świecie, a jeśli aplikacja będzie odpowiadać powoli lub wcale, usługa może poinformować Cię o tym za pomocą alertu.
 
 ![Przykład testu sieci Web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
@@ -40,7 +37,7 @@ Można utworzyć maksymalnie 10 testów sieci Web na każdy zasób aplikacji.
 
 Pomiń ten krok, jeśli masz już [skonfigurowany zasób usługi Application Insights][rozpoczynanie] dla tej aplikacji i chcesz zobaczyć dane dostępności w tym samym miejscu.
 
-Zaloguj się do platformy [Microsoft Azure](http://azure.com), przejdź do [portalu Azure](https://portal.azure.com) i utwórz nowy zasób usługi Application Insights.
+Zaloguj się do platformy [Microsoft Azure](http://azure.com), przejdź do witryny [Azure Portal](https://portal.azure.com) i utwórz zasób usługi Application Insights.
 
 ![Nowy > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
@@ -69,7 +66,7 @@ W zasobie usługi Application Insights poszukaj kafelka Dostępność. Kliknij g
 
 - **Alerty** są domyślnie wysyłane, jeśli błędy występują w trzech lokalizacjach przez ponad pięć minut. Błąd w jednej lokalizacji prawdopodobnie wynika z problemu z siecią, a nie z witryną. Próg błędu można jednak zmienić na mniej lub bardziej wrażliwy. Zmienić można też adresata wiadomości e-mail z alertami.
 
-    Skonfigurować można również [element webhook](../azure-portal/insights-webhooks-alerts.md), który jest wywoływany w momencie zgłoszenia alertu.
+    Skonfigurować można również [element webhook](../azure-portal/insights-webhooks-alerts.md), który jest wywoływany w momencie zgłoszenia alertu. Należy jednak pamiętać, że obecnie parametry zapytania nie są przekazywane jako właściwości.
 
 #### Testowanie większej liczby adresów URL
 
@@ -82,7 +79,7 @@ Po 1–2 minutach kliknij przycisk **Odśwież** w bloku Dostępność / Testy s
 
 ![Podsumowanie wyników w bloku głównym](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
-Kliknij dowolny słupek na wykresie podsumowania u góry, aby uzyskać bardziej szczegółowy widok tego okresu.
+Kliknij dowolny słupek na wykresie podsumowania, aby uzyskać bardziej szczegółowy widok tego okresu.
 
 Wykresy zawierają wyniki wszystkich testów sieci Web dotyczących tej aplikacji.
 
@@ -104,7 +101,7 @@ Lub przewiń w dół i kliknij test, który ma wynik niższy niż 100%.
 
 ![Kliknij konkretny test sieci Web](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
 
-Zostaną pokazane wyniki tego testu.
+Zostaną otwarte wyniki tego testu.
 
 ![Kliknij konkretny test sieci Web](./media/app-insights-monitor-web-app-availability/16-1test.png)
 
@@ -123,7 +120,7 @@ Kliknij wynik, aby ocenić go w portalu i zobaczyć, dlaczego zakończył się b
 Alternatywnie możesz pobrać plik wynikowy i przejrzeć go w programie Visual Studio.
 
 
-*Test wygląda dobrze, ale jest raportowany jako błąd?* Sprawdź wszystkie obrazy, skrypty, arkusze stylów i inne pliki ładowane przez stronę. Jeśli pobranie dowolnego z nich nie powiedzie się, test zostanie zgłoszony jako błąd — nawet wtedy, gdy główna strona HTML ładuje się poprawnie.
+*Test wygląda dobrze, ale jest raportowany jako błąd?* Sprawdź wszystkie obrazy, skrypty, arkusze stylów i inne pliki ładowane przez stronę. Jeśli pobranie dowolnego z nich nie powiedzie się, test zostanie zgłoszony jako nieudany — nawet wtedy, gdy główna strona HTML ładuje się poprawnie.
 
 
 
@@ -131,7 +128,7 @@ Alternatywnie możesz pobrać plik wynikowy i przejrzeć go w programie Visual S
 
 Możliwe jest monitorowanie scenariusza, który obejmuje sekwencję adresów URL. Jeśli na przykład monitorujesz witrynę sklepu, możesz sprawdzić, czy dodawanie towarów do koszyka działa prawidłowo.
 
-Aby utworzyć test wieloetapowy, nagraj scenariusz przy użyciu programu Visual Studio, a następnie przekaż nagranie do usługi Application Insights. Usługa Application Insights będzie odtwarzać ten scenariusz w określonych odstępach czasu i weryfikować odpowiedzi.
+Aby utworzyć test wieloetapowy, nagraj scenariusz przy użyciu programu Visual Studio, a następnie przekaż nagranie do usługi Application Insights. Usługa Application Insights odtwarza ten scenariusz w określonych odstępach czasu i weryfikuje odpowiedzi.
 
 Podczas testów nie można jednak używać zakodowanych funkcji. Kroki scenariusza muszą być umieszczone w pliku .webtest jako skrypt.
 
@@ -141,7 +138,7 @@ Nagraj sesję sieci Web w programie Visual Studio Enterprise lub Ultimate.
 
 1. Utwórz projekt testu wydajności sieci Web.
 
-    ![W programie Visual Studio utwórz nowy projekt z szablonu Projekt testu sieci Web i obciążenia.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![W programie Visual Studio utwórz projekt z szablonu Projekt testu sieci Web i obciążenia.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
 2. Otwórz plik .webtest i rozpocznij nagrywanie.
 
@@ -195,13 +192,13 @@ Załóżmy, że testujesz narzędzie, które pobiera dane zależne od czasu (np.
 
 Po uruchomieniu testu parametr EndTime powinien zawsze zawierać aktualny czas, a StartTime wartość czasu 15 minut wcześniej.
 
-Wtyczki testu sieci Web umożliwiają wykonanie takich podstawień.
+Wtyczki testu sieci Web umożliwiają parametryzowanie czasu.
 
 1. Dodaj wtyczkę testu sieci Web do każdej wartości parametru zmiennej, która jest potrzebna. Na pasku narzędzi testu sieci Web wybierz polecenie **Dodaj wtyczkę testu sieci Web**.
 
     ![Wybierz polecenie Dodaj wtyczkę testu sieci Web i wskaż jej typ.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
 
-    W tym przykładzie użyjemy dwóch wystąpień wtyczki typu Data i godzina. Jedno wystąpienie odpowiada wartości „15 minut temu”, a drugie „teraz”.
+    W tym przykładzie użyte zostaną dwa wystąpienia wtyczki typu Data i godzina. Jedno wystąpienie odpowiada wartości „15 minut temu”, a drugie „teraz”.
 
 2. Otwórz właściwości każdej wtyczki. Nadaj jej nazwę i skonfiguruj, aby używać czasu bieżącego. W jednej z wtyczek ustaw właściwość Dodaj minuty = -15.
 
@@ -215,20 +212,44 @@ Teraz przekaż test do portalu. Wartości dynamiczne zostaną zastosowane w każ
 
 ## Obsługa logowania
 
-Jeśli użytkownicy logują się do aplikacji, dostępnych jest kilka opcji symulowania logowania, które pozwolą przetestować strony dostępne po zalogowaniu. Zastosowane podejście zależy od typu zabezpieczeń zapewnianych przez aplikację.
+Jeśli użytkownicy logują się do aplikacji, dostępne są różne opcje symulowania logowania, które pozwolą przetestować strony dostępne po zalogowaniu. Zastosowane podejście zależy od typu zabezpieczeń zapewnianych przez aplikację.
 
-We wszystkich przypadkach należy utworzyć konto tylko na potrzeby testowania. W miarę możliwości ogranicz jego uprawnienia — najlepiej tylko do odczytu.
+We wszystkich przypadkach należy utworzyć konto w ramach aplikacji tylko na potrzeby testowania. Jeśli to możliwe, należy ograniczyć uprawnienia tego konta testowego, aby nie było możliwości, że testy sieci Web będą miały wpływ na rzeczywistych użytkowników.
 
-* Prosta nazwa użytkownika i hasło: po prostu nagraj test sieci Web w zwykły sposób. Najpierw usuń pliki cookie.
-* Uwierzytelnianie SAML. Można użyć do tego wtyczki SAML, która jest dostępna do testów sieci Web.
-* Klucz tajny klienta: jeśli aplikacja ma trasę logowania, która obejmuje klucz tajny klienta, użyj jej. Zapewnia to usługa Azure Active Directory. 
-* Uwierzytelnianie otwarte — na przykład logowanie przy użyciu konta Microsoft lub Google. Wiele aplikacji, które używają protokołu OAuth, zapewnia alternatywną obsługę klucza tajnego klienta, więc pierwszą taktyką jest zbadanie tej możliwości. Jeśli podczas testu trzeba zalogować się przy użyciu protokołu OAuth, ogólne podejście jest takie:
+### Prosta nazwa użytkownika i hasło
+
+Rejestrowanie testu sieci Web w zwykły sposób. Najpierw usuń pliki cookie.
+
+### Uwierzytelnianie SAML
+
+Użyj wtyczki SAML, która jest dostępna do testów sieci Web.
+
+### Klucz tajny klienta
+
+Jeśli aplikacja ma trasę logowania, która obejmuje klucz tajny klienta, użyj tej trasy. Azure Active Directory (AAD) to przykład usługi, która umożliwia logowanie za pomocą klucza tajnego klienta. W usłudze AAD klucz tajny klienta jest kluczem aplikacji. 
+
+Poniżej przedstawiono przykładowy test sieci Web aplikacji sieci Web platformy Azure przy użyciu klucza aplikacji:
+
+![Przykład klucza tajnego klienta](./media/app-insights-monitor-web-app-availability/110.png)
+
+1. Pobierz token z usługi AAD przy użyciu klucza tajnego klienta (AppKey).
+2. Wyodrębnij token elementu nośnego z odpowiedzi.
+3. Wywołaj interfejs API przy użyciu tokenu elementu nośnego w nagłówku autoryzacji.
+
+Upewnij się, że test sieci Web jest rzeczywistym klientem, to znaczy ma własną aplikację w usłudze AAD, i użyj jego identyfikatora klienta i klucza aplikacji. Testowana usługa również ma własną aplikację w usłudze AAD: identyfikator URI identyfikatora tej aplikacji jest uwzględniany w teście sieci Web w polu „resource”. 
+
+### Uwierzytelnianie otwarte
+
+Przykładem uwierzytelniania otwartego jest logowanie przy użyciu konta Microsoft lub Google. Wiele aplikacji, które używają protokołu OAuth, zapewnia alternatywną obsługę klucza tajnego klienta, więc przede wszystkim należy zbadać tę możliwość. 
+
+Jeśli w ramach testu należy zalogować się przy użyciu protokołu OAuth, ogólne podejście jest następujące:
+
  * Użyj narzędzia takiego jak Fiddler, aby sprawdzić ruch między przeglądarką sieci Web, witryną uwierzytelniającą a aplikacją. 
  * Wykonaj co najmniej dwa logowania na różnych komputerach lub w różnych przeglądarkach albo w długich odstępach czasu (umożliwi to wygaśnięcie tokenów).
  * Porównując różne sesje, zidentyfikuj token przekazywany z powrotem z witryny uwierzytelniającej, który jest następnie przekazywany do serwera aplikacji po zalogowaniu. 
  * Nagraj test sieci Web przy użyciu programu Visual Studio. 
  * Sparametryzuj tokeny, ustawiając parametr, gdy token jest zwracany z witryny uwierzytelniającej i używając go w zapytaniu do tej witryny.
- (Program Visual Studio będzie podejmować próby parametryzacji testu, ale parametryzacja tokenów nie przebiegnie poprawnie).
+ Program Visual Studio podejmie próby parametryzacji testu, ale parametryzacja tokenów nie przebiegnie poprawnie.
 
 
 ## <a name="edit"></a> Edytowanie lub wyłączanie testu
@@ -239,6 +260,15 @@ Otwórz wybrany test, aby go edytować lub wyłączyć.
 
 Wyłączenie testów sieci Web może być wskazane, gdy w Twojej usłudze trwa konserwacja.
 
+## Testy wydajności
+
+W witrynie sieci Web można uruchomić test obciążenia. Podobnie jak w przypadku testu dostępności można wysłać proste żądania lub żądania wieloetapowe z naszych punktów na całym świecie. W przeciwieństwie do testu dostępności wysyłanych jest wiele żądań symulujących wielu równoczesnych użytkowników.
+
+Z poziomu bloku Przegląd otwórz pozycję **Ustawienia**, **Testy wydajności**. Podczas tworzenia testu będzie miało miejsce zaproszenie do połączenia się z kontem usługi Visual Studio Team Services lub utworzenia go. 
+
+Po zakończeniu testu wyświetlane są czasy reakcji i współczynniki powodzenia.
+
+
 ## Automatyzacja
 
 * Automatyczne [konfigurowanie testów sieci web za pomocą skryptów środowiska PowerShell](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/). 
@@ -248,11 +278,11 @@ Wyłączenie testów sieci Web może być wskazane, gdy w Twojej usłudze trwa k
 
 * *Czy mogę wywołać kod z mojego testu sieci Web?*
 
-    Nie. Kroki testu muszą być zawarte w pliku .webtest. Nie można też wywoływać innych testów sieci Web ani używać pętli. Istnieje jednak wiele wtyczek, które mogą być przydatne.
+    Nie. Kroki testu muszą być zawarte w pliku .webtest. Nie można też wywoływać innych testów sieci Web ani używać pętli. Istnieje jednak kilka wtyczek, które mogą być przydatne.
 
 * *Czy jest obsługiwany protokół HTTPS?*
 
-    Obecnie obsługujemy protokół SSL 3.0 i TLS 1.0.
+    Obsługujemy protokół TLS 1.1 i TLS 1.2.
 
 * *Czym różnią się „testy sieci Web” i „testy dostępności”?*
 
@@ -260,11 +290,11 @@ Wyłączenie testów sieci Web może być wskazane, gdy w Twojej usłudze trwa k
 
 * *Chcę użyć testów dostępności na naszym serwerze wewnętrznym działającym za zaporą.*
 
-    Skonfiguruj zaporę, aby zezwolić na żądania z adresów IP wymienionych na liście na końcu tego artykułu.
+    Skonfiguruj zaporę, aby zezwolić na żądania z [adresów IP agentów testów sieci Web](app-insights-ip-addresses.md#availability).
 
 * *Przekazywanie wieloetapowego testu sieci web kończy się niepowodzeniem.*
 
-    Istnieje limit rozmiaru 300 KB.
+    Limit rozmiaru to 300 KB.
 
     Pętle nie są obsługiwane.
 
@@ -292,138 +322,20 @@ Wyłączenie testów sieci Web może być wskazane, gdy w Twojej usłudze trwa k
 
 [Wyszukiwanie dzienników diagnostycznych][diagnostyka]
 
-[Rozwiązywanie problemów][pytania i odpowiedzi].
+[Rozwiązywanie problemów][pytania_i_odpowiedzi].
 
-
-## Adresy IP testów sieci Web
-
-Jeśli musisz otworzyć zaporę, aby umożliwić testy sieci Web, w tym miejscu znajdziesz bieżącą listę adresów IP. Może się ona co jakiś czas zmieniać.
-
-Otwórz porty 80 (http) i 443 (https).
-
-```
-
-213.199.178.54
-213.199.178.55
-213.199.178.56
-213.199.178.61
-213.199.178.57
-213.199.178.58
-213.199.178.59
-213.199.178.60
-213.199.178.63
-213.199.178.64
-207.46.98.158
-207.46.98.159
-207.46.98.160
-207.46.98.157
-207.46.98.152
-207.46.98.153
-207.46.98.156
-207.46.98.162
-207.46.98.171
-207.46.98.172
-65.55.244.40
-65.55.244.17
-65.55.244.42
-65.55.244.37
-65.55.244.15
-65.55.244.16
-65.55.244.44
-65.55.244.18
-65.55.244.46
-65.55.244.47
-207.46.14.60
-207.46.14.61
-207.46.14.62
-207.46.14.55
-207.46.14.63
-207.46.14.64
-207.46.14.51
-207.46.14.52
-207.46.14.56
-207.46.14.65
-157.55.14.60
-157.55.14.61
-157.55.14.62
-157.55.14.47
-157.55.14.64
-157.55.14.65
-157.55.14.43
-157.55.14.44
-157.55.14.49
-157.55.14.50
-65.54.66.56
-65.54.66.57
-65.54.66.58
-65.54.66.61
-207.46.71.54
-207.46.71.52
-207.46.71.55
-207.46.71.38
-207.46.71.51
-207.46.71.57
-207.46.71.58
-207.46.71.37
-202.89.228.67
-202.89.228.68
-202.89.228.69
-202.89.228.57
-65.54.78.49
-65.54.78.50
-65.54.78.51
-65.54.78.54
-94.245.82.32
-94.245.82.33
-94.245.82.37
-94.245.82.38
-94.245.72.44
-94.245.72.45
-94.245.72.46
-94.245.72.49
-207.46.56.57
-207.46.56.58
-207.46.56.59
-207.46.56.67
-207.46.56.61
-207.46.56.62
-207.46.56.63
-207.46.56.64
-65.55.82.84
-65.55.82.85
-65.55.82.86
-65.55.82.81
-65.55.82.87
-65.55.82.88
-65.55.82.89
-65.55.82.90
-65.55.82.91
-65.55.82.92
-94.245.78.40
-94.245.78.41
-94.245.78.42
-94.245.78.45
-70.37.147.43
-70.37.147.44
-70.37.147.45
-70.37.147.48
-94.245.66.43
-94.245.66.44
-94.245.66.45
-94.245.66.48
-
-```
+[Adresy IP agentów testów sieci Web](app-insights-ip-addresses.md)
 
 
 <!--Link references-->
 
 [azure-availability]: ../insights-create-web-tests.md
 [diagnostyka]: app-insights-diagnostic-search.md
-[pytania i odpowiedzi]: app-insights-troubleshoot-faq.md
+[pytania_i_odpowiedzi]: app-insights-troubleshoot-faq.md
 [rozpoczynanie]: app-insights-overview.md
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

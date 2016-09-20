@@ -42,7 +42,7 @@ Obsługiwane są następujące połączenia obejmujące wiele lokalizacji:
 
 - [ExpressRoute](../expressroute/expressroute-introduction.md) — ExpressRoute to bezpośrednie połączenie z siecią Azure nawiązane z poziomu sieci WAN, a nie z publicznego Internetu. Więcej informacji zawierają tematy [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) (Opis techniczny ExpressRoute) i [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) (Usługa ExpressRoute — często zadawane pytania).
 
-Aby uzyskać więcej informacji dotyczących połączeń obejmujących wiele lokalizacji, zobacz artykuł [About secure cross-premises connectivity](vpn-gateway-cross-premises-options.md) (Informacje o bezpiecznej łączności obejmującej wiele lokalizacji).
+Więcej informacji na temat połączeń można znaleźć w artykule [About VPN Gateway](vpn-gateway-about-vpngateways.md) (Informacje o bramie VPN Gateway).
 
 ### Jaka jest różnica między połączeniem typu lokacja-lokacja i połączeniem typu punkt-lokacja?
 
@@ -52,11 +52,9 @@ Połączenia **punkt-lokacja** umożliwiają połączenie się z pojedynczego ko
 
 Sieć wirtualną można skonfigurować pod kątem równoległego użycia metod lokacja-lokacja i punkt-lokacja, pod warunkiem, że połączenie lokacja-lokacja zostanie utworzone z użyciem bramy sieci VPN opartej na trasach. Typy bramy sieci VPN oparte na trasach są w klasycznym modelu wdrażania nazywane bramami dynamicznymi.
 
-Aby uzyskać więcej informacji, zobacz temat [About secure cross-premises connectivity for virtual networks](vpn-gateway-cross-premises-options.md) (Informacje o bezpiecznej łączności dla sieci wirtualnych obejmującej wiele lokalizacji).
-
 ### Co to jest ExpressRoute?
 
-Usługa ExpressRoute umożliwia tworzenie prywatnych połączeń między centrami danych firmy Microsoft i infrastrukturą lokalną lub działającą we wspólnej lokalizacji. Dzięki usłudze ExpressRoute można nawiązywać połączenia z usługami w chmurze firmy Microsoft, takimi jak Microsoft Azure i Office 365, we wspólnej lokalizacji partnera ExpressRoute lub połączyć się bezpośrednio z istniejącej sieci WAN (takiej jak udostępnione przez dostawcę usług sieciowych usługi MPLS VPN).
+Usługa ExpressRoute umożliwia tworzenie prywatnych połączeń między centrami danych firmy Microsoft i infrastrukturą lokalną lub działającą we wspólnej lokalizacji. Dzięki usłudze ExpressRoute można nawiązywać połączenia z usługami w chmurze firmy Microsoft, takimi jak Microsoft Azure i Office 365, we wspólnej lokalizacji partnera ExpressRoute lub połączyć się bezpośrednio z istniejącej sieci WAN (takiej jak MPLS VPN udostępnianej przez dostawcę usług sieciowych).
 
 Połączenia ExpressRoute zapewniają większe bezpieczeństwo, niezawodność i przepustowość oraz niższe opóźnienia niż w typowe połączenia przez Internet. W niektórych przypadkach użycie połączeń ExpressRoute do celów transferu danych między siecią lokalną i usługą Azure może również przynieść znaczne korzyści finansowe. Po utworzeniu obejmującego wiele lokalizacji połączenia między siecią lokalną i usługą Azure można dokonać migracji do połączenia ExpressRoute przy jednoczesnym zachowaniu sieci wirtualnej bez jakichkolwiek zmian.
 
@@ -88,13 +86,17 @@ Inne rozwiązania o charakterze oprogramowania pełniącego rolę sieci VPN powi
 
 Obsługiwane są następujące systemy operacyjne:
 
-- Windows 7 (tylko wersja 64-bitowa)
+- Windows 7 (32-bitowy i 64-bitowy)
 
-- Windows Server 2008 R2
+- Windows Server 2008 R2 (tylko 64-bitowy)
 
-- Windows 8 (tylko wersja 64-bitowa)
+- Windows 8 (32-bitowy i 64-bitowy)
 
-- Windows Server 2012
+- Windows 8.1 (32-bitowy i 64-bitowy)
+
+- Windows Server 2012 (tylko 64-bitowy)
+
+- Windows Server 2012 R2 (tylko 64-bitowy)
 
 - Windows 10
 
@@ -124,7 +126,7 @@ Automatyczne ponowne nawiązywanie połączenia i DDNS nie są obecnie obsługiw
 
 ### Czy z konfiguracji typu lokacja-lokacja i punkt-lokacja można korzystać równolegle w ramach tej samej sieci wirtualnej?
 
-Tak. Oba te rozwiązania będą działać, o ile zastosowana zostanie brama VPN oparta na trasach. W przypadku klasycznego modelu wdrażania należy użyć bramy dynamicznej. Połączenia typu punkt-lokacja nie są obsługiwane w przypadku bram sieci VPN o statycznym routingu ani bram, których wartość parametru -VpnType to PolicyBased.
+Tak. Oba te rozwiązania będą działać, o ile zastosowana zostanie brama sieci VPN typu RouteBased. W przypadku klasycznego modelu wdrażania należy użyć bramy dynamicznej. Połączenia typu punkt-lokacja nie są obsługiwane w przypadku bram sieci VPN o statycznym routingu ani bram, których wartość parametru -VpnType to PolicyBased.
 
 ### Czy można skonfigurować klienta typu punkt-lokacja pod kątem jednoczesnego nawiązywania połączenia z wieloma sieciami wirtualnymi?
 
@@ -164,11 +166,11 @@ Metody uwierzytelniania ograniczają się do stosowania kluczy wstępnych (PSK).
 
 Stosujemy usługę bramy, której działanie umożliwia nawiązywanie połączeń obejmujących wiele lokalizacji. 
 
-Aby skonfigurować bramę sieci VPN, należy utworzyć podsieć bramy dla sieci wirtualnej. Aby działać prawidłowo, wszystkie podsieci bramy muszą nosić nazwę GatewaySubnet. Nie należy nadawać podsieci bramy innej nazwy. Nie należy także wdrażać maszyn wirtualnych ani innych elementów w ramach podsieci bramy.
+Aby skonfigurować bramę sieci VPN, należy utworzyć podsieć bramy dla sieci wirtualnej. Aby podsieć bramy działała prawidłowo, musi nosić nazwę GatewaySubnet. Nie należy nadawać podsieci bramy innej nazwy. Nie należy także wdrażać maszyn wirtualnych ani innych elementów w ramach podsieci bramy.
 
 Minimalny rozmiar podsieci bramy zależy tylko od konfiguracji, którą chcesz utworzyć. Chociaż w przypadku niektórych konfiguracji możesz utworzyć małą podsieć bramy o rozmiarze /29, zaleca się tworzenie podsieci bramy /28 i większych (/28, /27, /26 itp.). 
 
-## Czy można wdrożyć maszyny wirtualne lub wystąpienia roli w ramach podsieci bramy?
+### Czy można wdrożyć maszyny wirtualne lub wystąpienia roli w ramach podsieci bramy?
 
 Nie.
 
@@ -180,7 +182,7 @@ W przypadku użycia klasycznego portalu Azure należy dodać każdy z zakresów,
 
 Tak. Zobacz artykuł [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md) (Konfiguracja wymuszonego tunelowania).
 
-### Czy można skonfigurować własny serwer sieci VPN na platformie Azure i używać go do nawiązywania połączenia z siecią lokalną?
+### Czy można wdrożyć własny serwer sieci VPN na platformie Azure i używać go do nawiązywania połączenia z siecią lokalną?
 
 Tak, można wdrożyć własne bramy lub serwery sieci VPN na platformie Azure, korzystając z portalu Azure Marketplace lub tworząc własne routery sieci VPN. Należy skonfigurować w sieci wirtualnej trasy zdefiniowane przez użytkownika i upewnić się, że ruch jest prawidłowo przekierowywany między sieciami lokalnymi i podsieciami sieci wirtualnej.
 
@@ -193,7 +195,7 @@ Brama sieci VPN to zasadniczo wieloadresowe urządzenie, w przypadku którego je
 
 ### Więcej informacji na temat typów, wymagań i przepustowości bram
 
-Aby uzyskać więcej informacji, zobacz temat [About VPN Gateways](vpn-gateway-about-vpngateways.md) (Informacje o bramach sieci VPN).
+Aby uzyskać więcej informacji, zobacz temat [About VPN Gateway Settings](vpn-gateway-about-vpn gateway-settings.md) (Informacje o ustawieniach bramy VPN Gateway).
 
 ## Połączenia obejmujące wiele lokacji i połączenia między sieciami wirtualnymi
 
@@ -201,7 +203,7 @@ Aby uzyskać więcej informacji, zobacz temat [About VPN Gateways](vpn-gateway-a
 
 Tylko bramy oparte na trasach (o routingu dynamicznym).
 
-### Czy można połączyć sieć wirtualną opartą na trasach z inną siecią wirtualną opartą na zasadach?
+### Czy można połączyć sieć wirtualną VPN opartą na trasach z inną siecią wirtualną VPN opartą na zasadach?
 
 Nie, obie sieci wirtualne MUSZĄ korzystać z sieci VPN opartych na trasach (o routingu dynamicznym).
 
@@ -227,7 +229,7 @@ Nie, nadmiarowe tunele między siecią wirtualną platformy Azure i lokacją lok
 
 ### Czy wśród połączonych sieci wirtualnych i lokacji lokalnych mogą występować nakładające się przestrzenie adresowe?
 
-Nie. Nakładające się przestrzenie adresowe spowodują, że przesłanie pliku netcfg lub utworzenie sieci wirtualnej nie powiedzie się.
+Nie. Nakładające się przestrzenie adresowe spowodują, że przesłanie pliku konfiguracyjnego sieci lub „tworzenie sieci wirtualnej” nie powiedzie się.
 
 ### Czy przy większej liczbie połączeń VPN typu lokacja-lokacja można uzyskać większą przepustowość niż przy pojedynczej sieci wirtualnej?
 
@@ -235,7 +237,10 @@ Nie, wszystkie tunele VPN, w tym połączenia VPN typu punkt-lokacja, współdzi
 
 ### Czy można używać bramy Azure VPN do przekazywania ruchu między lokacjami lokalnymi lub do innej sieci wirtualnej?
 
-Przekazywanie ruchu za pośrednictwem bramy sieci VPN platformy Azure jest możliwe, ale zależy od statycznie zdefiniowanych przestrzeni adresowych w pliku konfiguracyjnym netcfg. Protokół BGP nie jest jeszcze obsługiwany w połączeniu z sieciami wirtualnymi platformy Azure i bramami sieci VPN. Niezastosowanie protokołu BGP powoduje bardzo wysokie ryzyko błędów ręcznego definiowania przestrzeni adresowych przesyłania i nie jest zalecane.
+**Klasyczny model wdrażania**<br>
+Przekazywanie ruchu za pośrednictwem bramy sieci VPN platformy Azure przy użyciu klasycznego modelu wdrażania jest możliwe, ale zależy od statycznie zdefiniowanych przestrzeni adresowych w pliku konfiguracyjnym sieci. Protokół BGP dla klasycznego modelu wdrażania nie jest jeszcze obsługiwany w połączeniu z sieciami wirtualnymi platformy Azure i bramami sieci VPN. Niezastosowanie protokołu BGP powoduje bardzo wysokie ryzyko błędów ręcznego definiowania przestrzeni adresowych przesyłania i nie jest zalecane.<br>
+**Model wdrażania usługi Resource Manager**<br>
+Jeśli używasz modelu wdrażania usługi Resource Manager, zobacz sekcję [protokołu BGP](#bgp), aby uzyskać więcej informacji.
 
 ### Czy platforma Azure generuje taki sam klucz wstępny protokołu IPsec/IKE dla wszystkich połączeń sieci VPN dla danej sieci wirtualnej?
 
@@ -250,7 +255,7 @@ W przypadku ruchu między różnymi sieciami wirtualnymi Azure opłaty są nalic
 
 Tak, takie rozwiązanie jest obsługiwane. Aby uzyskać więcej informacji, zobacz artykuł [Configure ExpressRoute and Site-to-Site VPN connections that coexist](../expressroute/expressroute-howto-coexist-classic.md) (Konfigurowanie obwodu ExpressRoute i współistniejących połączeń sieci VPN typu lokacja-lokacja).
 
-## BGP
+## <a name="bgp"></a>BGP
 
 [AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)] 
 
@@ -260,27 +265,22 @@ Tak, takie rozwiązanie jest obsługiwane. Aby uzyskać więcej informacji, zoba
 
 ### W jaki sposób należy połączyć się z maszyną wirtualną w przypadku, gdy należy ona do sieci wirtualnej, a dysponuję połączeniem obejmującym wiele lokalizacji?
 
-Jest kilka możliwości. W warunkach włączonego protokołu RDP, jeśli utworzono punkt końcowy, można połączyć się z maszyną wirtualną, korzystając z adresu VIP. W takim przypadku należy określić adres VIP i numer portu, z którym ma zostać nawiązane połączenie. Należy skonfigurować port maszyny wirtualnej pod kątem ruchu danych. W tym celu wystarczy zwykle przejść do klasycznego portalu Azure i zapisać ustawienia połączenia RDP na komputerze. Ustawienia będą zawierać niezbędne informacje o połączeniu.
+Jest kilka możliwości. W warunkach włączonego protokołu RDP, jeśli utworzono punkt końcowy, można połączyć się z maszyną wirtualną, korzystając z adresu VIP. W takim przypadku należy określić adres VIP i numer portu, z którym ma zostać nawiązane połączenie. Należy skonfigurować port maszyny wirtualnej pod kątem ruchu danych. W tym celu wystarczy zwykle przejść do klasycznego portalu Azure i zapisać ustawienia połączenia RDP na komputerze. Ustawienia zawierają niezbędne informacje o połączeniu.
 
 W przypadku sieci wirtualnej z funkcją łączności obejmującej wiele lokalizacji można połączyć się z maszyną wirtualną przy użyciu wewnętrznego adresu DIP lub prywatnego adresu IP. Z maszyną wirtualną można także nawiązać połączenie z poziomu innej maszyny wirtualnej, która znajduje się w tej samej sieci wirtualnej, korzystając z wewnętrznego adresu DIP. Nie można połączyć się z maszyną wirtualną z użyciem protokołu RDP i adresu DIP, jeśli połączenie jest nawiązywane z lokalizacji spoza sieci wirtualnej. Na przykład jeśli w przypadku dostępności skonfigurowanej sieci wirtualnej typu punkt-lokacja nie zostanie ustanowione połączenie z poziomu komputera, nie będzie możliwe połączenie się z maszyną wirtualną z użyciem adresu DIP.
 
 ### Czy jeśli maszyna wirtualna należy do sieci wirtualnej z funkcją łączności obejmującą wiele lokalizacji, to cały ruch z niej będzie przekazywany za pośrednictwem tego połączenia?
 
-Nie. Przez bramę sieci wirtualnej przechodzi tylko ruch, którego docelowy adres IP należy do określonych zakresów adresów IP sieci lokalnej w ramach sieci wirtualnej. Ruch, którego docelowy adres IP należy do sieci wirtualnej, pozostaje w obrębie sieci wirtualnej. Inny ruch jest wysyłany do sieci publicznej za pośrednictwem usługi równoważenia obciążenia lub, w przypadku użycia wymuszonego tunelowania, wysłany przez bramę sieci VPN platformy Azure. Podczas rozwiązywania problemów należy się upewnić, że w procesie uwzględniono wszystkie wymienione w obszarze Sieć lokalna zakresy, które mają zostać wysłane za pośrednictwem bramy. Należy się upewnić, że zakresy adresów sieci lokalnej nie nakładają się z żadnymi zakresami adresów w sieci wirtualnej. Ponadto należy sprawdzić, czy używany serwer DNS rozwiązuje nazwę do odpowiedniego adresu IP.
+Nie. Przez bramę sieci wirtualnej przechodzi tylko ruch, którego docelowy adres IP należy do określonych zakresów adresów IP sieci lokalnej w ramach sieci wirtualnej. Ruch, którego docelowy adres IP należy do sieci wirtualnej, pozostaje w obrębie sieci wirtualnej. Inny ruch jest wysyłany do sieci publicznej za pośrednictwem usługi równoważenia obciążenia lub, w przypadku użycia wymuszonego tunelowania, wysłany przez bramę sieci VPN platformy Azure. Podczas rozwiązywania problemów należy się upewnić, że w procesie uwzględniono wszystkie wymienione w obszarze Sieć lokalna zakresy, które mają zostać wysłane za pośrednictwem bramy. Należy się upewnić, że zakresy adresów sieci lokalnej nie nakładają się z żadnymi zakresami adresów w sieci wirtualnej. Ponadto należy sprawdzić, czy używany serwer DNS rozpoznaje nazwę jako właściwy adres IP.
 
 
 ## Sieć wirtualna — często zadawane pytania
 
 Dodatkowe informacje dotyczące sieci wirtualnej można znaleźć w artykule [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md) (Sieć wirtualna — często zadawane pytania).
-
-## Następne kroki
-
-Więcej informacji na temat bram sieci VPN można znaleźć na [stronie dokumentacji bramy sieci VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/).
-
  
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

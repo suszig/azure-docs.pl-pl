@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/21/2016"
+   ms.date="06/30/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
@@ -75,7 +75,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
->[AZURE.NOTE] Zobacz informacje o [projektowaniu tabel][] lub [składni polecenia CREATE TABLE][], aby uzyskać więcej informacji dotyczących tworzenia tabel w usłudze SQL Data Warehouse oraz dostępnych opcji klauzuli WITH.
+>[AZURE.NOTE] Zobacz artykuł [Omówienie tabel][] lub [składni polecenia CREATE TABLE][], aby uzyskać więcej informacji dotyczących tworzenia tabel w usłudze SQL Data Warehouse oraz dostępnych opcji klauzuli WITH.
 
 ### Krok 2: tworzenie źródłowego pliku danych
 
@@ -179,10 +179,10 @@ Więcej porad programistycznych znajdziesz w artykule [Omówienie programowania 
 
 <!--Article references-->
 
-[Ładowanie danych do usługi SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[Omówienie programowania w usłudze SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
-[projektowaniu tabel]: sql-data-warehouse-develop-table-design.md
-[Statystyki]: sql-data-warehouse-develop-statistics.md
+[Ładowanie danych do usługi SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[Omówienie programowania w usłudze SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
+[Omówienie tabel]: ./sql-data-warehouse-tables-overview.md
+[Statystyki]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
@@ -193,6 +193,6 @@ Więcej porad programistycznych znajdziesz w artykule [Omówienie programowania 
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -12,7 +12,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="tbd"
-    ms.date="04/15/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Przewodnik programowania w usłudze Event Hubs
@@ -23,7 +23,7 @@ W tym temacie opisano programowanie w usłudze Azure Event Hubs przy użyciu zes
 
 Wysyłanie zdarzeń do centrum zdarzeń odbywa się za pomocą żądań POST protokołu HTTP albo za pomocą połączenia protokołu AMQP 1.0. Wybór, która metoda i kiedy ma być używana, zależy od konkretnego scenariusza. Połączenia protokołu AMQP 1.0 są mierzone jako połączenia obsługiwane przez brokera w Service Bus i są bardziej odpowiednie w scenariuszach z częstymi większymi ilościami wiadomości oraz wymaganiami dotyczącymi krótszych opóźnień, ponieważ zapewniają trwały kanał obsługi komunikatów.
 
-Usługi Event Hubs są tworzone i zarządzane przy użyciu klasy [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). W przypadku używania zarządzanych interfejsów API platformy .NET głównymi konstrukcjami na potrzeby publikowania danych w usłudze Event Hubs są klasy [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) i [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). Klasa [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) udostępnia kanał komunikacji protokołu AMQP, przez który zdarzenia są wysyłane do centrum zdarzeń. Klasa [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) reprezentuje zdarzenie i jest używana do publikowania komunikatów w centrum zdarzeń. Ta klasa zawiera treść, niektóre metadane i informacje nagłówka zdarzenia. Inne właściwości są dodawane do obiektu [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx), kiedy przechodzi on przez centrum zdarzeń.
+Centra Event Hubs są tworzone i zarządzane przy użyciu klasy [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). W przypadku używania zarządzanych interfejsów API platformy .NET głównymi konstrukcjami na potrzeby publikowania danych w usłudze Event Hubs są klasy [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) i [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). Klasa [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) udostępnia kanał komunikacji protokołu AMQP, przez który zdarzenia są wysyłane do centrum zdarzeń. Klasa [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) reprezentuje zdarzenie i jest używana do publikowania komunikatów w centrum zdarzeń. Ta klasa zawiera treść, niektóre metadane i informacje nagłówka zdarzenia. Inne właściwości są dodawane do obiektu [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx), kiedy przechodzi on przez centrum zdarzeń.
 
 ## Rozpoczęcie pracy
 
@@ -168,11 +168,11 @@ Aby rozpocząć przetwarzanie zdarzeń, utwórz wystąpienie klasy [EventProcess
 
 W miarę upływu czasu zostaje ustalona równowaga. Ta dynamiczna funkcja umożliwia zastosowanie skalowania automatycznego na podstawie procesora CPU do odbiorców, zarówno w celu skalowania w górę, jak i w dół. Ponieważ usługa Event Hubs nie obsługuje bezpośredniej koncepcji liczby komunikatów, średnie wykorzystanie procesora CPU jest często najlepszym mechanizmem mierzenia skali zaplecza lub odbiorcy. Jeśli wydawcy zaczną publikować więcej zdarzeń, niż odbiorcy mogą przetworzyć, zwiększenie użycia procesora CPU przez odbiorców może służyć do powodowania automatycznego skalowania liczby wystąpień procesu roboczego.
 
-Klasa [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx) implementuje również mechanizm tworzenia punktów kontrolnych oparty na magazynie Azure. Ten mechanizm przechowuje przesunięcie na podstawie partycji, dzięki czemu każdy odbiorca może określić, jaki był ostatni punkt kontrolny od poprzedniego odbiorcy. Ponieważ partycje przechodzą między węzłami za pośrednictwem dzierżaw, jest to mechanizm synchronizacji, który ułatwia przesunięcie obciążenia.
+Klasa [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx) implementuje również mechanizm tworzenia punktów kontrolnych oparty na usłudze Azure Storage. Ten mechanizm przechowuje przesunięcie na podstawie partycji, dzięki czemu każdy odbiorca może określić, jaki był ostatni punkt kontrolny od poprzedniego odbiorcy. Ponieważ partycje przechodzą między węzłami za pośrednictwem dzierżaw, jest to mechanizm synchronizacji, który ułatwia przesunięcie obciążenia.
 
 ## Odwołanie wydawcy
 
-Oprócz zaawansowanych funkcji środowiska uruchomieniowego klasy [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx), usługa Event Hubs umożliwia odwołanie wydawcy w celu zablokowania dostępu określonych wydawców do wysyłania zdarzeń do centrum zdarzeń. Te funkcje są szczególnie przydatne, jeśli zostały naruszone zabezpieczenia tokenu wydawcy lub aktualizacja oprogramowania powoduje nieuprawnione zachowanie wydawcy. W takich sytuacjach dla tożsamości wydawcy, która jest częścią jego tokenu sygnatury dostępu współdzielonego, można zablokować dostęp do publikowania zdarzeń.
+Oprócz zaawansowanych funkcji środowiska uruchomieniowego klasy [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx), usługa Event Hubs umożliwia odwołanie wydawcy w celu zablokowania określonym wydawcom możliwości wysyłania zdarzeń do centrum zdarzeń. Te funkcje są szczególnie przydatne, jeśli zostały naruszone zabezpieczenia tokenu wydawcy lub aktualizacja oprogramowania powoduje nieuprawnione zachowanie wydawcy. W takich sytuacjach dla tożsamości wydawcy, która jest częścią jego tokenu sygnatury dostępu współdzielonego, można zablokować dostęp do publikowania zdarzeń.
 
 Aby uzyskać więcej informacji o odwołaniu wydawcy i o tym, jak wysyłać zdarzenia do usługi Event Hubs jako wydawca, zobacz przykład [Bezpieczne publikowanie na dużą skalę w usłudze Service Bus Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab).
 
@@ -187,6 +187,6 @@ Aby dowiedzieć się więcej o scenariuszach usługi Event Hubs, skorzystaj z na
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Wprowadzenie do usługi Microsoft Power BI Embedded Preview"
+   pageTitle="Wprowadzenie do usługi Microsoft Power BI Embedded"
    description="Usługa Power BI Embedded — dodawanie interaktywnych raportów usługi Power BI do aplikacji analizy biznesowej"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,28 +13,26 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="04/24/2016"
-   ms.author="derrickv"/>
+   ms.date="07/05/2016"
+   ms.author="owend"/>
 
-# Wprowadzenie do usługi Microsoft Power BI Embedded Preview
+# Wprowadzenie do usługi Microsoft Power BI Embedded
 
-**Microsoft Power BI Embedded** to usługa Azure, która umożliwia programistom dodawanie interaktywnych raportów usługi Power BI do własnych aplikacji. **Power BI Embedded** współpracuje z istniejącymi aplikacjami bez konieczności ponownego projektowania tych aplikacji ani zmieniania sposobu logowania ich użytkowników.
+**Power BI Embedded** to usługa Azure, która umożliwia programistom dodawanie interaktywnych raportów usługi Power BI do własnych aplikacji. Usługa **Power BI Embedded** działa z istniejącymi aplikacjami bez potrzeby ich przeprojektowywania lub zmiany sposobu logowania się przez użytkowników.
 
-Aby dowiedzieć się więcej o usłudze Power BI Embedded, zobacz temat [What is Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md) (Co to jest usługa Power BI Embedded).
-
-Zgodnie z opisem w temacie [What is Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md) (Co to jest usługa Power BI Embedded) zasoby są dostarczane do usługi **Microsoft Power BI Embedded** przez interfejsy [API Azure ARM](https://msdn.microsoft.com/library/mt712306.aspx). W tym przypadku dostarczanym zasobem jest **kolekcja obszarów roboczych usługi Power BI**. W następnej części pokazano, jak utworzyć kolekcję obszarów roboczych.
+Zasoby są dostarczane do usługi **Microsoft Power BI Embedded** przez [interfejsy API Azure ARM](https://msdn.microsoft.com/library/mt712306.aspx). W tym przypadku dostarczanym zasobem jest **kolekcja obszarów roboczych usługi Power BI**.
 
 ![](media\power-bi-embedded-get-started\introduction.png)
 
 ## Tworzenie kolekcji obszarów roboczych
 **Kolekcja obszarów roboczych** jest najwyższego poziomu zasobem platformy Azure i kontenerem zawartości, która zostanie osadzona w aplikacji. **Kolekcję obszarów roboczych** można utworzyć na dwa sposoby:
 
-   -    Ręcznie przy użyciu Portalu Azure
+   -    Ręcznie przy użyciu witryny Azure Portal
    -    Programowo przy użyciu interfejsów API Azure Resource Manager (ARM)
 
-Przejdźmy do kroków tworzenia **kolekcji obszarów roboczych** przy użyciu Portalu Azure.
+Przejdźmy do kroków tworzenia **kolekcji obszarów roboczych** przy użyciu witryny Azure Portal.
 
-   1.   Otwórz **Portal Azure**: [http://portal.azure.com](http://portal.azure.com) i zaloguj się.
+   1.   Otwórz witrynę **Azure Portal**: [http://portal.azure.com](http://portal.azure.com) i zaloguj się.
 
    2.   Kliknij przycisk **+ Nowy** na górnym panelu.
 
@@ -47,28 +45,26 @@ Przejdźmy do kroków tworzenia **kolekcji obszarów roboczych** przy użyciu Po
 
    5. Kliknij przycisk **Utwórz**.
 
-Dostarczenie  **kolekcji obszarów roboczych** potrwa parę chwil. Po jego ukończeniu nastąpi przekierowanie do **bloku kolekcji obszarów roboczych**.
+Dostarczenie  **kolekcji obszarów roboczych** potrwa parę chwil. Po zakończeniu nastąpi przekierowanie do **bloku kolekcji obszarów roboczych**.
 
    ![](media\power-bi-embedded-get-started\create-workspace-3.png)
 
-Ten **blok tworzenia** zawiera informacje potrzebne do wywoływania interfejsów API służących do tworzenia obszarów roboczych i wdrażania do nich zawartości.
-
-W następnej części opisano sposób używania **kluczy dostępu**  do generowania **tokenów aplikacji** służących do uwierzytelniania żądań interfejsu API.
+**Blok tworzenia** zawiera informacje potrzebne do wywoływania interfejsów API służących do tworzenia obszarów roboczych i wdrażania do nich zawartości.
 
 <a name="view-access-keys"/>
 ## Wyświetlanie kluczy dostępu interfejsu API usługi Power BI
 
-Jedną z najważniejszych informacji potrzebnych do wywoływania interfejsów API REST usługi Power BI są **klucze dostępu**. Są one używane do generowania **tokenów aplikacji** służących do uwierzytelniania żądań interfejsu API. Aby wyświetlić **klucze dostępu**, kliknij przycisk **Klucze dostępu** w **bloku Ustawienia**. Aby uzyskać więcej informacji na temat **tokenów aplikacji**, zobacz [How does app token flow work](power-bi-embedded-app-token-flow.md) (Działanie przepływu pracy tokenu aplikacji).
+Jedną z najważniejszych informacji potrzebnych do wywoływania interfejsów API REST usługi Power BI są **klucze dostępu**. Są one używane do generowania **tokenów aplikacji** służących do uwierzytelniania żądań interfejsu API. Aby wyświetlić **klucze dostępu**, kliknij przycisk **Klucze dostępu** w **bloku Ustawienia**. Aby uzyskać więcej informacji o **tokenach aplikacji**, zobacz [Uwierzytelnianie i autoryzowanie za pomocą usługi Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
-Możesz zauważyć, że istnieją dwa klucze.
+Zauważysz, że masz dwa klucze.
 
    ![](media\power-bi-embedded-get-started\access-keys-2.png)
 
 Skopiuj te klucze i przechowuj je bezpiecznie w aplikacji. Bardzo ważne jest, aby traktować te klucze jak hasła, ponieważ zapewniają one dostęp do całej zawartości **kolekcji obszarów roboczych**.
 
-Chociaż wyświetlane są dwa klucze, aktualnie potrzebny jest tylko jeden. Drugi klucz jest dostarczany, aby można było okresowo generować ponownie klucze bez przerywania dostępu do usługi.
+Chociaż wyświetlane są dwa klucze, w określonym czasie potrzebny jest tylko jeden. Drugi klucz jest dostarczany, aby można było okresowo generować ponownie klucze bez przerywania dostępu do usługi.
 
 Teraz, gdy masz wystąpienie usługi Power BI dla danej aplikacji oraz **klucze dostępu**, możesz zaimportować raport do aplikacji. Przed zapoznaniem się z instrukcją importowania raportu przeczytaj informacje o tworzeniu zestawów danych i raportów usługi Power BI w celu osadzenia w aplikacji zawarte w następnej części.
 
@@ -102,13 +98,11 @@ W poprzednich krokach utworzono kolekcję obszarów roboczych oraz pierwszy rapo
 
 ## Zobacz też
 - [Rozpoczęcie pracy z przykładem](power-bi-embedded-get-started-sample.md)
-- [Co to jest usługa Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Wprowadzenie do programu Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started)
+- [Uwierzytelnianie i autoryzowanie za pomocą usługi Power BI Embedded](power-bi-embedded-app-token-flow.md)
 - [Program Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
-- [Usługa Power BI Embedded — cennik](http://go.microsoft.com/fwlink/?LinkID=760527)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

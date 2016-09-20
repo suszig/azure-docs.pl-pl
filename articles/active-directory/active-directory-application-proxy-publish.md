@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="kgremban"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,18 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="07/19/2016"
     ms.author="kgremban"/>
 
 
 # Publikowanie aplikacji przy użyciu serwera proxy aplikacji usługi Azure AD
 
-
-Po włączeniu serwera proxy aplikacji usługi Microsoft Azure Active Directory można publikować aplikacje lokalne, aby umożliwić użytkownikom zdalnym dostęp do tych aplikacji spoza sieci prywatnej.
-
-W tym artykule przedstawiono kroki publikowania aplikacji działających w sieci lokalnej i zapewniania bezpiecznego dostępu zdalnego spoza tej sieci. Jeśli nie skonfigurowano jeszcze serwera proxy aplikacji i nie zainstalowano żadnych łączników, przed przejściem dalej wykonaj czynności opisane w temacie [Włączanie serwera proxy aplikacji w portalu Azure](active-directory-application-proxy-enable.md).
-
-Jeśli korzystasz z serwera proxy aplikacji usługi Azure AD po raz pierwszy, zalecamy przetestowanie łącznika przez opublikowanie witryny sieci Web z poziomu sieci prywatnej przed rozpoczęciem publikowania aplikacji.
+Serwer proxy aplikacji usługi Azure AD pomaga wspierać pracowników zdalnych przez publikowanie lokalnych aplikacji w celu umożliwienia dostępu do nich za pośrednictwem Internetu. Przed rozpoczęciem pracy należy [włączyć serwer proxy aplikacji w klasycznym portalu Azure](active-directory-application-proxy-enable.md). W tym artykule przedstawiono kroki publikowania aplikacji działających w sieci lokalnej i zapewniania bezpiecznego dostępu zdalnego spoza tej sieci. Po ukończeniu tego artykułu możesz przystąpić do konfigurowania aplikacji przy użyciu spersonalizowanych informacji lub wymagań dotyczących zabezpieczeń.
 
 > [AZURE.NOTE] Serwer proxy aplikacji jest funkcją dostępną tylko w przypadku uaktualnienia do wersji usługi Azure Active Directory w warstwie Premium lub Podstawowa. Aby uzyskać więcej informacji, zobacz [Wersje usługi Azure Active Directory](active-directory-editions.md).
 
@@ -47,9 +42,12 @@ Jeśli korzystasz z serwera proxy aplikacji usługi Azure AD po raz pierwszy, za
 
     - **Nazwa**: przyjazna nazwa aplikacji. Nazwa musi być unikatowa w katalogu.
     - **Wewnętrzny adres URL**: adres używany przez łącznik serwera proxy aplikacji do uzyskania dostępu do aplikacji z poziomu sieci prywatnej. Możesz wprowadzić określoną ścieżkę na serwerze zaplecza, która zostanie opublikowana, podczas gdy pozostała część serwera pozostanie nieopublikowana. W ten sposób można publikować różne lokacje na tym samym serwerze, nadając im różne nazwy i reguły dostępu.
-    - **Metoda uwierzytelniania wstępnego**: sposób, w jaki serwer proxy aplikacji zweryfikuje użytkowników przed udzieleniem im dostępu do aplikacji. Wybierz jedną z opcji z menu rozwijanego.
 
-        - Azure Active Directory: serwer proxy aplikacji przekieruje użytkowników, aby zalogowali się w usłudze Azure AD, co umożliwi uwierzytelnienie ich uprawnień do katalogu i aplikacji.
+        > [AZURE.TIP] W przypadku publikowania ścieżki upewnij się, że zawiera ona wszystkie niezbędne obrazy, skrypty i arkusze stylów dla aplikacji. Na przykład jeśli aplikacja znajduje się w katalogu https://yourapp/app i korzysta z obrazów znajdujących się w katalogu https://yourapp/media, należy opublikować https://yourapp/ jako ścieżkę.
+
+    - **Metoda uwierzytelniania wstępnego**: sposób, w jaki serwer proxy aplikacji weryfikuje użytkowników przed udzieleniem im dostępu do aplikacji. Wybierz jedną z opcji z menu rozwijanego.
+
+        - Azure Active Directory: serwer proxy aplikacji przekierowuje użytkowników, aby zalogowali się w usłudze Azure AD, co umożliwia uwierzytelnienie ich uprawnień do katalogu i aplikacji.
         - Przekazywanie: uwierzytelnienie nie jest wymagane do uzyskania dostępu do tej aplikacji.
 
     ![Właściwości aplikacji](./media/active-directory-application-proxy-publish/aad_appproxy_appproperties.png)  
@@ -59,22 +57,27 @@ Jeśli korzystasz z serwera proxy aplikacji usługi Azure AD po raz pierwszy, za
 
 ## Przypisywanie użytkowników i grup do aplikacji
 
-Aby użytkownicy mogli uzyskać dostęp do opublikowanej aplikacji, należy ich przypisać pojedynczo lub w grupach. W przypadku aplikacji wymagających uwierzytelnienia wstępnego spowoduje to przydzielenie uprawnień do używania aplikacji. W przypadku aplikacji niewymagających uwierzytelnienia wstępnego użytkownicy nie potrzebują uprawnień, ale mimo to muszą być przypisani do aplikacji, aby była ona wyświetlana na ich liście aplikacji.
+Aby użytkownicy mogli uzyskać dostęp do opublikowanej aplikacji, należy ich przypisać pojedynczo lub w grupach. (Pamiętaj, aby sobie także przypisać dostęp). W tym celu każdy użytkownik musi mieć licencję Azure w wersji Podstawowa lub wyższej. Można przypisać licencje pojedynczym użytkownikom lub grupom. Zobacz [Przypisywanie użytkowników do aplikacji](active-directory-applications-guiding-developers-assigning-users.md), aby uzyskać więcej szczegółów. 
+
+W przypadku aplikacji wymagających uwierzytelnienia wstępnego spowoduje to przydzielenie uprawnień do używania aplikacji. W przypadku aplikacji niewymagających uwierzytelnienia wstępnego użytkownicy mogą nadal zostać przypisani do aplikacji, aby była ona wyświetlana na ich liście aplikacji, takiej jak MyApps.
 
 1. Po zakończeniu pracy kreatora Dodawanie aplikacji zostanie wyświetlona strona Szybki start aplikacji. Aby zarządzać dostępem do aplikacji, wybierz pozycję **Użytkownicy i grupy**.
 
     ![Przypisywanie użytkowników na stronie Szybki start serwera proxy aplikacji — zrzut ekranu](./media/active-directory-application-proxy-publish/aad_appproxy_usersgroups.png)
 
-2. Wyszukaj określonych użytkowników w katalogu lub wyświetl wszystkich użytkowników. Kliknij znacznik wyboru, aby wyświetlić wyniki.
+2. Wyszukaj określonych użytkowników w katalogu lub wyświetl wszystkich użytkowników. Aby wyświetlić wyniki, kliknij znacznik wyboru.
 
     ![Wyszukiwanie grup lub użytkowników — zrzut ekranu.](./media/active-directory-application-proxy-publish/aad_appproxy_search.png)
 
-2. Zaznacz użytkowników lub grupy do przypisania do aplikacji, a następnie kliknij pozycję **Przypisz**. Zostanie wyświetlony monit o potwierdzenie tej czynności.
+2. Zaznacz użytkowników lub grupy do przypisania do aplikacji, a następnie kliknij pozycję **Przypisz**. Zostanie wyświetlony monit o potwierdzenie tej akcji.
 
 > [AZURE.NOTE] W przypadku aplikacji korzystających ze zintegrowanego uwierzytelniania systemu Windows można przypisywać wyłącznie użytkowników synchronizowanych z lokalnej usługi Active Directory i grupy takich użytkowników. Użytkowników logujących się za pomocą konta Microsoft i gości nie można przypisywać do aplikacji opublikowanych przy użyciu serwera proxy aplikacji usługi Azure Active Directory. Upewnij się, że użytkownicy logują się za pomocą poświadczeń należących do tej samej domeny co publikowana aplikacja.
 
+## Testowanie opublikowanej aplikacji
 
-## Konfiguracja zaawansowana
+Po opublikowaniu aplikacji można ją przetestować, przechodząc do opublikowanego adresu URL. Upewnij się, że można uzyskać do niego dostęp, jest poprawnie renderowany i wszystko działa zgodnie z oczekiwaniami. Jeśli wystąpią problemy lub komunikat o błędzie, spróbuj skorzystać z [przewodnika rozwiązywania problemów](active-directory-application-proxy-troubleshoot.md).
+
+## Konfigurowanie aplikacji
 
 Na stronie Konfiguracja można modyfikować opublikowane aplikacje lub konfigurować opcje zaawansowane. Na tej stronie możesz dostosować aplikację, zmieniając jej nazwę lub przekazując logo. Możesz także zarządzać regułami dostępu, takimi jak metoda uwierzytelniania wstępnego czy uwierzytelnianie wieloskładnikowe.
 
@@ -83,7 +86,7 @@ Na stronie Konfiguracja można modyfikować opublikowane aplikacje lub konfiguro
 
 Aplikacje opublikowane przy użyciu serwera proxy aplikacji usługi Azure Active Directory są wyświetlane na liście Aplikacje w usłudze Azure AD i można zarządzać nimi z tego poziomu.
 
-Jeśli wyłączysz usługi serwera proxy aplikacji po opublikowaniu aplikacji, aplikacje te nie zostaną usunięte, ale nie będą już dostępne spoza sieci prywatnej.
+Jeśli wyłączysz usługi serwera proxy aplikacji po opublikowaniu aplikacji, aplikacje te nie będą już dostępne spoza sieci prywatnej. Nie powoduje to usunięcia aplikacji.
 
 Aby wyświetlić aplikację i sprawdzić, czy jest dostępna, kliknij dwukrotnie nazwę aplikacji. Jeśli usługa serwera proxy aplikacji jest wyłączona i aplikacja jest niedostępna, w górnej części ekranu zostanie wyświetlone ostrzeżenie.
 
@@ -100,6 +103,6 @@ Aby zapoznać się z najnowszymi informacjami i aktualizacjami, zobacz [blog dot
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,13 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="04/25/2016"
+    ms.date="07/22/2016"
     ms.author="tamram"/>
 
 
-# Rozpoczynanie pracy z Magazynem obiektów blob platformy Azure przy użyciu platformy .NET
+# Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Omówienie
 
@@ -36,10 +38,15 @@ W tym samouczku pokazano, jak napisać kod .NET dla niektórych typowych scenari
 - [Program Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
 - [Biblioteka klienta usługi Azure Storage dla programu .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [Menedżer konfiguracji Azure dla programu .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-- [Konto magazynu Azure](storage-create-storage-account.md#create-a-storage-account)
+- [Konto usługi Azure Storage](storage-create-storage-account.md#create-a-storage-account)
 
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
+
+### Więcej przykładów
+
+Dodatkowe przykłady użycia usługi Blob Storage znajdziesz w temacie [Getting Started with Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) (Rozpoczynanie pracy z usługą Azure Blob Storage w programie .NET). Możesz pobrać przykładową aplikację i uruchomić ją lub przejrzeć kod w witrynie GitHub. 
+
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -61,7 +68,7 @@ Dodaj następujące instrukcje `using` na początku pliku `program.cs`:
 
 ### Tworzenie klienta usługi Blob
 
-Klasa **CloudBlobClient** umożliwia pobieranie kontenerów i obiektów blob przechowywanych w Magazynie obiektów blob. Oto jeden ze sposobów tworzenia klienta usługi:
+Klasa **CloudBlobClient** umożliwia pobieranie kontenerów i obiektów blob przechowywanych w usłudze Blob Storage. Oto jeden ze sposobów tworzenia klienta usługi:
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
@@ -366,14 +373,21 @@ Domyślnie dane obiektów blob na koncie magazynu są dostępne tylko dla właś
 
 Usługa Azure Storage obsługuje szyfrowanie danych obiektów blob na kliencie i na serwerze:
 
-- **Szyfrowanie po stronie klienta:** biblioteka klienta usługi Storage dla programu .NET obsługuje szyfrowanie danych w aplikacjach klienckich przed ich przekazaniem do usługi Azure Storage oraz odszyfrowywanie danych przed pobraniem do klienta. Biblioteka obsługuje również integrację z magazynem kluczy Azure do zarządzania kluczami konta magazynu. Aby uzyskać więcej informacji, zobacz [Client-Side Encryption with .NET for Microsoft Azure Storage](storage-client-side-encryption.md) (Szyfrowanie po stronie klienta przy użyciu programu .NET dla Magazynu Microsoft Azure). Zobacz również [Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md) (Samouczek: szyfrowanie i odszyfrowywanie obiektów blob w Magazynie Microsoft Azure przy użyciu magazynu kluczy platformy Azure).
-- **Szyfrowanie po stronie serwera**: usługa Azure Storage obsługuje teraz szyfrowanie po stronie serwera. Zobacz [Azure Storage Service Encryption for Data at Rest (Preview)](storage-service-encryption.md) (Szyfrowanie usługi Magazyn Azure dla danych magazynowanych (wersja zapoznawcza)). 
+- **Szyfrowanie po stronie klienta:** biblioteka klienta usługi Storage dla programu .NET obsługuje szyfrowanie danych w aplikacjach klienckich przed ich przekazaniem do usługi Azure Storage oraz odszyfrowywanie danych przed pobraniem do klienta. Biblioteka obsługuje również integrację z magazynem kluczy Azure do zarządzania kluczami konta magazynu. Aby uzyskać więcej informacji, zobacz [Client-Side Encryption with .NET for Microsoft Azure Storage](storage-client-side-encryption.md) (Szyfrowanie po stronie klienta przy użyciu programu .NET dla usługi Microsoft Azure Storage). Zobacz również [Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md) (Samouczek: szyfrowanie i odszyfrowywanie obiektów blob w usłudze Microsoft Azure Storage przy użyciu usługi Azure Key Vault).
+- **Szyfrowanie po stronie serwera**: usługa Azure Storage obsługuje teraz szyfrowanie po stronie serwera. Zobacz [Azure Storage Service Encryption for Data at Rest (Preview)](storage-service-encryption.md) (Szyfrowanie usługi Azure Storage dla danych magazynowanych (wersja zapoznawcza)). 
 
 ## Następne kroki
 
-Teraz, kiedy znasz już podstawy Magazynu obiektów blob, skorzystaj z poniższych linków, aby dowiedzieć się więcej.
+Teraz, kiedy znasz już podstawy usługi Blob Storage, skorzystaj z poniższych linków, aby dowiedzieć się więcej.
 
-### Informacje o magazynie obiektów blob
+### Microsoft Azure Storage Explorer
+- [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) jest darmową aplikacją autonomiczną oferowaną przez firmę Microsoft, która umożliwia pracę poglądową z danymi w usłudze Azure Storage w systemie Windows, OS X i Linux.
+
+### Przykłady użycia usługi Blob Storage
+
+- [Rozpoczynanie pracy z usługą Azure Blob Storage w programie .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
+
+### Informacje o usłudze Blob Storage
 
 - [Dokumentacja biblioteki klienta usługi Storage dla programu .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 - [Informacje o interfejsie API REST](http://msdn.microsoft.com/library/azure/dd179355)
@@ -397,6 +411,6 @@ Teraz, kiedy znasz już podstawy Magazynu obiektów blob, skorzystaj z poniższy
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

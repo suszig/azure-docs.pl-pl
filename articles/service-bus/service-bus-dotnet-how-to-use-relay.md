@@ -39,42 +39,7 @@ Aby rozpocząć korzystanie z przekaźnika usługi Service Bus na platformie Azu
 
 Aby utworzyć przestrzeń nazw usługi:
 
-1.  Zaloguj się do [klasycznego portalu Azure][].
-
-2.  W lewym okienku nawigacji portalu kliknij pozycję **Service Bus**.
-
-3.  W dolnym okienku portalu kliknij pozycję **Utwórz**.
-
-    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
-
-4.  W oknie dialogowym **Dodawanie nowej przestrzeni nazw** wprowadź nazwę przestrzeni nazw.
-    System od razu sprawdza, czy nazwa jest dostępna.
-
-    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png)
-
-5.  Po upewnieniu się, że nazwa przestrzeni nazw jest dostępna, wybierz kraj lub region, w którym przestrzeń nazw ma być hostowana (upewnij się, że używasz tego samego kraju/regionu, w którym są wdrażane zasoby obliczeniowe).
-
-    > [AZURE.IMPORTANT] Wybierz *ten sam region*, którego zamierzasz użyć do wdrożenia aplikacji. Zapewni to najlepszą wydajność.
-
-6.  W pozostałych polach okna dialogowego pozostaw wartości domyślne (**Obsługa komunikatów** i warstwa **Standardowa**), a następnie kliknij znacznik wyboru. W systemie zostanie utworzona i włączona przestrzeń nazw. Proces aprowizacji zasobów dla konta w systemie może potrwać kilka minut.
-
-    ![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
-
-    Utworzona przestrzeń nazw zostanie wyświetlona w portalu, a następnie po chwili aktywowana. Przed wykonaniem dalszych czynności zaczekaj, aż jej stan zmieni się na **Aktywna**.
-
-## Uzyskiwanie domyślnych poświadczeń zarządzania dla przestrzeni nazw
-
-Aby wykonywać operacje zarządzania, takie jak tworzenie połączenia przekazywania, w nowej przestrzeni nazw, należy skonfigurować dla przestrzeni nazw regułę autoryzacji sygnatury dostępu współdzielonego. Aby uzyskać więcej informacji na temat sygnatury dostępu współdzielonego, zobacz temat [Uwierzytelnianie za pomocą sygnatury dostępu współdzielonego przy użyciu usługi Service Bus][].
-
-1.  W lewym okienku nawigacji kliknij węzeł **Service Bus**, aby wyświetlić listę dostępnych przestrzeni nazw.
-    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
-
-2.  Na wyświetlonej liście kliknij dwukrotnie nazwę nowo utworzonej przestrzeni nazw.
-    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png)
-
-3.  U góry strony kliknij kartę **Konfiguracja**.
-
-4.  Po udostępnieniu przestrzeni nazw usługi Service Bus domyślnie zostanie utworzona reguła **SharedAccessAuthorizationRule**, w której parametr **KeyName** jest ustawiony na wartość **RootManageSharedAccessKey**. Na tej stronie wyświetlony zostanie klucz, a także klucze podstawowe i pomocnicze dla reguły domyślnej.
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Uzyskiwanie pakietu NuGet usługi Service Bus
 
@@ -227,7 +192,7 @@ using (var ch = cf.CreateChannel())
 }
 ```
 
-Po wykonaniu tych czynności można skompilować klienta i usługę, uruchomić je (najpierw usługę), a następnie klient wywoła usługę i wyświetli **9**. Klienta i serwer można uruchamiać na różnych maszynach, nawet w różnych sieciach, a komunikacja między nimi będzie nadal działać.  Kod klienta można również uruchomić w chmurze lub lokalnie.
+Po wykonaniu tych czynności można skompilować klienta i usługę, uruchomić je (najpierw usługę), a następnie klient wywoła usługę i wyświetli **9**. Klienta i serwer można uruchamiać na różnych maszynach, nawet w różnych sieciach, a komunikacja między nimi będzie nadal działać. Kod klienta można również uruchomić w chmurze lub lokalnie.
 
 #### Konfigurowanie klienta w pliku App.config
 
@@ -271,12 +236,11 @@ Teraz, kiedy znasz już podstawy usługi przekaźnika usługi Service Bus, skorz
 - [Omówienie architektury usługi Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - Pobierz przykłady usługi Service Bus ze strony [przykładów dla platformy Azure][] lub zobacz [przegląd przykładów usługi Service Bus][].
 
-  [klasycznego portalu Azure]: http://manage.windowsazure.com
   [Uwierzytelnianie za pomocą sygnatury dostępu współdzielonego przy użyciu usługi Service Bus]: service-bus-shared-access-signature-authentication.md
   [przykładów dla platformy Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [przegląd przykładów usługi Service Bus]: service-bus-samples.md
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

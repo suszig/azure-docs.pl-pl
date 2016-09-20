@@ -1,4 +1,4 @@
-## Tworzenie sieci wirtualnej w portalu Azure
+## Tworzenie sieci wirtualnej w witrynie Azure Portal
 
 Aby utworzyć sieć wirtualną w oparciu o powyższy scenariusz, korzystając z portalu Azure w wersji zapoznawczej, wykonaj poniższe kroki.
 
@@ -11,7 +11,7 @@ Aby utworzyć sieć wirtualną w oparciu o powyższy scenariusz, korzystając z 
 
     ![Tworzenie bloku sieci wirtualnej](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
 
-4. Kliknij opcję **Grupa zasobów** i wybierz grupę zasobów, aby dodać do niej sieć wirtualną, lub kliknij opcję **Utwórz nową**, aby dodać sieć wirtualną do nowej grupy zasobów. Na poniższej ilustracji przedstawiono ustawienia nowej grupy zasobów o nazwie **TestRG**. Aby uzyskać więcej informacji na temat grup zasobów, zobacz temat [Omówienie usługi Azure Resource Manager](../articles/resource-group-overview.md/#resource-groups).
+4. Kliknij opcję **Grupa zasobów** i wybierz grupę zasobów, aby dodać do niej sieć wirtualną, lub kliknij opcję **Utwórz nową**, aby dodać sieć wirtualną do nowej grupy zasobów. Na poniższej ilustracji przedstawiono ustawienia nowej grupy zasobów o nazwie **TestRG**. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../articles/resource-group-overview.md#resource-groups).
 
     ![Grupa zasobów](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
 
@@ -25,7 +25,7 @@ Aby utworzyć sieć wirtualną w oparciu o powyższy scenariusz, korzystając z 
 
 8. Poczekaj na utworzenie bloku sieci wirtualnej, a następnie w obszarze **Sieć wirtualna** kliknij kolejno opcje **Wszystkie ustawienia** > **Podsieci** > **Dodaj**, jak pokazano poniżej.
 
-    ![Dodawanie podsieci w portalu Azure](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure5.gif)
+    ![Dodawanie podsieci w witrynie Azure Portal](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure5.gif)
 
 9. Określ ustawienia podsieci mające zastosowanie do podsieci o nazwie *BackEnd*, jak pokazano poniżej, a następnie kliknij przycisk **OK**. 
 
@@ -36,6 +36,7 @@ Aby utworzyć sieć wirtualną w oparciu o powyższy scenariusz, korzystając z 
     ![Lista podsieci w sieci wirtualnej](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

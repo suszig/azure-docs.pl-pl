@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Samouczek: wprowadzenie do pracy z usługą Azure Data Lake Analytics przy użyciu programu Azure PowerShell
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Dowiedz się, jak wykorzystać program Azure PowerShell do tworzenia kont usługi Azure Data Lake Analytics, definiowania zadań usługi Data Lake Analytics za pomocą języka [U-SQL](data-lake-analytics-u-sql-get-started.md) oraz wysyłania zadań do kont usługi Data Lake Analytics. Więcej informacji na temat usługi Data Lake Analytics można znaleźć w artykule [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md).
+Dowiedz się, jak wykorzystać program Azure PowerShell do tworzenia kont usługi Azure Data Lake Analytics, definiowania zadań usługi Data Lake Analytics za pomocą języka [U-SQL](data-lake-analytics-u-sql-get-started.md) oraz wysyłania zadań do kont usługi Data Lake Analytics. Więcej informacji na temat usługi Data Lake Analytics można znaleźć w artykule [Azure Data Lake Analytics overview](data-lake-analytics-overview.md) (Omówienie usługi Azure Data Lake Analytics).
 
 W ramach tego samouczka utworzysz zadanie, które odczytuje zawartość pliku z wartościami rozdzielanymi tabulatorami (TSV) i konwertuje je do pliku z wartościami rozdzielanymi przecinkami (CSV). Aby wykonać kroki opisane w tym samouczku, korzystając z innych obsługiwanych narzędzi, kliknij odpowiednią kartę w górnej części tej sekcji.
 
@@ -101,7 +101,7 @@ Aby można było uruchomić jakiekolwiek zadanie, musisz mieć konto usługi Dat
 
 W ramach tego samouczka przetworzymy wybrane dzienniki wyszukiwania.  Dziennik wyszukiwania może być przechowywany w usłudze Data Lake Store lub w usłudze Azure Blob Storage. 
 
-Przykładowy plik dziennika wyszukiwania został skopiowany do publicznego kontenera obiektów blob platformy Azure. Skorzystaj ze skryptu programu PowerShell w celu pobrania pliku na stację roboczą, a następnie przekazania pliku do domyślnego konta usługi Data Lake Store w ramach swojego konta usługi Data Lake Analytics.
+Przykładowy plik dziennika wyszukiwania został skopiowany do publicznego kontenera usługi Azure Blob. Skorzystaj ze skryptu programu PowerShell w celu pobrania pliku na stację roboczą, a następnie przekazania pliku do domyślnego konta usługi Data Lake Store w ramach swojego konta usługi Data Lake Analytics.
 
     $dataLakeStoreName = "<The default Data Lake Store account name>"
     
@@ -127,9 +127,9 @@ Poniższy skrypt programu PowerShell pokazuje, jak pobrać domyślną nazwę us�
     $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
     $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
 
->[AZURE.NOTE] Portal Azure udostępnia interfejs użytkownika umożliwiający skopiowanie przykładowych plików danych do domyślnego konta usługi Data Lake Store. Aby uzyskać instrukcje, zobacz artykuł [Wprowadzenie do pracy z usługą Azure Data Lake Analytics za pomocą portalu Azure](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
+>[AZURE.NOTE] Witryna Azure Portal udostępnia interfejs użytkownika umożliwiający skopiowanie przykładowych plików danych do domyślnego konta usługi Data Lake Store. Aby uzyskać instrukcje, zobacz artykuł [Wprowadzenie do pracy z usługą Azure Data Lake Analytics za pomocą witryny Azure Portal](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
 
-Usługa Data Lake Analytics może także uzyskiwać dostęp do magazynu obiektów Blob platformy Azure.  Aby uzyskać informacje na temat przekazywania danych do magazynu obiektów blob platformy Azure, zobacz artykuł [Wykorzystanie programu Azure PowerShell do dostępu do usługi Azure Storage](../storage/storage-powershell-guide-full.md).
+Usługa Data Lake Analytics może także uzyskiwać dostęp do usługi Azure Blob Storage.  Aby uzyskać informacje na temat przekazywania danych do usługi Azure Blob Storage, zobacz artykuł [Wykorzystanie programu Azure PowerShell do dostępu do usługi Azure Storage](../storage/storage-powershell-guide-full.md).
 
 ##Przesyłanie zadań usługi Data Lake Analytics
 
@@ -203,15 +203,15 @@ Po zakończeniu zadania można użyć następujących poleceń cmdlet, aby wyśw
 ## Zobacz też
 
 - Aby wyświetlić ten samouczek przy użyciu innych narzędzi, kliknij odpowiedni selektor karty w górnej części strony.
-- Aby zobaczyć bardziej skomplikowane zapytanie, zobacz artykuł [Analizowanie dzienników witryn sieci Web za pomocą usługi Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+- Aby uzyskać informacje na temat bardziej złożonego zapytania, zobacz temat [Analizowanie dzienników witryn sieci Web przy użyciu usługi Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 - Aby rozpocząć tworzenie aplikacji w języku U-SQL, zobacz artykuł [Tworzenie skryptów U-SQL przy użyciu narzędzi Data Lake Tools dla Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Aby dowiedzieć się więcej o języku U-SQL, zobacz [Wprowadzenie do języka U-SQL w usłudze Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
-- Informacje o zadaniach zarządzania znajdziesz w artykule [Zarządzanie usługą Azure Data Lake Analytics przy użyciu Portalu Azure](data-lake-analytics-manage-use-portal.md).
+- Informacje o zadaniach zarządzania znajdziesz w artykule [Zarządzanie usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal](data-lake-analytics-manage-use-portal.md).
 - Aby zapoznać się z omówieniem usługi Data Lake Analytics, zobacz [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

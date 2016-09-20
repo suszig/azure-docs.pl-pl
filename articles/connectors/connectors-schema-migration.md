@@ -1,7 +1,7 @@
 <properties
     pageTitle="Przeprowadzanie migracji aplikacji logiki do wersji schematu 2015-08-01-preview | Microsoft Azure App Service"
     description="Możesz łatwo przeprowadzić migrację aplikacji logiki do najnowszej wersji schematu. Wystarczy wykonać poniższe czynności."
-    services="app-service\logic"
+    services="logic-apps"
     documentationCenter=""
     authors="MSFTMAN"
     manager="erikre"
@@ -9,23 +9,22 @@
     tags="connectors"/>
 
 <tags
-    ms.service="app-service-logic"
+    ms.service="logic-apps"
     ms.workload="integration"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/20/2016"
+    ms.date="08/23/2016"
     ms.author="deonhe"/>
 
 # Przeprowadzanie migracji aplikacji logiki do wersji schematu 2015-08-01-preview
 
 Aby zmienić schemat istniejących aplikacji logiki na nowy, wykonaj następujące czynności:  
-1. Otwórz aplikację logiki w portalu Azure.  
+1. Otwórz aplikację logiki w witrynie Azure Portal.  
 2. Kliknij pozycję Aktualizuj schemat:
 
- ![API Icon][step1]   
-Zostanie wyświetlona strona Aktualizacja schematu z linkiem do dokumentu zawierającego szczegółowe informacje dotyczące ulepszeń w nowym schemacie:
- ![API Icon][step2]
+ ![Ikona interfejsu API][step1]   
+Zostanie wyświetlona strona Aktualizacja schematu z linkiem do dokumentu zawierającego szczegółowe informacje dotyczące ulepszeń w nowym schemacie: ![Ikona interfejsu API][step2]
 
 >[AZURE.NOTE] Po wybraniu pozycji **Aktualizuj schemat** firma Microsoft automatycznie wykonuje kroki migracji i przekazuje użytkownikowi kod wyjściowy. Korzystając z tych informacji, możesz zaktualizować definicję, jednak należy przestrzegać dobrych praktyk kodowania, takich jak te opisane w sekcji **Najlepsze rozwiązania** poniżej.
 
@@ -52,6 +51,6 @@ Zostanie wyświetlona strona Aktualizacja schematu z linkiem do dokumentu zawier
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

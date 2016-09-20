@@ -5,7 +5,7 @@
     documentationCenter=""
     authors="markusvi"
     writer="markvi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/07/2016"
+    ms.date="07/13/2016"
     ms.author="markvi"/>
 
 # Administrowanie katalogiem usługi Azure AD
@@ -40,7 +40,8 @@ Usługa Azure AD zapewnia podstawowe możliwości zarządzania katalogiem i toż
 
 Otrzymasz katalog usługi Azure AD, gdy utworzysz konto w ramach dowolnej z tych usług w chmurze firmy Microsoft. W razie potrzeby możesz utworzyć dodatkowe katalogi. Na przykład możesz zachować pierwszy katalog jako katalog produkcyjny i utworzyć kolejny na potrzeby testowania lub wdrażania przejściowego.
 
-> [AZURE.NOTE] Po utworzeniu konta w ramach pierwszej usługi zalecamy użycie tego samego konta administratora skojarzonego z Twoją organizacją podczas rejestrowania się w innych usługach w chmurze firmy Microsoft.
+> [AZURE.NOTE]
+> Po utworzeniu konta w ramach pierwszej usługi zalecamy użycie tego samego konta administratora skojarzonego z Twoją organizacją podczas rejestrowania się w innych usługach w chmurze firmy Microsoft.
 
 Przy pierwszym tworzeniu konta w ramach usługi w chmurze firmy Microsoft należy podać szczegóły dotyczące własnej organizacji oraz rejestracji nazwy jej domeny internetowej. Te informacje są następnie używane do utworzenia nowego wystąpienia katalogu usługi Azure AD dla Twojej organizacji. Ten sam katalog jest używany na potrzeby uwierzytelniania logowania przy subskrybowaniu wielu usług w chmurze firmy Microsoft.
 
@@ -101,8 +102,8 @@ Możesz zarządzać każdym katalogiem jako w pełni niezależnym zasobem: każd
 
 - **Niezależność zasobów**. Jeśli utworzysz lub usuniesz zasób w jednym katalogu, nie ma to wpływu na żaden zasób w innym katalogu (z częściowym wyjątkiem dotyczącym zewnętrznych użytkowników opisanym poniżej). Jeśli używasz niestandardowej domeny „contoso.com” w jednym katalogu, nie można jej użyć w żadnym innym katalogu.
 - **Niezależność administracyjna**.  Jeśli użytkownik nieadministracyjny katalogu „Contoso” utworzy katalog testowy „Test”, wtedy:
-    - ◦Narzędzie do synchronizacji katalogów może synchronizować dane z pojedynczym lasem usługi AD.
-    - ◦Administratorzy katalogu „Contoso” nie mają bezpośrednich uprawnień administracyjnych do katalogu „Test”, chyba że administrator tego katalogu jawnie nada im odpowiednie uprawnienia. Administratorzy katalogu „Contoso” mogą kontrolować dostęp do katalogu „Test”, korzystając ze swoich możliwości kontrolowania konta użytkownika, za pomocą którego utworzono katalog „Test”.
+    - Narzędzia do synchronizacji katalogów w celu zsynchronizowania danych z pojedynczym lasem usługi AD.
+    - Administratorzy katalogu „Contoso” nie mają bezpośrednich uprawnień administracyjnych do katalogu „Test”, chyba że administrator tego katalogu jawnie nada im odpowiednie uprawnienia. Administratorzy katalogu „Contoso” mogą kontrolować dostęp do katalogu „Test”, korzystając ze swoich możliwości kontrolowania konta użytkownika, za pomocą którego utworzono katalog „Test”.
 
     W przypadku zmiany (dodania lub usunięcia) roli administracyjnej dla użytkownika w jednym katalogu, zmiana ta nie wpłynie na żadną rolę administracyjną, którą użytkownik może mieć w innym katalogu.
 
@@ -129,8 +130,8 @@ Są sprawdzane następujące warunki:
 - W katalogu nie może być aplikacji. Wszystkie aplikacje muszą zostać usunięte przed usunięciem katalogu.
 - Z katalogiem nie mogą być skojarzone żadne z usług Microsoft Online Services, takie jak platforma Microsoft Azure, usługa Office 365 lub usługa Azure AD w warstwie Premium. Na przykład jeśli domyślny katalog został utworzony na platformie Azure, nie możesz usunąć tego katalogu, jeśli subskrypcja platformy Azure wciąż korzysta z niego na potrzeby uwierzytelniania. Nie można także usunąć katalogu, jeśli inny użytkownik skojarzył z nim subskrypcję. Aby skojarzyć subskrypcję z innym katalogiem, zaloguj się do Portalu zarządzania Azure, a następnie kliknij pozycję **Ustawienia** w obszarze nawigacji po lewej stronie. Następnie w dolnej części strony **Subskrypcje** kliknij polecenie **Edytuj katalog**. Aby uzyskać więcej informacji na temat subskrypcji platformy Azure, zobacz [Jak subskrypcje platformy Azure są kojarzone z usługą Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-    > [AZURE.NOTE]
-    > Jeśli użytkownik jest zalogowany za pomocą konta służbowego, nie może próbować usunąć własnego katalogu macierzystego. Na przykład jeśli użytkownik jest zalogowany za pomocą konta joe@contoso.onmicrosoft.com, to nie może usunąć katalogu, którego domyślna domena to contoso.onmicrosoft.com.
+> [AZURE.NOTE]
+> Jeśli użytkownik jest zalogowany za pomocą konta służbowego, nie może próbować usunąć własnego katalogu macierzystego. Na przykład jeśli użytkownik jest zalogowany za pomocą konta joe@contoso.onmicrosoft.com, to nie może usunąć katalogu, którego domyślna domena to contoso.onmicrosoft.com.
 
 - Żaden dostawca usługi Multi-Factor Authentication nie może być połączony z katalogiem.
 
@@ -150,6 +151,6 @@ Są sprawdzane następujące warunki:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

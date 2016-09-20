@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/25/2016" 
+    ms.date="06/21/2016" 
     ms.author="awills"/>
 
 
@@ -65,7 +65,11 @@ Jeśli masz [skonfigurowane monitorowanie wyjątków](app-insights-asp-net-excep
 Kliknij wyjątek, aby uzyskać ślad stosu. Jeśli kod aplikacji jest otwarty w programie Visual Studio, można przejść przez ślad stosu do odpowiedniego wiersza kodu.
 
 
-![](./media/app-insights-visual-studio/17.png)
+![Ślad stosu wyjątków](./media/app-insights-visual-studio/17.png)
+
+Ponadto w wierszu Code Lens powyżej każdej metody będzie wyświetlana liczba wyjątków zarejestrowanych przez usługę Application Insights w ciągu ostatnich 24 godzin.
+
+![Ślad stosu wyjątków](./media/app-insights-visual-studio/21.png)
 
 
 ## Monitorowanie lokalne
@@ -84,30 +88,30 @@ Jest to również przydatne, jeśli masz trochę [niestandardowej telemetrii](ap
  * W ustawieniach okna wyszukiwania istnieje możliwość wyszukiwania lokalnych danych diagnostycznych, nawet jeśli aplikacja wysyła telemetrię do portalu.
  * Aby zatrzymać przesyłanie telemetrii do portalu, zakomentuj wiersz `<instrumentationkey>...` w pliku ApplicationInsights.config. Gdy wszystko będzie gotowe, odkomentuj wiersz, aby wznowić wysyłanie telemetrii do portalu.
 
+## Trends
 
+Trends to narzędzie do wizualizacji zachowania aplikacji wraz z upływem czasu. 
 
+Na przycisku paska narzędzi Application Insights lub w oknie Application Insights Search wybierz pozycję **Eksploruj trendy telemetryczne**. Wybierz jedno z pięciu typowych zapytań, aby rozpocząć. W zależności od typów telemetrii, zakresów czasu i innych właściwości możesz analizować różne zestawy danych . 
 
+Aby znaleźć anomalie w danych, wybierz jedną z opcji anomalii w menu rozwijanym „Typ widoku”. Opcje filtrowania u dołu okna ułatwiają sprecyzowanie konkretnych podzestawów w telemetrii.
 
-## Uaktualnianie do przyszłych wersji zestawu SDK
+![Trends](./media/app-insights-visual-studio/51.png)
 
-Aby uaktualnić do [nowej wersji zestawu SDK](app-insights-release-notes-dotnet.md), otwórz ponownie menedżera pakietów NuGet i przefiltruj zainstalowane pakiety. Wybierz Microsoft.ApplicationInsights.Web i kliknij pozycję Uaktualnij.
-
-Jeśli plik ApplicationInsights.config został dostosowany, zapisz jego kopię przed uaktualnieniem, a następnie scal zmiany w nowej wersji.
-
-
+[Więcej informacji na temat narzędzia Trends](app-insights-visual-studio-trends.md).
 
 ## Co dalej?
 
 ||
 |---|---
 |**[Dodawanie większej ilości danych](app-insights-asp-net-more.md)**<br/>Monitorowanie użycia, dostępności, zależności i wyjątków. Integrowanie śladów ze struktur rejestrowania. Zapisywanie niestandardowych danych telemetrycznych. | ![Visual Studio](./media/app-insights-asp-net/64.png)
-|**[Praca z portalem Application Insights](app-insights-dashboards.md)**<br/>Pulpity nawigacyjne, zaawansowane narzędzia diagnostyczne i analityczne, alerty, mapa zależności aplikacji na żywo oraz eksportowanie telemetrii. |![Visual Studio](./media/app-insights-asp-net/62.png)
+|**[Praca z portalem usługi Application Insights](app-insights-dashboards.md)**<br/>Pulpity nawigacyjne, zaawansowane narzędzia diagnostyczne i analityczne, alerty, mapa zależności aplikacji na żywo oraz eksportowanie telemetrii. |![Visual Studio](./media/app-insights-asp-net/62.png)
 
 
  
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

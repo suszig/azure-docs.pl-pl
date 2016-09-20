@@ -1,14 +1,14 @@
-Aby utworzyć pamięć podręczną, najpierw zaloguj się do [portalu Azure](https://portal.azure.com) i kliknij kolejno opcje **Nowe**, **Dane + Magazyn**, **Pamięć podręczna Redis**.
+Aby utworzyć pamięć podręczną, najpierw zaloguj się w [witrynie Azure Portal](https://portal.azure.com), a następnie kliknij kolejno opcje **Nowe**, **Dane i magazyn**, **Pamięć podręczna Redis**.
 
 >[AZURE.NOTE] Jeśli nie masz konta Azure, możesz w ciągu kliku minut [utworzyć je bezpłatnie](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
 
 ![Nowa pamięć podręczna](media/redis-cache-create/redis-cache-new-cache-menu.png)
 
->[AZURE.NOTE] Oprócz tworzenia pamięci podręcznych w portalu Azure możesz również utworzyć je przy użyciu szablonów ARM, programu PowerShell lub interfejsu wiersza polecenia Azure.
+>[AZURE.NOTE] Oprócz tworzenia pamięci podręcznych w witrynie Azure Portal, możesz również utworzyć je przy użyciu programu PowerShell, interfejsu wiersza polecenia platformy Azure oraz szablonów usługi Resource Manager.
 >
->-  Informacje na temat tworzenia pamięci podręcznej za pomocą szablonów ARM można znaleźć w temacie [Tworzenie pamięci podręcznej Redis przy użyciu szablonu](../articles/redis-cache/cache-redis-cache-arm-provision.md).
->-  Informacje na temat tworzenia pamięci podręcznej przy użyciu programu Azure PowerShell można znaleźć w temacie [Zarządzanie pamięcią podręczną Redis Azure za pomocą programu Azure PowerShell](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md).
->-  Informacje na temat tworzenia pamięci podręcznej za pomocą interfejsu wiersza polecenia platformy Azure można znaleźć w temacie [Tworzenie pamięci podręcznej Redis Azure oraz zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure (Azure CLI)](../articles/redis-cache/cache-manage-cli.md).
+>-  Informacje na temat tworzenia pamięci podręcznej za pomocą szablonów usługi Resource Manager można znaleźć w temacie [Create a Redis cache using a template](../articles/redis-cache/cache-redis-cache-arm-provision.md) (Tworzenie pamięci podręcznej Redis przy użyciu szablonu).
+>-  Informacje na temat tworzenia pamięci podręcznej przy użyciu programu Azure PowerShell można znaleźć w temacie [Zarządzanie usługą Azure Redis Cache za pomocą programu Azure PowerShell](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md).
+>-  Informacje na temat tworzenia pamięci podręcznej za pomocą interfejsu wiersza polecenia platformy Azure można znaleźć w temacie [Tworzenie pamięci podręcznej w usłudze Premium Azure Redis Cache oraz zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure (Azure CLI)](../articles/redis-cache/cache-manage-cli.md).
 
 W bloku **Nowa pamięć podręczna Redis** określ odpowiednią konfigurację pamięci podręcznej.
 
@@ -19,17 +19,17 @@ W bloku **Nowa pamięć podręczna Redis** określ odpowiednią konfigurację pa
 -   W polu **Grupa zasobów** wybierz lub utwórz grupę zasobów dla pamięci podręcznej. Więcej informacji można znaleźć w temacie [Używanie grup zasobów do zarządzania zasobami platformy Azure](../articles/resource-group-overview.md). 
 -   Użyj opcji **Lokalizacja**, aby określić lokalizację geograficzną, w której będzie hostowana pamięć podręczna. Firma Microsoft zdecydowanie zaleca tworzenie pamięci podręcznej w tym samym regionie, w którym występuje aplikacja klienta pamięci podręcznej, w celu uzyskania możliwie najlepszej wydajności.
 -   W polu **Warstwa cenowa** wybierz odpowiedni rozmiar i funkcje pamięci podręcznej.
--   **Klaster Redis** umożliwia tworzenie pamięci podręcznych większych niż 53 GB i współdzielenie danych między wieloma węzłami Redis. Aby uzyskać więcej informacji, zobacz temat [Konfigurowanie usługi klastrowania dla usługi Pamięć podręczna Redis Azure Premium](../articles/redis-cache/cache-how-to-premium-clustering.md).
--   **Trwałość Redis** oferuje możliwość utrzymania pamięci podręcznej na koncie usługi Azure Storage. Instrukcje na temat konfigurowania trwałości można znaleźć w temacie [Konfigurowanie trwałości dla usługi Pamięć podręczna Redis Azure Premium](../articles/redis-cache/cache-how-to-premium-persistence.md).
--   **Sieć wirtualna** zapewnia większe bezpieczeństwo i izolację przez zezwolenie na dostęp do pamięci podręcznej tylko klientom w określonej sieci wirtualnej Azure. Aby jeszcze bardziej ograniczyć dostęp do serwera Redis, można użyć wszystkich funkcji VNet, np. podsieci, zasad kontroli dostępu oraz innych funkcji. Więcej informacji można znaleźć w temacie [Konfigurowanie obsługi sieci wirtualnej dla usługi Pamięć podręczna Redis Azure Premium](../articles/redis-cache/cache-how-to-premium-vnet.md).
+-   **Klaster Redis** umożliwia tworzenie pamięci podręcznych większych niż 53 GB i współdzielenie danych między wieloma węzłami Redis. Aby uzyskać więcej informacji, zobacz temat [Konfigurowanie usługi klastrowania dla usługi Azure Redis Cache w warstwie Premium](../articles/redis-cache/cache-how-to-premium-clustering.md).
+-   **Trwałość Redis** oferuje możliwość utrzymania pamięci podręcznej na koncie usługi Azure Storage. Instrukcje na temat konfigurowania trwałości można znaleźć w temacie [Konfigurowanie trwałości dla usługi Azure Redis Cache w warstwie Premium](../articles/redis-cache/cache-how-to-premium-persistence.md).
+-   **Sieć wirtualna** zapewnia większe bezpieczeństwo i izolację przez zezwolenie na dostęp do pamięci podręcznej tylko klientom w określonej sieci usługi Azure Virtual Network. Aby jeszcze bardziej ograniczyć dostęp do serwera Redis, można użyć wszystkich funkcji VNet, np. podsieci, zasad kontroli dostępu oraz innych funkcji. Więcej informacji można znaleźć w temacie [Konfigurowanie obsługi sieci wirtualnej dla usługi Azure Redis Cache w warstwie Premium](../articles/redis-cache/cache-how-to-premium-vnet.md).
 
-Po skonfigurowaniu opcji nowej pamięci podręcznej kliknij przycisk **Utwórz**. Tworzenie pamięci podręcznej może zająć kilka minut. Stan operacji można sprawdzić, monitorując postęp na tablicy startowej. Po utworzeniu pamięci podręcznej nowa pamięć podręczna ma stan **Uruchomiona** i jest gotowa do użycia z ustawieniami domyślnymi.
+Po skonfigurowaniu opcji nowej pamięci podręcznej kliknij przycisk **Utwórz**. Tworzenie pamięci podręcznej może zająć kilka minut. Stan operacji można sprawdzić, monitorując postęp na tablicy startowej. Po utworzeniu pamięci podręcznej nowa pamięć podręczna ma stan **Uruchomiona** i jest gotowa do użycia z [ustawieniami domyślnymi](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
 
 ![Utworzono pamięć podręczną](media/redis-cache-create/redis-cache-cache-created.png)
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

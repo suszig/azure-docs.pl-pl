@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Wprowadzenie do dostarczania zawartości na żądanie przy użyciu zestawu .NET SDK"
+    pageTitle="Wprowadzenie do dostarczania zawartości na żądanie przy użyciu zestawu .NET | Azure"
     description="Ten samouczek przedstawia kroki wdrażania aplikacji do dostarczania zawartości na żądanie w usługach Azure Media Services z użyciem platformy .NET."
     services="media-services"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="04/18/2016"
+    ms.date="08/17/2016"
     ms.author="juliako"/>
 
 
@@ -52,7 +52,7 @@ Następujące elementy są wymagane do wykonania czynności przedstawionych w sa
 
 - Do ukończenia tego samouczka jest potrzebne konto platformy Azure. 
     
-    Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz temat [Bezpłatna wersja próbna systemu Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Otrzymasz kredyt, który można wykorzystać do wypróbowania płatnych usług Azure. Nawet po wyczerpaniu kredytu możesz zachować konto i korzystać z bezpłatnych usług i funkcji platformy Azure, takich jak funkcja Web Apps w usłudze Azure App Service.
+    Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Otrzymasz kredyt, który można wykorzystać do wypróbowania płatnych usług Azure. Nawet po wyczerpaniu kredytu możesz zachować konto i korzystać z bezpłatnych usług i funkcji platformy Azure, takich jak funkcja Web Apps w usłudze Azure App Service.
 - Systemy operacyjne: Windows 8 lub nowszy, Windows 2008 R2, Windows 7.
 - .NET Framework 4.0 lub nowszy
 - Visual Studio 2010 z dodatkiem SP1 (Professional, Premium, Ultimate lub Express) lub nowszy.
@@ -220,7 +220,7 @@ Metoda **CreateFromFile** przyjmuje opcje **AssetCreationOptions**, które pozwa
 
 - **None** — szyfrowanie nie jest stosowane. Jest to wartość domyślna. Należy pamiętać, że w przypadku korzystania z tej opcji zawartość nie jest chroniona w trakcie przesyłania lub przechowywania w magazynie.
 Jeśli planujesz dostarczać zawartość w formacie MP4 przy użyciu pobierania progresywnego, użyj tej opcji.
-- **StorageEncrypted** — ta opcja umożliwia lokalne szyfrowanie wyczyszczonej zawartości przy użyciu szyfrowania 256-bitowego Advanced Encryption Standard (AES), a następnie przekazanie jej do Magazynu Azure, gdzie jest przechowywana w formie zaszyfrowanej. Elementy zawartości chronione przy użyciu szyfrowania magazynu są automatycznie odszyfrowywane i umieszczane w systemie szyfrowania plików przed kodowaniem, a także opcjonalnie ponownie szyfrowane przed przesłaniem zwrotnym w formie nowego elementu zawartości wyjściowej. Pierwotnym zastosowaniem szyfrowania magazynu jest zabezpieczenie za pomocą silnego szyfrowania wysokiej jakości multimedialnych plików wejściowych przechowywanych na dysku.
+- **StorageEncrypted** — ta opcja umożliwia lokalne szyfrowanie wyczyszczonej zawartości przy użyciu szyfrowania 256-bitowego Advanced Encryption Standard (AES), a następnie przekazanie jej do usługi Azure Storage, gdzie jest przechowywana w formie zaszyfrowanej. Elementy zawartości chronione przy użyciu szyfrowania magazynu są automatycznie odszyfrowywane i umieszczane w systemie szyfrowania plików przed kodowaniem, a także opcjonalnie ponownie szyfrowane przed przesłaniem zwrotnym w formie nowego elementu zawartości wyjściowej. Pierwotnym zastosowaniem szyfrowania magazynu jest zabezpieczenie za pomocą silnego szyfrowania wysokiej jakości multimedialnych plików wejściowych przechowywanych na dysku.
 - **CommonEncryptionProtected** — za pomocą tej opcji można przekazać zawartość, która jest już zaszyfrowana i chroniona za pomocą wspólnego szyfrowania lub technologii PlayReady DRM (np. pliki Smooth Streaming chronione za pomocą technologii PlayReady DRM).
 - **EnvelopeEncryptionProtected** — ta opcja umożliwia przekazanie plików w formacie HLS zaszyfrowanych z użyciem standardu AES. Należy pamiętać, że pliki muszą być zakodowane i zaszyfrowane za pomocą narzędzia Transform Manager.
 
@@ -445,7 +445,7 @@ Aby przetestować pobieranie progresywne, wklej adres URL do przeglądarki (np. 
 
 ### Szukasz czegoś innego?
 
-Jeśli ten temat nie zawiera oczekiwanych treści, brakuje w nim informacji lub w inny sposób nie spełnia Twoich potrzeb, podziel się swoją opinią w wątku Disqus poniżej.
+Jeśli ten temat nie zawiera oczekiwanych treści, brakuje w nim informacji lub w inny sposób nie spełnia Twoich potrzeb, podziel się swoją opinią za pomocą wątku usługi Disqus poniżej.
 
 
 <!-- Anchors. -->
@@ -457,6 +457,6 @@ Jeśli ten temat nie zawiera oczekiwanych treści, brakuje w nim informacji lub 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

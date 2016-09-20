@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Integracja katalogu między serwerem Azure MFA i usługą Active Directory
@@ -138,6 +138,7 @@ Można skonfigurować dodatkowe serwery Multi-Factor Auth, które będą pełni�
 ![Serwery usługi Multi-Factor Auth](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
 
-<!--HONumber=jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

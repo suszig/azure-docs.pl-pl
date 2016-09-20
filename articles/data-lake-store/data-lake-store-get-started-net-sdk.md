@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/27/2016"
+   ms.date="07/18/2016"
    ms.author="nitinme"/>
 
 # Rozpoczynanie pracy z usługą Azure Data Lake Store z użyciem zestawu SDK .NET
@@ -32,19 +32,19 @@ Dowiedz się, jak używać zestawu SDK .NET usługi Azure Data Lake Store, aby u
 ## Wymagania wstępne
 
 * Program Visual Studio w wersji 2013 lub 2015. Poniższe instrukcje opisują korzystanie z programu Visual Studio 2015.
-* **Subskrypcja platformy Azure**. Zobacz [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Subskrypcja platformy Azure**. Zobacz artykuł [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Włączenie subskrypcji platformy Azure** w celu uzyskania publicznej wersji zapoznawczej usługi Data Lake Store. Zobacz [instrukcje](data-lake-store-get-started-portal.md#signup).
-* **Utworzenie aplikacji usługi Azure Active Directory**. Istnieją dwa sposoby uwierzytelniania z użyciem usługi Azure Active Directory — **interakcyjne** i **nieinterakcyjne**. W zależności od sposobu uwierzytelniania należy spełnić różne wymagania wstępne.
+* **Utworzenie aplikacji usługi Azure Active Directory**. Istnieją dwa sposoby uwierzytelniania z użyciem usługi Azure Active Directory — **interaktywny** i **nieinteraktywny**. W zależności od sposobu uwierzytelniania należy spełnić różne wymagania wstępne.
     * **Uwierzytelnianie interakcyjne** (używane w tym artykule) — w usłudze Azure Active Directory należy utworzyć **aplikację Native Client**. Po utworzeniu aplikacji pobierz następujące wartości związane z tą aplikacją.
         - Uzyskaj **identyfikator klienta** i **identyfikator URI przekierowania** dla aplikacji.
         - Ustaw uprawnienia delegowane.
 
     * **Uwierzytelnianie nieinterakcyjne** — w usłudze Azure Active Directory należy utworzyć **aplikację sieci Web**. Po utworzeniu aplikacji pobierz następujące wartości związane z tą aplikacją.
-        - Pobierz **identyfikator klienta**, **klucz tajny klienta** oraz **identyfikator URI przekierowania** dla tej aplikacji.
+        - Pobierz **identyfikator klienta**, **klucz tajny klienta** oraz **identyfikator URI przekierowania** dla aplikacji.
         - Ustaw uprawnienia delegowane.
         - Przypisz aplikację usługi Azure Active Directory do roli. Rola może być na poziomie zakresu, na którym chcesz nadać uprawnienie do aplikacji usługi Azure Active Directory. Na przykład możesz przypisać aplikację na poziomie subskrypcji lub na poziomie grupy zasobów. 
 
-    Instrukcje dotyczące pobierania tych wartości, ustawiania uprawnień i przypisywania ról zawiera temat [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md) (Tworzenie aplikacji i głównej nazwy usługi Active Directory przy użyciu portalu).
+    Instrukcje dotyczące pobierania tych wartości, ustawiania uprawnień i przypisywania ról znajdują się w temacie [Tworzenie aplikacji i nazwy głównej usługi Active Directory przy użyciu portalu](../resource-group-create-service-principal-portal.md).
 
 ## Tworzenie aplikacji .NET
 
@@ -522,12 +522,12 @@ Na koniec upewnij się, że podana tutaj ścieżka lokalna i nazwa pliku istniej
 
 ## Następne kroki
 
-- [Secure data in Data Lake Store (Zabezpieczanie danych w usłudze Data Lake Store)](data-lake-store-secure-data.md)
-- [Use Azure Data Lake Analytics with Data Lake Store (Korzystanie z usługi Azure Data Lake Analytics z usługą Data Lake Store)](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+- [Zabezpieczanie danych w usłudze Data Lake Store](data-lake-store-secure-data.md)
+- [Korzystanie z usługi Azure Data Lake Analytics z usługą Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Korzystanie z usługi Azure HDInsight z usługą Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

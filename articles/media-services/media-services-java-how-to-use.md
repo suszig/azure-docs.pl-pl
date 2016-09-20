@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Jak korzystać z usługi Azure Media Services z językiem Java" 
+    pageTitle="Wprowadzenie do dostarczania zawartości na żądanie przy użyciu języka Java | Microsoft Azure" 
     description="Informacje dotyczące używania usługi Azure Media Services do wykonywania typowych zadań, w tym kodowania, szyfrowania i przesyłania strumieniowego zasobów." 
     services="media-services" 
     documentationCenter="java" 
@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="04/18/2016"  
+    ms.date="08/17/2016"   
     ms.author="robmcm"/>
 
-#Jak korzystać z usługi Media Services z językiem Java
+# Wprowadzenie do dostarczania zawartości na żądanie przy użyciu języka Java
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -35,11 +35,11 @@ Ta sekcja zawiera ogólne wymagania wstępne dotyczące tworzenia usługi Media 
 
 ##Jak korzystać z usługi Media Services z językiem Java
 
-Poniższy kod przedstawia sposób tworzenia elementu zawartości, przesyłanie pliku multimediów do elementu zawartości, uruchomienie zadania polegającego na przekształceniu elementu zawartości i utworzenie lokalizatora w celu strumieniowego przesyłania wideo.
+Poniższy kod przedstawia sposób tworzenia elementu zawartości, przesyłania pliku multimediów do elementu zawartości, uruchamiania zadania polegającego na przekształceniu elementu zawartości i tworzenia lokalizatora w celu strumieniowego przesyłania wideo.
 
-Należy skonfigurować konto usługi Media Services przed rozpoczęciem korzystania z tego kodu. Aby dowiedzieć się, jak skonfigurować konto, zobacz temat [Tworzenie konta usługi Media Services](media-services-create-account.md).
+Przed rozpoczęciem korzystania z tego kodu musisz skonfigurować konto usługi Media Services. Aby dowiedzieć się, jak skonfigurować konto, zobacz temat [Tworzenie konta usługi Media Services](media-services-create-account.md).
 
-Podstaw wartości zmiennych `clientId` i `clientSecret`. Kod korzysta również z lokalnie przechowywanego pliku. Należy udostępnić własny plik.
+Zastąp zmienne „clientId” i „clientSecret” odpowiednimi wartościami. Kod korzysta również z lokalnie przechowywanego pliku. Należy udostępnić własny plik.
     
     import java.io.*;
     import java.security.NoSuchAlgorithmException;
@@ -259,7 +259,7 @@ Podstaw wartości zmiennych `clientId` i `clientSecret`. Kod korzysta również 
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Przekaż opinię
+##Przekazywanie opinii
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
@@ -278,6 +278,6 @@ Dokumentację Javadoc usługi Media Services zawiera temat [Dokumentacja bibliot
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

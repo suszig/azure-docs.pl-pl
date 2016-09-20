@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # Dodawanie buforowania w celu poprawy wydajności usługi Azure API Management
@@ -129,7 +129,6 @@ Zauważ, że wartość **sampleheader** w odpowiedzi jest teraz równa **value2*
 
 ## <a name="next-steps"> </a>Następne kroki
 
--   Poznaj inne tematy w samouczku [Get started with advanced API configuration][] (Wprowadzenie do zaawansowanej konfiguracji interfejsu API).
 -   Więcej informacji na temat zasad buforowania, można znaleźć w temacie [Caching policies][] (Zasady buforowania) w artykule [API Management policy reference][] (Dokumentacja zasad usługi API Management).
 -   Aby poznać informacje na temat buforowania elementów według kluczy przy użyciu wyrażeń zasad, zobacz artykuł [Custom caching in Azure API Management](api-management-sample-cache-by-key.md) (Niestandardowe buforowanie w usłudze Azure API Management).
 
@@ -151,7 +150,6 @@ Zauważ, że wartość **sampleheader** w odpowiedzi jest teraz równa **value2*
 [Dodawanie interfejsów API do produktu]: api-management-howto-add-products.md#add-apis
 [Publikowanie produktu]: api-management-howto-add-products.md#publish-product
 [Wprowadzenie do usługi Azure API Management]: api-management-get-started.md
-[Get started with advanced API configuration]: api-management-get-started-advanced.md
 
 [API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
@@ -165,6 +163,6 @@ Zauważ, że wartość **sampleheader** w odpowiedzi jest teraz równa **value2*
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

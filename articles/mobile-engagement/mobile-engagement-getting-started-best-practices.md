@@ -13,8 +13,8 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="mobile-multiple"
     ms.workload="mobile" 
-    ms.date="03/28/2016"
-    ms.author="wesmc"/>
+    ms.date="07/07/2016"
+    ms.author="wesmc;ricksal"/>
 
 # Wprowadzenie do usługi Azure Mobile Engagement — przewodnik z najlepszymi rozwiązaniami
 
@@ -102,7 +102,7 @@ Oto przykładowe wskaźniki KPI należące do kategorii Kwestie techniczne:
 - Wersja systemu operacyjnego, w którym działa aplikacja
 - Wersja aplikacji
 
-Zdefiniowanie tych wskaźników KPI pomaga mierzyć wydajność aplikacji i znajdować potencjalne błędy, a także powinno pozwolić na skrócenie czasu potrzebnego na dostarczenie poprawek klientom. Wskaźników z tej kategorii można również użyć w celu określenia segmentu użytkowników, którzy napotkali konkretny problem. Umożliwi to przeprowadzenie kampanii obejmującej dostarczanie powiadomień o dostępnych poprawkach i spodziewanych promocjach, co pozwoli ponownie podnieść poziom zadowolenia klientów. 
+Zdefiniowanie tych wskaźników KPI pomaga mierzyć wydajność aplikacji i znajdować potencjalne błędy. Wskaźniki te powinny pomóc w skróceniu czasu potrzebnego, aby dostarczyć poprawkę dla klientów. Wskaźników z tej kategorii można również użyć w celu określenia segmentu użytkowników, którzy napotkali konkretny problem. Umożliwi to przeprowadzenie kampanii obejmującej dostarczanie powiadomień o dostępnych poprawkach i spodziewanych promocjach, co pozwoli ponownie podnieść poziom zadowolenia klientów. 
 
 
 #### Ćwiczenie 1. Tworzenie pulpitu nawigacyjnego wskaźników KPI
@@ -163,7 +163,7 @@ Na przykład bardzo aktywny użytkownik fantastycznej gry w piłkę nożną moż
 
 ###### Sekwencja powiadomień wypychanych dotyczących alertów
 
-Użytkownikom spodoba się otrzymywanie komunikatów związanych z ich zainteresowaniami. Sekwencja powiadomień wypychanych dotyczących alertów umożliwia zwiększenie zaangażowania przez wysyłanie komunikatów dostosowanych do ściśle określonych zainteresowań użytkowników. Te zainteresowania mogą być określone jawnie, gdy użytkownik wybierze je w aplikacji, albo mogą zostać ustalone w sposób niejawny, na podstawie danych zebranych w trakcie interakcji użytkownika z aplikacją.
+Użytkownikom spodoba się otrzymywanie komunikatów związanych z ich zainteresowaniami. Sekwencja powiadomień wypychanych dotyczących alertów umożliwia zwiększenie zaangażowania przez wysyłanie komunikatów dostosowanych do ściśle określonych zainteresowań użytkowników. Może to być jawne, gdy użytkownik wybierze swoje zainteresowania w aplikacji. Można to również określić niejawnie na podstawie danych zebranych podczas interakcji użytkownika z aplikacją.
 
 Na przykład użytkownik aplikacji z branży handlu elektronicznego może regularnie kupować konkretną markę kawy, a informację o tym udało się przechwycić za pomocą biznesowego wskaźnika KPI. Poniższy alert może zwiększyć zainteresowanie tego użytkownika aplikacją.
  
@@ -180,7 +180,7 @@ Na przykład użytkownicy aplikacji sportowych mogą co tydzień otrzymywać tak
 
 #### Metoda „Kto, co i kiedy”
 
-Opanowanie różnych sekwencji powiadomień wypychanych ułatwia angażowanie użytkowników końcowych. Jednak wysyłane komunikaty wymagają personalizacji. Z pomocą przychodzi metoda „Kto, co i kiedy”, która jest stosowana do każdego powiadomienia. Jeśli uda się uzyskać jasne odpowiedzi na te pytania, powiadomienia będą odpowiednio ukierunkowane na wzbudzenie zaangażowania klientów.
+Opanowanie różnych sekwencji powiadomień wypychanych ułatwia angażowanie użytkowników końcowych. Jednak wysyłane powiadomienia wymagają personalizacji. Z pomocą przychodzi metoda „Kto, co i kiedy”. Metoda „Kto, co i kiedy” powinna być stosowana w przypadku każdego powiadomienia. Jeśli uda się uzyskać jasne odpowiedzi na te pytania, powiadomienia będą odpowiednio ukierunkowane na wzbudzenie zaangażowania klientów.
 
 ![](./media/mobile-engagement-getting-started-best-practices/who-what-when.png)
 
@@ -241,7 +241,7 @@ Jaki jest najlepszy moment na aktywowanie powiadomień wypychanych w ramach rozp
 
 W przypadku codziennego wysyłania wielu powiadomień należy koniecznie mieć na uwadze, że użytkownicy mogą postrzegać taką komunikację jako spam. 
 
-W usłudze Azure Mobile Engagement są dostępne dwie metody, które pozwalają temu zapobiec. Pierwsza z nich polega na szczegółowej segmentacji użytkowników, dzięki czemu komunikaty nie są kierowane do tych samych osób. Dodatkowo usługa Azure Mobile Engagement udostępnia funkcję „przydziału”,  która ogranicza powiadomienia wysyłane w ramach kampanii. Na przykład ustawienie domyślnego przydziału na 5 wiadomości w tygodniu gwarantuje, że użytkownicy należący do danego segmentu nie otrzymają więcej niż 5 powiadomień w tygodniu.
+W usłudze Azure Mobile Engagement są dostępne dwie metody, które pozwalają temu zapobiec. Pierwsza z nich polega na szczegółowej segmentacji użytkowników, dzięki czemu komunikaty nie są kierowane do tych samych osób. Ponadto usługa Azure Mobile Engagement udostępnia funkcję „przydział”. Ta funkcja może ograniczyć powiadomienia wysyłane w ramach kampanii. Na przykład ustawienie domyślnego przydziału na 5 wiadomości w tygodniu gwarantuje, że użytkownicy należący do danego segmentu nie otrzymają więcej niż 5 powiadomień w tygodniu.
 
 
 
@@ -409,6 +409,6 @@ Po zdobyciu pewnego doświadczenia można rozważyć dodanie do programu zaanga�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

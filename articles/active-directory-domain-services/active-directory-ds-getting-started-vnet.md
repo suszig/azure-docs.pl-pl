@@ -1,6 +1,6 @@
 <properties
     pageTitle="Usługi domenowe Azure AD: tworzenie lub wybieranie sieci wirtualnej | Microsoft Azure"
-    description="Wprowadzenie do Usług domenowych Azure Active Directory (wersja zapoznawcza)"
+    description="Wprowadzenie do usługi Active Directory Domain Services (wersja zapoznawcza)"
     services="active-directory-ds"
     documentationCenter=""
     authors="mahesh-unnikrishnan"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
+    ms.date="07/06/2016"
     ms.author="maheshu"/>
 
 # Usługi domenowe Azure AD *(wersja zapoznawcza)* — tworzenie lub wybieranie sieci wirtualnej
@@ -72,6 +72,6 @@ Następne zadanie konfiguracji to [włączenie Usług domenowych Azure AD](activ
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

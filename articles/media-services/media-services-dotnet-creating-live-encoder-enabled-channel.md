@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="05/05/2016"
+    ms.date="06/22/2016"
     ms.author="juliako"/>
 
 
@@ -25,13 +25,13 @@
 - [Interfejs API REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 >[AZURE.NOTE]
-> Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz temat [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F) (Bezpłatna wersja próbna platformy Azure). 
+> Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz temat [Bezpłatna wersja próbna systemu Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
 
 ##Omówienie
 
 Ten samouczek przedstawia kroki tworzenia **kanału**, który odbiera strumień na żywo o pojedynczej szybkości transmisji bitów i koduje go jako strumień o wielokrotnej szybkości transmisji bitów.
 
-Aby uzyskać więcej informacji o pojęciach związanych z kanałami obsługującymi kodowanie na żywo, zobacz temat [Transmisja strumieniowa na żywo korzystająca z usługi Azure Media Services do tworzenia strumieni o wielokrotnej szybkości transmisji bitów](media-services-manage-live-encoder-enabled-channels.md).
+Aby uzyskać więcej informacji o pojęciach związanych z kanałami obsługującymi kodowanie na żywo, zobacz temat [Korzystanie z usługi Azure Media Services do prowadzenia transmisji strumieniowych na żywo ze strumieniami o wielokrotnej szybkości transmisji bitów](media-services-manage-live-encoder-enabled-channels.md).
 
 
 ##Typowy scenariusz transmisji strumieniowej na żywo
@@ -46,9 +46,9 @@ W poniższych krokach opisano zadania związane z tworzeniem typowych aplikacji 
 
 1. Utwórz i uruchom kanał.
 
-1. Pobierz adres URL odbioru kanału.
+1. Pobierz adres URL pozyskiwania kanału.
 
-    Adres URL odbioru jest używany przez koder na żywo do wysyłania strumienia do kanału.
+    Koder na żywo używa adresu URL pozyskiwania do wysyłania strumienia do kanału.
 
 1. Pobierz adres URL podglądu kanału.
 
@@ -65,7 +65,7 @@ W poniższych krokach opisano zadania związane z tworzeniem typowych aplikacji 
     Upewnij się, że istnieje co najmniej jedna jednostka zarezerwowanego przesyłania strumieniowego w punkcie końcowym, z którego zawartość ma być przesyłana strumieniowo.
 
 1. Uruchom program, gdy wszystko będzie gotowe do rozpoczęcia przesyłania strumieniowego i archiwizacji.
-2. Opcjonalnie można przesłać do kodera na żywo sygnał o uruchomieniu anonsu. Anons jest wstawiany do strumienia wyjściowego.
+2. Opcjonalnie można przesłać do kodera na żywo sygnał o rozpoczęciu reklamy. Reklama jest wstawiana do strumienia wyjściowego.
 1. Zatrzymaj program w dowolnym momencie, w którym chcesz zatrzymać przesyłanie strumieniowe i archiwizowanie wydarzenia.
 1. Usuń program (opcjonalnie można również usunąć zasób).
 
@@ -89,9 +89,9 @@ W temacie przedstawiono sposób wykonywania następujących czynności:
 
 Następujące elementy są wymagane do wykonania czynności przedstawionych w samouczku.
 
-- Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. 
+- Do ukończenia tego samouczka jest potrzebne konto platformy Azure. 
     
-    Jeśli nie masz konta, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz temat [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F) (Bezpłatna wersja próbna platformy Azure). Otrzymasz kredyt, który można wykorzystać do wypróbowania płatnych usług Azure. Nawet po wyczerpaniu kredytu możesz zachować konto i korzystać z bezpłatnych usług i funkcji platformy Azure, takich jak Web Apps w usłudze Azure App Service.
+    Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Otrzymasz kredyt, który można wykorzystać do wypróbowania płatnych usług Azure. Nawet po wyczerpaniu kredytu możesz zachować konto i korzystać z bezpłatnych usług i funkcji platformy Azure, takich jak Web Apps w usłudze Azure App Service.
 - Konto usługi Media Services. Aby utworzyć konto usługi Media Services, zobacz temat [Tworzenie konta](media-services-create-account.md).
 - Visual Studio 2010 z dodatkiem SP1 (Professional, Premium, Ultimate lub Express) lub nowszy.
 - Należy użyć zestawu .NET SDK usługi Media Services w wersji 3.2.0.0 lub nowszej.
@@ -99,7 +99,7 @@ Następujące elementy są wymagane do wykonania czynności przedstawionych w sa
 
 ##Zagadnienia do rozważenia
 
-- Obecnie maksymalny zalecany czas trwania wydarzenia na żywo wynosi 8 godzin. Skontaktuj się pod adresem amslived@microsoft.com, jeśli chcesz uruchomić kanał na dłuższe okresy.
+- Obecnie maksymalny zalecany czas trwania wydarzenia na żywo wynosi 8 godzin. Skontaktuj się z nami pod adresem amslived@microsoft.com, jeśli chcesz uruchomić kanał na dłużej.
 - Upewnij się, że istnieje co najmniej jedna jednostka zarezerwowanego przesyłania strumieniowego w punkcie końcowym, z którego zawartość ma być przesyłana strumieniowo.
 
 ##Pobieranie próbki
@@ -532,6 +532,6 @@ Jeśli ten temat nie zawiera oczekiwanych treści, brakuje w nim informacji lub 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

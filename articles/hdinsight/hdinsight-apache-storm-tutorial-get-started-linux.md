@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/31/2016"
+   ms.date="08/16/2016"
    ms.author="larryfr"/>
 
 
@@ -40,13 +40,13 @@ Do pomyślnego ukończenia samouczka platformy Apache Storm potrzebne są:
 
 ## Tworzenie klastra Storm
 
-W tej sekcji utworzysz klaster usługi HDInsight w wersji 3.2 (Storm w wersji 0.9.3) przy użyciu szablonu Azure ARM. Informacje o wersji usługi HDInsight i umowach SLA można znaleźć w temacie [Przechowywanie wersji składnika usługi HDInsight](hdinsight-component-versioning.md). Aby zapoznać się z innymi metodami tworzenia klastra, zobacz temat [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+W tej sekcji utworzysz klaster usługi HDInsight w wersji 3.2 (Storm 0.9.3) przy użyciu szablonu Azure Resource Manager. Informacje o wersji usługi HDInsight i umowach SLA można znaleźć w temacie [Przechowywanie wersji składnika usługi HDInsight](hdinsight-component-versioning.md). Aby zapoznać się z innymi metodami tworzenia klastra, zobacz temat [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Kliknij poniższy obraz, aby otworzyć szablon ARM w Portalu Azure.         
+1. Kliknij poniższy obraz, aby otworzyć szablon w usłudze Azure Portal.         
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Szablon ARM znajduje się w publicznym kontenerze obiektów blob *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*. 
+    Szablon znajduje się w publicznym kontenerze obiektów blob *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*. 
    
 2. W bloku Parametry wprowadź następujące informacje:
 
@@ -93,9 +93,9 @@ Przykłady z projektu [storm-starter](https://github.com/apache/storm/tree/maste
 
 2. Użyj następującego polecenia, aby uruchomić przykładową topologię:
 
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.10.0.2.4.2.4-5.jar storm.starter.WordCountTopology wordcount
         
-    > [AZURE.NOTE] Część `0.9.3.2.2.4.9-1` nazwy pliku może zmienić się po aktualizacji usługi HDinsight przy użyciu nowszych wersji systemu Storm.
+    > [AZURE.NOTE] Część `0.10.0.2.4.2.4-5` nazwy pliku może zmienić się po aktualizacji usługi HDInsight przy użyciu nowszych wersji systemu Storm.
 
     To polecenie uruchamia w klastrze przykładową topologię WordCount o przyjaznej nazwie „wordcount”. Przykład obejmuje losowe wygenerowanie zdań i zliczenie wystąpień poszczególnych wyrazów w zdaniach.
 
@@ -193,6 +193,6 @@ Jeśli umiesz już opracowywać topologie oparte na języku Java i chcesz wdroż
 [preview-portal]: https://portal.azure.com/
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

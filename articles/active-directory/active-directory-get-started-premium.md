@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/16/2016"
     ms.author="markvi"/>
 
 # Wprowadzenie do usługi Azure Active Directory — wersja Premium
@@ -23,7 +23,7 @@ Konto w usłudze Active Directory — wersja Premium można utworzyć na kilka s
 
 **Platforma Azure lub usługa Office 365** — jako subskrybent platformy Azure lub usługi Office 365 możesz kupić usługę Active Directory — wersja Premium online. Aby uzyskać szczegółowy opis kroków, zobacz [How to Purchase Azure Active Directory Premium - Existing Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) (Jak kupić usługę Azure Active Directory — wersja Premium: istniejący klienci) lub [How to Purchase Azure Active Directory Premium - New Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers) (Jak kupić usługę Azure Active Directory — wersja Premium: nowi klienci).  
 
-**Pakiet Enterprise Mobility Suite** — ten pakiet to ekonomiczne rozwiązanie dla organizacji korzystających z następujących usług w ramach jednego planu licencjonowania: Active Directory — wersja Premium, Azure Rights Management i Microsoft Intune. Aby uzyskać więcej informacji, zobacz witrynę sieci Web pakietu [Enterprise Mobility Suite](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx). Aby uzyskać bezpłatną 30-dniową wersję próbną, kliknij [tutaj](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
+**Enterprise Mobility + Security** — Enterprise Mobility + Security (dawniej Enterprise Mobility Suite) to ekonomiczne rozwiązanie dla organizacji korzystających z następujących usług w ramach jednego planu licencjonowania: Active Directory — wersja Premium, Azure Rights Management i Microsoft Intune. Aby uzyskać więcej informacji, zobacz witrynę sieci Web pakietu [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx). Aby uzyskać bezpłatną 30-dniową wersję próbną, kliknij [tutaj](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
 
 
 **Licencjonowanie zbiorowe firmy Microsoft** — usługa Azure Active Directory — wersja Premium jest dostępna za pośrednictwem [umowy Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 lub więcej licencji) lub [programu licencjonowania Open](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5-250 licencji).
@@ -164,6 +164,6 @@ Dostępność usług i funkcji dla usługi w chmurze firmy Microsoft jest zależ
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/02/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # Usługi SQL Azure z usługą Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Często zdarza się, że klienci planujący hostowanie swoich aplikacji systemu Windows w chmurze za pomocą usługi Azure RemoteApp chcą także dokonać migracji ich danych (na przykład serwerów SQL Server) do chmury w celu osiągnięcia pełnego wdrożenia w chmurze. Pozwala to uzyskać całościowe rozwiązanie hostowane w chmurze, dostępne w dowolnym momencie z każdego miejsca przy użyciu dowolnego urządzenia za pośrednictwem usługi Azure RemoteApp. Poniżej znajdują się linki i odniesienia oraz wskazówki ułatwiające przeprowadzenie tego procesu.  
 
@@ -41,7 +44,7 @@ Dowiedz się, [jak skonfigurować zaporę bazy danych Azure SQL](../sql-database
 
 Gdy komputer próbuje połączyć się w Internecie z serwerem bazy danych, zapora sprawdza źródłowy adres IP żądania i porównuje go z pełnym zestawem reguł na poziomie serwera i (jeśli jest to wymagane) na poziomie bazy danych. „Jeśli adres IP żądania należy do jednego z zakresów określonych w regułach zapory na poziomie serwera, zostanie ustanowione połączenie z serwerem usługi Azure SQL Database”. Dzięki temu można używać zakresów adresów IP, a nie tylko pojedynczych źródłowych adresów IP.
 
-Postępuj zgodnie z instrukcjami krok po kroku opisanych w temacie [Konfigurowanie ustawień zapory dla usługi SQL Database przy użyciu Portalu Azure](../sql-database/sql-database-configure-firewall-settings.md), aby określić zakres adresów IP. Podczas konfigurowania reguł zapory SQL podaj zakres adresów IP podsieci, która jest przeznaczona do obsługi kolekcji usługi Azure RemoteApp. Powinno to umożliwić serwerom ARA nawiązanie połączenia z bazą danych SQL pomimo korzystania z dynamicznie przypisywanych adresów IP.
+Postępuj zgodnie z instrukcjami krok po kroku opisanych w temacie [Konfigurowanie ustawień zapory dla usługi SQL Database przy użyciu witryny Azure Portal](../sql-database/sql-database-configure-firewall-settings.md), aby określić zakres adresów IP. Podczas konfigurowania reguł zapory SQL podaj zakres adresów IP podsieci, która jest przeznaczona do obsługi kolekcji usługi Azure RemoteApp. Powinno to umożliwić serwerom ARA nawiązanie połączenia z bazą danych SQL pomimo korzystania z dynamicznie przypisywanych adresów IP.
 
 ## Rozwiązywanie problemów
 Istnieje kilka przyczyn spowolnienia działania aplikacji klienckiej hostowanej w usłudze Azure RemoteApp, która łączy się z bazą danych SQL hostowaną na platformie Azure lub lokalnie.  
@@ -53,6 +56,6 @@ Istnieje kilka przyczyn spowolnienia działania aplikacji klienckiej hostowanej 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

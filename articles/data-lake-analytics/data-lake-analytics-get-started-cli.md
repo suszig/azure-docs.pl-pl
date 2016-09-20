@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Samouczek: wprowadzenie do korzystania z usługi Azure Data Lake Analytics przy użyciu interfejsu wiersza polecenia (CLI) platformy Azure
@@ -95,7 +95,7 @@ Aby przekazać pliki, używając interfejsu wiersza polecenia, skorzystaj z nast
     azure datalake store filesystem import "<Data Lake Store Account Name>" "<Path>" "<Destination>"
     azure datalake store filesystem list "<Data Lake Store Account Name>" "<Path>"
 
-Usługa Data Lake Analytics może także uzyskiwać dostęp do magazynu obiektów Blob platformy Azure.  Zobacz temat [Korzystanie z interfejsu wiersza polecenia platformy Azure w usłudze Azure Storage](../storage/storage-azure-cli.md), aby przekazywać dane do magazynu obiektów Blob platformy Azure.
+Usługa Data Lake Analytics może także uzyskiwać dostęp do usługi Azure Blob Storage.  Aby uzyskać informacje o przekazywaniu danych do usługi Azure Blob Storage, zobacz temat [Korzystanie z interfejsu wiersza polecenia platformy Azure w usłudze Azure Storage](../storage/storage-azure-cli.md).
 
 ## Przesyłanie zadań usługi Data Lake Analytics
 
@@ -156,15 +156,15 @@ Po zakończeniu zadania można użyć następujących poleceń cmdlet, aby wyśw
 ## Zobacz też
 
 - Aby wyświetlić ten samouczek przy użyciu innych narzędzi, kliknij odpowiedni selektor karty w górnej części strony.
-- Aby zobaczyć bardziej skomplikowane zapytanie, zobacz artykuł [Analizowanie dzienników witryn sieci Web za pomocą usługi Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+- Aby uzyskać informacje na temat bardziej złożonego zapytania, zobacz temat [Analizowanie dzienników witryn sieci Web przy użyciu usługi Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 - Aby rozpocząć tworzenie aplikacji w języku U-SQL, zobacz artykuł [Tworzenie skryptów U-SQL przy użyciu narzędzi Data Lake Tools dla Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Aby dowiedzieć się więcej o języku U-SQL, zobacz [Wprowadzenie do języka U-SQL w usłudze Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
-- Informacje o zadaniach zarządzania znajdziesz w artykule [Zarządzanie usługą Azure Data Lake Analytics przy użyciu Portalu Azure](data-lake-analytics-manage-use-portal.md).
+- Informacje o zadaniach zarządzania znajdziesz w artykule [Zarządzanie usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal](data-lake-analytics-manage-use-portal.md).
 - Aby zapoznać się z omówieniem usługi Data Lake Analytics, zobacz [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

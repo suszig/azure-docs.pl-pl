@@ -2,10 +2,10 @@
 |-----------------------------|-------------|---------------------|
 | **Klasyczny portal**          | Nieobsługiwane          | Nieobsługiwane                  |
 | **Azure Portal**            | Nieobsługiwane         | Nieobsługiwane                  |
-| **PowerShell** | [Artykuł](../articles/expressroute/expressroute-howto-coexist-classic.md) | Nieobsługiwane |
+| **PowerShell** | [Artykuł](../articles/expressroute/expressroute-howto-coexist-classic.md) | [Artykuł](../articles/expressroute/expressroute-howto-coexist-resource-manager.md) |
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

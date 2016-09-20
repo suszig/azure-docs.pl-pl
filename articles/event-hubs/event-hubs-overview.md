@@ -12,7 +12,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Omówienie usługi Azure Event Hubs
@@ -21,9 +21,9 @@ Wiele nowoczesnych rozwiązań zostało utworzonych w celu zapewnienia adaptacyj
 
 ![Usługa Event Hubs](./media/event-hubs-overview/IC759856.png)
 
-Usługa Azure Event Hubs to usługa służąca do przetwarzania zdarzeń, która dostarcza zdarzenia i dane telemetryczne do chmury w bardzo dużej skali, z małymi opóźnieniami i wysoką niezawodnością. Ta usługa, używana wraz z innymi usługami podrzędnymi, jest szczególnie przydatna podczas instrumentacji aplikacji, przetwarzaniu środowiska użytkownika lub przepływu pracy oraz scenariuszach Internetu rzeczy (IoT). Usługa Event Hubs zapewnia funkcję obsługi strumienia komunikatów i chociaż centrum zdarzeń to jednostka podobna do kolejek i tematów, to ma właściwości, które bardzo różnią się od tradycyjnych metod przesyłania komunikatów w firmie. Scenariusze dotyczące przesyłania komunikatów w firmie zwykle wymagają wielu zaawansowanych funkcji, takich jak sekwencjonowanie, obsługa utraconych komunikatów, obsługa transakcji i silne gwarancje dostarczenia, podczas gdy dominującą kwestią w przypadku pobierania zdarzeń jest duża przepływność i elastyczność przetwarzania dla strumieni zdarzeń. W związku z tym możliwości usługi Event Hubs różnią się od tematów usługi Service Bus tym, że są one silnie ukierunkowane pod kątem scenariuszy wysokiej przepływności i przetwarzania zdarzeń. W takiej sytuacji usługa Event Hubs nie implementuje niektórych możliwości obsługi komunikatów, które są dostępne w przypadku tematów. Jeśli takie możliwości są wymagane, tematy pozostają optymalnym wyborem.
+Usługa Azure Event Hubs to usługa służąca do przetwarzania zdarzeń, która dostarcza zdarzenia i dane telemetryczne do chmury w bardzo dużej skali, z małymi opóźnieniami i wysoką niezawodnością. Ta usługa, używana wraz z innymi usługami podrzędnymi, jest szczególnie przydatna podczas instrumentacji aplikacji, przetwarzaniu środowiska użytkownika lub przepływu pracy oraz scenariuszach Internetu rzeczy (IoT). Usługa Event Hubs zapewnia funkcję obsługi strumienia komunikatów i chociaż centrum zdarzeń to jednostka podobna do kolejek i tematów, to ma właściwości, które bardzo różnią się od tradycyjnych metod przesyłania komunikatów w firmie. Scenariusze dotyczące przesyłania komunikatów w firmie zwykle wymagają zaawansowanych funkcji, takich jak sekwencjonowanie, obsługa utraconych komunikatów, obsługa transakcji i silne gwarancje dostarczenia, podczas gdy dominującą kwestią w przypadku pobierania zdarzeń jest duża przepływność i elastyczność przetwarzania dla strumieni zdarzeń. W związku z tym możliwości usługi Event Hubs różnią się od tematów usługi Service Bus tym, że są one silnie ukierunkowane pod kątem scenariuszy wysokiej przepływności i przetwarzania zdarzeń. W takiej sytuacji usługa Event Hubs nie implementuje niektórych możliwości obsługi komunikatów, które są dostępne w przypadku tematów. Jeśli takie możliwości są wymagane, tematy pozostają optymalnym wyborem.
 
-Centrum zdarzeń jest tworzone na poziomie przestrzeni nazw w usłudze Service Bus, podobnie jak w przypadku kolejek i tematów. Usługa Event Hubs używa protokołów AMQP i HTTP jako podstawowych interfejsów API. Na poniższym diagramie przedstawiono relację między usługami Event Hubs i Service Bus.
+Centrum zdarzeń jest tworzone na poziomie przestrzeni nazw usługi Event Hubs, podobnie jak w przypadku kolejek i tematów usługi Service Bus. Usługa Event Hubs używa protokołów AMQP i HTTP jako podstawowych interfejsów API. Na poniższym diagramie przedstawiono relację między usługami Event Hubs i Service Bus.
 
 ![Usługa Event Hubs](./media/event-hubs-overview/IC741188.png)
 
@@ -43,7 +43,7 @@ Partycje zachowują dane przez skonfigurowany czas przechowywania, który jest u
 
 Liczba partycji jest określana w czasie tworzenia centrum zdarzeń i musi zawierać się w przedziale od 2 do 32 (wartość domyślna to 4). Partycje stanowią mechanizm organizacji danych i są bardziej powiązane ze stopniem równoległości podrzędnej wymaganym podczas używania aplikacji niż z przepływnością usługi Event Hubs. Sprawia to, że wybór liczby partycji w centrum zdarzeń jest bezpośrednio związany z oczekiwaną liczbą jednoczesnych czytników. Po utworzeniu centrum zdarzeń liczby partycji nie można zmienić. Z tego powodu tę liczbę należy rozważyć w kontekście długoterminowo oczekiwanej skali. Limit wynoszący 32 partycje można zmienić, kontaktując się z zespołem usługi Service Bus.
 
-Mimo że partycje są możliwe do identyfikacji i możliwe jest do nich bezpośrednie wysyłanie, zazwyczaj najlepiej jest unikać wysyłania danych do określonych partycji. Zamiast tego można użyć konstrukcji wyższego poziomu wprowadzonych w sekcjach [Wydawca zdarzeń](#event-publisher) i [Zasady wydawcy](#capacity-and-security).
+Choć partycje można identyfikować i wysyłać do nich bezpośrednio, najlepiej jest unikać wysyłania danych do konkretnych partycji. Zamiast tego można użyć konstrukcji wyższego poziomu wprowadzonych w sekcjach [Wydawca zdarzeń](#event-publisher) i [Zasady wydawcy](#capacity-and-security).
 
 W kontekście usługi Event Hubs komunikaty są określane jako *dane zdarzenia*. Dane zdarzenia zawierają treść zdarzenia, zdefiniowany przez użytkownika zbiór właściwości oraz różne metadane dotyczące zdarzenia, takie jak jego przesunięcie w partycji i numer w sekwencji strumienia. Partycje są wypełnione sekwencją danych zdarzenia.
 
@@ -132,13 +132,13 @@ Pojemność przepływności usługi Event Hubs jest kontrolowana przez jednostki
 
 - Transfer danych wychodzących: maksymalnie 2 MB na sekundę.
 
-Transfer danych przychodzących jest ograniczany do pojemności zapewnianej przez liczbę zakupionych jednostek przepływności. Wysyłanie danych przekraczających te wartości spowoduje wystąpienie wyjątku „przekroczono limit przydziału”. Ta wartość to 1 MB na sekundę lub 1000 zdarzeń na sekundę, w zależności od tego, co będzie miało miejsce wcześniej. Transfer danych wychodzących nie powoduje generowania wyjątków ograniczania przepływności, ale jest ograniczony do wielkości transferu danych zgodnie z zakupionymi jednostkami przepływności: 2 MB na sekundę na jednostkę przepływności. Jeśli wystąpią wyjątki szybkości publikowania lub oczekiwany będzie większy transfer danych wychodzących, należy sprawdzić liczbę jednostek przepływności zakupionych dla przestrzeni nazw, w której utworzono centrum zdarzeń. Aby uzyskać więcej jednostek przepływności, możesz dostosować ustawienie na stronie **Przestrzenie nazw** na stronie na karcie **Skala** w [klasycznym portalu Azure][]. Możesz również zmienić to ustawienie za pomocą interfejsów API platformy Azure.
+Transfer danych przychodzących jest ograniczany do pojemności zapewnianej przez liczbę zakupionych jednostek przepływności. Wysyłanie danych przekraczających te wartości spowoduje wystąpienie wyjątku „przekroczono limit przydziału”. Ta wartość to 1 MB na sekundę lub 1000 zdarzeń na sekundę, w zależności od tego, co będzie miało miejsce wcześniej. Transfer danych wychodzących nie powoduje generowania wyjątków ograniczania przepływności, ale jest ograniczony do wielkości transferu danych zgodnie z zakupionymi jednostkami przepływności: 2 MB na sekundę na jednostkę przepływności. Jeśli wystąpią wyjątki szybkości publikowania lub oczekiwany będzie większy transfer danych wychodzących, należy sprawdzić liczbę jednostek przepływności zakupionych dla przestrzeni nazw, w której utworzono centrum zdarzeń. Aby uzyskać więcej jednostek przepływności, możesz dostosować ustawienie na stronie **Przestrzenie nazw** na stronie na karcie **Skala** w [klasyczny portal Azure][]. Możesz również zmienić to ustawienie za pomocą interfejsów API platformy Azure.
 
-Podczas gdy partycje to pojęcie związane z organizowaniem danych, to jednostki przepływności dotyczą wyłącznie pojemności. Jednostki przepływności są rozliczane co godzinę i są kupowane wcześniej. Po zakupieniu jednostki przepływności są rozliczane za co najmniej jedną godzinę. Dla przestrzeni nazw usługi Service Bus można kupić maksymalnie 20 jednostek przepływności, a dla konta platformy Azure istnieje limit 20 jednostek przepływności. Te jednostki przepływności są współużytkowane przez wszystkie usługi Event Hubs w danej przestrzeni nazw.
+Podczas gdy partycje to pojęcie związane z organizowaniem danych, to jednostki przepływności dotyczą wyłącznie pojemności. Jednostki przepływności są rozliczane co godzinę i są kupowane wcześniej. Po zakupieniu jednostki przepływności są rozliczane za co najmniej jedną godzinę. Dla przestrzeni nazw usługi Event Hubs można kupić maksymalnie 20 jednostek przepływności, a dla konta platformy Azure istnieje limit 20 jednostek przepływności. Te jednostki przepływności są współużytkowane przez wszystkie usługi Event Hubs w danej przestrzeni nazw.
 
-Jednostki przepływności są udostępniane na podstawie bieżącej sytuacji i ich natychmiastowy zakup może być niemożliwy. Jeśli potrzebujesz określonej pojemności, zaleca się wcześniejsze zakupienie tych jednostek przepływności. Jeśli potrzebujesz więcej niż 20 jednostek przepływności, możesz nawiązać kontakt z pomocą techniczną usługi Service Bus, aby kupić więcej jednostek przepływności na podstawie zobowiązania w blokach po 20 jednostek przepływności, aż do 100 pierwszych jednostek przepływności. Ponadto możesz kupować bloki po 100 jednostek przepływności.
+Jednostki przepływności są udostępniane na podstawie bieżącej sytuacji i ich natychmiastowy zakup może być niemożliwy. Jeśli potrzebujesz określonej pojemności, zaleca się wcześniejsze zakupienie tych jednostek przepływności. Jeśli potrzebujesz więcej niż 20 jednostek przepływności, możesz nawiązać kontakt z pomocą techniczną platformy Azure, aby kupić więcej jednostek przepływności na podstawie zobowiązania w blokach po 20 jednostek przepływności, aż do 100 pierwszych jednostek przepływności. Ponadto możesz kupować bloki po 100 jednostek przepływności.
 
-Zalecane jest staranne równoważenie jednostek przepływności i partycji w celu osiągnięcia optymalnej skali z usługą Event Hubs. Jedna partycja ma maksymalną skalę wynoszącą jedną jednostkę przepływności. Liczba jednostek przepływności powinna być mniejsza lub równa liczbie partycji w ramach centrum zdarzeń.
+Zalecane jest staranne równoważenie jednostek przepływności i partycji w celu osiągnięcia optymalnej skali w ramach usługi Event Hubs. Jedna partycja ma maksymalną skalę wynoszącą jedną jednostkę przepływności. Liczba jednostek przepływności powinna być mniejsza lub równa liczbie partycji w ramach centrum zdarzeń.
 
 Aby uzyskać szczegółowe informacje o cenach, zobacz [Usługa Event Hubs — cennik](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -162,7 +162,7 @@ Teraz, kiedy znasz już pojęcia związane z usługą Event Hubs, możesz przej�
 - Kompletna [przykładowa aplikacja korzystająca z usługi Event Hubs].
 - [Rozwiązanie do obsługi komunikatów kolejek] korzystające z funkcji kolejek usługi Service Bus.
 
-[klasycznym portalu Azure]: http://manage.windowsazure.com
+[klasyczny portal Azure]: http://manage.windowsazure.com
 [usługi Event Hubs — samouczek]: event-hubs-csharp-ephcs-getstarted.md
 [przykładowa aplikacja korzystająca z usługi Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 [Rozwiązanie do obsługi komunikatów kolejek]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
@@ -170,6 +170,6 @@ Teraz, kiedy znasz już pojęcia związane z usługą Event Hubs, możesz przej�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

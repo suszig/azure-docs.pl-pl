@@ -14,7 +14,7 @@
      ms.topic="get-started-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/23/2016"
+     ms.date="08/09/2016"
      ms.author="dobett"/>
 
 # Co to jest Pakiet IoT Azure?
@@ -53,14 +53,7 @@ Pakiet IoT zawiera wstępnie skonfigurowane rozwiązania, które pozwalają na s
 
 ## Następne kroki
 
-Po zapoznaniu się z omówieniem Pakietu IoT i jego głównymi składnikami możesz:
-
-- Dowiedzieć się więcej o wstępnie skonfigurowanych rozwiązaniach Pakietu IoT — zobacz artykuł [Co to są wstępnie skonfigurowane rozwiązania Pakietu IoT Azure?][lnk-what-are-preconfig].
-
-- Rozpocząć korzystanie z wybranego wstępnie skonfigurowanego rozwiązania — zobacz artykuł [Wprowadzenie do wstępnie skonfigurowanych rozwiązań IoT][lnk-preconfig-start].
-
-- Dowiedzieć się więcej o usłudze Azure IoT Hub — zobacz artykuł [IoT Hub documentation][lnk-iot-hub] (Dokumentacja usługi IoT Hub).
-
+Teraz, gdy masz już pojęcie o możliwościach Pakietu IoT i jego głównych składnikach, możesz dowiedzieć się więcej o wstępnie skonfigurowanych rozwiązaniach Pakietu IoT — zobacz artykuł [Co to są wstępnie skonfigurowane rozwiązania Pakietu IoT Azure?][lnk-what-are-preconfig]
 
 [lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
@@ -71,11 +64,9 @@ Po zapoznaniu się z omówieniem Pakietu IoT i jego głównymi składnikami moż
 [lnk-web-apps]: https://azure.microsoft.com/documentation/services/app-service/web/
 [iot-suite-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-what-are-preconfig]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions.md
-[lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

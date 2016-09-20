@@ -1,6 +1,6 @@
 <properties
     pageTitle="Omówienie obsługi komunikatów w usłudze Service Bus | Microsoft Azure"
-    description="Obsługa komunikatów w usłudze Service Bus: Elastyczne dostarczanie danych w chmurze"
+    description="Obsługa komunikatów w usłudze Service Bus: elastyczne dostarczanie danych w chmurze"
     services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="multiple"
     ms.topic="get-started-article"
-    ms.date="03/09/2016"
+    ms.date="06/20/2016"
     ms.author="sethm"/>
 
 
 # Obsługa komunikatów w usłudze Service Bus: elastyczne dostarczanie danych w chmurze
 
-Azure Service Bus to niezawodna usługa dostarczania informacji. Celem tej usługi jest ułatwienie komunikacji. Gdy dwie lub więcej stron przystępuje do wymiany informacji, niezbędny jest mechanizm komunikacji. Obsługa komunikatów w usłudze Service Bus jest obsługiwana przez brokera lub przez mechanizm komunikacji innej firmy. Przypomina to usługi pocztowe w świecie rzeczywistym. Usługi pocztowe bardzo ułatwiają wysyłanie różnego rodzaju listów i przesyłek z różną gwarancją dostarczania w dowolnym miejscu na świecie.
+Obsługa komunikatów usługi Microsoft Azure Service Bus to niezawodna usługa dostarczania informacji. Celem tej usługi jest ułatwienie komunikacji. Gdy dwie lub więcej stron przystępuje do wymiany informacji, niezbędny jest mechanizm komunikacji. Obsługa komunikatów w usłudze Service Bus jest obsługiwana przez brokera lub przez mechanizm komunikacji innej firmy. Przypomina to usługi pocztowe w świecie rzeczywistym. Usługi pocztowe bardzo ułatwiają wysyłanie różnego rodzaju listów i przesyłek z różną gwarancją dostarczania w dowolnym miejscu na świecie.
 
 Podobnie jak listy dostarczane za pomocą usług pocztowych, obsługa komunikatów w usłudze Service Bus jest elastyczną usługą dostarczania informacji zarówno od nadawcy, jak i adresata. Usługa obsługi komunikatów gwarantuje dostarczenie informacji, nawet jeśli obie strony nigdy nie są w trybie online w tym samym czasie lub jeśli nie są dostępne dokładnie w tym samym czasie. W ten sposób obsługa komunikatów przypomina wysyłanie listu, podczas gdy komunikacja nieobsługiwana przez brokera jest podobna do wykonania rozmowy telefonicznej (lub do rozmów telefonicznych, jakie były kiedyś — przed połączeniami oczekującymi i identyfikatorem dzwoniącego, które bardziej przypominają komunikaty obsługiwane przez brokera).
 
@@ -39,7 +39,7 @@ Komunikaty obsługiwane przez przekaźnik oferują wiele korzyści, lecz wymagaj
 
 ## Komunikaty obsługiwane przez brokera
 
-W przeciwieństwie do schematu komunikatów obsługiwanych przez przekaźnik, [komunikaty obsługiwane przez brokera](service-bus-fundamentals-hybrid-solutions.md) mogą być traktowane jako asynchroniczne lub „czasowo odłączone”. Producenci (nadawcy) i konsumenci (odbiorcy) nie muszą być w trybie online w tym samym czasie. Infrastruktura obsługi komunikatów w niezawodny sposób przechowuje komunikaty w „brokerze” (np. w kolejce) do momentu, aż strona odbierająca jest gotowa do ich odebrania. Dzięki temu składniki aplikacji rozproszonej mogą być rozłączone zarówno dobrowolnie, na przykład w celu przeprowadzenia konserwacji, jak i z powodu awarii składników, bez wywierania wpływu na cały system. Ponadto aplikacja odbierająca może wymagać połączenia z Internetem tylko w pewnych porach dnia, jak w przypadku systemu zarządzania spisem, którego uruchomienie jest wymagane na koniec dnia roboczego.
+W przeciwieństwie do schematu komunikatów obsługiwanych przez przekaźnik, [komunikaty obsługiwane przez brokera](service-bus-queues-topics-subscriptions.md) mogą być traktowane jako asynchroniczne lub „czasowo odłączone”. Producenci (nadawcy) i konsumenci (odbiorcy) nie muszą być w trybie online w tym samym czasie. Infrastruktura obsługi komunikatów w niezawodny sposób przechowuje komunikaty w „brokerze” (np. w kolejce) do momentu, aż strona odbierająca jest gotowa do ich odebrania. Dzięki temu składniki aplikacji rozproszonej mogą być rozłączone zarówno dobrowolnie, na przykład w celu przeprowadzenia konserwacji, jak i z powodu awarii składników, bez wywierania wpływu na cały system. Ponadto aplikacja odbierająca może wymagać połączenia z Internetem tylko w pewnych porach dnia, jak w przypadku systemu zarządzania spisem, którego uruchomienie jest wymagane na koniec dnia roboczego.
 
 Podstawowymi składnikami infrastruktury komunikatów obsługiwanych przez brokera usługi Service Bus są kolejki, tematy i subskrypcje.  Główną różnicą jest to, że tematy obsługują możliwości publikowania/subskrypcji, które mogą być użyte dla zaawansowanej, opartej na zawartości logiki routingu i dostarczania, w tym wysyłania do wielu adresatów. Te składniki umożliwiają nowe asynchroniczne scenariusze obsługi komunikatów, takie jak czasowe oddzielenie, publikowanie/subskrypcja i równoważenie obciążenia. Aby uzyskać więcej informacji na temat tych jednostek obsługi komunikatów, zobacz sekcję [Kolejki, tematy i subskrypcje usługi Magistrala usług](service-bus-queues-topics-subscriptions.md).
 
@@ -49,15 +49,15 @@ Podobnie jak w przypadku infrastruktury komunikatów obsługiwanych przez przeka
 
 Aby dowiedzieć się więcej na temat obsługi komunikatów usługi Service Bus, zobacz następujące tematy.
 
-- [Kolejki, tematy i subskrypcje usługi Service Bus](service-bus-queues-topics-subscriptions.md)
 - [Podstawy usługi Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+- [Kolejki, tematy i subskrypcje usługi Service Bus](service-bus-queues-topics-subscriptions.md)
 - [Architektura usługi Service Bus](service-bus-architecture.md)
-- [Jak używać kolejek usługi Service Bus](service-bus-dotnet-how-to-use-queues.md)
-- [Jak używać tematów usługi Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Jak używać kolejek usługi Service Bus](service-bus-dotnet-get-started-with-queues.md)
+- [Jak używać tematów i subskrypcji usługi Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

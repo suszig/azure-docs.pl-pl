@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/04/2016"
+    ms.date="07/25/2016"
     ms.author="jgao"/>
 
 
@@ -61,7 +61,7 @@ W poniższej procedurze do utworzenia klastra HBase jest używany szablon Azure 
 6. Kliknij przycisk **Utwórz**. Utworzenie klastra trwa około 20 minut.
 
 
->[AZURE.NOTE] Po usunięciu klastra HBase można utworzyć inny klaster HBase za pomocą tego samego domyślnego kontenera obiektów blob. Nowy klaster przejmie tabele bazy danych HBase utworzone w oryginalnym klastrze.
+>[AZURE.NOTE] Po usunięciu klastra HBase można utworzyć inny klaster HBase za pomocą tego samego domyślnego kontenera obiektów blob. Nowy klaster przejmie tabele bazy danych HBase utworzone w oryginalnym klastrze. Aby uniknąć niespójności, zaleca się wyłączenie tabel HBase przed usunięciem klastra.
 
 ## Tworzenie tabel i wstawianie danych
 
@@ -111,12 +111,14 @@ Stanie się to bardziej zrozumiałe po zakończeniu następnej procedury.
 
         exit
 
+
+
 **Ładowanie danych zbiorczo do tabeli kontaktów HBase**
 
 Baza danych HBase obsługuje kilka metod ładowania danych do tabel.  Aby uzyskać więcej informacji, zobacz temat [Ładowanie zbiorcze](http://hbase.apache.org/book.html#arch.bulk.load).
 
 
-Przykładowy plik danych został przekazany do publicznego kontenera obiektów blob *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Plik danych ma następującą zawartość:
+Przykładowy plik danych został przekazany do publicznego kontenera obiektów blob *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Plik danych ma następującą zawartość:
 
     8396    Calvin Raji     230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu        646-555-0113    230-555-0192    9265 La Paz
@@ -135,7 +137,7 @@ Możesz utworzyć plik tekstowy i przesłać go na swoje konto magazynu. Aby uzy
 
 1. Z poziomu bezpiecznej powłoki (SSH) uruchom następujące polecenie, aby przekształcić plik danych do postaci StoreFiles i zapisać go w ścieżce względnej określonej przez parametr Dimporttsv.bulk.output:.  Jeśli jest otwarta powłoka HBase, użyj polecenia exit, aby z niej wyjść.
 
-        hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+        hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
 4. Uruchom następujące polecenie, aby przekazać dane z katalogu /example/data/storeDataFileOutput do tabeli HBase:
 
@@ -174,34 +176,59 @@ Korzystając z programu Hive, można wykonywać zapytania dotyczące danych w ta
 
 1. W wierszu polecenia wpisz następujące polecenie, aby sprawdzić możliwość nawiązania połączenia z klastrem usługi HDInsight:
 
-        curl -u <UserName>:<Password> -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
+        curl -u <UserName>:<Password> \
+        -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
 
     Użytkownik powinien otrzymywać odpowiedź podobną do następującej:
 
-    {"status": "ok", "version": "v1"}
+        {"status":"ok","version":"v1"}
 
-  W tym poleceniu są używane następujące parametry:
+    W tym poleceniu są używane następujące parametry:
 
     * **-u** — nazwa użytkownika i hasło używane do uwierzytelnienia żądania.
     * **-G** — parametr wskazujący, że jest to żądanie GET.
 
 2. Użyj następującego polecenia, aby wyświetlić listę istniejących tabel HBase:
 
-        curl -u <UserName>:<Password> -G https://<ClusterName>.azurehdinsight.net/hbaserest/
+        curl -u <UserName>:<Password> \
+        -G https://<ClusterName>.azurehdinsight.net/hbaserest/
 
 3. Użyj następującego polecenia, aby utworzyć nową tabelę HBase z dwiema rodzinami kolumn:
 
-        curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"@name\":\"test\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}"
+        curl -u <UserName>:<Password> \
+        -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" \
+        -H "Accept: application/json" \
+        -H "Content-Type: application/json" \
+        -d "{\"@name\":\"Contact1\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}" \
+        -v
 
     Schemat jest podany w formacie JSon.
 
 4. Użyj następującego polecenia, aby wstawić dane:
 
-        curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"Row\":{\"key\":\"1000\",\"Cell\":{\"column\":\"Personal:Name\", \"$\":\"John Dole\"}}}"
+        curl -u <UserName>:<Password> \
+        -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
+        -H "Accept: application/json" \
+        -H "Content-Type: application/json" \
+        -d "{\"Row\":{\"key\":\"MTAwMA==\",\"Cell\":{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}}}" \
+        -v
+
+    Należy zakodować wartości określone w przełączniku -d w formacie base64.  W przykładzie:
+
+    - MTAwMA==: 1000
+    - UGVyc29uYWw6TmFtZQ==: Personal:Name
+    - Sm9obiBEb2xl: John Dole
+
+    [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) umożliwia wstawianie wielu wartości (wartości wsadowych).
 
 5. Użyj następującego polecenia, aby pobrać wiersz:
 
-        curl -u <UserName>:<Password> -v -X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" -H "Accept: application/json"
+        curl -u <UserName>:<Password> \
+        -X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" \
+        -H "Accept: application/json" \
+        -v
+
+Aby uzyskać więcej informacji o interfejsie Rest HBase, zobacz [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_rest) (Podręcznik referencyjny Apache HBase).
 
 ## Sprawdzanie stanu klastra
 
@@ -252,15 +279,18 @@ Protokół SSH może również służyć do tunelowania żądań lokalnych, taki
     - **SOCKS v5**: (wybrane)
     - **Zdalny DNS**: (wybrane)
 7. Kliknij przycisk **OK**, aby zapisać zmiany.
-8. Przejdź do strony http://<TheFQDN of a ZooKeeper>: 60010/master-status
+8. Przejdź na adres http://&lt;FQDN ZooKeeper>:60010/master-status.
 
 W klastrze wysokiej dostępności można znaleźć link do bieżącego aktywnego węzła głównego HBase obsługującego interfejs użytkownika sieci Web.
 
 ##Usuwanie klastra
 
+Aby uniknąć niespójności, zaleca się wyłączenie tabel HBase przed usunięciem klastra.
+
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Następne kroki?
+## Następne kroki
+
 W tym samouczku HBase dotyczącym usługi HDInsight pokazano, jak utworzyć klaster HBase i tabele oraz jak wyświetlać dane w tych tabelach z poziomu powłoki HBase. Przedstawiono również sposób wykonywania zapytań programu Hive względem danych w tabelach HBase oraz korzystania z interfejsów API REST HBase w języku C# w celu tworzenia tabel HBase i pobierania danych z tabeli.
 
 Aby dowiedzieć się więcej, zobacz:
@@ -297,6 +327,6 @@ Aby dowiedzieć się więcej, zobacz:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # Ochrona interfejsu API za pomocą ograniczania liczby wywołań przy użyciu usługi Azure API Management
@@ -238,7 +238,6 @@ Jeśli obowiązuje zasada ograniczania liczby wywołań do 10 na minutę, kolejn
 
 ## <a name="next-steps"> </a>Następne kroki
 
--   Poznaj inne tematy w samouczku [Get started with advanced API configuration][] (Wprowadzenie do zaawansowanej konfiguracji interfejsu API).
 -   Obejrzyj następujący film z prezentacją ustawiania ograniczeń liczby wywołań i przydziałów.
 
 > [AZURE.VIDEO rate-limits-and-quotas]
@@ -271,7 +270,7 @@ Jeśli obowiązuje zasada ograniczania liczby wywołań do 10 na minutę, kolejn
 [api-management-subscription-added]: ./media/api-management-howto-product-with-rules/api-management-subscription-added.png
 [api-management-add-subscription-multiple]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-multiple.png
 
-[How to add operations to an API]: api-management-howto-add-operations.md
+[Dodawanie operacji do interfejsu API]: api-management-howto-add-operations.md
 [Dodawanie i publikowanie produktu]: api-management-howto-add-products.md
 [Monitorowanie i analizowanie]: ../api-management-monitoring.md
 [Dodawanie interfejsów API do produktu]: api-management-howto-add-products.md#add-apis
@@ -289,13 +288,12 @@ Jeśli obowiązuje zasada ograniczania liczby wywołań do 10 na minutę, kolejn
 [Publikowanie produktu]: #publish-product
 [Subskrybowanie produktu dla konta dewelopera]: #subscribe-account
 [Wywoływanie operacji i testowanie ograniczania liczby wywołań]: #test-rate-limit
-[Get started with advanced API configuration]: api-management-get-started-advanced.md
 
 [Ograniczanie liczby wywołań]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Ustawianie przydziału użycia]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

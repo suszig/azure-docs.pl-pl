@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/26/2016"
+    ms.date="08/15/2016"
     ms.author="curtand"/>
 
 # Jak subskrypcje platformy Azure są kojarzone z usługą Azure Active Directory
@@ -110,7 +110,7 @@ Aby zarządzać obydwoma katalogami w klasycznym portalu Azure, wykonaj następu
 
 1. Zaloguj się do klasycznego portalu Azure za pomocą konta Microsoft.
 
-2. Kliknij pozycje **Nowy** > **Usługi aplikacji** > **Usługa Active Directory** > **Katalog** > **Utwórz niestandardowy**.
+2. Kliknij pozycje **Nowy** > **App Services** > **Active Directory** > **Katalog** > **Utwórz niestandardowy**.
 
 3. Kliknij pozycję **Użyj istniejącego katalogu**, zaznacz pozycję **Gotowe do wylogowania** i kliknij znacznik wyboru, aby zakończyć akcję.
 
@@ -141,6 +141,6 @@ Aby zarządzać obydwoma katalogami w klasycznym portalu Azure, wykonaj następu
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/23/2016"
+    ms.date="07/21/2016"
     ms.author="tamram"/>
 
 # Wprowadzenie do usługi Microsoft Azure Storage
@@ -30,7 +30,7 @@ Usługa Azure Storage to rozwiązanie magazynu w chmurze dla nowoczesnych aplika
 
 Aby szybko rozpocząć pracę z usługą Azure Storage, zobacz [Szybkie wprowadzenie do usługi Azure Storage](storage-getting-started-guide.md).
 
-Aby uzyskać szczegółowe informacje dotyczące narzędzi, bibliotek i innych zasobów dotyczących pracy z Magazynem Azure, zobacz [Następne kroki](#next-steps) poniżej.
+Aby uzyskać szczegółowe informacje dotyczące narzędzi, bibliotek i innych zasobów dotyczących pracy z usługą Azure Storage, zobacz [Następne kroki](#next-steps) poniżej.
 
 ## Co to jest Azure Storage?
 
@@ -46,7 +46,7 @@ Usługa Azure Storage jest dostępna z dowolnego miejsca na świecie i z aplikac
 
 Usługa Azure Storage obsługuje klientów używających różnorodnych systemów operacyjnych (w tym Windows i Linux) i różnych języków programowania (w tym .NET, Java, Node.js, Python, Ruby, PHP, C++ i języki programowania zastosowań mobilnych), co umożliwia wygodne opracowywanie. Usługa Azure Storage uwidacznia również zasoby danych za pośrednictwem prostych interfejsów API REST, które są dostępne dla każdego klienta, który może wysyłać i odbierać dane za pośrednictwem protokołu HTTP/HTTPS.
 
-Usługa Azure Premium Storage oferuje obsługę dysków o wysokiej wydajności i małych opóźnieniach na potrzeby obciążeń intensywnie korzystających z operacji we/wy, które są uruchomione w usłudze Azure Virtual Machines. Usługa Azure Premium Storage umożliwia dołączenie wielu dysków danych trwałych do maszyny wirtualnej i skonfigurowanie ich pod kątem wymagań dotyczących wydajności. Każdy dysk danych jest wspierany przez dysk SSD w usłudze Azure Premium Storage w celu zapewnienia maksymalnej wydajności operacji we/wy. Zobacz [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md) (Usługa Premium Storage: usługa Storage o wysokiej wydajności dla obciążeń uruchomionych na Maszynach wirtualnych Azure), aby uzyskać szczegółowe informacje.
+Usługa Azure Premium Storage oferuje obsługę dysków o wysokiej wydajności i małych opóźnieniach na potrzeby obciążeń intensywnie korzystających z operacji we/wy, które są uruchomione w usłudze Azure Virtual Machines. Usługa Azure Premium Storage umożliwia dołączenie wielu dysków danych trwałych do maszyny wirtualnej i skonfigurowanie ich pod kątem wymagań dotyczących wydajności. Każdy dysk danych jest wspierany przez dysk SSD w usłudze Azure Premium Storage w celu zapewnienia maksymalnej wydajności operacji we/wy. Zobacz [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md) (Premium Storage: usługa Storage o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure), aby uzyskać szczegółowe informacje.
 
 ## Wprowadzenie do usług Azure Storage
 
@@ -84,7 +84,7 @@ Magazyn obiektów blob udostępnia trzy typy obiektów blob: blokowe obiekty blo
 - Uzupełnialne obiekty blob są podobne do blokowych obiektów blob, lecz są zoptymalizowane pod kątem operacji dołączania. Uzupełnialny obiekt blob można zaktualizować tylko przez dodanie nowego bloku na końcu. Uzupełnialne obiekty blob są dobrym rozwiązaniem w przypadku scenariuszy takich jak rejestrowanie, które wymaga zapisywania tylko na końcu obiektu blob.
 - Stronicowe obiekty blob są zoptymalizowane pod kątem reprezentowania dysków IaaS i obsługi losowych zapisów. Ich maksymalny rozmiar to 1 TB. Dysk IaaS dołączony do sieci maszyny wirtualnej platformy Azure to plik VHD przechowywany jako stronicowy obiekt blob.
 
-W wypadku bardzo dużych zestawów danych, gdy ograniczenia sieci mogą w praktyce uniemożliwić przekazanie lub pobranie danych do Magazynu obiektów blob, możesz przesłać dysk twardy do firmy Microsoft, aby zaimportować dane bezpośrednio do centrum danych lub wyeksportować je stamtąd. Zobacz [Przesyłanie danych do usługi Blob Storage za pomocą usługi Import/Eksport Microsoft Azure](storage-import-export-service.md).
+W wypadku bardzo dużych zestawów danych, gdy ograniczenia sieci mogą w praktyce uniemożliwić przekazanie lub pobranie danych do Magazynu obiektów blob, możesz przesłać dysk twardy do firmy Microsoft, aby zaimportować dane bezpośrednio do centrum danych lub wyeksportować je stamtąd. Zobacz [Przesyłanie danych do usługi Blob Storage za pomocą usługi Microsoft Azure Import/Export](storage-import-export-service.md).
 
 ## Magazyn tabel
 
@@ -128,11 +128,15 @@ Sygnatura dostępu współdzielonego konta deleguje dostęp do zasobu w co najmn
 
 Istnieje także możliwość określenia kontenera i jego obiektów blob lub konkretnego obiektu blob jako dostępnego publicznie. Po wskazaniu, że kontener lub obiekt blob jest publiczny, dowolny użytkownik może go anonimowo odczytać — uwierzytelnianie nie jest wymagane.  Publiczne kontenery i obiekty blob są przydatne w wypadku ujawniania zasobów takich jak multimedia i dokumenty hostowane w witrynach sieci Web.  Aby zmniejszyć opóźnienia sieciowe dla odbiorców globalnych, można buforować dane obiektów blob używane przez witryny sieci Web za pomocą usługi Azure CDN.
 
-Aby uzyskać więcej informacji na temat sygnatur dostępu współdzielonego, zobacz [Shared Access Signatures: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md) (Sygnatury dostępu współdzielonego: omówienie modelu SAS). Aby uzyskać więcej informacji na temat bezpiecznego dostępu do konta magazynu, zobacz [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md) (Zarządzanie anonimowym dostępem do odczytu do kontenerów i obiektów blob) i [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) (Uwierzytelnianie dla usług Magazynu Azure).
+Aby uzyskać więcej informacji na temat sygnatur dostępu współdzielonego, zobacz [Shared Access Signatures: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md) (Sygnatury dostępu współdzielonego: omówienie modelu SAS). Aby uzyskać więcej informacji na temat bezpiecznego dostępu do konta magazynu, zobacz [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md) (Zarządzanie anonimowym dostępem do odczytu do kontenerów i obiektów blob) i [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) (Uwierzytelnianie dla usług Azure Storage).
 
 ## Replikacja na potrzeby trwałości i wysokiej dostępności
 
-Dane konta usługi Microsoft Azure Storage są zawsze replikowane w celu zapewnienia trwałości i wysokiej dostępności, spełniając [wymagania umowy SLA dotyczącej usługi Storage](https://azure.microsoft.com/support/legal/sla/storage/) nawet w wypadku przejściowych awarii sprzętu. Podczas tworzenia konta magazynu należy wybrać jedną z następujących opcji replikacji:  
+Dane konta usługi Microsoft Azure Storage są zawsze replikowane w celu zapewnienia trwałości i wysokiej dostępności, spełniając [wymagania umowy SLA dotyczącej usługi Storage](https://azure.microsoft.com/support/legal/sla/storage/) nawet w wypadku przejściowych awarii sprzętu. 
+
+Aby uzyskać więcej informacji na temat dostępności usług w poszczególnych regionach, zobacz temat [Regiony świadczenia usługi Azure](https://azure.microsoft.com/regions/#services).
+
+Podczas tworzenia konta magazynu należy wybrać jedną z następujących opcji replikacji:  
 
 - **Magazyn lokalnie nadmiarowy (LRS).** Magazyn lokalnie nadmiarowy przechowuje trzy kopie danych. Magazyn LRS jest replikowany trzy razy w jednym obiekcie w pojedynczym regionie. Magazyn LRS chroni dane przed zwykłymi awariami sprzętu, lecz nie przed awarią pojedynczego obiektu.  
   
@@ -147,10 +151,11 @@ Dane konta usługi Microsoft Azure Storage są zawsze replikowane w celu zapewni
     > 
     > Po utworzeniu konta magazynu i wybraniu magazynu ZRS nie można przekonwertować go pod kątem użycia żadnego innego typu replikacji i odwrotnie. 
 
-- **Magazyn geograficznie nadmiarowy (GRS)**. Magazyn geograficznie nadmiarowy jest domyślnie włączany dla konta magazynu podczas jego tworzenia. Magazyn GRS przechowuje sześć kopii danych. W wypadku magazynu GRS dane są replikowane trzy razy w regionie podstawowym i trzy razy w regionie dodatkowym oddalonym o setki kilometrów od podstawowego, co zapewnia najwyższy poziom trwałości. Jeśli wystąpi awaria w regionie podstawowym, usługa Azure Storage przejdzie w tryb failover w regionie dodatkowym. Magazyn GRS zapewnia, że dane są trwałe w dwóch oddzielnych regionach.
+- **Magazyn geograficznie nadmiarowy (GRS)**. Magazyn GRS przechowuje sześć kopii danych. W wypadku magazynu GRS dane są replikowane trzy razy w regionie podstawowym i trzy razy w regionie dodatkowym oddalonym o setki kilometrów od podstawowego, co zapewnia najwyższy poziom trwałości. Jeśli wystąpi awaria w regionie podstawowym, usługa Azure Storage przejdzie w tryb failover w regionie dodatkowym. Magazyn GRS zapewnia, że dane są trwałe w dwóch oddzielnych regionach.
 
+    Informacje o parach podstawowych i dodatkowych według regionów można znaleźć w temacie [Regiony platformy Azure](https://azure.microsoft.com/regions/).
 
-- **Dostęp do odczytu dla magazynu geograficznie nadmiarowego (RA-GRS)**. W ramach dostępu do odczytu dla magazynu geograficznie nadmiarowego dane są replikowane do dodatkowej lokalizacji geograficznej, gdzie są dostępne do odczytu. Dostęp do odczytu dla magazynu geograficznie nadmiarowego umożliwia dostęp do danych z lokalizacji podstawowej lub dodatkowej w sytuacji, gdy jedna z nich stanie się niedostępna.
+- **Dostęp do odczytu dla magazynu geograficznie nadmiarowego (RA-GRS)**. Dostęp do odczytu dla magazynu geograficznie nadmiarowego jest domyślnie włączany dla konta magazynu podczas jego tworzenia. W ramach dostępu do odczytu dla magazynu geograficznie nadmiarowego dane są replikowane do dodatkowej lokalizacji geograficznej, gdzie są dostępne do odczytu. Dostęp do odczytu dla magazynu geograficznie nadmiarowego umożliwia dostęp do danych z lokalizacji podstawowej lub dodatkowej w sytuacji, gdy jedna z nich stanie się niedostępna.
 
     > [AZURE.IMPORTANT] Możesz zmienić sposób replikacji danych po utworzeniu konta magazynu, o ile jest on inny niż ZRS. Zwróć jednak uwagę, że w wypadku przejścia z replikacji LRS na GRS lub RA-GRS mogą zostać naliczone dodatkowo i jednorazowo koszty transferu danych.
  
@@ -158,7 +163,7 @@ Aby uzyskać szczegółowe informacje na temat opcji replikacji magazynu, zobacz
 
 Aby uzyskać informacje o cenniku replikacji konta magazynu, zobacz [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-Aby uzyskać szczegółowe informacje o trwałości w Magazynie Azure, zobacz [SOSP Paper - Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Dokument SOSP — Magazyn Azure: usługa magazynu w chmurze o wysokiej dostępności z dużą trwałością).
+Aby uzyskać szczegółowe informacje o trwałości w usłudze Azure Storage, zobacz [SOSP Paper - Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Dokument SOSP — Azure Storage: usługa magazynu w chmurze o wysokiej dostępności z dużą trwałością).
 
 
 ## Transferowanie danych do i z usługi Azure Storage
@@ -167,7 +172,7 @@ Możesz użyć narzędzia wiersza polecenia AzCopy do kopiowania obiektów blob,
 
 Podstawą narzędzia AzCopy jest [biblioteka przenoszenia danych platformy Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), która jest aktualnie dostępna w wersji zapoznawczej.
 
-Usługa Import/Eksport Azure umożliwia zaimportowanie lub wyeksportowanie danych obiektów blob w ramach konta magazynu za pomocą dysku twardego przesłanego pocztą do centrum danych platformy Azure. Aby uzyskać więcej informacji o usłudze Import/Eksport, zobacz [Przesyłanie danych do usługi Blob Storage za pomocą usługi Import/Eksport Microsoft Azure](storage-import-export-service.md).
+Usługa Import/Eksport Azure umożliwia zaimportowanie lub wyeksportowanie danych obiektów blob w ramach konta magazynu za pomocą dysku twardego przesłanego pocztą do centrum danych platformy Azure. Aby uzyskać więcej informacji o usłudze Import/Export, zobacz [Przesyłanie danych do usługi Blob Storage za pomocą usługi Microsoft Azure Import/Export](storage-import-export-service.md).
 
 ## Cennik
 
@@ -203,7 +208,9 @@ Zasoby usługi Azure Storage są dostępne za pomocą dowolnego języka, który 
 
 ### Narzędzia i programy narzędziowe
 
-- [Zestawy Azure SDK i narzędzia](https://azure.microsoft.com/downloads/)
+- [Azure Storage Explorer](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+- [Azure Storage Client Tools](storage-explorers.md)
+- [Zestawy Azure SDK i narzędzia](https://azure.microsoft.com/tools/)
 - [Emulator usługi Azure Storage](http://www.microsoft.com/download/details.aspx?id=43709)
 - [Azure PowerShell](../powershell-install-configure.md)
 - [Program narzędziowy wiersza polecenia AzCopy](http://aka.ms/downloadazcopy)
@@ -214,7 +221,7 @@ Aby dowiedzieć się więcej na temat usługi Azure Storage, zapoznaj się z tym
 
 ### Dokumentacja
 
-- [Dokumentacja usługi  Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
+- [Dokumentacja usługi Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 
 ### Dla administratorów
 
@@ -223,8 +230,8 @@ Aby dowiedzieć się więcej na temat usługi Azure Storage, zapoznaj się z tym
 
 ### Dla deweloperów platformy .NET
 
-- [Rozpoczynanie pracy z Magazynem obiektów blob platformy Azure przy użyciu platformy .NET](storage-dotnet-how-to-use-blobs.md)
-- [Rozpoczynanie pracy z Magazynem tabel Azure przy użyciu platformy .NET](storage-dotnet-how-to-use-tables.md)
+- [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-blobs.md)
+- [Rozpoczynanie pracy z usługą Azure Table Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-tables.md)
 - [Rozpoczynanie pracy z Magazynem kolejek Azure przy użyciu platformy .NET](storage-dotnet-how-to-use-queues.md)
 - [Rozpoczynanie pracy z Magazynem plików Azure w systemie Windows](storage-dotnet-how-to-use-files.md)
 
@@ -262,6 +269,6 @@ Aby dowiedzieć się więcej na temat usługi Azure Storage, zapoznaj się z tym
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="cache-redis" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="05/18/2016" 
+    ms.date="07/22/2016" 
     ms.author="sdanie"/>
 
 # Tworzenie aplikacji sieci Web za pomocą pamięci podręcznej Redis
@@ -802,6 +802,8 @@ Po wybraniu lub utworzeniu pamięci podręcznej do użycia przejdź do pamięci 
 ## Następne kroki
 
 -   Dowiedz się więcej na temat [rozpoczęcia pracy z platformą ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) w witrynie [ASP.NET](http://asp.net/).
+-   Więcej przykładów dotyczących tworzenia aplikacji sieci Web platformy ASP.NET w usłudze App Service, zobacz [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Tworzenie i wdrażanie aplikacji sieci web ASP.NET w usłudze Azure App Service) w [pokazie](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) 2015 Connect witryny [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz).
+    -   Aby uzyskać więcej materiałów szybkiego startu z w wersji demonstracyjnej witryny HealthClinic.biz, zobacz [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts) (Materiały szybkiego startu narzędzi deweloperskich platformy Azure).
 -   Dowiedz się więcej na temat używanego w tym samouczku podejścia [Code first to a new database](https://msdn.microsoft.com/data/jj193542) (Rozwiązanie Code First dla nowej bazy danych) stosowanego w narzędziu Entity Framework.
 -   Dowiedz się więcej na temat [aplikacji sieci Web w Usłudze aplikacji Azure](../app-service-web/app-service-web-overview.md).
 -   Poznaj informacje dotyczące [monitorowania](cache-how-to-monitor.md) pamięci podręcznej w witrynie Azure Portal.
@@ -811,6 +813,7 @@ Po wybraniu lub utworzeniu pamięci podręcznej do użycia przejdź do pamięci 
     -   [Konfigurowanie klastrowania dla usługi Azure Redis Cache w wersji Premium](cache-how-to-premium-clustering.md)
     -   [Konfigurowanie obsługi sieci wirtualnej dla usługi Azure Redis Cache w wersji Premium](cache-how-to-premium-vnet.md)
     -   Więcej szczegółowych informacji na temat rozmiaru, przepływności i przepustowości w pamięciach podręcznych Premium znajduje się w artykule [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) (Usługa Azure Redis Cache — często zadawane pytania).
+
 
 
 <!-- IMAGES -->
@@ -849,6 +852,6 @@ Po wybraniu lub utworzeniu pamięci podręcznej do użycia przejdź do pamięci 
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

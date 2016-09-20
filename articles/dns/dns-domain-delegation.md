@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="06/30/2016"
    ms.author="cherylmc"/>
 
 
@@ -46,6 +46,10 @@ Istnieją dwa typy serwerów DNS:
 
 - _Autorytatywny_ serwer DNS hostuje strefy DNS. Odpowiada na zapytania DNS dotyczące rekordów tylko w tych strefach.
 - _Cykliczny_ serwer DNS nie hostuje stref DNS. Odpowiada na zapytania DNS, wywołując autorytatywne serwery DNS w celu zebrania danych, których potrzebuje.
+
+>[AZURE.NOTE] Usługa Azure DNS zapewnia autorytatywną usługę DNS.  Nie zapewnia cyklicznej usługi DNS.
+
+> Usługa Cloud Services i maszyny wirtualne na platformie Azure są automatycznie skonfigurowane do korzystania z cyklicznych usług DNS zapewnianych oddzielnie w ramach infrastruktury platformy Azure.  Aby uzyskać informacje na temat zmiany tych ustawień DNS, zobacz [Name Resolution in Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) (Rozpoznawanie nazw na platformie Azure).
 
 Klienci DNS na komputerach i urządzeniach przenośnych zwykle wywołują cykliczny serwer DNS w celu wykonywania wszelkich zapytań DNS potrzebnych aplikacjom klienckim.
 
@@ -116,7 +120,9 @@ Można także użyć międzyplatformowego interfejsu wiersza polecenia platformy
 
 Każdy rejestrator ma swoje własne narzędzia do zarządzania systemem DNS służące do zmiany rekordów serwerów nazw dla domeny. Na stronie zarządzania systemem DNS rejestratora edytuj rekordy NS i zastąp je rekordami utworzonymi przez usługę Azure DNS.
 
-Podczas delegowania domeny do usługi Azure DNS należy użyć nazw serwerów nazw udostępnionych przez usługę Azure DNS. Nie należy używać rekordów sklejki do wskazywania adresów IP serwerów nazw usługi Azure DNS, ponieważ te adresy IP mogą ulec zmianie w przyszłości. Delegowanie z wykorzystaniem nazw serwerów nazw we własnej strefie, niekiedy nazywanych „serwerami nazw znaczących”, nie jest obecnie obsługiwane w usłudze Azure DNS.
+Podczas delegowania domeny do usługi Azure DNS należy użyć nazw serwerów nazw udostępnionych przez usługę Azure DNS.  Należy zawsze używać wszystkich 4 nazw serwerów nazw, niezależnie od nazwy domeny.  Delegowanie domeny nie wymaga, aby nazwa serwera nazw korzystała z tej samej domeny najwyższego poziomu, co domena użytkownika.
+
+Nie należy używać rekordów sklejki do wskazywania adresów IP serwerów nazw usługi Azure DNS, ponieważ te adresy IP mogą ulec zmianie w przyszłości. Delegowanie z wykorzystaniem nazw serwerów nazw we własnej strefie, niekiedy nazywanych „serwerami nazw znaczących”, nie jest obecnie obsługiwane w usłudze Azure DNS.
 
 ### Aby sprawdzić, czy rozpoznawanie nazw działa
 
@@ -202,6 +208,6 @@ Aby sprawdzić, czy wszystko jest poprawnie skonfigurowane, wyszukaj rekord SOA 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

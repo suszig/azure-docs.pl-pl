@@ -3,8 +3,8 @@
    description="Ta strona zawiera szczegółowe wymagania dotyczące konfigurowania routingu oraz zarządzania nim na potrzeby obwodów usługi ExpressRoute."
    documentationCenter="na"
    services="expressroute"
-   authors="cherylmc"
-   manager="carmonm"
+   authors="ganesr"
+   manager="rossort"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,15 +12,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/01/2016"
-   ms.author="cherylmc"/>
+   ms.date="08/10/2016"
+   ms.author="ganesr"/>
 
 
 # Wymagania dotyczące routingu w usłudze ExpressRoute  
 
 Aby połączyć się z usługami w chmurze firmy Microsoft przy użyciu usługi ExpressRoute, konieczne będzie skonfigurowanie routingu oraz zarządzanie nim. Niektórzy dostawcy połączenia oferują konfigurowanie routingu oraz zarządzanie nim jako usługą zarządzaną. Skontaktuj się z dostawcą połączenia, aby sprawdzić, czy taka usługa jest oferowana. Jeśli nie, musisz spełnić wymagania opisane poniżej. 
 
-Opis sesji routingu, które należy skonfigurować w celu ułatwienia łączności, znajduje się w artykule [Circuits and routing domains](expressroute-circuit-peerings.md) (Obwody i domeny routingu). 
+Opis sesji routingu, które należy skonfigurować w celu ułatwienia łączności, znajduje się w artykule [Circuits and routing domains](expressroute-circuit-peerings.md) (Obwody i domeny routingu).
 
 **Uwaga:** firma Microsoft nie obsługuje protokołów nadmiarowości routerów (np. HSRP, VRRP) dla konfiguracji wysokiej dostępności. Polegamy na nadmiarowej parze sesji protokołu BGP na komunikację równorzędną w celu zapewnienia wysokiej dostępności.
 
@@ -42,11 +42,11 @@ Do konfigurowania komunikacji równorzędnej można użyć prywatnych lub public
 
 #### Przykład prywatnej komunikacji równorzędnej
 
-Jeśli zdecydujesz się użyć do skonfigurowania komunikacji równorzędnej podsieci a.b.c.d/29, zostanie ona podzielona na dwie podsieci /30. W poniższym przykładzie przedstawiono, jak używa się podsieci a.b.c.d/29. 
+Jeśli do skonfigurowania komunikacji równorzędnej zdecydujesz się użyć podsieci a.b.c.d/29, zostanie ona podzielona na dwie podsieci /30. W poniższym przykładzie przedstawiono, jak używa się podsieci a.b.c.d/29. 
 
 Podsieć a.b.c.d/29 zostanie podzielona na podsieci a.b.c.d/30 i a.b.c.d+4/30 i przekazana firmie Microsoft za pośrednictwem interfejsów API obsługi administracyjnej. Użytkownik użyje podsieci a.b.c.d+1 jako adresu IP VRF usługi Primary PE, a firma Microsoft użyje podsieci a.b.c.d+2 jako adresu IP VRF podstawowego rozwiązania MSEE. Użytkownik użyje podsieci a.b.c.d+5 jako adresu IP VRF dodatkowej usługi PE, a firma Microsoft użyje podsieci a.b.c.d+6 jako adresu IP VRF dodatkowego rozwiązania MSEE.
 
-Rozważ sytuację, w której w celu skonfigurowania prywatnej komunikacji równorzędnej wybierzesz 192.168.100.128/29. 192.168.100.128/29 obejmuje adresy od 192.168.100.128 do 192.168.100.135, z których:
+Rozważ sytuację, w której w celu skonfigurowania prywatnej komunikacji równorzędnej wybierzesz podsieć 192.168.100.128/29. 192.168.100.128/29 obejmuje adresy od 192.168.100.128 do 192.168.100.135, z których:
 
 - Adres 192.168.100.128/30 zostanie przypisany do linku link1, podczas gdy dostawca będzie używać 192.168.100.129, a firma Microsoft będzie używać 192.168.100.130.
 - Adres 192.168.100.132/30 zostanie przypisany do linku link2, podczas gdy dostawca będzie używać adresu 192.168.100.133, a firma Microsoft będzie używać adresu 192.168.100.134.
@@ -78,15 +78,15 @@ Wymiana routingu będzie odbywać się za pośrednictwem protokołu eBGP. Sesje 
 
 ## Numery systemu autonomicznego
 
-Firma Microsoft będzie używać numeru AS 12076 do publicznej i prywatnej komunikacji równorzędnej Azure oraz komunikacji równorzędnej Microsoft. Zarezerwowaliśmy numery AS od 65515 do 65520 do użytku wewnętrznego. Obsługiwane są zarówno 16-, jak i 32-bitowe numery AS.
+Firma Microsoft będzie używać numeru AS 12076 do publicznej i prywatnej komunikacji równorzędnej Azure oraz komunikacji równorzędnej Microsoft. Zarezerwowaliśmy numery AS od 65515 do 65520 do użytku wewnętrznego. Obsługiwane są zarówno 16-, jak i 32-bitowe numery AS. Po stronie równorzędnej (klient lub dostawca) numer AS może być publicznym adresem AS, jeśli można zweryfikować, że należy do Ciebie, lub prywatnym numerem AS dla prywatnej komunikacji równorzędnej oraz wymaga publicznego numeru AS dla publicznej komunikacji równorzędnej i komunikacji równorzędnej z firmą Microsoft. 
 
-Nie ma żadnych wymagań związanych z symetrią transferu danych. Ścieżki przekazywania dalej i ścieżki zwracania mogą przechodzić różne pary routerów. Trasy identyczne muszą być anonsowane ze wszystkich stron w wielu parach obwodów należących do użytkownika. Metryki tras nie muszą być identyczne.
+Nie istnieją żadne wymagania związane z symetrią transferu danych w podstawowych i dodatkowych ścieżkach dowolnego obwodu. Ścieżki przekazywania dalej i ścieżki zwracania mogą przechodzić różne pary routerów. Trasy identyczne muszą być anonsowane ze strony podstawowej lub dodatkowej we wszystkich danych parach obwodów należących do Ciebie. Metryki tras nie muszą być identyczne.
 
 ## Agregacja tras i limity prefiksów
 
 Firma Microsoft obsługuje do 4000 prefiksów anonsowanych nam za pośrednictwem prywatnej komunikacji równorzędnej Azure. Tę liczbę można zwiększyć do 10 000 prefiksów, jeśli zostanie włączony dodatek Premium usługi ExpressRoute. Akceptujemy do 200 prefiksów na sesję protokołu BGP dla publicznej komunikacji równorzędnej Azure i komunikacji równorzędnej Microsoft. 
 
-Sesja protokołu BGP zostanie przerwana, jeśli liczba prefiksów przekroczy limit. Będziemy akceptować domyślne trasy tylko dla linku prywatnej komunikacji równorzędnej. Dostawca musi odfiltrować trasę domyślną i prywatne adresy IP (RFC 1918) ze ścieżek publicznej komunikacji równorzędnej Azure i komunikacji równorzędnej Microsoft. 
+Sesja protokołu BGP zostanie przerwana, jeśli liczba prefiksów przekroczy limit. Będziemy akceptować domyślne trasy tylko dla linku prywatnej komunikacji równorzędnej. Dostawca lub klient musi odfiltrować trasę domyślną i prywatne adresy IP (RFC 1918) z anonsów BGP do ścieżek publicznej komunikacji równorzędnej Azure i komunikacji równorzędnej Microsoft. 
 
 ## Routing tranzytowy i routing obejmujący wiele regionów
 
@@ -124,6 +124,8 @@ Firma Microsoft będzie oznaczać prefiksy anonsowane za pośrednictwem publiczn
 |    | Wschodnie stany USA | 12076:51004 |
 |    | Wschodnie stany USA 2 | 12076:51005 |
 |    | Zachodnie stany USA | 12076:51006 |
+|    | Zachodnie stany USA 2 | 12076:51026 |
+|    | Środkowo-zachodnie stany USA | 12076:51027 |
 |    | Środkowo-północne stany USA | 12076:51007 |
 |    | Środkowo-południowe stany USA | 12076:51008 |
 |    | Środkowe stany USA | 12076:51009 |
@@ -177,6 +179,6 @@ Oprócz tego firma Microsoft oznaczy również prefiksy w oparciu o usługę, do
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

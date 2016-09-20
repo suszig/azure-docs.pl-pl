@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="05/31/2016"
+    ms.date="08/16/2016"
     ms.author="sdanie"/>
 
 # Jak korzystać z pamięci podręcznej Redis Azure w środowisku Node.js
@@ -36,7 +36,7 @@ Zainstaluj klienta [node_redis](https://github.com/mranney/node_redis):
 
     npm install redis
 
-W tym samouczku używany jest program [node_redis](https://github.com/mranney/node_redis), ale można użyć dowolnego klienta Node.js wymienionego pod adresem [http://redis.io/clients](http://redis.io/clients).
+W tym samouczku jest używany klient [node_redis](https://github.com/mranney/node_redis). Przykłady użycia innych klientów Node.js można znaleźć w dokumentacji poszczególnych klientów Node.js wymienionych na stronie [klientów Node.js usługi Redis](http://redis.io/clients#nodejs).
 
 ## Tworzenie pamięci podręcznej Redis na platformie Azure
 
@@ -46,17 +46,21 @@ W tym samouczku używany jest program [node_redis](https://github.com/mranney/no
 
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
+## Bezpieczne łączenie się z pamięcią podręczną przy użyciu protokołu SSL
 
-## Włączanie punktu końcowego bez obsługi protokołu SSL
+Najnowsze kompilacje klienta [node_redis](https://github.com/mranney/node_redis) umożliwiają łączenie się z usługą Azure Redis Cache przy użyciu protokołu SSL. Poniższy przykład przedstawia, jak nawiązać połączenie z usługą Azure Redis Cache przy użyciu punktu końcowego 6380 protokołu SSL. Zastąp parametr `<name>` nazwą Twojej pamięci podręcznej, a parametr `<key>` kluczem podstawowym lub dodatkowym, jak opisano w poprzedniej sekcji [Pobieranie nazwy hosta i kluczy dostępu](#retrieve-the-host-name-and-access-keys).
 
-Niektórzy klienci Redis nie obsługują protokołu SSL, a domyślnie [port nieobsługujący protokołu SSL jest wyłączony dla nowych wystąpień pamięci podręcznej Redis Azure](cache-configure.md#access-ports). Obecnie klient [node_redis](https://github.com/mranney/node_redis) nie obsługuje protokołu SSL. 
-
-[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
+     var redis = require("redis");
+    
+      // Add your cache name and access key.
+    var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
 
 
 ## Dodawanie elementu do pamięci podręcznej i pobieranie go
 
-      var redis = require("redis");
+Poniższy przykład pokazuje, jak połączyć się z wystąpieniem usługi Azure Redis Cache oraz jak zapisać i pobrać element z pamięci podręcznej. Aby uzyskać więcej przykładów użycia usługi Redis z klientem [node_redis](https://github.com/mranney/node_redis), zobacz [http://redis.js.org/](http://redis.js.org/).
+
+     var redis = require("redis");
     
       // Add your cache name and access key.
     var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
@@ -85,6 +89,6 @@ Dane wyjściowe:
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -3,7 +3,7 @@
    description="Ta strona zawiera instrukcje dotyczące tworzenia, konfigurowania, uruchamiania i usuwania bramy aplikacji na platformie Azure"
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="jdial"
    editor="tysonn"/>
 <tags
@@ -12,18 +12,19 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
-   ms.author="joaoma"/>
+   ms.date="08/09/2016"
+   ms.author="gwallace"/>
 
 # Tworzenie, uruchamianie i usuwanie bramy aplikacji
 
 Usługa Azure Application Gateway to moduł równoważenia obciążenia warstwy 7. Udostępnia tryb failover, oparty na wydajności routing żądań HTTP między różnymi serwerami — w chmurze i lokalnymi. Usługa Application Gateway oferuje następujące funkcje dostarczania aplikacji: równoważenie obciążenia HTTP, koligację sesji opartą na plikach cookie oraz odciążanie protokołu SSL (Secure Sockets Layer).
 
 > [AZURE.SELECTOR]
-- [Klasyczny portal Azure — program PowerShell](application-gateway-create-gateway.md)
+- [Azure Portal](application-gateway-create-gateway-portal.md)
 - [Azure Resource Manager — program PowerShell](application-gateway-create-gateway-arm.md)
+- [Klasyczny portal Azure — program PowerShell](application-gateway-create-gateway.md)
 - [Szablon usługi Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
-
+- [Interfejs wiersza polecenia platformy Azure](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -33,8 +34,9 @@ W tym artykule przedstawiono kroki umożliwiające tworzenie, konfigurowanie, ur
 ## Przed rozpoczęciem
 
 1. Zainstaluj najnowszą wersję poleceń cmdlet programu Azure PowerShell za pomocą Instalatora platformy sieci Web. Najnowszą wersję można pobrać i zainstalować z sekcji **Windows PowerShell** strony [Pliki do pobrania](https://azure.microsoft.com/downloads/).
-2. Sprawdź, czy masz działającą sieć wirtualną z prawidłową podsiecią. Upewnij się, że z podsieci nie korzystają żadne maszyny wirtualne ani wdrożenia w chmurze. Brama aplikacji musi znajdować się w podsieci sieci wirtualnej.
-3. Serwery, które będziesz konfigurować do używania bramy aplikacji, muszą być umieszczone lub mieć punkty końcowe utworzone w sieci wirtualnej lub z przypisanym adresem IP/VIP.
+2. Jeśli masz istniejącą sieć wirtualną, wybierz istniejącą pustą podsieć lub utwórz nową podsieć w istniejącej sieci wirtualnej wyłącznie do użytku przez tę bramę aplikacji. Nie można wdrożyć bramy aplikacji do innej sieci wirtualnej niż sieć wirtualna zasobów, które zamierzasz wdrożyć za bramą aplikacji.
+3. Sprawdź, czy masz działającą sieć wirtualną z prawidłową podsiecią. Upewnij się, że z podsieci nie korzystają żadne maszyny wirtualne ani wdrożenia w chmurze. Brama aplikacji musi znajdować się w podsieci sieci wirtualnej.
+3. Serwery konfigurowane do używania bramy aplikacji muszą być umieszczone w sieci wirtualnej lub z przypisanym adresem IP/VIP lub mieć w niej utworzone punkty końcowe.
 
 ## Co jest wymagane do utworzenia bramy aplikacji?
 
@@ -48,10 +50,10 @@ Potrzebne wartości:
 - **Ustawienia puli serwerów zaplecza:** każda pula ma ustawienia, takie jak port, protokół i koligacja oparta na plikach cookie. Te ustawienia są powiązane z pulą i są stosowane do wszystkich serwerów w tej puli.
 - **Port frontonu:** port publiczny, który jest otwierany w bramie aplikacji. Ruch trafia do tego portu, a następnie jest przekierowywany do jednego z serwerów zaplecza.
 - **Odbiornik:** odbiornik ma port frontonu, protokół (Http lub Https, z uwzględnieniem wielkości liter) oraz nazwę certyfikatu SSL (w przypadku konfigurowania odciążania protokołu SSL).
-- **Reguła:** reguła wiąże odbiornik z pulą serwerów zaplecza i definiuje, do której puli serwerów zaplecza ma być przekierowywany ruch w przypadku trafienia do określonego odbiornika.
+- **Reguła:** reguła wiąże odbiornik z pulą serwerów zaplecza i umożliwia zdefiniowanie, do której puli serwerów zaplecza ma być przekierowywany ruch w przypadku trafienia do określonego odbiornika.
 
 
-## Tworzenie nowej bramy aplikacji
+## Tworzenie bramy aplikacji
 
 Aby utworzyć bramę aplikacji:
 
@@ -64,7 +66,7 @@ Aby utworzyć bramę aplikacji:
 
 ### Tworzenie zasobu bramy aplikacji
 
-Aby utworzyć bramę, użyj polecenia cmdlet **New-AzureApplicationGateway**, zastępując wartości własnymi. Zauważ, że opłaty za bramę nie są jeszcze naliczane. Rozliczanie zaczyna się na późniejszym etapie, po pomyślnym uruchomieniu bramy.
+Aby utworzyć bramę, użyj polecenia cmdlet **New-AzureApplicationGateway**, zastępując wartości własnymi. Opłaty za bramę nie są jeszcze naliczane. Rozliczanie zaczyna się na późniejszym etapie, po pomyślnym uruchomieniu bramy.
 
 Poniższy przykład tworzy nową bramę aplikacji przy użyciu sieci wirtualnej „testvnet1” i podsieci „subnet-1”.
 
@@ -108,7 +110,7 @@ Bramę aplikacji możesz skonfigurować za pomocą pliku XML lub obiektu konfigu
 
 ## Konfigurowanie bramy aplikacji za pomocą pliku XML
 
-W poniższym przykładzie użyjesz pliku XML, aby skonfigurować wszystkie ustawienia bramy aplikacji i przekazać je do zasobu bramy aplikacji.  
+W poniższym przykładzie używany jest plik XML, aby skonfigurować wszystkie ustawienia bramy aplikacji i zatwierdzić je w zasobie bramy aplikacji.  
 
 ### Krok 1  
 
@@ -161,7 +163,7 @@ Edytuj zawarte w nawiasach wartości elementów konfiguracji. Zapisz plik z rozs
 
 >[AZURE.IMPORTANT] W elemencie Http lub Https jest rozróżniana wielkość liter.
 
-Poniższy przykład przedstawia sposób konfigurowania bramy aplikacji przy użyciu pliku konfiguracyjnego, aby równoważyć obciążenie ruchu HTTP na publicznym porcie 80 i rozsyłać ruch sieciowy do portu 80 zaplecza między dwoma adresami IP.
+Poniższy przykład przedstawia sposób konfigurowania bramy aplikacji przy użyciu pliku konfiguracyjnego. W tym przykładzie równoważone jest obciążenie ruchu HTTP na publicznym porcie 80, a ruch sieciowy jest rozsyłany do portu 80 zaplecza między dwoma adresami IP.
 
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -222,9 +224,9 @@ Następnym etapem jest skonfigurowanie bramy aplikacji. Użyj polecenia cmdlet *
 
 ## Skonfiguruj bramę aplikacji za pomocą obiektu konfiguracji.
 
-Poniższy przykład przedstawia sposób konfigurowania bramy aplikacji przy użyciu obiektów konfiguracji. Wszystkie elementy konfiguracji muszą być skonfigurowane indywidualnie, a następnie dodane do obiektu konfiguracji bramy aplikacji. Po utworzeniu obiektu konfiguracji użyjesz polecenia cmdlet **Set-AzureApplicationGateway**, aby przekazać konfigurację do wcześniej utworzonego zasobu bramy aplikacji.
+Poniższy przykład przedstawia sposób konfigurowania bramy aplikacji przy użyciu obiektów konfiguracji. Wszystkie elementy konfiguracji muszą być skonfigurowane indywidualnie, a następnie dodane do obiektu konfiguracji bramy aplikacji. Po utworzeniu obiektu konfiguracji użyte zostanie polecenie cmdlet **Set-AzureApplicationGateway**, aby zatwierdzić konfigurację we wcześniej utworzonym zasobie bramy aplikacji.
 
->[AZURE.NOTE] Przed przypisaniem wartości do poszczególnych obiektów konfiguracji trzeba zadeklarować rodzaj obiektu używanego przez program PowerShell jako magazyn. Pierwszy wiersz tworzenia pojedynczych elementów definiuje obiekt Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.(nazwa obiektu), który będzie używany.
+>[AZURE.NOTE] Przed przypisaniem wartości do poszczególnych obiektów konfiguracji trzeba zadeklarować rodzaj obiektu używanego przez program PowerShell jako magazyn. Pierwszy wiersz tworzenia pojedynczych elementów definiuje obiekt Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.(nazwa obiektu), który zostanie użyty.
 
 ### Krok 1
 
@@ -415,6 +417,6 @@ Więcej ogólnych informacji na temat opcji równoważenia obciążenia możesz 
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

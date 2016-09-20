@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/26/2016"
+   ms.date="06/16/2016"
    ms.author="yushwang"/>
 
 # Omówienie użycia protokołu BGP z bramami sieci VPN na platformie Azure
@@ -35,7 +35,9 @@ Protokół BGP oferuje kilka zalet i nowych możliwości:
 
 W przypadku użycia protokołu BGP wystarczy zadeklarować 	prefiks o minimalnej długości dla określonego elementu równorzędnego BGP za pośrednictwem tunelu VPN S2S wykorzystującego protokół IPsec. Może to być nawet sam prefiks hosta (/32) adresu IP elementu równorzędnego BGP dla lokalnego urządzenia sieci VPN. Można określić, które prefiksy sieci lokalnej mają być ogłaszane na platformie Azure w celu umożliwienia dostępu sieci wirtualnej Azure.
     
-Można również ogłaszać dłuższe prefiksy, które mogą obejmować niektóre spośród prefiksów adresu sieci wirtualnej użytkownika, takie jak trasa domyślna (0.0.0.0/0) lub duża przestrzeń prywatnych adresów IP (np. 10.0.0.0/8). Należy pamiętać, że prefiksy nie mogą być takie same, jak prefiksy w sieci wirtualnej użytkownika. Trasy identyczne z prefiksami w sieci wirtualnej zostaną odrzucone.
+Można również ogłaszać dłuższe prefiksy, które mogą obejmować niektóre spośród prefiksów adresu sieci wirtualnej użytkownika, takie jak duża przestrzeń prywatnych adresów IP (np. 10.0.0.0/8). Należy pamiętać, że prefiksy nie mogą być takie same, jak prefiksy w sieci wirtualnej użytkownika. Trasy identyczne z prefiksami w sieci wirtualnej zostaną odrzucone.
+
+>[AZURE.IMPORTANT] Obecnie anonsowanie trasy domyślnej (0.0.0.0/0) do bram sieci VPN platformy Azure będzie blokowane. Po włączeniu tej możliwości zostaną udostępnione dalsze aktualizacje.
 
 #### Obsługa wielu tuneli między siecią wirtualną i lokacją lokalną z funkcją automatycznego trybu failover w oparciu o protokół BGP
 
@@ -68,6 +70,6 @@ Opis procedury konfigurowania protokołu BGP pod kątem połączeń obejmującyc
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

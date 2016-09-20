@@ -1,13 +1,13 @@
 
 ## Uruchamianie sesji programu PowerShell
 
-Najpierw należy zainstalować i uruchomić program [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) (w wersji 1.0 lub nowszej). Aby uzyskać szczegółowe informacje, zobacz temat [Instalowanie i konfigurowanie programu Azure PowerShell](../articles/powershell-install-configure.md).
+Najpierw należy zainstalować i uruchomić najnowszą wersję programu [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx). Aby uzyskać szczegółowe informacje, zobacz temat [Instalowanie i konfigurowanie programu Azure PowerShell](../articles/powershell-install-configure.md).
 
 
->[AZURE.NOTE] Wiele nowych funkcji bazy danych SQL jest obsługiwanych tylko przy zastosowaniu [modelu wdrażania przy użyciu usługi Azure Resource Manager](../articles/resource-group-overview.md), dlatego w przykładach użyto [poleceń cmdlet programu PowerShell bazy danych SQL Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx) dla usługi Resource Manager. Istniejące [(klasyczne) polecenia cmdlet bazy danych SQL Azure ](https://msdn.microsoft.com/library/azure/dn546723.aspx) używane w klasycznym modelu wdrażania są obsługiwane w celu zapewnienia zgodności z poprzednimi wersjami, ale zalecamy użycie poleceń cmdlet usługi Resource Manager. 
+>[AZURE.NOTE] Wiele nowych funkcji bazy danych SQL jest obsługiwanych tylko przy zastosowaniu [modelu wdrażania usługi Azure Resource Manager](../articles/resource-group-overview.md), dlatego w przykładach użyto [poleceń cmdlet programu PowerShell dla usługi Azure SQL Database](https://msdn.microsoft.com/library/azure/mt574084.aspx). Istniejące [(klasyczne) polecenia cmdlet bazy danych SQL Azure ](https://msdn.microsoft.com/library/azure/dn546723.aspx) używane w klasycznym modelu wdrażania są obsługiwane w celu zapewnienia zgodności z poprzednimi wersjami, ale zalecamy użycie poleceń cmdlet usługi Resource Manager.
 
 
-Po uruchomieniu polecenia cmdlet [**Add-AzureRmAccount**](https://msdn.microsoft.com/library/mt619267.aspx) zostanie wyświetlony ekran logowania, w którym należy wprowadzić poświadczenia. Użyj tych samych poświadczeń, których używasz do logowania w portalu Azure.
+Po uruchomieniu polecenia cmdlet [**Add-AzureRmAccount**](https://msdn.microsoft.com/library/mt619267.aspx) zostanie wyświetlony ekran logowania, w którym należy wprowadzić poświadczenia. Użyj tych samych poświadczeń, których używasz do logowania w witrynie Azure Portal.
 
     Add-AzureRmAccount
 
@@ -17,7 +17,6 @@ Jeśli masz wiele subskrypcji, użyj polecenia cmdlet [**Set-AzureRmContext**](h
 
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

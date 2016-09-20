@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/31/2016"
+   ms.date="08/15/2016"
    ms.author="piotrci"/>
 
 # Publikowanie aplikacji dla indywidualnych użytkowników w kolekcji usługi Azure RemoteApp (wersja zapoznawcza)
+
+> [AZURE.IMPORTANT]
+> Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
 
 W tym artykule opisano sposób publikowania aplikacji dla indywidualnych użytkowników w kolekcji usługi Azure RemoteApp. To jest nowa funkcja usługi Azure RemoteApp, która jest dostępna w „prywatnej wersji zapoznawczej” wyłącznie dla wybranych pierwszych użytkowników do celów oceny.
 
@@ -33,7 +36,7 @@ Ta funkcja jest już dostępna w usłudze Azure RemoteApp, obecnie jako ogranicz
 
 2. Obecnie tryb aplikacji można włączać jedynie przy użyciu poleceń cmdlet środowiska PowerShell usługi Azure RemoteApp.
 
-  - Po ustawieniu trybu aplikacji nie można zarządzać przypisaniami użytkownika w kolekcji za pośrednictwem portalu Azure. Przypisanie użytkownika musi być zarządzane za pomocą poleceń cmdlet programu PowerShell.
+  - Po ustawieniu trybu aplikacji nie można zarządzać przypisaniami użytkownika w kolekcji za pośrednictwem witryny Azure Portal. Przypisanie użytkownika musi być zarządzane za pomocą poleceń cmdlet programu PowerShell.
 
 3. Użytkownicy widzą tylko aplikacje opublikowane bezpośrednio dla nich. Jednak użytkownik może nadal uruchamiać pozostałe aplikacje dostępne w obrazie, uzyskując dostęp do nich bezpośrednio w systemie operacyjnym.
   - Ta funkcja nie zapewnia bezpiecznej blokady aplikacji, lecz tylko ogranicza ich widoczność w źródle aplikacji.
@@ -104,6 +107,6 @@ Jeśli nie korzystasz jeszcze z wersji zapoznawczej, użyj tej [ankiety](http://
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

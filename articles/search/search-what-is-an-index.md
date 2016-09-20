@@ -12,7 +12,7 @@ authors="ashmaka"
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
 # Tworzenie indeksu usługi Azure Search
@@ -72,6 +72,6 @@ Jeśli wymagania dotyczące magazynu danych ulegną zmianom, możesz zwiększyć
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

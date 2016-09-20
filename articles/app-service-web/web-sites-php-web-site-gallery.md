@@ -1,6 +1,6 @@
 <properties
     pageTitle="Tworzenie aplikacji sieci Web WordPress w usłudze Azure App Service | Microsoft Azure"
-    description="Dowiedz się, jak utworzyć nową aplikację sieci Web platformy Azure dla bloga WordPress przy użyciu Portalu Azure."
+    description="Dowiedz się, jak utworzyć nową aplikację sieci Web platformy Azure dla bloga WordPress przy użyciu witryny Azure Portal."
     services="app-service\web"
     documentationCenter="php"
     authors="rmcmurray"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="PHP"
     ms.topic="hero-article"
-    ms.date="04/08/2016"
+    ms.date="08/11/2016"
     ms.author="robmcm"/>
 
 # Tworzenie aplikacji sieci Web WordPress w usłudze Azure App Service
@@ -32,7 +32,7 @@ Dowiesz się:
 * Jak utworzyć aplikację sieci Web w usłudze Azure App Service przy użyciu szablonu.
 * Jak konfigurować ustawienia usługi Azure App Service dla nowej aplikacji sieci Web i bazy danych.
 
-Portal Azure Marketplace udostępnia szeroką gamę popularnych aplikacji sieci Web opracowanych przez firmę Microsoft, inne firmy oraz zespoły związane z inicjatywami dotyczącymi oprogramowania typu open source. Aplikacje sieci Web są tworzone w różnych popularnych platformach, takich jak [PHP](/develop/nodejs/) w tym przykładzie WordPress, [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/) i [Python](/develop/python/). Jedynym oprogramowaniem potrzebnym do utworzenia aplikacji sieci Web z poziomu portalu Azure Marketplace jest przeglądarka, za pomocą której korzystasz z [Portalu Azure](https://portal.azure.com/). 
+Portal Azure Marketplace udostępnia szeroką gamę popularnych aplikacji sieci Web opracowanych przez firmę Microsoft, inne firmy oraz zespoły związane z inicjatywami dotyczącymi oprogramowania typu open source. Aplikacje sieci Web są tworzone w różnych popularnych platformach, takich jak [PHP](/develop/nodejs/) w tym przykładzie WordPress, [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/) i [Python](/develop/python/). Jedynym oprogramowaniem potrzebnym do utworzenia aplikacji sieci Web z poziomu portalu Azure Marketplace jest przeglądarka, za pomocą której korzystasz z witryny [Azure Portal](https://portal.azure.com/). 
 
 Witryna WordPress wdrażana w tym samouczku korzysta z bazy danych MySQL. Jeśli chcesz zamiast tego użyć usługi SQL Database, zobacz stronę rozwiązania [Project Nami](http://projectnami.org/). Rozwiązanie **Project Nami** jest również dostępne za pośrednictwem portalu Marketplace.
 
@@ -65,7 +65,7 @@ Witryna WordPress wdrażana w tym samouczku korzysta z bazy danych MySQL. Jeśli
 
 5. Wybierz **grupę zasobów** lub utwórz nową.
 
-    Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Korzystanie z Portalu Azure do zarządzania zasobami Azure](../resource-group-portal.md).
+    Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../resource-group-overview.md).
 
 5. Wybierz pozycję **Plan usługi App Service/Lokalizacja** lub utwórz nowy plan.
 
@@ -93,7 +93,7 @@ Witryna WordPress wdrażana w tym samouczku korzysta z bazy danych MySQL. Jeśli
 
 ## Uruchamianie aplikacji sieci Web WordPress i zarządzanie nią
     
-7. Po ukończeniu tworzenia aplikacji sieci Web przejdź w Portalu Azure do grupy zasobów, w której utworzono aplikację, aby wyświetlić aplikację sieci Web i bazę danych.
+7. Po ukończeniu tworzenia aplikacji sieci Web przejdź w witrynie Azure Portal do grupy zasobów, w której utworzono aplikację, aby wyświetlić aplikację sieci Web i bazę danych.
 
     Dodatkowym zasobem z ikoną żarówki jest usługa [Application Insights](/services/application-insights/), która umożliwia monitorowanie aplikacji sieci Web.
 
@@ -130,6 +130,6 @@ Aby uzyskać więcej informacji na temat sposobu pracy z aplikacjami Web Apps w 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

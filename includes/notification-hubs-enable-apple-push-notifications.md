@@ -39,17 +39,13 @@ Aby móc wysyłać powiadomienia wypychane do aplikacji dla systemu iOS, należy
     
     * **Identyfikator pakietu**: w sekcji **Jawny identyfikator aplikacji** wprowadź **Identyfikator pakietu** w formie `<Organization Identifier>.<Product Name>` zgodnie z opisem w [Podręczniku dystrybucji aplikacji](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). *Identyfikator organizacji* i *Nazwa produktu*, których używasz, muszą być zgodne z identyfikatorem organizacji i nazwą produktu, których będziesz używać podczas tworzenia projektu w programie XCode. Na zrzucie ekranu poniżej pozycja *NotificationHubs* stanowi identyfikator organizacji, a *GetStarted* nazwę produktu. Zagwarantowanie, że pozycje te są zgodne z wartościami, które zostaną użyte w projekcie w programie XCode, pozwoli na użycie poprawnego profilu publikowania w programie XCode. 
     
-    * **Powiadomienia wypychane**: zaznacz opcję **Powiadomienia wypychane** w sekcji **Usługi aplikacji**.
+    * **Powiadomienia wypychane**: zaznacz opcję **Powiadomienia wypychane** w sekcji **App Services**.
 
     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
-    Spowoduje to wygenerowanie identyfikatora aplikacji oraz wyświetlenie monitu o potwierdzenie informacji. Kliknij przycisk **Prześlij**.
+    Spowoduje to wygenerowanie identyfikatora aplikacji, a użytkownik zostanie poproszony o potwierdzenie podanych informacji. Kliknij przycisk **Zarejestruj**, aby potwierdzić nowy identyfikator aplikacji.
 
-
-    ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-confirm-new-appid.png)
-
-
-    Po kliknięciu przycisku **Prześlij** zostanie wyświetlony ekran **Rejestracja ukończona**, jak przedstawiono poniżej. Kliknij przycisk **Gotowe**.
+    Po kliknięciu przycisku **Zarejestruj** zostanie wyświetlony ekran **Rejestracja ukończona**, jak przedstawiono poniżej. Kliknij przycisk **Gotowe**.
 
 
     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
@@ -139,6 +135,6 @@ Aby móc wysyłać powiadomienia wypychane do aplikacji dla systemu iOS, należy
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

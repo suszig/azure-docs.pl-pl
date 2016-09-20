@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Tworzenie pierwszej fabryki danych (szablon ARM) | Microsoft Azure"
+    pageTitle="Tworzenie pierwszej fabryki danych (szablon usługi Resource Manager) | Microsoft Azure"
     description="W tym samouczku przedstawiono tworzenie przykładowego potoku usługi Fabryka danych Azure przy użyciu szablonu usługi Azure Resource Manager."
     services="data-factory"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/16/2016"
+    ms.date="08/01/2016"
     ms.author="spelluru"/>
 
 # Samouczek: tworzenie pierwszej fabryki danych Azure przy użyciu szablonu usługi Azure Resource Manager
@@ -23,22 +23,24 @@
 - [Korzystanie z programu PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Korzystanie z programu Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [Korzystanie z szablonu usługi Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+- [Korzystanie z interfejsu API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
-W tym artykule opisano, jak używać szablonu usługi Azure Resource Manager (ARM) do tworzenia pierwszej fabryki danych Azure. 
+W tym artykule opisano, jak używać szablonu usługi Azure Resource Manager do tworzenia pierwszej fabryki danych Azure. 
 
 
 ## Wymagania wstępne
 Oprócz wymagań wstępnych wymienionych w artykule Omówienie samouczka wymagane jest:
 
-- **Przeczytanie** artykułu [Omówienie samouczka](data-factory-build-your-first-pipeline.md) oraz wykonanie kroków wymagań wstępnych. 
+- Przeczytanie artykułu [Omówienie samouczka](data-factory-build-your-first-pipeline.md) oraz wykonanie kroków wymagań wstępnych. 
 - **Zainstalowanie programu Azure PowerShell**. Postępuj zgodnie z instrukcjami w artykule [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Instalowanie i konfigurowanie programu Azure PowerShell), aby zainstalować najnowszą wersję programu Azure PowerShell na komputerze.
 - Ten artykuł nie zawiera omówienia koncepcyjnego usługi Fabryka danych Azure. Szczegółowe omówienie tej usługi znajduje się w artykule [Introduction to Azure Data Factory](data-factory-introduction.md) (Wprowadzenie do usługi Fabryka danych Azure). 
-- Artykuł [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) (Tworzenie szablonów usługi Azure Resource Manager Templates) zawiera informacje dotyczące szablonów usługi Azure Resource Manager (ARM). 
+- Artykuł [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) (Tworzenie szablonów usługi Azure Resource Manager) zawiera informacje dotyczące szablonów usługi Azure Resource Manager. 
 
-> [AZURE.IMPORTANT] Aby można było wykonać instrukcje przedstawione w tym artykule, należy wykonać kroki wymagań wstępnych w artykule [Omówienie samouczka](data-factory-build-your-first-pipeline.md). 
+> [AZURE.IMPORTANT]
+> Aby można było wykonać instrukcje przedstawione w tym artykule, wykonaj kroki wymagań wstępnych w artykule [Omówienie samouczka](data-factory-build-your-first-pipeline.md). 
 
-## Tworzenie szablonu ARM
+## Tworzenie szablonu usługi Resource Manager
 
 Utwórz plik JSON o nazwie **ADFTutorialARM.json** w folderze **C:\ADFGetStarted** o następującej zawartości: 
 
@@ -221,21 +223,21 @@ Pamiętaj o następujących kwestiach:
 
 - Usługa Fabryka danych tworzy klaster usługi HDInsight **oparty na systemie Windows** za pomocą powyższego kodu JSON. Możliwe jest również utworzenie klastra usługi HDInsight **opartego na systemie Linux**. Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) (Połączona usługa HDInsight na żądanie). 
 - Możesz użyć **własnego klastra usługi HDInsight** zamiast klastra usługi HDInsight na żądanie. Szczegółowe informacje znajdują się w artykule [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) (Połączona usługa HDInsight).
-- Klaster usługi HDInsight tworzy **kontener domyślny** w magazynie obiektów blob określonym w kodzie JSON (**linkedServiceName**). Usługa HDInsight nie powoduje usunięcia tego kontenera w przypadku usunięcia klastra. Jest to celowe. W przypadku połączonej usługi HDInsight na żądanie klaster usługi HDInsight jest tworzony za każdym razem, gdy trzeba przetworzyć wycinek — o ile w tym momencie nie istnieje aktywny klaster (**timeToLive**) — i zostaje usunięty po zakończeniu przetwarzania.
+- Klaster usługi HDInsight tworzy **kontener domyślny** w magazynie obiektów blob określonym w kodzie JSON (**linkedServiceName**). Usługa HDInsight nie powoduje usunięcia tego kontenera w przypadku usunięcia klastra. To zachowanie jest celowe. W przypadku połączonej usługi HDInsight na żądanie klaster usługi HDInsight jest tworzony za każdym razem, gdy trzeba przetworzyć wycinek — o ile w tym momencie nie istnieje aktywny klaster (**timeToLive**) — i zostaje usunięty po zakończeniu przetwarzania.
 
-    W miarę jak przetwarzanych jest coraz więcej wycinków, w magazynie obiektów blob Azure będzie widocznych wiele kontenerów. Jeśli nie są potrzebne do rozwiązywania problemów z zadaniami, można je usunąć, aby zmniejszyć koszt przechowywania. Nazwa tych kontenerów jest zgodna ze wzorcem: „adf**twojanazwafabrykidanych**-**nazwapołączonejusługi**-znacznikdatygodziny”. Aby usunąć kontenery z magazynu obiektów blob Azure, użyj takich narzędzi, jak [Microsoft Storage Explorer](http://storageexplorer.com/).
+    Po przetworzeniu większej liczby wycinków w usłudze Azure Blob Storage będzie widocznych wiele kontenerów. Jeśli nie są potrzebne do rozwiązywania problemów z zadaniami, można je usunąć, aby zmniejszyć koszt przechowywania. Nazwy tych kontenerów są zgodne ze wzorcem: „adf**twojanazwafabrykidanych**-**nazwapołączonejusługi**-znacznikdatygodziny”. Aby usunąć kontenery z magazynu obiektów blob Azure, użyj takich narzędzi, jak [Microsoft Storage Explorer](http://storageexplorer.com/).
 
 Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) (Połączona usługa HDInsight na żądanie).
 
-> [AZURE.NOTE] Inny przykład szablonu ARM do tworzenia fabryki danych Azure znajduje się w witrynie [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).  
+> [AZURE.NOTE] Inny przykład szablonu usługi Resource Manager do tworzenia fabryki danych Azure znajduje się w witrynie [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).  
 
 ## Tworzenie fabryki danych
 
 1. Uruchom program **Azure PowerShell** i uruchom następujące polecenie. 
-    - Uruchom polecenie **Login-AzureRmAccount** i wprowadź nazwę użytkownika i hasło, których używasz do logowania się w witrynie Azure Portal.  
+    - Uruchom polecenie **Login-AzureRmAccount** i wprowadź nazwę użytkownika oraz hasło, których używasz do logowania się w witrynie Azure Portal.  
     - Uruchom następujące polecenie, aby wybrać subskrypcję, w ramach której chcesz utworzyć fabrykę danych.
             Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
-1. Uruchom następujące polecenie, aby wdrożyć jednostki usługi Fabryka danych przy użyciu szablonu ARM utworzonego w kroku 1. 
+1. Uruchom następujące polecenie, aby wdrożyć jednostki usługi Data Factory przy użyciu szablonu usługi Resource Manager utworzonego w kroku 1. 
 
         New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
 
@@ -252,7 +254,7 @@ Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked S
 8. Na stronie Widok diagramu kliknij dwukrotnie zestaw danych **AzureBlobOutput**. Zostanie wyświetlony wycinek, który jest obecnie przetwarzany.
 
     ![Zestaw danych](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. Po zakończeniu przetwarzania wycinek zostanie wyświetlony w stanie **Gotowe**. Pamiętaj, że tworzenie klastra usługi HDInsight na żądanie zwykle trwa trochę czasu (około 20 minut). 
+9. Po zakończeniu przetwarzania wycinek zostanie wyświetlony w stanie **Gotowe**. Tworzenie klastra usługi HDInsight na żądanie zwykle trwa trochę czasu (około 20 minut). 
 
     ![Zestaw danych](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png) 
 10. Gdy wycinek będzie w stanie **Gotowe**, sprawdź folder **partitioneddata** w kontenerze **adfgetstarted** w magazynie obiektów blob pod kątem danych wyjściowych.  
@@ -263,8 +265,8 @@ Do monitorowania potoków danych możesz też użyć aplikacji Monitorowanie i z
 
 > [AZURE.IMPORTANT] Po pomyślnym przetworzeniu wycinka plik wejściowy zostanie usunięty. Tak więc, jeśli chcesz ponownie uruchomić wycinek lub ponownie wykonać instrukcje z tego samouczka, przekaż plik wejściowy (input.log) do folderu inputdata kontenera adfgetstarted.
 
-## Szablon ARM do tworzenia bramy
-Poniżej przedstawiono przykładowy szablon ARM do tworzenia logicznej bramy w tle. Pamiętaj, że musisz zainstalować bramę na komputerze lokalnym lub maszynie wirtualnej IaaS platformy Azure i zarejestrować bramę w usłudze Fabryka danych przy użyciu klucza. Szczegółowe informacje znajdują się w artykule [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) (Przenoszenie danych między komputerem lokalnym i chmurą).
+## Szablon usługi Resource Manager do tworzenia bramy
+Poniżej przedstawiono przykładowy szablon usługi Resource Manager do tworzenia logicznej bramy w tle. Musisz zainstalować bramę na komputerze lokalnym lub maszynie wirtualnej IaaS platformy Azure i zarejestrować bramę w usłudze Data Factory przy użyciu klucza. Szczegółowe informacje znajdują się w artykule [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) (Przenoszenie danych między komputerem lokalnym i chmurą).
 
     {
         "contentVersion": "1.0.0.0",
@@ -303,9 +305,9 @@ Ten szablon służy do tworzenia fabryki danych o nazwie GatewayUsingArmDF z bra
 | Temat | Opis |
 | :---- | :---- |
 | [Działania przekształcania danych](data-factory-data-transformation-activities.md) | Ten artykuł zawiera listę działań przekształcania danych (takich jak przekształcenie programu Hive w usłudze HDInsight używane w tym samouczku) obsługiwanych w usłudze Fabryka danych Azure. |
-| [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) | W tym artykule wyjaśniono aspekty dotyczące planowania i wykonywania modelu aplikacji usługi Fabryka danych Azure. |
-| [Potoki](data-factory-create-pipelines.md) | Ten artykuł ułatwi zapoznanie się z potokami i działaniami w usłudze Fabryka danych Azure oraz ze sposobem ich użycia do konstruowania przepływów pracy typu end-to-end opartych na danych na potrzeby scenariusza lub firmy. |
-| [Zestawy danych](data-factory-create-datasets.md) | Ten artykuł ułatwi zapoznanie się z zestawami danych w usłudze Fabryka danych Azure.
+| [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) | W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Fabryka danych Azure. |
+| [Potoki](data-factory-create-pipelines.md) | Ten artykuł ułatwia zapoznanie się z potokami i działaniami w usłudze Azure Data Factory oraz ze sposobem konstruowania za ich pomocą przepływów pracy typu end-to-end opartych na danych na potrzeby scenariusza lub firmy. |
+| [Zestawy danych](data-factory-create-datasets.md) | Ten artykuł ułatwia zapoznanie się z zestawami danych w usłudze Azure Data Factory.
 | [Monitorowanie potoków i zarządzanie nimi za pomocą aplikacji do monitorowania](data-factory-monitor-manage-app.md) | Ten artykuł zawiera instrukcje dotyczące monitorowania i debugowania potoków oraz zarządzania nimi przy użyciu aplikacji do monitorowania i zarządzania. 
 
   
@@ -313,6 +315,6 @@ Ten szablon służy do tworzenia fabryki danych o nazwie GatewayUsingArmDF z bra
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

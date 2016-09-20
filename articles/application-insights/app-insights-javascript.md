@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/18/2016"
+    ms.date="08/15/2016"
     ms.author="awills"/>
 
 # Usługa Application Insights dla stron sieci Web
@@ -20,16 +20,16 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Poznaj wydajność i użycie strony sieci Web lub aplikacji. Dodaj usługę Application Insights w programie Visual Studio do skryptu strony, a uzyskasz chronometraż ładowania strony i wywołań AJAX, liczniki i szczegóły dotyczące wyjątków przeglądarki i błędów AJAX, a także liczniki użytkowników i sesji. Wszystkie te dane możesz rozdzielić według strony, systemu operacyjnego klienta i wersji przeglądarki, lokalizacji geograficznej i innych wymiarów. Możesz również ustawić alerty związane z liczbami błędów lub powolnym ładowaniem strony.
+Poznaj wydajność i użycie strony sieci Web lub aplikacji. Jeśli dodasz usługę Application Insights w programie Visual Studio do skryptu strony, uzyskasz chronometraż ładowania strony i wywołań AJAX, liczniki i szczegóły dotyczące wyjątków przeglądarki i błędów AJAX, a także liczniki użytkowników i sesji. Wszystkie te dane możesz rozdzielić według strony, systemu operacyjnego klienta i wersji przeglądarki, lokalizacji geograficznej i innych wymiarów. Możesz również ustawić alerty związane z liczbami błędów lub powolnym ładowaniem strony.
 
 Możesz używać usługi Application Insights z dowolnymi stronami sieci Web — wystarczy dodać krótki fragment kodu JavaScript. Jeśli Twoja usługa sieci Web jest zaprogramowana w technologii [Java](app-insights-java-get-started.md) lub [ASP.NET](app-insights-asp-net.md), możesz zintegrować telemetrię pochodzącą z serwera i klientów.
 
-Potrzebna będzie subskrypcja platformy [Microsoft Azure](https://azure.com). Jeśli zespół ma subskrypcję organizacyjną, poproś właściciela, aby dodał do niej Twoje konto Microsoft. Usługa ma warstwę dostępną bezpłatnie, zatem tworząc strony i używając ich na małą skalę, nie poniesiesz żadnych kosztów.
+Potrzebna jest subskrypcja platformy [Microsoft Azure](https://azure.com). Jeśli zespół ma subskrypcję organizacyjną, poproś właściciela, aby dodał do niej Twoje konto Microsoft. Usługa ma warstwę dostępną bezpłatnie, zatem tworząc strony i używając ich na małą skalę, nie poniesiesz żadnych kosztów.
 
 
 ## Konfigurowanie usługi Application Insights dla strony sieci Web
 
-Być może zostało to już zrobione. Jeśli aplikacja jest nowym projektem w technologii ASP.NET i opcja dodania usługi Application Insights została wybrana w oknie dialogowym Nowy projekt programu Visual Studio, skrypt powinien być już dodany, zatem wszystko jest skonfigurowane.
+Po pierwsze — czy potrzebujesz dodać usługę Application Insights do stron sieci Web? Być może zostało to już zrobione. Jeśli zdecydujesz się dodać usługę Application Insights do aplikacji sieci Web w oknie dialogowym Nowy projekt w programie Visual Studio, skrypt zostanie wtedy dodany. W takiej sytuacji nie trzeba wykonywać żadnych innych operacji.
 
 W przeciwnym razie trzeba dodać fragment kodu do stron sieci Web w następujący sposób.
 
@@ -57,7 +57,7 @@ Ze strony Szybki start pobierz skrypt dla stron sieci Web:
 
 ![W bloku przeglądu aplikacji wybierz kolejno opcje Szybki start, Pobierz kod umożliwiający monitorowanie stron sieci Web. Skopiuj skrypt.](./media/app-insights-javascript/02-monitor-web-page.png)
 
-Wstaw skrypt tuż przed tagiem `<head>` na każdej stronie, którą chcesz śledzić. Jeśli witryna ma stronę wzorcową, możesz umieścić skrypt na tej stronie. Na przykład:
+Wstaw skrypt tuż przed tagiem `</head>` na każdej stronie, którą chcesz śledzić. Jeśli witryna ma stronę wzorcową, możesz umieścić skrypt na tej stronie. Na przykład:
 
 * W projekcie ASP.NET MVC możesz umieścić go w pliku `View\Shared\_Layout.cshtml`
 * W przypadku witryny programu SharePoint w panelu sterowania otwórz plik [Ustawienia witryny / Strona wzorcowa](app-insights-sharepoint.md).
@@ -71,7 +71,7 @@ Skrypt zawiera klucz instrumentacji, który kieruje dane do odpowiedniego zasobu
 
 ## Konfiguracja szczegółowa
 
-Istnieje kilka [parametrów](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config), które można ustawić, chociaż w większości przypadków nie jest to potrzebne. Na przykład można wyłączyć zgłaszanie wywołań Ajax lub ograniczyć liczbę tych wywołań zgłaszanych na wyświetlenie strony (w celu zmniejszenia ruchu); można także ustawić tryb debugowania, aby dane telemetrii były szybciej przesyłane przez potok, a nie przekazywane w trybie wsadowym.
+Istnieje kilka [parametrów](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config), które można ustawić, chociaż w większości przypadków nie jest to potrzebne. Na przykład można wyłączyć zgłaszanie wywołań Ajax lub ograniczyć liczbę tych wywołań zgłaszanych na wyświetlenie strony (w celu zmniejszenia ruchu). Można także ustawić tryb debugowania, aby dane telemetrii były szybciej przesyłane przez potok, a nie przekazywane w trybie wsadowym.
 
 Aby ustawić te parametry, poszukaj tego wiersza we fragmencie kodu i dodaj po nim więcej elementów rozdzielonych przecinkami:
 
@@ -85,10 +85,10 @@ Aby ustawić te parametry, poszukaj tego wiersza we fragmencie kodu i dodaj po n
     // Send telemetry immediately without batching.
     // Remember to remove this when no longer required, as it
     // can affect browser performance.
-    enableDebug: true,
+    enableDebug: boolean,
 
     // Don't log browser exceptions.
-    disableExceptionTracking: true,
+    disableExceptionTracking: boolean,
 
     // Don't log ajax calls.
     disableAjaxTracking: boolean,
@@ -107,7 +107,7 @@ Aby ustawić te parametry, poszukaj tego wiersza we fragmencie kodu i dodaj po n
 
 ## <a name="run"></a>Uruchamianie aplikacji
 
-Uruchom aplikację sieci Web, używaj jej przez pewien czas, aby wygenerować dane telemetryczne, i odczekaj kilka sekund. Aplikację możesz uruchomić za pomocą klawisza **F5** na komputerze deweloperskim lub opublikować ją i pozwolić na korzystanie z niej przez użytkowników.
+Uruchom aplikację sieci Web, używaj jej przez pewien czas, aby wygenerować dane telemetryczne, i odczekaj kilka sekund. Aplikację możesz uruchomić za pomocą klawisza **F5** na maszynie deweloperskiej lub opublikować ją i pozwolić na korzystanie z niej przez użytkowników.
 
 Jeśli chcesz sprawdzić telemetrię, którą aplikacja sieci Web wysyła do usługi Application Insights, użyj narzędzi debugowania w przeglądarce (**F12** w wielu przeglądarkach). Dane są przesyłane do witryny dc.services.visualstudio.com.
 
@@ -205,9 +205,9 @@ W bloku Wyszukiwanie diagnostyczne jako Filtry ustaw Wyświetlenie strony.
 
 Wybierz dowolne zdarzenie, aby wyświetlić więcej szczegółów. Na stronie szczegółów kliknij przycisk „...”, aby wyświetlić jeszcze więcej szczegółów.
 
-> [AZURE.NOTE] Jeśli używasz pola [Wyszukiwanie](app-insights-diagnostic-search.md), zauważ, że musisz dopasowywać całe wyrazy: wpis „Abou” i „bout” nie odpowiada słowu „About”, ale „Abou* ” odpowiada. Ponadto wyszukiwany termin nie może zaczynać się symbolem wieloznacznym. Na przykład wyszukiwanie „*bou” nie będzie odpowiadać słowu „About”.
+> [AZURE.NOTE] Jeśli używasz pola [Wyszukiwanie](app-insights-diagnostic-search.md), zauważ, że musisz dopasowywać całe wyrazy: wpisy „Abou” i „bout” nie odpowiadają słowu „About”.
 
-> [Dowiedz się więcej o wyszukiwaniu diagnostycznym](app-insights-diagnostic-search.md)
+Można także użyć zaawansowanego [języka zapytań analizy](app-insights-analytics-tour.md) do przeszukiwania wyświetleń stron.
 
 ### Właściwości wyświetlania stron
 
@@ -226,7 +226,7 @@ Wstaw takie wywołanie JavaScript we właściwym miejscu w kodzie klienta:
 
     appInsights.trackPageView(myPageName);
 
-Nazwa strony może zawierać te same znaki, co adres URL, ale wszystko po znakach „#” lub „?” będzie ignorowane.
+Nazwa strony może zawierać te same znaki co adres URL, ale wszystko po znakach „#” i „?” będzie ignorowane.
 
 
 
@@ -253,6 +253,6 @@ Chcesz dowiedzieć się, w jaki sposób użytkownicy korzystają z aplikacji?
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

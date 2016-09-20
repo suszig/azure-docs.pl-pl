@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="03/16/2016"
+    ms.date="07/21/2016"
     ms.author="donnam"/>
 
-# <a name="getting-started"> </a>Wprowadzenie do usługi Mobile Services
+# <a name="getting-started"> </a>Wprowadzenie do usług Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 &nbsp;
@@ -49,7 +49,7 @@ W tej części pobierzesz nową aplikację systemu Xamarin iOS oraz projekt usł
 
 1. Jeśli jeszcze tego nie zrobiono, zainstaluj program Visual Studio z platformą Xamarin. Instrukcje można znaleźć w temacie [Konfigurowanie i instalowanie oprogramowania Visual Studio i Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). Możesz również użyć programu Xamarin Studio na komputerze z systemem Mac OS X. W tym celu zapoznaj się z tematem [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx) (Konfiguracja, instalacja i weryfikacja dla użytkowników komputerów Mac).
 
-2. W [klasycznym portalu Azure] kliknij pozycję **Mobile Services**, a następnie kliknij wcześniej utworzoną usługę mobilną.
+2. W [klasyczny portal Azure] kliknij pozycję **Mobile Services**, a następnie kliknij wcześniej utworzoną usługę mobilną.
 
 3. Na karcie szybkiego startu kliknij pozycję **Xamarin** w obszarze **Wybierz platformę** i rozwiń listę **Utwórz nową aplikację platformy Xamarin**.
 
@@ -133,11 +133,11 @@ Po zakończeniu procedury szybkiego startu dowiedz się, jak wykonać dodatkowe 
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Zestaw SDK usług Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript i HTML]: mobile-services-win8-javascript/
-[klasycznym portalu Azure]: https://manage.windowsazure.com/
+[klasyczny portal Azure]: https://manage.windowsazure.com/
 [Wersja zaplecza JavaScript]: mobile-services-ios-get-started.md
 [Rozwiązywanie problemów z zapleczem usługi Mobile Services na platformie .NET]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

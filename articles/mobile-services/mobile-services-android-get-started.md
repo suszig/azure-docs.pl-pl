@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="hero-article"
-    ms.date="04/08/2016"
+    ms.date="07/21/2016"
     ms.author="ricksal"/>
 
 # Wprowadzenie do usługi Azure Mobile Services dla systemu Android (zaplecze JavaScript)
@@ -39,7 +39,7 @@ Wykonanie kroków tego samouczka wymaga [narzędzi dla deweloperów systemu Andr
 
 Pobrany projekt szybkiego startu zawiera zestaw SDK usługi Azure Mobile Services dla systemu Android.
 
-> [AZURE.IMPORTANT] Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Jeśli nie masz konta, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz temat [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28) (Bezpłatna wersja próbna platformy Azure).
+> [AZURE.IMPORTANT] Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
 
 
 ## Tworzenie nowej usługi mobilnej
@@ -48,7 +48,7 @@ Pobrany projekt szybkiego startu zawiera zestaw SDK usługi Azure Mobile Service
 
 ## Tworzenie nowej aplikacji systemu Android
 
-Po utworzeniu usługi mobilnej można użyć funkcji szybkiego startu w klasycznym portalu Azure, aby utworzyć nową aplikację lub zmodyfikować aplikację istniejącą w celu nawiązania połączenia z usługą mobilną.
+Po utworzeniu usługi mobilnej można użyć funkcji szybkiego startu w klasycznym portalu Azure, aby utworzyć nową lub zmodyfikować istniejącą aplikację w celu nawiązania połączenia z usługą mobilną.
 
 W tej sekcji utworzysz nową aplikację systemu Android połączoną z usługą mobilną.
 
@@ -100,6 +100,6 @@ Po zakończeniu procedury szybkiego startu dowiedz się, jak wykonać dodatkowe 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

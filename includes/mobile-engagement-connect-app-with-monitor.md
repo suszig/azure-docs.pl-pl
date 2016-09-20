@@ -8,13 +8,13 @@ W tej sekcji opisano sposób łączenia aplikacji z zapleczem usługi Mobile Eng
 
 3. Na karcie Monitor (Monitorowanie) zostanie w czasie rzeczywistym wyświetlone dowolne urządzenie, na którym zostanie uruchomiona aplikacja.
      
-4. Uruchom aplikację w emulatorze/symulatorze lub na połączonym urządzeniu. Jeśli integracja jest prawidłowa, widoczna będzie jedna sesja. Oznacza to, że aplikacja jest teraz połączona z zapleczem usługi Mobile Engagement i wysyła do niej dane.  
+4. Uruchom aplikację. Jeśli integracja jest prawidłowa, widoczna będzie jedna sesja. Oznacza to, że aplikacja jest teraz połączona z zapleczem usługi Mobile Engagement i wysyła do niej dane.  
     
      ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Omówienie usługi Microsoft Azure Data Lake Analytics
@@ -52,7 +52,7 @@ Azure Data Lake Analytics to nowa usługa zaprojektowana z myślą o upraszczani
 ## Zobacz też
 
 - Rozpoczynanie pracy
-    - [Rozpoczynanie pracy z usługą Data Lake Analytics przy użyciu portalu Azure](data-lake-analytics-get-started-portal.md)
+    - [Rozpoczynanie pracy z usługą Data Lake Analytics przy użyciu witryny Azure Portal](data-lake-analytics-get-started-portal.md)
     - [Rozpoczynanie pracy z usługą Data Lake Analytics przy użyciu programu Azure PowerShell](data-lake-analytics-get-started-powershell.md)
     - [Rozpoczynanie pracy z usługą Data Lake Analytics przy użyciu zestawu Azure SDK programu .NET](data-lake-analytics-get-started-net-sdk.md)
     - [Tworzenie skryptów U-SQL przy użyciu narzędzi Data Lake Tools dla Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
@@ -64,9 +64,10 @@ Azure Data Lake Analytics to nowa usługa zaprojektowana z myślą o upraszczani
     - [Opracowywanie operatorów języka U-SQL definiowanych przez użytkownika na potrzeby zadań usługi Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
     
 - Zarządzanie
-    - [Zarządzanie usługą Azure Data Lake Analytics przy użyciu portalu Azure](data-lake-analytics-manage-use-portal.md)
+    - [Zarządzanie usługą Azure Data Lake Analytics przy użyciu witrynie Azure Portal](data-lake-analytics-manage-use-portal.md)
     - [Zarządzanie usługą Azure Data Lake Analytics przy użyciu programu Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-    - [Monitorowanie zadań usługi Azure Data Lake Analytics i rozwiązywanie problemów przy użyciu Portalu Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [Monitorowanie zadań usługi Azure Data Lake Analytics i rozwiązywanie problemów przy użyciu witryny Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [Accessing Diagnostics logs for Azure Data Lake Analytics (Dostęp do dzienników diagnostycznych usługi Azure Data Lake Analytics)](data-lake-analytics-diagnostic-logs.md)
 
 - Kompleksowy samouczek
     - [Korzystanie z interaktywnych samouczków usługi Azure Data Lake Analytics](data-lake-analytics-use-interactive-tutorials.md)
@@ -81,6 +82,6 @@ Azure Data Lake Analytics to nowa usługa zaprojektowana z myślą o upraszczani
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

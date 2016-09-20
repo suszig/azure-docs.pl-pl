@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="mobile-phonegap"
     ms.devlang="multiple"
     ms.topic="get-started-article" 
-    ms.date="02/10/2016"
+    ms.date="07/21/2016"
     ms.author="ggailey777"/>
 
-# Wprowadzenie do usługi Mobile Services
+# Wprowadzenie do usług Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 &nbsp;
@@ -182,6 +182,6 @@ Po zakończeniu procedury szybkiego startu dowiedz się, jak wykonać dodatkowe 
  
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

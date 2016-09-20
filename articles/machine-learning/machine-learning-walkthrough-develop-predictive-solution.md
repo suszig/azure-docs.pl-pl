@@ -1,7 +1,7 @@
 <properties
     pageTitle="Rozwiązanie predykcyjne do oceny ryzyka kredytowego w usłudze Machine Learning | Microsoft Azure"
     description="Szczegółowy przewodnik pokazujący sposób tworzenia rozwiązania analizy predykcyjnej w celu oceny ryzyka kredytowego w usłudze Azure Machine Learning Studio."
-    keywords="credit risk, predictive analytics solution,risk assessment"
+    keywords="ryzyko kredytowe, rozwiązanie analizy predykcyjnej, ocena ryzyka"
     services="machine-learning"
     documentationCenter=""
     authors="garyericson"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/09/2016"
+    ms.date="06/10/2016"
     ms.author="garye"/>
 
 
@@ -27,6 +27,8 @@ Ocena ryzyka kredytowego to złożony problem, ale odrobinę uprościmy badane p
 W tym szczegółowym przewodniku prześledzimy proces opracowywania modelu analizy predykcyjnej w usłudze Machine Learning Studio, a następnie wdrażania go w postaci usługi sieci Web Machine Learning. Na początek skorzystamy z dostępnych publicznie danych dotyczących ryzyka kredytowego, opracujemy model predykcyjny i przeprowadzimy jego uczenie z wykorzystaniem tych danych, a następnie wdrożymy ten model jako usługę sieci Web, która będzie dostępna dla innych osób chcących przeprowadzić ocenę ryzyka kredytowego.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+<!-- -->
 
 >[AZURE.TIP] Aby pobrać i wydrukować diagram, który zawiera przegląd możliwości usługi Machine Learning Studio, zobacz [Diagram przeglądowy możliwości usługi Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
@@ -43,6 +45,6 @@ Ten przewodnik jest oparty na uproszczonej wersji przykładowego eksperymentu [B
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 
