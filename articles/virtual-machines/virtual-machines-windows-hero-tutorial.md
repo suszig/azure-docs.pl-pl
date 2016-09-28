@@ -45,19 +45,19 @@ Po wybraniu obrazu możesz użyć ustawień domyślnych i szybko utworzyć maszy
 
 1. W bloku **Podstawowe** wprowadź nazwę maszyny wirtualnej w polu **Nazwa**. Nazwa musi składać się z 1–15 znaków i nie może zawierać znaków specjalnych.
 
-2. Podaj nazwę użytkownika w polu **Nazwa użytkownika** i silne hasło w polu **Hasło**. Zostaną one użyte do utworzenia konta lokalnego na maszynie wirtualnej. Konto lokalne jest używane do logowania się do maszyny wirtualnej i zarządzania nią. 
+2. Podaj nazwę użytkownika w polu **Nazwa użytkownika** i silne hasło w polu **Hasło**. Zostaną one użyte do utworzenia konta lokalnego na maszynie wirtualnej. Konto lokalne jest używane do logowania się do maszyny wirtualnej i zarządzania nią.
 
     Hasło musi mieć długość od 8 do 123 znaków i spełniać trzy z czterech następujących wymagań dotyczących złożoności: mała litera, wielka litera, cyfra i znak specjalny. Więcej informacji na temat [wymagań dotyczących nazwy użytkownika i hasła](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
 
 
-3. Wybierz istniejącą [grupę zasobów](../resource-group-overview.md#resource-groups) lub wprowadź nazwę nowej grupy zasobów. W polu **Lokalizacja** wprowadź lokalizację centrum danych Azure, np. **Zachodnie stany USA**. 
+3. Wybierz istniejącą [grupę zasobów](../resource-group-overview.md#resource-groups) lub wprowadź nazwę nowej grupy zasobów. W polu **Lokalizacja** wprowadź lokalizację centrum danych Azure, np. **Zachodnie stany USA**.
 
-4. Gdy skończysz, kliknij przycisk **OK**, aby przejść do następnej sekcji. 
+4. Gdy skończysz, kliknij przycisk **OK**, aby przejść do następnej sekcji.
 
     ![Zrzut ekranu pokazujący ustawienia w bloku **Podstawowe** służące do konfigurowania maszyny wirtualnej Azure](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
 
-    
-5. Wybierz [rozmiar](virtual-machines-windows-sizes.md) maszyny wirtualnej, a następnie kliknij przycisk **Wybierz**, aby kontynuować. 
+
+5. Wybierz [rozmiar](virtual-machines-windows-sizes.md) maszyny wirtualnej, a następnie kliknij przycisk **Wybierz**, aby kontynuować.
 
     ![Zrzut ekranu bloku Rozmiar pokazujący dostępne do wyboru rozmiary maszyn wirtualnych Azure](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 
@@ -69,7 +69,7 @@ Po wybraniu obrazu możesz użyć ustawień domyślnych i szybko utworzyć maszy
 
     ![Zrzut ekranu strony Podsumowanie, która zawiera opcje konfiguracji wybrane dla maszyny wirtualnej Azure](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)
 
-8. Podczas tworzenia maszyny wirtualnej przez platformę Azure możesz śledzić postęp w obszarze **Maszyny wirtualne** w menu Centrum. 
+8. Podczas tworzenia maszyny wirtualnej przez platformę Azure możesz śledzić postęp w obszarze **Maszyny wirtualne** w menu Centrum.
 
 
 ## Nawiązywanie połączenia z maszyną wirtualną i logowanie
@@ -89,7 +89,7 @@ Po wybraniu obrazu możesz użyć ustawień domyślnych i szybko utworzyć maszy
 5. W oknie Zabezpieczenia systemu Windows wpisz nazwę użytkownika i hasło konta lokalnego, które zostało utworzone podczas tworzenia maszyny wirtualnej. Wprowadź nazwę użytkownika w formacie *nazwa_maszyny_wirtualnej*&#92;*nazwa_użytkownika*, a następnie kliknij przycisk **OK**.
 
     ![Zrzut ekranu przedstawiający wprowadzanie nazwy maszyny wirtualnej, nazwy użytkownika i hasła](./media/virtual-machines-windows-hero-tutorial/credentials.png)
-    
+
 6.  Zostanie wyświetlone ostrzeżenie, że nie można zweryfikować certyfikatu. Jest to normalne. Kliknij przycisk **Tak**, aby potwierdzić tożsamość maszyny wirtualnej i zakończyć logowanie.
 
     ![Zrzut ekranu przedstawiający komunikat dotyczący potwierdzenia tożsamości maszyny wirtualnej](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)
@@ -106,13 +106,13 @@ Teraz możesz pracować z maszyną wirtualną tak samo jak z każdym innym serwe
 Dobrym rozwiązaniem jest zatrzymanie maszyny wirtualnej w celu uniknięcia opłat, gdy maszyna nie jest używana. Kliknij pozycję **Zatrzymaj**, a następnie kliknij przycisk **Tak**.
 
 ![Zrzut ekranu przedstawiający przycisk zatrzymywania maszyny wirtualnej](./media/virtual-machines-windows-hero-tutorial/stop-vm.png)
-    
+
 Kliknij przycisk **Uruchom**, aby ponownie uruchomić maszynę wirtualną, gdy wszystko będzie gotowe do jej ponownego użycia.
 
 
 ## Następne kroki
 
-- Z nową maszyną wirtualną można poeksperymentować, [instalując program IIS](virtual-machines-windows-hero-role.md). W tym samouczku pokazano także, jak otworzyć port 80 na przychodzący ruch sieciowy przy użyciu sieciowej grupy zabezpieczeń (NSG, network security group). 
+- Z nową maszyną wirtualną można poeksperymentować, [instalując program IIS](virtual-machines-windows-hero-role.md). W tym samouczku pokazano także, jak otworzyć port 80 na przychodzący ruch sieciowy przy użyciu sieciowej grupy zabezpieczeń (NSG, network security group).
 
 - Można także [utworzyć maszynę wirtualną z systemem Windows przy użyciu programu PowerShell](virtual-machines-windows-ps-create.md) lub [utworzyć maszynę wirtualną z systemem Linux](virtual-machines-linux-quick-create-cli.md) przy użyciu interfejsu wiersza polecenia platformy Azure.
 
@@ -120,6 +120,4 @@ Kliknij przycisk **Uruchom**, aby ponownie uruchomić maszynę wirtualną, gdy w
 
 
 
-<!--HONumber=Sep16_HO3-->
-
-
+<!---HONumber=Sep16_HO3-->
