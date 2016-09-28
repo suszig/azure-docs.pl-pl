@@ -17,6 +17,7 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
+
 # Przekazywanie danych do usługi Azure Search przy użyciu interfejsu API REST
 > [AZURE.SELECTOR]
 - [Omówienie](search-what-is-data-import.md)
@@ -170,6 +171,6 @@ Po wypełnieniu indeksu usługi Azure Search możesz rozpocząć wykonywanie zap
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

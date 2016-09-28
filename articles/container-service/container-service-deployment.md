@@ -15,8 +15,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/13/2016"
    ms.author="rogardle"/>
+
 
 # Wdrażanie klastra usługi kontenera platformy Azure
 
@@ -115,8 +116,6 @@ Utwórz grupę zasobów platformy Azure oraz klaster usługi Container Service p
 > [AZURE.NOTE] W przypadku uruchamiania tego polecenia powłoka wyświetli monit o wprowadzenie wartości parametrów wdrożenia.
 
 ```bash
-# sample deployment
-
 azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
 ```
 
@@ -125,18 +124,14 @@ azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri 
 Ta wersja polecenia wymaga interaktywnego zdefiniowania parametrów. Jeśli chcesz podać parametry, takie jak ciąg sformatowany przy użyciu notacji JSON, możesz to zrobić za pomocą przełącznika `-p`. Na przykład:
 
  ```bash
- # sample deployment
-
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -p '{ "param1": "value1" … }'
- ```
+```
 
 Możesz również udostępnić plik z parametrami sformatowanymi przy użyciu notacji JSON, korzystając z przełącznika `-e`:
 
- ```bash
- # sample deployment
-
+```bash
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -e PATH/FILE.JSON
- ```
+```
 
 Aby wyświetlić przykładowy plik parametrów o nazwie `azuredeploy.parameters.json`, wyszukaj go w serwisie GitHub przy użyciu szablonów usługi kontenera platformy Azure.
 
@@ -170,10 +165,8 @@ New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
 Po utworzeniu grupy zasobów możesz utworzyć klaster przy użyciu poniższego polecenia. Identyfikator URI żądanego szablonu zostanie określony dla parametru `-TemplateUri`. W przypadku uruchamiania tego polecenia program PowerShell wyświetli monit o wprowadzenie wartości parametrów wdrożenia.
 
 ```powershell
-# sample deployment
-
 New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
- ```
+```
 
 ### Wprowadzanie parametrów szablonu
 
@@ -182,8 +175,6 @@ Jeśli znasz program PowerShell, wiesz, że możesz przechodzić przez dostępne
 Poniżej znajduje się pełne polecenie z uwzględnionymi parametrami. Możesz podać własne wartości nazw zasobów.
 
 ```powershell
-# sample deployment
-
 New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
 ```
 
@@ -197,6 +188,6 @@ Teraz, gdy masz działający klaster, możesz zapoznać się z tymi dokumentami,
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

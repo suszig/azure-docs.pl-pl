@@ -5,7 +5,6 @@ Już masz konto na platformie Azure? Kliknij przycisk poniżej, aby utworzyć la
 
 [![GRozpoczynanie pracy z usługą Azure DevTest Labs w zaledwie kilka minut(./media/devtest-lab-try-it-out/get-started.png)](http://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

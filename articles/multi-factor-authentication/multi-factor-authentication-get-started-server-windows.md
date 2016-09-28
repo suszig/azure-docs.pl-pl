@@ -1,20 +1,21 @@
 <properties 
-    pageTitle="Uwierzytelnianie systemu Windows i serwer usługi Azure Multi-Factor Authentication" 
-    description="Ta strona jest poświęcona usłudze Azure Multi-Factor Authentication i zawiera informacje pomocne podczas wdrażania uwierzytelniania systemu Windows i korzystania z serwera usługi Azure Multi-Factor Authentication." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+    pageTitle="Uwierzytelnianie systemu Windows i serwer usługi Azure Multi-Factor Authentication"
+    description="Ta strona jest poświęcona usłudze Azure Multi-Factor Authentication i zawiera informacje pomocne podczas wdrażania uwierzytelniania systemu Windows i korzystania z serwera usługi Azure Multi-Factor Authentication."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 
 # Uwierzytelnianie systemu Windows i serwer usługi Azure Multi-Factor Authentication
 
@@ -31,7 +32,7 @@ W sekcji Uwierzytelnianie systemu Windows administrator może włączyć i skonf
 
 
 >[AZURE.NOTE]Ta funkcja nie jest obsługiwana w kontekście zabezpieczania sesji usług terminalowych w systemie Windows Server 2012 R2.
- 
+
 
 
 
@@ -47,11 +48,11 @@ W sekcji Uwierzytelnianie systemu Windows administrator może włączyć i skonf
 7. Kliknij przycisk Dodaj Dodaj...
 8. Wybierz opcję Pojedynczy adres IP, jeśli chcesz pominąć pojedynczy adres IP.
 9. Wybierz opcję Zakres adresów IP, aby pominąć cały zakres adresów IP. Na przykład: 10.63.193.1–10.63.193.100.
-10. Wybierz opcję Podsieć, aby określić zakres adresów IP, korzystając z notacji podsieci. Wprowadź początkowy adres IP podsieci i wybierz odpowiednią maskę sieci z listy rozwijanej. 
+10. Wybierz opcję Podsieć, aby określić zakres adresów IP, korzystając z notacji podsieci. Wprowadź początkowy adres IP podsieci i wybierz odpowiednią maskę sieci z listy rozwijanej.
 11. Kliknij przycisk OK.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -19,6 +19,7 @@
     ms.author="joseidz"/>
 
 
+
 # Samouczek usługi SQL Database: łączenie programu Excel z bazą danych Azure SQL i tworzenie raportu
 
 > [AZURE.SELECTOR]
@@ -86,6 +87,6 @@ Po nawiązaniu połączenia i utworzeniu pliku zawierającego dane oraz informac
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

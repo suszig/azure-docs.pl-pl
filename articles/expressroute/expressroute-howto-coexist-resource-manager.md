@@ -16,6 +16,7 @@
    ms.date="07/19/2016"
    ms.author="charleywen"/>
 
+
 # Konfigurowanie połączeń usługi ExpressRoute i współistniejących połączeń typu lokacja-lokacja dla modelu wdrażania usługi Resource Manager
 
 > [AZURE.SELECTOR]
@@ -196,6 +197,6 @@ Więcej informacji na temat usługi ExpressRoute znajduje się w artykule [Expre
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

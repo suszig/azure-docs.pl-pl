@@ -16,6 +16,7 @@
    ms.date="08/15/2016"
    ms.author="elizapo"/>
 
+
 # Uruchamianie dowolnej aplikacji systemu Windows na dowolnym urządzeniu za pomocą usługi Azure RemoteApp
 
 > [AZURE.IMPORTANT]
@@ -125,6 +126,6 @@ Po opanowaniu tworzenia kolekcji spróbuj utworzyć [kolekcję korzystającą z 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

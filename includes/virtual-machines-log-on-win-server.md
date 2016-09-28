@@ -1,5 +1,6 @@
 <properties services="virtual-machines" title="How to Log on to a Virtual Machine Running Windows Server" authors="cynthn" solutions="" manager="timlt" editor="tysonn" />
 
+
 4. Kliknięcie opcji **Połącz** powoduje utworzenie i pobranie pliku Remote Desktop Protocol (rdp). Kliknij przycisk **Otwórz**, aby użyć tego pliku.
 
 5. Zostanie wyświetlone ostrzeżenie, że plik rdp pochodzi od nieznanego wydawcy. Jest to normalne. W oknie pulpitu zdalnego kliknij przycisk **Połącz**, aby kontynuować.
@@ -20,6 +21,6 @@
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

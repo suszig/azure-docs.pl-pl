@@ -3,7 +3,7 @@
     description="Postępuj zgodnie z tym samouczkiem, aby rozpocząć korzystanie z usługi Azure Event Hubs, przesyłanie zdarzeń w języku C# i odbieranie ich w języku Java z użyciem klasy EventProcessorHost."
     services="event-hubs"
     documentationCenter=""
-    authors="fsautomata"
+    authors="jtaubensee"
     manager="timlt"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="06/16/2016"
-    ms.author="jotaub"/>
+    ms.date="09/27/2016"
+    ms.author="jotaub;sethm"/>
+
 
 # Rozpoczynanie pracy z usługą Event Hubs
 
@@ -73,6 +74,6 @@ Teraz, gdy masz utworzoną działającą aplikację, która tworzy centrum zdarz
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

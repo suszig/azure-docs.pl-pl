@@ -1,26 +1,27 @@
-<properties 
-    pageTitle="Szybkie wprowadzenie do usługi Azure Storage | Microsoft Azure" 
-    description="Szybko zapoznaj się z usługami Microsoft Azure Blobs, Table i Queues, korzystając z szablonów Szybki start usługi Azure Storage, programu Visual Studio i emulatora usługi Azure Storage. Uruchom pierwszą aplikację usługi Azure Storage w ciągu pięciu minut." 
-    services="storage" 
-    documentationCenter=".net" 
-    authors="tamram" 
-    manager="carmonm" 
+<properties
+    pageTitle="Szybkie wprowadzenie do usługi Azure Storage | Microsoft Azure"
+    description="Szybko zapoznaj się z usługami Microsoft Azure Blobs, Table i Queues, korzystając z szablonów Szybki start usługi Azure Storage, programu Visual Studio i emulatora usługi Azure Storage. Uruchom pierwszą aplikację usługi Azure Storage w ciągu pięciu minut."
+    services="storage"
+    documentationCenter=".net"
+    authors="tamram"
+    manager="carmonm"
     editor="tysonn"/>
 
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="dotnet" 
-    ms.topic="get-started-article" 
-    ms.date="07/21/2016"
-    ms.author="tamram"/>
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="09/20/2016"
+    ms.author="dineshm;tamram"/>
 
-# Szybkie wprowadzenie do usługi Azure Storage 
+
+# Szybkie wprowadzenie do usługi Azure Storage
 
 ## Omówienie
 
-Rozpoczęcie tworzenia rozwiązań z wykorzystaniem usługi Azure Storage jest niezwykle proste. Ten samouczek pokazuje, jak szybko uruchomić aplikację usługi Azure Storage. Użyjesz szablonów Szybki start dołączonych do zestawu Azure SDK dla programu .NET. Szablony szybkiego startu zawierają gotowy do uruchomienia kod, który demonstruje wybrane, podstawowe scenariusze programistyczne związane z usługą Azure Storage. 
+Rozpoczęcie tworzenia rozwiązań z wykorzystaniem usługi Azure Storage jest niezwykle proste. Ten samouczek pokazuje, jak szybko uruchomić aplikację usługi Azure Storage. Użyjesz szablonów Szybki start dołączonych do zestawu Azure SDK dla programu .NET. Szablony szybkiego startu zawierają gotowy do uruchomienia kod, który demonstruje wybrane, podstawowe scenariusze programistyczne związane z usługą Azure Storage.
 
 Aby uzyskać więcej informacji na temat usługi Azure Storage przed rozpoczęciem pracy z kodem, zobacz [Następne kroki](#next-steps).
 
@@ -28,11 +29,11 @@ Aby uzyskać więcej informacji na temat usługi Azure Storage przed rozpoczęci
 
 Przed rozpoczęciem należy spełnić następujące wymagania wstępne:
 
-1. Aby skompilować i utworzyć aplikację, musisz mieć wersję programu [Visual Studio](https://www.visualstudio.com/) zainstalowaną na komputerze. 
+1. Aby skompilować i utworzyć aplikację, musisz mieć wersję programu [Visual Studio](https://www.visualstudio.com/) zainstalowaną na komputerze.
 
 2. Zainstaluj najnowszą wersję zestawu [Azure SDK dla programu .NET](https://azure.microsoft.com/downloads/). Zestaw SDK zawiera przykładowe projekty Szybki start Azure, emulator usługi Azure Storage oraz [Bibliotekę klienta usługi Azure Storage dla programu .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-3. Upewnij się, że masz program [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) zainstalowany na komputerze, ponieważ jest wymagany w przykładowych projektach Szybki start Azure, których będziemy używać w tym samouczku. 
+3. Upewnij się, że masz program [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) zainstalowany na komputerze, ponieważ jest wymagany w przykładowych projektach Szybki start Azure, których będziemy używać w tym samouczku.
 
     Jeśli nie masz pewności, jaka wersja programu .NET Framework jest zainstalowana na komputerze, zobacz [Poradnik: określanie zainstalowanych wersji programu .NET Framework](https://msdn.microsoft.com/vstudio/hh925568.aspx). Możesz również nacisnąć przycisk **Start** lub klawisz systemu Windows i wpisać **Panel sterowania**. Następnie kliknij pozycje **Programy** > **Programy i funkcje** i sprawdź, czy program .NET Framework 4.5 jest na liście zainstalowanych programów.
 
@@ -51,10 +52,10 @@ Jeśli masz już konto, możesz utworzyć prostą aplikację usługi Azure Stora
     a. Wybierz jeden z następujących szablonów: **Azure Storage: obiekty Blob**, **Azure Storage: pliki**, **Azure Storage: kolejki** lub **Azure Storage: tabele**.
     b. Upewnij się, że program **.NET Framework 4.5** jest wybrany jako platforma docelowa.
     - 3.c. Określ nazwę projektu i utwórz nowe rozwiązanie Visual Studio, jak pokazano poniżej:
-    
+
     ![Szybki start Azure][Image1]
 
-Warto przejrzeć kod źródłowy przed uruchomieniem aplikacji. Aby przejrzeć kod, wybierz pozycję **Eksplorator rozwiązań** w menu **Widok** w programie Visual Studio. Następnie kliknij dwukrotnie plik Program.cs. 
+Warto przejrzeć kod źródłowy przed uruchomieniem aplikacji. Aby przejrzeć kod, wybierz pozycję **Eksplorator rozwiązań** w menu **Widok** w programie Visual Studio. Następnie kliknij dwukrotnie plik Program.cs.
 
 Uruchom przykładową aplikację:
 
@@ -80,22 +81,22 @@ Aby wypróbować ten scenariusz, utwórz prostą aplikację usługi Azure Storag
 1. Uruchom program Visual Studio.
 2. W menu **Plik** kliknij pozycję **Nowy projekt**.
 3. W oknie dialogowym **Nowy projekt** kliknij kolejno pozycje **Zainstalowane** > **Szablony** > **Visual C#** > **Chmura** > **Poradniki Szybki start** > **Data Services**.
-   a. Wybierz jeden z następujących szablonów: **Azure Storage: obiekty Blob**, **Azure Storage: pliki**, **Azure Storage: kolejki** lub **Azure Storage: tabele**.
-   b. Upewnij się, że program **.NET Framework 4.5** jest wybrany jako platforma docelowa.   
+    a. Wybierz jeden z następujących szablonów: **Azure Storage: obiekty Blob**, **Azure Storage: pliki**, **Azure Storage: kolejki** lub **Azure Storage: tabele**.
+    b. Upewnij się, że program **.NET Framework 4.5** jest wybrany jako platforma docelowa.
     c. Określ nazwę projektu i utwórz nowe rozwiązanie Visual Studio, jak pokazano poniżej:
-    
+
     ![Szybki start Azure][Image1]
 
 4.  W programie Visual Studio wybierz pozycję **Eksplorator rozwiązań** w menu **Widok**. Otwórz plik App.config i oznacz jako komentarz parametry połączenia dla swojego konta usługi Azure Storage, jeśli konto zostało już dodane. Następnie usuń znaczniki komentarza z parametrów połączenia dla emulatora usługi Azure Storage:
 
     `<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>`
 
-Warto przejrzeć kod źródłowy przed uruchomieniem aplikacji. Aby przejrzeć kod, wybierz pozycję **Eksplorator rozwiązań** w menu **Widok** w programie Visual Studio. Następnie kliknij dwukrotnie plik Program.cs. 
+Warto przejrzeć kod źródłowy przed uruchomieniem aplikacji. Aby przejrzeć kod, wybierz pozycję **Eksplorator rozwiązań** w menu **Widok** w programie Visual Studio. Następnie kliknij dwukrotnie plik Program.cs.
 
 Uruchom przykładową aplikację w emulatorze usługi Azure Storage:
 
 1.  Naciśnij przycisk **Start** lub klawisz systemu Windows, wyszukaj *Emulator usługi Microsoft Azure Storage* i uruchom aplikację. Po uruchomieniu emulatora w obszarze widoku zadań systemu Windows pojawi się ikona i powiadomienie.
-2.  W programie Visual Studio kliknij przycisk **Kompiluj rozwiązanie** w menu **Kompilacja**. 
+2.  W programie Visual Studio kliknij przycisk **Kompiluj rozwiązanie** w menu **Kompilacja**.
 3.  W menu **Debugowanie** naciśnij klawisz **F11**, aby uruchomić rozwiązanie krok po kroku, lub naciśnij klawisz **F5**, aby uruchomić rozwiązanie od początku do końca.
 
 ## Następne kroki
@@ -114,10 +115,9 @@ Zobacz następujące zasoby, aby dowiedzieć się więcej na temat usługi Azure
 * [Interfejs API REST usług Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
- 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

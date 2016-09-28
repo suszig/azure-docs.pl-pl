@@ -16,6 +16,7 @@
     ms.author="awills"/>
 
 
+
 # Praca z usługą Application Insights w programie Visual Studio
 
 W programie Visual Studio (w wersji 2015 i nowszych) można analizować wydajność i diagnozować problemy zarówno podczas debugowania, jak i w środowisku produkcyjnym, przy użyciu telemetrii z usługi [Visual Studio Application Insights](app-insights-overview.md).
@@ -112,6 +113,6 @@ Aby znaleźć anomalie w danych, wybierz jedną z opcji anomalii w menu rozwijan
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

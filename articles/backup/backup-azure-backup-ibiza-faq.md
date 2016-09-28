@@ -17,6 +17,7 @@
      ms.date="08/21/2016"
      ms.author="trinadhk; markgal; jimpark;"/>
 
+
 # Magazyn usług Recovery Services — często zadawane pytania
 
 > [AZURE.SELECTOR]
@@ -45,6 +46,6 @@ Kopie zapasowe klasycznych maszyn wirtualnych w magazynie usługi Backup nie są
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

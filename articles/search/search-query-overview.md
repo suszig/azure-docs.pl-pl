@@ -15,6 +15,7 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
+
 # Tworzenie zapytań względem indeksu usługi Azure Search
 > [AZURE.SELECTOR]
 - [Omówienie](search-query-overview.md)
@@ -60,6 +61,6 @@ Dostępne w usłudze Azure Search parametry `highlight`, `highlightPreTag` i `hi
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

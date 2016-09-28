@@ -16,6 +16,7 @@
    ms.date="08/15/2016"
    ms.author="elizapo"/>
 
+
 # Usługi SQL Azure z usługą Azure RemoteApp
 
 > [AZURE.IMPORTANT]
@@ -56,6 +57,6 @@ Istnieje kilka przyczyn spowolnienia działania aplikacji klienckiej hostowanej 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

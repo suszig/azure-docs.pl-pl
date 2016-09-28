@@ -1,24 +1,25 @@
 <properties 
-    pageTitle="Integracja katalogu między usługami Azure Multi-Factor Authentication i Active Directory" 
-    description="To jest strona usługi Azure Multi-Factor Authentication, na której opisano integrację serwera tej usługi z usługą Active Directory, w wyniku której możliwa jest synchronizacja katalogów." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+    pageTitle="Integracja katalogu między usługami Azure Multi-Factor Authentication i Active Directory"
+    description="To jest strona usługi Azure Multi-Factor Authentication, na której opisano integrację serwera tej usługi z usługą Active Directory, w wyniku której możliwa jest synchronizacja katalogów."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 
 # Integracja katalogu między serwerem Azure MFA i usługą Active Directory
 
-Sekcja poświęcona integracji katalogu zawiera informacje dotyczące konfiguracji serwera pod kątem integracji z usługą Active Directory lub innym katalogiem LDAP.  Pozwala ona skonfigurować atrybuty w celu ich dostosowania do schematu katalogu oraz ustawić automatyczną synchronizację użytkowników. 
+Sekcja poświęcona integracji katalogu zawiera informacje dotyczące konfiguracji serwera pod kątem integracji z usługą Active Directory lub innym katalogiem LDAP.  Pozwala ona skonfigurować atrybuty w celu ich dostosowania do schematu katalogu oraz ustawić automatyczną synchronizację użytkowników.
 
 ## Ustawienia
 Domyślnie usługa Serwer Azure Multi-Factor Authentication jest skonfigurowana pod kątem importowania lub synchronizowania użytkowników z usługi Active Directory.  Karta pozwala zastąpić domyślne zachowanie i utworzyć powiązanie z innym katalogiem LDAP, katalogiem ADAM lub określonym kontrolerem domeny usługi Active Directory.  Umożliwia także korzystanie z uwierzytelniania LDAP w odniesieniu do serwera proxy protokołu LDAP lub do powiązania protokołu LDAP jako obiektu docelowego usługi RADIUS, uwierzytelniania wstępnego w ramach uwierzytelniania IIS lub uwierzytelniania podstawowego dla portalu użytkownika.  W poniższej tabeli opisano poszczególne ustawienia.
@@ -126,7 +127,7 @@ Przycisk **Usuń** pozwala administratorowi usunąć jeden lub więcej elementó
 
 >[AZURE.WARNING]Usuniętego elementu synchronizacji nie można odzyskać. Jeśli element został usunięty przez pomyłkę, należy ponownie dodać rekord elementu synchronizacji.
 
-Elementy synchronizacji zostały usunięte z usługi Multi-Factor Auth Server.  Usługa Multi-Factor Auth Server nie będzie już przetwarzać elementów synchronizacji. 
+Elementy synchronizacji zostały usunięte z usługi Multi-Factor Auth Server.  Usługa Multi-Factor Auth Server nie będzie już przetwarzać elementów synchronizacji.
 
 Przyciski Przenieś w górę i Przenieś w dół umożliwiają administratorowi zmianę kolejności elementów synchronizacji.  Kolejność jest ważna, ponieważ ten sam użytkownik może być członkiem więcej niż jednego elementu synchronizacji (np. kontenera i grupy zabezpieczeń).  Ustawienia mające zastosowanie do użytkownika podczas synchronizacji będą pochodziły z pierwszego elementu z listy, z którym użytkownik jest skojarzony.  Elementy synchronizacji powinny więc być uporządkowane w kolejności priorytetu.
 
@@ -139,6 +140,6 @@ Można skonfigurować dodatkowe serwery Multi-Factor Auth, które będą pełni�
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

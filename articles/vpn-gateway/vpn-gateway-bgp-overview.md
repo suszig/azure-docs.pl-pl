@@ -17,6 +17,7 @@
    ms.date="06/16/2016"
    ms.author="yushwang"/>
 
+
 # Omówienie użycia protokołu BGP z bramami sieci VPN na platformie Azure
 
 W tym artykule omówiono obsługę protokołu BGP (Border Gateway Protocol) w bramach sieci VPN na platformie Azure.
@@ -70,6 +71,6 @@ Opis procedury konfigurowania protokołu BGP pod kątem połączeń obejmującyc
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

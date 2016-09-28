@@ -13,7 +13,6 @@
     
     Sprawdź, czy dane zapisane w poprzednim kroku są ładowane z usługi mobilnej po uruchomieniu aplikacji.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -29,7 +29,6 @@ Aby utworzyć zasady:
     Nowe zasady zostaną natychmiast zastosowane do magazynu.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

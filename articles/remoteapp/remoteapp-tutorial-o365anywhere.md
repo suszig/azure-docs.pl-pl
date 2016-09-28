@@ -17,6 +17,7 @@
    ms.author="guscatal;elizapo"/>
 
 
+
 # Praca w tym samym środowisku usługi Office 365 na dowolnym urządzeniu z usługą Azure RemoteApp
 
 > [AZURE.IMPORTANT]
@@ -72,6 +73,6 @@ Kliknięcie dowolnej aplikacji powinno spowodować jej uruchomienie na maszynie 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

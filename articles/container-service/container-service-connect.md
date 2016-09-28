@@ -15,8 +15,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/12/2016"
+   ms.date="09/13/2016"
    ms.author="rogardle"/>
+
 
 
 # Łączenie z klastrem usługi kontenera platformy Azure
@@ -41,8 +42,6 @@ Teraz otwórz powłokę i uruchom poniższe polecenie, gdzie:
 **PATH_TO_PRIVATE_KEY** [OPCJONALNIE] to ścieżka do klucza prywatnego odpowiadającego kluczowi publicznemu podanemu podczas tworzenia klastra usługi Container Service. Użyj tej opcji z flagą -i.
 
 ```bash
-# ssh sample
-
 ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 > Port połączenia SSH to 2200, a nie standardowy port 22.
@@ -52,8 +51,6 @@ ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.az
 Aby otworzyć tunel do punktów końcowych powiązanych z klastrem DC/OS, wykonaj polecenie podobne do następującego:
 
 ```bash
-# ssh sample
-
 sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
@@ -70,8 +67,6 @@ Podobnie za pomocą tego tunelu możesz uzyskiwać dostęp do interfejsów API R
 Aby otworzyć tunel do punktu końcowego Swarm, wykonaj polecenie podobne do następującego:
 
 ```bash
-# ssh sample
-
 ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
@@ -126,6 +121,6 @@ Wdrażanie kontenerów i zarządzanie nimi przy użyciu rozwiązania DC/OS lub S
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

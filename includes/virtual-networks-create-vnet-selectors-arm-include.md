@@ -4,7 +4,6 @@
 - [Interfejs wiersza polecenia platformy Azure](../articles/virtual-network/virtual-networks-create-vnet-arm-cli.md)
 - [Szablon ARM](../articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md)
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

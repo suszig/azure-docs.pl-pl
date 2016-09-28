@@ -17,6 +17,7 @@
    ms.author="mbaldwin"/>
 
 
+
 # Przewodnik dewelopera usługi Azure Active Directory
 
 ## Omówienie
@@ -148,6 +149,6 @@ Te prezentacje przedstawiające tworzenie aplikacji przy użyciu usługi Azure A
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

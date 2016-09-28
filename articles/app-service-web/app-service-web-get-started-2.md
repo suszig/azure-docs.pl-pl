@@ -18,6 +18,7 @@
     ms.author="cephalin"
 />
 
+
 # Dodawanie funkcji do pierwszej aplikacji sieci Web
 
 W temacie [Deploy a web app to Azure in 5 minutes](app-service-web-get-started.md) (Wdrożenie aplikacji sieci Web na platformie Azure w ciągu 5 minut) wdrożono przykładową aplikację sieci Web do [usługi Azure App Service](../app-service/app-service-value-prop-what-is.md). Z tego artykułu dowiesz się, jak szybko dodać niektóre ciekawe funkcje do wdrożonej aplikacji sieci Web. W ciągu kilku minut:
@@ -157,6 +158,6 @@ skanuj aplikację sieci Web pod kątem współczesnych zagrożeń przy użyciu u
 - [Dowiedz się, jak działa usługa App Service](../app-service/app-service-how-works-readme.md) 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

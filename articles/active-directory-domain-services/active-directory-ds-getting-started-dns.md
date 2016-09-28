@@ -16,6 +16,7 @@
     ms.date="07/06/2016"
     ms.author="maheshu"/>
 
+
 # Usługi domenowe Azure AD *(wersja zapoznawcza)* — aktualizowanie ustawień DNS dla sieci wirtualnej platformy Azure
 
 ## Zadanie 4. Aktualizowanie ustawień DNS dla sieci wirtualnej platformy Azure
@@ -53,6 +54,6 @@ Następne zadanie konfiguracyjne to [włączenie synchronizacji haseł w Usługa
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

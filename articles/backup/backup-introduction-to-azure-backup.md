@@ -17,6 +17,7 @@
     ms.date="07/21/2016"
     ms.author="jimpark; trinadhk"/>
 
+
 # Co to jest Azure Backup?
 Azure Backup to usługa, która umożliwia tworzenie kopii zapasowej i przywracanie danych w chmurze Microsoft Cloud. Pozwala ona zastąpić dotychczasowe rozwiązania tworzenia kopii zapasowych, istniejące lokalne lub poza siedzibą firmy, rozwiązaniem opartym na chmurze, które jest niezawodne, bezpieczne i konkurencyjne cenowo. Pomaga również chronić zasoby, które działają w chmurze. Usługa Azure Backup udostępnia usługi odzyskiwania oparte na infrastrukturze na najwyższym światowym poziomie, która jest skalowalna, trwała i wysoce dostępna.
 
@@ -226,11 +227,11 @@ Ponieważ te samouczki pomagają w szybkim utworzeniu kopii zapasowej, pokazują
 
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
-[yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
+[żółty]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

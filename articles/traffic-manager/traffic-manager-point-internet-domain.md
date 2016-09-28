@@ -15,6 +15,7 @@
    ms.date="03/17/2016"
    ms.author="sewhee" />
 
+
 # Ustawianie firmowej domeny internetowej tak, aby wskazywała domenę usługi Azure Traffic Manager
 
 Aby nazwa domeny firmowej wskazywała nazwę domeny usługi Traffic Manager, należy zmodyfikować rekord zasobu DNS na internetowym serwerze DNS w celu używania typu rekordu CNAME, który mapuje nazwę domeny firmowej na nazwę domeny profilu usługi Traffic Manager. Nazwa domeny usługi Traffic Manager jest wyświetlana w sekcji **Ogólne** na stronie konfiguracji profilu usługi Traffic Manager.
@@ -37,6 +38,6 @@ Wszystkie żądania ruchu do domeny *www.contoso.com* będą teraz kierowane do 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

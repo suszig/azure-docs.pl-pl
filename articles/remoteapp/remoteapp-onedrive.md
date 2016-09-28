@@ -16,6 +16,7 @@
    ms.date="08/15/2016"
    ms.author="elizapo"/>
 
+
 # Usługi OneDrive dla Firm i Azure RemoteApp
 
 > [AZURE.IMPORTANT]
@@ -26,6 +27,6 @@ Agent synchronizacji usługi OneDrive dla Firm nie działa z usługą Azure Remo
 Usługę OneDrive dla Firm możesz umieścić wewnątrz kolekcji do użycia z usługą Office 365. 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

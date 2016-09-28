@@ -16,6 +16,7 @@
     ms.date="06/27/2016"
     ms.author="douglasl"/>
 
+
 # Omówienie bazy danych Stretch
 
 Usługa Stretch Database migruje zimne dane do chmury platformy Microsoft Azure w sposób niewidoczny i bezpieczny.
@@ -82,6 +83,6 @@ Użyj Doradcy w zakresie bazy danych Stretch, funkcji Doradcy uaktualnienia do p
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

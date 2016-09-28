@@ -32,7 +32,6 @@
 8. Zanotuj wartość w polu **API KEY** (KLUCZ INTERFEJSU API). Ta wartość klucza interfejsu API zostanie później użyta do konfiguracji w sekcji dotyczącej natywnych powiadomień wypychanych. Kliknij przycisk **Done** (Gotowe).
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

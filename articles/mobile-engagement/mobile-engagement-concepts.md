@@ -16,6 +16,7 @@
     ms.date="08/19/2016"
     ms.author="piyushjo" />
 
+
 # Pojęcia dotyczące usługi Azure Mobile Engagement
 
 Usługa Mobile Engagement definiuje kilka pojęć wspólnych dla wszystkich obsługiwanych platform. W tym artykule krótko opisano te pojęcia.
@@ -87,6 +88,6 @@ Całe drzewo par klucz/wartość jest przechowywane jako obiekt JSON. Jednak tyl
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

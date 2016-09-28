@@ -17,6 +17,7 @@
    ms.date="08/16/2016"
    ms.author="shkurhek"/>
 
+
 # Co to jest SQL Database? Wprowadzenie do usługi SQL Database
 
 SQL Database jest usługą relacyjnych baz danych w chmurze opartą na aparacie Microsoft SQL Server, który jest czołowym rozwiązaniem na rynku, zapewniającym możliwości realizacji najistotniejszych zadań biznesowych. Usługa SQL Database oferuje przewidywalną wydajność, skalowalność bez przestojów, ciągłość prowadzenia działalności biznesowej i ochronę danych — wszystko przy bliskich zeru nakładach na administrację. Możesz skoncentrować się na szybkim tworzeniu aplikacji i skracaniu czasu wejścia na rynek, a nie na zarządzaniu maszynami wirtualnymi i infrastrukturą. Ponieważ usługa SQL Database jest oparta na aparacie [programu SQL Server](https://msdn.microsoft.com/library/bb545450.aspx), współpracuje z istniejącymi narzędziami programu SQL Server, bibliotekami i interfejsami API, dzięki czemu możesz łatwiej przenosić rozwiązania i rozszerzać je, korzystając z chmury.
@@ -61,6 +62,6 @@ Po przeczytaniu wprowadzenia do usługi SQL Database i zapoznaniu się z nią mo
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

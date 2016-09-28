@@ -7,7 +7,6 @@ To ustawienie umożliwia określenie serwera DNS, który ma być używany do roz
 
     ![Niestandardowe DNS](./media/vpn-gateway-add-dns-rm-portal/customdns400.png)
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

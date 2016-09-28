@@ -24,7 +24,6 @@ W tych krokach przyjęto założenie, że ustanowiono połączenie z bazą danyc
 
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

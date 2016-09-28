@@ -1,20 +1,21 @@
 <properties 
-    pageTitle="Wprowadzenie do usługi Microsoft Azure Multi-Factor Authentication w chmurze" 
-    description="Ta strona dotyczy usługi Microsoft Azure Multi-Factor Authentication i zawiera informacje umożliwiające rozpoczęcie korzystania z usługi Azure MFA w chmurze." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="femila" 
+    pageTitle="Wprowadzenie do usługi Microsoft Azure Multi-Factor Authentication w chmurze"
+    description="Ta strona dotyczy usługi Microsoft Azure Multi-Factor Authentication i zawiera informacje umożliwiające rozpoczęcie korzystania z usługi Azure MFA w chmurze."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
+
 
 # Wprowadzenie do usługi Azure Multi-Factor Authentication w chmurze
 Po przeczytaniu tego artykułu dowiesz się, jak rozpocząć korzystanie z usługi Azure Multi-Factor Authentication w chmurze.
@@ -24,16 +25,16 @@ Po przeczytaniu tego artykułu dowiesz się, jak rozpocząć korzystanie z usłu
 ![Usługa MFA w chmurze](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
 ## Wymagania wstępne
-Aby umożliwić użytkownikom korzystanie z usługi Azure Multi-Factor Authentication, konieczne jest spełnienie następujących wymagań wstępnych. 
+Aby umożliwić użytkownikom korzystanie z usługi Azure Multi-Factor Authentication, konieczne jest spełnienie następujących wymagań wstępnych.
 
 
 
 
 - [Utworzenie konta na potrzeby subskrypcji platformy Azure](https://azure.microsoft.com/pricing/free-trial/) — jeśli nie masz jeszcze subskrypcji platformy Azure, musisz utworzyć konto. Jeśli dopiero zaczynasz pracę i używasz usługi Azure MFA, możesz skorzystać z subskrypcji wersji próbnej.
-2. [Utworzenie dostawcy usługi Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md) i przypisanie go do katalogu lub [przypisanie licencji do użytkowników](multi-factor-authentication-get-started-assign-licenses.md). 
+2. [Utworzenie dostawcy usługi Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md) i przypisanie go do katalogu lub [przypisanie licencji do użytkowników](multi-factor-authentication-get-started-assign-licenses.md).
 
-> [AZURE.NOTE]  Licencje są dostępne dla użytkowników, którzy mają usługę Azure MFA, usługę Azure AD w wersji Premium lub pakiet Enterprise Mobility Suite (EMS).  Usługa MFA jest zawarta w wersji Premium usługi Azure AD i pakiecie EMS. Jeśli masz wystarczającą liczbę licencji, nie musisz tworzyć dostawcy uwierzytelniania. 
-        
+> [AZURE.NOTE]  Licencje są dostępne dla użytkowników, którzy mają usługę Azure MFA, usługę Azure AD w wersji Premium lub pakiet Enterprise Mobility Suite (EMS).  Usługa MFA jest zawarta w wersji Premium usługi Azure AD i pakiecie EMS. Jeśli masz wystarczającą liczbę licencji, nie musisz tworzyć dostawcy uwierzytelniania.
+
 
 ## Włączanie uwierzytelniania wieloskładnikowego dla użytkowników
 Aby włączyć uwierzytelnianie wieloskładnikowe dla użytkownika, wystarczy zmienić jego stan z wyłączonego na włączony.  Więcej informacji na temat stanów użytkowników można znaleźć w artykule [User States in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md) (Stany użytkowników w usłudze Azure Multi-Factor Authentication).
@@ -52,7 +53,7 @@ Aby włączyć usługę MFA dla użytkowników, postępuj zgodnie z poniższą p
 6.  Spowoduje to otwarcie nowej karty w przeglądarce.  Znajdź użytkownika, dla którego chcesz włączyć uwierzytelnianie wieloskładnikowe. Może być konieczna zmiana widoku w górnej części strony. Upewnij się, że stan ma wartość **Wyłączony.**
 ![Włączanie użytkownika](./media/multi-factor-authentication-get-started-cloud/enable1.png)
 7.  **Zaznacz** pole obok nazwy użytkownika.
-7.  Kliknij pozycję **Włącz** wyświetlaną z prawej strony. 
+7.  Kliknij pozycję **Włącz** wyświetlaną z prawej strony.
 ![Włączanie użytkownika](./media/multi-factor-authentication-get-started-cloud/user1.png)
 8.  Kliknij pozycję **Włącz usługę Multi-Factor Authentication**.
 ![Włączanie użytkownika](./media/multi-factor-authentication-get-started-cloud/enable2.png)
@@ -71,7 +72,7 @@ Aby zmienić [stan](multi-factor-authentication-whats-next.md) przy użyciu [pro
 - Disabled (Wyłączony)  
 
 > [AZURE.IMPORTANT]  Pamiętaj o tym, że jeśli bezpośrednio zmienisz stan z wyłączonego na wymuszony, stare klienty uwierzytelniania przestaną działać, ponieważ dla danego użytkownika nie została przeprowadzona rejestracja w usłudze MFA i nie uzyskał on [hasła aplikacji](multi-factor-authentication-whats-next.md#app-passwords).  Jeśli używasz starych klientów uwierzytelniania i korzystasz z haseł aplikacji, zaleca się zmianę stanu z wyłączonego na włączony.  Pozwoli to użytkownikom na zarejestrowanie się i uzyskanie haseł aplikacji.   
-        
+
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
         $st.RelyingParty = "*"
         $st.State = “Enabled”
@@ -79,7 +80,7 @@ Aby zmienić [stan](multi-factor-authentication-whats-next.md) przy użyciu [pro
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
 Używanie programu PowerShell to dobra metoda na zbiorcze włączanie użytkowników.  Obecnie portal Azure nie umożliwia zbiorczego włączania — trzeba wybierać pojedynczych użytkowników.  W przypadku dużej liczby użytkowników może to być pracochłonne.  Utworzenie skryptu programu PowerShell przy użyciu powyższych instrukcji umożliwia jednoczesne włączenie wszystkich użytkowników z listy.  Oto przykład:
-    
+
     $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
     foreach ($user in $users)
     {
@@ -98,6 +99,6 @@ Po skonfigurowaniu uwierzytelniania wieloskładnikowego w chmurze można przyst�
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

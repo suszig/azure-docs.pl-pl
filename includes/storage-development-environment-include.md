@@ -27,7 +27,7 @@ Pakiet NuGet służy do pobrania obu pakietów. Wykonaj następujące kroki:
 
 >[AZURE.NOTE] Pakiet Biblioteki klienta usługi Storage znajduje się również w [zestawie SDK Azure dla środowiska .NET](https://azure.microsoft.com/downloads/). Firma Microsoft zaleca jednak również zainstalowanie Biblioteki klienta usługi Storage z pakietu NuGet, aby zagwarantować posiadanie najnowszej wersji biblioteki klienta.
 >
->Zależności ODataLib w Bibliotece klienta usługi Storage dla środowiska .NET są rozwiązywane za pośrednictwem pakietów ODataLib (w wersji 5.0.2 i nowszych) dostępnych przez pakiet NuGet, a nie za pośrednictwem Usług danych WCF. Biblioteki ODataLib można pobrać bezpośrednio lub użyć odwołań w projekcie kodu za pośrednictwem pakietu NuGet. Określone pakiety ODataLib używane przez Bibliotekę klienta usługi Storage to [OData](http://nuget.org/packages/Microsoft.Data.OData/5.0.2), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/5.0.2) i [Spatial](http://nuget.org/packages/System.Spatial/5.0.2). Ze względu na to, że biblioteki te są używane przez klasy Magazynu tabel Azure, są one wymaganymi zależnościami do programowania za pomocą Biblioteki klienta usługi Storage.
+>Zależności ODataLib w Bibliotece klienta usługi Storage dla środowiska .NET są rozwiązywane za pośrednictwem pakietów ODataLib (w wersji 5.0.2 i nowszych) dostępnych przez pakiet NuGet, a nie za pośrednictwem usług Data Services WCF. Biblioteki ODataLib można pobrać bezpośrednio lub użyć odwołań w projekcie kodu za pośrednictwem pakietu NuGet. Określone pakiety ODataLib używane przez Bibliotekę klienta usługi Storage to [OData](http://nuget.org/packages/Microsoft.Data.OData/5.0.2), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/5.0.2) i [Spatial](http://nuget.org/packages/System.Spatial/5.0.2). Ze względu na to, że biblioteki te są używane przez klasy usługi Azure Table Storage, są one wymaganymi zależnościami do programowania za pomocą Biblioteki klienta usługi Storage.
 
 
 ### Określanie środowiska docelowego
@@ -35,19 +35,19 @@ Pakiet NuGet służy do pobrania obu pakietów. Wykonaj następujące kroki:
 W przypadku uruchamiania przykładów w tym przewodniku istnieją dwie opcje środowiska:
 
 - Można uruchomić kod dla konta usługi Azure Storage w chmurze. 
-- Można uruchomić kod dla emulatora magazynu Azure. Emulator magazynu jest lokalnym środowiskiem, które emuluje konto usługi Azure Storage w chmurze. Emulator jest bezpłatną opcją do testowania i debugowania kodu, gdy aplikacja jest w fazie projektowania. Emulator używa dobrze znanego konta i klucza. Więcej szczegółowych informacji można znaleźć w temacie [Use the Azure Storage Emulator for Development and Testing](../articles/storage/storage-use-emulator.md) (Używanie emulatora usługi Azure Storage do programowania i testowania).
+- Można uruchomić kod dla emulatora usługi Azure Storage. Emulator magazynu jest lokalnym środowiskiem, które emuluje konto usługi Azure Storage w chmurze. Emulator jest bezpłatną opcją do testowania i debugowania kodu, gdy aplikacja jest w fazie projektowania. Emulator używa dobrze znanego konta i klucza. Więcej szczegółowych informacji można znaleźć w temacie [Use the Azure Storage Emulator for Development and Testing](../articles/storage/storage-use-emulator.md) (Używanie emulatora usługi Azure Storage do programowania i testowania).
 
-Jeśli obiektem docelowym jest konto magazynu w chmurze, skopiuj podstawowy klucz dostępu dla konta magazynu z portalu Azure. Aby uzyskać więcej informacji, zobacz temat [View and copy storage access keys](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys) (Wyświetlanie i kopiowanie kluczy dostępu kopiowania).
+Jeśli obiektem docelowym jest konto magazynu w chmurze, skopiuj podstawowy klucz dostępu dla konta magazynu z witryny Azure Portal. Aby uzyskać więcej informacji, zobacz temat [View and copy storage access keys](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys) (Wyświetlanie i kopiowanie kluczy dostępu kopiowania).
 
-> [AZURE.NOTE] Na obiekt docelowy można wybrać emulator magazynu, aby uniknąć ponoszenia kosztów związanych z usługą Azure Storage. Jednak jeśli wybranym obiektem docelowym będzie konto magazynu Azure w chmurze, koszty związane z wykonaniem instrukcji w tym samouczku będą niewielkie.
+> [AZURE.NOTE] Na obiekt docelowy można wybrać emulator magazynu, aby uniknąć ponoszenia kosztów związanych z usługą Azure Storage. Jednak jeśli wybranym obiektem docelowym będzie konto usługi Azure Storage w chmurze, koszty związane z wykonaniem instrukcji w tym samouczku będą niewielkie.
 
 ### Konfigurowanie parametrów połączenia magazynu
 
-Biblioteka klienta usługi Storage platformy Azure dla środowiska .NET obsługuje korzystanie z parametrów połączenia magazynu w celu konfiguracji punktów końcowych i poświadczeń w celu uzyskania dostępu do usług magazynu. Najlepiej przechowywać parametry połączenia magazynu w pliku konfiguracji. 
+Biblioteka klienta usługi Storage platformy Azure dla środowiska .NET obsługuje korzystanie z parametrów połączenia magazynu w celu konfiguracji punktów końcowych i poświadczeń w celu uzyskania dostępu do usług Storage. Najlepiej przechowywać parametry połączenia magazynu w pliku konfiguracji. 
 
 Aby uzyskać więcej informacji dotyczących parametrów połączenia, zobacz temat [Configure a Connection String to Azure Storage](../articles/storage/storage-configure-connection-string.md) (Konfigurowania parametrów połączenia z usługą Azure Storage).
 
-> [AZURE.NOTE] Klucz konta magazynu jest podobny do hasła głównego konta magazynu. Zawsze chroń klucz konta magazynu. Nie udostępniaj go innym użytkownikom, nie koduj go trwale ani nie zapisuj w zwykłym pliku tekstowym, do którego mają dostęp inne osoby. Wygeneruj ponownie klucz za pośrednictwem portalu Azure, jeśli uważasz, że jego zabezpieczenia mogły zostać naruszone.
+> [AZURE.NOTE] Klucz konta magazynu jest podobny do hasła głównego konta magazynu. Zawsze chroń klucz konta magazynu. Nie udostępniaj go innym użytkownikom, nie koduj go trwale ani nie zapisuj w zwykłym pliku tekstowym, do którego mają dostęp inne osoby. Wygeneruj ponownie klucz za pośrednictwem witryny Azure Portal, jeśli uważasz, że jego zabezpieczenia mogły zostać naruszone.
 
 Aby skonfigurować parametry połączenia, otwórz plik `app.config` z Eksploratora rozwiązań w programie Visual Studio. Dodaj zawartość elementu `<appSettings>` widocznego poniżej. Zastąp ciąg `account-name` nazwą konta magazynu, a ciąg `account-key` kluczem dostępu do konta:
 
@@ -70,7 +70,6 @@ Jeśli obiektem docelowym ma być emulator magazynu, możesz użyć skrótu klaw
 
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

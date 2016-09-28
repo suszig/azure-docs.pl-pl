@@ -17,6 +17,7 @@
     ms.date="08/29/2016"
     ms.author="jroth"/>
 
+
 # Omówienie programu SQL Server w usłudze Azure Virtual Machines
 
 W tym temacie opisano opcje uruchamiania programu SQL Server na maszynach wirtualnych Azure oraz zamieszczono [linki do obrazów portalu](#option-1-deploy-a-sql-vm-per-minute-licensing) i przegląd [typowych zadań](#manage-your-sql-vm).
@@ -96,6 +97,6 @@ Masz więcej pytań? Najpierw zobacz [SQL Server on Azure Virtual Machines FAQ](
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

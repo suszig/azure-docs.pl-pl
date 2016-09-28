@@ -1,20 +1,21 @@
 <properties 
-    pageTitle="Uwierzytelnianie usługi RADIUS i serwer usługi Azure Multi-Factor Authentication" 
-    description="Ta strona dotyczy usługi Azure Multi-Factor Authentication i zawiera wskazówki pomocne we wdrażaniu uwierzytelniania usługi RADIUS i serwera usługi Azure Multi-Factor Authentication." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="femila" 
+    pageTitle="Uwierzytelnianie usługi RADIUS i serwer usługi Azure Multi-Factor Authentication"
+    description="Ta strona dotyczy usługi Azure Multi-Factor Authentication i zawiera wskazówki pomocne we wdrażaniu uwierzytelniania usługi RADIUS i serwera usługi Azure Multi-Factor Authentication."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
+
 
 
 
@@ -32,7 +33,7 @@ Sekcja Uwierzytelnianie usługi RADIUS pozwala włączyć i skonfigurować uwier
 
 ## Konfiguracja uwierzytelniania usługi RADIUS
 
-Aby skonfigurować uwierzytelnianie usługi RADIUS, zainstaluj serwer usługi Azure Multi-Factor Authentication na serwerze z systemem Windows. Jeśli korzystasz ze środowiska usługi Active Directory, przyłącz serwer do domeny znajdującej się w sieci. Poniższa procedura umożliwia skonfigurowanie serwera usługi Azure Multi-Factor Authentication: 
+Aby skonfigurować uwierzytelnianie usługi RADIUS, zainstaluj serwer usługi Azure Multi-Factor Authentication na serwerze z systemem Windows. Jeśli korzystasz ze środowiska usługi Active Directory, przyłącz serwer do domeny znajdującej się w sieci. Poniższa procedura umożliwia skonfigurowanie serwera usługi Azure Multi-Factor Authentication:
 
 1. Na serwerze usługi Azure Multi-Factor Authentication kliknij ikonę uwierzytelniania usługi RADIUS w menu po lewej stronie.
 2. Zaznacz pole wyboru Włącz uwierzytelnianie usługi RADIUS.
@@ -45,11 +46,11 @@ Aby skonfigurować uwierzytelnianie usługi RADIUS, zainstaluj serwer usługi Az
 9. Aby kolejnych klientów usługi RADIUS, powtórz kroki od 4 do 8.
 10. Kliknij kartę Cel.
 11. Jeśli serwer usługi Azure Multi-Factor Authentication jest zainstalowany na serwerze przyłączonym do domeny w środowisku usługi Active Directory, wybierz domenę systemu Windows.
-12. Jeśli użytkownicy mają być uwierzytelniani względem katalogu LDAP, wybierz powiązanie LDAP. W przypadku używania powiązania LDAP kliknij ikonę Integracja katalogu i zmień konfigurację protokołu LDAP na karcie Ustawienia, tak aby serwer mógł utworzyć powiązanie z katalogiem. Instrukcje dotyczące konfigurowania protokołu LDAP można znaleźć w przewodniku po konfiguracji serwera proxy LDAP. 
+12. Jeśli użytkownicy mają być uwierzytelniani względem katalogu LDAP, wybierz powiązanie LDAP. W przypadku używania powiązania LDAP kliknij ikonę Integracja katalogu i zmień konfigurację protokołu LDAP na karcie Ustawienia, tak aby serwer mógł utworzyć powiązanie z katalogiem. Instrukcje dotyczące konfigurowania protokołu LDAP można znaleźć w przewodniku po konfiguracji serwera proxy LDAP.
 13. Jeśli użytkownicy mają być uwierzytelniani względem innego serwera RADIUS, wybierz co najmniej jeden serwer RADIUS.
 14. Kliknij przycisk Dodaj, aby skonfigurować serwer jako serwer proxy dla żądań usługi RADIUS. Edytuj...
 15. W oknie dialogowym Dodawanie serwera RADIUS wprowadź adres IP serwera RADIUS i wspólny klucz tajny. Wspólny klucz tajny musi być taki sam dla serwera usługi Azure Multi-Factor Authentication i serwera RADIUS. Zmień port uwierzytelniania i port ewidencjonowania aktywności, jeśli serwer RADIUS używa innych portów.
-16. Kliknij przycisk OK. 
+16. Kliknij przycisk OK.
 17. Serwer usługi Azure Multi-Factor Authentication musisz dodać jako klienta RADIUS na drugim serwerze RADIUS, aby umożliwić mu przetwarzanie żądań dostępu wysyłanych z serwera usługi Azure Multi-Factor Authentication. Musisz użyć tego samego wspólnego klucza tajnego, który został skonfigurowany na serwerze usługi Azure Multi-Factor Authentication.
 18. Możesz powtórzyć ten krok, aby dodać kolejne serwery RADIUS. Aby skonfigurować kolejność ich wywoływania na serwerze, użyj przycisków przenoszenia w górę i w dół. W tym momencie konfiguracja serwera usługi Azure Multi-Factor Authentication jest zakończona. Przy użyciu skonfigurowanych portów serwer nasłuchuje żądań dostępu usługi RADIUS pochodzących od skonfigurowanych klientów.   
 
@@ -58,13 +59,12 @@ Aby skonfigurować uwierzytelnianie usługi RADIUS, zainstaluj serwer usługi Az
 
 Aby skonfigurować klienta RADIUS, skorzystaj z następujących wskazówek:
 
-- Skonfiguruj uwierzytelnianie urządzenia/serwera pod adresem IP serwera usługi Azure Multi-Factor Authentication (który będzie działał jako serwer RADIUS) za pośrednictwem usługi RADIUS. 
-- Użyj tego samego wspólnego klucza tajnego, który został skonfigurowany powyżej. 
+- Skonfiguruj uwierzytelnianie urządzenia/serwera pod adresem IP serwera usługi Azure Multi-Factor Authentication (który będzie działał jako serwer RADIUS) za pośrednictwem usługi RADIUS.
+- Użyj tego samego wspólnego klucza tajnego, który został skonfigurowany powyżej.
 - Limit czasu usługi RADIUS ustaw na 30–60 sekund, aby zapewnić czas na przeprowadzenie walidacji poświadczeń użytkownika, przeprowadzenie uwierzytelniania wieloskładnikowego, odebranie odpowiedzi i przesłanie odpowiedzi na żądanie dostępu usługi RADIUS.
 
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

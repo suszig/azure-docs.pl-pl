@@ -16,6 +16,7 @@
     ms.date="07/14/2016"
     ms.author="wesmc"/>
 
+
 # Wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu usługi Azure Notification Hubs
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -729,12 +730,12 @@ Więcej ogólnych informacji o usłudze Notification Hubs zawiera temat [Wskazó
 [Odwołanie do projektu biblioteki]: http://go.microsoft.com/fwlink/?LinkId=389800
 [klasyczny portal Azure]: https://manage.windowsazure.com/
 [Wskazówki dotyczące usługi Notification Hubs]: notification-hubs-push-notification-overview.md
-[Wysyłanie powiadomień wypychanych do użytkowników przy użyciu usługi Notification Hubs]: notification-hubs-aspnet-backend-android-notify-users.md
-[Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs]: notification-hubs-aspnet-backend-android-breaking-news.md
+[Wysyłanie powiadomień wypychanych do użytkowników przy użyciu usługi Notification Hubs]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+[Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure Portal]: https://portal.azure.com
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -15,6 +15,7 @@
  ms.date="08/18/2016"
  ms.author="krisragh"/>
 
+
 # Pojęcia i terminologia dotyczące usługi Scheduler oraz hierarchia jednostek
 
 ## Hierarchia jednostek w ramach usługi Scheduler
@@ -220,6 +221,6 @@ Interwał ponawiania określony z użyciem obiektu **retryInterval** to odstęp 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

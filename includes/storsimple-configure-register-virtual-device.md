@@ -20,7 +20,6 @@ Po ukończeniu konfiguracji i rejestracji urządzenie zostanie przełączone do 
 
 ![Etap trybu online urządzenia wirtualnego StorSimple](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

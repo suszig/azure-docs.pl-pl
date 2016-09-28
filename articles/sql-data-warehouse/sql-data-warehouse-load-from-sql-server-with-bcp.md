@@ -17,6 +17,7 @@
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
+
 # Ładowanie danych z programu SQL Server do usługi Azure SQL Data Warehouse (pliki proste)
 
 > [AZURE.SELECTOR]
@@ -204,6 +205,6 @@ Zobacz artykuł [Omówienie tabel][] lub [składni polecenia CREATE TABLE][], ab
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

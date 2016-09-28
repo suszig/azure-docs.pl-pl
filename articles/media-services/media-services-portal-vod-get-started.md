@@ -17,6 +17,7 @@
     ms.author="juliako"/>
 
 
+
 # Wprowadzenie do dostarczania zawartości na żądanie przy użyciu portalu Azure
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -234,6 +235,6 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

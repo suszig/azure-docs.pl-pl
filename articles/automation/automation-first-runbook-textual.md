@@ -16,6 +16,7 @@
     ms.date="07/19/2016"
     ms.author="magoedte;bwren"/>
 
+
 # Mój pierwszy element Runbook przepływu pracy programu PowerShell
 
 > [AZURE.SELECTOR] - [Element graficzny](automation-first-runbook-graphical.md) - [Program PowerShell](automation-first-runbook-textual-PowerShell.md) - [Przepływ pracy programu PowerShell](automation-first-runbook-textual.md)
@@ -165,6 +166,6 @@ Obecnie nasz element Runbook uruchamia maszynę wirtualną trwale w nim zakodowa
 -  Aby uzyskać więcej informacji o funkcji obsługi skryptów programu PowerShell, zobacz artykuł [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/) (Obsługa natywnych skryptów programu PowerShell w usłudze Azure Automation).
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

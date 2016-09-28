@@ -18,6 +18,7 @@
     ms.author="markvi"/>
 
 
+
 # Rozwiązywanie problemów: nie można dostać się tam z tego miejsca
 
 Podczas uzyskiwania dostępu do aplikacji, na przykład SharePoint Online, napotykasz na odmowę dostępu do strony.  
@@ -142,6 +143,6 @@ Instrukcje dotyczące telefonów i tabletów z systemem Android pojawią się wk
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
+
 # Przekazywanie danych do usługi Azure Search
 > [AZURE.SELECTOR]
 - [Omówienie](search-what-is-data-import.md)
@@ -47,6 +48,6 @@ Funkcja indeksatora jest widoczna w witrynie [Azure Portal](search-import-data-p
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

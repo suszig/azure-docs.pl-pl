@@ -17,6 +17,7 @@
     ms.date="09/06/2016"
     ms.author="cynthn"/>
 
+
 # Tworzenie pierwszej maszyny wirtualnej z systemem Windows w witrynie Azure Portal
 
 Ten samouczek pokazuje, jak łatwo można w ciągu kilku minut utworzyć maszynę wirtualną z systemem Windows przy użyciu witryny Azure Portal.  
@@ -119,6 +120,6 @@ Kliknij przycisk **Uruchom**, aby ponownie uruchomić maszynę wirtualną, gdy w
 
 
 
-<!--HONumber=sep12_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

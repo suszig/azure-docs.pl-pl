@@ -17,11 +17,12 @@
     ms.author="brandwe"/>
 
 
+
 # Azure AD B2C: dodawanie funkcji logowania się do aplikacji sieci Web w środowisku Node.js
 
 > [AZURE.WARNING] Przepraszamy, ale musimy przeprowadzić ważną konwersację tego samouczka, dlatego będzie on niedostępny przez pewien czas.  W naszym [przewodniku dla deweloperów](active-directory-b2c-overview.md) dostępny jest równoważny samouczek dotyczący platformy .NET.
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

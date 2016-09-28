@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="vm-windows"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/15/2016"
+    ms.date="09/27/2016"
     ms.author="cynthn"/>
+
 
 #Informacje o maszynach wirtualnych z systemem Windows na platformie Azure
 
@@ -42,6 +43,6 @@ Jako że samouczek ma na celu pomoc w szybkim utworzeniu maszyny wirtualnej, prz
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

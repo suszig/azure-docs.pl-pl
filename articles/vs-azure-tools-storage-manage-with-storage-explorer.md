@@ -16,6 +16,7 @@
     ms.date="08/17/2016"
     ms.author="tarcher" />
 
+
 # Wprowadzenie do Eksploratora usługi Storage (wersja zapoznawcza)
 
 ## Omówienie 
@@ -231,6 +232,6 @@ Aby wyczyścić wyszukiwanie, wybierz przycisk **x** w polu wyszukiwania.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

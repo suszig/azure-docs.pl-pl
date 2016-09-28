@@ -13,8 +13,9 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="06/08/2016"
+    ms.date="08/08/2016"
     ms.author="heidist"/>
+
 
 # Używanie narzędzia Fiddler do oceny i testowania interfejsów API REST usługi Azure Search
 > [AZURE.SELECTOR]
@@ -241,6 +242,6 @@ Aby uzyskać informacje o zarządzaniu i korzystaniu z usługi Azure Search bez 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

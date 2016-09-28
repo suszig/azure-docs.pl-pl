@@ -18,6 +18,7 @@
     ms.date="08/17/2016"
     ms.author="carlrab"/>
 
+
 # Samouczek usługi SQL Database: tworzenie kont użytkowników bazy danych SQL służących do uzyskiwania dostępu do bazy danych i zarządzania nią
 
 
@@ -54,6 +55,6 @@ Po ukończeniu tego samouczka usługi SQL Database, utworzeniu konta użytkownik
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

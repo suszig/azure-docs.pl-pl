@@ -16,6 +16,7 @@
     ms.date="08/24/2016"
     ms.author="sdanie"/>
 
+
 # Jak używać pamięci podręcznej Redis Azure za pomocą języka Java
 
 > [AZURE.SELECTOR]
@@ -82,6 +83,6 @@ Niektórzy klienci Redis nie obsługują protokołu SSL, a domyślnie [port nieo
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

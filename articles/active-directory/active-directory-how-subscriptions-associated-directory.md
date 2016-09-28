@@ -16,6 +16,7 @@
     ms.date="08/15/2016"
     ms.author="curtand"/>
 
+
 # Jak subskrypcje platformy Azure są kojarzone z usługą Azure Active Directory
 
 Ten temat opisuje logowanie do platformy Microsoft Azure i powiązane zagadnienia, takie jak relacja między subskrypcją platformy Azure i usługą Azure Active Directory (Azure AD).
@@ -141,6 +142,6 @@ Aby zarządzać obydwoma katalogami w klasycznym portalu Azure, wykonaj następu
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

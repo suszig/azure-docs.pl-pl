@@ -17,6 +17,7 @@
  ms.date="08/17/2016"
  ms.author="dobett"/>
 
+
 # Przewodnik po wstępnie skonfigurowanym rozwiązaniu monitorowania zdalnego
 
 ## Wprowadzenie
@@ -241,6 +242,6 @@ Możesz kontynuować poznawanie Pakietu IoT, czytając następujące artykuły:
 [lnk-permissions]: iot-suite-permissions.md
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

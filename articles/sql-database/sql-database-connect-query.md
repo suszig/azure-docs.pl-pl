@@ -19,6 +19,7 @@
 
 
 
+
 # Nawiązywanie połączenia z bazą danych SQL Database za pomocą programu Visual Studio
 
 > [AZURE.SELECTOR]
@@ -107,6 +108,6 @@ Teraz, gdy połączenie z bazą danych jest już nawiązane, poniższe kroki wyj
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

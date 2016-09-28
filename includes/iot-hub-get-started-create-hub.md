@@ -44,7 +44,6 @@ Utwórz centrum IoT, z którym połączy się symulowane urządzenie. Poniższe 
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide.md#accesscontrol
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

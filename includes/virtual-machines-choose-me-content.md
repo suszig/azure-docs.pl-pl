@@ -33,7 +33,7 @@ Poza systemem operacyjnym dostępne są także inne parametry konfiguracji maszy
 
 Inne korzyści z maszyn wirtualnych, które należy wziąć pod uwagę, obejmują:
 
-**Płatność zgodnie z rzeczywistym użyciem** — użytkownicy platformy Azure płacą cenę godzinową określoną na podstawie rozmiaru i systemu operacyjnego maszyny wirtualnej. Za kolejne rozpoczęte godziny na użytkowników platformy Azure są nakładane opłaty wyłącznie za wykorzystane minuty. Magazyn jest wyceniany oddzielnie; związane z nim opłaty są także pobierane osobno. Aby uzyskać szczegółowe informacje, zobacz [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/) (Cennik maszyn wirtualnych).
+**Płatność zgodnie z rzeczywistym użyciem** — użytkownicy platformy Azure płacą cenę godzinową określoną na podstawie rozmiaru i systemu operacyjnego maszyny wirtualnej. Za kolejne rozpoczęte godziny na użytkowników platformy Azure są nakładane opłaty wyłącznie za wykorzystane minuty. Magazyn jest wyceniany oddzielnie; związane z nim opłaty są także pobierane osobno. Aby uzyskać szczegółowe informacje, zobacz [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/) (Cennik usługi Virtual Machines).
 
 **Odporność** — w ramach platformy Azure jest monitorowany sprzęt fizyczny wykorzystywany do hostowania poszczególnych uruchomionych maszyn wirtualnych. Ewentualna awaria serwera fizycznego z uruchomioną maszyną wirtualną zostaje wykryta przez zespół Azure, po czym maszyna wirtualna zostaje przeniesiona na nowy sprzęt oraz ponownie uruchomiona. Ten proces jest niekiedy nazywany naprawą usługi. Zespół Azure chroni także dane maszyny wirtualnej, przechowując nadmiarowe kopie dysków VHD w magazynie obiektów blob. 
 
@@ -41,7 +41,6 @@ Inne korzyści z maszyn wirtualnych, które należy wziąć pod uwagę, obejmuj�
 
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

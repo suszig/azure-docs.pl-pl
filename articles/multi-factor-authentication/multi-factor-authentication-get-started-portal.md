@@ -1,28 +1,29 @@
 <properties 
-    pageTitle="Wdrażanie portalu użytkowników serwera usługi Azure Multi-Factor Authentication" 
-    description="Ta strona dotycząca usługi Azure Multi-Factor Authentication zawiera informacje umożliwiające rozpoczęcie korzystania z usługi Azure MFA i portalu użytkowników." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="femila" 
+    pageTitle="Wdrażanie portalu użytkowników serwera usługi Azure Multi-Factor Authentication"
+    description="Ta strona dotycząca usługi Azure Multi-Factor Authentication zawiera informacje umożliwiające rozpoczęcie korzystania z usługi Azure MFA i portalu użytkowników."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
+
 
 # Wdrażanie portalu użytkowników serwera usługi Azure Multi-Factor Authentication
 
-Witryna Portal użytkowników umożliwia administratorowi zainstalowanie i skonfigurowanie portalu użytkownika usługi Azure Multi-Factor Authentication. Portal użytkowników to witryna sieci Web usług IIS, dzięki której użytkownicy mogą zarejestrować się w usłudze Azure Multi-Factor Authentication i obsługiwać swoje konta. Użytkownik może zmienić swój numer telefonu i numer PIN lub pominąć uwierzytelnianie wieloskładnikowe Azure podczas następnego logowania. 
+Witryna Portal użytkowników umożliwia administratorowi zainstalowanie i skonfigurowanie portalu użytkownika usługi Azure Multi-Factor Authentication. Portal użytkowników to witryna sieci Web usług IIS, dzięki której użytkownicy mogą zarejestrować się w usłudze Azure Multi-Factor Authentication i obsługiwać swoje konta. Użytkownik może zmienić swój numer telefonu i numer PIN lub pominąć uwierzytelnianie wieloskładnikowe Azure podczas następnego logowania.
 
-Użytkownik loguje się do portalu użytkowników przy użyciu swojej zwykłej nazwy użytkownika oraz hasła i wykonuje połączenie uwierzytelniające z usługą Azure Multi-Factor Authentication lub udziela odpowiedzi na pytanie zabezpieczające, aby ukończyć proces uwierzytelniania. Jeśli rejestracja przebiegnie pomyślnie, użytkownik może skonfigurować swój numer telefonu i numer PIN podczas pierwszego logowania do portalu użytkowników. 
+Użytkownik loguje się do portalu użytkowników przy użyciu swojej zwykłej nazwy użytkownika oraz hasła i wykonuje połączenie uwierzytelniające z usługą Azure Multi-Factor Authentication lub udziela odpowiedzi na pytanie zabezpieczające, aby ukończyć proces uwierzytelniania. Jeśli rejestracja przebiegnie pomyślnie, użytkownik może skonfigurować swój numer telefonu i numer PIN podczas pierwszego logowania do portalu użytkowników.
 
-Można skonfigurować administratorów portalu użytkowników oraz przyznać im uprawnienia pozwalające dodawać nowych użytkowników i aktualizować istniejących. 
+Można skonfigurować administratorów portalu użytkowników oraz przyznać im uprawnienia pozwalające dodawać nowych użytkowników i aktualizować istniejących.
 
 <center>![Konfigurowanie
 ](./media/multi-factor-authentication-get-started-portal/install.png)</center>
@@ -31,12 +32,12 @@ Można skonfigurować administratorów portalu użytkowników oraz przyznać im 
 
 W celu zainstalowania portalu użytkowników na tym samym serwerze, na którym jest uruchomiony serwer usługi Azure Multi-Factor Authentication, wymagane jest spełnienie następujących wymagań wstępnych:
 
-- Niezbędna jest instalacja usług IIS, w tym usług asp.net i usługi zgodności metabazy IIS 6 (dla usług IIS 7 lub nowszych) 
+- Niezbędna jest instalacja usług IIS, w tym usług asp.net i usługi zgodności metabazy IIS 6 (dla usług IIS 7 lub nowszych)
 - Zalogowany użytkownik musi mieć prawa administratora na danym komputerze i w danej domenie (jeśli ma zastosowanie).  Jest to konieczne, ponieważ konto wymaga uprawnień do tworzenia grup zabezpieczeń usługi Active Directory.
 
 ### Aby wdrożyć portal użytkowników serwera usługi Azure Multi-Factor Authentication
 
-1. Na serwerze usługi Azure Multi-Factor Authentication: kliknij ikonę portalu użytkowników w menu po lewej stronie i kliknij przycisk Zainstaluj portal użytkowników. 
+1. Na serwerze usługi Azure Multi-Factor Authentication: kliknij ikonę portalu użytkowników w menu po lewej stronie i kliknij przycisk Zainstaluj portal użytkowników.
 1. Kliknij przycisk Dalej.
 1. Kliknij przycisk Dalej.
 1. Jeśli komputer jest przyłączony do domeny, a konfiguracja usługi Active Directory pod kątem zabezpieczenia komunikacji między portalem użytkowników i usługą Multi-Factor Authentication nie została ukończona, zostanie wyświetlony krok Active Directory. Kliknij przycisk Dalej, aby przeprowadzić tę konfigurację w sposób automatyczny.
@@ -50,7 +51,7 @@ W celu zainstalowania portalu użytkowników na tym samym serwerze, na którym j
 
 ## Wdrażanie portalu użytkowników serwera usługi Azure Multi-Factor Authentication na oddzielnym serwerze
 
-Aby było możliwe korzystanie z aplikacji Azure Multi-Factor Authentication, należy spełnić następujące warunki w celu umożliwienia skutecznej komunikacji aplikacji z portalem użytkowników: 
+Aby było możliwe korzystanie z aplikacji Azure Multi-Factor Authentication, należy spełnić następujące warunki w celu umożliwienia skutecznej komunikacji aplikacji z portalem użytkowników:
 
 Zapoznaj się z wymaganiami dotyczącymi sprzętu i oprogramowania:
 
@@ -73,7 +74,7 @@ Instalowanie portalu użytkowników na serwerze innym niż serwer z uruchomioną
 
 ### Instalowanie zestawu SDK usługi sieci Web
 
-Jeśli zestaw SDK usługi sieci Web usługi Azure Multi-Factor Authentication nie został jeszcze zainstalowany na serwerze usługi Azure Multi-Factor Authentication, przejdź na ten serwer i otwórz okno serwera usługi Azure Multi-Factor Authentication. Kliknij ikonę zestawu SDK usługi sieci Web, kliknij przycisk Zainstaluj zestaw SDK usługi sieci Web... i wykonaj instrukcje wyświetlone na ekranie. Zestaw SDK usługi sieci Web musi zostać zabezpieczony za pomocą certyfikatu SSL. W tym celu można skorzystać z certyfikatu z podpisem własnym, musi on jednak zostać zaimportowany do magazynu „Zaufane główne urzędy certyfikacji” konta komputera lokalnego na serwerze sieci Web portalu użytkowników, dzięki czemu magazyn uzna ten certyfikat za zaufany podczas inicjowania połączenia SSL. 
+Jeśli zestaw SDK usługi sieci Web usługi Azure Multi-Factor Authentication nie został jeszcze zainstalowany na serwerze usługi Azure Multi-Factor Authentication, przejdź na ten serwer i otwórz okno serwera usługi Azure Multi-Factor Authentication. Kliknij ikonę zestawu SDK usługi sieci Web, kliknij przycisk Zainstaluj zestaw SDK usługi sieci Web... i wykonaj instrukcje wyświetlone na ekranie. Zestaw SDK usługi sieci Web musi zostać zabezpieczony za pomocą certyfikatu SSL. W tym celu można skorzystać z certyfikatu z podpisem własnym, musi on jednak zostać zaimportowany do magazynu „Zaufane główne urzędy certyfikacji” konta komputera lokalnego na serwerze sieci Web portalu użytkowników, dzięki czemu magazyn uzna ten certyfikat za zaufany podczas inicjowania połączenia SSL.
 
 <center>![Konfigurowanie
 ](./media/multi-factor-authentication-get-started-portal/sdk.png)</center>
@@ -104,7 +105,7 @@ Po zainstalowaniu portalu należy skonfigurować serwer usługi Azure Multi-Fact
 Serwer usługi Azure Multi-Factor Authentication zapewnia kilka opcji związanych z portalem użytkowników.  Poniższa tabela zawiera listę tych opcji wraz z opisem ich działania.
 
 Ustawienia portalu użytkowników|Opis|
-:------------- | :------------- | 
+:------------- | :------------- |
 Adres URL portalu użytkowników| Umożliwia wprowadzanie adresu URL, pod którym jest hostowany portal.
 Uwierzytelnianie podstawowe| Pozwala określić typ uwierzytelniania stosowanego po zalogowaniu się do portalu.  Dostępne opcje to Windows, Radius lub LDAP.
 Zezwalaj użytkownikom na logowanie|Umożliwia użytkownikom wprowadzenie nazwy użytkownika i hasła na stronie rejestracji w portalu użytkowników.  Jeśli to pole nie zostanie zaznaczone, pola będą wyszarzone.
@@ -157,7 +158,7 @@ Służy do konfiguracji portalu użytkowników pod kątem akceptowania oświadcz
 ![SAML](./media/multi-factor-authentication-get-started-portal/saml.png)
 
 ## Zaufane adresy IP
-Na tej karcie można określić pojedynczy adres IP lub zakres adresów IP do dodania, dzięki czemu w przypadku, gdy użytkownik zaloguje się z jednego ze wskazanych adresów IP, uwierzytelnianie wieloskładnikowe zostanie pominięte. 
+Na tej karcie można określić pojedynczy adres IP lub zakres adresów IP do dodania, dzięki czemu w przypadku, gdy użytkownik zaloguje się z jednego ze wskazanych adresów IP, uwierzytelnianie wieloskładnikowe zostanie pominięte.
 
 ![Zaufane adresy IP portalu użytkowników](./media/multi-factor-authentication-get-started-portal/trusted.png)
 
@@ -172,13 +173,13 @@ Jeśli wybierze metodę uwierzytelniania Połączenie głosowe lub jeśli usług
 
 Jeśli podczas uwierzytelniania wymagane jest wprowadzenie przez użytkownika numeru PIN, na stronie wyświetli się także monit o wprowadzenie numeru PIN.  Po wprowadzeniu numerów telefonów i numeru PIN (jeśli ma zastosowanie) użytkownik klika przycisk Połącz się teraz ze mną w celu uwierzytelnienia.  Usługa Azure Multi-Factor Authentication przeprowadzi uwierzytelnianie w drodze połączenia telefonicznego z podstawowym numerem telefonu użytkownika.  Użytkownik musi odebrać połączenie i wprowadzić numer PIN (jeśli ma zastosowanie), a następnie nacisnąć klawisz #, aby przejść do następnego kroku procesu samodzielnej rejestracji.   
 
-Jeśli użytkownik wybierze metodę uwierzytelniania Wiadomość SMS lub jeśli wstępna konfiguracja zakłada użycie tej metody, na stronie zostanie wyświetlony monit o wprowadzenie numeru telefonu komórkowego.  Jeśli podczas uwierzytelniania wymagane jest wprowadzenie przez użytkownika numeru PIN, na stronie wyświetli się także monit o wprowadzenie numeru PIN.  Po wprowadzeniu numeru telefonu i numeru PIN (jeśli ma zastosowanie) użytkownik klika przycisk Wyślij teraz do mnie wiadomość SMS w celu uwierzytelnienia.  Usługa Azure Multi-Factor Authentication przeprowadzi uwierzytelnianie SMS z użyciem telefonu komórkowego użytkownika.  Użytkownik musi odebrać wiadomość SMS zawierającą hasło jednorazowe i odpowiedzieć na wiadomość, uwzględniając w odpowiedzi hasło jednorazowe oraz numer PIN (jeśli ma zastosowanie), aby przejść do następnego kroku procesu samodzielnej rejestracji. 
+Jeśli użytkownik wybierze metodę uwierzytelniania Wiadomość SMS lub jeśli wstępna konfiguracja zakłada użycie tej metody, na stronie zostanie wyświetlony monit o wprowadzenie numeru telefonu komórkowego.  Jeśli podczas uwierzytelniania wymagane jest wprowadzenie przez użytkownika numeru PIN, na stronie wyświetli się także monit o wprowadzenie numeru PIN.  Po wprowadzeniu numeru telefonu i numeru PIN (jeśli ma zastosowanie) użytkownik klika przycisk Wyślij teraz do mnie wiadomość SMS w celu uwierzytelnienia.  Usługa Azure Multi-Factor Authentication przeprowadzi uwierzytelnianie SMS z użyciem telefonu komórkowego użytkownika.  Użytkownik musi odebrać wiadomość SMS zawierającą hasło jednorazowe i odpowiedzieć na wiadomość, uwzględniając w odpowiedzi hasło jednorazowe oraz numer PIN (jeśli ma zastosowanie), aby przejść do następnego kroku procesu samodzielnej rejestracji.
 
 ![Wiadomość SMS z portalu użytkowników](./media/multi-factor-authentication-get-started-portal/text.png)   
 
 Jeśli użytkownik wybierze metodę uwierzytelniania z użyciem aplikacji mobilnej lub jeśli wstępna konfiguracja zakłada użycie tej metody, na stronie zostanie wyświetlony monit o zainstalowanie aplikacji Azure Multi-Factor Authentication na urządzeniu i wygenerowanie kodu aktywacji.  Po zainstalowaniu aplikacji Azure Multi-Factor Authentication użytkownik klika przycisk Generuj kod aktywacji.    
 
->[AZURE.NOTE]Aby móc używać aplikacji Azure Multi-Factor Authentication, użytkownik musi włączyć powiadomienia wypychane dla swojego urządzenia. 
+>[AZURE.NOTE]Aby móc używać aplikacji Azure Multi-Factor Authentication, użytkownik musi włączyć powiadomienia wypychane dla swojego urządzenia.
 
 Na stronie zostanie wyświetlony kod aktywacji oraz adres URL wraz z obrazem kodu kreskowego.  Jeśli podczas uwierzytelniania wymagane jest wprowadzenie przez użytkownika numeru PIN, na stronie wyświetli się także monit o wprowadzenie numeru PIN.  Użytkownik wprowadza kod aktywacji i adres URL w aplikacji Azure Multi-Factor Authentication lub korzysta ze skanera kodów kreskowych w celu zeskanowania obrazu kodu kreskowego, a następnie klika przycisk Aktywuj.    
 
@@ -191,10 +192,8 @@ Jeśli administrator skonfigurował serwer usługi Azure Multi-Factor Authentica
 
 Proces samodzielnej rejestracji użytkownika zostaje zakończony, a użytkownik zostaje zalogowany do portalu użytkowników.  Jeśli administratorzy zapewnią taką możliwość, użytkownicy mogą w dowolnym momencie ponownie zalogować się do portalu użytkowników, aby zmienić numery telefonów, numer PIN, metody uwierzytelniania oraz pytania zabezpieczające.
 
- 
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

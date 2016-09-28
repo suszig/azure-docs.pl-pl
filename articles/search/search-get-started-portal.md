@@ -4,7 +4,7 @@
     services="search" 
     documentationCenter="" 
     authors="HeidiSteen" 
-    manager="paulettm" 
+    manager="jhubbard" 
     editor=""
     tags="azure-portal"/>
 
@@ -14,8 +14,9 @@
     ms.workload="search" 
     ms.topic="hero-article" 
     ms.tgt_pltfrm="na" 
-    ms.date="05/17/2016" 
+    ms.date="08/29/2016" 
     ms.author="heidist"/>
+
 
 # Wprowadzenie do usługi Azure Search w portalu
 
@@ -186,6 +187,6 @@ Powinny zostać wyświetlone dane wyjściowe JSON, począwszy od dokumentu numer
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -3,7 +3,6 @@ Aby wykonać czynności opisane w tym artykule, należy [zainstalować i skonfig
 
 > [AZURE.NOTE] Jeśli nie masz konta platformy Azure, trzeba będzie je utworzyć. Zarejestruj się, aby skorzystać z [bezpłatnego demo](../articles/active-directory/sign-up-organization.md). 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

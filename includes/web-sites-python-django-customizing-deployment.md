@@ -34,7 +34,6 @@ Jeśli te pliki nie istnieją, platforma Azure tworzy tymczasowy skrypt wdrażan
 [interfejsu wiersza polecenia platformy Azure]: http://azure.microsoft.com/downloads/
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

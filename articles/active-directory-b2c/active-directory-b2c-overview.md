@@ -16,6 +16,7 @@
     ms.date="07/24/2016"
     ms.author="swkrish"/>
 
+
 # Usługa Azure Active Directory B2C: rejestrowanie i logowanie użytkowników w aplikacjach
 
 Usługa Azure Active Directory B2C to kompleksowe rozwiązanie przeznaczone do zarządzania tożsamością w chmurze w aplikacjach internetowych i mobilnych użytkownika. Stanowi globalną usługę o wysokiej dostępności, która może obsłużyć setki milionów tożsamości użytkowników. Oparta na bezpiecznej platformie klasy korporacyjnej usługa Azure Active Directory B2C chroni Twoje aplikacje, procesy biznesowe i użytkowników.
@@ -68,6 +69,6 @@ Firma Microsoft zachęca do przekazywania powiadomień o występujących incyden
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

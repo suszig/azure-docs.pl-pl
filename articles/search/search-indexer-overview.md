@@ -4,7 +4,7 @@
     services="search"
     documentationCenter=""
     authors="HeidiSteen"
-    manager="paulettm"
+    manager="jhubbard"
     editor=""
     tags="azure-portal"/>
 
@@ -16,6 +16,7 @@
     ms.tgt_pltfrm="na"
     ms.date="08/08/2016"
     ms.author="heidist"/>
+
 
 # Indeksatory w usłudze Azure Search
 > [AZURE.SELECTOR]
@@ -79,6 +80,6 @@ Teraz, gdy masz już podstawowe informacje, następnym krokiem jest przegląd wy
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

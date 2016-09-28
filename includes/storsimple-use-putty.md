@@ -30,7 +30,6 @@
 7. Kliknij pozycję **Otwórz**, aby rozpocząć sesję szeregową.
  
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

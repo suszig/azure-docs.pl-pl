@@ -15,13 +15,12 @@ Wykonaj te kroki, aby utworzyć nową usługę mobilną.
 
     > [AZURE.NOTE] W ramach tego samouczka utworzone zostaną nowe wystąpienie i serwer bazy danych SQL. Można ponownie użyć tej nowej bazy danych i zarządzać nią w taki sam sposób, jak w przypadku dowolnego innego wystąpienia bazy danych SQL. Jeśli masz już bazę danych w tym samym regionie, co nowa usługa mobilna, możesz wybrać opcję **Use existing Database** (Użyj istniejącej bazy danych), a następnie wybrać tę bazę danych. Korzystanie z bazy danych w innym regionie nie jest zalecane z powodu dodatkowych kosztów przepustowości i większych opóźnień.
 
-3.  W polu **Name** (Nazwa) wpisz nazwę nowej bazy danych, wypełnij pole **Login name** (Nazwa logowania) przeznaczone na nazwę logowania administratora dla nowego serwera bazy danych SQL, wpisz i potwierdź hasło oraz kliknij przycisk wyboru, aby ukończyć proces.
+3.  W polu **Name** (Nazwa) wpisz nazwę nowej bazy danych, wypełnij pole **Login name** (Nazwa logowania) przeznaczone na nazwę logowania administratora dla nowego serwera usługi SQL Database, wpisz i potwierdź hasło oraz kliknij przycisk wyboru, aby ukończyć proces.
     ![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page2.png)
 
 Utworzona została nowa usługa mobilna, która może być używana przez aplikacje mobilne.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

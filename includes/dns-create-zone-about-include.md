@@ -11,7 +11,6 @@ Na przykład domena „contoso.com” może zawierać wiele rekordów DNS, takic
 
 - Jeśli wiele stref ma taką samą nazwę, do każdego wystąpienia zostaną przypisane adresy serwera o innej nazwie i tylko jedno wystąpienie może być delegowane z domeny nadrzędnej. Więcej informacji można znaleźć w temacie [Delegowanie domeny do usługi DNS platformy Azure](../articles/dns/dns-domain-delegation.md).
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

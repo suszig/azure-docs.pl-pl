@@ -16,6 +16,7 @@
     ms.date="08/31/2016" 
     ms.author="sethm"/>
 
+
 # Azure Service Bus
 
 Obojętnie, czy aplikacja lub usługa działa w chmurze, czy lokalnie, często wymaga interakcji z innymi aplikacjami lub usługami. Aby zapewnić szeroko użyteczny sposób obsługi tych interakcji, platforma Microsoft Azure oferuje usługę Service Bus. Ten artykuł przedstawia tę technologię, opisuje, czym ona jest, oraz dlaczego warto z niej korzystać.
@@ -122,6 +123,6 @@ Teraz, kiedy znasz już podstawy usługi Azure Service Bus, skorzystaj z poniżs
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

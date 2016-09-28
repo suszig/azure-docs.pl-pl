@@ -16,6 +16,7 @@
    ms.date="08/15/2016"
    ms.author="piotrci"/>
 
+
 # Publikowanie aplikacji dla indywidualnych użytkowników w kolekcji usługi Azure RemoteApp (wersja zapoznawcza)
 
 > [AZURE.IMPORTANT]
@@ -107,6 +108,6 @@ Jeśli nie korzystasz jeszcze z wersji zapoznawczej, użyj tej [ankiety](http://
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

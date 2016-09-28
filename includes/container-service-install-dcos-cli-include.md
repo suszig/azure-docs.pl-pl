@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Containers, Micro-services, DC/OS, Azure"/>
+   keywords="Kontenery, mikrousługi, DC/OS, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -17,6 +17,7 @@
    ms.workload="na"
    ms.date="05/10/2016"
    ms.author="rogardle"/>
+
 
 >[AZURE.NOTE] Te informacje dotyczą pracy z klastrami usługi ACS opartymi na kontrolerach domeny/systemach operacyjnych. Nie trzeba wykonywać tych czynności w przypadku klastrów usługi ACS opartych na aplikacji Swarm.
 
@@ -47,6 +48,6 @@ dcos --help
 ```
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

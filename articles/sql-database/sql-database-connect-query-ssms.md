@@ -18,6 +18,7 @@
     ms.date="08/17/2016"
     ms.author="sstein;carlrab" />
 
+
 # Nawiązywanie połączenia z bazą danych SQL Database za pomocą programu SQL Server Management Studio i wykonywanie przykładowego zapytania T-SQL
 
 > [AZURE.SELECTOR]
@@ -67,6 +68,6 @@ Aby uzyskać więcej informacji o programie SSMS, zobacz artykuł [Use SQL Serve
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

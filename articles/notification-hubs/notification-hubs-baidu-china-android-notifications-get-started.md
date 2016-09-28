@@ -16,6 +16,7 @@
     ms.date="08/19/2016"
     ms.author="wesmc"/>
 
+
 # Rozpoczynanie pracy z usługą Azure Notification Hubs przy użyciu usługi Baidu
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -505,6 +506,6 @@ Testowe powiadomienie można wysłać przy użyciu karty debugowania klasycznego
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

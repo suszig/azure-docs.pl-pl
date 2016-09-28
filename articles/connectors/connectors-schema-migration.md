@@ -17,6 +17,7 @@
     ms.date="08/23/2016"
     ms.author="deonhe"/>
 
+
 # Przeprowadzanie migracji aplikacji logiki do wersji schematu 2015-08-01-preview
 
 Aby zmienić schemat istniejących aplikacji logiki na nowy, wykonaj następujące czynności:  
@@ -51,6 +52,6 @@ Zostanie wyświetlona strona Aktualizacja schematu z linkiem do dokumentu zawier
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="08/16/2016"
     ms.author="markusvi"/>
 
+
 # Często zadawane pytania dotyczące usługi Azure Active Directory
 
 Azure Active Directory jest kompleksowym rozwiązaniem Identity as a Service (IDaaS), które obejmuje wszystkie aspekty tożsamości, zarządzania dostępem i bezpieczeństwa.
@@ -207,6 +208,6 @@ Aby uzyskać więcej informacji, zobacz [Automate User Provisioning and Deprovis
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

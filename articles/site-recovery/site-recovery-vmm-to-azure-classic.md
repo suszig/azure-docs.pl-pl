@@ -16,6 +16,7 @@
     ms.date="05/06/2016"
     ms.author="raynew"/>
 
+
 #  Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do platformy Azure
 
 > [AZURE.SELECTOR]
@@ -385,6 +386,6 @@ Dowiedz się więcej na temat [konfigurowania planów odzyskiwania](site-recover
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

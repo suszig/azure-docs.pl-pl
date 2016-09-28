@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/28/2016"
+    ms.date="09/01/2016"
     ms.author="mandia"/>
+
 
 
 # Lista łączników i aplikacji API Apps do użycia w aplikacjach Logic Apps
@@ -35,9 +36,7 @@ Nazwa | Opis
 [Translator Bing](https://azure.microsoft.com/marketplace/partners/bing/microsofttranslator/) | Umożliwia tłumaczenie tekstu na inny język przy użyciu usługi Bing.
 [HTTP](app-service-logic-connector-http.md) | Odbiornik HTTP otwiera punkt końcowy, który działa jako serwer HTTP, i nasłuchuje przychodzących żądań HTTP lub HTTPS. Akcja HTTP nie wymaga Aplikacji interfejsu API i jest obsługiwana w sposób natywny w usłudze Logic Apps.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | Łącznik usługi Office 365 umożliwia wysyłanie i odbieranie wiadomości e-mail oraz zarządzanie kalendarzem i kontaktami przy użyciu konta usługi Office 365.
-[QuickBooks](app-service-logic-connector-quickbooks.md) | Program Intuit QuickBooks umożliwia wykonywanie różnych zadań, w tym tworzenie, aktualizowanie i wykonywanie zapytań dotyczących różnych obiektów, takich jak klienci, pozycje, faktury itd.
 [Slack](app-service-logic-connector-slack.md) | Umożliwia nawiązanie połączenia z usługą Slack i publikowanie wiadomości w kanałach Slack.
-[Oczekiwanie](app-service-logic-connector-wait.md) | Ten łącznik umożliwia opóźnienie wykonania aplikacji. Działanie aplikacji można opóźnić o określony czas lub do momentu wystąpienia o określonej godzinie.
 
 
 ## Łączniki integracji dla przedsiębiorstw
@@ -61,9 +60,6 @@ Nazwa  | Opis
 [Informix](app-service-logic-connector-informix.md) | Umożliwia nawiązanie połączenia z bazą danych IBM Informix lokalnie i na maszynie wirtualnej platformy Azure z systemem operacyjnym Windows. Może mapować operacje interfejsu API sieci Web i interfejsu API OData do poleceń języka Informix Structured Query Language.<br/><br/>Brak wyzwalaczy. Akcje obejmują wybieranie tabeli, wstawianie, aktualizowanie, usuwanie i instrukcje niestandardowe.<br/><br/>Jeśli łącznik jest używany lokalnie, można korzystać z sieci VPN lub rozwiązania Azure ExpressRoute. Ten łącznik obejmuje także klienta firmy Microsoft dla architektury DRDA, który służy do nawiązywania połączenia z serwerem Informix w sieci TCP/IP.
 [Microsoft SQL Server](app-service-logic-connector-sql.md) | Umożliwia nawiązanie połączenia z lokalnym serwerem SQL Server lub bazą danych Azure SQL Database. Pozwala tworzyć, aktualizować, pobierać i usuwać pozycje w tabeli bazy danych SQL.
 MQ | Umożliwia nawiązanie połączenia z serwerem IBM WebSphere MQ w wersji 8 lokalnie i na maszynie wirtualnej platformy Azure z systemem operacyjnym Windows. Jeśli łącznik jest używany lokalnie, można korzystać z sieci VPN lub rozwiązania Azure ExpressRoute. Łącznik obejmuje także klienta firmy Microsoft dla programu MQ.<br/><br/>Brak wyzwalaczy. Brak akcji.<br/><br/>**Uwaga:** obecnie nie można używać tego łącznika z usługą Logic Apps.
-[Baza danych Oracle](app-service-logic-connector-oracle.md) | Umożliwia nawiązanie połączenia z lokalną bazą danych Oracle oraz tworzenie, aktualizowanie, pobieranie i usuwanie pozycji w tabeli bazy danych.
-[POP3](app-service-logic-connector-pop3.md) (Post Office Protocol)| Umożliwia nawiązanie połączenia z serwerem POP3 w celu pobrania wiadomości e-mail z załącznikami.
-[SAP](app-service-logic-connector-sap.md) | Umożliwia nawiązanie połączenia z lokalnym serwerem SAP, inicjowanie wywołań RFC, tRFC i interfejsów BAPI oraz wysyłanie dokumentów IDOC.
 
 ## Łączniki jako wyzwalacze
 Kilka łączników udostępnia wyzwalacze dla usługi Logic Apps. Istnieją dwa typy tych wyzwalaczy:
@@ -86,6 +82,6 @@ Kilka łączników udostępnia wyzwalacze dla usługi Logic Apps. Istnieją dwa 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

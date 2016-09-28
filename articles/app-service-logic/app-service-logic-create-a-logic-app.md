@@ -16,6 +16,7 @@
     ms.date="07/16/2016"
     ms.author="jehollan"/>
 
+
 # Tworzenie nowej aplikacji logiki łączącej usługi SaaS
 
 W tym temacie pokazano, jak w ciągu zaledwie kilku minut rozpocząć korzystanie z usługi [Azure Logic Apps](app-service-logic-what-are-logic-apps.md). Zawiera on omówienie prostego przepływu pracy, który pozwala wysyłać interesujące tweety na adres e-mail.
@@ -68,6 +69,6 @@ W czasie krótszym niż 5 minut udało się skonfigurować prostą aplikację lo
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

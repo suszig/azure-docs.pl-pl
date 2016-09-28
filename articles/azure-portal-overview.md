@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Przegląd Portalu Microsoft Azure"
-    description="Dowiedz się, jak korzystać z Portalu Microsoft Azure."
+    pageTitle="Przegląd witryny Microsoft Azure Portal"
+    description="Dowiedz się, jak korzystać z witryny Microsoft Azure Portal."
     services=""
     documentationCenter=""
     authors="davidwrede"
@@ -16,15 +16,16 @@
     ms.date="12/16/2015"
     ms.author="dwrede"/>
 
-# Przegląd Portalu Microsoft Azure
 
-Portal Microsoft Azure to centralne miejsce, w którym możliwe jest aprowizowanie zasobów platformy Azure i zarządzanie nimi.  Dzięki temu samouczkowi zapoznasz się z portalem i dowiesz się, jak korzystać z niektórych z następujących kluczowych możliwości:
+# Przegląd witryny Microsoft Azure Portal
+
+Microsoft Azure Portal to centralne miejsce, w którym możliwe jest aprowizowanie zasobów platformy Azure i zarządzanie nimi.  Dzięki temu samouczkowi zapoznasz się z portalem i dowiesz się, jak korzystać z niektórych z następujących kluczowych możliwości:
 - **Kompleksowy portal Marketplace** umożliwiający przeglądanie tysięcy elementów od firmy Microsoft i innych dostawców, które mogą zostać zakupione i/lub których możliwa jest aprowizacja.
 - **Ujednolicone i skalowalne środowisko przeglądania**, które ułatwia znajdowanie interesujących zasobów i wykonywanie różnych operacji związanych z zarządzaniem.
 - **Spójne strony zarządzania** (lub bloki) umożliwiające zarządzanie szerokim wachlarzem usług platformy Azure w spójny sposób, który polega na udostępnianiu ustawień, akcji, informacji dotyczących rozliczeń, monitorowania kondycji i danych dotyczących zużycia oraz wielu innych elementów.
 - **Własne środowisko** umożliwiające tworzenie dostosowanego ekranu startowego, na którym zawsze po zalogowaniu się będą wyświetlane żądane informacje.  Można również dostosowywać dowolne bloki zarządzania, które zawierają kafelki.
 
- ![Orientacja interfejsu użytkownika Portalu Azure][UIOrientation]
+ ![Orientacja interfejsu użytkownika witryny Azure Portal][UIOrientation]
 
 ## Przed rozpoczęciem
 
@@ -89,7 +90,7 @@ Informacje zawarte w tym samouczku ułatwiają wykonywanie następujących czynn
 - Sterowanie dostępem do zasobów przy użyciu dostępu opartego na rolach (RBAC).
 - Uzyskiwanie pomocy i obsługi technicznej.
 
-Portal Microsoft Azure znacząco ułatwia tworzenie aplikacji w chmurze i zarządzanie nimi.  Zapoznaj się z [blogiem zarządzania](https://azure.microsoft.com/blog/topics/management/), aby być na bieżąco, ponieważ stale [oczekujemy na opinie](https://feedback.azure.com/forums/223579-azure-preview-portal/) i wprowadzamy ulepszenia.  [Blog ScottGu ](http://weblogs.asp.net/scottgu) to inne doskonałe miejsce, aby uzyskać informacje na temat wszystkich aktualizacji platformy Azure.
+Witryna Microsoft Azure Portal znacząco ułatwia tworzenie aplikacji w chmurze i zarządzanie nimi.  Zapoznaj się z [blogiem zarządzania](https://azure.microsoft.com/blog/topics/management/), aby być na bieżąco, ponieważ stale [oczekujemy na opinie](https://feedback.azure.com/forums/223579-azure-preview-portal/) i wprowadzamy ulepszenia.  [Blog ScottGu ](http://weblogs.asp.net/scottgu) to inne doskonałe miejsce, aby uzyskać informacje na temat wszystkich aktualizacji platformy Azure.
 
 [UIOrientation]: ./media/azure-portal-how-to-use/azure_portal_1.png
 [PortalCategories]: ./media/azure-portal-how-to-use/azure_portal_2.png
@@ -100,6 +101,6 @@ Portal Microsoft Azure znacząco ułatwia tworzenie aplikacji w chmurze i zarzą
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

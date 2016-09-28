@@ -13,7 +13,6 @@
 
 6. Kliknij przycisk **Zapisz** w dolnej części strony.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

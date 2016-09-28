@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/23/2016"
+    ms.date="09/27/2016"
     ms.author="femila"/>
+
 
 # Konfigurowanie funkcji Azure AD Join w organizacji
 
@@ -57,6 +58,6 @@ Poniżej przedstawiono trzy możliwe scenariusze postępowania w celu umożliwie
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

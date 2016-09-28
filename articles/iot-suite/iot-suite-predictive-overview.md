@@ -17,6 +17,7 @@
  ms.date="08/17/2016"
  ms.author="araguila"/>
 
+
 # Omówienie wstępnie skonfigurowanego rozwiązania konserwacji predykcyjnej
 
 Rozwiązanie *konserwacji predykcyjnej* jest jednym z [wstępnie skonfigurowanych rozwiązań][lnk_preconfigured_solutions] udostępnianych w ramach [Pakietu IoT Azure firmy Microsoft][lnk_iot_suite]. Rozwiązanie to obejmuje zbieranie danych telemetrycznych z urządzeń w czasie rzeczywistym i model predykcyjny utworzony za pomocą usługi [Azure Machine Learning][lnk_machine_learning].
@@ -68,6 +69,6 @@ Możesz także wypróbować niektóre inne funkcje i możliwości wstępnie skon
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

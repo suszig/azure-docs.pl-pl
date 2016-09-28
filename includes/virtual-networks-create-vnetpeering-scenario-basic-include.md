@@ -6,7 +6,6 @@ W tym scenariuszu utworzysz komunikację równorzędną między dwiema sieciami 
 
 Komunikacja równorzędna sieci wirtualnych umożliwia pełną łączność między całą przestrzenią adresową równorzędnych sieci wirtualnych.    
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

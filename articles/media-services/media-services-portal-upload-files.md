@@ -17,6 +17,7 @@
     ms.author="juliako"/>
 
 
+
 # Przekazywanie plików na konto usługi Azure Media Services za pomocą portalu Azure 
 
 > [AZURE.SELECTOR]
@@ -61,6 +62,6 @@ Teraz możesz zakodować przekazane elementy zawartości. Więcej informacji zna
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

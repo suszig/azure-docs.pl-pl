@@ -17,6 +17,7 @@
     ms.date="05/25/2016" 
     ms.author="omark"/>
 
+
 # Co to jest usługa Azure App Service?
 
 *Usługa App Service* to oferta [platformy jako usługi](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) dostępna w ramach platformy Microsoft Azure. Umożliwia tworzenie aplikacji sieci Web i aplikacji mobilnych dla dowolnej platformy lub urządzenia. Pozwala integrować aplikacje z rozwiązaniami SaaS, nawiązywać połączenia z aplikacjami lokalnymi i automatyzować procesy biznesowe. Na platformie Azure aplikacje są uruchamiane na w pełni zarządzanych maszynach wirtualnych przy użyciu wybranych przez użytkownika udostępnianych zasobów maszyn wirtualnych lub dedykowanych maszyn wirtualnych. 
@@ -82,6 +83,6 @@ Możesz też założyć [bezpłatne konto platformy Azure](https://azure.microso
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -7,7 +7,6 @@ Jeśli program Visual Studio nie jest zainstalowany, użyj linku do programu Vis
 >[AZURE.NOTE] Zależnie od liczby składników zależnych zestawu SDK, które znajdują się już na komputerze, instalowanie zestawu SDK może trwać od kilku minut do pół godziny lub dłużej.
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

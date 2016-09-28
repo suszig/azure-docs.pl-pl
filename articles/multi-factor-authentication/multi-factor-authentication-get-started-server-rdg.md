@@ -1,20 +1,21 @@
 <properties 
-    pageTitle="Brama usług pulpitu zdalnego i serwer Azure Multi-Factor Authentication korzystające z usługi RADIUS" 
-    description="Jest to strona poświęcona usłudze Azure Multi-Factor Authentication i zawiera informacje pomocne we wdrażaniu bramy usług pulpitu zdalnego (Remote Desktop, RD) i serwera Azure Multi-Factor Authentication przy użyciu usługi RADIUS." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="femila" 
+    pageTitle="Brama usług pulpitu zdalnego i serwer Azure Multi-Factor Authentication korzystające z usługi RADIUS"
+    description="Jest to strona poświęcona usłudze Azure Multi-Factor Authentication i zawiera informacje pomocne we wdrażaniu bramy usług pulpitu zdalnego (Remote Desktop, RD) i serwera Azure Multi-Factor Authentication przy użyciu usługi RADIUS."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
+
 
 # Brama usług pulpitu zdalnego i serwer Azure Multi-Factor Authentication korzystające z usługi RADIUS
 
@@ -55,12 +56,12 @@ Serwer Azure Multi-Factor Authentication jest konfigurowany jako serwer proxy us
 1. Otwórz serwer Azure Multi-Factor Authentication i kliknij ikonę uwierzytelniania usługi RADIUS. Zaznacz pole wyboru Włącz uwierzytelnianie usługi RADIUS.
 2. Na karcie Klienci upewnij się, że porty są zgodne z portami skonfigurowanymi na serwerze NPS, a następnie kliknij przycisk Dodaj... Dodaj... Dodaj adres IP serwera bramy usług pulpitu zdalnego, nazwę aplikacji (opcjonalnie) i wspólny klucz tajny. Wspólny klucz tajny musi być taki sam dla serwera Azure Multi-Factor Authentication Server i bramy usług pulpitu zdalnego.
 3. Kliknij kartę Cel, a następnie wybierz przycisk radiowy Serwery RADIUS.
-4. Kliknij przycisk Dodaj... Wprowadź adres IP, wspólny klucz tajny i porty serwera NPS. Jeśli nie jest używany centralny serwer NPS, klient usługi RADIUS i cel usługi RADIUS będą takie same. Wspólny klucz tajny musi być zgodny z kluczem skonfigurowanym w sekcji klienta usługi RADIUS serwera NPS. 
+4. Kliknij przycisk Dodaj... Wprowadź adres IP, wspólny klucz tajny i porty serwera NPS. Jeśli nie jest używany centralny serwer NPS, klient usługi RADIUS i cel usługi RADIUS będą takie same. Wspólny klucz tajny musi być zgodny z kluczem skonfigurowanym w sekcji klienta usługi RADIUS serwera NPS.
 
 ![Uwierzytelnianie usługi Radius](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

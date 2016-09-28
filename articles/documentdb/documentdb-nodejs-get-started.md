@@ -17,6 +17,7 @@
   ms.date="08/11/2016"
   ms.author="anhoh"/>
 
+
 # Samouczek NoSQL środowiska Node.js: aplikacja konsolowa Node.js usługi DocumentDB  
 
 > [AZURE.SELECTOR]
@@ -623,6 +624,6 @@ Następnie w pliku ```config.js``` zaktualizuj wartości config.endpoint i confi
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.author="piyushjo"/>
 
 
+
 # Tworzenie aplikacji usługi Azure Mobile Engagement
 
 W tym artykule opisano sposób wykorzystania metody **Szybkie tworzenie** do utworzenia aplikacji usługi **Azure Mobile Engagement**. Artykuł opisuje również sposób przejścia do portalu **Mobile Engagement** w celu rozpoczęcia monitorowania aplikacji i zarządzania nimi. 
@@ -50,6 +51,6 @@ Po przejściu do portalu Mobile Engagement możesz analizować i tworzyć segmen
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

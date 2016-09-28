@@ -4,7 +4,6 @@
 2. Zaloguj się przy użyciu poświadczeń platformy Azure i wybierz usługę z listy **Istniejące usługi mobilne**. Program Visual Studio pobiera ustawienia publikowania bezpośrednio z platformy Azure. Na koniec kliknij opcję **Publikuj**.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -1,12 +1,12 @@
-Aby utworzyć sieć wirtualną przy użyciu portalu Azure, wykonaj poniższe kroki. Należy zauważyć, że zamieszczone zrzuty ekranu są przykładowe. Przedstawione na nich wartości należy zastąpić własnymi. Aby uzyskać więcej informacji dotyczących pracy z sieciami wirtualnymi, zobacz temat [Omówienie sieci wirtualnych](../articles/virtual-network/virtual-networks-overview.md).
+Aby utworzyć sieć wirtualną przy użyciu witryny Azure Portal, wykonaj poniższe kroki. Należy zauważyć, że zamieszczone zrzuty ekranu są przykładowe. Przedstawione na nich wartości należy zastąpić własnymi. Aby uzyskać więcej informacji dotyczących pracy z sieciami wirtualnymi, zobacz temat [Omówienie sieci wirtualnych](../articles/virtual-network/virtual-networks-overview.md).
 
-1. W przeglądarce przejdź do [portalu Azure](http://portal.azure.com) i, jeśli to konieczne, zaloguj się przy użyciu konta platformy Azure.
+1. W przeglądarce przejdź do witryny [Azure Portal](http://portal.azure.com) i, jeśli to konieczne, zaloguj się przy użyciu konta platformy Azure.
 
-2. Kliknij opcję **Nowe** **>** **Sieć** **>** **Sieć wirtualna**.
+2. Kliknij opcję **Nowe****>****Sieć****>****Sieć wirtualna**.
 
     ![VNetBlade](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal650.png)
 
-3. Z listy **Wybierz model wdrożenia** znajdującej się w dolnej części bloku Sieć wirtualna wybierz opcję **Menedżer zasobów**, a następnie kliknij przycisk **Utwórz**.
+3. Z listy **Wybierz model wdrożenia** znajdującej się w dolnej części bloku Virtual Network wybierz opcję **Menedżer zasobów**, a następnie kliknij przycisk **Utwórz**.
 
 
     ![Wybór opcji Menedżer zasobów](./media/vpn-gateway-basic-vnet-rm-portal-include/resourcemanager250.png)
@@ -30,7 +30,6 @@ Aby utworzyć sieć wirtualną przy użyciu portalu Azure, wykonaj poniższe kro
 
     ![Kafelek tworzenia sieci wirtualnej](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png)
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

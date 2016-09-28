@@ -18,7 +18,6 @@ Pakiet NuGet pobiera i dodaje wymagane odwołania do zestawu umożliwiające apl
 
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

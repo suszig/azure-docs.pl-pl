@@ -17,6 +17,7 @@
      ms.date="08/16/2016"
      ms.author="dobett"/>
 
+
 # Samouczek: wprowadzenie do wstępnie skonfigurowanych rozwiązań
 
 ## Wprowadzenie
@@ -251,6 +252,6 @@ Teraz, kiedy zostało wdrożone wstępnie skonfigurowane rozwiązanie, które dz
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -1,6 +1,6 @@
 #### Aby utworzyć urządzenie wirtualne
 
-1.  W portalu Azure przejdź do usługi **Menedżer StorSimple**.
+1.  W witrynie Azure Portal przejdź do usługi **StorSimple Manager**.
 
 2. Przejdź do strony **Urządzenia**. Kliknij opcję **Utwórz urządzenie wirtualne** u dołu strony **Urządzenia**.
 
@@ -20,11 +20,11 @@
        - Wersja Update 1, jeśli będziesz włączać tryb pracy awaryjnej lub klonować z fizycznego urządzenia z uruchomioną wersją Update 1 (lub nowszą). 
        
     
-    5. **Sieć wirtualna** — określ sieć wirtualną, której chcesz użyć do tego urządzenia wirtualnego. W przypadku korzystania z Magazynu w usłudze Premium Storage (w wersji Update 2 lub nowszej) musisz wybrać sieć wirtualną obsługiwaną za pomocą konta w usłudze Premium Storage. Nieobsługiwane sieci wirtualne będą wyszarzone na liście rozwijanej. W przypadku wybrania nieobsługiwanej sieci wirtualnej zostanie wyświetlone ostrzeżenie. 
+    5. **Sieć wirtualna** — określ sieć wirtualną, której chcesz użyć do tego urządzenia wirtualnego. W przypadku korzystania z usługi Premium Storage (w wersji Update 2 lub nowszej) musisz wybrać sieć wirtualną obsługiwaną za pomocą konta w usłudze Premium Storage. Nieobsługiwane sieci wirtualne będą wyszarzone na liście rozwijanej. W przypadku wybrania nieobsługiwanej sieci wirtualnej zostanie wyświetlone ostrzeżenie. 
 
     5. **Konto magazynu do tworzenia urządzenia wirtualnego** — wybierz konto magazynu do przechowywania obrazu urządzenia wirtualnego podczas inicjowania obsługi. Musi ono należeć do tego samego regionu co urządzenie wirtualne i sieć wirtualna. Nie powinno być używane do przechowywania danych przez urządzenie fizyczne ani wirtualne. Domyślnie do tego celu zostanie utworzone nowe konto magazynu. Jednak jeśli wiadomo, że masz już konto magazynu odpowiednie do tego celu, możesz wybrać je z listy. W przypadku tworzenia urządzeń wirtualnych premium lista rozwijana będzie zawierać tylko konta w usłudze Premium Storage. 
 
-        >[AZURE.NOTE] Urządzenie wirtualne może pracować tylko z kontami magazynu Azure. Inni dostawcy usługi w chmurze, np. Amazon, HP i OpenStack (obsługiwani przez urządzenie fizyczne) nie są obsługiwani przez urządzenia wirtualne StorSimple.
+        >[AZURE.NOTE] Urządzenie wirtualne może pracować tylko z kontami usługi Azure Storage. Inni dostawcy usługi w chmurze, np. Amazon, HP i OpenStack (obsługiwani przez urządzenie fizyczne) nie są obsługiwani przez urządzenia wirtualne StorSimple.
     
     1. Kliknij znacznik wyboru, aby wskazać, że wiesz, iż dane przechowywane na urządzeniu wirtualnym będą obsługiwane w centrum danych firmy Microsoft. Kiedy używasz tylko urządzenia fizycznego, klucz szyfrowania jest przechowywany z urządzeniem, więc firma Microsoft nie może go odszyfrować. 
      
@@ -36,7 +36,6 @@
     
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

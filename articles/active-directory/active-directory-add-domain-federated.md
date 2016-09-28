@@ -16,6 +16,7 @@
     ms.date="07/18/2016"
     ms.author="curtand;jeffsta"/>
 
+
 # Dodawanie niestandardowej nazwy domeny do usługi Azure Active Directory
 
 Możesz skonfigurować niestandardową nazwę domeny, taką jak „contoso.com”, aby użytkownicy w contoso.com mogli mieć środowisko federacyjnego logowania jednokrotnego z sieci firmowej. Jeśli masz już usługi Active Directory Federation Services (AD FS) lub inny serwer federacyjny uruchomiony w sieci firmowej, możesz skonfigurować usługę Azure AD do korzystania z niestandardowej nazwy domeny za pomocą narzędzia Azure AD Connect. Możesz także użyć programu Azure AD Connect w celu wdrożenia nowego środowiska usług AD FS i skonfigurować je dla federacyjnego logowania jednokrotnego do usługi Azure AD.
@@ -77,6 +78,6 @@ Jeśli Twoja organizacja używa wielu niestandardowych nazw domen, takich jak �
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

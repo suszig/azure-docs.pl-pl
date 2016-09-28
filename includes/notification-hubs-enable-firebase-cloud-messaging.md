@@ -12,7 +12,6 @@
 4. Kliknij kartę **Cloud Messaging** (Obsługa komunikatów w chmurze) w ustawieniach projektu, a następnie skopiuj wartość **Server key** (Klucz serwera) i **Sender ID** (Identyfikator nadawcy).  Te wartości będą potrzebne później, aby skonfigurować zasady dostępu do centrum powiadomień oraz obsługę powiadamiania w aplikacji.
   
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

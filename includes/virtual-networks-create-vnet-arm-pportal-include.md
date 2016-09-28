@@ -36,7 +36,6 @@ Aby utworzyć sieć wirtualną w oparciu o powyższy scenariusz, korzystając z 
     ![Lista podsieci w sieci wirtualnej](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

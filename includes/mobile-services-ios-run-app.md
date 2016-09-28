@@ -16,7 +16,6 @@ Ostatnim krokiem tego samouczka jest skompilowanie i uruchomienie nowej aplikacj
     </div>
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

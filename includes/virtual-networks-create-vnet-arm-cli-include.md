@@ -107,7 +107,6 @@ Interfejsu wiersza polecenia platformy Azure można użyć do zarządzania zasob
         info:    network vnet show command OK
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

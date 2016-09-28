@@ -1,26 +1,27 @@
-<properties 
-    pageTitle="Zabezpieczanie zasobów w chmurze przy użyciu usługi Azure Multi-Factor Authentication i usług AD FS" 
-    description="Ta strona dotyczy usługi Azure Multi-Factor Authentication i zawiera informacje umożliwiające rozpoczęcie korzystania z usługi Azure MFA i usług AD FS w chmurze." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+<properties
+    pageTitle="Zabezpieczanie zasobów w chmurze przy użyciu usługi Azure Multi-Factor Authentication i usług AD FS"
+    description="Ta strona dotyczy usługi Azure Multi-Factor Authentication i zawiera informacje umożliwiające rozpoczęcie korzystania z usługi Azure MFA i usług AD FS w chmurze."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtland"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 
 # Zabezpieczanie zasobów w chmurze przy użyciu usługi Azure Multi-Factor Authentication i usług AD FS
 
 Organizacje, które są sfederowane z użyciem usługi Azure Active Directory i korzystają z zasobów używanych przez usługę Azure AD, mogą je zabezpieczyć za pomocą usługi Azure Multi-Factor Authentication lub usług Active Directory Federation Services Aby zabezpieczyć zasoby usługi Azure Active Directory za pomocą usługi Azure Multi-Factor Authentication lub usług Active Directory Federation Services, postępuj zgodnie z poniższymi procedurami.
 
-## Aby zabezpieczyć zasoby usługi Azure AD za pomocą usług AD FS, wykonaj następujące czynności: 
+## Aby zabezpieczyć zasoby usługi Azure AD za pomocą usług AD FS, wykonaj następujące czynności:
 
 
 
@@ -71,7 +72,7 @@ W pierwszej kolejności należy skonfigurować oświadczenia usług AD FS. Utwor
 10. W Kreatorze dodawania reguły przekształcania oświadczeń wybierz z listy rozwijanej pozycję Wysyłanie oświadczeń przy użyciu reguły niestandardowej, a następnie kliknij przycisk Dalej.
 11. W polu Nazwa reguły oświadczenia wprowadź Nie wylogowuj użytkowników.
 12. W polu Reguła niestandardowa wprowadź kod:
-        
+
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
 ![Chmura](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
@@ -100,12 +101,6 @@ Gotowe. Od tej pory federacyjni użytkownicy usługi Office 365 muszą używać 
 
 
 
-
-
-
-
-
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

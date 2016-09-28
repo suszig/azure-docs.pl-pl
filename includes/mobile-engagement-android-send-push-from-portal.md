@@ -52,7 +52,6 @@ Teraz utworzymy prostą kampanię z użyciem powiadomień wypychanych, która wy
 
     ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

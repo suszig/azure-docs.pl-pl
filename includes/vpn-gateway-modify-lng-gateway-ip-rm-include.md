@@ -47,7 +47,6 @@ Jeśli istnieje już połączenie bramy, musisz najpierw usunąć połączenie. 
 
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

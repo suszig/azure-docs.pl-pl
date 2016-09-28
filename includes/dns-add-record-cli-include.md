@@ -55,7 +55,6 @@ Jeśli tworzysz rekord SRV w katalogu głównym strefy, możesz określić w naz
     azure network dns record-set add-record myresourcegroup contoso.com "test-txt" TXT -x "this is a TXT record"
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

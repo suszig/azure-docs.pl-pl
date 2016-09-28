@@ -25,7 +25,6 @@ W tych krokach przyjęto założenie, że użytkownik jest połączony z bazą d
 
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

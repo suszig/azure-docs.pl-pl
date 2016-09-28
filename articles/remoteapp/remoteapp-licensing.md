@@ -16,6 +16,7 @@
     ms.author="elizapo" />
 
 
+
 # Jak działa licencjonowanie w usłudze Azure RemoteApp?
 
 > [AZURE.IMPORTANT]
@@ -39,6 +40,6 @@ Należy pamiętać, że w przypadku kolekcji w chmurze nie można użyć umowy l
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

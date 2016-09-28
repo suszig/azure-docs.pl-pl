@@ -16,6 +16,7 @@
     ms.date="07/22/2016" 
     ms.author="sdanie"/>
 
+
 # Tworzenie aplikacji sieci Web za pomocą pamięci podręcznej Redis
 
 > [AZURE.SELECTOR]
@@ -852,6 +853,6 @@ Po wybraniu lub utworzeniu pamięci podręcznej do użycia przejdź do pamięci 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

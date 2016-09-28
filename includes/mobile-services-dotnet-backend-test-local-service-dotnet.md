@@ -19,7 +19,6 @@ W tej sekcji opisano testowanie nowej aplikacji z usługą mobilną działając�
 
     Spowoduje to wysłanie żądania POST do lokalnej usługi mobilnej. Dane z żądania zostaną wstawione do tabeli TodoItem. Elementy przechowywane w tabeli są zwracane przez usługę mobilną, a dane są wyświetlane w drugiej kolumnie aplikacji.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

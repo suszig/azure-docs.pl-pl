@@ -16,6 +16,7 @@
    ms.date="06/16/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
+
 # Wizualizacja danych przy użyciu usługi Power BI
 
 > [AZURE.SELECTOR]
@@ -123,6 +124,6 @@ Po przećwiczeniu podstawowych zadań z użyciem przykładowych danych zapoznaj 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

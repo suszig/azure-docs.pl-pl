@@ -9,7 +9,6 @@ Poniżej przedstawiono ekrany przechwycone z ukończonej aplikacji:
 
 Ukończenie tego samouczka jest wymaganiem wstępnym dla wszystkich pozostałych samouczków usługi Mobile Services dotyczących aplikacji ze Sklepu Windows i Sklepu Windows Phone. 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

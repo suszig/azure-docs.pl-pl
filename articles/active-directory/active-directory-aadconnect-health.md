@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="karavar"
-    manager="stevenpo"
+    manager="femila"
     editor="karavar"/>
 
 <tags
@@ -15,6 +15,7 @@
     ms.topic="get-started-article"
     ms.date="07/14/2016"
     ms.author="vakarand"/>
+
 
 # Monitorowanie lokalnej infrastruktury do obsługi tożsamości i usług synchronizacji w chmurze
 
@@ -127,6 +128,6 @@ Portal programu Azure AD Connect Health umożliwia wyświetlanie alertów, wynik
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

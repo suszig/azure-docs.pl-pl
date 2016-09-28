@@ -21,7 +21,6 @@ Użyj poniższego polecenia cmdlet, aby ponownie uruchomić urządzenie wirtualn
 
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

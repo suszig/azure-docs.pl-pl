@@ -6,7 +6,6 @@
 |  | [Wywoływanie interfejsu API sieci Web z aplikacji sieci Web .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md) |  |
 | | [Dodawanie funkcji rejestracji i logowania do aplikacji ASP.NET Core](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) | |
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

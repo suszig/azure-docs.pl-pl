@@ -90,7 +90,6 @@ Wszelkie utworzone elementy do automatyzacji oraz skrypty będą nadal działać
 Kompleksowy zestaw szablonów startowych można znaleźć na stronie [Azure Resource Manager QuickStart Templates](https://azure.microsoft.com/documentation/templates/) (Szablony szybkiego startu usługi Azure Resource Manager).
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

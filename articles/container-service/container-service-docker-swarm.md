@@ -15,8 +15,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/13/2016"
+   ms.date="09/13/2016"
    ms.author="nepeters"/>
+
 
 # Zarządzanie kontenerami przy użyciu rozwiązania Docker Swarm
 
@@ -125,6 +126,6 @@ Naturalnie można użyć polecenia `docker-compose ps` do zbadania tylko kontene
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

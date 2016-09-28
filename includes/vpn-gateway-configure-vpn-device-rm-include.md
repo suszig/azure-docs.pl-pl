@@ -5,9 +5,8 @@ Aby znaleźć publiczny adres IP bramy sieci wirtualnej przy użyciu programu Po
 
     Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
 
-Publiczny adres IP bramy sieci wirtualnej można także wyświetlić, korzystając z portalu Azure. Przejdź do obszaru **Bramy sieci wirtualnej**, a następnie kliknij nazwę bramy.
+Publiczny adres IP bramy sieci wirtualnej można także wyświetlić, korzystając z witryny Azure Portal. Przejdź do obszaru **Bramy sieci wirtualnej**, a następnie kliknij nazwę bramy.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.date="08/29/2016"
     ms.author="brjohnst"/>
 
+
 # Tworzenie indeksu usługi Azure Search przy użyciu zestawu .NET SDK
 > [AZURE.SELECTOR]
 - [Omówienie](search-what-is-an-index.md)
@@ -125,6 +126,6 @@ Po utworzeniu indeksu usługi Azure Search można [przekazać zawartość do ind
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

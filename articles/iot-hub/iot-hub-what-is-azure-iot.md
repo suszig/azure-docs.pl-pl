@@ -16,6 +16,7 @@
  ms.date="07/19/2016"
  ms.author="dobett"/>
 
+
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Następne kroki
@@ -38,6 +39,6 @@ Warto również zainteresować się [Pakietem IoT Azure][lnk-iot-suite] , który
 [lnk-device-management]: iot-hub-device-management-overview.md
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

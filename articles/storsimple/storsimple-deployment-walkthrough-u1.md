@@ -15,6 +15,7 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
+
 # Wdrażanie lokalnego urządzenia StorSimple z aktualizacją Update 1
 
 > [AZURE.SELECTOR]
@@ -287,11 +288,11 @@ Instrukcje dotyczące instalowania wielościeżkowego wejścia/wyjścia (MPIO) d
 
 - Skonfiguruj [urządzenie wirtualne](storsimple-virtual-device-u2.md).
 
-- Użyj [usługi Menedżer StorSimple](storsimple-manager-service-administration.md) do zarządzania urządzeniem StorSimple.
+- Użyj [usługi StorSimple Manager](storsimple-manager-service-administration.md) do zarządzania urządzeniem StorSimple.
  
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

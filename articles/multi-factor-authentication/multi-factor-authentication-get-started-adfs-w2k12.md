@@ -3,8 +3,8 @@
     description="Ten artykuł zawiera wprowadzenie do usługi Azure Multi-Factor Authentication i usług AD FS w systemie Windows Server 2012 R2."
     services="multi-factor-authentication"
     documentationCenter=""
-    authors="billmath"
-    manager="stevenpo"
+    authors="kgremban"
+    manager="femila"
     editor="curtland"/>
 
 <tags
@@ -14,7 +14,8 @@
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.date="08/04/2016"
-    ms.author="billmath"/>
+    ms.author="kgremban"/>
+
 
 
 # Zabezpieczanie zasobów w chmurze i lokalnych przy użyciu serwera Azure Multi-Factor Authentication z usługami AD FS w systemie Windows Server 2012 R2
@@ -88,6 +89,6 @@ Aby zarejestrować adapter, uruchom skrypt \Program Files\Multi-Factor Authentic
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

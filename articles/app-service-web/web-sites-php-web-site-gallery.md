@@ -16,6 +16,7 @@
     ms.date="08/11/2016"
     ms.author="robmcm"/>
 
+
 # Tworzenie aplikacji sieci Web WordPress w usłudze Azure App Service
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
@@ -130,6 +131,6 @@ Aby uzyskać więcej informacji na temat sposobu pracy z aplikacjami Web Apps w 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

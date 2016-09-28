@@ -17,6 +17,7 @@
     ms.date="08/17/2016"
     ms.author="v-livech"/>
 
+
 # Tworzenie maszyny wirtualnej systemu Linux przy użyciu szablonu platformy Azure
 
 W tym artykule przedstawiono szybki sposób wdrożenia maszyny wirtualnej systemu Linux na platformie Azure przy użyciu szablonu Azure.  Konieczne jest posiadanie konta na platformie Azure ([pobierz bezpłatną wersję próbną](https://azure.microsoft.com/pricing/free-trial/)) oraz uruchomionego (`azure login`) [interfejsu wiersza polecenia platformy Azure](../xplat-cli-install.md) w trybie usługi Resource Manager (`azure config mode arm`).  Szybkie wdrożenie maszyny wirtualnej systemu Linux jest możliwe również przy użyciu witryny [Azure Portal](virtual-machines-linux-quick-create-portal.md) lub [interfejsu wiersza polecenia platformy Azure](virtual-machines-linux-quick-create-cli.md).
@@ -76,6 +77,6 @@ Przeszukaj [galerię szablonów](https://azure.microsoft.com/documentation/templ
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

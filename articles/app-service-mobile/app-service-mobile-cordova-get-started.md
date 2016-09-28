@@ -18,6 +18,7 @@
     ms.date="08/11/2016"
     ms.author="glenga"/>
 
+
 #Tworzenie aplikacji oprogramowania Apache Cordova
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -79,13 +80,13 @@ Dowiedz się, jak korzystać z zestawów SDK.
 [Dodawanie uwierzytelniania]: app-service-mobile-cordova-get-started-users.md
 [Dodawanie powiadomień wypychanych]: app-service-mobile-cordova-get-started-push.md
 [Authentication]: app-service-mobile-auth.md
-[Powiadomienia wypychane]: ../notification-hubs/notification-hubs-overview.md
+[Powiadomienia wypychane]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Zestaw Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [Zestaw ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Zestaw Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

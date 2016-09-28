@@ -17,6 +17,7 @@
     ms.date="07/14/2016"
     ms.author="arluca"/>
 
+
 # Używanie programu Azure AD Connect Health z usługami AD DS
 Poniższa dokumentacja dotyczy monitorowania Usług domenowych Active Directory przy użyciu programu Azure AD Connect Health. Obejmuje to usługi AD DS zainstalowane w systemach Windows Server 2008 R2, Windows Server 2012 i Windows Server 2012 R2.
 
@@ -62,6 +63,6 @@ Domyślnie zostały wstępnie wybrane cztery liczniki wydajności. Można jednak
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

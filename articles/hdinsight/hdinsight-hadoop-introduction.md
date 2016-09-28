@@ -5,7 +5,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="cjgronlund"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -16,6 +16,7 @@
    ms.workload="big-data"
    ms.date="07/21/2016"
    ms.author="cgronlun"/>
+
 
 
 # Co to jest platforma Hadoop w chmurze? Wprowadzenie do ekosystemu platformy Hadoop w usłudze HDInsight
@@ -271,6 +272,6 @@ Te narzędzia analizy biznesowej mogą ułatwić analizę danych big data:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

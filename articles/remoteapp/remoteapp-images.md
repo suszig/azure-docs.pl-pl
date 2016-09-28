@@ -15,6 +15,7 @@
     ms.date="08/15/2016"
     ms.author="elizapo" />
 
+
 # Co zawierają obrazy szablonów usługi Azure RemoteApp?
 
 > [AZURE.IMPORTANT]
@@ -109,6 +110,6 @@ Ten obraz jest rozszerzeniem obrazu podstawowego i oprócz składników zawartyc
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 
