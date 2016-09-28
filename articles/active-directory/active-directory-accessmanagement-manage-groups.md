@@ -1,4 +1,5 @@
-<properties
+<właściwości
+
     pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
     description="How to create and manage groups to manage Azure users using Azure Active Directory."
     services="active-directory"
@@ -13,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/10/2016"
+    ms.date="09/22/2016"
     ms.author="curtand"/>
 
 
@@ -114,7 +115,6 @@ Te artykuły zawierają dodatkowe informacje o usłudze Azure Active Directory.
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md)
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

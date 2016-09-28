@@ -17,6 +17,7 @@
     ms.date="07/06/2016"
     ms.author="iainfou"/>
 
+
 # Różne sposoby tworzenia maszyny wirtualnej systemu Linux przy użyciu usługi Resource Manager
 
 Platforma Azure oferuje różne sposoby tworzenia maszyn wirtualnych przy użyciu modelu wdrażania opartego na usłudze Resource Manager, które są dopasowane do różnych użytkowników i celów. Ten artykuł zawiera podsumowanie tych różnic oraz wyborów, których możesz dokonać podczas tworzenia maszyn wirtualnych systemu Linux.
@@ -123,6 +124,6 @@ Jeśli potrzebujesz specjalnego dostosowania, możesz użyć obrazu opartego na 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

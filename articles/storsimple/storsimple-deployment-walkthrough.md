@@ -15,6 +15,7 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
+
 # Wdrażanie lokalnego urządzenia StorSimple
 
 > [AZURE.SELECTOR]
@@ -296,6 +297,6 @@ Wykonaj poniższe kroki w klasycznym portalu Azure, aby na żądanie ręcznie ut
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.date="08/19/2016"
     ms.author="sstein"/>
 
+
 # Tworzenie bazy danych SQL i wykonywanie typowych zadań dotyczących konfiguracji bazy danych przy użyciu poleceń cmdlet programu PowerShell
 
 
@@ -142,6 +143,6 @@ Po utworzeniu bazy danych SQL i wykonaniu podstawowych zadań dotyczących jej k
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

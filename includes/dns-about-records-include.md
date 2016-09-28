@@ -30,7 +30,6 @@ Aby utworzyć zestaw rekordów z użyciem symboli wieloznacznych, użyj nazwy ze
 Zestawy rekordów CNAME nie mogą współistnieć z innymi zestawami rekordów o tej samej nazwie. Na przykład nie można utworzyć jednocześnie zestawu rekordów CNAME o nazwie względnej „www” oraz rekordu A o nazwie względnej „www”. Ponieważ wierzchołek strefy (nazwa = „@”) zawsze zawiera zestawy rekordów NS i SOA, które zostały utworzone podczas tworzenia strefy, nie można utworzyć zestawu rekordów CNAME w wierzchołku strefy. Te ograniczenia wynikają ze standardów dotyczących serwerów DNS i nie stanowią ograniczeń usługi DNS platformy Azure.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

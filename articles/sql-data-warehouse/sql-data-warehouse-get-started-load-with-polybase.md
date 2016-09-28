@@ -3,7 +3,7 @@
    description="Dowiedz się, co to jest aparat PolyBase i jak z niego korzystać w scenariuszach dotyczących magazynów danych."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="happynicolle"
+   authors="ckarst"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,8 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/30/2016"
-   ms.author="nicw;barbkess;jrj;sonyama"/>
+   ms.author="cakarst;barbkess;sonyama"/>
+
 
 
 # Ładowanie danych przy użyciu programu PolyBase w usłudze SQL Data Warehouse
@@ -287,6 +288,6 @@ Zobacz [Przewodnik po programie PolyBase][] w celu uzyskania dalszych informacji
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

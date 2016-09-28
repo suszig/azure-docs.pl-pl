@@ -16,6 +16,7 @@
    ms.date="08/04/2016"
    ms.author="navale;tomfitz"/>
    
+
 # Przewodnik po szablonie usługi Resource Manager
 
 Jednym z pierwszych pytań podczas tworzenia szablonu jest „jak rozpocząć?”. Można rozpocząć od pustego szablonu, utworzyć podstawową strukturę zgodnie z opisem w artykule [Tworzenie szablonu](resource-group-authoring-templates.md#template-format), a następnie dodać zasoby oraz odpowiednie parametry i zmienne. Dobrą alternatywą jest rozpoczęcie od zapoznania się z [galerią Szybki start](https://github.com/Azure/azure-quickstart-templates) i znalezienie scenariuszy, których cel jest podobny do tego, co ma zostać zrobione. Możliwe jest scalenie kilku szablonów lub edytowane istniejącego szablonu w taki sposób, aby odpowiadało to potrzebom własnego konkretnego scenariusza. 
@@ -583,6 +584,6 @@ Możesz ponownie wdrożyć szablon przy użyciu tych samych poleceń, które zos
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

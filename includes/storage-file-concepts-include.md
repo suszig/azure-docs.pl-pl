@@ -1,27 +1,27 @@
-## Co to jest Magazyn plików Azure?
+## Co to jest usługa Azure File Storage?
 
-Magazyn plików oferuje współużytkowany magazyn dla aplikacji używających standardowego protokołu SMB 2.1 lub SMB 3.0. Maszyny wirtualne platformy Microsoft Azure i usługi w chmurze mogą udostępniać dane między składnikami aplikacji za pośrednictwem zainstalowanych udziałów i aplikacji lokalnych, które mogą uzyskiwać dostęp do danych plików w udziale za pomocą interfejsu API Magazynu plików.
+Usługa File Storage oferuje współużytkowany magazyn dla aplikacji używających standardowego protokołu SMB 2.1 lub SMB 3.0. Usługa Microsoft Azure Virtual Machines i usługi w chmurze mogą udostępniać dane między składnikami aplikacji za pośrednictwem zainstalowanych udziałów i aplikacji lokalnych, które mogą uzyskiwać dostęp do danych plików w udziale za pomocą interfejsu API usługi File Storage.
 
-Aplikacje uruchomione na maszynach wirtualnych lub w ramach usług w chmurze platformy Azure mogą zainstalować udziały magazynu plików, aby uzyskać dostęp do danych plików tak samo jak aplikacja na komputerze instalująca typowy udział SMB. Dowolna liczba maszyn wirtualnych lub ról platformy Azure może następnie równocześnie zainstalować udział Magazynu plików i uzyskiwać do niego dostęp.
+Aplikacje uruchomione na maszynach wirtualnych lub w ramach usług w chmurze platformy Azure mogą zainstalować udziały usługi File Storage, aby uzyskać dostęp do danych plików tak samo jak aplikacja na komputerze instalująca typowy udział SMB. Dowolna liczba maszyn wirtualnych lub ról platformy Azure może następnie równocześnie zainstalować udział usługi File Storage i uzyskiwać do niego dostęp.
 
-Ponieważ udział Magazynu plików to standardowy udział plików na platformie Azure przy użyciu protokołu SMB, aplikacje działające na platformie Azure mają dostęp do danych w udziale za pośrednictwem interfejsów API we/wy plików. Dzięki temu programiści mogą wykorzystać istniejący kod i własne umiejętności, aby zmigrować istniejące aplikacje. Specjaliści IT mogą użyć poleceń cmdlet programu PowerShell do tworzenia i instalowania udziałów magazynu plików oraz do zarządzania nimi w ramach administracji aplikacjami platformy Azure. W tym podręczniku przedstawiono oba przykłady.
+Ponieważ udział usługi File Storage to standardowy udział plików na platformie Azure przy użyciu protokołu SMB, aplikacje działające na platformie Azure mają dostęp do danych w udziale za pośrednictwem interfejsów API we/wy plików. Dzięki temu programiści mogą wykorzystać istniejący kod i własne umiejętności, aby zmigrować istniejące aplikacje. Specjaliści IT mogą użyć poleceń cmdlet programu PowerShell do tworzenia i instalowania udziałów magazynu plików oraz do zarządzania nimi w ramach administracji aplikacjami platformy Azure. W tym podręczniku przedstawiono oba przykłady.
 
-Najczęstsze zastosowania Magazynu plików to:
+Najczęstsze zastosowania usługi File Storage to:
 
 - Migracja lokalnych aplikacji korzystających z udziałów plików w celu uruchomienia na maszynach wirtualnych lub w usługach w chmurze platformy Azure, bez kosztownego ponownego zapisu
 - Przechowywanie udostępnionych ustawień aplikacji, na przykład w plikach konfiguracji
 - Przechowywanie danych diagnostycznych, takich jak dzienniki, metryki i zrzuty awaryjne we współdzielonej lokalizacji 
 - Przechowywanie narzędzi i programów potrzebnych do tworzenia maszyn wirtualnych lub usług i administrowania nimi w chmurze platformy Azure
 
-## Pojęcia dotyczące Magazynu plików
+## Pojęcia dotyczące usługi File Storage
 
-Magazyn plików zawiera następujące składniki:
+Usługa File Storage zawiera następujące składniki:
 
 ![files-concepts][files-concepts]
 
 -   **Konto magazynu:** cały dostęp do usługi Azure Storage odbywa się przez konto magazynu. Aby uzyskać szczegółowe informacje na temat pojemności konta magazynu, zobacz temat [Cele dotyczące skalowalności i wydajności usługi Azure Storage](../articles/storage/storage-scalability-targets.md).
 
--   **Udział:** udział magazynu plików jest udziałem plików SMB na platformie Azure. 
+-   **Udział:** udział usługi File Storage jest udziałem plików SMB na platformie Azure. 
     Wszystkie pliki i katalogi muszą być tworzone w udziale nadrzędnym. Konto może zawierać nieograniczoną liczbę udziałów, a udział może obejmować nieograniczoną liczbę plików. Maksymalna całkowita objętość udziału plików to 5 TB.
 
 -   **Katalog:** opcjonalna hierarchia katalogów. 
@@ -39,7 +39,6 @@ Szczegółowe informacje o nazewnictwie udziałów, katalogów i plików można 
 
 [files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

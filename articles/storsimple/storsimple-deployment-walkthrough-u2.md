@@ -12,8 +12,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/20/2016"
+   ms.date="08/16/2016"
    ms.author="alkohli" />
+
 
 # Wdrażanie lokalnego urządzenia StorSimple (aktualizacja Update 2)
 
@@ -155,7 +156,7 @@ Wykonaj poniższe czynności w portalu zarządzania, aby utworzyć kontener wolu
 
 Po utworzeniu kontenera woluminów możesz zainicjować obsługę woluminu magazynu w urządzeniu StorSimple dla serwerów. Wykonaj poniższe czynności w portalu zarządzania, aby utworzyć wolumin.
 
-> [AZURE.IMPORTANT] Za pomocą Menedżera StorSimple można tworzyć woluminy inicjowane w pełni i elastycznie. Nie można jednak tworzyć woluminów inicjowanych częściowo. 
+> [AZURE.IMPORTANT] Za pomocą usługi StorSimple Manager można tworzyć woluminy inicjowane w pełni i elastycznie. Nie można jednak tworzyć woluminów inicjowanych częściowo. 
 
 [AZURE.INCLUDE [storsimple-create-volume](../../includes/storsimple-create-volume-u2.md)]
 
@@ -190,9 +191,9 @@ Kopię zapasową można utworzyć ręcznie w dowolnym momencie. Informacje na te
 
 Jest to krok opcjonalny, który należy wykonać tylko, jeśli nie włączono automatycznego tworzenia konta magazynu przy użyciu usługi. Do utworzenia kontenera woluminów StorSimple wymagane jest konto magazynu platformy Microsoft Azure.
 
-Instrukcje krok po kroku dotyczące tworzenia konta magazynu platformy Azure w innym regionie można znaleźć w temacie [About Azure Storage Accounts](../storage/storage-create-storage-account.md) (Informacje o kontach magazynu Azure).
+Instrukcje krok po kroku dotyczące tworzenia konta usługi Azure Storage w innym regionie można znaleźć w temacie [About Azure Storage Accounts](../storage/storage-create-storage-account.md) (Informacje o kontach usługi Azure Storage).
 
-Wykonaj poniższe kroki w portalu zarządzania na stronie **usługi Menedżera StorSimple**.
+Wykonaj poniższe kroki w portalu zarządzania na stronie **usługi StorSimple Manager**.
 
 [AZURE.INCLUDE [storsimple-configure-new-storage-account-u1](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
@@ -242,11 +243,11 @@ Wykonaj poniższe kroki w portalu zarządzania, aby na żądanie ręcznie utworz
 
 - Skonfiguruj [urządzenie wirtualne](storsimple-virtual-device-u2.md).
 
-- Użyj [usługi Menedżer StorSimple](storsimple-manager-service-administration.md) do zarządzania urządzeniem StorSimple.
+- Użyj [usługi StorSimple Manager](storsimple-manager-service-administration.md) do zarządzania urządzeniem StorSimple.
  
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

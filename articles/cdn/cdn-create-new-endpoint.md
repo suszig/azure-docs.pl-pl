@@ -15,6 +15,7 @@
      ms.date="07/28/2016" 
      ms.author="casoper"/>
 
+
 # Korzystanie z usługi Azure CDN  
 
 W tym temacie opisano włączanie usługi Azure CDN z tworzeniem nowego profilu i punktu końcowego usługi CDN.
@@ -99,6 +100,6 @@ Profil CDN jest kolekcją punktów końcowych usługi CDN.  Każdy profil zawier
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

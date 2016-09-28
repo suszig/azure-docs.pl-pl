@@ -11,7 +11,6 @@ W tym scenariuszu utworzysz sieć wirtualną o nazwie **TestVNet** z zarezerwowa
 
  
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

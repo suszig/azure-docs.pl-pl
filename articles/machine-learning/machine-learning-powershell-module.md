@@ -5,7 +5,7 @@
     services="machine-learning"
     documentationCenter=""
     authors="hning86"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -16,6 +16,7 @@
     ms.topic="hero-article"
     ms.date="08/05/2016"
     ms.author="garye;haining"/>
+
 
 # Moduł programu PowerShell dla usługi Azure Machine Learning
 
@@ -56,6 +57,7 @@ Aby rozpocząć korzystanie z programu PowerShell usługi Machine Learning, pobi
 Moduł PowerShell będzie stale udoskonalany i rozwijany w trakcie tego okresu korzystania z wersji zapoznawczej. Śledź [blog dotyczący pakietu Cortana Intelligence i usługi Machine Learning](https://blogs.technet.microsoft.com/machinelearning/), aby dowiadywać się o innych nowościach i uzyskiwać dodatkowe informacje.
 
 
-<!--HONumber=sep16_HO1-->
+
+<!--HONumber=Sep16_HO3-->
 
 

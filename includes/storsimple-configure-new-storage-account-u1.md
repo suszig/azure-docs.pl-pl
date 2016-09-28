@@ -2,14 +2,14 @@
 
 #### Dodawanie konta magazynu w usłudze StorSimple 8000 Series Update 1.0
 
-1. Na stronie początkowej usługi Menedżer StorSimple zaznacz usługę i kliknij ją dwukrotnie. Nastąpi przekierowanie do strony **Szybki start**. Wybierz stronę **Konfigurowanie**.
+1. Na stronie początkowej usługi StorSimple Manager zaznacz usługę i kliknij ją dwukrotnie. Nastąpi przekierowanie do strony **Szybki start**. Wybierz stronę **Konfigurowanie**.
 
 2. Kliknij przycisk **Dodaj/edytuj konto magazynu**.
 
 3. W oknie dialogowym **Dodaj/edytuj konto magazynu** kliknij opcję **Dodaj nowe**.
 
 4. W polu **Dostawca** wybierz odpowiedniego dostawcę usługi w chmurze. Obsługiwanymi dostawcami są Azure, Amazon S3, Amazon S3 z RRS, HP i OpenStack. Określ poświadczenia i lokalizację skojarzone z kontem magazynu dostawców usługi w chmurze. Pola wyświetlone dla poświadczeń będą różnić się w zależności od wybranego dostawcy usługi w chmurze. 
-  - Jeśli jako dostawcę usługi w chmurze wybrano platformę Azure, w polu **Nazwa** podaj nazwę oraz w polu **Klucz dostępu** wpisz podstawowy klucz dostępu dla konta magazynu platformy Microsoft Azure. Lokalizacja dla konta platformy Azure zostanie wypełniona automatycznie.
+  - Jeśli jako dostawcę usługi w chmurze wybrano platformę Azure, w polu **Nazwa** podaj nazwę oraz w polu **Klucz dostępu** wpisz podstawowy klucz dostępu dla konta usługi Microsoft Azure Storage. Lokalizacja dla konta platformy Azure zostanie wypełniona automatycznie.
 
         ![Add Azure storage account](./media/storsimple-configure-new-storage-account-u1/AddAzureStorageaccount-include.png)
 
@@ -43,12 +43,11 @@
 
       > [AZURE.NOTE] Jeśli używanym dostawcą jest HP, protokół SSL będzie zawsze włączony.
         
-6. Kliknij ikonę znacznika wyboru ![ikona znacznika wyboru](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). Po pomyślnym utworzeniu konta magazynu otrzymasz powiadomienie.
+6. Po ustawieniu filtrów ![ikona znacznika wyboru](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). Po pomyślnym utworzeniu konta magazynu otrzymasz powiadomienie.
 
 7. Nowo utworzone konto magazynu zostanie wyświetlone na stronie **Konfigurowanie** w obszarze **Konto magazynu**. Kliknij przycisk **Zapisz**, aby zapisać nowe konto magazynu. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **OK**.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

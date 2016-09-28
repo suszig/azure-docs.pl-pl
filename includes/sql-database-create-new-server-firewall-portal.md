@@ -47,7 +47,6 @@ Wykonaj następujące kroki w witrynie Azure Portal, aby utworzyć regułę zapo
     >[AZURE.IMPORTANT] Adres IP klienta może się zmieniać, co spowoduje, że serwer będzie niedostępny do momentu utworzenia nowej reguły zapory. Swój adres IP możesz sprawdzić za pomocą usługi [Bing](http://www.bing.com/search?q=my%20ip%20address). Następnie dodaj pojedynczy adres IP lub zakres adresów IP. Aby uzyskać szczegółowe informacje, zobacz temat [Zarządzanie ustawieniami zapory](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal).
 
 
-
-<!--HONumber=sep12_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

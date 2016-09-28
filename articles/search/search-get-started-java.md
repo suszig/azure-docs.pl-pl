@@ -16,6 +16,7 @@
     ms.date="07/14/2016"
     ms.author="evboyle"/>
 
+
 # Wprowadzenie do usługi Azure Search w języku Java
 > [AZURE.SELECTOR]
 - [Portal](search-get-started-portal.md)
@@ -205,6 +206,6 @@ Dopiero zaczynasz korzystać z usługi Azure Search? Zalecamy wypróbować inne 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

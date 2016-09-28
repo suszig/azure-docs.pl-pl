@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="karavar"
-    manager="stevenpo"
+    manager="femila"
     editor="karavar"/>
 
 <tags
@@ -15,6 +15,7 @@
     ms.topic="get-started-article"
     ms.date="08/05/2016"
     ms.author="vakarand"/>
+
 
 
 # Instalowanie agenta programu Azure AD Connect Health
@@ -269,6 +270,6 @@ Aby wyświetlić szczegółowe dzienniki, możesz użyć w poleceniu flagi -Show
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -13,8 +13,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
+
 
 # Uzyskiwanie szczegółowych informacji z Centrum zabezpieczeń Azure za pomocą usługi Power BI
 [Pulpit nawigacyjny usługi Power BI](http://aka.ms/azure-security-center-power-bi) w Centrum zabezpieczeń Azure umożliwia wizualizację, analizowanie i filtrowanie zaleceń oraz alertów zabezpieczeń z dowolnego miejsca — także z urządzenia przenośnego. Pulpit nawigacyjny usługi Power BI służy do wyświetlania trendów i wzorców ataków. Można wyświetlać alerty zabezpieczeń według zasobu lub adresu IP źródła oraz nierozwiązane zagrożenia bezpieczeństwa według zasobu lub wieku. 
@@ -26,7 +27,7 @@ Pulpit nawigacyjny Centrum zabezpieczeń Azure umożliwia również dostęp do r
 
 1. Na pulpicie nawigacyjnym **Azure Security Center** kliknij przycisk **Eksploruj w usłudze Power BI**.
 
-    ![Łączenie z Centrum zabezpieczeń Azure przy użyciu usługi Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new1.png) 
+    ![Łączenie z Centrum zabezpieczeń Azure przy użyciu usługi Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png) 
 
 2. Po prawej stronie zostanie otwarty blok **Eksplorowanie w usłudze Power BI** w sposób przedstawiony na poniższym ekranie:
 
@@ -117,6 +118,6 @@ W tym dokumencie omówiono korzystanie z usługi Power BI w Centrum zabezpiecze�
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

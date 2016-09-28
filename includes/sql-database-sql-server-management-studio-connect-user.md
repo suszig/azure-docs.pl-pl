@@ -40,7 +40,6 @@ Najczęstszą przyczyną błędów połączeń są błędy w nazwie serwera (nal
 
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

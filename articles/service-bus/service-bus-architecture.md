@@ -15,6 +15,7 @@
     ms.date="07/11/2016"
     ms.author="sethm" />
 
+
 # Architektura usługi Service Bus
 
 Ten artykuł zawiera opis architektury przetwarzania komunikatów i przekaźników usługi Azure Service Bus.
@@ -61,6 +62,6 @@ Teraz, po zapoznaniu się z architekturą usługi Service Bus, skorzystaj z nast
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

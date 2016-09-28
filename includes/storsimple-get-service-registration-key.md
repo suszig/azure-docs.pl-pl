@@ -2,7 +2,7 @@
 
 #### Aby pobrać klucz rejestracji usługi StorSimple
 
-1. Na stronie **usługi Menedżer StorSimple** kliknij utworzoną usługę. Nastąpi przekierowanie do strony **Szybki start**. (Możesz kliknąć ikonę szybkiego startu ![Ikona Szybki start usługi StorSimple ](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png), aby w dowolnej chwili uzyskać dostęp do strony **Szybki start**).
+1. Na stronie **usługi StorSimple Manager** kliknij utworzoną usługę. Nastąpi przekierowanie do strony **Szybki start**. (Możesz kliknąć ikonę szybkiego startu ![Ikona Szybki start usługi StorSimple ](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png), aby w dowolnej chwili uzyskać dostęp do strony **Szybki start**).
 
      ![Strona Szybki start usługi StorSimple](./media/storsimple-get-service-registration-key/HCS_ServiceQuickStart-include.png)
 
@@ -16,13 +16,12 @@
 
 5. Kliknij ikonę znacznika wyboru![Ikona znacznika wyboru StorSimple](./media/storsimple-get-service-registration-key/HCS_CheckIcon-include.png), aby zamknąć okno dialogowe i wrócić do strony **Szybki start**.
 
-> [AZURE.NOTE] Klucz rejestracji usługi służy do rejestrowania wszystkich urządzeń, które należy zarejestrować w usłudze Menedżer StorSimple.
+> [AZURE.NOTE] Klucz rejestracji usługi służy do rejestrowania wszystkich urządzeń, które należy zarejestrować w usłudze StorSimple Manager.
 
 ![Zobacz film](./media/storsimple-get-service-registration-key/Video_icon.png) **Zobacz film**
 
 Aby obejrzeć film wideo przedstawiający sposób pobierania klucza rejestracji usługi, kliknij [tutaj](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

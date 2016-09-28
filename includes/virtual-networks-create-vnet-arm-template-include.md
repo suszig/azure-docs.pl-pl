@@ -58,7 +58,6 @@ Z witryny github można pobrać istniejący szablon ARM służący do utworzenia
 11. Zapisz plik.
   
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

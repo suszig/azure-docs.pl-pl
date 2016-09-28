@@ -29,7 +29,6 @@ Konfiguracja urządzenia została ukończona.
 
 Aby obejrzeć wideo demonstrujące sposób wykonania kopii zapasowej danych StorSimple, kliknij [tutaj](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

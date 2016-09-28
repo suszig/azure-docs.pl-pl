@@ -17,6 +17,7 @@
      ms.date="08/09/2016"
      ms.author="dobett"/>
 
+
 # Co to jest Pakiet IoT Azure?
 
 Usługi Internetu rzeczy (IoT) platformy Azure oferują szeroką gamę możliwości. Są to usługi klasy korporacyjnej, które pozwalają wykonywać następujące operacje:
@@ -67,6 +68,6 @@ Teraz, gdy masz już pojęcie o możliwościach Pakietu IoT i jego głównych sk
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

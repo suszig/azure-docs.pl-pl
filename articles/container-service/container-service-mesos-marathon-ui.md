@@ -15,8 +15,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/19/2016"
    ms.author="nepeters"/>
+
 
 # Zarządzenie kontenerem przy użyciu interfejsu użytkownika sieci Web
 
@@ -60,7 +61,7 @@ Protocol (Protokół)        | TCP
 Jeśli chcesz statycznie mapować port kontenera do portu agenta, musisz użyć trybu JSON. W tym celu przełącz kreatora nowej aplikacji w tryb **JSON Mode** (Tryb JSON) za pomocą przełącznika. Następnie wprowadź następujące dane w sekcji `portMappings` definicji aplikacji. W tym przykładzie port 80 kontenera jest powiązany z portem 80 agenta DC/OS. Po wprowadzeniu tej zmiany możesz wyłączyć tryb JSON w kreatorze.
 
 ```none
-“hostPort”: 80,
+"hostPort": 80,
 ```
 
 ![Interfejs użytkownika New Application (Nowa aplikacja) — przykładowy port 80](media/dcos/dcos13.png)
@@ -103,6 +104,6 @@ Pełne wykorzystanie usługi Azure Container Service dzięki rozwiązaniu Mesos
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

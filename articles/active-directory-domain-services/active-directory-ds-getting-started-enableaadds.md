@@ -16,6 +16,7 @@
     ms.date="07/06/2016"
     ms.author="maheshu"/>
 
+
 # Usługi domenowe Azure AD *(wersja zapoznawcza)* — włączanie Usług domenowych Azure AD
 
 ## Zadanie 3. Włączanie Usług domenowych Azure AD
@@ -96,6 +97,6 @@ Następne zadanie konfiguracji to [zaktualizowanie ustawień DNS na potrzeby sie
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

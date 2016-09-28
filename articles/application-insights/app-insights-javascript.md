@@ -15,6 +15,7 @@
     ms.date="08/15/2016"
     ms.author="awills"/>
 
+
 # Usługa Application Insights dla stron sieci Web
 
 
@@ -253,6 +254,6 @@ Chcesz dowiedzieć się, w jaki sposób użytkownicy korzystają z aplikacji?
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

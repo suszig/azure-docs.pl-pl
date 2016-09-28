@@ -17,6 +17,7 @@
      ms.date="08/29/2016"
      ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
+
 # Usługa Azure Backup — często zadawane pytania
 
 > [AZURE.SELECTOR]
@@ -262,6 +263,6 @@ Aby działanie agenta usługi Azure Backup przebiegało zgodnie z oczekiwaniami,
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

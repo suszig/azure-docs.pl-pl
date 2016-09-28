@@ -6,7 +6,6 @@
 
 - Kliknij pozycję **Usuń** i wybierz opcję usunięcia wszystkich dysków maszyny wirtualnej.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

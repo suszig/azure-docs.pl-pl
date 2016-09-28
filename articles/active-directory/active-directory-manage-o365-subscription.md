@@ -16,6 +16,7 @@
    ms.date="08/23/2016"
    ms.author="curtand"/>
 
+
 # Zarządzanie katalogiem dla subskrypcji usługi Office 365 na platformie Azure
 
 W tym artykule opisano sposób zarządzania katalogiem, który został utworzony dla subskrypcji usługi Office 365, przy użyciu klasycznego portalu Azure. Aby zalogować się do klasycznego portalu Azure, musisz być administratorem usługi albo współadministratorem subskrypcji platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, już dziś możesz zarejestrować się w celu uzyskania [bezpłatnej 30-dniowej wersji próbnej](https://azure.microsoft.com/trial/get-started-active-directory/) i za pomocą tego łącza w ciągu 5 minut wdrożyć swoje pierwsze rozwiązanie w chmurze. Aby zalogować się do usługi Office 365, użyj konta służbowego lub szkolnego.
@@ -63,6 +64,6 @@ Aby uzyskać więcej informacji na temat relacji między subskrypcjami i katalog
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

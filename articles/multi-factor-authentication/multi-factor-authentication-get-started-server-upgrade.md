@@ -1,24 +1,25 @@
 <properties 
-    pageTitle="Uaktualnianie agenta PhoneFactor do serwera Azure Multi-Factor Authentication" 
-    description="W tym dokumencie opisano sposób rozpoczęcia pracy z serwerem Azure MFA oraz uaktualnienia ze starszej wersji agenta PhoneFactor." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+    pageTitle="Uaktualnianie agenta PhoneFactor do serwera Azure Multi-Factor Authentication"
+    description="W tym dokumencie opisano sposób rozpoczęcia pracy z serwerem Azure MFA oraz uaktualnienia ze starszej wersji agenta PhoneFactor."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtland"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 
 # Uaktualnianie agenta PhoneFactor do serwera Azure Multi-Factor Authentication
 
-Uaktualnianie z agenta PhoneFactor (v5.x lub starszej wersji) do serwera Azure Multi-Factor Authentication wymaga odinstalowania agenta PhoneFactor i powiązanych z nim składników przed rozpoczęciem instalowania serwera Multi-Factor Authentication i powiązanych z nim składników. 
+Uaktualnianie z agenta PhoneFactor (v5.x lub starszej wersji) do serwera Azure Multi-Factor Authentication wymaga odinstalowania agenta PhoneFactor i powiązanych z nim składników przed rozpoczęciem instalowania serwera Multi-Factor Authentication i powiązanych z nim składników.
 
 ## Aby uaktualnić agenta PhoneFactor do serwera Azure Multi-Factor Authentication
 <ol>
@@ -53,7 +54,7 @@ Uaktualnianie z agenta PhoneFactor (v5.x lub starszej wersji) do serwera Azure M
 
 <li>Jeśli wcześniej zainstalowano zestaw SDK usługi sieci Web, należy zainstalować nowy zestaw SDK usługi sieci Web za pomocą interfejsu użytkownika serwera Multi-Factor Authentication. Należy zauważyć, że domyślną nazwą katalogu wirtualnego jest teraz „MultiFactorAuthWebServiceSdk”, a nie „PhoneFactorWebServiceSdk”. Jeśli chcesz użyć poprzedniej nazwy, musisz podczas instalacji zmienić nazwę katalogu wirtualnego. W przeciwnym razie, jeśli zezwolisz procesowi instalacji na użycie nowej nazwy domyślnej, trzeba będzie zmienić adres URL w każdej aplikacji, która odwołuje się do zestawu SDK usługi sieci Web, takiej jak portal użytkowników i usługa sieci Web aplikacji mobilnej, aby wskazywała na poprawną lokalizację.
 
-<li>Jeśli wcześniej zainstalowano portal użytkowników na tym serwerze agenta PhoneFactor, zainstaluj nowy portal użytkowników usługi Multi-Factor Authentication za pomocą interfejsu użytkownika serwera Multi-Factor Authentication. Należy zauważyć, że domyślną nazwą katalogu wirtualnego jest teraz „MultiFactorAuth”, a nie „PhoneFactor”. Jeśli chcesz użyć poprzedniej nazwy, musisz podczas instalacji zmienić nazwę katalogu wirtualnego. W przeciwnym razie, jeśli zezwolisz procesowi instalacji na użycie nowej nazwy domyślnej, musisz kliknąć ikonę Portal użytkowników na serwerze Multi-Factor Authentication i zaktualizować adres URL portalu użytkowników na karcie Ustawienia. 
+<li>Jeśli wcześniej zainstalowano portal użytkowników na tym serwerze agenta PhoneFactor, zainstaluj nowy portal użytkowników usługi Multi-Factor Authentication za pomocą interfejsu użytkownika serwera Multi-Factor Authentication. Należy zauważyć, że domyślną nazwą katalogu wirtualnego jest teraz „MultiFactorAuth”, a nie „PhoneFactor”. Jeśli chcesz użyć poprzedniej nazwy, musisz podczas instalacji zmienić nazwę katalogu wirtualnego. W przeciwnym razie, jeśli zezwolisz procesowi instalacji na użycie nowej nazwy domyślnej, musisz kliknąć ikonę Portal użytkowników na serwerze Multi-Factor Authentication i zaktualizować adres URL portalu użytkowników na karcie Ustawienia.
 
 <li>Jeśli portal użytkowników i/lub usługa sieci Web aplikacji mobilnej zostały wcześniej zainstalowane na innym serwerze z agenta PhoneFactor:
 <ol>
@@ -64,13 +65,7 @@ Uaktualnianie z agenta PhoneFactor (v5.x lub starszej wersji) do serwera Azure M
 <li>Przejdź do lokalizacji instalacji usługi sieci Web aplikacji mobilnej (np. C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) i otwórz do edycji plik web.config. Z oryginalnego pliku web.config, który został umieszczony w kopii zapasowej przed uaktualnieniem, skopiuj wartości z sekcji appSettings i applicationSettings do nowego pliku web.config. Jeśli nowa domyślna nazwa katalogu wirtualnego została zachowana podczas instalacji zestawu SDK usługi sieci Web, zmień adres URL w sekcji applicationSettings, aby wskazywał poprawną lokalizację. Jeśli w poprzednim pliku web.config zostały zmienione inne wartości domyślne, zastosuj te same zmiany w nowym pliku web.config.</li></ol>
 
 
- 
 
-
- 
-
-
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

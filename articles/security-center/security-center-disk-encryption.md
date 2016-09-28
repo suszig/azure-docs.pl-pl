@@ -16,6 +16,7 @@
    ms.date="05/27/2016"
    ms.author="tomsh"/>
 
+
 # Szyfrowanie maszyny wirtualnej platformy Azure
 Jeśli masz maszyny wirtualne, które nie są szyfrowane, w Centrum zabezpieczeń Azure zostanie wyświetlony alert. Te alerty będą widoczne jako alerty o wysokiej ważności. Zaleca się zaszyfrowanie tych maszyn wirtualnych.
 
@@ -74,7 +75,7 @@ Po uruchomieniu skryptu wymagań wstępnych szyfrowania dysków Azure zostaną w
 - **Location** (Lokalizacja) — lokalizacja magazynu kluczy. Upewnij się, że magazyn kluczy i maszyny wirtualne, które mają być szyfrowane, znajdują się w tej samej lokalizacji. Jeśli nie znasz lokalizacji, w dalszej części tego artykułu znajdziesz opis kroków umożliwiających jej ustalenie.
 - **Azure Active Directory Application Name** (Nazwa aplikacji usługi Azure Active Directory) — nazwa aplikacji usługi Azure Active Directory, która zostanie użyta do zapisu kluczy tajnych w magazynie kluczy. Jeśli taka aplikacja nie istnieje, zostanie utworzona nowa aplikacja o podanej nazwie. Jeśli masz już aplikację usługi Azure Active Directory, której chcesz użyć, wprowadź nazwę tej aplikacji usługi Azure Active Directory.
 
-> [AZURE.NOTE] Jeśli zastanawiasz się, dlaczego należy utworzyć aplikację usługi Azure Active Directory, zapoznaj się z sekcją *Rejestrowanie aplikacji w usłudze Azure Active Directory* w artykule [Wprowadzenie do magazynu kluczy Azure](../key-vault/key-vault-get-started.md).
+> [AZURE.NOTE] Jeśli zastanawiasz się, dlaczego należy utworzyć aplikację usługi Azure Active Directory, zapoznaj się z sekcją *Rejestrowanie aplikacji w usłudze Azure Active Directory* w artykule [Wprowadzenie do usługi Azure Key Vault](../key-vault/key-vault-get-started.md).
 
 Wykonaj poniższe kroki, aby zaszyfrować maszynę wirtualną platformy Azure:
 
@@ -82,7 +83,7 @@ Wykonaj poniższe kroki, aby zaszyfrować maszynę wirtualną platformy Azure:
 2.  W konsoli programu PowerShell ISE (w dolnym okienku programu PowerShell ISE) zmień fokus na fokus lokalny skryptu, wpisując ciąg **cd c:\AzureADEScript**, po czym naciśnij klawisz **ENTER**.
 3.  Ustaw zasady wykonywania na komputerze, aby umożliwić uruchamianie skryptu. Wpisz w konsoli polecenie **Set-ExecutionPolicy Unrestricted**, a następnie naciśnij klawisz ENTER. Jeśli zostanie wyświetlone okno dialogowe z informacją o skutkach zmiany zasad wykonywania, kliknij opcję **Yes to all** (Tak dla wszystkich) lub **Yes** (Tak) (jeśli jest widoczna opcja **Yes to all**, wybierz tę opcję, jeśli opcja **Yes to all** nie jest wyświetlona, kliknij przycisk **Yes**).
 4.  Zaloguj się do konta platformy Azure. W konsoli wpisz polecenie **Login-AzureRmAccount** i naciśnij klawisz **ENTER**. Zostanie wyświetlone okno dialogowe, w którym należy wprowadzić poświadczenia. (Upewnij się, że masz uprawnienia do zmiany maszyn wirtualnych — jeśli nie masz takich uprawnień, nie możesz zaszyfrować maszyn. Jeśli nie masz pewności, zapytaj właściciela subskrypcji lub administratora). Powinny być widoczne informacje dotyczące takich parametrów, jak **Environment**, **Account**, **TenantId**, **SubscriptionId** i **CurrentStorageAccount**. Skopiuj wartość parametru **SubscriptionId** do Notatnika. Będzie ona potrzebna w kroku 6.
-5.  Sprawdź subskrypcję, do której należy maszyna wirtualna, oraz jej lokalizację. Przejdź do witryny [https://portal.azure.com](ttps://portal.azure.com) i zaloguj się.  W lewej części strony kliknij pozycję **Maszyny wirtualne**. Zobaczysz listę maszyn wirtualnych i subskrypcje, do których należą.
+5.  Sprawdź subskrypcję, do której należy maszyna wirtualna, oraz jej lokalizację. Przejdź do witryny [https://portal.azure.com](ttps://portal.azure.com) i zaloguj się.  W lewej części strony kliknij pozycję **Virtual Machines**. Zobaczysz listę maszyn wirtualnych i subskrypcje, do których należą.
 
     ![Maszyny wirtualne](./media/security-center-disk-encryption\security-center-disk-encryption-fig3.png)
 
@@ -148,7 +149,7 @@ Drugi sposób polega na kliknięciu w okienku skryptu (górne okienko programu P
 
 Niezależnie od użytej metody zostanie wyświetlone okno dialogowe z informacją, że ukończenie operacji potrwa 10–15 minut. Kliknij przycisk **Yes** (Tak).
 
-W czasie trwania procesu szyfrowania możesz wrócić do Portalu Azure i sprawdzić stan maszyny wirtualnej. W lewej części strony kliknij pozycję **Maszyny wirtualne**, a następnie w bloku **Maszyny wirtualne** kliknij nazwę maszyny wirtualnej, którą szyfrujesz. W wyświetlonym bloku w obszarze **Stan** będzie widoczna wartość **Aktualizowanie**. Oznacza to, że szyfrowanie jest w toku.
+W czasie trwania procesu szyfrowania możesz wrócić do witryny Azure Portal i sprawdzić stan maszyny wirtualnej. W lewej części strony kliknij pozycję **Virtual Machines**, a następnie w bloku **Virtual Machines** kliknij nazwę maszyny wirtualnej, którą szyfrujesz. W wyświetlonym bloku w obszarze **Stan** będzie widoczna wartość **Aktualizowanie**. Oznacza to, że szyfrowanie jest w toku.
 
 ![Więcej szczegółowych informacji o maszynie wirtualnej](./media/security-center-disk-encryption\security-center-disk-encryption-fig9.png)
 
@@ -156,7 +157,7 @@ Wróć do programu PowerShell ISE. Po zakończeniu działania skryptu wyświetlo
 
 ![Dane wyjściowe programu PowerShell](./media/security-center-disk-encryption\security-center-disk-encryption-fig10.png)
 
-Aby wykazać, że maszyna wirtualna jest teraz zaszyfrowana, wróć do Portalu Azure, a następnie kliknij pozycję **Maszyny wirtualne** po lewej stronie. Kliknij nazwę maszyny wirtualnej, która została zaszyfrowana. W bloku **Ustawienia** kliknij pozycję **Dyski**.
+Aby wykazać, że maszyna wirtualna jest teraz zaszyfrowana, wróć do witryny Azure Portal, a następnie kliknij pozycję **Maszyny wirtualne** po lewej stronie. Kliknij nazwę maszyny wirtualnej, która została zaszyfrowana. W bloku **Ustawienia** kliknij pozycję **Dyski**.
 
 ![Opcje ustawień](./media/security-center-disk-encryption\security-center-disk-encryption-fig11.png)
 
@@ -176,6 +177,6 @@ W tym dokumencie opisano sposób szyfrowania maszyny wirtualnej platformy Azure.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

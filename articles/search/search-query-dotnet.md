@@ -15,6 +15,7 @@
     ms.date="08/29/2016"
     ms.author="brjohnst"/>
 
+
 # Tworzenie zapytań względem indeksu usługi Azure Search przy użyciu zestawu .NET SDK
 > [AZURE.SELECTOR]
 - [Omówienie](search-query-overview.md)
@@ -164,6 +165,6 @@ W powyższym przykładowym kodzie użyto konsoli do wyświetlenia wyników wyszu
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

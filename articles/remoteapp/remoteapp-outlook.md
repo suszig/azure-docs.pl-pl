@@ -15,6 +15,7 @@
     ms.date="08/15/2016"
     ms.author="elizapo" />
 
+
 # Używanie programu Microsoft Outlook w usłudze Azure RemoteApp
 
 > [AZURE.IMPORTANT]
@@ -36,6 +37,6 @@ W programie Outlook 2016 rozwiązano ten problem w trybie pamięci podręcznej d
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

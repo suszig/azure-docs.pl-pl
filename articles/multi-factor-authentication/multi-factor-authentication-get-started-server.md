@@ -1,21 +1,22 @@
 <properties 
-    pageTitle="Wprowadzenie do serwera Azure Multi-Factor Authentication" 
-    description="Ta strona dotycząca usługi Azure Multi-Factor Authentication zawiera informacje umożliwiające rozpoczęcie korzystania z serwera Azure MFA." 
+    pageTitle="Wprowadzenie do serwera Azure Multi-Factor Authentication"
+    description="Ta strona dotycząca usługi Azure Multi-Factor Authentication zawiera informacje umożliwiające rozpoczęcie korzystania z serwera Azure MFA."
     services="multi-factor-authentication"
-    keywords="serwer uwierzytelniania, strona aktywacji aplikacji azure multi factor authentication, pobieranie serwera uwierzytelniania" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="femila" 
+    keywords="serwer uwierzytelniania, strona aktywacji aplikacji azure multi factor authentication, pobieranie serwera uwierzytelniania"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
+
 
 # Wprowadzenie do serwera Azure Multi-Factor Authentication
 
@@ -73,7 +74,7 @@ Po pobraniu serwer można zainstalować i skonfigurować.  Należy sprawdzić, c
 
 
 Wymagania serwera Azure Multi-Factor Authentication|Opis|
-:------------- | :------------- | 
+:------------- | :------------- |
 Sprzęt|<li>200 MB wolnego miejsca na dysku twardym</li><li>Procesor umożliwiający obsługę architektury x32 lub x64</li><li>Co najmniej 1 GB pamięci RAM</li>
 Oprogramowanie|<li>System Windows Server 2008 lub nowszy, jeśli na hoście znajduje się system operacyjny serwera</li><li>System Windows 7 lub nowszy, jeśli na hoście znajduje się system operacyjny klienta</li><li>Oprogramowanie Microsoft .NET 4.0 Framework</li><li>Usługi IIS 7.0 lub nowsze w przypadku instalacji portalu użytkowników lub zestawu SDK usługi sieci Web</li>
 
@@ -122,7 +123,7 @@ Powyższe kroki pokazują kroki instalacji ekspresowej z użyciem kreatora konfi
 
 ##Importowanie użytkowników z usługi Active Directory
 
-Po zainstalowaniu i skonfigurowaniu serwera można szybko zaimportować użytkowników do serwera Azure MFA. 
+Po zainstalowaniu i skonfigurowaniu serwera można szybko zaimportować użytkowników do serwera Azure MFA.
 
 ### Aby zaimportować użytkowników z usługi Active Directory
 --------------------------------------------------------------------------------
@@ -164,10 +165,10 @@ W przypadku lokalnego użycia serwera Multi-Factor Authentication (MFA) dane uż
 - Adres e-mail — opcjonalnie
 - Numer telefonu — używany w trakcie uwierzytelniania za pomocą połączenia głosowego lub wiadomości SMS
 - Tokenu urządzenia — używany podczas uwierzytelniania za pomocą aplikacji mobilnej
-- Tryb uwierzytelniania 
-- Wynik uwierzytelniania 
-- Nazwa serwera MFA 
-- Adres IP serwera MFA 
+- Tryb uwierzytelniania
+- Wynik uwierzytelniania
+- Nazwa serwera MFA
+- Adres IP serwera MFA
 - Adres IP klienta — jeśli jest dostępny
 
 
@@ -179,7 +180,7 @@ Poza powyższymi polami wraz z danymi uwierzytelniania są przechowywane także 
 Dodatkowe informacje na temat zaawansowanej instalacji, jak również informacje o konfiguracji, można znaleźć przy użyciu poniższej tabeli.
 
 Metoda|Opis
-:------------- | :------------- | 
+:------------- | :------------- |
 [Portal użytkowników](multi-factor-authentication-get-started-portal.md)|  Informacje na temat instalacji i konfiguracji portalu użytkowników, w tym na temat wdrażania i samoobsługi użytkowników.
 [Usługi federacyjne Active Directory](multi-factor-authentication-get-started-adfs.md)|Informacje dotyczące konfigurowania Azure Multi-Factor Authentication z usługami AD FS.
 [Uwierzytelnianie RADIUS](multi-factor-authentication-get-started-server-radius.md)|  Informacje na temat instalacji i konfiguracji serwera Azure MFA z użyciem usługi RADIUS.
@@ -192,6 +193,6 @@ Metoda|Opis
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

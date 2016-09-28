@@ -16,7 +16,12 @@
     ms.date="08/02/2016"
     ms.author="curtand"/>
 
+
 # Dodawanie użytkowników z innych katalogów lub firm partnerskich w usłudze Azure Active Directory
+
+> [AZURE.SELECTOR]
+- [Azure Portal](active-directory-create-users-external-azure-portal.md)
+- [klasyczny portal Azure](active-directory-create-users-external.md)
 
 W tym artykule opisano sposób dodawania użytkowników z innych katalogów w usłudze Azure Active Directory lub dodawania użytkowników z firm partnerskich. Aby uzyskać informacje dotyczące dodawania nowych użytkowników w organizacji i użytkowników, którzy mają konta Microsoft, zobacz [Dodawanie nowych użytkowników do usługi Azure Active Directory](active-directory-create-users.md). Dodani użytkownicy domyślnie nie mają uprawnień administratora, ale możesz przypisać im role w dowolnym momencie.
 
@@ -86,6 +91,6 @@ Jeśli użytkownik zostanie usunięty z katalogu macierzystego lub anuluje swoje
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

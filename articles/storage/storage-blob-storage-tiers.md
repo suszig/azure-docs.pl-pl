@@ -3,8 +3,8 @@
     description="Warstwy magazynowania dla usługi Azure Blob Storage oferują efektywny kosztowo sposób magazynowania danych obiektu w oparciu o wzorce dostępu. Warstwa magazynu chłodnego została zoptymalizowana pod kątem danych, do których rzadziej uzyskuje się dostęp."
     services="storage"
     documentationCenter=""
-    authors="sribhat-msft"
-    manager=""
+    authors="michaelhauss"
+    manager="vamshik"
     editor="tysonn"/>
 
 <tags
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/05/2016"
-    ms.author="sribhat"/>
+    ms.date="09/20/2016"
+    ms.author="mihauss;robinsh"/>
+
 
 
 # Azure Blob Storage: warstwy magazynu gorącego i chłodnego
@@ -355,6 +356,6 @@ Aby uzyskać więcej szczegółów, zobacz [Rozpoczynanie pracy z Magazynem obie
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

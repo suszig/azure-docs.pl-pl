@@ -17,6 +17,7 @@
  ms.date="08/17/2016"
  ms.author="araguila"/>
 
+
 # Przewodnik po wstępnie skonfigurowanym rozwiązaniu konserwacji predykcyjnej
 
 ## Wprowadzenie
@@ -135,6 +136,6 @@ Możesz także wypróbować niektóre inne funkcje i możliwości wstępnie skon
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

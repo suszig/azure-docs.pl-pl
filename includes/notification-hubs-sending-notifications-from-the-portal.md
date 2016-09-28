@@ -15,7 +15,6 @@ Następna sekcja samouczka zawiera instrukcje korzystania z [interfejsu REST Cen
 
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

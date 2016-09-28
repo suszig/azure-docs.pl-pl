@@ -16,6 +16,7 @@
    ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
+
 # Ładowanie danych z usługi Azure Blob Storage do usługi Azure SQL Data Warehouse (Azure Data Factory)
 
 > [AZURE.SELECTOR]
@@ -240,6 +241,6 @@ Te tematy zawierają szczegółowe informacje na temat usługi Azure Data Factor
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

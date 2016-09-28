@@ -16,6 +16,7 @@
     ms.date="08/17/2016"
     ms.author="magoedte"/>
 
+
 # Uwierzytelnianie elementów Runbook przy użyciu konta Uruchom jako platformy Azure
 
 W tym temacie opisano, w jaki sposób można skonfigurować konto automatyzacji w portalu Azure za pomocą funkcji konta Uruchom jako, aby uwierzytelniać elementy Runbook zarządzające zasobami w usłudze Azure Resource Manager lub Azure Service Management.
@@ -388,6 +389,6 @@ Możesz skorzystać z podanego poniżej zaktualizowanego przykładowego kodu, po
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="07/25/2016"
     ms.author="spelluru"/>
 
+
 # Wdrażanie usługi Azure Data Catalog
 Ten artykuł pomoże rozpocząć wdrażanie usługi **Azure Data Catalog ** w organizacji. Aby pomyślnie wdrożyć usługę **Azure Data Catalog**, należy skoncentrować się na trzech kluczowych elementach: zdefiniowanie wizji, zidentyfikowanie najważniejszych przypadków użycia biznesowego w ramach organizacji i wybór projektu pilotażowego.
 
@@ -175,6 +176,6 @@ W tym artykule omówiono rozpoczynanie pracy z usługą **Azure Data Catalog** w
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

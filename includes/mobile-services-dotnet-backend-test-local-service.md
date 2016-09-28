@@ -7,7 +7,6 @@ Projekt usługi mobilnej umożliwia uruchamianie nowej usługi mobilnej lokalnie
 2. Naciśnij klawisz **F5**, aby ponownie skompilować projekt i uruchomić usługę mobilną lokalnie. Po pomyślnym uruchomieniu usługi mobilnej zostanie wyświetlona strona sieci Web.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

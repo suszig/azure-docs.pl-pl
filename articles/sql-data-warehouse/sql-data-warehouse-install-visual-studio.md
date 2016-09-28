@@ -16,6 +16,7 @@
    ms.date="08/16/2016"
    ms.author="sonyama;barbkess"/>
 
+
 # Instalacja programu Visual Studio 2015 i narzędzi SSDT dla usługi SQL Data Warehouse
 
 Do tworzenia aplikacji dotyczących usługi SQL Data Warehouse zalecamy używanie programu Visual Studio 2015 z najnowszą wersją narzędzi SQL Server Data Tools (SSDT).  W celu zapewnienia zgodności z poprzednimi wersjami możliwa jest również obsługa programu Visual Studio 2013 Update 5 z narzędziami SSDT.  
@@ -58,6 +59,6 @@ Teraz, kiedy masz najnowszą wersję narzędzi SSDT, możesz przystąpić do [na
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

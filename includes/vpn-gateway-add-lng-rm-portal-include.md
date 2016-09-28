@@ -17,7 +17,6 @@
 8. Kliknij przycisk **Utwórz**, aby utworzyć bramę sieci lokalnej.
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

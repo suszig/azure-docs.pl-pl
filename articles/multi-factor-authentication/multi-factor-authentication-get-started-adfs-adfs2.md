@@ -1,20 +1,21 @@
-<properties 
-    pageTitle="Zabezpieczanie zasobów w chmurze i zasobów lokalnych przy użyciu serwera usługi Azure Multi-Factor Authentication i usług AD FS 2.0" 
-    description="Ta strona dotyczy usługi Azure Multi-Factor Authentication i zawiera informacje umożliwiające rozpoczęcie korzystania z usługi Azure MFA i usług AD FS 2.0." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+<properties
+    pageTitle="Zabezpieczanie zasobów w chmurze i zasobów lokalnych przy użyciu serwera usługi Azure Multi-Factor Authentication i usług AD FS 2.0"
+    description="Ta strona dotyczy usługi Azure Multi-Factor Authentication i zawiera informacje umożliwiające rozpoczęcie korzystania z usługi Azure MFA i usług AD FS 2.0."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtland"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 # Zabezpieczanie zasobów w chmurze i zasobów lokalnych przy użyciu serwera usługi Azure Multi-Factor Authentication i usług AD FS 2.0
 
 Organizacje, które są sfederowane z użyciem usługi Azure Active Directory i korzystają z zasobów przechowywanych lokalnie lub w chmurze, mogą je zabezpieczyć za pomocą serwera usługi Azure Multi-Factor Authentication. W tym celu należy go skonfigurować pod kątem współdziałania z usługami AD FS, tak aby w przypadku punktów końcowych o wysokiej wartości było stosowane uwierzytelnianie wieloskładnikowe.
@@ -23,7 +24,7 @@ Ta dokumentacja dotyczy korzystania z serwera usługi Azure Multi-Factor Authent
 
 
 ## Serwer proxy usług AD FS 2.0
-Aby zabezpieczyć usługi AD FS 2.0 za pomocą serwera proxy, zainstaluj serwer usługi Azure Multi-Factor Authentication na serwerze proxy usług AD FS i skonfiguruj go, wykonując następujące czynności. 
+Aby zabezpieczyć usługi AD FS 2.0 za pomocą serwera proxy, zainstaluj serwer usługi Azure Multi-Factor Authentication na serwerze proxy usług AD FS i skonfiguruj go, wykonując następujące czynności.
 
 ### Aby zabezpieczyć usługi AD FS 2.0 przy użyciu serwera proxy
 
@@ -67,7 +68,7 @@ Aby zabezpieczyć usługi AD FS 2.0 za pomocą serwera proxy, zainstaluj serwer 
 
 ## Bezpośrednie używanie usług AD FS 2.0 bez serwera proxy
 
-Aby zabezpieczyć usługi AD FS bez używania serwera proxy, zainstaluj serwer usługi Azure Multi-Factor Authentication na serwerze usług AD FS i skonfiguruj go, wykonując następujące czynności. 
+Aby zabezpieczyć usługi AD FS bez używania serwera proxy, zainstaluj serwer usługi Azure Multi-Factor Authentication na serwerze usług AD FS i skonfiguruj go, wykonując następujące czynności.
 
 ### Aby zabezpieczyć usługi AD FS 2.0 bez serwera proxy
 1. Na serwerze usługi Azure Multi-Factor Authentication kliknij ikonę uwierzytelniania usług IIS w menu po lewej stronie.
@@ -85,7 +86,7 @@ Aby zabezpieczyć usługi AD FS bez używania serwera proxy, zainstaluj serwer u
 
 
 ## Zaufane adresy IP
-Zaufane adresy IP pozwalają użytkownikom pominąć uwierzytelnianie za pomocą usługi Azure Multi-Factor Authentication w przypadku żądań witryn sieci Web pochodzących z określonych adresów IP lub podsieci. Na przykład można wykluczyć użytkowników z uwierzytelniania za pomocą usługi Azure Multi-Factor Authentication, jeśli logują się oni z komputerów znajdujących się w biurze. W tym celu musisz dodać podsieć biurową do listy zaufanych adresów IP. 
+Zaufane adresy IP pozwalają użytkownikom pominąć uwierzytelnianie za pomocą usługi Azure Multi-Factor Authentication w przypadku żądań witryn sieci Web pochodzących z określonych adresów IP lub podsieci. Na przykład można wykluczyć użytkowników z uwierzytelniania za pomocą usługi Azure Multi-Factor Authentication, jeśli logują się oni z komputerów znajdujących się w biurze. W tym celu musisz dodać podsieć biurową do listy zaufanych adresów IP.
 
 ### Aby skonfigurować zaufane adresy IP
 
@@ -99,10 +100,8 @@ Zaufane adresy IP pozwalają użytkownikom pominąć uwierzytelnianie za pomocą
 <center>![Konfigurowanie
 ](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
 
- 
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -15,6 +15,7 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
+
 # Wdrażanie urządzenia wirtualnego StorSimple oraz zarządzanie nim na platformie Azure
 
 
@@ -283,6 +284,6 @@ W przypadku usunięcia lub wyłączenia urządzenia wirtualnego będzie ono wyś
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

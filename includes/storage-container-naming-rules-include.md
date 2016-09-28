@@ -1,4 +1,4 @@
-Każdy obiekt blob w magazynie Azure musi znajdować się w kontenerze. Kontener jest częścią nazwy obiektu blob. Na przykład `mycontainer` to nazwa kontenera w następujących przykładowych identyfikatorach URI obiektów blob:
+Każdy obiekt blob w usłudze Azure Storage musi znajdować się w kontenerze. Kontener jest częścią nazwy obiektu blob. Na przykład `mycontainer` to nazwa kontenera w następujących przykładowych identyfikatorach URI obiektów blob:
 
     https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
     https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
@@ -12,7 +12,6 @@ Nazwa kontenera musi być prawidłową nazwą DNS zgodną z następującymi zasa
 
 > [AZURE.IMPORTANT] Należy pamiętać, że nazwa kontenera może zawierać tylko małe litery. Jeśli w nazwie kontenera wystąpi wielka litera lub reguły nazewnictwa dotyczące kontenerów zostaną naruszone w inny sposób, może zostać wyświetlony błąd 400 (Nieprawidłowe żądanie). 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

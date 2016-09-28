@@ -15,6 +15,7 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
+
 # Tworzenie zapytań względem indeksu usługi Azure Search przy użyciu interfejsu API REST
 > [AZURE.SELECTOR]
 - [Omówienie](search-query-overview.md)
@@ -161,6 +162,6 @@ Aby dowiedzieć się więcej, przejdź do sekcji „Response” (Odpowiedź) w a
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

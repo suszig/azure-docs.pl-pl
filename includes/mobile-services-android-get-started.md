@@ -40,7 +40,6 @@ Aplikację można uruchomić przy użyciu emulatora lub rzeczywistego urządzeni
     ![](./media/mobile-services-android-get-started/mobile-data-browse.png)
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

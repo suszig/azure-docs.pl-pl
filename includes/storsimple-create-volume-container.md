@@ -13,7 +13,7 @@
   4. Wprowadź i potwierdź **klucz szyfrowania magazynu w chmurze** o długości od 8 do 32 znaków. Ten klucz jest używany przez urządzenie do uzyskiwania dostępu do zaszyfrowanych danych.
   5. Wybierz pozycję **Nieograniczona** z listy rozwijanej **Określ przepustowość**, jeśli chcesz wykorzystać całą dostępną przepustowość. Możesz również ustawić tę opcję na wartość **Niestandardowa**, aby stosować kontrolę przepustowości, i wybrać wartość z przedziału od 1 do 1000 Mb/s. 
   Jeśli masz informacje o użyciu przepustowości, możesz przydzielić przepustowość zgodnie z harmonogramem, określając wartość **Wybierz szablon przepustowości**. Aby zapoznać się z procedurą krok po kroku, przejdź do tematu dotyczącego [dodawania szablonu przepustowości](storsimple-manage-bandwidth-templates.md#add-a-bandwidth-template).
-  6. Kliknij ikonę znacznika wyboru, ![ikona znacznika wyboru](./media/storsimple-create-volume-container/HCS_CheckIcon-include.png) aby zapisać ten kontener woluminów i zamknąć kreatora. 
+  6. Po ustawieniu filtrów ![ikona znacznika wyboru](./media/storsimple-create-volume-container/HCS_CheckIcon-include.png) aby zapisać ten kontener woluminów i zamknąć kreatora. 
 
   Nowo utworzony wolumin kontenerów zostanie wymieniony na stronie **Kontenery woluminów**.
 
@@ -21,7 +21,6 @@
 
 Aby obejrzeć film wideo przedstawiający sposób tworzenia kontenera woluminów w rozwiązaniu StorSimple, kliknij [tutaj](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

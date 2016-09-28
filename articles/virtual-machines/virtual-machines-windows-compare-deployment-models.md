@@ -17,6 +17,7 @@
    ms.date="08/19/2015"
    ms.author="tomfitz"/>
 
+
 # Dostawcy zasobów obliczeniowych, sieci i usługi Storage platformy Azure dla aplikacji systemu Windows w modelu wdrażania przy użyciu usługi Azure Resource Manager
 
 Włączenie możliwości obliczeniowych, sieci i magazynu do modelu wdrażania przy użyciu usługi Azure Resource Manager znacznie uprości wdrażanie złożonych aplikacji działających w usłudze IaaS i zarządzanie nimi. Wiele aplikacji wymaga połączenia zasobów, w tym usługi Virtual Network, konta usługi Storage, maszyny wirtualnej i interfejsu sieciowego. Model wdrażania przy użyciu usługi Azure Resource Manager oferuje możliwość skonstruowania szablonu JSON w celu wdrożenia wszystkich tych zasobów i zarządzania nimi wspólnie, jako pojedynczą aplikacją.
@@ -25,6 +26,6 @@ Włączenie możliwości obliczeniowych, sieci i magazynu do modelu wdrażania p
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

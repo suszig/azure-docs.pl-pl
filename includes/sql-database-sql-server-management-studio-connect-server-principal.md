@@ -45,7 +45,6 @@ Problemy z połączeniem sieciowym także mogą powodować błędy połączeń i
 
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

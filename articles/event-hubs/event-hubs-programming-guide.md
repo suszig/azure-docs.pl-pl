@@ -15,6 +15,7 @@
     ms.date="08/16/2016"
     ms.author="sethm" />
 
+
 # Przewodnik programowania w usłudze Event Hubs
 
 W tym temacie opisano programowanie w usłudze Azure Event Hubs przy użyciu zestawu Azure SDK dla platformy .NET. Przyjęto założenie, że wstępnie znasz i rozumiesz usługę Event Hubs. Omówienie koncepcji usługi Event Hubs można znaleźć w temacie [Przegląd usługi Event Hubs](event-hubs-overview.md).
@@ -187,6 +188,6 @@ Aby dowiedzieć się więcej o scenariuszach usługi Event Hubs, skorzystaj z na
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

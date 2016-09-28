@@ -18,6 +18,7 @@
 
 
 
+
 # Co to jest usługa Azure Key Vault?
 
 Usługa Azure Key Vault jest dostępna w większości regionów. Aby uzyskać więcej informacji, zobacz stronę [Cennik usługi Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -69,6 +70,6 @@ Aby uzyskać więcej informacji na temat używania kluczy i kluczy tajnych w us�
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

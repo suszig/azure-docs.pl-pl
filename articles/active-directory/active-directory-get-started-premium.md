@@ -16,6 +16,7 @@
     ms.date="08/16/2016"
     ms.author="markvi"/>
 
+
 # Wprowadzenie do usługi Azure Active Directory — wersja Premium
 
 
@@ -164,6 +165,6 @@ Dostępność usług i funkcji dla usługi w chmurze firmy Microsoft jest zależ
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/29/2016"
+   ms.date="09/26/2016"
    ms.author="chmatsk;tomfitz"/>
+
 
 # Praca z szablonami usługi Azure Resource Manager w programie Visual Studio Code
 
@@ -138,6 +139,6 @@ Gdy szablon będzie gotowy, możesz wdrożyć nowe zasoby, postępując zgodnie 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -19,9 +19,9 @@
     ms.author="v-livech"
 />
 
+
 # Tworzenie maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu portalu
 
-> [AZURE.NOTE] Jeśli masz chwilę, pomóż nam ulepszyć dokumentację maszyn wirtualnych z systemem Linux na platformie Azure, wypełniając tę [krótką ankietę](https://aka.ms/linuxdocsurvey) dotyczącą Twoich doświadczeń. Każda odpowiedź pomoże nam ułatwić Ci pracę.
 
 W tym artykule przedstawiono sposób użycia [portalu Azure](https://portal.azure.com/) do szybkiego utworzenia maszyny wirtualnej z systemem Linux. Jedynymi wymogami są: [konto Azure](https://azure.microsoft.com/pricing/free-trial/) i [pliki publicznego i prywatnego klucza SSH](virtual-machines-linux-mac-create-ssh-keys.md).
 
@@ -81,6 +81,6 @@ Szybko utworzono maszynę wirtualną z systemem Linux na potrzeby testowania lub
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

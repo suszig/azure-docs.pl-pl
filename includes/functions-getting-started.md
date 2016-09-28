@@ -2,7 +2,6 @@ Azure Functions to oparte na zdarzeniach środowisko umożliwiające przeprowadz
 
 Ten film stanowi wprowadzenie przedstawiające sposób tworzenia aplikacji funkcji, modyfikowania kodu oraz prowadzenia interakcji z wyzwalaczami i powiązaniami.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/20/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte;sngun"/>
+
 
 # Kontrola dostępu oparta na rolach w usłudze Azure Automation
 
@@ -239,6 +240,6 @@ W powyższych przykładach **identyfikator logowania**, **identyfikator subskryp
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

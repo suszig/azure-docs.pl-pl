@@ -17,7 +17,6 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 - Utworzenie tożsamości urządzenia w centrum IoT.
 - Utworzenie symulowanego urządzenia, które wysyła telemetrię do zaplecza chmury i odbiera z niego polecenia.
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

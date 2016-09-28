@@ -17,7 +17,6 @@ To spowoduje wysłanie żądania POST do wdrożonego wcześniej zaplecza platfor
 [Azure Portal]: https://portal.azure.com/
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

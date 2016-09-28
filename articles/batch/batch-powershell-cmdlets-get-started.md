@@ -16,6 +16,7 @@
    ms.date="07/28/2016"
    ms.author="danlep"/>
 
+
 # Rozpoczęcie pracy z poleceniami cmdlet programu PowerShell w usłudze Azure Batch
 Za pomocą poleceń cmdlet PowerShell usługi Azure Batch można wykonywać oraz tworzyć skrypty dla wielu tych samych zadań, które wykonuje się za pomocą interfejsów API usługi Batch, witryny Azure Portal oraz interfejsu wiersza polecenia Azure (CLI). Oto krótkie wprowadzenie do poleceń cmdlet, których można używać do zarządzania kontami usługi Batch oraz pracy z zasobami usługi Batch, np. pulami i zadaniami. Informacje w tym artykule dotyczą poleceń cmdlet usługi Azure PowerShell w wersji 1.6.0.
 
@@ -169,6 +170,6 @@ Polecenia cmdlet usługi Batch mogą użyć potoku programu PowerShell do przesy
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

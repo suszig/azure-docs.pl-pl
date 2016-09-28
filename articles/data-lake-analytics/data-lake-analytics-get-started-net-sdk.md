@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -16,6 +16,7 @@
    ms.date="06/22/2016"
    ms.author="edmaca"/>
 
+
 # Samouczek: rozpoczynanie pracy z usługą Azure Data Lake Analytics przy użyciu zestawu SDK programu .NET
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -24,8 +25,6 @@
 Dowiedz się, jak używać zestawu Azure .NET SDK do tworzenia kont usługi Azure Data Lake Analytics, definiowania zadań usługi Data Lake Analytics w języku [U-SQL](data-lake-analytics-u-sql-get-started.md) i przesyłania zadań do kont usługi Data Lake Analytics. Więcej informacji na temat usługi Data Lake Analytics można znaleźć w artykule [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 W ramach tego samouczka utworzysz aplikację konsolową języka C# zawierającą skrypt U-SQL, która będzie odczytywać zawartość pliku z wartościami rozdzielonymi tabulatorami (TSV) i konwertować je do pliku z wartościami rozdzielanymi przecinkami (CSV). Aby wykonać kroki opisane w tym samouczku, korzystając z innych obsługiwanych narzędzi, kliknij odpowiednią kartę w górnej części tej sekcji.
-
-[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
 ##Wymagania wstępne
 
@@ -267,6 +266,6 @@ Przykładowy dziennik wyszukiwania został skopiowany do publicznego kontenera u
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

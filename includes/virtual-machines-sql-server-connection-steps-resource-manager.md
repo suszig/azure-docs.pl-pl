@@ -35,7 +35,6 @@ Aby utworzyć etykietę DNS, wybierz najpierw **maszyny wirtualne** w portalu. W
     ![nawiązywanie połączenia w programie ssms](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

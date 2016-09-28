@@ -25,7 +25,6 @@ Upewnij się, że masz już utworzoną przestrzeń nazw usługi Service Bus, jak
 [namespace-how-to]: ../articles/service-bus/service-bus-create-namespace-portal.md
 [azure-portal]: https://portal.azure.com
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

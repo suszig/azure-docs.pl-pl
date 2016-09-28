@@ -49,7 +49,6 @@ Jeśli połączenie bramy zostało już utworzone i chcesz dodać lub usunąć p
         -RoutingWeight 10 -SharedKey 'abc123'
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

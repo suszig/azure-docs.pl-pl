@@ -17,6 +17,7 @@
     ms.author="swkrish"/>
 
 
+
 # Azure Active Directory B2C: rejestrowanie aplikacji
 
 ## Wymagania wstępne
@@ -56,6 +57,6 @@ Po zarejestrowaniu aplikacji w usłudze Azure AD B2C możesz wykonać czynności
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

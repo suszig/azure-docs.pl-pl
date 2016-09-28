@@ -15,6 +15,7 @@
    ms.date="03/17/2016"
    ms.author="sewhee" />
 
+
 # Zarządzanie profilem usługi Azure Traffic Manager
 
 Profil usługi Traffic Manager służy do określania usług w chmurze lub punktów końcowych witryny sieci Web, które będą monitorowane przez usługę Traffic Manager oraz tego, jakie metody routingu ruchu mają być używane do dystrybucji połączeń z tych punktów końcowych.
@@ -86,6 +87,6 @@ Historię zmian profilu usługi Traffic Manager można wyświetlić w klasycznym
 [Rozwiązywanie problemów ze stanem obniżonej wydajności usługi Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

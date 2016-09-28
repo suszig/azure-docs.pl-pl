@@ -18,6 +18,7 @@
 
 
 
+
 # Jak wypróbować usługę Azure RemoteApp na swoim urządzeniu w nie więcej niż trzy minuty
 
 > [AZURE.IMPORTANT]
@@ -40,6 +41,6 @@ Zależy nam na Twojej opinii. Po zakończeniu każdej sesji pojawi się okno dia
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

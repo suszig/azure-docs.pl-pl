@@ -16,6 +16,7 @@
    ms.date="07/27/2016"
    ms.author="danlep"/>
 
+
 # Rozwiązania usługi Batch i HPC w chmurze Azure
 
 Platforma Azure oferuje wydajne, skalowalne rozwiązania w chmurze dla usługi Batch i obliczeń o wysokiej wydajności (HPC) — zwanych również *dużymi obliczeniami*. Informacje poniżej dotyczą obciążeń dużych obliczeń oraz usług Azure, w których są one obsługiwane. Można także przejść od razu do [scenariuszy rozwiązań](#scenarios) w dalszej części tego artykułu. Ten artykuł jest przeznaczony głównie dla osób podejmujących decyzje techniczne, menedżerów działu IT i niezależnych dostawców oprogramowania, ale z opisanymi tu rozwiązaniami mogą zapoznać się również inni specjaliści i deweloperzy IT.
@@ -159,6 +160,6 @@ Rozwiązanie funkcji dużych obliczeń może wymagać innych usług Azure do po�
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -15,6 +15,7 @@
     ms.date="11/17/2015"
     ms.author="awills"/>
 
+
 # Wysyłanie Diagnostyki Azure do usługi Application Insights przy użyciu programu PowerShell
 
 Platformę [Microsoft Azure](https://azure.com) można [skonfigurować do wysyłania Diagnostyki Azure](app-insights-azure-diagnostics.md) do usługi [Visual Studio Application Insights](app-insights-overview.md). Dane diagnostyczne są związane z usługami Azure Cloud Services i maszynami wirtualnymi platformy Azure. Uzupełniają one dane telemetryczne wysyłane z poziomu aplikacji za pomocą zestawu SDK usługi Application Insights. W ramach automatyzowania procesu tworzenia nowych zasobów platformy Azure można skonfigurować diagnostykę przy użyciu programu PowerShell.
@@ -120,6 +121,6 @@ Aby usunąć rozszerzenie diagnostyki z pojedynczej roli:
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

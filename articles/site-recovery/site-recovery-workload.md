@@ -16,6 +16,7 @@
     ms.date="07/06/2016" 
     ms.author="raynew"/>
 
+
 # Jakie obciążenia można chronić za pomocą usługi Azure Site Recovery?
 
 
@@ -152,6 +153,6 @@ Użyj usługi Site Recovery, aby zabezpieczyć wdrożenie SAP w następujący sp
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

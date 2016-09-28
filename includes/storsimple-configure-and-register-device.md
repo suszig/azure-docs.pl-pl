@@ -43,17 +43,17 @@
 
     ![Rejestrowanie urządzenia StorSimple 4](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice4-include.png)
 
-    Hasło do programu StorSimple Snapshot Manager można zresetować w interfejsie usługi Menedżer StorSimple. Szczegółowy opis kroków znajduje się w temacie [Zmienianie haseł usługi StorSimple przy użyciu usługi Menedżer StorSimple](../articles/storsimple/storsimple-change-passwords.md).
+    Hasło do programu StorSimple Snapshot Manager można zresetować w interfejsie usługi StorSimple Manager. Szczegółowy opis kroków znajduje się w temacie [Zmienianie haseł usługi StorSimple przy użyciu usługi StorSimple Manager](../articles/storsimple/storsimple-change-passwords.md).
 
     Aby rozwiązać problemy, które wystąpiły w tym kroku, zobacz wskazówki dotyczące rozwiązywania problemów w temacie [Błędy związane z hasłami](../articles/storsimple/storsimple-troubleshoot-deployment.md#errors-related-to-device-administrator-and-storsimple-snapshot-manager-passwords).
 
-11. W ostatnim kroku Kreatora instalacji wykonywana jest rejestracja urządzenia w usłudze Menedżer StorSimple. Do tego celu potrzebny jest klucz rejestracji usługi uzyskany w kroku 2. Po podaniu klucza rejestracji konieczne może być zaczekanie 2-3 minut, zanim urządzenie zostanie zarejestrowane.
+11. W ostatnim kroku Kreatora instalacji wykonywana jest rejestracja urządzenia w usłudze StorSimple Manager. Do tego celu potrzebny jest klucz rejestracji usługi uzyskany w kroku 2. Po podaniu klucza rejestracji konieczne może być zaczekanie 2-3 minut, zanim urządzenie zostanie zarejestrowane.
 
     Aby rozwiązać problemy związane z ewentualnymi błędami rejestracji urządzenia, zobacz temat [Błędy podczas rejestracji urządzenia](../articles/storsimple/storsimple-troubleshoot-deployment.md#errors-during-device-registration). Szczegółowe informacje dotyczące rozwiązywania problemów można również znaleźć w temacie [Przykład rozwiązywania problemów krok po kroku](../articles/storsimple/storsimple-troubleshoot-deployment.md#step-by-step-storsimple-troubleshooting-example).
 
 12. Po zarejestrowaniu urządzenia zostanie wyświetlony klucz szyfrowania danych usługi. Skopiuj ten klucz i zapisz go w bezpiecznym miejscu.
     
-    > [AZURE.WARNING] Ten klucz będzie wymagany razem z kluczem rejestracji usługi w celu rejestracji dodatkowych urządzeń w usłudze Menedżer StorSimple. Więcej informacji na temat tego klucza znajduje się w temacie [Zabezpieczenia usługi StorSimple](../articles/storsimple/storsimple-security.md).
+    > [AZURE.WARNING] Ten klucz będzie wymagany razem z kluczem rejestracji usługi w celu rejestracji dodatkowych urządzeń w usłudze StorSimple Manager. Więcej informacji na temat tego klucza znajduje się w temacie [Zabezpieczenia usługi StorSimple](../articles/storsimple/storsimple-security.md).
 
      ![Rejestrowanie urządzenia StorSimple 6](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice6-include.png)
 
@@ -62,7 +62,7 @@
 13. Zakończ działanie konsoli szeregowej.
 
 14. Wróć do klasycznego portalu Azure i wykonaj następujące czynności:
-  1. Kliknij dwukrotnie usługę Menedżer StorSimple, aby przejść do strony **Szybki Start**.
+  1. Kliknij dwukrotnie usługę StorSimple Manager, aby przejść do strony **Szybki Start**.
   2. Kliknij pozycję **View connected devices** (Wyświetl połączone urządzenia).
   3. Na stronie **Urządzenia** zweryfikuj, czy urządzenie pomyślnie nawiązało połączenie z usługą, sprawdzając jego stan. Urządzenie powinno mieć stan **Online**. Jeśli urządzenie ma stan **Offline**, zaczekaj kilka minut, aż urządzenie przejdzie do trybu online.
    
@@ -76,7 +76,6 @@ Jeśli urządzenie zostało pomyślnie zarejestrowane i nie przeszło do trybu o
 
 Aby obejrzeć film przedstawiający konfigurowanie i rejestrowanie urządzenia za pośrednictwem programu Windows PowerShell dla usługi StorSimple, kliknij [tutaj](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

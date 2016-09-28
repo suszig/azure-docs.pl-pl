@@ -16,6 +16,7 @@
     ms.date="08/01/2016"
     ms.author="tomfitz"/>
 
+
 # Dostosowywanie wyeksportowanego szablonu usługi Azure Resource Manager
 
 W tym artykule opisano sposób modyfikowania wyeksportowanego szablonu w celu przekazania dodatkowych wartości jako parametrów. Opiera się on na krokach wykonanych w artykule [Eksportowanie szablonu usługi Resource Manager](resource-manager-export-template.md), ale wykonanie w pierwszej kolejności czynności opisanych w tym artykule nie jest konieczne. Wymagany szablon oraz skrypty można znaleźć w tym artykule.
@@ -236,6 +237,6 @@ W tym artykule przedstawiono obie opcje.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

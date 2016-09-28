@@ -3,7 +3,7 @@
     description="Postępuj zgodnie z tym samouczkiem, aby rozpocząć korzystanie z usługi Azure Event Hubs w języku C# z wykorzystaniem klasy EventProcessorHost."
     services="event-hubs"
     documentationCenter=""
-    authors="fsautomata"
+    authors="jtaubensee"
     manager="timlt"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="08/19/2016"
-    ms.author="sethm"/>
+    ms.date="09/02/2016"
+    ms.author="jotaub;sethm"/>
+
 
 # Rozpoczynanie pracy z usługą Event Hubs
 
@@ -30,7 +31,7 @@ Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
 + [Program Microsoft Visual Studio](http://visualstudio.com)
 
-+ Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/free/).
++ Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/free/).
 
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
@@ -96,6 +97,6 @@ Teraz, gdy masz utworzoną działającą aplikację, która tworzy centrum zdarz
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

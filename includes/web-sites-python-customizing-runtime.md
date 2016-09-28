@@ -1,7 +1,7 @@
 Platforma Azure określa wersję języka Python dla swojego środowiska wirtualnego, stosując następuje priorytety:
 
 1. wersja określona w pliku runtime.txt w folderze głównym
-1. wersja określona przez ustawienie języka Python w konfiguracji aplikacji sieci Web (blok **Ustawienia** > **Ustawienia aplikacji** dla aplikacji sieci Web w portalu Azure)
+1. wersja określona przez ustawienie języka Python w konfiguracji aplikacji sieci Web (blok **Ustawienia** > **Ustawienia aplikacji** dla aplikacji sieci Web w witrynie Azure Portal)
 1. python-2.7 jest wartością domyślną, jeśli nie określono żadnej z powyższych wersji
 
 Prawidłowymi wartościami dla zawartości 
@@ -16,7 +16,6 @@ są:
 Jeśli wersja mikro (trzecia cyfra) jest określona, zostanie zignorowana.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

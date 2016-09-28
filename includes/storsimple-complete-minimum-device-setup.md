@@ -40,7 +40,6 @@
 
 Aby obejrzeć film przedstawiający sposób wykonywania minimalnej konfiguracji urządzenia, kliknij [tutaj](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

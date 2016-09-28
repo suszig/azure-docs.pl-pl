@@ -17,6 +17,7 @@
    ms.date="08/24/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
+
 # Tworzenie bazy danych w usłudze SQL Data Warehouse przy użyciu języka Transact-SQL (TSQL)
 
 > [AZURE.SELECTOR]
@@ -85,6 +86,6 @@ Po zakończeniu aprowizacji bazy danych usługi SQL Data Warehouse możesz przep
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

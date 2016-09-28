@@ -7,7 +7,6 @@
 3. Kliknij pozycję **Zamknij**.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.date="08/08/2016"
     ms.author="v-livech"/>
 
+
 # Tworzenie kluczy SSH w systemie Linux i na komputerach Mac dla maszyn wirtualnych systemu Linux platformy Azure
 
 Para kluczy SSH umożliwia tworzenie na platformie Azure maszyn wirtualnych, które domyślnie używają kluczy SSH do uwierzytelniania, eliminując konieczność logowania przy użyciu haseł.  Hasła można złamać i narażają one maszyny wirtualne na bezlitosne próby ataków siłowych w celu odgadnięcia hasła. Maszyny wirtualne tworzone za pomocą szablonów platformy Azure lub interfejsu `azure-cli` mogą mieć dołączony publiczny klucz SSH w ramach wdrożenia, eliminując potrzebę konfiguracji po wdrożeniu.  Jeśli łączysz się z maszyną wirtualną z systemem Linux z poziomu systemu Windows, zobacz [ten dokument.](virtual-machines-linux-ssh-from-windows.md)
@@ -245,6 +246,6 @@ W dalszej kolejności należy utworzyć maszyny wirtualne systemu Linux platform
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

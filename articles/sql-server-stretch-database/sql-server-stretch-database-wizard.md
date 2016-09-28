@@ -16,6 +16,7 @@
     ms.date="08/05/2016"
     ms.author="douglasl"/>
 
+
 # Rozpoczynanie pracy przez uruchomienie kreatora włączania bazy danych Stretch
 
 Aby skonfigurować bazę danych dla bazy danych Stretch, uruchom kreatora włączania bazy danych Stretch.  W tym temacie opisano informacje, które należy wprowadzić, oraz decyzje, które należy podjąć w kreatorze.
@@ -196,6 +197,6 @@ Włącz dodatkowe tabele dla bazy danych Stretch. Monitoruj migrację danych i z
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

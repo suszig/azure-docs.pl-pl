@@ -1,32 +1,33 @@
-<properties 
-    pageTitle="Wprowadzenie do dostawcy usługi Microsoft Azure Multi-Factor Authentication" 
-    description="Dowiedz się, jak utworzyć dostawcę usługi Azure Multi-Factor Authentication." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+<properties
+    pageTitle="Wprowadzenie do dostawcy usługi Microsoft Azure Multi-Factor Authentication"
+    description="Dowiedz się, jak utworzyć dostawcę usługi Azure Multi-Factor Authentication."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 
 
 
 # Wprowadzenie do dostawcy usługi Azure Multi-Factor Authentication
-Uwierzytelnianie wieloskładnikowe jest domyślnie dostępne dla administratorów globalnych, którzy zarządzają użytkownikami usług Azure Active Directory i Office 365. Jednak jeśli chcesz korzystać z [funkcji zaawansowanych](multi-factor-authentication-whats-next.md), musisz kupić pełną wersję usługi Azure MFA. 
+Uwierzytelnianie wieloskładnikowe jest domyślnie dostępne dla administratorów globalnych, którzy zarządzają użytkownikami usług Azure Active Directory i Office 365. Jednak jeśli chcesz korzystać z [funkcji zaawansowanych](multi-factor-authentication-whats-next.md), musisz kupić pełną wersję usługi Azure MFA.
 
-> [AZURE.NOTE]  Funkcje oferowane w pełnej wersji usługi Azure MFA są dostępne za pośrednictwem dostawcy usługi Azure Multi-Factor Authentication. Jest on przeznaczony dla użytkowników, którzy **nie mają licencji usługi Azure MFA lub usługi Azure AD w wersji Premium ani licencji pakietu EMS**.  Usługa Azure MFA, usługa Azure AD w wersja Premium oraz pakiet EMS domyślnie zawierają pełną wersję usługi Azure MFA.  Jeśli masz te licencje, nie potrzebujesz dostawcy usługi Azure Multi-Factor Authentication. 
+> [AZURE.NOTE]  Funkcje oferowane w pełnej wersji usługi Azure MFA są dostępne za pośrednictwem dostawcy usługi Azure Multi-Factor Authentication. Jest on przeznaczony dla użytkowników, którzy **nie mają licencji usługi Azure MFA lub usługi Azure AD w wersji Premium ani licencji pakietu EMS**.  Usługa Azure MFA, usługa Azure AD w wersja Premium oraz pakiet EMS domyślnie zawierają pełną wersję usługi Azure MFA.  Jeśli masz te licencje, nie potrzebujesz dostawcy usługi Azure Multi-Factor Authentication.
 
 Dostawca usługi Azure Multi-Factor Auth jest wymagany, jeśli chcesz pobrać zestaw SDK.
 
 > [AZURE.IMPORTANT]  Jeśli chcesz pobrać zestaw SDK, musisz utworzyć dostawcę usługi Azure Multi-Factor Auth, nawet jeśli masz licencje usług Azure MFA, AAD Premium lub EMS.  Jeśli tworzysz w tym celu dostawcę usługi Azure Multi-Factor Auth i masz już licencje, musisz utworzyć dostawcę za pomocą modelu **Na włączonego użytkownika** oraz link do katalogu zawierającego licencje usług Azure MFA, Azure AD Premium lub EMS.  Dzięki temu nie będziesz ponosić dodatkowych kosztów, chyba że liczba unikatowych użytkowników korzystających z zestawu SDK przekroczy posiadaną przez Ciebie liczbę licencji.
- 
+
 Aby utworzyć dostawcę usługi Azure Multi-Factor Authentication, postępuj zgodnie z poniższymi instrukcjami.
 
 ## Aby utworzyć dostawcę usługi Multi-Factor Authentication
@@ -50,13 +51,13 @@ Aby utworzyć dostawcę usługi Azure Multi-Factor Authentication, postępuj zgo
     2. **Katalog** — dzierżawa usługi Azure Active Directory, z którą jest skojarzony dostawca usługi Multi-Factor Authentication. Należy pamiętać o następujących kwestiach:
         - Do utworzenia dostawcy usługi Multi-Factor Authentication nie jest potrzebny katalog usługi Azure AD.  Jeśli zamierzasz używać tylko serwera usługi Azure Multi-Factor Authentication lub zestawu SDK, po prostu pozostaw to pole puste.
         - Aby móc korzystać z zaawansowanych funkcji, dostawca usługi Multi-Factor Auth musi być skojarzony z katalogiem usługi Azure AD.
-        - Narzędzia Azure AD Connect, AAD Sync lub DirSync są wymagane tylko w przypadku synchronizowania lokalnego środowiska usługi Active Directory z katalogiem usługi Azure AD.  Jeśli używasz jedynie niesynchronizowanego katalogu usługi Azure AD, nie będą potrzebne. 
-![Tworzenie dostawcy usługi MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)    
+        - Narzędzia Azure AD Connect, AAD Sync lub DirSync są wymagane tylko w przypadku synchronizowania lokalnego środowiska usługi Active Directory z katalogiem usługi Azure AD.  Jeśli używasz jedynie niesynchronizowanego katalogu usługi Azure AD, nie będą potrzebne.
+![Tworzenie dostawcy usługi MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
 5. Po kliknięciu pozycji Utwórz zostanie utworzony dostawca usługi Multi-Factor Authentication i pojawi się komunikat: **Pomyślnie utworzono dostawcę usługi Multi-Factor Authentication**. Kliknij przycisk **OK**.
-![Tworzenie dostawcy usługi MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)    
+![Tworzenie dostawcy usługi MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

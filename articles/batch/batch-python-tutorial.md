@@ -13,8 +13,9 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-compute"
-    ms.date="08/17/2016"
+    ms.date="09/08/2016"
     ms.author="marsma"/>
+
 
 # Wprowadzenie do klienta usługi Azure Batch dla środowiska Python
 
@@ -23,8 +24,6 @@
 - [Python](batch-python-tutorial.md)
 
 Artykuł zawiera podstawowe informacje dotyczące usługi [Azure Batch][azure_batch] i klienta usługi [Batch dla środowiska Python][py_azure_sdk] w oparciu o omówienie małej aplikacji usługi Batch napisanej w języku Python. Pokazano, jak dwa przykładowe skrypty używają usługi Batch do przetwarzania równoległego obciążenia na maszynach wirtualnych z systemem Linux w chmurze, a także jak wchodzą w interakcję z usługą [Azure Storage](./../storage/storage-introduction.md) w celu przygotowania i pobrania plików. Przedstawiono tu typowy przepływ pracy w aplikacji usługi Batch oraz wyjaśniono podstawowe zagadnienia dotyczące najważniejszych składników usługi Batch, np. zadań, podzadań, pul i węzłów obliczeniowych.
-
-> [AZURE.NOTE] Obsługa systemu Linux w usłudze Batch jest obecnie w wersji zapoznawczej. Niektóre cechy omawianej tutaj funkcji mogą ulec zmianie, zanim stanie się ona ogólnie dostępna. [Pakiety aplikacji](batch-application-packages.md) są **obecnie nieobsługiwane** w węzłach obliczeniowych z systemem Linux.
 
 ![Przepływ pracy w usłudze Batch (podstawowy)][11]<br/>
 
@@ -680,6 +679,6 @@ Po zapoznaniu się z podstawowym przepływem pracy rozwiązania usługi Batch na
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -29,7 +29,6 @@ Czy istnieją jakieś szczegóły dotyczące Twojego rozwiązania, które nie s�
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-faq.md
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -27,7 +27,6 @@ Można ponownie użyć wstępnie zdefiniowanych szablonów ARM przesłanych do o
 
     ![Tworzenie sieci wirtualnej w portalu w wersji zapoznawczej](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

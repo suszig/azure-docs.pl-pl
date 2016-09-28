@@ -14,7 +14,6 @@ Aby pobrać klucze dostępu, kliknij opcję **Klucze dostępu**.
 
 ![Klucze dostępu pamięci podręcznej Redis](media/redis-cache-access-keys/redis-cache-access-keys.png)
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

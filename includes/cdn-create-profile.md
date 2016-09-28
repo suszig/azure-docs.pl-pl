@@ -20,7 +20,6 @@
 
 7. Kliknij przycisk **Utwórz**, aby utworzyć nowy profil. 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

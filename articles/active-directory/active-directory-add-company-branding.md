@@ -16,6 +16,7 @@
     ms.date="07/13/2016"
     ms.author="MarkVi"/>
 
+
 # Dodawanie znakowania firmowego do stron logowania i panelu dostępu
 
 
@@ -222,6 +223,6 @@ Kolor tła strony logowania | Kolor tła strony logowania jest używany w obszar
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

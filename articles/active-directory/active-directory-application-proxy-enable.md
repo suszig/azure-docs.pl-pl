@@ -16,6 +16,7 @@
     ms.date="07/19/2016"
     ms.author="kgremban"/>
 
+
 # Włączanie serwera proxy aplikacji w witrynie Azure Portal
 
 W tym artykule przedstawiono procedurę włączania serwera proxy aplikacji usługi Microsoft Azure AD dla katalogu w chmurze w ramach usługi Azure AD.
@@ -92,6 +93,6 @@ Jeśli masz aplikacje znajdujące się w oddzielnych sieciach lub w różnych lo
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
    ms.date="08/25/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
+
 # Tworzenie bazy danych w usłudze SQL Data Warehouse przy użyciu programu PowerShell
 
 > [AZURE.SELECTOR]
@@ -109,6 +110,6 @@ Jeśli bardziej interesujesz się programistycznym zarządzaniem usługą SQL Da
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 
