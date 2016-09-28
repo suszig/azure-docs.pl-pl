@@ -37,7 +37,7 @@ Te same czynności można wykonać, używając języka [C#](sql-database-get-sta
 
 <a name="create-logical-server-bk"></a>
 
-## Tworzenie pierwszej bazy danych SQL na platformie Azure 
+## Tworzenie pierwszej bazy danych SQL na platformie Azure
 
 1. Połącz się z [witryną Azure Portal](http://portal.azure.com), jeśli połączenie nie zostało nawiązane już wcześniej.
 2. Kliknij **Nowy**, kliknij **Dane i magazyn**, a następnie znajdź opcję **Baza danych SQL**.
@@ -76,7 +76,7 @@ Te same czynności można wykonać, używając języka [C#](sql-database-get-sta
 11. W polu tekstowym **Nazwa serwera** podaj nazwę pierwszego serwera — np. „mój_nowy_obiekt_serwera”. Zielony znacznik wyboru wskazuje, czy podana nazwa jest poprawna.
 
     ![Nowa baza danych SQL 9](./media/sql-database-get-started/sql-database-new-database-9.png)
- 
+
 12. W obszarze **Logowanie administratora serwera** podaj nazwę użytkownika w celu logowania się jako administrator — np. „moje_konto_administratora”. Ta nazwa logowania jest nazywana główną nazwą logowania serwera. Zielony znacznik wyboru wskazuje, czy podana nazwa jest poprawna.
 
     ![Nowa baza danych SQL 10](./media/sql-database-get-started/sql-database-new-database-10.png)
@@ -84,7 +84,7 @@ Te same czynności można wykonać, używając języka [C#](sql-database-get-sta
 13. W obszarze **Hasło** i **Potwierdź hasło** podaj hasło do głównego konta logowania serwera, na przykład „p@ssw0rd1”. Zielony znacznik wyboru wskazuje, czy podane hasło jest poprawne.
 
     ![Nowa baza danych SQL 11](./media/sql-database-get-started/sql-database-new-database-11.png)
- 
+
 14. W obszarze **Lokalizacja** wybierz centrum danych odpowiednie dla danej lokalizacji — np. „Australia Wschodnia”.
 
     ![Nowa baza danych SQL 12](./media/sql-database-get-started/sql-database-new-database-12.png)
@@ -139,6 +139,4 @@ Po ukończeniu tego samouczka usługi SQL Database i utworzeniu bazy danych z pr
 
 
 
-<!--HONumber=sep12_HO2-->
-
-
+<!---HONumber=sep12_HO2-->
