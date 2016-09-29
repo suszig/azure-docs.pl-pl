@@ -13,8 +13,9 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="vm-windows-sql-server"
     ms.workload="infrastructure-services"
-    ms.date="06/21/2016"
+    ms.date="09/20/2016"
     ms.author="jroth" />
+
 
 # Aprowizowanie maszyny wirtualnej programu SQL Server w Portalu Azure
 
@@ -125,6 +126,7 @@ W bloku **Ustawienia programu SQL Server** skonfiguruj określone ustawienia i o
 | [Automatyczne stosowanie poprawek](#automated-patching) |
 | [Automatyczne usługa Backup](#automated-backup)             |
 | [Integracja magazynu kluczy Azure](#azure-key-vault-integration)             |
+| [Usługi języka R](#r-services) |
 
 ### Łączność
 W obszarze **Łączność z serwerem SQL** określ żądany typ dostępu do wystąpienia programu SQL Server na tej maszynie wirtualnej. Na potrzeby tego samouczka wybierz pozycję **Publiczne (Internet)**, aby zezwolić na połączenia z programem SQL Server z komputerów lub usług w Internecie. Jeśli ta opcja zostanie wybrana, platforma Azure automatycznie skonfiguruje zaporę i sieciową grupę zabezpieczeń do zezwalania na ruch przez port 1433.  
@@ -141,6 +143,8 @@ Jeśli nie chcesz zezwolić na połączenia z aparatem bazy danych za pośrednic
 - **Prywatne (wewnątrz usługi Virtual Network)**, aby zezwolić na połączenia z programem SQL Server tylko z maszyn wirtualnych lub usług w tej samej sieci wirtualnej.
 
 Ogólnie rzecz biorąc, można ulepszyć zabezpieczenia, wybierając łączność z najbardziej restrykcyjnymi ograniczeniami akceptowanymi w danym scenariuszu. Jednak wszystkie opcje można zabezpieczyć przy użyciu reguł sieciowej grupy zabezpieczeń i uwierzytelniania SQL/Windows.
+
+>[AZURE.NOTE] W obrazach maszyn wirtualnych programu SQL Server w wersji Express lub Developer protokół TCP/IP nie jest domyślnie włączony. Uniemożliwia to łączność zdalną, nawet jeśli wybrano połączenie Publiczne lub Prywatne w portalu. W przypadku wersji Express i Developer należy [ręcznie włączyć protokół TCP/IP](virtual-machines-windows-sql-connect.md#configure-sql-server-to-listen-on-the-tcp-protocol) po utworzeniu maszyny wirtualnej przy użyciu Menedżera konfiguracji programu SQL Server.
 
 Domyślnie wybierane jest ustawienie **Port** 1433. Możesz określić inny numer portu.
 Aby uzyskać więcej informacji, zobacz [Connect to a SQL Server Virtual Machine (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md) (Ustanawianie połączenia z maszyną wirtualną programu SQL Server (usługa Resource Manager) | Microsoft Azure).
@@ -178,7 +182,7 @@ Opcja **Automatyczne stosowanie poprawek** jest domyślnie włączona. Automatyc
 
 ![Automatyczne stosowanie poprawek SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
 
-Aby uzyskać więcej informacji, zobacz [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-patching.md) (Automatyczne stosowanie poprawek programu SQL Server w usłudze Azure Virtual Machines).
+Aby uzyskać więcej informacji, zobacz [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-patching.md) (Automatyczne stosowanie poprawek programu SQL Server w usłudze Azure Virtual Machines).
 
 ### Automatyczne kopie zapasowe
 Automatyczną obsługę kopii zapasowych baz danych możesz włączyć dla wszystkich baz danych w obszarze **Automatyczne tworzenie kopii zapasowych**. Opcja Automatyczne kopie zapasowe jest domyślnie wyłączona.
@@ -193,7 +197,7 @@ Aby szyfrować kopie zapasowe, kliknij pozycję **Włącz**. Następnie określ 
 
 ![Automatyczna usługa Backup SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
 
- Aby uzyskać więcej informacji, zobacz [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-backup.md) (Automatyczne tworzenie kopii zapasowych dla programu SQL Server w usłudze Azure Virtual Machines).
+ Aby uzyskać więcej informacji, zobacz [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md) (Automatyczne tworzenie kopii zapasowych dla programu SQL Server w usłudze Azure Virtual Machines).
 
 ### Integracja magazynu kluczy Azure
 Aby przechowywać klucze tajne zabezpieczeń do szyfrowania na platformie Azure, kliknij pozycję **Integracja usługi Azure Key Vault**, a następnie kliknij pozycję **Włącz**.
@@ -209,9 +213,16 @@ Poniższa tabela zawiera listę parametrów wymaganych do skonfigurowania integr
 | **Główny klucz tajny**|Główny klucz tajny usługi Azure Active Directory. Ten klucz tajny jest również nazywany kluczem tajnym klienta. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
 |**Nazwa poświadczenia**|**Nazwa poświadczenia**: integracja usługi Azure Key Vault powoduje utworzenie poświadczenia w programie SQL Server, co umożliwia maszynie wirtualnej dostęp do magazynu kluczy. Wybierz nazwę tego poświadczenia.| moje_poświadczenie_1|
 
-Aby uzyskać więcej informacji, zobacz [Configure Azure Key Vault Integration for SQL Server on Azure VMs](virtual-machines-windows-classic-ps-sql-keyvault.md) (Konfigurowanie integracji usługi Azure Key Vault dla programu SQL Server na maszynach wirtualnych Azure).
+Aby uzyskać więcej informacji, zobacz [Configure Azure Key Vault Integration for SQL Server on Azure VMs](virtual-machines-windows-ps-sql-keyvault.md) (Konfigurowanie integracji usługi Azure Key Vault dla programu SQL Server na maszynach wirtualnych Azure).
 
 Po zakończeniu konfigurowania tych ustawień programu SQL Server kliknij pozycję **OK**.
+
+### Usługi języka R
+W wersji SQL Server 2016 Enterprise można włączyć [usługi języka R programu SQL Server](https://msdn.microsoft.com/library/mt604845.aspx). Umożliwia to korzystanie z zaawansowanych funkcji analizy za pomocą programu SQL Server 2016. Kliknij pozycję **Włącz** w bloku **Ustawienia programu SQL Server**.
+
+![Włączanie usług języka R programu SQL Server](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
+
+>[AZURE.NOTE] W przypadku obrazów programu SQL Server w wersji innej niż 2016 Enterprise opcja włączania usług języka R jest wyłączona.
 
 ## 5. Przeglądanie podsumowania
 W bloku **Podsumowanie** przejrzyj podsumowanie i kliknij pozycję **OK**, aby utworzyć wystąpienie programu SQL Server, grupę zasobów i zasoby określone dla tej maszyny wirtualnej.
@@ -257,6 +268,6 @@ Obejrzyj film poglądowy dotyczący programu SQL Server w usłudze Azure Virtual
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

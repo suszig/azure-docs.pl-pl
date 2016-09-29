@@ -13,7 +13,8 @@
     ms.devlang="dotnet"
     ms.topic="hero-article"
     ms.date="07/26/2016"
-    ms.author="minet" />
+    ms.author="minet;robinsh" />
+
 
 # Rozpoczynanie pracy z Magazynem plików Azure w systemie Windows
 
@@ -27,7 +28,7 @@ Azure File Storage to usługa, która umożliwia korzystanie z udziałów plikó
 
 Ponieważ udział Magazynu plików to standardowy udział plików SMB, aplikacje działające na platformie Azure mają dostęp do danych w udziale za pośrednictwem interfejsów API we/wy systemu plików. Dzięki temu programiści mogą wykorzystać istniejący kod i własne umiejętności, aby zmigrować istniejące aplikacje. Specjaliści IT mogą użyć poleceń cmdlet programu PowerShell do tworzenia i instalowania udziałów magazynu plików oraz do zarządzania nimi w ramach administracji aplikacjami platformy Azure.
 
-Udziały plików platformy Azure można tworzyć przy użyciu witryny [Azure Portal](https://portal.azure.com), poleceń cmdlet programu PowerShell usługi Azure Storage, bibliotek klienckich usługi Azure Storage lub interfejsu API REST usługi Azure Storage. Ponadto ponieważ te udziały plików są udziałami SMB, można z nich korzystać za pośrednictwem standardowych i znanych interfejsów API systemu plików. 
+Udziały plików platformy Azure można tworzyć przy użyciu witryny [Azure Portal](https://portal.azure.com), poleceń cmdlet programu PowerShell usługi Azure Storage, bibliotek klienckich usługi Azure Storage lub interfejsu API REST usługi Azure Storage. Ponadto ponieważ te udziały plików są udziałami SMB, można z nich korzystać za pośrednictwem standardowych i znanych interfejsów API systemu plików.
 
 Aby uzyskać informacje na temat używania usługi File Storage w systemie Linux, zobacz [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md) (Jak korzystać z usługi Azure File Storage w systemie Linux).
 
@@ -67,7 +68,7 @@ Udziałami plików można zarządzać z poziomu interfejsu użytkownika w witryn
 - Przekazywanie i pobieranie plików do i z udziału plików
 - Monitorowanie rzeczywistego użycia każdego udziału plików
 - Dostosowywanie limitu przydziału rozmiaru udziału
-- Instalowanie udziału plików z poziomu klienta systemu Windows za pomocą polecenia `net use` 
+- Instalowanie udziału plików z poziomu klienta systemu Windows za pomocą polecenia `net use`
 
 ### Tworzenie udziału plików
 
@@ -85,7 +86,7 @@ Udziałami plików można zarządzać z poziomu interfejsu użytkownika w witryn
 
     ![Zrzut ekranu pokazujący sposób tworzenia udziału plików w portalu](./media/storage-dotnet-how-to-use-files/files-create-share-2.png)
 
-5. Kliknij pozycję „Udziały plików”, a następnie kliknij link w celu utworzenia pierwszego udziału plików. 
+5. Kliknij pozycję „Udziały plików”, a następnie kliknij link w celu utworzenia pierwszego udziału plików.
 
     ![Zrzut ekranu pokazujący sposób tworzenia udziału plików w portalu](./media/storage-dotnet-how-to-use-files/files-create-share-3.png)
 
@@ -119,7 +120,7 @@ Udziałami plików można zarządzać z poziomu interfejsu użytkownika w witryn
 
     ![Zrzut ekranu pokazujący sposób instalacji udziału plików](./media/storage-dotnet-how-to-use-files/files-manage-3.png)
 
-    >[AZURE.TIP] Aby znaleźć klucz dostępu do konta magazynu na potrzeby instalacji, kliknij przycisk **Ustawienia** w sekcji konta magazynu, a następnie kliknij pozycję **Klucze dostępu**. 
+    >[AZURE.TIP] Aby znaleźć klucz dostępu do konta magazynu na potrzeby instalacji, kliknij przycisk **Ustawienia** w sekcji konta magazynu, a następnie kliknij pozycję **Klucze dostępu**.
 
     ![Zrzut ekranu pokazujący, gdzie znaleźć klucz dostępu do konta magazynu](./media/storage-dotnet-how-to-use-files/files-manage-4.png)
 
@@ -191,18 +192,18 @@ Począwszy od wersji 0.9.7 programu Azure PowerShell, można kopiować pliki do 
     # copy a blob to a file directory
     Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 
-## Instalowanie udziału plików 
+## Instalowanie udziału plików
 
-Po dodaniu obsługi protokołu SMB 3.0 usługa Magazyn plików obsługuje teraz szyfrowanie i dojścia stałe od klientów protokołu SMB 3.0. Obsługa szyfrowania oznacza, że klienci protokołu SMB 3.0 mogą zainstalować udział plików z dowolnego miejsca, takiego jak: 
+Po dodaniu obsługi protokołu SMB 3.0 usługa Magazyn plików obsługuje teraz szyfrowanie i dojścia stałe od klientów protokołu SMB 3.0. Obsługa szyfrowania oznacza, że klienci protokołu SMB 3.0 mogą zainstalować udział plików z dowolnego miejsca, takiego jak:
 
 - Maszyna wirtualna platformy Azure w tym samym regionie (również obsługiwana przez protokół SMB 2.1)
 - Maszyna wirtualna platformy Azure w innym regionie (tylko protokół SMB 3.0)
-- Lokalna aplikacja kliencka (tylko protokół SMB 3.0) 
+- Lokalna aplikacja kliencka (tylko protokół SMB 3.0)
 
 Gdy klient uzyskuje dostęp do usługi Magazyn plików, używana wersja protokołu SMB zależy od wersji protokołu SMB obsługiwanej przez system operacyjny. Poniższa tabela zawiera podsumowanie obsługi protokołu SMB dla klientów systemu Windows. Więcej szczegółów na temat [wersji protokołu SMB](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx) zawiera ten blog.
 
 | Klient systemu Windows         | Obsługiwana wersja protokołu SMB |
-|------------------------|-----------------------|
+|:-----------------------|:----------------------|
 | Windows 7              | SMB 2.1               |
 | Windows Server 2008 R2 | SMB 2.1               |
 | Windows 8              | SMB 3.0               |
@@ -249,12 +250,12 @@ Teraz możesz pracować z udziałem usługi File Storage z poziomu maszyny wirtu
 
 Udział plików można również zainstalować z poziomu roli uruchomionej w usłudze w chmurze na platformie Azure, łącząc się z tą rolą zdalnie.
 
-### Instalowanie udziału plików z klienta lokalnego z systemem Windows 
+### Instalowanie udziału plików z klienta lokalnego z systemem Windows
 
 Aby zainstalować udział plików z klienta lokalnego, musisz najpierw wykonać następujące czynności:
 
-- Zainstaluj wersję systemu Windows, która obsługuje protokół SMB 3.0. System Windows będzie korzystać z szyfrowania w protokole SMB 3.0 do bezpiecznego transferu danych między klientem lokalnym a udziałem plików na platformie Azure w chmurze. 
-- Otwórz dostęp do Internetu przez port 445 (dla ruchu wychodzącego TCP) w sieci lokalnej zgodnie z wymaganiami protokołu SMB. 
+- Zainstaluj wersję systemu Windows, która obsługuje protokół SMB 3.0. System Windows będzie korzystać z szyfrowania w protokole SMB 3.0 do bezpiecznego transferu danych między klientem lokalnym a udziałem plików na platformie Azure w chmurze.
+- Otwórz dostęp do Internetu przez port 445 (dla ruchu wychodzącego TCP) w sieci lokalnej zgodnie z wymaganiami protokołu SMB.
 
 > [AZURE.NOTE] Niektórzy usługodawcy internetowi mogą blokować port 445 — może więc być konieczny kontakt z usługodawcą.
 
@@ -270,7 +271,7 @@ Aby utworzyć nową aplikację konsolową w programie Visual Studio i zainstalow
 2. Podaj nazwę aplikacji konsolowej, a następnie kliknij przycisk **OK**.
 3. Po utworzeniu projektu kliknij go prawym przyciskiem myszy w Eksploratorze rozwiązań i wybierz polecenie **Zarządzaj pakietami NuGet**. Wyszukaj w trybie online ciąg „WindowsAzure.Storage”, a następnie kliknij przycisk **Zainstaluj**, aby zainstalować pakiet i zależności biblioteki klienta usługi Azure Storage dla programu .NET.
 
-W przykładach kodu w tym artykule jest także używana [biblioteka programu Microsoft Azure Configuration Manager](https://msdn.microsoft.com/library/azure/mt634646.aspx), za pomocą której z pliku app.config aplikacji konsolowej pobierane są parametry połączenia magazynu. Program Azure Configuration Manager umożliwia pobranie parametrów połączenia w środowisku uruchomieniowym niezależnie od tego, czy aplikacja działa na platformie Microsoft Azure, na komputerze, urządzeniu przenośnym czy w sieci Web. 
+W przykładach kodu w tym artykule jest także używana [biblioteka programu Microsoft Azure Configuration Manager](https://msdn.microsoft.com/library/azure/mt634646.aspx), za pomocą której z pliku app.config aplikacji konsolowej pobierane są parametry połączenia magazynu. Program Azure Configuration Manager umożliwia pobranie parametrów połączenia w środowisku uruchomieniowym niezależnie od tego, czy aplikacja działa na platformie Microsoft Azure, na komputerze, urządzeniu przenośnym czy w sieci Web.
 
 Aby zainstalować pakiet programu Azure Configuration Manager, kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań i wybierz polecenie **Zarządzaj pakietami NuGet**. Wyszukaj w trybie online ciąg „ConfigurationManager” i kliknij przycisk **Zainstaluj**, aby zainstalować pakiet.
 
@@ -424,7 +425,7 @@ W poniższym przykładzie tworzone są zasady dostępu współdzielonego w udzia
         Console.WriteLine(fileSas.DownloadText());
     }
 
-Aby uzyskać więcej informacji na temat tworzenia i używania sygnatur dostępu współdzielonego, zobacz [Shared Access Signatures: Understanding the SAS model](storage-dotnet-shared-access-signature-part-1.md) (Sygnatury dostępu współdzielonego: opis modelu sygnatur dostępu współdzielonego) oraz [Create and use a SAS with Blob storage](storage-dotnet-shared-access-signature-part-2.md) (Tworzenie i używanie sygnatury dostępu współdzielonego w Magazynie obiektów Blob).
+Aby uzyskać więcej informacji na temat tworzenia i używania sygnatur dostępu współdzielonego, zobacz [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Używanie sygnatur dostępu współdzielonego (SAS)) oraz [Create and use a SAS with Blob storage](storage-dotnet-shared-access-signature-part-2.md) (Tworzenie i używanie sygnatury dostępu współdzielonego w Magazynie obiektów Blob).
 
 ### Kopiowanie plików
 
@@ -540,7 +541,7 @@ Najpierw dodaj następujące instrukcje `using` do pliku program.cs (oprócz tyc
     using Microsoft.WindowsAzure.Storage.File.Protocol;
     using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 
-Zwróć uwagę, że usługi Blob Storage, Table Storage i Queue Storage używają wspólnie typu `ServiceProperties` w przestrzeni nazw `Microsoft.WindowsAzure.Storage.Shared.Protocol`, natomiast usługa File Storage ma swój własny typ `FileServiceProperties` w przestrzeni nazw `Microsoft.WindowsAzure.Storage.File.Protocol`. Jednak aby można było skompilować poniższy kod, musi on zawierać odwołania do obu tych przestrzeni nazw. 
+Zwróć uwagę, że usługi Blob Storage, Table Storage i Queue Storage używają wspólnie typu `ServiceProperties` w przestrzeni nazw `Microsoft.WindowsAzure.Storage.Shared.Protocol`, natomiast usługa File Storage ma swój własny typ `FileServiceProperties` w przestrzeni nazw `Microsoft.WindowsAzure.Storage.File.Protocol`. Jednak aby można było skompilować poniższy kod, musi on zawierać odwołania do obu tych przestrzeni nazw.
 
     // Parse your storage connection string from your application's configuration file.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -584,37 +585,37 @@ Zwróć uwagę, że usługi Blob Storage, Table Storage i Queue Storage używaj�
 
 ## Często zadawane pytania dotyczące usługi Magazyn plików
 
-1. **Czy usługa Magazyn plików obsługuje uwierzytelnianie w usłudze Active Directory?** 
+1. **Czy usługa Magazyn plików obsługuje uwierzytelnianie w usłudze Active Directory?**
 
-    Obecnie nie zapewniamy obsługi uwierzytelniania w usłudze AD dla list kontroli dostępu, ale planujemy dodanie tej funkcji w przyszłości. Tymczasem do uwierzytelniania w udziale plików używane są klucze kont usługi Azure Storage. Ponadto dostępne jest obejście w formie sygnatur dostępu współdzielonego, których można używać za pośrednictwem interfejsu API REST lub bibliotek klienckich. Za pomocą tych sygnatur można wygenerować tokeny z określonymi uprawnieniami, które będą ważne przez ustalony czas. Można na przykład wygenerować token zapewniający dostęp tylko do odczytu do danego pliku. Każda osoba z tym tokenem (w trakcie jego okresu ważności) może uzyskiwać dostęp tylko do odczytu do tego pliku. 
+    Obecnie nie zapewniamy obsługi uwierzytelniania w usłudze AD dla list kontroli dostępu, ale planujemy dodanie tej funkcji w przyszłości. Tymczasem do uwierzytelniania w udziale plików używane są klucze kont usługi Azure Storage. Ponadto dostępne jest obejście w formie sygnatur dostępu współdzielonego, których można używać za pośrednictwem interfejsu API REST lub bibliotek klienckich. Za pomocą tych sygnatur można wygenerować tokeny z określonymi uprawnieniami, które będą ważne przez ustalony czas. Można na przykład wygenerować token zapewniający dostęp tylko do odczytu do danego pliku. Każda osoba z tym tokenem (w trakcie jego okresu ważności) może uzyskiwać dostęp tylko do odczytu do tego pliku.
 
     Sygnatury dostępu współdzielonego są obsługiwane wyłącznie za pośrednictwem interfejsu API REST lub bibliotek klienckich. W przypadku zainstalowania udziału plików przy użyciu protokołu SMB nie można delegować dostępu do jego zawartości za pomocą sygnatur dostępu współdzielonego.
 
 2. **Czy udziały plików na platformie Azure są widoczne publicznie w Internecie, czy są dostępne tylko z poziomu platformy Azure?**
- 
+
     Jeśli otwarty jest port 445 (ruch wychodzący TCP) i klient obsługuje protokół SMB 3.0 (*np.* w systemie Windows 8 lub Windows Server 2012), udział plików będzie dostępny przez Internet.  
 
-3. **Czy ruch sieciowy między maszyną wirtualną na platformie Azure a udziałem plików jest liczony jako zewnętrzne użycie przepustowości i rozliczany w ten sposób w subskrypcji?** 
+3. **Czy ruch sieciowy między maszyną wirtualną na platformie Azure a udziałem plików jest liczony jako zewnętrzne użycie przepustowości i rozliczany w ten sposób w subskrypcji?**
 
     Jeśli udział plików i maszyna wirtualna znajdują się w różnych regionach, ruch między nimi będzie rozliczany jako zewnętrzne użycie przepustowości.
- 
-4. **Czy ruch sieciowy między maszyną wirtualną a udziałem plików w tym samym regionie jest bezpłatny?** 
+
+4. **Czy ruch sieciowy między maszyną wirtualną a udziałem plików w tym samym regionie jest bezpłatny?**
 
     Tak. Ruch sieciowy w tym samym regionie jest bezpłatny.
 
-5. **Czy do nawiązania połączenia między lokalnymi maszynami wirtualnymi a usługą Azure File Storage wymagana jest usługa Azure ExpressRoute?** 
+5. **Czy do nawiązania połączenia między lokalnymi maszynami wirtualnymi a usługą Azure File Storage wymagana jest usługa Azure ExpressRoute?**
 
     Nie. Nawet jeśli nie masz usługi ExpressRoute, możesz uzyskiwać dostęp do udziału plików z zasobów lokalnych, o ile masz otwarty port 445 (ruch wychodzący TCP) dla połączeń internetowych. Jeśli chcesz, możesz używać usługi ExpressRoute z usługą Magazyn plików.
 
 6. **Czy usługa Azure File Storage może pełnić funkcję „monitora udziału plików” dla klastra trybu failover?**
 
     Obecnie takie rozwiązanie nie jest obsługiwane.
- 
+
 7. **Czy to prawda, że usługa Magazyn plików jest obecnie replikowana tylko w modelu LRS lub GRS?**  
 
     Planujemy dodanie obsługi modelu RA-GRS, ale jeszcze nie wiemy, kiedy to nastąpi.
 
-8. **Kiedy będzie można używać istniejących kont magazynu z usługą Azure File Storage?** 
+8. **Kiedy będzie można używać istniejących kont magazynu z usługą Azure File Storage?**
 
     Usługa Azure File Storage działa obecnie ze wszystkimi kontami magazynu.
 
@@ -636,7 +637,7 @@ Zwróć uwagę, że usługi Blob Storage, Table Storage i Queue Storage używaj�
 
 13. **Wydano poprawkę rozwiązującą problem powolnego działania usługi Magazyn plików Azure**
 
-    Zespół systemu Windows wydał ostatnio poprawkę rozwiązującą problem z wydajnością, gdy klienci próbują uzyskać dostęp do usługi Azure File Storage z systemu Windows 8.1 lub Windows Server 2012 R2. Aby uzyskać więcej informacji, zapoznaj się z odpowiednim artykułem KB: [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025) (Niska wydajność podczas dostępu do usługi Azure File Storage z systemu Windows 8.1 lub Windows Server 2012 R2). 
+    Zespół systemu Windows wydał ostatnio poprawkę rozwiązującą problem z wydajnością, gdy klienci próbują uzyskać dostęp do usługi Azure File Storage z systemu Windows 8.1 lub Windows Server 2012 R2. Aby uzyskać więcej informacji, zapoznaj się z odpowiednim artykułem KB: [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025) (Niska wydajność podczas dostępu do usługi Azure File Storage z systemu Windows 8.1 lub Windows Server 2012 R2).
 
 14. **Korzystanie z usługi Azure File Storage z programem IBM MQ**
 
@@ -665,12 +666,12 @@ Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi 
 ### Wpisy na blogach
 
 - [Azure File storage is now generally available (Usługa Magazyn plików Azure została udostępniona publicznie)](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-- [Inside Azure File Storage (Za kulisami usługi Azure File Storage)](https://azure.microsoft.com/blog/inside-azure-file-storage/) 
+- [Inside Azure File Storage (Za kulisami usługi Azure File Storage)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 - [Introducing Microsoft Azure File Service (Wprowadzenie do usługi plików na platformie Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files (Utrwalanie połączeń z plikami na platformie Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Konfigurowanie połączenia sieci VPN typu punkt-lokacja z siecią wirtualną platformy Azure przy użyciu portalu klasycznego| Microsoft Azure"
-   description="Istnieje możliwość bezpiecznego połączenia się z siecią wirtualną platformy Azure poprzez utworzenie połączenia sieci VPN typu punkt-lokacja."
+   description="Istnieje możliwość bezpiecznego połączenia się z siecią wirtualną platformy Azure poprzez utworzenie połączenia bramy sieci VPN typu punkt-lokacja."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -17,15 +17,16 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Konfigurowanie połączenia sieci VPN typu punkt-lokacja z siecią wirtualną przy użyciu portalu klasycznego
 
 > [AZURE.SELECTOR]
-- [Program PowerShell — model usługi Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [Portal — model klasyczny](vpn-gateway-point-to-site-create.md)
+- [Resource Manager — program PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Model klasyczny — klasyczny portal](vpn-gateway-point-to-site-create.md)
 
-Konfiguracja typu punkt-lokacja (P2S, Point-to-Site) pozwala utworzyć indywidualne bezpieczne połączenie z siecią wirtualną z poziomu komputera klienckiego. Przedstawione rozwiązanie przydaje się w przypadku, gdy celem użytkownika jest połączenie się z siecią wirtualną z lokalizacji zdalnej, np. z domu lub z konferencji, lub gdy konieczne jest połączenie z siecią wirtualną jedynie niewielkiej liczby klientów.
+Konfiguracja typu punkt-lokacja pozwala utworzyć indywidualne bezpieczne połączenie z siecią wirtualną z poziomu komputera klienckiego. Przedstawione rozwiązanie przydaje się w przypadku, gdy celem użytkownika jest połączenie się z siecią wirtualną z lokalizacji zdalnej, np. z domu lub z konferencji, lub gdy konieczne jest połączenie z siecią wirtualną jedynie niewielkiej liczby klientów.
 
-W tym artykule opisano proces tworzenia sieci wirtualnej z połączeniem punkt-lokacja w ramach **klasycznego modelu wdrażania** przy użyciu portalu klasycznego. Obecnie nie można utworzyć tej konfiguracji end-to-end w portalu Azure dla klasycznego modelu wdrażania.
+W tym artykule opisano proces tworzenia sieci wirtualnej z połączeniem punkt-lokacja w ramach **klasycznego modelu wdrażania** przy użyciu **portalu klasycznego**. Obecnie nie można utworzyć tej konfiguracji end-to-end w portalu Azure dla klasycznego modelu wdrażania. Niektóre kroki można wykonać w witrynie Azure Portal, ale program PowerShell jest nadal wymagany do pobrania konfiguracji klienta sieci VPN.
 
 Połączenia typu punkt-lokacja nie wymagają do prawidłowego działania urządzenia sieci VPN ani publicznego adresu IP. Połączenie sieci VPN jest nawiązywane poprzez zainicjowanie połączenia z komputera klienckiego. Aby uzyskać więcej informacji na temat połączeń typu punkt-lokacja, zobacz artykuły [Brama sieci VPN — często zadawane pytania](vpn-gateway-vpn-faq.md#point-to-site-connections) i [Planning and Design](vpn-gateway-plan-design.md) (Planowanie i projekt).
 
@@ -144,16 +145,30 @@ Aby nawiązać połączenie z siecią wirtualną, należy skonfigurować także 
 
 3. Po wygenerowaniu pakietu klienta VPN i pobraniu go z klasycznego portalu Azure można go zainstalować na komputerze klienckim, z którego ma zostać nawiązane połączenie z siecią wirtualną. Chcąc zainstalować pakiet klienta VPN na wielu komputerach klienckich, należy się upewnić, że na każdym z komputerów jest także zainstalowany certyfikat klienta.
 
-### Część 2: Instalacja pakietu konfiguracyjnego sieci VPN na komputerze klienckim i rozpoczęcie połączenia
+### Część 2: Instalacja pakietu konfiguracyjnego sieci VPN na komputerze klienckim
 
-1. Skopiuj lokalnie plik konfiguracji na komputer, który chcesz połączyć z siecią wirtualną, a następnie kliknij dwukrotnie plik z rozszerzeniem exe. Gdy pakiet zostanie zainstalowany, możesz uruchomić połączenie sieci VPN. Pakiet konfiguracyjny nie jest podpisany przez firmę Microsoft. Możesz podpisać pakiet, korzystając z urządzenia używanego w tym celu w Twojej organizacji, lub samodzielnie, przy użyciu narzędzia [SignTool]( http://go.microsoft.com/fwlink/p/?LinkId=699327). Z pakietu można korzystać nawet, jeśli nie jest podpisany. Jeśli jednak pakiet nie jest podpisany, podczas instalowania go zostanie wyświetlone ostrzeżenie.
-2. Na komputerze klienckim przejdź do połączeń sieci VPN i wyszukaj wcześniej utworzone połączenie sieci VPN. Połączenie będzie miało taką samą nazwę jak sieć wirtualna. Kliknij przycisk **Połącz**.
-3. Pojawi się komunikat podręczny umożliwiający utworzenie certyfikatu z podpisem własnym dla punktu końcowego bramy. Kliknij przycisk **Kontynuuj**, aby skorzystać z podwyższonego poziomu uprawnień.
-4. Na stronie stanu **Połączenie** kliknij przycisk **Połącz**, aby rozpocząć połączenie.
-5. Jeśli widzisz ekran **Wybierz certyfikat**, sprawdź, czy wyświetlany certyfikat klienta to ten, który ma zostać użyty do nawiązania połączenia. Jeśli nie, kliknij strzałkę na liście rozwijanej, aby wybrać właściwy certyfikat, a następnie kliknij przycisk **OK**.
-6. Po nawiązaniu podłączenia z siecią wirtualną otrzymujesz pełny dostęp do usług i maszyny wirtualnej hostowanej w sieci wirtualnej.
+1. Skopiuj lokalnie plik konfiguracji na komputer, który chcesz połączyć z siecią wirtualną, a następnie kliknij dwukrotnie plik z rozszerzeniem exe. 
 
-### Część 3: Sprawdzenie połączenia sieci VPN
+2. Gdy pakiet zostanie zainstalowany, możesz uruchomić połączenie sieci VPN. Pakiet konfiguracyjny nie jest podpisany przez firmę Microsoft. Możesz podpisać pakiet, korzystając z urządzenia używanego w tym celu w Twojej organizacji, lub samodzielnie, przy użyciu narzędzia [SignTool]( http://go.microsoft.com/fwlink/p/?LinkId=699327). Z pakietu można korzystać nawet, jeśli nie jest podpisany. Jeśli jednak pakiet nie jest podpisany, podczas instalowania go zostanie wyświetlone ostrzeżenie.
+
+3. Na komputerze klienckim przejdź do obszaru **Ustawienia sieci** i kliknij pozycję **Sieć VPN**. Połączenie zostanie wyświetlone. Widoczna będzie nazwa sieci wirtualnej, z którą zostanie nawiązane połączenie. Powinno to wyglądać następująco: 
+
+    ![Klient sieci VPN](./media/vpn-gateway-point-to-site-create/vpn.png "VPN client")
+
+
+### Część 3: Nawiązywanie połączenia z platformą Azure
+
+1. Aby nawiązać połączenie z siecią wirtualną na komputerze klienckim, przejdź do połączeń sieci VPN i wyszukaj wcześniej utworzone połączenie sieci VPN. Połączenie będzie miało taką samą nazwę jak sieć wirtualna. Kliknij przycisk **Połącz**. Może pojawić się komunikat podręczny, który odwołuje się do użycia certyfikatu. Jeśli tak się stanie, kliknij przycisk **Kontynuuj**, aby skorzystać z podniesionych uprawnień. 
+
+2. Na stronie stanu **Połączenie** kliknij przycisk **Połącz**, aby rozpocząć połączenie. Jeśli widzisz ekran **Wybierz certyfikat**, sprawdź, czy wyświetlany certyfikat klienta to ten, który ma zostać użyty do nawiązania połączenia. Jeśli nie, kliknij strzałkę na liście rozwijanej, aby wybrać właściwy certyfikat, a następnie kliknij przycisk **OK**.
+
+    ![Klient sieci VPN 2](./media/vpn-gateway-point-to-site-create/clientconnect.png "VPN client connection")
+
+3. Połączenie powinno zostać nawiązane.
+
+    ![Klient sieci VPN 3](./media/vpn-gateway-point-to-site-create/connected.png "VPN client connection 2")
+
+### Część 4: Sprawdzenie połączenia sieci VPN
 
 1. Aby sprawdzić, czy połączenie sieci VPN jest aktywne, otwórz wiersz polecenia z podwyższonym poziomem uprawnień, a następnie uruchom polecenie *ipconfig/all*.
 2. Przejrzyj wyniki. Zwróć uwagę na fakt, że otrzymany adres IP jest jednym z adresów z zakresu dla połączenia typu punkt-lokacja określonego podczas tworzenia sieci wirtualnej. Wyniki powinny być podobne do poniższego kodu:
@@ -181,6 +196,6 @@ Aby uzyskać więcej informacji na temat sieci wirtualnych, zobacz artykuł [Vir
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

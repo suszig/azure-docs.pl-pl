@@ -37,7 +37,7 @@ Nie w tej chwili.
 
 #### Czy można anonsować takie same prefiksy jak prefiksy mojej sieci wirtualnej?
 
-Nie, anonsowanie takich samych prefiksów jak prefiksy adresów Twojej sieci wirtualnej zostanie zablokowane lub odfiltrowane przez platformę Azure.
+Nie, anonsowanie takich samych prefiksów jak prefiksy adresów Twojej sieci wirtualnej zostanie zablokowane lub odfiltrowane przez platformę Azure. Można jednak anonsować prefiks, który jest podzbiorem tego, co znajduje się wewnątrz sieci wirtualnej. Na przykład sieć wirtualna może używać przestrzeni adresów 10.10.0.0/16, a można anonsować przestrzeń 10.0.0.0/8.
 
 ### Czy można użyć protokołu BGP do połączeń między sieciami wirtualnymi użytkownika?
 
@@ -80,7 +80,6 @@ Brama sieci lokalnej platformy Azure określa początkowe prefiksy adresów dla 
 Na urządzeniu sieci VPN należy dodać trasę hosta dla adresu IP elementu równorzędnego protokołu BGP platformy Azure wskazującego tunel sieci VPN S2S protokołu IPsec. Na przykład jeśli adresem IP elementu równorzędnego sieci VPN platformy Azure jest „10.12.255.30”, należy dodać trasę hosta dla adresu „10.12.255.30” z interfejsem następnego skoku pasującym do interfejsu tunelu protokołu IPsec urządzenia sieci VPN użytkownika.
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

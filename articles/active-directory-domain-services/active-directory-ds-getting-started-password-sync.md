@@ -13,49 +13,60 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/06/2016"
+    ms.date="09/20/2016"
     ms.author="maheshu"/>
 
-# Usługi domenowe Azure AD *(wersja zapoznawcza)* — włączanie synchronizacji haseł w Usługach domenowych Azure AD
 
-## Zadanie 5. Włączanie synchronizacji haseł w Usługach domenowych AAD dla katalogu usługi Azure AD tylko w chmurze
-Następnym zadaniem po włączeniu Usług domenowych Azure AD dla dzierżawy usługi Azure AD jest umożliwienie synchronizacji przy użyciu poświadczeń w Usługach domenowych Azure AD. Dzięki temu użytkownicy mogą logować się do domeny zarządzanej za pomocą poświadczeń firmowych.
+# Włączanie synchronizacji haseł w usłudze Azure AD Domain Services
+W poprzednich zadaniach włączono usługę Azure AD Domain Services dla dzierżawy usługi Azure AD. Kolejnym krokiem jest włączenie skrótów poświadczeń wymaganych do uwierzytelniania NTLM i Kerberos w celu synchronizacji z usługą Azure AD Domain Services. Po skonfigurowaniu synchronizacji poświadczeń użytkownik może zalogować się do domeny zarządzanej przy użyciu poświadczeń firmowych.
 
-Kroki do wykonania różnią się w zależności od tego, czy organizacja ma katalog usługi Azure AD tylko w chmurze, czy też wykonuje synchronizację z katalogiem lokalnym za pomocą programu Azure AD Connect.
+Kroki do wykonania różnią się w zależności od tego, czy organizacja ma dzierżawę usługi Azure AD tylko w chmurze, czy też wykonuje synchronizację z katalogiem lokalnym za pomocą programu Azure AD Connect.
 
 <br>
 
 > [AZURE.SELECTOR]
-- [Katalog usługi Azure AD tylko w chmurze](active-directory-ds-getting-started-password-sync.md)
-- [Zsynchronizowany katalog usługi Azure AD](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+- [Dzierżawa usługi Azure AD tylko w chmurze](active-directory-ds-getting-started-password-sync.md)
+- [Zsynchronizowana dzierżawa usługi Azure AD](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 <br>
 
-### Włączanie generowania skrótów poświadczeń NTLM i Kerberos w katalogu usługi Azure AD tylko w chmurze
-Jeśli organizacja ma katalog usługi Azure AD tylko w chmurze, użytkownicy, którzy muszą korzystać z Usług domenowych Azure AD, będą musieli zmienić swoje hasła. Ten proces zmiany haseł powoduje generowanie w usłudze Azure AD skrótów poświadczeń wymaganych przez Usługi domenowe Azure AD na potrzeby uwierzytelniania Kerberos i NTLM. Możesz unieważnić hasła wszystkich użytkowników w dzierżawie, którzy muszą korzystać z Usług domenowych Azure AD, lub poinformować ich o konieczności zmiany haseł.
 
+## Zadanie 5. Włączanie synchronizacji haseł w usłudze AAD Domain Services dla dzierżawy usługi Azure AD tylko w chmurze
+Usługa Azure AD Domain Services wymaga skrótów poświadczeń w formacie odpowiednim do uwierzytelniania NTLM i Kerberos, aby uwierzytelnić użytkowników w domenie zarządzanej. Jeśli nie zostanie włączona usługa AAD Domain Services dla dzierżawy, usługa Azure AD nie będzie generować ani przechowywać skrótów poświadczeń w formacie wymaganym podczas uwierzytelniania NTLM i Kerberos. Ze względów bezpieczeństwa usługa Azure AD nie przechowuje również żadnych poświadczeń w postaci zwykłego tekstu. W związku z tym usługa Azure AD nie ma możliwości generowania skrótów poświadczeń protokołu NTLM ani Kerberos w oparciu o istniejące poświadczenia użytkownika.
+
+> [AZURE.NOTE] Jeśli organizacja ma dzierżawę usługi Azure AD tylko w chmurze, użytkownicy, którzy muszą korzystać z usługi Azure AD Domain Services, muszą zmienić swoje hasła.
+
+Ten proces zmiany haseł powoduje generowanie w usłudze Azure AD skrótów poświadczeń wymaganych przez Usługi domenowe Azure AD na potrzeby uwierzytelniania Kerberos i NTLM. Możesz unieważnić hasła wszystkich użytkowników w dzierżawie, którzy muszą korzystać z Usług domenowych Azure AD, lub poinformować ich o konieczności zmiany haseł.
+
+
+### Włączanie generowania skrótów poświadczeń NTLM i Kerberos w dzierżawie usługi Azure AD tylko w chmurze
 Poniżej znajdują się instrukcje zmieniania haseł dla użytkowników końcowych:
 
-1. Przejdź do strony panelu dostępu do usługi Azure AD dla organizacji. Jest ona zazwyczaj dostępna pod adresem [http://myapps.microsoft.com](http://myapps.microsoft.com).
+1. Przejdź do strony panelu dostępu do usługi Azure AD dla organizacji [http://myapps.microsoft.com](http://myapps.microsoft.com).
 
 2. Wybierz kartę **profilu** na tej stronie.
 
-3. Kliknij kafelek **Zmień hasło** na tej stronie, aby zainicjować zmianę hasła.
+3. Kliknij kafelek **Zmień hasło** na tej stronie.
 
     ![Utwórz sieć wirtualną dla Usług domenowych Azure AD.](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
-4. Spowoduje to przejście do strony **zmiany hasła**. Użytkownicy mogą wprowadzić istniejące (stare) hasło i kontynuować jego zmienianie.
+    > [AZURE.NOTE] Jeśli nie widzisz opcji **Zmień hasło** na stronie panelu dostępu, upewnij się, że Twoja organizacja ma skonfigurowane [zarządzanie hasłami w usłudze Azure AD](../active-directory/active-directory-passwords-getting-started.md).
+
+4. Na stronie **zmienianie hasła** wpisz istniejące hasło (stare), a następnie wpisz nowe hasło i je zatwierdź. Kliknij przycisk **prześlij**.
 
     ![Utwórz sieć wirtualną dla Usług domenowych Azure AD.](./media/active-directory-domain-services-getting-started/user-change-password2.png)
 
-Nowego hasła w Usługach domenowych Azure AD można używać krótko po jego zmienieniu. Po kilku minutach użytkownicy będą mogli logować się na komputerach dołączonych do domeny zarządzanej przy użyciu nowo zmienionego hasła.
-
+Nowego hasła w usłudze Azure AD Domain Services można używać wkrótce po jego zmienieniu. Po kilku minutach (zazwyczaj około 20 minutach) użytkownicy będą mogli logować się na komputerach dołączonych do domeny zarządzanej przy użyciu nowo zmienionego hasła.
 
 <br>
 
 ## Powiązana zawartość
 
-- [Włączanie synchronizacji haseł w Usługach domenowych AAD dla zsynchronizowanego katalogu Azure AD](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+- [Aktualizowanie hasła](../active-directory/active-directory-passwords-update-your-own-password.md)
+
+- [Wprowadzenie do zarządzania hasłami w usłudze Azure AD](../active-directory/active-directory-passwords-getting-started.md).
+
+- [Włączanie synchronizacji haseł w usłudze AAD Domain Services dla zsynchronizowanej dzierżawy usługi Azure AD](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 - [Administrowanie domeną zarządzaną Usług domenowych Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 
@@ -65,6 +76,6 @@ Nowego hasła w Usługach domenowych Azure AD można używać krótko po jego zm
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

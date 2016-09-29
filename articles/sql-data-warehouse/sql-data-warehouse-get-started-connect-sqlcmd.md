@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/30/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="09/06/2016"
+   ms.author="barbkess;sonyama"/>
+
 
 # Tworzenie zapytań względem usługi Azure SQL Data Warehouse (sqlcmd)
 
@@ -32,9 +33,12 @@ Aby rozpocząć pracę z narzędziem [sqlcmd][], otwórz wiersz polecenia i wpis
 
 + **Serwer (-S):** serwer w postaci `<`nazwa_serwera`>`.database.windows.net
 + **Baza danych (-d):** nazwa bazy danych.
++ **Włącz cytowane identyfikatory (-I):** cytowane identyfikatory muszą być włączone w celu połączenia z wystąpieniem usługi SQL Data Warehouse.
+
+Aby użyć uwierzytelniania programu SQL Server, należy dodać parametry nazwy użytkownika/hasła:
+
 + **Użytkownik (-U):** użytkownik serwera w formie `<`Użytkownik`>`
 + **Hasło (-P):** hasło skojarzone z użytkownikiem.
-+ **Włącz cytowane identyfikatory (-I):** cytowane identyfikatory muszą być włączone w celu połączenia z wystąpieniem usługi SQL Data Warehouse.
 
 Na przykład parametry połączenia mogą wyglądać następująco:
 
@@ -42,7 +46,17 @@ Na przykład parametry połączenia mogą wyglądać następująco:
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-> [AZURE.NOTE] Opcja -I, która włącza cytowane identyfikatory, jest obecnie wymagana do nawiązania połączenia z usługą SQL Data Warehouse.
+Aby użyć zintegrowanego uwierzytelniania usługi Azure Active Directory, należy dodać parametry usługi Azure Active Directory:
+
++ **Uwierzytelnianie usługi Azure Active Directory (-G):** używaj usługi Azure Active Directory do uwierzytelniania
+
+Na przykład parametry połączenia mogą wyglądać następująco:
+
+```sql
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
+```
+
+> [AZURE.NOTE] Musisz [włączyć uwierzytelnianie usługi Azure Active Directory](sql-data-warehouse-authentication.md), aby uwierzytelniać przy użyciu usługi Active Directory.
 
 ## 2. Zapytanie
 
@@ -81,6 +95,6 @@ Aby uzyskać więcej informacji na temat opcji dostępnych w narzędziu sqlcmd, 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

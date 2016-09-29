@@ -17,13 +17,13 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Tworzenie sieci wirtualnej za pomocą połączenia typu lokacja-lokacja przy użyciu klasycznej witryny Azure Portal
 
 > [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Klasyczny portal Azure](vpn-gateway-site-to-site-create.md)
-- [Program PowerShell — model usługi Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
-
+- [Menedżer zasobów — witryna Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager — program PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Model klasyczny — klasyczny portal](vpn-gateway-site-to-site-create.md)
 
 W tym artykule opisano proces tworzenia sieci wirtualnej i połączenia sieci VPN typu lokacja-lokacja z siecią lokalną z wykorzystaniem **klasycznego modelu wdrażania** i klasycznego portalu. Z połączeń typu lokacja-lokacja można korzystać w ramach konfiguracji hybrydowych i obejmujących wiele lokalizacji. W ramach klasycznego modelu wdrażania nie można obecnie utworzyć konfiguracji end-to-end dla połączenia typu lokacja-lokacja przy użyciu witryny Azure Portal.
 
@@ -55,11 +55,11 @@ Przed rozpoczęciem konfiguracji sprawdź, czy dysponujesz następującymi eleme
 
 2. W lewym dolnym rogu ekranu kliknij opcję **Nowe**. W okienku nawigacji kliknij opcję **Usługi sieciowe**, a następnie opcję **Sieć wirtualna**. Kliknij przycisk **Tworzenie niestandardowe**, aby rozpocząć korzystanie z kreatora konfiguracji.
 
-3. Wprowadź informacje na następujących stronach w celu utworzenia sieci wirtualnej.
+3. Aby utworzyć sieć wirtualną, wprowadź ustawienia konfiguracji na następujących stronach:
 
 ## Strona szczegółów sieci wirtualnej
 
-Wprowadź następujące informacje.
+Wprowadź następujące informacje:
 
 - **Nazwa**: nadaj nazwę sieci wirtualnej. Na przykład: *EastUSVNet*. Ta nazwa sieci wirtualnej będzie używana podczas wdrażania wystąpień maszyn wirtualnych i usług PaaS, dlatego nie powinna być zbyt skomplikowana.
 - **Lokalizacja**: omawiana lokalizacja jest bezpośrednio związana z lokalizacją fizyczną (regionem), w której mają się znajdować zasoby (maszyny wirtualne). Jeśli na przykład maszyny wirtualne wdrażane w ramach tej sieci wirtualnej mają znajdować się we wschodnim regionie USA, należy wybrać tę właśnie lokalizację (*Wschodnie stany USA*). Po utworzeniu sieci wirtualnej nie można zmienić powiązanego z nią regionu.
@@ -109,6 +109,6 @@ Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtua
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

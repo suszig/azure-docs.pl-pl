@@ -1,9 +1,9 @@
 <properties
-    pageTitle="Używanie dynamicznego szyfrowania Common Encryption w usługach PlayReady i Widevine"
+    pageTitle="Używanie dynamicznego szyfrowania Common Encryption w usługach PlayReady i Widevine | Microsoft Azure"
     description="Usługa Microsoft Azure Media Services umożliwia dostarczanie strumieni MPEG-DASH, Smooth Streaming i HTTP-Live-Streaming (HLS) chronionych przy użyciu usługi Microsoft PlayReady DRM. Możliwe jest również dostarczanie strumienia DASH szyfrowanego przy użyciu usługi Widevine DRM. W tym temacie przedstawiono sposób dynamicznego szyfrowania przy użyciu usług PlayReady i Widevine DRM."
     services="media-services"
     documentationCenter=""
-    authors="Juliako,Mingfeiy"
+    authors="juliako"
     manager="erikre"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article" 
-    ms.date="06/22/2016"
+    ms.date="09/27/2016"
     ms.author="juliako"/>
+
 
 
 #Używanie dynamicznego szyfrowania Common Encryption w usługach PlayReady i Widevine
@@ -37,7 +38,7 @@ Aby móc skorzystać z szyfrowania dynamicznego, należy posiadać element zawar
 
 Ten temat powinien być przydatny dla deweloperów pracujących nad aplikacjami, które dostarczają zawartość chronioną przy użyciu wielu protokołów DRM, takich jak PlayReady i Widevine. W tym temacie opisano sposób konfigurowania usługi dostarczania licencji PlayReady przy użyciu zasad autoryzacji, tak aby tylko autoryzowani klienci mogli odbierać licencje PlayReady lub Widevine. Przedstawiono także sposób korzystania z szyfrowania przy użyciu usług PlayReady lub Widevine DRM dla strumienia DASH.
 
->[AZURE.NOTE]Aby rozpocząć korzystanie z szyfrowania dynamicznego, należy pobrać co najmniej jedną jednostkę skali (znaną także jako jednostka przesyłania strumieniowego). Aby uzyskać więcej informacji, zobacz artykuł [How to Scale a Media Service](media-services-manage-origins.md#scale_streaming_endpoints) (Zmienianie skali usługi multimediów).
+>[AZURE.NOTE]Aby rozpocząć korzystanie z szyfrowania dynamicznego, należy pobrać co najmniej jedną jednostkę skali (znaną także jako jednostka przesyłania strumieniowego). Aby uzyskać więcej informacji, zobacz artykuł [How to Scale a Media Service](media-services-portal-manage-streaming-endpoints.md) (Zmienianie skali usługi multimediów).
 
 
 ##Pobieranie przykładu
@@ -48,15 +49,15 @@ Opisany w tym artykule przykład możesz pobrać [tutaj](https://github.com/Azur
 
 Poniżej przedstawiono ogólne kroki, które należy wykonać podczas ochrony swoich elementów zawartości przy użyciu usługi PlayReady, usługi dostarczania licencji Media Services, a także za pomocą szyfrowania dynamicznego.
 
-1. Utwórz element zawartości i przekaż do niego pliki. 
+1. Utwórz element zawartości i przekaż do niego pliki.
 1. Przekoduj element zawartości zawierający plik na zestaw o adaptacyjnej szybkości bitowej MP4.
-1. Utwórz klucz zawartości i skojarz go z zakodowanym elementem zawartości. W usłudze Media Services klucz zawartości zawiera klucz szyfrowania elementu zawartości. 
+1. Utwórz klucz zawartości i skojarz go z zakodowanym elementem zawartości. W usłudze Media Services klucz zawartości zawiera klucz szyfrowania elementu zawartości.
 1. Skonfiguruj zasady autoryzacji klucza zawartości. Zasady autoryzacji klucza zawartości muszą zostać skonfigurowane przez użytkownika i muszą być spełnione przez klienta, aby klucz zawartości został dostarczony do klienta.
 
-    Podczas tworzenia zasady autoryzacji klucza zawartości należy określić następujące elementy: metodę dostarczania (PlayReady lub Widevine), ograniczenia (otwarte lub tokenu) i informacje specyficzne dla typu klucza dostawy, które definiują sposób dostawy klucza do klienta (szablon licencji [PlayReady](media-services-playready-license-template-overview.md) lub [Widevine](media-services-widevine-license-template-overview.md)). 
-1. Skonfiguruj zasadę dostarczania elementu zawartości. Konfiguracja zasady dostarczania obejmuje: protokół dostarczania (na przykład MPEG-DASH, HLS, HDS, Smooth Streaming lub wszystkie z nich), typ szyfrowania dynamicznego (na przykład Common Encryption) oraz adres URL pozyskiwania licencji PlayReady lub Widevine. 
- 
-    Dla każdego protokołu dotyczącego danego elementu zawartości można stosować inne zasady. Na przykład dla protokołu Smooth/DASH można zastosować szyfrowanie PlayReady, zaś dla protokołu HLS szyfrowanie AES Envelope. Protokoły, które nie są zdefiniowane w zasadzie dostarczania (można na przykład dodać jedną zasadę, która określa tylko protokół HLS), nie mogą korzystać z przesyłania strumieniowego. Wyjątkiem od tej reguły jest przypadek, w którym nie zdefiniowano żadnej zasady dostarczania elementów zawartości. Wówczas wszystkie protokoły mogą być przesyłane bez zabezpieczeń.
+Podczas tworzenia zasady autoryzacji klucza zawartości należy określić następujące elementy: metodę dostarczania (PlayReady lub Widevine), ograniczenia (otwarte lub tokenu) i informacje specyficzne dla typu klucza dostawy, które definiują sposób dostawy klucza do klienta (szablon licencji [PlayReady](media-services-playready-license-template-overview.md) lub [Widevine](media-services-widevine-license-template-overview.md)).
+1. Skonfiguruj zasadę dostarczania elementu zawartości. Konfiguracja zasady dostarczania obejmuje: protokół dostarczania (na przykład MPEG-DASH, HLS, HDS, Smooth Streaming lub wszystkie z nich), typ szyfrowania dynamicznego (na przykład Common Encryption) oraz adres URL pozyskiwania licencji PlayReady lub Widevine.
+
+Dla każdego protokołu dotyczącego danego elementu zawartości można stosować inne zasady. Na przykład dla protokołu Smooth/DASH można zastosować szyfrowanie PlayReady, zaś dla protokołu HLS szyfrowanie AES Envelope. Protokoły, które nie są zdefiniowane w zasadzie dostarczania (można na przykład dodać jedną zasadę, która określa tylko protokół HLS), nie mogą korzystać z przesyłania strumieniowego. Wyjątkiem od tej reguły jest przypadek, w którym nie zdefiniowano żadnej zasady dostarczania elementów zawartości. Wówczas wszystkie protokoły mogą być przesyłane bez zabezpieczeń.
 1. Utwórz lokalizator OnDemand w celu pobrania adresu URL przesyłania strumieniowego.
 
 Na końcu tego tematu znajduje się pełny przykład dla środowiska .NET.
@@ -65,17 +66,17 @@ Poniższa ilustracja pokazuje opisany wyżej przepływ pracy. Token jest tu uży
 
 ![Ochrona za pomocą PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
-Pozostała część tego tematu zawiera szczegółowe wyjaśnienia, przykłady kodu i linki do tematów, w których pokazano, jak wykonać zadania opisane powyżej. 
+Pozostała część tego tematu zawiera szczegółowe wyjaśnienia, przykłady kodu i linki do tematów, w których pokazano, jak wykonać zadania opisane powyżej.
 
 ##Bieżące ograniczenia
 
 W przypadku dodania lub zaktualizowania zasad dostarczania elementów zawartości należy usunąć skojarzony lokalizator (jeśli istnieje) i utworzyć nowy.
 
-Ograniczenie w przypadku szyfrowania przy użyciu metody Widevine dla usługi Azure Media Services: obecnie nie jest obsługiwanych wiele kluczy zawartości. 
+Ograniczenie w przypadku szyfrowania przy użyciu metody Widevine dla usługi Azure Media Services: obecnie nie jest obsługiwanych wiele kluczy zawartości.
 
 ##Utworzenie elementu zawartości i przekazanie do niego plików
 
-W celu kodowania i przesyłania strumieniowego filmów oraz zarządzania nimi należy najpierw przekazać zawartość do usługi Microsoft Azure Media Services. Po przekazaniu plików ich zawartość jest bezpiecznie przechowywana w chmurze na potrzeby dalszego przetwarzania i przesyłania strumieniowego. 
+W celu kodowania i przesyłania strumieniowego filmów oraz zarządzania nimi należy najpierw przekazać zawartość do usługi Microsoft Azure Media Services. Po przekazaniu plików ich zawartość jest bezpiecznie przechowywana w chmurze na potrzeby dalszego przetwarzania i przesyłania strumieniowego.
 
 Aby uzyskać szczegółowe informacje, zobacz artykuł [Upload Files into a Media Services account](media-services-dotnet-upload-files.md) (Przekazywanie plików na konto usługi Media Services).
 
@@ -84,7 +85,7 @@ Aby uzyskać szczegółowe informacje, zobacz artykuł [Upload Files into a Medi
 W przypadku szyfrowania dynamicznego wystarczy utworzyć element zawartości zawierający zestaw plików MP4 o różnych szybkościach transmisji bitów lub pliki źródłowe Smooth Streaming o różnych szybkościach transmisji bitów. Następnie na podstawie formatu określonego w manifeście i żądaniu fragmentu serwer przesyłania strumieniowego na żądanie upewni się, czy strumień jest dostarczany za pomocą wybranego protokołu. Dzięki temu wystarczy przechowywać i opłacać pliki w jednym formacie magazynu, a usługa Media Services utworzy oraz udostępni właściwą odpowiedź na podstawie żądań klienta. Aby uzyskać więcej informacji, zobacz artykuł [Dynamic Packaging Overview](media-services-dynamic-packaging-overview.md) (Dynamiczne tworzenie pakietów — przegląd).
 
 Aby uzyskać instrukcje na temat kodowania, zobacz artykuł [How to encode an asset using Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) (Sposób kodowania elementów zawartości przy użyciu standardowego kodera multimediów).
-    
+
 
 ##<a id="create_contentkey"></a>Tworzenie klucza zawartości i kojarzenie go z zakodowanym elementem zawartości
 
@@ -329,7 +330,7 @@ W poniższym przykładzie pokazano funkcje wprowadzone w programie Azure Media S
         
                 static public IContentKey CreateCommonTypeContentKey(IAsset asset)
                 {
-                    // Create envelope encryption content key
+                    
                     Guid keyId = Guid.NewGuid();
                     byte[] contentKey = GetRandomBuffer(16);
         
@@ -544,6 +545,8 @@ W poniższym przykładzie pokazano funkcje wprowadzone w programie Azure Media S
         
                         };
         
+                    // In this case we only specify Dash streaming protocol in the delivery policy,
+                    // All other protocols will be blocked from streaming.
                     var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
                             "AssetDeliveryPolicy",
                         AssetDeliveryPolicyType.DynamicCommonEncryption,
@@ -609,7 +612,9 @@ W poniższym przykładzie pokazano funkcje wprowadzone w programie Azure Media S
         }
 
 
-##Ścieżki szkoleniowe dotyczące usługi Media Services
+## Następny krok
+
+Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -628,6 +633,6 @@ W poniższym przykładzie pokazano funkcje wprowadzone w programie Azure Media S
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

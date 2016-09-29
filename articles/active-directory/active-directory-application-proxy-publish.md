@@ -17,6 +17,7 @@
     ms.author="kgremban"/>
 
 
+
 # Publikowanie aplikacji przy użyciu serwera proxy aplikacji usługi Azure AD
 
 Serwer proxy aplikacji usługi Azure AD pomaga wspierać pracowników zdalnych przez publikowanie lokalnych aplikacji w celu umożliwienia dostępu do nich za pośrednictwem Internetu. Przed rozpoczęciem pracy należy [włączyć serwer proxy aplikacji w klasycznym portalu Azure](active-directory-application-proxy-enable.md). W tym artykule przedstawiono kroki publikowania aplikacji działających w sieci lokalnej i zapewniania bezpiecznego dostępu zdalnego spoza tej sieci. Po ukończeniu tego artykułu możesz przystąpić do konfigurowania aplikacji przy użyciu spersonalizowanych informacji lub wymagań dotyczących zabezpieczeń.
@@ -75,7 +76,7 @@ W przypadku aplikacji wymagających uwierzytelnienia wstępnego spowoduje to prz
 
 ## Testowanie opublikowanej aplikacji
 
-Po opublikowaniu aplikacji można ją przetestować, przechodząc do opublikowanego adresu URL. Upewnij się, że można uzyskać do niego dostęp, jest poprawnie renderowany i wszystko działa zgodnie z oczekiwaniami. Jeśli wystąpią problemy lub komunikat o błędzie, spróbuj skorzystać z [przewodnika rozwiązywania problemów](active-directory-application-proxy-troubleshoot.md).
+Po opublikowaniu aplikacji można ją przetestować, przechodząc do opublikowanego adresu URL. Upewnij się, że można uzyskać do niej dostęp, jest poprawnie renderowana i wszystko działa zgodnie z oczekiwaniami. Jeśli wystąpią problemy lub komunikat o błędzie, spróbuj skorzystać z [przewodnika rozwiązywania problemów](active-directory-application-proxy-troubleshoot.md).
 
 ## Konfigurowanie aplikacji
 
@@ -103,6 +104,6 @@ Aby zapoznać się z najnowszymi informacjami i aktualizacjami, zobacz [blog dot
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/23/2016"
+    ms.date="09/20/2016"
     ms.author="deonhe"/>
+
 
 # Lista łączników
 
@@ -26,18 +27,18 @@ Wybierz łącznik, aby dowiedzieć się, jak użyć go do szybkiego tworzenia pr
 |Łączniki||||
 |-----------|-----------|-----------|-----------|
 |[![Ikona interfejsu API][API/Web-Appicon]<br/>**API/Web App**][API/Web-Appdoc]|[![Ikona interfejsu API][Azure-Blobicon]<br/>**Azure Blob**][Azure-Blobdoc]|[![Ikona interfejsu API][Azure~Functionsicon]<br/>**Azure<br/>Functions**][Azure~Functionsdoc]|[![Ikona interfejsu API][Boxicon]<br/>**Box**][Boxdoc]|
-|[![Ikona interfejsu API][CRM-Onlineicon]<br/>**CRM Online**][CRM-Onlinedoc]|[![Ikona interfejsu API][Delayicon]<br/>**Delay**][Delaydoc]|[![Ikona interfejsu API][Dropboxicon]<br/>**Dropbox**][Dropboxdoc]|[![Ikona interfejsu API][Facebookicon]<br/>**Facebook**][Facebookdoc]|
-|[![Ikona interfejsu API][FTPicon]<br/>**FTP**][FTPdoc]|[![Ikona interfejsu API][GitHubicon]<br/>**GitHub**][GitHubdoc]|[![Ikona interfejsu API][Google-Driveicon]<br/>**Dysk Google**][Google-Drivedoc]|![Ikona interfejsu API][Google-Sheetsicon]<br/>**Arkusze Google**|
-|![Ikona interfejsu API][Google-Tasksicon]<br/>**Zadania Google**|![Ikona interfejsu API][Google~Calendaricon]<br/>**Kalendarz<br/>Google**|[![Ikona interfejsu API][HTTPicon]<br/>**HTTP**][HTTPdoc]|[![Ikona interfejsu API][HTTP-Swaggericon]<br/>**HTTP Swagger**][HTTP-Swaggerdoc]|
-|[![Ikona interfejsu API][HTTP~Requesticon]<br/>**Żądanie<br/>HTTP**][HTTP~Requestdoc]|[![Ikona interfejsu API][HTTP~Responseicon]<br/>**Odpowiedź<br/>HTTP**][HTTP~Responsedoc]|![Ikona interfejsu API][Instagramicon]<br/>**Instagram**|[![Ikona interfejsu API][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|
-|![Ikona interfejsu API][Mandrillicon]<br/>**Mandrill**|[![Ikona interfejsu API][Nested~Logic-Appicon]<br/>**Zagnieżdżona<br/>aplikacja logiki**][Nested~Logic-Appdoc]|[![Ikona interfejsu API][Office-365~Outlookicon]<br/>**Office 365<br/>Outlook**][Office-365~Outlookdoc]|[![Ikona interfejsu API][Office-365~Usersicon]<br/>**Użytkownicy<br/>Office 365**][Office-365~Usersdoc]|
-|[![Ikona interfejsu API][Office-365~Videoicon]<br/>**Wideo<br/>Office 365**][Office-365~Videodoc]|[![Ikona interfejsu API][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![Ikona interfejsu API][OneDrive-for~Businessicon]<br/>**OneDrive<br/>dla Firm**][OneDrive-for~Businessdoc]|[![Ikona interfejsu API][Outlookicon]<br/>**Outlook**][Outlookdoc]|
-|[![Ikona interfejsu API][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![Ikona interfejsu API][Queryicon]<br/>**Zapytanie**][Querydoc]|[![Ikona interfejsu API][Recurrenceicon]<br/>**Cykl**][Recurrencedoc]|[![Ikona interfejsu API][RSSicon]<br/>**RSS**][RSSdoc]|
-|[![Ikona interfejsu API][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![Ikona interfejsu API][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![Ikona interfejsu API][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![Ikona interfejsu API][SFTPicon]<br/>**SFTP**][SFTPdoc]|
-|[![Ikona interfejsu API][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![Ikona interfejsu API][Slackicon]<br/>**Slack**][Slackdoc]|[![Ikona interfejsu API][SMTPicon]<br/>**SMTP**][SMTPdoc]|![Ikona interfejsu API][SparkPosticon]<br/>**SparkPost**|
-|[![Ikona interfejsu API][SQLicon]<br/>**SQL**][SQLdoc]|[![Ikona interfejsu API][Translatoricon]<br/>**Translator**][Translatordoc]|[![Ikona interfejsu API][Trelloicon]<br/>**Trello**][Trellodoc]|[![Ikona interfejsu API][Twilioicon]<br/>**Twilio**][Twiliodoc]|
-|[![Ikona interfejsu API][Twittericon]<br/>**Twitter**][Twitterdoc]|[![Ikona interfejsu API][Webhookicon]<br/>**Webhook**][Webhookdoc]|[![Ikona interfejsu API][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![Ikona interfejsu API][Yammericon]<br/>**Yammer**][Yammerdoc]|
-|![Ikona interfejsu API][YouTubeicon]<br/>**YouTube**||||
+|[![Ikona interfejsu API][CRM-Onlineicon]<br/>**CRM Online**][CRM-Onlinedoc]|[![Ikona interfejsu API][DB2icon]<br/>**DB2**][db2doc]|[![Ikona interfejsu API][Delayicon]<br/>**Delay**][Delaydoc]|[![Ikona interfejsu API][Dropboxicon]<br/>**Dropbox**][Dropboxdoc]|
+|[![Ikona interfejsu API][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![Ikona interfejsu API][FTPicon]<br/>**FTP**][FTPdoc]|[![Ikona interfejsu API][GitHubicon]<br/>**GitHub**][GitHubdoc]|[![Ikona interfejsu API][Google-Driveicon]<br/>**Dysk Google**][Google-Drivedoc]|
+|![Ikona interfejsu API][Google-Sheetsicon]<br/>**Arkusze Google**|![Ikona interfejsu API][Google-Tasksicon]<br/>**Zadania Google**|![Ikona interfejsu API][Google~Calendaricon]<br/>**Kalendarz<br/>Google**|[![Ikona interfejsu API][HTTPicon]<br/>**HTTP**][HTTPdoc]|
+|[![Ikona interfejsu API][HTTP-Swaggericon]<br/>**HTTP Swagger**][HTTP-Swaggerdoc]|[![Ikona interfejsu API][HTTP~Requesticon]<br/>**Żądanie<br/>HTTP**][HTTP~Requestdoc]|[![Ikona interfejsu API][HTTP~Responseicon]<br/>**Odpowiedź<br/>HTTP**][HTTP~Responsedoc]|[![Ikona interfejsu API][Informixicon]<br/>**Informix**][informixdoc]|
+|![Ikona interfejsu API][Instagramicon]<br/>**Instagram**|[![Ikona interfejsu API][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![Ikona interfejsu API][Mandrillicon]<br/>**Mandrill**|[![Ikona interfejsu API][Nested~Logic-Appicon]<br/>**Zagnieżdżona<br/>aplikacja logiki**][Nested~Logic-Appdoc]|
+|[![Ikona interfejsu API][Office-365~Outlookicon]<br/>**Office 365<br/>Outlook**][Office-365~Outlookdoc]|[![Ikona interfejsu API][Office-365~Usersicon]<br/>**Użytkownicy<br/>Office 365**][Office-365~Usersdoc]|[![Ikona interfejsu API][Office-365~Videoicon]<br/>**Wideo<br/>Office 365**][Office-365~Videodoc]|[![Ikona interfejsu API][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|
+|[![Ikona interfejsu API][OneDrive-for~Businessicon]<br/>**OneDrive<br/>dla Firm**][OneDrive-for~Businessdoc]|[![Ikona interfejsu API][Outlookicon]<br/>**Outlook**][Outlookdoc]|[![Ikona interfejsu API][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![Ikona interfejsu API][Queryicon]<br/>**Zapytanie**][Querydoc]|
+|[![Ikona interfejsu API][Recurrenceicon]<br/>**Cykl**][Recurrencedoc]|[![Ikona interfejsu API][RSSicon]<br/>**RSS**][RSSdoc]|[![Ikona interfejsu API][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![Ikona interfejsu API][SendGridicon]<br/>**SendGrid**][SendGriddoc]|
+|[![Ikona interfejsu API][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![Ikona interfejsu API][SFTPicon]<br/>**SFTP**][SFTPdoc]|[![Ikona interfejsu API][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![Ikona interfejsu API][Slackicon]<br/>**Slack**][Slackdoc]|
+|[![Ikona interfejsu API][SMTPicon]<br/>**SMTP**][SMTPdoc]|![Ikona interfejsu API][SparkPosticon]<br/>**SparkPost**|[![Ikona interfejsu API][SQLicon]<br/>**SQL**][SQLdoc]|[![Ikona interfejsu API][Translatoricon]<br/>**Translator**][Translatordoc]|
+|[![Ikona interfejsu API][Trelloicon]<br/>**Trello**][Trellodoc]|[![Ikona interfejsu API][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![Ikona interfejsu API][Twittericon]<br/>**Twitter**][Twitterdoc]|[![Ikona interfejsu API][Webhookicon]<br/>**Webhook**][Webhookdoc]|
+|[![Ikona interfejsu API][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![Ikona interfejsu API][Yammericon]<br/>**Yammer**][Yammerdoc]|![Ikona interfejsu API][YouTubeicon]<br/>**YouTube**||
 
 > [AZURE.NOTE] Jeśli chcesz zacząć korzystać z usługi Azure Logic Apps przed założeniem konta platformy Azure, przejdź do strony umożliwiającej [wypróbowanie aplikacji logiki](https://tryappservice.azure.com/?appservice=logic). Możesz od razu utworzyć krótkotrwałą, początkową aplikację logiki w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
 
@@ -72,10 +73,12 @@ Istnieją dwa typy wyzwalaczy:
 [azure-blobdoc]: ./connectors-create-api-azureblobstorage.md "Umożliwia nawiązywanie połączeń z obiektami blob platformy Azure w celu zarządzania plikami w kontenerze obiektów blob."
 [boxDoc]: ./connectors-create-api-box.md "Umożliwia nawiązywanie połączeń z usługą Box oraz przekazywanie, pobieranie i tworzenie list plików, a także wykonywanie innych zadań dotyczących plików."
 [crm-onlinedoc]: ./connectors-create-api-crmonline.md "Umożliwia nawiązywanie połączeń z usługą Dynamics CRM Online i wykorzystywanie danych usługi CRM Online na więcej sposobów."
+[db2doc]: ./connectors-create-api-db2.md "Umożliwia nawiązywanie połączeń z programem IBM DB2 w chmurze lub lokalnie w celu m.in. aktualizowania wiersza i uzyskiwania tabeli."
 [dropboxdoc]: ./connectors-create-api-dropbox.md "Umożliwia nawiązywanie połączeń z usługą Dropbox oraz pobieranie, usuwanie i tworzenie list plików, a także wykonywanie innych zadań dotyczących plików."
 [facebookdoc]: ./connectors-create-api-facebook.md "Umożliwia nawiązywanie połączeń z serwisem Facebook, aby publikować na osi czasu, uzyskiwać dane ze strumieniowego źródła danych strony i nie tylko."
 [ftpdoc]: ./connectors-create-api-ftp.md "Umożliwia nawiązywanie połączeń z serwerem FTP/FTPS i wykonywanie różnych zadań związanych z protokołem FTP, takich jak przekazywanie, pobieranie, usuwanie plików i inne."
 [google-drivedoc]: ./connectors-create-api-googledrive.md "Umożliwia nawiązywanie połączeń z Dyskiem Google i interakcję z danymi."
+[informixdoc]: ./connectors-create-api-informix.md "Umożliwia nawiązywanie połączeń z programem Informix w chmurze lub lokalnie w celu m.in. odczytywania wiersza i listy tabel."
 [translatordoc]: ./connectors-create-api-microsofttranslator.md
 [office-365~outlookdoc]: ./connectors-create-api-office365-outlook.md "Łącznik usługi Office 365 umożliwia wysyłanie i odbieranie wiadomości e-mail oraz zarządzanie kalendarzem i kontaktami przy użyciu konta usługi Office 365."
 [office-365~usersdoc]: ./connectors-create-api-office365-users.md
@@ -133,13 +136,22 @@ Istnieją dwa typy wyzwalaczy:
 
 <!--Icon references-->
 [Azure-Blobicon]: ./media/apis-list/azureblob.png
+[Azure~Functionsicon]: ./media/apis-list/function.png
 [Boxicon]: ./media/apis-list/box.png
-[FTPicon]: ./media/apis-list/ftp.png
-[GitHubicon]: ./media/apis-list/github.png
 [CRM-Onlineicon]: ./media/apis-list/dynamicscrmonline.png
+[DB2icon]: ./media/apis-list/db2.png
 [Dropboxicon]: ./media/apis-list/dropbox.png
 [Facebookicon]: ./media/apis-list/facebook.png
+[FTPicon]: ./media/apis-list/ftp.png
+[GitHubicon]: ./media/apis-list/github.png
 [Google-Driveicon]: ./media/apis-list/googledrive.png
+[Google~Calendaricon]: ./media/apis-list/googlecalendar.png
+[Google-Tasksicon]: ./media/apis-list/googletasks.png
+[Google-Sheetsicon]: ./media/apis-list/googlesheet.png
+[HTTPicon]: ./media/apis-list/http.png
+[HTTP~Requesticon]: ./media/apis-list/request.png
+[HTTP~Responseicon]: ./media/apis-list/response.png
+[Informixicon]: ./media/apis-list/informix.png
 [MailChimpicon]: ./media/apis-list/mailchimp.png
 [Translatoricon]: ./media/apis-list/microsofttranslator.png
 [Office-365~Outlookicon]: ./media/apis-list/office365.png
@@ -163,21 +175,14 @@ Istnieją dwa typy wyzwalaczy:
 [Twittericon]: ./media/apis-list/twitter.png
 [Wunderlisticon]: ./media/apis-list/wunderlist.png
 [Yammericon]: ./media/apis-list/yammer.png
-[Google~Calendaricon]: ./media/apis-list/googlecalendar.png
-[Google-Tasksicon]: ./media/apis-list/googletasks.png
-[Google-Sheetsicon]: ./media/apis-list/googlesheet.png
 [Mandrillicon]: ./media/apis-list/mandrill.png
 [SparkPosticon]: ./media/apis-list/sparkpost.png
 [Instagramicon]: ./media/apis-list/instagram.png
 [YouTubeicon]: ./media/apis-list/youtube.png
-[HTTPicon]: ./media/apis-list/http.png
-[HTTP~Requesticon]: ./media/apis-list/request.png
-[HTTP~Responseicon]: ./media/apis-list/response.png
 [Delayicon]: ./media/apis-list/delay.png
 [HTTP-Swaggericon]: ./media/apis-list/http_swagger.png
 [Queryicon]: ./media/apis-list/query.png
 [Webhookicon]: ./media/apis-list/webhook.png
-[Azure~Functionsicon]: ./media/apis-list/function.png
 [API/Web-Appicon]: ./media/apis-list/api.png
 [Nested~Logic-Appicon]: ./media/apis-list/workflow.png
 [Recurrenceicon]: ./media/apis-list/recurrence.png
@@ -192,6 +197,6 @@ Istnieją dwa typy wyzwalaczy:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

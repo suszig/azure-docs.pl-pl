@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Wprowadzenie do usługi Azure Mobile Engagement dla aplikacji systemu iOS w języku Objective C"
+    pageTitle="Wprowadzenie do usługi Azure Mobile Engagement dla systemu iOS w języku Objective C | Microsoft Azure"
     description="Dowiedz się, jak używać usługi Azure Mobile Engagement razem z funkcją analizy i powiadomieniami wypychanymi na potrzeby aplikacji systemu iOS."
     services="mobile-engagement"
-    documentationCenter="ios"
+    documentationCenter="mobile"
     authors="piyushjo"
-    manager="dwrede"
+    manager="erikre"
     editor="" />
 
 <tags
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="objective-c"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="09/14/2016"
     ms.author="piyushjo" />
+
 
 # Wprowadzenie do usługi Azure Mobile Engagement dla aplikacji systemu iOS w języku Objective C
 
@@ -25,12 +26,12 @@ W tym samouczku zostanie utworzona pusta aplikacja systemu iOS służąca do zbi
 
 Dla tego samouczka wymagane są następujące elementy:
 
-+ Edytor XCode 6 lub XCode 7, który można zainstalować ze sklepu Mac App Store
++ Edytor XCode 8, który można zainstalować ze sklepu Mac App Store
 + Zestaw [Mobile Engagement iOS SDK]
 
 Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wszystkich innych samouczków usługi Mobile Engagement dla aplikacji systemu iOS.
 
-> [AZURE.NOTE] Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli nie masz konta, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-get-started).
+> [AZURE.NOTE] Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-get-started).
 
 ##<a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji systemu iOS
 
@@ -64,7 +65,7 @@ Aby zademonstrować integrację, utworzymy podstawową aplikację za pomocą edy
 
 6. W przypadku edytora **XCode 7** — dodaj plik `libxml2.tbd` zamiast pliku `libxml2.dylib`.
 
-7. Wróć do portalu Azure na stronie **Informacje o połączeniu** w swojej aplikacji i skopiuj parametry połączenia.
+7. Wróć do witryny Azure Portal na stronie **Informacje o połączeniu** w swojej aplikacji i skopiuj parametry połączenia.
 
     ![][4]
 
@@ -116,7 +117,7 @@ W poniższych sekcjach aplikacja zostanie skonfigurowana do ich odbierania.
 2. Wybierz pozycję **Add file to** (Dodaj plik do).
 3. Przejdź do folderu, w którym został wyodrębniony zestaw SDK.
 4. Wybierz folder `EngagementReach`.
-5. Kliknij pozycję **Add** (Dodaj).
+5. Kliknij pozycję **Dodaj**.
 
 ### Modyfikowanie delegata aplikacji
 
@@ -183,6 +184,6 @@ W poniższych sekcjach aplikacja zostanie skonfigurowana do ich odbierania.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

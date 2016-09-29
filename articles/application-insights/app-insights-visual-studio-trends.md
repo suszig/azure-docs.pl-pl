@@ -15,6 +15,7 @@
     ms.date="08/08/2016" 
     ms.author="daviste"/>
     
+
 # Analizowanie trendów w programie Visual Studio
 
 Narzędzie Trendy usługi Application Insights wizualizuje sposób, w jaki ważne zdarzenia telemetrii aplikacji zmieniają się z upływem czasu, co ułatwia szybkie identyfikowanie problemów i anomalii. Łącząc Cię z bardziej szczegółowymi informacjami diagnostycznymi, narzędzie Trendy może ułatwić zwiększenie wydajności aplikacji, śledzenie przyczyn wyjątków oraz odkrywanie szczegółowych danych w zdarzeniach niestandardowych.
@@ -78,7 +79,7 @@ Co zrobić, jeśli chcesz zastosować wiele filtrów?
 1. Zastosuj pierwszy filtr. 
 2. Kliknij przycisk **Zastosuj wybrane filtry i ponownie prześlij zapytanie** obok nazwy wymiaru pierwszego filtru. Spowoduje to ponowne odpytanie telemetrii pod kątem zdarzeń pasujących do pierwszego filtru. 
 3. Zastosuj drugi filtr. 
-4. Powtarzaj ten proces, aby znaleźć trendy w określonych podzestawach telemetrii — na przykład żądania serwera o nazwie „GET Home/Index” _oraz_ te, które przyszły z Niemiec _oraz_ otrzymały kod odpowiedzi 500. 
+4. Powtarzaj ten proces, aby znaleźć trendy w określonych podzestawach telemetrii. Na przykład żądania serwera nazwane „GET Home/Index” _oraz_ te, które nadeszły z Niemiec _oraz_ te, które otrzymały kod odpowiedzi 500. 
 
 Aby anulować zastosowanie jednego z tych filtrów, kliknij przycisk **Usuń wybrane filtry i ponownie prześlij zapytanie** dla danego wymiaru.
 
@@ -102,6 +103,6 @@ Narzędzie Trendy umożliwia wyróżnianie bąbelków zdarzeń, które są niepr
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

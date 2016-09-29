@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="08/09/2016"
+    ms.date="09/01/2016"
     ms.author="casoper"/>
+
 
 # Omówienie usługi Azure Content Delivery Network (CDN)
 
@@ -41,7 +42,7 @@ Zalety używania usługi CDN do buforowania zasobów witryny sieci Web obejmują
 
 4. Serwer krawędzi zapisuje plik w pamięci podręcznej i zwraca go do oryginalnego obiektu żądającego (Anna).  Plik pozostaje w pamięci podręcznej na serwerze krawędzi do momentu upłynięcia czasu wygaśnięcia.  Jeśli punkt początkowy nie określił czasu wygaśnięcia, domyślnie wynosi on siedem dni.
 
-5. Dodatkowi użytkownicy (na przykład Piotr) mogą następnie zażądać tego samego pliku przy użyciu tego samego adresu URL, a także mogą być kierowani do tego samego punktu obecności.
+5. Dodatkowi użytkownicy mogą następnie zażądać tego samego pliku przy użyciu tego samego adresu URL, a także mogą być kierowani do tego samego punktu obecności.
 
 6. Jeśli czas wygaśnięcia pliku nie upłynął, serwer krawędzi zwraca plik z pamięci podręcznej.  Skutkuje to szybszymi czasami reakcji w środowisku użytkownika.
 
@@ -53,22 +54,25 @@ Istnieją trzy produkty Azure CDN: **Azure CDN Standard from Akamai**, **Azure C
 |       | Standard Akamai | Standard Verizon | Premium Verizon |
 |-------|-----------------|------------------|-----------------|
 | Łatwa integracja z usługami platformy Azure, takimi jak [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md) i [Media Services](../media-services/media-services-manage-origins.md#enable_cdn) | **&#x2713;** | **&#x2713;** | **&#x2713;**|
+| Zarządzanie za pomocą [interfejsu API REST](https://msdn.microsoft.com/library/mt634456.aspx), [platformy .NET](./cdn-app-dev-net.md), [środowiska Node.js](./cdn-app-dev-node.md) lub [programu PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Obsługa protokołu HTTPS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Równoważenie obciążenia | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| Ochrona przed atakami DDoS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Ochrona przed atakami [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Podwójny stos protokołów IPv4/IPv6 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;**  |  |  |
 | [Obsługa niestandardowych nazw domen](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Buforowanie ciągu zapytania](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Filtrowanie kraju](cdn-restrict-access-by-country.md) |  | **&#x2713;** | **&#x2713;** |
 | [Szybkie przeczyszczanie](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Wstępne ładowanie zasobów](cdn-preload-endpoint.md) |  | **&#x2713;** | **&#x2713;** |
 | [Podstawowa analiza](cdn-analyze-usage-patterns.md) |  | **&#x2713;** | **&#x2713;** |
-| Zarządzanie za pomocą [interfejsu API REST](https://msdn.microsoft.com/library/mt634456.aspx), [platformy .NET](./cdn-app-dev-net.md), [środowiska Node.js](./cdn-app-dev-node.md) lub [programu PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [Dostosowywalny, oparty na regułach aparat dostarczania zawartości](cdn-rules-engine.md) | | | **&#x2713;** |
+| [Obsługa protokołu HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;**  |  |  |
 | [Zaawansowane raporty HTTP](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Statystyki w czasie rzeczywistym](cdn-real-time-stats.md) | | | **&#x2713;** |
 | [Alerty w czasie rzeczywistym](cdn-real-time-alerts.md) | | | **&#x2713;** |
+| [Dostosowywalny, oparty na regułach aparat dostarczania zawartości](cdn-rules-engine.md) | | | **&#x2713;** |
+| Ustawienia pamięci podręcznej/nagłówka (przy użyciu [aparatu reguł](cdn-rules-engine.md))  | | | **&#x2713;** |
+| Adres URL przekierowania/ponownego napisania (przy użyciu [aparatu reguł](cdn-rules-engine.md)) | | | **&#x2713;** |
+| Zasady urządzeń przenośnych (przy użyciu [aparatu reguł](cdn-rules-engine.md))  | | | **&#x2713;** |
 
 >[AZURE.TIP] Czy jest jakaś funkcja, z której chcesz korzystać w usłudze Azure CDN?  [Prześlij nam swoją opinię](https://feedback.azure.com/forums/169397-cdn)! 
 
@@ -86,6 +90,6 @@ Aby uzyskać informacje o cenach, zobacz [cennik usługi CDN](https://azure.micr
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

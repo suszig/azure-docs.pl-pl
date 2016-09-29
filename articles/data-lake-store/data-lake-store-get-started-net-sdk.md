@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Korzystanie z zestawu SDK .NET usługi Data Lake Store w celu projektowania aplikacji | Azure"
+   pageTitle="Korzystanie z zestawu SDK .NET usługi Data Lake Store w celu projektowania aplikacji | Microsoft Azure"
    description="Korzystanie z zestawu SDK .NET usługi Azure Data Lake Store w celu projektowania aplikacji"
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/18/2016"
+   ms.date="09/15/2016"
    ms.author="nitinme"/>
+
 
 # Rozpoczynanie pracy z usługą Azure Data Lake Store z użyciem zestawu SDK .NET
 
@@ -27,21 +28,20 @@
 - [Interfejs wiersza polecenia platformy Azure](data-lake-store-get-started-cli.md)
 - [Node.js](data-lake-store-manage-use-nodejs.md)
 
-Dowiedz się, jak używać zestawu SDK .NET usługi Azure Data Lake Store, aby utworzyć konto usługi Azure Data Lake i wykonywać podstawowe operacje, takie jak tworzenie folderów, przekazywanie i pobieranie plików danych, usuwanie konta itp. Aby uzyskać więcej informacji o usłudze Data Lake, zobacz [Azure Data Lake Store](data-lake-store-overview.md).
+Dowiedz się, jak używać [zestawu SDK .NET usługi Azure Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx), aby wykonywać podstawowe operacje, takie jak tworzenie folderów, przekazywanie i pobieranie plików danych itp. Aby uzyskać więcej informacji o usłudze Data Lake, zobacz temat [Usługa Azure Data Lake Store](data-lake-store-overview.md).
 
 ## Wymagania wstępne
 
-* Program Visual Studio w wersji 2013 lub 2015. Poniższe instrukcje opisują korzystanie z programu Visual Studio 2015.
-* **Subskrypcja platformy Azure**. Zobacz artykuł [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Włączenie subskrypcji platformy Azure** w celu uzyskania publicznej wersji zapoznawczej usługi Data Lake Store. Zobacz [instrukcje](data-lake-store-get-started-portal.md#signup).
-* **Utworzenie aplikacji usługi Azure Active Directory**. Istnieją dwa sposoby uwierzytelniania z użyciem usługi Azure Active Directory — **interaktywny** i **nieinteraktywny**. W zależności od sposobu uwierzytelniania należy spełnić różne wymagania wstępne.
-    * **Uwierzytelnianie interakcyjne** (używane w tym artykule) — w usłudze Azure Active Directory należy utworzyć **aplikację Native Client**. Po utworzeniu aplikacji pobierz następujące wartości związane z tą aplikacją.
-        - Uzyskaj **identyfikator klienta** i **identyfikator URI przekierowania** dla aplikacji.
-        - Ustaw uprawnienia delegowane.
+* **Program Visual Studio w wersji 2013 lub 2015**. Poniższe instrukcje opisują korzystanie z programu Visual Studio 2015.
 
-    * **Uwierzytelnianie nieinterakcyjne** — w usłudze Azure Active Directory należy utworzyć **aplikację sieci Web**. Po utworzeniu aplikacji pobierz następujące wartości związane z tą aplikacją.
-        - Pobierz **identyfikator klienta**, **klucz tajny klienta** oraz **identyfikator URI przekierowania** dla aplikacji.
-        - Ustaw uprawnienia delegowane.
+* **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
+
+* **Konto usługi Azure Data Lake Store**. Aby uzyskać instrukcje dotyczące tworzenia konta, zobacz artykuł [Rozpoczynanie pracy z usługą Azure Data Lake Store](data-lake-store-get-started-portal.md)
+
+* **Utworzenie aplikacji usługi Azure Active Directory**, jeśli chcesz, aby aplikacja automatycznie uwierzytelniała się za pomocą usługi Azure Active Directory.
+
+    * **Uwierzytelnianie nieinterakcyjne za pomocą nazwy głównej** — w usłudze Azure Active Directory należy utworzyć **aplikację sieci Web**. Po utworzeniu aplikacji pobierz następujące wartości związane z tą aplikacją.
+        - Uzyskaj **identyfikator klienta** i **klucz tajny klienta** dla aplikacji.
         - Przypisz aplikację usługi Azure Active Directory do roli. Rola może być na poziomie zakresu, na którym chcesz nadać uprawnienie do aplikacji usługi Azure Active Directory. Na przykład możesz przypisać aplikację na poziomie subskrypcji lub na poziomie grupy zasobów. 
 
     Instrukcje dotyczące pobierania tych wartości, ustawiania uprawnień i przypisywania ról znajdują się w temacie [Tworzenie aplikacji i nazwy głównej usługi Active Directory przy użyciu portalu](../resource-group-create-service-principal-portal.md).
@@ -66,36 +66,26 @@ Dowiedz się, jak używać zestawu SDK .NET usługi Azure Data Lake Store, aby u
 
     1. Kliknij prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań i kliknij polecenie **Zarządzaj pakietami NuGet**.
     2. W **Menedżerze pakietów Nuget** upewnij się, że **Źródło pakietów** jest ustawione na **nuget.org** i że zaznaczone jest pole wyboru **Uwzględnij wersję wstępną**.
-    3. Wyszukaj i zainstaluj następujące pakiety usługi Data Lake Store:
+    3. Wyszukaj i zainstaluj następujące pakiety NuGet:
 
-        * `Microsoft.Azure.Management.DataLake.Store`
-        * `Microsoft.Azure.Management.DataLake.StoreUploader`
+        * `Microsoft.Azure.Management.DataLake.Store` — W tym samouczku jest używana wersja 0.12.5 — zapoznawcza.
+        * `Microsoft.Azure.Management.DataLake.StoreUploader` — W tym samouczku jest używana wersja 0.10.6 — zapoznawcza.
+        * `Microsoft.Rest.ClientRuntime.Azure.Authentication` — W tym samouczku jest używana wersja 2.2.8 — zapoznawcza.
 
         ![Dodawanie źródła pakietów Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Create a new Azure Data Lake account")
 
-    4. Zainstaluj również pakiet `Microsoft.IdentityModel.Clients.ActiveDirectory` na potrzeby uwierzytelniania usługi Azure Active Directory. Upewnij się, że *usunięte jest zaznaczenie* pola wyboru **Uwzględnij wersję wstępną**, aby zainstalować stabilną wersję tego pakietu.
+    4. Zamknij **Menedżera pakietów Nuget**.
 
-        ![Dodawanie źródła pakietów Nuget](./media/data-lake-store-get-started-net-sdk/adl.install.azure.auth.png "Create a new Azure Data Lake account")
-
-
-    5. Zamknij **Menedżera pakietów Nuget**.
-
-7. Otwórz plik **Program.cs**, usuń istniejący kod, a następnie dołącz poniższe instrukcje, aby dodać odwołania do przestrzeni nazw.
+6. Otwórz plik **Program.cs**, usuń istniejący kod, a następnie dołącz poniższe instrukcje, aby dodać odwołania do przestrzeni nazw.
 
         using System;
-        using System.IO;
-        using System.Security;
-        using System.Text;
-        using System.Collections.Generic;
-        using System.Linq;
-
+        using System.Threading;
+        
+        using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
-        using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.Azure.Management.DataLake.StoreUploader;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Rest;
 
-8. Zadeklaruj zmienne w sposób przedstawiony poniżej i podaj wartości dla nazwy usługi Data Lake Store oraz nazwy grupy zasobów. Usługa Data Lake Store o podanej nazwie zostanie utworzona przez aplikację. Grupa zasobów podana tutaj powinna już istnieć. Upewnij się również, że podana tutaj ścieżka lokalna i nazwa pliku istnieją na komputerze. Dodaj poniższy fragment kodu po deklaracjach przestrzeni nazw.
+7. Zadeklaruj zmienne w sposób przedstawiony poniżej i podaj wartości dla nazwy usługi Data Lake Store oraz nazwy już istniejącej grupy zasobów. Upewnij się również, że podana tutaj ścieżka lokalna i nazwa pliku istnieją na komputerze. Dodaj poniższy fragment kodu po deklaracjach przestrzeni nazw.
 
         namespace SdkSample
         {
@@ -103,17 +93,17 @@ Dowiedz się, jak używać zestawu SDK .NET usługi Azure Data Lake Store, aby u
             {
                 private static DataLakeStoreAccountManagementClient _adlsClient;
                 private static DataLakeStoreFileSystemManagementClient _adlsFileSystemClient;
-
+                
                 private static string _adlsAccountName;
                 private static string _resourceGroupName;
                 private static string _location;
-
+                
                 private static void Main(string[] args)
                 {
-                    _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; // TODO: Replace this value with the name for a NEW Store account.
-                    _resourceGroupName = "<RESOURCE-GROUP-NAME>"; // TODO: Replace this value. This resource group should already exist.
+                    _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; // TODO: Replace this value with the name of your existing Data Lake Store account.
+                    _resourceGroupName = "<RESOURCE-GROUP-NAME>"; // TODO: Replace this value with the name of the resource group containing your Data Lake Store account.
                     _location = "East US 2";
-
+                    
                     string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
                     string localFilePath = localFolderPath + "file.txt"; // TODO: Make sure this exists and can be overwritten.
                     string remoteFolderPath = "/data_lake_path/";
@@ -122,79 +112,65 @@ Dowiedz się, jak używać zestawu SDK .NET usługi Azure Data Lake Store, aby u
             }
         }
 
-Z pozostałych akapitów tego artykułu możesz dowiedzieć się, jak używać dostępnych metod .NET w celu wykonywania operacji, takich jak uwierzytelnianie użytkowników, tworzenie konta usługi Data Lake Store, przekazywanie plików itp. Jeśli szukasz kompletnego przykładu pracy z usługą Data Lake Store, zobacz [Dodatek](#appendix-sample-code) w dolnej części tego artykułu.
+Z pozostałych akapitów tego artykułu możesz dowiedzieć się, w jaki sposób używać dostępnych metod .NET w celu wykonywania operacji, takich jak uwierzytelnianie, przekazywanie plików itp.
 
-## Uwierzytelnianie użytkownika
+## Authentication
 
-Dostępne są dwa sposoby uwierzytelniania za pomocą usługi Azure Active Directory:
+Poniższy fragment kodu przedstawia metodę, której można użyć do logowania interakcyjnego.
 
-* **Interakcyjne**, gdy użytkownik loguje się przy użyciu aplikacji. Ten sposób jest implementowany przez metodę `AuthenticateUser` we fragmencie kodu poniżej.
+    // User login via interactive popup
+    //    Use the client ID of an existing AAD "Native Client" application.
+    SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
+    var domain = "common"; // Replace this string with the user's Azure Active Directory tenant ID or domain name, if needed.
+    var nativeClientApp_clientId = "1950a258-227b-4e31-a9cf-717495945fc2";
+    var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"))
+    var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
 
-* **Nieinterakcyjne**, gdzie aplikacja udostępnia własne poświadczenia. Ten sposób jest implementowany przez metodę `AuthenticateAppliaction` we fragmencie kodu poniżej.
+Alternatywnie, poniższego fragmentu kodu można użyć do uwierzytelniania aplikacji w sposób nieinterakcyjny za pomocą klucza tajnego klienta / klucza dla aplikacji / jednostki usługi.
 
-### Uwierzytelnianie interakcyjne
+    // Service principal / appplication authentication with client secret / key
+    //    Use the client ID and certificate of an existing AAD "Web App" application.
+    SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
+    var domain = "<AAD-directory-domain>";
+    var webApp_clientId = "<AAD-application-clientid>";
+    var clientSecret = "<AAD-application-clientid>";
+    var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
+    var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
-Poniższy fragment kodu przedstawia metodę `AuthenticateUser`, która służy do logowania interakcyjnego.
+Trzecią możliwością jest użycie poniższego fragmentu kodu do uwierzytelniania aplikacji w sposób nieinterakcyjny przy użyciu certyfikatu dla aplikacji / jednostki usługi.
 
-    // Authenticate the user with AAD through an interactive popup.
-    // You need to have an application registered with AAD in order to authenticate.
-    //   For more information and instructions on how to register your application with AAD, see:
-    //   https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/
-    public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
-    {
-        var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
-    
-        var tokenAuthResult = authContext.AcquireToken(resource, appClientId, appRedirectUri,
-            PromptBehavior.Auto, UserIdentifier.AnyUser);
-    
-        return new TokenCredentials(tokenAuthResult.AccessToken);
-    }
+    // Service principal / application authentication with certificate
+    //    Use the client ID and certificate of an existing AAD "Web App" application.
+    SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
+    var domain = "<AAD-directory-domain>";
+    var webApp_clientId = "<AAD-application-clientid>";
+    System.Security.Cryptography.X509Certificates.X509Certificate2 clientCert = <AAD-application-client-certificate>
+    var clientAssertionCertificate = new ClientAssertionCertificate(webApp_clientId, clientCert);
+    var creds = ApplicationTokenProvider.LoginSilentWithCertificateAsync(domain, clientAssertionCertificate).Result;
 
-### Uwierzytelnianie nieinterakcyjne
+## Tworzenie obiektów klienta
 
-Poniższy fragment kodu przedstawia metodę `AuthenticateApplication`, która służy do logowania nieinterakcyjnego.
+Poniższy fragment kodu tworzy konto usługi Data Lake Store i obiekty systemu plików klienta, które są używane do wysyłania żądań do usługi.
 
-    // Authenticate the application with AAD through the application's secret key.
-    // You need to have an application registered with AAD in order to authenticate.
-    //   For more information and instructions on how to register your application with AAD, see:
-    //   https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/
-    public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
-    {
-        var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
-        var credential = new ClientCredential(appClientId, clientSecret);
-    
-        var tokenAuthResult = authContext.AcquireToken(resource, credential);
-    
-        return new TokenCredentials(tokenAuthResult.AccessToken);
-    }
-    
-## Tworzenie konta usługi Data Lake Store
-
-Poniższy fragment kodu przedstawia metodę `CreateAccount`, która służy do tworzenia konta usługi Data Lake Store.
-
-    // Create Data Lake Store account
-    public static void CreateAccount()
-    {
-        var adlsParameters = new DataLakeStoreAccount(location: _location);
-        _adlsClient.Account.Create(_resourceGroupName, _adlsAccountName, adlsParameters);
-    } 
+    // Create client objects
+    var fileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
 
 ## Wyświetlanie listy wszystkich kont usługi Data Lake Store w ramach subskrypcji
 
-Poniższy fragment kodu przedstawia metodę `ListAdlStoreAccounts`, która służy do tworzenia listy wszystkich kont usługi Data Lake Store należących do danej subskrypcji platformy Azure.
+Poniższy fragment kodu umożliwia wyświetlenie listy wszystkich kont usługi Data Lake Store należących do danej subskrypcji platformy Azure.
 
     // List all ADLS accounts within the subscription
     public static List<DataLakeStoreAccount> ListAdlStoreAccounts()
     {
         var response = _adlsClient.Account.List(_adlsAccountName);
         var accounts = new List<DataLakeStoreAccount>(response);
-    
+        
         while (response.NextPageLink != null)
         {
             response = _adlsClient.Account.ListNext(response.NextPageLink);
             accounts.AddRange(response);
         }
-    
+        
         return accounts;
     }
 
@@ -208,7 +184,7 @@ Poniższy fragment kodu przedstawia metodę `CreateDirectory`, która służy do
         _adlsFileSystemClient.FileSystem.Mkdirs(_adlsAccountName, path);
     }
 
-## Przekazywanie pliku do usługi Data Lake Store
+## Przekazywanie pliku
 
 Poniższy fragment kodu przedstawia metodę `UploadFile`, która służy do przekazywania plików do konta usługi Data Lake Store.
 
@@ -220,6 +196,8 @@ Poniższy fragment kodu przedstawia metodę `UploadFile`, która służy do prze
         var uploader = new DataLakeStoreUploader(parameters, frontend);
         uploader.Execute();
     }
+
+Program DataLakeStoreUploader obsługuje cykliczne przekazywanie i pobieranie między lokalną ścieżką pliku (lub folderu) i usługą Data Lake Store.    
 
 ## Uzyskiwanie informacji o pliku lub katalogu
 
@@ -234,7 +212,7 @@ Poniższy fragment kodu przedstawia metodę `GetItemInfo`, której można użyć
 ## Wyświetlanie listy plików lub katalogów
 
 Poniższy fragment kodu przedstawia metodę `ListItem`, która służy do wyświetlania listy plików i katalogów w ramach konta usługi Data Lake Store.
-    
+
     // List files and directories
     public static List<FileStatusProperties> ListItems(string directoryPath)
     {
@@ -259,7 +237,7 @@ Poniższy fragment kodu przedstawia metodę `AppendToFile`, której można uży�
     public static void AppendToFile(string path, string content)
     {
         var stream = new MemoryStream(Encoding.UTF8.GetBytes(content));
-
+        
         _adlsFileSystemClient.FileSystem.Append(_adlsAccountName, path, stream);
     }
 
@@ -272,262 +250,22 @@ Poniższy fragment kodu przedstawia metodę `DownloadFile`, której można uży�
     {
         var stream = _adlsFileSystemClient.FileSystem.Open(_adlsAccountName, srcPath);
         var fileStream = new FileStream(destPath, FileMode.Create);
-
+        
         stream.CopyTo(fileStream);
         fileStream.Close();
         stream.Close();
     }
-
-## Usuwanie konta usługi Data Lake Store
-
-Poniższy fragment kodu przedstawia metodę `DeleteAccount`, która służy do usuwania konta usługi Data Lake Store.
-
-    // Delete account
-    public static void DeleteAccount()
-    {
-        _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
-    }
-
-## Dodatek: kod przykładowy
-
-Poniższy fragment kodu jest kompletnym przykładem kodu, który można skopiować i wkleić do aplikacji, aby zobaczyć całą operację w usłudze Data Lake Store. Przed uruchomieniem fragmentu kodu upewnij się, że podane zostały wymagane wartości, takie jak nazwa usługi Data Lake Store, nazwa grupy zasobów itp. Należy również podać wartości wymagane do uwierzytelniania usługi Azure Active Direcctory, na przykład **\<APPLICATION-CLIENT-ID>**, **\<APPLICATION-REPLY-URI>** oraz **\<SUBSCRIPTION-ID>**.
-
-Poniższy fragment kodu udostępnia metody, które mogą być stosowane w podejściu interakcyjnym i nieinterakcyjnym, przy czym blok kodu dla podejścia nieinterakcyjnego jest oznaczony jako komentarz. W przypadku metody interakcyjnej wymagane jest podanie identyfikatora klienta aplikacji AAD i identyfikatora URI przekierowania. Link w sekcji wymagań wstępnych prowadzi do instrukcji dotyczących uzyskiwania tych identyfikatorów.
-
->[AZURE.NOTE] Jeśli chcesz zmodyfikować fragment kodu i użyć metody nieinterakcyjnej (`AuthenticateApplication`), oprócz identyfikatora klienta i identyfikatora URI odpowiedzi klienta w danych wejściowych metody podaj także klucz uwierzytelniania klienta. Artykuł [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md) (Tworzenie aplikacji i głównej nazwy usługi Active Directory przy użyciu portalu) zawiera również informacje dotyczące sposobu generowania i pobierania klucza uwierzytelniania klienta.
-    
-Na koniec upewnij się, że podana tutaj ścieżka lokalna i nazwa pliku istnieją na komputerze. Jeśli szukasz przykładowych danych do przekazania, możesz pobrać folder **Ambulance Data** z [repozytorium Git usługi Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
-
-
-
-    using System;
-    using System.IO;
-    using System.Security;
-    using System.Text;
-    using System.Collections.Generic;
-    using System.Linq;
-
-    using Microsoft.Azure.Management.DataLake.Store;
-    using Microsoft.Azure.Management.DataLake.Store.Models;
-    using Microsoft.Azure.Management.DataLake.StoreUploader;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Microsoft.Rest;
-
-    namespace SdkSample
-    {
-        class Program
-        {
-            private static DataLakeStoreAccountManagementClient _adlsClient;
-            private static DataLakeStoreFileSystemManagementClient _adlsFileSystemClient;
-
-            private static string _adlsAccountName;
-            private static string _resourceGroupName;
-            private static string _location;
-
-            private static void Main(string[] args)
-            {
-                _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; // TODO: Replace this value with the name for a NEW Store account.
-                _resourceGroupName = "<RESOURCE-GROUP-NAME>"; // TODO: Replace this value. This resource group should already exist.
-                _location = "East US 2";
-
-                string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
-                string localFilePath = localFolderPath + "file.txt"; // TODO: Make sure this exists and can be overwritten.
-                string remoteFolderPath = "/data_lake_path/";
-                string remoteFilePath = remoteFolderPath + "file.txt";
-
-                // Authenticate the user
-                var tokenCreds = AuthenticateUser("common", "https://management.core.windows.net/",
-                    "<APPLICATION-CLIENT-ID>", new Uri("<APPLICATION-REPLY-URI>")); // TODO: Replace bracketed values.
-
-                SetupClients(tokenCreds, "<SUBSCRIPTION-ID>"); // TODO: Replace bracketed value.
-
-                // Run sample scenarios
-                WaitForNewline("Authenticated.", "Creating NEW account.");
-                CreateAccount();
-                WaitForNewline("Account created.", "Creating a directory.");
-
-                // Create a directory in the Data Lake Store
-                CreateDirectory(remoteFolderPath);
-                WaitForNewline("Directory created.", "Showing directory info.");
-
-                // Get info about the directory in the Data Lake Store
-                var itemInfo = GetItemInfo(remoteFolderPath);
-                Console.WriteLine("Type: " + itemInfo.Type);
-                Console.WriteLine("Last modified (UTC): " +
-                                  new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddMilliseconds(
-                                      itemInfo.ModificationTime.Value));
-                WaitForNewline("Directory info shown.", "Uploading a file.");
-
-                // Upload a file to the Data Lake Store
-                UploadFile(localFilePath, remoteFilePath);
-                WaitForNewline("File uploaded.", "Listing files and directories.");
-
-                // List the files in the Data Lake Store
-                var itemList = ListItems(remoteFolderPath);
-                var fileMenuItems = itemList.Select(a => String.Format("{0,15} {1}", a.Type, a.PathSuffix));
-                Console.WriteLine(String.Join("\r\n", fileMenuItems));
-                WaitForNewline("Files and directories listed.", "Appending content to a file.");
-
-                // Append to a file in the Data Lake Store
-                AppendToFile(remoteFilePath, "123");
-                WaitForNewline("Content appended.", "Downloading a file.");
-
-                // Download a file from the Data Lake Store
-                DownloadFile(remoteFilePath, localFilePath);
-                WaitForNewline("File downloaded.", "Deleting account.");
-
-                // Delete account
-                DeleteAccount();
-                WaitForNewline("Account deleted. You can now exit.");
-            }
-
-            // Helper function to show status and wait for user input
-            public static void WaitForNewline(string reason, string nextAction = "")
-            {
-                if (!String.IsNullOrWhiteSpace(nextAction))
-                {
-                    Console.WriteLine(reason + "\r\nPress ENTER to continue...");
-                    Console.ReadLine();
-                    Console.WriteLine(nextAction);
-                }
-                else
-                {
-                    Console.WriteLine(reason + "\r\nPress ENTER to continue...");
-                    Console.ReadLine();
-                }
-            }
-
-            // Authenticate the user with AAD through an interactive popup.
-            // You need to have an application registered with AAD in order to authenticate.
-            //   For more information and instructions on how to register your application with AAD, see:
-            //   https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/
-            public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
-            {
-                var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
-
-                var tokenAuthResult = authContext.AcquireToken(resource, appClientId, appRedirectUri,
-                    PromptBehavior.Auto, UserIdentifier.AnyUser);
-
-                return new TokenCredentials(tokenAuthResult.AccessToken);
-            }
-            
-            /*
-            // Authenticate the application with AAD through the application's secret key.
-            // You need to have an application registered with AAD in order to authenticate.
-            //   For more information and instructions on how to register your application with AAD, see:
-            //   https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/
-            public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
-            {
-                var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
-                var credential = new ClientCredential(appClientId, clientSecret);
-
-                var tokenAuthResult = authContext.AcquireToken(resource, credential);
-
-                return new TokenCredentials(tokenAuthResult.AccessToken);
-            }
-            */
-
-            //Set up clients
-            public static void SetupClients(TokenCredentials tokenCreds, string subscriptionId)
-            {
-                _adlsClient = new DataLakeStoreAccountManagementClient(tokenCreds);
-                _adlsClient.SubscriptionId = subscriptionId;
-
-                _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(tokenCreds);
-            }
-
-            // Create account
-            public static void CreateAccount()
-            {
-                // Create ADLS account
-                var adlsParameters = new DataLakeStoreAccount(location: _location);
-                _adlsClient.Account.Create(_resourceGroupName, _adlsAccountName, adlsParameters);
-            }
-
-            // Delete account
-            public static void DeleteAccount()
-            {
-                _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
-            }
-
-            // List all ADLS accounts within the subscription
-            public static List<DataLakeStoreAccount> ListAdlStoreAccounts()
-            {
-                var response = _adlsClient.Account.List(_adlsAccountName);
-                var accounts = new List<DataLakeStoreAccount>(response);
-
-                while (response.NextPageLink != null)
-                {
-                    response = _adlsClient.Account.ListNext(response.NextPageLink);
-                    accounts.AddRange(response);
-                }
-
-                return accounts;
-            }
-
-            // Upload a file
-            public static void UploadFile(string srcFilePath, string destFilePath, bool force = true)
-            {
-                var parameters = new UploadParameters(srcFilePath, destFilePath, _adlsAccountName, isOverwrite: force);
-                var frontend = new DataLakeStoreFrontEndAdapter(_adlsAccountName, _adlsFileSystemClient);
-                var uploader = new DataLakeStoreUploader(parameters, frontend);
-                uploader.Execute();
-            }
-
-            // Concatenate files
-            public static void ConcatenateFiles(string[] srcFilePaths, string destFilePath)
-            {
-                _adlsFileSystemClient.FileSystem.Concat(_adlsAccountName, destFilePath, srcFilePaths);
-            }
-
-            // Get file or directory info
-            public static FileStatusProperties GetItemInfo(string path)
-            {
-                return _adlsFileSystemClient.FileSystem.GetFileStatus(_adlsAccountName, path).FileStatus;
-            }
-
-            // List files and directories
-            public static List<FileStatusProperties> ListItems(string directoryPath)
-            {
-                return _adlsFileSystemClient.FileSystem.ListFileStatus(_adlsAccountName, directoryPath).FileStatuses.FileStatus.ToList();
-            }
-
-            // Download file
-            public static void DownloadFile(string srcPath, string destPath)
-            {
-                var stream = _adlsFileSystemClient.FileSystem.Open(_adlsAccountName, srcPath);
-                var fileStream = new FileStream(destPath, FileMode.Create);
-
-                stream.CopyTo(fileStream);
-                fileStream.Close();
-                stream.Close();
-            }
-
-            // Append to file
-            public static void AppendToFile(string path, string content)
-            {
-                var stream = new MemoryStream(Encoding.UTF8.GetBytes(content));
-
-                _adlsFileSystemClient.FileSystem.Append(_adlsAccountName, path, stream);
-            }
-
-            // Create a directory
-            public static void CreateDirectory(string path)
-            {
-                _adlsFileSystemClient.FileSystem.Mkdirs(_adlsAccountName, path);
-            }
-        }
-    }
-
 
 ## Następne kroki
 
 - [Zabezpieczanie danych w usłudze Data Lake Store](data-lake-store-secure-data.md)
 - [Korzystanie z usługi Azure Data Lake Analytics z usługą Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Korzystanie z usługi Azure HDInsight z usługą Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Dokumentacja zestawu SDK .NET usługi Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx)
+- [Dokumentacja interfejsu REST usługi Data Lake Store](https://msdn.microsoft.com/library/mt693424.aspx)
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

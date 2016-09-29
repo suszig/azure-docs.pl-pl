@@ -13,8 +13,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="08/26/2016"
    ms.author="ryanwi"/>
+
 
 # Tworzenie pierwszej aplikacji usługi Azure Service Fabric w programie Visual Studio
 
@@ -110,6 +111,14 @@ Teraz, gdy masz już aplikację, spróbuj ją uruchomić.
 
     ![Szczegóły w podglądzie zdarzeń diagnostycznych po przełączeniu do trybu failover][diagnostic-events-viewer-detail-post-failover]
 
+## Przełączanie trybu klastra
+
+Domyślnie lokalny klaster projektowy jest skonfigurowany do uruchamiania jako klaster z 5 węzłami, co ułatwia debugowanie usług wdrożonych w wielu węzłach. Wdrożenie aplikacji w klastrze projektowym z 5 węzłami może być jednak czasochłonne. Jeśli chcesz szybko iterować zmiany kodu, bez uruchamiania aplikacji w 5 węzłach, możesz przełączyć klaster projektowy do trybu 1 węzła. Aby uruchomić kod w klastrze z jednym węzłem, kliknij prawym przyciskiem myszy ikonę Menedżer klastra lokalnego na pasku zadań i wybierz polecenie **Przełącz tryb klastra -> 1 węzeł**.  
+
+![Przełączanie trybu klastra][switch-cluster-mode]
+
+Po zmianie trybu klastra klaster projektowy jest resetowany i wszystkie aplikacje zaprowizowane lub działające w klastrze są usuwane.
+
 ## Czyszczenie
 
   Przed zakończeniem należy zapamiętać, że klaster lokalny jest bardzo prawdziwy. Zatrzymanie debugera powoduje usunięcie wystąpienia aplikacji i wyrejestrowanie typu aplikacji. Klaster będzie jednak nadal uruchomiony w tle. Istnieje kilka możliwości zarządzania klastrem:
@@ -138,9 +147,10 @@ Teraz, gdy masz już aplikację, spróbuj ją uruchomić.
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
+[switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

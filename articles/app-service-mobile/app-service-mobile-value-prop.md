@@ -4,7 +4,7 @@
     services="app-service\mobile"
     documentationCenter=""
     authors="adrianhall"
-    manager="dwrede"
+    manager="yochayk"
     editor=""/>
 
 <tags
@@ -14,7 +14,8 @@
     ms.devlang="na"
     ms.topic="hero-article"
     ms.date="05/03/2016"
-    ms.author="krisagh"/>
+    ms.author="adrianha"/>
+
 
 # <a name="getting-started"> </a>Co to jest usługa Mobile Apps?
 
@@ -87,7 +88,7 @@ Aby uzyskać więcej informacji o platformie Azure App Service, zobacz artykuł 
 [DocumentDB]: ../documentdb/documentdb-get-started.md
 [authentication features]: ./app-service-mobile-auth.md
 [funkcje związane z danymi]: ./app-service-mobile-offline-data-sync.md
-[funkcje powiadomień wypychanych]: ../notification-hubs/notification-hubs-overview.md
+[funkcje powiadomień wypychanych]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [iOS]: ./app-service-mobile-ios-how-to-use-client-library.md
 [Android]: ./app-service-mobile-android-how-to-use-client-library.md
 [Windows]: ./app-service-mobile-dotnet-how-to-use-client-library.md
@@ -105,6 +106,6 @@ Aby uzyskać więcej informacji o platformie Azure App Service, zobacz artykuł 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

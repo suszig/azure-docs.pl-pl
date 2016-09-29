@@ -4,33 +4,37 @@
 
 Aby móc korzystać z klasy [EventProcessorHost][], trzeba mieć [Konto usługi Azure Storage][]:
 
-1. Zaloguj się do [klasyczny portal Azure][] i kliknij opcję **NOWE** u dołu ekranu.
+1. Zaloguj się do witryny [Azure Portal][], a następnie kliknij pozycję **Nowe** w lewym górnym rogu ekranu.
 
-2. Kliknij opcję **Data Services**, następnie **Storage**, **Szybkie tworzenie**, a następnie wpisz nazwę konta magazynu. Wybierz odpowiedni region, a następnie kliknij opcję **Utwórz konto magazynu**.
+2. Kliknij pozycję **Dane i magazyn**, a następnie pozycję **Konto magazynu**.
 
-    ![][11]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png)
 
-3. Kliknij nowo utworzone konto magazynu, a następnie kliknij opcję **Zarządzaj kluczami dostępu**:
+3. W bloku **Utwórz konto magazynu** wpisz nazwę konta magazynu. Wybierz subskrypcję platformy Azure, grupę zasobów i lokalizację, w której chcesz utworzyć zasób. Następnie kliknij pozycję **Utwórz**.
 
-    ![][12]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png)
 
-    Skopiuj podstawowy klucz dostępu, który zostanie użyty później w tym samouczku.
+4. Na liście kont magazynu kliknij nowo utworzone konto magazynu.
+
+5. W bloku kont magazynu kliknij pozycję **Klucze dostępu**. Skopiuj wartość **klucz1**, aby użyć jej w dalszej części tego samouczka.
+
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage3.png)
 
 4. W programie Visual Studio utwórz nowy projekt aplikacji klasycznej Visual C# za pomocą szablonu projektu **Aplikacja konsoli**. Nazwij projekt **Odbiornik**.
 
-    ![][14]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp1.png)
 
 5. W Eksploratorze rozwiązań kliknij rozwiązanie prawym przyciskiem myszy, a następnie kliknij pozycję **Zarządzaj pakietami NuGet dla rozwiązania**.
 
 6. Kliknij kartę **Przeglądanie**, a następnie wyszukaj ciąg `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Pamiętaj, aby określić nazwę projektu (**Odbiornik**) w polu **Wersje**. Kliknij pozycję **Zainstaluj** i zaakceptuj warunki użytkowania.
 
-    ![][13]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-eph-csharp1.png)
 
     Program Visual Studio pobierze, zainstaluje i doda odniesienie do [centrum zdarzeń usługi Azure Service Bus — pakiet NuGet EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) wraz ze wszystkimi jego zależnościami.
 
 7. Kliknij prawym przyciskiem myszy projekt **Odbiornik**, kliknij przycisk **Dodaj**, a następnie kliknij opcję **Klasa**. Nadaj nowej klasie nazwę **SimpleEventProcessor**, a następnie kliknij przycisk **Dodaj**, aby utworzyć klasę.
 
-    ![][15]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png)
 
 8. W górnej części pliku SimpleEventProcessor.cs dodaj następujące instrukcje:
 
@@ -121,21 +125,10 @@ Aby móc korzystać z klasy [EventProcessorHost][], trzeba mieć [Konto usługi 
 [Omówienie usługi Event Hubs]: event-hubs-overview.md
 [Przewodnik programowania w usłudze Event Hubs]: event-hubs-programming-guide.md
 [Skalowanie przetwarzania zdarzeń]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Konto usługi Azure Storage]: ../storage/storage-create-storage-account-classic-portal.md
+[Konto usługi Azure Storage]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[klasyczny portal Azure]: http://manage.windowsazure.com
+[Azure Portal]: https://portal.azure.com
 
-<!-- Images -->
-
-[11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
-[12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
-[13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
-[15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
-
-
-
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

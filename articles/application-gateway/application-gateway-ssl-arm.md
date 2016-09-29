@@ -12,8 +12,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace"/>
+
 
 # Konfigurowanie bramy aplikacji na potrzeby odciążania protokołu SSL przy użyciu usługi Azure Resource Manager
 
@@ -44,14 +45,14 @@
 
 W przypadku konfiguracji certyfikatów SSL protokół w polu **HttpListener** należy zmienić na *Https* (z uwzględnieniem wielkości liter). Element **SslCertificate** jest dodawany do odbiornika **HttpListener** z wartością zmiennej skonfigurowaną dla certyfikatu SSL. Port frontonu należy zaktualizować do 443.
 
-**Aby włączyć koligację opartą na plikach cookie**: bramę aplikacji można skonfigurować tak, aby żądanie z sesji klienta było zawsze kierowane do tej samej maszyny wirtualnej w kolektywie serwerów sieci Web. W tym celu należy wstrzyknąć plik cookie sesji, który umożliwi bramie prawidłowe przekierowywanie ruchu. Aby włączyć koligację opartą na plikach cookie, ustaw element **CookieBasedAffinity** na wartość *Enabled* w elemencie **BackendHttpSettings**.
+**Aby włączyć koligację opartą na plikach cookie**: bramę aplikacji można skonfigurować tak, aby żądanie z sesji klienta było zawsze kierowane do tej samej maszyny wirtualnej w kolektywie serwerów sieci Web. W tym scenariuszu należy wstrzyknąć plik cookie sesji, który umożliwi bramie prawidłowe kierowanie ruchu. Aby włączyć koligację opartą na plikach cookie, ustaw element **CookieBasedAffinity** na wartość *Enabled* w elemencie **BackendHttpSettings**.
 
 
 ## Tworzenie bramy aplikacji
 
 Różnica między klasycznym modelem wdrożenia platformy Azure i usługą Azure Resource Management polega na kolejności tworzenia bramy aplikacji i elementów, które należy skonfigurować.
 
-W usłudze Resource Manager wszystkie elementy składające się na bramę aplikacji są konfigurowane osobno, a następnie składane w celu utworzenia zasobu bramy aplikacji.
+W usłudze Resource Manager wszystkie składniki bramy aplikacji są konfigurowane osobno, a następnie składane w celu utworzenia zasobu bramy aplikacji.
 
 
 Oto kroki wymagane do utworzenia bramy aplikacji:
@@ -69,8 +70,6 @@ Upewnij się, że program PowerShell został przełączony do trybu umożliwiaj�
 ### Krok 1
 
     Login-AzureRmAccount
-
-
 
 ### Krok 2
 
@@ -106,24 +105,25 @@ W poniższym przykładzie pokazano, jak utworzyć sieć wirtualną przy użyciu 
 
     $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
-Umożliwia przypisanie zakresu adresów 10.0.0.0/24 do zmiennej podsieci służącej do tworzenia sieci wirtualnej.
+Ten przykład umożliwia przypisanie zakresu adresów 10.0.0.0/24 do zmiennej podsieci służącej do tworzenia sieci wirtualnej.
 
 ### Krok 2
+
     $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-Umożliwia utworzenie sieci wirtualnej o nazwie „appgwvnet” w grupie zasobów „appgw-rg” dla regionu Zachodnie stany USA przy użyciu prefiksu 10.0.0.0/16 i podsieci 10.0.0.0/24.
+Ten przykład umożliwia utworzenie sieci wirtualnej o nazwie „appgwvnet” w grupie zasobów „appgw-rg” dla regionu Zachodnie stany USA przy użyciu prefiksu 10.0.0.0/16 i podsieci 10.0.0.0/24.
 
 ### Krok 3
 
     $subnet = $vnet.Subnets[0]
 
-Umożliwia przypisanie obiektu podsieci do zmiennej $subnet na potrzeby następnych kroków.
+Ten przykład umożliwia przypisanie obiektu podsieci do zmiennej $subnet na potrzeby następnych kroków.
 
 ## Tworzenie publicznego adresu IP dla konfiguracji frontonu
 
     $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
 
-Umożliwia utworzenie zasobu publicznego adresu IP „publicIP01” w grupie zasobów „appgw-rg” dla regionu Zachodnie stany USA.
+Ten przykład umożliwia utworzenie zasobu publicznego adresu IP „publicIP01” w grupie zasobów „appgw-rg” dla regionu Zachodnie stany USA.
 
 
 ## Tworzenie obiektu konfiguracji bramy aplikacji
@@ -132,56 +132,56 @@ Umożliwia utworzenie zasobu publicznego adresu IP „publicIP01” w grupie zas
 
     $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-Umożliwia utworzenie konfiguracji adresu IP bramy aplikacji o nazwie „gatewayIP01”. Uruchomiona usługa Application Gateway wybierze adres IP ze skonfigurowanej podsieci i skieruje ruch sieciowy do adresów IP w puli adresów IP zaplecza. Pamiętaj, że każde wystąpienie będzie mieć jeden adres IP.
+Ten przykład umożliwia utworzenie konfiguracji adresu IP bramy aplikacji o nazwie „gatewayIP01”. Uruchomiona usługa Application Gateway wybierze adres IP ze skonfigurowanej podsieci i skieruje ruch sieciowy do adresów IP w puli adresów IP zaplecza. Pamiętaj, że każde wystąpienie będzie mieć jeden adres IP.
 
 ### Krok 2
 
     $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-Umożliwia skonfigurowanie puli adresów IP zaplecza o nazwie „pool01” z adresami IP „134.170.185.46, 134.170.188.221,134.170.185.50”. Są to adresy IP odbierające ruch sieciowy pochodzący z punktu końcowego adresu IP frontonu. Zastąp adresy IP z powyższego przykładu adresami IP punktów końcowych aplikacji sieci Web.
+Ten przykład umożliwia skonfigurowanie puli adresów IP zaplecza o nazwie „pool01” z adresami IP „134.170.185.46, 134.170.188.221,134.170.185.50”. Te wartości to adresy IP odbierające ruch sieciowy pochodzący z punktu końcowego adresu IP frontonu. Zastąp adresy IP z poprzedniego przykładu adresami IP punktów końcowych aplikacji sieci Web.
 
 ### Krok 3
 
     $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Enabled
 
-Umożliwia skonfigurowanie ustawienia bramy aplikacji „poolsetting01” dla ruchu sieciowego ze zrównoważonym obciążeniem w puli zaplecza.
+Ten przykład umożliwia skonfigurowanie ustawienia bramy aplikacji „poolsetting01” dla ruchu sieciowego ze zrównoważonym obciążeniem w puli zaplecza.
 
 ### Krok 4
 
     $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 443
 
-Umożliwia skonfigurowanie portu adresu IP frontonu o nazwie „frontendport01” dla punktu końcowego publicznego adresu IP.
+Ten przykład umożliwia skonfigurowanie portu adresu IP frontonu o nazwie „frontendport01” dla punktu końcowego publicznego adresu IP.
 
 ### Krok 5
 
     $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path for certificate file> -Password ‘<password>’
 
-Umożliwia skonfigurowanie certyfikatu używanego na potrzeby połączenia SSL. Certyfikat musi być w formacie PFX, a hasło musi składać się z 4–12 znaków.
+Ten przykład umożliwia skonfigurowanie certyfikatu używanego na potrzeby połączenia SSL. Certyfikat musi być w formacie PFX, a hasło musi składać się z 4–12 znaków.
 
 ### Krok 6
 
     $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
-Umożliwia utworzenie konfiguracji adresów IP frontonu o nazwie „fipconfig01” i skojarzenie publicznego adresu IP z konfiguracją adresów IP frontonu.
+Ten przykład umożliwia utworzenie konfiguracji adresów IP frontonu o nazwie „fipconfig01” i skojarzenie publicznego adresu IP z konfiguracją adresów IP frontonu.
 
 ### Krok 7
 
     $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
 
 
-Umożliwia utworzenie odbiornika o nazwie „listener01” i skojarzenie portu frontonu z certyfikatem i konfiguracją adresów IP frontonu.
+Ten przykład umożliwia utworzenie odbiornika o nazwie „listener01” i skojarzenie portu frontonu z certyfikatem i konfiguracją adresów IP frontonu.
 
 ### Krok 8
 
     $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
-Umożliwia utworzenie reguły routingu modułu równoważenia obciążenia o nazwie „rule01”, która służy do konfigurowania zachowania modułu równoważenia obciążenia.
+Ten przykład umożliwia utworzenie reguły routingu modułu równoważenia obciążenia o nazwie „rule01”, która służy do konfigurowania zachowania modułu równoważenia obciążenia.
 
 ### Krok 9
 
     $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
-Umożliwia skonfigurowanie rozmiaru wystąpienia bramy aplikacji.
+Ten przykład umożliwia skonfigurowanie rozmiaru wystąpienia bramy aplikacji.
 
 >[AZURE.NOTE]  Wartość domyślna parametru *InstanceCount* to 2, a wartość maksymalna — 10. Wartość domyślna parametru *GatewaySize* to Medium. Możesz wybrać następujące wartości: Standard_Small, Standard_Medium i Standard_Large.
 
@@ -189,7 +189,7 @@ Umożliwia skonfigurowanie rozmiaru wystąpienia bramy aplikacji.
 
     $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert
 
-Umożliwia utworzenie bramy aplikacji przy użyciu wszystkich elementów konfiguracji z powyższych kroków. W przykładzie brama aplikacji ma nazwę „appgwtest”.
+Ten przykład umożliwia utworzenie bramy aplikacji przy użyciu wszystkich elementów konfiguracji z poprzednich kroków. W przykładzie brama aplikacji ma nazwę „appgwtest”.
 
 ## Następne kroki
 
@@ -202,6 +202,6 @@ Więcej ogólnych informacji na temat opcji równoważenia obciążenia możesz 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

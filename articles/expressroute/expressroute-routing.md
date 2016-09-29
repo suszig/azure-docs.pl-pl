@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/10/2016"
+   ms.date="09/16/2016"
    ms.author="ganesr"/>
+
 
 
 # Wymagania dotyczące routingu w usłudze ExpressRoute  
@@ -78,7 +79,7 @@ Wymiana routingu będzie odbywać się za pośrednictwem protokołu eBGP. Sesje 
 
 ## Numery systemu autonomicznego
 
-Firma Microsoft będzie używać numeru AS 12076 do publicznej i prywatnej komunikacji równorzędnej Azure oraz komunikacji równorzędnej Microsoft. Zarezerwowaliśmy numery AS od 65515 do 65520 do użytku wewnętrznego. Obsługiwane są zarówno 16-, jak i 32-bitowe numery AS. Po stronie równorzędnej (klient lub dostawca) numer AS może być publicznym adresem AS, jeśli można zweryfikować, że należy do Ciebie, lub prywatnym numerem AS dla prywatnej komunikacji równorzędnej oraz wymaga publicznego numeru AS dla publicznej komunikacji równorzędnej i komunikacji równorzędnej z firmą Microsoft. 
+Firma Microsoft będzie używać numeru AS 12076 do publicznej i prywatnej komunikacji równorzędnej Azure oraz komunikacji równorzędnej Microsoft. Zarezerwowaliśmy numery AS od 65515 do 65520 do użytku wewnętrznego. Obsługiwane są zarówno 16-, jak i 32-bitowe numery AS. Po stronie równorzędnej (klient lub dostawca) numer AS może być publicznym adresem ASN, jeśli można zweryfikować, że należy do Ciebie, lub prywatnym numerem ASN.
 
 Nie istnieją żadne wymagania związane z symetrią transferu danych w podstawowych i dodatkowych ścieżkach dowolnego obwodu. Ścieżki przekazywania dalej i ścieżki zwracania mogą przechodzić różne pary routerów. Trasy identyczne muszą być anonsowane ze strony podstawowej lub dodatkowej we wszystkich danych parach obwodów należących do Ciebie. Metryki tras nie muszą być identyczne.
 
@@ -179,6 +180,6 @@ Oprócz tego firma Microsoft oznaczy również prefiksy w oparciu o usługę, do
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

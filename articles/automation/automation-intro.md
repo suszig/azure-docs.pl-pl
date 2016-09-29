@@ -6,7 +6,7 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-    keywords="what is automation, azure automation, azure automation examples"/>
+    keywords="co to jest usługa automation, azure automation, przykłady usługi azure automation"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
@@ -15,6 +15,7 @@
     ms.topic="get-started-article" 
     ms.date="05/10/2016"
     ms.author="magoedte;bwren"/>
+
 
 # Omówienie usługi Azure Automation
 
@@ -104,6 +105,6 @@ Aby dowiedzieć się więcej na temat usługi Azure Automation i tworzenia włas
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

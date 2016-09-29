@@ -5,11 +5,11 @@ W tym scenariuszu mamy do czynienia z dwiema sieciami wirtualnymi w subskrypcji,
 
 ![Przesył NVA](./media/virtual-networks-create-vnetpeering-scenario-transit-include/figure01.PNG)
 
-UWAGA: dla uproszczenia przyjęto założenie, że wszystkie przykładowe sieci wirtualne znajdują się w tej samej subskrypcji. Ale wszystko będzie też działać dla scenariusza komunikacji między subskrypcjami. 
+> [AZURE.NOTE] Dla uproszczenia przyjęto założenie, że wszystkie przykładowe sieci wirtualne znajdują się w tej samej subskrypcji. Ale wszystko będzie też działać dla scenariusza komunikacji między subskrypcjami.
 
 Kluczową właściwością pozwalającą włączyć routing przesyłania jest parametr „Zezwalaj na ruch przekazywany”. Dzięki temu możliwe jest akceptowanie i wysyłanie ruchu z i do urządzenia NVA w skomunikowanej równorzędnie sieci wirtualnej.  
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -2,7 +2,7 @@ Dostęp do pamięci podręcznej można uzyskać przez [witrynę Azure Portal](ht
 
 ![Blok przeglądania usługi Azure Redis Cache](media/redis-cache-browse/redis-cache-browse.png)
 
-Kliknij kolejno opcje **Przeglądaj > Pamięci podręczne Redis**, aby wyświetlić pamięci podręczne. Jeśli ostatnio nastąpiło przeglądanie do pamięci podręcznej Redis, możesz kliknąć opcję **Pamięci podręczne Redis** bezpośrednio z listy, nie klikając opcji **Przeglądaj**.
+Aby wyświetlić pamięci podręczne, kliknij kolejno pozycje **Więcej usług > Redis Cache**. Jeśli ostatnio przechodzono do pamięci podręcznej Redis, możesz kliknąć pozycję **Pamięci podręczne Redis Cache** bezpośrednio z listy, nie klikając pozycji **Więcej usług**.
 
 Wybierz odpowiednią pamięć podręczną, aby wyświetlić jej właściwości.
 
@@ -12,7 +12,6 @@ Kliknij opcję **Ustawienia** lub **Wszystkie ustawienia**, aby wyświetlić i s
 
 ![Wszystkie ustawienia pamięci podręcznej Redis](media/redis-cache-browse/redis-cache-blade.png)
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Konfigurowanie połączenia sieci VPN typu punkt-lokacja z siecią wirtualną przy użyciu modelu wdrażania usługi Resource Manager | Microsoft Azure"
-   description="Istnieje możliwość bezpiecznego połączenia się z siecią wirtualną platformy Azure poprzez utworzenie połączenia sieci VPN typu punkt-lokacja."
+   pageTitle="Konfigurowanie połączenia bramy sieci VPN typu punkt-lokacja z siecią wirtualną przy użyciu modelu wdrażania usługi Resource Manager | Microsoft Azure"
+   description="Istnieje możliwość bezpiecznego połączenia się z siecią wirtualną platformy Azure poprzez utworzenie połączenia bramy sieci VPN typu punkt-lokacja."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -16,13 +16,14 @@
    ms.date="08/31/2016"
    ms.author="cherylmc" />
 
+
 # Konfigurowanie połączenia typu punkt-lokacja z siecią wirtualną przy użyciu programu PowerShell
 
 > [AZURE.SELECTOR]
-- [Program PowerShell — model usługi Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [Portal — model klasyczny](vpn-gateway-point-to-site-create.md)
+- [Resource Manager — program PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Model klasyczny — klasyczny portal](vpn-gateway-point-to-site-create.md)
 
-Konfiguracja typu punkt-lokacja (P2S, Point-to-Site) pozwala utworzyć indywidualne bezpieczne połączenie z siecią wirtualną z poziomu komputera klienckiego. Przedstawione rozwiązanie przydaje się w przypadku, gdy celem użytkownika jest połączenie się z siecią wirtualną z lokalizacji zdalnej, np. z domu lub z konferencji, lub gdy konieczne jest połączenie z siecią wirtualną jedynie niewielkiej liczby klientów. 
+Konfiguracja typu punkt-lokacja pozwala utworzyć indywidualne bezpieczne połączenie z siecią wirtualną z poziomu komputera klienckiego. Przedstawione rozwiązanie przydaje się w przypadku, gdy celem użytkownika jest połączenie się z siecią wirtualną z lokalizacji zdalnej, np. z domu lub z konferencji, lub gdy konieczne jest połączenie z siecią wirtualną jedynie niewielkiej liczby klientów. 
 
 Ten artykuł przeprowadzi Cię przez proces tworzenia sieci wirtualnej z połączeniem punkt-lokacja w ramach **modelu wdrażania usługi Resource Manager**. Kroki wymagają programu PowerShell. Obecnie nie można utworzyć tego rozwiązania end-to-end w witrynie Azure Portal.
 
@@ -65,7 +66,7 @@ W celu przeprowadzenia konfiguracji należy zastosować następujące wartości.
 
 - Sprawdź, czy masz subskrypcję platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
     
-- Zainstaluj polecenia cmdlet programu PowerShell usługi Azure Resource Manager (wersja 1.0.2 lub nowsza). Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu Azure PowerShell, zobacz artykuł [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Instalowanie i konfigurowanie programu Azure PowerShell).
+- Zainstaluj polecenia cmdlet programu PowerShell usługi Azure Resource Manager (wersja 1.0.2 lub nowsza). Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu Azure PowerShell, zobacz artykuł [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Instalowanie i konfigurowanie programu Azure PowerShell). Podczas pracy z programem PowerShell dla tej konfiguracji upewnij się, że działasz jako administrator. 
 
 ## <a name="declare"></a>Część 1 — Logowanie się i ustawianie zmiennych
 
@@ -111,7 +112,7 @@ W tej sekcji należy zalogować się i zadeklarować wartości używane dla tej 
 
         New-AzureRmResourceGroup -Name $RG -Location $Location
 
-2. Utwórz konfiguracje podsieci dla sieci wirtualnej, nadając im nazwy *FrontEnd*, *BackEnd* i *GatewaySubnet*. Prefiksy te muszą być częścią przestrzeni adresowej sieci wirtualnej zadeklarowanej powyżej.
+2. Utwórz konfiguracje podsieci dla sieci wirtualnej, nadając im nazwy *FrontEnd*, *BackEnd* i *GatewaySubnet*. Prefiksy te muszą być częścią zadeklarowanej przestrzeni adresowej sieci wirtualnej.
 
         $fesub = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
         $besub = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName -AddressPrefix $BESubPrefix
@@ -172,19 +173,28 @@ Klienci łączący się z platformą Azure za pomocą połączenia typu punkt-lo
 
 3. Skopiuj i wklej link zwrócony do przeglądarki sieci Web, aby pobrać pakiet. Następnie zainstaluj pakiet na komputerze klienckim.
 
-4. Na komputerze klienckim przejdź do obszaru **Ustawienia sieci** i kliknij pozycję **Sieć VPN**. Połączenie zostanie wyświetlone. Widoczna będzie nazwa sieci wirtualnej, z którą zostanie nawiązane połączenie. Powinno to wyglądać następująco: 
+4. Na komputerze klienckim przejdź do obszaru **Ustawienia sieci** i kliknij pozycję **Sieć VPN**. Połączenie zostanie wyświetlone. Widoczna będzie nazwa sieci wirtualnej, z którą zostanie nawiązane połączenie. Powinno to wyglądać podobnie jak w tym przykładzie: 
 
     ![Klient sieci VPN](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "VPN client")
 
-## <a name="cc"></a>Część 6 — Instalacja certyfikatu klienta
-    
-Wygeneruj i zainstaluj certyfikaty klienta (*.pfx) utworzone na podstawie certyfikatu głównego na komputerach klienckich. Można użyć dowolnej metody instalacji.
+## <a name="cc"></a>Część 6 — Generowanie certyfikatu klienta
 
-Jeśli używasz certyfikatu głównego z podpisem własnym i nie wiesz, w jaki sposób wygenerować certyfikat klienta, możesz odwołać się do [tego artykułu](vpn-gateway-certificates-point-to-site.md). Jeśli pracujesz z rozwiązaniem dla przedsiębiorstwa, upewnij się, że certyfikaty klienta zostały wystawione przy użyciu typowego formatu wartości nazwy „imię@twoja_domena.com”, a nie w formacie NetBIOS „nazwa_domeny\nazwa_użytkownika”.
+Kolejny krok to generowanie certyfikatów klienta. Można wygenerować unikatowy certyfikat dla każdego klienta, dzięki któremu będzie można się łączyć, ale można też użyć tego samego certyfikatu na wielu klientach. Zaletą generowania unikatowych certyfikatów klienta jest możliwość odwoływania pojedynczego certyfikatu, jeśli to konieczne. W przeciwnym razie, jeśli wszyscy użytkownicy korzystają z tego samego certyfikatu klienta i konieczne jest odwołanie certyfikatu dla jednego klienta, należy wygenerować i zainstalować nowe certyfikaty dla wszystkich klientów, którzy używają certyfikatu do uwierzytelniania.
 
-Certyfikat klienta można zainstalować bezpośrednio na komputerze, klikając dwukrotnie plik pfx.
+- Jeśli pracujesz z certyfikatem przedsiębiorstwa, wygeneruj certyfikat klienta przy użyciu typowego formatu wartości nazwy „imię@twoja_domena.com”, a nie w formacie NetBIOS „DOMENA\nazwa_użytkownika”. 
 
-## Część 7 — Nawiązywanie połączenia z platformą Azure
+- Jeśli używasz certyfikatu z podpisem własnym i chcesz wygenerować certyfikat klienta, zobacz temat [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md) (Praca z certyfikatami głównymi z podpisem własnym dla konfiguracji połączenia typu punkt-lokacja).
+
+## Część 7 — Instalacja certyfikatu klienta
+
+Certyfikat klienta należy zainstalować na każdym komputerze, który zostanie połączony z siecią wirtualną. Certyfikat klienta jest wymagany do uwierzytelniania. Można zautomatyzować instalowanie certyfikatu klienta, ale możliwe jest też przeprowadzenie instalacji ręcznie. Kroki przedstawione poniżej opisują sposób postępowania w przypadku eksportu i ręcznej instalacji certyfikatu klienta.
+
+1. Aby wyeksportować certyfikat klienta, można użyć narzędzia *certmgr.msc*. Kliknij prawym przyciskiem myszy certyfikat klienta, który chcesz wyeksportować, a następnie kliknij przycisk **wszystkie zadania** i opcję **eksportuj**.
+2. Wyeksportuj certyfikat klienta z kluczem prywatnym. Klucz znajduje się w pliku *pfx*. Zapisz lub zapamiętaj hasło (klucz) ustawione dla tego certyfikatu.
+3. Skopiuj plik *.pfx* na komputer kliencki. Na komputerze klienckim kliknij dwukrotnie plik *pfx*, aby go zainstalować. Gdy zostanie wyświetlony stosowny monit, wprowadź hasło. Nie zmieniaj lokalizacji instalacji.
+
+
+## Część 8 — Nawiązywanie połączenia z platformą Azure
 
 1. Aby nawiązać połączenie z siecią wirtualną na komputerze klienckim, przejdź do połączeń sieci VPN i wyszukaj wcześniej utworzone połączenie sieci VPN. Połączenie będzie miało taką samą nazwę jak sieć wirtualna. Kliknij przycisk **Połącz**. Może pojawić się komunikat podręczny, który odwołuje się do użycia certyfikatu. Jeśli tak się stanie, kliknij przycisk **Kontynuuj**, aby skorzystać z podniesionych uprawnień. 
 
@@ -196,7 +206,7 @@ Certyfikat klienta można zainstalować bezpośrednio na komputerze, klikając d
 
     ![Klient sieci VPN 3](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "VPN client connection 2")
 
-## Część 8 — Weryfikowanie połączenia
+## Część 9 — Weryfikowanie połączenia
 
 1. Aby sprawdzić, czy połączenie sieci VPN jest aktywne, otwórz wiersz polecenia z podwyższonym poziomem uprawnień, a następnie uruchom polecenie *ipconfig/all*.
 
@@ -217,7 +227,7 @@ Certyfikat klienta można zainstalować bezpośrednio na komputerze, klikając d
 
 Certyfikaty są używane do uwierzytelniania klientów sieci VPN w obrębie sieci VPN typu punkt-lokacja. W poniższych krokach objaśniono proces dodawania i usuwania certyfikatów głównych. Po dodaniu do platformy Azure pliku x.509 szyfrowanego algorytmem Base64 (.cer) otrzymuje ona informację, że może zaufać certyfikatowi głównemu reprezentowanemu przez ten plik. 
 
-Dodawanie i usuwanie zaufanych certyfikatów głównych może być przeprowadzone przy użyciu programu PowerShell lub w witrynie Azure Portal. Jeśli chcesz to zrobić za pomocą witryny Azure Portal, przejdź kolejno do pozycji **Brama sieci wirtualnej > Ustawienia > Konfiguracja połączenia punkt-lokacja > Certyfikaty główne**. W poniższych krokach pokazano, jak wykonać te zadania przy użyciu programu PowerShell. 
+Dodawanie i usuwanie zaufanych certyfikatów głównych może być przeprowadzone przy użyciu programu PowerShell lub w witrynie Azure Portal. Jeśli chcesz to zrobić za pomocą witryny Azure Portal, przejdź kolejno do pozycji **Brama sieci wirtualnej > Ustawienia > Konfiguracja połączenia punkt-lokacja > Certyfikaty główne**. W poniższych krokach objaśniono, jak wykonać te zadania przy użyciu programu PowerShell. 
 
 ### Dodawanie zaufanego certyfikatu głównego
 
@@ -225,11 +235,11 @@ Na platformie Azure można dodać maksymalnie 20 plików cer zaufanego certyfika
 
 1. Utwórz i przygotuj nowy certyfikat główny, który zostanie dodany do platformy Azure. Wyeksportuj klucz publiczny jako certyfikat x.509 (.CER) szyfrowany algorytmem Base-64 i otwórz go w edytorze tekstu. Następnie skopiuj tylko sekcję wskazaną poniżej. 
  
-    Skopiuj wartości tak, jak to pokazano w poniższym przykładzie.
+    Skopiuj wartości, tak jak to pokazano w poniższym przykładzie:
 
     ![certyfikat](./media/vpn-gateway-howto-point-to-site-rm-ps/copycert.png "certificate")
     
-2. W poniższym przykładzie należy określić nazwę certyfikatu i informacje o kluczu jako zmienną. Zastąp podane informacje własnymi.
+2. Określi nazwę certyfikatu i informacje o kluczu jako zmienną. Zastąp informacje własnymi, tak jak pokazano w poniższym przykładzie:
 
         $P2SRootCertName2 = "ARMP2SRootCert2.cer"
         $MyP2SCertPubKeyBase64_2 = "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
@@ -306,6 +316,6 @@ Do sieci wirtualnej można dodać maszynę wirtualną. Kroki opisano w sekcji [T
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

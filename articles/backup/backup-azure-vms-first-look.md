@@ -13,15 +13,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/29/2016"
+    ms.date="09/15/2016"
     ms.author="markgal; jimpark"/>
+
 
 
 # Pierwsze spojrzenie: tworzenie kopii zapasowych maszyn wirtualnych platformy Azure
 
 > [AZURE.SELECTOR]
-- [Pierwsze spojrzenie: ochrona maszyn wirtualnych przy użyciu magazynu usługi Recovery Services](backup-azure-vms-first-look-arm.md)
-- [Pierwsze spojrzenie: ochrona maszyn wirtualnych platformy Azure przy użyciu magazynu usługi Backup](backup-azure-vms-first-look.md)
+- [Ochrona maszyn wirtualnych przy użyciu magazynu usługi Recovery Services](backup-azure-vms-first-look-arm.md)
+- [Ochrona maszyn wirtualnych platformy Azure przy użyciu magazynu usługi Backup](backup-azure-vms-first-look.md)
 
 Ten samouczek przedstawia kroki tworzenia kopii zapasowej maszyny wirtualnej platformy Azure w magazynie usługi Backup na platformie Azure. W tym artykule opisano klasyczny model wdrażania (model wdrażania Service Manager) na potrzeby tworzenia kopii zapasowych maszyn wirtualnych. Jeśli chcesz tworzyć kopie zapasowe maszyny wirtualnej w magazynie usługi Recovery Services należącym do grupy zasobów, zobacz [Pierwsze spojrzenie: ochrona maszyn wirtualnych przy użyciu magazynu usługi Recovery Services](backup-azure-vms-first-look-arm.md). Do pomyślnego ukończenia tego samouczka muszą być spełnione następujące wymagania wstępne:
 
@@ -225,6 +226,6 @@ Jeśli masz pytania lub jeśli brakuje Ci jakiejś funkcji, [prześlij nam opini
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

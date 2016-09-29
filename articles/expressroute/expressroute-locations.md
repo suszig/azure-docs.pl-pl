@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
+   ms.date="09/20/2016"
    ms.author="cherylmc" />
+
 
 # Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
 
@@ -29,9 +30,9 @@ Będziesz mieć dostęp do usług Azure we wszystkich regionach regionu geopolit
 
 |**Region geopolityczny**|**Regiony świadczenia usługi Azure**|**Lokalizacje usługi ExpressRoute**|
 |---|---|---|
-|**Ameryka Północna**|Wschodnie stany USA, Zachodnie stany USA, Wschodnie stany USA 2, Środkowe stany USA, Południowo-środkowe stany USA, Północno-środkowe stany USA, Kanada Środkowa, Kanada Wschodnia|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, Nowy Jork, Seattle, Dolina Krzemowa, Waszyngton DC, Montreal+, Miasto Quebec+, Toronto|
+|**Ameryka Północna**|Wschodnie stany USA, Zachodnie stany USA, Wschodnie stany USA 2, Środkowe stany USA, Południowo-środkowe stany USA, Północno-środkowe stany USA, Kanada Środkowa, Kanada Wschodnia|Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, Nowy Jork, Seattle, Dolina Krzemowa, Waszyngton, Montreal+, Miasto Quebec+, Toronto|
 |**Ameryka Południowa**|Brazylia Południowa|Sao Paulo|
-|**Europa**|Europa Północna, Europa Zachodnia|Amsterdam, Dublin, Londyn, Newport (Walia)+, Paryż|
+|**Europa**|Europa Północna, Europa Zachodnia, Zjednoczone Królestwo (zachód), Zjednoczone Królestwo (południe)|Amsterdam, Dublin, Londyn, Newport (Walia)+, Paryż|
 |**Azja**|Azja Wschodnia, Azja Południowo-Wschodnia|Hongkong, Singapur|
 |**Japonia**|Japońska Zachodnia, Japonia Wschodnia|Osaka, Tokio|
 |**Australia**|Australia Południowo-Wschodnia, Australia Wschodnia|Melbourne, Sydney|
@@ -43,9 +44,9 @@ W poniższej tabeli zamieszczono informacje o regionach i granicach geopolityczn
 
 |**Region geopolityczny**|**Regiony świadczenia usługi Azure**|**Lokalizacje usługi ExpressRoute**|
 |---|---|---|---|
-|**Chmura administracji USA**|Administracja USA — Iowa, Administracja USA — Wirginia|Chicago, Dallas+, Nowy Jork, Waszyngton|
+|**Chmura administracji USA**|Administracja USA — Iowa, Administracja USA — Wirginia|Chicago, Dallas, Nowy Jork, Waszyngton|
 |**Chiny**|Chiny Północne, Chiny Wschodnie|Pekin, Szanghaj|
-|**Niemcy**|Niemcy Środkowe, Niemcy Wschodnie|Berlin, Frankfurt|
+|**Niemcy**|Niemcy Środkowe, Niemcy Wschodnie|Berlin+, Frankfurt|
 
 
 Łączność między regionami geopolitycznymi nie jest obsługiwana w standardowej jednostce SKU usługi ExpressRoute. Do obsługi połączeń globalnych trzeba włączyć dodatek Premium usługi ExpressRoute. Łączność z krajowymi środowiskami chmury nie jest obsługiwana. W razie potrzeby można współpracować z dostawcą połączenia.
@@ -66,7 +67,7 @@ W poniższej tabeli zamieszczono informacje o regionach i granicach geopolityczn
 | **[British Telecom]( http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Obsługiwane | Obsługiwane | Amsterdam, Hongkong, Londyn, Dolina Krzemowa, Singapur, Sydney, Tokio, Waszyngton |
 |**CenturyLink** | Wkrótce | Wkrótce| Dolina Krzemowa |
 |**China Telecom Global** | Obsługiwane | Nieobsługiwane | Hongkong |
-|**[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** | Obsługiwane | Wkrótce | Montreal+, Toronto |
+|**[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** | Obsługiwane | Wkrótce | Dallas, Montreal+, Toronto |
 | **[Colt]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)**  |  Obsługiwane | Obsługiwane | Amsterdam, Dublin, Londyn, Tokio |
 | **Comcast** | Obsługiwane | Obsługiwane | Chicago, Dolina Krzemowa, Waszyngton |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Obsługiwane | Obsługiwane | Los Angeles | 
@@ -83,12 +84,12 @@ W poniższej tabeli zamieszczono informacje o regionach i granicach geopolityczn
 | **MTN** | Obsługiwane | Obsługiwane | Londyn |
 | **NEXTDC** | Obsługiwane | Obsługiwane | Melbourne, Sydney |
 | **NTT Communications** | Obsługiwane | Obsługiwane | Londyn, Los Angeles, Osaka, Tokio |
-| **[Orange]( http://www.orange-business.com/en/products/business-vpn-galerie)** | Obsługiwane | Obsługiwane | Amsterdam, Hongkong, Londyn, Dolina Krzemowa, Singapur, Waszyngton |
+| **[Orange]( http://www.orange-business.com/en/products/business-vpn-galerie)** | Obsługiwane | Obsługiwane | Amsterdam, Hongkong, Londyn, Dolina Krzemowa, Singapur, Sydney, Waszyngton |
 | **PCCW Global Limited** | Obsługiwane | Obsługiwane | Hongkong |
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  Obsługiwane | Obsługiwane | Singapur |
 | **Softbank** | Obsługiwane | Obsługiwane | Osaka, Tokio | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Obsługiwane | Obsługiwane | Amsterdam, Madras, Hongkong, Londyn, Bombaj, Dolina Krzemowa, Singapur, Waszyngton |
-| **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Obsługiwane | Obsługiwane | Amsterdam, Londyn |
+| **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Obsługiwane | Obsługiwane | Amsterdam, Dublin, Londyn |
 | **Telefonica** | Obsługiwane | Wkrótce | Sao Paulo |
 | **Telenor** | Obsługiwane | Obsługiwane | Amsterdam, Londyn |
 | **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Obsługiwane | Wkrótce | Melbourne, Sydney |
@@ -105,7 +106,7 @@ W poniższej tabeli zamieszczono informacje o regionach i granicach geopolityczn
 | **Dostawca usług**  |**Microsoft Azure** | **Office 365** | **Lokalizacje** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Obsługiwane | Obsługiwane | Chicago, Waszyngton |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Obsługiwane | Obsługiwane | Chicago, Dallas+, Nowy Jork, Waszyngton |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Obsługiwane | Obsługiwane | Chicago, Dallas, Nowy Jork, Waszyngton |
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Obsługiwane | Obsługiwane | Chicago, Nowy Jork+, Waszyngton |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Obsługiwane | Obsługiwane | Chicago, Dallas+, Nowy Jork, Waszyngton |
 
@@ -173,6 +174,6 @@ Włączanie prywatnej łączności do własnych potrzeb może być wyzwaniem w z
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -1,6 +1,6 @@
 <properties
     pageTitle="Tworzenie pierwszej fabryki danych (szablon usługi Resource Manager) | Microsoft Azure"
-    description="W tym samouczku przedstawiono tworzenie przykładowego potoku usługi Fabryka danych Azure przy użyciu szablonu usługi Azure Resource Manager."
+    description="W tym samouczku przedstawiono tworzenie przykładowego potoku usługi Azure Data Factory przy użyciu szablonu usługi Azure Resource Manager."
     services="data-factory"
     documentationCenter=""
     authors="spelluru"
@@ -16,44 +16,36 @@
     ms.date="08/01/2016"
     ms.author="spelluru"/>
 
+
 # Samouczek: tworzenie pierwszej fabryki danych Azure przy użyciu szablonu usługi Azure Resource Manager
 > [AZURE.SELECTOR]
-- [Omówienie samouczka](data-factory-build-your-first-pipeline.md)
-- [Korzystanie z Edytora fabryki danych](data-factory-build-your-first-pipeline-using-editor.md)
-- [Korzystanie z programu PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Korzystanie z programu Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Korzystanie z szablonu usługi Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-- [Korzystanie z interfejsu API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [Przegląd i wymagania wstępne](data-factory-build-your-first-pipeline.md)
+- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Szablon usługi Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+- [Interfejs API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-
-W tym artykule opisano, jak używać szablonu usługi Azure Resource Manager do tworzenia pierwszej fabryki danych Azure. 
-
+W tym artykule opisano użycie szablonu usługi Azure Resource Manager do tworzenia pierwszej fabryki danych Azure.
 
 ## Wymagania wstępne
-Oprócz wymagań wstępnych wymienionych w artykule Omówienie samouczka wymagane jest:
-
-- Przeczytanie artykułu [Omówienie samouczka](data-factory-build-your-first-pipeline.md) oraz wykonanie kroków wymagań wstępnych. 
-- **Zainstalowanie programu Azure PowerShell**. Postępuj zgodnie z instrukcjami w artykule [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Instalowanie i konfigurowanie programu Azure PowerShell), aby zainstalować najnowszą wersję programu Azure PowerShell na komputerze.
-- Ten artykuł nie zawiera omówienia koncepcyjnego usługi Fabryka danych Azure. Szczegółowe omówienie tej usługi znajduje się w artykule [Introduction to Azure Data Factory](data-factory-introduction.md) (Wprowadzenie do usługi Fabryka danych Azure). 
+- Przeczytanie artykułu [Omówienie samouczka](data-factory-build-your-first-pipeline.md) oraz wykonanie kroków **wymagań wstępnych**.
+- Postępuj zgodnie z instrukcjami w artykule [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Instalowanie i konfigurowanie programu Azure PowerShell), aby zainstalować najnowszą wersję programu Azure PowerShell na komputerze.
 - Artykuł [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) (Tworzenie szablonów usługi Azure Resource Manager) zawiera informacje dotyczące szablonów usługi Azure Resource Manager. 
-
-> [AZURE.IMPORTANT]
-> Aby można było wykonać instrukcje przedstawione w tym artykule, wykonaj kroki wymagań wstępnych w artykule [Omówienie samouczka](data-factory-build-your-first-pipeline.md). 
 
 ## Tworzenie szablonu usługi Resource Manager
 
-Utwórz plik JSON o nazwie **ADFTutorialARM.json** w folderze **C:\ADFGetStarted** o następującej zawartości: 
+W tej sekcji tworzy się następujące jednostki usługi Data Factory: 
 
-Ten szablon umożliwia tworzenie następujących jednostek usługi Fabryka danych.
-
-1. **Fabryka danych** o nazwie **TutorialDataFactoryARM**. Fabryka danych może obejmować jeden lub wiele potoków. Potok może obejmować jedno lub wiele działań. Na przykład działanie kopiowania w celu kopiowania danych ze źródła do docelowego magazynu danych oraz działanie programu Hive w usłudze HDInsight w celu uruchamiania skryptu programu Hive służącego do przekształcania danych wejściowych w dane wyjściowe produktu. 
-2. Dwie **połączone usługi**: **StorageLinkedService** i **HDInsightOnDemandLinkedService**. Te połączone usługi łączą konto usługi Azure Storage oraz klaster usługi Azure HDInsight na żądanie z fabryką danych. Konto usługi Azure Storage będzie przechowywać dane wejściowe i wyjściowe dla potoku w tym przykładzie. Połączona usługa HDInsight służy do uruchamiania skryptu programu Hive określonego w działaniu potoku w tym przykładzie. Trzeba zidentyfikować usługi magazynu danych/usługi obliczeniowe, które są używane w tym scenariuszu oraz połączyć te usługi z fabryką danych przez utworzenie połączonych usług. 
+1. **Fabryka danych** o nazwie **TutorialDataFactoryARM**. Fabryka danych może obejmować jeden lub wiele potoków. Potok może obejmować jedno lub wiele działań. Na przykład działanie kopiowania w celu kopiowania danych ze źródła do docelowego magazynu danych oraz działanie programu Hive w usłudze HDInsight w celu uruchamiania skryptu programu Hive służącego do przekształcania danych wejściowych. 
+2. Dwie **połączone usługi**: **StorageLinkedService** i **HDInsightOnDemandLinkedService**. Te połączone usługi łączą konto usługi Azure Storage oraz klaster usługi Azure HDInsight na żądanie z fabryką danych. Konto usługi Azure Storage będzie przechowywać dane wejściowe i wyjściowe dla potoku w tym przykładzie. Połączona usługa HDInsight służy do uruchamiania skryptu programu Hive określonego w działaniu potoku w tym przykładzie. Zidentyfikuj usługi magazynu danych/usługi obliczeniowe, które są używane w tym scenariuszu, oraz połącz te usługi z fabryką danych przez utworzenie połączonych usług. 
 3. Dwa **zestawy danych** (wejściowych/wyjściowych): **AzureBlobInput** oraz **AzureBlobOutput**. Te zestawy danych reprezentują dane wejściowe i wyjściowe do przetwarzania Hive. Te zestawy danych dotyczą elementu **StorageLinkedService** utworzonego wcześniej w ramach tego samouczka. Połączona usługa wskazuje konto usługi Azure Storage, a zestawy danych określają kontener, folder i nazwę pliku w magazynie, w którym przechowywane są dane wejściowe i wyjściowe.   
 
 Kliknij kartę **Korzystanie z Edytora fabryki danych**, aby przejść do artykułu zawierającego szczegóły na temat właściwości JSON użytych w tym szablonie.
 
-> [AZURE.IMPORTANT] Zmień wartości zmiennych **storageAccountName** i **storageAccountKey**. Zmień również parametr **dataFactoryName**, ponieważ nazwa musi być unikatowa.
+Utwórz plik JSON o nazwie **ADFTutorialARM.json** w folderze **C:\ADFGetStarted** o następującej zawartości:
 
+> [AZURE.IMPORTANT] Zmień wartości zmiennych **storageAccountName** i **storageAccountKey**. Zmień również parametr **dataFactoryName**, ponieważ nazwa musi być unikatowa.
 
     {
         "contentVersion": "1.0.0.0",
@@ -233,10 +225,10 @@ Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked S
 
 ## Tworzenie fabryki danych
 
-1. Uruchom program **Azure PowerShell** i uruchom następujące polecenie. 
-    - Uruchom polecenie **Login-AzureRmAccount** i wprowadź nazwę użytkownika oraz hasło, których używasz do logowania się w witrynie Azure Portal.  
-    - Uruchom następujące polecenie, aby wybrać subskrypcję, w ramach której chcesz utworzyć fabrykę danych.
-            Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
+1. Uruchom program **Azure PowerShell** i uruchom następujące polecenie: 
+    - Uruchom polecenie `Login-AzureRmAccount` i wprowadź nazwę użytkownika oraz hasło, których używasz do logowania się w witrynie Azure Portal.  
+    - Uruchom polecenie `Get-AzureRmSubscription`, aby wyświetlić wszystkie subskrypcje dla tego konta.
+    - Uruchom polecenie `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext`, aby wybrać subskrypcję, z którą chcesz pracować. Ta subskrypcja powinna być taka sama jak używana w witrynie Azure Portal.
 1. Uruchom następujące polecenie, aby wdrożyć jednostki usługi Data Factory przy użyciu szablonu usługi Resource Manager utworzonego w kroku 1. 
 
         New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
@@ -254,7 +246,7 @@ Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked S
 8. Na stronie Widok diagramu kliknij dwukrotnie zestaw danych **AzureBlobOutput**. Zostanie wyświetlony wycinek, który jest obecnie przetwarzany.
 
     ![Zestaw danych](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. Po zakończeniu przetwarzania wycinek zostanie wyświetlony w stanie **Gotowe**. Tworzenie klastra usługi HDInsight na żądanie zwykle trwa trochę czasu (około 20 minut). 
+9. Po zakończeniu przetwarzania wycinek będzie mieć stan **Gotowe**. Tworzenie klastra usługi HDInsight na żądanie zwykle trwa trochę czasu (około 20 minut). Dlatego należy oczekiwać, że przetworzenie wycinka przez potok zajmie **około 30 minut**.
 
     ![Zestaw danych](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png) 
 10. Gdy wycinek będzie w stanie **Gotowe**, sprawdź folder **partitioneddata** w kontenerze **adfgetstarted** w magazynie obiektów blob pod kątem danych wyjściowych.  
@@ -266,7 +258,7 @@ Do monitorowania potoków danych możesz też użyć aplikacji Monitorowanie i z
 > [AZURE.IMPORTANT] Po pomyślnym przetworzeniu wycinka plik wejściowy zostanie usunięty. Tak więc, jeśli chcesz ponownie uruchomić wycinek lub ponownie wykonać instrukcje z tego samouczka, przekaż plik wejściowy (input.log) do folderu inputdata kontenera adfgetstarted.
 
 ## Szablon usługi Resource Manager do tworzenia bramy
-Poniżej przedstawiono przykładowy szablon usługi Resource Manager do tworzenia logicznej bramy w tle. Musisz zainstalować bramę na komputerze lokalnym lub maszynie wirtualnej IaaS platformy Azure i zarejestrować bramę w usłudze Data Factory przy użyciu klucza. Szczegółowe informacje znajdują się w artykule [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) (Przenoszenie danych między komputerem lokalnym i chmurą).
+Poniżej przedstawiono przykładowy szablon usługi Resource Manager do tworzenia logicznej bramy w tle. Zainstaluj bramę na komputerze lokalnym lub maszynie wirtualnej IaaS platformy Azure i zarejestruj bramę w usłudze Data Factory przy użyciu klucza. Szczegółowe informacje znajdują się w artykule [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) (Przenoszenie danych między komputerem lokalnym i chmurą).
 
     {
         "contentVersion": "1.0.0.0",
@@ -315,6 +307,6 @@ Ten szablon służy do tworzenia fabryki danych o nazwie GatewayUsingArmDF z bra
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

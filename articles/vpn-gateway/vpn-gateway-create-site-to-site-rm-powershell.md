@@ -17,12 +17,13 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Tworzenie sieci wirtualnej za pomocą połączenia typu lokacja-lokacja przy użyciu programu PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Klasyczny portal Azure](vpn-gateway-site-to-site-create.md)
-- [Program PowerShell — model usługi Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Menedżer zasobów — witryna Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager — program PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Model klasyczny — klasyczny portal](vpn-gateway-site-to-site-create.md)
 
 W tym artykule opisano proces tworzenia sieci wirtualnej i połączenia sieci VPN typu lokacja-lokacja z siecią lokalną przy użyciu **modelu wdrażania usługi Azure Resource Manager**. Z połączeń typu lokacja-lokacja można korzystać w ramach konfiguracji hybrydowych i obejmujących wiele lokalizacji.
 
@@ -148,7 +149,7 @@ Następnie należy przesłać żądanie przydzielenia publicznego adresu IP do b
 
 Brama sieci VPN Azure dla modelu wdrażania przy użyciu usługi Resource Manager obsługuje obecnie tylko publiczne adresy IP z wykorzystaniem metody dynamicznej alokacji. Nie oznacza to jednak, że adres IP się zmienia. Jedyną sytuacją, w której ma miejsce zmiana adresu IP bramy sieci VPN Azure, jest usunięcie bramy i jej ponowne utworzenie. Publiczny adres IP bramy nie zmienia się w przypadku zmiany rozmiaru, zresetowania ani w przypadku przeprowadzania innych wewnętrznych czynności konserwacyjnych bądź uaktualnień bramy sieci VPN platformy Azure.
 
-Użyj poniższego przykładu z programu PowerShell.
+Użyj poniższego przykładu z programu PowerShell:
 
     $gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 
@@ -177,7 +178,7 @@ Wprowadź następujące wartości:
 
 ## 7. Konfiguracja urządzenia sieci VPN
 
-Na tym etapie potrzebny jest publiczny adres IP bramy sieci wirtualnej do celów konfigurowania lokalnego urządzenia sieci VPN. Uzyskaj szczegółowe informacje dotyczące konfiguracji od producenta urządzenia. Zapoznaj się także z tematem [VPN Devices](vpn-gateway-about-vpn-devices.md) (Urządzenia sieci VPN), aby uzyskać więcej informacji.
+Na tym etapie potrzebny jest publiczny adres IP bramy sieci wirtualnej do celów konfigurowania lokalnego urządzenia sieci VPN. Uzyskaj szczegółowe informacje dotyczące konfiguracji od producenta urządzenia. Zapoznaj się z tematem [VPN Devices](vpn-gateway-about-vpn-devices.md) (Urządzenia sieci VPN), aby uzyskać więcej informacji.
 
 Aby znaleźć publiczny adres IP bramy sieci wirtualnej, skorzystaj z poniższego przykładu:
 
@@ -225,6 +226,6 @@ Jeśli zajdzie potrzeba zmiany prefiksów bramy sieci lokalnej, należy wykonać
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

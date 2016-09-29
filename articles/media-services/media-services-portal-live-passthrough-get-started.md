@@ -13,14 +13,19 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="08/30/2016" 
+    ms.date="09/05/2016" 
     ms.author="juliako"/>
+
 
 
 #Jak wykonać transmisję strumieniową na żywo za pomocą koderów lokalnych przy użyciu portalu Azure
 
-W tym samouczku opisano kolejne kroki w procesie tworzenia **kanału** skonfigurowanego do dostarczania zawartości w formie przekazywania przy użyciu witryny Azure Portal. 
+> [AZURE.SELECTOR]
+- [Portal]( media-services-portal-live-passthrough-get-started.md)
+- [.NET]( media-services-dotnet-live-encode-with-onpremises-encoders.md)
+- [REST]( https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
+W tym samouczku opisano kolejne kroki w procesie tworzenia **kanału** skonfigurowanego do dostarczania zawartości w formie przekazywania przy użyciu witryny Azure Portal. 
 
 ##Wymagania wstępne
 
@@ -73,12 +78,13 @@ Jeśli chcesz wyświetlić powiadomienia i błędy wygenerowane w portalu Azure,
 
 ##Konfigurowanie punktów końcowych przesyłania strumieniowego 
 
-Usługa Media Services udostępnia funkcję dynamicznego tworzenia pakietów, która pozwala dostarczać pliki MP4 o różnej szybkości transmisji bitów w formatach przesyłania strumieniowego MPEG DASH, HLS, Smooth Streaming lub HDS bez konieczności ponownego tworzenia pakietów w tych formatach. Dzięki funkcji dynamicznego tworzenia pakietów wystarczy przechowywać i opłacać pliki w jednym formacie magazynu, a usługa Media Services skompiluje oraz udostępni właściwą odpowiedź na podstawie żądań klienta.
+Usługa Media Services udostępnia funkcję dynamicznego tworzenia pakietów, która pozwala dostarczać pliki MP4 o różnych szybkościach transmisji bitów w formatach przesyłania strumieniowego MPEG DASH, HLS, Smooth Streaming lub HDS bez konieczności ponownego tworzenia pakietów w tych formatach. Dzięki funkcji dynamicznego tworzenia pakietów wystarczy przechowywać i opłacać pliki w jednym formacie magazynu, a usługa Media Services skompiluje oraz udostępni właściwą odpowiedź na podstawie żądań klienta.
 
 Aby skorzystać z dynamicznego tworzenia pakietów, pobierz co najmniej jedną jednostkę przesyłania strumieniowego punktu końcowego przesyłania strumieniowego, z którego planujesz dostarczać zawartość.  
 
 Aby utworzyć i zmienić liczbę jednostek zarezerwowanego przesyłania strumieniowego, wykonaj następujące czynności:
 
+1. Zaloguj się w [portalu Azure](https://portal.azure.com/).
 1. W oknie **Ustawienia** kliknij przycisk **Punkty końcowe przesyłania strumieniowego**. 
 
 2. Kliknij domyślny punkt końcowy przesyłania strumieniowego. 
@@ -87,7 +93,7 @@ Aby utworzyć i zmienić liczbę jednostek zarezerwowanego przesyłania strumien
 
 3. Aby określić liczbę jednostek przesyłania strumieniowego, przesuń suwak **Jednostki przesyłania strumieniowego**.
 
-    ![Jednostki przesyłania strumieniowego](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
+    ![Jednostki przesyłania strumieniowego](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
 
 4. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
 
@@ -115,7 +121,7 @@ Jeśli chcesz zachować zarchiwizowaną zawartość, ale bez udostępniania jej 
 
 ###Aby utworzyć kanał za pomocą portalu 
 
-W tych sekcjach przedstawiono, jak użyć opcji **Szybkie tworzenie** do utworzenia kanału w formie przekazywania.
+W tej sekcji przedstawiono, jak użyć opcji **Szybkie tworzenie** do utworzenia kanału przekazującego.
 
 Więcej szczegółowych informacji dotyczących kanałów w formie przekazywania można znaleźć w temacie [Transmisja strumieniowa na żywo za pomocą koderów lokalnych, które tworzą strumienie o różnej szybkości transmisji bitów](media-services-live-streaming-with-onprem-encoders.md).
 
@@ -130,11 +136,15 @@ Więcej szczegółowych informacji dotyczących kanałów w formie przekazywania
     Zostanie wyświetlone okno **UTWÓRZ NOWY KANAŁ**.
 4. Nadaj nazwę nowemu kanałowi, a następnie kliknij przycisk **Utwórz**. 
 
-    W ten sposób zostanie utworzony kanał w formie przekazywania za pomocą protokołu pozyskiwania RTMP.
+    Spowoduje to utworzenie kanału przekazującego za pomocą protokołu pozyskiwania RTMP.
 
-    Kanał również dodaje, uruchamia i publikuje domyślne wydarzenie/domyślny program na żywo. To wydarzenie zostało skonfigurowane w taki sposób, że obejmuje 8 godzin archiwizacji. 
+##Tworzenie wydarzeń
 
-    Aby dodać więcej wydarzeń, naciśnij przycisk **Wydarzenie na żywo** przycisku.
+1. Wybierz kanał, do którego chcesz dodać wydarzenie.
+2. Naciśnij przycisk **Wydarzenie na żywo**.
+
+![Wydarzenie](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
+
 
 ##Pobieranie adresów URL pozyskiwania
 
@@ -148,24 +158,26 @@ Aby oglądać wydarzenie, kliknij przycisk **Oglądaj** w witrynie Azure Portal 
  
 ![Utworzone](./media/media-services-portal-passthrough-get-started/media-services-default-event.png)
 
-Po zatrzymaniu wydarzenie na żywo zostanie automatycznie przekonwertowane na zawartość na żądanie.
+Po zatrzymaniu wydarzenia na żywo jest ono automatycznie konwertowane na zawartość na żądanie.
 
 ##Czyszczenie
 
 Więcej szczegółowych informacji dotyczących kanałów w formie przekazywania można znaleźć w temacie [Transmisja strumieniowa na żywo za pomocą koderów lokalnych, które tworzą strumienie o różnej szybkości transmisji bitów](media-services-live-streaming-with-onprem-encoders.md).
 
-- Kanał można zatrzymać tylko wtedy, jeśli wszystkie wydarzenia/programy na kanale zostały zatrzymane.  Po zatrzymaniu kanału opłaty nie będą naliczane. W razie potrzeby ponownego uruchomienia kanał będzie miał ten sam adres URL pozyskiwania, więc nie trzeba będzie ponownie konfigurować kodera.
+- Kanał można zatrzymać tylko wtedy, jeśli wszystkie wydarzenia/programy na kanale zostały zatrzymane.  Po zatrzymaniu kanału opłaty nie są naliczane. W razie potrzeby ponownego uruchomienia kanał będzie miał ten sam adres URL pozyskiwania, więc nie trzeba będzie ponownie konfigurować kodera.
 - Kanał można usunąć tylko wtedy, gdy wszystkie wydarzenia na żywo na kanale zostały usunięte.
 
 ##Wyświetlanie zarchiwizowanej zawartości
 
 Nawet po zatrzymaniu i usunięciu wydarzenia użytkownicy będą mogli przesyłać strumieniowo zarchiwizowaną zawartość wideo na żądanie tak długo, jak zasoby nie zostaną usunięte. Nie można usunąć elementu zawartości, jeśli jest on używany przez wydarzenie. Najpierw należy usunąć wydarzenie. 
 
-Aby zarządzać elementami zawartości, wybierz opcję **Ustawienie** i kliknij przycisk **Elementy zawartości**.
+Aby zarządzać elementami zawartości, wybierz pozycję **Ustawienie** i kliknij przycisk **Elementy zawartości**.
 
 ![Elementy zawartości](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
-##Ścieżki szkoleniowe dotyczące usługi Media Services
+##Następny krok
+
+Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -175,6 +187,6 @@ Aby zarządzać elementami zawartości, wybierz opcję **Ustawienie** i kliknij 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

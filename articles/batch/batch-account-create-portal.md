@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/26/2016"
+    ms.date="09/21/2016"
     ms.author="marsma"/>
+
 
 # Tworzenie konta usługi Azure Batch w witrynie Azure Portal
 
@@ -28,7 +29,7 @@ Dowiedz się, jak utworzyć konto usługi Batch w witrynie [Azure Portal][azure_
 
 1. Zaloguj się do [portalu Azure][azure_portal].
 
-2. Kliknij opcję **Nowy** > **Virtual Machines** > **Usługa Batch**.
+2. Kliknij kolejno opcje **Nowy** > **Obliczenia** > **Usługa Batch**.
 
     ![Usługa Batch w witrynie Marketplace][marketplace_portal]
 
@@ -127,6 +128,6 @@ Poza korzystaniem z witryny Azure Portal można również utworzyć konta usług
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

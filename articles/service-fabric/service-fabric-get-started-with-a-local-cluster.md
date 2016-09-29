@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
-   ms.author="ryanwi"/>
+   ms.date="09/09/2016"
+   ms.author="ryanwi;mikhegn"/>
+
 
 # Pierwsze kroki wdrażania i aktualizowania aplikacji w klastrze lokalnym
 Zestaw SDK usługi Azure Service Fabric zawiera pełne lokalne środowisko deweloperskie, którego można użyć, aby szybko rozpocząć wdrażanie aplikacji i zarządzanie nimi w klastrze lokalnym. Z tego artykułu dowiesz się, jak utworzyć klaster lokalny, wdrożyć w nim istniejącą aplikację, a następnie uaktualnić ją do nowej wersji — a wszystko to z programu Windows PowerShell.
@@ -195,6 +196,36 @@ Przed zakończeniem należy pamiętać, że klaster lokalny jest prawdziwy. Apli
 
 4. Aby całkowicie usunąć klaster, kliknij opcję **Usuń klaster lokalny** na pasku zadań systemu. Zastosowanie tej opcji spowoduje powolne wdrożenie po następnym naciśnięciu klawisza F5 w programie Visual Studio. Klaster lokalny należy usuwać tylko wtedy, gdy nie będzie planowane używanie klastra lokalnego przez pewien czas lub konieczne jest odzyskanie zasobów.
 
+## Tryb klastra z 1 węzłem lub 5 węzłami
+
+Podczas pracy z lokalnym klastrem w celu opracowania aplikacji często wykonywane są szybkie iteracje podczas pisania kodu, debugowania, zmiany kodu, debugowania itd. Aby pomóc zoptymalizować ten proces, klaster lokalny można uruchomić w dwóch trybach: z 1 węzłem lub z 5 węzłami. Oba tryby klastra mają swoje zalety.
+Tryb klastra z 5 węzłami umożliwia pracę z rzeczywistym klastrem. Można przetestować scenariusze pracy awaryjnej i pracować z większą liczbą wystąpień i replik usług.
+Tryb klastra z 1 węzłem jest zoptymalizowany do szybkiego wdrażania i rejestrowania usług, co ułatwia szybkie sprawdzanie poprawności kodu za pomocą środowiska uruchomieniowego usługi Service Fabric.
+
+Tryb klastra z 1 węzłem i tryb klastra z 5 węzłami nie jest emulatorem ani symulatorem. Jest na nim wykonywany ten sam kod platformy, który można znaleźć w klastrach obejmujących wiele maszyn.
+
+> [AZURE.NOTE] Ta funkcja jest dostępna tylko w zestawie SDK w wersji 5.2 i nowszych.
+
+Aby przełączyć do trybu klastra z 1 węzłem, użyj menedżera klastra lokalnego usługi Service Fabric lub użyj programu PowerShell w następujący sposób:
+
+1. Uruchom nowe okno programu PowerShell jako administrator.
+
+2. Uruchom skrypt instalacji klastra z folderu zestawu SDK:
+
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+    ```
+
+    Instalacja klastra trwa kilka chwil. Po zakończeniu instalacji powinny być widoczne dane wyjściowe podobne do poniższych:
+    
+    ![Dane wyjściowe instalacji klastra][cluster-setup-success-1-node]
+
+Jeśli używasz menedżera klastra lokalnego usługi Service Fabric:
+
+![Przełączanie trybu klastra][switch-cluster-mode]
+
+> [AZURE.WARNING] Podczas zmiany trybu klastra bieżący klaster jest usuwany z systemu i tworzony jest nowy klaster. Dane, które były przechowywane w klastrze, zostaną usunięte podczas zmiany trybu klastra.
+
 ## Następne kroki
 - Po wdrożeniu i uaktualnieniu wstępnie przygotowanych aplikacji możesz [spróbować utworzyć własne aplikacje w programie Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 - Wszystkie akcje wykonane w tym artykule w klastrze lokalnym można również wykonać w [klastrze platformy Azure](service-fabric-cluster-creation-via-portal.md).
@@ -217,9 +248,11 @@ Przed zakończeniem należy pamiętać, że klaster lokalny jest prawdziwy. Apli
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 [sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[switch-cluster-mode]: ./media/service-fabric-get-started-with-a-local-cluster/switch-cluster-mode.png
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

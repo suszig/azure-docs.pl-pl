@@ -17,9 +17,12 @@
     ms.date="08/10/2016"
     ms.author="carlrab"/>
 
+
 # Opcje i wydajność usługi SQL Database: poznaj, co jest dostępne w poszczególnych warstwach usług
 
-Usługa [Azure SQL Database](sql-database-technical-overview.md) ma wiele warstw do obsługi różnych obciążeń. Możesz [zmienić warstwy usług](sql-database-scale-up.md) w dowolnym momencie przy minimalnych przestojach w działaniu aplikacji (zwykle poniżej czterech sekund). Można również [utworzyć pojedynczą bazę danych](sql-database-get-started.md) o zdefiniowanej charakterystyce i cenie albo zarządzać wieloma bazami danych dzięki [utworzeniu elastycznej puli baz danych](sql-database-elastic-pool-create-portal.md). W obu przypadkach do wyboru są warstwy: **Podstawowa**, **Standardowa** i **Premium**. Opcje bazy danych w tych warstwach są podobne dla autonomicznych baz danych i pul elastycznych, ale w przypadku pul elastycznych trzeba rozważyć dodatkowe zagadnienia. Ten artykuł zawiera szczegółowe informacje na temat warstw usług dla autonomicznych baz danych i pul elastycznych.
+Usługa [Azure SQL Database](sql-database-technical-overview.md) oferuje trzy warstwy usługi o różnych poziomach wydajności do obsługi różnych obciążeń. Każdy poziom wydajności zapewnia coraz większy zestaw zasobów w celu dostarczenia coraz wyższej przepustowości. Poszczególnymi bazami można zarządzać w ramach ich własnej [warstwy usługi](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) o określonym poziomie wydajności. Można również zarządzać wieloma bazami danych w [puli elastycznej](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) z współdzielonym zestawem zasobów. Zasoby dostępne dla autonomicznych baz danych są wyrażane jako liczba jednostek DTU (Database Transaction Unit), a dla pul elastycznych w postaci jednostek eDTU (elastic Database Transaction Unit). Aby uzyskać więcej informacji na temat jednostek DTU i eDTU, zobacz [Co to jest jednostka DTU](sql-database-what-is-a-DTU.md). 
+
+W obu przypadkach do wyboru są następujące warstwy usługi: **Podstawowa**, **Standardowa** i **Premium**. Opcje bazy danych w tych warstwach są podobne dla autonomicznych baz danych i pul elastycznych, ale w przypadku pul elastycznych trzeba rozważyć dodatkowe zagadnienia. Ten artykuł zawiera szczegółowe informacje na temat warstw usług dla autonomicznych baz danych i pul elastycznych.
 
 ## Warstwy usług i opcje baz danych
 Wszystkie warstwy usług (Podstawowa, Standardowa i Premium) są objęte umową SLA zapewniającą czas działania 99,99% i oferują przewidywalną wydajność, elastyczne opcje ciągłości działania, funkcje zabezpieczeń i rozliczenia godzinowe. Tabela poniżej zawiera przykłady warstw najlepiej dopasowane do różnych obciążeń aplikacji.
@@ -39,8 +42,6 @@ Charakterystyki wydajności wymienione poniżej dotyczą baz danych utworzonych 
 
 [AZURE.INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
-W celu lepszego zrozumienia jednostek DTU zobacz część [Jednostki DTU](#understanding-dtus) w tym artykule.
-
 >[AZURE.NOTE] Szczegółowy opis wszystkich innych wierszy w tej tabeli warstw usług można znaleźć w [zestawieniu możliwości i ograniczeń warstw usług](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
 
 ## Warstwy usług puli elastycznej oraz wydajność w jednostkach eDTU
@@ -54,10 +55,6 @@ W poniższej tabeli opisano charakterystyki warstw usług dotyczących puli.
 
 Każda baza danych w puli podlega również charakterystykom autonomicznej bazy danych w danej warstwie. Na przykład pula Podstawowa ma limit sesji dla jednej puli z zakresu 4800–28800, ale poszczególne bazy danych w puli Podstawowej mają limit bazy danych równy 300 sesji.
 
-## Jednostki DTU
-
-[AZURE.INCLUDE [SQL DB DTU description](../../includes/sql-database-understanding-dtus.md)]
-
 ## Wybieranie warstwy usług
 
 Aby wybrać warstwę usług, określ, czy baza danych ma być bazą autonomiczną, czy ma być częścią puli elastycznej. 
@@ -66,7 +63,7 @@ Aby wybrać warstwę usług, określ, czy baza danych ma być bazą autonomiczn�
 
 Aby wybrać warstwę usług dla autonomicznej bazy danych, określ funkcje bazy danych potrzebne do wybrania wersji usługi SQL Database:
 
-- Rozmiar bazy danych (maksymalnie 5 GB dla warstwy Podstawowej, maksymalnie 250 GB dla warstwy Standardowej i od 500 GB do 1 TB dla warstwy Premium — w zależności od poziomu wydajności)
+- Rozmiar bazy danych (maksymalnie 2 GB dla warstwy Podstawowej, maksymalnie 250 GB dla warstwy Standardowej i od 500 GB do 1 TB dla warstwy Premium — w zależności od poziomu wydajności)
 - Okres przechowywania kopii zapasowej bazy danych (7 dni dla warstwy Podstawowej, 35 dni dla warstwy Standardowej i 35 dni dla warstwy Premium)
 
 Po określeniu wersji usługi SQL Database możesz określić poziom wydajności bazy danych (liczbę jednostek DTU). Możesz wybrać dowolny poziom, a następnie [dynamicznie skalować w górę lub dół](sql-database-scale-up.md) w zależności od rzeczywistej wydajności. Możesz również obliczyć przybliżoną liczbę potrzebnych jednostek DTU za pomocą [Kalkulatora DTU](http://dtucalculator.azurewebsites.net/). 
@@ -94,6 +91,6 @@ Aby uzyskać informacje na temat typowych wzorców architektury danych w aplikac
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 
