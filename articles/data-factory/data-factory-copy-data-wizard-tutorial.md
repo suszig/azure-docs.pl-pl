@@ -10,24 +10,26 @@
 <tags 
     ms.service="data-factory" 
     ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
+    ms.tgt_pltfrm="na" **
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="08/01/2016" 
+    ms.date="09/16/2016" 
     ms.author="spelluru"/>
+
 
 # Samouczek: tworzenie potoku za pomocą działania kopiowania przy użyciu Kreatora kopiowania usługi Fabryka danych
 > [AZURE.SELECTOR]
-- [Omówienie samouczka](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Korzystanie z Edytora fabryki danych](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Korzystanie z programu PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Korzystanie z programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Korzystanie z interfejsu API REST](data-factory-copy-activity-tutorial-using-rest-api.md) 
-- [Korzystanie z Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md)
+- [Przegląd i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
 
-W tym samouczku Kreator kopiowania usługi Data Factory zostanie użyty do tworzenia potoku za pomocą działania kopiowania w fabryce danych. Najpierw należy utworzyć fabrykę danych za pomocą witryny Azure Portal, a następnie użyć Kreatora kopiowania do utworzenia połączonych usług, zestawów danych i potoku usługi Data Factory za pomocą działania kopiowania, które kopiuje dane z magazynu obiektów blob Azure do bazy danych SQL Azure.
+W tym samouczku Kreator kopiowania usługi Data Factory zostanie użyty do tworzenia potoku za pomocą działania kopiowania w fabryce danych. Najpierw należy utworzyć fabrykę danych za pomocą witryny Azure Portal. Następnie należy użyć Kreatora kopiowania do utworzenia połączonych usług, zestawów danych i potoku usługi Fabryka danych za pomocą działania kopiowania, które kopiuje dane z magazynu obiektów blob Azure do bazy danych SQL Azure. Szczegółowe informacje dotyczące działania kopiowania znajdują się w artykule [Data Movement Activities](data-factory-data-movement-activities.md) (Działania przenoszenia danych). 
 
-> [AZURE.IMPORTANT] Zapoznaj się z artykułem [Omówienie samouczka](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) i wykonaj podane tam kroki wymagań wstępnych przed wykonaniem instrukcji w tym samouczku.
+> [AZURE.IMPORTANT] Zapoznaj się z artykułem [Omówienie samouczka](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) i wykonaj podane tam działania dotyczące **wymagań wstępnych** przed wykonaniem instrukcji z tego samouczka.
 
 ## Tworzenie fabryki danych
 W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFTutorialDataFactory** przy użyciu witryny Azure Portal.
@@ -57,7 +59,7 @@ W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFTutorialDataFac
     > [AZURE.NOTE] W przyszłości nazwa fabryki danych może zostać zarejestrowana jako nazwa DNS, a wówczas stanie się widoczna publicznie.  
 
 9. Kliknij centrum **POWIADOMIENIA** po lewej stronie i poszukaj powiadomień z procesu tworzenia. Kliknij przycisk **X**, aby zamknąć blok **POWIADOMIENIA**, jeśli jest otwarty. 
-10. Po zakończeniu tworzenia zostanie wyświetlony blok **FABRYKA DANYCH**, jak pokazano poniżej.
+10. Po zakończeniu tworzenia zostanie wyświetlony blok **FABRYKA DANYCH**, jak pokazano na poniższej ilustracji:
 
     ![Strona główna fabryki danych](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
@@ -88,7 +90,10 @@ W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFTutorialDataFac
     3. Kliknij przycisk **Dalej**. 
 
     ![Narzędzie kopiowania — wybieranie pliku lub folderu wejściowego](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
-7. Na stronie **Ustawienia formatu pliku** wybierz wartości **domyślne** i kliknij przycisk **Dalej**.
+7. Na stronie **Wybieranie pliku lub folderu wejściowego** kliknij przycisk **Dalej**. Nie wybieraj opcji **Kopia binarna**. 
+
+    ![Narzędzie kopiowania — wybieranie pliku lub folderu wejściowego](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
+8. Na stronie **Ustawienia formatu pliku** wybierz wartości **domyślne** i kliknij przycisk **Dalej**.
 
     ![Narzędzie kopiowania — ustawienia formatu pliku](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
 8. Na stronie docelowego magazynu danych kliknij kafelek **Baza danych SQL Azure** i kliknij przycisk **Dalej**.
@@ -102,11 +107,12 @@ W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFTutorialDataFac
 
     ![Narzędzie kopiowania — mapowanie tabeli](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
 10. Na stronie **Mapowanie schematu** kliknij przycisk **Dalej**.
-11. Przejrzyj informacje na stronie **Podsumowanie** i kliknij przycisk **Zakończ**. Spowoduje to utworzenie dwóch połączonych usług, dwóch zestawów danych (wejściowego i wyjściowego) i jednego potoku w fabryce danych (w której został uruchomiony Kreator kopiowania). 
-12. Na stronie **Wdrażanie zakończyło się pomyślnie** kliknij opcję **Kliknij tutaj, aby monitorować kopiowanie potoku**
+11. Na stronie **Ustawienia wydajności** kliknij przycisk **Dalej**. 
+11. Przejrzyj informacje na stronie **Podsumowanie** i kliknij przycisk **Zakończ**. Kreator utworzy dwie połączone usługi, dwa zestawy danych (wejściowy i wyjściowy) i jeden potok w fabryce danych (z której został uruchomiony Kreator kopiowania). 
+12. Na stronie **Wdrażanie zakończyło się pomyślnie** kliknij link **Kliknij tutaj, aby monitorować potok kopiowania**.
 
     ![Narzędzie kopiowania — wdrażanie zakończyło się pomyślnie](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
-13. Instrukcje dotyczące monitorowania utworzonego potoku znajdują się w artykule [Monitor and manage pipeline using Monitoring App](data-factory-monitor-manage-app.md) (Monitorowanie potoku oraz zarządzanie nim przy użyciu aplikacji do monitorowania).
+13. Instrukcje dotyczące monitorowania utworzonego potoku znajdują się w artykule [Monitor and manage pipeline using Monitoring App](data-factory-monitor-manage-app.md) (Monitorowanie potoków i zarządzanie nimi za pomocą aplikacji do monitorowania). Kliknij ikonę **Odśwież** na liście **OKNA DZIAŁANIA**, aby zobaczyć wycinek. 
 
     ![Aplikacja do monitorowania](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png) 
  
@@ -116,11 +122,11 @@ W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFTutorialDataFac
 | :---- | :---- |
 | [Działania przenoszenia danych](data-factory-data-movement-activities.md) | Ten artykuł zawiera szczegółowe informacje dotyczące działania kopiowania używanego w tym samouczku. |
 | [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) | W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Fabryka danych Azure. |
-| [Potoki](data-factory-create-pipelines.md) | Ten artykuł ułatwia zapoznanie się z potokami i działaniami w usłudze Azure Data Factory oraz ze sposobem ich użycia do konstruowania przepływów pracy typu end-to-end opartych na danych na potrzeby scenariusza lub firmy. |
+| [Potoki](data-factory-create-pipelines.md) | Ten artykuł ułatwia zapoznanie się z potokami i działaniami w usłudze Azure Data Factory oraz ze sposobem konstruowania za ich pomocą przepływów pracy typu end-to-end opartych na danych na potrzeby scenariusza lub firmy. |
 | [Zestawy danych](data-factory-create-datasets.md) | Ten artykuł ułatwia zapoznanie się z zestawami danych w usłudze Azure Data Factory.
 | [Monitorowanie potoków i zarządzanie nimi za pomocą aplikacji do monitorowania](data-factory-monitor-manage-app.md) | Ten artykuł zawiera instrukcje dotyczące monitorowania i debugowania potoków oraz zarządzania nimi przy użyciu aplikacji do monitorowania i zarządzania. 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

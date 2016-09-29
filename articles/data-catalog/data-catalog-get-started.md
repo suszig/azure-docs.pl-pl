@@ -13,8 +13,9 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-catalog"
-    ms.date="07/06/2016"
+    ms.date="09/20/2016"
     ms.author="spelluru"/>
+
 
 # Rozpoczynanie pracy z usługą Azure Data Catalog
 Azure Data Catalog to w pełni zarządzana usługa w chmurze służąca jako system rejestracji i odnajdywania zasobów danych przedsiębiorstwa. Szczegółowe omówienie tej usługi można znaleźć w artykule [Co to jest usługa Azure Data Catalog?](data-catalog-what-is-data-catalog.md).
@@ -23,17 +24,15 @@ Ten samouczek ułatwia rozpoczęcie pracy z usługą Azure Data Catalog i obejmu
 
 | Procedura | Opis |
 | :--- | :---------- |
-| [Aprowizowanie wykazu danych](#provision-data-catalog) | Ta procedura obejmuje aprowizację lub konfigurację usługi Azure Data Catalog i należy ją wykonać tylko jeśli wcześniej nie skonfigurowano wykazu. W ramach jednej organizacji (domeny usługi Microsoft Azure Active Directory) może istnieć tylko jeden wykaz danych, nawet jeśli z kontem platformy Azure jest powiązanych wiele subskrypcji. |
+| [Aprowizowanie wykazu danych](#provision-data-catalog) | Ta procedura obejmuje aprowizację lub konfigurację usługi Azure Data Catalog. Należy ją wykonać tylko w przypadku, gdy wykaz nie został wcześniej skonfigurowany. W ramach jednej organizacji (domeny usługi Microsoft Azure Active Directory) może istnieć tylko jeden wykaz danych, nawet jeśli z kontem platformy Azure jest powiązanych wiele subskrypcji. |
 | [Rejestrowanie zasobów danych](#register-data-assets) | W tej procedurze w wykazie danych zostaną zarejestrowane zasoby z przykładowej bazy danych AdventureWorks2014. Rejestracja to proces wyodrębniania kluczowych metadanych strukturalnych, takich jak nazwy, typy i lokalizacje, ze źródła danych oraz kopiowania tych metadanych do wykazu. Źródło danych i zasoby danych pozostają tam, gdzie się znajdowały, ale metadane są używane przez wykaz, aby można było je łatwiej odnaleźć i zrozumieć. |
 | [Odnajdywanie zasobów danych](#discover-data-assets) | Ta procedura obejmuje korzystanie z portalu usługi Azure Data Catalog w celu odnalezienia zasobów danych zarejestrowanych w poprzednim kroku. Po zarejestrowaniu źródła danych w usłudze Azure Data Catalog jego metadane są indeksowane przez tę usługę, co ułatwia użytkownikom wyszukiwanie potrzebnych danych. |
-| [Dodawanie adnotacji do zasobów danych](#annotate-data-assets) | Ta procedura obejmuje dodawanie adnotacji (na przykład opisów, tagów, dokumentacji czy informacji dotyczących ekspertów) do zasobów danych w celu uzupełnienia metadanych wyodrębnionych ze źródła danych oraz ułatwienia korzystania ze źródła danych większej liczbie osób. |
-| [Łączenie z zasobami danych](#connect-to-data-assets) | Ta procedura obejmuje otwieranie zasobów danych za pomocą zintegrowanych narzędzi klienckich (na przykład programu Excel i narzędzi SQL Server Data Tools) oraz niezintegrowanego narzędzia (programu SQL Server Management Studio) przy użyciu informacji o połączeniu. |
+| [Dodawanie adnotacji do zasobów danych](#annotate-data-assets) | Ta procedura obejmuje dodawanie adnotacji (informacji, takich jak opisy, tagi, dokumentacja i eksperci) do zasobów danych. Informacje te stanowią uzupełnienie metadanych wyodrębnionych ze źródła danych i sprawiają, że źródło danych jest bardziej zrozumiałe dla użytkowników. |
+| [Łączenie z zasobami danych](#connect-to-data-assets) | Ta procedura obejmuje otwieranie zasobów danych za pomocą zintegrowanych narzędzi klienckich (na przykład programu Excel i narzędzi SQL Server Data Tools) oraz narzędzia niezintegrowanego (programu SQL Server Management Studio). |
 | [Zarządzanie zasobami danych](#manage-data-assets) | Ta procedura dotyczy konfigurowania zabezpieczeń zasobów danych. Usługa Data Catalog nie zapewnia użytkownikom dostępu do danych. Zarządzanie dostępem do danych należy do właściciela źródła danych. <br/><br/> Usługa Data Catalog umożliwia odnajdywanie źródeł danych zarejestrowanych w wykazie i wyświetlanie **metadanych** powiązanych z tymi źródłami. W niektórych sytuacjach może jednak wystąpić konieczność udostępnienia źródeł danych tylko konkretnym użytkownikom lub członkom określonych grup. Można wtedy skonfigurować usługę Data Catalog pod kątem przejęcia praw własności do zasobów danych zarejestrowanych w wykazie i umożliwienia jej sterowania dostępem do posiadanych zasobów. |
 | [Usuwanie zasobów danych](#remove-data-assets) | Ta procedura obejmuje usuwanie zasobów danych z wykazu danych. |  
 
 ## Wymagania wstępne dotyczące samouczka
-
-Przed przystąpieniem do wykonywania kroków opisanych w tym samouczku należy dysponować następującymi elementami:
 
 ### Subskrypcja platformy Azure
 Aby skonfigurować usługę Azure Data Catalog, musisz być właścicielem lub współwłaścicielem subskrypcji platformy Azure.
@@ -65,7 +64,7 @@ W ramach organizacji — domeny usługi Azure Active Directory — można aprowi
 1. Przejdź do [strony usługi Data Catalog](https://azure.microsoft.com/services/data-catalog) i kliknij pozycję **Rozpocznij**.
 
     ![Usługa Azure Data Catalog — marketingowa strona docelowa](media/data-catalog-get-started/data-catalog-marketing-landing-page.png)
-2. Zaloguj się przy użyciu konta użytkownika, który jest właścicielem lub współwłaścicielem subskrypcji platformy Azure. Gdy się zalogujesz, zobaczysz poniższą stronę.
+2. Zaloguj się przy użyciu konta użytkownika, który jest właścicielem lub współwłaścicielem subskrypcji platformy Azure. Po zalogowaniu zostanie wyświetlona poniższa strona.
 
     ![Usługa Azure Data Catalog — aprowizowanie wykazu danych](media/data-catalog-get-started/data-catalog-create-azure-data-catalog.png)
 3. Określ **nazwę** i **lokalizację** wykazu danych oraz **subskrypcję**, której chcesz używać.
@@ -75,7 +74,7 @@ W ramach organizacji — domeny usługi Azure Active Directory — można aprowi
     ![Usługa Azure Data Catalog — użytkownicy](media/data-catalog-get-started/data-catalog-add-catalog-user.png)
 6. Rozwiń sekcję **Administratorzy wykazu** i kliknij pozycję **Dodaj**, aby dodać administratorów wykazu danych. Twoje członkostwo w tej grupie jest tworzone automatycznie.
     ![Usługa Azure Data Catalog — administratorzy](media/data-catalog-get-started/data-catalog-add-catalog-admins.png)
-7. Kliknij pozycję **Utwórz wykaz**, aby utworzyć wykaz danych dla swojej organizacji. Po utworzeniu wykazu zostanie wyświetlona jego strona główna.
+7. Kliknij pozycję **Utwórz wykaz**, aby utworzyć wykaz danych dla swojej organizacji. Po utworzeniu wykazu danych zostanie wyświetlona jego strona główna.
     ![Usługa Azure Data Catalog — utworzony wykaz](media/data-catalog-get-started/data-catalog-created.png)    
 
 ### Znajdowanie wykazu danych w portalu Azure
@@ -118,7 +117,7 @@ W tym ćwiczeniu zasoby danych z bazy danych firmy Adventure Works zostaną zare
 
 ### Rejestrowanie źródła danych
 
-1.  Przejdź do [strony głównej usługi Azure Data Catalog](https://azuredatacatlog.com) i kliknij pozycję **Publikuj dane**.
+1.  Przejdź do [strony głównej usługi Azure Data Catalog](https://azuredatacatalog.com) i kliknij pozycję **Publikuj dane**.
 
     ![Usługa Azure Data Catalog — przycisk Publikuj dane](media/data-catalog-get-started/data-catalog-publish-data.png)
 
@@ -134,7 +133,7 @@ W tym ćwiczeniu zasoby danych z bazy danych firmy Adventure Works zostaną zare
 
     ![Usługa Azure Data Catalog — źródła danych](media/data-catalog-get-started/data-catalog-data-sources.png)
 
-5.  Wprowadź właściwości połączenia programu SQL Server dla pliku **AdventureWorks2014** (zobacz poniższy przykład), a następnie kliknij pozycję **POŁĄCZ**.
+5.  Wprowadź właściwości połączenia programu SQL Server dla bazy danych **AdventureWorks2014** (zobacz poniższy przykład), a następnie kliknij pozycję **POŁĄCZ**.
 
     ![Usługa Azure Data Catalog — ustawienia połączenia programu SQL Server](media/data-catalog-get-started/data-catalog-sql-server-connection.png)
 
@@ -180,7 +179,7 @@ Poniżej przedstawiono kilka przykładów dotyczących odnajdywania zasobów dan
 Wyszukiwanie podstawowe ułatwia przeszukiwanie wykazu za pomocą co najmniej jednego wyszukiwanego terminu. Wyniki obejmują wszystkie zasoby, których dowolne właściwości są zgodne z co najmniej jednym terminem.
 
 1. Kliknij pozycję **Strona główna** w portalu usługi Azure Data Catalog. Jeśli przeglądarka sieci Web została zamknięta, przejdź do [strony głównej usługi Azure Data Catalog](https://www.azuredatacatalog.com).
-2. W polu wyszukiwania wpisz **cycles** i naciśnij klawisz **ENTER**.
+2. W polu wyszukiwania wpisz `cycles` i naciśnij klawisz **ENTER**.
 
     ![Usługa Azure Data Catalog — podstawowe wyszukiwanie tekstowe](media/data-catalog-get-started/data-catalog-basic-text-search.png)
 3. Upewnij się, że w wynikach są widoczne wszystkie cztery tabele i baza danych (AdventureWorks2014). Za pomocą przycisków na pasku narzędzi można przełączać się między **widokiem siatki** i **widokiem listy**, jak pokazano na poniższej ilustracji. Zwróć uwagę, że wyszukiwane słowo kluczowe jest wyróżnione w wynikach wyszukiwania, ponieważ opcja **Wyróżnienie** jest **WŁĄCZONA**. Dodatkowo można określić liczbę **wyników wyszukiwania wyświetlanych na stronie**.
@@ -204,7 +203,7 @@ Wyszukiwanie podstawowe ułatwia przeszukiwanie wykazu za pomocą co najmniej je
 Wyznaczanie zakresu właściwości ułatwia odnajdywanie zasobów danych, gdy wyszukiwany termin zostanie dopasowany do określonej właściwości.
 
 1. Wyczyść filtr **Tabela** w obszarze **Typ obiektu** w sekcji **Filtry**.  
-2. W polu wyszukiwania wpisz **tags:cycles** i naciśnij klawisz **ENTER**. Aby uzyskać listę wszystkich właściwości, których można użyć do przeszukiwania wykazu danych, zobacz artykuł [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) (Dokumentacja dotycząca składni wyszukiwania w usłudze Data Catalog).
+2. W polu wyszukiwania wpisz `tags:cycles` i naciśnij klawisz **ENTER**. Aby uzyskać listę wszystkich właściwości, których można użyć do przeszukiwania wykazu danych, zobacz artykuł [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) (Dokumentacja dotycząca składni wyszukiwania w usłudze Data Catalog).
 3. Upewnij się, że w wynikach są widoczne wszystkie cztery tabele i baza danych (AdventureWorks2014).  
 
     ![Usługa Data Catalog — wyniki wyszukiwania uzyskane z użyciem wyznaczania zakresu właściwości](media/data-catalog-get-started/data-catalog-property-scoping-results.png)
@@ -223,7 +222,7 @@ Wyznaczanie zakresu właściwości ułatwia odnajdywanie zasobów danych, gdy wy
 ### Operatory logiczne
 Za pomocą operatorów logicznych można rozszerzyć lub zawęzić wyszukiwanie.
 
-1. W polu wyszukiwania wpisz **tags:cycles AND objectType:table** i naciśnij klawisz **ENTER**.
+1. W polu wyszukiwania wpisz `tags:cycles AND objectType:table` i naciśnij klawisz **ENTER**.
 2. Upewnij się, że w wynikach są wyświetlane tylko tabele, bez bazy danych.  
 
     ![Usługa Azure Data Catalog — zastosowanie operatora logicznego w wyszukiwaniu](media/data-catalog-get-started/data-catalog-search-boolean-operator.png)
@@ -231,7 +230,7 @@ Za pomocą operatorów logicznych można rozszerzyć lub zawęzić wyszukiwanie.
 ### Grupowanie za pomocą nawiasów
 Nawiasy umożliwiają grupowanie części zapytania w celu uzyskania izolacji logicznej, szczególnie w połączeniu z operatorami logicznymi.
 
-1. W polu wyszukiwania wpisz **name:product AND (tags:cycles AND objectType:table)** i naciśnij klawisz **ENTER**.
+1. W polu wyszukiwania wpisz `name:product AND (tags:cycles AND objectType:table)` i naciśnij klawisz **ENTER**.
 2. Upewnij się, że wyniki wyszukiwania obejmują tylko wiersze z tabeli **Product**.
 
     ![Usługa Azure Data Catalog — wyszukiwanie przy użyciu grupowania](media/data-catalog-get-started/data-catalog-grouping-search.png)   
@@ -239,7 +238,7 @@ Nawiasy umożliwiają grupowanie części zapytania w celu uzyskania izolacji lo
 ### Operatory porównania
 Operatory porównania pozwalają używać innych porównań niż równość dla właściwości, które mają numeryczne i datowe typy danych.
 
-1. W polu wyszukiwania wpisz **lastRegisteredTime:>"2016-06-09"**.
+1. W polu wyszukiwania wpisz `lastRegisteredTime:>"06/09/2016"`.
 2. Wyczyść filtr **Tabela** w obszarze **Typ obiektu**.
 3. Naciśnij klawisz **ENTER**.
 4. Upewnij się, że w wynikach wyszukiwania są wyświetlane tabele **Product**, **ProductCategory**, **ProductDescription** i **ProductPhoto** oraz zarejestrowana baza danych AdventureWorks2014.
@@ -249,11 +248,11 @@ Operatory porównania pozwalają używać innych porównań niż równość dla 
 Szczegółowe informacje dotyczące odnajdywania zasobów danych można znaleźć w artykule [How to discover data assets](data-catalog-how-to-discover.md) (Jak odnajdywać zasoby danych). Informacje na temat składni wyszukiwania zawiera artykuł [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) (Dokumentacja dotycząca składni wyszukiwania w usłudze Data Catalog).
 
 ## Dodawanie adnotacji do zasobów danych
-W tym ćwiczeniu portal usługi Azure Data Catalog zostanie użyty do dodawania adnotacji (na przykład opisów, tagów czy informacji dotyczących ekspertów) do zasobów danych, które zostały wcześniej zarejestrowane w wykazie. Podawane adnotacje będą uzupełniać i rozszerzać metadane strukturalne wyodrębnione ze źródła podczas rejestrowania i znacznie ułatwiać odnajdywanie i zrozumienie zasobów danych.
+W tym ćwiczeniu portal usługi Azure Data Catalog zostanie użyty do dodawania adnotacji (na przykład opisów, tagów czy informacji dotyczących ekspertów) do zasobów danych, które zostały wcześniej zarejestrowane w wykazie. Adnotacje uzupełniają i rozszerzają metadane strukturalne wyodrębnione ze źródła podczas rejestracji i znacznie ułatwiają odnajdywanie i zrozumienie zasobów danych.
 
-W tym ćwiczeniu zostaną dodane adnotacje do pojedynczego zasobu danych (tabeli ProductPhoto). Do zasobu danych ProductPhoto zostanie dodana przyjazna nazwa oraz opis.  
+W tym ćwiczeniu adnotacje zostaną dodane do pojedynczego zasobu danych (tabeli ProductPhoto). Do zasobu danych ProductPhoto zostanie dodana przyjazna nazwa oraz opis.  
 
-1.  Przejdź do [strony głównej usługi Azure Data Catalog](https://www.azuredatacatalog.com) i wpisz **tags:cycles** w polu wyszukiwania, aby znaleźć zarejestrowane zasoby danych.  
+1.  Przejdź do [strony głównej usługi Azure Data Catalog](https://www.azuredatacatalog.com) i wpisz `tags:cycles` w polu wyszukiwania, aby znaleźć zarejestrowane zasoby danych.  
 2. Kliknij pozycję **ProductPhoto** w wynikach wyszukiwania.  
 3. W polu **Przyjazna nazwa** wpisz **Obrazy produktów**, a w polu **Opis** wpisz **Zdjęcia produktów do materiałów marketingowych**.
 
@@ -285,7 +284,7 @@ Usługa Azure Data Catalog obsługuje dodawanie adnotacji przez społeczność. 
 Szczegółowe informacje dotyczące dodawania adnotacji do zasobów danych można znaleźć w artykule [How to annotate data assets](data-catalog-how-to-annotate.md) (Jak dodawać adnotacje do zasobów danych).
 
 ## Łączenie z zasobami danych
-To ćwiczenie obejmuje otwieranie zasobów danych za pomocą zintegrowanego narzędzia klienckiego (programu Excel) oraz niezintegrowanego narzędzia (programu SQL Server Management Studio) przy użyciu informacji o połączeniu.
+To ćwiczenie obejmuje otwieranie zasobów danych za pomocą zintegrowanego narzędzia klienckiego (programu Excel) oraz narzędzia niezintegrowanego (programu SQL Server Management Studio) przy użyciu informacji o połączeniu.
 
 > [AZURE.NOTE] Należy pamiętać, że usługa Azure Data Catalog nie zapewnia dostępu do rzeczywistego źródła danych, a tylko ułatwia użytkownikom odnalezienie źródła danych i zrozumienie jego przeznaczenia. Podczas nawiązywania połączenia ze źródłem danych wybrana aplikacja kliencka używa poświadczeń systemu Windows lub w razie potrzeby wyświetla monit o ich podanie. Jeśli nie masz udzielonego wcześniej dostępu do źródła danych, musisz go uzyskać, aby nawiązać połączenie.
 
@@ -327,7 +326,7 @@ W usłudze Azure Data Catalog można przejmować na własność zasoby danych, d
 
 ### Przejmowanie własności do zasobów danych i ograniczanie ich widoczności
 
-1. Przejdź do [strony głównej usługi Azure Data Catalog](https://www.azuredatacatalog.com). W polu **wyszukiwania** wpisz **tags:cycles** i naciśnij klawisz **ENTER**.
+1. Przejdź do [strony głównej usługi Azure Data Catalog](https://www.azuredatacatalog.com). W polu **Wyszukiwanie** wpisz `tags:cycles` i naciśnij klawisz **ENTER**.
 2. Kliknij element na liście wyników, a następnie kliknij pozycję **Przejmij na własność** na pasku narzędzi.
 3. W sekcji **Zarządzanie** na panelu **Właściwości** kliknij pozycję **Przejmij na własność**.
 
@@ -343,12 +342,12 @@ W tym ćwiczeniu portal usługi Azure Data Catalog zostanie użyty do usunięcia
 W usłudze Azure Data Catalog można usuwać pojedyncze zasoby lub wiele zasobów.
 
 1. Przejdź do [strony głównej usługi Azure Data Catalog](https://www.azuredatacatalog.com).
-2. W polu **wyszukiwania** wpisz **tags:cycles** i kliknij pozycję **ENTER**.
-3. Wybierz element na liście wyników i kliknij pozycję **Usuń** na pasku narzędzi, jak pokazano na poniższej ilustracji.
+2. W polu **Wyszukiwanie** wpisz `tags:cycles` i naciśnij klawisz **ENTER**.
+3. Wybierz element na liście wyników i kliknij pozycję **Usuń** na pasku narzędzi, jak pokazano na poniższej ilustracji:
 
     ![Usługa Azure Data Catalog — usuwanie elementu siatki](media/data-catalog-get-started/data-catalog-delete-grid-item.png)
 
-    W widoku listy pole wyboru znajduje się na lewo od elementu, jak pokazano na poniższej ilustracji.
+    W widoku listy pole wyboru znajduje się na lewo od elementu, jak pokazano na poniższej ilustracji:
 
     ![Usługa Azure Data Catalog — usuwanie elementu listy](media/data-catalog-get-started/data-catalog-delete-list-item.png)
 
@@ -375,6 +374,6 @@ W tym samouczku zostały przedstawione podstawowe funkcje usługi Azure Data Cat
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

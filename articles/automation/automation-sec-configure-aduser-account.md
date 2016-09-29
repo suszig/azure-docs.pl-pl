@@ -6,15 +6,16 @@
    authors="MGoedtel"
    manager="jwhit"
    editor="tysonn"
-   keywords="azure active directory user, azure service management, azure ad user account" />
+   keywords="konto użytkownika usługi Azure Active Directory, azure service management, konto użytkownika usługi Azure AD" />
 <tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte" />
+
 
 # Uwierzytelnianie elementów Runbook w usłudze Azure Service Management i Resource Manager
 
@@ -31,8 +32,8 @@ W tym artykule opisano kroki, które należy wykonać, aby skonfigurować konto 
 7. Na stronie **profilu użytkownika** podaj imię i nazwisko, nazwę przyjazną dla użytkownika i rolę Użytkownik z listy **Role**.  Nie wybieraj opcji **Włącz uwierzytelnianie wieloskładnikowe**.
 8. Zapamiętaj pełną nazwę użytkownika i hasło tymczasowe.
 9. Wybierz opcje **Ustawienia > Administratorzy > Dodaj**.
-10. Wpisz pełną nazwę użytkownika, który został utworzony.
-11. Wybierz subskrypcję, którą ma zarządzać użytkownik.
+10. Wpisz pełną nazwę utworzonego przed chwilą użytkownika.
+11. Wybierz subskrypcję, którą ma zarządzać ten użytkownik.
 12. Wyloguj się z platformy Azure, a następnie zaloguj się ponownie przy użyciu właśnie utworzonego konta. Zostanie wyświetlony monit informujący o konieczności zmiany hasła użytkownika.
 
 
@@ -89,6 +90,6 @@ Te wiersze należy powtórzyć po każdym [punkcie kontrolnym](http://technet.mi
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

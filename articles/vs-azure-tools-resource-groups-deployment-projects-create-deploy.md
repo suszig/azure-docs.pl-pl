@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2016"
+   ms.date="09/20/2016"
    ms.author="tomfitz" />
+
 
 # Tworzenie i wdrażanie grup zasobów platformy Azure za pomocą programu Visual Studio
 
@@ -21,7 +22,7 @@ Program Visual Studio i zestaw [Azure SDK](https://azure.microsoft.com/downloads
 
 Projekty grupy zasobów platformy Azure zawierają szablony JSON usługi Azure Resource Manager, które określają zasoby wdrażane na platformie Azure. Aby uzyskać informacje na temat elementów szablonu usługi Resource Manager, zobacz [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md) (Tworzenie szablonów usługi Azure Resource Manager). Program Visual Studio umożliwia edytowanie tych szablonów i oferuje narzędzia ułatwiające pracę z szablonami.
 
-W tym temacie omówiono wdrażanie aplikacji sieci Web i bazy danych SQL Database, jednak kroki są prawie takie same dla każdego typu zasobu. Równie łatwo możesz wdrożyć maszynę wirtualną i powiązane zasoby. Program Visual Studio zapewnia wiele różnych szablonów początkowych do wdrażania typowych scenariuszy.
+Ten temat dotyczy wdrażania aplikacji sieci Web i bazy danych SQL Database. Jednak kroki są prawie identyczne dla dowolnego typu zasobu. Równie łatwo możesz wdrożyć maszynę wirtualną i powiązane zasoby. Program Visual Studio zapewnia wiele różnych szablonów początkowych do wdrażania typowych scenariuszy.
 
 Ten artykuł dotyczy programu Visual Studio 2015 Update 2 i zestawu Microsoft Azure SDK dla platformy .NET 2.9. Jeśli korzystasz z programu Visual Studio 2013 z zestawem Azure SDK 2.9, czynności są w większości takie same. Możesz korzystać z zestawu Azure SDK w wersji 2.6 lub nowszej, jednak interfejs użytkownika może różnić się od przedstawionego w tym artykule. Zdecydowanie zalecamy zainstalowanie najnowszej wersji zestawu [Azure SDK](https://azure.microsoft.com/downloads/) przed rozpoczęciem wykonywania tych kroków. 
 
@@ -47,7 +48,7 @@ W tej procedurze omówiono tworzenie projektu grupy zasobów platformy Azure prz
 
     ![Wyświetlanie węzłów](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
 
-    Ponieważ w tym przykładzie wybrano szablon Aplikacja sieci Web i baza danych SQL, zostaną wyświetlone następujące pliki. 
+    Ponieważ w tym przykładzie wybrano szablon Aplikacja sieci Web i baza danych SQL, zostaną wyświetlone następujące pliki: 
 
   	|Nazwa pliku|Opis|
   	|---|---|
@@ -75,7 +76,7 @@ Nowy zasób można dodać, wybierając przycisk **Dodaj zasób** u góry okna Ko
 
 ![dodawanie zasobu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource.png)
 
-W ramach tego samouczka wybierz pozycję **Konto usługi Storage** i nadaj mu nazwę. Nazwa konta magazynu może zawierać tylko cyfry i małe litery, a jej długość nie może przekraczać 24 znaków. Projekt doda 13-znakowy unikatowy ciąg do podanej nazwy, dlatego należy się upewnić, że nazwa nie zawiera więcej niż 11 znaków.
+W ramach tego samouczka wybierz pozycję **Konto usługi Storage** i nadaj mu nazwę. Podaj nazwę nie dłuższą niż 11 znaków, zawierającą tylko cyfry i małe litery.
 
 ![dodawanie magazynu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-storage.png)
 
@@ -83,7 +84,7 @@ Należy zauważyć, że dodany został nie tylko zasób, ale również parametr 
 
 ![wyświetlanie konspektu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-new-items.png)
 
-Parametr **storageType** jest wstępnie zdefiniowany wraz z dozwolonymi typami i typem domyślnym. Możesz pozostawić te wartości bez zmian lub edytować je dla danego scenariusza. Jeśli nie chcesz, aby inne osoby wdrażały konta magazynu **Premium_LRS** przy użyciu tego szablonu, po prostu usuń go z dozwolonych typów. 
+Parametr **storageType** jest wstępnie zdefiniowany wraz z dozwolonymi typami i typem domyślnym. Możesz pozostawić te wartości bez zmian lub edytować je dla danego scenariusza. Jeśli nie chcesz, aby inne osoby wdrażały konta magazynu **Premium_LRS** przy użyciu tego szablonu, usuń go z dozwolonych typów. 
 
     "storageType": {
       "type": "string",
@@ -127,30 +128,37 @@ Teraz można przystąpić do wdrażania projektu. Projekt grupy zasobów platfor
 
     ![Okno dialogowe Tworzenie grupy zasobów](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-resource-group.png)
    
-1. Parametry wdrożenia można edytować, wybierając przycisk **Edytuj parametry**. Podaj wartości parametrów i wybierz przycisk **Zapisz**.
+1. Edytuj parametry wdrożenia, wybierając przycisk **Edytuj parametry**.
+
+    ![Przycisk Edytuj parametry](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
+
+1. Podaj wartości dla pustych parametrów i wybierz przycisk **Zapisz**. Puste parametry to **hostingPlanName**, **administratorLogin**, **administratorLoginPassword** i **databaseName**.
+
+    Parametr **hostingPlanName** określa nazwę [planu usługi App Service](./app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) do utworzenia. 
+    
+    Parametr **administratorLogin** określa nazwę użytkownika dla administratora programu SQL Server. Nie należy używać wspólnych nazw administratorów, takich jak **sa** lub **admin**. 
+    
+    Parametr **administratorLoginPassword** określa hasło administratora programu SQL Server. Opcja **Zapisz hasła jako czysty tekst w pliku parametrów** nie jest bezpieczna, dlatego nie należy jej wybierać. Ponieważ hasło nie jest zapisywane w postaci zwykłego tekstu, należy podać to hasło ponownie podczas wdrażania. 
+    
+    Parametr **databaseName** określa nazwę bazy danych do utworzenia. 
 
     ![Okno dialogowe Edytowanie parametrów](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
     
-    Opcja **Zapisz hasła jako czysty tekst w pliku parametrów** nie jest bezpieczna.
-
-1. Wybierz przycisk **Wdróż**, aby wdrożyć projekt na platformie Azure. Postęp wdrażania jest wyświetlany w oknie **Dane wyjściowe**. Wdrażanie może potrwać kilka minut w zależności od konfiguracji. Po wyświetleniu monitu wprowadź hasło administratora bazy danych w konsoli programu PowerShell. Jeśli postęp wdrażania został zatrzymany, możliwe, że proces oczekuje na wprowadzenie hasła w konsoli programu PowerShell.
+1. Wybierz przycisk **Wdróż**, aby wdrożyć projekt na platformie Azure. Konsola programu PowerShell zostanie otwarta poza wystąpieniem programu Visual Studio. Po wyświetleniu monitu wprowadź hasło administratora programu SQL Server w konsoli programu PowerShell. **Konsola programu PowerShell może być ukryta za innymi elementami lub zminimalizowana na pasku zadań.** Odszukaj tę konsolę i wybierz ją, aby podać hasło.
 
     >[AZURE.NOTE] W programie Visual Studio może pojawić się monit o zainstalowanie poleceń cmdlet programu Azure PowerShell. Polecenia te są niezbędne do pomyślnego wdrożenia grup zasobów. Jeśli zostanie wyświetlony monit, zainstaluj je.
     
-1. Po zakończeniu wdrażania w oknie **Dane wyjściowe** powinien zostać wyświetlony następujący komunikat:
+1. Wdrożenie może potrwać kilka minut. W oknach **Dane wyjściowe** jest wyświetlany stan wdrożenia. Po zakończeniu wdrażania ostatni komunikat wskazuje pomyślne wdrożenie i jest podobny do następującego:
 
-        ...
-        15:19:19 - DeploymentName     : websitesqldatabase-0212-2318
-        15:19:19 - CorrelationId      : 6cb43be5-86b4-478f-9e2c-7e7ce86b26a2
-        15:19:19 - ResourceGroupName  : DemoSiteGroup
-        15:19:19 - ProvisioningState  : Succeeded
-        ...
+        ... 
+        18:00:58 - Successfully deployed template 'c:\users\user\documents\visual studio 2015\projects\azureresourcegroup1\azureresourcegroup1\templates\websitesqldatabase.json' to resource group 'DemoSiteGroup'.
+
 
 1. W przeglądarce otwórz witrynę [Azure Portal](https://portal.azure.com/) i zaloguj się do swojego konta. Aby wyświetlić grupę zasobów wybierz pozycję **Grupy zasobów**, a następnie wybierz grupę, do której wykonano wdrożenie.
 
     ![wybieranie grupy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
 
-1. Zostaną wyświetlone wszystkie wdrożone zasoby.
+1. Zostaną wyświetlone wszystkie wdrożone zasoby. Należy zauważyć, że nazwa konta magazynu nie jest identyczna z określoną podczas dodawania tego zasobu. Konto magazynu musi być unikatowe. Szablon automatycznie dodaje ciąg znaków do podanej nazwy w celu zapewnienia unikatowej nazwy. 
 
     ![wyświetlanie zasobów](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-resources.png)
 
@@ -162,7 +170,11 @@ Teraz można przystąpić do wdrażania projektu. Projekt grupy zasobów platfor
 
 Do tej pory wdrożono infrastrukturę aplikacji, ale z projektem nie został wdrożony rzeczywisty kod. W tym temacie przedstawiono sposób wdrażania aplikacji sieci Web i tabel bazy danych SQL Database podczas wdrażania. Jeśli wdrażasz maszynę wirtualną zamiast aplikacji sieci Web, w ramach wdrożenia konieczne będzie uruchomienie kodu na maszynie. Proces wdrażania kodu dla aplikacji sieci Web lub konfigurowania maszyny wirtualnej jest niemal taki sam.
 
-1. W rozwiązaniu programu Visual Studio dodaj aplikację, wybierając pozycję **Aplikacja sieci Web ASP.NET**. 
+1. Dodaj projekt do rozwiązania programu Visual Studio. Kliknij prawym przyciskiem myszy rozwiązanie, a następnie wybierz pozycje **Dodaj** > **Nowy projekt**.
+
+    ![dodawanie projektu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-project.png)
+
+1. Dodaj **aplikację sieci Web ASP.NET**. 
 
     ![dodawanie aplikacji sieci Web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
     
@@ -170,33 +182,51 @@ Do tej pory wdrożono infrastrukturę aplikacji, ale z projektem nie został wdr
 
     ![wybieranie pozycji MVC](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-mvc.png)
     
-1. Gdy program Visual Studio utworzy aplikację sieci Web, dodaj odwołanie do projektu aplikacji sieci Web w projekcie grupy zasobów.
+1. Po utworzeniu aplikacji sieci Web przez program Visual Studio oba projekty są wyświetlane w rozwiązaniu.
+
+    ![wyświetlanie projektów](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-projects.png)
+
+1. Musisz teraz upewnić się, że projekt grupy zasobów wie o nowym projekcie. Wróć do projektu grupy zasobów (AzureResourceGroup1). Kliknij prawym przyciskiem myszy pozycję **Odwołania** i wybierz polecenie **Dodaj odwołanie**.
+
+    ![dodawanie odwołania](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-new-reference.png)
+
+1. Wybierz projekt aplikacji sieci Web, który został utworzony.
 
     ![dodawanie odwołania](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
     
-    Dodanie odwołania powoduje połączenie projektu aplikacji sieci Web z projektem grupy zasobów i automatyczne ustawienie trzech głównych właściwości.  
+    Dodanie odwołania powoduje połączenie projektu aplikacji sieci Web z projektem grupy zasobów i automatyczne ustawienie trzech głównych właściwości. Te właściwości będą wyświetlane w oknie **Właściwości** odwołania.
+
+      ![wyświetlanie odwołania](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
     
-    - Właściwość **Additional Properties** zawiera tymczasową lokalizację pakietu wdrażania w sieci Web, który zostanie przekazany do usługi Azure Storage. 
+    Właściwości są następujące:
+
+    - Właściwość **Additional Properties** zawiera tymczasową lokalizację pakietu wdrażania w sieci Web, który zostanie przekazany do usługi Azure Storage. Zanotuj folder (ExampleApp) i plik (package.zip). Te właściwości należy podać jako parametry podczas wdrażania aplikacji. 
     - Właściwość **Include File Path** zawiera ścieżkę, w której zostanie utworzony pakiet. Właściwość **Include Targets** zawiera polecenie, które zostanie wykonane podczas wdrażania. 
     - Wartość domyślna właściwości **Build;Package** umożliwia skompilowanie i utworzenie pakietu wdrażania w sieci Web (pakiet.zip) podczas wdrażania.  
     
     Profil publikowania nie jest wymagany, ponieważ wdrożenie pobiera niezbędne informacje z właściwości w celu utworzenia pakietu.
-    
-      ![wyświetlanie odwołania](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
       
-1. Dodaj zasób do szablonu, tym razem wybierając pozycję **Web Deploy dla usługi Web Apps**. 
+1. Dodaj zasób do szablonu.
+
+    ![dodawanie zasobu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
+
+1. Tym razem wybierz pozycję **Web Deploy dla usługi Web Apps**. 
 
     ![dodawanie narzędzia web deploy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
     
-1. Ponownie wdróż projekt grupy zasobów w grupie zasobów. Tym razem występuje kilka nowych parametrów. Nie musisz podawać wartości parametrów **_artifactsLocation** ani **_artifactsLocationSasToken**, ponieważ program Visual Studio generuje je automatycznie. Ustaw folder i nazwę pliku na ścieżkę zawierającą pakiet wdrożeniowy.
+1. Ponownie wdróż projekt grupy zasobów w grupie zasobów. Tym razem występuje kilka nowych parametrów. Nie musisz podawać wartości parametrów **_artifactsLocation** ani **_artifactsLocationSasToken**, ponieważ program Visual Studio generuje je automatycznie. Musisz jednak ustawić folder i nazwę pliku na ścieżkę zawierającą pakiet wdrożeniowy (oznaczoną jako **ExampleAppPackageFolder** i **ExampleAppPackageFileName** na poniższej ilustracji). Podaj wartości zanotowane wcześniej z właściwości odwołania (**ExampleApp** i **package.zip**).
 
     ![dodawanie narzędzia web deploy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
     
-    Jako wartość pozycji **Konto magazynu artefaktów** możesz użyć konta wdrożonego z tą grupą zasobów.
+    Jako **Konto magazynu artefaktów** wybierz konto wdrożone z tą grupą zasobów.
     
-Po zakończeniu wdrażania możesz przejść do witryny, aby zobaczyć, że domyślna aplikacja ASP.NET została wdrożona pomyślnie.
+1. Po zakończeniu wdrażania wybierz aplikację sieci Web w witrynie portalu. Wybierz adres URL, aby przejść do lokacji.
 
-![wyświetlanie wdrożonej aplikacji](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
+    ![przeglądanie lokacji](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
+
+1. Zobacz, że domyślna aplikacja ASP.NET została pomyślnie wdrożona.
+
+    ![wyświetlanie wdrożonej aplikacji](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
 ## Następne kroki
 
@@ -205,6 +235,6 @@ Po zakończeniu wdrażania możesz przejść do witryny, aby zobaczyć, że domy
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

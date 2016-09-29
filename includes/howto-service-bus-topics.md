@@ -12,57 +12,50 @@ Tematy i subskrypcje usługi Service Bus umożliwiają skalowanie i przetwarzani
 
 ## Tworzenie przestrzeni nazw
 
-Aby rozpocząć korzystanie z tematów i subskrypcji usługi Service Bus na platformie Azure, należy najpierw utworzyć *przestrzeń nazw usługi*. Przestrzeń nazw zapewnia kontener zakresu na potrzeby adresowania zasobów usługi Service Bus w aplikacji.
+Aby rozpocząć korzystanie z tematów i subskrypcji usługi Service Bus na platformie Azure, należy najpierw utworzyć *przestrzeń nazw usługi*. Przestrzeń nazw zapewnia kontener określania zakresu na potrzeby adresowania zasobów usługi Service Bus w aplikacji.
 
 Aby utworzyć przestrzeń nazw:
 
-1.  Zaloguj się do [klasycznego portalu Azure][].
+1. Zaloguj się w witrynie [Azure Portal][].
 
-2.  W lewym okienku nawigacji portalu kliknij pozycję **Service Bus**.
+2. W lewym okienku nawigacji portalu kliknij kolejno pozycje **Nowy**, **Integracja w przedsiębiorstwie** i **Service Bus**.
 
-3.  W dolnym okienku portalu kliknij pozycję **Utwórz**.   
-    ![][0]
+4. W oknie dialogowym **Tworzenie przestrzeni nazw** wprowadź nazwę przestrzeni nazw. System od razu sprawdza, czy nazwa jest dostępna.
 
-4.  W oknie dialogowym **Add a new namespace** (Dodawanie nowej przestrzeni nazw) wprowadź nazwę przestrzeni nazw. System od razu sprawdza, czy nazwa jest dostępna.   
-    ![][2]
+5. Po upewnieniu się, że nazwa przestrzeni nazw jest dostępna, wybierz warstwę cenową (Podstawowa, Standardowa lub Premium).
 
-5.  Po upewnieniu się, że nazwa przestrzeni nazw jest dostępna, wybierz kraj lub region, w którym przestrzeń nazw ma być hostowana (upewnij się, że używasz tego samego kraju/regionu, w którym są wdrażane zasoby obliczeniowe).
+7. W polu **Subskrypcja** wybierz subskrypcję platformy Azure, w której ma zostać utworzona przestrzeń nazw.
 
-    > [AZURE.IMPORTANT] Wybierz **ten sam region**, który zamierzasz wybrać do wdrożenia aplikacji. Zapewni to najlepszą wydajność.
+9. W polu **Grupa zasobów** wybierz istniejącą grupę zasobów, w której znajdzie się przestrzeń nazw, lub utwórz nową.      
 
-6.  W pozostałych polach okna dialogowego pozostaw wartości domyślne (**Obsługa komunikatów** i **Warstwa Standardowa**), a następnie kliknij znacznik wyboru OK. W systemie zostanie utworzona i włączona przestrzeń nazw. Proces inicjowania obsługi administracyjnej zasobów dla konta w systemie może potrwać kilka minut.
+8. W polu **Lokalizacja** wybierz kraj lub region, w którym powinna być hostowana przestrzeń nazw.
 
-    ![][6]
+    ![Tworzenie przestrzeni nazw][create-namespace]
 
-## Uzyskiwanie domyślnych poświadczeń zarządzania dla przestrzeni nazw
+6. Kliknij przycisk **Utwórz**. W systemie zostanie utworzona i włączona przestrzeń nazw. Proces aprowizacji zasobów dla konta w systemie może potrwać kilka minut.
+ 
+### Uzyskiwanie poświadczeń
 
-W celu wykonywania operacji zarządzania, takich jak tworzenie tematu lub subskrypcji w nowej przestrzeni nazw, należy uzyskać poświadczenia zarządzania dla przestrzeni nazw. Możesz uzyskać te poświadczenia w portalu.
+1. Na liście przestrzeni nazw kliknij nowo utworzoną nazwę przestrzeni nazw.
+ 
+3. W bloku **Przestrzeń nazw usługi Service Bus** kliknij polecenie **Zasady dostępu współdzielonego**.
 
-### Uzyskiwanie poświadczeń zarządzania w portalu
+4. W bloku **Zasady dostępu współdzielonego** kliknij pozycję **RootManageSharedAccessKey**.
 
-1.  W lewym okienku nawigacji kliknij węzeł **Service Bus**, aby wyświetlić listę dostępnych przestrzeni nazw:   
-    ![][0]
+    ![połączenia — informacje][connection-info]
 
-2.  Wybierz nowo utworzoną przestrzeń nazw z wyświetlonej listy:   
-    ![][3]
+5. W bloku **Zasady: RootManageSharedAccessKey** kliknij przycisk kopiowania obok pozycji **Parametry połączenia — klucz podstawowy**, aby skopiować parametry połączenia do schowka w celu późniejszego użycia.
 
-3.  Kliknij pozycję **Informacje o połączeniu**.   
-    ![][4]
+    ![połączenie — parametry][connection-string]
 
-4.  W oknie dialogowym zapewniającym **dostęp do informacji o połączeniu** znajdź parametry połączenia, które zawierają klucz SAS i nazwę klucza. Zanotuj te wartości, ponieważ te informacje będą później potrzebne do wykonania operacji związanych z przestrzenią nazw. 
-
-
-  [klasycznego portalu Azure]: http://manage.windowsazure.com
-  [0]: ./media/howto-service-bus-topics/sb-queues-13.png
-  [2]: ./media/howto-service-bus-topics/sb-queues-04.png
-  [3]: ./media/howto-service-bus-topics/sb-queues-09.png
-  [4]: ./media/howto-service-bus-topics/sb-queues-06.png
-  
-  [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
+[Azure Portal]: https://portal.azure.com
+[tworzenie — przestrzeń nazw]: ./media/howto-service-bus-topics/create-namespace.png
+[połączenia — informacje]: ./media/howto-service-bus-topics/connection-info.png
+[połączenie — parametry]: ./media/howto-service-bus-topics/connection-string.png
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

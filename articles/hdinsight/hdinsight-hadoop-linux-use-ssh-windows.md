@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
     tags="azure-portal"/>
 
@@ -17,13 +17,14 @@
    ms.date="08/30/2016"
    ms.author="larryfr"/>
 
+
 #Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemu Windows
 
 > [AZURE.SELECTOR]
 - [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-- [Linux, Unix i OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+- [Systemy Linux, Unix i OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-[Bezpieczna powłoka (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) umożliwia zdalne wykonywanie operacji na klastrach usługi HDInsight opartych na systemie Linux przy użyciu interfejsu wiersza polecenia. Ten dokument zawiera informacje na temat łączenia się z usługą HDInsight z komputerów klienckich z systemem Windows przy użyciu klienta SSH o nazwie PuTTY.
+[Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) pozwala na zdalne wykonywanie operacji na klastrach opartej na systemie Linux usługi HDInsight przy użyciu interfejsu wiersza polecenia. Ten dokument zawiera informacje na temat łączenia się z usługą HDInsight z komputerów klienckich z systemem Windows przy użyciu klienta SSH o nazwie PuTTY.
 
 > [AZURE.NOTE] W krokach przedstawionych w tym artykule przyjęto założenie, że używany jest klient z systemem Windows. Jeśli używasz klienta z systemem Linux, Unix lub OS X, zobacz temat [Korzystanie z protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight w systemach Linux, Unix lub OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 >
@@ -141,7 +142,7 @@ Aby uzyskać więcej informacji na temat używania tego polecenia, zobacz temat 
 
 6. Po wyświetleniu monitu wprowadź nazwę użytkownika podaną podczas tworzenia klastra. Jeśli podano hasło dla użytkownika, zostanie wyświetlony monit o wprowadzenie tego hasła.
 
-> [AZURE.NOTE] W powyższych krokach założono korzystanie z portu 22, co powoduje ustanowienie połączenia z węzłem głównym 0 w klastrze usługi HDInsight. W przypadku użycia portu 23 połączysz się z węzłem głównym 1. Aby uzyskać więcej informacji o węzłach głównych, zobacz artykuł [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md) (Dostępność i niezawodność klastrów Hadoop w usłudze HDInsight).
+> [AZURE.NOTE] W powyższych krokach założono korzystanie z portu 22, co powoduje nawiązanie połączenia z podstawowym węzłem głównym w klastrze usługi HDInsight. W przypadku użycia portu 23 połączenie zostanie nawiązane z pomocniczym węzłem głównym. Aby uzyskać więcej informacji o węzłach głównych, zobacz artykuł [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md) (Dostępność i niezawodność klastrów Hadoop w usłudze HDInsight).
 
 ###Łączenie z węzłami procesu roboczego
 
@@ -185,9 +186,9 @@ Jeśli podczas tworzenia konta użytkownika podano klucz SSH, w celu nawiązania
 
     > [AZURE.NOTE] Jeśli używasz hasła w celu uwierzytelniania sesji SSH, zostanie wyświetlony monit o ponowne wprowadzenie hasła. Jeśli używasz klucza SSH, połączenie powinno zostać zakończone bez żadnych monitów.
 
-9. Po ustanowieniu sesji informacja w wierszu sesji programu PuTTY zmieni się z `username@hn0-clustername` na `username@wn0-clustername`, wskazując istnienie połączenia z węzłem procesu roboczego. Dowolne polecenia wykonywane na tym etapie zostaną uruchomione w węźle procesu roboczego.
+9. Po ustanowieniu sesji informacja w wierszu sesji programu PuTTY zmieni się z `username@hn#-clustername` na `username@wn#-clustername`, wskazując istnienie połączenia z węzłem procesu roboczego. Dowolne polecenia wykonywane na tym etapie zostaną uruchomione w węźle procesu roboczego.
 
-10. Po zakończeniu wykonywania akcji w węźle procesu roboczego użyj polecenia `exit`, aby zamknąć sesję węzła procesu roboczego. Spowoduje to powrót do wiersza `username@hn0-clustername`.
+10. Po zakończeniu wykonywania akcji w węźle procesu roboczego użyj polecenia `exit`, aby zamknąć sesję węzła procesu roboczego. Spowoduje to powrót do wiersza `username@hn#-clustername`.
 
 ##Dodawanie większej liczby kont
 
@@ -239,6 +240,6 @@ Po zapoznaniu się ze sposobem uwierzytelniania przy użyciu klucza SSH dowiedz 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

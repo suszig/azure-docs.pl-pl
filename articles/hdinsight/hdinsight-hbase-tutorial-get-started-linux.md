@@ -5,7 +5,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="mumian"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -16,6 +16,7 @@
     ms.topic="get-started-article"
     ms.date="07/25/2016"
     ms.author="jgao"/>
+
 
 
 
@@ -39,9 +40,9 @@ Przed rozpoczęciem korzystania z tego samouczka HBase należy dysponować nast�
 
 ## Tworzenie klastra HBase
 
-W poniższej procedurze do utworzenia klastra HBase jest używany szablon Azure ARM. Aby zapoznać się z parametrami używanymi w tej procedurze oraz innymi metodami tworzenia klastra, zobacz temat [Tworzenie opartych na systemie Linux klastrów Hadoop w usłudze HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+W poniższej procedurze do utworzenia klastra HBase jest używany szablon usługi Azure Resource Manager. Aby zapoznać się z parametrami używanymi w tej procedurze oraz innymi metodami tworzenia klastra, zobacz temat [Tworzenie opartych na systemie Linux klastrów Hadoop w usłudze HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Kliknij poniższy obraz, aby otworzyć szablon ARM w Portalu Azure. Szablon ARM znajduje się w publicznym kontenerze obiektów blob. 
+1. Kliknij poniższy obraz, aby otworzyć szablon w witrynie Azure Portal. Szablon znajduje się w publicznym kontenerze obiektów blob. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -247,7 +248,7 @@ Protokół SSH może również służyć do tunelowania żądań lokalnych, taki
 4. Na ekranie sesji PuTTY w opcjach podstawowych wprowadź następujące wartości:
 
     - **Host Name** (Nazwa hosta): adres SSH serwera HDInsight w polu nazwy hosta (lub adresu IP). Adres SSH jest nazwą klastra, po którym następuje ciąg **-ssh.azurehdinsight.net**. Na przykład *mójklaster-ssh.azurehdinsight.net*.
-    - **Port**: 22. Portem SSH w węźle głównym 0 jest port 22.  
+    - **Port**: 22. Port SSH na podstawowym węźle głównym to port 22.  
 5. W sekcji **Category** (Kategoria) z lewej strony okna dialogowego rozwiń listę **Connection** (Połączenie), rozwiń listę **SSH**, a następnie kliknij pozycję **Tunnels** (Tunele).
 6. Podaj następujące informacje w formularzu opcji kontroli przekierowania portu SSH:
 
@@ -327,6 +328,6 @@ Aby dowiedzieć się więcej, zobacz:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -13,14 +13,15 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/16/2016"
+     ms.date="09/12/2016"
      ms.author="dobett"/>
+
 
 # Usługa Azure IoT Hub dla środowiska Node.js — wprowadzenie
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
-Na końcu tego samouczka zostaną opisane trzy aplikacje konsolowe środowiska Node.js:
+Po ukończeniu tego samouczka będziesz mieć trzy aplikacje konsolowe środowiska Node.js:
 
 * **CreateDeviceIdentity.js** tworzy tożsamość urządzenia i skojarzony klucz zabezpieczeń w celu podłączenia urządzenia symulowanego.
 * **ReadDeviceToCloudMessages.js** powoduje wyświetlenie telemetrii wysyłanej przez urządzenie symulowane.
@@ -40,21 +41,21 @@ Utworzono centrum IoT. Istnieje nazwa hosta centrum IoT oraz parametry połącze
 
 ## Tworzenie tożsamości urządzenia
 
-W tej sekcji utworzysz aplikację konsoli środowiska Node.js, która tworzy nową tożsamość urządzenia w rejestrze tożsamości w centrum IoT. Urządzenie nie może połączyć się z centrum IoT, jeśli nie ma wpisu w rejestrze tożsamości urządzeń. Więcej informacji znajduje się w sekcji **Device Identity Registry** (Rejestr tożsamości urządzenia) w artykule [IoT Hub Developer Guide] (Usługa IoT Hub — przewodnik dewelopera)[lnk-devguide-identity]. Po uruchomieniu ta aplikacja konsolowa generuje unikatowy identyfikator i klucz urządzenia, których urządzenie może użyć do zidentyfikowania się podczas wysyłania komunikatów do chmury do usługi IoT Hub.
+W tej sekcji utworzysz aplikację konsolową środowiska Node.js, która tworzy tożsamość urządzenia w rejestrze tożsamości w centrum IoT. Urządzenie nie może połączyć się z centrum IoT, jeśli nie ma wpisu w rejestrze tożsamości urządzeń. Więcej informacji znajduje się w sekcji **Device Identity Registry** (Rejestr tożsamości urządzenia) w artykule [IoT Hub Developer Guide] (Usługa IoT Hub — przewodnik dewelopera)[lnk-devguide-identity]. Po uruchomieniu ta aplikacja konsolowa generuje unikatowy identyfikator i klucz urządzenia, których urządzenie może użyć do zidentyfikowania się podczas wysyłania komunikatów do chmury do usługi IoT Hub.
 
-1. Utwórz nowy pusty folder o nazwie **createdeviceidentity**. W folderze **createdeviceidentity** utwórz nowy plik package.json przy użyciu następującego polecenia z poziomu wiersza polecenia. Zaakceptuj wszystkie ustawienia domyślne:
+1. Utwórz nowy pusty folder o nazwie **createdeviceidentity**. W folderze **createdeviceidentity** utwórz plik package.json przy użyciu następującego polecenia z poziomu wiersza polecenia. Zaakceptuj wszystkie ustawienia domyślne:
 
     ```
     npm init
     ```
 
-2. Z poziomu wiersza polecenia w folderze **createdeviceidentity** uruchom następujące polecenie w celu zainstalowania pakietu **azure iothub**:
+2. Z poziomu wiersza polecenia w folderze **createdeviceidentity** uruchom następujące polecenie, aby zainstalować pakiet zestawu SDK usługi **azure-iothub**:
 
     ```
     npm install azure-iothub --save
     ```
 
-3. Za pomocą edytora tekstu utwórz nowy plik **CreateDeviceIdentity.js** w folderze **createdeviceidentity**.
+3. Za pomocą edytora tekstu utwórz plik **CreateDeviceIdentity.js** w folderze **createdeviceidentity**.
 
 4. Dodaj następującą instrukcję `require` na początku pliku **CreateDeviceIdentity.js**:
 
@@ -72,7 +73,7 @@ W tej sekcji utworzysz aplikację konsoli środowiska Node.js, która tworzy now
     var registry = iothub.Registry.fromConnectionString(connectionString);
     ```
 
-6. Dodaj następujący kod, aby utworzyć nową definicję urządzenia w rejestrze tożsamości urządzeń w centrum IoT. Ten kod tworzy nowe urządzenie, jeśli identyfikator urządzenia nie istnieje w rejestrze. W przeciwnym razie zwraca klucz istniejącego urządzenia:
+6. Dodaj następujący kod, aby utworzyć definicję urządzenia w rejestrze tożsamości urządzeń w centrum IoT. Ten kod tworzy urządzenie, jeśli identyfikator urządzenia nie istnieje w rejestrze. W przeciwnym razie zwraca klucz istniejącego urządzenia:
 
     ```
     var device = new iothub.Device(null);
@@ -102,17 +103,17 @@ W tej sekcji utworzysz aplikację konsoli środowiska Node.js, która tworzy now
     node CreateDeviceIdentity.js 
     ```
 
-9. Zanotuj **identyfikator urządzenia** i **klucz urządzenia**. Będą potrzebne później podczas tworzenia aplikacji, która łączy się z usługą IoT Hub jako urządzenie.
+9. Zanotuj **identyfikator urządzenia** i **klucz urządzenia**. Te wartości będą potrzebne później podczas tworzenia aplikacji, która łączy się z usługą IoT Hub jako urządzenie.
 
 > [AZURE.NOTE] Rejestr tożsamości usługi IoT Hub przechowuje tożsamości urządzenia tylko po to, aby umożliwić bezpieczny dostęp do centrum. Przechowuje identyfikatory i klucze urządzeń, które będą używane jako poświadczenia zabezpieczeń, oraz flagę włączone/wyłączone, która umożliwia wyłączenie dostępu do poszczególnych urządzeń. Jeśli aplikacja wymaga przechowywania innych metadanych dla określonego urządzenia, powinna korzystać z magazynu określonego dla aplikacji. Więcej informacji znajduje się w artykule [IoT Hub Developer Guide] (Usługa IoT Hub — przewodnik dewelopera)[lnk-devguide-identity].
 
 ## Odbieranie komunikatów z urządzenia do chmury
 
-W tej sekcji opisano tworzenie aplikacji konsoli środowiska Node.js, która odczytuje komunikaty z urządzenia do chmury z usługi IoT Hub. Centrum IoT udostępnia punkt końcowy zgodny z usługą [Event Hubs][lnk-event-hubs-overview], aby umożliwić odczytywanie komunikatów z urządzenia do chmury. W celu uproszczenia informacji instrukcje w samouczku dotyczą tworzenia czytnika podstawowego, który nie jest odpowiedni do wdrożenia z użyciem dużej przepustowości. W samouczku [Process device-to-cloud messages] (Przetwarzanie komunikatów z urządzenia do chmury)[lnk-process-d2c-tutorial] przedstawiono sposób przetwarzania komunikatów z urządzenia do chmury na dużą skalę. Samouczek [Rozpoczynanie pracy z usługą Event Hubs][lnk-eventhubs-tutorial] zawiera dalsze informacje dotyczące sposobu przetwarzania komunikatów z usługi Event Hubs i dotyczy punktów końcowych usługi IoT Hub zgodnych z usługą Event Hubs.
+W tej sekcji opisano tworzenie aplikacji konsolowej środowiska Node.js, która odczytuje komunikaty z urządzenia do chmury z usługi IoT Hub. Centrum IoT udostępnia punkt końcowy zgodny z usługą [Event Hubs][lnk-event-hubs-overview], aby umożliwić odczytywanie komunikatów z urządzenia do chmury. W celu uproszczenia informacji instrukcje w samouczku dotyczą tworzenia czytnika podstawowego, który nie jest odpowiedni do wdrożenia z użyciem dużej przepustowości. W samouczku [Process device-to-cloud messages] (Przetwarzanie komunikatów z urządzenia do chmury)[lnk-process-d2c-tutorial] przedstawiono sposób przetwarzania komunikatów z urządzenia do chmury na dużą skalę. Samouczek [Rozpoczynanie pracy z usługą Event Hubs][lnk-eventhubs-tutorial] zawiera dalsze informacje dotyczące sposobu przetwarzania komunikatów z usługi Event Hubs i dotyczy punktów końcowych usługi IoT Hub zgodnych z usługą Event Hubs.
 
 > [AZURE.NOTE] Punkt końcowy zgodny z usługą Event Hubs do odczytywania komunikatów z urządzenia do chmury zawsze korzysta z protokołu AMQPS.
 
-1. Utwórz nowy pusty folder o nazwie **readdevicetocloudmessages**. W folderze **readdevicetocloudmessages** utwórz nowy plik package.json przy użyciu następującego polecenia z poziomu wiersza polecenia. Zaakceptuj wszystkie ustawienia domyślne:
+1. Utwórz nowy pusty folder o nazwie **readdevicetocloudmessages**. W folderze **readdevicetocloudmessages** utwórz plik package.json przy użyciu następującego polecenia z poziomu wiersza polecenia. Zaakceptuj wszystkie ustawienia domyślne:
 
     ```
     npm init
@@ -124,7 +125,7 @@ W tej sekcji opisano tworzenie aplikacji konsoli środowiska Node.js, która odc
     npm install azure-event-hubs --save
     ```
 
-3. Za pomocą edytora tekstu utwórz nowy plik **ReadDeviceToCloudMessages.js** w folderze **readdevicetocloudmessages**.
+3. Za pomocą edytora tekstu utwórz plik **ReadDeviceToCloudMessages.js** w folderze **readdevicetocloudmessages**.
 
 4. Dodaj następujące instrukcję `require` na początku pliku **ReadDeviceToCloudMessages.js**:
 
@@ -154,7 +155,7 @@ W tej sekcji opisano tworzenie aplikacji konsoli środowiska Node.js, która odc
     };
     ```
 
-7. Dodaj następujący kod, aby utworzyć element **EventHubClient**, otwórz połączenie z centrum IoT, a następnie utwórz odbiornik dla każdej partycji. Ta aplikacja używa filtru podczas tworzenia odbiornika, więc odbiornik odczytuje tylko komunikaty wysyłane do usługi Centrum IoT po uruchomieniu odbiornika. Jest to przydatne w środowisku testowym, gdyż dzięki temu jest wyświetlany bieżący zestaw komunikatów, ale w środowisku produkcyjnym kod powinien przetworzyć wszystkie komunikaty — więcej informacji znajduje się w samouczku [How to process IoT Hub device-to-cloud messages] (Jak przetwarzać komunikaty z urządzenia do chmury usługi IoT Hub)[lnk-process-d2c-tutorial]:
+7. Dodaj następujący kod, aby utworzyć element **EventHubClient**, otwórz połączenie z centrum IoT, a następnie utwórz odbiornik dla każdej partycji. Ta aplikacja używa filtru podczas tworzenia odbiornika, więc odbiornik odczytuje tylko komunikaty wysyłane do usługi Centrum IoT po uruchomieniu odbiornika. Ten filtr jest przydatny w środowisku testowym, gdyż dzięki niemu jest wyświetlany tylko bieżący zestaw komunikatów. W środowisku produkcyjnym kod powinien sprawdzać, czy są przetwarzane wszystkie komunikaty — więcej informacji znajduje się w samouczku [How to process IoT Hub device-to-cloud messages][lnk-process-d2c-tutorial] (Jak przetwarzać komunikaty z urządzenia do chmury w usłudze IoT Hub):
 
     ```
     var client = EventHubClient.fromConnectionString(connectionString);
@@ -176,15 +177,15 @@ W tej sekcji opisano tworzenie aplikacji konsoli środowiska Node.js, która odc
 
 ## Tworzenie aplikacji symulowanego urządzenia
 
-Ta sekcja zawiera instrukcje dotyczące tworzenia aplikacji konsoli środowiska Node.js, która symuluje urządzenie wysyłające komunikaty z urządzenia do chmury do centrum IoT.
+Ta sekcja zawiera instrukcje dotyczące tworzenia aplikacji konsolowej środowiska Node.js, która symuluje urządzenie wysyłające komunikaty z urządzenia do chmury do centrum IoT.
 
-1. Utwórz nowy pusty folder o nazwie **simulateddevice**. W folderze **simulateddevice** utwórz nowy plik package.json przy użyciu następującego polecenia z poziomu wiersza polecenia. Zaakceptuj wszystkie ustawienia domyślne:
+1. Utwórz nowy pusty folder o nazwie **simulateddevice**. W folderze **simulateddevice** utwórz plik package.json przy użyciu następującego polecenia z poziomu wiersza polecenia. Zaakceptuj wszystkie ustawienia domyślne:
 
     ```
     npm init
     ```
 
-2. Z poziomu wiersza polecenia w folderze **simulateddevice** uruchom następujące polecenie, aby zainstalować pakiet **azure-iot-device-amqp**:
+2. Z poziomu wiersza polecenia w folderze **simulateddevice** uruchom następujące polecenie, aby zainstalować pakiet zestawu SDK urządzenia **azure-iot-device** i pakiet **azure-iot-device-amqp**:
 
     ```
     npm install azure-iot-device azure-iot-device-amqp --save
@@ -201,7 +202,7 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia aplikacji konsoli środowiska 
     var Message = require('azure-iot-device').Message;
     ```
 
-5. Dodaj zmienną **connectionString** i użyj jej do utworzenia klienta urządzenia. Zastąp element **{youriothubname}** nazwą centrum IoT utworzonego w sekcji *Tworzenie centrum IoT*, a element **{yourdevicekey}** wartością klucza urządzenia wygenerowaną w sekcji *Tworzenie tożsamości urządzenia*:
+5. Dodaj zmienną **connectionString** i użyj jej do utworzenia klienta urządzenia. Zastąp **{youriothostname}** nazwą centrum IoT utworzonego w sekcji *Tworzenie centrum IoT*. Zastąp **{yourdevicekey}** wartością klucza urządzenia wygenerowanego w sekcji *Tworzenie tożsamości urządzenia*:
 
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
@@ -280,7 +281,7 @@ Teraz można uruchomić aplikacje.
 
 W tym samouczku opisano konfigurowanie nowego centrum IoT w portalu, a następnie tworzenie tożsamości urządzenia w rejestrze tożsamości centrum. Tożsamość urządzenia została użyta, aby włączyć w aplikacji symulowanego urządzenia funkcję wysyłania komunikatów z urządzenia do chmury do centrum. Utworzono również aplikację, która wyświetla komunikaty odbierane przez centrum. 
 
-Aby kontynuować wprowadzenie do usługi IoT Hub i eksplorowanie innych scenariuszy IoT, zobacz:
+Aby kontynuować wprowadzenie do usługi IoT Hub i zapoznać się z innymi scenariuszami IoT, zobacz:
 
 - [Łączenie urządzenia][lnk-connect-device]
 - [Wprowadzenie do zarządzania urządzeniami][lnk-device-management]
@@ -313,6 +314,7 @@ W samouczku [Process device-to-cloud messages][lnk-process-d2c-tutorial] (Przetw
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!--HONumber=sep16_HO1-->
+
+<!--HONumber=Sep16_HO3-->
 
 

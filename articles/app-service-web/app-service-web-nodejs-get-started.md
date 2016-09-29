@@ -16,6 +16,7 @@
     ms.date="07/01/2016"
     ms.author="cephalin"/>
 
+
 # Rozpoczynanie pracy z aplikacjami sieci Web Node.js w usłudze Azure App Service
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
@@ -58,8 +59,9 @@ W tym samouczku przedstawiono sposób tworzenia prostej aplikacji [Node.js][NODE
 
     W przeglądarce przejdź do strony <http://localhost:3000>, aby upewnić się, że strona główna aplikacji Express jest wyświetlana. Po upewnieniu się, że aplikacja działa prawidłowo, zatrzymaj ją przy użyciu skrótu klawiaturowego `Ctrl-C`.
     
-1. Zaloguj się do platformy Azure w następujący sposób (do wykonania tych czynności jest wymagany [interfejs wiersza polecenia platformy Azure](#prereq)):
+1. Zmień tryb na tryb ASM i zaloguj się do platformy Azure (potrzebujesz do tego [interfejsu wiersza polecenia platformy Azure](#prereq)):
 
+        azure config mode asm
         azure login
 
     Postępuj zgodnie z wyświetlanymi instrukcjami, aby kontynuować logowanie w przeglądarce za pomocą konta Microsoft zawierającego subskrypcję Azure.
@@ -245,6 +247,6 @@ Aby włączyć narzędzie Node-Inspector, wykonaj następujące czynności:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

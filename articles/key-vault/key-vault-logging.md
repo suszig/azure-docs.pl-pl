@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/15/2016"
+    ms.date="08/31/2016"
     ms.author="cabailey"/>
+
 
 # Funkcja rejestrowania usługi Azure Key Vault #
 Usługa Azure Key Vault jest dostępna w większości regionów. Aby uzyskać więcej informacji, zobacz stronę [Cennik usługi Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -25,7 +26,7 @@ Po utworzeniu co najmniej jednego magazynu kluczy można monitorować kto, w jak
 Dostęp do informacji rejestrowania będzie możliwy maksymalnie po 10 minutach od wykonanej operacji magazynu kluczy. W większości przypadków czas będzie krótszy.  To Ty zarządzasz dziennikami na swoim koncie magazynu:
 
 - Użyj standardowych metod kontroli dostępu platformy Azure w celu zabezpieczenia dzienników, wprowadzając ograniczenia co do tego, kto może uzyskiwać do nich dostęp.
-- Usuń dzienniki, których nie chcesz już przechowywać na koncie magazynu. 
+- Usuń dzienniki, których nie chcesz już przechowywać na koncie magazynu.
 
 Ten samouczek ułatwi rozpoczęcie pracy z funkcją rejestrowania usługi Azure Key Vault. Pomoże utworzyć konto magazynu, włączyć funkcję rejestrowania i zinterpretować zebrane informacje rejestrowania.  
 
@@ -51,7 +52,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 Uruchom sesję programu PowerShell Azure i zaloguj się na konto platformy Azure przy użyciu następującego polecenia:  
 
-    Login-AzureRmAccount 
+    Login-AzureRmAccount
 
 W podręcznym oknie przeglądarki wprowadź nazwę użytkownika i hasło dla konta platformy Azure. Program Azure PowerShell pobierze wszystkie subskrypcje, które są skojarzone z tym kontem, i domyślnie użyje pierwszej.
 
@@ -68,7 +69,7 @@ Aby uzyskać więcej informacji na temat konfigurowania programu Azure PowerShel
 
 ## <a id="storage"></a>Tworzenie nowego konta magazynu dla dzienników ##
 
-Chociaż można użyć istniejącego konta magazynu dla dzienników, utworzymy nowe konto magazynu, które będzie przeznaczone dla dzienników usługi Key Vault. Aby później można było wygodnie określić wszystkie szczegóły, będą one przechowywane w zmiennej o nazwie **sa**. 
+Chociaż można użyć istniejącego konta magazynu dla dzienników, utworzymy nowe konto magazynu, które będzie przeznaczone dla dzienników usługi Key Vault. Aby później można było wygodnie określić wszystkie szczegóły, będą one przechowywane w zmiennej o nazwie **sa**.
 
 W celu ułatwienia zarządzania użyjemy tej grupy zasobów, która zawiera nasz magazyn kluczy. Tak samo jak w [samouczku wprowadzającym](key-vault-get-started.md) ta grupa zasobów ma nazwę **ContosoResourceGroup**. W dalszym ciągu będziemy też używać lokalizacji Azja Wschodnia. Zastąp te wartości własnymi, w razie potrzeby:
 
@@ -86,21 +87,29 @@ W naszym samouczku wprowadzającym magazyn kluczy został nazwany **ContosoKeyVa
 
 ## <a id="enable"></a>Włączanie rejestrowania ##
 
-Aby włączyć rejestrowanie dla usługi Key Vault użyjemy polecenia cmdlet Set-AzureRmDiagnosticSetting wraz ze zmiennymi utworzonymi dla naszego nowego konta magazynu i magazynu kluczy. Ustawimy też flagę **-Enabled** na wartość **$true** i kategorię na AuditEvent (jedyna kategoria rejestrowania usługi Key Vault):
+Aby włączyć rejestrowanie dla usługi Key Vault użyjemy polecenia cmdlet Set-AzureRmDiagnosticSetting wraz ze zmiennymi utworzonymi dla naszego nowego konta magazynu i magazynu kluczy. Ustawimy też flagę **-Enabled** na wartość **$true**, a kategorię na AuditEvent (jedyna kategoria rejestrowania usługi Key Vault):
 
-   
+
     Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
-
 
 Dane wyjściowe obejmują:
 
-**Dzienniki**
+    StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccounts/ContosoKeyVaultLogs
+    ServiceBusRuleId   :
+    StorageAccountName :
+        Logs
+        Enabled           : True
+        Category          : AuditEvent
+        RetentionPolicy
+        Enabled : False
+        Days    : 0
 
-**Włączono: true**
-
-**Kategoria: AuditEvent**
 
 Stanowi to potwierdzenie, że włączono rejestrowanie dla magazynu kluczy i informacje są zapisywane na koncie magazynu.
+
+Opcjonalnie można także ustawić zasady przechowywania dla dzienników tak, aby starsze dzienniki były automatycznie usuwane. Na przykład ustaw zasady przechowywania, ustawiając wartość flagi **-RetentionEnable** na **$true** i wartość parametru **-RetentionInDays** na **90**, aby dzienniki starsze niż 90 dni były automatycznie usuwane.
+
+    Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent -RetentionEnabled $true -RetentionInDays 90
 
 Co jest rejestrowane:
 
@@ -130,13 +139,13 @@ Dane wyjściowe będą wyglądać podobnie do poniższych:
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=02/m=00/PT1H.json**
 
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json****
- 
+
 
 Jak widać w przedstawionych danych wyjściowych, obiekty blob są zgodne z następującą konwencją nazewnictwa: **resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json**
 
 Wartości daty i godziny używają czasu UTC.
 
-Ponieważ to samo konto magazynu może służyć do zbierania dzienników dla wielu zasobów, pełny identyfikator zasobu w nazwie obiektu blob jest bardzo przydatny, ponieważ umożliwia uzyskanie dostępu i pobranie tylko tych obiektów blob, które są potrzebne. Jednak zanim do tego przejdziemy, najpierw zostanie omówiony sposób pobierania wszystkich obiektów blob. 
+Ponieważ to samo konto magazynu może służyć do zbierania dzienników dla wielu zasobów, pełny identyfikator zasobu w nazwie obiektu blob jest bardzo przydatny, ponieważ umożliwia uzyskanie dostępu i pobranie tylko tych obiektów blob, które są potrzebne. Jednak zanim do tego przejdziemy, najpierw zostanie omówiony sposób pobierania wszystkich obiektów blob.
 
 Najpierw utwórz folder w celu pobrania obiektów blob. Na przykład:
 
@@ -169,7 +178,7 @@ Aby selektywnie pobierać obiekty blob, użyj symboli wieloznacznych. Na przykł
 Teraz możesz rozpocząć wyszukiwanie informacji zawartych w dziennikach. Jednak zanim do tego przystąpimy, warto zapoznać się jeszcze z dwoma parametrami polecenia Get-AzureRmDiagnosticSetting:
 
 - Aby wykonać zapytanie o stan ustawień diagnostycznych dla zasobu magazynu kluczy: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
- 
+
 - Aby wyłączyć rejestrowanie dla zasobu magazynu kluczy: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
 
@@ -178,7 +187,7 @@ Teraz możesz rozpocząć wyszukiwanie informacji zawartych w dziennikach. Jedna
 Poszczególne obiekty blob są przechowywane jako tekst w formacie obiektu blob JSON. To jest przykładowy wpis dziennika po uruchomieniu polecenia `Get-AzureRmKeyVault -VaultName 'contosokeyvault'`:
 
     {
-        "records": 
+        "records":
         [
             {
                 "time": "2016-01-05T01:32:01.2691226Z",
@@ -218,14 +227,14 @@ W poniższej tabeli wymieniono nazwy pól i ich opisy.
 | identity      | Tożsamość z tokenu, który został przedstawiony podczas przesyłania żądania interfejsu API REST. Jest to zazwyczaj „użytkownik”, „główna nazwa usługi” lub kombinacja „użytkownik+identyfikator appId”, jak w przypadku żądania wynikającego z polecenia cmdlet usługi Azure PowerShell.|
 | properties      | To pole zawiera różne informacje w zależności od operacji (operationName). W większości przypadków zawiera informacje o kliencie (ciąg agenta użytkownika przekazany przez klienta), dokładny identyfikator URI żądania interfejsu API REST i kod stanu HTTP. Ponadto, gdy w wyniku żądania jest zwracany obiekt (na przykład KeyCreate lub VaultGet), będzie również zawierać identyfikator URI klucza (jako „id”), identyfikator URI magazynu lub identyfikator URI klucza tajnego.|
 
- 
+
 
 
 Wartości pola **operationName** są w formacie ObjectVerb. Na przykład:
 
-- Wszystkie operacje magazynu kluczy mają format „Vault`<action>`”, np. `VaultGet` i `VaultCreate`. 
+- Wszystkie operacje magazynu kluczy mają format „Vault`<action>`”, np. `VaultGet` i `VaultCreate`.
 
-- Wszystkie operacje kluczy mają format „Key`<action>`”, np. `KeySign` i `KeyList`. 
+- Wszystkie operacje kluczy mają format „Key`<action>`”, np. `KeySign` i `KeyList`.
 
 - Wszystkie operacje kluczy tajnych mają format „Secret`<action>`”, np. `SecretGet` i `SecretListVersions`.
 
@@ -270,11 +279,12 @@ Aby zapoznać się z samouczkiem, w którym użyto usługi Azure Key Vault w apl
 
 Odwołania dotyczące programowania znajdują się w [przewodniku dewelopera usługi Azure Key Vault](key-vault-developers-guide.md).
 
-Aby zapoznać się z listą poleceń cmdlet usługi Azure PowerShell 1.0 dla usługi Azure Key Vault, zobacz artykuł [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx) (Polecenia cmdlet w usłudze Azure Key Vault). 
+Aby zapoznać się z listą poleceń cmdlet usługi Azure PowerShell 1.0 dla usługi Azure Key Vault, zobacz artykuł [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx) (Polecenia cmdlet w usłudze Azure Key Vault).
 
 Aby znaleźć samouczek dotyczący rotacji kluczy i inspekcji dzienników w usłudze Azure Key Vault, zobacz [Jak skonfigurować usługę Key Vault na potrzeby rotacji i inspekcji typu end-to-end](key-vault-key-rotation-log-monitoring.md).
 
 
-<!--HONumber=sep16_HO1-->
+
+<!--HONumber=Sep16_HO3-->
 
 

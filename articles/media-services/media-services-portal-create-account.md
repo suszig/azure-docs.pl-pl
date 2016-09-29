@@ -13,11 +13,17 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/29/2016"
+    ms.date="09/07/2016"
     ms.author="juliako"/>
 
 
+
 # Tworzenie konta usługi Azure Media Services za pomocą portalu Azure
+
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-create-account.md)
+- [PowerShell](media-services-manage-with-powershell.md)
+- [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
 > [AZURE.NOTE] Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/). 
 
@@ -36,7 +42,7 @@ Uzyskiwanie dostępu do usługi Media Services wymaga dwóch skojarzonych kont:
     Usługa AMS jest obecnie również dostępna w następujących centrach danych: Brazylia Południowa, Indie Zachodnie, Indie Południowe i Indie Środkowe. Portalu Azure można teraz używać do tworzenia kont usługi Media Services i wykonywania różnych zadań opisanych tutaj. Jednak w tych centrach danych nie jest obsługiwana funkcja Live Encoding. Ponadto nie wszystkie typy jednostek zarezerwowanych do celów związanych z kodowaniem są dostępne w tych centrach danych.
     
     - Brazylia Południowa: dostępne są wyłącznie podstawowe i standardowe jednostki zarezerwowane do celów związanych z kodowaniem.
-    - Indie Zachodnie, Indie Południowe: dotyczy plików multimedialnych i musi znajdować się w tym samym regionie geograficznym co konto usługi Media Services. Podczas tworzenia konta usługi Media Services można wybrać istniejące konto magazynu w tym samym regionie lub można utworzyć nowe konto magazynu w tym samym regionie. Jeśli usuniesz konto usługi Media Services, obiekty blob na powiązanym koncie magazynu nie zostaną usunięte.
+    - Indie Zachodnie, Indie Południowe: zapewnianie obiektów blob magazynu dla plików multimedialnych; konta magazynu muszą znajdować się w tym samym regionie geograficznym co konto usługi Media Services. Podczas tworzenia konta usługi Media Services można wybrać istniejące konto magazynu w tym samym regionie lub można utworzyć nowe konto magazynu w tym samym regionie. Jeśli usuniesz konto usługi Media Services, obiekty blob na powiązanym koncie magazynu nie zostaną usunięte.
 
 ## Tworzenie konta AMS
 
@@ -102,6 +108,6 @@ Teraz możesz przekazać pliki na konto usługi AMS. Więcej informacji znajduje
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

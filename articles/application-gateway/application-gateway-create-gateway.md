@@ -12,8 +12,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/02/2016"
    ms.author="gwallace"/>
+
 
 # Tworzenie, uruchamianie i usuwanie bramy aplikacji
 
@@ -26,10 +27,7 @@ Usługa Azure Application Gateway to moduł równoważenia obciążenia warstwy 
 - [Szablon usługi Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 - [Interfejs wiersza polecenia platformy Azure](application-gateway-create-gateway-cli.md)
 
-<BR>
-
 W tym artykule przedstawiono kroki umożliwiające tworzenie, konfigurowanie, uruchamianie i usuwanie bramy aplikacji.
-
 
 ## Przed rozpoczęciem
 
@@ -40,9 +38,7 @@ W tym artykule przedstawiono kroki umożliwiające tworzenie, konfigurowanie, ur
 
 ## Co jest wymagane do utworzenia bramy aplikacji?
 
-
 W momencie użycia polecenia **New-AzureApplicationGateway** w celu utworzenia bramy aplikacji nic nie jest jeszcze skonfigurowane i nowo utworzony zasób musi zostać skonfigurowany przy użyciu kodu XML lub obiektu konfiguracji.
-
 
 Potrzebne wartości:
 
@@ -51,7 +47,6 @@ Potrzebne wartości:
 - **Port frontonu:** port publiczny, który jest otwierany w bramie aplikacji. Ruch trafia do tego portu, a następnie jest przekierowywany do jednego z serwerów zaplecza.
 - **Odbiornik:** odbiornik ma port frontonu, protokół (Http lub Https, z uwzględnieniem wielkości liter) oraz nazwę certyfikatu SSL (w przypadku konfigurowania odciążania protokołu SSL).
 - **Reguła:** reguła wiąże odbiornik z pulą serwerów zaplecza i umożliwia zdefiniowanie, do której puli serwerów zaplecza ma być przekierowywany ruch w przypadku trafienia do określonego odbiornika.
-
 
 ## Tworzenie bramy aplikacji
 
@@ -63,12 +58,11 @@ Aby utworzyć bramę aplikacji:
 
 >[AZURE.NOTE] Jeśli musisz skonfigurować niestandardową sondę bramy aplikacji, zobacz artykuł [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-classic-ps.md) (Tworzenie bramy aplikacji z sondami niestandardowymi przy użyciu programu PowerShell). Aby dowiedzieć się więcej, zapoznaj się z informacjami na temat [sond niestandardowych i monitorowania kondycji](application-gateway-probe-overview.md).
 
-
 ### Tworzenie zasobu bramy aplikacji
 
 Aby utworzyć bramę, użyj polecenia cmdlet **New-AzureApplicationGateway**, zastępując wartości własnymi. Opłaty za bramę nie są jeszcze naliczane. Rozliczanie zaczyna się na późniejszym etapie, po pomyślnym uruchomieniu bramy.
 
-Poniższy przykład tworzy nową bramę aplikacji przy użyciu sieci wirtualnej „testvnet1” i podsieci „subnet-1”.
+Poniższy przykład tworzy bramę aplikacji przy użyciu sieci wirtualnej „testvnet1” i podsieci „subnet-1”.
 
 
     New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -82,11 +76,7 @@ Poniższy przykład tworzy nową bramę aplikacji przy użyciu sieci wirtualnej 
 
  Parametry *Description* (opis), *InstanceCount* (Liczba wystąpień) i *GatewaySize* (Rozmiar bramy) są opcjonalne.
 
-
 Aby sprawdzić, czy brama została utworzona, możesz użyć polecenia cmdlet **Get-AzureApplicationGateway**.
-
-
-
 
     Get-AzureApplicationGateway AppGwTest
     Name          : AppGwTest
@@ -101,8 +91,7 @@ Aby sprawdzić, czy brama została utworzona, możesz użyć polecenia cmdlet **
 
 >[AZURE.NOTE]  Wartość domyślna parametru *InstanceCount* to 2, a wartość maksymalna — 10. Wartość domyślna parametru *GatewaySize* to Medium (Średnia). Do wyboru są wartości Small (Mała), Medium (Średnia) i Large (Duża).
 
-
- Parametry *VirtualIPs* (Wirtualne adresy IP) i *DnsName* (Nazwa serwera DNS) są wyświetlane jako puste, ponieważ brama nie została jeszcze uruchomiona. Zostaną utworzone, gdy brama zacznie działać.
+Parametry *VirtualIPs* (Wirtualne adresy IP) i *DnsName* (Nazwa serwera DNS) są wyświetlane jako puste, ponieważ brama nie została jeszcze uruchomiona. Zostaną utworzone, gdy brama zacznie działać.
 
 ## Konfigurowanie bramy aplikacji
 
@@ -234,57 +223,57 @@ Utwórz wszystkie poszczególne elementy konfiguracji.
 
 Utwórz adres IP frontonu, jak pokazano w poniższym przykładzie.
 
-    PS C:\> $fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration
-    PS C:\> $fip.Name = "fip1"
-    PS C:\> $fip.Type = "Private"
-    PS C:\> $fip.StaticIPAddress = "10.0.0.5"
+    $fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration
+    $fip.Name = "fip1"
+    $fip.Type = "Private"
+    $fip.StaticIPAddress = "10.0.0.5"
 
 Utwórz port frontonu, jak pokazano w poniższym przykładzie.
 
-    PS C:\> $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort
-    PS C:\> $fep.Name = "fep1"
-    PS C:\> $fep.Port = 80
+    $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort
+    $fep.Name = "fep1"
+    $fep.Port = 80
 
 Utwórz pulę serwerów zaplecza.
 
  Zdefiniuj adresy IP, które zostaną dodane do puli serwerów zaplecza, jak pokazano w następnym przykładzie.
 
 
-    PS C:\> $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
-    PS C:\> $servers.Add("10.0.0.1")
-    PS C:\> $servers.Add("10.0.0.2")
+    $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
+    $servers.Add("10.0.0.1")
+    $servers.Add("10.0.0.2")
 
  Użyj obiektu $server, aby dodać wartości do obiektu puli zaplecza ($pool).
 
-    PS C:\> $pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool
-    PS C:\> $pool.BackendServers = $servers
-    PS C:\> $pool.Name = "pool1"
+    $pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool
+    $pool.BackendServers = $servers
+    $pool.Name = "pool1"
 
 Utwórz ustawienie puli serwerów zaplecza.
 
-    PS C:\> $setting = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings
-    PS C:\> $setting.Name = "setting1"
-    PS C:\> $setting.CookieBasedAffinity = "enabled"
-    PS C:\> $setting.Port = 80
-    PS C:\> $setting.Protocol = "http"
+    $setting = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings
+    $setting.Name = "setting1"
+    $setting.CookieBasedAffinity = "enabled"
+    $setting.Port = 80
+    $setting.Protocol = "http"
 
 Utwórz odbiornik.
 
-    PS C:\> $listener = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener
-    PS C:\> $listener.Name = "listener1"
-    PS C:\> $listener.FrontendPort = "fep1"
-    PS C:\> $listener.FrontendIP = "fip1"
-    PS C:\> $listener.Protocol = "http"
-    PS C:\> $listener.SslCert = ""
+    $listener = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener
+    $listener.Name = "listener1"
+    $listener.FrontendPort = "fep1"
+    $listener.FrontendIP = "fip1"
+    $listener.Protocol = "http"
+    $listener.SslCert = ""
 
 Utwórz regułę.
 
-    PS C:\> $rule = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule
-    PS C:\> $rule.Name = "rule1"
-    PS C:\> $rule.Type = "basic"
-    PS C:\> $rule.BackendHttpSettings = "setting1"
-    PS C:\> $rule.Listener = "listener1"
-    PS C:\> $rule.BackendAddressPool = "pool1"
+    $rule = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule
+    $rule.Name = "rule1"
+    $rule.Type = "basic"
+    $rule.BackendHttpSettings = "setting1"
+    $rule.Listener = "listener1"
+    $rule.BackendAddressPool = "pool1"
 
 ### Krok 2
 
@@ -292,34 +281,34 @@ Przypisz wszystkie poszczególne elementy konfiguracji do obiektu konfiguracji b
 
 Dodaj do konfiguracji adres IP frontonu.
 
-    PS C:\> $appgwconfig = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.ApplicationGatewayConfiguration
-    PS C:\> $appgwconfig.FrontendIPConfigurations = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration]"
-    PS C:\> $appgwconfig.FrontendIPConfigurations.Add($fip)
+    $appgwconfig = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.ApplicationGatewayConfiguration
+    $appgwconfig.FrontendIPConfigurations = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration]"
+    $appgwconfig.FrontendIPConfigurations.Add($fip)
 
 Dodaj do konfiguracji port frontonu.
 
-    PS C:\> $appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]"
-    PS C:\> $appgwconfig.FrontendPorts.Add($fep)
+    $appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]"
+    $appgwconfig.FrontendPorts.Add($fep)
 
 Dodaj do konfiguracji pulę serwerów zaplecza.
 
-    PS C:\> $appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]"
-    PS C:\> $appgwconfig.BackendAddressPools.Add($pool)  
+    $appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]"
+    $appgwconfig.BackendAddressPools.Add($pool)  
 
 Dodaj do konfiguracji ustawienia puli serwerów zaplecza.
 
-    PS C:\> $appgwconfig.BackendHttpSettingsList = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings]"
-    PS C:\> $appgwconfig.BackendHttpSettingsList.Add($setting)
+    $appgwconfig.BackendHttpSettingsList = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings]"
+    $appgwconfig.BackendHttpSettingsList.Add($setting)
 
 Dodaj do konfiguracji odbiornik.
 
-    PS C:\> $appgwconfig.HttpListeners = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener]"
-    PS C:\> $appgwconfig.HttpListeners.Add($listener)
+    $appgwconfig.HttpListeners = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener]"
+    $appgwconfig.HttpListeners.Add($listener)
 
 Dodaj do konfiguracji regułę.
 
-    PS C:\> $appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule]"
-    PS C:\> $appgwconfig.HttpLoadBalancingRules.Add($rule)
+    $appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule]"
+    $appgwconfig.HttpLoadBalancingRules.Add($rule)
 
 ### Krok 3
 
@@ -331,10 +320,7 @@ Przekaż obiekt konfiguracji do zasobu bramy aplikacji za pomocą polecenia cmdl
 
 Po skonfigurowaniu bramy użyj polecenia cmdlet **Start-AzureApplicationGateway**, aby uruchomić bramę. Naliczanie opłat za bramę aplikacji rozpocznie się po pomyślnym uruchomieniu bramy.
 
-
 > [AZURE.NOTE] Wykonanie polecenia cmdlet **Start-AzureApplicationGateway** może trwać 15–20 minut.
-
-
 
     Start-AzureApplicationGateway AppGwTest
 
@@ -417,6 +403,6 @@ Więcej ogólnych informacji na temat opcji równoważenia obciążenia możesz 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

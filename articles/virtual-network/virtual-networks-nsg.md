@@ -15,6 +15,7 @@
    ms.date="02/11/2016"
    ms.author="jdial" />
 
+
 # Co to jest grupa zabezpieczeń sieci?
 
 Grupa zabezpieczeń sieci zawiera listę reguł listy kontroli dostępu (ACL), które blokują lub zezwalają na ruch sieciowy do wystąpień maszyn wirtualnych w sieci wirtualnej. Grupy NSG można kojarzyć z podsieciami lub poszczególnymi wystąpieniami maszyn wirtualnych w danej podsieci. Gdy grupa NSG jest skojarzona z podsiecią, reguły listy ACL dotyczą wszystkich wystąpień maszyn wirtualnych w tej podsieci. Ponadto ruch do poszczególnych maszyn wirtualnych można ograniczyć jeszcze bardziej przez skojarzenie grupy NSG bezpośrednio z tą maszyną wirtualną.
@@ -42,8 +43,8 @@ Reguły NSG obejmują następujące właściwości.
 |**Protokół**|Protokół odpowiadający regule|TCP, UDP lub \*|Wstawienie znaku \* oznacza protokół ICMP (tylko ruch wschód-zachód), a także protokołów UDP i TCP i może zmniejszyć liczbę potrzebnych reguł<br/>Z drugiej strony użycie znaku \* może okazać się rozwiązaniem zbyt ogólnym, więc pamiętaj, aby używać go tylko w razie konieczności|
 |**Zakres portów źródłowych**|Zakres portów źródłowych odpowiadający regule|Numer pojedynczego portu od 1 do 65535, zakres portu (tj. 1-65635) lub \* (dla wszystkich portów)|Porty źródłowe mogą być efemeryczne. Jeśli program kliencki nie korzysta z określonego portu, należy w większości przypadków użyć znaku „*”.<br/>Używaj zakresów portów możliwie często, aby uniknąć konieczności korzystania z wielu reguł<br/>Wielu portów lub zakresów portów nie można oddzielać przecinkiem
 |**Zakres portów docelowych**|Zakres portów docelowych odpowiadający regule|Numer pojedynczego portu od 1 do 65535, zakres portu (tj. 1-65535) lub \* (dla wszystkich portów)|Używaj zakresów portów możliwie często, aby uniknąć konieczności korzystania z wielu reguł<br/>Wielu portów lub zakresów portów nie można oddzielać przecinkiem
-|**Prefiks adresu źródłowego**|Prefiks adresu źródłowego lub znacznik odpowiadający regule|Pojedynczy adres IP (tj. 10.10.10.10), podsieć IP (tj. 192.168.1.0/24), [znacznik domyślny](#Default-Tags) lub * (dla wszystkich adresów)|Należy rozważyć użycie zakresów, znaczników domyślnych i znaków * w celu zmniejszenia liczby reguł|
-|**Prefiks adresu docelowego**|Prefiks adresu docelowego lub znacznik odpowiadający regule|pojedynczy adres IP (tj. 10.10.10.10), podsieć IP (tj. 192.168.1.0/24), [znacznik domyślny](#Default-Tags) lub * (dla wszystkich adresów)|Należy rozważyć użycie zakresów, znaczników domyślnych i znaków * w celu zmniejszenia liczby reguł|
+|**Prefiks adresu źródłowego**|Prefiks adresu źródłowego lub znacznik odpowiadający regule|Pojedynczy adres IP (tj. 10.10.10.10), podsieć IP (tj. 192.168.1.0/24), [znacznik domyślny](#default-tags) lub * (dla wszystkich adresów)|Należy rozważyć użycie zakresów, znaczników domyślnych i znaków * w celu zmniejszenia liczby reguł|
+|**Prefiks adresu docelowego**|Prefiks adresu docelowego lub znacznik odpowiadający regule|pojedynczy adres IP (tj. 10.10.10.10), podsieć IP (tj. 192.168.1.0/24), [znacznik domyślny](#default-tags) lub * (dla wszystkich adresów)|Należy rozważyć użycie zakresów, znaczników domyślnych i znaków * w celu zmniejszenia liczby reguł|
 |**Kierunek**|Kierunek ruchu odpowiadający regule|ruch przychodzący lub wychodzący|Reguły ruchu przychodzącego i wychodzącego są przetwarzane oddzielnie w zależności od kierunku|
 |**Priorytet**|Reguły są sprawdzane według ważności. Gdy reguła ma zastosowanie, żadne inne reguły nie są sprawdzane pod kątem dopasowania|Liczba z zakresu od 100 do 4096|Należy rozważyć utworzenie reguł przez przeskoczenie priorytetów o 100 dla każdej reguły, aby zostawić miejsce na nowe reguły, które pojawią się między istniejącymi|
 |**Dostęp**|Typ dostępu do zastosowania, jeśli reguła jest dopasowana|zezwolenie lub zablokowanie|Pamiętaj, że jeśli dla pakietu nie zostanie odnaleziona reguła zezwalająca, zostanie on porzucony|
@@ -124,13 +125,13 @@ Grupy NSG można wdrożyć w modelach wdrażania: klasycznym oraz usługi Resour
 
 |Narzędzie wdrażania|Wdrożenie klasyczne|Resource Manager|
 |---|---|---|
-|Portal klasyczny|![Nie][red]|![Nie][red]|
-|Portal Azure|![Tak][green]|[](virtual-networks-create-nsg-arm-pportal.md)![Tak][green]|
-|PowerShell|[](virtual-networks-create-nsg-classic-ps.md)![Tak][green]|[](virtual-networks-create-nsg-arm-ps.md)![Tak][green]|
-|Interfejs wiersza polecenia platformy Azure|[](virtual-networks-create-nsg-classic-cli.md)![Tak][green]|[](virtual-networks-create-nsg-arm-cli.md)![Tak][green]|
-|Szablon ARM|![Nie][red]|[](virtual-networks-create-nsg-arm-template.md)![Tak][green]|
+|Portal klasyczny|![Nie](./media/virtual-network-nsg-overview/red.png)|![Nie](./media/virtual-network-nsg-overview/red.png)|
+|Portal Azure|![Tak](./media/virtual-network-nsg-overview/green.png)|[![Tak][zielony]](virtual-networks-create-nsg-arm-pportal.md)|
+|PowerShell|[![Tak][zielony]](virtual-networks-create-nsg-classic-ps.md)|[![Tak][zielony]](virtual-networks-create-nsg-arm-ps.md)|
+|Interfejs wiersza polecenia platformy Azure|[![Tak][zielony]](virtual-networks-create-nsg-classic-cli.md)|[![Tak][zielony]](virtual-networks-create-nsg-arm-cli.md)|
+|Szablon ARM|![Nie](./media/virtual-network-nsg-overview/red.png)|[![Tak][zielony]](virtual-networks-create-nsg-arm-template.md)|
 
-|**Klucz**|![Tak][green] Obsługiwane. Kliknij, aby przeczytać artykuł.|![Nie][red] Nieobsługiwane.|
+|**Klucz**|![Tak](./media/virtual-network-nsg-overview/green.png) Obsługiwane.|![Nie](./media/virtual-network-nsg-overview/red.png) Nieobsługiwane.|
 |---|---|---|
 
 ## Planowanie
@@ -278,12 +279,12 @@ Ponieważ niektóre z grup NSG powyżej muszą być powiązane z poszczególnymi
 - [Deploy NSGs in Resource Manager](virtual-networks-create-nsg-arm-pportal.md) (Wdrażanie grup NSGs we wdrożeniu za pomocą usługi Resource Manager).
 - [Manage NSG logs](virtual-network-nsg-manage-log.md) (Zarządzanie dziennikami grupy NSG).
 
-[green]: ./media/virtual-network-nsg-overview/green.png
+[zielony]: ./media/virtual-network-nsg-overview/green.png
 [żółty]: ./media/virtual-network-nsg-overview/yellow.png
 [red]: ./media/virtual-network-nsg-overview/red.png
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

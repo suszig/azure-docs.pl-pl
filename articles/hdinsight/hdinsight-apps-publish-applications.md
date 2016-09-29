@@ -4,7 +4,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="mumian"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"
     tags="azure-portal"/>
 
@@ -16,6 +16,7 @@
     ms.workload="big-data"
     ms.date="06/29/2016"
     ms.author="jgao"/>
+
 
 # Publikowanie aplikacji usługi HDInsight w portalu Azure Marketplace
 
@@ -99,8 +100,11 @@ Wykonaj poniższe kroki, aby opublikować aplikację usługi HDInsight:
 - [Instalowanie niestandardowych aplikacji usługi HDInsight](hdinsight-apps-install-custom-applications.md): dowiedz się, jak wdrożyć nieopublikowaną aplikację usługi HDInsight w usłudze HDInsight.
 - [Dostosowywanie klastrów usługi HDInsight opartych na systemie Linux przy użyciu akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md): dowiedz się, jak instalować dodatkowe aplikacje za pomocą akcji skryptu.
 - [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) (Tworzenie klastrów Hadoop w usłudze HDInsight opartych na systemie Linux przy użyciu szablonów usługi Resource Manager): dowiedz się, jak wywoływać szablony usługi Resource Manager w celu tworzenia klastrów usługi HDInsight.
+- [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md) (Używanie pustych węzłów krawędzi w usłudze HDInsight): dowiedz się, jak za pomocą pustego węzła krawędzi uzyskiwać dostęp do klastra usługi HDInsight oraz testować i hostować aplikacje usługi HDInsight.
 
 
-<!--HONumber=sep16_HO1-->
+
+
+<!--HONumber=Sep16_HO3-->
 
 

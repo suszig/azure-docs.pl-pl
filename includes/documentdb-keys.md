@@ -1,9 +1,8 @@
-       Now navigate to the DocumentDB account blade, and click **Keys**, as we will use these values in the web application we create next.
+  Teraz przejdź do bloku konta usługi DocumentDB i kliknij pozycję **Klucze**, ponieważ użyjemy tych wartości w aplikacji sieci Web, którą następnie utworzymy.
 
-       ![Screen shot of the Azure portal, showing a DocumentDB account, with the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](./media/documentdb-keys/keys.png)
+![Zrzut ekranu witryny Azure Portal przedstawiający konto usługi DocumentDB z przyciskiem KLUCZE wyróżnionym w bloku konta usługi DocumentDB oraz wartościami IDENTYFIKATOR URI, KLUCZ PODSTAWOWY i KLUCZ POMOCNICZY wyróżnionymi w bloku Klucze](./media/documentdb-keys/keys.png)
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -13,22 +13,21 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="08/17/2016" 
+    ms.date="09/16/2016" 
     ms.author="spelluru"/>
+
 
 # Samouczek: tworzenie potoku za pomocą działania kopiowania przy użyciu interfejsu API REST
 > [AZURE.SELECTOR]
-- [Omówienie samouczka](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Korzystanie z Edytora fabryki danych](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Korzystanie z programu PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Korzystanie z programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Korzystanie z interfejsu API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Korzystanie z interfejsu API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Korzystanie z Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md)
+- [Przegląd i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
 
 Ten samouczek pokazuje, jak utworzyć i monitorować fabrykę danych Azure przy użyciu interfejsu API REST. Potok w fabryce danych używa działania kopiowania w celu kopiowania danych z usługi Azure Blob Storage do usługi Azure SQL Database.
-
-Działanie kopiowania wykonuje operację przenoszenia danych w usłudze Azure Data Factory. Działanie jest obsługiwane przez globalnie dostępną usługę, która może kopiować dane między różnymi magazynami danych w sposób bezpieczny, niezawodny i skalowalny. Szczegółowe informacje dotyczące działania kopiowania znajdują się w artykule [Data Movement Activities](data-factory-data-movement-activities.md) (Działania przenoszenia danych).   
 
 > [AZURE.NOTE] 
 > Ten artykuł nie obejmuje całego interfejsu API REST usługi Data Factory. Pełna dokumentacja dotycząca poleceń cmdlet usługi Data Factory znajduje się w artykule [Data Factory Cmdlet Reference](https://msdn.microsoft.com/library/azure/dn906738.aspx) (Dokumentacja dotycząca interfejsu API REST usługi Data Factory).
@@ -36,7 +35,7 @@ Działanie kopiowania wykonuje operację przenoszenia danych w usłudze Azure Da
 
 ## Wymagania wstępne
 
-- Zapoznaj się z artykułem [Omówienie samouczka](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- Zapoznaj się z artykułem [Omówienie samouczka](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) i wykonaj kroki **wymagań wstępnych**.
 - Zainstaluj na komputerze narzędzie [Curl](https://curl.haxx.se/dlwiz/). W połączeniu z poleceniami REST umożliwia ono utworzenie fabryki danych. 
 - Postępuj zgodnie z instrukcjami zawartymi w [tym artykule](../resource-group-create-service-principal-portal.md), aby wykonać następujące czynności: 
     1. Utworzenie aplikacji sieci Web o nazwie **ADFCopyTutorialApp** w usłudze Azure Active Directory.
@@ -302,7 +301,7 @@ W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFCopyTutorialDF*
 
 Pamiętaj o następujących kwestiach:
  
-- Nazwa fabryki danych Azure musi być globalnie unikatowa. Jeśli w wynikach jest wyświetlany błąd: **Nazwa fabryki danych „FirstDataFactoryREST” jest niedostępna**, wykonaj następujące czynności:  
+- Nazwa fabryki danych Azure musi być globalnie unikatowa. Jeśli w wynikach jest wyświetlany błąd: **Nazwa fabryki danych „ADFCopyTutorialDF” jest niedostępna**, wykonaj następujące czynności:  
     1. Zmień nazwę fabryki (np. twojanazwaADFCopyTutorialDF) w pliku **datafactory.json**.
     2. W pierwszym poleceniu, w którym zmiennej **$cmd** jest przypisywana wartość, zastąp nazwę ADFCopyTutorialDF nową nazwą i uruchom to polecenie. 
     3. Uruchom kolejne dwa polecenia, aby wywołać interfejs API REST w celu utworzenia fabryki danych i wyświetlić wyniki tej operacji. 
@@ -494,6 +493,6 @@ W tym samouczku opisano tworzenie fabryki danych Azure za pomocą interfejsu API
  
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

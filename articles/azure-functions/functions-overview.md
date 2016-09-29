@@ -7,7 +7,7 @@
    manager="erikre"
    editor=""
    tags=""
-   keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
+   keywords="usługa Azure Functions, funkcje, przetwarzanie zdarzeń, elementy webhook, obliczanie dynamiczne, architektura bez serwera"/>
 
 <tags
    ms.service="functions"
@@ -15,13 +15,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="08/29/2016"
    ms.author="cfowler;mahender;glenga"/>
    
    
+
 # Azure Functions — omówienie
 
-Azure Functions to rozwiązanie umożliwiające łatwe uruchamianie małych fragmentów kodu („funkcji”) w chmurze. Możesz napisać tylko kod rozwiązujący aktualny problem, nie martwiąc się o całą aplikację ani infrastrukturę do jej uruchomienia. Dzięki temu programowanie może być jeszcze wydajniejsze i można korzystać z wybranego języka programowania, takiego jak C#, Node.js, Python lub PHP. Płać tylko za czas działania kodu — platforma Azure jest skalowana zgodnie z potrzebami.
+Azure Functions to rozwiązanie umożliwiające łatwe uruchamianie małych fragmentów kodu („funkcji”) w chmurze. Możesz napisać tylko kod rozwiązujący aktualny problem, nie martwiąc się o całą aplikację ani infrastrukturę do jej uruchomienia. Dzięki temu programowanie może być jeszcze wydajniejsze i można korzystać z wybranego języka programowania, takiego jak C#, F#, Node.js, Python lub PHP. Płać tylko za czas działania kodu — platforma Azure jest skalowana zgodnie z potrzebami.
 
 W tym temacie przedstawiono ogólne omówienie usługi Azure Functions. Jeśli chcesz od razu rozpocząć korzystanie z usługi Azure Functions, skorzystaj z artykułu [Tworzenie pierwszej funkcji platformy Azure](functions-create-first-azure-function.md). Jeśli chcesz uzyskać informacje techniczne o usłudze Functions, zobacz [dokumentację dla deweloperów](functions-reference.md).
 
@@ -29,7 +30,7 @@ W tym temacie przedstawiono ogólne omówienie usługi Azure Functions. Jeśli c
 
 Oto główne funkcje usługi Azure Functions:
     
-* **Wybór języka** — funkcje zapisu przy użyciu języka C#, Node.js, Python, F#, PHP, batch, bash, Java lub dowolnego pliku wykonywalnego.  
+* **Wybór języka** — tworzenie funkcji przy użyciu języka C#, F#, Node.js, Python, PHP, batch, bash, Java lub użycie dowolnych plików wykonywalnych.
 * **Model cenowy płatności za użycie** — płać tylko za czas działania kodu. Zobacz opis opcji dynamicznego planu usługi App Service w poniższej [sekcji dotyczącej cen](#pricing).  
 * **Korzystaj z własnych zależności** — środowisko Functions obsługuje rozwiązania NuGet i NPM, dzięki czemu można używać ulubionych bibliotek.  
 * **Zintegrowane zabezpieczenia** — ochrona funkcji wyzwalanych przez protokół HTTP za pośrednictwem dostawców uwierzytelniania OAuth, takich jak Azure Active Directory, Facebook, Google, Twitter i konto Microsoft.  
@@ -93,6 +94,6 @@ Omówienie planów usług dostępnych w środowisku Azure Functions, w tym dynam
 Środowisko Azure Functions używa platformy Azure App Service na potrzeby funkcji podstawowych, takich jak wdrożenia, zmienne środowiskowe i diagnostyka. 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

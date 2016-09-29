@@ -4,7 +4,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="mumian"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"
     tags="azure-portal"/>
 
@@ -14,8 +14,9 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-data"
-    ms.date="06/29/2016"
+    ms.date="09/14/2016"
     ms.author="jgao"/>
+
 
 # Instalowanie aplikacji usługi HDInsight
 
@@ -27,7 +28,7 @@ Obecnie dostępna jest jedna opublikowana aplikacja:
 
 >[AZURE.NOTE] Aplikacja Datameer jest obecnie obsługiwana tylko w przypadku klastrów Azure HDInsight w wersji 3.2.
 
-W instrukcjach podanych w tym artykule jest używana usługa Portal Azure. Można również wyeksportować szablon Azure Resource Manager z portalu lub uzyskać kopię szablonu Resource Manager od dostawców i użyć programu Azure PowerShell i interfejsu wiersza polecenia platformy Azure do wdrożenia szablonu.  Zobacz [Create Linux-based Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) (Tworzenie klastrów Hadoop w usłudze HDInsight opartych na systemie Linux przy użyciu szablonów usługi Resource Manager).
+W instrukcjach podanych w tym artykule jest używana witryna Azure Portal. Można również wyeksportować szablon usługi Azure Resource Manager z portalu lub uzyskać kopię szablonu usługi Resource Manager od dostawców i użyć programu Azure PowerShell oraz interfejsu wiersza polecenia platformy Azure do wdrożenia szablonu.  Zobacz [Create Linux-based Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) (Tworzenie klastrów Hadoop w usłudze HDInsight opartych na systemie Linux przy użyciu szablonów usługi Resource Manager).
 
 ## Wymagania wstępne
 
@@ -121,8 +122,11 @@ Zobacz [Troubleshoot the installation](hdinsight-apps-install-custom-application
 - [MSDN: instalowanie aplikacji usługi HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): dowiedz się, jak zdefiniować aplikacje usługi HDInsight.
 - [Dostosowywanie klastrów usługi HDInsight opartych na systemie Linux przy użyciu akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md): dowiedz się, jak instalować dodatkowe aplikacje za pomocą akcji skryptu.
 - [Create Linux-based Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) (Tworzenie klastrów Hadoop w usłudze HDInsight opartych na systemie Linux przy użyciu szablonów usługi Resource Manager): dowiedz się, jak wywoływać szablony usługi Resource Manager w celu tworzenia klastrów usługi HDInsight.
+- [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md) (Używanie pustych węzłów krawędzi w usłudze HDInsight): dowiedz się, jak za pomocą pustego węzła krawędzi uzyskiwać dostęp do klastra usługi HDInsight oraz testować i hostować aplikacje usługi HDInsight.
 
 
-<!--HONumber=sep16_HO1-->
+
+
+<!--HONumber=Sep16_HO3-->
 
 

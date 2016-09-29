@@ -1,33 +1,51 @@
 ## Tworzenie centrum zdarzeń
 
-1. Zaloguj się do [klasycznego portalu Azure][] i kliknij opcję **NOWE** u dołu ekranu.
+1. Zaloguj się do witryny [Azure Portal][], a następnie kliknij pozycję **Nowe** w lewym górnym rogu ekranu.
 
-2. Kliknij kolejno opcje **App Services**, **Service Bus**, **Centrum zdarzeń**, a następnie kliknij opcję **Szybkie tworzenie**.
+2. Kliknij pozycję **Dane i analiza**, a następnie pozycję **Centra zdarzeń**.
 
-    ![][1]
+    ![](./media/event-hubs-create-event-hub/create-event-hub9.png)
 
-3. Wpisz nazwę centrum zdarzeń, wybierz odpowiedni region, a następnie kliknij opcję **Create a new Event Hub** (Utwórz nowe centrum zdarzeń).
+3. W bloku **Tworzenie przestrzeni nazw** wprowadź nazwę przestrzeni nazw. System od razu sprawdza, czy nazwa jest dostępna.
 
-    ![][2]
+    ![](./media/event-hubs-create-event-hub/create-event-hub1.png)
 
-4. Jeśli istniejąca przestrzeń nazw nie została jawnie wybrana w danym regionie, portal tworzy przestrzeń nazw dla użytkownika (zwykle jest to ***nazwa centrum zdarzeń*-ns**). Kliknij przestrzeń nazw (w tym przykładzie **eventhub ns**).
+4. Po upewnieniu się, że nazwa przestrzeni nazw jest dostępna, wybierz warstwę cenową (Podstawowa lub Standardowa). Ponadto wybierz subskrypcję platformy Azure, grupę zasobów i lokalizację, w której chcesz utworzyć zasób. 
 
-    ![][3]
+2. Kliknij pozycję **Utwórz**, aby utworzyć przestrzeń nazw.
 
-5. W dolnej części strony kliknij pozycję **Informacje o połączeniu**. Kliknij przycisk kopiowania (widoczny na rysunku poniżej), aby skopiować parametry połączenia **RootManageSharedAccessKey** do schowka. Zapisz te parametry połączenia, aby użyć ich w dalszej części samouczka.
+6. Na liście przestrzeni nazw usługi Event Hubs kliknij nowo utworzoną przestrzeń nazw.      
 
-    ![][4]
+    ![](./media/event-hubs-create-event-hub/create-event-hub2.png)
+
+7. W bloku przestrzeni nazw kliknij pozycję **Centra zdarzeń**.
+
+    ![](./media/event-hubs-create-event-hub/create-event-hub3.png)
+
+8. Kliknij pozycję **Dodaj centrum zdarzeń** w górnej części bloku.
+
+    ![](./media/event-hubs-create-event-hub/create-event-hub4.png)
+
+3. Wpisz nazwę centrum zdarzeń, a następnie kliknij pozycję **Utwórz**.
+
+    ![](./media/event-hubs-create-event-hub/create-event-hub5.png)
+
+4. Na liście centrów zdarzeń kliknij nazwę nowo utworzonego centrum zdarzeń. 
+
+    ![](./media/event-hubs-create-event-hub/create-event-hub6.png)
+
+5. W bloku przestrzeni nazw (nie w bloku centrum zdarzeń) kliknij pozycję **Zasady dostępu współdzielonego**, a następnie kliknij pozycję **RootManageSharedAccessKey**.
+
+    ![](./media/event-hubs-create-event-hub/create-event-hub7.png)
+
+5. Kliknij przycisk kopiowania, aby skopiować parametry połączenia **RootManageSharedAccessKey** do schowka. Zapisz te parametry połączenia, aby użyć ich w dalszej części samouczka.
+
+    ![](./media/event-hubs-create-event-hub/create-event-hub8.png)
 
 Utworzono centrum zdarzeń i uzyskano parametry połączenia potrzebne do wysyłania i odbierania zdarzeń.
 
-[1]: ./media/event-hubs-create-event-hub/create-event-hub1.png
-[2]: ./media/event-hubs-create-event-hub/create-event-hub2.png
-[3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
-[4]: ./media/event-hubs-create-event-hub/create-conn-str1.png
+[Azure Portal]: https://portal.azure.com/
 
-[klasycznego portalu Azure]: https://manage.windowsazure.com/
-
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

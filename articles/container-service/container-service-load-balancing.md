@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Równoważenie obciążenia klastra usługi kontenera platformy Azure | Microsoft Azure"
-   description="Równoważenie obciążenia klastra usługi kontenera platformy Azure."
+   pageTitle="Kontenery równoważenia obciążenia klastra usługi Azure Container Service | Microsoft Azure"
+   description="Równoważenie obciążenia w wielu kontenerach w klastrze usługi Azure Container Service."
    services="container-service"
    documentationCenter=""
    authors="rgardler"
@@ -18,9 +18,10 @@
    ms.date="07/11/2016"
    ms.author="rogardle"/>
 
-# Równoważenie obciążenia klastra usługi kontenera platformy Azure
 
-W tym artykule skonfigurujemy fronton sieci web w usłudze Azure Container Service zarządzanej przez rozwiązanie DC/OS. Skonfigurujemy także usługę Marathon-LB, aby umożliwić skalowanie aplikacji w górę.
+# Równoważenie obciążenia w klastrze usługi Azure Container Service
+
+W tym artykule pokażemy, jak utworzyć wewnętrzny moduł równoważenia obciążenia w usłudze Azure Container Service zarządzanej przez rozwiązanie DC/OS przy użyciu narzędzia Marathon-LB. Umożliwi to skalowanie aplikacji w poziomie. Ponadto umożliwi to wykorzystanie agentów klastrów publicznych i prywatnych poprzez umieszczenie modułów równoważenia obciążenia w klastrze publicznym i kontenerów aplikacji w klastrze prywatnym.
 
 ## Wymagania wstępne
 
@@ -55,9 +56,11 @@ Po zainstalowaniu interfejsu wiersza polecenia rozwiązania DC/OS i upewnieniu s
 dcos package install marathon-lb
 ```
 
+To polecenie automatycznie instaluje moduł równoważenia obciążenia w klastrze agentów publicznych.
+
 ## Wdrażanie aplikacji sieci Web z równoważeniem obciążenia
 
-Teraz, gdy mamy już pakiet marathon-lb, możemy wdrożyć prosty serwer sieci Web przy użyciu następującej konfiguracji:
+Teraz po przygotowaniu pakietu marathon-lb możemy wdrożyć kontener aplikacji, dla którego chcemy zrównoważyć obciążenie. W tym przykładzie wdrożymy prosty serwer sieci Web, używając następującej konfiguracji:
 
 ```json
 {
@@ -100,6 +103,8 @@ Teraz, gdy mamy już pakiet marathon-lb, możemy wdrożyć prosty serwer sieci W
   * Ustaw parametr `hostPort` na wartość 0. Ten sposób oznacza, że rozwiązanie Marathon będzie arbitralnie przypisywać dostępny port.
   * Ustaw parametr `instances` na liczbę wystąpień, które chcesz utworzyć. W późniejszym czasie możesz zawsze zmienić tę wartość.
 
+Warto zauważyć, że domyślnie narzędzie Marathon będzie wdrażać rozwiązania do klastra prywatnego. Oznacza to, że powyższe wdrożenie będzie dostępne tylko poprzez moduł równoważenia obciążenia, co jest zazwyczaj pożądanym zachowaniem.
+
 ### Wdrażanie przy użyciu interfejsu użytkownika w sieci Web rozwiązania DC/OS
 
   1. Odwiedź stronę rozwiązania Marathon pod adresem http://localhost/marathon (po skonfigurowaniu [tunelu SSH](container-service-connect.md) i kliknij pozycję `Create Appliction`
@@ -141,6 +146,6 @@ Więcej informacji na temat warstwy [marathon-lb](https://dcos.io/docs/1.7/usage
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

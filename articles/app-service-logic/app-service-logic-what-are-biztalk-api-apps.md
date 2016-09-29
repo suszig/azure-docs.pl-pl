@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="07/28/2016" 
+    ms.date="09/01/2016" 
     ms.author="mandia"/>
+
 
 # Co to są łączniki i aplikacje API Apps w BizTalk
 
@@ -35,7 +36,7 @@ Warstwy usług oraz ich zawartość zostały opisane w artykule [App Service  �
 
 
 ## Łączniki hybrydowe 
-Łączniki hybrydowe jeszcze bardziej rozszerzają zasięg w przedsiębiorstwie dzięki łączności z rozwiązaniami [SAP](app-service-logic-connector-sap.md), [Oracle](app-service-logic-connector-oracle.md), [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) i WebSphere MQ. 
+Łączniki hybrydowe jeszcze bardziej rozszerzają zasięg w przedsiębiorstwie dzięki łączności z rozwiązaniami [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) i WebSphere MQ. 
 
 ## Usługi EAI i EDI
 Tworzenie aplikacji biznesowych o krytycznym znaczeniu wymaga czegoś więcej niż tylko łączność. Stworzone w oparciu o wiodącą w branży platformę integracyjną firmy Microsoft — BizTalk Server — aplikacje API Apps w BizTalk udostępniają zaawansowane funkcje integracji, które można z łatwością dodać do aplikacji Web Apps, Mobile Apps lub Logic Apps. Niektóre z możliwości integracji to [weryfikacja](app-service-logic-xml-validator.md), [wyodrębnianie](app-service-logic-xpath-extract.md), [przekształcanie](app-service-logic-transform-xml-documents.md), [kodery](app-service-logic-connector-jsonencoder.md), [zarządzanie partnerami handlowymi](app-service-logic-connector-tpm.md) i obsługa formatów EDI, takich jak [X12](app-service-logic-connector-x12.md), [EDIFACT](app-service-logic-connector-edifact.md) i [AS2](app-service-logic-connector-as2.md).
@@ -55,6 +56,6 @@ Artykuł [Connectors and API Apps List](app-service-logic-connectors-list.md) (L
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

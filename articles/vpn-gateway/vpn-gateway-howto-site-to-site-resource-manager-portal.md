@@ -17,12 +17,13 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Tworzenie sieci wirtualnej za pomocą połączenia typu lokacja-lokacja przy użyciu witryny Azure Portal
 
 > [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Klasyczny portal Azure](vpn-gateway-site-to-site-create.md)
-- [Program PowerShell — model usługi Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Menedżer zasobów — witryna Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager — program PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Model klasyczny — klasyczny portal](vpn-gateway-site-to-site-create.md)
 
 
 W tym artykule opisano proces tworzenia sieci wirtualnej i połączenia sieci VPN typu lokacja-lokacja z siecią lokalną z wykorzystaniem **modelu wdrażania usługi Azure Resource Manager** i witryny Azure Portal. Z połączeń typu lokacja-lokacja można korzystać w ramach konfiguracji hybrydowych i obejmujących wiele lokalizacji.
@@ -156,6 +157,6 @@ Połączenie sieci VPN można sprawdzić, korzystając z portalu lub z programu 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

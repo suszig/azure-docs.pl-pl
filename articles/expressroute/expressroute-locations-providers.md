@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
+   ms.date="09/20/2016"
    ms.author="cherylmc" />
+
 
 # Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
 
@@ -31,7 +32,7 @@ Będziesz mieć dostęp do usług Azure we wszystkich regionach regionu geopolit
 |---|---|---|
 |**Ameryka Północna**|Wschodnie stany USA, Zachodnie stany USA, Wschodnie stany USA 2, Środkowe stany USA, Południowo-środkowe stany USA, Północno-środkowe stany USA, Kanada Środkowa, Kanada Wschodnia|Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, Nowy Jork, Seattle, Dolina Krzemowa, Waszyngton, Montreal+, Miasto Quebec+, Toronto|
 |**Ameryka Południowa**|Brazylia Południowa|Sao Paulo|
-|**Europa**|Europa Północna, Europa Zachodnia|Amsterdam, Dublin, Londyn, Newport (Walia)+, Paryż|
+|**Europa**|Europa Północna, Europa Zachodnia, Zjednoczone Królestwo (zachód), Zjednoczone Królestwo (południe)|Amsterdam, Dublin, Londyn, Newport (Walia)+, Paryż|
 |**Azja**|Azja Wschodnia, Azja Południowo-Wschodnia|Hongkong, Singapur|
 |**Japonia**|Japońska Zachodnia, Japonia Wschodnia|Osaka, Tokio|
 |**Australia**|Australia Południowo-Wschodnia, Australia Wschodnia|Melbourne, Sydney|
@@ -43,9 +44,9 @@ W poniższej tabeli zamieszczono informacje o regionach i granicach geopolityczn
 
 |**Region geopolityczny**|**Regiony świadczenia usługi Azure**|**Lokalizacje usługi ExpressRoute**|
 |---|---|---|---|
-|**Chmura administracji USA**|Administracja USA — Iowa, Administracja USA — Wirginia|Chicago, Dallas+, Nowy Jork, Waszyngton|
+|**Chmura administracji USA**|Administracja USA — Iowa, Administracja USA — Wirginia|Chicago, Dallas, Nowy Jork, Waszyngton|
 |**Chiny**|Chiny Północne, Chiny Wschodnie|Pekin, Szanghaj|
-|**Niemcy**|Niemcy Środkowe, Niemcy Wschodnie|Berlin, Frankfurt|
+|**Niemcy**|Niemcy Środkowe, Niemcy Wschodnie|Berlin+, Frankfurt|
 
 
 Łączność między regionami geopolitycznymi nie jest obsługiwana w standardowej jednostce SKU usługi ExpressRoute. Do obsługi połączeń globalnych trzeba włączyć dodatek Premium usługi ExpressRoute. Łączność z krajowymi środowiskami chmury nie jest obsługiwana. W razie potrzeby można współpracować z dostawcą połączenia.
@@ -64,8 +65,8 @@ W poniższej tabeli zamieszczono informacje o regionach i granicach geopolityczn
 | **Atlanta** | Equinix |
 | **Chennai** | Tata Communications |
 | **Chicago** | AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
-| **Dallas** | AT&T NetBond, Equinix, Level 3 Communications, Megaport |
-| **Dublin** | Colt |
+| **Dallas** | AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
+| **Dublin** | Colt, Telecity Group |
 | **Hongkong** | British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Londyn** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions — Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
 | **Las Vegas** | Level 3 Communications+, Megaport
@@ -80,7 +81,7 @@ W poniższej tabeli zamieszczono informacje o regionach i granicach geopolityczn
 | **Seattle** | Equinix, Level 3 Communications, Megaport |
 | **Dolina Krzemowa** | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **Singapur** | Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, Orange, SingTel, Tata Communications, Verizon |
-| **Sydney** | AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Telstra Corporation, Verizon |
+| **Sydney** | AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tokio** | Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
 | **Toronto** | Cologix, Equinix, Zayo Group |
 | **Waszyngton** | Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
@@ -94,7 +95,7 @@ W poniższej tabeli zamieszczono informacje o regionach i granicach geopolityczn
 | **Lokalizacja**  |**Dostawcy usług** |
 |---------------|--------------------|
 | **Chicago** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
-| **Dallas** |  Equinix+, Verizon+ |
+| **Dallas** |  Equinix, Verizon+ |
 | **Nowy Jork** | Equinix, Level 3 Communications+, Verizon |
 | **Waszyngton** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
@@ -158,6 +159,6 @@ Włączanie prywatnej łączności do własnych potrzeb może być wyzwaniem w z
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

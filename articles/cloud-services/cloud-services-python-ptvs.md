@@ -17,6 +17,7 @@
     ms.author="adegeo"/>
 
 
+
 # Role Sieć Web i Proces roboczy języka Python z programem Python Tools for Visual Studio
 
 Ten artykuł zawiera omówienie sposobu użycia ról Sieć Web i Proces roboczy języka Python za pomocą programu [Python Tools for Visual Studio][]. Dowiesz się, jak używać programu Visual Studio do tworzenia i wdrażania podstawowej usługi w chmurze, która używa języka Python.
@@ -242,6 +243,8 @@ if (-not $is_emulated){
 
 #### Modyfikowanie skryptu LaunchWorker.ps1
 
+>[AZURE.NOTE] W przypadku projektu **roli procesu roboczego** plik **LauncherWorker.ps1** jest wymagany do wykonania pliku uruchamiania. W projektach **roli sieci Web** plik uruchamiania jest zdefiniowany we właściwościach projektu.
+
 Skrypt **Bin\LaunchWorker.ps1** pierwotnie został utworzony w celu wykonywania działań przygotowawczych, ale w praktyce nie działa. Zastąp zawartość tego pliku następującym skryptem.
 
 Ten skrypt wywołuje plik **worker.py** z projektu języka Python. Jeśli zmienna środowiskowa **PYTHON2** jest ustawiona na wartość **on**, używany jest język Python 2.7. W przeciwnym razie używany jest język Python 3.5.
@@ -368,6 +371,6 @@ Więcej szczegółów dotyczących korzystania z usług Azure na podstawie ról 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

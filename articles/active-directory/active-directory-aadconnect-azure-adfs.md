@@ -1,7 +1,7 @@
 <properties
     pageTitle="Usługi Active Directory Federation Services na platformie Azure | Microsoft Azure"
     description="W tym dokumencie omówiono procedurę wdrożenia usług AD FS na platformie Azure w celu zapewnienia wysokiej dostępności."
-    keywords="wprowadzenie do usług AD FS, platforma Azure, omówienie programu Azure AD Connect, usługi AD FS na platformie Azure, model iaas, usługi ADFS"
+    keywords="wdrażanie usług AD FS na platformie Azure, wdrażanie azure adfs, azure adfs, azure ad fs, wdrażanie adfs, wdrażanie ad fs, adfs w azure, wdrażanie adfs w azure, wdrażanie usług AD FS na platformie azure, adfs azure, wprowadzenie do usług AD FS, Azure, wprowadzenie do usług AD FS na platformie Azure, iaas, ADFS, przenoszenie adfs do azure"
     services="active-directory"
     documentationCenter=""
     authors="anandyadavmsft"
@@ -16,6 +16,7 @@
     ms.topic="get-started-article"
     ms.date="07/13/2016"
     ms.author="anandy;billmath"/>
+
 
 # Wdrożenie usług AD FS na platformie Azure 
 
@@ -311,6 +312,7 @@ Po pomyślnym zalogowaniu zostanie wyświetlony poniższy komunikat:
 
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md)
 * [Konfigurowanie usług AD FS i zarządzanie nimi za pomocą programu Azure AD Connect](active-directory-aadconnectfed-whatis.md)
+* [Wdrażanie geograficznie rozproszonych usług AD FS o wysokiej dostępności na platformie Azure przy użyciu usługi Azure Traffic Manager](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
 
 
@@ -318,7 +320,6 @@ Po pomyślnym zalogowaniu zostanie wyświetlony poniższy komunikat:
 
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

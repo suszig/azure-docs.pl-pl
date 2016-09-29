@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="07/22/2016"
-    ms.author="tamram"/>
+    ms.date="09/20/2016"
+    ms.author="jwillis;tamram"/>
+
 
 
 # Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET
@@ -45,7 +46,7 @@ W tym samouczku pokazano, jak napisać kod .NET dla niektórych typowych scenari
 
 ### Więcej przykładów
 
-Dodatkowe przykłady użycia usługi Blob Storage znajdziesz w temacie [Getting Started with Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) (Rozpoczynanie pracy z usługą Azure Blob Storage w programie .NET). Możesz pobrać przykładową aplikację i uruchomić ją lub przejrzeć kod w witrynie GitHub. 
+Dodatkowe przykłady użycia usługi Blob Storage znajdziesz w temacie [Getting Started with Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) (Rozpoczynanie pracy z usługą Azure Blob Storage w programie .NET). Możesz pobrać przykładową aplikację i uruchomić ją lub przejrzeć kod w witrynie GitHub.
 
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
@@ -367,14 +368,14 @@ Domyślnie usługa Azure Storage chroni dane, umożliwiając dostęp wyłącznie
 Domyślnie dane obiektów blob na koncie magazynu są dostępne tylko dla właściciela konta magazynu. Domyślnie do uwierzytelniania żądań dotyczących Magazynu obiektów blob jest wymagany klucz dostępu do konta. Możesz jednak udostępnić określone dane obiektów blob innym użytkownikom. Dostępne są dwie opcje:
 
 - **Dostęp anonimowy:** możesz ustawić kontener lub zawarte w nim obiekty blob jako dostępne publicznie, aby umożliwić dostęp anonimowy. Aby uzyskać więcej informacji, zobacz [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md) (Zarządzanie dostępem anonimowym do kontenerów i obiektów blob).
-- **Sygnatury dostępu współdzielonego:** możesz zapewnić klientom sygnatury dostępu współdzielonego (SAS), które umożliwiają dostęp delegowany do zasobu na koncie magazynu z uprawnieniami i w przedziale czasu, który określisz. Aby uzyskać więcej informacji, zobacz [Shared Access Signatures: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md) (Sygnatury dostępu współdzielonego: opis modelu sygnatur dostępu współdzielonego).
+- **Sygnatury dostępu współdzielonego:** możesz zapewnić klientom sygnatury dostępu współdzielonego (SAS), które umożliwiają dostęp delegowany do zasobu na koncie magazynu z uprawnieniami i w przedziale czasu, który określisz. Zobacz [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Używanie sygnatur dostępu współdzielonego), aby uzyskać więcej informacji.
 
 ### Szyfrowanie danych obiektów blob
 
 Usługa Azure Storage obsługuje szyfrowanie danych obiektów blob na kliencie i na serwerze:
 
 - **Szyfrowanie po stronie klienta:** biblioteka klienta usługi Storage dla programu .NET obsługuje szyfrowanie danych w aplikacjach klienckich przed ich przekazaniem do usługi Azure Storage oraz odszyfrowywanie danych przed pobraniem do klienta. Biblioteka obsługuje również integrację z magazynem kluczy Azure do zarządzania kluczami konta magazynu. Aby uzyskać więcej informacji, zobacz [Client-Side Encryption with .NET for Microsoft Azure Storage](storage-client-side-encryption.md) (Szyfrowanie po stronie klienta przy użyciu programu .NET dla usługi Microsoft Azure Storage). Zobacz również [Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md) (Samouczek: szyfrowanie i odszyfrowywanie obiektów blob w usłudze Microsoft Azure Storage przy użyciu usługi Azure Key Vault).
-- **Szyfrowanie po stronie serwera**: usługa Azure Storage obsługuje teraz szyfrowanie po stronie serwera. Zobacz [Azure Storage Service Encryption for Data at Rest (Preview)](storage-service-encryption.md) (Szyfrowanie usługi Azure Storage dla danych magazynowanych (wersja zapoznawcza)). 
+- **Szyfrowanie po stronie serwera**: usługa Azure Storage obsługuje teraz szyfrowanie po stronie serwera. Zobacz [Azure Storage Service Encryption for Data at Rest (Preview)](storage-service-encryption.md) (Szyfrowanie usługi Azure Storage dla danych magazynowanych (wersja zapoznawcza)).
 
 ## Następne kroki
 
@@ -411,6 +412,6 @@ Teraz, kiedy znasz już podstawy usługi Blob Storage, skorzystaj z poniższych 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

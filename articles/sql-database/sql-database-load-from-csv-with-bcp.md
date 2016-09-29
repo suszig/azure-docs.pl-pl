@@ -1,7 +1,7 @@
 <properties
    pageTitle="Ładowanie danych z pliku CSV do usługi Azure SQL Database (bcp) | Microsoft Azure"
    description="Dane niewielkich rozmiarów można importować do usługi Azure SQL Database za pomocą narzędzia bcp."
-   services="sql-data-warehouse"
+   services="sql-database"
    documentationCenter="NA"
    authors="CarlRabeler"
    manager="jhubbard"
@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="09/13/2016"
    ms.author="carlrab"/>
+
 
 
 # Ładowanie danych z pliku CSV do usługi Azure SQL Data Warehouse (pliki proste)
@@ -37,12 +38,9 @@ Narzędzia bcp i sqlcmd można pobrać z [Centrum pobierania Microsoft][].
 
 Jeśli próbujesz wykonać kroki tego samouczka z użyciem własnych danych, musisz zastosować do danych kodowanie ASCII lub UTF-16, ponieważ narzędzie bcp nie obsługuje formatu UTF-8. 
 
-Aparat PolyBase obsługuje format UTF-8, ale nie obsługuje jeszcze formatu UTF-16. Uwaga: jeśli chcesz połączyć program bcp z aparatem PolyBase, konieczna będzie konwersja danych do formatu UTF-8 po ich wyeksportowaniu z programu SQL Server. 
-
-
 ## 1. Tworzenie tabeli docelowej
 
-W usłudze SQL Data Warehouse zdefiniuj tabelę, która będzie tabelą docelową ładowania. Kolumny w tabeli muszą odpowiadać danym w poszczególnych wierszach pliku danych.
+Zdefiniuj tabelę w usłudze SQL Database jako tabelę docelową. Kolumny w tabeli muszą odpowiadać danym w poszczególnych wierszach pliku danych.
 
 Aby utworzyć tabelę, otwórz wiersz polecenia i użyj programu sqlcmd.exe, aby uruchomić następujące polecenie:
 
@@ -129,6 +127,6 @@ Aby przeprowadzić migrację bazy danych programu SQL Server, zobacz [SQL Server
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

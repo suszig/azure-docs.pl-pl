@@ -6,7 +6,7 @@
     documentationCenter=""
     tags="azure-portal"
     authors="mumian"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -15,8 +15,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/10/2016"
+    ms.date="09/06/2016"
     ms.author="jgao"/>
+
 
 
 # Użyj usługi Azure Blob Storage zgodnej z systemem plików HDFS w połączeniu z platformą Hadoop w usłudze HDInsight
@@ -49,7 +50,7 @@ Ponadto usługa HDInsight zapewnia możliwość dostępu do danych przechowywany
 
 Platforma Hadoop obsługuje pojęcie domyślnego systemu plików. Domyślny system plików wyznacza domyślny schemat i element authority. Może również służyć do rozpoznawania ścieżek względnych. Podczas procesu tworzenia usługi HDInsight konto Azure Storage i określony na podstawie tego konta kontener magazynu obiektów blob platformy Azure wyznaczają domyślny system plików.
 
-W ramach procesu tworzenia oprócz tego konta magazynu można dodać dodatkowe konta magazynu z tej samej subskrypcji platformy Azure lub różnych subskrypcji platformy Azure. Aby uzyskać instrukcje dotyczące dodawania dodatkowych kont magazynu, zobacz [Create HDInsight clusters][hdinsight-creation] (Tworzenie klastrów HDInsight).
+Oprócz tego konta magazynu można dodać dodatkowe konta magazynu z tej samej subskrypcji platformy Azure lub różnych subskrypcji platformy Azure podczas procesu tworzenia lub po utworzeniu klastra. Aby uzyskać instrukcje dotyczące dodawania dodatkowych kont magazynu, zobacz [Create HDInsight clusters][hdinsight-creation] (Tworzenie klastrów HDInsight).
 
 - **Kontenery w ramach kont magazynu, które są podłączone do klastra:** ponieważ nazwa konta i klucz są kojarzone z klastrem podczas tworzenia, masz pełny dostęp do obiektów blob w tych kontenerach.
 
@@ -301,6 +302,6 @@ Aby uzyskać więcej informacji, zobacz:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

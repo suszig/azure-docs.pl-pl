@@ -16,28 +16,29 @@
     ms.date="08/01/2016" 
     ms.author="spelluru"/>
 
+
 # Samouczek: tworzenie potoku za pomocą działania kopiowania przy użyciu programu Visual Studio
 > [AZURE.SELECTOR]
-- [Omówienie samouczka](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Korzystanie z Edytora fabryki danych](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Korzystanie z programu PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Korzystanie z programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Korzystanie z interfejsu API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Korzystanie z interfejsu API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Korzystanie z Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md)
+- [Przegląd i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
 
-W tym samouczku wykonasz następujące czynności za pomocą programu Visual Studio 2013:
+Ten samouczek pokazuje, jak utworzyć i monitorować fabrykę danych Azure przy użyciu programu Visual Studio. Potok w fabryce danych używa działania kopiowania w celu kopiowania danych z usługi Azure Blob Storage do usługi Azure SQL Database.
+
+Poniżej przedstawiono czynności do wykonania w ramach tego samouczka:
 
 1. Utworzysz dwie połączone usługi: **AzureStorageLinkedService1** i **AzureSqlLinkedService1**. Usługa AzureStorageLinkedService1 łączy z fabryką danych **ADFTutorialDataFactoryVS** konto magazynu Azure, a usługa AzureSqlLinkedService1 — bazę danych SQL Azure. Dane wejściowe dla potoku znajdują się w kontenerze obiektów blob w magazynie obiektów blob platformy Azure, a dane wyjściowe są przechowywane w tabeli w bazie danych SQL Azure. Te dwa magazyny danych są więc dodawane jako połączone usługi do fabryki danych.
-2. Utworzysz dwie tabele fabryki danych — **EmpTableFromBlob** i **EmpSQLTable** — zawierające dane wejściowe/wyjściowe przechowywane w magazynach danych. Dla obiektu EmpTableFromBlob należy określić kontener obiektów blob zawierający obiekt blob z danymi źródłowymi. Dla tabeli EmpSQLTable należy określić tabelę SQL, która przechowuje dane wyjściowe. Określane są również inne właściwości, takie jak struktury, dostępność i tak dalej.
+2. Utworzysz dwie tabele fabryki danych — **EmpTableFromBlob** i **EmpSQLTable** — zawierające dane wejściowe/wyjściowe przechowywane w magazynach danych. Dla obiektu EmpTableFromBlob należy określić kontener obiektów blob zawierający obiekt blob z danymi źródłowymi. Dla tabeli EmpSQLTable należy określić tabelę SQL, która przechowuje dane wyjściowe. Należy określić również inne właściwości, takie jak struktura, dostępność i zasady.
 3. Utworzysz potok o nazwie **ADFTutorialPipeline** w fabryce danych ADFTutorialDataFactoryVS. Potok obejmuje **działanie kopiowania**, które będzie kopiować dane wejściowe z obiektu blob platformy Azure do tabeli wyjściowej SQL Azure. Działanie kopiowania wykonuje operację przenoszenia danych w usłudze Azure Data Factory. Działanie jest obsługiwane przez globalnie dostępną usługę, która może kopiować dane między różnymi magazynami danych w sposób bezpieczny, niezawodny i skalowalny. Szczegółowe informacje dotyczące działania kopiowania znajdują się w artykule [Data Movement Activities](data-factory-data-movement-activities.md) (Działania przenoszenia danych). 
 4. Utworzysz fabrykę danych i wdrożysz połączone usługi, tabele i potok.    
 
 ## Wymagania wstępne
 
-1. Zapoznaj się z artykułem [Omówienie samouczka](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-    
-    > [AZURE.IMPORTANT] Przed kontynuacją wykonaj odpowiednie czynności, aby spełnić wymagania wstępne. 
+1. Przeczytaj artykuł [Omówienie samouczka](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) oraz wykonaj kroki **wymagań wstępnych**. 
 2. Aby publikować jednostki fabryki danych w usłudze Azure Data Factory, musisz być **administratorem subskrypcji platformy Azure**.  
 3. Na komputerze muszą być zainstalowane następujące elementy: 
     - Visual Studio 2013 lub Visual Studio 2015
@@ -281,6 +282,6 @@ Zobacz artykuł [Monitor datasets and pipeline](data-factory-copy-activity-tutor
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -14,8 +14,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/02/2016"
-   ms.author="narayanannamalai"/>
+   ms.date="09/14/2016"
+   ms.author="narayanannamalai;annahar"/>
+
 
 # Tworzenie wirtualnej sieci równorzędnej przy użyciu szablonów usługi Resource Manager
 
@@ -29,7 +30,7 @@ Aby utworzyć wirtualną sieć równorzędną przy użyciu szablonów Resource M
 
 1. Jeśli nie znasz programu Azure PowerShell, zapoznaj się z artykułem [Instalowanie i konfigurowanie programu Azure PowerShell](../powershell-install-configure.md) i postępuj zgodnie z instrukcjami aż do momentu logowania się w programie Azure i wyboru subskrypcji.
 
-    Uwaga: polecenie cmdlet programu PowerShell służące do zarządzania wirtualną siecią równorzędną jest dostarczane z programem [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
+    > [AZURE.NOTE] Polecenie cmdlet programu PowerShell służące do zarządzania wirtualną siecią równorzędną jest dostarczane z programem [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
 
 2. Tekst poniżej zawiera definicję połączenia wirtualnych sieci równorzędnych (VNet1 z VNet2) na podstawie powyższego scenariusza. Skopiuj poniższą zawartość i zapisz ją w pliku o nazwie VNetPeeringVNet1.json.
 
@@ -58,7 +59,7 @@ Aby utworzyć wirtualną sieć równorzędną przy użyciu szablonów Resource M
             }
         ]
         }
-    
+
 3. Sekcja poniżej zawiera definicję połączenia wirtualnych sieci równorzędnych (VNet2 z VNet1) na podstawie powyższego scenariusza.  Skopiuj poniższą zawartość i zapisz ją w pliku o nazwie VNetPeeringVNet2.json.
 
         {
@@ -96,14 +97,14 @@ Aby utworzyć wirtualną sieć równorzędną przy użyciu szablonów Resource M
   	|AllowGatewayTransit|Umożliwia wirtualnej sieci równorzędnej korzystanie z bramy sieci wirtualnej.|Nie|
   	|UseRemoteGateways|Określa, czy ma być używana brama wirtualnej sieci równorzędnej. Wirtualna sieć równorzędna musi mieć skonfigurowaną bramę, a właściwość AllowGatewayTransit musi być wybrana. Tej opcji nie można użyć, jeśli jest skonfigurowana brama.|Nie|
 
-    Każde połączenie w wirtualnej sieci równorzędnej ma zestaw właściwości przedstawionych powyżej. Na przykład można ustawić wartość True dla właściwości AllowVirtualNetworkAccess, aby utworzyć połączenie komunikacji równorzędnej w sieci wirtualnej z sieci VNet1 do sieci VNet2, lub ustawić wartość False, aby utworzyć połączenie komunikacji równorzędnej w sieci wirtualnej w przeciwnym kierunku. 
+    Każde połączenie w wirtualnej sieci równorzędnej ma zestaw właściwości przedstawionych powyżej. Na przykład można ustawić wartość True dla właściwości AllowVirtualNetworkAccess, aby utworzyć połączenie komunikacji równorzędnej w sieci wirtualnej z sieci VNet1 do sieci VNet2, lub ustawić wartość False, aby utworzyć połączenie komunikacji równorzędnej w sieci wirtualnej w przeciwnym kierunku.
 
 
 4. Aby wdrożyć plik szablonu, możesz uruchomić polecenie cmdlet New-AzureRmResourceGroupDeployment w celu utworzenia lub zaktualizowania wdrożenia. Aby uzyskać więcej informacji na temat korzystania z szablonów usługi Resource Manager, zapoznaj się z tym [artykułem](../resource-group-template-deploy.md).
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName <resource group name> -TemplateFile <template file path> -DeploymentDebugLogLevel all
 
-    > [AZURE.NOTE] Zamień nazwy grupy zasobów i plik szablonu zasobów zgodnie z wymaganiami. 
+    > [AZURE.NOTE] Zamień nazwy grupy zasobów i plik szablonu zasobów zgodnie z wymaganiami.
 
     Poniżej znajduje się przykład przygotowany na podstawie powyższego scenariusza:
 
@@ -167,7 +168,7 @@ Aby utworzyć wirtualną sieć równorzędną między subskrypcjami, wykonaj pon
 
         New-AzureRmRoleAssignment -SignInName <UserB ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-A-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/VNet5
 
-    Nie jest to wymagane, ponieważ komunikację równorzędną można nawiązać, nawet jeśli użytkownicy indywidualnie zgłoszą żądania komunikacji równorzędnej dla odpowiednich sieci wirtualnych, o ile zgłoszenia są zgodne. Dodanie użytkowników o odpowiednich uprawnieniach do innej sieci wirtualnej jako użytkowników w lokalnej sieci wirtualnej ułatwia konfigurowanie. 
+    Nie jest to wymagane, ponieważ komunikację równorzędną można nawiązać, nawet jeśli użytkownicy indywidualnie zgłoszą żądania komunikacji równorzędnej dla odpowiednich sieci wirtualnych, o ile zgłoszenia są zgodne. Dodanie użytkowników o odpowiednich uprawnieniach do innej sieci wirtualnej jako użytkowników w lokalnej sieci wirtualnej ułatwia konfigurowanie.
 
 2. Zaloguj się do platformy Azure przy użyciu konta użytkownika B o odpowiednich uprawnieniach dla subskrypcji B i uruchom następujące polecenie cmdlet:
 
@@ -178,7 +179,7 @@ Aby utworzyć wirtualną sieć równorzędną między subskrypcjami, wykonaj pon
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet3.json -DeploymentDebugLogLevel all
 
     Oto jak jest zdefiniowany plik JSON.  
-    
+
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
@@ -204,11 +205,11 @@ Aby utworzyć wirtualną sieć równorzędną między subskrypcjami, wykonaj pon
             }
         ]
         }
-   
+
 4. W sesji logowania użytkownika B uruchom następujące polecenie cmdlet:
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet5.json -DeploymentDebugLogLevel all
-   
+
     Oto jak jest zdefiniowany plik JSON:
 
         {
@@ -236,14 +237,14 @@ Aby utworzyć wirtualną sieć równorzędną między subskrypcjami, wykonaj pon
             }
         ]
         }
- 
-    Po ustanowieniu komunikacji równorzędnej w tym scenariuszu powinno być możliwe zainicjowanie połączeń z dowolnej maszyny wirtualnej do dowolnej maszyny wirtualnej w obu sieciach wirtualnych w różnych subskrypcjach. 
+
+    Po ustanowieniu komunikacji równorzędnej w tym scenariuszu powinno być możliwe zainicjowanie połączeń z dowolnej maszyny wirtualnej do dowolnej maszyny wirtualnej w obu sieciach wirtualnych w różnych subskrypcjach.
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
 1. W tym scenariuszu możesz wdrożyć ten sam szablon w celu ustanowienia komunikacji równorzędnej w sieci wirtualnej.  Dla właściwości AllowForwardedTraffic trzeba ustawić wartość True, dzięki czemu sieciowe urządzenie wirtualne w wirtualnej sieci równorzędnej będzie mogło wysyłać i odbierać dane.
 
-    Oto szablon umożliwiający utworzenie komunikacji równorzędnej w sieci wirtualnej prowadzącej z sieci HubVNet do sieci VNet1. Pamiętaj, że parametr AllowForwardedTraffic ma wartość False.
+    Oto szablon umożliwiający utworzenie komunikacji równorzędnej w sieci wirtualnej prowadzącej z sieci HubVNet do sieci VNet1. Zwróć uwagę, że parametr AllowForwardedTraffic ma wartość False.
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -272,7 +273,7 @@ Aby utworzyć wirtualną sieć równorzędną między subskrypcjami, wykonaj pon
         ]
         }
 
-2. Oto szablon umożliwiający utworzenie komunikacji równorzędnej w sieci wirtualnej prowadzącej z sieci VNet1 do sieci HubVNet. Pamiętaj, że parametr AllowForwardedTraffic ma wartość True. 
+2. Oto szablon umożliwiający utworzenie komunikacji równorzędnej w sieci wirtualnej prowadzącej z sieci VNet1 do sieci HubVNet. Zwróć uwagę, że parametr AllowForwardedTraffic ma wartość True.
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -303,7 +304,61 @@ Aby utworzyć wirtualną sieć równorzędną między subskrypcjami, wykonaj pon
 
 3. Po nawiązaniu komunikacji równorzędnej można zapoznać się z tym [artykułem](virtual-network-create-udr-arm-ps.md), aby zdefiniować trasę zdefiniowaną przez użytkownika w celu przekierowania ruchu sieci VNet1 za pośrednictwem urządzenia wirtualnego i wykorzystać jego możliwości. Podczas określania adresu następnego skoku w trasie można ustawić go na adres IP urządzenia wirtualnego w wirtualnej sieci równorzędnej HubVNet.
 
+[AZURE.INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
 
-<!--HONumber=sep16_HO1-->
+Aby utworzyć połączenie komunikacji równorzędnej między sieciami wirtualnymi o różnych modelach wdrażania, wykonaj poniższe kroki:
+1. Tekst poniżej zawiera definicję połączenia wirtualnych sieci równorzędnych (VNET1 z VNET2) na podstawie tego scenariusza. Wymagane jest tylko jedno łącze, aby nawiązać komunikację równorzędną między klasyczną siecią wirtualną i siecią wirtualną usługi Azure Resource Manager.
+
+    Pamiętaj, aby wprowadzić identyfikator subskrypcji, w której znajduje się klasyczna sieć wirtualna lub sieć VNET2 oraz zmienić nazwę MyResouceGroup na nazwę odpowiedniej grupy zasobów.
+
+    {  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",  "contentVersion": "1.0.0.0",  "parameters": {  },  "variables": {  },  "resources": [      {      "apiVersion": "2016-06-01",      "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",      "name": "VNET1/LinkToVNET2",      "location": "[resourceGroup().location]",      "properties": {      "allowVirtualNetworkAccess": true,      "allowForwardedTraffic": false,      "allowGatewayTransit": false,      "useRemoteGateways": false,          "remoteVirtualNetwork": {          "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]"  }      }      }  ]  }
+
+2. Aby wdrożyć plik szablonu, uruchom następujące polecenie cmdlet w celu utworzenia lub zaktualizowania wdrożenia.
+
+        New-AzureRmResourceGroupDeployment -ResourceGroupName MyResourceGroup -TemplateFile .\VnetPeering.json -DeploymentDebugLogLevel all
+
+        Output shows:
+
+        DeploymentName          : VnetPeering
+        ResourceGroupName       : MyResourceGroup
+        ProvisioningState       : Succeeded
+        Timestamp               : XX/XX/YYYY 5:42:33 PM
+        Mode                    : Incremental
+        TemplateLink            :
+        Parameters              :
+        Outputs                 :
+        DeploymentDebugLogLevel : RequestContent, ResponseContent
+
+3. Po pomyślnym zakończeniu wdrożenia można uruchomić następujące polecenie cmdlet, aby wyświetlić stan komunikacji równorzędnej:
+
+        Get-AzureRmVirtualNetworkPeering -VirtualNetworkName VNET1 -ResourceGroupName MyResourceGroup -Name LinkToVNET2
+
+        Output shows:
+
+        Name                             : LinkToVNET2
+        Id                               : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResource
+                                   Group/providers/Microsoft.Network/virtualNetworks/VNET1/virtualNetworkPeering
+                                   s/LinkToVNET2
+        Etag                             : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        ResourceGroupName                : MyResourceGroup
+        VirtualNetworkName               : VNET1
+        PeeringState                     : Connected
+        ProvisioningState                : Succeeded
+        RemoteVirtualNetwork             : {
+                                     "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/M
+                                   yResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2"
+                                   }
+        AllowVirtualNetworkAccess        : True
+        AllowForwardedTraffic            : False
+        AllowGatewayTransit              : False
+        UseRemoteGateways                : False
+        RemoteGateways                   : null
+        RemoteVirtualNetworkAddressSpace : null
+
+Po nawiązaniu komunikacji równorzędnej między klasyczną siecią wirtualną i siecią wirtualną menedżera zasobów powinno być możliwe inicjowanie połączeń z dowolnej maszyny wirtualnej w sieci VNET1 do dowolnej maszyny wirtualnej w sieci VNET2 i odwrotnie.
+
+
+
+<!--HONumber=Sep16_HO3-->
 
 

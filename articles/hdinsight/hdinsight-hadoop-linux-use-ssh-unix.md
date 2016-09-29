@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
     tags="azure-portal"/>
 
@@ -14,8 +14,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/30/2016"
+   ms.date="09/13/2016"
    ms.author="larryfr"/>
+
 
 #Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemów Linux, Unix lub OS X
 
@@ -128,7 +129,7 @@ Z poziomu sesji terminalowej użyj polecenia SSH do nawiązania połączenia z g
 
 * **Nazwa użytkownika** — nazwa użytkownika SSH podana podczas tworzenia klastra.
 
-Poniższy przykład służy do łączenia z węzłem głównym 0 klastra **mycluster** jako użytkownik **me**:
+Poniższy przykład służy do łączenia z podstawowym węzłem głównym klastra **mycluster** jako użytkownik **me**:
 
     ssh me@mycluster-ssh.azurehdinsight.net
 
@@ -140,7 +141,7 @@ Jeśli użyto klucza SSH, który jest zabezpieczony za pomocą hasła, pojawi si
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
-Jeśli łączysz się przy użyciu adresu węzła głównego, ale bez określania portu, domyślnym portem SSH będzie port 22, służący do łączenia się z węzłem głównym 0 w klastrze usługi HDInsight. W przypadku użycia portu 23 połączysz się z węzłem głównym 1. Aby uzyskać więcej informacji o węzłach głównych, zobacz artykuł [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md) (Dostępność i niezawodność klastrów Hadoop w usłudze HDInsight).
+Jeśli łączysz się przy użyciu adresu węzła głównego, ale bez określania portu, domyślnym portem SSH będzie port 22, który służy do łączenia się z podstawowym węzłem głównym w klastrze usługi HDInsight. W przypadku użycia portu 23 połączenie zostanie nawiązane z pomocniczym węzłem głównym. Aby uzyskać więcej informacji o węzłach głównych, zobacz artykuł [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md) (Dostępność i niezawodność klastrów Hadoop w usłudze HDInsight).
 
 ###Łączenie z węzłami procesu roboczego
 
@@ -195,9 +196,9 @@ Wykonaj poniższe czynności w celu nawiązania połączenia z węzłami proces�
 
     > [AZURE.NOTE] Jeśli używasz hasła w celu uwierzytelniania sesji SSH, zostanie wyświetlony monit o ponowne wprowadzenie hasła. Jeśli używasz klucza SSH, połączenie powinno zostać zakończone bez żadnych monitów.
 
-4. Po ustanowieniu sesji wiersz terminala zmieni się z `username@hn0-clustername` na `username@wk0-clustername`, aby wskazać, że masz połączenie z węzłem procesu roboczego. Dowolne polecenia wykonywane na tym etapie zostaną uruchomione w węźle procesu roboczego.
+4. Po ustanowieniu sesji wiersz terminala zmieni się z `username@hn#-clustername` na `username@wk#-clustername`, aby wskazać, że masz połączenie z węzłem procesu roboczego. Dowolne polecenia wykonywane na tym etapie zostaną uruchomione w węźle procesu roboczego.
 
-4. Po zakończeniu wykonywania akcji w węźle procesu roboczego użyj polecenia `exit`, aby zamknąć sesję węzła procesu roboczego. Spowoduje to powrót do wiersza `username@hn0-clustername`.
+4. Po zakończeniu wykonywania akcji w węźle procesu roboczego użyj polecenia `exit`, aby zamknąć sesję węzła procesu roboczego. Spowoduje to powrót do wiersza `username@hn#-clustername`.
 
 ##Dodawanie większej liczby kont
 
@@ -229,7 +230,7 @@ Wykonaj poniższe czynności w celu nawiązania połączenia z węzłami proces�
 
 ##<a id="tunnel"></a>Tunelowanie SSH
 
-Protokół SSH może również służyć do tunelowania żądań lokalnych, takich jak żądania sieci Web, do klastra usługi HDInsight. Żądania będą następnie kierowane do wymaganego zasobu, tak jakby pochodziły z węzła głównego klastra usługi HDInsight.
+Protokół SSH może również służyć do tunelowania żądań lokalnych, takich jak żądania sieci Web, do klastra usługi HDInsight. Żądania będą następnie kierowane do żądanego zasobu, tak jakby pochodziły z węzła głównego klastra usługi HDInsight.
 
 > [AZURE.IMPORTANT] Tunel SSH jest konieczny do uzyskiwania dostępu do interfejsu użytkownika sieci Web niektórych usług Hadoop. Na przykład interfejsy użytkownika usługi Historia zadań i Menedżera zasobów są dostępne wyłącznie przy użyciu tunelu SSH.
 
@@ -249,6 +250,6 @@ Po zapoznaniu się ze sposobem uwierzytelniania przy użyciu klucza SSH dowiedz 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

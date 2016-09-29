@@ -1,9 +1,9 @@
 <properties 
-    pageTitle="Transmisja strumieniowa na żywo korzystająca z usługi Azure Media Services do tworzenia strumieni o wielokrotnej szybkości transmisji bitów z użyciem programu .NET" 
+    pageTitle="Korzystanie z usługi Azure Media Services do prowadzenia transmisji strumieniowych na żywo ze strumieniami o różnych szybkościach transmisji bitów | Microsoft Azure" 
     description="Ten samouczek przedstawia kroki tworzenia kanału, który odbiera strumień na żywo o pojedynczej szybkości transmisji bitów i koduje go jako strumień o wielokrotnej szybkości transmisji bitów przy użyciu zestawu SDK programu .NET." 
     services="media-services" 
     documentationCenter="" 
-    authors="juliako,anilmur" 
+    authors="anilmur" 
     manager="erikre" 
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="06/22/2016"
-    ms.author="juliako"/>
+    ms.date="09/15/2016"
+    ms.author="juliako;anilmur"/>
+
 
 
 #Transmisja strumieniowa na żywo korzystająca z usługi Azure Media Services do tworzenia strumieni o wielokrotnej szybkości transmisji bitów z użyciem programu .NET
@@ -518,11 +519,13 @@ Dodaj sekcję appSettings w pliku app.config i ustaw wartości nazwy i klucza ko
     }   
 
 
-##Następne kroki: ścieżki szkoleniowe dotyczące usługi Media Services
+##Następny krok
+
+Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Przekaż opinię
+##Przekazywanie opinii
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
@@ -532,6 +535,6 @@ Jeśli ten temat nie zawiera oczekiwanych treści, brakuje w nim informacji lub 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

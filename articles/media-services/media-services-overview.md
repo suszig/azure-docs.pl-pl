@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Przegląd usługi Azure Media Services i typowe scenariusze" 
+    pageTitle="Przegląd usługi Azure Media Services i typowe scenariusze | Microsoft Azure" 
     description="Ten temat zawiera omówienie usługi Azure Media Services" 
     services="media-services" 
     documentationCenter="" 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="08/07/2016"
+    ms.date="09/19/2016"
     ms.author="juliako;anilmur"/>
+
 
 #Przegląd usługi Azure Media Services i typowe scenariusze
 
@@ -24,19 +25,19 @@ Korzystając wyłącznie z usługi Media Services, można tworzyć kompleksowe p
 
 Możliwe jest przesłanie strumieniowe zawartości na żywo lub dostarczanie zawartości na żądanie. W tym temacie przedstawiono typowe scenariusze dostarczania zawartości [na żywo](media-services-overview.md#live_scenarios) lub [na żądanie](media-services-overview.md#vod_scenarios). Temat zawiera także linki do innych powiązanych tematów.
 
-## Zestawy SDK i narzędzia 
+## Zestawy SDK i narzędzia
 
 W celu tworzenia rozwiązań Media Services można użyć następujących elementów:
 
 - [Interfejs API REST usługi Media Services](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- Jeden z dostępnych zestawów SDK klienta: 
-    - [Zestaw SDK usługi Azure Media Services dla platformy .NET](https://github.com/Azure/azure-sdk-for-media-services) 
-    - [Zestaw Azure SDK dla języka Java](https://github.com/Azure/azure-sdk-for-java) 
-    - [Zestaw Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php) 
-    - [Azure Media Services dla środowiska Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Jest to wersja zestawu Node.js SDK firmy innej niż Microsoft. Jest ona opracowywana przez społeczność i aktualnie nie obsługuje 100% interfejsów API usług AMS.) 
-- Istniejące narzędzia: 
-    - [klasyczny portal Azure](http://manage.windowsazure.com/) 
-    - [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) to aplikacja Winforms/C# dla systemu Windows)
+- Jeden z dostępnych zestawów SDK klienta:
+- [Zestaw SDK usługi Azure Media Services dla platformy .NET](https://github.com/Azure/azure-sdk-for-media-services)
+- [Zestaw Azure SDK dla języka Java](https://github.com/Azure/azure-sdk-for-java)
+- [Zestaw Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
+- [Azure Media Services dla środowiska Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Jest to wersja zestawu Node.js SDK firmy innej niż Microsoft. Jest ona opracowywana przez społeczność i aktualnie nie obsługuje 100% interfejsów API usług AMS.)
+- Istniejące narzędzia:
+- [klasyczny portal Azure](http://manage.windowsazure.com/)
+- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) to aplikacja Winforms/C# dla systemu Windows)
 
 ##Ścieżki szkoleniowe dotyczące usługi Media Services
 
@@ -48,13 +49,13 @@ W celu tworzenia rozwiązań Media Services można użyć następujących elemen
 ##Wymagania wstępne
 
 Do rozpoczęcia korzystania z usługi Azure Media Services potrzebne są:
- 
+
 3. Konto platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com).
 2. Konto usługi Azure Media Services. Aby utworzyć konto usługi Azure Media Services, użyj klasycznego portalu Azure, platformy .NET lub interfejsu API REST. Aby uzyskać więcej informacji, zobacz temat [Tworzenie konta](media-services-create-account.md).
-3. (Opcjonalnie) Konfigurowanie środowiska deweloperskiego. Wybierz platformę .NET lub interfejs API REST dla środowiska deweloperskiego. Aby uzyskać więcej informacji, zobacz temat [Konfigurowanie środowiska](media-services-dotnet-how-to-use.md). 
+3. (Opcjonalnie) Konfigurowanie środowiska deweloperskiego. Wybierz platformę .NET lub interfejs API REST dla środowiska deweloperskiego. Aby uzyskać więcej informacji, zobacz temat [Konfigurowanie środowiska](media-services-dotnet-how-to-use.md).
 
-    Poznaj także sposób programowego ustanawiania połączenia przedstawiony w temacie [Nawiązywanie połączenia](media-services-dotnet-connect-programmatically.md).
-4. (Zalecane) Przydziel co najmniej jedną jednostkę skalowania. Zalecane jest przydzielenie co najmniej jednej jednostki skalowania dla aplikacji w środowisku produkcyjnym.   Aby uzyskać więcej informacji, zobacz temat [Zarządzanie punktami końcowymi przesyłania strumieniowego](media-services-manage-origins.md).
+Poznaj także sposób programowego ustanawiania połączenia przedstawiony w temacie [Nawiązywanie połączenia](media-services-dotnet-connect-programmatically.md).
+4. (Zalecane) Przydziel co najmniej jedną jednostkę skalowania. Zalecane jest przydzielenie co najmniej jednej jednostki skalowania dla aplikacji w środowisku produkcyjnym.   Aby uzyskać więcej informacji, zobacz temat [Zarządzanie punktami końcowymi przesyłania strumieniowego](media-services-portal-manage-streaming-endpoints.md).
 
 ##Pojęcia i omówienie
 
@@ -135,14 +136,14 @@ W przypadku realizowania transmisji strumieniowej na żywo zwykle wymagane są n
 - Kamera, która umożliwia emisję wydarzenia.
 - Koder wideo na żywo, który konwertuje sygnały z kamery na strumienie wysyłane do usługi transmisji strumieniowej na żywo.
 
-    Opcjonalnie wiele zsynchronizowanych czasowo koderów na żywo. W przypadku niektórych wydarzeń na żywo o kluczowym znaczeniu, które wymagają bardzo wysokiej dostępności i jakości obsługi, zaleca się wdrożenie nadmiarowych koderów w trybie aktywny/aktywny z synchronizacją czasu w celu uzyskania płynnego trybu failover bez utraty danych.
+Opcjonalnie wiele zsynchronizowanych czasowo koderów na żywo. W przypadku niektórych wydarzeń na żywo o kluczowym znaczeniu, które wymagają bardzo wysokiej dostępności i jakości obsługi, zaleca się wdrożenie nadmiarowych koderów w trybie aktywny/aktywny z synchronizacją czasu w celu uzyskania płynnego trybu failover bez utraty danych.
 - Usługa transmisji strumieniowej na żywo, która umożliwia wykonanie następujących czynności:
-    
-    - pozyskiwanie zawartości na żywo przy użyciu różnych protokołów transmisji strumieniowej na żywo (np. RTMP lub Smooth Streaming);
-    - (opcjonalnie) kodowanie strumienia do strumienia o adaptacyjnej szybkości transmisji bitów;
-    - wyświetlanie podglądu transmisji strumieniowej na żywo;
-    - rejestrowanie i przechowywanie pozyskiwanej zawartości w celu późniejszego przesłania jej strumieniowo (wideo na żądanie);
-    - dostarczanie zawartości za pośrednictwem wspólnych protokołów przesyłania strumieniowego (np. MPEG DASH, Smooth, HLS, HDS) bezpośrednio do klientów lub do sieci dostarczania zawartości (CDN) w celu dalszej dystrybucji.
+
+- pozyskiwanie zawartości na żywo przy użyciu różnych protokołów transmisji strumieniowej na żywo (np. RTMP lub Smooth Streaming);
+- (opcjonalnie) kodowanie strumienia do strumienia o adaptacyjnej szybkości transmisji bitów;
+- wyświetlanie podglądu transmisji strumieniowej na żywo;
+- rejestrowanie i przechowywanie pozyskiwanej zawartości w celu późniejszego przesłania jej strumieniowo (wideo na żądanie);
+- dostarczanie zawartości za pośrednictwem wspólnych protokołów przesyłania strumieniowego (np. MPEG DASH, Smooth, HLS, HDS) bezpośrednio do klientów lub do sieci dostarczania zawartości (CDN) w celu dalszej dystrybucji.
 
 
 Usługa **Microsoft Azure Media Services** (AMS) zapewnia możliwość pozyskiwania, kodowania, podglądu, przechowywania i dostarczania transmisji strumieniowej zawartości na żywo.
@@ -155,8 +156,8 @@ W usłudze Azure Media Services **kanały**, **programy**, i **punkty końcowe p
 
 - Lokalny koder na żywo wysyła plik **RTMP** o różnych szybkościach transmisji bitów lub plik **Smooth Streaming** (pofragmentowany plik MP4) do kanału, który jest skonfigurowany do obsługi dostarczania zawartości w formie **przekazywania**. Dostarczanie w formie **przekazywania** występuje wtedy, gdy pozyskiwane strumienie są przekazywane przez **kanał** bez dalszego przetwarzania. Można użyć następujących koderów na żywo, które wysyłają pliki Smooth Streaming o różnych szybkościach transmisji bitów: Elemental, Envivio, Cisco.  Następujące kodery na żywo wysyłają pliki RTMP: Adobe Flash Live, Telestream Wirecast i transkodery Tricaster.  Koder na żywo może także wysłać strumień o pojedynczej szybkości transmisji bitów do kanału, który nie obsługuje kodowania na żywo, nie jest to jednak zalecane. Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
 
-    >[AZURE.NOTE] Metoda przekazywania to najbardziej ekonomiczne rozwiązanie transmisji strumieniowej na żywo w przypadku organizowania wielu wydarzeń w długim okresie oraz poczynionych inwestycji w kodery lokalne. Zobacz szczegółowe informacje o [cenach](/pricing/details/media-services/).
-    
+>[AZURE.NOTE] Metoda przekazywania to najbardziej ekonomiczne rozwiązanie transmisji strumieniowej na żywo w przypadku organizowania wielu wydarzeń w długim okresie oraz poczynionych inwestycji w kodery lokalne. Zobacz szczegółowe informacje o [cenach](/pricing/details/media-services/).
+
 - Lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów do kanału obsługującego kodowanie na żywo za pomocą usługi Media Services w jednym z następujących formatów: RTP (MPEG TS), RTMP lub Smooth Streaming (pofragmentowany plik MP4). Kanał wykonuje następnie kodowanie na żywo przychodzącego strumienia o pojedynczej szybkości transmisji bitów do postaci strumienia wideo o różnych szybkościach transmisji bitów (adaptacyjnej szybkości transmisji bitów). Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
 
 
@@ -185,7 +186,7 @@ Usługa Azure Media Services udostępnia narzędzia potrzebne do tworzenia zaawa
 
 ##Włączanie usługi Azure CDN
 
-Usługa Media Services obsługuje integrację z usługą Azure CDN. Aby uzyskać informacje o sposobie włączania usługi Azure CDN, zobacz temat [Zarządzanie punktami końcowymi przesyłania strumieniowego na koncie usługi Media Services](media-services-manage-origins.md#enable_cdn).
+Usługa Media Services obsługuje integrację z usługą Azure CDN. Aby uzyskać informacje o sposobie włączania usługi Azure CDN, zobacz temat [Zarządzanie punktami końcowymi przesyłania strumieniowego na koncie usługi Media Services](media-services-portal-manage-streaming-endpoints.md).
 
 ##Skalowanie konta usługi Media Services
 
@@ -193,7 +194,7 @@ Możesz skalować usługę **Media Services**, określając liczbę **jednostek 
 
 Możliwe jest także skalowanie konta usługi Media Services przez dodanie do niego kont magazynu. Pojemność każdego konta magazynu jest ograniczona do 500 TB. Aby rozszerzyć pojemność magazynu poza ograniczenia domyślne, można dołączyć wiele kont magazynu do jednego konta usługi Media Services.
 
-[Ten](media-services-how-to-scale.md) temat zawiera linki do powiązanych tematów.
+[Ten](media-services-portal-scale-streaming-endpoints.md) temat zawiera linki do powiązanych tematów.
 
 ##Pomoc techniczna
 
@@ -222,6 +223,6 @@ Aby uzyskać więcej informacji, zobacz temat [Umowy dotyczące poziomu usług p
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,20 +17,20 @@
     ms.date="08/16/2016"
     ms.author="spelluru"/>
 
-# Tworzenie pierwszej fabryki danych Azure przy użyciu interfejsu API REST usługi Data Factory
-> [AZURE.SELECTOR]
-- [Omówienie samouczka](data-factory-build-your-first-pipeline.md)
-- [Korzystanie z Edytora fabryki danych](data-factory-build-your-first-pipeline-using-editor.md)
-- [Korzystanie z programu PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Korzystanie z programu Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Korzystanie z szablonu usługi Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-- [Korzystanie z interfejsu API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-Ten artykuł zawiera instrukcje korzystania z interfejsu API REST usługi Data Factory w celu utworzenia pierwszej fabryki danych Azure.
+# Samouczek: Tworzenie pierwszej fabryki danych Azure przy użyciu interfejsu API REST usługi Fabryka danych
+> [AZURE.SELECTOR]
+- [Przegląd i wymagania wstępne](data-factory-build-your-first-pipeline.md)
+- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Szablon usługi Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+- [Interfejs API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+
+Ten artykuł zawiera instrukcje korzystania z interfejsu API REST usługi Fabryka danych w celu utworzenia pierwszej fabryki danych Azure.
 
 ## Wymagania wstępne
-
-- Zapoznaj się z artykułem [Omówienie samouczka](data-factory-build-your-first-pipeline.md). Ten artykuł ułatwia zapoznanie się z podstawowymi informacjami dotyczącymi usługi Azure Data Factory. 
+- Przeczytaj artykuł [Omówienie samouczka](data-factory-build-your-first-pipeline.md) oraz wykonaj kroki **wymagań wstępnych**.
 - Zainstaluj na komputerze narzędzie [Curl](https://curl.haxx.se/dlwiz/). W połączeniu z poleceniami REST umożliwia ono utworzenie fabryki danych. 
 - Postępuj zgodnie z instrukcjami zawartymi w [tym artykule](../resource-group-create-service-principal-portal.md), aby wykonać następujące czynności: 
     1. Utworzenie aplikacji sieci Web o nazwie **ADFGetStartedApp** w usłudze Azure Active Directory.
@@ -42,7 +42,7 @@ Ten artykuł zawiera instrukcje korzystania z interfejsu API REST usługi Data F
     1. Uruchom polecenie **Login-AzureRmAccount** i wprowadź nazwę użytkownika oraz hasło, których używasz do logowania się w witrynie Azure Portal.  
     2. Uruchom polecenie **Get-AzureRmSubscription**, aby wyświetlić wszystkie subskrypcje dla tego konta.
     3. Uruchom polecenie **Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext**, aby wybrać subskrypcję, której chcesz używać. Zastąp ciąg **NameOfAzureSubscription** nazwą subskrypcji platformy Azure. 
-3. Utwórz grupę zasobów platformy Azure o nazwie **ADFTutorialResourceGroup** przez uruchomienie następującego polecenia w programie PowerShell.  
+3. Utwórz grupę zasobów platformy Azure o nazwie **ADFTutorialResourceGroup** przez uruchomienie następującego polecenia w programie PowerShell:  
 
         New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
@@ -274,11 +274,11 @@ Pamiętaj o następujących kwestiach:
 - W przyszłości nazwa fabryki danych może zostać zarejestrowana jako nazwa DNS, a wówczas stanie się widoczna publicznie.
 - Jeśli zostanie wyświetlony komunikat o błędzie: „**Subskrypcja nie jest zarejestrowana w celu używania przestrzeni nazw Microsoft.DataFactory**”, wykonaj jedną z następujących czynności i spróbuj opublikować ponownie: 
 
-    - W programie Azure PowerShell uruchom następujące polecenie, aby zarejestrować dostawcę usługi Fabryka danych. 
+    - W programie Azure PowerShell uruchom następujące polecenie, aby zarejestrować dostawcę usługi Fabryka danych: 
         
             Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     
-        Można uruchomić następujące polecenie, aby potwierdzić, że dostawca usługi Data Factory jest zarejestrowany. 
+        Możesz uruchomić następujące polecenie, aby potwierdzić, że dostawca usługi Fabryka danych jest zarejestrowany: 
     
             Get-AzureRmResourceProvider
     - Zaloguj się przy użyciu subskrypcji Azure do [portalu Azure](https://portal.azure.com) i przejdź do bloku Fabryka danych lub utwórz fabrykę danych w portalu Azure. Ta akcja powoduje automatyczne zarejestrowanie dostawcy.
@@ -373,6 +373,10 @@ W tym kroku interfejs API REST usługi Data Factory służy do monitorowania wyc
             (convertFrom-Json $results2).RemoteException
     }
 
+
+> [AZURE.IMPORTANT] 
+> Tworzenie klastra usługi HDInsight na żądanie zwykle trwa trochę czasu (około 20 minut). Dlatego należy oczekiwać, że przetworzenie wycinka przez potok zajmie **około 30 minut**.  
+
 Uruchom polecenie Invoke-Command i kolejne polecenie, aż zobaczysz, że wycinek jest w stanie **Gotowe** lub **Niepowodzenie**. Gdy wycinek będzie w stanie Gotowe, sprawdź folder **partitioneddata** w kontenerze **adfgetstarted** w magazynie obiektów blob pod kątem danych wyjściowych.  Tworzenie klastra usługi HDInsight na żądanie zwykle zajmuje trochę czasu.
 
 ![Dane wyjściowe](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png)
@@ -384,7 +388,7 @@ Monitorowanie wycinków i rozwiązywanie problemów jest również możliwe za p
 ## Podsumowanie 
 W tym samouczku opisano tworzenie fabryki danych Azure do przetwarzania danych przez uruchomienie skryptu programu Hive w klastrze platformy Hadoop w usłudze HDInsight. Użyto Edytora fabryki danych w witrynie Azure Portal, aby:  
 
-1.  Utworzyć **fabrykę danych** Azure.
+1.  Tworzenie **fabryki danych** Azure.
 2.  Utworzyć dwie **połączone usługi**:
     1.  Połączoną usługę **Azure Storage** w celu połączenia magazynu obiektów blob Azure, w którym przechowywane są pliki wejściowe/wyjściowe, z fabryką danych.
     2.  Połączoną usługę **Azure HDInsight** na żądanie w celu połączenia klastra platformy Hadoop w usłudze HDInsight na żądanie z fabryką danych. Usługa Fabryka danych Azure tworzy klaster just in time platformy Hadoop w usłudze HDInsight, aby przetwarzać dane wejściowe i generować dane wyjściowe. 
@@ -408,6 +412,6 @@ W tym artykule opisano tworzenie potoku za pomocą działania przekształcania (
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

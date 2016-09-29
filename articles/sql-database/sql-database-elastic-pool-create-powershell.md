@@ -16,10 +16,11 @@
     ms.date="05/27/2016"
     ms.author="srinia"/>
 
+
 # Tworzenie nowej elastycznej puli baz danych przy użyciu programu PowerShell
 
 > [AZURE.SELECTOR]
-- [Portal Azure](sql-database-elastic-pool-create-portal.md)
+- [Azure Portal](sql-database-elastic-pool-create-portal.md)
 - [PowerShell](sql-database-elastic-pool-create-powershell.md)
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
@@ -28,7 +29,7 @@ Dowiedz się, jak utworzyć [elastyczną pulę baz danych](sql-database-elastic-
 
 Typowe kody błędów można znaleźć w artykule [SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md) (Kody błędów SQL dla aplikacji klienckich usługi SQL Database: błąd połączenia z bazą danych i inne problemy).
 
-> [AZURE.NOTE] Elastyczne pule baz danych są obecnie w wersji zapoznawczej i są dostępne tylko na serwerach V12 usługi SQL Database. Jeśli masz serwer V11 usługi SQL Database, możesz [użyć programu PowerShell do uaktualnienia do wersji V12 i utworzenia puli](sql-database-upgrade-server-portal.md) w jednym kroku.
+> [AZURE.NOTE] Pule elastyczne są ogólnodostępne we wszystkich regionach platformy Azure oprócz Północno-środkowych stanów USA oraz Indii Zachodnich, gdzie są obecnie dostępne w wersji zapoznawczej.  Pule elastyczne zostaną udostępnione ogólnie w tych regionach tak szybko, jak to możliwe. Ponadto pule elastyczne aktualnie nie obsługują baz danych korzystających z [operacji OLTP w pamięci lub analizy w pamięci](sql-database-in-memory.md).
 
 
 Wymagany jest działający program Azure PowerShell w wersji 1.0 lub nowszej. Aby uzyskać szczegółowe informacje, zobacz artykuł [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Instalowanie i konfigurowanie programu Azure PowerShell).
@@ -83,6 +84,6 @@ Ten skrypt tworzy nową grupę zasobów Azure i nowy serwer. Po wyświetleniu mo
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

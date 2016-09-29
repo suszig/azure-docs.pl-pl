@@ -14,8 +14,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/02/2016"
-   ms.author="narayanannamalai"/>
+   ms.date="09/14/2016"
+   ms.author="narayanannamalai; annahar"/>
+
 
 # Tworzenie wirtualnej sieci równorzędnej przy użyciu poleceń cmdlet programu Powershell
 
@@ -29,18 +30,18 @@ Aby utworzyć wirtualną sieć równorzędną przy użyciu programu PowerShell, 
 
 1. Jeśli nie znasz programu Azure PowerShell, zapoznaj się z artykułem [Instalowanie i konfigurowanie programu Azure PowerShell](../powershell-install-configure.md) i postępuj zgodnie z instrukcjami aż do momentu logowania się w programie Azure i wyboru subskrypcji.
 
-        Note: PowerShell cmdlet for managing VNet peering is shipped with [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
+        > [AZURE.NOTE] Polecenie cmdlet programu PowerShell służące do zarządzania wirtualną siecią równorzędną jest dostarczane z programem [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
 
 2. Odczytaj obiekty sieci wirtualnej:
 
         $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
         $vnet2 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet2
-    
+
 3. Aby ustanowić komunikację równorzędną w sieci wirtualnej, musisz utworzyć dwa połączenia, jedno dla każdego kierunku. Poniższy krok spowoduje utworzenie połączenia komunikacji równorzędnej w sieci wirtualnej z sieci VNet1 do sieci VNet2:
 
-        Add-AzureRmVirtualNetworkPeering -name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId $vnet2.id 
+        Add-AzureRmVirtualNetworkPeering -name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId $vnet2.id
 
-        Output shows:
+    Dane wyjściowe:
 
         Name            : LinkToVNet2
         Id: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
@@ -60,9 +61,9 @@ Aby utworzyć wirtualną sieć równorzędną przy użyciu programu PowerShell, 
 
 4. Ten krok spowoduje utworzenie połączenia komunikacji równorzędnej w sieci wirtualnej z sieci VNet2 do sieci VNet1:
 
-        Add-AzureRmVirtualNetworkPeering -name LinkToVNet1 -VirtualNetwork $vnet2 -RemoteVirtualNetworkId $vnet1.id 
+        Add-AzureRmVirtualNetworkPeering -name LinkToVNet1 -VirtualNetwork $vnet2 -RemoteVirtualNetworkId $vnet1.id
 
-        Output shows:
+    Dane wyjściowe:
 
         Name            : LinkToVNet1
         Id              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2/virtualNetworkPeerings/LinkToVNet1
@@ -84,7 +85,7 @@ Aby utworzyć wirtualną sieć równorzędną przy użyciu programu PowerShell, 
 
         Get-AzureRmVirtualNetworkPeering -VirtualNetworkName vnet1 -ResourceGroupName vnet101 -Name linktovnet2
 
-        Output shows:
+    Dane wyjściowe:
 
         Name            : LinkToVNet2
         Id              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
@@ -104,7 +105,7 @@ Aby utworzyć wirtualną sieć równorzędną przy użyciu programu PowerShell, 
 
     Istnieje kilka właściwości możliwych do skonfigurowania dla połączenia komunikacji równorzędnej sieci wirtualnej:
 
-  	|Opcja|Opis|Wartość domyślna|
+  	|Opcja|Opis|Domyślne|
   	|:-----|:----------|:------|
   	|AllowVirtualNetworkAccess|Określa, czy przestrzeń adresów wirtualnej sieci równorzędnej ma zostać dołączona do tagu Virtual_network.|Tak|
   	|AllowForwardedTraffic|Określa, czy ruch niepochodzący z wirtualnej sieci równorzędnej jest akceptowany czy pomijany.|Nie|
@@ -117,7 +118,7 @@ Aby utworzyć wirtualną sieć równorzędną przy użyciu programu PowerShell, 
         $LinktoVNet2.AllowForwardedTraffic = $true
         Set-AzureRmVirtualNetworkPeering -VirtualNetworkPeering $LinktoVNet2
 
-        You can run Get-AzureRmVirtualNetworkPeering to double check the property value after the change.  From the output, you can see AllowForwardedTraffic changes set to True after running the above cmdlets. 
+    Możesz uruchomić polecenie Get-AzureRmVirtualNetworkPeering, aby sprawdzić wartość właściwości po zmianie.  Po uruchomieniu powyższych poleceń cmdlet w danych wyjściowych właściwość AllowForwardedTraffic zostanie zmieniona na wartość True.
 
         Name            : LinkToVNet2
         Id          : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
@@ -143,13 +144,13 @@ Aby utworzyć wirtualną sieć równorzędną między subskrypcjami przy użyciu
 
 1. Zaloguj się do platformy Azure przy użyciu konta użytkownika A o odpowiednich uprawnieniach dla subskrypcji A i uruchom następujące polecenie cmdlet:
 
-        New-AzureRmRoleAssignment -SignInName <UserB ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-A-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/VNet5
+        New-AzureRmRoleAssignment -SignInName <UserB ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-A-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetworks/VNet5
 
-        This is not a requirement, peering can be established even if users individually raise peering requests for thier respective Vnets as long as the requests match. Adding a privileged user of the other VNet as a user in the local VNet makes it easier to do the setup. 
+    Nie jest to wymagane, ponieważ komunikację równorzędną można nawiązać, nawet jeśli użytkownicy indywidualnie zgłoszą żądania komunikacji równorzędnej dla odpowiednich sieci wirtualnych, o ile zgłoszenia są zgodne. Dodanie użytkownika o odpowiednich uprawnieniach do innej sieci wirtualnej jako użytkownika w lokalnej sieci wirtualnej ułatwia konfigurowanie.
 
 2. Zaloguj się do platformy Azure przy użyciu konta użytkownika B o odpowiednich uprawnieniach dla subskrypcji B i uruchom następujące polecenie cmdlet:
 
-        New-AzureRmRoleAssignment -SignInName <UserA ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-B-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/VNet3
+        New-AzureRmRoleAssignment -SignInName <UserA ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-B-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetworks/VNet3
 
 3. W sesji logowania użytkownika A uruchom poniższe polecenie cmdlet:
 
@@ -167,7 +168,7 @@ Aby utworzyć wirtualną sieć równorzędną między subskrypcjami przy użyciu
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
-1. W tym scenariuszu możesz uruchomić poniższe polecenia cmdlet programu PowerShell, aby ustanowić połączenie komunikacji równorzędnej w sieci wirtualnej.  Należy ustawić wartość True dla właściwości AllowForwardedTraffic i utworzyć połączenie z sieci VNET1 do sieci HubVnet, które zezwala na ruch przychodzący z zewnątrz przestrzeni adresowej wirtualnej sieci równorzędnej. 
+1. W tym scenariuszu możesz uruchomić poniższe polecenia cmdlet programu PowerShell, aby ustanowić połączenie komunikacji równorzędnej w sieci wirtualnej.  Należy ustawić wartość True dla właściwości AllowForwardedTraffic i utworzyć połączenie z sieci VNET1 do sieci HubVnet, które zezwala na ruch przychodzący z zewnątrz przestrzeni adresowej wirtualnej sieci równorzędnej.
 
         $hubVNet = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name HubVNet
         $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
@@ -188,21 +189,54 @@ Aby utworzyć wirtualną sieć równorzędną między subskrypcjami przy użyciu
 
         Set-AzureRmVirtualNetwork -VirtualNetwork $vnet1
 
+[AZURE.INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
+
+Aby utworzyć wirtualną sieć równorzędną między klasyczną siecią wirtualną i siecią wirtualną menedżera zasobów platformy Azure w programie PowerShell, wykonaj następujące czynności:
+
+1. Odczytaj obiekt sieci wirtualnej **VNET1**, sieci wirtualnej usługi Azure Resource Manager, w następujący sposób:      $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
+
+2. Aby ustanowić komunikację równorzędną sieci wirtualnych w ramach tego scenariusza, wymagane jest tylko jedno łącze z sieci **VNET1** do sieci **VNET2**. Ten krok wymaga znajomości identyfikatora zasobu klasycznej sieci wirtualnej. Format identyfikatora grupy zasobów wygląda następująco: /subscriptions/SubscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.ClassicNetwork/virtualNetworks/VirtualNetworkName
+
+    Pamiętaj, aby zastąpić wartości SubscriptionID, ResourceGroupName i VirtualNetworkName odpowiednimi nazwami.
+
+    Można to zrobić, wykonując następujące czynności:
+
+        Add-AzureRmVirtualNetworkPeering -name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId /subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2
+
+3. Po utworzeniu połączenia komunikacji równorzędnej w sieci wirtualnej stan połączenia jest widoczny w danych wyjściowych poniżej:
+
+        Name                             : LinkToVNet2
+        Id                               : /subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET1/virtualNetworkPeerings/LinkToVNet2
+        Etag                             : W/"acecbd0f-766c-46be-aa7e-d03e41c46b16"
+        ResourceGroupName                : MyResourceGroup
+        VirtualNetworkName               : VNET1
+        PeeringState                     : Connected
+        ProvisioningState                : Succeeded
+        RemoteVirtualNetwork             : {
+                                         "Id": "/subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2"
+                                       }
+        AllowVirtualNetworkAccess        : True
+        AllowForwardedTraffic            : False
+        AllowGatewayTransit              : False
+        UseRemoteGateways                : False
+        RemoteGateways                   : null
+        RemoteVirtualNetworkAddressSpace : null
+
 ## Usuwanie wirtualnej sieci równorzędnej
 
-1.  Aby usunąć połączenie komunikacji równorzędnej w sieci wirtualnej, należy uruchomić następujące polecenie cmdlet: 
+1.  Aby usunąć połączenie komunikacji równorzędnej w sieci wirtualnej, należy uruchomić następujące polecenie cmdlet:
 
         Remove-AzureRmVirtualNetworkPeering  
-    
+
         remove both links, as shown below:
 
-        Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2 
-        Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2 
+        Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2
+        Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2
 
-2. Po usunięciu połączenia w wirtualnej sieci równorzędnej stan połączenia komunikacji równorzędnej zmieni się na Rozłączono. W tym stanie nie można ponownie utworzyć połączenia, dopóki stan połączenia nie zmieni się na Zainicjowano. Zalecamy usunięcie obu połączeń przed ponownym utworzeniem wirtualnej sieci równorzędnej. 
+2. Po usunięciu połączenia w wirtualnej sieci równorzędnej stan połączenia komunikacji równorzędnej zmieni się na Rozłączono. W tym stanie nie można ponownie utworzyć połączenia, dopóki stan połączenia nie zmieni się na Zainicjowano. Zalecamy usunięcie obu połączeń przed ponownym utworzeniem wirtualnej sieci równorzędnej.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

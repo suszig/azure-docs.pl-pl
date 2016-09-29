@@ -13,33 +13,32 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="08/01/2016" 
+    ms.date="09/16/2016" 
     ms.author="spelluru"/>
+
 
 # Samouczek: tworzenie potoku za pomocą działania kopiowania przy użyciu programu Azure PowerShell
 > [AZURE.SELECTOR]
-- [Omówienie samouczka](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Korzystanie z Edytora fabryki danych](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Korzystanie z programu PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Korzystanie z programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Korzystanie z interfejsu API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Korzystanie z interfejsu API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Korzystanie z Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md)
+- [Przegląd i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
 
-W samouczku [Kopiowanie danych z usługi Blob Storage do usługi SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) przedstawiono sposób tworzenia i monitorowania fabryki danych platformy Azure przy użyciu witryny [Azure Portal][azure-portal]. Ten samouczek zawiera instrukcje tworzenia i monitorowania fabryki danych Azure przy użyciu poleceń cmdlet programu Azure PowerShell. Potok w fabryce danych tworzonej w tym samouczku używa działania kopiowania w celu kopiowania danych z obiektu blob platformy Azure do bazy danych SQL Azure.
+Ten samouczek zawiera instrukcje tworzenia i monitorowania fabryki danych Azure przy użyciu poleceń cmdlet programu Azure PowerShell. Potok w fabryce danych tworzonej w tym samouczku używa działania kopiowania w celu kopiowania danych z obiektu blob platformy Azure do bazy danych SQL Azure.
 
 Działanie kopiowania wykonuje operację przenoszenia danych w usłudze Azure Data Factory. Działanie jest obsługiwane przez globalnie dostępną usługę, która może kopiować dane między różnymi magazynami danych w sposób bezpieczny, niezawodny i skalowalny. Szczegółowe informacje dotyczące działania kopiowania znajdują się w artykule [Data Movement Activities](data-factory-data-movement-activities.md) (Działania przenoszenia danych).   
 
 > [AZURE.IMPORTANT] 
-> Zapoznaj się z artykułem [Omówienie samouczka](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) i wykonaj przedstawione tam działania dotyczące wymagań wstępnych przed wykonaniem instrukcji z tego samouczka.
+> Zapoznaj się z artykułem [Omówienie samouczka](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) i wykonaj podane tam kroki **wymagań wstępnych** przed wykonaniem instrukcji w tym samouczku.
 >   
 > Ten artykuł nie obejmuje wszystkich poleceń cmdlet dla usługi Fabryka danych. Pełna dokumentacja dotycząca poleceń cmdlet dla usługi Fabryka danych znajduje się w artykule [Data Factory Cmdlet Reference](https://msdn.microsoft.com/library/dn820234.aspx) (Dokumentacja dotycząca poleceń cmdlet dla usługi Fabryka danych).
   
 
 ##Wymagania wstępne
-Oprócz wymagań wstępnych wymienionych w artykule Omówienie samouczka wymagane jest:
-
-- Zainstalowanie programu **Azure PowerShell**. Postępuj zgodnie z instrukcjami w artykule [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Instalowanie i konfigurowanie programu Azure PowerShell), aby zainstalować program Azure PowerShell na komputerze.
+Oprócz wymagań wstępnych wymienionych w artykule Omówienie samouczka wymagane jest zainstalowanie programu **Azure PowerShell**. Postępuj zgodnie z instrukcjami w artykule [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Instalowanie i konfigurowanie programu Azure PowerShell), aby zainstalować program Azure PowerShell na komputerze.
 
 ##Informacje o tym samouczku
 W poniższej tabeli wymieniono kroki, które należy wykonać w ramach samouczka oraz ich opisy. 
@@ -55,23 +54,23 @@ Krok | Opis
 ## Tworzenie fabryki danych
 W tym kroku opisano użycie programu Azure PowerShell do utworzenia fabryki danych Azure o nazwie **ADFTutorialDataFactoryPSH**.
 
-1. Uruchom program **PowerShell** i uruchom następujące polecenie. Nie zamykaj programu Azure PowerShell, zanim nie wykonasz wszystkich instrukcji z tego samouczka. Jeśli go zamkniesz i otworzysz ponownie, musisz uruchomić te polecenia jeszcze raz.
-    1. Uruchom poniższe polecenie i wprowadź nazwę użytkownika oraz hasło, których używasz do logowania się w witrynie Azure Portal.
+1. Uruchom program **PowerShell**. Nie zamykaj programu Azure PowerShell, zanim nie wykonasz wszystkich instrukcji z tego samouczka. Jeśli go zamkniesz i otworzysz ponownie, musisz uruchomić te polecenia jeszcze raz.
+    1. Uruchom poniższe polecenie i wprowadź nazwę użytkownika oraz hasło, których używasz do logowania się w witrynie Azure Portal:
     
             Login-AzureRmAccount   
-    2. Uruchom poniższe polecenie, aby wyświetlić wszystkie subskrypcje dla tego konta.
+    2. Uruchom poniższe polecenie, aby wyświetlić wszystkie subskrypcje dla tego konta:
 
             Get-AzureRmSubscription 
-    3. Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Zastąp ciąg **&lt;NameOfAzureSubscription**&gt; nazwą subskrypcji platformy Azure. 
+    3. Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Zastąp ciąg **&lt;NameOfAzureSubscription**&gt; nazwą subskrypcji platformy Azure:
 
             Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
 
-3. Utwórz grupę zasobów Azure o nazwie **ADFTutorialResourceGroup** przez uruchomienie następującego polecenia.
+3. Utwórz grupę zasobów platformy Azure o nazwie **ADFTutorialResourceGroup** przez uruchomienie następującego polecenia:
    
         New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
     W niektórych krokach w tym samouczku zakłada się, że używana jest grupa zasobów o nazwie **ADFTutorialResourceGroup**. Jeśli używasz innej grupy zasobów, podczas wykonywania instrukcji w tym samouczku trzeba będzie wstawić jej nazwę zamiast nazwy ADFTutorialResourceGroup. 
-4. Uruchom polecenie cmdlet **New-AzureRmDataFactory**, aby utworzyć fabrykę danych o nazwie **ADFTutorialDataFactoryPSH**.  
+4. Uruchom polecenie cmdlet **New-AzureRmDataFactory**, aby utworzyć fabrykę danych o nazwie **ADFTutorialDataFactoryPSH**:  
 
         New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
 
@@ -85,11 +84,11 @@ Pamiętaj o następujących kwestiach:
 - W przyszłości nazwa fabryki danych może zostać zarejestrowana jako nazwa DNS, a wówczas stanie się widoczna publicznie.
 - Jeśli zostanie wyświetlony komunikat o błędzie: „**Subskrypcja nie jest zarejestrowana w celu używania przestrzeni nazw Microsoft.DataFactory**”, wykonaj jedną z następujących czynności i spróbuj opublikować ponownie: 
 
-    - W programie Azure PowerShell uruchom następujące polecenie, aby zarejestrować dostawcę usługi Fabryka danych. 
+    - W programie Azure PowerShell uruchom następujące polecenie, aby zarejestrować dostawcę usługi Data Factory: 
         
             Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     
-        Można uruchomić następujące polecenie, aby potwierdzić, że dostawca usługi Data Factory jest zarejestrowany. 
+        Uruchom następujące polecenie, aby potwierdzić, że dostawca usługi Data Factory jest zarejestrowany: 
     
             Get-AzureRmResourceProvider
     - Zaloguj się przy użyciu subskrypcji Azure do [portalu Azure](https://portal.azure.com) i przejdź do bloku Fabryka danych lub utwórz fabrykę danych w portalu Azure. Ta akcja powoduje automatyczne zarejestrowanie dostawcy.
@@ -114,7 +113,7 @@ W tym kroku opisano tworzenie dwóch połączonych usług: **StorageLinkedServic
 
     Zastąp wartości **accountname** i **accountkey** nazwą konta usługi Azure Storage oraz jego kluczem.
 2.  W programie **Azure PowerShell** przejdź do folderu **ADFGetStartedPSH**. 
-3.  Możesz użyć polecenia cmdlet **New-AzureRmDataFactoryLinkedService**, aby utworzyć połączoną usługę. To polecenie cmdlet i inne polecenia cmdlet usługi Data Factory używane w tym samouczku wymagają przekazania wartości dla parametrów **ResourceGroupName** i **DataFactoryName**. Możesz też użyć polecenia **Get-AzureRmDataFactory**, aby pobrać obiekt DataFactory i przekazać obiekt bez wpisywania parametrów ResourceGroupName i DataFactoryName za każdym razem, gdy uruchamiasz polecenie cmdlet. Uruchom następujące polecenie, aby przypisać dane wyjściowe polecenia cmdlet **Get-AzureRmDataFactory** do zmiennej **$df**. 
+3.  Możesz użyć polecenia cmdlet **New-AzureRmDataFactoryLinkedService**, aby utworzyć połączoną usługę. To polecenie cmdlet i inne polecenia cmdlet usługi Data Factory używane w tym samouczku wymagają przekazania wartości dla parametrów **ResourceGroupName** i **DataFactoryName**. Możesz też użyć polecenia **Get-AzureRmDataFactory**, aby pobrać obiekt DataFactory i przekazać obiekt bez wpisywania parametrów ResourceGroupName i DataFactoryName za każdym razem, gdy uruchamiasz polecenie cmdlet. Uruchom następujące polecenie, aby przypisać dane wyjściowe polecenia cmdlet **Get-AzureRmDataFactory** do zmiennej **$df**: 
 
         $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
 
@@ -129,25 +128,25 @@ W tym kroku opisano tworzenie dwóch połączonych usług: **StorageLinkedServic
     Jeśli zamkniesz program Azure PowerShell w trakcie wykonywania samouczka, w celu dokończenia samouczka trzeba uruchomić polecenie cmdlet Get-AzureRmDataFactory po następnym uruchomieniu programu Azure PowerShell.
 
 ### Tworzenie połączonej usługi dla bazy danych SQL Azure
-1.  Utwórz plik JSON o nazwie AzureSqlLinkedService.json o następującej zawartości.
+1.  Utwórz plik JSON o nazwie AzureSqlLinkedService.json o następującej zawartości:
 
             {
                 "name": "AzureSqlLinkedService",
                 "properties": {
                     "type": "AzureSqlDatabase",
                     "typeProperties": {
-                        "connectionString": "Server=tcp:<server>.database.windows.net,1433;Database=<databasename>;User ID=user@server;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                        "connectionString": "Server=tcp:<server>.database.windows.net,1433;Database=<databasename>;User ID=<user>@<server>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
                     }
                 }
             }
 
     Zastąp wartości **servername**, **databasename**, **username@servername** oraz **password** nazwą serwera SQL Azure, nazwą bazy danych, kontem użytkownika i hasłem.
 
-2.  Uruchom poniższe polecenie, aby utworzyć połączoną usługę. 
+2.  Uruchom poniższe polecenie, aby utworzyć połączoną usługę: 
     
         New-AzureRmDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
 
-    Upewnij się, że ustawienie **Zezwalaj na dostęp do usług Azure** dla serwera SQL Azure jest WŁĄCZONE. W celu sprawdzenia i włączenia wykonaj następujące czynności:
+    Upewnij się, że ustawienie **Zezwalaj na dostęp do usług Azure** dla serwera SQL Azure jest WŁĄCZONE. W celu sprawdzenia i włączenia wykonaj następujące kroki:
 
     1. Kliknij centrum **PRZEGLĄDAJ** po lewej stronie i kliknij przycisk **Serwery SQL**.
     2. Wybierz serwer i kliknij pozycję **USTAWIENIA** w bloku SERWER SQL.
@@ -165,7 +164,7 @@ Tabela jest prostokątnym zestawem danych i jest jedynym obsługiwanym obecnie t
 ### Przygotowanie magazynu obiektów blob Azure i bazy danych SQL Azure na potrzeby samouczka
 Jeśli wykonano już instrukcje z samouczka w artykule [Kopiowanie danych z usługi Blob Storage](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), pomiń ten krok. 
 
-Aby przygotować magazyn obiektów blob Azure i bazę danych SQL Azure, wykonaj następujące kroki. 
+Aby przygotować magazyn obiektów blob Azure i bazę danych Azure SQL Database w ramach tego samouczka, wykonaj następujące kroki. 
  
 * Utwórz kontener obiektów blob o nazwie **adftutorial** w magazynie obiektów blob Azure, który wskazuje usługa **StorageLinkedService**. 
 * Utwórz i przekaż plik tekstowy **emp.txt** jako obiekt blob do kontenera **adftutorial**. 
@@ -235,19 +234,19 @@ Tabela jest prostokątnym zestawem danych i obejmuje schemat. W tym kroku opisan
     
     Pamiętaj o następujących kwestiach: 
     
-    - Parametr **type** zestawu danych został ustawiony na **AzureBlob**.
+    - parametr **type** zestawu danych został ustawiony na **AzureBlob**.
     - Parametr **linkedServiceName** został ustawiony na **StorageLinkedService**. 
     - Parametr **folderPath** został ustawiony na kontener **adftutorial**. 
     - Parametr **fileName** został ustawiony na **emp.txt**. Jeśli nie określisz nazwy obiektu blob, dane ze wszystkich obiektów blob w kontenerze będą traktowane jak dane wejściowe.  
     - Parametr **type** formatu został ustawiony na **TextFormat**
     - W pliku tekstowym znajdują się dwa pola — **FirstName** i **LastName** — oddzielone przecinkiem (**columnDelimiter**) 
-    - Parametr **availability** został ustawiony na wartość **hourly** (parametr **frequency** ma wartość **hour**, a **interval** — **1**). W związku z tym usługa Data Factory szuka danych wejściowych co godzinę w folderze głównym w określonym kontenerze obiektów blob (**adftutorial**).
+    - Parametr **availability** został ustawiony na wartość **hourly** (parametr **frequency** ma wartość **hour**, a **interval** — **1**). W związku z tym usługa Data Factory szuka danych wejściowych co godzinę w folderze głównym w kontenerze obiektów blob (**adftutorial**).
 
     Jeśli nie określisz parametru **fileName** dla **tabeli** **wejściowej**, wszystkie pliki/obiekty blob z folderu danych wejściowych (**folderPath**) będą traktowane jako dane wejściowe. Jeśli określisz parametr fileName w kodzie JSON, tylko określony plik/obiekt blob będzie traktowany jako dane wejściowe. 
  
     Jeśli nie określisz parametru **fileName** dla **tabeli wyjściowej**, wygenerowane pliki w ścieżce **folderPath** otrzymają nazwy w następującym formacie: Data.<Guid\>.txt (np. Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
 
-    Aby ustawić parametry **folderPath** i **fileName** dynamicznie w oparciu o czas **SliceStart**, użyj właściwości **partitionedBy**. W poniższym przykładzie parametr folderPath używa elementów Year, Month i Day z parametru SliceStart (czas rozpoczęcia przetwarzania wycinka), a parametr fileName używa elementu Hour z parametru SliceStart. Na przykład jeśli wycinek jest generowany dla czasu 2014-10-20T08:00:00, parametr folderName zostaje ustawiony na wikidatagateway/wikisampledataout/2014/10/20, a parametr fileName zostaje ustawiony na wartość 08.csv. 
+    Aby ustawić parametry **folderPath** i **fileName** dynamicznie w oparciu o czas **SliceStart**, użyj właściwości **partitionedBy**. W poniższym przykładzie parametr folderPath używa elementów Year, Month i Day z parametru SliceStart (czas rozpoczęcia przetwarzania wycinka), a parametr fileName używa elementu Hour z parametru SliceStart. Na przykład jeśli wycinek jest generowany dla czasu 2016-10-20T08:00:00, parametr folderName zostaje ustawiony na wikidatagateway/wikisampledataout/2016/10/20, a parametr fileName zostaje ustawiony na wartość 08.csv. 
 
             "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
             "fileName": "{Hour}.csv",
@@ -268,7 +267,7 @@ Tabela jest prostokątnym zestawem danych i obejmuje schemat. W tym kroku opisan
 ### Tworzenie wyjściowego zestawu danych
 W tym kroku tworzony jest wyjściowy zestaw danych o nazwie **EmpSQLTable**. Ten zestaw danych wskazuje tabelę SQL (**emp**) w bazie danych Azure SQL Database reprezentowanej przez usługę **AzureSqlLinkedService**. Potok kopiuje dane z wejściowego obiektu blob do tabeli **emp**. 
 
-1.  Utwórz plik JSON o nazwie **EmpSQLTable.json** w folderze **C:\ADFGetStartedPSH** o następującej zawartości.
+1.  Utwórz plik JSON o nazwie **EmpSQLTable.json** w folderze **C:\ADFGetStartedPSH** o następującej zawartości:
         
             {
               "name": "EmpSQLTable",
@@ -361,7 +360,7 @@ W tym kroku opisano tworzenie potoku za pomocą **działania kopiowania**, w kt�
     - Dane wejściowe dla działania zostały ustawione na wartość **EmpTableFromBlob**, a dane wyjściowe dla działania zostały ustawione na wartość **EmpSQLTable**.
     - W sekcji **przekształcania** parametr **BlobSource** został określony jako typ źródłowy, a parametr **SqlSink** został określony jako typ ujścia.
 
-    Zastąp wartość właściwości **start** bieżącym dniem, a wartość właściwości **end** następnym dniem. Zarówno data/godzina rozpoczęcia, jak i data/godzina zakończenia muszą być w [formacie ISO](http://en.wikipedia.org/wiki/ISO_8601). Na przykład: 2014-10-14T16:32:41Z. Czas **end** jest opcjonalny, ale w tym samouczku zostanie użyty. 
+    Zastąp wartość właściwości **start** bieżącym dniem, a wartość właściwości **end** następnym dniem. Zarówno data/godzina rozpoczęcia, jak i data/godzina zakończenia muszą być w [formacie ISO](http://en.wikipedia.org/wiki/ISO_8601). Przykładowo: 2016-10-14T16:32:41Z. Czas **end** jest opcjonalny, ale w tym samouczku zostanie użyty. 
     
     Jeśli nie określisz wartości dla właściwości **end**, zostanie ona obliczona jako „**czas rozpoczęcia + 48 godzin**”. Aby uruchomić potok bezterminowo, określ **9/9/9999** jako wartość dla właściwości **end**.
     
@@ -383,53 +382,41 @@ W tym kroku opisano monitorowanie tego, co dzieje się w fabryce danych Azure za
  
 2.  Uruchom polecenie **Get-AzureRmDataFactorySlice**, aby uzyskać szczegółowe informacje na temat wszystkich wycinków elementu **EmpSQLTable**, który stanowi tabelę wyjściową potoku.  
 
-        Get-AzureRmDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
+        Get-AzureRmDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
 
     Zastąp rok, miesiąc i datę w parametrze **StartDateTime** bieżącym rokiem, miesiącem i datą. To ustawienie powinno być zgodne z wartością właściwości **Start** w kodzie JSON potoku. 
 
     Powinny zostać wyświetlone 24 wycinki, jeden dla każdej godziny od godz. 12: 00 bieżącego dnia do godz. 12: 00 dnia następnego. 
     
-    **Pierwszy wycinek:**
+    **Przykładowe dane wyjściowe:**
 
         ResourceGroupName : ADFTutorialResourceGroup
         DataFactoryName   : ADFTutorialDataFactoryPSH
         TableName         : EmpSQLTable
-        Start             : 3/3/2015 12:00:00 AM
-        End               : 3/3/2015 1:00:00 AM
+        Start             : 8/9/2016 12:00:00 AM
+        End               : 8/9/2016 1:00:00 AM
         RetryCount        : 0
         Status            : Waiting
         LatencyStatus     :
         LongRetryCount    : 0
 
-    **Ostatni wycinek:**
+3.  Uruchom polecenie **Get-AzureRmDataFactoryRun**, aby uzyskać szczegółowe informacje o uruchomieniach działania dla **określonego** wycinka. Zmień wartość parametru **StartDateTime**, aby była zgodna z czasem **rozpoczęcia** wycinka z danych wyjściowych. Wartość **StartDateTime** musi być w [formacie ISO](http://en.wikipedia.org/wiki/ISO_8601). 
 
-        ResourceGroupName : ADFTutorialResourceGroup
-        DataFactoryName   : ADFTutorialDataFactoryPSH
-        TableName         : EmpSQLTable
-        Start             : 3/4/2015 11:00:00 PM
-        End               : 3/4/2015 12:00:00 AM
-        RetryCount        : 0
-        Status            : Waiting
-        LatencyStatus     : 
-        LongRetryCount    : 0
+        Get-AzureRmDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
 
-3.  Uruchom polecenie **Get-AzureRmDataFactoryRun**, aby uzyskać szczegółowe informacje o uruchomieniach działania dla **określonego** wycinka. Zmień wartość parametru **StartDateTime**, aby była zgodna z czasem **rozpoczęcia** wycinka z danych wyjściowych. Wartość **StartDateTime** musi być w [formacie ISO](http://en.wikipedia.org/wiki/ISO_8601). Na przykład: 2014-03-03T22:00:00Z.
-
-        Get-AzureRmDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T22:00:00
-
-    Powinny zostać wyświetlone dane wyjściowe podobne do następujących:
+    Powinny zostać wyświetlone dane wyjściowe podobne do następujących przykładowych danych wyjściowych:
 
         Id                  : 3404c187-c889-4f88-933b-2a2f5cd84e90_635614488000000000_635614524000000000_EmpSQLTable
         ResourceGroupName   : ADFTutorialResourceGroup
         DataFactoryName     : ADFTutorialDataFactoryPSH
         TableName           : EmpSQLTable
-        ProcessingStartTime : 3/3/2015 11:03:28 PM
-        ProcessingEndTime   : 3/3/2015 11:04:36 PM
+        ProcessingStartTime : 8/9/2016 11:03:28 PM
+        ProcessingEndTime   : 8/9/2016 11:04:36 PM
         PercentComplete     : 100
-        DataSliceStart      : 3/8/2015 10:00:00 PM
-        DataSliceEnd        : 3/8/2015 11:00:00 PM
+        DataSliceStart      : 8/9/2016 10:00:00 PM
+        DataSliceEnd        : 8/9/2016 11:00:00 PM
         Status              : Succeeded
-        Timestamp           : 3/8/2015 11:03:28 PM
+        Timestamp           : 8/9/2016 11:03:28 PM
         RetryAttempt        : 0
         Properties          : {}
         ErrorMessage        :
@@ -478,6 +465,6 @@ W tym samouczku opisano tworzenie fabryki danych Azure w celu kopiowania danych 
  
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

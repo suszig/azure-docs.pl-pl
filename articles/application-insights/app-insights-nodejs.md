@@ -12,8 +12,9 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/30/2016"
     ms.author="awills"/>
+
 
 
 # Dodawanie zestawu SDK usługi Application Insights w celu monitorowania aplikacji Node.js
@@ -26,7 +27,7 @@ Usługa [Visual Studio Application Insights](app-insights-overview.md) służy d
 
 Zestaw SDK zapewnia automatyczne zbieranie wskaźników przychodzących żądań HTTP i odpowiedzi, liczników wydajności (procesora, pamięci, żądań na sekundę) i nieobsługiwanych wyjątków. Można również dodać niestandardowe wywołania do śledzenia zależności, metryk i innych zdarzeń.
 
-![Przykładowe wykresy monitorowania wydajności](./media/app-insights-asp-net-manual/10-perf.png)
+![Przykładowe wykresy monitorowania wydajności](./media/app-insights-windows-services/10-perf.png)
 
 
 #### Przed rozpoczęciem
@@ -40,7 +41,7 @@ Potrzebne elementy:
 
 Zaloguj się do [portalu Azure][portal] i utwórz nowy zasób usługi Application Insights. [Zasób][role] na platformie Azure to wystąpienie usługi. Ten zasób jest miejscem, gdzie odbywa się analizowane i wyświetlanie telemetrii z aplikacji.
 
-![Kliknij kolejno polecenia Nowy, Application Insights](./media/app-insights-asp-net-manual/01-new-asp.png)
+![Kliknij kolejno polecenia Nowy, Application Insights](./media/app-insights-windows-services/01-new-asp.png)
 
 Wybierz Inny jako typ aplikacji. Wybór typu aplikacji powoduje ustawienie domyślnej zawartości bloków zasobów i właściwości widocznych w [Eksploratorze metryk][metrics].
 
@@ -48,7 +49,7 @@ Wybierz Inny jako typ aplikacji. Wybór typu aplikacji powoduje ustawienie domy�
 
 Klucz identyfikuje zasób. Wkrótce zainstalujesz go w zestawie SDK w celu kierowania danych do tego zasobu.
 
-![Kliknij opcję Właściwości, zaznacz klucz i naciśnij Ctrl+C](./media/app-insights-asp-net-manual/02-props-asp.png)
+![Kliknij opcję Właściwości, zaznacz klucz i naciśnij Ctrl+C](./media/app-insights-windows-services/02-props-asp.png)
 
 
 ## <a name="sdk"></a> Instalowanie zestawu SDK w aplikacji
@@ -84,7 +85,7 @@ Wróć do [portalu Azure](https://portal.azure.com) i przejdź do zasobu usługi
 
 Poszukaj danych na stronie Przegląd. Na początku zobaczysz tylko jeden lub dwa punkty. Na przykład:
 
-![Klikaj elementy, aby uzyskać więcej danych](./media/app-insights-asp-net-manual/12-first-perf.png)
+![Klikaj elementy, aby uzyskać więcej danych](./media/app-insights-windows-services/12-first-perf.png)
 
 Klikaj elementy wykresów, aby wyświetlać bardziej szczegółowe metryki. [Dowiedz się więcej o metrykach.][wydajność]
 
@@ -212,6 +213,10 @@ server.on("listening", () => {
 });
 ```
 
+## Następne kroki
+
+* [Monitorowanie telemetrii w portalu](app-insights-dashboards.md)
+* [Zapisywanie zapytań analizy za pośrednictwem danych telemetrycznych](app-insights-analytics-tour.md)
 
 
 
@@ -226,6 +231,6 @@ server.on("listening", () => {
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 
