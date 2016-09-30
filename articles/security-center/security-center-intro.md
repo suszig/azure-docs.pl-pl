@@ -150,7 +150,7 @@ Ten dokument zawiera wprowadzenie do Centrum zabezpieczeń, jego najważniejszyc
 - [Blog Azure Security](http://blogs.msdn.com/b/azuresecurity/) — najnowsze informacje na temat zabezpieczeń platformy Azure.
 
 <!--Image references-->
-[1]: ./media/security-center-intro/security-tile.PNG
+[1]: ./media/security-center-intro/security-tile.png
 [2]: ./media/security-center-intro/security-center.png
 [3]: ./media/security-center-intro/security-policy.png
 [4]: ./media/security-center-intro/security-policy-blade.png
@@ -162,6 +162,6 @@ Ten dokument zawiera wprowadzenie do Centrum zabezpieczeń, jego najważniejszyc
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 
