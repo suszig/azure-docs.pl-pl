@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="09/27/2016"
    ms.author="cherylmc"/>
 
 
@@ -26,12 +26,12 @@
 
 Konfiguracja typu punkt-lokacja pozwala utworzyć indywidualne bezpieczne połączenie z siecią wirtualną z poziomu komputera klienckiego. Przedstawione rozwiązanie przydaje się w przypadku, gdy celem użytkownika jest połączenie się z siecią wirtualną z lokalizacji zdalnej, np. z domu lub z konferencji, lub gdy konieczne jest połączenie z siecią wirtualną jedynie niewielkiej liczby klientów.
 
-W tym artykule opisano proces tworzenia sieci wirtualnej z połączeniem punkt-lokacja w ramach **klasycznego modelu wdrażania** przy użyciu **portalu klasycznego**. Obecnie nie można utworzyć tej konfiguracji end-to-end w portalu Azure dla klasycznego modelu wdrażania. Niektóre kroki można wykonać w witrynie Azure Portal, ale program PowerShell jest nadal wymagany do pobrania konfiguracji klienta sieci VPN.
+W tym artykule opisano proces tworzenia sieci wirtualnej z połączeniem punkt-lokacja w ramach **klasycznego modelu wdrażania** przy użyciu **portalu klasycznego**.
 
 Połączenia typu punkt-lokacja nie wymagają do prawidłowego działania urządzenia sieci VPN ani publicznego adresu IP. Połączenie sieci VPN jest nawiązywane poprzez zainicjowanie połączenia z komputera klienckiego. Aby uzyskać więcej informacji na temat połączeń typu punkt-lokacja, zobacz artykuły [Brama sieci VPN — często zadawane pytania](vpn-gateway-vpn-faq.md#point-to-site-connections) i [Planning and Design](vpn-gateway-plan-design.md) (Planowanie i projekt).
 
 
-**Modele wdrażania i narzędzia używane w kontekście połączeń typu punkt-lokacja**
+### Modele wdrażania i metody nawiązywania połączeń typu punkt-lokacja
 
 [AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
 
@@ -196,6 +196,6 @@ Aby uzyskać więcej informacji na temat sieci wirtualnych, zobacz artykuł [Vir
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

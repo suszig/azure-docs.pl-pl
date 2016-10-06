@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Tworzenie planu w usłudze Azure Stack | Microsoft Azure"
-    description="Administrator usługi powinien utworzyć plan, który umożliwi subskrybentom aprowizację maszyn wirtualnych."
+    pageTitle="Create a plan in Azure Stack | Microsoft Azure"
+    description="As a service administrator, create a plan that lets subscribers provision virtual machines."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,68 +13,74 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/15/2016"
+    ms.date="09/26/2016"
     ms.author="erikje"/>
 
 
-# Tworzenie planu w usłudze Azure Stack
+# Create a plan in Azure Stack
 
-[Plany](azure-stack-key-features.md#services-plans-offers-and-subscriptions) są grupami obejmującymi co najmniej jedną usługę. Jako dostawca możesz utworzyć plany do zaoferowania dzierżawcom. Z kolei dzierżawcy mogą subskrybować oferty, aby korzystać z planów i objętych nimi usług. W tym przykładzie zostanie utworzony plan obejmujący dostawców zasobów obliczeniowych, sieci i magazynu. Umożliwi to subskrybentom tego planu aprowizację maszyn wirtualnych.
+[Plans](azure-stack-key-features.md#services-plans-offers-and-subscriptions) are groupings of one or more services. As a provider, you can create plans to offer to your tenants. In turn, your tenants subscribe to your offers to use the plans and services they include. This example shows you how to create a plan that includes the compute, network, and storage resource providers. This plan gives subscribers the ability to provision virtual machines.
 
-1.  W przeglądarce internetowej przejdź do witryny https://portal.azurestack.local.
+1.  In an internet browser, navigate to https://portal.azurestack.local.
 
-2.  [Zaloguj się](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) w witrynie Azure Stack Portal jako administrator usługi i wprowadź swoje poświadczenia administratora usługi (to jest konto utworzone w kroku 5 sekcji [Uruchamianie skryptu programu PowerShell](azure-stack-run-powershell-script.md)), a następnie kliknij przycisk **Zaloguj się**.
+2.  [Sign in](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) to the Azure Stack Portal as a service administrator and enter your service administrator credentials (the account that you created during step 5 of the [Run the PowerShell script](azure-stack-run-powershell-script.md) section), and then click **Sign in**.
 
-    Administratorzy usługi mogą tworzyć oferty i plany oraz zarządzać użytkownikami.
+    Service administrators can create offers and plans, and manage users.
 
-3.  Aby utworzyć plan i ofertę, które dzierżawcy mogą subskrybować, kliknij pozycję **Nowy**.
+3.  To create a plan and offer that tenants can subscribe to, click **New** > **Tenant Offers + Plans** > **Plan**.
 
-    ![](media/azure-stack-create-plan/image1.png)
+    ![](media/azure-stack-create-plan/image01.png)
 
-4.  W bloku tworzenia kliknij pozycję **Oferty i plany dzierżawy**, a następnie kliknij pozycję **Plan**.
+4.  In the **New Plan** blade, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name that tenants see. Only the admin can see the Resource Name. It's the name that admins use to work with the plan as an Azure Resource Manager resource.
 
-    ![](media/azure-stack-create-plan/image2.png)
+    ![](media/azure-stack-create-plan/image02.png)
 
-5.  Wypełnij pola **Nazwa wyświetlana** i **Nazwa zasobu**. Nazwa wyświetlana jest przyjazną nazwą planu. Nazwa zasobu jest widoczna tylko dla administratora. Jest to nazwa używana przez administratorów do pracy z planem jako zasobem usługi Azure Resource Manager.
+5.  Create a new **Resource Group**, or select an existing one, as a container for the plan (e.g. "OffersAndPlans")
 
-    ![](media/azure-stack-create-plan/image3.png)
+    ![](media/azure-stack-create-plan/image02a.png)
 
-6.  Wybierz lub utwórz nową **grupę zasobów** jako kontener dla planu. Domyślnie wszystkie plany i oferty będą umieszczane w grupie zasobów o nazwie OffersAndPlans.
+6.  Click **Services**, select **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**, and then click **Select**.
 
-7.  Kliknij pozycję **Oferowane usługi**, użyj klawisza Shift, aby wybrać wszystkich trzech dostawców (**dostawcę obliczeń**, **dostawcę magazynu** i **dostawcę sieci**), a następnie kliknij pozycję **Wybierz**.
+    ![](media/azure-stack-create-plan/image03.png)
 
-    ![](media/azure-stack-create-plan/image4.png)
+7.  Click **Quotas**, click **Microsoft.Storage (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
 
-8.  Kliknij pozycję **Microsoft.Compute**, a następnie kliknij pozycję **Wymaga konfiguracji**.
+    ![](media/azure-stack-create-plan/image04.png)
 
-    ![](media/azure-stack-create-plan/image5.png)
+8.  Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **Create**.
 
-9.  W bloku **Ustawianie limitów przydziału** zaakceptuj ustawienia domyślne, kliknij przycisk **OK**, a następnie ponownie kliknij przycisk **OK**.
+    ![](media/azure-stack-create-plan/image06.png)
 
-    ![](media/azure-stack-create-plan/image6.png)
+9. Click **Microsoft.Network (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
 
-10. Kliknij pozycję **Microsoft.Network**, a następnie kliknij pozycję **Wymaga konfiguracji**.
+    ![](media/azure-stack-create-plan/image07.png)
 
-    ![](media/azure-stack-create-plan/image7.png)
+10. Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **Create**.
 
-11. W bloku **Ustawianie limitów przydziału** zaznacz wszystkie pola wyboru, kliknij przycisk **OK**, a następnie ponownie kliknij przycisk **OK**.
+    ![](media/azure-stack-create-plan/image08.png)
 
-    ![](media/azure-stack-create-plan/image8.png)
+11. Click **Microsoft.Compute (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
 
-12. Kliknij pozycję **Microsoft.Storage**, kliknij pozycję **Wymaga konfiguracji**, a następnie w bloku **Ustawianie limitów przydziału** zaakceptuj ustawienia domyślne, kliknij przycisk **OK**, kliknij ponownie przycisk **OK**, po czym kliknij przycisk **Utwórz**, aby utworzyć plan.
+    ![](media/azure-stack-create-plan/image09.png)
 
-    ![](media/azure-stack-create-plan/image9.png)
-
-13. Plan może teraz zostać umieszczony w ofercie. Aby wyświetlić powiadomienia, kliknij ikonę dzwonka w prawym górnym rogu.
+12.  Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **Create**.
 
     ![](media/azure-stack-create-plan/image10.png)
 
-## Następne kroki
+13. In the **Quotas** blade, click **OK**, and then in the **New Plan** blade, click **Create** to create the plan.
 
-[Tworzenie oferty](azure-stack-create-offer.md)
+    ![](media/azure-stack-create-plan/image11.png)
+
+14. To see your new plan, click **All resources**, then search for the plan and click its name.
+
+    ![](media/azure-stack-create-plan/image12.png)
+
+## Next steps
+
+[Create an offer](azure-stack-create-offer.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

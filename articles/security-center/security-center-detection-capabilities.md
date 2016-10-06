@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/25/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 
@@ -84,6 +84,7 @@ W tym dokumencie omówiono, na czym polegają funkcje wykrywania w usłudze Azur
 
 - [Przewodnik planowania i obsługi Centrum zabezpieczeń Azure](security-center-planning-and-operations-guide.md)
 - [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w Centrum zabezpieczeń Azure](security-center-managing-and-responding-alerts.md)
+- [Alerty zabezpieczeń według typu w usłudze Azure Security Center](security-center-alerts-type.md)
 - [Monitorowanie kondycji zabezpieczeń w usłudze Azure Security Center](security-center-monitoring.md) — informacje na temat monitorowania kondycji zasobów platformy Azure.
 - [Monitorowanie rozwiązań partnerskich w usłudze Azure Security Center](security-center-partner-solutions.md) — informacje na temat monitorowania stanu kondycji rozwiązań partnerskich.
 - [Azure Security Center — często zadawane pytania](security-center-faq.md) — odpowiedzi na często zadawane pytania dotyczące korzystania z usługi.
@@ -91,6 +92,6 @@ W tym dokumencie omówiono, na czym polegają funkcje wykrywania w usłudze Azur
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -57,6 +57,6 @@ Wybierz platformę .NET lub interfejs API REST, aby nawiązać połączenie prog
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

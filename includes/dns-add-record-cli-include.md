@@ -39,6 +39,11 @@ W tym przykładzie używamy nazwy zestawu rekordów „@”, aby utworzyć rekor
 
     azure network dns record-set add-record myresourcegroup  contoso.com  "test-ns" NS -d "ns1.contoso.com"
 
+#### Tworzenie zestawu rekordów PTR z pojedynczym rekordem  
+W tym przypadku wartość „moja-strefa-arpa.com” odnosi się do strefy ARPA reprezentującej zakres adresów IP.  Każdy rekord PTR w tej strefie odnosi się do adresu IP w tym zakresie adresów IP.    
+
+    azure network dns record-set add-record myresourcegroup my-arpa-zone.com "10" PTR -P "myservice.contoso.com"   
+
 #### Tworzenie zestawu rekordów SRV z pojedynczym rekordem
 
 Jeśli tworzysz rekord SRV w katalogu głównym strefy, możesz określić w nazwie rekordu wartości „_usługa” i „_protokół”. Nie trzeba wpisywać w nazwie rekordu nazwy „@”.
@@ -55,6 +60,6 @@ Jeśli tworzysz rekord SRV w katalogu głównym strefy, możesz określić w naz
     azure network dns record-set add-record myresourcegroup contoso.com "test-txt" TXT -x "this is a TXT record"
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

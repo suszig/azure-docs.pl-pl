@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Wprowadzenie do usługi Azure Mobile Engagement dla aplikacji systemu iOS w języku Swift"
+    pageTitle="Wprowadzenie do usługi Azure Mobile Engagement dla systemu iOS w języku Swift | Microsoft Azure"
     description="Dowiedz się, jak używać usługi Azure Mobile Engagement z funkcją analizy i powiadomieniami wypychanymi na potrzeby aplikacji systemu iOS."
     services="mobile-engagement"
-    documentationCenter="ios"
+    documentationCenter="mobile"
     authors="piyushjo"
-    manager="dwrede"
+    manager="erikre"
     editor="" />
 
 <tags
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="swift"
     ms.topic="hero-article"
-    ms.date="08/19/2016"
+    ms.date="09/20/2016"
     ms.author="piyushjo" />
+
 
 # Wprowadzenie do usługi Azure Mobile Engagement dla aplikacji systemu iOS w języku Swift
 
@@ -25,11 +26,11 @@ W tym samouczku zostanie utworzona pusta aplikacja systemu iOS służąca do zbi
 
 Dla tego samouczka wymagane są następujące elementy:
 
-+ Edytor XCode 6 lub XCode 7, który można zainstalować ze sklepu Mac App Store
++ Edytor XCode 8, który można zainstalować ze sklepu Mac App Store
 + Zestaw [Mobile Engagement iOS SDK]
 + Certyfikat powiadomień wypychanych (p12), który można uzyskać z Centrum deweloperów firmy Apple
 
-> [AZURE.NOTE] W tym samouczku jest używany język Swift w wersji 2.0. 
+> [AZURE.NOTE] W tym samouczku jest używany język Swift w wersji 3.0. 
 
 Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wszystkich innych samouczków usługi Mobile Engagement dla aplikacji systemu iOS.
 
@@ -61,17 +62,15 @@ Aby zademonstrować integrację, zostanie utworzona podstawowa aplikacja za pomo
 
     ![][2]
 
-5. Otwórz kartę `Build Phases` i w menu `Link Binary With Libraries` dodaj struktury w sposób pokazany poniżej. **UWAGA** Należy dołączyć elementy `CoreLocation, CFNetwork, CoreTelephony, and SystemConfiguration`:
+5. Otwórz kartę `Build Phases` i w menu `Link Binary With Libraries` dodaj struktury w sposób pokazany poniżej:
 
     ![][3]
 
-6. W przypadku edytora **XCode 7** — dodaj plik `libxml2.tbd` zamiast pliku `libxml2.dylib`.
-
-7. Utwórz nagłówek mostkowania, aby można było używać interfejsów API języka Objective C zestawu SDK, wybierając pozycję File (Plik) > New (Nowy) > File (Plik) > iOS > Source (Źródło) > Header File (Plik nagłówka).
+8. Utwórz nagłówek mostkowania, aby można było używać interfejsów API języka Objective C zestawu SDK, wybierając pozycję File (Plik) > New (Nowy) > File (Plik) > iOS > Source (Źródło) > Header File (Plik nagłówka).
 
     ![][4]
 
-8. Przeprowadź edycję pliku nagłówka mostkowania w celu udostępnienia kodu usługi Mobile Engagement w języku Objective C dla kodu w języku Swift, dodając następujące instrukcje importu:
+9. Przeprowadź edycję pliku nagłówka mostkowania w celu udostępnienia kodu usługi Mobile Engagement w języku Objective C dla kodu w języku Swift, dodając następujące instrukcje importu:
 
         /* Mobile Engagement Agent */
         #import "AEModule.h"
@@ -80,19 +79,20 @@ Aby zademonstrować integrację, zostanie utworzona podstawowa aplikacja za pomo
         #import "EngagementAgent.h"
         #import "EngagementTableViewController.h"
         #import "EngagementViewController.h"
+        #import "AEUserNotificationHandler.h"
         #import "AEIdfaProvider.h"
 
-9. W ustawieniach kompilacji upewnij się, że ustawienie kompilacji nagłówków mostkowania języka Objective-C w obszarze Swift Compiler (Kompilator języka Swift) — Code Generation (Generowanie kodu) zawiera ścieżkę do tego nagłówka. Oto przykład ścieżki: **$(SRCROOT)/MojaAplikacja/Nagłówek-Mostkowania-MojaAplikacja.h (zależne od ścieżki)**
+10. W ustawieniach kompilacji upewnij się, że ustawienie kompilacji nagłówków mostkowania języka Objective-C w obszarze Swift Compiler (Kompilator języka Swift) — Code Generation (Generowanie kodu) zawiera ścieżkę do tego nagłówka. Oto przykład ścieżki: **$(SRCROOT)/MojaAplikacja/Nagłówek-Mostkowania-MojaAplikacja.h (zależne od ścieżki)**
 
     ![][6]
 
-10. Wróć do witryny Azure Portal na stronie *Informacje o połączeniu* swojej aplikacji i skopiuj parametry połączenia.
+11. Wróć do witryny Azure Portal na stronie *Informacje o połączeniu* swojej aplikacji i skopiuj parametry połączenia.
 
     ![][5]
 
-11. Wklej parametry połączenia w delegacie `didFinishLaunchingWithOptions`.
+12. Wklej parametry połączenia w delegacie `didFinishLaunchingWithOptions`.
 
-        func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
         {
             [...]
                 EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}")
@@ -156,8 +156,9 @@ Poniższe sekcje umożliwią skonfigurowanie aplikacji do ich odbierania.
 
 1. Wewnątrz elementu `didFinishLaunchingWithOptions` utwórz moduł Reach i przekaż go do istniejącego wiersza inicjowania usługi Engagement:
 
-        func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-            let reach = AEReachModule.moduleWithNotificationIcon(UIImage(named:"icon.png")) as! AEReachModule
+        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool 
+        {
+            let reach = AEReachModule.module(withNotificationIcon: UIImage(named:"icon.png")) as! AEReachModule
             EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}", modulesArray:[reach])
             [...]
             return true
@@ -166,29 +167,32 @@ Poniższe sekcje umożliwią skonfigurowanie aplikacji do ich odbierania.
 ###Umożliwianie aplikacji otrzymywania powiadomień wypychanych usługi APNS
 1. Dodaj następujący wiersz do metody `didFinishLaunchingWithOptions`:
 
-        /* Ask user to receive push notifications */
         if #available(iOS 8.0, *)
         {
-           let settings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound], categories: nil)
-           application.registerUserNotificationSettings(settings)
-           application.registerForRemoteNotifications()
+            if #available(iOS 10.0, *)
+            {
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in }
+            }else
+            {
+                let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+                application.registerUserNotificationSettings(settings)
+            }
+            application.registerForRemoteNotifications()
         }
         else
         {
-           application.registerForRemoteNotificationTypes([UIRemoteNotificationType.Alert, UIRemoteNotificationType.Badge, UIRemoteNotificationType.Sound])
+            application.registerForRemoteNotifications(matching: [.alert, .badge, .sound])
         }
 
 2. Dodaj metodę `didRegisterForRemoteNotificationsWithDeviceToken` w następujący sposób:
 
-        func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
-        {
+        func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
             EngagementAgent.shared().registerDeviceToken(deviceToken)
         }
 
 3. Dodaj metodę `didReceiveRemoteNotification:fetchCompletionHandler:` w następujący sposób:
 
-        func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
-        {
+        func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
             EngagementAgent.shared().applicationDidReceiveRemoteNotification(userInfo, fetchCompletionHandler:completionHandler)
         }
 
@@ -207,6 +211,6 @@ Poniższe sekcje umożliwią skonfigurowanie aplikacji do ich odbierania.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO4-->
 
 

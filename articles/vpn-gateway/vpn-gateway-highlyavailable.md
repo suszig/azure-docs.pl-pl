@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Overview of Highly Available configurations with Azure VPN Gateways | Microsoft Azure"
-   description="This article provides an overview of highly available configuration options using Azure VPN Gateways."
+   pageTitle="Omówienie konfiguracji o dużej dostępności z bramami Azure VPN Gateway | Microsoft Azure"
+   description="Ten artykuł zawiera omówienie opcji konfiguracji o wysokiej dostępności przy użyciu bram Azure VPN Gateway."
    services="vpn-gateway"
    documentationCenter="na"
    authors="yushwang"
@@ -17,79 +17,86 @@
    ms.date="09/24/2016"
    ms.author="yushwang"/>
 
-# Highly Available Cross-Premises and VNet-to-VNet Connectivity
 
-This article provides an overview of Highly Available configuration options for your cross-premises and VNet-to-VNet connectivity using Azure VPN gateways.
+# Połączenia obejmujące wiele lokalizacji i połączenia między sieciami wirtualnymi o wysokiej dostępności
 
-## <a name = "activestandby"></a>About Azure VPN gateway redundancy
+Ten artykuł zawiera omówienie opcji konfiguracji połączeń obejmujących wiele lokalizacji i połączeń między sieciami wirtualnymi o wysokiej dostępności przy użyciu bram Azure VPN Gateway.
 
-Every Azure VPN gateway consists of two instances in an active-standby configuration. For any planned maintenance or unplanned disruption that happens to the active instance, the standby instance would take over (failover) automatically, and resume the S2S VPN or VNet-to-VNet connections. The switch over will cause a brief interruption. For planned maintenance, the connectivity should be restored within 10 to 15 seconds. For unplanned issues, the connection recovery will be longer, about 1 minute to 1 and a half minutes in the worst case. For P2S VPN client connections to the gateway, the P2S connections will be disconnected and the users will need to reconnect from the client machines.
+## <a name = "activestandby"></a>Informacje o nadmiarowości bramy Azure VPN Gateway
 
-![Active-Standby](./media/vpn-gateway-highlyavailable/active-standby.png)
+Każda brama Azure VPN Gateway składa się z dwóch wystąpień działających w konfiguracji aktywne-w gotowości. W przypadku każdej planowanej konserwacji lub nieplanowanych zakłóceń działania aktywnego wystąpienia wystąpienie w trybie gotowości automatycznie przejmie zadanie (tryb failover) i wznowi połączenia typu lokacja-lokacja (S2S) przez sieć VPN lub między sieciami wirtualnymi. Przełączenie spowoduje krótką przerwę w działaniu. W przypadku planowanej konserwacji łączność powinna zostać przywrócona w ciągu od 10 do 15 sekund. W przypadku nieplanowanych awarii odzyskiwanie połączenia potrwa dłużej — od ok. 1 do 1,5 minuty w najgorszym przypadku. W przypadku połączeń sieci VPN typu punkt-lokacja (P2S) między klientami i bramą połączenia P2S zostaną rozłączone, a użytkownicy będą musieli ponownie nawiązać połączenia z poziomu maszyn klienckich.
 
-## Highly Available Cross-Premises Connectivity
+![Konfiguracja aktywne-w gotowości](./media/vpn-gateway-highlyavailable/active-standby.png)
 
-To provide better availability for your cross premises connections, there are a couple of options available:
+## Połączenia o wysokiej dostępności obejmujące wiele lokalizacji
 
-- Multiple on-premises VPN devices
-- Active-active Azure VPN gateway
-- Combination of both
+Dostępnych jest kilka opcji umożliwiających zapewnienie wyższej dostępności połączeń obejmujących wiele lokacji:
 
-### <a name = "activeactiveonprem"></a>Multiple on-premises VPN devices
+- Wiele lokalnych urządzeń sieci VPN
+- Brama Azure VPN Gateway w konfiguracji aktywne-aktywne
+- Połączenie obu tych opcji
 
-You can use multiple VPN devices from your on-premises network to connect to your Azure VPN gateway, as shown in the following diagram:
+### <a name = "activeactiveonprem"></a>Wiele lokalnych urządzeń sieci VPN
 
-![Multiple On-Premises VPN](./media/vpn-gateway-highlyavailable/multiple-onprem-vpns.png)
+Można nawiązywać połączenie z bramą Azure VPN Gateway z sieci lokalnej przy użyciu wielu urządzeń, jak przedstawiono na poniższym diagramie:
 
-This configuration provides multiple active tunnels from the same Azure VPN gateway to your on-premises devices in the same location. There are some requirements and constraints:
+![Wiele lokalnych połączeń sieci VPN](./media/vpn-gateway-highlyavailable/multiple-onprem-vpns.png)
 
-1. You need to create multiple S2S VPN connections from your VPN devices to Azure. When you connect multiple VPN devices from the same on-premises network to Azure, you need to create one local network gateway for each VPN device, and one connection from your Azure VPN gateway to the local network gateway.
+Ta konfiguracja zapewnia wiele aktywnych tuneli z tej samej bramy Azure VPN Gateway do urządzeń lokalnych w tej samej lokalizacji. Istnieją pewne wymagania i ograniczenia:
 
-2. The local network gateways corresponding to your VPN devices must have unique public IP addresses in the "GatewayIpAddress" property.
+1. Należy utworzyć wiele połączeń typu lokacja-lokacja sieci VPN z urządzeń sieci VPN do platformy Azure. W przypadku łączenia wielu urządzeń sieci VPN z tej samej sieci lokalnej z platformą Azure należy utworzyć jedną lokalną bramę sieci dla każdego urządzenia sieci VPN oraz jedno połączenie z bramy Azure VPN Gateway do bramy sieci lokalnej.
 
-3. BGP is required for this configuration. Each local network gateway representing a VPN device must have a unique BGP peer IP address specified in the "BgpPeerIpAddress" property.
+2. Bramy sieci lokalnej odpowiadające urządzeniom sieci VPN muszą mieć unikatowe publiczne adresy IP we właściwości „GatewayIpAddress”.
 
-4. The AddressPrefix property field in each local network gateway must not overlap. You should specify the "BgpPeerIpAddress" in /32 CIDR format in the AddressPrefix field, for example, 10.200.200.254/32.
+3. Ta konfiguracja wymaga użycia protokołu BGP. Każda brama sieci lokalnej reprezentującą urządzenie sieci VPN musi mieć unikatowy adres IP elementu równorzędnego protokołu BGP określony we właściwości „BgpPeerIpAddress”.
 
-5. You should use BGP to advertise the same prefixes of the same on-premises network prefixes to your Azure VPN gateway, and the traffic will be forwarded through these tunnels simultaneously.
+4. Wartości w polu właściwości AddressPrefix w poszczególnych bramach sieci lokalnej nie mogą się nakładać. Należy określić wartość właściwości „BgpPeerIpAddress” w formacie /32 CIDR w polu AddressPrefix, na przykład 10.200.200.254/32.
 
-6. Each connection is counted against the maximum number of tunnels for your Azure VPN gateway, 10 for Basic and Standard SKUs, and 30 for HighPerformance SKU. 
+5. Należy użyć protokołu BGP, aby anonsować te same prefiksy co prefiksy sieci lokalnej dla bramy Azure VPN Gateway, a cały ruch będzie jednocześnie przekazywany przy użyciu tych tuneli.
 
-In this configuration, the Azure VPN gateway is still in active-standby mode, so the same failover behavior and brief interruption will still happen as described [above](#activestandby). But this setup guards against failures or interruptions on your on-premises network and VPN devices.
+6. Każde połączenie jest wliczane do maksymalnej liczby tuneli bramy Azure VPN Gateway wynoszącej 10 dla podstawowych i standardowych jednostek SKUs oraz 30 dla jednostek SKU wysokiej wydajności. 
+
+W tej konfiguracji brama Azure VPN Gateway jest nadal w trybie aktywny-w gotowości, dlatego będzie mieć miejsce to samo zachowanie i krótka przerwa jak w opisie [powyżej](#activestandby). Ta konfiguracja chroni przed awariami lub przerwami w działaniu sieci lokalnej i urządzeń sieci VPN.
  
-### Active-active Azure VPN gateway
+### Brama Azure VPN Gateway w konfiguracji aktywne-aktywne
 
-You can now create an Azure VPN gateway in an active-active configuration, where both instances of the gateway VMs will establish S2S VPN tunnels to your on-premises VPN device, as shown the following diagram:
+Teraz można utworzyć bramę Azure VPN Gateway w konfiguracji aktywne-aktywne, gdzie oba wystąpienia maszyny wirtualnej bramy ustanowią tunele połączenia lokacja-lokacja sieci VPN do lokalnych urządzeń sieci VPN, jak przedstawiono na poniższym diagramie:
 
-![Active-Active](./media/vpn-gateway-highlyavailable/active-active.png)
+![Konfiguracja aktywne-aktywne](./media/vpn-gateway-highlyavailable/active-active.png)
 
-In this configuration, each Azure gateway instance will have a unique public IP address, and each will establish an IPsec/IKE S2S VPN tunnel to your on-premises VPN device specified in your local network gateway and connection. Note that both VPN tunnels are actually part of the same connection. You will still need to configure your on-premises VPN device to accept or establish two S2S VPN tunnels to those two Azure VPN gateway public IP addresses.
+W tej konfiguracji każde wystąpienie bramy platformy Azure będzie mieć unikatowy publiczny adres IP i każde ustanowi tunel typu lokacja-lokacja sieci VPN przy użyciu protokołu IPsec/IKE do lokalnego urządzenia sieci VPN określonego w bramie sieci lokalnej i połączeniu. Należy pamiętać, że oba tunele sieci VPN są w rzeczywistości częścią tego samego połączenia. Nadal należy skonfigurować lokalne urządzenie sieci VPN, aby akceptowało lub ustanowiło dwa tunele typu lokacja-lokacja sieci VPN do tych dwóch publicznych adresów IP bramy Azure VPN Gateway.
 
-Because the Azure gateway instances are in active-active configuration, the traffic from your Azure virtual network to your on-premises network will be routed through both tunnels simultaneously, even if your on-premises VPN device may favor one tunnel over the other. Note though the same TCP or UDP flow will always traverse the same tunnel or path, unless a maintenance event happens on one of the instances.
+Ponieważ wystąpienia bramy platformy Azure są w konfiguracji aktywne-aktywne, ruch z sieci wirtualnej platformy Azure do sieci lokalnej będzie kierowany przez dwa tunele jednocześnie, nawet jeśli lokalne urządzenie sieci VPN może preferować z tuneli. Należy jednak pamiętać, że ten sam przepływ przy użyciu protokołu TCP lub UDP będzie zawsze odbywać się za pomocą tego samego tunelu lub ścieżki, chyba że na jednym z wystąpień będzie mieć miejsce zdarzenie konserwacji.
 
-When a planned maintenance or unplanned event happens to one gateway instance, the IPsec tunnel from that instance to your on-premises VPN device will be disconnected. The corresponding routes on your VPN devices should be removed or withdrawn automatically so that the traffic will be switched over to the other active IPsec tunnel. On the Azure side, the switch over will happen automatically from the affected instance to the active instance.
+W przypadku planowanej konserwacji lub nieplanowanego zdarzenia dotyczącego jednego wystąpienia bramy tunel IPsec z tego wystąpienia do lokalnego urządzenia sieci VPN zostanie rozłączony. Odpowiednie trasy na urządzeniach sieci VPN powinny zostać automatycznie usunięte lub wycofane, aby umożliwić przełączenie ruchu do innego aktywnego tunelu IPsec. Po stronie platformy Azure przełączenie z wystąpienia, którego dotyczy problem, do aktywnego wystąpienia nastąpi automatycznie.
 
-### Dual-redundancy: active-active VPN gateways for both Azure and on-premises networks
+### Podwójna nadmiarowość: bramy sieci VPN w konfiguracji aktywne-aktywne dla platformy Azure i sieci lokalnych
 
-The most reliable option is to combine the active-active gateways on both your network and Azure, as shown in the diagram below.
+Najbardziej niezawodną opcją jest połączenie bram w konfiguracji aktywne-aktywne w sieci lokalnej i na platformie Azure, jak przedstawiono na poniższym diagramie.
 
-![Dual Redundancy](./media/vpn-gateway-highlyavailable/dual-redundancy.png)
+![Podwójna nadmiarowość](./media/vpn-gateway-highlyavailable/dual-redundancy.png)
 
-Here you create and setup the Azure VPN gateway in an active-active configuration, and create two local network gateways and two connections for your two on-premises VPN devices as described above. The result is a full mesh connectivity of 4 IPsec tunnels between your Azure virtual network and your on-premises network.
+W tym przypadku należy utworzyć i skonfigurować bramę Azure VPN Gateway w konfiguracji aktywne-aktywne i utworzyć dwie bramy sieci lokalnej oraz dwa połączenia dla lokalnych urządzeń sieci VPN zgodnie z powyższym opisem. Wynikiem jest pełna siatka łączności składająca się z 4 tuneli IPsec między siecią wirtualną Azure i siecią lokalną.
 
-All gateways and tunnels are active from the Azure side, so the traffic will be spread among all 4 tunnels simultaneously, although each TCP or UDP flow will again follow the same tunnel or path from the Azure side. Even though by spreading the traffic, you may see slightly better throughput over the IPsec tunnels, the primary goal of this configuration is for high availability. And due to the statistical nature of the spreading, it is difficult to provide the measurement on how different application traffic conditions will affect the aggregate throughput.
+Wszystkie bramy i tunele po stronie platformy Azure są aktywne, dlatego ruch zostanie rozłożony jednocześnie na 4 tunele, choć każdy przepływ przy użyciu protokołu TCP lub UDP będzie odbywać się za pomocą tego samego tunelu lub ścieżki po stronie platformy Azure. Pomimo rozłożenia ruchu przepływność przy użyciu tuneli IPsec może być nieznacznie wyższa, jednak głównym celem tej konfiguracji jest wysoka dostępność. Ze względu na statystyczny charakter rozłożenia trudno jest zmierzyć, w jakim stopniu ruch poszczególnych aplikacji będzie wpływać na łączną przepływność.
 
-This topology will require two local network gateways and two connections to support the pair of on-premises VPN devices, and BGP is required to allow the two connections to the same on-premises network. These requirements are the same as the [above](#activeactiveonprem). 
+Ta topologia wymaga dwóch bram sieci lokalnej i dwóch połączeń w celu obsługi pary lokalnych urządzeń sieci VPN, a protokół BGP jest wymagany w celu umożliwienia dwóch połączeń z tą samą siecią lokalną. Te wymagania są takie same jak [powyżej](#activeactiveonprem). 
 
-## Highly Available VNet-to-VNet Connectivity through Azure VPN Gateways
+## Połączenia o wysokiej dostępności między sieciami wirtualnymi za pośrednictwem bram Azure VPN Gateway
 
-The same active-active configuration can also apply to Azure VNet-to-VNet connections. You can create active-active VPN gateways for both virtual networks, and connect them together to form the same full mesh connectivity of 4 tunnels between the two VNets, as shown in the diagram below:
+Tę samą konfigurację typu aktywne-aktywne można również zastosować w przypadku połączeń między sieciami wirtualnymi platformy Azure. Można utworzyć bramy VPN Gateway typu aktywne-aktywne dla obu sieci wirtualnych i połączyć je ze sobą w celu utworzenia takiej samej pełnej siatki łączności złożonej z 4 tuneli między dwiema sieciami wirtualnymi, jak przedstawiono na poniższym diagramie:
 
-![VNet-to-VNet](./media/vpn-gateway-highlyavailable/vnet-to-vnet.png)
+![Połączenia między sieciami wirtualnymi](./media/vpn-gateway-highlyavailable/vnet-to-vnet.png)
 
-This ensures there are always a pair of tunnels between the two virtual networks for any planned maintenance events, providing even better availability. Even though the same topology for cross-premises connectivity requires two connections, the VNet-to-VNet topology shown above will need only one connection for each gateway. Additionally, BGP is optional unless transit routing over the VNet-to-VNet connection is required.
+W tej konfiguracji zawsze istnieje para tuneli między dwiema sieciami wirtualnymi w przypadku planowanych zdarzeń konserwacji, co zapewnia jeszcze lepszą dostępność. Mimo że ta sama topologia dla łączności obejmującej wiele lokalizacji wymaga dwóch połączeń, topologia łączności między sieciami wirtualnymi będzie wymagać tylko jednego połączenia dla każdej bramy. Ponadto użycie protokołu BGP jest opcjonalne, o ile routing tranzytowy za pośrednictwem połączenia między sieciami wirtualnymi nie jest wymagany.
 
 
-## Next steps
+## Następne kroki
 
-See [Configuring Active-Active VPN Gateways for Cross-Premises and VNet-to-VNet Connections](http://go.microsoft.com/fwlink/?LinkId=828726) for steps to configure active-active cross-premises and VNet-to-VNet connections.
+Zobacz [Konfigurowanie bram VPN Gateway w konfiguracji typu aktywne-aktywne dla połączeń obejmujących wiele lokalizacji i połączeń między sieciami wirtualnymi](http://go.microsoft.com/fwlink/?LinkId=828726) dla procedury konfigurowania połączeń obejmujących wiele lokalizacji i połączeń między sieciami wirtualnymi typu aktywne-aktywne.
+
+
+
+<!--HONumber=Sep16_HO4-->
+
+

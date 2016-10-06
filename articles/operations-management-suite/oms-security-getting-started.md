@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Wprowadzenie do rozwiązania Zabezpieczenia i inspekcja w pakiecie Operations Management Suite | Microsoft Azure"
-   description="Ten dokument ułatwia rozpoczęcie korzystania z rozwiązania Zabezpieczenia i inspekcja w pakiecie Operations Management Suite w celu monitorowania chmury hybrydowej."
+   pageTitle="Getting started with Operations Management Suite Security and Audit Solution | Microsoft Azure"
+   description="This document helps you to get started with Operations Management Suite Security and Audit solution capabilities to monitor your hybrid cloud."
    services="operations-management-suite"
    documentationCenter="na"
    authors="YuriDio"
@@ -17,156 +17,156 @@
    ms.author="yurid"/>
  
 
-# Wprowadzenie do korzystania z rozwiązania Zabezpieczenia i inspekcja w pakiecie Operations Management Suite
-Ten dokument pomaga szybko rozpocząć korzystanie z rozwiązania Zabezpieczenia i inspekcja w pakiecie Operations Management Suite (OMS), objaśniając działanie poszczególnych opcji.
+# Getting started with Operations Management Suite Security and Audit Solution
+This document helps you get started quickly with Operations Management Suite (OMS) Security and Audit solution capabilities by guiding you through each option.
 
-## Co to jest pakiet OMS?
-Pakiet Microsoft Operations Management Suite (OMS) to oparte na chmurze rozwiązanie firmy Microsoft do zarządzania systemami IT, które ułatwia zarządzanie infrastrukturą lokalną i chmurową oraz jej ochronę. Aby uzyskać więcej informacji na temat pakietu OMS, przeczytaj artykuł [Omówienie pakietu Operations Management Suite (OMS)](https://technet.microsoft.com/library/mt484091.aspx).
+## What is OMS?
+Microsoft Operations Management Suite (OMS) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. For more information about OMS, read the article [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
-## Pulpit nawigacyjny Zabezpieczenia i inspekcja w pakiecie OMS
+## OMS Security and Audit dashboard
 
-Rozwiązanie Zabezpieczenia i inspekcja w pakiecie OMS zapewnia kompleksowy wgląd w stan zabezpieczeń IT organizacji za pomocą wbudowanych zapytań wyszukujących istotne problemy, które wymagają uwagi. Pulpit nawigacyjny **Zabezpieczenia i inspekcja** jest głównym ekranem prezentujące wszystkie funkcje pakietu OMS związane z bezpieczeństwem. Zawiera ogólne informacje o stanie zabezpieczeń komputerów. Daje również możliwość wyświetlenia wszystkich zdarzeń z ostatnich 24 godzin, 7 dni lub dowolnego innego przedziału czasu. Aby uzyskać dostęp do pulpitu nawigacyjnego **Zabezpieczenia i inspekcja**, wykonaj następujące kroki:
+The OMS Security and Audit solution provides a comprehensive view into your organization’s IT security posture with built-in search queries for notable issues that require your attention. The **Security and Audit** dashboard is the home screen for everything related to security in OMS. It provides high-level insight into the security state of your computers. It also includes the ability to view all events from the past 24 hours, 7 days, or any other custom time frame. To access the **Security and Audit** dashboard, follow these steps:
 
-1. Na głównym pulpicie nawigacyjnym pakietu **Microsoft Operations Management Suite** kliknij kafelek **Ustawienia** po lewej stronie.
-2. W bloku **Ustawienia**, w obszarze **Rozwiązania** kliknij opcję **Zabezpieczenia i inspekcja**.
-3. Pojawi się pulpit nawigacyjny **Zabezpieczenia i inspekcja**:
+1. In the **Microsoft Operations Management Suite** main dashboard click **Settings** tile in the left.
+2. In the **Settings** blade, under **Solutions** click **Security and Audit** option.
+3. The **Security and Audit** dashboard will appear:
 
-    ![Pulpit nawigacyjny Zabezpieczenia i inspekcja w pakiecie OMS](./media/oms-security-getting-started/oms-getting-started-fig1-ga.png)
+    ![OMS Security and Audit dashboard](./media/oms-security-getting-started/oms-getting-started-fig1-ga.png)
 
-Jeśli korzystasz z tego pulpitu nawigacyjnego po raz pierwszy i nie monitorujesz jeszcze żadnych urządzeń przy użyciu rozwiązania OMS, kafelki nie będą wypełnione danymi uzyskanymi od agenta. Po zainstalowaniu agenta może minąć trochę czasu, zanim dane pojawią się na pulpicie nawigacyjnym. W związku z tym początkowo niektóre informacje nie będą widoczne, dopóki nie zostaną przesłane do chmury.  W takiej sytuacji jest normalnym zjawiskiem, że niektóre kafelki nie zawierają wymiernych informacji. Artykuł [Connect Windows computers directly to OMS](https://technet.microsoft.com/library/mt484108.aspx) (Podłączanie komputerów z systemem Windows bezpośrednio do pakietu OMS) zawiera więcej informacji na temat sposobu instalowania agenta OMS w systemie Windows. Artykuł [Connect Linux computers to OMS](https://technet.microsoft.com/library/mt622052.aspx) (Podłączanie komputerów z systemem Linux do pakietu OMS) zawiera więcej informacji dotyczących wykonywania tego zadania w systemie Linux.
+If you are accessing this dashboard for the first time and you don’t have devices monitored by OMS, the tiles will not be populated with data obtained from the agent. Once you install the agent, it can take some time to populate, therefore what you see initially may be missing some data as they are still uploading to the cloud.  In this case, it is normal to see some tiles without tangible information. Read [Connect Windows computers directly to OMS](https://technet.microsoft.com/library/mt484108.aspx) for more information on how to install OMS agent in a Windows system and [Connect Linux computers to OMS](https://technet.microsoft.com/library/mt622052.aspx) for more information on how to perform this task in a Linux system.
 
-> [AZURE.NOTE] Agent będzie zbierać informacje oparte na bieżących włączonych zdarzeniach, takie jak nazwa komputera, nazwa użytkownika i adres IP. Nie są jednak gromadzone żadne dokumenty bądź pliki, nazwy baz danych ani dane prywatne.   
+> [AZURE.NOTE] The agent will collect the information based on the current events that are enabled, for instance computer name, IP address and user name. However no document/files, database name or private data are collected.   
 
-Rozwiązania to zestawy reguł logiki, wizualizacji i gromadzenia danych opracowane w celu pokonywania kluczowych wyzwań klienta. Zabezpieczenia i inspekcja to jedno z takich rozwiązań — inne można dodać oddzielnie. Przeczytaj artykuł [Add solutions](https://technet.microsoft.com/library/mt674635.aspx) (Dodawanie rozwiązań), aby uzyskać więcej informacji na temat dodawania nowego rozwiązania.
+Solutions are a collection of logic, visualization and data acquisition rules that address key customer challenges. Security and Audit is one solution, others can be added separately. Read the article [Add solutions](https://technet.microsoft.com/library/mt674635.aspx) for more information on how to add a new solution.
 
-Pulpit nawigacyjny Zabezpieczenia i inspekcja w pakiecie OMS jest podzielony na cztery główne kategorie:
+The OMS Security and Audit dashboard is organized in four major categories:
 
-- **Domeny zabezpieczeń**: w tym obszarze można bardziej szczegółowo przeglądać historię zabezpieczeń. Zapewnia on też dostęp do ocen złośliwego oprogramowania i aktualizacji, zabezpieczeń sieci, informacji o tożsamości i dostępie, komputerów ze zdarzeniami bezpieczeństwa, a także szybki dostęp do pulpitu nawigacyjnego Azure Security Center.
-- **Problemy godne uwagi**: ta opcja umożliwia szybkie ustalenie liczby aktywnych problemów i ich ważności.
-- **Wykrycia (podgląd)**: umożliwia określenie schematów ataku przez wizualizację alertów zabezpieczeń dotyczących poszczególnych zasobów.
-- **Analiza zagrożeń**: umożliwia określenie schematów ataku przez wizualizację całkowitej liczby serwerów z wychodzącym złośliwym ruchem IP, typu złośliwych zagrożeń oraz mapy pochodzenia tych adresów IP. 
-- **Typowe zapytania dotyczące zabezpieczeń**: ta opcja zawiera listę najbardziej typowych zapytań zabezpieczeń, których można używać do monitorowania środowiska. Po kliknięciu jednego z zapytań pojawia się blok **Wyszukiwanie** z wynikami tego zapytania.
+- **Security Domains**: in this area you will be able to further explore security records over time, access malware assessment, update assessment, network security, identity and access information, computers with security events and quickly have access to Azure Security Center dashboard.
+- **Notable Issues**: this option will allow you to quickly identify the number of active issues and the severity of these issues.
+- **Detections (Preview)**: enables you to identify attack patterns by visualizing security alerts as they take place against your resources.
+- **Threat Intelligence**: enables you to identify attack patterns by visualizing the total number of servers with outbound malicious IP traffic, the malicious threat type and a map that shows where these IPs are coming from. 
+- **Common security queries**: this option provides you a list of the most common security queries that you can use to monitor your environment. When you click in one of those queries, it opens the **Search** blade with the results for that query.
 
-> [AZURE.NOTE] Aby uzyskać więcej informacji o sposobach zapewniania bezpieczeństwa danych przez pakiet OMS, przeczytaj artykuł How OMS secures your data (W jaki sposób pakiet OMS chroni dane?).
+> [AZURE.NOTE] for more information on how OMS keeps your data secure, read How OMS secures your data.
 
-## Domeny zabezpieczeń
+## Security domains
 
-Podczas monitorowania zasobów ważna jest możliwość szybkiej oceny bieżącego stanu środowiska. Jednak warto również śledzić zdarzenia, które wystąpiły w przeszłości, a mogą prowadzić do lepszego zrozumienia tego, co dzieje się w środowisku w danym momencie. 
+When monitoring resources, it is important to be able to quickly access the current state of your environment. However it is also important to be able to track back events that occurred in the past that can lead to a better understanding of what’s happening in your environment at certain point in time. 
 
-> [AZURE.NOTE] Przechowywanie danych jest realizowane zgodnie z cennikiem pakietu OMS. Aby uzyskać więcej informacji, odwiedź stronę z informacjami o cenach pakietu [Microsoft Operations Management Suite](https://www.microsoft.com/server-cloud/operations-management-suite/pricing.aspx).
+> [AZURE.NOTE] data retention is according to the OMS pricing plan. For more information visit the [Microsoft Operations Management Suite](https://www.microsoft.com/server-cloud/operations-management-suite/pricing.aspx) pricing page.
 
-Scenariusze reagowania na zdarzenia i ich analizowania odniosą bezpośrednie korzyści z informacji dostępnych na kafelku **Rekordy zabezpieczeń w czasie**.
+Incident response and forensics investigation scenarios will directly benefit from the results available in the **Security Records over Time** tile.
 
-![Rekordy zabezpieczeń w czasie](./media/oms-security-getting-started/oms-getting-started-fig2.JPG)
+![Security records over time](./media/oms-security-getting-started/oms-getting-started-fig2.JPG)
 
-Po kliknięciu tego kafelka pojawi się blok **Wyszukiwanie** przedstawiający wyniki zapytania **Zdarzenia zabezpieczeń** (Type=SecurityEvents) na podstawie danych z ostatnich siedmiu dni, jak pokazano poniżej:
+When you click on this tile, the **Search** blade will open, showing a query result for **Security Events** (Type=SecurityEvents) with data based on the last seven days, as shown below:
 
-![Rekordy zabezpieczeń w czasie](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
+![Security records over time](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
 
-Wyniki wyszukiwania są podzielone na dwa okienka: okienko po lewej stronie zawiera zestawienie liczby znalezionych zdarzeń zabezpieczeń, komputerów, na których zostały one wykryte, liczby kont odnalezionych na tych komputerach oraz typów działań. Prawe okienko zawiera całkowitą liczbę wyników i chronologiczny widok zdarzeń zabezpieczeń z nazwą komputera i działaniem zdarzenia. Możesz również kliknąć opcję **Pokaż więcej**, aby wyświetlić więcej szczegółów na temat danego zdarzenia, takich jak dane dotyczące zdarzenia, identyfikator zdarzenia i źródło zdarzenia.
+The search result is divided in two panes: the left pane gives you a breakdown of the number of security events that were found, the computers in which these events were found, the number of accounts that were discovered in these computers and the types of activities. The right pane provides you the total results and a chronological view of the security events with the computer’s name and event activity. You can also click **Show More** to view more details about this event, such as the event data, the event ID and the event source.
 
-> [AZURE.NOTE] Więcej informacji na temat zapytania wyszukiwania pakietu OMS zawiera artykuł [OMS search reference](https://technet.microsoft.com/library/mt450427.aspx) (Wprowadzenie do wyszukiwania w pakiecie OMS).
+> [AZURE.NOTE] for more information about OMS search query, read [OMS search reference](https://technet.microsoft.com/library/mt450427.aspx).
 
-### Ocena oprogramowania chroniącego przed złośliwym kodem
+### Antimalware assessment
 
-Ta opcja umożliwia szybką identyfikację komputerów z niedostateczną ochroną i komputerów, których zabezpieczenia zostały naruszone na skutek działania złośliwego kodu. Informacje o stanie oceny złośliwego oprogramowania i wykrytych zagrożeń na monitorowanych serwerach są odczytywane i przesyłane do usługi OMS w chmurze w celu przetworzenia. Serwery z wykrytymi zagrożeniami lub niedostateczną ochroną są widoczne na pulpicie nawigacyjnym oceny oprogramowania chroniącego przed złośliwym kodem, który jest dostępny po kliknięciu kafelka **Ocena oprogramowania chroniącego przed złośliwym kodem**. 
+This option enables you to quickly identify computers with insufficient protection and computers that are compromised by a piece of malware. Malware assessment status and detected threats on the monitored servers are read, and then the data is sent to the OMS service in the cloud for processing. Servers with detected threats and servers with insufficient protection are shown in the malware assessment dashboard, which is accessible after you click in the **Antimalware Assessment** tile. 
 
-![Ocena oprogramowania chroniącego przed złośliwym kodem](./media/oms-security-getting-started/oms-getting-started-fig4-ga.png)
+![malware assessment](./media/oms-security-getting-started/oms-getting-started-fig4-ga.png)
 
-Podobnie jak w przypadku innych kafelków dynamicznych dostępnych na pulpicie nawigacyjnym pakietu OMS, po kliknięciu kafelka pojawia się blok **Wyszukiwanie** z wynikami zapytania. Jeśli klikniesz opcję **Brak zgłaszania** w obszarze **Stan ochrony**, zostanie wyświetlony wynik zapytania z jednym wpisem zawierającym nazwę i rangę komputera, jak widać poniżej:
+Just like any other live tile available in OMS Dashboard, when you click on it, the **Search** blade will open with the query result. For this option, if you click in the **Not Reporting** option under **Protection Status**, you will have the query result that shows this single entry that contains the computer’s name and its rank, as shown below:
 
-![Wynik wyszukiwania](./media/oms-security-getting-started/oms-getting-started-fig5.png)
+![search result](./media/oms-security-getting-started/oms-getting-started-fig5.png)
 
-> [AZURE.NOTE] *Ranga* to wartość podsumowująca stan ochrony (włączona, wyłączona, zaktualizowana itp.) oraz znalezione zagrożenia. Taka liczba ułatwia agregację danych.
+> [AZURE.NOTE] *rank* is a grade giving to reflect the status of the protection (on, off, updated, etc) and threats that are found. Having that as a number helps to make aggregations.
 
-Gdy klikniesz nazwę komputera, pojawi się chronologiczny widok stanu ochrony danego komputera. Jest to bardzo przydatne w scenariuszach, w których należy ustalić, czy oprogramowanie chroniące przed złośliwym kodem było wcześniej zainstalowane, a w pewnym momencie zostało usunięte.   
+If you click in the computer’s name, you will have the chronological view of the protection status for this computer. This is very useful for scenarios in which you need to understand if the antimalware was once installed and at some point it was removed.   
 
-### Ocena aktualizacji 
+### Update assessment 
 
-Ta opcja umożliwia szybkie ustalenie ogólnego narażenia na potencjalne problemy z zabezpieczeniami oraz stopnia krytyczności tych problemów dla danego środowiska. Rozwiązanie Zabezpieczenia i inspekcja w pakiecie OMS zapewnia tylko wizualizację tych aktualizacji. Rzeczywiste dane pochodzą z rozwiązania [Aktualizacje systemu](https://technet.microsoft.com/library/mt484096.aspx), które jest oddzielnym modułem pakietu OMS. Oto przykład aktualizacji:
+This option enables you to quickly determine the overall exposure to potential security problems, and whether or how critical these updates are for your environment. OMS Security and Audit solution only provide the visualization of these updates, the real data comes from [System Updates Solutions](https://technet.microsoft.com/library/mt484096.aspx), which is a different module within OMS. Here an example of the updates:
 
-![Aktualizacje systemu](./media/oms-security-getting-started/oms-getting-started-fig6.png)
+![system updates](./media/oms-security-getting-started/oms-getting-started-fig6.png)
 
-> [AZURE.NOTE] Więcej informacji na temat rozwiązania Aktualizacje systemu zawiera artykuł [Update servers with the System Updates solution](https://technet.microsoft.com/library/mt484096.aspx) (Aktualizowanie serwerów przy użyciu rozwiązania Aktualizacje systemu).
+> [AZURE.NOTE] for more information about Updates solution, read [Update servers with the System Updates solution](https://technet.microsoft.com/library/mt484096.aspx).
 
-### Tożsamość i dostęp
+### Identity and Access
 
-Tożsamość powinna być warstwą kontroli w przedsiębiorstwie. Ochrona tożsamości powinna stanowić najwyższy priorytet. W przeszłości organizacja była otoczona granicami pełniącymi rolę podstawowych stref obronnych. Obecnie jednak coraz więcej danych i aplikacji jest przenoszonych do chmury, przez co nową strefą ochronną staje się tożsamość. 
+Identity should be the control plane for your enterprise, protecting your identity should be your top priority. While in the past there were perimeters around organizations and those perimeters were one of the primary defensive boundaries, nowadays with more data and more apps moving to the cloud the identity becomes the new perimeter. 
 
-> [AZURE.NOTE] Obecnie dane gromadzone są tylko na podstawie danych logowania zdarzeń zabezpieczeń (zdarzenie o identyfikatorze 4624). W przyszłości uwzględniane będą też dane logowania usług Office 365 i Azure AD.
+> [AZURE.NOTE] currently the data is based only on Security Events login data (event ID 4624) in the future Office365 logins and Azure AD data will also be included.
 
-Dzięki monitorowaniu działań związanych z tożsamością można podejmować prewencyjne działania przed wystąpieniem zdarzenia i reagować na próby ataku. Pulpit nawigacyjny **Tożsamość i dostęp** zawiera przegląd stanu tożsamości, w tym liczbę nieudanych prób logowania, konta użytkowników wykorzystywane podczas tych prób, konta zablokowane, konta, dla których zmieniono lub zresetowano hasło, a także liczbę kont aktualnie zalogowanych użytkowników. 
+By monitoring your identity activities you will be able to take proactive actions before an incident takes place or reactive actions to stop an attack attempt. The **Identity and Access** dashboard provides you an overview of your identity state, including the number of failed attempts to log on, the user’s account that were used during those attempts, accounts that were locked out, accounts with changed or reset password and currently number of accounts that are logged in. 
 
-Po kliknięciu kafelka **Tożsamość i dostęp** pojawi się następujący pulpit nawigacyjny:
+When you click in the **Identity and Access** tile you will see the following dashboard:
 
-![Tożsamość i dostęp](./media/oms-security-getting-started/oms-getting-started-fig7-ga.png)
+![identity and access](./media/oms-security-getting-started/oms-getting-started-fig7-ga.png)
 
-Informacje zawarte na tym pulpicie nawigacyjnym mogą bezpośrednio pomóc w zidentyfikowaniu potencjalne podejrzanych działań. Widać na przykład 338 prób logowania jako **Administrator**, z których 100% zakończyło się niepowodzeniem. Może to być spowodowane atakiem siłowym na to konto. Po kliknięciu tego konta zostanie wyświetlonych więcej informacji, które mogą pomóc w ustaleniu zasobu docelowego tego potencjalnego ataku:
+The information available in this dashboard can immediately assist you to identify a potential suspicious activity. For example, there are 338 attempts to log on as **Administrator** and 100% of these attempts failed. This can be caused by a brute force attack against this account. If you click on this account you will obtain more information that can assist you to determine the target resource for this potential attack:
 
-![Wyniki wyszukiwania](./media/oms-security-getting-started/oms-getting-started-fig8.JPG)
+![search results](./media/oms-security-getting-started/oms-getting-started-fig8.JPG)
 
-Raport szczegółowy zawiera ważne informacje dotyczące tego zdarzenia, w tym: komputer docelowy, typ logowania (w tym przypadku logowanie sieciowe), działanie (w tym przypadku zdarzenie o identyfikatorze 4625) oraz szczegółowy przebieg prób w czasie. 
+The detailed report provides important information about this event, including: the target computer, the type of logon (in this case Network logon), the activity (in this case event 4625) and a comprehensive timeline of each attempt. 
 
-### Komputery
+### Computers
 
-Ten kafelek umożliwia dostęp do wszystkich komputerów, na których istnieją aktywne zdarzenia zabezpieczeń. Po kliknięciu tego kafelka pojawia się lista komputerów ze zdarzeniami zabezpieczeń oraz liczba zdarzeń na każdym komputerze:
+This tile can be used to access all computers that actively have security events. When you click in this tile you will see the list of computers with security events and the number of events on each computer:
 
-![Komputery](./media/oms-security-getting-started/oms-getting-started-fig9.JPG)
+![Computers](./media/oms-security-getting-started/oms-getting-started-fig9.JPG)
 
-Można kontynuować badania, klikając wybrany komputer i przeglądając oznaczone zdarzenia zabezpieczeń.
+You can continue your investigation by clicking on each computer and review the security events that were flagged.
 
 ### Azure Security Center
 
-Ten kafelek jest po prostu skrótem do pulpitu nawigacyjnego Azure Security Center. Więcej informacji na temat tego rozwiązania zawiera artykuł [Przewodnik Szybki start dotyczący Centrum zabezpieczeń Azure](../security-center/security-center-get-started.md).
+This tile is basically a shortcut to access Azure Security Center dashboard. Read [Getting started with Azure Security Center](../security-center/security-center-get-started.md) for more information about this solution.
 
-## Problemy godne uwagi
+## Notable issues
 
-Głównym przeznaczeniem tej grupy opcji jest zapewnianie szybkiego wglądu w problemy występujące w danym środowisku oraz ich podział na problemy krytyczne, ostrzegawcze oraz informacyjne. Kafelek typu aktywnego problemu oferuje wizualizację tych problemów, ale nie podaje szczegółowych informacji. Służy do tego dolna część tego kafelka, na której widać nazwę problemu (NAZWA), liczbę obiektów, których dotyczy (LICZBA) i stopień ich ważności (WAŻNOŚĆ).
+The main intent of this group of options is to provide a quick view of the issues that you have in your environment, by categorizing them in Critical, Warning and Informational. The Active issue type tile it’s a visualization of these issues, but it doesn’t allow you to explore more details about them, for that you need to use the lower part of this tile that has the name of the issue (NAME), how many objects had this happen (COUNT) and how critical it is (SEVERITY).
 
-![Problemy godne uwagi](./media/oms-security-getting-started/oms-getting-started-fig10.JPG)
+![Notable issues](./media/oms-security-getting-started/oms-getting-started-fig10.JPG)
 
-Widać, że te problemy zostały już przedstawione w innych obszarach grupy **Domeny zabezpieczeń**, co podkreśla przeznaczenie tego widoku, jakim jest wizualizacja najważniejszych problemów w środowisku w jednym miejscu.
+You can see that these issues were already covered in different areas of the **Security Domains** group, which reinforces the intent of this view: visualize the most important issues in your environment from a single place.
 
-## Wykrycia (podgląd)
+## Detections (Preview)
 
-Ta opcja służy przede wszystkim do szybkiego identyfikowania potencjalnych zagrożeń w środowisku oraz określania ich ważności.
+The main intent of this option is to allow IT to quickly identify potential threats to their environment via and the severity of this threat.
 
-![Analiza zagrożeń](./media/oms-security-getting-started/oms-getting-started-fig12.png)
+![Threat Intel](./media/oms-security-getting-started/oms-getting-started-fig12.png)
 
-Z tej opcji można również skorzystać podczas analizy reakcji na zdarzenia w celu przeprowadzenia oceny i uzyskania dalszych informacji o ataku.
+This option can also be used during an incident response investigation to perform the assessment and obtain more information about the attack.
 
-> [AZURE.NOTE] Aby uzyskać więcej informacji na temat reagowania na zdarzenia przy użyciu pakietu OMS, obejrzyj prezentację [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Jak reagować na zdarzenia przy użyciu rozwiązania Azure Security Center i pakietu Microsoft Operations Management Suite).
+> [AZURE.NOTE] For more information on how to use OMS for Incident Response, watch [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
 
-## Analiza zagrożeń
+## Threat Intelligence
 
-Nowa sekcja analizy zagrożeń w rozwiązaniu Zabezpieczenia i inspekcja umożliwia wizualizację możliwych schematów ataku na kilka sposobów: całkowita liczba serwerów z wychodzącym złośliwym ruchem IP, typ złośliwego kodu oraz mapa pochodzenia tych adresów IP. Mapa jest interaktywna: klikając adres IP, można uzyskać więcej informacji.
+The new threat intelligence section of the Security and Audit solution visualizes the possible attack patterns in several ways: the total number of servers with outbound malicious IP traffic, the malicious threat type and a map that shows where these IPs are coming from. You can interact with the map and click on the IPs for more information.
 
-Żółte pinezki na mapie wskazują ruch przychodzący ze złośliwych adresów IP. Nie jest niczym niezwykłym, że serwery połączone z Internetem odbierają złośliwy ruch przychodzący, ale warto przeglądać te próby, aby upewnić się, że żadna z nich nie zakończyła się pomyślnie. Wskaźniki te są oparte na dziennikach usług IIS i zapory systemu Windows oraz danych WireData.  
+Yellow pushpins on the map indicate incoming traffic from malicious IPs. It is not uncommon for servers that are exposed to the internet to see incoming malicious traffic, but we recommend reviewing these attempts to make sure none of them was successful. These indicators are based on IIS logs, WireData and Windows Firewall logs.  
 
-![Analiza zagrożeń](./media/oms-security-getting-started/oms-getting-started-fig11-ga.png)
+![Threat Intel](./media/oms-security-getting-started/oms-getting-started-fig11-ga.png)
 
-## Typowe zapytania dotyczące zabezpieczeń
+## Common security queries
 
-Lista typowych zapytań dotyczących zabezpieczeń może ułatwiać szybki dostęp do informacji o zasobach i dostosowanie ich do wymagań danego środowiska. Typowe zapytania obejmują:
+The list of common security queries available can be useful for you to rapidly access resource’s information and customize it based on your environment’s needs. These common queries are:
 
-- Wszystkie działania dotyczące zabezpieczeń
-- Działania dotyczące zabezpieczeń na komputerze „computer01.contoso.com” (zastąp własną nazwą komputera)
-- Działania dotyczące zabezpieczeń na komputerze „computer01.contoso.com” dla konta „Administrator” (zastąp własnymi nazwami komputera i konta)
-- Działania logowania według komputera
-- Konta, przy użyciu których przerwano pracę oprogramowania firmy Microsoft chroniącego przed złośliwym kodem na dowolnym komputerze
-- Komputery, na których proces oprogramowania firmy Microsoft chroniącego przed złośliwym kodem został przerwany
-- Komputery, na których wykonano plik „hash.exe” (zastąp inną nazwą procesu)
-- Nazwy wszystkich wykonanych procesów
-- Działania logowania według konta
-- Konta, przy użyciu których wykonano zdalne logowanie do komputera „computer01.contoso.com” (zastąp własną nazwą komputera)
+- All Security Activities
+- Security Activities on the computer "computer01.contoso.com" (replace with your own computer name)
+- Security Activities on the computer "computer01.contoso.com" for account "Administrator" (replace with your own computer and account names)
+- Log on Activity by Computer
+- Accounts who terminated Microsoft antimalware on any computer
+- Computers where the Microsoft antimalware process was terminated
+- Computers where "hash.exe" was executed (replace with different process name)
+- All Process names that were executed
+- Log on Activity by Account
+- Accounts who remotely logged on the computer "computer01.contoso.com" (replace with your own computer name)
 
-## Zobacz też
+## See also
 
-Ten dokument przedstawia wprowadzenie do rozwiązania Zabezpieczenia i inspekcja w pakiecie OMS. Więcej informacji na temat zabezpieczeń w pakiecie OMS zawierają następujące artykuły:
+In this document, you were introduced to OMS Security and Audit solution. To learn more about OMS Security, see the following articles:
 
-- [Omówienie pakietu Operations Management Suite (OMS)](operations-management-suite-overview.md)
-- [Monitorowanie alertów zabezpieczeń i reagowanie na nie w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-responding-alerts.md)
-- [Monitorowanie zasobów w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-monitoring-resources.md)
+- [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
+- [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](oms-security-responding-alerts.md)
+- [Monitoring Resources in Operations Management Suite Security and Audit Solution](oms-security-monitoring-resources.md)
 
 
 

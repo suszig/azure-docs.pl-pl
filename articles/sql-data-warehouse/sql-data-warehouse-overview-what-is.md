@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="09/27/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
+
 
 
 # Co to jest Azure SQL Data Warehouse?
@@ -49,7 +50,7 @@ Na poniższym diagramie przedstawiono architekturę bardziej szczegółowo.
 
 **Węzły obliczeniowe:** Węzły obliczeniowe zasilają usługę SQL Data Warehouse. Są one bazami danych SQL, które przechowują dane i przetwarzają zapytania. Po dodaniu danych usługa SQL Data Warehouse dystrybuuje wiersze do węzłów obliczeniowych. Węzły obliczeniowe to procesy robocze, które uruchamiają zapytania równoległe względem danych. Po zakończeniu przetwarzania przekazują wyniki z powrotem do węzła kontrolnego. Aby zakończyć wykonywanie zapytania, węzeł kontrolny agreguje wyniki i zwraca wynik końcowy.
 
-**Magazyn:** Dane są przechowywane w usłudze Azure Blob Storage. Gdy węzły obliczeniowe współdziałają z danymi, zapisują i odczytują bezpośrednio do i z magazynu obiektów blob. Ponieważ magazyn Azure rozszerza się w sposób przezroczysty i nieograniczony, w usłudze SQL Data Warehouse dzieje się tak samo. Ponieważ zasoby obliczeniowe i magazyn są niezależne od siebie, usługa SQL Data Warehouse może automatycznie skalować magazyn niezależnie od skalowania zasobów obliczeniowych i na odwrót. Usługa Azure Blob Storage jest również całkowicie odporna na uszkodzenia oraz usprawnia proces tworzenia kopii zapasowych i przywracania danych.
+**Magazyn:** Dane są przechowywane w usłudze Azure Blob Storage. Gdy węzły obliczeniowe współdziałają z danymi, zapisują i odczytują bezpośrednio do i z magazynu obiektów blob. Ponieważ magazyn Azure rozszerza się w sposób przezroczysty i znaczny, w usłudze SQL Data Warehouse dzieje się tak samo. Ponieważ zasoby obliczeniowe i magazyn są niezależne od siebie, usługa SQL Data Warehouse może automatycznie skalować magazyn niezależnie od skalowania zasobów obliczeniowych i na odwrót. Usługa Azure Blob Storage jest również całkowicie odporna na uszkodzenia oraz usprawnia proces tworzenia kopii zapasowych i przywracania danych.
 
 **Data Movement Service:** Usługa Data Movement Service (DMS) przenosi dane między węzłami. Usługa DMS umożliwia węzłom obliczeniowym dostęp do danych, które są im niezbędne do sprzęgania i agregacji. Usługa DMS nie jest usługą platformy Azure. Jest to usługa systemu Windows uruchamiana razem z usługą SQL Database na wszystkich węzłach. Ponieważ usługa DMS uruchamia się w tle, użytkownik nie wchodzi z nią w bezpośrednią interakcję. Jednak jeśli przyjrzymy się planom zapytań, zauważymy, że zawierają one operacje DMS, gdyż przenoszenie danych jest niezbędne do uruchamiania każdego zapytania równolegle.
 
@@ -148,10 +149,11 @@ Program PolyBase umożliwia wykorzystywanie danych z innych źródeł przy użyc
 
 Teraz, gdy masz już podstawową wiedzę na temat usługi SQL Data Warehouse, możesz dowiedzieć się, jak szybko [utworzyć bazę danych w usłudze SQL Data Warehouse][] i [ładowanie danych przykładowych][]. Jeśli dopiero zaczynasz korzystać z platformy Azure, [słownik platformy Azure][] może pomóc Ci zaznajomić się z nową terminologią. Możesz też zwrócić uwagę na inne zasoby dotyczące usługi SQL Data Warehouse.  
 
+- [Historie sukcesu klientów]
 - [Blogi]
 - [Żądania funkcji]
 - [Filmy wideo]
-- [Blogi zespołu CAT]
+- [Blogi zespołu doradczego klientów]
 - [Tworzenie biletu pomocy technicznej]
 - [Forum MSDN]
 - [Forum Stack Overflow]
@@ -162,20 +164,21 @@ Teraz, gdy masz już podstawową wiedzę na temat usługi SQL Data Warehouse, mo
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[Tworzenie biletu pomocy technicznej]: sql-data-warehouse-get-started-create-support-ticket.md
-[ładowanie danych przykładowych]: sql-data-warehouse-load-sample-databases.md
-[utworzyć bazę danych w usłudze SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[dokumentacją dotycząca migracji]: sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse solution partners]: sql-data-warehouse-partner-business-intelligence.md
-[Integrated tools overview]: sql-data-warehouse-overview-integrate.md
-[Backup and restore overview]: sql-data-warehouse-restore-database-overview.md
+[Tworzenie biletu pomocy technicznej]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[ładowanie danych przykładowych]: ./sql-data-warehouse-load-sample-databases.md
+[utworzyć bazę danych w usłudze SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[dokumentacją dotycząca migracji]: ./sql-data-warehouse-overview-migrate.md
+[SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
+[Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
+[Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
 [słownik platformy Azure]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
+[Historie sukcesu klientów]: https://customers.microsoft.com/search?sq=&ff=story_products_services%26%3EAzure%2FAzure%2FAzure%20SQL%20Data%20Warehouse%26%26story_product_families%26%3EAzure%2FAzure%26%26story_product_categories%26%3EAzure&p=0
 [Blogi]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[Blogi zespołu CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Blogi zespołu doradczego klientów]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Żądania funkcji]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Forum MSDN]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse
 [Forum Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
@@ -184,6 +187,6 @@ Teraz, gdy masz już podstawową wiedzę na temat usługi SQL Data Warehouse, mo
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/17/2016"
+   ms.date="09/23/2016"
    ms.author="alkohli" />
 
 
@@ -132,13 +132,15 @@ Upewnij się, że przed rozpoczęciem masz przygotowane następujące informacje
 
 Przed wykonaniem tych procedur upewnij się, że spełniono [wymagania wstępne dotyczące urządzeń wirtualnych](#prerequisites-for-the-virtual-device). 
 
-Po utworzeniu sieci wirtualnej, skonfigurowaniu usługi Menedżer StorSimple i zarejestrowaniu urządzenia fizycznego StorSimple w usłudze możesz wykonać następujące kroki, aby utworzyć i skonfigurować urządzenie wirtualne StorSimple.
+Po utworzeniu sieci wirtualnej, skonfigurowaniu usługi Menedżer StorSimple i zarejestrowaniu urządzenia fizycznego StorSimple w usłudze możesz wykonać następujące kroki, aby utworzyć i skonfigurować urządzenie wirtualne StorSimple. 
 
 ### Krok 1. Tworzenie urządzenia wirtualnego
 
 Wykonaj poniższe kroki, aby utworzyć urządzenie wirtualne StorSimple.
 
 [AZURE.INCLUDE [Create a virtual device](../../includes/storsimple-create-virtual-device-u2.md)]
+
+Jeśli tworzenie urządzenia wirtualnego zakończy się niepowodzeniem w trakcie tego kroku, może to oznaczać brak łączności z Internetem. Aby uzyskać więcej informacji, przejdź do sekcji [rozwiązywania problemów z błędami łączności internetowej](#troubleshoot-internet-connectivity-errors) podczas tworzenia urządzenia wirtualnego.
 
 
 ### Krok 2: Konfigurowanie i rejestrowanie urządzenia wirtualnego
@@ -274,6 +276,19 @@ W przypadku usunięcia lub wyłączenia urządzenia wirtualnego będzie ono wyś
 [AZURE.INCLUDE [Delete a virtual device](../../includes/storsimple-delete-virtual-device.md)]
 
    
+## Rozwiązywanie problemów z błędami łączności internetowej 
+
+Jeśli podczas tworzenia urządzenia wirtualnego nie ma łączności z Internetem, krok związany z tworzeniem zakończy się niepowodzeniem. Aby rozwiązać problemy w przypadku awarii wynikającej z łączności z Internetem, wykonaj poniższe czynności w klasycznym portalu Azure:
+
+1. Utwórz maszynę wirtualną systemu Windows Server 2012 na platformie Azure. Ta maszyna wirtualna powinna używać tego samego konta magazynu, sieci wirtualnej i podsieci, które są używane przez urządzenie wirtualne. Jeśli masz już istniejący host systemu Windows Server na platformie Azure używający tego samego konta magazynu, sieci wirtualnej i podsieci, możesz również użyć go, aby rozwiązywać problemy z łącznością z Internetem.
+2. Zdalnie zaloguj się do maszyny wirtualnej utworzonej w poprzednim kroku. 
+3. Otwórz okno poleceń w ramach maszyny wirtualnej (naciśnij klawisze Win + R, a następnie wpisz polecenie `cmd`).
+4. W wierszu polecenia wpisz następujące polecenie.
+
+    `nslookup windows.net`
+
+5. Jeśli narzędzie `nslookup` ulegnie awarii, oznacza to, że błąd łączności z Internetem uniemożliwia zarejestrowanie urządzenia wirtualnego w usłudze StorSimple Manager. 
+6. Wprowadź wymagane zmiany w sieci wirtualnej, aby zapewnić, że urządzenie wirtualne może uzyskać dostęp do witryn platformy Azure, na przykład „windows.net”.
 
 ## Następne kroki
 
@@ -284,6 +299,6 @@ W przypadku usunięcia lub wyłączenia urządzenia wirtualnego będzie ono wyś
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

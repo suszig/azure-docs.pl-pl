@@ -1,59 +1,66 @@
 <properties
-	pageTitle="Service Bus Premium and Standard Messaging pricing tiers overview | Microsoft Azure"
-	description="Service Bus Premium and Standard Messaging"
-	services="service-bus-messaging"
-	documentationCenter=".net"
-	authors="djrosanova"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Omówienie warstw cenowych Premium i Standardowa komunikatów usługi Service Bus | Microsoft Azure"
+    description="Komunikaty usługi Service Bus w warstwie Premium i Standardowa"
+    services="service-bus-messaging"
+    documentationCenter=".net"
+    authors="djrosanova"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus-messaging"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/02/2016"
-	ms.author="darosa;sethm"/>
+    ms.service="service-bus-messaging"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/02/2016"
+    ms.author="darosa;sethm"/>
 
-# Service Bus Premium and Standard messaging tiers 
 
-Service Bus messaging, which includes messaging entities such as queues and topics, combines enterprise messaging capabilities with rich publish-subscribe semantics at cloud scale. Service Bus messaging is used as the communication backbone for many sophisticated cloud solutions.
+# Warstwy Premium i Standardowa komunikatów usługi Service Bus 
 
-The *Premium* tier of Service Bus messaging addresses common customer requests around scale, performance, and availability for mission-critical applications. Although the feature sets are nearly identical, these two tiers of Service Bus messaging are designed to serve different use cases.
+Komunikaty usługi Service Bus, w tym jednostki komunikatów, takie jak kolejki i tematy, stanowią połączenie możliwości obsługi komunikatów dla przedsiębiorstw oraz zaawansowanej semantyki publikowania/subskrybowania w skali chmury. Obsługa komunikatów usługi Service Bus pełni rolę szkieletu komunikacyjnego dla wielu zaawansowanych rozwiązań w chmurze.
 
-Some high-level differences are highlighted in the table below.
+Warstwa *Premium* komunikatów usługi Service Bus stanowi odpowiedź na częste żądania klientów dotyczące skali, wydajności i dostępności dla aplikacji o krytycznym znaczeniu. Mimo że zestawy funkcji są niemal identyczne, te dwie warstwy komunikatów usługi Service Bus są przeznaczone do różnych zastosowań.
 
-| Premium                               | Standard                       |
+W poniższej tabeli wyróżniono pewne ogólne różnice.
+
+| Premium                               | Standardowa (Standard)                       |
 |---------------------------------------|--------------------------------|
-| High throughput                       | Variable throughput            |
-| Predictable performance               | Variable latency               |
-| Predictable pricing                   | Pay as you go variable pricing |
-| Ability to scale up and down workload | N/A                            |
-| Message size > 256KB                  | Message size is 256KB          |
+| Wysoka przepustowość                       | Zmienna przepustowość            |
+| Przewidywalna wydajność               | Zmienne opóźnienie               |
+| Przewidywalne ceny                   | Zmienne ceny i płatność zgodnie z rzeczywistym użyciem |
+| Możliwość skalowania obciążenia | Nie dotyczy                            |
+| Rozmiar komunikatu > 256 KB                  | Rozmiar komunikatu równy 256 KB          |
 
-**Service Bus Premium Messaging** provides resource isolation at the CPU and memory layer so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, or 4 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will, although billing is in 24-hour or daily rate charges. The result is predictable and repeatable performance for your Service Bus-based solution.
+**Obsługa komunikatów usługi Service Bus Premium** zapewnia izolację zasobów w warstwie procesora i pamięci, dlatego obciążenia poszczególnych klientów są od siebie odizolowane. Ten kontener zasobów jest nazywany *jednostką obsługi komunikatów*. Każda przestrzeń nazw w warstwie Premium ma przydzieloną co najmniej jedną jednostkę obsługi komunikatów. Możesz kupić 1, 2 lub 4 jednostki obsługi komunikatów dla każdej przestrzeni nazw usługi Service Bus w warstwie Premium. Pojedyncze obciążenie lub jednostka może obejmować wiele jednostek obsługi komunikatów, a ich liczbę można dowolnie zmieniać, chociaż opłaty są naliczane w cyklu 24-godzinnym lub codziennie. Pozwala to uzyskać przewidywalną i powtarzalną wydajność dla rozwiązania opartego na usłudze Service Bus.
 
-Not only is this performance more predictable and available, but it is also faster. Service Bus Premium messaging builds on the storage engine introduced in [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). With Premium messaging, peak performance is much faster than with the Standard tier.
+Poprawa dotyczy nie tylko przewidywalności i dostępności, ale również szybkości działania. Komunikaty usługi Service Bus w warstwie Premium są oparte na aparacie magazynu wprowadzonym w usłudze [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Dzięki komunikatom w warstwie Premium maksymalna szybkość działania jest znacznie wyższa niż w przypadku warstwy Standardowa.
 
-## Premium Messaging technical differences
+## Różnice techniczne dotyczące komunikatów w warstwie Premium
 
-The following are a few differences between Premium and Standard messaging tiers.
+Poniżej przedstawiono niektóre różnice między komunikatami w warstwie Premium i Standardowa.
 
-### Partitioned queues and topics
+### Partycjonowane kolejki i tematy
 
-Partitioned queues and topics are supported in Premium messaging, but they do not function the same way as in the Standard and Basic tiers of Service Bus messaging. Premium messaging does not use SQL as a data store and no longer has the possible resource competition associated with a shared platform. As a result, partitioning is not necessary. Additionally, the partition count has been changed from 16 partitions in Standard messaging to 2 partitions in Premium. Having two partitions ensures availability and is a more appropriate number for the Premium runtime environment. For more information about partitioning, see [Partitioned queues and topics](service-bus-partitioning.md).
+Partycjonowane kolejki i tematy są obsługiwane przez komunikaty w warstwie Premium, ale nie działają tak samo jak w przypadku komunikatów usługi Service Bus w warstwie Standardowa i Podstawowa. Komunikaty w warstwie Premium nie używają bazy danych SQL jako magazynu danych i nie występuje już potencjalne konkurowanie o zasoby typowe dla platformy współdzielonej. W związku z tym partycjonowanie nie jest konieczne. Ponadto liczba partycji została zmieniona z szesnastu partycji w przypadku komunikatów w warstwie Standardowa do dwóch partycji w warstwie Premium. Istnienie dwóch partycji gwarantuje dostępność i jest to bardziej odpowiednia liczba dla środowiska uruchomieniowego w warstwie Premium. Aby uzyskać więcej informacji na temat partycjonowania, zobacz [Partitioned queues and topics](service-bus-partitioning.md) (Partycjonowane kolejki i tematy).
 
-### Express entities
+### Jednostki ekspresowe
 
-Because Premium Messaging runs in a completely isolated runtime environment, express entities are not supported in Premium namespaces. For more information about the express feature, see the [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx) property.
+Ze względu na fakt, że komunikaty warstwy Premium działają w całkowicie odizolowanym środowisku uruchomieniowym, jednostki ekspresowe nie są obsługiwane obszarach nazw w warstwie Premium. Aby uzyskać więcej informacji o funkcji jednostek ekspresowych, zobacz opis właściwości [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx).
 
-## Next steps
+## Następne kroki
 
-To learn more about Service Bus messaging, see the following topics.
+Aby dowiedzieć się więcej na temat obsługi komunikatów usługi Service Bus, zobacz następujące tematy.
 
-- [Introducing Azure Service Bus Premium messaging (blog post)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-- [Introducing Azure Service Bus Premium messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-- [Service Bus messaging overview](service-bus-messaging-overview.md)
-- [Azure Service Bus architectural overview](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
+- [Introducing Azure Service Bus Premium messaging (Wprowadzenie do komunikatów usługi Service Bus w warstwie Premium) — wpis w blogu](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+- [Introducing Azure Service Bus Premium messaging (Wprowadzenie do komunikatów usługi Service Bus w warstwie Premium) — Channel9](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
+- [Omówienie obsługi komunikatów w usłudze Service Bus](service-bus-messaging-overview.md)
+- [Omówienie architektury usługi Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Jak używać kolejek usługi Service Bus](service-bus-dotnet-get-started-with-queues.md)
+
+
+
+<!--HONumber=Sep16_HO4-->
+
+

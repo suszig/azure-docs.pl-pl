@@ -3,7 +3,7 @@
     description="Dowiedz się, jak dodać znakowanie firmowe do strony logowania i strony panelu dostępu platformy Azure"
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="curtand"
     manager="femila"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/13/2016"
-    ms.author="MarkVi"/>
+    ms.date="09/22/2016"
+    ms.author="curtand"/>
 
 
 # Dodawanie znakowania firmowego do stron logowania i panelu dostępu
@@ -30,7 +30,7 @@ W tym temacie wyjaśniono, jak można dostosować stronę logowania i stronę pa
 
 > [AZURE.NOTE]
 >
-- Umieszczanie logo firmy jest funkcją dostępną tylko w przypadku uaktualnienia do wersji Premium lub Podstawowa usługi Azure Active Directory. Aby uzyskać więcej informacji, zobacz [Wersje usługi Azure Active Directory](active-directory-editions.md).
+- Umieszczanie logo firmy jest funkcją dostępną tylko dla użytkowników usługi Office 365 lub osób, które dokonały uaktualnienia do wersji Premium lub Podstawowa usługi Azure Active Directory. Aby uzyskać więcej informacji, zobacz [Wersje usługi Azure Active Directory](active-directory-editions.md).
 - Klienci w Chinach mogą używać wersji Premium i Podstawowa usługi Azure Active Directory za pomocą wystąpienia usługi Azure Active Directory dostępnego na całym świecie. Wersje Premium i Podstawowa usługi Azure Active Directory nie są obecnie obsługiwane w usłudze Microsoft Azure świadczonej przez 21Vianet w Chinach. Aby uzyskać więcej informacji, skontaktuj się z nami na [forum usługi Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 
@@ -223,6 +223,6 @@ Kolor tła strony logowania | Kolor tła strony logowania jest używany w obszar
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

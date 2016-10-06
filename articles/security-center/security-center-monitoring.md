@@ -13,8 +13,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
+
 
 #Monitorowanie kondycji zabezpieczeń w Centrum zabezpieczeń Azure
 Informacje zawarte w tym dokumencie ułatwiają korzystanie z funkcji monitorowania w Centrum zabezpieczeń Azure w celu monitorowania zgodności z zasadami.
@@ -29,7 +30,7 @@ Więcej informacji dotyczących stosowania zaleceń można znaleźć w temacie [
 
 Na kafelku **Kondycja zabezpieczeń zasobów** można monitorować stan zabezpieczeń zasobów. W przykładzie poniżej widać szereg problemów o wysokiej i średniej ważności, które wymagają uwagi. Włączone zasady zabezpieczeń wpływają na typy monitorowanych środków kontroli.
 
-![Kondycja zasobów](./media/security-center-monitoring/security-center-monitoring-fig1-ga.png)
+![Kondycja zasobów](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
 
 Jeśli w Centrum zabezpieczeń zostanie zidentyfikowana luka w zabezpieczeniach, którą trzeba usunąć, np. maszyna wirtualna z brakującymi aktualizacjami zabezpieczeń lub podsieć bez [sieciowej grupy zabezpieczeń](../virtual-network/virtual-networks-nsg.md), zostanie ona wyświetlona na tej liście.
 
@@ -51,7 +52,7 @@ W tej sekcji przedstawiono całkowitą liczbę maszyn wirtualnych, dla których 
 
 
 ####Zalecenia dotyczące maszyny wirtualnej
-Ta sekcja zawiera zestaw zaleceń dotyczących każdej maszyny wirtualnej monitorowanej przez Centrum zabezpieczeń Azure. Pierwsza kolumna zawiera zalecenia, druga kolumna — całkowitą liczbę maszyn wirtualnych, których te zalecenia dotyczą, natomiast trzecia kolumna — wagę problemu, jak przedstawiono poniżej.
+Ta sekcja zawiera zestaw [zaleceń dotyczących każdej maszyny wirtualnej](security-center-virtual-machine-recommendations.md) monitorowanej przez usługę Azure Security Center. Pierwsza kolumna zawiera zalecenia, druga kolumna — całkowitą liczbę maszyn wirtualnych, których te zalecenia dotyczą, natomiast trzecia kolumna — wagę problemu, jak przedstawiono poniżej.
 
 ![Zalecenia dotyczące maszyny wirtualnej](./media/security-center-monitoring/security-center-monitoring-fig4-ga.png)
 
@@ -116,7 +117,7 @@ Po kliknięciu opcji **Sieć** na kafelku **Kondycja zabezpieczeń zasobów** zo
 
 Podobnie jak w przypadku informacji o kondycji zasobów maszyn wirtualnych, w górnej części tego bloku widoczna jest skrócona lista problemów, a w dolnej — lista monitorowanych sieci.
 
-Sekcja ze szczegółowymi danymi o stanie sieci zawiera listę potencjalnych problemów z zabezpieczeniami oraz zalecenia. Mogą wystąpić następujące problemy:
+Sekcja ze szczegółowymi danymi o stanie sieci zawiera listę potencjalnych problemów z zabezpieczeniami oraz [zalecenia](security-center-network-recommendations.md). Mogą wystąpić następujące problemy:
 
 - Zapora nowej generacji (NGFW) nie jest zainstalowana
 - Sieciowe grupy zabezpieczeń (NSG) w podsieciach nie są włączone
@@ -160,8 +161,8 @@ W tym widoku topologii pierwszy poziom obejmuje pozycje [Sieci wirtualne](../vir
 
 W dolnej części tego bloku znajdują się zalecenia dotyczące tej maszyny wirtualnej, podobnie jak powyżej. Kliknij zalecenie, aby dowiedzieć się więcej lub zastosować odpowiednie środki kontroli/konfigurację zabezpieczeń.
 
-###Monitorowanie zasobów SQL
-Po kliknięciu opcji **SQL** na kafelku **Kondycja zabezpieczeń zasobów** zostanie otwarty blok SQL zawierający zalecenia dotyczące problemów, takich jak brak włączonych funkcji inspekcji lub przezroczystego szyfrowania danych. Przedstawia on także zalecenia dotyczące ogólnej kondycji bazy danych.
+###Monitorowanie danych
+Po kliknięciu opcji **Dane** na kafelku **Kondycja zabezpieczeń zasobów** zostanie otwarty blok **SQL** zawierający zalecenia dotyczące problemów, takich jak brak włączonych funkcji inspekcji lub przezroczystego szyfrowania danych. Przedstawia on także [zalecenia](security-center-sql-service-recommendations.md) dotyczące ogólnej kondycji bazy danych.
 
 ![Kondycja zasobów SQL](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
 
@@ -208,6 +209,6 @@ W tym dokumencie przedstawiono sposób korzystania z funkcji monitorowania w Cen
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO4-->
 
 

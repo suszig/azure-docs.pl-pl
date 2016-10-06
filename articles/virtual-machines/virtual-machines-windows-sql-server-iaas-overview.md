@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="vm-windows-sql-server"
     ms.workload="infrastructure-services"
-    ms.date="08/29/2016"
+    ms.date="09/21/2016"
     ms.author="jroth"/>
 
 
@@ -39,10 +39,13 @@ Jeśli przenosisz inne obciążenia na platformę Azure, np. aplikację przedsi�
 
 W przypadku podjęcia decyzji o uruchomieniu programu SQL Server na maszynach wirtualnych Azure jednym z pierwszych wyborów będzie zdecydowanie o tym, czy zostanie użyty obraz maszyny wirtualnej obejmujący koszty licencjonowania programu SQL Server. Drugą opcją jest używanie własnej licencji (BYOL, bring your own license) i ponoszenie kosztów samej maszyny wirtualnej. W dwóch następnych sekcjach opisano te opcje.
 
-## Opcja 1. Wdrożenie maszyny wirtualnej z programem SQL (licencjonowanie za minutę)
-Poniższa tabela zawiera macierz dostępnych obrazów programu SQL Server w galerii maszyn wirtualnych. Kliknij dowolny link, aby rozpocząć tworzenie nowej maszyny wirtualnej z programem SQL o określonej wersji, wybranym wydaniu i z danym systemem operacyjnym. Wszystkie obrazy obejmują [koszty licencjonowania programu SQL Server](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+## Tworzenie nowej maszyny wirtualnej SQL
+Poniższe sekcje zawierają bezpośrednie linki do obrazów maszyn wirtualnych programu SQL Server w galerii witryny Azure Portal. Zależnie od wybranego obrazu można płacić za koszty licencji programu SQL Server naliczane proporcjonalnie do liczby minut lub skorzystać z modelu dostarczania własnej licencji (Bring Your Own License, BYOL).
 
-Wskazówki krok po kroku są dostępne w samouczku [Aprowizowanie maszyny wirtualnej programu SQL Server w witrynie Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). Sprawdź również temat [Performance best practices for SQL Server VMs](virtual-machines-windows-sql-performance.md) (Najlepsze rozwiązania umożliwiające zwiększenie wydajności maszyn wirtualnych z programem SQL Server), który wyjaśnia, w jaki sposób wybrać odpowiedni rozmiar maszyny i inne funkcje dostępne podczas aprowizacji.
+Samouczek [Aprowizowanie maszyny wirtualnej programu SQL Server w witrynie Azure Portal](virtual-machines-windows-portal-sql-server-provision.md) zawiera wskazówki krok po krok dotyczące tego procesu. Sprawdź również temat [Performance best practices for SQL Server VMs](virtual-machines-windows-sql-performance.md) (Najlepsze rozwiązania umożliwiające zwiększenie wydajności maszyn wirtualnych z programem SQL Server), który wyjaśnia, w jaki sposób wybrać odpowiedni rozmiar maszyny i inne funkcje dostępne podczas aprowizacji.
+
+## Opcja 1. Tworzenie maszyny wirtualnej SQL z licencją płatną według stawki minutowej
+Poniższa tabela zawiera macierz dostępnych obrazów programu SQL Server w galerii maszyn wirtualnych. Kliknij dowolny link, aby rozpocząć tworzenie nowej maszyny wirtualnej z programem SQL o określonej wersji, wybranym wydaniu i z danym systemem operacyjnym.
 
 |Wersja|System operacyjny|Wersja|
 |---|---|---|
@@ -55,12 +58,8 @@ Wskazówki krok po kroku są dostępne w samouczku [Aprowizowanie maszyny wirtua
 |**SQL 2008 R2 SP3**|Windows Server 2008 R2|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3EnterpriseWindowsServer2008R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3StandardWindowsServer2008R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3WebWindowsServer2008R2)|
 |**SQL 2008 R2 SP3**|Windows Server 2012|[Express](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3ExpressWindowsServer2012)|
 
-## Opcja 2. Wdrożenie maszyny wirtualnej z programem SQL (BYOL)
-Druga opcja to użycie własnej licencji (BYOL). W tym scenariuszu płacisz wyłącznie za maszynę wirtualną i nie ponosisz żadnych dodatkowych kosztów licencjonowania programu SQL Server. Aby użyć własnej licencji, skorzystaj z macierzy wersji i wydań programu SQL Server oraz systemów operacyjnych. W portalu nazwy obrazów są poprzedzane prefiksem **{BYOL}**.
-
-> [AZURE.IMPORTANT] Aby używać obrazów maszyn wirtualnych w modelu BYOL, musisz mieć umowę Enterprise Agreement z opcją [Przenośność licencji za pośrednictwem programu Software Assurance na platformie Azure](https://azure.microsoft.com/pricing/license-mobility/). Musisz również mieć ważną licencję dla wersji/wydania programu SQL Server, którego chcesz użyć. W ciągu **10** dni od aprowizacji maszyny wirtualnej musisz [przekazać firmie Microsoft informacje niezbędne do korzystania z modelu BYOL](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf).
-
-Wskazówki w [samouczku dotyczącym aprowizacji](virtual-machines-windows-portal-sql-server-provision.md) mają zastosowanie, ale musisz użyć jednej z następujących opcji obrazu **BYOL**. Sprawdź również temat [Performance best practices for SQL Server VMs](virtual-machines-windows-sql-performance.md) (Najlepsze rozwiązania umożliwiające zwiększenie wydajności maszyn wirtualnych z programem SQL Server), który wyjaśnia, w jaki sposób wybrać odpowiedni rozmiar maszyny i inne funkcje dostępne podczas aprowizacji.
+## Opcja 2. Tworzenie maszyny wirtualnej SQL przy użyciu istniejącej licencji
+Możesz również skorzystać z modelu dostarczania własnej licencji (Bring Your Own License, BYOL). W tym scenariuszu płacisz wyłącznie za maszynę wirtualną i nie ponosisz żadnych dodatkowych kosztów licencjonowania programu SQL Server. Aby użyć własnej licencji, skorzystaj z macierzy wersji i wydań programu SQL Server oraz systemów operacyjnych. W portalu takie nazwy obrazów mają prefiks **{BYOL}**.
 
 |Wersja|System operacyjny|Wersja|
 |---|---|---|
@@ -68,8 +67,10 @@ Wskazówki w [samouczku dotyczącym aprowizacji](virtual-machines-windows-portal
 |**SQL Server 2014 SP1**|Windows Server 2012 R2|[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP1EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP1StandardWindowsServer2012R2)|
 |**SQL Server 2012 SP2**|Windows Server 2012 R2|[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP3EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP3StandardWindowsServer2012R2)|
 
+> [AZURE.IMPORTANT] Aby używać obrazów maszyn wirtualnych w modelu BYOL, musisz mieć umowę Enterprise Agreement z opcją [Przenośność licencji za pośrednictwem programu Software Assurance na platformie Azure](https://azure.microsoft.com/pricing/license-mobility/). Musisz również mieć ważną licencję dla wersji/wydania programu SQL Server, którego chcesz użyć. W ciągu **10** dni od aprowizacji maszyny wirtualnej musisz [przekazać firmie Microsoft informacje niezbędne do korzystania z modelu BYOL](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf).
+
 ## Zarządzanie maszyną wirtualną z programem SQL
-Po aprowizacji maszyny wirtualnej z programem SQL Server możesz wykonać kilka opcjonalnych zadań związanych z zarządzaniem. W niektórych aspektach możesz konfigurować program SQL Server i zarządzać nim dokładnie tak, jak w przypadku instalacji lokalnej. Jednak niektóre zadania są specyficzne dla platformy Azure. W poniższych sekcjach omówiono niektóre z tych obszarów i podano linki do dalszych informacji.
+Po aprowizacji maszyny wirtualnej z programem SQL Server możesz wykonać kilka opcjonalnych zadań związanych z zarządzaniem. Pod wieloma względami możesz konfigurować program SQL Server i zarządzać nim dokładnie tak, jak w przypadku lokalnej instalacji programu SQL Server. Jednak niektóre zadania są specyficzne dla platformy Azure. W poniższych sekcjach omówiono niektóre z tych obszarów i podano linki do dalszych informacji.
 
 ### Migrowanie danych
 

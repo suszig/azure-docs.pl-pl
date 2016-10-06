@@ -13,21 +13,33 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2016"
+   ms.date="09/21/2016"
    ms.author="cherylmc" />
 
 
 # VPN Gateway — informacje
 
 
-Brama sieci wirtualnej służy do wysyłania ruchu sieciowego między sieciami wirtualnymi Azure i lokalizacjami lokalnymi, a także między sieciami wirtualnymi na platformie Azure (połączenia między sieciami wirtualnymi). Aby utworzyć połączenie, należy dodać bramę sieci wirtualnej do sieci wirtualnej wraz z dodatkowymi zasobami i ich ustawieniami. 
+Brama sieci wirtualnej służy do wysyłania ruchu sieciowego między sieciami wirtualnymi platformy Azure i lokalizacjami lokalnymi, a także między sieciami wirtualnymi na platformie Azure (połączenia między sieciami wirtualnymi). Podczas konfigurowania bramy VPN Gateway należy utworzyć i skonfigurować bramę sieci wirtualnej oraz połączenie bramy sieci wirtualnej.
 
-Podczas tworzenia zasobu bramy sieci wirtualnej można określić kilka ustawień. Jednym z wymaganych ustawień jest „-GatewayType” (typ bramy). Typ bramy określa sposób, w jaki brama nawiązuje połączenie. Istnieją dwa typy bram sieci wirtualnej: Vpn i ExpressRoute. Jeśli ruch sieciowy jest przesyłany w dedykowanym połączeniu prywatnym, należy użyć typu bramy „ExpressRoute”. Ten typ bramy jest również określany jako brama usługi ExpressRoute. Gdy ruch sieciowy jest szyfrowany i przesyłany przez połączenie publiczne, należy użyć typu bramy „Vpn”. Ten typ bramy jest określany jako brama sieci VPN. Wszystkie połączenia typu lokacja-lokacja, punkt-lokacja i połączenia między sieciami wirtualnymi używają bramy sieci VPN.
+W modelu wdrażania usługi Resource Manager podczas tworzenia zasobu bramy sieci wirtualnej można określić kilka ustawień. Jednym z wymaganych ustawień jest „-GatewayType” (typ bramy). Istnieją dwa typy bram sieci wirtualnej: Vpn i ExpressRoute. 
 
-Każda sieć wirtualna może mieć tylko jedną bramę sieci wirtualnej na typ bramy. Na przykład można mieć jedną bramę sieci wirtualnej, która używa klasy -GatewayType Vpn, oraz jednej, która używa klasy -GatewayType ExpressRoute. Ten artykuł koncentruje się głównie na bramie sieci VPN. Więcej informacji na temat usługi ExpressRoute zawiera artykuł [ExpressRoute technical overview](../expressroute/expressroute-introduction.md) (Opis techniczny usługi ExpressRoute).
+Jeśli ruch sieciowy jest przesyłany w dedykowanym połączeniu prywatnym, należy użyć typu bramy „ExpressRoute”. Ten typ bramy jest również określany jako brama usługi ExpressRoute. Gdy ruch sieciowy jest szyfrowany i przesyłany przez połączenie publiczne, należy użyć typu bramy „Vpn”. Ten typ bramy jest określany jako brama sieci VPN. Wszystkie połączenia typu lokacja-lokacja, punkt-lokacja i połączenia między sieciami wirtualnymi używają bramy sieci VPN.
 
-Aby uzyskać informacje o wymaganiach dotyczących bramy, zobacz [Wymagania dotyczące bramy](vpn-gateway-about-vpn-gateway-settings.md#requirements). Aby uzyskać informacje o szacowanej zagregowanej przepływności, zobacz [Informacje o ustawieniach bramy sieci VPN](vpn-gateway-about-vpn-gateway-settings.md#aggthroughput). Aby poznać ceny, zobacz [Cennik bramy sieci VPN](https://azure.microsoft.com/pricing/details/vpn-gateway). Aby uzyskać informacje o subskrypcjach i limitach dotyczących usługi, zobacz [Limity dotyczące sieci](../articles/azure-subscription-service-limits.md#networking-limits).
+Każda sieć wirtualna może mieć tylko jedną bramę sieci wirtualnej na typ bramy. Na przykład można mieć jedną bramę sieci wirtualnej, która używa klasy -GatewayType ExpressRoute, oraz jedną, która używa klasy -GatewayType Vpn. Ten artykuł koncentruje się głównie na bramie sieci VPN. Więcej informacji na temat usługi ExpressRoute zawiera artykuł [ExpressRoute technical overview](../expressroute/expressroute-introduction.md) (Opis techniczny usługi ExpressRoute).
 
+## Cennik
+
+[AZURE.INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)] 
+
+
+## Jednostki SKU bramy
+
+[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)] 
+
+W poniższej tabeli przedstawiono typy bram i szacowaną agregowaną przepływność. Ta tabela ma zastosowanie w obu modelach wdrażania — przy użyciu usługi Resource Manager i klasycznym.
+
+[AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
 
 ## Konfigurowanie bramy sieci VPN
 
@@ -82,7 +94,7 @@ Platforma Azure ma obecnie dwa modele wdrażania: klasyczny model wdrażania ora
 
 #### Komunikacja równorzędna sieci wirtualnych
 
-Można utworzyć połączenie przy użyciu komunikacji równorzędnej sieci wirtualnych pod warunkiem, że sieć wirtualna spełnia określone wymagania. W przypadku komunikacji równorzędnej sieci wirtualnych nie jest używana brama sieci wirtualnej. [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md) jest obecnie dostępna w wersji zapoznawczej.
+Można utworzyć połączenie przy użyciu komunikacji równorzędnej sieci wirtualnych pod warunkiem, że sieć wirtualna spełnia określone wymagania. W przypadku komunikacji równorzędnej sieci wirtualnych nie jest używana brama sieci wirtualnej. Aby uzyskać więcej informacji, zobacz temat [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md).
 
 
 ### Modele wdrażania i metody nawiązywania połączeń między sieciami wirtualnymi
@@ -139,6 +151,6 @@ Planowanie konfiguracji bramy sieci VPN. Zobacz [Planowanie i projektowanie bram
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

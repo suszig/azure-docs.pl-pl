@@ -1,7 +1,11 @@
-When you create a virtual network gateway, you need to specify the gateway SKU that you want to use. When you select a higher gateway SKU, more CPUs and network bandwidth are allocated to the gateway, and as a result, the gateway can support higher network throughput to the virtual network.
+Podczas tworzenia bramy sieci wirtualnej musisz wybrać jednostkę SKU bramy do użycia. W przypadku wybrania wyższej jednostki SKU bramy bramie przydzielane jest więcej procesorów CPU oraz wyższa przepustowość sieci, dlatego może obsługiwać wyższą przepływność sieci do sieci wirtualnej.
 
-VPN Gateway can use the following SKUs:
+Brama VPN Gateway może używać następujących jednostek SKU:
 
-- Basic
-- Standard
-- HighPerformance
+- Podstawowa
+- Standardowa (Standard)
+- Wysoka wydajność (HighPerformance)
+
+<!--HONumber=Sep16_HO4-->
+
+

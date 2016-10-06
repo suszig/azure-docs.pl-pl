@@ -1,525 +1,433 @@
 <properties
-	pageTitle=".NET multi-tier application | Microsoft Azure"
-	description="A .NET tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers."
-	services="service-bus-messaging"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Wielowarstwowa aplikacja platformy .NET | Microsoft Azure"
+    description="Samouczek platformy .NET umożliwia utworzenie na platformie Azure aplikacji wielowarstwowej, która używa kolejek usługi Service Bus do komunikacji między warstwami."
+    services="service-bus-messaging"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus-messaging"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="09/01/2016"
-	ms.author="sethm"/>
+    ms.service="service-bus-messaging"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="09/01/2016"
+    ms.author="sethm"/>
 
-# .NET multi-tier application using Azure Service Bus queues
 
-## Introduction
+# Aplikacja wielowarstwowa platformy .NET używająca kolejek usługi Azure Service Bus
 
-Developing for Microsoft Azure is easy using Visual Studio and the free Azure SDK for .NET. This tutorial walks you through the steps to create an application that uses multiple Azure resources running in your local environment. The steps assume you have no prior experience using Azure.
+## Wprowadzenie
 
-You will learn the following:
+Tworzenie aplikacji dla platformy Microsoft Azure przy użyciu programu Visual Studio oraz bezpłatnego zestawu Azure SDK dla platformy .NET jest proste. Ten samouczek przeprowadzi Cię przez etapy tworzenia aplikacji, która używa wielu zasobów platformy Azure działających w środowisku lokalnym. Założono w nim, że nie masz wcześniejszego doświadczenia w używaniu platformy Azure.
 
--   How to enable your computer for Azure development with a
-    single download and install.
--   How to use Visual Studio to develop for Azure.
--   How to create a multi-tier application in Azure using web
-    and worker roles.
--   How to communicate between tiers using Service Bus queues.
+Dowiesz się:
+
+-   Jak umożliwić tworzenie aplikacji dla platformy Azure na komputerze przez pobranie i zainstalowanie jednego elementu.
+-   Jak używać programu Visual Studio do tworzenia aplikacji dla platformy Azure.
+-   Jak utworzyć aplikację wielowarstwową dla platformy Azure przy użyciu ról sieci Web i procesu roboczego.
+-   Jak komunikować się między warstwami przy użyciu kolejek usługi Service Bus.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-In this tutorial you'll build and run the multi-tier application in an Azure cloud service. The front end will be an ASP.NET MVC web role and the back end will be a worker-role that uses a Service Bus queue. You can create the same multi-tier application with the front end as a web project that is deployed to an Azure website instead of a cloud service. For instructions about what to do differently on an Azure website front end, see the [Next steps](#nextsteps) section. You can also try out the [.NET on-premises/cloud hybrid application](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) tutorial.
+Dzięki temu samouczkowi będziesz w stanie utworzyć i uruchomić aplikację wielowarstwową w usłudze w chmurze platformy Azure. Fronton będzie miał przypisaną rolę sieci Web programu ASP.NET MVC, a zaplecze rolę procesu roboczego używającego kolejki usługi Service Bus. Taką samą aplikację wielowarstwową z frontonem możesz utworzyć jako projekt sieci Web, który jest wdrażany w witrynie sieci Web platformy Azure, a nie jako usługa w chmurze. Aby uzyskać instrukcje na temat różnic w postępowaniu w przypadku frontonu witryny sieci Web platformy Azure, zobacz sekcję [Następne kroki](#nextsteps). Możesz również wypróbować samouczek na temat [hybrydowych aplikacji lokalnych/w chmurze platformy .NET](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
-The following screen shot shows the completed application.
+Poniższy zrzut ekranu przedstawia gotową aplikację.
 
 ![][0]
 
-## Scenario overview: inter-role communication
+## Omówienie scenariusza: komunikacja między rolami
 
-To submit an order for processing, the front-end UI component, running
-in the web role, must interact with the middle tier logic running in
-the worker role. This example uses Service Bus brokered messaging for
-the communication between the tiers.
+Aby przesłać zamówienie do przetworzenia, składnik interfejsu użytkownika frontonu działający w roli sieci Web musi współdziałać z logiką warstwy środkowej uruchomionej w roli procesu roboczego. W tym przykładzie do komunikacji między warstwami użyto komunikatów usługi Service Bus obsługiwanych przez brokera.
 
-Using brokered messaging between the web and middle tiers decouples the
-two components. In contrast to direct messaging (that is, TCP or HTTP),
-the web tier does not connect to the middle tier directly; instead it
-pushes units of work, as messages, into Service Bus, which reliably
-retains them until the middle tier is ready to consume and process them.
+Korzystanie z komunikatów obsługiwanych przez brokera między warstwą sieci Web i warstwą środkową oddziela dwa składniki. W przeciwieństwie do komunikatów bezpośrednich (czyli TCP lub HTTP), warstwa sieci Web nie łączy się bezpośrednio z warstwą środkową. Zamiast tego wypycha jednostki pracy jako komunikaty do usługi Service Bus, która w niezawodny sposób je przechowuje do momentu, aż środkowa warstwa będzie gotowa na ich użycie i przetworzenie.
 
-Service Bus provides two entities to support brokered messaging:
-queues and topics. With queues, each message sent to the queue is
-consumed by a single receiver. Topics support the publish/subscribe
-pattern in which each published message is made available to a subscription registered with the topic. Each subscription logically
-maintains its own queue of messages. Subscriptions can also be
-configured with filter rules that restrict the set of messages passed to
-the subscription queue to those that match the filter. The following example uses
-Service Bus queues.
+Usługa Service Bus zapewnia dwie jednostki do obsługi komunikatów obsługiwanych przez brokera: kolejki i tematy. W przypadku kolejek każdy komunikat wysyłany do kolejki jest używany przez jednego odbiorcę. Tematy obsługują wzorzec publikowania/subskrypcji, w którym każdy opublikowany komunikat jest udostępniony dla subskrypcji zarejestrowanej w temacie. Każda subskrypcja logicznie zachowuje własną kolejkę komunikatów. Subskrypcje mogą być również konfigurowane przy użyciu reguł filtrowania, które ograniczają zestaw komunikatów przesyłanych do kolejki subskrypcji do tych, które są zgodne z filtrem. W poniższym przykładzie użyto kolejek usługi Service Bus.
 
 ![][1]
 
-This communication mechanism has several advantages over direct
-messaging:
+Ten mechanizm komunikacji ma kilka zalet w stosunku do komunikatów bezpośrednich:
 
--   **Temporal decoupling.** With the asynchronous messaging pattern,
-    producers and consumers need not be online at the same time. Service
-    Bus reliably stores messages until the consuming party is ready to
-    receive them. This enables the components of the distributed
-    application to be disconnected, either voluntarily, for example, for
-    maintenance, or due to a component crash, without impacting the
-    system as a whole. Furthermore, the consuming application might only
-    need to come online during certain times of the day.
+-   **Rozdzielenie czasowe.** Stosując asynchroniczny wzorzec przesyłania komunikatów, producenci i konsumenci nie muszą być online w tym samym czasie. Usługa Service Bus w niezawodny sposób przechowuje komunikaty do momentu, aż strona korzystająca z nich jest gotowa do ich odebrania. Dzięki temu składniki aplikacji rozproszonej mogą być rozłączone zarówno dobrowolnie, na przykład w celu przeprowadzenia konserwacji, jak i z powodu awarii składników, bez wywierania wpływu na system jako całość. Ponadto aplikacja odbierająca komunikaty może wymagać połączenia z Internetem tylko w pewnych porach dnia.
 
--   **Load leveling.** In many applications, system load varies over
-    time, while the processing time required for each unit of work is
-    typically constant. Intermediating message producers and consumers
-    with a queue means that the consuming application (the worker) only needs to be provisioned to accommodate average load rather than peak
-    load. The depth of the queue grows and contracts as the incoming
-    load varies. This directly saves money in terms of the amount of
-    infrastructure required to service the application load.
+-   **Wyrównywanie obciążenia.** W wielu aplikacjach obciążenie systemu różni się w czasie, podczas gdy czas przetwarzania wymagany dla każdej jednostki pracy jest zwykle stały. Pośredniczenie między producentami a konsumentami komunikatów przy pomocy kolejki oznacza, że aplikacja odbierająca komunikaty (proces roboczy) musi być aprowizowana tylko na tyle, aby poradzić sobie ze średnim obciążeniem, a nie obciążeniem szczytowym. Głębokość kolejki rośnie i zmniejsza się w zależności od zmian obciążenia przychodzącego. To wpływa na rozmiar infrastruktury potrzebnej do obsługi obciążenia aplikacji, a więc bezpośrednio przekłada się na oszczędność pieniędzy.
 
--   **Load balancing.** As load increases, more worker processes can be
-    added to read from the queue. Each message is processed by only one
-    of the worker processes. Furthermore, this pull-based load balancing
-    enables optimal use of the worker machines even if the
-    worker machines differ in terms of processing power, as they will
-    pull messages at their own maximum rate. This pattern is often
-    termed the *competing consumer* pattern.
+-   **Równoważenie obciążenia.** W miarę wzrostu obciążenia można dodawać więcej procesów roboczych odczytujących z kolejki. Każdy komunikat jest przetwarzany tylko przez jeden z procesów roboczych. Ponadto równoważenie obciążenia oparte na ściąganiu pozwala optymalnie wykorzystać maszyny procesów roboczych, nawet jeżeli różnią się one pod względem mocy przetwarzania, ponieważ każda będzie ściągać komunikaty z własną maksymalną szybkością. Ten wzorzec jest często nazywany wzorcem *konkurujących konsumentów*.
 
     ![][2]
 
-The following sections discuss the code that implements this architecture.
+W poniższych sekcjach omówiono kod, który implementuje tę architekturę.
 
-## Set up the development environment
+## Konfigurowanie środowiska deweloperskiego
 
-Before you can begin developing Azure applications, get the tools and set up your development environment.
+Przed rozpoczęciem tworzenia aplikacji dla platformy Azure pobierz potrzebne narzędzia i skonfiguruj swoje środowisko deweloperskie.
 
-1.  Install the Azure SDK for .NET at [Get Tools and SDK][].
+1.  Zainstaluj zestaw Azure SDK dla platformy .NET, który znajduje się w sekcji [Pobierz narzędzia i zestaw SDK][].
 
-2. 	Click **Install the SDK** for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2015.
+2.  Kliknij link **Instalowanie zestawu SDK** dla używanej wersji programu Visual Studio. W krokach tego samouczka używany jest program Visual Studio 2015.
 
-4.  When prompted to run or save the installer, click **Run**.
+4.  Gdy zostanie wyświetlony monit o uruchomienie lub zapisanie instalatora, kliknij przycisk **Uruchom**.
 
-5.  In the **Web Platform Installer**, click **Install** and proceed with the installation.
+5.  W **Instalatorze platformy sieci Web** kliknij przycisk **Zainstaluj** i kontynuuj instalację.
 
-6.  Once the installation is complete, you will have everything
-    necessary to start to develop the app. The SDK includes tools that let you
-    easily develop Azure applications in Visual Studio. If you
-    do not have Visual Studio installed, the SDK also installs the free
-    Visual Studio Express.
+6.  Po zakończeniu instalacji będziesz mieć do dyspozycji wszystkie narzędzia niezbędne do tworzenia aplikacji. Zestaw SDK zawiera narzędzia, które pozwalają w łatwy sposób tworzyć aplikacje dla platformy Azure w programie Visual Studio. Jeśli nie masz zainstalowanego programu Visual Studio, zestaw SDK zainstaluje również bezpłatny program Visual Studio Express.
 
-## Create a namespace
+## Tworzenie przestrzeni nazw
 
-The next step is to create a service namespace, and obtain a Shared Access Signature (SAS) key. A namespace provides an application boundary for
-each application exposed through Service Bus. A SAS key is
-generated by the system when a namespace is
-created. The combination of namespace and SAS key
-provides the credentials for Service Bus to authenticate access to an
-application.
+Następnym krokiem jest utworzenie przestrzeni nazw usługi i uzyskanie klucza sygnatury dostępu współdzielonego. Przestrzeń nazw wyznacza granice każdej aplikacji uwidacznianej za pośrednictwem usługi Service Bus. Klucz sygnatury dostępu współdzielonego jest generowany przez system po utworzeniu przestrzeni nazw. Kombinacja przestrzeni nazw i klucza sygnatury dostępu współdzielonego dostarcza poświadczenia dla usługi Service Bus w celu uwierzytelnienia dostępu do aplikacji.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## Create a web role
+## Tworzenie roli sieci Web
 
-In this section, you build the front end of your application. First, you
-create the pages that your application displays.
-After that, add code that submits items to a Service Bus
-queue and displays status information about the queue.
+W tej sekcji omówione zostanie tworzenie frontonu aplikacji. Najpierw tworzy się strony, które będą wyświetlane w aplikacji.
+Następnie dodaje się kod, który przesyła elementy do kolejki usługi Service Bus i wyświetla informacje o stanie kolejki.
 
-### Create the project
+### Tworzenie projektu
 
-1.  Using administrator privileges, start Microsoft Visual
-    Studio. To start Visual Studio with administrator privileges, right-click the **Visual Studio** program icon, and then click **Run as administrator**. The Azure compute emulator,
-    discussed later in this article, requires that Visual Studio be
-    started with administrator privileges.
+1.  Korzystając z uprawnień administratora, uruchom program Microsoft Visual Studio. Aby uruchomić program Visual Studio z uprawnieniami administratora, kliknij prawym przyciskiem myszy ikonę programu **Visual Studio**, a następnie kliknij polecenie **Uruchom jako administrator**. Emulator obliczeń platformy Azure, który zostanie omówiony w dalszej części tego artykułu, wymaga uruchomienia programu Visual Studio z uprawnieniami administratora.
 
-    In Visual Studio, on the **File** menu, click **New**, and then
-    click **Project**.
+    W menu **Plik** programu Visual Studio kliknij pozycję **Nowy**, a następnie kliknij pozycję **Projekt**.
 
-2.  From **Installed Templates**, under **Visual C#**, click **Cloud** and
-    then click **Azure Cloud Service**. Name the project
-    **MultiTierApp**. Then click **OK**.
+2.  W pozycji **Zainstalowane szablony** w obszarze **Visual C#** kliknij pozycję **Chmura**, a następnie kliknij pozycję **Usługa w chmurze Azure**. Nazwij projekt **MultiTierApp**. Następnie kliknij przycisk **OK**.
 
     ![][9]
 
-3.  From **.NET Framework 4.5** roles, double-click **ASP.NET Web
-    Role**.
+3.  Wśród ról platformy **.NET Framework 4.5** kliknij dwukrotnie pozycję **Role sieci Web ASP.NET**.
 
     ![][10]
 
-4.  Hover over **WebRole1** under **Azure Cloud Service solution**, click
-    the pencil icon, and rename the web role to **FrontendWebRole**. Then click **OK**. (Make sure you enter "Frontend" with a lower-case 'e,' not "FrontEnd".)
+4.  Zatrzymaj kursor nad pozycją **WebRole1** w polu **Rozwiązania dla usług w chmurze Azure**, kliknij ikonę ołówka i zmień nazwę roli sieci Web na **FrontendWebRole**. Następnie kliknij przycisk **OK**. (Upewnij się, że wpisana nazwa to „Frontend”, pisana przez małe „e”, a nie „FrontEnd”.)
 
     ![][11]
 
-5.  From the **New ASP.NET Project** dialog box, in the **Select a template** list, click **MVC**.
+5.  W oknie dialogowym **Nowy projekt ASP.NET** na liście **Wybierz szablon** kliknij pozycję **MVC**.
 
     ![][12]
 
-6. Still in the **New ASP.NET Project** dialog box, click the **Change Authentication** button. In the **Change Authentication** dialog box, click **No Authentication**, and then click **OK**. For this tutorial, you're deploying an app that doesn't need a user login.
+6. W tym samym oknie dialogowym **Nowy projekt ASP.NET** kliknij przycisk **Zmień uwierzytelnianie**. W oknie dialogowym **Zmienianie uwierzytelniania** kliknij pozycję **Bez uwierzytelniania**, a następnie kliknij przycisk **OK**. W tym samouczku wdrożysz aplikację, która nie wymaga logowania użytkownika.
 
-	![][16]
+    ![][16]
 
-7. Back in the **New ASP.NET Project** dialog box, click **OK** to create the project.
+7. W oknie dialogowym **Nowy projekt ASP.NET** kliknij przycisk **OK**, aby utworzyć projekt.
 
-6.  In **Solution Explorer**, in the **FrontendWebRole** project, right-click **References**, then click
-    **Manage NuGet Packages**.
+6.  W **Eksploratorze rozwiązań** w projekcie **FrontendWebRole** kliknij prawym przyciskiem myszy pozycję **Odwołania**, a następnie kliknij pozycję **Zarządzaj pakietami NuGet**.
 
-7.  Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Click **Install**, and accept the terms of use.
+7.  Kliknij kartę **Przeglądanie**, a następnie wyszukaj ciąg `Microsoft Azure Service Bus`. Kliknij pozycję **Zainstaluj** i zaakceptuj warunki użytkowania.
 
     ![][13]
 
-	Note that the required client assemblies are now referenced and some new code files have been added.
+    Zwróć uwagę na to, że pojawią się odwołania do wymaganych zestawów klientów i dodanych zostanie kilka nowych plików kodu.
 
-9.  In **Solution Explorer**, right-click **Models** and click **Add**,
-    then click **Class**. In the **Name** box, type the name
-    **OnlineOrder.cs**. Then click **Add**.
+9.  W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy pozycję **Modele** i kliknij pozycję **Dodaj**, następnie kliknij pozycję **Klasa**. W okienku **Nazwa** wpisz nazwę **OnlineOrder.cs**. Następnie kliknij pozycję **Dodaj**.
 
-### Write the code for your web role
+### Pisanie kodu dla roli sieci Web
 
-In this section, you create the various pages that your application displays.
+W tej sekcji utworzysz różne strony, które będą wyświetlane przez Twoją aplikację.
 
-1.  In the OnlineOrder.cs file in Visual Studio, replace the
-    existing namespace definition with the following code:
+1.  W pliku OnlineOrder.cs w programie Visual Studio zastąp istniejącą definicję przestrzeni nazw następującym kodem:
 
-	```
-	namespace FrontendWebRole.Models
-	{
-	    public class OnlineOrder
-	    {
-	        public string Customer { get; set; }
-	        public string Product { get; set; }
-	    }
-	}
-	```
+    ```
+    namespace FrontendWebRole.Models
+    {
+        public class OnlineOrder
+        {
+            public string Customer { get; set; }
+            public string Product { get; set; }
+        }
+    }
+    ```
 
-2.  In **Solution Explorer**, double-click
-    **Controllers\HomeController.cs**. Add the following **using**
-    statements at the top of the file to include the namespaces for the
-    model you just created, as well as Service Bus.
+2.  W **Eksploratorze rozwiązań** kliknij dwukrotnie pozycję **Controllers\HomeController.cs**. Dodaj następujące instrukcje **using** u góry pliku, aby uwzględnić przestrzenie nazw dla właśnie utworzonego modelu, a także usługę Service Bus.
 
-	```
-	using FrontendWebRole.Models;
-	using Microsoft.ServiceBus.Messaging;
-	using Microsoft.ServiceBus;
-	```
+    ```
+    using FrontendWebRole.Models;
+    using Microsoft.ServiceBus.Messaging;
+    using Microsoft.ServiceBus;
+    ```
 
-3.  Also in the HomeController.cs file in Visual Studio, replace the
-    existing namespace definition with the following code. This code
-    contains methods for handling the submission of items to the queue.
+3.  W pliku HomeController.cs w programie Visual Studio zastąp istniejącą definicję przestrzeni nazw następującym kodem. Ten kod zawiera metody obsługi przesyłania elementów do kolejki.
 
-	```
-	namespace FrontendWebRole.Controllers
-	{
-	    public class HomeController : Controller
-	    {
-	        public ActionResult Index()
-	        {
-	            // Simply redirect to Submit, since Submit will serve as the
-	            // front page of this application.
-	            return RedirectToAction("Submit");
-	        }
-	
-	        public ActionResult About()
-	        {
-	            return View();
-	        }
-	
-	        // GET: /Home/Submit.
-	        // Controller method for a view you will create for the submission
-	        // form.
-	        public ActionResult Submit()
-	        {
-	            // Will put code for displaying queue message count here.
-	
-	            return View();
-	        }
-	
-	        // POST: /Home/Submit.
-	        // Controller method for handling submissions from the submission
-	        // form.
-	        [HttpPost]
-			// Attribute to help prevent cross-site scripting attacks and
-			// cross-site request forgery.  
-			[ValidateAntiForgeryToken]
-	        public ActionResult Submit(OnlineOrder order)
-	        {
-	            if (ModelState.IsValid)
-	            {
-	                // Will put code for submitting to queue here.
-	
-	                return RedirectToAction("Submit");
-	            }
-	            else
-	            {
-	                return View(order);
-	            }
-	        }
-	    }
-	}
-	```
+    ```
+    namespace FrontendWebRole.Controllers
+    {
+        public class HomeController : Controller
+        {
+            public ActionResult Index()
+            {
+                // Simply redirect to Submit, since Submit will serve as the
+                // front page of this application.
+                return RedirectToAction("Submit");
+            }
+    
+            public ActionResult About()
+            {
+                return View();
+            }
+    
+            // GET: /Home/Submit.
+            // Controller method for a view you will create for the submission
+            // form.
+            public ActionResult Submit()
+            {
+                // Will put code for displaying queue message count here.
+    
+                return View();
+            }
+    
+            // POST: /Home/Submit.
+            // Controller method for handling submissions from the submission
+            // form.
+            [HttpPost]
+            // Attribute to help prevent cross-site scripting attacks and
+            // cross-site request forgery.  
+            [ValidateAntiForgeryToken]
+            public ActionResult Submit(OnlineOrder order)
+            {
+                if (ModelState.IsValid)
+                {
+                    // Will put code for submitting to queue here.
+    
+                    return RedirectToAction("Submit");
+                }
+                else
+                {
+                    return View(order);
+                }
+            }
+        }
+    }
+    ```
 
-4.  On the **Build** menu, click **Build Solution** to test the accuracy of your work so far.
+4.  W menu **Kompilacja** kliknij pozycję **Kompiluj rozwiązanie**, aby przetestować dokładność pracy wykonanej do tej pory.
 
-5.  Now, create the view for the `Submit()` method you
-    created earlier. Right-click within the `Submit()` method (the overload of `Submit()` that takes no parameters), and then choose
-    **Add View**.
+5.  Teraz utwórz widok dla metody `Submit()`, która została utworzona wcześniej. Kliknij prawym przyciskiem myszy w obrębie metody `Submit()` (przeciążenie metody `Submit()`, która nie przyjmuje żadnych parametrów), a następnie wybierz pozycję **Dodaj widok**.
 
     ![][14]
 
-6.  A dialog box appears for creating the view. In the **Template** list, choose **Create**. In the **Model class** list, click the **OnlineOrder** class.
+6.  Zostanie wyświetlone okno dialogowe tworzenia widoku. Na liście **Szablony** wybierz pozycję **Utwórz**. Na liście **Klasa modelu** wybierz klasę **OnlineOrder**.
 
     ![][15]
 
-7.  Click **Add**.
+7.  Kliknij pozycję **Dodaj**.
 
-8.  Now, change the displayed name of your application. In **Solution Explorer**, double-click the
-    **Views\Shared\\_Layout.cshtml** file to open it in the Visual
-    Studio editor.
+8.  Teraz zmień nazwę wyświetlaną aplikacji. W **Eksploratorze rozwiązań** kliknij dwukrotnie plik **Views\Shared\\_Layout.cshtml**, aby otworzyć go w edytorze programu Visual Studio.
 
-9.  Replace all occurrences of **My ASP.NET Application** with
-    **LITWARE'S Products**.
+9.  Zamień wszystkie wystąpienia hasła **My ASP.NET Application** na hasło **LITWARE'S Products**.
 
-10. Remove the **Home**, **About**, and **Contact** links. Delete the highlighted code:
+10. Usuń linki **Home**, **About** oraz **Contact**. Usuń wyróżniony kod:
 
-	![][28]
+    ![][28]
 
-11. Finally, modify the submission page to include some information about
-    the queue. In **Solution Explorer**, double-click the
-    **Views\Home\Submit.cshtml** file to open it in the Visual Studio
-    editor. Add the following line after `<h2>Submit</h2>`. For now,
-    the `ViewBag.MessageCount` is empty. You will populate it later.
+11. Na koniec zmodyfikuj stronę przesyłania w celu uwzględnienia niektórych informacji o kolejce. W **Eksploratorze rozwiązań** kliknij dwukrotnie plik **Views\Home\Submit.cshtml**, aby otworzyć go w edytorze programu Visual Studio. Dodaj następujący wiersz po pozycji `<h2>Submit</h2>`. Na razie pozycja `ViewBag.MessageCount` jest pusta. Wypełnisz ją później.
 
-	```
-	<p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
-	```
+    ```
+    <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
+    ```
 
-12. You now have implemented your UI. You can press **F5** to run your
-    application and confirm that it looks as expected.
+12. Twój interfejs użytkownika został zaimplementowany. Naciśnij klawisz **F5**, aby uruchomić aplikację i upewnić się, że jej wygląd jest zgodny z oczekiwaniami.
 
     ![][17]
 
-### Write the code for submitting items to a Service Bus queue
+### Pisanie kodu przesyłającego elementy do kolejki usługi Service Bus
 
-Now, add code for submitting items to a queue. First, you
-create a class that contains your Service Bus queue connection
-information. Then, initialize your connection from
-Global.aspx.cs. Finally, update the submission code you
-created earlier in HomeController.cs to actually submit items to a
-Service Bus queue.
+Teraz dodaj kod przesyłający elementy do kolejki. Najpierw utwórz klasę, która zawiera informacje o połączeniu kolejki usługi Service Bus. Następnie zainicjuj połączenie z pliku Global.aspx.cs. Na koniec zaktualizuj kod przesyłania, który został wcześniej utworzony w pliku HomeController.cs, aby rzeczywiście przesłać elementy do kolejki usługi Service Bus.
 
-1.  In **Solution Explorer**, right-click **FrontendWebRole** (right-click the project, not the role). Click **Add**, and then click **Class**.
+1.  W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy pozycję **FrontendWebRole** (kliknij projekt, nie rolę). Kliknij pozycję **Dodaj**, a następnie kliknij pozycję **Klasa**.
 
-2.  Name the class **QueueConnector.cs**. Click **Add** to create the class.
+2.  Nadaj klasie nazwę **QueueConnector.cs**. Kliknij pozycję **Dodaj**, aby utworzyć klasę.
 
-3.  Now, add code that encapsulates the connection information and initializes the connection to a Service Bus queue. Replace the entire contents of QueueConnector.cs with the following code, and enter values for `your Service Bus namespace` (your namespace name) and `yourKey`, which is the **primary key** you previously obtained from the Azure portal.
+3.  Teraz dodaj kod, który zawiera informacje o połączeniu i inicjuje połączenie z kolejką usługi Service Bus. Zamień całą zawartość pliku QueueConnector.cs na następujący kod, a następnie wprowadź wartości dla pozycji `your Service Bus namespace` (nazwa przestrzeni nazw) oraz pozycji `yourKey` będącej **kluczem podstawowym** uzyskanym wcześniej z usługi Azure Portal.
 
-	```
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Web;
-	using Microsoft.ServiceBus.Messaging;
-	using Microsoft.ServiceBus;
-	
-	namespace FrontendWebRole
-	{
-	    public static class QueueConnector
-	    {
-	        // Thread-safe. Recommended that you cache rather than recreating it
-	        // on every request.
-	        public static QueueClient OrdersQueueClient;
-	
-	        // Obtain these values from the portal.
-	        public const string Namespace = "your Service Bus namespace";
-	
-	        // The name of your queue.
-	        public const string QueueName = "OrdersQueue";
-	
-	        public static NamespaceManager CreateNamespaceManager()
-	        {
-	            // Create the namespace manager which gives you access to
-	            // management operations.
-	            var uri = ServiceBusEnvironment.CreateServiceUri(
-	                "sb", Namespace, String.Empty);
-	            var tP = TokenProvider.CreateSharedAccessSignatureTokenProvider(
-	                "RootManageSharedAccessKey", "yourKey");
-	            return new NamespaceManager(uri, tP);
-	        }
-	
-	        public static void Initialize()
-	        {
-	            // Using Http to be friendly with outbound firewalls.
-	            ServiceBusEnvironment.SystemConnectivity.Mode =
-	                ConnectivityMode.Http;
-	
-	            // Create the namespace manager which gives you access to
-	            // management operations.
-	            var namespaceManager = CreateNamespaceManager();
-	
-	            // Create the queue if it does not exist already.
-	            if (!namespaceManager.QueueExists(QueueName))
-	            {
-	                namespaceManager.CreateQueue(QueueName);
-	            }
-	
-	            // Get a client to the queue.
-	            var messagingFactory = MessagingFactory.Create(
-	                namespaceManager.Address,
-	                namespaceManager.Settings.TokenProvider);
-	            OrdersQueueClient = messagingFactory.CreateQueueClient(
-	                "OrdersQueue");
-	        }
-	    }
-	}
-	```
+    ```
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using Microsoft.ServiceBus.Messaging;
+    using Microsoft.ServiceBus;
+    
+    namespace FrontendWebRole
+    {
+        public static class QueueConnector
+        {
+            // Thread-safe. Recommended that you cache rather than recreating it
+            // on every request.
+            public static QueueClient OrdersQueueClient;
+    
+            // Obtain these values from the portal.
+            public const string Namespace = "your Service Bus namespace";
+    
+            // The name of your queue.
+            public const string QueueName = "OrdersQueue";
+    
+            public static NamespaceManager CreateNamespaceManager()
+            {
+                // Create the namespace manager which gives you access to
+                // management operations.
+                var uri = ServiceBusEnvironment.CreateServiceUri(
+                    "sb", Namespace, String.Empty);
+                var tP = TokenProvider.CreateSharedAccessSignatureTokenProvider(
+                    "RootManageSharedAccessKey", "yourKey");
+                return new NamespaceManager(uri, tP);
+            }
+    
+            public static void Initialize()
+            {
+                // Using Http to be friendly with outbound firewalls.
+                ServiceBusEnvironment.SystemConnectivity.Mode =
+                    ConnectivityMode.Http;
+    
+                // Create the namespace manager which gives you access to
+                // management operations.
+                var namespaceManager = CreateNamespaceManager();
+    
+                // Create the queue if it does not exist already.
+                if (!namespaceManager.QueueExists(QueueName))
+                {
+                    namespaceManager.CreateQueue(QueueName);
+                }
+    
+                // Get a client to the queue.
+                var messagingFactory = MessagingFactory.Create(
+                    namespaceManager.Address,
+                    namespaceManager.Settings.TokenProvider);
+                OrdersQueueClient = messagingFactory.CreateQueueClient(
+                    "OrdersQueue");
+            }
+        }
+    }
+    ```
 
-4.  Now, ensure that your **Initialize** method gets called. In **Solution Explorer**, double-click **Global.asax\Global.asax.cs**.
+4.  Teraz upewnij się, że wywoływanie metody **Initialize** działa. W **Eksploratorze rozwiązań** kliknij dwukrotnie pozycję **Global.asax\Global.asax.cs**.
 
-5.  Add the following line of code at the end of the **Application_Start** method.
+5.  Dodaj następujący wiersz kodu na końcu metody **Application_Start**.
 
-	```
-	FrontendWebRole.QueueConnector.Initialize();
-	```
+    ```
+    FrontendWebRole.QueueConnector.Initialize();
+    ```
 
-6.  Finally, update the web code you created earlier, to
-    submit items to the queue. In **Solution Explorer**,
-    double-click **Controllers\HomeController.cs**.
+6.  Na koniec zaktualizuj kod sieci Web, który został utworzony wcześniej, aby przesyłać elementy do kolejki. W **Eksploratorze rozwiązań** kliknij dwukrotnie pozycję **Controllers\HomeController.cs**.
 
-7.  Update the `Submit()` method (the overload that takes no parameters) as follows to get the message count
-    for the queue.
+7.  Zaktualizuj metodę `Submit()` (przeciążenie, które nie przyjmuje żadnych parametrów), jak pokazano poniżej, aby uzyskać liczbę komunikatów dla kolejki.
 
-	```
-	public ActionResult Submit()
-	{
-	    // Get a NamespaceManager which allows you to perform management and
-	    // diagnostic operations on your Service Bus queues.
-	    var namespaceManager = QueueConnector.CreateNamespaceManager();
-	
-	    // Get the queue, and obtain the message count.
-	    var queue = namespaceManager.GetQueue(QueueConnector.QueueName);
-	    ViewBag.MessageCount = queue.MessageCount;
-	
-	    return View();
-	}
-	```
+    ```
+    public ActionResult Submit()
+    {
+        // Get a NamespaceManager which allows you to perform management and
+        // diagnostic operations on your Service Bus queues.
+        var namespaceManager = QueueConnector.CreateNamespaceManager();
+    
+        // Get the queue, and obtain the message count.
+        var queue = namespaceManager.GetQueue(QueueConnector.QueueName);
+        ViewBag.MessageCount = queue.MessageCount;
+    
+        return View();
+    }
+    ```
 
-8.  Update the `Submit(OnlineOrder order)` method (the overload that takes one parameter) as follows to submit
-    order information to the queue.
+8.  Zaktualizuj metodę `Submit(OnlineOrder order)` (przeciążenie, które nie przyjmuje żadnych parametrów), jak pokazano poniżej, aby przesyłać informację o zamówieniu do kolejki.
 
-	```
-	public ActionResult Submit(OnlineOrder order)
-	{
-	    if (ModelState.IsValid)
-	    {
-	        // Create a message from the order.
-	        var message = new BrokeredMessage(order);
-	
-	        // Submit the order.
-	        QueueConnector.OrdersQueueClient.Send(message);
-	        return RedirectToAction("Submit");
-	    }
-	    else
-	    {
-	        return View(order);
-	    }
-	}
-	```
+    ```
+    public ActionResult Submit(OnlineOrder order)
+    {
+        if (ModelState.IsValid)
+        {
+            // Create a message from the order.
+            var message = new BrokeredMessage(order);
+    
+            // Submit the order.
+            QueueConnector.OrdersQueueClient.Send(message);
+            return RedirectToAction("Submit");
+        }
+        else
+        {
+            return View(order);
+        }
+    }
+    ```
 
-9.  You can now run the application again. Each time you submit an
-    order, the message count increases.
+9.  Możesz teraz ponownie uruchomić aplikację. Liczba komunikatów rośnie podczas każdego przesyłania zamówienia.
 
     ![][18]
 
-## Create the worker role
+## Tworzenie roli procesu roboczego
 
-You will now create the worker role that processes the order
-submissions. This example uses the **Worker Role with Service Bus Queue** Visual Studio project template. You already obtained the required credentials from the portal.
+Teraz utworzysz rolę procesu roboczego, która przetwarza zgłoszenia zamówień. W tym przykładzie użyto szablonu projektu programu Visual Studio **Proces roboczy z kolejką usługi Service Bus**. Wymagane poświadczenia zostały już uzyskane z portalu.
 
-1. Make sure you have connected Visual Studio to your Azure account.
+1. Upewnij się, że program Visual Studio został połączony z kontem platformy Azure.
 
-2.  In Visual Studio, in **Solution Explorer** right-click the
-    **Roles** folder under the **MultiTierApp** project.
+2.  W **Eksploratorze rozwiązań** programu Visual Studio kliknij prawym przyciskiem myszy folder **Role** znajdujący się pod projektem **MultiTierApp**.
 
-3.  Click **Add**, and then click **New Worker Role Project**. The **Add New Role Project** dialog box appears.
+3.  Kliknij pozycję **Dodaj**, a następnie kliknij pozycję **Nowy projekt roli procesu roboczego**. Zostanie wyświetlone okno dialogowe **Dodawanie nowego projektu roli**.
 
-	![][26]
+    ![][26]
 
-4.  In the **Add New Role Project** dialog box, click **Worker Role with Service Bus Queue**.
+4.  W oknie dialogowym **Dodawanie nowego projektu roli** kliknij pozycję **Rola procesu roboczego z kolejką usługi Service Bus**.
 
-	![][23]
+    ![][23]
 
-5.  In the **Name** box, name the project **OrderProcessingRole**. Then click **Add**.
+5.  W polu **Nazwa** podaj nazwę projektu **OrderProcessingRole**. Następnie kliknij pozycję **Dodaj**.
 
-6.  Copy the connection string that you obtained in step 9 of the "Create a Service Bus namespace" section to the clipboard.
+6.  Skopiuj do schowka parametry połączenia uzyskane w kroku 9 sekcji „Tworzenie przestrzeni nazw usługi Service Bus”.
 
-7.  In **Solution Explorer**, right-click the **OrderProcessingRole** you created in step 5 (make sure that you right-click **OrderProcessingRole** under **Roles**, and not the class). Then click **Properties**.
+7.  W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy rolę **OrderProcessingRole**, która została utworzona w kroku 5 (upewnij się, że klikasz rolę **OrderProcessingRole** w sekcji **Role**, a nie klasę). Następnie kliknij pozycję **Właściwości**.
 
-8.  On the **Settings** tab of the **Properties** dialog box, click inside the **Value** box for **Microsoft.ServiceBus.ConnectionString**, and then paste the endpoint value you copied in step 6.
+8.  Na karcie **Ustawienia** okna dialogowego **Właściwości** kliknij wewnątrz pola **Wartość** dla pozycji **Microsoft.ServiceBus.ConnectionString**, a następnie wklej skopiowaną w kroku 6 wartość punktu końcowego.
 
-	![][25]
+    ![][25]
 
-9.  Create an **OnlineOrder** class to represent the orders as you process them from the queue. You can reuse a class you have already created. In **Solution Explorer**, right-click the **OrderProcessingRole** class (right-click the class icon, not the role). Click **Add**, then click **Existing Item**.
+9.  Utwórz klasę **OnlineOrder**, aby reprezentowała zamówienia w czasie ich przetwarzania z kolejki. Możesz ponownie użyć klasy, która została już utworzona. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy klasę **OrderProcessingRole** (kliknij prawym przyciskiem myszy ikonę klasy, a nie rolę). Kliknij pozycję **Dodaj**, a następnie kliknij pozycję **Istniejący element**.
 
-10. Browse to the subfolder for **FrontendWebRole\Models**, and then double-click **OnlineOrder.cs** to add it to this project.
+10. Przejdź do podfolderu **FrontendWebRole\Models**, a następnie kliknij dwukrotnie plik **OnlineOrder.cs**, aby dodać go do tego projektu.
 
-11. In **WorkerRole.cs**, change the value of the **QueueName** variable from `"ProcessingQueue"` to `"OrdersQueue"` as shown in the following code.
+11. W pliku **WorkerRole.cs** zmień wartość zmiennej **QueueName** z `"ProcessingQueue"` na `"OrdersQueue"`, jak pokazano w poniższym kodzie.
 
-	```
-	// The name of your queue.
-	const string QueueName = "OrdersQueue";
-	```
+    ```
+    // The name of your queue.
+    const string QueueName = "OrdersQueue";
+    ```
 
-12. Add the following using statement at the top of the WorkerRole.cs file.
+12. Dodaj następującą instrukcję using u góry pliku WorkerRole.cs.
 
-	```
-	using FrontendWebRole.Models;
-	```
+    ```
+    using FrontendWebRole.Models;
+    ```
 
-13. In the `Run()` function, inside the `OnMessage()` call, replace the contents of the `try` clause with the following code.
+13. W funkcji `Run()` wewnątrz wywołania `OnMessage()` zastąp zawartość klauzuli `try` następującym kodem.
 
-	```
-	Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
-	// View the message as an OnlineOrder.
-	OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
-	Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
-	receivedMessage.Complete();
-	```
+    ```
+    Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
+    // View the message as an OnlineOrder.
+    OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
+    Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
+    receivedMessage.Complete();
+    ```
 
-14. You have completed the application. You can test the full
-    application by right-clicking the MultiTierApp project in Solution Explorer,
-    selecting **Set as Startup Project**, and then pressing F5. Note that the
-    message count does not increment, because the worker role processes items
-    from the queue and marks them as complete. You can see the trace output of
-    your worker role by viewing the Azure Compute Emulator UI. You
-    can do this by right-clicking the emulator icon in the notification
-    area of your taskbar and selecting **Show Compute Emulator UI**.
+14. Tworzenie aplikacji zostało zakończone. Możesz przetestować całą aplikację, klikając prawym przyciskiem myszy projekt MultiTierApp w Eksploratorze rozwiązań, wybierając opcję **Ustaw jako projekt startowy**, a następnie naciskając klawisz F5. Pamiętaj, że liczba komunikatów nie zwiększa się, ponieważ rola procesu roboczego przetwarza elementy z kolejki i oznacza je jako ukończone. Możesz wyświetlić dane wyjściowe śledzenia swojej roli procesu roboczego, wyświetlając interfejs użytkownika emulatora obliczeń platformy Azure. Możesz to zrobić, klikając prawym przyciskiem myszy ikonę emulatora w obszarze powiadomień na pasku zadań i wybierając pozycję **Pokaż interfejs użytkownika emulatora obliczeń**.
 
     ![][19]
 
     ![][20]
 
-## Next steps  
+## Następne kroki  
 
-To learn more about Service Bus, see the following resources:  
+Aby dowiedzieć się więcej na temat usługi Service Bus, zobacz następujące zasoby:  
 
-* [Azure Service Bus][sbmsdn]  
-* [Service Bus service page][sbwacom]  
-* [How to Use Service Bus Queues][sbwacomqhowto]  
+* [Usługa Azure Service Bus][sbmsdn]  
+* [Strona usługi Service Bus][sbwacom]  
+* [Jak używać kolejek usługi Service Bus][sbwacomqhowto]  
 
-To learn more about multi-tier scenarios, see:  
+Aby dowiedzieć się więcej na temat wielowarstwowych scenariuszy, zobacz:  
 
-* [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage]  
+* [Aplikacje wielowarstwowe platformy .NET przy użyciu tabel magazynu, kolejek i obiektów blob][mutitierstorage]  
 
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
   [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-  [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
+  [Pobierz narzędzia i zestaw SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
 
 
   [GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
@@ -555,3 +463,8 @@ To learn more about multi-tier scenarios, see:
   [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   
+
+
+<!--HONumber=Sep16_HO4-->
+
+

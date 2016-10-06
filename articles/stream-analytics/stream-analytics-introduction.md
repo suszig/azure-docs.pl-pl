@@ -59,6 +59,6 @@ W niniejszym artykule przedstawiono usługę Stream Analytics — zarządzaną u
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

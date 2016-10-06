@@ -136,7 +136,7 @@ Element Runbook powinien na tym etapie wyglądać następująco: <br>![Konfigura
 Teraz dodamy działanie **Start-AzureRmVM** w celu uruchomienia maszyny wirtualnej.  Możesz wybrać dowolną maszynę wirtualną w ramach subskrypcji Azure. Wybrana nazwa zostanie teraz trwale zakodowana w poleceniu cmdlet.
 
 1. W kontrolce Biblioteka wpisz ciąg **Start-AzureRm** w polu tekstowym wyszukiwania.
-2. Dodaj polecenie **Start-AzureRmVM** do kanwy, a następnie kliknij i przeciągnij ją poniżej obszaru **Połącz z platformą Azure**.
+2. Dodaj polecenie **Start-AzureRmVM** do kanwy, a następnie kliknij i przeciągnij go poniżej obszaru **Określ identyfikator subskrypcji**.
 3. Umieść kursor nad pozycją **Określ identyfikator subskrypcji** i zaczekaj, aż w dolnej części kształtu pojawi się okrąg.  Kliknij okrąg i przeciągnij strzałkę do pozycji **Start-AzureRmVM**. 
 4.  Wybierz pozycję **Start-AzureRmVM**.  Kliknij pozycję **Parametry**, a następnie pozycję **Zestaw parametrów**, aby wyświetlić zestawy dla pozycji **Start-AzureRmVM**.  Wybierz zestaw parametrów **ResourceGroupNameParameterSetName**. Zwróć uwagę, że obok parametrów **ResourceGroupName** i **Name** znajdują się wykrzykniki.  Oznacza to, że te parametry są wymagane.  Oczekiwane wartości obu parametrów to ciągi.
 5.  Wybierz pozycję **Nazwa**.  Wybierz pozycję **Wyrażenie programu PowerShell** jako **źródło danych** i wpisz ujętą w podwójne cudzysłowy nazwę maszyny wirtualnej, którą chcemy uruchomić przy użyciu tego elementu Runbook.  Kliknij przycisk **OK**.<br>![Wartość parametru Name pozycji Start-AzureRmVM](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
@@ -219,6 +219,6 @@ Teraz zmodyfikujemy element Runbook tak, aby podejmował próbę uruchomienia ma
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -32,7 +32,7 @@ Wymagania i kluczowe aspekty komunikacji równorzędnej w sieci wirtualnej:
 - Dwie wirtualne sieci równorzędne muszą znajdować się w tym samym regionie platformy Azure.
 - Przestrzenie adresów IP wirtualnych sieci równorzędnych nie mogą się nakładać.
 - Komunikacja równorzędna w sieci wirtualnej odbywa się między dwiema sieciami wirtualnymi i nie istnieje żadna pochodna relacja przechodnia. Jeśli na przykład sieć wirtualna A jest połączona za pomocą komunikacji równorzędnej z siecią wirtualną B, a sieć wirtualna B jest połączona za pomocą komunikacji równorzędnej z siecią wirtualną C, nie oznacza to, że sieć wirtualna A jest połączona za pomocą komunikacji równorzędnej z siecią wirtualną C.
-- Komunikacja równorzędna może zostać nawiązana między sieciami wirtualnymi w dwóch różnych subskrypcjach, o ile połączenie za pomocą komunikacji równorzędnej zostanie autoryzowane przez uprawnionego użytkownika w obu subskrypcjach.
+- Komunikacja równorzędna może zostać nawiązana między sieciami wirtualnymi w dwóch różnych subskrypcjach, o ile połączenie za pomocą komunikacji równorzędnej zostanie autoryzowane przez uprawnionego użytkownika w obu subskrypcjach, a subskrypcje są skojarzone z tą samą dzierżawą usługi Active Directory. 
 - Sieć wirtualna korzystająca z modelu wdrażania przy użyciu usługi Resource Manager może zostać połączona za pomocą komunikacji równorzędnej z inną siecią, która używa tego modelu, lub z siecią wirtualną korzystającą z klasycznego modelu wdrażania. Jednak sieci wirtualne korzystające z klasycznego modelu wdrażania nie mogą być połączone ze sobą za pomocą komunikacji równorzędnej.
 - Choć komunikacja między maszynami wirtualnymi w wirtualnych sieciach równorzędnych połączonych nie wiąże się z dodatkowymi ograniczeniami dotyczącymi przepustowości, nadal obowiązuje ograniczenie przepustowości zależne od rozmiaru maszyny wirtualnej.
 
@@ -91,6 +91,6 @@ Funkcja komunikacji równorzędnej w sieci wirtualnej będzie bezpłatna w okres
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

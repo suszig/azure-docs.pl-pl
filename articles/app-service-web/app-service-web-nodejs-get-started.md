@@ -21,16 +21,17 @@
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-W tym samouczku przedstawiono sposób tworzenia prostej aplikacji [Node.js][NODEJS] i wdrażania jej w [aplikacji sieci Web] w [Usługa Azure App Service] przy użyciu środowiska wiersza polecenia, takiego jak cmd.exe lub bash. Instrukcje podane w tym samouczku można wykonać w dowolnym systemie operacyjnym, w którym można uruchomić środowisko Node.js.
+W tym samouczku przedstawiono sposób tworzenia prostej aplikacji [Node.js] i wdrażania jej w usłudze [Azure App Service] przy użyciu środowiska wiersza polecenia, takiego jak cmd.exe lub bash. Instrukcje podane w tym samouczku można wykonać w dowolnym systemie operacyjnym, w którym można uruchomić środowisko Node.js.
+
 
 <a name="prereq"></a>
 ## Wymagania wstępne
 
-- **Node.js** ([Kliknij tutaj, aby zainstalować][NODEJS])
-- **Bower** ([Kliknij tutaj, aby zainstalować][BOWER])
-- **Yeoman** ([Kliknij tutaj, aby zainstalować][YEOMAN])
-- **Git** ([Kliknij tutaj, aby zainstalować][GIT])
-- **Azure CLI** ([Kliknij tutaj, aby zainstalować ][Interfejs wiersza polecenia platformy Azure])
+- [Node.js]
+- [Bower]
+- [Yeoman]
+- [Usługa Git]
+- [Interfejs wiersza polecenia platformy Azure]
 - Konto platformy Microsoft Azure. Jeśli nie masz konta, możesz [utworzyć konto bezpłatnej wersji próbnej] lub [aktywować korzyści dla subskrybentów programu Visual Studio].
 
 ## Tworzenie i wdrażanie prostej aplikacji sieci Web Node.js
@@ -59,20 +60,20 @@ W tym samouczku przedstawiono sposób tworzenia prostej aplikacji [Node.js][NODE
 
     W przeglądarce przejdź do strony <http://localhost:3000>, aby upewnić się, że strona główna aplikacji Express jest wyświetlana. Po upewnieniu się, że aplikacja działa prawidłowo, zatrzymaj ją przy użyciu skrótu klawiaturowego `Ctrl-C`.
     
-1. Zmień tryb na tryb ASM i zaloguj się do platformy Azure (potrzebujesz do tego [interfejsu wiersza polecenia platformy Azure](#prereq)):
+1. Zmień tryb na tryb ASM i zaloguj się na platformie Azure (potrzebujesz do tego [interfejsu wiersza polecenia platformy Azure](#prereq)):
 
         azure config mode asm
         azure login
 
     Postępuj zgodnie z wyświetlanymi instrukcjami, aby kontynuować logowanie w przeglądarce za pomocą konta Microsoft zawierającego subskrypcję Azure.
 
-2. Upewnij się, że jesteś nadal w katalogu głównym aplikacji, a następnie utwórz zasób aplikacji usługi App Service na platformie Azure przy użyciu unikatowej nazwy aplikacji za pomocą poniższego polecenia. Na przykład http://{nazwa_aplikacji}.azurewebsites.net
+2. Upewnij się, że jesteś nadal w katalogu głównym aplikacji, a następnie utwórz zasób aplikacji usługi App Service na platformie Azure przy użyciu unikatowej nazwy aplikacji za pomocą poniższego polecenia, na przykład http://{nazwa_aplikacji}.azurewebsites.net
 
         azure site create --git {appname}
 
     Postępuj zgodnie z wyświetlanymi instrukcjami, aby wybrać region platformy Azure, w którym aplikacja ma zostać wdrożona. Jeśli nigdy nie skonfigurowano poświadczeń wdrożenia Git/FTP dla subskrypcji platformy Azure, zostanie również wyświetlony monit o ich utworzenie.
 
-3. Otwórz plik ./config/config.js w katalogu głównym aplikacji i zmień port produkcyjny na `process.env.port`. Właściwość `production` w obiekcie `config` powinna wyglądać tak jak w następującym przykładzie.
+3. Otwórz plik ./config/config.js w katalogu głównym aplikacji i zmień port produkcyjny na `process.env.port`. Właściwość `production` w obiekcie `config` powinna wyglądać tak jak w następującym przykładzie:
 
         production: {
             root: rootPath,
@@ -84,13 +85,19 @@ W tym samouczku przedstawiono sposób tworzenia prostej aplikacji [Node.js][NODE
 
     Umożliwia to aplikacji Node.js odpowiadanie na żądania sieci Web przy użyciu domyślnego portu, na którym nasłuchuje program iisnode.
     
+4. Otwórz plik ./package.json i dodaj właściwość `engines` w sekcji dotyczącej [określania odpowiedniej wersji środowiska Node.js](#version).
+
+        "engines": {
+            "node": "6.6.0"
+        }, 
+
 4. Zapisz zmiany, a następnie użyj narzędzia git, aby wdrożyć aplikację na platformie Azure:
 
         git add .
         git commit -m "{your commit message}"
         git push azure master
 
-    Generator aplikacji Express zapewnia plik gitignore, dlatego polecenie `git push` nie spowoduje zmniejszenia przepustowości przez próbę przekazania katalogu node_modules/.
+    Generator aplikacji Express udostępnia plik gitignore, dlatego polecenie `git push` nie spowoduje zmniejszenia przepustowości przez próbę przekazania katalogu node_modules/.
 
 5. Na koniec uruchom działającą aplikację Azure w przeglądarce:
 
@@ -125,13 +132,14 @@ W następujących samouczkach przedstawiono sposób pracy z określonym środowi
 - [Tworzenie aplikacji czatu Node.js przy użyciu biblioteki Socket.IO w usłudze Azure App Service]
 - [Sposób użycia platformy io.js z aplikacjami Web Apps w usłudze Azure App Service]
 
+<a name="version"></a>
 ## Korzystanie z określonego aparatu Node.js
 
-W typowym przepływie pracy można określić, aby usługa App Service korzystała z konkretnego aparatu Node.js, tak jak zwykle w pliku package.json.
+W typowym przepływie pracy można nakazać usłudze App Service korzystanie z konkretnego aparatu Node.js, tak jak zwykle w pliku package.json.
 Na przykład:
 
     "engines": {
-        "node": "5.5.0"
+        "node": "6.6.0"
     }, 
 
 Aparat wdrażania Kudu określa, który aparat Node.js ma zostać użyty, w następującej kolejności:
@@ -139,6 +147,8 @@ Aparat wdrażania Kudu określa, który aparat Node.js ma zostać użyty, w nast
 - Najpierw sprawdź, czy w pliku określono element `nodeProcessCommandLine`. Jeśli tak, użyj tego elementu.
 - Następnie sprawdź, czy w pliku package.json określono element `"node": "..."` w obiekcie `engines`. Jeśli tak, użyj tego elementu.
 - Wybierz domyślną wersję środowiska Node.js.
+
+>[AZURE.NOTE] Zalecane jest jawne zdefiniowanie odpowiedniego aparatu Node.js. Domyślna wersja aparatu Node.js może się zmienić, co spowoduje, że przestanie być odpowiednia dla aplikacji, i doprowadzi do występowania błędów w aplikacji sieci Web platformy Azure.
 
 <a name="iisnodelog"></a>
 ## Pobieranie dzienników stdout i stderr z programu iisnode
@@ -162,13 +172,13 @@ Aby odczytać dzienniki programu iisnode, wykonaj następujące czynności.
         git commit -m "{your commit message}"
         git push azure master
    
-   Program iisnode jest teraz skonfigurowany. W następnych krokach przedstawiono sposób uzyskiwania dostępu do tych dzienników.
+    Program iisnode jest teraz skonfigurowany. W następnych krokach przedstawiono sposób uzyskiwania dostępu do tych dzienników.
      
 4. W przeglądarce przejdź do konsoli debugowania aparatu Kudu dla aplikacji, która znajduje się pod adresem:
 
         https://{appname}.scm.azurewebsites.net/DebugConsole 
 
-    Zauważ, że ten adres URL różni się od adresu URL aplikacji ciągiem „*.scm.*” dodanym do nazwy DNS. W przypadku pominięcia tego ciągu w adresie URL wystąpi błąd 404.
+    Ten adres URL różni się od adresu URL aplikacji ciągiem „*.scm.*” dodanym do nazwy DNS. W przypadku pominięcia tego ciągu w adresie URL wystąpi błąd 404.
 
 5. Przejdź do katalogu D:\home\site\wwwroot\iisnode.
 
@@ -221,22 +231,22 @@ Aby włączyć narzędzie Node-Inspector, wykonaj następujące czynności:
 <!-- URL List -->
 
 [Interfejs wiersza polecenia platformy Azure]: ../xplat-cli-install.md
-[Usługa Azure App Service]: ../app-service/app-service-value-prop-what-is.md
+[Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [aktywować korzyści dla subskrybentów programu Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
-[BOWER]: http://bower.io/
+[Bower]: http://bower.io/
 [Tworzenie aplikacji czatu Node.js przy użyciu biblioteki Socket.IO w usłudze Azure App Service]: ./web-sites-nodejs-chat-app-socketio.md
 [Wdrażanie aplikacji sieci Web Sails.js przy użyciu usługi Azure App Service]: ./app-service-web-nodejs-sails.md
 [Exploring the Super Secret Kudu Debug Console (Szczegółowe informacje o ściśle tajnej konsoli debugowania aparatu Kudu)]: /documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [Generator aplikacji Express dla narzędzia Yeoman]: https://github.com/petecoop/generator-express
-[GIT]: http://www.git-scm.com/downloads
+[Usługa Git]: http://www.git-scm.com/downloads
 [Sposób użycia platformy io.js z aplikacjami Web Apps w usłudze Azure App Service]: ./web-sites-nodejs-iojs.md
 [iisnode]: https://github.com/tjanczuk/iisnode/wiki
 [MEANJS]: http://meanjs.org/
-[NODEJS]: http://nodejs.org
+[Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
 [utworzyć konto bezpłatnej wersji próbnej]: http://go.microsoft.com/fwlink/?LinkId=623901
 [aplikacji sieci Web]: ./app-service-web-overview.md
-[YEOMAN]: http://yeoman.io/
+[Yeoman]: http://yeoman.io/
 
 <!-- IMG List -->
 
@@ -247,6 +257,6 @@ Aby włączyć narzędzie Node-Inspector, wykonaj następujące czynności:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -63,28 +63,24 @@ Aby zademonstrować integrację, utworzymy podstawową aplikację za pomocą edy
 
     ![][3]
 
-6. W przypadku edytora **XCode 7** — dodaj plik `libxml2.tbd` zamiast pliku `libxml2.dylib`.
-
-7. Wróć do witryny Azure Portal na stronie **Informacje o połączeniu** w swojej aplikacji i skopiuj parametry połączenia.
+6. Wróć do witryny Azure Portal na stronie **Informacje o połączeniu** w swojej aplikacji i skopiuj parametry połączenia.
 
     ![][4]
 
-8. Dodaj następujący wiersz kodu w pliku **AppDelegate.m**.
+7. Dodaj następujący wiersz kodu w pliku **AppDelegate.m**.
 
         #import "EngagementAgent.h"
 
-9. Wklej parametry połączenia w delegacie `didFinishLaunchingWithOptions`.
+8. Wklej parametry połączenia w delegacie `didFinishLaunchingWithOptions`.
 
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         {
-            [...]
-            //[EngagementAgent setTestLogEnabled:YES];
-   
+            [...]   
             [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
             [...]
         }
 
-10. `setTestLogEnabled` jest instrukcją opcjonalną, która umożliwia włączenie dzienników zestawu SDK w celu identyfikowania problemów. 
+9. `setTestLogEnabled` jest instrukcją opcjonalną, która umożliwia włączenie dzienników zestawu SDK w celu identyfikowania problemów. 
 
 ##<a id="monitor"></a>Włączanie monitorowania w czasie rzeczywistym
 
@@ -124,6 +120,7 @@ W poniższych sekcjach aplikacja zostanie skonfigurowana do ich odbierania.
 1. Wróć do pliku **AppDelegate.m** i zaimportuj moduł Reach usługi Engagement.
 
         #import "AEReachModule.h"
+        #import <UserNotifications/UserNotifications.h>
 
 2. Wewnątrz metody `application:didFinishLaunchingWithOptions` utwórz moduł Reach i uwzględnij go w istniejącym wierszu inicjowania usługi Engagement:
 
@@ -138,12 +135,19 @@ W poniższych sekcjach aplikacja zostanie skonfigurowana do ich odbierania.
 
 1. Dodaj następujący wiersz do metody `application:didFinishLaunchingWithOptions`:
 
-        if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-            [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
+        if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
+        {
+            if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
+            {
+                [UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+            }else
+            {
+                [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)   categories:nil]];
+            }
             [application registerForRemoteNotifications];
         }
-        else {
-
+        else
+        {
             [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         }
 
@@ -184,6 +188,6 @@ W poniższych sekcjach aplikacja zostanie skonfigurowana do ich odbierania.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

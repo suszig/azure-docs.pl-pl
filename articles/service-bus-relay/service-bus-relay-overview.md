@@ -1,39 +1,45 @@
 <properties
-	pageTitle="Service Bus relay overview | Microsoft Azure"
-	description="Overview of Service Bus relay."
-	services="service-bus-relay"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Omówienie usługi Service Bus Relay| Microsoft Azure"
+    description="Omówienie przekaźnika usługi Service Bus"
+    services="service-bus-relay"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus-relay"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="get-started-article"
-	ms.date="09/01/2016"
-	ms.author="sethm"/>
+    ms.service="service-bus-relay"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="get-started-article"
+    ms.date="09/01/2016"
+    ms.author="sethm"/>
 
 
-# Overview of Service Bus relay
 
-A major component of Service Bus is a centralized (but highly load-balanced) *relay* service that enables you to build hybrid applications that run in both an Azure datacenter and your own on-premises enterprise environment.  The Service Bus relay supports a variety of different transport protocols and web services standards. This includes SOAP, WS-*, and even REST. The relay service facilitates your hybrid applications by enabling you to securely expose Windows Communication Foundation (WCF) services that reside within a corporate enterprise network to the public cloud, without having to open a firewall connection, or require intrusive changes to a corporate network infrastructure. 
+# Omówienie usługi Service Bus Relay
 
-![Relay Concepts](./media/service-bus-relay-overview/sb-relay-01.png)
+Głównym składnikiem usługi Service Bus jest scentralizowana (ale o wysokim stopniu równoważenia obciążenia) usługa *przekaźnika* umożliwiająca tworzenie hybrydowych aplikacji działających w centrum danych Azure oraz w lokalnym środowisku korporacyjnym.  Usługa Service Bus Relay obsługuje wiele różnych protokołów transportowych i standardów usług sieci Web. Obejmuje to usługi SOAP, WS-*, a nawet REST. Usługa przekaźnika ułatwia tworzenie hybrydowych aplikacji, ponieważ umożliwia bezpieczne uwidacznianie usług Windows Communication Foundation (WCF) znajdujących się w korporacyjnym środowisku sieciowym w chmurze publicznej bez konieczności otwierania połączenia przez zaporę i bez wprowadzania niepożądanych zmian do infrastruktury sieci korporacyjnej. 
 
-The relay service supports traditional one-way messaging, request/response messaging, and peer-to-peer messaging. It also supports event distribution at internet-scope to enable publish/subscribe scenarios and bi-directional socket communication for increased point-to-point efficiency. 
+![Pojęcia dotyczące przekaźnika](./media/service-bus-relay-overview/sb-relay-01.png)
 
-In the relayed messaging pattern, an on-premises service connects to the relay service through an outbound port and creates a bi-directional socket for communication tied to a particular rendezvous address. The client can then communicate with the on-premises service by sending messages to the relay service targeting the rendezvous address. The relay service will then "relay" messages to the on-premises service through the bi-directional socket already in place. The client does not need a direct connection to the on-premises service, it is not required to know where the service resides, and the on-premises service does not need any inbound ports open on the firewall.
+Usługa przekaźnika obsługuje tradycyjne, jednokierunkowe komunikaty, komunikaty żądań/odpowiedzi oraz komunikaty równorzędne. Obsługuje ona również dystrybucję zdarzeń w zakresie Internetu w celu umożliwienia scenariuszy publikacji/subskrypcji i komunikacji poprzez gniazdo dwukierunkowe dla zwiększonej wydajności point-to-point. 
 
-You initiate the connection between your on-premise service and the relay service using a suite of WCF "relay" bindings. Behind the scenes, the relay bindings map to new transport binding elements designed to create WCF channel components that integrate with Service Bus in the cloud. 
+We wzorcu komunikatów obsługiwanych przez przekaźnik usługa lokalna łączy się z usługą przekazywania za pomocą portu wychodzącego i tworzy gniazdo dwukierunkowe dla komunikacji powiązanej z konkretnym adresem spotkania. Klient następnie może komunikować się z lokalną usługą poprzez wysyłanie komunikatów do usługi przekazywania kierującej komunikaty do adresu spotkania. Usługa przekazywania następnie „przekazuje” komunikaty do usługi lokalnej za pośrednictwem już istniejących gniazd dwukierunkowych. Klient nie potrzebuje bezpośredniego połączenia z usługą lokalną ani nie musi wiedzieć, gdzie usługa się znajduje. Usługa lokalna nie wymaga otwarcia w zaporze żadnych portów przychodzących.
 
-## Next steps
+Należy zainicjować połączenie między usługą lokalną i usługą przekaźnika przy użyciu zestawu powiązań „przekaźników” usługi WCF. W tle powiązania przekaźników są mapowane na nowe elementy powiązania transportu przeznaczone do tworzenia składników kanału WCF, które integrują się w chmurze z usługą Service Bus. 
 
-For details about the Service Bus relay, see the following topics.
+## Następne kroki
 
-- [Azure Service Bus Architectural Overview](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [How to use the Service Bus Relay service](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
+Aby uzyskać szczegółowe informacje na temat przekaźnika usługi Service Bus, zobacz następujące tematy.
+
+- [Omówienie architektury usługi Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Jak używać usługi Service Bus Relay](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
 
  
+
+
+<!--HONumber=Sep16_HO4-->
+
+

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/15/2016"
+    ms.date="09/27/2016"
     ms.author="cabailey"/>
 
 
@@ -27,7 +27,7 @@ Ten samouczek ułatwi Ci rozpoczęcie pracy z usługą Azure Key Vault w celu ut
 
 >[AZURE.NOTE]  Ten samouczek nie zawiera instrukcji dotyczących sposobu pisania aplikacji platformy Azure, ale jeden z kroków zawiera instrukcję dotyczącą sposobu zezwalania aplikacji na używanie klucza lub klucza tajnego w magazynie kluczy.
 >
->Obecnie nie można skonfigurować usługi Azure Key Vault w portalu Azure. Zamiast tego użyj tych instrukcji usługi Azure PowerShell. Instrukcje dotyczące wieloplatformowego interfejsu wiersza polecenia znajdują się w [tym równoważnym samouczku](key-vault-manage-with-cli.md).
+>W tym samouczku jest używany program Azure PowerShell. Instrukcje dotyczące wieloplatformowego interfejsu wiersza polecenia znajdują się w [tym równoważnym samouczku](key-vault-manage-with-cli.md).
 
 Aby uzyskać ogólne informacje na temat usługi Azure Key Vault, zobacz [Co to jest usługa Azure Key Vault?](key-vault-whatis.md)
 
@@ -86,7 +86,7 @@ Podczas korzystania z usługi Azure Resource Manager wszystkie powiązane zasoby
 
 ## <a id="vault"></a>Tworzenie magazynu kluczy ##
 
-Użyj polecenia cmdlet [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736.aspx), aby utworzyć magazyn kluczy. To polecenie cmdlet ma trzy obowiązkowe parametry: **nazwa grupy zasobów**, **nazwa magazynu kluczy** oraz **lokalizacja geograficzna**.
+Użyj polecenia cmdlet [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736\(v=azure.200\).aspx).aspx, aby utworzyć magazyn kluczy. To polecenie cmdlet ma trzy obowiązkowe parametry: **nazwa grupy zasobów**, **nazwa magazynu kluczy** oraz **lokalizacja geograficzna**.
 
 Na przykład jeśli chcesz użyć nazwy magazynu **ContosoKeyVault**, grupy zasobów **ContosoResourceGroup** i lokalizacji **East Asia**, wpisz:
 
@@ -99,12 +99,12 @@ Dane wyjściowe polecenia cmdlet pokazują właściwości magazynu kluczy, któr
 
 Twoje konto platformy Azure ma teraz uprawnienia do wykonywania dowolnych operacji na tym magazynie kluczy. Nikt inny nie jest do tego upoważniony.
 
->[AZURE.NOTE]  Jeśli podczas próby utworzenia nowego magazynu kluczy zostanie wyświetlony błąd **Subskrypcja nie jest zarejestrowana w celu używania przestrzeni nazw „Microsoft.KeyVault”**, uruchom polecenie `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"`, a następnie uruchom ponownie polecenie New-AzureRmKeyVault. Aby uzyskać więcej informacji, zobacz [Polecenie Register-AzureRmProvider](https://msdn.microsoft.com/library/mt679020.aspx).
+>[AZURE.NOTE]  Jeśli podczas próby utworzenia nowego magazynu kluczy zostanie wyświetlony błąd **Subskrypcja nie jest zarejestrowana w celu używania przestrzeni nazw „Microsoft.KeyVault”**, uruchom polecenie `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"`, a następnie uruchom ponownie polecenie New-AzureRmKeyVault. Aby uzyskać więcej informacji, zobacz [Polecenie Register-AzureRmProvider](https://msdn.microsoft.com/library/azure/mt759831\(v=azure.200\).aspx).
 >
 
 ## <a id="add"></a>Dodawanie klucza lub klucza tajnego do magazynu kluczy ##
 
-Jeśli chcesz, aby usługa Azure Key Vault utworzyła klucz chroniony oprogramowaniem, użyj polecenia cmdlet [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) i wpisz następujące polecenie:
+Jeśli chcesz, aby usługa Azure Key Vault utworzyła klucz chroniony oprogramowaniem, użyj polecenia cmdlet [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.200\).aspx) i wpisz następujące polecenie:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
@@ -164,15 +164,15 @@ Aby zarejestrować aplikację w usłudze Azure Active Directory:
 3. Kliknij pozycję **APLIKACJE**. Jeśli żadna aplikacja nie została dodana do katalogu, strona zawiera tylko link **Dodaj aplikację**. Kliknij link lub alternatywnie kliknij przycisk **DODAJ** znajdujący się na pasku poleceń.
 4.  W kreatorze **DODAWANIE APLIKACJI** na stronie **Co chcesz zrobić?** kliknij pozycję **Dodawanie aplikacji opracowywanej przez moją organizację**.
 5.  Na stronie **Powiedz nam o swojej aplikacji** określ nazwę swojej aplikacji, a następnie wybierz pozycję **APLIKACJA SIECI WEB I/LUB INTERFEJS API SIECI WEB** (opcja domyślna). Kliknij ikonę **Dalej**.
-6.  Na stronie **Właściwości aplikacji** określ **ADRES URL LOGOWANIA** i **IDENTYFIKATOR URI APLIKACJI** dla swojej aplikacji sieci Web. Jeśli aplikacja nie ma tych wartości, możesz je wymyślić na potrzeby tego kroku (na przykład możesz wpisać adres http://test1.contoso.com w obu polach). Nie ma znaczenia, czy taka strona istnieje. Ważne jest, aby każda aplikacja w katalogu miała inny identyfikator URI aplikacji. Katalog używa tego ciągu do identyfikowania Twojej aplikacji.
+6.  Na stronie **Właściwości aplikacji** określ **ADRES URL LOGOWANIA** i **IDENTYFIKATOR URI APLIKACJI** dla swojej aplikacji sieci Web. Jeśli aplikacja nie ma tych wartości, możesz je wymyślić na potrzeby tego kroku (na przykład możesz wpisać adres http://test1.contoso.com w obu polach). Nie ma znaczenia, czy takie witryny istnieją. Ważne jest, aby każda aplikacja w katalogu miała inny identyfikator URI aplikacji. Katalog używa tego ciągu do identyfikowania Twojej aplikacji.
 7.  Kliknij ikonę **Zakończ**, aby zapisać zmiany w kreatorze.
 8.  Na stronie **Szybki start** kliknij pozycję **KONFIGURUJ**.
-9.  Przewiń do sekcji **Klucze**, wybierz czas trwania, a następnie kliknij przycisk **ZAPISZ**. Strona zostanie odświeżona i pojawi się na niej wartość klucza. Musisz skonfigurować aplikację przy użyciu tej wartości klucza i wartości **IDENTYFIKATOR KLIENTA**. (Instrukcje dotyczące tej konfiguracji będą specyficzne dla aplikacji).
+9.  Przewiń do sekcji **Klucze**, wybierz czas trwania, a następnie kliknij przycisk **ZAPISZ**. Strona zostanie odświeżona i pojawi się na niej wartość klucza. Musisz skonfigurować aplikację przy użyciu tej wartości klucza i wartości **IDENTYFIKATOR KLIENTA**. (Instrukcje dotyczące tej konfiguracji są specyficzne dla aplikacji).
 10. Skopiuj wartość identyfikatora klienta z tej strony. Użyjesz jej w następnym kroku w celu ustawienia uprawnień dotyczących magazynu.
 
 ## <a id="authorize"></a>Zezwalanie aplikacji na używanie klucza lub klucza tajnego ##
 
-Aby przyznać aplikacji dostęp do klucza lub klucza tajnego w magazynie, użyj polecenia cmdlet  [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx).
+Aby przyznać aplikacji dostęp do klucza lub klucza tajnego w magazynie, użyj polecenia cmdlet  [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625\(v=azure.200\).aspx).
 
 Na przykład jeśli nazwa Twojego magazynu to **ContosoKeyVault**, a identyfikator klienta aplikacji, której chcesz przyznać dostęp, to 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed i chcesz zezwolić aplikacji na odszyfrowywanie oraz logowanie przy użyciu kluczy w magazynie, uruchom następujące polecenie:
 
@@ -207,7 +207,7 @@ Następujące polecenie służy do importowania klucza z pliku PFX znajdującego
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd -Destination 'HSM'
 
 
-Następne polecenie importuje pakiet „Wprowadź własny klucz” (BYOK, bring your own key). Umożliwia to wygenerowanie własnego klucza w lokalnym module HSM i przeniesienie go do modułów HSM w usłudze Key Vault bez opuszczania przez klucz granic modułu HSM:
+Następne polecenie importuje pakiet „Wprowadź własny klucz” (BYOK, bring your own key). Ten scenariusz umożliwia wygenerowanie własnego klucza w lokalnym module HSM i przeniesienie go do modułów HSM w usłudze Key Vault bez opuszczania przez klucz granic modułu HSM:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
@@ -215,7 +215,7 @@ Aby uzyskać szczegółowe instrukcje na temat generowania pakietu BYOK, zobacz 
 
 ## <a id="delete"></a>Usuwanie magazynu kluczy oraz skojarzonych kluczy i kluczy tajnych ##
 
-Jeśli magazyn kluczy oraz zawarte w nim klucze i klucze tajne nie są już potrzebne, możesz je usunąć przy pomocy polecenia cmdlet [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485.aspx):
+Jeśli magazyn kluczy oraz zawarte w nim klucze i klucze tajne nie są już potrzebne, możesz je usunąć przy pomocy polecenia cmdlet [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485\(v=azure.200\).aspx):
 
     Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
@@ -241,13 +241,13 @@ Aby zapoznać się z kolejnym samouczkiem, w którym jest używana usługa Azure
 
 Aby zobaczyć sposób użycia Twojego magazynu kluczy, zobacz artykuł [Rejestrowanie usługi Azure Key Vault](key-vault-logging.md).
 
-Aby zapoznać się z listą najnowszych poleceń cmdlet programu Azure PowerShell dla usługi Azure Key Vault, zobacz artykuł [Polecenia cmdlet w usłudze Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052.aspx). 
+Aby zapoznać się z listą najnowszych poleceń cmdlet programu Azure PowerShell dla usługi Azure Key Vault, zobacz artykuł [Polecenia cmdlet w usłudze Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.200\).aspx). 
  
 
 Odwołania dotyczące programowania znajdują się w [przewodniku dewelopera usługi Azure Key Vault](key-vault-developers-guide.md).
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

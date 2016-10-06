@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="06/22/2016"
+   ms.date="09/23/2016"
    ms.author="edmaca"/>
 
 
@@ -22,9 +22,9 @@
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 
-Dowiedz się, jak używać zestawu Azure .NET SDK do tworzenia kont usługi Azure Data Lake Analytics, definiowania zadań usługi Data Lake Analytics w języku [U-SQL](data-lake-analytics-u-sql-get-started.md) i przesyłania zadań do kont usługi Data Lake Analytics. Więcej informacji na temat usługi Data Lake Analytics można znaleźć w artykule [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md).
+Informacje na temat używania zestawu Azure SDK programu .NET w celu przesyłania zadań napisanych przy użyciu skryptu [U-SQL](data-lake-analytics-u-sql-get-started.md) do usługi Data Lake Analytics. Więcej informacji na temat usługi Data Lake Analytics można znaleźć w artykule [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-W ramach tego samouczka utworzysz aplikację konsolową języka C# zawierającą skrypt U-SQL, która będzie odczytywać zawartość pliku z wartościami rozdzielonymi tabulatorami (TSV) i konwertować je do pliku z wartościami rozdzielanymi przecinkami (CSV). Aby wykonać kroki opisane w tym samouczku, korzystając z innych obsługiwanych narzędzi, kliknij odpowiednią kartę w górnej części tej sekcji.
+W ramach tego samouczka utworzysz aplikację konsolową języka C# umożliwiającą przesyłanie zadania U-SQL, które będzie odczytywać zawartość pliku z wartościami rozdzielonymi tabulatorami (TSV) i konwertować ją do pliku z wartościami rozdzielanymi przecinkami (CSV). Aby wykonać kroki opisane w tym samouczku, korzystając z innych obsługiwanych narzędzi, kliknij odpowiednią kartę w górnej części tego artykułu.
 
 ##Wymagania wstępne
 
@@ -32,15 +32,13 @@ Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dys
 
 - **Zainstalowany program Visual Studio 2015, Visual Studio 2013 Update 4 lub Visual Studio 2012 z językiem Visual C++**.
 - **Zestaw Microsoft Azure SDK dla programu .NET w wersji 2.5 lub nowszej**.  Można go zainstalować przy użyciu [Instalatora platformy sieci Web](http://www.microsoft.com/web/downloads/platform.aspx).
-- **[Data Lake Tools dla Visual Studio](http://aka.ms/adltoolsvs)**. 
-- Tworzenie aplikacji usługi Azure Active Directory (AAD) i pobieranie jej **identyfikatora klienta**, **identyfikatora dzierżawy** i **klucza**. Aby uzyskać więcej informacji o aplikacjach usługi AAD i instrukcje na temat uzyskiwania identyfikatora klienta, zobacz [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md) (Tworzenie aplikacji i głównej nazwy usługi Active Directory przy użyciu portalu). Identyfikator URI odpowiedzi i klucz będzie także dostępny z portalu po utworzeniu aplikacji i wygenerowaniu klucza.
-
+- **Konto usługi Azure Data Lake Analytics**. Więcej informacji można znaleźć w artykule [Manage Data Lake Analytics using Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md) (Zarządzanie usługą Data Lake Analytics przy użyciu zestawu Azure SDK programu .NET).
 
 ##Tworzenie aplikacji konsolowej
 
 W ramach tego samouczka przetworzymy wybrane dzienniki wyszukiwania.  Dziennik wyszukiwania może być przechowywany w usłudze Data Lake Store lub w usłudze Azure Blob Storage. 
 
-Przykładowy dziennik wyszukiwania został skopiowany do publicznego kontenera usługi Azure Blob. W aplikacji pobierzesz plik na stację roboczą, a następnie przekażesz go do domyślnego konta usługi Data Lake Store.
+Przykładowy dziennik wyszukiwania znajduje się w publicznym kontenerze usługi Azure Blob. Działanie tej aplikacji obejmuje pobranie pliku na stację roboczą, a następnie przekazanie pliku do domyślnego konta usługi Data Lake Store w ramach swojego konta usługi Data Lake Analytics.
 
 **Aby utworzyć aplikację**
 
@@ -51,7 +49,7 @@ Przykładowy dziennik wyszukiwania został skopiowany do publicznego kontenera u
         Install-Package Microsoft.Azure.Management.DataLake.Analytics -Pre
         Install-Package Microsoft.Azure.Management.DataLake.Store -Pre
         Install-Package Microsoft.Azure.Management.DataLake.StoreUploader -Pre
-        Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+        Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package WindowsAzure.Storage
 
 4. Dodaj nowy plik do projektu o nazwie **SampleUSQLScript.txt**, a następnie wklej poniższy skrypt U-SQL. Zadania usługi Data Lake Analytics są napisane w języku U-SQL. Aby dowiedzieć się więcej o języku U-SQL, zobacz [Wprowadzenie do języka U-SQL](data-lake-analytics-u-sql-get-started.md) i [Dokumentację języka U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
@@ -83,177 +81,167 @@ Przykładowy dziennik wyszukiwania został skopiowany do publicznego kontenera u
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE] Obecnie występuje znany problem z usługą Azure Data Lake.  Jeśli przykładowa aplikacja zostanie przerwana lub wystąpi błąd, może być konieczne ręczne usunięcie kont usług Data Lake Store i Data Lake Analytics utworzonych przez skrypt.  Jeśli nie znasz witryny Portal, zapoznaj się z przewodnikiem [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md) (Zarządzanie usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal).       
+    >[AZURE.NOTE] Obecnie występuje znany problem z usługą Azure Data Lake.  Jeśli przykładowa aplikacja zostanie przerwana lub wystąpi błąd, może być konieczne ręczne usunięcie kont usług Data Lake Store i Data Lake Analytics utworzonych przez skrypt.  Jeśli nie znasz witryny Portal, zapoznaj się z przewodnikiem [Zarządzanie usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal](data-lake-analytics-manage-use-portal.md), który ułatwi Ci rozpoczęcie pracy.       
        
 5. Wewnątrz elementu Program.cs wklej następujący kod:
 
+        using System;
+        using System.IO;
+        using System.Collections.Generic;
+        using System.Threading;
+        using Microsoft.Rest;
+        using Microsoft.Rest.Azure.Authentication;
+        using Microsoft.Azure.Management.DataLake.Store;
+        using Microsoft.Azure.Management.DataLake.StoreUploader;
         using Microsoft.Azure.Management.DataLake.Analytics;
         using Microsoft.Azure.Management.DataLake.Analytics.Models;
-        using Microsoft.Azure.Management.DataLake.Store;
-        using Microsoft.Azure.Management.DataLake.Store.Models;
-        using Microsoft.Azure.Management.DataLake.StoreUploader;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Rest;
         using Microsoft.WindowsAzure.Storage.Blob;
-        using System;
-        using System.Collections.Generic;
-        using System.IO;
-        
+
         namespace SdkSample
         {
           class Program
           {
+            private const string SUBSCRIPTIONID = "<Enter Your Azure Subscription ID>";
+            private const string CLIENTID = "1950a258-227b-4e31-a9cf-717495945fc2";
+            private const string DOMAINNAME = "common"; // Replace this string with the user's Azure Active Directory tenant ID or domain name, if needed.
+
+            private static string _adlaAccountName = "<Enter an Existing Data Lake Analytics Account Name>";
+            private static string _adlsAccountName = "<Enter the default Data Lake Store Account Name>";
+
             private static DataLakeAnalyticsAccountManagementClient _adlaClient;
-            private static DataLakeAnalyticsJobManagementClient _adlaJobClient;
-            private static DataLakeAnalyticsCatalogManagementClient _adlaCatalogClient;
-            private static DataLakeStoreAccountManagementClient _adlsClient;
             private static DataLakeStoreFileSystemManagementClient _adlsFileSystemClient;
-        
-            private static string _adlaAccountName;
-            private static string _adlsAccountName;
-            private static string _resourceGroupName;
-            private static string _location;
-            private static string _tenantId;
-            private static string _subId;
-            private static string _clientId;
-            private static string _clientKey;
+            private static DataLakeAnalyticsJobManagementClient _adlaJobClient;
         
             private static void Main(string[] args)
             {
-              _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; // TODO: Replace this value with the name for a NEW Store account.
-              _adlaAccountName = "<DATA-LAKE-ANALYTICS-NAME>"; // TODO: Replace this value with the name for a NEW Analytics account.
-              _resourceGroupName = "<RESOURCE-GROUP>"; // TODO: Replace this value. This resource group should already exist.
-              _location = "East US 2";
-              _tenantId = "<TENANT-ID>";
-              _subId = "<SUBSCRIPTION-ID>";
-              _clientId = "<CLIENT-ID>";
-              _clientKey = "<CLIENT-KEY>";
+                string localFolderPath = @"c:\temp\";
+
+                // Connect to Azure
+                var creds = AuthenticateAzure(DOMAINNAME, CLIENTID);
+
+                SetupClients(creds, SUBSCRIPTIONID);
+
+                // Transfer the source file from a public Azure Blob container to Data Lake Store.
+                CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://adltutorials.blob.core.windows.net/adls-sample-data/SearchLog.tsv"));
+                blob.DownloadToFile(localFolderPath + "SearchLog.tsv", FileMode.Create); // from WASB
+                UploadFile(localFolderPath + "SearchLog.tsv", "/Samples/Data/SearchLog.tsv"); // to ADLS
+                WaitForNewline("Source data file prepared.", "Submitting a job.");
+
+
+                // Submit the job
+                Guid jobId = SubmitJobByPath(localFolderPath + "SampleUSQLScript.txt", "My First ADLA Job");
+                WaitForNewline("Job submitted.", "Waiting for job completion.");
+
+                // Wait for job completion
+                WaitForJob(jobId);
+                WaitForNewline("Job completed.", "Downloading job output.");
+
+                // Download job output
+                DownloadFile(@"/Output/SearchLog-from-Data-Lake.csv", localFolderPath + "SearchLog-from-Data-Lake.csv");
         
-              string localFolderPath = @"c:\temp\"; // TODO: Make sure this exists and contains SampleUSQLScript.txt.
-              var tokenCreds = Authenticate(_tenantId, _clientId, _clientKey);
-        
-              SetupClients(tokenCreds, _subId); 
-        
-              // Run sample scenarios
-              WaitForNewline("Authenticated.", "Creating NEW accounts.");
-              CreateAccounts();
-              WaitForNewline("Accounts created.", "Preparing the source data file.");
-        
-              // Transfer the source file from a public Azure Blob container to Data Lake Store.
-              CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://adltutorials.blob.core.windows.net/adls-sample-data/SearchLog.tsv"));
-              blob.DownloadToFile(localFolderPath + "SearchLog.tsv", FileMode.Create); // from WASB
-              UploadFile(localFolderPath + "SearchLog.tsv", "/Samples/Data/SearchLog.tsv"); // to ADLS
-              WaitForNewline("Source data file prepared.", "Submitting a job.");
-        
-              // Submit the job
-              Guid jobId = SubmitJobByPath(localFolderPath + "SampleUSQLScript.txt", "My First ADLA Job");
-              WaitForNewline("Job submitted.", "Waiting for job completion.");
-        
-              // Wait for job completion
-              WaitForJob(jobId);
-              WaitForNewline("Job completed.", "Downloading job output.");
-        
-              // Download job output
-              DownloadFile(@"/Output/SearchLog-from-Data-Lake.csv", localFolderPath + "SearchLog-from-Data-Lake.csv");
-              WaitForNewline("Job output downloaded.", "Deleting accounts.");
-        
-              // Delete accounts
-              _adlaClient.Account.Delete(_resourceGroupName, _adlaAccountName);
-              _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
-        
-              WaitForNewline("Accounts deleted. You can now exit.");
+                WaitForNewline("Job output downloaded. You can now exit.");
             }
         
+            public static ServiceClientCredentials AuthenticateAzure(
+                string domainName,
+                string nativeClientAppCLIENTID)
+            {
+                // User login via interactive popup
+                SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
+                // Use the client ID of an existing AAD "Native Client" application.
+                var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientAppCLIENTID, new Uri("urn:ietf:wg:oauth:2.0:oob"));
+                return UserTokenProvider.LoginWithPromptAsync(domainName, activeDirectoryClientSettings).Result;
+            }
+
+            public static void SetupClients(ServiceClientCredentials tokenCreds, string subscriptionId)
+            {
+                _adlaClient = new DataLakeAnalyticsAccountManagementClient(tokenCreds);
+                _adlaClient.SubscriptionId = subscriptionId;
+
+                _adlaJobClient = new DataLakeAnalyticsJobManagementClient(tokenCreds);
+
+                _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(tokenCreds);
+            }
+
+            public static void UploadFile(string srcFilePath, string destFilePath, bool force = true)
+            {
+                var parameters = new UploadParameters(srcFilePath, destFilePath, _adlsAccountName, isOverwrite: force);
+                var frontend = new DataLakeStoreFrontEndAdapter(_adlsAccountName, _adlsFileSystemClient);
+                var uploader = new DataLakeStoreUploader(parameters, frontend);
+                uploader.Execute();
+            }
+
+            public static void DownloadFile(string srcPath, string destPath)
+            {
+                var stream = _adlsFileSystemClient.FileSystem.Open(_adlsAccountName, srcPath);
+                var fileStream = new FileStream(destPath, FileMode.Create);
+
+                stream.CopyTo(fileStream);
+                fileStream.Close();
+                stream.Close();
+            }
+
             // Helper function to show status and wait for user input
             public static void WaitForNewline(string reason, string nextAction = "")
             {
-              Console.WriteLine(reason + "\r\nPress ENTER to continue...");
-        
-              Console.ReadLine();
-        
-              if (!String.IsNullOrWhiteSpace(nextAction))
-                Console.WriteLine(nextAction);
+                Console.WriteLine(reason + "\r\nPress ENTER to continue...");
+
+                Console.ReadLine();
+
+                if (!String.IsNullOrWhiteSpace(nextAction))
+                    Console.WriteLine(nextAction);
             }
-        
-            public static TokenCredentials Authenticate(string tenantId, string clientId, string clientKey)
+
+
+            // List all Data Lake Analytics accounts within the subscription
+            public static List<DataLakeAnalyticsAccount> ListADLAAccounts()
             {
-              var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + _tenantId);
-              var creds = new ClientCredential(_clientId, _clientKey);
-              var tokenAuthResult = authContext.AcquireTokenAsync("https://management.core.windows.net/", creds).Result;
-        
-              return new TokenCredentials(tokenAuthResult.AccessToken);
+                var response = _adlaClient.Account.List();
+                var accounts = new List<DataLakeAnalyticsAccount>(response);
+
+                while (response.NextPageLink != null)
+                {
+                    response = _adlaClient.Account.ListNext(response.NextPageLink);
+                    accounts.AddRange(response);
+                }
+
+                Console.WriteLine("You have %i Data Lake Analytics account(s).", accounts.Count);
+                for (int i = 0; i < accounts.Count; i++)
+                {
+                    Console.WriteLine(accounts[i].Name);
+                }
+
+                return accounts;
             }
-        
-            public static void SetupClients(TokenCredentials tokenCreds, string subscriptionId)
-            {
-              _adlaClient = new DataLakeAnalyticsAccountManagementClient(tokenCreds);
-              _adlaClient.SubscriptionId = subscriptionId;
-        
-              _adlaJobClient = new DataLakeAnalyticsJobManagementClient(tokenCreds);
-        
-              _adlaCatalogClient = new DataLakeAnalyticsCatalogManagementClient(tokenCreds);
-        
-              _adlsClient = new DataLakeStoreAccountManagementClient(tokenCreds);
-              _adlsClient.SubscriptionId = subscriptionId;
-        
-              _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(tokenCreds);
-            }
-        
-            public static void CreateAccounts()
-            {
-              //ADLS account first, ADLA requires an ADLS account
-              var adlsParameters = new DataLakeStoreAccount(location: _location);
-              _adlsClient.Account.Create(_resourceGroupName, _adlsAccountName, adlsParameters);
-        
-              var defaultAdlsAccount = new List<DataLakeStoreAccountInfo> { new DataLakeStoreAccountInfo(_adlsAccountName, new DataLakeStoreAccountInfoProperties()) };
-              var adlaProperties = new DataLakeAnalyticsAccountProperties(defaultDataLakeStoreAccount: _adlsAccountName, dataLakeStoreAccounts: defaultAdlsAccount);
-              var adlaParameters = new DataLakeAnalyticsAccount(properties: adlaProperties, location: _location);
-              _adlaClient.Account.Create(_resourceGroupName, _adlaAccountName, adlaParameters);
-            }
-        
             public static Guid SubmitJobByPath(string scriptPath, string jobName)
             {
-              var script = File.ReadAllText(scriptPath);
-        
-              var jobId = Guid.NewGuid();
-              var properties = new USqlJobProperties(script);
-              var parameters = new JobInformation(jobName, JobType.USql, properties, priority: 1, degreeOfParallelism: 1, jobId: jobId);
-              var jobInfo = _adlaJobClient.Job.Create(_adlaAccountName, jobId, parameters);
-        
-              return jobId;
+                var script = File.ReadAllText(scriptPath);
+
+                var jobId = Guid.NewGuid();
+                var properties = new USqlJobProperties(script);
+                var parameters = new JobInformation(jobName, JobType.USql, properties, priority: 1, degreeOfParallelism: 1, jobId: jobId);
+                var jobInfo = _adlaJobClient.Job.Create(_adlaAccountName, jobId, parameters);
+
+                return jobId;
             }
-        
+
             public static JobResult WaitForJob(Guid jobId)
             {
-              var jobInfo = _adlaJobClient.Job.Get(_adlaAccountName, jobId);
-              while (jobInfo.State != JobState.Ended)
-              {
-                jobInfo = _adlaJobClient.Job.Get(_adlaAccountName, jobId);
-              }
-              return jobInfo.Result.Value;
-            }
-        
-            public static void UploadFile(string srcFilePath, string destFilePath, bool force = true)
-            {
-              var parameters = new UploadParameters(srcFilePath, destFilePath, _adlsAccountName, isOverwrite: force);
-              var frontend = new DataLakeStoreFrontEndAdapter(_adlsAccountName, _adlsFileSystemClient);
-              var uploader = new DataLakeStoreUploader(parameters, frontend);
-              uploader.Execute();
-            }
-        
-            public static void DownloadFile(string srcPath, string destPath)
-            {
-              var stream = _adlsFileSystemClient.FileSystem.Open(_adlsAccountName, srcPath);
-              var fileStream = new FileStream(destPath, FileMode.Create);
-        
-              stream.CopyTo(fileStream);
-              fileStream.Close();
-              stream.Close();
+                var jobInfo = _adlaJobClient.Job.Get(_adlaAccountName, jobId);
+                while (jobInfo.State != JobState.Ended)
+                {
+                    jobInfo = _adlaJobClient.Job.Get(_adlaAccountName, jobId);
+                }
+                return jobInfo.Result.Value;
             }
           }
         }
 
-6. Naciśnij klawisz **F5**, aby uruchomić aplikację.
+6. Naciśnij klawisz **F5**, aby uruchomić aplikację. Dane wyjściowe wyglądają tak:
+
+    ![Dane wyjściowe zadania U-SQL usługi Azure Data Lake Analytics utworzonego przy użyciu zestawu SDK programu .NET](./media/data-lake-analytics-get-started-net-sdk/data-lake-analytics-dotnet-job-output.png)
+
+7. Sprawdź plik wyjściowy.  Domyślna ścieżka i nazwa pliku to c:\Temp\SearchLog-from-Data-Lake.csv.
 
 ## Zobacz też
 
@@ -266,6 +254,6 @@ Przykładowy dziennik wyszukiwania został skopiowany do publicznego kontenera u
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

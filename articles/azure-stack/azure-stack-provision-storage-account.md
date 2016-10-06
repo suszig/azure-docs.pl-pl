@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Konta magazynu w usłudze Azure Stack | Microsoft Azure"
-    description="Dowiedz się, jak konto magazynu usługi Azure Stack zapewnia dostęp do usług Blob i Table."
+    pageTitle="Storage accounts in Azure Stack | Microsoft Azure"
+    description="Learn how to create an Azure Stack storage account."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,36 +13,36 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/15/2016"
+    ms.date="09/26/2016"
     ms.author="erikje"/>
 
 
-# Konta magazynu w usłudze Azure Stack
+# Storage accounts in Azure Stack
 
-Konta magazynu zawierają usługi Blob i Table oraz unikatową przestrzeń nazw dla obiektów danych magazynu. Domyślnie dane na Twoim koncie są dostępne tylko dla Ciebie, tj. właściciela konta magazynu.
+Storage accounts include Blob and Table services, and the unique namespace for your storage data objects. By default, the data in your account is available only to you, the storage account owner.
 
-1.  Kliknij pozycję **Nowy**, kliknij pozycję **Dane i magazyn**, a następnie kliknij konto **Magazyn**.
+1.  On the Azure Stack POC computer, log in to `https://portal.azurestack.local` as [an admin](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator), and then click **New** > **Data + Storage** > **Storage account**.
 
-  **Ważne**: Nazwę należy wpisać po wybraniu subskrypcji i grupy zasobów. Jeśli ten warunek nie zostanie spełniony, należy zamknąć blok i powtórzyć ten krok.
+    ![](media/azure-stack-provision-storage-account/image01.png)
 
-3.  Jeśli masz więcej niż jedną subskrypcję, zostanie wyświetlone pole **Subskrypcja**. Wybierz subskrypcję dla nowego konta magazynu.
+2.  In the **Create storage account** blade, type a name for your storage account. Create a new **Resource Group**, or select an existing one, then click **Create** to create the storage account.
 
-4.  Określ nową grupę zasobów lub wybierz istniejącą grupę.
+    ![](media/azure-stack-provision-storage-account/image02.png)
 
-5.  Wpisz nazwę konta magazynu.
+3. To see your new storage account, click **All resources**, then search for the storage account and click its name.
 
-6.  Kliknij pozycję **Utwórz**.
+    ![](media/azure-stack-provision-storage-account/image03.png)
+    
+## Next steps
 
-## Następne kroki
+[Use Azure Resource Manager templates](azure-stack-arm-templates.md)
 
-[Korzystanie z szablonów usługi Azure Resource Manager](azure-stack-arm-templates.md)
+[Learn about Azure storage accounts](../storage/storage-create-storage-account.md)
 
-[Informacje o kontach magazynu Azure](../storage/storage-create-storage-account.md)
-
-[Pobieranie Przewodnika dotyczącego sprawdzania poprawności magazynu usługi Azure Stack zgodnego z platformą Azure](http://aka.ms/azurestacktp1doc)
+[Download the Azure Stack Azure-consistent Storage Validation Guide](http://aka.ms/azurestacktp1doc)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

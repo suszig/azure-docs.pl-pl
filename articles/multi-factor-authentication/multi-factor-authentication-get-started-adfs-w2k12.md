@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Zabezpieczanie zasobów w chmurze i lokalnych przy użyciu serwera usługi Azure Multi-Factor Authentication i usług AD FS systemu Windows Server 2012 R2 | Microsoft Azure"
+    pageTitle="Serwer MFA z usługami AD FS w systemie Windows Server 2012 R2 | Microsoft Azure"
     description="Ten artykuł zawiera wprowadzenie do usługi Azure Multi-Factor Authentication i usług AD FS w systemie Windows Server 2012 R2."
     services="multi-factor-authentication"
     documentationCenter=""
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/04/2016"
+    ms.date="09/22/2016"
     ms.author="kgremban"/>
 
 
 
-# Zabezpieczanie zasobów w chmurze i lokalnych przy użyciu serwera Azure Multi-Factor Authentication z usługami AD FS w systemie Windows Server 2012 R2
+# Zabezpieczanie zasobów w chmurze i zasobów lokalnych przy użyciu serwera Azure Multi-Factor Authentication z usługami AD FS w systemie Windows Server 2012 R2
 
 Jeśli Twoja organizacja korzysta z usług federacyjnych Active Directory (AD FS) i chcesz zabezpieczyć zasoby w chmurze lub zasoby lokalne, możesz wdrożyć serwer Azure Multi-Factor Authentication i skonfigurować go do pracy z usługami AD FS. Ta konfiguracja wyzwala uwierzytelnianie wieloskładnikowe dla punktów końcowych o wysokiej wartości.
 
@@ -75,20 +75,61 @@ Serwer usługi Multi-Factor Authentication jest teraz skonfigurowany jako dodatk
 3. Uruchom plik instalacyjny MultiFactorAuthenticationAdfsAdapterSetup64.msi.
 4. W oknie instalatora adaptera AD FS usługi Multi-Factor Authentication kliknij przycisk **Dalej**, aby przeprowadzić instalację.
 5. Po zakończeniu instalacji kliknij przycisk **Zamknij**.
-6. Zmodyfikuj plik MultiFactorAuthenticationAdfsAdapter.config, wykonując następujące czynności:
 
-|Krok do wykonania w pliku MultiFactorAuthenticationAdfsAdapter.config| Procedura|
-|:------------- | :------------- |
-|Dla węzła **UseWebServiceSdk** ustaw wartość **true**.||
-|Dla węzła **WebServiceSdkUrl** ustaw adres URL zestawu SDK usługi sieci Web usługi Multi-Factor Authentication.</br></br>Przykład: **https://contoso.com/&lt;nazwa_certyfikatu&gt;/MultiFactorAuthWebServicesSdk/PfWsSdk.asmx**</br></br>gdzie nazwa_certyfikatu to nazwa certyfikatu. ||
-|Skonfiguruj zestaw SDK usługi sieci Web.<br><br>*Opcja 1.* Za pomocą nazwy użytkownika i hasła|<ol type="a"><li>Jako wartość węzła **WebServiceSdkUsername** ustaw konto należące do grupy zabezpieczeń PhoneFactor Admins. Użyj formatu &lt;domena&gt;&#92;&lt;nazwa_użytkownika&gt;.<li>Jako wartość węzła **WebServiceSdkPassword** ustaw odpowiednie hasło do konta.</li></ol>
-|Skonfiguruj zestaw SDK usługi sieci Web (*ciąg dalszy*)<br><br>*Opcja 2.* Za pomocą certyfikatu klienta|<ol type="a"><li>Uzyskaj certyfikat klienta z urzędu certyfikacji dla serwera, na którym uruchomiony jest zestaw SDK usługi sieci Web. Dowiedz się, jak [uzyskać certyfikaty klientów](https://technet.microsoft.com/library/cc770328.aspx).</li><li>Zaimportuj certyfikat klienta do osobistego magazynu certyfikatów komputera lokalnego na serwerze, na którym uruchomiony jest zestaw SDK usługi sieci Web. Uwaga: upewnij się, że certyfikat publiczny urzędu certyfikacji znajduje się w magazynie certyfikatów zaufanych certyfikatów głównych.</li><li>Wyeksportuj klucz publiczny i prywatny certyfikatu klienta do pliku pfx.</li><li>Wyeksportuj klucz publiczny do pliku cer w formacie Base64.</li><li>W Menedżerze serwera sprawdź, czy zainstalowana jest funkcja Serwer sieci Web (IIS)\Serwer sieci Web\Zabezpieczenia\Uwierzytelnianie mapowań certyfikatów klientów za pośrednictwem usług IIS. Jeśli ta funkcja nie jest zainstalowana, wybierz pozycję **Dodaj role i funkcje**, aby ją dodać.</li><li>W Menedżerze usług IIS kliknij dwukrotnie składnik **Edytor konfiguracji** w witrynie sieci Web, która zawiera katalog wirtualny zestawu SDK usługi sieci Web. Uwaga: bardzo ważne jest, aby wykonać tę czynność na poziomie witryny sieci Web, a nie na poziomie katalogu wirtualnego.</li><li>Przejdź do sekcji **system.webServer/security/authentication/iisClientCertificateMappingAuthentication**.</li><li>Ustaw węzeł **enabled** na wartość **true**.</li><li>Ustaw węzeł **oneToOneCertificateMappingsEnabled** na wartość **true**.</li><li>Kliknij przycisk **...** obok pozycji **oneToOneMappings**, a następnie kliknij link **Dodaj**.</li><li>Otwórz wyeksportowany wcześniej plik cer w formacie Base64. Usuń wiersze *-----BEGIN CERTIFICATE-----* i *-----END CERTIFICATE-----* oraz wszystkie podziały wierszy. Skopiuj ciąg wynikowy.</li><li>Jako wartość węzła **certificate** ustaw ciąg skopiowany w poprzednim kroku.</li><li>Ustaw węzeł **enabled** na wartość **true**.</li><li>Jako wartość węzła **userName** ustaw konto należące do grupy zabezpieczeń PhoneFactor Admins. Użyj formatu &lt;domena&gt;&#92;&lt;nazwa_użytkownika&gt;.</li><li>Ustaw hasło na odpowiednie hasło do konta, a następnie zamknij składnik Edytor konfiguracji.</li><li>Kliknij link **Zastosuj**.</li><li>W katalogu wirtualnym zestawu SDK usługi sieci Web kliknij dwukrotnie pozycję **Uwierzytelnianie**.</li><li>Sprawdź, czy opcje **Personifikacja ASP.NET** i **Uwierzytelnianie podstawowe** są ustawione na wartość **Włączone**, a wszystkie inne opcje są ustawione na wartość **Wyłączone**.</li><li>W katalogu wirtualnym zestawu SDK usługi sieci Web kliknij dwukrotnie pozycję **Ustawienia SSL**.</li><li>Ustaw opcję **Certyfikaty klientów** na wartość **Akceptuj**, a następnie kliknij pozycję **Zastosuj**.</li><li>Skopiuj wyeksportowany wcześniej plik pfx na serwer, na którym uruchomiony jest adapter AD FS.</li><li>Zaimportuj plik pfx do osobistego magazynu certyfikatów komputera lokalnego.</li><li>Kliknij prawym przyciskiem myszy i wybierz pozycję **Zarządzaj kluczami prywatnymi**, a następnie przyznaj dostęp do odczytu do konta użytego do zalogowania się do usług AD FS.</li><li>Otwórz certyfikat klienta i skopiuj odcisk palca z karty **Szczegóły**.</li><li>W pliku MultiFactorAuthenticationAdfsAdapter.config jako wartość węzła **WebServiceSdkCertificateThumbprint** ustaw ciąg skopiowany w poprzednim kroku.</li></ol>
-| Zmodyfikuj skrypt Register-MultiFactorAuthenticationAdfsAdapter.ps1, dodając ciąg *-ConfigurationFilePath &lt;ścieżka&gt;* na końcu polecenia `Register-AdfsAuthenticationProvider`, gdzie *&lt;ścieżka&gt;* jest pełną ścieżką do pliku MultiFactorAuthenticationAdfsAdapter.config.||
+## Edytowanie pliku MultiFactorAuthenticationAdfsAdapter.config
 
-Aby zarejestrować adapter, uruchom skrypt \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 w programie PowerShell. Adapter zostanie zarejestrowany jako element WindowsAzureMultiFactorAuthentication. Musisz ponownie uruchomić usługę AD FS, aby zmiany wprowadzone w ramach rejestracji zaczęły obowiązywać.
+Edytuj plik MultiFactorAuthenticationAdfsAdapter.config, wykonując następujące czynności:
+
+1. Dla węzła **UseWebServiceSdk** ustaw wartość **true**.  
+2. Dla węzła **WebServiceSdkUrl** ustaw adres URL zestawu SDK usługi sieci Web usługi Multi-Factor Authentication. Na przykład: **https://contoso.com/&lt;nazwa_certyfikatu&gt;/MultiFactorAuthWebServicesSdk/PfWsSdk.asmx**, gdzie nazwa_certyfikatu to nazwa certyfikatu.  
+3. Zmodyfikuj skrypt Register-MultiFactorAuthenticationAdfsAdapter.ps1, dodając ciąg *-ConfigurationFilePath &lt;ścieżka&gt;* na końcu polecenia `Register-AdfsAuthenticationProvider`, gdzie *&lt;ścieżka&gt;* jest pełną ścieżką do pliku MultiFactorAuthenticationAdfsAdapter.config.
+
+### Konfigurowanie zestawu SDK usługi sieci Web przy użyciu nazwy użytkownika i hasła
+
+Istnieją dwie opcje konfigurowania zestawu SDK usługi sieci Web. Pierwsza opcja to konfiguracja przy użyciu nazwy użytkownika i hasła, a druga — przy użyciu certyfikatu klienta. Wykonaj następujące kroki, aby skorzystać z pierwszej opcji, lub przejdź dalej, aby skorzystać z drugiej opcji.  
+
+1. Jako wartość węzła **WebServiceSdkUsername** ustaw konto należące do grupy zabezpieczeń PhoneFactor Admins. Użyj formatu &lt;domena&gt;&#92;&lt;nazwa_użytkownika&gt;.  
+2. Jako wartość węzła **WebServiceSdkPassword** ustaw odpowiednie hasło do konta.
+
+### Konfigurowanie zestawu SDK usługi sieci Web przy użyciu certyfikatu klienta
+
+Jeśli nie chcesz używać nazwy użytkownika i hasła, wykonaj następujące czynności, aby skonfigurować zestaw SDK usługi sieci Web przy użyciu certyfikatu klienta.
+
+1. Uzyskaj certyfikat klienta z urzędu certyfikacji dla serwera, na którym uruchomiony jest zestaw SDK usługi sieci Web. Dowiedz się, jak [uzyskać certyfikaty klientów](https://technet.microsoft.com/library/cc770328.aspx).  
+2. Zaimportuj certyfikat klienta do osobistego magazynu certyfikatów komputera lokalnego na serwerze, na którym uruchomiony jest zestaw SDK usługi sieci Web. Uwaga: upewnij się, że certyfikat publiczny urzędu certyfikacji znajduje się w magazynie certyfikatów zaufanych certyfikatów głównych.  
+3. Wyeksportuj klucz publiczny i prywatny certyfikatu klienta do pliku pfx.  
+4. Wyeksportuj klucz publiczny do pliku cer w formacie Base64.  
+5. W Menedżerze serwera sprawdź, czy zainstalowana jest funkcja Serwer sieci Web (IIS)\Serwer sieci Web\Zabezpieczenia\Uwierzytelnianie mapowań certyfikatów klientów za pośrednictwem usług IIS. Jeśli ta funkcja nie jest zainstalowana, wybierz pozycję **Dodaj role i funkcje**, aby ją dodać.  
+6. W Menedżerze usług IIS kliknij dwukrotnie składnik **Edytor konfiguracji** w witrynie sieci Web, która zawiera katalog wirtualny zestawu SDK usługi sieci Web. Uwaga: bardzo ważne jest, aby wykonać tę czynność na poziomie witryny sieci Web, a nie na poziomie katalogu wirtualnego.  
+7. Przejdź do sekcji **system.webServer/security/authentication/iisClientCertificateMappingAuthentication**.  
+8. Ustaw węzeł **enabled** na wartość **true**.  
+9. Ustaw węzeł **oneToOneCertificateMappingsEnabled** na wartość **true**.  
+10. Kliknij przycisk **...** obok pozycji **oneToOneMappings**, a następnie kliknij link **Dodaj**.  
+11. Otwórz wyeksportowany wcześniej plik cer w formacie Base64. Usuń wiersze *-----BEGIN CERTIFICATE-----* i *-----END CERTIFICATE-----* oraz wszystkie podziały wierszy. Skopiuj ciąg wynikowy.  
+12. Jako wartość węzła **certificate** ustaw ciąg skopiowany w poprzednim kroku.  
+13. Ustaw węzeł **enabled** na wartość **true**.  
+14. Jako wartość węzła **userName** ustaw konto należące do grupy zabezpieczeń PhoneFactor Admins. Użyj formatu &lt;domena&gt;&#92;&lt;nazwa_użytkownika&gt;.  
+15. Ustaw hasło na odpowiednie hasło do konta, a następnie zamknij składnik Edytor konfiguracji.  
+16. Kliknij link **Zastosuj**.  
+17. W katalogu wirtualnym zestawu SDK usługi sieci Web kliknij dwukrotnie pozycję **Uwierzytelnianie**.  
+18. Sprawdź, czy opcje **Personifikacja ASP.NET** i **Uwierzytelnianie podstawowe** są ustawione na wartość **Włączone**, a wszystkie inne opcje są ustawione na wartość **Wyłączone**.  
+19. W katalogu wirtualnym zestawu SDK usługi sieci Web kliknij dwukrotnie pozycję **Ustawienia SSL**.  
+20. Ustaw opcję **Certyfikaty klientów** na wartość **Akceptuj**, a następnie kliknij pozycję **Zastosuj**.  
+21. Skopiuj wyeksportowany wcześniej plik pfx na serwer, na którym uruchomiony jest adapter AD FS.  
+22. Zaimportuj plik pfx do osobistego magazynu certyfikatów komputera lokalnego.  
+23. Kliknij prawym przyciskiem myszy i wybierz pozycję **Zarządzaj kluczami prywatnymi**, a następnie przyznaj dostęp do odczytu do konta użytego do zalogowania się do usług AD FS.  
+24. Otwórz certyfikat klienta i skopiuj odcisk palca z karty **Szczegóły**.  
+25. W pliku MultiFactorAuthenticationAdfsAdapter.config jako wartość węzła **WebServiceSdkCertificateThumbprint** ustaw ciąg skopiowany w poprzednim kroku.  
+
+
+Następnie, aby zarejestrować adapter, uruchom skrypt \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 w programie PowerShell. Adapter zostanie zarejestrowany jako element WindowsAzureMultiFactorAuthentication. Musisz ponownie uruchomić usługę AD FS, aby zmiany wprowadzone w ramach rejestracji zaczęły obowiązywać.
+
+## Powiązane tematy
+
+Aby uzyskać pomoc przy rozwiązywaniu problemów, zobacz [Azure Multi-Factor Authentication — często zadawane pytania](multi-factor-authentication-faq.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

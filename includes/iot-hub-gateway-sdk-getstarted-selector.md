@@ -35,13 +35,15 @@ Zestaw SDK zawiera warstwę abstrakcji umożliwiającą tworzenie bram, które m
 
 ### Komunikaty
 
-Wyobrażenie modułów przekazujących sobie nawzajem komunikaty ułatwia zrozumienie sposobu działania bramy, jednak nie odzwierciedla precyzyjnie tego procesu. Moduły komunikują się ze sobą za pomocą magistrali komunikatów, publikują komunikaty w magistrali, a magistrala emituje komunikaty do wszystkich modułów podłączonych do magistrali.
+Wyobrażenie modułów przekazujących sobie nawzajem komunikaty ułatwia zrozumienie sposobu działania bramy, jednak nie odzwierciedla precyzyjnie tego procesu. Moduły komunikują się ze sobą przy użyciu brokera, publikując komunikaty do brokera (wzorzec komunikatów magistrali, pubsub lub inny), a następnie pozwalając brokerowi przekazać komunikat do modułów, które są do niego podłączone.
 
-Moduł publikuje komunikaty w magistrali wiadomości, używając funkcji **MessageBus_Publish**. Magistrala komunikatów dostarcza komunikaty do modułu za pomocą funkcji wywołania zwrotnego. Komunikat składa się z zestawu właściwości klucz/wartość oraz zawartości przekazywanej w postaci bloku pamięci.
+Moduły publikują komunikaty do brokera przy użyciu funkcji **Broker_Publish**. Broker dostarcza komunikaty do modułu za pomocą funkcji wywołania zwrotnego. Komunikat składa się z zestawu właściwości klucz/wartość oraz zawartości przekazywanej w postaci bloku pamięci.
 
 ![][3]
 
-Każdy moduł jest odpowiedzialny za filtrowanie komunikatów, ponieważ magistrala komunikatów używa mechanizmu emisji, aby dostarczyć każdy komunikat do każdego podłączonego do niej modułu. Moduł powinien działać tylko w przypadku komunikatów, które są dla niego przeznaczone. Filtrowanie komunikatów skutecznie tworzy potok komunikatów. Zazwyczaj moduł filtruje odebrane komunikaty, identyfikując te, które powinien przetwarzać, przy użyciu właściwości komunikatów.
+### Routing i filtrowanie komunikatów
+
+Istnieją dwa sposoby kierowania komunikatów do odpowiednich modułów. Zestaw linków może być przekazywany do brokera, aby broker znał źródło i ujście każdego modułu, lub moduł może filtrować właściwości komunikatu. Moduł powinien podejmować działania dotyczące komunikatu tylko wtedy, gdy komunikat jest przeznaczony dla niego. Linki i filtrowanie komunikatów efektywnie tworzą potok komunikatów.
 
 ## Przykładowa architektura Witaj, świecie
 
@@ -52,11 +54,11 @@ Przykład Witaj, świecie ilustruje pojęcia opisane w poprzedniej sekcji. Przyk
 
 ![][4]
 
-Zgodnie z opisem w poprzedniej sekcji, moduł Witaj, świecie nie przekazuje komunikatów co pięć sekund bezpośrednio do modułu rejestratora. Zamiast tego co pięć sekund publikuje komunikat w magistrali komunikatów.
+Zgodnie z opisem w poprzedniej sekcji, moduł Witaj, świecie nie przekazuje komunikatów co pięć sekund bezpośrednio do modułu rejestratora. Zamiast tego publikuje komunikaty do brokera co pięć sekund.
 
-Moduł rejestratora odbiera komunikaty z magistrali komunikatów oraz sprawdza ich właściwości w filtrze. Jeśli moduł rejestratora stwierdza, że powinien przetworzyć komunikat, zapisuje jego zawartość w pliku.
+Moduł rejestratora odbiera komunikaty od broker i podejmuje działania dotyczące tych komunikatów, zapisując treść komunikatu do pliku.
 
-Moduł rejestratora jedynie używa komunikatów z magistrali, natomiast nigdy nie publikuje w magistrali nowych komunikatów.
+Moduł rejestratora używa jedynie komunikatów z brokera, natomiast nigdy nie publikuje do brokera nowych komunikatów.
 
 ![][5]
 
@@ -73,6 +75,6 @@ Powyższy rysunek przedstawia architekturę przykładu Witaj, świecie i ścież
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

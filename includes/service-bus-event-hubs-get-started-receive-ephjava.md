@@ -189,7 +189,7 @@ Dla różnych typów środowisk kompilacji można jawnie uzyskać najnowsze wers
 > [AZURE.NOTE] Instrukcje w tym samouczku obejmują użycie pojedynczego wystąpienia hosta EventProcessorHost. W celu zwiększenia przepływności zaleca się uruchomienie wielu wystąpień hosta EventProcessorHost. W tych przypadkach różne wystąpienia automatycznie koordynują się ze sobą w celu równoważenia obciążenia odebranych zdarzeń. Jeśli chcesz, aby wiele odbiorników przetwarzało *wszystkie* zdarzenia, musisz użyć koncepcji **ConsumerGroup**. W przypadku odbierania zdarzeń z różnych komputerów dobrym rozwiązaniem może być określenie nazw wystąpień hosta EventProcessorHost w oparciu o komputery (lub role), w których są one wdrażane.
 
 <!-- Links -->
-[Omówienie usługi Event Hubs]: event-hubs-overview.md
+[Przegląd usługi Event Hubs]: event-hubs-overview.md
 [Konto usługi Azure Storage]: ../storage/storage-create-storage-account.md
 [klasyczny portal Azure]: http://manage.windowsazure.com
 [Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
@@ -200,6 +200,6 @@ Dla różnych typów środowisk kompilacji można jawnie uzyskać najnowsze wers
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

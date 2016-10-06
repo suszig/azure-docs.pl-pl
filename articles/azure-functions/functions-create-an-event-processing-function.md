@@ -1,7 +1,7 @@
 <properties
    pageTitle="Tworzenie funkcji przetwarzania zdarzeń | Microsoft Azure"
    description="Korzystanie z usługi Azure Functions w celu utworzenia funkcji języka C#, która jest uruchamiana na podstawie czasomierza zdarzeniowego."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="06/05/2016"
+   ms.date="09/25/2016"
    ms.author="glenga"/>
    
 
@@ -45,7 +45,7 @@ Aplikacja funkcji obsługuje wykonywanie funkcji na platformie Azure. Aby utworz
 
     ![Tworzenie nowej funkcji wyzwalanej przez czasomierz](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding.png)
 
-5. W obszarze **Dane wyjściowe usługi Azure Storage Queue** kliknij opcję **Wybierz** obok pozycji **Połączenie konta magazynu**, wybierz istniejące konto magazynu lub utwórz nowe, a następnie kliknij przycisk **Zapisz**. 
+5. W obszarze **Dane wyjściowe usługi Azure Storage Queue** wybierz istniejące **Połączenie konta magazynu** lub utwórz nowe, a następnie kliknij przycisk **Zapisz**. 
 
     ![Tworzenie nowej funkcji wyzwalanej przez czasomierz](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding-2.png)
 
@@ -87,6 +87,6 @@ Omówienie planów usług dostępnych w środowisku Azure Functions, w tym dynam
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

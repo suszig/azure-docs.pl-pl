@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Ocena linii bazowej w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite | Microsoft Azure"
-   description="Ten dokument wyjaśnia, jak korzystać z rozwiązania Zabezpieczenia i inspekcja w pakiecie OMS w celu oceny linii bazowej wszystkich monitorowanych komputerów pod kątem zgodności i zabezpieczeń."
+   pageTitle="Operations Management Suite Security and Audit Solution Baseline | Microsoft Azure"
+   description="This document explains how to use OMS Security and Audit solution to perform a baseline assessment of all monitored computers for compliance and security purpose."
    services="operations-management-suite"
    documentationCenter="na"
    authors="YuriDio"
@@ -17,70 +17,70 @@
    ms.author="yurid"/>
 
 
-# Ocena linii bazowej w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite
+# Baseline Assessment in Operations Management Suite Security and Audit Solution
 
-Ten dokument ułatwia korzystanie z funkcji oceny linii bazowej w [rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite (OMS)](operations-management-suite-overview.md) w celu zapewnienia bezpieczeństwa monitorowanych zasobów.
+This document helps you to use [Operations Management Suite (OMS) Security and Audit Solution](operations-management-suite-overview.md) baseline assessment capabilities to access the secure state of your monitored resources.
 
-## Co to jest ocena linii bazowej?
+## What is Baseline Assessment?
 
-Firma Microsoft, wraz z instytucjami branżowymi i rządowymi na całym świecie, zdefiniowała konfigurację systemu Windows, która reprezentuje wdrożenia serwera o wysokim poziomie zabezpieczeń. Konfiguracja ta stanowi zestaw kluczy rejestru, ustawień zasad inspekcji i ustawień zasad zabezpieczeń wraz z zalecanymi przez firmę Microsoft wartościami tych ustawień. Ten zestaw reguł jest określany jako linia bazowa zabezpieczeń. Ocena linii bazowej w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie OMS umożliwia bezproblemowe skanowanie wszystkich komputerów pod kątem zgodności. 
+Microsoft, together with industry and government organizations worldwide, defines a Windows configuration that represents highly secure server deployments. This configuration is a set of registry keys, audit policy settings, and security policy settings along with Microsoft’s recommended values for these settings. This set of rules is known as Security baseline. OMS Security and Audit baseline assessment capability can seamlessly scan all your computers for compliance. 
 
-Możliwe typy reguł to:
+There are three types of rules:
 
-- **Reguły rejestru**: sprawdzenie, czy klucze rejestru są prawidłowo ustawione.
-- **Reguły zasad inspekcji**: reguły dotyczące zasad inspekcji.
-- **Reguły zasad zabezpieczeń**: reguły dotyczące uprawnień użytkownika na komputerze.
+- **Registry rules**: check that registry keys are set correctly.
+- **Audit policy rules**: rules regarding your audit policy.
+- **Security policy rules**: rules regarding the user’s permissions on the machine.
 
-> [AZURE.NOTE] Krótkie omówienie tej funkcji zawiera artykuł [Dostęp do linii bazowej konfiguracji zabezpieczeń w rozwiązaniu Zabezpieczenia w pakiecie OMS](https://blogs.technet.microsoft.com/msoms/2016/08/12/use-oms-security-to-assess-the-security-configuration-baseline/).
+> [AZURE.NOTE] Read [Use OMS Security to assess the Security Configuration Baseline](https://blogs.technet.microsoft.com/msoms/2016/08/12/use-oms-security-to-assess-the-security-configuration-baseline/) for a brief overview of this feature.
 
-## Ocena linii bazowej zabezpieczeń
+## Security Baseline Assessment
 
-Korzystając z pulpitu nawigacyjnego, można przeglądać bieżące oceny linii bazowej zabezpieczeń dla wszystkich komputerów, które są monitorowane przy użyciu rozwiązania Zabezpieczenia i inspekcja w pakiecie OMS.  Aby przejść do pulpitu nawigacyjnego oceny linii bazowej zabezpieczeń, wykonaj te kroki:
+You can review your current security baseline assessment for all computers that are monitored by OMS Security and Audit using the dashboard.  Execute the following steps to access the security baseline assessment dashboard:
 
-1. Na głównym pulpicie nawigacyjnym **pakietu Microsoft Operations Management Suite** kliknij kafelek **Zabezpieczenia i inspekcja**.
-2. Na pulpicie nawigacyjnym **Zabezpieczenia i inspekcja** kliknij przycisk **Ocena bazowa** w obszarze **Domeny zabezpieczeń**. Pojawi się pulpit nawigacyjny **Ocena linii bazowej zabezpieczeń**, jak pokazano na poniższej ilustracji:
+1. In the **Microsoft Operations Management Suite** main dashboard, click **Security and Audit** tile.
+2. In the **Security and Audit** dashboard, click **Baseline Assessment** under **Security Domains**. The **Security Baseline Assessment** dashboard appears as shown in the following image:
     
-    ![Ocena linii bazowej w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie OMS](./media/oms-security-baseline/oms-security-baseline-fig1.png)
+    ![OMS Security and Audit Baseline Assessment](./media/oms-security-baseline/oms-security-baseline-fig1.png)
 
-Ten pulpit nawigacyjny dzieli się na trzy główne obszary:
+This dashboard is divided in three major areas:
 
-- **Komputery w porównaniu z wartościami bazowymi**: ta część zawiera podsumowanie liczby przeanalizowanych komputerów i odsetka komputerów, które przeszły ocenę pomyślnie. Widać też 10 najlepszych komputerów i wynik procentowy oceny.
-- **Stan wymaganych reguł**: ta sekcja ma zwracać uwagę na niespełnione reguły, klasyfikując je według ważności i typu. Spoglądając na pierwszy wykres, można szybko ustalić, czy większość reguł z błędami ma znaczenie krytyczne, czy nie. Widać też listę 10 najczęściej występujących niespełnionych reguł oraz ich ważności. Drugi wykres przedstawia typy reguł, w których wykryto błędy podczas oceny. 
-- **Komputery, dla których brak oceny linii bazowej**: w tej części widać komputery, do których nie uzyskano dostępu z powodu błędów lub niezgodności systemu operacyjnego. 
+- **Computers compared to baseline**: this section gives a summary of the number of computers that were accessed and the percentage of computers that passed the assessment. It also gives the top 10 computers and the percentage result for the assessment.
+- **Required Rules Status**: this section has the intent to bring awareness of the failed rules by severity and failed rules by type. By looking to the first graph you can quickly identify if most the failed rules are critical, or not. It also gives a list of the top 10 failed rules and their severity. The second graph shows the type of rule that failed during the assessment. 
+- **Computers missing baseline assessment**: this section list the computers that were not accessed due to operating system incompatibility or failures. 
 
-### Uzyskiwanie dostępu do komputerów w porównaniu do linii bazowej
+### Accessing computers compared to baseline
 
-W idealnym przypadku wszystkie komputery powinny pomyślnie przejść ocenę linii bazowej zabezpieczeń. Jednak można się spodziewać, że w pewnych okolicznościach tak nie będzie. W ramach procesu zarządzania zabezpieczeniami ważne jest dokonanie przeglądu komputerów, które nie przeszły pomyślnie wszystkich testów oceny zabezpieczeń. Aby szybko wyświetlić wizualizację tych danych, można wybrać opcję **Komputery, do których uzyskano dostęp** w sekcji **Komputery w porównaniu z wartościami bazowymi**. Powinny zostać wyświetlone wyniki wyszukiwania dziennika z listą komputerów, jak pokazano na poniższym ekranie:
+Ideally all your computers are be compliant with the security baseline assessment. However it is expected that in some circumstances this doesn't happen. As part of the security management process, it is important to include reviewing the computers that failed to pass all security assessment tests. A quick way to visualize that is by selecting the option **Computers accessed** located in the **Computers compared to baseline** section. You should see the log search result showing the list of computers as shows in the following screen:
 
-![Wyniki wyszukiwania komputerów, do których uzyskano dostęp](./media/oms-security-baseline/oms-security-baseline-fig2.png)
+![Computer accessed results](./media/oms-security-baseline/oms-security-baseline-fig2.png)
 
-Wyniki wyszukiwania mają postać tabeli, której pierwsza kolumna zawiera nazwę komputera, a druga — liczbę reguł z błędami. Aby uzyskać informacje dotyczące typów niespełnionych reguł, kliknij liczbę reguł z błędami obok nazwy komputera. Powinien pojawić się wynik podobny do przedstawionego na poniższej ilustracji:
+The search result is shown in a table format, where the first column has the computer name and the second color has the number of rules that failed. To retrieve the information regarding the type of rule that failed, click in the number of failed rules besides the computer name. You should see a result similar to the one shown in the following image:
 
-![Szczegółowe wyniki wyszukiwania komputerów, do których uzyskano dostęp](./media/oms-security-baseline/oms-security-baseline-fig3.png)
+![Computer accessed results details](./media/oms-security-baseline/oms-security-baseline-fig3.png)
 
-Te wyniki wyszukiwania zawierają łączną liczbę reguł, do których uzyskano dostęp, oraz liczbę niespełnionych reguł krytycznych, reguł z ostrzeżeniami i niespełnionych reguł dotyczących informacji.
+In this search result, you have the total of accessed rules, the number of critical rules that failed, the warning rules and the information failed rules.
 
-### Uzyskiwanie dostępu do stanu wymaganych reguł
+### Accessing required rules status
 
-Po uzyskaniu informacji dotyczących procentowej liczby komputerów, które z powodzeniem przeszły ocenę, można uzyskać więcej informacji o niespełnionych regułach według ich ważności. Taka wizualizacja pomaga ustalić, którymi komputerami należy zająć się w pierwszej kolejności, aby przeszły one pomyślnie następną ocenę. Na kafelku **Niespełnione reguły według ważności** w obszarze **Stan wymaganych reguł** umieść kursor nad częścią wykresu Krytyczne i kliknij ją. Powinny pojawić się wyniki podobne do następujących:
+After obtaining the information regarding the percentage number of computers that passed the assessment, you may want to obtain more information about which rules are failing according to the criticality. This visualization helps you to prioritize which computers should be addressed first to ensure they will be compliant in the next assessment. Hover over the Critical part of the graph located in the **Failed rules by severity** tile, under **Required rules status** and click it. You should see a result similar to the following screen:
 
-![Niespełnione reguły według ważności — szczegóły](./media/oms-security-baseline/oms-security-baseline-fig4.png) 
+![Failed rules by severity details](./media/oms-security-baseline/oms-security-baseline-fig4.png) 
 
-W tym wyniku dziennika widać typ niespełnionej reguły linii bazowej, jej opis oraz identyfikator CCE. Te informacje powinny wystarczyć do naprawienia problemu na komputerze docelowym.
+In this log result you see the type of baseline rule that failed, the description of this rule, and the Common Configuration Enumeration (CCE) ID of this security rule. These attributes should be enough to perform a corrective action to fix this problem in the target computer.
 
-> [AZURE.NOTE] Więcej informacji na temat identyfikatorów CCE zawiera witryna [National Vulnerability Database](https://nvd.nist.gov/cce/index.cfm).
+> [AZURE.NOTE] For more information about CCE, access the [National Vulnerability Database](https://nvd.nist.gov/cce/index.cfm).
 
-### Dostęp do komputerów, dla których brak oceny linii bazowej
+### Accessing computers missing baseline assessment
 
-Pakiet OMS obsługuje profil linii bazowej członka domeny w systemie Windows Server od wersji 2008 R2 do wersji 2012 R2. Ostateczna wersja linii bazowej dla systemu Windows Server 2016 nie jest jeszcze opracowana i zostanie dodana natychmiast po jej opublikowaniu. Wszystkie inne systemy operacyjne skanowane za pomocą oceny linii bazowej w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie OMS są widoczne w obszarze **Komputery, dla których brak oceny linii bazowej**.
+OMS supports the domain member baseline profile on Windows Server 2008 R2 up to Windows Server 2012 R2. Windows Server 2016 baseline isn’t final yet and will be added as soon as it is published. All other operating systems scanned via OMS Security and Audit baseline assessment appears under the **Computers missing baseline assessment** section.
 
-## Zobacz też
+## See also
 
-Ten dokument przedstawia informacje na temat oceny linii bazowej w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie OMS. Więcej informacji na temat zabezpieczeń w pakiecie OMS zawierają następujące artykuły:
+In this document, you learned about OMS Security and Audit baseline assessment. To learn more about OMS Security, see the following articles:
 
-- [Omówienie pakietu Operations Management Suite (OMS)](operations-management-suite-overview.md)
-- [Monitorowanie alertów zabezpieczeń i reagowanie na nie w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-responding-alerts.md)
-- [Monitorowanie zasobów w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-monitoring-resources.md)
+- [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
+- [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](oms-security-responding-alerts.md)
+- [Monitoring Resources in Operations Management Suite Security and Audit Solution](oms-security-monitoring-resources.md)
 
 
 

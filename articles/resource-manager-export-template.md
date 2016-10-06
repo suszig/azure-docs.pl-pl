@@ -106,6 +106,8 @@ Zazwyczaj najlepszym rozwiązaniem jest praca z szablonem, za pomocą którego w
 
 Mimo że dla każdego wdrożenia wyświetlane są tylko zmiany wprowadzone w danej grupie zasobów, w dowolnym momencie możliwe jest wyeksportowanie szablonu w celu wyświetlenia atrybutów całej grupy zasobów.  
 
+> [AZURE.NOTE] Nie można eksportować szablonu dla grupy zasobów zawierającej ponad 200 zasobów.
+
 1. Aby wyświetlić szablon dla grupy zasobów, wybierz pozycję **Skrypt automatyzacji**.
 
       ![eksportowanie grupy zasobów](./media/resource-manager-export-template/export-resource-group.png)
@@ -307,6 +309,6 @@ Gratulacje! Wiesz już, jak wyeksportować szablon na podstawie zasobów, które
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 
