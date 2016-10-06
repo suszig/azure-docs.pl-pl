@@ -69,7 +69,7 @@ Istnieją dwa sposoby na pobranie serwera Azure Multi-Factor Authentication. Oba
 
 
 ## Instalowanie i konfigurowanie serwera Azure Multi-Factor Authentication
-Po pobraniu serwer można zainstalować i skonfigurować.  Należy sprawdzić, czy serwer, na którym zamierzasz go zainstalować, spełnia następujące wymagania:
+Po pobraniu serwera możesz go zainstalować i skonfigurować.  Należy sprawdzić, czy serwer, na którym zamierzasz go zainstalować, spełnia następujące wymagania:
 
 
 
@@ -112,8 +112,7 @@ Podsieć IP|Maska sieci|Zakres adresów IP
 2. Upewnij się, że na ekranie Wybieranie folderu instalacji wybrany jest prawidłowy folder, a następnie kliknij przycisk Dalej.
 3. Po ukończeniu instalacji kliknij przycisk Zakończ.  Spowoduje to uruchomienie kreatora konfiguracji.
 4. Na ekranie powitalnym kreatora konfiguracji zaznacz pole opcji **Pomiń korzystanie z kreatora konfiguracji uwierzytelniania** i kliknij przycisk **Dalej**.  Spowoduje to zamknięcie kreatora i uruchomienie serwera.
-![Chmura](./media/multi-factor-authentication-get-started-server/skip2.png)
-
+    ![Chmura](./media/multi-factor-authentication-get-started-server/skip2.png)
 5. Na stronie, z której został pobrany serwer, kliknij przycisk **Generuj poświadczenia aktywacji**.  Skopiuj uzyskane informacje do serwera Azure MFA, wpisując je w odpowiednich polach, a następnie kliknij przycisk **Aktywuj**.
 
 
@@ -183,7 +182,7 @@ Metoda|Opis
 :------------- | :------------- |
 [Portal użytkowników](multi-factor-authentication-get-started-portal.md)|  Informacje na temat instalacji i konfiguracji portalu użytkowników, w tym na temat wdrażania i samoobsługi użytkowników.
 [Usługi federacyjne Active Directory](multi-factor-authentication-get-started-adfs.md)|Informacje dotyczące konfigurowania Azure Multi-Factor Authentication z usługami AD FS.
-[Uwierzytelnianie RADIUS](multi-factor-authentication-get-started-server-radius.md)|  Informacje na temat instalacji i konfiguracji serwera Azure MFA z użyciem usługi RADIUS.
+[Uwierzytelnianie usługi RADIUS](multi-factor-authentication-get-started-server-radius.md)|  Informacje na temat instalacji i konfiguracji serwera Azure MFA z użyciem usługi RADIUS.
 [Uwierzytelnianie usług IIS](multi-factor-authentication-get-started-server-iis.md)|Informacje na temat instalacji i konfiguracji serwera Azure MFA z użyciem usług IIS.
 [Uwierzytelnianie systemu Windows](multi-factor-authentication-get-started-server-windows.md)|  Informacje na temat instalacji i konfiguracji serwera Azure MFA z użyciem uwierzytelniania systemu Windows.
 [Uwierzytelnianie LDAP](multi-factor-authentication-get-started-server-ldap.md)|Informacje na temat instalacji i konfiguracji serwera Azure MFA z użyciem uwierzytelniania LDAP.
@@ -193,6 +192,6 @@ Metoda|Opis
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="vm-windows-sql-server"
     ms.workload="infrastructure-services"
-    ms.date="09/20/2016"
+    ms.date="09/21/2016"
     ms.author="jroth" />
 
 
@@ -142,9 +142,9 @@ Jeśli nie chcesz zezwolić na połączenia z aparatem bazy danych za pośrednic
 - **Lokalne (tylko wewnątrz maszyny wirtualnej)**, aby zezwolić na połączenia z programem SQL Server tylko z maszyny wirtualnej.
 - **Prywatne (wewnątrz usługi Virtual Network)**, aby zezwolić na połączenia z programem SQL Server tylko z maszyn wirtualnych lub usług w tej samej sieci wirtualnej.
 
-Ogólnie rzecz biorąc, można ulepszyć zabezpieczenia, wybierając łączność z najbardziej restrykcyjnymi ograniczeniami akceptowanymi w danym scenariuszu. Jednak wszystkie opcje można zabezpieczyć przy użyciu reguł sieciowej grupy zabezpieczeń i uwierzytelniania SQL/Windows.
+>[AZURE.NOTE] W obrazach maszyn wirtualnych programu SQL Server w wersji Express protokół TCP/IP nie jest domyślnie włączony. Ta zasada obowiązuje nawet dla opcji łączności publicznej i prywatnej. W przypadku wersji Express należy [ręcznie włączyć protokół TCP/IP](#configure-sql-server-to-listen-on-the-tcp-protocol) po utworzeniu maszyny wirtualnej przy użyciu Menedżera konfiguracji programu SQL Server.
 
->[AZURE.NOTE] W obrazach maszyn wirtualnych programu SQL Server w wersji Express lub Developer protokół TCP/IP nie jest domyślnie włączony. Uniemożliwia to łączność zdalną, nawet jeśli wybrano połączenie Publiczne lub Prywatne w portalu. W przypadku wersji Express i Developer należy [ręcznie włączyć protokół TCP/IP](virtual-machines-windows-sql-connect.md#configure-sql-server-to-listen-on-the-tcp-protocol) po utworzeniu maszyny wirtualnej przy użyciu Menedżera konfiguracji programu SQL Server.
+Ogólnie rzecz biorąc, można ulepszyć zabezpieczenia, wybierając łączność z najbardziej restrykcyjnymi ograniczeniami akceptowanymi w danym scenariuszu. Jednak wszystkie opcje można zabezpieczyć przy użyciu reguł sieciowej grupy zabezpieczeń i uwierzytelniania SQL/Windows.
 
 Domyślnie wybierane jest ustawienie **Port** 1433. Możesz określić inny numer portu.
 Aby uzyskać więcej informacji, zobacz [Connect to a SQL Server Virtual Machine (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md) (Ustanawianie połączenia z maszyną wirtualną programu SQL Server (usługa Resource Manager) | Microsoft Azure).

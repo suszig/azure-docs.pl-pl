@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/12/2016"
+   ms.date="09/25/2016"
    ms.author="markvi"/>
 
 
@@ -27,7 +27,7 @@ Istnieją dwa główne obszary raportowania:
 
 - **Działania związane z logowaniem** — informacje na temat użycia zarządzanych aplikacji i działania użytkownika związane z logowaniem
 
-- **Aktywność systemu** — informacje o inspekcji dotyczące zarządzanych aplikacji i działań systemowych oraz zarządzania użytkownikami i grupami
+- **Dzienniki inspekcji** — informacje o aktywności systemu obejmujące zarządzanie użytkownikami i grupami oraz zarządzane aplikacje i działania dotyczące katalogu
 
 W zależności od szukanego zakresu danych dostęp do tych raportów można uzyskać na dwa sposoby: klikając pozycję **Użytkownicy i grupy** lub **Aplikacje dla przedsiębiorstw** na liście usług w witrynie [Azure Portal](https://portal.azure.com).
 
@@ -120,7 +120,7 @@ Ta metoda wyszukiwania umożliwia zestawienie logowań wokół określonych **u�
 
 ![Raportowanie](./media/active-directory-reporting-azure-portal/84.png "Reporting")
 
-## Aktywność systemu
+## Dzienniki inspekcji
 
 Dzienniki inspekcji w usłudze Azure Active Directory dostarczają informacji na temat aktywności systemu pod kątem zgodności.
 
@@ -220,6 +220,6 @@ Zobacz temat [Azure Active Directory Reporting Guide](active-directory-reporting
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

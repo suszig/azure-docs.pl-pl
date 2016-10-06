@@ -128,6 +128,6 @@ Portal programu Azure AD Connect Health umożliwia wyświetlanie alertów, wynik
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

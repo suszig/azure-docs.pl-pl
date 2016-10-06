@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/02/2016"
+    ms.date="09/22/2016"
     ms.author="curtand"/>
 
 
 # Dodawanie użytkowników z innych katalogów lub firm partnerskich w usłudze Azure Active Directory
 
 > [AZURE.SELECTOR]
-- [Azure Portal](active-directory-create-users-external-azure-portal.md)
+- [Azure Portal](active-directory-users-create-external-azure-portal.md)
 - [klasyczny portal Azure](active-directory-create-users-external.md)
 
 W tym artykule opisano sposób dodawania użytkowników z innych katalogów w usłudze Azure Active Directory lub dodawania użytkowników z firm partnerskich. Aby uzyskać informacje dotyczące dodawania nowych użytkowników w organizacji i użytkowników, którzy mają konta Microsoft, zobacz [Dodawanie nowych użytkowników do usługi Azure Active Directory](active-directory-create-users.md). Dodani użytkownicy domyślnie nie mają uprawnień administratora, ale możesz przypisać im role w dowolnym momencie.
@@ -71,7 +71,7 @@ Jeśli użytkownik zostanie usunięty z katalogu macierzystego lub anuluje swoje
 - **Klasyczny portal Azure**: umożliwia użytkownikowi zewnętrznemu, który jest administratorem wielu katalogów, zarządzanie każdym z nich.
 - **SharePoint Online**: umożliwia użytkownikowi zewnętrznemu dostęp do autoryzowanych zasobów usługi SharePoint Online, jeśli udostępnianie zewnętrzne jest włączone.
 - **Dynamics CRM**: umożliwia użytkownikowi zewnętrznemu dostęp do autoryzowanych zasobów programu Dynamics CRM, jeśli użytkownik ma licencję za pośrednictwem programu PowerShell.
-- **Dynamics AX**: umożliwia użytkownikowi zewnętrznemu dostęp do autoryzowanych zasobów programu Dynamics AX, jeśli użytkownik ma licencję za pośrednictwem programu PowerShell. Ograniczenia dotyczące [użytkowników zewnętrznych usługi Azure AD](#known-limitations-of-azure-ad-external-users) i [gości](#guest-user-management-and-limitations) również mają zastosowanie w przypadku użytkowników zewnętrznych programu Dynamics AX.
+- **Dynamics AX**: umożliwia użytkownikowi zewnętrznemu dostęp do autoryzowanych zasobów programu Dynamics AX, jeśli użytkownik ma licencję za pośrednictwem programu PowerShell. Ograniczenia dotyczące [użytkowników zewnętrznych usługi Azure AD](#known-limitations-of-azure-ad-external-users) mają również zastosowanie w przypadku użytkowników zewnętrznych programu Dynamics AX.
 
 ### Znane ograniczenia dotyczące użytkowników zewnętrznych usługi Azure AD
 
@@ -91,6 +91,6 @@ Jeśli użytkownik zostanie usunięty z katalogu macierzystego lub anuluje swoje
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

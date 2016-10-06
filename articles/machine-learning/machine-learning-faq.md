@@ -17,6 +17,7 @@
     ms.date="07/14/2016"
     ms.author="garye"/>
 
+
 # Azure Machine Learning — często zadawane pytania: rozliczenia, możliwości, ograniczenia i pomoc techniczna
 
 Przedstawione tutaj często zadawane pytania dotyczą usługi Azure Machine Learning, która jest usługą w chmurze przeznaczoną do tworzenia modeli predykcyjnych i rozwiązań operacyjnych za pośrednictwem usług sieci Web. Wśród często zadawanych pytań znajdują się pytania dotyczące korzystania z samej usługi, w tym między innymi na temat modelu rozliczeń, możliwości, ograniczeń i pomocy technicznej.
@@ -41,9 +42,9 @@ Usługa Machine Learning API umożliwia wdrażanie modeli predykcyjnych, na przy
 
 Aby uzyskać więcej informacji, zobacz [Connect to a Machine Learning web service](machine-learning-connect-to-azure-machine-learning-web-service.md) (Łączenie się z usługą sieci web usługi Machine Learning).
 
-**Gdzie znajduje się lista klasycznych usług sieci Web? Gdzie można znaleźć wykaz nowych usług sieci Web opartych na architekturze ARM?**
+**Gdzie znajduje się lista klasycznych usług sieci Web? Gdzie można znaleźć wykaz nowych usług sieci Web opartych na usłudze Azure Resource Manager?**
 
-Klasyczne usługi sieci Web są wyszczególnione w obszarze [Machine Learning Studio](http://studio.azureml.net) na karcie usług sieci Web. Listę nowych usług sieci Web opartych na architekturze ARM można znaleźć w portalu [usług sieci Web Microsoft Azure Machine Learning](https://services.azureml.net/). Nie jest dostępna wspólna lista obejmująca wszystkie usługi.
+Klasyczne usługi sieci Web są wyszczególnione w obszarze [Machine Learning Studio](http://studio.azureml.net) na karcie usług sieci Web. Listę nowych usług sieci Web opartych na usłudze Azure Resource Manager można znaleźć w portalu [usług sieci Web Microsoft Azure Machine Learning](https://services.azureml.net/). Nie jest dostępna wspólna lista obejmująca wszystkie usługi.
 
 ## Pytania dotyczące usługi sieci Web Microsoft Azure Machine Learning
 
@@ -56,7 +57,11 @@ Usługa Azure Machine Learning udostępnia dwa typy usług:
 * Usługa odpowiedzi na żądanie (RRS, Request-Response Service) — wysoce skalowalna usługa o małych opóźnieniach, która udostępnia interfejs dla bezstanowych modeli utworzonych i wdrożonych z poziomu usługi Machine Learning Studio.
 * Usługa wykonywania wsadowego (BES, Batch Execution Service) — asynchroniczna usługa przeznaczona do oceniania partii rekordów danych.
 
-Istnieje kilka sposobów uzyskiwania dostępu do usługi sieci Web za pomocą interfejsu API REST. Można na przykład napisać aplikację w języku C#, R lub Python korzystającą z przykładowego kodu automatycznie wygenerowanego podczas wdrażania usługi sieci Web (dostępnego na stronie pomocy interfejsu API na pulpicie nawigacyjnym usługi sieci Web Machine Learning Studio). Można też użyć automatycznie utworzonego przykładowego skoroszytu programu Microsoft Excel (również dostępnego na pulpicie nawigacyjnym usługi sieci Web w środowisku Studio).
+Istnieje kilka sposobów uzyskiwania dostępu do usługi sieci Web za pomocą interfejsu API REST. Można na przykład napisać aplikację w języku C#, R lub Python korzystającą z przykładowego kodu automatycznie wygenerowanego podczas wdrażania usługi sieci Web. 
+
+Kod przykładowy można znaleźć na stronie Korzystanie dotyczącej danej usługi sieci Web w portalu usług sieci Web Azure Machine Learning oraz na stronie pomocy interfejsu API na pulpicie nawigacyjnym usługi sieci Web Machine Learning Studio. 
+
+Można też użyć automatycznie utworzonego przykładowego skoroszytu programu Microsoft Excel (również dostępnego na pulpicie nawigacyjnym usługi sieci Web w środowisku Studio).
 
 **Jakie główne aktualizacje wprowadzono w nowych usługach sieci Web Azure ML?**
 
@@ -74,7 +79,7 @@ Aby uzyskać więcej informacji, zobacz temat [Manage experiment iterations in M
 
 ### Wdrażanie eksperymentu
 
-**Czy mogę wdrożyć eksperyment predykcyjny jako nową (opartą na architekturze ARM) usługę sieci Web, jeśli został on już wdrożony jako klasyczna usługa sieci Web?**
+**Czy mogę wdrożyć eksperyment predykcyjny jako nową (opartą na usłudze Azure Resource Manager) usługę sieci Web, jeśli został on już wdrożony jako klasyczna usługa sieci Web?**
 
 Nie, nie możesz wdrożyć eksperymentu, który został wcześniej wdrożony jako klasyczna usługa sieci Web. Zamiast tego musisz utworzyć nowy eksperyment predykcyjny i wdrożyć go.
 
@@ -124,7 +129,7 @@ Informacje na temat możliwości wprowadzania obrazu są dostępne w temacie [Im
 
 ### Moduły
 
-**W środowisku uslugi Azure Machine Learning Studio nie ma poszukiwanego przeze mnie algorytmu, źródła danych, formatu danych lub szukanej operacji transformacji danych. Jakie są moje opcje?**
+**W środowisku usługi Azure Machine Learning Studio nie ma poszukiwanego przeze mnie algorytmu, źródła danych, formatu danych lub szukanej operacji transformacji danych. Jakie są moje opcje?**
 
 Możesz odwiedzić [forum opinii użytkowników](http://go.microsoft.com/fwlink/?LinkId=404231), aby zobaczyć żądania funkcji, które śledzimy. Jeśli pojawiło się już żądanie dotyczące możliwości, której poszukujesz, zagłosuj na to żądanie. Jeśli możliwość, której poszukujesz, nie istnieje, utwórz nowe żądanie. Na tym forum możesz również sprawdzić stan swojego żądania. Ściśle śledzimy tę listę i często aktualizujemy stan dostępności funkcji. Ponadto wbudowana obsługa języków R i Python umożliwia w razie potrzeby tworzenie niestandardowych przekształceń.
 
@@ -139,14 +144,14 @@ Nie. Takie języki nie są obsługiwane. Jednak w celu zdefiniowania modułu mo�
 
 **Jak wiele modułów mogę równoległe uruchomić w moim eksperymencie?**  
 
-Równolegle w eksperymencie można uruchomić maksymalnie 4 moduły.
+Równolegle w eksperymencie można uruchomić maksymalnie cztery moduły.
 
 
 ### Przetwarzanie danych
 
 **Czy istnieje możliwość interaktywnej wizualizacji danych (poza wizualizacjami języka R) w ramach eksperymentu?**
 
-Klikając wyjście modułu można zwizualizować dane i uzyskać statystyki.
+Klikając wyjście modułu, można zwizualizować dane i uzyskać statystyki.
 
 **Podczas przeglądania wyników lub danych w przeglądarce liczba wierszy i kolumn jest ograniczona. Dlaczego?**
 
@@ -160,7 +165,7 @@ Usługa Machine Learning Studio udostępnia najnowocześniejsze algorytmy, takie
 
 **Czy algorytm uczenia maszynowego właściwy dla moich danych jest sugerowany automatycznie?**
 
-Nie. Jednak w usłudze Machine Learning Studio istnieje wiele sposobów porównywania wyników poszczególnych algorytmów w celu wyznaczenia algorytmu właściwego dla danego problemu.
+Nie. Jednak w usłudze Machine Learning Studio istnieją różne sposoby porównywania wyników poszczególnych algorytmów w celu wyznaczenia algorytmu właściwego dla danego problemu.
 
 **Czy dostępne są jakiekolwiek wskazówki dotyczące wyboru jednego udostępnionego algorytmu zamiast innego?**
 Zobacz [How to choose an algorithm](machine-learning-algorithm-choice.md) (Jak wybrać algorytm).
@@ -217,7 +222,7 @@ W usłudze Machine Learning Studio można skorzystać z notesów Jupyter. Aby uz
 
 Użyj interfejsów API do ponownego trenowania. Aby uzyskać więcej informacji, zobacz temat [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md) (Ponowne trenowanie modeli uczenia maszynowego programowo). Przykładowy kod jest również dostępny w [demonstracji ponownego trenowania w usłudze Microsoft Azure Machine Learning](https://azuremlretrain.codeplex.com/).
 
-### Tworzenie
+### Przycisk Utwórz
 
 **Czy mogę wdrożyć model lokalnie lub w aplikacji bez połączenia z Internetem?**
 
@@ -236,7 +241,7 @@ Usługa odpowiedzi na żądanie (RRS, Request Response Service) to usługa sieci
 
 **Jak zaktualizować model dla wdrożonej usługi sieci Web?**
 
-Aby zaktualizować model predykcyjny dla już wdrożonej usługi wystarczy zmodyfikować i ponownie wykonać eksperyment, którego użyto w celu utworzenia i zapisania trenowanego modelu. Gdy dostępna jest nowa wersja trenowanego modelu, usługa Machine Learning Studio zapyta, czy wymagana jest aktualizacja usługi sieci Web. Szczegółowe informacje na temat aktualizowania wdrożonej usługi sieci Web zawiera temat [Deploy a Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md) (Wdrażanie usługi sieci Web usługi Machine Learning).
+Aby zaktualizować model predykcyjny dla już wdrożonej usługi, wystarczy zmodyfikować i ponownie wykonać eksperyment, którego użyto w celu utworzenia i zapisania trenowanego modelu. Gdy dostępna jest nowa wersja trenowanego modelu, usługa Machine Learning Studio pyta, czy chcesz zaktualizować usługę sieci Web. Szczegółowe informacje na temat aktualizowania wdrożonej usługi sieci Web zawiera temat [Deploy a Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md) (Wdrażanie usługi sieci Web Machine Learning).
 
 Można również użyć interfejsów API do ponownego trenowania.
 Aby uzyskać więcej informacji, zobacz temat [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md) (Ponowne trenowanie modeli uczenia maszynowego programowo). Przykładowy kod jest również dostępny w [demonstracji ponownego trenowania w usłudze Microsoft Azure Machine Learning](https://azuremlretrain.codeplex.com/).
@@ -306,16 +311,16 @@ Nie.
 Po wdrożeniu usługi sieci Web dla tej usługi tworzony jest domyślny punkt końcowy. Domyślny punkt końcowy może być wywoływany przy użyciu właściwego dla niego klucza interfejsu API. Dodatkowe punkty końcowe można dodać z właściwymi dla nich kluczami z klasycznego portalu Azure albo programowo z użyciem interfejsów API zarządzania usługami sieci Web. W celu wykonywania wywołań do usługi sieci Web potrzebne są klucze dostępu. Aby uzyskać więcej informacji, zobacz [Connect to a Machine Learning web service](machine-learning-connect-to-azure-machine-learning-web-service.md) (Łączenie się z usługą sieci web usługi Machine Learning).
 
 
-**Co się stanie, jeśli nie można odnaleźć konta magazynu Azure?**
+**Co się stanie, jeśli nie można odnaleźć konta magazynu platformy Azure?**
 
-Usługa Machine Learning Studio jest oparta na udostępnionym przez użytkownika koncie magazynu Azure, w którym zapisywane są dane pośrednie podczas wykonywania przepływu pracy. To konto magazynu jest udostępniane na rzecz środowiska usługi Machine Learning Studio w momencie utworzenia obszaru roboczego. Jeśli po utworzeniu obszaru roboczego konto magazynu zostanie usunięte i nie można go znaleźć, obszar roboczy przestanie działać, a wszystkie eksperymenty w tym obszarze zakończą się niepowodzeniem.
+Usługa Machine Learning Studio jest oparta na udostępnionym przez użytkownika koncie magazynu platformy Azure, w którym zapisywane są dane pośrednie podczas wykonywania przepływu pracy. To konto magazynu jest udostępniane na rzecz środowiska usługi Machine Learning Studio w momencie utworzenia obszaru roboczego. Jeśli po utworzeniu obszaru roboczego konto magazynu zostanie usunięte i nie można go znaleźć, obszar roboczy przestanie działać, a wszystkie eksperymenty w tym obszarze zakończą się niepowodzeniem.
 
-Jeśli konto magazynu zostanie przypadkowo usunięte, jedynym sposobem na powrót do poprzedniego stanu jest odtworzenie konta magazynu z tą samą nazwą w tym samym regionie, co usunięte konto magazynu. Następnie należy ponownie zsynchronizować klucz dostępu.
+Jeśli konto magazynu zostanie przypadkowo usunięte, konieczne będzie odtworzenie konta magazynu z tą samą nazwą w tym samym regionie co usunięte konto magazynu. Następnie należy ponownie zsynchronizować klucz dostępu.
 
 
 **Co się dzieje, gdy mój klucz dostępu do konta magazynu nie jest zsynchronizowany?**
 
-Usługa Machine Learning Studio jest oparta na udostępnionym przez użytkownika koncie magazynu Azure, w którym zapisywane są dane pośrednie podczas wykonywania przepływu pracy. To konto magazynu jest udostępniane na rzecz środowiska usługi Machine Learning Studio w momencie utworzenia obszaru roboczego, a klucz dostępu jest skojarzony z tym obszarem roboczym. Jeśli po utworzeniu obszaru roboczego klucze dostępu zostaną zmienione, obszar roboczy nie będzie mógł uzyskać dostępu do konta magazynu — w rezultacie przestanie działać, a wszystkie eksperymenty w tym obszarze roboczym zakończą się niepowodzeniem.
+Usługa Machine Learning Studio jest oparta na udostępnionym przez użytkownika koncie magazynu platformy Azure, na którym przechowywane są dane pośrednie podczas wykonywania przepływu pracy. To konto magazynu jest udostępniane na rzecz środowiska usługi Machine Learning Studio w momencie utworzenia obszaru roboczego, a klucz dostępu jest skojarzony z tym obszarem roboczym. Jeśli po utworzeniu obszaru roboczego klucze dostępu zostaną zmienione, obszar roboczy nie będzie mógł uzyskać dostępu do konta magazynu. W rezultacie przestanie działać, a wszystkie eksperymenty w tym obszarze roboczym zakończą się niepowodzeniem.
 
 Jeśli doszło do zmiany kluczy dostępu do konta magazynu, należy ponownie zsynchronizować klucze dostępu w obszarze roboczym, korzystając z klasycznego portalu Azure.  
 
@@ -328,9 +333,9 @@ Zobacz [często zadawane pytania dotyczące publikowania i używania aplikacji w
 
 **Gdzie można znaleźć szkolenia dotyczące usługi Azure Machine Learning?**
 
-[Centrum dokumentacji usługi Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) udostępnia samouczki wideo, a także przewodniki dotyczące wykonywania określonych zadań. Te przewodniki krok po kroku stanowią wprowadzenie do usług i przedstawiają cykl życia analizy danych, który obejmuje importowanie danych, czyszczenie danych, budowanie modeli predykcyjnych i wdrażanie ich w środowisku produkcyjnym z użyciem usługi Azure Machine Learning.
+[Centrum dokumentacji usługi Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) udostępnia samouczki wideo i przewodniki dotyczące wykonywania określonych zadań. Te przewodniki krok po kroku stanowią wprowadzenie do usług i przedstawiają cykl życia analizy danych, który obejmuje importowanie danych, czyszczenie danych, budowanie modeli predykcyjnych i wdrażanie ich w środowisku produkcyjnym z użyciem usługi Azure Machine Learning.
 
-Będziemy stale wzbogacać centrum uczenia maszynowego o nowe materiały. Żądania dotyczące dodatkowych materiałów szkoleniowych w centrum uczenia maszynowego można zamieszczać na [forum opinii użytkowników](https://windowsazure.uservoice.com/forums/257792-machine-learning).
+Stale wzbogacamy centrum usługi Machine Learning o nowe materiały. Żądania dotyczące dodatkowych materiałów szkoleniowych w centrum uczenia maszynowego można zamieszczać na [forum opinii użytkowników](https://windowsazure.uservoice.com/forums/257792-machine-learning).
 
 Szkolenia można również znaleźć w witrynie [Microsoft Virtual Academy](http://www.microsoftvirtualacademy.com/training-courses/getting-started-with-microsoft-azure-machine-learning).
 
@@ -350,15 +355,15 @@ Podczas oceniania usługi Machine Learning Studio możesz korzystać z bezpłatn
 
 Gdy okaże się, że usługa Azure Machine Learning spełnia Twoje wymagania, możesz zasubskrybować warstwę standardową. W tym celu musisz uzyskać subskrypcję platformy Microsoft Azure.
 
-W warstwie standardowej opłata za użycie usługi Machine Learning Studio jest naliczana co miesiąc i zależy od liczby stanowisk. Opłata jest naliczana na podstawie zasobów obliczeniowych zużywanych na potrzeby eksperymentu uruchomionego w środowisku Studio. W przypadku wdrażania klasycznej usługi sieci Web transakcje i godziny obliczeniowe są rozliczane zgodnie z ich rzeczywistym użyciem. 
+W warstwie standardowej opłata za użycie usługi Machine Learning Studio jest naliczana co miesiąc i zależy od liczby utworzonych obszarów roboczych. Opłata jest naliczana na podstawie zasobów obliczeniowych zużywanych na potrzeby eksperymentu uruchomionego w środowisku Studio. W przypadku wdrażania klasycznej usługi sieci Web transakcje i godziny obliczeniowe są rozliczane zgodnie z ich rzeczywistym użyciem. 
 
-W nowych usługach sieci Web Machine Learning wprowadzono plany rozliczeniowe, które zwiększają przewidywalność kosztów. Warstwy cenowe są przeznaczone dla klientów, którzy potrzebują dużej wydajności i chcą korzystać z taryf rabatowych.
+W nowych usługach sieci Web Machine Learning wprowadzono plany rozliczeniowe, które zwiększają przewidywalność kosztów. Warstwy cenowe zapewniają możliwość korzystania z taryf rabatowych klientom, którzy potrzebują dużej wydajności.
 
 Utworzenie planu wiąże się z podjęciem zobowiązania na stałą kwotę, w ramach którego można korzystać z wliczonej liczby transakcji i godzin obliczeniowych interfejsu API. Jeśli jest potrzebnych więcej transakcji, do planu można dodać wystąpienia. W przypadku konieczności dalszego zwiększenia ilości dostępnych zasobów można wybrać plan z wyższej warstwy, który zapewnia znacznie większą liczbę transakcji i oferuje korzystniejszą taryfę.
 
 Po wyczerpaniu wliczonych transakcji w istniejących wystąpieniach opłata za użycie zasobów jest naliczana według nadwyżkowej stawki skojarzonej z warstwą rozliczeniową.
 
-Uwaga: wliczone transakcje są ponownie przydzielane co 30 dni, a niewykorzystane zasoby nie przechodzą na następny okres.
+Uwaga: Wliczone transakcje są ponownie przydzielane co 30 dni, a niewykorzystane zasoby nie przechodzą na następny okres.
 
 Dodatkowe informacje o rozliczeniach i cenach zawiera temat [Machine Learning — cennik](https://azure.microsoft.com/pricing/details/machine-learning/).
 
@@ -432,7 +437,7 @@ Uwaga: wliczone transakcje są przydzielane na podstawie okresu, a niewykorzysta
 
 **Co się stanie w przypadku zwiększenia liczby wystąpień w planie?**
 
-Liczba dołączonych, wliczonych transakcji jest określana proporcjonalnie, a udostępnianie nowych zasobów może potrwać do 24 godzin. 
+Liczba wliczonych transakcji jest określana proporcjonalnie, a udostępnianie nowych zasobów może potrwać do 24 godzin. 
 
 **Co się stanie w przypadku usunięcia wystąpienia planu?**
 
@@ -449,7 +454,7 @@ Przy pierwszym wdrożeniu nowej usługi sieci Web możesz wybrać istniejący pl
 
 Plany są tworzone w domyślnym regionie, w którym zostanie również wdrożona usługa sieci Web. 
 
-Plany rozliczeniowe warto zdefiniować przed wdrożeniem usługi, na przykład w przypadku wdrażania usług poza domyślnym regionem.
+Jeśli planujesz wdrażanie usług poza domyślnym regionem, warto zdefiniować plany rozliczeniowe przed wdrożeniem usługi.
 
 Aby to zrobić, wystarczy się zalogować do portalu usług sieci Web Azure Machine Learning i przejść do strony planów. Pozwala ona dodawać, usuwać i modyfikować plany.
 
@@ -483,9 +488,13 @@ Usługi z przypisaną warstwą tworzenia i testowania zostaną zatrzymane do nas
 
 **Jak są naliczane ceny obciążeń RRS (Request Response) i BES (Batch) w przypadku klasycznych usług sieci Web oraz nadwyżkowego użycia nowych usług sieci Web?** 
 
-W przypadku obciążeń RRS zostanie naliczona opłata za każde wywołanie transakcji interfejsu API oraz czas obliczeń skojarzony z tymi żądaniami. Koszt transakcji RRS interfejsu API w środowisku produkcyjnym będzie obliczany przez pomnożenie łącznej liczby wywołań interfejsu API przez cenę 1000 transakcji (proporcjonalnie do liczby indywidualnych transakcji). Koszt godzin obliczeniowych RRS interfejsu API w środowisku produkcyjnym będzie obliczany przez pomnożenie czasu wymaganego do uruchomienia poszczególnych wywołań interfejsu API przez łączną liczbę transakcji interfejsu API oraz przez cenę godziny obliczeniowej interfejsu API w środowisku produkcyjnym. Na przykład w ramach użycia nadwyżkowego w warstwie Standardowa S1 1 000 000 transakcji interfejsu API, z których każda trwa 0,72 s, spowoduje naliczenie opłaty 500 USD (1 000 000 * / 1000 transakcji interfejsu API) z tytułu kosztów transakcji interfejsu API w środowisku produkcyjnym oraz 400 USD (1 000 000 * 0,72 s * 2 USD / godz.) z tytułu godzin obliczeniowych interfejsu API w środowisku produkcyjnym, co daje łączną kwotę 900 USD.
+W przypadku obciążeń RRS opłata jest naliczana za każde wywołanie transakcji interfejsu API oraz czas obliczeń skojarzony z tymi żądaniami. Koszt transakcji RRS interfejsu API w środowisku produkcyjnym jest obliczany przez pomnożenie łącznej liczby wywołań interfejsu API przez cenę 1000 transakcji (proporcjonalnie do liczby indywidualnych transakcji). Koszt godzin obliczeniowych RRS interfejsu API w środowisku produkcyjnym jest obliczany przez pomnożenie czasu wymaganego do uruchomienia poszczególnych wywołań interfejsu API przez łączną liczbę transakcji interfejsu API oraz przez cenę godziny obliczeniowej interfejsu API w środowisku produkcyjnym. 
 
-W przypadku obciążeń usługi BES opłata zostanie naliczona w ten sam sposób, ale koszt transakcji interfejsu API odpowiada liczbie przesłanych zadań wsadowych, a koszt obliczeń odpowiada czasowi obliczeń skojarzonemu z tymi zadaniami wsadowymi. Z tego względu koszt transakcji interfejsu API usługi BES w środowisku produkcyjnym zostanie obliczony przez pomnożenie łącznej liczby przesłanych zadań przez cenę 1000 transakcji (proporcjonalnie do liczby indywidualnych transakcji). Koszt godzin obliczeniowych interfejsu API usługi BES w środowisku produkcyjnym zostanie obliczony przez pomnożenie czasu wymaganego do uruchomienia poszczególnych wierszy w zadaniu przez łączną liczbę wierszy w zadaniu przez łączną liczbę zadań oraz przez cenę godziny obliczeniowej interfejsu API w środowisku produkcyjnym. Podczas korzystania z kalkulatora usługi Machine Learning licznik transakcji reprezentuje liczbę zadań, które zamierzasz przesłać, a wartość w polu czasu transakcji reprezentuje łączny czas wymagany do uruchomienia wszystkich wierszy w poszczególnych zadaniach. Jeśli w ramach użycia nadwyżkowego w warstwie Standardowa S1 przesyłasz na przykład 100 zadań dziennie, z których każde zawiera 500 wierszy o czasie uruchamiania 0,72 s, miesięczny koszt nadwyżkowych transakcji interfejsu API w środowisku produkcyjnym wyniesie 1,55 USD (100 zadań dziennie = 3100 zadań/mies. * 0,5 USD/1000 transakcji interfejsu API), a koszt godzin obliczeniowych interfejsu API w środowisku produkcyjnym wyniesie 620 USD (500 wierszy * 0,72 s * 3100 zadań * 2 USD/godz.) , co daje łączną kwotę 621,55 USD.
+Na przykład w ramach użycia nadwyżkowego w warstwie Standardowa S1 1 000 000 transakcji interfejsu API, z których każda trwa 0,72 s, spowoduje naliczenie opłaty 500 USD (1 000 000 * / 1000 transakcji interfejsu API) z tytułu kosztów transakcji interfejsu API w środowisku produkcyjnym oraz 400 USD (1 000 000 * 0,72 s * 2 USD / godz.) z tytułu godzin obliczeniowych interfejsu API w środowisku produkcyjnym, co daje łączną kwotę 900 USD.
+
+W przypadku obciążeń usługi BES opłata jest naliczana w ten sam sposób, ale koszt transakcji interfejsu API odpowiada liczbie przesłanych zadań wsadowych, a koszt obliczeń odpowiada czasowi obliczeń skojarzonemu z tymi zadaniami wsadowymi. Z tego względu koszt transakcji interfejsu API usługi BES w środowisku produkcyjnym jest obliczany przez pomnożenie łącznej liczby przesłanych zadań przez cenę 1000 transakcji (proporcjonalnie do liczby indywidualnych transakcji). Koszt godzin obliczeniowych interfejsu API usługi BES w środowisku produkcyjnym jest obliczany przez pomnożenie czasu wymaganego do uruchomienia poszczególnych wierszy w zadaniu przez łączną liczbę wierszy w zadaniu przez łączną liczbę zadań oraz przez cenę godziny obliczeniowej interfejsu API w środowisku produkcyjnym. Podczas korzystania z kalkulatora usługi Machine Learning licznik transakcji reprezentuje liczbę zadań, które zamierzasz przesłać, a wartość w polu czasu transakcji reprezentuje łączny czas wymagany do uruchomienia wszystkich wierszy w poszczególnych zadaniach. 
+
+Jeśli w ramach użycia nadwyżkowego w warstwie Standardowa S1 przesyłasz na przykład 100 zadań dziennie, z których każde zawiera 500 wierszy o czasie uruchamiania 0,72 s, miesięczny koszt nadwyżkowych transakcji interfejsu API w środowisku produkcyjnym wyniesie 1,55 USD (100 zadań dziennie = 3100 zadań/mies. * 0,5 USD/1000 transakcji interfejsu API), a koszt godzin obliczeniowych interfejsu API w środowisku produkcyjnym wyniesie 620 USD (500 wierszy * 0,72 s * 3100 zadań * 2 USD/godz.) , co daje łączną kwotę 621,55 USD.
 
 ### Klasyczne usługi sieci Web Azure ML
 
@@ -496,17 +505,17 @@ Tak, klasyczne usługi sieci Web są wciąż dostępne w usłudze Azure Machine 
 
 **Co obejmuje usługa Azure Machine Learning w warstwie Bezpłatna?**
 
-Usługa Azure Machine Learning w warstwie Bezpłatna zapewnia szczegółowe wprowadzenie do usługi Azure Machine Learning Studio. Do korzystania z tej usługi wystarczy konto Microsoft. Warstwa Bezpłatna umożliwia bezpłatne korzystanie z jednego obszaru roboczego usługi Azure Machine Learning Studio w ramach [konta Microsoft](https://www.microsoft.com/account/default.aspx). Warstwa Bezpłatna zapewnia nawet 10 GB przestrzeni dyskowej i pozwala operacjonalizować modele jako przejściowe interfejsy API. Obciążenia warstwy Bezpłatna nie są objęte umową SLA i są przeznaczone tylko do użytku osobistego i do opracowywania rozwiązań. Obciążenia warstwy Bezpłatna nie mogą uzyskiwać dostępu do danych, łącząc się z lokalnym serwerem SQL. W powyższej tabeli wskazano wiele różnic między warstwami Bezpłatna i Standardowa, jednak mogą istnieć inne różnice, a funkcje warstwy Bezpłatna mogą zmienić się w każdej chwili.
+Usługa Azure Machine Learning w warstwie Bezpłatna zapewnia szczegółowe wprowadzenie do usługi Azure Machine Learning Studio. Do korzystania z tej usługi wystarczy konto Microsoft. Warstwa Bezpłatna umożliwia bezpłatne korzystanie z jednego obszaru roboczego usługi Azure Machine Learning Studio w ramach [konta Microsoft](https://www.microsoft.com/account/default.aspx). Zapewnia nawet 10 GB przestrzeni dyskowej i pozwala operacjonalizować modele jako przejściowe interfejsy API. Obciążenia warstwy Bezpłatna nie są objęte umową SLA i są przeznaczone tylko do użytku osobistego i do opracowywania rozwiązań. Obciążenia warstwy Bezpłatna nie mogą uzyskiwać dostępu do danych, łącząc się z lokalnym serwerem SQL. 
 
 **Co obejmują plany usługi Azure Machine Learning w warstwie Standardowa?**
 
-Usługa Azure Machine Learning w warstwie Standardowa to płatna wersja produkcyjna usługi Azure Machine Learning Studio. Opłata miesięczna za usługę Azure ML Studio jest naliczana na podstawie liczby stanowisk i proporcjonalnie w przypadku niepełnych miesięcy. Godziny korzystania z usługi Azure ML Studio są rozliczane na podstawie godzin obliczeniowych w ramach aktywnych eksperymentów. W przypadku niepełnych godzin opłaty są naliczane proporcjonalnie.  
+Usługa Azure Machine Learning w warstwie Standardowa to płatna wersja produkcyjna usługi Azure Machine Learning Studio. Opłata miesięczna za usługę Azure ML Studio jest naliczana na podstawie liczby obszarów roboczych i proporcjonalnie w przypadku niepełnych miesięcy. Godziny korzystania z usługi Azure ML Studio są rozliczane na podstawie godzin obliczeniowych w ramach aktywnych eksperymentów. W przypadku niepełnych godzin opłaty są naliczane proporcjonalnie.  
 
 Sposób rozliczania korzystania z usługi Azure ML API zależy od tego, czy jest to klasyczna czy nowa usługa sieci Web. 
 
-Poniższe opłaty są agregowane dla danego obszaru roboczego w ramach subskrypcji. 
+Następujące opłaty są agregowane dla danego obszaru roboczego w ramach subskrypcji. 
 
-* Subskrypcja stanowisk usługi ML — jest to miesięczna opłata zapewniająca dostęp do obszaru roboczego usługi ML Studio, która jest wymagana do uruchamiania eksperymentów zarówno w studiu, jak i z użyciem produkcyjnych interfejsów API.
+* Subskrypcja obszarów roboczych usługi Machine Learning — jest to miesięczna opłata zapewniająca dostęp do obszaru roboczego usługi ML Studio, która jest wymagana do uruchamiania eksperymentów zarówno w studiu, jak i z użyciem produkcyjnych interfejsów API.
 * Godziny prowadzenia eksperymentów w Studio — ten licznik agreguje wszystkie opłaty za zasoby obliczeniowe naliczane w wyniku przeprowadzania eksperymentów w usłudze ML Studio i wykonywania wywołań produkcyjnych interfejsów API w środowisku przejściowym.
 * Dostęp do danych przez połączenie z lokalnym serwerem SQL w ramach modeli na potrzeby szkolenia i oceniania.
 * W przypadku klasycznych usług sieci Web: 
@@ -519,12 +528,12 @@ W przypadku nowych usług sieci Web opłaty są dodatkowo agregowane zgodnie z w
 * Nadwyżkowe godziny obliczeniowe interfejsu API w warstwie Standard S1/S2/S3 — ten licznik obejmuje opłaty za zasoby obliczeniowe naliczane z tytułu uruchomienia nowych usług sieci Web w środowisku produkcyjnym po zużyciu wliczonych wartości w istniejących wystąpieniach. Opłata za dodatkowe użycie jest naliczana zgodnie z nadwyżkową stawką skojarzoną z warstwą planów S1/S2/S3.
 * Nadwyżkowe transakcje interfejsu API w warstwie Standard S1/S2/S3 (w tysiącach) — ten licznik obejmuje opłaty naliczane za wywołania nowych usług sieci Web w środowisku produkcyjnym po zużyciu wliczonych wartości w istniejących wystąpieniach. Opłata za dodatkowe użycie jest naliczana zgodnie z nadwyżkową stawką skojarzoną z warstwą planów S1/S2/S3.
 * Godziny obliczeniowe interfejsu API w uwzględnionej ilości — w przypadku nowych usług sieci Web ten licznik obejmuje uwzględnioną ilość godzin obliczeniowych interfejsu API. 
-* Transakcje interfejsu API w uwzględnionej ilości (w tysiącach) — w przypadku nowych usług sieci Web ten licznik obejmuje uwzględnioną ilość transakcji interfejsu API. 
+* Transakcje interfejsu API w uwzględnionej ilości (w 1000) — w przypadku nowych usług sieci Web ten licznik obejmuje uwzględnioną ilość transakcji interfejsu API. 
 
 
 **Jak zasubskrybować usługę Azure ML w warstwie Bezpłatna?**
 
-Do korzystania z tej usługi wystarczy konto Microsoft. Przejdź do [strony głównej usługi Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) i kliknij przycisk Rozpocznij teraz. Zaloguj się przy użyciu konta Microsoft — zostanie utworzony obszar roboczy w warstwie Bezpłatna. Możesz od razu zacząć przeglądać i tworzyć eksperymenty usługi Machine Learning.
+Do korzystania z tej usługi wystarczy konto Microsoft. Przejdź do [strony głównej usługi Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) i kliknij przycisk **Rozpocznij teraz**. Zaloguj się przy użyciu konta Microsoft — zostanie utworzony obszar roboczy w warstwie Bezpłatna. Możesz od razu zacząć przeglądać i tworzyć eksperymenty usługi Machine Learning.
 
 **Jak zasubskrybować usługę Azure ML w warstwie Standardowa?**
 
@@ -542,24 +551,20 @@ Tak. Można zoperacjonalizować modele uczenia maszynowego w tymczasowych usług
 
 **Czym różni się bezpłatna wersja próbna platformy Azure i usługa Azure Machine Learning w warstwie Bezpłatna?**
 
-[Bezpłatna wersja próbna platformy Microsoft Azure](https://azure.microsoft.com/free/) udostępnia środki, które można stosować do dowolnej usługi platformy Azure przez miesiąc, natomiast usługa Azure Machine Learning w warstwie Bezpłatna oferuje ciągły dostęp do usługi Azure Machine Learning w przypadku obciążeń nieprodukcyjnych.
+[Bezpłatna wersja próbna platformy Microsoft Azure](https://azure.microsoft.com/free/) udostępnia środki, które można stosować do dowolnej usługi platformy Azure przez miesiąc. Usługa Azure Machine Learning w warstwie Bezpłatna oferuje ciągły dostęp do usługi Azure Machine Learning w przypadku obciążeń nieprodukcyjnych.
 
 **Jak przenieść eksperyment z warstwy Bezpłatna do warstwy Standardowa?**
 
-Aby skopiować eksperymenty z warstwy Bezpłatna do warstwy Standardowa, wykonaj czynności opisane poniżej.
+Aby skopiować eksperymenty z warstwy Bezpłatna do warstwy Standardowa:
 
 1.  Zaloguj się w usłudze Azure Machine Learning Studio i upewnij się, że w selektorze obszaru roboczego na górnym pasku nawigacyjnym są widoczne obszary robocze warstw Bezpłatna i Standardowa.
 2.  Jeśli obecnie jest używany obszar roboczy warstwy Standardowa, przełącz się do obszaru roboczego warstwy Bezpłatna.
 3.  W widoku listy eksperymentów wybierz eksperyment, który chcesz skopiować, a następnie kliknij przycisk polecenia Kopiuj.
 4.  W podręcznym oknie dialogowym wybierz obszar roboczy warstwy Standardowa i kliknij przycisk Kopiuj.
-5.  Pamiętaj, że wszystkie skojarzone zestawy danych, nauczone modele itp. zostaną skopiowane razem z eksperymentem do obszaru roboczego warstwy Standardowa.
+    Wszystkie skojarzone zestawy danych, nauczone modele itp. zostaną skopiowane razem z eksperymentem do obszaru roboczego warstwy Standardowa.
 6.  Konieczne będzie ponowne uruchomienie eksperymentu i ponowne opublikowanie usługi sieci Web w obszarze roboczym warstwy Standardowa.
 
 ### Obszar roboczy Studio
-
-**Co to jest subskrypcja stanowiska usługi Machine Learning i kiedy jest potrzebna?**
-
-Stanowisko usługi Machine Learning odpowiada obszarowi roboczemu. Zaleca się, aby każdy użytkownik uruchamiający eksperymenty w usłudze ML Studio lub usłudze interfejsu API w środowisku produkcyjnym był objęty subskrypcją stanowiska usługi Machine Learning.
 
 **Czy otrzymam różne rachunki za różne obszary robocze?**
 
@@ -573,7 +578,7 @@ Machine Learning jest usługą z wieloma dzierżawami, a rzeczywiste zasoby obli
 
 **Co to jest dostęp gościa w usłudze Azure Machine Learning Studio?**
 
-Dostęp gościa zapewnia ograniczoną wersję próbną interfejsu, która umożliwia bezpłatne tworzenie i uruchamianie eksperymentów w usłudze Azure Machine Learning Studio bez konieczności uwierzytelniania. Sesje gościa są nietrwałe (nie można ich zapisać), a ich czas trwania jest ograniczony do 8 godzin. Pozostałe ograniczenia to brak obsługi języków R i Python, brak przejściowych interfejsów API oraz ograniczony rozmiar zestawów danych i przestrzeni dyskowej. Natomiast użytkownicy, którzy zalogują się przy użyciu konta Microsoft, będą mieć pełny dostęp do warstwy Bezpłatna usługi Machine Learning Studio opisanej powyżej, udostępniającej trwały obszar roboczy i większe możliwości. Aby wybrać bezpłatną wersję usługi Machine Learning, kliknij przycisk „Rozpocznij” na stronie [https://studio.azureml.net](https://studio.azureml.net) i wybierz dostęp gościa lub zaloguj się przy użyciu konta Microsoft.
+Dostęp gościa zapewnia ograniczoną wersję próbną interfejsu, która umożliwia bezpłatne tworzenie i uruchamianie eksperymentów w usłudze Azure Machine Learning Studio bez konieczności uwierzytelniania. Sesje gościa są nietrwałe (nie można ich zapisać), a ich czas trwania jest ograniczony do 8 godzin. Pozostałe ograniczenia to brak obsługi języków R i Python, brak przejściowych interfejsów API oraz ograniczony rozmiar zestawów danych i przestrzeni dyskowej. Natomiast użytkownicy logujący się przy użyciu konta Microsoft mają pełny dostęp do warstwy Bezpłatna usługi Machine Learning Studio opisanej powyżej, udostępniającej trwały obszar roboczy i większe możliwości. Aby wybrać bezpłatną wersję usługi Machine Learning, kliknij przycisk [Rozpocznij](https://studio.azureml.net) na stronie **https://studio.azureml.net** i wybierz dostęp gościa lub zaloguj się przy użyciu konta Microsoft.
 
 <!-- Module References -->
 [image-reader]: https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84/
@@ -588,6 +593,6 @@ Dostęp gościa zapewnia ograniczoną wersję próbną interfejsu, która umożl
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO4-->
 
 

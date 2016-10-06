@@ -50,6 +50,6 @@ W przypadku elastycznych pul baz danych można monitorować pojedyncze bazy dany
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

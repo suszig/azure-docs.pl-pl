@@ -35,7 +35,7 @@ Ten przepływ pracy można wypróbować przy użyciu przykładowych danych w baz
 
 ## Źródła danych obsługiwane przez Kreatora importu danych
 
-Automatyzacja indeksowania i narzędzia są dostępne dla następujących źródeł danych: 
+Kreator importu danych obsługuje następujące źródła danych: 
 
 - Usługa Azure SQL Database
 - Dane relacyjne programu SQL Server na maszynie wirtualnej platformy Azure
@@ -123,6 +123,6 @@ Przejrzyj następujące linki, aby dowiedzieć się więcej o indeksatorach:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

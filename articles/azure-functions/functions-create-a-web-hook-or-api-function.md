@@ -96,6 +96,6 @@ Omówienie planów usług dostępnych w środowisku Azure Functions, w tym dynam
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -14,16 +14,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/23/2016"
-    ms.author="femila"/>
+    ms.date="09/27/2016"
+    ms.author="Markvi"/>
+
 
 # Wprowadzenie do usługi Rejestracja urządzeń w usłudze Azure Active Directory
 
 Rejestracja urządzeń w usłudze Azure Active Directory jest podstawą dla scenariuszy dostępu warunkowego opartego na urządzeniach. Po zarejestrowaniu urządzenia usługa Rejestracja urządzeń w usłudze Azure Active Directory inicjuje obsługę urządzenia przy użyciu tożsamości, która jest używana do uwierzytelniania urządzenia podczas logowania użytkownika. Uwierzytelnionego urządzenia i atrybutów urządzenia można następnie użyć do wymuszania zasad dostępu warunkowego dla aplikacji hostowanych w chmurze i lokalnych.
 
-W przypadku połączenia z rozwiązaniem do zarządzania urządzeniami przenośnymi (MDM, mobile device management), takim jak usługa Intune, atrybuty urządzenia w usłudze Azure Active Directory są aktualizowane przy użyciu dodatkowych informacji o urządzeniu. Umożliwia to tworzenie reguł dostępu warunkowego, które wymuszają dostęp z urządzeń spełniających określone standardy zabezpieczeń i zgodności.
-
-Usługa Rejestracja urządzeń w usłudze Azure Active Directory jest dostępna w usłudze Azure Active Directory. Usługa obejmuje obsługę urządzeń z systemami iOS, Android i Windows. Poszczególne scenariusze wykorzystujące usługę Rejestracja urządzeń w usłudze Azure Active Directory mogą mieć bardziej specyficzne wymagania i obsługę platform.
+W przypadku połączenia z rozwiązaniem do zarządzania urządzeniami przenośnymi (MDM, mobile device management), takim jak usługa Microsoft Intune, atrybuty urządzenia w usłudze Azure Active Directory są aktualizowane przy użyciu dodatkowych informacji o urządzeniu. Umożliwia to tworzenie reguł dostępu warunkowego, które wymuszają dostęp z urządzeń spełniających określone standardy zabezpieczeń i zgodności. Aby uzyskać więcej informacji na temat rejestrowania urządzeń w usłudze Microsoft Intune, zobacz artykuł [Enroll devices for management in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune) (Rejestrowanie urządzeń w usłudze Intune w celu zarządzania nimi).
 
 ## Scenariusze obsługiwane przez usługę Rejestracja urządzeń w usłudze Azure Active Directory
 
@@ -31,12 +30,15 @@ Usługa Rejestracja urządzeń w usłudze Azure Active Directory obejmuje obsłu
 
 - **Dostęp warunkowy do aplikacji, które są hostowane lokalnie**: można używać zarejestrowanych urządzeń z zasadami dostępu dla aplikacji, które są skonfigurowane do korzystania z usług AD FS w systemie Windows Server 2012 R2. Aby uzyskać więcej informacji na temat konfigurowania lokalnego dostępu warunkowego, zobacz [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](active-directory-conditional-access-on-premises-setup.md) (Konfigurowanie lokalnego dostępu warunkowego przy użyciu usługi Rejestracja urządzeń w usłudze Azure Active Directory).
 
-- **Dostęp warunkowy dla aplikacji usługi Office 365 w usłudze Microsoft Intune**: administratorzy IT mogą aprowizować zasady dostępu warunkowego urządzeń, aby zabezpieczyć zasoby firmowe, a jednocześnie zezwalać na dostęp do usług pracownikom przetwarzającym informacje na zgodnych urządzeniach. Aby uzyskać więcej informacji, zobacz zasady dostępu warunkowego urządzeń dla usług Office 365.
+- **Dostęp warunkowy dla aplikacji usługi Office 365 w usłudze Microsoft Intune**: administratorzy IT mogą aprowizować zasady dostępu warunkowego urządzeń, aby zabezpieczyć zasoby firmowe, a jednocześnie zezwalać na dostęp do usług pracownikom przetwarzającym informacje na zgodnych urządzeniach. Aby uzyskać więcej informacji, zobacz artykuł [Conditional Access Device Policies for Office 365 services](active-directory-conditional-access-device-policies.md) (Zasady dostępu warunkowego urządzeń dla usług Office 365).
 
 ##Konfigurowanie usługi Rejestracja urządzeń w usłudze Azure Active Directory
 
 Usługę Rejestracja urządzeń w usłudze Azure Active Directory należy włączyć w witrynie Azure Portal, aby urządzenia przenośne mogły odnajdywać usługę przez wyszukiwanie dobrze znanych rekordów systemu DNS. System DNS firmy należy skonfigurować tak, aby urządzenia z systemem Windows 10, Windows 8.1, Windows 7, Android i iOS mogły odnajdywać usługę i korzystać z niej.
 Zarejestrowane urządzenia można wyświetlać i włączać/wyłączać za pomocą Portalu administratora w usłudze Azure Active Directory.
+
+>[AZURE.NOTE]
+ Aby uzyskać najnowsze instrukcje dotyczące konfigurowania automatycznej rejestracji urządzeń, zobacz artykuł [How to setup automatic registration of Windows domain joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md) (Konfigurowanie automatycznej rejestracji urządzeń przyłączonych do domeny systemu Windows w usłudze Azure Active Directory).
 
 ### Włączanie usługi Rejestracja urządzeń w usłudze Azure Active Directory
 
@@ -81,7 +83,7 @@ Na przykład jeśli w organizacji używane są dwa sufiksy nazw UPN, @contoso.co
 
 ## Tematy dodatkowe
 
-Za pomocą usługi Rejestracja urządzeń w usłudze Azure Active Directory można rejestrować urządzenia z systemem Windows 7 i Windows 8.1 przyłączone do domeny. Poniższy temat zawiera więcej informacji na temat wymagań wstępnych oraz kroków wymaganych do skonfigurowania usługi rejestracji urządzeń na urządzeniach z systemami Windows 7 i Windows 8.1.
+Za pomocą usługi Rejestracja urządzeń w usłudze Azure Active Directory można rejestrować urządzenia z systemem Windows 7 i Windows 8.1 przyłączone do domeny. Poniższe tematy zawierają więcej informacji na temat wymagań wstępnych oraz kroków wymaganych do skonfigurowania usługi rejestracji urządzeń na urządzeniach z systemami Windows 7 i Windows 8.1.
 
 - [Automatic Device Registration with Azure Active Directory for Windows Domain-Joined Devices (Automatyczna rejestracja w usłudze Azure Active Directory urządzeń przyłączonych do domeny systemu Windows)](active-directory-conditional-access-automatic-device-registration.md)
 - [Configure automatic device registration for Windows 7 domain joined devices (Konfigurowanie automatycznej rejestracji urządzeń z systemem Windows 7 przyłączonych do domeny)](active-directory-conditional-access-automatic-device-registration-windows7.md)
@@ -90,6 +92,6 @@ Za pomocą usługi Rejestracja urządzeń w usłudze Azure Active Directory moż
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO4-->
 
 

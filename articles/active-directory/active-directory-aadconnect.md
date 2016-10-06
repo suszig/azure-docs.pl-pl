@@ -5,7 +5,7 @@
     services="active-directory"
     documentationCenter=""
     authors="andkjell"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -14,10 +14,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/14/2016"
+    ms.date="09/30/2016"
     ms.author="andkjell;billmath"/>
 
+
 # Integrowanie tożsamości lokalnych z usługą Azure Active Directory
+
 Program Azure AD Connect umożliwia integrowanie katalogów lokalnych z usługą Azure Active Directory. Dzięki temu użytkownicy mogą posługiwać się wspólną tożsamością dla usługi Office 365, platformy Azure i aplikacji SaaS zintegrowanych z usługą Azure AD. W tym temacie przedstawiono kroki związane z planowaniem, wdrażaniem i obsługą. Zawiera on zbiór linków do tematów związanych z tym obszarem.
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
@@ -165,6 +167,6 @@ Prezentacja z konferencji Ignite 2015 dotycząca rozszerzania katalogów lokalny
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO4-->
 
 

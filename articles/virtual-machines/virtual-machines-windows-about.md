@@ -43,6 +43,6 @@ Jako że samouczek ma na celu pomoc w szybkim utworzeniu maszyny wirtualnej, prz
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

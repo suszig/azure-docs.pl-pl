@@ -111,9 +111,9 @@ Przekaźniki są odpowiednim rozwiązaniem, gdy potrzebna jest bezpośrednia kom
 
 Teraz, kiedy znasz już podstawy usługi Azure Service Bus, skorzystaj z poniższych linków, aby dowiedzieć się więcej.
 
-- Jak używać [kolejek usługi Service Bus](service-bus-dotnet-get-started-with-queues.md)
-- Jak używać [tematów usługi Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-- Jak używać [przekaźnika usługi Service Bus](service-bus-dotnet-how-to-use-relay.md)
+- Jak używać [kolejek usługi Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
+- Jak używać [tematów usługi Service Bus](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- Jak używać [przekaźnika usługi Service Bus](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
 - [Przykłady usługi Service Bus](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
@@ -123,6 +123,6 @@ Teraz, kiedy znasz już podstawy usługi Azure Service Bus, skorzystaj z poniżs
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Łączenie z usługą Microsoft Azure Stack POC | Microsoft Azure"
-    description="Dowiedz się, jak połączyć się z witryną Azure Stack POC Portal jako administrator usługi lub dzierżawca."
+    pageTitle="Connect to Microsoft Azure Stack POC | Microsoft Azure"
+    description="Learn how to connect to the Azure Stack POC portal as a service administrator or tenant."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,63 +13,55 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/01/2016"
+    ms.date="09/26/2016"
     ms.author="erikje"/>
 
 
-# Logowanie do maszyny wirtualnej usługi Azure Stack POC
+# Log in to the Azure Stack POC virtual machine
 
-Możesz zalogować się do maszyny wirtualnej usługi Azure Stack POC jako
+You can log in to the Azure Stack POC virtual machine as a
 
-- [**administrator usługi**](#log-in-as-a-service-administrator), aby zarządzać dostawcami zasobów, ofertami dzierżawy, planami, usługami, limitami przydziałów i cenami;
+- [**service administrator**](#log-in-as-a-service-administrator) to manage resource providers, tenant offers, plans, services, quotas, and pricing.
 
-lub
+or
 
-- [**dzierżawca**](#log-in-as-a-tenant), aby aprowizować i monitorować subskrybowane usługi, takie jak usługa Web Apps, magazyn i maszyny wirtualne, oraz zarządzać nimi.
+- [**tenant**](#log-in-as-a-tenant) to provision, monitor, and manage services that you're subscribe to, like Web Apps, storage, and virtual machines.
 
-## Logowanie jako administrator usługi
+## Log in as a service administrator
 
-1.  Zaloguj się do maszyny fizycznej usługi Azure Stack POC.
+1.  Log in to the Azure Stack POC physical machine.
 
-2.  Kliknij dwukrotnie ikonę pulpitu **ClientVM.AzureStack.local.rdp**, aby otworzyć usługę Podłączanie pulpitu zdalnego dla maszyny wirtualnej klienta.
- 
-    ![](media/azure-stack-connect-azure-stack/clientvmazurestacklocalicon.png)
-    
-    Automatycznie używa ona konta AzureStack\\AzureStackUser, które zostało utworzone przez skrypt wdrożenia. Użyj hasła administratora podanego w kroku 5 procesu skryptu w wierszu monitu **Enter the password for the built-in administrator** (Wprowadź hasło administratora kompilacji).
+2.  Open a Remote Desktop Connection and connect to MAS-CON01. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
 
-3.  Na pulpicie ClientVM.AzureStack.local kliknij dwukrotnie ikonę **Microsoft Azure Stack POC Portal** (https://portal.azurestack.local/), aby otworzyć [portal](azure-stack-key-features.md#portal).
+3.  On the ClientVM.AzureStack.local desktop, double-click **Microsoft Azure Stack Portal** icon (https://portal.azurestack.local/) to open the [portal](azure-stack-key-features.md#portal).
 
-    ![](media/azure-stack-connect-azure-stack/microsoftazurestackpocprtalicon.png)
+    ![](media/azure-stack-connect-azure-stack/microsoftazurestackportalicon.png)
 
-4.  Zaloguj się przy użyciu konta administratora usługi.
+4.  Log in using the service administrator account.
 
-## Logowanie jako dzierżawca
+## Log in as a tenant
 
-Administrator usługi może zalogować się jako dzierżawca, aby przetestować plany, oferty i subskrypcje, z których mogą korzystać dzierżawcy.
-Przed zalogowaniem się należy [utworzyć konto dzierżawcy](azure-stack-add-new-user-aad.md), jeśli jeszcze go nie ma.
+A service administrator can log in as a tenant to test the plans, offers, and subscriptions that their tenants might use.
+If you don’t already have one, [Create a tenant account](azure-stack-add-new-user-aad.md) before you log in.
 
-1.  Zaloguj się do maszyny fizycznej usługi Azure Stack.
+1.  Log in to the Azure Stack physical machine.
 
-2.  Kliknij dwukrotnie ikonę pulpitu **ClientVM.AzureStack.local.rdp**, aby otworzyć usługę Podłączanie pulpitu zdalnego dla maszyny wirtualnej klienta. 
+2.  Open a Remote Desktop Connection and connect to MAS-CON01. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
 
-    ![](media/azure-stack-connect-azure-stack/clientvmazurestacklocalicon.png)
+3.  On the ClientVM.AzureStack.local desktop, double-click **Microsoft Azure Stack POC Portal** icon (https://portal.azurestack.local/) to open the [portal](azure-stack-key-features.md#portal).
 
-    Automatycznie używa ona konta AzureStack\\AzureStackUser, które zostało utworzone przez skrypt wdrożenia. Użyj hasła administratora podanego w kroku 5 procesu skryptu w wierszu monitu **Enter the password for the built-in administrator** (Wprowadź hasło administratora kompilacji).
+    ![](media/azure-stack-connect-azure-stack/microsoftazurestackportalicon.png)
 
-3.  Na pulpicie ClientVM.AzureStack.local kliknij dwukrotnie ikonę **Microsoft Azure Stack POC Portal** (https://portal.azurestack.local/), aby otworzyć [portal](azure-stack-key-features.md#portal).
+4.  Log in using a tenant account.
 
-    ![](media/azure-stack-connect-azure-stack/microsoftazurestackpocprtalicon.png)
+RDP may restrict how many users can access the physical Microsoft Azure POC host.
 
-4.  Zaloguj się przy użyciu konta dzierżawcy.
+## Next steps
 
-Protokół PRD może ograniczać liczbę użytkowników, którzy mogą uzyskiwać dostęp do fizycznego hosta usługi Microsoft Azure POC. Aby włączyć wielu użytkowników, zobacz [Włączanie wielu równoczesnych połączeń użytkowników](azure-stack-enable-multiple-concurrent-users.md).
-
-## Następne kroki
-
-[Pierwsze zadania](azure-stack-first-scenarios.md)
+[First tasks](azure-stack-first-scenarios.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

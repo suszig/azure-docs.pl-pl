@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
+    pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
     description="How to create and manage groups to manage Azure users using Azure Active Directory."
     services="active-directory"
     documentationCenter=""
@@ -76,6 +76,8 @@ Zadania opiszemy w taki sposób, jakby były wykonywane w klasycznym portalu Azu
 
 W usłudze Azure AD można bardzo łatwo skonfigurować prostą regułę w celu określenia, którzy użytkownicy powinni być członkami grupy. Prosta reguła to taka, która wykonuje tylko jedno porównanie. Jeśli na przykład grupa jest przypisana do aplikacji SaaS, możesz skonfigurować regułę dodającą użytkowników, którzy mają stanowisko „Przedstawiciel handlowy”. Następnie ta reguła udziela dostępu do tej aplikacji SaaS wszystkim użytkownikom mającym to stanowisko w katalogu.
 
+Po zmianie dowolnych atrybutów użytkownika system ocenia wszystkie zasady dotyczące grup dynamicznych w katalogu, aby ustalić, czy zmiana atrybutów użytkownika spowoduje dodanie elementów do grupy lub usunięcie ich z niej. Jeśli użytkownik spełnia wymagania zasad grupy, jest dodawany jako członek do tej grupy. Jeśli użytkownicy nie spełniają już zasad grupy, której są członkami, są usuwani z tej grupy.
+
 > [AZURE.NOTE] Możesz skonfigurować reguły dynamicznego zarządzania członkostwem w grupach zabezpieczeń lub w grupach usługi Office 365. Aktualnie w ramach przypisywania do aplikacji na podstawie grup nie jest obsługiwane członkostwo w grupach zagnieżdżonych.
 >
 > Dynamiczne zarządzanie członkostwem w grupach wymaga przypisania licencji usługi Azure AD w wersji Premium do:
@@ -114,6 +116,6 @@ Te artykuły zawierają dodatkowe informacje o usłudze Azure Active Directory.
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md)
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

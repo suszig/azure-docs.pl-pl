@@ -72,6 +72,6 @@ Ta funkcja prezentuje w sposób graficzny trend liczby zmian obliczanych i ekspo
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

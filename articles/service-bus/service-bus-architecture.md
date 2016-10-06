@@ -32,7 +32,7 @@ Przestrzeń nazw usługi Service Bus jest mapowana na jednostkę skalowania. Jed
 
 - **Jeden magazyn bramy.** Magazyn bramy przechowuje dane dla każdej jednostki zdefiniowanej w tej jednostce skalowania. Magazyn bramy jest wdrażany w oparciu o bazę danych SQL Azure.
 
-- **Wiele magazynów obsługi komunikatów.** Usługa obsługi komunikatów przechowuje komunikaty wszystkich kolejek, tematów i subskrypcji, które są zdefiniowane w tej jednostce skalowania. Zawiera również wszystkie dane subskrypcji. O ile nie włączono opcji [partycjonowane jednostki do obsługi komunikatów](service-bus-partitioning.md), kolejka lub temat są mapowane na jeden magazyn obsługi komunikatów. Subskrypcje są przechowywane w tym samym magazynie obsługi komunikatów jako ich temat nadrzędny. Z wyjątkiem [obsługi komunikatów w wersji Premium](service-bus-premium-messaging.md) usługi Service Bus, magazyny obsługi komunikatów są wdrażane na podstawie baz danych SQL Azure.
+- **Wiele magazynów obsługi komunikatów.** Usługa obsługi komunikatów przechowuje komunikaty wszystkich kolejek, tematów i subskrypcji, które są zdefiniowane w tej jednostce skalowania. Zawiera również wszystkie dane subskrypcji. O ile nie włączono opcji [partycjonowane jednostki do obsługi komunikatów](../service-bus-messaging/service-bus-partitioning.md), kolejka lub temat są mapowane na jeden magazyn obsługi komunikatów. Subskrypcje są przechowywane w tym samym magazynie obsługi komunikatów jako ich temat nadrzędny. Z wyjątkiem [obsługi komunikatów w wersji Premium](../service-bus-messaging/service-bus-premium-messaging.md) usługi Service Bus, magazyny obsługi komunikatów są wdrażane na podstawie baz danych SQL Azure.
 
 ## Kontenery
 
@@ -56,12 +56,12 @@ Po nawiązaniu połączenia przekaźnika klienci mogą wymieniać komunikaty za 
 
 Teraz, po zapoznaniu się z architekturą usługi Service Bus, skorzystaj z następujących linków, aby rozpocząć pracę z usługą:
 
-- [Omówienie obsługi komunikatów w usłudze Service Bus](service-bus-messaging-overview.md)
+- [Omówienie obsługi komunikatów w usłudze Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 - [Podstawy usługi Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-- [Rozwiązanie do obsługi komunikatów kolejek korzystające z funkcji kolejek usługi Service Bus.](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
+- [Rozwiązanie do obsługi komunikatów kolejek korzystające z funkcji kolejek usługi Service Bus.](../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

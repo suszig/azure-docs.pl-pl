@@ -1,6 +1,6 @@
 <properties
     pageTitle="Usługi domenowe Azure AD: włączanie Usług domenowych Azure AD | Microsoft Azure"
-    description="Wprowadzenie do usługi Active Directory Domain Services (wersja zapoznawcza)"
+    description="Wprowadzenie do usługi Active Directory Domain Services"
     services="active-directory-ds"
     documentationCenter=""
     authors="mahesh-unnikrishnan"
@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/06/2016"
+    ms.date="09/21/2016"
     ms.author="maheshu"/>
 
 
-# Usługi domenowe Azure AD *(wersja zapoznawcza)* — włączanie Usług domenowych Azure AD
+# Włączanie Usług domenowych Azure AD
 
 ## Zadanie 3. Włączanie Usług domenowych Azure AD
-W ramach tego zadania włączysz Usługi domenowe Azure AD dla katalogu. Wykonaj poniższe czynności konfiguracyjne, aby włączyć Usługi domenowe Azure AD dla katalogu.
+W ramach tego zadania zostaną włączone Usługi domenowe Azure AD dla katalogu. Wykonaj poniższe czynności konfiguracyjne, aby włączyć Usługi domenowe Azure AD dla katalogu.
 
 1. Przejdź do **klasycznego portalu Azure** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
 
@@ -30,7 +30,7 @@ W ramach tego zadania włączysz Usługi domenowe Azure AD dla katalogu. Wykonaj
 
     ![Wybieranie katalogu usługi Azure AD](./media/active-directory-domain-services-getting-started/select-aad-directory.png)
 
-4. Kliknij kartę **Konfigurowanie**.
+4. Kliknij kartę **Konfiguracja**.
 
     ![Karta Konfigurowanie w katalogu](./media/active-directory-domain-services-getting-started/configure-tab.png)
 
@@ -46,7 +46,7 @@ W ramach tego zadania włączysz Usługi domenowe Azure AD dla katalogu. Wykonaj
 
 7. Określ **nazwę domeny DNS dla usług domenowych**.
 
-   - Domyślnie zostanie wybrana domyślna nazwa domeny katalogu (kończąca się sufiksem domeny **.onmicrosoft.com**).
+   - Zostanie wybrana domyślna nazwa domeny katalogu (kończąca się sufiksem domeny **.onmicrosoft.com**).
 
    - Lista zawiera wszystkie domeny skonfigurowane dla katalogu usługi Azure AD, w tym domeny zweryfikowane i niezweryfikowane, które można skonfigurować na karcie „Domeny”.
 
@@ -60,35 +60,35 @@ W ramach tego zadania włączysz Usługi domenowe Azure AD dla katalogu. Wykonaj
 
    - Zapoznaj się ze stroną przedstawiającą [usługi platformy Azure uporządkowane według regionów](https://azure.microsoft.com/regions/#services/), aby dowiedzieć się, w których regionach platformy Azure są dostępne Usługi domenowe Azure AD.
 
-   - Zwróć uwagę, że sieci wirtualne należące do regionu, w którym Usługi domenowe Azure AD nie są obsługiwane, nie pojawiają się na liście rozwijanej.
+   - Sieci wirtualne należące do regionu, w którym Usługi domenowe Azure AD nie są obsługiwane, nie są wyświetlane na liście rozwijanej.
 
-   - Podobnie sieci wirtualne, które zostały utworzone przy użyciu usługi Azure Resource Manager (sieci wirtualne oparte na usłudze ARM), nie pojawiają się na liście rozwijanej. Dzieje się tak dlatego, że sieci wirtualne oparte na usłudze ARM nie są obecnie obsługiwane przez Usługi domenowe Azure AD.
+   - Podobnie sieci wirtualne, które zostały utworzone przy użyciu usługi Azure Resource Manager, nie pojawiają się na liście rozwijanej. Sieci wirtualne oparte na usłudze Resource Manager nie są obecnie obsługiwane przez Usługi domenowe Azure AD.
 
-9. Upewnij się, że nazwa domeny DNS wybrana dla domeny zarządzanej nie istnieje już w sieci wirtualnej. Może się tak zdarzyć w przypadku dowolnego z następujących scenariuszy:
+9. Upewnij się, że nazwa domeny DNS wybrana dla domeny zarządzanej nie istnieje już w sieci wirtualnej. W szczególności sprawdź, czy:
 
-   - Jeśli masz już domenę z tą samą nazwą domeny DNS w sieci wirtualnej.
+   - masz już domenę z tą samą nazwą domeny DNS w sieci wirtualnej;
 
-   - Jeśli wybrana sieć wirtualna ma połączenie sieci VPN z siecią lokalną i masz domenę z tą samą nazwą domeny DNS w sieci lokalnej.
+   - wybrana sieć wirtualna ma połączenie sieci VPN z siecią lokalną i czy masz domenę z tą samą nazwą domeny DNS w sieci lokalnej;
 
-   - Jeśli masz istniejącą usługę w chmurze z tą nazwą w sieci wirtualnej.
+   - masz istniejącą usługę w chmurze z tą nazwą w sieci wirtualnej.
 
-10. Po wybraniu powyższych opcji kliknij pozycję **Zapisz** w okienku zadań w dolnej części strony, aby włączyć Usługi domenowe Azure AD.
+10. Aby włączyć Usługi domenowe Azure AD, kliknij pozycję **Zapisz** w okienku zadań w dolnej części strony.
 
 11. Zostanie wyświetlona strona ze stanem „Oczekiwanie...”, który będzie wskazywać, że Usługi domenowe Azure AD są włączane dla katalogu.
 
     ![Włączanie usług domenowych — stan oczekiwania](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
 
-    > [AZURE.NOTE] Usługi domenowe Azure AD oferują wysoką dostępność na potrzeby domeny zarządzanej. Po pierwszym włączeniu Usług domenowych Azure AD w domenie zostaną kolejno wyświetlone adresy IP, w których Usługi domenowe będą dostępne w sieci wirtualnej. Drugi adres IP pojawi się wkrótce, kiedy tylko usługa zapewni wysoką dostępność domeny. Po skonfigurowaniu i uaktywnieniu wysokiej dostępności domeny w sekcji **usług domenowych** na karcie **Konfigurowanie** powinny być widoczne dwa adresy IP.
+    > [AZURE.NOTE] Usługi domenowe Azure AD oferują wysoką dostępność na potrzeby domeny zarządzanej. Po włączeniu Usług domenowych Azure AD zostaną kolejno wyświetlone adresy IP, pod którymi Usługi domenowe będą dostępne w sieci wirtualnej. Drugi adres IP pojawi się wkrótce, kiedy tylko usługa zapewni wysoką dostępność domeny. Po skonfigurowaniu i uaktywnieniu wysokiej dostępności domeny w sekcji **usług domenowych** na karcie **Konfigurowanie** powinny być widoczne dwa adresy IP.
 
 12. Po około 20–30 minutach w polu **Adres IP** na stronie **Konfigurowanie** zobaczysz pierwszy adres IP, pod którym są dostępne Usługi domenowe.
 
     ![Włączone Usługi domenowe — pierwszy adres IP zaprowizowany](./media/active-directory-domain-services-getting-started/domain-services-enabled-firstdc-available.png)
 
-13. Gdy domena oferuje działającą opcję wysokiej dostępności, na stronie są wyświetlane dwa adresy IP. Są to adresy IP, w których Usługi domenowe Azure AD będą dostępne w wybranej sieci wirtualnej. Zanotuj te adresy IP, aby zaktualizować ustawienia DNS sieci wirtualnej. Ten krok umożliwia łączenie maszyn wirtualnych w sieci wirtualnej z domeną w celu wykonywania operacji takich jak przyłączanie do domeny.
+13. Gdy domena oferuje działającą opcję wysokiej dostępności, na stronie są wyświetlane dwa adresy IP. Są to adresy IP, pod którymi Usługi domenowe Azure AD będą dostępne w wybranej sieci wirtualnej. Zanotuj te adresy IP, aby zaktualizować ustawienia DNS sieci wirtualnej. Ten krok umożliwia łączenie maszyn wirtualnych w sieci wirtualnej z domeną w celu wykonywania operacji takich jak przyłączanie do domeny.
 
     ![Włączone Usługi domenowe — obydwa adresy IP zaprowizowane](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
 
-> [AZURE.NOTE] Czas potrzebny na udostępnienie zawartości katalogu w Usługach domenowych Azure AD zależy od rozmiaru katalogu usługi Azure AD (liczby użytkowników, grup itp.). Ten proces synchronizacji jest wykonywany w tle. W przypadku dużych katalogów z dziesiątkami tysięcy obiektów zsynchronizowanie i udostępnienie w Usługach domenowych Azure AD wszystkich użytkowników, członkostw w grupach i poświadczeń może potrwać dzień lub dwa.
+> [AZURE.NOTE] Czas potrzebny na udostępnienie zawartości dzierżawy w Usługach domenowych Azure AD zależy od rozmiaru dzierżawy usługi Azure AD (liczby użytkowników, grup itp.). Ten proces synchronizacji jest wykonywany w tle. W przypadku dużych dzierżaw z dziesiątkami tysięcy obiektów udostępnienie w Usługach domenowych Azure AD wszystkich użytkowników, członkostw w grupach i poświadczeń może potrwać dzień lub dwa.
 
 <br>
 
@@ -97,6 +97,6 @@ Następne zadanie konfiguracji to [zaktualizowanie ustawień DNS na potrzeby sie
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

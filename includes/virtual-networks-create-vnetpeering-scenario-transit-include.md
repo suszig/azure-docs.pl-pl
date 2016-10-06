@@ -10,6 +10,6 @@ W tym scenariuszu mamy do czynienia z dwiema sieciami wirtualnymi w subskrypcji,
 Kluczową właściwością pozwalającą włączyć routing przesyłania jest parametr „Zezwalaj na ruch przekazywany”. Dzięki temu możliwe jest akceptowanie i wysyłanie ruchu z i do urządzenia NVA w skomunikowanej równorzędnie sieci wirtualnej.  
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

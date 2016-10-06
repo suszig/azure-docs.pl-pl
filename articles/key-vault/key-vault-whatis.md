@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/15/2016"
+    ms.date="09/27/2016"
     ms.author="cabailey"/>
 
 
@@ -37,8 +37,8 @@ Użyj poniższej tabeli, aby lepiej zrozumieć, w jaki sposób usługa Key Vault
 
 | Rola        | Opis problemu           | Rozwiązanie usługi Azure Key Vault  |
 | ------------- |-------------|-----|
-| Deweloper aplikacji platformy Azure      | „Chcę napisać aplikację dla platformy Azure, która używa kluczy do logowania i szyfrowania, ale chcę, żeby znajdowały się one poza moją aplikacją tak, aby rozwiązanie było odpowiednie dla aplikacji rozproszonej geograficznie. <br/><br/>Chcę także, aby klucze i klucze tajne były chronione, ale bez konieczności samodzielnego pisania kodu. Powinny też być łatwe w użyciu w moich aplikacjach i mieć optymalną wydajność”. | √ Klucze są przechowywane w magazynie i w razie potrzeby wywoływane przez identyfikator URI.<br/><br/> √ Klucze są chronione przez platformę Azure przy użyciu branżowych standardów dotyczących algorytmów, długości klucza i sprzętowych modułów zabezpieczeń (HSM).<br/><br/> √ Klucze są przetwarzane w modułach HSM, które znajdują się w tych samych centrach danych co aplikacje. Zapewnia to lepszą niezawodność i mniejsze opóźnienia, niż gdyby klucze były przechowywane w osobnej lokalizacji, na przykład lokalnie.|
-| Deweloper oprogramowania jako usługi (SaaS)      |„Nie chcę ponosić odpowiedzialności ani mieć potencjalnych problemów względem kluczy i kluczy tajnych dzierżawy moich klientów. <br/><br/>Chcę, aby klienci mogli niezależnie zarządzać swoimi kluczami. Dzięki temu będę w stanie się skupić na tym, co robię najlepiej – na tworzeniu podstawowych funkcji oprogramowania”. | √ Klienci mogą importować własne klucze do platformy Azure i zarządzać nimi. Gdy aplikacja SaaS musi wykonać operację kryptograficzną przy użyciu kluczy swoich klientów, usługa Key Vault robi to w jej imieniu. Aplikacja nie ma wglądu w klucze klientów.|
+| Deweloper aplikacji platformy Azure      | „Chcę napisać aplikację dla platformy Azure, która używa kluczy do logowania i szyfrowania, ale chcę, żeby te klucze znajdowały się poza moją aplikacją tak, aby rozwiązanie było odpowiednie dla aplikacji rozproszonej geograficznie. <br/><br/>Chcę także, aby klucze i klucze tajne były chronione, ale bez konieczności samodzielnego pisania kodu. Powinny też być łatwe w użyciu w moich aplikacjach i mieć optymalną wydajność”. | √ Klucze są przechowywane w magazynie i w razie potrzeby wywoływane przez identyfikator URI.<br/><br/> √ Klucze są chronione przez platformę Azure przy użyciu branżowych standardów dotyczących algorytmów, długości klucza i sprzętowych modułów zabezpieczeń (HSM).<br/><br/> √ Klucze są przetwarzane w modułach HSM, które znajdują się w tych samych centrach danych platformy Azure co aplikacje. Zapewnia to lepszą niezawodność i mniejsze opóźnienia, niż gdyby klucze były przechowywane w osobnej lokalizacji, na przykład lokalnie.|
+| Deweloper oprogramowania jako usługi (SaaS)      |„Nie chcę ponosić odpowiedzialności ani mieć potencjalnych problemów względem kluczy i kluczy tajnych dzierżawy moich klientów. <br/><br/>Chcę, aby klienci mogli niezależnie zarządzać swoimi kluczami. Dzięki temu będę w stanie się skupić na tym, co robię najlepiej – na tworzeniu podstawowych funkcji oprogramowania”. | √ Klienci mogą importować własne klucze do platformy Azure i zarządzać nimi. Gdy aplikacja SaaS musi wykonać operacje kryptograficzne przy użyciu kluczy swoich klientów, usługa Key Vault wykonuje te operacje w jej imieniu. Aplikacja nie ma wglądu w klucze klientów.|
 | Chief Security Officer (CSO) | „Chcę wiedzieć, że nasze aplikacje są zgodne z modułami HSM w trybie FIPS 140-2 poziom 2 w celu bezpiecznego zarządzania kluczami. <br/><br/>Chcę się upewnić, że moja organizacja kontroluje cykl życia klucza i monitoruje jego użycie. <br/><br/>I chociaż korzystamy z wielu usług i zasobów platformy Azure, chcę mieć możliwość zarządzania kluczami z jednej lokalizacji na platformie Azure”.     |√ Moduły HSM są zweryfikowane w trybie FIPS 140-2 poziom 2.<br/><br/>√ Usługa Key Vault jest zaprojektowana w taki sposób, aby firma Microsoft nie miała wglądu w Twoje klucze ani nie mogła ich wyodrębnić.<br/><br/>√ Rejestrowanie użycia klucza niemal w czasie rzeczywistym.<br/><br/>√ Magazyn zapewnia jeden interfejs, niezależnie od tego, jak wiele magazynów masz na platformie Azure, które regiony są przez nie obsługiwane oraz które aplikacje ich używają. |
 
 
@@ -62,7 +62,7 @@ Aby zapoznać się z samouczkiem wprowadzającym dla administratora, zobacz [Wpr
 
 Aby uzyskać więcej informacji na temat rejestrowania użycia usługi Key Vault, zobacz [Rejestrowanie usługi Azure Key Vault](key-vault-logging.md).
 
-Aby uzyskać więcej informacji na temat używania kluczy i kluczy tajnych w usłudze Azure Key Vault, zobacz [Informacje o kluczach i kluczach tajnych](https://msdn.microsoft.com/library/azure/dn903623.aspx).
+Aby uzyskać więcej informacji na temat używania kluczy i kluczy tajnych w usłudze Azure Key Vault, zobacz [Informacje o kluczach, kluczach tajnych i certyfikatach](https://msdn.microsoft.com/library/azure/dn903623\(v=azure.1\).aspx).
 
 
 <!--Image references-->
@@ -70,6 +70,6 @@ Aby uzyskać więcej informacji na temat używania kluczy i kluczy tajnych w us�
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

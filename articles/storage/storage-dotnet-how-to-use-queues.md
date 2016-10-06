@@ -14,7 +14,8 @@
     ms.devlang="dotnet"
     ms.topic="hero-article"
     ms.date="07/26/2016"
-    ms.author="gusapost"/>
+    ms.author="cbrooks;robinsh"/>
+
 
 # Rozpoczynanie pracy z usługą Azure Queue Storage przy użyciu platformy .NET
 
@@ -52,7 +53,7 @@ W tym samouczku pokazano, jak napisać kod .NET dla niektórych typowych scenari
 
 Dodaj następujące instrukcje `using` na początku pliku `program.cs`:
 
-    using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+    using Microsoft.Azure; // Namespace for CloudConfigurationManager
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
@@ -280,6 +281,6 @@ Teraz, kiedy znasz już podstawy usługi Queue Storage, skorzystaj z poniższych
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

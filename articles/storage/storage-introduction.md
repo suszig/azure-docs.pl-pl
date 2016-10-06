@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/21/2016"
-    ms.author="tamram"/>
+    ms.date="09/20/2016"
+    ms.author="vamshik;tamram"/>
+
 
 # Wprowadzenie do usługi Microsoft Azure Storage
 
@@ -128,18 +129,18 @@ Sygnatura dostępu współdzielonego konta deleguje dostęp do zasobu w co najmn
 
 Istnieje także możliwość określenia kontenera i jego obiektów blob lub konkretnego obiektu blob jako dostępnego publicznie. Po wskazaniu, że kontener lub obiekt blob jest publiczny, dowolny użytkownik może go anonimowo odczytać — uwierzytelnianie nie jest wymagane.  Publiczne kontenery i obiekty blob są przydatne w wypadku ujawniania zasobów takich jak multimedia i dokumenty hostowane w witrynach sieci Web.  Aby zmniejszyć opóźnienia sieciowe dla odbiorców globalnych, można buforować dane obiektów blob używane przez witryny sieci Web za pomocą usługi Azure CDN.
 
-Aby uzyskać więcej informacji na temat sygnatur dostępu współdzielonego, zobacz [Shared Access Signatures: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md) (Sygnatury dostępu współdzielonego: omówienie modelu SAS). Aby uzyskać więcej informacji na temat bezpiecznego dostępu do konta magazynu, zobacz [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md) (Zarządzanie anonimowym dostępem do odczytu do kontenerów i obiektów blob) i [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) (Uwierzytelnianie dla usług Azure Storage).
+Zobacz [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Używanie sygnatur dostępu współdzielonego), aby uzyskać więcej informacji o sygnaturach dostępu współdzielonego. Aby uzyskać więcej informacji na temat bezpiecznego dostępu do konta magazynu, zobacz [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md) (Zarządzanie anonimowym dostępem do odczytu do kontenerów i obiektów blob) i [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) (Uwierzytelnianie dla usług Azure Storage).
 
 ## Replikacja na potrzeby trwałości i wysokiej dostępności
 
-Dane konta usługi Microsoft Azure Storage są zawsze replikowane w celu zapewnienia trwałości i wysokiej dostępności, spełniając [wymagania umowy SLA dotyczącej usługi Storage](https://azure.microsoft.com/support/legal/sla/storage/) nawet w wypadku przejściowych awarii sprzętu. 
+Dane konta usługi Microsoft Azure Storage są zawsze replikowane w celu zapewnienia trwałości i wysokiej dostępności, spełniając [wymagania umowy SLA dotyczącej usługi Storage](https://azure.microsoft.com/support/legal/sla/storage/) nawet w wypadku przejściowych awarii sprzętu.
 
 Aby uzyskać więcej informacji na temat dostępności usług w poszczególnych regionach, zobacz temat [Regiony świadczenia usługi Azure](https://azure.microsoft.com/regions/#services).
 
 Podczas tworzenia konta magazynu należy wybrać jedną z następujących opcji replikacji:  
 
 - **Magazyn lokalnie nadmiarowy (LRS).** Magazyn lokalnie nadmiarowy przechowuje trzy kopie danych. Magazyn LRS jest replikowany trzy razy w jednym obiekcie w pojedynczym regionie. Magazyn LRS chroni dane przed zwykłymi awariami sprzętu, lecz nie przed awarią pojedynczego obiektu.  
-  
+
     Magazyn LRS jest oferowany z rabatem. Aby uzyskać maksymalną trwałość, zalecamy użycie magazynu geograficznie nadmiarowego opisanego poniżej.
 
 
@@ -148,8 +149,8 @@ Podczas tworzenia konta magazynu należy wybrać jedną z następujących opcji 
     Magazyn ZRS zapewnia wyższy poziom trwałości niż magazyn LRS, jednak w celu osiągnięcia maksymalnej trwałości zalecamy użycie magazynu geograficznie nadmiarowego opisanego poniżej.  
 
     > [AZURE.NOTE] Magazyn ZRS jest obecnie dostępny tylko dla blokowych obiektów blob i tylko dla wersji 2014-02-14 i nowszych.
-    > 
-    > Po utworzeniu konta magazynu i wybraniu magazynu ZRS nie można przekonwertować go pod kątem użycia żadnego innego typu replikacji i odwrotnie. 
+    >
+    > Po utworzeniu konta magazynu i wybraniu magazynu ZRS nie można przekonwertować go pod kątem użycia żadnego innego typu replikacji i odwrotnie.
 
 - **Magazyn geograficznie nadmiarowy (GRS)**. Magazyn GRS przechowuje sześć kopii danych. W wypadku magazynu GRS dane są replikowane trzy razy w regionie podstawowym i trzy razy w regionie dodatkowym oddalonym o setki kilometrów od podstawowego, co zapewnia najwyższy poziom trwałości. Jeśli wystąpi awaria w regionie podstawowym, usługa Azure Storage przejdzie w tryb failover w regionie dodatkowym. Magazyn GRS zapewnia, że dane są trwałe w dwóch oddzielnych regionach.
 
@@ -158,7 +159,7 @@ Podczas tworzenia konta magazynu należy wybrać jedną z następujących opcji 
 - **Dostęp do odczytu dla magazynu geograficznie nadmiarowego (RA-GRS)**. Dostęp do odczytu dla magazynu geograficznie nadmiarowego jest domyślnie włączany dla konta magazynu podczas jego tworzenia. W ramach dostępu do odczytu dla magazynu geograficznie nadmiarowego dane są replikowane do dodatkowej lokalizacji geograficznej, gdzie są dostępne do odczytu. Dostęp do odczytu dla magazynu geograficznie nadmiarowego umożliwia dostęp do danych z lokalizacji podstawowej lub dodatkowej w sytuacji, gdy jedna z nich stanie się niedostępna.
 
     > [AZURE.IMPORTANT] Możesz zmienić sposób replikacji danych po utworzeniu konta magazynu, o ile jest on inny niż ZRS. Zwróć jednak uwagę, że w wypadku przejścia z replikacji LRS na GRS lub RA-GRS mogą zostać naliczone dodatkowo i jednorazowo koszty transferu danych.
- 
+
 Aby uzyskać szczegółowe informacje na temat opcji replikacji magazynu, zobacz [Replikacja usługi Azure Storage](storage-redundancy.md).
 
 Aby uzyskać informacje o cenniku replikacji konta magazynu, zobacz [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
@@ -269,6 +270,6 @@ Aby dowiedzieć się więcej na temat usługi Azure Storage, zapoznaj się z tym
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

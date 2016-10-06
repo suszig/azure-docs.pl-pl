@@ -28,7 +28,7 @@ Wskazówki zawarte w poniższych sekcjach ułatwią znalezienie odpowiedzi na te
 
 ## Co chcesz zabezpieczyć?
 
-Aby wybrać odpowiednie rozwiązanie oparte na uwierzytelnianiu wieloskładnikowym, najpierw należy określić, co ma zostać objęte ochroną przy użyciu drugiej metody uwierzytelniania.  Czy jest to aplikacja na platformie Azure?  A może system dostępu zdalnego?  Po określeniu elementów, które mają zostać zabezpieczone, będzie można znaleźć odpowiedź na pytanie o miejsce włączenia uwierzytelniania wieloskładnikowego.  
+Aby wybrać odpowiednie rozwiązanie oparte na uwierzytelnianiu wieloskładnikowym, najpierw należy określić, co ma zostać objęte ochroną przy użyciu drugiej metody uwierzytelniania.  Czy jest to aplikacja na platformie Azure?  A może system dostępu zdalnego?  Po określeniu elementów, które mają zostać zabezpieczone, spróbujemy odpowiedzieć na pytanie o miejsce włączenia uwierzytelniania wieloskładnikowego.  
 
 
 Co chcesz zabezpieczyć| Usługa Multi-Factor Authentication w chmurze|Serwer Multi-Factor Authentication
@@ -90,6 +90,6 @@ Gdy już udało się ustalić, czy będzie używane uwierzytelnianie wieloskład
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

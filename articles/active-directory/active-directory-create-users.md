@@ -89,6 +89,6 @@ Następnie możesz edytować opcje kontroli dostępu dla gości.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -2,7 +2,9 @@
 
 Każdy rekord DNS ma nazwę i typ. Rekordy są pogrupowane w różne typy według danych, które zawierają. Najczęściej spotykanym typem jest rekord „A”, który mapuje nazwę na adres IPv4. Innym typem jest rekord „MX”, który mapuje nazwę na serwer poczty e-mail.
 
-Usługa DNS platformy Azure obsługuje wszystkie popularne typy rekordów DNS, takie jak A, AAAA, CNAME, MX, NS, SOA, SRV i TXT. Zestawy rekordów SOA są tworzone automatycznie w każdej strefie. Nie można ich utworzyć oddzielnie. Należy pamiętać, że rekordy SPF powinny być tworzone przy użyciu typu rekordu TXT. Więcej informacji znajduje się na [tej stronie](http://tools.ietf.org/html/rfc7208#section-3.1).
+Usługa DNS platformy Azure obsługuje wszystkie popularne typy rekordów DNS, takie jak A, AAAA, CNAME, MX, NS, PTR, SOA, SRV i TXT. Należy pamiętać, że:
+- Zestawy rekordów SOA są tworzone automatycznie w każdej strefie i nie mogą być tworzone oddzielnie.
+- Rekordy SPF powinny być tworzone przy użyciu typu rekordu TXT. Więcej informacji znajduje się na [tej stronie](http://tools.ietf.org/html/rfc7208#section-3.1).
 
 W usłudze DNS platformy Azure rekordy są określane przy użyciu nazw względnych. „W pełni kwalifikowana” nazwa domeny (FQDN) zawiera nazwę strefy, której nie zawiera nazwa „względna”. Na przykład względna nazwa rekordu „www” w strefie „contoso.com” daje w pełni kwalifikowaną nazwę rekordu www.contoso.com.
 
@@ -30,6 +32,6 @@ Aby utworzyć zestaw rekordów z użyciem symboli wieloznacznych, użyj nazwy ze
 Zestawy rekordów CNAME nie mogą współistnieć z innymi zestawami rekordów o tej samej nazwie. Na przykład nie można utworzyć jednocześnie zestawu rekordów CNAME o nazwie względnej „www” oraz rekordu A o nazwie względnej „www”. Ponieważ wierzchołek strefy (nazwa = „@”) zawsze zawiera zestawy rekordów NS i SOA, które zostały utworzone podczas tworzenia strefy, nie można utworzyć zestawu rekordów CNAME w wierzchołku strefy. Te ograniczenia wynikają ze standardów dotyczących serwerów DNS i nie stanowią ograniczeń usługi DNS platformy Azure.
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 
