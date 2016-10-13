@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/22/2016"
+    ms.date="09/30/2016"
     ms.author="curtand"/>
 
 
@@ -87,14 +87,33 @@ Na stronie logowania można dostosować następujące elementy:
 
 ![][5]
 
- Element strony  | Lokalizacja na stronie
-    ------------- | -------------
-Baner logo | Wyświetlany w prawym górnym rogu strony. Zastępuje logo lokacji docelowej, do której się logujesz (na przykład Office 365 lub Azure).
-Duża ilustracja/kolor tła | Wyświetlany w lewej części strony. Zastępuje obraz lokacji docelowej, do której się logujesz. W przypadku połączeń o niskiej przepustowości lub na wąskich ekranach zamiast dużej ilustracji może być wyświetlany kolor tła.
-Tekst strony logowania | Wyświetlany nad stopką strony, gdy chcesz przekazać pomocne informacje przed zalogowaniem się przy użyciu konta służbowego. Na przykład możesz dołączyć numer telefonu działu pomocy technicznej lub klauzulę prawną.
+
+
+| Element strony  | Lokalizacja na stronie |
+|:--            | ---                  |
+|Baner logo    | Wyświetlany w prawym górnym rogu strony. Zastępuje logo lokacji docelowej, do której się logujesz (na przykład Office 365 lub Azure).|
+|Duża ilustracja/kolor tła | Wyświetlany w lewej części strony. Zastępuje obraz lokacji docelowej, do której się logujesz. W przypadku połączeń o niskiej przepustowości lub na wąskich ekranach zamiast dużej ilustracji może być wyświetlany kolor tła.|
+|Nie wylogowuj mnie | Tekst wyświetlany pod polem tekstowym Hasło. |
+|Tekst strony logowania | Wyświetlany nad stopką strony, gdy chcesz przekazać pomocne informacje przed zalogowaniem się przy użyciu konta służbowego. Na przykład możesz dołączyć numer telefonu działu pomocy technicznej lub klauzulę prawną.|
+
 
 > [AZURE.NOTE]
 Wszystkie elementy są opcjonalne. Na przykład jeśli określisz baner logo, ale nie określisz dużej ilustracji, na stronie logowania będzie pokazywane dostosowane logo oraz ilustracja dla lokacji docelowej (czyli obraz kalifornijskiej autostrady dla usługi Office 365).
+
+
+Na stronie logowania pole wyboru **Nie wylogowuj mnie** umożliwia użytkownikom zachowanie stanu zalogowania w przypadku zamknięcia i ponownego otworzenia przeglądarki. Opcja nie ma wpływu na okres istnienia sesji. Pole wyboru na stronie logowania usługi Azure Active Directory możesz ukryć.
+
+Wyświetlanie pola wyboru zależy od ustawienia **Ukryj KMSI**.
+
+![][9]
+
+
+Aby ukryć pole wyboru, skonfiguruj ustawienie, wybierając opcję **Ukryte**. 
+
+> [AZURE.NOTE] Niektóre funkcje usługi SharePoint Online oraz pakietu Office 2010 zależą od możliwości skorzystania z tego pola wyboru przez użytkowników. Jeśli skonfigurujesz to ustawienia na wartość „Ukryte”, użytkownicy mogą otrzymywać dodatkowe i nieoczekiwane monity o logowanie.
+
+
+
 
 Możesz również dostosować wszystkie elementy na tej stronie. Po skonfigurowaniu „domyślnego” zestawu elementów dostosowania można skonfigurować więcej wersji dla różnych ustawień regionalnych. Możesz także mieszać i dopasowywać różne elementy. Można na przykład:
 
@@ -220,9 +239,10 @@ Kolor tła strony logowania | Kolor tła strony logowania jest używany w obszar
 [6]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
+[9]: ./media/active-directory-add-company-branding/hidekmsi.png
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

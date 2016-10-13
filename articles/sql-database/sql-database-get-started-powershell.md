@@ -133,7 +133,7 @@ Poniższy skrypt programu PowerShell tworzy bazę danych SQL i jej wszystkie zas
 ## Następne kroki
 Po utworzeniu bazy danych SQL i wykonaniu podstawowych zadań dotyczących jej konfiguracji możesz przystąpić do następujących czynności:
 
-- [Zarządzanie usługą SQL Database za pomocą programu PowerShell](sql-database-command-line-tools.md)
+- [Zarządzanie usługą SQL Database za pomocą programu PowerShell](sql-database-manage-powershell.md)
 - [Nawiązywanie połączenia z usługą SQL Database za pomocą programu SQL Server Management Studio i wykonywanie przykładowego zapytania T-SQL](sql-database-connect-query-ssms.md)
 
 
@@ -143,6 +143,6 @@ Po utworzeniu bazy danych SQL i wykonaniu podstawowych zadań dotyczących jej k
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

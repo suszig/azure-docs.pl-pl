@@ -35,7 +35,8 @@ Każda sieć wirtualna może mieć tylko jedną bramę sieci wirtualnej na typ b
 
 ## Jednostki SKU bramy
 
-[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+Więcej informacji o jednostkach SKU bramy zawiera artykuł [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku) (Jednostki SKU bramy).
 
 W poniższej tabeli przedstawiono typy bram i szacowaną agregowaną przepływność. Ta tabela ma zastosowanie w obu modelach wdrażania — przy użyciu usługi Resource Manager i klasycznym.
 
@@ -151,6 +152,6 @@ Planowanie konfiguracji bramy sieci VPN. Zobacz [Planowanie i projektowanie bram
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

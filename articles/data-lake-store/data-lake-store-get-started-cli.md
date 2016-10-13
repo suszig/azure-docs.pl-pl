@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/13/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 
@@ -38,36 +38,40 @@ Interfejs wiersza polecenia platformy Azure został zaimplementowany w środowis
 Przed rozpoczęciem korzystania z informacji zawartych w tym artykule należy dysponować następującymi elementami:
 
 - **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
+
 - **Interfejs wiersza polecenia platformy Azure** — informacje na temat instalacji i konfiguracji można znaleźć w temacie [Instalowanie i konfigurowanie interfejsu wiersza polecenia platformy Azure](../xplat-cli-install.md). Pamiętaj, aby ponownie uruchomić komputer po zainstalowaniu interfejsu wiersza polecenia.
+
+## Authentication
+
+W tym artykule użyto prostszej metody uwierzytelniania w usłudze Data Lake Store, w przypadku której logujesz się jako użytkownik końcowy. Poziom dostępu do konta i systemu plików usługi Data Lake Store jest określany przez poziom dostępu zalogowanego użytkownika. Istnieją jednak inne metody uwierzytelniania w usłudze Data Lake Store: **uwierzytelnianie użytkowników końcowych** i **uwierzytelnianie między usługami**. Instrukcje i dodatkowe informacje na temat uwierzytelniania można znaleźć w artykule [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) (Uwierzytelnianie w usłudze Data Lake Store przy użyciu usługi Azure Active Directory).
 
 ##Logowanie do subskrypcji platformy Azure
 
-Wykonaj kroki opisane w temacie [Nawiązywanie połączenia z subskrypcją platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure (Azure CLI)](../xplat-cli-connect.md) i nawiąż połączenie z subskrypcją za pomocą metody __logowania__.
+1. Wykonaj kroki opisane w temacie [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md) (Nawiązywanie połączenia z subskrypcją platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure — Azure CLI) i nawiąż połączenie z subskrypcją za pomocą metody `azure login`.
+
+2. Wyświetl listę subskrypcji skojarzonych z Twoim kontem przy użyciu polecenia `azure account list`.
+
+        info:    Executing command account list
+        data:    Name              Id                                    Current
+        data:    ----------------  ------------------------------------  -------
+        data:    Azure-sub-1       ####################################  true
+        data:    Azure-sub-2       ####################################  false
+
+    W powyższych danych wyjściowych subskrypcja **Azure-sub-1** jest włączona, a druga subskrypcja to **Azure-sub-2**. 
+
+3. Wybierz subskrypcję, z którą chcesz pracować. Jeśli chcesz pracować w ramach subskrypcji Azure-sub-2, użyj polecenia `azure account set`.
+
+        azure account set Azure-sub-2
 
 
 ## Tworzenie konta usługi Azure Data Lake Store
 
 Otwórz wiersz polecenia, powłokę lub sesję terminalu i uruchom następujące polecenia.
 
-1. Zaloguj się do subskrypcji platformy Azure:
-
-        azure login
-
-    Zostanie wyświetlony monit o otwarcie strony sieci Web i wprowadzenie kodu uwierzytelniania. Postępuj zgodnie z instrukcjami na stronie, aby zalogować się do subskrypcji platformy Azure.
-
 2. Włącz tryb usługi Azure Resource Manager za pomocą następującego polecenia:
 
         azure config mode arm
 
-
-3. Lista subskrypcji platformy Azure dla Twojego konta.
-
-        azure account list
-
-
-4. Jeśli masz wiele subskrypcji Azure, użyj następujących poleceń, aby ustawić subskrypcję, której będą używać polecenia interfejsu wiersza polecenia platformy Azure:
-
-        azure account set <subscriptionname>
 
 5. Utwórz nową grupę zasobów. W poniższym poleceniu podaj wartości parametrów, których chcesz użyć.
 
@@ -191,6 +195,6 @@ Po wyświetleniu monitu wpisz **Y**, aby usunąć konto.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

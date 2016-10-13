@@ -1,6 +1,6 @@
 <properties
     pageTitle="Wprowadzenie do zestawu SDK bramy usługi IoT Hub | Microsoft Azure"
-    description="Przewodnik po zestawie SDK bramy usługi IoT Hub przy użyciu systemu Linux ilustrujący kluczowe założenia, które należy rozumieć w przypadku używania zestawu SDK bramy usługi IoT Hub."
+    description="W tym przewodniku po zestawie SDK bramy usługi IoT Hub użyto systemu Linux, aby zilustrować kluczowe założenia, które należy rozumieć w przypadku używania zestawu SDK bramy usługi IoT Hub."
     services="iot-hub"
     documentationCenter=""
     authors="chipalost"
@@ -86,6 +86,6 @@ Przed rozpoczęciem należy [skonfigurować środowisko programistyczne][lnk-set
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

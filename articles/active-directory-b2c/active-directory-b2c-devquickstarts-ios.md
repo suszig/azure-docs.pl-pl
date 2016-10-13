@@ -12,6 +12,7 @@
     ms.date="07/26/2016"
     ms.author="brandwe"/>
 
+
 # Azure AD B2C: wywoływanie interfejsu API sieci Web z aplikacji dla systemu iOS przy użyciu biblioteki innej firmy
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -151,7 +152,7 @@ Szczegółowe omówienie wartości.
 
 W przypadku elementów `authURL`, `loginURL`, `bhh` i `tokenURL` należy podać nazwę dzierżawy. Jest to przypisana do Ciebie nazwa dzierżawy B2C. Przykładowo może to być `kidventusb2c.onmicrosoft.com`. W przypadku korzystania z naszych bibliotek usługi Microsoft Azure Identity typu open source te dane są automatycznie pobierane przy użyciu naszego punktu końcowego metadanych. Włożyliśmy dużo wysiłku w wyodrębnianie tych wartości.
 
-Więcej informacji na temat nazw dzierżawy B2C zawiera: [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 Wartość `keychain` to kontener, którego biblioteka NXOAuth2Client używa do tworzenia łańcucha kluczy do przechowywania tokenów. Aby uzyskać logowanie jednokrotne w wielu aplikacjach, możesz określić ten sam łańcuch kluczy w każdej z aplikacji oraz zażądać użycia tego łańcucha kluczy w uprawnieniach XCode. Odpowiednie informacje zawiera dokumentacja firmy Apple.
 
@@ -648,6 +649,6 @@ Możesz teraz przejść do bardziej zaawansowanych tematów dotyczących usługi
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

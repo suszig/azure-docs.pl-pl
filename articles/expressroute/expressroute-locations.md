@@ -90,7 +90,7 @@ W poniższej tabeli zamieszczono informacje o regionach i granicach geopolityczn
 | **Softbank** | Obsługiwane | Obsługiwane | Osaka, Tokio | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Obsługiwane | Obsługiwane | Amsterdam, Madras, Hongkong, Londyn, Bombaj, Dolina Krzemowa, Singapur, Waszyngton |
 | **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Obsługiwane | Obsługiwane | Amsterdam, Dublin, Londyn |
-| **Telefonica** | Obsługiwane | Wkrótce | Sao Paulo |
+| **Telefonica** | Obsługiwane | Obsługiwane | Sao Paulo |
 | **Telenor** | Obsługiwane | Obsługiwane | Amsterdam, Londyn |
 | **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Obsługiwane | Wkrótce | Melbourne, Sydney |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Obsługiwane | Obsługiwane | Amsterdam, Hongkong, Londyn, Dolina Krzemowa, Singapur, Sydney, Tokio, Waszyngton |
@@ -174,6 +174,6 @@ Włączanie prywatnej łączności do własnych potrzeb może być wyzwaniem w z
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

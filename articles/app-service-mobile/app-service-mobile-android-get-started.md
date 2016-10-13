@@ -3,7 +3,7 @@
     description="Postępuj zgodnie z tym samouczkiem, aby rozpocząć korzystanie z zapleczy usług mobilnych Azure na potrzeby opracowywania aplikacji dla systemu Android."
     services="app-service\mobile"
     documentationCenter="android"
-    authors="RickSaling"
+    authors="yuaxu"
     manager="erikre"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="hero-article"
-    ms.date="08/17/2016"
-    ms.author="ricksal"/>
+    ms.date="10/01/2016"
+    ms.author="yuaxu"/>
+
 
 #Tworzenie aplikacji systemu Android
 
@@ -55,6 +56,6 @@ Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

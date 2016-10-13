@@ -152,6 +152,8 @@ if (!namespaceManager.TopicExists("TestTopic"))
 
 Można również tworzyć subskrypcje tematu przy użyciu klasy [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Subskrypcje są nazywane i mogą zawierać opcjonalny filtr, który ogranicza zestaw komunikatów przesyłany do wirtualnej kolejki subskrypcji.
 
+> [AZURE.IMPORTANT] Aby móc odbierać komunikaty w ramach subskrypcji, musisz utworzyć subskrypcję przed wysłaniem komunikatów do tematu. Jeśli z tematem nie są powiązane żadne subskrypcje, temat odrzuci te komunikaty.
+
 ### Tworzenie subskrypcji z filtrem domyślnym (MatchAll)
 
 Filtr **MatchAll** jest filtrem domyślnym, który jest używany, gdy podczas tworzenia nowej subskrypcji nie został określony żaden filtr. Kiedy używasz filtru **MatchAll**, wszystkie komunikaty opublikowane do tematu są umieszczane w wirtualnej kolejce subskrypcji. Poniższy przykład tworzy subskrypcję o nazwie „AllMessages” i używa domyślnego filtru **MatchAll**.
@@ -330,6 +332,6 @@ Teraz, kiedy znasz już podstawy tematów i subskrypcji usługi Service Bus, sko
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

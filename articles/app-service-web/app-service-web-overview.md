@@ -16,6 +16,7 @@
     ms.date="08/26/2016"
     ms.author="rachelap"/>
 
+
 # Przegląd usługi Web Apps
 
 *Azure App Service Web Apps* to w pełni zarządzana platforma obliczeniowa zoptymalizowana pod kątem hostowania witryn i aplikacji sieci Web. Oferta [platforma jako usługa](https://en.wikipedia.org/wiki/Platform_as_a_service) (Platform as a Service, PaaS) platformy Microsoft Azure umożliwia użytkownikowi skupienie się na logice biznesowej, podczas gdy platforma Azure jest odpowiedzialna za infrastrukturę służącą do uruchamiania i skalowania aplikacji.
@@ -23,6 +24,8 @@
 Następujący 5-minutowy film wideo stanowi wprowadzenie do funkcji Azure App Service Web Apps.
 
 [AZURE.VIDEO azure-app-service-web-apps-with-yochay-kiriaty]
+
+>[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
 
 ## Co to jest aplikacja sieci Web w usłudze App Service?
 
@@ -64,6 +67,6 @@ Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

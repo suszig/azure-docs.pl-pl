@@ -13,11 +13,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/25/2016"
+   ms.date="09/30/2016"
    ms.author="markvi"/>
 
 
 # Raporty usługi Azure Active Directory — podgląd
+
+> [AZURE.SELECTOR]
+- [Azure Portal](active-directory-reporting-azure-portal.md)
+- [klasyczny portal Azure](active-directory-reporting-guide.md)
 
 *Ta dokumentacja jest częścią [Przewodnika po raportach usługi Azure Active Directory](active-directory-reporting-guide.md).*
 
@@ -220,6 +224,6 @@ Zobacz temat [Azure Active Directory Reporting Guide](active-directory-reporting
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

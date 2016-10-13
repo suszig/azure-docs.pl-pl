@@ -13,10 +13,15 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="07/21/2016"
+    ms.date="09/30/2016"
     ms.author="kgremban"/>
 
+
 # Zarządzanie dostępem do zasobów subskrypcji platformy Azure za pomocą przypisań ról
+
+> [AZURE.SELECTOR]
+- [Azure Portal](role-based-access-control-azure-portal.md)
+- [klasyczny portal Azure](role-based-access-control-configure.md)
 
 Kontrola dostępu oparta na rolach (Role-Based Access Control, RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem dla platformy Azure. Korzystając z modelu RBAC, można udzielić użytkownikom tylko takiego dostępu, jakiego potrzebują do wykonania swoich zadań. Ten artykuł ułatwia rozpoczęcie pracy z kontrolą dostępu opartą na rolach w witrynie Azure Portal. Jeśli chcesz uzyskać więcej szczegółowych informacji na temat sposobu, w jaki RBAC ułatwia zarządzanie dostępem, zobacz [Co to jest kontrola dostępu oparta na rolach](role-based-access-control-what-is.md).
 
@@ -78,6 +83,6 @@ Za pomocą poleceń Azure RBAC można przypisywać role i zarządzać dostępem 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

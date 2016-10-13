@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="09/13/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 
@@ -35,17 +35,8 @@ Z tego artykułu dowiesz się, jak używać interfejsów API REST WebHDFS i inte
 ## Wymagania wstępne
 
 - **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Utworzenie aplikacji usługi Azure Active Directory**. Istnieją dwa sposoby uwierzytelniania z użyciem usługi Azure Active Directory — **interaktywny** i **nieinteraktywny**. W zależności od sposobu uwierzytelniania należy spełnić różne wymagania wstępne.
-    * **Uwierzytelnianie interakcyjne** (używane w tym artykule) — w usłudze Azure Active Directory należy utworzyć **aplikację Native Client**. Po utworzeniu aplikacji pobierz następujące wartości związane z tą aplikacją.
-        - Uzyskaj **identyfikator klienta** i **identyfikator URI przekierowania** dla aplikacji.
-        - Ustaw uprawnienia delegowane.
 
-    * **Uwierzytelnianie nieinterakcyjne** — w usłudze Azure Active Directory należy utworzyć **aplikację sieci Web**. Po utworzeniu aplikacji pobierz następujące wartości związane z tą aplikacją.
-        - Pobierz **identyfikator klienta**, **klucz tajny klienta** oraz **identyfikator URI przekierowania** dla aplikacji.
-        - Ustaw uprawnienia delegowane.
-        - Przypisz aplikację usługi Azure Active Directory do roli. Rola może być na poziomie zakresu, na którym chcesz nadać uprawnienie do aplikacji usługi Azure Active Directory. Na przykład możesz przypisać aplikację na poziomie subskrypcji lub na poziomie grupy zasobów. Aby uzyskać instrukcje, zobacz [Assign application to a role](../resource-group-create-service-principal-portal.md#assign-application-to-role) (Przypisywanie aplikacji do roli). 
-
-    Instrukcje dotyczące pobierania tych wartości, ustawiania uprawnień i przypisywania ról zawiera temat [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md) (Tworzenie aplikacji i głównej nazwy usługi Active Directory przy użyciu portalu).
+- **Utworzenie aplikacji usługi Azure Active Directory**. Za pomocą aplikacji usługi Azure AD można uwierzytelnić aplikację usługi Data Lake Store w usłudze Azure AD. Istnieją różne metody uwierzytelniania w usłudze Azure AD: **uwierzytelnianie użytkowników końcowych** i **uwierzytelnianie między usługami**. Instrukcje i dodatkowe informacje na temat uwierzytelniania można znaleźć w artykule [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) (Uwierzytelnianie w usłudze Data Lake Store przy użyciu usługi Azure Active Directory).
 
 - [cURL](http://curl.haxx.se/). W tym artykule jest używane narzędzie cURL w celu zademonstrowania sposobu wykonywania wywołań interfejsu API REST względem konta usługi Data Lake Store.
 
@@ -53,7 +44,7 @@ Z tego artykułu dowiesz się, jak używać interfejsów API REST WebHDFS i inte
 
 Dostępne są dwa podejścia do uwierzytelniania za pomocą usługi Azure Active Directory.
 
-### Interakcyjne (uwierzytelnianie użytkowników)
+### Uwierzytelnianie użytkowników końcowych (interakcyjne)
 
 W tym scenariuszu aplikacja wyświetla monit o zalogowanie się i wówczas wszystkie operacje są wykonywane w kontekście zalogowanego użytkownika. Wykonaj następujące kroki, aby przeprowadzić uwierzytelnianie interakcyjne.
 
@@ -92,7 +83,7 @@ W tym scenariuszu aplikacja wyświetla monit o zalogowanie się i wówczas wszys
  
 Więcej informacji na temat interakcyjnego uwierzytelniania użytkownika zawiera temat [Authorization code grant flow](https://msdn.microsoft.com/library/azure/dn645542.aspx) (Przepływ udzielania kodu autoryzacji).
 
-### Nieinterakcyjne
+### Uwierzytelnianie między usługami (nieinterakcyjne)
 
 W tym scenariuszu aplikacja udostępnia własne poświadczenia, aby wykonywać operacje. W tym celu należy wygenerować żądanie POST, tak jak pokazano poniżej. 
 
@@ -278,6 +269,6 @@ Powinny pojawić się dane wyjściowe podobne do następujących:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

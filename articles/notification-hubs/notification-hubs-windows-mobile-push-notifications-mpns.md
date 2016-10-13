@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="mobile-windows-phone"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="06/29/2016"
+    ms.date="10/03/2016"
     ms.author="wesmc"/>
 
 
@@ -217,7 +217,7 @@ Dowiedz się więcej o sposobie użycia usługi Notification Hubs w temacie [Wsk
 [Wskazówki dotyczące usługi Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Tryb uwierzytelniony usługi MPNS]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [Wysyłanie powiadomień wypychanych do użytkowników przy użyciu usługi Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs]: notification-hubs-windows-phone-send-breaking-news.md
+[Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
 [wykazu powiadomień wyskakujących]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [wykazu kafelków]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [samouczku dotyczącym usługi Notification Hubs dla aplikacji platformy Silverlight dla systemu Windows Phone]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
@@ -225,6 +225,6 @@ Dowiedz się więcej o sposobie użycia usługi Notification Hubs w temacie [Wsk
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

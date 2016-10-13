@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="mobile-chrome"
     ms.devlang="JavaScript"
     ms.topic="hero-article"
-    ms.date="07/22/2016"
+    ms.date="10/03/2016"
     ms.author="wesmc"/>
 
 
@@ -476,11 +476,11 @@ Jeśli chcesz podzielić użytkowników na grupy zainteresowań, zobacz [Azure N
 [bibliotekę crypto-js]: http://code.google.com/p/crypto-js/
 [Usługa GCM w aplikacjach dla programu Chrome]: https://developer.chrome.com/apps/cloudMessaging
 [usługa Google Cloud Messaging dla programu Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
-[Azure Notification Hubs Notify Users (Powiadamianie użytkowników przy użyciu usługi Azure Notification Hubs)]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
-[Azure Notification Hubs breaking news (Powiadamianie o najważniejszych wiadomościach przy użyciu usługi Azure Notification Hubs)]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Azure Notification Hubs Notify Users (Powiadamianie użytkowników przy użyciu usługi Azure Notification Hubs)]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Azure Notification Hubs breaking news (Powiadamianie o najważniejszych wiadomościach przy użyciu usługi Azure Notification Hubs)]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

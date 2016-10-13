@@ -118,7 +118,7 @@ Zawsze, gdy trzeba dokonać aktualizacji, wystarczy przekazać nowy plik WAR do 
 
 ## Następne kroki
 
-[Tworzenie aplikacji sieci Web Java na podstawie szablonu w portalu Azure Marketplace](app-service-web-java-get-started.md#marketplace). Możesz pobrać kontener Tomcat z pełnymi możliwościami dostosowywania i uzyskać znajomy interfejs użytkownika menedżera. 
+[Tworzenie aplikacji sieci Web Java na podstawie szablonu w portalu Azure Marketplace](web-sites-java-get-started.md#marketplace). Możesz pobrać kontener Tomcat z pełnymi możliwościami dostosowywania i uzyskać znajomy interfejs użytkownika menedżera. 
 
 Przeprowadź debugowanie swojej aplikacji sieci Web na platformie Azure bezpośrednio w środowisku [IntelliJ](app-service-web-debug-java-web-app-in-intellij.md) lub [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md).
 
@@ -130,6 +130,6 @@ Możesz także wykonać inne zadania związane ze swoją pierwszą aplikacją si
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

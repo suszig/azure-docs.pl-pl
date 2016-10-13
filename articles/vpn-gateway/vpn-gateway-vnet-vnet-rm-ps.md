@@ -17,11 +17,12 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Konfigurowanie połączenia między sieciami wirtualnymi usługi Resource Manager przy użyciu programu PowerShell
 
 > [AZURE.SELECTOR]
-- [klasyczny portal Azure](virtual-networks-configure-vnet-to-vnet-connection.md)
-- [Program PowerShell — model usługi Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
+- [Resource Manager — program PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+- [Model klasyczny — klasyczny portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 
 W tym artykule opisano kroki tworzenia połączenia między sieciami wirtualnymi w modelu wdrażania usługi Resource Manager przy użyciu usługi VPN Gateway. Sieci wirtualne mogą być zlokalizowane w tych samych lub różnych regionach i mogą funkcjonować w ramach tej samej lub różnych subskrypcji.
 
@@ -29,19 +30,18 @@ W tym artykule opisano kroki tworzenia połączenia między sieciami wirtualnymi
 ![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 
-### Modele wdrażania i narzędzia do obsługi połączeń między sieciami wirtualnymi
+### Modele wdrażania i metody nawiązywania połączeń między sieciami wirtualnymi
 
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-Połączenie między sieciami wirtualnymi można skonfigurować w obu modelach wdrażania i przy użyciu kilku różnych narzędzi. Więcej informacji można znaleźć w tabeli poniżej. Aktualizujemy ją w miarę pojawiania się nowych artykułów, nowych modeli wdrażania i dodatkowych narzędzi dla tej konfiguracji. Jeśli artykuł jest dostępny, można przejść do niego bezpośrednio z tabeli.
+Połączenie między sieciami wirtualnymi można skonfigurować w obu modelach wdrażania i przy użyciu kilku różnych narzędzi. Poniższą tabelę aktualizujemy w miarę pojawiania się nowych artykułów i dodatkowych narzędzi dla tej konfiguracji. Jeśli artykuł jest dostępny, można przejść do niego bezpośrednio z tabeli.<br><br>
 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)] 
 
-
 #### Komunikacja równorzędna sieci wirtualnych
 
-Można utworzyć połączenie przy użyciu komunikacji równorzędnej sieci wirtualnych pod warunkiem, że konfiguracja sieci wirtualnej spełnia określone wymagania. W przypadku komunikacji równorzędnej sieci wirtualnych nie jest używana brama sieci wirtualnej. [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md) jest obecnie dostępna w wersji zapoznawczej.
+[AZURE.INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 
 ## Informacje o połączeniach między sieciami wirtualnymi
@@ -453,7 +453,7 @@ Jako że bramy należą do różnych subskrypcji, w tym przykładzie zastosowano
 
 3. **[Subskrypcja 1]** Utworzenie połączenia z sieci wirtualnej TestVNet1 do sieci wirtualnej TestVNet5
 
-    W tym kroku zostanie utworzone połączenie z sieci wirtualnej TestVNet1 do sieci wirtualnej TestVNet5. Różnica polega na tym, że wartości $vnet5gw nie można pobrać w sposób bezpośredni, ponieważ należy ona do innej subskrypcji. Należy utworzyć nowy obiekt programu PowerShell z wartościami przekazywanymi z Subskrypcji 1 w sposób przedstawiony w powyższych krokach. Zastąp nazwę, identyfikator i klucz współużytkowany własnymi wartościami. Ważne jest, aby klucz współużytkowany był zgodny z obydwoma połączeniami. Tworzenie połączenia może nieco potrwać.
+    W tym kroku zostanie utworzone połączenie z sieci wirtualnej TestVNet1 do sieci wirtualnej TestVNet5. Różnica polega na tym, że wartości $vnet5gw nie można pobrać w sposób bezpośredni, ponieważ należy ona do innej subskrypcji. Należy utworzyć nowy obiekt programu PowerShell z wartościami przekazywanymi z Subskrypcji 1 w sposób przedstawiony w powyższych krokach. Skorzystaj z poniższego przykładu. Zastąp nazwę, identyfikator i klucz współużytkowany własnymi wartościami. Ważne jest, aby klucz współużytkowany był zgodny z obydwoma połączeniami. Tworzenie połączenia może nieco potrwać.
 
     Połącz się z Subskrypcją 1. 
     
@@ -487,6 +487,6 @@ Jako że bramy należą do różnych subskrypcji, w tym przykładzie zastosowano
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -15,6 +15,7 @@
    ms.date="03/10/2016"
    ms.author="yushwang" />
 
+
 # Brama sieci VPN — często zadawane pytania
 
 ## Łączenie z sieciami wirtualnymi
@@ -72,7 +73,7 @@ Jeśli urządzenie, którego chcesz użyć w celu nawiązania połączenia sieci
 
 ### Dlaczego mój oparty na zasadach tunel VPN przestaje działać, gdy ruch jest w stanie bezczynności?
 
-Jest to oczekiwane zachowanie bram sieci VPN opartych na zasadach (znanych także jako bramy o routingu statycznym). Jeśli ruch za pośrednictwem tunelu będzie pozostawał w stanie bezczynności przez więcej niż 5 minut, nastąpi jego usunięcie. Natychmiast po rozpoczęciu ruchu danych w dowolnym kierunku będzie można ponownie ustanowić tunel. W przypadku bram sieci VPN opartych na trasach (znanych także jako dynamiczne) takie zachowanie nie ma miejsca.
+Jest to oczekiwane zachowanie bram sieci VPN opartych na zasadach (znanych także jako bramy o routingu statycznym). Jeśli ruch za pośrednictwem tunelu będzie pozostawał w stanie bezczynności przez więcej niż 5 minut, nastąpi jego usunięcie. Natychmiast po rozpoczęciu ruchu danych w dowolnym kierunku będzie można ponownie ustanowić tunel.
 
 ### Czy można użyć oprogramowania pełniącego rolę sieci VPN do nawiązania połączenia z usługą Azure?
 
@@ -281,6 +282,6 @@ Dodatkowe informacje dotyczące sieci wirtualnej można znaleźć w artykule [Vi
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO5-->
 
 

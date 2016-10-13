@@ -25,7 +25,7 @@ Apache Storm to skalowalny, odporny na błędy, rozproszony system obliczeniowy 
 
 > [AZURE.NOTE] Kroki opisane w tym artykule umożliwiają utworzenie klastra usługi HDInsight na bazie systemu Linux. Aby uzyskać instrukcje tworzenia klastra Storm opartego na systemie Windows w usłudze HDInsight, zobacz temat [Samouczek platformy Apache Storm: wprowadzenie do przykładu z projektu Storm Starter z użyciem analizy danych w usłudze HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
-## Przed rozpoczęciem
+## Wymagania wstępne
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -38,6 +38,10 @@ Do pomyślnego ukończenia samouczka platformy Apache Storm potrzebne są:
     - **Klient systemu Linux, Unix lub OS X**: zobacz temat [Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemów Linux, Unix lub OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
     - **Klient systemu Windows**: zobacz temat [Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemu Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+### Wymagania dotyczące kontroli dostępu
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Tworzenie klastra Storm
 
@@ -195,6 +199,6 @@ Jeśli umiesz już opracowywać topologie oparte na języku Java i chcesz wdroż
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

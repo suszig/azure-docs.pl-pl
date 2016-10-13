@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/26/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 
@@ -113,9 +113,9 @@ Z pozostałych akapitów tego artykułu możesz dowiedzieć się, w jaki sposób
 
 ## Authentication
 
-### Jeśli używasz uwierzytelniania użytkowników końcowych
+### Jeśli używasz uwierzytelniania użytkowników końcowych (zalecane w przypadku tego samouczka)
 
-Tej metody należy użyć w przypadku „natywnej aplikacji klienckiej” usługi Azure AD. Odpowiedni fragment kodu podano poniżej.
+Tej metody należy użyć w przypadku „natywnej aplikacji klienckiej” usługi Azure AD. Odpowiedni fragment kodu podano poniżej. Zalecamy użycie tej metody, aby szybciej zakończyć korzystanie z tego samouczka.
 
     // User login via interactive popup
     // Use the client ID of an existing AAD "Native Client" application.
@@ -125,7 +125,10 @@ Tej metody należy użyć w przypadku „natywnej aplikacji klienckiej” usług
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
     var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
 
-W powyższym fragmencie kodu jest używana domena usługi Azure AD oraz identyfikator klienta, który jest domyślnie dostępny dla wszystkich subskrypcji platformy Azure. Jeśli chcesz używać własnej domeny usługi Azure AD oraz identyfikatora klienta aplikacji, musisz utworzyć natywną aplikację usługi Azure AD. Odpowiednie instrukcje można znaleźć w artykule [Create an Active Directory Application](../resource-group-create-service-principal-portal.md#create-an-active-directory-application) (Tworzenie aplikacji usługi Active Directory).
+Należy wiedzieć o kilku kwestiach związanych z powyższym fragmentem.
+
+* Aby ułatwić szybsze zakończenie korzystania z tego samouczka, w tym fragmencie jest używana domena usługi Azure AD oraz identyfikator klienta, który jest domyślnie dostępny dla wszystkich subskrypcji platformy Azure. Dzięki temu można **użyć tego fragmentu w aplikacji w niezmienionej formie**.
+* Jeśli jednak chcesz użyć własnej domeny usługi Azure AD i własnego identyfikatora klienta aplikacji, musisz utworzyć natywną aplikację usługi Azure AD, a następnie użyć domeny usługi Azure AD, identyfikatora klienta i identyfikatora URI przekierowania utworzonej aplikacji. Odpowiednie instrukcje można znaleźć w artykule [Create an Active Directory Application](../resource-group-create-service-principal-portal.md#create-an-active-directory-application) (Tworzenie aplikacji usługi Active Directory).
 
 >[AZURE.NOTE] Powyższe linki prowadzą do instrukcji dotyczących aplikacji sieci Web usługi Azure AD. Jednak te same instrukcje można zastosować w przypadku utworzenia natywnej aplikacji klienckiej. 
 
@@ -276,6 +279,6 @@ Poniższy fragment kodu przedstawia metodę `DownloadFile`, której można uży�
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

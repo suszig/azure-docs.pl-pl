@@ -1,37 +1,40 @@
-1. W portalu przejdź kolejno do poleceń **Nowe** > **Sieci** > **Brama sieci wirtualnej**. Spowoduje to otwarcie bloku **Tworzenie bramy sieci wirtualnej**.
+1. W portalu wybierz pozycję **Nowe**. Wpisz „brama sieci wirtualnej” w polu wyszukiwania. Znajdź pozycję **Brama sieci wirtualnej** w wynikach wyszukiwania i kliknij tę pozycję. Spowoduje to otwarcie bloku **Tworzenie bramy sieci wirtualnej**.
+2. Kliknij przycisk **Utwórz** u dołu bloku **Brama sieci wirtualnej**. Spowoduje to otwarcie bloku **Tworzenie bramy sieci wirtualnej**. Wprowadź wartości dla bramy sieci wirtualnej.
 
-    ![Brama](./media/vpn-gateway-add-gw-rm-portal-include/creategw250.png)
+    ![Tworzenie pól bloku bramy sieci wirtualnej](./media/vpn-gateway-add-gw-rm-portal-include/createvnetgw300.png "Create virtual network gateway blade fields")
 
-2. W bloku **Tworzenie bramy sieci wirtualnej** podaj nazwę bramy w polu **Nazwa**. Nie chodzi o nazwę podsieci bramy. Jest to nazwa obiektu bramy, który zostanie utworzony.
+3. **Nazwa**: Nadaj nazwę bramie. Nie chodzi o nazwę podsieci bramy. Jest to nazwa obiektu bramy, który zostanie utworzony.
 
-3. Dostosuj pole **Lokalizacja**, aby wskazywało miejsce, w którym znajduje się sieć wirtualna. Jeśli tego nie zrobisz, wskazana sieć wirtualna nie będzie widoczna na liście.
+4. **Typ bramy**: Wybierz pozycję **Sieć VPN**. Bramy sieci VPN używają typu bramy sieci wirtualnej **Sieć VPN**. 
+
+5. **Typ sieci VPN**: Wybierz typ sieci VPN określony dla danej konfiguracji. Większość konfiguracji wymaga zastosowania typu sieci VPN opartego na trasach.
+
+6. **Jednostka SKU**: Wybierz jednostkę SKU bramy z listy rozwijanej. Jednostki SKU wymienione na liście rozwijanej zależą od wybranego typu sieci VPN.
+
+7. **Lokalizacja**: Dostosuj wartość w polu **Lokalizacja**, aby wskazywała lokalizację sieci wirtualnej.
  
-4. Następnie wybierz sieć wirtualną, do której chcesz dodać bramę. Kliknij polecenie **Sieć wirtualna**, aby otworzyć blok **Wybieranie sieci wirtualnej**. Wybierz sieć wirtualną. Aby sieć wirtualna była widoczna na liście, musi już mieć prawidłową podsieć bramy.
+8. Wybierz sieć wirtualną, do której chcesz dodać bramę. Kliknij polecenie **Sieć wirtualna**, aby otworzyć blok **Wybieranie sieci wirtualnej**. Wybierz sieć wirtualną. Jeśli sieć wirtualna nie jest widoczna, upewnij się, że wartość w polu **Lokalizacja** wskazuje region, w którym znajduje się sieć wirtualna.
 
-5. Wybierz publiczny adres IP. Kliknij polecenie **Publiczny adres IP**, aby otworzyć blok **Wybieranie publicznego adresu IP**. Następnie kliknij przycisk **Utwórz nowy**, aby otworzyć **blok Tworzenie bramy sieci lokalnej**. Wprowadź nazwę dla publicznego adresu IP. Spowoduje to utworzenie obiektu publicznego adresu IP, do którego publiczny adres IP zostanie dynamicznie przypisany. <br>Kliknij przycisk **OK**, aby zapisać zmiany.
+9. Wybierz publiczny adres IP. Kliknij polecenie **Publiczny adres IP**, aby otworzyć blok **Wybieranie publicznego adresu IP**. Następnie kliknij przycisk **Utwórz nowy**, aby otworzyć **blok Tworzenie bramy sieci lokalnej**. Wprowadź nazwę dla publicznego adresu IP. W bloku zostanie utworzony obiekt publicznego adresu IP, do którego publiczny adres IP zostanie dynamicznie przypisany.<br>Kliknij przycisk **OK**, aby zapisać zmiany w tym bloku.
 
-5. W polu **Typ bramy** wybierz typ bramy określony dla danej konfiguracji.
+10. **Subskrypcja**: Sprawdź, czy wybrano poprawną subskrypcję.
 
-6. W polu **Typ sieci VPN** wybierz typ sieci VPN określony dla danej konfiguracji.
+11. **Grupa zasobów**: To ustawienie jest określane przez wybraną sieć wirtualną. 
 
-7. W polu **Subskrypcja** sprawdź, czy wybrano poprawną subskrypcję.
+12. Nie zmieniaj ustawienia **Lokalizacja** po określeniu poprzednich ustawień.
 
-8. Pole **Grupa zasobów** jest określane przez wybraną sieć wirtualną. 
+13. Sprawdź poprawność ustawień. Jeśli chcesz, aby brama była wyświetlana na pulpicie nawigacyjnym, możesz wybrać opcję **Przypnij do pulpitu nawigacyjnego** znajdującą się u dołu bloku.
 
-9. Nie zmieniaj **Lokalizacji** po podaniu powyższych ustawień. 
+14. Kliknij przycisk **Utwórz**, aby rozpocząć tworzenie bramy. Zostanie sprawdzona poprawność ustawień, a na pulpicie nawigacyjnym pojawi się kafelek „Wdrażanie bramy sieci wirtualnej”. Tworzenie bramy może potrwać do 45 minut. Być może będzie trzeba odświeżyć stronę portalu, aby zobaczyć, czy tworzenie zostało ukończone.
 
-10. W tym momencie blok będzie wyglądać podobnie do ilustracji w kroku 1. Sprawdź, czy ustawienia są zgodne z Twoimi ustawieniami konfiguracji. Jeśli chcesz, aby brama była wyświetlana na pulpicie nawigacyjnym, możesz wybrać opcję **Przypnij do pulpitu nawigacyjnego** znajdującą się u dołu bloku.
+    ![Wdrażanie bramy sieci wirtualnej](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png "Deploying Virtual network gateway")
 
-11. Kliknij przycisk **Utwórz**, aby rozpocząć tworzenie bramy. Zostanie sprawdzona poprawność ustawień, a na pulpicie nawigacyjnym pojawi się kafelek „Wdrażanie bramy sieci wirtualnej”. Tworzenie bramy może potrwać do 45 minut. Być może będzie trzeba odświeżyć stronę portalu, aby zobaczyć, czy tworzenie zostało ukończone.
-
-    ![Brama](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png)
-
-11. Po utworzeniu bramy można znaleźć adres IP, który został do niej przypisany, spoglądając na sieć wirtualną w portalu. Brama będzie widoczna jako urządzenie podłączone. Można kliknąć na urządzeniu podłączonym (bramie sieci wirtualnej), aby wyświetlić więcej informacji.
+11. Po utworzeniu bramy można znaleźć adres IP, który został do niej przypisany, spoglądając na sieć wirtualną w portalu. Brama będzie widoczna jako urządzenie podłączone. Możesz kliknąć podłączone urządzenie (bramę sieci wirtualnej), aby wyświetlić więcej informacji.
 
 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

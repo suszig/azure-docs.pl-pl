@@ -24,11 +24,11 @@
 - [Często zadawane pytania dotyczące kopii zapasowych dla trybu klasycznego](backup-azure-backup-faq.md)
 - [Często zadawane pytania dotyczące kopii zapasowych dla trybu usługi Resource Manager](backup-azure-backup-ibiza-faq.md)
 
-Ten artykuł zawiera informacje specyficzne dla magazynu usług Recovery Services oraz uzupełnia artykuł [Azure Backup FAQ](backup-azure-backup-faq) (Azure Backup — często zadawane pytania). Często zadawane pytania usługi Azure Backup zawierają pełny zestaw pytań i odpowiedzi dotyczących usługi Azure Backup.  
+Ten artykuł zawiera informacje specyficzne dla magazynu usług Recovery Services oraz uzupełnia artykuł [Azure Backup FAQ](backup-azure-backup-faq.md) (Azure Backup — często zadawane pytania). Często zadawane pytania usługi Azure Backup zawierają pełny zestaw pytań i odpowiedzi dotyczących usługi Azure Backup.  
 
 Pytania dotyczące usługi Azure Backup można zadawać w sekcji Disqus tego artykułu lub powiązanego artykułu. Pytania dotyczące usługi Azure Backup można również zadawać na [forum dyskusyjnym](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
-## Magazyny usługi Recovery Services opierają się na usłudze Resource Manager. Czy magazyny usługi Backup (tryb klasyczny) są nadal obsługiwane? <br/>
+## Magazyny usług Recovery Services są oparte na usłudze Resource Manager. Czy magazyny usługi Backup (tryb klasyczny) są nadal obsługiwane? <br/>
 Tak. Magazyny usługi Backup nadal są obsługiwane. Magazyny usługi Backup są tworzone w [portalu klasycznym](https://manage.windowsazure.com). Magazyny usługi Recovery Services są tworzone w witrynie [Azure Portal](https://portal.azure.com). Jednak zdecydowanie zaleca się utworzenie magazynu usługi Recovery Services, ponieważ wszystkie przyszłe rozszerzenia będą dostępne tylko w magazynie tej usługi. 
 
 ## Czy mogę przeprowadzić migrację magazynu usługi Backup do magazynu usługi Recovery Services? <br/>
@@ -46,6 +46,6 @@ Kopie zapasowe klasycznych maszyn wirtualnych w magazynie usługi Backup nie są
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

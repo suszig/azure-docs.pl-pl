@@ -1,6 +1,6 @@
 <properties
     pageTitle="Jak utworzyć konto usługi DocumentDB | Microsoft Azure"
-    description="Utwórz bazę danych NoSQL przy użyciu usługi Azure DocumentDB. Wykonaj te instrukcje, aby utworzyć konto usługi DocumentDB i rozpocząć tworzenie błyskawicznej globalnej bazy danych NoSQL."
+    description="Utwórz bazę danych NoSQL przy użyciu usługi Azure DocumentDB. Wykonaj te instrukcje, aby utworzyć konto usługi DocumentDB i rozpocząć tworzenie błyskawicznej globalnej bazy danych NoSQL." 
     keywords="tworzenie bazy danych"
     services="documentdb"
     documentationCenter=""
@@ -17,15 +17,16 @@
     ms.date="09/12/2016"
     ms.author="mimig"/>
 
+
 # Jak utworzyć konto usługi DocumentDB NoSQL przy użyciu witryny Azure Portal
 
 > [AZURE.SELECTOR]
-- [Azure Portal](documntdb-create-account.md)
+- [Azure Portal](documentdb-create-account.md)
 - [Interfejs wiersza polecenia platformy Azure i usługa Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
 
 Aby utworzyć bazę danych przy użyciu usługi Microsoft Azure DocumentDB, są potrzebne:
 
-- Konto platformy Azure. Jeśli go jeszcze nie masz, możesz utworzyć [bezpłatne konto platformy Azure](https://azure.microsoft.com/free).
+- Konto platformy Azure. Jeśli go jeszcze nie masz, możesz utworzyć [bezpłatne konto platformy Azure](https://azure.microsoft.com/free). 
 - Konto usługi DocumentDB.  
 
 Konto usługi DocumentDB można utworzyć za pomocą witryny Azure Portal, szablonów usługi Azure Resource Manager lub interfejsu wiersza polecenia platformy Azure. W tym artykule przedstawiono, jak utworzyć konto usługi DocumentDB przy użyciu witryny Azure Portal. Aby utworzyć konto przy użyciu usługi Azure Resource Manager lub interfejsu wiersza polecenia platformy Azure, zobacz artykuł [Automate DocumentDB database account creation](documentdb-automation-resource-manager-cli.md) (Automatyzacja tworzenia konta bazy danych usługi DocumentDB).
@@ -44,15 +45,15 @@ Dopiero zaczynasz korzystać z usługi DocumentDB? Obejrzyj [to](https://azure.m
     - W polu **Identyfikator** wprowadź nazwę, aby zidentyfikować konto usługi DocumentDB.  Po zweryfikowaniu wartości pola **Identyfikator** w polu tym zostanie wyświetlony zielony znacznik wyboru.**** Wartość pola **Identyfikator** jest używana jako nazwa hosta w identyfikatorze URI. Pole **Identyfikator** może zawierać tylko małe litery, cyfry i znak „-” w liczbie od 3 do 50 znaków. Pamiętaj, że ciąg *documents.azure.com* jest dołączany do wybranej nazwy punktu końcowego, by utworzyć punkt końcowy konta usługi DocumentDB.
 
     - W polu **Interfejs API usługi NoSQL** wybierz model programowania, który ma zostać użyty:
-        - **DocumentDB**: interfejs API usługi DocumentDB jest dostępny za pośrednictwem [zestawów SDK](documentdb-sdk-dotnet.md) .NET, Java, Node.js, Python i JavaScript, a także w środowisku HTTP [REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) i umożliwia dostęp programowy do wszystkich funkcji usługi DocumentDB.
-
+        - **DocumentDB**: interfejs API usługi DocumentDB jest dostępny za pośrednictwem [zestawów SDK](documentdb-sdk-dotnet.md) .NET, Java, Node.js, Python i JavaScript, a także w środowisku HTTP [REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) i umożliwia dostęp programowy do wszystkich funkcji usługi DocumentDB. 
+       
         - **MongoDB**: usługa DocumentDB zapewnia także [obsługę na poziomie protokołu](documentdb-protocol-mongodb.md) interfejsów API usługi **MongoDB**. Po wybraniu opcji interfejsu API usługi MongoDB można używać istniejących zestawów SDK oraz [narzędzi](documentdb-mongodb-mongochef.md) usługi MongoDB do komunikacji z usługą DocumentDB. Istniejące aplikacje usługi MongoDB można [przenieść](documentdb-import-data.md) do środowiska DocumentDB [bez zmian kodu](documentdb-connect-mongodb-account.md), by używać w pełni zarządzanej bazy danych działającej jako usługa z obsługą nieograniczonego skalowania, globalnej replikacji i innych funkcji.
 
     - W polu **Subskrypcja** wybierz subskrypcję platformy Azure, która ma być używana dla konta usługi DocumentDB. Jeśli konto ma tylko jedną subskrypcję, jest wybierane jako domyślne.
 
     - W polu **Grupa zasobów** wybierz lub utwórz grupę zasobów dla konta usługi DocumentDB.  Domyślnie zostanie utworzona nowa grupa zasobów. Aby uzyskać więcej informacji, zobacz temat [Using the Azure portal to manage your Azure resources](../articles/azure-portal/resource-group-portal.md) (Korzystanie z witryny Azure Portal do zarządzania zasobami Azure).
 
-    - Użyj opcji **Lokalizacja**, aby określić lokalizację geograficzną, w której będzie hostowane konto usługi DocumentDB.
+    - Użyj opcji **Lokalizacja**, aby określić lokalizację geograficzną, w której będzie hostowane konto usługi DocumentDB. 
 
 4.  Po skonfigurowaniu opcji nowego konta usługi DocumentDB kliknij przycisk **Utwórz**. Aby sprawdzić stan wdrożenia, przejdź do centrum powiadomień.  
 
@@ -73,7 +74,7 @@ Dopiero zaczynasz korzystać z usługi DocumentDB? Obejrzyj [to](https://azure.m
 
 ## Następne kroki
 
-Gdy masz już konto usługi DocumentDB, następnym krokiem jest utworzenie bazy danych usługi DocumentDB.
+Gdy masz już konto usługi DocumentDB, następnym krokiem jest utworzenie bazy danych usługi DocumentDB. 
 
 Nową bazę danych można utworzyć, korzystając z jednego z następujących zasobów:
 
@@ -95,4 +96,6 @@ Aby dowiedzieć się więcej na temat usługi DocumentDB, zapoznaj się z tymi z
 
 
 
-<!---HONumber=sep12_HO2-->
+<!--HONumber=Oct16_HO1-->
+
+

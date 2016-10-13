@@ -3,8 +3,8 @@
  description="Pojęcia, terminologia oraz hierarchia jednostek związane z usługą Azure Scheduler, w tym zadania i kolekcje zadań.  Kompleksowy przykład zaplanowanego zadania."
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,7 +13,7 @@
  ms.devlang="dotnet"
  ms.topic="get-started-article"
  ms.date="08/18/2016"
- ms.author="krisragh"/>
+ ms.author="deli"/>
 
 
 # Pojęcia i terminologia dotyczące usługi Scheduler oraz hierarchia jednostek
@@ -221,6 +221,6 @@ Interwał ponawiania określony z użyciem obiektu **retryInterval** to odstęp 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

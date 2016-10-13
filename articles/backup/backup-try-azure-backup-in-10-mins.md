@@ -3,8 +3,8 @@
    description="Dowiedz się, jak utworzyć kopię zapasową danych systemu Windows Server przez utworzenie magazynu, zainstalowanie agenta Usług odzyskiwania i wykonanie kopii zapasowej plików i folderów na platformie Azure."
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="markgalioto"
+   manager="cfreeman"
    editor=""
    keywords="jak tworzyć kopie zapasowe; tworzenie kopii zapasowych"/>
 
@@ -14,8 +14,9 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="06/27/2016"
-   ms.author="jimpark;"/>
+   ms.date="09/27/2016"
+   ms.author="markgal;"/>
+
 
 # Pierwsze spojrzenie: tworzenie kopii zapasowych plików i folderów za pomocą usługi Azure Backup przy użyciu modelu wdrażania usługi Resource Manager
 
@@ -209,6 +210,6 @@ Jeśli masz pytania lub jeśli brakuje Ci jakiejś funkcji, [prześlij nam opini
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO4-->
 
 

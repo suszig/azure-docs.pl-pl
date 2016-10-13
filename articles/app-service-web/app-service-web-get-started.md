@@ -33,8 +33,11 @@ Wykonasz następujące zadania:
 
 ## Wymagania wstępne
 
+>[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
+
 - [Zainstaluj oprogramowanie Git](http://www.git-scm.com/downloads). Sprawdź, czy instalacja powiodła się, uruchamiając polecenie `git --version` z nowego wiersza polecenia systemu Windows, okna programu PowerShell, powłoki systemu Linux lub terminalu systemu OS X.
 - Utwórz konto platformy Microsoft Azure. Jeśli nie masz konta, możesz [utworzyć konto bezpłatnej wersji próbnej](/pricing/free-trial/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+
 
 >[AZURE.NOTE] Usługę [App Service](http://go.microsoft.com/fwlink/?LinkId=523751) możesz wypróbować, nie mając konta platformy Azure. Utwórz aplikację startową i testuj ją nawet przez godzinę — bez kart kredytowych i bez zobowiązań.
 
@@ -149,6 +152,6 @@ Możesz także wykonać inne zadania związane ze swoją pierwszą aplikacją si
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

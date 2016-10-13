@@ -20,12 +20,13 @@
 # Samouczek: tworzenie potoku za pomocą działania kopiowania przy użyciu witryny Azure Portal
 > [AZURE.SELECTOR]
 - [Przegląd i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
 - [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
+
 
 
 Ten samouczek pokazuje, jak utworzyć i monitorować fabrykę danych Azure przy użyciu witryny Azure Portal. Potok w fabryce danych używa działania kopiowania w celu kopiowania danych z usługi Azure Blob Storage do usługi Azure SQL Database.
@@ -396,6 +397,6 @@ W tym samouczku opisano tworzenie fabryki danych Azure w celu kopiowania danych 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

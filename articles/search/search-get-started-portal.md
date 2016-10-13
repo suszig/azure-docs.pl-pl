@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Wprowadzenie do usługi Azure Search | Microsoft Azure | Rozpoczynanie pracy z usługą Azure Search | DocumentDB | Usługa wyszukiwania w chmurze" 
-    description="Utwórz pierwsze rozwiązanie w usłudze Azure Search, korzystając z tego samouczka. Dowiedz się, jak utworzyć indeks usługi Azure Search przy użyciu danych DocumentDB. Przedstawione ćwiczenie jest oparte na portalu, nie korzysta z kodu i jest przeprowadzane przy użyciu kreatora importu danych." 
+    pageTitle="Wprowadzenie do usługi Azure Search | Microsoft Azure | DocumentDB | Usługa wyszukiwania w chmurze" 
+    description="Dowiedz się, jak utworzyć pierwszy indeks usługi Azure Search, korzystając z tego samouczka i przykładowych danych usługi DocumentDB. Przedstawione ćwiczenie jest oparte na portalu, nie korzysta z kodu i jest przeprowadzane przy użyciu kreatora importu danych." 
     services="search" 
     documentationCenter="" 
     authors="HeidiSteen" 
@@ -14,7 +14,7 @@
     ms.workload="search" 
     ms.topic="hero-article" 
     ms.tgt_pltfrm="na" 
-    ms.date="08/29/2016" 
+    ms.date="10/03/2016" 
     ms.author="heidist"/>
 
 
@@ -24,11 +24,11 @@ To niekorzystające z kodu wprowadzenie pozwala rozpocząć pracę z usługą Mi
 
 W samouczku założono, że istnieje [przykładowa baza danych DocumentDB platformy Azure](#apdx-sampledata), którą możesz łatwo utworzyć, korzystając z naszych danych i instrukcji, ale możesz też dostosować te kroki do swoich danych istniejących w bazie danych zarówno DocumentDB, jak i SQL.
 
-> [AZURE.NOTE] Ten samouczek wprowadzający wymaga [subskrypcji platformy Azure](../../includes/free-trial-note.md) i [usługi Azure Search](search-create-service-portal.md). 
+> [AZURE.NOTE] Ten samouczek wprowadzający wymaga [subskrypcji platformy Azure](/pricing/free-trial/?WT.mc_id=A261C142F) i [usługi Azure Search](search-create-service-portal.md). 
  
 ## Znajdowanie usługi
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 2. Otwórz pulpit nawigacyjny usługi Azure Search. Oto kilka sposobów na odnalezienie pulpitu nawigacyjnego.
     - Na pasku przechodzenia kliknij pozycję **Usługi wyszukiwania**. Pasek przechodzenia wyświetla wszystkie usługi aprowizowane w Twojej subskrypcji. Jeśli zdefiniowano usługę wyszukiwania, na liście zostanie wyświetlona pozycja **Usługi wyszukiwania**.
@@ -36,15 +36,15 @@ W samouczku założono, że istnieje [przykładowa baza danych DocumentDB platfo
 
 ## Sprawdzanie ilości wolnego miejsca
 
-Wielu klientów zaczyna od bezpłatnej usługi. Ta wersja jest ograniczona do trzech indeksów, trzech źródeł danych i trzech indeksatorów. Przed rozpoczęciem upewnij się, że dysponujesz miejscem na dodatkowe elementy. Ten przewodnik utworzy po jednym obiekcie każdego typu.
+Wielu klientów zaczyna od bezpłatnej usługi. Ta wersja jest ograniczona do trzech indeksów, trzech źródeł danych i trzech indeksatorów. Przed rozpoczęciem upewnij się, że dysponujesz miejscem na dodatkowe elementy. Ten przewodnik tworzy po jednym obiekcie każdego typu.
 
 ## Tworzenie indeksu i ładowanie danych
 
-Zapytania wyszukiwania przechodzą przez kolejne pozycje *indeksu* zawierającego dane z możliwością wyszukiwania, metadane i konstrukcje używane do optymalizacji niektórych zachowań wyszukiwania. Pierwszym krokiem będzie zdefiniowanie i wypełnienie indeksu.
+Zapytania wyszukiwania przechodzą przez kolejne pozycje *indeksu* zawierającego dane z możliwością wyszukiwania, metadane i konstrukcje używane do optymalizacji niektórych zachowań wyszukiwania. Pierwszym krokiem jest zdefiniowanie i wypełnienie indeksu.
 
 Indeks możesz utworzyć na jeden z kilku sposobów. Jeśli dane znajdują się w magazynie, który usługa Azure Search może przeszukiwać — takim jak usługa Azure SQL Database, program SQL Server na maszynie wirtualnej platformy Azure lub usługa DocumentDB — możesz bardzo łatwo utworzyć i wypełnić indeks, używając *indeksatora*.
 
-Aby podczas tego zadania korzystać jedynie z portalu, przyjmiemy używanie danych z usługi DocumentDB, które mogą być przeszukiwane przy użyciu indeksatora za pośrednictwem kreatora **Import danych**. 
+Aby podczas tego zadania korzystać jedynie z portalu, zostaną użyte dane z usługi DocumentDB, które mogą być przeszukiwane przy użyciu indeksatora za pośrednictwem kreatora **Import danych**. 
 
 Przed kontynuowaniem pracy z samouczkiem utwórz [przykładową bazę danych usługi DocumentDB](#apdx-sampledata), a następnie wróć do tej sekcji, aby wykonać poniższe kroki.
 
@@ -53,13 +53,13 @@ Przed kontynuowaniem pracy z samouczkiem utwórz [przykładową bazę danych us�
 
 1. Na pulpicie nawigacyjnym usługi Azure Search kliknij pozycję **Importuj dane** na pasku poleceń, aby uruchomić kreatora, który zarówno tworzy, jak i wypełnia indeks.
 
-  ![][7]
+    ![][7]
 
 2. W kreatorze kliknij pozycję **Źródło danych** > **DocumentDB** > **Nazwa** i wpisz nazwę źródła danych. Źródło danych jest obiektem połączenia w usłudze Azure Search, który może być używany z innymi indeksatorami. Po jego utworzeniu staje się on dostępny jako „istniejące źródło danych” w Twojej usłudze.
 
-3. Wybierz istniejące konto usługi DocumentDB oraz bazę danych i kolekcję. Jeśli używasz przykładowych danych, które udostępniamy, definicja źródła danych będzie wyglądać następująco:
+3. Wybierz istniejące konto usługi DocumentDB oraz bazę danych i kolekcję. Jeśli używasz przykładowych danych, które udostępniamy, definicja źródła danych wygląda następująco:
 
-  ![][2]
+    ![][2]
 
 Zwróć uwagę, że zapytanie jest pomijane. Jest to spowodowane tym, że obecnie nie implementujemy funkcji śledzenia zmian w zestawie danych. Jeśli Twój zestaw danych zawiera pole, które przechowuje informacje o aktualizowaniu rekordu, możesz skonfigurować indeksator usługi Azure Search tak, aby mógł używać funkcji śledzenia zmian dla wybranych aktualizacji Twojego indeksu.
 
@@ -150,7 +150,7 @@ Możesz spróbować wykonać ten sam przepływ pracy z użyciem kreatora Importu
 
 W tej sekcji zostanie utworzona mała baza danych w usłudze DocumentDB, której możesz użyć podczas wykonywania zadań w tym samouczku.
 
-Poniższe instrukcje zawierają ogólne wytyczne, ale nie są wyczerpujące. Jeśli potrzebujesz więcej pomocy przy nawigacji w portalu usługi DocumentDB lub przy wykonywaniu zadań, możesz odwołać się do dokumentacji usługi DocumentDB. Jednak większość potrzebnych poleceń znajduje się albo w pasku poleceń usługi w górnej części pulpitu nawigacyjnego, albo w bloku bazy danych. 
+Poniższe instrukcje zawierają ogólne wytyczne, ale nie są wyczerpujące. Jeśli potrzebujesz więcej pomocy przy nawigacji w portalu usługi DocumentDB lub przy wykonywaniu zadań, możesz zapoznać się z dokumentacją usługi DocumentDB. Jednak większość potrzebnych poleceń znajduje się na pasku poleceń usługi w górnej części pulpitu nawigacyjnego lub w bloku bazy danych. 
 
   ![][1]
 
@@ -158,7 +158,7 @@ Poniższe instrukcje zawierają ogólne wytyczne, ale nie są wyczerpujące. Je�
 
 1. [Kliknij tutaj](https://github.com/HeidiSteen/azure-search-get-started-sample-data), aby pobrać plik ZIP zawierający pliki danych w formacie JSON dla sklepu z muzyką. Udostępniamy 246 dokumentów w formacie JSON dla tego zestawu danych.
 2. Dodaj usługę DocumentDB do subskrypcji, a następnie otwórz pulpit nawigacyjny usługi.
-2. Kliknij pozycję **Dodaj bazę danych**, aby utworzyć nową bazę danych o identyfikatorze `musicstoredb`. Po utworzeniu zostanie wyświetlona w kafelku bazy danych poniżej na stronie.
+2. Kliknij pozycję **Dodaj bazę danych**, aby utworzyć nową bazę danych o identyfikatorze `musicstoredb`. Po utworzeniu zostanie ona wyświetlona w kafelku bazy danych poniżej na stronie.
 2. Kliknij nazwę bazy danych, aby otworzyć blok bazy danych.
 3. Kliknij pozycję **Dodaj kolekcję**, aby utworzyć kolekcję o identyfikatorze `musicstorecoll`.
 3. Kliknij pozycję **Eksplorator dokumentów**.
@@ -171,7 +171,7 @@ Poniższe instrukcje zawierają ogólne wytyczne, ale nie są wyczerpujące. Je�
 6. Powtórz ten krok, aby uzyskać kolejną partię plików i powtarzaj go, dopóki nie zostanie przekazany ostatni plik, 669.json.
 7. Kliknij pozycję **Eksplorator zapytań**, aby zweryfikować, czy przekazane dane spełniają wymagania Eksploratora dokumentów dotyczące przekazywania.
 
-Możesz to łatwo zrobić, używając zapytania domyślnego, ale możesz też zmodyfikować zapytanie domyślne tak, aby wybierało pierwsze 300 elementów (w tym zestawie danych znajduje się mniej niż 300 elementów).
+Możesz to łatwo zrobić, używając zapytania domyślnego, ale możesz też zmodyfikować zapytanie domyślne tak, aby wybierało pierwszych 300 elementów (w tym zestawie danych znajduje się mniej niż 300 elementów).
 
 Powinny zostać wyświetlone dane wyjściowe JSON, począwszy od dokumentu numer 386, a kończąc na dokumencie 669. Po załadowaniu danych możesz [powrócić do kroków przewodnika](#defineDS), aby zbudować indeks, używając **Kreatora importu danych**.
 
@@ -187,6 +187,6 @@ Powinny zostać wyświetlone dane wyjściowe JSON, począwszy od dokumentu numer
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -41,10 +41,12 @@ Można także jawnie ustawić protokół i numer portu z nazwą serwera, jak pok
 
 Problemy z połączeniem sieciowym także mogą powodować błędy połączeń i limitów czasu. Próba ponownego nawiązania połączenia (gdy wiadomo, że nazwa serwera, poświadczenia i reguły zapory są poprawne) może rozwiązać problem.
 
+Szczegóły oraz więcej informacji na temat problemów z łącznością zawiera temat [Rozwiązywanie i diagnozowanie błędów połączeń SQL oraz krótkotrwałych błędów bazy danych SQL i zapobieganie im](../articles/sql-database/sql-database-connectivity-issues.md).
 
 
 
 
-<!--HONumber=Sep16_HO3-->
+
+<!--HONumber=Oct16_HO1-->
 
 

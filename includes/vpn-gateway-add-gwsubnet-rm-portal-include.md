@@ -2,18 +2,18 @@
 
 2. W sekcji **Ustawienia** bloku sieci wirtualnej kliknij pozycję **Podsieci**, aby rozwinąć blok Podsieci.
 
-3. W górnej części bloku **Podsieci** kliknij pozycję **+Podsieć bramy**. Spowoduje to otwarcie bloku **Dodawanie podsieci**. **Nazwa** dla podsieci zostanie automatycznie wypełniona wartością „GatewaySubnet”. Ta wartość jest wymagana, aby platforma Azure mogła rozpoznać podsieć jako podsieć bramy.
+3. W górnej części bloku **Podsieci** kliknij pozycję **+Podsieć bramy**. Spowoduje to otwarcie bloku **Dodawanie podsieci**. 
 
-    ![Dodaj podsieć bramy](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet250.png)
+    ![Dodaj podsieć bramy](./media/vpn-gateway-add-gwsubnet-rm-portal-include/newgwsubnet450.png "Add the gateway subnet")
 
-4. W razie potrzeby można zmienić blok CIDR zakresu adresów. Sprawdź konkretne wymagania swojej konfiguracji, aby potwierdzić zalecany blok CIDR.
+4. **Nazwa** dla podsieci zostanie automatycznie wypełniona wartością „GatewaySubnet”. Ta wartość jest wymagana, aby platforma Azure mogła rozpoznać podsieć jako podsieć bramy. Dostosuj automatycznie wypełnione wartości w polu **Zakres adresów** do wymagań konfiguracji.
 
-5. Kliknij przycisk **OK** na dole bloku, aby utworzyć podsieć.
+    ![Dodawanie podsieci](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet300.png "Adding the subnet")
+
+6. Kliknij przycisk **OK** na dole bloku, aby utworzyć podsieć.
 
 
 
-
-
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

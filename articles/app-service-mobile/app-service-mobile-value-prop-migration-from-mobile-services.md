@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-multiple"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/30/2016"
-    ms.author="krisragh"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
+
 
 # <a name="getting-started"> </a>Korzystam z usługi Mobile Services. Jak usługa App Service może mi pomóc?
 
@@ -64,6 +65,6 @@ Aby rozpocząć korzystanie z zalet *usługi App Service* dla istniejącej Usłu
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

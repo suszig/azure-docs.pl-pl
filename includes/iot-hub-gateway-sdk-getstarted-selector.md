@@ -2,7 +2,7 @@
 - [Linux](../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md)
 - [Windows](../articles/iot-hub/iot-hub-windows-gateway-sdk-get-started.md)
 
-Ten artykuł zawiera szczegółowy przewodnik dotyczący [przykładowego kodu Witaj, świecie][lnk-helloworld-sample] w celu zilustrowania podstawowych składników architektury [zestawu SDK usługi Azure Gateway][lnk-gateway-sdk]. W przykładzie użyto zestawu SDK usługi Gateway do utworzenia prostej bramy, która co pięć sekund rejestruje w pliku komunikat „witaj, świecie”.
+Ten artykuł zawiera szczegółowy przewodnik dotyczący [przykładowego kodu Witaj, świecie][lnk-helloworld-sample] w celu zilustrowania podstawowych składników architektury [zestawu SDK usługi Azure Gateway][lnk-gateway-sdk]. W przykładzie użyto zestawu SDK usługi IoT Hub Gateway do utworzenia prostej bramy, która co pięć sekund rejestruje w pliku komunikat „witaj, świecie”.
 
 Przewodnik składa się z następujących elementów:
 
@@ -21,7 +21,7 @@ Przed wypróbowaniem przykładowego kodu lub utworzeniem własnej bramy pola za 
 
 Brama powstaje w wyniku utworzenia i złożenia *modułów* za pomocą zestawu SDK usługi Azure IoT Gateway. Moduły wymieniają między sobą dane za pomocą *komunikatów*. Moduł odbiera komunikat, wykonuje na nim jakąś akcję, opcjonalnie przekształca go w nowy komunikat, a następnie publikuje go w celu przetworzenia przez inne moduły. Niektóre moduły mogą jedynie tworzyć nowe komunikaty i nigdy nie przetwarzają komunikatów przychodzących. Łańcuch modułów tworzy potok przetwarzania danych, w którym każdy moduł wykonuje przekształcenie danych w jednym punkcie tego potoku.
 
-![][1]
+![Łańcuch modułów w bramie skompilowanej przy użyciu zestawu Azure IoT Gateway SDK][1]
  
 Na zestaw SDK składają się następujące elementy:
 
@@ -31,7 +31,7 @@ Na zestaw SDK składają się następujące elementy:
 
 Zestaw SDK zawiera warstwę abstrakcji umożliwiającą tworzenie bram, które można uruchamiać w różnych systemach operacyjnych i na różnych platformach.
 
-![][2]
+![Warstwa abstrakcji zestawu Azure IoT Hub Gateway SDK][2]
 
 ### Komunikaty
 
@@ -39,7 +39,7 @@ Wyobrażenie modułów przekazujących sobie nawzajem komunikaty ułatwia zrozum
 
 Moduły publikują komunikaty do brokera przy użyciu funkcji **Broker_Publish**. Broker dostarcza komunikaty do modułu za pomocą funkcji wywołania zwrotnego. Komunikat składa się z zestawu właściwości klucz/wartość oraz zawartości przekazywanej w postaci bloku pamięci.
 
-![][3]
+![Rola brokera w zestawie Azure IoT Gateway SDK][3]
 
 ### Routing i filtrowanie komunikatów
 
@@ -52,7 +52,7 @@ Przykład Witaj, świecie ilustruje pojęcia opisane w poprzedniej sekcji. Przyk
 -   Moduł *witaj, świecie* co pięć sekund tworzy komunikat i przekazuje go do modułu rejestratora.
 -   Moduł *rejestratora* zapisuje odebrane komunikaty w pliku.
 
-![][4]
+![Architektura przykładowej aplikacji Hello World skompilowanej przy użyciu zestawu Azure IoT Gateway SDK][4]
 
 Zgodnie z opisem w poprzedniej sekcji, moduł Witaj, świecie nie przekazuje komunikatów co pięć sekund bezpośrednio do modułu rejestratora. Zamiast tego publikuje komunikaty do brokera co pięć sekund.
 
@@ -60,7 +60,7 @@ Moduł rejestratora odbiera komunikaty od broker i podejmuje działania dotyczą
 
 Moduł rejestratora używa jedynie komunikatów z brokera, natomiast nigdy nie publikuje do brokera nowych komunikatów.
 
-![][5]
+![Kierowanie komunikatów między modułami przez brokera w zestawie Azure IoT Gateway SDK][5]
 
 Powyższy rysunek przedstawia architekturę przykładu Witaj, świecie i ścieżki względne do plików źródłowych, które implementują różne części przykładu w [repozytorium][lnk-gateway-sdk]. Wypróbuj kod samodzielnie lub użyj poniższych fragmentów kodu jako wskazówki.
 
@@ -75,6 +75,6 @@ Powyższy rysunek przedstawia architekturę przykładu Witaj, świecie i ścież
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

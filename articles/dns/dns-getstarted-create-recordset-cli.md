@@ -3,7 +3,7 @@
    description="Jak utworzyć rekordy hosta dla usługi Azure DNS. Konfigurowanie zestawów rekordów i rekordów przy użyciu interfejsu wiersza polecenia."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,8 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
+
 
 # Tworzenie zestawów rekordów i rekordów DNS przy użyciu interfejsu wiersza polecenia
 
@@ -68,6 +69,6 @@ Aby uzyskać więcej informacji o usłudze Azure DNS, zobacz [Omówienie usługi
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

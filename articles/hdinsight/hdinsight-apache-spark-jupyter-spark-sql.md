@@ -27,7 +27,7 @@ Dowiedz się, jak utworzyć klaster Apache Spark w usłudze HDInsight, a następ
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-**Wymagania wstępne:**
+## Wymagania wstępne
 
 - **Subskrypcja platformy Azure**. Przed rozpoczęciem tego samouczka musisz dysponować subskrypcją platformy Azure. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -39,18 +39,21 @@ Dowiedz się, jak utworzyć klaster Apache Spark w usłudze HDInsight, a następ
     
     -  Komputer z systemem Windows — [Używanie SSH z opartą na systemie Linux usługą HDInsight (Hadoop) z systemu Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
->[AZURE.NOTE] W tym artykule użyto szablonu ARM do utworzenia klastra Spark korzystającego z [obiektów blob usługi Azure Storage jako magazynu klastra](hdinsight-hadoop-use-blob-storage.md). Można również utworzyć klaster Spark korzystający z usługi [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) jako magazynu dodatkowego oprócz obiektów blob usługi Azure Storage używanymi jako magazyn domyślny. Aby uzyskać instrukcje, zobacz [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) (Tworzenie klastra HDInsight z usługą Data Lake Store).
+>[AZURE.NOTE] W tym artykule użyto szablonu usługi Azure Resource Manager do utworzenia klastra Spark korzystającego z [obiektów blob usługi Azure Storage jako magazynu klastra](hdinsight-hadoop-use-blob-storage.md). Można również utworzyć klaster Spark korzystający z usługi [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) jako magazynu dodatkowego oprócz obiektów blob usługi Azure Storage używanymi jako magazyn domyślny. Aby uzyskać instrukcje, zobacz [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) (Tworzenie klastra HDInsight z usługą Data Lake Store).
 
+### Wymagania dotyczące kontroli dostępu
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Tworzenie klastra Spark
 
-W tej sekcji utworzysz klaster usługi HDInsight w wersji 3.4 (Spark w wersji 1.6.1) przy użyciu szablonu Azure ARM. Informacje o wersji usługi HDInsight i umowach SLA można znaleźć w temacie [Przechowywanie wersji składnika usługi HDInsight](hdinsight-component-versioning.md). Aby zapoznać się z innymi metodami tworzenia klastra, zobacz temat [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+W tej sekcji utworzysz klaster usługi HDInsight w wersji 3.4 (Spark 1.6.1) przy użyciu szablonu usługi Azure Resource Manager. Informacje o wersji usługi HDInsight i umowach SLA można znaleźć w temacie [Przechowywanie wersji składnika usługi HDInsight](hdinsight-component-versioning.md). Aby zapoznać się z innymi metodami tworzenia klastra, zobacz temat [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Kliknij poniższy obraz, aby otworzyć szablon ARM w Portalu Azure.         
+1. Kliknij poniższy obraz, aby otworzyć szablon w witrynie Azure Portal.         
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-spark-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Szablon ARM znajduje się w publicznym kontenerze obiektów blob *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-spark-cluster-in-hdinsight.json*. 
+    Szablon znajduje się w publicznym kontenerze obiektów blob *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-spark-cluster-in-hdinsight.json*. 
    
 2. W bloku Parametry wprowadź następujące informacje:
 
@@ -217,6 +220,6 @@ W tym artykule będzie używane jądro PySpark. W artykule [Jądra dostępne dla
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

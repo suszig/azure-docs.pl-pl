@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="10/03/2016"
    ms.author="cherylmc"/>
 
 
@@ -55,23 +55,22 @@ Przed rozpoczęciem konfiguracji sprawdź, czy dysponujesz następującymi eleme
 
 Korzystając z tych kroków w charakterze ćwiczenia, można użyć przykładowych wartości konfiguracji:
 
-- Nazwa sieci wirtualnej: TestVNet1
-- Przestrzeń adresowa: 10.11.0.0/16 i 10.12.0.0/16
-- Podsieci: 
+- **Nazwa sieci wirtualnej:** TestVNet1
+- **Przestrzeń adresowa:** 10.11.0.0/16 i 10.12.0.0/16
+- **Podsieci:**
     - FrontEnd: 10.11.0.0/24
     - BackEnd: 10.12.0.0/24
     - GatewaySubnet: 10.12.255.0/27
-- Grupa zasobów: TestRG1
-- Lokalizacja: Wschodnie stany USA
-- Serwer DNS: 8.8.8.8
-- Gateway Name: VNet1GW
-- Publiczny adres IP: VNet1GWIP
-- Typ sieci VPN: oparta na trasach
-- Typ połączenia: lokacja-lokacja (IPsec)
-- Typ bramy: VPN
-- Nazwa bramy sieci lokalnej: Site2
-- Nazwa połączenia: VNet1toSite2
-
+- **Grupa zasobów:** TestRG1
+- **Lokalizacja:** Wschodnie stany USA
+- **Serwer DNS:** 8.8.8.8
+- **Nazwa bramy:** VNet1GW
+- **Publiczny adres IP:** VNet1GWIP
+- **Typ sieci VPN:** oparta na trasach
+- **Typ połączenia:** lokacja-lokacja (IPsec)
+- **Typ bramy:** VPN
+- **Nazwa bramy sieci lokalnej:** Site2
+- **Nazwa połączenia:** VNet1toSite2
 
 
 ## 1. Tworzenie sieci wirtualnej 
@@ -90,29 +89,24 @@ Po utworzeniu sieci wirtualnej można dodać do niej dodatkową przestrzeń adre
 
 ## <a name="dns"></a>3. Określanie serwera DNS
 
-Jeśli tworzysz tę konfigurację w ramach ćwiczenia, użyj tych [wartości](#values) podczas określania serwera DNS.
-
 ### Określenie serwera DNS
 
 [AZURE.INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## 4. Tworzenie podsieci bramy
 
-Przed połączeniem sieci wirtualnej z bramą należy najpierw utworzyć podsieć bramy sieci wirtualnej, z którą ma zostać nawiązane połączenie. Utworzona podsieć bramy musi mieć nazwę *GatewaySubnet* — w przeciwnym razie nie będzie działać prawidłowo. 
-
-Prefiks podsieci bramy wymaga w przypadku niektórych konfiguracji podsieci /28 lub większej w celu dostosowania do liczby adresów IP niezbędnych w puli. Oznacza to, że prefiks podsieci bramy musi mieć długość /28, /27, /26 itp. Można utworzyć większą podsieć w celu uwzględnienia elementów, które mogą zostać dodane do konfiguracji w przyszłości.
+Przed połączeniem sieci wirtualnej z bramą należy najpierw utworzyć podsieć bramy sieci wirtualnej, z którą ma zostać nawiązane połączenie. Jeśli to możliwe, najlepiej utworzyć podsieć bramy przy użyciu bloku CIDR /28 lub /27 w celu zapewnienia wystarczającej liczby adresów IP, aby uwzględnić wymagania dotyczące dodatkowych przyszłych konfiguracji.
 
 Jeśli tworzysz tę konfigurację w ramach ćwiczenia, użyj tych [wartości](#values) podczas tworzenia podsieci bramy.
 
 ### Aby utworzyć podsieć bramy
 
-[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)] 
 
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## 5. Tworzenie bramy sieci wirtualnej
 
-Jeśli tworzysz tę konfigurację w ramach ćwiczenia, użyj tych [wartości](#values) podczas tworzenia bramy.
+Jeśli tworzysz tę konfigurację w ramach ćwiczenia, skorzystaj z [przykładowych wartości konfiguracji](#values).
 
 ### Aby utworzyć bramę sieci wirtualnej
 
@@ -120,9 +114,9 @@ Jeśli tworzysz tę konfigurację w ramach ćwiczenia, użyj tych [wartości](#v
 
 ## 6. Tworzenie bramy sieci lokalnej
 
-*Brama sieci lokalnej* zazwyczaj odwołuje się do lokalizacji lokalnej. Bramie sieci lokalnej należy nadać nazwę, za pomocą której platforma Azure będzie mogła się do niej odwoływać. 
+Brama sieci lokalnej zazwyczaj odwołuje się do lokalizacji lokalnej. Bramie sieci lokalnej należy nadać nazwę, za pomocą której platforma Azure będzie mogła się do niej odwoływać. 
 
-Jeśli tworzysz tę konfigurację w ramach ćwiczenia, użyj tych [wartości](#values) podczas dodawania lokalizacji lokalnej.
+Jeśli tworzysz tę konfigurację w ramach ćwiczenia, skorzystaj z [przykładowych wartości konfiguracji](#values).
 
 ### Aby utworzyć bramę sieci lokalnej
 
@@ -157,6 +151,6 @@ Połączenie sieci VPN można sprawdzić, korzystając z portalu lub z programu 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

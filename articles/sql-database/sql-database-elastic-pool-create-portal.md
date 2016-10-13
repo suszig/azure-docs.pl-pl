@@ -30,7 +30,7 @@ W tym artykule opisano sposób tworzenia skalowalnej [elastycznej puli baz danyc
 
 Można dodać wiele pul na serwerze, ale nie można dodać baz danych z różnych serwerów do tej samej puli. Do utworzenia puli konieczna jest co najmniej jedna baza danych na serwerze V12. Jeśli nie masz bazy danych, zobacz artykuł [Create your first Azure SQL database](sql-database-get-started.md) (Tworzenie pierwszej bazy danych Azure SQL). Można utworzyć pulę zawierającą tylko jedną bazę danych, ale wydajne są jedynie pule z wieloma bazami danych. Zobacz artykuł [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md) (Zagadnienia dotyczące cen i wydajności puli elastycznej).
 
-> [AZURE.NOTE] Pule elastyczne są ogólnodostępne we wszystkich regionach platformy Azure oprócz Indii Zachodnich, gdzie są obecnie dostępne w wersji zapoznawczej.  Pule elastyczne zostaną udostępnione ogólnie w tych regionach tak szybko, jak to możliwe. Ponadto pule elastyczne aktualnie nie obsługują baz danych korzystających z [operacji OLTP w pamięci lub analizy w pamięci](sql-database-in-memory.md).
+> [AZURE.NOTE] Pule elastyczne są ogólnodostępne we wszystkich regionach platformy Azure oprócz Indii Zachodnich, gdzie są obecnie dostępne w wersji zapoznawczej.  Pule elastyczne zostaną udostępnione ogólnie w tych regionach tak szybko, jak to możliwe. 
 
 ## Krok 1. Tworzenie nowej puli
 
@@ -118,6 +118,6 @@ Po dodaniu bazy danych do puli zalecenia są generowane dynamicznie na podstawie
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

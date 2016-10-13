@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="mobile-multiple"
     ms.workload="mobile" 
-    ms.date="07/07/2016"
+    ms.date="10/04/2016"
     ms.author="wesmc;ricksal"/>
 
 
@@ -357,7 +357,7 @@ Należy dokładnie przetestować działanie wszystkich typów powiadomień, któ
 
 #### Konfiguracja
 
-Konfigurowanie usługi Azure Mobile Engagement jest bardzo proste. Cała dokumentacja dotyczącą interfejsu użytkownika jest dostępna w artykule [How to navigate the user interface](mobile-engagement-user-interface.md) (Nawigowanie po interfejsie użytkownika) w witrynie usługi Azure Mobile Engagement w sieci Web.
+Konfigurowanie usługi Azure Mobile Engagement jest bardzo proste. Cała dokumentacja dotyczącą interfejsu użytkownika jest dostępna w artykule [How to navigate the user interface](mobile-engagement-user-interface-home.md) (Nawigowanie po interfejsie użytkownika) w witrynie usługi Azure Mobile Engagement w sieci Web.
 
 Zaleca się rozpoczęcie pracy od skonfigurowania odpowiednich ról i przynależności do ról dla użytkowników projektu. Ułatwia to zarządzanie dostępem wszystkich użytkowników do platformy. Mogą to być następujące role:
 
@@ -410,6 +410,6 @@ Po zdobyciu pewnego doświadczenia można rozważyć dodanie do programu zaanga�
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

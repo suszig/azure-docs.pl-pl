@@ -41,7 +41,7 @@ Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
 W ostatnim kroku zanotuj wartość **Klucz podstawowy**, a następnie kliknij przycisk **Komunikaty**. W bloku **Obsługa wiadomości** zanotuj **nazwę zgodną z centrum zdarzeń** oraz **punkt końcowy zgodny z centrum zdarzeń**. Te trzy wartości będą potrzebne podczas tworzenia aplikacji **read-d2c-messages**.
 
-![][6]
+![Blok komunikatów usługi IoT Hub witrynie Azure Portal][6]
 
 Utworzono centrum IoT Hub i masz nazwę hosta centrum IoT Hub, jego parametry połączenia, klucz podstawowy, nazwę zgodną z usługą Event Hubs i punkt końcowy zgodny z usługą Event Hubs, potrzebne do wykonania tego samouczka.
 
@@ -63,7 +63,7 @@ W tej sekcji utworzysz aplikację konsolową Java, która tworzy nową tożsamo�
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.7</version>
+      <version>1.0.9</version>
     </dependency>
     ```
     
@@ -153,7 +153,7 @@ W tej sekcji opisano tworzenie aplikacji konsolowej Java, która odczytuje komun
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.7.1</version> 
+        <version>0.8.2</version> 
     </dependency>
     ```
 
@@ -296,7 +296,7 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia aplikacji konsolowej Java, kt�
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.8</version>
+      <version>1.0.14</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -446,7 +446,7 @@ Teraz można uruchomić aplikacje.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![][7]
+    ![Aplikacja kliencka usługi IoT Hub dla środowiska Java do monitorowania komunikatów między urządzeniem i chmurą][7]
 
 2. Z poziomu wiersza polecenia w folderze simulateddevice uruchom następujące polecenie, aby rozpocząć wysyłanie danych telemetrycznych do centrum IoT:
 
@@ -454,11 +454,11 @@ Teraz można uruchomić aplikacje.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
 
-    ![][8]
+    ![Aplikacja kliencka urządzeń usługi IoT Hub dla środowiska Java do wysyłania komunikatów między urządzeniem i chmurą][8]
 
 3. Na kafelku **Użycie** w [portalu Azure][lnk-portal] wyświetlana jest liczba komunikatów wysłanych do centrum:
 
-    ![][43]
+    ![Kafelek Użycie witryny Azure Portal przedstawiający liczbę komunikatów wysłanych do usługi IoT Hub][43]
 
 ## Następne kroki
 
@@ -482,13 +482,13 @@ W samouczku [Process device-to-cloud messages][lnk-process-d2c-tutorial] (Przetw
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
+[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-[lnk-hub-sdks]: iot-hub-sdks-summary.md
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
@@ -497,6 +497,6 @@ W samouczku [Process device-to-cloud messages][lnk-process-d2c-tutorial] (Przetw
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

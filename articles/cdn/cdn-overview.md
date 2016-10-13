@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="09/01/2016"
+    ms.date="09/30/2016"
     ms.author="casoper"/>
 
 
@@ -53,7 +53,7 @@ Istnieją trzy produkty Azure CDN: **Azure CDN Standard from Akamai**, **Azure C
 
 |       | Standard Akamai | Standard Verizon | Premium Verizon |
 |-------|-----------------|------------------|-----------------|
-| Łatwa integracja z usługami platformy Azure, takimi jak [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md) i [Media Services](../media-services/media-services-manage-origins.md#enable_cdn) | **&#x2713;** | **&#x2713;** | **&#x2713;**|
+| Łatwa integracja z usługami platformy Azure, takimi jak [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md) i [Media Services](../media-services/media-services-manage-origins.md#enable-cdn) | **&#x2713;** | **&#x2713;** | **&#x2713;**|
 | Zarządzanie za pomocą [interfejsu API REST](https://msdn.microsoft.com/library/mt634456.aspx), [platformy .NET](./cdn-app-dev-net.md), [środowiska Node.js](./cdn-app-dev-node.md) lub [programu PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Obsługa protokołu HTTPS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Równoważenie obciążenia | **&#x2713;** | **&#x2713;** | **&#x2713;** |
@@ -90,6 +90,6 @@ Aby uzyskać informacje o cenach, zobacz [cennik usługi CDN](https://azure.micr
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

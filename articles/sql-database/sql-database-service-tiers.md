@@ -20,7 +20,7 @@
 
 # Opcje i wydajność usługi SQL Database: poznaj, co jest dostępne w poszczególnych warstwach usług
 
-Usługa [Azure SQL Database](sql-database-technical-overview.md) oferuje trzy warstwy usługi o różnych poziomach wydajności do obsługi różnych obciążeń. Każdy poziom wydajności zapewnia coraz większy zestaw zasobów w celu dostarczenia coraz wyższej przepustowości. Poszczególnymi bazami można zarządzać w ramach ich własnej [warstwy usługi](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) o określonym poziomie wydajności. Można również zarządzać wieloma bazami danych w [puli elastycznej](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) z współdzielonym zestawem zasobów. Zasoby dostępne dla autonomicznych baz danych są wyrażane jako liczba jednostek DTU (Database Transaction Unit), a dla pul elastycznych w postaci jednostek eDTU (elastic Database Transaction Unit). Aby uzyskać więcej informacji na temat jednostek DTU i eDTU, zobacz [Co to jest jednostka DTU](sql-database-what-is-a-DTU.md). 
+Usługa [Azure SQL Database](sql-database-technical-overview.md) oferuje trzy warstwy usługi o różnych poziomach wydajności do obsługi różnych obciążeń. Każdy poziom wydajności zapewnia coraz większy zestaw zasobów w celu dostarczenia coraz wyższej przepustowości. Poszczególnymi bazami można zarządzać w ramach ich własnej [warstwy usługi](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) o określonym poziomie wydajności. Można również zarządzać wieloma bazami danych w [puli elastycznej](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) z współdzielonym zestawem zasobów. Zasoby dostępne dla autonomicznych baz danych są wyrażane jako liczba jednostek DTU (Database Transaction Unit), a dla pul elastycznych w postaci jednostek eDTU (elastic Database Transaction Unit). Aby uzyskać więcej informacji na temat jednostek DTU i eDTU, zobacz [Co to jest jednostka DTU](sql-database-what-is-a-dtu.md). 
 
 W obu przypadkach do wyboru są następujące warstwy usługi: **Podstawowa**, **Standardowa** i **Premium**. Opcje bazy danych w tych warstwach są podobne dla autonomicznych baz danych i pul elastycznych, ale w przypadku pul elastycznych trzeba rozważyć dodatkowe zagadnienia. Ten artykuł zawiera szczegółowe informacje na temat warstw usług dla autonomicznych baz danych i pul elastycznych.
 
@@ -91,6 +91,6 @@ Aby uzyskać informacje na temat typowych wzorców architektury danych w aplikac
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

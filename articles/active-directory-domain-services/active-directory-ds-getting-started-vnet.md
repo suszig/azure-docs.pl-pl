@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/20/2016"
+    ms.date="10/03/2016"
     ms.author="maheshu"/>
 
 
@@ -24,7 +24,7 @@
 
 
 ## Zadanie 2. Tworzenie sieci wirtualnej platformy Azure
-Następne zadanie konfiguracji to utworzenie sieci wirtualnej platformy Azure, w której chcesz włączyć Usługi domenowe Azure AD. Jeśli masz już istniejącą sieć wirtualną, której chcesz użyć, możesz pominąć ten krok.
+Kolejnym zadaniem konfiguracji jest utworzenie sieci wirtualnej platformy Azure oraz podsieci w tej sieci. Usługi Azure AD Domain Services w tej podsieci możesz włączyć w sieci wirtualnej. Jeśli masz już istniejącą sieć wirtualną, której chcesz użyć, możesz pominąć ten krok.
 
 > [AZURE.NOTE] Upewnij się, że sieć wirtualna platformy Azure utworzona lub wybrana do użycia z Usługami domenowymi Azure AD należy do regionu platformy Azure, który jest obsługiwany przez Usługi domenowe Azure AD. Ze strony zawierającej [usługi platformy Azure uporządkowane według regionów](https://azure.microsoft.com/regions/#services/) dowiesz się, w których regionach platformy Azure jest dostępna usługa Azure AD Domain Services.
 
@@ -36,6 +36,8 @@ Wykonaj poniższe czynności konfiguracyjne, aby utworzyć sieć wirtualną plat
 
 2. W okienku po lewej stronie wybierz węzeł **Sieci**.
 
+    ![Węzeł sieci](./media/active-directory-domain-services-getting-started/networks-node.png)
+
 3. Kliknij pozycję **NOWE** na pasku zadań u dołu strony.
 
     ![Węzeł sieci wirtualnych](./media/active-directory-domain-services-getting-started/virtual-networks.png)
@@ -46,13 +48,22 @@ Wykonaj poniższe czynności konfiguracyjne, aby utworzyć sieć wirtualną plat
 
     ![Sieć wirtualna — szybkie tworzenie](./media/active-directory-domain-services-getting-started/virtual-network-quickcreate.png)
 
-6. Określ wartość pola **Nazwa** dla sieci wirtualnej. Możesz również skonfigurować wartości **Przestrzeń adresowa** lub **Maksymalna liczba maszyn wirtualnych** dla sieci. Na razie ustawienie serwera DNS można zostawić ustawione na wartość „Brak”. To ustawienie zostanie zaktualizowane po włączeniu Usług domenowych Azure AD.
+6. Określ wartość pola **Nazwa** dla sieci wirtualnej. Możesz również skonfigurować wartości **Przestrzeń adresowa** lub **Maksymalna liczba maszyn wirtualnych** dla sieci. Na razie dla ustawienia **Serwer DNS** można zostawić wartość „Brak”. Ustawienia serwera DNS możesz zaktualizować po włączeniu usług Azure AD Domain Services.
 
 7. Upewnij się, że z listy rozwijanej **Lokalizacja** wybrano obsługiwany region platformy Azure. Ze strony zawierającej [usługi platformy Azure uporządkowane według regionów](https://azure.microsoft.com/regions/#services/) dowiesz się, w których regionach platformy Azure jest dostępna usługa Azure AD Domain Services.
 
 8. Kliknij przycisk **Utwórz sieć wirtualną**, aby utworzyć sieć wirtualną.
 
     ![Utwórz sieć wirtualną dla Usług domenowych Azure AD.](./media/active-directory-domain-services-getting-started/create-vnet.png)
+
+9. Po utworzeniu sieci wirtualnej wybierz sieć wirtualną i kliknij kartę **KONFIGURACJA**.
+
+    ![Tworzenie podsieci](./media/active-directory-domain-services-getting-started/create-vnet-properties.png)
+
+10. Przejdź do sekcji **przestrzenie adresów sieci wirtualnej**. Kliknij przycisk **Dodaj podsieć** i określ podsieć o nazwie **AaddsSubnet**. Kliknij przycisk **Zapisz**, aby utworzyć podsieć.
+
+    ![Utwórz podsieć dla usług Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/create-vnet-add-subnet.png)
+
 
 <br>
 
@@ -61,6 +72,6 @@ Następne zadanie konfiguracji to [włączenie Usług domenowych Azure AD](activ
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 
