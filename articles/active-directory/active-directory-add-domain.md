@@ -13,11 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/18/2016"
+    ms.date="09/30/2016"
     ms.author="curtand;jeffsta"/>
 
 
 # Dodawanie niestandardowej nazwy domeny do usługi Azure Active Directory
+
+> [AZURE.SELECTOR]
+- [Azure Portal](active-directory-domains-add-qzure-portal.md)
+- [klasyczny portal Azure](active-directory-add-domain.md)
 
 Masz co najmniej jedną nazwę domeny, której organizacja używa do prowadzenia działalności, a użytkownicy logują się do sieci firmowej przy użyciu nazwy domeny firmowej. Teraz, gdy używasz usługi Azure Active Directory (Azure AD), możesz dodać nazwę domeny firmowej również do usługi Azure AD. Dzięki temu można w katalogu przypisać nazwy użytkowników znajome dla użytkowników, takie jak „alicja@contoso.com”. Proces jest prosty:
 
@@ -94,6 +98,6 @@ Jeśli Twoja organizacja używa wielu niestandardowych nazw domen, takich jak �
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

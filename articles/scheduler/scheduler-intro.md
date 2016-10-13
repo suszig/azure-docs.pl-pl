@@ -3,8 +3,8 @@
  description="Usługa Azure Scheduler umożliwia opisywanie w sposób deklaratywny akcji do wykonania w chmurze. Usługa następnie planuje i uruchamia te akcje automatycznie."
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,7 +13,7 @@
  ms.devlang="dotnet"
  ms.topic="hero-article"
  ms.date="08/18/2016"
- ms.author="krisragh"/>
+ ms.author="deli"/>
 
 
 # Co to jest usługa Azure Scheduler?
@@ -53,6 +53,6 @@ Usługa Scheduler umożliwia programowe tworzenie, aktualizowanie, usuwanie i wy
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

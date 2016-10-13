@@ -16,6 +16,7 @@
     ms.date="08/31/2016"
     ms.author="rachelap"/>
 
+
 # Tworzenie i wdrażanie aplikacji interfejsu API języka Java w usłudze Azure App Service
 
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
@@ -24,7 +25,7 @@ W tym samouczku pokazano, jak utworzyć aplikację języka Java i wdrożyć ją 
 
 ## Wymagania wstępne
 
-1. [Java Developer's Kit 8] (lub nowszy)
+1. [Java Developer's Kit 8] \(lub nowszy)
 1. [Maven] zainstalowane na komputerze deweloperskim
 1. [Git] zainstalowany na komputerze deweloperskim
 1. Wersja płatna lub [bezpłatna wersja próbna] subskrypcji platformy [Microsoft Azure]
@@ -340,6 +341,6 @@ Aby uzyskać więcej informacji o używaniu języka Java na platformie Azure, zo
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

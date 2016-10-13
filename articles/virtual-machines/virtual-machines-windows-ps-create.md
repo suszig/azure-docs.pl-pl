@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/07/2016"
+    ms.date="09/27/2016"
     ms.author="davidmu"/>
 
 
@@ -26,7 +26,7 @@ Wszystkie kroki przedstawione w tym artykule są wymagane do utworzenia maszyny 
 
 ## Krok 1. Instalowanie programu Azure PowerShell
 
-Zobacz [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Jak zainstalować i skonfigurować program Azure PowerShell), aby uzyskać informacje na temat sposobu instalowania najnowszej wersji programu Azure PowerShell, wybierania subskrypcji do użycia i logowania się do konta platformy Azure.
+Zobacz [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Jak zainstalować i skonfigurować program Azure PowerShell), aby uzyskać informacje na temat instalowania najnowszej wersji programu Azure PowerShell, wybierania subskrypcji i logowania się do konta.
         
 ## Krok 2. Tworzenie grupy zasobów
 
@@ -99,7 +99,7 @@ Wszystkie maszyny wirtualne są częścią [sieci wirtualnej](../virtual-network
         $vnetName = "myvnet1"
         $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
         
-    Należy użyć wartości odpowiednich dla aplikacji i środowiska.
+    Użyj wartości odpowiednich dla aplikacji i środowiska.
         
 ## Krok 5. Tworzenie publicznego adresu IP i interfejsu sieciowego
 
@@ -123,7 +123,7 @@ Teraz, gdy masz wszystkie elementy, możesz utworzyć maszynę wirtualną.
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    Hasło musi mieć długość od 8 do 123 znaków i spełniać trzy z czterech wymagań dotyczących złożoności: mała litera, wielka litera, cyfra i znak specjalny. Więcej informacji na temat [wymagań dotyczących nazwy użytkownika i hasła](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+    Hasło musi mieć długość od 12 do 123 znaków i musi zawierać co najmniej jedną małą literę, jedną wielką literę, jedną cyfrę i jeden znak specjalny. 
         
 2. Zastąp wartość **$vmName** nazwą maszyny wirtualnej. Utwórz zmienną i konfigurację maszyny wirtualnej.
 
@@ -141,13 +141,13 @@ Teraz, gdy masz wszystkie elementy, możesz utworzyć maszynę wirtualną.
 
         $vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
         
-    Zobacz [Navigate and select Windows virtual machine images in Azure with PowerShell or the CLI](virtual-machines-windows-cli-ps-findimage.md) (Przechodzenie do obrazów maszyn wirtualnych systemu Windows na platformie Azure przy użyciu programu PowerShell lub interfejsu wiersza polecenia), aby uzyskać więcej informacji na temat wybierania obrazów do użycia.
+    Aby uzyskać więcej informacji na temat wybierania obrazów do użycia, zobacz [Navigate and select Windows virtual machine images in Azure with PowerShell or the CLI](virtual-machines-windows-cli-ps-findimage.md) (Przechodzenie do obrazów maszyn wirtualnych systemu Windows na platformie Azure przy użyciu programu PowerShell lub interfejsu wiersza polecenia).
         
 5. Dodaj do konfiguracji utworzony interfejs sieciowy.
 
         $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
         
-6. Zastąp wartość **$blobPath** ścieżką i nazwą pliku w magazynie, którego będzie używać wirtualny dysk twardy. Plik wirtualnego dysku twardego jest zazwyczaj przechowywany w kontenerze, na przykład **vhds/WindowsVMosDisk.vhd**. Utwórz zmienne.
+6. Zastąp wartość **$blobPath** ścieżką i nazwą pliku wirtualnego dysku twardego w magazynie. Plik wirtualnego dysku twardego jest zazwyczaj przechowywany w kontenerze, na przykład **vhds/WindowsVMosDisk.vhd**. Utwórz zmienne.
 
         $blobPath = "vhds/WindowsVMosDisk.vhd"
         $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + $blobPath
@@ -175,6 +175,6 @@ Teraz, gdy masz wszystkie elementy, możesz utworzyć maszynę wirtualną.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

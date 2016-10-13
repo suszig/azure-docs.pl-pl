@@ -30,13 +30,17 @@ Informacje przedstawione w tym dokumencie dotyczą klastrów usługi HDInsight o
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-###Wymagania wstępne
+##Wymagania wstępne
 
 Przed rozpoczęciem korzystania z tego samouczka HBase należy dysponować następującymi elementami:
 
 - **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Bezpieczna powłoka (SSU)](hdinsight-hadoop-linux-use-ssh-unix.md). 
+- [Bezpieczna powłoka (SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
 - [Program curl](http://curl.haxx.se/download.html).
+
+### Wymagania dotyczące kontroli dostępu
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Tworzenie klastra HBase
 
@@ -328,6 +332,6 @@ Aby dowiedzieć się więcej, zobacz:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

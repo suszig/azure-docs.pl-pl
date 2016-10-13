@@ -15,9 +15,10 @@
    ms.date="03/15/2016"
    ms.author="jdial" />
 
+
 # Omówienie usługi Virtual Network
 
-Sieć wirtualna Azure odzwierciedla w chmurze Twoją sieć.  Jest logiczną izolacją chmury Azure przeznaczoną dla Twojej subskrypcji. W ramach tej sieci można w pełni kontrolować bloki adresów IP, ustawienia DNS, zasady zabezpieczeń i tabele tras. Można również podzielić sieć na jeszcze mniejsze segmenty i uruchomić maszyny wirtualne IaaS i/lub [usługi w chmurze Azure (wystąpienia roli PaaS)](../cloud-services/cloud-services-choose-me.md). Dodatkowo można połączyć sieć wirtualną z siecią lokalną przy użyciu jednej z [opcji łączności](../vpn-gateway/vpn-gateway-cross-premises-options.md) dostępnej na platformie Azure. W zasadzie można rozbudować swoją sieć do sieci Azure, zachowując pełną kontrolę nad blokami adresów IP i wykorzystując zapewnianą przez platformę Azure skalowalność klasy korporacyjnej.
+Sieć wirtualna Azure odzwierciedla w chmurze Twoją sieć.  Jest logiczną izolacją chmury Azure przeznaczoną dla Twojej subskrypcji. W ramach tej sieci można w pełni kontrolować bloki adresów IP, ustawienia DNS, zasady zabezpieczeń i tabele tras. Można również podzielić sieć na jeszcze mniejsze segmenty i uruchomić maszyny wirtualne IaaS i/lub [usługi w chmurze Azure (wystąpienia roli PaaS)](../cloud-services/cloud-services-choose-me.md). Dodatkowo można połączyć sieć wirtualną z siecią lokalną przy użyciu jednej z [opcji łączności](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) dostępnej na platformie Azure. W zasadzie można rozbudować swoją sieć do sieci Azure, zachowując pełną kontrolę nad blokami adresów IP i wykorzystując zapewnianą przez platformę Azure skalowalność klasy korporacyjnej.
 
 Aby lepiej zrozumieć sieci wirtualne, należy spojrzeć na poniższy rysunek, przedstawiający uproszczoną sieć lokalną.
 
@@ -97,6 +98,6 @@ Korzystanie z sieci wirtualnych w programie Azure nie pociąga za sobą żadnych
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

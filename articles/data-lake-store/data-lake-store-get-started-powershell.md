@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,8 +13,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/07/2016"
+   ms.date="10/04/2016"
    ms.author="nitinme"/>
+
 
 # Rozpoczynanie pracy z usługą Azure Data Lake Store przy użyciu programu Azure PowerShell
 
@@ -33,13 +34,13 @@ Dowiedz się, jak przy użyciu programu Azure PowerShell utworzyć konto usługi
 
 Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dysponować następującymi elementami:
 
-- **Subskrypcja platformy Azure**. Zobacz artykuł [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Włączenie subskrypcji platformy Azure** w celu uzyskania publicznej wersji zapoznawczej usługi Data Lake Store. Zobacz [instrukcje](data-lake-store-get-started-portal.md#signup).
+* **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
+* **Program Azure PowerShell 1.0 lub nowszy**. Zobacz artykuł [Instalowanie i konfigurowanie programu Azure PowerShell](../powershell-install-configure.md).
 
-##Instalowanie programu Azure PowerShell 1.0 lub nowszego
+## Authentication
 
-Zobacz sekcję wymagań wstępnych w temacie [Używanie programu Azure PowerShell z usługą Azure Resource Manager](../powershell-azure-resource-manager.md#prerequisites).
+W tym artykule użyto prostszej metody uwierzytelniania w usłudze Data Lake Store, w przypadku której jest wyświetlany monit o wprowadzenie poświadczeń konta platformy Azure. Poziom dostępu do konta i systemu plików usługi Data Lake Store jest określany przez poziom dostępu zalogowanego użytkownika. Istnieją jednak inne metody uwierzytelniania w usłudze Data Lake Store: **uwierzytelnianie użytkowników końcowych** i **uwierzytelnianie między usługami**. Instrukcje i dodatkowe informacje na temat uwierzytelniania można znaleźć w artykule [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) (Uwierzytelnianie w usłudze Data Lake Store przy użyciu usługi Azure Active Directory).
 
 ## Tworzenie konta usługi Azure Data Lake Store
 
@@ -143,6 +144,6 @@ Po wyświetleniu monitu wpisz **Y**, aby usunąć konto.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

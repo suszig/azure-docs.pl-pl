@@ -23,6 +23,7 @@
 
 W tym samouczku przedstawiono sposób tworzenia prostej aplikacji [Node.js] i wdrażania jej w usłudze [Azure App Service] przy użyciu środowiska wiersza polecenia, takiego jak cmd.exe lub bash. Instrukcje podane w tym samouczku można wykonać w dowolnym systemie operacyjnym, w którym można uruchomić środowisko Node.js.
 
+>[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
 
 <a name="prereq"></a>
 ## Wymagania wstępne
@@ -257,6 +258,6 @@ Aby włączyć narzędzie Node-Inspector, wykonaj następujące czynności:
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

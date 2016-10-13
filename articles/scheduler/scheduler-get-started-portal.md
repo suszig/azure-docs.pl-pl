@@ -3,8 +3,8 @@
  description="Rozpoczynanie pracy z usługą Azure Scheduler w portalu Azure"
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,7 +13,7 @@
  ms.devlang="dotnet"
  ms.topic="hero-article"
  ms.date="08/10/2016"
- ms.author="krisragh"/>
+ ms.author="deli"/>
 
 
 # Rozpoczynanie pracy z usługą Azure Scheduler w portalu Azure
@@ -185,6 +185,6 @@ Kontrola dostępu oparta na rolach (Role-Based Access Control, RBAC) na platform
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

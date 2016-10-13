@@ -13,8 +13,9 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="storage-backup-recovery" 
-    ms.date="02/22/2016" 
+    ms.date="10/05/2016"
     ms.author="raynew"/>
+
 
 #  Co to jest usługa Site Recovery?
 
@@ -83,6 +84,6 @@ Usługa Site Recovery może pomóc w stosowaniu strategii BCDR obejmującej apli
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

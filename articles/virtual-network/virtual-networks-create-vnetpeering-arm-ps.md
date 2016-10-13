@@ -241,6 +241,6 @@ Aby utworzyć wirtualną sieć równorzędną między klasyczną siecią wirtual
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

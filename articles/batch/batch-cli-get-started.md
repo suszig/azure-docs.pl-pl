@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="big-compute"
-   ms.date="09/06/2016"
+   ms.date="09/30/2016"
    ms.author="marsma"/>
 
 
@@ -21,7 +21,7 @@
 
 Interfejs wiersza polecenia platformy Azure obejmujący wiele platform (interfejs wiersza polecenia platformy Azure) umożliwia zarządzanie kontami i zasobami usługi Batch, np. pulami i zadaniami w powłokach poleceń systemów Linux, Mac i Windows. Za pomocą interfejsu wiersza polecenia platformy Azure można wykonywać oraz tworzyć skrypty dla wielu tych samych zadań, które wykonuje się za pomocą interfejsów API usługi Batch, witryny Azure Portal oraz poleceń cmdlet PowerShell usługi Batch.
 
-Ten artykuł jest oparty na interfejsie wiersza polecenia platformy Azure w wersji 0.10.3.
+Ten artykuł jest oparty na interfejsie wiersza polecenia platformy Azure w wersji 0.10.5.
 
 ## Wymagania wstępne
 
@@ -216,19 +216,39 @@ Aby utworzyć nową aplikację i dodać wersję pakietu:
 
 **Aktywacja** pakietu:
 
-    azure batch application package activate "resgroup002" "azbatch002" "MyTaskApplication" "1.10-beta3" zip
+    azure batch application package activate "resgroup001" "batchaccount001" "MyTaskApplication" "1.10-beta3" zip
+
+Ustaw **wersję domyślną** aplikacji:
+
+    azure batch application set "resgroup001" "batchaccount001" "MyTaskApplication" --default-version "1.10-beta3"
 
 ### Wdrażanie pakietu aplikacji
 
 Podczas tworzenia nowej puli możesz określić co najmniej jeden pakiet aplikacji dla wdrożenia. Jeśli określisz pakiet w czasie tworzenia puli, zostanie wdrożony w każdym węźle w przypadku dołączenia węzła do puli. Pakiety są też wdrażane, gdy węzeł zostaje uruchomiony ponownie lub odtworzony z obrazu.
 
-To polecenie określa pakiet podczas tworzenia puli, który zostaje wdrożony w przypadku dołączania węzłów do nowej puli:
+Określ opcję `--app-package-ref` podczas tworzenia puli, aby wdrożyć pakiet aplikacji do węzłów dołączanych do puli. Opcja `--app-package-ref` akceptuje rozdzielaną średnikami listę identyfikatorów aplikacji do wdrożenia w węzłach obliczeniowych.
 
-    azure batch pool create --id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
+    azure batch pool create --pool-id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
 
-Obecnie nie możesz określić, która wersja pakietu ma być wdrożona przy użyciu opcji wiersza polecenia. Najpierw musisz ustawić domyślną wersję aplikacji, korzystając z witryny Azure Portal. Następnie będzie można przydzielić ją do puli. Szczegółowe informacje o sposobie ustawiania domyślnej wersji znajdują się w temacie [Application deployment with Azure Batch application packages](batch-application-packages.md) (Wdrażanie aplikacji za pomocą pakietów aplikacji w usłudze Azure Batch). Niemniej możesz określić domyślną wersję, jeśli używasz [pliku JSON](#json-files) zamiast opcji wiersza polecenia podczas tworzenia puli.
+W przypadku tworzenia puli za pomocą opcji wiersza polecenia nie można obecnie określić wersji pakietu aplikacji *do wdrożenia* w węzłach obliczeniowych, na przykład „1.10-beta3”. Dlatego przed utworzeniem puli (zobacz poprzednią sekcję) musisz określić domyślną wersję aplikacji przy użyciu opcji `azure batch application set [options] --default-version <version-id>`. Możesz jednak określić wersję pakietu dla puli, jeśli używasz [pliku JSON](#json-files) zamiast opcji wiersza polecenia podczas tworzenia puli.
+
+Więcej informacji dotyczących pakietów aplikacji można znaleźć w temacie [Application deployment with Azure Batch application packages](batch-application-packages.md) (Wdrażanie aplikacji za pomocą pakietów aplikacji usługi Azure Batch).
 
 >[AZURE.IMPORTANT] Najpierw [połącz konto usługi Azure Storage](#linked-storage-account-autostorage) z kontem usługi Batch, aby użyć pakietów aplikacji.
+
+### Aktualizowanie pakietów aplikacji puli
+
+Aby zaktualizować aplikacje przypisane do istniejącej puli, wydaj polecenie `azure batch pool set` za pomocą opcji `--app-package-ref`:
+
+    azure batch pool set --pool-id "pool001" --app-package-ref "MyTaskApplication2"
+
+Aby wdrożyć nowy pakiet aplikacji w węzłach obliczeniowych znajdujących się już w istniejącej puli, musisz ponownie uruchomić te węzły lub odtworzyć je z obrazu:
+
+    azure batch node reboot --pool-id "pool001" --node-id "tvm-3105992504_1-20160930t164509z"
+
+>[AZURE.TIP] Aby uzyskać listę węzłów w puli wraz z ich identyfikatorami, użyj polecenia `azure batch node list`.
+
+Skonfigurowanie domyślnej wersji aplikacji było wymagane przed wdrożeniem (`azure batch application set [options] --default-version <version-id>`).
 
 ## Wskazówki dotyczące rozwiązywania problemów
 
@@ -256,6 +276,6 @@ Ta sekcja ma na celu zapewnienie zasobów do użycia w przypadku rozwiązywania 
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

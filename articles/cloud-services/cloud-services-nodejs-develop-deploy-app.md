@@ -16,6 +16,7 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
+
 # Tworzenie i wdrażanie aplikacji Node.js do usługi w chmurze Azure
 
 > [AZURE.SELECTOR]
@@ -169,7 +170,7 @@ Po wdrożeniu aplikacji można ją wyłączyć, aby uniknąć dodatkowych koszt�
 
     ![Stan polecenia Remove-AzureService][The status of the Remove-AzureService command]
 
-    > [AZURE.NOTE] Usunięcie usługi nie powoduje usunięcia konta magazynu, które zostało utworzone po początkowym opublikowaniu usługi, a opłaty za użycie magazynu będą nadal naliczane. Aby uzyskać więcej informacji na temat usuwania konta magazynu, zobacz [Jak usunąć konto Storage z subskrypcji platformy Azure].
+    > [AZURE.NOTE] Usunięcie usługi nie powoduje usunięcia konta magazynu, które zostało utworzone po początkowym opublikowaniu usługi, a opłaty za użycie magazynu będą nadal naliczane. Jeśli nic innego nie korzysta z magazynu, możesz go usunąć.
 
 ## Następne kroki
 
@@ -183,7 +184,6 @@ Aby uzyskać więcej informacji, odwiedź stronę [Centrum deweloperów środowi
 [Azure SDK for .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
 [Connect PowerShell]: ../powershell-install-configure.md#how-to-connect-to-your-subscription
 [nodejs.org]: http://nodejs.org/
-[Jak usunąć konto Storage z subskrypcji platformy Azure]: ../storage/how-to-manage-a-storage-account.md
 [Tworzenie hostowanej usługi platformy Azure — omówienie]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Centrum deweloperów środowiska Node.js]: https://azure.microsoft.com/develop/nodejs/
 
@@ -193,13 +193,12 @@ Aby uzyskać więcej informacji, odwiedź stronę [Centrum deweloperów środowi
 [Dane wyjściowe polecenia Add-AzureNodeWebRole]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
 [A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
 [Dane wyjściowe polecenia Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-[Pełne dane wyjściowe stanu polecenia Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
 [Okno przeglądarki ze stroną „hello world”; adres URL wskazuje, że strona jest obsługiwana na platformie Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
 [Stan polecenia Stop-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [Stan polecenia Remove-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

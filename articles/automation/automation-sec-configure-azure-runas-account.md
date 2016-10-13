@@ -389,6 +389,6 @@ Możesz skorzystać z podanego poniżej zaktualizowanego przykładowego kodu, po
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

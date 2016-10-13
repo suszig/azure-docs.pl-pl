@@ -13,11 +13,11 @@
     ms.tgt_pltfrm="mobile-multiple"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="10/01/2016"
     ms.author="adrianha"/>
 
 
-# <a name="getting-started"> </a>Co to jest usługa Mobile Apps?
+# <a name="getting-started"> </a>Czym jest usługa Mobile Apps?
 
 Usługa Azure App Service to w pełni zarządzana [platforma jako usługa](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) — oferta dla deweloperów z bogatym zestawem funkcji na potrzeby scenariuszy obejmujących sieć Web, pracę mobilną i dotyczących integracji. Usługa *Mobile Apps* w *Usługa aplikacji Azure* oferuje wysoce skalowalną, globalnie dostępną platformę tworzenia aplikacji mobilnych dla deweloperów w przedsiębiorstwach i integratorów systemów. Platforma ta oferuje bogaty zestaw funkcji dla deweloperów aplikacji mobilnych.
 
@@ -100,12 +100,12 @@ Aby uzyskać więcej informacji o platformie Azure App Service, zobacz artykuł 
 [opcje wdrożenia]: ../app-service-web/web-sites-deploy.md
 [połączenia hybrydowe]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 [sieci wirtualnych]: ../app-service-web/web-sites-integrate-with-vnet.md
-[ExpressRoute]: ../app-service/app-service-app-service-environment-network-configuration-expressroute.md
+[ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
 [Środowiska usługi App Service]: ../app-service-web/app-service-app-service-environment-intro.md
 [mapą nauki]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -3,7 +3,7 @@
    description="Dowiedz się, jak zmienić delegowanie domeny i korzystać z serwerów nazw usługi Azure DNS do zapewniania hostingu domeny."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,8 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/30/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
+
 
 
 # Delegowanie domeny do usługi Azure DNS
@@ -53,7 +54,7 @@ Istnieją dwa typy serwerów DNS:
 
 Klienci DNS na komputerach i urządzeniach przenośnych zwykle wywołują cykliczny serwer DNS w celu wykonywania wszelkich zapytań DNS potrzebnych aplikacjom klienckim.
 
-Gdy cykliczny serwer DNS odbiera zapytanie dotyczące rekordu DNS takiego jak „www.contoso.com”, najpierw musi znaleźć serwer nazw hostujący strefę dla domeny „contoso.com”. W tym celu rozpoczyna od serwerów nazw głównych i wyszukuje serwery nazw hostujące strefę „com”. Następnie wykonuje zapytanie na serwerach nazw „com”, aby znaleźć serwery nazw hostujące strefę „contoso.com”.  Na koniec jest w stanie wykonać na tych serwerach nazw zapytanie dla „www.contoso.com”.  
+Gdy cykliczny serwer DNS odbiera zapytanie dotyczące rekordu DNS takiego jak „www.contoso.com”, najpierw musi znaleźć serwer nazw hostujący strefę dla domeny „contoso.com”. W tym celu rozpoczyna od serwerów nazw głównych i wyszukuje serwery nazw hostujące strefę „com”. Następnie wykonuje zapytanie na serwerach nazw „com”, aby znaleźć serwery nazw hostujące strefę „contoso.com”.  Na koniec jest w stanie wykonać na tych serwerach nazw zapytanie dla „www.contoso.com”.
 
 Ten proces jest nazywany rozpoznawaniem nazwy DNS. Mówiąc ściślej, rozpoznawanie nazw DNS obejmuje dodatkowe czynności, takie jak śledzenie rekordów CNAME, ale nie jest to istotne dla zrozumienia, jak działa delegowanie DNS.
 
@@ -83,7 +84,7 @@ Najprostszym sposobem wyświetlenia serwerów nazw przypisanych do strefy jest s
 
 Usługa Azure DNS automatycznie tworzy autorytatywne rekordy NS w strefie zawierającej przypisane serwery nazw.  Aby wyświetlić nazwy serwerów nazw za pomocą programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, musisz po prostu pobrać te rekordy.
 
-Przy użyciu programu Azure PowerShell autorytatywne rekordy NS można pobrać w sposób opisany poniżej. Należy pamiętać, że nazwa rekordu „@” służy do odwoływania się do rekordów na wierzchołku strefy. 
+Przy użyciu programu Azure PowerShell autorytatywne rekordy NS można pobrać w sposób opisany poniżej. Należy pamiętać, że nazwa rekordu „@” służy do odwoływania się do rekordów na wierzchołku strefy.
 
     PS> $zone = Get-AzureRmDnsZone –Name contoso.net –ResourceGroupName MyResourceGroup
     PS> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
@@ -146,7 +147,7 @@ Pamiętaj, że nie musisz określać serwerów nazw usługi Azure DNS, ponieważ
 
 ## Delegowanie domen podrzędnych w usłudze Azure DNS
 
-Jeśli chcesz skonfigurować oddzielną strefę podrzędną, możesz delegować domenę podrzędną w usłudze Azure DNS. Na przykład załóżmy, że po skonfigurowaniu i delegowaniu domeny „contoso.com” w usłudze Azure DNS chcesz skonfigurować oddzielną strefę podrzędną „partners.contoso.com”. 
+Jeśli chcesz skonfigurować oddzielną strefę podrzędną, możesz delegować domenę podrzędną w usłudze Azure DNS. Na przykład załóżmy, że po skonfigurowaniu i delegowaniu domeny „contoso.com” w usłudze Azure DNS chcesz skonfigurować oddzielną strefę podrzędną „partners.contoso.com”.
 
 Konfigurowanie domeny podrzędnej jest przeprowadzane za pomocą podobnej procedury jak normalne delegowanie. Jedyną różnicą jest to, że w kroku 3 rekordy NS muszą zostać utworzone w strefie nadrzędnej „contoso.com” w usłudze Azure DNS, a nie skonfigurowane za pomocą rejestratora domen.
 
@@ -169,7 +170,7 @@ Najpierw utworzymy strefy nadrzędne i podrzędne. Mogą one znajdować się w t
 
 #### Krok 2. Pobieranie rekordów NS
 
-Następnie pobieramy autorytatywne rekordy NS ze strefy podrzędnej, jak pokazano w następnym przykładzie.  Zawierają one serwery nazw przypisane do strefy podrzędnej. 
+Następnie pobieramy autorytatywne rekordy NS ze strefy podrzędnej, jak pokazano w następnym przykładzie.  Zawierają one serwery nazw przypisane do strefy podrzędnej.
 
     $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
@@ -208,6 +209,6 @@ Aby sprawdzić, czy wszystko jest poprawnie skonfigurowane, wyszukaj rekord SOA 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

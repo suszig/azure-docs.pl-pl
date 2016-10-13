@@ -263,7 +263,7 @@ Teraz można uruchomić aplikacje.
     node ReadDeviceToCloudMessages.js 
     ```
 
-    ![][7]
+    ![Aplikacja kliencka usługi IoT Hub dla środowiska Node.js do monitorowania komunikatów między urządzeniem i chmurą][7]
 
 2. Z poziomu wiersza polecenia w folderze **simulateddevice** uruchom następujące polecenie, aby rozpocząć wysyłanie danych telemetrycznych do centrum IoT:
 
@@ -271,11 +271,11 @@ Teraz można uruchomić aplikacje.
     node SimulatedDevice.js
     ```
 
-    ![][8]
+    ![Aplikacja kliencka urządzenia usługi IoT Hub dla środowiska Node.js do wysyłania komunikatów między urządzeniem i chmurą][8]
 
 3. Na kafelku **Użycie** w [portalu Azure][lnk-portal] wyświetlana jest liczba komunikatów wysłanych do centrum:
 
-    ![][43]
+    ![Kafelek Użycie witryny Azure Portal przedstawiający liczbę komunikatów wysłanych do usługi IoT Hub][43]
 
 ## Następne kroki
 
@@ -290,7 +290,6 @@ Aby kontynuować wprowadzenie do usługi IoT Hub i zapoznać się z innymi scena
 W samouczku [Process device-to-cloud messages][lnk-process-d2c-tutorial] (Przetwarzanie komunikatów z urządzenia do chmury) przedstawiono, jak rozszerzyć rozwiązanie IoT i przetwarzać komunikaty z urządzenia do chmury na dużą skalę.
 
 <!-- Images. -->
-[6]: ./media/iot-hub-node-node-getstarted/create-iot-hub6.png
 [7]: ./media/iot-hub-node-node-getstarted/runapp1.png
 [8]: ./media/iot-hub-node-node-getstarted/runapp2.png
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
@@ -299,13 +298,13 @@ W samouczku [Process device-to-cloud messages][lnk-process-d2c-tutorial] (Przetw
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
+[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-[lnk-hub-sdks]: iot-hub-sdks-summary.md
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
@@ -315,6 +314,6 @@ W samouczku [Process device-to-cloud messages][lnk-process-d2c-tutorial] (Przetw
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

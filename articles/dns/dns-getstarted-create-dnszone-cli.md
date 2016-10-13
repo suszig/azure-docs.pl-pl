@@ -3,7 +3,7 @@
    description="Dowiedz się, jak krok po kroku przy użyciu interfejsu wiersza polecenia utworzyć strefy DNS dla serwera usługi Azure DNS, aby rozpocząć hosting domeny DNS"
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,8 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
+
 
 # Tworzenie strefy DNS na platformie Azure przy użyciu interfejsu wiersza polecenia
 
@@ -25,9 +26,9 @@
 - [Interfejs wiersza polecenia platformy Azure](dns-getstarted-create-dnszone-cli.md)
 
 
-W tym artykule opisano kroki tworzenia strefy DNS przy użyciu interfejsu wiersza polecenia. Można również utworzyć strefę DNS za pomocą programu PowerShell lub witryny Azure Portal. 
+W tym artykule opisano kroki tworzenia strefy DNS przy użyciu interfejsu wiersza polecenia. Można również utworzyć strefę DNS za pomocą programu PowerShell lub witryny Azure Portal.
 
-[AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)] 
+[AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
 
 ## Przed rozpoczęciem
@@ -42,56 +43,56 @@ Możesz zainstalować interfejs wiersza polecenia platformy Azure dla systemu Wi
 
 Wszystkie polecenia dostawcy sieci w interfejsie wiersza polecenia można znaleźć przy użyciu następującego polecenia:
 
-    Azure network
+    azure network
 
 ### 2. Przełącz tryb interfejsu wiersza polecenia
 
 Usługa Azure DNS korzysta z usługi Azure Resource Manager. Pamiętaj, aby przełączyć tryb interfejsu wiersza polecenia w celu używania poleceń ARM.
 
-    Azure config mode arm
+    azure config mode arm
 
 ### 3. Zaloguj się do swojego konta platformy Azure
 
 Otrzymasz monit o uwierzytelnienie się przy użyciu swoich poświadczeń. Należy pamiętać, że można używać tylko kont z identyfikatorem organizacji.
 
-    Azure login -u "username"
+    azure login -u "username"
 
 ### 4. Wybierz subskrypcję
 
 Wybierz subskrypcję platformy Azure do użycia.
 
-    Azure account set "subscription name"
+    azure account set "subscription name"
 
 ### 5. Utwórz grupę zasobów
 
 Usługa Azure Resource Manager wymaga, aby wszystkie grupy zasobów określały lokalizację. Będzie ona używana jako domyślna lokalizacja dla zasobów w danej grupie zasobów. Ponieważ jednak wszystkie zasoby DNS są globalne, a nie regionalne, wybór lokalizacji grupy zasobów nie ma wpływu na usługę Azure DNS.
 
-Ten krok można pominąć, jeśli używasz istniejącej grupy zasobów. 
+Ten krok można pominąć, jeśli używasz istniejącej grupy zasobów.
 
-    Azure group create -n myresourcegroup --location "West US"
+    azure group create -n myresourcegroup --location "West US"
 
 
 ### 6. Zarejestruj subskrypcję
 
 Usługa Azure DNS jest zarządzana przez dostawcę zasobów Microsoft.Network. Aby można było korzystać z usługi Azure DNS, musisz zarejestrować swoją subskrypcję platformy Azure w celu używania tego dostawcy zasobów. Jest to jednorazowa operacja dla każdej subskrypcji.
 
-    Azure provider register --namespace Microsoft.Network
+    azure provider register --namespace Microsoft.Network
 
 
 ## Krok 2 — Tworzenie strefy DNS
 
-Do tworzenia strefy DNS służy polecenie `azure network dns zone create`. Można opcjonalnie utworzyć strefę DNS wraz z tagami. Tagi to pary nazw i wartości używane przez usługę Azure Resource Manager do oznaczania zasobów etykietami na potrzeby rozliczeń lub grupowania. Aby uzyskać więcej informacji na temat tagów, zobacz [Porządkowanie zasobów na platformie Azure za pomocą tagów](../resource-group-using-tags.md). 
+Do tworzenia strefy DNS służy polecenie `azure network dns zone create`. Można opcjonalnie utworzyć strefę DNS wraz z tagami. Tagi to pary nazw i wartości używane przez usługę Azure Resource Manager do oznaczania zasobów etykietami na potrzeby rozliczeń lub grupowania. Aby uzyskać więcej informacji na temat tagów, zobacz [Porządkowanie zasobów na platformie Azure za pomocą tagów](../resource-group-using-tags.md).
 
 W usłudze Azure DNS nazwy stref powinny być określane bez znaku **„.”** na końcu. Na przykład jako „**contoso.com**” zamiast „**contoso.com.**”.
 
 
 ### Tworzenie strefy DNS
 
-Poniższy przykład tworzy strefę DNS o nazwie *contoso.com* w grupie zasobów o nazwie *MyResourceGroup*. 
+Poniższy przykład tworzy strefę DNS o nazwie *contoso.com* w grupie zasobów o nazwie *MyResourceGroup*.
 
 Skorzystaj z tego przykładu, aby utworzyć własną strefę DNS, podstawiając własne wartości.
 
-    Azure network dns zone create myresourcegroup contoso.com
+    azure network dns zone create myresourcegroup contoso.com
 
 ### Tworzenie strefy DNS i tagów
 
@@ -99,7 +100,7 @@ Interfejs wiersza polecenia platformy Azure obsługuje tagi stref DNS określone
 
 Skorzystaj z tego przykładu, aby utworzyć strefę DNS i tagi, podstawiając własne wartości.
 
-    Azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
+    azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
 
 ## Wyświetlanie rekordów
 
@@ -189,6 +190,6 @@ Po utworzeniu strefy DNS utwórz [zestawy rekordów i rekordy](dns-getstarted-cr
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

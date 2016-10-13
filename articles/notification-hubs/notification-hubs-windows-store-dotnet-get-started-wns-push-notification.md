@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="07/21/2016"
+    ms.date="10/03/2016"
     ms.author="wesmc"/>
 
 
@@ -268,8 +268,8 @@ Więcej ogólnych informacji o usłudze Notification Hubs zawiera temat [Wskazó
 
 <!-- URLs. -->
 
-[Wysyłanie powiadomień wypychanych do użytkowników przy użyciu usługi Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
-[Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Wysyłanie powiadomień wypychanych do użytkowników przy użyciu usługi Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 [wykazu powiadomień wyskakujących]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [wykazu kafelków]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
@@ -277,6 +277,6 @@ Więcej ogólnych informacji o usłudze Notification Hubs zawiera temat [Wskazó
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

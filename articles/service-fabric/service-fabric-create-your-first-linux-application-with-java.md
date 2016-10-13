@@ -13,11 +13,16 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/25/2016"
+   ms.date="09/28/2016"
    ms.author="seanmck"/>
 
 
-# Tworzenie pierwszej aplikacji usługi Azure Service Fabric w systemie Linux przy użyciu platformy Java
+
+# Tworzenie pierwszej aplikacji usługi Azure Service Fabric
+
+> [AZURE.SELECTOR]
+- [C Sharp](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Java](service-fabric-create-your-first-linux-application-with-java.md)
 
 Usługa Service Fabric udostępnia zestawy SDK do kompilowania usług w systemie Linux przy użyciu platform .NET Core i Java. W tym samouczku przedstawiony zostanie sposób kompilowania aplikacji dla systemu Linux i tworzenia usługi przy użyciu platformy Java.
 
@@ -124,6 +129,6 @@ Twoja aplikacja zostanie skompilowana i wdrożona w ciągu kilku minut. Możesz 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

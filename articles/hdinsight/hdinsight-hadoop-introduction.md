@@ -255,7 +255,7 @@ Te narzędzia analizy biznesowej mogą ułatwić analizę danych big data:
 
 * [Podłączenie programu Excel do platformy Hadoop za pomocą dodatku Power Query](hdinsight-connect-excel-power-query.md): informacje na temat łączenia programu Excel z kontem usługi Azure Storage, na którym są przechowywane dane skojarzone z klastrem usługi HDInsight przy użyciu programu Microsoft Power Query dla programu Excel. Wymagana stacja robocza z systemem Windows. Współpracuje z klastrami systemu Windows i Linux.
 
-* [Podłączanie programu Excel do platformy Hadoop za pomocą sterownika ODBC usługi Microsoft Hive](hdinsight-connect-excel-hive-ODBC-driver.md): informacje na temat importowania danych z usługi HDInsight za pomocą sterownika ODBC usługi Microsoft Hive. Wymagana stacja robocza z systemem Windows. Współpracuje z klastrami systemu Windows i Linux.
+* [Podłączanie programu Excel do platformy Hadoop za pomocą sterownika ODBC usługi Microsoft Hive](hdinsight-connect-excel-hive-odbc-driver.md): informacje na temat importowania danych z usługi HDInsight za pomocą sterownika ODBC usługi Microsoft Hive. Wymagana stacja robocza z systemem Windows. Współpracuje z klastrami systemu Windows i Linux.
 
 * [Platforma Microsoft Cloud](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx): informacje na temat Power BI dla pakietu Office 365, pobierania wersji próbnej programu SQL Server oraz konfiguracji programów SharePoint Server 2013 i SQL Server BI.
 
@@ -272,6 +272,6 @@ Te narzędzia analizy biznesowej mogą ułatwić analizę danych big data:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

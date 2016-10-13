@@ -3,7 +3,7 @@
     description="Wykonaj kroki opisane w tym samouczku, aby rozpocząć używanie zapleczy aplikacji mobilnych Azure na potrzeby tworzenia aplikacji platformy uniwersalnej systemu Windows w języku C#, Visual Basic lub JavaScript."
     services="app-service\mobile"
     documentationCenter="windows"
-    authors="ggailey777"
+    authors="adrianhall"
     manager="erikre"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-windows"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="08/11/2016"
-    ms.author="glenga"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
+
 
 #Tworzenie aplikacji systemu Windows
 
@@ -98,6 +99,6 @@ Po skonfigurowaniu zaplecza Aplikacji mobilnej można utworzyć nową aplikację
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 
