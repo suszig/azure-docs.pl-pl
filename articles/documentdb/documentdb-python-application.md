@@ -4,7 +4,7 @@
     keywords="Programowanie aplikacji, samouczek bazy danych, Python Flask, aplikacja sieci Web Python, programowanie aplikacji sieci Web Python, DocumentDB, Azure, Microsoft Azure"
     services="documentdb"
     documentationCenter="python"
-    authors="AndrewHoh"
+    authors="syamkmsft"
     manager="jhubbard"
     editor="cgronlun"/>
 
@@ -15,9 +15,10 @@
     ms.devlang="python"
     ms.topic="hero-article"
     ms.date="08/25/2016"
-    ms.author="anhoh"/>
+    ms.author="syamk"/>
 
-# Tworzenie aplikacji sieci Web platformy Python Flask za pomocą usługi DocumentDB
+
+# <a name="python-flask-web-application-development-with-documentdb"></a>Tworzenie aplikacji sieci Web platformy Python Flask za pomocą usługi DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -39,7 +40,7 @@ Wykonując poszczególne kroki tego samouczka, utworzysz prostą aplikację do g
 ![Zrzut ekranu przedstawiający aplikację sieci Web listy rzeczy do zrobienia utworzoną za pomocą tego samouczka bazy danych](./media/documentdb-python-application/image1.png)
 
 
-## Wymagania wstępne dotyczące samouczka
+## <a name="database-tutorial-prerequisites"></a>Wymagania wstępne dotyczące samouczka
 
 Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz następujące elementy:
 
@@ -55,7 +56,7 @@ Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz nast
 
 - Kompilator Microsoft Visual C++ dla języka Python 2.7 z [Centrum pobierania Microsoft][3].
 
-## Krok 1. Tworzenie konta bazy danych usługi DocumentDB
+## <a name="step-1:-create-a-documentdb-database-account"></a>Krok 1. Tworzenie konta bazy danych usługi DocumentDB
 
 Zacznijmy od utworzenia konta usługi DocumentDB. Jeśli masz już konto, możesz od razu przejść do następnego etapu [Krok 2. Tworzenie nowej aplikacji sieci Web platformy Python Flask](#step-2:-create-a-new-python-flask-web-application).
 
@@ -64,7 +65,7 @@ Zacznijmy od utworzenia konta usługi DocumentDB. Jeśli masz już konto, możes
 <br/>
 Teraz przejdziemy przez proces tworzenia nowej aplikacji sieci Web platformy Python Flask od podstaw.
 
-## Krok 2. Tworzenie nowej aplikacji sieci Web platformy Python Flask
+## <a name="step-2:-create-a-new-python-flask-web-application"></a>Krok 2. Tworzenie nowej aplikacji sieci Web platformy Python Flask
 
 1. W menu **Plik** programu Visual Studio wskaż pozycję **Nowy**, a następnie kliknij pozycję **Projekt**.
 
@@ -88,9 +89,9 @@ Teraz przejdziemy przez proces tworzenia nowej aplikacji sieci Web platformy Pyt
 
     Po pomyślnym zainstalowaniu środowiska w oknie Dane wyjściowe zostanie wyświetlona informacja `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.`.
 
-## Krok 3. Modyfikowanie aplikacji sieci Web platformy Python Flask
+## <a name="step-3:-modify-the-python-flask-web-application"></a>Krok 3. Modyfikowanie aplikacji sieci Web platformy Python Flask
 
-### Dodawanie pakietów platformy Python Flask do projektu
+### <a name="add-the-python-flask-packages-to-your-project"></a>Dodawanie pakietów platformy Python Flask do projektu
 
 Po skonfigurowaniu projektu musisz dodać do niego wymagane pakiety platformy Flask, w tym pydocumentdb — pakiet języka Python dla usługi DocumentDB.
 
@@ -119,7 +120,7 @@ Po skonfigurowaniu projektu musisz dodać do niego wymagane pakiety platformy Fl
 
     > [AZURE.NOTE] W rzadkich przypadkach w oknie Dane wyjściowe może zostać wyświetlony błąd. Jeśli tak się stanie, sprawdź, czy błąd jest związany z oczyszczaniem. Czasami oczyszczanie nie powiedzie się, ale instalacja i tak zakończy się pomyślnie (aby to sprawdzić, przewiń w górę w oknie Dane wyjściowe). Instalację można sprawdzić przez [zweryfikowanie środowiska wirtualnego](#verify-the-virtual-environment). Jeśli instalacja nie powiodła się, ale weryfikacja zakończyła się pomyślnie, można kontynuować.
 
-### Weryfikowanie środowiska wirtualnego
+### <a name="verify-the-virtual-environment"></a>Weryfikowanie środowiska wirtualnego
 
 Upewnijmy się, że wszystko jest poprawnie zainstalowane.
 
@@ -130,7 +131,7 @@ Upewnijmy się, że wszystko jest poprawnie zainstalowane.
 
 3. Zatrzymaj debugowanie witryny sieci Web, naciskając klawisze **Shift**+**F5** w programie Visual Studio.
 
-### Tworzenie definicji bazy danych, kolekcji i dokumentu
+### <a name="create-database,-collection,-and-document-definitions"></a>Tworzenie definicji bazy danych, kolekcji i dokumentu
 
 Teraz utwórzmy aplikację do głosowania przez dodanie nowych plików i zaktualizowanie pozostałych.
 
@@ -149,7 +150,7 @@ class VoteForm(Form):
 ```
 
 
-### Dodawanie wymaganych importów do pliku views.py
+### <a name="add-the-required-imports-to-views.py"></a>Dodawanie wymaganych importów do pliku views.py
 
 1. W Eksploratorze rozwiązań rozwiń folder **tutorial**, a następnie otwórz plik **views.py**. 
 2. Dodaj następujące instrukcje importu u góry pliku **views.py**, a następnie zapisz plik. Spowoduje to zaimportowanie zestawu SDK Python usługi DocumentDB oraz pakietów platformy Flask.
@@ -161,7 +162,7 @@ class VoteForm(Form):
     ```
 
 
-### Tworzenie bazy danych, kolekcji i dokumentu
+### <a name="create-database,-collection,-and-document"></a>Tworzenie bazy danych, kolekcji i dokumentu
 
 - Dodaj następujący kod na końcu pliku **views.py**. Odpowiada on za tworzenie bazy danych używanej przez formularz. Nie usuwaj żadnego kodu znajdującego się w pliku **views.py**. Po prostu dołącz podany kod na końcu.
 
@@ -203,7 +204,7 @@ def create():
 > [AZURE.TIP] Metoda **CreateCollection** przyjmuje opcjonalny parametr **RequestOptions** jako trzeci parametr. W ten sposób można określić typ oferty dla kolekcji. Jeśli nie podano żadnej wartości offerType, kolekcja zostanie utworzona przy użyciu domyślnego typu oferty. Więcej informacji na temat typów oferty usługi DocumentDB można znaleźć w artykule [Performance levels in DocumentDB](documentdb-performance-levels.md) (Poziomy wydajności w usłudze DocumentDB).
 
 
-### Odczytywanie bazy danych, kolekcji i dokumentów oraz przesyłanie formularza
+### <a name="read-database,-collection,-document,-and-submit-form"></a>Odczytywanie bazy danych, kolekcji i dokumentów oraz przesyłanie formularza
 
 - Dodaj następujący kod na końcu pliku **views.py**. Odpowiada on za konfigurowanie formularza oraz odczytywanie bazy danych, kolekcji i dokumentu. Nie usuwaj żadnego kodu znajdującego się w pliku **views.py**. Po prostu dołącz podany kod na końcu.
 
@@ -255,7 +256,7 @@ def vote():
 ```
 
 
-### Tworzenie plików HTML
+### <a name="create-the-html-files"></a>Tworzenie plików HTML
 
 1. W Eksploratorze rozwiązań, w folderze **tutorial** kliknij prawym przyciskiem myszy folder **templates**, potem polecenie **Dodaj**, a następnie kliknij pozycję **Nowy element**. 
 2. Wybierz pozycję **Strona HTML**, a następnie w polu nazwy wpisz **create.html**. 
@@ -323,7 +324,7 @@ def vote():
     {% endblock %}
     ```
 
-### Dodawanie pliku konfiguracji i zmienianie pliku \_\_init\_\_.py
+### <a name="add-a-configuration-file-and-change-the-\_\_init\_\_.py"></a>Dodawanie pliku konfiguracji i zmienianie pliku \_\_init\_\_.py
 
 1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **tutorial**, kliknij polecenie **Dodaj**, potem pozycję **Nowy element**, następnie wybierz opcję **Pusty plik Python**, a na końcu podaj nazwę pliku, **config.py**. Ten plik konfiguracji jest wymagany przez formularze na platformie Flask. Można go również użyć, aby dostarczyć klucz tajny. Ten klucz nie jest jednak potrzebny w tym samouczku.
 
@@ -361,7 +362,7 @@ def vote():
     ![Zrzut ekranu okna Eksploratora rozwiązań programu Visual Studio](./media/documentdb-python-application/image15.png)
 
 
-## Krok 4. Uruchamianie aplikacji sieci Web lokalnie
+## <a name="step-4:-run-your-web-application-locally"></a>Krok 4. Uruchamianie aplikacji sieci Web lokalnie
 
 1. Skompiluj rozwiązanie, naciskając klawisze **Ctrl**+**Shift**+**B**.
 2. Gdy kompilacja zakończy się powodzeniem, uruchom witrynę sieci Web, naciskając klawisz **F5**. Na ekranie powinna być widoczna następująca strona.
@@ -382,7 +383,7 @@ def vote():
 
 6. Zatrzymaj debugowanie projektu przez naciśnięcie klawiszy Shift+F5.
 
-## Krok 5. Wdrażanie aplikacji sieci Web w usłudze Azure Websites
+## <a name="step-5:-deploy-the-web-application-to-azure-websites"></a>Krok 5. Wdrażanie aplikacji sieci Web w usłudze Azure Websites
 
 Teraz, gdy kompletna aplikacja działa poprawnie z usługą DocumentDB, wdrożymy ją w usłudze Azure Websites.
 
@@ -408,7 +409,7 @@ Teraz, gdy kompletna aplikacja działa poprawnie z usługą DocumentDB, wdrożym
 
 3. W ciągu kilku sekund program Visual Studio zakończy publikowanie aplikacji sieci Web i uruchomi przeglądarkę, w której będzie można zobaczyć swoje dzieło działające na platformie Azure.
 
-## Rozwiązywanie problemów
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 Jeśli jest to pierwsza aplikacja napisana w języku Python uruchomiona na Twoim komputerze, upewnij się, że następujące foldery (lub odpowiadające im lokalizacje instalacji) są uwzględnione w zmiennej PATH:
 
@@ -416,7 +417,7 @@ Jeśli jest to pierwsza aplikacja napisana w języku Python uruchomiona na Twoim
 
 Jeśli wystąpi błąd na stronie głosowania, a nazwa projektu jest inna niż **tutorial**, upewnij się, że plik **\_\_init\_\_.py** odwołuje się do właściwej nazwy projektu w wierszu: `import tutorial.view`.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Gratulacje! Udało Ci się utworzyć swoją pierwszą aplikację sieci Web w języku Python za pomocą usługi Azure DocumentDB i opublikować ją w usłudze Azure Websites.
 
@@ -432,10 +433,10 @@ Dodatkowe samouczki dotyczące platformy Python Flask znajdziesz na stronie [The
   [2]: https://www.python.org/downloads/windows/
   [3]: https://www.microsoft.com/download/details.aspx?id=44266
   [Instalator platformy Microsoft Web]: http://www.microsoft.com/web/downloads/platform.aspx
-  [Azure Portal]: http://portal.azure.com
+  [Witryna Azure Portal]: http://portal.azure.com
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

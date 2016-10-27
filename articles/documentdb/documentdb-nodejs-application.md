@@ -4,7 +4,7 @@
     keywords="Programowanie aplikacji, samouczek bazy danych, nauka node.js, samouczek node.js, DocumentDB, Azure, Microsoft Azure"
     services="documentdb" 
     documentationCenter="nodejs" 
-    authors="AndrewHoh" 
+    authors="syamkmsft" 
     manager="jhubbard" 
     editor="cgronlun"/>
 
@@ -15,9 +15,10 @@
     ms.devlang="nodejs" 
     ms.topic="hero-article" 
     ms.date="08/25/2016" 
-    ms.author="anhoh"/>
+    ms.author="syamk"/>
 
-# <a name="_Toc395783175"></a>Tworzenie aplikacji sieci Web Node.js za pomocą usługi DocumentDB
+
+# <a name="<a-name="_toc395783175"></a>build-a-node.js-web-application-using-documentdb"></a><a name="_Toc395783175"></a>Tworzenie aplikacji sieci Web Node.js za pomocą usługi DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -42,7 +43,7 @@ Wykonując kroki tego samouczka bazy danych, utworzysz prostą aplikację do zar
 
 Nie masz czasu na ukończenie tego samouczka i po prostu chcesz uzyskać kompletne rozwiązanie? Nie ma problemu, możesz pobrać kompletne przykładowe rozwiązanie z witryny [GitHub][].
 
-## <a name="_Toc395783176"></a>Wymagania wstępne
+## <a name="<a-name="_toc395783176"></a>prerequisites"></a><a name="_Toc395783176"></a>Wymagania wstępne
 
 > [AZURE.TIP] Ten samouczek środowiska Node.js zakłada, że masz już pewne doświadczenie w korzystaniu ze środowiska Node.js i usługi Azure Websites.
 
@@ -53,7 +54,7 @@ Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz nast
 - [Generator Express](http://www.expressjs.com/starter/generator.html) (można go zainstalować za pomocą polecenia `npm install express-generator -g`)
 - [Git][].
 
-## <a name="_Toc395637761"></a>Krok 1. Tworzenie konta bazy danych usługi DocumentDB
+## <a name="<a-name="_toc395637761"></a>step-1:-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Krok 1. Tworzenie konta bazy danych usługi DocumentDB
 
 Zacznijmy od utworzenia konta usługi DocumentDB. Jeśli masz już konto, możesz przejść do sekcji [Krok 2. Tworzenie nowej aplikacji Node.js](#_Toc395783178).
 
@@ -61,7 +62,7 @@ Zacznijmy od utworzenia konta usługi DocumentDB. Jeśli masz już konto, możes
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="_Toc395783178"></a>Krok 2. Dowiedz się, jak utworzyć nową aplikację Node.js
+## <a name="<a-name="_toc395783178"></a>step-2:-learn-to-create-a-new-node.js-application"></a><a name="_Toc395783178"></a>Krok 2. Dowiedz się, jak utworzyć nową aplikację Node.js
 
 Teraz nauczysz się, jak utworzyć podstawowy projekt aplikacji Hello World w środowisku Node.js przy użyciu platformy [Express](http://expressjs.com/).
 
@@ -84,7 +85,7 @@ Teraz nauczysz się, jak utworzyć podstawowy projekt aplikacji Hello World w ś
 
     ![Poznaj środowisko Node.js — zrzut ekranu aplikacji Hello World w oknie przeglądarki](./media/documentdb-nodejs-application/image12.png)
 
-## <a name="_Toc395783179"></a>Krok 3. Instalowanie dodatkowych modułów
+## <a name="<a-name="_toc395783179"></a>step-3:-install-additional-modules"></a><a name="_Toc395783179"></a>Krok 3. Instalowanie dodatkowych modułów
 
 Plik **package.json** jest jednym z plików utworzonych w folderze głównym projektu. Ten plik zawiera listę dodatkowych modułów, które są wymagane dla aplikacji Node.js. Później, podczas wdrażania tej aplikacji w usłudze Azure Websites, ten plik jest używany do określenia, które moduły muszą być zainstalowane na platformie Azure w celu obsługi tej aplikacji. Nadal trzeba zainstalować jeszcze dwa pakiety dla tego samouczka.
 
@@ -100,13 +101,13 @@ Plik **package.json** jest jednym z plików utworzonych w folderze głównym pro
 
     ![Zrzut ekranu przedstawiający kartę pliku package.json](./media/documentdb-nodejs-application/image17.png)
 
-       This tells Node (and Azure later) that your application depends on these additional modules.
+    W ten sposób węzeł (a potem platforma Azure) otrzyma informacje o tym, że aplikacja zależy od dodatkowych modułów.
 
-## <a name="_Toc395783180"></a>Krok 4. Korzystanie z usługi DocumentDB w aplikacji Node
+## <a name="<a-name="_toc395783180"></a>step-4:-using-the-documentdb-service-in-a-node-application"></a><a name="_Toc395783180"></a>Krok 4. Korzystanie z usługi DocumentDB w aplikacji Node
 
 To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do tego, po co tutaj jesteśmy, czyli napisania kodu za pomocą usługi Azure DocumentDB.
 
-### Tworzenie modelu
+### <a name="create-the-model"></a>Tworzenie modelu
 
 1. W katalogu projektu utwórz nowy katalog o nazwie **models**.
 2. W katalogu **models** utwórz nowy plik o nazwie **taskDao.js**. Ten plik zawiera model dla zadań tworzonych przez naszą aplikację.
@@ -301,7 +302,7 @@ To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do teg
 
 6. Zapisz i zamknij plik **taskDao.js**. 
 
-### Tworzenie kontrolera
+### <a name="create-the-controller"></a>Tworzenie kontrolera
 
 1. W katalogu **routes** projektu utwórz nowy plik o nazwie **tasklist.js**. 
 2. Dodaj następujący kod do pliku **tasklist.js**. Służy on do ładowania modułów DocumentDBClient i async, które są używane przez plik **tasklist.js**. Definiuje również funkcję **TaskList**, która przekazuje wystąpienie obiektu **Task** zdefiniowanego wcześniej:
@@ -379,7 +380,7 @@ To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do teg
 
 4. Zapisz i zamknij plik **tasklist.js**.
  
-### Dodawanie pliku config.js
+### <a name="add-config.js"></a>Dodawanie pliku config.js
 
 1. W katalogu projektu utwórz nowy plik o nazwie **config.js**.
 2. Dodaj następujący kod do pliku **config.js**. Służy on do definiowania ustawień konfiguracji i wartości potrzebnych dla aplikacji.
@@ -393,11 +394,11 @@ To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do teg
         
         module.exports = config;
 
-3. W pliku **config.js** zaktualizuj wartości HOST i AUTH_KEY przy użyciu wartości znajdujących się w bloku Klucze Twojego konta usługi DocumentDB w [portalu Microsoft Azure](https://portal.azure.com):
+3. W pliku **config.js** zaktualizuj wartości HOST i AUTH_KEY przy użyciu wartości znajdujących się w bloku Klucze Twojego konta usługi DocumentDB w witrynie [Microsoft Azure Portal](https://portal.azure.com):
 
 4. Zapisz i zamknij plik **config.js**.
  
-### Modyfikowanie pliku app.js
+### <a name="modify-app.js"></a>Modyfikowanie pliku app.js
 
 1. W katalogu projektu otwórz plik **app.js**. Ten plik został utworzony wcześniej podczas tworzenia aplikacji sieci Web platformy Express.
 2. Dodaj następujący kod na górze pliku **tasklist.js**.
@@ -433,7 +434,7 @@ To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do teg
 
 7. Na koniec zapisz i zamknij plik **app.js**. To już prawie koniec.
  
-## <a name="_Toc395783181"></a>Krok 5. Tworzenie interfejsu użytkownika
+## <a name="<a-name="_toc395783181"></a>step-5:-build-a-user-interface"></a><a name="_Toc395783181"></a>Krok 5. Tworzenie interfejsu użytkownika
 
 Teraz skupimy się na tworzeniu interfejsu użytkownika, aby użytkownik mógł faktycznie wchodzić w interakcję z naszą aplikacją. Utworzona aplikacja Express używa aparatu widoku **Jade**. Więcej informacji na temat aparatu Jade można znaleźć w witrynie [http://jade-lang.com/](http://jade-lang.com/).
 
@@ -529,7 +530,7 @@ Teraz skupimy się na tworzeniu interfejsu użytkownika, aby użytkownik mógł 
 
     Zapisz i zamknij plik **style.css**.
 
-## <a name="_Toc395783181"></a>Krok 6. Uruchamianie aplikacji lokalnie
+## <a name="<a-name="_toc395783181"></a>step-6:-run-your-application-locally"></a><a name="_Toc395783181"></a>Krok 6. Uruchamianie aplikacji lokalnie
 
 1. Aby przetestować aplikację na komputerze lokalnym, uruchom polecenie `npm start` w terminalu, aby uruchomić aplikację i przeglądarkę ze stroną, która wygląda jak obraz poniżej:
 
@@ -544,7 +545,7 @@ Teraz skupimy się na tworzeniu interfejsu użytkownika, aby użytkownik mógł 
 
 4. Aby zakończyć zadanie, po prostu zaznacz pole wyboru w kolumnie Complete (Zakończ), a następnie kliknij przycisk **Update tasks** (Aktualizuj zadania).
 
-## <a name="_Toc395783182"></a>Krok 7. Wdrażanie projektu tworzenia aplikacji w usłudze Azure Websites
+## <a name="<a-name="_toc395783182"></a>step-7:-deploy-your-application-development-project-to-azure-websites"></a><a name="_Toc395783182"></a>Krok 7. Wdrażanie projektu tworzenia aplikacji w usłudze Azure Websites
 
 1. Jeśli jeszcze tego nie zrobiono, włącz repozytorium Git dla usługi Azure Websites. Instrukcje, jak to zrobić, można znaleźć w temacie [Local Git Deployment to Azure App Service](../app-service-web/app-service-deploy-local-git.md) (Lokalne wdrażanie przy użyciu systemu Git w usłudze Azure App Service).
 
@@ -558,7 +559,7 @@ Teraz skupimy się na tworzeniu interfejsu użytkownika, aby użytkownik mógł 
 
 4. W ciągu kilku sekund narzędzie Git zakończy publikowanie aplikacji sieci Web i uruchomi przeglądarkę, w której możesz zobaczyć swoje dzieło uruchomione na platformie Azure!
 
-## <a name="_Toc395637775"></a>Następne kroki
+## <a name="<a-name="_toc395637775"></a>next-steps"></a><a name="_Toc395637775"></a>Następne kroki
 
 Gratulacje! Udało Ci się utworzyć swoją pierwszą aplikację sieci Web Node.js Express za pomocą usługi Azure DocumentDB i opublikować ją w usłudze Azure Websites.
 
@@ -573,6 +574,6 @@ Aby uzyskać więcej informacji, odwiedź stronę [Centrum deweloperów środowi
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

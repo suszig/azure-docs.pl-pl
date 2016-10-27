@@ -13,15 +13,15 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="09/30/2016"
+    ms.date="10/10/2016"
     ms.author="kgremban"/>
 
 
 # Zarządzanie dostępem do zasobów subskrypcji platformy Azure za pomocą przypisań ról
 
 > [AZURE.SELECTOR]
-- [Azure Portal](role-based-access-control-azure-portal.md)
-- [klasyczny portal Azure](role-based-access-control-configure.md)
+- [Zarządzanie dostępem użytkowników lub grup](role-based-access-control-manage-assignments.md)
+- [Zarządzanie dostępem do zasobów](role-based-access-control-configure.md)
 
 Kontrola dostępu oparta na rolach (Role-Based Access Control, RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem dla platformy Azure. Korzystając z modelu RBAC, można udzielić użytkownikom tylko takiego dostępu, jakiego potrzebują do wykonania swoich zadań. Ten artykuł ułatwia rozpoczęcie pracy z kontrolą dostępu opartą na rolach w witrynie Azure Portal. Jeśli chcesz uzyskać więcej szczegółowych informacji na temat sposobu, w jaki RBAC ułatwia zarządzanie dostępem, zobacz [Co to jest kontrola dostępu oparta na rolach](role-based-access-control-what-is.md).
 
@@ -31,9 +31,8 @@ Z poziomu głównego bloku zasobu, grupy zasobów lub subskrypcji w witrynie [Az
 1. Wybierz pozycję **Grupy zasobów** na pasku nawigacyjnym po lewej stronie.  
     ![Grupy zasobów — ikona](./media/role-based-access-control-configure/resourcegroups_icon.png)
 2. Wybierz nazwę grupy zasobów z bloku **Grupy zasobów**.
-3. Kliknij pozycję **Użytkownicy** u góry po prawej stronie bloku grupy zasobów.  
-    ![Użytkownicy — ikona](./media/role-based-access-control-configure/users_icon.png)
-4. W bloku **Użytkownicy** wyświetlana jest lista wszystkich użytkowników, grup i aplikacji, którym został udzielony dostęp do grupy zasobów.  
+3. Z menu po lewej stronie wybierz opcję **Kontrola dostępu (IAM)**.  
+4. W bloku Kontrola dostępu znajduje się lista wszystkich użytkowników, grup i aplikacji, którym został udzielony dostęp do grupy zasobów.  
 
     ![Blok użytkowników — dostęp dziedziczony a przypisany (zrzut ekranu)](./media/role-based-access-control-configure/view-access.png)
 
@@ -45,8 +44,7 @@ Należy zauważyć, że w przypadku niektórych użytkowników dostęp został *
 ## Dodawanie dostępu
 Dostęp udzielany jest w ramach zasobu, grupy zasobów lub subskrypcji, która jest zakresem przypisania roli.
 
-1. Wybierz przycisk **Dodaj** w bloku **Użytkownicy**.  
-    ![Dodaj — ikona](./media/role-based-access-control-configure/add_icon.png)  
+1. Kliknij przycisk **Dodaj** w bloku Kontrola dostępu.  
 2. W bloku **Wybierz rolę** wybierz rolę, którą chcesz przypisać.
 3. Wybierz użytkownika, grupę lub aplikację w katalogu, którym chcesz udzielić dostępu. Możesz przeszukiwać katalog przy użyciu nazw wyświetlanych, adresów e-mail i identyfikatorów obiektów.  
 
@@ -59,9 +57,8 @@ Po pomyślnym dodaniu przypisania roli będzie ono wyświetlane w bloku **Użytk
 
 ## Usuwanie dostępu
 
-1. Wybierz przypisanie roli w bloku **Użytkownicy**.
+1. Wybierz przypisanie roli w bloku Kontrola dostępu.
 2. Wybierz przycisk **Usuń** w bloku szczegółów przypisania.  
-    ![Usuń — ikona](./media/role-based-access-control-configure/remove_icon.png)
 3. Wybierz opcję **Tak**, aby potwierdzić usunięcie.  
     ![Blok Użytkownicy — usuwanie z roli (zrzut ekranu)](./media/role-based-access-control-configure/remove-access1.png)
 
@@ -83,6 +80,6 @@ Za pomocą poleceń Azure RBAC można przypisywać role i zarządzać dostępem 
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

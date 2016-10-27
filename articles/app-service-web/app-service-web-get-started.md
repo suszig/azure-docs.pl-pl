@@ -152,6 +152,6 @@ Możesz także wykonać inne zadania związane ze swoją pierwszą aplikacją si
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

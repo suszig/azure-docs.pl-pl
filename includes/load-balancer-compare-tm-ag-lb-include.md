@@ -1,31 +1,35 @@
-## Load Balancer differences
+## <a name="load-balancer-differences"></a>Różnice między modułami równoważenia obciążenia
 
-There are different options to distribute network traffic using Microsoft Azure. These options work differently from each other, having a different feature set and support different scenarios. They can each be used in isolation, or combining them.
+Istnieją różne opcje umożliwiające dystrybucję ruchu sieciowego za pomocą platformy Microsoft Azure. Działanie tych opcji różni się między sobą, a same opcje wykorzystują różny zbiór funkcji i obsługują różne scenariusze. Można korzystać z nich osobno lub używać ich łącznie.
 
-- **Azure Load Balancer** works at the transport layer (Layer 4 in the OSI network reference stack). It provides network-level distribution of traffic across instances of an application running in the same Azure data center.
+- Usługa **Azure Load Balancer** działa w warstwie transportowej (warstwa 4. w modelu odniesienia OSI). Usługa zapewnia dystrybucję ruchu na poziomie sieci między wystąpieniami aplikacji uruchomionej w tym samym centrum danych Azure.
 
-- **Application Gateway** works at the application layer (Layer 7 in the OSI network reference stack). It acts as a reverse-proxy service, terminating the client connection and forwarding requests to back-end endpoints.
+- Usługa **Application Gateway** działa w warstwie aplikacji (warstwa 7. w modelu odniesienia OSI). Działa jako usługa zwrotnego serwera proxy, kończy połączenie klienta i przekazuje żądania do punktów końcowych zaplecza.
 
-- **Traffic Manager** works at the DNS level.  It uses DNS responses to direct end-user traffic to globally distributed endpoints. Clients then connect to those endpoints directly.
+- Usługa **Traffic Manager** działa na poziomie usługi DNS.  Przy użyciu odpowiedzi usługi DNS kieruje ona ruch użytkowników końcowych do punktów końcowych rozproszonych po całym świecie. Klienci następnie łączą się z tymi punktami końcowymi bezpośrednio.
 
-The following table summarizes the features offered by each service:
+W poniższej tabeli podsumowano funkcje poszczególnych usług:
 
-| Service | Azure Load Balancer | Application Gateway | Traffic Manager |
+| Usługa | Azure Load Balancer | Application Gateway | Traffic Manager |
 |---|---|---|---|
-|Technology| Transport level (Layer 4) | Application level (Layer 7) | DNS level |
-| Application protocols supported |	Any | HTTP and HTTPS | 	Any (An HTTP endpoint is required for endpoint monitoring) |
-| Endpoints | Azure VMs and Cloud Services role instances | Any Azure Internal IP address or public internet IP address | Azure VMs, Cloud Services, Azure Web Apps, and external endpoints |
-| Vnet support | Can be used for both Internet facing and internal (Vnet) applications | Can be used for both Internet facing and internal (Vnet) applications |	Only supports Internet-facing applications |
-Endpoint Monitoring | Supported via probes | Supported via probes | Supported via HTTP/HTTPS GET | 
+|Technologia| Poziom transportu (warstwa 4) | Poziom aplikacji (warstwa 7) | Poziom DNS |
+| Obsługiwane protokoły aplikacji | Dowolne | HTTP i HTTPS |  Dowolne (do monitorowania punktu końcowego jest wymagany punkt końcowy HTTP) |
+| Punkty końcowe | Wystąpienia roli maszyn wirtualnych i usług w chmurze Azure | Dowolny wewnętrzny adres IP usługi Azure lub publiczny adres IP w sieci Internet | Azure Virtual Machines, Cloud Services, Azure Web Apps i zewnętrzne punkty końcowe |
+| Obsługa sieci wirtualnej | Możliwe użycie zarówno z aplikacjami połączonymi z Internetem, jak i aplikacjami wewnętrznymi (w sieci wirtualnej) | Możliwe użycie zarówno z aplikacjami połączonymi z Internetem, jak i aplikacjami wewnętrznymi (w sieci wirtualnej) |    Obsługuje tylko aplikacje łączące się z Internetem |
+Monitorowanie punktu końcowego | Obsługiwane z użyciem sond | Obsługiwane z użyciem sond | Obsługiwane z użyciem żądania GET protokołu HTTP/HTTPS | 
 
-Azure Load Balancer and Application Gateway route network traffic to endpoints but they have different usage scenarios to which traffic to handle. The following table helps understanding the difference between the two load balancers:
+Usługi Azure Load Balancer i Application Gateway zapewniają routing ruchu sieciowego do punktów końcowych, ale dotyczą ich inne scenariusze użycia w zakresie obsługiwanego ruchu. Poniższa tabela zawiera rozróżnienie między dwoma modułami równoważenia obciążenia:
 
-| Type | Azure Load Balancer | Application Gateway |
+| Typ | Azure Load Balancer | Application Gateway |
 |---|---|---|
-| Protocols | UDP/TCP | HTTP/ HTTPS |
-| IP reservation | Supported | Not supported | 
-| Load balancing mode | 5-tuple(source IP, source port, destination IP, destination port, protocol type) | Round Robin<br>Routing based on URL | 
-| Load balancing mode (source IP /sticky sessions) |  2-tuple (source IP and destination IP), 3-tuple (source IP, destination IP, and port). Can scale up or down based on the number of virtual machines | Cookie-based affinity<br>Routing based on URL |
-| Health probes | Default: probe interval - 15 secs. Taken out of rotation: 2 Continuous failures. Supports user-defined probes | Idle probe interval 30 secs. Taken out after 5 consecutive live traffic failures or a single probe failure in idle mode. Supports user-defined probes | 
-| SSL offloading | Not supported | Supported | 
+| Protokoły | UDP/TCP | HTTP/HTTPS |
+| Rezerwacja adresu IP | Obsługiwane | Nieobsługiwane | 
+| Tryb równoważenia obciążenia | 5-krotka (źródłowy adres IP, port źródłowy, docelowy adres IP, port docelowy, typ protokołu) | Działanie okrężne<br>Routing na podstawie adresu URL | 
+| Tryb równoważenia obciążenia (źródłowy adres IP / sesje umocowane) |  2-krotka (źródłowy adres IP i docelowy adres IP), 3-krotka (źródłowy adres IP, docelowy adres IP i port). Możliwe jest skalowanie odpowiednio w górę lub w dół w oparciu o liczbę maszyn wirtualnych | Koligacja na podstawie pliku cookie<br>Routing na podstawie adresu URL |
+| Sondy kondycji | Wartość domyślna: interwał sondowania — 15 sekund. Wykluczenie z rotacji: dwa powtarzające się niepowodzenia. Obsługa sond zdefiniowanych przez użytkownika | Interwał bezczynności sondy — 30 sekund. Usunięta po pięciu kolejnych niepowodzeniach obsługi ruchu lub po pojedynczym niepowodzeniu sondy w trybie bezczynności. Obsługa sond zdefiniowanych przez użytkownika | 
+| Odciążanie protokołu SSL | Nieobsługiwane | Obsługiwane | 
   
+
+<!--HONumber=Oct16_HO3-->
+
+

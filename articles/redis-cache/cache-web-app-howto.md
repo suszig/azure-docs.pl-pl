@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="cache-redis" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="07/22/2016" 
+    ms.date="10/11/2016" 
     ms.author="sdanie"/>
 
 
@@ -34,7 +34,7 @@ Dowiesz się:
 -   Jak uzyskać dostęp do danych z bazy danych przy użyciu platformy Entity Framework.
 -   Jak zwiększyć przepływność danych i ograniczyć obciążenie bazy danych dzięki przechowywaniu i pobieraniu danych przy użyciu usługi Azure Redis Cache.
 -   Jak użyć sortowanego zestawu Redis do pobrania pierwszych 5 zespołów.
--   Jak wykonać aprowizację zasobów Azure dla aplikacji przy użyciu szablonu ARM.
+-   Jak wykonać aprowizację zasobów platformy Azure dla aplikacji przy użyciu szablonu usługi Resource Manager.
 -   Jak opublikować aplikację na platformie Azure przy użyciu programu Visual Studio.
 
 ## Wymagania wstępne
@@ -853,6 +853,6 @@ Po wybraniu lub utworzeniu pamięci podręcznej do użycia przejdź do pamięci 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

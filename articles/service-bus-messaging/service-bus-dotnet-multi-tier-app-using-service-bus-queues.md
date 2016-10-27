@@ -1,14 +1,14 @@
 <properties
     pageTitle="Wielowarstwowa aplikacja platformy .NET | Microsoft Azure"
     description="Samouczek platformy .NET umożliwia utworzenie na platformie Azure aplikacji wielowarstwowej, która używa kolejek usługi Service Bus do komunikacji między warstwami."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
@@ -17,9 +17,9 @@
     ms.author="sethm"/>
 
 
-# Aplikacja wielowarstwowa platformy .NET używająca kolejek usługi Azure Service Bus
+# <a name=".net-multi-tier-application-using-azure-service-bus-queues"></a>Aplikacja wielowarstwowa platformy .NET używająca kolejek usługi Azure Service Bus
 
-## Wprowadzenie
+## <a name="introduction"></a>Wprowadzenie
 
 Tworzenie aplikacji dla platformy Microsoft Azure przy użyciu programu Visual Studio oraz bezpłatnego zestawu Azure SDK dla platformy .NET jest proste. Ten samouczek przeprowadzi Cię przez etapy tworzenia aplikacji, która używa wielu zasobów platformy Azure działających w środowisku lokalnym. Założono w nim, że nie masz wcześniejszego doświadczenia w używaniu platformy Azure.
 
@@ -38,7 +38,7 @@ Poniższy zrzut ekranu przedstawia gotową aplikację.
 
 ![][0]
 
-## Omówienie scenariusza: komunikacja między rolami
+## <a name="scenario-overview:-inter-role-communication"></a>Omówienie scenariusza: komunikacja między rolami
 
 Aby przesłać zamówienie do przetworzenia, składnik interfejsu użytkownika frontonu działający w roli sieci Web musi współdziałać z logiką warstwy środkowej uruchomionej w roli procesu roboczego. W tym przykładzie do komunikacji między warstwami użyto komunikatów usługi Service Bus obsługiwanych przez brokera.
 
@@ -60,7 +60,7 @@ Ten mechanizm komunikacji ma kilka zalet w stosunku do komunikatów bezpośredni
 
 W poniższych sekcjach omówiono kod, który implementuje tę architekturę.
 
-## Konfigurowanie środowiska deweloperskiego
+## <a name="set-up-the-development-environment"></a>Konfigurowanie środowiska deweloperskiego
 
 Przed rozpoczęciem tworzenia aplikacji dla platformy Azure pobierz potrzebne narzędzia i skonfiguruj swoje środowisko deweloperskie.
 
@@ -74,18 +74,18 @@ Przed rozpoczęciem tworzenia aplikacji dla platformy Azure pobierz potrzebne na
 
 6.  Po zakończeniu instalacji będziesz mieć do dyspozycji wszystkie narzędzia niezbędne do tworzenia aplikacji. Zestaw SDK zawiera narzędzia, które pozwalają w łatwy sposób tworzyć aplikacje dla platformy Azure w programie Visual Studio. Jeśli nie masz zainstalowanego programu Visual Studio, zestaw SDK zainstaluje również bezpłatny program Visual Studio Express.
 
-## Tworzenie przestrzeni nazw
+## <a name="create-a-namespace"></a>Tworzenie przestrzeni nazw
 
 Następnym krokiem jest utworzenie przestrzeni nazw usługi i uzyskanie klucza sygnatury dostępu współdzielonego. Przestrzeń nazw wyznacza granice każdej aplikacji uwidacznianej za pośrednictwem usługi Service Bus. Klucz sygnatury dostępu współdzielonego jest generowany przez system po utworzeniu przestrzeni nazw. Kombinacja przestrzeni nazw i klucza sygnatury dostępu współdzielonego dostarcza poświadczenia dla usługi Service Bus w celu uwierzytelnienia dostępu do aplikacji.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## Tworzenie roli sieci Web
+## <a name="create-a-web-role"></a>Tworzenie roli sieci Web
 
 W tej sekcji omówione zostanie tworzenie frontonu aplikacji. Najpierw tworzy się strony, które będą wyświetlane w aplikacji.
 Następnie dodaje się kod, który przesyła elementy do kolejki usługi Service Bus i wyświetla informacje o stanie kolejki.
 
-### Tworzenie projektu
+### <a name="create-the-project"></a>Tworzenie projektu
 
 1.  Korzystając z uprawnień administratora, uruchom program Microsoft Visual Studio. Aby uruchomić program Visual Studio z uprawnieniami administratora, kliknij prawym przyciskiem myszy ikonę programu **Visual Studio**, a następnie kliknij polecenie **Uruchom jako administrator**. Emulator obliczeń platformy Azure, który zostanie omówiony w dalszej części tego artykułu, wymaga uruchomienia programu Visual Studio z uprawnieniami administratora.
 
@@ -123,7 +123,7 @@ Następnie dodaje się kod, który przesyła elementy do kolejki usługi Service
 
 9.  W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy pozycję **Modele** i kliknij pozycję **Dodaj**, następnie kliknij pozycję **Klasa**. W okienku **Nazwa** wpisz nazwę **OnlineOrder.cs**. Następnie kliknij pozycję **Dodaj**.
 
-### Pisanie kodu dla roli sieci Web
+### <a name="write-the-code-for-your-web-role"></a>Pisanie kodu dla roli sieci Web
 
 W tej sekcji utworzysz różne strony, które będą wyświetlane przez Twoją aplikację.
 
@@ -231,7 +231,7 @@ W tej sekcji utworzysz różne strony, które będą wyświetlane przez Twoją a
 
     ![][17]
 
-### Pisanie kodu przesyłającego elementy do kolejki usługi Service Bus
+### <a name="write-the-code-for-submitting-items-to-a-service-bus-queue"></a>Pisanie kodu przesyłającego elementy do kolejki usługi Service Bus
 
 Teraz dodaj kod przesyłający elementy do kolejki. Najpierw utwórz klasę, która zawiera informacje o połączeniu kolejki usługi Service Bus. Następnie zainicjuj połączenie z pliku Global.aspx.cs. Na koniec zaktualizuj kod przesyłania, który został wcześniej utworzony w pliku HomeController.cs, aby rzeczywiście przesłać elementy do kolejki usługi Service Bus.
 
@@ -353,7 +353,7 @@ Teraz dodaj kod przesyłający elementy do kolejki. Najpierw utwórz klasę, kt�
 
     ![][18]
 
-## Tworzenie roli procesu roboczego
+## <a name="create-the-worker-role"></a>Tworzenie roli procesu roboczego
 
 Teraz utworzysz rolę procesu roboczego, która przetwarza zgłoszenia zamówień. W tym przykładzie użyto szablonu projektu programu Visual Studio **Proces roboczy z kolejką usługi Service Bus**. Wymagane poświadczenia zostały już uzyskane z portalu.
 
@@ -412,7 +412,7 @@ Teraz utworzysz rolę procesu roboczego, która przetwarza zgłoszenia zamówie�
 
     ![][20]
 
-## Następne kroki  
+## <a name="next-steps"></a>Następne kroki  
 
 Aby dowiedzieć się więcej na temat usługi Service Bus, zobacz następujące zasoby:  
 
@@ -465,6 +465,6 @@ Aby dowiedzieć się więcej na temat wielowarstwowych scenariuszy, zobacz:
   
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

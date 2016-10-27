@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/13/2016"
+    ms.date="10/10/2016"
     ms.author="markvi"/>
+
 
 # Administrowanie katalogiem usługi Azure AD
 
@@ -151,6 +152,6 @@ Są sprawdzane następujące warunki:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

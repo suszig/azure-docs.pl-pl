@@ -497,6 +497,6 @@ W samouczku [Process device-to-cloud messages][lnk-process-d2c-tutorial] (Przetw
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -1,10 +1,10 @@
 <properties
     pageTitle="Wprowadzenie do systemu Apache Storm w usłudze HDInsight | Microsoft Azure"
-    description="Pobierz wprowadzenie do systemu Apache Storm i dowiedz się, jak używać systemu Storm w usłudze HDInsight, aby tworzyć rozwiązania do analizowania danych w czasie rzeczywistym w chmurze."
+    description="Poznaj podstawy systemu Apache Storm i dowiedz się, jak używać systemu Storm w usłudze HDInsight, aby tworzyć rozwiązania do analizowania danych w czasie rzeczywistym w chmurze."
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"
     tags="azure-portal"/>
 
@@ -14,8 +14,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/27/2016"
+   ms.date="10/11/2016"
    ms.author="larryfr"/>
+
 
 #Wprowadzenie do systemu Apache Storm w usłudze HDInsight: analiza w czasie rzeczywistym dla usługi Hadoop
 
@@ -49,17 +50,17 @@ Listę firm używających systemu Apache Storm w rozwiązaniach analitycznych dz
 
 Aby rozpocząć korzystanie z systemu Storm, zobacz [Get started with Storm on HDInsight][gettingstarted] (Rozpoczynanie pracy z systemem Storm w usłudze HDInsight).
 
-###Łatwość inicjowania obsługi
+###Łatwość aprowizacji
 
-Nowy system Storm w usłudze HDInsight można udostępnić w ciągu kilku minut. Wystarczy podać nazwę klastra, jego wielkość, konto administratora i konto magazynu. Azure utworzy klaster z przykładowymi topologiami i przeglądarkowy pulpit nawigacyjny.
+Nowy system Storm w usłudze HDInsight można udostępnić w ciągu kilku minut. Wystarczy podać nazwę klastra, jego wielkość, konto administratora i konto magazynu. Platforma Azure utworzy klaster z przykładowymi topologiami i przeglądarkowy pulpit nawigacyjny.
 
-> [AZURE.NOTE] Klastry Storm można również udostępniać za pomocą [interfejsu wiersza poleceń Azure](../xplat-cli-install.md) lub [Azure PowerShell](../powershell-install-configure.md).
+> [AZURE.NOTE] Klastry Storm można również udostępniać za pomocą [interfejsu wiersza polecenia platformy Azure](../xplat-cli-install.md) lub [Azure PowerShell](../powershell-install-configure.md).
 
 W ciągu 15 minut od przesłania żądania nowy klaster Storm jest gotowy do pracy i przyjęcia pierwszego potoku analitycznego w czasie rzeczywistym.
 
 ###Łatwość obsługi
 
-__W przypadku klastrów Storm w usłudze HDInsight opartych na systemie Linux__ z klastrem można się połączyć przy użyciu protokołu SSH, a za pomocą polecenia `storm` można uruchamiać topologie i zarządzać nimi. Ponadto można używać narzędzia Ambari do monitorowania usługi Storm, a interfejsu użytkownika Storm do monitorowania i zarządzania uruchomionymi topologiami.
+__W przypadku klastrów Storm w usłudze HDInsight opartych na systemie Linux__ z klastrem można się połączyć przy użyciu protokołu SSH, a za pomocą polecenia `storm` można uruchamiać topologie i zarządzać nimi. Ponadto można używać narzędzia Ambari do monitorowania usługi Storm, a interfejsu użytkownika Storm do monitorowania uruchomionych topologii i zarządzania nimi.
 
 Aby uzyskać więcej informacji na temat pracy z klastrami Storm opartymi na systemie Linux, zobacz [Get started with Apache Storm on Linux-based HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md) (Wprowadzenie do Apache Storm w usłudze HDInsight opartej na systemie Linux).
 
@@ -227,6 +228,6 @@ Dowiedz się więcej na temat rozwiązań analitycznych w czasie rzeczywistym z 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

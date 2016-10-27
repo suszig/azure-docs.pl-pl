@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Enabling SSL Policy and end to end SSL on Application Gateway | Microsoft Azure"
-   description="This page provides an overview of the Application Gateway end to end SSL support."
+   pageTitle="Włączanie zasad SSL i kompleksowej usługi SSL w usłudze Application Gateway | Microsoft Azure"
+   description="Ta strona zawiera omówienie kompleksowej obsługi protokołu SSL w usłudze Application Gateway."
    documentationCenter="na"
    services="application-gateway"
    authors="amsriva"
@@ -9,38 +9,45 @@
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/26/2016"
    ms.author="amsriva"/>
 
-# Enabling SSL Policy and end to end SSL on Application Gateway
 
-## Overview
+# <a name="enabling-ssl-policy-and-end-to-end-ssl-on-application-gateway"></a>Włączanie zasad SSL i kompleksowej usługi SSL w usłudze Application Gateway
 
-Application gateway supports SSL termination at the gateway, after which traffic typically flows unencrypted to the backend servers. This allows web servers to be unburdened from costly encryption/decryption overhead. However for some customers unencrypted communication to the backend servers is not an acceptable option. This could be due to security/compliance requirements or the application may only accept secure connection. For such applications, application gateway now supports end to end SSL encryption.
+## <a name="overview"></a>Omówienie
 
-End to end SSL allows you to securely transmit sensitive data to the backend encrypted while availing benefits of Layer 7 load balancing features which application gateway provides, such as cookie affinity, URL-based routing, support for routing based on sites or ability to inject X-Forwarded-* headers.
+Usługa Application Gateway obsługuje przerywanie połączenia SSL na bramie, po którym ruch na ogół płynie niezaszyfrowany do serwerów zaplecza. Umożliwia to odciążenie serwerów sieci Web z nadmiaru kosztownych operacji szyfrowania i odszyfrowywania. Jednak dla niektórych klientów nieszyfrowana komunikacja z serwerami zaplecza jest opcją niemożliwą do zaakceptowania. Może to być spowodowane wymaganiami dotyczącymi zabezpieczeń lub zgodności lub aplikacja może akceptować jedynie bezpieczne połączenia. Na potrzeby takich aplikacji usługa Application Gateway obsługuje teraz kompleksowe szyfrowanie SSL.
 
-When configured with end to end SSL communication mode, application gateway terminates user SSL sessions at the gateway and decrypts user traffic. It then applies the configured rules to select an appropriate backend pool instance to route traffic to. Application gateway then initiates a new SSL connection to the backend server and re-encrypts data using backend server's public key certificate before transmitting request to the backend. End to end SSL is enabled by setting protocol setting in BackendHTTPSetting to Https, which is then applied to a backend pool. Each backend server in the backend pool with end to end SSL enabled must be configured with a certificate to allow secure communication.
+Kompleksowa usługa SSL pozwala na bezpieczne przesyłanie zaszyfrowanych danych poufnych na zaplecze, umożliwiając jednocześnie korzystanie z funkcji równoważenia obciążenia warstwy 7, które oferuje usługa Application Gateway, takich jak koligacja plików cookie, routing oparty na adresach URL, obsługa routingu opartego na witrynach lub możliwość iniekcji nagłówków X-Forwarded-*.
+
+Po skonfigurowaniu kompleksowego trybu komunikacji SSL usługa Application Gateway kończy sesje SSL użytkownika na bramie i odszyfrowuje ruch użytkownika. Następnie stosuje skonfigurowane reguły, aby wybrać odpowiednie wystąpienie puli serwerów zaplecza w celu skierowania do nich ruchu. Następnie usługa Application Gateway inicjuje nowe połączenie SSL z serwerem zaplecza i ponownie szyfruje dane przy użyciu certyfikatu klucza publicznego serwera zaplecza przed przekazaniem żądania do zaplecza. Kompleksową usługę SSL można włączyć, konfigurując dla ustawienia protokołu BackendHTTPSetting wartość HTTP, co jest następnie stosowane do puli zaplecza. Każdy serwer zaplecza w puli zaplecza z włączoną kompleksową usługą SSL należy skonfigurować przy użyciu certyfikatu, aby umożliwić bezpieczną komunikację.
 
 ![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
 
-In this example, requests for https://contoso.com can be routed to ContosoServerPool over HTTP, and https://fabrikam.com will be routed to FabrikamServerPool over HTTPS using end to end SSL.
+W tym przykładzie żądania dla adresu https://contoso.com mogą być kierowane do puli ContosoServerPool za pośrednictwem protokołu HTTP, a dla adresu https://fabrikam.com będą kierowane do puli FabrikamServerPool za pośrednictwem protokołu HTTPS przy użyciu kompleksowej usługi SSL.
 
-## End to end SSL and white listing of certificates
+## <a name="end-to-end-ssl-and-white-listing-of-certificates"></a>Kompleksowa usługa SSL i lista dozwolonych certyfikatów
 
-Application gateway only communicates with known backend instances, which have whitelisted their certificate with the application gateway. To enable whitelisting of certificates, you must upload the public key of backend server certificates to the application gateway. Only connections to known and white listed backend is then allowed and remaining result in a gateway error. Self-signed certificates are for test purposes only and not recommended for production workloads. Such certificates must also be white listed with the application gateway as described above before they can be used.
+Usługa Application Gateway komunikuje się tylko ze znanymi wystąpieniami zaplecza, których certyfikaty znajdują się na liście dozwolonych certyfikatów tej usługi. Aby włączyć listę dozwolonych certyfikatów, należy przekazać klucz publiczny certyfikatów serwera zaplecza do usługi Application Gateway. W takim przypadku możliwe będą tylko połączenia do znanych zapleczy, które znajdują się na liście dozwolonych, a pozostałe zakończą się błędem bramy. Certyfikaty z podpisem własnym są przeznaczone tylko do celów testowych i nie są zalecane dla obciążeń w środowisku produkcyjnym. Takie certyfikaty także muszą zostać umieszczone na liście dozwolonych usługi Application Gateway, jak opisano powyżej, zanim będzie można ich użyć.
 
-## Application Gateway SSL Policy
+## <a name="application-gateway-ssl-policy"></a>Zasady SSL usługi Application Gateway
 
-Application gateway also supports user configurable SSL negotiation policies, which allow customers finer grained control over SSL connections at the application gateway.
+Usługa Application Gateway obsługuje również zasady negocjacji protokołu SSL konfigurowane przez użytkownika, które umożliwiają bardziej szczegółową kontrolę klienta nad połączeniami SSL na bramie aplikacji.
 
-1. SSL 2.0 and 3.0 are forced disabled for all Application Gateways. They are not configurable at all.
-2. SSL policy definition gives you option to disable any of the following 3 protocols - TLSv1_0, TLSv1_1, TLSv1_2.
-3. If no SSL policy is defined all three (TLSv1_0, TLSv1_1, TLSv1_2) would be enabled.
+1. Protokoły SSL 2.0 i 3.0 są przymusowo wyłączane dla wszystkich bram aplikacji. Nie są one w ogóle konfigurowane.
+2. Definicja zasad SSL udostępnia opcję wyłączenia każdego z następujących trzech protokołów: TLS 1_0, TLS 1_1, TLS 1_2.
+3. Jeśli żadna zasada SSL nie zostanie zdefiniowana, wszystkie trzy protokoły (TLS 1_0, TLS 1_1, TLS 1_2) będą włączone.
 
-## Next steps
+## <a name="next-steps"></a>Następne kroki
 
-After learning about end to end SSL and SSL policy, go to [enable end to end SSL on application gateway](application-gateway-end-to-end-ssl-powershell.md) to create an application gateway with ability to send traffic to backend in encrypted form.
+Po zapoznaniu się z kompleksową usługą SSL i zasadami SSL zapoznaj się z informacjami dotyczącymi [włączania kompleksowej usługi SSL na bramie aplikacji](application-gateway-end-to-end-ssl-powershell.md), aby utworzyć bramę aplikacji z funkcją wysyłania ruchu do serwera zaplecza w postaci zaszyfrowanej.
+
+
+
+<!--HONumber=Oct16_HO3-->
+
+

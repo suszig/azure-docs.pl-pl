@@ -3,7 +3,7 @@
     description="W tym artykule przedstawiono podejście i proces dla organizacji rozważających wdrożenie usługi Azure Data Catalog, w tym definiowanie wizji, identyfikowanie najważniejszych przypadków użycia biznesowego i wybór projektu pilotażowego."
     services="data-catalog"
     documentationCenter=""
-    authors="spelluru"
+    authors="steelanddata"
     manager="NA"
     editor=""
     tags=""/>
@@ -13,30 +13,30 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-catalog"
-    ms.date="07/25/2016"
-    ms.author="spelluru"/>
+    ms.date="10/11/2016"
+    ms.author="maroche"/>
 
 
 # Wdrażanie usługi Azure Data Catalog
-Ten artykuł pomoże rozpocząć wdrażanie usługi **Azure Data Catalog ** w organizacji. Aby pomyślnie wdrożyć usługę **Azure Data Catalog**, należy skoncentrować się na trzech kluczowych elementach: zdefiniowanie wizji, zidentyfikowanie najważniejszych przypadków użycia biznesowego w ramach organizacji i wybór projektu pilotażowego.
+Ten artykuł ułatwia rozpoczęcie wdrażania usługi **Azure Data Catalog** w organizacji. Aby pomyślnie wdrożyć usługę **Azure Data Catalog**, należy skoncentrować się na trzech kluczowych elementach — zdefiniowaniu wizji, zidentyfikowaniu najważniejszych przypadków użycia biznesowego w ramach organizacji i wyborze projektu pilotażowego.
 
 ## Wprowadzenie do usługi Azure Data Catalog
-W świecie pracy oczekiwania ludzi odnośnie sposobu, w jaki powinni móc znajdować specjalistyczne informacje o zasobach danych, zmieniły się. Powszechne wykorzystywanie w miejscach pracy narzędzi mediów społecznościowych, takich jak Yammer, sprawia, że pracownicy oczekują możliwości szybkiego uzyskania pomocy i porad w szerokim zakresie tematów. Usługa **Azure Data Catalog** pomaga firmom i zespołom skonsolidować informacje o zasobach danych przedsiębiorstwa w centralnym repozytorium, w którym konsumenci danych mogą odnaleźć dostępne źródła danych i uzyskać wiedzę zamieszczaną przez ekspertów z danej dziedziny.
+Użytkownicy oczekują dziś zupełnie innych możliwości dostępu do specjalistycznych informacji o zasobach danych w środowisku pracy. Powszechne wykorzystywanie w miejscach pracy narzędzi mediów społecznościowych, takich jak Yammer, sprawia, że pracownicy oczekują możliwości szybkiego uzyskania pomocy i porad w szerokim zakresie tematów. Usługa **Azure Data Catalog** pomaga firmom i zespołom skonsolidować informacje o zasobach danych przedsiębiorstwa w centralnym repozytorium, w którym konsumenci danych mogą odnaleźć dostępne źródła danych i uzyskać wiedzę zamieszczaną przez ekspertów z danej dziedziny.
 
-W tym artykule przedstawiono podejście do rozpoczynania pracy z usługą **Azure Data Catalog**. W artykule opisano typowy plan wdrożenia usługi Azure Data Catalog dla fikcyjnej firmy o nazwie Adventure Works.
+W tym artykule przedstawiono sposób rozpoczynania pracy z usługą **Azure Data Catalog**. W artykule opisano typowy plan wdrożenia usługi Azure Data Catalog dla fikcyjnej firmy o nazwie Adventure Works.
 
 **Co to jest usługa Azure Data Catalog?**
 
-**Azure Data Catalog** to w pełni zarządzana usługa na platformie Azure oraz wykaz informacji (metadanych) całego przedsiębiorstwa umożliwiający samodzielne odnajdywanie źródeł danych. Za pomocą usługi Data Catalog można rejestrować zasoby danych, odnajdywać je, dodawać do nich adnotacje i łączyć się z nimi. Usługa Data Catalog jest przeznaczona do zarządzania różnorodnymi zasobami informacji, aby były łatwe do odnalezienia, umożliwiając użytkownikom zrozumienie znalezionych zasobów danych i łączenie się z tymi zasobami, skracając czas potrzebny na uzyskanie wglądu i zwiększając wydajność pracy w organizacji. Aby dowiedzieć się więcej, zobacz stronę usługi [Microsoft Azure Data Catalog](https://azure.microsoft.com/services/data-catalog/).
+**Azure Data Catalog** to w pełni zarządzana usługa na platformie Azure oraz wykaz informacji (metadanych) całego przedsiębiorstwa umożliwiający samodzielne odnajdywanie źródeł danych. Za pomocą usługi Data Catalog można rejestrować zasoby danych, odnajdywać je, dodawać do nich adnotacje i łączyć się z nimi. Usługa Data Catalog jest przeznaczona do zarządzania różnorodnymi zasobami informacji, ułatwiając ich znajdowanie, umożliwiając użytkownikom zrozumienie znalezionych zasobów danych i nawiązywanie połączenia z tymi zasobami, skracając czas potrzebny na analizę danych oraz zwiększając korzyści dla organizacji. Aby dowiedzieć się więcej, zobacz stronę usługi [Microsoft Azure Data Catalog](https://azure.microsoft.com/services/data-catalog/).
 
 ## Plan wdrożenia usługi Azure Data Catalog
-Plan wdrożenia usługi **Azure Data Catalog** opisuje sposób, w jaki korzyści z używania usługi Data Catalog zostaną zakomunikowane uczestnikom projektu i użytkownikom, jak również jakiego rodzaju szkolenie zostanie zapewnione użytkownikom usługi. Jednym z kluczowych czynników dla powodzenia wdrożenia usługi Data Catalog jest to, jak skutecznie przedstawisz zalety i wartość usługi użytkownikom oraz uczestnikom projektu. Głównymi odbiorcami we wstępnym planie wdrożenia są użytkownicy usługi. Bez względu na to, jak wiele poparcia otrzymasz od uczestników projektu, jeśli użytkownicy lub klienci Twojej oferty usługi Data Catalog nie będą z niej korzystać, wdrożenie zakończy się niepowodzeniem. W związku z tym w niniejszym artykule przyjęto założenie, że masz pełne zaangażowanie uczestników projektu, i skoncentrowano się na tworzeniu planu przyjęcia usługi Data Catalog przez użytkowników.
+Plan wdrożenia usługi **Azure Data Catalog** opisuje sposób, w jaki korzyści z używania usługi Data Catalog są komunikowane uczestnikom projektu i użytkownikom, jak również jakiego rodzaju szkolenia są zapewniane użytkownikom usługi. Jednym z kluczowych czynników dla powodzenia wdrożenia usługi Data Catalog jest to, jak skutecznie przedstawisz zalety i wartość usługi użytkownikom oraz uczestnikom projektu. Głównymi odbiorcami we wstępnym planie wdrożenia są użytkownicy usługi. Bez względu na to, jak wiele poparcia otrzymasz od uczestników projektu, jeśli użytkownicy lub klienci Twojej oferty usługi Data Catalog nie będą z niej korzystać, wdrożenie zakończy się niepowodzeniem. W związku z tym w niniejszym artykule przyjęto założenie, że uczestnicy projektu są w pełni zaangażowani, i skoncentrowano się na tworzeniu planu przyjęcia usługi Data Catalog przez użytkowników.
 Skuteczny plan wdrożenia pomyślnie angażuje użytkowników i uczestników projektu w możliwości usługi Data Catalog i przekazuje im informacje oraz wskazówki dotyczące wykorzystania tych możliwości. Użytkownicy muszą zrozumieć wartość usługi Data Catalog oraz to, jak ułatwi im pracę i lepsze wykonywanie zadań. Gdy zobaczą, że usługa Data Catalog może pomóc im uzyskać lepsze wyniki w pracy z danymi, korzyści z wdrożenia tej usługi staną się oczywiste. Zmiana jest trudna, więc efektywny plan musi brać pod uwagę wyzwania z nią związane.
 
 Plan wdrożenia pomaga przekazać użytkownikom informacje, które mają kluczowe znaczenie dla osiągnięcia przez nich sukcesu i założonych celów. Typowy plan wyjaśnia, jak usługa Data Catalog ułatwi życie użytkownikom, i zawiera następujące elementy:
 
--   **Wizja** — pomoże w zwięzłym omówieniu planu wdrożenia z użytkownikami i uczestnikami projektu. To Twoja krótka prezentacja pomysłu.
--   **Zespół pilotażowy i specjaliści** — uczenie się od zespołu pilotażowego i specjalistów ułatwi dostosowanie sposobu wprowadzenia zespołów i użytkowników do usługi Data Catalog. Specjaliści mogą szkolić użytkowników i współpracowników. Pozwala to również zidentyfikować czynniki blokujące i napędzające wdrożenie.
+-   **Wizja** — pomaga w zwięzłym omówieniu planu wdrożenia z użytkownikami i uczestnikami projektu. To Twoja krótka prezentacja pomysłu.
+-   **Zespół pilotażowy i specjaliści** — uczenie się od zespołu pilotażowego i specjalistów ułatwia dostosowanie sposobu wprowadzenia zespołów i użytkowników do usługi Data Catalog. Specjaliści mogą szkolić użytkowników i współpracowników. Pozwala to również zidentyfikować czynniki blokujące i napędzające wdrożenie.
 -   **Plan komunikacji i rozgłaszania** — ułatwia użytkownikom zrozumienie, w jaki sposób usługa Data Catalog może im pomóc, co sprzyja organicznemu przyjęciu usługi w zespołach, a ostatecznie w całej organizacji.
 -   **Plan szkolenia** — kompleksowe szkolenie zwykle prowadzi do pomyślnego przyjęcia i pozytywnych wyników.
 
@@ -49,15 +49,15 @@ Oto kilka porad ułatwiających zdefiniowanie wizji:
 
 -   **Zidentyfikuj najważniejszy motywator wdrożenia** — pomyśl o konkretnych potrzebach firmy związanych z zarządzaniem źródłami danych, które można zaspokoić dzięki usłudze Data Catalog. Pomaga to również określić najważniejsze korzyści i zalety usługi Data Catalog. Na przykład mogą istnieć wspólne źródła danych, które wszyscy nowi pracownicy muszą poznać i korzystać z nich, a obok nich ważne i złożone źródła danych, które dogłębnie rozumie tylko garstka kluczowych pracowników. Usługa **Azure Data Catalog** może sprawić, że te źródła danych będą łatwe do odnalezienia i zrozumienia, dzięki czemu dobrze znane słabe punkty można wyeliminować bezpośrednio i wcześnie w procesie wdrażania usługi.
 
--   **Przekaz powinien być rzeczowy i przejrzysty** — jasne zrozumienie wizji zapewni wszystkim spójny obraz tego, jakie korzyści usługa Data Catalog oferuje organizacji i jak wizja wspiera cele organizacji.
+-   **Przekaz powinien być rzeczowy i przejrzysty** — jasne zrozumienie wizji zapewnia wszystkim spójny obraz tego, jakie korzyści usługa Data Catalog oferuje organizacji i jak wizja wspiera cele organizacji.
 
 -   **Zainspiruj ludzi, aby chcieli korzystać z usługi Data Catalog** — Twoja wizja i plan komunikacji powinny zachęcać pracowników do uznania usługi Data Catalog za usługę, która ułatwi im znajdowanie źródeł danych i łączenie się z nimi, co pozwoli im lepiej wykorzystywać możliwości danych.
 
--   **Określ konkretne cele i harmonogram** — w ten sposób plan wdrożenia będzie miał wyznaczone konkretne, osiągalne cele do zrealizowania. Harmonogram zapewnia skupienie się na realizacji planu i pozwala zdefiniować punkty kontrolne do oceny sukcesu.
+-   **Określ konkretne cele i harmonogram** — dzięki temu plan wdrożenia będzie obejmował konkretne, osiągalne cele do zrealizowania. Harmonogram zapewnia skupienie się na realizacji planu i pozwala zdefiniować punkty kontrolne do oceny sukcesu.
 
 Poniżej przedstawiono przykładową wizję dla planu wdrożenia usługi Data Catalog w fikcyjnej firmie o nazwie Adventure Works:
 
-Usługa **Azure Data Catalog** umożliwi zespołowi działu finansowego firmy Adventure Works wydajną współpracę nad najważniejszymi źródłami danych, aby każdy członek zespołu mógł łatwo znaleźć potrzebne dane, korzystać z nich i udostępniać swoją wiedzę całemu zespołowi.
+Usługa **Azure Data Catalog** umożliwia zespołowi działu finansowego firmy Adventure Works wydajną współpracę nad najważniejszymi źródłami danych. Dzięki temu każdy członek zespołu będzie mógł łatwo znaleźć potrzebne dane, korzystać z nich i dzielić się swoją wiedzą z całym zespołem.
 
 Po zdefiniowaniu wizji należy zidentyfikować odpowiedni projekt pilotażowy dla usługi Data Catalog. Ogólnie rzecz biorąc, istnieje kilka scenariuszy dotyczących usługi Data Catalog, dlatego w następnej sekcji znajdują się wskazówki pomagające zidentyfikować odpowiednie przypadki użycia.
 
@@ -72,7 +72,7 @@ Poniżej przedstawiono kilka wskazówek dotyczących identyfikowania przypadków
 
 -   **Zdefiniuj problem biznesowy** — jakie problemy dotyczące znajdowania i poznawania zasobów danych napotyka zespół? Na przykład informacje o ważnych źródłach danych mogą znajdować się w skoroszytach programu Excel w folderze sieciowym, a zespół może poświęcać dużo czasu na lokalizowanie tych skoroszytów.
 
--   **Zrozum kulturę zespołu powiązaną ze zmianą** — wiele wyzwań wdrożenia wiąże się z oporem przed zmianą, a nie z implementacją nowego narzędzia. To, jak zespół reaguje na zmianę, jest ważne podczas identyfikowania przypadków użycia, ponieważ istniejący proces może być stosowany, dlatego że „zawsze tak to robiliśmy” lub „jeśli coś nie jest popsute, to po co to naprawiać?”. Wdrażanie nowego narzędzia lub procesu jest zawsze najłatwiejsze, gdy osoby, których dotyczy zmiana, rozumieją korzyści z niej płynące i doceniają wagę problemów, które należy rozwiązać.
+-   **Zrozum kulturę przyjmowania zmian przez zespół** — wiele problemów wdrożeniowych jest spowodowanych oporem przed zmianą, a nie z implementacją nowego narzędzia. To, jak zespół reaguje na zmianę, jest ważne podczas identyfikowania przypadków użycia, ponieważ istniejący proces może być stosowany, dlatego że „zawsze tak to robiliśmy” lub „jeśli coś nie jest popsute, to po co to naprawiać?”. Wdrażanie nowego narzędzia lub procesu jest zawsze najłatwiejsze, gdy osoby, których dotyczy zmiana, rozumieją korzyści z niej płynące i doceniają wagę problemów, które należy rozwiązać.
 
 -   **Skup się na problemach związanych z zasobami danych** — omawiając problemy biznesowe, które napotyka zespół, musisz „przebić się przez gąszcz” i skoncentrować się na tym, co jest istotne dla bardziej efektywnego wykorzystania zasobów danych przedsiębiorstwa.
 
@@ -82,7 +82,7 @@ Oto niektóre przypadki użycia związane z usługą Data Catalog:
 
 -   **Rejestracja centralnych źródeł danych wysokiej wartości** — dział IT zarządza źródłami danych używanymi w organizacji. Dział IT może rozpocząć pracę z usługą Data Catalog poprzez zarejestrowanie wspólnych źródeł danych przedsiębiorstwa i dodanie do nich adnotacji.
 
--   **Rejestracja źródeł danych zespołów** — różne zespoły mają przydatne, biznesowe źródła danych. Rozpocznij pracę z usługą **Azure Data Catalog** poprzez zidentyfikowanie i zarejestrowanie najważniejszych źródeł danych używanych przez wiele różnych zespołów i przechwycenie „plemiennej” wiedzy zespołu w adnotacjach usługi **Azure Data Catalog**.
+-   **Rejestracja źródeł danych zespołów** — różne zespoły mają przydatne źródła danych biznesowych. Rozpocznij pracę z usługą **Azure Data Catalog** poprzez zidentyfikowanie i zarejestrowanie najważniejszych źródeł danych używanych przez wiele różnych zespołów i przechwycenie „plemiennej” wiedzy zespołu w adnotacjach usługi **Azure Data Catalog**.
 
 -   **Samoobsługowa analiza biznesowa** — zespoły poświęcają mnóstwo czasu na łączenie danych z wielu źródeł. Zarejestruj źródła danych i dodaj do nich adnotacje w centralnej lokalizacji, aby wyeliminować proces ręcznego odnajdywania źródeł danych.
 
@@ -91,7 +91,7 @@ To tylko kilka przypadków zastosowań usługi **Azure Data Catalog**. Aby dowie
 Po zidentyfikowaniu niektórych przypadków użycia usługi Data Catalog powinny wyłonić się typowe scenariusze. W następnej sekcji omówiono sposób identyfikowania pierwszego projektu pilotażowego na podstawie przypadku użycia.
 
 ## Wybieranie projektu pilotażowego usługi Data Catalog
-Kluczowe znaczenie dla sukcesu ma uproszczenie i rozpoczęcie od czegoś małego. Dobrze zdefiniowany projekt pilotażowy o ograniczonym zakresie ułatwi posuwanie projektu naprzód bez ryzyka ugrzęźnięcia z powodu projektu zbyt złożonego lub mającego zbyt wielu uczestników. Ważne jest jednak również, aby projekt pilotażowy obejmował różnych użytkowników, od wczesnych entuzjastów po sceptyków. Użytkownicy, którzy przyjęli rozwiązanie, pomogą dostosować przyszły plan komunikacji i rozgłaszania. Sceptycy pomogą zidentyfikować i rozwiązać blokujące problemy. W miarę jak sceptycy staną się mistrzami, możesz wykorzystać ich opinie, aby zidentyfikować czynniki sukcesu.
+Kluczowe znaczenie dla sukcesu ma uproszczenie i rozpoczęcie od czegoś małego. Dobrze zdefiniowany projekt pilotażowy o ograniczonym zakresie ułatwia posuwanie projektu naprzód bez ryzyka ugrzęźnięcia z powodu projektu zbyt złożonego lub mającego zbyt wielu uczestników. Ważne jest jednak również, aby projekt pilotażowy obejmował różnych użytkowników, od wczesnych entuzjastów po sceptyków. Użytkownicy, którzy przyjmują rozwiązanie, pomagają dostosować przyszły plan komunikacji i rozgłaszania. Sceptycy pomagają zidentyfikować i rozwiązać blokujące problemy. W miarę jak sceptycy staną się mistrzami, możesz wykorzystać ich opinie, aby zidentyfikować czynniki sukcesu.
 
 Plan pilotażowy powinien wprowadzać stopniowo cele biznesowe, które chcesz osiągnąć za pomocą usługi Data Catalog. Kiedy zdobędziesz doświadczenie w projekcie pilotażowym, możesz rozszerzyć bazę użytkowników. Wstępny zamknięty projekt pilotażowy jest dobry do ustalenia mierzalnego sukcesu, ale ostatecznym celem jest jego organiczny, naturalny rozwój i rozszerzenie. Dzięki organicznemu rozwojowi usługi Data Catalog użytkownicy mają kontrolę nad wykorzystaniem swoich danych i mogą wpływać na innych, zachęcając ich do przyjęcia wykazu i współtworzenia jego zawartości.
 
@@ -121,7 +121,7 @@ W następnej sekcji opisano przykładowy projekt z firmy Adventure Works.
 ### Przykładowy projekt
 W tym przykładzie Irena, analityczka biznesowa, tworzy raporty dla swojego zespołu przy użyciu danych z bazy danych programu SQL Server. Problem polega na tym, że uzyskała informację o źródle danych dopiero po rozmowie z kilkoma współpracownikami. Szybko znalazłaby te źródła danych, gdyby zostały zarejestrowane i opatrzone adnotacjami w centralnej lokalizacji, takiej jak usługa **Azure Data Catalog**.
 
-Aby zilustrować, jak łatwo Irena i jej zespół mogą znaleźć źródła danych wysokiej wartości, użyj narzędzia rejestracji źródła danych do wypełnienia wykazu informacjami (metadanymi) o źródłach danych. W ten sposób informacje o bazie danych są dostępne dla zespołu i przedsiębiorstwa, a nie tylko kilku osób. Gdy źródła danych są zarejestrowane w usłudze Data Catalog, Irena i jej zespół mogą łatwo odnaleźć źródła danych, z których korzystają. Wynikiem jest bardziej kompleksowy i adekwatny wykaz danych dla jej zespołu i całego przedsiębiorstwa. W miarę jak coraz więcej zespołów zaczyna korzystać z usługi Data Catalog, źródła danych biznesowych stają się łatwiejsze do znalezienia i użycia, umożliwiając wykształcenie kultury skoncentrowanej na danych zapewniającej lepsze ich wykorzystywanie.
+Aby zilustrować, jak łatwo Irena i jej zespół mogą znaleźć źródła danych wysokiej wartości, użyj narzędzia rejestracji źródła danych do wypełnienia wykazu informacjami (metadanymi) o źródłach danych. W ten sposób informacje o bazie danych są dostępne dla zespołu i przedsiębiorstwa, a nie tylko kilku osób. Gdy źródła danych są zarejestrowane w usłudze Data Catalog, Irena i jej zespół mogą łatwo z nich korzystać. Wynikiem jest bardziej kompleksowy i adekwatny wykaz danych dla jej zespołu i całego przedsiębiorstwa. W miarę jak coraz więcej zespołów zaczyna korzystać z usługi Data Catalog, źródła danych biznesowych stają się łatwiejsze do znalezienia i użycia, umożliwiając wykształcenie kultury skoncentrowanej na danych zapewniającej lepsze ich wykorzystywanie.
 
 Aby dowiedzieć się więcej o narzędziu rejestracji źródła danych, zobacz [Rozpoczynanie pracy z usługą Azure Data Catalog](data-catalog-get-started.md).
 
@@ -136,7 +136,7 @@ W tym momencie masz zidentyfikowane przypadki użycia dla usługi Data Catalog i
 
 Oto kilka porad ułatwiających rozpoczęcie pracy:
 
--   **Wzbudź ekscytację** — użytkownicy biznesowi będą podekscytowani, jeśli będą uważali, że usługa **Azure Data Catalog** ułatwi im życie. Spróbuj poprowadzić rozmowę wokół rozwiązania i korzyści, jakie zapewnia, a nie technologii.
+-   **Wzbudź ekscytację** — użytkownicy biznesowi będą podekscytowani, jeśli będą uważali, że usługa **Azure Data Catalog** ułatwia im życie. Spróbuj poprowadzić rozmowę wokół rozwiązania i korzyści, jakie zapewnia, a nie technologii.
 
 -   **Ułatw zmianę** — zacznij od czegoś małego i przedstaw plan użytkownikom biznesowym. Kluczowe znaczenie dla osiągnięcia sukcesu ma zaangażowanie użytkowników od samego początku, aby mieli wpływ na wynik i poczuli się w pewnym sensie właścicielami rozwiązania.
 
@@ -153,7 +153,7 @@ Ustalenie oczekiwań i celów ułatwia użytkownikom biznesowym skupienie się n
 
 Spotykaj się z zespołem regularnie w celu przejrzenia niektórych z adnotacji. Dobre adnotacje dotyczące źródeł danych są bardzo ważne dla pomyślnego wdrożenia i przyjęcia usługi Data Catalog, ponieważ zapewniają wgląd w źródła istotnych danych w centralnej lokalizacji. Bez dobrych adnotacji wiedza na temat źródeł danych pozostaje rozproszona w całym przedsiębiorstwie. Zobacz [Jak dodawać adnotacje do źródeł danych](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
 
-Oczywiście ostatecznym testem projektu jest to, czy użytkownicy mogą odnaleźć i zrozumieć użycie źródeł danych, które są im potrzebne. Użytkownicy pilotażowi powinni regularnie testować wykaz w celu upewnienia się, że źródła danych, których używają w codziennej pracy, są odpowiednie. Gdy brak wymaganego źródła danych lub nie ma ono poprawnych adnotacji, powinno to być przypomnieniem o konieczności zarejestrowania dodatkowych źródeł danych lub udostępnienia dodatkowych adnotacji. Taka praktyka nie tylko zwiększy wartość pracy zespołu pilotażowego, ale stworzy również obowiązujące zwyczaje, które przeniosą się do innych zespołów po zakończeniu projektu pilotażowego.
+Oczywiście ostatecznym testem projektu jest to, czy użytkownicy mogą odnaleźć i zrozumieć użycie źródeł danych, które są im potrzebne. Użytkownicy pilotażowi powinni regularnie testować wykaz w celu upewnienia się, że źródła danych, których używają w codziennej pracy, są odpowiednie. Gdy brak wymaganego źródła danych lub nie ma ono poprawnych adnotacji, powinno to być przypomnieniem o konieczności zarejestrowania dodatkowych źródeł danych lub udostępnienia dodatkowych adnotacji. Taka praktyka nie tylko zwiększa wartość pracy zespołu pilotażowego, ale sprzyja wytwarzaniu się odpowiednich nawyków, które przeniosą się do innych zespołów po ukończeniu projektu pilotażowego.
 
 ### Zapewnianie szkolenia
 Szkolenie powinno wystarczyć użytkownikom do rozpoczęcia pracy i być dostosowane do określonych celów oraz doświadczenia członków zespołu pilotażowego. Aby rozpocząć szkolenie, możesz wykonać czynności opisane w artykule [Rozpoczynanie pracy z usługą Azure Data Catalog](data-catalog-get-started.md). Ponadto możesz pobrać [prezentację szkolenia dotyczącego projektu pilotażowego usługi Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-dotnet-get-started/blob/master/Azure%20Data%20Catalog%20Training.pptx?raw=true). Ta prezentacja programu PowerPoint powinna ułatwić rozpoczęcie szkolenia wprowadzającego członków zespołu pilotażowego do usługi Data Catalog.
@@ -176,6 +176,6 @@ W tym artykule omówiono rozpoczynanie pracy z usługą **Azure Data Catalog** w
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

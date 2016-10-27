@@ -13,11 +13,11 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="09/19/2016"
+    ms.date="10/12/2016"
     ms.author="juliako;anilmur"/>
 
 
-#Przegląd usługi Azure Media Services i typowe scenariusze
+#<a name="azure-media-services-overview-and-common-scenarios"></a>Przegląd usługi Azure Media Services i typowe scenariusze
 
 Microsoft Azure Media Services to oparta na chmurze rozszerzona platforma, która umożliwia deweloperom tworzenie skalowalnych aplikacji do dostarczania multimediów i zarządzania nimi. Usługa Media Services są oparte na interfejsach API REST, które umożliwiają bezpieczne przekazywanie, przechowywanie, kodowanie i tworzenie pakietów zawartości wideo lub audio na potrzeby dostarczania transmisji strumieniowej na żądanie i na żywo do różnych klientów (np. odbiorników TV, komputerów PC i urządzeń przenośnych).
 
@@ -25,7 +25,7 @@ Korzystając wyłącznie z usługi Media Services, można tworzyć kompleksowe p
 
 Możliwe jest przesłanie strumieniowe zawartości na żywo lub dostarczanie zawartości na żądanie. W tym temacie przedstawiono typowe scenariusze dostarczania zawartości [na żywo](media-services-overview.md#live_scenarios) lub [na żądanie](media-services-overview.md#vod_scenarios). Temat zawiera także linki do innych powiązanych tematów.
 
-## Zestawy SDK i narzędzia
+## <a name="sdks-and-tools"></a>Zestawy SDK i narzędzia
 
 W celu tworzenia rozwiązań Media Services można użyć następujących elementów:
 
@@ -36,41 +36,41 @@ W celu tworzenia rozwiązań Media Services można użyć następujących elemen
 - [Zestaw Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
 - [Azure Media Services dla środowiska Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Jest to wersja zestawu Node.js SDK firmy innej niż Microsoft. Jest ona opracowywana przez społeczność i aktualnie nie obsługuje 100% interfejsów API usług AMS.)
 - Istniejące narzędzia:
-- [klasyczny portal Azure](http://manage.windowsazure.com/)
+- [Azure Portal](https://portal.azure.com/)
 - [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) to aplikacja Winforms/C# dla systemu Windows)
 
-##Ścieżki szkoleniowe dotyczące usługi Media Services
+##<a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 
 Ścieżki szkoleniowe dotyczące usługi AMS można zobaczyć tutaj:
 
-- [Przepływ pracy transmisji strumieniowej na żywo usług AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Przepływ pracy transmisji strumieniowej na żywo usługi AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Przepływ pracy transmisji strumieniowej na żądanie usługi AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-##Wymagania wstępne
+##<a name="prerequisites"></a>Wymagania wstępne
 
 Do rozpoczęcia korzystania z usługi Azure Media Services potrzebne są:
 
 3. Konto platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com).
-2. Konto usługi Azure Media Services. Aby utworzyć konto usługi Azure Media Services, użyj klasycznego portalu Azure, platformy .NET lub interfejsu API REST. Aby uzyskać więcej informacji, zobacz temat [Tworzenie konta](media-services-create-account.md).
+2. Konto usługi Azure Media Services. Aby utworzyć konto usługi Azure Media Services, użyj witryny Azure Portal, platformy .NET lub interfejsu API REST. Aby uzyskać więcej informacji, zobacz temat [Tworzenie konta](media-services-portal-create-account.md).
 3. (Opcjonalnie) Konfigurowanie środowiska deweloperskiego. Wybierz platformę .NET lub interfejs API REST dla środowiska deweloperskiego. Aby uzyskać więcej informacji, zobacz temat [Konfigurowanie środowiska](media-services-dotnet-how-to-use.md).
 
 Poznaj także sposób programowego ustanawiania połączenia przedstawiony w temacie [Nawiązywanie połączenia](media-services-dotnet-connect-programmatically.md).
 4. (Zalecane) Przydziel co najmniej jedną jednostkę skalowania. Zalecane jest przydzielenie co najmniej jednej jednostki skalowania dla aplikacji w środowisku produkcyjnym.   Aby uzyskać więcej informacji, zobacz temat [Zarządzanie punktami końcowymi przesyłania strumieniowego](media-services-portal-manage-streaming-endpoints.md).
 
-##Pojęcia i omówienie
+##<a name="concepts-and-overview"></a>Pojęcia i omówienie
 
 Pojęcia związane z usługą Azure Media Services zostały przedstawione w temacie [Pojęcia](media-services-concepts.md).
 
 Serię poradników ułatwiających rozpoczęcie pracy z wszystkimi głównymi składnikami usługi Azure Media Services można znaleźć na stronie [Azure Media Services Step-by-Step tutorials](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series) (Usługa Azure Media Services — samouczki krok po kroku). Seria zawiera wszechstronne omówienie pojęć i przedstawia zadania AMS przy użyciu narzędzia AMSE. Należy pamiętać, że narzędzie AMSE to narzędzie systemu Windows. To narzędzie obsługuje większość zadań, które można wykonać programowo przy użyciu zestawów [AMS SDK dla platformy .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK dla języka Java](https://github.com/Azure/azure-sdk-for-java) lub [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
-##<a id="vod_scenarios"></a>Dostarczanie multimediów na żądanie za pomocą usługi Azure Media Services: typowe scenariusze i zadania
+##<a name="<a-id="vod_scenarios"></a>delivering-media-on-demand-with-azure-media-services:-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Dostarczanie multimediów na żądanie za pomocą usługi Azure Media Services: typowe scenariusze i zadania
 
 W tej sekcji opisano typowe scenariusze oraz udostępniono linki do powiązanych tematów. Na poniższym diagramie przedstawiono główne elementy platformy Media Services, które biorą udział w dostarczaniu zawartości na żądanie. 
 
 ![Wideo na żądanie — przepływ pracy](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 
-###Ochrona zawartości w magazynie i dostarczanie multimediów strumieniowych w formie niezaszyfrowanej
+###<a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-(non-encrypted)"></a>Ochrona zawartości w magazynie i dostarczanie multimediów strumieniowych w formie niezaszyfrowanej
 
 1. Przekaż wysokiej jakości plik mezzanine do elementu zawartości.
     
@@ -90,7 +90,7 @@ W tej sekcji opisano typowe scenariusze oraz udostępniono linki do powiązanych
 
 1. Prześlij strumieniowo opublikowaną zawartość.
 
-###Ochrona zawartości w magazynie i dostarczanie dynamicznie szyfrowanych multimediów strumieniowych  
+###<a name="protect-content-in-storage,-deliver-dynamically-encrypted-streaming-media"></a>Ochrona zawartości w magazynie i dostarczanie dynamicznie szyfrowanych multimediów strumieniowych  
 
 Aby można było korzystać z dynamicznego szyfrowania, należy najpierw pobrać co najmniej jedną jednostkę zarezerwowanego przesyłania strumieniowego w punkcie końcowym przesyłania strumieniowego, z którego ma być przesyłana strumieniowo zaszyfrowana zawartość.
 
@@ -102,7 +102,7 @@ Aby można było korzystać z dynamicznego szyfrowania, należy najpierw pobrać
 1. Opublikuj element zawartości, tworząc lokalizator OnDemand.
 1. Prześlij strumieniowo opublikowaną zawartość. 
 
-###Korzystanie z Analizy multimediów w celu uzyskania przydatnych wyników analiz na podstawie danych wideo 
+###<a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>Korzystanie z Analizy multimediów w celu uzyskania przydatnych wyników analiz na podstawie danych wideo 
 
 Analiza multimediów to kolekcja składników mowy i obrazu, które ułatwiają organizacjom i przedsiębiorstwom uzyskiwanie przydatnych wyników analiz na podstawie posiadanych plików wideo. Aby uzyskać więcej informacji, zobacz temat [Przegląd analiz usługi Azure Media Services](media-services-analytics-overview.md).
 
@@ -117,7 +117,7 @@ Analiza multimediów to kolekcja składników mowy i obrazu, które ułatwiają 
 3. Procesory multimediów usługi Analiza multimediów tworzą pliki MP4 lub JSON. Plik MP4 utworzony przez procesor multimediów można pobrać progresywnie. Plik JSON utworzony przez procesor multimediów można pobrać z magazynu Azure Blob Storage. 
 
 
-###Dostarczanie pobierania progresywnego 
+###<a name="deliver-progressive-download"></a>Dostarczanie pobierania progresywnego 
 
 1. Przekaż wysokiej jakości plik mezzanine do elementu zawartości.
 1. Wykonaj kodowanie do pojedynczego pliku MP4.
@@ -129,7 +129,7 @@ Analiza multimediów to kolekcja składników mowy i obrazu, które ułatwiają 
   
 1. Pobierz progresywnie zawartość.
 
-##<a id="live_scenarios"></a>Dostarczanie wydarzeń transmisji strumieniowej na żywo za pośrednictwem usługi Azure Media Services
+##<a name="<a-id="live_scenarios"></a>delivering-live-streaming-events-with-azure-media-services"></a><a id="live_scenarios"></a>Dostarczanie wydarzeń transmisji strumieniowej na żywo za pośrednictwem usługi Azure Media Services
 
 W przypadku realizowania transmisji strumieniowej na żywo zwykle wymagane są następujące elementy:
 
@@ -161,7 +161,7 @@ W usłudze Azure Media Services **kanały**, **programy**, i **punkty końcowe p
 - Lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów do kanału obsługującego kodowanie na żywo za pomocą usługi Media Services w jednym z następujących formatów: RTP (MPEG TS), RTMP lub Smooth Streaming (pofragmentowany plik MP4). Kanał wykonuje następnie kodowanie na żywo przychodzącego strumienia o pojedynczej szybkości transmisji bitów do postaci strumienia wideo o różnych szybkościach transmisji bitów (adaptacyjnej szybkości transmisji bitów). Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
 
 
-###Praca z kanałami odbierającymi strumień na żywo o różnych szybkościach transmisji bitów z koderów lokalnych (przekazujących)
+###<a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-(pass-through)"></a>Praca z kanałami odbierającymi strumień na żywo o różnych szybkościach transmisji bitów z koderów lokalnych (przekazujących)
 
 Na poniższym diagramie przedstawiono główne elementy platformy AMS, które są zaangażowane w przepływ pracy **przekazywania**.
 
@@ -169,7 +169,7 @@ Na poniższym diagramie przedstawiono główne elementy platformy AMS, które s�
 
 Aby uzyskać więcej informacji, zobacz temat [Praca z kanałami odbierającymi strumień na żywo o różnych szybkościach transmisji bitów z koderów lokalnych](media-services-live-streaming-with-onprem-encoders.md).
 
-###Praca z kanałami obsługującymi kodowanie na żywo za pomocą usługi Azure Media Services
+###<a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Praca z kanałami obsługującymi kodowanie na żywo za pomocą usługi Azure Media Services
 
 Na poniższym diagramie przedstawiono główne elementy platformy AMS biorące udział w przepływie pracy transmisji strumieniowej na żywo, gdy kanał obsługuje kodowanie na żywo za pomocą usługi Media Services.
 
@@ -178,17 +178,17 @@ Na poniższym diagramie przedstawiono główne elementy platformy AMS biorące u
 Aby uzyskać więcej informacji, zobacz temat [Praca z kanałami obsługującymi funkcję Live Encoding w usłudze Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 
-##Korzystanie z zawartości
+##<a name="consuming-content"></a>Korzystanie z zawartości
 
 Usługa Azure Media Services udostępnia narzędzia potrzebne do tworzenia zaawansowanych, dynamicznych aplikacji klienckich odtwarzacza dla większości platform, takich jak: urządzenia z systemem iOS, urządzenia z systemem Android, urządzenia z systemem Windows, telefony z systemem Windows Phone, konsole Xbox i dekodery. Poniższy temat zawiera linki do zestawów SDK oraz struktur odtwarzaczy, których można użyć do opracowywania własnych aplikacji klienckich korzystających z multimediów strumieniowych dostarczanych przez usługę Media Services.
 
-[Opracowywanie aplikacji odtwarzacza wideo](media-services-develop-video-players.md)
+[Programowanie aplikacji odtwarzacza wideo](media-services-develop-video-players.md)
 
-##Włączanie usługi Azure CDN
+##<a name="enabling-azure-cdn"></a>Włączanie usługi Azure CDN
 
 Usługa Media Services obsługuje integrację z usługą Azure CDN. Aby uzyskać informacje o sposobie włączania usługi Azure CDN, zobacz temat [Zarządzanie punktami końcowymi przesyłania strumieniowego na koncie usługi Media Services](media-services-portal-manage-streaming-endpoints.md).
 
-##Skalowanie konta usługi Media Services
+##<a name="scaling-a-media-services-account"></a>Skalowanie konta usługi Media Services
 
 Możesz skalować usługę **Media Services**, określając liczbę **jednostek zarezerwowanego przesyłania strumieniowego** i **jednostek zarezerwowanych do celów związanych z kodowaniem** obsługiwanych przez konto.
 
@@ -196,15 +196,15 @@ Możliwe jest także skalowanie konta usługi Media Services przez dodanie do ni
 
 [Ten](media-services-portal-scale-streaming-endpoints.md) temat zawiera linki do powiązanych tematów.
 
-##Pomoc techniczna
+##<a name="support"></a>Pomoc techniczna
 
 [Pomoc techniczna platformy Azure](https://azure.microsoft.com/support/options/) zapewnia opcje wsparcia technicznego dla platformy Azure, w tym dla usługi Media Services.
 
-##Przekazywanie opinii
+##<a name="provide-feedback"></a>Przekazywanie opinii
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-##Umowa dotycząca poziomu usług (SLA)
+##<a name="service-level-agreement-(sla)"></a>Umowa dotycząca poziomu usług (SLA)
 
 - W przypadku usługi Media Services Encoding gwarantujemy dostępność transakcji interfejsu API REST na poziomie 99,9%.
 - W zakresie transmisji strumieniowej zapewniamy pomyślną obsługę żądań z gwarancją dostępności na poziomie 99,9% dla istniejącej zawartości multimedialnej w przypadku zakupu co najmniej jednej jednostki przesyłania strumieniowego.
@@ -223,6 +223,6 @@ Aby uzyskać więcej informacji, zobacz temat [Umowy dotyczące poziomu usług p
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

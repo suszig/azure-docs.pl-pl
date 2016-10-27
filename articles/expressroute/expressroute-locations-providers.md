@@ -12,15 +12,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/20/2016"
+   ms.date="10/12/2016"
    ms.author="cherylmc" />
 
 
-# Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
+# <a name="expressroute-partners-and-peering-locations"></a>Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
 
 Tabele w tym artykule zawierają informacje dotyczące dostawców połączenia ExpressRoute, zasięgu geograficznego usługi ExpressRoute, usług w chmurze firmy Microsoft obsługiwanych za pośrednictwem usługi ExpressRoute oraz integratorów systemowych ExpressRoute (SI).
 
-## <a name="partners"></a>Dostawcy połączenia usługi ExpressRoute
+## <a name="<a-name="partners"></a>expressroute-connectivity-providers"></a><a name="partners"></a>Dostawcy połączenia usługi ExpressRoute
 
 Usługa ExpressRoute jest obsługiwana we wszystkich regionach i lokalizacjach świadczenia usługi Azure. Poniższa mapa zawiera listę regionów świadczenia usługi Azure i lokalizacji usługi ExpressRoute. Lokalizacje usługi ExpressRoute to te, w których firma Microsoft prowadzi komunikację równorzędną z kilkoma dostawcami usług.
 
@@ -28,7 +28,7 @@ Usługa ExpressRoute jest obsługiwana we wszystkich regionach i lokalizacjach �
 
 Będziesz mieć dostęp do usług Azure we wszystkich regionach regionu geopolitycznego, jeśli połączysz się przynajmniej z jedną lokalizacją usługi ExpressRoute w tym regionie. Poniższa tabela zawiera mapę regionów świadczenia usługi Azure dla lokalizacji usługi ExpressRoute w regionie geopolitycznym.
 
-|**Region geopolityczny**|**Regiony świadczenia usługi Azure**|**Lokalizacje usługi ExpressRoute**|
+|**Region geopolityczny**|**Regiony platformy Azure**|**Lokalizacje usługi ExpressRoute**|
 |---|---|---|
 |**Ameryka Północna**|Wschodnie stany USA, Zachodnie stany USA, Wschodnie stany USA 2, Środkowe stany USA, Południowo-środkowe stany USA, Północno-środkowe stany USA, Kanada Środkowa, Kanada Wschodnia|Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, Nowy Jork, Seattle, Dolina Krzemowa, Waszyngton, Montreal+, Miasto Quebec+, Toronto|
 |**Ameryka Południowa**|Brazylia Południowa|Sao Paulo|
@@ -42,23 +42,23 @@ Będziesz mieć dostęp do usług Azure we wszystkich regionach regionu geopolit
 
 W poniższej tabeli zamieszczono informacje o regionach i granicach geopolitycznych chmur krajowych.
 
-|**Region geopolityczny**|**Regiony świadczenia usługi Azure**|**Lokalizacje usługi ExpressRoute**|
+|**Region geopolityczny**|**Regiony platformy Azure**|**Lokalizacje usługi ExpressRoute**|
 |---|---|---|---|
 |**Chmura administracji USA**|Administracja USA — Iowa, Administracja USA — Wirginia|Chicago, Dallas, Nowy Jork, Waszyngton|
 |**Chiny**|Chiny Północne, Chiny Wschodnie|Pekin, Szanghaj|
-|**Niemcy**|Niemcy Środkowe, Niemcy Wschodnie|Berlin+, Frankfurt|
+|**Niemcy**|Niemcy Środkowe, Niemcy Wschodnie|Berlin, Frankfurt|
 
 
 Łączność między regionami geopolitycznymi nie jest obsługiwana w standardowej jednostce SKU usługi ExpressRoute. Do obsługi połączeń globalnych trzeba włączyć dodatek Premium usługi ExpressRoute. Łączność z krajowymi środowiskami chmury nie jest obsługiwana. W razie potrzeby można współpracować z dostawcą połączenia.
 
 
-## Lokalizacje dostawcy połączenia
+## <a name="connectivity-provider-locations"></a>Lokalizacje dostawcy połączenia
 
 > [AZURE.SELECTOR]
 [Lokalizacje wg dostawcy](expressroute-locations.md#connectivity-provider-locations)
 [Dostawcy wg lokalizacji](expressroute-locations-providers.md#connectivity-provider-locations)
 
-### Środowisko produkcyjne Azure
+### <a name="production-azure"></a>Środowisko produkcyjne Azure
 | **Lokalizacja**  | **Dostawcy usług** |
 |---------------|-----------------------|
 | **Amsterdam** | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT+, InterCloud, Internet Solutions — Cloud Connect, Interxion, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
@@ -71,7 +71,7 @@ W poniższej tabeli zamieszczono informacje o regionach i granicach geopolityczn
 | **Londyn** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions — Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
 | **Las Vegas** | Level 3 Communications+, Megaport
 | **Los Angeles** | CoreSite, Equinix, Megaport, NTT, Zayo Group |
-| **Melbourne** | Equinix, Megaport, NEXTDC, Telstra Corporation |
+| **Melbourne** | AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **Nowy Jork** | Equinix, Megaport, Zayo Group |
 | **Montreal** | Cologix+ |
 | **Mumbaj** | Tata Communications |
@@ -81,16 +81,16 @@ W poniższej tabeli zamieszczono informacje o regionach i granicach geopolityczn
 | **Seattle** | Equinix, Level 3 Communications, Megaport |
 | **Dolina Krzemowa** | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **Singapur** | Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, Orange, SingTel, Tata Communications, Verizon |
-| **Sydney** | AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
+| **Sydney** | AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tokio** | Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
 | **Toronto** | Cologix, Equinix, Zayo Group |
 | **Waszyngton** | Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
 
  **+** oznacza wkrótce
 
-### Krajowe środowiska chmury
+### <a name="national-cloud-environments"></a>Krajowe środowiska chmury
 
-#### Chmura administracji USA
+#### <a name="us-government-cloud"></a>Chmura administracji USA
 
 | **Lokalizacja**  |**Dostawcy usług** |
 |---------------|--------------------|
@@ -99,7 +99,7 @@ W poniższej tabeli zamieszczono informacje o regionach i granicach geopolityczn
 | **Nowy Jork** | Equinix, Level 3 Communications+, Verizon |
 | **Waszyngton** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
-#### Chiny
+#### <a name="china"></a>Chiny
 
 | **Lokalizacja**  | **Dostawcy usług** |
 |---------------|-----------------------|
@@ -107,14 +107,14 @@ W poniższej tabeli zamieszczono informacje o regionach i granicach geopolityczn
 | **Szanghaj** |  China Telecom |
 Więcej informacji znajduje się w artykule [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/) (Usługa ExpressRoute w Chinach)
 
-#### Niemcy
+#### <a name="germany"></a>Niemcy
 
 | **Lokalizacja**  | **Dostawcy usług** |
 |---------------|-----------------------|
-| **Berlin** | Colt+, e-shelter+ |
-| **Frankfurt** | Colt, Equinix+, Interxion |
+| **Berlin** | Colt, e-shelter |
+| **Frankfurt** | Colt, Equinix, Interxion |
 
-## <a name="nonpartners"></a>Łączność za pośrednictwem dostawców usług niewymieniona
+## <a name="<a-name="nonpartners"></a>connectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Łączność za pośrednictwem dostawców usług niewymienionych na liście
 
 Jeśli dostawca połączenia nie został wymieniony w poprzednich sekcjach, możesz i tak utworzyć połączenie.
 
@@ -122,7 +122,7 @@ Jeśli dostawca połączenia nie został wymieniony w poprzednich sekcjach, moż
 
     - [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
     - [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
-    - [InterXion](http://www.interxion.com/)
+    - [Interxion](http://www.interxion.com/)
     - [NextDC](http://www.nextdc.com/)
     - [CoreSite](http://www.coresite.com/)
     - [Cologix](http://www.cologix.com/)
@@ -139,7 +139,7 @@ Jeśli dostawca połączenia nie został wymieniony w poprzednich sekcjach, moż
 | **Singapur** | Equinix | 1CLOUDSTAR |
 | **Waszyngton** | Equinix | Lightower |
 
-## Integratorzy systemu ExpressRoute
+## <a name="expressroute-system-integrators"></a>Integratorzy systemu ExpressRoute
 
 Włączanie prywatnej łączności do własnych potrzeb może być wyzwaniem w zależności od skali sieci. Możesz pracować z dowolnymi integratorami systemu wymienionymi w poniższej tabeli, którzy ułatwiają dołączanie do usługi ExpressRoute.
 
@@ -149,7 +149,7 @@ Włączanie prywatnej łączności do własnych potrzeb może być wyzwaniem w z
 | **Europa** | Avanade Inc., Dotnet Solutions|
 | **USA** | Avanade Inc., Equinix Professional Services, Perficient, Project Leadership|
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Więcej informacji na temat usługi ExpressRoute znajduje się w artykule [ExpressRoute FAQ](expressroute-faqs.md) (Usługa ExpressRoute — często zadawane pytania).
 - Upewnij się, że zostały spełnione wszystkie wymagania wstępne. Zobacz artykuł [ExpressRoute prerequisites](expressroute-prerequisites.md) (Wymagania wstępne usługi ExpressRoute).
@@ -159,6 +159,6 @@ Włączanie prywatnej łączności do własnych potrzeb może być wyzwaniem w z
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO2-->
 
 

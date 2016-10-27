@@ -190,6 +190,6 @@ Po utworzeniu strefy DNS utwórz [zestawy rekordów i rekordy](dns-getstarted-cr
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

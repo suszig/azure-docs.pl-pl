@@ -34,7 +34,7 @@ Dla tego samouczka wymagane są następujące elementy:
 
 ##<a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji systemu iOS
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##<a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
 
@@ -136,6 +136,6 @@ Nie ma konieczności dodatkowego konfigurowania aplikacji w celu otrzymywania po
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

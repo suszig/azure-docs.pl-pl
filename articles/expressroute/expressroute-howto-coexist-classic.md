@@ -13,10 +13,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="10/10/2016"
    ms.author="charwen"/>
 
-# Konfigurowanie połączeń usługi ExpressRoute i współistniejących połączeń typu lokacja-lokacja w klasycznym modelu wdrożenia
+
+# <a name="configure-expressroute-and-site-to-site-coexisting-connections-for-the-classic-deployment-model"></a>Konfiguracja współistniejących połączeń ExpressRoute i połączeń typu lokacja-lokacja dla klasycznego modelu wdrożenia
 
 
 > [AZURE.SELECTOR]
@@ -31,26 +32,25 @@ Możliwość skonfigurowania sieci VPN typu lokacja-lokacja i usługi ExpressRou
 
 >[AZURE.IMPORTANT] Przed wykonaniem poniższych instrukcji należy wstępnie skonfigurować obwody usługi ExpressRoute. Przed wykonaniem poniższych kroków należy koniecznie wykonać instrukcje [tworzenia obwodu usługi ExpressRoute](expressroute-howto-circuit-classic.md) i [konfigurowania routingu](expressroute-howto-routing-classic.md).
 
-## Limity i ograniczenia
+## <a name="limits-and-limitations"></a>Limity i ograniczenia
 
-- **Routing tranzytowy nie jest obsługiwany:** nie można skierować połączenia (przez platformę Azure) między lokalną siecią połączoną za pośrednictwem sieci VPN typu lokacja-lokacja i lokalną siecią połączoną za pośrednictwem usługi ExpressRoute.
-- **Połączenia typu punkt-lokacja nie są obsługiwane:** nie można włączyć połączeń VPN typu punkt-lokacja do tej samej sieci wirtualnej, która jest połączona z usługą ExpressRoute. Sieć VPN typu punkt-lokacja i usługa ExpressRoute nie mogą współistnieć dla tej samej sieci wirtualnej.
-- **Nie można włączyć tunelowania wymuszonego dla bramy sieci VPN typu lokacja-lokacja:** można tylko „wymusić” cały ruch związany z Internetem z powrotem do sieci lokalnej za pośrednictwem usługi ExpressRoute. 
-- **Tylko bramy standardowe lub o wysokiej wydajności:** należy użyć bramy standardowej lub o wysokiej wydajności zarówno dla bramy usługi ExpressRoute, jak i bramy sieci VPN typu lokacja-lokacja. Informacje o jednostkach SKU bramy znajdują się w artykule [Gateway SKUs](../vpn-gateway/vpn-gateway-about-vpngateways.md) (Jednostki SKU bramy).
-- **Tylko brama sieci VPN oparta na trasach:** należy używać bramy sieci VPN opartej na trasach. Informacje na temat bramy sieci VPN opartej na trasach znajdują się w artykule [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) (Brama sieci VPN).
-- **Wymaganie trasy statycznej:** jeśli sieć lokalna jest połączona z usługą ExpressRoute oraz siecią VPN typu lokacja-lokacja, aby skierować połączenie sieci VPN typu lokacja-lokacja do publicznego Internetu, trzeba mieć skonfigurowaną trasę statyczną w sieci lokalnej.
-- **Najpierw należy skonfigurować bramę usługi ExpressRoute:** przed dodaniem bramy sieci VPN typu lokacja-lokacja należy utworzyć bramę usługi ExpressRoute.
+- **Routing tranzytowy nie jest obsługiwany.** Nie można skierować połączenia (przez platformę Azure) między lokalną siecią połączoną za pośrednictwem sieci VPN typu lokacja-lokacja i lokalną siecią połączoną za pośrednictwem usługi ExpressRoute.
+- **Połączenia typu punkt-lokacja nie są obsługiwane.** Nie można włączyć połączeń VPN typu punkt-lokacja do tej samej sieci wirtualnej, która jest połączona z usługą ExpressRoute. Sieć VPN typu punkt-lokacja i usługa ExpressRoute nie mogą współistnieć dla tej samej sieci wirtualnej.
+- **Nie można włączyć tunelowania wymuszonego dla bramy sieci VPN typu lokacja-lokacja.** Można tylko „wymusić” przesyłanie całego ruchu skierowanego do Internetu z powrotem do sieci lokalnej za pośrednictwem usługi ExpressRoute.
+- **Podstawowa brama jednostki SKU nie jest obsługiwana.** Należy użyć innej niż podstawowa bramy jednostki SKU zarówno dla [bramy usługi ExpressRoute](expressroute-about-virtual-network-gateways.md), jak i [bramy sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+- **Obsługiwana jest tylko brama sieci VPN oparta na trasach.** Należy użyć [bramy sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) opartej na trasach.
+- **Dla bramy sieci VPN należy skonfigurować trasę statyczną.** Jeśli sieć lokalna jest połączona z usługą ExpressRoute oraz siecią VPN typu lokacja-lokacja, aby skierować połączenie sieci VPN typu lokacja-lokacja do publicznego Internetu, trzeba mieć skonfigurowaną trasę statyczną w sieci lokalnej.
+- **Najpierw należy skonfigurować bramę usługi ExpressRoute.** Przed dodaniem bramy sieci VPN typu lokacja-lokacja należy utworzyć bramę usługi ExpressRoute.
 
+## <a name="configuration-designs"></a>Projekty konfiguracji
 
-## Projekty konfiguracji
-
-### Konfigurowanie sieci VPN typu lokacja-lokacja jako ścieżki pracy awaryjnej dla usługi ExpressRoute
+### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Konfigurowanie sieci VPN typu lokacja-lokacja jako ścieżki pracy awaryjnej dla usługi ExpressRoute
 
 Połączenie sieci VPN typu lokacja-lokacja można skonfigurować do przechowywania kopii zapasowych dla usługi ExpressRoute. Dotyczy to tylko sieci wirtualnych połączonych ze ścieżką prywatnej sieci równorzędnej Azure. Nie ma rozwiązania pracy awaryjnej opartego na sieci VPN dla usług dostępnych przez publiczne sesje komunikacji równorzędnej platformy Azure ani komunikacji równorzędnej firmy Microsoft. Obwód usługi ExpressRoute jest zawsze połączeniem podstawowym. Dane będą przepływać przez ścieżkę sieci VPN typu lokacja-lokacja tylko w wypadku awarii obwodu usługi ExpressRoute. 
 
 ![Współistnienie](media/expressroute-howto-coexist-classic/scenario1.jpg)
 
-### Konfigurowanie sieci VPN typu lokacja-lokacja do łączenia z witrynami niepołączonymi przez usługę ExpressRoute
+### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>Konfigurowanie sieci VPN typu lokacja-lokacja do łączenia z witrynami niepołączonymi przez usługę ExpressRoute
 
 Można skonfigurować sieć w taki sposób, by niektóre witryny łączyły się bezpośrednio z platformą Azure za pośrednictwem sieci VPN typu lokacja-lokacja, a niektóre przez usługę ExpressRoute. 
 
@@ -58,7 +58,7 @@ Można skonfigurować sieć w taki sposób, by niektóre witryny łączyły się
 
 >[AZURE.NOTE] Nie można skonfigurować sieci wirtualnej jako routera tranzytowego.
 
-## Wybieranie czynności do wykonania
+## <a name="selecting-the-steps-to-use"></a>Wybieranie czynności do wykonania
 
 Istnieją dwa różne zestawy procedur do wyboru służące do konfigurowania połączeń, które mogą współistnieć. Wybór procedury konfiguracji będzie zależeć od tego, czy masz istniejącą sieć wirtualną, z którą chcesz się połączyć, czy chcesz utworzyć nową.
 
@@ -74,7 +74,7 @@ Istnieją dwa różne zestawy procedur do wyboru służące do konfigurowania po
     W tej procedurze tworzenie połączeń, które mogą współistnieć, wymaga usunięcia bramy, a następnie skonfigurowania nowych bram. Oznacza to, że podczas usuwania i odtwarzania bramy oraz połączeń wystąpi przestój względem połączeń obejmujących wiele lokalizacji, ale nie trzeba będzie migrować żadnych maszyn wirtualnych ani usług do nowej sieci wirtualnej. Podczas konfigurowania bramy maszyny wirtualne i usługi będą mogły nadal komunikować się za pośrednictwem modułu równoważenia obciążenia, jeżeli zostały w taki sposób skonfigurowane.
 
 
-## <a name="new"></a>Aby utworzyć nową sieć wirtualną i współistniejące połączenia
+## <a name="<a-name="new"></a>to-create-a-new-virtual-network-and-coexisting-connections"></a><a name="new"></a>Aby utworzyć nową sieć wirtualną i współistniejące połączenia
 
 Ta procedura zawiera instrukcje tworzenia sieci wirtualnej i połączeń typu lokacja-lokacja oraz usługi ExpressRoute, które będą współistnieć.
 
@@ -114,7 +114,7 @@ Ta procedura zawiera instrukcje tworzenia sieci wirtualnej i połączeń typu lo
 
         Set-AzureVNetConfig -ConfigurationPath 'C:\NetworkConfig.xml'
 
-4. <a name="gw"></a>Utwórz bramę usługi ExpressRoute. Koniecznie określ parametr GatewaySKU jako *Standard* lub *HighPerformance*, a parametr GatewayType jako *DynamicRouting*.
+4. <a name="gw"></a>Utwórz bramę usługi ExpressRoute. Koniecznie określ wartość *Standard*, *HighPerformance* lub *UltraPerformance* dla parametru GatewaySKU oraz wartość *DynamicRouting* dla parametru GatewayType.
 
     Użyj poniższego przykładu, podstawiając wartości zamiast swoich własnych.
 
@@ -124,7 +124,7 @@ Ta procedura zawiera instrukcje tworzenia sieci wirtualnej i połączeń typu lo
 
         New-AzureDedicatedCircuitLink -ServiceKey <service-key> -VNetName MyAzureVNET
 
-6. <a name="vpngw"></a>Następnie utwórz bramę sieci VPN typu lokacja-lokacja. Parametr GatewaySKU musi mieć wartość *Standard* lub *HighPerformance*, a parametr GatewayType — *DynamicRouting*.
+6. <a name="vpngw"></a>Następnie utwórz bramę sieci VPN typu lokacja-lokacja. Parametr GatewaySKU musi mieć wartość *Standard*, *HighPerformance* lub *UltraPerformance*, a parametr GatewayType — *DynamicRouting*.
 
         New-AzureVirtualNetworkGateway -VNetName MyAzureVNET -GatewayName S2SVPN -GatewayType DynamicRouting -GatewaySKU  HighPerformance
 
@@ -184,7 +184,7 @@ Ta procedura zawiera instrukcje tworzenia sieci wirtualnej i połączeń typu lo
 
         New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>
 
-## <a name="add"></a>Aby skonfigurować współistniejące połączenia dla istniejącej sieci wirtualnej
+## <a name="<a-name="add"></a>to-configure-coexsiting-connections-for-an-already-existing-vnet"></a><a name="add"></a>Aby skonfigurować współistniejące połączenia dla istniejącej sieci wirtualnej
 
 Jeśli masz istniejącą sieć wirtualną, sprawdź rozmiar podsieci bramy. Jeśli podsieć bramy ma wartość /28 lub /29, musisz najpierw usunąć bramę sieci wirtualnej i zwiększyć rozmiar podsieci bramy. W krokach w tej sekcji przedstawiono, jak to zrobić.
 
@@ -221,12 +221,12 @@ Jeśli podsieć bramy ma wartość /27 lub większą, a sieć wirtualna jest po�
 
 6. Na tym etapie będziesz mieć sieć wirtualną bez bram. W celu utworzenia nowych bram i wykonania połączeń wykonaj instrukcje z części [Krok 4 — tworzenie bramy usługi ExpressRoute](#gw) znajdujące się w poprzednim zestawie kroków.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Więcej informacji na temat usługi ExpressRoute znajduje się w artykule [ExpressRoute FAQ](expressroute-faqs.md) (Usługa ExpressRoute — często zadawane pytania).
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/08/2016"
+    ms.date="10/06/2016"
     ms.author="v-livech"/>
 
 
@@ -24,7 +24,7 @@ Para kluczy SSH umożliwia tworzenie na platformie Azure maszyn wirtualnych, kt�
 
 ## Lista szybkich poleceń
 
-W poniższych przykładach poleceń zastąp wartości między znakami &lt; i &gt; wartościami z własnego środowiska.
+W poniższych przykładach poleceń zastąp wartości między znakami &lt; i &gt; wartościami z własnego środowiska.  Rozpocznij od zmiany katalogu za pomocą polecenia `cd ~/.ssh/`, aby wszystkie klucze SSH były tworzone w tym katalogu.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
@@ -79,7 +79,7 @@ Platforma Azure wymaga, aby klucz publiczny i prywatny miały długość co najm
 
 ## Korzystanie z programu ssh-keygen
 
-To polecenie umożliwia utworzenie zabezpieczonej (zaszyfrowanej) pary kluczy SSH o długości 2048 bitów w standardzie RSA. W celu dokonania łatwej identyfikacji zostanie ona opatrzona komentarzem.
+To polecenie umożliwia utworzenie zabezpieczonej (zaszyfrowanej) pary kluczy SSH o długości 2048 bitów w standardzie RSA. W celu dokonania łatwej identyfikacji zostanie ona opatrzona komentarzem.  Rozpocznij od zmiany katalogu za pomocą polecenia `cd ~/.ssh/`, aby wszystkie klucze SSH były tworzone w tym katalogu.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
@@ -102,12 +102,12 @@ W przypadku korzystania z klasycznego modelu wdrażana (klasyczny portal Azure l
 Aby utworzyć klucz w formacie PEM przy użyciu istniejącego publicznego klucza SSH:
 
 ```bash
-ssh-keygen -f id_rsa.pub -m 'PEM' -e > id_rsa.pem
+ssh-keygen -f ~/.ssh/id_rsa.pub -e > ~/.ssh/id_ssh2.pem
 ```
 
 ## Przewodnik po poleceniu ssh-keygen
 
-Każdy krok jest szczegółowo omówiony.  Zacznij od uruchomienia polecenia `ssh-keygen`.
+Każdy krok jest szczegółowo omówiony.  Rozpocznij od zmiany katalogu na `~/.ssh`, a następnie uruchom polecenie `ssh-keygen`.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
@@ -246,6 +246,6 @@ W dalszej kolejności należy utworzyć maszyny wirtualne systemu Linux platform
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

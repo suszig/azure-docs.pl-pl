@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Samouczek: tworzenie potoku przy użyciu Kreatora kopiowania" 
+    pageTitle="Samouczek: Tworzenie potoku przy użyciu Kreatora kopiowania | Microsoft Azure" 
     description="Ten samouczek zawiera instrukcje dotyczące tworzenia potoku usługi Azure Data Factory za pomocą działania kopiowania przy użyciu Kreatora kopiowania obsługiwanego w usłudze Data Factory" 
     services="data-factory" 
     documentationCenter="" 
@@ -10,7 +10,7 @@
 <tags 
     ms.service="data-factory" 
     ms.workload="data-services" 
-    ms.tgt_pltfrm="na" **
+    ms.tgt_pltfrm="na"
     ms.devlang="na" 
     ms.topic="get-started-article" 
     ms.date="09/16/2016" 
@@ -24,6 +24,7 @@
 - [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 - [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -72,16 +73,16 @@ W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFTutorialDataFac
     3. Kliknij przycisk **Dalej**.  
 
     ![Narzędzie kopiowania — strona Właściwości](./media/data-factory-copy-data-wizard-tutorial/copy-tool-properties-page.png) 
-3. Na stronie **Magazyn danych źródłowych** kliknij kafelek **Magazyn obiektów blob Azure**. Ta strona służy do określania magazynu danych źródłowych do zadania kopiowania. Możesz użyć istniejącej połączonej usługi magazynu danych lub określić nowy magazyn danych. Aby użyć istniejącej połączonej usługi, kliknij pozycję **Z ISTNIEJĄCYCH POŁĄCZONYCH USŁUG** i wybierz odpowiednią połączoną usługę. 
+3. Na stronie **Magazyn danych źródłowych** kliknij kafelek **Azure Blob Storage**. Ta strona służy do określania magazynu danych źródłowych do zadania kopiowania. Możesz użyć istniejącej połączonej usługi magazynu danych lub określić nowy magazyn danych. Aby użyć istniejącej połączonej usługi, kliknij pozycję **Z ISTNIEJĄCYCH POŁĄCZONYCH USŁUG** i wybierz odpowiednią połączoną usługę. 
 
     ![Narzędzie kopiowania — strona magazynu danych źródłowych](./media/data-factory-copy-data-wizard-tutorial/copy-tool-source-data-store-page.png)
-5. Na stronie **Określanie konta magazynu obiektów blob Azure**:
+5. Na stronie **Określanie konta usługi Azure Blob Storage**:
     1. Wprowadź wartość **AzureStorageLinkedService** w polu **Nazwa połączonej usługi**.
     2. Upewnij się, że wybrano opcję **Z subskrypcji Azure** dla ustawienia **Metoda wyboru konta**.
     3. Wybierz swoją **subskrypcję** platformy Azure.  
     3. Wybierz **konto usługi Azure Storage** z listy kont usługi Azure Storage dostępnych w ramach wybranej subskrypcji. Można również wprowadzić ustawienia konta magazynu ręcznie, wybierając opcję **Wprowadź ręcznie** dla ustawienia **Metoda wyboru konta**, a następnie klikając przycisk **Dalej**. 
 
-    ![Narzędzie kopiowania — określanie konta magazynu obiektów blob Azure](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
+    ![Narzędzie kopiowania — określanie konta usługi Azure Blob Storage](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
 6. Na stronie **Wybieranie pliku lub folderu wejściowego**:
     1. Przejdź do folderu **adftutorial**.
     2. Zaznacz plik **emp.txt** i kliknij przycisk **Wybierz**.
@@ -120,7 +121,7 @@ W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFTutorialDataFac
     ![Narzędzie kopiowania — ustawienia wydajności](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
 ## Uruchamianie aplikacji do monitorowania i zarządzania 
-12. Na stronie **Wdrażanie** kliknij link **Kliknij tutaj, aby monitorować potok kopiowania**.
+12. Na stronie **Wdrożenie** kliknij link: `Click here to monitor copy pipeline`.
 
     ![Narzędzie kopiowania — wdrażanie zakończyło się pomyślnie](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
 13. Instrukcje dotyczące monitorowania utworzonego potoku znajdują się w artykule [Monitor and manage pipeline using Monitoring App](data-factory-monitor-manage-app.md) (Monitorowanie potoków i zarządzanie nimi za pomocą aplikacji do monitorowania). Kliknij ikonę **Odśwież** na liście **OKNA DZIAŁANIA**, aby zobaczyć wycinek. 
@@ -139,6 +140,6 @@ W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFTutorialDataFac
 | [Monitorowanie potoków i zarządzanie nimi za pomocą aplikacji do monitorowania](data-factory-monitor-manage-app.md) | Ten artykuł zawiera instrukcje dotyczące monitorowania i debugowania potoków oraz zarządzania nimi przy użyciu aplikacji do monitorowania i zarządzania. 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

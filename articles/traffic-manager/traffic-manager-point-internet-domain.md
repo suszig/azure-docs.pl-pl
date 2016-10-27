@@ -1,43 +1,43 @@
 <properties
-   pageTitle="Ustawianie firmowej domeny internetowej tak, aby wskazywała domenę usługi Traffic Manager | Microsoft Azure"
-   description="Ten artykuł pomoże Ci skonfigurować nazwę domeny firmowej w taki sposób, aby wskazywała nazwę domeny usługi Traffic Manager."
-   services="traffic-manager"
-   documentationCenter=""
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="tysonn" />
+    pageTitle="Ustawianie firmowej domeny internetowej tak, aby wskazywała nazwę domeny usługi Traffic Manager | Microsoft Azure"
+    description="Ten artykuł pomoże Ci skonfigurować nazwę domeny firmowej w taki sposób, aby wskazywała nazwę domeny usługi Traffic Manager."
+    services="traffic-manager"
+    documentationCenter=""
+    authors="sdwheeler"
+    manager="carmonm"
+    editor=""
+/>
 <tags
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
-   ms.author="sewhee" />
+    ms.service="traffic-manager"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="10/11/2016"
+    ms.author="sewhee"
+/>
 
 
-# Ustawianie firmowej domeny internetowej tak, aby wskazywała domenę usługi Azure Traffic Manager
+# <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Ustawianie firmowej domeny internetowej tak, aby wskazywała domenę usługi Azure Traffic Manager
 
-Aby nazwa domeny firmowej wskazywała nazwę domeny usługi Traffic Manager, należy zmodyfikować rekord zasobu DNS na internetowym serwerze DNS w celu używania typu rekordu CNAME, który mapuje nazwę domeny firmowej na nazwę domeny profilu usługi Traffic Manager. Nazwa domeny usługi Traffic Manager jest wyświetlana w sekcji **Ogólne** na stronie konfiguracji profilu usługi Traffic Manager.
+Podczas tworzenia profilu usługi Traffic Manager platforma Azure automatycznie przypisuje nazwę DNS dla danego profilu. Aby użyć nazwy z bieżącej strefy DNS, należy utworzyć rekord DNS CNAME, który będzie mapowany na nazwę domeny profilu usługi Traffic Manager. Nazwa domeny usługi Traffic Manager jest wyświetlana w sekcji **Ogólne** na stronie konfiguracji profilu usługi Traffic Manager.
 
-Aby na przykład nazwa domeny firmowej www.contoso.com wskazywała nazwę domeny usługi Traffic Manager contoso.trafficmanager.net, należy zaktualizować rekord zasobu DNS na następujący:
+Na przykład: aby nazwa www.contoso.com wskazywała nazwę DNS usługi Traffic Manager contoso.trafficmanager.net, należy utworzyć następujący rekord zasobu DNS:
 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 
-Wszystkie żądania ruchu do domeny *www.contoso.com* będą teraz kierowane do domeny *contoso.trafficmanager.net*.
+Wszystkie żądania ruchu do domeny *www.contoso.com* będą kierowane do domeny *contoso.trafficmanager.net*.
 
->[AZURE.IMPORTANT] Domena drugiego poziomu, na przykład *contoso.com*, nie może wskazywać domeny usługi Traffic Manager. Jest to ograniczenie protokołu DNS, który nie zezwala na rekordy CNAME dla nazw domen drugiego poziomu.
+>[AZURE.IMPORTANT] Domena drugiego poziomu, na przykład *contoso.com*, nie może wskazywać domeny usługi Traffic Manager. Standardy protokołu DNS nie zezwalają na ustanawianie rekordów CNAME dla nazw domen drugiego poziomu.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
-[Metody routingu w usłudze Traffic Manager](traffic-manager-routing-methods.md)
-
-[Traffic Manager — wyłączanie, włączanie lub usuwanie profilu](disable-enable-or-delete-a-profile.md)
-
-[Traffic Manager — wyłączanie lub włączanie punktu końcowego](disable-or-enable-an-endpoint.md)
+- [Metody routingu w usłudze Traffic Manager](traffic-manager-routing-methods.md)
+- [Traffic Manager — wyłączanie, włączanie lub usuwanie profilu](disable-enable-or-delete-a-profile.md)
+- [Traffic Manager — wyłączanie lub włączanie punktu końcowego](disable-or-enable-an-endpoint.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

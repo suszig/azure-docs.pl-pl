@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="csharp"
    ms.workload="data-management"
-   ms.date="09/14/2016"
+   ms.date="10/04/2016"
    ms.author="sstein"/>
 
 
@@ -26,18 +26,19 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-Dowiedz się, jak używać języka C# do tworzenia bazy danych Azure SQL z zastosowaniem biblioteki [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). W tym artykule opisano sposób tworzenia jednej bazy danych SQL w języku C#. Aby tworzyć elastyczne pule baz danych, zobacz artykuł [Tworzenie elastycznej puli baz danych](sql-database-elastic-pool-create-csharp.md).
+Dowiedz się, jak używać języka C# do tworzenia bazy danych Azure SQL z zastosowaniem [Biblioteki zarządzania usługą Microsoft Azure SQL dla programu .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). W tym artykule opisano sposób tworzenia jednej bazy danych SQL w języku C#. Aby tworzyć elastyczne pule baz danych, zobacz artykuł [Tworzenie elastycznej puli baz danych](sql-database-elastic-pool-create-csharp.md).
 
-Biblioteka Azure SQL Database Library for .NET dostarcza interfejs API oparty na usłudze [Azure Resource Manager](../resource-group-overview.md), który opakowuje [interfejs API REST usługi SQL Database oparty na usłudze Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
+Biblioteka zarządzania usługą Azure SQL Database dla programu .NET dostarcza interfejs API oparty na usłudze [Azure Resource Manager](../resource-group-overview.md), który opakowuje [interfejs API REST usługi SQL Database oparty na usłudze Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
-
-> [AZURE.NOTE] Biblioteka SQL Database Library for .NET jest obecnie w wersji zapoznawczej.
-
+>[AZURE.NOTE] Wiele nowych funkcji usługi SQL Database jest obsługiwanych tylko w przypadku zastosowania [modelu wdrażania przy użyciu usługi Azure Resource Manager](../resource-group-overview.md). Dlatego należy zawsze używać najnowszej **Biblioteki zarządzania usługą SQL Database platformy Azure dla programu .NET ([dokumentacja](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [Pakiet NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Starsze [biblioteki oparte na modelu wdrożenia klasycznego](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) są obsługiwane tylko w trybie zgodności z poprzednimi wersjami, w związku z czym zalecane jest użycie nowszych bibliotek opartych na modelu wdrożenia przy użyciu usługi Resource Manager.
 
 Do wykonania kroków opisanych w tym artykule potrzebne są:
 
 - Subskrypcja platformy Azure. Jeśli potrzebujesz subskrypcji platformy Azure, po prostu kliknij pozycję **BEZPŁATNE KONTO** u góry tej strony, a następnie wróć do artykułu.
 - Program Visual Studio. Aby uzyskać bezpłatną kopię programu Visual Studio, zobacz stronę [Visual Studio — pliki do pobrania](https://www.visualstudio.com/downloads/download-visual-studio-vs).
+
+>[AZURE.NOTE] W tym artykule opisano proces tworzenia nowej, pustej bazy danych SQL. Modyfikacja metody *CreateOrUpdateDatabase(...)* w następującym przykładzie pozwala skopiować bazy danych i skalować je, utworzyć bazę danych w puli itp. Więcej informacji zawierają sekcje poświęcone klasom [DatabaseCreateMode](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databasecreatemode.aspx) i [DatabaseProperties](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databaseproperties.aspx).
+
 
 
 ## Tworzenie aplikacji konsoli i instalowanie wymaganych bibliotek
@@ -50,7 +51,7 @@ Do wykonania kroków opisanych w tym artykule potrzebne są:
 Aby utworzyć bazę danych SQL w języku C#, załaduj wymagane biblioteki zarządzania (przy użyciu [konsoli menedżera pakietów](http://docs.nuget.org/Consume/Package-Manager-Console)):
 
 1. Kliknij pozycję **Narzędzia** > **Menedżer pakietów NuGet** > **Konsola menedżera pakietów**.
-2. Wpisz polecenie `Install-Package Microsoft.Azure.Management.Sql –Pre`, aby zainstalować [Bibliotekę zarządzania SQL platformy Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
+2. Wpisz polecenie `Install-Package Microsoft.Azure.Management.Sql –Pre`, aby zainstalować najnowszą [Bibliotekę zarządzania usługą SQL platformy Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
 3. Wpisz polecenie `Install-Package Microsoft.Azure.Management.ResourceManager –Pre`, aby zainstalować [Bibliotekę usługi Microsoft Azure Resource Manager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
 4. Wpisz polecenie `Install-Package Microsoft.Azure.Common.Authentication –Pre`, aby zainstalować [Wspólną bibliotekę uwierzytelniania platformy Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
 
@@ -294,6 +295,6 @@ Po wypróbowaniu usługi SQL Database i skonfigurowaniu bazy danych przy użyciu
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

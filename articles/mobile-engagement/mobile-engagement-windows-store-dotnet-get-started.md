@@ -16,6 +16,7 @@
     ms.date="08/12/2016"
     ms.author="piyushjo;ricksal" />
 
+
 # Wprowadzenie do usługi Azure Mobile Engagement na potrzeby uniwersalnych aplikacji systemu Windows
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -30,7 +31,7 @@ W tym samouczku został omówiony prosty scenariusz emisji przy użyciu usługi 
 
 ## Konfigurowanie usługi Mobile Engagement dla aplikacji uniwersalnej systemu Windows
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##<a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
 
@@ -209,6 +210,6 @@ Jeśli widzisz powiadomienie w aplikacji, ale nie powiadomienie wyskakujące, a 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

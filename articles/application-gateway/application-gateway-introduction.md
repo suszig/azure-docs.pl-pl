@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introduction to Application Gateway | Microsoft Azure"
-   description="This page provides an overview of the Application Gateway service for layer 7 load balancing, including gateway sizes, HTTP load balancing, cookie-based session affinity, and SSL offload."
+   pageTitle="Wprowadzenie do usługi Application Gateway | Microsoft Azure"
+   description="Ta strona zawiera omówienie usługi Application Gateway dla równoważenia obciążenia warstwy 7, z uwzględnieniem rozmiarów bramy, równoważenia obciążenia HTTP, koligacji sesji na podstawie plików cookie i odciążania protokołu SSL."
    documentationCenter="na"
    services="application-gateway"
    authors="georgewallace"
@@ -9,77 +9,85 @@
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/26/2016"
    ms.author="gwallace"/>
 
-# Application Gateway overview
 
-## What is Application Gateway
+# <a name="application-gateway-overview"></a>Application Gateway — omówienie
 
-Microsoft Azure Application Gateway provides an Application Delivery Controller (ADC) as a service, providing many layer 7 load balancing capabilities. In simple terms, it works by accepting traffic and based on rules that are defined with it, routes the traffic to the appropriate back-end instances.
+## <a name="what-is-application-gateway"></a>Co to jest usługa Application Gateway
 
-Application load balancing enables IT administrators and developers to create routing rules for network traffic based on the HTTP protocol.  The Application Gateway service is highly available and metered. For the SLA and pricing, refer to the [SLA](https://azure.microsoft.com/support/legal/sla/) and [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/) pages.
+Usługa Microsoft Azure Application Gateway oferuje kontrolera dostarczania aplikacji (ADC, Application Delivery Controller) jako usługę, zapewniając wiele możliwości równoważenia obciążenia warstwy 7. Mówiąc prościej, działanie tej usługi polega na akceptowaniu ruchu i kierowaniu go do odpowiednich wystąpień zaplecza na podstawie zdefiniowanych za jej pomocą reguł.
 
-The Application Gateway applies the routing rules to HTTP traffic, providing layer 7 (HTTP) load balancing. When you create an application gateway, an endpoint (VIP) is associated and used as public IP for ingress network traffic. 
-Azure provides layer 4 load balancing through Azure load balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the Application Gateway service. 
-The Application Gateway routes the HTTP traffic based on its configuration whether it's a virtual machine, cloud service, or an external IP address.
+Równoważenie obciążenia aplikacji umożliwia administratorom IT i deweloperom tworzenie reguł routingu dla ruchu sieciowego na podstawie protokołu HTTP.  Usługa Application Gateway jest wysoko dostępna i mierzalna. Umowę SLA oraz ceny można znaleźć na stronach [Umowa SLA](https://azure.microsoft.com/support/legal/sla/) i [Cennik](https://azure.microsoft.com/pricing/details/application-gateway/).
 
-## Features
+Usługa Application Gateway stosuje reguły routingu do ruchu HTTP, zapewniając równoważenie obciążenia warstwy 7 (HTTP). Utworzenie bramy aplikacji powoduje powiązanie punktu końcowego (adresu VIP) i używanie go jako publicznego adresu IP dla ruchu sieciowego danych przychodzących. Platforma Azure zapewnia równoważenie obciążenia warstwy 4 za pośrednictwem usługi Azure Load Balancer, która działa na poziomie transportu (TCP/UDP) i równoważy obciążenie całego przychodzącego ruchu sieciowego do usługi Application Gateway. Usługa Application Gateway kieruje ruch HTTP na podstawie konfiguracji, niezależnie od tego, czy jest to maszyna wirtualna, usługa w chmurze czy zewnętrzny adres IP.
 
-Application Gateway currently supports layer 7 application delivery with the following features:
+## <a name="features"></a>Funkcje
 
-- **[Web Application Firewall (Preview)](application-gateway-webapplicationfirewall-overview.md)** - The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks.
-- **HTTP load balancing** - Application Gateway provides round robin load balancing. Load balancing is done at Layer 7 and is used for HTTP(S) traffic only.
-- **Cookie-based session affinity** - This feature is useful when you want to keep a user session on the same back-end. By using gateway managed cookies, the Application Gateway is able to direct subsequent traffic from a user session to the same back-end for processing. This feature is important in cases where session state is saved locally on the back-end server for a user session.
-- **[Secure Sockets Layer (SSL) offload](application-gateway-ssl-arm.md)** - This feature takes the costly task of decrypting HTTPS traffic off your web servers. By terminating the SSL connection at the Application Gateway and forwarding the request to server un-encrypted, the web server is unburdened by the decryption.  Application Gateway re-encrypts the response before sending it back to the client. This feature is useful in scenarios where the back-end is located in the same secured virtual network as the Application Gateway in Azure.
-- **[End to End SSL](application-gateway-backend-ssl.md)** - Application Gateway supports end to end encryption of traffic. Application Gateway does this by terminating the SSL connection at the application gateway. The gateway then applies the routing rules to the traffic, re-encrypts the packet, and forwards the packet to the appropriate backend based on the routing rules defined. Any response from the web server goes through the same process back to the end user.
-- **[URL-based content routing](application-gateway-url-route-overview.md)** - This feature provides the capability to use different back-end servers for different traffic. Traffic for a folder on the web server or for a CDN could be routed to a different back-end, reducing unneeded load on backends that don't server specific content.
-- **[Multi-site routing](application-gateway-multi-site-overview.md)** - Application gateway allows for you to consolidate up to 20 websites on a single application gateway.
-- **[Websocket support](application-gateway-websocket.md)** - Another great feature of Application Gateway is the native support for Websocket.
-- **[Health monitoring](application-gateway-probe-overview.md)** - Application gateway provides default health monitoring of backend resources as well as custom probes to monitor for more specific scenarios.
+Usługa Application Gateway obecnie obsługuje dostarczanie aplikacji warstwy 7 z następującymi funkcjami:
 
-## Benefits
+- **[Zapora aplikacji sieci Web (wersja zapoznawcza)](application-gateway-webapplicationfirewall-overview.md)** — zapora aplikacji sieci Web (WAF, web application firewall) w usłudze Azure Application Gateway chroni aplikacje sieci Web przed typowymi atakami internetowymi, takimi jak iniekcja SQL, ataki z użyciem skryptów wykorzystywanych w obrębie wielu witryn i przejęcia sesji.
+- **Równoważenie obciążenia HTTP** — usługa Application Gateway zapewnia okrężne równoważenie obciążenia. Równoważenie obciążenia jest wykonywane na warstwie 7 i jest używane tylko na potrzeby ruchu HTTP(S).
+- **Koligacja sesji na podstawie plików cookie** — ta funkcja jest przydatna, gdy chcesz zachować sesję użytkownika na tym samym serwerze zaplecza. Używając plików cookie zarządzanych przez bramę, usługa Application Gateway może kierować kolejny ruch z sesji użytkownika na ten sam serwer zaplecza w celu przetworzenia. Ta funkcja jest ważna w przypadkach, w których stan sesji jest zapisywany lokalnie na serwerze zaplecza dla sesji użytkownika.
+- **[Odciążenie protokołu Secure Sockets Layer (SSL)](application-gateway-ssl-arm.md)** — ta funkcja zdejmuje z serwerów sieci Web kosztowne zadanie odszyfrowywania ruchu HTTPS. Dzięki zakończeniu połączenia SSL na usłudze Application Gateway i przesłaniu na serwer niezaszyfrowanego żądania, z serwera sieci Web jest zdejmowane zadanie odszyfrowywania.  Usługa Application Gateway ponownie szyfruje odpowiedź przed odesłaniem jej z powrotem do klienta. Ta funkcja jest przydatna w przypadkach, kiedy serwer zaplecza znajduje się w tej samej zabezpieczonej sieci wirtualnej, co usługa Application Gateway na platformie Azure.
+- **[Kompleksowa usługa SSL](application-gateway-backend-ssl.md)** — usługa Application Gateway obsługuje kompleksowe szyfrowanie ruchu. Polega to na tym, że usługa Application Gateway przerywa połączenie SSL na bramie aplikacji. Następnie brama stosuje do ruchu reguły routingu, ponownie szyfruje pakiet i przekazuje pakiet do odpowiedniego serwera zaplecza na podstawie zdefiniowanych reguł routingu. Każda odpowiedź z serwera sieci Web przechodzi przez ten sam proces z powrotem do użytkownika końcowego.
+- **[Routing zawartości oparty na adresach URL](application-gateway-url-route-overview.md)** — ta funkcja zapewnia możliwość używania różnych serwerów zaplecza dla różnego ruchu. Ruch dla folderu na serwerze sieci Web lub dla usługi CDN może być kierowany na inne zaplecze, zmniejszając niepotrzebne obciążenie na serwerach zaplecza, które nie obsługują określonej zawartości.
+- **[Routing obejmujący wiele witryn](application-gateway-multi-site-overview.md)** — usługa Application Gateway umożliwia konsolidację maksymalnie 20 witryn sieci Web na jednej bramie aplikacji.
+- **[Obsługa protokołu Websocket](application-gateway-websocket.md)** — kolejną atrakcyjną funkcją usługi Application Gateway jest natywna obsługa protokołu Websocket.
+- **[Monitorowanie kondycji](application-gateway-probe-overview.md)** — usługa Application Gateway zapewnia domyślne monitorowanie kondycji zasobów zaplecza i niestandardowe sondy na potrzeby monitorowania bardziej specyficznych scenariuszy.
 
-HTTP layer 7 load balancing is useful for:
+## <a name="benefits"></a>Korzyści
 
-- Applications that require requests from the same user/client session to reach the same back-end virtual machine. Examples of these applications would be shopping cart apps and web mail servers.
-- Applications that want to free web server farms from SSL termination overhead.
-- Applications, such as a content delivery network, that requires multiple HTTP requests on the same long-running TCP connection to be routed or load balanced to different back-end servers.
-- Applications that support websocket traffic
+Usługa Application Gateway ma następujące zastosowania:
+
+- Aplikacje, które wymagają żądań z tej samej sesji klienta/użytkownika, aby dotrzeć do tej samej maszyny wirtualnej zaplecza. Przykładami takich aplikacji są aplikacje koszyka zakupów i serwery poczty sieci Web.
+- Aplikacje, które chcą uwolnić farmy serwerów sieci Web od nadmiaru przerywanych połączeń SSL.
+- Aplikacje, takie jak sieć dostarczania zawartości, które wymagają, aby wiele żądań HTTP w ramach tego samego długotrwałego połączenia TCP było kierowanych do różnych serwerów zaplecza lub obsługiwanych w sposób równoważący obciążenie na tych serwerach.
+- Aplikacje, które obsługują ruch w ramach protokołu Websocket.
+- Ochrona aplikacji sieci Web przed typowymi atakami internetowymi, takimi jak iniekcja SQL, ataki z użyciem skryptów wykorzystywanych w obrębie wielu witryn i przejęcia sesji.
 
 [AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
-## Gateway sizes and instances
+## <a name="gateway-sizes-and-instances"></a>Wystąpienia i rozmiary usługi Application Gateway
 
-Application Gateway is currently offered in three sizes: Small, Medium, and Large. Small instance sizes are intended for development and testing scenarios.
+Usługa Application Gateway jest obecnie oferowana w trzech rozmiarach: małym (Small), średnim (Medium) i dużym (Large). Rozmiary małych wystąpień są przeznaczone na potrzeby programowania i scenariuszy testowania.
 
-You can create up to 50 application gateways per subscription, and each application gateway can have up to 10 instances each. Each application gateway can consist of 10 http listeners. Application Gateway load balancing as an Azure-managed service allows the provisioning of a layer 7 load balancer behind the Azure software load balancer. 
+Obecnie istnieją dwie jednostki SKU dla usługi Application Gateway: WAF i Standard.
 
-The following table shows an average performance throughput for each application gateway instance:
+Można utworzyć maksymalnie 50 bram aplikacji na subskrypcję, a każda brama aplikacji może mieć maksymalnie 10 wystąpień. Każda brama aplikacji może składać się z 20 odbiorników HTTP. Ze względu na to, że równoważenie obciążenia usługi Application Gateway jest usługą zarządzaną przez platformę Azure, możliwa jest aprowizacja modułu równoważenia obciążenia warstwy 7 za modułem równoważenia obciążenia oprogramowania Azure.
 
-| Back-end page response | Small | Medium | Large|
+W poniższej tabeli przedstawiono przepływność przy średniej wydajności dla każdego wystąpienia bramy aplikacji:
+
+| Odpowiedź strony zaplecza | Small | Medium | Large|
 |---|---|---|---|
-| 6K | 7.5 Mbps | 13 Mbps | 50 Mbps |
-|100K | 35 Mbps | 100 Mbps| 200 Mbps |
+| 6000 | 7,5 Mb/s | 13 Mb/s | 50 Mb/s |
+|100 000 | 35 Mb/s | 100 Mb/s| 200 Mb/s |
 
->[AZURE.NOTE] These values are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of back-end instances, and processing time to serve a page.
+>[AZURE.NOTE] Są to przybliżone wartości przepływności bramy aplikacji. Rzeczywista przepływność zależy od różnorodnych szczegółów środowiska, takich jak średni rozmiar strony, lokalizacja wystąpień zaplecza i czas przetwarzania potrzebny do obsługi strony. Aby uzyskać dokładne wartości wydajności, należy przeprowadzić własne testy. Te wartości są podane tylko jako wskazówki na potrzeby planowania pojemności.
 
-## Health monitoring
+## <a name="health-monitoring"></a>Monitorowanie kondycji
 
-Azure Application Gateway automatically monitors the health of the back-end instances through basic or custom health probes. For more information, see [Application Gateway health monitoring overview](application-gateway-probe-overview.md).
+Usługa Azure Application Gateway automatycznie monitoruje kondycję wystąpień zaplecza za pośrednictwem podstawowych lub niestandardowych sond kondycji. Użycie sond kondycji zapewnia, że tylko hosty o dobrej kondycji będą odpowiadać na ruch sieciowy. Aby uzyskać więcej informacji, zobacz [Application Gateway health monitoring overview](application-gateway-probe-overview.md) (Monitorowanie kondycji usługi Application Gateway — omówienie).
 
-## Configuring and managing
+## <a name="configuring-and-managing"></a>Konfigurowanie i zarządzanie
 
-For its endpoint, application gateway can have a public IP, private IP, or both when it is configured. Application Gateway is configured inside a virtual network in its own subnet. The subnet created or used for application gateway cannot contain any other types of resources, the only resources that are allowed in the subnet are other application gateways. To secure your backend resources the backend servers can be contained within a different subnet in the same virtual network as the application gateway. This additional subnet it not required for the backend applications, as long as the application gateway can reach the ip address, application gateway is able to provide ADC capabilities for the backend servers.
+Punktem końcowym bramy aplikacji, jeśli został skonfigurowany, może być publiczny adres IP, prywatny adres IP lub obydwa te adresy. Usługa Application Gateway jest konfigurowana wewnątrz sieci wirtualnej we własnej podsieci. Podsieć utworzona lub używana na potrzeby bramy aplikacji nie może zawierać żadnych innych typów zasobów. Jedyne zasoby dozwolone w podsieci to inne bramy aplikacji. Aby zabezpieczyć zasoby zaplecza można umieścić serwery zaplecza w obrębie innej podsieci w tej samej sieci wirtualnej, co brama aplikacji. Ta dodatkowa podsieć nie jest wymagana dla aplikacji zaplecza. O ile tylko brama aplikacji może osiągnąć adres IP, to usługa Application Gateway jest w stanie zapewnić funkcje usługi ADC dla serwerów zaplecza.
 
-You can create and manage an application gateway by using REST APIs, PowerShell cmdlets, Azure CLI, or [Azure portal](https://portal.azure.com/).
+Możesz utworzyć bramę aplikacji i zarządzać nią, używając interfejsów API REST, poleceń cmdlet programu PowerShell, interfejsu wiersza polecenia Azure lub witryny [Azure Portal](https://portal.azure.com/).
 
-## Next steps
+## <a name="next-steps"></a>Następne kroki
 
-After learning about Application gateway, you can [create an application gateway](application-gateway-create-gateway-portal.md) or you can [create an application gateway SSL offload](application-gateway-ssl-arm.md) to load-balance HTTPS connections.
+Po zapoznaniu się z informacjami na temat usługi Application Gateway możesz [utworzyć bramę aplikacji](application-gateway-create-gateway-portal.md) albo [utworzyć odciążenie protokołu SSL bramy aplikacji](application-gateway-ssl-arm.md), aby zrównoważyć obciążenie połączeń HTTPS.
 
-To learn how to create an application gateway using URL-based content routing, go to [Create an application gateway using URL-based routing](application-gateway-create-url-route-arm-ps.md) for more information.
+Aby dowiedzieć się, jak utworzyć bramę aplikacji przy użyciu routingu zawartości opartego na adresach URL, zobacz [Create an application gateway using URL-based routing](application-gateway-create-url-route-arm-ps.md) (Tworzenie bramy aplikacji przy użyciu routingu opartego na adresach URL).
+
+
+
+
+<!--HONumber=Oct16_HO3-->
+
 

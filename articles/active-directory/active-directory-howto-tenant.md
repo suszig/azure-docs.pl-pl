@@ -33,41 +33,40 @@ Jak uzyskać dzierżawę usługi Azure AD?  Procedura może przebiegać nieco in
 - [Nie masz żadnej z powyższych subskrypcji i chcesz rozpocząć od zera](#start-from-scratch)
 
 ## Korzystanie z istniejącej subskrypcji usługi Office 365
-Jeśli masz istniejącą subskrypcję usługi Office 365, ale nie masz subskrypcji platformy Azure (i nie możesz zalogować się do [Portalu zarządzania platformy Azure](https://manage.windowsazure.com)), postępuj według [tych instrukcji](https://technet.microsoft.com/library/dn832618.aspx), aby uzyskać dostęp do dzierżawy usługi Azure AD.
+Jeśli masz istniejącą subskrypcję usługi Office 365, masz już dzierżawę usługi Azure AD. Możesz zalogować się w witrynie [Azure Portal](https://portal.azure.com) za pomocą danych konta usługi O365 i rozpocząć korzystanie z usługi Azure AD.
 
 ## Korzystanie z subskrypcji platformy Azure dla konta Microsoft
-Jeśli Twoje indywidualne konto Microsoft zostało wcześniej zarejestrowane w celu uzyskania subskrypcji platformy Azure, masz już dzierżawę.  W [Portalu zarządzania platformy Azure](https://manage.windowsazure.com) powinna być widoczna dzierżawa o nazwie „Domyślna dzierżawa” wyświetlana w obszarze „Wszystkie elementy” i „Active Directory”.  Możesz korzystać z tej dzierżawy zgodnie z własnymi potrzebami, ale warto utworzyć konto administratora organizacyjnego.
+Jeśli Twoje indywidualne konto Microsoft zostało wcześniej zarejestrowane w celu uzyskania subskrypcji platformy Azure, masz już dzierżawę.  Kiedy zalogujesz się w witrynie [Azure Portal](https://portal.azure.com), nastąpi automatyczne zalogowanie do domyślnej dzierżawy. Możesz korzystać z tej dzierżawy zgodnie z własnymi potrzebami, ale warto utworzyć konto administratora organizacyjnego.
 
 W tym celu wykonaj poniższe kroki.  Możesz też utworzyć nową dzierżawę i utworzyć administratora w tej dzierżawie, postępując według podobnej procedury.
 
-1.  Zaloguj się do [Portalu zarządzania platformy Azure](https://manage.windowsazure.com) za pomocą indywidualnego konta.
-2.  W portalu przejdź do sekcji „Active Directory” (na lewym pasku nawigacyjnym).
-3.  Z listy dostępnych katalogów wybierz pozycję „Katalog domyślny”.
-4.  Kliknij link Użytkownicy na górze strony.  Pojawi się lista z pojedynczym użytkownikiem i wartością „Konto Microsoft” w kolumnie Źródło.
-5.  Kliknij polecenie „Dodaj użytkownika” w dolnej części strony.
-6.  W formularzu Dodawanie użytkownika podaj następujące dane:
-    - Typ użytkownika: nowy użytkownik w organizacji.
+1.  Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) na swoje indywidualne konto.
+2.  Przejdź do sekcji „Azure Active Directory” (na lewym pasku nawigacyjnym, w obszarze **Więcej usług**).
+3.  Powinno nastąpić automatyczne zalogowanie do domyślnego katalogu. Jeśli tak się nie stanie, możesz przełączyć katalogi, klikając nazwę konta w prawym górnym rogu.
+4.  W sekcji **Szybkie zadania** wybierz opcję **Dodaj użytkownika**.
+5.  W formularzu Dodawanie użytkownika podaj następujące dane:
+
+    - Nazwa: (wybierz odpowiednią wartość).
     - Nazwa użytkownika: (wybierz nazwę użytkownika dla tego administratora).
-    - Imię/Nazwisko/Nazwa wyświetlana: (wybierz odpowiednie wartości).
+    - Profil: (podaj odpowiednie wartości dla pól Imię, Nazwisko, Stanowisko i Dział).
     - Rola: administrator globalny.
-    - Alternatywny adres e-mail: (wprowadź odpowiednie wartości).
-    - Opcjonalnie: włącz usługę Multi-Factor Authentication.
-    - Na koniec kliknij zielony przycisk „UTWÓRZ”, aby zakończyć tworzenie użytkownika (i wyświetlić hasło tymczasowe).
-7.  Po ukończeniu pracy z formularzem Dodawanie użytkownika i otrzymaniu tymczasowego hasła dla nowego użytkownika administracyjnego pamiętaj o zapisaniu hasła. Jest to konieczne, ponieważ w celu zmiany hasła trzeba będzie zalogować się za pomocą danych nowego użytkownika. Używając alternatywnego adresu e-mail, możesz również wysłać hasło bezpośrednio do użytkownika.
-8.  Aby zmienić hasło tymczasowe, zaloguj się na stronie https://login.microsoftonline.com, używając nowego konta użytkownika, i zmień hasło po wyświetleniu odpowiedniego monitu.
+
+6.  Po ukończeniu pracy z formularzem Dodawanie użytkownika i otrzymaniu tymczasowego hasła dla nowego użytkownika administracyjnego pamiętaj o zapisaniu hasła. Jest to konieczne, ponieważ w celu zmiany hasła trzeba będzie zalogować się za pomocą danych nowego użytkownika. Używając alternatywnego adresu e-mail, możesz również wysłać hasło bezpośrednio do użytkownika.
+7.  Kliknij opcję **Utwórz**, aby utworzyć nowego użytkownika.
+8.  Aby zmienić hasło tymczasowe, zaloguj się na stronie [https://login.microsoftonline.com](https://login.microsoftonline.com), używając nowego konta użytkownika, i zmień hasło, gdy pojawi się stosowny monit.
 
 
 ## Korzystanie z organizacyjnej subskrypcji platformy Azure
-Jeśli konto organizacyjne zostało wcześniej zarejestrowane w celu uzyskania subskrypcji platformy Azure, masz już dzierżawę.  W [Portalu zarządzania platformy Azure](https://manage.windowsazure.com) dzierżawa powinna być widoczna w obszarze „Wszystkie elementy” i „Active Directory.”  Z tej dzierżawy możesz korzystać zależnie od potrzeb.  Możesz również utworzyć nową dzierżawę za pomocą przycisku „Nowy” w lewym dolnym rogu portalu.
+Jeśli konto organizacyjne zostało wcześniej zarejestrowane w celu uzyskania subskrypcji platformy Azure, masz już dzierżawę.  W witrynie [Azure Portal](https://portal.azure.com) należy wyszukać dzierżawę po przejściu do sekcji „Więcej usług” i „Azure Active Directory”.  Z tej dzierżawy możesz korzystać zależnie od potrzeb. 
 
 
 ## Rozpoczynanie od zera
-Jeśli wszystkie powyższe informacje są dla Ciebie mało zrozumiałe, nie przejmuj się.  Po prostu odwiedź stronę [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization), aby zarejestrować się na platformie Azure jako nowa organizacja.  Po wykonaniu procesu będziesz dysponować własną dzierżawą usługi Azure AD wraz z nazwą domeny wybraną podczas rejestracji.  W [Portalu zarządzania platformy Azure](https://manage.windowsazure.com) możesz odnaleźć dzierżawę, przechodząc do obszaru „Usługa Active Directory” w panelu nawigacyjnym po lewej stronie.
+Jeśli wszystkie powyższe informacje są dla Ciebie mało zrozumiałe, nie przejmuj się.  Po prostu odwiedź stronę [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization), aby zarejestrować się na platformie Azure jako nowa organizacja.  Po wykonaniu procesu będziesz dysponować własną dzierżawą usługi Azure AD wraz z nazwą domeny wybraną podczas rejestracji.  W witrynie [Azure Portal](https://portal.azure.com) możesz odnaleźć dzierżawę, przechodząc do obszaru „Azure Active Directory” w panelu nawigacyjnym po lewej stronie.
 
 Podczas procesu rejestracji na platformie Azure wymagane jest podanie danych karty kredytowej.  Możesz to zrobić bez obaw — nie będą naliczane opłaty ani za publikowanie aplikacji w usłudze Azure AD, ani za tworzenie nowych dzierżaw.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 
