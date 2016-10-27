@@ -3,8 +3,8 @@
    description="Usługa Power BI Embedded — dodawanie interaktywnych raportów usługi Power BI do aplikacji analizy biznesowej"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="mgblythe"
-   manager="NA"
+   authors="guyinacube"
+   manager="erikre"
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/05/2016"
-   ms.author="mblythe"/>
+   ms.date="10/04/2016"
+   ms.author="asaxton"/>
 
 
 # Wprowadzenie do usługi Microsoft Power BI Embedded
@@ -104,6 +104,6 @@ W poprzednich krokach utworzono kolekcję obszarów roboczych oraz pierwszy rapo
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -57,15 +57,15 @@ Usługa Azure Machine Learning udostępnia dwa typy usług:
 * Usługa odpowiedzi na żądanie (RRS, Request-Response Service) — wysoce skalowalna usługa o małych opóźnieniach, która udostępnia interfejs dla bezstanowych modeli utworzonych i wdrożonych z poziomu usługi Machine Learning Studio.
 * Usługa wykonywania wsadowego (BES, Batch Execution Service) — asynchroniczna usługa przeznaczona do oceniania partii rekordów danych.
 
-Istnieje kilka sposobów uzyskiwania dostępu do usługi sieci Web za pomocą interfejsu API REST. Można na przykład napisać aplikację w języku C#, R lub Python korzystającą z przykładowego kodu automatycznie wygenerowanego podczas wdrażania usługi sieci Web. 
+Istnieje kilka sposobów uzyskiwania dostępu do usługi sieci Web za pomocą interfejsu API REST. Można na przykład napisać aplikację w języku C#, R lub Python korzystającą z przykładowego kodu automatycznie wygenerowanego podczas wdrażania usługi sieci Web.
 
-Kod przykładowy można znaleźć na stronie Korzystanie dotyczącej danej usługi sieci Web w portalu usług sieci Web Azure Machine Learning oraz na stronie pomocy interfejsu API na pulpicie nawigacyjnym usługi sieci Web Machine Learning Studio. 
+Kod przykładowy można znaleźć na stronie Korzystanie dotyczącej danej usługi sieci Web w portalu usług sieci Web Azure Machine Learning oraz na stronie pomocy interfejsu API na pulpicie nawigacyjnym usługi sieci Web Machine Learning Studio.
 
 Można też użyć automatycznie utworzonego przykładowego skoroszytu programu Microsoft Excel (również dostępnego na pulpicie nawigacyjnym usługi sieci Web w środowisku Studio).
 
 **Jakie główne aktualizacje wprowadzono w nowych usługach sieci Web Azure ML?**
 
-Więcej informacji o nowych usługach sieci Web Azure Machine Learning można znaleźć w [pokrewnej dokumentacji](machine-learning-whats-new.md). 
+Więcej informacji o nowych usługach sieci Web Azure Machine Learning można znaleźć w [pokrewnej dokumentacji](machine-learning-whats-new.md).
 
 ## Pytania dotyczące usługi Machine Learning Studio
 
@@ -266,7 +266,7 @@ Listę kodów błędów i opisy zawiera temat [Machine Learning Module Error Cod
 
 **Co to jest skalowalność usługi sieci Web?**
 
-Aktualnie każdemu domyślnemu punktowi końcowemu przydzielone jest 20 równoczesnych żądań RRS. Tę wartość można skalować do 200 równoczesnych żądań na punkt końcowy, a każdą usługę sieci Web można skalować do 10 000 punktów końcowych, zgodnie z opisem w temacie [Scaling API endpoints](machine-learning-scaling-endpoints.md) (Skalowanie punktów końcowych interfejsu API). W przypadku usługi BES każdy punkt końcowy pozwala na przetwarzanie 40 żądań jednocześnie, a dodatkowe żądania (po przekroczeniu 40 żądań) są dodawane do kolejki. Żądania z kolejki są wykonywane automatycznie w miarę opróżniania kolejki.
+Aktualnie każdemu domyślnemu punktowi końcowemu przydzielone jest 20 równoczesnych żądań RRS. Tę wartość można skalować do 200 równoczesnych żądań na punkt końcowy, a każdą usługę sieci Web można skalować do 10 000 punktów końcowych, zgodnie z opisem w temacie [Scaling a Web service](machine-learning-scaling-webservice.md) (Skalowanie usługi sieci Web). W przypadku usługi BES każdy punkt końcowy pozwala na przetwarzanie 40 żądań jednocześnie, a dodatkowe żądania (po przekroczeniu 40 żądań) są dodawane do kolejki. Żądania z kolejki są wykonywane automatycznie w miarę opróżniania kolejki.
 
 
 **Czy zadania R są dystrybuowane między węzłami?**
@@ -355,7 +355,7 @@ Podczas oceniania usługi Machine Learning Studio możesz korzystać z bezpłatn
 
 Gdy okaże się, że usługa Azure Machine Learning spełnia Twoje wymagania, możesz zasubskrybować warstwę standardową. W tym celu musisz uzyskać subskrypcję platformy Microsoft Azure.
 
-W warstwie standardowej opłata za użycie usługi Machine Learning Studio jest naliczana co miesiąc i zależy od liczby utworzonych obszarów roboczych. Opłata jest naliczana na podstawie zasobów obliczeniowych zużywanych na potrzeby eksperymentu uruchomionego w środowisku Studio. W przypadku wdrażania klasycznej usługi sieci Web transakcje i godziny obliczeniowe są rozliczane zgodnie z ich rzeczywistym użyciem. 
+W warstwie standardowej opłata za użycie usługi Machine Learning Studio jest naliczana co miesiąc i zależy od liczby utworzonych obszarów roboczych. Opłata jest naliczana na podstawie zasobów obliczeniowych zużywanych na potrzeby eksperymentu uruchomionego w środowisku Studio. W przypadku wdrażania klasycznej usługi sieci Web transakcje i godziny obliczeniowe są rozliczane zgodnie z ich rzeczywistym użyciem.
 
 W nowych usługach sieci Web Machine Learning wprowadzono plany rozliczeniowe, które zwiększają przewidywalność kosztów. Warstwy cenowe zapewniają możliwość korzystania z taryf rabatowych klientom, którzy potrzebują dużej wydajności.
 
@@ -370,7 +370,7 @@ Dodatkowe informacje o rozliczeniach i cenach zawiera temat [Machine Learning �
 **Czy istnieje bezpłatna wersja próbna usługi Machine Learning?**
 
  Z usługi Azure Machine Learning można korzystać w ramach bezpłatnej subskrypcji (szczegółowe informacje można znaleźć w temacie [Machine Learning — cennik](https://azure.microsoft.com/pricing/details/machine-learning/)). Usługa Machine Learning Studio udostępnia 8-godzinny okres próbny umożliwiający szybką ocenę. Aby z niego skorzystać, musisz zalogować się do usługi [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2).
- 
+
  Ponadto gdy utworzysz konto umożliwiające uzyskanie bezpłatnej wersji próbnej platformy Azure, możesz przez miesiąc korzystać z dowolnych usług Azure. Aby dowiedzieć się więcej na temat bezpłatnej wersji próbnej platformy Azure, odwiedź stronę [Bezpłatna wersja próbna platformy Azure — często zadawane pytania](/pricing/free-trial-faq/).
 
 **Co to jest transakcja?**
@@ -383,7 +383,7 @@ Tak. Transakcje powiązane z wywołaniami usług RRS i BES są agregowane, a op�
 
 **Co to jest godzina obliczeniowa interfejsu API?**
 
-Godzina obliczeniowa interfejsu API jest jednostką rozliczeniową czasu uruchomienia wywołań interfejsu API korzystających z zasobów obliczeniowych usługi Machine Learning. Wszystkie wywołania są agregowane na potrzeby rozliczeń. 
+Godzina obliczeniowa interfejsu API jest jednostką rozliczeniową czasu uruchomienia wywołań interfejsu API korzystających z zasobów obliczeniowych usługi Machine Learning. Wszystkie wywołania są agregowane na potrzeby rozliczeń.
 
 **Jak długo trwa typowe wywołanie interfejsu API w środowisku produkcyjnym?**
 
@@ -391,17 +391,17 @@ Czas potrzebny na uruchomienie wywołań interfejsu API w środowisku produkcyjn
 
 **Co to jest godzina obliczeniowa środowiska Studio?**
 
-Godzina obliczeniowa środowiska Studio jest jednostką rozliczeniową zagregowanego czasu używania zasobów obliczeniowych w ramach eksperymentów prowadzonych w środowisku Studio. 
+Godzina obliczeniowa środowiska Studio jest jednostką rozliczeniową zagregowanego czasu używania zasobów obliczeniowych w ramach eksperymentów prowadzonych w środowisku Studio.
 
 **Jakie jest przeznaczenie warstwy tworzenia i testowania w nowych usługach sieci Web?**
 
 Nowe usługi sieci Web Azure ML udostępniają wiele warstw służących do aprowizacji planu rozliczeniowego. Warstwa tworzenia i testowania udostępnia ograniczoną liczbę wliczonych zasobów, które umożliwiają przetestowanie eksperymentu jako nowej usługi sieci Web bez ponoszenia kosztów. Dzięki temu możesz szybko rozpocząć pracę i sprawdzić przebieg eksperymentu.
 
-**Czy są naliczane oddzielne opłaty za przestrzeń dyskową?** 
+**Czy są naliczane oddzielne opłaty za przestrzeń dyskową?**
 
 Usługa Machine Learning w warstwie Bezpłatna nie wymaga osobnej przestrzeni dyskowej ani nie zezwala na korzystanie z niej. Usługa Machine Learning w warstwie Standardowa wymaga od użytkowników posiadania konta usługi Azure Storage. Opłata za korzystanie z usługi Azure Storage jest [naliczana oddzielnie](https://azure.microsoft.com/pricing/details/storage/).
 
-**W jaki sposób usługa Machine Learning obsługuje wysoką dostępność?** 
+**W jaki sposób usługa Machine Learning obsługuje wysoką dostępność?**
 
 Czas potrzebny na uruchomienie wywołań interfejsu API w środowisku produkcyjnym może być różny — większość wywołań trwa od dziesiątych części sekundy do kilku sekund. Niektóre wywołania mogą trwać nawet kilka minut w zależności od złożoności procesu przetwarzania danych i modelu uczenia maszynowego. Najlepsza metoda oszacowania tego czasu polega na przeprowadzeniu testów porównawczych modelu za pomocą usługi Machine Learning.
 
@@ -409,7 +409,7 @@ Czas potrzebny na uruchomienie wywołań interfejsu API w środowisku produkcyjn
 
 Machine Learning jest usługą z wieloma dzierżawami, a rzeczywiste zasoby obliczeniowe używane na zapleczu różnią się i są zoptymalizowane pod kątem wydajności i stabilności.
 
-### Zarządzanie nowymi usługami sieci Web 
+### Zarządzanie nowymi usługami sieci Web
 
 **Co się stanie w przypadku usunięcia planu?**
 
@@ -419,29 +419,29 @@ Uwaga: nie można usunąć planu, który jest używany przez usługę sieci Web.
 
 **Co to jest wystąpienie planu?**
 
-Wystąpienie planu jest jednostką wliczonych zasobów, które można dodać do planu rozliczeniowego. Wybranie warstwy rozliczeniowej dla planu powoduje dodanie jej do jednego wystąpienia. Jeśli jest potrzebnych więcej transakcji, do planu można dodać wystąpienia wybranej warstwy rozliczeniowej. 
+Wystąpienie planu jest jednostką wliczonych zasobów, które można dodać do planu rozliczeniowego. Wybranie warstwy rozliczeniowej dla planu powoduje dodanie jej do jednego wystąpienia. Jeśli jest potrzebnych więcej transakcji, do planu można dodać wystąpienia wybranej warstwy rozliczeniowej.
 
 **Ile wystąpień planu mogę dodać?**
 
 W ramach jednej subskrypcji możesz mieć jedno wystąpienie warstwy tworzenia i testowania
 
-i dowolną liczbę warstw S1, S2 i S3. 
+i dowolną liczbę warstw S1, S2 i S3.
 
 Uwaga: w zależności od przewidywanego użycia uaktualnienie do warstwy zapewniającej większą liczbę wliczonych zasobów może być bardziej opłacalne niż dodawanie wystąpień do bieżącej warstwy.
 
 **Co się stanie w przypadku zmiany warstw planu (uaktualnienia bądź obniżenia poziomu)?**
 
-Stary plan zostanie usunięty, a opłata za bieżące użycie zostanie naliczona proporcjonalnie. Zostanie utworzony nowy plan z kompletem wliczonych zasobów dostępnych w uaktualnionej lub obniżonej warstwie. Nowo utworzony plan będzie obowiązywał przez resztę okresu. 
+Stary plan zostanie usunięty, a opłata za bieżące użycie zostanie naliczona proporcjonalnie. Zostanie utworzony nowy plan z kompletem wliczonych zasobów dostępnych w uaktualnionej lub obniżonej warstwie. Nowo utworzony plan będzie obowiązywał przez resztę okresu.
 
 Uwaga: wliczone transakcje są przydzielane na podstawie okresu, a niewykorzystane zasoby nie przechodzą na następny okres.
 
 **Co się stanie w przypadku zwiększenia liczby wystąpień w planie?**
 
-Liczba wliczonych transakcji jest określana proporcjonalnie, a udostępnianie nowych zasobów może potrwać do 24 godzin. 
+Liczba wliczonych transakcji jest określana proporcjonalnie, a udostępnianie nowych zasobów może potrwać do 24 godzin.
 
 **Co się stanie w przypadku usunięcia wystąpienia planu?**
 
-Wystąpienie zostanie usunięte z subskrypcji, a opłaty za użycie będą naliczane proporcjonalnie. 
+Wystąpienie zostanie usunięte z subskrypcji, a opłaty za użycie będą naliczane proporcjonalnie.
 
 
 ### Subskrybowanie planów nowych usług sieci Web
@@ -450,9 +450,9 @@ Wystąpienie zostanie usunięte z subskrypcji, a opłaty za użycie będą nalic
 
 Plany rozliczeniowe można tworzyć na dwa sposoby.
 
-Przy pierwszym wdrożeniu nowej usługi sieci Web możesz wybrać istniejący plan lub utworzyć nowy. 
+Przy pierwszym wdrożeniu nowej usługi sieci Web możesz wybrać istniejący plan lub utworzyć nowy.
 
-Plany są tworzone w domyślnym regionie, w którym zostanie również wdrożona usługa sieci Web. 
+Plany są tworzone w domyślnym regionie, w którym zostanie również wdrożona usługa sieci Web.
 
 Jeśli planujesz wdrażanie usług poza domyślnym regionem, warto zdefiniować plany rozliczeniowe przed wdrożeniem usługi.
 
@@ -460,7 +460,7 @@ Aby to zrobić, wystarczy się zalogować do portalu usług sieci Web Azure Mach
 
 **Który plan wybrać na początek?**
 
-Zalecamy rozpoczęcie od standardowej warstwy S1 i monitorowanie użycia usługi. Jeśli okaże się, że zużycie wliczonych zasobów postępuje szybko, możesz dodać wystąpienia lub uaktualnić warstwę, uzyskując korzystniejszą taryfę. Plan rozliczeniowy można dostosowywać zgodnie z potrzebami w całym cyklu rozliczeniowym. 
+Zalecamy rozpoczęcie od standardowej warstwy S1 i monitorowanie użycia usługi. Jeśli okaże się, że zużycie wliczonych zasobów postępuje szybko, możesz dodać wystąpienia lub uaktualnić warstwę, uzyskując korzystniejszą taryfę. Plan rozliczeniowy można dostosowywać zgodnie z potrzebami w całym cyklu rozliczeniowym.
 
 **W jakich regionach są dostępne nowe plany?**
 
@@ -478,21 +478,21 @@ Tak. Ceny planów zależą od regionu. Gdy wdrażasz usługę sieci Web w innym 
 
 **Jak sprawdzić, czy przekroczono limit użycia usługi sieci Web?**
 
-W portalu usług sieci Web Azure Machine Learning na stronie Plany można wyświetlić użycie usługi we wszystkich planach. Zaloguj się do portalu i kliknij opcję Plany w menu. 
+W portalu usług sieci Web Azure Machine Learning na stronie Plany można wyświetlić użycie usługi we wszystkich planach. Zaloguj się do portalu i kliknij opcję Plany w menu.
 
-W kolumnach tabeli dotyczących transakcji i zasobów obliczeniowych są zawarte informacje o wartościach wliczonych w ramach planu oraz ich użyciu w ujęciu procentowym. 
+W kolumnach tabeli dotyczących transakcji i zasobów obliczeniowych są zawarte informacje o wartościach wliczonych w ramach planu oraz ich użyciu w ujęciu procentowym.
 
 **Co się stanie po wyczerpaniu wliczonych wartości w warstwie tworzenia i testowania?**
 
 Usługi z przypisaną warstwą tworzenia i testowania zostaną zatrzymane do następnego okresu lub do momentu przeniesienia ich do dowolnej warstwy płatnej.
 
-**Jak są naliczane ceny obciążeń RRS (Request Response) i BES (Batch) w przypadku klasycznych usług sieci Web oraz nadwyżkowego użycia nowych usług sieci Web?** 
+**Jak są naliczane ceny obciążeń RRS (Request Response) i BES (Batch) w przypadku klasycznych usług sieci Web oraz nadwyżkowego użycia nowych usług sieci Web?**
 
-W przypadku obciążeń RRS opłata jest naliczana za każde wywołanie transakcji interfejsu API oraz czas obliczeń skojarzony z tymi żądaniami. Koszt transakcji RRS interfejsu API w środowisku produkcyjnym jest obliczany przez pomnożenie łącznej liczby wywołań interfejsu API przez cenę 1000 transakcji (proporcjonalnie do liczby indywidualnych transakcji). Koszt godzin obliczeniowych RRS interfejsu API w środowisku produkcyjnym jest obliczany przez pomnożenie czasu wymaganego do uruchomienia poszczególnych wywołań interfejsu API przez łączną liczbę transakcji interfejsu API oraz przez cenę godziny obliczeniowej interfejsu API w środowisku produkcyjnym. 
+W przypadku obciążeń RRS opłata jest naliczana za każde wywołanie transakcji interfejsu API oraz czas obliczeń skojarzony z tymi żądaniami. Koszt transakcji RRS interfejsu API w środowisku produkcyjnym jest obliczany przez pomnożenie łącznej liczby wywołań interfejsu API przez cenę 1000 transakcji (proporcjonalnie do liczby indywidualnych transakcji). Koszt godzin obliczeniowych RRS interfejsu API w środowisku produkcyjnym jest obliczany przez pomnożenie czasu wymaganego do uruchomienia poszczególnych wywołań interfejsu API przez łączną liczbę transakcji interfejsu API oraz przez cenę godziny obliczeniowej interfejsu API w środowisku produkcyjnym.
 
 Na przykład w ramach użycia nadwyżkowego w warstwie Standardowa S1 1 000 000 transakcji interfejsu API, z których każda trwa 0,72 s, spowoduje naliczenie opłaty 500 USD (1 000 000 * / 1000 transakcji interfejsu API) z tytułu kosztów transakcji interfejsu API w środowisku produkcyjnym oraz 400 USD (1 000 000 * 0,72 s * 2 USD / godz.) z tytułu godzin obliczeniowych interfejsu API w środowisku produkcyjnym, co daje łączną kwotę 900 USD.
 
-W przypadku obciążeń usługi BES opłata jest naliczana w ten sam sposób, ale koszt transakcji interfejsu API odpowiada liczbie przesłanych zadań wsadowych, a koszt obliczeń odpowiada czasowi obliczeń skojarzonemu z tymi zadaniami wsadowymi. Z tego względu koszt transakcji interfejsu API usługi BES w środowisku produkcyjnym jest obliczany przez pomnożenie łącznej liczby przesłanych zadań przez cenę 1000 transakcji (proporcjonalnie do liczby indywidualnych transakcji). Koszt godzin obliczeniowych interfejsu API usługi BES w środowisku produkcyjnym jest obliczany przez pomnożenie czasu wymaganego do uruchomienia poszczególnych wierszy w zadaniu przez łączną liczbę wierszy w zadaniu przez łączną liczbę zadań oraz przez cenę godziny obliczeniowej interfejsu API w środowisku produkcyjnym. Podczas korzystania z kalkulatora usługi Machine Learning licznik transakcji reprezentuje liczbę zadań, które zamierzasz przesłać, a wartość w polu czasu transakcji reprezentuje łączny czas wymagany do uruchomienia wszystkich wierszy w poszczególnych zadaniach. 
+W przypadku obciążeń usługi BES opłata jest naliczana w ten sam sposób, ale koszt transakcji interfejsu API odpowiada liczbie przesłanych zadań wsadowych, a koszt obliczeń odpowiada czasowi obliczeń skojarzonemu z tymi zadaniami wsadowymi. Z tego względu koszt transakcji interfejsu API usługi BES w środowisku produkcyjnym jest obliczany przez pomnożenie łącznej liczby przesłanych zadań przez cenę 1000 transakcji (proporcjonalnie do liczby indywidualnych transakcji). Koszt godzin obliczeniowych interfejsu API usługi BES w środowisku produkcyjnym jest obliczany przez pomnożenie czasu wymaganego do uruchomienia poszczególnych wierszy w zadaniu przez łączną liczbę wierszy w zadaniu przez łączną liczbę zadań oraz przez cenę godziny obliczeniowej interfejsu API w środowisku produkcyjnym. Podczas korzystania z kalkulatora usługi Machine Learning licznik transakcji reprezentuje liczbę zadań, które zamierzasz przesłać, a wartość w polu czasu transakcji reprezentuje łączny czas wymagany do uruchomienia wszystkich wierszy w poszczególnych zadaniach.
 
 Jeśli w ramach użycia nadwyżkowego w warstwie Standardowa S1 przesyłasz na przykład 100 zadań dziennie, z których każde zawiera 500 wierszy o czasie uruchamiania 0,72 s, miesięczny koszt nadwyżkowych transakcji interfejsu API w środowisku produkcyjnym wyniesie 1,55 USD (100 zadań dziennie = 3100 zadań/mies. * 0,5 USD/1000 transakcji interfejsu API), a koszt godzin obliczeniowych interfejsu API w środowisku produkcyjnym wyniesie 620 USD (500 wierszy * 0,72 s * 3100 zadań * 2 USD/godz.) , co daje łączną kwotę 621,55 USD.
 
@@ -505,30 +505,30 @@ Tak, klasyczne usługi sieci Web są wciąż dostępne w usłudze Azure Machine 
 
 **Co obejmuje usługa Azure Machine Learning w warstwie Bezpłatna?**
 
-Usługa Azure Machine Learning w warstwie Bezpłatna zapewnia szczegółowe wprowadzenie do usługi Azure Machine Learning Studio. Do korzystania z tej usługi wystarczy konto Microsoft. Warstwa Bezpłatna umożliwia bezpłatne korzystanie z jednego obszaru roboczego usługi Azure Machine Learning Studio w ramach [konta Microsoft](https://www.microsoft.com/account/default.aspx). Zapewnia nawet 10 GB przestrzeni dyskowej i pozwala operacjonalizować modele jako przejściowe interfejsy API. Obciążenia warstwy Bezpłatna nie są objęte umową SLA i są przeznaczone tylko do użytku osobistego i do opracowywania rozwiązań. Obciążenia warstwy Bezpłatna nie mogą uzyskiwać dostępu do danych, łącząc się z lokalnym serwerem SQL. 
+Usługa Azure Machine Learning w warstwie Bezpłatna zapewnia szczegółowe wprowadzenie do usługi Azure Machine Learning Studio. Do korzystania z tej usługi wystarczy konto Microsoft. Warstwa Bezpłatna umożliwia bezpłatne korzystanie z jednego obszaru roboczego usługi Azure Machine Learning Studio w ramach [konta Microsoft](https://www.microsoft.com/account/default.aspx). Zapewnia nawet 10 GB przestrzeni dyskowej i pozwala operacjonalizować modele jako przejściowe interfejsy API. Obciążenia warstwy Bezpłatna nie są objęte umową SLA i są przeznaczone tylko do użytku osobistego i do opracowywania rozwiązań. Obciążenia warstwy Bezpłatna nie mogą uzyskiwać dostępu do danych, łącząc się z lokalnym serwerem SQL.
 
 **Co obejmują plany usługi Azure Machine Learning w warstwie Standardowa?**
 
 Usługa Azure Machine Learning w warstwie Standardowa to płatna wersja produkcyjna usługi Azure Machine Learning Studio. Opłata miesięczna za usługę Azure ML Studio jest naliczana na podstawie liczby obszarów roboczych i proporcjonalnie w przypadku niepełnych miesięcy. Godziny korzystania z usługi Azure ML Studio są rozliczane na podstawie godzin obliczeniowych w ramach aktywnych eksperymentów. W przypadku niepełnych godzin opłaty są naliczane proporcjonalnie.  
 
-Sposób rozliczania korzystania z usługi Azure ML API zależy od tego, czy jest to klasyczna czy nowa usługa sieci Web. 
+Sposób rozliczania korzystania z usługi Azure ML API zależy od tego, czy jest to klasyczna czy nowa usługa sieci Web.
 
-Następujące opłaty są agregowane dla danego obszaru roboczego w ramach subskrypcji. 
+Następujące opłaty są agregowane dla danego obszaru roboczego w ramach subskrypcji.
 
 * Subskrypcja obszarów roboczych usługi Machine Learning — jest to miesięczna opłata zapewniająca dostęp do obszaru roboczego usługi ML Studio, która jest wymagana do uruchamiania eksperymentów zarówno w studiu, jak i z użyciem produkcyjnych interfejsów API.
 * Godziny prowadzenia eksperymentów w Studio — ten licznik agreguje wszystkie opłaty za zasoby obliczeniowe naliczane w wyniku przeprowadzania eksperymentów w usłudze ML Studio i wykonywania wywołań produkcyjnych interfejsów API w środowisku przejściowym.
 * Dostęp do danych przez połączenie z lokalnym serwerem SQL w ramach modeli na potrzeby szkolenia i oceniania.
-* W przypadku klasycznych usług sieci Web: 
+* W przypadku klasycznych usług sieci Web:
     * Godziny obliczeniowe interfejsu API w środowisku produkcyjnym — ten licznik obejmuje opłaty za zasoby obliczeniowe naliczane przez usługi sieci Web w środowisku produkcyjnym.
     * Transakcje obliczeń dla interfejsu API w środowisku produkcyjnym (w tysiącach) — ten licznik obejmuje opłaty naliczane za wywołania produkcyjnej usługi sieci Web.
 
-W przypadku nowych usług sieci Web opłaty są dodatkowo agregowane zgodnie z wybranym planem: 
+W przypadku nowych usług sieci Web opłaty są dodatkowo agregowane zgodnie z wybranym planem:
 
 * Plan interfejsu API w warstwie Standard S1/S2/S3 (jednostki) — ten licznik reprezentuje typ wystąpienia wybranego dla nowych usług sieci Web.
 * Nadwyżkowe godziny obliczeniowe interfejsu API w warstwie Standard S1/S2/S3 — ten licznik obejmuje opłaty za zasoby obliczeniowe naliczane z tytułu uruchomienia nowych usług sieci Web w środowisku produkcyjnym po zużyciu wliczonych wartości w istniejących wystąpieniach. Opłata za dodatkowe użycie jest naliczana zgodnie z nadwyżkową stawką skojarzoną z warstwą planów S1/S2/S3.
 * Nadwyżkowe transakcje interfejsu API w warstwie Standard S1/S2/S3 (w tysiącach) — ten licznik obejmuje opłaty naliczane za wywołania nowych usług sieci Web w środowisku produkcyjnym po zużyciu wliczonych wartości w istniejących wystąpieniach. Opłata za dodatkowe użycie jest naliczana zgodnie z nadwyżkową stawką skojarzoną z warstwą planów S1/S2/S3.
-* Godziny obliczeniowe interfejsu API w uwzględnionej ilości — w przypadku nowych usług sieci Web ten licznik obejmuje uwzględnioną ilość godzin obliczeniowych interfejsu API. 
-* Transakcje interfejsu API w uwzględnionej ilości (w 1000) — w przypadku nowych usług sieci Web ten licznik obejmuje uwzględnioną ilość transakcji interfejsu API. 
+* Godziny obliczeniowe interfejsu API w uwzględnionej ilości — w przypadku nowych usług sieci Web ten licznik obejmuje uwzględnioną ilość godzin obliczeniowych interfejsu API.
+* Transakcje interfejsu API w uwzględnionej ilości (w 1000) — w przypadku nowych usług sieci Web ten licznik obejmuje uwzględnioną ilość transakcji interfejsu API.
 
 
 **Jak zasubskrybować usługę Azure ML w warstwie Bezpłatna?**
@@ -547,7 +547,7 @@ Nie. Warstwa Standardowa odpowiada wersji usługi Machine Learning, która była
 
 **Czy można wdrażać modele uczenia maszynowego jako interfejsy API w ramach warstwy Bezpłatna?**
 
-Tak. Można zoperacjonalizować modele uczenia maszynowego w tymczasowych usługach interfejsu API w ramach warstwy Bezpłatna. Aby wprowadzić przejściową usługę interfejsu API do produkcji i uzyskać produkcyjny punkt końcowy zoperacjonalizowanej usługi, musisz używać warstwy Standardowa. 
+Tak. Można zoperacjonalizować modele uczenia maszynowego w tymczasowych usługach interfejsu API w ramach warstwy Bezpłatna. Aby wprowadzić przejściową usługę interfejsu API do produkcji i uzyskać produkcyjny punkt końcowy zoperacjonalizowanej usługi, musisz używać warstwy Standardowa.
 
 **Czym różni się bezpłatna wersja próbna platformy Azure i usługa Azure Machine Learning w warstwie Bezpłatna?**
 
@@ -593,6 +593,6 @@ Dostęp gościa zapewnia ograniczoną wersję próbną interfejsu, która umożl
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

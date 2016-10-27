@@ -175,7 +175,7 @@ W przykładach stosujemy następujące wartości:
 
     Poniższy przykład pozwala utworzyć sieć wirtualną o nazwie TestVNet1 oraz trzy podsieci noszące kolejno nazwy GatewaySubnet, FrontEnd i Backend. Podczas zastępowania wartości ważne jest, aby podsieć bramy zawsze nosiła nazwę GatewaySubnet. W przypadku nadania jej innej nazwy proces tworzenia bramy zakończy się niepowodzeniem. 
 
-    W poniższym przykładzie użyto zmiennych, które zostały ustawione wcześniej. W tym przykładzie użyto podsieci bramy /27. Choć z technicznego punktu widzenia można utworzyć mniejszą podsieć bramy wykorzystującą wartość /29, to nie zaleca się takiego postępowania. Zalecamy użycie większych rozmiarów, takich jak /27 lub /26. W ten sposób będzie można korzystać z istniejących i przyszłych konfiguracji, które mogą wymagać większych podsieci bramy. 
+    W poniższym przykładzie użyto zmiennych, które zostały ustawione wcześniej. W tym przykładzie użyto podsieci bramy /27. Chociaż możliwe jest utworzenie małej podsieci bramy /29, zaleca się utworzenie większej podsieci zawierającej więcej adresów, wybierając podsieć przynajmniej /28 lub /27. Zapewni to wystarczająco dużo adresów, aby możliwe były dodatkowe konfiguracje, które mogą być potrzebne w przyszłości. 
 
         $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
         $besub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
@@ -476,6 +476,9 @@ Jako że bramy należą do różnych subskrypcji, w tym przykładzie zastosowano
 
 ## <a name="verify"></a>Jak zweryfikować połączenie
 
+
+[AZURE.INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
+
 [AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
 
@@ -487,6 +490,6 @@ Jako że bramy należą do różnych subskrypcji, w tym przykładzie zastosowano
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

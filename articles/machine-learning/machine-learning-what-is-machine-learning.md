@@ -5,7 +5,7 @@
     services="machine-learning"
     documentationCenter=""
     authors="cjgronlund"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -16,6 +16,7 @@
     ms.topic="get-started-article"
     ms.date="08/17/2016"
     ms.author="cgronlun;tedway;olgali"/>
+
 
 
 # Wprowadzenie do uczenia maszynowego w chmurze
@@ -68,7 +69,7 @@ W usłudze [Machine Learning Studio](machine-learning-what-is-ml-studio.md) moż
     * [Wdrażaj usługi sieci Web](machine-learning-publish-a-machine-learning-web-service.md)
     * [Ucz i ponownie ucz modele za pośrednictwem interfejsów API](machine-learning-retrain-models-programmatically.md)
     * [Zarządzaj punktami końcowymi usług sieci Web](machine-learning-create-endpoint.md)
-    * [Skaluj usługi sieci Web](machine-learning-scaling-endpoints.md)
+    * [Skaluj usługę sieci Web](machine-learning-scaling-webservice.md)
     * [Korzystaj z usług sieci Web](machine-learning-consume-web-services.md)
 
 ## Kluczowe terminy i pojęcia dotyczące uczenia maszynowego
@@ -127,6 +128,6 @@ Podstaw analizy predykcyjnej i uczenia maszynowego możesz się nauczyć, korzys
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO2-->
 
 

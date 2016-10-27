@@ -3,7 +3,7 @@
    description="Dowiedz się, czym jest program bcp i jak z niego korzystać w scenariuszach dotyczących magazynów danych."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lodipalm"
+   authors="twounder"
    manager="barbkess"
    editor=""/>
 
@@ -13,15 +13,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="10/10/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
-# Ładowanie danych za pomocą narzędzia bcp
+
+# <a name="load-data-with-bcp"></a>Ładowanie danych za pomocą narzędzia BCP
 
 > [AZURE.SELECTOR]
-- [Fabryka danych](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+- [Redgate](sql-data-warehouse-load-with-redgate.md)  
+- [Fabryka danych](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
+- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
 
@@ -41,7 +43,7 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 
 >[AZURE.VIDEO loading-data-into-azure-sql-data-warehouse-with-bcp]
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Do wykonania kroków opisanych w tym samouczku potrzebne są:
 
@@ -51,11 +53,11 @@ Do wykonania kroków opisanych w tym samouczku potrzebne są:
 
 >[AZURE.NOTE] Narzędzia bcp i sqlcmd można pobrać z [Centrum pobierania Microsoft][].
 
-## Importowanie danych do usługi SQL Data Warehouse
+## <a name="import-data-into-sql-data-warehouse"></a>Importowanie danych do usługi SQL Data Warehouse
 
 W tym samouczku utworzysz tabelę w usłudze Azure SQL Data Warehouse i zaimportujesz dane do tej tabeli.
 
-### Krok 1: tworzenie tabeli w usłudze Azure SQL Data Warehouse
+### <a name="step-1:-create-a-table-in-azure-sql-data-warehouse"></a>Krok 1: tworzenie tabeli w usłudze Azure SQL Data Warehouse
 
 W wierszu polecenia użyj polecenia sqlcmd, aby uruchomić następujące zapytanie w celu utworzenia tabeli w wystąpieniu:
 
@@ -77,7 +79,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 >[AZURE.NOTE] Zobacz artykuł [Omówienie tabel][] lub [składni polecenia CREATE TABLE][], aby uzyskać więcej informacji dotyczących tworzenia tabel w usłudze SQL Data Warehouse oraz dostępnych opcji klauzuli WITH.
 
-### Krok 2: tworzenie źródłowego pliku danych
+### <a name="step-2:-create-a-source-data-file"></a>Krok 2: tworzenie źródłowego pliku danych
 
 Otwórz program Notatnik i skopiuj następujące wiersze danych do nowego pliku tekstowego, a następnie zapisz ten plik w lokalnym katalogu tymczasowym: C:\Temp\DimDate2.txt.
 
@@ -98,7 +100,7 @@ Otwórz program Notatnik i skopiuj następujące wiersze danych do nowego pliku 
 
 > [AZURE.NOTE] Należy pamiętać, że program bcp.exe nie obsługuje kodowania pliku w formacie UTF-8. Podczas korzystania z programu bcp.exe należy używać plików kodowanych w formacie ASCII lub UTF-16.
 
-### Krok 3: nawiązywanie połączenia i importowanie danych
+### <a name="step-3:-connect-and-import-the-data"></a>Krok 3: nawiązywanie połączenia i importowanie danych
 Przy użyciu narzędzia bcp można nawiązać połączenie i zaimportować dane, stosując następujące polecenie z odpowiednio zastąpionymi wartościami:
 
 ```sql
@@ -128,7 +130,7 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4 |2
 20151201 |4 |2
 
-### Krok 4: tworzenie statystyk na podstawie nowo załadowanych danych
+### <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>Krok 4: tworzenie statystyk na podstawie nowo załadowanych danych
 
 Usługa Azure SQL Data Warehouse nie obsługuje jeszcze automatycznego tworzenia ani aktualizowania statystyk. W celu uzyskania najlepszej wydajności zapytań należy utworzyć statystyki dla wszystkich kolumn wszystkich tabel po pierwszym załadowaniu danych, a następnie po każdej istotnej zmianie. Szczegółowy opis statystyk znajduje się w temacie [Statystyki][] w grupie artykułów dla programistów. Poniżej przedstawiono prosty przykład tworzenia statystyk dotyczących tabeli załadowanej w tym przykładzie.
 
@@ -142,10 +144,10 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
-## Eksportowanie danych z usługi SQL Data Warehouse
+## <a name="export-data-from-sql-data-warehouse"></a>Eksportowanie danych z usługi SQL Data Warehouse
 W tym samouczku utworzysz plik danych z tabeli w usłudze SQL Data Warehouse. Wyeksportujemy dane utworzone powyżej do nowego pliku danych o nazwie DimDate2_export.txt.
 
-### Krok 1: eksportowanie danych
+### <a name="step-1:-export-the-data"></a>Krok 1: eksportowanie danych
 
 Przy użyciu narzędzia bcp można nawiązać połączenie i wyeksportować dane za pomocą następującego polecenia z odpowiednio zastąpionymi wartościami:
 
@@ -171,7 +173,7 @@ Możesz sprawdzić, czy dane zostały poprawnie wyeksportowane, otwierając nowy
 
 >[AZURE.NOTE] Ze względu na specyfikę systemów rozproszonych kolejność danych w bazach danych usługi SQL Data Warehouse może się różnić. Innym rozwiązaniem jest użycie funkcji **queryout** programu bcp, aby napisać zapytanie wyodrębniające, zamiast eksportowania całej tabeli.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Ogólny opis ładowania można znaleźć w artykule [Ładowanie danych do usługi SQL Data Warehouse][].
 Więcej porad programistycznych znajdziesz w artykule [Omówienie programowania w usłudze SQL Data Warehouse][].
 
@@ -186,13 +188,13 @@ Więcej porad programistycznych znajdziesz w artykule [Omówienie programowania 
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[składni polecenia CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+[Składnia polecenia CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
 [Centrum pobierania Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

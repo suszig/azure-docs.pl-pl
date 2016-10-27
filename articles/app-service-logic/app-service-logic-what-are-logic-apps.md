@@ -13,10 +13,11 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article" 
-    ms.date="07/12/2016"
+    ms.date="10/12/2016"
     ms.author="klam"/>
 
-#Co to jest Logic Apps?
+
+# <a name="what-are-logic-apps?"></a>Co to jest Logic Apps?
 
 Usługa Logic Apps umożliwia uproszczenie i wdrażanie skalowalnych integracji i przepływów pracy w chmurze. Udostępnia ona wizualnego projektanta pozwalającego na modelowanie i automatyzację procesu w postaci serii kroków znanych jako przepływ pracy.  Istnieje [wiele łączników](../connectors/apis-list.md) dla rozwiązań w chmurze i lokalnych, które umożliwiają szybką integrację usług i protokołów.  Aplikacja logiki rozpoczyna się od wyzwalacza (na przykład „Gdy konto zostanie dodane do oprogramowania Dynamics CRM”), po uruchomieniu którego można użyć wielu akcji łączenia, konwersji i logiki warunkowej.
 
@@ -41,7 +42,7 @@ Jak wspomniano, dzięki usłudze Logic Apps można automatyzować procesy biznes
 
 Wszystkie tego typu scenariusze można skonfigurować przy użyciu projektanta wizualnego i bez konieczności napisania jakiegokolwiek wiersza kodu. Rozpocznij [teraz tworzenie aplikacji logiki][create].  Napisana aplikacja logiki może być [szybko wdrażana i ponownie konfigurowana](app-service-logic-create-deploy-template.md) w wielu środowiskach i regionach.
 
-## Dlaczego warto korzystać z usługi Logic Apps?
+## <a name="why-logic-apps?"></a>Dlaczego warto korzystać z usługi Logic Apps?
 
 Usługa Logic Apps zapewnia szybkość i skalowalność w obszarze integracji w przedsiębiorstwie.  Łatwy w użyciu projektant, dostępne różne wyzwalacze i akcje, a także zaawansowane narzędzia do zarządzania ułatwiają centralizację interfejsów API bardziej niż kiedykolwiek wcześniej.  Usługa Logic Apps umożliwia firmom wdrażającym cyfryzację łączenie starszych systemów z najnowszymi.
 
@@ -57,7 +58,7 @@ Ponadto dzięki naszemu [kontu integracji w przedsiębiorstwie ][biztalk] można
 
 - **Moc prawdziwej integracji** — łatwe rozpoczynanie pracy i rozwój w miarę potrzeb. Usługa Logic Apps może w prosty sposób korzystać z możliwości usługi BizTalk, wiodącego rozwiązania firmy Microsoft służącego specjalistom ds. integracji do tworzenia potrzebnych rozwiązań. Dowiedz się więcej o [pakiecie integracyjnym dla przedsiębiorstw](./app-service-logic-enterprise-integration-overview.md).
 
-## Pojęcia dotyczące Aplikacji logiki
+## <a name="logic-app-concepts"></a>Pojęcia dotyczące Aplikacji logiki
 
 Poniżej przedstawiono niektóre z kluczowych elementów składających się na środowisko pracy Logic Apps. 
 
@@ -67,10 +68,10 @@ Poniżej przedstawiono niektóre z kluczowych elementów składających się na 
 -  **Akcje** — każdy krok po wyzwalaczu w przepływie pracy jest nazywany akcją. Każda akcja jest przeważnie mapowana na operację w zarządzanych łącznikach lub niestandardowych aplikacjach interfejsu API.
 - **Pakiet integracyjny dla przedsiębiorstw** — w przypadku bardziej zaawansowanych scenariuszy integracji usługa Logic Apps oferuje możliwości usługi BizTalk. BizTalk to wiodąca w branży platforma integracji firmy Microsoft. Łączniki pakietu integracyjnego dla przedsiębiorstw umożliwiają łatwe dołączanie sprawdzania poprawności, przekształcania i innych elementów do przepływów pracy usługi Logic Apps.
 
-## Wprowadzenie  
+## <a name="getting-started"></a>Wprowadzenie  
 
 - Aby rozpocząć pracę z usługą Logic Apps, wykonaj kroki opisane w samouczku dotyczącym [tworzenia Aplikacji logiki][create].  
-- [Wyświetl typowe przykłady i scenariusze](app-service-logic-examples-and-scenarios.md)
+- [Wyświetlanie typowych przykładów i scenariuszy](app-service-logic-examples-and-scenarios.md)
 - [Dzięki usłudze Logic Apps możesz automatyzować procesy biznesowe](http://channel9.msdn.com/Events/Build/2016/T694) 
 - [Dowiedz się, jak integrować systemy z usługą Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
 
@@ -84,6 +85,6 @@ Poniżej przedstawiono niektóre z kluczowych elementów składających się na 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

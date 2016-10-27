@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/25/2016"
+    ms.date="10/05/2016"
     ms.author="nitinme"/>
 
 
@@ -100,7 +100,7 @@ W tym artykule będzie używane jądro PySpark. W artykule [Jądra dostępne dla
 
 1. W [Portalu Azure](https://portal.azure.com/) na tablicy startowej kliknij kafelek klastra Spark (jeśli został przypięty do tablicy startowej). Możesz także przejść do klastra, wybierając polecenia **Przeglądaj wszystko** > **Klastry usługi HDInsight**.   
 
-2. W bloku klastra Spark kliknij pozycję **Szybkie linki**, a następnie w bloku **Pulpit nawigacyjny klastra** kliknij pozycję **Jupyter Notebook**. Jeśli zostanie wyświetlony monit, wprowadź poświadczenia administratora klastra.
+2. W bloku klastra Spark kliknij pozycję **Pulpit nawigacyjny klastra**, a następnie opcję **Jupyter Notebook**. Jeśli zostanie wyświetlony monit, wprowadź poświadczenia administratora klastra.
 
     > [AZURE.NOTE] Można również przejść do aplikacji Jupyter Notebook dla klastra, otwierając następujący adres URL w przeglądarce. Zastąp ciąg __CLUSTERNAME__ nazwą klastra:
     >
@@ -220,6 +220,6 @@ W tym artykule będzie używane jądro PySpark. W artykule [Jądra dostępne dla
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

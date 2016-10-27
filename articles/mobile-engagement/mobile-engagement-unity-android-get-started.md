@@ -34,7 +34,7 @@ Dla tego samouczka wymagane są następujące elementy:
 
 ##<a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji systemu Android
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##<a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
 
@@ -155,6 +155,6 @@ Przed próbą wdrożenia tej aplikacji platformy Unity na urządzeniu upewnij si
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

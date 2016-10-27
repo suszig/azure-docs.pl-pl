@@ -4,7 +4,7 @@
     keywords="Programowanie aplikacji, samouczek bazy danych, aplikacja Java, samouczek aplikacji sieci Web Java, DocumentDB, Azure, Microsoft Azure"
     services="documentdb"
     documentationCenter="java"
-    authors="AndrewHoh"
+    authors="dennyglee"
     manager="jhubbard"
     editor="mimig"/>
 
@@ -15,9 +15,10 @@
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
     ms.date="08/24/2016"
-    ms.author="anhoh"/>
+    ms.author="denlee"/>
 
-# Tworzenie aplikacji sieci Web w języku Java za pomocą usługi DocumentDB
+
+# <a name="build-a-java-web-application-using-documentdb"></a>Tworzenie aplikacji sieci Web w języku Java za pomocą usługi DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -36,17 +37,17 @@ W tym samouczku aplikacji w języku Java pokazano, jak utworzyć aplikację do z
 
 > [AZURE.TIP] Ten samouczek tworzenia aplikacji zakłada, że masz już pewne doświadczenie w korzystaniu z języka Java. Jeśli nie znasz języka Java lub [wstępnie wymaganych narzędzi](#Prerequisites), zalecamy pobranie kompletnego projektu [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) z usługi GitHub i skompilowanie go zgodnie z [instrukcjami znajdującymi się na końcu artykułu](#GetProject). Po jego skompilowaniu możesz przejrzeć ten artykuł, aby przeanalizować kod w kontekście projektu.  
 
-##<a id="Prerequisites"></a>Wymagania wstępne dotyczące tego samouczka aplikacji sieci Web w języku Java
+##<a name="<a-id="prerequisites"></a>prerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Wymagania wstępne dotyczące tego samouczka aplikacji sieci Web w języku Java
 Przed rozpoczęciem korzystania z tego samouczka tworzenia aplikacji należy dysponować następującymi elementami:
 
 - Aktywne konto platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 - [Zestaw Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 - [Środowisko Eclipse IDE for Java EE Developers.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
-- [Witryna sieci Web platformy Azure z włączonym środowiskiem uruchomieniowym Java (np. Tomcat lub Jetty).](../app-service-web/web-sites-java-get-started.md)
+- [Witryna sieci Web platformy Azure z włączonym środowiskiem uruchomieniowym języka Java (np. Tomcat lub Jetty).](../app-service-web/web-sites-java-get-started.md)
 
 Jeśli instalujesz te narzędzia po raz pierwszy, witryna coreservlets.com zawiera omówienie procesu instalacji w artykule [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) (Samouczek: Instalacja środowiska TomCat7 i używanie go ze środowiskiem Eclipse) w sekcji Quick Start (Szybki start).
 
-##<a id="CreateDB"></a>Krok 1. Tworzenie konta bazy danych usługi DocumentDB
+##<a name="<a-id="createdb"></a>step-1:-create-a-documentdb-database-account"></a><a id="CreateDB"></a>Krok 1. Tworzenie konta bazy danych usługi DocumentDB
 
 Zacznijmy od utworzenia konta usługi DocumentDB. Jeśli masz już konto, możesz przejść do kroku [Krok 2. Tworzenie aplikacji Java JSP](#CreateJSP).
 
@@ -54,7 +55,7 @@ Zacznijmy od utworzenia konta usługi DocumentDB. Jeśli masz już konto, możes
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-##<a id="CreateJSP"></a>Krok 2. Tworzenie aplikacji Java JSP
+##<a name="<a-id="createjsp"></a>step-2:-create-the-java-jsp-application"></a><a id="CreateJSP"></a>Krok 2. Tworzenie aplikacji Java JSP
 
 Aby utworzyć aplikację JSP:
 
@@ -81,7 +82,7 @@ Aby utworzyć aplikację JSP:
 
     ![Witaj świecie – samouczek aplikacji w języku Java](./media/documentdb-java-application/image12.png)
 
-##<a id="InstallSDK"></a>Krok 3. Instalacja zestawu SDK Java usługi DocumentDB ##
+##<a name="<a-id="installsdk"></a>step-3:-install-the-documentdb-java-sdk"></a><a id="InstallSDK"></a>Krok 3. Instalacja zestawu SDK Java usługi DocumentDB ##
 
 Najprostszym sposobem pobrania zestawu SDK Java usługi DocumentDB i jego zależności jest skorzystanie z usługi [Apache Maven](http://maven.apache.org/).
 
@@ -109,7 +110,7 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
 5. Kliknij przycisk **OK**, aby zainstalować zestaw SDK Java usługi DocumentDB przy użyciu usługi Maven.
 6. Zapisz plik pom.xml.
 
-##<a id="UseService"></a>Krok 4. Korzystanie z usługi DocumentDB w aplikacji Java
+##<a name="<a-id="useservice"></a>step-4:-using-the-documentdb-service-in-a-java-application"></a><a id="UseService"></a>Krok 4. Użycie usługi DocumentDB w aplikacji Java
 
 1. Najpierw zdefiniujmy obiekt TodoItem:
 
@@ -359,7 +360,7 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
         }
 
 
-##<a id="Wire"></a>Krok 5. Dołączenie pozostałej części projektu tworzenia aplikacji w języku Java
+##<a name="<a-id="wire"></a>step-5:-wiring-the-rest-of-the-of-java-application-development-project-together"></a><a id="Wire"></a>Krok 5. Dołączenie pozostałej części projektu tworzenia aplikacji w języku Java
 
 Teraz, gdy już zakończyliśmy zabawę, pozostało tylko utworzenie szybkiego interfejsu użytkownika i połączenie go z obiektem DAO.
 
@@ -736,7 +737,7 @@ Teraz, gdy już zakończyliśmy zabawę, pozostało tylko utworzenie szybkiego i
 
 6. Gdy zadanie zostanie wyświetlone, można zaktualizować, czy jest ono ukończone, klikając pole wyboru, a następnie klikając przycisk **Update Tasks** (Zaktualizuj zadania).
 
-##<a id="Deploy"></a>Krok 6. Wdrażanie aplikacji w języku Java w usłudze Azure Websites
+##<a name="<a-id="deploy"></a>step-6:-deploy-your-java-application-to-azure-websites"></a><a id="Deploy"></a>Krok 6. Wdrożenie aplikacji w języku Java w usłudze Azure Websites
 
 Usługa Azure Websites sprawia, że wdrożenie aplikacji Java sprowadza się do wyeksportowania aplikacji jako pliku WAR i przesłania go na serwer za pomocą systemu kontroli źródła (np. GIT) lub FTP.
 
@@ -751,7 +752,7 @@ Usługa Azure Websites sprawia, że wdrożenie aplikacji Java sprowadza się do 
     Po przesłaniu pliku WAR do katalogu webapps środowisko uruchomieniowe wykryje, że plik został dodany, i załaduje go automatycznie.
 4. Aby wyświetlić gotową aplikację, przejdź do http://NAZWA\_TWOJEJ\_WITRYNY.azurewebsites.net/azure-documentdb-java-sample/ i zacznij dodawać zadania.
 
-##<a id="GetProject"></a>Pobieranie projektu z usługi GitHub
+##<a name="<a-id="getproject"></a>get-the-project-from-github"></a><a id="GetProject"></a>Pobieranie projektu z usługi GitHub
 
 Wszystkie przykłady w tym samouczku są zawarte w projekcie [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) w usłudze GitHub. Aby zaimportować projekt todo do środowiska Eclipse, upewnij się, że dysponujesz oprogramowaniem i zasobami wymienionymi w sekcji [Wymagania wstępne](#Prerequisites), a następnie wykonaj następujące czynności:
 
@@ -782,6 +783,6 @@ Wszystkie przykłady w tym samouczku są zawarte w projekcie [todo](https://gith
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

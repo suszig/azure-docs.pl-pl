@@ -1,14 +1,14 @@
 <properties
     pageTitle="Omówienie obsługi komunikatów w usłudze Service Bus | Microsoft Azure"
     description="Obsługa komunikatów w usłudze Service Bus: elastyczne dostarczanie danych w chmurze"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="multiple"
@@ -18,7 +18,7 @@
 
 
 
-# Obsługa komunikatów w usłudze Service Bus: elastyczne dostarczanie danych w chmurze
+# <a name="service-bus-messaging:-flexible-data-delivery-in-the-cloud"></a>Obsługa komunikatów w usłudze Service Bus: elastyczne dostarczanie danych w chmurze
 
 Usługa Microsoft Azure Service Bus to niezawodna usługa dostarczania informacji. Celem tej usługi jest ułatwienie komunikacji. Gdy dwie lub więcej stron przystępuje do wymiany informacji, niezbędny jest mechanizm komunikacji. Usługa Service Bus to mechanizm obsługiwany przez brokera lub mechanizm komunikacji innej firmy. Przypomina to usługi pocztowe w świecie rzeczywistym. Usługi pocztowe bardzo ułatwiają wysyłanie różnego rodzaju listów i przesyłek z różną gwarancją dostarczania w dowolnym miejscu na świecie.
 
@@ -28,7 +28,7 @@ Nadawca komunikatu może również wymagać różnych właściwości dostarczani
 
 Usługa Service Bus obsługuje dwa różne wzorce obsługi komunikatów: *Relay* (przekaźnik) i *komunikaty obsługiwane przez brokera*.
 
-## Service Bus Relay
+## <a name="service-bus-relay"></a>Service Bus Relay
 
 Składnik [Relay](../service-bus-relay/service-bus-relay-overview.md) usługi Service Bus jest scentralizowaną (ale wysoce zrównoważoną pod względem obciążenia) usługą, która obsługuje wiele różnych protokołów transportu i standardów usług sieci Web. Obejmuje to usługi SOAP, WS-*, a nawet REST. [Usługa przekazywania](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) zapewnia różnorodność opcji łączności przekazywania i może pomóc podczas negocjowania bezpośrednich połączeń peer-to-peer, gdy jest to możliwe. Usługa Service Bus jest zoptymalizowana pod kątem programistów platformy .NET, którzy korzystają z usługi Windows Communication Foundation (WCF) ze względu na wydajność i użyteczność, oraz zapewnia pełny dostęp do jej usługi przekazywania danych za pomocą interfejsów SOAP i REST. Dzięki temu możliwa jest integracja dowolnego środowiska programowania SOAP lub REST z usługą Service Bus.
 
@@ -38,7 +38,7 @@ Należy zainicjować połączenie między usługą lokalną i usługą przekaźn
 
 Usługa Service Bus Relay oferuje wiele korzyści, lecz wymaga, aby serwer i klient byli w trybie online w tym samym czasie w celu wysyłania i odbierania komunikatów. Nie jest to optymalne rozwiązanie dla komunikacji typu HTTP, w której żądania nie mogą mieć typowo długiego okresu życia, ani dla klientów łączących się tylko okazjonalnie, na przykład przeglądarek, aplikacji mobilnych itd. Komunikaty obsługiwane przez brokera obsługują komunikację odłączoną i mają wiele zalet. Klienci i serwery mogą łączyć się w zależności od potrzeb i wykonywać operacje w sposób asynchroniczny.
 
-## Komunikaty obsługiwane przez brokera
+## <a name="brokered-messaging"></a>Komunikaty obsługiwane przez brokera
 
 W przeciwieństwie do schematu przekaźnika [komunikaty obsługiwane przez brokera](service-bus-queues-topics-subscriptions.md) mogą być traktowane jako asynchroniczne lub „czasowo odłączone”. Producenci (nadawcy) i konsumenci (odbiorcy) nie muszą być w trybie online w tym samym czasie. Infrastruktura obsługi komunikatów w niezawodny sposób przechowuje komunikaty w „brokerze” (np. w kolejce) do momentu, aż strona odbierająca jest gotowa do ich odebrania. Dzięki temu składniki aplikacji rozproszonej mogą być rozłączone zarówno dobrowolnie, na przykład w celu przeprowadzenia konserwacji, jak i z powodu awarii składników, bez wywierania wpływu na cały system. Ponadto aplikacja odbierająca może wymagać połączenia z Internetem tylko w pewnych porach dnia, jak w przypadku systemu zarządzania spisem, którego uruchomienie jest wymagane na koniec dnia roboczego.
 
@@ -46,19 +46,18 @@ Podstawowymi składnikami infrastruktury komunikatów obsługiwanych przez broke
 
 Podobnie jak w przypadku infrastruktury przekaźnika możliwości komunikatów obsługiwanych przez brokera są dostarczane dla programistów platform WCF oraz .NET, a także za pośrednictwem interfejsu REST.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej na temat obsługi komunikatów usługi Service Bus, zobacz następujące tematy.
 
-- [Podstawy usługi Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Podstawy usługi Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Kolejki, tematy i subskrypcje usługi Service Bus](service-bus-queues-topics-subscriptions.md)
-- [Architektura usługi Service Bus](../service-bus/service-bus-architecture.md)
 - [Jak używać kolejek usługi Service Bus](service-bus-dotnet-get-started-with-queues.md)
-- [Jak używać tematów i subskrypcji usługi Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Jak używać tematów i subskrypcji usługi Service Bus](./service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

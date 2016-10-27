@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/27/2016"
+   ms.date="10/06/2016"
    ms.author="cherylmc"/>
 
 
@@ -22,6 +22,7 @@
 
 > [AZURE.SELECTOR]
 - [Resource Manager — program PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Klasyczny — witryna Azure Portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 - [Model klasyczny — klasyczny portal](vpn-gateway-point-to-site-create.md)
 
 Konfiguracja typu punkt-lokacja pozwala utworzyć indywidualne bezpieczne połączenie z siecią wirtualną z poziomu komputera klienckiego. Przedstawione rozwiązanie przydaje się w przypadku, gdy celem użytkownika jest połączenie się z siecią wirtualną z lokalizacji zdalnej, np. z domu lub z konferencji, lub gdy konieczne jest połączenie z siecią wirtualną jedynie niewielkiej liczby klientów.
@@ -56,7 +57,7 @@ Proces konfigurowania połączenia typu punkt-lokacja został podzielony na 4 se
 
 ### Część 1. Tworzenie sieci wirtualnej
 
-1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com/). Zwróć uwagę, że te kroki odnoszą się do portalu klasycznego, a nie do witryny Azure Portal. Obecnie nie można utworzyć połączenia punkt-lokacja za pomocą witryny Azure Portal.
+1. Zaloguj się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com/). Zwróć uwagę, że te kroki odnoszą się do portalu klasycznego, a nie do witryny Azure Portal. Obecnie nie można utworzyć połączenia punkt-lokacja za pomocą witryny Azure Portal.
 
 2. W lewym dolnym rogu ekranu kliknij opcję **Nowe**. W okienku nawigacji kliknij opcję **Usługi sieciowe**, a następnie opcję **Sieć wirtualna**. Kliknij przycisk **Tworzenie niestandardowe**, aby rozpocząć korzystanie z kreatora konfiguracji.
 
@@ -107,11 +108,11 @@ Jeśli używasz systemu certyfikatów przedsiębiorstwa, możesz uzyskać plik c
 
 Jeśli nie używasz certyfikatu przedsiębiorstwa, musisz wygenerować certyfikat główny z podpisem własnym. Kroki dla systemu Windows 10 można znaleźć w temacie [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md) (Praca z certyfikatami głównymi z podpisem własnym w konfiguracjach typu punkt-lokacja). W tym artykule opisano sposób korzystania z narzędzia makecert w celu wygenerowania certyfikatu z podpisem własnym, a następnie wyeksportowania pliku cer.
 
-### <a name="upload"></a>Część 2: Przekazywanie pliku .cer certyfikatu głównego do klasycznego portalu Azure
+### <a name="upload"></a>Część 2: Przekazywanie pliku .cer certyfikatu głównego do klasycznej witryny Azure Portal
 
 Dodaj zaufany certyfikat do platformy Azure. Po dodaniu do platformy Azure pliku x.509 szyfrowanego algorytmem Base64 (.cer) otrzymuje ona informację, że może zaufać certyfikatowi głównemu reprezentowanemu przez ten plik.
 
-1. W klasycznym portalu Azure na stronie **Certyfikaty** odnoszącej się do danej sieci wirtualnej kliknij pozycję **Przekaż certyfikat główny**.
+1. W klasycznej witrynie Azure Portal na stronie **Certyfikaty** odnoszącej się do danej sieci wirtualnej kliknij pozycję **Przekaż certyfikat główny**.
 
 2. Na stronie **Przekaż certyfikat** wybierz lokalizację pliku .cer certyfikatu głównego, a następnie kliknij znacznik wyboru.
 
@@ -143,7 +144,7 @@ Aby nawiązać połączenie z siecią wirtualną, należy skonfigurować także 
 
 2. Utworzenie pakietu klienta może potrwać kilka minut. Po zakończeniu procesu tworzenia pakietu można pobrać plik. Pobrany plik *.exe* można bezpiecznie przechowywać na komputerze lokalnym.
 
-3. Po wygenerowaniu pakietu klienta VPN i pobraniu go z klasycznego portalu Azure można go zainstalować na komputerze klienckim, z którego ma zostać nawiązane połączenie z siecią wirtualną. Chcąc zainstalować pakiet klienta VPN na wielu komputerach klienckich, należy się upewnić, że na każdym z komputerów jest także zainstalowany certyfikat klienta.
+3. Po wygenerowaniu pakietu klienta VPN i pobraniu go z klasycznej witryny Azure Portal można go zainstalować na komputerze klienckim, z którego ma zostać nawiązane połączenie z siecią wirtualną. Chcąc zainstalować pakiet klienta VPN na wielu komputerach klienckich, należy się upewnić, że na każdym z komputerów jest także zainstalowany certyfikat klienta.
 
 ### Część 2: Instalacja pakietu konfiguracyjnego sieci VPN na komputerze klienckim
 
@@ -196,6 +197,6 @@ Aby uzyskać więcej informacji na temat sieci wirtualnych, zobacz artykuł [Vir
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

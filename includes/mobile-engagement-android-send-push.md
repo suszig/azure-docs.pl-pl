@@ -1,5 +1,5 @@
 
-###Aktualizacja pliku manifestu w celu włączenia powiadomień
+###<a name="update-manifest-file-to-enable-notifications"></a>Aktualizacja pliku manifestu w celu włączenia powiadomień
 
 Skopiuj poniższe zasoby obsługi komunikatów w aplikacji do pliku Manifest.xml między tagami `<application>` i `</application>`.
 
@@ -45,7 +45,7 @@ Skopiuj poniższe zasoby obsługi komunikatów w aplikacji do pliku Manifest.xml
             </intent-filter>
         </receiver>
 
-###Określanie ikony dla powiadomień
+###<a name="specify-an-icon-for-notifications"></a>Określanie ikony dla powiadomień
 
 Wklej następujący fragment kodu XML do pliku Manifest.xml między tagami `<application>` i `</application>`.
 
@@ -62,9 +62,9 @@ W przypadku aplikacji rzeczywistych można użyć ikony odpowiedniej dla powiado
 >[AZURE.TIP] Aby mieć pewność, że użyta rozdzielczość ikony jest poprawna, zapoznaj się z [tymi przykładami](https://www.google.com/design/icons).
 Przewiń w dół do sekcji **Notification** (Powiadomienie), kliknij ikonę, a następnie kliknij opcję `PNGS`, aby pobrać zestaw obiektów drawable dla ikon. Możesz sprawdzić, które foldery obiektów drawable i jakie rozdzielczości mogą być użyte w przypadku poszczególnych wersji ikony.
 
-###Włączanie funkcji odbierania powiadomień wypychanych usługi GCM w aplikacji
+###<a name="enable-your-app-to-receive-gcm-push-notifications"></a>Włączanie funkcji odbierania powiadomień wypychanych usługi GCM w aplikacji
 
-1. Wklej poniższą zawartość do pliku Manifest.xml między tagami `<application>` i `</application>` po zastąpieniu numeru `project number` uzyskanego z konsoli Google Play. Tag \n jest zamierzony, dlatego upewnij się, że został umieszczony na końcu numeru projektu.
+1. Wklej poniższą zawartość do pliku Manifest.xml między tagami `<application>` i `</application>` po zastąpieniu **identyfikatora nadawcy** uzyskanego z konsoli projektu Firebase. Tag \n jest zamierzony, dlatego upewnij się, że został umieszczony na końcu numeru projektu.
 
         <meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
@@ -96,6 +96,6 @@ Przewiń w dół do sekcji **Notification** (Powiadomienie), kliknij ikonę, a n
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

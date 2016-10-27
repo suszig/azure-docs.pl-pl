@@ -32,10 +32,8 @@ W poniższej tabeli wymieniono wszystkie dostępne łączniki i aplikacje API Ap
 
 Nazwa | Opis
 --- | ---
-[Azure Service Bus](app-service-logic-connector-azureservicebus.md) | Umożliwia wysyłanie wiadomości z tematów i kolejek usługi Service Bus oraz odbieranie wiadomości z subskrypcji i kolejek usługi Service Bus.
 [Translator Bing](https://azure.microsoft.com/marketplace/partners/bing/microsofttranslator/) | Umożliwia tłumaczenie tekstu na inny język przy użyciu usługi Bing.
 [HTTP](app-service-logic-connector-http.md) | Odbiornik HTTP otwiera punkt końcowy, który działa jako serwer HTTP, i nasłuchuje przychodzących żądań HTTP lub HTTPS. Akcja HTTP nie wymaga Aplikacji interfejsu API i jest obsługiwana w sposób natywny w usłudze Logic Apps.
-[Microsoft Office 365](app-service-logic-connector-office365.md) | Łącznik usługi Office 365 umożliwia wysyłanie i odbieranie wiadomości e-mail oraz zarządzanie kalendarzem i kontaktami przy użyciu konta usługi Office 365.
 [Slack](app-service-logic-connector-slack.md) | Umożliwia nawiązanie połączenia z usługą Slack i publikowanie wiadomości w kanałach Slack.
 
 
@@ -44,19 +42,10 @@ W poniższej tabeli wymieniono wszystkie dostępne łączniki i aplikacje API Ap
 
 Nazwa  | Opis
 ------------- | -------------
-[Łącznik AS2](app-service-logic-connector-as2.md) | Umożliwia odbieranie i wysyłanie wiadomości przy użyciu protokołu transportowego AS2. Dane są przesyłane w sposób bezpieczny i niezawodny przy użyciu certyfikatów cyfrowych i szyfrowania.
-[BizTalk EDIFACT](app-service-logic-connector-edifact.md) | Umożliwia odbieranie i wysyłanie wiadomości przy użyciu protokołu EDIFACT w ramach komunikacji między firmami.
-[BizTalk Flat File Encoder](app-service-logic-flatfile-encoder.md) | Umożliwia współdziałanie danych plików prostych (tak jak pliki programu Excel i pliki CSV) oraz danych XML. Ta aplikacja interfejsu API może konwertować wystąpienie pliku prostego na format XML i odwrotnie.
-[BizTalk JSON Encoder](app-service-logic-connector-jsonencoder.md) | Koder i dekoder, który ułatwia współdziałanie aplikacji w obrębie danych JSON i XML. Umożliwia on konwertowanie danego wystąpienia JSON na format XML i odwrotnie.
 [BizTalk Rules](app-service-logic-use-biztalk-rules.md) | Reguły BizTalk służą do definiowania i kontrolowania logiki biznesowej w organizacji. Zasady biznesowe można aktualizować bez konieczności ponownego kompilowania lub ponownego wdrażania skojarzonych aplikacji.
-[BizTalk Trading Partner Management](app-service-logic-connector-tpm.md) | Umożliwia definiowanie i utrzymywanie relacji biznesowych między firmami w zakresie partnerów, umów oraz schematów i certyfikatów używanych w umowach. Te relacje są wymuszane za pomocą usług API Apps AS2, EDIFACT i X12.
-[BizTalk Transform Service](app-service-logic-transform-xml-documents.md) | Konwertuje dane z jednego formatu na inny. Umożliwia także przekazywanie istniejącej mapy (plik TRFM), wyświetlanie linków między schematami źródłowymi i docelowymi oraz korzystanie z funkcji „Test” w odniesieniu do przykładowej zawartości wejściowej XML. Dostępne są także różne funkcje wbudowane, w tym manipulowanie ciągami, przypisanie warunkowe i inne.
-[BizTalk X12](app-service-logic-connector-x12.md) | Umożliwia odbieranie i wysyłanie wiadomości przy użyciu protokołu X12 w ramach komunikacji między firmami.
-[BizTalk XML Validator](app-service-logic-xml-validator.md) | Sprawdza poprawność danych XML względem wstępnie zdefiniowanych schematów XML. Umożliwia korzystanie z istniejących schematów lub generowanie schematów opartych na wystąpieniu pliku prostego, wystąpieniu JSON lub istniejących łącznikach.
 [BizTalk XPath Extractor](app-service-logic-xpath-extract.md) | Wyszukuje i wyodrębnia dane z zawartości XML w oparciu o wybrany element XPath.
 [Łącznik DB2](app-service-logic-connector-db2.md) | Umożliwia nawiązanie połączenia z bazą danych IBM DB2 lokalnie i na maszynie wirtualnej platformy Azure z systemem operacyjnym Windows. Może mapować operacje interfejsu API sieci Web i interfejsu API OData do poleceń języka Informix Structured Query Language. <br/><br/>Brak wyzwalaczy. Akcje obejmują wybieranie tabeli, wstawianie, aktualizowanie, usuwanie i instrukcje niestandardowe.<br/><br/>Ten łącznik obejmuje także klienta firmy Microsoft dla architektury DRDA, który służy do nawiązywania połączenia z serwerem Informix w sieci TCP/IP.
 [Plik](app-service-logic-connector-file.md) | Za pomocą tego łącznika można nawiązywać połączenie z lokalnym systemem plików lub siecią oraz wykonywać inne zadania związane z plikami, takie jak przekazywanie, usuwanie, tworzenie list plików i inne.
-[FTP<br/>FTPS](app-service-logic-connector-ftp.md) | Umożliwia nawiązanie połączenia z serwerem FTP/FTPS i wykonywanie różnych zadań związanych z protokołem FTP, takich jak przekazywanie, pobieranie, usuwanie plików i inne.
 [Informix](app-service-logic-connector-informix.md) | Umożliwia nawiązanie połączenia z bazą danych IBM Informix lokalnie i na maszynie wirtualnej platformy Azure z systemem operacyjnym Windows. Może mapować operacje interfejsu API sieci Web i interfejsu API OData do poleceń języka Informix Structured Query Language.<br/><br/>Brak wyzwalaczy. Akcje obejmują wybieranie tabeli, wstawianie, aktualizowanie, usuwanie i instrukcje niestandardowe.<br/><br/>Jeśli łącznik jest używany lokalnie, można korzystać z sieci VPN lub rozwiązania Azure ExpressRoute. Ten łącznik obejmuje także klienta firmy Microsoft dla architektury DRDA, który służy do nawiązywania połączenia z serwerem Informix w sieci TCP/IP.
 [Microsoft SQL Server](app-service-logic-connector-sql.md) | Umożliwia nawiązanie połączenia z lokalnym serwerem SQL Server lub bazą danych Azure SQL Database. Pozwala tworzyć, aktualizować, pobierać i usuwać pozycje w tabeli bazy danych SQL.
 MQ | Umożliwia nawiązanie połączenia z serwerem IBM WebSphere MQ w wersji 8 lokalnie i na maszynie wirtualnej platformy Azure z systemem operacyjnym Windows. Jeśli łącznik jest używany lokalnie, można korzystać z sieci VPN lub rozwiązania Azure ExpressRoute. Łącznik obejmuje także klienta firmy Microsoft dla programu MQ.<br/><br/>Brak wyzwalaczy. Brak akcji.<br/><br/>**Uwaga:** obecnie nie można używać tego łącznika z usługą Logic Apps.
@@ -82,6 +71,6 @@ Kilka łączników udostępnia wyzwalacze dla usługi Logic Apps. Istnieją dwa 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

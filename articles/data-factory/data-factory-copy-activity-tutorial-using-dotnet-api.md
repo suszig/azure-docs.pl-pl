@@ -24,6 +24,7 @@
 - [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 - [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -462,6 +463,6 @@ Po wykonaniu tych kroków powinny być dostępne cztery następujące wartości:
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

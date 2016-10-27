@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="09/14/2016"
+    ms.date="10/04/2016"
     ms.author="sstein"/>
 
 
@@ -29,9 +29,7 @@ W tym artykule opisano, jak przy użyciu poleceń języka C# utworzyć elastyczn
 
 Biblioteka Azure SQL Database Library for .NET dostarcza interfejs API oparty na usłudze [Azure Resource Manager](../resource-group-overview.md), który opakowuje [interfejs API REST usługi SQL Database oparty na usłudze Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
-
-> [AZURE.NOTE] Biblioteka SQL Database Library for .NET jest obecnie w wersji zapoznawczej.
-
+>[AZURE.NOTE] Wiele nowych funkcji usługi SQL Database jest obsługiwanych tylko w przypadku zastosowania [modelu wdrażania przy użyciu usługi Azure Resource Manager](../resource-group-overview.md). Dlatego należy zawsze używać najnowszej **Biblioteki zarządzania usługą SQL Database platformy Azure dla programu .NET ([dokumentacja](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [Pakiet NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Starsze [biblioteki oparte na modelu wdrożenia klasycznego](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) są obsługiwane tylko w trybie zgodności z poprzednimi wersjami, w związku z czym zalecane jest użycie nowszych bibliotek opartych na modelu wdrożenia przy użyciu usługi Resource Manager.
 
 Do wykonania kroków opisanych w tym artykule potrzebne są:
 
@@ -318,6 +316,6 @@ Poniższy skrypt środowiska PowerShell tworzy aplikację usługi Active Directo
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

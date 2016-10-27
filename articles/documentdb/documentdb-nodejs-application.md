@@ -4,7 +4,7 @@
     keywords="Programowanie aplikacji, samouczek bazy danych, nauka node.js, samouczek node.js, DocumentDB, Azure, Microsoft Azure"
     services="documentdb" 
     documentationCenter="nodejs" 
-    authors="AndrewHoh" 
+    authors="syamkmsft" 
     manager="jhubbard" 
     editor="cgronlun"/>
 
@@ -15,7 +15,8 @@
     ms.devlang="nodejs" 
     ms.topic="hero-article" 
     ms.date="08/25/2016" 
-    ms.author="anhoh"/>
+    ms.author="syamk"/>
+
 
 # <a name="_Toc395783175"></a>Tworzenie aplikacji sieci Web Node.js za pomocą usługi DocumentDB
 
@@ -100,13 +101,13 @@ Plik **package.json** jest jednym z plików utworzonych w folderze głównym pro
 
     ![Zrzut ekranu przedstawiający kartę pliku package.json](./media/documentdb-nodejs-application/image17.png)
 
-       This tells Node (and Azure later) that your application depends on these additional modules.
+    W ten sposób węzeł (a potem platforma Azure) otrzyma informacje o tym, że aplikacja zależy od dodatkowych modułów.
 
 ## <a name="_Toc395783180"></a>Krok 4. Korzystanie z usługi DocumentDB w aplikacji Node
 
 To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do tego, po co tutaj jesteśmy, czyli napisania kodu za pomocą usługi Azure DocumentDB.
 
-### Tworzenie modelu
+### <a name="create-the-model"></a>Tworzenie modelu
 
 1. W katalogu projektu utwórz nowy katalog o nazwie **models**.
 2. W katalogu **models** utwórz nowy plik o nazwie **taskDao.js**. Ten plik zawiera model dla zadań tworzonych przez naszą aplikację.
@@ -301,7 +302,7 @@ To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do teg
 
 6. Zapisz i zamknij plik **taskDao.js**. 
 
-### Tworzenie kontrolera
+### <a name="create-the-controller"></a>Tworzenie kontrolera
 
 1. W katalogu **routes** projektu utwórz nowy plik o nazwie **tasklist.js**. 
 2. Dodaj następujący kod do pliku **tasklist.js**. Służy on do ładowania modułów DocumentDBClient i async, które są używane przez plik **tasklist.js**. Definiuje również funkcję **TaskList**, która przekazuje wystąpienie obiektu **Task** zdefiniowanego wcześniej:
@@ -379,7 +380,7 @@ To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do teg
 
 4. Zapisz i zamknij plik **tasklist.js**.
  
-### Dodawanie pliku config.js
+### <a name="add-config.js"></a>Dodawanie pliku config.js
 
 1. W katalogu projektu utwórz nowy plik o nazwie **config.js**.
 2. Dodaj następujący kod do pliku **config.js**. Służy on do definiowania ustawień konfiguracji i wartości potrzebnych dla aplikacji.
@@ -393,11 +394,11 @@ To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do teg
         
         module.exports = config;
 
-3. W pliku **config.js** zaktualizuj wartości HOST i AUTH_KEY przy użyciu wartości znajdujących się w bloku Klucze Twojego konta usługi DocumentDB w [portalu Microsoft Azure](https://portal.azure.com):
+3. W pliku **config.js** zaktualizuj wartości HOST i AUTH_KEY przy użyciu wartości znajdujących się w bloku Klucze Twojego konta usługi DocumentDB w witrynie [Microsoft Azure Portal](https://portal.azure.com):
 
 4. Zapisz i zamknij plik **config.js**.
  
-### Modyfikowanie pliku app.js
+### <a name="modify-app.js"></a>Modyfikowanie pliku app.js
 
 1. W katalogu projektu otwórz plik **app.js**. Ten plik został utworzony wcześniej podczas tworzenia aplikacji sieci Web platformy Express.
 2. Dodaj następujący kod na górze pliku **tasklist.js**.
@@ -573,6 +574,6 @@ Aby uzyskać więcej informacji, odwiedź stronę [Centrum deweloperów środowi
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

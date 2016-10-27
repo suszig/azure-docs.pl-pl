@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="10/10/2016"
    ms.author="cherylmc"/>
+
 
 # Wymagania dotyczące translatora adresów sieciowych w usłudze ExpressRoute
 
@@ -69,6 +70,6 @@ Nie ma żadnych ograniczeń w zakresie długości prefiksu IP translatora adres�
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

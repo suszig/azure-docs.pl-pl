@@ -21,8 +21,9 @@
 # Tworzenie pierwszej aplikacji usługi Azure Service Fabric
 
 > [AZURE.SELECTOR]
-- [C Sharp](service-fabric-create-your-first-application-in-visual-studio.md)
-- [Java](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# — Windows](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Java — Linux](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# — Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 
 Zestaw SDK usługi Service Fabric zawiera dodatek dla programu Visual Studio, który zawiera szablony i narzędzia do tworzenia, wdrażania i debugowania aplikacji usługi Service Fabric. W tym temacie przedstawiono proces tworzenia pierwszej aplikacji w programie Visual Studio.
 
@@ -156,6 +157,6 @@ Po zmianie trybu klastra klaster projektowy jest resetowany i wszystkie aplikacj
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

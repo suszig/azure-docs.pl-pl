@@ -16,6 +16,7 @@
     ms.date="08/19/2016"
     ms.author="piyushjo" />
 
+
 # Wprowadzenie do usługi Azure Mobile Engagement na potrzeby aplikacji platformy Silverlight systemu Windows Phone
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -34,7 +35,7 @@ Dla tego samouczka wymagane są następujące elementy:
 
 ##<a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji systemu Windows Phone
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##<a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
 
@@ -170,6 +171,6 @@ Na urządzeniu powinno zostać wyświetlone powiadomienie, które będzie widocz
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="09/27/2016"
+    ms.date="10/10/2016"
     ms.author="cabailey"/>
 
 
@@ -86,7 +86,7 @@ Podczas korzystania z usługi Azure Resource Manager wszystkie powiązane zasoby
 
 ## <a id="vault"></a>Tworzenie magazynu kluczy ##
 
-Użyj polecenia cmdlet [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736\(v=azure.200\).aspx).aspx, aby utworzyć magazyn kluczy. To polecenie cmdlet ma trzy obowiązkowe parametry: **nazwa grupy zasobów**, **nazwa magazynu kluczy** oraz **lokalizacja geograficzna**.
+Użyj polecenia cmdlet [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736\(v=azure.300\).aspx), aby utworzyć magazyn kluczy. To polecenie cmdlet ma trzy obowiązkowe parametry: **nazwa grupy zasobów**, **nazwa magazynu kluczy** oraz **lokalizacja geograficzna**.
 
 Na przykład jeśli chcesz użyć nazwy magazynu **ContosoKeyVault**, grupy zasobów **ContosoResourceGroup** i lokalizacji **East Asia**, wpisz:
 
@@ -99,12 +99,12 @@ Dane wyjściowe polecenia cmdlet pokazują właściwości magazynu kluczy, któr
 
 Twoje konto platformy Azure ma teraz uprawnienia do wykonywania dowolnych operacji na tym magazynie kluczy. Nikt inny nie jest do tego upoważniony.
 
->[AZURE.NOTE]  Jeśli podczas próby utworzenia nowego magazynu kluczy zostanie wyświetlony błąd **Subskrypcja nie jest zarejestrowana w celu używania przestrzeni nazw „Microsoft.KeyVault”**, uruchom polecenie `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"`, a następnie uruchom ponownie polecenie New-AzureRmKeyVault. Aby uzyskać więcej informacji, zobacz [Polecenie Register-AzureRmProvider](https://msdn.microsoft.com/library/azure/mt759831\(v=azure.200\).aspx).
+>[AZURE.NOTE]  Jeśli podczas próby utworzenia nowego magazynu kluczy zostanie wyświetlony błąd **Subskrypcja nie jest zarejestrowana w celu używania przestrzeni nazw „Microsoft.KeyVault”**, uruchom polecenie `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"`, a następnie uruchom ponownie polecenie New-AzureRmKeyVault. Aby uzyskać więcej informacji, zobacz temat [Register-AzureRmResourceProvider](https://msdn.microsoft.com/library/azure/mt759831\(v=azure.300\).aspx).
 >
 
 ## <a id="add"></a>Dodawanie klucza lub klucza tajnego do magazynu kluczy ##
 
-Jeśli chcesz, aby usługa Azure Key Vault utworzyła klucz chroniony oprogramowaniem, użyj polecenia cmdlet [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.200\).aspx) i wpisz następujące polecenie:
+Jeśli chcesz, aby usługa Azure Key Vault utworzyła klucz chroniony oprogramowaniem, użyj polecenia cmdlet [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.300\).aspx) i wpisz następujące polecenie:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
@@ -172,7 +172,7 @@ Aby zarejestrować aplikację w usłudze Azure Active Directory:
 
 ## <a id="authorize"></a>Zezwalanie aplikacji na używanie klucza lub klucza tajnego ##
 
-Aby przyznać aplikacji dostęp do klucza lub klucza tajnego w magazynie, użyj polecenia cmdlet  [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625\(v=azure.200\).aspx).
+Aby przyznać aplikacji dostęp do klucza lub klucza tajnego w magazynie, użyj polecenia cmdlet  [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625\(v=azure.300\).aspx).
 
 Na przykład jeśli nazwa Twojego magazynu to **ContosoKeyVault**, a identyfikator klienta aplikacji, której chcesz przyznać dostęp, to 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed i chcesz zezwolić aplikacji na odszyfrowywanie oraz logowanie przy użyciu kluczy w magazynie, uruchom następujące polecenie:
 
@@ -215,7 +215,7 @@ Aby uzyskać szczegółowe instrukcje na temat generowania pakietu BYOK, zobacz 
 
 ## <a id="delete"></a>Usuwanie magazynu kluczy oraz skojarzonych kluczy i kluczy tajnych ##
 
-Jeśli magazyn kluczy oraz zawarte w nim klucze i klucze tajne nie są już potrzebne, możesz je usunąć przy pomocy polecenia cmdlet [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485\(v=azure.200\).aspx):
+Jeśli magazyn kluczy oraz zawarte w nim klucze i klucze tajne nie są już potrzebne, możesz je usunąć przy pomocy polecenia cmdlet [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485\(v=azure.300\).aspx):
 
     Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
@@ -241,13 +241,13 @@ Aby zapoznać się z kolejnym samouczkiem, w którym jest używana usługa Azure
 
 Aby zobaczyć sposób użycia Twojego magazynu kluczy, zobacz artykuł [Rejestrowanie usługi Azure Key Vault](key-vault-logging.md).
 
-Aby zapoznać się z listą najnowszych poleceń cmdlet programu Azure PowerShell dla usługi Azure Key Vault, zobacz artykuł [Polecenia cmdlet w usłudze Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.200\).aspx). 
+Aby zapoznać się z listą najnowszych poleceń cmdlet programu Azure PowerShell dla usługi Azure Key Vault, zobacz artykuł [Polecenia cmdlet w usłudze Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.300\).aspx). 
  
 
 Odwołania dotyczące programowania znajdują się w [przewodniku dewelopera usługi Azure Key Vault](key-vault-developers-guide.md).
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

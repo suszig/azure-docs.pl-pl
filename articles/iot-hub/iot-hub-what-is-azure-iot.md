@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="07/19/2016"
+ ms.date="10/05/2016"
  ms.author="dobett"/>
 
 
@@ -21,11 +21,18 @@
 
 ## Następne kroki
 
-Azure IoT Hub jest usługą platformy Azure, która umożliwia bezpieczną i niezawodną dwukierunkową komunikację między zapleczem aplikacji a milionami urządzeń. Usługa ta pozwala zapleczu aplikacji odbierać dane telemetryczne z urządzeń na dużą skalę oraz kierować te dane do procesora zdarzeń strumienia, odbierać pliki przekazywane z urządzeń, a także wysyłać polecenia z chmury do określonych urządzeń. Za pomocą usługi IoT Hub można implementować własne zaplecze rozwiązania. Ponadto usługa IoT Hub zawiera rejestr tożsamości urządzeń używany do aprowizacji urządzeń, ich poświadczeń zabezpieczeń oraz praw do łączenia się z centrum. Aby dowiedzieć się więcej na temat usługi IoT Hub, zobacz [Co to jest usługa IoT Hub?][lnk-iot-hub].
+Azure IoT Hub jest usługą platformy Azure, która umożliwia bezpieczną i niezawodną dwukierunkową komunikację między zapleczem aplikacji a milionami urządzeń. Umożliwia zapleczu aplikacji:
+
+- Otrzymywanie danych telemetrycznych w odpowiedniej skali z urządzeń użytkownika.
+- Przekazywanie danych z urządzeń użytkownika do strumieniowego procesora zdarzeń.
+- Odbieranie przekazywanych plików z urządzeń.
+- Wysyłanie poleceń chmura-urządzenie do określonych urządzeń.
+
+Za pomocą usługi IoT Hub można implementować własne zaplecze rozwiązania. Ponadto usługa IoT Hub zawiera rejestr tożsamości urządzeń używany do aprowizacji urządzeń, ich poświadczeń zabezpieczeń oraz praw do łączenia się z centrum. Aby dowiedzieć się więcej na temat usługi IoT Hub, zobacz [Co to jest usługa IoT Hub?][lnk-iot-hub].
 
 Aby dowiedzieć się, jak usługa Azure IoT Hub umożliwia oparte na standardach zarządzanie urządzeniami IoT pozwalające na zdalne konfigurowanie i aktualizowanie urządzeń oraz zarządzanie nimi, zobacz [Omówienie zarządzania urządzeniami w usłudze Azure IoT Hub][lnk-device-management].
 
-W celu wdrożenia aplikacji klienckich na wielu różnych platformach sprzętowych i w różnych systemach operacyjnych można użyć zestawów SDK urządzeń IoT. Zestawy SDK urządzeń IoT zawierają biblioteki, które ułatwiają wysyłanie danych telemetrycznych do usługi IoT Hub i odbieranie poleceń wysyłanych z chmury do urządzeń. Zestawy SDK udostępniają możliwość wyboru wielu protokołów sieciowych służących do komunikowania się z usługą IoT Hub. Aby dowiedzieć się więcej, zobacz [i][lnk-device-sdks].
+W celu wdrożenia aplikacji klienckich na wielu różnych platformach sprzętowych i w różnych systemach operacyjnych można użyć zestawów SDK urządzeń IoT. Zestawy SDK urządzeń IoT zawierają biblioteki, które ułatwiają wysyłanie danych telemetrycznych do usługi IoT Hub i odbieranie poleceń wysyłanych z chmury do urządzeń. Korzystając z zestawów SDK, można wybierać spośród wielu protokołów sieciowych służących do komunikowania się z usługą IoT Hub. Aby dowiedzieć się więcej, zobacz [i][lnk-device-sdks].
 
 Aby rozpocząć pisanie kodu i uruchomić kilka przykładów, zobacz samouczek [Wprowadzenie do usługi IoT Hub][lnk-getstarted].
 
@@ -39,6 +46,6 @@ Warto również zainteresować się [Pakietem IoT Azure][lnk-iot-suite] , który
 [lnk-device-management]: iot-hub-device-management-overview.md
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/20/2016"
+   ms.date="10/10/2016"
    ms.author="ganesr"/>
 
 
@@ -113,6 +113,6 @@ Wykonaj instrukcje opisane w artykule [Move an ExpressRoute circuit from the cla
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

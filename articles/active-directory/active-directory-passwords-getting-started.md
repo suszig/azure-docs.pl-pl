@@ -1,6 +1,6 @@
 <properties
     pageTitle="Wprowadzenie: zarządzanie hasłami w usłudze Azure AD | Microsoft Azure"
-    description="Przekaż użytkownikom możliwość resetowania haseł, odkryj wymagania wstępne związane z funkcją resetowania haseł i włącz funkcję zapisywania zwrotnego haseł, aby zarządzać hasłami lokalnymi w usłudze Active Directory."
+    description="Umożliw użytkownikom resetowanie haseł, poznaj wymagania wstępne związane z funkcją resetowania haseł i włącz funkcję zapisywania zwrotnego haseł, aby zarządzać hasłami lokalnymi w usłudze Active Directory."
     services="active-directory"
     keywords="Zarządzanie hasłami usługi Active Directory, zarządzanie hasłami, resetowanie hasła usługi Azure AD"
     documentationCenter=""
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/12/2016"
+    ms.date="10/05/2016"
     ms.author="asteen"/>
 
 
@@ -22,7 +22,8 @@
 
 > [AZURE.IMPORTANT] **Jesteś tutaj, ponieważ masz problemy z logowaniem?** Jeśli tak, [w tym miejscu opisano, jak zmienić i zresetować własne hasło](active-directory-passwords-update-your-own-password.md).
 
-Aby umożliwić użytkownikom zarządzanie własnymi hasłami w chmurze Azure Active Directory lub lokalnymi hasłami w usłudze Active Directory, należy wykonać jedynie kilka prostych kroków. Po upewnieniu się, że zostały spełnione wymagania wstępne włączenie funkcji zmiany i resetowania haseł dla całej organizacji zajmie kilka chwil. W tym artykule opisano następujące kwestie:
+Aby umożliwić użytkownikom zarządzanie własnymi hasłami w chmurze Azure Active Directory lub lokalnymi hasłami w usłudze Active Directory, należy wykonać jedynie kilka prostych kroków. Po spełnieniu kilku prostych wymagań wstępnych włączenie funkcji zmiany i resetowania haseł dla całej organizacji zajmie tylko kilka chwil.
+ W tym artykule opisano następujące kwestie:
 
 * [**Jak umożliwić użytkownikom resetowanie swoich haseł w chmurze Azure Active Directory**](#enable-users-to-reset-their-azure-ad-passwords)
  - [Wymagania wstępne dotyczące samoobsługi resetowania haseł](#prerequisites)
@@ -32,7 +33,7 @@ Aby umożliwić użytkownikom zarządzanie własnymi hasłami w chmurze Azure Ac
 * [**Jak umożliwić użytkownikom resetowanie lub zmienianie swoich haseł lokalnych w usłudze Active Directory**](#enable-users-to-reset-or-change-their-ad-passwords)
  - [Wymagania wstępne dotyczące funkcji zapisywania zwrotnego haseł](#writeback-prerequisites)
  - [Krok 1. Pobranie najnowszej wersji programu Azure AD Connect](#step-1-download-the-latest-version-of-azure-ad-connect)
- - [Krok 2. Włączenie funkcji zapisywania zwrotnego haseł w programie Azure AD Connect za pośrednictwem interfejsu użytkownika lub środowiska PowerShell i zweryfikowanie funkcji](#step-2-enable-password-writeback-in-azure-ad-connect)
+ - [Krok 2. Włączenie funkcji zapisywania zwrotnego haseł w programie Azure AD Connect za pośrednictwem interfejsu użytkownika lub środowiska PowerShell i zweryfikowanie jej działania](#step-2-enable-password-writeback-in-azure-ad-connect)
  - [Krok 3. Skonfigurowanie zapory](#step-3-configure-your-firewall)
  - [Krok 4. Skonfigurowanie odpowiednich uprawnień](#step-4-set-up-the-appropriate-active-directory-permissions)
  - [Krok 5. Zresetowanie hasła AD jako użytkownik i zweryfikowanie działania](#step-5-reset-your-ad-password-as-a-user)
@@ -51,8 +52,8 @@ Aby włączyć funkcję samodzielnego resetowania haseł i z niej korzystać, mu
 
 - Utwórz dzierżawę usługi AAD. Aby uzyskać więcej informacji, zobacz [Wprowadzenie do usługi Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/)
 - Uzyskaj subskrypcję platformy Azure. Aby uzyskać więcej informacji, zobacz [Co to jest dzierżawa usługi Azure AD?](active-directory-administer.md#what-is-an-azure-ad-tenant)
-- Skojarz dzierżawę usługi AAD z subskrypcją platformy Azure. Aby uzyskać więcej informacji, zobacz [How Azure subscriptions are associated with Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx) (Jak subskrypcje platformy Azure są kojarzone z usługą Azure AD).
-- Uaktualnij do usługi Azure AD Premium, Podstawowa lub użyj licencji płatnej usługi O365. Aby uzyskać więcej informacji, zobacz [Wersje usługi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+- Skojarz dzierżawę usługi AAD z subskrypcją platformy Azure. Aby uzyskać więcej informacji, zobacz [Jak subskrypcje platformy Azure są kojarzone z usługą Azure Active Directory](https://msdn.microsoft.com/library/azure/dn629581.aspx).
+- Wykonaj uaktualnienie do usługi Azure AD Premium (Podstawowa) lub użyj licencji płatnej usługi O365. Aby uzyskać więcej informacji, zobacz [Wersje usługi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
   >[AZURE.NOTE] Aby włączyć samoobsługowe resetowanie haseł dla użytkowników chmury, musisz przeprowadzić uaktualnienie do wersji Azure AD Premium, Azure AD Podstawowa lub skorzystać z płatnej licencji usługi O365.  Aby włączyć funkcję samoobsługowego resetowania haseł dla użytkowników lokalnych, musisz przeprowadzić uaktualnienie do wersji Azure AD Premium. Aby uzyskać więcej informacji, zobacz [Wersje usługi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Informacje te zawierają szczegółowe instrukcje dotyczące rejestrowania w usłudze Azure AD Premium lub Podstawowa, sposób aktywacji planu licencyjnego i aktywacji dostępu do usługi Azure AD oraz sposób przydzielania dostępu dla kont administratora i użytkowników.
 
@@ -62,8 +63,8 @@ Aby włączyć funkcję samodzielnego resetowania haseł i z niej korzystać, mu
 ### Krok 1. Skonfigurowanie zasad resetowania hasła
 Aby skonfigurować zasady resetowania hasła użytkownika, wykonaj następujące czynności:
 
-1.  Otwórz wybraną przeglądarkę i przejdź do [Portalu zarządzania Azure](https://manage.windowsazure.com).
-2.  W [Portalu zarządzania Azure](https://manage.windowsazure.com) znajdź **rozszerzenie usługi Active Directory** na pasku nawigacyjnym po lewej stronie.
+1.  Otwórz wybraną przeglądarkę i przejdź do [klasycznego portalu Azure](https://manage.windowsazure.com).
+2.  W [klasycznym portalu Azure](https://manage.windowsazure.com) znajdź **rozszerzenie usługi Active Directory** na pasku nawigacyjnym po lewej stronie.
 
     ![Zarządzanie hasłami w usłudze Azure AD][001]
 
@@ -92,15 +93,15 @@ Aby skonfigurować zasady resetowania hasła użytkownika, wykonaj następujące
   ![][006]
 
 ### Krok 2. Dodanie danych kontaktowych dla użytkownika testowego
-Dostępnych jest kilka opcji dotyczących sposobu określania danych dla użytkowników w organizacji, które będą wykorzystane do resetowania hasła.
+Dane dotyczące użytkowników w organizacji, które będą używane do resetowania haseł, można określić na kilka sposobów.
 
--   Edycja użytkowników w [Portalu zarządzania Azure](https://manage.windowsazure.com) lub [Portalu administratora usługi Office 365](https://portal.microsoftonline.com)
+-   Edycja użytkowników w [klasycznym portalu Azure](https://manage.windowsazure.com) lub [portalu administratora usługi Office 365](https://portal.microsoftonline.com)
 -   Użycie programu AAD Connect do synchronizowania właściwości użytkownika w usłudze Azure AD z lokalnej domeny usługi Active Directory
 -   Edycja właściwości użytkownika za pomocą programu Windows PowerShell
 -   Zezwalanie użytkownikom na rejestrowanie własnych danych poprzez skierowanie ich do portalu rejestracji pod adresem [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
 -   Wymaganie od użytkowników rejestracji w funkcji resetowania haseł podczas logowania w panelu dostępu pod adresem [http://myapps.microsoft.com](http://myapps.microsoft.com) poprzez ustawienie opcji konfiguracji SSPR **Wymagaj rejestracji użytkowników podczas logowania do panelu dostępu** na wartość **Tak**.
 
-Jeśli chcesz dowiedzieć się więcej o danych używanych przez funkcję resetowania haseł oraz innych wymagań dotyczących formatowania tych danych, zobacz [What data is used by password reset?](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) (Jakie dane są używane przez funkcję resetowania haseł?).
+Jeśli chcesz dowiedzieć się więcej o danych używanych przez funkcję resetowania haseł oraz innych wymaganiach dotyczących formatowania tych danych, zobacz [What data is used by password reset?](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) (Jakie dane są używane przez funkcję resetowania haseł?).
 
 #### Aby dodać dane kontaktowe użytkownika za pośrednictwem portalu rejestracji użytkownika
 1.  Aby użyć portalu rejestracji resetowania haseł, musisz przekazać użytkownikom w organizacji link do tej strony ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)) lub włączyć ustawienie, które będzie automatycznie wymagać od użytkowników zarejestrowania.  Po kliknięciu linku użytkownicy zostaną poproszeni o zalogowanie się za pomocą konta w organizacji.  Po wykonaniu tej czynności zobaczą następującą stronę:
@@ -131,7 +132,7 @@ Teraz, gdy skonfigurowano zasady resetowania hasła użytkownika i określono da
 
     ![][012]
 
-3.  Jako że w tym przypadku użytkownik podał **telefon biurowy**, **telefon komórkowy** oraz **alternatywny adres e-mail**, zobaczysz, że użytkownik ma możliwość skorzystania z tych opcji do zrealizowania pierwszego wyzwania.
+3.  Jako że w tym przypadku użytkownik podał **telefon biurowy**, **telefon komórkowy** oraz **alternatywny adres e-mail**, zobaczysz, że ma on możliwość skorzystania z tych opcji w celu przejścia pierwszego testu.
 
     ![][013]
 
@@ -170,7 +171,7 @@ Ta sekcja przeprowadzi Cię przez proces konfigurowania funkcji resetowania has�
 
 - [Wymagania wstępne dotyczące funkcji zapisywania zwrotnego haseł](#writeback-prerequisites)
 - [Krok 1. Pobranie najnowszej wersji programu Azure AD Connect](#step-1-download-the-latest-version-of-azure-ad-connect)
-- [Krok 2. Włączenie funkcji zapisywania zwrotnego haseł w programie Azure AD Connect za pośrednictwem interfejsu użytkownika lub środowiska PowerShell i zweryfikowanie funkcji](#step-2-enable-password-writeback-in-azure-ad-connect)
+- [Krok 2. Włączenie funkcji zapisywania zwrotnego haseł w programie Azure AD Connect za pośrednictwem interfejsu użytkownika lub środowiska PowerShell i zweryfikowanie jej działania](#step-2-enable-password-writeback-in-azure-ad-connect)
 - [Krok 3. Skonfigurowanie zapory](#step-3-configure-your-firewall)
 - [Krok 4. Skonfigurowanie odpowiednich uprawnień](#step-4-set-up-the-appropriate-active-directory-permissions)
 - [Krok 5. Zresetowanie hasła AD jako użytkownik i zweryfikowanie działania](#step-5-reset-your-ad-password-as-a-user)
@@ -212,7 +213,7 @@ Zapisywanie zwrotne haseł jest dostępne w wydaniach narzędzi Azure AD Connect
 
 Jeśli numer wersji jest wyższy lub równy **1.0.0419.0911**, lub jeśli instalujesz narzędzie Azure AD Connect, możesz od razu przejść do etapu [Krok 2. Włączenie funkcji zapisywania zwrotnego haseł w programie Azure AD Connect za pośrednictwem interfejsu użytkownika lub środowiska PowerShell i zweryfikowanie funkcji](#step-2-enable-password-writeback-in-azure-ad-connect).
 
- > [AZURE.NOTE] Jeśli jest to pierwsza instalacja narzędzia Azure AD Connect, zaleca się przestrzeganie kilku najlepszych praktyk, aby przygotować środowisko do synchronizacji katalogów.  Zanim zainstalujesz narzędzie Azure AD Connect, musisz aktywować synchronizację katalogów w [Portalu administratora usługi Office 365](https://portal.microsoftonline.com) lub [Portalu zarządzania Azure](https://manage.windowsazure.com).  Aby uzyskać więcej informacji, zobacz [Managing Azure AD Connect](active-directory-aadconnect-whats-next.md) (Zarządzanie programem Azure AD Connect).
+ > [AZURE.NOTE] Jeśli jest to pierwsza instalacja narzędzia Azure AD Connect, zaleca się przestrzeganie kilku najlepszych praktyk, aby przygotować środowisko do synchronizacji katalogów.  Zanim zainstalujesz narzędzie Azure AD Connect, musisz aktywować synchronizację katalogów w [portalu administratora usługi Office 365](https://portal.microsoftonline.com) lub [klasycznym portalu Azure](https://manage.windowsazure.com).  Aby uzyskać więcej informacji, zobacz [Managing Azure AD Connect](active-directory-aadconnect-whats-next.md) (Zarządzanie programem Azure AD Connect).
 
 
 ### Krok 2. Włączanie zapisywania zwrotnego haseł w programie Azure AD Connect
@@ -227,17 +228,17 @@ Po pobraniu narzędzia Azure AD Connect można przystąpić do włączania funkc
 
 4.  Zakończ pracę kreatora. Ostatnia strona będzie zawierać podsumowanie zmian, z uwzględnieniem zmiany konfiguracji funkcji zapisywania zwrotnego haseł.
 
-> [AZURE.NOTE] Możesz wyłączyć funkcję zapisywania zwrotnego haseł w dowolnym momencie poprzez ponowne włączenie kreatora i usunięcie zaznaczenia tej opcji lub poprzez skonfigurowanie ustawienia **Zapisuj zwrotnie hasła do katalogu lokalnego** na wartość **Nie** w sekcji **Zasady resetowania hasła użytkownika** na karcie **Konfiguracja** w Twoim katalogu w [Portalu zarządzania Azure](https://manage.windowsazure.com).  Aby uzyskać więcej informacji o dostosowywaniu funkcji resetowania haseł, zobacz [Customize: Azure AD Password Management](active-directory-passwords-customize.md) (Dostosowanie: zarządzanie hasłami w usłudze Azure AD).
+> [AZURE.NOTE] Możesz wyłączyć funkcję zapisywania zwrotnego haseł w dowolnym momencie poprzez ponowne uruchomienie kreatora i usunięcie zaznaczenia tej opcji lub poprzez skonfigurowanie ustawienia **Zapisuj zwrotnie hasła do katalogu lokalnego** na wartość **Nie** w sekcji **Zasady resetowania hasła użytkownika** na karcie **Konfiguracja** w Twoim katalogu w [klasycznym portalu Azure](https://manage.windowsazure.com).  Aby uzyskać więcej informacji o dostosowywaniu funkcji resetowania haseł, zobacz [Customize: Azure AD Password Management](active-directory-passwords-customize.md) (Dostosowanie: zarządzanie hasłami w usłudze Azure AD).
 
 #### Aby włączyć funkcję zapisywania zwrotnego haseł przy użyciu programu Windows PowerShell
 1.  Na **komputerze synchronizacji katalogów** otwórz nowe **okno programu Windows PowerShell z podwyższonym poziomem uprawnień**.
-2.  Jeśli moduł nie jest jeszcze załadowany, wpisz polecenie `Import-Module ADSync`, aby załadować polecenia cmdlet programu Azure AD Connect do bieżącej sesji.
-3.  Pobierz listę łączników AAD w systemie, uruchamiając polecenie cmdlet `Get-ADSyncConnector` i zapisując wyniki w `$aadConnectorName`
-4.  Aby wyświetlić bieżący stan zapisywania zwrotnego dla bieżącego łącznika poprzez uruchomienie następującego polecenia cmdlet: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName`
-5.  Włącz funkcję zapisywania zwrotnego haseł poprzez uruchomienie polecenia cmdlet: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName –Enable $true`
+2.  Jeśli moduł nie jest jeszcze załadowany, wpisz polecenie `import-module ADSync`, aby załadować polecenia cmdlet programu Azure AD Connect do bieżącej sesji.
+3.  Pobierz listę łączników usługi Azure AD w systemie, uruchamiając polecenie cmdlet `Get-ADSyncConnector` i zapisując wyniki w parametrze `$aadConnectorName`, np. `$connectors = ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
+4.  Aby wyświetlić bieżący stan zapisywania zwrotnego dla bieżącego łącznika poprzez uruchomienie następującego polecenia cmdlet: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
+5.  Włącz funkcję zapisywania zwrotnego haseł poprzez uruchomienie polecenia cmdlet: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
 > [AZURE.NOTE] Jeśli zostanie wyświetlony monit o poświadczenia, upewnij się, że konto administratora określone dla pozycji AzureADCredential jest **kontem administratora chmury (utworzonym w usłudze Azure AD)**, a nie kontem federacyjnym (utworzonym w lokalnej usłudze AD i zsynchronizowanym z usługą Azure AD).
-> [AZURE.NOTE] Możesz wyłączyć funkcję zapisywania zwrotnego haseł w programie PowerShell poprzez powtórzenie powyższych instrukcji z pominięciem `$false` w kroku lub poprzez skonfigurowanie ustawienia **Zapisuj zwrotnie hasła do katalogu lokalnego** na wartość **Nie** w sekcji **Zasady resetowania hasła użytkownika** na karcie **Konfiguracja** w Twoim katalogu w [Portalu zarządzania Azure](https://manage.windowsazure.com).
+> [AZURE.NOTE] Możesz wyłączyć funkcję zapisywania zwrotnego haseł w programie PowerShell poprzez powtórzenie powyższych instrukcji z pominięciem `$false` w kroku lub poprzez skonfigurowanie ustawienia **Zapisuj zwrotnie hasła do katalogu lokalnego** na wartość **Nie** w sekcji **Zasady resetowania hasła użytkownika** na karcie **Konfiguracja** w Twoim katalogu w [klasycznym portalu Azure](https://manage.windowsazure.com).
 
 #### Weryfikacja pomyślnego przeprowadzenia konfiguracji
 Po pomyślnym zakończeniu konfiguracji zobaczysz komunikat o włączeniu funkcji zapisywania zwrotnego resetowania haseł w oknie programu Windows PowerShell lub komunikat z potwierdzeniem w interfejsie użytkownika konfiguracji.
@@ -362,6 +363,6 @@ Poniżej podano linki do wszystkich stron dokumentacji związanych z resetowanie
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 
