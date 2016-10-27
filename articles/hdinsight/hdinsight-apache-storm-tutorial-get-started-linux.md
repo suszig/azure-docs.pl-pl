@@ -14,18 +14,18 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/16/2016"
+   ms.date="10/12/2016"
    ms.author="larryfr"/>
 
 
 
-# Samouczek systemu Apache Storm: wprowadzenie do przykładów z projektu Storm Starter dotyczących analizy danych big data w usłudze HDInsight
+# <a name="apache-storm-tutorial:-get-started-with-the-storm-starter-samples-for-big-data-analytics-on-hdinsight"></a>Samouczek systemu Apache Storm: wprowadzenie do przykładów z projektu Storm Starter dotyczących analizy danych big data w usłudze HDInsight
 
 Apache Storm to skalowalny, odporny na błędy, rozproszony system obliczeniowy działający w czasie rzeczywistym do przetwarzania strumieni danych. Dzięki platformie Storm w usłudze Azure HDInsight można utworzyć oparty na chmurze klaster Storm do wykonywania analizy danych big data w czasie rzeczywistym.
 
 > [AZURE.NOTE] Kroki opisane w tym artykule umożliwiają utworzenie klastra usługi HDInsight na bazie systemu Linux. Aby uzyskać instrukcje tworzenia klastra Storm opartego na systemie Windows w usłudze HDInsight, zobacz temat [Samouczek platformy Apache Storm: wprowadzenie do przykładu z projektu Storm Starter z użyciem analizy danych w usłudze HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -39,11 +39,11 @@ Do pomyślnego ukończenia samouczka platformy Apache Storm potrzebne są:
 
     - **Klient systemu Windows**: zobacz temat [Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemu Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-### Wymagania dotyczące kontroli dostępu
+### <a name="access-control-requirements"></a>Wymagania dotyczące kontroli dostępu
 
 [AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## Tworzenie klastra Storm
+## <a name="create-a-storm-cluster"></a>Tworzenie klastra Storm
 
 W tej sekcji utworzysz klaster usługi HDInsight w wersji 3.2 (Storm 0.9.3) przy użyciu szablonu Azure Resource Manager. Informacje o wersji usługi HDInsight i umowach SLA można znaleźć w temacie [Przechowywanie wersji składnika usługi HDInsight](hdinsight-component-versioning.md). Aby zapoznać się z innymi metodami tworzenia klastra, zobacz temat [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -80,7 +80,7 @@ W tej sekcji utworzysz klaster usługi HDInsight w wersji 3.2 (Storm 0.9.3) przy
 6. Kliknij przycisk **Utwórz**. Zostanie wyświetlony nowy kafelek zatytułowany Submitting deployment for Template deployment (Przesyłanie wdrożenia dla wdrożenia szablonu). Utworzenie klastra i bazy danych SQL trwa około 20 minut.
 
 
-##Uruchamianie przykładu z projektu Storm Starter w usłudze HDInsight
+##<a name="run-a-storm-starter-sample-on-hdinsight"></a>Uruchamianie przykładu z projektu Storm Starter w usłudze HDInsight
 
 Przykłady z projektu [storm-starter](https://github.com/apache/storm/tree/master/examples/storm-starter) są dołączone do klastra usługi HDInsight. Wykonanie poniższych kroków spowoduje uruchomienie przykładu WordCount.
 
@@ -98,9 +98,9 @@ Przykłady z projektu [storm-starter](https://github.com/apache/storm/tree/maste
 
 2. Użyj następującego polecenia, aby uruchomić przykładową topologię:
 
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.10.0.2.4.2.4-5.jar storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm.starter.WordCountTopology wordcount
         
-    > [AZURE.NOTE] Część `0.10.0.2.4.2.4-5` nazwy pliku może zmienić się po aktualizacji usługi HDInsight przy użyciu nowszych wersji systemu Storm.
+    > [AZURE.NOTE] Część `*` nazwy pliku umożliwia dopasowanie numeru wersji, która zmienia się po zaktualizowaniu usługi HDInsight.
 
     To polecenie uruchamia w klastrze przykładową topologię WordCount o przyjaznej nazwie „wordcount”. Przykład obejmuje losowe wygenerowanie zdań i zliczenie wystąpień poszczególnych wyrazów w zdaniach.
 
@@ -108,7 +108,7 @@ Przykłady z projektu [storm-starter](https://github.com/apache/storm/tree/maste
     >
     > Przykład WordCount i inne przykłady z projektu Storm Starter znajdują się już w klastrze w lokalizacji `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
-##Monitorowanie topologii
+##<a name="monitor-the-topology"></a>Monitorowanie topologii
 
 Interfejs użytkownika platformy Storm udostępnia interfejs sieci Web do pracy z uruchomionymi topologiami i jest zawarty w klastrze usługi HDInsight.
 
@@ -175,15 +175,15 @@ Wykonaj następujące kroki, aby monitorować topologię za pomocą interfejsu u
 
     Na podstawie tych danych można stwierdzić, że wyraz **seven** (siedem) wystąpił 1493957 razy. Tyle razy został napotkany od momentu uruchomienia tej topologii.
 
-##Zatrzymywanie topologii
+##<a name="stop-the-topology"></a>Zatrzymywanie topologii
 
 Wróć do strony **Topology summary** (Podsumowanie topologii) dla topologii WordCount, a następnie naciśnij przycisk **Kill** (Kasuj) w obszarze **Topology actions** (Akcje topologii). Po wyświetleniu monitu wprowadź 10 jako liczbę sekund oczekiwania przed zatrzymaniem topologii. Po upłynięciu limitu czasu topologia nie będzie już wyświetlana w obszarze **interfejsu użytkownika platformy Storm** pulpitu nawigacyjnego.
 
-##Usuwanie klastra
+##<a name="delete-the-cluster"></a>Usuwanie klastra
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-##<a id="next"></a>Następne kroki
+##<a name="<a-id="next"></a>next-steps"></a><a id="next"></a>Następne kroki
 
 W tym samouczku platformy Apache Storm użyto przykładu z projektu Storm Starter, aby przedstawić sposób tworzenia klastra platformy Storm w usłudze HDInsight oraz używania pulpitu nawigacyjnego Storm do wdrażania i monitorowania topologii Storm oraz zarządzania nimi. W dalszej kolejności zapoznaj się ze sposobem [opracowywania topologii opartych na języku Java za pomocą programu Maven](hdinsight-storm-develop-java-topology.md).
 
@@ -199,6 +199,6 @@ Jeśli umiesz już opracowywać topologie oparte na języku Java i chcesz wdroż
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

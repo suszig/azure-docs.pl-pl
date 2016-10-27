@@ -13,24 +13,24 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="09/20/2016"
-    ms.author="gusapost;tamram"/>
+    ms.date="10/18/2016"
+    ms.author="tamram"/>
 
 
 
-# Rozpoczynanie pracy z usługą Azure Table Storage przy użyciu platformy .NET
+# <a name="get-started-with-azure-table-storage-using-.net"></a>Rozpoczynanie pracy z usługą Azure Table Storage przy użyciu platformy .NET
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 <br/>
 [AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-## Omówienie
+## <a name="overview"></a>Omówienie
 
 Magazyn tabel Azure to usługa, która przechowuje dane strukturalne NoSQL w chmurze. Magazyn tabel jest magazynem kluczy/atrybutów bez schematu. Ponieważ Magazyn tabel nie ma schematu, łatwo zaadaptować dane do rozwijających się potrzeb aplikacji. Dostęp do danych jest szybki i ekonomiczny dla wszystkich rodzajów aplikacji. Magazyn tabel jest zwykle znacznie tańszy niż tradycyjne bazy SQL dla podobnych ilości danych.
 
 Magazyn tabel umożliwia przechowywanie elastycznych zestawów danych, takich jak dane użytkownika dla aplikacji sieci Web, książki adresowe, informacje o urządzeniach i wszelkie inne metadane, których wymaga Twoja usługa. W tabeli można przechowywać dowolną liczbę jednostek, a konto magazynu może zawierać dowolną liczbę tabel w granicach pojemności konta magazynu.
 
-### Informacje o tym samouczku
+### <a name="about-this-tutorial"></a>Informacje o tym samouczku
 
 Ten samouczek pokazuje, jak napisać kod .NET dla niektórych typowych scenariuszy przy użyciu Magazynu tabel Azure, w tym związanych z tworzeniem i usuwaniem tabel oraz wstawianiem, aktualizowaniem, usuwaniem i przeszukiwaniem danych w tabeli.
 
@@ -45,7 +45,7 @@ Ten samouczek pokazuje, jak napisać kod .NET dla niektórych typowych scenarius
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
-### Więcej przykładów
+### <a name="more-samples"></a>Więcej przykładów
 
 Dodatkowe przykłady użycia usługi Table Storage znajdziesz w temacie [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/) (Rozpoczynanie pracy z usługą Azure Table Storage w programie .NET). Możesz pobrać przykładową aplikację i uruchomić ją lub przejrzeć kod w witrynie GitHub.
 
@@ -56,7 +56,7 @@ Dodatkowe przykłady użycia usługi Table Storage znajdziesz w temacie [Getting
 
 [AZURE.INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-### Dodawanie deklaracji przestrzeni nazw
+### <a name="add-namespace-declarations"></a>Dodawanie deklaracji przestrzeni nazw
 
 Dodaj następujące instrukcje `using` na początku pliku `program.cs`:
 
@@ -64,11 +64,11 @@ Dodaj następujące instrukcje `using` na początku pliku `program.cs`:
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 
-### Analizowanie parametrów połączenia
+### <a name="parse-the-connection-string"></a>Analizowanie parametrów połączenia
 
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-### Tworzenie klienta usługi tabel
+### <a name="create-the-table-service-client"></a>Tworzenie klienta usługi tabel
 
 Klasa **CloudTableClient** umożliwia pobieranie tabel i jednostek przechowywanych w usłudze Table Storage. Oto jeden ze sposobów tworzenia klienta usługi:
 
@@ -77,7 +77,7 @@ Klasa **CloudTableClient** umożliwia pobieranie tabel i jednostek przechowywany
 
 Teraz możesz przystąpić do pisania kodu, który będzie odczytywać dane z Magazynu tabel i zapisywać je w nim.
 
-## Tworzenie tabeli
+## <a name="create-a-table"></a>Tworzenie tabeli
 
 W tym przykładzie pokazano, jak utworzyć tabelę, jeśli jeszcze nie istnieje:
 
@@ -94,7 +94,7 @@ W tym przykładzie pokazano, jak utworzyć tabelę, jeśli jeszcze nie istnieje:
     // Create the table if it doesn't exist.
     table.CreateIfNotExists();
 
-## Dodawanie jednostki do tabeli
+## <a name="add-an-entity-to-a-table"></a>Dodawanie jednostki do tabeli
 
 Jednostki są mapowane do obiektów C\# za pomocą niestandardowej klasy pochodzącej od klasy **TableEntity**. Aby dodać jednostkę do tabeli, należy utworzyć klasę, która definiuje właściwości jednostki. Poniższy kod definiuje klasę jednostki, która używa imienia klienta jako klucza wiersza i nazwiska jako klucza partycji. Razem klucz partycji i klucz wiersza jednostki jednoznacznie identyfikują jednostkę w tabeli. Jednostki z tym samym kluczem partycji mogą być przeszukiwane szybciej niż jednostki o różnych kluczach partycji, niemniej użycie różnych kluczy partycji umożliwia zwiększenie skalowalności operacji równoległych.  Dla dowolnej właściwości, która powinna być przechowana w usłudze Table service, właściwość musi być właściwością publiczną obsługiwanego typu, która ujawnia zarówno metodę `get`, jak i `set`.
 Ponadto typ jednostki *musi* ujawniać konstruktor bez parametrów.
@@ -137,7 +137,7 @@ Operacje tabeli obejmujące jednostki są wykonywane za pośrednictwem obiektu *
     // Execute the insert operation.
     table.Execute(insertOperation);
 
-## Zbiorcze wstawianie jednostek
+## <a name="insert-a-batch-of-entities"></a>Zbiorcze wstawianie jednostek
 
 Możesz wstawić partię jednostek do tabeli w jednej operacji zapisu. Inne wybrane uwagi dotyczące operacji zbiorczych:
 
@@ -179,7 +179,7 @@ Poniższy przykład kodu tworzy dwa obiekty jednostki i dodaje je do obiektu **T
     // Execute the batch operation.
     table.ExecuteBatch(batchOperation);
 
-## Pobieranie wszystkich jednostek w partycji
+## <a name="retrieve-all-entities-in-a-partition"></a>Pobieranie wszystkich jednostek w partycji
 
 Aby wysłać zapytanie do tabeli dla wszystkich obiektów w partycji, użyj obiektu **TableQuery**.
 Poniższy przykład kodu określa filtr jednostek, gdzie „Smith” jest kluczem partycji. W tym przykładzie drukowane są pola każdej jednostki w wynikach zapytania w konsoli.
@@ -204,7 +204,7 @@ Poniższy przykład kodu określa filtr jednostek, gdzie „Smith” jest klucze
             entity.Email, entity.PhoneNumber);
     }
 
-## Pobieranie zakresu jednostek w partycji
+## <a name="retrieve-a-range-of-entities-in-a-partition"></a>Pobieranie zakresu jednostek w partycji
 
 Jeśli nie chcesz wykonywać zapytania dla wszystkich jednostek w partycji, możesz określić zakres, łącząc filtr klucza partycji z filtrem klucza wiersza. Poniższy przykład kodu wykorzystuje dwa filtry do pobrania wszystkich jednostek w partycji „Smith”, w których klucz wiersza (imię) rozpoczyna się od litery alfabetu wcześniejszej niż „E”, a następnie drukuje wyniki zapytania.
 
@@ -232,7 +232,7 @@ Jeśli nie chcesz wykonywać zapytania dla wszystkich jednostek w partycji, moż
             entity.Email, entity.PhoneNumber);
     }
 
-## Pobieranie pojedynczej jednostki
+## <a name="retrieve-a-single-entity"></a>Pobieranie pojedynczej jednostki
 
 Można napisać zapytanie do pobrania jednej, określonej jednostki. Poniższy kod używa obiektu **TableOperation** do określenia klienta „Ben Smith”.
 Metoda ta zwraca tylko jedną jednostkę zamiast ich zbioru, a zwrócona wartość w pozycji **TableResult.Result** jest obiektem **CustomerEntity**.
@@ -260,7 +260,7 @@ Określenie kluczy partycji i wiersza w pojedynczym zapytaniu jest najszybszym s
     else
        Console.WriteLine("The phone number could not be retrieved.");
 
-## Zastępowanie jednostki
+## <a name="replace-an-entity"></a>Zastępowanie jednostki
 
 Aby zaktualizować jednostkę, pobierz ją z usługi tabel, zmodyfikuj obiekt jednostki, a następnie zapisz zmiany w usłudze tabel. Poniższy kod zmienia istniejący numer telefonu klienta. Zamiast wywoływać metodę **Insert**, ten kod używa metody **Replace**. Dzięki temu jednostka będzie całkowicie zastąpiona na serwerze, chyba że jednostka na serwerze zmieniła się od czasu jej pobrania. W takim przypadku operacja nie powiedzie się.  Ten błąd uniemożliwia aplikacji nieodwracalne nadpisanie zmiany dokonanej pomiędzy pobraniem i zaktualizowaniem przez inny składnik aplikacji.  W przypadku tego błędu prawidłowa procedura obejmuje ponowne pobranie jednostki, wprowadzenie zmian (jeśli nadal mają zastosowanie), a następnie ponowne przeprowadzenie operacji **Replace**.  W następnej sekcji opisano sposób zastąpienia tego zachowania.
 
@@ -300,7 +300,7 @@ Aby zaktualizować jednostkę, pobierz ją z usługi tabel, zmodyfikuj obiekt je
     else
        Console.WriteLine("Entity could not be retrieved.");
 
-## Wstawianie lub zastępowanie jednostki
+## <a name="insert-or-replace-an-entity"></a>Wstawianie lub zastępowanie jednostki
 
 Operacje **Replace** zakończą się niepowodzeniem, jeśli jednostka została zmieniona od czasu jej pobrania z serwera.  Ponadto aby operacja **Replace** zakończyła się powodzeniem, jednostka musi zostać wcześniej pobrana z serwera.
 Czasami jednak nie wiadomo, czy jednostka istnieje na serwerze oraz czy obecne wartości przechowywane w jednostce są istotne. Aktualizacja powinna nadpisać je wszystkie.  Aby to zrobić, użyj operacji **InsertOrReplace**.  Ta operacja wstawi jednostkę, jeśli jednostka nie istnieje, lub zastąpi ją, jeśli już istnieje — niezależnie od czasu ostatniej aktualizacji.  W poniższym przykładzie kodu jednostka klienta dla klienta Ben Smith nadal jest pobierana, ale następnie jest zapisywana na serwerze za pomocą operacji **InsertOrReplace**.  Wszelkie aktualizacje wprowadzone w jednostce między operacjami pobrania i aktualizacji zostaną nadpisane.
@@ -341,7 +341,7 @@ Czasami jednak nie wiadomo, czy jednostka istnieje na serwerze oraz czy obecne w
     else
        Console.WriteLine("Entity could not be retrieved.");
 
-## Tworzenie zapytania do podzbioru właściwości jednostki
+## <a name="query-a-subset-of-entity-properties"></a>Tworzenie zapytania do podzbioru właściwości jednostki
 
 Zapytanie tabeli może pobrać kilka właściwości jednostki zamiast wszystkich właściwości jednostki. Ta technika, zwana projekcją, redukuje przepustowość i może poprawiać wydajność zapytań, zwłaszcza w przypadku dużych jednostek. Zapytanie w poniższym kodzie zwraca wyłącznie adresy e-mail jednostek w tabeli. Operację tę przeprowadza się za pomocą zapytania **DynamicTableEntity** lub **EntityResolver**. Użytkownik może dowiedzieć się więcej o projekcji we [Wpis na blogu Introducing Upsert and Query Projection (Wprowadzenie operacji upsert i projekcji zapytań)][] Należy zauważyć, że funkcja projekcji nie jest obsługiwana w lokalnym emulatorze magazynu, dlatego ten kod zadziała tylko w przypadku użycia konta w usłudze tabel.
 
@@ -366,7 +366,7 @@ Zapytanie tabeli może pobrać kilka właściwości jednostki zamiast wszystkich
         Console.WriteLine(projectedEmail);
     }
 
-## Usuwanie jednostki
+## <a name="delete-an-entity"></a>Usuwanie jednostki
 
 Można z łatwością usunąć jednostkę po jej pobraniu, korzystając z tego samego wzorca co w przypadku aktualizowania jednostki.  Poniższy kod umożliwia pobranie i usunięcie jednostki klienta.
 
@@ -403,7 +403,7 @@ Można z łatwością usunąć jednostkę po jej pobraniu, korzystając z tego s
     else
        Console.WriteLine("Could not retrieve the entity.");
 
-## Usuwanie tabeli
+## <a name="delete-a-table"></a>Usuwanie tabeli
 
 Poniższy przykład kodu usuwa tabelę z konta magazynu. Tabeli, która została usunięta, nie będzie można ponownie utworzyć przez dany okres czasu po jej usunięciu.
 
@@ -420,7 +420,7 @@ Poniższy przykład kodu usuwa tabelę z konta magazynu. Tabeli, która została
     // Delete the table it if exists.
     table.DeleteIfExists();
 
-## Pobieranie asynchroniczne jednostek na stronach
+## <a name="retrieve-entities-in-pages-asynchronously"></a>Pobieranie asynchroniczne jednostek na stronach
 
 Jeśli odczytujesz dużą liczbę jednostek i chcesz przetworzyć/wyświetlić jednostki po ich pobraniu, zamiast czekać na zwrócenie ich wszystkich, możesz pobierać jednostki za pomocą zapytania segmentowanego. W tym przykładzie przedstawiono sposób zwracania wyników na stronach za pomocą wzorca Async-Await, dzięki czemu wykonanie nie jest blokowane podczas oczekiwania na zwrócenie dużych zestawów wyników. Aby uzyskać szczegółowe informacje o wykorzystaniu wzorca Async-Await w programie .NET, zobacz [Asynchronous Programming with Async and Await (C# and Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx) (Programowanie asynchroniczne z Async i Await [C# i Visual Basic]).
 
@@ -446,20 +446,20 @@ Jeśli odczytujesz dużą liczbę jednostek i chcesz przetworzyć/wyświetlić j
     // Loop until a null continuation token is received, indicating the end of the table.
     } while(continuationToken != null);
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Teraz, kiedy znasz już podstawy usługi Table Storage, skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu:
 
 - Więcej przykładów użycia usługi Table Storage znajdziesz w temacie [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/) (Rozpoczynanie pracy z usługą Azure Table Storage w programie .NET)
 - Przejrzyj dokumentację referencyjną usługi Table service, aby uzyskać szczegółowe informacje o dostępnych interfejsach API:
     - [Dokumentacja biblioteki klienta usługi Storage dla programu .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-    - [Informacje o interfejsie API REST](http://msdn.microsoft.com/library/azure/dd179355)
+    - [Dokumentacja interfejsu API REST](http://msdn.microsoft.com/library/azure/dd179355)
 - Dowiedz się, jak uprościć zapisywany kod, aby pracować z usługą Azure Storage za pomocą zestawu [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
 - Wyświetl więcej poradników dotyczących funkcji, aby dowiedzieć się więcej o dodatkowych opcjach przechowywania danych na platformie Azure.
     - Zapoznaj się z tematem [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-blobs.md), aby przechowywać dane bez struktury.
-    - Zapoznaj się z tematem [Jak używać bazy danych Azure SQL Database w aplikacjach .NET](sql-database-dotnet-how-to-use.md), aby przechowywać dane relacyjne.
+    - [Połącz się z usługą SQL Database przy użyciu platformy .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md), aby zapisać dane relacyjne.
 
-  [Pobieranie i instalowanie zestawu Azure SDK dla programu .NET]: /develop/net/
+  [Pobranie i zainstalowanie zestawu Azure SDK dla programu .NET]: /develop/net/
   [Tworzenie projektu platformy Azure w programie Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
 
   [Blob5]: ./media/storage-dotnet-how-to-use-table-storage/blob5.png
@@ -468,17 +468,17 @@ Teraz, kiedy znasz już podstawy usługi Table Storage, skorzystaj z poniższych
   [Blob8]: ./media/storage-dotnet-how-to-use-table-storage/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
 
-  [Wpis na blogu Introducing Upsert and Query Projection (Wprowadzenie operacji upsert i projekcji zapytań)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [Informacje o bibliotece klienta .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+  [Wpis na blogu Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx (Wprowadzenie operacji upsert i projekcji zapytań)
+  [Dokumentacja biblioteki klienta platformy .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Blog zespołu odpowiedzialnego za usługę Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
   [Konfiguracja parametrów połączenia usługi Azure Storage]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-  [Przestrzenne]: http://nuget.org/packages/System.Spatial/5.0.2
+  [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [Poradnik: programistyczny dostęp do Magazynu tabel]: #tablestorage
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

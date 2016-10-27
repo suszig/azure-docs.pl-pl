@@ -1,45 +1,46 @@
 <properties
-	pageTitle="Create a Virtual Machine Scale Set | Microsoft Azure"
-	description="Create a Virtual Machine Scale Set using PowerShell"
-	services="virtual-machine-scale-sets"
+    pageTitle="Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu programu PowerShell | Microsoft Azure"
+    description="Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu programu PowerShell"
+    services="virtual-machine-scale-sets"
     documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    authors="davidmu1"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/25/2016"
-	ms.author="davidmu"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="10/10/2016"
+    ms.author="davidmu"/>
 
-# Create a Windows Virtual Machine Scale Set using Azure PowerShell
 
-These steps follow a fill-in-the-blanks approach for creating an Azure Virtual Machine Scale Set. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) to learn more about scale sets.
+# <a name="create-a-windows-virtual-machine-scale-set-using-azure-powershell"></a>Tworzenie zestawu skalowania maszyn wirtualnych systemu Windows przy użyciu programu Azure PowerShell
 
-It should take about 30 minutes to do the steps in this article.
+Te kroki są stosowane w przypadku metody uzupełniania podczas tworzenia zestawu skalowania maszyn wirtualnych Azure. Zobacz [Omówienie zestawów skalowania maszyn wirtualnych](virtual-machine-scale-sets-overview.md), aby dowiedzieć się więcej o zestawach skalowania.
 
-## Step 1: Install Azure PowerShell
+Wykonanie kroków opisanych w tym artykule powinno zająć około 30 minut.
 
-See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about how to install the latest version of Azure PowerShell, select the subscription that you want to use, and sign in to your Azure account.
+## <a name="step-1:-install-azure-powershell"></a>Krok 1. Instalowanie programu Azure PowerShell
 
-## Step 2: Create resources
+Zobacz [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Jak zainstalować i skonfigurować program Azure PowerShell), aby uzyskać informacje na temat instalowania najnowszej wersji programu Azure PowerShell, wybierania subskrypcji i logowania się do konta.
 
-Create the resources that are needed for your new virtual machine scale set.
+## <a name="step-2:-create-resources"></a>Krok 2: Tworzenie zasobów
 
-### Resource group
+Utwórz zasoby wymagane dla nowego zestawu skalowania.
 
-A virtual machine scale set must be contained in a resource group.
+### <a name="resource-group"></a>Grupa zasobów
 
-1.  Get a list of available locations and the services that are supported:
+Zestaw skalowania maszyn wirtualnych musi być zawarty w grupie zasobów.
+
+1. Pobierz listę dostępnych lokalizacji i usług, które są obsługiwane:
 
         Get-AzureLocation | Sort Name | Select Name, AvailableServices
 
-    You should see something like this
+    Powinny zostać wyświetlone informacje podobne do następujących:
 
         Name                AvailableServices
         ----                -----------------
@@ -62,19 +63,19 @@ A virtual machine scale set must be contained in a resource group.
         West India          {Compute, Storage, PersistentVMRole, HighMemory}
         West US             {Compute, Storage, PersistentVMRole, HighMemory}
 
-2. Pick a location that works best for you, replace the value of **$locName** with that location name, and then create the variable:
+2. Wybierz najbardziej odpowiednią dla siebie lokalizację, zastąp wartość **$locName** nazwą lokalizacji, a następnie utwórz zmienną:
 
         $locName = "location name from the list, such as Central US"
 
-3. Replace the value of **$rgName** with the name that you want to use for the new resource group and then create the variable: 
+3. Zastąp wartość **$rgName** nazwą, której chcesz używać dla nowej grupy zasobów, a następnie utwórz zmienną: 
 
         $rgName = "resource group name"
         
-4. Create the resource group:
+4. Utwórz grupę zasobów:
     
         New-AzureRmResourceGroup -Name $rgName -Location $locName
 
-    You should see something like this:
+    Powinny zostać wyświetlone informacje podobne do następujących:
 
         ResourceGroupName : myrg1
         Location          : centralus
@@ -82,36 +83,33 @@ A virtual machine scale set must be contained in a resource group.
         Tags              :
         ResourceId        : /subscriptions/########-####-####-####-############/resourceGroups/myrg1
 
-### Storage account
+### <a name="storage-account"></a>Konto magazynu
 
-A storage account is used by a virtual machine to store the operating system disk and diagnostic data used for scaling. It is a best practice to have one storage account for every 20 virtual machines created in a scale set. Since scale sets are designed to be easy to scale out, create as many storage accounts as you need for the maximum number of virtual machines you plan your scale set to grow to. The example in this article shows 3 storage accounts being created, allowing the scale set to grow comfortably to 60 virtual machines.
+Konto magazynu jest używane przez maszynę wirtualną do przechowywania dysku systemu operacyjnego i danych diagnostycznych używanych do skalowania. Jeśli to możliwe, najlepiej jest mieć konto magazynu dla każdej maszyny wirtualnej utworzonej w zestawie skalowania. Jeśli nie jest to możliwe, należy planować nie więcej niż 20 maszyn wirtualnych na jedno konto magazynu. W przykładzie w tym artykule przedstawiono trzy konta magazynu tworzone dla trzech maszyn wirtualnych.
 
-1. Replace the value of **saName** with the name that you want to use for the storage account and then create the variable: 
+1. Zastąp wartość **$saName** nazwą konta magazynu. Sprawdź unikatowość nazwy. 
 
         $saName = "storage account name"
-        
-2. Test whether the name that you selected is unique:
-    
-        Test-AzureName -Storage $saName
+        Get-AzureRmStorageAccountNameAvailability $saName
 
-    If the answer is **False**, your proposed name is unique.
+    Jeśli odpowiedzią jest **True** (Prawda), zaproponowana nazwa jest unikatowa.
 
-3. Replace the value of **$saType** with the type of the storage account and then create the variable:  
+3. Zastąp wartość **$saType** typem konta magazynu, a następnie utwórz zmienną:  
 
         $saType = "storage account type"
         
-    Possible values are: Standard_LRS, Standard_GRS, Standard_RAGRS, or Premium_LRS.
+    Możliwe wartości to: Standard_LRS, Standard_GRS, Standard_RAGRS lub Premium_LRS.
         
-4. Create the account:
+4. Utwórz konto:
     
         New-AzureRmStorageAccount -Name $saName -ResourceGroupName $rgName –Type $saType -Location $locName
 
-    You should see something like this:
+    Powinny zostać wyświetlone informacje podobne do następujących:
 
         ResourceGroupName   : myrg1
         StorageAccountName  : myst1
         Id                  : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft
-	                    	.Storage/storageAccounts/myst1
+                              .Storage/storageAccounts/myst1
         Location            : centralus
         AccountType         : StandardLRS
         CreationTime        : 3/15/2016 4:51:52 PM
@@ -127,93 +125,93 @@ A storage account is used by a virtual machine to store the operating system dis
         Tags                : {}
         Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
 
-5. Repeat steps 1 through 4 to create 3 storage accounts, for example myst1, myst2, and myst3.
+5. Powtórz kroki od 1 do 4, aby utworzyć trzy konta magazynu, na przykład myst1, myst2 i myst3.
 
-### Virtual network
+### <a name="virtual-network"></a>Sieć wirtualna
 
-A virtual network is required for the virtual machines in the scale set.
+Sieć wirtualna jest wymagana dla maszyn wirtualnych w zestawie skalowania.
 
-1. Replace the value of **$subName** with the name that you want to use for the subnet in the virtual network and then create the variable: 
+1. Zastąp wartość **$subnetName** nazwą, której chcesz używać dla podsieci w sieci wirtualnej, a następnie utwórz zmienną: 
 
-        $subName = "subnet name"
+        $subnetName = "subnet name"
         
-2. Create the subnet configuration:
+2. Utwórz konfigurację podsieci:
     
-        $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subName -AddressPrefix 10.0.0.0/24
+        $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
         
-    The address prefix may be different in your virtual network.
+    Prefiks adresu może być inny w sieci wirtualnej.
 
-3. Replace the value of **$netName** with the name that you want to use for the virtual network and then create the variable: 
+3. Zastąp wartość **$netName** nazwą, której chcesz używać dla sieci wirtualnej, a następnie utwórz zmienną: 
 
         $netName = "virtual network name"
         
-4. Create the virtual network:
+4. Utwórz sieć wirtualną:
     
         $vnet = New-AzureRmVirtualNetwork -Name $netName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-### Public IP address
+### <a name="public-ip-address"></a>Publiczny adres IP
 
-Before a network interface can be created, you need to create a public IP address.
+Przed utworzeniem interfejsu sieciowego należy utworzyć publiczny adres IP.
 
-1. Replace the value of **$domName** with the domain name label that you want to use with your public IP address and then create the variable:  
+1. Zastąp wartość **$domName** etykietą nazwy domeny, która ma być używana z tym publicznym adresem IP, a następnie utwórz zmienną:  
 
         $domName = "domain name label"
         
-    The label can contain only letters, numbers, and hyphens, and the last character must be a letter or number.
+    Etykieta może zawierać tylko litery, cyfry i łączniki, a ostatni znak musi być literą lub cyfrą.
     
-2. Test whether the name is unique:
+2. Sprawdź, czy nazwa jest unikatowa:
     
         Test-AzureRmDnsAvailability -DomainQualifiedName $domName -Location $locName
 
-    If the answer is **True**, your proposed name is unique.
+    Jeśli odpowiedzią jest **True** (Prawda), zaproponowana nazwa jest unikatowa.
 
-3. Replace the value of **$pipName** with the name that you want to use for the public IP address and then create the variable. 
+3. Zastąp wartość **$pipName** nazwą, której chcesz używać dla sieci publicznego adresu IP, a następnie utwórz zmienną: 
 
         $pipName = "public ip address name"
         
-4. Create the public IP address:
+4. Utwórz publiczny adres IP:
     
         $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic -DomainNameLabel $domName
 
-### Network interface
+### <a name="network-interface"></a>Interfejs sieciowy
 
-Now that you have the public IP address, you can create the network interface.
+Teraz, gdy masz publiczny adres IP, możesz utworzyć interfejs sieciowy.
 
-1. Replace the value of **$nicName** with the name that you want to use for the network interface and then create the variable: 
+1. Zastąp wartość **$nicName** nazwą, której chcesz używać dla interfejsu sieciowego, a następnie utwórz zmienną: 
 
         $nicName = "network interface name"
         
-2. Create the network interface:
+2. Utwórz interfejs sieciowy:
     
         $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
-### Configuration of the scale set
+### <a name="configuration-of-the-scale-set"></a>Konfiguracja zestawu skalowania
 
-You have all the resources that you need for the scale set configuration, so let's create it.  
+Masz wszystkie zasoby potrzebne do konfiguracji zestawu skalowania, więc utwórz go.  
 
-1. Replace the value of **$ipName** with the name that you want to use for the IP configuration and then create the variable: 
+1. Zastąp wartość **$ipName** nazwą, której chcesz używać dla konfiguracji IP, a następnie utwórz zmienną: 
 
         $ipName = "IP configuration name"
         
-2. Create the IP configuration:
+2. Utwórz konfigurację adresu IP:
 
         $ipConfig = New-AzureRmVmssIpConfig -Name $ipName -LoadBalancerBackendAddressPoolsId $null -SubnetId $vnet.Subnets[0].Id
 
-2. Replace the value of **$vmssConfig** with the name that you want to use for the scale set configuration and then create the variable:   
+2. Zastąp wartość **$vmssConfig** nazwą, której chcesz używać dla konfiguracji zestawu skalowania, a następnie utwórz zmienną:   
 
         $vmssConfig = "Scale set configuration name"
         
-3. Create the configuration for the scale set:
+3. Utwórz konfigurację dla zestawu skalowania:
 
-        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A1" -UpgradePolicyMode "manual"
+        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
         
-    This example shows a scale set being created with 3 virtual machines. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) for more about the capacity of scale sets. This step also includes setting the size (referred to as SkuName) of the virtual machines in the set. Look at [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md) to find a size that meets your needs.
+    Ten przykład przedstawia zestaw skalowania tworzony z trzema maszynami wirtualnymi. Zobacz [Omówienie zestawów skalowania maszyn wirtualnych](virtual-machine-scale-sets-overview.md), aby uzyskać więcej informacji o pojemności zestawów skalowania. Ten krok obejmuje również ustawienie rozmiaru (nazywanego SkuName, nazwą jednostki SKU) maszyn wirtualnych w zestawie. Aby znaleźć rozmiar spełniający wymagania, zobacz [Rozmiary maszyn wirtualnych](../virtual-machines/virtual-machines-windows-sizes.md).
     
-4. Add the network interface configuration to the scale set configuration:
+4. Dodaj konfigurację interfejsu sieciowego do konfiguracji zestawu skalowania:
         
         Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig
         
-    You should see something like this:
+    Powinny zostać wyświetlone informacje podobne do następujących:
 
         Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
         UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
@@ -226,59 +224,59 @@ You have all the resources that you need for the scale set configuration, so let
         Location              : Central US
         Tags                  :
 
-#### Operating system  profile
+#### <a name="operating-system-profile"></a>Profil systemu operacyjnego
 
-1. Replace the value of **$computerName** with the computer name prefix that you want to use and then create the variable: 
+1. Zastąp wartość **$computerName** prefiksem nazwy komputera, którego chcesz użyć, a następnie utwórz zmienną: 
 
         $computerName = "computer name prefix"
         
-2. Replace the value of **$adminName** the name of the administrator account on the virtual machines and then create the variable:
+2. Zastąp wartość **$adminName** nazwą konta administratora na maszynach wirtualnych, a następnie utwórz zmienną:
 
         $adminName = "administrator account name"
         
-3. Replace the value of **$adminPassword** with the account password and then create the variable:
+3. Zastąp wartość **$adminPassword** hasłem konta, a następnie utwórz zmienną:
 
         $adminPassword = "password for administrator accounts"
         
-4. Create the operating system profile:
+4. Utwórz profil systemu operacyjnego
 
         Set-AzureRmVmssOsProfile -VirtualMachineScaleSet $vmss -ComputerNamePrefix $computerName -AdminUsername $adminName -AdminPassword $adminPassword
 
-#### Storage profile
+#### <a name="storage-profile"></a>Profil magazynu
 
-1. Replace the value of **$storageProfile** with the name that you want to use for the storage profile and then create the variable:  
+1. Zastąp wartość **$storageProfile** nazwą, której chcesz używać dla profilu magazynu, a następnie utwórz zmienną:  
 
         $storageProfile = "storage profile name"
         
-2. Create the variables that define the image to use:  
+2. Utwórz zmienne, które definiują obraz do użycia:  
       
         $imagePublisher = "MicrosoftWindowsServer"
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
         
-    Look at [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) to find the information about other images to use.
+    Aby znaleźć informacje o innych używanych obrazach, zobacz temat [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) (Nawigacja i wybieranie obrazów maszyn wirtualnych platformy Azure za pomocą programu Windows PowerShell i interfejsu wiersza polecenia platformy Azure).
         
-3. Replace the value of **$vhdContainers** with a list that contains the paths where the virtual hard disks are stored, such as "https://mystorage.blob.core.windows.net/vhds", and then create the variable:
+3. Zastąp wartość **$vhdContainers** listą zawierającą ścieżki, w których są przechowywane wirtualne dyski twarde, na przykład „https://mystorage.blob.core.windows.net/vhds”, a następnie utwórz zmienną:
        
         $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
         
-4. Create the storage profile:
+4. Utwórz profil magazynu:
 
         Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storageProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
-### Virtual machine scale set
+### <a name="virtual-machine-scale-set"></a>Zestaw skalowania maszyn wirtualnych
 
-Finally, you can create the scale set.
+Na koniec możesz utworzyć zestaw skalowania.
 
-1. Replace the value of **$vmssName** with the name of the virtual machine scale set and then create the variable:
+1. Zastąp wartość **$vmssName** nazwą zestawu skalowania maszyn wirtualnych, a następnie utwórz zmienną:
 
         $vmssName = "scale set name"
         
-2. Create the scale set:
+2. Tworzenie zestawu skalowania:
 
         New-AzureRmVmss -ResourceGroupName $rgName -Name $vmssName -VirtualMachineScaleSet $vmss
 
-    You should see something like this that shows you the deployment succeeded:
+    Powinny zostać wyświetlone informacje podobne do następującego przykładu, który pokazuje pomyślne wdrożenie:
 
         Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
         UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
@@ -286,19 +284,19 @@ Finally, you can create the scale set.
         ProvisioningState     : Updating
         OverProvision         :
         Id                    : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microso
-                               ft.Compute/virtualMachineScaleSets/myvmss1
+                                ft.Compute/virtualMachineScaleSets/myvmss1
         Name                  : myvmss1
         Type                  : Microsoft.Compute/virtualMachineScaleSets
         Location              : centralus
         Tags                  :
 
-## Step 3: Explore resources
+## <a name="step-3:-explore-resources"></a>Krok 3: Przeglądanie zasobów
 
-Use these resources to explore the virtual machine scale set that you just created:
+Użyj tych zasobów, aby eksplorować zestaw skalowania maszyn wirtualnych, który został utworzony:
 
-- Azure portal - A limited amount of information is available using the portal.
-- [Azure Resource Explorer](https://resources.azure.com/) - This is the best tool for exploring the current state of your scale set.
-- Azure PowerShell - Use this command to get information:
+- Azure Portal — za pośrednictwem witryny portalu dostępna jest ograniczona ilość informacji.
+- [Eksplorator zasobów Azure](https://resources.azure.com/) — to narzędzie jest najlepsze do eksplorowania bieżącego stanu zestawu skalowania.
+- Azure PowerShell — użyj tego polecenia, aby uzyskać informacje:
 
         Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
         
@@ -307,8 +305,14 @@ Use these resources to explore the virtual machine scale set that you just creat
         Get-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
         
 
-## Next steps
+## <a name="next-steps"></a>Następne kroki
 
-- Manage the scale set that you just created using the information in [Manage virtual machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-manage.md)
-- Consider setting up automatic scaling of your scale set by using information in [Automatic scaling and virtual machine scale sets](virtual-machine-scale-sets-autoscale-overview.md)
-- Learn more about vertical scaling by reviewing [Vertical autoscale with Virtual Machine Scale sets](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+- Zarządzaj nowo utworzonym zestawem skalowania, korzystając z informacji zawartych w temacie [Manage virtual machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-manage.md) (Zarządzanie maszynami wirtualnymi w zestawie skalowania maszyn wirtualnych)
+- Rozważ skonfigurowanie automatycznego skalowania dla zestawu skalowania przy użyciu informacji podanych w temacie [Automatic scaling and virtual machine scale sets](virtual-machine-scale-sets-autoscale-overview.md) (Automatyczne skalowanie i zestawy skalowania maszyn wirtualnych)
+- Więcej informacji o skalowaniu w pionie zawiera artykuł [Vertical autoscale with Virtual Machine Scale sets](virtual-machine-scale-sets-vertical-scale-reprovision.md) (Automatyczne skalowanie w pionie za pomocą zestawów skalowania maszyn wirtualnych)
+
+
+
+<!--HONumber=Oct16_HO3-->
+
+

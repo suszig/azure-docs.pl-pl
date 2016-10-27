@@ -1,4 +1,4 @@
-### Aby sprawdzić połączenie przy użyciu programu PowerShell
+### <a name="to-verify-your-connection-by-using-powershell"></a>Aby sprawdzić połączenie przy użyciu programu PowerShell
 
 Jest możliwość sprawdzenia, czy połączenie powiodło się, używając polecenia `Get-AzureRmVirtualNetworkGatewayConnection`, z opcją `-Debug` lub bez niej. 
 
@@ -34,18 +34,16 @@ Jest możliwość sprawdzenia, czy połączenie powiodło się, używając polec
             "egressBytesTransferred": 4142431
           }
 
-### Aby sprawdzić połączenie przy użyciu witryny Azure Portal
+### <a name="to-verify-your-connection-by-using-the-azure-portal"></a>Aby sprawdzić połączenie przy użyciu witryny Azure Portal
 
-Przechodząc w witrynie Azure Portal do połączenia, można sprawdzić stan połączenia. Istnieje wiele sposobów, aby to zrobić. Poniżej znajduje się jeden ze sposobów przechodzenia do połączenia.
+Przechodząc w witrynie Azure Portal do połączenia, można sprawdzić stan połączenia. Istnieje wiele sposobów, aby to zrobić. Poniższe kroki pokazują jeden ze sposobów nawigacji do połączenia oraz jego weryfikacji.
 
-1. W witrynie [Azure Portal](http://portal.azure.com) przejdź do **Bramy sieci wirtualnej**. Kliknij nazwę bramy.
-2. W okienku w obszarze **Ustawienia** kliknij pozycję **Połączenia**. Zostanie pokazany stan każdego połączenia.
-3. Po kliknięciu nazwy połączenia można wyświetlić więcej informacji na jego temat. Na stronie z podstawowymi informacjami o połączeniu należy zwrócić uwagę na **Stan połączenia**. Po pomyślnym nawiązaniu połączenia stan jest wyświetlany jako „Powodzenie” i „Połączono”. Informacje na temat przepływających danych można uzyskać, spoglądając na **Dane wejściowe** i **Dane wyjściowe**.
+1. W [portalu Azure](http://portal.azure.com) kliknij przycisk **Wszystkie zasoby** i przejdź do bramy sieci wirtualnej.
+2. W bloku bramy sieci wirtualnej kliknij opcję **Połączenia**. Zostanie pokazany stan każdego połączenia.
+3. Kliknij nazwę połączenia, które chcesz sprawdzić, aby otworzyć blok **Podstawy**. W bloku Podstawy możesz wyświetlić więcej informacji o połączeniu. Po pomyślnym nawiązaniu połączenia **Stan** jest wyświetlany jako „Powodzenie” i „Połączono”.
 
-    W poniższym przykładzie **Stan połączenia** jest określony jako „Nie połączono”. 
+    ![Sprawdź połączenie](./media/vpn-gateway-verify-connection-rm-include/connectionsucceeded.png)
 
-    ![Sprawdź połączenie](./media/vpn-gateway-verify-connection-rm-include/connectionverify450.png)
-
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

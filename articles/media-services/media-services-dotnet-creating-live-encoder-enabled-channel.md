@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="09/15/2016"
+    ms.date="10/12/2016"
     ms.author="juliako;anilmur"/>
 
 
 
-#Transmisja strumieniowa na żywo korzystająca z usługi Azure Media Services do tworzenia strumieni o wielokrotnej szybkości transmisji bitów z użyciem programu .NET
+#<a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-.net"></a>Transmisja strumieniowa na żywo korzystająca z usługi Azure Media Services do tworzenia strumieni o wielokrotnej szybkości transmisji bitów z użyciem programu .NET
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -26,16 +26,16 @@
 - [Interfejs API REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 >[AZURE.NOTE]
-> Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz temat [Bezpłatna wersja próbna systemu Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
+> Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz temat [Bezpłatna wersja próbna systemu Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
 
-##Omówienie
+##<a name="overview"></a>Omówienie
 
 Ten samouczek przedstawia kroki tworzenia **kanału**, który odbiera strumień na żywo o pojedynczej szybkości transmisji bitów i koduje go jako strumień o wielokrotnej szybkości transmisji bitów.
 
 Aby uzyskać więcej informacji o pojęciach związanych z kanałami obsługującymi kodowanie na żywo, zobacz temat [Korzystanie z usługi Azure Media Services do prowadzenia transmisji strumieniowych na żywo ze strumieniami o wielokrotnej szybkości transmisji bitów](media-services-manage-live-encoder-enabled-channels.md).
 
 
-##Typowy scenariusz transmisji strumieniowej na żywo
+##<a name="common-live-streaming-scenario"></a>Typowy scenariusz transmisji strumieniowej na żywo
 
 W poniższych krokach opisano zadania związane z tworzeniem typowych aplikacji transmisji strumieniowej na żywo.
 
@@ -43,17 +43,17 @@ W poniższych krokach opisano zadania związane z tworzeniem typowych aplikacji 
 
 1. Podłącz kamerę wideo do komputera. Uruchom i skonfiguruj lokalny koder na żywo, który wysyła strumień o pojedynczej szybkości transmisji bitów przy użyciu jednego z następujących protokołów: RTMP, Smooth Streaming lub RTP (MPEG-TS). Aby uzyskać więcej informacji, zobacz temat [Obsługa protokołu RTMP i kodery na żywo w usłudze Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-    Ten krok można również wykonać po utworzeniu kanału.
+Ten krok można również wykonać po utworzeniu kanału.
 
 1. Utwórz i uruchom kanał.
 
 1. Pobierz adres URL pozyskiwania kanału.
 
-    Koder na żywo używa adresu URL pozyskiwania do wysyłania strumienia do kanału.
+Koder na żywo używa adresu URL pozyskiwania do wysyłania strumienia do kanału.
 
 1. Pobierz adres URL podglądu kanału.
 
-    Użyj tego adresu URL, aby sprawdzić, czy kanał prawidłowo odbiera strumień na żywo.
+Użyj tego adresu URL, aby sprawdzić, czy kanał prawidłowo odbiera strumień na żywo.
 
 2. Utwórz zasób.
 3. Aby zasób był dynamicznie szyfrowany podczas odtwarzania , należy wykonać następujące czynności:
@@ -63,14 +63,14 @@ W poniższych krokach opisano zadania związane z tworzeniem typowych aplikacji 
 3. Utwórz program i określ użycie utworzonego zasobu.
 1. Opublikuj zasób skojarzony z programem przez utworzenie lokalizatora OnDemand.
 
-    Upewnij się, że istnieje co najmniej jedna jednostka zarezerwowanego przesyłania strumieniowego w punkcie końcowym, z którego zawartość ma być przesyłana strumieniowo.
+Upewnij się, że istnieje co najmniej jedna jednostka zarezerwowanego przesyłania strumieniowego w punkcie końcowym, z którego zawartość ma być przesyłana strumieniowo.
 
 1. Uruchom program, gdy wszystko będzie gotowe do rozpoczęcia przesyłania strumieniowego i archiwizacji.
 2. Opcjonalnie można przesłać do kodera na żywo sygnał o rozpoczęciu reklamy. Reklama jest wstawiana do strumienia wyjściowego.
 1. Zatrzymaj program w dowolnym momencie, w którym chcesz zatrzymać przesyłanie strumieniowe i archiwizowanie wydarzenia.
 1. Usuń program (opcjonalnie można również usunąć zasób).
 
-## Zawartość
+## <a name="what-you'll-learn"></a>Zawartość
 
 W tym temacie opisano sposób wykonywania różnych operacji na kanałach i programach przy użyciu zestawu SDK .NET usługi Media Services. Ponieważ czas trwania wielu operacji jest długi, użyto interfejsów API platformy .NET służących do zarządzania operacjami długotrwałymi.
 
@@ -86,37 +86,37 @@ W temacie przedstawiono sposób wykonywania następujących czynności:
 1. Czyszczenie kanału i wszystkich skojarzonych zasobów.
 
 
-##Wymagania wstępne
+##<a name="prerequisites"></a>Wymagania wstępne
 
 Następujące elementy są wymagane do wykonania czynności przedstawionych w samouczku.
 
-- Do ukończenia tego samouczka jest potrzebne konto platformy Azure. 
-    
-    Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Otrzymasz kredyt, który można wykorzystać do wypróbowania płatnych usług Azure. Nawet po wyczerpaniu kredytu możesz zachować konto i korzystać z bezpłatnych usług i funkcji platformy Azure, takich jak Web Apps w usłudze Azure App Service.
-- Konto usługi Media Services. Aby utworzyć konto usługi Media Services, zobacz temat [Tworzenie konta](media-services-create-account.md).
+- Do ukończenia tego samouczka jest potrzebne konto platformy Azure.
+
+Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Otrzymasz kredyt, który można wykorzystać do wypróbowania płatnych usług Azure. Nawet po wyczerpaniu kredytu możesz zachować konto i korzystać z bezpłatnych usług i funkcji platformy Azure, takich jak Web Apps w usłudze Azure App Service.
+- Konto usługi Media Services. Aby utworzyć konto usługi Media Services, zobacz temat [Tworzenie konta](media-services-portal-create-account.md).
 - Visual Studio 2010 z dodatkiem SP1 (Professional, Premium, Ultimate lub Express) lub nowszy.
 - Należy użyć zestawu .NET SDK usługi Media Services w wersji 3.2.0.0 lub nowszej.
 - Kamera internetowa i koder, który może wysyłać strumień na żywo o pojedynczej szybkości transmisji bitów.
 
-##Zagadnienia do rozważenia
+##<a name="considerations"></a>Zagadnienia do rozważenia
 
 - Obecnie maksymalny zalecany czas trwania wydarzenia na żywo wynosi 8 godzin. Skontaktuj się z nami pod adresem amslived@microsoft.com, jeśli chcesz uruchomić kanał na dłużej.
 - Upewnij się, że istnieje co najmniej jedna jednostka zarezerwowanego przesyłania strumieniowego w punkcie końcowym, z którego zawartość ma być przesyłana strumieniowo.
 
-##Pobieranie próbki
+##<a name="download-sample"></a>Pobieranie próbki
 
 Pobierz i uruchom próbkę [z tego miejsca](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
 
-##Konfigurowanie środowiska deweloperskiego przy użyciu zestawu .NET SDK usługi Media Services
+##<a name="set-up-for-development-with-media-services-sdk-for-.net"></a>Konfigurowanie środowiska deweloperskiego przy użyciu zestawu .NET SDK usługi Media Services
 
 1. Utwórz aplikację konsoli przy użyciu programu Visual Studio.
 1. Dodaj zestaw SDK Usługi multimediów dla platformy .NET do aplikacji konsoli przy użyciu pakietu NuGet usługi Media Services.
 
-##Łączenie się z usługą Media Services
+##<a name="connect-to-media-services"></a>Łączenie się z usługą Media Services
 Najlepszą praktyką jest użycie pliku app.config do przechowywania nazwy i klucza konta usługi Media Services.
 
->[AZURE.NOTE]Aby znaleźć wartości nazwy i klucza, należy przejść do klasycznego portalu Azure, wybrać konto Usługi multimediów i kliknąć ikonę „ZARZĄDZAJ KLUCZAMI” w dolnej części okna portalu. Kliknięcie ikony obok każdego pola tekstowego powoduje skopiowanie wartości do schowka systemowego.
+>[AZURE.NOTE]Aby znaleźć wartości nazwy i klucza, przejdź do portalu Azure, a następnie wybierz swoje konto. Po prawej stronie zostanie wyświetlone okno Ustawienia. W oknie Ustawienia wybierz opcję Klucze. Kliknięcie ikony obok każdego pola tekstowego powoduje skopiowanie wartości do schowka systemowego.
 
 Dodaj sekcję appSettings w pliku app.config i ustaw wartości nazwy i klucza konta usługi Media Services.
 
@@ -130,7 +130,7 @@ Dodaj sekcję appSettings w pliku app.config i ustaw wartości nazwy i klucza ko
     </configuration>
      
     
-##Przykładowy kod
+##<a name="code-example"></a>Przykładowy kod
 
     using System;
     using System.Collections.Generic;
@@ -519,22 +519,22 @@ Dodaj sekcję appSettings w pliku app.config i ustaw wartości nazwy i klucza ko
     }   
 
 
-##Następny krok
+##<a name="next-step"></a>Następny krok
 
 Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Przekazywanie opinii
+##<a name="provide-feedback"></a>Przekazywanie opinii
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### Szukasz czegoś innego?
+### <a name="looking-for-something-else?"></a>Szukasz czegoś innego?
 
 Jeśli ten temat nie zawiera oczekiwanych treści, brakuje w nim informacji lub w inny sposób nie spełnia Twoich potrzeb, podziel się swoją opinią za pomocą wątku usługi Disqus poniżej.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

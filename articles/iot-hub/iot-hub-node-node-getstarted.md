@@ -31,7 +31,7 @@ Po ukończeniu tego samouczka będziesz mieć trzy aplikacje konsolowe środowis
 
 Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
-+ Środowisko Node.js w wersji 0.12.x lub nowszej. <br/> W artykule [Prepare your development environment] (Przygotowywanie środowiska projektowego)[lnk-dev-setup] opisano, jak zainstalować środowisko Node.js na potrzeby tego samouczka w systemie Windows lub Linux.
++ Środowisko Node.js w wersji 0.10.x lub nowszej.
 
 + Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure][lnk_free_trial].
 
@@ -314,6 +314,6 @@ W samouczku [Process device-to-cloud messages][lnk-process-d2c-tutorial] (Przetw
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

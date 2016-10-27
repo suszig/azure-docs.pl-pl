@@ -6,6 +6,13 @@ Brama VPN Gateway może używać następujących jednostek SKU:
 - Standardowa (Standard)
 - Wysoka wydajność (HighPerformance)
 
-<!--HONumber=Sep16_HO4-->
+Podczas wybierania jednostki SKU należy wziąć pod uwagę następujące ograniczenia:
+
+- Jeśli chcesz użyć typu sieci VPN PolicyBased, należy użyć podstawowej jednostki SKU bramy. Sieć VPN PolicyBased (nazywana wcześniej routingiem statycznym) nie jest obsługiwana w żadnych innych jednostkach SKU.
+- Protokół BGP nie jest obsługiwany w ramach podstawowej jednostki SKU.
+- Współistniejące konfiguracje bramy sieci VPN usługi ExpressRoute nie są obsługiwane w ramach podstawowej jednostki SKU.
+
+
+<!--HONumber=Oct16_HO3-->
 
 

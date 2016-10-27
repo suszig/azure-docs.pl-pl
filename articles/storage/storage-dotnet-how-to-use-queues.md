@@ -13,21 +13,21 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="07/26/2016"
-    ms.author="cbrooks;robinsh"/>
+    ms.date="10/12/2016"
+    ms.author="robinsh"/>
 
 
-# Rozpoczynanie pracy z usługą Azure Queue Storage przy użyciu platformy .NET
+# <a name="get-started-with-azure-queue-storage-using-.net"></a>Rozpoczynanie pracy z usługą Azure Queue Storage przy użyciu platformy .NET
 
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 <br/>
 [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## Omówienie
+## <a name="overview"></a>Omówienie
 
 Usługa Azure Queue Storage umożliwia przesyłanie komunikatów za pomocą chmury między składnikami aplikacji. W przypadku projektowania aplikacji pod kątem skalowania składniki aplikacji są często rozłączane, dzięki czemu mogą być skalowane niezależnie. Usługa Queue Storage zapewnia asynchroniczne przesyłanie komunikatów na potrzeby komunikacji między składnikami aplikacji niezależnie od tego, czy działają w chmurze, na komputerze, serwerze lokalnym czy urządzeniu przenośnym. Usługa Queue Storage obsługuje również zarządzanie asynchronicznymi zadaniami oraz przepływy pracy procesu kompilacji.
 
-### Informacje o tym samouczku
+### <a name="about-this-tutorial"></a>Informacje o tym samouczku
 
 W tym samouczku pokazano, jak napisać kod .NET dla niektórych typowych scenariuszy przy użyciu usługi Azure Queue Storage. Omówione scenariusze obejmują tworzenie i usuwanie kolejek oraz dodawanie, odczytywanie i usuwanie komunikatów kolejek.
 
@@ -49,7 +49,7 @@ W tym samouczku pokazano, jak napisać kod .NET dla niektórych typowych scenari
 
 [AZURE.INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-### Dodawanie deklaracji przestrzeni nazw
+### <a name="add-namespace-declarations"></a>Dodawanie deklaracji przestrzeni nazw
 
 Dodaj następujące instrukcje `using` na początku pliku `program.cs`:
 
@@ -57,11 +57,11 @@ Dodaj następujące instrukcje `using` na początku pliku `program.cs`:
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
-### Analizowanie parametrów połączenia
+### <a name="parse-the-connection-string"></a>Analizowanie parametrów połączenia
 
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-### Tworzenie klienta usługi kolejki
+### <a name="create-the-queue-service-client"></a>Tworzenie klienta usługi kolejki
 
 Klasa **CloudQueueClient** umożliwia pobieranie kolejek przechowywanych w usłudze Queue Storage. Oto jeden ze sposobów tworzenia klienta usługi:
 
@@ -69,7 +69,7 @@ Klasa **CloudQueueClient** umożliwia pobieranie kolejek przechowywanych w usłu
 
 Teraz możesz przystąpić do pisania kodu, który będzie odczytywać dane z usługi Queue Storage i zapisywać je w nim.
 
-## Tworzenie kolejki
+## <a name="create-a-queue"></a>Tworzenie kolejki
 
 W tym przykładzie pokazano, jak utworzyć kolejkę, jeśli jeszcze nie istnieje:
 
@@ -86,7 +86,7 @@ W tym przykładzie pokazano, jak utworzyć kolejkę, jeśli jeszcze nie istnieje
     // Create the queue if it doesn't already exist
     queue.CreateIfNotExists();
 
-## Wstawianie komunikatu do kolejki
+## <a name="insert-a-message-into-a-queue"></a>Wstawianie komunikatu do kolejki
 
 Aby wstawić komunikat do istniejącej kolejki, najpierw utwórz nową klasę **CloudQueueMessage**. Następnie wywołaj metodę **AddMessage**. Klasę **CloudQueueMessage** można utworzyć przy użyciu ciągu (w formacie UTF-8) lub tablicy **bajtów**. Oto kod, który tworzy kolejkę (jeśli kolejka nie istnieje) i wstawia komunikat „Hello, World”:
 
@@ -107,7 +107,7 @@ Aby wstawić komunikat do istniejącej kolejki, najpierw utwórz nową klasę **
     CloudQueueMessage message = new CloudQueueMessage("Hello, World");
     queue.AddMessage(message);
 
-## Podgląd kolejnego komunikatu
+## <a name="peek-at-the-next-message"></a>Podgląd kolejnego komunikatu
 
 Możesz uzyskać wgląd w komunikat z przodu kolejki bez jego usuwania z kolejki, wywołując metodę **PeekMessage**.
 
@@ -127,7 +127,7 @@ Możesz uzyskać wgląd w komunikat z przodu kolejki bez jego usuwania z kolejki
     // Display message.
     Console.WriteLine(peekedMessage.AsString);
 
-## Zmiana zawartości komunikatu w kolejce
+## <a name="change-the-contents-of-a-queued-message"></a>Zmiana zawartości komunikatu w kolejce
 
 Możesz zmienić zawartość komunikatu w kolejce. Jeśli komunikat reprezentuje zadanie robocze, możesz użyć tej funkcji, aby zaktualizować stan zadania. Poniższy kod aktualizuje komunikat kolejki o nową zawartość i ustawia rozszerzenie limitu czasu widoczności o kolejne 60 sekund. Operacja ta zapisuje stan pracy powiązanej z komunikatem i daje klientowi kolejną minutę na kontynuowanie pracy nad komunikatem. Możesz użyć tej metody do śledzenia wieloetapowych przepływów pracy związanych z komunikatami kolejek, bez konieczności rozpoczynania od nowa, gdy dany etap nie powiedzie się ze względu na awarię sprzętu lub oprogramowania. Zazwyczaj stosuje się również liczbę ponownych prób. Jeśli komunikat zostanie ponowiony więcej niż *n* razy, zostanie usunięty. Jest to zabezpieczenie przed komunikatami, które wyzwalają błąd aplikacji zawsze, gdy są przetwarzane.
 
@@ -148,7 +148,7 @@ Możesz zmienić zawartość komunikatu w kolejce. Jeśli komunikat reprezentuje
         TimeSpan.FromSeconds(60.0),  // Make it visible for another 60 seconds.
         MessageUpdateFields.Content | MessageUpdateFields.Visibility);
 
-## Usunięcie następnego komunikatu z kolejki
+## <a name="de-queue-the-next-message"></a>Usunięcie następnego komunikatu z kolejki
 
 Twój kod usuwa komunikat z kolejki w dwóch etapach. Jeśli wywołasz funkcję **GetMessage**, uzyskasz następny komunikat w kolejce. Komunikat zwrócony z funkcji **GetMessage** staje się niewidoczny dla innego kodu odczytującego komunikaty z tej kolejki. Domyślnie komunikat pozostanie niewidoczny przez 30 sekund. Aby zakończyć usuwanie komunikatu z kolejki, musisz również wywołać funkcję **DeleteMessage**. Ten dwuetapowy proces usuwania komunikatów gwarantuje, że jeśli kod nie będzie w stanie przetworzyć komunikatu z powodu awarii sprzętu lub oprogramowania, inne wystąpienie kodu będzie w stanie uzyskać ten sam komunikat i ponowić próbę. Twój kod wywołuje funkcję **DeleteMessage** natychmiast po przetworzeniu komunikatu.
 
@@ -168,7 +168,7 @@ Twój kod usuwa komunikat z kolejki w dwóch etapach. Jeśli wywołasz funkcję 
     //Process the message in less than 30 seconds, and then delete the message
     queue.DeleteMessage(retrievedMessage);
 
-## Używanie wzorca Async-Await z wspólnymi interfejsami API usługi Queue Storage
+## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>Używanie wzorca Async-Await z wspólnymi interfejsami API usługi Queue Storage
 
 Ten przykład przedstawia sposób użycia wzorca Async-Await z wykorzystaniem wspólnych interfejsów API usługi Queue Storage. Przykład wywołuje asynchroniczną wersję każdej z danych metod, co jest wskazane przez sufiks *Async* każdej metody. Jeśli zostanie użyta metoda asynchroniczna, wzorzec Async-Await zawiesi lokalne wykonanie do momentu ukończenia wywołania. Takie zachowanie umożliwia wykonywanie innych zadań przez bieżący wątek, co pomaga unikać wąskich gardeł zmniejszających wydajność i poprawia ogólną szybkość reakcji aplikacji. Aby uzyskać szczegółowe informacje o wykorzystaniu wzorca Async-Await w programie .NET, zobacz [Async and Await (C# and Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx) (Async i Await [C# i Visual Basic]).
 
@@ -197,7 +197,7 @@ Ten przykład przedstawia sposób użycia wzorca Async-Await z wykorzystaniem ws
     await queue.DeleteMessageAsync(retrievedMessage);
     Console.WriteLine("Deleted message");
 
-## Wykorzystanie dodatkowych opcji do usuwania komunikatów z kolejek
+## <a name="leverage-additional-options-for-de-queuing-messages"></a>Wykorzystanie dodatkowych opcji do usuwania komunikatów z kolejek
 
 Istnieją dwa sposoby dostosowania pobierania komunikatów z kolejki.
 Po pierwsze można uzyskać komunikaty zbiorczo (do 32). Po drugie można ustawić dłuższy lub krótszy limit czasu niewidoczności, dzięki czemu kod będzie mieć więcej lub mniej czasu na pełne przetworzenie każdego komunikatu. Poniższy przykład kodu wykorzystuje metodę **GetMessages**, aby pobrać 20 komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu pętli **foreach**. Ustawia również limitu czasu niewidoczności na pięć minut dla każdego komunikatu. Należy zauważyć, że okres 5 minut rozpoczyna się dla wszystkich komunikatów w tym samym czasie, więc po upływie 5 minut od wywołania metody **GetMessages** wszystkie komunikaty, które nie zostały usunięte, będą widoczne ponownie.
@@ -218,7 +218,7 @@ Po pierwsze można uzyskać komunikaty zbiorczo (do 32). Po drugie można ustawi
         queue.DeleteMessage(message);
     }
 
-## Pobieranie długości kolejki
+## <a name="get-the-queue-length"></a>Pobieranie długości kolejki
 
 Możesz uzyskać szacunkową liczbę komunikatów w kolejce. Metoda **FetchAttributes** prosi usługę kolejki o pobranie atrybutów kolejki, w tym liczby komunikatów. Właściwość **ApproximateMessageCount** zwraca ostatnią wartość pobraną przez metodę **FetchAttributes** bez wywoływania usługi kolejki.
 
@@ -241,7 +241,7 @@ Możesz uzyskać szacunkową liczbę komunikatów w kolejce. Metoda **FetchAttri
     // Display number of messages.
     Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
-## Usuwanie kolejki
+## <a name="delete-a-queue"></a>Usuwanie kolejki
 
 Aby usunąć kolejkę i wszystkie zawarte w niej komunikaty, wywołaj metodę **Delete** na obiekcie kolejki.
 
@@ -258,29 +258,29 @@ Aby usunąć kolejkę i wszystkie zawarte w niej komunikaty, wywołaj metodę **
     // Delete the queue.
     queue.Delete();
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Teraz, kiedy znasz już podstawy usługi Queue Storage, skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu.
 
 - Przejrzyj dokumentację referencyjną usługi kolejki, aby uzyskać szczegółowe informacje o dostępnych interfejsach API:
     - [Dokumentacja biblioteki klienta usługi Storage dla programu .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-    - [Informacje o interfejsie API REST](http://msdn.microsoft.com/library/azure/dd179355)
+    - [Dokumentacja interfejsu API REST](http://msdn.microsoft.com/library/azure/dd179355)
 - Dowiedz się, jak uprościć zapisywany kod, aby pracować z usługą Azure Storage za pomocą zestawu [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md).
 - Wyświetl więcej poradników dotyczących funkcji, aby dowiedzieć się więcej o dodatkowych opcjach przechowywania danych na platformie Azure.
     - Zapoznaj się z tematem [Rozpoczynanie pracy z usługą Azure Table Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-tables.md), aby przechowywać dane strukturalne.
     - Zapoznaj się z tematem [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-blobs.md), aby przechowywać dane bez struktury.
-    - Zapoznaj się z tematem [Jak używać bazy danych Azure SQL Database w aplikacjach .NET](sql-database-dotnet-how-to-use.md), aby przechowywać dane relacyjne.
+    - [Połącz się z usługą SQL Database przy użyciu platformy .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md), aby zapisać dane relacyjne.
 
-  [Pobieranie i instalowanie zestawu Azure SDK dla programu .NET]: /develop/net/
-  [Informacje o bibliotece klienta .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+  [Pobranie i zainstalowanie zestawu Azure SDK dla programu .NET]: /develop/net/
+  [Dokumentacja biblioteki klienta platformy .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Tworzenie projektu platformy Azure w programie Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
   [Blog zespołu odpowiedzialnego za usługę Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-  [Przestrzenne]: http://nuget.org/packages/System.Spatial/5.0.2
+  [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

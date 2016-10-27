@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows-store"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/19/2016"  
+    ms.date="10/10/2016"  
     ms.author="piyushjo"/>
 
 
@@ -28,15 +28,13 @@ Pamiętaj, że musisz dodać minimalny zestaw „podstawowej integracji”, aby 
 
 ##Konfigurowanie usługi Mobile Engagement dla aplikacji mobilnej na platformie Azure
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##Przechodzenie do portalu Mobile Engagement
 
-Aby rozpocząć monitorowanie aplikacji i zarządzanie nią, przejdź do portalu Mobile Engagement, klikając przycisk **Engage** (Włącz) u dołu.
+Aby rozpocząć monitorowanie aplikacji i zarządzanie nią, przejdź do portalu Mobile Engagement, klikając przycisk **Portal Engagement** na górnym pasku.
 
-![](../../includes/media/mobile-engagement-connect-app-with-monitor/engage-button.png)
-
-Po przejściu do portalu Mobile Engagement możesz analizować i tworzyć segmenty, zarządzać nimi, komunikować się z użytkownikami itp.    
+Po przejściu do portalu Mobile Engagement możesz analizować i tworzyć segmenty, zarządzać nimi, komunikować się z użytkownikami itp. Dostępne funkcje to m.in.:    
 
 - [Monitorowanie danych aplikacji w czasie rzeczywistym](mobile-engagement-user-interface-monitor.md)
 - [Analizowanie danych historycznych dotyczących aplikacji](mobile-engagement-user-interface-analytics.md)
@@ -51,6 +49,6 @@ Po przejściu do portalu Mobile Engagement możesz analizować i tworzyć segmen
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

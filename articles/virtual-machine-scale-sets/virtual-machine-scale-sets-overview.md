@@ -1,158 +1,165 @@
 <properties
-	pageTitle="Virtual Machine Scale Sets Overview | Microsoft Azure"
-	description="Learn more about Virtual Machine Scale Sets"
-	services="virtual-machine-scale-sets"
-	documentationCenter=""
-	authors="gbowerman"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Przegląd usługi Zestawy skalowania maszyn wirtualnych | Microsoft Azure"
+    description="Dowiedz się więcej o zestawach skalowania maszyn wirtualnych"
+    services="virtual-machine-scale-sets"
+    documentationCenter=""
+    authors="gbowerman"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/13/2016"
-	ms.author="guybo"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/13/2016"
+    ms.author="guybo"/>
 
-# Virtual Machine Scale Sets Overview
 
-Virtual machine scale sets are an Azure Compute resource you can use to deploy and manage a set of identical VMs. With all VMs configured the same, VM scale sets are designed to support true autoscale – no pre-provisioning of VMs is required – and as such makes it easier to build large-scale services targeting big compute, big data, and containerized workloads.
+# <a name="virtual-machine-scale-sets-overview"></a>Omówienie zestawów skalowania maszyn wirtualnych
 
-For applications that need to scale compute resources out and in, scale operations are implicitly balanced across fault and update domains. For an introduction to VM scale sets refer to the [Azure blog announcement](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
+Zestawy skalowania maszyn wirtualnych to zasób dostępny w ramach usługi Azure Compute, który umożliwia wdrożenie zestawu identycznych maszyn wirtualnych oraz zarządzanie nimi. Wszystkie maszyny wirtualne mają jednakową konfigurację, dzięki czemu zestawy skalowania maszyn wirtualnych umożliwiają rzeczywiste skalowanie automatyczne (bez wstępnej aprowizacji maszyn wirtualnych). Dzięki temu można łatwiej tworzyć wielkoskalowe usługi z myślą o intensywnych operacjach obliczeniowych, obsłudze danych big data oraz obciążeń konteneryzowanych.
 
-Take a look at these videos for more about VM scale sets:
+W przypadku aplikacji skalujących zasoby komputerowe w poziomie operacje skalowania są niejawnie równoważone w domenach błędów i aktualizacji. Aby zapoznać się z zagadnieniami dotyczącymi zestawów skalowania maszyn wirtualnych, zobacz [Ogłoszenia na blogu platformy Azure](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
 
- - [Mark Russinovich talks Azure Scale Sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
+Aby dowiedzieć się więcej o zestawach skalowania maszyn wirtualnych, obejrzyj te klipy wideo:
 
- - [Virtual Machine Scale Sets with Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
+ - [Mark Russinovich omawia zestawy skalowania na platformie Azure](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
 
-## Creating and managing VM scale sets
+ - [Zestawy skalowania maszyn wirtualnych według Guya Bowermana](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-You can create a VM Scale Set in the [Azure portal](https://portal.azure.com) by selecting _new_ and typing in "scale" in the search bar. You will see "Virtual machine scale set" in the results. From there you can fill in the required fields to customize and deploy your scale set. 
+## <a name="creating-and-managing-vm-scale-sets"></a>Tworzenie zestawów skalowania maszyn wirtualnych i zarządzanie nimi
 
-VM scale sets can also be defined and deployed using JSON templates and [REST APIs](https://msdn.microsoft.com/library/mt589023.aspx) just like individual Azure Resource Manager VMs. Therefore, any standard Azure Resource Manager deployment methods can be used. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+Zestaw skalowania maszyn wirtualnych można utworzyć w witrynie [Azure Portal](https://portal.azure.com), wybierając pozycję _nowy_ i wpisując na pasku wyszukiwania hasło „skalowanie”. Wśród wyników wyszukiwania pojawi się hasło „zestaw skalowania maszyn wirtualnych”. Z tego miejsca można wypełnić wymagane pola w celu dostosowania i wdrożenia zestawu skalowania. 
 
-A set of example templates for VM scale sets can be found in the Azure Quickstart templates GitHub repository [here.](https://github.com/Azure/azure-quickstart-templates) (look for templates with _vmss_ in the title)
+Zestawy skalowania maszyn wirtualnych można także definiować i wdrażać za pomocą szablonów JSON oraz [interfejsów API REST](https://msdn.microsoft.com/library/mt589023.aspx) — tak jak poszczególne maszyny wirtualne w ramach usługi Azure Resource Manager. Można zatem użyć dowolnej standardowej metody wdrażania za pomocą usługi Azure Resource Manager. Aby uzyskać więcej informacji na temat szablonów, zobacz [Tworzenie szablonów usługi Azure Resource Manager](../resource-group-authoring-templates.md).
 
-In the detail pages for these templates you'll see a button that links to the portal deployment feature. To deploy the VM scale set, click on the button and then fill in any parameters that are required in the portal. If you're not sure whether a resource supports upper or mixed case it is safer to always use lower case parameter values. There is also a handy video dissection of a VM scale set template here:
+Zestaw przykładowych szablonów dla zestawów skalowania maszyn wirtualnych znajduje się w repozytorium szablonów z pakietu Azure Quickstart w witrynie GitHub ([tutaj](https://github.com/Azure/azure-quickstart-templates)). (Poszukaj szablonów z ciągiem _vmss_ w nazwie).
 
-[VM Scale Set Template Dissection](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player)
+Na stronach szczegółów tych szablonów jest dostępny przycisk, który prowadzi do funkcji wdrażania w portalu. Aby wdrożyć zestaw skalowania maszyn wirtualnych, kliknij ten przycisk, a następnie wypełnij wymagane parametry w portalu. Jeśli nie wiesz, czy dany zasób obsługuje wielkie lub małe i wielkie litery, lepiej użyć wartości parametrów pisanych małymi literami. Dostępna jest również przydatna analiza wideo szablonu zestawu skalowania maszyn wirtualnych:
 
-## Scaling a VM scale set out and in
+[Analiza szablonu zestawu skalowania maszyn wirtualnych](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player)
 
-To increase or decrease the number of virtual machines in a VM scale set, simply change the _capacity_ property and redeploy the template. This simplicity makes it easy to write your own custom scaling layer if you want to define custom scale events that are not supported by Azure autoscale.
+## <a name="scaling-a-vm-scale-set-out-and-in"></a>Skalowanie w poziomie zestawu skalowania maszyny wirtualnej
 
-If you are redeploying a template to change the capacity, you could define a much smaller template which only includes the SKU and the updated capacity. An example of this is shown [here.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing)
+Aby zwiększyć lub zmniejszyć liczbę maszyn wirtualnych w zestawie skalowania maszyn wirtualnych, wystarczy zmienić właściwość _capacity_ i ponownie wdrożyć szablon. Ta prosta metoda umożliwia utworzenie własnej niestandardowej warstwy skalowania w celu zdefiniowania niestandardowych zdarzeń skalowania, które nie są obsługiwane przez skalowanie automatyczne na platformie Azure.
 
-To walk through the steps that create a scale set that is automatically scaled, see [Automatically Scale Machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-autoscale.md)
+W przypadku ponownego wdrażania szablonu w celu zmiany pojemności można zdefiniować dużo mniejszy szablon obejmujący jedynie jednostkę SKU i zaktualizowaną pojemność. Przykład takiego działania można znaleźć [tutaj](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
-## Monitoring your VM scale set
+Aby poznać procedurę tworzenia zestawu skalowania, który jest skalowany automatycznie, zobacz [Automatyczne skalowanie maszyn w zestawie skalowania maszyn wirtualnych](virtual-machine-scale-sets-windows-autoscale.md).
 
-The [Azure portal](https://portal.azure.com) lists scale sets and shows basic properties, as well as listing VMs in the set. For more detail you can use the [Azure Resource Explorer](https://resources.azure.com) to view VM scale sets. VM scale sets are a resource under Microsoft.Compute, so from this site you can see them by expanding the following links:
+## <a name="monitoring-your-vm-scale-set"></a>Monitorowanie zestawu skalowania maszyn wirtualnych
 
-	subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
+W witrynie [Azure Portal](https://portal.azure.com) można wyświetlić listę zestawów skalowania, podstawowe właściwości, a także maszyny wirtualne w poszczególnych zestawach. Aby uzyskać więcej szczegółów, można wyświetlić zestawy skalowania maszyn wirtualnych za pomocą [Eksploratora zasobów Azure](https://resources.azure.com). Zestawy skalowania maszyn wirtualnych są zasobami dostępnymi w ramach dostawcy zasobów Microsoft.Compute. Z poziomu tej witryny można je wyświetlić, rozwijając następujące linki:
 
-## VM scale set scenarios
+    subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
 
-This section lists some typical VM scale set scenarios. Some higher level Azure services (like Batch, Service Fabric, Azure Container Service) will use these scenarios.
+## <a name="vm-scale-set-scenarios"></a>Scenariusze dotyczące zestawów skalowania maszyn wirtualnych
 
- - **RDP / SSH to VM scale set instances** - A VM scale set is created inside a VNET and individual VMs in the scale set are not allocated public IP addresses. This is a good thing because you don't generally want the expense and management overhead of allocating separate public IP addresses to all the stateless resources in your compute grid, and you can easily connect to these VMs from other resources in your VNET including ones which have public IP addresses like load balancers or standalone virtual machines.
+W tej sekcji przedstawiono niektóre typowe scenariusze dotyczące zestawów skalowania maszyn wirtualnych. Scenariusze te mają zastosowanie w przypadku niektórych usług platformy Azure wyższego poziomu (np. Batch, Service Fabric, Azure Container Service).
 
- - **Connect to VMs using NAT rules** - You can create a public IP address, assign it to a load balancer, and define inbound NAT rules which map a port on the IP address to a port on a VM in the VM scale set. For example:
+ - **Połączenia RDP/SSH z wystąpieniami zestawów skalowania maszyn wirtualnych** — zestaw skalowania maszyn wirtualnych jest tworzony w sieci wirtualnej, a poszczególne maszyny wirtualne w zestawie skalowania nie uzyskują publicznych adresów IP. Jest to przydatne, ponieważ lepiej unikać wydatków i nakładów pracy związanych z przydzielaniem osobnych publicznych adresów IP wszystkim zasobom bezstanowym w sieci obliczeniowej. Z maszynami wirtualnymi można się łatwo połączyć z poziomu innych zasobów w sieci wirtualnej (także tych, które mają publiczne adresy IP, takich jak moduły równoważenia obciążenia lub pojedyncze maszyny wirtualne).
+
+ - **Łączenie się z maszynami wirtualnymi za pomocą reguł NAT** — można utworzyć publiczny adres IP, przypisać go do modułu równoważenia obciążenia i zdefiniować reguły NAT dla ruchu przychodzącego mapujące port w adresie IP na port na maszynie wirtualnej w zestawie skalowania maszyn wirtualnych. Na przykład:
  
-	Source | Source Port | Destination | Destination Port
-	--- | --- | --- | ---
-	Public IP | Port 50000 | vmss\_0 | Port 22
-	Public IP | Port 50001 | vmss\_1 | Port 22
-	Public IP | Port 50002 | vmss\_2 | Port 22
+    Element źródłowy | Port źródłowy | Element docelowy | Port docelowy
+    --- | --- | --- | ---
+    Publiczny adres IP | Port 50000 | vmss\_0 | Port 22
+    Publiczny adres IP | Port 50001 | vmss\_1 | Port 22
+    Publiczny adres IP | Port 50002 | vmss\_2 | Port 22
 
-	Here's an example of creating a VM scale set which uses NAT rules to enable SSH connection to every VM in a scale set using a single public IP: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat)
+    Oto przykład tworzenia zestawu skalowania maszyn wirtualnych korzystającego z reguł NAT w celu udostępnienia połączenia SSH każdej maszynie wirtualnej w zestawie skalowania przy użyciu jednego publicznego adresu IP: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat)
 
-	Here's an example of doing the same with RDP and Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
+    Tu natomiast pokazano, jak wykonać powyższe działania przy użyciu połączenia RDP i systemu Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
 
- - **Connect to VMs using a "jumpbox"** - If you create a VM scale set and a standalone VM in the same VNET, the standalone VM and the VM scale set VMs can connect to one another using their internal IP addresses as defined by the VNET/Subnet. If you create a public IP address and assign it to the standalone VM you can RDP or SSH to the standalone VM and then connect from that machine to your VM scale set instances. You may notice at this point that a simple VM scale set is inherently more secure than a simple standalone VM with a public IP address in its default configuration.
+ - **Łączenie się z maszynami wirtualnymi za pomocą „rampy”** — jeśli utworzysz zestaw skalowania maszyn wirtualnych i autonomiczną maszynę wirtualną w tej samej sieci wirtualnej, autonomiczna maszyna wirtualna i maszyny wirtualne z zestawu skalowania mogą się łączyć ze sobą za pomocą wewnętrznych adresów IP zgodnie z definicją w sieci wirtualnej/podsieci. W przypadku utworzenia publicznego adresu IP i przypisania go do autonomicznej maszyny wirtualnej można nawiązać połączenie RDP lub SSH z autonomiczną maszyną wirtualną, a następnie z jej poziomu połączyć się z wystąpieniami danego zestawu skalowania maszyn wirtualnych. Można tutaj zauważyć, że prosty zestaw skalowania maszyn wirtualnych jest z natury bezpieczniejszy niż prosta autonomiczna maszyna wirtualna z publicznym adresem IP w konfiguracji domyślnej.
 
-	[For an example of this approach, this template creates a simple Mesos cluster consisting of a standalone Master VM which manages a VM scale-set based cluster of VMs.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
+    [Przykładem tego podejścia może być szablon tworzący prosty klaster Mesos obejmujący autonomiczną maszynę wirtualną Master, która zarządza klastrem maszyn wirtualnych bazującym na zestawie skalowania maszyn wirtualnych.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
 
- - **Load balancing to VM scale set instances** - If you want to deliver work to a compute cluster of VMs using a "round-robin" approach, you can configure an Azure load balancer with load-balancing rules accordingly. You can define probes to verify your application is running by pinging ports with a specified protocol, interval and request path. The Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/) also supports scale sets, along with more sophisticated load balancing scenarios.
+ - **Równoważenie obciążenia wystąpień zestawów skalowania maszyn wirtualnych** — aby przekazywać zadania do klastra obliczeniowego maszyn wirtualnych w trybie okrężnym, można odpowiednio skonfigurować moduł równoważenia obciążenia platformy Azure za pomocą reguł równoważenia obciążenia. Definiując sondy do weryfikowania działania aplikacji, można wysyłać polecenia ping do portów przy użyciu określonego protokołu, interwału i ścieżki żądania. Usługa Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/) obsługuje także zestawy skalowania oraz bardziej zaawansowane scenariusze równoważenia obciążenia.
 
-	[Here is an example which creates a VM scale set of VMs running IIS web server, and uses a load balancer to balance the load that each VM receives. It also uses the HTTP protocol to ping a specific URL on each VM.](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (look at the Microsoft.Network/loadBalancers resource type and the networkProfile and extensionProfile in the virtualMachineScaleSet)
+    [Oto przykład tworzenia zestawu skalowania maszyn wirtualnych z serwerem sieci Web usług IIS i równoważenia obciążenia poszczególnych maszyn wirtualnych za pomocą modułu równoważenia obciążenia. W przykładzie tym pokazano także, jak za pomocą protokołu HTTP wysyłać polecenia ping na określony adres URL na każdej maszynie wirtualnej.](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (Spójrz na typ zasobu Microsoft.Network/loadBalancers oraz elementy networkProfile i extensionProfile w obszarze virtualMachineScaleSet).
 
- - **Deploying a VM scale set as a compute cluster in a PaaS cluster manager** - VM scale sets are sometimes described as a next-generation worker role. It's a valid description but it also runs the risk of confusing scale set features with PaaS v1 Worker role features. In a sense VM scale sets provide a true "worker role" or worker resource, in that they provide a generalized compute resource which is platform/runtime independent, customizable and integrates into Azure Resource Manager IaaS.
+ - **Wdrażanie zestawu skalowania maszyn wirtualnych jako klastra obliczeniowego w menedżerze klastra w środowisku PaaS** — zestawy skalowania maszyn wirtualnych są czasami określane jako rola procesu roboczego następnej generacji. Jest to trafny opis, ale niesie ryzyko pomylenia funkcji zestawu skalowania z funkcjami roli procesu roboczego usługi PaaS w wersji 1. Zestawy skalowania maszyn wirtualnych pełnią rolę procesu roboczego lub stanowią zasób procesu roboczego w tym sensie, że są ogólnym zasobem obliczeniowym, który jest niezależny od platformy/środowiska wykonawczego, możliwy do dostosowania i zintegrowania z infrastrukturą IaaS usługi Azure Resource Manager.
 
-	A PaaS v1 worker role, while limited in terms of platform/runtime support (Windows platform images only) also includes services such as VIP swap, configurable upgrade settings, runtime/app deployment specific settings which are either not _yet_ available in VM scale sets, or will be delivered by other higher level PaaS services like Service Fabric. With this in mind you can look at VM scale sets as an infrastructure which supports PaaS. I.e. PaaS solutions like Service Fabric or cluster managers like Mesos can build on top of VM scale sets as a scalable compute layer.
+    Rola procesu roboczego usługi PaaS w wersji 1 ma wprawdzie ograniczenia w zakresie obsługi platform/środowiska wykonawczego (obsługuje wyłącznie obrazy platformy Windows), ale obejmuje usługi, takie jak wymiana wirtualnego adresu IP, konfigurowane ustawienia uaktualniania i określone ustawienia wdrażania środowiska wykonawczego/aplikacji, które nie są _jeszcze_ dostępne w zestawach skalowania maszyn wirtualnych lub zostaną zapewnione przez inne usługi PaaS wyższego poziomu, takie jak Service Fabric. Uwzględniając powyższe informacje, można postrzegać zestawy skalowania maszyn wirtualnych jako infrastrukturę obsługującą usługę PaaS. A zatem rozwiązania PaaS (np. Service Fabric) lub menedżery klastrów (np. Mesos) mogą bazować na zestawach skalowania maszyn wirtualnych jako skalowalna warstwa obliczeniowa.
 
-	[For an example of this approach, this template creates a simple Mesos cluster consisting of a standalone Master VM which manages a VM scale-set based cluster of VMs.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json) Future versions of the [Azure Container Service](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) will deploy more complex/hardened versions of this scenario based on VM scale sets.
+    [Przykładem tego podejścia może być szablon tworzący prosty klaster Mesos obejmujący autonomiczną maszynę wirtualną Master, która zarządza klastrem maszyn wirtualnych bazującym na zestawie skalowania maszyn wirtualnych.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json) W przyszłych wersjach usługi [Azure Container Service](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) zostaną wdrożone bardziej złożone/wzmocnione wersje tego scenariusza bazujące na zestawach skalowania maszyn wirtualnych.
 
-## VM scale set performance and scale guidance
+## <a name="vm-scale-set-performance-and-scale-guidance"></a>Wytyczne dotyczące wydajności i skalowania zestawów skalowania maszyn wirtualnych
 
-- Do not create more than 500 VMs in multiple VM Scale Sets at a time.
-- Plan for no more than 20 VMs per storage account (unless you set the _overprovision_ property to "false", in which case you can go up to 40).
-- Spread out the first letters of storage account names as much as possible.  The example VMSS templates in [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/) provide examples of how to do this.
-- If using custom VMs, plan for no more than 40 VMs per VM scale set, in a single storage account.  You will need the image pre-copied into the storage account before you can begin VM scale set deployment. See the FAQ for more information.
-- Plan for no more than 4096 VMs per VNET.
-- The number of VMs you can create is limited by the core quota in the region in which you are deploying. You may need to contact Customer Support to increase your Compute quota limit increased even if you have a high limit of cores for use with cloud services or IaaS v1 today. To query your quota you can run the following Azure CLI command: `azure vm list-usage`, and the following PowerShell command: `Get-AzureRmVMUsage` (if using a version of PowerShell below 1.0 use `Get-AzureVMUsage`).
+- Nie twórz jednocześnie więcej niż 500 maszyn wirtualnych w ramach wielu zestawów skalowania maszyn wirtualnych.
+- Nie planuj więcej niż 20 maszyn wirtualnych przypadających na konto magazynu, o ile nie ustawisz wartości „false” dla właściwości _overprovision_ — wówczas możesz zwiększyć liczbę maszyn wirtualnych do 40.
+- Rozłóż jak najszerzej pierwsze litery nazw kont magazynu.  Odpowiednią procedurę można znaleźć, przeglądając przykładowe szablony VMSS w artykule [Szablony z pakietu Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/).
+- W przypadku niestandardowych maszyn wirtualnych w jednym zestawie skalowania maszyn wirtualnych nie powinno znaleźć się więcej niż 40 maszyn wirtualnych w ramach jednego konta magazynu.  Przed rozpoczęciem wdrażania zestawu skalowania maszyn wirtualnych trzeba wstępnie skopiować obraz do konta magazynu. Zapoznaj się z często zadawanymi pytaniami, aby uzyskać więcej informacji.
+- W każdej sieci wirtualnej nie powinno się znajdować więcej niż 4096 maszyn wirtualnych.
+- Liczba maszyn wirtualnych, które można utworzyć, jest ograniczona przez przydział rdzeni w regionie wdrażania. Nawet jeśli obecnie masz wysoki limit rdzeni na użytek usług w chmurze lub środowiska IaaS w wersji 1, może zaistnieć konieczność zwiększenia limitu przydziału obliczeniowego (za pośrednictwem działu pomocy technicznej). Aby wysłać zapytanie dotyczące przydziału, możesz uruchomić następujące polecenie w interfejsie wiersza polecenia platformy Azure: `azure vm list-usage` oraz następujące polecenie programu PowerShell: `Get-AzureRmVMUsage` (w przypadku programu PowerShell w wersji starszej niż 1.0 użyj polecenia `Get-AzureVMUsage`).
 
-## VM scale set frequently asked questions
+## <a name="vm-scale-set-frequently-asked-questions"></a>Często zadawane pytania dotyczące zestawu skalowania maszyn wirtualnych
 
-**Q.** How many VMs can you have in a VM scale set?
+**PYTANIE** Ile maszyn wirtualnych może być w zestawie skalowania maszyn wirtualnych?
 
-**A.** 100 if you use platform images which can be distributed across multiple storage accounts. If you use custom images, up to 40 (if the _overprovision_ property is set to "false", 20 by default), since custom images are currently limited to a single storage account.
+**ODPOWIEDŹ** 100, jeśli używasz obrazów platformy, które mogą być rozproszone między wieloma kontami magazynu. W przypadku używania obrazów niestandardowych liczba maszyn wirtualnych wynosi najwyżej 40 (o ile właściwość _overprovision_ ma wartość „false”; domyślnie jest to 20 maszyn wirtualnych), ponieważ obrazy niestandardowe mają obecnie ograniczenie do jednego konta magazynu.
 
-**Q** What other resource limits exist for VM scale sets?
+**PYTANIE** Jakie inne ograniczenia dotyczące zasobów mają zastosowanie do zestawów skalowania maszyn wirtualnych?
 
-**A.** You are limited to creating no more than 500 VMs in multiple scale sets per region during a 10 minute period. The existing [Azure Subscription Service Limits/](../azure-subscription-service-limits.md) apply.
+**ODPOWIEDŹ** W wielu zestawach skalowania maszyn wirtualnych można utworzyć najwyżej 500 maszyn wirtualnych na region w okresie wynoszącym 10 minut. Mają także zastosowanie istniejące [ograniczenia dotyczące subskrypcji usług Azure](../azure-subscription-service-limits.md).
 
-**Q.** Are Data Disks Supported within VM scale sets?
+**PYTANIE** Czy zestawy skalowania maszyn wirtualnych obsługują dyski danych?
 
-**A.** Not in the initial release. Your options for storing data are:
+**ODPOWIEDŹ** Nie w wersji początkowej. Dostępne opcje magazynowania danych obejmują:
 
-- Azure files (SMB shared drives)
+- Pliki platformy Azure (dyski udostępnione za pośrednictwem protokołu SMB)
 
-- OS drive
+- Dysk systemu operacyjnego
 
-- Temp drive (local, not backed by Azure storage)
+- Dysk tymczasowy (lokalny, bez kopii zapasowej w usłudze Azure Storage)
 
-- Azure data service (e.g. Azure tables, Azure blobs)
+- Usługa danych platformy Azure (tabele platformy Azure, obiekty blob platformy Azure)
 
-- External data service (e.g. remote DB)
+- Zewnętrzne usługi danych (np. zdalna baza danych)
 
-**Q.** Which Azure regions support VM scale sets?
+**PYTANIE** Które regiony świadczenia usługi Azure obsługują zestawy skalowania maszyn wirtualnych?
 
-**A.** Any region which supports Azure Resource Manager supports VM Scale Sets.
+**ODPOWIEDŹ** Zestawy skalowania maszyn wirtualnych są obsługiwane w każdym regionie, który obsługuje usługę Azure Resource Manager.
 
-**Q.** How do you create a VM scale set using a custom image?
+**PYTANIE** Jak utworzyć zestaw skalowania maszyn wirtualnych za pomocą obrazu niestandardowego?
 
-**A.** Leave the vhdContainers property blank, for example:
+**ODPOWIEDŹ** Pozostaw pustą właściwość vhdContainers, np.:
 
-	"storageProfile": {
-		"osDisk": {
-			"name": "vmssosdisk",
-			"caching": "ReadOnly",
-			"createOption": "FromImage",
-			"image": {
-				"uri": "https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd"
-			},
-			"osType": "Windows"
-		}
-	},
+    "storageProfile": {
+        "osDisk": {
+            "name": "vmssosdisk",
+            "caching": "ReadOnly",
+            "createOption": "FromImage",
+            "image": {
+                "uri": "https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd"
+            },
+            "osType": "Windows"
+        }
+    },
 
 
-**Q.** If I reduce my VM scale set capacity from 20 to 15, which VMs will be removed?
+**PYTANIE** Jeśli zmniejszę pojemność zestawu skalowania maszyn wirtualnych z 20 do 15, które maszyny wirtualne zostaną usunięte?
 
-**A.** Virtual machines are removed from the scale set evenly across upgrade domains and fault domains to maximize availability. VMs with the highest id's are removed first.
+**ODPOWIEDŹ** W celu zapewnienia maksymalnej dostępności maszyny wirtualne są usuwane z zestawu skalowania równomiernie w domenach błędów i domenach uaktualniania. Najpierw są usuwane maszyny wirtualne o największym identyfikatorze.
 
-**Q.** How about it if I then increase the capacity from 15 to 18?
+**PYTANIE** Co się stanie, jeśli następnie zwiększę pojemność z 15 do 18?
 
-**A.** If you increase capacity to 18, then 3 new VMs will be created. Each time the VM instance id will be incremented from the previous highest value (e.g. 20, 21, 22). VMs are balanced across FDs and UDs.
+**ODPOWIEDŹ** Zwiększenie pojemności do 18 spowoduje utworzenie 3 nowych maszyn wirtualnych. Za każdym razem następuje zwiększenie identyfikatora wystąpienia maszyny wirtualnej względem poprzedniej najwyższej wartości (np. 20, 21, 22). Maszyny wirtualne są równoważone w domenach błędów i domenach uaktualniania.
 
-**Q.** When using multiple extensions in a VM scale set, can I enforce an execution sequence?
+**PYTANIE** Czy mogę wymusić sekwencję wykonywania w zestawie skalowania maszyn wirtualnych w przypadku korzystania z wielu rozszerzeń?
 
-**A.** Not directly, but for the customScript extension, your script could wait for another extension to complete ([for example by monitoring the extension log](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). Additional guidance on extension sequencing can be found in this blog post: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+**ODPOWIEDŹ** Nie można tego zrobić bezpośrednio, ale w przypadku rozszerzenia customScript skrypt może poczekać na ukończenie działania innego rozszerzenia ([na przykład przez monitorowanie dziennika rozszerzeń](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). Dodatkowe wytyczne dotyczące sekwencjonowania rozszerzeń można znaleźć w tym wpisie w blogu: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) (Sekwencjonowanie rozszerzeń w zestawach skalowania maszyn wirtualnych platformy Azure).
 
-**Q.** Do VM scale sets work with Azure availability sets?
+**PYTANIE** Czy zestawy skalowania maszyn wirtualnych współdziałają z zestawami dostępności platformy Azure?
 
-**A.** Yes. A VM scale set is an implicit availability set with 5 FDs and 5 UDs. You don't need to configure anything under virtualMachineProfile. In future releases, VM scale sets are likely to span multiple tenants but for now a scale set is a single availability set.
+**ODPOWIEDŹ** Tak. Zestaw skalowania maszyn wirtualnych to niejawny zestaw dostępności z 5 domenami błędów i 5 domenami uaktualniania. W obszarze virtualMachineProfile nie trzeba nic konfigurować. W przyszłych wydaniach zestawy skalowania maszyn wirtualnych będą prawdopodobnie obejmować wiele dzierżaw, ale obecnie zestaw skalowania to pojedynczy zestaw dostępności.
+
+
+
+<!--HONumber=Oct16_HO3-->
+
+

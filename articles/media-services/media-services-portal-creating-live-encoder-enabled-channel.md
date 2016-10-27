@@ -18,7 +18,7 @@
 
 
 
-#Korzystanie z usługi Azure Media Services i witryny Azure Portal do prowadzenia transmisji strumieniowych na żywo ze strumieniami o różnych szybkościach transmisji bitów
+#<a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Korzystanie z usługi Azure Media Services i witryny Azure Portal do prowadzenia transmisji strumieniowych na żywo ze strumieniami o różnych szybkościach transmisji bitów
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -29,7 +29,7 @@ Ten samouczek przedstawia tworzenie **kanału**, który odbiera strumień na ży
 
 >[AZURE.NOTE]Aby uzyskać więcej informacji o pojęciach związanych z kanałami obsługującymi kodowanie na żywo, zobacz temat [Korzystanie z usługi Azure Media Services do prowadzenia transmisji strumieniowych na żywo ze strumieniami o wielokrotnej szybkości transmisji bitów](media-services-manage-live-encoder-enabled-channels.md).
 
-##Typowy scenariusz transmisji strumieniowej na żywo
+##<a name="common-live-streaming-scenario"></a>Typowy scenariusz transmisji strumieniowej na żywo
 
 Poniżej przedstawiono ogólne etapy tworzenia typowych aplikacji transmisji strumieniowej na żywo.
 
@@ -57,7 +57,7 @@ Poniżej przedstawiono ogólne etapy tworzenia typowych aplikacji transmisji str
 1. Zatrzymaj wydarzenie w dowolnym momencie, w którym zechcesz zatrzymać przesyłanie strumieniowe i archiwizowanie wydarzenia.
 1. Usuń wydarzenie (opcjonalnie możesz również usunąć element zawartości).   
 
-##Informacje o tym samouczku
+##<a name="in-this-tutorial"></a>Informacje o tym samouczku
 
 W tym samouczku witryna Azure Portal jest używana do wykonywania następujących zadań: 
 
@@ -69,14 +69,14 @@ W tym samouczku witryna Azure Portal jest używana do wykonywania następującyc
 1.  Odtwarzanie zawartości 
 2.  Czyszczenie
 
-##Wymagania wstępne
+##<a name="prerequisites"></a>Wymagania wstępne
 Następujące elementy są wymagane do wykonania czynności przedstawionych w samouczku.
 
 - Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-- Konto usługi Media Services. Aby utworzyć konto usługi Media Services, zobacz temat [Tworzenie konta](media-services-create-account.md).
+- Konto usługi Media Services. Aby utworzyć konto usługi Media Services, zobacz temat [Tworzenie konta](media-services-portal-create-account.md).
 - Kamera internetowa i koder, który może wysyłać strumień na żywo o pojedynczej szybkości transmisji bitów.
 
-##Konfigurowanie punktów końcowych przesyłania strumieniowego 
+##<a name="configure-streaming-endpoints"></a>Konfigurowanie punktów końcowych przesyłania strumieniowego 
 
 Usługa Media Services udostępnia funkcję dynamicznego tworzenia pakietów, która pozwala dostarczać pliki MP4 o różnej szybkości transmisji bitów w formatach przesyłania strumieniowego MPEG DASH, HLS, Smooth Streaming lub HDS bez konieczności ponownego tworzenia pakietów w tych formatach. Dzięki funkcji dynamicznego tworzenia pakietów wystarczy przechowywać i opłacać pliki w jednym formacie magazynu, a usługa Media Services skompiluje oraz udostępni właściwą odpowiedź na podstawie żądań klienta.
 
@@ -99,7 +99,7 @@ Aby utworzyć i zmienić liczbę jednostek zarezerwowanego przesyłania strumien
 
     >[AZURE.NOTE]Alokacja nowych jednostek może zająć maksymalnie 20 minut.
 
-##Tworzenie KANAŁU
+##<a name="create-a-channel"></a>Tworzenie KANAŁU
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) kliknij pozycję Media Services, a następnie kliknij nazwę konta usługi Media Services.
 2. Wybierz pozycję **Transmisja strumieniowa na żywo**.
@@ -143,16 +143,16 @@ Po utworzeniu kanału można go kliknąć i wybrać pozycję **Ustawienia**, aby
 Aby uzyskać więcej informacji na ten temat, zobacz artykuł [Korzystanie z usługi Azure Media Services do prowadzenia transmisji strumieniowych na żywo ze strumieniami o wielokrotnej szybkości transmisji bitów.](media-services-manage-live-encoder-enabled-channels.md).
 
 
-##Pobieranie adresów URL pozyskiwania
+##<a name="get-ingest-urls"></a>Pobieranie adresów URL pozyskiwania
 
 Po utworzeniu kanału można pobrać adresy URL pozyskiwania, które należy udostępnić koderowi na żywo. Koder używa tych adresów URL do wprowadzenia strumienia na żywo.
 
 ![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 
-##Tworzenie wydarzeń i zarządzanie nimi
+##<a name="create-and-manage-events"></a>Tworzenie wydarzeń i zarządzanie nimi
 
-###Omówienie
+###<a name="overview"></a>Omówienie
 
 Kanał jest skojarzony z wydarzeniami/programami, które umożliwiają kontrolowanie publikowania i przechowywania segmentów strumienia na żywo. Kanały zarządzają wydarzeniami/programami. Relacja kanału i programu jest bardzo podobna do relacji w tradycyjnych multimediach, gdzie kanał ma stały strumień zawartości, a program obejmuje niektóre zdarzenia czasowe na tym kanale.
 
@@ -172,7 +172,7 @@ Nawet po zatrzymaniu i usunięciu wydarzenia użytkownicy będą mogli przesyła
 
 Jeśli chcesz zachować zarchiwizowaną zawartość, ale bez udostępniania jej do przesyłania strumieniowego, usuń lokalizator przesyłania strumieniowego.
 
-###Tworzenie, uruchamianie i zatrzymywanie wydarzeń
+###<a name="create/start/stop-events"></a>Tworzenie, uruchamianie i zatrzymywanie wydarzeń
 
 Po przesłaniu strumienia do kanału można rozpocząć zdarzenie przesyłania strumieniowego poprzez utworzenie elementu zawartości, programu i lokalizatora przesyłania strumieniowego. Spowoduje to archiwizację strumienia i udostępni go użytkownikom za pośrednictwem punktu końcowego przesyłania strumieniowego. 
 
@@ -199,7 +199,7 @@ Możesz obejrzeć opublikowane wydarzenie na stronie **Wydarzenie na żywo**.
 Jeśli klikniesz pozycję **Zakończ transmisję na żywo**, wszystkie wydarzenia na żywo zostaną zatrzymane. 
 
 
-##Oglądanie wydarzenia
+##<a name="watch-the-event"></a>Oglądanie wydarzenia
 
 Aby oglądać wydarzenie, kliknij przycisk **Oglądaj** w witrynie Azure Portal lub skopiuj adres URL przesyłania strumieniowego i użyj wybranego odtwarzacza. 
  
@@ -207,7 +207,7 @@ Aby oglądać wydarzenie, kliknij przycisk **Oglądaj** w witrynie Azure Portal 
 
 Po zatrzymaniu wydarzenia na żywo wydarzenie jest automatycznie konwertowane na zawartość na żądanie.
 
-##Czyszczenie
+##<a name="clean-up"></a>Czyszczenie
 
 Aby po zakończeniu strumieniowego przesyłania zdarzeń, wyczyścić udostępnione wcześniej zasoby, postępuj zgodnie z poniższą procedurą.
 
@@ -215,7 +215,7 @@ Aby po zakończeniu strumieniowego przesyłania zdarzeń, wyczyścić udostępni
 - Zatrzymaj kanał. Po zatrzymaniu kanału opłaty nie będą naliczane. W razie potrzeby ponownego uruchomienia kanał będzie miał ten sam adres URL pozyskiwania, więc nie trzeba będzie ponownie konfigurować kodera.
 - Można zatrzymać punkt końcowy przesyłania strumieniowego, chyba że chcesz nadal udostępniać archiwum zdarzenia na żywo w formie przesyłania strumieniowego na żądanie. Jeśli kanał jest zatrzymany, żadne opłaty nie będą naliczane.
   
-##Wyświetlanie zarchiwizowanej zawartości
+##<a name="view-archived-content"></a>Wyświetlanie zarchiwizowanej zawartości
 
 Nawet po zatrzymaniu i usunięciu wydarzenia użytkownicy będą mogli przesyłać strumieniowo zarchiwizowaną zawartość wideo na żądanie tak długo, jak zasoby nie zostaną usunięte. Nie można usunąć elementu zawartości, jeśli jest on używany przez wydarzenie. Najpierw należy usunąć wydarzenie. 
 
@@ -223,19 +223,19 @@ Aby zarządzać elementami zawartości, wybierz opcję **Ustawienie** i kliknij 
 
 ![Elementy zawartości](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
-##Zagadnienia do rozważenia
+##<a name="considerations"></a>Zagadnienia do rozważenia
 
 - Obecnie maksymalny zalecany czas trwania wydarzenia na żywo wynosi 8 godzin. Skontaktuj się z nami pod adresem amslived@microsoft.com, jeśli chcesz uruchomić kanał na dłużej.
 - Upewnij się, że istnieje co najmniej jedna jednostka zarezerwowanego przesyłania strumieniowego w punkcie końcowym, z którego zawartość ma być przesyłana strumieniowo.
 
 
-##Następny krok
+##<a name="next-step"></a>Następny krok
 
 Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Przekazywanie opinii
+##<a name="provide-feedback"></a>Przekazywanie opinii
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
@@ -243,6 +243,6 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -1,92 +1,93 @@
 <properties
-    pageTitle="Jakie obciążenia można chronić za pomocą usługi Azure Site Recovery?" 
-    description="Usługa Azure Site Recovery chroni obciążenia i aplikacje poprzez koordynowanie replikacji, pracy w trybie failover i odzyskiwania lokalnych maszyn wirtualnych i serwerów fizycznych do platformy Azure lub dodatkowej lokalizacji lokalnej" 
-    services="site-recovery" 
-    documentationCenter="" 
-    authors="rayne-wiselman" 
-    manager="jwhit" 
+    pageTitle="Jakie obciążenia można chronić za pomocą usługi Azure Site Recovery?"
+    description="Usługa Azure Site Recovery chroni obciążenia i aplikacje poprzez koordynowanie replikacji, pracy w trybie failover i odzyskiwania lokalnych maszyn wirtualnych i serwerów fizycznych do platformy Azure lub dodatkowej lokalizacji lokalnej"
+    services="site-recovery"
+    documentationCenter=""
+    authors="rayne-wiselman"
+    manager="cfreeman"
     editor=""/>
 
-<tags 
-    ms.service="site-recovery" 
+<tags
+    ms.service="site-recovery"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.workload="storage-backup-recovery" 
-    ms.date="07/06/2016" 
+    ms.workload="storage-backup-recovery"
+    ms.date="10/10/2016"
     ms.author="raynew"/>
 
 
-# Jakie obciążenia można chronić za pomocą usługi Azure Site Recovery?
+# <a name="what-workloads-can-you-protect-with-azure-site-recovery?"></a>Jakie obciążenia można chronić za pomocą usługi Azure Site Recovery?
 
 
-W tym artykule opisano, które obciążenia i aplikacje może chronić za pomocą usługi Azure Site Recovery.
+W tym artykule opisano obciążenia i aplikacje, które można replikować za pomocą usługi Azure Site Recovery.
 
 Zamieść wszelkie komentarze lub pytania pod tym artykułem lub na [forum Usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## Omówienie
+## <a name="overview"></a>Omówienie
 
-Organizacje wymagają strategii zapewniającej ciągłość biznesową i odzyskiwanie po awarii (BCDR, business continuity and disaster recovery), która określa, w jaki sposób aplikacje, obciążenia i dane pozostają dostępne podczas planowanych lub nieplanowanych przestojów oraz jak są przywracane do normalnych warunków roboczych możliwie jak najszybciej.
+Organizacje wymagają strategii zapewniającej ciągłość biznesową i odzyskiwanie po awarii (BCDR, Business Continuity and Disaster Recovery), w ramach której obciążenia i dane pozostają bezpieczne i dostępne podczas planowanych lub nieplanowanych przestojów oraz możliwie jak najszybciej są przywracane do normalnych warunków roboczych.
 
-Usługa Site Recovery jest usługą platformy Azure, która wspiera strategię BCDR, umożliwiając opracowywanie rozwiązań zapewniających odporność z uwzględnieniem aplikacji poprzez organizowanie replikacji lokalnych serwerów fizycznych i maszyn wirtualnych do chmury (Azure) lub lokacji dodatkowej. Niezależnie od tego, czy aplikacje są oparte na systemie Windows, czy Linux, działają na serwerach fizycznych, maszynach wirtualnych VMware, czy maszynach wirtualnych funkcji Hyper-V, możesz użyć usługi Site Recovery do organizowania replikacji, przeprowadzania testów odzyskiwania po awarii oraz uruchamiania trybu failover i powrotu po awarii.
+Usługa Site Recovery na platformie Azure ułatwia realizację strategii BCDR. Za pomocą usługi Site Recovery można wdrożyć replikację obsługującą aplikacje w chmurze lub lokacji dodatkowej. Niezależnie od tego, czy aplikacje są oparte na systemie Windows, czy Linux, działają na serwerach fizycznych, platformie VMware lub w ramach funkcji Hyper-V, usługi Site Recovery można używać do organizowania replikacji, przeprowadzania testów odzyskiwania po awarii oraz uruchamiania trybu failover i powrotu po awarii.
 
 
-Usługa Site Recovery integruje się z aplikacjami firmy Microsoft, w tym SharePoint, Exchange, Dynamics, SQL Server i Active Directory. Firma Microsoft również ściśle współpracuje z wiodącymi producentami, w tym Oracle, SAP, IBM i Red Hat, aby zapewnić prawidłowe działanie ich aplikacji i usług na platformach firmy Microsoft, w tym na platformie Azure. Rozwiązanie możesz dostosowywać dla poszczególnych aplikacji.
+Usługa Site Recovery integruje się z aplikacjami firmy Microsoft, w tym SharePoint, Exchange, Dynamics, SQL Server i Active Directory. Firma Microsoft współpracuje również blisko z czołowymi producentami, takimi jak Oracle, SAP, IBM i Red Hat. Rozwiązania replikacji można dostosować do poszczególnych aplikacji.
 
-## Dlaczego warto używać usługi Site Recovery do ochrony aplikacji?
+## <a name="why-use-site-recovery-for-application-replication?"></a>Dlaczego warto używać usługi Site Recovery do replikacji aplikacji?
 
-Usługa Site Recovery przyczynia się do ochrony i odzyskiwania na poziomie aplikacji w następujący sposób: 
+Usługa Site Recovery przyczynia się do ochrony i odzyskiwania na poziomie aplikacji w następujący sposób:
 
+- Zapewnia replikację dla dowolnych obciążeń działających na obsługiwanej maszynie, niezależnie od aplikacji.
 - Niemal synchroniczna replikacja z celami punktu odzyskiwania wynoszącymi nawet 30 sekund, która spełnia wymagania większości aplikacji o krytycznym znaczeniu biznesowym.
-- Spójne w ramach aplikacji migawki jednowarstwowych lub wielowarstwowych aplikacji.
+- Spójne migawki jednowarstwowych lub wielowarstwowych aplikacji.
 - Integracja z funkcją AlwaysOn programu SQL Server i współpraca z innymi technologiami replikacji na poziomie aplikacji, w tym replikacją AD, SQL AlwaysOn, grupami dostępności bazy danych (DAG, Database Availability Group) programu Exchange i Oracle Data Guard.
-- Elastyczne plany odzyskiwania, które umożliwiają odzyskanie całego stosu aplikacji za pomocą jednego kliknięcia i uwzględniają zewnętrzne skrypty i działania ręczne w planie. 
-- Zaawansowane zarządzanie siecią w usłudze Site Recovery i na platformie Azure, które upraszcza wymagania sieciowe aplikacji, w tym możliwość rezerwowania adresów IP, konfigurowania równoważenia obciążenia i integrowania z programem Azure Traffic Manager w celu zapewniania przełączania sieci o niskim celu czasu odzyskiwania.
+- Elastyczne plany odzyskiwania, które umożliwiają odzyskanie całego stosu aplikacji jednym kliknięciem oraz uwzględniają zewnętrzne skrypty i działania ręczne w planie.
+- Zaawansowane zarządzanie siecią w usłudze Site Recovery i na platformie Azure, które upraszcza wymagania sieciowe aplikacji. Obejmuje to rezerwowanie adresów IP, konfigurowanie równoważenia obciążeń oraz integrację z programem Azure Traffic Manager dla zapewnienia przełączania sieci o niskim limicie czasu odzyskiwania.
 -  Bogata biblioteka automatyzacji, która zapewnia gotowe do zastosowania w środowisku produkcyjnym skrypty dopasowane do danych aplikacji, które można pobrać i zintegrować z planami odzyskiwania.
 
 
 
-##Podsumowanie obciążenia
+## <a name="workload-summary"></a>Podsumowanie obciążenia
 
-Usługa Site Recovery może replikować dowolną aplikację uruchomioną na obsługiwanej maszynie wirtualnej. Ponadto współpracujemy z zespołami odpowiedzialnymi za produkty, aby przeprowadzać dodatkowe testy konkretnych aplikacji.
+Usługa Site Recovery może replikować dowolną aplikację uruchomioną na obsługiwanej maszynie. Ponadto współpracujemy z zespołami odpowiedzialnymi za produkty, aby przeprowadzać dodatkowe testy konkretnych aplikacji.
 
 **Obciążenie** | **Replikacja maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej** | **Replikacja maszyn wirtualnych funkcji Hyper-V do platformy Azure** | **Replikacja maszyn wirtualnych VMware do lokacji dodatkowej** | **Replikacja maszyn wirtualnych VMware do platformy Azure**
 ---|---|---|---|---
-Active Directory, DNS | Tak | Tak | Tak | Tak 
+Active Directory, DNS | Tak | Tak | Tak | Tak
 Aplikacje sieci Web (IIS, SQL) | Tak | Tak | Tak | Tak
-SCOM | Tak | Tak | Tak | Tak
+System Center Operations Manager | Tak | Tak | Tak | Tak
 Sharepoint | Tak | Tak | Tak | Tak
 SAP<br/><br/>Replikacja lokacji SAP do platformy Azure, bez klastra | Tak (przetestowane przez firmę Microsoft) | Tak (przetestowane przez firmę Microsoft) | Tak (przetestowane przez firmę Microsoft) | Tak (przetestowane przez firmę Microsoft)
 Exchange (bez grupy DAG) | Tak | Wkrótce | Tak | Tak
-Pulpit zdalny/VDI | Tak | Tak | Tak | Nie dotyczy 
-Linux (system operacyjny i aplikacje) | Tak (przetestowane przez firmę Microsoft) | Tak (przetestowane przez firmę Microsoft) | Tak (przetestowane przez firmę Microsoft) | Tak (przetestowane przez firmę Microsoft) 
+Pulpit zdalny/VDI | Tak | Tak | Tak | Nie dotyczy
+Linux (system operacyjny i aplikacje) | Tak (przetestowane przez firmę Microsoft) | Tak (przetestowane przez firmę Microsoft) | Tak (przetestowane przez firmę Microsoft) | Tak (przetestowane przez firmę Microsoft)
 Dynamics AX | Tak | Tak | Tak | Tak
 Dynamics CRM | Tak | Wkrótce | Tak | Wkrótce
 Oracle | Tak (przetestowane przez firmę Microsoft) | Tak (przetestowane przez firmę Microsoft) | Tak (przetestowane przez firmę Microsoft) | Tak (przetestowane przez firmę Microsoft)
 Serwer plików systemu Windows | Tak | Tak | Tak | Tak
 
 
-## Replikacja usługi Active Directory i DNS
+## <a name="replicate-active-directory-and-dns"></a>Replikacja usługi Active Directory i DNS
 
 Usługa Active Directory i infrastruktura DNS są istotne dla większości aplikacji firmowych. Podczas odzyskiwania po awarii należy zabezpieczyć i odzyskać te składniki infrastruktury przed odzyskaniem obciążeń i aplikacji.
 
-Usługa Site Recovery umożliwia utworzenie całkowicie zautomatyzowanego planu odzyskiwania po awarii dla usługi Active Directory i infrastruktury DNS. Jeśli na przykład chcesz przełączyć programy SharePoint i SAP do trybu failover z lokacji głównej do lokacji dodatkowej, możesz skonfigurować plan odzyskiwania, który najpierw przełączy usługę Active Directory do trybu failover, a następnie dodatkowy plan specyficzny dla aplikacji, który będzie przełączać inne aplikacje zależne od usługi Active Directory do trybu failover.
+Usługa Site Recovery umożliwia utworzenie całkowicie zautomatyzowanego planu odzyskiwania po awarii dla usługi Active Directory i infrastruktury DNS. Jeśli na przykład chcesz przełączyć programy SharePoint i SAP do trybu failover z lokacji głównej do lokacji dodatkowej, możesz skonfigurować plan odzyskiwania, który najpierw przełączy usługę Active Directory do trybu failover, a następnie utworzyć dodatkowy plan dla aplikacji, który będzie przełączać do trybu failover inne aplikacje zależne od usługi Active Directory.
 
 [Dowiedz się więcej](site-recovery-active-directory.md) o ochronie usługi Active Directory i infrastruktury DNS.
 
-## Ochrona programu SQL Server
+## <a name="protect-sql-server"></a>Ochrona programu SQL Server
 
-Program SQL Server stanowi podstawę dla usług danych wielu aplikacji biznesowych w lokalnym centrum danych.  Usługi Site Recovery można użyć wraz z technologiami wysokiej dostępności i odzyskiwania po awarii programu SQL Server, aby chronić wielowarstwowe aplikacje firmowe, które korzystają z programu SQL Server. Usługa Site Recovery zapewnia:
+Program SQL Server stanowi podstawę dla usług danych wielu aplikacji biznesowych w lokalnym centrum danych.  Usługi Site Recovery można używać wraz z technologiami wysokiej dostępności i odzyskiwania po awarii programu SQL Server, aby chronić wielowarstwowe aplikacje firmowe, które korzystają z programu SQL Server. Usługa Site Recovery zapewnia:
 
 - Proste i ekonomiczne rozwiązanie do odzyskiwania po awarii dla programu SQL Server. Replikacja wielu wersji i edycji autonomicznych serwerów i klastrów programu SQL Server do platformy Azure lub lokacji dodatkowej.  
 - Integracja z zawsze włączonymi grupami dostępności programu SQL w celu zarządzania pracą w trybie failover i powrotem po awarii przy użyciu planów odzyskiwania usługi Azure Site Recovery.
 - Kompleksowe plany odzyskiwania dla wszystkich warstw w aplikacji, w tym dla baz danych programu SQL Server.
 - Skalowanie programu SQL Server dla obciążeń szczytowych z usługą Site Recovery poprzez „szybkie przekierowanie” do większych rozmiarów maszyn wirtualnych IaaS na platformie Azure.
-- Łatwe testowanie odzyskiwania po awarii programu SQL Server. Możesz uruchomić testowy tryb failover, aby przeanalizować dane i przeprowadzić kontrole zgodności bez wpływu na środowisko produkcyjne.
+- Łatwe testowanie odzyskiwania po awarii programu SQL Server. Możliwość uruchomienia testowego trybu failover w celu przeanalizowania danych i przeprowadzenia kontroli zgodności bez wpływu na środowisko produkcyjne.
 
 [Dowiedz się więcej](site-recovery-sql.md) o ochronie programu SQL Server.
 
-##Ochrona programu SharePoint
+##<a name="protect-sharepoint"></a>Ochrona programu SharePoint
 
 Usługa Azure Site Recovery pomaga w ochronie wdrożeń programu SharePoint w następujący sposób:
 
@@ -98,7 +99,7 @@ Usługa Azure Site Recovery pomaga w ochronie wdrożeń programu SharePoint w na
 [Dowiedz się więcej](https://gallery.technet.microsoft.com/SharePoint-DR-Solution-f6b4aeae) o ochronie programu SharePoint.
 
 
-## Ochrona programu Dynamics AX
+## <a name="protect-dynamics-ax"></a>Ochrona programu Dynamics AX
 
 Usługa Azure Site Recovery pomaga chronić rozwiązanie Dynamics AX ERP w następujący sposób:
 
@@ -108,14 +109,14 @@ Usługa Azure Site Recovery pomaga chronić rozwiązanie Dynamics AX ERP w nast�
 
 [Dowiedz się więcej](https://gallery.technet.microsoft.com/Dynamics-AX-DR-Solution-b2a76281) o ochronie programu Dynamic AX.
 
-## Ochrona usług pulpitu zdalnego 
+## <a name="protect-rds"></a>Ochrona usług pulpitu zdalnego
 
 Usługi pulpitu zdalnego zapewniają infrastrukturę pulpitu wirtualnego (VDI), pulpity oparte na sesjach oraz aplikacje, dzięki którym użytkownicy mogą pracować z dowolnego miejsca. Za pomocą usługi Azure Site Recovery można wykonywać następujące czynności:
 
 - Replikowanie zarządzanych lub niezarządzanych pulpitów wirtualnych w puli do lokacji dodatkowej oraz zdalnych aplikacji i sesji do lokacji dodatkowej lub platformy Azure.
 - Oto co można replikować:
 
-**Usługi pulpitu zdalnego** | **Replikacja maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej** | **Replikacja maszyn wirtualnych funkcji Hyper-V do platformy Azure** | **Replikacja maszyn wirtualnych VMware do lokacji dodatkowej** | **Replikacja maszyn wirtualnych VMware do platformy Azure** | **Replikacja serwerów fizycznych do lokacji dodatkowej** | **Replikacja serwerów fizycznych do platformy Azure**
+**RDS** | **Replikacja maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej** | **Replikacja maszyn wirtualnych funkcji Hyper-V do platformy Azure** | **Replikacja maszyn wirtualnych VMware do lokacji dodatkowej** | **Replikacja maszyn wirtualnych VMware do platformy Azure** | **Replikacja serwerów fizycznych do lokacji dodatkowej** | **Replikacja serwerów fizycznych do platformy Azure**
 ---|---|---|---|---|---|---
 **Pulpit wirtualny w puli (niezarządzany)** | Tak | Nie | Tak | Nie | Tak | Nie
 **Pulpit wirtualny w puli (zarządzany i bez dysku UPD)** | Tak | Nie | Tak | Nie | Tak | Nie
@@ -125,20 +126,20 @@ Usługi pulpitu zdalnego zapewniają infrastrukturę pulpitu wirtualnego (VDI), 
 [Dowiedz się więcej](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) o ochronie usług pulpitu zdalnego.
 
 
-## Ochrona programu Exchange
+## <a name="protect-exchange"></a>Ochrona programu Exchange
 
 Usługa Site Recovery pomaga chronić program Exchange w następujący sposób:
 
-- W przypadku małych wdrożeń programu Exchange, np. pojedynczych serwerów lub serwerów poza klastrem, usługa Site Recovery może replikować i przenosić do trybu failover do platformy Azure lub lokacji dodatkowej.
+- W przypadku małych wdrożeń programu Exchange, np. serwerów pojedynczych lub autonomicznych, usługa Site Recovery może wykonywać replikację i stosować tryb failover na platformie Azure lub w lokacji dodatkowej.
 - W przypadku większych wdrożeń usługa Site Recovery integruje się z grupami DAG programu Exchange.
 - Grupy DAG programu Exchange są zalecanym rozwiązaniem dla odzyskiwania po awarii programu Exchange w przedsiębiorstwie.  Plany odzyskiwania usługi Site Recovery mogą uwzględniać grupy DAG, aby organizować tryb failover grupy DAG między lokacjami.
 
 
 [Dowiedz się więcej](https://gallery.technet.microsoft.com/Exchange-DR-Solution-using-11a7dcb6) o ochronie programu Exchange.
 
-## Ochrona systemu SAP
+## <a name="protect-sap"></a>Ochrona systemu SAP
 
-Użyj usługi Site Recovery, aby zabezpieczyć wdrożenie SAP w następujący sposób: 
+Z usługi Site Recovery można korzystać, aby zabezpieczyć wdrożenie SAP w następujący sposób:
 
 - Włącz ochronę całego wdrożenia SAP poprzez replikację różnych warstw wdrożenia do platformy Azure lub lokacji dodatkowej.
 - Skorzystaj z uproszczenia migracji do chmury, używając usługi Site Recovery do migrowania wdrożenia SAP do platformy Azure.
@@ -146,13 +147,12 @@ Użyj usługi Site Recovery, aby zabezpieczyć wdrożenie SAP w następujący sp
 
 [Dowiedz się więcej](http://aka.ms/asr-sap) o ochronie systemu SAP.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
-[Przygotowanie](site-recovery-best-practices.md) do wdrożenia usługi Site Recovery
-
-
+[Przygotowanie do wdrożenia usługi Site Recovery](site-recovery-best-practices.md) 
 
 
-<!--HONumber=Sep16_HO3-->
+
+<!--HONumber=Oct16_HO3-->
 
 

@@ -70,7 +70,7 @@ Wskaż subskrypcję, której chcesz użyć.
 
 ## 2. Tworzenie sieci wirtualnej i podsieci bramy
 
-W przykładach użyto podsieci bramy /28. Choć jest możliwe utworzenie małej podsieci bramy (/29), nie zaleca się korzystania z takiego rozwiązania. Zaleca się utworzenie podsieci bramy /27 lub większej (/26, /25 itd.) w celu uwzględnienia dodatkowych wymagań funkcji. 
+W przykładach użyto podsieci bramy /28. Chociaż możliwe jest utworzenie małej podsieci bramy /29, zaleca się wybranie podsieci przynajmniej /28 lub /27, aby zawierała więcej adresów. Zapewni to wystarczająco dużo adresów, aby możliwe były dodatkowe konfiguracje, które mogą być potrzebne w przyszłości.
 
 Jeśli masz już sieć wirtualną z podsiecią bramy /29 lub większą, możesz przejść od razu do kroku [Dodawanie bramy sieci lokalnej](#localnet).
 
@@ -226,6 +226,6 @@ Jeśli zajdzie potrzeba zmiany prefiksów bramy sieci lokalnej, należy wykonać
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

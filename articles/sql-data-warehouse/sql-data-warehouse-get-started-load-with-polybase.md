@@ -13,16 +13,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="10/10/2016"
    ms.author="cakarst;barbkess;sonyama"/>
 
 
 
-# Ładowanie danych przy użyciu programu PolyBase w usłudze SQL Data Warehouse
+# <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Ładowanie danych przy użyciu programu PolyBase w usłudze SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [Fabryka danych](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+- [Redgate](sql-data-warehouse-load-with-redgate.md)  
+- [Fabryka danych](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
+- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
 Ten samouczek przedstawia sposób ładowania danych do usługi SQL Data Warehouse przy użyciu programów AzCopy i PolyBase. Po zakończeniu będziesz umieć wykonywać następujące czynności:
@@ -33,7 +34,7 @@ Ten samouczek przedstawia sposób ładowania danych do usługi SQL Data Warehous
 
 >[AZURE.VIDEO loading-data-with-polybase-in-azure-sql-data-warehouse]
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Do wykonania kroków opisanych w tym samouczku potrzebne są:
 
@@ -44,11 +45,11 @@ Do wykonania kroków opisanych w tym samouczku potrzebne są:
     ![Narzędzia Azure Storage Tools](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 
-## Krok 1: dodawanie przykładowych danych do magazynu obiektów blob platformy Azure
+## <a name="step-1:-add-sample-data-to-azure-blob-storage"></a>Krok 1: dodawanie przykładowych danych do magazynu obiektów blob platformy Azure
 
 Aby załadować dane, trzeba umieścić trochę przykładowych danych w magazynie obiektów blob platformy Azure. W tym kroku wypełnimy obiekt blob magazynu Azure przykładowymi danymi. Następnie użyjemy aparatu PolyBase, aby załadować te przykładowe dane do bazy danych usługi SQL Data Warehouse.
 
-### A. Przygotowanie przykładowego pliku tekstowego
+### <a name="a.-prepare-a-sample-text-file"></a>A. Przygotowanie przykładowego pliku tekstowego
 
 Aby przygotować przykładowy plik tekstowy:
 
@@ -69,7 +70,7 @@ Aby przygotować przykładowy plik tekstowy:
 20150101,1,3
 ```
 
-### B. Znajdowanie punktu końcowego usługi Blob
+### <a name="b.-find-your-blob-service-endpoint"></a>B. Znajdowanie punktu końcowego usługi Blob
 
 Aby znaleźć punkt końcowy usługi Blob:
 
@@ -83,7 +84,7 @@ Aby znaleźć punkt końcowy usługi Blob:
 
     ![Punkt końcowy usługi Blob](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
-### C. Znajdowanie klucza magazynu Azure
+### <a name="c.-find-your-azure-storage-key"></a>C. Znajdowanie klucza magazynu Azure
 
 Aby znaleźć klucz magazynu Azure:
 
@@ -94,7 +95,7 @@ Aby znaleźć klucz magazynu Azure:
 
     ![Kopiowanie klucza magazynu Azure](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### D. Kopiowanie przykładowego pliku do magazynu obiektów blob platformy Azure
+### <a name="d.-copy-the-sample-file-to-azure-blob-storage"></a>D. Kopiowanie przykładowego pliku do magazynu obiektów blob platformy Azure
 
 Aby skopiować dane do magazynu obiektów blob platformy Azure:
 
@@ -112,7 +113,7 @@ Aby skopiować dane do magazynu obiektów blob platformy Azure:
 
 Zobacz też: [Wprowadzenie do narzędzia wiersza polecenia AzCopy][].
 
-### E. Eksplorowanie kontenera magazynu obiektów blob
+### <a name="e.-explore-your-blob-storage-container"></a>E. Eksplorowanie kontenera magazynu obiektów blob
 
 Aby zobaczyć plik przekazany do magazynu obiektów blob:
 
@@ -125,7 +126,7 @@ Aby zobaczyć plik przekazany do magazynu obiektów blob:
     ![Wyświetlanie obiektu blob magazynu Azure](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
 
-## Krok 2: tworzenie tabeli zewnętrznej dla przykładowych danych
+## <a name="step-2:-create-an-external-table-for-the-sample-data"></a>Krok 2: tworzenie tabeli zewnętrznej dla przykładowych danych
 
 W tej sekcji utworzymy tabelę zewnętrzną definiującą przykładowe dane.
 
@@ -215,7 +216,7 @@ W Eksploratorze obiektów SQL Server w programie Visual Studio widoczne będą: 
 
 ![Widok tabeli zewnętrznej](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## Krok 3: ładowanie danych do usługi SQL Data Warehouse
+## <a name="step-3:-load-data-into-sql-data-warehouse"></a>Krok 3: ładowanie danych do usługi SQL Data Warehouse
 
 Po utworzeniu tabeli zewnętrznej można załadować dane do nowej tabeli lub wstawić je do tabeli istniejącej.
 
@@ -235,7 +236,7 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## Krok 4: tworzenie statystyk na podstawie nowo załadowanych danych
+## <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>Krok 4: tworzenie statystyk na podstawie nowo załadowanych danych
 
 Usługa SQL Data Warehouse nie tworzy ani nie aktualizuje statystyk w sposób automatyczny. Dlatego, aby uzyskać wysoką wydajność zapytań, ważne jest tworzenie statystyk dotyczących poszczególnych kolumn każdej tabeli po pierwszym załadowaniu. Istotne jest również aktualizowanie statystyk po wprowadzeniu istotnych zmian w danych.
 
@@ -250,7 +251,7 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 Aby dowiedzieć się więcej, zobacz temat [Statystyki][]:  
 
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Zobacz [Przewodnik po programie PolyBase][] w celu uzyskania dalszych informacji przydatnych podczas tworzenia rozwiązań z użyciem aparatu PolyBase.
 
 <!--Image references-->
@@ -258,11 +259,11 @@ Zobacz [Przewodnik po programie PolyBase][] w celu uzyskania dalszych informacji
 
 <!--Article references-->
 [Aparat PolyBase w usłudze SQL Data Warehouse — samouczek]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[Ładowanie danych za pomocą narzędzia bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Ładowanie danych za pomocą narzędzia BCP]: ./sql-data-warehouse-load-with-bcp.md
 [Statystyki]: ./sql-data-warehouse-tables-statistics.md
 [Przewodnik po programie PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
 [Wprowadzenie do narzędzia wiersza polecenia AzCopy]: ../storage/storage-use-azcopy.md
-[najnowszą wersję programu AzCopy]: ../storage/storage-use-azcopy.md
+[najnowsza wersja programu AzCopy]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
 [obsługiwane źródło/ujście]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -288,6 +289,6 @@ Zobacz [Przewodnik po programie PolyBase][] w celu uzyskania dalszych informacji
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

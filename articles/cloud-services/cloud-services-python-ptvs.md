@@ -18,11 +18,11 @@
 
 
 
-# Role Sieć Web i Proces roboczy języka Python z programem Python Tools for Visual Studio
+# <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Role Sieć Web i Proces roboczy języka Python z programem Python Tools for Visual Studio
 
 Ten artykuł zawiera omówienie sposobu użycia ról Sieć Web i Proces roboczy języka Python za pomocą programu [Python Tools for Visual Studio][]. Dowiesz się, jak używać programu Visual Studio do tworzenia i wdrażania podstawowej usługi w chmurze, która używa języka Python.
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 
  - Program Visual Studio w wersji 2013 lub 2015
  - [Python Tools for Visual Studio][] (PTVS)
@@ -31,18 +31,18 @@ Ten artykuł zawiera omówienie sposobu użycia ról Sieć Web i Proces roboczy 
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-## Co to są role Sieć Web i Proces roboczy języka Python?
+## <a name="what-are-python-web-and-worker-roles?"></a>Co to są role Sieć Web i Proces roboczy języka Python?
 
 Platforma Azure udostępnia trzy modele obliczeniowe na potrzeby uruchamiania aplikacji: [funkcja Web Apps w usłudze App Service][execution model-web sites], [usługa Azure Virtual Machines][execution model-vms] i [usługi Azure Cloud Services][execution model-cloud services]. Wszystkie trzy modele obsługują język Python. Usługi Cloud Services, które obejmują role Sieć Web i Proces roboczy, udostępniają rozwiązanie typu *Platforma jako usługa (Platform as a Service, PaaS)*. W ramach usługi w chmurze rola Sieć Web zapewnia dedykowany serwer sieci Web usług Internet Information Services (IIS), podczas gdy rola Proces roboczy może uruchamiać asynchroniczne, długotrwałe lub ciągłe zadania niezależne od działań użytkownika lub danych wejściowych.
 
 Aby uzyskać więcej informacji, zobacz [Co to jest usługa w chmurze?]
 
-> [AZURE.NOTE] *Chcesz utworzyć prostą witrynę sieci Web?*
+> [AZURE.NOTE]*Chcesz utworzyć prostą witrynę sieci Web?*
 Jeśli scenariusz obejmuje tylko prosty fronton witryny sieci Web, rozważ użycie lekkiej funkcji Web Apps w usłudze App Service. Możesz łatwo przeprowadzić uaktualnienie do usługi w chmurze w przypadku rozwoju witryny sieci Web lub zmiany wymagań. W <a href="/develop/python/">Centrum deweloperów języka Python</a> można znaleźć artykuły, które dotyczą funkcji Web Apps w usłudze App Service.
 <br />
 
 
-## Tworzenie projektu
+## <a name="project-creation"></a>Tworzenie projektu
 
 W programie Visual Studio możesz wybrać pozycję **Usługa w chmurze platformy Azure** w oknie dialogowym **Nowy projekt** w obszarze **Python**.
 
@@ -62,7 +62,7 @@ W każdej chwili możliwe jest dodanie roli Sieć Web lub Proces roboczy do istn
 
 Usługa w chmurze może zawierać role zaimplementowane w różnych językach.  Na przykład można mieć rolę Sieć Web języka Python zaimplementowaną za pomocą środowiska Django, języka Python lub roli Proces roboczy języka C#.  Między rolami można się w łatwy sposób komunikować za pomocą kolejek usługi Service Bus lub kolejek magazynu.
 
-## Instalowanie języka Python w usłudze w chmurze
+## <a name="install-python-on-the-cloud-service"></a>Instalowanie języka Python w usłudze w chmurze
 
 >[AZURE.WARNING] Skrypty instalacji instalowane z programem Visual Studio (w momencie ostatniej aktualizacji artykułu) nie działają. W tej sekcji opisano sposób obejścia problemu.
 
@@ -113,7 +113,7 @@ Należy dodać zmienne **PYTHON2** i **PYPATH** do zadania uruchamiania procesu 
 </Runtime>
 ```
 
-#### Przykładowy plik ServiceDefinition.csdef
+#### <a name="sample-servicedefinition.csdef"></a>Przykładowy plik ServiceDefinition.csdef
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -165,7 +165,7 @@ Należy dodać zmienne **PYTHON2** i **PYPATH** do zadania uruchamiania procesu 
 
 Następnie należy utworzyć pliki **PrepPython.ps1** i **PipInstaller.ps1** w folderze **./bin** roli użytkownika.
 
-#### PrepPython.ps1
+#### <a name="preppython.ps1"></a>PrepPython.ps1
 
 Ten skrypt instaluje język Python. Jeśli zmienna środowiskowa **PYTHON2** jest ustawiona na wartość **on**, zostanie zainstalowany język Python 2.7. W przeciwnym razie zostanie zainstalowany język Python 3.5.
 
@@ -212,7 +212,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### PipInstaller.ps1
+#### <a name="pipinstaller.ps1"></a>PipInstaller.ps1
 
 Ten skrypt wywołuje kod pip i instaluje wszystkie zależności w pliku **requirements.txt**. Jeśli zmienna środowiskowa **PYTHON2** jest ustawiona na wartość **on**, używany jest język Python 2.7. W przeciwnym razie używany jest język Python 3.5.
 
@@ -241,7 +241,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### Modyfikowanie skryptu LaunchWorker.ps1
+#### <a name="modify-launchworker.ps1"></a>Modyfikowanie skryptu LaunchWorker.ps1
 
 >[AZURE.NOTE] W przypadku projektu **roli procesu roboczego** plik **LauncherWorker.ps1** jest wymagany do wykonania pliku uruchamiania. W projektach **roli sieci Web** plik uruchamiania jest zdefiniowany we właściwościach projektu.
 
@@ -284,7 +284,7 @@ else
 }
 ```
 
-#### ps.cmd
+#### <a name="ps.cmd"></a>ps.cmd
 
 Szablony Visual Studio powinny utworzyć plik **ps.cmd** w folderze **./bin**. Ten skrypt powłoki wywołuje powyższe skrypty otoki PowerShell i zapewnia rejestrowanie na podstawie nazwy wywołanej otoki PowerShell. Jeśli ten plik nie został utworzony, jego zawartość powinna wyglądać następująco. 
 
@@ -299,7 +299,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 
 
-## Uruchamianie lokalnie
+## <a name="run-locally"></a>Uruchamianie lokalnie
 
 Jeśli ustawisz projekt usługi w chmurze jako projekt startowy i naciśniesz klawisz F5, usługa w chmurze zostanie uruchomiona w lokalnym emulatorze platformy Azure.
 
@@ -309,7 +309,7 @@ Aby debugować role Sieć Web i Proces roboczy, możesz ustawić projekt roli ja
 
 ![Właściwości projektu startowego rozwiązania](./media/cloud-services-python-ptvs/startup.png)
 
-## Publikowanie na platformie Azure
+## <a name="publish-to-azure"></a>Publikowanie na platformie Azure
 
 Aby przeprowadzić publikowanie, kliknij prawym przyciskiem myszy projekt usługi w chmurze w rozwiązaniu, a następnie wybierz pozycję **Publikuj**.
 
@@ -325,11 +325,11 @@ W oknie danych wyjściowych będzie wyświetlany postęp, a następnie zostanie 
 
 Wdrożenie potrwa kilka minut, a następnie role Sieć Web i/lub Proces roboczy będą działały na platformie Azure!
 
-### Sprawdzanie dzienników
+### <a name="investigate-logs"></a>Sprawdzanie dzienników
 
 Po uruchomieniu maszyny wirtualnej usługi w chmurze i zainstalowaniu języka Python można sprawdzić dzienniki pod kątem komunikatów o błędach. Te dzienniki znajdują się w folderze **C:\Resources\Directory\{rola} \LogFiles**. Plik **PrepPython.err.txt** będzie zawierał co najmniej jeden błąd, jeśli skrypt próbuje wykryć instalację języka Python, a plik **PipInstaller.err.txt** może zgłaszać błąd nieaktualnej wersji kodu pip.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Bardziej szczegółowe informacje na temat pracy z rolami Sieć Web i Proces roboczy w ramach programu Python Tools for Visual Studio zawiera dokumentacja programu PTVS:
 
@@ -337,11 +337,11 @@ Bardziej szczegółowe informacje na temat pracy z rolami Sieć Web i Proces rob
 
 Więcej szczegółów dotyczących korzystania z usług Azure na podstawie ról Sieć Web i Proces roboczy, czyli na przykład używanie usługi Azure Storage lub Service Bus, można znaleźć w następujących artykułach.
 
-- [Usługa Blob][]
-- [Usługa tabel][]
-- [Usługa kolejki][]
+- [Blob Service][]
+- [Table Service][]
+- [Queue Service][]
 - [Kolejki usługi Service Bus][]
-- [Tematy dotyczące usługi Service Bus][]
+- [Tematy usługi Service Bus][]
 
 
 <!--Link references-->
@@ -352,11 +352,11 @@ Więcej szczegółów dotyczących korzystania z usług Azure na podstawie ról 
 [execution model-cloud services]: cloud-services-choose-me.md
 [Centrum deweloperów języka Python]: /develop/python/
 
-[Usługa Blob]: ../storage/storage-python-how-to-use-blob-storage.md
-[Usługa kolejki]: ../storage/storage-python-how-to-use-queue-storage.md
-[Usługa tabel]: ../storage/storage-python-how-to-use-table-storage.md
-[Kolejki usługi Service Bus]: ../service-bus/service-bus-python-how-to-use-queues.md
-[Tematy dotyczące usługi Service Bus]: ../service-bus/service-bus-python-how-to-use-topics-subscriptions.md
+[Blob Service]: ../storage/storage-python-how-to-use-blob-storage.md
+[Queue Service]: ../storage/storage-python-how-to-use-queue-storage.md
+[Table Service]: ../storage/storage-python-how-to-use-table-storage.md
+[Kolejki usługi Service Bus]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
+[Tematy usługi Service Bus]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
@@ -366,11 +366,11 @@ Więcej szczegółów dotyczących korzystania z usług Azure na podstawie ról 
 [Projekty usługi w chmurze]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
-[32-bitowe środowisko Python w wersji 2.7]: https://www.python.org/downloads/
-[32-bitowe środowisko Python w wersji 3.5]: https://www.python.org/downloads/
+[Python 2.7 (32 bity)]: https://www.python.org/downloads/
+[Python 3.5 (32 bity)]: https://www.python.org/downloads/
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

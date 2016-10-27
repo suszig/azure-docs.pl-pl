@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="10/04/2016"
+    ms.date="10/07/2016"
     ms.author="magoedte"/>
 
 
 # Rozwiązanie umożliwiające uruchamianie/zatrzymywanie maszyn wirtualnych poza godzinami szczytu [wersja zapoznawcza] w usłudze Automation
 
-Rozwiązanie umożliwiające uruchamianie/zatrzymywanie maszyn wirtualnych poza godzinami szczytu (wersja zapoznawcza) uruchamia i zatrzymuje maszyny wirtualne usługi Azure Resource Manager zgodnie z harmonogramem zdefiniowanym przez użytkownika i zapewnia wgląd w powodzenie zadań usługi Automation, które uruchamiają i zatrzymują maszyny wirtualne, za pomocą usługi OMS Log Analytics.  
+Rozwiązanie umożliwiające uruchamianie/zatrzymywanie maszyn wirtualnych poza godzinami szczytu [wersja zapoznawcza] uruchamia i zatrzymuje maszyny wirtualne usługi Azure Resource Manager zgodnie z harmonogramem zdefiniowanym przez użytkownika i zapewnia wgląd w powodzenie zadań usługi Automation, które uruchamiają i zatrzymują maszyny wirtualne, za pomocą usługi OMS Log Analytics.  
 
 ## Wymagania wstępne
 
@@ -76,8 +76,8 @@ StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Określa subskrypcję zawi
 
 Harmonogram | Opis|
 ---------|------------|
-StartByResourceGroup-Schedule-MS-Mgmt | Harmonogram dla elementu Runbook StartByResourceGroup.|
-StopByResourceGroup-Schedule-MS-Mgmt | Harmonogram dla elementu Runbook StopByResourceGroup.|
+StartByResourceGroup-Schedule-MS-Mgmt | Harmonogram elementu Runbook StartByResourceGroup, który wykonuje uruchamianie maszyn wirtualnych zarządzanych przez to rozwiązanie.|
+StopByResourceGroup-Schedule-MS-Mgmt | Harmonogram elementu Runbook StopByResourceGroup, który wykonuje zatrzymywanie maszyn wirtualnych zarządzanych przez to rozwiązanie.|
 
 ### Poświadczenia
 
@@ -113,7 +113,7 @@ Wykonaj poniższe kroki, aby dodać rozwiązanie umożliwiające uruchamianie/za
 
 8. Na koniec w bloku **Dodawanie rozwiązania** wybierz opcję **Konfiguracja**. Zostanie wyświetlony blok **Parametry**.  W bloku **Parametry** zostanie wyświetlony monit o:  
    - Określenie **Nazwy docelowej grupy zasobów**, tj. nazwy grupy zasobów zawierającej maszyny wirtualne, które będą zarządzane przez to rozwiązanie.  Wprowadzić możesz kilka nazw i oddzielić je przy użyciu średnika (w wartościach jest rozróżniana wielkość liter).  Użycie symbolu wieloznacznego jest obsługiwane. Możesz skorzystać z tej opcji, jeśli chcesz uwzględnić maszyny wirtualne we wszystkich grupach zasobów w subskrypcji.
-   - Wybranie **Harmonogramu** czyli cyklicznej daty i godziny uruchamiania oraz zatrzymywania maszyn wirtualnych w docelowych grupach zasobów.
+   - Wybranie **Harmonogramu** czyli cyklicznej daty i godziny uruchamiania oraz zatrzymywania maszyn wirtualnych w docelowych grupach zasobów.  
 
 10. Po zakończeniu konfigurowania ustawień początkowych wymaganych dla rozwiązania wybierz opcję **Utwórz**.  Wszystkie ustawienia zostaną sprawdzone, a następnie zostanie podjęta próba wdrożenia rozwiązania w subskrypcji.  Ten proces może potrwać kilka sekund. Możesz śledzić postęp w sekcji **Powiadomienia** z poziomu menu. 
 
@@ -128,6 +128,9 @@ Po dodaniu rozwiązania do zarządzania maszynami wirtualnymi w obszarze roboczy
 Na koncie usługi Automation możesz uzyskać dostęp do rozwiązania i zarządzać nim poprzez wybranie kafelka **Rozwiązania**, a następnie wybranie w bloku **Rozwiązania** opcji **Start-Stop-VM[Obszar roboczy]** z lity.<br><br> ![Lista rozwiązań usługi Automation](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
 
 Wybranie rozwiązania spowoduje wyświetlenie bloku rozwiązania **Start-Stop-VM[Obszar roboczy]**. W tym miejscu możesz sprawdzić ważne szczegóły, np. kafelek **StartStopVM**, tak jak w obszarze roboczym OMS, przedstawiający liczbę i graficzną reprezentację zadań elementów Runbook dla rozwiązania, które zostały uruchomione i zakończyły pracę z powodzeniem.<br><br> ![Blok rozwiązania maszyny wirtualnej w usłudze Automation](media/automation-solution-vm-management/vm-management-solution-solution-blade.png)  
+
+W tym miejscu możesz także otworzyć obszar roboczy OMS i wykonać dalszą analizę rekordów zadania.  Po prostu kliknij pozycję **Wszystkie ustawienia** i blok **Ustawienia**, wybierz opcję **Szybki start** i następnie w bloku **Szybki start** wybierz pozycję **Portal pakietu OMS**.   To spowoduje otwarcie nowej karty lub nowej sesji przeglądarki i wyświetlenie obszaru roboczego OMS skojarzonego z Twoim kontem i subskrypcją usługi Automation.  
+
 
 ### Konfigurowanie powiadomień e-mail
 
@@ -150,6 +153,10 @@ Aby skonfigurować wcześniej wyróżnione zmienne, wykonaj następujące czynno
 2. W bloku **Ustawienia** w sekcji **Zasoby usługi Automation** wybierz opcję **Zasoby**. 
 3. W bloku **Zasoby** wybierz kafelek **Zmienne**, a następnie w bloku **Zmienne** wybierz zmienną wymienioną powyżej. Zmodyfikuj wartość zmiennej zgodnie z opisem określonym wcześniej w sekcji [Zmienne](##variables).  
 4. Kliknij przycisk **Zapisz**, aby zapisać zmiany wprowadzone w zmiennej.   
+
+### Modyfikowanie harmonogramu uruchamiania i zamykania
+
+Zarządzanie harmonogramem uruchamiania i zamykania w tym rozwiązaniu obejmuje te same kroki co przedstawione w temacie [Planowanie elementu Runbook w usłudze Azure Automation](automation-scheduling-a-runbook.md).  Należy pamiętać, że nie można zmodyfikować konfiguracji harmonogramu.  Należy wyłączyć istniejący harmonogram, utworzyć nowy i następnie połączyć go z elementem Runbook **StartByResourceGroup-MS-Mgmt-VM** lub **StopByResourceGroup-MS-Mgmt-VM**, dla którego ma zostać zastosowany harmonogram.   
 
 ## Rekordy usługi Log Analytics
 
@@ -224,6 +231,6 @@ Pokaż stan zadania w czasie dla elementów Runbook StartVM i StopVM | Category=
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

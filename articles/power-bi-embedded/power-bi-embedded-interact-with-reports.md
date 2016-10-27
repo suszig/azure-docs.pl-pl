@@ -3,8 +3,8 @@
    description="Power BI Embedded, interakcja z raportami za pomocą interfejsu API języka JavaScript"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="mgblythe"
-   manager="NA"
+   authors="guyinacube"
+   manager="erikre"
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="08/26/2016"
-   ms.author="mblythe"/>
+   ms.date="10/04/2016"
+   ms.author="asaxton"/>
 
 
 # Interakcja z raportami usługi Power BI za pomocą interfejsu API języka JavaScript
@@ -140,6 +140,6 @@ Aby uzyskać więcej informacji o interfejsie API języka JavaScript usługi Pow
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

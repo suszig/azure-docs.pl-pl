@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Samouczek dotyczący komunikatów obsługiwanych przez brokera w usłudze Service Bus dla platformy .NET | Microsoft Azure"
     description="Samouczek dotyczący komunikatów obsługiwanych przez brokera dla platformy .NET."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
@@ -16,7 +16,7 @@
     ms.author="sethm" />
 
 
-# Samouczek dotyczący komunikatów obsługiwanych przez brokera w usłudze Service Bus dla platformy .NET
+# <a name="service-bus-brokered-messaging-.net-tutorial"></a>Samouczek dotyczący komunikatów obsługiwanych przez brokera w usłudze Service Bus dla platformy .NET
 
 Usługa Azure Service Bus udostępnia dwa kompleksowe rozwiązania do obsługi komunikatów — pierwsze za pośrednictwem scentralizowanej usługi „przekaźnika” działającej w chmurze, która obsługuje wiele różnych protokołów i standardów sieci Web, w tym SOAP, WS-* i REST. Klient nie potrzebuje bezpośredniego połączenia z usługą lokalną ani nie musi wiedzieć, gdzie usługa się znajduje. Usługa lokalna nie wymaga otwarcia w zaporze żadnych portów przychodzących.
 
@@ -24,21 +24,21 @@ Drugie rozwiązanie do obsługi komunikatów włącza funkcje komunikatów obsł
 
 Ten samouczek ma umożliwić przegląd oraz zdobycie praktycznego doświadczenia z kolejkami, jednym z podstawowych składników funkcji obsługi komunikatów przez brokera w usłudze Service Bus. Po zakończeniu pracy z sekwencją tematów w tym samouczku będziesz mieć aplikację, która zapełnia listę komunikatów, tworzy kolejkę i wysyła wiadomości do tej kolejki. Na koniec aplikacja odbiera i wyświetla komunikaty z kolejki, a następnie czyści jej zasoby i zamyka. Odpowiedni samouczek, w którym opisano sposób kompilowania aplikacji korzystającej z usługi Service Bus Relay, można znaleźć w artykule [Samouczek dotyczący komunikatów obsługiwanych przez przekaźnik w usłudze Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
 
-## Wprowadzenie i wymagania wstępne
+## <a name="introduction-and-prerequisites"></a>Wprowadzenie i wymagania wstępne
 
 Kolejki oferują dostarczanie komunikatów metodą pierwszy na wejściu — pierwszy na wyjściu (FIFO) do jednego lub większej liczby konkurencyjnych odbiorców. Metoda FIFO oznacza, że komunikaty są zwykle odbierane i przetwarzane przez odbiorców w kolejności, w której zostały dodane do kolejki, a każdy komunikat jest odbierany i przetwarzany przez tylko jednego odbiorcę komunikatów. Najważniejszą korzyścią z używania kolejek jest osiągnięcie *oddzielenia czasowego* składników aplikacji; innymi słowy, producenci i konsumenci nie muszą wysyłać i odbierać komunikatów w tym samym czasie, ponieważ komunikaty są trwale przechowywane w kolejce. Pokrewną korzyścią jest *wyrównywanie obciążenia*, które umożliwia producentom i odbiorcom wysyłanie i odbieranie komunikatów z różną szybkością.
 
 Poniżej przedstawiono niektóre czynności administracyjne i kroki dotyczące wymagań wstępnych, które należy wykonać przed rozpoczęciem samouczka. Pierwszym krokiem jest utworzenie przestrzeni nazw usługi i uzyskanie klucza sygnatury dostępu współdzielonego. Przestrzeń nazw wyznacza granice każdej aplikacji uwidacznianej za pośrednictwem usługi Service Bus. Klucz sygnatury dostępu współdzielonego jest automatycznie generowany przez system po utworzeniu przestrzeni nazw usługi. Kombinacja przestrzeni nazw usługi i klucza sygnatury dostępu współdzielonego dostarcza poświadczenia dla usługi Service Bus do uwierzytelniania dostępu do aplikacji.
 
-### Tworzenie przestrzeni nazw usługi i uzyskiwanie klucza sygnatury dostępu współdzielonego
+### <a name="create-a-service-namespace-and-obtain-a-sas-key"></a>Tworzenie przestrzeni nazw usługi i uzyskiwanie klucza sygnatury dostępu współdzielonego
 
-Pierwszym krokiem jest utworzenie przestrzeni nazw usługi i uzyskanie klucza [sygnatury dostępu współdzielonego](../service-bus/service-bus-sas-overview.md). Przestrzeń nazw wyznacza granice każdej aplikacji uwidacznianej za pośrednictwem usługi Service Bus. Klucz sygnatury dostępu współdzielonego jest automatycznie generowany przez system po utworzeniu przestrzeni nazw usługi. Kombinacja przestrzeni nazw i klucza sygnatury dostępu współdzielonego usługi dostarcza poświadczenia dla usługi Service Bus w celu uwierzytelnienia dostępu do aplikacji.
+Pierwszym krokiem jest utworzenie przestrzeni nazw usługi i uzyskanie klucza [sygnatury dostępu współdzielonego](service-bus-sas-overview.md). Przestrzeń nazw wyznacza granice każdej aplikacji uwidacznianej za pośrednictwem usługi Service Bus. Klucz sygnatury dostępu współdzielonego jest automatycznie generowany przez system po utworzeniu przestrzeni nazw usługi. Kombinacja przestrzeni nazw i klucza sygnatury dostępu współdzielonego usługi dostarcza poświadczenia dla usługi Service Bus w celu uwierzytelnienia dostępu do aplikacji.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 Następnym krokiem jest utworzenie projektu programu Visual Studio i napisanie dwóch funkcji pomocnika, które ładują rozdzielaną przecinkami listę komunikatów do silnie typizowanego obiektu [List](https://msdn.microsoft.com/library/6sh2ey19.aspx) klasy [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) platformy .NET.
 
-### Tworzenie projektu programu Visual Studio
+### <a name="create-a-visual-studio-project"></a>Tworzenie projektu programu Visual Studio
 
 1. Otwórz program Visual Studio jako administrator, klikając prawym przyciskiem myszy ikonę programu w menu Start, a następnie klikając polecenie **Uruchom jako administrator**.
 
@@ -95,7 +95,7 @@ Następnym krokiem jest utworzenie projektu programu Visual Studio i napisanie d
 
 1. Przejdź do pliku Data.csv, który został utworzony w kroku 6. Kliknij plik, a następnie kliknij pozycję **Dodaj**. Upewnij się, że na liście typów plików jest zaznaczona pozycja **Wszystkie pliki (*.*)**.
 
-### Tworzenie metody, która analizuje listę komunikatów
+### <a name="create-a-method-that-parses-a-list-of-messages"></a>Tworzenie metody, która analizuje listę komunikatów
 
 1. W klasie `Program` przed metodą `Main()` zadeklaruj dwie zmienne, jedną typu **DataTable**, która będzie zawierać listę komunikatów z pliku Data.csv, i drugą typu Obiekt listy, silnie typizowaną do klasy [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Druga zmienna jest listą komunikatów obsługiwanych przez brokera, która będzie używana w kolejnych krokach samouczka.
 
@@ -158,7 +158,7 @@ Następnym krokiem jest utworzenie projektu programu Visual Studio i napisanie d
     }
     ```
 
-### Tworzenie metody, która ładuje listę komunikatów
+### <a name="create-a-method-that-loads-the-list-of-messages"></a>Tworzenie metody, która ładuje listę komunikatów
 
 1. Poza metodą `Main()` zdefiniuj metodę `GenerateMessages()`, która przyjmuje obiekt **DataTable** zwracany przez metodę `ParseCSVFile()` i ładuje tabelę do silnie typizowanej listy komunikatów obsługiwanych przez brokera. Następnie metoda zwraca obiekt **Lista**, jak w poniższym przykładzie. 
 
@@ -194,7 +194,7 @@ Następnym krokiem jest utworzenie projektu programu Visual Studio i napisanie d
     }
     ```
 
-### Uzyskiwanie poświadczeń użytkownika
+### <a name="obtain-user-credentials"></a>Uzyskiwanie poświadczeń użytkownika
 
 1. Najpierw utwórz trzy zmienne globalne ciągu do przechowywania tych wartości. Zadeklaruj te zmienne bezpośrednio po poprzednich deklaracjach zmiennych, na przykład:
 
@@ -244,11 +244,11 @@ Następnym krokiem jest utworzenie projektu programu Visual Studio i napisanie d
     }
     ```
 
-### Kompilowanie rozwiązania
+### <a name="build-the-solution"></a>Kompilowanie rozwiązania
 
 W menu **Kompilacja** w programie Visual Studio kliknij pozycję **Kompiluj rozwiązanie** lub naciśnij klawisze **Ctrl+Shift+B**, aby potwierdzić dokładność pracy wykonanej do tej pory.
 
-## Tworzenie poświadczeń zarządzania
+## <a name="create-management-credentials"></a>Tworzenie poświadczeń zarządzania
 
 W tym kroku należy zdefiniować operacje zarządzania, które będą używane do tworzenia poświadczeń sygnatury dostępu współdzielonego, za pomocą których aplikacja będzie autoryzowana.
 
@@ -280,7 +280,7 @@ W tym kroku należy zdefiniować operacje zarządzania, które będą używane d
     NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
 
-### Przykład
+### <a name="example"></a>Przykład
 
 Na tym etapie kod powinien wyglądać podobnie do następującego:
 
@@ -388,11 +388,11 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## Wysyłanie komunikatów do kolejki
+## <a name="send-messages-to-the-queue"></a>Wysyłanie komunikatów do kolejki
 
 W tym kroku zostanie utworzona kolejka, a następnie komunikaty znajdujące się na liście komunikatów obsługiwanych przez brokera zostaną wysłane do tej kolejki.
 
-### Tworzenie kolejki i wysyłanie komunikatów do kolejki
+### <a name="create-queue-and-send-messages-to-the-queue"></a>Tworzenie kolejki i wysyłanie komunikatów do kolejki
 
 1. Najpierw utwórz kolejkę. Nazwij ją na przykład `myQueue` i zadeklaruj bezpośrednio po operacji zarządzania dodanej w metodzie `Queue()` w ostatnim kroku:
 
@@ -433,11 +433,11 @@ W tym kroku zostanie utworzona kolejka, a następnie komunikaty znajdujące się
     }
     ```
 
-## Odbieranie komunikatów z kolejki
+## <a name="receive-messages-from-the-queue"></a>Odbieranie komunikatów z kolejki
 
 W tym kroku zostanie odebrana lista komunikatów z kolejki utworzonej w poprzednim kroku.
 
-### Tworzenie odbiornika i odbieranie komunikatów z kolejki
+### <a name="create-a-receiver-and-receive-messages-from-the-queue"></a>Tworzenie odbiornika i odbieranie komunikatów z kolejki
 
 W metodzie `Queue()` iteruj po kolejce i odbieraj komunikaty przy użyciu metody [QueueClient.ReceiveAsync](https://msdn.microsoft.com/library/azure/dn130423.aspx) drukującej każdy komunikat do konsoli. Dodaj poniższy kod bezpośrednio po kodzie dodanym w poprzednim kroku:
 
@@ -456,7 +456,7 @@ while ((message = await myQueueClient.ReceiveAsync(new TimeSpan(hours: 0, minute
 
 Należy pamiętać, że element `Thread.Sleep` jest używany tylko na potrzeby symulacji przetwarzania komunikatów i prawdopodobnie nie będzie potrzebny w rzeczywistej aplikacji obsługi komunikatów.
 
-### Zakończenie metody kolejki i czyszczenie zasobów
+### <a name="end-the-queue-method-and-clean-up-resources"></a>Zakończenie metody kolejki i czyszczenie zasobów
 
 Bezpośrednio po poprzednim kodzie dodaj następujący kod, aby wyczyścić zasoby fabryki komunikatów i kolejki:
 
@@ -466,7 +466,7 @@ myQueueClient.Close();
 namespaceClient.DeleteQueue("IssueTrackingQueue");
 ```
 
-### Wywoływanie metody kolejki
+### <a name="call-the-queue-method"></a>Wywoływanie metody kolejki
 
 Ostatnim krokiem jest dodanie instrukcji, która wywołuje metodę `Queue()` z metody `Main()`: Dodaj następujący wyróżniony wiersz kodu na końcu metody Main():
     
@@ -485,7 +485,7 @@ public static void Main(string[] args)
 }
 ```
 
-### Przykład
+### <a name="example"></a>Przykład
 
 Poniższy kod zawiera kompletną aplikację **QueueSample**.
 
@@ -636,27 +636,27 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## Kompilowanie i uruchamianie aplikacji QueueSample
+## <a name="build-and-run-the-queuesample-application"></a>Kompilowanie i uruchamianie aplikacji QueueSample
 
 Po ukończeniu powyższych kroków możesz skompilować i uruchomić aplikację **QueueSample**.
 
-### Kompilowanie aplikacji QueueSample
+### <a name="build-the-queuesample-application"></a>Kompilowanie aplikacji QueueSample
 
 W programie Visual Studio w menu **Kompilacja** kliknij pozycję **Kompiluj rozwiązanie** lub naciśnij klawisze **Ctrl+Shift+B**. Jeśli występują błędy, sprawdź, czy kod jest poprawny, korzystając z kompletnego przykładu przedstawionego na końcu poprzedniego kroku.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku przedstawiono sposób kompilowania aplikacji i usługi klienckiej usługi Service Bus przy użyciu możliwości komunikatów obsługiwanych przez brokera usługi Service Bus. Aby skorzystać z podobnego samouczka dotyczącego usługi Service Bus [Relay](service-bus-messaging-overview.md#Relayed-messaging), zobacz [Samouczek dotyczący komunikatów obsługiwanych przez przekaźnik w usłudze Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
 
 Aby dowiedzieć się więcej na temat usługi [Service Bus](https://azure.microsoft.com/services/service-bus/), zobacz następujące tematy:
 
 - [Omówienie obsługi komunikatów w usłudze Service Bus](service-bus-messaging-overview.md)
-- [Podstawy usługi Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [Architektura usługi Service Bus](../service-bus/service-bus-architecture.md)
+- [Podstawy usługi Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+- [Architektura usługi Service Bus](service-bus-architecture.md)
 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

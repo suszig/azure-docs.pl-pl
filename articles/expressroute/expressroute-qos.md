@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="10/10/2016"
    ms.author="cherylmc"/>
+
 
 # Wymagania dotyczące technologii QoS w usłudze ExpressRoute
 
@@ -30,7 +31,6 @@ Poniższa tabela zawiera listę oznaczeń DSCP używanych przez program Skype dl
 | **Połączenia głosowe** | EF (46) | Połączenia głosowe Skype/Lync |
 | **Interaktywne** | AF41 (34) | Połączenia wideo |
 |   | AF21 (18) | Współdzielenie aplikacji | 
-|   | CS3 (24) | Sygnalizowanie SIP |
 | **Domyślne** | AF11 (10) | Transfer plików|
 |   | CS0 (0) | Inne| 
 
@@ -52,6 +52,6 @@ Poniższa tabela zawiera listę oznaczeń DSCP używanych przez program Skype dl
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

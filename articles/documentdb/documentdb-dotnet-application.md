@@ -4,7 +4,7 @@
     keywords="samouczek asp.net mvc, programowanie aplikacji sieci web, aplikacja sieci web mvc, samouczek krok po kroku asp.net mvc"
     services="documentdb" 
     documentationCenter=".net" 
-    authors="AndrewHoh" 
+    authors="syamkmsft" 
     manager="jhubbard" 
     editor="cgronlun"/>
 
@@ -16,7 +16,8 @@
     ms.devlang="dotnet" 
     ms.topic="hero-article" 
     ms.date="08/25/2016" 
-    ms.author="anhoh"/>
+    ms.author="syamk"/>
+
 
 # <a name="_Toc395809351"></a>Samouczek platformy ASP.NET MVC: opracowywanie aplikacji sieci Web za pomocą usługi DocumentDB
 
@@ -82,7 +83,7 @@ Teraz, gdy masz konto, utwórzmy nowy projekt platformy ASP.NET.
 
 8. W przypadku wybrania hostowania w chmurze zostanie wyświetlone co najmniej jedno dodatkowe okno z monitem o zalogowanie na konto Azure i podanie kilku wartości dotyczących nowej witryny sieci Web. Podaj wszystkie dodatkowe wartości i kontynuuj. 
 
-    Pozycja „Serwer bazy danych” nie została tu wybrana, ponieważ nie używamy serwera bazy danych SQL Azure. Zamierzamy utworzyć nowe konto usługi Azure DocumentDB później w Portalu Azure.
+    Pozycja „Serwer bazy danych” nie została tu wybrana, ponieważ nie używamy serwera bazy danych SQL Azure. Zamierzamy utworzyć nowe konto usługi Azure DocumentDB później w witrynie Azure Portal.
 
     Aby uzyskać więcej informacji o wybieraniu **planu usługi App Service** i **grupy zasobów**, zobacz [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) (Szczegółowe omówienie planów usługi Azure App Service).
 
@@ -117,7 +118,7 @@ Teraz większość podstaw dotyczących platformy ASP.NET MVC potrzebnych dla ro
     ![Zrzut ekranu przedstawiający dwa odwołania dodane do projektu danych JSON w Eksploratorze rozwiązań](./media/documentdb-dotnet-application/image22.png)
 
 
-##<a name="_Toc395637763"></a>Krok 4. Konfigurowanie aplikacji platformy ASP.NET MVC
+## <a name="_Toc395637763"></a>Krok 4. Konfigurowanie aplikacji platformy ASP.NET MVC
  
 Teraz możemy dodać modele, widoki i kontrolery do aplikacji MVC:
 
@@ -199,7 +200,7 @@ Teraz utwórzmy część reprezentowaną przez literę **V** w nazwie wzorca MVC
 - [Dodaj widok edycji elementu](#_Toc395888515).
 
 
-#### <a name="AddItemIndexView"></a>Dodawanie widok indeksu elementu
+#### <a name="AddItemIndexView"></a>Dodawanie widoku indeksu elementów
 
 1. W **Eksploratorze rozwiązań** rozwiń folder **Widoki**, kliknij prawym przyciskiem myszy pusty folder **Item** utworzony wcześniej przez program Visual Studio po dodaniu elementu **ItemController**, kliknij polecenie **Dodaj**, a następnie pozycję **Widok**.
 
@@ -343,7 +344,7 @@ Najpierw musisz tutaj dodać klasę, która zawiera całą logikę umożliwiają
         <add key="database" value="ToDoList"/>
         <add key="collection" value="Items"/>
     
-4. Teraz zaktualizuj wartości dla elementów *endpoint* i *authKey* za pomocą bloku Klucze w Portalu Azure. Użyj wartości **URI** z bloku Klucze jako wartości ustawienia endpoint oraz wartości **KLUCZ PODSTAWOWY** lub **KLUCZ POMOCNICZY** z bloku Klucze jako wartości ustawienia authKey.
+4. Teraz zaktualizuj wartości dla elementów *endpoint* i *authKey* za pomocą bloku Klucze w witrynie Azure Portal. Użyj wartości **URI** z bloku Klucze jako wartości ustawienia endpoint oraz wartości **KLUCZ PODSTAWOWY** lub **KLUCZ POMOCNICZY** z bloku Klucze jako wartości ustawienia authKey.
 
 
     W ten sposób podłączyliśmy repozytorium usługi DocumentDB. Teraz możemy dodać logikę aplikacji.
@@ -587,13 +588,13 @@ Aby dodać kolejne funkcje do aplikacji, zapoznaj się z interfejsami API dostę
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[Instalatora platformy Microsoft Web]: http://www.microsoft.com/web/downloads/platform.aspx
-[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
-[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
+[Instalator platformy Microsoft Web]: http://www.microsoft.com/web/downloads/platform.aspx
+[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254 (Zapobieganie fałszerstwom żądania międzywitrynowego)
+[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598 (Podstawowe operacje CRUD na platformie ASP.NET MVC)
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -12,18 +12,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/16/2016"
+   ms.date="10/11/2016"
    ms.author="alkohli" />
 
 
-# Wdrażanie lokalnego urządzenia StorSimple (aktualizacja Update 2)
+# <a name="deploy-your-on-premises-storsimple-device-(update-2)"></a>Wdrażanie lokalnego urządzenia StorSimple (aktualizacja Update 2)
 
 > [AZURE.SELECTOR]
-- [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
-- [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
+- [Aktualizacja 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
+- [Aktualizacja 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
 - [Wersja ogólnodostępna](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
-## Omówienie
+## <a name="overview"></a>Omówienie
 
 Witamy w procesie wdrażania urządzenia Microsoft Azure StorSimple. W niniejszych samouczkach opisano wdrożenie urządzenia z serii StorSimple 8000 z aktualizacją Update 2. W tej serii samouczków uwzględniono listę kontrolną i wymagania wstępne dotyczące konfiguracji oraz szczegółowe opisy kroków konfiguracji dla urządzenia StorSimple.
 
@@ -36,7 +36,7 @@ Do ukończenia procesu instalacji i konfiguracji niezbędne są uprawnienia admi
 
 > [AZURE.NOTE] Informacje na temat wdrażania urządzenia StorSimple opublikowane w witrynie platformy Microsoft Azure w sieci Web dotyczą tylko urządzeń z serii StorSimple 8000. Aby uzyskać pełne informacje dotyczące urządzeń z serii 7000, przejdź do strony [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Informacje dotyczące wdrażania urządzeń z serii 7000 można znaleźć w [przewodniku Szybki start do systemu StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
 
-## Kroki wdrażania
+## <a name="deployment-steps"></a>Kroki wdrażania
 
 Wykonaj wymagane kroki, aby skonfigurować urządzenie StorSimple i połączyć je z usługą Menedżer StorSimple. Oprócz kroków wymaganych istnieją również opcjonalne kroki i procedury, które być może trzeba będzie wykonać podczas wdrażania. W szczegółowych instrukcjach dotyczących wdrażania wskazano, w którym momencie należy wykonać poszczególne kroki opcjonalne.
 
@@ -51,10 +51,10 @@ Wykonaj wymagane kroki, aby skonfigurować urządzenie StorSimple i połączyć 
 | [Krok 1. Tworzenie nowej usługi](#step-1-create-a-new-service)                                                         | Skonfiguruj magazyn i zarządzanie chmurą dla danego urządzenia StorSimple. *Jeśli masz istniejącą usługę dla innych urządzeń StorSimple, pomiń ten krok*.                |
 | [Krok 2. Pobieranie klucza rejestracji usługi](#step-2-get-the-service-registration-key)                                               | Użyj tego klucza do zarejestrowania urządzenia StorSimple i połączenia go z usługą zarządzania.                                                                         |
 | [Krok 3. Konfigurowanie i rejestrowanie urządzenia za pomocą programu Windows PowerShell dla urządzenia StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)    | Połącz urządzenie z siecią i zarejestruj je przy użyciu platformy Azure, aby ukończyć instalację za pomocą usługi zarządzania.                                            |
-| [Krok 4. Przeprowadzenie minimalnej konfiguracji urządzenia](#step-4-complete-minimum-device-setupd)</br>[Opcjonalnie: Aktualizowanie urządzenia StorSimple](#scan-for-and-apply-updates)      | Skorzystaj z usługi zarządzania, aby skonfigurować urządzenie i umożliwić przechowywanie w nim danych.                                                                      |
+| [Krok 4. Przeprowadzenie minimalnej konfiguracji urządzenia](#step-4-complete-minimum-device-setupd)</br>[Opcjonalnie: aktualizacja urządzenia StorSimple](#scan-for-and-apply-updates)      | Skorzystaj z usługi zarządzania, aby skonfigurować urządzenie i umożliwić przechowywanie w nim danych.                                                                      |
 | [Krok 5. Tworzenie kontenera woluminów](#step-5-create-a-volume-container)                                                      | Utwórz kontener, aby umożliwić inicjowanie obsługi woluminów. Kontener woluminów obejmuje ustawienia konta magazynu, przepustowości i szyfrowania wszystkich woluminów, które zawiera.    |
 | [Krok 6. Tworzenie woluminu](#step-6-create-a-volume)                                                                | Zainicjuj obsługę woluminów magazynu na urządzeniu StorSimple na potrzeby serwerów.                                                                                        |
-| [Krok 7. Instalowanie, inicjowanie i formatowanie woluminu](#step-7-mount-initialize-and-format-a-volume)</br>[Opcjonalnie: Konfigurowanie wielościeżkowego wejścia/wyjścia (MPIO)](storsimple-configure-mpio-windows-server.md)            | Połącz serwery z magazynem iSCSI udostępnianym przez urządzenie. Możesz opcjonalnie skonfigurować wielościeżkowe wejście/wyjście, aby zapewnić, że serwery będą tolerować błędy linków, sieci i interfejsu.                                                                                                                                                              |
+| [Krok 7. Instalowanie, inicjowanie i formatowanie woluminu](#step-7-mount-initialize-and-format-a-volume)</br>[Opcjonalnie: konfigurowanie wielościeżkowego wejścia/wyjścia (MPIO)](storsimple-configure-mpio-windows-server.md)            | Połącz serwery z magazynem iSCSI udostępnianym przez urządzenie. Możesz opcjonalnie skonfigurować wielościeżkowe wejście/wyjście, aby upewnić się, że serwery tolerują błędy linków, sieci i interfejsu.                                                                                                                                                              |
 | [Krok 8. Tworzenie kopii zapasowej](#step-8-take-a-backup)                                                                  | Skonfiguruj zasady tworzenia kopii zapasowej, aby chronić dane.                                                                                                                 |
 |                                                                                        |                                                                                                                                                               |
 | **INNE PROCEDURY**                                                                   | Te procedury mogą okazać się potrzebne podczas wdrażania rozwiązania.                                                                                        |
@@ -64,18 +64,18 @@ Wykonaj wymagane kroki, aby skonfigurować urządzenie StorSimple i połączyć 
 | [Ręczne tworzenie kopii zapasowej](#create-a-manual-backup)                                                                 | 
 
 
-## Lista kontrolna dotycząca konfiguracji wdrożenia
+## <a name="deployment-configuration-checklist"></a>Lista kontrolna dotycząca konfiguracji wdrożenia
 
 Przed wdrożeniem urządzenia należy zebrać informacje w celu skonfigurowania oprogramowania na urządzeniu StorSimple. Wcześniejsze przygotowanie niektórych z tych informacji usprawni proces wdrażania urządzenia StorSimple w środowisku użytkownika. Ta lista kontrolna umożliwia notowanie niezbędnych szczegółów konfiguracji podczas wdrażania urządzenia.
 
 - [Pobieranie listy kontrolnej dotyczącej konfiguracji wdrożenia urządzenia StorSimple](http://www.microsoft.com/download/details.aspx?id=49159)
 
 
-## Wymagania wstępne dotyczące wdrożenia
+## <a name="deployment-prerequisites"></a>Wymagania wstępne dotyczące wdrożenia
 
 Poniższe sekcje zawierają opis wymagań wstępnych dotyczących konfiguracji usługi Menedżer StorSimple oraz urządzenia StorSimple.
 
-### Usługa Menedżer StorSimple
+### <a name="for-the-storsimple-manager-service"></a>Usługa Menedżer StorSimple
 
 Przed rozpoczęciem upewnij się, że:
 
@@ -87,7 +87,7 @@ Przed rozpoczęciem upewnij się, że:
 
 - Masz dostęp do oprogramowania służącego do emulacji terminala, takiego jak PuTTY.
 
-### Urządzenie w centrum danych
+### <a name="for-the-device-in-the-datacenter"></a>Urządzenie w centrum danych
 
 Przed skonfigurowaniem urządzenia upewnij się, że urządzenie zostało całkowicie rozpakowane i zamontowane w stojaku oraz podłączono wszystkie kable umożliwiające dostęp do zasilania, sieci i dostęp szeregowy, zgodnie z opisem w części
 
@@ -95,18 +95,18 @@ Przed skonfigurowaniem urządzenia upewnij się, że urządzenie zostało całko
 -  [Rozpakowywanie, montowanie w stojaku i podłączanie kabli do urządzenia 8600](storsimple-8600-hardware-installation.md)
 
 
-### Sieć w centrum danych
+### <a name="for-the-network-in-the-datacenter"></a>Sieć w centrum danych
 
 Przed rozpoczęciem upewnij się, że:
 
 - Porty w zaporze centrum danych zostały otwarte w celu zezwolenia na ruch związany z interfejsem iSCSI i chmurą, zgodnie z opisem w temacie [Networking requirements for your StorSimple device](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device) (Wymagania dotyczące pracy w sieci dla urządzenia StorSimple).
 
 
-## Wdrożenie krok po kroku
+## <a name="step-by-step-deployment"></a>Wdrożenie krok po kroku
 
 Poniższe instrukcje krok po kroku dotyczą wdrażania urządzenia StorSimple w centrum danych.
 
-## Krok 1. Tworzenie nowej usługi
+## <a name="step-1:-create-a-new-service"></a>Krok 1. Tworzenie nowej usługi
 
 Usługa Menedżer StorSimple umożliwia zarządzanie wieloma urządzeniami StorSimple. Wykonaj poniższe kroki, aby utworzyć nowe wystąpienie usługi Menedżer StorSimple.
 
@@ -117,7 +117,7 @@ Usługa Menedżer StorSimple umożliwia zarządzanie wieloma urządzeniami StorS
 > * Jeśli nie utworzono automatycznie konta magazynu, przejdź do kroku [Konfigurowanie nowego konta magazynu dla usługi](#configure-a-new-storage-account-for-the-service) w celu uzyskania szczegółowych informacji. 
 > * Jeśli włączono automatyczne tworzenie konta magazynu, przejdź do części [Krok 2. Pobieranie klucza rejestracji usługi](#step-2-get-the-service-registration-key).
 
-## Krok 2. Pobieranie klucza rejestracji usługi
+## <a name="step-2:-get-the-service-registration-key"></a>Krok 2. Pobieranie klucza rejestracji usługi
 
 Po skonfigurowaniu i uruchomieniu usługi Menedżer StorSimple musisz pobrać klucz rejestracji usługi. Ten klucz służy do rejestrowania urządzenia StorSimple i łączenia go z usługą.
 
@@ -126,13 +126,13 @@ Wykonaj poniższe czynności w portalu zarządzania.
 [AZURE.INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
 
-## Krok 3. Konfigurowanie i rejestrowanie urządzenia za pomocą programu Windows PowerShell dla urządzenia StorSimple
+## <a name="step-3:-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>Krok 3. Konfigurowanie i rejestrowanie urządzenia za pomocą programu Windows PowerShell dla urządzenia StorSimple
 
 Użyj programu Windows PowerShell dla urządzenia StorSimple do przeprowadzenia konfiguracji początkowej urządzenia StorSimple, jak opisano w poniższej procedurze. Do wykonania tego kroku niezbędne jest użycie oprogramowania do emulacji terminala. Aby uzyskać więcej informacji, zobacz część [Łączenie z konsolą szeregową urządzenia przy użyciu programu PuTTY](#use-putty-to-connect-to-the-device-serial-console).
 
 [AZURE.INCLUDE [storsimple-configure-and-register-device-u1](../../includes/storsimple-configure-and-register-device-u1.md)]
 
-## Krok 4. Przeprowadzenie minimalnej konfiguracji urządzenia
+## <a name="step-4:-complete-minimum-device-setup"></a>Krok 4. Przeprowadzenie minimalnej konfiguracji urządzenia
 
 Do przeprowadzenia minimalnej konfiguracji urządzenia StorSimple konieczne jest: 
 
@@ -144,7 +144,7 @@ Aby przeprowadzić minimalną konfigurację urządzenia, wykonaj poniższe kroki
 
 [AZURE.INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup-u1.md)]
 
-## Krok 5. Tworzenie kontenera woluminów
+## <a name="step-5:-create-a-volume-container"></a>Krok 5. Tworzenie kontenera woluminów
 
 Kontener woluminów obejmuje ustawienia konta magazynu, przepustowości i szyfrowania wszystkich woluminów, które zawiera. Kontener woluminów należy utworzyć przed zainicjowaniem woluminów na urządzeniu StorSimple. 
 
@@ -152,7 +152,7 @@ Wykonaj poniższe czynności w portalu zarządzania, aby utworzyć kontener wolu
 
 [AZURE.INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
-## Krok 6. Tworzenie woluminu
+## <a name="step-6:-create-a-volume"></a>Krok 6. Tworzenie woluminu
 
 Po utworzeniu kontenera woluminów możesz zainicjować obsługę woluminu magazynu w urządzeniu StorSimple dla serwerów. Wykonaj poniższe czynności w portalu zarządzania, aby utworzyć wolumin.
 
@@ -160,7 +160,7 @@ Po utworzeniu kontenera woluminów możesz zainicjować obsługę woluminu magaz
 
 [AZURE.INCLUDE [storsimple-create-volume](../../includes/storsimple-create-volume-u2.md)]
 
-## Krok 7. Instalowanie, inicjowanie i formatowanie woluminu
+## <a name="step-7:-mount,-initialize,-and-format-a-volume"></a>Krok 7. Instalowanie, inicjowanie i formatowanie woluminu
 
 Poniższe kroki wykonuje się na hoście systemu Windows Server. 
 
@@ -177,7 +177,7 @@ Jeśli nie chcesz konfigurować wielościeżkowego wejścia/wyjścia (MPIO), wyk
 
 [AZURE.INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
 
-## Krok 8. Tworzenie kopii zapasowej
+## <a name="step-8:-take-a-backup"></a>Krok 8. Tworzenie kopii zapasowej
 
 Kopie zapasowe oferują ochronę woluminów w określonym momencie i udoskonalają możliwości odzyskiwania przy równoczesnym zminimalizowaniu czasów przywracania. W urządzeniu StorSimple można wykonywać dwa typy kopii zapasowych: migawki lokalne i migawki w chmurze. Kopie obu typów można tworzyć jako **zaplanowane** lub **ręczne**. 
 
@@ -187,7 +187,7 @@ Wykonaj poniższe czynności w portalu zarządzania, aby utworzyć zaplanowaną 
 
 Kopię zapasową można utworzyć ręcznie w dowolnym momencie. Informacje na temat procedur można znaleźć w części [Ręczne tworzenie kopii zapasowej](#create-a-manual-backup). 
 
-## Konfigurowanie nowego konta magazynu dla usługi
+## <a name="configure-a-new-storage-account-for-the-service"></a>Konfigurowanie nowego konta magazynu dla usługi
 
 Jest to krok opcjonalny, który należy wykonać tylko, jeśli nie włączono automatycznego tworzenia konta magazynu przy użyciu usługi. Do utworzenia kontenera woluminów StorSimple wymagane jest konto magazynu platformy Microsoft Azure.
 
@@ -198,21 +198,21 @@ Wykonaj poniższe kroki w portalu zarządzania na stronie **usługi StorSimple M
 [AZURE.INCLUDE [storsimple-configure-new-storage-account-u1](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
 
-## Łączenie z konsolą szeregową urządzenia przy użyciu programu PuTTY
+## <a name="use-putty-to-connect-to-the-device-serial-console"></a>Łączenie z konsolą szeregową urządzenia przy użyciu programu PuTTY
 
 Aby nawiązać połączenie z programem Windows PowerShell dla urządzenia StorSimple, należy użyć oprogramowania do emulacji terminala, takiego jak PuTTY. Programu PuTTY można używać w przypadku uzyskiwania dostępu do urządzenia bezpośrednio za pośrednictwem konsoli szeregowej lub przez otwarcie sesji telnet z komputera zdalnego.
 
 [AZURE.INCLUDE [Use PuTTY to connect to the device serial console](../../includes/storsimple-use-putty.md)]
 
 
-## Wyszukiwanie aktualizacji i ich stosowanie
+## <a name="scan-for-and-apply-updates"></a>Wyszukiwanie aktualizacji i ich stosowanie
 
 Aktualizowanie urządzenia może potrwać kilka godzin. Wykonaj poniższe kroki w celu wyszukania aktualizacji i zastosowania ich na urządzeniu.
 <!--can take 1-4 hours--> 
 
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
-#### Aby zaktualizować urządzenie
+#### <a name="to-update-your-device"></a>Aby zaktualizować urządzenie
 
 1.  Na stronie **Szybki start** urządzenia kliknij pozycję **Urządzenia**. Wybierz urządzenie fizyczne, kliknij pozycję **Obsługa**, a następnie kliknij pozycję **Wyszukaj aktualizacje**.  
 
@@ -226,20 +226,20 @@ Aktualizowanie urządzenia może potrwać kilka godzin. Wykonaj poniższe kroki 
 
 <!-- In step 2, you may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail.-->
 
-## Pobieranie nazwy IQN hosta z systemem Windows Server
+## <a name="get-the-iqn-of-a-windows-server-host"></a>Pobieranie nazwy IQN hosta z systemem Windows Server
 
 Wykonaj poniższe kroki, aby pobrać kwalifikowaną nazwę iSCSI (IQN) hosta z systemem Windows, na którym uruchomiono system Windows Server® 2012.
 
 [AZURE.INCLUDE [Create a manual backup](../../includes/storsimple-get-iqn.md)]
 
-## Ręczne tworzenie kopii zapasowej
+## <a name="create-a-manual-backup"></a>Ręczne tworzenie kopii zapasowej
 
 Wykonaj poniższe kroki w portalu zarządzania, aby na żądanie ręcznie utworzyć kopię zapasową pojedynczego woluminu na urządzeniu StorSimple.
 
 [AZURE.INCLUDE [Create a manual backup](../../includes/storsimple-create-manual-backup.md)]
 
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Skonfiguruj [urządzenie wirtualne](storsimple-virtual-device-u2.md).
 
@@ -248,6 +248,6 @@ Wykonaj poniższe kroki w portalu zarządzania, aby na żądanie ręcznie utworz
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

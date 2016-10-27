@@ -17,15 +17,15 @@
     ms.author="jotaub;sethm"/>
 
 
-# Rozpoczynanie pracy z usługą Event Hubs
+# <a name="get-started-with-event-hubs"></a>Rozpoczynanie pracy z usługą Event Hubs
 
 [AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
-## Wprowadzenie
+## <a name="introduction"></a>Wprowadzenie
 
 Event Hubs to usługa, która przetwarza duże ilości danych zdarzeń (danych telemetrycznych) z podłączonych urządzeń i aplikacji. Po zebraniu danych w usłudze Event Hubs można przechowywać dane przy użyciu klastra magazynu lub przekształcać je za pomocą dostawcy analiz w czasie rzeczywistym. Ta możliwość zbierania i przetwarzania zdarzeń na wielką skalę jest kluczowym składnikiem architektur nowoczesnych aplikacji, w tym Internetu rzeczy (IoT).
 
-W tym samouczku pokazano, jak utworzyć centrum zdarzeń za pomocą klasycznego portalu Azure. Pokazano także, jak zbierać komunikaty w centrum zdarzeń za pomocą aplikacji konsolowej napisanej w języku C# oraz jak pobierać je równolegle przy użyciu biblioteki hosta procesora zdarzeń języka Java.
+W tym samouczku pokazano, jak utworzyć centrum zdarzeń za pomocą klasycznej witryny Azure Portal. Pokazano także, jak zbierać komunikaty w centrum zdarzeń za pomocą aplikacji konsolowej napisanej w języku C# oraz jak pobierać je równolegle przy użyciu biblioteki hosta procesora zdarzeń języka Java.
 
 Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
@@ -39,7 +39,7 @@ Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephjava](../../includes/service-bus-event-hubs-get-started-receive-ephjava.md)]
 
-## Uruchamianie aplikacji
+## <a name="run-the-applications"></a>Uruchamianie aplikacji
 
 Teraz wszystko jest gotowe do uruchomienia aplikacji.
 
@@ -51,13 +51,12 @@ Teraz wszystko jest gotowe do uruchomienia aplikacji.
 
     ![][22]
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Teraz, gdy masz utworzoną działającą aplikację, która tworzy centrum zdarzeń oraz wysyła i odbiera dane, możesz przejść do następujących scenariuszy:
 
 - Kompletna [przykładowa aplikacja korzystająca z usługi Event Hubs][].
 - Przykład [skalowania przetwarzania zdarzeń za pomocą usługi Event Hubs][].
-- [Rozwiązanie do obsługi komunikatów kolejek][] korzystające z funkcji kolejek usługi Service Bus.
 - [Przegląd usługi Event Hubs][]
 
 <!-- Images. -->
@@ -65,15 +64,13 @@ Teraz, gdy masz utworzoną działającą aplikację, która tworzy centrum zdarz
 [22]: ./media/event-hubs-csharp-ephjava-getstarted/cs-send.png
 
 <!-- Links -->
-[klasycznego portalu Azure]: https://manage.windowsazure.com/
+[Klasyczna witryna Azure Portal]: https://manage.windowsazure.com/
 [Przegląd usługi Event Hubs]: event-hubs-overview.md
 [przykładowa aplikacja korzystająca z usługi Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[skalowania przetwarzania zdarzeń za pomocą usługi Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Rozwiązanie do obsługi komunikatów kolejek]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
- 
+[Skalowanie przetwarzania zdarzeń za pomocą usługi Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

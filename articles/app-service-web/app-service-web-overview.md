@@ -17,7 +17,7 @@
     ms.author="rachelap"/>
 
 
-# Przegląd usługi Web Apps
+# <a name="web-apps-overview"></a>Przegląd usługi Web Apps
 
 *Azure App Service Web Apps* to w pełni zarządzana platforma obliczeniowa zoptymalizowana pod kątem hostowania witryn i aplikacji sieci Web. Oferta [platforma jako usługa](https://en.wikipedia.org/wiki/Platform_as_a_service) (Platform as a Service, PaaS) platformy Microsoft Azure umożliwia użytkownikowi skupienie się na logice biznesowej, podczas gdy platforma Azure jest odpowiedzialna za infrastrukturę służącą do uruchamiania i skalowania aplikacji.
 
@@ -27,7 +27,7 @@ Następujący 5-minutowy film wideo stanowi wprowadzenie do funkcji Azure App Se
 
 >[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
 
-## Co to jest aplikacja sieci Web w usłudze App Service?
+## <a name="what-is-a-web-app-in-app-service?"></a>Co to jest aplikacja sieci Web w usłudze App Service?
 
 *Aplikacja sieci Web* w usłudze App Service to zasób obliczeniowy udostępniany przez platformę Azure na potrzeby hostowania witryny lub aplikacji sieci Web.  
 
@@ -37,7 +37,7 @@ Kod może być tworzony przy użyciu dowolnego języka lub struktury obsługiwan
 
 Przykłady typowych scenariuszy aplikacji, których można użyć na potrzeby funkcji Web Apps, można znaleźć w artykule [Scenariusze aplikacji sieci Web](https://azure.microsoft.com/documentation/scenarios/web-app/) i w sekcji **Scenarios and recommendations** (Scenariusze i zalecenia) w artykule [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](choose-web-site-cloud-service-vm.md#scenarios) (Porównanie usług Azure App Service, Virtual Machines, Service Fabric i Cloud Services).
 
-## Dlaczego warto używać usługi Web Apps?
+## <a name="why-use-web-apps?"></a>Dlaczego warto używać usługi Web Apps?
 
 Poniżej przedstawiono kilka najważniejszych funkcji usługi App Service, które dotyczą usługi Web Apps:
 
@@ -59,7 +59,7 @@ Ponadto aplikacja sieci Web może korzystać z funkcji oferowanych przez usługi
 
 Oprócz usługi Web Apps w usłudze App Service platforma Azure oferuje inne usługi, które mogą służyć do hostowania witryn i aplikacji sieci Web. W przypadku większości scenariuszy najlepszym wyborem jest usługa Web Apps.  W przypadku architektury mikrousługi należy wziąć pod uwagę usługę [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric) i w razie konieczności sprawowania większej kontroli nad maszynami wirtualnymi, na których działa kod, należy wziąć pod uwagę usługę [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). Aby uzyskać więcej informacji o tym, jak dokonać wyboru między usługami Azure, zobacz [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](choose-web-site-cloud-service-vm.md) (Porównanie usług Azure App Service, Virtual Machines, Service Fabric i Cloud Services).
 
-## Wprowadzenie
+## <a name="getting-started"></a>Wprowadzenie
 
 Aby rozpocząć od wdrożenia przykładowego kodu w nowej aplikacji sieci Web w usłudze App Service, postępuj zgodnie z informacjami znajdującymi się w samouczku [Deploy your first web app to Azure in 5 minutes](app-service-web-get-started.md) (Wdrażanie pierwszej aplikacji sieci Web na platformie Azure w ciągu 5 minut). Konieczne będzie posiadanie bezpłatnego konta platformy Azure.
 
@@ -67,6 +67,6 @@ Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem 
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

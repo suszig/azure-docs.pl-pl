@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Samouczek dotyczący komunikatów obsługiwanych przez brokera w usłudze Service Bus dla usługi REST | Microsoft Azure"
     description="Samouczek dotyczący komunikatów obsługiwanych przez brokera dla usługi REST."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
@@ -16,23 +16,25 @@
     ms.author="sethm" />
 
 
-# Samouczek dotyczący komunikatów obsługiwanych przez brokera w usłudze Service Bus dla usługi REST
+# <a name="service-bus-brokered-messaging-rest-tutorial"></a>Samouczek dotyczący komunikatów obsługiwanych przez brokera w usłudze Service Bus dla usługi REST
+
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 Ten samouczek pokazuje sposób tworzenia podstawowej kolejki i tematu/subskrypcji usługi Azure Service Bus opartej na usłudze REST.
 
-## Tworzenie przestrzeni nazw
+## <a name="create-a-namespace"></a>Tworzenie przestrzeni nazw
 
-Pierwszym krokiem jest utworzenie przestrzeni nazw usługi i uzyskanie klucza [sygnatury dostępu współdzielonego](../service-bus/service-bus-sas-overview.md). Przestrzeń nazw wyznacza granice każdej aplikacji uwidacznianej za pośrednictwem usługi Service Bus. Klucz sygnatury dostępu współdzielonego jest automatycznie generowany przez system po utworzeniu przestrzeni nazw usługi. Kombinacja przestrzeni nazw i klucza sygnatury dostępu współdzielonego usługi dostarcza poświadczenia dla usługi Service Bus w celu uwierzytelnienia dostępu do aplikacji.
+Pierwszym krokiem jest utworzenie przestrzeni nazw usługi i uzyskanie klucza [sygnatury dostępu współdzielonego](service-bus-sas-overview.md). Przestrzeń nazw wyznacza granice każdej aplikacji uwidacznianej za pośrednictwem usługi Service Bus. Klucz sygnatury dostępu współdzielonego jest automatycznie generowany przez system po utworzeniu przestrzeni nazw usługi. Kombinacja przestrzeni nazw i klucza sygnatury dostępu współdzielonego usługi dostarcza poświadczenia dla usługi Service Bus w celu uwierzytelnienia dostępu do aplikacji.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## Tworzenie klienta konsoli
+## <a name="create-a-console-client"></a>Tworzenie klienta konsoli
 
 Kolejki usługi Service Bus umożliwiają przechowywanie komunikatów w kolejce FIFO (pierwszy na wejściu, pierwszy na wyjściu). Tematy i subskrypcje implementują wzorzec publikowania/subskrybowania. Najpierw należy utworzyć temat, a następnie jedną lub większą liczbę subskrypcji skojarzonych z tym tematem. Komunikaty wysłane do tematu są natychmiast wysyłane do subskrybentów tego tematu.
 
 Kod w tym samouczku wykonuje następujące działania.
 
-- Używa podanej przestrzeni nazw oraz klucza [sygnatury dostępu współdzielonego](../service-bus/service-bus-sas-overview.md), aby uzyskać dostęp do zasobów przestrzeni nazw usługi Service Bus.
+- Używa podanej przestrzeni nazw oraz klucza [sygnatury dostępu współdzielonego](service-bus-sas-overview.md), aby uzyskać dostęp do zasobów przestrzeni nazw usługi Service Bus.
 
 - Tworzy kolejkę, wysyła komunikat do kolejki i odczytuje komunikat z kolejki.
 
@@ -46,7 +48,7 @@ Usługa jest usługą sieci Web typu REST, a więc nie korzysta z żadnych specj
 
 Po utworzeniu obszaru nazw i uzyskaniu poświadczeń w pierwszym kroku możesz utworzyć aplikację konsolową programu Visual Studio.
 
-### Tworzenie aplikacji konsolowej
+### <a name="create-a-console-application"></a>Tworzenie aplikacji konsolowej
 
 1. Uruchom program Visual Studio jako administrator, klikając prawym przyciskiem myszy ikonę programu w menu **Start**, a następnie klikając polecenie **Uruchom jako administrator**.
 
@@ -147,11 +149,11 @@ Po utworzeniu obszaru nazw i uzyskaniu poświadczeń w pierwszym kroku możesz u
     Console.ReadLine();
     ```
 
-## Tworzenie poświadczeń zarządzania
+## <a name="create-management-credentials"></a>Tworzenie poświadczeń zarządzania
 
 Następnym krokiem jest napisanie metody, która przetwarza przestrzeń nazw i klucz sygnatury dostępu współdzielonego wprowadzone w poprzednim kroku i zwraca token sygnatury dostępu współdzielonego. W tym przykładzie jest tworzony token sygnatury dostępu współdzielonego, który jest ważny przez jedną godzinę.
 
-### Tworzenie metody GetSASToken()
+### <a name="create-a-getsastoken()-method"></a>Tworzenie metody GetSASToken()
 
 Wklej następujący kod po metodzie `Main()` w klasie `Program`:
 
@@ -169,7 +171,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
   return sasToken;
 }
 ```
-## Tworzenie kolejki
+## <a name="create-the-queue"></a>Tworzenie kolejki
 
 Następnym krokiem jest napisanie metody, która używa polecenia HTTP PUT typu REST do utworzenia kolejki.
 
@@ -198,7 +200,7 @@ private static string CreateQueue(string queueName, string token)
 }
 ```
 
-## Wysyłanie komunikatu do kolejki
+## <a name="send-a-message-to-the-queue"></a>Wysyłanie komunikatu do kolejki
 
 W tym kroku dodawana jest metoda, która używa polecenia HTTP POST typu REST do wysyłania komunikatu do kolejki utworzonej w poprzednim kroku.
 
@@ -235,7 +237,7 @@ W tym kroku dodawana jest metoda, która używa polecenia HTTP POST typu REST do
     webClient.Headers.Add("Customer", "12345");
     ```
 
-## Odbieranie i usuwanie komunikatu z kolejki
+## <a name="receive-and-delete-a-message-from-the-queue"></a>Odbieranie i usuwanie komunikatu z kolejki
 
 Następnym krokiem jest dodanie metody, która używa polecenia HTTP DELETE typu REST do pobierania i usuwania komunikatu z kolejki.
 
@@ -259,11 +261,11 @@ private static string ReceiveAndDeleteMessage(string resourceName)
 }
 ```
 
-## Tworzenie tematu i subskrypcji
+## <a name="create-a-topic-and-subscription"></a>Tworzenie tematu i subskrypcji
 
 Następnym krokiem jest napisanie metody, która używa polecenia HTTP PUT typu REST do utworzenia tematu. Następnie napiszesz metodę, która tworzy subskrypcję tego tematu.
 
-### Tworzenie tematu
+### <a name="create-a-topic"></a>Tworzenie tematu
 
 Wklej poniższy kod bezpośrednio po kodzie metody `ReceiveAndDeleteMessage()` dodanym w poprzednim kroku:
 
@@ -289,7 +291,7 @@ private static string CreateTopic(string topicName)
 }
 ```
 
-### Tworzenie subskrypcji
+### <a name="create-a-subscription"></a>Tworzenie subskrypcji
 
 Poniższy kod tworzy subskrypcję tematu utworzonego w poprzednim kroku. Dodaj następujący kod bezpośrednio po definicji `CreateTopic()`:
 
@@ -314,11 +316,11 @@ private static string CreateSubscription(string topicName, string subscriptionNa
 }
 ```
 
-## Pobieranie zasobów komunikatu
+## <a name="retrieve-message-resources"></a>Pobieranie zasobów komunikatu
 
 W tym kroku należy dodać kod, który pobiera właściwości komunikatu, a następnie usuwa zasoby obsługi komunikatów utworzone w poprzednich krokach.
 
-### Pobieranie źródła danych Atom z określonymi zasobami
+### <a name="retrieve-an-atom-feed-with-the-specified-resources"></a>Pobieranie źródła danych Atom z określonymi zasobami
 
 Dodaj poniższy kod bezpośrednio po metodzie `CreateSubscription()` dodanej w poprzednim kroku:
 
@@ -333,7 +335,7 @@ private static string GetResources(string resourceAddress)
 }
 ```
 
-### Usuwanie jednostek obsługi komunikatów
+### <a name="delete-messaging-entities"></a>Usuwanie jednostek obsługi komunikatów
 
 Dodaj poniższy kod bezpośrednio po kodzie dodanym w poprzednim kroku:
 
@@ -350,7 +352,7 @@ private static string DeleteResource(string resourceName)
 }
 ```
 
-### Formatowanie źródła danych Atom
+### <a name="format-the-atom-feed"></a>Formatowanie źródła danych Atom
 
 Metoda `GetResources()` zawiera wywołanie metody `FormatXml()`, która ponownie formatuje pobrane źródło danych Atom, aby było bardziej czytelne. Poniżej znajduje się definicja metody `FormatXml()`. Dodaj ten kod bezpośrednio po kodzie `DeleteResource()` dodanym w poprzednim kroku:
 
@@ -372,15 +374,15 @@ private static string FormatXml(string inputXml)
 }
 ```
 
-## Kompilowanie i uruchamianie aplikacji
+## <a name="build-and-run-the-application"></a>Kompilowanie i uruchamianie aplikacji
 
 Teraz możesz skompilować i uruchomić aplikację. W menu **Kompilacja** w programie Visual Studio kliknij pozycję **Kompiluj rozwiązanie** lub naciśnij klawisze **Ctrl+Shift+B**.
 
-### Uruchamianie aplikacji
+### <a name="run-the-application"></a>Uruchamianie aplikacji
 
 Jeśli nie ma żadnych błędów, naciśnij klawisz F5, aby uruchomić aplikację. Po wyświetleniu monitu wprowadź przestrzeń nazw, nazwę klucza sygnatury dostępu współdzielonego i wartość klucza sygnatury dostępu współdzielonego, które zostały uzyskane w pierwszym kroku.
 
-### Przykład
+### <a name="example"></a>Przykład
 
 Poniższy przykład przedstawia kompletny kod, tak jak powinien wyglądać po wykonaniu wszystkich czynności w tym samouczku.
 
@@ -618,17 +620,17 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Zobacz następujące artykuły, aby dowiedzieć się więcej:
 
 - [Omówienie obsługi komunikatów w usłudze Service Bus](service-bus-messaging-overview.md)
-- [Podstawy usługi Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Podstawy usługi Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Samouczek dotyczący przekaźnika usługi Service Bus dla usługi REST](../service-bus-relay/service-bus-relay-rest-tutorial.md)
 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 
