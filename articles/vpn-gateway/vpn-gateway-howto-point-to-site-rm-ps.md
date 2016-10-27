@@ -69,7 +69,7 @@ W celu przeprowadzenia konfiguracji należy zastosować następujące wartości.
     
 - Zainstaluj polecenia cmdlet programu PowerShell usługi Azure Resource Manager (wersja 1.0.2 lub nowsza). Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu Azure PowerShell, zobacz artykuł [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Instalowanie i konfigurowanie programu Azure PowerShell). Podczas pracy z programem PowerShell dla tej konfiguracji upewnij się, że działasz jako administrator. 
 
-## <a name="<a-name="declare"></a>part-1---log-in-and-set-variables"></a><a name="declare"></a>Część 1 — Logowanie się i ustawianie zmiennych
+## <a name="declare"></a>Część 1 — Logowanie się i ustawianie zmiennych
 
 W tej sekcji należy zalogować się i zadeklarować wartości używane dla tej konfiguracji. Zadeklarowane wartości są używane w przykładowych skryptach. Można zmienić wartości, aby odzwierciedlić własne środowisko. Ale można też użyć zadeklarowanych wartości i postępować zgodnie z opisanymi krokami tylko w celach szkoleniowych.
 
@@ -178,7 +178,7 @@ Klienci łączący się z platformą Azure za pomocą połączenia typu punkt-lo
 
     ![Klient sieci VPN](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "VPN client")
 
-## <a name="<a-name="cc"></a>part-6---generate-the-client-certificate"></a><a name="cc"></a>Część 6 — Generowanie certyfikatu klienta
+## <a name="cc"></a>Część 6 — Generowanie certyfikatu klienta
 
 Kolejny krok to generowanie certyfikatów klienta. Można wygenerować unikatowy certyfikat dla każdego klienta, dzięki któremu będzie można się łączyć, ale można też użyć tego samego certyfikatu na wielu klientach. Zaletą generowania unikatowych certyfikatów klienta jest możliwość odwoływania pojedynczego certyfikatu, jeśli to konieczne. W przeciwnym razie, jeśli wszyscy użytkownicy korzystają z tego samego certyfikatu klienta i konieczne jest odwołanie certyfikatu dla jednego klienta, należy wygenerować i zainstalować nowe certyfikaty dla wszystkich klientów, którzy używają certyfikatu do uwierzytelniania.
 

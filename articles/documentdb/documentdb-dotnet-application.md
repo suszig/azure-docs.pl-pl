@@ -19,7 +19,7 @@
     ms.author="syamk"/>
 
 
-# <a name="<a-name="_toc395809351"></a>asp.net-mvc-tutorial:-web-application-development-with-documentdb"></a><a name="_Toc395809351"></a>Samouczek platformy ASP.NET MVC: opracowywanie aplikacji sieci Web za pomocą usługi DocumentDB
+# <a name="_Toc395809351"></a>Samouczek platformy ASP.NET MVC: opracowywanie aplikacji sieci Web za pomocą usługi DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -35,7 +35,7 @@ Ten przewodnik przedstawia, w jaki sposób należy korzystać z usługi Document
 
 > [AZURE.TIP] Ten samouczek zakłada, że masz już pewne doświadczenie w korzystaniu z platformy ASP.NET MVC i usługi Azure Websites. Jeśli nie znasz platformy ASP.NET lub [wstępnie wymaganych narzędzi](#_Toc395637760), zalecamy pobranie kompletnego przykładowego projektu z usługi [GitHub][] i postępowanie zgodnie z instrukcjami zawartymi w tym przykładzie. Po jego skompilowaniu możesz przejrzeć ten artykuł, aby przeanalizować kod w kontekście projektu.
 
-## <a name="<a-name="_toc395637760"></a>prerequisites-for-this-database-tutorial"></a><a name="_Toc395637760"></a>Wymagania wstępne dotyczące tego samouczka bazy danych
+## <a name="_Toc395637760"></a>Wymagania wstępne dotyczące tego samouczka bazy danych
 
 Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz następujące elementy:
 
@@ -45,7 +45,7 @@ Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz nast
 
 Wszystkie zrzuty ekranu w tym artykule wykonano za pomocą programu Visual Studio 2013 z aktualizacją Update 4 i zestawu Azure SDK dla platformy .NET w wersji 2.5.1. Jeśli w Twoim systemie są skonfigurowane inne wersje, możliwe, że Twoje ekrany i opcje nie będą całkiem zgodne, lecz jeśli spełniasz powyższe wymagania wstępne, to rozwiązanie powinno działać.
 
-## <a name="<a-name="_toc395637761"></a>step-1:-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Krok 1. Tworzenie konta bazy danych usługi DocumentDB
+## <a name="_Toc395637761"></a>Krok 1. Tworzenie konta bazy danych usługi DocumentDB
 
 Zacznijmy od utworzenia konta usługi DocumentDB. Jeśli masz już konto, możesz przejść do kroku [Tworzenie nowej aplikacji platformy ASP.NET MVC](#_Toc395637762).
 
@@ -56,7 +56,7 @@ Zacznijmy od utworzenia konta usługi DocumentDB. Jeśli masz już konto, możes
 <br/>
 Teraz przeprowadzimy Cię przez proces tworzenia nowej aplikacji platformy ASP.NET MVC od podstaw. 
 
-## <a name="<a-name="_toc395637762"></a>step-2:-create-a-new-asp.net-mvc-application"></a><a name="_Toc395637762"></a>Krok 2. Tworzenie nowej aplikacji platformy ASP.NET MVC
+## <a name="_Toc395637762"></a>Krok 2. Tworzenie nowej aplikacji platformy ASP.NET MVC
 
 Teraz, gdy masz konto, utwórzmy nowy projekt platformy ASP.NET.
 
@@ -93,7 +93,7 @@ Teraz, gdy masz konto, utwórzmy nowy projekt platformy ASP.NET.
 
     Pominiemy uruchamianie projektu lokalnie, ponieważ na pewno wszyscy widzieliśmy aplikację „Hello World” platformy ASP.NET. Przejdźmy prosto do dodawania usługi DocumentDB do tego projektu i tworzenia aplikacji.
 
-## <a name="<a-name="_toc395637767"></a>step-3:-add-documentdb-to-your-mvc-web-application-project"></a><a name="_Toc395637767"></a>Krok 3. Dodawanie usługi DocumentDB do projektu aplikacji sieci Web MVC
+## <a name="_Toc395637767"></a>Krok 3. Dodawanie usługi DocumentDB do projektu aplikacji sieci Web MVC
 
 Teraz większość podstaw dotyczących platformy ASP.NET MVC potrzebnych dla rozwiązania jest już gotowa. Możemy przejść do rzeczywistego celu tego samouczka, to znaczy dodania usługi Azure DocumentDB do naszej aplikacji sieci Web MVC.
 
@@ -118,7 +118,7 @@ Teraz większość podstaw dotyczących platformy ASP.NET MVC potrzebnych dla ro
     ![Zrzut ekranu przedstawiający dwa odwołania dodane do projektu danych JSON w Eksploratorze rozwiązań](./media/documentdb-dotnet-application/image22.png)
 
 
-##<a name="<a-name="_toc395637763"></a>step-4:-set-up-the-asp.net-mvc-application"></a><a name="_Toc395637763"></a>Krok 4. Konfigurowanie aplikacji platformy ASP.NET MVC
+## <a name="_Toc395637763"></a>Krok 4. Konfigurowanie aplikacji platformy ASP.NET MVC
  
 Teraz możemy dodać modele, widoki i kontrolery do aplikacji MVC:
 
@@ -127,7 +127,7 @@ Teraz możemy dodać modele, widoki i kontrolery do aplikacji MVC:
 - [Dodaj widoki](#_Toc395637766).
 
 
-### <a name="<a-name="_toc395637764"></a>add-a-json-data-model"></a><a name="_Toc395637764"></a>Dodawanie modelu danych JSON
+### <a name="_Toc395637764"></a>Dodawanie modelu danych JSON
 
 Zacznijmy od utworzenia części reprezentowanej przez literę **M** w nazwie wzorca MVC, modelu. 
 
@@ -169,7 +169,7 @@ Zacznijmy od utworzenia części reprezentowanej przez literę **M** w nazwie wz
     Możesz nie tylko kontrolować format nazwy właściwości umieszczanej w kodzie JSON, ale także całkowicie zmienić nazwy właściwości platformy .NET, tak jak to zrobiono w przypadku właściwości **Description**. 
     
 
-### <a name="<a-name="_toc395637765"></a>add-a-controller"></a><a name="_Toc395637765"></a>Dodawanie kontrolera
+### <a name="_Toc395637765"></a>Dodawanie kontrolera
 
 Część **M** jest gotowa, teraz utwórzmy część reprezentowaną przez literę **C** w nazwie wzorca MVC, klasę kontrolera (ang. controller).
 
@@ -191,7 +191,7 @@ Część **M** jest gotowa, teraz utwórzmy część reprezentowaną przez liter
 
     Możesz zamknąć plik ItemController.cs, wrócimy do niego później. 
 
-### <a name="<a-name="_toc395637766"></a>add-views"></a><a name="_Toc395637766"></a>Dodawanie widoków
+### <a name="_Toc395637766"></a>Dodawanie widoków
 
 Teraz utwórzmy część reprezentowaną przez literę **V** w nazwie wzorca MVC, widoki (ang. view):
 
@@ -200,7 +200,7 @@ Teraz utwórzmy część reprezentowaną przez literę **V** w nazwie wzorca MVC
 - [Dodaj widok edycji elementu](#_Toc395888515).
 
 
-#### <a name="<a-name="additemindexview"></a>add-an-item-index-view"></a><a name="AddItemIndexView"></a>Dodawanie widoku indeksu elementów
+#### <a name="AddItemIndexView"></a>Dodawanie widoku indeksu elementów
 
 1. W **Eksploratorze rozwiązań** rozwiń folder **Widoki**, kliknij prawym przyciskiem myszy pusty folder **Item** utworzony wcześniej przez program Visual Studio po dodaniu elementu **ItemController**, kliknij polecenie **Dodaj**, a następnie pozycję **Widok**.
 
@@ -217,7 +217,7 @@ Teraz utwórzmy część reprezentowaną przez literę **V** w nazwie wzorca MVC
 
 3. Gdy wszystkie te wartości są ustawione, kliknij przycisk **Dodaj**. Program Visual Studio utworzy nowy widok szablonu. Po zakończeniu otworzy utworzony plik cshtml. Możemy zamknąć ten plik w programie Visual Studio, ponieważ wrócimy do niego później.
 
-#### <a name="<a-name="addnewindexview"></a>add-a-new-item-view"></a><a name="AddNewIndexView"></a>Dodawanie widoku nowego elementu
+#### <a name="AddNewIndexView"></a>Dodawanie widoku nowego elementu
 
 Podobnie jak w przypadku **indeksu elementów** teraz utworzymy nowy widok na potrzeby tworzenia nowych elementów **Item**.
 
@@ -231,7 +231,7 @@ Podobnie jak w przypadku **indeksu elementów** teraz utworzymy nowy widok na po
     - W polu strony układu wpisz wartość ***~/Views/Shared/_Layout.cshtml***.
     - Kliknij pozycję **Dodaj**.
 
-#### <a name="<a-name="_toc395888515"></a>add-an-edit-item-view"></a><a name="_Toc395888515"></a>Dodawanie widoku edycji elementu
+#### <a name="_Toc395888515"></a>Dodawanie widoku edycji elementu
 
 I w końcu dodaj ostatni widok — na potrzeby edytowania elementu **Item** — w taki sam sposób jak wcześniej.
 
@@ -247,7 +247,7 @@ I w końcu dodaj ostatni widok — na potrzeby edytowania elementu **Item** — 
 
 Po zakończeniu zamknij wszystkie dokumenty cshtml w programie Visual Studio. Wrócimy do tych widoków później.
 
-## <a name="<a-name="_toc395637769"></a>step-5:-wiring-up-documentdb"></a><a name="_Toc395637769"></a>Krok 5. Podłączanie usługi DocumentDB
+## <a name="_Toc395637769"></a>Krok 5. Podłączanie usługi DocumentDB
 
 Po przygotowaniu standardowych zasobów wzorca MVC możemy zacząć dodawać kod dla usługi DocumentDB. 
 
@@ -257,7 +257,7 @@ W tej sekcji dodamy kod obsługujący następujące operacje:
 - [Dodawanie elementów](#_Toc395637771).
 - [Edytowanie elementów](#_Toc395637772).
 
-### <a name="<a-name="_toc395637770"></a>listing-incomplete-items-in-your-mvc-web-application"></a><a name="_Toc395637770"></a>Wyświetlanie niezakończonych elementów w aplikacji sieci Web MVC
+### <a name="_Toc395637770"></a>Wyświetlanie niezakończonych elementów w aplikacji sieci Web MVC
 
 Najpierw musisz tutaj dodać klasę, która zawiera całą logikę umożliwiającą połączenie z usługą DocumentDB i używanie jej. Na potrzeby tego samouczka umieściliśmy całą tę logikę w klasie repozytorium o nazwie DocumentDBRepository. 
 
@@ -413,7 +413,7 @@ Jeśli skompilujesz i uruchomisz projekt teraz, zobaczysz stronę podobną do na
 
 ![Zrzut ekranu przedstawiający aplikację sieci Web listy rzeczy do zrobienia utworzoną za pomocą tego samouczka bazy danych](./media/documentdb-dotnet-application/image23.png)
 
-### <a name="<a-name="_toc395637771"></a>adding-items"></a><a name="_Toc395637771"></a>Dodawanie elementów
+### <a name="_Toc395637771"></a>Dodawanie elementów
 
 Umieśćmy kilka elementów w naszej bazie danych, dzięki czemu będziemy mogli zobaczyć coś więcej niż pustą siatkę.
 
@@ -463,7 +463,7 @@ Dodajmy trochę kodu do elementów DocumentDBRepository i ItemController, aby ut
 Teraz kod wymagany do dodawania nowych elementów do bazy jest kompletny.
 
 
-### <a name="<a-name="_toc395637772"></a>editing-items"></a><a name="_Toc395637772"></a>Edytowanie elementów
+### <a name="_Toc395637772"></a>Edytowanie elementów
 
 Ostatnia rzecz do zrobienia to dodanie możliwości edytowania elementów **Item** w bazie danych i oznaczania ich jako zakończonych. Widok edycji został już dodany do projektu, więc musimy tylko ponownie dodać kod do kontrolera i klasy **DocumentDBRepository**.
 
@@ -539,7 +539,7 @@ Ostatnia rzecz do zrobienia to dodanie możliwości edytowania elementów **Item
 
 I gotowe — to wszystko, czego potrzebujemy, aby uruchomić aplikację, wyświetlić niezakończone **elementy**, dodać nowe **elementy** i edytować **elementy**.
 
-## <a name="<a-name="_toc395637773"></a>step-6:-run-the-application-locally"></a><a name="_Toc395637773"></a>Krok 6. Uruchamianie aplikacji lokalnie
+## <a name="_Toc395637773"></a>Krok 6. Uruchamianie aplikacji lokalnie
 
 Aby przetestować aplikację na lokalnej maszynie, wykonaj następujące czynności:
 
@@ -565,7 +565,7 @@ Aby przetestować aplikację na lokalnej maszynie, wykonaj następujące czynno�
 
 4. Po przetestowaniu aplikacji naciśnij klawisze Ctrl+F5, aby zatrzymać jej debugowanie. Wszystko jest gotowe do wdrożenia.
 
-## <a name="<a-name="_toc395637774"></a>step-7:-deploy-the-application-to-azure-websites"></a><a name="_Toc395637774"></a>Krok 7. Wdrażanie aplikacji w usłudze Azure Websites
+## <a name="_Toc395637774"></a>Krok 7. Wdrażanie aplikacji w usłudze Azure Websites
 
 Teraz, gdy kompletna aplikacja działa poprawnie z usługą DocumentDB, wdrożymy tę aplikację sieci Web w usłudze Azure Websites. Jeśli wybrano pozycję **Hostuj w chmurze** podczas tworzenia pustego projektu platformy ASP.NET MVC, program Visual Studio zdecydowanie ułatwi pracę i wykona większość zadań za Ciebie. 
 
@@ -579,7 +579,7 @@ Teraz, gdy kompletna aplikacja działa poprawnie z usługą DocumentDB, wdrożym
 
 W ciągu kilku sekund program Visual Studio zakończy publikowanie aplikacji sieci Web i uruchomi przeglądarkę, w której będzie można zobaczyć swoje dzieło działające na platformie Azure.
 
-## <a name="<a-name="_toc395637775"></a>next-steps"></a><a name="_Toc395637775"></a>Następne kroki
+## <a name="_Toc395637775"></a>Następne kroki
 
 Gratulacje! Udało Ci się utworzyć Twoją pierwszą aplikację sieci Web dla platformy ASP.NET MVC używającą usługi Azure DocumentDB i opublikować ją w usłudze Azure Websites. Kod źródłowy kompletnej aplikacji, w tym funkcji szczegółów i usuwania, które nie zostały uwzględnione w tym samouczku, można pobrać lub sklonować z usługi [GitHub][]. Jeśli chcesz dodać go do swojej aplikacji, wystarczy pobrać kod i to zrobić.
 
