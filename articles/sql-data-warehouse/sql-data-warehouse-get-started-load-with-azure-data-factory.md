@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""
    tags="azure-sql-data-warehouse"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/13/2016"
+   ms.date="10/31/2016"
    ms.author="mausher;barbkess"/>
 
 
@@ -50,7 +50,7 @@ Przed rozpoczęciem tego samouczka trzeba mieć następujące zasoby:
 
    + **AZCopy**: program AZCopy jest potrzebny do skopiowania przykładowych danych z lokalnego klienta do rozszerzenia Azure Storage Blob. Aby uzyskać instrukcje instalacji, zobacz [dokumentację programu AZCopy][].
 
-## <a name="step-1:-copy-sample-data-to-azure-storage-blob"></a>Krok 1: kopiowanie przykładowych danych do rozszerzenia Azure Storage Blob
+## <a name="step-1-copy-sample-data-to-azure-storage-blob"></a>Krok 1: kopiowanie przykładowych danych do rozszerzenia Azure Storage Blob
 
 Gdy wszystkie elementy są gotowe, możesz przystąpić do kopiowania przykładowych danych do rozszerzenia Azure Storage Blob.
 
@@ -63,13 +63,13 @@ Gdy wszystkie elementy są gotowe, możesz przystąpić do kopiowania przykłado
     ````
 
 
-## <a name="step-2:-connect-resources-to-azure-data-factory"></a>Krok 2: łączenie zasobów z usługą Azure Data Factory
+## <a name="step-2-connect-resources-to-azure-data-factory"></a>Krok 2: łączenie zasobów z usługą Azure Data Factory
 
 Teraz, gdy dane znajdują się na miejscu, możemy utworzyć potok usługi Azure Data Factory, aby przenieść dane z usługi Azure Blob Storage do usługi SQL Data Warehouse.
 
 Aby rozpocząć, otwórz witrynę [Azure Portal][] i wybierz fabrykę danych z menu po lewej stronie.
 
-### <a name="step-2.1:-create-linked-service"></a>Krok 2.1: tworzenie usługi połączonej
+### <a name="step-21-create-linked-service"></a>Krok 2.1: tworzenie usługi połączonej
 
 Połącz swoje konto usługi Azure Storage i usługę SQL Data Warehouse z fabryką danych.  
 
@@ -90,7 +90,7 @@ Połącz swoje konto usługi Azure Storage i usługę SQL Data Warehouse z fabry
     }
     ```
 
-### <a name="step-2.2:-define-the-dataset"></a>Krok 2.2: definiowanie zestawu danych
+### <a name="step-22-define-the-dataset"></a>Krok 2.2: definiowanie zestawu danych
 
 Po utworzeniu połączonych usług trzeba zdefiniować zestawy danych.  W tym przypadku oznacza to zdefiniowanie struktury danych, które są przenoszone z magazynu do magazynu danych.  Więcej informacji na temat tworzenia
 
@@ -148,7 +148,7 @@ Po utworzeniu połączonych usług trzeba zdefiniować zestawy danych.  W tym pr
     }
     ```
 
-## <a name="step-3:-create-and-run-your-pipeline"></a>Krok 3: tworzenie i uruchamianie potoku
+## <a name="step-3-create-and-run-your-pipeline"></a>Krok 3: tworzenie i uruchamianie potoku
 
 Na koniec skonfigurujemy i uruchomimy potok w usłudze Azure Data Factory.  Ta operacja spowoduje rzeczywiste przeniesienie danych.  Pełen przegląd operacji, które można wykonać przy użyciu usługi SQL Data Warehouse i usługi Azure Data Factory, znajdziesz [tutaj][Przenoszenie danych do i z usługi SQL Data Warehouse przy użyciu usługi Azure Data Factory].
 

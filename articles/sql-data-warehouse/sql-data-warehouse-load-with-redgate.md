@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/13/2016"
+   ms.date="10/31/2016"
    ms.author="mausher;barbkess"/>
 
 
@@ -41,17 +41,17 @@ Przed rozpoczęciem tego samouczka trzeba mieć następujące zasoby:
 
 > [AZURE.NOTE] Można zwiększyć wydajność, jeśli konto magazynu i magazyn danych zostaną utworzone w tym samym regionie.
 
-## <a name="step-1:-sign-in-to-data-platform-studio-with-your-azure-account"></a>Krok 1. Logowanie się do usługi Data Platform Studio za pomocą konta platformy Azure
+## <a name="step-1-sign-in-to-data-platform-studio-with-your-azure-account"></a>Krok 1. Logowanie się do usługi Data Platform Studio za pomocą konta platformy Azure
 Otwórz przeglądarkę sieci Web i przejdź do witryny sieci Web usługi [Data Platform Studio](https://www.dataplatformstudio.com/). Zaloguj się przy użyciu tego samego konta platformy Azure, które zostało użyte do utworzenia konta magazynu i magazynu danych. Jeśli Twój adres e-mail jest skojarzony zarówno z kontem służbowym, jak i kontem Microsoft, upewnij się, że wybrane zostało konto, które ma dostęp do zasobów.
 
 > [AZURE.NOTE] Jeśli używasz usługi Data Platform Studio pierwszy raz, zostanie wyświetlona prośba o nadanie aplikacji uprawnień do zarządzania zasobami platformy Azure.
 
-## <a name="step-2:-start-the-import-wizard"></a>Krok 2. Uruchamianie kreatora importu
+## <a name="step-2-start-the-import-wizard"></a>Krok 2. Uruchamianie kreatora importu
 Z poziomu ekranu głównego usługi DPS wybierz link Import to Azure SQL Data Warehouse (Importuj do usługi Azure SQL Data Warehouse), aby uruchomić kreatora importu.
 
 ![][1]
 
-## <a name="step-3:-install-the-data-platform-studio-gateway"></a>Krok 3. Instalowanie bramy usługi Data Platform Studio
+## <a name="step-3-install-the-data-platform-studio-gateway"></a>Krok 3. Instalowanie bramy usługi Data Platform Studio
 Aby nawiązać połączenie z lokalną bazą danych programu SQL Server, należy zainstalować bramę usługi DPS. Brama to agent klienta, który zapewnia dostęp do środowiska lokalnego, wyodrębnia dane i przekazuje je do używanego konta magazynu. Dane nigdy nie przechodzą przez serwery firmy Redgate. Aby zainstalować bramę:
 
 1.  Kliknij link **Create Gateway** (Utwórz bramę)
@@ -63,28 +63,28 @@ Aby nawiązać połączenie z lokalną bazą danych programu SQL Server, należy
 
 Po zainstalowaniu stan bramy zmienia się na wartość Connected (Połączona) i możliwe jest wybranie pozycji Next (Dalej).
 
-## <a name="step-4:-identify-the-source-database"></a>Krok 4. Identyfikacja źródłowej bazy danych
+## <a name="step-4-identify-the-source-database"></a>Krok 4. Identyfikacja źródłowej bazy danych
 W polu tekstowym *Enter Server Name* (Wprowadź nazwę serwera) wprowadź nazwę serwera, na którym znajduje się baza danych, a następnie wybierz przycisk **Next** (Dalej). Następnie z menu rozwijanego wybierz bazę danych, z której chcesz zaimportować dane.
 
 ![][3]
 
 Usługa DPS sprawdza wybraną bazę danych pod kątem tabel do zaimportowania. Domyślnie usługa DPS importuje wszystkie tabele znajdujące się w bazie danych. Tabele można wybrać lub anulować ich wybór, rozwijając link All Tables (Wszystkie tabele). Wybierz przycisk Next (Dalej), aby przejść dalej.
 
-## <a name="step-5:-choose-a-storage-account-to-stage-the-data"></a>Krok 5. Wybieranie konta magazynu do przygotowania danych
+## <a name="step-5-choose-a-storage-account-to-stage-the-data"></a>Krok 5. Wybieranie konta magazynu do przygotowania danych
 Usługa DPS wyświetla monit o lokalizację, w której mają zostać przygotowane dane. Wybierz istniejące konto magazynu z subskrypcji, a następnie wybierz przycisk **Next** (Dalej).
 
 > [AZURE.NOTE] Usługa DPS utworzy nowy kontener obiektów blob na wybranym koncie magazynu i użyje oddzielnego folderu dla każdego importu.
 
 ![][4]
 
-## <a name="step-6:-select-a-data-warehouse"></a>Krok 6. Wybieranie magazynu danych
+## <a name="step-6-select-a-data-warehouse"></a>Krok 6. Wybieranie magazynu danych
 Następnie wybierz bazę danych usługi [Azure SQL Data Warehouse](http://aka.ms/sqldw) w trybie online, do której zostaną zaimportowane dane. Po wybraniu bazy danych wprowadź poświadczenia, aby nawiązać połączenie z bazą danych. Następnie wybierz przycisk **Next** (Dalej).
 
 ![][5]
 
 > [AZURE.NOTE] Usługa DPS scala tabele danych źródłowych w magazyn danych. Usługa DPS wyświetli ostrzeżenie, jeśli ze względu na nazwę tabeli wymagane jest zastąpienie istniejących tabel w magazynie danych. Opcjonalnie można usunąć dowolne istniejące obiekty w magazynie danych, zaznaczając pole wyboru Delete all existing objects (Usuń wszystkie zaznaczone obiekty) przed zaimportowaniem.
 
-## <a name="step-7:-import-the-data"></a>Krok 7. Importowanie danych
+## <a name="step-7-import-the-data"></a>Krok 7. Importowanie danych
 Usługa DPS wyświetla potwierdzenie, czy dane mają zostać zaimportowane. Po prostu kliknij przycisk Start import (Rozpocznij import), aby rozpocząć import danych.
 
 ![][6]
