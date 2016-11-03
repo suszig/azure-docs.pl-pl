@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/10/2016"
-   ms.author="cakarst;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="cakarst;barbkess"/>
 
 
 
@@ -45,11 +45,11 @@ Do wykonania kroków opisanych w tym samouczku potrzebne są:
     ![Narzędzia Azure Storage Tools](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 
-## <a name="step-1:-add-sample-data-to-azure-blob-storage"></a>Krok 1: dodawanie przykładowych danych do magazynu obiektów blob platformy Azure
+## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>Krok 1: dodawanie przykładowych danych do magazynu obiektów blob platformy Azure
 
 Aby załadować dane, trzeba umieścić trochę przykładowych danych w magazynie obiektów blob platformy Azure. W tym kroku wypełnimy obiekt blob magazynu Azure przykładowymi danymi. Następnie użyjemy aparatu PolyBase, aby załadować te przykładowe dane do bazy danych usługi SQL Data Warehouse.
 
-### <a name="a.-prepare-a-sample-text-file"></a>A. Przygotowanie przykładowego pliku tekstowego
+### <a name="a-prepare-a-sample-text-file"></a>A. Przygotowanie przykładowego pliku tekstowego
 
 Aby przygotować przykładowy plik tekstowy:
 
@@ -70,7 +70,7 @@ Aby przygotować przykładowy plik tekstowy:
 20150101,1,3
 ```
 
-### <a name="b.-find-your-blob-service-endpoint"></a>B. Znajdowanie punktu końcowego usługi Blob
+### <a name="b-find-your-blob-service-endpoint"></a>B. Znajdowanie punktu końcowego usługi Blob
 
 Aby znaleźć punkt końcowy usługi Blob:
 
@@ -84,7 +84,7 @@ Aby znaleźć punkt końcowy usługi Blob:
 
     ![Punkt końcowy usługi Blob](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
-### <a name="c.-find-your-azure-storage-key"></a>C. Znajdowanie klucza magazynu Azure
+### <a name="c-find-your-azure-storage-key"></a>C. Znajdowanie klucza magazynu Azure
 
 Aby znaleźć klucz magazynu Azure:
 
@@ -95,7 +95,7 @@ Aby znaleźć klucz magazynu Azure:
 
     ![Kopiowanie klucza magazynu Azure](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### <a name="d.-copy-the-sample-file-to-azure-blob-storage"></a>D. Kopiowanie przykładowego pliku do magazynu obiektów blob platformy Azure
+### <a name="d-copy-the-sample-file-to-azure-blob-storage"></a>D. Kopiowanie przykładowego pliku do magazynu obiektów blob platformy Azure
 
 Aby skopiować dane do magazynu obiektów blob platformy Azure:
 
@@ -113,7 +113,7 @@ Aby skopiować dane do magazynu obiektów blob platformy Azure:
 
 Zobacz też: [Wprowadzenie do narzędzia wiersza polecenia AzCopy][].
 
-### <a name="e.-explore-your-blob-storage-container"></a>E. Eksplorowanie kontenera magazynu obiektów blob
+### <a name="e-explore-your-blob-storage-container"></a>E. Eksplorowanie kontenera magazynu obiektów blob
 
 Aby zobaczyć plik przekazany do magazynu obiektów blob:
 
@@ -126,7 +126,7 @@ Aby zobaczyć plik przekazany do magazynu obiektów blob:
     ![Wyświetlanie obiektu blob magazynu Azure](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
 
-## <a name="step-2:-create-an-external-table-for-the-sample-data"></a>Krok 2: tworzenie tabeli zewnętrznej dla przykładowych danych
+## <a name="step-2-create-an-external-table-for-the-sample-data"></a>Krok 2: tworzenie tabeli zewnętrznej dla przykładowych danych
 
 W tej sekcji utworzymy tabelę zewnętrzną definiującą przykładowe dane.
 
@@ -216,7 +216,7 @@ W Eksploratorze obiektów SQL Server w programie Visual Studio widoczne będą: 
 
 ![Widok tabeli zewnętrznej](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## <a name="step-3:-load-data-into-sql-data-warehouse"></a>Krok 3: ładowanie danych do usługi SQL Data Warehouse
+## <a name="step-3-load-data-into-sql-data-warehouse"></a>Krok 3: ładowanie danych do usługi SQL Data Warehouse
 
 Po utworzeniu tabeli zewnętrznej można załadować dane do nowej tabeli lub wstawić je do tabeli istniejącej.
 
@@ -236,7 +236,7 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>Krok 4: tworzenie statystyk na podstawie nowo załadowanych danych
+## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Krok 4: tworzenie statystyk na podstawie nowo załadowanych danych
 
 Usługa SQL Data Warehouse nie tworzy ani nie aktualizuje statystyk w sposób automatyczny. Dlatego, aby uzyskać wysoką wydajność zapytań, ważne jest tworzenie statystyk dotyczących poszczególnych kolumn każdej tabeli po pierwszym załadowaniu. Istotne jest również aktualizowanie statystyk po wprowadzeniu istotnych zmian w danych.
 
