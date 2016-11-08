@@ -1,65 +1,60 @@
-<properties
-   pageTitle="Ładowanie danych z programu SQL Server do usługi Azure SQL Data Warehouse (bcp) | Microsoft Azure"
-   description="Dane niewielkich rozmiarów można kopiować, używając programu bcp do eksportowania danych z programu SQL Server do plików prostych i importowania danych bezpośrednio do usługi Azure SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""/>
+---
+title: Ładowanie danych z programu SQL Server do usługi Azure SQL Data Warehouse (bcp) | Microsoft Docs
+description: Dane niewielkich rozmiarów można kopiować, używając programu bcp do eksportowania danych z programu SQL Server do plików prostych i importowania danych bezpośrednio do usługi Azure SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: NA
+author: lodipalm
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/30/2016"
-   ms.author="lodipalm;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/30/2016
+ms.author: lodipalm;barbkess;sonyama
 
-
-
+---
 # Ładowanie danych z programu SQL Server do usługi Azure SQL Data Warehouse (pliki proste)
-
-> [AZURE.SELECTOR]
-- [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
-- [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-- [bcp](sql-data-warehouse-load-from-sql-server-with-bcp.md)
+> [!div class="op_single_selector"]
+> * [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+> * [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+> * [bcp](sql-data-warehouse-load-from-sql-server-with-bcp.md)
+> 
+> 
 
 W przypadku małych zestawów danych można użyć narzędzia wiersza polecenia bcp do eksportowania danych z programu SQL Server, a następnie ładowania ich bezpośrednio do usługi Azure SQL Data Warehouse.
 
 W tym samouczku przy użyciu programu bcp zostaną wykonane następujące czynności:
 
-- Eksportowanie tabeli z programu SQL Server przy użyciu polecenia bcp out (lub tworzenie prostego pliku przykładowego)
-- Importowanie tabeli z pliku prostego do usługi SQL Data Warehouse.
-- Tworzenie statystyk dotyczących ładowanych danych.
+* Eksportowanie tabeli z programu SQL Server przy użyciu polecenia bcp out (lub tworzenie prostego pliku przykładowego)
+* Importowanie tabeli z pliku prostego do usługi SQL Data Warehouse.
+* Tworzenie statystyk dotyczących ładowanych danych.
 
->[AZURE.VIDEO loading-data-into-azure-sql-data-warehouse-with-bcp]
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
+> 
+> 
 
 ## Przed rozpoczęciem
-
 ### Wymagania wstępne
-
 Do wykonania kroków opisanych w tym samouczku potrzebne są:
 
-- Baza danych usługi SQL Data Warehouse
-- Zainstalowane narzędzie wiersza polecenia bcp
-- Zainstalowane narzędzie wiersza polecenia sqlcmd
+* Baza danych usługi SQL Data Warehouse
+* Zainstalowane narzędzie wiersza polecenia bcp
+* Zainstalowane narzędzie wiersza polecenia sqlcmd
 
-Narzędzia bcp i sqlcmd można pobrać z [Centrum pobierania Microsoft][].
+Narzędzia bcp i sqlcmd można pobrać z [Centrum pobierania Microsoft][Centrum pobierania Microsoft].
 
 ### Dane w formacie ASCII lub UTF-16
-
 Jeśli próbujesz wykonać kroki tego samouczka z użyciem własnych danych, musisz zastosować do danych kodowanie ASCII lub UTF-16, ponieważ narzędzie bcp nie obsługuje formatu UTF-8. 
 
 Aparat PolyBase obsługuje format UTF-8, ale nie obsługuje jeszcze formatu UTF-16. Uwaga: jeśli chcesz połączyć program bcp z aparatem PolyBase, konieczna będzie konwersja danych do formatu UTF-8 po ich wyeksportowaniu z programu SQL Server. 
 
-
 ## 1. Tworzenie tabeli docelowej
-
 W usłudze SQL Data Warehouse zdefiniuj tabelę, która będzie tabelą docelową ładowania. Kolumny w tabeli muszą odpowiadać danym w poszczególnych wierszach pliku danych.
 
 Aby utworzyć tabelę, otwórz wiersz polecenia i użyj programu sqlcmd.exe, aby uruchomić następujące polecenie:
-
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -79,7 +74,6 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 
 ## 2. Tworzenie źródłowego pliku danych
-
 Otwórz program Notatnik i skopiuj następujące wiersze danych do nowego pliku tekstowego, a następnie zapisz ten plik w lokalnym katalogu tymczasowym: C:\Temp\DimDate2.txt. Te dane są w formacie ASCII.
 
 ```
@@ -120,24 +114,23 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 Wyniki powinny wyglądać następująco:
 
-DateId |CalendarQuarter |FiscalQuarter
------------ |--------------- |-------------
-20150101 |1 |3
-20150201 |1 |3
-20150301 |1 |3
-20150401 |2 |4
-20150501 |2 |4
-20150601 |2 |4
-20150701 |3 |1
-20150801 |3 |1
-20150801 |3 |1
-20151001 |4 |2
-20151101 |4 |2
-20151201 |4 |2
+| DateId | CalendarQuarter | FiscalQuarter |
+| --- | --- | --- |
+| 20150101 |1 |3 |
+| 20150201 |1 |3 |
+| 20150301 |1 |3 |
+| 20150401 |2 |4 |
+| 20150501 |2 |4 |
+| 20150601 |2 |4 |
+| 20150701 |3 |1 |
+| 20150801 |3 |1 |
+| 20150801 |3 |1 |
+| 20151001 |4 |2 |
+| 20151101 |4 |2 |
+| 20151201 |4 |2 |
 
 ## 4. Tworzenie statystyk
-
-Usługa SQL Data Warehouse nie obsługuje jeszcze automatycznego tworzenia ani aktualizowania statystyk. Aby uzyskać najlepszą wydajność zapytań, należy utworzyć statystyki dla wszystkich kolumn wszystkich tabel po pierwszym załadowaniu danych, a następnie po każdej istotnej zmianie. Aby zapoznać się ze szczegółowym opisem statystyk, zobacz temat [Statystyki][]. 
+Usługa SQL Data Warehouse nie obsługuje jeszcze automatycznego tworzenia ani aktualizowania statystyk. Aby uzyskać najlepszą wydajność zapytań, należy utworzyć statystyki dla wszystkich kolumn wszystkich tabel po pierwszym załadowaniu danych, a następnie po każdej istotnej zmianie. Aby zapoznać się ze szczegółowym opisem statystyk, zobacz temat [Statystyki][Statystyki]. 
 
 Uruchom następujące polecenie, aby utworzyć statystyki dotyczące nowo załadowanej tabeli.
 
@@ -155,7 +148,6 @@ Dla zabawy możesz wyeksportować z powrotem załadowane przed chwilą dane z us
 Istnieje jednak różnica w wynikach. Ponieważ dane są przechowywane w rozproszonych lokalizacjach w usłudze SQL Data Warehouse, podczas eksportowania danych każdy węzeł obliczeniowy zapisuje swoje dane do pliku wyjściowego. Kolejność danych w pliku wyjściowym może być inna niż kolejność danych w pliku wejściowym.
 
 ### Eksportowanie tabeli i porównywanie wyeksportowanych wyników
-
 Aby zobaczyć wyeksportowane dane, otwórz wiersz polecenia i uruchom to polecenie z własnymi parametrami. ServerName jest nazwą serwera logicznego SQL platformy Azure.
 
 ```sql
@@ -179,13 +171,12 @@ Możesz sprawdzić, czy dane zostały poprawnie wyeksportowane, otwierając nowy
 ```
 
 ### Eksportowanie wyników zapytania
-
 Możesz użyć funkcji **queryout** programu bcp do wyeksportowania wyników zapytania, zamiast eksportować całą tabelę. 
 
 ## Następne kroki
-Ogólny opis ładowania można znaleźć w artykule [Ładowanie danych do usługi SQL Data Warehouse][].
-Więcej porad programistycznych znajdziesz w artykule [Omówienie programowania w usłudze SQL Data Warehouse][].
-Zobacz artykuł [Omówienie tabel][] lub [składni polecenia CREATE TABLE][], aby uzyskać więcej informacji dotyczących tworzenia tabel w usłudze SQL Data Warehouse.
+Ogólny opis ładowania można znaleźć w artykule [Ładowanie danych do usługi SQL Data Warehouse][Ładowanie danych do usługi SQL Data Warehouse].
+Więcej porad programistycznych znajdziesz w artykule [Omówienie programowania w usłudze SQL Data Warehouse][Omówienie programowania w usłudze SQL Data Warehouse].
+Zobacz artykuł [Omówienie tabel][Omówienie tabel] lub [składni polecenia CREATE TABLE][składni polecenia CREATE TABLE], aby uzyskać więcej informacji dotyczących tworzenia tabel w usłudze SQL Data Warehouse.
 
 <!--Image references-->
 

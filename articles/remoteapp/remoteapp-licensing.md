@@ -1,26 +1,25 @@
-<properties
-    pageTitle="Licencjonowanie usługi Azure RemoteApp | Microsoft Azure"
-    description="Dowiedz się, jak działa licencjonowanie w usłudze Azure RemoteApp."
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+---
+title: Licencjonowanie usługi Azure RemoteApp | Microsoft Docs
+description: Dowiedz się, jak działa licencjonowanie w usłudze Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/15/2016"
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
-
+---
 # Jak działa licencjonowanie w usłudze Azure RemoteApp?
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 Usługa Azure RemoteApp została skonfigurowana, utworzono szablony i wszystko jest gotowe do opublikowania aplikacji dla użytkowników. Pozostała jednak ostatnia rzecz do ustalenia: licencjonowanie. Jak działa licencjonowanie usługi RemoteApp i aplikacji udostępnianych za pośrednictwem usługi RemoteApp?
 
@@ -37,8 +36,6 @@ W przypadku innych aplikacji musisz upewnić się, że masz licencję na udostę
 Ma to sens, prawda? Możesz opublikować dowolną aplikację, którą zgodnie z prawem możesz udostępniać. Należy upewnić się, że naprawdę możesz udostępniać swoje programy.
 
 Należy pamiętać, że w przypadku kolekcji w chmurze nie można użyć umowy licencji zbiorczej ani licencji dostępowej. *Możesz* jednak aktywować aplikacje w kolekcji hybrydowej (z wyjątkiem usługi Office) przy użyciu umowy licencji zbiorczej. Wystarczy zainstalować je w obrazie szablonu z nośnika licencji zbiorczej. Postępuj zgodnie z informacjami otrzymanymi od dostawcy aplikacji w celu zainstalowania licencji w środowisku pulpitu zdalnego.
-
-
 
 <!--HONumber=Sep16_HO3-->
 

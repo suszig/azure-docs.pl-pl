@@ -1,15 +1,13 @@
 ## Wdrażanie szablonu ARM przy użyciu programu PowerShell
-
 Aby wdrożyć pobrany szablon ARM przy użyciu programu PowerShell, wykonaj poniższe kroki.
 
 1. Jeśli nie znasz programu Azure PowerShell, zapoznaj się z artykułem [Instalowanie i konfigurowanie programu Azure PowerShell](../articles/powershell-install-configure.md) i postępuj zgodnie z instrukcjami aż do momentu logowania się w programie Azure i wyboru subskrypcji.
-
-3. W razie potrzeby uruchom polecenie **`New-AzureRmResourceGroup`**, aby utworzyć nową grupę zasobów. Poniższe polecenie tworzy grupę zasobów o nazwie *TestRG* w regionie *Środkowe stany USA* platformy Azure. Aby uzyskać więcej informacji na temat grup zasobów, zobacz temat [Omówienie usługi Azure Resource Manager](../articles/resource-group-overview.md).
-
+2. W razie potrzeby uruchom polecenie **`New-AzureRmResourceGroup`**, aby utworzyć nową grupę zasobów. Poniższe polecenie tworzy grupę zasobów o nazwie *TestRG* w regionie *Środkowe stany USA* platformy Azure. Aby uzyskać więcej informacji na temat grup zasobów, zobacz temat [Omówienie usługi Azure Resource Manager](../articles/resource-group-overview.md).
+   
         New-AzureRmResourceGroup -Name TestRG -Location centralus
-        
+   
     Oto oczekiwane dane wyjściowe po wprowadzeniu powyższego polecenia:
-
+   
         ResourceGroupName : TestRG
         Location          : centralus
         ProvisioningState : Succeeded
@@ -19,14 +17,13 @@ Aby wdrożyć pobrany szablon ARM przy użyciu programu PowerShell, wykonaj poni
                             =======  ==========
                             *
         ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
-
-4. Uruchom polecenie cmdlet **`New-AzureRmResourceGroupDeployment`**, aby wdrożyć nową sieć wirtualną przy użyciu uprzednio pobranego i zmodyfikowanego pliku szablonu i pliku parametrów.
-
+3. Uruchom polecenie cmdlet **`New-AzureRmResourceGroupDeployment`**, aby wdrożyć nową sieć wirtualną przy użyciu uprzednio pobranego i zmodyfikowanego pliku szablonu i pliku parametrów.
+   
         New-AzureRmResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
             -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-            
+   
     Oto oczekiwane dane wyjściowe po wprowadzeniu powyższego polecenia:
-        
+   
         DeploymentName    : TestVNetDeployment
         ResourceGroupName : TestRG
         ProvisioningState : Succeeded
@@ -43,16 +40,14 @@ Aby wdrożyć pobrany szablon ARM przy użyciu programu PowerShell, wykonaj poni
                             subnet1Name      String                     FrontEnd
                             subnet2Prefix    String                     192.168.2.0/24
                             subnet2Name      String                     BackEnd
-        
+   
         Outputs           :
-
-5. Uruchom polecenie cmdlet **`Get-AzureRmVirtualNetwork`**, aby wyświetlić właściwości nowej sieci wirtualnej, jak pokazano poniżej.
-
+4. Uruchom polecenie cmdlet **`Get-AzureRmVirtualNetwork`**, aby wyświetlić właściwości nowej sieci wirtualnej, jak pokazano poniżej.
 
         Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-        
+
     Oto oczekiwane dane wyjściowe po wprowadzeniu powyższego polecenia:
-        
+
         Name              : TestVNet
         ResourceGroupName : TestRG
         Location          : centralus

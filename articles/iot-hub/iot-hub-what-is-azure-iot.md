@@ -1,32 +1,30 @@
-<properties
- pageTitle="Rozwiązania platformy Azure dla Internetu rzeczy | Microsoft Azure"
- description="Przegląd architektury IoT na platformie Azure, w tym omówienie struktury przykładowego rozwiązania i relacji między nim a usługą Azure IoT Hub, zestawami SDK urządzeń i wstępnie skonfigurowanymi rozwiązaniami"
- services="iot-hub"
- documentationCenter=""
- authors="dominicbetts"
- manager="timlt"
- editor=""/>
+---
+title: Rozwiązania platformy Azure dla Internetu rzeczy | Microsoft Docs
+description: Przegląd architektury IoT na platformie Azure, w tym omówienie struktury przykładowego rozwiązania i relacji między nim a usługą Azure IoT Hub, zestawami SDK urządzeń i wstępnie skonfigurowanymi rozwiązaniami
+services: iot-hub
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="na"
- ms.topic="get-started-article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="10/05/2016"
- ms.author="dobett"/>
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/05/2016
+ms.author: dobett
 
-
-[AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
+---
+[!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Następne kroki
-
 Azure IoT Hub jest usługą platformy Azure, która umożliwia bezpieczną i niezawodną dwukierunkową komunikację między zapleczem aplikacji a milionami urządzeń. Umożliwia zapleczu aplikacji:
 
-- Otrzymywanie danych telemetrycznych w odpowiedniej skali z urządzeń użytkownika.
-- Przekazywanie danych z urządzeń użytkownika do strumieniowego procesora zdarzeń.
-- Odbieranie przekazywanych plików z urządzeń.
-- Wysyłanie poleceń chmura-urządzenie do określonych urządzeń.
+* Otrzymywanie danych telemetrycznych w odpowiedniej skali z urządzeń użytkownika.
+* Przekazywanie danych z urządzeń użytkownika do strumieniowego procesora zdarzeń.
+* Odbieranie przekazywanych plików z urządzeń.
+* Wysyłanie poleceń chmura-urządzenie do określonych urządzeń.
 
 Za pomocą usługi IoT Hub można implementować własne zaplecze rozwiązania. Ponadto usługa IoT Hub zawiera rejestr tożsamości urządzeń używany do aprowizacji urządzeń, ich poświadczeń zabezpieczeń oraz praw do łączenia się z centrum. Aby dowiedzieć się więcej na temat usługi IoT Hub, zobacz [Co to jest usługa IoT Hub?][lnk-iot-hub].
 

@@ -1,23 +1,22 @@
 
-<properties
-    pageTitle="Używanie programu Azure AD Connect Health z usługą synchronizacji | Microsoft Azure"
-    description="Jest to strona programu Azure AD Connect Health, która będzie omawiać temat monitorowania synchronizacji usługi Azure AD Connect."
-    services="active-directory"
-    documentationCenter=""
-    authors="billmath"
-    manager="femila"
-    editor="curtand"/>
+---
+title: Używanie programu Azure AD Connect Health z usługą synchronizacji | Microsoft Docs
+description: Jest to strona programu Azure AD Connect Health, która będzie omawiać temat monitorowania synchronizacji usługi Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: femila
+editor: curtand
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/08/2016"
-    ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/08/2016
+ms.author: billmath
 
-
+---
 # Używanie programu Azure AD Connect Health w celu synchronizacji
 Poniższa dokumentacja dotyczy monitorowania programu Azure AD Connect (synchronizacja) przy użyciu programu Azure AD Connect Health.  Aby uzyskać informacje na temat monitorowania usług AD FS za pomocą programu Azure AD Connect Health, zobacz [Używanie programu Azure AD Connect Health z usługami AD FS](active-directory-aadconnect-health-adfs.md). Ponadto, aby uzyskać informacje na temat monitorowania Usług domenowych Active Directory za pomocą programu Azure AD Connect Health, zobacz [Używanie programu Azure AD Connect Health z usługami AD DS](active-directory-aadconnect-health-adds.md).
 
@@ -44,8 +43,8 @@ Możesz to zmienić, klikając pozycję „Ustawienia” i pozwalając agentowi 
 ## Wgląd w szczegóły synchronizacji
 Najnowsza wersja programu Azure AD Connect Health do celów synchronizacji ma następujące nowe funkcje:
 
-- Opóźnienie operacji synchronizacji
-- Trend zmiany obiektu
+* Opóźnienie operacji synchronizacji
+* Trend zmiany obiektu
 
 ### Opóźnienie synchronizacji
 Ta funkcja prezentuje w sposób graficzny trend opóźnienia operacji synchronizacji (import, eksport itd.) dla łączników.  Zapewnia to szybki i łatwy sposób zrozumienia nie tylko opóźnień operacji (dobrze, jeśli dysponujesz dużym zestawem zachodzących zmian), ale także wykrycia anomalii w opóźnieniu, które mogą wymagać bliższego zbadania.
@@ -60,7 +59,6 @@ Ta funkcja prezentuje w sposób graficzny trend liczby zmian obliczanych i ekspo
 ![Opóźnienie synchronizacji](./media/active-directory-aadconnect-health-sync/syncobjectchanges.png)
 
 ## Powiązane linki
-
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Instalowanie agenta programu Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Operacje w programie Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
@@ -68,9 +66,6 @@ Ta funkcja prezentuje w sposób graficzny trend liczby zmian obliczanych i ekspo
 * [Używanie programu Azure AD Connect Health z usługami AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health — często zadawane pytania](active-directory-aadconnect-health-faq.md)
 * [Historia wersji programu Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-
-
-
 
 <!--HONumber=Sep16_HO4-->
 

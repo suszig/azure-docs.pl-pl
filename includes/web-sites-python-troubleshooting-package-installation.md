@@ -3,22 +3,20 @@ Nie zawsze instalowanie pakietów w sieci Azure przy użyciu programu pip kończ
 W tej części wyjaśniono, jak rozwiązać ten problem.
 
 ### Żądanie plików w formacie Wheel
-
 Jeśli instalacja pakietu wymaga kompilatora, możesz spróbować skontaktować się z właścicielem pakietu i zażądać udostępnienia go jako plików w formacie Wheel.
 
-Od momentu opublikowania kompilatora [Microsoft Visual C++ Compiler for Python 2.7][] tworzenie pakietów korzystających z kodu macierzystego języka Python 2.7 stało się łatwiejsze.
+Od momentu opublikowania kompilatora [Microsoft Visual C++ Compiler for Python 2.7][Microsoft Visual C++ Compiler for Python 2.7] tworzenie pakietów korzystających z kodu macierzystego języka Python 2.7 stało się łatwiejsze.
 
 ### Tworzenie plików w formacie Wheel (wymaga systemu Windows)
-
 Uwaga: Korzystając z tej opcji, należy się upewnić, że pakiet jest kompilowany w środowisku Python odpowiadającym platformie/architekturze/wersji używanym w aplikacji sieci Web w usłudze Azure App Service (Windows/32-bitowy/2.7 lub 3.4).
 
 Jeśli pakiet nie instaluje się z powodu braku kompilatora, można zainstalować kompilator na komputerze lokalnym i skompilować pakiet w formacie Wheel, który następnie zostanie dołączony do repozytorium.
 
-Użytkownicy systemów Mac/Linux: Jeśli nie masz dostępu do komputera z systemem Windows, zobacz artykuł [Tworzenie maszyny wirtualnej w systemie Windows][] opisujący tworzenie maszyny wirtualnej na platformie Azure.  W zależności od potrzeb można wykorzystać ją przy tworzeniu plików w formacie Wheel, dodać je do repozytorium, po czym usunąć maszynę wirtualną. 
+Użytkownicy systemów Mac/Linux: Jeśli nie masz dostępu do komputera z systemem Windows, zobacz artykuł [Tworzenie maszyny wirtualnej w systemie Windows][Tworzenie maszyny wirtualnej w systemie Windows] opisujący tworzenie maszyny wirtualnej na platformie Azure.  W zależności od potrzeb można wykorzystać ją przy tworzeniu plików w formacie Wheel, dodać je do repozytorium, po czym usunąć maszynę wirtualną. 
 
-W przypadku języka Python 2.7 można zainstalować oprogramowanie [Microsoft Visual C++ Compiler for Python 2.7][].
+W przypadku języka Python 2.7 można zainstalować oprogramowanie [Microsoft Visual C++ Compiler for Python 2.7][Microsoft Visual C++ Compiler for Python 2.7].
 
-W przypadku języka Python 3.4 można zainstalować oprogramowanie [Microsoft Visual C++ 2010 Express][].
+W przypadku języka Python 3.4 można zainstalować oprogramowanie [Microsoft Visual C++ 2010 Express][Microsoft Visual C++ 2010 Express].
 
 Aby utworzyć pliki w formacie Wheel, będzie potrzebny pakiet Wheel:
 
@@ -40,7 +38,6 @@ Jeśli chcesz umieścić w folderze \wheelhouse wszystkie zależności i nie uż
     --no-index
 
 ### Instalacja niestandardowa
-
 Można dostosować skrypt wdrożenia w celu zainstalowania pakietu w środowisku wirtualnym przy użyciu instalatora alternatywnego, takiego jak easy\_install.  Zapoznaj się z plikiem deploy.cmd, w którym odpowiedni przykład jest zakomentowany.  Upewnij się, że takie pakiety nie są wymienione w pliku requirements.txt, gdyż w przeciwnym razie program pip może je zainstalować.
 
 Dodaj następujące polecenie do skryptu wdrażania:
@@ -54,7 +51,6 @@ Dodaj następujące polecenie do skryptu wdrażania:
     env\scripts\easy_install "%DEPLOYMENT_SOURCE%\installers\somepackage.exe"
 
 ### Dołącza środowisko wirtualne do repozytorium (wymaga systemu Windows)
-
 Uwaga: Korzystając z tej opcji, należy się upewnić, że jest używane środowisko wirtualne odpowiadające platformie/architekturze/wersji używanym w aplikacji sieci Web w usłudze Azure App Service (Windows/32-bitowy/2.7 lub 3.4).
 
 W przypadku dołączenia środowiska wirtualnego do repozytorium można zapobiec zarządzaniu środowiskiem wirtualnym w systemie Azure przez skrypt wdrażania, tworząc pusty plik:
@@ -62,7 +58,6 @@ W przypadku dołączenia środowiska wirtualnego do repozytorium można zapobiec
     .skipPythonDeployment
 
 Zaleca się usunięcie z aplikacji istniejącego środowiska wirtualnego w celu zapobieżenia pozostawieniu plików z okresu, kiedy środowisko wirtualne było zarządzane automatycznie.
-
 
 [Tworzenie maszyny wirtualnej w systemie Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
 [Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27

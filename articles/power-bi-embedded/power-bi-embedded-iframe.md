@@ -1,21 +1,22 @@
-<properties
-   pageTitle="Microsoft Power BI Embedded Preview — osadzanie raportu usługi Power BI przy użyciu elementu IFrame"
-   description="Microsoft Power BI Embedded Preview — podstawowy kod służący do integracji raportu w aplikacji, sposób uwierzytelniania za pomocą tokenu aplikacji Power BI Embedded, sposób uzyskiwania raportów"
-   services="power-bi-embedded"
-   documentationCenter=""
-   authors="dvana"
-   manager="NA"
-   editor=""
-   tags=""/>
-<tags
-   ms.service="power-bi-embedded"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="powerbi"
-   ms.date="05/16/2016"
-   ms.author="derrickv"/>
+---
+title: Microsoft Power BI Embedded Preview — osadzanie raportu usługi Power BI przy użyciu elementu IFrame
+description: Microsoft Power BI Embedded Preview — podstawowy kod służący do integracji raportu w aplikacji, sposób uwierzytelniania za pomocą tokenu aplikacji Power BI Embedded, sposób uzyskiwania raportów
+services: power-bi-embedded
+documentationcenter: ''
+author: dvana
+manager: NA
+editor: ''
+tags: ''
 
+ms.service: power-bi-embedded
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: powerbi
+ms.date: 05/16/2016
+ms.author: derrickv
+
+---
 # Osadzanie raportu usługi Power BI przy użyciu elementu IFrame
 W tym artykule opisano podstawowy kod dotyczący usługi **Power BI Embedded** związany z interfejsami API REST, tokenami aplikacji i elementem IFrame, a także fragmenty kodu JavaScript służące do integracji lub osadzania raportu w aplikacji.
 
@@ -27,20 +28,20 @@ Rozpocznijmy opis sposobu integracji raportu **Power BI Embedded** z aplikacją.
 
 Oto kroki integracji raportu.
 
-- Krok 1: [pobranie raportu do obszaru roboczego](#GetReport). W tym kroku użyjesz przepływu tokenu aplikacji w celu uzyskania tokenu dostępu potrzebnego do wywołania operacji REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) (pobierz raporty). Po pobraniu raportu z listy **Get Reports** możesz osadzić raport w aplikacji z elementem **IFrame**.
-- Krok 2: [osadzanie raportu w aplikacji](#EmbedReport). W tym kroku użyjesz tokenu osadzania dla raportu oraz fragmentów kodu JavaScript i elementu IFrame w celu integracji lub osadzenia raportu w aplikacji sieci Web.
+* Krok 1: [pobranie raportu do obszaru roboczego](#GetReport). W tym kroku użyjesz przepływu tokenu aplikacji w celu uzyskania tokenu dostępu potrzebnego do wywołania operacji REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) (pobierz raporty). Po pobraniu raportu z listy **Get Reports** możesz osadzić raport w aplikacji z elementem **IFrame**.
+* Krok 2: [osadzanie raportu w aplikacji](#EmbedReport). W tym kroku użyjesz tokenu osadzania dla raportu oraz fragmentów kodu JavaScript i elementu IFrame w celu integracji lub osadzenia raportu w aplikacji sieci Web.
 
 Jeśli chcesz uruchomić przykład, aby zobaczyć sposób integracji raportu, pobierz przykład [integracji raportu z elementem IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) z witryny GitHub i skonfiguruj trzy ustawienia pliku Web.Config:
 
-- **AccessKey**: klucz **AccessKey** służy do generowania tokenu Web JSON (JWT) używanego do pobierania i osadzania raportów. Aby dowiedzieć się, jak uzyskać klucz **AccessKey**, zobacz artykuł [Wprowadzenie do usługi Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
-- **WorkspaceName**: aby dowiedzieć się, jak uzyskać nazwę **WorkspaceName**, zobacz artykuł [Wprowadzenie do usługi Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
-- **WorkspaceId**: aby dowiedzieć się, jak uzyskać identyfikator **WorkspaceId**, zobacz artykuł [Wprowadzenie do usługi Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
+* **AccessKey**: klucz **AccessKey** służy do generowania tokenu Web JSON (JWT) używanego do pobierania i osadzania raportów. Aby dowiedzieć się, jak uzyskać klucz **AccessKey**, zobacz artykuł [Wprowadzenie do usługi Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
+* **WorkspaceName**: aby dowiedzieć się, jak uzyskać nazwę **WorkspaceName**, zobacz artykuł [Wprowadzenie do usługi Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
+* **WorkspaceId**: aby dowiedzieć się, jak uzyskać identyfikator **WorkspaceId**, zobacz artykuł [Wprowadzenie do usługi Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
 
 W dalszych częściach pokazano kod potrzebny do integracji raportu.
 
 <a name="GetReport"/>
-## Pobieranie raportu do obszaru roboczego
 
+## Pobieranie raportu do obszaru roboczego
 Aby zintegrować raport z aplikacją, potrzebny jest **identyfikator** i adres **embedUrl** raportu. Aby pobrać **identyfikator** i adres **embedUrl** raportu, należy wywołać operację REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) i wybrać raport z listy JSON. W części [Osadzanie raportu w aplikacji](#EmbedReport) użyjesz **identyfikatora** i adresu **embedUrl** raportu do osadzania raportu w swojej aplikacji.
 
 ### Odpowiedź JSON na operację Get Reports
@@ -109,13 +110,13 @@ protected void getReportsButton_Click(object sender, EventArgs e)
 ```
 
 <a name="EmbedReport"/>
-## Osadzanie raportu w aplikacji
 
+## Osadzanie raportu w aplikacji
 Do osadzenia raportu w aplikacji potrzebny jest token osadzania dla raportu. Token ten jest podobny do tokenu aplikacji używanego do wywołania operacji REST usługi **Power BI Embedded**, ale jest generowany dla zasobu raportu, a nie zasobu REST. Poniżej znajduje się kod służący do pobierania tokenu aplikacji dla raportu. Aby użyć tokenu aplikacji dla raportu, zobacz część [Osadzanie raportu w swojej aplikacji](#EmbedReportJS).
 
 <a name="EmbedReportToken"/>
-### Pobieranie tokenu aplikacji dla raportu
 
+### Pobieranie tokenu aplikacji dla raportu
 ```
 protected void getReportAppTokenButton_Click(object sender, EventArgs e)
 {
@@ -133,12 +134,11 @@ protected void getReportAppTokenButton_Click(object sender, EventArgs e)
 ```
 
 <a name="EmbedReportJS"/>
-### Osadzanie raportu w swojej aplikacji
 
+### Osadzanie raportu w swojej aplikacji
 Do osadzenia raportu usługi **Power BI** w aplikacji użyjesz elementu IFrame i kodu JavaScript. Oto przykład elementu IFrame i kodu JavaScript do osadzania raportu. Aby zobaczyć cały kod przykładowy służący do osadzania raportu, zobacz przykład [integracji raportu z elementem IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) w witrynie GitHub.
 
-![Iframe](media\power-bi-embedded-integrate-report\Iframe.png)
-
+![Iframe](media\\power-bi-embedded-integrate-report\\Iframe.png)
 
 ```
 window.onload = function () {
@@ -183,9 +183,7 @@ function postActionLoadReport() {
 Po osadzeniu raportu w aplikacji można go filtrować. W następnej części przedstawiono sposób filtrowania raportu za pomocą składni adresu URL.
 
 ## Filtrowanie raportu
-
 Osadzony raport można filtrować przy użyciu składni adresu URL. W tym celu dodaj parametr ciągu zapytania do adresu URL źródła iFrame z odpowiednim filtrem. Możesz **filtrować według wartości** i **ukryć okienko filtru**.
-
 
 **Filtrowanie według wartości**
 
@@ -203,7 +201,10 @@ Na przykład można filtrować dane, aby w tabeli Store pole Chain było równe 
 $filter=Store/Chain%20eq%20'Lindseys'
 ```
 
-> [AZURE.NOTE] {tableName/fieldName} nie może zawierać spacji ani znaków specjalnych. {fieldValue} akceptuje pojedyncze wartości kategorii.
+> [!NOTE]
+> {tableName/fieldName} nie może zawierać spacji ani znaków specjalnych. {fieldValue} akceptuje pojedyncze wartości kategorii.
+> 
+> 
 
 **Ukrywanie okienka filtru**
 
@@ -214,21 +215,18 @@ Aby ukryć **Okienko filtru**, możesz dodać parametr **filterPaneEnabled** do 
 ```
 
 ## Podsumowanie
-
 W tym artykule przedstawiono kod służący do integracji raportu usługi **Power BI** w aplikacji. Aby szybko rozpocząć integrowanie raportu w aplikacji, pobierz te przykłady z witryny GitHub:
 
-- [Przykład integracji raportu z elementem IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe)
-- [Przykładowa aplikacja sieci Web pulpitu nawigacyjnego](http://go.microsoft.com/fwlink/?LinkId=761493)
+* [Przykład integracji raportu z elementem IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe)
+* [Przykładowa aplikacja sieci Web pulpitu nawigacyjnego](http://go.microsoft.com/fwlink/?LinkId=761493)
 
 ## Zobacz też
-- [Wprowadzenie do usługi Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
-- [Rozpoczęcie pracy z przykładem](power-bi-embedded-get-started-sample.md)
-- [System.IdentityModel.Tokens.SigningCredentials](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
-- [System.IdentityModel.Tokens.JwtSecurityToken](https://msdn.microsoft.com/library/system.identitymodel.tokens.jwtsecuritytoken.aspx)
-- [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
-- [Pobieranie raportów](https://msdn.microsoft.com/library/mt711510.aspx)
-
-
+* [Wprowadzenie do usługi Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
+* [Rozpoczęcie pracy z przykładem](power-bi-embedded-get-started-sample.md)
+* [System.IdentityModel.Tokens.SigningCredentials](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
+* [System.IdentityModel.Tokens.JwtSecurityToken](https://msdn.microsoft.com/library/system.identitymodel.tokens.jwtsecuritytoken.aspx)
+* [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
+* [Pobieranie raportów](https://msdn.microsoft.com/library/mt711510.aspx)
 
 <!--HONumber=Jun16_HO2-->
 

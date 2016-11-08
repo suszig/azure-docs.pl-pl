@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Omówienie bazy danych Stretch | Microsoft Azure"
-    description="Dowiedz się, jak w sposób niewidoczny i bezpieczny usługa Stretch Database migruje zimne dane do chmury platformy Microsoft Azure."
-    services="sql-server-stretch-database"
-    documentationCenter=""
-    authors="douglaslMS"
-    manager=""
-    editor=""/>
+---
+title: Omówienie bazy danych Stretch | Microsoft Docs
+description: Dowiedz się, jak w sposób niewidoczny i bezpieczny usługa Stretch Database migruje zimne dane do chmury platformy Microsoft Azure.
+services: sql-server-stretch-database
+documentationcenter: ''
+author: douglaslMS
+manager: ''
+editor: ''
 
-<tags
-    ms.service="sql-server-stretch-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="06/27/2016"
-    ms.author="douglasl"/>
+ms.service: sql-server-stretch-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 06/27/2016
+ms.author: douglasl
 
-
+---
 # Omówienie bazy danych Stretch
-
 Usługa Stretch Database migruje zimne dane do chmury platformy Microsoft Azure w sposób niewidoczny i bezpieczny.
 
 Jeśli chcesz od razu rozpocząć pracę z bazą danych Stretch, zobacz artykuł [Get started by running the Enable Database for Stretch Wizard](sql-server-stretch-database-wizard.md) (Rozpoczęcie pracy przez uruchomienie Kreatora włączania bazy danych do usługi Stretch).
@@ -41,9 +39,8 @@ Ciesz się spokojem w trakcie rozciągania najważniejszych aplikacji do chmury.
 ## Do czego służy baza danych Stretch?
 Po włączeniu usługi Stretch Database dla wystąpienia programu SQL Server, bazy danych i co najmniej jednej tabeli usługa ta zaczyna w trybie cichym migrować zimne dane na platformę Azure.
 
--   W przypadku przechowywania zimnych danych w osobnej tabeli można migrować całą tabelę.
-
--   Jeśli tabela zawiera zarówno gorące, jak i zimne dane, można określić funkcję filtru, aby wybrać wiersze do migracji.
+* W przypadku przechowywania zimnych danych w osobnej tabeli można migrować całą tabelę.
+* Jeśli tabela zawiera zarówno gorące, jak i zimne dane, można określić funkcję filtru, aby wybrać wiersze do migracji.
 
 **Nie trzeba wprowadzać zmian w istniejących zapytaniach ani aplikacjach klienckich.** Można nadal mieć stały dostęp zarówno do danych lokalnych, jak i zdalnych — nawet podczas migracji danych. W przypadku zapytań zdalnych występuje niewielkie opóźnienie, ale ma ono miejsce tylko wtedy, gdy zapytanie dotyczy zimnych danych.
 
@@ -56,12 +53,12 @@ Po włączeniu usługi Stretch Database dla wystąpienia programu SQL Server, ba
 ## Czy potrzebujesz bazy danych Stretch?
 Jeśli następujące stwierdzenia są prawdziwe, baza danych Stretch może ułatwić spełnienie wymagań i rozwiązanie problemów.
 
-|Jesteś osobą podejmującą decyzje|Jesteś administratorem baz danych|
-|------------------------------|-------------------|
-|Muszę przez długi czas przechowywać dane transakcyjne.|Nie panuję już nad rozmiarem tabel.|
-|Czasami muszę wykonywać zapytania dotyczące zimnych danych.|Moim użytkownikom zależy na dostępie do zimnych danych, ale rzadko ich używają.|
-|Mam aplikacje, w tym starsze wersje, których nie chcę aktualizować.|Muszę ciągle kupować i dodawać więcej miejsca do magazynowania.|
-|Chcę znaleźć sposób, aby zaoszczędzić na magazynie.|Nie mogę utworzyć kopii zapasowej ani przywrócić tak dużych tabel w ramach umowy SLA.|
+| Jesteś osobą podejmującą decyzje | Jesteś administratorem baz danych |
+| --- | --- |
+| Muszę przez długi czas przechowywać dane transakcyjne. |Nie panuję już nad rozmiarem tabel. |
+| Czasami muszę wykonywać zapytania dotyczące zimnych danych. |Moim użytkownikom zależy na dostępie do zimnych danych, ale rzadko ich używają. |
+| Mam aplikacje, w tym starsze wersje, których nie chcę aktualizować. |Muszę ciągle kupować i dodawać więcej miejsca do magazynowania. |
+| Chcę znaleźć sposób, aby zaoszczędzić na magazynie. |Nie mogę utworzyć kopii zapasowej ani przywrócić tak dużych tabel w ramach umowy SLA. |
 
 ## Jakiego typu bazy danych i tabele nadają się do bazy danych Stretch?
 Usługa Stretch Database obsługuje transakcyjne bazy danych z dużą ilością zimnych danych zazwyczaj przechowywanych w niewielkiej liczbie tabel. Tabele te mogą zawierać ponad miliard wierszy.

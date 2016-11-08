@@ -1,28 +1,28 @@
-<properties
-   pageTitle="Często zadawane pytania dotyczące magazynu usług Recovery Services | Microsoft Azure"
-   description="Ta wersja często zadawanych pytań dotyczy publicznej wersji zapoznawczej usługi Azure Backup. Odpowiedzi na często zadawane pytania dotyczące agenta kopii zapasowej, kopii zapasowej i przechowywania, odzyskiwania, zabezpieczeń i inne typowe pytania dotyczące rozwiązania Azure Backup."
-   services="backup"
-   documentationCenter=""
-   authors="markgalioto"
-   manager="jwhit"
-   editor=""
-   keywords="rozwiązanie kopii zapasowych; usługa kopii zapasowych"/>
+---
+title: Często zadawane pytania dotyczące magazynu usług Recovery Services | Microsoft Docs
+description: Ta wersja często zadawanych pytań dotyczy publicznej wersji zapoznawczej usługi Azure Backup. Odpowiedzi na często zadawane pytania dotyczące agenta kopii zapasowej, kopii zapasowej i przechowywania, odzyskiwania, zabezpieczeń i inne typowe pytania dotyczące rozwiązania Azure Backup.
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: jwhit
+editor: ''
+keywords: rozwiązanie kopii zapasowych; usługa kopii zapasowych
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-     ms.tgt_pltfrm="na"
-     ms.devlang="na"
-     ms.topic="get-started-article"
-     ms.date="08/21/2016"
-     ms.author="trinadhk; markgal; jimpark;"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/21/2016
+ms.author: trinadhk; markgal; jimpark;
 
-
+---
 # Magazyn usług Recovery Services — często zadawane pytania
-
-> [AZURE.SELECTOR]
-- [Często zadawane pytania dotyczące kopii zapasowych dla trybu klasycznego](backup-azure-backup-faq.md)
-- [Często zadawane pytania dotyczące kopii zapasowych dla trybu usługi Resource Manager](backup-azure-backup-ibiza-faq.md)
+> [!div class="op_single_selector"]
+> * [Często zadawane pytania dotyczące kopii zapasowych dla trybu klasycznego](backup-azure-backup-faq.md)
+> * [Często zadawane pytania dotyczące kopii zapasowych dla trybu usługi Resource Manager](backup-azure-backup-ibiza-faq.md)
+> 
+> 
 
 Ten artykuł zawiera informacje specyficzne dla magazynu usług Recovery Services oraz uzupełnia artykuł [Azure Backup FAQ](backup-azure-backup-faq.md) (Azure Backup — często zadawane pytania). Często zadawane pytania usługi Azure Backup zawierają pełny zestaw pytań i odpowiedzi dotyczących usługi Azure Backup.  
 
@@ -43,8 +43,6 @@ Kopie zapasowe klasycznych maszyn wirtualnych w magazynie usługi Backup nie są
 1. W magazynie usługi Backup przejdź do karty **Elementy chronione** i wybierz maszynę wirtualną. Kliknij pozycję [Zatrzymaj ochronę](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Pozostaw opcję *Usuń powiązane dane kopii zapasowych* **niezaznaczoną**. 
 2. Przeprowadź migrację maszyny wirtualnej z trybu klasycznego do trybu usługi Resource Manager. Upewnij się, że magazyn i sieć odpowiadające maszynie wirtualnej również zostały zmigrowane do trybu usługi Resource Manager. 
 3. Utwórz magazyn usługi Recovery Services i skonfiguruj kopię zapasową w zmigrowanej maszynie wirtualnej przy użyciu akcji **Kopia zapasowa** w górnej części pulpitu nawigacyjnego magazynu. Dowiedz się więcej na temat [włączania kopii zapasowych w magazynie usługi Recovery Services](backup-azure-vms-first-look-arm.md)
-
-
 
 <!--HONumber=Sep16_HO5-->
 

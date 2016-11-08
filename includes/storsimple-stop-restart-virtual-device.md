@@ -5,21 +5,14 @@ Użyj poniższych poleceń cmdlet do zatrzymywania i uruchamiania urządzenia wi
 
 `Stop-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-
 `Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
-    
-#### Aby ponownie uruchomić urządzenia wirtualne
 
+#### Aby ponownie uruchomić urządzenia wirtualne
 Jeśli urządzenie wirtualne działa i chcesz uruchomić je ponownie, kliknij nazwę urządzenia, a następnie kliknij pozycję **Uruchom ponownie**. Stan ponownie uruchamianego urządzenia wirtualnego to **Ponowne uruchamianie**. Gdy urządzenie wirtualne jest gotowe do użycia, jego stan to **Uruchomione**.
 
 Użyj poniższego polecenia cmdlet, aby ponownie uruchomić urządzenie wirtualne.
 
 `Restart-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
-
-
-
-
-
 
 <!--HONumber=Sep16_HO3-->
 

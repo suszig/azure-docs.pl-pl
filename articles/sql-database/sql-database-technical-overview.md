@@ -1,33 +1,32 @@
-<properties
-    pageTitle="Co to jest SQL Database? Wprowadzenie do usługi SQL Database | Microsoft Azure"
-    description="Wprowadzenie do usługi SQL Database: szczegóły techniczne i możliwości systemu zarządzania relacyjnymi bazami danych (RDBMS) w chmurze firmy Microsoft."
-    keywords="wprowadzenie do usługi sql, co to jest sql database"
-    services="sql-database"
-    documentationCenter=""
-    authors="shontnew"
-    manager="jhubbard"
-    editor="cgronlun"/>
+---
+title: Co to jest SQL Database? Wprowadzenie do usługi SQL Database | Microsoft Docs
+description: 'Wprowadzenie do usługi SQL Database: szczegóły techniczne i możliwości systemu zarządzania relacyjnymi bazami danych (RDBMS) w chmurze firmy Microsoft.'
+keywords: wprowadzenie do usługi sql, co to jest sql database
+services: sql-database
+documentationcenter: ''
+author: shontnew
+manager: jhubbard
+editor: cgronlun
 
-<tags
-   ms.service="sql-database"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management"
-   ms.date="08/16/2016"
-   ms.author="shkurhek"/>
+ms.service: sql-database
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 08/16/2016
+ms.author: shkurhek
 
-
+---
 # Co to jest SQL Database? Wprowadzenie do usługi SQL Database
-
 SQL Database jest usługą relacyjnych baz danych w chmurze opartą na aparacie Microsoft SQL Server, który jest czołowym rozwiązaniem na rynku, zapewniającym możliwości realizacji najistotniejszych zadań biznesowych. Usługa SQL Database oferuje przewidywalną wydajność, skalowalność bez przestojów, ciągłość prowadzenia działalności biznesowej i ochronę danych — wszystko przy bliskich zeru nakładach na administrację. Możesz skoncentrować się na szybkim tworzeniu aplikacji i skracaniu czasu wejścia na rynek, a nie na zarządzaniu maszynami wirtualnymi i infrastrukturą. Ponieważ usługa SQL Database jest oparta na aparacie [programu SQL Server](https://msdn.microsoft.com/library/bb545450.aspx), współpracuje z istniejącymi narzędziami programu SQL Server, bibliotekami i interfejsami API, dzięki czemu możesz łatwiej przenosić rozwiązania i rozszerzać je, korzystając z chmury.
 
 Ten artykuł obejmuje wprowadzenie do podstawowych pojęć i funkcji usługi SQL Database związanych z wydajnością, skalowalnością i możliwościami zarządzania, a także zawiera linki do szczegółowych informacji. Jeśli chcesz rozpocząć od razu, możesz [utworzyć pierwszą bazę danych SQL](sql-database-get-started.md) lub [elastyczną pulę baz danych](sql-database-elastic-pool-create-portal.md), co zajmie parę chwil. Jeśli chcesz bardziej zgłębić temat, obejrzyj ten 30-minutowy film.
 
-> [AZURE.VIDEO azurecon-2015-get-started-with-azure-sql-database]
+> [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON326/player]
+> 
+> 
 
 ## Dostosowanie wydajności i skalowanie bez przestojów
-
 Bazy danych SQL są dostępne w *warstwach usług*: Podstawowej, Standardowej i Premium. Każdej warstwa usług oferuje [różne poziomy wydajności i możliwości](sql-database-service-tiers.md) w celu obsługi różnych obciążeń bazy danych, zarówno niewielkich, jak i ogromnych. Możesz utworzyć pierwszą aplikację na małej bazie danych za niewielką sumę miesięcznie, a następnie [zmienić warstwę usługi](sql-database-scale-up.md) ręcznie lub programowo w dowolnym momencie, gdy aplikacja rozprzestrzeni się na cały świat, bez przestojów w pracy aplikacji ani klientów.
 
 W przypadku wielu firm i aplikacji możliwość tworzenia baz danych i dostosowywania wydajności pojedynczej aplikacji na żądanie jest wystarczająca, zwłaszcza jeśli wzorce użycia są względnie przewidywalne. Jednak w przypadku nieprzewidywalnych wzorców zarządzanie kosztami i modelem biznesowym może być trudne.
@@ -39,11 +38,9 @@ Wybrane rozwiązanie — pojedyncze lub elastyczne — nie stanowi dla użytkown
 Jednak jak porównać względną wydajność baz danych i pul baz danych? Skąd wiadomo, kiedy kliknąć, aby zatrzymać regulowanie w górę i w dół we właściwym miejscu? Odpowiedzią jest jednostka transakcji bazy danych (DTU) dla pojedynczej bazy danych i elastyczna jednostka DTU (eDTU) dla elastycznych baz danych i pul baz danych. Zobacz artykuł [Opcje i wydajność usługi SQL Database: poznaj, co jest dostępne w poszczególnych warstwach usług](sql-database-service-tiers.md), aby uzyskać szczegółowe informacje.
 
 ## Zapewnienie działania aplikacji i firmy
-
 Umowa dotycząca poziomu usług [(SLA)](http://azure.microsoft.com/support/legal/sla/) o czołowej w branży dostępności 99,99% dla platformy Azure, która jest obsługiwana przez globalną sieć centrów danych zarządzanych przez firmę Microsoft, pomaga zapewnić działanie aplikacji przez 24 godziny na dobę, 7 dni w tygodniu. W każdej bazie danych SQL korzystasz z wbudowanych rozwiązań odporności na uszkodzenia i ochrony danych, które w przeciwnym razie trzeba byłoby zaprojektować, kupić, zrealizować, a także nimi zarządzać. Ponadto, w zależności od wymagań firmy, możesz zażądać dodatkowych warstw ochrony w celu zapewnienia, że działanie aplikacji i firmy można szybko przywrócić w razie awarii, błędu lub innego zdarzenia. W usłudze SQL Database każda warstwa usług oferuje inne menu funkcji, których można użyć, aby rozpocząć i kontynuować pracę. Możesz użyć przywracania do punktu w czasie, aby przywrócić bazę danych do wcześniejszego stanu, nawet sprzed 35 dni. Ponadto, jeśli centrum danych hostujące bazy danych ulegnie awarii, możesz przełączyć działanie baz danych na ich repliki w innym regionie. Możesz też użyć replik do rozwoju lub relokacji do innych regionów.
 
 ![Replikacja geograficzna usługi SQL Database](./media/sql-database-technical-overview/azure_sqldb_map.png)
-
 
 Zobacz artykuł dotyczący [ciągłości biznesowej](sql-database-business-continuity.md), aby uzyskać szczegółowe informacje o funkcjach ciągłości biznesowej dostępnych w poszczególnych warstwach usług.
 
@@ -53,14 +50,12 @@ Program SQL Server ma tradycję solidnych zabezpieczeń danych, którą baza dan
 ## Następne kroki
 Po przeczytaniu wprowadzenia do usługi SQL Database i zapoznaniu się z nią możesz:
 
-- Zapoznać się z [cennikiem](https://azure.microsoft.com/pricing/details/sql-database/) zawierającym porównania i kalkulatory kosztów dla pojedynczej bazy danych i elastycznej bazy danych.
-- Poznać [pule elastyczne](sql-database-elastic-pool.md).
-- Rozpocząć [tworzenie pierwszej bazy danych](sql-database-get-started.md).
-- [Nawiązywać połączenia i wykonuj zapytania za pomocą programu SSMS.](sql-database-connect-query-ssms.md)
-- Utworzyć pierwszą aplikację w języku C#, Java, Node.js, PHP, Python lub Ruby, korzystając z [bibliotek połączeń dla usługi SQL Database i programu SQL Server](sql-database-libraries.md)
-- Wyświetlić indeks tytułów i opisy [wszystkich tematów dotyczących usługi SQL Database w systemie Azure](sql-database-index-all-articles.md).
-
-
+* Zapoznać się z [cennikiem](https://azure.microsoft.com/pricing/details/sql-database/) zawierającym porównania i kalkulatory kosztów dla pojedynczej bazy danych i elastycznej bazy danych.
+* Poznać [pule elastyczne](sql-database-elastic-pool.md).
+* Rozpocząć [tworzenie pierwszej bazy danych](sql-database-get-started.md).
+* [Nawiązywać połączenia i wykonuj zapytania za pomocą programu SSMS.](sql-database-connect-query-ssms.md)
+* Utworzyć pierwszą aplikację w języku C#, Java, Node.js, PHP, Python lub Ruby, korzystając z [bibliotek połączeń dla usługi SQL Database i programu SQL Server](sql-database-libraries.md)
+* Wyświetlić indeks tytułów i opisy [wszystkich tematów dotyczących usługi SQL Database w systemie Azure](sql-database-index-all-articles.md).
 
 <!--HONumber=Sep16_HO3-->
 

@@ -1,53 +1,52 @@
-<properties
-   pageTitle="Usługa Azure Backup — często zadawane pytania | Microsoft Azure"
-   description="Odpowiedzi na często zadawane pytania dotyczące usługi kopii zapasowej, agenta kopii zapasowej, kopii zapasowej i przechowywania, odzyskiwania, zabezpieczeń i inne typowe pytania dotyczące tworzenia kopii zapasowej i odzyskiwania po awarii."
-   services="backup"
-   documentationCenter=""
-   authors="markgalioto"
-   manager="jwhit"
-   editor=""
-   keywords="tworzenie kopii zapasowej i odzyskiwanie po awarii; usługa kopii zapasowej"/>
+---
+title: Usługa Azure Backup — często zadawane pytania | Microsoft Docs
+description: Odpowiedzi na często zadawane pytania dotyczące usługi kopii zapasowej, agenta kopii zapasowej, kopii zapasowej i przechowywania, odzyskiwania, zabezpieczeń i inne typowe pytania dotyczące tworzenia kopii zapasowej i odzyskiwania po awarii.
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: jwhit
+editor: ''
+keywords: tworzenie kopii zapasowej i odzyskiwanie po awarii; usługa kopii zapasowej
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-     ms.tgt_pltfrm="na"
-     ms.devlang="na"
-     ms.topic="get-started-article"
-     ms.date="08/29/2016"
-     ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/29/2016
+ms.author: trinadhk; giridham; arunak; markgal; jimpark;
 
-
+---
 # <a name="azure-backup-service--faq"></a>Usługa Azure Backup — często zadawane pytania
-
-> [AZURE.SELECTOR]
-- [Usługa Backup — często zadawane pytania dotyczące trybu klasycznego](backup-azure-backup-faq.md)
-- [Usługa Backup — często zadawane pytania dotyczące trybu Resource Manager](backup-azure-backup-ibiza-faq.md)
+> [!div class="op_single_selector"]
+> * [Usługa Backup — często zadawane pytania dotyczące trybu klasycznego](backup-azure-backup-faq.md)
+> * [Usługa Backup — często zadawane pytania dotyczące trybu Resource Manager](backup-azure-backup-ibiza-faq.md)
+> 
+> 
 
 Ten artykuł zawiera listę często zadawanych pytań (i odpowiedzi na nie) dotyczących usługi Azure Backup. Nasza społeczność odpowiada szybko, a często zadawane pytania są dodawane do tego artykułu. Odpowiedzi na pytania zwykle zawierają odwołania lub informacje dotyczące pomocy technicznej. Pytania dotyczące usługi Azure Backup można zadawać w sekcji dyskusyjnej tego lub powiązanego artykułu. Pytania dotyczące usługi Azure Backup można również zadawać na [forum dyskusyjnym](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
-
 
 ## <a name="what-is-the-list-of-supported-operating-systems-from-which-i-can-back-up-to-azure-using-azure-backup?-"></a>Jaka jest lista obsługiwanych systemów operacyjnych, z których można tworzyć kopie zapasowe na platformie Azure przy użyciu usługi Azure Backup? <br/>
 Usługa Azure Backup obsługuje następujące systemy operacyjne i umożliwia tworzenie kopii zapasowych plików i folderów oraz kopii zapasowych aplikacji przy użyciu serwera usługi Azure Backup i serwera SCDPM. 
 
-| System operacyjny        | Platforma           | SKU  |
-| :------------- |-------------| :-----|
-| Windows 8 i najnowsze dodatki Service Pack      | 64-bitowa | Enterprise, Pro |
-| Windows 7 i najnowsze dodatki Service Pack      | 64-bitowa | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
-| Windows 8.1 i najnowsze dodatki Service Pack | 64-bitowa      |    Enterprise, Pro |
-| Windows 10      | 64-bitowa | Enterprise, Pro, Home |
-|Windows Server 2012 R2 i najnowsze dodatki Service Pack| 64-bitowa| Standard, Datacenter, Foundation|
-|Windows Server 2012 i najnowsze dodatki Service Pack|    64-bitowa| Datacenter, Foundation, Standard|
-|Windows Storage Server 2012 R2 i najnowsze dodatki Service Pack  |64-bitowa|    Standard, Workgroup|
-|Windows Storage Server 2012 i najnowsze dodatki Service Pack |64-bitowa |Standard, Workgroup
-|Windows Server 2012 R2 i najnowsze dodatki Service Pack  |64-bitowa|    Essential|
-|Windows Server 2008 R2 SP1 |64-bitowa|    Standard, Enterprise, Datacenter, Foundation|
-|Windows Server 2008 SP2    |64-bitowa|    Standard, Enterprise, Datacenter, Foundation|
+| System operacyjny | Platforma | SKU |
+|:--- | --- |:--- |
+| Windows 8 i najnowsze dodatki Service Pack |64-bitowa |Enterprise, Pro |
+| Windows 7 i najnowsze dodatki Service Pack |64-bitowa |Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
+| Windows 8.1 i najnowsze dodatki Service Pack |64-bitowa |Enterprise, Pro |
+| Windows 10 |64-bitowa |Enterprise, Pro, Home |
+| Windows Server 2012 R2 i najnowsze dodatki Service Pack |64-bitowa |Standard, Datacenter, Foundation |
+| Windows Server 2012 i najnowsze dodatki Service Pack |64-bitowa |Datacenter, Foundation, Standard |
+| Windows Storage Server 2012 R2 i najnowsze dodatki Service Pack |64-bitowa |Standard, Workgroup |
+| Windows Storage Server 2012 i najnowsze dodatki Service Pack |64-bitowa |Standard, Workgroup |
+| Windows Server 2012 R2 i najnowsze dodatki Service Pack |64-bitowa |Essential |
+| Windows Server 2008 R2 SP1 |64-bitowa |Standard, Enterprise, Datacenter, Foundation |
+| Windows Server 2008 SP2 |64-bitowa |Standard, Enterprise, Datacenter, Foundation |
 
 W przypadku usługi kopii zapasowych maszyny wirtualnej platformy Azure:
 
-- **Linux**: usługa Azure Backup obsługuje [dystrybucje zalecane dla platformy Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) z wyjątkiem systemu operacyjnego Linux Core.  W przypadku pozostałych dystrybucji opartych na modelu „Bring Your Own Linux” usługa Azure Backup powinna działać, jeśli na maszynie wirtualnej jest dostępny agent maszyny wirtualnej oraz jest obsługiwany język Python.
-- **Windows Server**: wersje starsze niż Windows Server 2008 R2 nie są obsługiwane.
+* **Linux**: usługa Azure Backup obsługuje [dystrybucje zalecane dla platformy Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) z wyjątkiem systemu operacyjnego Linux Core.  W przypadku pozostałych dystrybucji opartych na modelu „Bring Your Own Linux” usługa Azure Backup powinna działać, jeśli na maszynie wirtualnej jest dostępny agent maszyny wirtualnej oraz jest obsługiwany język Python.
+* **Windows Server**: wersje starsze niż Windows Server 2008 R2 nie są obsługiwane.
 
 ## <a name="where-can-i-download-the-latest-azure-backup-agent?-"></a>Gdzie można pobrać najnowszą wersję agenta usługi Azure Backup? <br/>
 Najnowszą wersję agenta tworzenia kopii zapasowej systemu Windows Server, System Center DPM lub klienta systemu Windows można pobrać [tutaj](http://aka.ms/azurebackup_agent). Aby utworzyć kopię zapasową maszyny wirtualnej, należy skorzystać z agenta maszyny wirtualnej (który automatycznie instaluje właściwe rozszerzenie). Agent maszyny wirtualnej znajduje się już na maszynie wirtualnej, która została utworzona z poziomu galerii Azure.
@@ -74,26 +73,26 @@ Należy zarejestrować nową nazwę serwera w magazynie usługi Backup. Podczas 
 ## <a name="what-types-of-drives-can-i-backup-files-and-folders-from?-"></a>Z jakich typów dysków można tworzyć kopie zapasowe plików i folderów? <br/>
 Nie można utworzyć kopii zapasowej z następującego zestawu dysków/woluminów:
 
-- Nośniki wymienne: dysk musi być stały, aby mógł posłużyć jako źródło elementu kopii zapasowej.
-- Woluminy tylko do odczytu: wolumin musi mieć możliwość zapisu ze względu na działanie usługi kopiowania woluminów w tle (VSS, volume shadow copy).
-- Woluminy offline: wolumin musi być w trybie online, aby mogła działać usługa VSS.
-- Udział sieciowy: wolumin musi być lokalny dla serwera, aby możliwe było wykonanie kopii zapasowej za pomocą usługi kopii zapasowej online.
-- Woluminy chronione przez funkcję BitLocker: wolumin musi być odblokowany przed próbą wykonania kopii zapasowej.
-- Identyfikacja systemu plików: w tej wersji usługi kopii zapasowej online jest obsługiwany tylko system NTFS.
+* Nośniki wymienne: dysk musi być stały, aby mógł posłużyć jako źródło elementu kopii zapasowej.
+* Woluminy tylko do odczytu: wolumin musi mieć możliwość zapisu ze względu na działanie usługi kopiowania woluminów w tle (VSS, volume shadow copy).
+* Woluminy offline: wolumin musi być w trybie online, aby mogła działać usługa VSS.
+* Udział sieciowy: wolumin musi być lokalny dla serwera, aby możliwe było wykonanie kopii zapasowej za pomocą usługi kopii zapasowej online.
+* Woluminy chronione przez funkcję BitLocker: wolumin musi być odblokowany przed próbą wykonania kopii zapasowej.
+* Identyfikacja systemu plików: w tej wersji usługi kopii zapasowej online jest obsługiwany tylko system NTFS.
 
 ## <a name="what-file-and-folder-types-can-i-back-up-from-my-server?"></a>Jakie typy plików i folderów z serwera można umieszczać w kopiach zapasowych?<br/>
 Obsługiwane są następujące typy:
 
-- Zaszyfrowane
-- Skompresowane
-- Rozrzedzone
-- Skompresowane i rozrzedzone
-- Twarde linki: nieobsługiwane, pomijane
-- Punkt ponownej analizy: nieobsługiwane, pomijane
-- Zaszyfrowane i skompresowane: nieobsługiwane, pomijane
-- Zaszyfrowane i rozrzedzone: nieobsługiwane, pomijane
-- Skompresowany strumień: nieobsługiwane, pomijane
-- Rozrzedzony strumień: nieobsługiwane, pomijane
+* Zaszyfrowane
+* Skompresowane
+* Rozrzedzone
+* Skompresowane i rozrzedzone
+* Twarde linki: nieobsługiwane, pomijane
+* Punkt ponownej analizy: nieobsługiwane, pomijane
+* Zaszyfrowane i skompresowane: nieobsługiwane, pomijane
+* Zaszyfrowane i rozrzedzone: nieobsługiwane, pomijane
+* Skompresowany strumień: nieobsługiwane, pomijane
+* Rozrzedzony strumień: nieobsługiwane, pomijane
 
 ## <a name="what's-the-minimum-size-requirement-for-the-cache-folder?-"></a>Jaki jest minimalny wymagany rozmiar folderu pamięci podręcznej? <br/>
 Rozmiar folderu pamięci podręcznej określa ilość danych, które można umieścić w kopii zapasowej. Folder pamięci podręcznej powinien udostępniać 5% miejsca wymaganego do przechowywania danych.
@@ -118,11 +117,11 @@ Ostrzeżenie to występuje, gdy ustawienia harmonogramu tworzenia kopii zapasowy
 ## <a name="what-firewall-rules-should-be-configured-for-azure-backup?-"></a>Jakie reguły zapory należy skonfigurować na potrzeby usługi Azure Backup? <br/>
 Aby zapewnić bezproblemową ochronę danych lokalnych i obciążeń na platformie Azure, warto umożliwić zaporze komunikowanie się z następującymi adresami URL:
 
-- www.msftncsi.com
-- \*.Microsoft.com
-- \*.WindowsAzure.com
-- \*.microsoftonline.com
-- \*.windows.net
+* www.msftncsi.com
+* \*.Microsoft.com
+* \*.WindowsAzure.com
+* \*.microsoftonline.com
+* \*.windows.net
 
 ## <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension?-"></a>Czy można zainstalować agenta usługi Azure Backup na maszynie wirtualnej, której kopia zapasowa została już utworzona przez usługę Azure Backup przy użyciu rozszerzenia maszyny wirtualnej? <br/>
 Naturalnie. Usługa Azure Backup udostępnia funkcję tworzenia kopii zapasowych na poziomie maszyny wirtualnej dla maszyn wirtualnych platformy Azure przy użyciu rozszerzenia maszyny wirtualnej. Można zainstalować agenta usługi Azure Backup w systemie operacyjnym Windows gościa do ochrony plików i folderów znajdujących się w tym systemie operacyjnym gościa.
@@ -133,10 +132,10 @@ Agenta usługi Azure Backup można zainstalować w systemie operacyjnym Windows 
 ## <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders.-can-i-now-install-scdpm-to-work-with-azure-backup-agent-to-protect-on-premises-application/vm-workloads-to-azure?-"></a>Agent usługi Azure Backup został zainstalowany w celu ochrony plików i folderów. Czy można teraz zainstalować program SCDPM do pracy z agentem usługi Azure Backup, aby chronić obciążenia aplikacji lokalnych i maszyn wirtualnych na platformie Azure? <br/>
 Aby używać usługi Azure Backup z programem SCDPM, najlepiej najpierw zainstalować program SCDPM, a dopiero potem agenta usługi Azure Backup. Zapewnia to bezproblemową integrację agenta usługi Azure Backup z programem SCDPM oraz umożliwia ochronę plików i folderów, obciążeń aplikacji i maszyn wirtualnych na platformie Azure bezpośrednio z konsoli zarządzania programu SCDPM. Instalowanie programu SCDPM po zainstalowaniu agenta usługi Azure Backup do celów wymienionych powyżej nie jest zalecane ani obsługiwane.
 
-## <a name="what-is-the-length-of-file-path-that-can-be-specified-as-part-of-azure-backup-policy-using-azure-backup-agent?-"></a>Jaka jest długość ścieżki pliku, którą można określić w ramach zasad usługi Azure Backup przy użyciu agenta usługi Azure Backup? <br/>  
+## <a name="what-is-the-length-of-file-path-that-can-be-specified-as-part-of-azure-backup-policy-using-azure-backup-agent?-"></a>Jaka jest długość ścieżki pliku, którą można określić w ramach zasad usługi Azure Backup przy użyciu agenta usługi Azure Backup? <br/>
 Agent usługi Azure Backup bazuje na systemie plików NTFS. [Specyfikacja długości ścieżki pliku jest ograniczona przez interfejs API systemu Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Gdy podczas tworzenia kopii zapasowej plików długość ścieżki pliku jest większa niż określona przez interfejs API systemu Windows, klienci mogą wybrać utworzenie kopii zapasowej plików z folderu nadrzędnego lub napędu dyskowego.  
 
-## <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent?"></a>Jakie znaki są dozwolone w ścieżce pliku zasad usługi Azure Backup przy użyciu agenta usługi Azure Backup? <br>  
+## <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent?"></a>Jakie znaki są dozwolone w ścieżce pliku zasad usługi Azure Backup przy użyciu agenta usługi Azure Backup? <br>
  Agent usługi Azure Backup bazuje na systemie plików NTFS. Dopuszcza [znaki obsługiwane w systemie NTFS](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) w ramach specyfikacji pliku.  
 
 ## <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-(bmr)-backup-for-a-physical-server?-"></a>Czy można używać programu Azure Backup Server do tworzenia kopii zapasowej z odzyskiwaniem systemu od zera (BMR) serwera fizycznego? <br/>
@@ -148,23 +147,23 @@ Tak, usługa Backup ma kilka alertów opartych na zdarzeniach, z których można
 ## <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up?-"></a>Czy istnieje ograniczenie rozmiaru poszczególnych źródeł danych, dla których tworzona jest kopia zapasowa? <br/>
 Na poziomie magazynu nie ma limitu ilości danych kopii zapasowej, ale usługa Azure Backup nakłada ograniczenia (z praktycznego punktu widzenia limity te są bardzo duże) na maksymalny rozmiar źródła danych. Według stanu na sierpień 2015 r. maksymalny rozmiar źródła danych dla obsługiwanych systemów operacyjnych wynosi:
 
-|L.p. | System operacyjny |  Maksymalny rozmiar źródła danych |
-| :-------------: |:-------------| :-----|
-|1| Windows Server 2012 lub nowszy| 54 400 GB|
-|2| Windows 8 lub nowszy| 54 400 GB|
-|3| Windows Server 2008, Windows Server 2008 R2 | 1700 GB|
-|4| Windows 7 | 1700 GB|
+| L.p. | System operacyjny | Maksymalny rozmiar źródła danych |
+|:---:|:--- |:--- |
+| 1 |Windows Server 2012 lub nowszy |54 400 GB |
+| 2 |Windows 8 lub nowszy |54 400 GB |
+| 3 |Windows Server 2008, Windows Server 2008 R2 |1700 GB |
+| 4 |Windows 7 |1700 GB |
 
 W poniższej tabeli opisano sposób ustalania rozmiaru dla każdego źródła danych.
 
-|   Źródło danych  |   Szczegóły |
-| :-------------: |:-------------|
-|Wolumin |Ilość danych kopii zapasowej z jednego woluminu komputera serwera lub klienta|
-|Maszyna wirtualna z funkcją Hyper-V | Suma danych wszystkich dysków VHD maszyny wirtualnej, której kopia zapasowa jest wykonywana|
-|Baza danych Microsoft SQL Server | Rozmiar pojedynczej bazy danych SQL, której kopia zapasowa jest wykonywana |
-|Microsoft SharePoint |Suma baz danych z zawartością i danymi konfiguracyjnymi w farmie programu SharePoint, której kopia zapasowa jest wykonywana|
-|Microsoft Exchange |Suma wszystkich baz danych programu Exchange w serwerze Exchange, którego kopia zapasowa jest wykonywana|
-|Stan systemu/BMR |Każda pojedyncza kopia BMR lub stanu systemu komputera, którego kopia zapasowa jest wykonywana|
+| Źródło danych | Szczegóły |
+|:---:|:--- |
+| Wolumin |Ilość danych kopii zapasowej z jednego woluminu komputera serwera lub klienta |
+| Maszyna wirtualna z funkcją Hyper-V |Suma danych wszystkich dysków VHD maszyny wirtualnej, której kopia zapasowa jest wykonywana |
+| Baza danych Microsoft SQL Server |Rozmiar pojedynczej bazy danych SQL, której kopia zapasowa jest wykonywana |
+| Microsoft SharePoint |Suma baz danych z zawartością i danymi konfiguracyjnymi w farmie programu SharePoint, której kopia zapasowa jest wykonywana |
+| Microsoft Exchange |Suma wszystkich baz danych programu Exchange w serwerze Exchange, którego kopia zapasowa jest wykonywana |
+| Stan systemu/BMR |Każda pojedyncza kopia BMR lub stanu systemu komputera, którego kopia zapasowa jest wykonywana |
 
 ## <a name="are-there-limits-on-the-number-of-times-a-backup-job-can-be-scheduled-per-day?"></a>Czy istnieją ograniczenia zaplanowanej częstotliwości wykonywania zadań tworzenia kopii zapasowej?<br/>
 Tak, zadania tworzenia kopii zapasowej na serwerze lub kliencie systemu Windows można uruchamiać maksymalnie trzy razy w ciągu dnia. Zadania tworzenia kopii zapasowej w programie System Center DPM można uruchamiać maksymalnie dwa razy dziennie. Zadanie tworzenia kopii zapasowej maszyn wirtualnych IaaS można uruchamiać jeden raz w ciągu dnia.
@@ -200,7 +199,7 @@ Nie. Firma Microsoft wyeliminowała ograniczenia dotyczące punktów odzyskiwani
  Wszystkie kopie zapasowe wykonywane przy użyciu agenta usługi Azure Backup, programu SCDPM lub serwera usługi Azure Backup są kompresowane i szyfrowane, zanim zostaną przesłane. Po zastosowaniu kompresji i szyfrowania dane w magazynie kopii zapasowych są mniejsze o 30–40%.
 
 ## <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-service?"></a>Czy istnieje sposób dostosowania wielkości przepustowości, która będzie używana przez usługę Backup?<br/>
- Tak, aby ustawić przepustowość, należy skorzystać z opcji **Zmień właściwości** agenta kopii zapasowej. Można dostosować wielkość przepustowości oraz czas, w którym będzie ona używana. Więcej informacji można znaleźć w temacie [Network Throttling](../backup-configure-vault.md#enable-network-throttling) (Ograniczanie przepustowości sieci).
+ Tak, aby ustawić przepustowość, należy skorzystać z opcji **Zmień właściwości** agenta kopii zapasowej. Można dostosować wielkość przepustowości oraz czas, w którym będzie ona używana. Więcej informacji można znaleźć w temacie [Network Throttling](backup-configure-vault.md#enable-network-throttling) (Ograniczanie przepustowości sieci).
 
 ## <a name="my-internet-bandwidth-is-limited-for-the-amount-of-data-i-need-to-back-up.-is-there-a-way-i-can-move-data-to-a-certain-location-with-a-large-network-pipe-and-push-that-data-into-azure?-"></a>Przepustowość sieci Internet jest ograniczona do ilości danych, jakie mają zostać umieszczone w kopii zapasowej. Czy istnieje sposób przeniesienia danych do określonej lokalizacji za pomocą dużego potoku sieciowego i wypchnięcia tych danych do platformy Azure? <br/>
 Kopię zapasową można wykonywać na platformie Azure przy użyciu standardowego procesu tworzenia kopii zapasowej online lub korzystając z usługi Azure Import/Export do przesyłania danych do magazynu obiektów blob na platformie Azure. Nie istnieją żadne inne sposoby umieszczenia danych kopii zapasowej w magazynie platformy Azure. Więcej informacji na temat korzystania z usługi Azure Import/Export za pomocą usługi Azure Backup można znaleźć w artykule [Offline Backup workflow](backup-azure-backup-import-export.md) (Przepływ pracy kopii zapasowej w trybie offline).
@@ -225,43 +224,40 @@ Klucz używany do szyfrowania danych kopii zapasowej jest przechowywany tylko lo
 
 ## <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agent?"></a>W jaki sposób można zmienić lokalizację pamięci podręcznej określoną dla agenta usługi Azure Backup?<br/>
  Aby zmienić lokalizację pamięci podręcznej, należy wykonać kolejno czynności wymienione na poniższej liście.
-- Należy zatrzymać aparat kopii zapasowej za pomocą następującego polecenia w wierszu polecenia z podwyższonym poziomem uprawnień:
 
+* Należy zatrzymać aparat kopii zapasowej za pomocą następującego polecenia w wierszu polecenia z podwyższonym poziomem uprawnień:
+  
   ```PS C:\> Net stop obengine```
+* Nie należy przenosić plików. Zamiast tego należy skopiować folder z obszarem pamięci podręcznej na inny dysk z wystarczającą ilością miejsca. Pierwotny obszar pamięci podręcznej można usunąć po potwierdzeniu, że kopie zapasowe działają z nowym obszarem pamięci podręcznej.
+* Należy zaktualizować następujące wpisy rejestru ścieżką do nowego folderu obszaru pamięci podręcznej.<br/>
 
-- Nie należy przenosić plików. Zamiast tego należy skopiować folder z obszarem pamięci podręcznej na inny dysk z wystarczającą ilością miejsca. Pierwotny obszar pamięci podręcznej można usunąć po potwierdzeniu, że kopie zapasowe działają z nowym obszarem pamięci podręcznej.
+| Ścieżka rejestru | Klucz rejestru | Wartość |
+| --- | --- | --- |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nowa lokalizacja folderu pamięci podręcznej* |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nowa lokalizacja folderu pamięci podręcznej* |
 
-- Należy zaktualizować następujące wpisy rejestru ścieżką do nowego folderu obszaru pamięci podręcznej.<br/>
-
-|Ścieżka rejestru | Klucz rejestru | Wartość |
-| ------ | ------- | ------|
-| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | *Nowa lokalizacja folderu pamięci podręcznej* |
-| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | *Nowa lokalizacja folderu pamięci podręcznej* |
-
-- Należy ponownie uruchomić aparat usługi Backup, wykonując następujące polecenie w wierszu polecenia z podwyższonym poziomem uprawnień:
-
+* Należy ponownie uruchomić aparat usługi Backup, wykonując następujące polecenie w wierszu polecenia z podwyższonym poziomem uprawnień:
+  
   ```PS C:\> Net start obengine```
-
+  
   Po pomyślnym zakończeniu tworzenia kopii zapasowej w nowej lokalizacji pamięci podręcznej można usunąć pierwotny folder pamięci podręcznej.
 
 ## <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expected?"></a>Gdzie można umieścić folder pamięci podręcznej, aby agent usługi Azure Backup działał zgodnie z oczekiwaniami?<br/>
 Nie zaleca się używać następujących lokalizacji dla folderu pamięci podręcznej:
 
-- Udział sieciowy lub nośniki wymienne: folder pamięci podręcznej musi być lokalny dla serwera, który wymaga wykonywania kopii zapasowych przy użyciu usługi kopii zapasowej online. Lokalizacje sieciowe ani nośniki wymienne, takie jak dyski USB, nie są obsługiwane.
-- Woluminy offline: folder pamięci podręcznej musi być w trybie online dla oczekiwanej kopii zapasowej wykonywanej za pomocą agenta usługi Azure Backup.
+* Udział sieciowy lub nośniki wymienne: folder pamięci podręcznej musi być lokalny dla serwera, który wymaga wykonywania kopii zapasowych przy użyciu usługi kopii zapasowej online. Lokalizacje sieciowe ani nośniki wymienne, takie jak dyski USB, nie są obsługiwane.
+* Woluminy offline: folder pamięci podręcznej musi być w trybie online dla oczekiwanej kopii zapasowej wykonywanej za pomocą agenta usługi Azure Backup.
 
 ## <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supported?"></a>Czy jakiekolwiek atrybuty folderu pamięci podręcznej nie są obsługiwane?<br/>
  Następujące atrybuty folderu pamięci podręcznej ani ich kombinacje nie są obsługiwane:
 
-- Zaszyfrowane
-- Deduplikowane
-- Skompresowane
-- Rozrzedzone
-- Punkt ponownej analizy
+* Zaszyfrowane
+* Deduplikowane
+* Skompresowane
+* Rozrzedzone
+* Punkt ponownej analizy
 
 Aby działanie agenta usługi Azure Backup przebiegało zgodnie z oczekiwaniami, ani folder pamięci podręcznej, ani dysk VHD metadanych nie powinny mieć żadnego z powyższych atrybutów.
-
-
 
 <!--HONumber=Oct16_HO3-->
 

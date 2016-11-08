@@ -1,30 +1,30 @@
-<properties
-    pageTitle="Tworzenie indeksu usługi Azure Search przy użyciu zestawu .NET SDK | Microsoft Azure | Hostowana usługa wyszukiwania w chmurze"
-    description="Tworzenie indeksu za pomocą kodu przy użyciu zestawu .NET SDK usługi Azure Search."
-    services="search"
-    documentationCenter=""
-    authors="brjohnstmsft"
-    manager=""
-    editor=""
-    tags="azure-portal"/>
+---
+title: Tworzenie indeksu usługi Azure Search przy użyciu zestawu .NET SDK | Microsoft Docs
+description: Tworzenie indeksu za pomocą kodu przy użyciu zestawu .NET SDK usługi Azure Search.
+services: search
+documentationcenter: ''
+author: brjohnstmsft
+manager: ''
+editor: ''
+tags: azure-portal
 
-<tags
-    ms.service="search"
-    ms.devlang="dotnet"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="brjohnst"/>
+ms.service: search
+ms.devlang: dotnet
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: brjohnst
 
-
+---
 # Tworzenie indeksu usługi Azure Search przy użyciu zestawu .NET SDK
-> [AZURE.SELECTOR]
-- [Omówienie](search-what-is-an-index.md)
-- [Portal](search-create-index-portal.md)
-- [.NET](search-create-index-dotnet.md)
-- [REST](search-create-index-rest-api.md)
-
+> [!div class="op_single_selector"]
+> * [Omówienie](search-what-is-an-index.md)
+> * [Portal](search-create-index-portal.md)
+> * [.NET](search-create-index-dotnet.md)
+> * [REST](search-create-index-rest-api.md)
+> 
+> 
 
 Ten artykuł przeprowadzi Cię przez proces tworzenia [indeksu](https://msdn.microsoft.com/library/azure/dn798941.aspx) usługi Azure Search przy użyciu [zestawu .NET SDK usługi Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx).
 
@@ -41,12 +41,13 @@ Po aprowizowaniu usługi Azure Search wszystko jest już prawie gotowe, aby móc
 
 Usługa będzie dysponować *kluczami administratora* i *kluczami zapytań*.
 
-  - Za pomocą podstawowego i pomocniczego *klucza administratora* przyznawane są pełne prawa do wszystkich operacji, łącznie z możliwością zarządzania usługą oraz tworzenia i usuwania indeksów, indeksatorów i źródeł danych. Dostępne są dwa klucze, dzięki czemu możesz nadal używać klucza pomocniczego, jeśli zdecydujesz się na ponowne wygenerowanie klucza podstawowego, i na odwrót.
-  - *Klucze zapytań* umożliwiają dostęp tylko do odczytu do indeksów oraz dokumentów i są zazwyczaj dystrybuowane do aplikacji klienckich, które wysyłają żądania wyszukiwania.
+* Za pomocą podstawowego i pomocniczego *klucza administratora* przyznawane są pełne prawa do wszystkich operacji, łącznie z możliwością zarządzania usługą oraz tworzenia i usuwania indeksów, indeksatorów i źródeł danych. Dostępne są dwa klucze, dzięki czemu możesz nadal używać klucza pomocniczego, jeśli zdecydujesz się na ponowne wygenerowanie klucza podstawowego, i na odwrót.
+* *Klucze zapytań* umożliwiają dostęp tylko do odczytu do indeksów oraz dokumentów i są zazwyczaj dystrybuowane do aplikacji klienckich, które wysyłają żądania wyszukiwania.
 
 Podczas tworzenia indeksu można użyć zarówno podstawowego, jak i pomocniczego klucza administratora.
 
 <a name="CreateSearchServiceClient"></a>
+
 ## II. Tworzenie wystąpienia klasy SearchServiceClient
 Aby rozpocząć korzystanie z zestawu .NET SDK usługi Azure Search, konieczne jest utworzenie wystąpienia klasy `SearchServiceClient`. Ta klasa ma kilka konstruktorów. Konstruktor odpowiedni w tym przypadku przyjmuje jako parametry nazwę usługi wyszukiwania i obiekt `SearchCredentials`. `SearchCredentials` opakowuje klucz api-key.
 
@@ -61,9 +62,13 @@ SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, n
 
 `SearchServiceClient` ma właściwość `Indexes`. Ta właściwość udostępnia wszystkie metody, które są potrzebne do tworzenia, wyświetlania list, aktualizowania lub usuwania indeksów usługi Azure Search.
 
-> [AZURE.NOTE] Klasa `SearchServiceClient` zarządza połączeniami z usługą wyszukiwania. W celu uniknięcia otwarcia zbyt wielu połączeń, należy, w miarę możliwości, udostępnić pojedyncze wystąpienie klasy `SearchServiceClient` w aplikacji. Metody tej klasy są bezpieczne wątkowo, co pozwala na tego rodzaju udostępnianie.
+> [!NOTE]
+> Klasa `SearchServiceClient` zarządza połączeniami z usługą wyszukiwania. W celu uniknięcia otwarcia zbyt wielu połączeń, należy, w miarę możliwości, udostępnić pojedyncze wystąpienie klasy `SearchServiceClient` w aplikacji. Metody tej klasy są bezpieczne wątkowo, co pozwala na tego rodzaju udostępnianie.
+> 
+> 
 
 <a name="DefineIndex"></a>
+
 ## III. Definiowanie indeksu usługi Azure Search przy użyciu klasy `Index`
 Pojedyncze wywołanie metody `Indexes.Create` spowoduje utworzenie indeksu. Ta metoda przyjmuje jako parametr obiekt `Index`, który definiuje indeks usługi Azure Search. Należy utworzyć obiekt `Index` i zainicjować go w następujący sposób:
 
@@ -98,11 +103,14 @@ var definition = new Index()
 
 Dla każdego obiektu `Field` starannie wybraliśmy wartości właściwości, kierując się tym, jak naszym zdaniem będą one używane w aplikacji. Na przykład istnieje duże prawdopodobieństwo, że osoby szukające hoteli będzie interesować dopasowanie słów kluczowych w polu `description`, dlatego włączyliśmy wyszukiwanie pełnotekstowe dla tego pola przez ustawienie właściwości `IsSearchable` na wartość `true`.
 
-Zwróć uwagę, że dokładnie jedno pole typu `DataType.String` w Twoim indeksie musi być wyznaczone jako pole _klucza_ przez ustawienie właściwości `IsKey` na wartość `true` (zobacz pole `hotelId` w powyższym przykładzie).
+Zwróć uwagę, że dokładnie jedno pole typu `DataType.String` w Twoim indeksie musi być wyznaczone jako pole *klucza* przez ustawienie właściwości `IsKey` na wartość `true` (zobacz pole `hotelId` w powyższym przykładzie).
 
 Powyższa definicja indeksu używa niestandardowego analizatora języków dla pola `description_fr`, ponieważ jest ono przeznaczone do przechowywania tekstu w języku francuskim. Aby uzyskać więcej informacji o analizatorach języka, zobacz [temat Language support (Obsługa języka) w witrynie MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx) oraz odpowiadający mu [wpis w blogu](https://azure.microsoft.com/blog/language-support-in-azure-search/).
 
-> [AZURE.NOTE]  Zwróć uwagę, że przekazanie pola `AnalyzerName.FrLucene` w konstruktorze sprawi, że obiekt `Field` przyjmie automatycznie typ `DataType.String`, a właściwość `IsSearchable` zostanie ustawiona na wartość `true`.
+> [!NOTE]
+> Zwróć uwagę, że przekazanie pola `AnalyzerName.FrLucene` w konstruktorze sprawi, że obiekt `Field` przyjmie automatycznie typ `DataType.String`, a właściwość `IsSearchable` zostanie ustawiona na wartość `true`.
+> 
+> 
 
 ## IV. Tworzenie indeksu
 Po zainicjowaniu obiektu `Index` możesz utworzyć indeks przez wywołanie metody `Indexes.Create` względem obiektu `SearchServiceClient`:
@@ -119,12 +127,13 @@ Gdy ukończysz pracę z indeksem i zechcesz go usunąć, po prostu wywołaj meto
 serviceClient.Indexes.Delete("hotels");
 ```
 
-> [AZURE.NOTE] Przykład kodu przedstawiony w tym artykule używa metod synchronicznych zestawu .NET SDK usługi Azure Search dla uproszczenia. Zalecamy użycie metod asynchronicznych w aplikacjach, aby pozostały skalowalne i szybko reagowały. W powyższych przykładach można było użyć metod `CreateAsync` i `DeleteAsync` zamiast `Create` i `Delete`.
+> [!NOTE]
+> Przykład kodu przedstawiony w tym artykule używa metod synchronicznych zestawu .NET SDK usługi Azure Search dla uproszczenia. Zalecamy użycie metod asynchronicznych w aplikacjach, aby pozostały skalowalne i szybko reagowały. W powyższych przykładach można było użyć metod `CreateAsync` i `DeleteAsync` zamiast `Create` i `Delete`.
+> 
+> 
 
 ## Następne kroki
 Po utworzeniu indeksu usługi Azure Search można [przekazać zawartość do indeksu](search-what-is-data-import.md), aby rozpocząć wyszukiwanie danych.
-
-
 
 <!--HONumber=Sep16_HO3-->
 

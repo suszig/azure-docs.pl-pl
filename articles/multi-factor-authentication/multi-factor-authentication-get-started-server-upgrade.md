@@ -1,24 +1,22 @@
-<properties 
-    pageTitle="Uaktualnianie agenta PhoneFactor do serwera Azure Multi-Factor Authentication"
-    description="W tym dokumencie opisano sposób rozpoczęcia pracy z serwerem Azure MFA oraz uaktualnienia ze starszej wersji agenta PhoneFactor."
-    services="multi-factor-authentication"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor="curtland"/>
+---
+title: Uaktualnianie agenta PhoneFactor do serwera Azure Multi-Factor Authentication
+description: W tym dokumencie opisano sposób rozpoczęcia pracy z serwerem Azure MFA oraz uaktualnienia ze starszej wersji agenta PhoneFactor.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/04/2016"
-    ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/04/2016
+ms.author: kgremban
 
-
+---
 # Uaktualnianie agenta PhoneFactor do serwera Azure Multi-Factor Authentication
-
 Uaktualnianie z agenta PhoneFactor (v5.x lub starszej wersji) do serwera Azure Multi-Factor Authentication wymaga odinstalowania agenta PhoneFactor i powiązanych z nim składników przed rozpoczęciem instalowania serwera Multi-Factor Authentication i powiązanych z nim składników.
 
 ## Aby uaktualnić agenta PhoneFactor do serwera Azure Multi-Factor Authentication
@@ -40,6 +38,7 @@ Uaktualnianie z agenta PhoneFactor (v5.x lub starszej wersji) do serwera Azure M
 
 
 <li>Jeśli zainstalowana jest usługa sieci Web aplikacji mobilnej:
+
 <ol>
 <li>Przejdź do folderu instalacyjnego i utwórz kopię zapasową pliku web.config. Domyślna lokalizacja instalacji to C:\inetpub\wwwroot\PhoneFactorPhoneAppWebService.</li>
 <li>Odinstaluj usługę sieci Web aplikacji mobilnej za pośrednictwem modułu Programy i funkcje systemu Windows.</li></ol>
@@ -57,6 +56,7 @@ Uaktualnianie z agenta PhoneFactor (v5.x lub starszej wersji) do serwera Azure M
 <li>Jeśli wcześniej zainstalowano portal użytkowników na tym serwerze agenta PhoneFactor, zainstaluj nowy portal użytkowników usługi Multi-Factor Authentication za pomocą interfejsu użytkownika serwera Multi-Factor Authentication. Należy zauważyć, że domyślną nazwą katalogu wirtualnego jest teraz „MultiFactorAuth”, a nie „PhoneFactor”. Jeśli chcesz użyć poprzedniej nazwy, musisz podczas instalacji zmienić nazwę katalogu wirtualnego. W przeciwnym razie, jeśli zezwolisz procesowi instalacji na użycie nowej nazwy domyślnej, musisz kliknąć ikonę Portal użytkowników na serwerze Multi-Factor Authentication i zaktualizować adres URL portalu użytkowników na karcie Ustawienia.
 
 <li>Jeśli portal użytkowników i/lub usługa sieci Web aplikacji mobilnej zostały wcześniej zainstalowane na innym serwerze z agenta PhoneFactor:
+
 <ol>
 <li>Przejdź do lokalizacji instalacji (np. C:\Program Files\PhoneFactor) i skopiuj odpowiednie pliki instalacyjne na inny serwer. Zarówno dla portalu użytkowników, jak i dla usługi sieci Web aplikacji mobilnej istnieją instalatory w wersji 32-bitowej i 64-bitowej. Mają nazwy odpowiednio MultiFactorAuthenticationUserPortalSetupXX.msi i MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi.</li>
 <li>Aby zainstalować portal użytkowników na serwerze sieci Web, otwórz wiersz polecenia jako administrator i uruchom instalatora MultiFactorAuthenticationUserPortalSetupXX.msi. Należy zauważyć, że domyślną nazwą katalogu wirtualnego jest teraz „MultiFactorAuth”, a nie „PhoneFactor”. Jeśli chcesz użyć poprzedniej nazwy, musisz podczas instalacji zmienić nazwę katalogu wirtualnego. W przeciwnym razie, jeśli zezwolisz procesowi instalacji na użycie nowej nazwy domyślnej, musisz kliknąć ikonę Portal użytkowników na serwerze Multi-Factor Authentication i zaktualizować adres URL portalu użytkowników na karcie Ustawienia. Trzeba będzie poinformować istniejących użytkowników o nowym adresie URL.</li>

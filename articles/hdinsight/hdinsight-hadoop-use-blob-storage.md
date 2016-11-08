@@ -1,37 +1,36 @@
-<properties
-    pageTitle="Zapytania na danych z magazynu obiektów blob zgodnego systemem plików HDFS | Microsoft Azure"
-    description="Usługa HDInsight używa magazynu obiektów blob platformy Azure do przechowywania danych big data dla systemu plików HDFS. Dowiedz się, jak wykonywać zapytania na danych z usługi Blob Storage i przechowywać wyniki analiz."
-    keywords="blob storage,hdfs,structured data,unstructured data"
-    services="hdinsight,storage"
-    documentationCenter=""
-    tags="azure-portal"
-    authors="mumian"
-    manager="jhubbard"
-    editor="cgronlun"/>
+---
+title: Zapytania na danych z magazynu obiektów blob zgodnego systemem plików HDFS | Microsoft Docs
+description: Usługa HDInsight używa magazynu obiektów blob platformy Azure do przechowywania danych big data dla systemu plików HDFS. Dowiedz się, jak wykonywać zapytania na danych z usługi Blob Storage i przechowywać wyniki analiz.
+keywords: blob storage,hdfs,structured data,unstructured data
+services: hdinsight,storage
+documentationcenter: ''
+tags: azure-portal
+author: mumian
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/06/2016"
-    ms.author="jgao"/>
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/06/2016
+ms.author: jgao
 
-
-
+---
 # Użyj usługi Azure Blob Storage zgodnej z systemem plików HDFS w połączeniu z platformą Hadoop w usłudze HDInsight
-
 Dowiedz się, jak używać niedrogiego magazynu obiektów blob platformy Azure z usługą HDInsight, tworzyć konto magazynu Azure i kontener magazynu obiektów blob, a następnie adresować zawarte w nim dane.
 
 Magazyn obiektów blob systemu Azure to niezawodne rozwiązanie ogólnego przeznaczenia, które bezproblemowo integruje się z usługą HDInsight. Korzystając z interfejsu rozproszonego systemu plików Hadoop (HDFS), pełny zestaw składników usługi HDInsight może operować bezpośrednio na danych strukturalnych lub bez struktury w magazynie obiektów blob.
 
 Przechowywanie danych w usłudze Blob Storage pozwala bezpiecznie usuwać klastry usługi HDInsight używane do obliczeń bez utraty danych użytkownika.
 
-> [AZURE.IMPORTANT] Usługa HDInsight obsługuje tylko blokowe obiekty blob. Nie obsługuje stronicowych ani uzupełnialnych obiektów blob.
+> [!IMPORTANT]
+> Usługa HDInsight obsługuje tylko blokowe obiekty blob. Nie obsługuje stronicowych ani uzupełnialnych obiektów blob.
+> 
+> 
 
 Informacje dotyczące tworzenia klastra usługi HDInsight można znaleźć w tematach [Get Started with HDInsight][hdinsight-get-started] (Wprowadzenie do usługi HDInsight) lub [Create HDInsight clusters][hdinsight-creation] (Tworzenie klastrów usługi HDInsight).
-
 
 ## Architektura magazynu usługi HDInsight
 Na poniższym diagramie przedstawiono abstrakcyjny widok architektury magazynu usługi HDInsight:
@@ -46,21 +45,23 @@ Ponadto usługa HDInsight zapewnia możliwość dostępu do danych przechowywany
 
     wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
-> [AZURE.NOTE] W wersjach usługi HDInsight starszych niż 3.0 używano ciągu `asv://` zamiast `wasb://`. `asv://` nie należy używać z klastrami HDInsight 3.0 lub nowszymi, ponieważ spowoduje to błąd.
+> [!NOTE]
+> W wersjach usługi HDInsight starszych niż 3.0 używano ciągu `asv://` zamiast `wasb://`. `asv://` nie należy używać z klastrami HDInsight 3.0 lub nowszymi, ponieważ spowoduje to błąd.
+> 
+> 
 
 Platforma Hadoop obsługuje pojęcie domyślnego systemu plików. Domyślny system plików wyznacza domyślny schemat i element authority. Może również służyć do rozpoznawania ścieżek względnych. Podczas procesu tworzenia usługi HDInsight konto Azure Storage i określony na podstawie tego konta kontener magazynu obiektów blob platformy Azure wyznaczają domyślny system plików.
 
 Oprócz tego konta magazynu można dodać dodatkowe konta magazynu z tej samej subskrypcji platformy Azure lub różnych subskrypcji platformy Azure podczas procesu tworzenia lub po utworzeniu klastra. Aby uzyskać instrukcje dotyczące dodawania dodatkowych kont magazynu, zobacz [Create HDInsight clusters][hdinsight-creation] (Tworzenie klastrów HDInsight).
 
-- **Kontenery w ramach kont magazynu, które są podłączone do klastra:** ponieważ nazwa konta i klucz są kojarzone z klastrem podczas tworzenia, masz pełny dostęp do obiektów blob w tych kontenerach.
-
-- **Publiczne kontenery lub publiczne obiekty blob na kontach magazynu, które NIE są podłączone do klastra:** masz uprawnienia tylko do odczytu obiektów blob w kontenerach.
-
-    > [AZURE.NOTE]
-        > Kontenery publiczne pozwalają na pobranie listy wszystkich obiektów blob, które są dostępne w danym kontenerze, oraz pobranie metadanych kontenera. Publiczne obiekty blob umożliwiają dostęp do obiektów blob jedynie osobom znającym dokładny adres URL. Aby uzyskać więcej informacji, zobacz artykuł <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">Restrict access to containers and blobs</a> (Ograniczanie dostępu do kontenerów i obiektów blob).
-
-- **Prywatne kontenery na kontach magazynu, które NIE są podłączone do klastra:** nie masz dostępu do obiektów blob w kontenerach, chyba że zdefiniujesz konto magazynu podczas przesyłania zadań WebHCat. Wyjaśnienie jest zawarte w dalszej części tego artykułu.
-
+* **Kontenery w ramach kont magazynu, które są podłączone do klastra:** ponieważ nazwa konta i klucz są kojarzone z klastrem podczas tworzenia, masz pełny dostęp do obiektów blob w tych kontenerach.
+* **Publiczne kontenery lub publiczne obiekty blob na kontach magazynu, które NIE są podłączone do klastra:** masz uprawnienia tylko do odczytu obiektów blob w kontenerach.
+  
+  > [!NOTE]
+  > Kontenery publiczne pozwalają na pobranie listy wszystkich obiektów blob, które są dostępne w danym kontenerze, oraz pobranie metadanych kontenera. Publiczne obiekty blob umożliwiają dostęp do obiektów blob jedynie osobom znającym dokładny adres URL. Aby uzyskać więcej informacji, zobacz artykuł <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">Restrict access to containers and blobs</a> (Ograniczanie dostępu do kontenerów i obiektów blob).
+  > 
+  > 
+* **Prywatne kontenery na kontach magazynu, które NIE są podłączone do klastra:** nie masz dostępu do obiektów blob w kontenerach, chyba że zdefiniujesz konto magazynu podczas przesyłania zadań WebHCat. Wyjaśnienie jest zawarte w dalszej części tego artykułu.
 
 Konta magazynu definiowane w procesie tworzenia oraz ich klucze są przechowywane w pliku %HADOOP_HOME%/conf/core-site.xml w węzłach klastra. Domyślne działanie usługi HDInsight polega na korzystaniu z kont magazynu zdefiniowanych w pliku core-site.xml. Nie zaleca się edytowania pliku core-site.xml, ponieważ główny węzeł klastra (master) może być odtwarzany z obrazu lub poddawany migracji w dowolnym momencie, a wówczas wszelkie zmiany w tych plikach zostaną utracone.
 
@@ -68,7 +69,7 @@ Wiele zadań WebHCat, w tym Hive, MapReduce, przesyłanie strumieniowe Hadoop, a
 
 Magazyn obiektów blob może być używany z danymi strukturalnymi i bez struktury. Kontenery magazynu obiektów blob przechowują dane jako pary klucz/wartość, bez hierarchii katalogów. Jednak wewnątrz nazwy klucza można użyć znaku ukośnika (/), co sprawi, że będzie wyglądała, jakby plik był przechowywany w ramach struktury katalogów. Na przykład klucz obiektu blob może mieć postać *input/log1.txt*. Katalog *input* w rzeczywistości nie istnieje, ale z powodu obecności znaku ukośnika w nazwie klucza, klucz ma wygląd ścieżki do pliku.
 
-###<a id="benefits"></a>Korzyści z magazynu obiektów blob
+### <a id="benefits"></a>Korzyści z magazynu obiektów blob
 Wynikowy koszt wydajności związany z brakiem łączenia klastrów obliczeniowych i zasobów magazynu jest zmniejszany przez sposób tworzenia klastrów obliczeniowych w pobliżu zasobów konta magazynu w obrębie regionu Azure, gdzie szybkie sieci zapewniają bardzo wydajny dostęp węzłów obliczeniowych do danych wewnątrz magazynu obiektów blob platformy Azure.
 
 Przechowywanie danych w magazynie obiektów blob platformy Azure zamiast w systemie plików HDFS ma wiele zalet:
@@ -81,33 +82,34 @@ Przechowywanie danych w magazynie obiektów blob platformy Azure zamiast w syste
 
 Niektóre zadania i pakiety MapReduce mogą tworzyć wyniki pośrednie, których nie potrzeba przechowywać w magazynie obiektów blob platformy Azure. W takim przypadku można zdecydować się na przechowywanie danych w lokalnym systemie plików HDFS. W rzeczywistości HDInsight używa systemu plików DFS dla wielu wyników pośrednich w zadaniach Hive i innych procesach.
 
-> [AZURE.NOTE] Większość poleceń systemu plików HDFS (na przykład <b>ls</b>, <b>copyFromLocal</b> i <b>mkdir</b>) nadal działa zgodnie z oczekiwaniami. Tylko polecenia specyficzne dla natywnych implementacji systemu plików HDFS (określanych jako systemy plików DFS), takie jak <b>fschk</b> i <b>dfsadmin</b>, będą działać inaczej w usłudze Azure Blob Storage.
+> [!NOTE]
+> Większość poleceń systemu plików HDFS (na przykład <b>ls</b>, <b>copyFromLocal</b> i <b>mkdir</b>) nadal działa zgodnie z oczekiwaniami. Tylko polecenia specyficzne dla natywnych implementacji systemu plików HDFS (określanych jako systemy plików DFS), takie jak <b>fschk</b> i <b>dfsadmin</b>, będą działać inaczej w usłudze Azure Blob Storage.
+> 
+> 
 
 ## Tworzenie kontenerów obiektów blob
-
 Aby użyć obiektów blob, należy najpierw utworzyć [konto Azure Storage][azure-storage-create]. W ramach tego działania można określić region platformy Azure, w którym będą przechowywanie obiekty utworzone za pomocą tego konta. Klaster i konto magazynu muszą być hostowane w tym samym regionie. Baza danych SQL Server na potrzeby magazynu metadanych Hive i baza danych SQL Server na potrzeby magazynu metadanych Oozie również muszą znajdować się w tym samym regionie.
 
 Wszędzie tam, gdzie go umieszczono, każdy utworzony obiekt blob należy do kontenera na koncie usługi Azure Storage. Ten kontener może być istniejącym obiektem blob utworzonym poza usługą HDInsight lub może być kontenerem, który jest tworzony dla klastra usługi HDInsight.
 
-
 Domyślny kontener obiektów blob przechowuje informacje dotyczące klastra, takie jak dzienniki i historię zadań. Nie należy współużytkować domyślnego kontenera obiektów blob dla wielu klastrów usługi HDInsight. Mogłoby to spowodować uszkodzenie historii zadań i błędne działanie klastra. Zalecane jest stosowanie różnych kontenerów do każdego klastra i umieszczanie udostępnionych danych w połączonym koncie magazynu określonym we wdrożeniu wszystkich odpowiednich klastrów zamiast domyślnego konta magazynu. Aby uzyskać więcej informacji na temat konfigurowania kont magazynu połączone, zobacz artykuł [Create HDInsight clusters][hdinsight-creation] (Tworzenie klastrów usługi HDInsight). Jednak po usunięciu oryginalnego klastra usługi HDInsight można ponownie użyć domyślnego kontenera magazynu. W przypadku klastrów HBase faktycznie można zachować schemat tabeli HBase i dane przez utworzenie nowego klastra HBase przy użyciu domyślnego kontenera magazynu obiektów blob, używanego przez klaster HBase, który został usunięty.
 
-
 ### Korzystanie z portalu Azure
-
 Podczas tworzenia klastra usługi HDInsight za pomocą portalu masz do wyboru opcje użycia istniejącego konta magazynu lub utworzenie nowego konta magazynu:
 
 ![źródło danych tworzenia hdinsight hadoop](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
-###Korzystanie z interfejsu wiersza polecenia platformy Azure
-
-[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+### Korzystanie z interfejsu wiersza polecenia platformy Azure
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 Jeśli masz [zainstalowany i skonfigurowany interfejs wiersza polecenia platformy Azure](../xplat-cli-install.md), możesz zastosować następujące polecenie do konta magazynu i kontenera.
 
     azure storage account create <storageaccountname> --type LRS
 
-> [AZURE.NOTE] Parametr `--type` wskazuje sposób replikacji konta magazynu. Aby uzyskać więcej informacji, zobacz artykuł [Azure Storage Replication](../storage/storage-redundancy.md) (Replikacja usługi Azure Storage). Nie używaj technologii ZRS, ponieważ nie obsługuje ona stronicowych obiektów blob, plików, tabel ani kolejek.
+> [!NOTE]
+> Parametr `--type` wskazuje sposób replikacji konta magazynu. Aby uzyskać więcej informacji, zobacz artykuł [Azure Storage Replication](../storage/storage-redundancy.md) (Replikacja usługi Azure Storage). Nie używaj technologii ZRS, ponieważ nie obsługuje ona stronicowych obiektów blob, plików, tabel ani kolejek.
+> 
+> 
 
 Pojawi się monit o region geograficzny, w którym zostanie umieszczone konto magazynu. Należy utworzyć konto magazynu w tym samym regionie, w którym planujesz utworzenie klastra usługi HDInsight.
 
@@ -120,34 +122,32 @@ Aby utworzyć kontener, użyj następującego polecenia:
     azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
 
 ### Korzystanie z programu Azure PowerShell
-
 Po [zainstalowaniu i skonfigurowaniu programu Azure PowerShell][powershell-install] można użyć następujących poleceń w wierszu polecenia programu Azure PowerShell, aby utworzyć konto magazynu i kontener:
 
-[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
     $SubscriptionID = "<Your Azure Subscription ID>"
     $ResourceGroupName = "<New Azure Resource Group Name>"
     $Location = "EAST US 2"
-    
+
     $StorageAccountName = "<New Azure Storage Account Name>"
     $containerName = "<New Azure Blob Container Name>"
-    
+
     Add-AzureRmAccount
     Select-AzureRmSubscription -SubscriptionId $SubscriptionID
-    
+
     # Create resource group
     New-AzureRmResourceGroup -name $ResourceGroupName -Location $Location
-    
+
     # Create default storage account
     New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS 
-    
+
     # Create default blob containers
     $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
 ## Adresowanie plików w magazynie obiektów blob
-
 Schemat identyfikatora URI do uzyskiwania dostępu do plików w magazynie obiektów blob z usługi HDInsight to:
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
@@ -164,17 +164,21 @@ Jeśli żadna z nazw &lt;BlobStorageContainerName&gt; ani &lt;StorageAccountName
     wasbs:///example/jars/hadoop-mapreduce-examples.jar
     /example/jars/hadoop-mapreduce-examples.jar
 
-> [AZURE.NOTE] Nazwa pliku to <i>hadoop-examples.jar</i> w klastrach usługi HDInsight w wersji 2.1 i 1.6.
-
+> [!NOTE]
+> Nazwa pliku to <i>hadoop-examples.jar</i> w klastrach usługi HDInsight w wersji 2.1 i 1.6.
+> 
+> 
 
 &lt;path&gt; jest nazwą ścieżki do pliku lub katalogu w systemie plików HDFS. Ponieważ kontenery w magazynie obiektów blob platformy Azure przechowują po prostu pary klucz-wartość, nie istnieje prawdziwy hierarchiczny system plików. Znak ukośnika (/) wewnątrz klucza obiektu blob jest interpretowany jako separator katalogu. Na przykład nazwą obiektu blob dla pliku *hadoop-mapreduce-examples.jar* jest:
 
     example/jars/hadoop-mapreduce-examples.jar
 
-> [AZURE.NOTE] Podczas pracy z obiektami blob poza usługą HDInsight, większość narzędzi nie rozpoznaje formatu WASB i zamiast tego oczekuje podstawowego formatu ścieżki, takiego jak `example/jars/hadoop-mapreduce-examples.jar`.
+> [!NOTE]
+> Podczas pracy z obiektami blob poza usługą HDInsight, większość narzędzi nie rozpoznaje formatu WASB i zamiast tego oczekuje podstawowego formatu ścieżki, takiego jak `example/jars/hadoop-mapreduce-examples.jar`.
+> 
+> 
 
 ## Dostęp do obiektów blob za pomocą interfejsu wiersza polecenia platformy Azure
-
 Użyj następującego polecenia, aby wyświetlić listę poleceń związanych z obiektami blob:
 
     azure storage blob
@@ -196,8 +200,10 @@ Użyj następującego polecenia, aby wyświetlić listę poleceń związanych z 
     azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 
 ## Dostęp do obiektów blob przy użyciu programu Azure PowerShell
-
-> [AZURE.NOTE] Polecenia w tej sekcji stanowią podstawowy przykład użycia programu PowerShell w celu dostępu do danych przechowywanych w obiektach blob. Obszerniejszy przykład dostosowany do pracy z usługą HDInsight znajdziesz w artykule [HDInsight Tools](https://github.com/Blackmist/hdinsight-tools) (Narzędzia usługi HDInsight).
+> [!NOTE]
+> Polecenia w tej sekcji stanowią podstawowy przykład użycia programu PowerShell w celu dostępu do danych przechowywanych w obiektach blob. Obszerniejszy przykład dostosowany do pracy z usługą HDInsight znajdziesz w artykule [HDInsight Tools](https://github.com/Blackmist/hdinsight-tools) (Narzędzia usługi HDInsight).
+> 
+> 
 
 Użyj następującego polecenia, aby wyświetlić listę poleceń cmdlet związanych z obiektami blob:
 
@@ -205,30 +211,28 @@ Użyj następującego polecenia, aby wyświetlić listę poleceń cmdlet związa
 
 ![Lista poleceń cmdlet programu PowerShell związanych z obiektami blob.][img-hdi-powershell-blobcommands]
 
-###Przekazywanie plików
-
+### Przekazywanie plików
 Zobacz [Upload data to HDInsight][hdinsight-upload-data] (Przekazywanie danych do usługi HDInsight).
 
-###Pobieranie plików
-
+### Pobieranie plików
 Następujący skrypt służy do pobierania blokowego obiektu blob do bieżącego folderu. Przed uruchomieniem skryptu zmień katalog na folder, w którym masz uprawnienia do zapisu.
 
     $resourceGroupName = "<AzureResourceGroupName>"
     $storageAccountName = "<AzureStorageAccountName>"   # The storage account used for the default file system specified at creation.
     $containerName = "<BlobStorageContainerName>"  # The default file system container has the same name as the cluster.
     $blob = "example/data/sample.log" # The name of the blob to be downloaded.
-    
+
     # Use Add-AzureAccount if you haven't connected to your Azure subscription
     Login-AzureRmAccount 
     Select-AzureRmSubscription -SubscriptionID "<Your Azure Subscription ID>"
-    
+
     Write-Host "Create a context object ... " -ForegroundColor Green
     $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
     $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-    
+
     Write-Host "Download the blob ..." -ForegroundColor Green
     Get-AzureStorageBlobContent -Container $ContainerName -Blob $blob -Context $storageContext -Force
-    
+
     Write-Host "List the downloaded file ..." -ForegroundColor Green
     cat "./$blob"
 
@@ -237,27 +241,23 @@ Po podaniu nazwy grupy zasobów i nazwy klastra możesz użyć następującego k
     $resourceGroupName = "<AzureResourceGroupName>"
     $clusterName = "<HDInsightClusterName>"
     $blob = "example/data/sample.log" # The name of the blob to be downloaded.
-    
+
     $cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
     $defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
     $defaultStorageContainer = $cluster.DefaultStorageContainer
     $storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey 
-    
+
     Write-Host "Download the blob ..." -ForegroundColor Green
     Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob $blob -Context $storageContext -Force
 
-###Usuwanie plików
-
-
+### Usuwanie plików
     Remove-AzureStorageBlob -Container $containerName -Context $storageContext -blob $blob
 
-###Lista plików
-
+### Lista plików
     Get-AzureStorageBlob -Container $containerName -Context $storageContext -prefix "example/data/"
 
-###Uruchamianie zapytań Hive przy użyciu niezdefiniowanego konta magazynu
-
+### Uruchamianie zapytań Hive przy użyciu niezdefiniowanego konta magazynu
 Ten przykład przedstawia sposób wyświetlania zawartości folderu z konta magazynu, które nie zostało zdefiniowane podczas procesu tworzenia.
 $clusterName = "<HDInsightClusterName>"
 
@@ -274,7 +274,6 @@ $clusterName = "<HDInsightClusterName>"
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasbs://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
 ## Następne kroki
-
 W tym artykule przedstawiono sposób używania magazynu obiektów blob platformy Azure zgodnego z systemem plików HDFS w ramach usługi HDInsight oraz wyjaśniono, że magazyn obiektów blob platformy Azure jest podstawowym składnikiem usługi HDInsight. Podane tu informacje umożliwiają tworzenie skalowalnych, długoterminowych rozwiązań do pozyskiwania danych archiwalnych z magazynu obiektów blob platformy Azure i używanie usługi HDInsight w celu efektywnego wykorzystywania informacji przechowywanych w postaci danych strukturalnych i danych bez struktury.
 
 Aby uzyskać więcej informacji, zobacz:

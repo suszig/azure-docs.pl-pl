@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Wprowadzenie do usługi Azure Search w języku Java | Microsoft Azure | Hostowana usługa wyszukiwania w chmurze"
-    description="Jak utworzyć hostowaną aplikację wyszukiwania w chmurze na platformie Azure, używając języka Java jako języka programowania."
-    services="search"
-    documentationCenter=""
-    authors="EvanBoyle"
-    manager="pablocas"
-    editor="v-lincan"/>
+---
+title: Wprowadzenie do usługi Azure Search w języku Java | Microsoft Docs
+description: Jak utworzyć hostowaną aplikację wyszukiwania w chmurze na platformie Azure, używając języka Java jako języka programowania.
+services: search
+documentationcenter: ''
+author: EvanBoyle
+manager: pablocas
+editor: v-lincan
 
-<tags
-    ms.service="search"
-    ms.devlang="na"
-    ms.workload="search"
-    ms.topic="hero-article"
-    ms.tgt_pltfrm="na"
-    ms.date="07/14/2016"
-    ms.author="evboyle"/>
+ms.service: search
+ms.devlang: na
+ms.workload: search
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.date: 07/14/2016
+ms.author: evboyle
 
-
+---
 # Wprowadzenie do usługi Azure Search w języku Java
-> [AZURE.SELECTOR]
-- [Portal](search-get-started-portal.md)
-- [.NET](search-howto-dotnet-sdk.md)
+> [!div class="op_single_selector"]
+> * [Portal](search-get-started-portal.md)
+> * [.NET](search-howto-dotnet-sdk.md)
+> 
+> 
 
 Dowiedz się, jak utworzyć niestandardową aplikację wyszukiwania w języku Java, która do wyszukiwania używa usługi Azure Search. Ten samouczek używa [interfejsu API REST usługi Azure Search](https://msdn.microsoft.com/library/dn798935.aspx), aby konstruować obiekty i operacje używane w tym ćwiczeniu.
 
@@ -28,148 +29,120 @@ Aby uruchomić ten przykład, będzie potrzebna usługa Azure Search, do której
 
 Do utworzenia i przetestowania przedstawionego przykładu użyto następującego oprogramowania:
 
-- [Eclipse IDE for Java EE Developers](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar). Upewnij się, że pobierasz wersję EE. Jeden z kroków weryfikacji wymaga funkcji, która znajduje się tylko w tej wersji.
-
-- [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-
-- [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
+* [Eclipse IDE for Java EE Developers](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar). Upewnij się, że pobierasz wersję EE. Jeden z kroków weryfikacji wymaga funkcji, która znajduje się tylko w tej wersji.
+* [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
 
 ## Informacje o danych
-
 Ta przykładowa aplikacja korzysta z danych agencji [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm) zawężonych do stanu Rhode Island w celu zmniejszenia rozmiaru zestawu danych. Użyjemy tych danych do utworzenia aplikacji wyszukiwania, która zwraca punkty orientacyjne, takie jak szpitale i szkoły, jak również formy geologiczne, takie jak strumienie, jeziora i szczyty.
 
 W tej aplikacji program **SearchServlet.java** tworzy i ładuje indeks, używając konstrukcji [indeksatora](https://msdn.microsoft.com/library/azure/dn798918.aspx), a zawężony zestaw danych z agencji USGS jest pobierany z publicznej usługi Azure SQL Database. Wstępnie zdefiniowane poświadczenia oraz informacje o połączeniu ze źródłem danych w trybie online są zawarte w kodzie programu. W zakresie dostępu do danych nie jest konieczna dalsza konfiguracja.
 
-> [AZURE.NOTE] Zastosowaliśmy filtr dla tego zestawu danych, aby nie przekroczyć limitu 10 000 dokumentów obowiązującego w warstwie cenowej Bezpłatna. Jeśli korzystasz z warstwy Standardowa, to ograniczenie nie obowiązuje i możesz zmodyfikować ten kod tak, aby móc używać większego zestawu danych. Aby uzyskać szczegółowe informacje o pojemności dla każdej warstwy cenowej, zobacz [Limits and constraints](search-limits-quotas-capacity.md) (Limity i ograniczenia).
+> [!NOTE]
+> Zastosowaliśmy filtr dla tego zestawu danych, aby nie przekroczyć limitu 10 000 dokumentów obowiązującego w warstwie cenowej Bezpłatna. Jeśli korzystasz z warstwy Standardowa, to ograniczenie nie obowiązuje i możesz zmodyfikować ten kod tak, aby móc używać większego zestawu danych. Aby uzyskać szczegółowe informacje o pojemności dla każdej warstwy cenowej, zobacz [Limits and constraints](search-limits-quotas-capacity.md) (Limity i ograniczenia).
+> 
+> 
 
 ## Informacje o plikach programu
-
 Na poniższej liście opisano pliki, które mają zastosowanie w tym przykładzie.
 
-- Search.jsp: udostępnia interfejs użytkownika
-- SearchServlet.java: udostępnia metody (podobnie do kontrolera we wzorcu MVC)
-- SearchServiceClient.java: obsługuje żądania HTTP
-- SearchServiceHelper.java: klasa pomocy, która udostępnia metody statyczne
-- Document.java: udostępnia model danych
-- config.properties: ustawia adres URL usługi wyszukiwania i klucz api-key
-- Pom.xml: zależność narzędzia Maven
+* Search.jsp: udostępnia interfejs użytkownika
+* SearchServlet.java: udostępnia metody (podobnie do kontrolera we wzorcu MVC)
+* SearchServiceClient.java: obsługuje żądania HTTP
+* SearchServiceHelper.java: klasa pomocy, która udostępnia metody statyczne
+* Document.java: udostępnia model danych
+* config.properties: ustawia adres URL usługi wyszukiwania i klucz api-key
+* Pom.xml: zależność narzędzia Maven
 
 <a id="sub-2"></a>
-## Znajdowanie nazwy usługi oraz klucza interfejsu API usługi Azure Search
 
+## Znajdowanie nazwy usługi oraz klucza interfejsu API usługi Azure Search
 Wszystkie wywołania interfejsu API REST do usługi Azure Search wymagają podania adresu URL usługi i klucza api-key. 
 
 1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
 2. Na pasku przechodzenia kliknij pozycję **Usługa wyszukiwania**, aby wyświetlić listę wszystkich usług Azure Search aprowizowanych dla subskrypcji.
 3. Wybierz usługę, której chcesz użyć.
 4. Na pulpicie nawigacyjnym usługi zobaczysz kafelki z istotnymi informacjami, jak również ikonę klucza, służącą do uzyskiwania dostępu do kluczy administratora.
-
+   
     ![][3]
-
 5. Skopiuj adres URL usługi i klucz administratora. Będą Ci potrzebne później podczas dodawania ich do pliku **config.properties**.
 
 ## Pobieranie plików przykładowych
-
 1. Wybierz pozycję [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) w witrynie GitHub.
-
 2. Kliknij przycisk **Download ZIP** (Pobierz ZIP), zapisz plik zip na dysku, a następnie wyodrębnij wszystkie pliki w nim zawarte. Rozważ wyodrębnienie plików do obszaru roboczego Java, aby ułatwić znajdowanie projektu w przyszłości.
-
 3. Pliki przykładowe są tylko do odczytu. Kliknij prawym przyciskiem myszy folder właściwości i usuń atrybut tylko do odczytu.
 
 Wszystkie kolejne modyfikacje plików i instrukcje uruchamiania będą wykonywane względem plików w tym folderze.  
 
 ## Importowanie projektu
-
 1. W środowisku Eclipse wybierz pozycję **Plik** > **Importuj** > **Ogólne** > **Istniejące projekty do obszaru roboczego**.
-
+   
     ![][4]
-
 2. W obszarze **Wybierz katalog główny** przejdź do folderu zawierającego pliki przykładowe. Wybierz folder, który zawiera folder .project. Projekt powinien zostać wyświetlony na liście **Projekty** jako wybrany element.
-
+   
     ![][12]
-
 3. Kliknij przycisk **Zakończ**.
-
 4. W obszarze **Eksplorator projektów** możesz wyświetlać i edytować pliki. Jeśli nie jest on jeszcze otwarty, kliknij pozycję **Okna** > **Pokaż widok** > **Eksplorator projektów** lub użyj skrótu, aby go otworzyć.
 
 ## Konfigurowanie adresu URL usługi i klucza api-key
-
 1. W obszarze **Eksplorator projektów** kliknij dwukrotnie pozycję **config.properties**, aby edytować ustawienia konfiguracji, które zawierają nazwę serwera i klucz api-key.
-
 2. Wróć do kroków opisanych wcześniej w tym artykule, aby odnaleźć adres URL usługi oraz klucz api-key w witrynie [Azure Portal](https://portal.azure.com). Uzyskane wartości należy wpisać w pliku **config.properties**.
-
 3. W pliku **config.properties** zastąp ciąg „Api Key” (Klucz interfejsu API) kluczem api-key dla Twojej usługi. Następnie nazwą usługi (pierwszy składnik adresu URL http://nazwa_uslugi.search.windows.net) zastąp ciąg „service name” (nazwa usługi) w tym samym pliku.
-
+   
     ![][5]
 
 ## Konfigurowanie środowisk projektowania i kompilacji oraz środowisk uruchomieniowych
-
 1. W środowisku Eclipse, w Eksploratorze projektów kliknij prawym przyciskiem myszy pozycję Projekt > **Właściwości** > **Aspekty projektu**.
-
 2. Wybierz pozycje: **Dynamiczny moduł WWW**, **Java** i **JavaScript**.
-
+   
     ![][6]
-
 3. Kliknij przycisk **Zastosuj**.
-
 4. Wybierz pozycję **Okna** > **Preferencje** > **Serwer** > **Środowiska wykonawcze** > **Dodaj...**.
-
 5. Rozwiń pozycję Apache i wybierz wersję serwera Apache Tomcat, która została wcześniej zainstalowana. W naszym systemie zainstalowano wersję 8.
-
+   
     ![][7]
-
 6. Na następnej stronie podaj katalog instalacyjny serwera Tomcat. Na komputerze z systemem Windows najprawdopodobniej będzie to katalog C:\Program Files\Apache Software Foundation\Tomcat *wersja*.
-
-6. Kliknij przycisk **Zakończ**.
-
-7. Wybierz pozycję **Okna** > **Preferencje** > **Java** > **Zainstalowane środowiska JRE** > **Dodaj**.
-
-8. W obszarze **Dodawanie środowiska JRE** wybierz opcję **Standardowa maszyna VM**.
-
+7. Kliknij przycisk **Zakończ**.
+8. Wybierz pozycję **Okna** > **Preferencje** > **Java** > **Zainstalowane środowiska JRE** > **Dodaj**.
+9. W obszarze **Dodawanie środowiska JRE** wybierz opcję **Standardowa maszyna VM**.
 10. Kliknij przycisk **Dalej**
-
 11. W obszarze Katalog główny środowiska JRE sekcji Definicja środowiska JRE kliknij pozycję **Katalog**.
-
 12. Przejdź do katalogu **Program Files** > **Java** i wybierz zestaw JDK, który został wcześniej zainstalowany. Należy wybrać zestaw JDK jako środowisko JRE.
-
 13. W obszarze Zainstalowane środowiska JRE wybierz pozycję **JDK**. Twoje ustawienia powinny być podobne do tych na poniższym zrzucie ekranu.
-
+    
     ![][9]
-
 14. Opcjonalnie można wybrać pozycję **Okna** > **Przeglądarka WWW** > **Internet Explorer**, aby otworzyć aplikację w oknie zewnętrznej przeglądarki. Używanie zewnętrznej przeglądarki zapewnia lepsze środowisko aplikacji sieci Web.
-
+    
     ![][8]
 
 Zadania konfiguracji zostały zakończone. W dalszej części skompilujesz i uruchomisz projekt.
 
 ## Kompilowanie projektu
-
 1. W obszarze Eksplorator projektów kliknij prawym przyciskiem myszy nazwę projektu i wybierz polecenie **Wykonaj jako** > **Kompilacja Maven...**, aby skonfigurować projekt.
-
+   
     ![][10]
-
-8. W obszarze Edycja konfiguracji, w polu Cele wpisz „czysta instalacja”, a następnie kliknij pozycję **Wykonaj**.
+2. W obszarze Edycja konfiguracji, w polu Cele wpisz „czysta instalacja”, a następnie kliknij pozycję **Wykonaj**.
 
 Komunikaty o stanie zostaną wyświetlone w oknie konsoli. Powinien zostać wyświetlony komunikat BUDOWANIE POWIODŁO SIĘ wskazujący, że kompilowanie projektu zakończyło się bez błędów.
 
 ## Uruchamianie aplikacji
-
 W tym ostatnim kroku uruchomisz aplikację w środowisku uruchomieniowym serwera lokalnego.
 
 Jeśli środowisko uruchomieniowe serwera nie zostało jeszcze określone w środowisku Eclipse, należy to zrobić w pierwszej kolejności.
 
 1. W obszarze Eksplorator projektów rozwiń pozycję **WebContent**.
+2. Kliknij prawym przyciskiem myszy pozycję **Search.jsp** >  wybierz polecenie **Wykonaj jako** > **Wykonaj na serwerze**. Wybierz serwer Apache Tomcat, a następnie kliknij polecenie **Wykonaj**.
 
-5. Kliknij prawym przyciskiem myszy pozycję **Search.jsp** >  wybierz polecenie **Wykonaj jako** > **Wykonaj na serwerze**. Wybierz serwer Apache Tomcat, a następnie kliknij polecenie **Wykonaj**.
-
-> [AZURE.TIP] Jeśli do przechowywania projektu używasz obszaru roboczego innego niż domyślny, zmodyfikuj pole **Konfiguracje wykonywania**, aby wskazać lokalizację projektu w celu uniknięcia błędu podczas uruchamiania serwera. W obszarze Eksplorator projektów kliknij prawym przyciskiem myszy pozycję **Search.jsp** >  wybierz polecenie **Wykonaj jako** > **Konfiguracje wykonywania**. Wybierz serwer Apache Tomcat. Kliknij pozycję **Argumenty**. Kliknij pozycję **Obszar roboczy** lub **System plików**, aby ustawić folder zawierający projekt.
+> [!TIP]
+> Jeśli do przechowywania projektu używasz obszaru roboczego innego niż domyślny, zmodyfikuj pole **Konfiguracje wykonywania**, aby wskazać lokalizację projektu w celu uniknięcia błędu podczas uruchamiania serwera. W obszarze Eksplorator projektów kliknij prawym przyciskiem myszy pozycję **Search.jsp** >  wybierz polecenie **Wykonaj jako** > **Konfiguracje wykonywania**. Wybierz serwer Apache Tomcat. Kliknij pozycję **Argumenty**. Kliknij pozycję **Obszar roboczy** lub **System plików**, aby ustawić folder zawierający projekt.
+> 
+> 
 
 Po uruchomieniu aplikacji powinno zostać wyświetlone okno przeglądarki zawierające pole wyszukiwania służące do wprowadzania terminów.
 
 Poczekaj około minutę, zanim klikniesz pozycję **Szukaj**, aby dać usłudze czas na utworzenie i załadowanie indeksu. Jeśli wystąpi błąd 404 protokołu HTTP, wystarczy poczekać nieco dłużej przed podjęciem ponownej próby.
 
 ## Przeszukiwanie danych agencji USGS
-
 Zestaw danych agencji USGS zawiera rekordy, które odnoszą się do stanu Rhode Island. Jeśli klikniesz przycisk **Szukaj**, pozostawiając pole wyszukiwania puste, zostanie wyświetlonych 50 pierwszych wpisów, co jest ustawieniem domyślnym.
 
 Wprowadzenie terminu wyszukiwania zaangażuje do pracy wyszukiwarkę. Spróbuj wprowadzić nazwę regionalną. „Roger Williams” był pierwszym gubernatorem stanu Rhode Island. Liczne parki, budynki i szkoły są nazwane jego imieniem.
@@ -178,12 +151,11 @@ Wprowadzenie terminu wyszukiwania zaangażuje do pracy wyszukiwarkę. Spróbuj w
 
 Możesz też wprowadzić jeden z poniższych terminów:
 
-- Pawtucket
-- Pembroke
-- goose +cape
+* Pawtucket
+* Pembroke
+* goose +cape
 
 ## Następne kroki
-
 To jest pierwszy samouczek usługi Azure Search bazujący na języku Java i zestawie danych agencji USGS. Wraz z upływem czasu będziemy rozszerzać ten samouczek, aby zademonstrować dodatkowe funkcje wyszukiwania, których mogą być przydatne w rozwiązaniach niestandardowych.
 
 Jeśli masz już pewną wiedzę na temat usługi Azure Search, możesz użyć tego przykładu jako podstawy do dalszych eksperymentów. Na przykład możesz rozszerzyć [stronę wyszukiwania](search-pagination-page-layout.md) lub zaimplementować [nawigację aspektową](search-faceted-navigation.md). Możesz również ulepszyć stronę wyników wyszukiwania przez dodanie liczników i łączenie dokumentów w partie, aby użytkownicy mogli przechodzić do kolejnych stron wyników.

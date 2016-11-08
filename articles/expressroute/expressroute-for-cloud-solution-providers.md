@@ -1,28 +1,30 @@
-<properties
-   pageTitle="Usługa Azure ExpressRoute dla dostawców rozwiązań w chmurze | Microsoft Azure"
-   description="Ten artykuł zawiera informacje dla dostawców usług w chmurze, którzy chcą włączyć do oferty usługi Azure i ExpressRoute."
-   documentationCenter="na"
-   services="expressroute"
-   authors="richcar"
-   manager="carmonm"
-   editor=""/>
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="richcar"/>
+---
+title: Usługa Azure ExpressRoute dla dostawców rozwiązań w chmurze | Microsoft Docs
+description: Ten artykuł zawiera informacje dla dostawców usług w chmurze, którzy chcą włączyć do oferty usługi Azure i ExpressRoute.
+documentationcenter: na
+services: expressroute
+author: richcar
+manager: carmonm
+editor: ''
 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: richcar
 
+---
 # <a name="expressroute-for-cloud-solution-providers-(csp)"></a>Usługa ExpressRoute dla dostawców rozwiązań w chmurze (CSP)
-
 Firma Microsoft oferuje usługi w hiperskali dla tradycyjnych odsprzedawców i dystrybutorów (CSP), dzięki czemu użytkownicy mogą szybko inicjować obsługę nowych usług i rozwiązań dla klientów bez konieczności inwestowania w ich opracowywanie. Aby umożliwić dostawcy rozwiązań w chmurze (CSP) bezpośrednie zarządzanie tymi nowymi usługami, firma Microsoft udostępnia programy oraz interfejsy API, które pozwalają dostawcy CSP na zarządzanie zasobami Microsoft Azure w imieniu klientów. Jednym z tych zasobów jest usługa ExpressRoute. Usługa ExpressRoute umożliwia dostawcy CSP łączenie istniejących zasobów klienta z usługami Azure. Usługa ExpressRoute jest prywatnym łączem komunikacyjnym o dużej szybkości do usług w ramach platformy Azure. 
 
 Usługa ExpresRoute obejmuje parę obwodów o wysokiej dostępności dołączonych do pojedynczej subskrypcji klienta, których nie można współdzielić między wieloma klientami. Aby zachować wysoką dostępność, każdy obwód powinien kończyć się na innym routerze.
 
->[AZURE.NOTE] Usługa ExpressRoute obejmuje przepustowość i zakończenia połączenia, co oznacza, że duże/złożone wdrożenia będą wymagały wielu obwodów usługi ExpressRoute dla jednego klienta.
+> [!NOTE]
+> Usługa ExpressRoute obejmuje przepustowość i zakończenia połączenia, co oznacza, że duże/złożone wdrożenia będą wymagały wielu obwodów usługi ExpressRoute dla jednego klienta.
+> 
+> 
 
 Firma Microsoft Azure oferuje coraz więcej usług, które można zaoferować klientom.  Aby jak najlepiej korzystać z tych usług, trzeba użyć połączeń usługi ExpressRoute w celu zapewnienia szybkiego dostępu z krótkim czasem oczekiwania do środowiska Microsoft Azure.
 
@@ -33,7 +35,6 @@ Firma Microsoft udostępnia dostawcom CSP interfejsy API do zarządzania subskry
 W zależności od umowy z klientem określa, jak będzie zarządzana subskrypcja. Dostawca CSP może bezpośrednio zarządzać tworzeniem i obsługą zasobów lub klient może zachować kontrolę nad subskrypcją Microsoft Azure i tworzyć zasoby Azure zgodnie z zapotrzebowaniem. Jeśli klient zarządza tworzeniem zasobów w ramach swojej subskrypcji Microsoft Azure, użyje jednego z dwóch modeli: modelu typu „połącz przez” lub modelu typu „bezpośrednio do”. Te modele zostały szczegółowo opisane w poniższych sekcjach.  
 
 ### <a name="connect-through-model"></a>Model typu „połącz przez”
-
 ![tekst alternatywny](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
 W modelu typu „połącz przez” dostawca CSP tworzy bezpośrednie połączenie między centrum danych a subskrypcją Azure klienta. Połączenie bezpośrednie jest nawiązywane za pomocą usługi ExpressRoute i łączy sieć z platformą Azure. Klient łączy się z siecią. Ten scenariusz wymaga, aby klient w celu uzyskania dostępu do usług Azure korzystał z sieci dostawcy CSP. 
@@ -45,27 +46,32 @@ W przypadku dostawcy CSP zarządzającego usługami Azure, zakłada się, że do
 ![tekst alternatywny](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
 ### <a name="connect-to-model"></a>Model typu „połącz z”
-
 ![tekst alternatywny](./media/expressroute-for-cloud-solution-providers/connect-to.png)
 
 W modelu typu „połącz z” dostawca usług tworzy bezpośrednie połączenie między centrum danych swojego klienta a subskrypcją Azure inicjowaną przez dostawcę CSP za pomocą usługi ExpressRoute za pośrednictwem sieci klienta.
 
->[AZURE.NOTE] Aby użyć usługi ExpressRoute, klient musi utworzyć i obsługiwać obwód usługi ExpressRoute.  
+> [!NOTE]
+> Aby użyć usługi ExpressRoute, klient musi utworzyć i obsługiwać obwód usługi ExpressRoute.  
+> 
+> 
 
 Ten scenariusz dotyczący łączności wymaga, by klient łączył się bezpośrednio przez sieć klienta, aby uzyskać dostęp do subskrypcji Azure zarządzanej przez dostawcę CSP przy użyciu bezpośredniego połączenia sieciowego, które jest w całości lub częściowo tworzone i zarządzane przez klienta i do niego należy. W przypadku tych klientów zakłada się, że dostawca nie ma obecnie ustanowionego magazynu tożsamości klienta i że będzie pomagać klientowi w replikacji bieżącego magazynu tożsamości do usługi Azure Active Directory w celu zarządzania subskrypcją przez AOBO. Scenariusz ten jest używany przede wszystkim wtedy, gdy dany partner lub dostawca usług ma ustanowioną relację z klientem, klient obecnie używa usług dostawcy lub partner chce dostarczać usługi oparte wyłącznie na rozwiązaniach obsługiwanych przez Azure, bez potrzeby istnienia centrum danych czy infrastruktury dostawcy.
 
 ![tekst alternatywny](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
 
 Wybór między tymi dwoma opcjami zależy od potrzeb klienta i bieżącej potrzeby świadczenia usług Azure. Szczegółowe informacje dotyczące tych modeli oraz powiązanych z nimi opartych na rolach wzorów projektu kontroli dostępu, sieci i tożsamości znajdują się w artykułach, do których odwołują się poniższe linki:
--   **Kontrola dostępu na podstawie ról (RBAC)** — RBAC opiera się na usłudze Azure Active Directory.  Więcej informacji na temat funkcji Azure RBAC znajduje się [tutaj](../active-directory/role-based-access-control-configure.md).
--   **Sieć** — obejmuje różne tematy dotyczące sieci na platformie Microsoft Azure.
--   **Azure Active Directory (AAD)** — usługa AAD zapewnia zarządzanie tożsamościami dla platformy Microsoft Azure i aplikacji SaaS innych firm. Więcej informacji na temat usługi Azure AD znajduje się [tutaj](https://azure.microsoft.com/documentation/services/active-directory/).  
 
+* **Kontrola dostępu na podstawie ról (RBAC)** — RBAC opiera się na usłudze Azure Active Directory.  Więcej informacji na temat funkcji Azure RBAC znajduje się [tutaj](../active-directory/role-based-access-control-configure.md).
+* **Sieć** — obejmuje różne tematy dotyczące sieci na platformie Microsoft Azure.
+* **Azure Active Directory (AAD)** — usługa AAD zapewnia zarządzanie tożsamościami dla platformy Microsoft Azure i aplikacji SaaS innych firm. Więcej informacji na temat usługi Azure AD znajduje się [tutaj](https://azure.microsoft.com/documentation/services/active-directory/).  
 
 ## <a name="network-speeds"></a>Szybkość sieci
 Usługa ExpressRoute obsługuje szybkość sieci od 50 Mb/s do 10 Gb/s. Dzięki temu klienci mogą wykupić przepustowość odpowiadającą konkretnym potrzebom ich środowiska.
 
->[AZURE.NOTE] Przepustowość sieci można w razie potrzeby zwiększać bez przerywania komunikacji, ale zmniejszenie szybkości sieci wymaga zniszczenia obwodu i odtworzenia go z mniejszą szybkością.  
+> [!NOTE]
+> Przepustowość sieci można w razie potrzeby zwiększać bez przerywania komunikacji, ale zmniejszenie szybkości sieci wymaga zniszczenia obwodu i odtworzenia go z mniejszą szybkością.  
+> 
+> 
 
 Usługa ExpressRoute obsługuje połączenia wielu sieci wirtualnych z jednym obwodem usługi ExpressRoute w celu lepszego wykorzystania połączeń o większej szybkości. Pojedynczy obwód usługi ExpressRoute może być współdzielony przez wiele subskrypcji Azure należących do tego samego klienta.
 
@@ -73,7 +79,7 @@ Usługa ExpressRoute obsługuje połączenia wielu sieci wirtualnych z jednym ob
 Usługę ExpressRoute można skonfigurować do obsługi trzech rodzajów ruchu ([domen routingu](#ExpressRoute-routing-domains)) za pośrednictwem jednego obwodu usługi ExpressRoute. Ten ruch można podzielić na komunikację równorzędną Microsoft, publiczną i prywatną komunikację równorzędną Azure. Można wybrać jeden rodzaj lub wszystkie rodzaje ruchu do wysłania przez jeden obwód usługi ExpressRoute lub użyć wielu obwodów usługi ExpressRoute w zależności od rozmiaru obwodu usługi ExpressRoute i izolacji wymaganej przez klienta. Poziom bezpieczeństwa klienta może nie pozwalać na to, by ruch publiczny i prywatny przechodził przez ten sam obwód.
 
 ### <a name="connect-through-model"></a>Model typu „połącz przez”
-W konfiguracji typu „połącz przez” jesteś odpowiedzialny za całe wsparcie sieci podczas łączenia zasobów centrum danych klientów z subskrypcjami obsługiwanymi na platformie Azure. Każdy klient, który chce użyć funkcji platformy Azure będzie potrzebować własnego połączenia za pomocą usługi ExpressRoute, które będzie zarządzane przez Ciebie. Będziesz stosować te same metody, których używałby klient do zaopatrzenia obwodu usługi ExpressRoute. Wykonasz instrukcje dotyczące inicjowania obsługi obwodów i stanów obwodów opisane w artykule [ExpressRoute workflows](./expressroute-workflows.md) (Przepływy pracy usługi ExpressRoute). Następnie skonfigurujesz trasy protokołu Border Gateway Protocol (BGP) do sterowania ruchem odbywającym się między siecią lokalną a siecią wirtualną Azure.
+W konfiguracji typu „połącz przez” jesteś odpowiedzialny za całe wsparcie sieci podczas łączenia zasobów centrum danych klientów z subskrypcjami obsługiwanymi na platformie Azure. Każdy klient, który chce użyć funkcji platformy Azure będzie potrzebować własnego połączenia za pomocą usługi ExpressRoute, które będzie zarządzane przez Ciebie. Będziesz stosować te same metody, których używałby klient do zaopatrzenia obwodu usługi ExpressRoute. Wykonasz instrukcje dotyczące inicjowania obsługi obwodów i stanów obwodów opisane w artykule [ExpressRoute workflows](expressroute-workflows.md) (Przepływy pracy usługi ExpressRoute). Następnie skonfigurujesz trasy protokołu Border Gateway Protocol (BGP) do sterowania ruchem odbywającym się między siecią lokalną a siecią wirtualną Azure.
 
 ### <a name="connect-to-model"></a>Model typu „połącz z”
 W konfiguracji typu „połącz z” klient ma już istniejące połączenie z platformą Azure lub zainicjuje połączenie z dostawcą usług internetowych łączące usługę ExpressRoute z centrum danych klienta bezpośrednio z platformą Azure, a nie z Twojego centrum danych. Aby rozpocząć proces inicjowania obsługi, klient wykona instrukcje opisane w modelu typu „połącz z” powyżej. Po ustanowieniu obwodu klient będzie musiał skonfigurować routery lokalne w taki sposób, aby mogły uzyskać dostęp do Twojej sieci i sieci wirtualnych Azure.
@@ -81,11 +87,14 @@ W konfiguracji typu „połącz z” klient ma już istniejące połączenie z p
 Możesz pomóc podczas konfigurowania połączenia i tras do zezwalania zasobom w centrum danych na komunikację z zasobami klienta w centrum danych lub zasobami obsługiwanymi na platformie Azure.
 
 ## <a name="expressroute-routing-domains"></a>Domeny routingu usługi ExpressRoute
-Usługa ExpressRoute oferuje trzy domeny routingu: publiczną, prywatną i komunikacji równorzędnej firmy Microsoft. Każda z domen routingu jest konfigurowana z identycznymi routerami w konfiguracji aktywny-aktywny w celu uzyskania wysokiej dostępności. Więcej szczegółowych informacji dotyczących domen routingu usługi ExpressRoute można znaleźć [tutaj](./expressroute-circuit-peerings.md).
+Usługa ExpressRoute oferuje trzy domeny routingu: publiczną, prywatną i komunikacji równorzędnej firmy Microsoft. Każda z domen routingu jest konfigurowana z identycznymi routerami w konfiguracji aktywny-aktywny w celu uzyskania wysokiej dostępności. Więcej szczegółowych informacji dotyczących domen routingu usługi ExpressRoute można znaleźć [tutaj](expressroute-circuit-peerings.md).
 
-Możesz zdefiniować filtry tras niestandardowych w taki sposób, aby zezwalać tylko na trasy, na które chcesz zezwolić lub których potrzebujesz. Opis wprowadzania tych zmian i więcej szczegółów dotyczących filtrów routingu znajduje się w artykule [Create and modify routing for an ExpressRoute circuit using PowerShell](./expressroute-howto-routing-classic.md) (Tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute za pomocą programu PowerShell).
+Możesz zdefiniować filtry tras niestandardowych w taki sposób, aby zezwalać tylko na trasy, na które chcesz zezwolić lub których potrzebujesz. Opis wprowadzania tych zmian i więcej szczegółów dotyczących filtrów routingu znajduje się w artykule [Create and modify routing for an ExpressRoute circuit using PowerShell](expressroute-howto-routing-classic.md) (Tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute za pomocą programu PowerShell).
 
->[AZURE.NOTE] W przypadku firmy Microsoft i publicznej komunikacji równorzędnej połączenie musi odbywać się przez publiczny adres IP należący do klienta lub dostawcy CSP i musi być zgodne ze wszystkimi zdefiniowanymi regułami. Więcej informacji znajduje się na stronie [ExpressRoute Prerequisites](expressroute-prerequisites.md) (Wymagania wstępne usługi ExpressRoute).  
+> [!NOTE]
+> W przypadku firmy Microsoft i publicznej komunikacji równorzędnej połączenie musi odbywać się przez publiczny adres IP należący do klienta lub dostawcy CSP i musi być zgodne ze wszystkimi zdefiniowanymi regułami. Więcej informacji znajduje się na stronie [ExpressRoute Prerequisites](expressroute-prerequisites.md) (Wymagania wstępne usługi ExpressRoute).  
+> 
+> 
 
 ## <a name="routing"></a>Routing
 Usługa ExpressRoute łączy się z sieciami Azure za pośrednictwem usługi Azure Virtual Network. Bramy sieci zapewniają routing dla sieci wirtualnych Azure.
@@ -95,11 +104,11 @@ Tworzenie sieci wirtualnych Azure powoduje również utworzenie tabeli routingu 
 ### <a name="default-routing"></a>Routing domyślny
 Tabela routingu domyślnego obejmuje następujące trasy:
 
-- Routing w podsieci
-- Podsieć do podsieci w sieci wirtualnej
-- Do Internetu
-- Sieć wirtualna do sieci wirtualnej przy użyciu bramy sieci VPN
-- Sieć wirtualna do sieci lokalnej przy użyciu bramy sieci VPN lub usługi ExpressRoute
+* Routing w podsieci
+* Podsieć do podsieci w sieci wirtualnej
+* Do Internetu
+* Sieć wirtualna do sieci wirtualnej przy użyciu bramy sieci VPN
+* Sieć wirtualna do sieci lokalnej przy użyciu bramy sieci VPN lub usługi ExpressRoute
 
 ![tekst alternatywny](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
@@ -109,12 +118,10 @@ Trasy zdefiniowane przez użytkownika umożliwiają sterowanie ruchem wychodząc
 ## <a name="security"></a>Bezpieczeństwo
 W zależności od tego, czy używany jest model „połącz z” czy „połącz przez”, klient określa zasady zabezpieczeń w sieci wirtualnej lub przekazuje wymagania zasad bezpieczeństwa dostawcy CSP do zdefiniowania dla sieci wirtualnych. Można zdefiniować następujące kryteria zabezpieczeń:
 
-1.  **Izolacja klienta** — platforma Azure zapewnia izolację klienta przez przechowywanie identyfikatora klienta i informacji o sieci wirtualnej w bezpiecznej bazie danych, używanej do hermetyzacji ruchu poszczególnych klientów w tunelu GRE.
-2.  Reguły **grupy zabezpieczeń sieci (NSG)** służą do definiowania dopuszczonego ruchu do i z podsieci w ramach sieci wirtualnych na platformie Azure. Domyślnie NSG obejmuje reguły blokowania do blokowania ruchu z Internetu do sieci wirtualnej oraz reguły zezwalania dla ruchu w ramach sieci wirtualnej. Więcej informacji na temat grup zabezpieczeń sieci znajduje się [tutaj](https://azure.microsoft.com/blog/network-security-groups/).
-3.  **Tunelowanie wymuszone** — jest to opcja przekierowywania ruchu powiązanego z Internetem pochodzącego z platformy Azure za pośrednictwem połączenia usługi ExpressRoute do lokalnego centrum danych. Więcej informacji o na temat tunelowania wymuszonego można znaleźć [tutaj](./expressroute-routing.md#advertising-default-routes).  
-
-4.  **Szyfrowanie** — mimo że obwody usługi ExpressRoute są przeznaczone dla określonego klienta, istnieje możliwość naruszenia bezpieczeństwa dostawcy sieci, które pozwoliłoby intruzowi na sprawdzenie ruchu pakietu. Aby temu zapobiec, klient lub dostawca CSP może zaszyfrować ruch w ramach połączenia przez zdefiniowanie zasad trybu tunelu ochrony IPSec dla całego ruchu odbywającego się między zasobami lokalnymi i zasobami Azure (informacje na temat opcjonalnej ochrony IPSec trybu tunelu dla klienta 1 znajdują się powyżej na rysunku 5 — Zabezpieczenia usługi ExpressRoute). Druga opcja polega na użyciu urządzenia zapory na każdym punkcie końcowym obwodu usługi ExpressRoute. Wymaga to zainstalowania dodatkowych maszyn wirtualnych/urządzeń zapory innych firm ma obu końcach w celu zaszyfrowania ruchu w ramach obwodu usługi ExpressRoute.
-
+1. **Izolacja klienta** — platforma Azure zapewnia izolację klienta przez przechowywanie identyfikatora klienta i informacji o sieci wirtualnej w bezpiecznej bazie danych, używanej do hermetyzacji ruchu poszczególnych klientów w tunelu GRE.
+2. Reguły **grupy zabezpieczeń sieci (NSG)** służą do definiowania dopuszczonego ruchu do i z podsieci w ramach sieci wirtualnych na platformie Azure. Domyślnie NSG obejmuje reguły blokowania do blokowania ruchu z Internetu do sieci wirtualnej oraz reguły zezwalania dla ruchu w ramach sieci wirtualnej. Więcej informacji na temat grup zabezpieczeń sieci znajduje się [tutaj](https://azure.microsoft.com/blog/network-security-groups/).
+3. **Tunelowanie wymuszone** — jest to opcja przekierowywania ruchu powiązanego z Internetem pochodzącego z platformy Azure za pośrednictwem połączenia usługi ExpressRoute do lokalnego centrum danych. Więcej informacji o na temat tunelowania wymuszonego można znaleźć [tutaj](expressroute-routing.md#advertising-default-routes).  
+4. **Szyfrowanie** — mimo że obwody usługi ExpressRoute są przeznaczone dla określonego klienta, istnieje możliwość naruszenia bezpieczeństwa dostawcy sieci, które pozwoliłoby intruzowi na sprawdzenie ruchu pakietu. Aby temu zapobiec, klient lub dostawca CSP może zaszyfrować ruch w ramach połączenia przez zdefiniowanie zasad trybu tunelu ochrony IPSec dla całego ruchu odbywającego się między zasobami lokalnymi i zasobami Azure (informacje na temat opcjonalnej ochrony IPSec trybu tunelu dla klienta 1 znajdują się powyżej na rysunku 5 — Zabezpieczenia usługi ExpressRoute). Druga opcja polega na użyciu urządzenia zapory na każdym punkcie końcowym obwodu usługi ExpressRoute. Wymaga to zainstalowania dodatkowych maszyn wirtualnych/urządzeń zapory innych firm ma obu końcach w celu zaszyfrowania ruchu w ramach obwodu usługi ExpressRoute.
 
 ![tekst alternatywny](./media/expressroute-for-cloud-solution-providers/expressroute-security.png)  
 
@@ -126,8 +133,6 @@ Dodatkowe informacje można znaleźć, używając następujących linków:
 [Microsoft Cloud Solution Provider program](https://partner.microsoft.com/en-US/Solutions/cloud-reseller-overview) (Program dostawcy rozwiązań w chmurze Microsoft).  
 [Get ready to transact as a Cloud Solution Provider](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch) (Przygotowanie do transakcji w roli dostawcy rozwiązań w chmurze).  
 [Microsoft Cloud Solution Provider resources](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources) (Zasoby dostawcy rozwiązań w chmurze Microsoft).
-
-
 
 <!--HONumber=Oct16_HO3-->
 

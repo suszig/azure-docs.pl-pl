@@ -1,35 +1,34 @@
-<properties
-    pageTitle="Wprowadzenie do usług Azure Cloud Services i programu ASP.NET | Microsoft Azure"
-    description="Dowiedz się, jak utworzyć aplikację wielowarstwową przy użyciu kontrolera ASP.NET MVC i platformy Azure. Aplikacja jest uruchamiana w usłudze w chmurze z rolą Sieć Web i Proces roboczy. Używa platformy Entity Framework, bazy danych SQL Database oraz obiektów blob i kolejek usługi Azure Storage."
-    services="cloud-services, storage"
-    documentationCenter=".net"
-    authors="Thraka"
-    manager="timlt"
-    editor=""/>
+---
+title: Wprowadzenie do usług Azure Cloud Services i programu ASP.NET | Microsoft Docs
+description: Dowiedz się, jak utworzyć aplikację wielowarstwową przy użyciu kontrolera ASP.NET MVC i platformy Azure. Aplikacja jest uruchamiana w usłudze w chmurze z rolą Sieć Web i Proces roboczy. Używa platformy Entity Framework, bazy danych SQL Database oraz obiektów blob i kolejek usługi Azure Storage.
+services: cloud-services, storage
+documentationcenter: .net
+author: Thraka
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="cloud-services"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.date="06/10/2016"
-    ms.author="adegeo"/>
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 06/10/2016
+ms.author: adegeo
 
+---
 # Wprowadzenie do usług Azure Cloud Services i programu ASP.NET
-
-> [AZURE.SELECTOR]
-- [Node.js](cloud-services-nodejs-develop-deploy-app.md)
-- [.NET](cloud-services-dotnet-get-started.md)
+> [!div class="op_single_selector"]
+> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
+> * [.NET](cloud-services-dotnet-get-started.md)
+> 
+> 
 
 ## Omówienie
-
 W tym samouczku wyjaśniono, jak utworzyć wielowarstwową aplikację .NET z frontonem ASP.NET MVC i wdrożyć ją w [usłudze w chmurze Azure](cloud-services-choose-me.md). Aplikacja używa [bazy danych Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), [usługi obiektów blob platformy Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) i [usługi kolejek platformy Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). [Projekt programu Visual Studio można pobrać](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) z Galerii kodu MSDN.
 
 W samouczku opisano, jak skompilować i uruchomić aplikację lokalnie, wdrożyć ją na platformie Azure i uruchomić w chmurze oraz skompilować od samego początku. Można również rozpocząć od kompilowania aplikacji od początku, a dopiero później przeprowadzić testowanie i wdrażanie.
 
 ## Aplikacja Contoso Ads
-
 Ta aplikacja to reklamowa tablica ogłoszeń. Aby utworzyć reklamę, użytkownicy muszą wpisać tekst i przesłać obraz. Mogą przeglądać listę reklam z miniaturami obrazów, a także zobaczyć pełny obraz po kliknięciu reklamy w celu wyświetlenia jej szczegółów.
 
 ![Lista reklam](./media/cloud-services-dotnet-get-started/list.png)
@@ -37,11 +36,9 @@ Ta aplikacja to reklamowa tablica ogłoszeń. Aby utworzyć reklamę, użytkowni
 Aplikacja korzysta z [przetwarzania kolejkowego](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern), aby przekazać obciążające procesor zadania związane z tworzeniem miniatur do procesu zaplecza.
 
 ## Architektura alternatywna: witryny sieci Web i zadania WebJob
-
 Ten samouczek pokazuje, jak uruchamiać fronton i zaplecze w usłudze w chmurze Azure. Alternatywą jest uruchomienie frontonu w [witrynie Azure w sieci Web](/services/web-sites/) i używanie funkcji [zadań WebJob](http://go.microsoft.com/fwlink/?LinkId=390226) (obecnie w wersji zapoznawczej) dla zaplecza. Aby zapoznać się z samouczkiem korzystającym z zadań WebJob, zobacz artykuł [Wprowadzenie do zestawu SDK zadań WebJob na platformie Azure](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md). Informacje o wybieraniu usług najlepiej spełniających potrzeby scenariusza zawiera artykuł [Porównanie usług Azure: Witryny sieci Web, Cloud Services i Virtual Machines](../app-service-web/choose-web-site-cloud-service-vm.md).
 
 ## Zawartość
-
 * Jak umożliwić tworzenie aplikacji platformy Azure na komputerze przez zainstalowanie zestawu Azure SDK.
 * Jak utworzyć projekt usługi w chmurze programu Visual Studio z rolą Proces roboczy i rolą Sieć Web kontrolera ASP.NET MVC.
 * Jak przetestować projekt usługi w chmurze lokalnie za pomocą emulatora magazynu platformy Azure.
@@ -50,7 +47,6 @@ Ten samouczek pokazuje, jak uruchamiać fronton i zaplecze w usłudze w chmurze 
 * Jak komunikować się między warstwami przy użyciu usługi kolejek platformy Azure.
 
 ## Wymagania wstępne
-
 W samouczku przyjęto założenie, że znasz [podstawowe pojęcia dotyczące usług w chmurze Azure](cloud-services-choose-me.md), takie jak terminologia związana z *rolą Sieć Web* i *rolą Proces roboczy*.  Założono również, że wiesz, jak pracować z projektami [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) lub [formularzami sieci Web](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) w programie Visual Studio. Przykładowa aplikacja korzysta z kontrolera MVC, jednak większość treści samouczka odnosi się również do formularzy sieci Web.
 
 Aplikację można uruchomić lokalnie bez subskrypcji platformy Azure, ale będzie ona potrzebna w przypadku wdrażania aplikacji w chmurze. Jeśli nie masz konta, możesz [aktywować korzyści dla subskrybentów MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) lub [utworzyć konto bezpłatnej wersji próbnej](/pricing/free-trial/?WT.mc_id=A55E3C668).
@@ -63,7 +59,6 @@ Instrukcje w samouczku dotyczą pracy z jednym z następujących produktów:
 Jeśli nie masz żadnego z tych programów, podczas instalowania zestawu Azure SDK zostanie automatycznie zainstalowany program Visual Studio 2015.
 
 ## Architektura aplikacji
-
 Aplikacja przechowuje reklamy w bazie danych SQL oraz tworzy tabele i uzyskuje dostęp do danych za pomocą funkcji Code First platformy Entity Framework. W przypadku każdej reklamy baza danych zawiera dwa adresy URL: jeden do obrazu w pełnym rozmiarze i jeden do miniatury.
 
 ![Tabela reklam](./media/cloud-services-dotnet-get-started/adtable.png)
@@ -72,54 +67,42 @@ Gdy użytkownik przesyła obraz, fronton uruchomiony w roli Sieć Web zapisuje o
 
 ![Architektura aplikacji Contoso Ads](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
-[AZURE.INCLUDE [install-sdk](../../includes/install-sdk-2015-2013.md)]
+[!INCLUDE [install-sdk](../../includes/install-sdk-2015-2013.md)]
 
 ## Pobieranie i uruchamianie gotowego rozwiązania
-
 1. Pobierz i rozpakuj [ukończone rozwiązanie](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4).
-
 2. Uruchom program Visual Studio.
-
 3. Z menu **Plik** wybierz polecenie **Otwórz projekt**, przejdź do lokalizacji pobranego rozwiązania, a następnie otwórz plik rozwiązania.
-
-3. Naciśnij kombinację klawiszy CTRL+SHIFT+B w celu skompilowania rozwiązania.
-
+4. Naciśnij kombinację klawiszy CTRL+SHIFT+B w celu skompilowania rozwiązania.
+   
     Domyślnie program Visual Studio automatycznie przywraca zawartość pakietu NuGet, która nie została uwzględniona w pliku *ZIP*. Jeśli pakiety nie zostaną przywrócone, zainstaluj je ręcznie, przechodząc do okna dialogowego **Zarządzanie pakietami NuGet dla rozwiązania** i klikając przycisk **Przywróć** w prawym górnym rogu ekranu.
-
-3. Sprawdź w **Eksploratorze rozwiązań**, czy projekt **ContosoAdsCloudService** został wybrany jako projekt startowy.
-
-2. Jeśli używasz programu Visual Studio 2015, zmień parametry połączenia programu SQL Server w pliku *Web.config* projektu ContosoAdsWeb i w pliku *ServiceConfiguration.Local.cscfg* projektu ContosoAdsCloudService. W każdym przypadku zmień ciąg „(localdb)\v11.0” na „(localdb)\MSSQLLocalDB”.
-
-1. Naciśnij klawisze CTRL+F5, aby uruchomić aplikację.
-
+5. Sprawdź w **Eksploratorze rozwiązań**, czy projekt **ContosoAdsCloudService** został wybrany jako projekt startowy.
+6. Jeśli używasz programu Visual Studio 2015, zmień parametry połączenia programu SQL Server w pliku *Web.config* projektu ContosoAdsWeb i w pliku *ServiceConfiguration.Local.cscfg* projektu ContosoAdsCloudService. W każdym przypadku zmień ciąg „(localdb)\v11.0” na „(localdb)\MSSQLLocalDB”.
+7. Naciśnij klawisze CTRL+F5, aby uruchomić aplikację.
+   
     Po uruchomieniu projektu usługi w chmurze w środowisku lokalnym program Visual Studio automatycznie wywołuje *emulator obliczeń* platformy Azure i *emulator magazynu* platformy Azure. Emulator obliczeń używa zasobów komputera do symulowania środowisk roli Sieć Web i roli Proces roboczy. Emulator magazynu używa bazy danych [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx), aby symulować działanie magazynu w chmurze Azure.
-
+   
     Podczas pierwszego uruchomienia projektu usługi w chmurze uruchomienie emulatorów może potrwać około minuty. Po zakończeniu uruchamiania emulatora w domyślnej przeglądarce otworzy się strona główna aplikacji.
-
+   
     ![Architektura aplikacji Contoso Ads](./media/cloud-services-dotnet-get-started/home.png)
-
-2. Kliknij przycisk **Create an Ad** (Utwórz reklamę).
-
-2. Wprowadź dane testowe i wybierz obraz *JPG* do przekazania, a następnie kliknij przycisk **Create** (Utwórz).
-
+8. Kliknij przycisk **Create an Ad** (Utwórz reklamę).
+9. Wprowadź dane testowe i wybierz obraz *JPG* do przekazania, a następnie kliknij przycisk **Create** (Utwórz).
+   
     ![Tworzenie strony](./media/cloud-services-dotnet-get-started/create.png)
-
+   
     Aplikacja przechodzi do strony indeksu, ale nie wyświetla miniatury nowej reklamy, ponieważ przetwarzanie nie zostało jeszcze przeprowadzone.
-
-3. Zaczekaj chwilę, a następnie odśwież stronę indeksu, aby zobaczyć miniaturę.
-
-    ![Strona indeksu](./media/cloud-services-dotnet-get-started/list.png)
-
-4. Kliknij link **Details** (Szczegóły) obok reklamy, aby wyświetlić obraz w pełnym rozmiarze.
-
-    ![Strona szczegółów](./media/cloud-services-dotnet-get-started/details.png)
+10. Zaczekaj chwilę, a następnie odśwież stronę indeksu, aby zobaczyć miniaturę.
+    
+     ![Strona indeksu](./media/cloud-services-dotnet-get-started/list.png)
+11. Kliknij link **Details** (Szczegóły) obok reklamy, aby wyświetlić obraz w pełnym rozmiarze.
+    
+     ![Strona szczegółów](./media/cloud-services-dotnet-get-started/details.png)
 
 Aplikacja działała całkowicie na komputerze lokalnym — bez połączenia z chmurą. Emulator magazynu przechowuje dane kolejek i obiektów blob w bazie danych SQL Server Express LocalDB, a aplikacja przechowuje dane reklam w innej bazie danych LocalDB. Platforma Entity Framework Code First automatycznie utworzyła bazę danych reklam, gdy aplikacja sieci Web po raz pierwszy próbowała uzyskać do niej dostęp.
 
 W poniższej sekcji skonfigurujesz rozwiązanie do użycia zasobów w chmurze Azure dla kolejek, obiektów blob i bazy danych aplikacji na potrzeby uruchamiania w chmurze. Jeśli chcesz nadal uruchamiać aplikację lokalnie, ale korzystać z zasobów bazy danych i magazynu w chmurze, możesz to zrobić. Wymaga to jedynie ustawienia parametrów połączenia — pokażemy, jak to zrobić.
 
 ## Wdrażanie aplikacji na platformie Azure
-
 Aby uruchomić aplikację w chmurze, należy wykonać następujące kroki:
 
 * Utworzenie usługi w chmurze platformy Azure.
@@ -130,164 +113,128 @@ Aby uruchomić aplikację w chmurze, należy wykonać następujące kroki:
 * Wdrożenie projektu do usługi w chmurze platformy Azure.
 
 ### Tworzenie usługi w chmurze platformy Azure
-
 Usługa w chmurze Azure to środowisko uruchamiania aplikacji.
 
 1. W przeglądarce otwórz [klasyczny portal Azure](http://manage.windowsazure.com).
-
 2. Kliknij kolejno pozycje **Nowe > Obliczenia > Usługa w chmurze > Szybkie tworzenie**.
-
-4. W polu adresu URL wpisz prefiks adresu URL.
-
+3. W polu adresu URL wpisz prefiks adresu URL.
+   
     Adres URL musi być unikatowy.  Jeśli wybranego prefiksu używa już ktoś inny, zostanie wyświetlony komunikat o błędzie.
-
-5. Wybierz region, w którym chcesz wdrożyć aplikację.
-
+4. Wybierz region, w którym chcesz wdrożyć aplikację.
+   
     To pole określa centrum danych, w którym będzie hostowana usługa w chmurze. W przypadku aplikacji produkcyjnej warto wybrać region znajdujący się najbliżej klientów. Na potrzeby tego samouczka wybierz region znajdujący się najbliżej Ciebie.
-
-6. Kliknij pozycję **Utwórz usługę w chmurze**.
-
+5. Kliknij pozycję **Utwórz usługę w chmurze**.
+   
     Na poniższej ilustracji usługa w chmurze jest tworzona przy użyciu adresu URL contosoads.cloudapp.net.
-
+   
     ![Nowa usługa w chmurze](./media/cloud-services-dotnet-get-started/newcs.png)
 
 ### Tworzenie bazy danych SQL Azure
-
 Aplikacja uruchomiona w chmurze będzie używać bazy danych opartej na chmurze.
 
 1. W [klasycznym portalu Azure](http://manage.windowsazure.com) kliknij kolejno pozycje **Nowe > Usługi danych > SQL Database > Szybkie tworzenie**.
-
-1. W polu **Nazwa bazy danych** wprowadź wartość *contosoads*.
-
-1. Z listy rozwijanej **Serwer** wybierz pozycję **Nowy serwer SQL Database**.
-
+2. W polu **Nazwa bazy danych** wprowadź wartość *contosoads*.
+3. Z listy rozwijanej **Serwer** wybierz pozycję **Nowy serwer SQL Database**.
+   
     Alternatywnie — jeśli subskrypcja obejmuje już serwer — możesz wybrać ten serwer z listy rozwijanej.
-
-1. Wybierz taki sam **region** jak w usłudze w chmurze.
-
+4. Wybierz taki sam **region** jak w usłudze w chmurze.
+   
     Jeśli usługa w chmurze i baza danych są obsługiwane w różnych centrach danych (różnych regionach), zwiększy się opóźnienie i będą naliczane opłaty dotyczące przepustowości poza centrum danych. Przepustowość w centrum danych jest bezpłatna.
-
-1. Wprowadź wartość **Nazwa logowania** i **Hasło** dla administratora.
-
-    W przypadku wybrania opcji **	Nowy serwer SQL Database** w tym miejscu nie wprowadzasz istniejącej nazwy i hasła — podajesz nową nazwę i hasło definiowane w tej chwili do użycia w przyszłości podczas uzyskiwania dostępu do bazy danych. W przypadku wybrania wcześniej utworzonego serwera zostanie wyświetlony monit o hasło do już utworzonego konta użytkownika administracyjnego.
-
-1. Kliknij przycisk **Utwórz bazę danych SQL Database**.
-
+5. Wprowadź wartość **Nazwa logowania** i **Hasło** dla administratora.
+   
+    W przypadku wybrania opcji **    Nowy serwer SQL Database** w tym miejscu nie wprowadzasz istniejącej nazwy i hasła — podajesz nową nazwę i hasło definiowane w tej chwili do użycia w przyszłości podczas uzyskiwania dostępu do bazy danych. W przypadku wybrania wcześniej utworzonego serwera zostanie wyświetlony monit o hasło do już utworzonego konta użytkownika administracyjnego.
+6. Kliknij przycisk **Utwórz bazę danych SQL Database**.
+   
     ![Nowa baza danych SQL Database](./media/cloud-services-dotnet-get-started/newdb.png)
-
-1. Po zakończeniu tworzenia bazy danych na platformie Azure kliknij kartę **Bazy danych SQL Database** w okienku po lewej stronie portalu, a następnie kliknij nazwę nowej bazy danych.
-
-2. Kliknij kartę **Pulpit nawigacyjny**.
-
-3. Kliknij pozycję **Zarządzaj dozwolonymi adresami IP**.
-
-4. W obszarze **Dozwolone usług** zmień ustawienie **Usługi Azure** na **Tak**.
-
-5. Kliknij pozycję **Zapisz**.
+7. Po zakończeniu tworzenia bazy danych na platformie Azure kliknij kartę **Bazy danych SQL Database** w okienku po lewej stronie portalu, a następnie kliknij nazwę nowej bazy danych.
+8. Kliknij kartę **Pulpit nawigacyjny**.
+9. Kliknij pozycję **Zarządzaj dozwolonymi adresami IP**.
+10. W obszarze **Dozwolone usług** zmień ustawienie **Usługi Azure** na **Tak**.
+11. Kliknij pozycję **Zapisz**.
 
 ### Tworzenie konta usługi Azure Storage
-
 Konto magazynu platformy Azure udostępnia zasoby służące do przechowywania danych kolejek i obiektów blob w chmurze.
 
 W rzeczywistych aplikacjach przeważnie tworzy się oddzielne konta dla danych aplikacji porównywanych z danymi rejestrowania oraz oddzielne konta dla danych testowych porównywanych z danymi produkcyjnymi. W tym samouczku będzie używane tylko jedno konto.
 
 1. W [klasycznym portalu Azure](http://manage.windowsazure.com) kliknij kolejno pozycje **Nowe > Usługi danych > Storage > Szybkie tworzenie**.
-
-4. W polu **Adres URL** podaj prefiks adresu URL.
-
+2. W polu **Adres URL** podaj prefiks adresu URL.
+   
     Ten prefiks i tekst wyświetlony w polu będą stanowić unikatowy adres URL konta magazynu. Jeśli wprowadzony prefiks został już użyty przez innego użytkownika, musisz wybrać inny.
-
-5. Z listy rozwijanej **Region** wybierz region wybrany wcześniej dla usługi w chmurze.
-
+3. Z listy rozwijanej **Region** wybierz region wybrany wcześniej dla usługi w chmurze.
+   
     Jeśli usługa w chmurze i konto magazynu są obsługiwane w różnych centrach danych (różnych regionach), zwiększy się opóźnienie i będą naliczane opłaty dotyczące przepustowości poza centrum danych. Przepustowość w centrum danych jest bezpłatna.
-
+   
     Grupy koligacji Azure udostępniają mechanizm umożliwiający minimalizowanie odległości między zasobami w centrum danych, a przez to redukowanie opóźnienia. Ten samouczek nie korzysta z grup koligacji. Aby uzyskać więcej informacji, zobacz temat [Jak utworzyć grupę koligacji w Azure](http://msdn.microsoft.com/library/jj156209.aspx).
-
-6. Z listy rozwijanej **Replikacja** wybierz wartość **Lokalnie nadmiarowy**.
-
+4. Z listy rozwijanej **Replikacja** wybierz wartość **Lokalnie nadmiarowy**.
+   
     Jeśli na koncie magazynu włączono replikację geograficzną, przechowywana zawartość jest replikowana do pomocniczego centrum danych. Pozwala to na przejście do trybu failover w tej lokalizacji w przypadku poważnej awarii w lokalizacji głównej. Replikacja geograficzna może pociągnąć za sobą dodatkowe koszty. W przypadku kont testowych i projektowych przeważnie nie chcesz płacić za replikację geograficzną. Aby uzyskać więcej informacji, zobacz temat dotyczący [tworzenia i usuwania konta magazynu oraz zarządzania nim](../storage/storage-create-storage-account.md#replication-options).
-
 5. Kliknij pozycję **Utwórz konto usługi Storage**.
-
+   
     ![Nowe konto usługi Storage](./media/cloud-services-dotnet-get-started/newstorage.png)
-
+   
     Na ilustracji przedstawiono utworzone konto magazynu z adresem URL `contosoads.core.windows.net`.
 
 ### Konfigurowanie rozwiązania do używania bazy danych Azure SQL po uruchomieniu na platformie Azure
-
 Zarówno projekt sieci Web, jak i projekt roli Proces roboczy ma własne parametry połączenia bazy danych. Każdy z nich musi wskazywać na bazę danych SQL Azure, gdy aplikacja zostanie uruchomiona na platformie Azure.
 
 Dla roli Sieć Web będziesz używać [przekształcenia pliku Web.config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations), a dla roli Proces roboczy — ustawienia środowiska usługi w chmurze.
 
->[AZURE.NOTE] W tej i kolejnej sekcji poświadczenia są przechowywane w plikach projektu. [Nie należy przechowywać poufnych danych w publicznych repozytoriach kodów źródłowych](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
+> [!NOTE]
+> W tej i kolejnej sekcji poświadczenia są przechowywane w plikach projektu. [Nie należy przechowywać poufnych danych w publicznych repozytoriach kodów źródłowych](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
+> 
+> 
 
 1. W projekcie ContosoAdsWeb otwórz plik przekształcenia *Web.Release.config* dla pliku *Web.config* aplikacji, usuń blok komentarza zawierający element `<connectionStrings>` i wklej poniższy kod w jego miejscu.
-
+   
     ```xml
     <connectionStrings>
         <add name="ContosoAdsContext" connectionString="{connectionstring}"
         providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)"/>
     </connectionStrings>
     ```
-
+   
     Zostaw plik otwarty do edycji.
-
 2. W [klasycznym portalu Azure](http://manage.windowsazure.com) kliknij pozycję **Bazy danych SQL Database** w lewym okienku, kliknij bazę danych utworzoną w ramach tego samouczka, kliknij kartę **Pulpit nawigacyjny**, a następnie kliknij pozycję **Pokaż parametry połączeń**.
-
+   
     ![Pokazywanie parametrów połączeń](./media/cloud-services-dotnet-get-started/showcs.png)
-
+   
     Portal zawiera parametry połączeń oraz symbol zastępczy w miejscu hasła.
-
+   
     ![Parametry połączeń](./media/cloud-services-dotnet-get-started/connstrings.png)
-
-4. W pliku przekształcenia *Web.Release.config* usuń element `{connectionstring}`, a w jego miejscu wklej parametry połączenia ADO.NET z klasycznego portalu Azure.
-
-5. W parametrach połączenia wklejonych w pliku przekształcenia *Web.Release.config* zastąp element `{your_password_here}` hasłem utworzonym dla nowej bazy danych SQL.
-
-7. Zapisz plik.  
-
+3. W pliku przekształcenia *Web.Release.config* usuń element `{connectionstring}`, a w jego miejscu wklej parametry połączenia ADO.NET z klasycznego portalu Azure.
+4. W parametrach połączenia wklejonych w pliku przekształcenia *Web.Release.config* zastąp element `{your_password_here}` hasłem utworzonym dla nowej bazy danych SQL.
+5. Zapisz plik.  
 6. Wybierz i skopiuj parametry połączenia (bez otaczających je znaków cudzysłowu) do użycia w kolejnych krokach konfigurowania projektu roli Proces roboczy.
-
-5. W **Eksploratorze rozwiązań** w obszarze **Role** w projekcie usługi w chmurze kliknij prawym przyciskiem myszy pozycję **ContosoAdsWorker**, a następnie kliknij polecenie **Właściwości**.
-
+7. W **Eksploratorze rozwiązań** w obszarze **Role** w projekcie usługi w chmurze kliknij prawym przyciskiem myszy pozycję **ContosoAdsWorker**, a następnie kliknij polecenie **Właściwości**.
+   
     ![Właściwości roli](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
-
-6. Kliknij kartę **Ustawienia**.
-
-7. Zmień ustawienie **Konfiguracja usługi** na wartość **Chmura**.
-
-7. Wybierz pole **Wartość** dla ustawienia `ContosoAdsDbConnectionString`, a następnie wklej parametry połączenia skopiowane z poprzedniej sekcji samouczka.
-
-    ![Parametry połączenia bazy danych dla roli Proces roboczy](./media/cloud-services-dotnet-get-started/workerdbcs.png)
-
-7. Zapisz zmiany.  
+8. Kliknij kartę **Ustawienia**.
+9. Zmień ustawienie **Konfiguracja usługi** na wartość **Chmura**.
+10. Wybierz pole **Wartość** dla ustawienia `ContosoAdsDbConnectionString`, a następnie wklej parametry połączenia skopiowane z poprzedniej sekcji samouczka.
+    
+     ![Parametry połączenia bazy danych dla roli Proces roboczy](./media/cloud-services-dotnet-get-started/workerdbcs.png)
+11. Zapisz zmiany.  
 
 ### Konfigurowanie rozwiązania do używania konta magazynu Azure po uruchomieniu na platformie Azure
-
 Parametry połączenia konta magazynu platformy Azure dla projektu roli Sieć Web i projektu roli Proces roboczy są przechowywane w ustawieniach środowiska w projekcie usługi w chmurze. Dla każdego projektu istnieje osobny zestaw ustawień, które będą używane po uruchomieniu aplikacji lokalnie lub w chmurze. Ustawienia środowiska chmury będą aktualizowane dla obu projektów: roli Sieć Web i roli Proces roboczy.
 
 1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy pozycję **ContosoAdsWeb** w obszarze **Role** w projekcie **ContosoAdsCloudService**, a następnie kliknij polecenie **Właściwości**.
-
+   
     ![Właściwości roli](./media/cloud-services-dotnet-get-started/roleproperties.png)
-
 2. Kliknij kartę **Ustawienia**. W polu listy rozwijanej **Konfiguracja usługi** wybierz wartość **Chmura**.
-
+   
     ![Konfiguracja chmury](./media/cloud-services-dotnet-get-started/sccloud.png)
-
 3. Wybierz wpis **StorageConnectionString**. Na prawym końcu wiersza pojawi się przycisk z wielokropkiem (**...**). Kliknij przycisk z wielokropkiem, aby otworzyć okno dialogowe **Tworzenie parametrów połączenia konta usługi Storage**.
-
+   
     ![Otwieranie okna Tworzenie parametrów połączenia](./media/cloud-services-dotnet-get-started/opencscreate.png)
-
 4. W oknie dialogowym **Tworzenie parametrów połączenia** kliknij pozycję **Twoja subskrypcja**, wybierz utworzone wcześniej konto magazynu, a następnie kliknij przycisk **OK**. Jeśli nie zalogowano się, zostanie wyświetlony monit o podanie poświadczeń konta systemu platformy Azure.
-
+   
     ![Tworzenie parametrów połączenia usługi Storage](./media/cloud-services-dotnet-get-started/createstoragecs.png)
-
 5. Zapisz zmiany.
-
 6. Wykonaj kroki tej samej procedury, która była używana na potrzeby parametrów połączenia `StorageConnectionString`, aby ustawić parametry połączenia `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`.
-
+   
     Te parametry są używane do rejestrowania.
-
 7. Wykonaj kroki tej samej procedury, która była używana na potrzeby roli **ContosoAdsWeb**, aby ustawić parametry połączeń dla roli **ContosoAdsWorker**. Pamiętaj o ustawieniu pozycji **Konfiguracja usługi** na wartość **Chmura**.
 
 Ustawienia środowiska roli, które skonfigurowano przy użyciu interfejsu użytkownika programu Visual Studio, są przechowywane w następujących plikach projektu ContosoAdsCloudService:
@@ -323,42 +270,37 @@ A plik *ServiceConfiguration.Cloud.cscfg* zawiera wartości wprowadzone dla tych
 
 Ustawienie `<Instances>` określa liczbę maszyn wirtualnych, na których platforma Azure uruchomi kod roli Proces roboczy. W sekcji [Następne kroki](#next-steps) można znaleźć linki do dalszych informacji na temat skalowania usługi w chmurze w poziomie.
 
-###  Wdrażanie projektu na platformie Azure
-
-1.  W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy projekt w chmurze **ContosoAdsCloudService**, a następnie wybierz polecenie **Opublikuj**.
-
-    ![Menu Publikowanie](./media/cloud-services-dotnet-get-started/pubmenu.png)
-
+### Wdrażanie projektu na platformie Azure
+1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy projekt w chmurze **ContosoAdsCloudService**, a następnie wybierz polecenie **Opublikuj**.
+   
+   ![Menu Publikowanie](./media/cloud-services-dotnet-get-started/pubmenu.png)
 2. W kroku **Logowanie** kreatora **Publikowanie aplikacji platformy Azure** kliknij przycisk **Dalej**.
-
+   
     ![Krok Logowanie](./media/cloud-services-dotnet-get-started/pubsignin.png)
-
 3. W kroku **Ustawienia** kreatora kliknij przycisk **Dalej**.
-
+   
     ![Krok Ustawienia](./media/cloud-services-dotnet-get-started/pubsettings.png)
-
+   
     Domyślne ustawienia na karcie **Zaawansowane** są wystarczające w przypadku tego samouczka. Informacje o karcie Zaawansowane można znaleźć w temacie [Kreator publikowania aplikacji platformy Azure](http://msdn.microsoft.com/library/hh535756.aspx).
-
 4. W kroku **Podsumowanie** kliknij pozycję **Opublikuj**.
-
+   
     ![Krok Podsumowanie](./media/cloud-services-dotnet-get-started/pubsummary.png)
-
+   
    W programie Visual Studio zostanie otwarte okno **dziennika aktywności platformy Azure**.
-
 5. Kliknij ikonę strzałki w prawo, aby rozwinąć szczegóły wdrożenia.
-
+   
     Wdrożenie może potrwać 5 minut lub dłużej.
-
+   
     ![Okno Dziennik aktywności platformy Azure](./media/cloud-services-dotnet-get-started/waal.png)
-
 6. Gdy stan wdrożenia będzie wskazywać na jego ukończenie, kliknij pozycję **Adres URL aplikacji sieci Web** w celu uruchomienia aplikacji.
-
 7. Teraz możesz przetestować aplikację, tworząc, wyświetlając i edytując niektóre reklamy, tak jak w przypadku lokalnego uruchomienia aplikacji.
 
->[AZURE.NOTE] Po zakończeniu testowania usuń lub zatrzymaj usługę w chmurze. Nawet jeśli nie używasz usługi w chmurze, opłaty są naliczane, ponieważ zarezerwowano dla niej zasoby maszyny wirtualnej. Jeśli usługa będzie działać, każda osoba, która znajdzie adres URL, będzie mogła tworzyć i wyświetlać reklamy. W [klasycznym portalu Azure](http://manage.windowsazure.com) przejdź do karty **Pulpit nawigacyjny** dla usługi w chmurze, a następnie kliknij przycisk **Usuń** u dołu strony. Jeśli chcesz tylko czasowo uniemożliwić innym użytkownikom dostęp do witryny, kliknij przycisk **Zatrzymaj**. W takim przypadku opłaty będą nadal naliczane. Podobne kroki można wykonać w celu usunięcia konta magazynu i bazy danych SQL, jeśli nie są już potrzebne.
+> [!NOTE]
+> Po zakończeniu testowania usuń lub zatrzymaj usługę w chmurze. Nawet jeśli nie używasz usługi w chmurze, opłaty są naliczane, ponieważ zarezerwowano dla niej zasoby maszyny wirtualnej. Jeśli usługa będzie działać, każda osoba, która znajdzie adres URL, będzie mogła tworzyć i wyświetlać reklamy. W [klasycznym portalu Azure](http://manage.windowsazure.com) przejdź do karty **Pulpit nawigacyjny** dla usługi w chmurze, a następnie kliknij przycisk **Usuń** u dołu strony. Jeśli chcesz tylko czasowo uniemożliwić innym użytkownikom dostęp do witryny, kliknij przycisk **Zatrzymaj**. W takim przypadku opłaty będą nadal naliczane. Podobne kroki można wykonać w celu usunięcia konta magazynu i bazy danych SQL, jeśli nie są już potrzebne.
+> 
+> 
 
 ## Tworzenie aplikacji od początku
-
 Jeśli [ukończona aplikacja](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) nie została jeszcze pobrana, zrób to teraz. Pliki z pobranego projektu będą kopiowane do nowego projektu.
 
 Tworzenie aplikacji Contoso Ads obejmuje następujące czynności:
@@ -372,122 +314,93 @@ Tworzenie aplikacji Contoso Ads obejmuje następujące czynności:
 Po utworzeniu rozwiązania można przejrzeć kod unikatowy dla projektów usług w chmurze oraz kolejki i obiekty blob platformy Azure.
 
 ### Tworzenie rozwiązania usługi w chmurze w programie Visual Studio
-
 1. W programie Visual Studio wybierz pozycję **Nowy projekt** z menu **Plik**.
-
 2. W lewym okienku okna dialogowego **Nowy projekt** rozwiń węzeł **Visual C#** i wybierz szablony **Chmura**, a następnie wybierz szablon **Usługi w chmurze Azure**.
-
 3. Nazwij projekt i rozwiązanie ContosoAdsCloudService, a następnie kliknij przycisk **OK**.
-
+   
     ![Nowy projekt](./media/cloud-services-dotnet-get-started/newproject.png)
-
 4. W oknie dialogowym **Nowa usługa w chmurze Azure** dodaj rolę sieci Web i rolę procesu roboczego. Nazwij rolę Sieć Web ContosoAdsWeb i rolę Proces roboczy ContosoAdsWorker. (Aby zmienić domyślne nazwy ról, użyj ikony ołówka w okienku po prawej stronie).
-
+   
     ![Projekt nowej usługi w chmurze](./media/cloud-services-dotnet-get-started/newcsproj.png)
-
 5. Po wyświetleniu okna dialogowego **Nowy projekt ASP.NET** dla roli Sieć Web wybierz szablon MVC, a następnie kliknij pozycję **Zmień uwierzytelnianie**.
-
+   
     ![Zmienianie uwierzytelniania](./media/cloud-services-dotnet-get-started/chgauth.png)
-
-7. W oknie dialogowym **Zmienianie uwierzytelniania** wybierz pozycję **Bez uwierzytelniania**, a następnie kliknij przycisk **OK**.
-
+6. W oknie dialogowym **Zmienianie uwierzytelniania** wybierz pozycję **Bez uwierzytelniania**, a następnie kliknij przycisk **OK**.
+   
     ![Bez uwierzytelniania](./media/cloud-services-dotnet-get-started/noauth.png)
-
-8. W oknie dialogowym **Nowy projekt ASP.NET** kliknij przycisk **OK**.
-
-9. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy rozwiązanie (nie jeden z projektów) i wybierz pozycje **Dodaj — Nowy projekt**.
-
-11. W oknie dialogowym **Dodawanie nowego projektu** wybierz pozycję **Windows** w obszarze **Visual C#** w lewym okienku, a następnie kliknij szablon **Biblioteka klas**.  
-
+7. W oknie dialogowym **Nowy projekt ASP.NET** kliknij przycisk **OK**.
+8. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy rozwiązanie (nie jeden z projektów) i wybierz pozycje **Dodaj — Nowy projekt**.
+9. W oknie dialogowym **Dodawanie nowego projektu** wybierz pozycję **Windows** w obszarze **Visual C#** w lewym okienku, a następnie kliknij szablon **Biblioteka klas**.  
 10. Nazwij projekt *ContosoAdsCommon*, a następnie kliknij przycisk **OK**.
-
+    
     Z projektów ról Sieć Web i Proces roboczy należy odwoływać się do kontekstu platformy Entity Framework oraz modelu danych. Alternatywie można zdefiniować klasy związane z platformą EF w projekcie roli Sieć Web i odwoływać się do tego projektu z projektu roli Proces roboczy. Jednak w przypadku zastosowania podejścia alternatywnego projekt roli Proces roboczy odwoływałby się do zestawów sieci Web, których nie potrzebuje.
 
 ### Aktualizowanie i dodawanie pakietów NuGet
-
 1. Otwórz okno dialogowe **Zarządzanie pakietami NuGet** dla rozwiązania.
-
 2. W górnej części okna wybierz pozycję **Aktualizacje**.
-
 3. Wyszukaj pakiet *WindowsAzure.Storage*. Jeśli znajduje się na liście, wybierz go, a następnie wybierz projekty sieci Web i procesu roboczego, w których chcesz go zaktualizować. Kliknij przycisk **Aktualizuj**.
-
+   
     Biblioteka klienta magazynu jest aktualizowana częściej niż szablony projektów programu Visual Studio. Dlatego często okazuje się, że wersja w nowo utworzonym projekcie wymaga aktualizacji.
-
 4. W górnej części okna wybierz pozycję **Przeglądaj**.
-
 5. Znajdź pakiet NuGet *EntityFramework*, a następnie zainstaluj go we wszystkich trzech projektach.
-
 6. Znajdź pakiet NuGet *Microsoft.WindowsAzure.ConfigurationManager*, a następnie zainstaluj go w projekcie roli Proces roboczy.
 
 ### Ustawianie odwołań do projektu
-
 1. W projekcie ContosoAdsWeb ustaw odwołanie do projektu ContosoAdsCommon. Kliknij prawym przyciskiem myszy projekt ContosoAdsWeb, a następnie kliknij pozycje **Odwołania** - **Dodaj odwołania**. W oknie dialogowym **Menedżer odwołań** wybierz pozycję **Rozwiązanie — projekty** w lewym okienku, wybierz pozycję **ContosoAdsCommon**, a następnie kliknij przycisk **OK**.
-
 2. W projekcie ContosoAdsWorker ustaw odwołanie do projektu ContosoAdsCommon.
-
+   
     Projekt ContosoAdsCommon będzie zawierać klasę kontekstu i model danych platformy Entity Framework, które będą używane dla frontonu i zaplecza.
-
 3. W projekcie ContosoAdsWorker ustaw odwołanie do elementu `System.Drawing`.
-
+   
     Ten zestaw jest używany przez zaplecze na potrzeby konwertowania obrazów na miniatury.
 
 ### Konfigurowanie parametrów połączenia
-
 W tej sekcji będziesz konfigurować parametry połączenia usługi Azure Storage i danych SQL na potrzeby testowania lokalnego. Podane wcześniej w samouczku instrukcje dotyczące wdrażania wyjaśniają, w jaki sposób należy skonfigurować parametry połączenia aplikacji uruchomionej w chmurze.
 
 1. W projekcie ContosoAdsWeb otwórz plik Web.config aplikacji i wstaw następujący element `connectionStrings` po elemencie `configSections`.
-
+   
     ```xml
     <connectionStrings>
         <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
-
+   
     Jeśli korzystasz z programu Visual Studio 2015, zastąp element „v11.0” elementem „MSSQLLocalDB”.
-
 2. Zapisz zmiany.
-
 3. W projekcie ContosoAdsCloudService kliknij prawym przyciskiem myszy pozycję ContosoAdsWeb w obszarze **Role**, a następnie kliknij polecenie **Właściwości**.
-
+   
     ![Właściwości roli](./media/cloud-services-dotnet-get-started/roleproperties.png)
-
 4. W oknie właściwości **ContosAdsWeb — [Rola]** kliknij kartę **Ustawienia**, a następnie kliknij pozycję **Dodaj ustawienie**.
-
+   
     Pozostaw pozycję **Konfiguracja usługi** ustawioną na wartość **Wszystkie konfiguracje**.
-
 5. Dodaj nowe ustawienie o nazwie *StorageConnectionString*. Ustaw pozycję **Typ** na *ConnectionString*, a pozycję **Wartość** na *UseDevelopmentStorage = true*.
-
+   
     ![Nowe parametry połączenia](./media/cloud-services-dotnet-get-started/scall.png)
-
 6. Zapisz zmiany.
-
 7. Postępuj zgodnie z tą samą procedurą, aby dodać parametry połączenia magazynu przy użyciu właściwości roli ContosoAdsWorker.
-
 8. Pozostając w oknie właściwości **ContosoAdsWorker — [Rola]** dodaj inny ciąg połączenia:
-
-    * Nazwa: ContosoAdsDbConnectionString
-    * Typ: ciąg
-    * Wartość: wklej parametry połączenia zastosowane już do projektu roli Sieć Web. (Poniższy przykład dotyczy programu Visual Studio 2013. Nie zapomnij zmienić źródła danych, jeśli kopiujesz ten przykład i korzystasz z programu Visual Studio 2015).
-
-        ```
-        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
-        ```
+   
+   * Nazwa: ContosoAdsDbConnectionString
+   * Typ: ciąg
+   * Wartość: wklej parametry połączenia zastosowane już do projektu roli Sieć Web. (Poniższy przykład dotyczy programu Visual Studio 2013. Nie zapomnij zmienić źródła danych, jeśli kopiujesz ten przykład i korzystasz z programu Visual Studio 2015).
+     
+       ```
+       Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
+       ```
 
 ### Dodawanie plików kodu
-
 W tej sekcji skopiujesz pliki kodu z pobranego rozwiązania do nowego rozwiązania. W poniższych sekcjach zostaną również pokazane i objaśnione części tego kodu.
 
 Aby dodać pliki do projektu lub folderu, kliknij prawym przyciskiem myszy projekt lub folder, a następnie kliknij kolejno pozycje **Dodaj** - **Istniejący element**. Wybierz pliki, a następnie kliknij pozycję **Dodaj**. Jeśli pojawi się pytanie, czy chcesz zastąpić istniejące pliki, kliknij pozycję **Tak**.
 
-3. W projekcie ContosoAdsCommon usuń plik *Class1.cs* i dodaj w jego miejsce pliki *Ad.cs* i *ContosoAdscontext.cs* z pobranego projektu.
-
-3. W projekcie ContosoAdsWeb dodaj poniższe pliki z pobranego projektu.
-    - *Global.asax.cs*.  
-    - W folderze *Views\Shared*: *\_Layout.cshtml*.
-    - W folderze *Views\Home*: *Index.cshtml*.
-    - W folderze *Controllers*: *AdController.cs*.
-    - W folderze *Views\Ad* (najpierw utwórz ten folder): pięć plików *.cshtml*.
-
+1. W projekcie ContosoAdsCommon usuń plik *Class1.cs* i dodaj w jego miejsce pliki *Ad.cs* i *ContosoAdscontext.cs* z pobranego projektu.
+2. W projekcie ContosoAdsWeb dodaj poniższe pliki z pobranego projektu.
+   
+   * *Global.asax.cs*.  
+   * W folderze *Views\Shared*: *\_Layout.cshtml*.
+   * W folderze *Views\Home*: *Index.cshtml*.
+   * W folderze *Controllers*: *AdController.cs*.
+   * W folderze *Views\Ad* (najpierw utwórz ten folder): pięć plików *.cshtml*.
 3. W projekcie ContosoAdsWorker dodaj plik *WorkerRole.cs* z pobranego projektu.
 
 Teraz możesz skompilować i uruchomić aplikację zgodnie z instrukcjami podanymi wcześniej w samouczku. Aplikacja będzie używać lokalnych zasobów bazy danych i emulatora magazynu.
@@ -499,7 +412,6 @@ W poniższych sekcjach opisano kod powiązany z pracą z kolejkami, obiektami bl
 * [Wprowadzenie do programowania asynchronicznego w programie .NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
 ### ContosoAdsCommon — Ad.cs
-
 Plik Ad.cs definiuje wyliczenia związane z kategoriami reklam i klasą jednostki POCO dla informacji o reklamach.
 
 ```csharp
@@ -544,7 +456,6 @@ public class Ad
 ```
 
 ### ContosoAdsCommon — ContosoAdsContext.cs
-
 Klasa ContosoAdsContext określa, czy klasa Ad jest używana w kolekcji DbSet przechowywanej przez platformę Entity Framework w bazie danych SQL.
 
 ```csharp
@@ -564,7 +475,6 @@ public class ContosoAdsContext : DbContext
 Klasa ma dwa konstruktory. Pierwszy z nich jest używany w projekcie sieci Web i określa nazwę parametrów połączenia, które są przechowywane w pliku Web.config. Drugi konstruktor umożliwia przekazywanie rzeczywistych parametrów połączenia. Są one wymagane dla projektu roli Proces roboczy, ponieważ nie ma on pliku Web.config. Wcześniej przedstawiono lokalizację przechowywania tych parametrów połączenia. Dalej pokażemy, jak kod pobiera parametry połączenia podczas tworzenia wystąpień klasy DbContext.
 
 ### ContosoAdsWeb — Global.asax.cs
-
 Kod wywoływany z metody `Application_Start` umożliwia tworzenie kontenera obiektów blob *obrazów* i kolejki *obrazów*, jeśli jeszcze nie istnieją. Daje to gwarancję, że za każdym razem w przypadku rozpoczęcia pracy z nowym kontem magazynu lub przy użyciu emulatora magazynu na nowym komputerze wymagana kolejka i kontener obiektów blob zostaną utworzone automatycznie.
 
 Kod uzyskuje dostęp do konta magazynu przy użyciu parametrów połączenia magazynu z pliku *.cscfg*.
@@ -598,11 +508,9 @@ imagesQueue.CreateIfNotExists();
 ```
 
 ### ContosoAdsWeb — \_Layout.cshtml
-
 Plik *_Layout.cshtml* umożliwia ustawienie nazwy aplikacji w nagłówku i stopce oraz utworzenie wpisu menu „Ads”.
 
 ### ContosoAdsWeb — Views\Home\Index.cshtml
-
 Plik *Views\Home\Index.cshtml* umożliwia wyświetlanie linków kategorii na stronie głównej. Linki przekazują wartość całkowitą typu wyliczeniowego `Category` w zmiennej querystring na stronie indeksu reklam.
 
 ```razor
@@ -613,7 +521,6 @@ Plik *Views\Home\Index.cshtml* umożliwia wyświetlanie linków kategorii na str
 ```
 
 ### ContosoAdsWeb — AdController.cs
-
 W pliku *AdController.cs* konstruktor wywołuje metodę `InitializeStorage` w celu utworzenia obiektów biblioteki klienta usługi Azure Storage, które będą dostarczać interfejs API do pracy z kolejkami i obiektami blob.
 
 Następnie kod pobiera odwołanie do kontenera obiektów blob *obrazów*, jak było to widać wcześniej w pliku *Global.asax.cs*. W tym czasie ustawiane są domyślne [zasady ponawiania](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) odpowiednie dla aplikacji sieci Web. Domyślne zasady ponawiania wykładniczego wycofywania mogą powodować zawieszanie aplikacji sieci Web na czas dłuższy niż minuta w przypadku kolejnych prób i wystąpienia błędu przejściowego. Zasady ponawiania określone w tym miejscu powodują oczekiwanie przez 3 sekundy po każdej próbie. Maksymalna liczba prób to 3.
@@ -711,7 +618,6 @@ private static async Task DeleteAdBlobAsync(Uri blobUri)
 ```
 
 ### ContosoAdsWeb — Views\Ad\Index.cshtml i Details.cshtml
-
 Plik *Index.cshtml* służy do wyświetlania miniatury z innymi danymi reklamy.
 
 ```razor
@@ -725,7 +631,6 @@ Plik *Details.cshtml* służy do wyświetlania obrazu w pełnym rozmiarze.
 ```
 
 ### ContosoAdsWeb — Views\Ad\Create.cshtml i Edit.cshtml
-
 Pliki *Create.cshtml* i *Edit.cshtml* określają kodowanie formularzy, które umożliwia kontrolerowi pobieranie obiektu `HttpPostedFileBase`.
 
 ```razor
@@ -739,7 +644,6 @@ Element `<input>` informuje przeglądarkę o konieczności udostępnienia okna d
 ```
 
 ### ContosoAdsWorker — WorkerRole.cs — metoda OnStart
-
 Środowisko roli procesu roboczego platformy Azure wywołuje metodę `OnStart` w klasie `WorkerRole` podczas uruchamiania roli Proces roboczy. Metoda `Run` jest wywoływana po zakończeniu działania metody `OnStart`.
 
 Metoda `OnStart` pobiera parametry połączenia bazy danych z pliku *.cscfg* i przekazuje je do klasy Entity Framework DbContext. Nie trzeba określać dostawcy, ponieważ domyślnie jest wybierany SQLClient.
@@ -752,7 +656,6 @@ db = new ContosoAdsContext(dbConnString);
 Następnie metoda pobiera odwołanie do konta magazynu i tworzy kolejkę oraz kontener obiektów blob i kolejki, jeśli nie istnieją. Kod tej czynności działa podobnie do metody `Application_Start` roli Sieć Web.
 
 ### ContosoAdsWorker — WorkerRole.cs — metoda Run
-
 Metoda `Run` jest wywoływana, gdy zakończy się inicjowanie przy użyciu metody `OnStart`. Metoda wykonuje nieskończoną pętlę, która oczekuje na nowe komunikaty w kolejce i przetwarza je po nadejściu.
 
 ```csharp
@@ -823,26 +726,25 @@ private void ProcessQueueMessage(CloudQueueMessage msg)
 
 Ten kod odczytuje bazę danych, aby uzyskać adres URL obrazu, konwertuje obraz na miniaturę, zapisuje miniaturę w obiekcie blob, aktualizuje bazę danych przy użyciu adresu URL obiektu blob miniatury i usuwa komunikat z kolejki.
 
->[AZURE.NOTE] Kod w metodzie `ConvertImageToThumbnailJPG` używa klas w przestrzeni nazw System.Drawing w celu uproszczenia działania. Jednak klasy w tej przestrzeni nazw zostały zaprojektowane do użytku z aplikacją Windows Forms. Nie są one obsługiwane w usłudze systemu Windows lub programu ASP.NET. Aby uzyskać więcej informacji o opcjach przetwarzania obrazu, zobacz [Dynamiczne generowanie obrazu](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) i [Bezpośrednie zmienianie rozmiaru obrazu](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
+> [!NOTE]
+> Kod w metodzie `ConvertImageToThumbnailJPG` używa klas w przestrzeni nazw System.Drawing w celu uproszczenia działania. Jednak klasy w tej przestrzeni nazw zostały zaprojektowane do użytku z aplikacją Windows Forms. Nie są one obsługiwane w usłudze systemu Windows lub programu ASP.NET. Aby uzyskać więcej informacji o opcjach przetwarzania obrazu, zobacz [Dynamiczne generowanie obrazu](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) i [Bezpośrednie zmienianie rozmiaru obrazu](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
+> 
+> 
 
 ## Rozwiązywanie problemów
-
 Jeśli coś nie działa podczas wykonywania instrukcji podanych w tym samouczku, zapoznaj się z poniższym opisem niektórych typowych błędów i sposobów ich rozwiązywania.
 
 ### ServiceRuntime.RoleEnvironmentException
-
 Obiekt `RoleEnvironment` jest dostarczany przez platformę Azure podczas uruchamiania aplikacji na tej platformie lub podczas uruchamiania lokalnego w emulatorze obliczeń platformy Azure.  Jeśli ten błąd wystąpi podczas pracy w środowisku lokalnym, upewnij się, że projekt ContosoAdsCloudService został ustawiony jako projekt startowy. Powoduje to skonfigurowanie projektu do uruchamiania przy użyciu emulatora obliczeń platformy Azure.
 
 Jednym z celów użycia w aplikacji obiektu Azure RoleEnvironment jest uzyskanie wartości parametrów połączenia, które są przechowywane w pliku *.cscfg*. Ze względu na to inną przyczyną tego wyjątku jest brak parametrów połączenia. Upewnij się, że ustawienie StorageConnectionString zostało utworzone dla konfiguracji w chmurze i lokalnej w projekcie ContosoAdsWeb oraz że dla obydwu konfiguracji utworzono parametry połączenia w projekcie ContosoAdsWorker. W przypadku przeprowadzania wyszukiwania typu **Znajdź wszystkie** dla elementu StorageConnectionString w całym rozwiązaniu powinien on zostać znaleziony 9 razy w 6 plikach.
 
 ### Nie można zastąpić portu wartością xxx. Nowy port poniżej minimalnej dozwolonej wartości 8080 dla protokołu HTTP
-
 Spróbuj zmienić numer portu używanego przez projekt sieci Web. Kliknij prawym przyciskiem myszy projekt ContosoAdsWeb, a następnie kliknij pozycję **Właściwości**. Kliknij kartę **Sieć Web**, a następnie zmień numer portu w ustawieniu **Adres URL projektu**.
 
 Kolejny alternatywny sposób rozwiązania tego problemu opisano w poniższej sekcji.
 
 ### Inne błędy po uruchomieniu w środowisku lokalnym
-
 Domyślnie nowe projekty usług w chmurze korzystają z ekspresowej wersji emulatora obliczeń platformy Azure do symulowania środowiska platformy Azure. Jest to uproszczona wersja pełnego emulatora obliczeń. W niektórych warunkach pełna wersja emulatora będzie działać, a wersja ekspresowa nie.  
 
 Aby zmienić projekt tak, aby korzystał z pełnego emulatora, kliknij prawym przyciskiem myszy projekt ContosoAdsCloudService, a następnie kliknij polecenie **Właściwości**. W oknie **Właściwości** kliknij kartę **Sieć Web**, a następnie kliknij przycisk radiowy **Użyj pełnego emulatora**.
@@ -850,7 +752,6 @@ Aby zmienić projekt tak, aby korzystał z pełnego emulatora, kliknij prawym pr
 Aby można było uruchomić aplikację w pełnym emulatorze, należy otworzyć program Visual Studio z uprawnieniami administratora.
 
 ## Następne kroki
-
 Aplikacja Contoso Ads została celowo uproszczona na potrzeby samouczka wprowadzającego. Na przykład: nie implementuje [wstrzykiwania zależności](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) ani [wzorców repozytorium i jednostki pracy](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), nie [używa interfejsu do rejestrowania](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), nie używa [migracji Code First platformy EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) do zarządzania zmianami modelu danych ani [opcji elastyczności połączenia platformy EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) do zarządzania błędami sieci itd.
 
 Poniżej przedstawiono niektóre przykładowe aplikacje usług w chmurze, w których zastosowano więcej rzeczywistych rozwiązań dotyczących kodowania. Zostały one uporządkowane w kolejności od mniej do bardziej złożonych:
@@ -869,8 +770,6 @@ Więcej informacji zawierają następujące zasoby:
 * [Jak zarządzać usługami Cloud Services](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
 * [Jak wybrać dostawcę usług w chmurze](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
-
-
 
 <!--HONumber=sep16_HO1-->
 

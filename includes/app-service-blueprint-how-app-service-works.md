@@ -11,7 +11,6 @@
 * [Obsługa stosów projektowych usługi Azure App Service](/blog/windows-azure-websites-development-stacks-support/)
 
 ## Filmy wideo
-
 * [Architektura usługi Azure App Service](/documentation/videos/why-azure-web-sites-plus-architecture/)
 
 <!--HONumber=Sep16_HO3-->

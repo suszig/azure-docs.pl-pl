@@ -1,36 +1,27 @@
-<properties 
-    pageTitle="Uwierzytelnianie LDAP i usługa Serwer Azure Multi-Factor Authentication"
-    description="Ta strona jest poświęcona tematyce uwierzytelniania wieloskładnikowego na platformie Azure i zawiera informacje pomocne podczas wdrażania uwierzytelniania LDAP i korzystania z usługi Serwer Azure Multi-Factor Authentication."
-    services="multi-factor-authentication"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor="curtand"/>
+---
+title: Uwierzytelnianie LDAP i usługa Serwer Azure Multi-Factor Authentication
+description: Ta strona jest poświęcona tematyce uwierzytelniania wieloskładnikowego na platformie Azure i zawiera informacje pomocne podczas wdrażania uwierzytelniania LDAP i korzystania z usługi Serwer Azure Multi-Factor Authentication.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtand
 
-<tags
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/04/2016"
-    ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/04/2016
+ms.author: kgremban
 
-
+---
 # Uwierzytelnianie LDAP i usługa Serwer Azure Multi-Factor Authentication
-
-
 Domyślnie usługa Serwer Azure Multi-Factor Authentication jest skonfigurowana pod kątem importowania lub synchronizowania użytkowników z usługi Active Directory. Można ją jednak skonfigurować pod kątem powiązań z różnymi katalogami LDAP, takimi jak katalog ADAM, lub z określonym kontrolerem domeny usługi Active Directory. Usługę Serwer Azure Multi-Factor Authentication skonfigurowana pod kątem nawiązywania połączenia z katalogiem za pośrednictwem protokołu LDAP można skonfigurować w taki sposób, aby pełniła rolę serwera proxy LDAP wykorzystywanego do przeprowadzania uwierzytelnień. Umożliwia ona również korzystanie z powiązania LDAP jako elementu docelowego protokołu RADIUS, wstępne uwierzytelnianie użytkowników przy użyciu uwierzytelniania w usługach IIS lub uwierzytelnianie podstawowe w portalu dla użytkowników usługi Azure Multi-Factor Authentication.
 
 W przypadku użycia usługi Azure Multi-Factor Authentication jako serwera proxy LDAP jej serwer zostaje umieszczony pomiędzy klientem LDAP (takim jak urządzenie sieci VPN lub aplikacja) i serwerem katalogu LDAP, aby można było dodać uwierzytelnianie wieloskładnikowe. Aby działanie usługi Azure Multi-Factor Authentication było możliwe, jej serwer musi zostać skonfigurowany pod kątem komunikacji zarówno z serwerami klienta, jak i z katalogiem LDAP. W tej konfiguracji serwer usługi Azure Multi-Factor Authentication akceptuje żądania LDAP od serwerów i aplikacji klientów i przekazuje je do docelowego serwera katalogu LDAP w celu sprawdzania poprawności podstawowych poświadczeń. Jeśli odpowiedź z katalogu LDAP wskazuje, że podstawowe poświadczenia są prawidłowe, usługa Azure Multi-Factor Authentication przeprowadza uwierzytelnianie za pomocą drugiego składnika i wysyła odpowiedź z powrotem do klienta LDAP. Cały proces uwierzytelniania powiedzie się tylko wtedy, jeśli pomyślnie przebiegnie zarówno uwierzytelnianie na serwerze LDAP, jak i uwierzytelnianie wieloskładnikowe.
 
-
-
-
-
 ## Konfigurowanie uwierzytelniania LDAP
-
-
 Aby skonfigurować uwierzytelnianie LDAP, zainstaluj usługę Serwer Azure Multi-Factor Authentication na serwerze z systemem Windows. Postępuj zgodnie z następującą procedurą:
 
 1. W usłudze Serwer Azure Multi-Factor Authentication kliknij ikonę uwierzytelniania LDAP w menu po lewej stronie.
@@ -56,16 +47,12 @@ Aby skonfigurować uwierzytelnianie LDAP, zainstaluj usługę Serwer Azure Multi
 21. Kliknij ikonę Ustawienia firmy, a następnie wybierz kartę Rozpoznawanie nazwy użytkownika.
 22. W przypadku nawiązywania połączenia z katalogiem Active Directory z serwera przyłączonego do domeny powinno być możliwe pozostawienie zaznaczonego przycisku radiowego Użyj identyfikatorów zabezpieczeń systemu Windows (SID) w celu dopasowania nazw użytkowników. W przeciwnym razie wybierz przycisk radiowy Użyj atrybutu unikatowego identyfikatora LDAP w celu dopasowania nazw użytkowników. W przypadku wybrania tej opcji usługa Serwer Azure Multi-Factor Authentication próbuje rozpoznać unikatowy identyfikator w katalogu LDAP na podstawie każdej z nazw użytkowników. Wyszukiwanie LDAP zostanie przeprowadzone z uwzględnieniem atrybutów nazwy użytkownika określonych w obszarze Integracja katalogu na karcie Atrybuty. Podczas uwierzytelniania użytkownika na podstawie jego nazwy użytkownika zostanie rozpoznany unikatowy identyfikator z katalogu LDAP, który zostanie następnie użyty do dopasowania użytkownika w pliku danych usługi Azure Multi-Factor Authentication. Umożliwia to porównywanie nazw bez względu na wielkość liter, jak również korzystanie z długich i krótkich nazw użytkowników. Konfiguracja usługi Serwer Azure Multi-Factor Authentication jest ukończona. Po przeprowadzeniu tych czynności serwer nasłuchuje żądań dostępu LDAP ze skonfigurowanych klientów w ramach skonfigurowanych portów; jest także ustawiony jako serwer proxy przesyłający wspomniane żądania do katalogu LDAP w celu przeprowadzenia uwierzytelniania.
 
-
 ## Konfigurowanie klientów LDAP
-
 Aby skonfigurować klienta LDAP, skorzystaj z poniższych wytycznych:
 
-- Skonfiguruj urządzenie, serwer lub aplikację pod kątem uwierzytelniania z użyciem protokołu LDAP na serwerze usługi Azure Multi-Factor Authentication, tak jakby był to katalog LDAP. Należy użyć tych samych ustawień, które zwykle są używane do bezpośredniego połączenia się z katalogiem LDAP, z wyjątkiem nazwy serwera lub adresu IP, które będą odpowiadać danym serwera usługi Azure Multi-Factor Authentication.
-- Należy skonfigurować limit czasu protokołu LDAP na 30–60 sekund, aby umożliwić sprawdzenie poprawności poświadczeń użytkownika w katalogu LDAP, przeprowadzenie uwierzytelniania za pomocą drugiego składnika, odebranie odpowiedzi oraz odpowiedzenie na żądania dostępu LDAP.
-- W przypadku użycia protokołu LDAPS urządzenie lub serwer, z którego pochodzą zapytania protokołu LDAP, muszą ufać certyfikatowi SSL zainstalowanemu na serwerze usługi Azure Multi-Factor Authentication.
-
-
+* Skonfiguruj urządzenie, serwer lub aplikację pod kątem uwierzytelniania z użyciem protokołu LDAP na serwerze usługi Azure Multi-Factor Authentication, tak jakby był to katalog LDAP. Należy użyć tych samych ustawień, które zwykle są używane do bezpośredniego połączenia się z katalogiem LDAP, z wyjątkiem nazwy serwera lub adresu IP, które będą odpowiadać danym serwera usługi Azure Multi-Factor Authentication.
+* Należy skonfigurować limit czasu protokołu LDAP na 30–60 sekund, aby umożliwić sprawdzenie poprawności poświadczeń użytkownika w katalogu LDAP, przeprowadzenie uwierzytelniania za pomocą drugiego składnika, odebranie odpowiedzi oraz odpowiedzenie na żądania dostępu LDAP.
+* W przypadku użycia protokołu LDAPS urządzenie lub serwer, z którego pochodzą zapytania protokołu LDAP, muszą ufać certyfikatowi SSL zainstalowanemu na serwerze usługi Azure Multi-Factor Authentication.
 
 <!--HONumber=Sep16_HO3-->
 

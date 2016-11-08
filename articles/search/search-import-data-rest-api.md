@@ -1,28 +1,29 @@
-<properties
-    pageTitle="Przekazywanie danych do usługi Azure Search przy użyciu interfejsu API REST | Microsoft Azure | Hostowana usługa wyszukiwania w chmurze"
-    description="Dowiedz się, jak przekazywać dane do indeksu w usłudze Azure Search przy użyciu interfejsu API REST."
-    services="search"
-    documentationCenter=""
-    authors="ashmaka"
-    manager=""
-    editor=""
-    tags=""/>
+---
+title: Przekazywanie danych do usługi Azure Search przy użyciu interfejsu API REST | Microsoft Docs
+description: Dowiedz się, jak przekazywać dane do indeksu w usłudze Azure Search przy użyciu interfejsu API REST.
+services: search
+documentationcenter: ''
+author: ashmaka
+manager: ''
+editor: ''
+tags: ''
 
-<tags
-    ms.service="search"
-    ms.devlang="rest-api"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="ashmaka"/>
+ms.service: search
+ms.devlang: rest-api
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: ashmaka
 
-
+---
 # Przekazywanie danych do usługi Azure Search przy użyciu interfejsu API REST
-> [AZURE.SELECTOR]
-- [Omówienie](search-what-is-data-import.md)
-- [.NET](search-import-data-dotnet.md)
-- [REST](search-import-data-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Omówienie](search-what-is-data-import.md)
+> * [.NET](search-import-data-dotnet.md)
+> * [REST](search-import-data-rest-api.md)
+> 
+> 
 
 W tym artykule opisano, jak używać [interfejsu API REST usługi Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) w celu importowania danych do indeksu usługi Azure Search.
 
@@ -39,8 +40,8 @@ Aby wypchnąć dokumenty do indeksu za pomocą interfejsu API REST, należy wys�
 
 Usługa będzie dysponować *kluczami administratora* i *kluczami zapytań*.
 
-  - Za pomocą podstawowego i pomocniczego *klucza administratora* przyznawane są pełne prawa do wszystkich operacji, łącznie z możliwością zarządzania usługą oraz tworzenia i usuwania indeksów, indeksatorów i źródeł danych. Dostępne są dwa klucze, dzięki czemu możesz nadal używać klucza pomocniczego, jeśli zdecydujesz się na ponowne wygenerowanie klucza podstawowego, i na odwrót.
-  - *Klucze zapytań* umożliwiają dostęp tylko do odczytu do indeksów oraz dokumentów i są zazwyczaj dystrybuowane do aplikacji klienckich, które wysyłają żądania wyszukiwania.
+* Za pomocą podstawowego i pomocniczego *klucza administratora* przyznawane są pełne prawa do wszystkich operacji, łącznie z możliwością zarządzania usługą oraz tworzenia i usuwania indeksów, indeksatorów i źródeł danych. Dostępne są dwa klucze, dzięki czemu możesz nadal używać klucza pomocniczego, jeśli zdecydujesz się na ponowne wygenerowanie klucza podstawowego, i na odwrót.
+* *Klucze zapytań* umożliwiają dostęp tylko do odczytu do indeksów oraz dokumentów i są zazwyczaj dystrybuowane do aplikacji klienckich, które wysyłają żądania wyszukiwania.
 
 W celu zaimportowania danych do indeksu można użyć zarówno podstawowego, jak i pomocniczego klucza administratora.
 
@@ -49,12 +50,12 @@ Korzystanie z interfejsu API REST wymaga wysyłania żądań HTTP POST zawieraj�
 
 Poszczególne obiekty JSON w tablicy „wartość” reprezentują dokumenty, które mają zostać umieszczone w indeksie. Każdy z tych obiektów zawiera klucz dokumentu i określa wymaganą akcję indeksowania (przekazanie, scalenie, usunięcie itp.). W zależności od tego, którą z poniższych akcji wybierzesz, tylko określone pola muszą być uwzględnione w danym dokumencie:
 
-Akcja @search.action | Opis | Wymagane pola dla każdego dokumentu | Uwagi
---- | --- | --- | ---
-`upload` | Akcja `upload` jest podobna do akcji „upsert”, co oznacza, że dokument zostanie wstawiony, jeśli jest nowy, albo zaktualizowany/zastąpiony, jeśli już istnieje. | pole klucza oraz inne pola, które chcesz zdefiniować | Podczas aktualizowania/zastępowania istniejącego dokumentu każde pole, które nie jest określone w żądaniu, zostanie ustawione na wartość `null`. Dzieje się tak nawet wtedy, gdy pole było wcześniej ustawione na wartość inną niż null.
-`merge` | Aktualizuje istniejący dokument o określone pola. Jeśli dokument nie istnieje w indeksie, scalanie zakończy się niepowodzeniem. | pole klucza oraz inne pola, które chcesz zdefiniować | Wszystkie pola, które określisz w żądaniu scalania, zastąpią istniejące pola w dokumencie. Obejmuje to również pola typu `Collection(Edm.String)`. Jeśli na przykład dokument zawiera pole `tags` o wartości `["budget"]` i wykonywane jest scalanie z wartością `["economy", "pool"]` dla pola `tags`, końcowa wartość pola `tags` będzie równa `["economy", "pool"]`. Nie będzie to `["budget", "economy", "pool"]`.
-`mergeOrUpload` | Ta akcja działa jak akcja `merge`, jeśli dokument o danym kluczu już istnieje w indeksie. Jeśli dokument nie istnieje, działa jak akcja `upload` dla nowego dokumentu. | pole klucza oraz inne pola, które chcesz zdefiniować | -
-`delete` | Usuwa określony dokument z indeksu. | tylko pole klucza | Wszystkie pola, które określisz oprócz pola klucza, zostaną zignorowane. Jeśli chcesz usunąć pojedyncze pole z dokumentu, zamiast tej akcji użyj akcji `merge` i po prostu jawnie ustaw dla pola wartość null.
+| Akcja @search.action | Opis | Wymagane pola dla każdego dokumentu | Uwagi |
+| --- | --- | --- | --- |
+| `upload` |Akcja `upload` jest podobna do akcji „upsert”, co oznacza, że dokument zostanie wstawiony, jeśli jest nowy, albo zaktualizowany/zastąpiony, jeśli już istnieje. |pole klucza oraz inne pola, które chcesz zdefiniować |Podczas aktualizowania/zastępowania istniejącego dokumentu każde pole, które nie jest określone w żądaniu, zostanie ustawione na wartość `null`. Dzieje się tak nawet wtedy, gdy pole było wcześniej ustawione na wartość inną niż null. |
+| `merge` |Aktualizuje istniejący dokument o określone pola. Jeśli dokument nie istnieje w indeksie, scalanie zakończy się niepowodzeniem. |pole klucza oraz inne pola, które chcesz zdefiniować |Wszystkie pola, które określisz w żądaniu scalania, zastąpią istniejące pola w dokumencie. Obejmuje to również pola typu `Collection(Edm.String)`. Jeśli na przykład dokument zawiera pole `tags` o wartości `["budget"]` i wykonywane jest scalanie z wartością `["economy", "pool"]` dla pola `tags`, końcowa wartość pola `tags` będzie równa `["economy", "pool"]`. Nie będzie to `["budget", "economy", "pool"]`. |
+| `mergeOrUpload` |Ta akcja działa jak akcja `merge`, jeśli dokument o danym kluczu już istnieje w indeksie. Jeśli dokument nie istnieje, działa jak akcja `upload` dla nowego dokumentu. |pole klucza oraz inne pola, które chcesz zdefiniować |- |
+| `delete` |Usuwa określony dokument z indeksu. |tylko pole klucza |Wszystkie pola, które określisz oprócz pola klucza, zostaną zignorowane. Jeśli chcesz usunąć pojedyncze pole z dokumentu, zamiast tej akcji użyj akcji `merge` i po prostu jawnie ustaw dla pola wartość null. |
 
 ## III. Konstruowania żądania HTTP i treści żądania
 Po zebraniu wartości pól wymaganych dla akcji indeksu można przystąpić do konstruowania rzeczywistego żądania HTTP i treści żądania JSON w celu zaimportowania danych.
@@ -67,7 +68,6 @@ Zawartość adresu URL musi obejmować nazwę usługi, nazwę indeksu (w tym prz
     api-key: [admin key]
 
 #### Treść żądania
-
 ```JSON
 {
     "value": [
@@ -119,7 +119,7 @@ W tym przypadku jako akcje wyszukiwania są używane akcje `upload`, `mergeOrUpl
 
 Załóżmy, że przedstawiony w przykładzie indeks „hotels” jest już wypełniony różnymi dokumentami. Zwróć uwagę na to, że w przypadku akcji `mergeOrUpload` nie było konieczne określenie wszystkich możliwych pól dokumentu. Klucz dokumentu (`hotelId`) został określony tylko w przypadku akcji `delete`.
 
-Zauważ również, że pojedyncze żądanie indeksowania może zawierać maksymalnie 1000 dokumentów (lub 16 MB danych).
+Zauważ również, że pojedyncze żądanie indeksowania może zawierać maksymalnie 1000 dokumentów (lub 16 MB danych).
 
 ## IV. Opisy kodów odpowiedzi HTTP
 #### 200
@@ -154,7 +154,10 @@ Kod stanu `207` jest zwracany, gdy co najmniej jeden element nie został pomyśl
 }
 ```
 
-> [AZURE.NOTE] Często oznacza to, że obciążenie usługi wyszukiwania wkrótce osiągnie punkt, w którym żądania indeksowania zaczną zwracać odpowiedzi `503`. W takim przypadku zdecydowanie zaleca się wycofanie kodu klienta i odczekanie przed ponownym wysłaniem żądania. Zapewni to systemowi dodatkowy czas na przetworzenie danych, co zwiększy prawdopodobieństwo pomyślnego wykonania przyszłych żądań. Szybkie ponawianie żądań tylko wydłuży czas trwania problemu.
+> [!NOTE]
+> Często oznacza to, że obciążenie usługi wyszukiwania wkrótce osiągnie punkt, w którym żądania indeksowania zaczną zwracać odpowiedzi `503`. W takim przypadku zdecydowanie zaleca się wycofanie kodu klienta i odczekanie przed ponownym wysłaniem żądania. Zapewni to systemowi dodatkowy czas na przetworzenie danych, co zwiększy prawdopodobieństwo pomyślnego wykonania przyszłych żądań. Szybkie ponawianie żądań tylko wydłuży czas trwania problemu.
+> 
+> 
 
 #### 429
 Kod stanu `429` jest zwracany w przypadku przekroczenia limitu przydziału liczby dokumentów w indeksie.
@@ -162,14 +165,15 @@ Kod stanu `429` jest zwracany w przypadku przekroczenia limitu przydziału liczb
 #### 503
 Kod stanu `503` jest zwracany, jeśli żaden z elementów w żądaniu nie został pomyślnie umieszczony w indeksie. Ten błąd oznacza, że system jest mocno obciążony i w tej chwili nie można przetworzyć żądania.
 
-> [AZURE.NOTE] W takim przypadku zdecydowanie zaleca się wycofanie kodu klienta i odczekanie przed ponownym wysłaniem żądania. Zapewni to systemowi dodatkowy czas na przetworzenie danych, co zwiększy prawdopodobieństwo pomyślnego wykonania przyszłych żądań. Szybkie ponawianie żądań tylko wydłuży czas trwania problemu.
+> [!NOTE]
+> W takim przypadku zdecydowanie zaleca się wycofanie kodu klienta i odczekanie przed ponownym wysłaniem żądania. Zapewni to systemowi dodatkowy czas na przetworzenie danych, co zwiększy prawdopodobieństwo pomyślnego wykonania przyszłych żądań. Szybkie ponawianie żądań tylko wydłuży czas trwania problemu.
+> 
+> 
 
 Aby uzyskać więcej informacji na temat akcji dla dokumentów oraz odpowiedzi oznaczających powodzenie lub błąd, zobacz [Add, Update, or Delete Documents](https://msdn.microsoft.com/library/azure/dn798930.aspx) (Dodawanie, aktualizowanie lub usuwanie dokumentów). Aby uzyskać więcej informacji o innych kodach stanów HTTP, które mogą być zwracane w przypadku niepowodzenia, zobacz [HTTP status codes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx) (Usługa Azure Search — kody stanów HTTP).
 
 ## Następne kroki
 Po wypełnieniu indeksu usługi Azure Search możesz rozpocząć wykonywanie zapytań w celu wyszukania dokumentów. Aby uzyskać szczegóły, zobacz [Query Your Azure Search Index](search-query-overview.md) (Tworzenie zapytań względem indeksu usługi Azure Search).
-
-
 
 <!--HONumber=Sep16_HO3-->
 

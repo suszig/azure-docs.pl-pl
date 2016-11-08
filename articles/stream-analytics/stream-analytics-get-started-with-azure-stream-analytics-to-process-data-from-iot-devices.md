@@ -1,36 +1,30 @@
-<properties
-    pageTitle="Wprowadzenie do usługi Azure Stream Analytics służącej do przetwarzania danych z urządzeń IoT. | Microsoft Azure"
-    description="Używanie tagów czujników IoT i strumieni danych z analizą strumieni i przetwarzaniem danych w czasie rzeczywistym"
-    keywords="rozwiązanie iot, wprowadzenie do iot"
-    services="stream-analytics"
-    documentationCenter=""
-    authors="jeffstokes72"
-    manager="jhubbard"
-    editor="cgronlun"
-/>
+---
+title: Wprowadzenie do usługi Azure Stream Analytics służącej do przetwarzania danych z urządzeń IoT. | Microsoft Docs
+description: Używanie tagów czujników IoT i strumieni danych z analizą strumieni i przetwarzaniem danych w czasie rzeczywistym
+keywords: rozwiązanie iot, wprowadzenie do iot
+services: stream-analytics
+documentationcenter: ''
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="stream-analytics"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-services"
-    ms.date="09/26/2016"
-    ms.author="jeffstok"
-/>
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 09/26/2016
+ms.author: jeffstok
 
-
+---
 # Wprowadzenie do usługi Azure Stream Analytics służącej do przetwarzania danych z urządzeń IoT
-
 Korzystając z tego samouczka, nauczysz się tworzyć logikę przetwarzania strumieni w celu zbierania danych z urządzeń Internetu rzeczy (IoT). Użyjemy w nim rzeczywistych przypadków użycia Internetu rzeczy (IoT) w celu zademonstrowania szybkiego i ekonomicznego kompilowania rozwiązań.
 
 ## Wymagania wstępne
-
--   [Subskrypcja platformy Azure](https://azure.microsoft.com/pricing/free-trial/)
--   Przykładowe pliki zapytań i danych do pobrania z serwisu [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
+* [Subskrypcja platformy Azure](https://azure.microsoft.com/pricing/free-trial/)
+* Przykładowe pliki zapytań i danych do pobrania z serwisu [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
 
 ## Scenariusz
-
 Contoso to firma z branży automatyki przemysłowej, która w pełni zautomatyzowała swój proces produkcji. Maszyny w tym zakładzie mają czujniki mogące emitować strumienie danych w czasie rzeczywistym. W tym scenariuszu menedżer warsztatu produkcyjnego chce mieć wgląd w czasie rzeczywistym w dane czujników w celu szukania wzorców i podejmowania na ich podstawie odpowiednich działań. Dla danych czujników będzie używany język zapytań usługi Stream Analytics (SAQL) w celu znalezienia interesujących wzorców w przychodzącym strumieniu danych.
 
 W tym przykładzie dane są generowane z urządzenia Texas Instruments Sensor Tag.
@@ -38,7 +32,6 @@ W tym przykładzie dane są generowane z urządzenia Texas Instruments Sensor Ta
 ![Urządzenie Texas Instruments Sensor Tag](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-01.jpg)
 
 Ładunek danych jest w formacie JSON i może wyglądać następująco:
-
 
     {
         "time": "2016-01-26T20:47:53.0000000",  
@@ -52,27 +45,24 @@ W rzeczywistym scenariuszu mogą istnieć setki takich czujników generujących 
 W celu ułatwienia pracy w tym przewodniku z wprowadzeniem udostępniono przykładowy plik danych przechwycony z rzeczywistych urządzeń Sensor Tag. Możesz uruchamiać zapytania dotyczące przykładowych danych i przeglądać ich wyniki. W kolejnych samouczkach dowiesz się, jak łączyć zadania z wejściami i wyjściami, a następnie wdrażać je w usłudze platformy Azure.
 
 ## Tworzenie zadania usługi Stream Analytics
-
 1. W witrynie [Azure Portal](http://manage.windowsazure.com) wybierz usługę **STREAM ANALYTICS**, a następnie kliknij pozycję **NOWY** w lewym dolnym rogu strony, aby utworzyć nowe zadanie analizy.
-
+   
     ![Tworzenie nowego zadania usługi Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
-
 2. Kliknij pozycję **SZYBKIE TWORZENIE**.
-
 3. Dla ustawienia **KONTO MAGAZYNU MONITOROWANIA REGIONALNEGO** kliknij pozycję **UTWÓRZ NOWE KONTO MAGAZYNU** i wybierz unikatową nazwę. Usługa Azure Stream Analytics będzie używała tego konta do przechowywania informacji o monitorowaniu dla wszystkich przyszłych zadań.
-
-    > [AZURE.NOTE] W każdym regionie utwórz to konto magazynu tylko raz. Ten magazyn zostanie udostępniony wszystkim zadaniom usługi Stream Analytics tworzonym w danym regionie.
-
+   
+   > [!NOTE]
+   > W każdym regionie utwórz to konto magazynu tylko raz. Ten magazyn zostanie udostępniony wszystkim zadaniom usługi Stream Analytics tworzonym w danym regionie.
+   > 
+   > 
 4. Kliknij pozycję **UTWÓRZ ZADANIE USŁUGI STREAM ANALYTICS** w dolnej części strony.
-
+   
     ![Konfiguracja konta magazynu](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03.jpg)
 
 ## Zapytanie usługi Azure Stream Analytics
-
 Kliknij kartę **ZAPYTANIE**, aby przejść do Edytora zapytań. Karta **ZAPYTANIE** zawiera zapytanie T-SQL, które wykonuje przekształcenie danych przychodzących zdarzenia.
 
 ## Archiwizowanie danych pierwotnych
-
 Najprostszą postacią zapytania jest przekazywanie, które powoduje archiwizowanie wszystkich danych wejściowych w określonej lokalizacji wyjściowej.
 
 ![Zapytanie dotyczące zadania archiwizacji](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
@@ -88,7 +78,6 @@ Wyniki zapytania można wyświetlić w przeglądarce, jak pokazano na poniższym
 ![Wyniki testu](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
 ## Filtrowanie danych na podstawie warunku
-
 Poniżej przedstawiono filtrowanie wyników na podstawie warunku. Chcemy wyświetlić wyniki tylko dla tych zdarzeń, które pochodzą z czujnika „SensorA”. Zapytanie znajduje się w pliku Filtering.txt.
 
 ![Filtrowanie strumienia danych](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
@@ -98,7 +87,6 @@ Zauważ, że zapytanie uwzględniające wielkość liter porównuje wartość ci
 ![Drugi zestaw danych wyjściowych z testu zapytania](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-09.png)
 
 ## Wysyłanie alertów w celu wyzwolenia biznesowego przepływu pracy
-
 Zwiększmy szczegółowość naszego zapytania. Dla każdego typu czujnika chcemy monitorować średnią temperaturę co 30 sekund i wyświetlać wyniki tylko wtedy, gdy przekracza ona 100 stopni. W tym celu napiszemy poniższe zapytanie, a następnie w celu wyświetlenia wyników klikniemy pozycję **Uruchom ponownie**. Zapytanie znajduje się w pliku ThresholdAlerting.txt.
 
 ![Zapytanie z filtrowaniem co 30 sekund](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
@@ -108,7 +96,6 @@ Wyniki powinny teraz zawierać tylko 245 wierszy i nazwy czujników, w przypadku
 ![Temperatura powyżej 100](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
 ## Wykrywanie braku zdarzeń
-
 Jak napisać zapytanie w celu określenia braku zdarzeń wejściowych? Spróbujmy określić, kiedy ostatnio czujnik wysłał dane, a następnie przez kolejną minutę nie wysłał zdarzeń. Zapytanie znajduje się w pliku AbsenseOfEvent.txt.
 
 ![Wykrywanie braku zdarzeń](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-12.png)
@@ -118,10 +105,7 @@ W tym przypadku zostanie użyte sprzężenie **LEFT OUTER** względem tego sameg
 ![Wyniki sprzężenia join](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-13.png)
 
 ## Podsumowanie
-
-Celem tego samouczka jest zademonstrowanie sposobu pisania różnych zapytań języka zapytań usługi Stream Analytics i wyświetlania wyników w przeglądarce. Jest to jednak tylko początek. Za pomocą usługi Stream Analytics można zrobić dużo więcej. Usługa Stream Analytics obsługuje różne dane wejściowe oraz wyjściowe i może nawet korzystać z funkcji w usłudze Azure Machine Learning, co czyni ją doskonałym narzędziem do analizowania strumieni danych. Jeśli chcesz dowiedzieć się więcej na temat usługi Stream Analytics, skorzystaj z naszej [mapy uczenia](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/). Aby uzyskać więcej informacji na temat sposobu pisania zapytań, przeczytaj artykuł dotyczący [typowych wzorców zapytań](./stream-analytics-stream-analytics-query-patterns.md).
-
-
+Celem tego samouczka jest zademonstrowanie sposobu pisania różnych zapytań języka zapytań usługi Stream Analytics i wyświetlania wyników w przeglądarce. Jest to jednak tylko początek. Za pomocą usługi Stream Analytics można zrobić dużo więcej. Usługa Stream Analytics obsługuje różne dane wejściowe oraz wyjściowe i może nawet korzystać z funkcji w usłudze Azure Machine Learning, co czyni ją doskonałym narzędziem do analizowania strumieni danych. Jeśli chcesz dowiedzieć się więcej na temat usługi Stream Analytics, skorzystaj z naszej [mapy uczenia](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/). Aby uzyskać więcej informacji na temat sposobu pisania zapytań, przeczytaj artykuł dotyczący [typowych wzorców zapytań](stream-analytics-stream-analytics-query-patterns.md).
 
 <!--HONumber=Oct16_HO3-->
 

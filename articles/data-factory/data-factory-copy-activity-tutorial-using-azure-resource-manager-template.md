@@ -1,53 +1,51 @@
-<properties
-    pageTitle="Samouczek: Tworzenie potoku przy użyciu szablonu usługi Resource Manager | Microsoft Azure"
-    description="Ten samouczek zawiera instrukcje tworzenia potoku usługi Azure Data Factory z działaniem kopiowania przy użyciu szablonu usługi Azure Resource Manager."
-    services="data-factory"
-    documentationCenter=""
-    authors="spelluru"
-    manager="jhubbard"
-    editor="monicar"/>
+---
+title: 'Samouczek: Tworzenie potoku przy użyciu szablonu usługi Resource Manager | Microsoft Docs'
+description: Ten samouczek zawiera instrukcje tworzenia potoku usługi Azure Data Factory z działaniem kopiowania przy użyciu szablonu usługi Azure Resource Manager.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags
-    ms.service="data-factory"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="10/10/2016"
-    ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 10/10/2016
+ms.author: spelluru
 
-
+---
 # <a name="tutorial:-create-a-pipeline-with-copy-activity-using-azure-resource-manager-template"></a>Samouczek: Tworzenie potoku za pomocą działania kopiowania przy użyciu szablonu usługi Azure Resource Manager
-> [AZURE.SELECTOR]
-- [Przegląd i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
-- [Witryna Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Program Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Program PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-- [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-
+> [!div class="op_single_selector"]
+> * [Przegląd i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
+> * [Witryna Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Program Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+> * [Program PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+> * [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+> 
+> 
 
 Ten samouczek pokazuje, jak utworzyć i monitorować fabrykę danych platformy Azure przy użyciu szablonu usługi Azure Resource Manager. Potok w fabryce danych kopiuje dane z usługi Azure Blob Storage do usługi Azure SQL Database.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-- Zapoznaj się z artykułem [Tutorial Overview and Prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Samouczek: Przegląd i wymagania wstępne) i wykonaj kroki **wymagań wstępnych**.
-- Postępuj zgodnie z instrukcjami w artykule [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Instalowanie i konfigurowanie programu Azure PowerShell), aby zainstalować najnowszą wersję programu Azure PowerShell na komputerze. W tym samouczku program PowerShell służy do wdrażania jednostek usługi Data Factory. 
-- (Opcjonalnie) Informacje na temat szablonów usługi Azure Resource Manager zawiera temat [Tworzenie szablonów usługi Azure Resource Manager](../resource-group-authoring-templates.md).
-
+* Zapoznaj się z artykułem [Tutorial Overview and Prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Samouczek: Przegląd i wymagania wstępne) i wykonaj kroki **wymagań wstępnych**.
+* Postępuj zgodnie z instrukcjami w artykule [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Instalowanie i konfigurowanie programu Azure PowerShell), aby zainstalować najnowszą wersję programu Azure PowerShell na komputerze. W tym samouczku program PowerShell służy do wdrażania jednostek usługi Data Factory. 
+* (Opcjonalnie) Informacje na temat szablonów usługi Azure Resource Manager zawiera temat [Tworzenie szablonów usługi Azure Resource Manager](../resource-group-authoring-templates.md).
 
 ## <a name="in-this-tutorial"></a>Informacje o tym samouczku
-
 W ramach tego samouczka jest tworzona fabryka danych za pomocą następujących jednostek usługi Data Factory:
 
-Jednostka | Opis  
------- | ----------- 
-Połączona usługa Azure Storage | Łączy konto usługi Azure Storage z fabryką danych. Usługa Azure Storage to źródłowy magazyn danych, a baza danych usługi Azure SQL to odbiorca danych dla działania kopiowania w ramach samouczka. Określa ona konto magazynu, które zawiera dane wejściowe dla działania kopiowania. 
-Połączona usługa Azure SQL Database| Łączy bazę danych usługi Azure SQL z fabryką danych. Określa bazę danych usługi Azure SQL, która przechowuje dane wyjściowe działania kopiowania. 
-Wejściowy zestaw danych obiektów blob platformy Azure | Przywołuje połączoną usługę Azure Storage. Połączona usługa przywołuje konto usługi Azure Storage, a zestaw danych obiektów blob platformy Azure określa kontener, folder i nazwę pliku w magazynie, który przechowuje dane wejściowe. 
-Wyjściowy zestaw danych usługi Azure SQL | Przywołuje połączoną usługę Azure SQL. Połączona usługa Azure SQL przywołuje serwer usługi Azure SQL, a zestaw danych usługi Azure SQL określa nazwę tabeli, która przechowuje dane wyjściowe. 
-Potok danych | Potok ma jedno działanie typu Kopiuj, które pobiera zestaw danych obiektów blob platformy Azure jako dane wejściowe i przekazuje zestaw danych usługi Azure SQL jako dane wyjściowe. Działanie kopiowania kopiuje dane z obiektu blob platformy Azure do tabeli w bazie danych usługi Azure SQL.  
+| Jednostka | Opis |
+| --- | --- |
+| Połączona usługa Azure Storage |Łączy konto usługi Azure Storage z fabryką danych. Usługa Azure Storage to źródłowy magazyn danych, a baza danych usługi Azure SQL to odbiorca danych dla działania kopiowania w ramach samouczka. Określa ona konto magazynu, które zawiera dane wejściowe dla działania kopiowania. |
+| Połączona usługa Azure SQL Database |Łączy bazę danych usługi Azure SQL z fabryką danych. Określa bazę danych usługi Azure SQL, która przechowuje dane wyjściowe działania kopiowania. |
+| Wejściowy zestaw danych obiektów blob platformy Azure |Przywołuje połączoną usługę Azure Storage. Połączona usługa przywołuje konto usługi Azure Storage, a zestaw danych obiektów blob platformy Azure określa kontener, folder i nazwę pliku w magazynie, który przechowuje dane wejściowe. |
+| Wyjściowy zestaw danych usługi Azure SQL |Przywołuje połączoną usługę Azure SQL. Połączona usługa Azure SQL przywołuje serwer usługi Azure SQL, a zestaw danych usługi Azure SQL określa nazwę tabeli, która przechowuje dane wyjściowe. |
+| Potok danych |Potok ma jedno działanie typu Kopiuj, które pobiera zestaw danych obiektów blob platformy Azure jako dane wejściowe i przekazuje zestaw danych usługi Azure SQL jako dane wyjściowe. Działanie kopiowania kopiuje dane z obiektu blob platformy Azure do tabeli w bazie danych usługi Azure SQL. |
 
 Fabryka danych może obejmować jeden lub wiele potoków. Potok może obejmować jedno lub wiele działań. Istnieją dwa typy działań: [przenoszenia danych](data-factory-data-movement-activities.md) i [przekształcania danych](data-factory-data-transformation-activities.md). W tym samouczku jest tworzony potok z jednym działaniem (kopiowania).
 
@@ -82,7 +80,6 @@ Szablon najwyższego poziomu usługi Resource Manager umożliwiający zdefiniowa
     }
 
 Utwórz plik JSON o nazwie **ADFCopyTutorialARM.json** w folderze **C:\ADFGetStarted** o następującej zawartości:
-
 
     {
         "contentVersion": "1.0.0.0",
@@ -267,10 +264,13 @@ Utwórz plik JSON o nazwie **ADFCopyTutorialARM.json** w folderze **C:\ADFGetSta
         ]
       }
 
-## <a name="parameters-json"></a>Parametry JSON 
+## <a name="parameters-json"></a>Parametry JSON
 Utwórz plik JSON o nazwie **ADFCopyTutorialARM-Parameters.json** zawierający parametry szablonu usługi Azure Resource Manager. 
 
-> [AZURE.IMPORTANT] Określ nazwę i klucz konta usługi Azure Storage za pomocą parametrów **storageAccountName** i **storageAccountKey**.  
+> [!IMPORTANT]
+> Określ nazwę i klucz konta usługi Azure Storage za pomocą parametrów **storageAccountName** i **storageAccountKey**.  
+> 
+> 
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -290,33 +290,36 @@ Utwórz plik JSON o nazwie **ADFCopyTutorialARM-Parameters.json** zawierający p
         }
     }
 
-> [AZURE.IMPORTANT] Można używać oddzielnych plików parametrów JSON dla środowisk programistycznego, testowego i produkcyjnego do użycia z tym samym szablonem JSON usługi Data Factory. Za pomocą skryptu programu Power Shell można zautomatyzować wdrażanie jednostek usługi Data Factory w tych środowiskach.  
+> [!IMPORTANT]
+> Można używać oddzielnych plików parametrów JSON dla środowisk programistycznego, testowego i produkcyjnego do użycia z tym samym szablonem JSON usługi Data Factory. Za pomocą skryptu programu Power Shell można zautomatyzować wdrażanie jednostek usługi Data Factory w tych środowiskach.  
+> 
+> 
 
 ## <a name="create-data-factory"></a>Tworzenie fabryki danych
 1. Uruchom program **Azure PowerShell** i uruchom następujące polecenie:
-    - Uruchom polecenie `Login-AzureRmAccount` i wprowadź nazwę użytkownika oraz hasło, których używasz do logowania się w witrynie Azure Portal.  
-    - Uruchom polecenie `Get-AzureRmSubscription`, aby wyświetlić wszystkie subskrypcje dla tego konta.
-    - Uruchom polecenie `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext`, aby wybrać subskrypcję, z którą chcesz pracować. 
+   * Uruchom polecenie `Login-AzureRmAccount` i wprowadź nazwę użytkownika oraz hasło, których używasz do logowania się w witrynie Azure Portal.  
+   * Uruchom polecenie `Get-AzureRmSubscription`, aby wyświetlić wszystkie subskrypcje dla tego konta.
+   * Uruchom polecenie `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext`, aby wybrać subskrypcję, z którą chcesz pracować. 
 2. Uruchom następujące polecenie, aby wdrożyć jednostki usługi Data Factory przy użyciu szablonu usługi Resource Manager utworzonego w kroku 1.
-
+   
         New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
 
 ## <a name="monitor-pipeline"></a>Monitorowanie potoku
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu konta Azure.
 2. Kliknij pozycję **Fabryki danych** w lewym menu lub kliknij pozycję **Więcej usług**, a następnie pozycję **Fabryki danych** w kategorii **ZBIERANIE DANYCH I ANALIZA**.
-
+   
     ![Menu fabryk danych](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
 3. Na stronie **Fabryki danych** wyszukaj fabrykę danych. 
-
+   
     ![Wyszukiwanie fabryki danych](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png)  
 4. Kliknij fabrykę danych platformy Azure. Zostanie wyświetlona strona główna fabryki danych.
-
+   
     ![Strona główna fabryki danych](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
 5. Kliknij kafelek **Diagram**, aby wyświetlić widok diagramu fabryki danych.
-
+   
     ![Widok diagramu fabryki danych](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-diagram-view.png)
 6. W widoku diagramu kliknij dwukrotnie zestaw danych **SQLOutputDataset**. Zostanie wyświetlony stan wycinka. Po zakończeniu operacji kopiowania stan zostanie ustawiony na **Gotowe**.
-
+   
     ![Wycinek danych wyjściowych w stanie gotowości](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/output-slice-ready.png)
 7. Gdy wycinek jest w stanie **Gotowe**, upewnij się, że dane zostały skopiowane do tabeli **emp** w bazie danych usługi Azure SQL.
 
@@ -324,9 +327,7 @@ Zobacz artykuł [Monitor datasets and pipeline](data-factory-monitor-manage-pipe
 
 Do monitorowania potoków danych możesz też użyć aplikacji Monitorowanie i zarządzanie. Szczegółowe informacje dotyczące korzystania z aplikacji znajdują się w artykule [Monitor and manage Azure Data Factory pipelines using Monitoring App](data-factory-monitor-manage-app.md) (Monitorowanie potoków usługi Fabryka danych Azure oraz zarządzanie nimi za pomocą aplikacji do monitorowania).
 
-
 ## <a name="data-factory-entities-in-the-template"></a>Jednostki usługi Data Factory w szablonie
-
 ### <a name="define-data-factory"></a>Definiowanie fabryki danych
 Fabrykę danych definiuje się w szablonie menedżera zasobów jak pokazano w następującym przykładzie:  
 
@@ -339,7 +340,7 @@ Fabrykę danych definiuje się w szablonie menedżera zasobów jak pokazano w na
     }
 
 Parametr dataFactoryName jest zdefiniowany jako: 
-      
+
     "dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
 
 To jest unikatowy ciąg oparty na identyfikatorze grupy zasobów.  
@@ -373,7 +374,7 @@ W tej sekcji określa się nazwę i klucz konta magazynu platformy Azure. Szczeg
     }
 
 Parametr connectionString używa parametrów storageAccountName i storageAccountKey. Wartości tych parametrów są przekazywane przy użyciu pliku konfiguracji. Definicja używa także zmiennych azureStorageLinkedService i dataFactoryName zdefiniowanych w szablonie. 
-    
+
 #### <a name="azure-sql-database-linked-service"></a>Połączona usługa Azure SQL Database
 W tej sekcji określa się nazwę serwera usługi Azure SQL, nazwę bazy danych, nazwę użytkownika i hasło użytkownika. Szczegóły dotyczące właściwości JSON używanych do definiowania połączonej usługi Azure SQL zawiera temat [Połączona usługa Azure SQL](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).  
 
@@ -397,7 +398,6 @@ Parametr connectionString używa parametrów sqlServerName, databaseName, sqlSer
 
 #### <a name="azure-blob-dataset"></a>Zestaw danych obiektów blob platformy Azure
 Określane są nazwy kontenera obiektów blob, folderu i pliku, który zawiera dane wejściowe. Szczegóły dotyczące właściwości JSON używanych do definiowania zestawu danych obiektów blob platformy Azure zawiera temat [Azure Blob dataset properties](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) (Właściwości zestawu danych obiektów blob plaformy Azure). 
-
 
     {
         "type": "datasets",
@@ -526,7 +526,7 @@ Definiuje się potok, który kopiuje dane z zestawu danych obiektów blob platfo
         }
     }
 
-## <a name="reuse-the-template"></a>Ponowne użycie szablonu 
+## <a name="reuse-the-template"></a>Ponowne użycie szablonu
 W ramach samouczka został utworzony szablon służący do definiowania jednostek usługi Data Factory i szablon służący do przekazywania wartości dla parametrów. Potok kopiuje dane z konta usługi Azure Storage do bazy danych usługi Azure SQL określonej za pomocą parametrów. Aby użyć tego samego szablonu do wdrożenia jednostek usługi Data Factory w różnych środowiskach, należy utworzyć plik parametrów dla każdego środowiska i użyć go podczas wdrażania do środowiska.     
 
 Przykład:  
@@ -540,9 +540,6 @@ Przykład:
 Należy zauważyć, że pierwsze polecenie używa pliku parametrów dla środowiska programistycznego, drugie dla środowiska testowego, a trzecie dla środowiska produkcyjnego.  
 
 Można także ponownie użyć szablonu do wykonywania powtarzających się zadań. Na przykład w sytuacji, gdy jest potrzebne utworzenie wielu fabryk danych z co najmniej jednym potokiem, które implementują tę samą logikę, lecz każda fabryka danych używa innego magazynu platformy Azure i kont usługi Azure SQL Database. W tym scenariuszu do tworzenia fabryk danych jest używany ten sam szablon w tym samym środowisku (programistycznym, testowym lub produkcyjnym) w połączeniu z różnymi plikami parametrów.   
-
-
-
 
 <!--HONumber=Oct16_HO3-->
 

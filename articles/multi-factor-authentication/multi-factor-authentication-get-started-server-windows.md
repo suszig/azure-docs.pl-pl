@@ -1,45 +1,36 @@
-<properties 
-    pageTitle="Uwierzytelnianie systemu Windows i serwer usługi Azure Multi-Factor Authentication"
-    description="Ta strona jest poświęcona usłudze Azure Multi-Factor Authentication i zawiera informacje pomocne podczas wdrażania uwierzytelniania systemu Windows i korzystania z serwera usługi Azure Multi-Factor Authentication."
-    services="multi-factor-authentication"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor="curtand"/>
+---
+title: Uwierzytelnianie systemu Windows i serwer usługi Azure Multi-Factor Authentication
+description: Ta strona jest poświęcona usłudze Azure Multi-Factor Authentication i zawiera informacje pomocne podczas wdrażania uwierzytelniania systemu Windows i korzystania z serwera usługi Azure Multi-Factor Authentication.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtand
 
-<tags
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/04/2016"
-    ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/04/2016
+ms.author: kgremban
 
-
+---
 # Uwierzytelnianie systemu Windows i serwer usługi Azure Multi-Factor Authentication
-
 W sekcji Uwierzytelnianie systemu Windows administrator może włączyć i skonfigurować uwierzytelnianie systemu Windows dla jednej lub większej liczby aplikacji.  Poniżej znajduje się lista kwestii, o których należy pamiętać przed skonfigurowaniem uwierzytelniania systemu Windows.
 
--  Zanim usługa Azure Multi-Factor Authentication dla usług terminalowych zacznie działać, wymagane jest ponowne uruchomienie.
--  Jeśli zaznaczono opcję „Wymagaj dopasowania użytkownika usługi Azure Multi-Factor Authentication”, a nazwy użytkownika nie ma na liście, zalogowanie się na komputerze po ponownym rozruchu nie będzie możliwe.
--  To, czy adresy IP są zaufane, zależy od tego, czy aplikacja może uwierzytelnić adres IP klienta. Obecnie są obsługiwane wyłącznie usługi terminalowe.  
+* Zanim usługa Azure Multi-Factor Authentication dla usług terminalowych zacznie działać, wymagane jest ponowne uruchomienie.
+* Jeśli zaznaczono opcję „Wymagaj dopasowania użytkownika usługi Azure Multi-Factor Authentication”, a nazwy użytkownika nie ma na liście, zalogowanie się na komputerze po ponownym rozruchu nie będzie możliwe.
+* To, czy adresy IP są zaufane, zależy od tego, czy aplikacja może uwierzytelnić adres IP klienta. Obecnie są obsługiwane wyłącznie usługi terminalowe.  
 
-
-
-
-
-
-
->[AZURE.NOTE]Ta funkcja nie jest obsługiwana w kontekście zabezpieczania sesji usług terminalowych w systemie Windows Server 2012 R2.
-
-
-
+> [!NOTE]
+> Ta funkcja nie jest obsługiwana w kontekście zabezpieczania sesji usług terminalowych w systemie Windows Server 2012 R2.
+> 
+> 
 
 ## Do zabezpieczenia aplikacji z użyciem uwierzytelniania systemu Windows należy zastosować następującą procedurę.
-
 1. Kliknij ikonę uwierzytelniania systemu Windows na serwerze usługi Azure Multi-Factor Authentication.
-![Uwierzytelnianie systemu Windows](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
+   ![Uwierzytelnianie systemu Windows](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
 2. Zaznacz pole wyboru Włącz uwierzytelnianie systemu Windows. Domyślnie to pole nie jest zaznaczone.
 3. Na karcie Aplikacje administrator może skonfigurować co najmniej jedną aplikację na potrzeby uwierzytelniania systemu Windows.
 4. Wybierz serwer lub aplikację — określ, czy serwer lub aplikacja są włączone. Kliknij przycisk OK.
@@ -50,8 +41,6 @@ W sekcji Uwierzytelnianie systemu Windows administrator może włączyć i skonf
 9. Wybierz opcję Zakres adresów IP, aby pominąć cały zakres adresów IP. Na przykład: 10.63.193.1–10.63.193.100.
 10. Wybierz opcję Podsieć, aby określić zakres adresów IP, korzystając z notacji podsieci. Wprowadź początkowy adres IP podsieci i wybierz odpowiednią maskę sieci z listy rozwijanej.
 11. Kliknij przycisk OK.
-
-
 
 <!--HONumber=Sep16_HO3-->
 

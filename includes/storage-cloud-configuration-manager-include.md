@@ -12,7 +12,6 @@ Oto przykład, w którym przedstawiono, jak pobrać parametry połączenia z pli
 
 Użycie programu Azure Configuration Manager jest opcjonalne. Można także użyć interfejsu API, np. [klasy ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) programu .NET Framework.
 
-
 <!--HONumber=Sep16_HO3-->
 
 

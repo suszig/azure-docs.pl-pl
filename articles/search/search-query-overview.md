@@ -1,35 +1,34 @@
-<properties
-    pageTitle="Tworzenie zapytań względem indeksu usługi Azure Search | Microsoft Azure | Hostowana usługa wyszukiwania w chmurze"
-    description="Konstruowanie zapytania wyszukiwania w usłudze Azure Search oraz filtrowanie i sortowanie wyników wyszukiwania za pomocą parametrów wyszukiwania."
-    services="search"
-    documentationCenter=""
-    authors="ashmaka"
-/>
+---
+title: Tworzenie zapytań względem indeksu usługi Azure Search | Microsoft Docs
+description: Konstruowanie zapytania wyszukiwania w usłudze Azure Search oraz filtrowanie i sortowanie wyników wyszukiwania za pomocą parametrów wyszukiwania.
+services: search
+documentationcenter: ''
+author: ashmaka
 
-<tags
-    ms.service="search"
-    ms.devlang="na"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="ashmaka"/>
+ms.service: search
+ms.devlang: na
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: ashmaka
 
-
+---
 # Tworzenie zapytań względem indeksu usługi Azure Search
-> [AZURE.SELECTOR]
-- [Omówienie](search-query-overview.md)
-- [Portal](search-explorer.md)
-- [.NET](search-query-dotnet.md)
-- [REST](search-query-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Omówienie](search-query-overview.md)
+> * [Portal](search-explorer.md)
+> * [.NET](search-query-dotnet.md)
+> * [REST](search-query-rest-api.md)
+> 
+> 
 
 W ramach przesyłania żądań wyszukiwania do usługi Azure Search dostępnych jest szereg parametrów, które można określić, aby użyć ich razem z rzeczywistymi słowami wpisywanymi w polu wyszukiwania w aplikacji. Te parametry zapytań zapewniają lepszą kontrolę nad wyszukiwaniem pełnotekstowym.
 
 Poniższa lista zawiera krótkie opisy typowych zastosowań parametrów zapytań w usłudze Azure Search. Aby uzyskać pełne, szczegółowe informacje na temat parametrów zapytań i ich działania, zobacz strony dotyczące [interfejsu API REST](https://msdn.microsoft.com/library/azure/dn798927.aspx) i [zestawu .NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.searchparameters_properties.aspx).
 
 ## Typy zapytań
-
-Usługa Azure Search udostępnia wiele opcji tworzenia niezwykle wydajnych zapytań. Dwa najczęściej używane typy zapytań to `search` i `filter`. Zapytanie `search` umożliwia wyszukanie jednego lub większej liczby terminów we wszystkich polach _z możliwością wyszukiwania_ w indeksie. Działa ono podobnie jak wyszukiwarki takie jak Google czy Bing. Zapytanie `filter` ocenia wyrażenie logiczne w odniesieniu do wszystkich pól _z możliwością filtrowania_ w indeksie. W przeciwieństwie do zapytań `search` w zapytaniach `filter` jest uwzględniania pełna zawartość pól, co oznacza, że w przypadku pól ciągów jest ważna wielkości liter.
+Usługa Azure Search udostępnia wiele opcji tworzenia niezwykle wydajnych zapytań. Dwa najczęściej używane typy zapytań to `search` i `filter`. Zapytanie `search` umożliwia wyszukanie jednego lub większej liczby terminów we wszystkich polach *z możliwością wyszukiwania* w indeksie. Działa ono podobnie jak wyszukiwarki takie jak Google czy Bing. Zapytanie `filter` ocenia wyrażenie logiczne w odniesieniu do wszystkich pól *z możliwością filtrowania* w indeksie. W przeciwieństwie do zapytań `search` w zapytaniach `filter` jest uwzględniania pełna zawartość pól, co oznacza, że w przypadku pól ciągów jest ważna wielkości liter.
 
 Wyszukiwań i filtrów można używać razem lub oddzielnie. W przypadku połączenia tych zapytań najpierw jest stosowany filtr do całego indeksu, a wyszukiwanie jest wykonywane na wynikach filtrowania. Z tego względu filtrowanie może być przydatne, jeśli chcemy poprawić wydajność zapytań, ponieważ pozwala ono zawęzić zestaw dokumentów przetwarzany przez zapytanie wyszukiwania.
 
@@ -43,8 +42,6 @@ Elementy składni wyrażeń filtrów należą do podzbioru [języka filtru OData
 
 Używanie tej składni pozwala łatwo korzystać z następujących funkcji: [zapytania należące do zakresu pola](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_fields), [wyszukiwanie rozmyte](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_fuzzy), [wyszukiwanie w sąsiedztwie](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_proximity), [promowanie terminów](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_termboost), [wyszukiwanie za pomocą wyrażeń regularnych](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_regex), [wyszukiwanie za pomocą symboli wieloznacznych](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_wildcard), [podstawy składni](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_syntax) oraz [zapytania korzystające z operatorów logicznych](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_boolean).
 
-
-
 ## Porządkowanie wyników
 Usługa Azure Search udostępnia możliwość przekazania wyników zapytania wyszukiwania uporządkowanych według wartości w określonym polu. Domyślnie usługa Azure Search porządkuje wyniki w oparciu o rangę wyniku wyszukiwania poszczególnych dokumentów, który jest określany na podstawie wagi [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
 
@@ -55,11 +52,8 @@ Usługa Azure Search ułatwia implementowanie stronicowania wyników wyszukiwani
 
 Więcej informacji o stronicowaniu wyników wyszukiwania można znaleźć w artykule [How to page search results in Azure Search](search-pagination-page-layout.md) (Sposoby stronicowania wyników wyszukiwania w usłudze Azure Search).
 
-
 ## Wyróżnianie trafień
-Dostępne w usłudze Azure Search parametry `highlight`, `highlightPreTag` i `highlightPostTag` umożliwiają łatwe wyróżnianie tej części wyników, która dokładnie odpowiada zapytaniu wyszukiwania. Można wskazać, w których polach _z możliwością wyszukiwania_ ma zostać wyróżniony dopasowany tekst, a także dokładnie określić tagi ciągów, które mają zostać dodane na początku i na końcu dopasowanego tekstu zwracanego przez usługę Azure Search.
-
-
+Dostępne w usłudze Azure Search parametry `highlight`, `highlightPreTag` i `highlightPostTag` umożliwiają łatwe wyróżnianie tej części wyników, która dokładnie odpowiada zapytaniu wyszukiwania. Można wskazać, w których polach *z możliwością wyszukiwania* ma zostać wyróżniony dopasowany tekst, a także dokładnie określić tagi ciągów, które mają zostać dodane na początku i na końcu dopasowanego tekstu zwracanego przez usługę Azure Search.
 
 <!--HONumber=Sep16_HO3-->
 

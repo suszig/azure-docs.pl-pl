@@ -1,24 +1,22 @@
-<properties
-   pageTitle="Przewodnik po szablonie usługi Resource Manager | System Microsoft Azure"
-   description="Przewodnik krok po kroku po szablonie usługi Resource Manager służący do aprowizacji podstawowej architektury IaaS platformy Azure."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="navalev"
-   manager=""
-   editor=""/>
+---
+title: Przewodnik po szablonie usługi Resource Manager | Microsoft Docs
+description: Przewodnik krok po kroku po szablonie usługi Resource Manager służący do aprowizacji podstawowej architektury IaaS platformy Azure.
+services: azure-resource-manager
+documentationcenter: na
+author: navalev
+manager: ''
+editor: ''
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/04/2016"
-   ms.author="navale;tomfitz"/>
-   
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/04/2016
+ms.author: navale;tomfitz
 
+---
 # Przewodnik po szablonie usługi Resource Manager
-
 Jednym z pierwszych pytań podczas tworzenia szablonu jest „jak rozpocząć?”. Można rozpocząć od pustego szablonu, utworzyć podstawową strukturę zgodnie z opisem w artykule [Tworzenie szablonu](resource-group-authoring-templates.md#template-format), a następnie dodać zasoby oraz odpowiednie parametry i zmienne. Dobrą alternatywą jest rozpoczęcie od zapoznania się z [galerią Szybki start](https://github.com/Azure/azure-quickstart-templates) i znalezienie scenariuszy, których cel jest podobny do tego, co ma zostać zrobione. Możliwe jest scalenie kilku szablonów lub edytowane istniejącego szablonu w taki sposób, aby odpowiadało to potrzebom własnego konkretnego scenariusza. 
 
 Spójrzmy na wspólną infrastrukturę:
@@ -33,10 +31,12 @@ W tym temacie szczegółowo omówiono kroki tworzenia szablonu usługi Resource 
 
 Jednak nie wszystko naraz — utwórzmy najpierw konto magazynu i wdróżmy je. Następnym krokiem po opanowaniu tworzenia konta magazynu będzie dodanie innych zasobów i ponowne wdrożenie szablonu w celu zakończenia tworzenia infrastruktury.
 
->[AZURE.NOTE] Podczas tworzenia szablonu można użyć dowolnego typu edytora. Program Visual Studio zawiera narzędzia, które upraszczają proces tworzenia szablonu, ale do ukończenia tego samouczka nie ma potrzeby używania tego programu. Samouczek dotyczący tworzenia wdrożenia aplikacji sieci Web i bazy danych SQL Database za pomocą programu Visual Studio można znaleźć w sekcji [Tworzenie i wdrażanie grup zasobów platformy Azure za pomocą programu Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). 
+> [!NOTE]
+> Podczas tworzenia szablonu można użyć dowolnego typu edytora. Program Visual Studio zawiera narzędzia, które upraszczają proces tworzenia szablonu, ale do ukończenia tego samouczka nie ma potrzeby używania tego programu. Samouczek dotyczący tworzenia wdrożenia aplikacji sieci Web i bazy danych SQL Database za pomocą programu Visual Studio można znaleźć w sekcji [Tworzenie i wdrażanie grup zasobów platformy Azure za pomocą programu Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). 
+> 
+> 
 
 ## Tworzenie szablonu usługi Resource Manager
-
 Szablon to plik JSON definiujący wszystkie zasoby, które zostaną wdrożone. Umożliwia on również zdefiniowanie parametrów określanych podczas wdrażania, zmiennych tworzonych na podstawie innych wartości i wyrażeń oraz danych wyjściowych z wdrożenia. 
 
 Zacznijmy od najprostszego szablonu:
@@ -162,14 +162,15 @@ Wartość określona dla właściwości **type** zawiera zarówno dostawcę zaso
 ```
 
 Jeśli natomiast używasz interfejsu wiersza polecenia platformy Azure, możesz uruchomić następujące polecenie:
+
 ```
     azure provider list
 ```
 Biorąc pod uwagę, że w tym temacie operacje tworzenia będą przeprowadzane za pomocą kont magazynu, maszyn wirtualnych i sieci wirtualnych, praca będzie odbywać się z następującymi zasobami:
 
-- Microsoft.Storage
-- Microsoft.Compute
-- Microsoft.Network
+* Microsoft.Storage
+* Microsoft.Compute
+* Microsoft.Network
 
 Aby wyświetlić typy zasobów dla określonego dostawcy, uruchom następujące polecenie programu PowerShell:
 
@@ -387,7 +388,7 @@ Wszystkie właściwości można znaleźć w artykule dotyczącym [interfejsu API
 Zostaną utworzone dwie maszyny wirtualne przy użyciu funkcji copyIndex(), tak jak miało to miejsce w przypadku tworzenia [interfejsów sieciowych](#network-interface).
 Proces tworzenia maszyny wirtualnej jest zależny od konta magazynu, interfejsu sieciowego i zestawu dostępności. Ta maszyna wirtualna zostanie utworzona na podstawie obrazu z witryny Marketplace zgodnie z definicją we właściwości `storageProfile` — element `imageReference` służy do definiowania wydawcy obrazu, oferty, jednostki SKU i wersji. Na koniec zostanie skonfigurowany profil diagnostyczny w celu włączenia diagnostyki dla maszyny wirtualnej. 
 
-Aby znaleźć odpowiednie właściwości dla obrazu z witryny Marketplace, postępuj zgodnie z informacjami znajdującymi się w artykule dotyczącym [wybierania obrazów maszyny wirtualnej systemu Linux](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md) lub [wybierania obrazów maszyny wirtualnej systemu Windows](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
+Aby znaleźć odpowiednie właściwości dla obrazu z witryny Marketplace, postępuj zgodnie z informacjami znajdującymi się w artykule dotyczącym [wybierania obrazów maszyny wirtualnej systemu Linux](virtual-machines/virtual-machines-linux-cli-ps-findimage.md) lub [wybierania obrazów maszyny wirtualnej systemu Windows](virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
 
 ```json
 {
@@ -448,12 +449,14 @@ Aby znaleźć odpowiednie właściwości dla obrazu z witryny Marketplace, post�
 }
 ```
 
->[AZURE.NOTE] W przypadku obrazów opublikowanych przez **innych dostawców** konieczne będzie określenie innej właściwości o nazwie `plan`. Przykład można znaleźć w [tym szablonie](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) z galerii Szybki start. 
+> [!NOTE]
+> W przypadku obrazów opublikowanych przez **innych dostawców** konieczne będzie określenie innej właściwości o nazwie `plan`. Przykład można znaleźć w [tym szablonie](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) z galerii Szybki start. 
+> 
+> 
 
 Zakończono definiowanie zasobów dla szablonu.
 
 ## Parametry
-
 W sekcji parameters zdefiniuj wartości, które można określić podczas wdrażania szablonu. Zdefiniuj parametry tylko dla wartości, które powinny być zmieniane podczas wdrażania. Możliwe jest podanie wartości domyślnej parametru, która zostanie użyta, jeśli żadna wartość nie zostanie podana podczas wdrażania. Można również zdefiniować dozwolone wartości w sposób pokazany dla parametru **imageSKU**.
 
 ```json
@@ -554,7 +557,6 @@ W sekcji parameters zdefiniuj wartości, które można określić podczas wdraż
 ```
 
 ## Zmienne
-
 W sekcji variables można zdefiniować wartości, które są używane w więcej niż jednym miejscu w szablonie, lub wartości, które są tworzone na podstawie innych wyrażeń lub zmiennych. Zmienne są często używane w celu uproszczenia składni szablonu.
 
 ```json
@@ -577,12 +579,9 @@ Zakończono tworzenie szablonu! Możesz porównać swój szablon z pełnym szabl
 Możesz ponownie wdrożyć szablon przy użyciu tych samych poleceń, które zostały użyte podczas wdrażania konta magazynu. Nie ma potrzeby usuwania konta magazynu przed ponownym wdrażaniem, ponieważ usługa Resource Manager pominie proces ponownego tworzenia zasobów, które już istnieją i nie uległy zmianie.
 
 ## Następne kroki
-
-- [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) to doskonałe narzędzie do wizualizacji szablonów ARM, ponieważ mogą one stać się zbyt duże, by były zrozumiałe tylko na podstawie odczytu pliku JSON.
-- Aby uzyskać więcej informacji o strukturze szablonu, zobacz [Tworzenie szablonów usługi Azure Resource Manager](resource-group-authoring-templates.md).
-- Aby dowiedzieć się więcej o wdrażaniu szablonu, zobacz [Wdrażanie grupy zasobów za pomocą szablonu usługi Azure Resource Manager](resource-group-template-deploy.md).
-
-
+* [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) to doskonałe narzędzie do wizualizacji szablonów ARM, ponieważ mogą one stać się zbyt duże, by były zrozumiałe tylko na podstawie odczytu pliku JSON.
+* Aby uzyskać więcej informacji o strukturze szablonu, zobacz [Tworzenie szablonów usługi Azure Resource Manager](resource-group-authoring-templates.md).
+* Aby dowiedzieć się więcej o wdrażaniu szablonu, zobacz [Wdrażanie grupy zasobów za pomocą szablonu usługi Azure Resource Manager](resource-group-template-deploy.md).
 
 <!--HONumber=Sep16_HO3-->
 

@@ -1,38 +1,38 @@
-<properties
-    pageTitle="Wirtualne grodzenie powiadomień wypychanych przy użyciu usług Azure Notification Hubs i Bing Spatial Data | Microsoft Azure"
-    description="Korzystając z tego samouczka, dowiesz się, jak dostarczać powiadomienia wypychane oparte na lokalizacji przy użyciu usług Azure Notification Hubs i Bing Spatial Data."
-    services="notification-hubs"
-    documentationCenter="windows"
-    keywords="powiadomienie wypychane, powiadomienia wypychane"
-    authors="dend"
-    manager="yuaxu"
-    editor="dend"/>
+---
+title: Wirtualne grodzenie powiadomień wypychanych przy użyciu usług Azure Notification Hubs i Bing Spatial Data | Microsoft Docs
+description: Korzystając z tego samouczka, dowiesz się, jak dostarczać powiadomienia wypychane oparte na lokalizacji przy użyciu usług Azure Notification Hubs i Bing Spatial Data.
+services: notification-hubs
+documentationcenter: windows
+keywords: powiadomienie wypychane, powiadomienia wypychane
+author: dend
+manager: yuaxu
+editor: dend
 
-<tags
-    ms.service="notification-hubs"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-windows-phone"
-    ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.date="05/31/2016"
-    ms.author="dendeli"/>
-    
+ms.service: notification-hubs
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-windows-phone
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 05/31/2016
+ms.author: dendeli
 
+---
 # Wirtualne grodzenie powiadomień wypychanych przy użyciu usług Azure Notification Hubs i Bing Spatial Data
- 
- > [AZURE.NOTE] Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
+> [!NOTE]
+> Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
+> 
+> 
 
 Korzystając z tego samouczka, dowiesz się, jak dostarczać powiadomienia wypychane oparte na lokalizacji przy użyciu usług Azure Notification Hubs i Bing Spatial Data z wykorzystaniem aplikacji platformy uniwersalnej systemu Windows.
 
-##Wymagania wstępne
+## Wymagania wstępne
 Najpierw upewnij się, że spełniono wszystkie wymagania wstępne dotyczące oprogramowania i usług:
 
 * Program [Visual Studio 2015 Update 1](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) lub nowszy (można również użyć wersji [Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409)). 
 * Najnowsza wersja zestawu [Azure SDK](https://azure.microsoft.com/downloads/). 
 * [Konto Centrum deweloperów Map Bing](https://www.bingmapsportal.com/) (można utworzyć je bezpłatnie i skojarzyć z kontem Microsoft). 
 
-##Wprowadzenie
-
+## Wprowadzenie
 Zacznijmy od utworzenia projektu. W programie Visual Studio utwórz nowy projekt typu **Pusta aplikacja (uniwersalna aplikacja systemu Windows)**.
 
 ![](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
@@ -40,17 +40,16 @@ Zacznijmy od utworzenia projektu. W programie Visual Studio utwórz nowy projekt
 Po zakończeniu tworzenia projektu uzyskasz dostęp do aplikacji. Teraz skonfigurujmy wszystko pod kątem infrastruktury wirtualnego grodzenia. Ponieważ w tym celu użyjemy usług Bing, istnieje publiczny punkt końcowy interfejsu API REST umożliwiający wykonywanie zapytań dotyczących określonego zakresu lokalizacji:
 
     http://spatial.virtualearth.net/REST/v1/data/
-    
+
 Należy określić następujące parametry, aby przygotować go do pracy:
 
 * **Identyfikator źródła danych** i **Nazwa źródła danych** — w interfejsie API Map Bing źródła danych zawierają różne metadane w zasobnikach, takie jak lokalizacje i godziny pracy. Możesz uzyskać więcej informacji na ten temat tutaj. 
 * **Nazwa jednostki** — jednostka, która ma być używana jako punkt odniesienia dla powiadomienia. 
 * **Klucz interfejsu API Map Bing** — to jest klucz uzyskany wcześniej podczas tworzenia konta Centrum deweloperów Bing.
- 
+
 Poznajmy szczegółowo sposób konfiguracji poszczególnych elementów wymienionych powyżej.
 
-##Konfigurowanie źródła danych
-
+## Konfigurowanie źródła danych
 W tym celu można użyć Centrum deweloperów Map Bing. Kliknij pozycję **Źródła danych** na górnym pasku nawigacyjnym i wybierz pozycję **Zarządzaj źródłami danych**.
 
 ![](./media/notification-hubs-geofence/bing-maps-manage-data.png)
@@ -64,14 +63,17 @@ Możliwe, że zastanawiasz się, co to jest plik danych i co należy przekazać?
     Bing Spatial Data Services, 1.0, TestBoundaries
     EntityID(Edm.String,primaryKey)|Name(Edm.String)|Longitude(Edm.Double)|Latitude(Edm.Double)|Boundary(Edm.Geography)
     1|SanFranciscoPier|||POLYGON ((-122.389825 37.776598,-122.389438 37.773087,-122.381885 37.771849,-122.382186 37.777022,-122.389825 37.776598))
-    
+
 Powyższy kod reprezentuje następującą jednostkę:
 
 ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 
 Po prostu skopiuj i wklej powyższy ciąg do nowego pliku i zapisz go jako **NotificationHubsGeofence.pipe**, a następnie przekaż go do Centrum deweloperów Bing.
 
->[AZURE.NOTE]Może zostać wyświetlony monit o określenie nowego klucza dla właściwości **Klucz główny**, który różni się od właściwości **Klucz zapytania**. Po prostu utwórz nowy klucz przy użyciu pulpitu nawigacyjnego i odśwież stronę przekazywania źródła danych.
+> [!NOTE]
+> Może zostać wyświetlony monit o określenie nowego klucza dla właściwości **Klucz główny**, który różni się od właściwości **Klucz zapytania**. Po prostu utwórz nowy klucz przy użyciu pulpitu nawigacyjnego i odśwież stronę przekazywania źródła danych.
+> 
+> 
 
 Po przekazaniu pliku danych opublikuj źródło danych. 
 
@@ -101,8 +103,7 @@ Ta odpowiedź jest wysyłana tylko wtedy, gdy punkt rzeczywiście znajduje się 
 
 ![](./media/notification-hubs-geofence/bing-maps-nores.png)
 
-##Konfigurowanie aplikacji platformy uniwersalnej systemu Windows
-
+## Konfigurowanie aplikacji platformy uniwersalnej systemu Windows
 Teraz, gdy źródło danych jest gotowe, możemy rozpocząć pracę nad aplikacją platformy uniwersalnej systemu Windows, którą zainicjowano wcześniej.
 
 Najpierw musimy włączyć usługi lokalizacji dla naszej aplikacji. W tym celu kliknij dwukrotnie plik `Package.appxmanifest` w **Eksploratorze rozwiązań**.
@@ -199,8 +200,7 @@ Implementacja spowoduje wyświetlenie współrzędnych lokalizacji w oknie **Dan
         });
     }
 
-##Konfigurowanie zaplecza
-
+## Konfigurowanie zaplecza
 Pobierz [przykład zaplecza programu .NET z usługi GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers). Po zakończeniu pobierania otwórz folder `NotifyUsers`, a następnie otwórz plik `NotifyUsers.sln`.
 
 Ustaw projekt `AppBackend` jako **Projekt startowy**, a następnie uruchom go.
@@ -276,7 +276,10 @@ Utwórz nową klasę w projekcie o nazwie `ApiHelper.cs`. Zostanie ona użyta do
         }
     }
 
->[AZURE.NOTE] Zastąp punkt końcowy interfejsu API adresem URL zapytania uzyskanym wcześniej z Centrum deweloperów Bing (to samo dotyczy klucza interfejsu API). 
+> [!NOTE]
+> Zastąp punkt końcowy interfejsu API adresem URL zapytania uzyskanym wcześniej z Centrum deweloperów Bing (to samo dotyczy klucza interfejsu API). 
+> 
+> 
 
 Jeśli uzyskano wyniki zapytania, oznacza to, że określony punkt znajduje się w granicach wirtualnego ogrodzenia, dlatego zostanie zwrócona wartość `true`. Jeśli nie ma wyników, usługa Bing informuje nas, że punkt znajduje się poza obszarem wyszukiwania, dlatego zostanie zwrócona wartość `false`.
 
@@ -303,8 +306,7 @@ W pliku `NotificationsController.cs` utwórz operację sprawdzania przed instruk
 
 W ten sposób powiadomienia będą wysyłane tylko wtedy, gdy punkt znajduje się w granicach.
 
-##Testowanie powiadomień wypychanych w aplikacji platformy uniwersalnej systemu Windows
-
+## Testowanie powiadomień wypychanych w aplikacji platformy uniwersalnej systemu Windows
 Po powrocie do aplikacji platformy uniwersalnej systemu Windows powinno być teraz możliwe przetestowanie powiadomień. W klasie `LocationHelper` utwórz nową funkcję o nazwie `SendLocationToBackend`:
 
     public static async Task SendLocationToBackend(string pns, string userTag, string message, string latitude, string longitude)
@@ -326,7 +328,10 @@ Po powrocie do aplikacji platformy uniwersalnej systemu Windows powinno być ter
         }
     }
 
->[AZURE.NOTE] Zastąp wartość zmiennej `POST_URL` lokalizacją wdrożonej aplikacji sieci Web utworzonej w poprzedniej sekcji. Teraz możesz uruchomić aplikację lokalnie, ale podczas wdrażania wersji publicznej należy skorzystać z hostingu zewnętrznego dostawcy.
+> [!NOTE]
+> Zastąp wartość zmiennej `POST_URL` lokalizacją wdrożonej aplikacji sieci Web utworzonej w poprzedniej sekcji. Teraz możesz uruchomić aplikację lokalnie, ale podczas wdrażania wersji publicznej należy skorzystać z hostingu zewnętrznego dostawcy.
+> 
+> 
 
 Teraz zarejestrujmy aplikację platformy uniwersalnej systemu Windows na potrzeby powiadomień wypychanych. W programie Visual Studio kliknij pozycję **Projekt** > **Magazyn** > **Skojarz aplikację z magazynem**.
 
@@ -371,8 +376,7 @@ Ponieważ nie są używane rzeczywiste współrzędne (które mogą obecnie znaj
 
 ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
-##Co dalej?
-
+## Co dalej?
 Istnieje kilka kroków, których wykonanie może być konieczne, oprócz przedstawionych powyżej, aby upewnić się, że rozwiązanie jest gotowe do zastosowania w środowisku produkcyjnym.
 
 Najpierw należy upewnić się, że wirtualne ogrodzenia są dynamiczne. To wymaga dodatkowej pracy z interfejsem API Bing w celu umożliwienia przekazywania nowych granic w ramach istniejącego źródła danych. Aby uzyskać więcej informacji na ten temat, zapoznaj się z [dokumentacją interfejsu API usług Bing Spatial Data Services](https://msdn.microsoft.com/library/ff701734.aspx).
@@ -382,8 +386,6 @@ Upewniając się, że powiadomienia są dostarczane do odpowiednich uczestników
 W powyższym rozwiązaniu opisano scenariusz, w którym może występować wiele różnych platform, dlatego nie ograniczono wirtualnego grodzenia do możliwości specyficznych dla określonego systemu. Jednak platforma uniwersalna systemu Windows oferuje wbudowane możliwości [wykrywania wirtualnych ogrodzeń](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
 
 Aby uzyskać więcej informacji o możliwościach usługi Notification Hubs, odwiedź [portal dokumentacji](https://azure.microsoft.com/documentation/services/notification-hubs/).
-
-
 
 <!--HONumber=Sep16_HO3-->
 

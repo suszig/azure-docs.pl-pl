@@ -1,90 +1,68 @@
-<properties
- pageTitle="Rozpoczynanie pracy z usługą Azure Scheduler w portalu Azure | Microsoft Azure"
- description="Rozpoczynanie pracy z usługą Azure Scheduler w portalu Azure"
- services="scheduler"
- documentationCenter=".NET"
- authors="derek1ee"
- manager="kevinlam1"
- editor=""/>
-<tags
- ms.service="scheduler"
- ms.workload="infrastructure-services"
- ms.tgt_pltfrm="na"
- ms.devlang="dotnet"
- ms.topic="hero-article"
- ms.date="08/10/2016"
- ms.author="deli"/>
+---
+title: Rozpoczynanie pracy z usługą Azure Scheduler w portalu Azure | Microsoft Docs
+description: Rozpoczynanie pracy z usługą Azure Scheduler w portalu Azure
+services: scheduler
+documentationcenter: .NET
+author: derek1ee
+manager: kevinlam1
+editor: ''
 
+ms.service: scheduler
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 08/10/2016
+ms.author: deli
 
+---
 # Rozpoczynanie pracy z usługą Azure Scheduler w portalu Azure
-
 Azure Scheduler umożliwia łatwe tworzenie zaplanowanych zadań. Niniejszy samouczek zawiera informacje na temat tworzenia zadania. Są w nim zawarte także informacje na temat możliwości monitorowania oraz zarządzania, jakie oferuje usługa Scheduler.
 
 ## Tworzenie zadania
-
-1.  Zaloguj się w [portalu Azure](https://portal.azure.com/).  
-
-2.  Kliknij przycisk **+ Nowy** > wpisz w polu wyszukiwania _Harmonogram_ > wybierz z wyników **Harmonogram** > kliknij **Utwórz**.
-
-     ![][marketplace-create]
-
-3.  Utwórzmy zadanie, które spowoduje przesłanie żądania GET do witryny http://www.microsoft.com/. Na ekranie **Zadanie usługi Scheduler** wprowadź następujące informacje:
-
-    1.  **Nazwa:** `getmicrosoft`  
-
-    2.  **Subskrypcja:** subskrypcja usługi Azure użytkownika   
-
-    3.  **Kolekcja zadań:** wybierz istniejącą kolekcję zadań lub kliknij przycisk **Utwórz nową** > wprowadź nazwę.
-
-4.  Następnie określ w obszarze **Ustawienia akcji** następujące wartości:
-
-    1.  **Typ akcji:** ` HTTP`  
-
-    2.  **Metoda:** `GET`  
-
-    3.  **Adres URL:** ` http://www.microsoft.com`  
-
+1. Zaloguj się w [portalu Azure](https://portal.azure.com/).  
+2. Kliknij przycisk **+ Nowy** > wpisz w polu wyszukiwania *Harmonogram* > wybierz z wyników **Harmonogram** > kliknij **Utwórz**.
+   
+    ![][marketplace-create]
+3. Utwórzmy zadanie, które spowoduje przesłanie żądania GET do witryny http://www.microsoft.com/. Na ekranie **Zadanie usługi Scheduler** wprowadź następujące informacje:
+   
+   1. **Nazwa:** `getmicrosoft`  
+   2. **Subskrypcja:** subskrypcja usługi Azure użytkownika   
+   3. **Kolekcja zadań:** wybierz istniejącą kolekcję zadań lub kliknij przycisk **Utwórz nową** > wprowadź nazwę.
+4. Następnie określ w obszarze **Ustawienia akcji** następujące wartości:
+   
+   1. **Typ akcji:** ` HTTP`  
+   2. **Metoda:** `GET`  
+   3. **Adres URL:** ` http://www.microsoft.com`  
+      
       ![][action-settings]
-
-5.  Ostatnią czynnością jest zdefiniowanie harmonogramu. To zadanie można ustawić jako jednorazowe, my skorzystamy jednak z możliwości wybrania harmonogramu cyklu:
-
-    1. **Cykl**: `Recurring`
-
-    2. **Uruchom**: dzisiejsza data
-
-    3. **Powtarzaj co**: `12 Hours`
-
-    4. **Zakończ**: dwa dni od dnia dzisiejszego  
-
+5. Ostatnią czynnością jest zdefiniowanie harmonogramu. To zadanie można ustawić jako jednorazowe, my skorzystamy jednak z możliwości wybrania harmonogramu cyklu:
+   
+   1. **Cykl**: `Recurring`
+   2. **Uruchom**: dzisiejsza data
+   3. **Powtarzaj co**: `12 Hours`
+   4. **Zakończ**: dwa dni od dnia dzisiejszego  
+      
       ![][recurrence-schedule]
-
-6.  Kliknij przycisk **Utwórz**
+6. Kliknij przycisk **Utwórz**
 
 ## Zarządzanie i monitorowanie zadań
-
 Utworzone zadanie zostaje wyświetlone na głównym pulpicie nawigacyjnym Azure. Kliknij zadanie. Zostanie otwarte nowe okno z następującymi kartami:
 
-1.  Właściwości  
-
-2.  Ustawienia akcji  
-
-3.  Harmonogram  
-
-4.  Historia
-
-5.  Użytkownicy
-
-    ![][job-overview]
+1. Właściwości  
+2. Ustawienia akcji  
+3. Harmonogram  
+4. Historia
+5. Użytkownicy
+   
+   ![][job-overview]
 
 ### Właściwości
-
 Te właściwości tylko do odczytu opisują metadane dotyczące zarządzania odnoszące się do zadania usługi Scheduler.
 
    ![][job-properties]
 
-
 ### Ustawienia akcji
-
 Kliknięcie zadania na ekranie **Zadania** umożliwia jego konfigurowanie. Dzięki temu można skonfigurować ustawienia zaawansowane, które nie zostały skonfigurowane za pomocą kreatora szybkiego tworzenia.
 
 W przypadku wszystkich typów akcji istnieje możliwość zmiany zasad ponawiania i akcji błędu.
@@ -98,7 +76,6 @@ W przypadku typów akcji magistrali usług można zmieniać przestrzenie nazw, �
    ![][job-action-settings]
 
 ### Harmonogram
-
 Tu można ponownie skonfigurować harmonogram utworzony z użyciem kreatora szybkiego tworzenia i wprowadzić w nim zmiany.
 
 Zapewnia to możliwość tworzenia [złożonych harmonogramów i zaawansowanych cykli w ramach zadania](scheduler-advanced-complexity.md)
@@ -107,23 +84,16 @@ Możesz zmienić datę i godzinę rozpoczęcia, harmonogram cyklu oraz datę i g
 
    ![][job-schedule]
 
-
 ### Historia
-
 Na karcie **Historia** są wyświetlane wybrane metryki odnoszące się do każdego wykonania wybranego zadania w systemie. Metryki te przedstawiają wartości dotyczące stanu harmonogramu w czasie rzeczywistym:
 
-1.  Stan  
-
-2.  Szczegóły  
-
-3.  Liczba ponownych prób
-
-4.  Wystąpienie: 1., 2., 3. itp.
-
-5.  Godzina rozpoczęcia wykonywania  
-
-6.  Godzina zakończenia wykonywania
-
+1. Stan  
+2. Szczegóły  
+3. Liczba ponownych prób
+4. Wystąpienie: 1., 2., 3. itp.
+5. Godzina rozpoczęcia wykonywania  
+6. Godzina zakończenia wykonywania
+   
    ![][job-history]
 
 Możesz kliknąć przebieg, aby wyświetlić odnoszące się do niego dane z sekcji **Szczegóły historii**, łącznie z całością odpowiedzi dla każdego wykonania. To okno dialogowe umożliwia także skopiowanie odpowiedzi do schowka.
@@ -131,12 +101,9 @@ Możesz kliknąć przebieg, aby wyświetlić odnoszące się do niego dane z sek
    ![][job-history-details]
 
 ### Użytkownicy
-
 Kontrola dostępu oparta na rolach (Role-Based Access Control, RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem dla usługi Azure Scheduler. Aby uzyskać informacje o sposobie korzystania z karty Użytkownicy, należy zapoznać się z tematem [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md) (Kontrola dostępu na podstawie ról na platformie Azure).
 
-
 ## Zobacz też
-
  [Co to jest usługa Scheduler?](scheduler-intro.md)
 
  [Pojęcia i terminologia dotyczące usługi Scheduler oraz hierarchia jednostki](scheduler-concepts-terms.md)
@@ -154,7 +121,6 @@ Kontrola dostępu oparta na rolach (Role-Based Access Control, RBAC) na platform
  [Limity, wartości domyślne i kody błędów usługi Scheduler](scheduler-limits-defaults-errors.md)
 
  [Uwierzytelnianie połączeń wychodzących usługi Scheduler](scheduler-outbound-authentication.md)
-
 
 [marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
 [action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png

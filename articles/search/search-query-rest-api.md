@@ -1,27 +1,27 @@
-<properties
-    pageTitle="Tworzenie zapytań względem indeksu usługi Azure Search przy użyciu interfejsu API REST | Microsoft Azure | Hostowana usługa wyszukiwania w chmurze"
-    description="Konstruowanie zapytania wyszukiwania w usłudze Azure Search oraz filtrowanie i sortowanie wyników wyszukiwania za pomocą parametrów wyszukiwania."
-    services="search"
-    documentationCenter=""
-    authors="ashmaka"
-/>
+---
+title: Tworzenie zapytań względem indeksu usługi Azure Search przy użyciu interfejsu API REST | Microsoft Docs
+description: Konstruowanie zapytania wyszukiwania w usłudze Azure Search oraz filtrowanie i sortowanie wyników wyszukiwania za pomocą parametrów wyszukiwania.
+services: search
+documentationcenter: ''
+author: ashmaka
 
-<tags
-    ms.service="search"
-    ms.devlang="na"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="ashmaka"/>
+ms.service: search
+ms.devlang: na
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: ashmaka
 
-
+---
 # Tworzenie zapytań względem indeksu usługi Azure Search przy użyciu interfejsu API REST
-> [AZURE.SELECTOR]
-- [Omówienie](search-query-overview.md)
-- [Portal](search-explorer.md)
-- [.NET](search-query-dotnet.md)
-- [REST](search-query-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Omówienie](search-query-overview.md)
+> * [Portal](search-explorer.md)
+> * [.NET](search-query-dotnet.md)
+> * [REST](search-query-rest-api.md)
+> 
+> 
 
 W tym artykule opisano tworzenie zapytań względem indeksu przy użyciu [interfejsu API REST usługi Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
@@ -36,8 +36,8 @@ Głównym składnikiem każdej operacji wyszukiwania wykonywanej przy użyciu in
 
 Usługa będzie dysponować *kluczami administratora* i *kluczami zapytań*.
 
- - Za pomocą podstawowego i pomocniczego *klucza administratora* przyznawane są pełne prawa do wszystkich operacji, łącznie z możliwością zarządzania usługą oraz tworzenia i usuwania indeksów, indeksatorów i źródeł danych. Dostępne są dwa klucze, dzięki czemu możesz nadal używać klucza pomocniczego, jeśli zdecydujesz się na ponowne wygenerowanie klucza podstawowego, i na odwrót.
- - *Klucze zapytań* umożliwiają dostęp tylko do odczytu do indeksów oraz dokumentów i są zazwyczaj dystrybuowane do aplikacji klienckich, które wysyłają żądania wyszukiwania.
+* Za pomocą podstawowego i pomocniczego *klucza administratora* przyznawane są pełne prawa do wszystkich operacji, łącznie z możliwością zarządzania usługą oraz tworzenia i usuwania indeksów, indeksatorów i źródeł danych. Dostępne są dwa klucze, dzięki czemu możesz nadal używać klucza pomocniczego, jeśli zdecydujesz się na ponowne wygenerowanie klucza podstawowego, i na odwrót.
+* *Klucze zapytań* umożliwiają dostęp tylko do odczytu do indeksów oraz dokumentów i są zazwyczaj dystrybuowane do aplikacji klienckich, które wysyłają żądania wyszukiwania.
 
 W celu tworzenia zapytań względem indeksu można użyć dowolnego klucza zapytania. Do tworzenia zapytań można również używać kluczy administratora, ale w kodzie aplikacji należy używać klucza zapytania, ponieważ takie podejście jest bardziej zgodne z [zasadą najniższych uprawnień](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
@@ -50,10 +50,7 @@ Zarówno dla żądania POST, jak i GET zawartość adresu URL żądania musi obe
 
 Format dla żądania POST jest taki sam, ale parametry ciągu zapytania zawierają tylko element api-version.
 
-
-
 #### Przykładowe zapytania
-
 Poniżej znajduje się kilka przykładowych zapytań względem indeksu o nazwie „hotels”. Zostały one przedstawione zarówno w formacie GET, jak i POST.
 
 Wyszukaj termin „budget” w całym indeksie i zwróć tylko pole `hotelName`:
@@ -68,7 +65,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-Zastosuj filtr na indeks, aby znaleźć hotele, w których koszt noclegu jest niższy niż 150 USD, i zwróć pola `hotelId` i `description`:
+Zastosuj filtr na indeks, aby znaleźć hotele, w których koszt noclegu jest niższy niż 150 USD, i zwróć pola `hotelId` i `description`:
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2015-02-28
@@ -100,6 +97,7 @@ Po sformułowaniu zapytania w ramach adresu URL (w przypadku żądania GET) lub 
 
 #### Żądanie i nagłówki żądania
 Należy zdefiniować dwa nagłówki dla żądania GET lub trzy nagłówki dla żądania POST:
+
 1. Nagłówek `api-key` musi mieć wartość klucza zapytania określonego w kroku I powyżej. Jako nagłówka `api-key` można również używać klucza administratora, ale zaleca się używanie klucza zapytania, ponieważ umożliwia on przyznanie wyłącznego dostępu tylko do odczytu do indeksów i dokumentów.
 2. Nagłówek `Accept` musi mieć wartość `application/json`.
 3. W przypadku żądań POST nagłówek `Content-Type` również musi mieć wartość `application/json`.
@@ -159,8 +157,6 @@ Po pomyślnym wykonaniu zapytania kod stanu przyjmie wartość `200 OK`, a wynik
 ```
 
 Aby dowiedzieć się więcej, przejdź do sekcji „Response” (Odpowiedź) w artykule [Search Documents](https://msdn.microsoft.com/library/azure/dn798927.aspx) (Wyszukiwanie dokumentów). Aby uzyskać więcej informacji o innych kodach stanów HTTP, które mogą być zwracane w przypadku niepowodzenia, zobacz [HTTP status codes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx) (Usługa Azure Search — kody stanów HTTP).
-
-
 
 <!--HONumber=Sep16_HO3-->
 

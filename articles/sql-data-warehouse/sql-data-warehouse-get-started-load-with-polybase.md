@@ -1,56 +1,53 @@
-<properties
-   pageTitle="Aparat PolyBase w usłudze SQL Data Warehouse — samouczek | Microsoft Azure"
-   description="Dowiedz się, co to jest aparat PolyBase i jak z niego korzystać w scenariuszach dotyczących magazynów danych."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="ckarst"
-   manager="barbkess"
-   editor=""/>
+---
+title: Aparat PolyBase w usłudze SQL Data Warehouse — samouczek | Microsoft Docs
+description: Dowiedz się, co to jest aparat PolyBase i jak z niego korzystać w scenariuszach dotyczących magazynów danych.
+services: sql-data-warehouse
+documentationcenter: NA
+author: ckarst
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="cakarst;barbkess"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: cakarst;barbkess
 
-
-
+---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Ładowanie danych przy użyciu programu PolyBase w usłudze SQL Data Warehouse
-
-> [AZURE.SELECTOR]
-- [Redgate](sql-data-warehouse-load-with-redgate.md)  
-- [Fabryka danych](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
-- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
-- [BCP](sql-data-warehouse-load-with-bcp.md)
+> [!div class="op_single_selector"]
+> * [Redgate](sql-data-warehouse-load-with-redgate.md)  
+> * [Fabryka danych](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
+> * [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
+> * [BCP](sql-data-warehouse-load-with-bcp.md)
+> 
+> 
 
 Ten samouczek przedstawia sposób ładowania danych do usługi SQL Data Warehouse przy użyciu programów AzCopy i PolyBase. Po zakończeniu będziesz umieć wykonywać następujące czynności:
 
-- Kopiowanie danych do magazynu obiektów blob platformy Azure przy użyciu programu AzCopy
-- Tworzenie obiektów bazy danych do definiowania danych
-- Uruchamianie zapytania T-SQL do ładowania danych
+* Kopiowanie danych do magazynu obiektów blob platformy Azure przy użyciu programu AzCopy
+* Tworzenie obiektów bazy danych do definiowania danych
+* Uruchamianie zapytania T-SQL do ładowania danych
 
->[AZURE.VIDEO loading-data-with-polybase-in-azure-sql-data-warehouse]
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
+> 
+> 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-
 Do wykonania kroków opisanych w tym samouczku potrzebne są:
 
-- Baza danych usługi SQL Data Warehouse.
-- Konto magazynu platformy Azure typu standardowy magazyn lokalnie nadmiarowy (Standard-LRS), standardowy magazyn geograficznie nadmiarowy (Standard-GRS) lub standardowy magazyn geograficznie nadmiarowy dostępny do odczytu (Standard-RAGRS).
-- Narzędzie wiersza polecenia AzCopy. Pobierz i zainstaluj [najnowszą wersję programu AzCopy][], która jest instalowana z narzędziami Microsoft Azure Storage Tools.
-
+* Baza danych usługi SQL Data Warehouse.
+* Konto magazynu platformy Azure typu standardowy magazyn lokalnie nadmiarowy (Standard-LRS), standardowy magazyn geograficznie nadmiarowy (Standard-GRS) lub standardowy magazyn geograficznie nadmiarowy dostępny do odczytu (Standard-RAGRS).
+* Narzędzie wiersza polecenia AzCopy. Pobierz i zainstaluj [najnowszą wersję programu AzCopy][], która jest instalowana z narzędziami Microsoft Azure Storage Tools.
+  
     ![Narzędzia Azure Storage Tools](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
-
 ## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>Krok 1: dodawanie przykładowych danych do magazynu obiektów blob platformy Azure
-
 Aby załadować dane, trzeba umieścić trochę przykładowych danych w magazynie obiektów blob platformy Azure. W tym kroku wypełnimy obiekt blob magazynu Azure przykładowymi danymi. Następnie użyjemy aparatu PolyBase, aby załadować te przykładowe dane do bazy danych usługi SQL Data Warehouse.
 
 ### <a name="a-prepare-a-sample-text-file"></a>A. Przygotowanie przykładowego pliku tekstowego
-
 Aby przygotować przykładowy plik tekstowy:
 
 1. Otwórz program Notatnik i skopiuj następujące wiersze danych do nowego pliku. Zapisz go jako % temp%\DimDate2.txt w lokalnym katalogu tymczasowym.
@@ -71,50 +68,44 @@ Aby przygotować przykładowy plik tekstowy:
 ```
 
 ### <a name="b-find-your-blob-service-endpoint"></a>B. Znajdowanie punktu końcowego usługi Blob
-
 Aby znaleźć punkt końcowy usługi Blob:
 
 1. W Portalu Azure wybierz opcje **Przeglądaj**  >  **Konta magazynu**.
 2. Kliknij konto magazynu, którego chcesz użyć.
 3. W bloku Konto magazynu kliknij pozycję Obiekty blob.
-
+   
     ![Klikanie pozycji Obiekty blob](./media/sql-data-warehouse-get-started-load-with-polybase/click-blobs.png)
-
-1. Zapisz adres URL punktu końcowego usługi Blob do użycia później.
-
+4. Zapisz adres URL punktu końcowego usługi Blob do użycia później.
+   
     ![Punkt końcowy usługi Blob](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
 ### <a name="c-find-your-azure-storage-key"></a>C. Znajdowanie klucza magazynu Azure
-
 Aby znaleźć klucz magazynu Azure:
 
 1. W witrynie Azure Portal wybierz opcje **Przeglądaj** > **Konta magazynu**.
 2. Kliknij konto magazynu, którego chcesz użyć.
 3. Wybierz pozycje **Wszystkie ustawienia**  >  **Klucze dostępu**.
 4. Kliknij pole kopiowania, aby skopiować jeden z kluczy dostępu do schowka.
-
+   
     ![Kopiowanie klucza magazynu Azure](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
 ### <a name="d-copy-the-sample-file-to-azure-blob-storage"></a>D. Kopiowanie przykładowego pliku do magazynu obiektów blob platformy Azure
-
 Aby skopiować dane do magazynu obiektów blob platformy Azure:
 
 1. Otwórz wiersz polecenia i zmień katalogi na katalog instalacyjny programu AzCopy. To polecenie powoduje zmianę domyślnego katalogu instalacji na 64-bitowym kliencie systemu Windows.
-
+   
     ```
     cd /d "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy"
     ```
-
-1. Uruchom następujące polecenie, aby przekazać plik. Określ adres URL punktu końcowego usługi Blob jako wartość <blob service endpoint URL> i klucz konta usługi Azure Storage jako wartość <azure_storage_account_key>.
-
+2. Uruchom następujące polecenie, aby przekazać plik. Określ adres URL punktu końcowego usługi Blob jako wartość <blob service endpoint URL> i klucz konta usługi Azure Storage jako wartość <azure_storage_account_key>.
+   
     ```
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-Zobacz też: [Wprowadzenie do narzędzia wiersza polecenia AzCopy][].
+Zobacz też: [Wprowadzenie do narzędzia wiersza polecenia AzCopy][Wprowadzenie do narzędzia wiersza polecenia AzCopy].
 
 ### <a name="e-explore-your-blob-storage-container"></a>E. Eksplorowanie kontenera magazynu obiektów blob
-
 Aby zobaczyć plik przekazany do magazynu obiektów blob:
 
 1. Wróć do bloku usługi Blob.
@@ -122,26 +113,23 @@ Aby zobaczyć plik przekazany do magazynu obiektów blob:
 3. Aby wyświetlić ścieżkę do danych, kliknij folder **datedimension**, w którym będzie widoczny przekazany plik **DimDate2.txt**.
 4. Aby wyświetlić właściwości, kliknij plik **DimDate2.txt**.
 5. Zauważ, że w bloku właściwości obiektu blob można pobrać lub usunąć plik.
-
+   
     ![Wyświetlanie obiektu blob magazynu Azure](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
-
 ## <a name="step-2-create-an-external-table-for-the-sample-data"></a>Krok 2: tworzenie tabeli zewnętrznej dla przykładowych danych
-
 W tej sekcji utworzymy tabelę zewnętrzną definiującą przykładowe dane.
 
 Aparat PolyBase używa tabel zewnętrznych do uzyskiwania dostępu do danych w magazynie obiektów blob platformy Azure. Ponieważ dane nie są przechowywane w usłudze SQL Data Warehouse, aparat PolyBase obsługuje uwierzytelnianie w odniesieniu do danych zewnętrznych przy użyciu poświadczeń o zakresie bazy danych.
 
 W tym kroku przykładu użyto następujących instrukcji języka Transact-SQL do utworzenia tabeli zewnętrznej.
 
-- [Create Master Key (Transact-SQL)][] w celu szyfrowania klucza tajnego poświadczeń o zakresie bazy danych.
-- [Create Database Scoped Credential (Transact-SQL)][], aby określić dane uwierzytelniania dla konta usługi Azure Storage.
-- [Create External Data Source (Transact-SQL)][], aby określić lokalizację usługi Azure Blob Storage.
-- [Create External File Format (Transact-SQL)][], aby określić format danych.
-- [Create External Table (Transact-SQL)][], aby określić definicję tabeli i lokalizację danych.
+* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)] w celu szyfrowania klucza tajnego poświadczeń o zakresie bazy danych.
+* [Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)], aby określić dane uwierzytelniania dla konta usługi Azure Storage.
+* [Create External Data Source (Transact-SQL)][Create External Data Source (Transact-SQL)], aby określić lokalizację usługi Azure Blob Storage.
+* [Create External File Format (Transact-SQL)][Create External File Format (Transact-SQL)], aby określić format danych.
+* [Create External Table (Transact-SQL)][Create External Table (Transact-SQL)], aby określić definicję tabeli i lokalizację danych.
 
 Uruchom to zapytanie w bazie danych usługi SQL Data Warehouse. W schemacie dbo zostanie utworzona zewnętrzna tabela o nazwie DimDate2External wskazująca przykładowe dane DimDate2.txt w magazynie obiektów blob platformy Azure.
-
 
 ```sql
 -- A: Create a master key.
@@ -217,11 +205,10 @@ W Eksploratorze obiektów SQL Server w programie Visual Studio widoczne będą: 
 ![Widok tabeli zewnętrznej](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
 ## <a name="step-3-load-data-into-sql-data-warehouse"></a>Krok 3: ładowanie danych do usługi SQL Data Warehouse
-
 Po utworzeniu tabeli zewnętrznej można załadować dane do nowej tabeli lub wstawić je do tabeli istniejącej.
 
-- Aby załadować dane do nowej tabeli, uruchom instrukcję [CREATE TABLE AS SELECT (Transact-SQL)][]. Nowa tabela będzie miała kolumny o nazwach podanych w zapytaniu. Typy danych kolumn będą zgodne z typami danych w definicji tabeli zewnętrznej.
-- Aby załadować dane do istniejącej tabeli, użyj instrukcji [INSERT...SELECT (Transact-SQL)][].
+* Aby załadować dane do nowej tabeli, uruchom instrukcję [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. Nowa tabela będzie miała kolumny o nazwach podanych w zapytaniu. Typy danych kolumn będą zgodne z typami danych w definicji tabeli zewnętrznej.
+* Aby załadować dane do istniejącej tabeli, użyj instrukcji [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)].
 
 ```sql
 -- Load the data from Azure blob storage to SQL Data Warehouse
@@ -237,7 +224,6 @@ SELECT * FROM [dbo].[DimDate2External];
 ```
 
 ## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Krok 4: tworzenie statystyk na podstawie nowo załadowanych danych
-
 Usługa SQL Data Warehouse nie tworzy ani nie aktualizuje statystyk w sposób automatyczny. Dlatego, aby uzyskać wysoką wydajność zapytań, ważne jest tworzenie statystyk dotyczących poszczególnych kolumn każdej tabeli po pierwszym załadowaniu. Istotne jest również aktualizowanie statystyk po wprowadzeniu istotnych zmian w danych.
 
 W tym przykładzie zostaną utworzone statystyki dla pojedynczej kolumny w nowej tabeli DimDate2.
@@ -248,11 +234,10 @@ CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
-Aby dowiedzieć się więcej, zobacz temat [Statystyki][]:  
-
+Aby dowiedzieć się więcej, zobacz temat [Statystyki][Statystyki]:  
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz [Przewodnik po programie PolyBase][] w celu uzyskania dalszych informacji przydatnych podczas tworzenia rozwiązań z użyciem aparatu PolyBase.
+Zobacz [Przewodnik po programie PolyBase][Przewodnik po programie PolyBase] w celu uzyskania dalszych informacji przydatnych podczas tworzenia rozwiązań z użyciem aparatu PolyBase.
 
 <!--Image references-->
 

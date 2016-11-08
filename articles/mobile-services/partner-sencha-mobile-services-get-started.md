@@ -1,89 +1,79 @@
-<properties
-    pageTitle="Wprowadzenie do usług Azure Mobile Services i Sencha"
-    description="Postępuj zgodnie z tym samouczkiem, aby rozpocząć tworzenie rozwiązań z wykorzystaniem usług Mobile Services i platformy aplikacji mobilnych Sencha HTML5."
-    services="mobile-services"
-    documentationCenter=""
-    authors="ggailey777"
-    manager="dwrede"
-    editor=""/>
+---
+title: Wprowadzenie do usług Azure Mobile Services i Sencha
+description: Postępuj zgodnie z tym samouczkiem, aby rozpocząć tworzenie rozwiązań z wykorzystaniem usług Mobile Services i platformy aplikacji mobilnych Sencha HTML5.
+services: mobile-services
+documentationcenter: ''
+author: ggailey777
+manager: dwrede
+editor: ''
 
-<tags
-    ms.service="mobile-services"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-sencha"
-    ms.devlang="multiple"
-    ms.topic="get-started-article"
-    ms.date="07/21/2016"
-    ms.author="glenga"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-sencha
+ms.devlang: multiple
+ms.topic: get-started-article
+ms.date: 07/21/2016
+ms.author: glenga
 
-
+---
 # <a name="getting-started"> </a>Wprowadzenie do usługi Mobile Services i platformy Sencha Touch
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
 &nbsp;
 
+[!INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+[!INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
-##Omówienie
-
+## Omówienie
 Ten samouczek pokazuje, jak wykorzystywać usługi Azure Mobile Services w aplikacji platformy Sencha Touch. Pozwala utworzyć prostą aplikację z *listą czynności do wykonania* za pomocą platformy Sencha Touch, która korzysta z usługi mobilnej zdefiniowanej za pośrednictwem klasycznego portalu Azure. Ten samouczek jest przeznaczony dla zaawansowanych programistów aplikacji Web mających dobrą znajomość języka JavaScript i znających platformę Sencha Touch.
 
 Jeśli wolisz oglądać wersję wideo, ten klip opisuje te same kroki, które są zawarte w samouczku. Na klipie wideo Arthur Kay objaśnia sposób tworzenia aplikacji platformy Sencha Touch za pomocą zaplecza usług Azure Mobile Services.
 
-> [AZURE.VIDEO getting-started-with-sencha-touch]
-
+> [!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Windows-Azure-for-Sencha-Touch/player]
+> 
+> 
 
 Zrzut ekranu ukończonej aplikacji jest pokazany poniżej:
 
 ![][0]
 
-##Wymagania
-
-- Pobierz i zainstaluj platformę [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="_blank").
-
-- Pobierz i zainstaluj narzędzie [Sencha Cmd](http://www.sencha.com/products/sencha-cmd/download" target="_blank").
-
-- Środowisko Java Runtime Environment (JRE) lub Java Development Kit (jeśli tworzysz aplikacje dla systemu Android)
-- Język Ruby i rozszerzenie SASS gem.
+## Wymagania
+* Pobierz i zainstaluj platformę [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="_blank").
+* Pobierz i zainstaluj narzędzie [Sencha Cmd](http://www.sencha.com/products/sencha-cmd/download" target="_blank").
+* Środowisko Java Runtime Environment (JRE) lub Java Development Kit (jeśli tworzysz aplikacje dla systemu Android)
+* Język Ruby i rozszerzenie SASS gem.
 
 ## <a name="create-new-service"> </a>Tworzenie nowej usługi mobilnej
+[!INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
 
-[AZURE.INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
-
-##Tworzenie tabeli czynności do wykonania
-
+## Tworzenie tabeli czynności do wykonania
 Po utworzeniu usługi mobilnej można użyć funkcji szybkiego startu w klasycznym portalu Azure do utworzenia nowej tabeli bazy danych, która będzie używana w usłudze mobilnej.
 
 1. W [klasyczny portal Azure] kliknij pozycję **Mobile Services**, a następnie kliknij wcześniej utworzoną usługę mobilną.
-
 2. Na karcie szybkiego startu kliknij przycisk **HTML** w polu **Choose platform** (Wybierz platformę) i rozwiń obiekt **Create a new HTML app** (Utwórz nową aplikację HTML).
-
+   
     ![Usługa mobilna — szybki start — html](./media/partner-sencha-mobile-services-get-started/mobile-portal-quickstart-html.png)
-
+   
     Zostaną wyświetlane trzy łatwe kroki umożliwiające utworzenie i hostowanie aplikacji HTML połączonej z usługą mobilną.
-
+   
     ![Usługa mobilna — szybki start — html](./media/partner-sencha-mobile-services-get-started/mobile-quickstart-steps-html.png)
-
 3. Kliknij pozycję **Create TodoItems table** (Utwórz tabelę zadań do wykonania), aby utworzyć tabelę do przechowywania danych aplikacji.
-
-    > [AZURE.NOTE] Nie pobieraj aplikacji HTML z klasycznego portalu Azure. Zamiast tego w poniższej sekcji ręcznie utworzymy aplikację platformy Sencha Touch.
-
-
-1. Zwróć uwagę na pola **appKey** i **appUrl** w klasycznym portalu Azure. Użyjesz ich w innych częściach tego samouczka.
-
+   
+   > [!NOTE]
+   > Nie pobieraj aplikacji HTML z klasycznego portalu Azure. Zamiast tego w poniższej sekcji ręcznie utworzymy aplikację platformy Sencha Touch.
+   > 
+   > 
+4. Zwróć uwagę na pola **appKey** i **appUrl** w klasycznym portalu Azure. Użyjesz ich w innych częściach tego samouczka.
+   
     ![klucz aplikacji](./media/partner-sencha-mobile-services-get-started/mobile-app-key-portal.png)
-
-1. Na karcie **Konfiguracja** sprawdź, czy nazwa `localhost` znajduje się już na liście **Zezwalaj na żądania z nazw hostów** w obszarze **Współużytkowanie zasobów między źródłami (CORS)**. Jeśli nie, wpisz ciąg `localhost` w polu **Nazwa hosta**, a następnie kliknij pozycję **Zapisz**.
-
+5. Na karcie **Konfiguracja** sprawdź, czy nazwa `localhost` znajduje się już na liście **Zezwalaj na żądania z nazw hostów** w obszarze **Współużytkowanie zasobów między źródłami (CORS)**. Jeśli nie, wpisz ciąg `localhost` w polu **Nazwa hosta**, a następnie kliknij pozycję **Zapisz**.
+   
     ![Konfiguracja CORS hosta lokalnego](./media/partner-sencha-mobile-services-get-started/mobile-services-set-cors-localhost.png)
 
-##Tworzenie aplikację platformy Touch
-
+## Tworzenie aplikację platformy Touch
 Tworzenie aplikacji szablonu Sencha Touch jest prostym zadaniem przy użyciu narzędzia Sencha Cmd i doskonałym sposobem na szybkie uruchomienie aplikacji.
 
 W katalogu, w którym została zainstalowana platforma Touch, wykonaj następujące polecenie:
@@ -92,30 +82,28 @@ W katalogu, w którym została zainstalowana platforma Touch, wykonaj następuj�
 
 Spowoduje to utworzenie szablonu aplikacji Touch z nazwą aplikacji „Basic”. Aby uruchomić aplikację, wystarczy wskazać w przeglądarce katalog , ścieżkę i aplikację, po czym powinna pojawić się standardowa przykładowa aplikacja platformy Touch.
 
-##Instalowanie rozszerzeń Sencha Touch dla platformy Azure
-
+## Instalowanie rozszerzeń Sencha Touch dla platformy Azure
 Rozszerzenia dla platformy Azure jest instalowane ręcznie lub jako pakiet Sencha. Wybór metody zależy od użytkownika.
 
-###Instalacja ręczna
-
+### Instalacja ręczna
 W większości aplikacji platformy Touch dodanie zewnętrznej biblioteki lub klas wymaga jedynie pobrania pakietu, rozpakowania go w katalogu aplikacji i skonfigurowania w module ładującym Touch lokalizacji biblioteki.
 
 Rozszerzenia Azure można dodać ręcznie do aplikacji, wykonując następujące czynności:
 
 1. Pobierz [stąd](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure) pakiet rozszerzeń Azure. (W celu uzyskania dostępu do tego obszaru można użyć identyfikatora forów Sencha).
-
 2. Skopiuj pakiet rozszerzeń Azure z katalogu pobierania do miejsca, w którym ma się ostatecznie znaleźć, i rozpakuj go:
-
+   
         $ cd /path/to/application
         $ mv /download-location/azure.zip .
         $ unzip azure.zip
-
+   
     Spowoduje to utworzenie katalogu **azure** zawierającego pełny pakiet źródłowy, przykłady i dokumentację. Źródła będą znajdować się w katalogu **azure/src**.
 
-
-###Instalacja pakietu Sencha
-
-> [AZURE.NOTE] Tej metody można używać tylko po wygenerowaniu swojej aplikacji za pomocą polecenia <code>sencha generate app</code>.
+### Instalacja pakietu Sencha
+> [!NOTE]
+> Tej metody można używać tylko po wygenerowaniu swojej aplikacji za pomocą polecenia <code>sencha generate app</code>.
+> 
+> 
 
 Wszystkie aplikacje generowane przez narzędzie Sencha Cmd mają jako katalog główny folder „packages”. Można skonfigurować lokalizację tego folderu, ale niezależnie od jego lokalizacji rolą folderu „packages” jest służenie jako magazyn wszystkich pakietów używane przez aplikację (lub aplikacje, jeśli utworzono obszar roboczy Sencha).
 
@@ -124,30 +112,28 @@ Ponieważ Ext.Azure jest „pakietem” narzędzia Sencha Cmd, można łatwo zai
 Aby pobrać i zainstalować pakiet rozszerzeń Azure z repozytorium pakietów Sencha, należy dodać nazwę pakietu do swojego pliku **app.json** i skompilować aplikację:
 
 1. Dodaj pakiet Azure do odpowiedniej sekcji pliku app.json:
-
+   
         {
             "name": "Basic",
             "requires": [
                 "touch-azure"
             ]
         }
-
 2. Skompiluj swoją aplikację za pomocą narzędzia **sencha cmd**, aby pobrać i zainstalować pakiet:
-
+   
         $ sencha app build
 
 Zarówno polecenie **sencha app build** jak i **sencha app refresh** spowodują wykonanie czynności potrzebnych do zintegrowania pakietu w aplikacji. Zwykle po zmianie wymagań dotyczących pakietu konieczne będzie uruchomienie polecenia **sencha app refresh**, tak aby uaktualnić metadane wymagane do obsługi trybu „dev mode”.
 
 Niezależnie od uruchamianego polecenia, narzędzie Sencha Cmd pobierze i rozpakuje pakiet do folderu „packages”. Po tej operacji w swoim obszarze roboczym znajdziesz folder „packages/touch-azure”.
 
-##Dołączanie i konfigurowanie usługi Azure
-
+## Dołączanie i konfigurowanie usługi Azure
 **Nazwa pliku**: app.js
 
 Teraz, gdy rozszerzenie Azure zostało pobrane i zainstalowane w katalogu aplikacji, następnym krokiem jest poinformowanie aplikacji o miejscu przechowywania plików źródłowych i zażądanie tych plików:
 
 1. Skonfiguruj program Sencha Loader, podając lokalizację kodu źródłowego:
-
+   
         Ext.Loader.setConfig({
             enabled : true,
             paths   : {
@@ -155,59 +141,52 @@ Teraz, gdy rozszerzenie Azure zostało pobrane i zainstalowane w katalogu aplika
                 'Ext.azure' : '/path-to/azure-for-touch/azure/src'
             }
         });
-
-
 2. Wymagane pliki klas Azure:
-
+   
         Ext.application({
-
+   
             requires: [ 'Ext.azure.Azure' ],
-
+   
             // ...
-
+   
         });
-
-
 3. Konfigurowanie usługi Azure
-
+   
     Pakiet Azure jest inicjowany przez wywołanie metody **Ext.Azure.init** w sekcji uruchamiania aplikacji. Do tej metody jest przekazywany obiekt konfiguracji zawierający poświadczenia usługi mobilnej, jak również inne poświadczenia i funkcje, które chcesz wykorzystać.
-
+   
     Obiekt konfiguracji można przekazać bezpośrednio do metody init, jednak zaleca się utworzenie właściwości konfiguracji aplikacji Sencha o nazwie **azure** i umieszczenie w niej wszystkich odpowiednich informacji. Wartość tej właściwości można następnie przekazać do metody Ext.Azure.init.
-
+   
     Po utworzeniu usługi mobilnej Azure (zobacz [Wprowadzenie do usługi Azure](http://senchaazuredocs.azurewebsites.net/#!/guide/getting_started)) zostaje do niej przypisany klucz aplikacji i adres URL. Należy przekazać te informacje do pakietu Azure, aby mógł połączyć się z usługą.
-
+   
     Ten przykład przedstawia bardzo prostą konfigurację i inicjalizację platformy Azure, zawierającą tylko klucz aplikacji i adres URL:
-
+   
         Ext.application({
             name: 'Basic',
-
+   
             requires: [ 'Ext.azure.Azure' ],
-
+   
             azure: {
                 appKey: 'myazureservice-access-key',
                 appUrl: 'myazure-service.azure-mobile.net'
             },
-
+   
             launch: function() {
-
+   
                 // Call Azure initialization
-
+   
                 Ext.Azure.init(this.config.azure);
-
+   
            }
         });
-
+   
     Aby uzyskać więcej informacji na temat opcji konfiguracji platformy Azure, zapoznaj się z dokumentacją interfejsu API Ext.Azure.
-
 
 Gratulacje! Aplikacja powinna mieć teraz dostęp do usługi mobilnej.
 
-##Tworzenie aplikacji ToDo
-
+## Tworzenie aplikacji ToDo
 Po skonfigurowaniu aplikacji zawierającej rozszerzenie Azure i dostarczeniu jej wraz z poświadczeniami swojej usługi mobilnej, możesz teraz przystąpić do utworzenia aplikacji Touch, która wykorzystuje usługę mobilną do wyświetlania i edytowania danych listy ToDo przechowywanych w usłudze.
 
-###Konfigurowanie serwera danych proxy Azure
-
+### Konfigurowanie serwera danych proxy Azure
 **Nazwa pliku**: app/model/TodoItem.js
 
 Aplikacja Touch będzie się komunikować z usługą mobilną za pośrednictwem serwera proxy danych. Serwer proxy wykonuje całą pracę, zarówno wysyłania żądań do usługi mobilnej, jak i odbieranie od niej danych. Dzięki połączeniu z modelem danych i magazynem aplikacji Touch, cała praca wymagana do przetwarzania zdalnych danych i pobierania ich do aplikacji jest wykonywana przez samą aplikację Touch.
@@ -253,8 +232,7 @@ Serwer proxy Azure automatycznie ustawi za pomocą odpowiednich operacji CRUD ws
     });
 
 
-###Przechowywanie zadań do wykonania
-
+### Przechowywanie zadań do wykonania
 **Nazwa pliku**: app/store/TodoItems.js
 
 Magazyny Sencha Touch służą do przechowywania kolekcji rekordów danych (modeli), które mogą służyć jako źródła dla składników do wyświetlania rekordów na wiele różnych sposobów. Są wśród nich siatki, wykresy, listy itp.
@@ -279,8 +257,7 @@ Istnieje kilka dodatkowych opcji konfiguracji magazynu, takich jak określanie r
     });
 
 
-###Wyświetlanie i edytowanie elementów listy ToDo
-
+### Wyświetlanie i edytowanie elementów listy ToDo
 **Nazwa pliku**: app/view/DataItem.js
 
 Teraz, kiedy zdefiniowano strukturę każdego elementu ToDo i utworzono magazyn dla wszystkich rekordów, powinniśmy pomyśleć o sposobie wyświetlania tych informacji użytkownikowi aplikacji. Zwykle informacje użytkownika są wyświetlane w **widokach**. Widok może być dowolnym składnikiem aplikacji Touch, samodzielnym lub połączonym z innymi składnikami.
@@ -357,8 +334,7 @@ Poniższy widok składa się z elementu ListItem, który definiuje sposób wyśw
     });
 
 
-###Tworzenie widoku głównego
-
+### Tworzenie widoku głównego
 **Nazwa pliku**: app/view/Main.js
 
 Teraz, po zdefiniowaniu układu poszczególnych elementów listy ToDo (p. wyżej), chcemy obudować tę listę pełnym interfejsem użytkownika, który definiuje właściwą listę elementów, tytuł aplikacji oraz przycisk służący do dodawania nowego zadania.
@@ -424,8 +400,7 @@ Teraz, po zdefiniowaniu układu poszczególnych elementów listy ToDo (p. wyżej
         }
     });
 
-###Łączenie wszystkich elementów
-
+### Łączenie wszystkich elementów
 **Nazwa pliku**: app/controller/Main.js
 
 Ostatnim krokiem w naszej aplikacji jest reakcja na naciśnięcie przycisków (usuwanie, zapisywanie itp.) i dodanie logiki stojącej za tymi żądaniami. Platforma Sencha Touch wykorzystuje kontrolery, które oczekują na te zdarzenia i odpowiednio reagują.
@@ -581,12 +556,10 @@ Ostatnim krokiem w naszej aplikacji jest reakcja na naciśnięcie przycisków (u
         }
     });
 
-###Zebranie wszystkich elementów
-
+### Zebranie wszystkich elementów
 **Nazwa pliku**: app.js
 
 Ostatnią czynnością jest zakończenie edytowania głównego pliku aplikacji oraz podanie informacji o zdefiniowanych modelach, magazynach, widokach i kontrolerach. Pliki źródłowe dla tych zasobów są ładowane automatycznie do aplikacji. Na koniec jest wywoływana metoda uruchamiania, która tworzy i wyświetla widok głównej aplikacji „Basic.main.View”.
-
 
     Ext.Loader.setConfig({
         enabled : true,
@@ -663,63 +636,52 @@ Ostatnią czynnością jest zakończenie edytowania głównego pliku aplikacji o
         }
     });
 
-###Hostowanie i uruchamianie aplikacji Sencha Touch
-
+### Hostowanie i uruchamianie aplikacji Sencha Touch
 Ostatnim krokiem tego samouczka jest hostowanie i uruchomienie nowej aplikacji na komputerze lokalnym.
 
-  1. W terminalu przejdź do lokalizacji rozpakowanej aplikacji.
+1. W terminalu przejdź do lokalizacji rozpakowanej aplikacji.
+2. Używając narzędzia Sencha Cmd, uruchom następujące polecenie:
+   
+   * *sencha app refresh* : spowoduje to wydanie polecenia narzędzia Sencha Cmd lokalizującego wszystkie zależności aplikacji i pobranie wszystkich wymaganych pakietów (na przykład [rozszerzeń Sencha Touch dla platformy Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)).
+   * *sencha web start*: spowoduje uruchomienie lokalnego serwera sieci Web służącego do testowania aplikacji.
+   
+   ![sencha web start](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
+3. W przeglądarce otwórz adres URL wyświetlany na terminalu, aby uruchomić aplikację (np. http://localhost:1841).
+4. W aplikacji wpisz łatwy do rozpoznania tekst, na przykład „Ukończ samouczek”, a następnie kliknij pozycję **Dodaj**.
+   
+   ![nowe zadanie do wykonania](./media/partner-sencha-mobile-services-get-started/new-todo-item.png)
+   
+   Spowoduje to wysłanie żądania POST do nowej usługi mobilnej, która jest hostowana na platformie Azure. Dane z żądania zostaną wstawione do tabeli TodoItem.
+5. W [klasyczny portal Azure] kliknij kartę **Dane**, a następnie kliknij tabelę TodoItems.
+   
+   ![Tabela zadań to wykonania (Todo)](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
+   
+   Pozwoli to przeglądać dane wstawiane przez aplikację do tabeli.
+   
+   ![przeglądaj tabelę zadań do wykonania](./media/partner-sencha-mobile-services-get-started/mobile-data-browse.png)
 
-  2. Używając narzędzia Sencha Cmd, uruchom następujące polecenie:
-
-    * *sencha app refresh* : spowoduje to wydanie polecenia narzędzia Sencha Cmd lokalizującego wszystkie zależności aplikacji i pobranie wszystkich wymaganych pakietów (na przykład [rozszerzeń Sencha Touch dla platformy Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)).
-
-    * *sencha web start*: spowoduje uruchomienie lokalnego serwera sieci Web służącego do testowania aplikacji.
-
-    ![sencha web start](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
-
-  3. W przeglądarce otwórz adres URL wyświetlany na terminalu, aby uruchomić aplikację (np. http://localhost:1841).
-
-  4. W aplikacji wpisz łatwy do rozpoznania tekst, na przykład „Ukończ samouczek”, a następnie kliknij pozycję **Dodaj**.
-
-    ![nowe zadanie do wykonania](./media/partner-sencha-mobile-services-get-started/new-todo-item.png)
-
-    Spowoduje to wysłanie żądania POST do nowej usługi mobilnej, która jest hostowana na platformie Azure. Dane z żądania zostaną wstawione do tabeli TodoItem.
-
-  5. W [klasyczny portal Azure] kliknij kartę **Dane**, a następnie kliknij tabelę TodoItems.
-
-    ![Tabela zadań to wykonania (Todo)](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
-
-    Pozwoli to przeglądać dane wstawiane przez aplikację do tabeli.
-
-    ![przeglądaj tabelę zadań do wykonania](./media/partner-sencha-mobile-services-get-started/mobile-data-browse.png)
-
-##Następne kroki
+## Następne kroki
 Po zakończeniu procedury szybkiego startu dowiedz się, jak wykonać dodatkowe ważne zadania w usłudze Mobile Services przy użyciu programu Sencha:
 
 [Pobierz](https://github.com/arthurakay/sencha-touch-azure-example) pełną aplikację przykładową z dodatkowymi stylami i funkcjami, aby zobaczyć, co może zrobić platforma Sencha Touch!
 
 Następnie dowiedz się więcej na temat rozszerzeń Touch Sencha dla platformy Azure:
 
-  * [Omówienie](http://docs.sencha.com/touch-azure/1.0.0/#!/guide/data_filters) przykładowej aplikacji
-  * Uzyskaj pomoc na [forach Sencha](http://www.sencha.com/forum)
-  * Przeglądaj [dokumentację oprogramowania Sencha](http://docs.sencha.com/)
-  * Korzystanie z oprogramowania Sencha i usług Azure Mobile Services: [(wideo)](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-126-Using-Sencha-With-Windows-Azure-Mobile-Services)
+* [Omówienie](http://docs.sencha.com/touch-azure/1.0.0/#!/guide/data_filters) przykładowej aplikacji
+* Uzyskaj pomoc na [forach Sencha](http://www.sencha.com/forum)
+* Przeglądaj [dokumentację oprogramowania Sencha](http://docs.sencha.com/)
+* Korzystanie z oprogramowania Sencha i usług Azure Mobile Services: [(wideo)](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-126-Using-Sencha-With-Windows-Azure-Mobile-Services)
 
+## Dodatkowe zasoby
+* [Pobierz platformę Sencha Touch](http://pages.sencha.com/touch-for-azure.html)
+* [Rozszerzenia Sencha Touch dla platformy Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)
 
-##Dodatkowe zasoby
-
-  * [Pobierz platformę Sencha Touch](http://pages.sencha.com/touch-for-azure.html)
-  * [Rozszerzenia Sencha Touch dla platformy Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)
-
-
-##Podsumowanie
-
+## Podsumowanie
 Opisany tutaj przykład znajduje się w rozszerzeniu Touch Sencha dla platformy Azure i jest zlokalizowany w katalogu przykładów jako przykład Basic Data. Istnieje kilka innych przykładów przedstawiających inne funkcje tego rozszerzenia, a także zawierających szczegółowe komentarze i wyjaśnienia.
 
 Więcej informacji na temat rozpoczynania pracy z platformą Sencha Touch można znaleźć w pełnym zestawie [przewodników](http://docs.sencha.com/touch/#!/guide)
 
-
-[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
+[!INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png

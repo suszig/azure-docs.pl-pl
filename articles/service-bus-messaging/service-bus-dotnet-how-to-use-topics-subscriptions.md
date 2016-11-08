@@ -1,59 +1,53 @@
-<properties
-    pageTitle="Używanie tematów usługi Service Bus z platformą .NET | Microsoft Azure"
-    description="Dowiedz się, jak używać tematów i subskrypcji usługi Service Bus z platformą .NET na platformie Azure. Przykłady kodu są napisane dla aplikacji .NET."
-    services="service-bus"
-    documentationCenter=".net"
-    authors="sethmanheim"
-    manager="timlt"
-    editor=""/>
+---
+title: Używanie tematów usługi Service Bus z platformą .NET | Microsoft Docs
+description: Dowiedz się, jak używać tematów i subskrypcji usługi Service Bus z platformą .NET na platformie Azure. Przykłady kodu są napisane dla aplikacji .NET.
+services: service-bus
+documentationcenter: .net
+author: sethmanheim
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="service-bus"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="get-started-article"
-    ms.date="09/16/2016"
-    ms.author="sethm"/>
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: get-started-article
+ms.date: 09/16/2016
+ms.author: sethm
 
-
+---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Jak używać tematów i subskrypcji usługi Service Bus
-
-[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 W tym artykule opisano sposób używania tematów i subskrypcji usługi Service Bus. Przykłady są napisane w języku C# i używają interfejsów API platformy .NET. Omówione scenariusze obejmują tworzenie tematów i subskrypcji, tworzenie filtrów subskrypcji, wysyłanie komunikatów do tematów, otrzymywanie komunikatów z subskrypcji, a także usuwanie tematów i subskrypcji. Aby uzyskać więcej informacji o tematach i subskrypcjach, zobacz sekcję [Następne kroki](#next-steps).
 
-[AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
+[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-[AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 ## <a name="configure-the-application-to-use-service-bus"></a>Konfigurowanie aplikacji w taki sposób, aby używała usługi Service Bus
-
 Gdy tworzysz aplikację, która używa usługi Service Bus, musisz dodać odwołanie do zestawu usługi Service Bus i dołączyć odpowiednie przestrzenie nazw. Najłatwiejszym sposobem na to jest pobranie odpowiedniego pakietu [NuGet](https://www.nuget.org).
 
 ## <a name="get-the-service-bus-nuget-package"></a>Uzyskiwanie pakietu NuGet usługi Service Bus
-
 Dodanie [pakietu NuGet usługi Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) jest najprostszym sposobem uzyskania interfejsu API usługi Service Bus i skonfigurowania aplikacji ze wszystkimi zależnościami usługi Service Bus. Aby zainstalować pakiet NuGet usługi Service Bus w projekcie, wykonaj następujące kroki:
 
-1.  W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy pozycję **Odwołania**, a następnie kliknij pozycję **Zarządzaj pakietami NuGet**.
-2.  Wyszukaj ciąg „Service Bus” i wybierz pozycję **Microsoft Azure Service Bus**. Kliknij przycisk **Zainstaluj**, aby ukończyć instalację, a następnie zamknij poniższe okno dialogowe:
-
-    ![][7]
+1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy pozycję **Odwołania**, a następnie kliknij pozycję **Zarządzaj pakietami NuGet**.
+2. Wyszukaj ciąg „Service Bus” i wybierz pozycję **Microsoft Azure Service Bus**. Kliknij przycisk **Zainstaluj**, aby ukończyć instalację, a następnie zamknij poniższe okno dialogowe:
+   
+   ![][7]
 
 Teraz można przystąpić do pisania kodu dla usługi Service Bus.
 
 ## <a name="create-a-service-bus-connection-string"></a>Tworzenie parametrów połączenia usługi Service Bus
-
 Usługa Service Bus używa parametrów połączenia do przechowywania punktów końcowych i poświadczeń. Parametry połączenia można umieścić w pliku konfiguracji zamiast kodować je na stałe:
 
-- W przypadku korzystania z usług platformy Azure zalecane jest przechowywanie parametrów połączenia przy użyciu systemu konfiguracji usługi platformy Azure (pliki csdef i cscfg).
-- W przypadku korzystania z usług Azure Websites lub Azure Virtual Machines zalecane jest przechowywanie parametrów połączenia przy użyciu systemu konfiguracji platformy .NET (na przykład plik Web.config).
+* W przypadku korzystania z usług platformy Azure zalecane jest przechowywanie parametrów połączenia przy użyciu systemu konfiguracji usługi platformy Azure (pliki csdef i cscfg).
+* W przypadku korzystania z usług Azure Websites lub Azure Virtual Machines zalecane jest przechowywanie parametrów połączenia przy użyciu systemu konfiguracji platformy .NET (na przykład plik Web.config).
 
 W obu przypadkach można pobrać parametry połączenia za pomocą metody `CloudConfigurationManager.GetSetting`, jak pokazano w dalszej części tego artykułu.
 
 ### <a name="configure-your-connection-string"></a>Konfigurowanie parametrów połączenia
-
-Mechanizm konfiguracji usługi umożliwia dynamiczną zmianę ustawień konfiguracji z poziomu witryny [Azure Portal][] bez ponownego wdrażania aplikacji. Na przykład dodaj etykietę `Setting` do pliku definicji usługi (**csdef**), jak pokazano w następnym przykładzie.
+Mechanizm konfiguracji usługi umożliwia dynamiczną zmianę ustawień konfiguracji z poziomu witryny [Azure Portal][Azure Portal] bez ponownego wdrażania aplikacji. Na przykład dodaj etykietę `Setting` do pliku definicji usługi (**csdef**), jak pokazano w następnym przykładzie.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -85,7 +79,6 @@ Następnie możesz określić wartości w pliku konfiguracji usługi (.cscfg).
 Użyj nazwy klucza i wartości klucza sygnatury dostępu współdzielonego pobranych z portalu zgodnie z opisem w poprzedniej sekcji.
 
 ### <a name="configure-your-connection-string-when-using-azure-websites-or-azure-virtual-machines"></a>Konfigurowanie parametrów połączenia w przypadku korzystania z usługi Azure Websites lub Azure Virtual Machines
-
 W przypadku korzystania z witryn sieci Web lub usługi Virtual Machines zaleca się użycie systemu konfiguracji platformy .NET (na przykład Web.config). Do przechowywania parametrów połączenia służy element `<appSettings>`.
 
 ```
@@ -97,10 +90,9 @@ W przypadku korzystania z witryn sieci Web lub usługi Virtual Machines zaleca s
 </configuration>
 ```
 
-Użyj nazwy i wartości klucza sygnatury dostępu współdzielonego pobranych z witryny [Azure Portal][] zgodnie z opisem w poprzedniej sekcji.
+Użyj nazwy i wartości klucza sygnatury dostępu współdzielonego pobranych z witryny [Azure Portal][Azure Portal] zgodnie z opisem w poprzedniej sekcji.
 
 ## <a name="create-a-topic"></a>Tworzenie tematu
-
 Operacje zarządzania tematami i subskrypcjami usługi Service Bus można wykonywać przy użyciu klasy [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Ta klasa dostarcza metody do tworzenia, wyliczania i usuwania tematów.
 
 Poniższy przykład tworzy obiekt `NamespaceManager` przy użyciu klasy `CloudConfigurationManager` platformy Azure z użyciem parametrów połączenia składających się z adresu podstawowego przestrzeni nazw usługi Service Bus oraz odpowiednich poświadczeń sygnatury dostępu współdzielonego z uprawnieniami do zarządzania nim. Te parametry połączenia mają następującą postać:
@@ -146,16 +138,20 @@ if (!namespaceManager.TopicExists("TestTopic"))
 }
 ```
 
-> [AZURE.NOTE] Można użyć metody [TopicExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.topicexists.aspx) na obiektach [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx), aby sprawdzić, czy temat o określonej nazwie już istnieje w przestrzeni nazw.
+> [!NOTE]
+> Można użyć metody [TopicExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.topicexists.aspx) na obiektach [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx), aby sprawdzić, czy temat o określonej nazwie już istnieje w przestrzeni nazw.
+> 
+> 
 
 ## <a name="create-a-subscription"></a>Tworzenie subskrypcji
-
 Można również tworzyć subskrypcje tematu przy użyciu klasy [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Subskrypcje są nazywane i mogą zawierać opcjonalny filtr, który ogranicza zestaw komunikatów przesyłany do wirtualnej kolejki subskrypcji.
 
-> [AZURE.IMPORTANT] Aby móc odbierać komunikaty w ramach subskrypcji, musisz utworzyć subskrypcję przed wysłaniem komunikatów do tematu. Jeśli z tematem nie są powiązane żadne subskrypcje, temat odrzuci te komunikaty.
+> [!IMPORTANT]
+> Aby móc odbierać komunikaty w ramach subskrypcji, musisz utworzyć subskrypcję przed wysłaniem komunikatów do tematu. Jeśli z tematem nie są powiązane żadne subskrypcje, temat odrzuci te komunikaty.
+> 
+> 
 
 ### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Tworzenie subskrypcji z filtrem domyślnym (MatchAll)
-
 Filtr **MatchAll** jest filtrem domyślnym, który jest używany, gdy podczas tworzenia nowej subskrypcji nie został określony żaden filtr. Kiedy używasz filtru **MatchAll**, wszystkie komunikaty opublikowane do tematu są umieszczane w wirtualnej kolejce subskrypcji. Poniższy przykład tworzy subskrypcję o nazwie „AllMessages” i używa domyślnego filtru **MatchAll**.
 
 ```
@@ -172,12 +168,11 @@ if (!namespaceManager.SubscriptionExists("TestTopic", "AllMessages"))
 ```
 
 ### <a name="create-subscriptions-with-filters"></a>Tworzenie subskrypcji z filtrami
-
 Można również ustawiać filtry pozwalające określić, które komunikaty wysyłane do tematu powinny znajdować się w subskrypcji określonego tematu.
 
-Najbardziej elastycznym typem filtru obsługiwanym przez subskrypcje jest klasa [SqlFilter][], która implementuje podzbiór standardu SQL92. Filtry SQL działają na właściwościach komunikatów, które są publikowane do tematu. Aby uzyskać więcej informacji na temat wyrażeń, które mogą być używane z filtrem SQL, zobacz składnię [SqlFilter.SqlExpression][].
+Najbardziej elastycznym typem filtru obsługiwanym przez subskrypcje jest klasa [SqlFilter][SqlFilter], która implementuje podzbiór standardu SQL92. Filtry SQL działają na właściwościach komunikatów, które są publikowane do tematu. Aby uzyskać więcej informacji na temat wyrażeń, które mogą być używane z filtrem SQL, zobacz składnię [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
-Poniższy przykład tworzy subskrypcję o nazwie **HighMessages** z obiektem [SqlFilter][], który wybiera tylko komunikaty o właściwości niestandardowej **MessageNumber** wyższej niż 3.
+Poniższy przykład tworzy subskrypcję o nazwie **HighMessages** z obiektem [SqlFilter][SqlFilter], który wybiera tylko komunikaty o właściwości niestandardowej **MessageNumber** wyższej niż 3.
 
 ```
 // Create a "HighMessages" filtered subscription.
@@ -189,7 +184,7 @@ namespaceManager.CreateSubscription("TestTopic",
    highMessagesFilter);
 ```
 
-Podobnie poniższy przykład tworzy subskrypcję o nazwie **LowMessages** z obiektem [SqlFilter][], który wybiera tylko komunikaty o właściwości **MessageNumber** równej 3 lub mniejszej.
+Podobnie poniższy przykład tworzy subskrypcję o nazwie **LowMessages** z obiektem [SqlFilter][SqlFilter], który wybiera tylko komunikaty o właściwości **MessageNumber** równej 3 lub mniejszej.
 
 ```
 // Create a "LowMessages" filtered subscription.
@@ -204,7 +199,6 @@ namespaceManager.CreateSubscription("TestTopic",
 W takiej sytuacji komunikat wysłany do tematu `TestTopic` zawsze jest dostarczany do odbiorców mających subskrypcję **AllMessages** i selektywnie dostarczany do odbiorców mających subskrypcje **HighMessages** i **LowMessages** (w zależności od zawartości komunikatu).
 
 ## <a name="send-messages-to-a-topic"></a>Wysyłanie komunikatów do tematu
-
 Aby wysłać komunikat do tematu usługi Service Bus, aplikacja tworzy obiekt [TopicClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) przy użyciu parametrów połączenia.
 
 Poniższy kod przedstawia sposób tworzenia obiektu [TopicClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) dla tematu **TestTopic** utworzonego wcześniej przy użyciu wywołania interfejsu API [`CreateFromConnectionString`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.createfromconnectionstring.aspx).
@@ -240,7 +234,6 @@ for (int i=0; i<5; i++)
 Tematy usługi Service Bus obsługują maksymalny rozmiar komunikatu 256 KB w [warstwie Standardowa](service-bus-premium-messaging.md) i 1 MB w [warstwie Premium](service-bus-premium-messaging.md). Nagłówek, który zawiera standardowe i niestandardowe właściwości aplikacji, może mieć maksymalny rozmiar 64 KB. Nie ma żadnego limitu liczby komunikatów w temacie, ale jest ograniczenie całkowitego rozmiaru komunikatów przechowywanych przez temat. Rozmiar tematu jest definiowany w czasie tworzenia, z górnym limitem 5 GB. Jeśli partycjonowanie jest włączone, górny limit jest większy. Aby uzyskać więcej informacji, zobacz [Partycjonowane jednostki do obsługi komunikatów](service-bus-partitioning.md).
 
 ## <a name="how-to-receive-messages-from-a-subscription"></a>Jak odbierać komunikaty z subskrypcji
-
 Zalecanym sposobem odbierania komunikatów z subskrypcji jest użycie obiektu [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx). Obiekty [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) mogą pracować w dwóch różnych trybach: [*ReceiveAndDelete* i *PeekLock*](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx).
 
 W przypadku używania trybu **ReceiveAndDelete** odbieranie jest operacją pojedynczego zrzutu. Oznacza to, że kiedy usługa Service Bus odbiera żądanie odczytu komunikatu w subskrypcji, oznacza komunikat jako wykorzystywany i zwraca go do aplikacji. Tryb **ReceiveAndDelete** jest najprostszym modelem i działa najlepiej w scenariuszach, w których aplikacja może tolerować nieprzetworzenie komunikatu w razie awarii. Aby to zrozumieć, rozważmy scenariusz, w którym konsument wystawia żądanie odbioru, a następnie ulega awarii przed jego przetworzeniem. Usługa Service Bus oznaczyła komunikat jako wykorzystany, dlatego gdy aplikacja zostanie ponownie uruchomiona i ponownie rozpocznie korzystanie z komunikatów, pominie utracony komunikat, który został wykorzystany przed awarią.
@@ -287,7 +280,6 @@ Client.OnMessage((message) =>
 Ten przykład konfiguruje wywołanie zwrotne metody [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) przy użyciu obiektu [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). Właściwość [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) jest ustawiona na **false** w celu umożliwienia ręcznej kontroli nad tym, kiedy wywołać metodę [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) na odebranym komunikacie. Właściwość [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) jest ustawiona na 1 minutę, co powoduje, że klient oczekuje przez jedną minutę na komunikat, zanim upłynie limit czasu funkcji automatycznego odnawiania i klient wyśle nowe wywołanie w celu sprawdzenia komunikatów. Ta wartość właściwości zmniejsza liczbę przypadków, gdy klient wysyła wywołania, które mogą być obciążane i nie pobierają komunikatów.
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Sposób obsługi awarii aplikacji i komunikatów niemożliwych do odczytania
-
 Usługa Service Bus zapewnia funkcję ułatwiającą bezpieczne odzyskiwanie w razie błędów w aplikacji lub trudności z przetwarzaniem komunikatu. Jeśli aplikacja odbierająca z jakiegoś powodu nie można przetworzyć komunikatu, wówczas może wywołać metodę [Abandon](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.abandon.aspx) dla odebranego komunikatu (zamiast metody [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). Powoduje to odblokowanie komunikatu w subskrypcji przez usługę Service Bus i ponowne udostępnienie go do odebrania przez tę samą lub inną odbierającą aplikację.
 
 Istnieje również limit czasu skojarzony z komunikatem zablokowanym w subskrypcji i jeśli aplikacja nie może przetworzyć komunikatu przed upływem limitu czasu blokady (na przykład jeśli wystąpiła awaria aplikacji), usługa Service Bus automatycznie odblokowuje komunikat i udostępnia go do ponownego odbioru.
@@ -295,7 +287,6 @@ Istnieje również limit czasu skojarzony z komunikatem zablokowanym w subskrypc
 W przypadku gdy aplikacja przestaje działać po przetworzeniu komunikatu, ale przed wysłaniem żądania [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), komunikat zostanie dostarczony do aplikacji po jej ponownym uruchomieniu. Jest to często określane jako *Przetwarzanie co najmniej raz*, co oznacza, że każdy komunikat jest przetwarzany co najmniej raz, ale w pewnych sytuacjach ten sam komunikat może być dostarczony ponownie. Jeśli scenariusz nie toleruje dwukrotnego przetwarzania, deweloperzy aplikacji powinni dodać dodatkową logikę do swojej aplikacji w celu obsługi dwukrotnego dostarczania komunikatów. Jest to często osiągane przy użyciu właściwości [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) komunikatu, która pozostaje stała między kolejnymi próbami dostarczenia.
 
 ## <a name="delete-topics-and-subscriptions"></a>Usuwanie tematów i subskrypcji
-
 W poniższym przykładzie pokazano sposób usuwania tematu **TestTopic** z przestrzeni nazw usługi **HowToSample**.
 
 ```
@@ -310,25 +301,24 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-
 Teraz, kiedy znasz już podstawy tematów i subskrypcji usługi Service Bus, skorzystaj z poniższych linków, aby dowiedzieć się więcej.
 
--   [Kolejki, tematy i subskrypcje][].
--   [Przykładowe filtry tematu][]
--   Dokumentacja interfejsów API dla elementu [SqlFilter][].
--   Utwórz działającą aplikację, która wysyła i odbiera komunikaty z kolejki usługi Service Bus: [samouczka Komunikaty obsługiwane przez brokera w usłudze Service Bus dla platformy .NET][].
--   Przykłady usługi Service Bus: pobierz ze strony [przykładów dla platformy Azure][] lub zobacz [przegląd przykładów](service-bus-samples.md).
+* [Kolejki, tematy i subskrypcje][Kolejki, tematy i subskrypcje].
+* [Przykładowe filtry tematu][Przykładowe filtry tematu]
+* Dokumentacja interfejsów API dla elementu [SqlFilter][SqlFilter].
+* Utwórz działającą aplikację, która wysyła i odbiera komunikaty z kolejki usługi Service Bus: [samouczka Komunikaty obsługiwane przez brokera w usłudze Service Bus dla platformy .NET][].
+* Przykłady usługi Service Bus: pobierz ze strony [przykładów dla platformy Azure][] lub zobacz [przegląd przykładów](../service-bus/service-bus-samples.md).
 
-  [Azure Portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 
-  [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
+[7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
-  [Kolejki, tematy i subskrypcje]: service-bus-queues-topics-subscriptions.md
-  [Przykładowe filtry tematu]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
-  [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
-  [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Samouczek dotyczący komunikatów obsługiwanych przez brokera w usłudze Service Bus dla platformy .NET]: service-bus-brokered-tutorial-dotnet.md
-  [Przykłady dla platformy Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
+[Kolejki, tematy i subskrypcje]: service-bus-queues-topics-subscriptions.md
+[Przykładowe filtry tematu]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
+[SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
+[SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+[Samouczek dotyczący komunikatów obsługiwanych przez brokera w usłudze Service Bus dla platformy .NET]: service-bus-brokered-tutorial-dotnet.md
+[Przykłady dla platformy Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
 
 

@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Optymalizacja routingu usługi ExpressRoute| Microsoft Azure"
-   description="Ta strona zawiera szczegółowe informacje dotyczące optymalizacji routingu, gdy klient ma więcej niż jeden obwód usługi ExpressRoute łączący firmę Microsoft z siecią firmową klienta."
-   documentationCenter="na"
-   services="expressroute"
-   authors="charwen"
-   manager="carmonm"
-   editor=""/>
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="charwen"/>
+---
+title: Optymalizacja routingu usługi ExpressRoute| Microsoft Docs
+description: Ta strona zawiera szczegółowe informacje dotyczące optymalizacji routingu, gdy klient ma więcej niż jeden obwód usługi ExpressRoute łączący firmę Microsoft z siecią firmową klienta.
+documentationcenter: na
+services: expressroute
+author: charwen
+manager: carmonm
+editor: ''
 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: charwen
 
+---
 # <a name="optimize-expressroute-routing"></a>Optymalizacja routingu usługi ExpressRoute
 Jeśli masz wiele obwodów usługi ExpressRoute, masz więcej niż jedną ścieżkę łączenia z firmą Microsoft. W związku z tym może wystąpić routing nieoptymalny, tzn. ruch może użyć dłuższej ścieżki w celu dotarcia do firmy Microsoft lub z firmy Microsoft do sieci użytkownika. Im dłuższa ścieżka sieciowa, tym większe opóźnienie. Opóźnienie ma bezpośredni wpływ na wydajność aplikacji i środowisko użytkownika. W tym artykule przedstawiono ten problem i wyjaśniono, jak zoptymalizować routing przy użyciu standardowych technologii routingu.
 
@@ -39,13 +39,17 @@ Istnieją dwa rozwiązania tego problemu. Pierwsze z nich polega na tym, by po p
 
 Drugim rozwiązaniem jest dalsze anonsowanie obu prefiksów w obu obwodach usługi ExpressRoute i dodatkowo podawanie wskazówki z informacją, który prefiks jest blisko którego biura. Ponieważ firma Microsoft obsługuje ścieżkę AS BGP do wywołania, można skonfigurować ścieżkę AS dla prefiksu, aby wpłynąć na routing. W tym przykładzie można wydłużyć ścieżkę AS dla 172.2.0.0/31 we wschodnich stanach USA, aby firma Microsoft preferowała obwód usługi ExpressRoute w stanach zachodnich dla ruchu przeznaczonego dla tego prefiksu (dla naszej sieci ścieżka do tego prefiksu jest krótsza na zachodzie). Podobnie można wydłużyć ścieżkę AS dla 172.2.0.2/31 w zachodnich stanach USA, by firma Microsoft preferowała obwód usługi ExpressRoute w stanach wschodnich. Routing zostaje zoptymalizowany dla obu biur. W tym projekcie jeśli jeden obwód usługi ExpressRoute zostanie uszkodzony, usługa Exchange Online może nadal uzyskać dostęp do użytkownika za pośrednictwem innego obwodu usługi ExpressRoute i sieci WAN. 
 
->[AZURE.IMPORTANT] Firma Microsoft usuwa prywatne numery AS w ścieżce AS dla prefiksów odebranych w ramach komunikacji równorzędnej Microsoft. Aby wpłynąć na routing komunikacji równorzędnej firmy Microsoft, należy dołączyć publiczne numery AS do ścieżki AS.
+> [!IMPORTANT]
+> Firma Microsoft usuwa prywatne numery AS w ścieżce AS dla prefiksów odebranych w ramach komunikacji równorzędnej Microsoft. Aby wpłynąć na routing komunikacji równorzędnej firmy Microsoft, należy dołączyć publiczne numery AS do ścieżki AS.
+> 
+> 
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-solution.png)
 
->[AZURE.IMPORTANT] Choć przedstawione przykłady odnoszą się do komunikacji równorzędnej firmy Microsoft i publicznej komunikacji równorzędnej, to firma Microsoft nie obsługuje takich samych możliwości dla prywatnej komunikacji równorzędnej. Ponadto dołączanie ścieżki AS działa w obrębie pojedynczego obwodu usługi ExpressRoute i wpływa na wybór ścieżek podstawowej i pomocniczej.
-
-
+> [!IMPORTANT]
+> Choć przedstawione przykłady odnoszą się do komunikacji równorzędnej firmy Microsoft i publicznej komunikacji równorzędnej, to firma Microsoft nie obsługuje takich samych możliwości dla prywatnej komunikacji równorzędnej. Ponadto dołączanie ścieżki AS działa w obrębie pojedynczego obwodu usługi ExpressRoute i wpływa na wybór ścieżek podstawowej i pomocniczej.
+> 
+> 
 
 <!--HONumber=Oct16_HO3-->
 

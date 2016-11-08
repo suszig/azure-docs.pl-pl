@@ -1,26 +1,26 @@
-<properties 
-    pageTitle="Co to jest usługa Azure RemoteApp? | Microsoft Azure" 
-    description="Dowiedz się, jak udostępniać aplikacje i zasoby na dowolnym urządzeniu za pośrednictwem usługi Azure RemoteApp." 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
-    manager="mbaldwin" 
-    editor=""/>
+---
+title: Co to jest usługa Azure RemoteApp? | Microsoft Docs
+description: Dowiedz się, jak udostępniać aplikacje i zasoby na dowolnym urządzeniu za pośrednictwem usługi Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
+editor: ''
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="elizapo"/>
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
+---
 # Co to jest usługa Azure RemoteApp?
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 Usługa Azure RemoteApp dostępna na platformie Azure oferuje funkcje lokalnego programu Microsoft RemoteApp uzupełnione o usługi pulpitu zdalnego. Usługa Azure RemoteApp pomaga zapewnić bezpieczny zdalny dostęp do aplikacji z wielu różnych urządzeń użytkownika. Usługa Azure RemoteApp hostuje nietrwałe sesje serwera terminali w chmurze, z których możesz korzystać i które możesz udostępniać użytkownikom.
 
@@ -37,23 +37,20 @@ Usługa Azure RemoteApp jest częścią [infrastruktury pulpitów zdalnych firmy
 ## Kolekcje usługi Azure RemoteApp
 Istnieją dwa rodzaje [kolekcji usługi Azure RemoteApp](remoteapp-collections.md):
 
-
-- **Kolekcja w chmurze** jest hostowana w chmurze i tam przechowuje dane programów. Użytkownicy mogą uzyskiwać dostęp do aplikacji, logując się przy użyciu konta Microsoft lub poświadczeń firmowych synchronizowanych lub sfederowanych z usługą Azure Active Directory.
-
+* **Kolekcja w chmurze** jest hostowana w chmurze i tam przechowuje dane programów. Użytkownicy mogą uzyskiwać dostęp do aplikacji, logując się przy użyciu konta Microsoft lub poświadczeń firmowych synchronizowanych lub sfederowanych z usługą Azure Active Directory.
+  
     Wybierz kolekcję w chmurze, jeśli aplikacja, którą chcesz udostępnić, nie wymaga połączenia z żadnym zasobem prywatnej sieci firmy (np. za pomocą urządzenia sieci VPN). Jeśli aplikacja używa zasobów w Internecie, usłudze OneDrive lub na platformie Azure, kolekcja w chmurze jest odpowiednim rozwiązaniem. Można ją również najszybciej utworzyć.
-
-- **Kolekcja hybrydowa** jest hostowana w chmurze platformy Azure, w której przechowuje dane, ale również umożliwia użytkownikom dostęp do danych i zasobów przechowywanych w sieci lokalnej. Użytkownicy mogą uzyskiwać dostęp do aplikacji, logując się przy użyciu poświadczeń firmowych synchronizowanych lub sfederowanych z usługą Azure Active Directory.
-
+* **Kolekcja hybrydowa** jest hostowana w chmurze platformy Azure, w której przechowuje dane, ale również umożliwia użytkownikom dostęp do danych i zasobów przechowywanych w sieci lokalnej. Użytkownicy mogą uzyskiwać dostęp do aplikacji, logując się przy użyciu poświadczeń firmowych synchronizowanych lub sfederowanych z usługą Azure Active Directory.
+  
     Wybierz kolekcję hybrydową, jeśli potrzebujesz połączenia z zasobami w sieci prywatnej firmy. Na przykład jeśli aplikacja musi mieć dostęp do jednego z następujących elementów:
-
-    - Serwery plików znajdujące się w intranecie
-    - Program Quicken
-    - Bazy danych znajdujące się za zaporą
-
+  
+  * Serwery plików znajdujące się w intranecie
+  * Program Quicken
+  * Bazy danych znajdujące się za zaporą
+    
     Ta opcja jest zazwyczaj bardziej użyteczna w przypadku dużych firm z dużą ilością niemożliwych do przeniesienia do chmury zasobów w sieciach prywatnych.
 
 Różne kolekcje mają różne opcje, w tym sieci, dlatego zastanów się, [która kolekcja](remoteapp-collections.md) najbardziej Ci odpowiada. 
-
 
 ### Aktualizowanie kolekcji
 Jedną z podstawowych różnic między kolekcjami hybrydowymi i w chmurze jest sposób obsługi aktualizacji oprogramowania. W przypadku kolekcji w chmurze, która używa wstępnie zainstalowanego obrazu usługi Office 365 ProPlus lub Office 2013, nie trzeba martwić się aktualizacjami. Usługa sama obsługuje i wdraża aktualizacje w sposób ciągły — w aplikacjach i systemie operacyjnym.
@@ -72,18 +69,16 @@ Aby uzyskać więcej informacji na temat klientów, zobacz [Accessing your apps 
 ## Następne kroki
 Wszystko gotowe. Czas wypróbować usługę. Następujące artykuły pomogą Ci rozpocząć pracę z usługą Azure RemoteApp:
 
-- [Jakiego rodzaju kolekcji potrzebujesz w usłudze Azure RemoteApp?](remoteapp-collections.md)
-- [Tworzenie obrazu usługi Azure RemoteApp](remoteapp-imageoptions.md)
-- [Jak utworzyć kolekcję w chmurze w usłudze Azure RemoteApp](remoteapp-create-cloud-deployment.md)
-- [Jak utworzyć kolekcję hybrydową w usłudze Azure RemoteApp](remoteapp-create-hybrid-deployment.md)
-- [Jak działa licencjonowanie w usłudze Azure RemoteApp?](remoteapp-licensing.md)
-- [Najlepsze rozwiązania dotyczące korzystania z usługi Azure RemoteApp](remoteapp-bestpractices.md)
-- [Często zadawane pytania dotyczące usługi Azure RemoteApp](remoteapp-faq.md)
- 
+* [Jakiego rodzaju kolekcji potrzebujesz w usłudze Azure RemoteApp?](remoteapp-collections.md)
+* [Tworzenie obrazu usługi Azure RemoteApp](remoteapp-imageoptions.md)
+* [Jak utworzyć kolekcję w chmurze w usłudze Azure RemoteApp](remoteapp-create-cloud-deployment.md)
+* [Jak utworzyć kolekcję hybrydową w usłudze Azure RemoteApp](remoteapp-create-hybrid-deployment.md)
+* [Jak działa licencjonowanie w usłudze Azure RemoteApp?](remoteapp-licensing.md)
+* [Najlepsze rozwiązania dotyczące korzystania z usługi Azure RemoteApp](remoteapp-bestpractices.md)
+* [Często zadawane pytania dotyczące usługi Azure RemoteApp](remoteapp-faq.md)
 
-### Pomóż nam sobie pomóc 
+### Pomóż nam sobie pomóc
 Czy wiesz, że możesz nie tylko ocenić ten artykuł i dodać komentarze poniżej, ale także wprowadzać zmiany w samym artykule? Brakuje informacji? Coś jest nie tak? Treść artykułu jest niejasna? Przewiń w górę i kliknij pozycję **Edit on GitHub** (Edytuj w serwisie GitHub) lub pozycję **Edit** (Edytuj) w celu wprowadzenia zmian. Te modyfikacje zostaną przesłane do nas do przeglądu, a jeśli zostaną zatwierdzone, Twoje zmiany i udoskonalenia pojawią się w tym miejscu.
-
 
 <!--HONumber=Sep16_HO3-->
 

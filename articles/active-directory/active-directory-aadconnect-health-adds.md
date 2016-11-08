@@ -1,23 +1,22 @@
 
-<properties
-    pageTitle="Używanie programu Azure AD Connect Health z usługami AD DS | Microsoft Azure"
-    description="Jest to strona programu Azure AD Connect Health, na której omówiono monitorowanie usług AD DS."
-    services="active-directory"
-    documentationCenter=""
-    authors="arluca"
-    manager="samueld"
-    editor="curtand"/>
+---
+title: Używanie programu Azure AD Connect Health z usługami AD DS | Microsoft Docs
+description: Jest to strona programu Azure AD Connect Health, na której omówiono monitorowanie usług AD DS.
+services: active-directory
+documentationcenter: ''
+author: arluca
+manager: samueld
+editor: curtand
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/30/2016"
-    ms.author="arluca"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/30/2016
+ms.author: arluca
 
-
+---
 # Używanie programu Azure AD Connect Health z usługami AD DS
 Poniższa dokumentacja dotyczy monitorowania Usług domenowych Active Directory przy użyciu programu Azure AD Connect Health. Obsługiwane usługi AD DS: Windows Server 2008 R2, Windows Server 2012 i Windows Server 2012 R2.
 
@@ -52,7 +51,6 @@ Ta funkcja udostępnia graficzne trendy różnych liczników wydajności, które
 Domyślnie zostały wstępnie wybrane cztery liczniki wydajności. Można jednak dodać inne przez kliknięcie polecenia filtru i zaznaczenie lub usunięcie zaznaczenia odpowiednich liczników wydajności. Ponadto możesz kliknąć dwukrotnie wykres licznika wydajności, aby otworzyć nowy blok zawierający punkty danych dla każdego monitorowanego kontrolera domeny.
 
 ## Powiązane linki
-
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Instalowanie agenta programu Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Operacje w programie Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
@@ -60,8 +58,6 @@ Domyślnie zostały wstępnie wybrane cztery liczniki wydajności. Można jednak
 * [Używanie programu Azure AD Connect Health w celu synchronizacji](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health — często zadawane pytania](active-directory-aadconnect-health-faq.md)
 * [Historia wersji programu Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-
-
 
 <!--HONumber=Oct16_HO1-->
 

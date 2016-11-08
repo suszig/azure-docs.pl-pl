@@ -1,5 +1,4 @@
 ## Najczęściej pojawiające się dane wyjściowe
-
 Poniżej znajduje się przykład danych wyjściowych zapisywanych w pliku dziennika w ramach próbki kodu Hello World. Znaki nowego wiersza i tabulatory zostały dodane, aby poprawić czytelność kodu:
 
 ```
@@ -31,11 +30,9 @@ Poniżej znajduje się przykład danych wyjściowych zapisywanych w pliku dzienn
 ```
 
 ## Fragmenty kodu
-
 W tej sekcji omówiono niektóre kluczowe fragmenty kodu znajdujące się w próbce Hello World.
 
 ### Tworzenie bramy
-
 Deweloper musi utworzyć *proces bramy*. Ten program tworzy wewnętrzną infrastrukturę (brokera), ładuje moduły i konfiguruje wszystko tak, aby działo poprawnie. Zestaw SDK zawiera funkcję **Gateway_Create_From_JSON**, aby umożliwić uruchomienie bramy z pliku JSON. Aby użyć funkcji **Gateway_Create_From_JSON**, należy udostępnić ścieżkę pliku JSON, który określa moduły do załadowania. 
 
 Kod procesu bramy w próbce Hello World można znaleźć w pliku [main.c][lnk-main-c]. Poniższy fragment kodu zawiera, dla czytelności, skróconą wersję kodu procesu bramy. Zanim program zniszczy bramę, tworzy bramę, a następnie czeka na zatwierdzenie użytkownika poprzez naciśnięcie klawisza **ENTER**. 
@@ -61,13 +58,14 @@ int main(int argc, char** argv)
 
 Plik ustawień JSON zawiera listę modułów do załadowania. W każdym module muszą być określone następujące elementy:
 
-- **module_name**: unikatowa nazwa modułu.
-- **module_path**: ścieżka do biblioteki zawierającej moduł. W systemie Linux jest to plik so, a w systemie Windows jest to plik dll.
-- **args**: wszystkie informacje o konfiguracji wymaganej przez moduł.
+* **module_name**: unikatowa nazwa modułu.
+* **module_path**: ścieżka do biblioteki zawierającej moduł. W systemie Linux jest to plik so, a w systemie Windows jest to plik dll.
+* **args**: wszystkie informacje o konfiguracji wymaganej przez moduł.
 
 Plik JSON zawiera również linki między modułami, które zostaną przekazane do brokera. Link ma dwie właściwości:
-- **source**: nazwa modułu z sekcji `modules` lub „\*”.
-- **sink**: nazwa modułu z sekcji `modules`.
+
+* **source**: nazwa modułu z sekcji `modules` lub „\*”.
+* **sink**: nazwa modułu z sekcji `modules`.
 
 Każdy link definiuje trasę i kierunek komunikatów. Komunikaty z modułu `source` będą dostarczane do modułu `sink`. Dla właściwości `source` można ustawić wartość „\*”, co oznacza, że komunikaty z wszystkich modułów będę odbierane przez moduł `sink`.
 
@@ -99,7 +97,6 @@ Poniższy przykład pokazuje plik ustawień JSON używany do konfigurowania pró
 ```
 
 ### Publikowanie komunikatów w module Hello World
-
 Kod używany przez moduł „hello world” do publikacji komunikatów można znaleźć w pliku [„hello_world.c”][lnk-helloworld-c]. Poniższy fragment kodu pokazuje jego zatwierdzoną wersję wraz z dodatkowymi komentarzami. Niektóre elementy kodu obsługujące błędy zostały usunięte, aby uzyskać jego lepszą czytelność:
 
 ```
@@ -109,7 +106,7 @@ int helloWorldThread(void *param)
     HELLOWORLD_HANDLE_DATA* handleData = param;
     MESSAGE_CONFIG msgConfig;
     MAP_HANDLE propertiesMap = Map_Create(NULL);
-    
+
     // add a property named "helloWorld" with a value of "from Azure IoT
     // Gateway SDK simple sample!" to a set of message properties that
     // will be appended to the message before publishing it. 
@@ -121,7 +118,7 @@ int helloWorldThread(void *param)
 
     // set the properties for the message
     msgConfig.sourceProperties = propertiesMap;
-    
+
     // create a message based on the msgConfig structure
     MESSAGE_HANDLE helloWorldMessage = Message_Create(&msgConfig);
 
@@ -149,7 +146,6 @@ int helloWorldThread(void *param)
 ```
 
 ### Przetwarzanie komunikatów w module Hello World
-
 Moduł Hello World nigdy nie musi przetwarzać komunikatów, które inne moduły publikują do brokera. To powoduje, że implementacja zwrotnego komunikatu w module Hello World jest funkcją bez operacji.
 
 ```
@@ -160,7 +156,6 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 ```
 
 ### Publikowanie i przetwarzanie komunikatu przez moduł rejestratora
-
 Moduł rejestratora odbiera komunikaty z brokera i zapisuje je w pliku. Nigdy nie publikuje żadnych komunikatów. W związku z tym kod modułu rejestratora nigdy nie wywołuje funkcji **Broker_Publish**.
 
 Funkcja **Logger_Recieve** w pliku [logger.c][lnk-logger-c] jest wywołaniem zwrotnym, które broker wywołuje w celu dostarczenia komunikatu do modułu rejestratora. Poniższy fragment kodu pokazuje jego zatwierdzoną wersję wraz z dodatkowymi komentarzami. Niektóre elementy kodu obsługujące błędy zostały usunięte, aby uzyskać jego lepszą czytelność:
@@ -205,11 +200,10 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 ```
 
 ## Następne kroki
-
 Aby dowiedzieć się więcej na temat używania zestawu SDK bramy, zobacz następujące tematy:
 
-- [IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux] (Zestaw SDK Bramy IoT — wysyłanie komunikatów z urządzenia do chmury przy użyciu symulowanego urządzenia z systemem Linux) [lnk-gateway-simulated].
-- [Azure IoT Gateway SDK] (Zestaw SDK Bramy IoT platformy Azure) [lnk-gateway-sdk] w witrynie GitHub.
+* [IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux](Zestaw SDK Bramy IoT — wysyłanie komunikatów z urządzenia do chmury przy użyciu symulowanego urządzenia z systemem Linux.md) [lnk-gateway-simulated].
+* [Azure IoT Gateway SDK](Zestaw SDK Bramy IoT platformy Azure.md) [lnk-gateway-sdk] w witrynie GitHub.
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c

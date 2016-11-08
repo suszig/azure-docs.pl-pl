@@ -1,23 +1,22 @@
-<properties
-    pageTitle="Ochrona interfejsu API za pomocą usługi Azure API Management | Microsoft Azure"
-    description="Dowiedz się, jak chronić interfejs API za pomocą zasad przydziałów i dławienia (ograniczania liczby wywołań)."
-    services="api-management"
-    documentationCenter=""
-    authors="steved0x"
-    manager="erikre"
-    editor=""/>
+---
+title: Ochrona interfejsu API za pomocą usługi Azure API Management | Microsoft Docs
+description: Dowiedz się, jak chronić interfejs API za pomocą zasad przydziałów i dławienia (ograniczania liczby wywołań).
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="api-management"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/24/2016"
-    ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/24/2016
+ms.author: sdanie
 
+---
 # Ochrona interfejsu API za pomocą ograniczania liczby wywołań przy użyciu usługi Azure API Management
-
 W tym przewodniku przedstawiono, jak łatwo można dodawać ochronę do interfejsu API zaplecza dzięki konfigurowaniu zasad ograniczania liczby wywołań i przydziałów za pomocą usługi Azure API Management.
 
 W tym samouczku utworzysz produkt interfejsu API o nazwie „Bezpłatna wersja próbna”, który umożliwia deweloperom wykonywanie do 10 wywołań na minutę i maksymalnie 200 wywołań na tydzień tego interfejsu API przy użyciu zasad [Ograniczanie liczby wywołań na subskrypcję](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) i [Ustawianie przydziału użycia na subskrypcję](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Następnie opublikujesz interfejs API i przetestujesz zasadę ograniczania liczby wywołań.
@@ -25,16 +24,20 @@ W tym samouczku utworzysz produkt interfejsu API o nazwie „Bezpłatna wersja p
 Bardziej zaawansowane scenariusze ograniczania żądań używające zasad [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) i [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) są opisane w artykule [Advanced request throttling with Azure API Management](api-management-sample-flexible-throttling.md) (Zaawansowane ograniczanie żądań za pomocą usługi Azure API Management).
 
 ## <a name="create-product"> </a>Aby utworzyć produkt
-
 W tym kroku utworzysz produkt Bezpłatna wersja próbna, który nie wymaga zatwierdzania subskrypcji.
 
->[AZURE.NOTE] Jeśli już masz skonfigurowany produkt i chcesz używać go w ramach tego samouczka, możesz przejść od razu do tematu [Konfigurowanie zasad ograniczania liczby wywołań oraz przydziałów][] i wykonać kroki samouczka od tamtego miejsca przy użyciu swojego produktu zamiast produktu Bezpłatna wersja próbna.
+> [!NOTE]
+> Jeśli już masz skonfigurowany produkt i chcesz używać go w ramach tego samouczka, możesz przejść od razu do tematu [Konfigurowanie zasad ograniczania liczby wywołań oraz przydziałów][Konfigurowanie zasad ograniczania liczby wywołań oraz przydziałów] i wykonać kroki samouczka od tamtego miejsca przy użyciu swojego produktu zamiast produktu Bezpłatna wersja próbna.
+> 
+> 
 
 Na początku kliknij opcję **Zarządzaj** w klasycznym portalu Azure usługi API Management. Spowoduje to przejście do portalu wydawcy usługi API Management.
 
 ![Portal wydawcy][api-management-management-console]
 
->Jeśli jeszcze nie utworzono wystąpienia usługi API Management, zobacz temat [Tworzenie wystąpienia usługi API Management][] w samouczku [Zarządzanie pierwszym interfejsem API w usłudze Azure API Management][].
+> Jeśli jeszcze nie utworzono wystąpienia usługi API Management, zobacz temat [Tworzenie wystąpienia usługi API Management][Tworzenie wystąpienia usługi API Management] w samouczku [Zarządzanie pierwszym interfejsem API w usłudze Azure API Management][Zarządzanie pierwszym interfejsem API w usłudze Azure API Management].
+> 
+> 
 
 Kliknij opcję **Produkty** w menu **API Management** po lewej stronie, aby wyświetlić stronę **Produkty**.
 
@@ -60,17 +63,20 @@ Po wprowadzeniu wszystkich wartości kliknij przycisk **Zapisz**, aby utworzyć 
 
 Domyślnie nowe produkty są widoczne dla użytkowników w grupie **Administratorzy**. Zamierzamy dodać grupę **Deweloperzy**. Kliknij produkt **Bezpłatna wersja próbna**, a następnie kliknij kartę **Widoczność**.
 
->W usłudze API Management grupy służą do zarządzania widocznością produktów dla deweloperów. Widoczność produktów jest przydzielana według grup, a deweloperzy mogą wyświetlać i subskrybować produkty, które są widoczne dla grup, do których należą. Aby uzyskać więcej informacji, zobacz artykuł [How to create and use groups in Azure API Management][] (Tworzenie i używanie grup w usłudze Azure API Management).
+> W usłudze API Management grupy służą do zarządzania widocznością produktów dla deweloperów. Widoczność produktów jest przydzielana według grup, a deweloperzy mogą wyświetlać i subskrybować produkty, które są widoczne dla grup, do których należą. Aby uzyskać więcej informacji, zobacz artykuł [How to create and use groups in Azure API Management][How to create and use groups in Azure API Management] (Tworzenie i używanie grup w usłudze Azure API Management).
+> 
+> 
 
 ![Dodawanie grupy deweloperów][api-management-add-developers-group]
 
 Zaznacz pole wyboru **Deweloperzy**, a następnie kliknij przycisk **Zapisz**.
 
 ## <a name="add-api"> </a>Aby dodać interfejs API do produktu
-
 W tym kroku samouczka dodamy interfejs Echo API do nowego produktu Bezpłatna wersja próbna.
 
->Każde wystąpienie usługi API Management ma wstępnie skonfigurowany interfejs Echo API, którego można używać do eksperymentów oraz poznawania usługi API Management. Aby uzyskać więcej informacji, zobacz artykuł [Zarządzanie pierwszym interfejsem API w usłudze Azure API Management][]
+> Każde wystąpienie usługi API Management ma wstępnie skonfigurowany interfejs Echo API, którego można używać do eksperymentów oraz poznawania usługi API Management. Aby uzyskać więcej informacji, zobacz artykuł [Zarządzanie pierwszym interfejsem API w usłudze Azure API Management][Zarządzanie pierwszym interfejsem API w usłudze Azure API Management]
+> 
+> 
 
 Kliknij przycisk **Produkty** z menu **API Management** po lewej stronie, a następnie kliknij produkt **Bezpłatna wersja próbna**, aby go skonfigurować.
 
@@ -85,7 +91,6 @@ Wybierz interfejs **Echo API**, a następnie kliknij przycisk **Zapisz**.
 ![Dodawanie interfejsu Echo API][api-management-add-echo-api]
 
 ## <a name="policies"> </a>Aby skonfigurować zasady ograniczania liczby wywołań oraz przydziałów
-
 Ograniczenia liczby wywołań i przydziały są konfigurowane w edytorze zasad. Kliknij opcję **Zasady** w menu **API Management** po lewej stronie. Na liście **Produkty** kliknij produkt **Bezpłatna wersja próbna**.
 
 ![Zasady produktu][api-management-product-policy]
@@ -143,7 +148,9 @@ W produkcie Bezpłatna wersja próbna przydział wynosi 200 wywołań na tydzie�
     <quota calls="200" renewal-period="604800">
     </quota>
 
->Interwały zasad są określane w sekundach. Do obliczania interwału liczącego tydzień, należy pomnożyć liczbę dni (7) przez liczbę godzin w ciągu dnia (24) przez liczbę minut w godzinie (60) przez liczbę sekund w ciągu minuty (60): 7 * 24 * 60 * 60 = 604800.
+> Interwały zasad są określane w sekundach. Do obliczania interwału liczącego tydzień, należy pomnożyć liczbę dni (7) przez liczbę godzin w ciągu dnia (24) przez liczbę minut w godzinie (60) przez liczbę sekund w ciągu minuty (60): 7 * 24 * 60 * 60 = 604800.
+> 
+> 
 
 Po zakończeniu konfigurowania zasady powinny być zgodne z poniższym przykładem.
 
@@ -168,7 +175,6 @@ Po skonfigurowaniu żądanych zasad kliknij przycisk **Zapisz**.
 ![Zapisywanie zasad][api-management-policy-save]
 
 ## <a name="publish-product"> </a> Aby opublikować produkt
-
 Teraz, gdy interfejsy API zostały dodane, a zasady skonfigurowane, trzeba opublikować produkt, aby mógł być używany przez deweloperów. Kliknij przycisk **Produkty** z menu **API Management** po lewej stronie, a następnie kliknij produkt **Bezpłatna wersja próbna**, aby go skonfigurować.
 
 ![Konfigurowanie produktu][api-management-configure-product]
@@ -178,10 +184,11 @@ Kliknij przycisk **Publikuj**, a następnie kliknij przycisk **Tak, opublikuj**,
 ![Publikowanie produktu][api-management-publish-product]
 
 ## <a name="subscribe-account"> </a>Aby zasubskrybować produkt dla konta dewelopera
-
 Teraz, gdy produkt jest publikowany, jest on dostępny do subskrybowania i używania przez deweloperów.
 
->Administratorzy wystąpienia usługi API Management automatycznie mają subskrypcję każdego produktu. W tym kroku samouczka zasubskrybujemy produkt Bezpłatna wersja próbna dla jednego z kont deweloperów, którzy nie są administratorami. Jeśli konto dewelopera należy do roli Administratorzy, możesz wykonać ten krok, chociaż masz już subskrypcję.
+> Administratorzy wystąpienia usługi API Management automatycznie mają subskrypcję każdego produktu. W tym kroku samouczka zasubskrybujemy produkt Bezpłatna wersja próbna dla jednego z kont deweloperów, którzy nie są administratorami. Jeśli konto dewelopera należy do roli Administratorzy, możesz wykonać ten krok, chociaż masz już subskrypcję.
+> 
+> 
 
 Kliknij przycisk **Użytkownicy** w menu **API Management** po lewej stronie, a następnie kliknij nazwę Twojego konta dewelopera. W tym przykładzie użyto konta dewelopera **Clayton Gragg**.
 
@@ -195,7 +202,10 @@ Wybierz produkt **Bezpłatna wersja próbna**, a następnie kliknij przycisk **S
 
 ![Dodawanie subskrypcji][api-management-add-subscription]
 
->[AZURE.NOTE] W tym samouczku nie włączono wielu jednoczesnych subskrypcji dla produktu Bezpłatna wersja próbna. Gdyby były włączone, pojawiłby się monit o podanie nazwy subskrypcji, jak pokazano w poniższym przykładzie.
+> [!NOTE]
+> W tym samouczku nie włączono wielu jednoczesnych subskrypcji dla produktu Bezpłatna wersja próbna. Gdyby były włączone, pojawiłby się monit o podanie nazwy subskrypcji, jak pokazano w poniższym przykładzie.
+> 
+> 
 
 ![Dodawanie subskrypcji][api-management-add-subscription-multiple]
 
@@ -204,7 +214,6 @@ Po kliknięciu przycisku **Subskrybuj** produkt jest wyświetlany na liście **S
 ![Dodana subskrypcja][api-management-subscription-added]
 
 ## <a name="test-rate-limit"> </a>Aby wywołać operację i przetestować ograniczanie liczby wywołań
-
 Teraz, gdy produkt Bezpłatna wersja próbna jest skonfigurowany i opublikowany, możemy wywołać pewne operacje i przetestować zasadę ograniczania liczby wywołań.
 Kliknij opcję **Portal dla deweloperów** w górnym menu po prawej stronie, aby przejść do portalu dla deweloperów.
 
@@ -222,7 +231,10 @@ Zachowaj domyślne wartości parametrów, a następnie wybierz klucz subskrypcji
 
 ![Klucz subskrypcji][api-management-select-key]
 
->[AZURE.NOTE] Jeśli masz wiele subskrypcji, koniecznie wybierz klucz dla produktu **Bezpłatna wersja próbna**. W przeciwnym razie zasady skonfigurowane w poprzednich krokach nie będą obowiązywać.
+> [!NOTE]
+> Jeśli masz wiele subskrypcji, koniecznie wybierz klucz dla produktu **Bezpłatna wersja próbna**. W przeciwnym razie zasady skonfigurowane w poprzednich krokach nie będą obowiązywać.
+> 
+> 
 
 Kliknij przycisk **Wyślij**, a następnie zobacz odpowiedź. Zauważ, że **Stan odpowiedzi** to **200 OK**.
 
@@ -237,11 +249,11 @@ Kliknij przycisk **Wyślij** szybciej niż pozwala na to zasada ograniczenia lic
 Jeśli obowiązuje zasada ograniczania liczby wywołań do 10 na minutę, kolejne wywołania będą kończyć się niepowodzeniem, aż upłynie 60 sekund od pierwszego z 10 pomyślnych wywołań produktu przed przekroczeniem ograniczenia. W tym przykładzie pozostały interwał to 54 sekundy.
 
 ## <a name="next-steps"> </a>Następne kroki
+* Obejrzyj następujący film z prezentacją ustawiania ograniczeń liczby wywołań i przydziałów.
 
--   Obejrzyj następujący film z prezentacją ustawiania ograniczeń liczby wywołań i przydziałów.
-
-> [AZURE.VIDEO rate-limits-and-quotas]
-
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
+> 
+> 
 
 [api-management-management-console]: ./media/api-management-howto-product-with-rules/api-management-management-console.png
 [api-management-add-product]: ./media/api-management-howto-product-with-rules/api-management-add-product.png

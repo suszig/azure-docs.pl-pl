@@ -1,38 +1,36 @@
-<properties
- pageTitle="Co to jest usługa Azure Scheduler? | Microsoft Azure"
- description="Usługa Azure Scheduler umożliwia opisywanie w sposób deklaratywny akcji do wykonania w chmurze. Usługa następnie planuje i uruchamia te akcje automatycznie."
- services="scheduler"
- documentationCenter=".NET"
- authors="derek1ee"
- manager="kevinlam1"
- editor=""/>
-<tags
- ms.service="scheduler"
- ms.workload="infrastructure-services"
- ms.tgt_pltfrm="na"
- ms.devlang="dotnet"
- ms.topic="hero-article"
- ms.date="08/18/2016"
- ms.author="deli"/>
+---
+title: Co to jest usługa Azure Scheduler? | Microsoft Docs
+description: Usługa Azure Scheduler umożliwia opisywanie w sposób deklaratywny akcji do wykonania w chmurze. Usługa następnie planuje i uruchamia te akcje automatycznie.
+services: scheduler
+documentationcenter: .NET
+author: derek1ee
+manager: kevinlam1
+editor: ''
 
+ms.service: scheduler
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 08/18/2016
+ms.author: deli
 
+---
 # Co to jest usługa Azure Scheduler?
-
 Usługa Azure Scheduler umożliwia opisywanie w sposób deklaratywny akcji do wykonania w chmurze. Usługa następnie planuje i uruchamia te akcje automatycznie.  Usługa Scheduler korzysta w tym celu z witryny [Azure Portal](scheduler-get-started-portal.md), kodu, [interfejsu API REST](https://msdn.microsoft.com/library/mt629143.aspx) lub programu Azure PowerShell.
 
-Usługa Scheduler tworzy, obsługuje i wywołuje zaplanowane prace.  Usługa Scheduler nie hostuje żadnych obciążeń ani nie uruchamia żadnego kodu. _Wywołuje_ ona jedynie kod hostowany gdzie indziej — na platformie Azure, lokalnie lub przez innego dostawcę. Wywoływanie następuje z użyciem protokołu HTTP, HTTPS, kolejki magazynu, kolejki magistrali usług lub tematu magistrali usług.
+Usługa Scheduler tworzy, obsługuje i wywołuje zaplanowane prace.  Usługa Scheduler nie hostuje żadnych obciążeń ani nie uruchamia żadnego kodu. *Wywołuje* ona jedynie kod hostowany gdzie indziej — na platformie Azure, lokalnie lub przez innego dostawcę. Wywoływanie następuje z użyciem protokołu HTTP, HTTPS, kolejki magazynu, kolejki magistrali usług lub tematu magistrali usług.
 
 Usługa Scheduler planuje [zadania](scheduler-concepts-terms.md), przechowuje i udostępnia do przeglądu historię wyników wykonania zadania, a także jednoznacznie i niezawodnie planuje uruchamianie obciążeń. Zadania WebJob Azure (element funkcji Web Apps w Usłudze aplikacji Azure) i inne funkcje planowania platformy Azure wykorzystują usługę Scheduler w tle. [Interfejs API REST usługi Scheduler](https://msdn.microsoft.com/library/mt629143.aspx) ułatwia zarządzanie komunikacją niezbędną do wykonywania tych akcji. W tym kontekście usługa Scheduler umożliwia prostą obsługę [złożonych harmonogramów i zaawansowanych cykli](scheduler-advanced-complexity.md).
 
 Istnieje kilka scenariuszy, które nadają się do użycia z usługą Scheduler. Na przykład:
 
-+ _Cykliczne akcje aplikacji:_ okresowe gromadzenie danych z serwisu Twitter w ramach źródła danych.
-+ _Codzienna konserwacja:_ codzienne oczyszczanie dzienników, tworzenie kopii zapasowych i wykonywanie innych zadań konserwacji. Administrator może na przykład zdecydować, że tworzenie kopii zapasowej bazy danych będzie wykonywane codziennie o godzinie 01:00 przez następne dziewięć miesięcy.
+* *Cykliczne akcje aplikacji:* okresowe gromadzenie danych z serwisu Twitter w ramach źródła danych.
+* *Codzienna konserwacja:* codzienne oczyszczanie dzienników, tworzenie kopii zapasowych i wykonywanie innych zadań konserwacji. Administrator może na przykład zdecydować, że tworzenie kopii zapasowej bazy danych będzie wykonywane codziennie o godzinie 01:00 przez następne dziewięć miesięcy.
 
 Usługa Scheduler umożliwia programowe tworzenie, aktualizowanie, usuwanie i wyświetlanie zadań i [kolekcji zadań](scheduler-concepts-terms.md) oraz zarządzanie nimi za pomocą skryptów oraz w portalu.
 
 ## Zobacz też
-
  [Pojęcia i terminologia dotyczące usługi Azure Scheduler oraz hierarchia jednostek](scheduler-concepts-terms.md)
 
  [Rozpoczynanie pracy z usługą Scheduler w witrynie Azure Portal](scheduler-get-started-portal.md)
@@ -50,8 +48,6 @@ Usługa Scheduler umożliwia programowe tworzenie, aktualizowanie, usuwanie i wy
  [Limity, wartości domyślne i kody błędów usługi Azure Scheduler](scheduler-limits-defaults-errors.md)
 
  [Uwierzytelnianie połączeń wychodzących usługi Azure Scheduler](scheduler-outbound-authentication.md)
-
-
 
 <!--HONumber=Sep16_HO5-->
 

@@ -1,32 +1,30 @@
-<properties
-    pageTitle="Prosty eksperyment w usłudze Machine Learning Studio | Microsoft Azure"
-    description="Ten samouczek uczenia maszynowego przeprowadzi Cię przez łatwy eksperyment dotyczący przetwarzania danych. Będziemy prognozować cenę samochodu, używając algorytmu regresji."
-    keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques,data science experiment"
-    services="machine-learning"
-    documentationCenter=""
-    authors="garyericson"
-    manager="paulettm"
-    editor="cgronlun"/>
+---
+title: Prosty eksperyment w usłudze Machine Learning Studio | Microsoft Docs
+description: Ten samouczek uczenia maszynowego przeprowadzi Cię przez łatwy eksperyment dotyczący przetwarzania danych. Będziemy prognozować cenę samochodu, używając algorytmu regresji.
+keywords: experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques,data science experiment
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: paulettm
+editor: cgronlun
 
-<tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="07/14/2016"
-    ms.author="garye"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 07/14/2016
+ms.author: garye
 
+---
 # Samouczek dotyczący uczenia maszynowego: tworzenie pierwszego eksperymentu związanego z przetwarzaniem danych w usłudze Azure Machine Learning Studio
-
 Ten samouczek uczenia maszynowego przeprowadzi Cię przez łatwy eksperyment dotyczący przetwarzania danych. Utworzymy model regresji liniowej, który prognozuje cenę samochodów na podstawie różnych zmiennych, takich jak marka i specyfikacja techniczna. W tym celu użyjemy usługi Azure Machine Learning Studio, aby opracować prosty eksperyment korzystający z analizy predykcyjnej oraz wykonać jego iterację.
 
 *Analiza predykcyjna* to metoda przetwarzania danych używająca bieżących danych do prognozowania przyszłych wyników. Aby uzyskać bardzo prosty przykład analizy predykcyjnej, obejrzyj klip wideo nr 4 z serii Przetwarzanie danych dla początkujących: [Prognozowanie odpowiedzi za pomocą prostego modelu](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) (czas trwania: 7:42).
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## W czym pomaga usługa Machine Learning Studio?
-
 Usługa Machine Learning Studio ułatwia skonfigurowanie eksperymentu za pomocą modułów typu „przeciągnij i upuść” zaprogramowanych wstępnie metodami modelowania predykcyjnego. Aby uruchomić eksperyment i przewidzieć odpowiedź, za pomocą usługi Machine Learning Studio *utworzysz model*, *nauczysz model* oraz *ocenisz i przetestujesz model*.
 
 Otwórz usługę Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net). Jeśli logujesz się w usłudze Machine Learning Studio nie po raz pierwszy, kliknij pozycję **Sign in here** (Zaloguj się tutaj). W przeciwnym razie kliknij pozycję **Sign Up** (Zarejestruj się) i wybierz między opcją darmową a płatną.
@@ -34,17 +32,16 @@ Otwórz usługę Machine Learning Studio: [https://studio.azureml.net](https://s
 Aby uzyskać ogólne informacje o usłudze Machine Learning Studio, zobacz [Czym jest Machine Learning Studio?](machine-learning-what-is-ml-studio.md)
 
 ## Tworzenie eksperymentu w pięciu krokach
-
 W tym samouczku dotyczącym uczenia maszynowego wykonamy pięć podstawowych kroków, aby uruchomić eksperyment w usłudze Machine Learning Studio obejmujący tworzenie i uczenie modelu oraz generowanie wyników:
 
-- Tworzenie modelu
-    - [Krok 1. Pobieranie danych]
-    - [Krok 2. Przetwarzanie wstępne danych]
-    - [Krok 3. Definiowanie cech]
-- Uczenie modelu
-    - [Krok 4. Wybieranie i stosowanie algorytmu uczenia]
-- Generowanie wyników i testowanie modelu
-    - [Krok 5. Przewidywanie nowych cen samochodów]
+* Tworzenie modelu
+  * [Krok 1. Pobieranie danych]
+  * [Krok 2. Przetwarzanie wstępne danych]
+  * [Krok 3. Definiowanie cech]
+* Uczenie modelu
+  * [Krok 4. Wybieranie i stosowanie algorytmu uczenia]
+* Generowanie wyników i testowanie modelu
+  * [Krok 5. Przewidywanie nowych cen samochodów]
 
 [Krok 1. Pobieranie danych]: #step-1-get-data
 [Krok 2. Przetwarzanie wstępne danych]: #step-2-preprocess-data
@@ -54,18 +51,15 @@ W tym samouczku dotyczącym uczenia maszynowego wykonamy pięć podstawowych kro
 
 
 ## Krok 1. Pobieranie danych
-
 Usługa Machine Learning Studio udostępnia wiele przykładowych zestawów danych do wyboru, a dane można importować z wielu źródeł. W tym scenariuszu będziemy używać dołączonego przykładowego zestawu danych **Automobile price data (Raw)** (Nieprzetworzone dane z cenami samochodów).
 Ten zestaw zawiera dane szeregu modeli samochodów, na przykład informacje dotyczące marki, ceny czy specyfikacji technicznej.
 
 1. Uruchom nowy eksperyment, klikając pozycję **+NEW** (+NOWY) u dołu okna Machine Learning Studio i wybierz kolejno pozycje **EXPERIMENT** (EKSPERYMENT), **Blank Experiment** (Pusty eksperyment). Wybierz domyślną nazwę eksperymentu w górnej części obszaru roboczego i zmień ją, wpisując tekst opisowy, na przykład **Prognozowanie cen samochodów**.
-
 2. Z lewej strony obszaru roboczego eksperymentu znajduje się paleta zawierająca zestawy danych i moduły. Wpisz **automobile** (samochód) w polu wyszukiwania w górnej części tej palety, aby znaleźć zestaw danych z etykietą **Automobile price data (Raw)** (Nieprzetworzone dane z cenami samochodów).
-
+   
     ![Wyszukiwanie na palecie][screen1a]
-
 3. Przeciągnij zestaw danych do obszaru roboczego eksperymentu.
-
+   
     ![Zestaw danych][screen1]
 
 Aby wyświetlić graficzną reprezentację danych, kliknij port wyjściowy w dolnej części zestawu danych dotyczących samochodów, a następnie wybierz pozycję **Visualize** (Wizualizacja).
@@ -79,34 +73,36 @@ Zmienne w zestawie danych są wyświetlane jako kolumny, a poszczególne wystąp
 Aby zamknąć okno wizualizacji, kliknij znak „**x**” w prawym górnym rogu.
 
 ## Krok 2. Przetwarzanie wstępne danych
-
 Zestawy danych zwykle wymagają przetworzenia wstępnego przed rozpoczęciem analizy. Zwróć uwagę na to, że w przypadku niektórych wierszy w kolumnach brakuje wartości. Te brakujące wartości muszą zostać wyczyszczone, aby umożliwić modelowi wykonanie poprawnej analizy danych. W naszym przykładzie usuniemy wszystkie wiersze z brakującymi wartościami. Ponadto w kolumnie **normalized-losses** (znormalizowane straty) występuje wiele przypadków brakujących wartości, dlatego całkowicie wykluczymy tę kolumnę z modelu.
 
-> [AZURE.TIP] Większość modułów wymaga wyczyszczenia brakujących wartości w danych wejściowych.
+> [!TIP]
+> Większość modułów wymaga wyczyszczenia brakujących wartości w danych wejściowych.
+> 
+> 
 
 Najpierw usuniemy kolumnę **normalized-losses** (znormalizowane straty), a następnie usuniemy wszystkie wiersze z brakującymi danymi.
 
 1. Wpisz **select columns** (wybieranie kolumn) w polu wyszukiwania w górnej części palety modułów, aby znaleźć moduł [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych), a następnie przeciągnij go do obszaru roboczego eksperymentu i połącz z portem wyjściowym zestawu danych **Automobile price data (Raw)** (Nieprzetworzone dane z cenami samochodów). Ten moduł pozwala wybierać kolumny danych, które mają zostać dołączone do modelu lub wykluczone z niego.
-
 2. Wybierz moduł [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych) i kliknij pozycję **Launch column selector** (Uruchom selektora kolumn) w okienku **Properties** (Właściwości).
-
-    - Po lewej stronie kliknij pozycję **With rules** (Za pomocą reguł).
-    - W obszarze **Begin With** (Rozpocznij od) kliknij pozycję **All columns** (Wszystkie kolumny). Spowoduje to przetworzenie wszystkich kolumn (z wyjątkiem tych wykluczonych) przez moduł [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych).
-    - Z list rozwijanych wybierz pozycje **Exclude** (Wyklucz) i **column names** (nazwy kolumn), a następnie kliknij wewnątrz pola tekstowego. Zostanie wyświetlona lista kolumn. Wybierz pozycję **normalized-losses** (znormalizowane straty), aby dodać ją do pola tekstowego.
-    - Kliknij przycisk znacznika wyboru (OK), aby zamknąć selektora kolumn.
-
-    ![Wybieranie kolumn][screen3]
-
-    Zawartość okienka właściwości modułu **Select Columns in Dataset** (Wybieranie kolumn w zestawie danych) określa, że zostaną przetworzone wszystkie kolumny zestawu danych z wyjątkiem kolumny **normalized-losses** (znormalizowane straty).
-
-    ![Właściwości modułu Select Columns in Dataset (Wybieranie kolumn w zestawie danych)][screen4]
-
-    > [AZURE.TIP] Aby dodać komentarz do modułu, kliknij dwukrotnie moduł i wpisz tekst. Pozwoli to od razu sprawdzić rolę modułu w eksperymencie. W tym przypadku kliknij dwukrotnie moduł [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych) i dodaj komentarz „Wykluczenie kolumny znormalizowane straty”.
-
+   
+   * Po lewej stronie kliknij pozycję **With rules** (Za pomocą reguł).
+   * W obszarze **Begin With** (Rozpocznij od) kliknij pozycję **All columns** (Wszystkie kolumny). Spowoduje to przetworzenie wszystkich kolumn (z wyjątkiem tych wykluczonych) przez moduł [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych).
+   * Z list rozwijanych wybierz pozycje **Exclude** (Wyklucz) i **column names** (nazwy kolumn), a następnie kliknij wewnątrz pola tekstowego. Zostanie wyświetlona lista kolumn. Wybierz pozycję **normalized-losses** (znormalizowane straty), aby dodać ją do pola tekstowego.
+   * Kliknij przycisk znacznika wyboru (OK), aby zamknąć selektora kolumn.
+     
+     ![Wybieranie kolumn][screen3]
+     
+     Zawartość okienka właściwości modułu **Select Columns in Dataset** (Wybieranie kolumn w zestawie danych) określa, że zostaną przetworzone wszystkie kolumny zestawu danych z wyjątkiem kolumny **normalized-losses** (znormalizowane straty).
+     
+     ![Właściwości modułu Select Columns in Dataset (Wybieranie kolumn w zestawie danych)][screen4]
+     
+     > [!TIP]
+     > Aby dodać komentarz do modułu, kliknij dwukrotnie moduł i wpisz tekst. Pozwoli to od razu sprawdzić rolę modułu w eksperymencie. W tym przypadku kliknij dwukrotnie moduł [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych) i dodaj komentarz „Wykluczenie kolumny znormalizowane straty”.
+     > 
+     > 
 3. Przeciągnij moduł [Clean Missing Data][clean-missing-data] (Czyszczenie brakujących danych) do obszaru roboczego eksperymentu i połącz go z modułem [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych). W okienku **Properties** (Właściwości) w obszarze **Cleaning mode** (Tryb czyszczenia) wybierz pozycję **Remove entire row** (Usuń cały wiersz), aby wyczyścić dane przez usunięcie wierszy z brakującymi wartościami. Kliknij dwukrotnie moduł i wpisz komentarz „Usunięcie wierszy z brakującymi wartościami”.
-
+   
     ![Właściwości modułu Clean Missing Data (Czyszczenie brakujących danych)][screen4a]
-
 4. Uruchom eksperyment, klikając pozycję **RUN** (URUCHOM) pod obszarem roboczym.
 
 Po zakończeniu eksperymentu na wszystkich modułach są widoczne zielone znaczniki wyboru. Oznacza to, że działanie modułów zakończyło się pomyślnie. Zwróć również uwagę na informację o **zakończeniu działania** wyświetlaną w prawym górnym rogu.
@@ -118,7 +114,6 @@ Na tym etapie nasz eksperyment obejmuje tylko czyszczenie danych. Jeśli chcesz 
 Po oczyszczeniu danych można określić, jakie cechy zostaną użyte w modelu predykcyjnym.
 
 ## Krok 3. Definiowanie cech
-
 W uczeniu maszynowym *cechy* to poszczególne mierzalne właściwości określonych informacji. W naszym zestawie danych poszczególne wiersze odpowiadają różnym samochodom, a kolumny — cechom tych samochodów.
 
 Znalezienie odpowiedniego zestawu cech, który ma służyć do utworzenia modelu predykcyjnego, wymaga eksperymentowania oraz dysponowania wiedzą na temat bieżącego problemu. Pewne cechy lepiej nadają się do prognozowania danych docelowych. Ponadto niektóre cechy są ściśle powiązane z innymi (na przykład zużycie paliwa w mieście i w trasie), co sprawia, że nie wnoszą one do modelu wielu nowych informacji i dlatego można je usunąć.
@@ -129,15 +124,14 @@ Utworzymy model, który korzysta z podzbioru cech zawartych w naszym zestawie da
 
 
 1. Przeciągnij kolejny moduł [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych) do obszaru roboczego eksperymentu i połącz go z lewym portem wyjściowym modułu [Clean Missing Data][clean-missing-data] (Czyszczenie brakujących danych). Kliknij dwukrotnie moduł i wpisz „Wybieranie cech w celu prognozowania”.
-
 2. Kliknij pozycję **Launch column selector** (Uruchom selektora kolumn) w okienku **Properties** (Właściwości).
-
 3. Kliknij pozycję **With rules** (Za pomocą reguł).
-
 4. W obszarze **Begin With** (Rozpocznij od) kliknij pozycję **No columns** (Brak kolumn), a następnie w wierszu filtrów wybierz pozycję **Include** (Dołącz) i **column names** (nazwy kolumn). Wpisz nazwy kolumn z listy. Dzięki temu moduł będzie przetwarzał tylko określone kolumny.
-
-    > [AZURE.TIP] Uruchamiając eksperyment, upewniliśmy się, że definicje kolumn dla danych są przekazywane z zestawu danych za pośrednictwem modułu [Clean Missing Data][clean-missing-data] (Czyszczenie brakujących danych). Oznacza to, że inne dołączane moduły także będą miały informacje z tego zestawu danych.
-
+   
+   > [!TIP]
+   > Uruchamiając eksperyment, upewniliśmy się, że definicje kolumn dla danych są przekazywane z zestawu danych za pośrednictwem modułu [Clean Missing Data][clean-missing-data] (Czyszczenie brakujących danych). Oznacza to, że inne dołączane moduły także będą miały informacje z tego zestawu danych.
+   > 
+   > 
 5. Kliknij przycisk znacznika wyboru (OK).
 
 ![Wybieranie kolumn][screen6]
@@ -145,7 +139,6 @@ Utworzymy model, który korzysta z podzbioru cech zawartych w naszym zestawie da
 Wykonanie tych czynności spowoduje utworzenie zestawu danych, który będzie używany w algorytmie uczenia w następnych krokach. Możesz później wrócić do tego kroku i wybrać inny zbiór cech.
 
 ## Krok 4. Wybieranie i stosowanie algorytmu uczenia
-
 Po przygotowaniu danych można przystąpić do konstruowania modelu predykcyjnego, co obejmuje uczenie i testowanie. Użyjemy danych do nauczenia modelu, a następnie przetestujemy go, aby sprawdzić dokładność przewidywanych cen. Na razie nie zastanawiaj się, dlaczego musimy nauczyć, a następnie przetestować model.
 
 Techniki *klasyfikacji* i *regresji* to dwa typy nadzorowanego uczenia maszynowego. Klasyfikacja przewiduje odpowiedź na podstawie zdefiniowanego zestawu kategorii, takich jak kolory (czerwony, niebieski lub zielony). Regresja służy do prognozowania liczby.
@@ -153,21 +146,19 @@ Techniki *klasyfikacji* i *regresji* to dwa typy nadzorowanego uczenia maszynowe
 Ponieważ chcemy przewidzieć cenę, która jest liczbą, użyjemy modelu regresji. W tym przykładzie nauczymy prosty model *regresji liniowej*, a następnie przetestujemy go.
 
 1. Dane dzielmy na dwa oddzielne zestawy, aby użyć ich do celów szkoleniowych i do testów. Wybierz moduł [Split Data][split] (Podział danych) i przeciągnij go do obszaru roboczego eksperymentu, a następnie połącz go z wyjściem ostatniego modułu [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych). Ustaw opcję **Fraction of rows in the first output dataset** (Odsetek wierszy w pierwszym zestawie danych wyjściowych) na wartość 0,75. Dzięki temu 75% danych zostanie użytych do nauczenia modelu, a pozostałe 25% do testów.
-
-    > [AZURE.TIP] Zmieniając wartość parametru **Random seed** (Inicjator losowy) można uzyskać różne próbki losowe do celów szkoleniowych i testów. Ten parametr umożliwia sterowanie inicjacją pseudolosowego generatora liczb.
-
+   
+   > [!TIP]
+   > Zmieniając wartość parametru **Random seed** (Inicjator losowy) można uzyskać różne próbki losowe do celów szkoleniowych i testów. Ten parametr umożliwia sterowanie inicjacją pseudolosowego generatora liczb.
+   > 
+   > 
 2. Uruchom eksperyment. Pozwoli to modułom [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych) i [Split Data][split] (Podział danych) przekazać definicje kolumn do modułów, które będą dodawane później.  
-
 3. Aby wybrać algorytm uczenia, rozwiń kategorię **Machine Learning** (Uczenie maszynowe) na palecie modułów wyświetlanej z lewej strony obszaru roboczego, a następnie rozwiń węzeł **Initialize Model** (Inicjacja modelu). Zostaną wyświetlone różne kategorie modułów, których można użyć do zainicjowania algorytmów uczenia maszynowego.
-
+   
     W tym eksperymencie wybierz moduł [Linear Regression][linear-regression] (Regresja liniowa) z kategorii **Regression** (Regresja) (możesz również znaleźć go, wpisując „linear regression” [regresja liniowa] w polu wyszukiwania palety) i przeciągnij go do obszaru roboczego eksperymentu.
-
 4. Znajdź moduł [Train Model][train-model] (Uczenie modelu) i przeciągnij go do obszaru roboczego eksperymentu. Połącz lewy port wejściowy z wyjściem modułu [Linear Regression][linear-regression] (Regresja liniowa). Połącz prawy port wejściowy z danymi wyjściowymi uczenia (lewy port) modułu [Split Data][split] (Podział danych).
-
 5. Wybierz moduł [Train Model][train-model] (Uczenie modelu), kliknij pozycję **Launch column selector** (Uruchom selektora kolumn) w okienku **Properties** (Właściwości), a następnie wybierz kolumnę **price** (cena). Jest to wartość, która będzie prognozowana przez nasz model.
-
+   
     ![Wybieranie kolumny „price” (cena)][screen7]
-
 6. Uruchom eksperyment.
 
 W efekcie powstał nauczony model regresji, który może służyć do generowania wyników na podstawie próbek w celu prognozowania wartości.
@@ -175,26 +166,22 @@ W efekcie powstał nauczony model regresji, który może służyć do generowani
 ![Stosowanie algorytmu uczenia maszynowego][screen8]
 
 ## Krok 5. Przewidywanie nowych cen samochodów
-
 Gdy udało się nauczyć model przy użyciu 75% danych, można wygenerować wyniki dla pozostałych 25% danych, aby sprawdzić poprawność funkcjonowania modelu.
 
 1. Znajdź moduł [Score Model][score-model] (Generowanie wyników przez model) i przeciągnij go do obszaru roboczego eksperymentu, a następnie połącz lewy port wejściowy z danymi wyjściowymi modułu [Train Model][train-model] (Uczenie modelu). Połącz prawy port wejściowy z danymi wyjściowymi testów (prawy port) modułu [Split Data][split] (Podział danych).  
-
+   
     ![Moduł Score Model (Generowanie wyników przez model)][screen8a]
-
 2. Aby uruchomić eksperyment i wyświetlić dane wyjściowe z modułu [Score Model][score-model] (Generowanie wyników przez model), kliknij port wyjściowy i wybierz pozycję **Visualize** (Wizualizacja). Dane wyjściowe zawierają przewidywane wartości cen oraz znane wartości pochodzące z danych testowych.  
-
 3. Aby na koniec przetestować jakość wyników, wybierz moduł [Evaluate Model][evaluate-model] (Ocena modelu) i przeciągnij go do obszaru roboczego eksperymentu, a następnie połącz lewy port wejściowy z danymi wyjściowymi modułu [Score Model][score-model] (Generowanie wyników przez model). (Dostępne są dwa porty wejściowe, ponieważ moduł [Evaluate Model][evaluate-model] (Ocena modelu) może służyć do porównywania dwóch modeli).
-
 4. Uruchom eksperyment.
 
 Aby wyświetlić dane wyjściowe z modułu [Evaluate Model][evaluate-model] (Ocena modelu), kliknij port wyjściowy i wybierz pozycję **Visualize** (Wizualizacja). Wyświetlane są następujące statystyki dla modelu:
 
-- **Średni bezwzględny błąd** (MAE, Mean Absolute Error): wartość średnia bezwzględnych błędów (*błąd* odpowiada różnicy między wartością prognozowaną a wartością rzeczywistą).
-- **Pierwiastek błędu średniokwadratowego** (RMSE, Root Mean Squared Error): pierwiastek kwadratowy ze średniej kwadratów błędów prognoz dla zestawu danych testowych.
-- **Względny błąd absolutny**: iloraz średniej błędów absolutnych i bezwzględnej wartości różnicy między wartościami rzeczywistymi a średnią wszystkich wartości rzeczywistych.
-- **Błąd względny średniokwadratowy**: iloraz średniej kwadratów błędów i kwadratu różnicy między wartościami rzeczywistymi a średnią wszystkich wartości rzeczywistych.
-- **Współczynnik determinacji**: znany także jako **wartość R-kwadrat** jest miarą statystyczną jakości dopasowania modelu do danych.
+* **Średni bezwzględny błąd** (MAE, Mean Absolute Error): wartość średnia bezwzględnych błędów (*błąd* odpowiada różnicy między wartością prognozowaną a wartością rzeczywistą).
+* **Pierwiastek błędu średniokwadratowego** (RMSE, Root Mean Squared Error): pierwiastek kwadratowy ze średniej kwadratów błędów prognoz dla zestawu danych testowych.
+* **Względny błąd absolutny**: iloraz średniej błędów absolutnych i bezwzględnej wartości różnicy między wartościami rzeczywistymi a średnią wszystkich wartości rzeczywistych.
+* **Błąd względny średniokwadratowy**: iloraz średniej kwadratów błędów i kwadratu różnicy między wartościami rzeczywistymi a średnią wszystkich wartości rzeczywistych.
+* **Współczynnik determinacji**: znany także jako **wartość R-kwadrat** jest miarą statystyczną jakości dopasowania modelu do danych.
 
 W przypadku wszystkich powyższych statystyk mniejsze wartości oznaczają lepszą jakość modelu. Mniejsze wartości błędów wskazują na ściślejsze dopasowanie prognoz do rzeczywistych wartości. W przypadku **współczynnika determinacji** prognozy są tym lepsze, im jego wartość jest bliższa jedności (1,0).
 
@@ -205,10 +192,12 @@ Końcowy eksperyment powinien wyglądać następująco:
 ![Samouczek dotyczący uczenia maszynowego: ukończenie eksperymentu opartego na regresji liniowej z użyciem technik modelowania predykcyjnego.][screen10]
 
 ## Następne kroki
-
 Po ukończeniu pierwszego samouczka dotyczącego uczenia maszynowego można wykonać iterację skonfigurowanego eksperymentu w celu ulepszenia modelu. Na przykład można zmienić cechy używane do prognozowania. Można też zmodyfikować właściwości algorytmu [regresji liniowej][linear-regression] lub użyć całkowicie innego algorytmu. Można również dodać do eksperymentu wiele algorytmów uczenia maszynowego i porównać dwa z nich przy użyciu modułu [Evaluate Model][evaluate-model] (Ocena modelu).
 
-> [AZURE.TIP] Za pomocą przycisku **SAVE AS** (ZAPISZ JAKO) wyświetlanego pod obszarem roboczym można skopiować dowolną iterację eksperymentu. Aby wyświetlić wszystkie iteracje eksperymentu, kliknij pozycję **VIEW RUN HISTORY** (WYŚWIETL HISTORIĘ URUCHAMIANIA) pod obszarem roboczym. Aby uzyskać bardziej szczegółowe informacje, zobacz [Manage experiment iterations in Azure Machine Learning Studio][runhistory] (Zarządzanie iteracjami eksperymentów w usłudze Azure Machine Learning Studio).
+> [!TIP]
+> Za pomocą przycisku **SAVE AS** (ZAPISZ JAKO) wyświetlanego pod obszarem roboczym można skopiować dowolną iterację eksperymentu. Aby wyświetlić wszystkie iteracje eksperymentu, kliknij pozycję **VIEW RUN HISTORY** (WYŚWIETL HISTORIĘ URUCHAMIANIA) pod obszarem roboczym. Aby uzyskać bardziej szczegółowe informacje, zobacz [Manage experiment iterations in Azure Machine Learning Studio][runhistory] (Zarządzanie iteracjami eksperymentów w usłudze Azure Machine Learning Studio).
+> 
+> 
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 

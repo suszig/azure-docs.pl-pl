@@ -15,7 +15,7 @@ azure vmss quick-create -n negatvmss -g negatvmssrg -l westus -u negat -p P4ssw0
 
 Aby dostosować lokalizację lub wartość image-urn, należy zapoznać się z poleceniami `azure location list` i `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
 
-Gdy polecenie zostanie zwrócone, nastąpi utworzenie zestawu skali. Ten zestaw skali będzie miał moduł równoważenia obciążenia z regułami translatora adresów sieciowych mapującymi port 50 000+i modułu równoważenia obciążenia na port 22 maszyny wirtualnej i. W związku z tym po ustaleniu w pełni kwalifikowanej nazwy domeny (FQDN) modułu równoważenia obciążenia będzie możliwe nawiązanie połączenia z maszynami wirtualnymi za pośrednictwem protokołu SSH:
+Gdy polecenie zostanie zwrócone, nastąpi utworzenie zestawu skali. Ten zestaw skali będzie miał moduł równoważenia obciążenia z regułami translatora adresów sieciowych mapującymi port 50 000+i modułu równoważenia obciążenia na port 22 maszyny wirtualnej i. W związku z tym po ustaleniu w pełni kwalifikowanej nazwy domeny (FQDN) modułu równoważenia obciążenia będzie możliwe nawiązanie połączenia z maszynami wirtualnymi za pośrednictwem protokołu SSH:
 
 ```bash
 # (if you decide to run this as a script, please invoke using bash)

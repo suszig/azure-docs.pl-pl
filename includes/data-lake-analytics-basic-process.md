@@ -1,7 +1,7 @@
 **Podstawowy proces usługi Data Lake Analytics:**
-    
+
 ![Schemat przepływu procesu usługi Azure Data Lake Analytics](./media/data-lake-analytics-basic-process-include/data-lake-analytics-process.png)
-    
+
     1. Create a Data Lake Analytics account.
     2. Prepare the source data. Data Lake Analytic jobs can read data from either Azure Data Lake Store accounts or Azure Blob storage accounts.   
     3. Develop a U-SQL script.

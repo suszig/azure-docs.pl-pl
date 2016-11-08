@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Pojęcia dotyczące usługi Mobile Engagement | Microsoft Azure"
-    description="Pojęcia dotyczące usługi Azure Mobile Engagement"
-    services="mobile-engagement"
-    documentationCenter="mobile"
-    authors="piyushjo"
-    manager="dwrede"
-    editor="" />
+---
+title: Pojęcia dotyczące usługi Mobile Engagement | Microsoft Docs
+description: Pojęcia dotyczące usługi Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: mobile
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-    ms.service="mobile-engagement"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-android"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/19/2016"
-    ms.author="piyushjo" />
+ms.service: mobile-engagement
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-android
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/19/2016
+ms.author: piyushjo
 
-
+---
 # Pojęcia dotyczące usługi Azure Mobile Engagement
-
 Usługa Mobile Engagement definiuje kilka pojęć wspólnych dla wszystkich obsługiwanych platform. W tym artykule krótko opisano te pojęcia.
 
 Ten artykuł stanowi dobry początek, jeśli dopiero zaczynasz korzystać z usługi Mobile Engagement. Należy również zapoznać się z dokumentacją specyficzną dla używanej platformy, ponieważ pozwoli to uściślić pojęcia opisane w tym artykule i uzyskać więcej szczegółów oraz przykładów, a także informacje o możliwych ograniczeniach.
@@ -80,13 +78,10 @@ Dodatki mają strukturę podobną do obiektów JSON: składają się z drzewa pa
 Całe drzewo par klucz/wartość jest przechowywane jako obiekt JSON. Jednak tylko pierwszy poziom par klucz/wartość jest rozkładany, aby był dostępny dla niektórych zaawansowanych funkcji, takich jak segmenty (na przykład można łatwo zdefiniować segment o nazwie „Fani science fiction” składający się z wszystkich użytkowników, którzy w ciągu ostatniego miesiąca wysłali co najmniej 10 razy zdarzenie o nazwie „wyświetlono_zawartość” z dodatkowym kluczem „typ_zawartości” ustawionym na wartość „scifi”). Dlatego zdecydowanie zaleca się wysyłanie tylko dodatków składających się z prostej listy par klucz/wartość przy użyciu wartości skalarnych (na przykład ciągów, dat, liczb całkowitych lub wartości logicznych).
 
 ## Następne kroki
-
-- [Omówienie zestawu Windows Universal SDK dla usługi Azure Mobile Engagement](mobile-engagement-windows-store-sdk-overview.md)
-- [Omówienie zestawu Windows Phone Silverlight SDK dla usługi Azure Mobile Engagement](mobile-engagement-windows-phone-sdk-overview.md)
-- [Zestaw iOS SDK dla usługi Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md)
-- [Zestaw Android SDK dla usługi Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md)
-
-
+* [Omówienie zestawu Windows Universal SDK dla usługi Azure Mobile Engagement](mobile-engagement-windows-store-sdk-overview.md)
+* [Omówienie zestawu Windows Phone Silverlight SDK dla usługi Azure Mobile Engagement](mobile-engagement-windows-phone-sdk-overview.md)
+* [Zestaw iOS SDK dla usługi Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md)
+* [Zestaw Android SDK dla usługi Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md)
 
 <!--HONumber=Sep16_HO3-->
 

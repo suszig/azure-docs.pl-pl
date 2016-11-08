@@ -1,38 +1,41 @@
-<properties
-    pageTitle="Dodawanie buforowania w celu poprawy wydajności usługi Azure API Management | Microsoft Azure"
-    description="Dowiedz się, jak poprawić czas oczekiwania, zużycie przepustowości i obciążenie usługi sieci Web w przypadku wywołań usługi API Management."
-    services="api-management"
-    documentationCenter=""
-    authors="steved0x"
-    manager="erikre"
-    editor=""/>
+---
+title: Dodawanie buforowania w celu poprawy wydajności usługi Azure API Management | Microsoft Docs
+description: Dowiedz się, jak poprawić czas oczekiwania, zużycie przepustowości i obciążenie usługi sieci Web w przypadku wywołań usługi API Management.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="api-management"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/24/2016"
-    ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/24/2016
+ms.author: sdanie
 
+---
 # Dodawanie buforowania w celu poprawy wydajności usługi Azure API Management
-
 Operacje w usłudze API Management można skonfigurować do buforowania odpowiedzi. Buforowanie odpowiedzi może znacznie zmniejszyć opóźnienie interfejsu API, zużycie przepustowości i obciążenie usługi sieci Web w przypadku danych, które nie zmieniają się często.
 
 Ten przewodnik pokazuje, jak dodać buforowanie odpowiedzi do interfejsu API oraz skonfigurować zasady dla przykładowych operacji interfejsu Echo API. Następnie możesz wywołać operację z portalu dla deweloperów, aby sprawdzić działanie buforowania.
 
->[AZURE.NOTE] Aby poznać informacje na temat buforowania elementów według kluczy przy użyciu wyrażeń zasad, zobacz artykuł [Custom caching in Azure API Management](api-management-sample-cache-by-key.md) (Niestandardowe buforowanie w usłudze Azure API Management).
+> [!NOTE]
+> Aby poznać informacje na temat buforowania elementów według kluczy przy użyciu wyrażeń zasad, zobacz artykuł [Custom caching in Azure API Management](api-management-sample-cache-by-key.md) (Niestandardowe buforowanie w usłudze Azure API Management).
+> 
+> 
 
 ## Wymagania wstępne
-
-Przed wykonaniem kroków w tym przewodniku potrzebne jest wystąpienie usługi API Management ze skonfigurowanymi interfejsem API i produktem. Jeśli jeszcze nie masz utworzonego wystąpienia usługi API Management zobacz temat [Tworzenie wystąpienia usługi API Management][] w samouczku [Wprowadzenie do usługi Azure API Management][].
+Przed wykonaniem kroków w tym przewodniku potrzebne jest wystąpienie usługi API Management ze skonfigurowanymi interfejsem API i produktem. Jeśli jeszcze nie masz utworzonego wystąpienia usługi API Management zobacz temat [Tworzenie wystąpienia usługi API Management][Tworzenie wystąpienia usługi API Management] w samouczku [Wprowadzenie do usługi Azure API Management][Wprowadzenie do usługi Azure API Management].
 
 ## <a name="configure-caching"> </a>Konfigurowanie operacji do buforowania
-
 W tym kroku należy przejrzeć ustawienia buforowania operacji **GET Resource (cached)** (Buforowane pobieranie zasobu) przykładowego interfejsu Echo API.
 
->[AZURE.NOTE] Każde wystąpienie usługi API Management ma wstępnie skonfigurowany interfejs Echo API, który może służyć do eksperymentów oraz poznawania usługi API Management. Aby uzyskać więcej informacji, zobacz artykuł [Wprowadzenie do usługi Azure API Management][]
+> [!NOTE]
+> Każde wystąpienie usługi API Management ma wstępnie skonfigurowany interfejs Echo API, który może służyć do eksperymentów oraz poznawania usługi API Management. Aby uzyskać więcej informacji, zobacz artykuł [Wprowadzenie do usługi Azure API Management][Wprowadzenie do usługi Azure API Management]
+> 
+> 
 
 Na początku kliknij opcję **Zarządzaj** w klasycznym portalu Azure dla usługi API Management. Spowoduje to przejście do portalu wydawcy usługi API Management.
 
@@ -59,7 +62,6 @@ Każda odpowiedź operacji zawiera klucz generowany na podstawie wartości w pol
 Jeśli użyjemy konfiguracji buforowania w tym przykładzie, pierwsze żądanie operacji **GET Resource (cached)** zwraca odpowiedź z usługi zaplecza. Ta odpowiedź zostanie zbuforowana z kluczem uwzględniającym określone nagłówki i parametry ciągu zapytania. Dla kolejnych wywołań operacji z pasującymi parametrami będą zwracana buforowaną odpowiedź do czasu wygaśnięcia interwału czasu trwania pamięci podręcznej.
 
 ## <a name="caching-policies"> </a>Przeglądanie zasad buforowania
-
 W tym kroku przejrzysz ustawienia buforowania operacji **GET Resource (cached)** przykładowego interfejsu Echo API.
 
 Jeśli ustawienia buforowania są skonfigurowane dla operacji na karcie **Buforowanie**, zasady buforowania są dodawane dla operacji. Te zasady te można wyświetlać i edytować w edytorze zasad.
@@ -89,10 +91,12 @@ Definicja zasad dla tej operacji obejmuje zasady definiujące konfigurację bufo
         </outbound>
     </policies>
 
->[AZURE.NOTE] Zmiany wprowadzone w zasadach buforowania w edytorze zasad zostaną odzwierciedlone na karcie **Buforowanie** i na odwrót.
+> [!NOTE]
+> Zmiany wprowadzone w zasadach buforowania w edytorze zasad zostaną odzwierciedlone na karcie **Buforowanie** i na odwrót.
+> 
+> 
 
 ## <a name="test-operation"> </a>Wywoływanie operacji i testowanie buforowania
-
 Możemy wywołać operację z portalu dla deweloperów, aby sprawdzić działanie buforowania. Kliknij przycisk **Portal dla deweloperów** w prawym górnym menu.
 
 ![Portal dla deweloperów][api-management-developer-portal-menu]
@@ -101,7 +105,9 @@ Kliknij opcję **Interfejsy API** w górnym menu, a następnie wybierz pozycję 
 
 ![Interfejs Echo API][api-management-apis-echo-api]
 
->Jeśli istnieje tylko jeden interfejs API skonfigurowany lub widoczny dla Twojego konta, kliknięcie opcji Interfejsy API powoduje przejście bezpośrednio do operacji dla tego interfejsu API.
+> Jeśli istnieje tylko jeden interfejs API skonfigurowany lub widoczny dla Twojego konta, kliknięcie opcji Interfejsy API powoduje przejście bezpośrednio do operacji dla tego interfejsu API.
+> 
+> 
 
 Wybierz operację **GET Resource (cached)**, a następnie kliknij przycisk **Otwórz konsolę**.
 
@@ -128,9 +134,8 @@ Wprowadź wartość **25** w polu **param2**, a następnie kliknij przycisk **HT
 Zauważ, że wartość **sampleheader** w odpowiedzi jest teraz równa **value2**. Ponieważ wyniki operacji są oznaczanie kluczami na podstawie ciągu zapytania, poprzednio zbuforowana odpowiedź nie została zwrócona.
 
 ## <a name="next-steps"> </a>Następne kroki
-
--   Więcej informacji na temat zasad buforowania, można znaleźć w temacie [Caching policies][] (Zasady buforowania) w artykule [API Management policy reference][] (Dokumentacja zasad usługi API Management).
--   Aby poznać informacje na temat buforowania elementów według kluczy przy użyciu wyrażeń zasad, zobacz artykuł [Custom caching in Azure API Management](api-management-sample-cache-by-key.md) (Niestandardowe buforowanie w usłudze Azure API Management).
+* Więcej informacji na temat zasad buforowania, można znaleźć w temacie [Caching policies][Caching policies] (Zasady buforowania) w artykule [API Management policy reference][API Management policy reference] (Dokumentacja zasad usługi API Management).
+* Aby poznać informacje na temat buforowania elementów według kluczy przy użyciu wyrażeń zasad, zobacz artykuł [Custom caching in Azure API Management](api-management-sample-cache-by-key.md) (Niestandardowe buforowanie w usłudze Azure API Management).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png
