@@ -75,24 +75,3 @@
     "dest": "azure"
   }
 }
-          "**/obj/**",
-          "**/_themes/**"
-        ],
-        "src": null,
-        "dest": null
-      }
-    ],
-    "overwrite": [],
-    "externalReference": [],
-    "globalMetadata": {
-      "breadcrumb_path": "/azure/bread/toc.json",
-      "brand": "azure",
-      "searchScope": ["Azure"]
-    },
-    "fileMetadata": {},
-    "template": [
-      "docs.html"
-    ],
-    "dest": "azure"
-  }
-}
